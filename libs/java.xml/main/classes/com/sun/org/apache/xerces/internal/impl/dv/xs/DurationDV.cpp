@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/DurationDV.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/InvalidDatatypeValueException.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData.h>
@@ -42,7 +41,6 @@ using $StringBuffer = ::java::lang::StringBuffer;
 using $BigDecimal = ::java::math::BigDecimal;
 using $BigInteger = ::java::math::BigInteger;
 using $DatatypeConstants = ::javax::xml::datatype::DatatypeConstants;
-using $DatatypeFactory = ::javax::xml::datatype::DatatypeFactory;
 using $Duration = ::javax::xml::datatype::Duration;
 
 namespace com {
@@ -55,40 +53,6 @@ namespace com {
 							namespace dv {
 								namespace xs {
 
-$FieldInfo _DurationDV_FieldInfo_[] = {
-	{"DURATION_TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DurationDV, DURATION_TYPE)},
-	{"YEARMONTHDURATION_TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DurationDV, YEARMONTHDURATION_TYPE)},
-	{"DAYTIMEDURATION_TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DurationDV, DAYTIMEDURATION_TYPE)},
-	{"DATETIMES", "[Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DurationDV, DATETIMES)},
-	{}
-};
-
-$MethodInfo _DurationDV_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DurationDV, init$, void)},
-	{"addDuration", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;", nullptr, $PRIVATE, $method(DurationDV, addDuration, $AbstractDateTimeDV$DateTimeData*, $AbstractDateTimeDV$DateTimeData*, $AbstractDateTimeDV$DateTimeData*, $AbstractDateTimeDV$DateTimeData*)},
-	{"compareDates", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Z)S", nullptr, $PROTECTED, $virtualMethod(DurationDV, compareDates, int16_t, $AbstractDateTimeDV$DateTimeData*, $AbstractDateTimeDV$DateTimeData*, bool)},
-	{"compareResults", "(SSZ)S", nullptr, $PRIVATE, $method(DurationDV, compareResults, int16_t, int16_t, int16_t, bool)},
-	{"dateToString", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(DurationDV, dateToString, $String*, $AbstractDateTimeDV$DateTimeData*)},
-	{"getActualValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DurationDV, getActualValue, $Object*, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"getDuration", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)Ljavax/xml/datatype/Duration;", nullptr, $PROTECTED, $virtualMethod(DurationDV, getDuration, $Duration*, $AbstractDateTimeDV$DateTimeData*)},
-	{"parse", "(Ljava/lang/String;I)Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;", nullptr, $PROTECTED, $virtualMethod(DurationDV, parse, $AbstractDateTimeDV$DateTimeData*, $String*, int32_t), "com.sun.org.apache.xerces.internal.impl.dv.xs.SchemaDateTimeException"},
-	{"parseSecond", "(Ljava/lang/String;II)D", nullptr, $PROTECTED, $virtualMethod(DurationDV, parseSecond, double, $String*, int32_t, int32_t), "java.lang.NumberFormatException"},
-	{}
-};
-
-$ClassInfo _DurationDV_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.DurationDV",
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.AbstractDateTimeDV",
-	nullptr,
-	_DurationDV_FieldInfo_,
-	_DurationDV_MethodInfo_
-};
-
-$Object* allocate$DurationDV($Class* clazz) {
-	return $of($alloc(DurationDV));
-}
-
 $AbstractDateTimeDV$DateTimeDataArray* DurationDV::DATETIMES = nullptr;
 
 void DurationDV::init$() {
@@ -97,11 +61,11 @@ void DurationDV::init$() {
 
 $Object* DurationDV::getActualValue($String* content, $ValidationContext* context) {
 	try {
-		return $of(parse(content, DurationDV::DURATION_TYPE));
+		return parse(content, DurationDV::DURATION_TYPE);
 	} catch ($Exception& ex) {
 		$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.1"_s, $$new($ObjectArray, {
-			$of(content),
-			$of("duration"_s)
+			content,
+			"duration"_s
 		}));
 	}
 	$shouldNotReachHere();
@@ -115,7 +79,7 @@ $AbstractDateTimeDV$DateTimeData* DurationDV::parse($String* str, int32_t durati
 	if (c != u'P' && c != u'-') {
 		$throwNew($SchemaDateTimeException);
 	} else {
-		date->utc = (c == u'-') ? u'-' : (char16_t)0;
+		date->utc = (c == u'-') ? u'-' : 0;
 		if (c == u'-' && str->charAt(start++) != u'P') {
 			$throwNew($SchemaDateTimeException);
 		}
@@ -191,38 +155,38 @@ $AbstractDateTimeDV$DateTimeData* DurationDV::parse($String* str, int32_t durati
 }
 
 int16_t DurationDV::compareDates($AbstractDateTimeDV$DateTimeData* date1, $AbstractDateTimeDV$DateTimeData* date2, bool strict) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int16_t resultA = 0;
 	int16_t resultB = $TypeValidator::INDETERMINATE;
 	resultA = compareOrder(date1, date2);
 	if (resultA == 0) {
-		return (int16_t)0;
+		return 0;
 	}
 	$var($AbstractDateTimeDV$DateTimeDataArray, result, $new($AbstractDateTimeDV$DateTimeDataArray, 2));
 	result->set(0, $$new($AbstractDateTimeDV$DateTimeData, nullptr, this));
 	result->set(1, $$new($AbstractDateTimeDV$DateTimeData, nullptr, this));
-	$var($AbstractDateTimeDV$DateTimeData, tempA, addDuration(date1, $nc(DurationDV::DATETIMES)->get(0), result->get(0)));
-	$var($AbstractDateTimeDV$DateTimeData, tempB, addDuration(date2, $nc(DurationDV::DATETIMES)->get(0), result->get(1)));
+	$var($AbstractDateTimeDV$DateTimeData, tempA, addDuration(date1, DurationDV::DATETIMES->get(0), result->get(0)));
+	$var($AbstractDateTimeDV$DateTimeData, tempB, addDuration(date2, DurationDV::DATETIMES->get(0), result->get(1)));
 	resultA = compareOrder(tempA, tempB);
 	if (resultA == $TypeValidator::INDETERMINATE) {
 		return $TypeValidator::INDETERMINATE;
 	}
-	$assign(tempA, addDuration(date1, $nc(DurationDV::DATETIMES)->get(1), result->get(0)));
-	$assign(tempB, addDuration(date2, $nc(DurationDV::DATETIMES)->get(1), result->get(1)));
+	$assign(tempA, addDuration(date1, DurationDV::DATETIMES->get(1), result->get(0)));
+	$assign(tempB, addDuration(date2, DurationDV::DATETIMES->get(1), result->get(1)));
 	resultB = compareOrder(tempA, tempB);
 	resultA = compareResults(resultA, resultB, strict);
 	if (resultA == $TypeValidator::INDETERMINATE) {
 		return $TypeValidator::INDETERMINATE;
 	}
-	$assign(tempA, addDuration(date1, $nc(DurationDV::DATETIMES)->get(2), result->get(0)));
-	$assign(tempB, addDuration(date2, $nc(DurationDV::DATETIMES)->get(2), result->get(1)));
+	$assign(tempA, addDuration(date1, DurationDV::DATETIMES->get(2), result->get(0)));
+	$assign(tempB, addDuration(date2, DurationDV::DATETIMES->get(2), result->get(1)));
 	resultB = compareOrder(tempA, tempB);
 	resultA = compareResults(resultA, resultB, strict);
 	if (resultA == $TypeValidator::INDETERMINATE) {
 		return $TypeValidator::INDETERMINATE;
 	}
-	$assign(tempA, addDuration(date1, $nc(DurationDV::DATETIMES)->get(3), result->get(0)));
-	$assign(tempB, addDuration(date2, $nc(DurationDV::DATETIMES)->get(3), result->get(1)));
+	$assign(tempA, addDuration(date1, DurationDV::DATETIMES->get(3), result->get(0)));
+	$assign(tempB, addDuration(date2, DurationDV::DATETIMES->get(3), result->get(1)));
 	resultB = compareOrder(tempA, tempB);
 	resultA = compareResults(resultA, resultB, strict);
 	return resultA;
@@ -279,7 +243,7 @@ $AbstractDateTimeDV$DateTimeData* DurationDV::addDuration($AbstractDateTimeDV$Da
 }
 
 double DurationDV::parseSecond($String* buffer, int32_t start, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t dot = -1;
 	for (int32_t i = start; i < end; ++i) {
 		char16_t ch = $nc(buffer)->charAt(i);
@@ -301,49 +265,49 @@ double DurationDV::parseSecond($String* buffer, int32_t start, int32_t end) {
 
 $String* DurationDV::dateToString($AbstractDateTimeDV$DateTimeData* date) {
 	$var($StringBuffer, message, $new($StringBuffer, 30));
-	if ($nc(date)->year < 0 || $nc(date)->month < 0 || $nc(date)->day < 0 || $nc(date)->hour < 0 || $nc(date)->minute < 0 || $nc(date)->second < 0) {
+	if ($nc(date)->year < 0 || date->month < 0 || date->day < 0 || date->hour < 0 || date->minute < 0 || date->second < 0) {
 		message->append(u'-');
 	}
 	message->append(u'P');
-	message->append(($nc(date)->year < 0 ? -1 : 1) * $nc(date)->year);
+	message->append((date->year < 0 ? -1 : 1) * date->year);
 	message->append(u'Y');
-	message->append(($nc(date)->month < 0 ? -1 : 1) * $nc(date)->month);
+	message->append((date->month < 0 ? -1 : 1) * date->month);
 	message->append(u'M');
-	message->append(($nc(date)->day < 0 ? -1 : 1) * $nc(date)->day);
+	message->append((date->day < 0 ? -1 : 1) * date->day);
 	message->append(u'D');
 	message->append(u'T');
-	message->append(($nc(date)->hour < 0 ? -1 : 1) * $nc(date)->hour);
+	message->append((date->hour < 0 ? -1 : 1) * date->hour);
 	message->append(u'H');
-	message->append(($nc(date)->minute < 0 ? -1 : 1) * $nc(date)->minute);
+	message->append((date->minute < 0 ? -1 : 1) * date->minute);
 	message->append(u'M');
-	append2(message, ($nc(date)->second < 0 ? -1 : 1) * $nc(date)->second);
+	append2(message, (date->second < 0 ? -1 : 1) * date->second);
 	message->append(u'S');
 	return message->toString();
 }
 
 $Duration* DurationDV::getDuration($AbstractDateTimeDV$DateTimeData* date) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t sign = 1;
-	if ($nc(date)->year < 0 || $nc(date)->month < 0 || $nc(date)->day < 0 || $nc(date)->hour < 0 || $nc(date)->minute < 0 || $nc(date)->second < 0) {
+	if ($nc(date)->year < 0 || date->month < 0 || date->day < 0 || date->hour < 0 || date->minute < 0 || date->second < 0) {
 		sign = -1;
 	}
 	$init($AbstractDateTimeDV);
 	bool var$0 = sign == 1;
-	$var($BigInteger, var$1, $nc(date)->year != $DatatypeConstants::FIELD_UNDEFINED ? $BigInteger::valueOf((int64_t)(sign * $nc(date)->year)) : ($BigInteger*)nullptr);
-	$var($BigInteger, var$2, $nc(date)->month != $DatatypeConstants::FIELD_UNDEFINED ? $BigInteger::valueOf((int64_t)(sign * $nc(date)->month)) : ($BigInteger*)nullptr);
-	$var($BigInteger, var$3, $nc(date)->day != $DatatypeConstants::FIELD_UNDEFINED ? $BigInteger::valueOf((int64_t)(sign * $nc(date)->day)) : ($BigInteger*)nullptr);
-	$var($BigInteger, var$4, $nc(date)->hour != $DatatypeConstants::FIELD_UNDEFINED ? $BigInteger::valueOf((int64_t)(sign * $nc(date)->hour)) : ($BigInteger*)nullptr);
-	$var($BigInteger, var$5, $nc(date)->minute != $DatatypeConstants::FIELD_UNDEFINED ? $BigInteger::valueOf((int64_t)(sign * $nc(date)->minute)) : ($BigInteger*)nullptr);
-	return $nc($AbstractDateTimeDV::datatypeFactory)->newDuration(var$0, var$1, var$2, var$3, var$4, var$5, $nc(date)->second != $DatatypeConstants::FIELD_UNDEFINED ? $$new($BigDecimal, $($String::valueOf(sign * $nc(date)->second))) : ($BigDecimal*)nullptr);
+	$var($BigInteger, var$1, date->year != $DatatypeConstants::FIELD_UNDEFINED ? $BigInteger::valueOf(sign * date->year) : ($BigInteger*)nullptr);
+	$var($BigInteger, var$2, date->month != $DatatypeConstants::FIELD_UNDEFINED ? $BigInteger::valueOf(sign * date->month) : ($BigInteger*)nullptr);
+	$var($BigInteger, var$3, date->day != $DatatypeConstants::FIELD_UNDEFINED ? $BigInteger::valueOf(sign * date->day) : ($BigInteger*)nullptr);
+	$var($BigInteger, var$4, date->hour != $DatatypeConstants::FIELD_UNDEFINED ? $BigInteger::valueOf(sign * date->hour) : ($BigInteger*)nullptr);
+	$var($BigInteger, var$5, date->minute != $DatatypeConstants::FIELD_UNDEFINED ? $BigInteger::valueOf(sign * date->minute) : ($BigInteger*)nullptr);
+	return $nc($AbstractDateTimeDV::datatypeFactory)->newDuration(var$0, var$1, var$2, var$3, var$4, var$5, date->second != $DatatypeConstants::FIELD_UNDEFINED ? $$new($BigDecimal, $($String::valueOf(sign * date->second))) : ($BigDecimal*)nullptr);
 }
 
-void clinit$DurationDV($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void DurationDV::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(DurationDV::DATETIMES, $new($AbstractDateTimeDV$DateTimeDataArray, {
-		$$new($AbstractDateTimeDV$DateTimeData, 1696, 9, 1, 0, 0, (double)0, u'Z', nullptr, true, nullptr),
-		$$new($AbstractDateTimeDV$DateTimeData, 1697, 2, 1, 0, 0, (double)0, u'Z', nullptr, true, nullptr),
-		$$new($AbstractDateTimeDV$DateTimeData, 1903, 3, 1, 0, 0, (double)0, u'Z', nullptr, true, nullptr),
-		$$new($AbstractDateTimeDV$DateTimeData, 1903, 7, 1, 0, 0, (double)0, u'Z', nullptr, true, nullptr)
+		$$new($AbstractDateTimeDV$DateTimeData, 1696, 9, 1, 0, 0, 0, u'Z', nullptr, true, nullptr),
+		$$new($AbstractDateTimeDV$DateTimeData, 1697, 2, 1, 0, 0, 0, u'Z', nullptr, true, nullptr),
+		$$new($AbstractDateTimeDV$DateTimeData, 1903, 3, 1, 0, 0, 0, u'Z', nullptr, true, nullptr),
+		$$new($AbstractDateTimeDV$DateTimeData, 1903, 7, 1, 0, 0, 0, u'Z', nullptr, true, nullptr)
 	}));
 }
 
@@ -351,7 +315,36 @@ DurationDV::DurationDV() {
 }
 
 $Class* DurationDV::load$($String* name, bool initialize) {
-	$loadClass(DurationDV, name, initialize, &_DurationDV_ClassInfo_, clinit$DurationDV, allocate$DurationDV);
+	$FieldInfo fieldInfos$$[] = {
+		{"DURATION_TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DurationDV, DURATION_TYPE)},
+		{"YEARMONTHDURATION_TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DurationDV, YEARMONTHDURATION_TYPE)},
+		{"DAYTIMEDURATION_TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DurationDV, DAYTIMEDURATION_TYPE)},
+		{"DATETIMES", "[Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DurationDV, DATETIMES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DurationDV, init$, void)},
+		{"addDuration", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;", nullptr, $PRIVATE, $method(DurationDV, addDuration, $AbstractDateTimeDV$DateTimeData*, $AbstractDateTimeDV$DateTimeData*, $AbstractDateTimeDV$DateTimeData*, $AbstractDateTimeDV$DateTimeData*)},
+		{"compareDates", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Z)S", nullptr, $PROTECTED, $virtualMethod(DurationDV, compareDates, int16_t, $AbstractDateTimeDV$DateTimeData*, $AbstractDateTimeDV$DateTimeData*, bool)},
+		{"compareResults", "(SSZ)S", nullptr, $PRIVATE, $method(DurationDV, compareResults, int16_t, int16_t, int16_t, bool)},
+		{"dateToString", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(DurationDV, dateToString, $String*, $AbstractDateTimeDV$DateTimeData*)},
+		{"getActualValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DurationDV, getActualValue, $Object*, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"getDuration", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)Ljavax/xml/datatype/Duration;", nullptr, $PROTECTED, $virtualMethod(DurationDV, getDuration, $Duration*, $AbstractDateTimeDV$DateTimeData*)},
+		{"parse", "(Ljava/lang/String;I)Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;", nullptr, $PROTECTED, $virtualMethod(DurationDV, parse, $AbstractDateTimeDV$DateTimeData*, $String*, int32_t), "com.sun.org.apache.xerces.internal.impl.dv.xs.SchemaDateTimeException"},
+		{"parseSecond", "(Ljava/lang/String;II)D", nullptr, $PROTECTED, $virtualMethod(DurationDV, parseSecond, double, $String*, int32_t, int32_t), "java.lang.NumberFormatException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.DurationDV",
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.AbstractDateTimeDV",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DurationDV, name, initialize, &classInfo$$, DurationDV::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DurationDV);
+	});
 	return class$;
 }
 

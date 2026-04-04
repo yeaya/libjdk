@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/Token$UnionToken.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/REUtil.h>
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/Token$StringToken.h>
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/Token.h>
@@ -15,9 +14,7 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/List.h>
 #include <java/util/Vector.h>
 #include <java/util/function/Consumer.h>
@@ -48,13 +45,9 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
-using $List = ::java::util::List;
 using $Vector = ::java::util::Vector;
 using $Consumer = ::java::util::function::Consumer;
-using $Stream = ::java::util::stream::Stream;
 
 namespace com {
 	namespace sun {
@@ -76,82 +69,34 @@ public:
 	virtual void accept(Object$* children1) override {
 		Token$UnionToken::lambda$toString$0(sb, options, $cast($Token, children1));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Token$UnionToken$$Lambda$lambda$toString$0>());
-	}
 	$StringBuilder* sb = nullptr;
 	int32_t options = 0;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Token$UnionToken$$Lambda$lambda$toString$0::fieldInfos[3] = {
-	{"sb", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(Token$UnionToken$$Lambda$lambda$toString$0, sb)},
-	{"options", "I", nullptr, $PUBLIC, $field(Token$UnionToken$$Lambda$lambda$toString$0, options)},
-	{}
-};
-$MethodInfo Token$UnionToken$$Lambda$lambda$toString$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;I)V", nullptr, $PUBLIC, $method(Token$UnionToken$$Lambda$lambda$toString$0, init$, void, $StringBuilder*, int32_t)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Token$UnionToken$$Lambda$lambda$toString$0, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Token$UnionToken$$Lambda$lambda$toString$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$UnionToken$$Lambda$lambda$toString$0",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Token$UnionToken$$Lambda$lambda$toString$0::load$($String* name, bool initialize) {
-	$loadClass(Token$UnionToken$$Lambda$lambda$toString$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"sb", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(Token$UnionToken$$Lambda$lambda$toString$0, sb)},
+		{"options", "I", nullptr, $PUBLIC, $field(Token$UnionToken$$Lambda$lambda$toString$0, options)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/StringBuilder;I)V", nullptr, $PUBLIC, $method(Token$UnionToken$$Lambda$lambda$toString$0, init$, void, $StringBuilder*, int32_t)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Token$UnionToken$$Lambda$lambda$toString$0, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$UnionToken$$Lambda$lambda$toString$0",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Token$UnionToken$$Lambda$lambda$toString$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Token$UnionToken$$Lambda$lambda$toString$0);
+	});
 	return class$;
 }
 $Class* Token$UnionToken$$Lambda$lambda$toString$0::class$ = nullptr;
-
-$FieldInfo _Token$UnionToken_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Token$UnionToken, serialVersionUID)},
-	{"children", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;>;", 0, $field(Token$UnionToken, children)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Token$UnionToken, serialPersistentFields)},
-	{}
-};
-
-$MethodInfo _Token$UnionToken_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(Token$UnionToken, init$, void, int32_t)},
-	{"addChild", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)V", nullptr, 0, $virtualMethod(Token$UnionToken, addChild, void, $Token*)},
-	{"getChild", "(I)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, 0, $virtualMethod(Token$UnionToken, getChild, $Token*, int32_t)},
-	{"lambda$toString$0", "(Ljava/lang/StringBuilder;ILcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Token$UnionToken, lambda$toString$0, void, $StringBuilder*, int32_t, $Token*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Token$UnionToken, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"size", "()I", nullptr, 0, $virtualMethod(Token$UnionToken, size, int32_t)},
-	{"toString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Token$UnionToken, toString, $String*, int32_t)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Token$UnionToken, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Token$UnionToken_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$UnionToken", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Token", "UnionToken", $STATIC},
-	{}
-};
-
-$ClassInfo _Token$UnionToken_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$UnionToken",
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token",
-	nullptr,
-	_Token$UnionToken_FieldInfo_,
-	_Token$UnionToken_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Token$UnionToken_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token"
-};
-
-$Object* allocate$Token$UnionToken($Class* clazz) {
-	return $of($alloc(Token$UnionToken));
-}
 
 $ObjectStreamFieldArray* Token$UnionToken::serialPersistentFields = nullptr;
 
@@ -160,7 +105,7 @@ void Token$UnionToken::init$(int32_t type) {
 }
 
 void Token$UnionToken::addChild($Token* tok) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (tok == nullptr) {
 		return;
 	}
@@ -179,17 +124,17 @@ void Token$UnionToken::addChild($Token* tok) {
 	}
 	int32_t size = $nc(this->children)->size();
 	if (size == 0) {
-		$nc(this->children)->add(tok);
+		this->children->add(tok);
 		return;
 	}
-	$var($Token, previous, $cast($Token, $nc(this->children)->get(size - 1)));
-	if (!(($nc(previous)->type == $Token::CHAR || $nc(previous)->type == $Token::STRING) && ($nc(tok)->type == $Token::CHAR || $nc(tok)->type == $Token::STRING))) {
-		$nc(this->children)->add(tok);
+	$var($Token, previous, $cast($Token, this->children->get(size - 1)));
+	if (!(($nc(previous)->type == $Token::CHAR || previous->type == $Token::STRING) && (tok->type == $Token::CHAR || tok->type == $Token::STRING))) {
+		this->children->add(tok);
 		return;
 	}
 	$var($StringBuilder, buffer, nullptr);
-	int32_t nextMaxLength = ($nc(tok)->type == $Token::CHAR ? 2 : $nc($($nc(tok)->getString()))->length());
-	if ($nc(previous)->type == $Token::CHAR) {
+	int32_t nextMaxLength = (tok->type == $Token::CHAR ? 2 : $$nc(tok->getString())->length());
+	if (previous->type == $Token::CHAR) {
 		$assign(buffer, $new($StringBuilder, 2 + nextMaxLength));
 		int32_t ch = previous->getChar();
 		if (ch >= 0x00010000) {
@@ -200,7 +145,7 @@ void Token$UnionToken::addChild($Token* tok) {
 		$assign(previous, $Token::createString(nullptr));
 		$nc(this->children)->set(size - 1, previous);
 	} else {
-		$assign(buffer, $new($StringBuilder, $nc($(previous->getString()))->length() + nextMaxLength));
+		$assign(buffer, $new($StringBuilder, $$nc(previous->getString())->length() + nextMaxLength));
 		buffer->append($(previous->getString()));
 	}
 	if (tok->type == $Token::CHAR) {
@@ -217,7 +162,7 @@ void Token$UnionToken::addChild($Token* tok) {
 }
 
 int32_t Token$UnionToken::size() {
-	return this->children == nullptr ? 0 : $nc(this->children)->size();
+	return this->children == nullptr ? 0 : this->children->size();
 }
 
 $Token* Token$UnionToken::getChild(int32_t index) {
@@ -225,7 +170,7 @@ $Token* Token$UnionToken::getChild(int32_t index) {
 }
 
 $String* Token$UnionToken::toString(int32_t options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, ret, nullptr);
 	if (this->type == $Token::CONCAT) {
 		if ($nc(this->children)->size() == 2) {
@@ -236,29 +181,31 @@ $String* Token$UnionToken::toString(int32_t options) {
 			} else if (ch2->type == $Token::NONGREEDYCLOSURE && ch2->getChild(0) == ch) {
 				$assign(ret, $str({$($nc(ch)->toString(options)), "+?"_s}));
 			} else {
-				$var($String, var$0, $($nc(ch)->toString(options)));
-				$assign(ret, $concat(var$0, $(ch2->toString(options))));
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append($($nc(ch)->toString(options)));
+				var$0->append($(ch2->toString(options)));
+				$assign(ret, $str(var$0));
 			}
 		} else {
 			$var($StringBuilder, sb, $new($StringBuilder));
-			$nc($($nc(this->children)->stream()))->forEach(static_cast<$Consumer*>($$new(Token$UnionToken$$Lambda$lambda$toString$0, sb, options)));
+			$$nc(this->children->stream())->forEach($$new(Token$UnionToken$$Lambda$lambda$toString$0, sb, options));
 			$assign(ret, sb->toString());
 		}
 		return ret;
 	}
 	bool var$1 = $nc(this->children)->size() == 2;
 	if (var$1 && $nc($(this->getChild(1)))->type == $Token::EMPTY) {
-		$assign(ret, $str({$($nc($(this->getChild(0)))->toString(options)), "?"_s}));
+		$assign(ret, $str({$($$nc(this->getChild(0))->toString(options)), "?"_s}));
 	} else {
-		bool var$3 = $nc(this->children)->size() == 2;
-		if (var$3 && $nc($(this->getChild(0)))->type == $Token::EMPTY) {
-			$assign(ret, $str({$($nc($(this->getChild(1)))->toString(options)), "??"_s}));
+		bool var$2 = $nc(this->children)->size() == 2;
+		if (var$2 && $nc($(this->getChild(0)))->type == $Token::EMPTY) {
+			$assign(ret, $str({$($$nc(this->getChild(1))->toString(options)), "??"_s}));
 		} else {
 			$var($StringBuilder, sb, $new($StringBuilder));
-			sb->append($($nc(($cast($Token, $($nc(this->children)->get(0)))))->toString(options)));
+			sb->append($($$sure($Token, $nc(this->children)->get(0))->toString(options)));
 			for (int32_t i = 1; i < $nc(this->children)->size(); ++i) {
 				sb->append(u'|');
-				sb->append($($nc(($cast($Token, $($nc(this->children)->get(i)))))->toString(options)));
+				sb->append($($$sure($Token, this->children->get(i))->toString(options)));
 			}
 			$assign(ret, sb->toString());
 		}
@@ -267,19 +214,19 @@ $String* Token$UnionToken::toString(int32_t options) {
 }
 
 void Token$UnionToken::writeObject($ObjectOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
-	$var($Vector, vChildren, (this->children == nullptr) ? ($Vector*)nullptr : $new($Vector, static_cast<$Collection*>(this->children)));
+	$useLocalObjectStack();
+	$var($Vector, vChildren, (this->children == nullptr) ? ($Vector*)nullptr : $new($Vector, this->children));
 	$var($ObjectOutputStream$PutField, pf, $nc(out)->putFields());
-	$nc(pf)->put("children"_s, $of(vChildren));
+	$nc(pf)->put("children"_s, vChildren);
 	out->writeFields();
 }
 
 void Token$UnionToken::readObject($ObjectInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, gf, $nc(in)->readFields());
-	$var($Vector, vChildren, $cast($Vector, $nc(gf)->get("children"_s, ($Object*)nullptr)));
+	$var($Vector, vChildren, $cast($Vector, $nc(gf)->get("children"_s, nullptr)));
 	if (vChildren != nullptr) {
-		$set(this, children, $new($ArrayList, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(vChildren)))));
+		$set(this, children, $new($ArrayList, $cast($AbstractCollection, vChildren)));
 	}
 }
 
@@ -288,7 +235,7 @@ void Token$UnionToken::lambda$toString$0($StringBuilder* sb, int32_t options, $T
 	$nc(sb)->append($($nc((children1))->toString(options)));
 }
 
-void clinit$Token$UnionToken($Class* class$) {
+void Token$UnionToken::clinit$($Class* clazz) {
 	$load($Vector);
 	$assignStatic(Token$UnionToken::serialPersistentFields, $new($ObjectStreamFieldArray, {$$new($ObjectStreamField, "children"_s, $Vector::class$)}));
 }
@@ -298,11 +245,49 @@ Token$UnionToken::Token$UnionToken() {
 
 $Class* Token$UnionToken::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Token$UnionToken$$Lambda$lambda$toString$0::classInfo$.name)) {
+		if (name->equals("com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$UnionToken$$Lambda$lambda$toString$0")) {
 			return Token$UnionToken$$Lambda$lambda$toString$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Token$UnionToken, name, initialize, &_Token$UnionToken_ClassInfo_, clinit$Token$UnionToken, allocate$Token$UnionToken);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Token$UnionToken, serialVersionUID)},
+		{"children", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;>;", 0, $field(Token$UnionToken, children)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Token$UnionToken, serialPersistentFields)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(Token$UnionToken, init$, void, int32_t)},
+		{"addChild", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)V", nullptr, 0, $virtualMethod(Token$UnionToken, addChild, void, $Token*)},
+		{"getChild", "(I)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, 0, $virtualMethod(Token$UnionToken, getChild, $Token*, int32_t)},
+		{"lambda$toString$0", "(Ljava/lang/StringBuilder;ILcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Token$UnionToken, lambda$toString$0, void, $StringBuilder*, int32_t, $Token*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Token$UnionToken, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"size", "()I", nullptr, 0, $virtualMethod(Token$UnionToken, size, int32_t)},
+		{"toString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Token$UnionToken, toString, $String*, int32_t)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Token$UnionToken, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$UnionToken", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Token", "UnionToken", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$UnionToken",
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token"
+	};
+	$loadClass(Token$UnionToken, name, initialize, &classInfo$$, Token$UnionToken::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Token$UnionToken);
+	});
 	return class$;
 }
 

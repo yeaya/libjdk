@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/JNIWriter$TypeSignature$SignatureException.h>
-
 #include <com/sun/tools/javac/jvm/JNIWriter$TypeSignature.h>
 #include <jcpp.h>
 
@@ -14,42 +13,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$FieldInfo _JNIWriter$TypeSignature$SignatureException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JNIWriter$TypeSignature$SignatureException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _JNIWriter$TypeSignature$SignatureException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(JNIWriter$TypeSignature$SignatureException, init$, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _JNIWriter$TypeSignature$SignatureException_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.JNIWriter$TypeSignature", "com.sun.tools.javac.jvm.JNIWriter", "TypeSignature", $PRIVATE | $STATIC},
-	{"com.sun.tools.javac.jvm.JNIWriter$TypeSignature$SignatureException", "com.sun.tools.javac.jvm.JNIWriter$TypeSignature", "SignatureException", $STATIC},
-	{}
-};
-
-$ClassInfo _JNIWriter$TypeSignature$SignatureException_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.JNIWriter$TypeSignature$SignatureException",
-	"java.lang.Exception",
-	nullptr,
-	_JNIWriter$TypeSignature$SignatureException_FieldInfo_,
-	_JNIWriter$TypeSignature$SignatureException_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JNIWriter$TypeSignature$SignatureException_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.JNIWriter"
-};
-
-$Object* allocate$JNIWriter$TypeSignature$SignatureException($Class* clazz) {
-	return $of($alloc(JNIWriter$TypeSignature$SignatureException));
-}
 
 void JNIWriter$TypeSignature$SignatureException::init$($String* reason) {
 	$Exception::init$(reason);
@@ -66,7 +29,37 @@ void JNIWriter$TypeSignature$SignatureException::throw$() {
 }
 
 $Class* JNIWriter$TypeSignature$SignatureException::load$($String* name, bool initialize) {
-	$loadClass(JNIWriter$TypeSignature$SignatureException, name, initialize, &_JNIWriter$TypeSignature$SignatureException_ClassInfo_, allocate$JNIWriter$TypeSignature$SignatureException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JNIWriter$TypeSignature$SignatureException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(JNIWriter$TypeSignature$SignatureException, init$, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.JNIWriter$TypeSignature", "com.sun.tools.javac.jvm.JNIWriter", "TypeSignature", $PRIVATE | $STATIC},
+		{"com.sun.tools.javac.jvm.JNIWriter$TypeSignature$SignatureException", "com.sun.tools.javac.jvm.JNIWriter$TypeSignature", "SignatureException", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.JNIWriter$TypeSignature$SignatureException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.JNIWriter"
+	};
+	$loadClass(JNIWriter$TypeSignature$SignatureException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JNIWriter$TypeSignature$SignatureException);
+	});
 	return class$;
 }
 

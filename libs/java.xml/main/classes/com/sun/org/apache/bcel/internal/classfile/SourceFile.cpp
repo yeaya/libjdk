@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/SourceFile.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Attribute.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Constant.h>
@@ -30,38 +29,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace classfile {
-
-$FieldInfo _SourceFile_FieldInfo_[] = {
-	{"sourceFileIndex", "I", nullptr, $PRIVATE, $field(SourceFile, sourceFileIndex)},
-	{}
-};
-
-$MethodInfo _SourceFile_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/SourceFile;)V", nullptr, $PUBLIC, $method(SourceFile, init$, void, SourceFile*)},
-	{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(SourceFile, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
-	{"<init>", "(IIILcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(SourceFile, init$, void, int32_t, int32_t, int32_t, $ConstantPool*)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(SourceFile, accept, void, $Visitor*)},
-	{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(SourceFile, copy, $Attribute*, $ConstantPool*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(SourceFile, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getSourceFileIndex", "()I", nullptr, $PUBLIC, $method(SourceFile, getSourceFileIndex, int32_t)},
-	{"getSourceFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SourceFile, getSourceFileName, $String*)},
-	{"setSourceFileIndex", "(I)V", nullptr, $PUBLIC, $method(SourceFile, setSourceFileIndex, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SourceFile, toString, $String*)},
-	{}
-};
-
-$ClassInfo _SourceFile_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.SourceFile",
-	"com.sun.org.apache.bcel.internal.classfile.Attribute",
-	nullptr,
-	_SourceFile_FieldInfo_,
-	_SourceFile_MethodInfo_
-};
-
-$Object* allocate$SourceFile($Class* clazz) {
-	return $of($alloc(SourceFile));
-}
 
 void SourceFile::init$(SourceFile* c) {
 	int32_t var$0 = $nc(c)->getNameIndex();
@@ -97,8 +64,8 @@ void SourceFile::setSourceFileIndex(int32_t sourceFileIndex) {
 }
 
 $String* SourceFile::getSourceFileName() {
-	$useLocalCurrentObjectStackCache();
-	$var($ConstantUtf8, c, $cast($ConstantUtf8, $nc($($Attribute::getConstantPool()))->getConstant(this->sourceFileIndex, $Const::CONSTANT_Utf8)));
+	$useLocalObjectStack();
+	$var($ConstantUtf8, c, $cast($ConstantUtf8, $$nc($Attribute::getConstantPool())->getConstant(this->sourceFileIndex, $Const::CONSTANT_Utf8)));
 	return $nc(c)->getBytes();
 }
 
@@ -114,7 +81,34 @@ SourceFile::SourceFile() {
 }
 
 $Class* SourceFile::load$($String* name, bool initialize) {
-	$loadClass(SourceFile, name, initialize, &_SourceFile_ClassInfo_, allocate$SourceFile);
+	$FieldInfo fieldInfos$$[] = {
+		{"sourceFileIndex", "I", nullptr, $PRIVATE, $field(SourceFile, sourceFileIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/SourceFile;)V", nullptr, $PUBLIC, $method(SourceFile, init$, void, SourceFile*)},
+		{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(SourceFile, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
+		{"<init>", "(IIILcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(SourceFile, init$, void, int32_t, int32_t, int32_t, $ConstantPool*)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(SourceFile, accept, void, $Visitor*)},
+		{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(SourceFile, copy, $Attribute*, $ConstantPool*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(SourceFile, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getSourceFileIndex", "()I", nullptr, $PUBLIC, $method(SourceFile, getSourceFileIndex, int32_t)},
+		{"getSourceFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SourceFile, getSourceFileName, $String*)},
+		{"setSourceFileIndex", "(I)V", nullptr, $PUBLIC, $method(SourceFile, setSourceFileIndex, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SourceFile, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.SourceFile",
+		"com.sun.org.apache.bcel.internal.classfile.Attribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SourceFile, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SourceFile));
+	});
 	return class$;
 }
 

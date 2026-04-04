@@ -1,5 +1,4 @@
 #include <java/rmi/server/RemoteServer.h>
-
 #include <java/io/OutputStream.h>
 #include <java/rmi/server/RemoteObject.h>
 #include <java/rmi/server/RemoteRef.h>
@@ -15,41 +14,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RemoteObject = ::java::rmi::server::RemoteObject;
 using $RemoteRef = ::java::rmi::server::RemoteRef;
-using $Log = ::sun::rmi::runtime::Log;
 using $UnicastServerRef = ::sun::rmi::server::UnicastServerRef;
 using $TCPTransport = ::sun::rmi::transport::tcp::TCPTransport;
 
 namespace java {
 	namespace rmi {
 		namespace server {
-
-$FieldInfo _RemoteServer_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RemoteServer, serialVersionUID)},
-	{"logNull", "Z", nullptr, $PRIVATE | $STATIC, $staticField(RemoteServer, logNull)},
-	{}
-};
-
-$MethodInfo _RemoteServer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(RemoteServer, init$, void)},
-	{"<init>", "(Ljava/rmi/server/RemoteRef;)V", nullptr, $PROTECTED, $method(RemoteServer, init$, void, $RemoteRef*)},
-	{"getClientHost", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(RemoteServer, getClientHost, $String*), "java.rmi.server.ServerNotActiveException"},
-	{"getLog", "()Ljava/io/PrintStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(RemoteServer, getLog, $PrintStream*)},
-	{"setLog", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RemoteServer, setLog, void, $OutputStream*)},
-	{}
-};
-
-$ClassInfo _RemoteServer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.rmi.server.RemoteServer",
-	"java.rmi.server.RemoteObject",
-	nullptr,
-	_RemoteServer_FieldInfo_,
-	_RemoteServer_MethodInfo_
-};
-
-$Object* allocate$RemoteServer($Class* clazz) {
-	return $of($alloc(RemoteServer));
-}
 
 bool RemoteServer::logNull = false;
 
@@ -79,7 +49,7 @@ $PrintStream* RemoteServer::getLog() {
 	return (RemoteServer::logNull ? ($PrintStream*)nullptr : $nc($UnicastServerRef::callLog)->getPrintStream());
 }
 
-void clinit$RemoteServer($Class* class$) {
+void RemoteServer::clinit$($Class* clazz) {
 	$init($UnicastServerRef);
 	RemoteServer::logNull = !$UnicastServerRef::logCalls;
 }
@@ -88,7 +58,30 @@ RemoteServer::RemoteServer() {
 }
 
 $Class* RemoteServer::load$($String* name, bool initialize) {
-	$loadClass(RemoteServer, name, initialize, &_RemoteServer_ClassInfo_, clinit$RemoteServer, allocate$RemoteServer);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RemoteServer, serialVersionUID)},
+		{"logNull", "Z", nullptr, $PRIVATE | $STATIC, $staticField(RemoteServer, logNull)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(RemoteServer, init$, void)},
+		{"<init>", "(Ljava/rmi/server/RemoteRef;)V", nullptr, $PROTECTED, $method(RemoteServer, init$, void, $RemoteRef*)},
+		{"getClientHost", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(RemoteServer, getClientHost, $String*), "java.rmi.server.ServerNotActiveException"},
+		{"getLog", "()Ljava/io/PrintStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(RemoteServer, getLog, $PrintStream*)},
+		{"setLog", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RemoteServer, setLog, void, $OutputStream*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.rmi.server.RemoteServer",
+		"java.rmi.server.RemoteObject",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RemoteServer, name, initialize, &classInfo$$, RemoteServer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RemoteServer));
+	});
 	return class$;
 }
 

@@ -43,6 +43,7 @@ class $import JMXServiceURL : public ::java::io::Serializable {
 	$class(JMXServiceURL, 0, ::java::io::Serializable)
 public:
 	JMXServiceURL();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* serviceURL);
 	void init$($String* protocol, $String* host, int32_t port);
 	void init$($String* protocol, $String* host, int32_t port, $String* urlPath);
@@ -61,7 +62,7 @@ public:
 	void validate($String* proto, $String* h, int32_t p, $String* url);
 	void validate();
 	static void validateHost($String* h, int32_t port);
-	static const int64_t serialVersionUID = (int64_t)0x716D9FA05D926D1C;
+	static const int64_t serialVersionUID = (int64_t)0x716d9fa05d926d1c;
 	static $String* INVALID_INSTANCE_MSG;
 	static ::java::lang::Exception* randomException;
 	static ::java::util::BitSet* alphaBitSet;

@@ -1,12 +1,10 @@
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameUI$1.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane.h>
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameUI.h>
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/AbstractAction.h>
 #include <jcpp.h>
 
-using $MotifInternalFrameTitlePane = ::com::sun::java::swing::plaf::motif::MotifInternalFrameTitlePane;
 using $MotifInternalFrameUI = ::com::sun::java::swing::plaf::motif::MotifInternalFrameUI;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -22,49 +20,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace motif {
-
-$FieldInfo _MotifInternalFrameUI$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifInternalFrameUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifInternalFrameUI$1, this$0)},
-	{}
-};
-
-$MethodInfo _MotifInternalFrameUI$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifInternalFrameUI;)V", nullptr, 0, $method(MotifInternalFrameUI$1, init$, void, $MotifInternalFrameUI*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameUI$1, actionPerformed, void, $ActionEvent*)},
-	{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameUI$1, isEnabled, bool)},
-	{}
-};
-
-$EnclosingMethodInfo _MotifInternalFrameUI$1_EnclosingMethodInfo_ = {
-	"com.sun.java.swing.plaf.motif.MotifInternalFrameUI",
-	"setupMenuOpenKey",
-	"()V"
-};
-
-$InnerClassInfo _MotifInternalFrameUI$1_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifInternalFrameUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MotifInternalFrameUI$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifInternalFrameUI$1",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_MotifInternalFrameUI$1_FieldInfo_,
-	_MotifInternalFrameUI$1_MethodInfo_,
-	nullptr,
-	&_MotifInternalFrameUI$1_EnclosingMethodInfo_,
-	_MotifInternalFrameUI$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifInternalFrameUI"
-};
-
-$Object* allocate$MotifInternalFrameUI$1($Class* clazz) {
-	return $of($alloc(MotifInternalFrameUI$1));
-}
 
 void MotifInternalFrameUI$1::init$($MotifInternalFrameUI* this$0) {
 	$set(this, this$0, this$0);
@@ -83,7 +38,43 @@ MotifInternalFrameUI$1::MotifInternalFrameUI$1() {
 }
 
 $Class* MotifInternalFrameUI$1::load$($String* name, bool initialize) {
-	$loadClass(MotifInternalFrameUI$1, name, initialize, &_MotifInternalFrameUI$1_ClassInfo_, allocate$MotifInternalFrameUI$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifInternalFrameUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifInternalFrameUI$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifInternalFrameUI;)V", nullptr, 0, $method(MotifInternalFrameUI$1, init$, void, $MotifInternalFrameUI*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameUI$1, actionPerformed, void, $ActionEvent*)},
+		{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameUI$1, isEnabled, bool)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.java.swing.plaf.motif.MotifInternalFrameUI",
+		"setupMenuOpenKey",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifInternalFrameUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifInternalFrameUI$1",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifInternalFrameUI"
+	};
+	$loadClass(MotifInternalFrameUI$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifInternalFrameUI$1));
+	});
 	return class$;
 }
 

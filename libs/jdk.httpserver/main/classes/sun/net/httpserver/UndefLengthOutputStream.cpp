@@ -1,9 +1,7 @@
 #include <sun/net/httpserver/UndefLengthOutputStream.h>
-
 #include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <sun/net/httpserver/Event.h>
 #include <sun/net/httpserver/ExchangeImpl.h>
 #include <sun/net/httpserver/HttpContextImpl.h>
 #include <sun/net/httpserver/LeftOverInputStream.h>
@@ -17,43 +15,13 @@ using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Event = ::sun::net::httpserver::Event;
 using $ExchangeImpl = ::sun::net::httpserver::ExchangeImpl;
-using $HttpContextImpl = ::sun::net::httpserver::HttpContextImpl;
 using $LeftOverInputStream = ::sun::net::httpserver::LeftOverInputStream;
-using $ServerImpl = ::sun::net::httpserver::ServerImpl;
 using $WriteFinishedEvent = ::sun::net::httpserver::WriteFinishedEvent;
 
 namespace sun {
 	namespace net {
 		namespace httpserver {
-
-$FieldInfo _UndefLengthOutputStream_FieldInfo_[] = {
-	{"closed", "Z", nullptr, $PRIVATE, $field(UndefLengthOutputStream, closed)},
-	{"t", "Lsun/net/httpserver/ExchangeImpl;", nullptr, 0, $field(UndefLengthOutputStream, t)},
-	{}
-};
-
-$MethodInfo _UndefLengthOutputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/ExchangeImpl;Ljava/io/OutputStream;)V", nullptr, 0, $method(UndefLengthOutputStream, init$, void, $ExchangeImpl*, $OutputStream*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(UndefLengthOutputStream, close, void), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(UndefLengthOutputStream, write, void, int32_t), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(UndefLengthOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _UndefLengthOutputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.httpserver.UndefLengthOutputStream",
-	"java.io.FilterOutputStream",
-	nullptr,
-	_UndefLengthOutputStream_FieldInfo_,
-	_UndefLengthOutputStream_MethodInfo_
-};
-
-$Object* allocate$UndefLengthOutputStream($Class* clazz) {
-	return $of($alloc(UndefLengthOutputStream));
-}
 
 void UndefLengthOutputStream::init$($ExchangeImpl* t, $OutputStream* src) {
 	$FilterOutputStream::init$(src);
@@ -76,7 +44,7 @@ void UndefLengthOutputStream::write($bytes* b, int32_t off, int32_t len) {
 }
 
 void UndefLengthOutputStream::close() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->closed) {
 		return;
 	}
@@ -90,14 +58,36 @@ void UndefLengthOutputStream::close() {
 		}
 	}
 	$var($WriteFinishedEvent, e, $new($WriteFinishedEvent, this->t));
-	$nc($($nc($($nc(this->t)->getHttpContext()))->getServerImpl()))->addEvent(e);
+	$$nc($$nc($nc(this->t)->getHttpContext())->getServerImpl())->addEvent(e);
 }
 
 UndefLengthOutputStream::UndefLengthOutputStream() {
 }
 
 $Class* UndefLengthOutputStream::load$($String* name, bool initialize) {
-	$loadClass(UndefLengthOutputStream, name, initialize, &_UndefLengthOutputStream_ClassInfo_, allocate$UndefLengthOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"closed", "Z", nullptr, $PRIVATE, $field(UndefLengthOutputStream, closed)},
+		{"t", "Lsun/net/httpserver/ExchangeImpl;", nullptr, 0, $field(UndefLengthOutputStream, t)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/httpserver/ExchangeImpl;Ljava/io/OutputStream;)V", nullptr, 0, $method(UndefLengthOutputStream, init$, void, $ExchangeImpl*, $OutputStream*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(UndefLengthOutputStream, close, void), "java.io.IOException"},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(UndefLengthOutputStream, write, void, int32_t), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(UndefLengthOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.httpserver.UndefLengthOutputStream",
+		"java.io.FilterOutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UndefLengthOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UndefLengthOutputStream));
+	});
 	return class$;
 }
 

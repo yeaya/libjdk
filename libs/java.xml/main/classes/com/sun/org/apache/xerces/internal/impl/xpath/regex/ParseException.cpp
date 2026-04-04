@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/ParseException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -16,31 +15,6 @@ namespace com {
 						namespace impl {
 							namespace xpath {
 								namespace regex {
-
-$FieldInfo _ParseException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ParseException, serialVersionUID)},
-	{"location", "I", nullptr, $FINAL, $field(ParseException, location)},
-	{}
-};
-
-$MethodInfo _ParseException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(ParseException, init$, void, $String*, int32_t)},
-	{"getLocation", "()I", nullptr, $PUBLIC, $virtualMethod(ParseException, getLocation, int32_t)},
-	{}
-};
-
-$ClassInfo _ParseException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_ParseException_FieldInfo_,
-	_ParseException_MethodInfo_
-};
-
-$Object* allocate$ParseException($Class* clazz) {
-	return $of($alloc(ParseException));
-}
 
 void ParseException::init$($String* mes, int32_t location) {
 	$RuntimeException::init$(mes);
@@ -62,7 +36,27 @@ void ParseException::throw$() {
 }
 
 $Class* ParseException::load$($String* name, bool initialize) {
-	$loadClass(ParseException, name, initialize, &_ParseException_ClassInfo_, allocate$ParseException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ParseException, serialVersionUID)},
+		{"location", "I", nullptr, $FINAL, $field(ParseException, location)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(ParseException, init$, void, $String*, int32_t)},
+		{"getLocation", "()I", nullptr, $PUBLIC, $virtualMethod(ParseException, getLocation, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ParseException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ParseException);
+	});
 	return class$;
 }
 

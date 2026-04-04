@@ -1,5 +1,4 @@
 #include <sun/lwawt/LWTextFieldPeer$JPasswordFieldDelegate.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Point.h>
 #include <java/awt/TextField.h>
@@ -23,53 +22,11 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JPasswordField = ::javax::swing::JPasswordField;
 using $TransferHandler = ::javax::swing::TransferHandler;
-using $DocumentListener = ::javax::swing::event::DocumentListener;
-using $Document = ::javax::swing::text::Document;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ClientPropertyKeyAccessor = ::sun::awt::AWTAccessor$ClientPropertyKeyAccessor;
 using $LWTextFieldPeer = ::sun::lwawt::LWTextFieldPeer;
 
 namespace sun {
 	namespace lwawt {
-
-$FieldInfo _LWTextFieldPeer$JPasswordFieldDelegate_FieldInfo_[] = {
-	{"this$0", "Lsun/lwawt/LWTextFieldPeer;", nullptr, $FINAL | $SYNTHETIC, $field(LWTextFieldPeer$JPasswordFieldDelegate, this$0)},
-	{}
-};
-
-$MethodInfo _LWTextFieldPeer$JPasswordFieldDelegate_MethodInfo_[] = {
-	{"<init>", "(Lsun/lwawt/LWTextFieldPeer;)V", nullptr, $PRIVATE, $method(LWTextFieldPeer$JPasswordFieldDelegate, init$, void, $LWTextFieldPeer*)},
-	{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(LWTextFieldPeer$JPasswordFieldDelegate, getLocationOnScreen, $Point*)},
-	{"hasFocus", "()Z", nullptr, $PUBLIC, $virtualMethod(LWTextFieldPeer$JPasswordFieldDelegate, hasFocus, bool)},
-	{"replaceSelection", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LWTextFieldPeer$JPasswordFieldDelegate, replaceSelection, void, $String*)},
-	{"setTransferHandler", "(Ljavax/swing/TransferHandler;)V", nullptr, $PUBLIC, $virtualMethod(LWTextFieldPeer$JPasswordFieldDelegate, setTransferHandler, void, $TransferHandler*)},
-	{}
-};
-
-$InnerClassInfo _LWTextFieldPeer$JPasswordFieldDelegate_InnerClassesInfo_[] = {
-	{"sun.lwawt.LWTextFieldPeer$JPasswordFieldDelegate", "sun.lwawt.LWTextFieldPeer", "JPasswordFieldDelegate", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _LWTextFieldPeer$JPasswordFieldDelegate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.lwawt.LWTextFieldPeer$JPasswordFieldDelegate",
-	"javax.swing.JPasswordField",
-	nullptr,
-	_LWTextFieldPeer$JPasswordFieldDelegate_FieldInfo_,
-	_LWTextFieldPeer$JPasswordFieldDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LWTextFieldPeer$JPasswordFieldDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.LWTextFieldPeer"
-};
-
-$Object* allocate$LWTextFieldPeer$JPasswordFieldDelegate($Class* clazz) {
-	return $of($alloc(LWTextFieldPeer$JPasswordFieldDelegate));
-}
 
 void LWTextFieldPeer$JPasswordFieldDelegate::init$($LWTextFieldPeer* this$0) {
 	$set(this, this$0, this$0);
@@ -77,15 +34,15 @@ void LWTextFieldPeer$JPasswordFieldDelegate::init$($LWTextFieldPeer* this$0) {
 }
 
 void LWTextFieldPeer$JPasswordFieldDelegate::replaceSelection($String* content) {
-	$useLocalCurrentObjectStackCache();
-	$nc($(getDocument()))->removeDocumentListener(this->this$0);
+	$useLocalObjectStack();
+	$$nc(getDocument())->removeDocumentListener(this->this$0);
 	$JPasswordField::replaceSelection(content);
 	this->this$0->postTextEvent();
-	$nc($(getDocument()))->addDocumentListener(this->this$0);
+	$$nc(getDocument())->addDocumentListener(this->this$0);
 }
 
 bool LWTextFieldPeer$JPasswordFieldDelegate::hasFocus() {
-	return $nc(($cast($TextField, $(this->this$0->getTarget()))))->hasFocus();
+	return $$sure($TextField, this->this$0->getTarget())->hasFocus();
 }
 
 $Point* LWTextFieldPeer$JPasswordFieldDelegate::getLocationOnScreen() {
@@ -93,18 +50,51 @@ $Point* LWTextFieldPeer$JPasswordFieldDelegate::getLocationOnScreen() {
 }
 
 void LWTextFieldPeer$JPasswordFieldDelegate::setTransferHandler($TransferHandler* newHandler) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, key, $nc($($AWTAccessor::getClientPropertyKeyAccessor()))->getJComponent_TRANSFER_HANDLER());
+	$useLocalObjectStack();
+	$var($Object, key, $$nc($AWTAccessor::getClientPropertyKeyAccessor())->getJComponent_TRANSFER_HANDLER());
 	$var($Object, oldHandler, getClientProperty(key));
 	putClientProperty(key, newHandler);
-	firePropertyChange("transferHandler"_s, oldHandler, $of(newHandler));
+	firePropertyChange("transferHandler"_s, oldHandler, newHandler);
 }
 
 LWTextFieldPeer$JPasswordFieldDelegate::LWTextFieldPeer$JPasswordFieldDelegate() {
 }
 
 $Class* LWTextFieldPeer$JPasswordFieldDelegate::load$($String* name, bool initialize) {
-	$loadClass(LWTextFieldPeer$JPasswordFieldDelegate, name, initialize, &_LWTextFieldPeer$JPasswordFieldDelegate_ClassInfo_, allocate$LWTextFieldPeer$JPasswordFieldDelegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/lwawt/LWTextFieldPeer;", nullptr, $FINAL | $SYNTHETIC, $field(LWTextFieldPeer$JPasswordFieldDelegate, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/LWTextFieldPeer;)V", nullptr, $PRIVATE, $method(LWTextFieldPeer$JPasswordFieldDelegate, init$, void, $LWTextFieldPeer*)},
+		{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(LWTextFieldPeer$JPasswordFieldDelegate, getLocationOnScreen, $Point*)},
+		{"hasFocus", "()Z", nullptr, $PUBLIC, $virtualMethod(LWTextFieldPeer$JPasswordFieldDelegate, hasFocus, bool)},
+		{"replaceSelection", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LWTextFieldPeer$JPasswordFieldDelegate, replaceSelection, void, $String*)},
+		{"setTransferHandler", "(Ljavax/swing/TransferHandler;)V", nullptr, $PUBLIC, $virtualMethod(LWTextFieldPeer$JPasswordFieldDelegate, setTransferHandler, void, $TransferHandler*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.LWTextFieldPeer$JPasswordFieldDelegate", "sun.lwawt.LWTextFieldPeer", "JPasswordFieldDelegate", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.lwawt.LWTextFieldPeer$JPasswordFieldDelegate",
+		"javax.swing.JPasswordField",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.LWTextFieldPeer"
+	};
+	$loadClass(LWTextFieldPeer$JPasswordFieldDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LWTextFieldPeer$JPasswordFieldDelegate));
+	});
 	return class$;
 }
 

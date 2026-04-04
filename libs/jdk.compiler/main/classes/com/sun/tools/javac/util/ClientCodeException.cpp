@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/ClientCodeException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -12,29 +11,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$FieldInfo _ClientCodeException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ClientCodeException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ClientCodeException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ClientCodeException, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _ClientCodeException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.ClientCodeException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_ClientCodeException_FieldInfo_,
-	_ClientCodeException_MethodInfo_
-};
-
-$Object* allocate$ClientCodeException($Class* clazz) {
-	return $of($alloc(ClientCodeException));
-}
 
 void ClientCodeException::init$($Throwable* cause) {
 	$RuntimeException::init$(cause);
@@ -51,7 +27,25 @@ void ClientCodeException::throw$() {
 }
 
 $Class* ClientCodeException::load$($String* name, bool initialize) {
-	$loadClass(ClientCodeException, name, initialize, &_ClientCodeException_ClassInfo_, allocate$ClientCodeException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ClientCodeException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ClientCodeException, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.ClientCodeException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ClientCodeException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClientCodeException);
+	});
 	return class$;
 }
 

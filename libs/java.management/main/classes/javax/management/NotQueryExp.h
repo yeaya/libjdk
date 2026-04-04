@@ -30,7 +30,7 @@ public:
 	virtual ::javax::management::QueryExp* getNegatedExp();
 	virtual void setMBeanServer(::javax::management::MBeanServer* s) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x492189182B2C1FC5;
+	static const int64_t serialVersionUID = (int64_t)0x492189182b2c1fc5;
 	::javax::management::QueryExp* exp = nullptr;
 };
 

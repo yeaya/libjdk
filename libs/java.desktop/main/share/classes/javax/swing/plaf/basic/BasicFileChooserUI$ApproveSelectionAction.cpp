@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicFileChooserUI$ApproveSelectionAction.h>
-
 #include <java/awt/Toolkit.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/io/File.h>
@@ -47,42 +46,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicFileChooserUI$ApproveSelectionAction_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicFileChooserUI$ApproveSelectionAction, this$0)},
-	{}
-};
-
-$MethodInfo _BasicFileChooserUI$ApproveSelectionAction_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicFileChooserUI;)V", nullptr, $PROTECTED, $method(BasicFileChooserUI$ApproveSelectionAction, init$, void, $BasicFileChooserUI*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI$ApproveSelectionAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicFileChooserUI$ApproveSelectionAction_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicFileChooserUI$ApproveSelectionAction", "javax.swing.plaf.basic.BasicFileChooserUI", "ApproveSelectionAction", $PROTECTED},
-	{}
-};
-
-$ClassInfo _BasicFileChooserUI$ApproveSelectionAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicFileChooserUI$ApproveSelectionAction",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_BasicFileChooserUI$ApproveSelectionAction_FieldInfo_,
-	_BasicFileChooserUI$ApproveSelectionAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicFileChooserUI$ApproveSelectionAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicFileChooserUI"
-};
-
-$Object* allocate$BasicFileChooserUI$ApproveSelectionAction($Class* clazz) {
-	return $of($alloc(BasicFileChooserUI$ApproveSelectionAction));
-}
-
 void BasicFileChooserUI$ApproveSelectionAction::init$($BasicFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
 	$init($FilePane);
@@ -90,7 +53,7 @@ void BasicFileChooserUI$ApproveSelectionAction::init$($BasicFileChooserUI* this$
 }
 
 void BasicFileChooserUI$ApproveSelectionAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$0->isDirectorySelected()) {
 		$var($File, dir, this->this$0->getDirectory());
 		if (dir != nullptr) {
@@ -106,7 +69,7 @@ void BasicFileChooserUI$ApproveSelectionAction::actionPerformed($ActionEvent* e)
 	$var($String, filename, this->this$0->getFileName());
 	$var($FileSystemView, fs, $nc(chooser)->getFileSystemView());
 	$var($File, dir, chooser->getCurrentDirectory());
-	if (filename == nullptr || $nc(filename)->length() == 0) {
+	if (filename == nullptr || filename->length() == 0) {
 		this->this$0->resetGlobFilter();
 		return;
 	}
@@ -115,8 +78,10 @@ void BasicFileChooserUI$ApproveSelectionAction::actionPerformed($ActionEvent* e)
 	$init($File);
 	if ($File::separatorChar == u'/') {
 		if ($nc(filename)->startsWith("~/"_s)) {
-			$var($String, var$0, $($System::getProperty("user.home"_s)));
-			$assign(filename, $concat(var$0, $(filename->substring(1))));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append($($System::getProperty("user.home"_s)));
+			var$0->append($(filename->substring(1)));
+			$assign(filename, $str(var$0));
 		} else if (filename->equals("~"_s)) {
 			$assign(filename, $System::getProperty("user.home"_s));
 		}
@@ -132,9 +97,7 @@ void BasicFileChooserUI$ApproveSelectionAction::actionPerformed($ActionEvent* e)
 		int32_t childIndex = 0;
 		{
 			$var($StringArray, arr$, files);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, str, arr$->get(i$));
 				{
 					$var($File, file, $nc(fs)->createFileObject(str));
@@ -145,7 +108,7 @@ void BasicFileChooserUI$ApproveSelectionAction::actionPerformed($ActionEvent* e)
 						}
 						for (int32_t k = 0; k < $nc(children)->length; ++k) {
 							int32_t l = $mod((childIndex + k), children->length);
-							if ($nc($($nc(children->get(l))->getName()))->equals(str)) {
+							if ($$nc($nc(children->get(l))->getName())->equals(str)) {
 								$assign(file, children->get(l));
 								childIndex = l + 1;
 								break;
@@ -157,7 +120,7 @@ void BasicFileChooserUI$ApproveSelectionAction::actionPerformed($ActionEvent* e)
 			}
 		}
 		if (!fList->isEmpty()) {
-			$assign(selectedFiles, $fcast($FileArray, fList->toArray($$new($FileArray, fList->size()))));
+			$assign(selectedFiles, $cast($FileArray, fList->toArray($$new($FileArray, fList->size()))));
 		}
 		this->this$0->resetGlobFilter();
 	} else {
@@ -191,7 +154,7 @@ void BasicFileChooserUI$ApproveSelectionAction::actionPerformed($ActionEvent* e)
 		bool var$5 = e != nullptr;
 		if (var$5) {
 			int32_t var$6 = e->getModifiers();
-			var$5 = ((int32_t)(var$6 & (uint32_t)$nc($($Toolkit::getDefaultToolkit()))->getMenuShortcutKeyMask())) != 0;
+			var$5 = (var$6 & $$nc($Toolkit::getDefaultToolkit())->getMenuShortcutKeyMask()) != 0;
 		}
 		bool isCtrl = (var$5);
 		if (isDir && isTrav && (isCtrl || !isDirSelEnabled)) {
@@ -226,7 +189,37 @@ BasicFileChooserUI$ApproveSelectionAction::BasicFileChooserUI$ApproveSelectionAc
 }
 
 $Class* BasicFileChooserUI$ApproveSelectionAction::load$($String* name, bool initialize) {
-	$loadClass(BasicFileChooserUI$ApproveSelectionAction, name, initialize, &_BasicFileChooserUI$ApproveSelectionAction_ClassInfo_, allocate$BasicFileChooserUI$ApproveSelectionAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicFileChooserUI$ApproveSelectionAction, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicFileChooserUI;)V", nullptr, $PROTECTED, $method(BasicFileChooserUI$ApproveSelectionAction, init$, void, $BasicFileChooserUI*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI$ApproveSelectionAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicFileChooserUI$ApproveSelectionAction", "javax.swing.plaf.basic.BasicFileChooserUI", "ApproveSelectionAction", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicFileChooserUI$ApproveSelectionAction",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicFileChooserUI"
+	};
+	$loadClass(BasicFileChooserUI$ApproveSelectionAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicFileChooserUI$ApproveSelectionAction));
+	});
 	return class$;
 }
 

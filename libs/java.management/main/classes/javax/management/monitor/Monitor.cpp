@@ -1,5 +1,4 @@
 #include <javax/management/monitor/Monitor.h>
-
 #include <com/sun/jmx/defaults/JmxProperties.h>
 #include <com/sun/jmx/mbeanserver/GetPropertyAction.h>
 #include <com/sun/jmx/mbeanserver/Introspector.h>
@@ -8,7 +7,6 @@
 #include <java/lang/ClassCastException.h>
 #include <java/lang/Comparable.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$Logger.h>
 #include <java/lang/invoke/CallSite.h>
@@ -20,7 +18,6 @@
 #include <java/security/AccessController.h>
 #include <java/security/CodeSource.h>
 #include <java/security/PermissionCollection.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/ProtectionDomain.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -31,7 +28,6 @@
 #include <java/util/concurrent/Future.h>
 #include <java/util/concurrent/ScheduledExecutorService.h>
 #include <java/util/concurrent/ScheduledFuture.h>
-#include <java/util/concurrent/ThreadFactory.h>
 #include <java/util/concurrent/TimeUnit.h>
 #include <java/util/concurrent/atomic/AtomicLong.h>
 #include <java/util/function/Supplier.h>
@@ -43,7 +39,6 @@
 #include <javax/management/MBeanInfo.h>
 #include <javax/management/MBeanServer.h>
 #include <javax/management/MBeanServerConnection.h>
-#include <javax/management/Notification.h>
 #include <javax/management/NotificationBroadcasterSupport.h>
 #include <javax/management/ObjectName.h>
 #include <javax/management/ReflectionException.h>
@@ -91,28 +86,21 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $NumberFormatException = ::java::lang::NumberFormatException;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Short = ::java::lang::Short;
-using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
 using $CodeSource = ::java::security::CodeSource;
 using $PermissionCollection = ::java::security::PermissionCollection;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $WeakHashMap = ::java::util::WeakHashMap;
 using $CopyOnWriteArrayList = ::java::util::concurrent::CopyOnWriteArrayList;
 using $Executors = ::java::util::concurrent::Executors;
-using $Future = ::java::util::concurrent::Future;
 using $ScheduledExecutorService = ::java::util::concurrent::ScheduledExecutorService;
-using $ScheduledFuture = ::java::util::concurrent::ScheduledFuture;
-using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 using $AtomicLong = ::java::util::concurrent::atomic::AtomicLong;
 using $Supplier = ::java::util::function::Supplier;
@@ -124,7 +112,6 @@ using $MBeanException = ::javax::management::MBeanException;
 using $MBeanInfo = ::javax::management::MBeanInfo;
 using $MBeanServer = ::javax::management::MBeanServer;
 using $MBeanServerConnection = ::javax::management::MBeanServerConnection;
-using $Notification = ::javax::management::Notification;
 using $NotificationBroadcasterSupport = ::javax::management::NotificationBroadcasterSupport;
 using $ObjectName = ::javax::management::ObjectName;
 using $ReflectionException = ::javax::management::ReflectionException;
@@ -149,174 +136,32 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->toString());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Monitor$$Lambda$toString>());
-	}
 	$Throwable* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Monitor$$Lambda$toString::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Monitor$$Lambda$toString, inst$)},
-	{}
-};
-$MethodInfo Monitor$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(Monitor$$Lambda$toString, init$, void, $Throwable*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Monitor$$Lambda$toString, get, $Object*)},
-	{}
-};
-$ClassInfo Monitor$$Lambda$toString::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.management.monitor.Monitor$$Lambda$toString",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* Monitor$$Lambda$toString::load$($String* name, bool initialize) {
-	$loadClass(Monitor$$Lambda$toString, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Monitor$$Lambda$toString, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(Monitor$$Lambda$toString, init$, void, $Throwable*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Monitor$$Lambda$toString, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.management.monitor.Monitor$$Lambda$toString",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Monitor$$Lambda$toString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Monitor$$Lambda$toString);
+	});
 	return class$;
 }
 $Class* Monitor$$Lambda$toString::class$ = nullptr;
-
-$CompoundAttribute _Monitor_FieldAnnotations_alreadyNotified[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Monitor_FieldAnnotations_dbgTag[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Monitor_MethodAnnotations_getObservedObject20[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Monitor_MethodAnnotations_setObservedObject41[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _Monitor_FieldInfo_[] = {
-	{"observedAttribute", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Monitor, observedAttribute)},
-	{"granularityPeriod", "J", nullptr, $PRIVATE, $field(Monitor, granularityPeriod)},
-	{"isActive", "Z", nullptr, $PRIVATE, $field(Monitor, isActive$)},
-	{"sequenceNumber", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $FINAL, $field(Monitor, sequenceNumber)},
-	{"isComplexTypeAttribute", "Z", nullptr, $PRIVATE, $field(Monitor, isComplexTypeAttribute)},
-	{"firstAttribute", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Monitor, firstAttribute)},
-	{"remainingAttributes", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(Monitor, remainingAttributes)},
-	{"noPermissionsACC", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Monitor, noPermissionsACC)},
-	{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $VOLATILE, $field(Monitor, acc)},
-	{"scheduler", "Ljava/util/concurrent/ScheduledExecutorService;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Monitor, scheduler)},
-	{"executors", "Ljava/util/Map;", "Ljava/util/Map<Ljava/util/concurrent/ThreadPoolExecutor;Ljava/lang/Void;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Monitor, executors)},
-	{"executorsLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Monitor, executorsLock)},
-	{"maximumPoolSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Monitor, maximumPoolSize)},
-	{"monitorFuture", "Ljava/util/concurrent/Future;", "Ljava/util/concurrent/Future<*>;", $PRIVATE, $field(Monitor, monitorFuture)},
-	{"schedulerTask", "Ljavax/management/monitor/Monitor$SchedulerTask;", nullptr, $PRIVATE | $FINAL, $field(Monitor, schedulerTask)},
-	{"schedulerFuture", "Ljava/util/concurrent/ScheduledFuture;", "Ljava/util/concurrent/ScheduledFuture<*>;", $PRIVATE, $field(Monitor, schedulerFuture)},
-	{"capacityIncrement", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(Monitor, capacityIncrement)},
-	{"elementCount", "I", nullptr, $PROTECTED, $field(Monitor, elementCount)},
-	{"alreadyNotified", "I", nullptr, $PROTECTED | $DEPRECATED, $field(Monitor, alreadyNotified), _Monitor_FieldAnnotations_alreadyNotified},
-	{"alreadyNotifieds", "[I", nullptr, $PROTECTED, $field(Monitor, alreadyNotifieds)},
-	{"server", "Ljavax/management/MBeanServer;", nullptr, $PROTECTED, $field(Monitor, server)},
-	{"RESET_FLAGS_ALREADY_NOTIFIED", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(Monitor, RESET_FLAGS_ALREADY_NOTIFIED)},
-	{"OBSERVED_OBJECT_ERROR_NOTIFIED", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(Monitor, OBSERVED_OBJECT_ERROR_NOTIFIED)},
-	{"OBSERVED_ATTRIBUTE_ERROR_NOTIFIED", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(Monitor, OBSERVED_ATTRIBUTE_ERROR_NOTIFIED)},
-	{"OBSERVED_ATTRIBUTE_TYPE_ERROR_NOTIFIED", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(Monitor, OBSERVED_ATTRIBUTE_TYPE_ERROR_NOTIFIED)},
-	{"RUNTIME_ERROR_NOTIFIED", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(Monitor, RUNTIME_ERROR_NOTIFIED)},
-	{"dbgTag", "Ljava/lang/String;", nullptr, $PROTECTED | $DEPRECATED, $field(Monitor, dbgTag), _Monitor_FieldAnnotations_dbgTag},
-	{"observedObjects", "Ljava/util/List;", "Ljava/util/List<Ljavax/management/monitor/Monitor$ObservedObject;>;", $FINAL, $field(Monitor, observedObjects)},
-	{"THRESHOLD_ERROR_NOTIFIED", "I", nullptr, $STATIC | $FINAL, $constField(Monitor, THRESHOLD_ERROR_NOTIFIED)},
-	{"INTEGER_ZERO", "Ljava/lang/Integer;", nullptr, $STATIC | $FINAL, $staticField(Monitor, INTEGER_ZERO)},
-	{}
-};
-
-$MethodInfo _Monitor_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Monitor, init$, void)},
-	{"addObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Monitor, addObservedObject, void, $ObjectName*), "java.lang.IllegalArgumentException"},
-	{"buildAlarmNotification", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Ljavax/management/monitor/MonitorNotification;", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Ljavax/management/monitor/MonitorNotification;", 0, $virtualMethod(Monitor, buildAlarmNotification, $MonitorNotification*, $ObjectName*, $String*, $Comparable*)},
-	{"buildErrorNotification", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Ljava/lang/String;", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Ljava/lang/String;", 0, $virtualMethod(Monitor, buildErrorNotification, $String*, $ObjectName*, $String*, $Comparable*)},
-	{"classForType", "(Ljavax/management/monitor/Monitor$NumericalType;)Ljava/lang/Class;", "(Ljavax/management/monitor/Monitor$NumericalType;)Ljava/lang/Class<+Ljava/lang/Number;>;", $STATIC, $staticMethod(Monitor, classForType, $Class*, $Monitor$NumericalType*)},
-	{"cleanupFutures", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Monitor, cleanupFutures, void)},
-	{"cleanupIsComplexTypeAttribute", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Monitor, cleanupIsComplexTypeAttribute, void)},
-	{"computeAlreadyNotifiedIndex", "(Ljavax/management/monitor/Monitor$ObservedObject;I[I)I", nullptr, $SYNCHRONIZED, $virtualMethod(Monitor, computeAlreadyNotifiedIndex, int32_t, $Monitor$ObservedObject*, int32_t, $ints*)},
-	{"containsObservedObject", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Monitor, containsObservedObject, bool, $ObjectName*)},
-	{"createAlreadyNotified", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(Monitor, createAlreadyNotified, void)},
-	{"createObservedObject", "(Ljavax/management/ObjectName;)Ljavax/management/monitor/Monitor$ObservedObject;", nullptr, 0, $virtualMethod(Monitor, createObservedObject, $Monitor$ObservedObject*, $ObjectName*)},
-	{"doStart", "()V", nullptr, 0, $virtualMethod(Monitor, doStart, void)},
-	{"doStop", "()V", nullptr, 0, $virtualMethod(Monitor, doStop, void)},
-	{"getAttribute", "(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(Monitor, getAttribute, $Object*, $MBeanServerConnection*, $ObjectName*, $String*), "javax.management.AttributeNotFoundException,javax.management.InstanceNotFoundException,javax.management.MBeanException,javax.management.ReflectionException,java.io.IOException"},
-	{"getComparableFromAttribute", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Comparable;", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Comparable<*>;", 0, $virtualMethod(Monitor, getComparableFromAttribute, $Comparable*, $ObjectName*, $String*, Object$*), "javax.management.AttributeNotFoundException"},
-	{"getDerivedGauge", "(Ljavax/management/ObjectName;)Ljava/lang/Object;", nullptr, $SYNCHRONIZED, $virtualMethod(Monitor, getDerivedGauge, $Object*, $ObjectName*)},
-	{"getDerivedGaugeFromComparable", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Ljava/lang/Comparable;", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Ljava/lang/Comparable<*>;", 0, $virtualMethod(Monitor, getDerivedGaugeFromComparable, $Comparable*, $ObjectName*, $String*, $Comparable*)},
-	{"getDerivedGaugeTimeStamp", "(Ljavax/management/ObjectName;)J", nullptr, $SYNCHRONIZED, $virtualMethod(Monitor, getDerivedGaugeTimeStamp, int64_t, $ObjectName*)},
-	{"getGranularityPeriod", "()J", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Monitor, getGranularityPeriod, int64_t)},
-	{"getObservedAttribute", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Monitor, getObservedAttribute, $String*)},
-	{"getObservedObject", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(Monitor, getObservedObject, $ObjectName*), nullptr, nullptr, _Monitor_MethodAnnotations_getObservedObject20},
-	{"getObservedObject", "(Ljavax/management/ObjectName;)Ljavax/management/monitor/Monitor$ObservedObject;", nullptr, $SYNCHRONIZED, $virtualMethod(Monitor, getObservedObject, $Monitor$ObservedObject*, $ObjectName*)},
-	{"getObservedObjects", "()[Ljavax/management/ObjectName;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Monitor, getObservedObjects, $ObjectNameArray*)},
-	{"isActive", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Monitor, isActive, bool)},
-	{"isAlreadyNotified", "(Ljavax/management/monitor/Monitor$ObservedObject;I)Z", nullptr, $SYNCHRONIZED, $virtualMethod(Monitor, isAlreadyNotified, bool, $Monitor$ObservedObject*, int32_t)},
-	{"isComparableTypeValid", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Z", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Z", 0, $virtualMethod(Monitor, isComparableTypeValid, bool, $ObjectName*, $String*, $Comparable*)},
-	{"isThresholdTypeValid", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Z", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Z", 0, $virtualMethod(Monitor, isThresholdTypeValid, bool, $ObjectName*, $String*, $Comparable*)},
-	{"isValidForType", "(Ljava/lang/Object;Ljava/lang/Class;)Z", "(Ljava/lang/Object;Ljava/lang/Class<+Ljava/lang/Number;>;)Z", $STATIC, $staticMethod(Monitor, isValidForType, bool, Object$*, $Class*)},
-	{"monitor", "(Ljavax/management/monitor/Monitor$ObservedObject;I[I)V", nullptr, $PRIVATE, $method(Monitor, monitor, void, $Monitor$ObservedObject*, int32_t, $ints*)},
-	{"onErrorNotification", "(Ljavax/management/monitor/MonitorNotification;)V", nullptr, 0, $virtualMethod(Monitor, onErrorNotification, void, $MonitorNotification*)},
-	{"postDeregister", "()V", nullptr, $PUBLIC, $virtualMethod(Monitor, postDeregister, void)},
-	{"postRegister", "(Ljava/lang/Boolean;)V", nullptr, $PUBLIC, $virtualMethod(Monitor, postRegister, void, $Boolean*)},
-	{"preDeregister", "()V", nullptr, $PUBLIC, $virtualMethod(Monitor, preDeregister, void), "java.lang.Exception"},
-	{"preRegister", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(Monitor, preRegister, $ObjectName*, $MBeanServer*, $ObjectName*), "java.lang.Exception"},
-	{"removeObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Monitor, removeObservedObject, void, $ObjectName*)},
-	{"resetAllAlreadyNotified", "(Ljavax/management/monitor/Monitor$ObservedObject;I[I)V", nullptr, $SYNCHRONIZED, $virtualMethod(Monitor, resetAllAlreadyNotified, void, $Monitor$ObservedObject*, int32_t, $ints*)},
-	{"resetAlreadyNotified", "(Ljavax/management/monitor/Monitor$ObservedObject;II)V", nullptr, $SYNCHRONIZED, $virtualMethod(Monitor, resetAlreadyNotified, void, $Monitor$ObservedObject*, int32_t, int32_t)},
-	{"sendNotification", "(Ljava/lang/String;JLjava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljavax/management/ObjectName;Z)V", nullptr, $PRIVATE, $method(Monitor, sendNotification, void, $String*, int64_t, $String*, Object$*, Object$*, $ObjectName*, bool)},
-	{"setAlreadyNotified", "(Ljavax/management/monitor/Monitor$ObservedObject;II[I)V", nullptr, $SYNCHRONIZED, $virtualMethod(Monitor, setAlreadyNotified, void, $Monitor$ObservedObject*, int32_t, int32_t, $ints*)},
-	{"setGranularityPeriod", "(J)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Monitor, setGranularityPeriod, void, int64_t), "java.lang.IllegalArgumentException"},
-	{"setObservedAttribute", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Monitor, setObservedAttribute, void, $String*), "java.lang.IllegalArgumentException"},
-	{"setObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(Monitor, setObservedObject, void, $ObjectName*), "java.lang.IllegalArgumentException", nullptr, _Monitor_MethodAnnotations_setObservedObject41},
-	{"start", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"stop", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateAlreadyNotified", "(Ljavax/management/monitor/Monitor$ObservedObject;I)V", nullptr, $SYNCHRONIZED, $virtualMethod(Monitor, updateAlreadyNotified, void, $Monitor$ObservedObject*, int32_t)},
-	{"updateDeprecatedAlreadyNotified", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(Monitor, updateDeprecatedAlreadyNotified, void)},
-	{}
-};
-
-$InnerClassInfo _Monitor_InnerClassesInfo_[] = {
-	{"javax.management.monitor.Monitor$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"javax.management.monitor.Monitor$DaemonThreadFactory", "javax.management.monitor.Monitor", "DaemonThreadFactory", $PRIVATE | $STATIC},
-	{"javax.management.monitor.Monitor$MonitorTask", "javax.management.monitor.Monitor", "MonitorTask", $PRIVATE},
-	{"javax.management.monitor.Monitor$SchedulerTask", "javax.management.monitor.Monitor", "SchedulerTask", $PRIVATE},
-	{"javax.management.monitor.Monitor$NumericalType", "javax.management.monitor.Monitor", "NumericalType", $STATIC | $FINAL | $ENUM},
-	{"javax.management.monitor.Monitor$ObservedObject", "javax.management.monitor.Monitor", "ObservedObject", $STATIC},
-	{}
-};
-
-$ClassInfo _Monitor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.management.monitor.Monitor",
-	"javax.management.NotificationBroadcasterSupport",
-	"javax.management.monitor.MonitorMBean,javax.management.MBeanRegistration",
-	_Monitor_FieldInfo_,
-	_Monitor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Monitor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.management.monitor.Monitor$1,javax.management.monitor.Monitor$DaemonThreadFactory,javax.management.monitor.Monitor$MonitorTask,javax.management.monitor.Monitor$MonitorTask$1,javax.management.monitor.Monitor$SchedulerTask,javax.management.monitor.Monitor$NumericalType,javax.management.monitor.Monitor$ObservedObject"
-};
-
-$Object* allocate$Monitor($Class* clazz) {
-	return $of($alloc(Monitor));
-}
 
 int32_t Monitor::hashCode() {
 	 return this->$NotificationBroadcasterSupport::hashCode();
@@ -384,10 +229,10 @@ void Monitor::postDeregister() {
 
 $ObjectName* Monitor::getObservedObject() {
 	$synchronized(this) {
-		if ($nc(this->observedObjects)->isEmpty()) {
+		if (this->observedObjects->isEmpty()) {
 			return nullptr;
 		} else {
-			return $nc(($cast($Monitor$ObservedObject, $($nc(this->observedObjects)->get(0)))))->getObservedObject();
+			return $$sure($Monitor$ObservedObject, this->observedObjects->get(0))->getObservedObject();
 		}
 	}
 }
@@ -397,11 +242,11 @@ void Monitor::setObservedObject($ObjectName* object) {
 		if (object == nullptr) {
 			$throwNew($IllegalArgumentException, "Null observed object"_s);
 		}
-		bool var$0 = $nc(this->observedObjects)->size() == 1;
+		bool var$0 = this->observedObjects->size() == 1;
 		if (var$0 && containsObservedObject(object)) {
 			return;
 		}
-		$nc(this->observedObjects)->clear();
+		this->observedObjects->clear();
 		addObservedObject(object);
 	}
 }
@@ -418,7 +263,7 @@ void Monitor::addObservedObject($ObjectName* object) {
 		$nc(o)->setAlreadyNotified(Monitor::RESET_FLAGS_ALREADY_NOTIFIED);
 		o->setDerivedGauge(Monitor::INTEGER_ZERO);
 		o->setDerivedGaugeTimeStamp($System::currentTimeMillis());
-		$nc(this->observedObjects)->add(o);
+		this->observedObjects->add(o);
 		createAlreadyNotified();
 	}
 }
@@ -430,7 +275,7 @@ void Monitor::removeObservedObject($ObjectName* object) {
 		}
 		$var($Monitor$ObservedObject, o, getObservedObject(object));
 		if (o != nullptr) {
-			$nc(this->observedObjects)->remove($of(o));
+			this->observedObjects->remove(o);
 			createAlreadyNotified();
 		}
 	}
@@ -444,10 +289,10 @@ bool Monitor::containsObservedObject($ObjectName* object) {
 
 $ObjectNameArray* Monitor::getObservedObjects() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		$var($ObjectNameArray, names, $new($ObjectNameArray, $nc(this->observedObjects)->size()));
+		$useLocalObjectStack();
+		$var($ObjectNameArray, names, $new($ObjectNameArray, this->observedObjects->size()));
 		for (int32_t i = 0; i < names->length; ++i) {
-			names->set(i, $($nc(($cast($Monitor$ObservedObject, $($nc(this->observedObjects)->get(i)))))->getObservedObject()));
+			names->set(i, $($$sure($Monitor$ObservedObject, this->observedObjects->get(i))->getObservedObject()));
 		}
 		return names;
 	}
@@ -460,19 +305,19 @@ $String* Monitor::getObservedAttribute() {
 }
 
 void Monitor::setObservedAttribute($String* attribute) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (attribute == nullptr) {
 		$throwNew($IllegalArgumentException, "Null observed attribute"_s);
 	}
 	$synchronized(this) {
-		if (this->observedAttribute != nullptr && $nc(this->observedAttribute)->equals(attribute)) {
+		if (this->observedAttribute != nullptr && this->observedAttribute->equals(attribute)) {
 			return;
 		}
 		$set(this, observedAttribute, attribute);
 		cleanupIsComplexTypeAttribute();
 		int32_t index = 0;
 		{
-			$var($Iterator, i$, $nc(this->observedObjects)->iterator());
+			$var($Iterator, i$, this->observedObjects->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Monitor$ObservedObject, o, $cast($Monitor$ObservedObject, i$->next()));
 				{
@@ -501,7 +346,7 @@ void Monitor::setGranularityPeriod(int64_t period) {
 		if (isActive()) {
 			cleanupFutures();
 			$init($TimeUnit);
-			$set(this, schedulerFuture, $nc(Monitor::scheduler)->schedule(static_cast<$Runnable*>(this->schedulerTask), period, $TimeUnit::MILLISECONDS));
+			$set(this, schedulerFuture, $nc(Monitor::scheduler)->schedule(this->schedulerTask, period, $TimeUnit::MILLISECONDS));
 		}
 	}
 }
@@ -518,16 +363,16 @@ void Monitor::doStart() {
 	$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, "start the monitor"_s);
 	$synchronized(this) {
 		if (isActive()) {
-			$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, "the monitor is already active"_s);
+			$JmxProperties::MONITOR_LOGGER->log($System$Logger$Level::TRACE, "the monitor is already active"_s);
 			return;
 		}
 		this->isActive$ = true;
 		cleanupIsComplexTypeAttribute();
 		$set(this, acc, $AccessController::getContext());
 		cleanupFutures();
-		$nc(this->schedulerTask)->setMonitorTask($$new($Monitor$MonitorTask, this));
+		this->schedulerTask->setMonitorTask($$new($Monitor$MonitorTask, this));
 		$init($TimeUnit);
-		$set(this, schedulerFuture, $nc(Monitor::scheduler)->schedule(static_cast<$Runnable*>(this->schedulerTask), getGranularityPeriod(), $TimeUnit::MILLISECONDS));
+		$set(this, schedulerFuture, $nc(Monitor::scheduler)->schedule(this->schedulerTask, getGranularityPeriod(), $TimeUnit::MILLISECONDS));
 	}
 }
 
@@ -537,7 +382,7 @@ void Monitor::doStop() {
 	$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, "stop the monitor"_s);
 	$synchronized(this) {
 		if (!isActive()) {
-			$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, "the monitor is not active"_s);
+			$JmxProperties::MONITOR_LOGGER->log($System$Logger$Level::TRACE, "the monitor is not active"_s);
 			return;
 		}
 		this->isActive$ = false;
@@ -550,19 +395,19 @@ void Monitor::doStop() {
 $Object* Monitor::getDerivedGauge($ObjectName* object) {
 	$synchronized(this) {
 		$var($Monitor$ObservedObject, o, getObservedObject(object));
-		return $of(o == nullptr ? ($Object*)nullptr : $nc(o)->getDerivedGauge());
+		return o == nullptr ? ($Object*)nullptr : o->getDerivedGauge();
 	}
 }
 
 int64_t Monitor::getDerivedGaugeTimeStamp($ObjectName* object) {
 	$synchronized(this) {
 		$var($Monitor$ObservedObject, o, getObservedObject(object));
-		return o == nullptr ? (int64_t)0 : $nc(o)->getDerivedGaugeTimeStamp();
+		return o == nullptr ? 0 : o->getDerivedGaugeTimeStamp();
 	}
 }
 
 $Object* Monitor::getAttribute($MBeanServerConnection* mbsc, $ObjectName* object, $String* attribute) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool lookupMBeanInfo = false;
 	$synchronized(this) {
 		if (!isActive()) {
@@ -571,14 +416,14 @@ $Object* Monitor::getAttribute($MBeanServerConnection* mbsc, $ObjectName* object
 		if (!$nc(attribute)->equals($(getObservedAttribute()))) {
 			$throwNew($IllegalArgumentException, "The observed attribute has been changed"_s);
 		}
-		lookupMBeanInfo = (this->firstAttribute == nullptr && $nc(attribute)->indexOf((int32_t)u'.') != -1);
+		lookupMBeanInfo = (this->firstAttribute == nullptr && attribute->indexOf(u'.') != -1);
 	}
 	$var($MBeanInfo, mbi, nullptr);
 	if (lookupMBeanInfo) {
 		try {
 			$assign(mbi, $nc(mbsc)->getMBeanInfo(object));
 		} catch ($IntrospectionException& e) {
-			$throwNew($IllegalArgumentException, static_cast<$Throwable*>(e));
+			$throwNew($IllegalArgumentException, e);
 		}
 	} else {
 		$assign(mbi, nullptr);
@@ -588,23 +433,19 @@ $Object* Monitor::getAttribute($MBeanServerConnection* mbsc, $ObjectName* object
 		if (!isActive()) {
 			$throwNew($IllegalArgumentException, "The monitor has been stopped"_s);
 		}
-		if (!$nc(attribute)->equals($(getObservedAttribute()))) {
+		if (!attribute->equals($(getObservedAttribute()))) {
 			$throwNew($IllegalArgumentException, "The observed attribute has been changed"_s);
 		}
 		if (this->firstAttribute == nullptr) {
-			if ($nc(attribute)->indexOf((int32_t)u'.') != -1) {
+			if (attribute->indexOf(u'.') != -1) {
 				$var($MBeanAttributeInfoArray, mbaiArray, $nc(mbi)->getAttributes());
 				{
 					$var($MBeanAttributeInfoArray, arr$, mbaiArray);
-					int32_t len$ = $nc(arr$)->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
+					for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 						$var($MBeanAttributeInfo, mbai, arr$->get(i$));
-						{
-							if (attribute->equals($($nc(mbai)->getName()))) {
-								$set(this, firstAttribute, attribute);
-								break;
-							}
+						if (attribute->equals($($nc(mbai)->getName()))) {
+							$set(this, firstAttribute, attribute);
+							break;
 						}
 					}
 				}
@@ -612,7 +453,7 @@ $Object* Monitor::getAttribute($MBeanServerConnection* mbsc, $ObjectName* object
 					$var($StringArray, tokens, attribute->split("\\."_s, -1));
 					$set(this, firstAttribute, tokens->get(0));
 					for (int32_t i = 1; i < tokens->length; ++i) {
-						$nc(this->remainingAttributes)->add(tokens->get(i));
+						this->remainingAttributes->add(tokens->get(i));
 					}
 					this->isComplexTypeAttribute = true;
 				}
@@ -622,15 +463,15 @@ $Object* Monitor::getAttribute($MBeanServerConnection* mbsc, $ObjectName* object
 		}
 		$assign(fa, this->firstAttribute);
 	}
-	return $of($nc(mbsc)->getAttribute(object, fa));
+	return $nc(mbsc)->getAttribute(object, fa);
 }
 
 $Comparable* Monitor::getComparableFromAttribute($ObjectName* object, $String* attribute, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->isComplexTypeAttribute) {
 		$var($Object, v, value);
 		{
-			$var($Iterator, i$, $nc(this->remainingAttributes)->iterator());
+			$var($Iterator, i$, this->remainingAttributes->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($String, attr, $cast($String, i$->next()));
 				$assign(v, $Introspector::elementFromComplex(v, attr));
@@ -670,39 +511,19 @@ $Class* Monitor::classForType($Monitor$NumericalType* type) {
 	$init($Monitor$1);
 	switch ($nc($Monitor$1::$SwitchMap$javax$management$monitor$Monitor$NumericalType)->get($nc((type))->ordinal())) {
 	case 1:
-		{
-			$load($Byte);
-			return $Byte::class$;
-		}
+		return $Byte::class$;
 	case 2:
-		{
-			$load($Short);
-			return $Short::class$;
-		}
+		return $Short::class$;
 	case 3:
-		{
-			$load($Integer);
-			return $Integer::class$;
-		}
+		return $Integer::class$;
 	case 4:
-		{
-			$load($Long);
-			return $Long::class$;
-		}
+		return $Long::class$;
 	case 5:
-		{
-			$load($Float);
-			return $Float::class$;
-		}
+		return $Float::class$;
 	case 6:
-		{
-			$load($Double);
-			return $Double::class$;
-		}
+		return $Double::class$;
 	default:
-		{
-			$throwNew($IllegalArgumentException, "Unsupported numerical type"_s);
-		}
+		$throwNew($IllegalArgumentException, "Unsupported numerical type"_s);
 	}
 }
 
@@ -713,14 +534,12 @@ bool Monitor::isValidForType(Object$* value, $Class* c) {
 
 $Monitor$ObservedObject* Monitor::getObservedObject($ObjectName* object) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		{
-			$var($Iterator, i$, $nc(this->observedObjects)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Monitor$ObservedObject, o, $cast($Monitor$ObservedObject, i$->next()));
-				if ($nc($($nc(o)->getObservedObject()))->equals(object)) {
-					return o;
-				}
+		$useLocalObjectStack();
+		$var($Iterator, i$, this->observedObjects->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Monitor$ObservedObject, o, $cast($Monitor$ObservedObject, i$->next()));
+			if ($$nc($nc(o)->getObservedObject())->equals(object)) {
+				return o;
 			}
 		}
 		return nullptr;
@@ -733,11 +552,11 @@ $Monitor$ObservedObject* Monitor::createObservedObject($ObjectName* object) {
 
 void Monitor::createAlreadyNotified() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		this->elementCount = $nc(this->observedObjects)->size();
+		$useLocalObjectStack();
+		this->elementCount = this->observedObjects->size();
 		$set(this, alreadyNotifieds, $new($ints, this->elementCount));
 		for (int32_t i = 0; i < this->elementCount; ++i) {
-			$nc(this->alreadyNotifieds)->set(i, $nc(($cast($Monitor$ObservedObject, $($nc(this->observedObjects)->get(i)))))->getAlreadyNotified());
+			$nc(this->alreadyNotifieds)->set(i, $$sure($Monitor$ObservedObject, this->observedObjects->get(i))->getAlreadyNotified());
 		}
 		updateDeprecatedAlreadyNotified();
 	}
@@ -764,7 +583,7 @@ void Monitor::updateAlreadyNotified($Monitor$ObservedObject* o, int32_t index) {
 
 bool Monitor::isAlreadyNotified($Monitor$ObservedObject* o, int32_t mask) {
 	$synchronized(this) {
-		return (((int32_t)($nc(o)->getAlreadyNotified() & (uint32_t)mask)) != 0);
+		return (($nc(o)->getAlreadyNotified() & mask) != 0);
 	}
 }
 
@@ -774,14 +593,14 @@ void Monitor::setAlreadyNotified($Monitor$ObservedObject* o, int32_t index, int3
 		if (i == -1) {
 			return;
 		}
-		$nc(o)->setAlreadyNotified(o->getAlreadyNotified() | mask);
+		$nc(o)->setAlreadyNotified($nc(o)->getAlreadyNotified() | mask);
 		updateAlreadyNotified(o, i);
 	}
 }
 
 void Monitor::resetAlreadyNotified($Monitor$ObservedObject* o, int32_t index, int32_t mask) {
 	$synchronized(this) {
-		$nc(o)->setAlreadyNotified((int32_t)(o->getAlreadyNotified() & (uint32_t)~mask));
+		$nc(o)->setAlreadyNotified($nc(o)->getAlreadyNotified() & ~mask);
 		updateAlreadyNotified(o, index);
 	}
 }
@@ -802,22 +621,22 @@ int32_t Monitor::computeAlreadyNotifiedIndex($Monitor$ObservedObject* o, int32_t
 		if (an == this->alreadyNotifieds) {
 			return index;
 		} else {
-			return $nc(this->observedObjects)->indexOf(o);
+			return this->observedObjects->indexOf(o);
 		}
 	}
 }
 
 void Monitor::sendNotification($String* type, int64_t timeStamp, $String* msg, Object$* derGauge, Object$* trigger, $ObjectName* object, bool onError) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isActive()) {
 		return;
 	}
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MONITOR_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, $$str({"send notification: \n\tNotification observed object = "_s, object, "\n\tNotification observed attribute = "_s, this->observedAttribute, "\n\tNotification derived gauge = "_s, derGauge}));
+		$JmxProperties::MONITOR_LOGGER->log($System$Logger$Level::TRACE, $$str({"send notification: \n\tNotification observed object = "_s, object, "\n\tNotification observed attribute = "_s, this->observedAttribute, "\n\tNotification derived gauge = "_s, derGauge}));
 	}
-	int64_t seqno = $nc(this->sequenceNumber)->getAndIncrement();
+	int64_t seqno = this->sequenceNumber->getAndIncrement();
 	$var($MonitorNotification, mn, $new($MonitorNotification, type, this, seqno, timeStamp, msg, object, this->observedAttribute, derGauge, trigger));
 	if (onError) {
 		onErrorNotification(mn);
@@ -826,7 +645,7 @@ void Monitor::sendNotification($String* type, int64_t timeStamp, $String* msg, O
 }
 
 void Monitor::monitor($Monitor$ObservedObject* o, int32_t index, $ints* an) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, attribute, nullptr);
 	$var($String, notifType, nullptr);
 	$var($String, msg, nullptr);
@@ -870,7 +689,7 @@ void Monitor::monitor($Monitor$ObservedObject* o, int32_t index, $ints* an) {
 			$init($JmxProperties);
 			$init($System$Logger$Level);
 			$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, msg);
-			$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, static_cast<$Supplier*>($$new(Monitor$$Lambda$toString, static_cast<$NullPointerException*>(np_ex))));
+			$JmxProperties::MONITOR_LOGGER->log($System$Logger$Level::TRACE, $$new(Monitor$$Lambda$toString, np_ex));
 		}
 	} catch ($InstanceNotFoundException& inf_ex) {
 		if (isAlreadyNotified(o, Monitor::OBSERVED_OBJECT_ERROR_NOTIFIED)) {
@@ -882,7 +701,7 @@ void Monitor::monitor($Monitor$ObservedObject* o, int32_t index, $ints* an) {
 			$init($JmxProperties);
 			$init($System$Logger$Level);
 			$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, msg);
-			$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, static_cast<$Supplier*>($$new(Monitor$$Lambda$toString, static_cast<$InstanceNotFoundException*>(inf_ex))));
+			$JmxProperties::MONITOR_LOGGER->log($System$Logger$Level::TRACE, $$new(Monitor$$Lambda$toString, inf_ex));
 		}
 	} catch ($AttributeNotFoundException& anf_ex) {
 		if (isAlreadyNotified(o, Monitor::OBSERVED_ATTRIBUTE_ERROR_NOTIFIED)) {
@@ -894,7 +713,7 @@ void Monitor::monitor($Monitor$ObservedObject* o, int32_t index, $ints* an) {
 			$init($JmxProperties);
 			$init($System$Logger$Level);
 			$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, msg);
-			$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, static_cast<$Supplier*>($$new(Monitor$$Lambda$toString, static_cast<$AttributeNotFoundException*>(anf_ex))));
+			$JmxProperties::MONITOR_LOGGER->log($System$Logger$Level::TRACE, $$new(Monitor$$Lambda$toString, anf_ex));
 		}
 	} catch ($MBeanException& mb_ex) {
 		if (isAlreadyNotified(o, Monitor::RUNTIME_ERROR_NOTIFIED)) {
@@ -906,7 +725,7 @@ void Monitor::monitor($Monitor$ObservedObject* o, int32_t index, $ints* an) {
 			$init($JmxProperties);
 			$init($System$Logger$Level);
 			$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, msg);
-			$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, static_cast<$Supplier*>($$new(Monitor$$Lambda$toString, static_cast<$MBeanException*>(mb_ex))));
+			$JmxProperties::MONITOR_LOGGER->log($System$Logger$Level::TRACE, $$new(Monitor$$Lambda$toString, mb_ex));
 		}
 	} catch ($ReflectionException& ref_ex) {
 		if (isAlreadyNotified(o, Monitor::RUNTIME_ERROR_NOTIFIED)) {
@@ -918,7 +737,7 @@ void Monitor::monitor($Monitor$ObservedObject* o, int32_t index, $ints* an) {
 			$init($JmxProperties);
 			$init($System$Logger$Level);
 			$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, msg);
-			$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, static_cast<$Supplier*>($$new(Monitor$$Lambda$toString, static_cast<$ReflectionException*>(ref_ex))));
+			$JmxProperties::MONITOR_LOGGER->log($System$Logger$Level::TRACE, $$new(Monitor$$Lambda$toString, ref_ex));
 		}
 	} catch ($IOException& io_ex) {
 		if (isAlreadyNotified(o, Monitor::RUNTIME_ERROR_NOTIFIED)) {
@@ -930,7 +749,7 @@ void Monitor::monitor($Monitor$ObservedObject* o, int32_t index, $ints* an) {
 			$init($JmxProperties);
 			$init($System$Logger$Level);
 			$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, msg);
-			$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, static_cast<$Supplier*>($$new(Monitor$$Lambda$toString, static_cast<$IOException*>(io_ex))));
+			$JmxProperties::MONITOR_LOGGER->log($System$Logger$Level::TRACE, $$new(Monitor$$Lambda$toString, io_ex));
 		}
 	} catch ($RuntimeException& rt_ex) {
 		if (isAlreadyNotified(o, Monitor::RUNTIME_ERROR_NOTIFIED)) {
@@ -942,7 +761,7 @@ void Monitor::monitor($Monitor$ObservedObject* o, int32_t index, $ints* an) {
 			$init($JmxProperties);
 			$init($System$Logger$Level);
 			$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, msg);
-			$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, static_cast<$Supplier*>($$new(Monitor$$Lambda$toString, static_cast<$RuntimeException*>(rt_ex))));
+			$JmxProperties::MONITOR_LOGGER->log($System$Logger$Level::TRACE, $$new(Monitor$$Lambda$toString, rt_ex));
 		}
 	}
 	$synchronized(this) {
@@ -965,7 +784,7 @@ void Monitor::monitor($Monitor$ObservedObject* o, int32_t index, $ints* an) {
 					$init($JmxProperties);
 					$init($System$Logger$Level);
 					$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, msg);
-					$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, static_cast<$Supplier*>($$new(Monitor$$Lambda$toString, static_cast<$ClassCastException*>(e))));
+					$JmxProperties::MONITOR_LOGGER->log($System$Logger$Level::TRACE, $$new(Monitor$$Lambda$toString, e));
 				}
 			} catch ($AttributeNotFoundException& e) {
 				if (isAlreadyNotified(o, Monitor::OBSERVED_ATTRIBUTE_ERROR_NOTIFIED)) {
@@ -977,7 +796,7 @@ void Monitor::monitor($Monitor$ObservedObject* o, int32_t index, $ints* an) {
 					$init($JmxProperties);
 					$init($System$Logger$Level);
 					$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, msg);
-					$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, static_cast<$Supplier*>($$new(Monitor$$Lambda$toString, static_cast<$AttributeNotFoundException*>(e))));
+					$JmxProperties::MONITOR_LOGGER->log($System$Logger$Level::TRACE, $$new(Monitor$$Lambda$toString, e));
 				}
 			} catch ($RuntimeException& e) {
 				if (isAlreadyNotified(o, Monitor::RUNTIME_ERROR_NOTIFIED)) {
@@ -989,7 +808,7 @@ void Monitor::monitor($Monitor$ObservedObject* o, int32_t index, $ints* an) {
 					$init($JmxProperties);
 					$init($System$Logger$Level);
 					$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, msg);
-					$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, static_cast<$Supplier*>($$new(Monitor$$Lambda$toString, static_cast<$RuntimeException*>(e))));
+					$JmxProperties::MONITOR_LOGGER->log($System$Logger$Level::TRACE, $$new(Monitor$$Lambda$toString, e));
 				}
 			}
 		}
@@ -1038,7 +857,7 @@ void Monitor::monitor($Monitor$ObservedObject* o, int32_t index, $ints* an) {
 		if (msg == nullptr) {
 			resetAllAlreadyNotified(o, index, an);
 			$assign(derGauge, getDerivedGaugeFromComparable(object, attribute, value));
-			$nc(o)->setDerivedGauge(derGauge);
+			o->setDerivedGauge(derGauge);
 			o->setDerivedGaugeTimeStamp($System::currentTimeMillis());
 			$assign(alarm, buildAlarmNotification(object, attribute, $cast($Comparable, derGauge)));
 		}
@@ -1050,19 +869,18 @@ void Monitor::monitor($Monitor$ObservedObject* o, int32_t index, $ints* an) {
 		$var($String, var$0, alarm->getType());
 		int64_t var$1 = $System::currentTimeMillis();
 		$var($String, var$2, alarm->getMessage());
-		$var($Object, var$3, derGauge);
-		sendNotification(var$0, var$1, var$2, var$3, $(alarm->getTrigger()), object, false);
+		sendNotification(var$0, var$1, var$2, derGauge, $(alarm->getTrigger()), object, false);
 	}
 }
 
 void Monitor::cleanupFutures() {
 	$synchronized(this) {
 		if (this->schedulerFuture != nullptr) {
-			$nc(this->schedulerFuture)->cancel(false);
+			this->schedulerFuture->cancel(false);
 			$set(this, schedulerFuture, nullptr);
 		}
 		if (this->monitorFuture != nullptr) {
-			$nc(this->monitorFuture)->cancel(false);
+			this->monitorFuture->cancel(false);
 			$set(this, monitorFuture, nullptr);
 		}
 	}
@@ -1071,13 +889,13 @@ void Monitor::cleanupFutures() {
 void Monitor::cleanupIsComplexTypeAttribute() {
 	$synchronized(this) {
 		$set(this, firstAttribute, nullptr);
-		$nc(this->remainingAttributes)->clear();
+		this->remainingAttributes->clear();
 		this->isComplexTypeAttribute = false;
 	}
 }
 
-void clinit$Monitor($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Monitor::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, maximumPoolSizeSysProp, "jmx.x.monitor.maximum.pool.size"_s);
 	$assignStatic(Monitor::noPermissionsACC, $new($AccessControlContext, $$new($ProtectionDomainArray, {$$new($ProtectionDomain, nullptr, nullptr)})));
@@ -1086,8 +904,8 @@ void clinit$Monitor($Class* class$) {
 	$assignStatic(Monitor::executorsLock, $new($Object));
 	{
 		$var($String, maximumPoolSizeSysProp, "jmx.x.monitor.maximum.pool.size"_s);
-		$var($String, maximumPoolSizeStr, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, maximumPoolSizeSysProp)))));
-		if (maximumPoolSizeStr == nullptr || $($nc(maximumPoolSizeStr)->trim())->length() == 0) {
+		$var($String, maximumPoolSizeStr, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, maximumPoolSizeSysProp))));
+		if (maximumPoolSizeStr == nullptr || $(maximumPoolSizeStr->trim())->length() == 0) {
 			Monitor::maximumPoolSize = 10;
 		} else {
 			int32_t maximumPoolSizeTmp = 10;
@@ -1097,8 +915,8 @@ void clinit$Monitor($Class* class$) {
 				$init($JmxProperties);
 				$init($System$Logger$Level);
 				if ($nc($JmxProperties::MONITOR_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-					$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, $$str({"Wrong value for "_s, maximumPoolSizeSysProp, " system property"_s}), static_cast<$Throwable*>(e));
-					$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, $$str({maximumPoolSizeSysProp, " defaults to 10"_s}));
+					$JmxProperties::MONITOR_LOGGER->log($System$Logger$Level::TRACE, $$str({"Wrong value for "_s, maximumPoolSizeSysProp, " system property"_s}), e);
+					$JmxProperties::MONITOR_LOGGER->log($System$Logger$Level::TRACE, $$str({maximumPoolSizeSysProp, " defaults to 10"_s}));
 				}
 				maximumPoolSizeTmp = 10;
 			}
@@ -1117,11 +935,139 @@ Monitor::Monitor() {
 
 $Class* Monitor::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Monitor$$Lambda$toString::classInfo$.name)) {
+		if (name->equals("javax.management.monitor.Monitor$$Lambda$toString")) {
 			return Monitor$$Lambda$toString::load$(name, initialize);
 		}
 	}
-	$loadClass(Monitor, name, initialize, &_Monitor_ClassInfo_, clinit$Monitor, allocate$Monitor);
+	$CompoundAttribute alreadyNotifiedfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute dbgTagfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"observedAttribute", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Monitor, observedAttribute)},
+		{"granularityPeriod", "J", nullptr, $PRIVATE, $field(Monitor, granularityPeriod)},
+		{"isActive", "Z", nullptr, $PRIVATE, $field(Monitor, isActive$)},
+		{"sequenceNumber", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $FINAL, $field(Monitor, sequenceNumber)},
+		{"isComplexTypeAttribute", "Z", nullptr, $PRIVATE, $field(Monitor, isComplexTypeAttribute)},
+		{"firstAttribute", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Monitor, firstAttribute)},
+		{"remainingAttributes", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(Monitor, remainingAttributes)},
+		{"noPermissionsACC", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Monitor, noPermissionsACC)},
+		{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $VOLATILE, $field(Monitor, acc)},
+		{"scheduler", "Ljava/util/concurrent/ScheduledExecutorService;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Monitor, scheduler)},
+		{"executors", "Ljava/util/Map;", "Ljava/util/Map<Ljava/util/concurrent/ThreadPoolExecutor;Ljava/lang/Void;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Monitor, executors)},
+		{"executorsLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Monitor, executorsLock)},
+		{"maximumPoolSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Monitor, maximumPoolSize)},
+		{"monitorFuture", "Ljava/util/concurrent/Future;", "Ljava/util/concurrent/Future<*>;", $PRIVATE, $field(Monitor, monitorFuture)},
+		{"schedulerTask", "Ljavax/management/monitor/Monitor$SchedulerTask;", nullptr, $PRIVATE | $FINAL, $field(Monitor, schedulerTask)},
+		{"schedulerFuture", "Ljava/util/concurrent/ScheduledFuture;", "Ljava/util/concurrent/ScheduledFuture<*>;", $PRIVATE, $field(Monitor, schedulerFuture)},
+		{"capacityIncrement", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(Monitor, capacityIncrement)},
+		{"elementCount", "I", nullptr, $PROTECTED, $field(Monitor, elementCount)},
+		{"alreadyNotified", "I", nullptr, $PROTECTED | $DEPRECATED, $field(Monitor, alreadyNotified), alreadyNotifiedfieldAnnotations$$},
+		{"alreadyNotifieds", "[I", nullptr, $PROTECTED, $field(Monitor, alreadyNotifieds)},
+		{"server", "Ljavax/management/MBeanServer;", nullptr, $PROTECTED, $field(Monitor, server)},
+		{"RESET_FLAGS_ALREADY_NOTIFIED", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(Monitor, RESET_FLAGS_ALREADY_NOTIFIED)},
+		{"OBSERVED_OBJECT_ERROR_NOTIFIED", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(Monitor, OBSERVED_OBJECT_ERROR_NOTIFIED)},
+		{"OBSERVED_ATTRIBUTE_ERROR_NOTIFIED", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(Monitor, OBSERVED_ATTRIBUTE_ERROR_NOTIFIED)},
+		{"OBSERVED_ATTRIBUTE_TYPE_ERROR_NOTIFIED", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(Monitor, OBSERVED_ATTRIBUTE_TYPE_ERROR_NOTIFIED)},
+		{"RUNTIME_ERROR_NOTIFIED", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(Monitor, RUNTIME_ERROR_NOTIFIED)},
+		{"dbgTag", "Ljava/lang/String;", nullptr, $PROTECTED | $DEPRECATED, $field(Monitor, dbgTag), dbgTagfieldAnnotations$$},
+		{"observedObjects", "Ljava/util/List;", "Ljava/util/List<Ljavax/management/monitor/Monitor$ObservedObject;>;", $FINAL, $field(Monitor, observedObjects)},
+		{"THRESHOLD_ERROR_NOTIFIED", "I", nullptr, $STATIC | $FINAL, $constField(Monitor, THRESHOLD_ERROR_NOTIFIED)},
+		{"INTEGER_ZERO", "Ljava/lang/Integer;", nullptr, $STATIC | $FINAL, $staticField(Monitor, INTEGER_ZERO)},
+		{}
+	};
+	$CompoundAttribute getObservedObjectmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute setObservedObjectmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Monitor, init$, void)},
+		{"addObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Monitor, addObservedObject, void, $ObjectName*), "java.lang.IllegalArgumentException"},
+		{"buildAlarmNotification", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Ljavax/management/monitor/MonitorNotification;", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Ljavax/management/monitor/MonitorNotification;", 0, $virtualMethod(Monitor, buildAlarmNotification, $MonitorNotification*, $ObjectName*, $String*, $Comparable*)},
+		{"buildErrorNotification", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Ljava/lang/String;", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Ljava/lang/String;", 0, $virtualMethod(Monitor, buildErrorNotification, $String*, $ObjectName*, $String*, $Comparable*)},
+		{"classForType", "(Ljavax/management/monitor/Monitor$NumericalType;)Ljava/lang/Class;", "(Ljavax/management/monitor/Monitor$NumericalType;)Ljava/lang/Class<+Ljava/lang/Number;>;", $STATIC, $staticMethod(Monitor, classForType, $Class*, $Monitor$NumericalType*)},
+		{"cleanupFutures", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Monitor, cleanupFutures, void)},
+		{"cleanupIsComplexTypeAttribute", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Monitor, cleanupIsComplexTypeAttribute, void)},
+		{"computeAlreadyNotifiedIndex", "(Ljavax/management/monitor/Monitor$ObservedObject;I[I)I", nullptr, $SYNCHRONIZED, $virtualMethod(Monitor, computeAlreadyNotifiedIndex, int32_t, $Monitor$ObservedObject*, int32_t, $ints*)},
+		{"containsObservedObject", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Monitor, containsObservedObject, bool, $ObjectName*)},
+		{"createAlreadyNotified", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(Monitor, createAlreadyNotified, void)},
+		{"createObservedObject", "(Ljavax/management/ObjectName;)Ljavax/management/monitor/Monitor$ObservedObject;", nullptr, 0, $virtualMethod(Monitor, createObservedObject, $Monitor$ObservedObject*, $ObjectName*)},
+		{"doStart", "()V", nullptr, 0, $virtualMethod(Monitor, doStart, void)},
+		{"doStop", "()V", nullptr, 0, $virtualMethod(Monitor, doStop, void)},
+		{"getAttribute", "(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(Monitor, getAttribute, $Object*, $MBeanServerConnection*, $ObjectName*, $String*), "javax.management.AttributeNotFoundException,javax.management.InstanceNotFoundException,javax.management.MBeanException,javax.management.ReflectionException,java.io.IOException"},
+		{"getComparableFromAttribute", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Comparable;", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Comparable<*>;", 0, $virtualMethod(Monitor, getComparableFromAttribute, $Comparable*, $ObjectName*, $String*, Object$*), "javax.management.AttributeNotFoundException"},
+		{"getDerivedGauge", "(Ljavax/management/ObjectName;)Ljava/lang/Object;", nullptr, $SYNCHRONIZED, $virtualMethod(Monitor, getDerivedGauge, $Object*, $ObjectName*)},
+		{"getDerivedGaugeFromComparable", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Ljava/lang/Comparable;", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Ljava/lang/Comparable<*>;", 0, $virtualMethod(Monitor, getDerivedGaugeFromComparable, $Comparable*, $ObjectName*, $String*, $Comparable*)},
+		{"getDerivedGaugeTimeStamp", "(Ljavax/management/ObjectName;)J", nullptr, $SYNCHRONIZED, $virtualMethod(Monitor, getDerivedGaugeTimeStamp, int64_t, $ObjectName*)},
+		{"getGranularityPeriod", "()J", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Monitor, getGranularityPeriod, int64_t)},
+		{"getObservedAttribute", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Monitor, getObservedAttribute, $String*)},
+		{"getObservedObject", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(Monitor, getObservedObject, $ObjectName*), nullptr, nullptr, getObservedObjectmethodAnnotations$$},
+		{"getObservedObject", "(Ljavax/management/ObjectName;)Ljavax/management/monitor/Monitor$ObservedObject;", nullptr, $SYNCHRONIZED, $virtualMethod(Monitor, getObservedObject, $Monitor$ObservedObject*, $ObjectName*)},
+		{"getObservedObjects", "()[Ljavax/management/ObjectName;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Monitor, getObservedObjects, $ObjectNameArray*)},
+		{"isActive", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Monitor, isActive, bool)},
+		{"isAlreadyNotified", "(Ljavax/management/monitor/Monitor$ObservedObject;I)Z", nullptr, $SYNCHRONIZED, $virtualMethod(Monitor, isAlreadyNotified, bool, $Monitor$ObservedObject*, int32_t)},
+		{"isComparableTypeValid", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Z", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Z", 0, $virtualMethod(Monitor, isComparableTypeValid, bool, $ObjectName*, $String*, $Comparable*)},
+		{"isThresholdTypeValid", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Z", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Z", 0, $virtualMethod(Monitor, isThresholdTypeValid, bool, $ObjectName*, $String*, $Comparable*)},
+		{"isValidForType", "(Ljava/lang/Object;Ljava/lang/Class;)Z", "(Ljava/lang/Object;Ljava/lang/Class<+Ljava/lang/Number;>;)Z", $STATIC, $staticMethod(Monitor, isValidForType, bool, Object$*, $Class*)},
+		{"monitor", "(Ljavax/management/monitor/Monitor$ObservedObject;I[I)V", nullptr, $PRIVATE, $method(Monitor, monitor, void, $Monitor$ObservedObject*, int32_t, $ints*)},
+		{"onErrorNotification", "(Ljavax/management/monitor/MonitorNotification;)V", nullptr, 0, $virtualMethod(Monitor, onErrorNotification, void, $MonitorNotification*)},
+		{"postDeregister", "()V", nullptr, $PUBLIC, $virtualMethod(Monitor, postDeregister, void)},
+		{"postRegister", "(Ljava/lang/Boolean;)V", nullptr, $PUBLIC, $virtualMethod(Monitor, postRegister, void, $Boolean*)},
+		{"preDeregister", "()V", nullptr, $PUBLIC, $virtualMethod(Monitor, preDeregister, void), "java.lang.Exception"},
+		{"preRegister", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(Monitor, preRegister, $ObjectName*, $MBeanServer*, $ObjectName*), "java.lang.Exception"},
+		{"removeObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Monitor, removeObservedObject, void, $ObjectName*)},
+		{"resetAllAlreadyNotified", "(Ljavax/management/monitor/Monitor$ObservedObject;I[I)V", nullptr, $SYNCHRONIZED, $virtualMethod(Monitor, resetAllAlreadyNotified, void, $Monitor$ObservedObject*, int32_t, $ints*)},
+		{"resetAlreadyNotified", "(Ljavax/management/monitor/Monitor$ObservedObject;II)V", nullptr, $SYNCHRONIZED, $virtualMethod(Monitor, resetAlreadyNotified, void, $Monitor$ObservedObject*, int32_t, int32_t)},
+		{"sendNotification", "(Ljava/lang/String;JLjava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljavax/management/ObjectName;Z)V", nullptr, $PRIVATE, $method(Monitor, sendNotification, void, $String*, int64_t, $String*, Object$*, Object$*, $ObjectName*, bool)},
+		{"setAlreadyNotified", "(Ljavax/management/monitor/Monitor$ObservedObject;II[I)V", nullptr, $SYNCHRONIZED, $virtualMethod(Monitor, setAlreadyNotified, void, $Monitor$ObservedObject*, int32_t, int32_t, $ints*)},
+		{"setGranularityPeriod", "(J)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Monitor, setGranularityPeriod, void, int64_t), "java.lang.IllegalArgumentException"},
+		{"setObservedAttribute", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Monitor, setObservedAttribute, void, $String*), "java.lang.IllegalArgumentException"},
+		{"setObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(Monitor, setObservedObject, void, $ObjectName*), "java.lang.IllegalArgumentException", nullptr, setObservedObjectmethodAnnotations$$},
+		{"start", "()V", nullptr, $PUBLIC | $ABSTRACT},
+		{"stop", "()V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateAlreadyNotified", "(Ljavax/management/monitor/Monitor$ObservedObject;I)V", nullptr, $SYNCHRONIZED, $virtualMethod(Monitor, updateAlreadyNotified, void, $Monitor$ObservedObject*, int32_t)},
+		{"updateDeprecatedAlreadyNotified", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(Monitor, updateDeprecatedAlreadyNotified, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.monitor.Monitor$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"javax.management.monitor.Monitor$DaemonThreadFactory", "javax.management.monitor.Monitor", "DaemonThreadFactory", $PRIVATE | $STATIC},
+		{"javax.management.monitor.Monitor$MonitorTask", "javax.management.monitor.Monitor", "MonitorTask", $PRIVATE},
+		{"javax.management.monitor.Monitor$SchedulerTask", "javax.management.monitor.Monitor", "SchedulerTask", $PRIVATE},
+		{"javax.management.monitor.Monitor$NumericalType", "javax.management.monitor.Monitor", "NumericalType", $STATIC | $FINAL | $ENUM},
+		{"javax.management.monitor.Monitor$ObservedObject", "javax.management.monitor.Monitor", "ObservedObject", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.management.monitor.Monitor",
+		"javax.management.NotificationBroadcasterSupport",
+		"javax.management.monitor.MonitorMBean,javax.management.MBeanRegistration",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.management.monitor.Monitor$1,javax.management.monitor.Monitor$DaemonThreadFactory,javax.management.monitor.Monitor$MonitorTask,javax.management.monitor.Monitor$MonitorTask$1,javax.management.monitor.Monitor$SchedulerTask,javax.management.monitor.Monitor$NumericalType,javax.management.monitor.Monitor$ObservedObject"
+	};
+	$loadClass(Monitor, name, initialize, &classInfo$$, Monitor::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Monitor));
+	});
 	return class$;
 }
 

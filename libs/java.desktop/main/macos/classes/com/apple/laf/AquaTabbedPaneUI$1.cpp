@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaTabbedPaneUI$1.h>
-
 #include <com/apple/laf/AquaIcon$CachingScalingIcon.h>
 #include <com/apple/laf/AquaIcon.h>
 #include <com/apple/laf/AquaTabbedPaneUI.h>
@@ -22,50 +21,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaTabbedPaneUI$1_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaTabbedPaneUI$1, this$0)},
-	{"val$mainIcon", "Ljavax/swing/Icon;", nullptr, $FINAL | $SYNTHETIC, $field(AquaTabbedPaneUI$1, val$mainIcon)},
-	{}
-};
-
-$MethodInfo _AquaTabbedPaneUI$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaTabbedPaneUI;IILjavax/swing/Icon;)V", nullptr, 0, $method(AquaTabbedPaneUI$1, init$, void, $AquaTabbedPaneUI*, int32_t, int32_t, $Icon*)},
-	{"createImage", "()Ljava/awt/Image;", nullptr, 0, $virtualMethod(AquaTabbedPaneUI$1, createImage, $Image*)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaTabbedPaneUI$1_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaTabbedPaneUI",
-	"getIconForTab",
-	"(I)Ljavax/swing/Icon;"
-};
-
-$InnerClassInfo _AquaTabbedPaneUI$1_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaTabbedPaneUI$1", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaIcon$CachingScalingIcon", "com.apple.laf.AquaIcon", "CachingScalingIcon", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaTabbedPaneUI$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaTabbedPaneUI$1",
-	"com.apple.laf.AquaIcon$CachingScalingIcon",
-	nullptr,
-	_AquaTabbedPaneUI$1_FieldInfo_,
-	_AquaTabbedPaneUI$1_MethodInfo_,
-	nullptr,
-	&_AquaTabbedPaneUI$1_EnclosingMethodInfo_,
-	_AquaTabbedPaneUI$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaTabbedPaneUI"
-};
-
-$Object* allocate$AquaTabbedPaneUI$1($Class* clazz) {
-	return $of($alloc(AquaTabbedPaneUI$1));
-}
-
 void AquaTabbedPaneUI$1::init$($AquaTabbedPaneUI* this$0, int32_t width, int32_t height, $Icon* val$mainIcon) {
 	$set(this, this$0, this$0);
 	$set(this, val$mainIcon, val$mainIcon);
@@ -80,7 +35,44 @@ AquaTabbedPaneUI$1::AquaTabbedPaneUI$1() {
 }
 
 $Class* AquaTabbedPaneUI$1::load$($String* name, bool initialize) {
-	$loadClass(AquaTabbedPaneUI$1, name, initialize, &_AquaTabbedPaneUI$1_ClassInfo_, allocate$AquaTabbedPaneUI$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaTabbedPaneUI$1, this$0)},
+		{"val$mainIcon", "Ljavax/swing/Icon;", nullptr, $FINAL | $SYNTHETIC, $field(AquaTabbedPaneUI$1, val$mainIcon)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaTabbedPaneUI;IILjavax/swing/Icon;)V", nullptr, 0, $method(AquaTabbedPaneUI$1, init$, void, $AquaTabbedPaneUI*, int32_t, int32_t, $Icon*)},
+		{"createImage", "()Ljava/awt/Image;", nullptr, 0, $virtualMethod(AquaTabbedPaneUI$1, createImage, $Image*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaTabbedPaneUI",
+		"getIconForTab",
+		"(I)Ljavax/swing/Icon;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaTabbedPaneUI$1", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaIcon$CachingScalingIcon", "com.apple.laf.AquaIcon", "CachingScalingIcon", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaTabbedPaneUI$1",
+		"com.apple.laf.AquaIcon$CachingScalingIcon",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaTabbedPaneUI"
+	};
+	$loadClass(AquaTabbedPaneUI$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaTabbedPaneUI$1));
+	});
 	return class$;
 }
 

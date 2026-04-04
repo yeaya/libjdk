@@ -1,5 +1,4 @@
 #include <javax/security/auth/kerberos/KrbServicePermissionCollection.h>
-
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream$PutField.h>
@@ -13,7 +12,6 @@
 #include <java/util/Iterator.h>
 #include <java/util/Vector.h>
 #include <java/util/concurrent/ConcurrentHashMap.h>
-#include <java/util/function/BiFunction.h>
 #include <javax/security/auth/kerberos/KrbServicePermissionCollection$1.h>
 #include <javax/security/auth/kerberos/ServicePermission.h>
 #include <jcpp.h>
@@ -32,12 +30,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
 using $Permission = ::java::security::Permission;
 using $PermissionCollection = ::java::security::PermissionCollection;
-using $Collection = ::java::util::Collection;
 using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
 using $Vector = ::java::util::Vector;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
-using $BiFunction = ::java::util::function::BiFunction;
 using $KrbServicePermissionCollection$1 = ::javax::security::auth::kerberos::KrbServicePermissionCollection$1;
 using $ServicePermission = ::javax::security::auth::kerberos::ServicePermission;
 
@@ -45,47 +41,6 @@ namespace javax {
 	namespace security {
 		namespace auth {
 			namespace kerberos {
-
-$FieldInfo _KrbServicePermissionCollection_FieldInfo_[] = {
-	{"perms", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Ljava/security/Permission;>;", $PRIVATE | $TRANSIENT, $field(KrbServicePermissionCollection, perms)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KrbServicePermissionCollection, serialVersionUID)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KrbServicePermissionCollection, serialPersistentFields)},
-	{}
-};
-
-$MethodInfo _KrbServicePermissionCollection_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(KrbServicePermissionCollection, init$, void)},
-	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(KrbServicePermissionCollection, add, void, $Permission*)},
-	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(KrbServicePermissionCollection, elements, $Enumeration*)},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(KrbServicePermissionCollection, implies, bool, $Permission*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(KrbServicePermissionCollection, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(KrbServicePermissionCollection, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _KrbServicePermissionCollection_InnerClassesInfo_[] = {
-	{"javax.security.auth.kerberos.KrbServicePermissionCollection$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _KrbServicePermissionCollection_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.security.auth.kerberos.KrbServicePermissionCollection",
-	"java.security.PermissionCollection",
-	nullptr,
-	_KrbServicePermissionCollection_FieldInfo_,
-	_KrbServicePermissionCollection_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KrbServicePermissionCollection_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.security.auth.kerberos.KrbServicePermissionCollection$1"
-};
-
-$Object* allocate$KrbServicePermissionCollection($Class* clazz) {
-	return $of($alloc(KrbServicePermissionCollection));
-}
 
 $ObjectStreamFieldArray* KrbServicePermissionCollection::serialPersistentFields = nullptr;
 
@@ -95,22 +50,20 @@ void KrbServicePermissionCollection::init$() {
 }
 
 bool KrbServicePermissionCollection::implies($Permission* permission) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($ServicePermission, permission))) {
 		return false;
 	}
 	$var($ServicePermission, np, $cast($ServicePermission, permission));
 	int32_t desired = $nc(np)->getMask();
 	if (desired == 0) {
-		{
-			$var($Iterator, i$, $nc($($nc(this->perms)->values()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Permission, p, $cast($Permission, i$->next()));
-				{
-					$var($ServicePermission, sp, $cast($ServicePermission, p));
-					if ($nc(sp)->impliesIgnoreMask(np)) {
-						return true;
-					}
+		$var($Iterator, i$, $$nc($nc(this->perms)->values())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Permission, p, $cast($Permission, i$->next()));
+			{
+				$var($ServicePermission, sp, $cast($ServicePermission, p));
+				if ($nc(sp)->impliesIgnoreMask(np)) {
+					return true;
 				}
 			}
 		}
@@ -118,13 +71,13 @@ bool KrbServicePermissionCollection::implies($Permission* permission) {
 	}
 	$var($ServicePermission, x, $cast($ServicePermission, $nc(this->perms)->get("*"_s)));
 	if (x != nullptr) {
-		if (((int32_t)(x->getMask() & (uint32_t)desired)) == desired) {
+		if ((x->getMask() & desired) == desired) {
 			return true;
 		}
 	}
 	$assign(x, $cast($ServicePermission, $nc(this->perms)->get($(np->getName()))));
 	if (x != nullptr) {
-		if (((int32_t)(x->getMask() & (uint32_t)desired)) == desired) {
+		if ((x->getMask() & desired) == desired) {
 			return true;
 		}
 	}
@@ -132,7 +85,7 @@ bool KrbServicePermissionCollection::implies($Permission* permission) {
 }
 
 void KrbServicePermissionCollection::add($Permission* permission) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($ServicePermission, permission))) {
 		$throwNew($IllegalArgumentException, $$str({"invalid permission: "_s, permission}));
 	}
@@ -149,20 +102,20 @@ $Enumeration* KrbServicePermissionCollection::elements() {
 }
 
 void KrbServicePermissionCollection::writeObject($ObjectOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, permissions, $new($Vector, $($nc(this->perms)->values())));
 	$var($ObjectOutputStream$PutField, pfields, $nc(out)->putFields());
-	$nc(pfields)->put("permissions"_s, $of(permissions));
+	$nc(pfields)->put("permissions"_s, permissions);
 	out->writeFields();
 }
 
 void KrbServicePermissionCollection::readObject($ObjectInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, gfields, $nc(in)->readFields());
-	$var($Vector, permissions, $cast($Vector, $nc(gfields)->get("permissions"_s, ($Object*)nullptr)));
+	$var($Vector, permissions, $cast($Vector, $nc(gfields)->get("permissions"_s, nullptr)));
 	$set(this, perms, $new($ConcurrentHashMap, $nc(permissions)->size()));
 	{
-		$var($Iterator, i$, $nc(permissions)->iterator());
+		$var($Iterator, i$, permissions->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Permission, perm, $cast($Permission, i$->next()));
 			{
@@ -172,7 +125,7 @@ void KrbServicePermissionCollection::readObject($ObjectInputStream* in) {
 	}
 }
 
-void clinit$KrbServicePermissionCollection($Class* class$) {
+void KrbServicePermissionCollection::clinit$($Class* clazz) {
 	$load($Vector);
 	$assignStatic(KrbServicePermissionCollection::serialPersistentFields, $new($ObjectStreamFieldArray, {$$new($ObjectStreamField, "permissions"_s, $Vector::class$)}));
 }
@@ -181,7 +134,42 @@ KrbServicePermissionCollection::KrbServicePermissionCollection() {
 }
 
 $Class* KrbServicePermissionCollection::load$($String* name, bool initialize) {
-	$loadClass(KrbServicePermissionCollection, name, initialize, &_KrbServicePermissionCollection_ClassInfo_, clinit$KrbServicePermissionCollection, allocate$KrbServicePermissionCollection);
+	$FieldInfo fieldInfos$$[] = {
+		{"perms", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Ljava/security/Permission;>;", $PRIVATE | $TRANSIENT, $field(KrbServicePermissionCollection, perms)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KrbServicePermissionCollection, serialVersionUID)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KrbServicePermissionCollection, serialPersistentFields)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(KrbServicePermissionCollection, init$, void)},
+		{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(KrbServicePermissionCollection, add, void, $Permission*)},
+		{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(KrbServicePermissionCollection, elements, $Enumeration*)},
+		{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(KrbServicePermissionCollection, implies, bool, $Permission*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(KrbServicePermissionCollection, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(KrbServicePermissionCollection, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.security.auth.kerberos.KrbServicePermissionCollection$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.security.auth.kerberos.KrbServicePermissionCollection",
+		"java.security.PermissionCollection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.security.auth.kerberos.KrbServicePermissionCollection$1"
+	};
+	$loadClass(KrbServicePermissionCollection, name, initialize, &classInfo$$, KrbServicePermissionCollection::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KrbServicePermissionCollection);
+	});
 	return class$;
 }
 

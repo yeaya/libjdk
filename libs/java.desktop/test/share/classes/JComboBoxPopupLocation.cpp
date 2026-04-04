@@ -1,5 +1,4 @@
 #include <JComboBoxPopupLocation.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/EventQueue.h>
@@ -8,7 +7,6 @@
 #include <java/awt/GraphicsDevice.h>
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Insets.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Robot.h>
@@ -35,14 +33,12 @@
 
 using $GraphicsDeviceArray = $Array<::java::awt::GraphicsDevice>;
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
-using $Component = ::java::awt::Component;
 using $EventQueue = ::java::awt::EventQueue;
 using $FlowLayout = ::java::awt::FlowLayout;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Robot = ::java::awt::Robot;
@@ -71,33 +67,29 @@ public:
 	virtual void run() override {
 		JComboBoxPopupLocation::lambda$step$0(point);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JComboBoxPopupLocation$$Lambda$lambda$step$0>());
-	}
 	$Point* point = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JComboBoxPopupLocation$$Lambda$lambda$step$0::fieldInfos[2] = {
-	{"point", "Ljava/awt/Point;", nullptr, $PUBLIC, $field(JComboBoxPopupLocation$$Lambda$lambda$step$0, point)},
-	{}
-};
-$MethodInfo JComboBoxPopupLocation$$Lambda$lambda$step$0::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(JComboBoxPopupLocation$$Lambda$lambda$step$0, init$, void, $Point*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JComboBoxPopupLocation$$Lambda$lambda$step$0, run, void)},
-	{}
-};
-$ClassInfo JComboBoxPopupLocation$$Lambda$lambda$step$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JComboBoxPopupLocation$$Lambda$lambda$step$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* JComboBoxPopupLocation$$Lambda$lambda$step$0::load$($String* name, bool initialize) {
-	$loadClass(JComboBoxPopupLocation$$Lambda$lambda$step$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"point", "Ljava/awt/Point;", nullptr, $PUBLIC, $field(JComboBoxPopupLocation$$Lambda$lambda$step$0, point)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(JComboBoxPopupLocation$$Lambda$lambda$step$0, init$, void, $Point*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JComboBoxPopupLocation$$Lambda$lambda$step$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JComboBoxPopupLocation$$Lambda$lambda$step$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JComboBoxPopupLocation$$Lambda$lambda$step$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JComboBoxPopupLocation$$Lambda$lambda$step$0);
+	});
 	return class$;
 }
 $Class* JComboBoxPopupLocation$$Lambda$lambda$step$0::class$ = nullptr;
@@ -110,27 +102,24 @@ public:
 	virtual void run() override {
 		JComboBoxPopupLocation::lambda$dispose$2();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JComboBoxPopupLocation$$Lambda$lambda$dispose$2$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JComboBoxPopupLocation$$Lambda$lambda$dispose$2$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JComboBoxPopupLocation$$Lambda$lambda$dispose$2$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JComboBoxPopupLocation$$Lambda$lambda$dispose$2$1, run, void)},
-	{}
-};
-$ClassInfo JComboBoxPopupLocation$$Lambda$lambda$dispose$2$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JComboBoxPopupLocation$$Lambda$lambda$dispose$2$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* JComboBoxPopupLocation$$Lambda$lambda$dispose$2$1::load$($String* name, bool initialize) {
-	$loadClass(JComboBoxPopupLocation$$Lambda$lambda$dispose$2$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JComboBoxPopupLocation$$Lambda$lambda$dispose$2$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JComboBoxPopupLocation$$Lambda$lambda$dispose$2$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JComboBoxPopupLocation$$Lambda$lambda$dispose$2$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JComboBoxPopupLocation$$Lambda$lambda$dispose$2$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JComboBoxPopupLocation$$Lambda$lambda$dispose$2$1);
+	});
 	return class$;
 }
 $Class* JComboBoxPopupLocation$$Lambda$lambda$dispose$2$1::class$ = nullptr;
@@ -144,72 +133,32 @@ public:
 	virtual void run() override {
 		JComboBoxPopupLocation::lambda$validate$3(comboBox);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JComboBoxPopupLocation$$Lambda$lambda$validate$3$2>());
-	}
 	$JComboBox* comboBox = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JComboBoxPopupLocation$$Lambda$lambda$validate$3$2::fieldInfos[2] = {
-	{"comboBox", "Ljavax/swing/JComboBox;", nullptr, $PUBLIC, $field(JComboBoxPopupLocation$$Lambda$lambda$validate$3$2, comboBox)},
-	{}
-};
-$MethodInfo JComboBoxPopupLocation$$Lambda$lambda$validate$3$2::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/JComboBox;)V", nullptr, $PUBLIC, $method(JComboBoxPopupLocation$$Lambda$lambda$validate$3$2, init$, void, $JComboBox*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JComboBoxPopupLocation$$Lambda$lambda$validate$3$2, run, void)},
-	{}
-};
-$ClassInfo JComboBoxPopupLocation$$Lambda$lambda$validate$3$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JComboBoxPopupLocation$$Lambda$lambda$validate$3$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* JComboBoxPopupLocation$$Lambda$lambda$validate$3$2::load$($String* name, bool initialize) {
-	$loadClass(JComboBoxPopupLocation$$Lambda$lambda$validate$3$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"comboBox", "Ljavax/swing/JComboBox;", nullptr, $PUBLIC, $field(JComboBoxPopupLocation$$Lambda$lambda$validate$3$2, comboBox)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JComboBox;)V", nullptr, $PUBLIC, $method(JComboBoxPopupLocation$$Lambda$lambda$validate$3$2, init$, void, $JComboBox*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JComboBoxPopupLocation$$Lambda$lambda$validate$3$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JComboBoxPopupLocation$$Lambda$lambda$validate$3$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JComboBoxPopupLocation$$Lambda$lambda$validate$3$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JComboBoxPopupLocation$$Lambda$lambda$validate$3$2);
+	});
 	return class$;
 }
 $Class* JComboBoxPopupLocation$$Lambda$lambda$validate$3$2::class$ = nullptr;
-
-$FieldInfo _JComboBoxPopupLocation_FieldInfo_[] = {
-	{"SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JComboBoxPopupLocation, SIZE)},
-	{"PROPERTY_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JComboBoxPopupLocation, PROPERTY_NAME)},
-	{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(JComboBoxPopupLocation, robot)},
-	{"comboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljava/lang/String;>;", $PRIVATE | $STATIC | $VOLATILE, $staticField(JComboBoxPopupLocation, comboBox)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(JComboBoxPopupLocation, frame)},
-	{}
-};
-
-$MethodInfo _JComboBoxPopupLocation_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JComboBoxPopupLocation, init$, void)},
-	{"dispose", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JComboBoxPopupLocation, dispose, void), "java.lang.Exception"},
-	{"lambda$dispose$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JComboBoxPopupLocation, lambda$dispose$2, void)},
-	{"lambda$step$0", "(Ljava/awt/Point;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JComboBoxPopupLocation, lambda$step$0, void, $Point*)},
-	{"lambda$validate$3", "(Ljavax/swing/JComboBox;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JComboBoxPopupLocation, lambda$validate$3, void, $JComboBox*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JComboBoxPopupLocation, main, void, $StringArray*), "java.lang.Exception"},
-	{"setup", "(Ljava/awt/Point;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JComboBoxPopupLocation, setup, void, $Point*)},
-	{"step", "([Ljava/awt/GraphicsDevice;Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JComboBoxPopupLocation, step, void, $GraphicsDeviceArray*, $UIManager$LookAndFeelInfo*), "java.lang.Exception"},
-	{"test", "(Ljavax/swing/JComboBox;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JComboBoxPopupLocation, test, void, $JComboBox*), "java.lang.Exception"},
-	{"validate", "(Ljavax/swing/JComboBox;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JComboBoxPopupLocation, validate, void, $JComboBox*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _JComboBoxPopupLocation_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"JComboBoxPopupLocation",
-	"java.lang.Object",
-	nullptr,
-	_JComboBoxPopupLocation_FieldInfo_,
-	_JComboBoxPopupLocation_MethodInfo_
-};
-
-$Object* allocate$JComboBoxPopupLocation($Class* clazz) {
-	return $of($alloc(JComboBoxPopupLocation));
-}
 
 $String* JComboBoxPopupLocation::PROPERTY_NAME = nullptr;
 $volatile($Robot*) JComboBoxPopupLocation::robot = nullptr;
@@ -221,7 +170,7 @@ void JComboBoxPopupLocation::init$() {
 
 void JComboBoxPopupLocation::main($StringArray* args) {
 	$init(JComboBoxPopupLocation);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(JComboBoxPopupLocation::robot, $new($Robot));
 	$nc(JComboBoxPopupLocation::robot)->setAutoDelay(100);
 	$nc(JComboBoxPopupLocation::robot)->setAutoWaitForIdle(true);
@@ -230,14 +179,12 @@ void JComboBoxPopupLocation::main($StringArray* args) {
 	$var($UIManager$LookAndFeelInfoArray, lookAndFeelArray, $UIManager::getInstalledLookAndFeels());
 	{
 		$var($UIManager$LookAndFeelInfoArray, arr$, lookAndFeelArray);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($UIManager$LookAndFeelInfo, lookAndFeelItem, arr$->get(i$));
 			{
 				$System::setProperty(JComboBoxPopupLocation::PROPERTY_NAME, "true"_s);
 				step(sds, lookAndFeelItem);
-				if ($nc($($nc(lookAndFeelItem)->getClassName()))->contains("Aqua"_s)) {
+				if ($$nc($nc(lookAndFeelItem)->getClassName())->contains("Aqua"_s)) {
 					$System::setProperty(JComboBoxPopupLocation::PROPERTY_NAME, "false"_s);
 					step(sds, lookAndFeelItem);
 				}
@@ -248,43 +195,39 @@ void JComboBoxPopupLocation::main($StringArray* args) {
 
 void JComboBoxPopupLocation::step($GraphicsDeviceArray* sds, $UIManager$LookAndFeelInfo* lookAndFeelItem) {
 	$init(JComboBoxPopupLocation);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$UIManager::setLookAndFeel($($nc(lookAndFeelItem)->getClassName()));
 	$var($Point, left, nullptr);
 	{
 		$var($GraphicsDeviceArray, arr$, sds);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($GraphicsDevice, sd, arr$->get(i$));
 			{
 				$var($GraphicsConfiguration, gc, $nc(sd)->getDefaultConfiguration());
 				$var($Rectangle, bounds, $nc(gc)->getBounds());
-				if (left == nullptr || $nc(left)->x > $nc(bounds)->x) {
-					$assign(left, $new($Point, bounds->x, bounds->y + bounds->height / 2));
+				if (left == nullptr || left->x > $nc(bounds)->x) {
+					$assign(left, $new($Point, $nc(bounds)->x, $nc(bounds)->y + $nc(bounds)->height / 2));
 				}
-				$var($Point, point, $new($Point, $nc(bounds)->x, bounds->y));
-				$var($Insets, insets, $nc($($Toolkit::getDefaultToolkit()))->getScreenInsets(gc));
-				while (point->y < $nc(bounds)->y + bounds->height - $nc(insets)->bottom - JComboBoxPopupLocation::SIZE) {
+				$var($Point, point, $new($Point, $nc(bounds)->x, $nc(bounds)->y));
+				$var($Insets, insets, $$nc($Toolkit::getDefaultToolkit())->getScreenInsets(gc));
+				while (point->y < bounds->y + bounds->height - $nc(insets)->bottom - JComboBoxPopupLocation::SIZE) {
 					while (point->x < bounds->x + bounds->width - insets->right - JComboBoxPopupLocation::SIZE) {
-						{
-							$var($Throwable, var$0, nullptr);
-							try {
-								$EventQueue::invokeAndWait(static_cast<$Runnable*>($$new(JComboBoxPopupLocation$$Lambda$lambda$step$0, point)));
-								$nc(JComboBoxPopupLocation::robot)->waitForIdle();
-								test(JComboBoxPopupLocation::comboBox);
-								$nc(JComboBoxPopupLocation::robot)->waitForIdle();
-								validate(JComboBoxPopupLocation::comboBox);
-								$nc(JComboBoxPopupLocation::robot)->waitForIdle();
-								point->translate(bounds->width / 5, 0);
-							} catch ($Throwable& var$1) {
-								$assign(var$0, var$1);
-							} /*finally*/ {
-								dispose();
-							}
-							if (var$0 != nullptr) {
-								$throw(var$0);
-							}
+						$var($Throwable, var$0, nullptr);
+						try {
+							$EventQueue::invokeAndWait($$new(JComboBoxPopupLocation$$Lambda$lambda$step$0, point));
+							$nc(JComboBoxPopupLocation::robot)->waitForIdle();
+							test(JComboBoxPopupLocation::comboBox);
+							$nc(JComboBoxPopupLocation::robot)->waitForIdle();
+							validate(JComboBoxPopupLocation::comboBox);
+							$nc(JComboBoxPopupLocation::robot)->waitForIdle();
+							point->translate(bounds->width / 5, 0);
+						} catch ($Throwable& var$1) {
+							$assign(var$0, var$1);
+						} /*finally*/ {
+							dispose();
+						}
+						if (var$0 != nullptr) {
+							$throw(var$0);
 						}
 					}
 					point->setLocation(bounds->x, point->y + bounds->height / 5);
@@ -295,34 +238,32 @@ void JComboBoxPopupLocation::step($GraphicsDeviceArray* sds, $UIManager$LookAndF
 	if (left != nullptr) {
 		$var($Point, finalLeft, left);
 		finalLeft->translate(-50, 0);
-		{
-			$var($Throwable, var$2, nullptr);
-			try {
-				$EventQueue::invokeAndWait(static_cast<$Runnable*>($$new(JComboBoxPopupLocation$$Lambda$lambda$step$0, finalLeft)));
-				$nc(JComboBoxPopupLocation::robot)->waitForIdle();
-				test(JComboBoxPopupLocation::comboBox);
-				$nc(JComboBoxPopupLocation::robot)->waitForIdle();
-				validate(JComboBoxPopupLocation::comboBox);
-			} catch ($Throwable& var$3) {
-				$assign(var$2, var$3);
-			} /*finally*/ {
-				dispose();
-			}
-			if (var$2 != nullptr) {
-				$throw(var$2);
-			}
+		$var($Throwable, var$2, nullptr);
+		try {
+			$EventQueue::invokeAndWait($$new(JComboBoxPopupLocation$$Lambda$lambda$step$0, finalLeft));
+			$nc(JComboBoxPopupLocation::robot)->waitForIdle();
+			test(JComboBoxPopupLocation::comboBox);
+			$nc(JComboBoxPopupLocation::robot)->waitForIdle();
+			validate(JComboBoxPopupLocation::comboBox);
+		} catch ($Throwable& var$3) {
+			$assign(var$2, var$3);
+		} /*finally*/ {
+			dispose();
+		}
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
 	}
 }
 
 void JComboBoxPopupLocation::dispose() {
 	$init(JComboBoxPopupLocation);
-	$EventQueue::invokeAndWait(static_cast<$Runnable*>($$new(JComboBoxPopupLocation$$Lambda$lambda$dispose$2$1)));
+	$EventQueue::invokeAndWait($$new(JComboBoxPopupLocation$$Lambda$lambda$dispose$2$1));
 }
 
 void JComboBoxPopupLocation::setup($Point* tmp) {
 	$init(JComboBoxPopupLocation);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(JComboBoxPopupLocation::comboBox, $new($JComboBox));
 	for (int32_t i = 1; i < 7; ++i) {
 		$nc(JComboBoxPopupLocation::comboBox)->addItem($$str({"Long-long-long-long-long text in the item-"_s, $$str(i)}));
@@ -332,11 +273,11 @@ void JComboBoxPopupLocation::setup($Point* tmp) {
 	$assignStatic(JComboBoxPopupLocation::frame, $new($JFrame));
 	$nc(JComboBoxPopupLocation::frame)->setAlwaysOnTop(true);
 	$nc(JComboBoxPopupLocation::frame)->setLayout($$new($FlowLayout));
-	$nc(JComboBoxPopupLocation::frame)->add(static_cast<$Component*>(JComboBoxPopupLocation::comboBox));
+	$nc(JComboBoxPopupLocation::frame)->add(JComboBoxPopupLocation::comboBox);
 	$nc(JComboBoxPopupLocation::frame)->pack();
 	$nc(JComboBoxPopupLocation::frame)->setSize($nc(JComboBoxPopupLocation::frame)->getWidth(), JComboBoxPopupLocation::SIZE);
 	$nc(JComboBoxPopupLocation::frame)->setVisible(true);
-	$nc(JComboBoxPopupLocation::frame)->setLocation($nc(tmp)->x, tmp->y);
+	$nc(JComboBoxPopupLocation::frame)->setLocation($nc(tmp)->x, $nc(tmp)->y);
 }
 
 void JComboBoxPopupLocation::test($JComboBox* comboBox) {
@@ -346,7 +287,7 @@ void JComboBoxPopupLocation::test($JComboBox* comboBox) {
 	$nc(JComboBoxPopupLocation::robot)->mouseMove(var$0, pt->y + comboBox->getHeight() / 2);
 	$nc(JComboBoxPopupLocation::robot)->mousePress($InputEvent::BUTTON1_DOWN_MASK);
 	$nc(JComboBoxPopupLocation::robot)->mouseRelease($InputEvent::BUTTON1_DOWN_MASK);
-	int32_t x = $nc(pt)->x + comboBox->getWidth() / 2;
+	int32_t x = pt->x + comboBox->getWidth() / 2;
 	int32_t y = pt->y + comboBox->getHeight() / 2 + 70;
 	$nc(JComboBoxPopupLocation::robot)->mouseMove(x, y);
 	$nc(JComboBoxPopupLocation::robot)->mousePress($InputEvent::BUTTON1_DOWN_MASK);
@@ -355,7 +296,7 @@ void JComboBoxPopupLocation::test($JComboBox* comboBox) {
 
 void JComboBoxPopupLocation::validate($JComboBox* comboBox) {
 	$init(JComboBoxPopupLocation);
-	$EventQueue::invokeAndWait(static_cast<$Runnable*>($$new(JComboBoxPopupLocation$$Lambda$lambda$validate$3$2, comboBox)));
+	$EventQueue::invokeAndWait($$new(JComboBoxPopupLocation$$Lambda$lambda$validate$3$2, comboBox));
 }
 
 void JComboBoxPopupLocation::lambda$validate$3($JComboBox* comboBox) {
@@ -380,23 +321,54 @@ void JComboBoxPopupLocation::lambda$step$0($Point* point) {
 JComboBoxPopupLocation::JComboBoxPopupLocation() {
 }
 
-void clinit$JComboBoxPopupLocation($Class* class$) {
+void JComboBoxPopupLocation::clinit$($Class* clazz) {
 	$assignStatic(JComboBoxPopupLocation::PROPERTY_NAME, "JComboBox.isPopDown"_s);
 }
 
 $Class* JComboBoxPopupLocation::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JComboBoxPopupLocation$$Lambda$lambda$step$0::classInfo$.name)) {
+		if (name->equals("JComboBoxPopupLocation$$Lambda$lambda$step$0")) {
 			return JComboBoxPopupLocation$$Lambda$lambda$step$0::load$(name, initialize);
 		}
-		if (name->equals(JComboBoxPopupLocation$$Lambda$lambda$dispose$2$1::classInfo$.name)) {
+		if (name->equals("JComboBoxPopupLocation$$Lambda$lambda$dispose$2$1")) {
 			return JComboBoxPopupLocation$$Lambda$lambda$dispose$2$1::load$(name, initialize);
 		}
-		if (name->equals(JComboBoxPopupLocation$$Lambda$lambda$validate$3$2::classInfo$.name)) {
+		if (name->equals("JComboBoxPopupLocation$$Lambda$lambda$validate$3$2")) {
 			return JComboBoxPopupLocation$$Lambda$lambda$validate$3$2::load$(name, initialize);
 		}
 	}
-	$loadClass(JComboBoxPopupLocation, name, initialize, &_JComboBoxPopupLocation_ClassInfo_, clinit$JComboBoxPopupLocation, allocate$JComboBoxPopupLocation);
+	$FieldInfo fieldInfos$$[] = {
+		{"SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JComboBoxPopupLocation, SIZE)},
+		{"PROPERTY_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JComboBoxPopupLocation, PROPERTY_NAME)},
+		{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(JComboBoxPopupLocation, robot)},
+		{"comboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljava/lang/String;>;", $PRIVATE | $STATIC | $VOLATILE, $staticField(JComboBoxPopupLocation, comboBox)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(JComboBoxPopupLocation, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JComboBoxPopupLocation, init$, void)},
+		{"dispose", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JComboBoxPopupLocation, dispose, void), "java.lang.Exception"},
+		{"lambda$dispose$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JComboBoxPopupLocation, lambda$dispose$2, void)},
+		{"lambda$step$0", "(Ljava/awt/Point;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JComboBoxPopupLocation, lambda$step$0, void, $Point*)},
+		{"lambda$validate$3", "(Ljavax/swing/JComboBox;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JComboBoxPopupLocation, lambda$validate$3, void, $JComboBox*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JComboBoxPopupLocation, main, void, $StringArray*), "java.lang.Exception"},
+		{"setup", "(Ljava/awt/Point;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JComboBoxPopupLocation, setup, void, $Point*)},
+		{"step", "([Ljava/awt/GraphicsDevice;Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JComboBoxPopupLocation, step, void, $GraphicsDeviceArray*, $UIManager$LookAndFeelInfo*), "java.lang.Exception"},
+		{"test", "(Ljavax/swing/JComboBox;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JComboBoxPopupLocation, test, void, $JComboBox*), "java.lang.Exception"},
+		{"validate", "(Ljavax/swing/JComboBox;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JComboBoxPopupLocation, validate, void, $JComboBox*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"JComboBoxPopupLocation",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JComboBoxPopupLocation, name, initialize, &classInfo$$, JComboBoxPopupLocation::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JComboBoxPopupLocation);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/ModifiersTree.h>
-
 #include <java/util/List.h>
 #include <java/util/Set.h>
 #include <jcpp.h>
@@ -14,27 +13,23 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _ModifiersTree_MethodInfo_[] = {
-	{"getAnnotations", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/AnnotationTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ModifiersTree, getAnnotations, $List*)},
-	{"getFlags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/lang/model/element/Modifier;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ModifiersTree, getFlags, $Set*)},
-	{}
-};
-
-$ClassInfo _ModifiersTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.ModifiersTree",
-	nullptr,
-	"com.sun.source.tree.Tree",
-	nullptr,
-	_ModifiersTree_MethodInfo_
-};
-
-$Object* allocate$ModifiersTree($Class* clazz) {
-	return $of($alloc(ModifiersTree));
-}
-
 $Class* ModifiersTree::load$($String* name, bool initialize) {
-	$loadClass(ModifiersTree, name, initialize, &_ModifiersTree_ClassInfo_, allocate$ModifiersTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getAnnotations", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/AnnotationTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ModifiersTree, getAnnotations, $List*)},
+		{"getFlags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/lang/model/element/Modifier;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ModifiersTree, getFlags, $Set*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.ModifiersTree",
+		nullptr,
+		"com.sun.source.tree.Tree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ModifiersTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModifiersTree);
+	});
 	return class$;
 }
 

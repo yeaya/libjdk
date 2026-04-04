@@ -1,5 +1,4 @@
 #include <com/sun/beans/util/Cache.h>
-
 #include <com/sun/beans/util/Cache$CacheEntry.h>
 #include <com/sun/beans/util/Cache$Kind.h>
 #include <com/sun/beans/util/Cache$Ref.h>
@@ -28,60 +27,6 @@ namespace com {
 		namespace beans {
 			namespace util {
 
-$FieldInfo _Cache_FieldInfo_[] = {
-	{"MAXIMUM_CAPACITY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Cache, MAXIMUM_CAPACITY)},
-	{"identity", "Z", nullptr, $PRIVATE | $FINAL, $field(Cache, identity)},
-	{"keyKind", "Lcom/sun/beans/util/Cache$Kind;", nullptr, $PRIVATE | $FINAL, $field(Cache, keyKind)},
-	{"valueKind", "Lcom/sun/beans/util/Cache$Kind;", nullptr, $PRIVATE | $FINAL, $field(Cache, valueKind)},
-	{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(Cache, queue)},
-	{"table", "[Lcom/sun/beans/util/Cache$CacheEntry;", "[Lcom/sun/beans/util/Cache<TK;TV;>.CacheEntry<TK;TV;>;", $PRIVATE | $VOLATILE, $field(Cache, table)},
-	{"threshold", "I", nullptr, $PRIVATE, $field(Cache, threshold)},
-	{"size", "I", nullptr, $PRIVATE, $field(Cache, size)},
-	{}
-};
-
-$MethodInfo _Cache_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/beans/util/Cache$Kind;Lcom/sun/beans/util/Cache$Kind;)V", nullptr, $PUBLIC, $method(Cache, init$, void, $Cache$Kind*, $Cache$Kind*)},
-	{"<init>", "(Lcom/sun/beans/util/Cache$Kind;Lcom/sun/beans/util/Cache$Kind;Z)V", nullptr, $PUBLIC, $method(Cache, init$, void, $Cache$Kind*, $Cache$Kind*, bool)},
-	{"clear", "()V", nullptr, $PUBLIC | $FINAL, $method(Cache, clear, void)},
-	{"create", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TV;", $PUBLIC | $ABSTRACT, $virtualMethod(Cache, create, $Object*, Object$*)},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TV;", $PUBLIC | $FINAL, $method(Cache, get, $Object*, Object$*)},
-	{"getEntryValue", "(Ljava/lang/Object;ILcom/sun/beans/util/Cache$CacheEntry;)Ljava/lang/Object;", "(TK;ILcom/sun/beans/util/Cache<TK;TV;>.CacheEntry<TK;TV;>;)TV;", $PRIVATE, $method(Cache, getEntryValue, $Object*, Object$*, int32_t, $Cache$CacheEntry*)},
-	{"hash", "(Ljava/lang/Object;)I", nullptr, $PRIVATE, $method(Cache, hash, int32_t, Object$*)},
-	{"index", "(I[Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Cache, index, int32_t, int32_t, $ObjectArray*)},
-	{"newTable", "(I)[Lcom/sun/beans/util/Cache$CacheEntry;", "(I)[Lcom/sun/beans/util/Cache<TK;TV;>.CacheEntry<TK;TV;>;", $PRIVATE, $method(Cache, newTable, $Cache$CacheEntryArray*, int32_t)},
-	{"remove", "(Ljava/lang/Object;)V", "(TK;)V", $PUBLIC | $FINAL, $method(Cache, remove, void, Object$*)},
-	{"removeStaleEntries", "()V", nullptr, $PRIVATE, $method(Cache, removeStaleEntries, void)},
-	{"transfer", "([Lcom/sun/beans/util/Cache$CacheEntry;[Lcom/sun/beans/util/Cache$CacheEntry;)V", "([Lcom/sun/beans/util/Cache<TK;TV;>.CacheEntry<TK;TV;>;[Lcom/sun/beans/util/Cache<TK;TV;>.CacheEntry<TK;TV;>;)V", $PRIVATE, $method(Cache, transfer, void, $Cache$CacheEntryArray*, $Cache$CacheEntryArray*)},
-	{}
-};
-
-$InnerClassInfo _Cache_InnerClassesInfo_[] = {
-	{"com.sun.beans.util.Cache$Kind", "com.sun.beans.util.Cache", "Kind", $PUBLIC | $STATIC | $ABSTRACT | $ENUM},
-	{"com.sun.beans.util.Cache$Ref", "com.sun.beans.util.Cache", "Ref", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.beans.util.Cache$CacheEntry", "com.sun.beans.util.Cache", "CacheEntry", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _Cache_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.beans.util.Cache",
-	"java.lang.Object",
-	nullptr,
-	_Cache_FieldInfo_,
-	_Cache_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_Cache_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.beans.util.Cache$Kind,com.sun.beans.util.Cache$Kind$Weak,com.sun.beans.util.Cache$Kind$Soft,com.sun.beans.util.Cache$Kind$Strong,com.sun.beans.util.Cache$Kind$3,com.sun.beans.util.Cache$Kind$2,com.sun.beans.util.Cache$Kind$1,com.sun.beans.util.Cache$Ref,com.sun.beans.util.Cache$CacheEntry"
-};
-
-$Object* allocate$Cache($Class* clazz) {
-	return $of($alloc(Cache));
-}
-
 void Cache::init$($Cache$Kind* keyKind, $Cache$Kind* valueKind) {
 	Cache::init$(keyKind, valueKind, false);
 }
@@ -90,34 +35,33 @@ void Cache::init$($Cache$Kind* keyKind, $Cache$Kind* valueKind, bool identity) {
 	$set(this, queue, $new($ReferenceQueue));
 	$set(this, table, newTable(1 << 3));
 	this->threshold = 6;
-	$Objects::requireNonNull($of(keyKind), "keyKind"_s);
-	$Objects::requireNonNull($of(valueKind), "valueKind"_s);
+	$Objects::requireNonNull(keyKind, "keyKind"_s);
+	$Objects::requireNonNull(valueKind, "valueKind"_s);
 	$set(this, keyKind, keyKind);
 	$set(this, valueKind, valueKind);
 	this->identity = identity;
 }
 
 $Object* Cache::get(Object$* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(key, "key"_s);
 	removeStaleEntries();
 	int32_t hash = this->hash(key);
 	$var($Cache$CacheEntryArray, table, this->table);
 	$var($Object, current, getEntryValue(key, hash, $nc(table)->get(Cache::index(hash, table))));
 	if (current != nullptr) {
-		return $of(current);
+		return current;
 	}
 	$synchronized(this->queue) {
 		$assign(current, getEntryValue(key, hash, $nc(this->table)->get(Cache::index(hash, this->table))));
 		if (current != nullptr) {
-			return $of(current);
+			return current;
 		}
 		$var($Object, value, create(key));
 		$Objects::requireNonNull(value, "value"_s);
 		int32_t index = Cache::index(hash, this->table);
 		$nc(this->table)->set(index, $$new($Cache$CacheEntry, this, hash, key, value, $nc(this->table)->get(index)));
-		int32_t var$0 = ++this->size;
-		if (var$0 >= this->threshold) {
+		if (++this->size >= this->threshold) {
 			if ($nc(this->table)->length == Cache::MAXIMUM_CAPACITY) {
 				this->threshold = $Integer::MAX_VALUE;
 			} else {
@@ -133,12 +77,12 @@ $Object* Cache::get(Object$* key) {
 				removeStaleEntries();
 			}
 		}
-		return $of(value);
+		return value;
 	}
 }
 
 void Cache::remove(Object$* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (key != nullptr) {
 		$synchronized(this->queue) {
 			removeStaleEntries();
@@ -165,7 +109,7 @@ void Cache::remove(Object$* key) {
 }
 
 void Cache::clear() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->queue) {
 		int32_t index = $nc(this->table)->length;
 		while (0 < index--) {
@@ -177,7 +121,7 @@ void Cache::clear() {
 			}
 			$nc(this->table)->set(index, nullptr);
 		}
-		while (nullptr != $nc(this->queue)->poll()) {
+		while (nullptr != this->queue->poll()) {
 		}
 	}
 }
@@ -193,7 +137,7 @@ int32_t Cache::hash(Object$* key) {
 }
 
 int32_t Cache::index(int32_t hash, $ObjectArray* table) {
-	return (int32_t)(hash & (uint32_t)($nc(table)->length - 1));
+	return hash & ($nc(table)->length - 1);
 }
 
 $Cache$CacheEntryArray* Cache::newTable(int32_t size) {
@@ -204,15 +148,15 @@ $Object* Cache::getEntryValue(Object$* key, int32_t hash, $Cache$CacheEntry* ent
 	$var($Cache$CacheEntry, entry, entry$renamed);
 	while (entry != nullptr) {
 		if (entry->matches(hash, key)) {
-			return $of($nc(entry->value)->getReferent());
+			return $nc(entry->value)->getReferent();
 		}
 		$assign(entry, entry->next);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 void Cache::removeStaleEntries() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, reference, $nc(this->queue)->poll());
 	if (reference != nullptr) {
 		$synchronized(this->queue) {
@@ -240,14 +184,14 @@ void Cache::removeStaleEntries() {
 						}
 					}
 				}
-				$assign(reference, $nc(this->queue)->poll());
+				$assign(reference, this->queue->poll());
 			} while (reference != nullptr);
 		}
 	}
 }
 
 void Cache::transfer($Cache$CacheEntryArray* oldTable, $Cache$CacheEntryArray* newTable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t oldIndex = $nc(oldTable)->length;
 	while (0 < oldIndex--) {
 		$var($Cache$CacheEntry, entry, oldTable->get(oldIndex));
@@ -271,7 +215,55 @@ Cache::Cache() {
 }
 
 $Class* Cache::load$($String* name, bool initialize) {
-	$loadClass(Cache, name, initialize, &_Cache_ClassInfo_, allocate$Cache);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAXIMUM_CAPACITY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Cache, MAXIMUM_CAPACITY)},
+		{"identity", "Z", nullptr, $PRIVATE | $FINAL, $field(Cache, identity)},
+		{"keyKind", "Lcom/sun/beans/util/Cache$Kind;", nullptr, $PRIVATE | $FINAL, $field(Cache, keyKind)},
+		{"valueKind", "Lcom/sun/beans/util/Cache$Kind;", nullptr, $PRIVATE | $FINAL, $field(Cache, valueKind)},
+		{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(Cache, queue)},
+		{"table", "[Lcom/sun/beans/util/Cache$CacheEntry;", "[Lcom/sun/beans/util/Cache<TK;TV;>.CacheEntry<TK;TV;>;", $PRIVATE | $VOLATILE, $field(Cache, table)},
+		{"threshold", "I", nullptr, $PRIVATE, $field(Cache, threshold)},
+		{"size", "I", nullptr, $PRIVATE, $field(Cache, size)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/beans/util/Cache$Kind;Lcom/sun/beans/util/Cache$Kind;)V", nullptr, $PUBLIC, $method(Cache, init$, void, $Cache$Kind*, $Cache$Kind*)},
+		{"<init>", "(Lcom/sun/beans/util/Cache$Kind;Lcom/sun/beans/util/Cache$Kind;Z)V", nullptr, $PUBLIC, $method(Cache, init$, void, $Cache$Kind*, $Cache$Kind*, bool)},
+		{"clear", "()V", nullptr, $PUBLIC | $FINAL, $method(Cache, clear, void)},
+		{"create", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TV;", $PUBLIC | $ABSTRACT, $virtualMethod(Cache, create, $Object*, Object$*)},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TV;", $PUBLIC | $FINAL, $method(Cache, get, $Object*, Object$*)},
+		{"getEntryValue", "(Ljava/lang/Object;ILcom/sun/beans/util/Cache$CacheEntry;)Ljava/lang/Object;", "(TK;ILcom/sun/beans/util/Cache<TK;TV;>.CacheEntry<TK;TV;>;)TV;", $PRIVATE, $method(Cache, getEntryValue, $Object*, Object$*, int32_t, $Cache$CacheEntry*)},
+		{"hash", "(Ljava/lang/Object;)I", nullptr, $PRIVATE, $method(Cache, hash, int32_t, Object$*)},
+		{"index", "(I[Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Cache, index, int32_t, int32_t, $ObjectArray*)},
+		{"newTable", "(I)[Lcom/sun/beans/util/Cache$CacheEntry;", "(I)[Lcom/sun/beans/util/Cache<TK;TV;>.CacheEntry<TK;TV;>;", $PRIVATE, $method(Cache, newTable, $Cache$CacheEntryArray*, int32_t)},
+		{"remove", "(Ljava/lang/Object;)V", "(TK;)V", $PUBLIC | $FINAL, $method(Cache, remove, void, Object$*)},
+		{"removeStaleEntries", "()V", nullptr, $PRIVATE, $method(Cache, removeStaleEntries, void)},
+		{"transfer", "([Lcom/sun/beans/util/Cache$CacheEntry;[Lcom/sun/beans/util/Cache$CacheEntry;)V", "([Lcom/sun/beans/util/Cache<TK;TV;>.CacheEntry<TK;TV;>;[Lcom/sun/beans/util/Cache<TK;TV;>.CacheEntry<TK;TV;>;)V", $PRIVATE, $method(Cache, transfer, void, $Cache$CacheEntryArray*, $Cache$CacheEntryArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.beans.util.Cache$Kind", "com.sun.beans.util.Cache", "Kind", $PUBLIC | $STATIC | $ABSTRACT | $ENUM},
+		{"com.sun.beans.util.Cache$Ref", "com.sun.beans.util.Cache", "Ref", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.beans.util.Cache$CacheEntry", "com.sun.beans.util.Cache", "CacheEntry", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.beans.util.Cache",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.beans.util.Cache$Kind,com.sun.beans.util.Cache$Kind$Weak,com.sun.beans.util.Cache$Kind$Soft,com.sun.beans.util.Cache$Kind$Strong,com.sun.beans.util.Cache$Kind$3,com.sun.beans.util.Cache$Kind$2,com.sun.beans.util.Cache$Kind$1,com.sun.beans.util.Cache$Ref,com.sun.beans.util.Cache$CacheEntry"
+	};
+	$loadClass(Cache, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Cache);
+	});
 	return class$;
 }
 

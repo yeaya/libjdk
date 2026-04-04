@@ -1,10 +1,8 @@
 #include <bug7027139$1.h>
-
 #include <bug7027139$1$1.h>
 #include <bug7027139.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/ListSelectionModel.h>
-#include <javax/swing/event/ListSelectionListener.h>
 #include <jcpp.h>
 
 #undef MULTIPLE_INTERVAL_SELECTION
@@ -18,52 +16,13 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JTable = ::javax::swing::JTable;
 using $ListSelectionModel = ::javax::swing::ListSelectionModel;
-using $ListSelectionListener = ::javax::swing::event::ListSelectionListener;
-
-$MethodInfo _bug7027139$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug7027139$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug7027139$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug7027139$1_EnclosingMethodInfo_ = {
-	"bug7027139",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug7027139$1_InnerClassesInfo_[] = {
-	{"bug7027139$1", nullptr, nullptr, 0},
-	{"bug7027139$1$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug7027139$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug7027139$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug7027139$1_MethodInfo_,
-	nullptr,
-	&_bug7027139$1_EnclosingMethodInfo_,
-	_bug7027139$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug7027139"
-};
-
-$Object* allocate$bug7027139$1($Class* clazz) {
-	return $of($alloc(bug7027139$1));
-}
 
 void bug7027139$1::init$() {
 }
 
 void bug7027139$1::run() {
-	$useLocalCurrentObjectStackCache();
-	$var($JTable, orderTable, $new($JTable, $fcast($ObjectArray2, $$new($StringArray2, {
+	$useLocalObjectStack();
+	$var($JTable, orderTable, $new($JTable, $$cast($ObjectArray2, $new($StringArray2, {
 		$$new($StringArray, {
 			"Item 1 1"_s,
 			"Item 1 2"_s
@@ -94,7 +53,39 @@ bug7027139$1::bug7027139$1() {
 }
 
 $Class* bug7027139$1::load$($String* name, bool initialize) {
-	$loadClass(bug7027139$1, name, initialize, &_bug7027139$1_ClassInfo_, allocate$bug7027139$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug7027139$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug7027139$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug7027139",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug7027139$1", nullptr, nullptr, 0},
+		{"bug7027139$1$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug7027139$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug7027139"
+	};
+	$loadClass(bug7027139$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug7027139$1);
+	});
 	return class$;
 }
 

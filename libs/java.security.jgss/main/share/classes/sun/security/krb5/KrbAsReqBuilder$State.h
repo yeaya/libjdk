@@ -22,6 +22,7 @@ class KrbAsReqBuilder$State : public ::java::lang::Enum {
 public:
 	KrbAsReqBuilder$State();
 	static $Array<::sun::security::krb5::KrbAsReqBuilder$State>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::security::krb5::KrbAsReqBuilder$State* valueOf($String* name);
 	static $Array<::sun::security::krb5::KrbAsReqBuilder$State>* values();

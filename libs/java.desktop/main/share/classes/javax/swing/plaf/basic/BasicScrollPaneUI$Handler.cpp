@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicScrollPaneUI$Handler.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Dimension.h>
@@ -29,7 +28,6 @@
 #undef WHEEL_UNIT_SCROLL
 
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $MouseWheelEvent = ::java::awt::event::MouseWheelEvent;
@@ -43,7 +41,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BoundedRangeModel = ::javax::swing::BoundedRangeModel;
 using $JScrollBar = ::javax::swing::JScrollBar;
-using $JScrollPane = ::javax::swing::JScrollPane;
 using $JViewport = ::javax::swing::JViewport;
 using $Scrollable = ::javax::swing::Scrollable;
 using $SwingConstants = ::javax::swing::SwingConstants;
@@ -56,54 +53,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicScrollPaneUI$Handler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicScrollPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicScrollPaneUI$Handler, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(BasicScrollPaneUI$Handler, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _BasicScrollPaneUI$Handler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicScrollPaneUI;)V", nullptr, 0, $method(BasicScrollPaneUI$Handler, init$, void, $BasicScrollPaneUI*)},
-	{"hsbStateChanged", "(Ljavax/swing/JViewport;Ljavax/swing/event/ChangeEvent;)V", nullptr, $PRIVATE, $method(BasicScrollPaneUI$Handler, hsbStateChanged, void, $JViewport*, $ChangeEvent*)},
-	{"mouseWheelMoved", "(Ljava/awt/event/MouseWheelEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollPaneUI$Handler, mouseWheelMoved, void, $MouseWheelEvent*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollPaneUI$Handler, propertyChange, void, $PropertyChangeEvent*)},
-	{"sbPropertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(BasicScrollPaneUI$Handler, sbPropertyChange, void, $PropertyChangeEvent*)},
-	{"scrollPanePropertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(BasicScrollPaneUI$Handler, scrollPanePropertyChange, void, $PropertyChangeEvent*)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollPaneUI$Handler, stateChanged, void, $ChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"vsbStateChanged", "(Ljavax/swing/JViewport;Ljavax/swing/event/ChangeEvent;)V", nullptr, $PRIVATE, $method(BasicScrollPaneUI$Handler, vsbStateChanged, void, $JViewport*, $ChangeEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicScrollPaneUI$Handler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicScrollPaneUI$Handler", "javax.swing.plaf.basic.BasicScrollPaneUI", "Handler", 0},
-	{}
-};
-
-$ClassInfo _BasicScrollPaneUI$Handler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicScrollPaneUI$Handler",
-	"java.lang.Object",
-	"javax.swing.event.ChangeListener,java.beans.PropertyChangeListener,java.awt.event.MouseWheelListener",
-	_BasicScrollPaneUI$Handler_FieldInfo_,
-	_BasicScrollPaneUI$Handler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicScrollPaneUI$Handler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicScrollPaneUI"
-};
-
-$Object* allocate$BasicScrollPaneUI$Handler($Class* clazz) {
-	return $of($alloc(BasicScrollPaneUI$Handler));
-}
 
 int32_t BasicScrollPaneUI$Handler::hashCode() {
 	 return this->$ChangeListener::hashCode();
@@ -132,16 +81,16 @@ void BasicScrollPaneUI$Handler::init$($BasicScrollPaneUI* this$0) {
 }
 
 void BasicScrollPaneUI$Handler::mouseWheelMoved($MouseWheelEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(this->this$0->scrollpane)->isWheelScrollingEnabled();
 	if (var$0 && $nc(e)->getWheelRotation() != 0) {
 		$var($JScrollBar, toScroll, $nc(this->this$0->scrollpane)->getVerticalScrollBar());
 		int32_t direction = e->getWheelRotation() < 0 ? -1 : 1;
 		int32_t orientation = $SwingConstants::VERTICAL;
-		bool var$1 = toScroll == nullptr || !$nc(toScroll)->isVisible();
+		bool var$1 = toScroll == nullptr || !toScroll->isVisible();
 		if (var$1 || e->isShiftDown()) {
 			$assign(toScroll, $nc(this->this$0->scrollpane)->getHorizontalScrollBar());
-			if (toScroll == nullptr || !$nc(toScroll)->isVisible()) {
+			if (toScroll == nullptr || !toScroll->isVisible()) {
 				return;
 			}
 			orientation = $SwingConstants::HORIZONTAL;
@@ -156,17 +105,16 @@ void BasicScrollPaneUI$Handler::mouseWheelMoved($MouseWheelEvent* e) {
 			int32_t units = $Math::abs(e->getUnitsToScroll());
 			bool limitScroll = $Math::abs(e->getWheelRotation()) == 1;
 			$var($Object, fastWheelScroll, $nc(toScroll)->getClientProperty("JScrollBar.fastWheelScrolling"_s));
-			$init($Boolean);
 			if ($equals($Boolean::TRUE, fastWheelScroll) && $instanceOf($Scrollable, comp)) {
 				$var($Scrollable, scrollComp, $cast($Scrollable, comp));
 				$var($Rectangle, viewRect, vp->getViewRect());
 				int32_t startingX = $nc(viewRect)->x;
-				bool leftToRight = $nc($($nc(comp)->getComponentOrientation()))->isLeftToRight();
+				bool leftToRight = $$nc(comp->getComponentOrientation())->isLeftToRight();
 				int32_t scrollMin = toScroll->getMinimum();
 				int32_t var$2 = toScroll->getMaximum();
-				int32_t scrollMax = var$2 - $nc($(toScroll->getModel()))->getExtent();
+				int32_t scrollMax = var$2 - $$nc(toScroll->getModel())->getExtent();
 				if (limitScroll) {
-					int32_t blockIncr = $nc(scrollComp)->getScrollableBlockIncrement(viewRect, orientation, direction);
+					int32_t blockIncr = scrollComp->getScrollableBlockIncrement(viewRect, orientation, direction);
 					if (direction < 0) {
 						scrollMin = $Math::max(scrollMin, toScroll->getValue() - blockIncr);
 					} else {
@@ -174,7 +122,7 @@ void BasicScrollPaneUI$Handler::mouseWheelMoved($MouseWheelEvent* e) {
 					}
 				}
 				for (int32_t i = 0; i < units; ++i) {
-					int32_t unitIncr = $nc(scrollComp)->getScrollableUnitIncrement(viewRect, orientation, direction);
+					int32_t unitIncr = scrollComp->getScrollableUnitIncrement(viewRect, orientation, direction);
 					if (orientation == $SwingConstants::VERTICAL) {
 						if (direction < 0) {
 							viewRect->y -= unitIncr;
@@ -232,7 +180,7 @@ void BasicScrollPaneUI$Handler::mouseWheelMoved($MouseWheelEvent* e) {
 }
 
 void BasicScrollPaneUI$Handler::stateChanged($ChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JViewport, viewport, $nc(this->this$0->scrollpane)->getViewport());
 	if (viewport != nullptr) {
 		if ($equals($nc(e)->getSource(), viewport)) {
@@ -260,19 +208,19 @@ void BasicScrollPaneUI$Handler::stateChanged($ChangeEvent* e) {
 }
 
 void BasicScrollPaneUI$Handler::vsbStateChanged($JViewport* viewport, $ChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
-	$var($BoundedRangeModel, model, ($cast($BoundedRangeModel, $nc(e)->getSource())));
+	$useLocalObjectStack();
+	$var($BoundedRangeModel, model, $cast($BoundedRangeModel, $nc(e)->getSource()));
 	$var($Point, p, $nc(viewport)->getViewPosition());
 	$nc(p)->y = $nc(model)->getValue();
 	viewport->setViewPosition(p);
 }
 
 void BasicScrollPaneUI$Handler::hsbStateChanged($JViewport* viewport, $ChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
-	$var($BoundedRangeModel, model, ($cast($BoundedRangeModel, $nc(e)->getSource())));
+	$useLocalObjectStack();
+	$var($BoundedRangeModel, model, $cast($BoundedRangeModel, $nc(e)->getSource()));
 	$var($Point, p, $nc(viewport)->getViewPosition());
 	int32_t value = $nc(model)->getValue();
-	if ($nc($($nc(this->this$0->scrollpane)->getComponentOrientation()))->isLeftToRight()) {
+	if ($$nc($nc(this->this$0->scrollpane)->getComponentOrientation())->isLeftToRight()) {
 		$nc(p)->x = value;
 	} else {
 		int32_t max = $nc($(viewport->getViewSize()))->width;
@@ -319,7 +267,7 @@ void BasicScrollPaneUI$Handler::scrollPanePropertyChange($PropertyChangeEvent* e
 }
 
 void BasicScrollPaneUI$Handler::sbPropertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, propertyName, $nc(e)->getPropertyName());
 	$var($Object, source, e->getSource());
 	if ("model"_s == propertyName) {
@@ -337,7 +285,7 @@ void BasicScrollPaneUI$Handler::sbPropertyChange($PropertyChangeEvent* e) {
 				oldModel->removeChangeListener(cl);
 			}
 			if ($nc(sb)->getModel() != nullptr) {
-				$nc($(sb->getModel()))->addChangeListener(cl);
+				$$nc(sb->getModel())->addChangeListener(cl);
 			}
 		}
 	} else if ("componentOrientation"_s == propertyName) {
@@ -345,7 +293,7 @@ void BasicScrollPaneUI$Handler::sbPropertyChange($PropertyChangeEvent* e) {
 			$var($JScrollBar, hsb, $nc(this->this$0->scrollpane)->getHorizontalScrollBar());
 			$var($JViewport, viewport, $nc(this->this$0->scrollpane)->getViewport());
 			$var($Point, p, $nc(viewport)->getViewPosition());
-			if ($nc($($nc(this->this$0->scrollpane)->getComponentOrientation()))->isLeftToRight()) {
+			if ($$nc($nc(this->this$0->scrollpane)->getComponentOrientation())->isLeftToRight()) {
 				$nc(p)->x = $nc(hsb)->getValue();
 			} else {
 				int32_t var$1 = $nc($(viewport->getViewSize()))->width;
@@ -357,7 +305,7 @@ void BasicScrollPaneUI$Handler::sbPropertyChange($PropertyChangeEvent* e) {
 	}
 }
 
-void clinit$BasicScrollPaneUI$Handler($Class* class$) {
+void BasicScrollPaneUI$Handler::clinit$($Class* clazz) {
 	$load($BasicScrollPaneUI);
 	BasicScrollPaneUI$Handler::$assertionsDisabled = !$BasicScrollPaneUI::class$->desiredAssertionStatus();
 }
@@ -366,7 +314,49 @@ BasicScrollPaneUI$Handler::BasicScrollPaneUI$Handler() {
 }
 
 $Class* BasicScrollPaneUI$Handler::load$($String* name, bool initialize) {
-	$loadClass(BasicScrollPaneUI$Handler, name, initialize, &_BasicScrollPaneUI$Handler_ClassInfo_, clinit$BasicScrollPaneUI$Handler, allocate$BasicScrollPaneUI$Handler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicScrollPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicScrollPaneUI$Handler, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(BasicScrollPaneUI$Handler, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicScrollPaneUI;)V", nullptr, 0, $method(BasicScrollPaneUI$Handler, init$, void, $BasicScrollPaneUI*)},
+		{"hsbStateChanged", "(Ljavax/swing/JViewport;Ljavax/swing/event/ChangeEvent;)V", nullptr, $PRIVATE, $method(BasicScrollPaneUI$Handler, hsbStateChanged, void, $JViewport*, $ChangeEvent*)},
+		{"mouseWheelMoved", "(Ljava/awt/event/MouseWheelEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollPaneUI$Handler, mouseWheelMoved, void, $MouseWheelEvent*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollPaneUI$Handler, propertyChange, void, $PropertyChangeEvent*)},
+		{"sbPropertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(BasicScrollPaneUI$Handler, sbPropertyChange, void, $PropertyChangeEvent*)},
+		{"scrollPanePropertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(BasicScrollPaneUI$Handler, scrollPanePropertyChange, void, $PropertyChangeEvent*)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollPaneUI$Handler, stateChanged, void, $ChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"vsbStateChanged", "(Ljavax/swing/JViewport;Ljavax/swing/event/ChangeEvent;)V", nullptr, $PRIVATE, $method(BasicScrollPaneUI$Handler, vsbStateChanged, void, $JViewport*, $ChangeEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicScrollPaneUI$Handler", "javax.swing.plaf.basic.BasicScrollPaneUI", "Handler", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicScrollPaneUI$Handler",
+		"java.lang.Object",
+		"javax.swing.event.ChangeListener,java.beans.PropertyChangeListener,java.awt.event.MouseWheelListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicScrollPaneUI"
+	};
+	$loadClass(BasicScrollPaneUI$Handler, name, initialize, &classInfo$$, BasicScrollPaneUI$Handler::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicScrollPaneUI$Handler));
+	});
 	return class$;
 }
 

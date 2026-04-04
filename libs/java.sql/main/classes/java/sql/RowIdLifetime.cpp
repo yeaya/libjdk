@@ -1,5 +1,4 @@
 #include <java/sql/RowIdLifetime.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -17,38 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace sql {
-
-$FieldInfo _RowIdLifetime_FieldInfo_[] = {
-	{"ROWID_UNSUPPORTED", "Ljava/sql/RowIdLifetime;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RowIdLifetime, ROWID_UNSUPPORTED)},
-	{"ROWID_VALID_OTHER", "Ljava/sql/RowIdLifetime;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RowIdLifetime, ROWID_VALID_OTHER)},
-	{"ROWID_VALID_SESSION", "Ljava/sql/RowIdLifetime;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RowIdLifetime, ROWID_VALID_SESSION)},
-	{"ROWID_VALID_TRANSACTION", "Ljava/sql/RowIdLifetime;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RowIdLifetime, ROWID_VALID_TRANSACTION)},
-	{"ROWID_VALID_FOREVER", "Ljava/sql/RowIdLifetime;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RowIdLifetime, ROWID_VALID_FOREVER)},
-	{"$VALUES", "[Ljava/sql/RowIdLifetime;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(RowIdLifetime, $VALUES)},
-	{}
-};
-
-$MethodInfo _RowIdLifetime_MethodInfo_[] = {
-	{"$values", "()[Ljava/sql/RowIdLifetime;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RowIdLifetime, $values, $RowIdLifetimeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(RowIdLifetime, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/sql/RowIdLifetime;", nullptr, $PUBLIC | $STATIC, $staticMethod(RowIdLifetime, valueOf, RowIdLifetime*, $String*)},
-	{"values", "()[Ljava/sql/RowIdLifetime;", nullptr, $PUBLIC | $STATIC, $staticMethod(RowIdLifetime, values, $RowIdLifetimeArray*)},
-	{}
-};
-
-$ClassInfo _RowIdLifetime_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.sql.RowIdLifetime",
-	"java.lang.Enum",
-	nullptr,
-	_RowIdLifetime_FieldInfo_,
-	_RowIdLifetime_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/sql/RowIdLifetime;>;"
-};
-
-$Object* allocate$RowIdLifetime($Class* clazz) {
-	return $of($alloc(RowIdLifetime));
-}
 
 RowIdLifetime* RowIdLifetime::ROWID_UNSUPPORTED = nullptr;
 RowIdLifetime* RowIdLifetime::ROWID_VALID_OTHER = nullptr;
@@ -82,7 +49,7 @@ void RowIdLifetime::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$RowIdLifetime($Class* class$) {
+void RowIdLifetime::clinit$($Class* clazz) {
 	$assignStatic(RowIdLifetime::ROWID_UNSUPPORTED, $new(RowIdLifetime, "ROWID_UNSUPPORTED"_s, 0));
 	$assignStatic(RowIdLifetime::ROWID_VALID_OTHER, $new(RowIdLifetime, "ROWID_VALID_OTHER"_s, 1));
 	$assignStatic(RowIdLifetime::ROWID_VALID_SESSION, $new(RowIdLifetime, "ROWID_VALID_SESSION"_s, 2));
@@ -95,7 +62,34 @@ RowIdLifetime::RowIdLifetime() {
 }
 
 $Class* RowIdLifetime::load$($String* name, bool initialize) {
-	$loadClass(RowIdLifetime, name, initialize, &_RowIdLifetime_ClassInfo_, clinit$RowIdLifetime, allocate$RowIdLifetime);
+	$FieldInfo fieldInfos$$[] = {
+		{"ROWID_UNSUPPORTED", "Ljava/sql/RowIdLifetime;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RowIdLifetime, ROWID_UNSUPPORTED)},
+		{"ROWID_VALID_OTHER", "Ljava/sql/RowIdLifetime;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RowIdLifetime, ROWID_VALID_OTHER)},
+		{"ROWID_VALID_SESSION", "Ljava/sql/RowIdLifetime;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RowIdLifetime, ROWID_VALID_SESSION)},
+		{"ROWID_VALID_TRANSACTION", "Ljava/sql/RowIdLifetime;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RowIdLifetime, ROWID_VALID_TRANSACTION)},
+		{"ROWID_VALID_FOREVER", "Ljava/sql/RowIdLifetime;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RowIdLifetime, ROWID_VALID_FOREVER)},
+		{"$VALUES", "[Ljava/sql/RowIdLifetime;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(RowIdLifetime, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/sql/RowIdLifetime;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RowIdLifetime, $values, $RowIdLifetimeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(RowIdLifetime, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/sql/RowIdLifetime;", nullptr, $PUBLIC | $STATIC, $staticMethod(RowIdLifetime, valueOf, RowIdLifetime*, $String*)},
+		{"values", "()[Ljava/sql/RowIdLifetime;", nullptr, $PUBLIC | $STATIC, $staticMethod(RowIdLifetime, values, $RowIdLifetimeArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.sql.RowIdLifetime",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/sql/RowIdLifetime;>;"
+	};
+	$loadClass(RowIdLifetime, name, initialize, &classInfo$$, RowIdLifetime::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RowIdLifetime));
+	});
 	return class$;
 }
 

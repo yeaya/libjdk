@@ -1,5 +1,4 @@
 #include <com/sun/jmx/remote/util/EnvHelp$SinkOutputStream.h>
-
 #include <com/sun/jmx/remote/util/EnvHelp.h>
 #include <java/io/OutputStream.h>
 #include <jcpp.h>
@@ -15,38 +14,6 @@ namespace com {
 			namespace remote {
 				namespace util {
 
-$MethodInfo _EnvHelp$SinkOutputStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(EnvHelp$SinkOutputStream, init$, void)},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(EnvHelp$SinkOutputStream, write, void, $bytes*, int32_t, int32_t)},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(EnvHelp$SinkOutputStream, write, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _EnvHelp$SinkOutputStream_InnerClassesInfo_[] = {
-	{"com.sun.jmx.remote.util.EnvHelp$SinkOutputStream", "com.sun.jmx.remote.util.EnvHelp", "SinkOutputStream", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _EnvHelp$SinkOutputStream_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jmx.remote.util.EnvHelp$SinkOutputStream",
-	"java.io.OutputStream",
-	nullptr,
-	nullptr,
-	_EnvHelp$SinkOutputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_EnvHelp$SinkOutputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.remote.util.EnvHelp"
-};
-
-$Object* allocate$EnvHelp$SinkOutputStream($Class* clazz) {
-	return $of($alloc(EnvHelp$SinkOutputStream));
-}
-
 void EnvHelp$SinkOutputStream::init$() {
 	$OutputStream::init$();
 }
@@ -61,7 +28,34 @@ EnvHelp$SinkOutputStream::EnvHelp$SinkOutputStream() {
 }
 
 $Class* EnvHelp$SinkOutputStream::load$($String* name, bool initialize) {
-	$loadClass(EnvHelp$SinkOutputStream, name, initialize, &_EnvHelp$SinkOutputStream_ClassInfo_, allocate$EnvHelp$SinkOutputStream);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(EnvHelp$SinkOutputStream, init$, void)},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(EnvHelp$SinkOutputStream, write, void, $bytes*, int32_t, int32_t)},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(EnvHelp$SinkOutputStream, write, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.remote.util.EnvHelp$SinkOutputStream", "com.sun.jmx.remote.util.EnvHelp", "SinkOutputStream", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jmx.remote.util.EnvHelp$SinkOutputStream",
+		"java.io.OutputStream",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.remote.util.EnvHelp"
+	};
+	$loadClass(EnvHelp$SinkOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(EnvHelp$SinkOutputStream));
+	});
 	return class$;
 }
 

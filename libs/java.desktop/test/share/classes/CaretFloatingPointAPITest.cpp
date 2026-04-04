@@ -1,5 +1,4 @@
 #include <CaretFloatingPointAPITest.h>
-
 #include <CaretFloatingPointAPITest$1.h>
 #include <CaretFloatingPointAPITest$2.h>
 #include <CaretFloatingPointAPITest$CustomCaret.h>
@@ -31,7 +30,6 @@
 #include <javax/swing/JTextArea.h>
 #include <javax/swing/JTextField.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/text/Caret.h>
 #include <jcpp.h>
 
 #undef HORIZONTAL
@@ -43,16 +41,12 @@ using $CaretFloatingPointAPITest$1 = ::CaretFloatingPointAPITest$1;
 using $CaretFloatingPointAPITest$2 = ::CaretFloatingPointAPITest$2;
 using $CaretFloatingPointAPITest$CustomCaret = ::CaretFloatingPointAPITest$CustomCaret;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
-using $Font = ::java::awt::Font;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $WindowListener = ::java::awt::event::WindowListener;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -70,7 +64,6 @@ using $JPanel = ::javax::swing::JPanel;
 using $JTextArea = ::javax::swing::JTextArea;
 using $JTextField = ::javax::swing::JTextField;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $Caret = ::javax::swing::text::Caret;
 
 class CaretFloatingPointAPITest$$Lambda$createUI : public $Runnable {
 	$class(CaretFloatingPointAPITest$$Lambda$createUI, $NO_CLASS_INIT, $Runnable)
@@ -80,27 +73,24 @@ public:
 	virtual void run() override {
 		CaretFloatingPointAPITest::createUI();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CaretFloatingPointAPITest$$Lambda$createUI>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo CaretFloatingPointAPITest$$Lambda$createUI::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CaretFloatingPointAPITest$$Lambda$createUI, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$$Lambda$createUI, run, void)},
-	{}
-};
-$ClassInfo CaretFloatingPointAPITest$$Lambda$createUI::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"CaretFloatingPointAPITest$$Lambda$createUI",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* CaretFloatingPointAPITest$$Lambda$createUI::load$($String* name, bool initialize) {
-	$loadClass(CaretFloatingPointAPITest$$Lambda$createUI, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CaretFloatingPointAPITest$$Lambda$createUI, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$$Lambda$createUI, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"CaretFloatingPointAPITest$$Lambda$createUI",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CaretFloatingPointAPITest$$Lambda$createUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CaretFloatingPointAPITest$$Lambda$createUI);
+	});
 	return class$;
 }
 $Class* CaretFloatingPointAPITest$$Lambda$createUI::class$ = nullptr;
@@ -114,77 +104,32 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		CaretFloatingPointAPITest::lambda$createUI$0(mainFrame, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CaretFloatingPointAPITest$$Lambda$lambda$createUI$0$1>());
-	}
 	$JFrame* mainFrame = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CaretFloatingPointAPITest$$Lambda$lambda$createUI$0$1::fieldInfos[2] = {
-	{"mainFrame", "Ljavax/swing/JFrame;", nullptr, $PUBLIC, $field(CaretFloatingPointAPITest$$Lambda$lambda$createUI$0$1, mainFrame)},
-	{}
-};
-$MethodInfo CaretFloatingPointAPITest$$Lambda$lambda$createUI$0$1::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/JFrame;)V", nullptr, $PUBLIC, $method(CaretFloatingPointAPITest$$Lambda$lambda$createUI$0$1, init$, void, $JFrame*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$$Lambda$lambda$createUI$0$1, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo CaretFloatingPointAPITest$$Lambda$lambda$createUI$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"CaretFloatingPointAPITest$$Lambda$lambda$createUI$0$1",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* CaretFloatingPointAPITest$$Lambda$lambda$createUI$0$1::load$($String* name, bool initialize) {
-	$loadClass(CaretFloatingPointAPITest$$Lambda$lambda$createUI$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"mainFrame", "Ljavax/swing/JFrame;", nullptr, $PUBLIC, $field(CaretFloatingPointAPITest$$Lambda$lambda$createUI$0$1, mainFrame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JFrame;)V", nullptr, $PUBLIC, $method(CaretFloatingPointAPITest$$Lambda$lambda$createUI$0$1, init$, void, $JFrame*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$$Lambda$lambda$createUI$0$1, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"CaretFloatingPointAPITest$$Lambda$lambda$createUI$0$1",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CaretFloatingPointAPITest$$Lambda$lambda$createUI$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CaretFloatingPointAPITest$$Lambda$lambda$createUI$0$1);
+	});
 	return class$;
 }
 $Class* CaretFloatingPointAPITest$$Lambda$lambda$createUI$0$1::class$ = nullptr;
-
-$FieldInfo _CaretFloatingPointAPITest_FieldInfo_[] = {
-	{"testResult", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(CaretFloatingPointAPITest, testResult)},
-	{"countDownLatch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(CaretFloatingPointAPITest, countDownLatch)},
-	{"INSTRUCTIONS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CaretFloatingPointAPITest, INSTRUCTIONS)},
-	{}
-};
-
-$MethodInfo _CaretFloatingPointAPITest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CaretFloatingPointAPITest, init$, void)},
-	{"createUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(CaretFloatingPointAPITest, createUI, void)},
-	{"lambda$createUI$0", "(Ljavax/swing/JFrame;Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CaretFloatingPointAPITest, lambda$createUI$0, void, $JFrame*, $ActionEvent*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CaretFloatingPointAPITest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _CaretFloatingPointAPITest_InnerClassesInfo_[] = {
-	{"CaretFloatingPointAPITest$CustomCaret", "CaretFloatingPointAPITest", "CustomCaret", $STATIC},
-	{"CaretFloatingPointAPITest$2", nullptr, nullptr, 0},
-	{"CaretFloatingPointAPITest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CaretFloatingPointAPITest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"CaretFloatingPointAPITest",
-	"java.lang.Object",
-	nullptr,
-	_CaretFloatingPointAPITest_FieldInfo_,
-	_CaretFloatingPointAPITest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CaretFloatingPointAPITest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"CaretFloatingPointAPITest$CustomCaret,CaretFloatingPointAPITest$CustomCaret$CaretMouseListener,CaretFloatingPointAPITest$2,CaretFloatingPointAPITest$1"
-};
-
-$Object* allocate$CaretFloatingPointAPITest($Class* clazz) {
-	return $of($alloc(CaretFloatingPointAPITest));
-}
 
 $volatile(bool) CaretFloatingPointAPITest::testResult = false;
 $volatile($CountDownLatch*) CaretFloatingPointAPITest::countDownLatch = nullptr;
@@ -196,7 +141,7 @@ void CaretFloatingPointAPITest::init$() {
 void CaretFloatingPointAPITest::main($StringArray* args) {
 	$init(CaretFloatingPointAPITest);
 	$assignStatic(CaretFloatingPointAPITest::countDownLatch, $new($CountDownLatch, 1));
-	$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(CaretFloatingPointAPITest$$Lambda$createUI)));
+	$SwingUtilities::invokeLater($$new(CaretFloatingPointAPITest$$Lambda$createUI));
 	$init($TimeUnit);
 	$nc(CaretFloatingPointAPITest::countDownLatch)->await(15, $TimeUnit::MINUTES);
 	if (!CaretFloatingPointAPITest::testResult) {
@@ -206,16 +151,16 @@ void CaretFloatingPointAPITest::main($StringArray* args) {
 
 void CaretFloatingPointAPITest::createUI() {
 	$init(CaretFloatingPointAPITest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFrame, mainFrame, $new($JFrame, "Metal L&F icons test"_s));
 	$var($GridBagLayout, layout, $new($GridBagLayout));
-	$var($JPanel, mainControlPanel, $new($JPanel, static_cast<$LayoutManager*>(layout)));
-	$var($JPanel, resultButtonPanel, $new($JPanel, static_cast<$LayoutManager*>(layout)));
+	$var($JPanel, mainControlPanel, $new($JPanel, layout));
+	$var($JPanel, resultButtonPanel, $new($JPanel, layout));
 	$var($GridBagConstraints, gbc, $new($GridBagConstraints));
 	$var($JTextField, textField, $new($JTextField, "aaaaaaaaaaaaaaaaaaaaaaa"_s));
 	$var($Dimension, size, $new($Dimension, 400, 100));
 	textField->setPreferredSize(size);
-	textField->setFont($($nc($(textField->getFont()))->deriveFont(28.0f)));
+	textField->setFont($($$nc(textField->getFont())->deriveFont(28.0f)));
 	$init($Color);
 	textField->setCaretColor($Color::RED);
 	textField->setCaret($$new($CaretFloatingPointAPITest$CustomCaret));
@@ -223,7 +168,7 @@ void CaretFloatingPointAPITest::createUI() {
 	gbc->gridy = 0;
 	$set(gbc, insets, $new($Insets, 5, 15, 5, 15));
 	gbc->fill = $GridBagConstraints::HORIZONTAL;
-	mainControlPanel->add(static_cast<$Component*>(textField), $of(gbc));
+	mainControlPanel->add(textField, gbc);
 	$var($JTextArea, instructionTextArea, $new($JTextArea));
 	instructionTextArea->setText(CaretFloatingPointAPITest::INSTRUCTIONS);
 	instructionTextArea->setEditable(false);
@@ -231,23 +176,23 @@ void CaretFloatingPointAPITest::createUI() {
 	gbc->gridx = 0;
 	gbc->gridy = 1;
 	gbc->fill = $GridBagConstraints::HORIZONTAL;
-	mainControlPanel->add(static_cast<$Component*>(instructionTextArea), $of(gbc));
+	mainControlPanel->add(instructionTextArea, gbc);
 	$var($JButton, passButton, $new($JButton, "Pass"_s));
 	passButton->setActionCommand("Pass"_s);
-	passButton->addActionListener(static_cast<$ActionListener*>($$new(CaretFloatingPointAPITest$$Lambda$lambda$createUI$0$1, mainFrame)));
+	passButton->addActionListener($$new(CaretFloatingPointAPITest$$Lambda$lambda$createUI$0$1, mainFrame));
 	$var($JButton, failButton, $new($JButton, "Fail"_s));
 	failButton->setActionCommand("Fail"_s);
 	failButton->addActionListener($$new($CaretFloatingPointAPITest$1, mainFrame));
 	gbc->gridx = 0;
 	gbc->gridy = 0;
-	resultButtonPanel->add(static_cast<$Component*>(passButton), $of(gbc));
+	resultButtonPanel->add(passButton, gbc);
 	gbc->gridx = 1;
 	gbc->gridy = 0;
-	resultButtonPanel->add(static_cast<$Component*>(failButton), $of(gbc));
+	resultButtonPanel->add(failButton, gbc);
 	gbc->gridx = 0;
 	gbc->gridy = 2;
-	mainControlPanel->add(static_cast<$Component*>(resultButtonPanel), $of(gbc));
-	mainFrame->add(static_cast<$Component*>(mainControlPanel));
+	mainControlPanel->add(resultButtonPanel, gbc);
+	mainFrame->add(mainControlPanel);
 	mainFrame->pack();
 	mainFrame->addWindowListener($$new($CaretFloatingPointAPITest$2, mainFrame));
 	mainFrame->setVisible(true);
@@ -260,7 +205,7 @@ void CaretFloatingPointAPITest::lambda$createUI$0($JFrame* mainFrame, $ActionEve
 	$nc(CaretFloatingPointAPITest::countDownLatch)->countDown();
 }
 
-void clinit$CaretFloatingPointAPITest($Class* class$) {
+void CaretFloatingPointAPITest::clinit$($Class* clazz) {
 	$assignStatic(CaretFloatingPointAPITest::INSTRUCTIONS, "INSTRUCTIONS:\n\nVerify that cursor position is not rounded on HiDPI display.\n\nIf the display does not support HiDPI mode press PASS.\n\n1. Press the Right-Arrow key several times to move the red caret in the text field.\n2. Check that the caret has the same position between chars in diffrent locations.\n\nIf so, press PASS, else press FAIL.\n"_s);
 	CaretFloatingPointAPITest::testResult = false;
 }
@@ -270,14 +215,49 @@ CaretFloatingPointAPITest::CaretFloatingPointAPITest() {
 
 $Class* CaretFloatingPointAPITest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(CaretFloatingPointAPITest$$Lambda$createUI::classInfo$.name)) {
+		if (name->equals("CaretFloatingPointAPITest$$Lambda$createUI")) {
 			return CaretFloatingPointAPITest$$Lambda$createUI::load$(name, initialize);
 		}
-		if (name->equals(CaretFloatingPointAPITest$$Lambda$lambda$createUI$0$1::classInfo$.name)) {
+		if (name->equals("CaretFloatingPointAPITest$$Lambda$lambda$createUI$0$1")) {
 			return CaretFloatingPointAPITest$$Lambda$lambda$createUI$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(CaretFloatingPointAPITest, name, initialize, &_CaretFloatingPointAPITest_ClassInfo_, clinit$CaretFloatingPointAPITest, allocate$CaretFloatingPointAPITest);
+	$FieldInfo fieldInfos$$[] = {
+		{"testResult", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(CaretFloatingPointAPITest, testResult)},
+		{"countDownLatch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(CaretFloatingPointAPITest, countDownLatch)},
+		{"INSTRUCTIONS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CaretFloatingPointAPITest, INSTRUCTIONS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CaretFloatingPointAPITest, init$, void)},
+		{"createUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(CaretFloatingPointAPITest, createUI, void)},
+		{"lambda$createUI$0", "(Ljavax/swing/JFrame;Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CaretFloatingPointAPITest, lambda$createUI$0, void, $JFrame*, $ActionEvent*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CaretFloatingPointAPITest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"CaretFloatingPointAPITest$CustomCaret", "CaretFloatingPointAPITest", "CustomCaret", $STATIC},
+		{"CaretFloatingPointAPITest$2", nullptr, nullptr, 0},
+		{"CaretFloatingPointAPITest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"CaretFloatingPointAPITest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"CaretFloatingPointAPITest$CustomCaret,CaretFloatingPointAPITest$CustomCaret$CaretMouseListener,CaretFloatingPointAPITest$2,CaretFloatingPointAPITest$1"
+	};
+	$loadClass(CaretFloatingPointAPITest, name, initialize, &classInfo$$, CaretFloatingPointAPITest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CaretFloatingPointAPITest);
+	});
 	return class$;
 }
 

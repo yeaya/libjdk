@@ -32,7 +32,7 @@ public:
 	virtual ::java::awt::Point* getLocation();
 	virtual int32_t getX();
 	virtual int32_t getY();
-	static const int64_t serialVersionUID = (int64_t)0xF5684269D064CD7F;
+	static const int64_t serialVersionUID = (int64_t)0xf5684269d064cd7f;
 	bool locationSpecified = false;
 	int32_t x = 0;
 	int32_t y = 0;

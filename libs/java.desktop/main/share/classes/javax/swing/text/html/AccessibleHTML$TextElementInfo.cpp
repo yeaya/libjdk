@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/AccessibleHTML$TextElementInfo.h>
-
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/html/AccessibleHTML$ElementInfo.h>
@@ -21,50 +20,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _AccessibleHTML$TextElementInfo_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/html/AccessibleHTML;", nullptr, $FINAL | $SYNTHETIC, $field(AccessibleHTML$TextElementInfo, this$0)},
-	{"accessibleContext", "Ljavax/accessibility/AccessibleContext;", nullptr, $PRIVATE, $field(AccessibleHTML$TextElementInfo, accessibleContext)},
-	{}
-};
-
-$MethodInfo _AccessibleHTML$TextElementInfo_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/text/html/AccessibleHTML;Ljavax/swing/text/Element;Ljavax/swing/text/html/AccessibleHTML$ElementInfo;)V", nullptr, 0, $method(AccessibleHTML$TextElementInfo, init$, void, $AccessibleHTML*, $Element*, $AccessibleHTML$ElementInfo*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TextElementInfo, getAccessibleContext, $AccessibleContext*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AccessibleHTML$TextElementInfo_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.AccessibleHTML$TextElementInfo", "javax.swing.text.html.AccessibleHTML", "TextElementInfo", 0},
-	{"javax.swing.text.html.AccessibleHTML$ElementInfo", "javax.swing.text.html.AccessibleHTML", "ElementInfo", $PRIVATE},
-	{"javax.swing.text.html.AccessibleHTML$TextElementInfo$TextAccessibleContext", "javax.swing.text.html.AccessibleHTML$TextElementInfo", "TextAccessibleContext", $PUBLIC},
-	{}
-};
-
-$ClassInfo _AccessibleHTML$TextElementInfo_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.AccessibleHTML$TextElementInfo",
-	"javax.swing.text.html.AccessibleHTML$ElementInfo",
-	"javax.accessibility.Accessible",
-	_AccessibleHTML$TextElementInfo_FieldInfo_,
-	_AccessibleHTML$TextElementInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AccessibleHTML$TextElementInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.AccessibleHTML"
-};
-
-$Object* allocate$AccessibleHTML$TextElementInfo($Class* clazz) {
-	return $of($alloc(AccessibleHTML$TextElementInfo));
-}
 
 int32_t AccessibleHTML$TextElementInfo::hashCode() {
 	 return this->$AccessibleHTML$ElementInfo::hashCode();
@@ -102,7 +57,45 @@ AccessibleHTML$TextElementInfo::AccessibleHTML$TextElementInfo() {
 }
 
 $Class* AccessibleHTML$TextElementInfo::load$($String* name, bool initialize) {
-	$loadClass(AccessibleHTML$TextElementInfo, name, initialize, &_AccessibleHTML$TextElementInfo_ClassInfo_, allocate$AccessibleHTML$TextElementInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/html/AccessibleHTML;", nullptr, $FINAL | $SYNTHETIC, $field(AccessibleHTML$TextElementInfo, this$0)},
+		{"accessibleContext", "Ljavax/accessibility/AccessibleContext;", nullptr, $PRIVATE, $field(AccessibleHTML$TextElementInfo, accessibleContext)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/text/html/AccessibleHTML;Ljavax/swing/text/Element;Ljavax/swing/text/html/AccessibleHTML$ElementInfo;)V", nullptr, 0, $method(AccessibleHTML$TextElementInfo, init$, void, $AccessibleHTML*, $Element*, $AccessibleHTML$ElementInfo*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TextElementInfo, getAccessibleContext, $AccessibleContext*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.AccessibleHTML$TextElementInfo", "javax.swing.text.html.AccessibleHTML", "TextElementInfo", 0},
+		{"javax.swing.text.html.AccessibleHTML$ElementInfo", "javax.swing.text.html.AccessibleHTML", "ElementInfo", $PRIVATE},
+		{"javax.swing.text.html.AccessibleHTML$TextElementInfo$TextAccessibleContext", "javax.swing.text.html.AccessibleHTML$TextElementInfo", "TextAccessibleContext", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.AccessibleHTML$TextElementInfo",
+		"javax.swing.text.html.AccessibleHTML$ElementInfo",
+		"javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.AccessibleHTML"
+	};
+	$loadClass(AccessibleHTML$TextElementInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AccessibleHTML$TextElementInfo));
+	});
 	return class$;
 }
 

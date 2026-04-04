@@ -1,5 +1,4 @@
 #include <javax/tools/ForwardingFileObject.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Reader.h>
@@ -24,39 +23,6 @@ using $FileObject = ::javax::tools::FileObject;
 
 namespace javax {
 	namespace tools {
-
-$FieldInfo _ForwardingFileObject_FieldInfo_[] = {
-	{"fileObject", "Ljavax/tools/FileObject;", "TF;", $PROTECTED | $FINAL, $field(ForwardingFileObject, fileObject)},
-	{}
-};
-
-$MethodInfo _ForwardingFileObject_MethodInfo_[] = {
-	{"<init>", "(Ljavax/tools/FileObject;)V", "(TF;)V", $PROTECTED, $method(ForwardingFileObject, init$, void, $FileObject*)},
-	{"delete", "()Z", nullptr, $PUBLIC, $virtualMethod(ForwardingFileObject, delete$, bool)},
-	{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(ForwardingFileObject, getCharContent, $CharSequence*, bool), "java.io.IOException"},
-	{"getLastModified", "()J", nullptr, $PUBLIC, $virtualMethod(ForwardingFileObject, getLastModified, int64_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ForwardingFileObject, getName, $String*)},
-	{"openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ForwardingFileObject, openInputStream, $InputStream*), "java.io.IOException"},
-	{"openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(ForwardingFileObject, openOutputStream, $OutputStream*), "java.io.IOException"},
-	{"openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(ForwardingFileObject, openReader, $Reader*, bool), "java.io.IOException"},
-	{"openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(ForwardingFileObject, openWriter, $Writer*), "java.io.IOException"},
-	{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(ForwardingFileObject, toUri, $URI*)},
-	{}
-};
-
-$ClassInfo _ForwardingFileObject_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.tools.ForwardingFileObject",
-	"java.lang.Object",
-	"javax.tools.FileObject",
-	_ForwardingFileObject_FieldInfo_,
-	_ForwardingFileObject_MethodInfo_,
-	"<F::Ljavax/tools/FileObject;>Ljava/lang/Object;Ljavax/tools/FileObject;"
-};
-
-$Object* allocate$ForwardingFileObject($Class* clazz) {
-	return $of($alloc(ForwardingFileObject));
-}
 
 void ForwardingFileObject::init$($FileObject* fileObject) {
 	$set(this, fileObject, $cast($FileObject, $Objects::requireNonNull(fileObject)));
@@ -102,7 +68,35 @@ ForwardingFileObject::ForwardingFileObject() {
 }
 
 $Class* ForwardingFileObject::load$($String* name, bool initialize) {
-	$loadClass(ForwardingFileObject, name, initialize, &_ForwardingFileObject_ClassInfo_, allocate$ForwardingFileObject);
+	$FieldInfo fieldInfos$$[] = {
+		{"fileObject", "Ljavax/tools/FileObject;", "TF;", $PROTECTED | $FINAL, $field(ForwardingFileObject, fileObject)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/tools/FileObject;)V", "(TF;)V", $PROTECTED, $method(ForwardingFileObject, init$, void, $FileObject*)},
+		{"delete", "()Z", nullptr, $PUBLIC, $virtualMethod(ForwardingFileObject, delete$, bool)},
+		{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(ForwardingFileObject, getCharContent, $CharSequence*, bool), "java.io.IOException"},
+		{"getLastModified", "()J", nullptr, $PUBLIC, $virtualMethod(ForwardingFileObject, getLastModified, int64_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ForwardingFileObject, getName, $String*)},
+		{"openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ForwardingFileObject, openInputStream, $InputStream*), "java.io.IOException"},
+		{"openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(ForwardingFileObject, openOutputStream, $OutputStream*), "java.io.IOException"},
+		{"openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(ForwardingFileObject, openReader, $Reader*, bool), "java.io.IOException"},
+		{"openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(ForwardingFileObject, openWriter, $Writer*), "java.io.IOException"},
+		{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(ForwardingFileObject, toUri, $URI*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.tools.ForwardingFileObject",
+		"java.lang.Object",
+		"javax.tools.FileObject",
+		fieldInfos$$,
+		methodInfos$$,
+		"<F::Ljavax/tools/FileObject;>Ljava/lang/Object;Ljavax/tools/FileObject;"
+	};
+	$loadClass(ForwardingFileObject, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ForwardingFileObject);
+	});
 	return class$;
 }
 

@@ -59,7 +59,7 @@ public:
 	virtual bool canBeWalkedInNaturalDocOrderStatic();
 	virtual void fixupVariables(::java::util::List* vars, int32_t globalsSize) override;
 	virtual bool isDocOrdered() override;
-	static const int64_t serialVersionUID = (int64_t)0xC160563CC9C0982B;
+	static const int64_t serialVersionUID = (int64_t)0xc160563cc9c0982b;
 	bool m_inNaturalOrderStatic = false;
 };
 

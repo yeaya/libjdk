@@ -157,6 +157,7 @@ public:
 	virtual void finalize() override;
 	virtual ::java::awt::peer::KeyboardFocusManagerPeer* getKeyboardFocusManagerPeer() override {return nullptr;}
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addModalityListener(::sun::awt::ModalityListener* listener);
 	static void awtLock();

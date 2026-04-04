@@ -1,5 +1,4 @@
 #include <javax/tools/StandardJavaFileManager$2.h>
-
 #include <java/io/File.h>
 #include <java/lang/Iterable.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -17,54 +16,9 @@ using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $Path = ::java::nio::file::Path;
-using $Iterator = ::java::util::Iterator;
 
 namespace javax {
 	namespace tools {
-
-$FieldInfo _StandardJavaFileManager$2_FieldInfo_[] = {
-	{"val$paths", "Ljava/lang/Iterable;", nullptr, $FINAL | $SYNTHETIC, $field(StandardJavaFileManager$2, val$paths)},
-	{"iter", "Ljava/util/Iterator;", "Ljava/util/Iterator<+Ljava/nio/file/Path;>;", $FINAL, $field(StandardJavaFileManager$2, iter)},
-	{}
-};
-
-$MethodInfo _StandardJavaFileManager$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Iterable;)V", nullptr, 0, $method(StandardJavaFileManager$2, init$, void, $Iterable*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(StandardJavaFileManager$2, hasNext, bool)},
-	{"next", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(StandardJavaFileManager$2, next, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _StandardJavaFileManager$2_EnclosingMethodInfo_ = {
-	"javax.tools.StandardJavaFileManager",
-	"asFiles",
-	"(Ljava/lang/Iterable;)Ljava/lang/Iterable;"
-};
-
-$InnerClassInfo _StandardJavaFileManager$2_InnerClassesInfo_[] = {
-	{"javax.tools.StandardJavaFileManager$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _StandardJavaFileManager$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.tools.StandardJavaFileManager$2",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_StandardJavaFileManager$2_FieldInfo_,
-	_StandardJavaFileManager$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljava/io/File;>;",
-	&_StandardJavaFileManager$2_EnclosingMethodInfo_,
-	_StandardJavaFileManager$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.tools.StandardJavaFileManager"
-};
-
-$Object* allocate$StandardJavaFileManager$2($Class* clazz) {
-	return $of($alloc(StandardJavaFileManager$2));
-}
 
 void StandardJavaFileManager$2::init$($Iterable* val$paths) {
 	$set(this, val$paths, val$paths);
@@ -76,7 +30,7 @@ bool StandardJavaFileManager$2::hasNext() {
 }
 
 $Object* StandardJavaFileManager$2::next() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, p, $cast($Path, $nc(this->iter)->next()));
 	try {
 		return $of($nc(p)->toFile());
@@ -90,7 +44,44 @@ StandardJavaFileManager$2::StandardJavaFileManager$2() {
 }
 
 $Class* StandardJavaFileManager$2::load$($String* name, bool initialize) {
-	$loadClass(StandardJavaFileManager$2, name, initialize, &_StandardJavaFileManager$2_ClassInfo_, allocate$StandardJavaFileManager$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$paths", "Ljava/lang/Iterable;", nullptr, $FINAL | $SYNTHETIC, $field(StandardJavaFileManager$2, val$paths)},
+		{"iter", "Ljava/util/Iterator;", "Ljava/util/Iterator<+Ljava/nio/file/Path;>;", $FINAL, $field(StandardJavaFileManager$2, iter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Iterable;)V", nullptr, 0, $method(StandardJavaFileManager$2, init$, void, $Iterable*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(StandardJavaFileManager$2, hasNext, bool)},
+		{"next", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(StandardJavaFileManager$2, next, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.tools.StandardJavaFileManager",
+		"asFiles",
+		"(Ljava/lang/Iterable;)Ljava/lang/Iterable;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.tools.StandardJavaFileManager$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.tools.StandardJavaFileManager$2",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljava/io/File;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.tools.StandardJavaFileManager"
+	};
+	$loadClass(StandardJavaFileManager$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StandardJavaFileManager$2);
+	});
 	return class$;
 }
 

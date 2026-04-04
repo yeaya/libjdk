@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/TypeMetadata$Entry$Kind.h>
-
 #include <com/sun/tools/javac/code/TypeMetadata$Entry.h>
 #include <com/sun/tools/javac/code/TypeMetadata.h>
 #include <java/lang/Enum.h>
@@ -19,46 +18,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _TypeMetadata$Entry$Kind_FieldInfo_[] = {
-	{"ANNOTATIONS", "Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeMetadata$Entry$Kind, ANNOTATIONS)},
-	{"$VALUES", "[Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TypeMetadata$Entry$Kind, $VALUES)},
-	{}
-};
-
-$MethodInfo _TypeMetadata$Entry$Kind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TypeMetadata$Entry$Kind, $values, $TypeMetadata$Entry$KindArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TypeMetadata$Entry$Kind, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeMetadata$Entry$Kind, valueOf, TypeMetadata$Entry$Kind*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeMetadata$Entry$Kind, values, $TypeMetadata$Entry$KindArray*)},
-	{}
-};
-
-$InnerClassInfo _TypeMetadata$Entry$Kind_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.TypeMetadata$Entry", "com.sun.tools.javac.code.TypeMetadata", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.code.TypeMetadata$Entry$Kind", "com.sun.tools.javac.code.TypeMetadata$Entry", "Kind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _TypeMetadata$Entry$Kind_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.code.TypeMetadata$Entry$Kind",
-	"java.lang.Enum",
-	nullptr,
-	_TypeMetadata$Entry$Kind_FieldInfo_,
-	_TypeMetadata$Entry$Kind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;>;",
-	nullptr,
-	_TypeMetadata$Entry$Kind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.TypeMetadata"
-};
-
-$Object* allocate$TypeMetadata$Entry$Kind($Class* clazz) {
-	return $of($alloc(TypeMetadata$Entry$Kind));
-}
 
 TypeMetadata$Entry$Kind* TypeMetadata$Entry$Kind::ANNOTATIONS = nullptr;
 $TypeMetadata$Entry$KindArray* TypeMetadata$Entry$Kind::$VALUES = nullptr;
@@ -82,7 +41,7 @@ void TypeMetadata$Entry$Kind::init$($String* $enum$name, int32_t $enum$ordinal) 
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$TypeMetadata$Entry$Kind($Class* class$) {
+void TypeMetadata$Entry$Kind::clinit$($Class* clazz) {
 	$assignStatic(TypeMetadata$Entry$Kind::ANNOTATIONS, $new(TypeMetadata$Entry$Kind, "ANNOTATIONS"_s, 0));
 	$assignStatic(TypeMetadata$Entry$Kind::$VALUES, TypeMetadata$Entry$Kind::$values());
 }
@@ -91,7 +50,41 @@ TypeMetadata$Entry$Kind::TypeMetadata$Entry$Kind() {
 }
 
 $Class* TypeMetadata$Entry$Kind::load$($String* name, bool initialize) {
-	$loadClass(TypeMetadata$Entry$Kind, name, initialize, &_TypeMetadata$Entry$Kind_ClassInfo_, clinit$TypeMetadata$Entry$Kind, allocate$TypeMetadata$Entry$Kind);
+	$FieldInfo fieldInfos$$[] = {
+		{"ANNOTATIONS", "Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeMetadata$Entry$Kind, ANNOTATIONS)},
+		{"$VALUES", "[Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TypeMetadata$Entry$Kind, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TypeMetadata$Entry$Kind, $values, $TypeMetadata$Entry$KindArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TypeMetadata$Entry$Kind, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeMetadata$Entry$Kind, valueOf, TypeMetadata$Entry$Kind*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeMetadata$Entry$Kind, values, $TypeMetadata$Entry$KindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.TypeMetadata$Entry", "com.sun.tools.javac.code.TypeMetadata", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.code.TypeMetadata$Entry$Kind", "com.sun.tools.javac.code.TypeMetadata$Entry", "Kind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.code.TypeMetadata$Entry$Kind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.TypeMetadata"
+	};
+	$loadClass(TypeMetadata$Entry$Kind, name, initialize, &classInfo$$, TypeMetadata$Entry$Kind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TypeMetadata$Entry$Kind));
+	});
 	return class$;
 }
 

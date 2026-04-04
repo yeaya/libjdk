@@ -39,6 +39,7 @@ class $import Level : public ::java::io::Serializable {
 	$class(Level, 0, ::java::io::Serializable)
 public:
 	Level();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, int32_t value);
 	void init$($String* name, int32_t value, $String* resourceBundleName);
 	void init$($String* name, int32_t value, $String* resourceBundleName, bool visible);
@@ -72,7 +73,7 @@ public:
 	static ::java::util::logging::Level* FINEST;
 	static ::java::util::logging::Level* ALL;
 	static $Array<::java::util::logging::Level>* standardLevels;
-	static const int64_t serialVersionUID = (int64_t)0x8E88711351733692;
+	static const int64_t serialVersionUID = (int64_t)0x8e88711351733692;
 };
 
 		} // logging

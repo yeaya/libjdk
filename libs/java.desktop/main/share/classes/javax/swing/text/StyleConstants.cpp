@@ -1,5 +1,4 @@
 #include <javax/swing/text/StyleConstants.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <javax/swing/Icon.h>
@@ -40,121 +39,6 @@ using $TabSet = ::javax::swing::text::TabSet;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _StyleConstants_FieldInfo_[] = {
-	{"ComponentElementName", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, ComponentElementName)},
-	{"IconElementName", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, IconElementName)},
-	{"NameAttribute", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, NameAttribute)},
-	{"ResolveAttribute", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, ResolveAttribute)},
-	{"ModelAttribute", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, ModelAttribute)},
-	{"BidiLevel", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, BidiLevel)},
-	{"FontFamily", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, FontFamily)},
-	{"Family", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, Family)},
-	{"FontSize", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, FontSize)},
-	{"Size", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, Size)},
-	{"Bold", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, Bold)},
-	{"Italic", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, Italic)},
-	{"Underline", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, Underline)},
-	{"StrikeThrough", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, StrikeThrough)},
-	{"Superscript", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, Superscript)},
-	{"Subscript", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, Subscript)},
-	{"Foreground", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, Foreground)},
-	{"Background", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, Background)},
-	{"ComponentAttribute", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, ComponentAttribute)},
-	{"IconAttribute", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, IconAttribute)},
-	{"ComposedTextAttribute", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, ComposedTextAttribute)},
-	{"FirstLineIndent", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, FirstLineIndent)},
-	{"LeftIndent", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, LeftIndent)},
-	{"RightIndent", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, RightIndent)},
-	{"LineSpacing", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, LineSpacing)},
-	{"SpaceAbove", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, SpaceAbove)},
-	{"SpaceBelow", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, SpaceBelow)},
-	{"Alignment", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, Alignment)},
-	{"TabSet", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, TabSet)},
-	{"Orientation", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, Orientation)},
-	{"ALIGN_LEFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(StyleConstants, ALIGN_LEFT)},
-	{"ALIGN_CENTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(StyleConstants, ALIGN_CENTER)},
-	{"ALIGN_RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(StyleConstants, ALIGN_RIGHT)},
-	{"ALIGN_JUSTIFIED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(StyleConstants, ALIGN_JUSTIFIED)},
-	{"keys", "[Ljava/lang/Object;", nullptr, $STATIC, $staticField(StyleConstants, keys)},
-	{"representation", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StyleConstants, representation)},
-	{}
-};
-
-$MethodInfo _StyleConstants_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(StyleConstants, init$, void, $String*)},
-	{"getAlignment", "(Ljavax/swing/text/AttributeSet;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getAlignment, int32_t, $AttributeSet*)},
-	{"getBackground", "(Ljavax/swing/text/AttributeSet;)Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getBackground, $Color*, $AttributeSet*)},
-	{"getBidiLevel", "(Ljavax/swing/text/AttributeSet;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getBidiLevel, int32_t, $AttributeSet*)},
-	{"getComponent", "(Ljavax/swing/text/AttributeSet;)Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getComponent, $Component*, $AttributeSet*)},
-	{"getFirstLineIndent", "(Ljavax/swing/text/AttributeSet;)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getFirstLineIndent, float, $AttributeSet*)},
-	{"getFontFamily", "(Ljavax/swing/text/AttributeSet;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getFontFamily, $String*, $AttributeSet*)},
-	{"getFontSize", "(Ljavax/swing/text/AttributeSet;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getFontSize, int32_t, $AttributeSet*)},
-	{"getForeground", "(Ljavax/swing/text/AttributeSet;)Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getForeground, $Color*, $AttributeSet*)},
-	{"getIcon", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getIcon, $Icon*, $AttributeSet*)},
-	{"getLeftIndent", "(Ljavax/swing/text/AttributeSet;)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getLeftIndent, float, $AttributeSet*)},
-	{"getLineSpacing", "(Ljavax/swing/text/AttributeSet;)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getLineSpacing, float, $AttributeSet*)},
-	{"getRightIndent", "(Ljavax/swing/text/AttributeSet;)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getRightIndent, float, $AttributeSet*)},
-	{"getSpaceAbove", "(Ljavax/swing/text/AttributeSet;)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getSpaceAbove, float, $AttributeSet*)},
-	{"getSpaceBelow", "(Ljavax/swing/text/AttributeSet;)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getSpaceBelow, float, $AttributeSet*)},
-	{"getTabSet", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/TabSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getTabSet, $TabSet*, $AttributeSet*)},
-	{"isBold", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, isBold, bool, $AttributeSet*)},
-	{"isItalic", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, isItalic, bool, $AttributeSet*)},
-	{"isStrikeThrough", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, isStrikeThrough, bool, $AttributeSet*)},
-	{"isSubscript", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, isSubscript, bool, $AttributeSet*)},
-	{"isSuperscript", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, isSuperscript, bool, $AttributeSet*)},
-	{"isUnderline", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, isUnderline, bool, $AttributeSet*)},
-	{"setAlignment", "(Ljavax/swing/text/MutableAttributeSet;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setAlignment, void, $MutableAttributeSet*, int32_t)},
-	{"setBackground", "(Ljavax/swing/text/MutableAttributeSet;Ljava/awt/Color;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setBackground, void, $MutableAttributeSet*, $Color*)},
-	{"setBidiLevel", "(Ljavax/swing/text/MutableAttributeSet;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setBidiLevel, void, $MutableAttributeSet*, int32_t)},
-	{"setBold", "(Ljavax/swing/text/MutableAttributeSet;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setBold, void, $MutableAttributeSet*, bool)},
-	{"setComponent", "(Ljavax/swing/text/MutableAttributeSet;Ljava/awt/Component;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setComponent, void, $MutableAttributeSet*, $Component*)},
-	{"setFirstLineIndent", "(Ljavax/swing/text/MutableAttributeSet;F)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setFirstLineIndent, void, $MutableAttributeSet*, float)},
-	{"setFontFamily", "(Ljavax/swing/text/MutableAttributeSet;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setFontFamily, void, $MutableAttributeSet*, $String*)},
-	{"setFontSize", "(Ljavax/swing/text/MutableAttributeSet;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setFontSize, void, $MutableAttributeSet*, int32_t)},
-	{"setForeground", "(Ljavax/swing/text/MutableAttributeSet;Ljava/awt/Color;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setForeground, void, $MutableAttributeSet*, $Color*)},
-	{"setIcon", "(Ljavax/swing/text/MutableAttributeSet;Ljavax/swing/Icon;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setIcon, void, $MutableAttributeSet*, $Icon*)},
-	{"setItalic", "(Ljavax/swing/text/MutableAttributeSet;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setItalic, void, $MutableAttributeSet*, bool)},
-	{"setLeftIndent", "(Ljavax/swing/text/MutableAttributeSet;F)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setLeftIndent, void, $MutableAttributeSet*, float)},
-	{"setLineSpacing", "(Ljavax/swing/text/MutableAttributeSet;F)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setLineSpacing, void, $MutableAttributeSet*, float)},
-	{"setRightIndent", "(Ljavax/swing/text/MutableAttributeSet;F)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setRightIndent, void, $MutableAttributeSet*, float)},
-	{"setSpaceAbove", "(Ljavax/swing/text/MutableAttributeSet;F)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setSpaceAbove, void, $MutableAttributeSet*, float)},
-	{"setSpaceBelow", "(Ljavax/swing/text/MutableAttributeSet;F)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setSpaceBelow, void, $MutableAttributeSet*, float)},
-	{"setStrikeThrough", "(Ljavax/swing/text/MutableAttributeSet;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setStrikeThrough, void, $MutableAttributeSet*, bool)},
-	{"setSubscript", "(Ljavax/swing/text/MutableAttributeSet;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setSubscript, void, $MutableAttributeSet*, bool)},
-	{"setSuperscript", "(Ljavax/swing/text/MutableAttributeSet;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setSuperscript, void, $MutableAttributeSet*, bool)},
-	{"setTabSet", "(Ljavax/swing/text/MutableAttributeSet;Ljavax/swing/text/TabSet;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setTabSet, void, $MutableAttributeSet*, $TabSet*)},
-	{"setUnderline", "(Ljavax/swing/text/MutableAttributeSet;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setUnderline, void, $MutableAttributeSet*, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StyleConstants, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _StyleConstants_InnerClassesInfo_[] = {
-	{"javax.swing.text.StyleConstants$FontConstants", "javax.swing.text.StyleConstants", "FontConstants", $PUBLIC | $STATIC},
-	{"javax.swing.text.StyleConstants$ColorConstants", "javax.swing.text.StyleConstants", "ColorConstants", $PUBLIC | $STATIC},
-	{"javax.swing.text.StyleConstants$CharacterConstants", "javax.swing.text.StyleConstants", "CharacterConstants", $PUBLIC | $STATIC},
-	{"javax.swing.text.StyleConstants$ParagraphConstants", "javax.swing.text.StyleConstants", "ParagraphConstants", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _StyleConstants_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.StyleConstants",
-	"java.lang.Object",
-	nullptr,
-	_StyleConstants_FieldInfo_,
-	_StyleConstants_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StyleConstants_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.StyleConstants$FontConstants,javax.swing.text.StyleConstants$ColorConstants,javax.swing.text.StyleConstants$CharacterConstants,javax.swing.text.StyleConstants$ParagraphConstants"
-};
-
-$Object* allocate$StyleConstants($Class* clazz) {
-	return $of($alloc(StyleConstants));
-}
 
 $String* StyleConstants::ComponentElementName = nullptr;
 $String* StyleConstants::IconElementName = nullptr;
@@ -378,7 +262,7 @@ float StyleConstants::getFirstLineIndent($AttributeSet* a) {
 	if (indent != nullptr) {
 		return indent->floatValue();
 	}
-	return (float)0;
+	return 0;
 }
 
 void StyleConstants::setFirstLineIndent($MutableAttributeSet* a, float i) {
@@ -392,7 +276,7 @@ float StyleConstants::getRightIndent($AttributeSet* a) {
 	if (indent != nullptr) {
 		return indent->floatValue();
 	}
-	return (float)0;
+	return 0;
 }
 
 void StyleConstants::setRightIndent($MutableAttributeSet* a, float i) {
@@ -406,7 +290,7 @@ float StyleConstants::getLeftIndent($AttributeSet* a) {
 	if (indent != nullptr) {
 		return indent->floatValue();
 	}
-	return (float)0;
+	return 0;
 }
 
 void StyleConstants::setLeftIndent($MutableAttributeSet* a, float i) {
@@ -420,7 +304,7 @@ float StyleConstants::getLineSpacing($AttributeSet* a) {
 	if (space != nullptr) {
 		return space->floatValue();
 	}
-	return (float)0;
+	return 0;
 }
 
 void StyleConstants::setLineSpacing($MutableAttributeSet* a, float i) {
@@ -434,7 +318,7 @@ float StyleConstants::getSpaceAbove($AttributeSet* a) {
 	if (space != nullptr) {
 		return space->floatValue();
 	}
-	return (float)0;
+	return 0;
 }
 
 void StyleConstants::setSpaceAbove($MutableAttributeSet* a, float i) {
@@ -448,7 +332,7 @@ float StyleConstants::getSpaceBelow($AttributeSet* a) {
 	if (space != nullptr) {
 		return space->floatValue();
 	}
-	return (float)0;
+	return 0;
 }
 
 void StyleConstants::setSpaceBelow($MutableAttributeSet* a, float i) {
@@ -485,7 +369,7 @@ void StyleConstants::init$($String* representation) {
 	$set(this, representation, representation);
 }
 
-void clinit$StyleConstants($Class* class$) {
+void StyleConstants::clinit$($Class* clazz) {
 	$assignStatic(StyleConstants::ComponentElementName, "component"_s);
 	$assignStatic(StyleConstants::IconElementName, "icon"_s);
 	$assignStatic(StyleConstants::NameAttribute, $new(StyleConstants, "name"_s));
@@ -550,7 +434,116 @@ StyleConstants::StyleConstants() {
 }
 
 $Class* StyleConstants::load$($String* name, bool initialize) {
-	$loadClass(StyleConstants, name, initialize, &_StyleConstants_ClassInfo_, clinit$StyleConstants, allocate$StyleConstants);
+	$FieldInfo fieldInfos$$[] = {
+		{"ComponentElementName", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, ComponentElementName)},
+		{"IconElementName", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, IconElementName)},
+		{"NameAttribute", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, NameAttribute)},
+		{"ResolveAttribute", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, ResolveAttribute)},
+		{"ModelAttribute", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, ModelAttribute)},
+		{"BidiLevel", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, BidiLevel)},
+		{"FontFamily", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, FontFamily)},
+		{"Family", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, Family)},
+		{"FontSize", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, FontSize)},
+		{"Size", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, Size)},
+		{"Bold", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, Bold)},
+		{"Italic", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, Italic)},
+		{"Underline", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, Underline)},
+		{"StrikeThrough", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, StrikeThrough)},
+		{"Superscript", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, Superscript)},
+		{"Subscript", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, Subscript)},
+		{"Foreground", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, Foreground)},
+		{"Background", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, Background)},
+		{"ComponentAttribute", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, ComponentAttribute)},
+		{"IconAttribute", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, IconAttribute)},
+		{"ComposedTextAttribute", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, ComposedTextAttribute)},
+		{"FirstLineIndent", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, FirstLineIndent)},
+		{"LeftIndent", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, LeftIndent)},
+		{"RightIndent", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, RightIndent)},
+		{"LineSpacing", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, LineSpacing)},
+		{"SpaceAbove", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, SpaceAbove)},
+		{"SpaceBelow", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, SpaceBelow)},
+		{"Alignment", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, Alignment)},
+		{"TabSet", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, TabSet)},
+		{"Orientation", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleConstants, Orientation)},
+		{"ALIGN_LEFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(StyleConstants, ALIGN_LEFT)},
+		{"ALIGN_CENTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(StyleConstants, ALIGN_CENTER)},
+		{"ALIGN_RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(StyleConstants, ALIGN_RIGHT)},
+		{"ALIGN_JUSTIFIED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(StyleConstants, ALIGN_JUSTIFIED)},
+		{"keys", "[Ljava/lang/Object;", nullptr, $STATIC, $staticField(StyleConstants, keys)},
+		{"representation", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StyleConstants, representation)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(StyleConstants, init$, void, $String*)},
+		{"getAlignment", "(Ljavax/swing/text/AttributeSet;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getAlignment, int32_t, $AttributeSet*)},
+		{"getBackground", "(Ljavax/swing/text/AttributeSet;)Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getBackground, $Color*, $AttributeSet*)},
+		{"getBidiLevel", "(Ljavax/swing/text/AttributeSet;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getBidiLevel, int32_t, $AttributeSet*)},
+		{"getComponent", "(Ljavax/swing/text/AttributeSet;)Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getComponent, $Component*, $AttributeSet*)},
+		{"getFirstLineIndent", "(Ljavax/swing/text/AttributeSet;)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getFirstLineIndent, float, $AttributeSet*)},
+		{"getFontFamily", "(Ljavax/swing/text/AttributeSet;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getFontFamily, $String*, $AttributeSet*)},
+		{"getFontSize", "(Ljavax/swing/text/AttributeSet;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getFontSize, int32_t, $AttributeSet*)},
+		{"getForeground", "(Ljavax/swing/text/AttributeSet;)Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getForeground, $Color*, $AttributeSet*)},
+		{"getIcon", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getIcon, $Icon*, $AttributeSet*)},
+		{"getLeftIndent", "(Ljavax/swing/text/AttributeSet;)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getLeftIndent, float, $AttributeSet*)},
+		{"getLineSpacing", "(Ljavax/swing/text/AttributeSet;)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getLineSpacing, float, $AttributeSet*)},
+		{"getRightIndent", "(Ljavax/swing/text/AttributeSet;)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getRightIndent, float, $AttributeSet*)},
+		{"getSpaceAbove", "(Ljavax/swing/text/AttributeSet;)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getSpaceAbove, float, $AttributeSet*)},
+		{"getSpaceBelow", "(Ljavax/swing/text/AttributeSet;)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getSpaceBelow, float, $AttributeSet*)},
+		{"getTabSet", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/TabSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, getTabSet, $TabSet*, $AttributeSet*)},
+		{"isBold", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, isBold, bool, $AttributeSet*)},
+		{"isItalic", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, isItalic, bool, $AttributeSet*)},
+		{"isStrikeThrough", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, isStrikeThrough, bool, $AttributeSet*)},
+		{"isSubscript", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, isSubscript, bool, $AttributeSet*)},
+		{"isSuperscript", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, isSuperscript, bool, $AttributeSet*)},
+		{"isUnderline", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, isUnderline, bool, $AttributeSet*)},
+		{"setAlignment", "(Ljavax/swing/text/MutableAttributeSet;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setAlignment, void, $MutableAttributeSet*, int32_t)},
+		{"setBackground", "(Ljavax/swing/text/MutableAttributeSet;Ljava/awt/Color;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setBackground, void, $MutableAttributeSet*, $Color*)},
+		{"setBidiLevel", "(Ljavax/swing/text/MutableAttributeSet;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setBidiLevel, void, $MutableAttributeSet*, int32_t)},
+		{"setBold", "(Ljavax/swing/text/MutableAttributeSet;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setBold, void, $MutableAttributeSet*, bool)},
+		{"setComponent", "(Ljavax/swing/text/MutableAttributeSet;Ljava/awt/Component;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setComponent, void, $MutableAttributeSet*, $Component*)},
+		{"setFirstLineIndent", "(Ljavax/swing/text/MutableAttributeSet;F)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setFirstLineIndent, void, $MutableAttributeSet*, float)},
+		{"setFontFamily", "(Ljavax/swing/text/MutableAttributeSet;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setFontFamily, void, $MutableAttributeSet*, $String*)},
+		{"setFontSize", "(Ljavax/swing/text/MutableAttributeSet;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setFontSize, void, $MutableAttributeSet*, int32_t)},
+		{"setForeground", "(Ljavax/swing/text/MutableAttributeSet;Ljava/awt/Color;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setForeground, void, $MutableAttributeSet*, $Color*)},
+		{"setIcon", "(Ljavax/swing/text/MutableAttributeSet;Ljavax/swing/Icon;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setIcon, void, $MutableAttributeSet*, $Icon*)},
+		{"setItalic", "(Ljavax/swing/text/MutableAttributeSet;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setItalic, void, $MutableAttributeSet*, bool)},
+		{"setLeftIndent", "(Ljavax/swing/text/MutableAttributeSet;F)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setLeftIndent, void, $MutableAttributeSet*, float)},
+		{"setLineSpacing", "(Ljavax/swing/text/MutableAttributeSet;F)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setLineSpacing, void, $MutableAttributeSet*, float)},
+		{"setRightIndent", "(Ljavax/swing/text/MutableAttributeSet;F)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setRightIndent, void, $MutableAttributeSet*, float)},
+		{"setSpaceAbove", "(Ljavax/swing/text/MutableAttributeSet;F)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setSpaceAbove, void, $MutableAttributeSet*, float)},
+		{"setSpaceBelow", "(Ljavax/swing/text/MutableAttributeSet;F)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setSpaceBelow, void, $MutableAttributeSet*, float)},
+		{"setStrikeThrough", "(Ljavax/swing/text/MutableAttributeSet;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setStrikeThrough, void, $MutableAttributeSet*, bool)},
+		{"setSubscript", "(Ljavax/swing/text/MutableAttributeSet;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setSubscript, void, $MutableAttributeSet*, bool)},
+		{"setSuperscript", "(Ljavax/swing/text/MutableAttributeSet;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setSuperscript, void, $MutableAttributeSet*, bool)},
+		{"setTabSet", "(Ljavax/swing/text/MutableAttributeSet;Ljavax/swing/text/TabSet;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setTabSet, void, $MutableAttributeSet*, $TabSet*)},
+		{"setUnderline", "(Ljavax/swing/text/MutableAttributeSet;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleConstants, setUnderline, void, $MutableAttributeSet*, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StyleConstants, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.StyleConstants$FontConstants", "javax.swing.text.StyleConstants", "FontConstants", $PUBLIC | $STATIC},
+		{"javax.swing.text.StyleConstants$ColorConstants", "javax.swing.text.StyleConstants", "ColorConstants", $PUBLIC | $STATIC},
+		{"javax.swing.text.StyleConstants$CharacterConstants", "javax.swing.text.StyleConstants", "CharacterConstants", $PUBLIC | $STATIC},
+		{"javax.swing.text.StyleConstants$ParagraphConstants", "javax.swing.text.StyleConstants", "ParagraphConstants", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.StyleConstants",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.StyleConstants$FontConstants,javax.swing.text.StyleConstants$ColorConstants,javax.swing.text.StyleConstants$CharacterConstants,javax.swing.text.StyleConstants$ParagraphConstants"
+	};
+	$loadClass(StyleConstants, name, initialize, &classInfo$$, StyleConstants::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StyleConstants);
+	});
 	return class$;
 }
 

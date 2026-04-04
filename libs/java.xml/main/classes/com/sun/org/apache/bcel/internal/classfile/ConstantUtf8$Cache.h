@@ -34,6 +34,7 @@ class ConstantUtf8$Cache : public ::java::lang::Object {
 	$class(ConstantUtf8$Cache, 0, ::java::lang::Object)
 public:
 	ConstantUtf8$Cache();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool isEnabled();
 	static const bool BCEL_STATISTICS = false;

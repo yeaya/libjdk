@@ -1,5 +1,4 @@
 #include <javax/print/attribute/AttributeSetUtilities$UnmodifiablePrintJobAttributeSet.h>
-
 #include <javax/print/attribute/Attribute.h>
 #include <javax/print/attribute/AttributeSet.h>
 #include <javax/print/attribute/AttributeSetUtilities$UnmodifiableAttributeSet.h>
@@ -20,58 +19,6 @@ using $PrintJobAttributeSet = ::javax::print::attribute::PrintJobAttributeSet;
 namespace javax {
 	namespace print {
 		namespace attribute {
-
-$FieldInfo _AttributeSetUtilities$UnmodifiablePrintJobAttributeSet_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttributeSetUtilities$UnmodifiablePrintJobAttributeSet, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AttributeSetUtilities$UnmodifiablePrintJobAttributeSet_MethodInfo_[] = {
-	{"*add", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
-	{"*addAll", "(Ljavax/print/attribute/AttributeSet;)Z", nullptr, $PUBLIC},
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*containsKey", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC},
-	{"*containsValue", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*get", "(Ljava/lang/Class;)Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljavax/print/attribute/PrintJobAttributeSet;)V", nullptr, $PUBLIC, $method(AttributeSetUtilities$UnmodifiablePrintJobAttributeSet, init$, void, $PrintJobAttributeSet*)},
-	{"*remove", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*remove", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
-	{"*size", "()I", nullptr, $PUBLIC},
-	{"*toArray", "()[Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AttributeSetUtilities$UnmodifiablePrintJobAttributeSet_InnerClassesInfo_[] = {
-	{"javax.print.attribute.AttributeSetUtilities$UnmodifiablePrintJobAttributeSet", "javax.print.attribute.AttributeSetUtilities", "UnmodifiablePrintJobAttributeSet", $PRIVATE | $STATIC},
-	{"javax.print.attribute.AttributeSetUtilities$UnmodifiableAttributeSet", "javax.print.attribute.AttributeSetUtilities", "UnmodifiableAttributeSet", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AttributeSetUtilities$UnmodifiablePrintJobAttributeSet_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.print.attribute.AttributeSetUtilities$UnmodifiablePrintJobAttributeSet",
-	"javax.print.attribute.AttributeSetUtilities$UnmodifiableAttributeSet",
-	"javax.print.attribute.PrintJobAttributeSet",
-	_AttributeSetUtilities$UnmodifiablePrintJobAttributeSet_FieldInfo_,
-	_AttributeSetUtilities$UnmodifiablePrintJobAttributeSet_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AttributeSetUtilities$UnmodifiablePrintJobAttributeSet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.print.attribute.AttributeSetUtilities"
-};
-
-$Object* allocate$AttributeSetUtilities$UnmodifiablePrintJobAttributeSet($Class* clazz) {
-	return $of($alloc(AttributeSetUtilities$UnmodifiablePrintJobAttributeSet));
-}
 
 $Attribute* AttributeSetUtilities$UnmodifiablePrintJobAttributeSet::get($Class* key) {
 	 return this->$AttributeSetUtilities$UnmodifiableAttributeSet::get(key);
@@ -145,7 +92,53 @@ AttributeSetUtilities$UnmodifiablePrintJobAttributeSet::AttributeSetUtilities$Un
 }
 
 $Class* AttributeSetUtilities$UnmodifiablePrintJobAttributeSet::load$($String* name, bool initialize) {
-	$loadClass(AttributeSetUtilities$UnmodifiablePrintJobAttributeSet, name, initialize, &_AttributeSetUtilities$UnmodifiablePrintJobAttributeSet_ClassInfo_, allocate$AttributeSetUtilities$UnmodifiablePrintJobAttributeSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttributeSetUtilities$UnmodifiablePrintJobAttributeSet, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
+		{"*addAll", "(Ljavax/print/attribute/AttributeSet;)Z", nullptr, $PUBLIC},
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*containsKey", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC},
+		{"*containsValue", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*get", "(Ljava/lang/Class;)Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljavax/print/attribute/PrintJobAttributeSet;)V", nullptr, $PUBLIC, $method(AttributeSetUtilities$UnmodifiablePrintJobAttributeSet, init$, void, $PrintJobAttributeSet*)},
+		{"*remove", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*remove", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
+		{"*size", "()I", nullptr, $PUBLIC},
+		{"*toArray", "()[Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.print.attribute.AttributeSetUtilities$UnmodifiablePrintJobAttributeSet", "javax.print.attribute.AttributeSetUtilities", "UnmodifiablePrintJobAttributeSet", $PRIVATE | $STATIC},
+		{"javax.print.attribute.AttributeSetUtilities$UnmodifiableAttributeSet", "javax.print.attribute.AttributeSetUtilities", "UnmodifiableAttributeSet", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.print.attribute.AttributeSetUtilities$UnmodifiablePrintJobAttributeSet",
+		"javax.print.attribute.AttributeSetUtilities$UnmodifiableAttributeSet",
+		"javax.print.attribute.PrintJobAttributeSet",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.print.attribute.AttributeSetUtilities"
+	};
+	$loadClass(AttributeSetUtilities$UnmodifiablePrintJobAttributeSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AttributeSetUtilities$UnmodifiablePrintJobAttributeSet));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/font/DelegateStrike.h>
-
 #include <java/awt/Rectangle.h>
 #include <java/awt/geom/GeneralPath.h>
 #include <java/awt/geom/Point2D$Float.h>
@@ -27,40 +26,6 @@ using $StrikeMetrics = ::sun::font::StrikeMetrics;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _DelegateStrike_FieldInfo_[] = {
-	{"delegateStrike", "Lsun/font/FontStrike;", nullptr, $PRIVATE, $field(DelegateStrike, delegateStrike)},
-	{}
-};
-
-$MethodInfo _DelegateStrike_MethodInfo_[] = {
-	{"<init>", "(Lsun/font/NativeFont;Lsun/font/FontStrikeDesc;Lsun/font/FontStrike;)V", nullptr, 0, $method(DelegateStrike, init$, void, $NativeFont*, $FontStrikeDesc*, $FontStrike*)},
-	{"getCharMetrics", "(C)Ljava/awt/geom/Point2D$Float;", nullptr, 0, $virtualMethod(DelegateStrike, getCharMetrics, $Point2D$Float*, char16_t)},
-	{"getCodePointAdvance", "(I)F", nullptr, 0, $virtualMethod(DelegateStrike, getCodePointAdvance, float, int32_t)},
-	{"getFontMetrics", "()Lsun/font/StrikeMetrics;", nullptr, 0, $virtualMethod(DelegateStrike, getFontMetrics, $StrikeMetrics*)},
-	{"getGlyphAdvance", "(I)F", nullptr, 0, $virtualMethod(DelegateStrike, getGlyphAdvance, float, int32_t)},
-	{"getGlyphImageBounds", "(ILjava/awt/geom/Point2D$Float;Ljava/awt/Rectangle;)V", nullptr, 0, $virtualMethod(DelegateStrike, getGlyphImageBounds, void, int32_t, $Point2D$Float*, $Rectangle*)},
-	{"getGlyphImagePtr", "(I)J", nullptr, 0, $virtualMethod(DelegateStrike, getGlyphImagePtr, int64_t, int32_t)},
-	{"getGlyphImagePtrs", "([I[JI)V", nullptr, 0, $virtualMethod(DelegateStrike, getGlyphImagePtrs, void, $ints*, $longs*, int32_t)},
-	{"getGlyphMetrics", "(I)Ljava/awt/geom/Point2D$Float;", nullptr, 0, $virtualMethod(DelegateStrike, getGlyphMetrics, $Point2D$Float*, int32_t)},
-	{"getGlyphOutline", "(IFF)Ljava/awt/geom/GeneralPath;", nullptr, 0, $virtualMethod(DelegateStrike, getGlyphOutline, $GeneralPath*, int32_t, float, float)},
-	{"getGlyphOutlineBounds", "(I)Ljava/awt/geom/Rectangle2D$Float;", nullptr, 0, $virtualMethod(DelegateStrike, getGlyphOutlineBounds, $Rectangle2D$Float*, int32_t)},
-	{"getGlyphVectorOutline", "([IFF)Ljava/awt/geom/GeneralPath;", nullptr, 0, $virtualMethod(DelegateStrike, getGlyphVectorOutline, $GeneralPath*, $ints*, float, float)},
-	{}
-};
-
-$ClassInfo _DelegateStrike_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.font.DelegateStrike",
-	"sun.font.NativeStrike",
-	nullptr,
-	_DelegateStrike_FieldInfo_,
-	_DelegateStrike_MethodInfo_
-};
-
-$Object* allocate$DelegateStrike($Class* clazz) {
-	return $of($alloc(DelegateStrike));
-}
 
 void DelegateStrike::init$($NativeFont* nativeFont, $FontStrikeDesc* desc, $FontStrike* delegate) {
 	$NativeStrike::init$(nativeFont, desc);
@@ -105,7 +70,7 @@ $Point2D$Float* DelegateStrike::getCharMetrics(char16_t ch) {
 
 float DelegateStrike::getCodePointAdvance(int32_t cp) {
 	if (cp < 0 || cp >= 0x00010000) {
-		cp = 0x0000FFFF;
+		cp = 0x0000ffff;
 	}
 	return $nc(this->delegateStrike)->getGlyphAdvance(cp);
 }
@@ -126,7 +91,36 @@ DelegateStrike::DelegateStrike() {
 }
 
 $Class* DelegateStrike::load$($String* name, bool initialize) {
-	$loadClass(DelegateStrike, name, initialize, &_DelegateStrike_ClassInfo_, allocate$DelegateStrike);
+	$FieldInfo fieldInfos$$[] = {
+		{"delegateStrike", "Lsun/font/FontStrike;", nullptr, $PRIVATE, $field(DelegateStrike, delegateStrike)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/font/NativeFont;Lsun/font/FontStrikeDesc;Lsun/font/FontStrike;)V", nullptr, 0, $method(DelegateStrike, init$, void, $NativeFont*, $FontStrikeDesc*, $FontStrike*)},
+		{"getCharMetrics", "(C)Ljava/awt/geom/Point2D$Float;", nullptr, 0, $virtualMethod(DelegateStrike, getCharMetrics, $Point2D$Float*, char16_t)},
+		{"getCodePointAdvance", "(I)F", nullptr, 0, $virtualMethod(DelegateStrike, getCodePointAdvance, float, int32_t)},
+		{"getFontMetrics", "()Lsun/font/StrikeMetrics;", nullptr, 0, $virtualMethod(DelegateStrike, getFontMetrics, $StrikeMetrics*)},
+		{"getGlyphAdvance", "(I)F", nullptr, 0, $virtualMethod(DelegateStrike, getGlyphAdvance, float, int32_t)},
+		{"getGlyphImageBounds", "(ILjava/awt/geom/Point2D$Float;Ljava/awt/Rectangle;)V", nullptr, 0, $virtualMethod(DelegateStrike, getGlyphImageBounds, void, int32_t, $Point2D$Float*, $Rectangle*)},
+		{"getGlyphImagePtr", "(I)J", nullptr, 0, $virtualMethod(DelegateStrike, getGlyphImagePtr, int64_t, int32_t)},
+		{"getGlyphImagePtrs", "([I[JI)V", nullptr, 0, $virtualMethod(DelegateStrike, getGlyphImagePtrs, void, $ints*, $longs*, int32_t)},
+		{"getGlyphMetrics", "(I)Ljava/awt/geom/Point2D$Float;", nullptr, 0, $virtualMethod(DelegateStrike, getGlyphMetrics, $Point2D$Float*, int32_t)},
+		{"getGlyphOutline", "(IFF)Ljava/awt/geom/GeneralPath;", nullptr, 0, $virtualMethod(DelegateStrike, getGlyphOutline, $GeneralPath*, int32_t, float, float)},
+		{"getGlyphOutlineBounds", "(I)Ljava/awt/geom/Rectangle2D$Float;", nullptr, 0, $virtualMethod(DelegateStrike, getGlyphOutlineBounds, $Rectangle2D$Float*, int32_t)},
+		{"getGlyphVectorOutline", "([IFF)Ljava/awt/geom/GeneralPath;", nullptr, 0, $virtualMethod(DelegateStrike, getGlyphVectorOutline, $GeneralPath*, $ints*, float, float)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.font.DelegateStrike",
+		"sun.font.NativeStrike",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DelegateStrike, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DelegateStrike);
+	});
 	return class$;
 }
 

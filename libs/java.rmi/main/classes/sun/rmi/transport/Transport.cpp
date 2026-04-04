@@ -1,5 +1,4 @@
 #include <sun/rmi/transport/Transport.h>
-
 #include <java/io/IOException.h>
 #include <java/io/ObjectInput.h>
 #include <java/io/ObjectOutput.h>
@@ -25,11 +24,9 @@
 #include <java/security/AccessController.h>
 #include <java/security/CodeSource.h>
 #include <java/security/Permission.h>
-#include <java/security/PermissionCollection.h>
 #include <java/security/Permissions.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/security/PrivilegedActionException.h>
-#include <java/security/PrivilegedExceptionAction.h>
 #include <java/security/ProtectionDomain.h>
 #include <java/util/logging/Level.h>
 #include <sun/rmi/runtime/Log.h>
@@ -54,7 +51,6 @@ using $ObjectOutput = ::java::io::ObjectOutput;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -74,12 +70,9 @@ using $ServerNotActiveException = ::java::rmi::server::ServerNotActiveException;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
 using $CodeSource = ::java::security::CodeSource;
-using $Permission = ::java::security::Permission;
-using $PermissionCollection = ::java::security::PermissionCollection;
 using $Permissions = ::java::security::Permissions;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
 using $Log = ::sun::rmi::runtime::Log;
 using $Dispatcher = ::sun::rmi::server::Dispatcher;
@@ -103,27 +96,24 @@ public:
 	virtual $Object* run() override {
 		 return $of(Transport::lambda$getLogLevel$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Transport$$Lambda$lambda$getLogLevel$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Transport$$Lambda$lambda$getLogLevel$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Transport$$Lambda$lambda$getLogLevel$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Transport$$Lambda$lambda$getLogLevel$0, run, $Object*)},
-	{}
-};
-$ClassInfo Transport$$Lambda$lambda$getLogLevel$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.transport.Transport$$Lambda$lambda$getLogLevel$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* Transport$$Lambda$lambda$getLogLevel$0::load$($String* name, bool initialize) {
-	$loadClass(Transport$$Lambda$lambda$getLogLevel$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Transport$$Lambda$lambda$getLogLevel$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Transport$$Lambda$lambda$getLogLevel$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.transport.Transport$$Lambda$lambda$getLogLevel$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Transport$$Lambda$lambda$getLogLevel$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Transport$$Lambda$lambda$getLogLevel$0);
+	});
 	return class$;
 }
 $Class* Transport$$Lambda$lambda$getLogLevel$0::class$ = nullptr;
@@ -135,87 +125,34 @@ public:
 		$set(this, ccl, ccl);
 	}
 	virtual $Object* run() override {
-		 return $of(Transport::lambda$setContextClassLoader$1(ccl));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Transport$$Lambda$lambda$setContextClassLoader$1$1>());
+		 return Transport::lambda$setContextClassLoader$1(ccl);
 	}
 	$ClassLoader* ccl = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Transport$$Lambda$lambda$setContextClassLoader$1$1::fieldInfos[2] = {
-	{"ccl", "Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $field(Transport$$Lambda$lambda$setContextClassLoader$1$1, ccl)},
-	{}
-};
-$MethodInfo Transport$$Lambda$lambda$setContextClassLoader$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(Transport$$Lambda$lambda$setContextClassLoader$1$1, init$, void, $ClassLoader*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Transport$$Lambda$lambda$setContextClassLoader$1$1, run, $Object*)},
-	{}
-};
-$ClassInfo Transport$$Lambda$lambda$setContextClassLoader$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.transport.Transport$$Lambda$lambda$setContextClassLoader$1$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* Transport$$Lambda$lambda$setContextClassLoader$1$1::load$($String* name, bool initialize) {
-	$loadClass(Transport$$Lambda$lambda$setContextClassLoader$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"ccl", "Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $field(Transport$$Lambda$lambda$setContextClassLoader$1$1, ccl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(Transport$$Lambda$lambda$setContextClassLoader$1$1, init$, void, $ClassLoader*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Transport$$Lambda$lambda$setContextClassLoader$1$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.transport.Transport$$Lambda$lambda$setContextClassLoader$1$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Transport$$Lambda$lambda$setContextClassLoader$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Transport$$Lambda$lambda$setContextClassLoader$1$1);
+	});
 	return class$;
 }
 $Class* Transport$$Lambda$lambda$setContextClassLoader$1$1::class$ = nullptr;
-
-$FieldInfo _Transport_FieldInfo_[] = {
-	{"logLevel", "I", nullptr, $STATIC | $FINAL, $staticField(Transport, logLevel)},
-	{"transportLog", "Lsun/rmi/runtime/Log;", nullptr, $STATIC | $FINAL, $staticField(Transport, transportLog)},
-	{"currentTransport", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Lsun/rmi/transport/Transport;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Transport, currentTransport$)},
-	{"dgcID", "Ljava/rmi/server/ObjID;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Transport, dgcID)},
-	{"SETCCL_ACC", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Transport, SETCCL_ACC)},
-	{}
-};
-
-$MethodInfo _Transport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Transport, init$, void)},
-	{"checkAcceptPermission", "(Ljava/security/AccessControlContext;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(Transport, checkAcceptPermission, void, $AccessControlContext*)},
-	{"currentTransport", "()Lsun/rmi/transport/Transport;", nullptr, $STATIC, $staticMethod(Transport, currentTransport, Transport*)},
-	{"exportObject", "(Lsun/rmi/transport/Target;)V", nullptr, $PUBLIC, $virtualMethod(Transport, exportObject, void, $Target*), "java.rmi.RemoteException"},
-	{"free", "(Lsun/rmi/transport/Endpoint;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Transport, free, void, $Endpoint*)},
-	{"getChannel", "(Lsun/rmi/transport/Endpoint;)Lsun/rmi/transport/Channel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Transport, getChannel, $Channel*, $Endpoint*)},
-	{"getLogLevel", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Transport, getLogLevel, $String*)},
-	{"lambda$getLogLevel$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Transport, lambda$getLogLevel$0, $String*)},
-	{"lambda$setContextClassLoader$1", "(Ljava/lang/ClassLoader;)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Transport, lambda$setContextClassLoader$1, $Void*, $ClassLoader*)},
-	{"serviceCall", "(Ljava/rmi/server/RemoteCall;)Z", nullptr, $PUBLIC, $virtualMethod(Transport, serviceCall, bool, $RemoteCall*)},
-	{"setContextClassLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Transport, setContextClassLoader, void, $ClassLoader*)},
-	{"targetUnexported", "()V", nullptr, $PROTECTED, $virtualMethod(Transport, targetUnexported, void)},
-	{}
-};
-
-$InnerClassInfo _Transport_InnerClassesInfo_[] = {
-	{"sun.rmi.transport.Transport$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Transport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.rmi.transport.Transport",
-	"java.lang.Object",
-	nullptr,
-	_Transport_FieldInfo_,
-	_Transport_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Transport_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.rmi.transport.Transport$1"
-};
-
-$Object* allocate$Transport($Class* clazz) {
-	return $of($alloc(Transport));
-}
 
 int32_t Transport::logLevel = 0;
 $Log* Transport::transportLog = nullptr;
@@ -229,7 +166,7 @@ void Transport::init$() {
 $String* Transport::getLogLevel() {
 	$init(Transport);
 	$beforeCallerSensitive();
-	return $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(Transport$$Lambda$lambda$getLogLevel$0))));
+	return $cast($String, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(Transport$$Lambda$lambda$getLogLevel$0))));
 }
 
 void Transport::exportObject($Target* target) {
@@ -242,17 +179,17 @@ void Transport::targetUnexported() {
 
 Transport* Transport::currentTransport() {
 	$init(Transport);
-	return $cast(Transport, $nc(Transport::currentTransport$)->get());
+	return $cast(Transport, Transport::currentTransport$->get());
 }
 
 void Transport::setContextClassLoader($ClassLoader* ccl) {
 	$init(Transport);
 	$beforeCallerSensitive();
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(Transport$$Lambda$lambda$setContextClassLoader$1$1, ccl)), Transport::SETCCL_ACC);
+	$AccessController::doPrivileged($cast($PrivilegedAction, $$new(Transport$$Lambda$lambda$setContextClassLoader$1$1, ccl)), Transport::SETCCL_ACC);
 }
 
 bool Transport::serviceCall($RemoteCall* call) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		$var($Remote, impl, nullptr);
@@ -264,60 +201,56 @@ bool Transport::serviceCall($RemoteCall* call) {
 		}
 		$var(Transport, transport, $nc(id)->equals(Transport::dgcID) ? (Transport*)nullptr : this);
 		$var($Target, target, $ObjectTable::getTarget($$new($ObjectEndpoint, id, transport)));
-		if (target == nullptr || ($assign(impl, $nc(target)->getImpl())) == nullptr) {
+		if (target == nullptr || ($assign(impl, target->getImpl())) == nullptr) {
 			$throwNew($NoSuchObjectException, "no such object in table"_s);
 		}
 		$var($Dispatcher, disp, $nc(target)->getDispatcher());
 		target->incrementCallCount();
-		{
-			$var($Throwable, var$0, nullptr);
-			bool var$2 = false;
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		bool var$2 = false;
+		bool return$1 = false;
+		try {
 			try {
+				$init($Log);
+				$nc(Transport::transportLog)->log($Log::VERBOSE, "call dispatcher"_s);
+				$var($AccessControlContext, acc, target->getAccessControlContext());
+				$var($ClassLoader, ccl, target->getContextClassLoader());
+				$var($ClassLoader, savedCcl, $($Thread::currentThread())->getContextClassLoader());
+				$var($Throwable, var$3, nullptr);
 				try {
-					$init($Log);
-					$nc(Transport::transportLog)->log($Log::VERBOSE, "call dispatcher"_s);
-					$var($AccessControlContext, acc, target->getAccessControlContext());
-					$var($ClassLoader, ccl, target->getContextClassLoader());
-					$var($ClassLoader, savedCcl, $($Thread::currentThread())->getContextClassLoader());
-					{
-						$var($Throwable, var$3, nullptr);
-						try {
-							setContextClassLoader(ccl);
-							$nc(Transport::currentTransport$)->set(this);
-							try {
-								$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($Transport$1, this, acc, disp, impl, call)), acc);
-							} catch ($PrivilegedActionException& pae) {
-								$throw($cast($IOException, $(pae->getException())));
-							}
-						} catch ($Throwable& var$4) {
-							$assign(var$3, var$4);
-						} /*finally*/ {
-							setContextClassLoader(savedCcl);
-							$nc(Transport::currentTransport$)->set(nullptr);
-						}
-						if (var$3 != nullptr) {
-							$throw(var$3);
-						}
+					setContextClassLoader(ccl);
+					Transport::currentTransport$->set(this);
+					try {
+						$AccessController::doPrivileged($$new($Transport$1, this, acc, disp, impl, call), acc);
+					} catch ($PrivilegedActionException& pae) {
+						$throw($$cast($IOException, pae->getException()));
 					}
-				} catch ($IOException& ex) {
-					$init($Log);
-					$nc(Transport::transportLog)->log($Log::BRIEF, "exception thrown by dispatcher: "_s, ex);
-					var$2 = false;
-					return$1 = true;
-					goto $finally;
+				} catch ($Throwable& var$4) {
+					$assign(var$3, var$4);
+				} /*finally*/ {
+					setContextClassLoader(savedCcl);
+					Transport::currentTransport$->set(nullptr);
 				}
-			} catch ($Throwable& var$5) {
-				$assign(var$0, var$5);
-			} $finally: {
-				target->decrementCallCount();
+				if (var$3 != nullptr) {
+					$throw(var$3);
+				}
+			} catch ($IOException& ex) {
+				$init($Log);
+				$nc(Transport::transportLog)->log($Log::BRIEF, "exception thrown by dispatcher: "_s, ex);
+				var$2 = false;
+				return$1 = true;
+				goto $finally;
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
+		} $finally: {
+			target->decrementCallCount();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	} catch ($RemoteException& e) {
 		$init($UnicastServerRef);
@@ -329,7 +262,7 @@ bool Transport::serviceCall($RemoteCall* call) {
 			} catch ($ServerNotActiveException& ex) {
 			}
 			$var($String, message, $str({clientHost, "exception: "_s}));
-			$nc($UnicastServerRef::callLog)->log($Log::BRIEF, message, e);
+			$UnicastServerRef::callLog->log($Log::BRIEF, message, e);
 		}
 		try {
 			$var($ObjectOutput, out, $nc(call)->getResultStream(false));
@@ -355,8 +288,8 @@ $String* Transport::lambda$getLogLevel$0() {
 	return $System::getProperty("sun.rmi.transport.logLevel"_s);
 }
 
-void clinit$Transport($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Transport::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	Transport::logLevel = $LogStream::parseLevel($(Transport::getLogLevel()));
 	$assignStatic(Transport::transportLog, $Log::getLog("sun.rmi.transport.misc"_s, "transport"_s, Transport::logLevel));
 	$assignStatic(Transport::currentTransport$, $new($ThreadLocal));
@@ -374,14 +307,57 @@ Transport::Transport() {
 
 $Class* Transport::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Transport$$Lambda$lambda$getLogLevel$0::classInfo$.name)) {
+		if (name->equals("sun.rmi.transport.Transport$$Lambda$lambda$getLogLevel$0")) {
 			return Transport$$Lambda$lambda$getLogLevel$0::load$(name, initialize);
 		}
-		if (name->equals(Transport$$Lambda$lambda$setContextClassLoader$1$1::classInfo$.name)) {
+		if (name->equals("sun.rmi.transport.Transport$$Lambda$lambda$setContextClassLoader$1$1")) {
 			return Transport$$Lambda$lambda$setContextClassLoader$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(Transport, name, initialize, &_Transport_ClassInfo_, clinit$Transport, allocate$Transport);
+	$FieldInfo fieldInfos$$[] = {
+		{"logLevel", "I", nullptr, $STATIC | $FINAL, $staticField(Transport, logLevel)},
+		{"transportLog", "Lsun/rmi/runtime/Log;", nullptr, $STATIC | $FINAL, $staticField(Transport, transportLog)},
+		{"currentTransport", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Lsun/rmi/transport/Transport;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Transport, currentTransport$)},
+		{"dgcID", "Ljava/rmi/server/ObjID;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Transport, dgcID)},
+		{"SETCCL_ACC", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Transport, SETCCL_ACC)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Transport, init$, void)},
+		{"checkAcceptPermission", "(Ljava/security/AccessControlContext;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(Transport, checkAcceptPermission, void, $AccessControlContext*)},
+		{"currentTransport", "()Lsun/rmi/transport/Transport;", nullptr, $STATIC, $staticMethod(Transport, currentTransport, Transport*)},
+		{"exportObject", "(Lsun/rmi/transport/Target;)V", nullptr, $PUBLIC, $virtualMethod(Transport, exportObject, void, $Target*), "java.rmi.RemoteException"},
+		{"free", "(Lsun/rmi/transport/Endpoint;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Transport, free, void, $Endpoint*)},
+		{"getChannel", "(Lsun/rmi/transport/Endpoint;)Lsun/rmi/transport/Channel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Transport, getChannel, $Channel*, $Endpoint*)},
+		{"getLogLevel", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Transport, getLogLevel, $String*)},
+		{"lambda$getLogLevel$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Transport, lambda$getLogLevel$0, $String*)},
+		{"lambda$setContextClassLoader$1", "(Ljava/lang/ClassLoader;)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Transport, lambda$setContextClassLoader$1, $Void*, $ClassLoader*)},
+		{"serviceCall", "(Ljava/rmi/server/RemoteCall;)Z", nullptr, $PUBLIC, $virtualMethod(Transport, serviceCall, bool, $RemoteCall*)},
+		{"setContextClassLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Transport, setContextClassLoader, void, $ClassLoader*)},
+		{"targetUnexported", "()V", nullptr, $PROTECTED, $virtualMethod(Transport, targetUnexported, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.transport.Transport$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.rmi.transport.Transport",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.rmi.transport.Transport$1"
+	};
+	$loadClass(Transport, name, initialize, &classInfo$$, Transport::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Transport);
+	});
 	return class$;
 }
 

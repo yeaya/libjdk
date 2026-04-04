@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/options/Options$ArgDecoderOptionHelper.h>
-
 #include <com/sun/tools/sjavac/Transformer.h>
 #include <com/sun/tools/sjavac/Util.h>
 #include <com/sun/tools/sjavac/options/OptionHelper.h>
@@ -8,7 +7,6 @@
 #include <java/nio/file/Path.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
@@ -28,83 +26,14 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Path = ::java::nio::file::Path;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace sjavac {
 				namespace options {
-
-$FieldInfo _Options$ArgDecoderOptionHelper_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/sjavac/options/Options;", nullptr, $FINAL | $SYNTHETIC, $field(Options$ArgDecoderOptionHelper, this$0)},
-	{"includes", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(Options$ArgDecoderOptionHelper, includes)},
-	{"excludes", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(Options$ArgDecoderOptionHelper, excludes)},
-	{"includeFiles", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(Options$ArgDecoderOptionHelper, includeFiles)},
-	{"excludeFiles", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(Options$ArgDecoderOptionHelper, excludeFiles)},
-	{"headerProvided", "Z", nullptr, 0, $field(Options$ArgDecoderOptionHelper, headerProvided)},
-	{"genSrcProvided", "Z", nullptr, 0, $field(Options$ArgDecoderOptionHelper, genSrcProvided)},
-	{"stateProvided", "Z", nullptr, 0, $field(Options$ArgDecoderOptionHelper, stateProvided)},
-	{}
-};
-
-$MethodInfo _Options$ArgDecoderOptionHelper_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/sjavac/options/Options;)V", nullptr, $PRIVATE, $method(Options$ArgDecoderOptionHelper, init$, void, $Options*)},
-	{"addTransformer", "(Ljava/lang/String;Lcom/sun/tools/sjavac/Transformer;)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, addTransformer, void, $String*, $Transformer*)},
-	{"classpath", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/file/Path;>;)V", $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, classpath, void, $List*)},
-	{"compareFoundSources", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, compareFoundSources, void, $Path*)},
-	{"createSourceLocations", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Ljava/nio/file/Path;>;)Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;", $PRIVATE, $method(Options$ArgDecoderOptionHelper, createSourceLocations, $List*, $List*)},
-	{"destDir", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, destDir, void, $Path*)},
-	{"exclude", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, exclude, void, $String*)},
-	{"generatedSourcesDir", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, generatedSourcesDir, void, $Path*)},
-	{"headerDir", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, headerDir, void, $Path*)},
-	{"implicit", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, implicit, void, $String*)},
-	{"include", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, include, void, $String*)},
-	{"javacArg", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Options$ArgDecoderOptionHelper, javacArg, void, $StringArray*)},
-	{"logLevel", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, logLevel, void, $String*)},
-	{"modulepath", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/file/Path;>;)V", $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, modulepath, void, $List*)},
-	{"numCores", "(I)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, numCores, void, int32_t)},
-	{"permitArtifact", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, permitArtifact, void, $String*)},
-	{"permitDefaultPackage", "()V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, permitDefaultPackage, void)},
-	{"permitUnidentifiedArtifacts", "()V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, permitUnidentifiedArtifacts, void)},
-	{"reportError", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, reportError, void, $String*)},
-	{"resetFilters", "()V", nullptr, $PRIVATE, $method(Options$ArgDecoderOptionHelper, resetFilters, void)},
-	{"serverConf", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, serverConf, void, $String*)},
-	{"sourceRoots", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/file/Path;>;)V", $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, sourceRoots, void, $List*)},
-	{"sourcepath", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/file/Path;>;)V", $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, sourcepath, void, $List*)},
-	{"startServerConf", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, startServerConf, void, $String*)},
-	{"stateDir", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, stateDir, void, $Path*)},
-	{}
-};
-
-$InnerClassInfo _Options$ArgDecoderOptionHelper_InnerClassesInfo_[] = {
-	{"com.sun.tools.sjavac.options.Options$ArgDecoderOptionHelper", "com.sun.tools.sjavac.options.Options", "ArgDecoderOptionHelper", $PRIVATE},
-	{}
-};
-
-$ClassInfo _Options$ArgDecoderOptionHelper_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.sjavac.options.Options$ArgDecoderOptionHelper",
-	"com.sun.tools.sjavac.options.OptionHelper",
-	nullptr,
-	_Options$ArgDecoderOptionHelper_FieldInfo_,
-	_Options$ArgDecoderOptionHelper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Options$ArgDecoderOptionHelper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.sjavac.options.Options"
-};
-
-$Object* allocate$Options$ArgDecoderOptionHelper($Class* clazz) {
-	return $of($alloc(Options$ArgDecoderOptionHelper));
-}
 
 void Options$ArgDecoderOptionHelper::init$($Options* this$0) {
 	$set(this, this$0, this$0);
@@ -242,7 +171,7 @@ void Options$ArgDecoderOptionHelper::stateDir($Path* dir) {
 }
 
 $List* Options$ArgDecoderOptionHelper::createSourceLocations($List* paths) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, result, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc(paths)->iterator());
@@ -268,7 +197,67 @@ Options$ArgDecoderOptionHelper::Options$ArgDecoderOptionHelper() {
 }
 
 $Class* Options$ArgDecoderOptionHelper::load$($String* name, bool initialize) {
-	$loadClass(Options$ArgDecoderOptionHelper, name, initialize, &_Options$ArgDecoderOptionHelper_ClassInfo_, allocate$Options$ArgDecoderOptionHelper);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/sjavac/options/Options;", nullptr, $FINAL | $SYNTHETIC, $field(Options$ArgDecoderOptionHelper, this$0)},
+		{"includes", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(Options$ArgDecoderOptionHelper, includes)},
+		{"excludes", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(Options$ArgDecoderOptionHelper, excludes)},
+		{"includeFiles", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(Options$ArgDecoderOptionHelper, includeFiles)},
+		{"excludeFiles", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(Options$ArgDecoderOptionHelper, excludeFiles)},
+		{"headerProvided", "Z", nullptr, 0, $field(Options$ArgDecoderOptionHelper, headerProvided)},
+		{"genSrcProvided", "Z", nullptr, 0, $field(Options$ArgDecoderOptionHelper, genSrcProvided)},
+		{"stateProvided", "Z", nullptr, 0, $field(Options$ArgDecoderOptionHelper, stateProvided)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/sjavac/options/Options;)V", nullptr, $PRIVATE, $method(Options$ArgDecoderOptionHelper, init$, void, $Options*)},
+		{"addTransformer", "(Ljava/lang/String;Lcom/sun/tools/sjavac/Transformer;)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, addTransformer, void, $String*, $Transformer*)},
+		{"classpath", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/file/Path;>;)V", $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, classpath, void, $List*)},
+		{"compareFoundSources", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, compareFoundSources, void, $Path*)},
+		{"createSourceLocations", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Ljava/nio/file/Path;>;)Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;", $PRIVATE, $method(Options$ArgDecoderOptionHelper, createSourceLocations, $List*, $List*)},
+		{"destDir", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, destDir, void, $Path*)},
+		{"exclude", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, exclude, void, $String*)},
+		{"generatedSourcesDir", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, generatedSourcesDir, void, $Path*)},
+		{"headerDir", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, headerDir, void, $Path*)},
+		{"implicit", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, implicit, void, $String*)},
+		{"include", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, include, void, $String*)},
+		{"javacArg", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Options$ArgDecoderOptionHelper, javacArg, void, $StringArray*)},
+		{"logLevel", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, logLevel, void, $String*)},
+		{"modulepath", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/file/Path;>;)V", $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, modulepath, void, $List*)},
+		{"numCores", "(I)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, numCores, void, int32_t)},
+		{"permitArtifact", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, permitArtifact, void, $String*)},
+		{"permitDefaultPackage", "()V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, permitDefaultPackage, void)},
+		{"permitUnidentifiedArtifacts", "()V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, permitUnidentifiedArtifacts, void)},
+		{"reportError", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, reportError, void, $String*)},
+		{"resetFilters", "()V", nullptr, $PRIVATE, $method(Options$ArgDecoderOptionHelper, resetFilters, void)},
+		{"serverConf", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, serverConf, void, $String*)},
+		{"sourceRoots", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/file/Path;>;)V", $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, sourceRoots, void, $List*)},
+		{"sourcepath", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/file/Path;>;)V", $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, sourcepath, void, $List*)},
+		{"startServerConf", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, startServerConf, void, $String*)},
+		{"stateDir", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(Options$ArgDecoderOptionHelper, stateDir, void, $Path*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.sjavac.options.Options$ArgDecoderOptionHelper", "com.sun.tools.sjavac.options.Options", "ArgDecoderOptionHelper", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.sjavac.options.Options$ArgDecoderOptionHelper",
+		"com.sun.tools.sjavac.options.OptionHelper",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.sjavac.options.Options"
+	};
+	$loadClass(Options$ArgDecoderOptionHelper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Options$ArgDecoderOptionHelper);
+	});
 	return class$;
 }
 

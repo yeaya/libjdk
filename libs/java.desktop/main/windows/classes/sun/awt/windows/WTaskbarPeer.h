@@ -35,6 +35,7 @@ class WTaskbarPeer : public ::java::awt::peer::TaskbarPeer {
 	$class(WTaskbarPeer, 0, ::java::awt::peer::TaskbarPeer)
 public:
 	WTaskbarPeer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void flashWindow(int64_t hWnd);
 	static $ints* imageToArray(::java::awt::Image* image);

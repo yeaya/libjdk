@@ -12,6 +12,7 @@ class AttributeValues$1 : public ::java::lang::Object {
 	$class(AttributeValues$1, 0, ::java::lang::Object)
 public:
 	AttributeValues$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$sun$font$EAttribute;
 };
 

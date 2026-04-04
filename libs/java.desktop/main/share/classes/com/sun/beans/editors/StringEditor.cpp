@@ -1,5 +1,4 @@
 #include <com/sun/beans/editors/StringEditor.h>
-
 #include <java/beans/PropertyEditorSupport.h>
 #include <jcpp.h>
 
@@ -13,37 +12,17 @@ namespace com {
 		namespace beans {
 			namespace editors {
 
-$MethodInfo _StringEditor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StringEditor, init$, void)},
-	{"getJavaInitializationString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringEditor, getJavaInitializationString, $String*)},
-	{"setAsText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StringEditor, setAsText, void, $String*)},
-	{}
-};
-
-$ClassInfo _StringEditor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.beans.editors.StringEditor",
-	"java.beans.PropertyEditorSupport",
-	nullptr,
-	nullptr,
-	_StringEditor_MethodInfo_
-};
-
-$Object* allocate$StringEditor($Class* clazz) {
-	return $of($alloc(StringEditor));
-}
-
 void StringEditor::init$() {
 	$PropertyEditorSupport::init$();
 }
 
 $String* StringEditor::getJavaInitializationString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, getValue());
 	if (value == nullptr) {
 		return "null"_s;
 	}
-	$var($String, str, $nc($of(value))->toString());
+	$var($String, str, $nc(value)->toString());
 	int32_t length = $nc(str)->length();
 	$var($StringBuilder, sb, $new($StringBuilder, length + 2));
 	sb->append(u'\"');
@@ -51,54 +30,38 @@ $String* StringEditor::getJavaInitializationString() {
 		char16_t ch = str->charAt(i);
 		switch (ch) {
 		case u'\b':
-			{
-				sb->append("\\b"_s);
-				break;
-			}
+			sb->append("\\b"_s);
+			break;
 		case u'\t':
-			{
-				sb->append("\\t"_s);
-				break;
-			}
+			sb->append("\\t"_s);
+			break;
 		case u'\n':
-			{
-				sb->append("\\n"_s);
-				break;
-			}
+			sb->append("\\n"_s);
+			break;
 		case u'\f':
-			{
-				sb->append("\\f"_s);
-				break;
-			}
+			sb->append("\\f"_s);
+			break;
 		case u'\r':
-			{
-				sb->append("\\r"_s);
-				break;
-			}
+			sb->append("\\r"_s);
+			break;
 		case u'\"':
-			{
-				sb->append("\\\""_s);
-				break;
-			}
+			sb->append("\\\""_s);
+			break;
 		case u'\\':
-			{
-				sb->append("\\\\"_s);
-				break;
-			}
+			sb->append("\\\\"_s);
+			break;
 		default:
-			{
-				if ((ch < u' ') || (ch > u'~')) {
-					sb->append("\\u"_s);
-					$var($String, hex, $Integer::toHexString((int32_t)ch));
-					for (int32_t len = $nc(hex)->length(); len < 4; ++len) {
-						sb->append(u'0');
-					}
-					sb->append(hex);
-				} else {
-					sb->append(ch);
+			if ((ch < u' ') || (ch > u'~')) {
+				sb->append("\\u"_s);
+				$var($String, hex, $Integer::toHexString((int32_t)ch));
+				for (int32_t len = $nc(hex)->length(); len < 4; ++len) {
+					sb->append(u'0');
 				}
-				break;
+				sb->append(hex);
+			} else {
+				sb->append(ch);
 			}
+			break;
 		}
 	}
 	sb->append(u'\"');
@@ -113,7 +76,23 @@ StringEditor::StringEditor() {
 }
 
 $Class* StringEditor::load$($String* name, bool initialize) {
-	$loadClass(StringEditor, name, initialize, &_StringEditor_ClassInfo_, allocate$StringEditor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StringEditor, init$, void)},
+		{"getJavaInitializationString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringEditor, getJavaInitializationString, $String*)},
+		{"setAsText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StringEditor, setAsText, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.beans.editors.StringEditor",
+		"java.beans.PropertyEditorSupport",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StringEditor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringEditor);
+	});
 	return class$;
 }
 

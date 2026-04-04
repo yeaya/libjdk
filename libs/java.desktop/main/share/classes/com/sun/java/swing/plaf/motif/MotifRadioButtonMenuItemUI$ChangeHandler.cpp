@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifRadioButtonMenuItemUI$ChangeHandler.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifRadioButtonMenuItemUI.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JMenuItem.h>
@@ -14,7 +13,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JMenuItem = ::javax::swing::JMenuItem;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
@@ -26,47 +24,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace motif {
-
-$FieldInfo _MotifRadioButtonMenuItemUI$ChangeHandler_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifRadioButtonMenuItemUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifRadioButtonMenuItemUI$ChangeHandler, this$0)},
-	{}
-};
-
-$MethodInfo _MotifRadioButtonMenuItemUI$ChangeHandler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifRadioButtonMenuItemUI;)V", nullptr, $PROTECTED, $method(MotifRadioButtonMenuItemUI$ChangeHandler, init$, void, $MotifRadioButtonMenuItemUI*)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifRadioButtonMenuItemUI$ChangeHandler, stateChanged, void, $ChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MotifRadioButtonMenuItemUI$ChangeHandler_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI$ChangeHandler", "com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI", "ChangeHandler", $PROTECTED},
-	{}
-};
-
-$ClassInfo _MotifRadioButtonMenuItemUI$ChangeHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI$ChangeHandler",
-	"java.lang.Object",
-	"javax.swing.event.ChangeListener,java.io.Serializable",
-	_MotifRadioButtonMenuItemUI$ChangeHandler_FieldInfo_,
-	_MotifRadioButtonMenuItemUI$ChangeHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifRadioButtonMenuItemUI$ChangeHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI"
-};
-
-$Object* allocate$MotifRadioButtonMenuItemUI$ChangeHandler($Class* clazz) {
-	return $of($alloc(MotifRadioButtonMenuItemUI$ChangeHandler));
-}
 
 int32_t MotifRadioButtonMenuItemUI$ChangeHandler::hashCode() {
 	 return this->$ChangeListener::hashCode();
@@ -93,7 +50,7 @@ void MotifRadioButtonMenuItemUI$ChangeHandler::init$($MotifRadioButtonMenuItemUI
 }
 
 void MotifRadioButtonMenuItemUI$ChangeHandler::stateChanged($ChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JMenuItem, c, $cast($JMenuItem, $nc(e)->getSource()));
 	$LookAndFeel::installProperty(c, "borderPainted"_s, $($Boolean::valueOf($nc(c)->isArmed())));
 }
@@ -102,7 +59,42 @@ MotifRadioButtonMenuItemUI$ChangeHandler::MotifRadioButtonMenuItemUI$ChangeHandl
 }
 
 $Class* MotifRadioButtonMenuItemUI$ChangeHandler::load$($String* name, bool initialize) {
-	$loadClass(MotifRadioButtonMenuItemUI$ChangeHandler, name, initialize, &_MotifRadioButtonMenuItemUI$ChangeHandler_ClassInfo_, allocate$MotifRadioButtonMenuItemUI$ChangeHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifRadioButtonMenuItemUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifRadioButtonMenuItemUI$ChangeHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifRadioButtonMenuItemUI;)V", nullptr, $PROTECTED, $method(MotifRadioButtonMenuItemUI$ChangeHandler, init$, void, $MotifRadioButtonMenuItemUI*)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifRadioButtonMenuItemUI$ChangeHandler, stateChanged, void, $ChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI$ChangeHandler", "com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI", "ChangeHandler", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI$ChangeHandler",
+		"java.lang.Object",
+		"javax.swing.event.ChangeListener,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI"
+	};
+	$loadClass(MotifRadioButtonMenuItemUI$ChangeHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifRadioButtonMenuItemUI$ChangeHandler));
+	});
 	return class$;
 }
 

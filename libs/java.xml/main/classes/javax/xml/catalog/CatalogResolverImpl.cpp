@@ -1,9 +1,7 @@
 #include <javax/xml/catalog/CatalogResolverImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/jaxp/SAXParserFactoryImpl.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/io/Reader.h>
 #include <java/io/StringReader.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
@@ -35,10 +33,8 @@
 
 using $SAXParserFactoryImpl = ::com::sun::org::apache::xerces::internal::jaxp::SAXParserFactoryImpl;
 using $IOException = ::java::io::IOException;
-using $Reader = ::java::io::Reader;
 using $StringReader = ::java::io::StringReader;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -53,12 +49,10 @@ using $GroupEntry$ResolveType = ::javax::xml::catalog::GroupEntry$ResolveType;
 using $Normalizer = ::javax::xml::catalog::Normalizer;
 using $Util = ::javax::xml::catalog::Util;
 using $ParserConfigurationException = ::javax::xml::parsers::ParserConfigurationException;
-using $SAXParser = ::javax::xml::parsers::SAXParser;
 using $SAXParserFactory = ::javax::xml::parsers::SAXParserFactory;
 using $Source = ::javax::xml::transform::Source;
 using $SAXSource = ::javax::xml::transform::sax::SAXSource;
 using $LSInput = ::org::w3c::dom::ls::LSInput;
-using $EntityResolver = ::org::xml::sax::EntityResolver;
 using $InputSource = ::org::xml::sax::InputSource;
 using $SAXException = ::org::xml::sax::SAXException;
 using $XMLReader = ::org::xml::sax::XMLReader;
@@ -67,53 +61,12 @@ namespace javax {
 	namespace xml {
 		namespace catalog {
 
-$FieldInfo _CatalogResolverImpl_FieldInfo_[] = {
-	{"catalog", "Ljavax/xml/catalog/Catalog;", nullptr, 0, $field(CatalogResolverImpl, catalog)},
-	{"entityResolver", "Ljavax/xml/catalog/CatalogResolverImpl;", nullptr, 0, $field(CatalogResolverImpl, entityResolver)},
-	{}
-};
-
-$MethodInfo _CatalogResolverImpl_MethodInfo_[] = {
-	{"<init>", "(Ljavax/xml/catalog/Catalog;)V", nullptr, $PUBLIC, $method(CatalogResolverImpl, init$, void, $Catalog*)},
-	{"resolve", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/transform/Source;", nullptr, $PUBLIC, $virtualMethod(CatalogResolverImpl, resolve, $Source*, $String*, $String*)},
-	{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(CatalogResolverImpl, resolveEntity, $InputSource*, $String*, $String*)},
-	{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(CatalogResolverImpl, resolveEntity, $Object*, $String*, $String*, $String*, $String*)},
-	{"resolveResource", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/ls/LSInput;", nullptr, $PUBLIC, $virtualMethod(CatalogResolverImpl, resolveResource, $LSInput*, $String*, $String*, $String*, $String*, $String*)},
-	{"setEntityResolver", "(Ljavax/xml/transform/sax/SAXSource;)V", nullptr, $PRIVATE, $method(CatalogResolverImpl, setEntityResolver, void, $SAXSource*)},
-	{}
-};
-
-$InnerClassInfo _CatalogResolverImpl_InnerClassesInfo_[] = {
-	{"javax.xml.catalog.CatalogResolverImpl$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"javax.xml.catalog.CatalogResolverImpl$LSInputImpl", "javax.xml.catalog.CatalogResolverImpl", "LSInputImpl", 0},
-	{}
-};
-
-$ClassInfo _CatalogResolverImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.xml.catalog.CatalogResolverImpl",
-	"java.lang.Object",
-	"javax.xml.catalog.CatalogResolver",
-	_CatalogResolverImpl_FieldInfo_,
-	_CatalogResolverImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CatalogResolverImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.xml.catalog.CatalogResolverImpl$1,javax.xml.catalog.CatalogResolverImpl$LSInputImpl"
-};
-
-$Object* allocate$CatalogResolverImpl($Class* clazz) {
-	return $of($alloc(CatalogResolverImpl));
-}
-
 void CatalogResolverImpl::init$($Catalog* catalog) {
 	$set(this, catalog, catalog);
 }
 
 $InputSource* CatalogResolverImpl::resolveEntity($String* publicId$renamed, $String* systemId$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, systemId, systemId$renamed);
 	$var($String, publicId, publicId$renamed);
 	$CatalogMessages::reportNPEOnNull("systemId"_s, systemId);
@@ -133,26 +86,22 @@ $InputSource* CatalogResolverImpl::resolveEntity($String* publicId$renamed, $Str
 	if (resolvedSystemId != nullptr) {
 		return $new($InputSource, resolvedSystemId);
 	}
-	$GroupEntry$ResolveType* resolveType = $nc(($cast($CatalogImpl, this->catalog)))->getResolve();
+	$GroupEntry$ResolveType* resolveType = $nc($cast($CatalogImpl, this->catalog))->getResolve();
 	$init($CatalogResolverImpl$1);
 	switch ($nc($CatalogResolverImpl$1::$SwitchMap$javax$xml$catalog$GroupEntry$ResolveType)->get($nc((resolveType))->ordinal())) {
 	case 1:
-		{
-			return $new($InputSource, static_cast<$Reader*>($$new($StringReader, ""_s)));
-		}
+		return $new($InputSource, $$new($StringReader, ""_s));
 	case 2:
-		{
-			$CatalogMessages::reportError($CatalogMessages::ERR_NO_MATCH, $$new($ObjectArray, {
-				$of(publicId),
-				$of(systemId)
-			}));
-		}
+		$CatalogMessages::reportError($CatalogMessages::ERR_NO_MATCH, $$new($ObjectArray, {
+			publicId,
+			systemId
+		}));
 	}
 	return nullptr;
 }
 
 $Source* CatalogResolverImpl::resolve($String* href$renamed, $String* base$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, href, href$renamed);
 	$var($String, base, base$renamed);
 	$CatalogMessages::reportNPEOnNull("href"_s, href);
@@ -182,16 +131,12 @@ $Source* CatalogResolverImpl::resolve($String* href$renamed, $String* base$renam
 		$init($CatalogResolverImpl$1);
 		switch ($nc($CatalogResolverImpl$1::$SwitchMap$javax$xml$catalog$GroupEntry$ResolveType)->get($nc((resolveType))->ordinal())) {
 		case 1:
-			{
-				return $new($SAXSource, $$new($InputSource, static_cast<$Reader*>($$new($StringReader, ""_s))));
-			}
+			return $new($SAXSource, $$new($InputSource, $$new($StringReader, ""_s)));
 		case 2:
-			{
-				$CatalogMessages::reportError($CatalogMessages::ERR_NO_URI_MATCH, $$new($ObjectArray, {
-					$of(href),
-					$of(base)
-				}));
-			}
+			$CatalogMessages::reportError($CatalogMessages::ERR_NO_URI_MATCH, $$new($ObjectArray, {
+				href,
+				base
+			}));
 		}
 		try {
 			$var($URL, url, nullptr);
@@ -205,8 +150,8 @@ $Source* CatalogResolverImpl::resolve($String* href$renamed, $String* base$renam
 			}
 		} catch ($MalformedURLException& mue) {
 			$CatalogMessages::reportError($CatalogMessages::ERR_CREATING_URI, $$new($ObjectArray, {
-				$of(href),
-				$of(base)
+				href,
+				base
 			}));
 		}
 	}
@@ -217,19 +162,19 @@ $Source* CatalogResolverImpl::resolve($String* href$renamed, $String* base$renam
 }
 
 void CatalogResolverImpl::setEntityResolver($SAXSource* source) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XMLReader, reader, $nc(source)->getXMLReader());
 	if (reader == nullptr) {
 		$var($SAXParserFactory, spFactory, $new($SAXParserFactoryImpl));
 		spFactory->setNamespaceAware(true);
 		try {
-			$assign(reader, $nc($(spFactory->newSAXParser()))->getXMLReader());
+			$assign(reader, $$nc(spFactory->newSAXParser())->getXMLReader());
 		} catch ($ParserConfigurationException& ex) {
 			$init($CatalogMessages);
-			$CatalogMessages::reportRunTimeError($CatalogMessages::ERR_PARSER_CONF, static_cast<$Throwable*>(ex));
+			$CatalogMessages::reportRunTimeError($CatalogMessages::ERR_PARSER_CONF, ex);
 		} catch ($SAXException& ex) {
 			$init($CatalogMessages);
-			$CatalogMessages::reportRunTimeError($CatalogMessages::ERR_PARSER_CONF, static_cast<$Throwable*>(ex));
+			$CatalogMessages::reportRunTimeError($CatalogMessages::ERR_PARSER_CONF, ex);
 		}
 	}
 	if (this->entityResolver != nullptr) {
@@ -240,54 +185,46 @@ void CatalogResolverImpl::setEntityResolver($SAXSource* source) {
 }
 
 $Object* CatalogResolverImpl::resolveEntity($String* publicId, $String* systemId, $String* baseUri, $String* namespace$) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputSource, is, resolveEntity(publicId, systemId));
 	if (is != nullptr && !is->isEmpty()) {
 		try {
-			return $of($$new($URL, $(is->getSystemId()))->openStream());
+			return $$new($URL, $(is->getSystemId()))->openStream();
 		} catch ($IOException& ex) {
 		}
 	}
-	$GroupEntry$ResolveType* resolveType = $nc(($cast($CatalogImpl, this->catalog)))->getResolve();
+	$GroupEntry$ResolveType* resolveType = $nc($cast($CatalogImpl, this->catalog))->getResolve();
 	$init($CatalogResolverImpl$1);
 	switch ($nc($CatalogResolverImpl$1::$SwitchMap$javax$xml$catalog$GroupEntry$ResolveType)->get($nc((resolveType))->ordinal())) {
 	case 1:
-		{
-			return $of(nullptr);
-		}
+		return nullptr;
 	case 2:
-		{
-			$init($CatalogMessages);
-			$CatalogMessages::reportError($CatalogMessages::ERR_NO_MATCH, $$new($ObjectArray, {
-				$of(publicId),
-				$of(systemId)
-			}));
-		}
+		$init($CatalogMessages);
+		$CatalogMessages::reportError($CatalogMessages::ERR_NO_MATCH, $$new($ObjectArray, {
+			publicId,
+			systemId
+		}));
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $LSInput* CatalogResolverImpl::resolveResource($String* type, $String* namespaceURI, $String* publicId, $String* systemId, $String* baseURI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputSource, is, resolveEntity(publicId, systemId));
 	if (is != nullptr && !is->isEmpty()) {
 		return $new($CatalogResolverImpl$LSInputImpl, this, $(is->getSystemId()));
 	}
-	$GroupEntry$ResolveType* resolveType = $nc(($cast($CatalogImpl, this->catalog)))->getResolve();
+	$GroupEntry$ResolveType* resolveType = $nc($cast($CatalogImpl, this->catalog))->getResolve();
 	$init($CatalogResolverImpl$1);
 	switch ($nc($CatalogResolverImpl$1::$SwitchMap$javax$xml$catalog$GroupEntry$ResolveType)->get($nc((resolveType))->ordinal())) {
 	case 1:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	case 2:
-		{
-			$init($CatalogMessages);
-			$CatalogMessages::reportError($CatalogMessages::ERR_NO_MATCH, $$new($ObjectArray, {
-				$of(publicId),
-				$of(systemId)
-			}));
-		}
+		$init($CatalogMessages);
+		$CatalogMessages::reportError($CatalogMessages::ERR_NO_MATCH, $$new($ObjectArray, {
+			publicId,
+			systemId
+		}));
 	}
 	return nullptr;
 }
@@ -296,7 +233,42 @@ CatalogResolverImpl::CatalogResolverImpl() {
 }
 
 $Class* CatalogResolverImpl::load$($String* name, bool initialize) {
-	$loadClass(CatalogResolverImpl, name, initialize, &_CatalogResolverImpl_ClassInfo_, allocate$CatalogResolverImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"catalog", "Ljavax/xml/catalog/Catalog;", nullptr, 0, $field(CatalogResolverImpl, catalog)},
+		{"entityResolver", "Ljavax/xml/catalog/CatalogResolverImpl;", nullptr, 0, $field(CatalogResolverImpl, entityResolver)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/xml/catalog/Catalog;)V", nullptr, $PUBLIC, $method(CatalogResolverImpl, init$, void, $Catalog*)},
+		{"resolve", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/transform/Source;", nullptr, $PUBLIC, $virtualMethod(CatalogResolverImpl, resolve, $Source*, $String*, $String*)},
+		{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(CatalogResolverImpl, resolveEntity, $InputSource*, $String*, $String*)},
+		{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(CatalogResolverImpl, resolveEntity, $Object*, $String*, $String*, $String*, $String*)},
+		{"resolveResource", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/ls/LSInput;", nullptr, $PUBLIC, $virtualMethod(CatalogResolverImpl, resolveResource, $LSInput*, $String*, $String*, $String*, $String*, $String*)},
+		{"setEntityResolver", "(Ljavax/xml/transform/sax/SAXSource;)V", nullptr, $PRIVATE, $method(CatalogResolverImpl, setEntityResolver, void, $SAXSource*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.xml.catalog.CatalogResolverImpl$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"javax.xml.catalog.CatalogResolverImpl$LSInputImpl", "javax.xml.catalog.CatalogResolverImpl", "LSInputImpl", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.xml.catalog.CatalogResolverImpl",
+		"java.lang.Object",
+		"javax.xml.catalog.CatalogResolver",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.xml.catalog.CatalogResolverImpl$1,javax.xml.catalog.CatalogResolverImpl$LSInputImpl"
+	};
+	$loadClass(CatalogResolverImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CatalogResolverImpl));
+	});
 	return class$;
 }
 

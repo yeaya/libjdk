@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicSplitPaneDivider$1.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -30,50 +29,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicSplitPaneDivider$1_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicSplitPaneDivider;", nullptr, $FINAL | $SYNTHETIC, $field(BasicSplitPaneDivider$1, this$0)},
-	{}
-};
-
-$MethodInfo _BasicSplitPaneDivider$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneDivider;)V", nullptr, 0, $method(BasicSplitPaneDivider$1, init$, void, $BasicSplitPaneDivider*)},
-	{"isFocusTraversable", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$1, isFocusTraversable, bool)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$1, paint, void, $Graphics*)},
-	{"setBorder", "(Ljavax/swing/border/Border;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$1, setBorder, void, $Border*)},
-	{}
-};
-
-$EnclosingMethodInfo _BasicSplitPaneDivider$1_EnclosingMethodInfo_ = {
-	"javax.swing.plaf.basic.BasicSplitPaneDivider",
-	"createLeftOneTouchButton",
-	"()Ljavax/swing/JButton;"
-};
-
-$InnerClassInfo _BasicSplitPaneDivider$1_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicSplitPaneDivider$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BasicSplitPaneDivider$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicSplitPaneDivider$1",
-	"javax.swing.JButton",
-	nullptr,
-	_BasicSplitPaneDivider$1_FieldInfo_,
-	_BasicSplitPaneDivider$1_MethodInfo_,
-	nullptr,
-	&_BasicSplitPaneDivider$1_EnclosingMethodInfo_,
-	_BasicSplitPaneDivider$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicSplitPaneDivider"
-};
-
-$Object* allocate$BasicSplitPaneDivider$1($Class* clazz) {
-	return $of($alloc(BasicSplitPaneDivider$1));
-}
-
 void BasicSplitPaneDivider$1::init$($BasicSplitPaneDivider* this$0) {
 	$set(this, this$0, this$0);
 	$JButton::init$();
@@ -83,7 +38,7 @@ void BasicSplitPaneDivider$1::setBorder($Border* b) {
 }
 
 void BasicSplitPaneDivider$1::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$0->splitPane != nullptr) {
 		$var($ints, xs, $new($ints, 3));
 		$var($ints, ys, $new($ints, 3));
@@ -121,7 +76,44 @@ BasicSplitPaneDivider$1::BasicSplitPaneDivider$1() {
 }
 
 $Class* BasicSplitPaneDivider$1::load$($String* name, bool initialize) {
-	$loadClass(BasicSplitPaneDivider$1, name, initialize, &_BasicSplitPaneDivider$1_ClassInfo_, allocate$BasicSplitPaneDivider$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicSplitPaneDivider;", nullptr, $FINAL | $SYNTHETIC, $field(BasicSplitPaneDivider$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneDivider;)V", nullptr, 0, $method(BasicSplitPaneDivider$1, init$, void, $BasicSplitPaneDivider*)},
+		{"isFocusTraversable", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$1, isFocusTraversable, bool)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$1, paint, void, $Graphics*)},
+		{"setBorder", "(Ljavax/swing/border/Border;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$1, setBorder, void, $Border*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.plaf.basic.BasicSplitPaneDivider",
+		"createLeftOneTouchButton",
+		"()Ljavax/swing/JButton;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicSplitPaneDivider$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicSplitPaneDivider$1",
+		"javax.swing.JButton",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicSplitPaneDivider"
+	};
+	$loadClass(BasicSplitPaneDivider$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicSplitPaneDivider$1));
+	});
 	return class$;
 }
 

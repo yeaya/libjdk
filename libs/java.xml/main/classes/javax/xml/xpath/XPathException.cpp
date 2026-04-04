@@ -1,5 +1,4 @@
 #include <javax/xml/xpath/XPathException.h>
-
 #include <java/io/InvalidClassException.h>
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
@@ -30,37 +29,6 @@ namespace javax {
 	namespace xml {
 		namespace xpath {
 
-$FieldInfo _XPathException_FieldInfo_[] = {
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPathException, serialPersistentFields)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _XPathException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XPathException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(XPathException, init$, void, $Throwable*)},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(XPathException, getCause, $Throwable*)},
-	{"printStackTrace", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $virtualMethod(XPathException, printStackTrace, void, $PrintStream*)},
-	{"printStackTrace", "()V", nullptr, $PUBLIC, $virtualMethod(XPathException, printStackTrace, void)},
-	{"printStackTrace", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(XPathException, printStackTrace, void, $PrintWriter*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(XPathException, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(XPathException, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _XPathException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.xml.xpath.XPathException",
-	"java.lang.Exception",
-	nullptr,
-	_XPathException_FieldInfo_,
-	_XPathException_MethodInfo_
-};
-
-$Object* allocate$XPathException($Class* clazz) {
-	return $of($alloc(XPathException));
-}
-
 $ObjectStreamFieldArray* XPathException::serialPersistentFields = nullptr;
 
 void XPathException::init$($String* message) {
@@ -82,16 +50,16 @@ $Throwable* XPathException::getCause() {
 }
 
 void XPathException::writeObject($ObjectOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectOutputStream$PutField, fields, $nc(out)->putFields());
-	$nc(fields)->put("cause"_s, $($of($Exception::getCause())));
+	$nc(fields)->put("cause"_s, $($Exception::getCause()));
 	out->writeFields();
 }
 
 void XPathException::readObject($ObjectInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, fields, $nc(in)->readFields());
-	$var($Throwable, scause, $cast($Throwable, $nc(fields)->get("cause"_s, ($Object*)nullptr)));
+	$var($Throwable, scause, $cast($Throwable, $nc(fields)->get("cause"_s, nullptr)));
 	if ($Exception::getCause() == nullptr && scause != nullptr) {
 		try {
 			$Exception::initCause(scause);
@@ -103,7 +71,7 @@ void XPathException::readObject($ObjectInputStream* in) {
 
 void XPathException::printStackTrace($PrintStream* s) {
 	if (getCause() != nullptr) {
-		$nc($(getCause()))->printStackTrace(s);
+		$$nc(getCause())->printStackTrace(s);
 		$nc(s)->println("--------------- linked to ------------------"_s);
 	}
 	$Exception::printStackTrace(s);
@@ -115,13 +83,13 @@ void XPathException::printStackTrace() {
 
 void XPathException::printStackTrace($PrintWriter* s) {
 	if (getCause() != nullptr) {
-		$nc($(getCause()))->printStackTrace(s);
+		$$nc(getCause())->printStackTrace(s);
 		$nc(s)->println("--------------- linked to ------------------"_s);
 	}
 	$Exception::printStackTrace(s);
 }
 
-void clinit$XPathException($Class* class$) {
+void XPathException::clinit$($Class* clazz) {
 	$assignStatic(XPathException::serialPersistentFields, $new($ObjectStreamFieldArray, {$$new($ObjectStreamField, "cause"_s, $Throwable::class$)}));
 }
 
@@ -136,7 +104,33 @@ void XPathException::throw$() {
 }
 
 $Class* XPathException::load$($String* name, bool initialize) {
-	$loadClass(XPathException, name, initialize, &_XPathException_ClassInfo_, clinit$XPathException, allocate$XPathException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPathException, serialPersistentFields)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XPathException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(XPathException, init$, void, $Throwable*)},
+		{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(XPathException, getCause, $Throwable*)},
+		{"printStackTrace", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $virtualMethod(XPathException, printStackTrace, void, $PrintStream*)},
+		{"printStackTrace", "()V", nullptr, $PUBLIC, $virtualMethod(XPathException, printStackTrace, void)},
+		{"printStackTrace", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(XPathException, printStackTrace, void, $PrintWriter*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(XPathException, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(XPathException, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.xml.xpath.XPathException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XPathException, name, initialize, &classInfo$$, XPathException::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XPathException);
+	});
 	return class$;
 }
 

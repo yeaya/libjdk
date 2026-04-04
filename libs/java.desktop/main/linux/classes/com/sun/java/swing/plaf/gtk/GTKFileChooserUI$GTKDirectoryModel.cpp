@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKFileChooserUI$GTKDirectoryModel.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKFileChooserUI.h>
 #include <java/io/File.h>
 #include <java/io/Serializable.h>
@@ -28,7 +27,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Comparator = ::java::util::Comparator;
 using $Vector = ::java::util::Vector;
 using $Function = ::java::util::function::Function;
-using $JFileChooser = ::javax::swing::JFileChooser;
 using $FileSystemView = ::javax::swing::filechooser::FileSystemView;
 using $BasicDirectoryModel = ::javax::swing::plaf::basic::BasicDirectoryModel;
 
@@ -48,72 +46,32 @@ public:
 	virtual $Object* apply(Object$* f) override {
 		 return $of($nc(inst$)->getSystemDisplayName($cast($File, f)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<GTKFileChooserUI$GTKDirectoryModel$$Lambda$getSystemDisplayName>());
-	}
 	$FileSystemView* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo GTKFileChooserUI$GTKDirectoryModel$$Lambda$getSystemDisplayName::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(GTKFileChooserUI$GTKDirectoryModel$$Lambda$getSystemDisplayName, inst$)},
-	{}
-};
-$MethodInfo GTKFileChooserUI$GTKDirectoryModel$$Lambda$getSystemDisplayName::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/filechooser/FileSystemView;)V", nullptr, $PUBLIC, $method(GTKFileChooserUI$GTKDirectoryModel$$Lambda$getSystemDisplayName, init$, void, $FileSystemView*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$GTKDirectoryModel$$Lambda$getSystemDisplayName, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo GTKFileChooserUI$GTKDirectoryModel$$Lambda$getSystemDisplayName::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKDirectoryModel$$Lambda$getSystemDisplayName",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* GTKFileChooserUI$GTKDirectoryModel$$Lambda$getSystemDisplayName::load$($String* name, bool initialize) {
-	$loadClass(GTKFileChooserUI$GTKDirectoryModel$$Lambda$getSystemDisplayName, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(GTKFileChooserUI$GTKDirectoryModel$$Lambda$getSystemDisplayName, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/filechooser/FileSystemView;)V", nullptr, $PUBLIC, $method(GTKFileChooserUI$GTKDirectoryModel$$Lambda$getSystemDisplayName, init$, void, $FileSystemView*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$GTKDirectoryModel$$Lambda$getSystemDisplayName, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKDirectoryModel$$Lambda$getSystemDisplayName",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GTKFileChooserUI$GTKDirectoryModel$$Lambda$getSystemDisplayName, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GTKFileChooserUI$GTKDirectoryModel$$Lambda$getSystemDisplayName);
+	});
 	return class$;
 }
 $Class* GTKFileChooserUI$GTKDirectoryModel$$Lambda$getSystemDisplayName::class$ = nullptr;
-
-$FieldInfo _GTKFileChooserUI$GTKDirectoryModel_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(GTKFileChooserUI$GTKDirectoryModel, this$0)},
-	{}
-};
-
-$MethodInfo _GTKFileChooserUI$GTKDirectoryModel_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;)V", nullptr, $PRIVATE, $method(GTKFileChooserUI$GTKDirectoryModel, init$, void, $GTKFileChooserUI*)},
-	{"sort", "(Ljava/util/Vector;)V", "(Ljava/util/Vector<+Ljava/io/File;>;)V", $PROTECTED, $virtualMethod(GTKFileChooserUI$GTKDirectoryModel, sort, void, $Vector*)},
-	{}
-};
-
-$InnerClassInfo _GTKFileChooserUI$GTKDirectoryModel_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKDirectoryModel", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "GTKDirectoryModel", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _GTKFileChooserUI$GTKDirectoryModel_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKDirectoryModel",
-	"javax.swing.plaf.basic.BasicDirectoryModel",
-	nullptr,
-	_GTKFileChooserUI$GTKDirectoryModel_FieldInfo_,
-	_GTKFileChooserUI$GTKDirectoryModel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GTKFileChooserUI$GTKDirectoryModel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKFileChooserUI"
-};
-
-$Object* allocate$GTKFileChooserUI$GTKDirectoryModel($Class* clazz) {
-	return $of($alloc(GTKFileChooserUI$GTKDirectoryModel));
-}
 
 void GTKFileChooserUI$GTKDirectoryModel::init$($GTKFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
@@ -121,12 +79,12 @@ void GTKFileChooserUI$GTKDirectoryModel::init$($GTKFileChooserUI* this$0) {
 }
 
 void GTKFileChooserUI$GTKDirectoryModel::sort($Vector* v) {
-	$useLocalCurrentObjectStackCache();
-	$var($FileSystemView, fsv, $nc($(this->this$0->getFileChooser()))->getFileSystemView());
+	$useLocalObjectStack();
+	$var($FileSystemView, fsv, $$nc(this->this$0->getFileChooser())->getFileSystemView());
 	if (fsv == nullptr) {
 		$BasicDirectoryModel::sort(v);
 	} else {
-		$nc(v)->sort($($Comparator::comparing(static_cast<$Function*>($$new(GTKFileChooserUI$GTKDirectoryModel$$Lambda$getSystemDisplayName, static_cast<$FileSystemView*>($nc(fsv)))))));
+		$nc(v)->sort($($Comparator::comparing($$new(GTKFileChooserUI$GTKDirectoryModel$$Lambda$getSystemDisplayName, fsv))));
 	}
 }
 
@@ -135,11 +93,41 @@ GTKFileChooserUI$GTKDirectoryModel::GTKFileChooserUI$GTKDirectoryModel() {
 
 $Class* GTKFileChooserUI$GTKDirectoryModel::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(GTKFileChooserUI$GTKDirectoryModel$$Lambda$getSystemDisplayName::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKDirectoryModel$$Lambda$getSystemDisplayName")) {
 			return GTKFileChooserUI$GTKDirectoryModel$$Lambda$getSystemDisplayName::load$(name, initialize);
 		}
 	}
-	$loadClass(GTKFileChooserUI$GTKDirectoryModel, name, initialize, &_GTKFileChooserUI$GTKDirectoryModel_ClassInfo_, allocate$GTKFileChooserUI$GTKDirectoryModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(GTKFileChooserUI$GTKDirectoryModel, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;)V", nullptr, $PRIVATE, $method(GTKFileChooserUI$GTKDirectoryModel, init$, void, $GTKFileChooserUI*)},
+		{"sort", "(Ljava/util/Vector;)V", "(Ljava/util/Vector<+Ljava/io/File;>;)V", $PROTECTED, $virtualMethod(GTKFileChooserUI$GTKDirectoryModel, sort, void, $Vector*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKDirectoryModel", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "GTKDirectoryModel", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKDirectoryModel",
+		"javax.swing.plaf.basic.BasicDirectoryModel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKFileChooserUI"
+	};
+	$loadClass(GTKFileChooserUI$GTKDirectoryModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GTKFileChooserUI$GTKDirectoryModel));
+	});
 	return class$;
 }
 

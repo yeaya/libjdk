@@ -24,6 +24,7 @@ class $import SCDynamicStoreConfig : public ::java::lang::Object {
 	$class(SCDynamicStoreConfig, 0, ::java::lang::Object)
 public:
 	SCDynamicStoreConfig();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Hashtable* getConfig();
 	static ::java::util::List* getKerberosConfig();

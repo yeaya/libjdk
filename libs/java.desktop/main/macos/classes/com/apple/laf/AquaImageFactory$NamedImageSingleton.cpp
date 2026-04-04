@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaImageFactory$NamedImageSingleton.h>
-
 #include <com/apple/laf/AquaImageFactory.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
 #include <java/awt/Image.h>
@@ -16,57 +15,51 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaImageFactory$NamedImageSingleton_FieldInfo_[] = {
-	{"namedImage", "Ljava/lang/String;", nullptr, $FINAL, $field(AquaImageFactory$NamedImageSingleton, namedImage)},
-	{}
-};
-
-$MethodInfo _AquaImageFactory$NamedImageSingleton_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(AquaImageFactory$NamedImageSingleton, init$, void, $String*)},
-	{"getInstance", "()Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(AquaImageFactory$NamedImageSingleton, getInstance, $Object*)},
-	{}
-};
-
-$InnerClassInfo _AquaImageFactory$NamedImageSingleton_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaImageFactory$NamedImageSingleton", "com.apple.laf.AquaImageFactory", "NamedImageSingleton", $STATIC},
-	{"com.apple.laf.AquaUtils$RecyclableSingleton", "com.apple.laf.AquaUtils", "RecyclableSingleton", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaImageFactory$NamedImageSingleton_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaImageFactory$NamedImageSingleton",
-	"com.apple.laf.AquaUtils$RecyclableSingleton",
-	nullptr,
-	_AquaImageFactory$NamedImageSingleton_FieldInfo_,
-	_AquaImageFactory$NamedImageSingleton_MethodInfo_,
-	"Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljava/awt/Image;>;",
-	nullptr,
-	_AquaImageFactory$NamedImageSingleton_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaImageFactory"
-};
-
-$Object* allocate$AquaImageFactory$NamedImageSingleton($Class* clazz) {
-	return $of($alloc(AquaImageFactory$NamedImageSingleton));
-}
-
 void AquaImageFactory$NamedImageSingleton::init$($String* namedImage) {
 	$AquaUtils$RecyclableSingleton::init$();
 	$set(this, namedImage, namedImage);
 }
 
 $Object* AquaImageFactory$NamedImageSingleton::getInstance() {
-	return $of($AquaImageFactory::getNSIcon(this->namedImage));
+	return $AquaImageFactory::getNSIcon(this->namedImage);
 }
 
 AquaImageFactory$NamedImageSingleton::AquaImageFactory$NamedImageSingleton() {
 }
 
 $Class* AquaImageFactory$NamedImageSingleton::load$($String* name, bool initialize) {
-	$loadClass(AquaImageFactory$NamedImageSingleton, name, initialize, &_AquaImageFactory$NamedImageSingleton_ClassInfo_, allocate$AquaImageFactory$NamedImageSingleton);
+	$FieldInfo fieldInfos$$[] = {
+		{"namedImage", "Ljava/lang/String;", nullptr, $FINAL, $field(AquaImageFactory$NamedImageSingleton, namedImage)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(AquaImageFactory$NamedImageSingleton, init$, void, $String*)},
+		{"getInstance", "()Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(AquaImageFactory$NamedImageSingleton, getInstance, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaImageFactory$NamedImageSingleton", "com.apple.laf.AquaImageFactory", "NamedImageSingleton", $STATIC},
+		{"com.apple.laf.AquaUtils$RecyclableSingleton", "com.apple.laf.AquaUtils", "RecyclableSingleton", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaImageFactory$NamedImageSingleton",
+		"com.apple.laf.AquaUtils$RecyclableSingleton",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljava/awt/Image;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaImageFactory"
+	};
+	$loadClass(AquaImageFactory$NamedImageSingleton, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaImageFactory$NamedImageSingleton);
+	});
 	return class$;
 }
 

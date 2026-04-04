@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftControl.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,26 +9,22 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$MethodInfo _SoftControl_MethodInfo_[] = {
-	{"get", "(ILjava/lang/String;)[D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SoftControl, get, $doubles*, int32_t, $String*)},
-	{}
-};
-
-$ClassInfo _SoftControl_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.media.sound.SoftControl",
-	nullptr,
-	nullptr,
-	nullptr,
-	_SoftControl_MethodInfo_
-};
-
-$Object* allocate$SoftControl($Class* clazz) {
-	return $of($alloc(SoftControl));
-}
-
 $Class* SoftControl::load$($String* name, bool initialize) {
-	$loadClass(SoftControl, name, initialize, &_SoftControl_ClassInfo_, allocate$SoftControl);
+	$MethodInfo methodInfos$$[] = {
+		{"get", "(ILjava/lang/String;)[D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SoftControl, get, $doubles*, int32_t, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.media.sound.SoftControl",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SoftControl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftControl);
+	});
 	return class$;
 }
 

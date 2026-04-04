@@ -116,7 +116,7 @@ public:
 	static const int32_t PASSIVE_WIDTH = 480;
 	static const int32_t WIDTH_MARGIN = 10;
 	static const int32_t HEIGHT_MARGIN = 3;
-	static const int64_t serialVersionUID = (int64_t)0xF153E7647B89D7FC;
+	static const int64_t serialVersionUID = (int64_t)0xf153e7647b89d7fc;
 };
 
 		} // im

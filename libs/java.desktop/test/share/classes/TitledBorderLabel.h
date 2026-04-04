@@ -34,6 +34,7 @@ class $export TitledBorderLabel : public ::java::lang::Object {
 	$class(TitledBorderLabel, 0, ::java::lang::Object)
 public:
 	TitledBorderLabel();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* convertMillisToTimeStr(int32_t millis);
 	static void createAndShowTestDialog();
@@ -50,7 +51,7 @@ public:
 	static void main($StringArray* args);
 	static void pass();
 	static ::java::util::concurrent::CountDownLatch* testEndedSignal;
-	static const int32_t testTimeout = 0x000493E0;
+	static const int32_t testTimeout = 0x000493e0;
 	static $volatile($String*) testFailureMsg;
 	static $volatile(bool) testPassed;
 	static $volatile(bool) testFinished;

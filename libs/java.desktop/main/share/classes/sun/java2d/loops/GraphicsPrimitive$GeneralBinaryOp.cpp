@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/GraphicsPrimitive$GeneralBinaryOp.h>
-
 #include <sun/java2d/loops/Blit.h>
 #include <sun/java2d/loops/CompositeType.h>
 #include <sun/java2d/loops/GraphicsPrimitive.h>
@@ -18,43 +17,38 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$MethodInfo _GraphicsPrimitive$GeneralBinaryOp_MethodInfo_[] = {
-	{"getCompositeType", "()Lsun/java2d/loops/CompositeType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsPrimitive$GeneralBinaryOp, getCompositeType, $CompositeType*)},
-	{"getDestType", "()Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsPrimitive$GeneralBinaryOp, getDestType, $SurfaceType*)},
-	{"getPrimTypeID", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsPrimitive$GeneralBinaryOp, getPrimTypeID, int32_t)},
-	{"getSignature", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsPrimitive$GeneralBinaryOp, getSignature, $String*)},
-	{"getSourceType", "()Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsPrimitive$GeneralBinaryOp, getSourceType, $SurfaceType*)},
-	{"setPrimitives", "(Lsun/java2d/loops/Blit;Lsun/java2d/loops/Blit;Lsun/java2d/loops/GraphicsPrimitive;Lsun/java2d/loops/Blit;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsPrimitive$GeneralBinaryOp, setPrimitives, void, $Blit*, $Blit*, $GraphicsPrimitive*, $Blit*)},
-	{}
-};
-
-$InnerClassInfo _GraphicsPrimitive$GeneralBinaryOp_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.GraphicsPrimitive$GeneralBinaryOp", "sun.java2d.loops.GraphicsPrimitive", "GeneralBinaryOp", $PROTECTED | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _GraphicsPrimitive$GeneralBinaryOp_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.java2d.loops.GraphicsPrimitive$GeneralBinaryOp",
-	nullptr,
-	nullptr,
-	nullptr,
-	_GraphicsPrimitive$GeneralBinaryOp_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GraphicsPrimitive$GeneralBinaryOp_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.GraphicsPrimitive"
-};
-
-$Object* allocate$GraphicsPrimitive$GeneralBinaryOp($Class* clazz) {
-	return $of($alloc(GraphicsPrimitive$GeneralBinaryOp));
-}
-
 $Class* GraphicsPrimitive$GeneralBinaryOp::load$($String* name, bool initialize) {
-	$loadClass(GraphicsPrimitive$GeneralBinaryOp, name, initialize, &_GraphicsPrimitive$GeneralBinaryOp_ClassInfo_, allocate$GraphicsPrimitive$GeneralBinaryOp);
+	$MethodInfo methodInfos$$[] = {
+		{"getCompositeType", "()Lsun/java2d/loops/CompositeType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsPrimitive$GeneralBinaryOp, getCompositeType, $CompositeType*)},
+		{"getDestType", "()Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsPrimitive$GeneralBinaryOp, getDestType, $SurfaceType*)},
+		{"getPrimTypeID", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsPrimitive$GeneralBinaryOp, getPrimTypeID, int32_t)},
+		{"getSignature", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsPrimitive$GeneralBinaryOp, getSignature, $String*)},
+		{"getSourceType", "()Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsPrimitive$GeneralBinaryOp, getSourceType, $SurfaceType*)},
+		{"setPrimitives", "(Lsun/java2d/loops/Blit;Lsun/java2d/loops/Blit;Lsun/java2d/loops/GraphicsPrimitive;Lsun/java2d/loops/Blit;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsPrimitive$GeneralBinaryOp, setPrimitives, void, $Blit*, $Blit*, $GraphicsPrimitive*, $Blit*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.GraphicsPrimitive$GeneralBinaryOp", "sun.java2d.loops.GraphicsPrimitive", "GeneralBinaryOp", $PROTECTED | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.java2d.loops.GraphicsPrimitive$GeneralBinaryOp",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.GraphicsPrimitive"
+	};
+	$loadClass(GraphicsPrimitive$GeneralBinaryOp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GraphicsPrimitive$GeneralBinaryOp);
+	});
 	return class$;
 }
 

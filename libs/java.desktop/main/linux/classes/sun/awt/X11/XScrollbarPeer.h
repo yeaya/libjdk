@@ -83,6 +83,7 @@ public:
 	virtual bool isFocusable() override;
 	virtual bool isObscured() override;
 	virtual bool isReparentSupported() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Scrollbar* target);
 	int32_t getDefaultDimension();
 	virtual ::java::awt::Dimension* getMinimumSize() override;

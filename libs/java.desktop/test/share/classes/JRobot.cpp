@@ -1,5 +1,4 @@
 #include <JRobot.h>
-
 #include <java/awt/AWTException.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -19,7 +18,6 @@
 #undef INTERNAL_DELAY
 
 using $AWTException = ::java::awt::AWTException;
-using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $EventQueue = ::java::awt::EventQueue;
@@ -27,60 +25,12 @@ using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Robot = ::java::awt::Robot;
 using $InputEvent = ::java::awt::event::InputEvent;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Error = ::java::lang::Error;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-
-$FieldInfo _JRobot_FieldInfo_[] = {
-	{"DEFAULT_DELAY", "I", nullptr, $PRIVATE | $STATIC, $staticField(JRobot, DEFAULT_DELAY)},
-	{"INTERNAL_DELAY", "I", nullptr, $PRIVATE | $STATIC, $staticField(JRobot, INTERNAL_DELAY)},
-	{"delay", "I", nullptr, $PRIVATE, $field(JRobot, delay$)},
-	{"delaysEnabled", "Z", nullptr, $PRIVATE, $field(JRobot, delaysEnabled)},
-	{}
-};
-
-$MethodInfo _JRobot_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PROTECTED, $method(JRobot, init$, void, bool), "java.awt.AWTException"},
-	{"centerOf", "(Ljava/awt/Rectangle;)Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(JRobot, centerOf, $Point*, $Rectangle*)},
-	{"centerOf", "(Ljava/awt/Rectangle;Ljava/awt/Point;)Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(JRobot, centerOf, $Point*, $Rectangle*, $Point*)},
-	{"clickMouse", "(I)V", nullptr, $PUBLIC, $virtualMethod(JRobot, clickMouse, void, int32_t)},
-	{"clickMouse", "()V", nullptr, $PUBLIC, $virtualMethod(JRobot, clickMouse, void)},
-	{"clickMouseOn", "(Ljava/awt/Component;I)V", nullptr, $PUBLIC, $virtualMethod(JRobot, clickMouseOn, void, $Component*, int32_t)},
-	{"clickMouseOn", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JRobot, clickMouseOn, void, $Component*)},
-	{"comparePixels", "(Ljava/awt/Point;Ljava/awt/Point;)Z", nullptr, $PUBLIC, $virtualMethod(JRobot, comparePixels, bool, $Point*, $Point*)},
-	{"comparePixels", "(IIII)Z", nullptr, $PUBLIC, $virtualMethod(JRobot, comparePixels, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"compareRects", "(Ljava/awt/Rectangle;Ljava/awt/Rectangle;)Z", nullptr, $PUBLIC, $virtualMethod(JRobot, compareRects, bool, $Rectangle*, $Rectangle*)},
-	{"convertRectToScreen", "(Ljava/awt/Rectangle;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JRobot, convertRectToScreen, void, $Rectangle*, $Component*)},
-	{"delay", "()V", nullptr, $PUBLIC, $virtualMethod(JRobot, delay, void)},
-	{"getDelay", "()I", nullptr, $PUBLIC, $virtualMethod(JRobot, getDelay, int32_t)},
-	{"getDelaysEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JRobot, getDelaysEnabled, bool)},
-	{"getRobot", "()LJRobot;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRobot, getRobot, JRobot*)},
-	{"getRobot", "(Z)LJRobot;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRobot, getRobot, JRobot*, bool)},
-	{"glide", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(JRobot, glide, void, int32_t, int32_t, int32_t, int32_t)},
-	{"hitKey", "(I)V", nullptr, $PUBLIC, $virtualMethod(JRobot, hitKey, void, int32_t)},
-	{"hitKey", "([I)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(JRobot, hitKey, void, $ints*)},
-	{"moveMouseTo", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JRobot, moveMouseTo, void, $Component*)},
-	{"setDelay", "(I)V", nullptr, $PUBLIC, $virtualMethod(JRobot, setDelay, void, int32_t)},
-	{"waitForIdle", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JRobot, waitForIdle, void)},
-	{}
-};
-
-$ClassInfo _JRobot_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"JRobot",
-	"java.awt.Robot",
-	nullptr,
-	_JRobot_FieldInfo_,
-	_JRobot_MethodInfo_
-};
-
-$Object* allocate$JRobot($Class* clazz) {
-	return $of($alloc(JRobot));
-}
 
 int32_t JRobot::DEFAULT_DELAY = 0;
 int32_t JRobot::INTERNAL_DELAY = 0;
@@ -107,7 +57,7 @@ JRobot* JRobot::getRobot(bool enableDelays) {
 		$assign(robot, $new(JRobot, enableDelays));
 	} catch ($AWTException& e) {
 		$nc($System::err)->println("Coudn\'t create Robot, details below"_s);
-		$throwNew($Error, static_cast<$Throwable*>(e));
+		$throwNew($Error, e);
 	}
 	return robot;
 }
@@ -122,14 +72,14 @@ void JRobot::hitKey($ints* keys) {
 	for (int32_t i = 0; i < $nc(keys)->length; ++i) {
 		keyPress(keys->get(i));
 	}
-	for (int32_t i = $nc(keys)->length - 1; i >= 0; --i) {
+	for (int32_t i = keys->length - 1; i >= 0; --i) {
 		keyRelease(keys->get(i));
 	}
 	delay();
 }
 
 void JRobot::moveMouseTo($Component* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Point, p, $nc(c)->getLocationOnScreen());
 	$var($Dimension, size, c->getSize());
 	$nc(p)->x += $nc(size)->width / 2;
@@ -194,19 +144,19 @@ void JRobot::waitForIdle() {
 }
 
 $Point* JRobot::centerOf($Rectangle* r) {
-	return $new($Point, $nc(r)->x + r->width / 2, r->y + r->height / 2);
+	return $new($Point, $nc(r)->x + $nc(r)->width / 2, $nc(r)->y + $nc(r)->height / 2);
 }
 
 $Point* JRobot::centerOf($Rectangle* r, $Point* p) {
-	$nc(p)->x = $nc(r)->x + r->width / 2;
+	$nc(p)->x = $nc(r)->x + $nc(r)->width / 2;
 	p->y = r->y + r->height / 2;
 	return p;
 }
 
 void JRobot::convertRectToScreen($Rectangle* r, $Component* c) {
-	$var($Point, p, $new($Point, $nc(r)->x, r->y));
+	$var($Point, p, $new($Point, $nc(r)->x, $nc(r)->y));
 	$SwingUtilities::convertPointToScreen(p, c);
-	$nc(r)->x = p->x;
+	r->x = p->x;
 	r->y = p->y;
 }
 
@@ -224,15 +174,15 @@ bool JRobot::compareRects($Rectangle* r0, $Rectangle* r1) {
 }
 
 bool JRobot::comparePixels($Point* p0, $Point* p1) {
-	return comparePixels($nc(p0)->x, p0->y, $nc(p1)->x, p1->y);
+	return comparePixels($nc(p0)->x, $nc(p0)->y, $nc(p1)->x, $nc(p1)->y);
 }
 
 bool JRobot::comparePixels(int32_t x0, int32_t y0, int32_t x1, int32_t y1) {
-	$useLocalCurrentObjectStackCache();
-	return ($nc($(getPixelColor(x0, y0)))->equals($(getPixelColor(x1, y1))));
+	$useLocalObjectStack();
+	return ($$nc(getPixelColor(x0, y0))->equals($(getPixelColor(x1, y1))));
 }
 
-void clinit$JRobot($Class* class$) {
+void JRobot::clinit$($Class* clazz) {
 	JRobot::DEFAULT_DELAY = 550;
 	JRobot::INTERNAL_DELAY = 250;
 }
@@ -241,7 +191,49 @@ JRobot::JRobot() {
 }
 
 $Class* JRobot::load$($String* name, bool initialize) {
-	$loadClass(JRobot, name, initialize, &_JRobot_ClassInfo_, clinit$JRobot, allocate$JRobot);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_DELAY", "I", nullptr, $PRIVATE | $STATIC, $staticField(JRobot, DEFAULT_DELAY)},
+		{"INTERNAL_DELAY", "I", nullptr, $PRIVATE | $STATIC, $staticField(JRobot, INTERNAL_DELAY)},
+		{"delay", "I", nullptr, $PRIVATE, $field(JRobot, delay$)},
+		{"delaysEnabled", "Z", nullptr, $PRIVATE, $field(JRobot, delaysEnabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, $PROTECTED, $method(JRobot, init$, void, bool), "java.awt.AWTException"},
+		{"centerOf", "(Ljava/awt/Rectangle;)Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(JRobot, centerOf, $Point*, $Rectangle*)},
+		{"centerOf", "(Ljava/awt/Rectangle;Ljava/awt/Point;)Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(JRobot, centerOf, $Point*, $Rectangle*, $Point*)},
+		{"clickMouse", "(I)V", nullptr, $PUBLIC, $virtualMethod(JRobot, clickMouse, void, int32_t)},
+		{"clickMouse", "()V", nullptr, $PUBLIC, $virtualMethod(JRobot, clickMouse, void)},
+		{"clickMouseOn", "(Ljava/awt/Component;I)V", nullptr, $PUBLIC, $virtualMethod(JRobot, clickMouseOn, void, $Component*, int32_t)},
+		{"clickMouseOn", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JRobot, clickMouseOn, void, $Component*)},
+		{"comparePixels", "(Ljava/awt/Point;Ljava/awt/Point;)Z", nullptr, $PUBLIC, $virtualMethod(JRobot, comparePixels, bool, $Point*, $Point*)},
+		{"comparePixels", "(IIII)Z", nullptr, $PUBLIC, $virtualMethod(JRobot, comparePixels, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"compareRects", "(Ljava/awt/Rectangle;Ljava/awt/Rectangle;)Z", nullptr, $PUBLIC, $virtualMethod(JRobot, compareRects, bool, $Rectangle*, $Rectangle*)},
+		{"convertRectToScreen", "(Ljava/awt/Rectangle;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JRobot, convertRectToScreen, void, $Rectangle*, $Component*)},
+		{"delay", "()V", nullptr, $PUBLIC, $virtualMethod(JRobot, delay, void)},
+		{"getDelay", "()I", nullptr, $PUBLIC, $virtualMethod(JRobot, getDelay, int32_t)},
+		{"getDelaysEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JRobot, getDelaysEnabled, bool)},
+		{"getRobot", "()LJRobot;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRobot, getRobot, JRobot*)},
+		{"getRobot", "(Z)LJRobot;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRobot, getRobot, JRobot*, bool)},
+		{"glide", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(JRobot, glide, void, int32_t, int32_t, int32_t, int32_t)},
+		{"hitKey", "(I)V", nullptr, $PUBLIC, $virtualMethod(JRobot, hitKey, void, int32_t)},
+		{"hitKey", "([I)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(JRobot, hitKey, void, $ints*)},
+		{"moveMouseTo", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JRobot, moveMouseTo, void, $Component*)},
+		{"setDelay", "(I)V", nullptr, $PUBLIC, $virtualMethod(JRobot, setDelay, void, int32_t)},
+		{"waitForIdle", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JRobot, waitForIdle, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"JRobot",
+		"java.awt.Robot",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JRobot, name, initialize, &classInfo$$, JRobot::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JRobot);
+	});
 	return class$;
 }
 

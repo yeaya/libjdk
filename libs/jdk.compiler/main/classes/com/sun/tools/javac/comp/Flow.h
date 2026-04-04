@@ -71,6 +71,7 @@ class $export Flow : public ::java::lang::Object {
 	$class(Flow, 0, ::java::lang::Object)
 public:
 	Flow();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual bool aliveAfter(::com::sun::tools::javac::comp::Env* env, ::com::sun::tools::javac::tree::JCTree* that, ::com::sun::tools::javac::tree::TreeMaker* make);
 	virtual void analyzeLambda(::com::sun::tools::javac::comp::Env* env, ::com::sun::tools::javac::tree::JCTree$JCLambda* that, ::com::sun::tools::javac::tree::TreeMaker* make, bool speculative);

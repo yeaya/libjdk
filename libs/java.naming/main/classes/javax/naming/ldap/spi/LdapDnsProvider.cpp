@@ -1,5 +1,4 @@
 #include <javax/naming/ldap/spi/LdapDnsProvider.h>
-
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
 #include <java/security/Permission.h>
@@ -15,7 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $Void = ::java::lang::Void;
-using $Permission = ::java::security::Permission;
 using $Map = ::java::util::Map;
 using $Optional = ::java::util::Optional;
 
@@ -23,32 +21,6 @@ namespace javax {
 	namespace naming {
 		namespace ldap {
 			namespace spi {
-
-$FieldInfo _LdapDnsProvider_FieldInfo_[] = {
-	{"DNSPROVIDER_PERMISSION", "Ljava/lang/RuntimePermission;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapDnsProvider, DNSPROVIDER_PERMISSION)},
-	{}
-};
-
-$MethodInfo _LdapDnsProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(LdapDnsProvider, init$, void)},
-	{"<init>", "(Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(LdapDnsProvider, init$, void, $Void*)},
-	{"checkPermission", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapDnsProvider, checkPermission, $Void*)},
-	{"lookupEndpoints", "(Ljava/lang/String;Ljava/util/Map;)Ljava/util/Optional;", "(Ljava/lang/String;Ljava/util/Map<**>;)Ljava/util/Optional<Ljavax/naming/ldap/spi/LdapDnsProviderResult;>;", $PUBLIC | $ABSTRACT, $virtualMethod(LdapDnsProvider, lookupEndpoints, $Optional*, $String*, $Map*), "javax.naming.NamingException"},
-	{}
-};
-
-$ClassInfo _LdapDnsProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.naming.ldap.spi.LdapDnsProvider",
-	"java.lang.Object",
-	nullptr,
-	_LdapDnsProvider_FieldInfo_,
-	_LdapDnsProvider_MethodInfo_
-};
-
-$Object* allocate$LdapDnsProvider($Class* clazz) {
-	return $of($alloc(LdapDnsProvider));
-}
 
 $RuntimePermission* LdapDnsProvider::DNSPROVIDER_PERMISSION = nullptr;
 
@@ -68,7 +40,7 @@ $Void* LdapDnsProvider::checkPermission() {
 	return nullptr;
 }
 
-void clinit$LdapDnsProvider($Class* class$) {
+void LdapDnsProvider::clinit$($Class* clazz) {
 	$assignStatic(LdapDnsProvider::DNSPROVIDER_PERMISSION, $new($RuntimePermission, "ldapDnsProvider"_s));
 }
 
@@ -76,7 +48,28 @@ LdapDnsProvider::LdapDnsProvider() {
 }
 
 $Class* LdapDnsProvider::load$($String* name, bool initialize) {
-	$loadClass(LdapDnsProvider, name, initialize, &_LdapDnsProvider_ClassInfo_, clinit$LdapDnsProvider, allocate$LdapDnsProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"DNSPROVIDER_PERMISSION", "Ljava/lang/RuntimePermission;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapDnsProvider, DNSPROVIDER_PERMISSION)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(LdapDnsProvider, init$, void)},
+		{"<init>", "(Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(LdapDnsProvider, init$, void, $Void*)},
+		{"checkPermission", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapDnsProvider, checkPermission, $Void*)},
+		{"lookupEndpoints", "(Ljava/lang/String;Ljava/util/Map;)Ljava/util/Optional;", "(Ljava/lang/String;Ljava/util/Map<**>;)Ljava/util/Optional<Ljavax/naming/ldap/spi/LdapDnsProviderResult;>;", $PUBLIC | $ABSTRACT, $virtualMethod(LdapDnsProvider, lookupEndpoints, $Optional*, $String*, $Map*), "javax.naming.NamingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.naming.ldap.spi.LdapDnsProvider",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LdapDnsProvider, name, initialize, &classInfo$$, LdapDnsProvider::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LdapDnsProvider);
+	});
 	return class$;
 }
 

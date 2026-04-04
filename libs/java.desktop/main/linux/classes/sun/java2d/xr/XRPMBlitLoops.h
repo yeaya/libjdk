@@ -33,6 +33,7 @@ class XRPMBlitLoops : public ::java::lang::Object {
 	$class(XRPMBlitLoops, 0, ::java::lang::Object)
 public:
 	XRPMBlitLoops();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::java2d::xr::XRSurfaceData* cacheToTmpSurface(::sun::java2d::SurfaceData* src, ::sun::java2d::xr::XRSurfaceData* dst, int32_t w, int32_t h, int32_t sx, int32_t sy);
 	static void register$();

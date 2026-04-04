@@ -46,7 +46,7 @@ public:
 	static $Array<int32_t, 2>* parse($String* members);
 	static $Array<int32_t, 2>* parse($Array<int32_t, 2>* members);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x32E35AA253D8C34B;
+	static const int64_t serialVersionUID = (int64_t)0x32e35aa253d8c34b;
 	$Array<int32_t, 2>* members = nullptr;
 };
 

@@ -1,5 +1,4 @@
 #include <java/awt/Queue.h>
-
 #include <sun/awt/EventQueueItem.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 
-$FieldInfo _Queue_FieldInfo_[] = {
-	{"head", "Lsun/awt/EventQueueItem;", nullptr, 0, $field(Queue, head)},
-	{"tail", "Lsun/awt/EventQueueItem;", nullptr, 0, $field(Queue, tail)},
-	{}
-};
-
-$MethodInfo _Queue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Queue, init$, void)},
-	{}
-};
-
-$ClassInfo _Queue_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.Queue",
-	"java.lang.Object",
-	nullptr,
-	_Queue_FieldInfo_,
-	_Queue_MethodInfo_
-};
-
-$Object* allocate$Queue($Class* clazz) {
-	return $of($alloc(Queue));
-}
-
 void Queue::init$() {
 }
 
@@ -41,7 +16,26 @@ Queue::Queue() {
 }
 
 $Class* Queue::load$($String* name, bool initialize) {
-	$loadClass(Queue, name, initialize, &_Queue_ClassInfo_, allocate$Queue);
+	$FieldInfo fieldInfos$$[] = {
+		{"head", "Lsun/awt/EventQueueItem;", nullptr, 0, $field(Queue, head)},
+		{"tail", "Lsun/awt/EventQueueItem;", nullptr, 0, $field(Queue, tail)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Queue, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.Queue",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Queue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Queue);
+	});
 	return class$;
 }
 

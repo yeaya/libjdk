@@ -108,6 +108,7 @@ class LdapSchemaParser : public ::java::lang::Object {
 	$class(LdapSchemaParser, 0, ::java::lang::Object)
 public:
 	LdapSchemaParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool netscapeBug);
 	static void LDAP2JNDISchema(::javax::naming::directory::Attributes* schemaAttrs, ::com::sun::jndi::ldap::LdapSchemaCtx* schemaRoot);
 	$String* attrDef2AttrDesc(::javax::naming::directory::Attributes* attrs);

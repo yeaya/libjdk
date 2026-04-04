@@ -17,6 +17,7 @@ namespace javax {
 class $import Result : public ::java::lang::Object {
 	$interface(Result, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $String* getSystemId() {return nullptr;}
 	virtual void setSystemId($String* systemId) {}
 	static $String* PI_DISABLE_OUTPUT_ESCAPING;

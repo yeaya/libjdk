@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XDataTransferer.h>
-
 #include <java/awt/Image.h>
 #include <java/awt/datatransfer/DataFlavor.h>
 #include <java/awt/datatransfer/Transferable.h>
@@ -12,7 +11,6 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/Reader.h>
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
 #include <java/util/ArrayList.h>
@@ -48,14 +46,12 @@ using $DataFlavor = ::java::awt::datatransfer::DataFlavor;
 using $Transferable = ::java::awt::datatransfer::Transferable;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ColorModel = ::java::awt::image::ColorModel;
-using $RenderedImage = ::java::awt::image::RenderedImage;
 using $WritableRaster = ::java::awt::image::WritableRaster;
 using $BufferedReader = ::java::io::BufferedReader;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
-using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -67,7 +63,6 @@ using $ArrayList = ::java::util::ArrayList;
 using $Hashtable = ::java::util::Hashtable;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
-using $Set = ::java::util::Set;
 using $ImageIO = ::javax::imageio::ImageIO;
 using $ImageTypeSpecifier = ::javax::imageio::ImageTypeSpecifier;
 using $ImageWriter = ::javax::imageio::ImageWriter;
@@ -84,58 +79,6 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XDataTransferer_FieldInfo_[] = {
-	{"FILE_NAME_ATOM", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDataTransferer, FILE_NAME_ATOM)},
-	{"DT_NET_FILE_ATOM", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDataTransferer, DT_NET_FILE_ATOM)},
-	{"PNG_ATOM", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDataTransferer, PNG_ATOM)},
-	{"JFIF_ATOM", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDataTransferer, JFIF_ATOM)},
-	{"TARGETS_ATOM", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDataTransferer, TARGETS_ATOM)},
-	{"INCR_ATOM", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDataTransferer, INCR_ATOM)},
-	{"MULTIPLE_ATOM", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDataTransferer, MULTIPLE_ATOM)},
-	{"transferer", "Lsun/awt/X11/XDataTransferer;", nullptr, $PRIVATE | $STATIC, $staticField(XDataTransferer, transferer)},
-	{"defaultSpecifier", "Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PRIVATE | $STATIC, $staticField(XDataTransferer, defaultSpecifier)},
-	{}
-};
-
-$MethodInfo _XDataTransferer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(XDataTransferer, init$, void)},
-	{"convertFileListToBytes", "(Ljava/util/ArrayList;)Ljava/io/ByteArrayOutputStream;", "(Ljava/util/ArrayList<Ljava/lang/String;>;)Ljava/io/ByteArrayOutputStream;", $PROTECTED, $virtualMethod(XDataTransferer, convertFileListToBytes, $ByteArrayOutputStream*, $ArrayList*), "java.io.IOException"},
-	{"dragQueryFile", "([B)[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XDataTransferer, dragQueryFile, $StringArray*, $bytes*)},
-	{"dragQueryURIs", "(Ljava/io/InputStream;JLjava/awt/datatransfer/Transferable;)[Ljava/net/URI;", nullptr, $PROTECTED, $virtualMethod(XDataTransferer, dragQueryURIs, $URIArray*, $InputStream*, int64_t, $Transferable*), "java.io.IOException"},
-	{"getCharsetForTextFormat", "(Ljava/lang/Long;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XDataTransferer, getCharsetForTextFormat, $String*, $Long*)},
-	{"getDefaultImageTypeSpecifier", "()Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PRIVATE, $method(XDataTransferer, getDefaultImageTypeSpecifier, $ImageTypeSpecifier*)},
-	{"getDefaultUnicodeEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XDataTransferer, getDefaultUnicodeEncoding, $String*)},
-	{"getFormatForNativeAsLong", "(Ljava/lang/String;)Ljava/lang/Long;", nullptr, $PROTECTED, $virtualMethod(XDataTransferer, getFormatForNativeAsLong, $Long*, $String*)},
-	{"getInstanceImpl", "()Lsun/awt/X11/XDataTransferer;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(XDataTransferer, getInstanceImpl, XDataTransferer*)},
-	{"getNativeForFormat", "(J)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XDataTransferer, getNativeForFormat, $String*, int64_t)},
-	{"getPlatformMappingsForFlavor", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/util/LinkedHashSet;", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/util/LinkedHashSet<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(XDataTransferer, getPlatformMappingsForFlavor, $LinkedHashSet*, $DataFlavor*)},
-	{"getPlatformMappingsForNative", "(Ljava/lang/String;)Ljava/util/LinkedHashSet;", "(Ljava/lang/String;)Ljava/util/LinkedHashSet<Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC, $virtualMethod(XDataTransferer, getPlatformMappingsForNative, $LinkedHashSet*, $String*)},
-	{"getTargetNameForAtom", "(J)Ljava/lang/String;", nullptr, $PRIVATE, $method(XDataTransferer, getTargetNameForAtom, $String*, int64_t)},
-	{"getToolkitThreadBlockedHandler", "()Lsun/awt/datatransfer/ToolkitThreadBlockedHandler;", nullptr, $PUBLIC, $virtualMethod(XDataTransferer, getToolkitThreadBlockedHandler, $ToolkitThreadBlockedHandler*)},
-	{"imageToPlatformBytes", "(Ljava/awt/Image;J)[B", nullptr, $PROTECTED, $virtualMethod(XDataTransferer, imageToPlatformBytes, $bytes*, $Image*, int64_t), "java.io.IOException"},
-	{"isFileFormat", "(J)Z", nullptr, $PUBLIC, $virtualMethod(XDataTransferer, isFileFormat, bool, int64_t)},
-	{"isImageFormat", "(J)Z", nullptr, $PUBLIC, $virtualMethod(XDataTransferer, isImageFormat, bool, int64_t)},
-	{"isLocaleDependentTextFormat", "(J)Z", nullptr, $PUBLIC, $virtualMethod(XDataTransferer, isLocaleDependentTextFormat, bool, int64_t)},
-	{"isMimeFormat", "(JLjava/lang/String;)Z", nullptr, $PRIVATE, $method(XDataTransferer, isMimeFormat, bool, int64_t, $String*)},
-	{"isTextFormat", "(J)Z", nullptr, $PUBLIC, $virtualMethod(XDataTransferer, isTextFormat, bool, int64_t)},
-	{"isURIListFormat", "(J)Z", nullptr, $PROTECTED, $virtualMethod(XDataTransferer, isURIListFormat, bool, int64_t)},
-	{"platformImageBytesToImage", "([BJ)Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(XDataTransferer, platformImageBytesToImage, $Image*, $bytes*, int64_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _XDataTransferer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XDataTransferer",
-	"sun.awt.datatransfer.DataTransferer",
-	nullptr,
-	_XDataTransferer_FieldInfo_,
-	_XDataTransferer_MethodInfo_
-};
-
-$Object* allocate$XDataTransferer($Class* clazz) {
-	return $of($alloc(XDataTransferer));
-}
-
 $XAtom* XDataTransferer::FILE_NAME_ATOM = nullptr;
 $XAtom* XDataTransferer::DT_NET_FILE_ATOM = nullptr;
 $XAtom* XDataTransferer::PNG_ATOM = nullptr;
@@ -151,9 +94,8 @@ void XDataTransferer::init$() {
 }
 
 XDataTransferer* XDataTransferer::getInstanceImpl() {
-	$load(XDataTransferer);
+	$init(XDataTransferer);
 	$synchronized(class$) {
-		$init(XDataTransferer);
 		if (XDataTransferer::transferer == nullptr) {
 			$assignStatic(XDataTransferer::transferer, $new(XDataTransferer));
 		}
@@ -175,10 +117,10 @@ bool XDataTransferer::isTextFormat(int64_t format) {
 }
 
 $String* XDataTransferer::getCharsetForTextFormat($Long* lFormat) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isMimeFormat($nc(lFormat)->longValue(), "text"_s)) {
-		$var($String, nat, getNativeForFormat($nc(lFormat)->longValue()));
-		$var($DataFlavor, df, $new($DataFlavor, nat, ($String*)nullptr));
+		$var($String, nat, getNativeForFormat(lFormat->longValue()));
+		$var($DataFlavor, df, $new($DataFlavor, nat, nullptr));
 		if (!$DataFlavorUtil::doesSubtypeSupportCharset(df)) {
 			return nullptr;
 		}
@@ -191,15 +133,15 @@ $String* XDataTransferer::getCharsetForTextFormat($Long* lFormat) {
 }
 
 bool XDataTransferer::isURIListFormat(int64_t format) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, nat, getNativeForFormat(format));
 	if (nat == nullptr) {
 		return false;
 	}
 	try {
 		$var($DataFlavor, df, $new($DataFlavor, nat));
-		bool var$0 = $nc($(df->getPrimaryType()))->equals("text"_s);
-		if (var$0 && $nc($(df->getSubType()))->equals("uri-list"_s)) {
+		bool var$0 = $$nc(df->getPrimaryType())->equals("text"_s);
+		if (var$0 && $$nc(df->getSubType())->equals("uri-list"_s)) {
 			return true;
 		}
 	} catch ($Exception& e) {
@@ -219,7 +161,7 @@ bool XDataTransferer::isImageFormat(int64_t format) {
 }
 
 $Long* XDataTransferer::getFormatForNativeAsLong($String* str) {
-	return $Long::valueOf($nc($($XAtom::get(str)))->getAtom());
+	return $Long::valueOf($$nc($XAtom::get(str))->getAtom());
 }
 
 $String* XDataTransferer::getNativeForFormat(int64_t format) {
@@ -231,11 +173,11 @@ $ToolkitThreadBlockedHandler* XDataTransferer::getToolkitThreadBlockedHandler() 
 }
 
 $String* XDataTransferer::getTargetNameForAtom(int64_t atom) {
-	return $nc($($XAtom::get(atom)))->getName();
+	return $$nc($XAtom::get(atom))->getName();
 }
 
 $bytes* XDataTransferer::imageToPlatformBytes($Image* image, int64_t format) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, mimeType, nullptr);
 	if (format == $nc(XDataTransferer::PNG_ATOM)->getAtom()) {
 		$assign(mimeType, "image/png"_s);
@@ -247,8 +189,11 @@ $bytes* XDataTransferer::imageToPlatformBytes($Image* image, int64_t format) {
 			$var($DataFlavor, df, $new($DataFlavor, nat));
 			$var($String, primaryType, df->getPrimaryType());
 			if ("image"_s->equals(primaryType)) {
-				$var($String, var$0, $$str({$(df->getPrimaryType()), "/"_s}));
-				$assign(mimeType, $concat(var$0, $(df->getSubType())));
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append($(df->getPrimaryType()));
+				var$0->append("/"_s);
+				var$0->append($(df->getSubType()));
+				$assign(mimeType, $str(var$0));
 			}
 		} catch ($Exception& e) {
 		}
@@ -262,10 +207,10 @@ $bytes* XDataTransferer::imageToPlatformBytes($Image* image, int64_t format) {
 }
 
 $ByteArrayOutputStream* XDataTransferer::convertFileListToBytes($ArrayList* fileList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteArrayOutputStream, bos, $new($ByteArrayOutputStream));
 	for (int32_t i = 0; i < $nc(fileList)->size(); ++i) {
-		$var($bytes, bytes, $nc(($cast($String, $(fileList->get(i)))))->getBytes());
+		$var($bytes, bytes, $$sure($String, fileList->get(i))->getBytes());
 		if (i != 0) {
 			bos->write(0);
 		}
@@ -275,7 +220,7 @@ $ByteArrayOutputStream* XDataTransferer::convertFileListToBytes($ArrayList* file
 }
 
 $Image* XDataTransferer::platformImageBytesToImage($bytes* bytes, int64_t format) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, mimeType, nullptr);
 	if (format == $nc(XDataTransferer::PNG_ATOM)->getAtom()) {
 		$assign(mimeType, "image/png"_s);
@@ -287,8 +232,11 @@ $Image* XDataTransferer::platformImageBytesToImage($bytes* bytes, int64_t format
 			$var($DataFlavor, df, $new($DataFlavor, nat));
 			$var($String, primaryType, df->getPrimaryType());
 			if ("image"_s->equals(primaryType)) {
-				$var($String, var$0, $$str({$(df->getPrimaryType()), "/"_s}));
-				$assign(mimeType, $concat(var$0, $(df->getSubType())));
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append($(df->getPrimaryType()));
+				var$0->append("/"_s);
+				var$0->append($(df->getSubType()));
+				$assign(mimeType, $str(var$0));
 			}
 		} catch ($Exception& e) {
 		}
@@ -302,20 +250,92 @@ $Image* XDataTransferer::platformImageBytesToImage($bytes* bytes, int64_t format
 }
 
 $StringArray* XDataTransferer::dragQueryFile($bytes* bytes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XToolkit::awtLock();
+	$var($Throwable, var$0, nullptr);
+	$var($StringArray, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $XlibWrapper::XTextPropertyToStringList(bytes, $$nc($XAtom::get("STRING"_s))->getAtom()));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
+	}
+	$shouldNotReachHere();
+}
+
+$URIArray* XDataTransferer::dragQueryURIs($InputStream* stream, int64_t format, $Transferable* localeTransferable) {
+	$useLocalObjectStack();
+	$var($String, charset, getBestCharsetForTextFormat($($Long::valueOf(format)), localeTransferable));
 	{
+		$var($InputStreamReader, isr, $new($InputStreamReader, stream, charset));
 		$var($Throwable, var$0, nullptr);
-		$var($StringArray, var$2, nullptr);
+		$var($URIArray, var$2, nullptr);
 		bool return$1 = false;
 		try {
-			$assign(var$2, $XlibWrapper::XTextPropertyToStringList(bytes, $nc($($XAtom::get("STRING"_s)))->getAtom()));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
+			try {
+				$var($BufferedReader, reader, $new($BufferedReader, isr));
+				$var($Throwable, var$3, nullptr);
+				$var($URIArray, var$5, nullptr);
+				bool return$4 = false;
+				try {
+					try {
+						$var($String, line, nullptr);
+						$var($ArrayList, uriList, $new($ArrayList));
+						$var($URI, uri, nullptr);
+						while (($assign(line, reader->readLine())) != nullptr) {
+							try {
+								$assign(uri, $new($URI, line));
+							} catch ($URISyntaxException& uriSyntaxException) {
+								$throwNew($IOException, uriSyntaxException);
+							}
+							uriList->add(uri);
+						}
+						$assign(var$5, $cast($URIArray, uriList->toArray($$new($URIArray, uriList->size()))));
+						return$4 = true;
+						goto $finally1;
+					} catch ($Throwable& t$) {
+						try {
+							reader->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
+						$throw(t$);
+					}
+				} catch ($Throwable& var$6) {
+					$assign(var$3, var$6);
+				} $finally1: {
+					reader->close();
+				}
+				if (var$3 != nullptr) {
+					$throw(var$3);
+				}
+				if (return$4) {
+					$assign(var$2, var$5);
+					return$1 = true;
+					goto $finally;
+				}
+			} catch ($Throwable& t$) {
+				try {
+					isr->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
+			}
+		} catch ($Throwable& var$7) {
+			$assign(var$0, var$7);
 		} $finally: {
-			$XToolkit::awtUnlock();
+			isr->close();
 		}
 		if (var$0 != nullptr) {
 			$throw(var$0);
@@ -327,86 +347,8 @@ $StringArray* XDataTransferer::dragQueryFile($bytes* bytes) {
 	$shouldNotReachHere();
 }
 
-$URIArray* XDataTransferer::dragQueryURIs($InputStream* stream, int64_t format, $Transferable* localeTransferable) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, charset, getBestCharsetForTextFormat($($Long::valueOf(format)), localeTransferable));
-	{
-		$var($InputStreamReader, isr, $new($InputStreamReader, stream, charset));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($URIArray, var$2, nullptr);
-			bool return$1 = false;
-			try {
-				try {
-					$var($BufferedReader, reader, $new($BufferedReader, isr));
-					{
-						$var($Throwable, var$3, nullptr);
-						$var($URIArray, var$5, nullptr);
-						bool return$4 = false;
-						try {
-							try {
-								$var($String, line, nullptr);
-								$var($ArrayList, uriList, $new($ArrayList));
-								$var($URI, uri, nullptr);
-								while (($assign(line, reader->readLine())) != nullptr) {
-									try {
-										$assign(uri, $new($URI, line));
-									} catch ($URISyntaxException& uriSyntaxException) {
-										$throwNew($IOException, static_cast<$Throwable*>(uriSyntaxException));
-									}
-									uriList->add(uri);
-								}
-								$assign(var$5, $fcast($URIArray, uriList->toArray($$new($URIArray, uriList->size()))));
-								return$4 = true;
-								goto $finally1;
-							} catch ($Throwable& t$) {
-								try {
-									reader->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$6) {
-							$assign(var$3, var$6);
-						} $finally1: {
-							reader->close();
-						}
-						if (var$3 != nullptr) {
-							$throw(var$3);
-						}
-						if (return$4) {
-							$assign(var$2, var$5);
-							return$1 = true;
-							goto $finally;
-						}
-					}
-				} catch ($Throwable& t$) {
-					try {
-						isr->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
-				}
-			} catch ($Throwable& var$7) {
-				$assign(var$0, var$7);
-			} $finally: {
-				isr->close();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
-		}
-	}
-	$shouldNotReachHere();
-}
-
 bool XDataTransferer::isMimeFormat(int64_t format, $String* primaryType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, nat, getNativeForFormat(format));
 	if (nat == nullptr) {
 		return false;
@@ -422,7 +364,7 @@ bool XDataTransferer::isMimeFormat(int64_t format, $String* primaryType) {
 }
 
 $LinkedHashSet* XDataTransferer::getPlatformMappingsForNative($String* nat) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedHashSet, flavors, $new($LinkedHashSet));
 	if (nat == nullptr) {
 		return flavors;
@@ -447,25 +389,28 @@ $LinkedHashSet* XDataTransferer::getPlatformMappingsForNative($String* nat) {
 }
 
 $ImageTypeSpecifier* XDataTransferer::getDefaultImageTypeSpecifier() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (XDataTransferer::defaultSpecifier == nullptr) {
 		$var($ColorModel, model, $ColorModel::getRGBdefault());
 		$var($WritableRaster, raster, $nc(model)->createCompatibleWritableRaster(10, 10));
-		$var($BufferedImage, bufferedImage, $new($BufferedImage, model, raster, model->isAlphaPremultiplied(), ($Hashtable*)nullptr));
+		$var($BufferedImage, bufferedImage, $new($BufferedImage, model, raster, model->isAlphaPremultiplied(), nullptr));
 		$assignStatic(XDataTransferer::defaultSpecifier, $new($ImageTypeSpecifier, bufferedImage));
 	}
 	return XDataTransferer::defaultSpecifier;
 }
 
 $LinkedHashSet* XDataTransferer::getPlatformMappingsForFlavor($DataFlavor* df) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedHashSet, natives, $new($LinkedHashSet, 1));
 	if (df == nullptr) {
 		return natives;
 	}
 	$var($String, charset, $nc(df)->getParameter("charset"_s));
-	$var($String, var$0, $$str({$(df->getPrimaryType()), "/"_s}));
-	$var($String, baseType, $concat(var$0, $(df->getSubType())));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($(df->getPrimaryType()));
+	var$0->append("/"_s);
+	var$0->append($(df->getSubType()));
+	$var($String, baseType, $str(var$0));
 	$var($String, mimeType, baseType);
 	if (charset != nullptr && $DataFlavorUtil::isFlavorCharsetTextType(df)) {
 		$plusAssign(mimeType, $$str({";charset="_s, charset}));
@@ -474,8 +419,7 @@ $LinkedHashSet* XDataTransferer::getPlatformMappingsForFlavor($DataFlavor* df) {
 	if (var$1) {
 		bool var$3 = df->isRepresentationClassInputStream();
 		bool var$2 = var$3 || df->isRepresentationClassByteBuffer();
-		$load($bytes);
-		var$1 = (var$2 || $of($getClass($bytes))->equals(df->getRepresentationClass()));
+		var$1 = var$2 || $getClass($bytes)->equals(df->getRepresentationClass());
 	}
 	if (var$1) {
 		natives->add(mimeType);
@@ -483,21 +427,17 @@ $LinkedHashSet* XDataTransferer::getPlatformMappingsForFlavor($DataFlavor* df) {
 	if ($nc($DataFlavor::imageFlavor)->equals(df)) {
 		$var($StringArray, mimeTypes, $ImageIO::getWriterMIMETypes());
 		if (mimeTypes != nullptr) {
-			{
-				$var($StringArray, arr$, mimeTypes);
-				int32_t len$ = arr$->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					$var($String, mime, arr$->get(i$));
-					{
-						$var($Iterator, writers, $ImageIO::getImageWritersByMIMEType(mime));
-						while ($nc(writers)->hasNext()) {
-							$var($ImageWriter, imageWriter, $cast($ImageWriter, writers->next()));
-							$var($ImageWriterSpi, writerSpi, $nc(imageWriter)->getOriginatingProvider());
-							if (writerSpi != nullptr && writerSpi->canEncodeImage($(getDefaultImageTypeSpecifier()))) {
-								natives->add(mime);
-								break;
-							}
+			$var($StringArray, arr$, mimeTypes);
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+				$var($String, mime, arr$->get(i$));
+				{
+					$var($Iterator, writers, $ImageIO::getImageWritersByMIMEType(mime));
+					while ($nc(writers)->hasNext()) {
+						$var($ImageWriter, imageWriter, $cast($ImageWriter, writers->next()));
+						$var($ImageWriterSpi, writerSpi, $nc(imageWriter)->getOriginatingProvider());
+						if (writerSpi != nullptr && writerSpi->canEncodeImage($(getDefaultImageTypeSpecifier()))) {
+							natives->add(mime);
+							break;
 						}
 					}
 				}
@@ -508,13 +448,11 @@ $LinkedHashSet* XDataTransferer::getPlatformMappingsForFlavor($DataFlavor* df) {
 			$assign(baseType, "text/plain"_s);
 		}
 		{
-			$var($Iterator, i$, $nc($($DataFlavorUtil::standardEncodings()))->iterator());
+			$var($Iterator, i$, $$nc($DataFlavorUtil::standardEncodings())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($String, encoding, $cast($String, i$->next()));
-				{
-					if (!$nc(encoding)->equals(charset)) {
-						natives->add($$str({baseType, ";charset="_s, encoding}));
-					}
+				if (!$nc(encoding)->equals(charset)) {
+					natives->add($$str({baseType, ";charset="_s, encoding}));
 				}
 			}
 		}
@@ -525,7 +463,7 @@ $LinkedHashSet* XDataTransferer::getPlatformMappingsForFlavor($DataFlavor* df) {
 	return natives;
 }
 
-void clinit$XDataTransferer($Class* class$) {
+void XDataTransferer::clinit$($Class* clazz) {
 	$assignStatic(XDataTransferer::FILE_NAME_ATOM, $XAtom::get("FILE_NAME"_s));
 	$assignStatic(XDataTransferer::DT_NET_FILE_ATOM, $XAtom::get("_DT_NETFILE"_s));
 	$assignStatic(XDataTransferer::PNG_ATOM, $XAtom::get("PNG"_s));
@@ -540,7 +478,54 @@ XDataTransferer::XDataTransferer() {
 }
 
 $Class* XDataTransferer::load$($String* name, bool initialize) {
-	$loadClass(XDataTransferer, name, initialize, &_XDataTransferer_ClassInfo_, clinit$XDataTransferer, allocate$XDataTransferer);
+	$FieldInfo fieldInfos$$[] = {
+		{"FILE_NAME_ATOM", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDataTransferer, FILE_NAME_ATOM)},
+		{"DT_NET_FILE_ATOM", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDataTransferer, DT_NET_FILE_ATOM)},
+		{"PNG_ATOM", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDataTransferer, PNG_ATOM)},
+		{"JFIF_ATOM", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDataTransferer, JFIF_ATOM)},
+		{"TARGETS_ATOM", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDataTransferer, TARGETS_ATOM)},
+		{"INCR_ATOM", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDataTransferer, INCR_ATOM)},
+		{"MULTIPLE_ATOM", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDataTransferer, MULTIPLE_ATOM)},
+		{"transferer", "Lsun/awt/X11/XDataTransferer;", nullptr, $PRIVATE | $STATIC, $staticField(XDataTransferer, transferer)},
+		{"defaultSpecifier", "Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PRIVATE | $STATIC, $staticField(XDataTransferer, defaultSpecifier)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(XDataTransferer, init$, void)},
+		{"convertFileListToBytes", "(Ljava/util/ArrayList;)Ljava/io/ByteArrayOutputStream;", "(Ljava/util/ArrayList<Ljava/lang/String;>;)Ljava/io/ByteArrayOutputStream;", $PROTECTED, $virtualMethod(XDataTransferer, convertFileListToBytes, $ByteArrayOutputStream*, $ArrayList*), "java.io.IOException"},
+		{"dragQueryFile", "([B)[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XDataTransferer, dragQueryFile, $StringArray*, $bytes*)},
+		{"dragQueryURIs", "(Ljava/io/InputStream;JLjava/awt/datatransfer/Transferable;)[Ljava/net/URI;", nullptr, $PROTECTED, $virtualMethod(XDataTransferer, dragQueryURIs, $URIArray*, $InputStream*, int64_t, $Transferable*), "java.io.IOException"},
+		{"getCharsetForTextFormat", "(Ljava/lang/Long;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XDataTransferer, getCharsetForTextFormat, $String*, $Long*)},
+		{"getDefaultImageTypeSpecifier", "()Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PRIVATE, $method(XDataTransferer, getDefaultImageTypeSpecifier, $ImageTypeSpecifier*)},
+		{"getDefaultUnicodeEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XDataTransferer, getDefaultUnicodeEncoding, $String*)},
+		{"getFormatForNativeAsLong", "(Ljava/lang/String;)Ljava/lang/Long;", nullptr, $PROTECTED, $virtualMethod(XDataTransferer, getFormatForNativeAsLong, $Long*, $String*)},
+		{"getInstanceImpl", "()Lsun/awt/X11/XDataTransferer;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(XDataTransferer, getInstanceImpl, XDataTransferer*)},
+		{"getNativeForFormat", "(J)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XDataTransferer, getNativeForFormat, $String*, int64_t)},
+		{"getPlatformMappingsForFlavor", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/util/LinkedHashSet;", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/util/LinkedHashSet<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(XDataTransferer, getPlatformMappingsForFlavor, $LinkedHashSet*, $DataFlavor*)},
+		{"getPlatformMappingsForNative", "(Ljava/lang/String;)Ljava/util/LinkedHashSet;", "(Ljava/lang/String;)Ljava/util/LinkedHashSet<Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC, $virtualMethod(XDataTransferer, getPlatformMappingsForNative, $LinkedHashSet*, $String*)},
+		{"getTargetNameForAtom", "(J)Ljava/lang/String;", nullptr, $PRIVATE, $method(XDataTransferer, getTargetNameForAtom, $String*, int64_t)},
+		{"getToolkitThreadBlockedHandler", "()Lsun/awt/datatransfer/ToolkitThreadBlockedHandler;", nullptr, $PUBLIC, $virtualMethod(XDataTransferer, getToolkitThreadBlockedHandler, $ToolkitThreadBlockedHandler*)},
+		{"imageToPlatformBytes", "(Ljava/awt/Image;J)[B", nullptr, $PROTECTED, $virtualMethod(XDataTransferer, imageToPlatformBytes, $bytes*, $Image*, int64_t), "java.io.IOException"},
+		{"isFileFormat", "(J)Z", nullptr, $PUBLIC, $virtualMethod(XDataTransferer, isFileFormat, bool, int64_t)},
+		{"isImageFormat", "(J)Z", nullptr, $PUBLIC, $virtualMethod(XDataTransferer, isImageFormat, bool, int64_t)},
+		{"isLocaleDependentTextFormat", "(J)Z", nullptr, $PUBLIC, $virtualMethod(XDataTransferer, isLocaleDependentTextFormat, bool, int64_t)},
+		{"isMimeFormat", "(JLjava/lang/String;)Z", nullptr, $PRIVATE, $method(XDataTransferer, isMimeFormat, bool, int64_t, $String*)},
+		{"isTextFormat", "(J)Z", nullptr, $PUBLIC, $virtualMethod(XDataTransferer, isTextFormat, bool, int64_t)},
+		{"isURIListFormat", "(J)Z", nullptr, $PROTECTED, $virtualMethod(XDataTransferer, isURIListFormat, bool, int64_t)},
+		{"platformImageBytesToImage", "([BJ)Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(XDataTransferer, platformImageBytesToImage, $Image*, $bytes*, int64_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XDataTransferer",
+		"sun.awt.datatransfer.DataTransferer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XDataTransferer, name, initialize, &classInfo$$, XDataTransferer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XDataTransferer);
+	});
 	return class$;
 }
 

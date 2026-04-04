@@ -25,6 +25,7 @@ class DkCrypto : public ::java::lang::Object {
 	$class(DkCrypto, 0, ::java::lang::Object)
 public:
 	DkCrypto();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $bytes* binaryStringToBytes($String* str);
 	static $String* bytesToString($bytes* digest);

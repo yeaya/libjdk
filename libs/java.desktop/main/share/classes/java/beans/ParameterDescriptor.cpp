@@ -1,5 +1,4 @@
 #include <java/beans/ParameterDescriptor.h>
-
 #include <java/beans/FeatureDescriptor.h>
 #include <jcpp.h>
 
@@ -9,25 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace beans {
-
-$MethodInfo _ParameterDescriptor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ParameterDescriptor, init$, void)},
-	{"<init>", "(Ljava/beans/ParameterDescriptor;)V", nullptr, 0, $method(ParameterDescriptor, init$, void, ParameterDescriptor*)},
-	{}
-};
-
-$ClassInfo _ParameterDescriptor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.beans.ParameterDescriptor",
-	"java.beans.FeatureDescriptor",
-	nullptr,
-	nullptr,
-	_ParameterDescriptor_MethodInfo_
-};
-
-$Object* allocate$ParameterDescriptor($Class* clazz) {
-	return $of($alloc(ParameterDescriptor));
-}
 
 void ParameterDescriptor::init$() {
 	$FeatureDescriptor::init$();
@@ -41,7 +21,22 @@ ParameterDescriptor::ParameterDescriptor() {
 }
 
 $Class* ParameterDescriptor::load$($String* name, bool initialize) {
-	$loadClass(ParameterDescriptor, name, initialize, &_ParameterDescriptor_ClassInfo_, allocate$ParameterDescriptor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ParameterDescriptor, init$, void)},
+		{"<init>", "(Ljava/beans/ParameterDescriptor;)V", nullptr, 0, $method(ParameterDescriptor, init$, void, ParameterDescriptor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.beans.ParameterDescriptor",
+		"java.beans.FeatureDescriptor",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ParameterDescriptor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ParameterDescriptor);
+	});
 	return class$;
 }
 

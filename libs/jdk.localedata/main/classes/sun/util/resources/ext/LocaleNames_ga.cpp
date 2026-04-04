@@ -1,5 +1,4 @@
 #include <sun/util/resources/ext/LocaleNames_ga.h>
-
 #include <sun/util/resources/LocaleNamesBundle.h>
 #include <jcpp.h>
 
@@ -13,1363 +12,1344 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _LocaleNames_ga_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_ga, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_ga, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _LocaleNames_ga_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.util.resources.ext.LocaleNames_ga",
-	"sun.util.resources.LocaleNamesBundle",
-	nullptr,
-	nullptr,
-	_LocaleNames_ga_MethodInfo_
-};
-
-$Object* allocate$LocaleNames_ga($Class* clazz) {
-	return $of($alloc(LocaleNames_ga));
-}
-
 void LocaleNames_ga::init$() {
 	$LocaleNamesBundle::init$();
 }
 
 $ObjectArray2* LocaleNames_ga::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("AD"_s),
-			$of(u"Andóra"_s)
+			"AD"_s,
+			u"Andóra"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AE"_s),
-			$of(u"Aontas na nÉimíríochtaí Arabacha"_s)
+			"AE"_s,
+			u"Aontas na nÉimíríochtaí Arabacha"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AF"_s),
-			$of(u"An Afganastáin"_s)
+			"AF"_s,
+			u"An Afganastáin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AG"_s),
-			$of("Antigua agus Barbuda"_s)
+			"AG"_s,
+			"Antigua agus Barbuda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AL"_s),
-			$of(u"An Albáin"_s)
+			"AL"_s,
+			u"An Albáin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AM"_s),
-			$of(u"An Airméin"_s)
+			"AM"_s,
+			u"An Airméin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AN"_s),
-			$of(u"Antillí na hÍsiltíre"_s)
+			"AN"_s,
+			u"Antillí na hÍsiltíre"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AO"_s),
-			$of(u"Angóla"_s)
+			"AO"_s,
+			u"Angóla"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AQ"_s),
-			$of("An Antartaice"_s)
+			"AQ"_s,
+			"An Antartaice"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AR"_s),
-			$of(u"An Airgintín"_s)
+			"AR"_s,
+			u"An Airgintín"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AS"_s),
-			$of(u"Samó Meiriceánach"_s)
+			"AS"_s,
+			u"Samó Meiriceánach"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AT"_s),
-			$of("An Ostair"_s)
+			"AT"_s,
+			"An Ostair"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AU"_s),
-			$of(u"An Astráil"_s)
+			"AU"_s,
+			u"An Astráil"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AZ"_s),
-			$of(u"An Asarbaiseáin"_s)
+			"AZ"_s,
+			u"An Asarbaiseáin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BA"_s),
-			$of(u"An Bhoisnia-Heirseagaivéin"_s)
+			"BA"_s,
+			u"An Bhoisnia-Heirseagaivéin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BB"_s),
-			$of(u"Barbadós"_s)
+			"BB"_s,
+			u"Barbadós"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BD"_s),
-			$of(u"An Bhanglaidéis"_s)
+			"BD"_s,
+			u"An Bhanglaidéis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BE"_s),
-			$of("An Bheilg"_s)
+			"BE"_s,
+			"An Bheilg"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BF"_s),
-			$of(u"Buircíne Fasó"_s)
+			"BF"_s,
+			u"Buircíne Fasó"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BG"_s),
-			$of(u"An Bhulgáir"_s)
+			"BG"_s,
+			u"An Bhulgáir"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BH"_s),
-			$of(u"Bairéin"_s)
+			"BH"_s,
+			u"Bairéin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BI"_s),
-			$of(u"An Bhurúin"_s)
+			"BI"_s,
+			u"An Bhurúin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BJ"_s),
-			$of("Beinin"_s)
+			"BJ"_s,
+			"Beinin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BM"_s),
-			$of(u"Beirmiúda"_s)
+			"BM"_s,
+			u"Beirmiúda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BN"_s),
-			$of(u"Brúiné"_s)
+			"BN"_s,
+			u"Brúiné"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BO"_s),
-			$of("An Bholaiv"_s)
+			"BO"_s,
+			"An Bholaiv"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BR"_s),
-			$of(u"An Bhrasaíl"_s)
+			"BR"_s,
+			u"An Bhrasaíl"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BS"_s),
-			$of(u"Na Bahámaí"_s)
+			"BS"_s,
+			u"Na Bahámaí"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BT"_s),
-			$of(u"An Bhútáin"_s)
+			"BT"_s,
+			u"An Bhútáin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BV"_s),
-			$of(u"Oileáin Bouvet"_s)
+			"BV"_s,
+			u"Oileáin Bouvet"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BW"_s),
-			$of(u"An Bhotsuáin"_s)
+			"BW"_s,
+			u"An Bhotsuáin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BY"_s),
-			$of(u"An Bhealarúis"_s)
+			"BY"_s,
+			u"An Bhealarúis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BZ"_s),
-			$of(u"An Bheilís"_s)
+			"BZ"_s,
+			u"An Bheilís"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CA"_s),
-			$of("Ceanada"_s)
+			"CA"_s,
+			"Ceanada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CC"_s),
-			$of(u"Oileáin Cocos (Keeling)"_s)
+			"CC"_s,
+			u"Oileáin Cocos (Keeling)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CD"_s),
-			$of(u"Poblacht Dhaonlathach an Chongó"_s)
+			"CD"_s,
+			u"Poblacht Dhaonlathach an Chongó"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CF"_s),
-			$of(u"Poblacht na hAfraice Láir"_s)
+			"CF"_s,
+			u"Poblacht na hAfraice Láir"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CG"_s),
-			$of(u"An Congó"_s)
+			"CG"_s,
+			u"An Congó"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CH"_s),
-			$of(u"An Eilvéis"_s)
+			"CH"_s,
+			u"An Eilvéis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CI"_s),
-			$of(u"An Cósta Eabhair"_s)
+			"CI"_s,
+			u"An Cósta Eabhair"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CK"_s),
-			$of(u"Oileáin Cook"_s)
+			"CK"_s,
+			u"Oileáin Cook"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CL"_s),
-			$of("An tSile"_s)
+			"CL"_s,
+			"An tSile"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CM"_s),
-			$of(u"Camarún"_s)
+			"CM"_s,
+			u"Camarún"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CN"_s),
-			$of(u"An tSín"_s)
+			"CN"_s,
+			u"An tSín"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CO"_s),
-			$of(u"An Cholóim"_s)
+			"CO"_s,
+			u"An Cholóim"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CR"_s),
-			$of(u"Cósta Ríce"_s)
+			"CR"_s,
+			u"Cósta Ríce"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CU"_s),
-			$of(u"Cúba"_s)
+			"CU"_s,
+			u"Cúba"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CV"_s),
-			$of("Rinn Verde"_s)
+			"CV"_s,
+			"Rinn Verde"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CX"_s),
-			$of(u"Oileán na Nollag"_s)
+			"CX"_s,
+			u"Oileán na Nollag"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CY"_s),
-			$of("An Chipir"_s)
+			"CY"_s,
+			"An Chipir"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CZ"_s),
-			$of("Poblacht na Seice"_s)
+			"CZ"_s,
+			"Poblacht na Seice"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DE"_s),
-			$of(u"An Ghearmáin"_s)
+			"DE"_s,
+			u"An Ghearmáin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DK"_s),
-			$of("An Danmhairg"_s)
+			"DK"_s,
+			"An Danmhairg"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DM"_s),
-			$of("Doiminice"_s)
+			"DM"_s,
+			"Doiminice"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DO"_s),
-			$of("An Phoblacht Dhoiminiceach"_s)
+			"DO"_s,
+			"An Phoblacht Dhoiminiceach"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DZ"_s),
-			$of(u"An Ailgéir"_s)
+			"DZ"_s,
+			u"An Ailgéir"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EC"_s),
-			$of(u"Eacuadór"_s)
+			"EC"_s,
+			u"Eacuadór"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EE"_s),
-			$of(u"An Eastóin"_s)
+			"EE"_s,
+			u"An Eastóin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EG"_s),
-			$of(u"An Éigipt"_s)
+			"EG"_s,
+			u"An Éigipt"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EH"_s),
-			$of(u"An Sahára Thiar"_s)
+			"EH"_s,
+			u"An Sahára Thiar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ES"_s),
-			$of(u"An Spáinn"_s)
+			"ES"_s,
+			u"An Spáinn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ET"_s),
-			$of(u"An Aetóip"_s)
+			"ET"_s,
+			u"An Aetóip"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FI"_s),
-			$of("An Fhionlainn"_s)
+			"FI"_s,
+			"An Fhionlainn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FJ"_s),
-			$of(u"Fidsí"_s)
+			"FJ"_s,
+			u"Fidsí"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FK"_s),
-			$of(u"Oileáin Fháclainne"_s)
+			"FK"_s,
+			u"Oileáin Fháclainne"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FM"_s),
-			$of(u"An Mhicrinéis"_s)
+			"FM"_s,
+			u"An Mhicrinéis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FO"_s),
-			$of(u"Oileáin Fharó"_s)
+			"FO"_s,
+			u"Oileáin Fharó"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FR"_s),
-			$of("An Fhrainc"_s)
+			"FR"_s,
+			"An Fhrainc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GA"_s),
-			$of(u"An Ghabúin"_s)
+			"GA"_s,
+			u"An Ghabúin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GB"_s),
-			$of(u"An Ríocht Aontaithe"_s)
+			"GB"_s,
+			u"An Ríocht Aontaithe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GE"_s),
-			$of("An tSeoirsia"_s)
+			"GE"_s,
+			"An tSeoirsia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GF"_s),
-			$of(u"An Ghuáin Fhrancach"_s)
+			"GF"_s,
+			u"An Ghuáin Fhrancach"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GH"_s),
-			$of(u"Gána"_s)
+			"GH"_s,
+			u"Gána"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GI"_s),
-			$of(u"Giobráltar"_s)
+			"GI"_s,
+			u"Giobráltar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GL"_s),
-			$of("An Ghraonlainn"_s)
+			"GL"_s,
+			"An Ghraonlainn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GM"_s),
-			$of("An Ghaimbia"_s)
+			"GM"_s,
+			"An Ghaimbia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GN"_s),
-			$of("An Ghuine"_s)
+			"GN"_s,
+			"An Ghuine"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GP"_s),
-			$of(u"Guadalúip"_s)
+			"GP"_s,
+			u"Guadalúip"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GQ"_s),
-			$of(u"An Ghuine Mheánchriosach"_s)
+			"GQ"_s,
+			u"An Ghuine Mheánchriosach"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GR"_s),
-			$of(u"An Ghréig"_s)
+			"GR"_s,
+			u"An Ghréig"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GS"_s),
-			$of(u"An tSeoirsia Theas agus Oileáin Sandwich Theas"_s)
+			"GS"_s,
+			u"An tSeoirsia Theas agus Oileáin Sandwich Theas"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GT"_s),
-			$of("Guatamala"_s)
+			"GT"_s,
+			"Guatamala"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GW"_s),
-			$of("An Ghuine-Bhissau"_s)
+			"GW"_s,
+			"An Ghuine-Bhissau"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GY"_s),
-			$of(u"An Ghuáin"_s)
+			"GY"_s,
+			u"An Ghuáin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HM"_s),
-			$of(u"Oileán Heard agus Oileáin McDonald"_s)
+			"HM"_s,
+			u"Oileán Heard agus Oileáin McDonald"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HN"_s),
-			$of(u"Hondúras"_s)
+			"HN"_s,
+			u"Hondúras"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HR"_s),
-			$of(u"An Chróit"_s)
+			"HR"_s,
+			u"An Chróit"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HT"_s),
-			$of(u"Háití"_s)
+			"HT"_s,
+			u"Háití"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HU"_s),
-			$of(u"An Ungáir"_s)
+			"HU"_s,
+			u"An Ungáir"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ID"_s),
-			$of(u"An Indinéis"_s)
+			"ID"_s,
+			u"An Indinéis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IE"_s),
-			$of(u"Éire"_s)
+			"IE"_s,
+			u"Éire"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IL"_s),
-			$of("Iosrael"_s)
+			"IL"_s,
+			"Iosrael"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IN"_s),
-			$of("An India"_s)
+			"IN"_s,
+			"An India"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IO"_s),
-			$of(u"Críocha Briotanacha an Aigéin Indiagh"_s)
+			"IO"_s,
+			u"Críocha Briotanacha an Aigéin Indiagh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IQ"_s),
-			$of(u"An Iaráic"_s)
+			"IQ"_s,
+			u"An Iaráic"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IR"_s),
-			$of(u"An Iaráin"_s)
+			"IR"_s,
+			u"An Iaráin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IS"_s),
-			$of(u"An Íoslainn"_s)
+			"IS"_s,
+			u"An Íoslainn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IT"_s),
-			$of(u"An Iodáil"_s)
+			"IT"_s,
+			u"An Iodáil"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JM"_s),
-			$of(u"Iamáice"_s)
+			"JM"_s,
+			u"Iamáice"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JO"_s),
-			$of(u"An Iordáin"_s)
+			"JO"_s,
+			u"An Iordáin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JP"_s),
-			$of(u"An tSeapáin"_s)
+			"JP"_s,
+			u"An tSeapáin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KE"_s),
-			$of(u"An Chéinia"_s)
+			"KE"_s,
+			u"An Chéinia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KG"_s),
-			$of(u"An Chirgeastáin"_s)
+			"KG"_s,
+			u"An Chirgeastáin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KH"_s),
-			$of(u"An Chambóid"_s)
+			"KH"_s,
+			u"An Chambóid"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KI"_s),
-			$of(u"Cireabaití"_s)
+			"KI"_s,
+			u"Cireabaití"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KM"_s),
-			$of(u"Oileáin Chomóra"_s)
+			"KM"_s,
+			u"Oileáin Chomóra"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KN"_s),
-			$of("Saint Kitts agus Nevis"_s)
+			"KN"_s,
+			"Saint Kitts agus Nevis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KP"_s),
-			$of(u"An Chóiré Thuaidh"_s)
+			"KP"_s,
+			u"An Chóiré Thuaidh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KR"_s),
-			$of(u"An Chóiré Theas"_s)
+			"KR"_s,
+			u"An Chóiré Theas"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KW"_s),
-			$of(u"Cuáit"_s)
+			"KW"_s,
+			u"Cuáit"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KY"_s),
-			$of(u"Oileáin Cayman"_s)
+			"KY"_s,
+			u"Oileáin Cayman"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KZ"_s),
-			$of(u"An Chasacstáin"_s)
+			"KZ"_s,
+			u"An Chasacstáin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LB"_s),
-			$of(u"An Liobáin"_s)
+			"LB"_s,
+			u"An Liobáin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LI"_s),
-			$of(u"Lichtinstéin"_s)
+			"LI"_s,
+			u"Lichtinstéin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LK"_s),
-			$of(u"Srí Lanca"_s)
+			"LK"_s,
+			u"Srí Lanca"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LR"_s),
-			$of(u"An Libéir"_s)
+			"LR"_s,
+			u"An Libéir"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LS"_s),
-			$of(u"Leosóta"_s)
+			"LS"_s,
+			u"Leosóta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LT"_s),
-			$of(u"An Liotuáin"_s)
+			"LT"_s,
+			u"An Liotuáin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LU"_s),
-			$of("Lucsamburg"_s)
+			"LU"_s,
+			"Lucsamburg"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LV"_s),
-			$of("An Laitvia"_s)
+			"LV"_s,
+			"An Laitvia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LY"_s),
-			$of("An Libia"_s)
+			"LY"_s,
+			"An Libia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MA"_s),
-			$of(u"Maracó"_s)
+			"MA"_s,
+			u"Maracó"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MC"_s),
-			$of(u"Monacó"_s)
+			"MC"_s,
+			u"Monacó"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MD"_s),
-			$of(u"An Mholdóiv"_s)
+			"MD"_s,
+			u"An Mholdóiv"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MH"_s),
-			$of(u"Oileáin Marshall"_s)
+			"MH"_s,
+			u"Oileáin Marshall"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MK"_s),
-			$of(u"An Mhacadóin"_s)
+			"MK"_s,
+			u"An Mhacadóin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ML"_s),
-			$of(u"Mailí"_s)
+			"ML"_s,
+			u"Mailí"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MM"_s),
-			$of("Maenmar"_s)
+			"MM"_s,
+			"Maenmar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MN"_s),
-			$of(u"An Mhongóil"_s)
+			"MN"_s,
+			u"An Mhongóil"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MP"_s),
-			$of(u"Oileáin Mariana Thuaidh"_s)
+			"MP"_s,
+			u"Oileáin Mariana Thuaidh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MR"_s),
-			$of(u"An Mharatáin"_s)
+			"MR"_s,
+			u"An Mharatáin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MS"_s),
-			$of("Montsarat"_s)
+			"MS"_s,
+			"Montsarat"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MT"_s),
-			$of(u"Málta"_s)
+			"MT"_s,
+			u"Málta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MU"_s),
-			$of(u"Oileán Mhuirís"_s)
+			"MU"_s,
+			u"Oileán Mhuirís"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MV"_s),
-			$of(u"Mhaildiví"_s)
+			"MV"_s,
+			u"Mhaildiví"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MW"_s),
-			$of(u"An Mhaláiv"_s)
+			"MW"_s,
+			u"An Mhaláiv"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MX"_s),
-			$of("Meicsiceo"_s)
+			"MX"_s,
+			"Meicsiceo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MY"_s),
-			$of("An Mhalaeisia"_s)
+			"MY"_s,
+			"An Mhalaeisia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MZ"_s),
-			$of(u"Mósaimbíc"_s)
+			"MZ"_s,
+			u"Mósaimbíc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NA"_s),
-			$of("An Namaib"_s)
+			"NA"_s,
+			"An Namaib"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NC"_s),
-			$of(u"An Nua-Chaladóin"_s)
+			"NC"_s,
+			u"An Nua-Chaladóin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NE"_s),
-			$of(u"An Nígir"_s)
+			"NE"_s,
+			u"An Nígir"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NF"_s),
-			$of(u"Oileán Norfolk"_s)
+			"NF"_s,
+			u"Oileán Norfolk"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NG"_s),
-			$of(u"An Nigéir"_s)
+			"NG"_s,
+			u"An Nigéir"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NI"_s),
-			$of("Nicearagua"_s)
+			"NI"_s,
+			"Nicearagua"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NL"_s),
-			$of(u"An Ísiltír"_s)
+			"NL"_s,
+			u"An Ísiltír"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NO"_s),
-			$of("An Iorua"_s)
+			"NO"_s,
+			"An Iorua"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NP"_s),
-			$of("Neipeal"_s)
+			"NP"_s,
+			"Neipeal"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NR"_s),
-			$of(u"Nárú"_s)
+			"NR"_s,
+			u"Nárú"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NZ"_s),
-			$of(u"An Nua-Shéalainn"_s)
+			"NZ"_s,
+			u"An Nua-Shéalainn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PE"_s),
-			$of(u"Peiriú"_s)
+			"PE"_s,
+			u"Peiriú"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PF"_s),
-			$of(u"An Pholainéis Fhrancach"_s)
+			"PF"_s,
+			u"An Pholainéis Fhrancach"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PG"_s),
-			$of("Nua-Ghuine Phapua"_s)
+			"PG"_s,
+			"Nua-Ghuine Phapua"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PH"_s),
-			$of(u"Na hOileáin Fhilipíneacha"_s)
+			"PH"_s,
+			u"Na hOileáin Fhilipíneacha"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PK"_s),
-			$of(u"An Phacastáin"_s)
+			"PK"_s,
+			u"An Phacastáin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PL"_s),
-			$of("An Pholainn"_s)
+			"PL"_s,
+			"An Pholainn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PM"_s),
-			$of("Saint Pierre agus Miquelon"_s)
+			"PM"_s,
+			"Saint Pierre agus Miquelon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PR"_s),
-			$of(u"Portó Ríce"_s)
+			"PR"_s,
+			u"Portó Ríce"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PS"_s),
-			$of(u"Na Críocha Pailistíneacha"_s)
+			"PS"_s,
+			u"Na Críocha Pailistíneacha"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PT"_s),
-			$of(u"An Phortaingéil"_s)
+			"PT"_s,
+			u"An Phortaingéil"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PY"_s),
-			$of("Paragua"_s)
+			"PY"_s,
+			"Paragua"_s
 		}),
 		$$new($ObjectArray, {
-			$of("QA"_s),
-			$of("Catar"_s)
+			"QA"_s,
+			"Catar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RE"_s),
-			$of(u"Réunion"_s)
+			"RE"_s,
+			u"Réunion"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RO"_s),
-			$of(u"An Rómáin"_s)
+			"RO"_s,
+			u"An Rómáin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RU"_s),
-			$of(u"Cónaidhm na Rúise"_s)
+			"RU"_s,
+			u"Cónaidhm na Rúise"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RW"_s),
-			$of("Ruanda"_s)
+			"RW"_s,
+			"Ruanda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SA"_s),
-			$of(u"An Araib Shádach"_s)
+			"SA"_s,
+			u"An Araib Shádach"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SB"_s),
-			$of(u"Oileáin Solomon"_s)
+			"SB"_s,
+			u"Oileáin Solomon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SC"_s),
-			$of(u"Na Séiséil"_s)
+			"SC"_s,
+			u"Na Séiséil"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SD"_s),
-			$of(u"An tSúdáin"_s)
+			"SD"_s,
+			u"An tSúdáin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SE"_s),
-			$of("An tSualainn"_s)
+			"SE"_s,
+			"An tSualainn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SG"_s),
-			$of(u"Singeapór"_s)
+			"SG"_s,
+			u"Singeapór"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SH"_s),
-			$of(u"San Héilin"_s)
+			"SH"_s,
+			u"San Héilin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SI"_s),
-			$of(u"An tSlóvéin"_s)
+			"SI"_s,
+			u"An tSlóvéin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SJ"_s),
-			$of("Svalbard agus Jan Mayen"_s)
+			"SJ"_s,
+			"Svalbard agus Jan Mayen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SK"_s),
-			$of(u"An tSlóvaic"_s)
+			"SK"_s,
+			u"An tSlóvaic"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SL"_s),
-			$of("Siarra Leon"_s)
+			"SL"_s,
+			"Siarra Leon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SM"_s),
-			$of(u"San Mairíne"_s)
+			"SM"_s,
+			u"San Mairíne"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SN"_s),
-			$of(u"An tSeineagáil"_s)
+			"SN"_s,
+			u"An tSeineagáil"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SO"_s),
-			$of(u"An tSomáil"_s)
+			"SO"_s,
+			u"An tSomáil"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SR"_s),
-			$of("Suranam"_s)
+			"SR"_s,
+			"Suranam"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ST"_s),
-			$of("Sao Tome agus Principe"_s)
+			"ST"_s,
+			"Sao Tome agus Principe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SV"_s),
-			$of(u"An tSalvadóir"_s)
+			"SV"_s,
+			u"An tSalvadóir"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SY"_s),
-			$of("An tSiria"_s)
+			"SY"_s,
+			"An tSiria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SZ"_s),
-			$of("An tSuasalainn"_s)
+			"SZ"_s,
+			"An tSuasalainn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TC"_s),
-			$of(u"Oileáin Turks agus Caicos"_s)
+			"TC"_s,
+			u"Oileáin Turks agus Caicos"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TD"_s),
-			$of("Sead"_s)
+			"TD"_s,
+			"Sead"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TF"_s),
-			$of(u"Críocha Francacha Theas"_s)
+			"TF"_s,
+			u"Críocha Francacha Theas"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TG"_s),
-			$of(u"Tóga"_s)
+			"TG"_s,
+			u"Tóga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TH"_s),
-			$of(u"An Téalainn"_s)
+			"TH"_s,
+			u"An Téalainn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TJ"_s),
-			$of(u"An Táidsíceastáin"_s)
+			"TJ"_s,
+			u"An Táidsíceastáin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TK"_s),
-			$of(u"Tócalá"_s)
+			"TK"_s,
+			u"Tócalá"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TL"_s),
-			$of(u"Tíomór-Leste"_s)
+			"TL"_s,
+			u"Tíomór-Leste"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TM"_s),
-			$of(u"An Tuircméanastáin"_s)
+			"TM"_s,
+			u"An Tuircméanastáin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TN"_s),
-			$of(u"An Túinéis"_s)
+			"TN"_s,
+			u"An Túinéis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TR"_s),
-			$of("An Tuirc"_s)
+			"TR"_s,
+			"An Tuirc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TT"_s),
-			$of(u"Oileáin na Tríonóide agus Tobága"_s)
+			"TT"_s,
+			u"Oileáin na Tríonóide agus Tobága"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TV"_s),
-			$of(u"Tuvalú"_s)
+			"TV"_s,
+			u"Tuvalú"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TW"_s),
-			$of(u"An Téaváin"_s)
+			"TW"_s,
+			u"An Téaváin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TZ"_s),
-			$of(u"An Tansáin"_s)
+			"TZ"_s,
+			u"An Tansáin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UA"_s),
-			$of(u"An Úcráin"_s)
+			"UA"_s,
+			u"An Úcráin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UM"_s),
-			$of(u"Mion-Oileáin Imeallacha S.A.M."_s)
+			"UM"_s,
+			u"Mion-Oileáin Imeallacha S.A.M."_s
 		}),
 		$$new($ObjectArray, {
-			$of("US"_s),
-			$of(u"Stáit Aontaithe Mheiriceá"_s)
+			"US"_s,
+			u"Stáit Aontaithe Mheiriceá"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UY"_s),
-			$of("Urugua"_s)
+			"UY"_s,
+			"Urugua"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UZ"_s),
-			$of(u"Úisbéiceastáin"_s)
+			"UZ"_s,
+			u"Úisbéiceastáin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VA"_s),
-			$of(u"An Chathaoir Naofa (Stát Chathair na Vatacáine)"_s)
+			"VA"_s,
+			u"An Chathaoir Naofa (Stát Chathair na Vatacáine)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VC"_s),
-			$of("Saint Vincent agus na Grenadines"_s)
+			"VC"_s,
+			"Saint Vincent agus na Grenadines"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VE"_s),
-			$of(u"Veiniséala"_s)
+			"VE"_s,
+			u"Veiniséala"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VG"_s),
-			$of(u"Oileáin Bhriotanacha na Maighdean"_s)
+			"VG"_s,
+			u"Oileáin Bhriotanacha na Maighdean"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VI"_s),
-			$of(u"Oileáin na Maighdean S.A.M."_s)
+			"VI"_s,
+			u"Oileáin na Maighdean S.A.M."_s
 		}),
 		$$new($ObjectArray, {
-			$of("VN"_s),
-			$of(u"Vítneam"_s)
+			"VN"_s,
+			u"Vítneam"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VU"_s),
-			$of(u"Vanuatú"_s)
+			"VU"_s,
+			u"Vanuatú"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WF"_s),
-			$of(u"Oileáin Vailís agus Futúna"_s)
+			"WF"_s,
+			u"Oileáin Vailís agus Futúna"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WS"_s),
-			$of(u"Samó"_s)
+			"WS"_s,
+			u"Samó"_s
 		}),
 		$$new($ObjectArray, {
-			$of("YE"_s),
-			$of(u"Éimin"_s)
+			"YE"_s,
+			u"Éimin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZA"_s),
-			$of("An Afraic Theas"_s)
+			"ZA"_s,
+			"An Afraic Theas"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZM"_s),
-			$of("An tSaimbia"_s)
+			"ZM"_s,
+			"An tSaimbia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZW"_s),
-			$of(u"An tSiombáib"_s)
+			"ZW"_s,
+			u"An tSiombáib"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ab"_s),
-			$of(u"Abcáisis"_s)
+			"ab"_s,
+			u"Abcáisis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ae"_s),
-			$of(u"Aivéistis"_s)
+			"ae"_s,
+			u"Aivéistis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("af"_s),
-			$of(u"Afracáinis"_s)
+			"af"_s,
+			u"Afracáinis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ar"_s),
-			$of("Araibis"_s)
+			"ar"_s,
+			"Araibis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("as"_s),
-			$of("Asaimis"_s)
+			"as"_s,
+			"Asaimis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("az"_s),
-			$of(u"Asarbaiseáinis"_s)
+			"az"_s,
+			u"Asarbaiseáinis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ba"_s),
-			$of(u"Baiscíris"_s)
+			"ba"_s,
+			u"Baiscíris"_s
 		}),
 		$$new($ObjectArray, {
-			$of("be"_s),
-			$of(u"Bealarúisis"_s)
+			"be"_s,
+			u"Bealarúisis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bg"_s),
-			$of(u"Bulgáiris"_s)
+			"bg"_s,
+			u"Bulgáiris"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bn"_s),
-			$of(u"Beangálais"_s)
+			"bn"_s,
+			u"Beangálais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bo"_s),
-			$of(u"Tibéadais"_s)
+			"bo"_s,
+			u"Tibéadais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("br"_s),
-			$of(u"Briotáinis"_s)
+			"br"_s,
+			u"Briotáinis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bs"_s),
-			$of("Boisnis"_s)
+			"bs"_s,
+			"Boisnis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ca"_s),
-			$of(u"Catalóinis"_s)
+			"ca"_s,
+			u"Catalóinis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ce"_s),
-			$of("Sisinis"_s)
+			"ce"_s,
+			"Sisinis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("co"_s),
-			$of("Corsaicis"_s)
+			"co"_s,
+			"Corsaicis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cr"_s),
-			$of(u"Craíais"_s)
+			"cr"_s,
+			u"Craíais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cs"_s),
-			$of("Seicis"_s)
+			"cs"_s,
+			"Seicis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cu"_s),
-			$of("Slavais na hEaglaise"_s)
+			"cu"_s,
+			"Slavais na hEaglaise"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cv"_s),
-			$of("Suvaisis"_s)
+			"cv"_s,
+			"Suvaisis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cy"_s),
-			$of("Breatnais"_s)
+			"cy"_s,
+			"Breatnais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("da"_s),
-			$of("Danmhairgis"_s)
+			"da"_s,
+			"Danmhairgis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de"_s),
-			$of(u"Gearmáinis"_s)
+			"de"_s,
+			u"Gearmáinis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("el"_s),
-			$of(u"Gréigis"_s)
+			"el"_s,
+			u"Gréigis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en"_s),
-			$of(u"Béarla"_s)
+			"en"_s,
+			u"Béarla"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es"_s),
-			$of(u"Spáinnis"_s)
+			"es"_s,
+			u"Spáinnis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("et"_s),
-			$of(u"Eastóinis"_s)
+			"et"_s,
+			u"Eastóinis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eu"_s),
-			$of("Bascais"_s)
+			"eu"_s,
+			"Bascais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fa"_s),
-			$of("Peirsis"_s)
+			"fa"_s,
+			"Peirsis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fi"_s),
-			$of("Fionnlainnis"_s)
+			"fi"_s,
+			"Fionnlainnis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fj"_s),
-			$of("Fidsis"_s)
+			"fj"_s,
+			"Fidsis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fo"_s),
-			$of(u"Faróis"_s)
+			"fo"_s,
+			u"Faróis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr"_s),
-			$of("Fraincis"_s)
+			"fr"_s,
+			"Fraincis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fy"_s),
-			$of("Freaslainnais"_s)
+			"fy"_s,
+			"Freaslainnais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ga"_s),
-			$of("Gaeilge"_s)
+			"ga"_s,
+			"Gaeilge"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gd"_s),
-			$of("Gaeilge na hAlban"_s)
+			"gd"_s,
+			"Gaeilge na hAlban"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gu"_s),
-			$of(u"Gúisearáitis"_s)
+			"gu"_s,
+			u"Gúisearáitis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gv"_s),
-			$of("Mannainis"_s)
+			"gv"_s,
+			"Mannainis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("he"_s),
-			$of("Eabhrais"_s)
+			"he"_s,
+			"Eabhrais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hi"_s),
-			$of(u"Hiondúis"_s)
+			"hi"_s,
+			u"Hiondúis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hr"_s),
-			$of(u"Cróitis"_s)
+			"hr"_s,
+			u"Cróitis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hu"_s),
-			$of(u"Ungáiris"_s)
+			"hu"_s,
+			u"Ungáiris"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hy"_s),
-			$of(u"Airméinis"_s)
+			"hy"_s,
+			u"Airméinis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("id"_s),
-			$of(u"Indinéisis"_s)
+			"id"_s,
+			u"Indinéisis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("in"_s),
-			$of(u"Indinéisis"_s)
+			"in"_s,
+			u"Indinéisis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("is"_s),
-			$of(u"Íoslainnais"_s)
+			"is"_s,
+			u"Íoslainnais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("it"_s),
-			$of(u"Iodáilis"_s)
+			"it"_s,
+			u"Iodáilis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iu"_s),
-			$of(u"Ionúitis"_s)
+			"iu"_s,
+			u"Ionúitis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iw"_s),
-			$of("Eabhrais"_s)
+			"iw"_s,
+			"Eabhrais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ja"_s),
-			$of(u"Seapáinis"_s)
+			"ja"_s,
+			u"Seapáinis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ji"_s),
-			$of(u"Giúdais"_s)
+			"ji"_s,
+			u"Giúdais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jv"_s),
-			$of(u"Iávais"_s)
+			"jv"_s,
+			u"Iávais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ka"_s),
-			$of("Seoirsis"_s)
+			"ka"_s,
+			"Seoirsis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kk"_s),
-			$of("Casachais"_s)
+			"kk"_s,
+			"Casachais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kn"_s),
-			$of("Cannadais"_s)
+			"kn"_s,
+			"Cannadais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ko"_s),
-			$of(u"Cóiréis"_s)
+			"ko"_s,
+			u"Cóiréis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ks"_s),
-			$of(u"Caismíris"_s)
+			"ks"_s,
+			u"Caismíris"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kw"_s),
-			$of("Cornais"_s)
+			"kw"_s,
+			"Cornais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ky"_s),
-			$of("Cirgeasais"_s)
+			"ky"_s,
+			"Cirgeasais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("la"_s),
-			$of("Laidin"_s)
+			"la"_s,
+			"Laidin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lb"_s),
-			$of("Leitseabuirgis"_s)
+			"lb"_s,
+			"Leitseabuirgis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lo"_s),
-			$of("Laosais"_s)
+			"lo"_s,
+			"Laosais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lt"_s),
-			$of(u"Liotuáinis"_s)
+			"lt"_s,
+			u"Liotuáinis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lv"_s),
-			$of("Laitvis"_s)
+			"lv"_s,
+			"Laitvis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mg"_s),
-			$of(u"Malagásais"_s)
+			"mg"_s,
+			u"Malagásais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mi"_s),
-			$of("Maorais"_s)
+			"mi"_s,
+			"Maorais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mk"_s),
-			$of(u"Macadóinis"_s)
+			"mk"_s,
+			u"Macadóinis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ml"_s),
-			$of(u"Mailéalaimis"_s)
+			"ml"_s,
+			u"Mailéalaimis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mn"_s),
-			$of(u"Mongóilis"_s)
+			"mn"_s,
+			u"Mongóilis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mo"_s),
-			$of(u"Moldáivis"_s)
+			"mo"_s,
+			u"Moldáivis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mr"_s),
-			$of("Maraitis"_s)
+			"mr"_s,
+			"Maraitis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mt"_s),
-			$of("Maltais"_s)
+			"mt"_s,
+			"Maltais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("my"_s),
-			$of("Burmais"_s)
+			"my"_s,
+			"Burmais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("na"_s),
-			$of(u"Nárúis"_s)
+			"na"_s,
+			u"Nárúis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nb"_s),
-			$of(u"Ioruais Bokmål"_s)
+			"nb"_s,
+			u"Ioruais Bokmål"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ne"_s),
-			$of("Neipealais"_s)
+			"ne"_s,
+			"Neipealais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nl"_s),
-			$of("Ollainnais"_s)
+			"nl"_s,
+			"Ollainnais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nn"_s),
-			$of("Ioruais Nynorsk"_s)
+			"nn"_s,
+			"Ioruais Nynorsk"_s
 		}),
 		$$new($ObjectArray, {
-			$of("no"_s),
-			$of("Ioruais"_s)
+			"no"_s,
+			"Ioruais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nv"_s),
-			$of(u"Navachóis"_s)
+			"nv"_s,
+			u"Navachóis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("oc"_s),
-			$of(u"Ocatáinis (tar éis 1500); Provençal"_s)
+			"oc"_s,
+			u"Ocatáinis (tar éis 1500); Provençal"_s
 		}),
 		$$new($ObjectArray, {
-			$of("os"_s),
-			$of(u"Óiséitis"_s)
+			"os"_s,
+			u"Óiséitis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pa"_s),
-			$of("Puinseaibis"_s)
+			"pa"_s,
+			"Puinseaibis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pl"_s),
-			$of("Polainnis"_s)
+			"pl"_s,
+			"Polainnis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ps"_s),
-			$of("Paisteo"_s)
+			"ps"_s,
+			"Paisteo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt"_s),
-			$of(u"Portaingéilis"_s)
+			"pt"_s,
+			u"Portaingéilis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("qu"_s),
-			$of("Ceatsuais"_s)
+			"qu"_s,
+			"Ceatsuais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ro"_s),
-			$of(u"Romáinis"_s)
+			"ro"_s,
+			u"Romáinis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ru"_s),
-			$of(u"Rúisis"_s)
+			"ru"_s,
+			u"Rúisis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sa"_s),
-			$of("Sanscrait"_s)
+			"sa"_s,
+			"Sanscrait"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sc"_s),
-			$of(u"Sairdínis"_s)
+			"sc"_s,
+			u"Sairdínis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sd"_s),
-			$of("Sindis"_s)
+			"sd"_s,
+			"Sindis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("se"_s),
-			$of(u"Sáimis Thuaidh"_s)
+			"se"_s,
+			u"Sáimis Thuaidh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sk"_s),
-			$of(u"Slóvacais"_s)
+			"sk"_s,
+			u"Slóvacais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sl"_s),
-			$of(u"Slóvéinis"_s)
+			"sl"_s,
+			u"Slóvéinis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sm"_s),
-			$of(u"Samóis"_s)
+			"sm"_s,
+			u"Samóis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("so"_s),
-			$of(u"Somálais"_s)
+			"so"_s,
+			u"Somálais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sq"_s),
-			$of(u"Albáinis"_s)
+			"sq"_s,
+			u"Albáinis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sr"_s),
-			$of("Seirbis"_s)
+			"sr"_s,
+			"Seirbis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sv"_s),
-			$of("Sualainnis"_s)
+			"sv"_s,
+			"Sualainnis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sw"_s),
-			$of(u"Svahaílis"_s)
+			"sw"_s,
+			u"Svahaílis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ta"_s),
-			$of("Tamailis"_s)
+			"ta"_s,
+			"Tamailis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("th"_s),
-			$of(u"Téalainnis"_s)
+			"th"_s,
+			u"Téalainnis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tl"_s),
-			$of(u"Tagálaigis"_s)
+			"tl"_s,
+			u"Tagálaigis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tr"_s),
-			$of("Tuircis"_s)
+			"tr"_s,
+			"Tuircis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tt"_s),
-			$of("Tatarais"_s)
+			"tt"_s,
+			"Tatarais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ty"_s),
-			$of(u"Taihítis"_s)
+			"ty"_s,
+			u"Taihítis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uk"_s),
-			$of(u"Úcráinis"_s)
+			"uk"_s,
+			u"Úcráinis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ur"_s),
-			$of("Urdais"_s)
+			"ur"_s,
+			"Urdais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uz"_s),
-			$of(u"Úisbéicis"_s)
+			"uz"_s,
+			u"Úisbéicis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vi"_s),
-			$of(u"Vítneamais"_s)
+			"vi"_s,
+			u"Vítneamais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wa"_s),
-			$of(u"Vallúnais"_s)
+			"wa"_s,
+			u"Vallúnais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yi"_s),
-			$of(u"Giúdais"_s)
+			"yi"_s,
+			u"Giúdais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh"_s),
-			$of(u"Sínis"_s)
+			"zh"_s,
+			u"Sínis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zu"_s),
-			$of(u"Súlúis"_s)
+			"zu"_s,
+			u"Súlúis"_s
 		})
 	});
 }
@@ -1378,7 +1358,22 @@ LocaleNames_ga::LocaleNames_ga() {
 }
 
 $Class* LocaleNames_ga::load$($String* name, bool initialize) {
-	$loadClass(LocaleNames_ga, name, initialize, &_LocaleNames_ga_ClassInfo_, allocate$LocaleNames_ga);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_ga, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_ga, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.util.resources.ext.LocaleNames_ga",
+		"sun.util.resources.LocaleNamesBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNames_ga, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNames_ga);
+	});
 	return class$;
 }
 

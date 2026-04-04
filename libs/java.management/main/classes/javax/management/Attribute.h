@@ -18,7 +18,7 @@ public:
 	virtual $Object* getValue();
 	virtual int32_t hashCode() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x2279B907538B3B0E;
+	static const int64_t serialVersionUID = (int64_t)0x2279b907538b3b0e;
 	$String* name = nullptr;
 	$Object* value = nullptr;
 };

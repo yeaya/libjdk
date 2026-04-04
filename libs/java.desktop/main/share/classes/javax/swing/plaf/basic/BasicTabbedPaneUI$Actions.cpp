@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTabbedPaneUI$Actions.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <java/util/EventObject.h>
 #include <java/util/Hashtable.h>
@@ -37,67 +36,16 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Hashtable = ::java::util::Hashtable;
 using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 using $BasicTabbedPaneUI = ::javax::swing::plaf::basic::BasicTabbedPaneUI;
-using $BasicTabbedPaneUI$ScrollableTabSupport = ::javax::swing::plaf::basic::BasicTabbedPaneUI$ScrollableTabSupport;
 using $UIAction = ::sun::swing::UIAction;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicTabbedPaneUI$Actions_FieldInfo_[] = {
-	{"NEXT", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BasicTabbedPaneUI$Actions, NEXT)},
-	{"PREVIOUS", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BasicTabbedPaneUI$Actions, PREVIOUS)},
-	{"RIGHT", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BasicTabbedPaneUI$Actions, RIGHT)},
-	{"LEFT", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BasicTabbedPaneUI$Actions, LEFT)},
-	{"UP", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BasicTabbedPaneUI$Actions, UP)},
-	{"DOWN", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BasicTabbedPaneUI$Actions, DOWN)},
-	{"PAGE_UP", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BasicTabbedPaneUI$Actions, PAGE_UP)},
-	{"PAGE_DOWN", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BasicTabbedPaneUI$Actions, PAGE_DOWN)},
-	{"REQUEST_FOCUS", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BasicTabbedPaneUI$Actions, REQUEST_FOCUS)},
-	{"REQUEST_FOCUS_FOR_VISIBLE", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BasicTabbedPaneUI$Actions, REQUEST_FOCUS_FOR_VISIBLE)},
-	{"SET_SELECTED", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BasicTabbedPaneUI$Actions, SET_SELECTED)},
-	{"SELECT_FOCUSED", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BasicTabbedPaneUI$Actions, SELECT_FOCUSED)},
-	{"SCROLL_FORWARD", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BasicTabbedPaneUI$Actions, SCROLL_FORWARD)},
-	{"SCROLL_BACKWARD", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BasicTabbedPaneUI$Actions, SCROLL_BACKWARD)},
-	{}
-};
-
-$MethodInfo _BasicTabbedPaneUI$Actions_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicTabbedPaneUI$Actions, init$, void, $String*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$Actions, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicTabbedPaneUI$Actions_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTabbedPaneUI$Actions", "javax.swing.plaf.basic.BasicTabbedPaneUI", "Actions", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicTabbedPaneUI$Actions_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTabbedPaneUI$Actions",
-	"sun.swing.UIAction",
-	nullptr,
-	_BasicTabbedPaneUI$Actions_FieldInfo_,
-	_BasicTabbedPaneUI$Actions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTabbedPaneUI$Actions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTabbedPaneUI"
-};
-
-$Object* allocate$BasicTabbedPaneUI$Actions($Class* clazz) {
-	return $of($alloc(BasicTabbedPaneUI$Actions));
-}
 
 $String* BasicTabbedPaneUI$Actions::NEXT = nullptr;
 $String* BasicTabbedPaneUI$Actions::PREVIOUS = nullptr;
@@ -119,7 +67,7 @@ void BasicTabbedPaneUI$Actions::init$($String* key) {
 }
 
 void BasicTabbedPaneUI$Actions::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, key, getName());
 	$var($JTabbedPane, pane, $cast($JTabbedPane, $nc(e)->getSource()));
 	$load($BasicTabbedPaneUI);
@@ -140,47 +88,47 @@ void BasicTabbedPaneUI$Actions::actionPerformed($ActionEvent* e) {
 	} else if (key == BasicTabbedPaneUI$Actions::DOWN) {
 		$nc(ui)->navigateSelectedTab($SwingConstants::SOUTH);
 	} else if (key == BasicTabbedPaneUI$Actions::PAGE_UP) {
-		int32_t tabPlacement = $nc(pane)->getTabPlacement();
+		int32_t tabPlacement = pane->getTabPlacement();
 		if (tabPlacement == 1 || tabPlacement == 3) {
 			$nc(ui)->navigateSelectedTab($SwingConstants::WEST);
 		} else {
 			$nc(ui)->navigateSelectedTab($SwingConstants::NORTH);
 		}
 	} else if (key == BasicTabbedPaneUI$Actions::PAGE_DOWN) {
-		int32_t tabPlacement = $nc(pane)->getTabPlacement();
+		int32_t tabPlacement = pane->getTabPlacement();
 		if (tabPlacement == 1 || tabPlacement == 3) {
 			$nc(ui)->navigateSelectedTab($SwingConstants::EAST);
 		} else {
 			$nc(ui)->navigateSelectedTab($SwingConstants::SOUTH);
 		}
 	} else if (key == BasicTabbedPaneUI$Actions::REQUEST_FOCUS) {
-		$nc(pane)->requestFocus();
+		pane->requestFocus();
 	} else if (key == BasicTabbedPaneUI$Actions::REQUEST_FOCUS_FOR_VISIBLE) {
 		$nc(ui)->requestFocusForVisibleComponent();
 	} else if (key == BasicTabbedPaneUI$Actions::SET_SELECTED) {
 		$var($String, command, e->getActionCommand());
 		if (command != nullptr && command->length() > 0) {
-			int32_t mnemonic = (int32_t)$nc($(e->getActionCommand()))->charAt(0);
+			int32_t mnemonic = (int32_t)$$nc(e->getActionCommand())->charAt(0);
 			if (mnemonic >= u'a' && mnemonic <= u'z') {
 				mnemonic -= (u'a' - u'A');
 			}
 			$var($Integer, index, $cast($Integer, $nc($nc(ui)->mnemonicToIndexMap)->get($($Integer::valueOf(mnemonic)))));
-			if (index != nullptr && $nc(pane)->isEnabledAt(index->intValue())) {
+			if (index != nullptr && pane->isEnabledAt(index->intValue())) {
 				pane->setSelectedIndex(index->intValue());
 			}
 		}
 	} else if (key == BasicTabbedPaneUI$Actions::SELECT_FOCUSED) {
 		int32_t focusIndex = $nc(ui)->getFocusIndex();
 		if (focusIndex != -1) {
-			$nc(pane)->setSelectedIndex(focusIndex);
+			pane->setSelectedIndex(focusIndex);
 		}
 	} else if (key == BasicTabbedPaneUI$Actions::SCROLL_FORWARD) {
 		if ($nc(ui)->scrollableTabLayoutEnabled()) {
-			$nc(ui->tabScroller)->scrollForward($nc(pane)->getTabPlacement());
+			$nc(ui->tabScroller)->scrollForward(pane->getTabPlacement());
 		}
 	} else if (key == BasicTabbedPaneUI$Actions::SCROLL_BACKWARD) {
 		if ($nc(ui)->scrollableTabLayoutEnabled()) {
-			$nc(ui->tabScroller)->scrollBackward($nc(pane)->getTabPlacement());
+			$nc(ui->tabScroller)->scrollBackward(pane->getTabPlacement());
 		}
 	}
 }
@@ -188,7 +136,7 @@ void BasicTabbedPaneUI$Actions::actionPerformed($ActionEvent* e) {
 BasicTabbedPaneUI$Actions::BasicTabbedPaneUI$Actions() {
 }
 
-void clinit$BasicTabbedPaneUI$Actions($Class* class$) {
+void BasicTabbedPaneUI$Actions::clinit$($Class* clazz) {
 	$assignStatic(BasicTabbedPaneUI$Actions::NEXT, "navigateNext"_s);
 	$assignStatic(BasicTabbedPaneUI$Actions::PREVIOUS, "navigatePrevious"_s);
 	$assignStatic(BasicTabbedPaneUI$Actions::RIGHT, "navigateRight"_s);
@@ -206,7 +154,50 @@ void clinit$BasicTabbedPaneUI$Actions($Class* class$) {
 }
 
 $Class* BasicTabbedPaneUI$Actions::load$($String* name, bool initialize) {
-	$loadClass(BasicTabbedPaneUI$Actions, name, initialize, &_BasicTabbedPaneUI$Actions_ClassInfo_, clinit$BasicTabbedPaneUI$Actions, allocate$BasicTabbedPaneUI$Actions);
+	$FieldInfo fieldInfos$$[] = {
+		{"NEXT", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BasicTabbedPaneUI$Actions, NEXT)},
+		{"PREVIOUS", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BasicTabbedPaneUI$Actions, PREVIOUS)},
+		{"RIGHT", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BasicTabbedPaneUI$Actions, RIGHT)},
+		{"LEFT", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BasicTabbedPaneUI$Actions, LEFT)},
+		{"UP", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BasicTabbedPaneUI$Actions, UP)},
+		{"DOWN", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BasicTabbedPaneUI$Actions, DOWN)},
+		{"PAGE_UP", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BasicTabbedPaneUI$Actions, PAGE_UP)},
+		{"PAGE_DOWN", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BasicTabbedPaneUI$Actions, PAGE_DOWN)},
+		{"REQUEST_FOCUS", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BasicTabbedPaneUI$Actions, REQUEST_FOCUS)},
+		{"REQUEST_FOCUS_FOR_VISIBLE", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BasicTabbedPaneUI$Actions, REQUEST_FOCUS_FOR_VISIBLE)},
+		{"SET_SELECTED", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BasicTabbedPaneUI$Actions, SET_SELECTED)},
+		{"SELECT_FOCUSED", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BasicTabbedPaneUI$Actions, SELECT_FOCUSED)},
+		{"SCROLL_FORWARD", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BasicTabbedPaneUI$Actions, SCROLL_FORWARD)},
+		{"SCROLL_BACKWARD", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BasicTabbedPaneUI$Actions, SCROLL_BACKWARD)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicTabbedPaneUI$Actions, init$, void, $String*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$Actions, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTabbedPaneUI$Actions", "javax.swing.plaf.basic.BasicTabbedPaneUI", "Actions", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTabbedPaneUI$Actions",
+		"sun.swing.UIAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTabbedPaneUI"
+	};
+	$loadClass(BasicTabbedPaneUI$Actions, name, initialize, &classInfo$$, BasicTabbedPaneUI$Actions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicTabbedPaneUI$Actions);
+	});
 	return class$;
 }
 

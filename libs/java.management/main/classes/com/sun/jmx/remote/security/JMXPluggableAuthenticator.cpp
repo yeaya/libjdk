@@ -1,5 +1,4 @@
 #include <com/sun/jmx/remote/security/JMXPluggableAuthenticator.h>
-
 #include <com/sun/jmx/remote/security/JMXPluggableAuthenticator$1.h>
 #include <com/sun/jmx/remote/security/JMXPluggableAuthenticator$2.h>
 #include <com/sun/jmx/remote/security/JMXPluggableAuthenticator$JMXCallbackHandler.h>
@@ -9,13 +8,10 @@
 #include <java/lang/SecurityManager.h>
 #include <java/security/AccessController.h>
 #include <java/security/Permission.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/PrivilegedActionException.h>
-#include <java/security/PrivilegedExceptionAction.h>
 #include <java/util/Map.h>
 #include <javax/security/auth/AuthPermission.h>
 #include <javax/security/auth/Subject.h>
-#include <javax/security/auth/callback/CallbackHandler.h>
 #include <javax/security/auth/login/LoginContext.h>
 #include <javax/security/auth/login/LoginException.h>
 #include <jcpp.h>
@@ -39,14 +35,10 @@ using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $Void = ::java::lang::Void;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Map = ::java::util::Map;
 using $AuthPermission = ::javax::security::auth::AuthPermission;
 using $Subject = ::javax::security::auth::Subject;
-using $CallbackHandler = ::javax::security::auth::callback::CallbackHandler;
 using $LoginContext = ::javax::security::auth::login::LoginContext;
 using $LoginException = ::javax::security::auth::login::LoginException;
 
@@ -56,54 +48,6 @@ namespace com {
 			namespace remote {
 				namespace security {
 
-$FieldInfo _JMXPluggableAuthenticator_FieldInfo_[] = {
-	{"loginContext", "Ljavax/security/auth/login/LoginContext;", nullptr, $PRIVATE, $field(JMXPluggableAuthenticator, loginContext)},
-	{"username", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JMXPluggableAuthenticator, username)},
-	{"password", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JMXPluggableAuthenticator, password)},
-	{"LOGIN_CONFIG_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXPluggableAuthenticator, LOGIN_CONFIG_PROP)},
-	{"LOGIN_CONFIG_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXPluggableAuthenticator, LOGIN_CONFIG_NAME)},
-	{"PASSWORD_FILE_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXPluggableAuthenticator, PASSWORD_FILE_PROP)},
-	{"HASH_PASSWORDS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXPluggableAuthenticator, HASH_PASSWORDS)},
-	{"logger", "Lcom/sun/jmx/remote/util/ClassLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXPluggableAuthenticator, logger)},
-	{}
-};
-
-$MethodInfo _JMXPluggableAuthenticator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PUBLIC, $method(JMXPluggableAuthenticator, init$, void, $Map*)},
-	{"authenticate", "(Ljava/lang/Object;)Ljavax/security/auth/Subject;", nullptr, $PUBLIC, $virtualMethod(JMXPluggableAuthenticator, authenticate, $Subject*, Object$*)},
-	{"authenticationFailure", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JMXPluggableAuthenticator, authenticationFailure, void, $String*, $String*), "java.lang.SecurityException"},
-	{"authenticationFailure", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JMXPluggableAuthenticator, authenticationFailure, void, $String*, $Exception*), "java.lang.SecurityException"},
-	{"logException", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JMXPluggableAuthenticator, logException, void, $String*, $String*, $Exception*)},
-	{}
-};
-
-$InnerClassInfo _JMXPluggableAuthenticator_InnerClassesInfo_[] = {
-	{"com.sun.jmx.remote.security.JMXPluggableAuthenticator$FileLoginConfig", "com.sun.jmx.remote.security.JMXPluggableAuthenticator", "FileLoginConfig", $PRIVATE | $STATIC},
-	{"com.sun.jmx.remote.security.JMXPluggableAuthenticator$JMXCallbackHandler", "com.sun.jmx.remote.security.JMXPluggableAuthenticator", "JMXCallbackHandler", $PRIVATE | $FINAL},
-	{"com.sun.jmx.remote.security.JMXPluggableAuthenticator$2", nullptr, nullptr, 0},
-	{"com.sun.jmx.remote.security.JMXPluggableAuthenticator$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JMXPluggableAuthenticator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.jmx.remote.security.JMXPluggableAuthenticator",
-	"java.lang.Object",
-	"javax.management.remote.JMXAuthenticator",
-	_JMXPluggableAuthenticator_FieldInfo_,
-	_JMXPluggableAuthenticator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JMXPluggableAuthenticator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.remote.security.JMXPluggableAuthenticator$FileLoginConfig,com.sun.jmx.remote.security.JMXPluggableAuthenticator$JMXCallbackHandler,com.sun.jmx.remote.security.JMXPluggableAuthenticator$2,com.sun.jmx.remote.security.JMXPluggableAuthenticator$1"
-};
-
-$Object* allocate$JMXPluggableAuthenticator($Class* clazz) {
-	return $of($alloc(JMXPluggableAuthenticator));
-}
-
 $String* JMXPluggableAuthenticator::LOGIN_CONFIG_PROP = nullptr;
 $String* JMXPluggableAuthenticator::LOGIN_CONFIG_NAME = nullptr;
 $String* JMXPluggableAuthenticator::PASSWORD_FILE_PROP = nullptr;
@@ -111,7 +55,7 @@ $String* JMXPluggableAuthenticator::HASH_PASSWORDS = nullptr;
 $ClassLogger* JMXPluggableAuthenticator::logger = nullptr;
 
 void JMXPluggableAuthenticator::init$($Map* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, loginConfigName, nullptr);
 	$var($String, passwordFile, nullptr);
@@ -123,7 +67,7 @@ void JMXPluggableAuthenticator::init$($Map* env) {
 	}
 	try {
 		if (loginConfigName != nullptr) {
-			$set(this, loginContext, $new($LoginContext, loginConfigName, static_cast<$CallbackHandler*>($$new($JMXPluggableAuthenticator$JMXCallbackHandler, this))));
+			$set(this, loginContext, $new($LoginContext, loginConfigName, $$new($JMXPluggableAuthenticator$JMXCallbackHandler, this)));
 		} else {
 			$var($SecurityManager, sm, $System::getSecurityManager());
 			if (sm != nullptr) {
@@ -132,21 +76,21 @@ void JMXPluggableAuthenticator::init$($Map* env) {
 			$var($String, pf, passwordFile);
 			$var($String, hashPass, hashPasswords);
 			try {
-				$var($LoginContext, tmp, $cast($LoginContext, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($JMXPluggableAuthenticator$1, this, pf, hashPass)))));
+				$var($LoginContext, tmp, $cast($LoginContext, $AccessController::doPrivileged($$new($JMXPluggableAuthenticator$1, this, pf, hashPass))));
 				$set(this, loginContext, tmp);
 			} catch ($PrivilegedActionException& pae) {
-				$throw($cast($LoginException, $(pae->getException())));
+				$throw($$cast($LoginException, pae->getException()));
 			}
 		}
 	} catch ($LoginException& le) {
-		authenticationFailure("authenticate"_s, static_cast<$Exception*>(le));
+		authenticationFailure("authenticate"_s, le);
 	} catch ($SecurityException& se) {
-		authenticationFailure("authenticate"_s, static_cast<$Exception*>(se));
+		authenticationFailure("authenticate"_s, se);
 	}
 }
 
 $Subject* JMXPluggableAuthenticator::authenticate(Object$* credentials) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (!($instanceOf($StringArray, credentials))) {
 		if (credentials == nullptr) {
@@ -160,7 +104,7 @@ $Subject* JMXPluggableAuthenticator::authenticate(Object$* credentials) {
 		$var($String, message, $str({"Credentials should have 2 elements not "_s, $$str(aCredentials->length)}));
 		authenticationFailure("authenticate"_s, message);
 	}
-	$set(this, username, $nc(aCredentials)->get(0));
+	$set(this, username, aCredentials->get(0));
 	$set(this, password, aCredentials->get(1));
 	if (this->username == nullptr || this->password == nullptr) {
 		$var($String, message, "Username or password is null"_s);
@@ -168,18 +112,18 @@ $Subject* JMXPluggableAuthenticator::authenticate(Object$* credentials) {
 	}
 	try {
 		$nc(this->loginContext)->login();
-		$var($Subject, subject, $nc(this->loginContext)->getSubject());
-		$var($Void, dummy, $cast($Void, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($JMXPluggableAuthenticator$2, this, subject)))));
+		$var($Subject, subject, this->loginContext->getSubject());
+		$var($Void, dummy, $cast($Void, $AccessController::doPrivileged($$new($JMXPluggableAuthenticator$2, this, subject))));
 		return subject;
 	} catch ($LoginException& le) {
-		authenticationFailure("authenticate"_s, static_cast<$Exception*>(le));
+		authenticationFailure("authenticate"_s, le);
 	}
 	return nullptr;
 }
 
 void JMXPluggableAuthenticator::authenticationFailure($String* method, $String* message) {
 	$init(JMXPluggableAuthenticator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, msg, $str({"Authentication failed! "_s, message}));
 	$var($SecurityException, e, $new($SecurityException, msg));
 	logException(method, msg, e);
@@ -188,11 +132,11 @@ void JMXPluggableAuthenticator::authenticationFailure($String* method, $String* 
 
 void JMXPluggableAuthenticator::authenticationFailure($String* method, $Exception* exception) {
 	$init(JMXPluggableAuthenticator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, msg, nullptr);
 	$var($SecurityException, se, nullptr);
 	if ($instanceOf($SecurityException, exception)) {
-		$assign(msg, $nc(exception)->getMessage());
+		$assign(msg, exception->getMessage());
 		$assign(se, $cast($SecurityException, exception));
 	} else {
 		$assign(msg, $str({"Authentication failed! "_s, $($nc(exception)->getMessage())}));
@@ -206,15 +150,15 @@ void JMXPluggableAuthenticator::authenticationFailure($String* method, $Exceptio
 
 void JMXPluggableAuthenticator::logException($String* method, $String* message, $Exception* e) {
 	$init(JMXPluggableAuthenticator);
-	if ($nc(JMXPluggableAuthenticator::logger)->traceOn()) {
-		$nc(JMXPluggableAuthenticator::logger)->trace(method, message);
+	if (JMXPluggableAuthenticator::logger->traceOn()) {
+		JMXPluggableAuthenticator::logger->trace(method, message);
 	}
-	if ($nc(JMXPluggableAuthenticator::logger)->debugOn()) {
-		$nc(JMXPluggableAuthenticator::logger)->debug(method, static_cast<$Throwable*>(e));
+	if (JMXPluggableAuthenticator::logger->debugOn()) {
+		JMXPluggableAuthenticator::logger->debug(method, e);
 	}
 }
 
-void clinit$JMXPluggableAuthenticator($Class* class$) {
+void JMXPluggableAuthenticator::clinit$($Class* clazz) {
 	$assignStatic(JMXPluggableAuthenticator::LOGIN_CONFIG_PROP, "jmx.remote.x.login.config"_s);
 	$assignStatic(JMXPluggableAuthenticator::LOGIN_CONFIG_NAME, "JMXPluggableAuthenticator"_s);
 	$assignStatic(JMXPluggableAuthenticator::PASSWORD_FILE_PROP, "jmx.remote.x.password.file"_s);
@@ -226,7 +170,49 @@ JMXPluggableAuthenticator::JMXPluggableAuthenticator() {
 }
 
 $Class* JMXPluggableAuthenticator::load$($String* name, bool initialize) {
-	$loadClass(JMXPluggableAuthenticator, name, initialize, &_JMXPluggableAuthenticator_ClassInfo_, clinit$JMXPluggableAuthenticator, allocate$JMXPluggableAuthenticator);
+	$FieldInfo fieldInfos$$[] = {
+		{"loginContext", "Ljavax/security/auth/login/LoginContext;", nullptr, $PRIVATE, $field(JMXPluggableAuthenticator, loginContext)},
+		{"username", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JMXPluggableAuthenticator, username)},
+		{"password", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JMXPluggableAuthenticator, password)},
+		{"LOGIN_CONFIG_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXPluggableAuthenticator, LOGIN_CONFIG_PROP)},
+		{"LOGIN_CONFIG_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXPluggableAuthenticator, LOGIN_CONFIG_NAME)},
+		{"PASSWORD_FILE_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXPluggableAuthenticator, PASSWORD_FILE_PROP)},
+		{"HASH_PASSWORDS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXPluggableAuthenticator, HASH_PASSWORDS)},
+		{"logger", "Lcom/sun/jmx/remote/util/ClassLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXPluggableAuthenticator, logger)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PUBLIC, $method(JMXPluggableAuthenticator, init$, void, $Map*)},
+		{"authenticate", "(Ljava/lang/Object;)Ljavax/security/auth/Subject;", nullptr, $PUBLIC, $virtualMethod(JMXPluggableAuthenticator, authenticate, $Subject*, Object$*)},
+		{"authenticationFailure", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JMXPluggableAuthenticator, authenticationFailure, void, $String*, $String*), "java.lang.SecurityException"},
+		{"authenticationFailure", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JMXPluggableAuthenticator, authenticationFailure, void, $String*, $Exception*), "java.lang.SecurityException"},
+		{"logException", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JMXPluggableAuthenticator, logException, void, $String*, $String*, $Exception*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.remote.security.JMXPluggableAuthenticator$FileLoginConfig", "com.sun.jmx.remote.security.JMXPluggableAuthenticator", "FileLoginConfig", $PRIVATE | $STATIC},
+		{"com.sun.jmx.remote.security.JMXPluggableAuthenticator$JMXCallbackHandler", "com.sun.jmx.remote.security.JMXPluggableAuthenticator", "JMXCallbackHandler", $PRIVATE | $FINAL},
+		{"com.sun.jmx.remote.security.JMXPluggableAuthenticator$2", nullptr, nullptr, 0},
+		{"com.sun.jmx.remote.security.JMXPluggableAuthenticator$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.jmx.remote.security.JMXPluggableAuthenticator",
+		"java.lang.Object",
+		"javax.management.remote.JMXAuthenticator",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.remote.security.JMXPluggableAuthenticator$FileLoginConfig,com.sun.jmx.remote.security.JMXPluggableAuthenticator$JMXCallbackHandler,com.sun.jmx.remote.security.JMXPluggableAuthenticator$2,com.sun.jmx.remote.security.JMXPluggableAuthenticator$1"
+	};
+	$loadClass(JMXPluggableAuthenticator, name, initialize, &classInfo$$, JMXPluggableAuthenticator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JMXPluggableAuthenticator);
+	});
 	return class$;
 }
 

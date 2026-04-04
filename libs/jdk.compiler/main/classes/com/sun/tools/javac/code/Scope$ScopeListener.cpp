@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Scope$ScopeListener.h>
-
 #include <com/sun/tools/javac/code/Scope.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <jcpp.h>
@@ -16,39 +15,34 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$MethodInfo _Scope$ScopeListener_MethodInfo_[] = {
-	{"symbolAdded", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scope$ScopeListener, symbolAdded, void, $Symbol*, $Scope*)},
-	{"symbolRemoved", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scope$ScopeListener, symbolRemoved, void, $Symbol*, $Scope*)},
-	{}
-};
-
-$InnerClassInfo _Scope$ScopeListener_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Scope$ScopeListener", "com.sun.tools.javac.code.Scope", "ScopeListener", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Scope$ScopeListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.code.Scope$ScopeListener",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Scope$ScopeListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Scope$ScopeListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Scope"
-};
-
-$Object* allocate$Scope$ScopeListener($Class* clazz) {
-	return $of($alloc(Scope$ScopeListener));
-}
-
 $Class* Scope$ScopeListener::load$($String* name, bool initialize) {
-	$loadClass(Scope$ScopeListener, name, initialize, &_Scope$ScopeListener_ClassInfo_, allocate$Scope$ScopeListener);
+	$MethodInfo methodInfos$$[] = {
+		{"symbolAdded", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scope$ScopeListener, symbolAdded, void, $Symbol*, $Scope*)},
+		{"symbolRemoved", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scope$ScopeListener, symbolRemoved, void, $Symbol*, $Scope*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Scope$ScopeListener", "com.sun.tools.javac.code.Scope", "ScopeListener", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.code.Scope$ScopeListener",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Scope"
+	};
+	$loadClass(Scope$ScopeListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Scope$ScopeListener);
+	});
 	return class$;
 }
 

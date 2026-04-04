@@ -52,6 +52,7 @@ class $export WindowController : public ::java::lang::Object {
 	$class(WindowController, 0, ::java::lang::Object)
 public:
 	WindowController();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void adjustActiveStreams(int32_t adjustAmount);
 	int32_t connectionWindowSize();

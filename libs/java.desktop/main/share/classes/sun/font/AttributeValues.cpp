@@ -1,5 +1,4 @@
 #include <sun/font/AttributeValues.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/Paint.h>
 #include <java/awt/Toolkit.h>
@@ -76,7 +75,6 @@ using $TextAttribute = ::java::awt::font::TextAttribute;
 using $TransformAttribute = ::java::awt::font::TransformAttribute;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $NoninvertibleTransformException = ::java::awt::geom::NoninvertibleTransformException;
-using $Point2D = ::java::awt::geom::Point2D;
 using $Point2D$Double = ::java::awt::geom::Point2D$Double;
 using $InputMethodHighlight = ::java::awt::im::InputMethodHighlight;
 using $Serializable = ::java::io::Serializable;
@@ -101,171 +99,12 @@ using $Hashtable = ::java::util::Hashtable;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $AttributeMap = ::sun::font::AttributeMap;
 using $AttributeValues$1 = ::sun::font::AttributeValues$1;
 using $EAttribute = ::sun::font::EAttribute;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _AttributeValues_FieldInfo_[] = {
-	{"defined", "I", nullptr, $PRIVATE, $field(AttributeValues, defined)},
-	{"nondefault", "I", nullptr, $PRIVATE, $field(AttributeValues, nondefault)},
-	{"family", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AttributeValues, family)},
-	{"weight", "F", nullptr, $PRIVATE, $field(AttributeValues, weight)},
-	{"width", "F", nullptr, $PRIVATE, $field(AttributeValues, width)},
-	{"posture", "F", nullptr, $PRIVATE, $field(AttributeValues, posture)},
-	{"size", "F", nullptr, $PRIVATE, $field(AttributeValues, size)},
-	{"tracking", "F", nullptr, $PRIVATE, $field(AttributeValues, tracking)},
-	{"numericShaping", "Ljava/awt/font/NumericShaper;", nullptr, $PRIVATE, $field(AttributeValues, numericShaping)},
-	{"transform", "Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE, $field(AttributeValues, transform)},
-	{"charReplacement", "Ljava/awt/font/GraphicAttribute;", nullptr, $PRIVATE, $field(AttributeValues, charReplacement)},
-	{"foreground", "Ljava/awt/Paint;", nullptr, $PRIVATE, $field(AttributeValues, foreground)},
-	{"background", "Ljava/awt/Paint;", nullptr, $PRIVATE, $field(AttributeValues, background)},
-	{"justification", "F", nullptr, $PRIVATE, $field(AttributeValues, justification)},
-	{"imHighlight", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(AttributeValues, imHighlight)},
-	{"font", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(AttributeValues, font)},
-	{"imUnderline", "B", nullptr, $PRIVATE, $field(AttributeValues, imUnderline)},
-	{"superscript", "B", nullptr, $PRIVATE, $field(AttributeValues, superscript)},
-	{"underline", "B", nullptr, $PRIVATE, $field(AttributeValues, underline)},
-	{"runDirection", "B", nullptr, $PRIVATE, $field(AttributeValues, runDirection)},
-	{"bidiEmbedding", "B", nullptr, $PRIVATE, $field(AttributeValues, bidiEmbedding)},
-	{"kerning", "B", nullptr, $PRIVATE, $field(AttributeValues, kerning)},
-	{"ligatures", "B", nullptr, $PRIVATE, $field(AttributeValues, ligatures)},
-	{"strikethrough", "Z", nullptr, $PRIVATE, $field(AttributeValues, strikethrough)},
-	{"swapColors", "Z", nullptr, $PRIVATE, $field(AttributeValues, swapColors)},
-	{"baselineTransform", "Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE, $field(AttributeValues, baselineTransform)},
-	{"charTransform", "Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE, $field(AttributeValues, charTransform)},
-	{"DEFAULT", "Lsun/font/AttributeValues;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AttributeValues, DEFAULT)},
-	{"MASK_ALL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AttributeValues, MASK_ALL)},
-	{"DEFINED_KEY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AttributeValues, DEFINED_KEY)},
-	{}
-};
-
-$MethodInfo _AttributeValues_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AttributeValues, init$, void)},
-	{"allDefined", "(I)Z", nullptr, $PUBLIC, $method(AttributeValues, allDefined, bool, int32_t)},
-	{"anyDefined", "(I)Z", nullptr, $PUBLIC, $method(AttributeValues, anyDefined, bool, int32_t)},
-	{"anyNonDefault", "(I)Z", nullptr, $PUBLIC, $method(AttributeValues, anyNonDefault, bool, int32_t)},
-	{"applyIMHighlight", "()Lsun/font/AttributeValues;", nullptr, $PUBLIC, $method(AttributeValues, applyIMHighlight, AttributeValues*)},
-	{"clone", "()Lsun/font/AttributeValues;", nullptr, $PUBLIC, $virtualMethod(AttributeValues, clone, AttributeValues*)},
-	{"defineAll", "(I)V", nullptr, $PUBLIC, $method(AttributeValues, defineAll, void, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AttributeValues, equals, bool, Object$*)},
-	{"equals", "(Lsun/font/AttributeValues;)Z", nullptr, $PUBLIC, $method(AttributeValues, equals, bool, AttributeValues*)},
-	{"equals", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AttributeValues, equals, bool, Object$*, Object$*)},
-	{"extractRotation", "(Ljava/awt/geom/Point2D$Double;Ljava/awt/geom/AffineTransform;Z)Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE | $STATIC, $staticMethod(AttributeValues, extractRotation, $AffineTransform*, $Point2D$Double*, $AffineTransform*, bool)},
-	{"extractXRotation", "(Ljava/awt/geom/AffineTransform;Z)Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeValues, extractXRotation, $AffineTransform*, $AffineTransform*, bool)},
-	{"extractYRotation", "(Ljava/awt/geom/AffineTransform;Z)Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeValues, extractYRotation, $AffineTransform*, $AffineTransform*, bool)},
-	{"fromMap", "(Ljava/util/Map;)Lsun/font/AttributeValues;", "(Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;)Lsun/font/AttributeValues;", $PUBLIC | $STATIC, $staticMethod(AttributeValues, fromMap, AttributeValues*, $Map*)},
-	{"fromMap", "(Ljava/util/Map;I)Lsun/font/AttributeValues;", "(Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;I)Lsun/font/AttributeValues;", $PUBLIC | $STATIC, $staticMethod(AttributeValues, fromMap, AttributeValues*, $Map*, int32_t)},
-	{"fromSerializableHashtable", "(Ljava/util/Hashtable;)Lsun/font/AttributeValues;", "(Ljava/util/Hashtable<Ljava/lang/Object;Ljava/lang/Object;>;)Lsun/font/AttributeValues;", $PUBLIC | $STATIC, $staticMethod(AttributeValues, fromSerializableHashtable, AttributeValues*, $Hashtable*)},
-	{"get", "(Lsun/font/EAttribute;)Ljava/lang/Object;", nullptr, $PUBLIC, $method(AttributeValues, get, $Object*, $EAttribute*)},
-	{"getBackground", "()Ljava/awt/Paint;", nullptr, $PUBLIC, $method(AttributeValues, getBackground, $Paint*)},
-	{"getBaselineTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $method(AttributeValues, getBaselineTransform, $AffineTransform*)},
-	{"getBaselineTransform", "(Ljava/util/Map;)Ljava/awt/geom/AffineTransform;", "(Ljava/util/Map<**>;)Ljava/awt/geom/AffineTransform;", $PUBLIC | $STATIC, $staticMethod(AttributeValues, getBaselineTransform, $AffineTransform*, $Map*)},
-	{"getBidiEmbedding", "()I", nullptr, $PUBLIC, $method(AttributeValues, getBidiEmbedding, int32_t)},
-	{"getCharReplacement", "()Ljava/awt/font/GraphicAttribute;", nullptr, $PUBLIC, $method(AttributeValues, getCharReplacement, $GraphicAttribute*)},
-	{"getCharTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $method(AttributeValues, getCharTransform, $AffineTransform*)},
-	{"getCharTransform", "(Ljava/util/Map;)Ljava/awt/geom/AffineTransform;", "(Ljava/util/Map<**>;)Ljava/awt/geom/AffineTransform;", $PUBLIC | $STATIC, $staticMethod(AttributeValues, getCharTransform, $AffineTransform*, $Map*)},
-	{"getFamily", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(AttributeValues, getFamily, $String*)},
-	{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $method(AttributeValues, getFont, $Font*)},
-	{"getForeground", "()Ljava/awt/Paint;", nullptr, $PUBLIC, $method(AttributeValues, getForeground, $Paint*)},
-	{"getInputMethodHighlight", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(AttributeValues, getInputMethodHighlight, $Object*)},
-	{"getInputMethodUnderline", "()I", nullptr, $PUBLIC, $method(AttributeValues, getInputMethodUnderline, int32_t)},
-	{"getJustification", "()F", nullptr, $PUBLIC, $method(AttributeValues, getJustification, float)},
-	{"getJustification", "(Ljava/util/Map;)F", "(Ljava/util/Map<**>;)F", $PUBLIC | $STATIC, $staticMethod(AttributeValues, getJustification, float, $Map*)},
-	{"getKerning", "()I", nullptr, $PUBLIC, $method(AttributeValues, getKerning, int32_t)},
-	{"getLigatures", "()I", nullptr, $PUBLIC, $method(AttributeValues, getLigatures, int32_t)},
-	{"getMask", "(Lsun/font/EAttribute;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeValues, getMask, int32_t, $EAttribute*)},
-	{"getMask", "([Lsun/font/EAttribute;)I", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(AttributeValues, getMask, int32_t, $EAttributeArray*)},
-	{"getNumericShaping", "()Ljava/awt/font/NumericShaper;", nullptr, $PUBLIC, $method(AttributeValues, getNumericShaping, $NumericShaper*)},
-	{"getNumericShaping", "(Ljava/util/Map;)Ljava/awt/font/NumericShaper;", "(Ljava/util/Map<**>;)Ljava/awt/font/NumericShaper;", $PUBLIC | $STATIC, $staticMethod(AttributeValues, getNumericShaping, $NumericShaper*, $Map*)},
-	{"getPosture", "()F", nullptr, $PUBLIC, $method(AttributeValues, getPosture, float)},
-	{"getRunDirection", "()I", nullptr, $PUBLIC, $method(AttributeValues, getRunDirection, int32_t)},
-	{"getSize", "()F", nullptr, $PUBLIC, $method(AttributeValues, getSize, float)},
-	{"getStrikethrough", "()Z", nullptr, $PUBLIC, $method(AttributeValues, getStrikethrough, bool)},
-	{"getSuperscript", "()I", nullptr, $PUBLIC, $method(AttributeValues, getSuperscript, int32_t)},
-	{"getSwapColors", "()Z", nullptr, $PUBLIC, $method(AttributeValues, getSwapColors, bool)},
-	{"getTracking", "()F", nullptr, $PUBLIC, $method(AttributeValues, getTracking, float)},
-	{"getTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $method(AttributeValues, getTransform, $AffineTransform*)},
-	{"getUnderline", "()I", nullptr, $PUBLIC, $method(AttributeValues, getUnderline, int32_t)},
-	{"getWeight", "()F", nullptr, $PUBLIC, $method(AttributeValues, getWeight, float)},
-	{"getWidth", "()F", nullptr, $PUBLIC, $method(AttributeValues, getWidth, float)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AttributeValues, hashCode, int32_t)},
-	{"i_equals", "(Lsun/font/EAttribute;Lsun/font/AttributeValues;)Z", nullptr, $PRIVATE, $method(AttributeValues, i_equals, bool, $EAttribute*, AttributeValues*)},
-	{"i_get", "(Lsun/font/EAttribute;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(AttributeValues, i_get, $Object*, $EAttribute*)},
-	{"i_set", "(Lsun/font/EAttribute;Lsun/font/AttributeValues;)V", nullptr, $PRIVATE, $method(AttributeValues, i_set, void, $EAttribute*, AttributeValues*)},
-	{"i_set", "(Lsun/font/EAttribute;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(AttributeValues, i_set, void, $EAttribute*, Object$*)},
-	{"i_validate", "(Lsun/font/EAttribute;)Z", nullptr, $PRIVATE, $method(AttributeValues, i_validate, bool, $EAttribute*)},
-	{"is16Hashtable", "(Ljava/util/Hashtable;)Z", "(Ljava/util/Hashtable<Ljava/lang/Object;Ljava/lang/Object;>;)Z", $PUBLIC | $STATIC, $staticMethod(AttributeValues, is16Hashtable, bool, $Hashtable*)},
-	{"isDefined", "(Lsun/font/EAttribute;)Z", nullptr, $PUBLIC, $method(AttributeValues, isDefined, bool, $EAttribute*)},
-	{"isNonDefault", "(Lsun/font/EAttribute;)Z", nullptr, $PUBLIC, $method(AttributeValues, isNonDefault, bool, $EAttribute*)},
-	{"merge", "(Ljava/util/Map;)Lsun/font/AttributeValues;", "(Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;)Lsun/font/AttributeValues;", $PUBLIC, $method(AttributeValues, merge, AttributeValues*, $Map*)},
-	{"merge", "(Ljava/util/Map;I)Lsun/font/AttributeValues;", "(Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;I)Lsun/font/AttributeValues;", $PUBLIC, $method(AttributeValues, merge, AttributeValues*, $Map*, int32_t)},
-	{"merge", "(Lsun/font/AttributeValues;)Lsun/font/AttributeValues;", nullptr, $PUBLIC, $method(AttributeValues, merge, AttributeValues*, AttributeValues*)},
-	{"merge", "(Lsun/font/AttributeValues;I)Lsun/font/AttributeValues;", nullptr, $PUBLIC, $method(AttributeValues, merge, AttributeValues*, AttributeValues*, int32_t)},
-	{"set", "(Lsun/font/EAttribute;Lsun/font/AttributeValues;)V", nullptr, $PUBLIC, $method(AttributeValues, set, void, $EAttribute*, AttributeValues*)},
-	{"set", "(Lsun/font/EAttribute;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(AttributeValues, set, void, $EAttribute*, Object$*)},
-	{"setBackground", "(Ljava/awt/Paint;)V", nullptr, $PUBLIC, $method(AttributeValues, setBackground, void, $Paint*)},
-	{"setBidiEmbedding", "(I)V", nullptr, $PUBLIC, $method(AttributeValues, setBidiEmbedding, void, int32_t)},
-	{"setCharReplacement", "(Ljava/awt/font/GraphicAttribute;)V", nullptr, $PUBLIC, $method(AttributeValues, setCharReplacement, void, $GraphicAttribute*)},
-	{"setDefault", "(Lsun/font/EAttribute;)V", nullptr, $PUBLIC, $method(AttributeValues, setDefault, void, $EAttribute*)},
-	{"setFamily", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AttributeValues, setFamily, void, $String*)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $method(AttributeValues, setFont, void, $Font*)},
-	{"setForeground", "(Ljava/awt/Paint;)V", nullptr, $PUBLIC, $method(AttributeValues, setForeground, void, $Paint*)},
-	{"setInputMethodHighlight", "(Ljava/text/Annotation;)V", nullptr, $PUBLIC, $method(AttributeValues, setInputMethodHighlight, void, $Annotation*)},
-	{"setInputMethodHighlight", "(Ljava/awt/im/InputMethodHighlight;)V", nullptr, $PUBLIC, $method(AttributeValues, setInputMethodHighlight, void, $InputMethodHighlight*)},
-	{"setInputMethodUnderline", "(I)V", nullptr, $PUBLIC, $method(AttributeValues, setInputMethodUnderline, void, int32_t)},
-	{"setJustification", "(F)V", nullptr, $PUBLIC, $method(AttributeValues, setJustification, void, float)},
-	{"setKerning", "(I)V", nullptr, $PUBLIC, $method(AttributeValues, setKerning, void, int32_t)},
-	{"setLigatures", "(I)V", nullptr, $PUBLIC, $method(AttributeValues, setLigatures, void, int32_t)},
-	{"setNumericShaping", "(Ljava/awt/font/NumericShaper;)V", nullptr, $PUBLIC, $method(AttributeValues, setNumericShaping, void, $NumericShaper*)},
-	{"setPosture", "(F)V", nullptr, $PUBLIC, $method(AttributeValues, setPosture, void, float)},
-	{"setRunDirection", "(I)V", nullptr, $PUBLIC, $method(AttributeValues, setRunDirection, void, int32_t)},
-	{"setSize", "(F)V", nullptr, $PUBLIC, $method(AttributeValues, setSize, void, float)},
-	{"setStrikethrough", "(Z)V", nullptr, $PUBLIC, $method(AttributeValues, setStrikethrough, void, bool)},
-	{"setSuperscript", "(I)V", nullptr, $PUBLIC, $method(AttributeValues, setSuperscript, void, int32_t)},
-	{"setSwapColors", "(Z)V", nullptr, $PUBLIC, $method(AttributeValues, setSwapColors, void, bool)},
-	{"setTracking", "(F)V", nullptr, $PUBLIC, $method(AttributeValues, setTracking, void, float)},
-	{"setTransform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $method(AttributeValues, setTransform, void, $AffineTransform*)},
-	{"setTransform", "(Ljava/awt/font/TransformAttribute;)V", nullptr, $PUBLIC, $method(AttributeValues, setTransform, void, $TransformAttribute*)},
-	{"setUnderline", "(I)V", nullptr, $PUBLIC, $method(AttributeValues, setUnderline, void, int32_t)},
-	{"setWeight", "(F)V", nullptr, $PUBLIC, $method(AttributeValues, setWeight, void, float)},
-	{"setWidth", "(F)V", nullptr, $PUBLIC, $method(AttributeValues, setWidth, void, float)},
-	{"toMap", "(Ljava/util/Map;)Ljava/util/Map;", "(Ljava/util/Map<Ljava/awt/font/TextAttribute;Ljava/lang/Object;>;)Ljava/util/Map<Ljava/awt/font/TextAttribute;Ljava/lang/Object;>;", $PUBLIC, $method(AttributeValues, toMap, $Map*, $Map*)},
-	{"toSerializableHashtable", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<Ljava/lang/Object;Ljava/lang/Object;>;", $PUBLIC, $method(AttributeValues, toSerializableHashtable, $Hashtable*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeValues, toString, $String*)},
-	{"unset", "(Lsun/font/EAttribute;)V", nullptr, $PUBLIC, $method(AttributeValues, unset, void, $EAttribute*)},
-	{"unsetDefault", "()V", nullptr, $PUBLIC, $method(AttributeValues, unsetDefault, void)},
-	{"update", "(Lsun/font/EAttribute;)V", nullptr, $PRIVATE, $method(AttributeValues, update, void, $EAttribute*)},
-	{"updateDerivedTransforms", "()V", nullptr, $PUBLIC, $method(AttributeValues, updateDerivedTransforms, void)},
-	{}
-};
-
-$InnerClassInfo _AttributeValues_InnerClassesInfo_[] = {
-	{"sun.font.AttributeValues$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _AttributeValues_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.font.AttributeValues",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_AttributeValues_FieldInfo_,
-	_AttributeValues_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AttributeValues_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.font.AttributeValues$1"
-};
-
-$Object* allocate$AttributeValues($Class* clazz) {
-	return $of($alloc(AttributeValues));
-}
 
 AttributeValues* AttributeValues::DEFAULT = nullptr;
 int32_t AttributeValues::MASK_ALL = 0;
@@ -277,9 +116,9 @@ void AttributeValues::init$() {
 	this->width = 1.0f;
 	this->size = 12.0f;
 	this->justification = 1.0f;
-	this->imUnderline = (int8_t)-1;
-	this->underline = (int8_t)-1;
-	this->runDirection = (int8_t)-2;
+	this->imUnderline = -1;
+	this->underline = -1;
+	this->runDirection = -2;
 }
 
 $String* AttributeValues::getFamily() {
@@ -337,14 +176,14 @@ $AffineTransform* AttributeValues::getTransform() {
 }
 
 void AttributeValues::setTransform($AffineTransform* f) {
-	$set(this, transform, (f == nullptr || $nc(f)->isIdentity()) ? $nc(AttributeValues::DEFAULT)->transform : $new($AffineTransform, f));
+	$set(this, transform, (f == nullptr || f->isIdentity()) ? AttributeValues::DEFAULT->transform : $new($AffineTransform, f));
 	updateDerivedTransforms();
 	$init($EAttribute);
 	update($EAttribute::ETRANSFORM);
 }
 
 void AttributeValues::setTransform($TransformAttribute* f) {
-	$set(this, transform, (f == nullptr || $nc(f)->isIdentity()) ? $nc(AttributeValues::DEFAULT)->transform : $nc(f)->getTransform());
+	$set(this, transform, (f == nullptr || f->isIdentity()) ? AttributeValues::DEFAULT->transform : f->getTransform());
 	updateDerivedTransforms();
 	$init($EAttribute);
 	update($EAttribute::ETRANSFORM);
@@ -451,7 +290,7 @@ void AttributeValues::setJustification(float f) {
 }
 
 $Object* AttributeValues::getInputMethodHighlight() {
-	return $of(this->imHighlight);
+	return this->imHighlight;
 }
 
 void AttributeValues::setInputMethodHighlight($Annotation* f) {
@@ -544,9 +383,7 @@ int32_t AttributeValues::getMask($EAttributeArray* atts) {
 	int32_t mask = 0;
 	{
 		$var($EAttributeArray, arr$, atts);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$EAttribute* a = arr$->get(i$);
 			{
 				mask |= $nc(a)->mask;
@@ -563,29 +400,29 @@ void AttributeValues::unsetDefault() {
 void AttributeValues::defineAll(int32_t mask) {
 	this->defined |= mask;
 	$init($EAttribute);
-	if (((int32_t)(this->defined & (uint32_t)$EAttribute::EBASELINE_TRANSFORM->mask)) != 0) {
+	if ((this->defined & $EAttribute::EBASELINE_TRANSFORM->mask) != 0) {
 		$throwNew($InternalError, "can\'t define derived attribute"_s);
 	}
 }
 
 bool AttributeValues::allDefined(int32_t mask) {
-	return ((int32_t)(this->defined & (uint32_t)mask)) == mask;
+	return (this->defined & mask) == mask;
 }
 
 bool AttributeValues::anyDefined(int32_t mask) {
-	return ((int32_t)(this->defined & (uint32_t)mask)) != 0;
+	return (this->defined & mask) != 0;
 }
 
 bool AttributeValues::anyNonDefault(int32_t mask) {
-	return ((int32_t)(this->nondefault & (uint32_t)mask)) != 0;
+	return (this->nondefault & mask) != 0;
 }
 
 bool AttributeValues::isDefined($EAttribute* a) {
-	return ((int32_t)(this->defined & (uint32_t)$nc(a)->mask)) != 0;
+	return (this->defined & $nc(a)->mask) != 0;
 }
 
 bool AttributeValues::isNonDefault($EAttribute* a) {
-	return ((int32_t)(this->nondefault & (uint32_t)$nc(a)->mask)) != 0;
+	return (this->nondefault & $nc(a)->mask) != 0;
 }
 
 void AttributeValues::setDefault($EAttribute* a) {
@@ -593,7 +430,7 @@ void AttributeValues::setDefault($EAttribute* a) {
 		$throwNew($InternalError, $$str({"can\'t set default derived attribute: "_s, a}));
 	}
 	i_set(a, AttributeValues::DEFAULT);
-	this->defined |= $nc(a)->mask;
+	this->defined |= a->mask;
 	this->nondefault &= (uint32_t)~a->mask;
 }
 
@@ -602,7 +439,7 @@ void AttributeValues::unset($EAttribute* a) {
 		$throwNew($InternalError, $$str({"can\'t unset derived attribute: "_s, a}));
 	}
 	i_set(a, AttributeValues::DEFAULT);
-	this->defined &= (uint32_t)~$nc(a)->mask;
+	this->defined &= (uint32_t)~a->mask;
 	this->nondefault &= (uint32_t)~a->mask;
 }
 
@@ -612,7 +449,7 @@ void AttributeValues::set($EAttribute* a, AttributeValues* src) {
 	}
 	if (src == nullptr || src == AttributeValues::DEFAULT) {
 		setDefault(a);
-	} else if (((int32_t)($nc(src)->defined & (uint32_t)$nc(a)->mask)) != 0) {
+	} else if ((src->defined & a->mask) != 0) {
 		i_set(a, src);
 		update(a);
 	}
@@ -637,10 +474,10 @@ $Object* AttributeValues::get($EAttribute* a) {
 	if ($nc(a)->att == nullptr) {
 		$throwNew($InternalError, $$str({"can\'t get derived attribute: "_s, a}));
 	}
-	if (((int32_t)(this->nondefault & (uint32_t)$nc(a)->mask)) != 0) {
-		return $of(i_get(a));
+	if ((this->nondefault & a->mask) != 0) {
+		return i_get(a);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 AttributeValues* AttributeValues::merge($Map* map) {
@@ -648,23 +485,19 @@ AttributeValues* AttributeValues::merge($Map* map) {
 }
 
 AttributeValues* AttributeValues::merge($Map* map, int32_t mask) {
-	$useLocalCurrentObjectStackCache();
-	if ($instanceOf($AttributeMap, map) && $nc(($cast($AttributeMap, map)))->getValues() != nullptr) {
-		merge($(($cast($AttributeMap, map))->getValues()), mask);
+	$useLocalObjectStack();
+	if ($instanceOf($AttributeMap, map) && $cast($AttributeMap, map)->getValues() != nullptr) {
+		merge($($cast($AttributeMap, map)->getValues()), mask);
 	} else if (map != nullptr && !map->isEmpty()) {
-		{
-			$var($Iterator, i$, $nc($(map->entrySet()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
-				{
-					try {
-						$EAttribute* ea = $EAttribute::forAttribute($cast($AttributedCharacterIterator$Attribute, $($nc(e)->getKey())));
-						if (ea != nullptr && ((int32_t)(mask & (uint32_t)ea->mask)) != 0) {
-							set(ea, $($nc(e)->getValue()));
-						}
-					} catch ($ClassCastException& cce) {
-					}
+		$var($Iterator, i$, $$nc(map->entrySet())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
+			try {
+				$EAttribute* ea = $EAttribute::forAttribute($$cast($AttributedCharacterIterator$Attribute, $nc(e)->getKey()));
+				if (ea != nullptr && (mask & ea->mask) != 0) {
+					set(ea, $(e->getValue()));
 				}
+			} catch ($ClassCastException& cce) {
 			}
 		}
 	}
@@ -676,19 +509,17 @@ AttributeValues* AttributeValues::merge(AttributeValues* src) {
 }
 
 AttributeValues* AttributeValues::merge(AttributeValues* src, int32_t mask) {
-	int32_t m = (int32_t)(mask & (uint32_t)$nc(src)->defined);
+	int32_t m = mask & $nc(src)->defined;
 	{
 		$init($EAttribute);
 		$var($EAttributeArray, arr$, $EAttribute::atts);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$EAttribute* ea = arr$->get(i$);
 			{
 				if (m == 0) {
 					break;
 				}
-				if (((int32_t)(m & (uint32_t)$nc(ea)->mask)) != 0) {
+				if ((m & $nc(ea)->mask) != 0) {
 					m &= (uint32_t)~ea->mask;
 					i_set(ea, src);
 					update(ea);
@@ -710,21 +541,17 @@ AttributeValues* AttributeValues::fromMap($Map* map, int32_t mask) {
 }
 
 $Map* AttributeValues::toMap($Map* fill$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, fill, fill$renamed);
 	if (fill == nullptr) {
 		$assign(fill, $new($HashMap));
 	}
-	{
-		int32_t m = this->defined;
-		int32_t i = 0;
-		for (; m != 0; ++i) {
-			$init($EAttribute);
-			$EAttribute* ea = $nc($EAttribute::atts)->get(i);
-			if (((int32_t)(m & (uint32_t)$nc(ea)->mask)) != 0) {
-				m &= (uint32_t)~ea->mask;
-				$nc(fill)->put(ea->att, $(get(ea)));
-			}
+	for (int32_t m = this->defined, i = 0; m != 0; ++i) {
+		$init($EAttribute);
+		$EAttribute* ea = $nc($EAttribute::atts)->get(i);
+		if ((m & $nc(ea)->mask) != 0) {
+			m &= (uint32_t)~ea->mask;
+			$nc(fill)->put(ea->att, $(get(ea)));
 		}
 	}
 	return fill;
@@ -737,26 +564,24 @@ bool AttributeValues::is16Hashtable($Hashtable* ht) {
 
 AttributeValues* AttributeValues::fromSerializableHashtable($Hashtable* ht) {
 	$init(AttributeValues);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(AttributeValues, result, $new(AttributeValues));
 	if (ht != nullptr && !ht->isEmpty()) {
-		{
-			$var($Iterator, i$, $nc($(ht->entrySet()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
-				{
-					$var($Object, key, $nc(e)->getKey());
-					$var($Object, val, e->getValue());
-					if ($nc($of(key))->equals(AttributeValues::DEFINED_KEY)) {
-						result->defineAll($nc(($cast($Integer, val)))->intValue());
-					} else {
-						try {
-							$EAttribute* ea = $EAttribute::forAttribute($cast($AttributedCharacterIterator$Attribute, key));
-							if (ea != nullptr) {
-								result->set(ea, val);
-							}
-						} catch ($ClassCastException& ex) {
+		$var($Iterator, i$, $$nc(ht->entrySet())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
+			{
+				$var($Object, key, $nc(e)->getKey());
+				$var($Object, val, e->getValue());
+				if ($nc(key)->equals(AttributeValues::DEFINED_KEY)) {
+					result->defineAll($nc($cast($Integer, val))->intValue());
+				} else {
+					try {
+						$EAttribute* ea = $EAttribute::forAttribute($cast($AttributedCharacterIterator$Attribute, key));
+						if (ea != nullptr) {
+							result->set(ea, val);
 						}
+					} catch ($ClassCastException& ex) {
 					}
 				}
 			}
@@ -766,24 +591,20 @@ AttributeValues* AttributeValues::fromSerializableHashtable($Hashtable* ht) {
 }
 
 $Hashtable* AttributeValues::toSerializableHashtable() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Hashtable, ht, $new($Hashtable));
 	int32_t hashkey = this->defined;
-	{
-		int32_t m = this->defined;
-		int32_t i = 0;
-		for (; m != 0; ++i) {
-			$init($EAttribute);
-			$EAttribute* ea = $nc($EAttribute::atts)->get(i);
-			if (((int32_t)(m & (uint32_t)$nc(ea)->mask)) != 0) {
-				m &= (uint32_t)~ea->mask;
-				$var($Object, o, get(ea));
-				if (o == nullptr) {
-				} else if ($instanceOf($Serializable, o)) {
-					ht->put(ea->att, o);
-				} else {
-					hashkey &= (uint32_t)~ea->mask;
-				}
+	for (int32_t m = this->defined, i = 0; m != 0; ++i) {
+		$init($EAttribute);
+		$EAttribute* ea = $nc($EAttribute::atts)->get(i);
+		if ((m & $nc(ea)->mask) != 0) {
+			m &= (uint32_t)~ea->mask;
+			$var($Object, o, get(ea));
+			if (o == nullptr) {
+			} else if ($instanceOf($Serializable, o)) {
+				ht->put(ea->att, o);
+			} else {
+				hashkey &= (uint32_t)~ea->mask;
 			}
 		}
 	}
@@ -804,7 +625,7 @@ bool AttributeValues::equals(Object$* rhs) {
 }
 
 bool AttributeValues::equals(AttributeValues* rhs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (rhs == nullptr) {
 		return false;
 	}
@@ -816,7 +637,7 @@ bool AttributeValues::equals(AttributeValues* rhs) {
 	bool var$5 = var$6 && equals(this->background, rhs->background);
 	bool var$4 = var$5 && equals(this->numericShaping, rhs->numericShaping);
 	if (var$4) {
-		$var($Object, var$8, $of($Float::valueOf(this->justification)));
+		$var($Object, var$8, $Float::valueOf(this->justification));
 		var$4 = equals(var$8, $($Float::valueOf(rhs->justification)));
 	}
 	bool var$3 = var$4;
@@ -841,149 +662,97 @@ AttributeValues* AttributeValues::clone() {
 }
 
 $String* AttributeValues::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, b, $new($StringBuilder));
 	b->append(u'{');
-	{
-		int32_t m = this->defined;
-		int32_t i = 0;
-		for (; m != 0; ++i) {
-			$init($EAttribute);
-			$EAttribute* ea = $nc($EAttribute::atts)->get(i);
-			if (((int32_t)(m & (uint32_t)$nc(ea)->mask)) != 0) {
-				m &= (uint32_t)~ea->mask;
-				if (b->length() > 1) {
-					b->append(", "_s);
-				}
-				b->append($of(ea));
-				b->append(u'=');
-				$init($AttributeValues$1);
-				switch ($nc($AttributeValues$1::$SwitchMap$sun$font$EAttribute)->get((ea)->ordinal())) {
-				case 1:
-					{
-						b->append(u'\"');
-						b->append(this->family);
-						b->append(u'\"');
-						break;
-					}
-				case 2:
-					{
-						b->append(this->weight);
-						break;
-					}
-				case 3:
-					{
-						b->append(this->width);
-						break;
-					}
-				case 4:
-					{
-						b->append(this->posture);
-						break;
-					}
-				case 5:
-					{
-						b->append(this->size);
-						break;
-					}
-				case 6:
-					{
-						b->append($of(this->transform));
-						break;
-					}
-				case 7:
-					{
-						b->append((int32_t)this->superscript);
-						break;
-					}
-				case 8:
-					{
-						b->append($of(this->font));
-						break;
-					}
-				case 9:
-					{
-						b->append($of(this->charReplacement));
-						break;
-					}
-				case 10:
-					{
-						b->append($of(this->foreground));
-						break;
-					}
-				case 11:
-					{
-						b->append($of(this->background));
-						break;
-					}
-				case 12:
-					{
-						b->append((int32_t)this->underline);
-						break;
-					}
-				case 13:
-					{
-						b->append(this->strikethrough);
-						break;
-					}
-				case 14:
-					{
-						b->append((int32_t)this->runDirection);
-						break;
-					}
-				case 15:
-					{
-						b->append((int32_t)this->bidiEmbedding);
-						break;
-					}
-				case 16:
-					{
-						b->append(this->justification);
-						break;
-					}
-				case 17:
-					{
-						b->append(this->imHighlight);
-						break;
-					}
-				case 18:
-					{
-						b->append((int32_t)this->imUnderline);
-						break;
-					}
-				case 19:
-					{
-						b->append(this->swapColors);
-						break;
-					}
-				case 20:
-					{
-						b->append($of(this->numericShaping));
-						break;
-					}
-				case 21:
-					{
-						b->append((int32_t)this->kerning);
-						break;
-					}
-				case 22:
-					{
-						b->append((int32_t)this->ligatures);
-						break;
-					}
-				case 23:
-					{
-						b->append(this->tracking);
-						break;
-					}
-				default:
-					{
-						$throwNew($InternalError);
-					}
-				}
-				if (((int32_t)(this->nondefault & (uint32_t)ea->mask)) == 0) {
-					b->append(u'*');
-				}
+	for (int32_t m = this->defined, i = 0; m != 0; ++i) {
+		$init($EAttribute);
+		$EAttribute* ea = $nc($EAttribute::atts)->get(i);
+		if ((m & $nc(ea)->mask) != 0) {
+			m &= (uint32_t)~ea->mask;
+			if (b->length() > 1) {
+				b->append(", "_s);
+			}
+			b->append(ea);
+			b->append(u'=');
+			$init($AttributeValues$1);
+			switch ($nc($AttributeValues$1::$SwitchMap$sun$font$EAttribute)->get((ea)->ordinal())) {
+			case 1:
+				b->append(u'\"');
+				b->append(this->family);
+				b->append(u'\"');
+				break;
+			case 2:
+				b->append(this->weight);
+				break;
+			case 3:
+				b->append(this->width);
+				break;
+			case 4:
+				b->append(this->posture);
+				break;
+			case 5:
+				b->append(this->size);
+				break;
+			case 6:
+				b->append(this->transform);
+				break;
+			case 7:
+				b->append((int32_t)this->superscript);
+				break;
+			case 8:
+				b->append(this->font);
+				break;
+			case 9:
+				b->append(this->charReplacement);
+				break;
+			case 10:
+				b->append(this->foreground);
+				break;
+			case 11:
+				b->append(this->background);
+				break;
+			case 12:
+				b->append((int32_t)this->underline);
+				break;
+			case 13:
+				b->append(this->strikethrough);
+				break;
+			case 14:
+				b->append((int32_t)this->runDirection);
+				break;
+			case 15:
+				b->append((int32_t)this->bidiEmbedding);
+				break;
+			case 16:
+				b->append(this->justification);
+				break;
+			case 17:
+				b->append(this->imHighlight);
+				break;
+			case 18:
+				b->append((int32_t)this->imUnderline);
+				break;
+			case 19:
+				b->append(this->swapColors);
+				break;
+			case 20:
+				b->append(this->numericShaping);
+				break;
+			case 21:
+				b->append((int32_t)this->kerning);
+				break;
+			case 22:
+				b->append((int32_t)this->ligatures);
+				break;
+			case 23:
+				b->append(this->tracking);
+				break;
+			default:
+				$throwNew($InternalError);
+			}
+			if ((this->nondefault & ea->mask) == 0) {
+				b->append(u'*');
 			}
 		}
 	}
@@ -994,7 +763,7 @@ $String* AttributeValues::toString() {
 
 bool AttributeValues::equals(Object$* lhs, Object$* rhs) {
 	$init(AttributeValues);
-	return lhs == nullptr ? rhs == nullptr : $nc($of(lhs))->equals(rhs);
+	return lhs == nullptr ? rhs == nullptr : $of(lhs)->equals(rhs);
 }
 
 void AttributeValues::update($EAttribute* a) {
@@ -1014,125 +783,77 @@ void AttributeValues::i_set($EAttribute* a, AttributeValues* src) {
 	$init($AttributeValues$1);
 	switch ($nc($AttributeValues$1::$SwitchMap$sun$font$EAttribute)->get($nc((a))->ordinal())) {
 	case 1:
-		{
-			$set(this, family, $nc(src)->family);
-			break;
-		}
+		$set(this, family, $nc(src)->family);
+		break;
 	case 2:
-		{
-			this->weight = $nc(src)->weight;
-			break;
-		}
+		this->weight = $nc(src)->weight;
+		break;
 	case 3:
-		{
-			this->width = $nc(src)->width;
-			break;
-		}
+		this->width = $nc(src)->width;
+		break;
 	case 4:
-		{
-			this->posture = $nc(src)->posture;
-			break;
-		}
+		this->posture = $nc(src)->posture;
+		break;
 	case 5:
-		{
-			this->size = $nc(src)->size;
-			break;
-		}
+		this->size = $nc(src)->size;
+		break;
 	case 6:
-		{
-			$set(this, transform, $nc(src)->transform);
-			updateDerivedTransforms();
-			break;
-		}
+		$set(this, transform, $nc(src)->transform);
+		updateDerivedTransforms();
+		break;
 	case 7:
-		{
-			this->superscript = $nc(src)->superscript;
-			break;
-		}
+		this->superscript = $nc(src)->superscript;
+		break;
 	case 8:
-		{
-			$set(this, font, $nc(src)->font);
-			break;
-		}
+		$set(this, font, $nc(src)->font);
+		break;
 	case 9:
-		{
-			$set(this, charReplacement, $nc(src)->charReplacement);
-			break;
-		}
+		$set(this, charReplacement, $nc(src)->charReplacement);
+		break;
 	case 10:
-		{
-			$set(this, foreground, $nc(src)->foreground);
-			break;
-		}
+		$set(this, foreground, $nc(src)->foreground);
+		break;
 	case 11:
-		{
-			$set(this, background, $nc(src)->background);
-			break;
-		}
+		$set(this, background, $nc(src)->background);
+		break;
 	case 12:
-		{
-			this->underline = $nc(src)->underline;
-			break;
-		}
+		this->underline = $nc(src)->underline;
+		break;
 	case 13:
-		{
-			this->strikethrough = $nc(src)->strikethrough;
-			break;
-		}
+		this->strikethrough = $nc(src)->strikethrough;
+		break;
 	case 14:
-		{
-			this->runDirection = $nc(src)->runDirection;
-			break;
-		}
+		this->runDirection = $nc(src)->runDirection;
+		break;
 	case 15:
-		{
-			this->bidiEmbedding = $nc(src)->bidiEmbedding;
-			break;
-		}
+		this->bidiEmbedding = $nc(src)->bidiEmbedding;
+		break;
 	case 16:
-		{
-			this->justification = $nc(src)->justification;
-			break;
-		}
+		this->justification = $nc(src)->justification;
+		break;
 	case 17:
-		{
-			$set(this, imHighlight, $nc(src)->imHighlight);
-			break;
-		}
+		$set(this, imHighlight, $nc(src)->imHighlight);
+		break;
 	case 18:
-		{
-			this->imUnderline = $nc(src)->imUnderline;
-			break;
-		}
+		this->imUnderline = $nc(src)->imUnderline;
+		break;
 	case 19:
-		{
-			this->swapColors = $nc(src)->swapColors;
-			break;
-		}
+		this->swapColors = $nc(src)->swapColors;
+		break;
 	case 20:
-		{
-			$set(this, numericShaping, $nc(src)->numericShaping);
-			break;
-		}
+		$set(this, numericShaping, $nc(src)->numericShaping);
+		break;
 	case 21:
-		{
-			this->kerning = $nc(src)->kerning;
-			break;
-		}
+		this->kerning = $nc(src)->kerning;
+		break;
 	case 22:
-		{
-			this->ligatures = $nc(src)->ligatures;
-			break;
-		}
+		this->ligatures = $nc(src)->ligatures;
+		break;
 	case 23:
-		{
-			this->tracking = $nc(src)->tracking;
-			break;
-		}
+		this->tracking = $nc(src)->tracking;
+		break;
 	default:
-		{
-			$throwNew($InternalError);
-		}
+		$throwNew($InternalError);
 	}
 }
 
@@ -1140,253 +861,157 @@ bool AttributeValues::i_equals($EAttribute* a, AttributeValues* src) {
 	$init($AttributeValues$1);
 	switch ($nc($AttributeValues$1::$SwitchMap$sun$font$EAttribute)->get($nc((a))->ordinal())) {
 	case 1:
-		{
-			return equals(this->family, $nc(src)->family);
-		}
+		return equals(this->family, $nc(src)->family);
 	case 2:
-		{
-			return this->weight == $nc(src)->weight;
-		}
+		return this->weight == $nc(src)->weight;
 	case 3:
-		{
-			return this->width == $nc(src)->width;
-		}
+		return this->width == $nc(src)->width;
 	case 4:
-		{
-			return this->posture == $nc(src)->posture;
-		}
+		return this->posture == $nc(src)->posture;
 	case 5:
-		{
-			return this->size == $nc(src)->size;
-		}
+		return this->size == $nc(src)->size;
 	case 6:
-		{
-			return equals(this->transform, $nc(src)->transform);
-		}
+		return equals(this->transform, $nc(src)->transform);
 	case 7:
-		{
-			return this->superscript == $nc(src)->superscript;
-		}
+		return this->superscript == $nc(src)->superscript;
 	case 8:
-		{
-			return equals(this->font, $nc(src)->font);
-		}
+		return equals(this->font, $nc(src)->font);
 	case 9:
-		{
-			return equals(this->charReplacement, $nc(src)->charReplacement);
-		}
+		return equals(this->charReplacement, $nc(src)->charReplacement);
 	case 10:
-		{
-			return equals(this->foreground, $nc(src)->foreground);
-		}
+		return equals(this->foreground, $nc(src)->foreground);
 	case 11:
-		{
-			return equals(this->background, $nc(src)->background);
-		}
+		return equals(this->background, $nc(src)->background);
 	case 12:
-		{
-			return this->underline == $nc(src)->underline;
-		}
+		return this->underline == $nc(src)->underline;
 	case 13:
-		{
-			return this->strikethrough == $nc(src)->strikethrough;
-		}
+		return this->strikethrough == $nc(src)->strikethrough;
 	case 14:
-		{
-			return this->runDirection == $nc(src)->runDirection;
-		}
+		return this->runDirection == $nc(src)->runDirection;
 	case 15:
-		{
-			return this->bidiEmbedding == $nc(src)->bidiEmbedding;
-		}
+		return this->bidiEmbedding == $nc(src)->bidiEmbedding;
 	case 16:
-		{
-			return this->justification == $nc(src)->justification;
-		}
+		return this->justification == $nc(src)->justification;
 	case 17:
-		{
-			return equals(this->imHighlight, $nc(src)->imHighlight);
-		}
+		return equals(this->imHighlight, $nc(src)->imHighlight);
 	case 18:
-		{
-			return this->imUnderline == $nc(src)->imUnderline;
-		}
+		return this->imUnderline == $nc(src)->imUnderline;
 	case 19:
-		{
-			return this->swapColors == $nc(src)->swapColors;
-		}
+		return this->swapColors == $nc(src)->swapColors;
 	case 20:
-		{
-			return equals(this->numericShaping, $nc(src)->numericShaping);
-		}
+		return equals(this->numericShaping, $nc(src)->numericShaping);
 	case 21:
-		{
-			return this->kerning == $nc(src)->kerning;
-		}
+		return this->kerning == $nc(src)->kerning;
 	case 22:
-		{
-			return this->ligatures == $nc(src)->ligatures;
-		}
+		return this->ligatures == $nc(src)->ligatures;
 	case 23:
-		{
-			return this->tracking == $nc(src)->tracking;
-		}
+		return this->tracking == $nc(src)->tracking;
 	default:
-		{
-			$throwNew($InternalError);
-		}
+		$throwNew($InternalError);
 	}
 }
 
 void AttributeValues::i_set($EAttribute* a, Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($AttributeValues$1);
 	switch ($nc($AttributeValues$1::$SwitchMap$sun$font$EAttribute)->get($nc((a))->ordinal())) {
 	case 1:
-		{
-			$set(this, family, $nc(($cast($String, o)))->trim());
-			break;
-		}
+		$set(this, family, $nc($cast($String, o))->trim());
+		break;
 	case 2:
-		{
-			this->weight = $nc(($cast($Number, o)))->floatValue();
-			break;
-		}
+		this->weight = $nc($cast($Number, o))->floatValue();
+		break;
 	case 3:
-		{
-			this->width = $nc(($cast($Number, o)))->floatValue();
-			break;
-		}
+		this->width = $nc($cast($Number, o))->floatValue();
+		break;
 	case 4:
-		{
-			this->posture = $nc(($cast($Number, o)))->floatValue();
-			break;
-		}
+		this->posture = $nc($cast($Number, o))->floatValue();
+		break;
 	case 5:
-		{
-			this->size = $nc(($cast($Number, o)))->floatValue();
-			break;
-		}
+		this->size = $nc($cast($Number, o))->floatValue();
+		break;
 	case 6:
 		{
-			{
-				if ($instanceOf($TransformAttribute, o)) {
-					$var($TransformAttribute, ta, $cast($TransformAttribute, o));
-					if ($nc(ta)->isIdentity()) {
-						$set(this, transform, nullptr);
-					} else {
-						$set(this, transform, ta->getTransform());
-					}
+			if ($instanceOf($TransformAttribute, o)) {
+				$var($TransformAttribute, ta, $cast($TransformAttribute, o));
+				if (ta->isIdentity()) {
+					$set(this, transform, nullptr);
 				} else {
-					$set(this, transform, $new($AffineTransform, $cast($AffineTransform, o)));
+					$set(this, transform, ta->getTransform());
 				}
-				updateDerivedTransforms();
+			} else {
+				$set(this, transform, $new($AffineTransform, $cast($AffineTransform, o)));
 			}
-			break;
+			updateDerivedTransforms();
 		}
+		break;
 	case 7:
-		{
-			this->superscript = (int8_t)$nc(($cast($Integer, o)))->intValue();
-			break;
-		}
+		this->superscript = (int8_t)$nc($cast($Integer, o))->intValue();
+		break;
 	case 8:
-		{
-			$set(this, font, $cast($Font, o));
-			break;
-		}
+		$set(this, font, $cast($Font, o));
+		break;
 	case 9:
-		{
-			$set(this, charReplacement, $cast($GraphicAttribute, o));
-			break;
-		}
+		$set(this, charReplacement, $cast($GraphicAttribute, o));
+		break;
 	case 10:
-		{
-			$set(this, foreground, $cast($Paint, o));
-			break;
-		}
+		$set(this, foreground, $cast($Paint, o));
+		break;
 	case 11:
-		{
-			$set(this, background, $cast($Paint, o));
-			break;
-		}
+		$set(this, background, $cast($Paint, o));
+		break;
 	case 12:
-		{
-			this->underline = (int8_t)$nc(($cast($Integer, o)))->intValue();
-			break;
-		}
+		this->underline = (int8_t)$nc($cast($Integer, o))->intValue();
+		break;
 	case 13:
-		{
-			this->strikethrough = $nc(($cast($Boolean, o)))->booleanValue();
-			break;
-		}
+		this->strikethrough = $nc($cast($Boolean, o))->booleanValue();
+		break;
 	case 14:
 		{
-			{
-				if ($instanceOf($Boolean, o)) {
-					$init($TextAttribute);
-					this->runDirection = (int8_t)($nc($TextAttribute::RUN_DIRECTION_LTR)->equals(o) ? 0 : 1);
-				} else {
-					this->runDirection = (int8_t)$nc(($cast($Integer, o)))->intValue();
-				}
+			if ($instanceOf($Boolean, o)) {
+				$init($TextAttribute);
+				this->runDirection = (int8_t)($nc($TextAttribute::RUN_DIRECTION_LTR)->equals(o) ? 0 : 1);
+			} else {
+				this->runDirection = (int8_t)$nc($cast($Integer, o))->intValue();
 			}
-			break;
 		}
+		break;
 	case 15:
-		{
-			this->bidiEmbedding = (int8_t)$nc(($cast($Integer, o)))->intValue();
-			break;
-		}
+		this->bidiEmbedding = (int8_t)$nc($cast($Integer, o))->intValue();
+		break;
 	case 16:
-		{
-			this->justification = $nc(($cast($Number, o)))->floatValue();
-			break;
-		}
+		this->justification = $nc($cast($Number, o))->floatValue();
+		break;
 	case 17:
 		{
-			{
-				if ($instanceOf($Annotation, o)) {
-					$var($Annotation, at, $cast($Annotation, o));
-					$set(this, imHighlight, $cast($InputMethodHighlight, $nc(at)->getValue()));
-				} else {
-					$set(this, imHighlight, $cast($InputMethodHighlight, o));
-				}
+			if ($instanceOf($Annotation, o)) {
+				$var($Annotation, at, $cast($Annotation, o));
+				$set(this, imHighlight, $cast($InputMethodHighlight, at->getValue()));
+			} else {
+				$set(this, imHighlight, $cast($InputMethodHighlight, o));
 			}
-			break;
 		}
+		break;
 	case 18:
-		{
-			this->imUnderline = (int8_t)$nc(($cast($Integer, o)))->intValue();
-			break;
-		}
+		this->imUnderline = (int8_t)$nc($cast($Integer, o))->intValue();
+		break;
 	case 19:
-		{
-			this->swapColors = $nc(($cast($Boolean, o)))->booleanValue();
-			break;
-		}
+		this->swapColors = $nc($cast($Boolean, o))->booleanValue();
+		break;
 	case 20:
-		{
-			$set(this, numericShaping, $cast($NumericShaper, o));
-			break;
-		}
+		$set(this, numericShaping, $cast($NumericShaper, o));
+		break;
 	case 21:
-		{
-			this->kerning = (int8_t)$nc(($cast($Integer, o)))->intValue();
-			break;
-		}
+		this->kerning = (int8_t)$nc($cast($Integer, o))->intValue();
+		break;
 	case 22:
-		{
-			this->ligatures = (int8_t)$nc(($cast($Integer, o)))->intValue();
-			break;
-		}
+		this->ligatures = (int8_t)$nc($cast($Integer, o))->intValue();
+		break;
 	case 23:
-		{
-			this->tracking = $nc(($cast($Number, o)))->floatValue();
-			break;
-		}
+		this->tracking = $nc($cast($Number, o))->floatValue();
+		break;
 	default:
-		{
-			$throwNew($InternalError);
-		}
+		$throwNew($InternalError);
 	}
 }
 
@@ -1394,119 +1019,65 @@ $Object* AttributeValues::i_get($EAttribute* a) {
 	$init($AttributeValues$1);
 	switch ($nc($AttributeValues$1::$SwitchMap$sun$font$EAttribute)->get($nc((a))->ordinal())) {
 	case 1:
-		{
-			return $of(this->family);
-		}
+		return $of(this->family);
 	case 2:
-		{
-			return $of($Float::valueOf(this->weight));
-		}
+		return $of($Float::valueOf(this->weight));
 	case 3:
-		{
-			return $of($Float::valueOf(this->width));
-		}
+		return $of($Float::valueOf(this->width));
 	case 4:
-		{
-			return $of($Float::valueOf(this->posture));
-		}
+		return $of($Float::valueOf(this->posture));
 	case 5:
-		{
-			return $of($Float::valueOf(this->size));
-		}
+		return $of($Float::valueOf(this->size));
 	case 6:
-		{
-			$init($TransformAttribute);
-			return $of(this->transform == nullptr ? $of($TransformAttribute::IDENTITY) : $of($new($TransformAttribute, this->transform)));
-		}
+		$init($TransformAttribute);
+		return this->transform == nullptr ? $TransformAttribute::IDENTITY : $new($TransformAttribute, this->transform);
 	case 7:
-		{
-			return $of($Integer::valueOf((int32_t)this->superscript));
-		}
+		return $of($Integer::valueOf(this->superscript));
 	case 8:
-		{
-			return $of(this->font);
-		}
+		return this->font;
 	case 9:
-		{
-			return $of(this->charReplacement);
-		}
+		return this->charReplacement;
 	case 10:
-		{
-			return $of(this->foreground);
-		}
+		return this->foreground;
 	case 11:
-		{
-			return $of(this->background);
-		}
+		return this->background;
 	case 12:
-		{
-			return $of($Integer::valueOf((int32_t)this->underline));
-		}
+		return $of($Integer::valueOf(this->underline));
 	case 13:
-		{
-			return $of($Boolean::valueOf(this->strikethrough));
-		}
+		return $of($Boolean::valueOf(this->strikethrough));
 	case 14:
 		{
-			{
-				switch (this->runDirection) {
-				case 0:
-					{
-						$init($TextAttribute);
-						return $of($TextAttribute::RUN_DIRECTION_LTR);
-					}
-				case 1:
-					{
-						$init($TextAttribute);
-						return $of($TextAttribute::RUN_DIRECTION_RTL);
-					}
-				default:
-					{
-						return $of(nullptr);
-					}
-				}
+			switch (this->runDirection) {
+			case 0:
+				$init($TextAttribute);
+				return $of($TextAttribute::RUN_DIRECTION_LTR);
+			case 1:
+				$init($TextAttribute);
+				return $of($TextAttribute::RUN_DIRECTION_RTL);
+			default:
+				return nullptr;
 			}
 		}
 	case 15:
-		{
-			return $of($Integer::valueOf((int32_t)this->bidiEmbedding));
-		}
+		return $of($Integer::valueOf(this->bidiEmbedding));
 	case 16:
-		{
-			return $of($Float::valueOf(this->justification));
-		}
+		return $of($Float::valueOf(this->justification));
 	case 17:
-		{
-			return $of(this->imHighlight);
-		}
+		return this->imHighlight;
 	case 18:
-		{
-			return $of($Integer::valueOf((int32_t)this->imUnderline));
-		}
+		return $of($Integer::valueOf(this->imUnderline));
 	case 19:
-		{
-			return $of($Boolean::valueOf(this->swapColors));
-		}
+		return $of($Boolean::valueOf(this->swapColors));
 	case 20:
-		{
-			return $of(this->numericShaping);
-		}
+		return this->numericShaping;
 	case 21:
-		{
-			return $of($Integer::valueOf((int32_t)this->kerning));
-		}
+		return $of($Integer::valueOf(this->kerning));
 	case 22:
-		{
-			return $of($Integer::valueOf((int32_t)this->ligatures));
-		}
+		return $of($Integer::valueOf(this->ligatures));
 	case 23:
-		{
-			return $of($Float::valueOf(this->tracking));
-		}
+		return $of($Float::valueOf(this->tracking));
 	default:
-		{
-			$throwNew($InternalError);
-		}
+		$throwNew($InternalError);
 	}
 }
 
@@ -1514,133 +1085,85 @@ bool AttributeValues::i_validate($EAttribute* a) {
 	$init($AttributeValues$1);
 	switch ($nc($AttributeValues$1::$SwitchMap$sun$font$EAttribute)->get($nc((a))->ordinal())) {
 	case 1:
-		{
-			if (this->family == nullptr || $nc(this->family)->length() == 0) {
-				$set(this, family, $nc(AttributeValues::DEFAULT)->family);
-			}
-			return true;
+		if (this->family == nullptr || this->family->length() == 0) {
+			$set(this, family, AttributeValues::DEFAULT->family);
 		}
+		return true;
 	case 2:
-		{
-			return this->weight > 0 && this->weight < 10;
-		}
+		return this->weight > 0 && this->weight < 10;
 	case 3:
-		{
-			return this->width >= 0.5f && this->width < 10;
-		}
+		return this->width >= 0.5f && this->width < 10;
 	case 4:
-		{
-			return this->posture >= -1 && this->posture <= 1;
-		}
+		return this->posture >= -1 && this->posture <= 1;
 	case 5:
-		{
-			return this->size >= 0;
-		}
+		return this->size >= 0;
 	case 6:
-		{
-			if (this->transform != nullptr && $nc(this->transform)->isIdentity()) {
-				$set(this, transform, $nc(AttributeValues::DEFAULT)->transform);
-			}
-			return true;
+		if (this->transform != nullptr && this->transform->isIdentity()) {
+			$set(this, transform, AttributeValues::DEFAULT->transform);
 		}
+		return true;
 	case 7:
-		{
-			return this->superscript >= -7 && this->superscript <= 7;
-		}
+		return this->superscript >= -7 && this->superscript <= 7;
 	case 8:
-		{
-			return true;
-		}
+		return true;
 	case 9:
-		{
-			return true;
-		}
+		return true;
 	case 10:
-		{
-			return true;
-		}
+		return true;
 	case 11:
-		{
-			return true;
-		}
+		return true;
 	case 12:
-		{
-			return this->underline >= -1 && this->underline < 6;
-		}
+		return this->underline >= -1 && this->underline < 6;
 	case 13:
-		{
-			return true;
-		}
+		return true;
 	case 14:
-		{
-			return this->runDirection >= -2 && this->runDirection <= 1;
-		}
+		return this->runDirection >= -2 && this->runDirection <= 1;
 	case 15:
-		{
-			return this->bidiEmbedding >= -61 && this->bidiEmbedding < 62;
-		}
+		return this->bidiEmbedding >= -61 && this->bidiEmbedding < 62;
 	case 16:
-		{
-			this->justification = $Math::max((float)0, $Math::min(this->justification, (float)1));
-			return true;
-		}
+		this->justification = $Math::max((float)0, $Math::min(this->justification, (float)1));
+		return true;
 	case 17:
-		{
-			return true;
-		}
+		return true;
 	case 18:
-		{
-			return this->imUnderline >= -1 && this->imUnderline < 6;
-		}
+		return this->imUnderline >= -1 && this->imUnderline < 6;
 	case 19:
-		{
-			return true;
-		}
+		return true;
 	case 20:
-		{
-			return true;
-		}
+		return true;
 	case 21:
-		{
-			return this->kerning >= 0 && this->kerning <= 1;
-		}
+		return this->kerning >= 0 && this->kerning <= 1;
 	case 22:
-		{
-			return this->ligatures >= 0 && this->ligatures <= 1;
-		}
+		return this->ligatures >= 0 && this->ligatures <= 1;
 	case 23:
-		{
-			return this->tracking >= -1 && this->tracking <= 10;
-		}
+		return this->tracking >= -1 && this->tracking <= 10;
 	default:
-		{
-			$throwNew($InternalError, $$str({"unknown attribute: "_s, a}));
-		}
+		$throwNew($InternalError, $$str({"unknown attribute: "_s, a}));
 	}
 }
 
 float AttributeValues::getJustification($Map* map) {
 	$init(AttributeValues);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (map != nullptr) {
-		if ($instanceOf($AttributeMap, map) && $nc(($cast($AttributeMap, map)))->getValues() != nullptr) {
-			return $nc($(($cast($AttributeMap, map))->getValues()))->justification;
+		if ($instanceOf($AttributeMap, map) && $cast($AttributeMap, map)->getValues() != nullptr) {
+			return $nc($($cast($AttributeMap, map)->getValues()))->justification;
 		}
 		$init($TextAttribute);
 		$var($Object, obj, map->get($TextAttribute::JUSTIFICATION));
 		if (obj != nullptr && $instanceOf($Number, obj)) {
-			return $Math::max((float)0, $Math::min((float)1, $nc(($cast($Number, obj)))->floatValue()));
+			return $Math::max((float)0, $Math::min((float)1, $cast($Number, obj)->floatValue()));
 		}
 	}
-	return $nc(AttributeValues::DEFAULT)->justification;
+	return AttributeValues::DEFAULT->justification;
 }
 
 $NumericShaper* AttributeValues::getNumericShaping($Map* map) {
 	$init(AttributeValues);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (map != nullptr) {
-		if ($instanceOf($AttributeMap, map) && $nc(($cast($AttributeMap, map)))->getValues() != nullptr) {
-			return $nc($(($cast($AttributeMap, map))->getValues()))->numericShaping;
+		if ($instanceOf($AttributeMap, map) && $cast($AttributeMap, map)->getValues() != nullptr) {
+			return $nc($($cast($AttributeMap, map)->getValues()))->numericShaping;
 		}
 		$init($TextAttribute);
 		$var($Object, obj, map->get($TextAttribute::NUMERIC_SHAPING));
@@ -1648,17 +1171,17 @@ $NumericShaper* AttributeValues::getNumericShaping($Map* map) {
 			return $cast($NumericShaper, obj);
 		}
 	}
-	return $nc(AttributeValues::DEFAULT)->numericShaping;
+	return AttributeValues::DEFAULT->numericShaping;
 }
 
 AttributeValues* AttributeValues::applyIMHighlight() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->imHighlight != nullptr) {
 		$var($InputMethodHighlight, hl, nullptr);
 		if ($instanceOf($InputMethodHighlight, this->imHighlight)) {
 			$assign(hl, $cast($InputMethodHighlight, this->imHighlight));
 		} else {
-			$assign(hl, $cast($InputMethodHighlight, $nc(($cast($Annotation, this->imHighlight)))->getValue()));
+			$assign(hl, $cast($InputMethodHighlight, $cast($Annotation, this->imHighlight)->getValue()));
 		}
 		$var($Map, imStyles, $nc(hl)->getStyle());
 		if (imStyles == nullptr) {
@@ -1666,7 +1189,7 @@ AttributeValues* AttributeValues::applyIMHighlight() {
 			$assign(imStyles, $nc(tk)->mapInputMethodHighlight(hl));
 		}
 		if (imStyles != nullptr) {
-			return $nc($(clone()))->merge(imStyles);
+			return $$nc(clone())->merge(imStyles);
 		}
 	}
 	return this;
@@ -1676,8 +1199,8 @@ $AffineTransform* AttributeValues::getBaselineTransform($Map* map) {
 	$init(AttributeValues);
 	if (map != nullptr) {
 		$var(AttributeValues, av, nullptr);
-		if ($instanceOf($AttributeMap, map) && $nc(($cast($AttributeMap, map)))->getValues() != nullptr) {
-			$assign(av, ($cast($AttributeMap, map))->getValues());
+		if ($instanceOf($AttributeMap, map) && $cast($AttributeMap, map)->getValues() != nullptr) {
+			$assign(av, $cast($AttributeMap, map)->getValues());
 		} else {
 			$init($TextAttribute);
 			if (map->get($TextAttribute::TRANSFORM) != nullptr) {
@@ -1695,8 +1218,8 @@ $AffineTransform* AttributeValues::getCharTransform($Map* map) {
 	$init(AttributeValues);
 	if (map != nullptr) {
 		$var(AttributeValues, av, nullptr);
-		if ($instanceOf($AttributeMap, map) && $nc(($cast($AttributeMap, map)))->getValues() != nullptr) {
-			$assign(av, ($cast($AttributeMap, map))->getValues());
+		if ($instanceOf($AttributeMap, map) && $cast($AttributeMap, map)->getValues() != nullptr) {
+			$assign(av, $cast($AttributeMap, map)->getValues());
 		} else {
 			$init($TextAttribute);
 			if (map->get($TextAttribute::TRANSFORM) != nullptr) {
@@ -1735,19 +1258,19 @@ void AttributeValues::updateDerivedTransforms() {
 
 $AffineTransform* AttributeValues::extractXRotation($AffineTransform* tx, bool andTranslation) {
 	$init(AttributeValues);
-	return extractRotation($$new($Point2D$Double, (double)1, (double)0), tx, andTranslation);
+	return extractRotation($$new($Point2D$Double, 1, 0), tx, andTranslation);
 }
 
 $AffineTransform* AttributeValues::extractYRotation($AffineTransform* tx, bool andTranslation) {
 	$init(AttributeValues);
-	return extractRotation($$new($Point2D$Double, (double)0, (double)1), tx, andTranslation);
+	return extractRotation($$new($Point2D$Double, 0, 1), tx, andTranslation);
 }
 
 $AffineTransform* AttributeValues::extractRotation($Point2D$Double* pt, $AffineTransform* tx, bool andTranslation) {
 	$init(AttributeValues);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(tx)->deltaTransform(pt, pt);
-	$var($AffineTransform, rtx, $AffineTransform::getRotateInstance($nc(pt)->x, pt->y));
+	$var($AffineTransform, rtx, $AffineTransform::getRotateInstance($nc(pt)->x, $nc(pt)->y));
 	try {
 		$var($AffineTransform, rtxi, $nc(rtx)->createInverse());
 		double dx = tx->getTranslateX();
@@ -1758,7 +1281,7 @@ $AffineTransform* AttributeValues::extractRotation($Point2D$Double* pt, $AffineT
 				double var$0 = tx->getScaleX();
 				double var$1 = tx->getShearY();
 				double var$2 = tx->getShearX();
-				tx->setTransform(var$0, var$1, var$2, tx->getScaleY(), (double)0, (double)0);
+				tx->setTransform(var$0, var$1, var$2, tx->getScaleY(), 0, 0);
 				double var$3 = rtx->getScaleX();
 				double var$4 = rtx->getShearY();
 				double var$5 = rtx->getShearX();
@@ -1771,18 +1294,170 @@ $AffineTransform* AttributeValues::extractRotation($Point2D$Double* pt, $AffineT
 	return rtx;
 }
 
-void clinit$AttributeValues($Class* class$) {
+void AttributeValues::clinit$($Class* clazz) {
 	$assignStatic(AttributeValues::DEFINED_KEY, "sun.font.attributevalues.defined_key"_s);
 	$assignStatic(AttributeValues::DEFAULT, $new(AttributeValues));
 	$load($EAttribute);
-	AttributeValues::MASK_ALL = AttributeValues::getMask($fcast($EAttributeArray, $($EAttribute::class$->getEnumConstants())));
+	AttributeValues::MASK_ALL = AttributeValues::getMask($$cast($EAttributeArray, $EAttribute::class$->getEnumConstants()));
 }
 
 AttributeValues::AttributeValues() {
 }
 
 $Class* AttributeValues::load$($String* name, bool initialize) {
-	$loadClass(AttributeValues, name, initialize, &_AttributeValues_ClassInfo_, clinit$AttributeValues, allocate$AttributeValues);
+	$FieldInfo fieldInfos$$[] = {
+		{"defined", "I", nullptr, $PRIVATE, $field(AttributeValues, defined)},
+		{"nondefault", "I", nullptr, $PRIVATE, $field(AttributeValues, nondefault)},
+		{"family", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AttributeValues, family)},
+		{"weight", "F", nullptr, $PRIVATE, $field(AttributeValues, weight)},
+		{"width", "F", nullptr, $PRIVATE, $field(AttributeValues, width)},
+		{"posture", "F", nullptr, $PRIVATE, $field(AttributeValues, posture)},
+		{"size", "F", nullptr, $PRIVATE, $field(AttributeValues, size)},
+		{"tracking", "F", nullptr, $PRIVATE, $field(AttributeValues, tracking)},
+		{"numericShaping", "Ljava/awt/font/NumericShaper;", nullptr, $PRIVATE, $field(AttributeValues, numericShaping)},
+		{"transform", "Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE, $field(AttributeValues, transform)},
+		{"charReplacement", "Ljava/awt/font/GraphicAttribute;", nullptr, $PRIVATE, $field(AttributeValues, charReplacement)},
+		{"foreground", "Ljava/awt/Paint;", nullptr, $PRIVATE, $field(AttributeValues, foreground)},
+		{"background", "Ljava/awt/Paint;", nullptr, $PRIVATE, $field(AttributeValues, background)},
+		{"justification", "F", nullptr, $PRIVATE, $field(AttributeValues, justification)},
+		{"imHighlight", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(AttributeValues, imHighlight)},
+		{"font", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(AttributeValues, font)},
+		{"imUnderline", "B", nullptr, $PRIVATE, $field(AttributeValues, imUnderline)},
+		{"superscript", "B", nullptr, $PRIVATE, $field(AttributeValues, superscript)},
+		{"underline", "B", nullptr, $PRIVATE, $field(AttributeValues, underline)},
+		{"runDirection", "B", nullptr, $PRIVATE, $field(AttributeValues, runDirection)},
+		{"bidiEmbedding", "B", nullptr, $PRIVATE, $field(AttributeValues, bidiEmbedding)},
+		{"kerning", "B", nullptr, $PRIVATE, $field(AttributeValues, kerning)},
+		{"ligatures", "B", nullptr, $PRIVATE, $field(AttributeValues, ligatures)},
+		{"strikethrough", "Z", nullptr, $PRIVATE, $field(AttributeValues, strikethrough)},
+		{"swapColors", "Z", nullptr, $PRIVATE, $field(AttributeValues, swapColors)},
+		{"baselineTransform", "Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE, $field(AttributeValues, baselineTransform)},
+		{"charTransform", "Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE, $field(AttributeValues, charTransform)},
+		{"DEFAULT", "Lsun/font/AttributeValues;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AttributeValues, DEFAULT)},
+		{"MASK_ALL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AttributeValues, MASK_ALL)},
+		{"DEFINED_KEY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AttributeValues, DEFINED_KEY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AttributeValues, init$, void)},
+		{"allDefined", "(I)Z", nullptr, $PUBLIC, $method(AttributeValues, allDefined, bool, int32_t)},
+		{"anyDefined", "(I)Z", nullptr, $PUBLIC, $method(AttributeValues, anyDefined, bool, int32_t)},
+		{"anyNonDefault", "(I)Z", nullptr, $PUBLIC, $method(AttributeValues, anyNonDefault, bool, int32_t)},
+		{"applyIMHighlight", "()Lsun/font/AttributeValues;", nullptr, $PUBLIC, $method(AttributeValues, applyIMHighlight, AttributeValues*)},
+		{"clone", "()Lsun/font/AttributeValues;", nullptr, $PUBLIC, $virtualMethod(AttributeValues, clone, AttributeValues*)},
+		{"defineAll", "(I)V", nullptr, $PUBLIC, $method(AttributeValues, defineAll, void, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AttributeValues, equals, bool, Object$*)},
+		{"equals", "(Lsun/font/AttributeValues;)Z", nullptr, $PUBLIC, $method(AttributeValues, equals, bool, AttributeValues*)},
+		{"equals", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AttributeValues, equals, bool, Object$*, Object$*)},
+		{"extractRotation", "(Ljava/awt/geom/Point2D$Double;Ljava/awt/geom/AffineTransform;Z)Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE | $STATIC, $staticMethod(AttributeValues, extractRotation, $AffineTransform*, $Point2D$Double*, $AffineTransform*, bool)},
+		{"extractXRotation", "(Ljava/awt/geom/AffineTransform;Z)Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeValues, extractXRotation, $AffineTransform*, $AffineTransform*, bool)},
+		{"extractYRotation", "(Ljava/awt/geom/AffineTransform;Z)Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeValues, extractYRotation, $AffineTransform*, $AffineTransform*, bool)},
+		{"fromMap", "(Ljava/util/Map;)Lsun/font/AttributeValues;", "(Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;)Lsun/font/AttributeValues;", $PUBLIC | $STATIC, $staticMethod(AttributeValues, fromMap, AttributeValues*, $Map*)},
+		{"fromMap", "(Ljava/util/Map;I)Lsun/font/AttributeValues;", "(Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;I)Lsun/font/AttributeValues;", $PUBLIC | $STATIC, $staticMethod(AttributeValues, fromMap, AttributeValues*, $Map*, int32_t)},
+		{"fromSerializableHashtable", "(Ljava/util/Hashtable;)Lsun/font/AttributeValues;", "(Ljava/util/Hashtable<Ljava/lang/Object;Ljava/lang/Object;>;)Lsun/font/AttributeValues;", $PUBLIC | $STATIC, $staticMethod(AttributeValues, fromSerializableHashtable, AttributeValues*, $Hashtable*)},
+		{"get", "(Lsun/font/EAttribute;)Ljava/lang/Object;", nullptr, $PUBLIC, $method(AttributeValues, get, $Object*, $EAttribute*)},
+		{"getBackground", "()Ljava/awt/Paint;", nullptr, $PUBLIC, $method(AttributeValues, getBackground, $Paint*)},
+		{"getBaselineTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $method(AttributeValues, getBaselineTransform, $AffineTransform*)},
+		{"getBaselineTransform", "(Ljava/util/Map;)Ljava/awt/geom/AffineTransform;", "(Ljava/util/Map<**>;)Ljava/awt/geom/AffineTransform;", $PUBLIC | $STATIC, $staticMethod(AttributeValues, getBaselineTransform, $AffineTransform*, $Map*)},
+		{"getBidiEmbedding", "()I", nullptr, $PUBLIC, $method(AttributeValues, getBidiEmbedding, int32_t)},
+		{"getCharReplacement", "()Ljava/awt/font/GraphicAttribute;", nullptr, $PUBLIC, $method(AttributeValues, getCharReplacement, $GraphicAttribute*)},
+		{"getCharTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $method(AttributeValues, getCharTransform, $AffineTransform*)},
+		{"getCharTransform", "(Ljava/util/Map;)Ljava/awt/geom/AffineTransform;", "(Ljava/util/Map<**>;)Ljava/awt/geom/AffineTransform;", $PUBLIC | $STATIC, $staticMethod(AttributeValues, getCharTransform, $AffineTransform*, $Map*)},
+		{"getFamily", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(AttributeValues, getFamily, $String*)},
+		{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $method(AttributeValues, getFont, $Font*)},
+		{"getForeground", "()Ljava/awt/Paint;", nullptr, $PUBLIC, $method(AttributeValues, getForeground, $Paint*)},
+		{"getInputMethodHighlight", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(AttributeValues, getInputMethodHighlight, $Object*)},
+		{"getInputMethodUnderline", "()I", nullptr, $PUBLIC, $method(AttributeValues, getInputMethodUnderline, int32_t)},
+		{"getJustification", "()F", nullptr, $PUBLIC, $method(AttributeValues, getJustification, float)},
+		{"getJustification", "(Ljava/util/Map;)F", "(Ljava/util/Map<**>;)F", $PUBLIC | $STATIC, $staticMethod(AttributeValues, getJustification, float, $Map*)},
+		{"getKerning", "()I", nullptr, $PUBLIC, $method(AttributeValues, getKerning, int32_t)},
+		{"getLigatures", "()I", nullptr, $PUBLIC, $method(AttributeValues, getLigatures, int32_t)},
+		{"getMask", "(Lsun/font/EAttribute;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeValues, getMask, int32_t, $EAttribute*)},
+		{"getMask", "([Lsun/font/EAttribute;)I", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(AttributeValues, getMask, int32_t, $EAttributeArray*)},
+		{"getNumericShaping", "()Ljava/awt/font/NumericShaper;", nullptr, $PUBLIC, $method(AttributeValues, getNumericShaping, $NumericShaper*)},
+		{"getNumericShaping", "(Ljava/util/Map;)Ljava/awt/font/NumericShaper;", "(Ljava/util/Map<**>;)Ljava/awt/font/NumericShaper;", $PUBLIC | $STATIC, $staticMethod(AttributeValues, getNumericShaping, $NumericShaper*, $Map*)},
+		{"getPosture", "()F", nullptr, $PUBLIC, $method(AttributeValues, getPosture, float)},
+		{"getRunDirection", "()I", nullptr, $PUBLIC, $method(AttributeValues, getRunDirection, int32_t)},
+		{"getSize", "()F", nullptr, $PUBLIC, $method(AttributeValues, getSize, float)},
+		{"getStrikethrough", "()Z", nullptr, $PUBLIC, $method(AttributeValues, getStrikethrough, bool)},
+		{"getSuperscript", "()I", nullptr, $PUBLIC, $method(AttributeValues, getSuperscript, int32_t)},
+		{"getSwapColors", "()Z", nullptr, $PUBLIC, $method(AttributeValues, getSwapColors, bool)},
+		{"getTracking", "()F", nullptr, $PUBLIC, $method(AttributeValues, getTracking, float)},
+		{"getTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $method(AttributeValues, getTransform, $AffineTransform*)},
+		{"getUnderline", "()I", nullptr, $PUBLIC, $method(AttributeValues, getUnderline, int32_t)},
+		{"getWeight", "()F", nullptr, $PUBLIC, $method(AttributeValues, getWeight, float)},
+		{"getWidth", "()F", nullptr, $PUBLIC, $method(AttributeValues, getWidth, float)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AttributeValues, hashCode, int32_t)},
+		{"i_equals", "(Lsun/font/EAttribute;Lsun/font/AttributeValues;)Z", nullptr, $PRIVATE, $method(AttributeValues, i_equals, bool, $EAttribute*, AttributeValues*)},
+		{"i_get", "(Lsun/font/EAttribute;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(AttributeValues, i_get, $Object*, $EAttribute*)},
+		{"i_set", "(Lsun/font/EAttribute;Lsun/font/AttributeValues;)V", nullptr, $PRIVATE, $method(AttributeValues, i_set, void, $EAttribute*, AttributeValues*)},
+		{"i_set", "(Lsun/font/EAttribute;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(AttributeValues, i_set, void, $EAttribute*, Object$*)},
+		{"i_validate", "(Lsun/font/EAttribute;)Z", nullptr, $PRIVATE, $method(AttributeValues, i_validate, bool, $EAttribute*)},
+		{"is16Hashtable", "(Ljava/util/Hashtable;)Z", "(Ljava/util/Hashtable<Ljava/lang/Object;Ljava/lang/Object;>;)Z", $PUBLIC | $STATIC, $staticMethod(AttributeValues, is16Hashtable, bool, $Hashtable*)},
+		{"isDefined", "(Lsun/font/EAttribute;)Z", nullptr, $PUBLIC, $method(AttributeValues, isDefined, bool, $EAttribute*)},
+		{"isNonDefault", "(Lsun/font/EAttribute;)Z", nullptr, $PUBLIC, $method(AttributeValues, isNonDefault, bool, $EAttribute*)},
+		{"merge", "(Ljava/util/Map;)Lsun/font/AttributeValues;", "(Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;)Lsun/font/AttributeValues;", $PUBLIC, $method(AttributeValues, merge, AttributeValues*, $Map*)},
+		{"merge", "(Ljava/util/Map;I)Lsun/font/AttributeValues;", "(Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;I)Lsun/font/AttributeValues;", $PUBLIC, $method(AttributeValues, merge, AttributeValues*, $Map*, int32_t)},
+		{"merge", "(Lsun/font/AttributeValues;)Lsun/font/AttributeValues;", nullptr, $PUBLIC, $method(AttributeValues, merge, AttributeValues*, AttributeValues*)},
+		{"merge", "(Lsun/font/AttributeValues;I)Lsun/font/AttributeValues;", nullptr, $PUBLIC, $method(AttributeValues, merge, AttributeValues*, AttributeValues*, int32_t)},
+		{"set", "(Lsun/font/EAttribute;Lsun/font/AttributeValues;)V", nullptr, $PUBLIC, $method(AttributeValues, set, void, $EAttribute*, AttributeValues*)},
+		{"set", "(Lsun/font/EAttribute;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(AttributeValues, set, void, $EAttribute*, Object$*)},
+		{"setBackground", "(Ljava/awt/Paint;)V", nullptr, $PUBLIC, $method(AttributeValues, setBackground, void, $Paint*)},
+		{"setBidiEmbedding", "(I)V", nullptr, $PUBLIC, $method(AttributeValues, setBidiEmbedding, void, int32_t)},
+		{"setCharReplacement", "(Ljava/awt/font/GraphicAttribute;)V", nullptr, $PUBLIC, $method(AttributeValues, setCharReplacement, void, $GraphicAttribute*)},
+		{"setDefault", "(Lsun/font/EAttribute;)V", nullptr, $PUBLIC, $method(AttributeValues, setDefault, void, $EAttribute*)},
+		{"setFamily", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AttributeValues, setFamily, void, $String*)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $method(AttributeValues, setFont, void, $Font*)},
+		{"setForeground", "(Ljava/awt/Paint;)V", nullptr, $PUBLIC, $method(AttributeValues, setForeground, void, $Paint*)},
+		{"setInputMethodHighlight", "(Ljava/text/Annotation;)V", nullptr, $PUBLIC, $method(AttributeValues, setInputMethodHighlight, void, $Annotation*)},
+		{"setInputMethodHighlight", "(Ljava/awt/im/InputMethodHighlight;)V", nullptr, $PUBLIC, $method(AttributeValues, setInputMethodHighlight, void, $InputMethodHighlight*)},
+		{"setInputMethodUnderline", "(I)V", nullptr, $PUBLIC, $method(AttributeValues, setInputMethodUnderline, void, int32_t)},
+		{"setJustification", "(F)V", nullptr, $PUBLIC, $method(AttributeValues, setJustification, void, float)},
+		{"setKerning", "(I)V", nullptr, $PUBLIC, $method(AttributeValues, setKerning, void, int32_t)},
+		{"setLigatures", "(I)V", nullptr, $PUBLIC, $method(AttributeValues, setLigatures, void, int32_t)},
+		{"setNumericShaping", "(Ljava/awt/font/NumericShaper;)V", nullptr, $PUBLIC, $method(AttributeValues, setNumericShaping, void, $NumericShaper*)},
+		{"setPosture", "(F)V", nullptr, $PUBLIC, $method(AttributeValues, setPosture, void, float)},
+		{"setRunDirection", "(I)V", nullptr, $PUBLIC, $method(AttributeValues, setRunDirection, void, int32_t)},
+		{"setSize", "(F)V", nullptr, $PUBLIC, $method(AttributeValues, setSize, void, float)},
+		{"setStrikethrough", "(Z)V", nullptr, $PUBLIC, $method(AttributeValues, setStrikethrough, void, bool)},
+		{"setSuperscript", "(I)V", nullptr, $PUBLIC, $method(AttributeValues, setSuperscript, void, int32_t)},
+		{"setSwapColors", "(Z)V", nullptr, $PUBLIC, $method(AttributeValues, setSwapColors, void, bool)},
+		{"setTracking", "(F)V", nullptr, $PUBLIC, $method(AttributeValues, setTracking, void, float)},
+		{"setTransform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $method(AttributeValues, setTransform, void, $AffineTransform*)},
+		{"setTransform", "(Ljava/awt/font/TransformAttribute;)V", nullptr, $PUBLIC, $method(AttributeValues, setTransform, void, $TransformAttribute*)},
+		{"setUnderline", "(I)V", nullptr, $PUBLIC, $method(AttributeValues, setUnderline, void, int32_t)},
+		{"setWeight", "(F)V", nullptr, $PUBLIC, $method(AttributeValues, setWeight, void, float)},
+		{"setWidth", "(F)V", nullptr, $PUBLIC, $method(AttributeValues, setWidth, void, float)},
+		{"toMap", "(Ljava/util/Map;)Ljava/util/Map;", "(Ljava/util/Map<Ljava/awt/font/TextAttribute;Ljava/lang/Object;>;)Ljava/util/Map<Ljava/awt/font/TextAttribute;Ljava/lang/Object;>;", $PUBLIC, $method(AttributeValues, toMap, $Map*, $Map*)},
+		{"toSerializableHashtable", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<Ljava/lang/Object;Ljava/lang/Object;>;", $PUBLIC, $method(AttributeValues, toSerializableHashtable, $Hashtable*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeValues, toString, $String*)},
+		{"unset", "(Lsun/font/EAttribute;)V", nullptr, $PUBLIC, $method(AttributeValues, unset, void, $EAttribute*)},
+		{"unsetDefault", "()V", nullptr, $PUBLIC, $method(AttributeValues, unsetDefault, void)},
+		{"update", "(Lsun/font/EAttribute;)V", nullptr, $PRIVATE, $method(AttributeValues, update, void, $EAttribute*)},
+		{"updateDerivedTransforms", "()V", nullptr, $PUBLIC, $method(AttributeValues, updateDerivedTransforms, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.AttributeValues$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.font.AttributeValues",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.font.AttributeValues$1"
+	};
+	$loadClass(AttributeValues, name, initialize, &classInfo$$, AttributeValues::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AttributeValues);
+	});
 	return class$;
 }
 

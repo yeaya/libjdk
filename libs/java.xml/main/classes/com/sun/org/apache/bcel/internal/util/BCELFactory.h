@@ -62,6 +62,7 @@ class BCELFactory : public ::com::sun::org::apache::bcel::internal::generic::Emp
 	$class(BCELFactory, 0, ::com::sun::org::apache::bcel::internal::generic::EmptyVisitor)
 public:
 	BCELFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::bcel::internal::generic::MethodGen* mg, ::java::io::PrintWriter* out);
 	void createConstant(Object$* value);
 	virtual void start();

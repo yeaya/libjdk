@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DSwToTextureBlit.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/AffineTransformOp.h>
@@ -32,30 +31,6 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$FieldInfo _D3DSwToTextureBlit_FieldInfo_[] = {
-	{"typeval", "I", nullptr, $PRIVATE, $field(D3DSwToTextureBlit, typeval)},
-	{}
-};
-
-$MethodInfo _D3DSwToTextureBlit_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;I)V", nullptr, 0, $method(D3DSwToTextureBlit, init$, void, $SurfaceType*, int32_t)},
-	{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(D3DSwToTextureBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _D3DSwToTextureBlit_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.d3d.D3DSwToTextureBlit",
-	"sun.java2d.loops.Blit",
-	nullptr,
-	_D3DSwToTextureBlit_FieldInfo_,
-	_D3DSwToTextureBlit_MethodInfo_
-};
-
-$Object* allocate$D3DSwToTextureBlit($Class* clazz) {
-	return $of($alloc(D3DSwToTextureBlit));
-}
-
 void D3DSwToTextureBlit::init$($SurfaceType* srcType, int32_t typeval) {
 	$init($CompositeType);
 	$init($D3DSurfaceData);
@@ -71,7 +46,26 @@ D3DSwToTextureBlit::D3DSwToTextureBlit() {
 }
 
 $Class* D3DSwToTextureBlit::load$($String* name, bool initialize) {
-	$loadClass(D3DSwToTextureBlit, name, initialize, &_D3DSwToTextureBlit_ClassInfo_, allocate$D3DSwToTextureBlit);
+	$FieldInfo fieldInfos$$[] = {
+		{"typeval", "I", nullptr, $PRIVATE, $field(D3DSwToTextureBlit, typeval)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;I)V", nullptr, 0, $method(D3DSwToTextureBlit, init$, void, $SurfaceType*, int32_t)},
+		{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(D3DSwToTextureBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.d3d.D3DSwToTextureBlit",
+		"sun.java2d.loops.Blit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(D3DSwToTextureBlit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DSwToTextureBlit);
+	});
 	return class$;
 }
 

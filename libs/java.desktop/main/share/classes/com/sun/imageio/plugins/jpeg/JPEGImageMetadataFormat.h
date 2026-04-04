@@ -28,6 +28,7 @@ class JPEGImageMetadataFormat : public ::com::sun::imageio::plugins::jpeg::JPEGM
 	$class(JPEGImageMetadataFormat, 0, ::com::sun::imageio::plugins::jpeg::JPEGMetadataFormat)
 public:
 	JPEGImageMetadataFormat();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool canNodeAppear($String* elementName, ::javax::imageio::ImageTypeSpecifier* imageType) override;
 	static ::javax::imageio::metadata::IIOMetadataFormat* getInstance();

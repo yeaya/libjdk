@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$MostSpecificReturnCheck$1.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/Types$MostSpecificReturnCheck.h>
 #include <com/sun/tools/javac/code/Types.h>
@@ -21,50 +20,12 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$MethodInfo _Types$MostSpecificReturnCheck$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Types$MostSpecificReturnCheck$1, init$, void, $String*, int32_t)},
-	{"test", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $PUBLIC, $virtualMethod(Types$MostSpecificReturnCheck$1, test, bool, $Type*, $Type*, $Types*)},
-	{}
-};
-
-$EnclosingMethodInfo _Types$MostSpecificReturnCheck$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Types$MostSpecificReturnCheck",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Types$MostSpecificReturnCheck$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$MostSpecificReturnCheck", "com.sun.tools.javac.code.Types", "MostSpecificReturnCheck", $PUBLIC | $STATIC | $ABSTRACT | $ENUM},
-	{"com.sun.tools.javac.code.Types$MostSpecificReturnCheck$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Types$MostSpecificReturnCheck$1_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.code.Types$MostSpecificReturnCheck$1",
-	"com.sun.tools.javac.code.Types$MostSpecificReturnCheck",
-	nullptr,
-	nullptr,
-	_Types$MostSpecificReturnCheck$1_MethodInfo_,
-	nullptr,
-	&_Types$MostSpecificReturnCheck$1_EnclosingMethodInfo_,
-	_Types$MostSpecificReturnCheck$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$MostSpecificReturnCheck$1($Class* clazz) {
-	return $of($alloc(Types$MostSpecificReturnCheck$1));
-}
-
 void Types$MostSpecificReturnCheck$1::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Types$MostSpecificReturnCheck::init$($enum$name, $enum$ordinal);
 }
 
 bool Types$MostSpecificReturnCheck$1::test($Type* mt1, $Type* mt2, $Types* types) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, tvars, $nc(mt1)->getTypeArguments());
 	$var($List, svars, $nc(mt2)->getTypeArguments());
 	$var($Type, t, mt1->getReturnType());
@@ -82,7 +43,39 @@ Types$MostSpecificReturnCheck$1::Types$MostSpecificReturnCheck$1() {
 }
 
 $Class* Types$MostSpecificReturnCheck$1::load$($String* name, bool initialize) {
-	$loadClass(Types$MostSpecificReturnCheck$1, name, initialize, &_Types$MostSpecificReturnCheck$1_ClassInfo_, allocate$Types$MostSpecificReturnCheck$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Types$MostSpecificReturnCheck$1, init$, void, $String*, int32_t)},
+		{"test", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $PUBLIC, $virtualMethod(Types$MostSpecificReturnCheck$1, test, bool, $Type*, $Type*, $Types*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Types$MostSpecificReturnCheck",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$MostSpecificReturnCheck", "com.sun.tools.javac.code.Types", "MostSpecificReturnCheck", $PUBLIC | $STATIC | $ABSTRACT | $ENUM},
+		{"com.sun.tools.javac.code.Types$MostSpecificReturnCheck$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.code.Types$MostSpecificReturnCheck$1",
+		"com.sun.tools.javac.code.Types$MostSpecificReturnCheck",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$MostSpecificReturnCheck$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Types$MostSpecificReturnCheck$1));
+	});
 	return class$;
 }
 

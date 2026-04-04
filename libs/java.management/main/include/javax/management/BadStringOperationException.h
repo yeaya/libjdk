@@ -14,11 +14,14 @@ public:
 	BadStringOperationException();
 	void init$($String* message);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x6C46FCB0436D9694;
+	static const int64_t serialVersionUID = (int64_t)0x6c46fcb0436d9694;
 	$String* op = nullptr;
 	BadStringOperationException(const BadStringOperationException& e);
 	virtual void throw$() override;
-	inline BadStringOperationException* operator ->() {
+	inline BadStringOperationException* operator ->() const {
+		return (BadStringOperationException*)throwing$;
+	}
+	inline operator BadStringOperationException*() const {
 		return (BadStringOperationException*)throwing$;
 	}
 };

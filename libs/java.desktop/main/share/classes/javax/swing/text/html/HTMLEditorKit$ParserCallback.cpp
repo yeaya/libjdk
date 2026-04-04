@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/HTMLEditorKit$ParserCallback.h>
-
 #include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/html/HTML$Tag.h>
 #include <javax/swing/text/html/HTMLEditorKit.h>
@@ -18,49 +17,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _HTMLEditorKit$ParserCallback_FieldInfo_[] = {
-	{"IMPLIED", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLEditorKit$ParserCallback, IMPLIED)},
-	{}
-};
-
-$MethodInfo _HTMLEditorKit$ParserCallback_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HTMLEditorKit$ParserCallback, init$, void)},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$ParserCallback, flush, void), "javax.swing.text.BadLocationException"},
-	{"handleComment", "([CI)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$ParserCallback, handleComment, void, $chars*, int32_t)},
-	{"handleEndOfLineString", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$ParserCallback, handleEndOfLineString, void, $String*)},
-	{"handleEndTag", "(Ljavax/swing/text/html/HTML$Tag;I)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$ParserCallback, handleEndTag, void, $HTML$Tag*, int32_t)},
-	{"handleError", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$ParserCallback, handleError, void, $String*, int32_t)},
-	{"handleSimpleTag", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/MutableAttributeSet;I)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$ParserCallback, handleSimpleTag, void, $HTML$Tag*, $MutableAttributeSet*, int32_t)},
-	{"handleStartTag", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/MutableAttributeSet;I)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$ParserCallback, handleStartTag, void, $HTML$Tag*, $MutableAttributeSet*, int32_t)},
-	{"handleText", "([CI)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$ParserCallback, handleText, void, $chars*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _HTMLEditorKit$ParserCallback_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.HTMLEditorKit$ParserCallback", "javax.swing.text.html.HTMLEditorKit", "ParserCallback", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _HTMLEditorKit$ParserCallback_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.HTMLEditorKit$ParserCallback",
-	"java.lang.Object",
-	nullptr,
-	_HTMLEditorKit$ParserCallback_FieldInfo_,
-	_HTMLEditorKit$ParserCallback_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HTMLEditorKit$ParserCallback_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.HTMLEditorKit"
-};
-
-$Object* allocate$HTMLEditorKit$ParserCallback($Class* clazz) {
-	return $of($alloc(HTMLEditorKit$ParserCallback));
-}
 
 $Object* HTMLEditorKit$ParserCallback::IMPLIED = nullptr;
 
@@ -91,7 +47,7 @@ void HTMLEditorKit$ParserCallback::handleError($String* errorMsg, int32_t pos) {
 void HTMLEditorKit$ParserCallback::handleEndOfLineString($String* eol) {
 }
 
-void clinit$HTMLEditorKit$ParserCallback($Class* class$) {
+void HTMLEditorKit$ParserCallback::clinit$($Class* clazz) {
 	$assignStatic(HTMLEditorKit$ParserCallback::IMPLIED, "_implied_"_s);
 }
 
@@ -99,7 +55,44 @@ HTMLEditorKit$ParserCallback::HTMLEditorKit$ParserCallback() {
 }
 
 $Class* HTMLEditorKit$ParserCallback::load$($String* name, bool initialize) {
-	$loadClass(HTMLEditorKit$ParserCallback, name, initialize, &_HTMLEditorKit$ParserCallback_ClassInfo_, clinit$HTMLEditorKit$ParserCallback, allocate$HTMLEditorKit$ParserCallback);
+	$FieldInfo fieldInfos$$[] = {
+		{"IMPLIED", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLEditorKit$ParserCallback, IMPLIED)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HTMLEditorKit$ParserCallback, init$, void)},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$ParserCallback, flush, void), "javax.swing.text.BadLocationException"},
+		{"handleComment", "([CI)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$ParserCallback, handleComment, void, $chars*, int32_t)},
+		{"handleEndOfLineString", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$ParserCallback, handleEndOfLineString, void, $String*)},
+		{"handleEndTag", "(Ljavax/swing/text/html/HTML$Tag;I)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$ParserCallback, handleEndTag, void, $HTML$Tag*, int32_t)},
+		{"handleError", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$ParserCallback, handleError, void, $String*, int32_t)},
+		{"handleSimpleTag", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/MutableAttributeSet;I)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$ParserCallback, handleSimpleTag, void, $HTML$Tag*, $MutableAttributeSet*, int32_t)},
+		{"handleStartTag", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/MutableAttributeSet;I)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$ParserCallback, handleStartTag, void, $HTML$Tag*, $MutableAttributeSet*, int32_t)},
+		{"handleText", "([CI)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$ParserCallback, handleText, void, $chars*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.HTMLEditorKit$ParserCallback", "javax.swing.text.html.HTMLEditorKit", "ParserCallback", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.HTMLEditorKit$ParserCallback",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.HTMLEditorKit"
+	};
+	$loadClass(HTMLEditorKit$ParserCallback, name, initialize, &classInfo$$, HTMLEditorKit$ParserCallback::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HTMLEditorKit$ParserCallback);
+	});
 	return class$;
 }
 

@@ -50,6 +50,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::apple::laf::JRSUIConstants$WindowType* kind);
 	static ::com::apple::laf::AquaInternalFrameBorder* dialog();
 	virtual void doButtonAction(::javax::swing::JInternalFrame* frame, int32_t whichButton);

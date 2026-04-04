@@ -120,6 +120,7 @@ class $import Font : public ::java::io::Serializable {
 	$class(Font, 0, ::java::io::Serializable)
 public:
 	Font();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, int32_t style, int32_t size);
 	void init$($String* name, int32_t style, float sizePts);
 	void init$($String* name, int32_t style, float sizePts, bool created, ::sun::font::Font2DHandle* handle);
@@ -228,7 +229,7 @@ public:
 	bool createdFont = false;
 	bool nonIdentityTx = false;
 	static ::java::awt::geom::AffineTransform* identityTx;
-	static const int64_t serialVersionUID = (int64_t)0xC5A135E6CCDE5673;
+	static const int64_t serialVersionUID = (int64_t)0xc5a135e6ccde5673;
 	static int32_t RECOGNIZED_MASK;
 	static int32_t PRIMARY_MASK;
 	static int32_t SECONDARY_MASK;

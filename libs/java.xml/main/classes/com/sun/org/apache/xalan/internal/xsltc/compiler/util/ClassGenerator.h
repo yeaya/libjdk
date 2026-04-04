@@ -79,6 +79,7 @@ class ClassGenerator : public ::com::sun::org::apache::bcel::internal::generic::
 public:
 	ClassGenerator();
 	using ::com::sun::org::apache::bcel::internal::generic::ClassGen::addMethod;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* class_name, $String* super_class_name, $String* file_name, int32_t access_flags, $StringArray* interfaces, ::com::sun::org::apache::xalan::internal::xsltc::compiler::Stylesheet* stylesheet);
 	virtual void addMethod(::com::sun::org::apache::xalan::internal::xsltc::compiler::util::MethodGenerator* methodGen);
 	$String* getApplyTemplatesSig();

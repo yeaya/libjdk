@@ -20,6 +20,7 @@ class Platform : public ::java::lang::Object {
 	$class(Platform, 0, ::java::lang::Object)
 public:
 	Platform();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void initialize();
 	static bool isBigEndian();

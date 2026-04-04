@@ -1,5 +1,4 @@
 #include <Test6632810$1.h>
-
 #include <Test6632810.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JScrollPane.h>
@@ -18,48 +17,11 @@ using $JComponent = ::javax::swing::JComponent;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $BasicScrollPaneUI = ::javax::swing::plaf::basic::BasicScrollPaneUI;
 
-$MethodInfo _Test6632810$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Test6632810$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test6632810$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _Test6632810$1_EnclosingMethodInfo_ = {
-	"Test6632810",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _Test6632810$1_InnerClassesInfo_[] = {
-	{"Test6632810$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Test6632810$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"Test6632810$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_Test6632810$1_MethodInfo_,
-	nullptr,
-	&_Test6632810$1_EnclosingMethodInfo_,
-	_Test6632810$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Test6632810"
-};
-
-$Object* allocate$Test6632810$1($Class* clazz) {
-	return $of($alloc(Test6632810$1));
-}
-
 void Test6632810$1::init$() {
 }
 
 void Test6632810$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BasicScrollPaneUI, ui, $new($BasicScrollPaneUI));
 	ui->installUI($$new($JScrollPane));
 	try {
@@ -83,18 +45,14 @@ void Test6632810$1::run() {
 	}));
 	{
 		$var($intArray2, arr$, illegelParams);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($ints, illegelParam, arr$->get(i$));
-			{
-				try {
-					int32_t width = $nc(illegelParam)->get(0);
-					int32_t height = illegelParam->get(1);
-					ui->getBaseline($$new($JScrollPane), width, height);
-					$throwNew($RuntimeException, $$str({"getBaseline(new JScrollPane(), "_s, $$str(width), ", "_s, $$str(height), ") does not throw IAE"_s}));
-				} catch ($IllegalArgumentException& e) {
-				}
+			try {
+				int32_t width = $nc(illegelParam)->get(0);
+				int32_t height = illegelParam->get(1);
+				ui->getBaseline($$new($JScrollPane), width, height);
+				$throwNew($RuntimeException, $$str({"getBaseline(new JScrollPane(), "_s, $$str(width), ", "_s, $$str(height), ") does not throw IAE"_s}));
+			} catch ($IllegalArgumentException& e) {
 			}
 		}
 	}
@@ -104,7 +62,38 @@ Test6632810$1::Test6632810$1() {
 }
 
 $Class* Test6632810$1::load$($String* name, bool initialize) {
-	$loadClass(Test6632810$1, name, initialize, &_Test6632810$1_ClassInfo_, allocate$Test6632810$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Test6632810$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test6632810$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"Test6632810",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Test6632810$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Test6632810$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Test6632810"
+	};
+	$loadClass(Test6632810$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test6632810$1);
+	});
 	return class$;
 }
 

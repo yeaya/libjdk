@@ -1,12 +1,10 @@
 #include <com/apple/laf/AquaTableUI.h>
-
 #include <com/apple/laf/AquaFocusHandler.h>
 #include <com/apple/laf/AquaTableUI$1.h>
 #include <com/apple/laf/AquaTableUI$FocusHandler.h>
 #include <com/apple/laf/AquaTableUI$MouseInputHandler.h>
 #include <java/awt/Component.h>
 #include <java/awt/event/FocusListener.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/event/MouseInputListener.h>
@@ -14,12 +12,10 @@
 #include <javax/swing/plaf/basic/BasicTableUI.h>
 #include <jcpp.h>
 
-using $AquaFocusHandler = ::com::apple::laf::AquaFocusHandler;
 using $AquaTableUI$1 = ::com::apple::laf::AquaTableUI$1;
 using $AquaTableUI$FocusHandler = ::com::apple::laf::AquaTableUI$FocusHandler;
 using $AquaTableUI$MouseInputHandler = ::com::apple::laf::AquaTableUI$MouseInputHandler;
 using $FocusListener = ::java::awt::event::FocusListener;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -33,48 +29,6 @@ using $BasicTableUI = ::javax::swing::plaf::basic::BasicTableUI;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaTableUI_FieldInfo_[] = {
-	{"focusHandler", "Lcom/apple/laf/AquaFocusHandler;", nullptr, $PROTECTED, $field(AquaTableUI, focusHandler)},
-	{}
-};
-
-$MethodInfo _AquaTableUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaTableUI, init$, void)},
-	{"createFocusListener", "()Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $virtualMethod(AquaTableUI, createFocusListener, $FocusListener*)},
-	{"createMouseInputListener", "()Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $virtualMethod(AquaTableUI, createMouseInputListener, $MouseInputListener*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaTableUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getComponent", "()Ljavax/swing/JTable;", nullptr, 0, $virtualMethod(AquaTableUI, getComponent, $JTable*)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTableUI, installListeners, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTableUI, uninstallListeners, void)},
-	{}
-};
-
-$InnerClassInfo _AquaTableUI_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaTableUI$MouseInputHandler", "com.apple.laf.AquaTableUI", "MouseInputHandler", $PUBLIC},
-	{"com.apple.laf.AquaTableUI$FocusHandler", "com.apple.laf.AquaTableUI", "FocusHandler", $PUBLIC},
-	{"com.apple.laf.AquaTableUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaTableUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaTableUI",
-	"javax.swing.plaf.basic.BasicTableUI",
-	nullptr,
-	_AquaTableUI_FieldInfo_,
-	_AquaTableUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaTableUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaTableUI$MouseInputHandler,com.apple.laf.AquaTableUI$FocusHandler,com.apple.laf.AquaTableUI$1"
-};
-
-$Object* allocate$AquaTableUI($Class* clazz) {
-	return $of($alloc(AquaTableUI));
-}
 
 void AquaTableUI::init$() {
 	$BasicTableUI::init$();
@@ -114,7 +68,43 @@ AquaTableUI::AquaTableUI() {
 }
 
 $Class* AquaTableUI::load$($String* name, bool initialize) {
-	$loadClass(AquaTableUI, name, initialize, &_AquaTableUI_ClassInfo_, allocate$AquaTableUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"focusHandler", "Lcom/apple/laf/AquaFocusHandler;", nullptr, $PROTECTED, $field(AquaTableUI, focusHandler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaTableUI, init$, void)},
+		{"createFocusListener", "()Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $virtualMethod(AquaTableUI, createFocusListener, $FocusListener*)},
+		{"createMouseInputListener", "()Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $virtualMethod(AquaTableUI, createMouseInputListener, $MouseInputListener*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaTableUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getComponent", "()Ljavax/swing/JTable;", nullptr, 0, $virtualMethod(AquaTableUI, getComponent, $JTable*)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTableUI, installListeners, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTableUI, uninstallListeners, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaTableUI$MouseInputHandler", "com.apple.laf.AquaTableUI", "MouseInputHandler", $PUBLIC},
+		{"com.apple.laf.AquaTableUI$FocusHandler", "com.apple.laf.AquaTableUI", "FocusHandler", $PUBLIC},
+		{"com.apple.laf.AquaTableUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaTableUI",
+		"javax.swing.plaf.basic.BasicTableUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaTableUI$MouseInputHandler,com.apple.laf.AquaTableUI$FocusHandler,com.apple.laf.AquaTableUI$1"
+	};
+	$loadClass(AquaTableUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaTableUI);
+	});
 	return class$;
 }
 

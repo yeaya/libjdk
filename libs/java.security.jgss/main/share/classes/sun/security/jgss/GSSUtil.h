@@ -65,6 +65,7 @@ class $export GSSUtil : public ::java::lang::Object {
 	$class(GSSUtil, 0, ::java::lang::Object)
 public:
 	GSSUtil();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::org::ietf::jgss::Oid* createOid($String* oidStr);
 	static void debug($String* message);

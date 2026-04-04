@@ -1,11 +1,9 @@
 #include <bug4816114.h>
-
 #include <bug4816114$1.h>
 #include <bug4816114$2.h>
 #include <bug4816114$3.h>
 #include <bug4816114$TestSplitPane.h>
 #include <java/awt/BorderLayout.h>
-#include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Robot.h>
@@ -34,8 +32,6 @@ using $bug4816114$2 = ::bug4816114$2;
 using $bug4816114$3 = ::bug4816114$3;
 using $bug4816114$TestSplitPane = ::bug4816114$TestSplitPane;
 using $BorderLayout = ::java::awt::BorderLayout;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Robot = ::java::awt::Robot;
 using $Serializable = ::java::io::Serializable;
@@ -60,79 +56,27 @@ public:
 	virtual void run() override {
 		bug4816114::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug4816114$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug4816114$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug4816114$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4816114$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo bug4816114$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug4816114$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug4816114$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(bug4816114$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug4816114$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4816114$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug4816114$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug4816114$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4816114$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* bug4816114$$Lambda$lambda$main$0::class$ = nullptr;
-
-$FieldInfo _bug4816114_FieldInfo_[] = {
-	{"fr", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(bug4816114, fr)},
-	{"splitPane", "Ljavax/swing/JSplitPane;", nullptr, 0, $field(bug4816114, splitPane)},
-	{"resized", "[Z", nullptr, 0, $field(bug4816114, resized)},
-	{"step", "I", nullptr, $STATIC, $staticField(bug4816114, step)},
-	{"h_passed", "Z", nullptr, 0, $field(bug4816114, h_passed)},
-	{"v_passed", "Z", nullptr, 0, $field(bug4816114, v_passed)},
-	{"test", "Lbug4816114;", nullptr, $STATIC, $staticField(bug4816114, test)},
-	{}
-};
-
-$MethodInfo _bug4816114_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug4816114, init$, void)},
-	{"createAndShowGUI", "()V", nullptr, $PUBLIC, $virtualMethod(bug4816114, createAndShowGUI, void)},
-	{"doTest", "(II)V", nullptr, 0, $virtualMethod(bug4816114, doTest, void, int32_t, int32_t), "java.lang.InterruptedException,java.lang.reflect.InvocationTargetException"},
-	{"isPassed", "()Z", nullptr, $SYNCHRONIZED, $virtualMethod(bug4816114, isPassed, bool)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug4816114, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug4816114, main, void, $StringArray*), "java.lang.InterruptedException,java.lang.reflect.InvocationTargetException,java.awt.AWTException"},
-	{"setPassed", "(IZ)V", nullptr, $SYNCHRONIZED, $virtualMethod(bug4816114, setPassed, void, int32_t, bool)},
-	{}
-};
-
-$InnerClassInfo _bug4816114_InnerClassesInfo_[] = {
-	{"bug4816114$TestSplitPane", "bug4816114", "TestSplitPane", 0},
-	{"bug4816114$3", nullptr, nullptr, 0},
-	{"bug4816114$2", nullptr, nullptr, 0},
-	{"bug4816114$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug4816114_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug4816114",
-	"java.lang.Object",
-	nullptr,
-	_bug4816114_FieldInfo_,
-	_bug4816114_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug4816114_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug4816114$TestSplitPane,bug4816114$3,bug4816114$2,bug4816114$1"
-};
-
-$Object* allocate$bug4816114($Class* clazz) {
-	return $of($alloc(bug4816114));
-}
 
 $JFrame* bug4816114::fr = nullptr;
 int32_t bug4816114::step = 0;
@@ -153,47 +97,45 @@ void bug4816114::init$() {
 
 void bug4816114::main($StringArray* args) {
 	$init(bug4816114);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$SwingUtilities::invokeAndWait($$new($bug4816114$1));
-			$var($Robot, robot, $new($Robot));
-			robot->waitForIdle();
-			$Thread::sleep(1000);
-			$Thread::sleep(2000);
-			++bug4816114::step;
-			$nc(bug4816114::test)->doTest(150, 300);
-			++bug4816114::step;
-			$nc(bug4816114::test)->doTest(650, 300);
-			$SwingUtilities::invokeAndWait($$new($bug4816114$2));
-			++bug4816114::step;
-			$nc(bug4816114::test)->doTest(300, 650);
-			++bug4816114::step;
-			$nc(bug4816114::test)->doTest(300, 150);
-			++bug4816114::step;
-			$nc(bug4816114::test)->doTest(300, 650);
-			if (!$nc(bug4816114::test)->isPassed()) {
-				$throwNew($Error, "The divider location is wrong."_s);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug4816114$$Lambda$lambda$main$0)));
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$SwingUtilities::invokeAndWait($$new($bug4816114$1));
+		$var($Robot, robot, $new($Robot));
+		robot->waitForIdle();
+		$Thread::sleep(1000);
+		$Thread::sleep(2000);
+		++bug4816114::step;
+		$nc(bug4816114::test)->doTest(150, 300);
+		++bug4816114::step;
+		$nc(bug4816114::test)->doTest(650, 300);
+		$SwingUtilities::invokeAndWait($$new($bug4816114$2));
+		++bug4816114::step;
+		$nc(bug4816114::test)->doTest(300, 650);
+		++bug4816114::step;
+		$nc(bug4816114::test)->doTest(300, 150);
+		++bug4816114::step;
+		$nc(bug4816114::test)->doTest(300, 650);
+		if (!$nc(bug4816114::test)->isPassed()) {
+			$throwNew($Error, "The divider location is wrong."_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$SwingUtilities::invokeAndWait($$new(bug4816114$$Lambda$lambda$main$0));
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void bug4816114::createAndShowGUI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(bug4816114::fr, $new($JFrame, "Test"_s));
-	$nc(bug4816114::fr)->setUndecorated(true);
+	bug4816114::fr->setUndecorated(true);
 	$set(this, splitPane, $new($bug4816114$TestSplitPane, this));
-	$nc(this->splitPane)->setOrientation($JSplitPane::HORIZONTAL_SPLIT);
-	$nc(this->splitPane)->setResizeWeight((double)0);
+	this->splitPane->setOrientation($JSplitPane::HORIZONTAL_SPLIT);
+	$nc(this->splitPane)->setResizeWeight(0);
 	$nc(this->splitPane)->setBorder($($BorderFactory::createEmptyBorder(1, 1, 1, 1)));
 	$var($JButton, leftButton, $new($JButton, "LEFT"_s));
 	leftButton->setPreferredSize($$new($Dimension, 300, 300));
@@ -204,7 +146,7 @@ void bug4816114::createAndShowGUI() {
 	rightButton->setMinimumSize($$new($Dimension, 150, 150));
 	$nc(this->splitPane)->setRightComponent(rightButton);
 	$init($BorderLayout);
-	$nc($($nc(bug4816114::fr)->getContentPane()))->add(static_cast<$Component*>(this->splitPane), $of($BorderLayout::CENTER));
+	$$nc($nc(bug4816114::fr)->getContentPane())->add(this->splitPane, $BorderLayout::CENTER);
 	$nc(bug4816114::fr)->pack();
 	$nc(bug4816114::fr)->setVisible(true);
 }
@@ -213,7 +155,7 @@ void bug4816114::doTest(int32_t width, int32_t height) {
 	$SwingUtilities::invokeAndWait($$new($bug4816114$3, this, width, height));
 	$synchronized(this) {
 		while (!$nc(this->resized)->get(bug4816114::step)) {
-			$of(this)->wait();
+			this->wait();
 		}
 	}
 }
@@ -239,7 +181,7 @@ void bug4816114::lambda$main$0() {
 	$nc(bug4816114::fr)->dispose();
 }
 
-void clinit$bug4816114($Class* class$) {
+void bug4816114::clinit$($Class* clazz) {
 	bug4816114::step = 0;
 	$assignStatic(bug4816114::test, $new(bug4816114));
 }
@@ -249,11 +191,54 @@ bug4816114::bug4816114() {
 
 $Class* bug4816114::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug4816114$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("bug4816114$$Lambda$lambda$main$0")) {
 			return bug4816114$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(bug4816114, name, initialize, &_bug4816114_ClassInfo_, clinit$bug4816114, allocate$bug4816114);
+	$FieldInfo fieldInfos$$[] = {
+		{"fr", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(bug4816114, fr)},
+		{"splitPane", "Ljavax/swing/JSplitPane;", nullptr, 0, $field(bug4816114, splitPane)},
+		{"resized", "[Z", nullptr, 0, $field(bug4816114, resized)},
+		{"step", "I", nullptr, $STATIC, $staticField(bug4816114, step)},
+		{"h_passed", "Z", nullptr, 0, $field(bug4816114, h_passed)},
+		{"v_passed", "Z", nullptr, 0, $field(bug4816114, v_passed)},
+		{"test", "Lbug4816114;", nullptr, $STATIC, $staticField(bug4816114, test)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug4816114, init$, void)},
+		{"createAndShowGUI", "()V", nullptr, $PUBLIC, $virtualMethod(bug4816114, createAndShowGUI, void)},
+		{"doTest", "(II)V", nullptr, 0, $virtualMethod(bug4816114, doTest, void, int32_t, int32_t), "java.lang.InterruptedException,java.lang.reflect.InvocationTargetException"},
+		{"isPassed", "()Z", nullptr, $SYNCHRONIZED, $virtualMethod(bug4816114, isPassed, bool)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug4816114, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug4816114, main, void, $StringArray*), "java.lang.InterruptedException,java.lang.reflect.InvocationTargetException,java.awt.AWTException"},
+		{"setPassed", "(IZ)V", nullptr, $SYNCHRONIZED, $virtualMethod(bug4816114, setPassed, void, int32_t, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug4816114$TestSplitPane", "bug4816114", "TestSplitPane", 0},
+		{"bug4816114$3", nullptr, nullptr, 0},
+		{"bug4816114$2", nullptr, nullptr, 0},
+		{"bug4816114$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug4816114",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug4816114$TestSplitPane,bug4816114$3,bug4816114$2,bug4816114$1"
+	};
+	$loadClass(bug4816114, name, initialize, &classInfo$$, bug4816114::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4816114);
+	});
 	return class$;
 }
 

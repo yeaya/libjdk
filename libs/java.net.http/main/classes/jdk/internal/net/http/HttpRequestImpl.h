@@ -82,6 +82,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::HttpRequestBuilderImpl* builder);
 	void init$(::java::net::http::HttpRequest* request, ::java::net::ProxySelector* ps);
 	void init$(::java::net::URI* uri, $String* method, ::jdk::internal::net::http::HttpRequestImpl* other, bool mayHaveBody);

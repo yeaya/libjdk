@@ -1,5 +1,4 @@
 #include <javax/management/MBeanFeatureInfo.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/Serializable.h>
@@ -24,43 +23,6 @@ using $ImmutableDescriptor = ::javax::management::ImmutableDescriptor;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _MBeanFeatureInfo_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(MBeanFeatureInfo, serialVersionUID)},
-	{"name", "Ljava/lang/String;", nullptr, $PROTECTED, $field(MBeanFeatureInfo, name)},
-	{"description", "Ljava/lang/String;", nullptr, $PROTECTED, $field(MBeanFeatureInfo, description)},
-	{"descriptor", "Ljavax/management/Descriptor;", nullptr, $PRIVATE | $TRANSIENT, $field(MBeanFeatureInfo, descriptor)},
-	{}
-};
-
-$MethodInfo _MBeanFeatureInfo_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanFeatureInfo, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(MBeanFeatureInfo, init$, void, $String*, $String*, $Descriptor*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MBeanFeatureInfo, equals, bool, Object$*)},
-	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanFeatureInfo, getDescription, $String*)},
-	{"getDescriptor", "()Ljavax/management/Descriptor;", nullptr, $PUBLIC, $virtualMethod(MBeanFeatureInfo, getDescriptor, $Descriptor*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanFeatureInfo, getName, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MBeanFeatureInfo, hashCode, int32_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MBeanFeatureInfo, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(MBeanFeatureInfo, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _MBeanFeatureInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.MBeanFeatureInfo",
-	"java.lang.Object",
-	"java.io.Serializable,javax.management.DescriptorRead",
-	_MBeanFeatureInfo_FieldInfo_,
-	_MBeanFeatureInfo_MethodInfo_
-};
-
-$Object* allocate$MBeanFeatureInfo($Class* clazz) {
-	return $of($alloc(MBeanFeatureInfo));
-}
 
 $Object* MBeanFeatureInfo::clone() {
 	 return this->$Serializable::clone();
@@ -93,11 +55,11 @@ $String* MBeanFeatureInfo::getDescription() {
 }
 
 $Descriptor* MBeanFeatureInfo::getDescriptor() {
-	return $cast($Descriptor, $nc($($ImmutableDescriptor::nonNullDescriptor(this->descriptor)))->clone());
+	return $cast($Descriptor, $$nc($ImmutableDescriptor::nonNullDescriptor(this->descriptor))->clone());
 }
 
 bool MBeanFeatureInfo::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(o, this)) {
 		return true;
 	}
@@ -105,34 +67,34 @@ bool MBeanFeatureInfo::equals(Object$* o) {
 		return false;
 	}
 	$var(MBeanFeatureInfo, p, $cast(MBeanFeatureInfo, o));
-	$var($Object, var$2, $of($nc(p)->getName()));
+	$var($Object, var$2, $nc(p)->getName());
 	bool var$1 = $Objects::equals(var$2, $(getName()));
 	if (var$1) {
-		$var($Object, var$3, $of($nc(p)->getDescription()));
+		$var($Object, var$3, p->getDescription());
 		var$1 = $Objects::equals(var$3, $(getDescription()));
 	}
 	bool var$0 = var$1;
 	if (var$0) {
-		$var($Object, var$4, $of($nc(p)->getDescriptor()));
+		$var($Object, var$4, p->getDescriptor());
 		var$0 = $Objects::equals(var$4, $(getDescriptor()));
 	}
 	return (var$0);
 }
 
 int32_t MBeanFeatureInfo::hashCode() {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$1 = $nc($(getName()))->hashCode();
-	int32_t var$0 = var$1 ^ $nc($(getDescription()))->hashCode();
-	return var$0 ^ $nc($(getDescriptor()))->hashCode();
+	$useLocalObjectStack();
+	int32_t var$1 = $$nc(getName())->hashCode();
+	int32_t var$0 = var$1 ^ $$nc(getDescription())->hashCode();
+	return var$0 ^ $$nc(getDescriptor())->hashCode();
 }
 
 void MBeanFeatureInfo::writeObject($ObjectOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(out)->defaultWriteObject();
 	$load($ImmutableDescriptor);
-	if (this->descriptor != nullptr && $nc($of(this->descriptor))->getClass() == $ImmutableDescriptor::class$) {
+	if (this->descriptor != nullptr && $of(this->descriptor)->getClass() == $ImmutableDescriptor::class$) {
 		out->write(1);
-		$var($StringArray, names, $nc(this->descriptor)->getFieldNames());
+		$var($StringArray, names, this->descriptor->getFieldNames());
 		out->writeObject(names);
 		out->writeObject($($nc(this->descriptor)->getFieldValues(names)));
 	} else {
@@ -142,39 +104,31 @@ void MBeanFeatureInfo::writeObject($ObjectOutputStream* out) {
 }
 
 void MBeanFeatureInfo::readObject($ObjectInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(in)->defaultReadObject();
 	{
-		$var($StringArray, names, nullptr)
-		$var($ObjectArray, values, nullptr)
+		$var($StringArray, names, nullptr);
+		$var($ObjectArray, values, nullptr);
 		switch (in->read()) {
 		case 1:
-			{
-				$assign(names, $cast($StringArray, in->readObject()));
-				$assign(values, $cast($ObjectArray, in->readObject()));
-				$init($ImmutableDescriptor);
-				$set(this, descriptor, ($nc(names)->length == 0) ? static_cast<$Descriptor*>($ImmutableDescriptor::EMPTY_DESCRIPTOR) : static_cast<$Descriptor*>($new($ImmutableDescriptor, names, values)));
-				break;
-			}
+			$assign(names, $cast($StringArray, in->readObject()));
+			$assign(values, $cast($ObjectArray, in->readObject()));
+			$init($ImmutableDescriptor);
+			$set(this, descriptor, ($nc(names)->length == 0) ? $ImmutableDescriptor::EMPTY_DESCRIPTOR : $new($ImmutableDescriptor, names, values));
+			break;
 		case 0:
-			{
-				$set(this, descriptor, $cast($Descriptor, in->readObject()));
-				if (this->descriptor == nullptr) {
-					$init($ImmutableDescriptor);
-					$set(this, descriptor, $ImmutableDescriptor::EMPTY_DESCRIPTOR);
-				}
-				break;
-			}
-		case -1:
-			{
+			$set(this, descriptor, $cast($Descriptor, in->readObject()));
+			if (this->descriptor == nullptr) {
 				$init($ImmutableDescriptor);
 				$set(this, descriptor, $ImmutableDescriptor::EMPTY_DESCRIPTOR);
-				break;
 			}
+			break;
+		case -1:
+			$init($ImmutableDescriptor);
+			$set(this, descriptor, $ImmutableDescriptor::EMPTY_DESCRIPTOR);
+			break;
 		default:
-			{
-				$throwNew($StreamCorruptedException, "Got unexpected byte."_s);
-			}
+			$throwNew($StreamCorruptedException, "Got unexpected byte."_s);
 		}
 	}
 }
@@ -183,7 +137,39 @@ MBeanFeatureInfo::MBeanFeatureInfo() {
 }
 
 $Class* MBeanFeatureInfo::load$($String* name, bool initialize) {
-	$loadClass(MBeanFeatureInfo, name, initialize, &_MBeanFeatureInfo_ClassInfo_, allocate$MBeanFeatureInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(MBeanFeatureInfo, serialVersionUID)},
+		{"name", "Ljava/lang/String;", nullptr, $PROTECTED, $field(MBeanFeatureInfo, name)},
+		{"description", "Ljava/lang/String;", nullptr, $PROTECTED, $field(MBeanFeatureInfo, description)},
+		{"descriptor", "Ljavax/management/Descriptor;", nullptr, $PRIVATE | $TRANSIENT, $field(MBeanFeatureInfo, descriptor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanFeatureInfo, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(MBeanFeatureInfo, init$, void, $String*, $String*, $Descriptor*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MBeanFeatureInfo, equals, bool, Object$*)},
+		{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanFeatureInfo, getDescription, $String*)},
+		{"getDescriptor", "()Ljavax/management/Descriptor;", nullptr, $PUBLIC, $virtualMethod(MBeanFeatureInfo, getDescriptor, $Descriptor*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanFeatureInfo, getName, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MBeanFeatureInfo, hashCode, int32_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MBeanFeatureInfo, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(MBeanFeatureInfo, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.MBeanFeatureInfo",
+		"java.lang.Object",
+		"java.io.Serializable,javax.management.DescriptorRead",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MBeanFeatureInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MBeanFeatureInfo));
+	});
 	return class$;
 }
 

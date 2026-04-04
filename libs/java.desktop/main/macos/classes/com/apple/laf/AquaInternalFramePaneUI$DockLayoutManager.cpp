@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaInternalFramePaneUI$DockLayoutManager.h>
-
 #include <com/apple/laf/AquaInternalFramePaneUI$Dock.h>
 #include <com/apple/laf/AquaInternalFramePaneUI.h>
 #include <java/awt/Component.h>
@@ -22,46 +21,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaInternalFramePaneUI$DockLayoutManager_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaInternalFramePaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaInternalFramePaneUI$DockLayoutManager, this$0)},
-	{}
-};
-
-$MethodInfo _AquaInternalFramePaneUI$DockLayoutManager_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaInternalFramePaneUI;)V", nullptr, 0, $method(AquaInternalFramePaneUI$DockLayoutManager, init$, void, $AquaInternalFramePaneUI*)},
-	{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI$DockLayoutManager, addLayoutComponent, void, $String*, $Component*)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI$DockLayoutManager, layoutContainer, void, $Container*)},
-	{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI$DockLayoutManager, minimumLayoutSize, $Dimension*, $Container*)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI$DockLayoutManager, preferredLayoutSize, $Dimension*, $Container*)},
-	{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI$DockLayoutManager, removeLayoutComponent, void, $Component*)},
-	{}
-};
-
-$InnerClassInfo _AquaInternalFramePaneUI$DockLayoutManager_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaInternalFramePaneUI$DockLayoutManager", "com.apple.laf.AquaInternalFramePaneUI", "DockLayoutManager", 0},
-	{}
-};
-
-$ClassInfo _AquaInternalFramePaneUI$DockLayoutManager_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaInternalFramePaneUI$DockLayoutManager",
-	"java.lang.Object",
-	"java.awt.LayoutManager",
-	_AquaInternalFramePaneUI$DockLayoutManager_FieldInfo_,
-	_AquaInternalFramePaneUI$DockLayoutManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaInternalFramePaneUI$DockLayoutManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaInternalFramePaneUI"
-};
-
-$Object* allocate$AquaInternalFramePaneUI$DockLayoutManager($Class* clazz) {
-	return $of($alloc(AquaInternalFramePaneUI$DockLayoutManager));
-}
-
 void AquaInternalFramePaneUI$DockLayoutManager::init$($AquaInternalFramePaneUI* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -82,7 +41,7 @@ $Dimension* AquaInternalFramePaneUI$DockLayoutManager::minimumLayoutSize($Contai
 
 void AquaInternalFramePaneUI$DockLayoutManager::layoutContainer($Container* parent) {
 	if (this->this$0->fDock != nullptr) {
-		$nc(($cast($AquaInternalFramePaneUI$Dock, this->this$0->fDock)))->updateSize();
+		$cast($AquaInternalFramePaneUI$Dock, this->this$0->fDock)->updateSize();
 	}
 }
 
@@ -90,7 +49,41 @@ AquaInternalFramePaneUI$DockLayoutManager::AquaInternalFramePaneUI$DockLayoutMan
 }
 
 $Class* AquaInternalFramePaneUI$DockLayoutManager::load$($String* name, bool initialize) {
-	$loadClass(AquaInternalFramePaneUI$DockLayoutManager, name, initialize, &_AquaInternalFramePaneUI$DockLayoutManager_ClassInfo_, allocate$AquaInternalFramePaneUI$DockLayoutManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaInternalFramePaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaInternalFramePaneUI$DockLayoutManager, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaInternalFramePaneUI;)V", nullptr, 0, $method(AquaInternalFramePaneUI$DockLayoutManager, init$, void, $AquaInternalFramePaneUI*)},
+		{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI$DockLayoutManager, addLayoutComponent, void, $String*, $Component*)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI$DockLayoutManager, layoutContainer, void, $Container*)},
+		{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI$DockLayoutManager, minimumLayoutSize, $Dimension*, $Container*)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI$DockLayoutManager, preferredLayoutSize, $Dimension*, $Container*)},
+		{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI$DockLayoutManager, removeLayoutComponent, void, $Component*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaInternalFramePaneUI$DockLayoutManager", "com.apple.laf.AquaInternalFramePaneUI", "DockLayoutManager", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaInternalFramePaneUI$DockLayoutManager",
+		"java.lang.Object",
+		"java.awt.LayoutManager",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaInternalFramePaneUI"
+	};
+	$loadClass(AquaInternalFramePaneUI$DockLayoutManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaInternalFramePaneUI$DockLayoutManager);
+	});
 	return class$;
 }
 

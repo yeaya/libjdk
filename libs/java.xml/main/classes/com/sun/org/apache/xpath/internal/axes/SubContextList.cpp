@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/axes/SubContextList.h>
-
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
 #include <jcpp.h>
 
@@ -15,27 +14,23 @@ namespace com {
 					namespace internal {
 						namespace axes {
 
-$MethodInfo _SubContextList_MethodInfo_[] = {
-	{"getLastPos", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SubContextList, getLastPos, int32_t, $XPathContext*)},
-	{"getProximityPosition", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SubContextList, getProximityPosition, int32_t, $XPathContext*)},
-	{}
-};
-
-$ClassInfo _SubContextList_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xpath.internal.axes.SubContextList",
-	nullptr,
-	nullptr,
-	nullptr,
-	_SubContextList_MethodInfo_
-};
-
-$Object* allocate$SubContextList($Class* clazz) {
-	return $of($alloc(SubContextList));
-}
-
 $Class* SubContextList::load$($String* name, bool initialize) {
-	$loadClass(SubContextList, name, initialize, &_SubContextList_ClassInfo_, allocate$SubContextList);
+	$MethodInfo methodInfos$$[] = {
+		{"getLastPos", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SubContextList, getLastPos, int32_t, $XPathContext*)},
+		{"getProximityPosition", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SubContextList, getProximityPosition, int32_t, $XPathContext*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xpath.internal.axes.SubContextList",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SubContextList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SubContextList);
+	});
 	return class$;
 }
 

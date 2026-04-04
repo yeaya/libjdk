@@ -109,6 +109,7 @@ class $import BasicTreeUI : public ::javax::swing::plaf::TreeUI {
 	$class(BasicTreeUI, 0, ::javax::swing::plaf::TreeUI)
 public:
 	BasicTreeUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void cancelEditing(::javax::swing::JTree* tree) override;
 	virtual void checkForClickInExpandControl(::javax::swing::tree::TreePath* path, int32_t mouseX, int32_t mouseY);

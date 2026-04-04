@@ -15,6 +15,7 @@ class AbstractDiagnosticFormatter$2 : public ::java::lang::Object {
 	$class(AbstractDiagnosticFormatter$2, 0, ::java::lang::Object)
 public:
 	AbstractDiagnosticFormatter$2();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag;
 	static $ints* $SwitchMap$com$sun$tools$javac$api$DiagnosticFormatter$PositionKind;
 	static $ints* $SwitchMap$com$sun$tools$javac$util$JCDiagnostic$DiagnosticType;

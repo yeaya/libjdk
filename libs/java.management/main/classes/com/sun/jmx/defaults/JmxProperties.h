@@ -69,6 +69,7 @@ class JmxProperties : public ::java::lang::Object {
 	$class(JmxProperties, 0, ::java::lang::Object)
 public:
 	JmxProperties();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* JMX_INITIAL_BUILDER;
 	static $String* MLET_LIB_DIR;

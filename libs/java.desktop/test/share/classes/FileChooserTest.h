@@ -20,6 +20,7 @@ class $export FileChooserTest : public ::java::lang::Object {
 	$class(FileChooserTest, 0, ::java::lang::Object)
 public:
 	FileChooserTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void fail();
 	static void init();

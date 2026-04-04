@@ -21,6 +21,7 @@ class XErrorHandler$IgnoreBadWindowHandler : public ::sun::awt::X11::XErrorHandl
 	$class(XErrorHandler$IgnoreBadWindowHandler, 0, ::sun::awt::X11::XErrorHandler$XBaseErrorHandler)
 public:
 	XErrorHandler$IgnoreBadWindowHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::awt::X11::XErrorHandler$IgnoreBadWindowHandler* getInstance();
 	virtual int32_t handleError(int64_t display, ::sun::awt::X11::XErrorEvent* err) override;

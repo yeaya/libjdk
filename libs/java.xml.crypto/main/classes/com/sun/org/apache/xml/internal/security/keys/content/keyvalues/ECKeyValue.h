@@ -78,6 +78,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::org::w3c::dom::Element* element, $String* baseURI);
 	void init$(::org::w3c::dom::Document* doc, ::java::security::Key* key);
 	static ::java::math::BigInteger* bigInt($String* s);

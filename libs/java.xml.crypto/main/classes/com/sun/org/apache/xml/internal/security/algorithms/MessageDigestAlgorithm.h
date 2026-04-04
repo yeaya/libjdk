@@ -50,6 +50,7 @@ class MessageDigestAlgorithm : public ::com::sun::org::apache::xml::internal::se
 	$class(MessageDigestAlgorithm, 0, ::com::sun::org::apache::xml::internal::security::algorithms::Algorithm)
 public:
 	MessageDigestAlgorithm();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::org::w3c::dom::Document* doc, $String* algorithmURI);
 	$bytes* digest();
 	$bytes* digest($bytes* input);

@@ -44,6 +44,7 @@ class ExecutableInputMethodManager : public ::sun::awt::im::InputMethodManager, 
 	$class(ExecutableInputMethodManager, 0, ::sun::awt::im::InputMethodManager, ::java::lang::Runnable)
 public:
 	ExecutableInputMethodManager();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

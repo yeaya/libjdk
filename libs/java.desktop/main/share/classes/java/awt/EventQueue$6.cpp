@@ -1,5 +1,4 @@
 #include <java/awt/EventQueue$6.h>
-
 #include <java/awt/EventDispatchThread.h>
 #include <java/awt/EventQueue.h>
 #include <java/lang/ClassLoader.h>
@@ -21,67 +20,60 @@ using $AWTAutoShutdown = ::sun::awt::AWTAutoShutdown;
 namespace java {
 	namespace awt {
 
-$FieldInfo _EventQueue$6_FieldInfo_[] = {
-	{"this$0", "Ljava/awt/EventQueue;", nullptr, $FINAL | $SYNTHETIC, $field(EventQueue$6, this$0)},
-	{}
-};
-
-$MethodInfo _EventQueue$6_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/EventQueue;)V", nullptr, 0, $method(EventQueue$6, init$, void, $EventQueue*)},
-	{"run", "()Ljava/awt/EventDispatchThread;", nullptr, $PUBLIC, $virtualMethod(EventQueue$6, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _EventQueue$6_EnclosingMethodInfo_ = {
-	"java.awt.EventQueue",
-	"initDispatchThread",
-	"()V"
-};
-
-$InnerClassInfo _EventQueue$6_InnerClassesInfo_[] = {
-	{"java.awt.EventQueue$6", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _EventQueue$6_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.EventQueue$6",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_EventQueue$6_FieldInfo_,
-	_EventQueue$6_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/awt/EventDispatchThread;>;",
-	&_EventQueue$6_EnclosingMethodInfo_,
-	_EventQueue$6_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.EventQueue"
-};
-
-$Object* allocate$EventQueue$6($Class* clazz) {
-	return $of($alloc(EventQueue$6));
-}
-
 void EventQueue$6::init$($EventQueue* this$0) {
 	$set(this, this$0, this$0);
 }
 
 $Object* EventQueue$6::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($EventDispatchThread, t, $new($EventDispatchThread, this->this$0->threadGroup, this->this$0->name, this->this$0));
 	t->setContextClassLoader(this->this$0->classLoader);
 	t->setPriority($Thread::NORM_PRIORITY + 1);
 	t->setDaemon(false);
-	$nc($($AWTAutoShutdown::getInstance()))->notifyThreadBusy(t);
-	return $of(t);
+	$$nc($AWTAutoShutdown::getInstance())->notifyThreadBusy(t);
+	return t;
 }
 
 EventQueue$6::EventQueue$6() {
 }
 
 $Class* EventQueue$6::load$($String* name, bool initialize) {
-	$loadClass(EventQueue$6, name, initialize, &_EventQueue$6_ClassInfo_, allocate$EventQueue$6);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/awt/EventQueue;", nullptr, $FINAL | $SYNTHETIC, $field(EventQueue$6, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/EventQueue;)V", nullptr, 0, $method(EventQueue$6, init$, void, $EventQueue*)},
+		{"run", "()Ljava/awt/EventDispatchThread;", nullptr, $PUBLIC, $virtualMethod(EventQueue$6, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.awt.EventQueue",
+		"initDispatchThread",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.EventQueue$6", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.EventQueue$6",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/awt/EventDispatchThread;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.EventQueue"
+	};
+	$loadClass(EventQueue$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EventQueue$6);
+	});
 	return class$;
 }
 

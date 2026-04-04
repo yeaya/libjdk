@@ -20,6 +20,7 @@ class $import HttpClient$Version : public ::java::lang::Enum {
 public:
 	HttpClient$Version();
 	static $Array<::java::net::http::HttpClient$Version>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::net::http::HttpClient$Version* valueOf($String* name);
 	static $Array<::java::net::http::HttpClient$Version>* values();

@@ -54,6 +54,7 @@ class $import FastStringBuffer : public ::java::lang::Object {
 	$class(FastStringBuffer, 0, ::java::lang::Object)
 public:
 	FastStringBuffer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t initChunkBits, int32_t maxChunkBits, int32_t rebundleBits);
 	void init$(int32_t initChunkBits, int32_t maxChunkBits);
 	void init$(int32_t initChunkBits);

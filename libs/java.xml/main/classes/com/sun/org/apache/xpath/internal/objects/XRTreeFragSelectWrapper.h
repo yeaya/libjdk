@@ -99,7 +99,7 @@ public:
 	virtual $String* str() override;
 	using ::com::sun::org::apache::xpath::internal::objects::XRTreeFrag::xstr;
 	virtual ::com::sun::org::apache::xml::internal::utils::XMLString* xstr() override;
-	static const int64_t serialVersionUID = (int64_t)0xA56E5BC5A4471CBD;
+	static const int64_t serialVersionUID = (int64_t)0xa56e5bc5a4471cbd;
 };
 
 						} // objects

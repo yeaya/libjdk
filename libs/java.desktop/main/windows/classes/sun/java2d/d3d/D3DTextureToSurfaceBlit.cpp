@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DTextureToSurfaceBlit.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/AffineTransformOp.h>
@@ -34,25 +33,6 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$MethodInfo _D3DTextureToSurfaceBlit_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(D3DTextureToSurfaceBlit, init$, void)},
-	{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(D3DTextureToSurfaceBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _D3DTextureToSurfaceBlit_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.d3d.D3DTextureToSurfaceBlit",
-	"sun.java2d.loops.Blit",
-	nullptr,
-	nullptr,
-	_D3DTextureToSurfaceBlit_MethodInfo_
-};
-
-$Object* allocate$D3DTextureToSurfaceBlit($Class* clazz) {
-	return $of($alloc(D3DTextureToSurfaceBlit));
-}
-
 void D3DTextureToSurfaceBlit::init$() {
 	$init($D3DSurfaceData);
 	$init($CompositeType);
@@ -67,7 +47,22 @@ D3DTextureToSurfaceBlit::D3DTextureToSurfaceBlit() {
 }
 
 $Class* D3DTextureToSurfaceBlit::load$($String* name, bool initialize) {
-	$loadClass(D3DTextureToSurfaceBlit, name, initialize, &_D3DTextureToSurfaceBlit_ClassInfo_, allocate$D3DTextureToSurfaceBlit);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(D3DTextureToSurfaceBlit, init$, void)},
+		{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(D3DTextureToSurfaceBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.d3d.D3DTextureToSurfaceBlit",
+		"sun.java2d.loops.Blit",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(D3DTextureToSurfaceBlit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DTextureToSurfaceBlit);
+	});
 	return class$;
 }
 

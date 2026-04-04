@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/NodeCounterGenerator.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ALOAD.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet.h>
@@ -24,32 +23,6 @@ namespace com {
 							namespace compiler {
 								namespace util {
 
-$FieldInfo _NodeCounterGenerator_FieldInfo_[] = {
-	{"_aloadTranslet", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE, $field(NodeCounterGenerator, _aloadTranslet)},
-	{}
-};
-
-$MethodInfo _NodeCounterGenerator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;)V", nullptr, $PUBLIC, $method(NodeCounterGenerator, init$, void, $String*, $String*, $String*, int32_t, $StringArray*, $Stylesheet*)},
-	{"isExternal", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeCounterGenerator, isExternal, bool)},
-	{"loadTranslet", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(NodeCounterGenerator, loadTranslet, $Instruction*)},
-	{"setTransletIndex", "(I)V", nullptr, $PUBLIC, $method(NodeCounterGenerator, setTransletIndex, void, int32_t)},
-	{}
-};
-
-$ClassInfo _NodeCounterGenerator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.NodeCounterGenerator",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.ClassGenerator",
-	nullptr,
-	_NodeCounterGenerator_FieldInfo_,
-	_NodeCounterGenerator_MethodInfo_
-};
-
-$Object* allocate$NodeCounterGenerator($Class* clazz) {
-	return $of($alloc(NodeCounterGenerator));
-}
-
 void NodeCounterGenerator::init$($String* className, $String* superClassName, $String* fileName, int32_t accessFlags, $StringArray* interfaces, $Stylesheet* stylesheet) {
 	$ClassGenerator::init$(className, superClassName, fileName, accessFlags, interfaces, stylesheet);
 }
@@ -70,7 +43,28 @@ NodeCounterGenerator::NodeCounterGenerator() {
 }
 
 $Class* NodeCounterGenerator::load$($String* name, bool initialize) {
-	$loadClass(NodeCounterGenerator, name, initialize, &_NodeCounterGenerator_ClassInfo_, allocate$NodeCounterGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"_aloadTranslet", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE, $field(NodeCounterGenerator, _aloadTranslet)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;)V", nullptr, $PUBLIC, $method(NodeCounterGenerator, init$, void, $String*, $String*, $String*, int32_t, $StringArray*, $Stylesheet*)},
+		{"isExternal", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeCounterGenerator, isExternal, bool)},
+		{"loadTranslet", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(NodeCounterGenerator, loadTranslet, $Instruction*)},
+		{"setTransletIndex", "(I)V", nullptr, $PUBLIC, $method(NodeCounterGenerator, setTransletIndex, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.NodeCounterGenerator",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.ClassGenerator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NodeCounterGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NodeCounterGenerator));
+	});
 	return class$;
 }
 

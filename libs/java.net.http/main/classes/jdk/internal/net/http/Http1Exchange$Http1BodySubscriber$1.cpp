@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/Http1Exchange$Http1BodySubscriber$1.h>
-
 #include <java/lang/InternalError.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/concurrent/Flow$Subscription.h>
@@ -21,50 +20,6 @@ namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$MethodInfo _Http1Exchange$Http1BodySubscriber$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/common/Logger;)V", nullptr, 0, $method(Http1Exchange$Http1BodySubscriber$1, init$, void, $Logger*)},
-	{"currentStateMessage", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Http1Exchange$Http1BodySubscriber$1, currentStateMessage, $String*)},
-	{"error", "()V", nullptr, $PRIVATE, $method(Http1Exchange$Http1BodySubscriber$1, error, void)},
-	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(Http1Exchange$Http1BodySubscriber$1, onComplete, void)},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Http1Exchange$Http1BodySubscriber$1, onError, void, $Throwable*)},
-	{"onNext", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(Http1Exchange$Http1BodySubscriber$1, onNext, void, $ByteBuffer*)},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Http1Exchange$Http1BodySubscriber$1, onNext, void, Object$*)},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(Http1Exchange$Http1BodySubscriber$1, onSubscribe, void, $Flow$Subscription*)},
-	{}
-};
-
-$EnclosingMethodInfo _Http1Exchange$Http1BodySubscriber$1_EnclosingMethodInfo_ = {
-	"jdk.internal.net.http.Http1Exchange$Http1BodySubscriber",
-	"completeSubscriber",
-	"(Ljdk/internal/net/http/common/Logger;)Ljdk/internal/net/http/Http1Exchange$Http1BodySubscriber;"
-};
-
-$InnerClassInfo _Http1Exchange$Http1BodySubscriber$1_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.Http1Exchange$Http1BodySubscriber", "jdk.internal.net.http.Http1Exchange", "Http1BodySubscriber", $STATIC | $ABSTRACT},
-	{"jdk.internal.net.http.Http1Exchange$Http1BodySubscriber$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Http1Exchange$Http1BodySubscriber$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.Http1Exchange$Http1BodySubscriber$1",
-	"jdk.internal.net.http.Http1Exchange$Http1BodySubscriber",
-	nullptr,
-	nullptr,
-	_Http1Exchange$Http1BodySubscriber$1_MethodInfo_,
-	nullptr,
-	&_Http1Exchange$Http1BodySubscriber$1_EnclosingMethodInfo_,
-	_Http1Exchange$Http1BodySubscriber$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.Http1Exchange"
-};
-
-$Object* allocate$Http1Exchange$Http1BodySubscriber$1($Class* clazz) {
-	return $of($alloc(Http1Exchange$Http1BodySubscriber$1));
-}
 
 void Http1Exchange$Http1BodySubscriber$1::init$($Logger* debug) {
 	$Http1Exchange$Http1BodySubscriber::init$(debug);
@@ -102,7 +57,45 @@ Http1Exchange$Http1BodySubscriber$1::Http1Exchange$Http1BodySubscriber$1() {
 }
 
 $Class* Http1Exchange$Http1BodySubscriber$1::load$($String* name, bool initialize) {
-	$loadClass(Http1Exchange$Http1BodySubscriber$1, name, initialize, &_Http1Exchange$Http1BodySubscriber$1_ClassInfo_, allocate$Http1Exchange$Http1BodySubscriber$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/common/Logger;)V", nullptr, 0, $method(Http1Exchange$Http1BodySubscriber$1, init$, void, $Logger*)},
+		{"currentStateMessage", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Http1Exchange$Http1BodySubscriber$1, currentStateMessage, $String*)},
+		{"error", "()V", nullptr, $PRIVATE, $method(Http1Exchange$Http1BodySubscriber$1, error, void)},
+		{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(Http1Exchange$Http1BodySubscriber$1, onComplete, void)},
+		{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Http1Exchange$Http1BodySubscriber$1, onError, void, $Throwable*)},
+		{"onNext", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(Http1Exchange$Http1BodySubscriber$1, onNext, void, $ByteBuffer*)},
+		{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Http1Exchange$Http1BodySubscriber$1, onNext, void, Object$*)},
+		{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(Http1Exchange$Http1BodySubscriber$1, onSubscribe, void, $Flow$Subscription*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.net.http.Http1Exchange$Http1BodySubscriber",
+		"completeSubscriber",
+		"(Ljdk/internal/net/http/common/Logger;)Ljdk/internal/net/http/Http1Exchange$Http1BodySubscriber;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.Http1Exchange$Http1BodySubscriber", "jdk.internal.net.http.Http1Exchange", "Http1BodySubscriber", $STATIC | $ABSTRACT},
+		{"jdk.internal.net.http.Http1Exchange$Http1BodySubscriber$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.Http1Exchange$Http1BodySubscriber$1",
+		"jdk.internal.net.http.Http1Exchange$Http1BodySubscriber",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.Http1Exchange"
+	};
+	$loadClass(Http1Exchange$Http1BodySubscriber$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Http1Exchange$Http1BodySubscriber$1);
+	});
 	return class$;
 }
 

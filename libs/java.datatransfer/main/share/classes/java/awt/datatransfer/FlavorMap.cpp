@@ -1,5 +1,4 @@
 #include <java/awt/datatransfer/FlavorMap.h>
-
 #include <java/awt/datatransfer/DataFlavor.h>
 #include <java/util/Map.h>
 #include <jcpp.h>
@@ -13,27 +12,23 @@ namespace java {
 	namespace awt {
 		namespace datatransfer {
 
-$MethodInfo _FlavorMap_MethodInfo_[] = {
-	{"getFlavorsForNatives", "([Ljava/lang/String;)Ljava/util/Map;", "([Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC | $ABSTRACT, $virtualMethod(FlavorMap, getFlavorsForNatives, $Map*, $StringArray*)},
-	{"getNativesForFlavors", "([Ljava/awt/datatransfer/DataFlavor;)Ljava/util/Map;", "([Ljava/awt/datatransfer/DataFlavor;)Ljava/util/Map<Ljava/awt/datatransfer/DataFlavor;Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(FlavorMap, getNativesForFlavors, $Map*, $DataFlavorArray*)},
-	{}
-};
-
-$ClassInfo _FlavorMap_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.datatransfer.FlavorMap",
-	nullptr,
-	nullptr,
-	nullptr,
-	_FlavorMap_MethodInfo_
-};
-
-$Object* allocate$FlavorMap($Class* clazz) {
-	return $of($alloc(FlavorMap));
-}
-
 $Class* FlavorMap::load$($String* name, bool initialize) {
-	$loadClass(FlavorMap, name, initialize, &_FlavorMap_ClassInfo_, allocate$FlavorMap);
+	$MethodInfo methodInfos$$[] = {
+		{"getFlavorsForNatives", "([Ljava/lang/String;)Ljava/util/Map;", "([Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC | $ABSTRACT, $virtualMethod(FlavorMap, getFlavorsForNatives, $Map*, $StringArray*)},
+		{"getNativesForFlavors", "([Ljava/awt/datatransfer/DataFlavor;)Ljava/util/Map;", "([Ljava/awt/datatransfer/DataFlavor;)Ljava/util/Map<Ljava/awt/datatransfer/DataFlavor;Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(FlavorMap, getNativesForFlavors, $Map*, $DataFlavorArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.datatransfer.FlavorMap",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FlavorMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FlavorMap);
+	});
 	return class$;
 }
 

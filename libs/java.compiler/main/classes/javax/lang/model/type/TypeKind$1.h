@@ -14,6 +14,7 @@ class TypeKind$1 : public ::java::lang::Object {
 	$class(TypeKind$1, 0, ::java::lang::Object)
 public:
 	TypeKind$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$lang$model$type$TypeKind;
 };
 

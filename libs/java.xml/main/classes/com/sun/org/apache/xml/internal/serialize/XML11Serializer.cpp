@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serialize/XML11Serializer.h>
-
 #include <com/sun/org/apache/xerces/internal/dom/DOMErrorImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DOMMessageFormatter.h>
 #include <com/sun/org/apache/xerces/internal/util/NamespaceSupport.h>
@@ -37,22 +36,18 @@ using $XML11Char = ::com::sun::org::apache::xerces::internal::util::XML11Char;
 using $XMLChar = ::com::sun::org::apache::xerces::internal::util::XMLChar;
 using $DOMSerializerImpl = ::com::sun::org::apache::xml::internal::serialize::DOMSerializerImpl;
 using $ElementState = ::com::sun::org::apache::xml::internal::serialize::ElementState;
-using $EncodingInfo = ::com::sun::org::apache::xml::internal::serialize::EncodingInfo;
 using $Method = ::com::sun::org::apache::xml::internal::serialize::Method;
 using $OutputFormat = ::com::sun::org::apache::xml::internal::serialize::OutputFormat;
-using $Printer = ::com::sun::org::apache::xml::internal::serialize::Printer;
 using $XMLSerializer = ::com::sun::org::apache::xml::internal::serialize::XMLSerializer;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DOMError = ::org::w3c::dom::DOMError;
-using $DOMErrorHandler = ::org::w3c::dom::DOMErrorHandler;
 using $SAXException = ::org::xml::sax::SAXException;
 
 namespace com {
@@ -62,56 +57,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace serialize {
-
-$CompoundAttribute _XML11Serializer_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _XML11Serializer_FieldInfo_[] = {
-	{"DEBUG", "Z", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XML11Serializer, DEBUG)},
-	{"fNSBinder", "Lcom/sun/org/apache/xerces/internal/util/NamespaceSupport;", nullptr, $PROTECTED, $field(XML11Serializer, fNSBinder)},
-	{"fLocalNSBinder", "Lcom/sun/org/apache/xerces/internal/util/NamespaceSupport;", nullptr, $PROTECTED, $field(XML11Serializer, fLocalNSBinder)},
-	{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PROTECTED, $field(XML11Serializer, fSymbolTable)},
-	{"fDOML1", "Z", nullptr, $PROTECTED, $field(XML11Serializer, fDOML1)},
-	{"fNamespaceCounter", "I", nullptr, $PROTECTED, $field(XML11Serializer, fNamespaceCounter)},
-	{"PREFIX", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Serializer, PREFIX)},
-	{"fNamespaces", "Z", nullptr, $PROTECTED, $field(XML11Serializer, fNamespaces)},
-	{}
-};
-
-$MethodInfo _XML11Serializer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XML11Serializer, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)V", nullptr, $PUBLIC, $method(XML11Serializer, init$, void, $OutputFormat*)},
-	{"<init>", "(Ljava/io/Writer;Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)V", nullptr, $PUBLIC, $method(XML11Serializer, init$, void, $Writer*, $OutputFormat*)},
-	{"<init>", "(Ljava/io/OutputStream;Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)V", nullptr, $PUBLIC, $method(XML11Serializer, init$, void, $OutputStream*, $OutputFormat*)},
-	{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(XML11Serializer, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"printCDATAText", "(Ljava/lang/String;)V", nullptr, $PROTECTED | $FINAL, $virtualMethod(XML11Serializer, printCDATAText, void, $String*), "java.io.IOException"},
-	{"printEscaped", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(XML11Serializer, printEscaped, void, $String*), "java.io.IOException"},
-	{"printText", "(Ljava/lang/String;ZZ)V", nullptr, $PROTECTED, $virtualMethod(XML11Serializer, printText, void, $String*, bool, bool), "java.io.IOException"},
-	{"printText", "([CIIZZ)V", nullptr, $PROTECTED, $virtualMethod(XML11Serializer, printText, void, $chars*, int32_t, int32_t, bool, bool), "java.io.IOException"},
-	{"printXMLChar", "(I)V", nullptr, $PROTECTED | $FINAL, $virtualMethod(XML11Serializer, printXMLChar, void, int32_t), "java.io.IOException"},
-	{"reset", "()Z", nullptr, $PUBLIC, $virtualMethod(XML11Serializer, reset, bool)},
-	{"surrogates", "(IIZ)V", nullptr, $PROTECTED | $FINAL, $virtualMethod(XML11Serializer, surrogates, void, int32_t, int32_t, bool), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _XML11Serializer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serialize.XML11Serializer",
-	"com.sun.org.apache.xml.internal.serialize.XMLSerializer",
-	nullptr,
-	_XML11Serializer_FieldInfo_,
-	_XML11Serializer_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_XML11Serializer_Annotations_
-};
-
-$Object* allocate$XML11Serializer($Class* clazz) {
-	return $of($alloc(XML11Serializer));
-}
 
 $String* XML11Serializer::PREFIX = nullptr;
 
@@ -149,11 +94,11 @@ void XML11Serializer::init$($OutputStream* output, $OutputFormat* format) {
 }
 
 void XML11Serializer::characters($chars* chars, int32_t start, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ElementState, state, nullptr);
 	try {
 		$assign(state, content());
-		if ($nc(state)->inCData || $nc(state)->doCData) {
+		if ($nc(state)->inCData || state->doCData) {
 			int32_t saveIndent = 0;
 			if (!state->inCData) {
 				$nc(this->_printer)->printText("<![CDATA["_s);
@@ -200,12 +145,12 @@ void XML11Serializer::characters($chars* chars, int32_t start, int32_t length) {
 			}
 		}
 	} catch ($IOException& except) {
-		$throwNew($SAXException, static_cast<$Exception*>(except));
+		$throwNew($SAXException, except);
 	}
 }
 
 void XML11Serializer::printEscaped($String* source) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = $nc(source)->length();
 	for (int32_t i = 0; i < length; ++i) {
 		int32_t ch = source->charAt(i);
@@ -234,7 +179,7 @@ void XML11Serializer::printEscaped($String* source) {
 }
 
 void XML11Serializer::printCDATAText($String* text) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = $nc(text)->length();
 	char16_t ch = 0;
 	for (int32_t index = 0; index < length; ++index) {
@@ -242,7 +187,7 @@ void XML11Serializer::printCDATAText($String* text) {
 		bool var$0 = ch == u']' && index + 2 < length && text->charAt(index + 1) == u']';
 		if (var$0 && text->charAt(index + 2) == u'>') {
 			if (this->fDOMErrorHandler != nullptr) {
-				if (((int32_t)(this->features & (uint32_t)(int32_t)$DOMSerializerImpl::SPLITCDATA)) == 0 && ((int32_t)(this->features & (uint32_t)(int32_t)$DOMSerializerImpl::WELLFORMED)) == 0) {
+				if ((this->features & $DOMSerializerImpl::SPLITCDATA) == 0 && (this->features & $DOMSerializerImpl::WELLFORMED) == 0) {
 					$init($DOMMessageFormatter);
 					$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::SERIALIZER_DOMAIN, "EndingCDATA"_s, nullptr));
 					modifyDOMError(msg, $DOMError::SEVERITY_FATAL_ERROR, nullptr, this->fCurrentNode);
@@ -290,8 +235,8 @@ void XML11Serializer::printXMLChar(int32_t ch) {
 	} else if (ch == u'>') {
 		$nc(this->_printer)->printText("&gt;"_s);
 	} else {
-		bool var$1 = $nc(this->_encodingInfo)->isPrintable((char16_t)ch);
-		if (var$1 && $XML11Char::isXML11ValidLiteral(ch)) {
+		bool var$0 = $nc(this->_encodingInfo)->isPrintable((char16_t)ch);
+		if (var$0 && $XML11Char::isXML11ValidLiteral(ch)) {
 			$nc(this->_printer)->printText((char16_t)ch);
 		} else {
 			printHex(ch);
@@ -300,7 +245,7 @@ void XML11Serializer::printXMLChar(int32_t ch) {
 }
 
 void XML11Serializer::surrogates(int32_t high, int32_t low, bool inContent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($XMLChar::isHighSurrogate(high)) {
 		if (!$XMLChar::isLowSurrogate(low)) {
 			fatalError($$str({"The character \'"_s, $$str((char16_t)low), "\' is an invalid XML character"_s}));
@@ -322,7 +267,7 @@ void XML11Serializer::surrogates(int32_t high, int32_t low, bool inContent) {
 }
 
 void XML11Serializer::printText($String* text, bool preserveSpace, bool unescaped) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t index = 0;
 	char16_t ch = 0;
 	int32_t length = $nc(text)->length();
@@ -364,7 +309,7 @@ void XML11Serializer::printText($String* text, bool preserveSpace, bool unescape
 }
 
 void XML11Serializer::printText($chars* chars, int32_t start, int32_t length, bool preserveSpace, bool unescaped) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (preserveSpace) {
 		while (length-- > 0) {
 			char16_t ch = $nc(chars)->get(start++);
@@ -410,12 +355,56 @@ bool XML11Serializer::reset() {
 XML11Serializer::XML11Serializer() {
 }
 
-void clinit$XML11Serializer($Class* class$) {
+void XML11Serializer::clinit$($Class* clazz) {
 	$assignStatic(XML11Serializer::PREFIX, "NS"_s);
 }
 
 $Class* XML11Serializer::load$($String* name, bool initialize) {
-	$loadClass(XML11Serializer, name, initialize, &_XML11Serializer_ClassInfo_, clinit$XML11Serializer, allocate$XML11Serializer);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEBUG", "Z", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XML11Serializer, DEBUG)},
+		{"fNSBinder", "Lcom/sun/org/apache/xerces/internal/util/NamespaceSupport;", nullptr, $PROTECTED, $field(XML11Serializer, fNSBinder)},
+		{"fLocalNSBinder", "Lcom/sun/org/apache/xerces/internal/util/NamespaceSupport;", nullptr, $PROTECTED, $field(XML11Serializer, fLocalNSBinder)},
+		{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PROTECTED, $field(XML11Serializer, fSymbolTable)},
+		{"fDOML1", "Z", nullptr, $PROTECTED, $field(XML11Serializer, fDOML1)},
+		{"fNamespaceCounter", "I", nullptr, $PROTECTED, $field(XML11Serializer, fNamespaceCounter)},
+		{"PREFIX", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Serializer, PREFIX)},
+		{"fNamespaces", "Z", nullptr, $PROTECTED, $field(XML11Serializer, fNamespaces)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XML11Serializer, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)V", nullptr, $PUBLIC, $method(XML11Serializer, init$, void, $OutputFormat*)},
+		{"<init>", "(Ljava/io/Writer;Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)V", nullptr, $PUBLIC, $method(XML11Serializer, init$, void, $Writer*, $OutputFormat*)},
+		{"<init>", "(Ljava/io/OutputStream;Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)V", nullptr, $PUBLIC, $method(XML11Serializer, init$, void, $OutputStream*, $OutputFormat*)},
+		{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(XML11Serializer, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"printCDATAText", "(Ljava/lang/String;)V", nullptr, $PROTECTED | $FINAL, $virtualMethod(XML11Serializer, printCDATAText, void, $String*), "java.io.IOException"},
+		{"printEscaped", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(XML11Serializer, printEscaped, void, $String*), "java.io.IOException"},
+		{"printText", "(Ljava/lang/String;ZZ)V", nullptr, $PROTECTED, $virtualMethod(XML11Serializer, printText, void, $String*, bool, bool), "java.io.IOException"},
+		{"printText", "([CIIZZ)V", nullptr, $PROTECTED, $virtualMethod(XML11Serializer, printText, void, $chars*, int32_t, int32_t, bool, bool), "java.io.IOException"},
+		{"printXMLChar", "(I)V", nullptr, $PROTECTED | $FINAL, $virtualMethod(XML11Serializer, printXMLChar, void, int32_t), "java.io.IOException"},
+		{"reset", "()Z", nullptr, $PUBLIC, $virtualMethod(XML11Serializer, reset, bool)},
+		{"surrogates", "(IIZ)V", nullptr, $PROTECTED | $FINAL, $virtualMethod(XML11Serializer, surrogates, void, int32_t, int32_t, bool), "java.io.IOException"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serialize.XML11Serializer",
+		"com.sun.org.apache.xml.internal.serialize.XMLSerializer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(XML11Serializer, name, initialize, &classInfo$$, XML11Serializer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XML11Serializer));
+	});
 	return class$;
 }
 

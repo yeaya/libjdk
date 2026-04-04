@@ -1,5 +1,4 @@
 #include <java/net/http/HttpResponse$BodySubscribers.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -49,7 +48,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $HttpResponse$BodySubscriber = ::java::net::http::HttpResponse$BodySubscriber;
 using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
-using $OpenOption = ::java::nio::file::OpenOption;
 using $Path = ::java::nio::file::Path;
 using $StandardOpenOption = ::java::nio::file::StandardOpenOption;
 using $List = ::java::util::List;
@@ -79,29 +77,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(HttpResponse$BodySubscribers::lambda$fromSubscriber$0($cast($Flow$Subscriber, s)));
+		 return HttpResponse$BodySubscribers::lambda$fromSubscriber$0($cast($Flow$Subscriber, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpResponse$BodySubscribers$$Lambda$lambda$fromSubscriber$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HttpResponse$BodySubscribers$$Lambda$lambda$fromSubscriber$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpResponse$BodySubscribers$$Lambda$lambda$fromSubscriber$0, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpResponse$BodySubscribers$$Lambda$lambda$fromSubscriber$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo HttpResponse$BodySubscribers$$Lambda$lambda$fromSubscriber$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.net.http.HttpResponse$BodySubscribers$$Lambda$lambda$fromSubscriber$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* HttpResponse$BodySubscribers$$Lambda$lambda$fromSubscriber$0::load$($String* name, bool initialize) {
-	$loadClass(HttpResponse$BodySubscribers$$Lambda$lambda$fromSubscriber$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HttpResponse$BodySubscribers$$Lambda$lambda$fromSubscriber$0, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpResponse$BodySubscribers$$Lambda$lambda$fromSubscriber$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.net.http.HttpResponse$BodySubscribers$$Lambda$lambda$fromSubscriber$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HttpResponse$BodySubscribers$$Lambda$lambda$fromSubscriber$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpResponse$BodySubscribers$$Lambda$lambda$fromSubscriber$0);
+	});
 	return class$;
 }
 $Class* HttpResponse$BodySubscribers$$Lambda$lambda$fromSubscriber$0::class$ = nullptr;
@@ -115,90 +110,38 @@ public:
 	virtual $Object* apply(Object$* bytes) override {
 		 return $of(HttpResponse$BodySubscribers::lambda$ofString$2(charset, $cast($bytes, bytes)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpResponse$BodySubscribers$$Lambda$lambda$ofString$2$1>());
-	}
 	$Charset* charset = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo HttpResponse$BodySubscribers$$Lambda$lambda$ofString$2$1::fieldInfos[2] = {
-	{"charset", "Ljava/nio/charset/Charset;", nullptr, $PUBLIC, $field(HttpResponse$BodySubscribers$$Lambda$lambda$ofString$2$1, charset)},
-	{}
-};
-$MethodInfo HttpResponse$BodySubscribers$$Lambda$lambda$ofString$2$1::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(HttpResponse$BodySubscribers$$Lambda$lambda$ofString$2$1, init$, void, $Charset*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpResponse$BodySubscribers$$Lambda$lambda$ofString$2$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo HttpResponse$BodySubscribers$$Lambda$lambda$ofString$2$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.net.http.HttpResponse$BodySubscribers$$Lambda$lambda$ofString$2$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* HttpResponse$BodySubscribers$$Lambda$lambda$ofString$2$1::load$($String* name, bool initialize) {
-	$loadClass(HttpResponse$BodySubscribers$$Lambda$lambda$ofString$2$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"charset", "Ljava/nio/charset/Charset;", nullptr, $PUBLIC, $field(HttpResponse$BodySubscribers$$Lambda$lambda$ofString$2$1, charset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(HttpResponse$BodySubscribers$$Lambda$lambda$ofString$2$1, init$, void, $Charset*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpResponse$BodySubscribers$$Lambda$lambda$ofString$2$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.net.http.HttpResponse$BodySubscribers$$Lambda$lambda$ofString$2$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpResponse$BodySubscribers$$Lambda$lambda$ofString$2$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpResponse$BodySubscribers$$Lambda$lambda$ofString$2$1);
+	});
 	return class$;
 }
 $Class* HttpResponse$BodySubscribers$$Lambda$lambda$ofString$2$1::class$ = nullptr;
-
-$MethodInfo _HttpResponse$BodySubscribers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(HttpResponse$BodySubscribers, init$, void)},
-	{"buffering", "(Ljava/net/http/HttpResponse$BodySubscriber;I)Ljava/net/http/HttpResponse$BodySubscriber;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpResponse$BodySubscriber<TT;>;I)Ljava/net/http/HttpResponse$BodySubscriber<TT;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, buffering, $HttpResponse$BodySubscriber*, $HttpResponse$BodySubscriber*, int32_t)},
-	{"discarding", "()Ljava/net/http/HttpResponse$BodySubscriber;", "()Ljava/net/http/HttpResponse$BodySubscriber<Ljava/lang/Void;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, discarding, $HttpResponse$BodySubscriber*)},
-	{"fromLineSubscriber", "(Ljava/util/concurrent/Flow$Subscriber;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/lang/String;>;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/lang/Void;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, fromLineSubscriber, $HttpResponse$BodySubscriber*, $Flow$Subscriber*)},
-	{"fromLineSubscriber", "(Ljava/util/concurrent/Flow$Subscriber;Ljava/util/function/Function;Ljava/nio/charset/Charset;Ljava/lang/String;)Ljava/net/http/HttpResponse$BodySubscriber;", "<S::Ljava/util/concurrent/Flow$Subscriber<-Ljava/lang/String;>;T:Ljava/lang/Object;>(TS;Ljava/util/function/Function<-TS;+TT;>;Ljava/nio/charset/Charset;Ljava/lang/String;)Ljava/net/http/HttpResponse$BodySubscriber<TT;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, fromLineSubscriber, $HttpResponse$BodySubscriber*, $Flow$Subscriber*, $Function*, $Charset*, $String*)},
-	{"fromSubscriber", "(Ljava/util/concurrent/Flow$Subscriber;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/lang/Void;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, fromSubscriber, $HttpResponse$BodySubscriber*, $Flow$Subscriber*)},
-	{"fromSubscriber", "(Ljava/util/concurrent/Flow$Subscriber;Ljava/util/function/Function;)Ljava/net/http/HttpResponse$BodySubscriber;", "<S::Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;T:Ljava/lang/Object;>(TS;Ljava/util/function/Function<-TS;+TT;>;)Ljava/net/http/HttpResponse$BodySubscriber<TT;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, fromSubscriber, $HttpResponse$BodySubscriber*, $Flow$Subscriber*, $Function*)},
-	{"lambda$fromSubscriber$0", "(Ljava/util/concurrent/Flow$Subscriber;)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpResponse$BodySubscribers, lambda$fromSubscriber$0, $Void*, $Flow$Subscriber*)},
-	{"lambda$ofString$2", "(Ljava/nio/charset/Charset;[B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpResponse$BodySubscribers, lambda$ofString$2, $String*, $Charset*, $bytes*)},
-	{"mapping", "(Ljava/net/http/HttpResponse$BodySubscriber;Ljava/util/function/Function;)Ljava/net/http/HttpResponse$BodySubscriber;", "<T:Ljava/lang/Object;U:Ljava/lang/Object;>(Ljava/net/http/HttpResponse$BodySubscriber<TT;>;Ljava/util/function/Function<-TT;+TU;>;)Ljava/net/http/HttpResponse$BodySubscriber<TU;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, mapping, $HttpResponse$BodySubscriber*, $HttpResponse$BodySubscriber*, $Function*)},
-	{"ofByteArray", "()Ljava/net/http/HttpResponse$BodySubscriber;", "()Ljava/net/http/HttpResponse$BodySubscriber<[B>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, ofByteArray, $HttpResponse$BodySubscriber*)},
-	{"ofByteArrayConsumer", "(Ljava/util/function/Consumer;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/util/function/Consumer<Ljava/util/Optional<[B>;>;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/lang/Void;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, ofByteArrayConsumer, $HttpResponse$BodySubscriber*, $Consumer*)},
-	{"ofFile", "(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/nio/file/Path;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(HttpResponse$BodySubscribers, ofFile, $HttpResponse$BodySubscriber*, $Path*, $OpenOptionArray*)},
-	{"ofFile", "(Ljava/nio/file/Path;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/nio/file/Path;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/nio/file/Path;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, ofFile, $HttpResponse$BodySubscriber*, $Path*)},
-	{"ofInputStream", "()Ljava/net/http/HttpResponse$BodySubscriber;", "()Ljava/net/http/HttpResponse$BodySubscriber<Ljava/io/InputStream;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, ofInputStream, $HttpResponse$BodySubscriber*)},
-	{"ofLines", "(Ljava/nio/charset/Charset;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/nio/charset/Charset;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/util/stream/Stream<Ljava/lang/String;>;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, ofLines, $HttpResponse$BodySubscriber*, $Charset*)},
-	{"ofPublisher", "()Ljava/net/http/HttpResponse$BodySubscriber;", "()Ljava/net/http/HttpResponse$BodySubscriber<Ljava/util/concurrent/Flow$Publisher<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, ofPublisher, $HttpResponse$BodySubscriber*)},
-	{"ofString", "(Ljava/nio/charset/Charset;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/nio/charset/Charset;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, ofString, $HttpResponse$BodySubscriber*, $Charset*)},
-	{"replacing", "(Ljava/lang/Object;)Ljava/net/http/HttpResponse$BodySubscriber;", "<U:Ljava/lang/Object;>(TU;)Ljava/net/http/HttpResponse$BodySubscriber<TU;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, replacing, $HttpResponse$BodySubscriber*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _HttpResponse$BodySubscribers_InnerClassesInfo_[] = {
-	{"java.net.http.HttpResponse$BodySubscribers", "java.net.http.HttpResponse", "BodySubscribers", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _HttpResponse$BodySubscribers_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.net.http.HttpResponse$BodySubscribers",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HttpResponse$BodySubscribers_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HttpResponse$BodySubscribers_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.net.http.HttpResponse"
-};
-
-$Object* allocate$HttpResponse$BodySubscribers($Class* clazz) {
-	return $of($alloc(HttpResponse$BodySubscribers));
-}
 
 void HttpResponse$BodySubscribers::init$() {
 }
 
 $HttpResponse$BodySubscriber* HttpResponse$BodySubscribers::fromSubscriber($Flow$Subscriber* subscriber) {
-	return $new($ResponseSubscribers$SubscriberAdapter, subscriber, static_cast<$Function*>($$new(HttpResponse$BodySubscribers$$Lambda$lambda$fromSubscriber$0)));
+	return $new($ResponseSubscribers$SubscriberAdapter, subscriber, $$new(HttpResponse$BodySubscribers$$Lambda$lambda$fromSubscriber$0));
 }
 
 $HttpResponse$BodySubscriber* HttpResponse$BodySubscribers::fromSubscriber($Flow$Subscriber* subscriber, $Function* finisher) {
@@ -207,7 +150,7 @@ $HttpResponse$BodySubscriber* HttpResponse$BodySubscribers::fromSubscriber($Flow
 
 $HttpResponse$BodySubscriber* HttpResponse$BodySubscribers::fromLineSubscriber($Flow$Subscriber* subscriber) {
 	$init($StandardCharsets);
-	return fromLineSubscriber(subscriber, static_cast<$Function*>($$new(HttpResponse$BodySubscribers$$Lambda$lambda$fromSubscriber$0)), $StandardCharsets::UTF_8, nullptr);
+	return fromLineSubscriber(subscriber, $$new(HttpResponse$BodySubscribers$$Lambda$lambda$fromSubscriber$0), $StandardCharsets::UTF_8, nullptr);
 }
 
 $HttpResponse$BodySubscriber* HttpResponse$BodySubscribers::fromLineSubscriber($Flow$Subscriber* subscriber, $Function* finisher, $Charset* charset, $String* lineSeparator) {
@@ -216,7 +159,7 @@ $HttpResponse$BodySubscriber* HttpResponse$BodySubscribers::fromLineSubscriber($
 
 $HttpResponse$BodySubscriber* HttpResponse$BodySubscribers::ofString($Charset* charset) {
 	$Objects::requireNonNull(charset);
-	return $new($ResponseSubscribers$ByteArraySubscriber, static_cast<$Function*>($$new(HttpResponse$BodySubscribers$$Lambda$lambda$ofString$2$1, charset)));
+	return $new($ResponseSubscribers$ByteArraySubscriber, $$new(HttpResponse$BodySubscribers$$Lambda$lambda$ofString$2$1, charset));
 }
 
 $HttpResponse$BodySubscriber* HttpResponse$BodySubscribers::ofByteArray() {
@@ -224,12 +167,12 @@ $HttpResponse$BodySubscriber* HttpResponse$BodySubscribers::ofByteArray() {
 }
 
 $HttpResponse$BodySubscriber* HttpResponse$BodySubscribers::ofFile($Path* file, $OpenOptionArray* openOptions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(file);
 	$var($List, opts, $List::of(openOptions));
 	$init($StandardOpenOption);
 	bool var$0 = $nc(opts)->contains($StandardOpenOption::DELETE_ON_CLOSE);
-	if (var$0 || $nc(opts)->contains($StandardOpenOption::READ)) {
+	if (var$0 || opts->contains($StandardOpenOption::READ)) {
 		$throwNew($IllegalArgumentException, $$str({"invalid openOptions: "_s, opts}));
 	}
 	return $ResponseSubscribers$PathSubscriber::create(file, opts);
@@ -238,8 +181,8 @@ $HttpResponse$BodySubscriber* HttpResponse$BodySubscribers::ofFile($Path* file, 
 $HttpResponse$BodySubscriber* HttpResponse$BodySubscribers::ofFile($Path* file) {
 	$init($StandardOpenOption);
 	return ofFile(file, $$new($OpenOptionArray, {
-		static_cast<$OpenOption*>($StandardOpenOption::CREATE),
-		static_cast<$OpenOption*>($StandardOpenOption::WRITE)
+		$StandardOpenOption::CREATE,
+		$StandardOpenOption::WRITE
 	}));
 }
 
@@ -291,14 +234,57 @@ HttpResponse$BodySubscribers::HttpResponse$BodySubscribers() {
 
 $Class* HttpResponse$BodySubscribers::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(HttpResponse$BodySubscribers$$Lambda$lambda$fromSubscriber$0::classInfo$.name)) {
+		if (name->equals("java.net.http.HttpResponse$BodySubscribers$$Lambda$lambda$fromSubscriber$0")) {
 			return HttpResponse$BodySubscribers$$Lambda$lambda$fromSubscriber$0::load$(name, initialize);
 		}
-		if (name->equals(HttpResponse$BodySubscribers$$Lambda$lambda$ofString$2$1::classInfo$.name)) {
+		if (name->equals("java.net.http.HttpResponse$BodySubscribers$$Lambda$lambda$ofString$2$1")) {
 			return HttpResponse$BodySubscribers$$Lambda$lambda$ofString$2$1::load$(name, initialize);
 		}
 	}
-	$loadClass(HttpResponse$BodySubscribers, name, initialize, &_HttpResponse$BodySubscribers_ClassInfo_, allocate$HttpResponse$BodySubscribers);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(HttpResponse$BodySubscribers, init$, void)},
+		{"buffering", "(Ljava/net/http/HttpResponse$BodySubscriber;I)Ljava/net/http/HttpResponse$BodySubscriber;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpResponse$BodySubscriber<TT;>;I)Ljava/net/http/HttpResponse$BodySubscriber<TT;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, buffering, $HttpResponse$BodySubscriber*, $HttpResponse$BodySubscriber*, int32_t)},
+		{"discarding", "()Ljava/net/http/HttpResponse$BodySubscriber;", "()Ljava/net/http/HttpResponse$BodySubscriber<Ljava/lang/Void;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, discarding, $HttpResponse$BodySubscriber*)},
+		{"fromLineSubscriber", "(Ljava/util/concurrent/Flow$Subscriber;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/lang/String;>;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/lang/Void;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, fromLineSubscriber, $HttpResponse$BodySubscriber*, $Flow$Subscriber*)},
+		{"fromLineSubscriber", "(Ljava/util/concurrent/Flow$Subscriber;Ljava/util/function/Function;Ljava/nio/charset/Charset;Ljava/lang/String;)Ljava/net/http/HttpResponse$BodySubscriber;", "<S::Ljava/util/concurrent/Flow$Subscriber<-Ljava/lang/String;>;T:Ljava/lang/Object;>(TS;Ljava/util/function/Function<-TS;+TT;>;Ljava/nio/charset/Charset;Ljava/lang/String;)Ljava/net/http/HttpResponse$BodySubscriber<TT;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, fromLineSubscriber, $HttpResponse$BodySubscriber*, $Flow$Subscriber*, $Function*, $Charset*, $String*)},
+		{"fromSubscriber", "(Ljava/util/concurrent/Flow$Subscriber;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/lang/Void;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, fromSubscriber, $HttpResponse$BodySubscriber*, $Flow$Subscriber*)},
+		{"fromSubscriber", "(Ljava/util/concurrent/Flow$Subscriber;Ljava/util/function/Function;)Ljava/net/http/HttpResponse$BodySubscriber;", "<S::Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;T:Ljava/lang/Object;>(TS;Ljava/util/function/Function<-TS;+TT;>;)Ljava/net/http/HttpResponse$BodySubscriber<TT;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, fromSubscriber, $HttpResponse$BodySubscriber*, $Flow$Subscriber*, $Function*)},
+		{"lambda$fromSubscriber$0", "(Ljava/util/concurrent/Flow$Subscriber;)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpResponse$BodySubscribers, lambda$fromSubscriber$0, $Void*, $Flow$Subscriber*)},
+		{"lambda$ofString$2", "(Ljava/nio/charset/Charset;[B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpResponse$BodySubscribers, lambda$ofString$2, $String*, $Charset*, $bytes*)},
+		{"mapping", "(Ljava/net/http/HttpResponse$BodySubscriber;Ljava/util/function/Function;)Ljava/net/http/HttpResponse$BodySubscriber;", "<T:Ljava/lang/Object;U:Ljava/lang/Object;>(Ljava/net/http/HttpResponse$BodySubscriber<TT;>;Ljava/util/function/Function<-TT;+TU;>;)Ljava/net/http/HttpResponse$BodySubscriber<TU;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, mapping, $HttpResponse$BodySubscriber*, $HttpResponse$BodySubscriber*, $Function*)},
+		{"ofByteArray", "()Ljava/net/http/HttpResponse$BodySubscriber;", "()Ljava/net/http/HttpResponse$BodySubscriber<[B>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, ofByteArray, $HttpResponse$BodySubscriber*)},
+		{"ofByteArrayConsumer", "(Ljava/util/function/Consumer;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/util/function/Consumer<Ljava/util/Optional<[B>;>;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/lang/Void;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, ofByteArrayConsumer, $HttpResponse$BodySubscriber*, $Consumer*)},
+		{"ofFile", "(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/nio/file/Path;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(HttpResponse$BodySubscribers, ofFile, $HttpResponse$BodySubscriber*, $Path*, $OpenOptionArray*)},
+		{"ofFile", "(Ljava/nio/file/Path;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/nio/file/Path;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/nio/file/Path;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, ofFile, $HttpResponse$BodySubscriber*, $Path*)},
+		{"ofInputStream", "()Ljava/net/http/HttpResponse$BodySubscriber;", "()Ljava/net/http/HttpResponse$BodySubscriber<Ljava/io/InputStream;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, ofInputStream, $HttpResponse$BodySubscriber*)},
+		{"ofLines", "(Ljava/nio/charset/Charset;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/nio/charset/Charset;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/util/stream/Stream<Ljava/lang/String;>;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, ofLines, $HttpResponse$BodySubscriber*, $Charset*)},
+		{"ofPublisher", "()Ljava/net/http/HttpResponse$BodySubscriber;", "()Ljava/net/http/HttpResponse$BodySubscriber<Ljava/util/concurrent/Flow$Publisher<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, ofPublisher, $HttpResponse$BodySubscriber*)},
+		{"ofString", "(Ljava/nio/charset/Charset;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/nio/charset/Charset;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, ofString, $HttpResponse$BodySubscriber*, $Charset*)},
+		{"replacing", "(Ljava/lang/Object;)Ljava/net/http/HttpResponse$BodySubscriber;", "<U:Ljava/lang/Object;>(TU;)Ljava/net/http/HttpResponse$BodySubscriber<TU;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$BodySubscribers, replacing, $HttpResponse$BodySubscriber*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.http.HttpResponse$BodySubscribers", "java.net.http.HttpResponse", "BodySubscribers", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.net.http.HttpResponse$BodySubscribers",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.net.http.HttpResponse"
+	};
+	$loadClass(HttpResponse$BodySubscribers, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpResponse$BodySubscribers);
+	});
 	return class$;
 }
 

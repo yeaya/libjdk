@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Preview$1.h>
-
 #include <com/sun/tools/javac/code/Preview.h>
 #include <com/sun/tools/javac/code/Source$Feature.h>
 #include <java/lang/NoSuchFieldError.h>
@@ -21,53 +20,17 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Preview$1_FieldInfo_[] = {
-	{"$SwitchMap$com$sun$tools$javac$code$Source$Feature", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Preview$1, $SwitchMap$com$sun$tools$javac$code$Source$Feature)},
-	{}
-};
-
-$EnclosingMethodInfo _Preview$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Preview",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Preview$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Preview$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _Preview$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.tools.javac.code.Preview$1",
-	"java.lang.Object",
-	nullptr,
-	_Preview$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_Preview$1_EnclosingMethodInfo_,
-	_Preview$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Preview"
-};
-
-$Object* allocate$Preview$1($Class* clazz) {
-	return $of($alloc(Preview$1));
-}
-
 $ints* Preview$1::$SwitchMap$com$sun$tools$javac$code$Source$Feature = nullptr;
 
-void clinit$Preview$1($Class* class$) {
+void Preview$1::clinit$($Class* clazz) {
 	$assignStatic(Preview$1::$SwitchMap$com$sun$tools$javac$code$Source$Feature, $new($ints, $($Source$Feature::values())->length));
 	{
 		try {
-			$nc(Preview$1::$SwitchMap$com$sun$tools$javac$code$Source$Feature)->set($Source$Feature::CASE_NULL->ordinal(), 1);
+			Preview$1::$SwitchMap$com$sun$tools$javac$code$Source$Feature->set($Source$Feature::CASE_NULL->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Preview$1::$SwitchMap$com$sun$tools$javac$code$Source$Feature)->set($Source$Feature::PATTERN_SWITCH->ordinal(), 2);
+			Preview$1::$SwitchMap$com$sun$tools$javac$code$Source$Feature->set($Source$Feature::PATTERN_SWITCH->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -77,7 +40,37 @@ Preview$1::Preview$1() {
 }
 
 $Class* Preview$1::load$($String* name, bool initialize) {
-	$loadClass(Preview$1, name, initialize, &_Preview$1_ClassInfo_, clinit$Preview$1, allocate$Preview$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$com$sun$tools$javac$code$Source$Feature", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Preview$1, $SwitchMap$com$sun$tools$javac$code$Source$Feature)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Preview",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Preview$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.tools.javac.code.Preview$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Preview"
+	};
+	$loadClass(Preview$1, name, initialize, &classInfo$$, Preview$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Preview$1);
+	});
 	return class$;
 }
 

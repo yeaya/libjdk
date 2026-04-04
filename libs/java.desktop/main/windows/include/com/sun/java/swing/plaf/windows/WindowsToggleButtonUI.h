@@ -41,6 +41,7 @@ class $import WindowsToggleButtonUI : public ::javax::swing::plaf::basic::BasicT
 	$class(WindowsToggleButtonUI, 0, ::javax::swing::plaf::basic::BasicToggleButtonUI)
 public:
 	WindowsToggleButtonUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* b);
 	virtual ::java::awt::Color* getFocusColor();

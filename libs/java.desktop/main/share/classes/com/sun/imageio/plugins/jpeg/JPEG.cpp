@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/jpeg/JPEG.h>
-
 #include <java/awt/color/ColorSpace.h>
 #include <java/awt/image/ColorModel.h>
 #include <javax/imageio/ImageTypeSpecifier.h>
@@ -97,112 +96,6 @@ namespace com {
 			namespace plugins {
 				namespace jpeg {
 
-$FieldInfo _JPEG_FieldInfo_[] = {
-	{"TEM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, TEM)},
-	{"SOF0", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOF0)},
-	{"SOF1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOF1)},
-	{"SOF2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOF2)},
-	{"SOF3", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOF3)},
-	{"DHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, DHT)},
-	{"SOF5", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOF5)},
-	{"SOF6", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOF6)},
-	{"SOF7", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOF7)},
-	{"JPG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, JPG)},
-	{"SOF9", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOF9)},
-	{"SOF10", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOF10)},
-	{"SOF11", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOF11)},
-	{"DAC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, DAC)},
-	{"SOF13", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOF13)},
-	{"SOF14", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOF14)},
-	{"SOF15", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOF15)},
-	{"RST0", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, RST0)},
-	{"RST1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, RST1)},
-	{"RST2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, RST2)},
-	{"RST3", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, RST3)},
-	{"RST4", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, RST4)},
-	{"RST5", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, RST5)},
-	{"RST6", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, RST6)},
-	{"RST7", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, RST7)},
-	{"RESTART_RANGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, RESTART_RANGE)},
-	{"SOI", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOI)},
-	{"EOI", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, EOI)},
-	{"SOS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOS)},
-	{"DQT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, DQT)},
-	{"DNL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, DNL)},
-	{"DRI", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, DRI)},
-	{"DHP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, DHP)},
-	{"EXP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, EXP)},
-	{"APP0", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP0)},
-	{"APP1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP1)},
-	{"APP2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP2)},
-	{"APP3", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP3)},
-	{"APP4", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP4)},
-	{"APP5", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP5)},
-	{"APP6", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP6)},
-	{"APP7", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP7)},
-	{"APP8", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP8)},
-	{"APP9", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP9)},
-	{"APP10", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP10)},
-	{"APP11", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP11)},
-	{"APP12", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP12)},
-	{"APP13", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP13)},
-	{"APP14", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP14)},
-	{"APP15", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP15)},
-	{"COM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, COM)},
-	{"DENSITY_UNIT_ASPECT_RATIO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, DENSITY_UNIT_ASPECT_RATIO)},
-	{"DENSITY_UNIT_DOTS_INCH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, DENSITY_UNIT_DOTS_INCH)},
-	{"DENSITY_UNIT_DOTS_CM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, DENSITY_UNIT_DOTS_CM)},
-	{"NUM_DENSITY_UNIT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, NUM_DENSITY_UNIT)},
-	{"ADOBE_IMPOSSIBLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, ADOBE_IMPOSSIBLE)},
-	{"ADOBE_UNKNOWN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, ADOBE_UNKNOWN)},
-	{"ADOBE_YCC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, ADOBE_YCC)},
-	{"ADOBE_YCCK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, ADOBE_YCCK)},
-	{"vendor", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JPEG, vendor)},
-	{"version", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JPEG, version)},
-	{"names", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JPEG, names)},
-	{"suffixes", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JPEG, suffixes)},
-	{"MIMETypes", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JPEG, MIMETypes)},
-	{"nativeImageMetadataFormatName", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JPEG, nativeImageMetadataFormatName)},
-	{"nativeImageMetadataFormatClassName", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JPEG, nativeImageMetadataFormatClassName)},
-	{"nativeStreamMetadataFormatName", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JPEG, nativeStreamMetadataFormatName)},
-	{"nativeStreamMetadataFormatClassName", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JPEG, nativeStreamMetadataFormatClassName)},
-	{"JCS_UNKNOWN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, JCS_UNKNOWN)},
-	{"JCS_GRAYSCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, JCS_GRAYSCALE)},
-	{"JCS_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, JCS_RGB)},
-	{"JCS_YCbCr", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, JCS_YCbCr)},
-	{"JCS_CMYK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, JCS_CMYK)},
-	{"JCS_YCCK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, JCS_YCCK)},
-	{"NUM_JCS_CODES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, NUM_JCS_CODES)},
-	{"bandOffsets", "[[I", nullptr, $STATIC | $FINAL, $staticField(JPEG, bandOffsets)},
-	{"bOffsRGB", "[I", nullptr, $STATIC | $FINAL, $staticField(JPEG, bOffsRGB)},
-	{"sRGB", "Ljava/awt/color/ColorSpace;", nullptr, $STATIC | $FINAL, $staticField(JPEG, sRGB)},
-	{"DEFAULT_QUALITY", "F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JPEG, DEFAULT_QUALITY)},
-	{}
-};
-
-$MethodInfo _JPEG_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JPEG, init$, void)},
-	{"convertToLinearQuality", "(F)F", nullptr, $STATIC, $staticMethod(JPEG, convertToLinearQuality, float, float)},
-	{"getDefaultHuffmanTables", "(Z)[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;", nullptr, $STATIC, $staticMethod(JPEG, getDefaultHuffmanTables, $JPEGHuffmanTableArray*, bool)},
-	{"getDefaultQTables", "()[Ljavax/imageio/plugins/jpeg/JPEGQTable;", nullptr, $STATIC, $staticMethod(JPEG, getDefaultQTables, $JPEGQTableArray*)},
-	{"isJFIFcompliant", "(Ljavax/imageio/ImageTypeSpecifier;Z)Z", nullptr, $STATIC, $staticMethod(JPEG, isJFIFcompliant, bool, $ImageTypeSpecifier*, bool)},
-	{"transformForType", "(Ljavax/imageio/ImageTypeSpecifier;Z)I", nullptr, $STATIC, $staticMethod(JPEG, transformForType, int32_t, $ImageTypeSpecifier*, bool)},
-	{}
-};
-
-$ClassInfo _JPEG_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.jpeg.JPEG",
-	"java.lang.Object",
-	nullptr,
-	_JPEG_FieldInfo_,
-	_JPEG_MethodInfo_
-};
-
-$Object* allocate$JPEG($Class* clazz) {
-	return $of($alloc(JPEG));
-}
-
 $String* JPEG::vendor = nullptr;
 $String* JPEG::version = nullptr;
 $StringArray* JPEG::names = nullptr;
@@ -222,7 +115,7 @@ void JPEG::init$() {
 
 bool JPEG::isJFIFcompliant($ImageTypeSpecifier* imageType, bool input) {
 	$init(JPEG);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorModel, cm, $nc(imageType)->getColorModel());
 	if ($nc(cm)->hasAlpha()) {
 		return false;
@@ -235,10 +128,10 @@ bool JPEG::isJFIFcompliant($ImageTypeSpecifier* imageType, bool input) {
 		return false;
 	}
 	if (input) {
-		if ($nc($($nc(cm)->getColorSpace()))->getType() == $ColorSpace::TYPE_RGB) {
+		if ($$nc(cm->getColorSpace())->getType() == $ColorSpace::TYPE_RGB) {
 			return true;
 		}
-	} else if ($nc($($nc(cm)->getColorSpace()))->getType() == $ColorSpace::TYPE_YCbCr) {
+	} else if ($$nc(cm->getColorSpace())->getType() == $ColorSpace::TYPE_YCbCr) {
 		return true;
 	}
 	return false;
@@ -246,29 +139,21 @@ bool JPEG::isJFIFcompliant($ImageTypeSpecifier* imageType, bool input) {
 
 int32_t JPEG::transformForType($ImageTypeSpecifier* imageType, bool input) {
 	$init(JPEG);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t retval = JPEG::ADOBE_IMPOSSIBLE;
 	$var($ColorModel, cm, $nc(imageType)->getColorModel());
-	switch ($nc($($nc(cm)->getColorSpace()))->getType()) {
+	switch ($$nc($nc(cm)->getColorSpace())->getType()) {
 	case $ColorSpace::TYPE_GRAY:
-		{
-			retval = JPEG::ADOBE_UNKNOWN;
-			break;
-		}
+		retval = JPEG::ADOBE_UNKNOWN;
+		break;
 	case $ColorSpace::TYPE_RGB:
-		{
-			retval = input ? JPEG::ADOBE_YCC : JPEG::ADOBE_UNKNOWN;
-			break;
-		}
+		retval = input ? JPEG::ADOBE_YCC : JPEG::ADOBE_UNKNOWN;
+		break;
 	case $ColorSpace::TYPE_YCbCr:
-		{
-			retval = JPEG::ADOBE_YCC;
-			break;
-		}
+		retval = JPEG::ADOBE_YCC;
+		break;
 	case $ColorSpace::TYPE_CMYK:
-		{
-			retval = input ? JPEG::ADOBE_YCCK : JPEG::ADOBE_IMPOSSIBLE;
-		}
+		retval = input ? JPEG::ADOBE_YCCK : JPEG::ADOBE_IMPOSSIBLE;
 	}
 	return retval;
 }
@@ -292,7 +177,6 @@ float JPEG::convertToLinearQuality(float quality) {
 $JPEGQTableArray* JPEG::getDefaultQTables() {
 	$init(JPEG);
 	$var($JPEGQTableArray, qTables, $new($JPEGQTableArray, 2));
-	$init($JPEGQTable);
 	qTables->set(0, $JPEGQTable::K1Div2Luminance);
 	qTables->set(1, $JPEGQTable::K2Div2Chrominance);
 	return qTables;
@@ -302,19 +186,17 @@ $JPEGHuffmanTableArray* JPEG::getDefaultHuffmanTables(bool wantDC) {
 	$init(JPEG);
 	$var($JPEGHuffmanTableArray, tables, $new($JPEGHuffmanTableArray, 2));
 	if (wantDC) {
-		$init($JPEGHuffmanTable);
 		tables->set(0, $JPEGHuffmanTable::StdDCLuminance);
 		tables->set(1, $JPEGHuffmanTable::StdDCChrominance);
 	} else {
-		$init($JPEGHuffmanTable);
 		tables->set(0, $JPEGHuffmanTable::StdACLuminance);
 		tables->set(1, $JPEGHuffmanTable::StdACChrominance);
 	}
 	return tables;
 }
 
-void clinit$JPEG($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void JPEG::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(JPEG::vendor, "Oracle Corporation"_s);
 	$assignStatic(JPEG::version, "0.5"_s);
 	$assignStatic(JPEG::nativeImageMetadataFormatName, "javax_imageio_jpeg_image_1.0"_s);
@@ -363,7 +245,108 @@ JPEG::JPEG() {
 }
 
 $Class* JPEG::load$($String* name, bool initialize) {
-	$loadClass(JPEG, name, initialize, &_JPEG_ClassInfo_, clinit$JPEG, allocate$JPEG);
+	$FieldInfo fieldInfos$$[] = {
+		{"TEM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, TEM)},
+		{"SOF0", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOF0)},
+		{"SOF1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOF1)},
+		{"SOF2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOF2)},
+		{"SOF3", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOF3)},
+		{"DHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, DHT)},
+		{"SOF5", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOF5)},
+		{"SOF6", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOF6)},
+		{"SOF7", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOF7)},
+		{"JPG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, JPG)},
+		{"SOF9", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOF9)},
+		{"SOF10", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOF10)},
+		{"SOF11", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOF11)},
+		{"DAC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, DAC)},
+		{"SOF13", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOF13)},
+		{"SOF14", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOF14)},
+		{"SOF15", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOF15)},
+		{"RST0", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, RST0)},
+		{"RST1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, RST1)},
+		{"RST2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, RST2)},
+		{"RST3", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, RST3)},
+		{"RST4", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, RST4)},
+		{"RST5", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, RST5)},
+		{"RST6", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, RST6)},
+		{"RST7", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, RST7)},
+		{"RESTART_RANGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, RESTART_RANGE)},
+		{"SOI", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOI)},
+		{"EOI", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, EOI)},
+		{"SOS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, SOS)},
+		{"DQT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, DQT)},
+		{"DNL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, DNL)},
+		{"DRI", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, DRI)},
+		{"DHP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, DHP)},
+		{"EXP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, EXP)},
+		{"APP0", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP0)},
+		{"APP1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP1)},
+		{"APP2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP2)},
+		{"APP3", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP3)},
+		{"APP4", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP4)},
+		{"APP5", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP5)},
+		{"APP6", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP6)},
+		{"APP7", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP7)},
+		{"APP8", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP8)},
+		{"APP9", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP9)},
+		{"APP10", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP10)},
+		{"APP11", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP11)},
+		{"APP12", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP12)},
+		{"APP13", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP13)},
+		{"APP14", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP14)},
+		{"APP15", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, APP15)},
+		{"COM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, COM)},
+		{"DENSITY_UNIT_ASPECT_RATIO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, DENSITY_UNIT_ASPECT_RATIO)},
+		{"DENSITY_UNIT_DOTS_INCH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, DENSITY_UNIT_DOTS_INCH)},
+		{"DENSITY_UNIT_DOTS_CM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, DENSITY_UNIT_DOTS_CM)},
+		{"NUM_DENSITY_UNIT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, NUM_DENSITY_UNIT)},
+		{"ADOBE_IMPOSSIBLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, ADOBE_IMPOSSIBLE)},
+		{"ADOBE_UNKNOWN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, ADOBE_UNKNOWN)},
+		{"ADOBE_YCC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, ADOBE_YCC)},
+		{"ADOBE_YCCK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, ADOBE_YCCK)},
+		{"vendor", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JPEG, vendor)},
+		{"version", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JPEG, version)},
+		{"names", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JPEG, names)},
+		{"suffixes", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JPEG, suffixes)},
+		{"MIMETypes", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JPEG, MIMETypes)},
+		{"nativeImageMetadataFormatName", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JPEG, nativeImageMetadataFormatName)},
+		{"nativeImageMetadataFormatClassName", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JPEG, nativeImageMetadataFormatClassName)},
+		{"nativeStreamMetadataFormatName", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JPEG, nativeStreamMetadataFormatName)},
+		{"nativeStreamMetadataFormatClassName", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JPEG, nativeStreamMetadataFormatClassName)},
+		{"JCS_UNKNOWN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, JCS_UNKNOWN)},
+		{"JCS_GRAYSCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, JCS_GRAYSCALE)},
+		{"JCS_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, JCS_RGB)},
+		{"JCS_YCbCr", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, JCS_YCbCr)},
+		{"JCS_CMYK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, JCS_CMYK)},
+		{"JCS_YCCK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, JCS_YCCK)},
+		{"NUM_JCS_CODES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JPEG, NUM_JCS_CODES)},
+		{"bandOffsets", "[[I", nullptr, $STATIC | $FINAL, $staticField(JPEG, bandOffsets)},
+		{"bOffsRGB", "[I", nullptr, $STATIC | $FINAL, $staticField(JPEG, bOffsRGB)},
+		{"sRGB", "Ljava/awt/color/ColorSpace;", nullptr, $STATIC | $FINAL, $staticField(JPEG, sRGB)},
+		{"DEFAULT_QUALITY", "F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JPEG, DEFAULT_QUALITY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JPEG, init$, void)},
+		{"convertToLinearQuality", "(F)F", nullptr, $STATIC, $staticMethod(JPEG, convertToLinearQuality, float, float)},
+		{"getDefaultHuffmanTables", "(Z)[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;", nullptr, $STATIC, $staticMethod(JPEG, getDefaultHuffmanTables, $JPEGHuffmanTableArray*, bool)},
+		{"getDefaultQTables", "()[Ljavax/imageio/plugins/jpeg/JPEGQTable;", nullptr, $STATIC, $staticMethod(JPEG, getDefaultQTables, $JPEGQTableArray*)},
+		{"isJFIFcompliant", "(Ljavax/imageio/ImageTypeSpecifier;Z)Z", nullptr, $STATIC, $staticMethod(JPEG, isJFIFcompliant, bool, $ImageTypeSpecifier*, bool)},
+		{"transformForType", "(Ljavax/imageio/ImageTypeSpecifier;Z)I", nullptr, $STATIC, $staticMethod(JPEG, transformForType, int32_t, $ImageTypeSpecifier*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.jpeg.JPEG",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JPEG, name, initialize, &classInfo$$, JPEG::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JPEG);
+	});
 	return class$;
 }
 

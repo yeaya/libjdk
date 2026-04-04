@@ -1,5 +1,4 @@
 #include <sun/java2d/metal/MTLPaints$LinearGradient.h>
-
 #include <java/awt/LinearGradientPaint.h>
 #include <java/awt/MultipleGradientPaint$ColorSpaceType.h>
 #include <java/awt/MultipleGradientPaint$CycleMethod.h>
@@ -25,44 +24,12 @@ namespace sun {
 	namespace java2d {
 		namespace metal {
 
-$MethodInfo _MTLPaints$LinearGradient_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MTLPaints$LinearGradient, init$, void)},
-	{"isPaintValid", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, 0, $virtualMethod(MTLPaints$LinearGradient, isPaintValid, bool, $SunGraphics2D*)},
-	{}
-};
-
-$InnerClassInfo _MTLPaints$LinearGradient_InnerClassesInfo_[] = {
-	{"sun.java2d.metal.MTLPaints$LinearGradient", "sun.java2d.metal.MTLPaints", "LinearGradient", $PRIVATE | $STATIC},
-	{"sun.java2d.metal.MTLPaints$MultiGradient", "sun.java2d.metal.MTLPaints", "MultiGradient", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MTLPaints$LinearGradient_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.metal.MTLPaints$LinearGradient",
-	"sun.java2d.metal.MTLPaints$MultiGradient",
-	nullptr,
-	nullptr,
-	_MTLPaints$LinearGradient_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MTLPaints$LinearGradient_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.metal.MTLPaints"
-};
-
-$Object* allocate$MTLPaints$LinearGradient($Class* clazz) {
-	return $of($alloc(MTLPaints$LinearGradient));
-}
-
 void MTLPaints$LinearGradient::init$() {
 	$MTLPaints$MultiGradient::init$();
 }
 
 bool MTLPaints$LinearGradient::isPaintValid($SunGraphics2D* sg2d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinearGradientPaint, paint, $cast($LinearGradientPaint, $nc(sg2d)->paint));
 	bool var$1 = $nc($($nc(paint)->getFractions()))->length == 2;
 	$init($MultipleGradientPaint$CycleMethod);
@@ -78,7 +45,34 @@ MTLPaints$LinearGradient::MTLPaints$LinearGradient() {
 }
 
 $Class* MTLPaints$LinearGradient::load$($String* name, bool initialize) {
-	$loadClass(MTLPaints$LinearGradient, name, initialize, &_MTLPaints$LinearGradient_ClassInfo_, allocate$MTLPaints$LinearGradient);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MTLPaints$LinearGradient, init$, void)},
+		{"isPaintValid", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, 0, $virtualMethod(MTLPaints$LinearGradient, isPaintValid, bool, $SunGraphics2D*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.metal.MTLPaints$LinearGradient", "sun.java2d.metal.MTLPaints", "LinearGradient", $PRIVATE | $STATIC},
+		{"sun.java2d.metal.MTLPaints$MultiGradient", "sun.java2d.metal.MTLPaints", "MultiGradient", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.metal.MTLPaints$LinearGradient",
+		"sun.java2d.metal.MTLPaints$MultiGradient",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.metal.MTLPaints"
+	};
+	$loadClass(MTLPaints$LinearGradient, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MTLPaints$LinearGradient);
+	});
 	return class$;
 }
 

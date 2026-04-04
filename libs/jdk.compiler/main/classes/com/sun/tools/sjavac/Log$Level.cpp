@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/Log$Level.h>
-
 #include <com/sun/tools/sjavac/Log.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -21,49 +20,6 @@ namespace com {
 	namespace sun {
 		namespace tools {
 			namespace sjavac {
-
-$FieldInfo _Log$Level_FieldInfo_[] = {
-	{"ERROR", "Lcom/sun/tools/sjavac/Log$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Log$Level, ERROR)},
-	{"WARN", "Lcom/sun/tools/sjavac/Log$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Log$Level, WARN)},
-	{"INFO", "Lcom/sun/tools/sjavac/Log$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Log$Level, INFO)},
-	{"DEBUG", "Lcom/sun/tools/sjavac/Log$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Log$Level, DEBUG)},
-	{"TRACE", "Lcom/sun/tools/sjavac/Log$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Log$Level, TRACE)},
-	{"$VALUES", "[Lcom/sun/tools/sjavac/Log$Level;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Log$Level, $VALUES)},
-	{}
-};
-
-$MethodInfo _Log$Level_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/sjavac/Log$Level;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Log$Level, $values, $Log$LevelArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Log$Level, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/Log$Level;", nullptr, $PUBLIC | $STATIC, $staticMethod(Log$Level, valueOf, Log$Level*, $String*)},
-	{"values", "()[Lcom/sun/tools/sjavac/Log$Level;", nullptr, $PUBLIC | $STATIC, $staticMethod(Log$Level, values, $Log$LevelArray*)},
-	{}
-};
-
-$InnerClassInfo _Log$Level_InnerClassesInfo_[] = {
-	{"com.sun.tools.sjavac.Log$Level", "com.sun.tools.sjavac.Log", "Level", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Log$Level_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.sjavac.Log$Level",
-	"java.lang.Enum",
-	nullptr,
-	_Log$Level_FieldInfo_,
-	_Log$Level_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/sjavac/Log$Level;>;",
-	nullptr,
-	_Log$Level_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.sjavac.Log"
-};
-
-$Object* allocate$Log$Level($Class* clazz) {
-	return $of($alloc(Log$Level));
-}
 
 Log$Level* Log$Level::ERROR = nullptr;
 Log$Level* Log$Level::WARN = nullptr;
@@ -97,7 +53,7 @@ void Log$Level::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Log$Level($Class* class$) {
+void Log$Level::clinit$($Class* clazz) {
 	$assignStatic(Log$Level::ERROR, $new(Log$Level, "ERROR"_s, 0));
 	$assignStatic(Log$Level::WARN, $new(Log$Level, "WARN"_s, 1));
 	$assignStatic(Log$Level::INFO, $new(Log$Level, "INFO"_s, 2));
@@ -110,7 +66,44 @@ Log$Level::Log$Level() {
 }
 
 $Class* Log$Level::load$($String* name, bool initialize) {
-	$loadClass(Log$Level, name, initialize, &_Log$Level_ClassInfo_, clinit$Log$Level, allocate$Log$Level);
+	$FieldInfo fieldInfos$$[] = {
+		{"ERROR", "Lcom/sun/tools/sjavac/Log$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Log$Level, ERROR)},
+		{"WARN", "Lcom/sun/tools/sjavac/Log$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Log$Level, WARN)},
+		{"INFO", "Lcom/sun/tools/sjavac/Log$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Log$Level, INFO)},
+		{"DEBUG", "Lcom/sun/tools/sjavac/Log$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Log$Level, DEBUG)},
+		{"TRACE", "Lcom/sun/tools/sjavac/Log$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Log$Level, TRACE)},
+		{"$VALUES", "[Lcom/sun/tools/sjavac/Log$Level;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Log$Level, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/sjavac/Log$Level;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Log$Level, $values, $Log$LevelArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Log$Level, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/Log$Level;", nullptr, $PUBLIC | $STATIC, $staticMethod(Log$Level, valueOf, Log$Level*, $String*)},
+		{"values", "()[Lcom/sun/tools/sjavac/Log$Level;", nullptr, $PUBLIC | $STATIC, $staticMethod(Log$Level, values, $Log$LevelArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.sjavac.Log$Level", "com.sun.tools.sjavac.Log", "Level", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.sjavac.Log$Level",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/sjavac/Log$Level;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.sjavac.Log"
+	};
+	$loadClass(Log$Level, name, initialize, &classInfo$$, Log$Level::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Log$Level));
+	});
 	return class$;
 }
 

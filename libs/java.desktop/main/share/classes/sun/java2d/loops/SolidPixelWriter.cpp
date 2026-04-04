@@ -1,10 +1,8 @@
 #include <sun/java2d/loops/SolidPixelWriter.h>
-
 #include <java/awt/image/WritableRaster.h>
 #include <sun/java2d/loops/PixelWriter.h>
 #include <jcpp.h>
 
-using $WritableRaster = ::java::awt::image::WritableRaster;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -13,30 +11,6 @@ using $PixelWriter = ::sun::java2d::loops::PixelWriter;
 namespace sun {
 	namespace java2d {
 		namespace loops {
-
-$FieldInfo _SolidPixelWriter_FieldInfo_[] = {
-	{"srcData", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(SolidPixelWriter, srcData)},
-	{}
-};
-
-$MethodInfo _SolidPixelWriter_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, 0, $method(SolidPixelWriter, init$, void, Object$*)},
-	{"writePixel", "(II)V", nullptr, $PUBLIC, $virtualMethod(SolidPixelWriter, writePixel, void, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _SolidPixelWriter_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.SolidPixelWriter",
-	"sun.java2d.loops.PixelWriter",
-	nullptr,
-	_SolidPixelWriter_FieldInfo_,
-	_SolidPixelWriter_MethodInfo_
-};
-
-$Object* allocate$SolidPixelWriter($Class* clazz) {
-	return $of($alloc(SolidPixelWriter));
-}
 
 void SolidPixelWriter::init$(Object$* srcPixel) {
 	$PixelWriter::init$();
@@ -51,7 +25,26 @@ SolidPixelWriter::SolidPixelWriter() {
 }
 
 $Class* SolidPixelWriter::load$($String* name, bool initialize) {
-	$loadClass(SolidPixelWriter, name, initialize, &_SolidPixelWriter_ClassInfo_, allocate$SolidPixelWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"srcData", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(SolidPixelWriter, srcData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, 0, $method(SolidPixelWriter, init$, void, Object$*)},
+		{"writePixel", "(II)V", nullptr, $PUBLIC, $virtualMethod(SolidPixelWriter, writePixel, void, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.SolidPixelWriter",
+		"sun.java2d.loops.PixelWriter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SolidPixelWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SolidPixelWriter);
+	});
 	return class$;
 }
 

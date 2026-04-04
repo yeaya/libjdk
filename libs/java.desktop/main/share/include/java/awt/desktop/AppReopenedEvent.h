@@ -14,7 +14,7 @@ class $import AppReopenedEvent : public ::java::awt::desktop::AppEvent {
 public:
 	AppReopenedEvent();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x14DC935347C29C36;
+	static const int64_t serialVersionUID = (int64_t)0x14dc935347c29c36;
 };
 
 		} // desktop

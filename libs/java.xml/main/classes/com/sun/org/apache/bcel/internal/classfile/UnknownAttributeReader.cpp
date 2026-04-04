@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/UnknownAttributeReader.h>
-
 #include <com/sun/org/apache/bcel/internal/classfile/Attribute.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
 #include <java/io/DataInput.h>
@@ -19,26 +18,22 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$MethodInfo _UnknownAttributeReader_MethodInfo_[] = {
-	{"createAttribute", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UnknownAttributeReader, createAttribute, $Attribute*, int32_t, int32_t, $DataInput*, $ConstantPool*)},
-	{}
-};
-
-$ClassInfo _UnknownAttributeReader_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.classfile.UnknownAttributeReader",
-	nullptr,
-	nullptr,
-	nullptr,
-	_UnknownAttributeReader_MethodInfo_
-};
-
-$Object* allocate$UnknownAttributeReader($Class* clazz) {
-	return $of($alloc(UnknownAttributeReader));
-}
-
 $Class* UnknownAttributeReader::load$($String* name, bool initialize) {
-	$loadClass(UnknownAttributeReader, name, initialize, &_UnknownAttributeReader_ClassInfo_, allocate$UnknownAttributeReader);
+	$MethodInfo methodInfos$$[] = {
+		{"createAttribute", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UnknownAttributeReader, createAttribute, $Attribute*, int32_t, int32_t, $DataInput*, $ConstantPool*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.classfile.UnknownAttributeReader",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UnknownAttributeReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnknownAttributeReader);
+	});
 	return class$;
 }
 

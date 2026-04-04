@@ -15,12 +15,13 @@ class $import AttributeChangeNotification : public ::javax::management::Notifica
 	$class(AttributeChangeNotification, 0, ::javax::management::Notification)
 public:
 	AttributeChangeNotification();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(Object$* source, int64_t sequenceNumber, int64_t timeStamp, $String* msg, $String* attributeName, $String* attributeType, Object$* oldValue, Object$* newValue);
 	virtual $String* getAttributeName();
 	virtual $String* getAttributeType();
 	virtual $Object* getNewValue();
 	virtual $Object* getOldValue();
-	static const int64_t serialVersionUID = (int64_t)0x076D53C940B0BF76;
+	static const int64_t serialVersionUID = (int64_t)0x076d53c940b0bf76;
 	static $String* ATTRIBUTE_CHANGE;
 	$String* attributeName = nullptr;
 	$String* attributeType = nullptr;

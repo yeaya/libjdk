@@ -70,6 +70,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::GraphicsDevice* device, int32_t visualnum);
 	virtual void assertOperationSupported(::java::awt::Component* target, int32_t numBuffers, ::java::awt::BufferCapabilities* caps);
 	virtual ::java::awt::Image* createAcceleratedImage(::java::awt::Component* target, int32_t width, int32_t height);

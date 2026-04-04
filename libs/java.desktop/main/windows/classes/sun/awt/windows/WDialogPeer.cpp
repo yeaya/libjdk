@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WDialogPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -65,7 +64,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $InputMethodManager = ::sun::awt::im::InputMethodManager;
 using $WComponentPeer = ::sun::awt::windows::WComponentPeer;
 using $WWindowPeer = ::sun::awt::windows::WWindowPeer;
@@ -75,105 +73,6 @@ using $Region = ::sun::java2d::pipe::Region;
 namespace sun {
 	namespace awt {
 		namespace windows {
-
-$FieldInfo _WDialogPeer_FieldInfo_[] = {
-	{"defaultBackground", "Ljava/awt/Color;", nullptr, $STATIC | $FINAL, $staticField(WDialogPeer, defaultBackground)},
-	{}
-};
-
-$MethodInfo _WDialogPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
-	{"*beginLayout", "()V", nullptr, $PUBLIC},
-	{"*beginValidate", "()V", nullptr, $PUBLIC | $NATIVE},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*endLayout", "()V", nullptr, $PUBLIC},
-	{"*endValidate", "()V", nullptr, $PUBLIC | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
-	{"*getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $NATIVE},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Dialog;)V", nullptr, 0, $method(WDialogPeer, init$, void, $Dialog*)},
-	{"blockWindows", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/awt/Window;>;)V", $PUBLIC, $virtualMethod(WDialogPeer, blockWindows, void, $List*)},
-	{"create", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, 0, $virtualMethod(WDialogPeer, create, void, $WComponentPeer*)},
-	{"createAwtDialog", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, $NATIVE, $method(WDialogPeer, createAwtDialog, void, $WComponentPeer*)},
-	{"endModal", "()V", nullptr, $NATIVE, $method(WDialogPeer, endModal, void)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WDialogPeer, getMinimumSize, $Dimension*)},
-	{"hide", "()V", nullptr, 0, $virtualMethod(WDialogPeer, hide, void)},
-	{"initialize", "()V", nullptr, 0, $virtualMethod(WDialogPeer, initialize, void)},
-	{"*isFocusable", "()Z", nullptr, $PUBLIC},
-	{"*isObscured", "()Z", nullptr, $PUBLIC | $NATIVE},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"isTargetUndecorated", "()Z", nullptr, 0, $virtualMethod(WDialogPeer, isTargetUndecorated, bool)},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"notifyIMMOptionChange", "()V", nullptr, 0, $method(WDialogPeer, notifyIMMOptionChange, void)},
-	{"pSetIMMOption", "(Ljava/lang/String;)V", nullptr, $NATIVE, $method(WDialogPeer, pSetIMMOption, void, $String*)},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"realShow", "()V", nullptr, $PROTECTED, $virtualMethod(WDialogPeer, realShow, void)},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*repositionSecurityWarning", "()V", nullptr, $PUBLIC | $NATIVE},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
-	{"reshape", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(WDialogPeer, reshape, void, int32_t, int32_t, int32_t, int32_t)},
-	{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*setModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC},
-	{"*setOpacity", "(F)V", nullptr, $PUBLIC},
-	{"*setOpaque", "(Z)V", nullptr, $PUBLIC},
-	{"*setResizable", "(Z)V", nullptr, $PUBLIC},
-	{"*setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"showModal", "()V", nullptr, $NATIVE, $method(WDialogPeer, showModal, void)},
-	{"*toFront", "()V", nullptr, $PUBLIC},
-	{"*toBack", "()V", nullptr, $PUBLIC | $NATIVE},
-	{"*updateAlwaysOnTopState", "()V", nullptr, $PUBLIC},
-	{"*updateFocusableWindowState", "()V", nullptr, $PUBLIC},
-	{"*updateMinimumSize", "()V", nullptr, $PUBLIC},
-	{"*updateIconImages", "()V", nullptr, $PUBLIC},
-	{"*updateWindow", "()V", nullptr, $PUBLIC},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-#define _METHOD_INDEX_createAwtDialog 30
-#define _METHOD_INDEX_endModal 31
-#define _METHOD_INDEX_pSetIMMOption 41
-#define _METHOD_INDEX_showModal 61
-
-$ClassInfo _WDialogPeer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.windows.WDialogPeer",
-	"sun.awt.windows.WWindowPeer",
-	"java.awt.peer.DialogPeer",
-	_WDialogPeer_FieldInfo_,
-	_WDialogPeer_MethodInfo_
-};
-
-$Object* allocate$WDialogPeer($Class* clazz) {
-	return $of($alloc(WDialogPeer));
-}
 
 void WDialogPeer::toFront() {
 	this->$WWindowPeer::toFront();
@@ -410,7 +309,7 @@ void WDialogPeer::finalize() {
 $Color* WDialogPeer::defaultBackground = nullptr;
 
 void WDialogPeer::init$($Dialog* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$WWindowPeer::init$(target);
 	$var($InputMethodManager, imm, $InputMethodManager::getInstance());
 	$var($String, menuString, $nc(imm)->getTriggerMenuString());
@@ -420,7 +319,7 @@ void WDialogPeer::init$($Dialog* target) {
 }
 
 void WDialogPeer::createAwtDialog($WComponentPeer* parent) {
-	$prepareNative(WDialogPeer, createAwtDialog, void, $WComponentPeer* parent);
+	$prepareNative(createAwtDialog, void, $WComponentPeer* parent);
 	$invokeNative(parent);
 	$finishNative();
 }
@@ -431,28 +330,28 @@ void WDialogPeer::create($WComponentPeer* parent) {
 }
 
 void WDialogPeer::showModal() {
-	$prepareNative(WDialogPeer, showModal, void);
+	$prepareNative(showModal, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void WDialogPeer::endModal() {
-	$prepareNative(WDialogPeer, endModal, void);
+	$prepareNative(endModal, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void WDialogPeer::initialize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dialog, target, $cast($Dialog, this->target));
 	if (!$nc(target)->isBackgroundSet()) {
 		target->setBackground(WDialogPeer::defaultBackground);
 	}
 	$WWindowPeer::initialize();
-	if ($nc(target)->getTitle() != nullptr) {
+	if (target->getTitle() != nullptr) {
 		setTitle($(target->getTitle()));
 	}
-	setResizable($nc(target)->isResizable());
+	setResizable(target->isResizable());
 }
 
 void WDialogPeer::realShow() {
@@ -476,23 +375,21 @@ void WDialogPeer::hide() {
 }
 
 void WDialogPeer::blockWindows($List* toBlock) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(toBlock)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Window, w, $cast($Window, i$->next()));
-			{
-				$var($WWindowPeer, wp, $cast($WWindowPeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(w)));
-				if (wp != nullptr) {
-					wp->setModalBlocked($cast($Dialog, this->target), true);
-				}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(toBlock)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Window, w, $cast($Window, i$->next()));
+		{
+			$var($WWindowPeer, wp, $cast($WWindowPeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(w)));
+			if (wp != nullptr) {
+				wp->setModalBlocked($cast($Dialog, this->target), true);
 			}
 		}
 	}
 }
 
 $Dimension* WDialogPeer::getMinimumSize() {
-	if ($nc(($cast($Dialog, this->target)))->isUndecorated()) {
+	if ($nc($cast($Dialog, this->target))->isUndecorated()) {
 		return $WWindowPeer::getMinimumSize();
 	}
 	$var($GraphicsConfiguration, var$0, getGraphicsConfiguration());
@@ -501,11 +398,11 @@ $Dimension* WDialogPeer::getMinimumSize() {
 }
 
 bool WDialogPeer::isTargetUndecorated() {
-	return $nc(($cast($Dialog, this->target)))->isUndecorated();
+	return $nc($cast($Dialog, this->target))->isUndecorated();
 }
 
 void WDialogPeer::reshape(int32_t x, int32_t y, int32_t width, int32_t height) {
-	if ($nc(($cast($Dialog, this->target)))->isUndecorated()) {
+	if ($nc($cast($Dialog, this->target))->isUndecorated()) {
 		$WWindowPeer::reshape(x, y, width, height);
 	} else {
 		reshapeFrame(x, y, width, height);
@@ -513,16 +410,16 @@ void WDialogPeer::reshape(int32_t x, int32_t y, int32_t width, int32_t height) {
 }
 
 void WDialogPeer::pSetIMMOption($String* option) {
-	$prepareNative(WDialogPeer, pSetIMMOption, void, $String* option);
+	$prepareNative(pSetIMMOption, void, $String* option);
 	$invokeNative(option);
 	$finishNative();
 }
 
 void WDialogPeer::notifyIMMOptionChange() {
-	$nc($($InputMethodManager::getInstance()))->notifyChangeRequest($cast($Component, this->target));
+	$$nc($InputMethodManager::getInstance())->notifyChangeRequest($cast($Component, this->target));
 }
 
-void clinit$WDialogPeer($Class* class$) {
+void WDialogPeer::clinit$($Class* clazz) {
 	$init($SystemColor);
 	$assignStatic(WDialogPeer::defaultBackground, $SystemColor::control);
 }
@@ -531,7 +428,96 @@ WDialogPeer::WDialogPeer() {
 }
 
 $Class* WDialogPeer::load$($String* name, bool initialize) {
-	$loadClass(WDialogPeer, name, initialize, &_WDialogPeer_ClassInfo_, clinit$WDialogPeer, allocate$WDialogPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultBackground", "Ljava/awt/Color;", nullptr, $STATIC | $FINAL, $staticField(WDialogPeer, defaultBackground)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
+		{"*beginLayout", "()V", nullptr, $PUBLIC},
+		{"*beginValidate", "()V", nullptr, $PUBLIC | $NATIVE},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*endLayout", "()V", nullptr, $PUBLIC},
+		{"*endValidate", "()V", nullptr, $PUBLIC | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
+		{"*getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $NATIVE},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Dialog;)V", nullptr, 0, $method(WDialogPeer, init$, void, $Dialog*)},
+		{"blockWindows", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/awt/Window;>;)V", $PUBLIC, $virtualMethod(WDialogPeer, blockWindows, void, $List*)},
+		{"create", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, 0, $virtualMethod(WDialogPeer, create, void, $WComponentPeer*)},
+		{"createAwtDialog", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, $NATIVE, $method(WDialogPeer, createAwtDialog, void, $WComponentPeer*)},
+		{"endModal", "()V", nullptr, $NATIVE, $method(WDialogPeer, endModal, void)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WDialogPeer, getMinimumSize, $Dimension*)},
+		{"hide", "()V", nullptr, 0, $virtualMethod(WDialogPeer, hide, void)},
+		{"initialize", "()V", nullptr, 0, $virtualMethod(WDialogPeer, initialize, void)},
+		{"*isFocusable", "()Z", nullptr, $PUBLIC},
+		{"*isObscured", "()Z", nullptr, $PUBLIC | $NATIVE},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"isTargetUndecorated", "()Z", nullptr, 0, $virtualMethod(WDialogPeer, isTargetUndecorated, bool)},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"notifyIMMOptionChange", "()V", nullptr, 0, $method(WDialogPeer, notifyIMMOptionChange, void)},
+		{"pSetIMMOption", "(Ljava/lang/String;)V", nullptr, $NATIVE, $method(WDialogPeer, pSetIMMOption, void, $String*)},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"realShow", "()V", nullptr, $PROTECTED, $virtualMethod(WDialogPeer, realShow, void)},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*repositionSecurityWarning", "()V", nullptr, $PUBLIC | $NATIVE},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
+		{"reshape", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(WDialogPeer, reshape, void, int32_t, int32_t, int32_t, int32_t)},
+		{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*setModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC},
+		{"*setOpacity", "(F)V", nullptr, $PUBLIC},
+		{"*setOpaque", "(Z)V", nullptr, $PUBLIC},
+		{"*setResizable", "(Z)V", nullptr, $PUBLIC},
+		{"*setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"showModal", "()V", nullptr, $NATIVE, $method(WDialogPeer, showModal, void)},
+		{"*toFront", "()V", nullptr, $PUBLIC},
+		{"*toBack", "()V", nullptr, $PUBLIC | $NATIVE},
+		{"*updateAlwaysOnTopState", "()V", nullptr, $PUBLIC},
+		{"*updateFocusableWindowState", "()V", nullptr, $PUBLIC},
+		{"*updateMinimumSize", "()V", nullptr, $PUBLIC},
+		{"*updateIconImages", "()V", nullptr, $PUBLIC},
+		{"*updateWindow", "()V", nullptr, $PUBLIC},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.windows.WDialogPeer",
+		"sun.awt.windows.WWindowPeer",
+		"java.awt.peer.DialogPeer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WDialogPeer, name, initialize, &classInfo$$, WDialogPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WDialogPeer));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/LdapReferralException.h>
-
 #include <com/sun/jndi/ldap/LdapClient.h>
 #include <com/sun/jndi/ldap/LdapReferralContext.h>
 #include <java/util/Hashtable.h>
@@ -18,7 +17,6 @@
 using $ControlArray = $Array<::javax::naming::ldap::Control>;
 using $LdapClient = ::com::sun::jndi::ldap::LdapClient;
 using $LdapReferralContext = ::com::sun::jndi::ldap::LdapReferralContext;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -34,62 +32,6 @@ namespace com {
 	namespace sun {
 		namespace jndi {
 			namespace ldap {
-
-$FieldInfo _LdapReferralException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapReferralException, serialVersionUID)},
-	{"handleReferrals", "I", nullptr, $PRIVATE, $field(LdapReferralException, handleReferrals)},
-	{"envprops", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<**>;", $PRIVATE, $field(LdapReferralException, envprops)},
-	{"nextName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapReferralException, nextName)},
-	{"reqCtls", "[Ljavax/naming/ldap/Control;", nullptr, $PRIVATE, $field(LdapReferralException, reqCtls)},
-	{"referrals", "Ljava/util/Vector;", "Ljava/util/Vector<*>;", $PRIVATE, $field(LdapReferralException, referrals)},
-	{"referralIndex", "I", nullptr, $PRIVATE, $field(LdapReferralException, referralIndex)},
-	{"referralCount", "I", nullptr, $PRIVATE, $field(LdapReferralException, referralCount)},
-	{"foundEntry", "Z", nullptr, $PRIVATE, $field(LdapReferralException, foundEntry)},
-	{"skipThisReferral", "Z", nullptr, $PRIVATE, $field(LdapReferralException, skipThisReferral)},
-	{"hopCount", "I", nullptr, $PRIVATE, $field(LdapReferralException, hopCount)},
-	{"errorEx", "Ljavax/naming/NamingException;", nullptr, $PRIVATE, $field(LdapReferralException, errorEx)},
-	{"newRdn", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapReferralException, newRdn)},
-	{"debug", "Z", nullptr, $PRIVATE, $field(LdapReferralException, debug)},
-	{"nextReferralEx", "Lcom/sun/jndi/ldap/LdapReferralException;", nullptr, 0, $field(LdapReferralException, nextReferralEx)},
-	{}
-};
-
-$MethodInfo _LdapReferralException_MethodInfo_[] = {
-	{"<init>", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/Name;Ljava/lang/String;Ljava/util/Hashtable;Ljava/lang/String;I[Ljavax/naming/ldap/Control;)V", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/Name;Ljava/lang/String;Ljava/util/Hashtable<**>;Ljava/lang/String;I[Ljavax/naming/ldap/Control;)V", 0, $method(LdapReferralException, init$, void, $Name*, Object$*, $Name*, $String*, $Hashtable*, $String*, int32_t, $ControlArray*)},
-	{"appendUnprocessedReferrals", "(Lcom/sun/jndi/ldap/LdapReferralException;)Lcom/sun/jndi/ldap/LdapReferralException;", nullptr, 0, $method(LdapReferralException, appendUnprocessedReferrals, LdapReferralException*, LdapReferralException*)},
-	{"dump", "()V", nullptr, 0, $method(LdapReferralException, dump, void)},
-	{"dumpState", "()V", nullptr, $PRIVATE, $method(LdapReferralException, dumpState, void)},
-	{"getNamingException", "()Ljavax/naming/NamingException;", nullptr, 0, $method(LdapReferralException, getNamingException, $NamingException*)},
-	{"getNewRdn", "()Ljava/lang/String;", nullptr, 0, $method(LdapReferralException, getNewRdn, $String*)},
-	{"getNextReferral", "()Ljava/lang/String;", nullptr, 0, $method(LdapReferralException, getNextReferral, $String*), "javax.naming.ReferralException"},
-	{"getReferralContext", "()Ljavax/naming/Context;", nullptr, $PUBLIC, $virtualMethod(LdapReferralException, getReferralContext, $Context*), "javax.naming.NamingException"},
-	{"getReferralContext", "(Ljava/util/Hashtable;)Ljavax/naming/Context;", "(Ljava/util/Hashtable<**>;)Ljavax/naming/Context;", $PUBLIC, $virtualMethod(LdapReferralException, getReferralContext, $Context*, $Hashtable*), "javax.naming.NamingException"},
-	{"getReferralContext", "(Ljava/util/Hashtable;[Ljavax/naming/ldap/Control;)Ljavax/naming/Context;", "(Ljava/util/Hashtable<**>;[Ljavax/naming/ldap/Control;)Ljavax/naming/Context;", $PUBLIC, $virtualMethod(LdapReferralException, getReferralContext, $Context*, $Hashtable*, $ControlArray*), "javax.naming.NamingException"},
-	{"getReferralInfo", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapReferralException, getReferralInfo, $Object*)},
-	{"hasMoreReferralExceptions", "()Z", nullptr, 0, $method(LdapReferralException, hasMoreReferralExceptions, bool)},
-	{"hasMoreReferrals", "()Z", nullptr, 0, $method(LdapReferralException, hasMoreReferrals, bool)},
-	{"retryReferral", "()V", nullptr, $PUBLIC, $virtualMethod(LdapReferralException, retryReferral, void)},
-	{"setHopCount", "(I)V", nullptr, 0, $method(LdapReferralException, setHopCount, void, int32_t)},
-	{"setNameResolved", "(Z)V", nullptr, 0, $method(LdapReferralException, setNameResolved, void, bool)},
-	{"setNamingException", "(Ljavax/naming/NamingException;)V", nullptr, 0, $method(LdapReferralException, setNamingException, void, $NamingException*)},
-	{"setNewRdn", "(Ljava/lang/String;)V", nullptr, 0, $method(LdapReferralException, setNewRdn, void, $String*)},
-	{"setReferralInfo", "(Ljava/util/Vector;Z)V", "(Ljava/util/Vector<*>;Z)V", 0, $method(LdapReferralException, setReferralInfo, void, $Vector*, bool)},
-	{"skipReferral", "()Z", nullptr, $PUBLIC, $virtualMethod(LdapReferralException, skipReferral, bool)},
-	{}
-};
-
-$ClassInfo _LdapReferralException_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.LdapReferralException",
-	"javax.naming.ldap.LdapReferralException",
-	nullptr,
-	_LdapReferralException_FieldInfo_,
-	_LdapReferralException_MethodInfo_
-};
-
-$Object* allocate$LdapReferralException($Class* clazz) {
-	return $of($alloc(LdapReferralException));
-}
 
 void LdapReferralException::init$($Name* resolvedName, Object$* resolvedObj, $Name* remainingName, $String* explanation, $Hashtable* envprops, $String* nextName, int32_t handleReferrals, $ControlArray* reqCtls) {
 	$LdapReferralException::init$(explanation);
@@ -132,19 +74,19 @@ $Context* LdapReferralException::getReferralContext($Hashtable* newProps, $Contr
 	if (this->skipThisReferral) {
 		this->skipThisReferral = false;
 	}
-	return static_cast<$Context*>(refCtx);
+	return $cast($Context, refCtx);
 }
 
 $Object* LdapReferralException::getReferralInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->debug) {
 		$nc($System::out)->println("LdapReferralException.getReferralInfo"_s);
-		$nc($System::out)->println($$str({"  referralIndex="_s, $$str(this->referralIndex)}));
+		$System::out->println($$str({"  referralIndex="_s, $$str(this->referralIndex)}));
 	}
 	if (hasMoreReferrals()) {
-		return $of($nc(this->referrals)->elementAt(this->referralIndex));
+		return $nc(this->referrals)->elementAt(this->referralIndex);
 	} else {
-		return $of(nullptr);
+		return nullptr;
 	}
 }
 
@@ -171,12 +113,12 @@ bool LdapReferralException::skipReferral() {
 }
 
 void LdapReferralException::setReferralInfo($Vector* referrals, bool continuationRef) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->debug) {
 		$nc($System::out)->println("LdapReferralException.setReferralInfo"_s);
 	}
 	$set(this, referrals, referrals);
-	this->referralCount = (referrals == nullptr) ? 0 : $nc(referrals)->size();
+	this->referralCount = (referrals == nullptr) ? 0 : referrals->size();
 	if (this->debug) {
 		if (referrals != nullptr) {
 			for (int32_t i = 0; i < this->referralCount; ++i) {
@@ -202,7 +144,7 @@ $String* LdapReferralException::getNextReferral() {
 }
 
 LdapReferralException* LdapReferralException::appendUnprocessedReferrals(LdapReferralException* back$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(LdapReferralException, back, back$renamed);
 	if (this->debug) {
 		$nc($System::out)->println("LdapReferralException.appendUnprocessedReferrals"_s);
@@ -296,7 +238,7 @@ $NamingException* LdapReferralException::getNamingException() {
 
 void LdapReferralException::dump() {
 	$nc($System::out)->println();
-	$nc($System::out)->println("LdapReferralException.dump"_s);
+	$System::out->println("LdapReferralException.dump"_s);
 	$var(LdapReferralException, ptr, this);
 	while (ptr != nullptr) {
 		ptr->dumpState();
@@ -305,27 +247,27 @@ void LdapReferralException::dump() {
 }
 
 void LdapReferralException::dumpState() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println("LdapReferralException.dumpState"_s);
-	$nc($System::out)->println($$str({"  hashCode="_s, $$str(hashCode())}));
-	$nc($System::out)->println($$str({"  foundEntry="_s, $$str(this->foundEntry)}));
-	$nc($System::out)->println($$str({"  skipThisReferral="_s, $$str(this->skipThisReferral)}));
-	$nc($System::out)->println($$str({"  referralIndex="_s, $$str(this->referralIndex)}));
+	$System::out->println($$str({"  hashCode="_s, $$str(hashCode())}));
+	$System::out->println($$str({"  foundEntry="_s, $$str(this->foundEntry)}));
+	$System::out->println($$str({"  skipThisReferral="_s, $$str(this->skipThisReferral)}));
+	$System::out->println($$str({"  referralIndex="_s, $$str(this->referralIndex)}));
 	if (this->referrals != nullptr) {
-		$nc($System::out)->println("  referrals:"_s);
+		$System::out->println("  referrals:"_s);
 		for (int32_t i = 0; i < this->referralCount; ++i) {
-			$nc($System::out)->println($$str({"    ["_s, $$str(i), "] "_s, $($nc(this->referrals)->elementAt(i))}));
+			$System::out->println($$str({"    ["_s, $$str(i), "] "_s, $(this->referrals->elementAt(i))}));
 		}
 	} else {
-		$nc($System::out)->println("  referrals=null"_s);
+		$System::out->println("  referrals=null"_s);
 	}
-	$nc($System::out)->println($$str({"  errorEx="_s, this->errorEx}));
+	$System::out->println($$str({"  errorEx="_s, this->errorEx}));
 	if (this->nextReferralEx == nullptr) {
-		$nc($System::out)->println("  nextRefEx=null"_s);
+		$System::out->println("  nextRefEx=null"_s);
 	} else {
-		$nc($System::out)->println($$str({"  nextRefEx="_s, $$str($nc($of(this->nextReferralEx))->hashCode())}));
+		$System::out->println($$str({"  nextRefEx="_s, $$str(this->nextReferralEx->hashCode())}));
 	}
-	$nc($System::out)->println();
+	$System::out->println();
 }
 
 LdapReferralException::LdapReferralException() {
@@ -339,7 +281,58 @@ void LdapReferralException::throw$() {
 }
 
 $Class* LdapReferralException::load$($String* name, bool initialize) {
-	$loadClass(LdapReferralException, name, initialize, &_LdapReferralException_ClassInfo_, allocate$LdapReferralException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapReferralException, serialVersionUID)},
+		{"handleReferrals", "I", nullptr, $PRIVATE, $field(LdapReferralException, handleReferrals)},
+		{"envprops", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<**>;", $PRIVATE, $field(LdapReferralException, envprops)},
+		{"nextName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapReferralException, nextName)},
+		{"reqCtls", "[Ljavax/naming/ldap/Control;", nullptr, $PRIVATE, $field(LdapReferralException, reqCtls)},
+		{"referrals", "Ljava/util/Vector;", "Ljava/util/Vector<*>;", $PRIVATE, $field(LdapReferralException, referrals)},
+		{"referralIndex", "I", nullptr, $PRIVATE, $field(LdapReferralException, referralIndex)},
+		{"referralCount", "I", nullptr, $PRIVATE, $field(LdapReferralException, referralCount)},
+		{"foundEntry", "Z", nullptr, $PRIVATE, $field(LdapReferralException, foundEntry)},
+		{"skipThisReferral", "Z", nullptr, $PRIVATE, $field(LdapReferralException, skipThisReferral)},
+		{"hopCount", "I", nullptr, $PRIVATE, $field(LdapReferralException, hopCount)},
+		{"errorEx", "Ljavax/naming/NamingException;", nullptr, $PRIVATE, $field(LdapReferralException, errorEx)},
+		{"newRdn", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapReferralException, newRdn)},
+		{"debug", "Z", nullptr, $PRIVATE, $field(LdapReferralException, debug)},
+		{"nextReferralEx", "Lcom/sun/jndi/ldap/LdapReferralException;", nullptr, 0, $field(LdapReferralException, nextReferralEx)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/Name;Ljava/lang/String;Ljava/util/Hashtable;Ljava/lang/String;I[Ljavax/naming/ldap/Control;)V", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/Name;Ljava/lang/String;Ljava/util/Hashtable<**>;Ljava/lang/String;I[Ljavax/naming/ldap/Control;)V", 0, $method(LdapReferralException, init$, void, $Name*, Object$*, $Name*, $String*, $Hashtable*, $String*, int32_t, $ControlArray*)},
+		{"appendUnprocessedReferrals", "(Lcom/sun/jndi/ldap/LdapReferralException;)Lcom/sun/jndi/ldap/LdapReferralException;", nullptr, 0, $method(LdapReferralException, appendUnprocessedReferrals, LdapReferralException*, LdapReferralException*)},
+		{"dump", "()V", nullptr, 0, $method(LdapReferralException, dump, void)},
+		{"dumpState", "()V", nullptr, $PRIVATE, $method(LdapReferralException, dumpState, void)},
+		{"getNamingException", "()Ljavax/naming/NamingException;", nullptr, 0, $method(LdapReferralException, getNamingException, $NamingException*)},
+		{"getNewRdn", "()Ljava/lang/String;", nullptr, 0, $method(LdapReferralException, getNewRdn, $String*)},
+		{"getNextReferral", "()Ljava/lang/String;", nullptr, 0, $method(LdapReferralException, getNextReferral, $String*), "javax.naming.ReferralException"},
+		{"getReferralContext", "()Ljavax/naming/Context;", nullptr, $PUBLIC, $virtualMethod(LdapReferralException, getReferralContext, $Context*), "javax.naming.NamingException"},
+		{"getReferralContext", "(Ljava/util/Hashtable;)Ljavax/naming/Context;", "(Ljava/util/Hashtable<**>;)Ljavax/naming/Context;", $PUBLIC, $virtualMethod(LdapReferralException, getReferralContext, $Context*, $Hashtable*), "javax.naming.NamingException"},
+		{"getReferralContext", "(Ljava/util/Hashtable;[Ljavax/naming/ldap/Control;)Ljavax/naming/Context;", "(Ljava/util/Hashtable<**>;[Ljavax/naming/ldap/Control;)Ljavax/naming/Context;", $PUBLIC, $virtualMethod(LdapReferralException, getReferralContext, $Context*, $Hashtable*, $ControlArray*), "javax.naming.NamingException"},
+		{"getReferralInfo", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapReferralException, getReferralInfo, $Object*)},
+		{"hasMoreReferralExceptions", "()Z", nullptr, 0, $method(LdapReferralException, hasMoreReferralExceptions, bool)},
+		{"hasMoreReferrals", "()Z", nullptr, 0, $method(LdapReferralException, hasMoreReferrals, bool)},
+		{"retryReferral", "()V", nullptr, $PUBLIC, $virtualMethod(LdapReferralException, retryReferral, void)},
+		{"setHopCount", "(I)V", nullptr, 0, $method(LdapReferralException, setHopCount, void, int32_t)},
+		{"setNameResolved", "(Z)V", nullptr, 0, $method(LdapReferralException, setNameResolved, void, bool)},
+		{"setNamingException", "(Ljavax/naming/NamingException;)V", nullptr, 0, $method(LdapReferralException, setNamingException, void, $NamingException*)},
+		{"setNewRdn", "(Ljava/lang/String;)V", nullptr, 0, $method(LdapReferralException, setNewRdn, void, $String*)},
+		{"setReferralInfo", "(Ljava/util/Vector;Z)V", "(Ljava/util/Vector<*>;Z)V", 0, $method(LdapReferralException, setReferralInfo, void, $Vector*, bool)},
+		{"skipReferral", "()Z", nullptr, $PUBLIC, $virtualMethod(LdapReferralException, skipReferral, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.LdapReferralException",
+		"javax.naming.ldap.LdapReferralException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LdapReferralException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LdapReferralException);
+	});
 	return class$;
 }
 

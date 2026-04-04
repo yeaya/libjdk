@@ -1,5 +1,4 @@
 #include <java/awt/CheckboxGroup.h>
-
 #include <java/awt/Checkbox.h>
 #include <jcpp.h>
 
@@ -11,45 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$CompoundAttribute _CheckboxGroup_MethodAnnotations_getCurrent1[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _CheckboxGroup_MethodAnnotations_setCurrent3[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _CheckboxGroup_FieldInfo_[] = {
-	{"selectedCheckbox", "Ljava/awt/Checkbox;", nullptr, 0, $field(CheckboxGroup, selectedCheckbox)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CheckboxGroup, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CheckboxGroup_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CheckboxGroup, init$, void)},
-	{"getCurrent", "()Ljava/awt/Checkbox;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(CheckboxGroup, getCurrent, $Checkbox*), nullptr, nullptr, _CheckboxGroup_MethodAnnotations_getCurrent1},
-	{"getSelectedCheckbox", "()Ljava/awt/Checkbox;", nullptr, $PUBLIC, $virtualMethod(CheckboxGroup, getSelectedCheckbox, $Checkbox*)},
-	{"setCurrent", "(Ljava/awt/Checkbox;)V", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(CheckboxGroup, setCurrent, void, $Checkbox*), nullptr, nullptr, _CheckboxGroup_MethodAnnotations_setCurrent3},
-	{"setSelectedCheckbox", "(Ljava/awt/Checkbox;)V", nullptr, $PUBLIC, $virtualMethod(CheckboxGroup, setSelectedCheckbox, void, $Checkbox*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CheckboxGroup, toString, $String*)},
-	{}
-};
-
-$ClassInfo _CheckboxGroup_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.CheckboxGroup",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_CheckboxGroup_FieldInfo_,
-	_CheckboxGroup_MethodInfo_
-};
-
-$Object* allocate$CheckboxGroup($Class* clazz) {
-	return $of($alloc(CheckboxGroup));
-}
 
 void CheckboxGroup::init$() {
 	$set(this, selectedCheckbox, nullptr);
@@ -91,7 +51,39 @@ CheckboxGroup::CheckboxGroup() {
 }
 
 $Class* CheckboxGroup::load$($String* name, bool initialize) {
-	$loadClass(CheckboxGroup, name, initialize, &_CheckboxGroup_ClassInfo_, allocate$CheckboxGroup);
+	$FieldInfo fieldInfos$$[] = {
+		{"selectedCheckbox", "Ljava/awt/Checkbox;", nullptr, 0, $field(CheckboxGroup, selectedCheckbox)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CheckboxGroup, serialVersionUID)},
+		{}
+	};
+	$CompoundAttribute getCurrentmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute setCurrentmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CheckboxGroup, init$, void)},
+		{"getCurrent", "()Ljava/awt/Checkbox;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(CheckboxGroup, getCurrent, $Checkbox*), nullptr, nullptr, getCurrentmethodAnnotations$$},
+		{"getSelectedCheckbox", "()Ljava/awt/Checkbox;", nullptr, $PUBLIC, $virtualMethod(CheckboxGroup, getSelectedCheckbox, $Checkbox*)},
+		{"setCurrent", "(Ljava/awt/Checkbox;)V", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(CheckboxGroup, setCurrent, void, $Checkbox*), nullptr, nullptr, setCurrentmethodAnnotations$$},
+		{"setSelectedCheckbox", "(Ljava/awt/Checkbox;)V", nullptr, $PUBLIC, $virtualMethod(CheckboxGroup, setSelectedCheckbox, void, $Checkbox*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CheckboxGroup, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.CheckboxGroup",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CheckboxGroup, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CheckboxGroup);
+	});
 	return class$;
 }
 

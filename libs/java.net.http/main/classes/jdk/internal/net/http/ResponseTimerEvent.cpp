@@ -1,6 +1,4 @@
 #include <jdk/internal/net/http/ResponseTimerEvent.h>
-
-#include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -26,7 +24,6 @@
 
 #undef DEBUG
 
-using $IOException = ::java::io::IOException;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -37,12 +34,9 @@ using $HttpConnectTimeoutException = ::java::net::http::HttpConnectTimeoutExcept
 using $HttpTimeoutException = ::java::net::http::HttpTimeoutException;
 using $Duration = ::java::time::Duration;
 using $Instant = ::java::time::Instant;
-using $Optional = ::java::util::Optional;
 using $Supplier = ::java::util::function::Supplier;
 using $Exchange = ::jdk::internal::net::http::Exchange;
 using $ExchangeImpl = ::jdk::internal::net::http::ExchangeImpl;
-using $HttpConnection = ::jdk::internal::net::http::HttpConnection;
-using $HttpRequestImpl = ::jdk::internal::net::http::HttpRequestImpl;
 using $MultiExchange = ::jdk::internal::net::http::MultiExchange;
 using $TimeoutEvent = ::jdk::internal::net::http::TimeoutEvent;
 using $Logger = ::jdk::internal::net::http::common::Logger;
@@ -62,65 +56,32 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->toString());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ResponseTimerEvent$$Lambda$toString>());
-	}
 	$String* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ResponseTimerEvent$$Lambda$toString::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ResponseTimerEvent$$Lambda$toString, inst$)},
-	{}
-};
-$MethodInfo ResponseTimerEvent$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ResponseTimerEvent$$Lambda$toString, init$, void, $String*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseTimerEvent$$Lambda$toString, get, $Object*)},
-	{}
-};
-$ClassInfo ResponseTimerEvent$$Lambda$toString::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.ResponseTimerEvent$$Lambda$toString",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* ResponseTimerEvent$$Lambda$toString::load$($String* name, bool initialize) {
-	$loadClass(ResponseTimerEvent$$Lambda$toString, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ResponseTimerEvent$$Lambda$toString, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ResponseTimerEvent$$Lambda$toString, init$, void, $String*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseTimerEvent$$Lambda$toString, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.ResponseTimerEvent$$Lambda$toString",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResponseTimerEvent$$Lambda$toString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseTimerEvent$$Lambda$toString);
+	});
 	return class$;
 }
 $Class* ResponseTimerEvent$$Lambda$toString::class$ = nullptr;
-
-$FieldInfo _ResponseTimerEvent_FieldInfo_[] = {
-	{"debug", "Ljdk/internal/net/http/common/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResponseTimerEvent, debug)},
-	{"multiExchange", "Ljdk/internal/net/http/MultiExchange;", "Ljdk/internal/net/http/MultiExchange<*>;", $PRIVATE | $FINAL, $field(ResponseTimerEvent, multiExchange)},
-	{}
-};
-
-$MethodInfo _ResponseTimerEvent_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/MultiExchange;)V", "(Ljdk/internal/net/http/MultiExchange<*>;)V", $PRIVATE, $method(ResponseTimerEvent, init$, void, $MultiExchange*)},
-	{"compareTo", "(Ljdk/internal/net/http/TimeoutEvent;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseTimerEvent, compareTo, int32_t, $TimeoutEvent*)},
-	{"deadline", "()Ljava/time/Instant;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseTimerEvent, deadline, $Instant*)},
-	{"handle", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseTimerEvent, handle, void)},
-	{"of", "(Ljdk/internal/net/http/MultiExchange;)Ljdk/internal/net/http/ResponseTimerEvent;", "(Ljdk/internal/net/http/MultiExchange<*>;)Ljdk/internal/net/http/ResponseTimerEvent;", $STATIC, $staticMethod(ResponseTimerEvent, of, ResponseTimerEvent*, $MultiExchange*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResponseTimerEvent, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ResponseTimerEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.ResponseTimerEvent",
-	"jdk.internal.net.http.TimeoutEvent",
-	nullptr,
-	_ResponseTimerEvent_FieldInfo_,
-	_ResponseTimerEvent_MethodInfo_
-};
-
-$Object* allocate$ResponseTimerEvent($Class* clazz) {
-	return $of($alloc(ResponseTimerEvent));
-}
 
 $Logger* ResponseTimerEvent::debug = nullptr;
 
@@ -130,22 +91,22 @@ ResponseTimerEvent* ResponseTimerEvent::of($MultiExchange* exchange) {
 }
 
 void ResponseTimerEvent::init$($MultiExchange* multiExchange) {
-	$useLocalCurrentObjectStackCache();
-	$TimeoutEvent::init$($cast($Duration, $($nc($($nc($nc($nc(multiExchange)->exchange)->request$)->timeout()))->get())));
+	$useLocalObjectStack();
+	$TimeoutEvent::init$($$cast($Duration, $$nc($nc($nc($nc(multiExchange)->exchange)->request$)->timeout())->get()));
 	$set(this, multiExchange, multiExchange);
 }
 
 void ResponseTimerEvent::handle() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(ResponseTimerEvent::debug)->on()) {
-		$nc(ResponseTimerEvent::debug)->log("Cancelling MultiExchange due to timeout for request %s"_s, $$new($ObjectArray, {$of($nc($nc(this->multiExchange)->exchange)->request$)}));
+		ResponseTimerEvent::debug->log("Cancelling MultiExchange due to timeout for request %s"_s, $$new($ObjectArray, {$nc($nc(this->multiExchange)->exchange)->request$}));
 	}
 	$var($HttpTimeoutException, t, nullptr);
 	$var($Exchange, exchange, $nc(this->multiExchange)->getExchange());
 	if (exchange != nullptr) {
 		$var($ExchangeImpl, exchangeImpl, exchange->exchImpl);
 		if (exchangeImpl != nullptr) {
-			if ($nc($(exchangeImpl->connection()))->connected()) {
+			if ($$nc(exchangeImpl->connection())->connected()) {
 				$assign(t, $new($HttpTimeoutException, "request timed out"_s));
 			}
 		}
@@ -154,7 +115,7 @@ void ResponseTimerEvent::handle() {
 		$assign(t, $new($HttpConnectTimeoutException, "HTTP connect timed out"_s));
 		t->initCause($$new($ConnectException, "HTTP connect timed out"_s));
 	}
-	$nc(this->multiExchange)->cancel(static_cast<$IOException*>(t));
+	this->multiExchange->cancel(t);
 }
 
 $String* ResponseTimerEvent::toString() {
@@ -169,9 +130,9 @@ $Instant* ResponseTimerEvent::deadline() {
 	return $TimeoutEvent::deadline();
 }
 
-void clinit$ResponseTimerEvent($Class* class$) {
+void ResponseTimerEvent::clinit$($Class* clazz) {
 	$init($Utils);
-	$assignStatic(ResponseTimerEvent::debug, $Utils::getDebugLogger(static_cast<$Supplier*>($$new(ResponseTimerEvent$$Lambda$toString, static_cast<$String*>("ResponseTimerEvent"_s))), $Utils::DEBUG));
+	$assignStatic(ResponseTimerEvent::debug, $Utils::getDebugLogger($$new(ResponseTimerEvent$$Lambda$toString, "ResponseTimerEvent"_s), $Utils::DEBUG));
 }
 
 ResponseTimerEvent::ResponseTimerEvent() {
@@ -179,11 +140,35 @@ ResponseTimerEvent::ResponseTimerEvent() {
 
 $Class* ResponseTimerEvent::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ResponseTimerEvent$$Lambda$toString::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.ResponseTimerEvent$$Lambda$toString")) {
 			return ResponseTimerEvent$$Lambda$toString::load$(name, initialize);
 		}
 	}
-	$loadClass(ResponseTimerEvent, name, initialize, &_ResponseTimerEvent_ClassInfo_, clinit$ResponseTimerEvent, allocate$ResponseTimerEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Ljdk/internal/net/http/common/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResponseTimerEvent, debug)},
+		{"multiExchange", "Ljdk/internal/net/http/MultiExchange;", "Ljdk/internal/net/http/MultiExchange<*>;", $PRIVATE | $FINAL, $field(ResponseTimerEvent, multiExchange)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/MultiExchange;)V", "(Ljdk/internal/net/http/MultiExchange<*>;)V", $PRIVATE, $method(ResponseTimerEvent, init$, void, $MultiExchange*)},
+		{"compareTo", "(Ljdk/internal/net/http/TimeoutEvent;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseTimerEvent, compareTo, int32_t, $TimeoutEvent*)},
+		{"deadline", "()Ljava/time/Instant;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseTimerEvent, deadline, $Instant*)},
+		{"handle", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseTimerEvent, handle, void)},
+		{"of", "(Ljdk/internal/net/http/MultiExchange;)Ljdk/internal/net/http/ResponseTimerEvent;", "(Ljdk/internal/net/http/MultiExchange<*>;)Ljdk/internal/net/http/ResponseTimerEvent;", $STATIC, $staticMethod(ResponseTimerEvent, of, ResponseTimerEvent*, $MultiExchange*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResponseTimerEvent, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.ResponseTimerEvent",
+		"jdk.internal.net.http.TimeoutEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResponseTimerEvent, name, initialize, &classInfo$$, ResponseTimerEvent::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseTimerEvent);
+	});
 	return class$;
 }
 

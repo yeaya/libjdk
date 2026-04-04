@@ -1,5 +1,4 @@
 #include <javax/naming/spi/InitialContextFactory.h>
-
 #include <java/util/Hashtable.h>
 #include <javax/naming/Context.h>
 #include <jcpp.h>
@@ -13,26 +12,22 @@ namespace javax {
 	namespace naming {
 		namespace spi {
 
-$MethodInfo _InitialContextFactory_MethodInfo_[] = {
-	{"getInitialContext", "(Ljava/util/Hashtable;)Ljavax/naming/Context;", "(Ljava/util/Hashtable<**>;)Ljavax/naming/Context;", $PUBLIC | $ABSTRACT, $virtualMethod(InitialContextFactory, getInitialContext, $Context*, $Hashtable*), "javax.naming.NamingException"},
-	{}
-};
-
-$ClassInfo _InitialContextFactory_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.naming.spi.InitialContextFactory",
-	nullptr,
-	nullptr,
-	nullptr,
-	_InitialContextFactory_MethodInfo_
-};
-
-$Object* allocate$InitialContextFactory($Class* clazz) {
-	return $of($alloc(InitialContextFactory));
-}
-
 $Class* InitialContextFactory::load$($String* name, bool initialize) {
-	$loadClass(InitialContextFactory, name, initialize, &_InitialContextFactory_ClassInfo_, allocate$InitialContextFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"getInitialContext", "(Ljava/util/Hashtable;)Ljavax/naming/Context;", "(Ljava/util/Hashtable<**>;)Ljavax/naming/Context;", $PUBLIC | $ABSTRACT, $virtualMethod(InitialContextFactory, getInitialContext, $Context*, $Hashtable*), "javax.naming.NamingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.naming.spi.InitialContextFactory",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InitialContextFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InitialContextFactory);
+	});
 	return class$;
 }
 

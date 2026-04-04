@@ -1,5 +1,4 @@
 #include <javax/management/monitor/Monitor$NumericalType.h>
-
 #include <java/lang/Enum.h>
 #include <javax/management/monitor/Monitor.h>
 #include <jcpp.h>
@@ -21,50 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace management {
 		namespace monitor {
-
-$FieldInfo _Monitor$NumericalType_FieldInfo_[] = {
-	{"BYTE", "Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Monitor$NumericalType, BYTE)},
-	{"SHORT", "Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Monitor$NumericalType, SHORT)},
-	{"INTEGER", "Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Monitor$NumericalType, INTEGER)},
-	{"LONG", "Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Monitor$NumericalType, LONG)},
-	{"FLOAT", "Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Monitor$NumericalType, FLOAT)},
-	{"DOUBLE", "Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Monitor$NumericalType, DOUBLE)},
-	{"$VALUES", "[Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Monitor$NumericalType, $VALUES)},
-	{}
-};
-
-$MethodInfo _Monitor$NumericalType_MethodInfo_[] = {
-	{"$values", "()[Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Monitor$NumericalType, $values, $Monitor$NumericalTypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Monitor$NumericalType, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PUBLIC | $STATIC, $staticMethod(Monitor$NumericalType, valueOf, Monitor$NumericalType*, $String*)},
-	{"values", "()[Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PUBLIC | $STATIC, $staticMethod(Monitor$NumericalType, values, $Monitor$NumericalTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _Monitor$NumericalType_InnerClassesInfo_[] = {
-	{"javax.management.monitor.Monitor$NumericalType", "javax.management.monitor.Monitor", "NumericalType", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Monitor$NumericalType_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"javax.management.monitor.Monitor$NumericalType",
-	"java.lang.Enum",
-	nullptr,
-	_Monitor$NumericalType_FieldInfo_,
-	_Monitor$NumericalType_MethodInfo_,
-	"Ljava/lang/Enum<Ljavax/management/monitor/Monitor$NumericalType;>;",
-	nullptr,
-	_Monitor$NumericalType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.management.monitor.Monitor"
-};
-
-$Object* allocate$Monitor$NumericalType($Class* clazz) {
-	return $of($alloc(Monitor$NumericalType));
-}
 
 Monitor$NumericalType* Monitor$NumericalType::BYTE = nullptr;
 Monitor$NumericalType* Monitor$NumericalType::SHORT = nullptr;
@@ -100,7 +55,7 @@ void Monitor$NumericalType::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Monitor$NumericalType($Class* class$) {
+void Monitor$NumericalType::clinit$($Class* clazz) {
 	$assignStatic(Monitor$NumericalType::BYTE, $new(Monitor$NumericalType, "BYTE"_s, 0));
 	$assignStatic(Monitor$NumericalType::SHORT, $new(Monitor$NumericalType, "SHORT"_s, 1));
 	$assignStatic(Monitor$NumericalType::INTEGER, $new(Monitor$NumericalType, "INTEGER"_s, 2));
@@ -114,7 +69,45 @@ Monitor$NumericalType::Monitor$NumericalType() {
 }
 
 $Class* Monitor$NumericalType::load$($String* name, bool initialize) {
-	$loadClass(Monitor$NumericalType, name, initialize, &_Monitor$NumericalType_ClassInfo_, clinit$Monitor$NumericalType, allocate$Monitor$NumericalType);
+	$FieldInfo fieldInfos$$[] = {
+		{"BYTE", "Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Monitor$NumericalType, BYTE)},
+		{"SHORT", "Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Monitor$NumericalType, SHORT)},
+		{"INTEGER", "Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Monitor$NumericalType, INTEGER)},
+		{"LONG", "Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Monitor$NumericalType, LONG)},
+		{"FLOAT", "Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Monitor$NumericalType, FLOAT)},
+		{"DOUBLE", "Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Monitor$NumericalType, DOUBLE)},
+		{"$VALUES", "[Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Monitor$NumericalType, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Monitor$NumericalType, $values, $Monitor$NumericalTypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Monitor$NumericalType, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PUBLIC | $STATIC, $staticMethod(Monitor$NumericalType, valueOf, Monitor$NumericalType*, $String*)},
+		{"values", "()[Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PUBLIC | $STATIC, $staticMethod(Monitor$NumericalType, values, $Monitor$NumericalTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.monitor.Monitor$NumericalType", "javax.management.monitor.Monitor", "NumericalType", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"javax.management.monitor.Monitor$NumericalType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljavax/management/monitor/Monitor$NumericalType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.management.monitor.Monitor"
+	};
+	$loadClass(Monitor$NumericalType, name, initialize, &classInfo$$, Monitor$NumericalType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Monitor$NumericalType));
+	});
 	return class$;
 }
 

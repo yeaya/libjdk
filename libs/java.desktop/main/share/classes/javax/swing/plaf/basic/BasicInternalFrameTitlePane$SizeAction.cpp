@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicInternalFrameTitlePane$SizeAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/AbstractAction.h>
 #include <javax/swing/UIManager.h>
@@ -20,42 +19,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicInternalFrameTitlePane$SizeAction_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(BasicInternalFrameTitlePane$SizeAction, this$0)},
-	{}
-};
-
-$MethodInfo _BasicInternalFrameTitlePane$SizeAction_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;)V", nullptr, $PUBLIC, $method(BasicInternalFrameTitlePane$SizeAction, init$, void, $BasicInternalFrameTitlePane*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameTitlePane$SizeAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicInternalFrameTitlePane$SizeAction_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$SizeAction", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "SizeAction", $PUBLIC},
-	{}
-};
-
-$ClassInfo _BasicInternalFrameTitlePane$SizeAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicInternalFrameTitlePane$SizeAction",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_BasicInternalFrameTitlePane$SizeAction_FieldInfo_,
-	_BasicInternalFrameTitlePane$SizeAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicInternalFrameTitlePane$SizeAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicInternalFrameTitlePane"
-};
-
-$Object* allocate$BasicInternalFrameTitlePane$SizeAction($Class* clazz) {
-	return $of($alloc(BasicInternalFrameTitlePane$SizeAction));
-}
-
 void BasicInternalFrameTitlePane$SizeAction::init$($BasicInternalFrameTitlePane* this$0) {
 	$set(this, this$0, this$0);
 	$AbstractAction::init$($($UIManager::getString("InternalFrameTitlePane.sizeButtonText"_s)));
@@ -68,7 +31,37 @@ BasicInternalFrameTitlePane$SizeAction::BasicInternalFrameTitlePane$SizeAction()
 }
 
 $Class* BasicInternalFrameTitlePane$SizeAction::load$($String* name, bool initialize) {
-	$loadClass(BasicInternalFrameTitlePane$SizeAction, name, initialize, &_BasicInternalFrameTitlePane$SizeAction_ClassInfo_, allocate$BasicInternalFrameTitlePane$SizeAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(BasicInternalFrameTitlePane$SizeAction, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;)V", nullptr, $PUBLIC, $method(BasicInternalFrameTitlePane$SizeAction, init$, void, $BasicInternalFrameTitlePane*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameTitlePane$SizeAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$SizeAction", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "SizeAction", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicInternalFrameTitlePane$SizeAction",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicInternalFrameTitlePane"
+	};
+	$loadClass(BasicInternalFrameTitlePane$SizeAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicInternalFrameTitlePane$SizeAction));
+	});
 	return class$;
 }
 

@@ -83,6 +83,7 @@ class TransportImpl : public ::jdk::internal::net::http::websocket::Transport {
 	$class(TransportImpl, 0, ::jdk::internal::net::http::websocket::Transport)
 public:
 	TransportImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::websocket::MessageQueue* queue, ::jdk::internal::net::http::websocket::MessageStreamConsumer* consumer, ::jdk::internal::net::http::websocket::RawChannel* channel);
 	virtual void acknowledgeReception() override;
 	virtual void closeInput() override;

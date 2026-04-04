@@ -1,5 +1,4 @@
 #include <javax/swing/ProgressMonitor.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Window.h>
 #include <javax/accessibility/AccessibleContext.h>
@@ -22,7 +21,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $JDialog = ::javax::swing::JDialog;
 using $JLabel = ::javax::swing::JLabel;
 using $JOptionPane = ::javax::swing::JOptionPane;
 using $JProgressBar = ::javax::swing::JProgressBar;
@@ -32,71 +30,6 @@ using $UIManager = ::javax::swing::UIManager;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _ProgressMonitor_FieldInfo_[] = {
-	{"root", "Ljavax/swing/ProgressMonitor;", nullptr, $PRIVATE, $field(ProgressMonitor, root)},
-	{"dialog", "Ljavax/swing/JDialog;", nullptr, $PRIVATE, $field(ProgressMonitor, dialog)},
-	{"pane", "Ljavax/swing/JOptionPane;", nullptr, $PRIVATE, $field(ProgressMonitor, pane)},
-	{"myBar", "Ljavax/swing/JProgressBar;", nullptr, $PRIVATE, $field(ProgressMonitor, myBar)},
-	{"noteLabel", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ProgressMonitor, noteLabel)},
-	{"parentComponent", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(ProgressMonitor, parentComponent)},
-	{"note", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ProgressMonitor, note)},
-	{"cancelOption", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(ProgressMonitor, cancelOption)},
-	{"message", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(ProgressMonitor, message)},
-	{"T0", "J", nullptr, $PRIVATE, $field(ProgressMonitor, T0)},
-	{"millisToDecideToPopup", "I", nullptr, $PRIVATE, $field(ProgressMonitor, millisToDecideToPopup)},
-	{"millisToPopup", "I", nullptr, $PRIVATE, $field(ProgressMonitor, millisToPopup)},
-	{"min", "I", nullptr, $PRIVATE, $field(ProgressMonitor, min)},
-	{"max", "I", nullptr, $PRIVATE, $field(ProgressMonitor, max)},
-	{"accessibleContext", "Ljavax/accessibility/AccessibleContext;", nullptr, $PROTECTED, $field(ProgressMonitor, accessibleContext)},
-	{"accessibleJOptionPane", "Ljavax/accessibility/AccessibleContext;", nullptr, $PRIVATE, $field(ProgressMonitor, accessibleJOptionPane)},
-	{}
-};
-
-$MethodInfo _ProgressMonitor_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(ProgressMonitor, init$, void, $Component*, Object$*, $String*, int32_t, int32_t)},
-	{"<init>", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;IILjavax/swing/ProgressMonitor;)V", nullptr, $PRIVATE, $method(ProgressMonitor, init$, void, $Component*, Object$*, $String*, int32_t, int32_t, ProgressMonitor*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, close, void)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, getAccessibleContext, $AccessibleContext*)},
-	{"getMaximum", "()I", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, getMaximum, int32_t)},
-	{"getMillisToDecideToPopup", "()I", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, getMillisToDecideToPopup, int32_t)},
-	{"getMillisToPopup", "()I", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, getMillisToPopup, int32_t)},
-	{"getMinimum", "()I", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, getMinimum, int32_t)},
-	{"getNote", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, getNote, $String*)},
-	{"isCanceled", "()Z", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, isCanceled, bool)},
-	{"setMaximum", "(I)V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, setMaximum, void, int32_t)},
-	{"setMillisToDecideToPopup", "(I)V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, setMillisToDecideToPopup, void, int32_t)},
-	{"setMillisToPopup", "(I)V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, setMillisToPopup, void, int32_t)},
-	{"setMinimum", "(I)V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, setMinimum, void, int32_t)},
-	{"setNote", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, setNote, void, $String*)},
-	{"setProgress", "(I)V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, setProgress, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ProgressMonitor_InnerClassesInfo_[] = {
-	{"javax.swing.ProgressMonitor$AccessibleProgressMonitor", "javax.swing.ProgressMonitor", "AccessibleProgressMonitor", $PROTECTED},
-	{"javax.swing.ProgressMonitor$ProgressOptionPane", "javax.swing.ProgressMonitor", "ProgressOptionPane", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ProgressMonitor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.ProgressMonitor",
-	"java.lang.Object",
-	"javax.accessibility.Accessible",
-	_ProgressMonitor_FieldInfo_,
-	_ProgressMonitor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ProgressMonitor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.ProgressMonitor$AccessibleProgressMonitor,javax.swing.ProgressMonitor$ProgressOptionPane,javax.swing.ProgressMonitor$ProgressOptionPane$2,javax.swing.ProgressMonitor$ProgressOptionPane$1"
-};
-
-$Object* allocate$ProgressMonitor($Class* clazz) {
-	return $of($alloc(ProgressMonitor));
-}
 
 void ProgressMonitor::init$($Component* parentComponent, Object$* message, $String* note, int32_t min, int32_t max) {
 	ProgressMonitor::init$(parentComponent, message, note, min, max, nullptr);
@@ -112,24 +45,24 @@ void ProgressMonitor::init$($Component* parentComponent, Object$* message, $Stri
 	this->max = max;
 	$set(this, parentComponent, parentComponent);
 	$set(this, cancelOption, $new($ObjectArray, 1));
-	$nc(this->cancelOption)->set(0, $($UIManager::getString("OptionPane.cancelButtonText"_s)));
+	this->cancelOption->set(0, $($UIManager::getString("OptionPane.cancelButtonText"_s)));
 	$set(this, message, message);
 	$set(this, note, note);
 	if (group != nullptr) {
 		$set(this, root, (group->root != nullptr) ? group->root : group);
 		this->T0 = $nc(this->root)->T0;
-		$set(this, dialog, $nc(this->root)->dialog);
+		$set(this, dialog, this->root->dialog);
 	} else {
 		this->T0 = $System::currentTimeMillis();
 	}
 }
 
 void ProgressMonitor::setProgress(int32_t nv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (nv >= this->max) {
 		close();
 	} else if (this->myBar != nullptr) {
-		$nc(this->myBar)->setValue(nv);
+		this->myBar->setValue(nv);
 	} else {
 		int64_t T = $System::currentTimeMillis();
 		int64_t dT = (int32_t)(T - this->T0);
@@ -142,7 +75,7 @@ void ProgressMonitor::setProgress(int32_t nv) {
 			}
 			if (predictedCompletionTime >= this->millisToPopup) {
 				$set(this, myBar, $new($JProgressBar));
-				$nc(this->myBar)->setMinimum(this->min);
+				this->myBar->setMinimum(this->min);
 				$nc(this->myBar)->setMaximum(this->max);
 				$nc(this->myBar)->setValue(nv);
 				if (this->note != nullptr) {
@@ -150,10 +83,10 @@ void ProgressMonitor::setProgress(int32_t nv) {
 				}
 				$set(this, pane, $new($ProgressMonitor$ProgressOptionPane, this, $$new($ObjectArray, {
 					this->message,
-					$of(this->noteLabel),
-					$of(this->myBar)
+					this->noteLabel,
+					this->myBar
 				})));
-				$set(this, dialog, $nc(this->pane)->createDialog(this->parentComponent, $($UIManager::getString("ProgressMonitor.progressText"_s))));
+				$set(this, dialog, this->pane->createDialog(this->parentComponent, $($UIManager::getString("ProgressMonitor.progressText"_s))));
 				$nc(this->dialog)->show();
 			}
 		}
@@ -162,7 +95,7 @@ void ProgressMonitor::setProgress(int32_t nv) {
 
 void ProgressMonitor::close() {
 	if (this->dialog != nullptr) {
-		$nc(this->dialog)->setVisible(false);
+		this->dialog->setVisible(false);
 		$nc(this->dialog)->dispose();
 		$set(this, dialog, nullptr);
 		$set(this, pane, nullptr);
@@ -176,7 +109,7 @@ int32_t ProgressMonitor::getMinimum() {
 
 void ProgressMonitor::setMinimum(int32_t m) {
 	if (this->myBar != nullptr) {
-		$nc(this->myBar)->setMinimum(m);
+		this->myBar->setMinimum(m);
 	}
 	this->min = m;
 }
@@ -187,13 +120,13 @@ int32_t ProgressMonitor::getMaximum() {
 
 void ProgressMonitor::setMaximum(int32_t m) {
 	if (this->myBar != nullptr) {
-		$nc(this->myBar)->setMaximum(m);
+		this->myBar->setMaximum(m);
 	}
 	this->max = m;
 }
 
 bool ProgressMonitor::isCanceled() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->pane == nullptr) {
 		return false;
 	}
@@ -201,8 +134,8 @@ bool ProgressMonitor::isCanceled() {
 	if (v == nullptr) {
 		return false;
 	}
-	bool var$0 = (($nc(this->cancelOption)->length == 1) && $nc($of(v))->equals($nc(this->cancelOption)->get(0)));
-	return (var$0 || $nc($of(v))->equals($($Integer::valueOf($JOptionPane::CLOSED_OPTION))));
+	bool var$0 = ($nc(this->cancelOption)->length == 1) && $nc(v)->equals(this->cancelOption->get(0));
+	return (var$0 || $nc(v)->equals($($Integer::valueOf($JOptionPane::CLOSED_OPTION))));
 }
 
 void ProgressMonitor::setMillisToDecideToPopup(int32_t millisToDecideToPopup) {
@@ -224,7 +157,7 @@ int32_t ProgressMonitor::getMillisToPopup() {
 void ProgressMonitor::setNote($String* note) {
 	$set(this, note, note);
 	if (this->noteLabel != nullptr) {
-		$nc(this->noteLabel)->setText(note);
+		this->noteLabel->setText(note);
 	}
 }
 
@@ -238,7 +171,7 @@ $AccessibleContext* ProgressMonitor::getAccessibleContext() {
 	}
 	if (this->pane != nullptr && this->accessibleJOptionPane == nullptr) {
 		if ($instanceOf($ProgressMonitor$AccessibleProgressMonitor, this->accessibleContext)) {
-			$nc(($cast($ProgressMonitor$AccessibleProgressMonitor, this->accessibleContext)))->optionPaneCreated();
+			$cast($ProgressMonitor$AccessibleProgressMonitor, this->accessibleContext)->optionPaneCreated();
 		}
 	}
 	return this->accessibleContext;
@@ -248,7 +181,66 @@ ProgressMonitor::ProgressMonitor() {
 }
 
 $Class* ProgressMonitor::load$($String* name, bool initialize) {
-	$loadClass(ProgressMonitor, name, initialize, &_ProgressMonitor_ClassInfo_, allocate$ProgressMonitor);
+	$FieldInfo fieldInfos$$[] = {
+		{"root", "Ljavax/swing/ProgressMonitor;", nullptr, $PRIVATE, $field(ProgressMonitor, root)},
+		{"dialog", "Ljavax/swing/JDialog;", nullptr, $PRIVATE, $field(ProgressMonitor, dialog)},
+		{"pane", "Ljavax/swing/JOptionPane;", nullptr, $PRIVATE, $field(ProgressMonitor, pane)},
+		{"myBar", "Ljavax/swing/JProgressBar;", nullptr, $PRIVATE, $field(ProgressMonitor, myBar)},
+		{"noteLabel", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ProgressMonitor, noteLabel)},
+		{"parentComponent", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(ProgressMonitor, parentComponent)},
+		{"note", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ProgressMonitor, note)},
+		{"cancelOption", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(ProgressMonitor, cancelOption)},
+		{"message", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(ProgressMonitor, message)},
+		{"T0", "J", nullptr, $PRIVATE, $field(ProgressMonitor, T0)},
+		{"millisToDecideToPopup", "I", nullptr, $PRIVATE, $field(ProgressMonitor, millisToDecideToPopup)},
+		{"millisToPopup", "I", nullptr, $PRIVATE, $field(ProgressMonitor, millisToPopup)},
+		{"min", "I", nullptr, $PRIVATE, $field(ProgressMonitor, min)},
+		{"max", "I", nullptr, $PRIVATE, $field(ProgressMonitor, max)},
+		{"accessibleContext", "Ljavax/accessibility/AccessibleContext;", nullptr, $PROTECTED, $field(ProgressMonitor, accessibleContext)},
+		{"accessibleJOptionPane", "Ljavax/accessibility/AccessibleContext;", nullptr, $PRIVATE, $field(ProgressMonitor, accessibleJOptionPane)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(ProgressMonitor, init$, void, $Component*, Object$*, $String*, int32_t, int32_t)},
+		{"<init>", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;IILjavax/swing/ProgressMonitor;)V", nullptr, $PRIVATE, $method(ProgressMonitor, init$, void, $Component*, Object$*, $String*, int32_t, int32_t, ProgressMonitor*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, close, void)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, getAccessibleContext, $AccessibleContext*)},
+		{"getMaximum", "()I", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, getMaximum, int32_t)},
+		{"getMillisToDecideToPopup", "()I", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, getMillisToDecideToPopup, int32_t)},
+		{"getMillisToPopup", "()I", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, getMillisToPopup, int32_t)},
+		{"getMinimum", "()I", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, getMinimum, int32_t)},
+		{"getNote", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, getNote, $String*)},
+		{"isCanceled", "()Z", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, isCanceled, bool)},
+		{"setMaximum", "(I)V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, setMaximum, void, int32_t)},
+		{"setMillisToDecideToPopup", "(I)V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, setMillisToDecideToPopup, void, int32_t)},
+		{"setMillisToPopup", "(I)V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, setMillisToPopup, void, int32_t)},
+		{"setMinimum", "(I)V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, setMinimum, void, int32_t)},
+		{"setNote", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, setNote, void, $String*)},
+		{"setProgress", "(I)V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, setProgress, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.ProgressMonitor$AccessibleProgressMonitor", "javax.swing.ProgressMonitor", "AccessibleProgressMonitor", $PROTECTED},
+		{"javax.swing.ProgressMonitor$ProgressOptionPane", "javax.swing.ProgressMonitor", "ProgressOptionPane", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.ProgressMonitor",
+		"java.lang.Object",
+		"javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.ProgressMonitor$AccessibleProgressMonitor,javax.swing.ProgressMonitor$ProgressOptionPane,javax.swing.ProgressMonitor$ProgressOptionPane$2,javax.swing.ProgressMonitor$ProgressOptionPane$1"
+	};
+	$loadClass(ProgressMonitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProgressMonitor);
+	});
 	return class$;
 }
 

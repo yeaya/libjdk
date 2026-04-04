@@ -1,5 +1,4 @@
 #include <bug4506788.h>
-
 #include <bug4506788$1.h>
 #include <bug4506788$2.h>
 #include <bug4506788$3.h>
@@ -12,13 +11,10 @@
 #include <java/awt/event/InputEvent.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/event/CaretListener.h>
-#include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/DefaultStyledDocument.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/EditorKit.h>
@@ -39,7 +35,6 @@ using $bug4506788$2 = ::bug4506788$2;
 using $bug4506788$3 = ::bug4506788$3;
 using $AWTException = ::java::awt::AWTException;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
 using $InputEvent = ::java::awt::event::InputEvent;
@@ -50,62 +45,16 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $JFrame = ::javax::swing::JFrame;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $CaretListener = ::javax::swing::event::CaretListener;
-using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $DefaultStyledDocument = ::javax::swing::text::DefaultStyledDocument;
-using $EditorKit = ::javax::swing::text::EditorKit;
 using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $SimpleAttributeSet = ::javax::swing::text::SimpleAttributeSet;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
 using $StyledEditorKit = ::javax::swing::text::StyledEditorKit;
-
-$FieldInfo _bug4506788_FieldInfo_[] = {
-	{"passed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(bug4506788, passed)},
-	{"jep", "Ljavax/swing/JEditorPane;", nullptr, $PRIVATE, $field(bug4506788, jep)},
-	{}
-};
-
-$MethodInfo _bug4506788_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug4506788, init$, void)},
-	{"createAndShowGUI", "()V", nullptr, $PRIVATE, $method(bug4506788, createAndShowGUI, void)},
-	{"getJEPLocOnScreen", "()Ljava/awt/Point;", nullptr, $PRIVATE, $method(bug4506788, getJEPLocOnScreen, $Point*), "java.lang.Exception"},
-	{"init", "()V", nullptr, $PUBLIC, $virtualMethod(bug4506788, init, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug4506788, main, void, $StringArray*)},
-	{"start", "()V", nullptr, $PUBLIC, $virtualMethod(bug4506788, start, void)},
-	{}
-};
-
-$InnerClassInfo _bug4506788_InnerClassesInfo_[] = {
-	{"bug4506788$3", nullptr, nullptr, 0},
-	{"bug4506788$2", nullptr, nullptr, 0},
-	{"bug4506788$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug4506788_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug4506788",
-	"java.lang.Object",
-	nullptr,
-	_bug4506788_FieldInfo_,
-	_bug4506788_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug4506788_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug4506788$3,bug4506788$2,bug4506788$1"
-};
-
-$Object* allocate$bug4506788($Class* clazz) {
-	return $of($alloc(bug4506788));
-}
 
 void bug4506788::init$() {
 	this->passed = false;
@@ -130,7 +79,7 @@ void bug4506788::init() {
 }
 
 void bug4506788::start() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Robot, robot, nullptr);
 	try {
 		$assign(robot, $new($Robot));
@@ -145,7 +94,7 @@ void bug4506788::start() {
 	} catch ($Exception& e) {
 		$throwNew($RuntimeException, "Could not get JEditorPane location on screen"_s);
 	}
-	robot->mouseMove($nc(p)->x, p->y);
+	robot->mouseMove($nc(p)->x, $nc(p)->y);
 	robot->mousePress($InputEvent::BUTTON1_MASK);
 	robot->mouseRelease($InputEvent::BUTTON1_MASK);
 	robot->keyPress($KeyEvent::VK_HOME);
@@ -163,25 +112,25 @@ void bug4506788::start() {
 }
 
 $Point* bug4506788::getJEPLocOnScreen() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PointArray, result, $new($PointArray, 1));
 	$SwingUtilities::invokeAndWait($$new($bug4506788$2, this, result));
 	return result->get(0);
 }
 
 void bug4506788::createAndShowGUI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, jep, $new($JEditorPane));
 	$var($String, text, "abc"_s);
 	$var($JFrame, f, $new($JFrame));
-	$nc(this->jep)->setEditorKit($$new($StyledEditorKit));
+	this->jep->setEditorKit($$new($StyledEditorKit));
 	$nc(this->jep)->setText(text);
 	$nc(this->jep)->addCaretListener($$new($bug4506788$3, this));
 	$var($DefaultStyledDocument, doc, $cast($DefaultStyledDocument, $nc(this->jep)->getDocument()));
 	$var($MutableAttributeSet, atr, $new($SimpleAttributeSet));
 	$StyleConstants::setBold(atr, true);
 	$nc(doc)->setCharacterAttributes(1, 1, atr, false);
-	$nc($(f->getContentPane()))->add(static_cast<$Component*>(this->jep));
+	$$nc(f->getContentPane())->add(this->jep);
 	f->setSize(100, 100);
 	f->setLocationRelativeTo(nullptr);
 	f->setVisible(true);
@@ -191,7 +140,43 @@ bug4506788::bug4506788() {
 }
 
 $Class* bug4506788::load$($String* name, bool initialize) {
-	$loadClass(bug4506788, name, initialize, &_bug4506788_ClassInfo_, allocate$bug4506788);
+	$FieldInfo fieldInfos$$[] = {
+		{"passed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(bug4506788, passed)},
+		{"jep", "Ljavax/swing/JEditorPane;", nullptr, $PRIVATE, $field(bug4506788, jep)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug4506788, init$, void)},
+		{"createAndShowGUI", "()V", nullptr, $PRIVATE, $method(bug4506788, createAndShowGUI, void)},
+		{"getJEPLocOnScreen", "()Ljava/awt/Point;", nullptr, $PRIVATE, $method(bug4506788, getJEPLocOnScreen, $Point*), "java.lang.Exception"},
+		{"init", "()V", nullptr, $PUBLIC, $virtualMethod(bug4506788, init, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug4506788, main, void, $StringArray*)},
+		{"start", "()V", nullptr, $PUBLIC, $virtualMethod(bug4506788, start, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug4506788$3", nullptr, nullptr, 0},
+		{"bug4506788$2", nullptr, nullptr, 0},
+		{"bug4506788$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug4506788",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug4506788$3,bug4506788$2,bug4506788$1"
+	};
+	$loadClass(bug4506788, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4506788);
+	});
 	return class$;
 }
 

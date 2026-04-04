@@ -1,5 +1,4 @@
 #include <com/sun/xml/internal/stream/events/AttributeImpl.h>
-
 #include <com/sun/xml/internal/stream/events/DummyEvent.h>
 #include <java/io/Writer.h>
 #include <javax/xml/namespace/QName.h>
@@ -30,71 +29,6 @@ namespace com {
 			namespace internal {
 				namespace stream {
 					namespace events {
-
-$FieldInfo _AttributeImpl_FieldInfo_[] = {
-	{"fValue", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AttributeImpl, fValue)},
-	{"fNonNormalizedvalue", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AttributeImpl, fNonNormalizedvalue)},
-	{"fQName", "Ljavax/xml/namespace/QName;", nullptr, $PRIVATE, $field(AttributeImpl, fQName)},
-	{"fAttributeType", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AttributeImpl, fAttributeType)},
-	{"fIsSpecified", "Z", nullptr, $PRIVATE, $field(AttributeImpl, fIsSpecified)},
-	{}
-};
-
-$MethodInfo _AttributeImpl_MethodInfo_[] = {
-	{"*asCharacters", "()Ljavax/xml/stream/events/Characters;", nullptr, $PUBLIC},
-	{"*asEndElement", "()Ljavax/xml/stream/events/EndElement;", nullptr, $PUBLIC},
-	{"*asStartElement", "()Ljavax/xml/stream/events/StartElement;", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getEventType", "()I", nullptr, $PUBLIC},
-	{"*getLocation", "()Ljavax/xml/stream/Location;", nullptr, $PUBLIC},
-	{"*getSchemaType", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AttributeImpl, init$, void)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AttributeImpl, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AttributeImpl, init$, void, $String*, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AttributeImpl, init$, void, $String*, $String*, $String*, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(AttributeImpl, init$, void, $String*, $String*, $String*, $String*, $String*, $String*, bool)},
-	{"<init>", "(Ljavax/xml/namespace/QName;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(AttributeImpl, init$, void, $QName*, $String*, $String*, $String*, bool)},
-	{"getDTDType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeImpl, getDTDType, $String*)},
-	{"getName", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC, $virtualMethod(AttributeImpl, getName, $QName*)},
-	{"getNonNormalizedValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeImpl, getNonNormalizedValue, $String*)},
-	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeImpl, getValue, $String*)},
-	{"init", "()V", nullptr, $PROTECTED, $virtualMethod(AttributeImpl, init, void)},
-	{"*isAttribute", "()Z", nullptr, $PUBLIC},
-	{"*isCharacters", "()Z", nullptr, $PUBLIC},
-	{"*isEndDocument", "()Z", nullptr, $PUBLIC},
-	{"*isEndElement", "()Z", nullptr, $PUBLIC},
-	{"*isEntityReference", "()Z", nullptr, $PUBLIC},
-	{"*isNamespace", "()Z", nullptr, $PUBLIC},
-	{"*isProcessingInstruction", "()Z", nullptr, $PUBLIC},
-	{"isSpecified", "()Z", nullptr, $PUBLIC, $virtualMethod(AttributeImpl, isSpecified, bool)},
-	{"*isStartDocument", "()Z", nullptr, $PUBLIC},
-	{"*isStartElement", "()Z", nullptr, $PUBLIC},
-	{"setAttributeType", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AttributeImpl, setAttributeType, void, $String*)},
-	{"setName", "(Ljavax/xml/namespace/QName;)V", nullptr, $PUBLIC, $virtualMethod(AttributeImpl, setName, void, $QName*)},
-	{"setNonNormalizedValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AttributeImpl, setNonNormalizedValue, void, $String*)},
-	{"setSpecified", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AttributeImpl, setSpecified, void, bool)},
-	{"setValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AttributeImpl, setValue, void, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeImpl, toString, $String*)},
-	{"*writeAsEncodedUnicode", "(Ljava/io/Writer;)V", nullptr, $PUBLIC},
-	{"writeAsEncodedUnicodeEx", "(Ljava/io/Writer;)V", nullptr, $PROTECTED, $virtualMethod(AttributeImpl, writeAsEncodedUnicodeEx, void, $Writer*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _AttributeImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.xml.internal.stream.events.AttributeImpl",
-	"com.sun.xml.internal.stream.events.DummyEvent",
-	"javax.xml.stream.events.Attribute",
-	_AttributeImpl_FieldInfo_,
-	_AttributeImpl_MethodInfo_
-};
-
-$Object* allocate$AttributeImpl($Class* clazz) {
-	return $of($alloc(AttributeImpl));
-}
 
 int32_t AttributeImpl::getEventType() {
 	 return this->$DummyEvent::getEventType();
@@ -216,14 +150,17 @@ void AttributeImpl::init$($QName* qname, $String* value, $String* nonNormalizedv
 }
 
 $String* AttributeImpl::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(this->fQName)->getPrefix() != nullptr;
-	if (var$0 && $nc($($nc(this->fQName)->getPrefix()))->length() > 0) {
-		$var($String, var$4, $$str({$($nc(this->fQName)->getPrefix()), ":"_s}));
-		$var($String, var$3, $$concat(var$4, $($nc(this->fQName)->getLocalPart())));
-		$var($String, var$2, $$concat(var$3, "=\'"_s));
-		$var($String, var$1, $$concat(var$2, this->fValue));
-		return $concat(var$1, "\'"_s);
+	if (var$0 && $$nc(this->fQName->getPrefix())->length() > 0) {
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append($($nc(this->fQName)->getPrefix()));
+		var$1->append(":"_s);
+		var$1->append($(this->fQName->getLocalPart()));
+		var$1->append("=\'"_s);
+		var$1->append(this->fValue);
+		var$1->append("\'"_s);
+		return $str(var$1);
 	} else {
 		return $str({$($nc(this->fQName)->getLocalPart()), "=\'"_s, this->fValue, "\'"_s});
 	}
@@ -281,7 +218,67 @@ AttributeImpl::AttributeImpl() {
 }
 
 $Class* AttributeImpl::load$($String* name, bool initialize) {
-	$loadClass(AttributeImpl, name, initialize, &_AttributeImpl_ClassInfo_, allocate$AttributeImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fValue", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AttributeImpl, fValue)},
+		{"fNonNormalizedvalue", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AttributeImpl, fNonNormalizedvalue)},
+		{"fQName", "Ljavax/xml/namespace/QName;", nullptr, $PRIVATE, $field(AttributeImpl, fQName)},
+		{"fAttributeType", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AttributeImpl, fAttributeType)},
+		{"fIsSpecified", "Z", nullptr, $PRIVATE, $field(AttributeImpl, fIsSpecified)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*asCharacters", "()Ljavax/xml/stream/events/Characters;", nullptr, $PUBLIC},
+		{"*asEndElement", "()Ljavax/xml/stream/events/EndElement;", nullptr, $PUBLIC},
+		{"*asStartElement", "()Ljavax/xml/stream/events/StartElement;", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getEventType", "()I", nullptr, $PUBLIC},
+		{"*getLocation", "()Ljavax/xml/stream/Location;", nullptr, $PUBLIC},
+		{"*getSchemaType", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AttributeImpl, init$, void)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AttributeImpl, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AttributeImpl, init$, void, $String*, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AttributeImpl, init$, void, $String*, $String*, $String*, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(AttributeImpl, init$, void, $String*, $String*, $String*, $String*, $String*, $String*, bool)},
+		{"<init>", "(Ljavax/xml/namespace/QName;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(AttributeImpl, init$, void, $QName*, $String*, $String*, $String*, bool)},
+		{"getDTDType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeImpl, getDTDType, $String*)},
+		{"getName", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC, $virtualMethod(AttributeImpl, getName, $QName*)},
+		{"getNonNormalizedValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeImpl, getNonNormalizedValue, $String*)},
+		{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeImpl, getValue, $String*)},
+		{"init", "()V", nullptr, $PROTECTED, $virtualMethod(AttributeImpl, init, void)},
+		{"*isAttribute", "()Z", nullptr, $PUBLIC},
+		{"*isCharacters", "()Z", nullptr, $PUBLIC},
+		{"*isEndDocument", "()Z", nullptr, $PUBLIC},
+		{"*isEndElement", "()Z", nullptr, $PUBLIC},
+		{"*isEntityReference", "()Z", nullptr, $PUBLIC},
+		{"*isNamespace", "()Z", nullptr, $PUBLIC},
+		{"*isProcessingInstruction", "()Z", nullptr, $PUBLIC},
+		{"isSpecified", "()Z", nullptr, $PUBLIC, $virtualMethod(AttributeImpl, isSpecified, bool)},
+		{"*isStartDocument", "()Z", nullptr, $PUBLIC},
+		{"*isStartElement", "()Z", nullptr, $PUBLIC},
+		{"setAttributeType", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AttributeImpl, setAttributeType, void, $String*)},
+		{"setName", "(Ljavax/xml/namespace/QName;)V", nullptr, $PUBLIC, $virtualMethod(AttributeImpl, setName, void, $QName*)},
+		{"setNonNormalizedValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AttributeImpl, setNonNormalizedValue, void, $String*)},
+		{"setSpecified", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AttributeImpl, setSpecified, void, bool)},
+		{"setValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AttributeImpl, setValue, void, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeImpl, toString, $String*)},
+		{"*writeAsEncodedUnicode", "(Ljava/io/Writer;)V", nullptr, $PUBLIC},
+		{"writeAsEncodedUnicodeEx", "(Ljava/io/Writer;)V", nullptr, $PROTECTED, $virtualMethod(AttributeImpl, writeAsEncodedUnicodeEx, void, $Writer*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.xml.internal.stream.events.AttributeImpl",
+		"com.sun.xml.internal.stream.events.DummyEvent",
+		"javax.xml.stream.events.Attribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AttributeImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AttributeImpl));
+	});
 	return class$;
 }
 

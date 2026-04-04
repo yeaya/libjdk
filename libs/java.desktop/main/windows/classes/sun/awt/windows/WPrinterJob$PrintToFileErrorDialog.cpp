@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WPrinterJob$PrintToFileErrorDialog.h>
-
 #include <java/awt/Button.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dialog.h>
@@ -9,7 +8,6 @@
 #include <java/awt/Panel.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ActionListener.h>
 #include <sun/awt/windows/WPrinterJob.h>
 #include <jcpp.h>
 
@@ -22,7 +20,6 @@ using $Label = ::java::awt::Label;
 using $Panel = ::java::awt::Panel;
 using $Rectangle = ::java::awt::Rectangle;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -32,49 +29,6 @@ using $WPrinterJob = ::sun::awt::windows::WPrinterJob;
 namespace sun {
 	namespace awt {
 		namespace windows {
-
-$FieldInfo _WPrinterJob$PrintToFileErrorDialog_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/windows/WPrinterJob;", nullptr, $FINAL | $SYNTHETIC, $field(WPrinterJob$PrintToFileErrorDialog, this$0)},
-	{}
-};
-
-$MethodInfo _WPrinterJob$PrintToFileErrorDialog_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/awt/windows/WPrinterJob;Ljava/awt/Frame;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(WPrinterJob$PrintToFileErrorDialog, init$, void, $WPrinterJob*, $Frame*, $String*, $String*, $String*)},
-	{"<init>", "(Lsun/awt/windows/WPrinterJob;Ljava/awt/Dialog;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(WPrinterJob$PrintToFileErrorDialog, init$, void, $WPrinterJob*, $Dialog*, $String*, $String*, $String*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(WPrinterJob$PrintToFileErrorDialog, actionPerformed, void, $ActionEvent*)},
-	{"init", "(Ljava/awt/Component;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WPrinterJob$PrintToFileErrorDialog, init, void, $Component*, $String*, $String*, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _WPrinterJob$PrintToFileErrorDialog_InnerClassesInfo_[] = {
-	{"sun.awt.windows.WPrinterJob$PrintToFileErrorDialog", "sun.awt.windows.WPrinterJob", "PrintToFileErrorDialog", 0},
-	{}
-};
-
-$ClassInfo _WPrinterJob$PrintToFileErrorDialog_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.windows.WPrinterJob$PrintToFileErrorDialog",
-	"java.awt.Dialog",
-	"java.awt.event.ActionListener",
-	_WPrinterJob$PrintToFileErrorDialog_FieldInfo_,
-	_WPrinterJob$PrintToFileErrorDialog_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WPrinterJob$PrintToFileErrorDialog_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.windows.WPrinterJob"
-};
-
-$Object* allocate$WPrinterJob$PrintToFileErrorDialog($Class* clazz) {
-	return $of($alloc(WPrinterJob$PrintToFileErrorDialog));
-}
 
 $String* WPrinterJob$PrintToFileErrorDialog::toString() {
 	 return this->$Dialog::toString();
@@ -109,18 +63,18 @@ void WPrinterJob$PrintToFileErrorDialog::init$($WPrinterJob* this$0, $Dialog* pa
 }
 
 void WPrinterJob$PrintToFileErrorDialog::init($Component* parent, $String* title, $String* message, $String* buttonText) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Panel, p, $new($Panel));
-	add("Center"_s, static_cast<$Component*>($$new($Label, message)));
+	add("Center"_s, $$new($Label, message));
 	$var($Button, btn, $new($Button, buttonText));
 	btn->addActionListener(this);
-	p->add(static_cast<$Component*>(btn));
-	add("South"_s, static_cast<$Component*>(p));
+	p->add(btn);
+	add("South"_s, p);
 	pack();
 	$var($Dimension, dDim, getSize());
 	if (parent != nullptr) {
 		$var($Rectangle, fRect, parent->getBounds());
-		setLocation($nc(fRect)->x + ((fRect->width - $nc(dDim)->width) / 2), fRect->y + ((fRect->height - dDim->height) / 2));
+		setLocation($nc(fRect)->x + (($nc(fRect)->width - $nc(dDim)->width) / 2), $nc(fRect)->y + (($nc(fRect)->height - $nc(dDim)->height) / 2));
 	}
 }
 
@@ -134,7 +88,44 @@ WPrinterJob$PrintToFileErrorDialog::WPrinterJob$PrintToFileErrorDialog() {
 }
 
 $Class* WPrinterJob$PrintToFileErrorDialog::load$($String* name, bool initialize) {
-	$loadClass(WPrinterJob$PrintToFileErrorDialog, name, initialize, &_WPrinterJob$PrintToFileErrorDialog_ClassInfo_, allocate$WPrinterJob$PrintToFileErrorDialog);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/windows/WPrinterJob;", nullptr, $FINAL | $SYNTHETIC, $field(WPrinterJob$PrintToFileErrorDialog, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/awt/windows/WPrinterJob;Ljava/awt/Frame;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(WPrinterJob$PrintToFileErrorDialog, init$, void, $WPrinterJob*, $Frame*, $String*, $String*, $String*)},
+		{"<init>", "(Lsun/awt/windows/WPrinterJob;Ljava/awt/Dialog;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(WPrinterJob$PrintToFileErrorDialog, init$, void, $WPrinterJob*, $Dialog*, $String*, $String*, $String*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(WPrinterJob$PrintToFileErrorDialog, actionPerformed, void, $ActionEvent*)},
+		{"init", "(Ljava/awt/Component;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WPrinterJob$PrintToFileErrorDialog, init, void, $Component*, $String*, $String*, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.windows.WPrinterJob$PrintToFileErrorDialog", "sun.awt.windows.WPrinterJob", "PrintToFileErrorDialog", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.windows.WPrinterJob$PrintToFileErrorDialog",
+		"java.awt.Dialog",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.windows.WPrinterJob"
+	};
+	$loadClass(WPrinterJob$PrintToFileErrorDialog, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WPrinterJob$PrintToFileErrorDialog));
+	});
 	return class$;
 }
 

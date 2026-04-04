@@ -103,6 +103,7 @@ public:
 	using ::java::awt::Component::getMousePosition;
 	using ::java::awt::Component::add;
 	using ::java::awt::Component::list;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::awt::Component* add(::java::awt::Component* comp);
 	virtual ::java::awt::Component* add($String* name, ::java::awt::Component* comp);
@@ -276,7 +277,7 @@ public:
 	int32_t listeningBoundsChildren = 0;
 	int32_t descendantsCount = 0;
 	::java::awt::Color* preserveBackgroundColor = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x40078073FD140C27;
+	static const int64_t serialVersionUID = (int64_t)0x40078073fd140c27;
 	static const bool INCLUDE_SELF = true;
 	static const bool SEARCH_HEAVYWEIGHTS = true;
 	int32_t numOfHWComponents = 0;

@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/PAData$SaltAndParams.h>
-
 #include <sun/security/krb5/internal/PAData.h>
 #include <jcpp.h>
 
@@ -12,42 +11,6 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 			namespace internal {
-
-$FieldInfo _PAData$SaltAndParams_FieldInfo_[] = {
-	{"salt", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(PAData$SaltAndParams, salt)},
-	{"params", "[B", nullptr, $PUBLIC | $FINAL, $field(PAData$SaltAndParams, params)},
-	{}
-};
-
-$MethodInfo _PAData$SaltAndParams_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC, $method(PAData$SaltAndParams, init$, void, $String*, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _PAData$SaltAndParams_InnerClassesInfo_[] = {
-	{"sun.security.krb5.internal.PAData$SaltAndParams", "sun.security.krb5.internal.PAData", "SaltAndParams", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _PAData$SaltAndParams_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.PAData$SaltAndParams",
-	"java.lang.Object",
-	nullptr,
-	_PAData$SaltAndParams_FieldInfo_,
-	_PAData$SaltAndParams_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PAData$SaltAndParams_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.krb5.internal.PAData"
-};
-
-$Object* allocate$PAData$SaltAndParams($Class* clazz) {
-	return $of($alloc(PAData$SaltAndParams));
-}
 
 void PAData$SaltAndParams::init$($String* s$renamed, $bytes* p) {
 	$var($String, s, s$renamed);
@@ -62,7 +25,37 @@ PAData$SaltAndParams::PAData$SaltAndParams() {
 }
 
 $Class* PAData$SaltAndParams::load$($String* name, bool initialize) {
-	$loadClass(PAData$SaltAndParams, name, initialize, &_PAData$SaltAndParams_ClassInfo_, allocate$PAData$SaltAndParams);
+	$FieldInfo fieldInfos$$[] = {
+		{"salt", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(PAData$SaltAndParams, salt)},
+		{"params", "[B", nullptr, $PUBLIC | $FINAL, $field(PAData$SaltAndParams, params)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC, $method(PAData$SaltAndParams, init$, void, $String*, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.krb5.internal.PAData$SaltAndParams", "sun.security.krb5.internal.PAData", "SaltAndParams", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.PAData$SaltAndParams",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.krb5.internal.PAData"
+	};
+	$loadClass(PAData$SaltAndParams, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PAData$SaltAndParams);
+	});
 	return class$;
 }
 

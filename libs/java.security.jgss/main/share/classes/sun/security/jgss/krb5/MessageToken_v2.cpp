@@ -1,5 +1,4 @@
 #include <sun/security/jgss/krb5/MessageToken_v2.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -45,7 +44,6 @@ using $MessageDigest = ::java::security::MessageDigest;
 using $Arrays = ::java::util::Arrays;
 using $GSSException = ::org::ietf::jgss::GSSException;
 using $MessageProp = ::org::ietf::jgss::MessageProp;
-using $CipherHelper = ::sun::security::jgss::krb5::CipherHelper;
 using $Krb5Context = ::sun::security::jgss::krb5::Krb5Context;
 using $Krb5Token = ::sun::security::jgss::krb5::Krb5Token;
 using $MessageToken_v2$MessageTokenHeader = ::sun::security::jgss::krb5::MessageToken_v2$MessageTokenHeader;
@@ -56,86 +54,12 @@ namespace sun {
 		namespace jgss {
 			namespace krb5 {
 
-$FieldInfo _MessageToken_v2_FieldInfo_[] = {
-	{"TOKEN_HEADER_SIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(MessageToken_v2, TOKEN_HEADER_SIZE)},
-	{"TOKEN_ID_POS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageToken_v2, TOKEN_ID_POS)},
-	{"TOKEN_FLAG_POS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageToken_v2, TOKEN_FLAG_POS)},
-	{"TOKEN_EC_POS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageToken_v2, TOKEN_EC_POS)},
-	{"TOKEN_RRC_POS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageToken_v2, TOKEN_RRC_POS)},
-	{"CONFOUNDER_SIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(MessageToken_v2, CONFOUNDER_SIZE)},
-	{"KG_USAGE_ACCEPTOR_SEAL", "I", nullptr, $STATIC | $FINAL, $constField(MessageToken_v2, KG_USAGE_ACCEPTOR_SEAL)},
-	{"KG_USAGE_ACCEPTOR_SIGN", "I", nullptr, $STATIC | $FINAL, $constField(MessageToken_v2, KG_USAGE_ACCEPTOR_SIGN)},
-	{"KG_USAGE_INITIATOR_SEAL", "I", nullptr, $STATIC | $FINAL, $constField(MessageToken_v2, KG_USAGE_INITIATOR_SEAL)},
-	{"KG_USAGE_INITIATOR_SIGN", "I", nullptr, $STATIC | $FINAL, $constField(MessageToken_v2, KG_USAGE_INITIATOR_SIGN)},
-	{"FLAG_SENDER_IS_ACCEPTOR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageToken_v2, FLAG_SENDER_IS_ACCEPTOR)},
-	{"FLAG_WRAP_CONFIDENTIAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageToken_v2, FLAG_WRAP_CONFIDENTIAL)},
-	{"FLAG_ACCEPTOR_SUBKEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageToken_v2, FLAG_ACCEPTOR_SUBKEY)},
-	{"FILLER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageToken_v2, FILLER)},
-	{"tokenHeader", "Lsun/security/jgss/krb5/MessageToken_v2$MessageTokenHeader;", nullptr, $PRIVATE, $field(MessageToken_v2, tokenHeader)},
-	{"tokenId", "I", nullptr, $PRIVATE, $field(MessageToken_v2, tokenId)},
-	{"seqNumber", "I", nullptr, $PRIVATE, $field(MessageToken_v2, seqNumber)},
-	{"tokenData", "[B", nullptr, $PROTECTED, $field(MessageToken_v2, tokenData)},
-	{"tokenDataLen", "I", nullptr, $PROTECTED, $field(MessageToken_v2, tokenDataLen)},
-	{"key_usage", "I", nullptr, $PRIVATE, $field(MessageToken_v2, key_usage)},
-	{"ec", "I", nullptr, $PRIVATE, $field(MessageToken_v2, ec)},
-	{"rrc", "I", nullptr, $PRIVATE, $field(MessageToken_v2, rrc)},
-	{"checksum", "[B", nullptr, 0, $field(MessageToken_v2, checksum)},
-	{"confState", "Z", nullptr, $PRIVATE, $field(MessageToken_v2, confState)},
-	{"initiator", "Z", nullptr, $PRIVATE, $field(MessageToken_v2, initiator)},
-	{"have_acceptor_subkey", "Z", nullptr, $PRIVATE, $field(MessageToken_v2, have_acceptor_subkey)},
-	{"cipherHelper", "Lsun/security/jgss/krb5/CipherHelper;", nullptr, 0, $field(MessageToken_v2, cipherHelper)},
-	{}
-};
-
-$MethodInfo _MessageToken_v2_MethodInfo_[] = {
-	{"<init>", "(ILsun/security/jgss/krb5/Krb5Context;[BIILorg/ietf/jgss/MessageProp;)V", nullptr, 0, $method(MessageToken_v2, init$, void, int32_t, $Krb5Context*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"<init>", "(ILsun/security/jgss/krb5/Krb5Context;Ljava/io/InputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, 0, $method(MessageToken_v2, init$, void, int32_t, $Krb5Context*, $InputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"<init>", "(ILsun/security/jgss/krb5/Krb5Context;)V", nullptr, 0, $method(MessageToken_v2, init$, void, int32_t, $Krb5Context*), "org.ietf.jgss.GSSException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MessageToken_v2, encode, void, $OutputStream*), "java.io.IOException"},
-	{"encodeHeader", "(Ljava/io/OutputStream;)V", nullptr, $PROTECTED, $virtualMethod(MessageToken_v2, encodeHeader, void, $OutputStream*), "java.io.IOException"},
-	{"genSignAndSeqNumber", "(Lorg/ietf/jgss/MessageProp;[BII)V", nullptr, $PUBLIC, $virtualMethod(MessageToken_v2, genSignAndSeqNumber, void, $MessageProp*, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
-	{"getChecksum", "([BII)[B", nullptr, 0, $virtualMethod(MessageToken_v2, getChecksum, $bytes*, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
-	{"getConfState", "()Z", nullptr, $PUBLIC | $FINAL, $method(MessageToken_v2, getConfState, bool)},
-	{"getKeyUsage", "()I", nullptr, $PUBLIC | $FINAL, $method(MessageToken_v2, getKeyUsage, int32_t)},
-	{"getSequenceNumber", "()I", nullptr, $PUBLIC | $FINAL, $method(MessageToken_v2, getSequenceNumber, int32_t)},
-	{"getTokenHeader", "()[B", nullptr, $PROTECTED | $FINAL, $method(MessageToken_v2, getTokenHeader, $bytes*)},
-	{"getTokenId", "()I", nullptr, $PUBLIC | $FINAL, $method(MessageToken_v2, getTokenId, int32_t)},
-	{"init", "(ILsun/security/jgss/krb5/Krb5Context;)V", nullptr, $PRIVATE, $method(MessageToken_v2, init, void, int32_t, $Krb5Context*), "org.ietf.jgss.GSSException"},
-	{"rotate", "()V", nullptr, $PRIVATE, $method(MessageToken_v2, rotate, void)},
-	{"verifySign", "([BII)Z", nullptr, $PUBLIC | $FINAL, $method(MessageToken_v2, verifySign, bool, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
-	{}
-};
-
-$InnerClassInfo _MessageToken_v2_InnerClassesInfo_[] = {
-	{"sun.security.jgss.krb5.MessageToken_v2$MessageTokenHeader", "sun.security.jgss.krb5.MessageToken_v2", "MessageTokenHeader", 0},
-	{}
-};
-
-$ClassInfo _MessageToken_v2_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.security.jgss.krb5.MessageToken_v2",
-	"sun.security.jgss.krb5.Krb5Token",
-	nullptr,
-	_MessageToken_v2_FieldInfo_,
-	_MessageToken_v2_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MessageToken_v2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.jgss.krb5.MessageToken_v2$MessageTokenHeader"
-};
-
-$Object* allocate$MessageToken_v2($Class* clazz) {
-	return $of($alloc(MessageToken_v2));
-}
-
 void MessageToken_v2::init$(int32_t tokenId, $Krb5Context* context, $bytes* tokenBytes, int32_t tokenOffset, int32_t tokenLen, $MessageProp* prop) {
 	MessageToken_v2::init$(tokenId, context, $$new($ByteArrayInputStream, tokenBytes, tokenOffset, tokenLen), prop);
 }
 
 void MessageToken_v2::init$(int32_t tokenId, $Krb5Context* context, $InputStream* is, $MessageProp* prop) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Krb5Token::init$();
 	$set(this, tokenHeader, nullptr);
 	this->tokenId = 0;
@@ -189,15 +113,18 @@ void MessageToken_v2::init$(int32_t tokenId, $Krb5Context* context, $InputStream
 			int32_t chkLen = $nc(this->cipherHelper)->getChecksumLength();
 			$set(this, checksum, $new($bytes, chkLen));
 			$System::arraycopy(this->tokenData, this->tokenDataLen - chkLen, this->checksum, 0, chkLen);
-			if (tokenId == $Krb5Token::WRAP_ID_v2 && !prop->getPrivacy()) {
+			if (tokenId == $Krb5Token::WRAP_ID_v2 && !$nc(prop)->getPrivacy()) {
 				if (chkLen != this->ec) {
 					$throwNew($GSSException, $GSSException::DEFECTIVE_TOKEN, -1, $$str({$(getTokenName(tokenId)), ":EC incorrect!"_s}));
 				}
 			}
 		}
 	} catch ($IOException& e) {
-		$var($String, var$0, $$str({$(getTokenName(tokenId)), ":"_s}));
-		$throwNew($GSSException, $GSSException::DEFECTIVE_TOKEN, -1, $$concat(var$0, $(e->getMessage())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(getTokenName(tokenId)));
+		var$0->append(":"_s);
+		var$0->append($(e->getMessage()));
+		$throwNew($GSSException, $GSSException::DEFECTIVE_TOKEN, -1, $$str(var$0));
 	}
 }
 
@@ -234,7 +161,7 @@ void MessageToken_v2::genSignAndSeqNumber($MessageProp* prop, $bytes* data, int3
 	if (!prop->getPrivacy() && (this->tokenId == $Krb5Token::WRAP_ID_v2)) {
 		$var($bytes, tok_header, $nc(this->tokenHeader)->getBytes());
 		$nc(tok_header)->set(4, (int8_t)((int32_t)((uint32_t)$nc(this->checksum)->length >> 8)));
-		tok_header->set(5, (int8_t)($nc(this->checksum)->length));
+		tok_header->set(5, (int8_t)(this->checksum->length));
 	}
 }
 
@@ -262,12 +189,12 @@ int32_t MessageToken_v2::getSequenceNumber() {
 
 $bytes* MessageToken_v2::getChecksum($bytes* data, int32_t offset, int32_t len) {
 	$var($bytes, tokenHeaderBytes, $nc(this->tokenHeader)->getBytes());
-	int32_t conf_flag = (int32_t)($nc(tokenHeaderBytes)->get(MessageToken_v2::TOKEN_FLAG_POS) & (uint32_t)MessageToken_v2::FLAG_WRAP_CONFIDENTIAL);
+	int32_t conf_flag = $nc(tokenHeaderBytes)->get(MessageToken_v2::TOKEN_FLAG_POS) & MessageToken_v2::FLAG_WRAP_CONFIDENTIAL;
 	if ((conf_flag == 0) && (this->tokenId == $Krb5Token::WRAP_ID_v2)) {
-		tokenHeaderBytes->set(4, (int8_t)0);
-		tokenHeaderBytes->set(5, (int8_t)0);
-		tokenHeaderBytes->set(6, (int8_t)0);
-		tokenHeaderBytes->set(7, (int8_t)0);
+		tokenHeaderBytes->set(4, 0);
+		tokenHeaderBytes->set(5, 0);
+		tokenHeaderBytes->set(6, 0);
+		tokenHeaderBytes->set(7, 0);
 	}
 	return $nc(this->cipherHelper)->calculateChecksum(tokenHeaderBytes, data, offset, len, this->key_usage);
 }
@@ -308,7 +235,75 @@ MessageToken_v2::MessageToken_v2() {
 }
 
 $Class* MessageToken_v2::load$($String* name, bool initialize) {
-	$loadClass(MessageToken_v2, name, initialize, &_MessageToken_v2_ClassInfo_, allocate$MessageToken_v2);
+	$FieldInfo fieldInfos$$[] = {
+		{"TOKEN_HEADER_SIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(MessageToken_v2, TOKEN_HEADER_SIZE)},
+		{"TOKEN_ID_POS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageToken_v2, TOKEN_ID_POS)},
+		{"TOKEN_FLAG_POS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageToken_v2, TOKEN_FLAG_POS)},
+		{"TOKEN_EC_POS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageToken_v2, TOKEN_EC_POS)},
+		{"TOKEN_RRC_POS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageToken_v2, TOKEN_RRC_POS)},
+		{"CONFOUNDER_SIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(MessageToken_v2, CONFOUNDER_SIZE)},
+		{"KG_USAGE_ACCEPTOR_SEAL", "I", nullptr, $STATIC | $FINAL, $constField(MessageToken_v2, KG_USAGE_ACCEPTOR_SEAL)},
+		{"KG_USAGE_ACCEPTOR_SIGN", "I", nullptr, $STATIC | $FINAL, $constField(MessageToken_v2, KG_USAGE_ACCEPTOR_SIGN)},
+		{"KG_USAGE_INITIATOR_SEAL", "I", nullptr, $STATIC | $FINAL, $constField(MessageToken_v2, KG_USAGE_INITIATOR_SEAL)},
+		{"KG_USAGE_INITIATOR_SIGN", "I", nullptr, $STATIC | $FINAL, $constField(MessageToken_v2, KG_USAGE_INITIATOR_SIGN)},
+		{"FLAG_SENDER_IS_ACCEPTOR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageToken_v2, FLAG_SENDER_IS_ACCEPTOR)},
+		{"FLAG_WRAP_CONFIDENTIAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageToken_v2, FLAG_WRAP_CONFIDENTIAL)},
+		{"FLAG_ACCEPTOR_SUBKEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageToken_v2, FLAG_ACCEPTOR_SUBKEY)},
+		{"FILLER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageToken_v2, FILLER)},
+		{"tokenHeader", "Lsun/security/jgss/krb5/MessageToken_v2$MessageTokenHeader;", nullptr, $PRIVATE, $field(MessageToken_v2, tokenHeader)},
+		{"tokenId", "I", nullptr, $PRIVATE, $field(MessageToken_v2, tokenId)},
+		{"seqNumber", "I", nullptr, $PRIVATE, $field(MessageToken_v2, seqNumber)},
+		{"tokenData", "[B", nullptr, $PROTECTED, $field(MessageToken_v2, tokenData)},
+		{"tokenDataLen", "I", nullptr, $PROTECTED, $field(MessageToken_v2, tokenDataLen)},
+		{"key_usage", "I", nullptr, $PRIVATE, $field(MessageToken_v2, key_usage)},
+		{"ec", "I", nullptr, $PRIVATE, $field(MessageToken_v2, ec)},
+		{"rrc", "I", nullptr, $PRIVATE, $field(MessageToken_v2, rrc)},
+		{"checksum", "[B", nullptr, 0, $field(MessageToken_v2, checksum)},
+		{"confState", "Z", nullptr, $PRIVATE, $field(MessageToken_v2, confState)},
+		{"initiator", "Z", nullptr, $PRIVATE, $field(MessageToken_v2, initiator)},
+		{"have_acceptor_subkey", "Z", nullptr, $PRIVATE, $field(MessageToken_v2, have_acceptor_subkey)},
+		{"cipherHelper", "Lsun/security/jgss/krb5/CipherHelper;", nullptr, 0, $field(MessageToken_v2, cipherHelper)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILsun/security/jgss/krb5/Krb5Context;[BIILorg/ietf/jgss/MessageProp;)V", nullptr, 0, $method(MessageToken_v2, init$, void, int32_t, $Krb5Context*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"<init>", "(ILsun/security/jgss/krb5/Krb5Context;Ljava/io/InputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, 0, $method(MessageToken_v2, init$, void, int32_t, $Krb5Context*, $InputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"<init>", "(ILsun/security/jgss/krb5/Krb5Context;)V", nullptr, 0, $method(MessageToken_v2, init$, void, int32_t, $Krb5Context*), "org.ietf.jgss.GSSException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MessageToken_v2, encode, void, $OutputStream*), "java.io.IOException"},
+		{"encodeHeader", "(Ljava/io/OutputStream;)V", nullptr, $PROTECTED, $virtualMethod(MessageToken_v2, encodeHeader, void, $OutputStream*), "java.io.IOException"},
+		{"genSignAndSeqNumber", "(Lorg/ietf/jgss/MessageProp;[BII)V", nullptr, $PUBLIC, $virtualMethod(MessageToken_v2, genSignAndSeqNumber, void, $MessageProp*, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+		{"getChecksum", "([BII)[B", nullptr, 0, $virtualMethod(MessageToken_v2, getChecksum, $bytes*, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+		{"getConfState", "()Z", nullptr, $PUBLIC | $FINAL, $method(MessageToken_v2, getConfState, bool)},
+		{"getKeyUsage", "()I", nullptr, $PUBLIC | $FINAL, $method(MessageToken_v2, getKeyUsage, int32_t)},
+		{"getSequenceNumber", "()I", nullptr, $PUBLIC | $FINAL, $method(MessageToken_v2, getSequenceNumber, int32_t)},
+		{"getTokenHeader", "()[B", nullptr, $PROTECTED | $FINAL, $method(MessageToken_v2, getTokenHeader, $bytes*)},
+		{"getTokenId", "()I", nullptr, $PUBLIC | $FINAL, $method(MessageToken_v2, getTokenId, int32_t)},
+		{"init", "(ILsun/security/jgss/krb5/Krb5Context;)V", nullptr, $PRIVATE, $method(MessageToken_v2, init, void, int32_t, $Krb5Context*), "org.ietf.jgss.GSSException"},
+		{"rotate", "()V", nullptr, $PRIVATE, $method(MessageToken_v2, rotate, void)},
+		{"verifySign", "([BII)Z", nullptr, $PUBLIC | $FINAL, $method(MessageToken_v2, verifySign, bool, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jgss.krb5.MessageToken_v2$MessageTokenHeader", "sun.security.jgss.krb5.MessageToken_v2", "MessageTokenHeader", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.security.jgss.krb5.MessageToken_v2",
+		"sun.security.jgss.krb5.Krb5Token",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.jgss.krb5.MessageToken_v2$MessageTokenHeader"
+	};
+	$loadClass(MessageToken_v2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MessageToken_v2);
+	});
 	return class$;
 }
 

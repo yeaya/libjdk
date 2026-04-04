@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet$StripOffsets.h>
-
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -17,36 +16,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _BaselineTIFFTagSet$StripOffsets_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$StripOffsets, init$, void)},
-	{}
-};
-
-$InnerClassInfo _BaselineTIFFTagSet$StripOffsets_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$StripOffsets", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "StripOffsets", $STATIC},
-	{}
-};
-
-$ClassInfo _BaselineTIFFTagSet$StripOffsets_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet$StripOffsets",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$StripOffsets_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$StripOffsets_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
-};
-
-$Object* allocate$BaselineTIFFTagSet$StripOffsets($Class* clazz) {
-	return $of($alloc(BaselineTIFFTagSet$StripOffsets));
-}
-
 void BaselineTIFFTagSet$StripOffsets::init$() {
 	$TIFFTag::init$("StripOffsets"_s, 273, ($sl(1, $TIFFTag::TIFF_SHORT)) | ($sl(1, $TIFFTag::TIFF_LONG)));
 }
@@ -55,7 +24,32 @@ BaselineTIFFTagSet$StripOffsets::BaselineTIFFTagSet$StripOffsets() {
 }
 
 $Class* BaselineTIFFTagSet$StripOffsets::load$($String* name, bool initialize) {
-	$loadClass(BaselineTIFFTagSet$StripOffsets, name, initialize, &_BaselineTIFFTagSet$StripOffsets_ClassInfo_, allocate$BaselineTIFFTagSet$StripOffsets);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$StripOffsets, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$StripOffsets", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "StripOffsets", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet$StripOffsets",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
+	};
+	$loadClass(BaselineTIFFTagSet$StripOffsets, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BaselineTIFFTagSet$StripOffsets);
+	});
 	return class$;
 }
 

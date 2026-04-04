@@ -179,6 +179,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool action(::java::awt::Event* evt, Object$* what);
 	virtual void add(::java::awt::PopupMenu* popup);
@@ -596,7 +597,7 @@ public:
 	static float BOTTOM_ALIGNMENT;
 	static float LEFT_ALIGNMENT;
 	static float RIGHT_ALIGNMENT;
-	static const int64_t serialVersionUID = (int64_t)0x95EAA659D73CA49A;
+	static const int64_t serialVersionUID = (int64_t)0x95eaa659d73ca49a;
 	::java::beans::PropertyChangeSupport* changeSupport = nullptr;
 	$Object* objectLock = nullptr;
 	bool isPacked = false;

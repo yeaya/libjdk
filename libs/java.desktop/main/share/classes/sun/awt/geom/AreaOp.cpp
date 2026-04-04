@@ -1,5 +1,4 @@
 #include <sun/awt/geom/AreaOp.h>
-
 #include <java/lang/InternalError.h>
 #include <java/util/Arrays.h>
 #include <java/util/Comparator.h>
@@ -23,7 +22,6 @@
 using $ChainEndArray = $Array<::sun::awt::geom::ChainEnd>;
 using $CurveLinkArray = $Array<::sun::awt::geom::CurveLink>;
 using $EdgeArray = $Array<::sun::awt::geom::Edge>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -43,65 +41,6 @@ namespace sun {
 	namespace awt {
 		namespace geom {
 
-$FieldInfo _AreaOp_FieldInfo_[] = {
-	{"CTAG_LEFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AreaOp, CTAG_LEFT)},
-	{"CTAG_RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AreaOp, CTAG_RIGHT)},
-	{"ETAG_IGNORE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AreaOp, ETAG_IGNORE)},
-	{"ETAG_ENTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AreaOp, ETAG_ENTER)},
-	{"ETAG_EXIT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AreaOp, ETAG_EXIT)},
-	{"RSTAG_INSIDE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AreaOp, RSTAG_INSIDE)},
-	{"RSTAG_OUTSIDE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AreaOp, RSTAG_OUTSIDE)},
-	{"YXTopComparator", "Ljava/util/Comparator;", "Ljava/util/Comparator<Lsun/awt/geom/Edge;>;", $PRIVATE | $STATIC, $staticField(AreaOp, YXTopComparator)},
-	{"EmptyLinkList", "[Lsun/awt/geom/CurveLink;", nullptr, $PRIVATE | $STATIC, $staticField(AreaOp, EmptyLinkList)},
-	{"EmptyChainList", "[Lsun/awt/geom/ChainEnd;", nullptr, $PRIVATE | $STATIC, $staticField(AreaOp, EmptyChainList)},
-	{}
-};
-
-$MethodInfo _AreaOp_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(AreaOp, init$, void)},
-	{"addEdges", "(Ljava/util/Vector;Ljava/util/Vector;I)V", "(Ljava/util/Vector<Lsun/awt/geom/Edge;>;Ljava/util/Vector<Lsun/awt/geom/Curve;>;I)V", $PRIVATE | $STATIC, $staticMethod(AreaOp, addEdges, void, $Vector*, $Vector*, int32_t)},
-	{"calculate", "(Ljava/util/Vector;Ljava/util/Vector;)Ljava/util/Vector;", "(Ljava/util/Vector<Lsun/awt/geom/Curve;>;Ljava/util/Vector<Lsun/awt/geom/Curve;>;)Ljava/util/Vector<Lsun/awt/geom/Curve;>;", $PUBLIC, $virtualMethod(AreaOp, calculate, $Vector*, $Vector*, $Vector*)},
-	{"classify", "(Lsun/awt/geom/Edge;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AreaOp, classify, int32_t, $Edge*)},
-	{"finalizeSubCurves", "(Ljava/util/Vector;Ljava/util/Vector;)V", "(Ljava/util/Vector<Lsun/awt/geom/CurveLink;>;Ljava/util/Vector<Lsun/awt/geom/ChainEnd;>;)V", $PUBLIC | $STATIC, $staticMethod(AreaOp, finalizeSubCurves, void, $Vector*, $Vector*)},
-	{"getState", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AreaOp, getState, int32_t)},
-	{"newRow", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AreaOp, newRow, void)},
-	{"obstructs", "(DDI)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(AreaOp, obstructs, bool, double, double, int32_t)},
-	{"pruneEdges", "(Ljava/util/Vector;)Ljava/util/Vector;", "(Ljava/util/Vector<Lsun/awt/geom/Edge;>;)Ljava/util/Vector<Lsun/awt/geom/Curve;>;", $PRIVATE, $method(AreaOp, pruneEdges, $Vector*, $Vector*)},
-	{"resolveLinks", "(Ljava/util/Vector;Ljava/util/Vector;Ljava/util/Vector;)V", "(Ljava/util/Vector<Lsun/awt/geom/CurveLink;>;Ljava/util/Vector<Lsun/awt/geom/ChainEnd;>;Ljava/util/Vector<Lsun/awt/geom/CurveLink;>;)V", $PUBLIC | $STATIC, $staticMethod(AreaOp, resolveLinks, void, $Vector*, $Vector*, $Vector*)},
-	{}
-};
-
-$InnerClassInfo _AreaOp_InnerClassesInfo_[] = {
-	{"sun.awt.geom.AreaOp$EOWindOp", "sun.awt.geom.AreaOp", "EOWindOp", $PUBLIC | $STATIC},
-	{"sun.awt.geom.AreaOp$NZWindOp", "sun.awt.geom.AreaOp", "NZWindOp", $PUBLIC | $STATIC},
-	{"sun.awt.geom.AreaOp$XorOp", "sun.awt.geom.AreaOp", "XorOp", $PUBLIC | $STATIC},
-	{"sun.awt.geom.AreaOp$IntOp", "sun.awt.geom.AreaOp", "IntOp", $PUBLIC | $STATIC},
-	{"sun.awt.geom.AreaOp$SubOp", "sun.awt.geom.AreaOp", "SubOp", $PUBLIC | $STATIC},
-	{"sun.awt.geom.AreaOp$AddOp", "sun.awt.geom.AreaOp", "AddOp", $PUBLIC | $STATIC},
-	{"sun.awt.geom.AreaOp$CAGOp", "sun.awt.geom.AreaOp", "CAGOp", $PUBLIC | $STATIC | $ABSTRACT},
-	{"sun.awt.geom.AreaOp$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AreaOp_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.awt.geom.AreaOp",
-	"java.lang.Object",
-	nullptr,
-	_AreaOp_FieldInfo_,
-	_AreaOp_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AreaOp_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.geom.AreaOp$EOWindOp,sun.awt.geom.AreaOp$NZWindOp,sun.awt.geom.AreaOp$XorOp,sun.awt.geom.AreaOp$IntOp,sun.awt.geom.AreaOp$SubOp,sun.awt.geom.AreaOp$AddOp,sun.awt.geom.AreaOp$CAGOp,sun.awt.geom.AreaOp$1"
-};
-
-$Object* allocate$AreaOp($Class* clazz) {
-	return $of($alloc(AreaOp));
-}
-
 $Comparator* AreaOp::YXTopComparator = nullptr;
 $CurveLinkArray* AreaOp::EmptyLinkList = nullptr;
 $ChainEndArray* AreaOp::EmptyChainList = nullptr;
@@ -110,17 +49,18 @@ void AreaOp::init$() {
 }
 
 $Vector* AreaOp::calculate($Vector* left, $Vector* right) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, edges, $new($Vector));
 	addEdges(edges, left, AreaOp::CTAG_LEFT);
 	addEdges(edges, right, AreaOp::CTAG_RIGHT);
 	$var($Vector, curves, pruneEdges(edges));
+	;
 	return curves;
 }
 
 void AreaOp::addEdges($Vector* edges, $Vector* curves, int32_t curvetag) {
 	$init(AreaOp);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Enumeration, enum_, $nc(curves)->elements());
 	while ($nc(enum_)->hasMoreElements()) {
 		$var($Curve, c, $cast($Curve, enum_->nextElement()));
@@ -131,13 +71,14 @@ void AreaOp::addEdges($Vector* edges, $Vector* curves, int32_t curvetag) {
 }
 
 $Vector* AreaOp::pruneEdges($Vector* edges) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t numedges = $nc(edges)->size();
 	if (numedges < 2) {
 		return $new($Vector);
 	}
-	$var($EdgeArray, edgelist, $fcast($EdgeArray, edges->toArray($$new($EdgeArray, numedges))));
+	$var($EdgeArray, edgelist, $cast($EdgeArray, edges->toArray($$new($EdgeArray, numedges))));
 	$Arrays::sort(edgelist, AreaOp::YXTopComparator);
+	;
 	$var($Edge, e, nullptr);
 	int32_t left = 0;
 	int32_t right = 0;
@@ -151,7 +92,7 @@ $Vector* AreaOp::pruneEdges($Vector* edges) {
 		double y = yrange->get(0);
 		for (cur = (next = right - 1); cur >= left; --cur) {
 			$assign(e, $nc(edgelist)->get(cur));
-			if ($nc($($nc(e)->getCurve()))->getYBot() > y) {
+			if ($$nc($nc(e)->getCurve())->getYBot() > y) {
 				if (next > cur) {
 					edgelist->set(next, e);
 				}
@@ -163,7 +104,7 @@ $Vector* AreaOp::pruneEdges($Vector* edges) {
 			if (right >= numedges) {
 				break;
 			}
-			y = $nc($($nc($nc(edgelist)->get(right))->getCurve()))->getYTop();
+			y = $$nc($nc($nc(edgelist)->get(right))->getCurve())->getYTop();
 			if (y > yrange->get(0)) {
 				finalizeSubCurves(subcurves, chains);
 			}
@@ -171,18 +112,19 @@ $Vector* AreaOp::pruneEdges($Vector* edges) {
 		}
 		while (right < numedges) {
 			$assign(e, $nc(edgelist)->get(right));
-			if ($nc($($nc(e)->getCurve()))->getYTop() > y) {
+			if ($$nc($nc(e)->getCurve())->getYTop() > y) {
 				break;
 			}
 			++right;
 		}
-		yrange->set(1, $nc($($nc($nc(edgelist)->get(left))->getCurve()))->getYBot());
+		yrange->set(1, $$nc($nc($nc(edgelist)->get(left))->getCurve())->getYBot());
 		if (right < numedges) {
-			y = $nc($($nc(edgelist->get(right))->getCurve()))->getYTop();
+			y = $$nc($nc(edgelist->get(right))->getCurve())->getYTop();
 			if (yrange->get(1) > y) {
 				yrange->set(1, y);
 			}
 		}
+		;
 		int32_t nexteq = 1;
 		for (cur = left; cur < right; ++cur) {
 			$assign(e, edgelist->get(cur));
@@ -208,6 +150,7 @@ $Vector* AreaOp::pruneEdges($Vector* edges) {
 			}
 			edgelist->set(next, e);
 		}
+		;
 		newRow();
 		double ystart = yrange->get(0);
 		double yend = yrange->get(1);
@@ -227,7 +170,7 @@ $Vector* AreaOp::pruneEdges($Vector* edges) {
 					if (activematch == nullptr && e->isActiveFor(ystart, etag)) {
 						$assign(activematch, e);
 					}
-					y = $nc($(e->getCurve()))->getYBot();
+					y = $$nc(e->getCurve())->getYBot();
 					if (y > furthesty) {
 						$assign(longestmatch, e);
 						furthesty = y;
@@ -244,29 +187,30 @@ $Vector* AreaOp::pruneEdges($Vector* edges) {
 				etag = classify(e);
 			}
 			if (etag != AreaOp::ETAG_IGNORE) {
-				e->record(yend, etag);
+				$nc(e)->record(yend, etag);
 				links->add($$new($CurveLink, $(e->getCurve()), ystart, yend, etag));
 			}
 		}
 		if (getState() != AreaOp::RSTAG_OUTSIDE) {
 			$nc($System::out)->println("Still inside at end of active edge list!"_s);
-			$nc($System::out)->println($$str({"num curves = "_s, $$str((right - left))}));
-			$nc($System::out)->println($$str({"num links = "_s, $$str(links->size())}));
-			$nc($System::out)->println($$str({"y top = "_s, $$str(yrange->get(0))}));
+			$System::out->println($$str({"num curves = "_s, $$str((right - left))}));
+			$System::out->println($$str({"num links = "_s, $$str(links->size())}));
+			$System::out->println($$str({"y top = "_s, $$str(yrange->get(0))}));
 			if (right < numedges) {
-				$nc($System::out)->println($$str({"y top of next curve = "_s, $$str($nc($($nc(edgelist->get(right))->getCurve()))->getYTop())}));
+				$System::out->println($$str({"y top of next curve = "_s, $$str($$nc($nc(edgelist->get(right))->getCurve())->getYTop())}));
 			} else {
-				$nc($System::out)->println("no more curves"_s);
+				$System::out->println("no more curves"_s);
 			}
 			for (cur = left; cur < right; ++cur) {
 				$assign(e, edgelist->get(cur));
-				$nc($System::out)->println($of(e));
+				$System::out->println(e);
 				int32_t eq = $nc(e)->getEquivalence();
 				if (eq != 0) {
-					$nc($System::out)->println($$str({"  was equal to "_s, $$str(eq), "..."_s}));
+					$System::out->println($$str({"  was equal to "_s, $$str(eq), "..."_s}));
 				}
 			}
 		}
+		;
 		resolveLinks(subcurves, chains, links);
 		links->clear();
 		yrange->set(0, yend);
@@ -279,7 +223,7 @@ $Vector* AreaOp::pruneEdges($Vector* edges) {
 		ret->add($($nc(link)->getMoveto()));
 		$var($CurveLink, nextlink, link);
 		while (($assign(nextlink, $nc(nextlink)->getNext())) != nullptr) {
-			if (!$nc(link)->absorb(nextlink)) {
+			if (!link->absorb(nextlink)) {
 				ret->add($(link->getSubCurve()));
 				$assign(link, nextlink);
 			}
@@ -291,12 +235,12 @@ $Vector* AreaOp::pruneEdges($Vector* edges) {
 
 void AreaOp::finalizeSubCurves($Vector* subcurves, $Vector* chains) {
 	$init(AreaOp);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t numchains = $nc(chains)->size();
 	if (numchains == 0) {
 		return;
 	}
-	if (((int32_t)(numchains & (uint32_t)1)) != 0) {
+	if ((numchains & 1) != 0) {
 		$throwNew($InternalError, "Odd number of chains!"_s);
 	}
 	$var($ChainEndArray, endlist, $new($ChainEndArray, numchains));
@@ -314,13 +258,13 @@ void AreaOp::finalizeSubCurves($Vector* subcurves, $Vector* chains) {
 
 void AreaOp::resolveLinks($Vector* subcurves, $Vector* chains, $Vector* links) {
 	$init(AreaOp);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t numlinks = $nc(links)->size();
 	$var($CurveLinkArray, linklist, nullptr);
 	if (numlinks == 0) {
 		$assign(linklist, AreaOp::EmptyLinkList);
 	} else {
-		if (((int32_t)(numlinks & (uint32_t)1)) != 0) {
+		if ((numlinks & 1) != 0) {
 			$throwNew($InternalError, "Odd number of new curves!"_s);
 		}
 		$assign(linklist, $new($CurveLinkArray, numlinks + 2));
@@ -331,7 +275,7 @@ void AreaOp::resolveLinks($Vector* subcurves, $Vector* chains, $Vector* links) {
 	if (numchains == 0) {
 		$assign(endlist, AreaOp::EmptyChainList);
 	} else {
-		if (((int32_t)(numchains & (uint32_t)1)) != 0) {
+		if ((numchains & 1) != 0) {
 			$throwNew($InternalError, "Odd number of chains!"_s);
 		}
 		$assign(endlist, $new($ChainEndArray, numchains + 2));
@@ -348,21 +292,21 @@ void AreaOp::resolveLinks($Vector* subcurves, $Vector* chains, $Vector* links) {
 		bool connectchains = (link == nullptr);
 		bool connectlinks = (chain == nullptr);
 		if (!connectchains && !connectlinks) {
-			bool var$0 = ((int32_t)(curchain & (uint32_t)1)) == 0;
+			bool var$0 = (curchain & 1) == 0;
 			if (var$0) {
 				double var$1 = $nc(chain)->getX();
 				var$0 = var$1 == $nc(nextchain)->getX();
 			}
 			connectchains = (var$0);
-			bool var$2 = ((int32_t)(curlink & (uint32_t)1)) == 0;
+			bool var$2 = (curlink & 1) == 0;
 			if (var$2) {
-				double var$3 = link->getX();
+				double var$3 = $nc(link)->getX();
 				var$2 = var$3 == $nc(nextlink)->getX();
 			}
 			connectlinks = (var$2);
 			if (!connectchains && !connectlinks) {
-				double cx = chain->getX();
-				double lx = link->getX();
+				double cx = $nc(chain)->getX();
+				double lx = $nc(link)->getX();
 				connectchains = (nextchain != nullptr && cx < lx && obstructs(nextchain->getX(), lx, curchain));
 				connectlinks = (nextlink != nullptr && lx < cx && obstructs(nextlink->getX(), cx, curlink));
 			}
@@ -397,17 +341,17 @@ void AreaOp::resolveLinks($Vector* subcurves, $Vector* chains, $Vector* links) {
 			$assign(nextlink, linklist->get(curlink + 1));
 		}
 	}
-	if (((int32_t)(chains->size() & (uint32_t)1)) != 0) {
+	if ((chains->size() & 1) != 0) {
 		$nc($System::out)->println("Odd number of chains!"_s);
 	}
 }
 
 bool AreaOp::obstructs(double v1, double v2, int32_t phase) {
 	$init(AreaOp);
-	return ((((int32_t)(phase & (uint32_t)1)) == 0) ? (v1 <= v2) : (v1 < v2));
+	return (((phase & 1) == 0) ? (v1 <= v2) : (v1 < v2));
 }
 
-void clinit$AreaOp($Class* class$) {
+void AreaOp::clinit$($Class* clazz) {
 	$assignStatic(AreaOp::YXTopComparator, $new($AreaOp$1));
 	$assignStatic(AreaOp::EmptyLinkList, $new($CurveLinkArray, 2));
 	$assignStatic(AreaOp::EmptyChainList, $new($ChainEndArray, 2));
@@ -417,7 +361,60 @@ AreaOp::AreaOp() {
 }
 
 $Class* AreaOp::load$($String* name, bool initialize) {
-	$loadClass(AreaOp, name, initialize, &_AreaOp_ClassInfo_, clinit$AreaOp, allocate$AreaOp);
+	$FieldInfo fieldInfos$$[] = {
+		{"CTAG_LEFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AreaOp, CTAG_LEFT)},
+		{"CTAG_RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AreaOp, CTAG_RIGHT)},
+		{"ETAG_IGNORE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AreaOp, ETAG_IGNORE)},
+		{"ETAG_ENTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AreaOp, ETAG_ENTER)},
+		{"ETAG_EXIT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AreaOp, ETAG_EXIT)},
+		{"RSTAG_INSIDE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AreaOp, RSTAG_INSIDE)},
+		{"RSTAG_OUTSIDE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AreaOp, RSTAG_OUTSIDE)},
+		{"YXTopComparator", "Ljava/util/Comparator;", "Ljava/util/Comparator<Lsun/awt/geom/Edge;>;", $PRIVATE | $STATIC, $staticField(AreaOp, YXTopComparator)},
+		{"EmptyLinkList", "[Lsun/awt/geom/CurveLink;", nullptr, $PRIVATE | $STATIC, $staticField(AreaOp, EmptyLinkList)},
+		{"EmptyChainList", "[Lsun/awt/geom/ChainEnd;", nullptr, $PRIVATE | $STATIC, $staticField(AreaOp, EmptyChainList)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(AreaOp, init$, void)},
+		{"addEdges", "(Ljava/util/Vector;Ljava/util/Vector;I)V", "(Ljava/util/Vector<Lsun/awt/geom/Edge;>;Ljava/util/Vector<Lsun/awt/geom/Curve;>;I)V", $PRIVATE | $STATIC, $staticMethod(AreaOp, addEdges, void, $Vector*, $Vector*, int32_t)},
+		{"calculate", "(Ljava/util/Vector;Ljava/util/Vector;)Ljava/util/Vector;", "(Ljava/util/Vector<Lsun/awt/geom/Curve;>;Ljava/util/Vector<Lsun/awt/geom/Curve;>;)Ljava/util/Vector<Lsun/awt/geom/Curve;>;", $PUBLIC, $virtualMethod(AreaOp, calculate, $Vector*, $Vector*, $Vector*)},
+		{"classify", "(Lsun/awt/geom/Edge;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AreaOp, classify, int32_t, $Edge*)},
+		{"finalizeSubCurves", "(Ljava/util/Vector;Ljava/util/Vector;)V", "(Ljava/util/Vector<Lsun/awt/geom/CurveLink;>;Ljava/util/Vector<Lsun/awt/geom/ChainEnd;>;)V", $PUBLIC | $STATIC, $staticMethod(AreaOp, finalizeSubCurves, void, $Vector*, $Vector*)},
+		{"getState", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AreaOp, getState, int32_t)},
+		{"newRow", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AreaOp, newRow, void)},
+		{"obstructs", "(DDI)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(AreaOp, obstructs, bool, double, double, int32_t)},
+		{"pruneEdges", "(Ljava/util/Vector;)Ljava/util/Vector;", "(Ljava/util/Vector<Lsun/awt/geom/Edge;>;)Ljava/util/Vector<Lsun/awt/geom/Curve;>;", $PRIVATE, $method(AreaOp, pruneEdges, $Vector*, $Vector*)},
+		{"resolveLinks", "(Ljava/util/Vector;Ljava/util/Vector;Ljava/util/Vector;)V", "(Ljava/util/Vector<Lsun/awt/geom/CurveLink;>;Ljava/util/Vector<Lsun/awt/geom/ChainEnd;>;Ljava/util/Vector<Lsun/awt/geom/CurveLink;>;)V", $PUBLIC | $STATIC, $staticMethod(AreaOp, resolveLinks, void, $Vector*, $Vector*, $Vector*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.geom.AreaOp$EOWindOp", "sun.awt.geom.AreaOp", "EOWindOp", $PUBLIC | $STATIC},
+		{"sun.awt.geom.AreaOp$NZWindOp", "sun.awt.geom.AreaOp", "NZWindOp", $PUBLIC | $STATIC},
+		{"sun.awt.geom.AreaOp$XorOp", "sun.awt.geom.AreaOp", "XorOp", $PUBLIC | $STATIC},
+		{"sun.awt.geom.AreaOp$IntOp", "sun.awt.geom.AreaOp", "IntOp", $PUBLIC | $STATIC},
+		{"sun.awt.geom.AreaOp$SubOp", "sun.awt.geom.AreaOp", "SubOp", $PUBLIC | $STATIC},
+		{"sun.awt.geom.AreaOp$AddOp", "sun.awt.geom.AreaOp", "AddOp", $PUBLIC | $STATIC},
+		{"sun.awt.geom.AreaOp$CAGOp", "sun.awt.geom.AreaOp", "CAGOp", $PUBLIC | $STATIC | $ABSTRACT},
+		{"sun.awt.geom.AreaOp$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.awt.geom.AreaOp",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.geom.AreaOp$EOWindOp,sun.awt.geom.AreaOp$NZWindOp,sun.awt.geom.AreaOp$XorOp,sun.awt.geom.AreaOp$IntOp,sun.awt.geom.AreaOp$SubOp,sun.awt.geom.AreaOp$AddOp,sun.awt.geom.AreaOp$CAGOp,sun.awt.geom.AreaOp$1"
+	};
+	$loadClass(AreaOp, name, initialize, &classInfo$$, AreaOp::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AreaOp);
+	});
 	return class$;
 }
 

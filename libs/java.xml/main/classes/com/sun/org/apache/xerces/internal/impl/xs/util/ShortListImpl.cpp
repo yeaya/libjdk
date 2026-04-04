@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/ShortListImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/xs/ShortList.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
@@ -49,71 +48,6 @@ namespace com {
 						namespace impl {
 							namespace xs {
 								namespace util {
-
-$FieldInfo _ShortListImpl_FieldInfo_[] = {
-	{"EMPTY_LIST", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/ShortListImpl;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ShortListImpl, EMPTY_LIST)},
-	{"fArray", "[S", nullptr, $PRIVATE | $FINAL, $field(ShortListImpl, fArray)},
-	{"fLength", "I", nullptr, $PRIVATE | $FINAL, $field(ShortListImpl, fLength)},
-	{}
-};
-
-$MethodInfo _ShortListImpl_MethodInfo_[] = {
-	{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*add", "(ILjava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*addAll", "(ILjava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"*indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
-	{"<init>", "([SI)V", nullptr, $PUBLIC, $method(ShortListImpl, init$, void, $shorts*, int32_t)},
-	{"contains", "(S)Z", nullptr, $PUBLIC, $virtualMethod(ShortListImpl, contains, bool, int16_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ShortListImpl, equals, bool, Object$*)},
-	{"get", "(I)Ljava/lang/Short;", nullptr, $PUBLIC, $virtualMethod(ShortListImpl, get, $Object*, int32_t)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(ShortListImpl, getLength, int32_t)},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"item", "(I)S", nullptr, $PUBLIC, $virtualMethod(ShortListImpl, item, int16_t, int32_t), "com.sun.org.apache.xerces.internal.xs.XSException"},
-	{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
-	{"*lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
-	{"*listIterator", "()Ljava/util/ListIterator;", nullptr, $PUBLIC},
-	{"*listIterator", "(I)Ljava/util/ListIterator;", nullptr, $PUBLIC},
-	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*remove", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*replaceAll", "(Ljava/util/function/UnaryOperator;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*set", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ShortListImpl, size, int32_t)},
-	{"*subList", "(II)Ljava/util/List;", nullptr, $PUBLIC},
-	{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*sort", "(Ljava/util/Comparator;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ShortListImpl_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.util.ShortListImpl",
-	"java.util.AbstractList",
-	"com.sun.org.apache.xerces.internal.xs.ShortList",
-	_ShortListImpl_FieldInfo_,
-	_ShortListImpl_MethodInfo_,
-	"Ljava/util/AbstractList<Ljava/lang/Short;>;Lcom/sun/org/apache/xerces/internal/xs/ShortList;"
-};
-
-$Object* allocate$ShortListImpl($Class* clazz) {
-	return $of($alloc(ShortListImpl));
-}
 
 bool ShortListImpl::add(Object$* arg0) {
 	 return this->$AbstractList::add(arg0);
@@ -284,7 +218,7 @@ bool ShortListImpl::equals(Object$* obj) {
 		return false;
 	}
 	for (int32_t i = 0; i < this->fLength; ++i) {
-		if ($nc(this->fArray)->get(i) != $nc(rhs)->item(i)) {
+		if ($nc(this->fArray)->get(i) != rhs->item(i)) {
 			return false;
 		}
 	}
@@ -292,7 +226,7 @@ bool ShortListImpl::equals(Object$* obj) {
 }
 
 $Object* ShortListImpl::get(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (index >= 0 && index < this->fLength) {
 		return $of($Short::valueOf($nc(this->fArray)->get(index)));
 	}
@@ -303,7 +237,7 @@ int32_t ShortListImpl::size() {
 	return getLength();
 }
 
-void clinit$ShortListImpl($Class* class$) {
+void ShortListImpl::clinit$($Class* clazz) {
 	$assignStatic(ShortListImpl::EMPTY_LIST, $new(ShortListImpl, $$new($shorts, 0), 0));
 }
 
@@ -311,7 +245,67 @@ ShortListImpl::ShortListImpl() {
 }
 
 $Class* ShortListImpl::load$($String* name, bool initialize) {
-	$loadClass(ShortListImpl, name, initialize, &_ShortListImpl_ClassInfo_, clinit$ShortListImpl, allocate$ShortListImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY_LIST", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/ShortListImpl;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ShortListImpl, EMPTY_LIST)},
+		{"fArray", "[S", nullptr, $PRIVATE | $FINAL, $field(ShortListImpl, fArray)},
+		{"fLength", "I", nullptr, $PRIVATE | $FINAL, $field(ShortListImpl, fLength)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*add", "(ILjava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*addAll", "(ILjava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"*indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
+		{"<init>", "([SI)V", nullptr, $PUBLIC, $method(ShortListImpl, init$, void, $shorts*, int32_t)},
+		{"contains", "(S)Z", nullptr, $PUBLIC, $virtualMethod(ShortListImpl, contains, bool, int16_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ShortListImpl, equals, bool, Object$*)},
+		{"get", "(I)Ljava/lang/Short;", nullptr, $PUBLIC, $virtualMethod(ShortListImpl, get, $Object*, int32_t)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(ShortListImpl, getLength, int32_t)},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"item", "(I)S", nullptr, $PUBLIC, $virtualMethod(ShortListImpl, item, int16_t, int32_t), "com.sun.org.apache.xerces.internal.xs.XSException"},
+		{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
+		{"*lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
+		{"*listIterator", "()Ljava/util/ListIterator;", nullptr, $PUBLIC},
+		{"*listIterator", "(I)Ljava/util/ListIterator;", nullptr, $PUBLIC},
+		{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*remove", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*replaceAll", "(Ljava/util/function/UnaryOperator;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*set", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ShortListImpl, size, int32_t)},
+		{"*subList", "(II)Ljava/util/List;", nullptr, $PUBLIC},
+		{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*sort", "(Ljava/util/Comparator;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.util.ShortListImpl",
+		"java.util.AbstractList",
+		"com.sun.org.apache.xerces.internal.xs.ShortList",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractList<Ljava/lang/Short;>;Lcom/sun/org/apache/xerces/internal/xs/ShortList;"
+	};
+	$loadClass(ShortListImpl, name, initialize, &classInfo$$, ShortListImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ShortListImpl));
+	});
 	return class$;
 }
 

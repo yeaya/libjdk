@@ -1,8 +1,6 @@
 #include <javax/swing/KeyboardManager.h>
-
 #include <java/applet/Applet.h>
 #include <java/awt/AWTEvent.h>
-#include <java/awt/AWTKeyStroke.h>
 #include <java/awt/Container.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/KeyEvent.h>
@@ -21,11 +19,9 @@
 #undef WHEN_IN_FOCUSED_WINDOW
 
 using $Applet = ::java::applet::Applet;
-using $AWTKeyStroke = ::java::awt::AWTKeyStroke;
 using $Container = ::java::awt::Container;
 using $Window = ::java::awt::Window;
 using $KeyEvent = ::java::awt::event::KeyEvent;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -42,52 +38,6 @@ using $EmbeddedFrame = ::sun::awt::EmbeddedFrame;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _KeyboardManager_FieldInfo_[] = {
-	{"currentManager", "Ljavax/swing/KeyboardManager;", nullptr, $STATIC, $staticField(KeyboardManager, currentManager)},
-	{"containerMap", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/awt/Container;Ljava/util/Hashtable<Ljava/lang/Object;Ljava/lang/Object;>;>;", 0, $field(KeyboardManager, containerMap)},
-	{"componentKeyStrokeMap", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljavax/swing/KeyboardManager$ComponentKeyStrokePair;Ljava/awt/Container;>;", 0, $field(KeyboardManager, componentKeyStrokeMap)},
-	{}
-};
-
-$MethodInfo _KeyboardManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(KeyboardManager, init$, void)},
-	{"fireBinding", "(Ljavax/swing/JComponent;Ljavax/swing/KeyStroke;Ljava/awt/event/KeyEvent;Z)V", nullptr, 0, $virtualMethod(KeyboardManager, fireBinding, void, $JComponent*, $KeyStroke*, $KeyEvent*, bool)},
-	{"fireKeyboardAction", "(Ljava/awt/event/KeyEvent;ZLjava/awt/Container;)Z", nullptr, $PUBLIC, $virtualMethod(KeyboardManager, fireKeyboardAction, bool, $KeyEvent*, bool, $Container*)},
-	{"getCurrentManager", "()Ljavax/swing/KeyboardManager;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyboardManager, getCurrentManager, KeyboardManager*)},
-	{"getTopAncestor", "(Ljavax/swing/JComponent;)Ljava/awt/Container;", nullptr, $PRIVATE | $STATIC, $staticMethod(KeyboardManager, getTopAncestor, $Container*, $JComponent*)},
-	{"registerKeyStroke", "(Ljavax/swing/KeyStroke;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(KeyboardManager, registerKeyStroke, void, $KeyStroke*, $JComponent*)},
-	{"registerMenuBar", "(Ljavax/swing/JMenuBar;)V", nullptr, $PUBLIC, $virtualMethod(KeyboardManager, registerMenuBar, void, $JMenuBar*)},
-	{"registerNewTopContainer", "(Ljava/awt/Container;)Ljava/util/Hashtable;", "(Ljava/awt/Container;)Ljava/util/Hashtable<Ljava/lang/Object;Ljava/lang/Object;>;", $PROTECTED, $virtualMethod(KeyboardManager, registerNewTopContainer, $Hashtable*, $Container*)},
-	{"setCurrentManager", "(Ljavax/swing/KeyboardManager;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyboardManager, setCurrentManager, void, KeyboardManager*)},
-	{"unregisterKeyStroke", "(Ljavax/swing/KeyStroke;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(KeyboardManager, unregisterKeyStroke, void, $KeyStroke*, $JComponent*)},
-	{"unregisterMenuBar", "(Ljavax/swing/JMenuBar;)V", nullptr, $PUBLIC, $virtualMethod(KeyboardManager, unregisterMenuBar, void, $JMenuBar*)},
-	{}
-};
-
-$InnerClassInfo _KeyboardManager_InnerClassesInfo_[] = {
-	{"javax.swing.KeyboardManager$ComponentKeyStrokePair", "javax.swing.KeyboardManager", "ComponentKeyStrokePair", 0},
-	{}
-};
-
-$ClassInfo _KeyboardManager_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.KeyboardManager",
-	"java.lang.Object",
-	nullptr,
-	_KeyboardManager_FieldInfo_,
-	_KeyboardManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeyboardManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.KeyboardManager$ComponentKeyStrokePair"
-};
-
-$Object* allocate$KeyboardManager($Class* clazz) {
-	return $of($alloc(KeyboardManager));
-}
 
 KeyboardManager* KeyboardManager::currentManager = nullptr;
 
@@ -107,7 +57,7 @@ void KeyboardManager::setCurrentManager(KeyboardManager* km) {
 }
 
 void KeyboardManager::registerKeyStroke($KeyStroke* k, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, topContainer, getTopAncestor(c));
 	if (topContainer == nullptr) {
 		return;
@@ -121,7 +71,7 @@ void KeyboardManager::registerKeyStroke($KeyStroke* k, $JComponent* c) {
 		keyMap->put(k, c);
 	} else if ($instanceOf($Vector, tmp)) {
 		$var($Vector, v, $cast($Vector, tmp));
-		if (!$nc(v)->contains(c)) {
+		if (!v->contains(c)) {
 			v->addElement(c);
 		}
 	} else if ($instanceOf($JComponent, tmp)) {
@@ -137,25 +87,23 @@ void KeyboardManager::registerKeyStroke($KeyStroke* k, $JComponent* c) {
 	}
 	$nc(this->componentKeyStrokeMap)->put($$new($KeyboardManager$ComponentKeyStrokePair, this, c, k), topContainer);
 	if ($instanceOf($EmbeddedFrame, topContainer)) {
-		$nc(($cast($EmbeddedFrame, topContainer)))->registerAccelerator(k);
+		$cast($EmbeddedFrame, topContainer)->registerAccelerator(k);
 	}
 }
 
 $Container* KeyboardManager::getTopAncestor($JComponent* c) {
 	$init(KeyboardManager);
-	{
-		$var($Container, p, $nc(c)->getParent());
-		for (; p != nullptr; $assign(p, $nc(p)->getParent())) {
-			if ($instanceOf($Window, p) && $nc(($cast($Window, p)))->isFocusableWindow() || $instanceOf($Applet, p) || $instanceOf($JInternalFrame, p)) {
-				return p;
-			}
+	$var($Container, p, $nc(c)->getParent());
+	for (; p != nullptr; $assign(p, p->getParent())) {
+		if ($instanceOf($Window, p) && $cast($Window, p)->isFocusableWindow() || $instanceOf($Applet, p) || $instanceOf($JInternalFrame, p)) {
+			return p;
 		}
 	}
 	return nullptr;
 }
 
 void KeyboardManager::unregisterKeyStroke($KeyStroke* ks, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($KeyboardManager$ComponentKeyStrokePair, ckp, $new($KeyboardManager$ComponentKeyStrokePair, this, c, ks));
 	$var($Container, topContainer, $cast($Container, $nc(this->componentKeyStrokeMap)->get(ckp)));
 	if (topContainer == nullptr) {
@@ -175,29 +123,29 @@ void KeyboardManager::unregisterKeyStroke($KeyStroke* ks, $JComponent* c) {
 		keyMap->remove(ks);
 	} else if ($instanceOf($Vector, tmp)) {
 		$var($Vector, v, $cast($Vector, tmp));
-		$nc(v)->removeElement(c);
+		v->removeElement(c);
 		if (v->isEmpty()) {
 			keyMap->remove(ks);
 		}
 	}
 	if (keyMap->isEmpty()) {
-		$nc(this->containerMap)->remove(topContainer);
+		this->containerMap->remove(topContainer);
 	}
-	$nc(this->componentKeyStrokeMap)->remove(ckp);
+	this->componentKeyStrokeMap->remove(ckp);
 	if ($instanceOf($EmbeddedFrame, topContainer)) {
-		$nc(($cast($EmbeddedFrame, topContainer)))->unregisterAccelerator(ks);
+		$cast($EmbeddedFrame, topContainer)->unregisterAccelerator(ks);
 	}
 }
 
 bool KeyboardManager::fireKeyboardAction($KeyEvent* e, bool pressed, $Container* topAncestor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(e)->isConsumed()) {
 		$nc($System::out)->println("Acquired pre-used event!"_s);
 		$Thread::dumpStack();
 	}
 	$var($KeyStroke, ks, nullptr);
 	$var($KeyStroke, ksE, nullptr);
-	if ($nc(e)->getID() == $KeyEvent::KEY_TYPED) {
+	if (e->getID() == $KeyEvent::KEY_TYPED) {
 		$assign(ks, $KeyStroke::getKeyStroke(e->getKeyChar()));
 	} else {
 		int32_t var$0 = e->getKeyCode();
@@ -223,18 +171,18 @@ bool KeyboardManager::fireKeyboardAction($KeyEvent* e, bool pressed, $Container*
 		if (tmp == nullptr) {
 		} else if ($instanceOf($JComponent, tmp)) {
 			$var($JComponent, c, $cast($JComponent, tmp));
-			bool var$3 = $nc(c)->isShowing();
+			bool var$3 = c->isShowing();
 			if (var$3 && c->isEnabled()) {
 				fireBinding(c, ks, e, pressed);
 			}
 		} else if ($instanceOf($Vector, tmp)) {
 			$var($Vector, v, $cast($Vector, tmp));
-			for (int32_t counter = $nc(v)->size() - 1; counter >= 0; --counter) {
+			for (int32_t counter = v->size() - 1; counter >= 0; --counter) {
 				$var($JComponent, c, $cast($JComponent, v->elementAt(counter)));
 				bool var$4 = $nc(c)->isShowing();
 				if (var$4 && c->isEnabled()) {
 					fireBinding(c, ks, e, pressed);
-					if ($nc(e)->isConsumed()) {
+					if (e->isConsumed()) {
 						return true;
 					}
 				}
@@ -244,7 +192,7 @@ bool KeyboardManager::fireKeyboardAction($KeyEvent* e, bool pressed, $Container*
 			$Thread::dumpStack();
 		}
 	}
-	if ($nc(e)->isConsumed()) {
+	if (e->isConsumed()) {
 		return true;
 	}
 	if (keyMap != nullptr) {
@@ -260,17 +208,17 @@ bool KeyboardManager::fireKeyboardAction($KeyEvent* e, bool pressed, $Container*
 					if (extended) {
 						fireBinding(mb, ksE, e, pressed);
 					}
-					if (!extended || !$nc(e)->isConsumed()) {
+					if (!extended || !e->isConsumed()) {
 						fireBinding(mb, ks, e, pressed);
 					}
-					if ($nc(e)->isConsumed()) {
+					if (e->isConsumed()) {
 						return true;
 					}
 				}
 			}
 		}
 	}
-	return $nc(e)->isConsumed();
+	return e->isConsumed();
 }
 
 void KeyboardManager::fireBinding($JComponent* c, $KeyStroke* ks, $KeyEvent* e, bool pressed) {
@@ -280,7 +228,7 @@ void KeyboardManager::fireBinding($JComponent* c, $KeyStroke* ks, $KeyEvent* e, 
 }
 
 void KeyboardManager::registerMenuBar($JMenuBar* mb) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, top, getTopAncestor(mb));
 	if (top == nullptr) {
 		return;
@@ -301,7 +249,7 @@ void KeyboardManager::registerMenuBar($JMenuBar* mb) {
 }
 
 void KeyboardManager::unregisterMenuBar($JMenuBar* mb) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, topContainer, getTopAncestor(mb));
 	if (topContainer == nullptr) {
 		return;
@@ -315,7 +263,7 @@ void KeyboardManager::unregisterMenuBar($JMenuBar* mb) {
 			if (v->isEmpty()) {
 				keyMap->remove($JMenuBar::class$);
 				if (keyMap->isEmpty()) {
-					$nc(this->containerMap)->remove(topContainer);
+					this->containerMap->remove(topContainer);
 				}
 			}
 		}
@@ -328,7 +276,7 @@ $Hashtable* KeyboardManager::registerNewTopContainer($Container* topContainer) {
 	return keyMap;
 }
 
-void clinit$KeyboardManager($Class* class$) {
+void KeyboardManager::clinit$($Class* clazz) {
 	$assignStatic(KeyboardManager::currentManager, $new(KeyboardManager));
 }
 
@@ -336,7 +284,47 @@ KeyboardManager::KeyboardManager() {
 }
 
 $Class* KeyboardManager::load$($String* name, bool initialize) {
-	$loadClass(KeyboardManager, name, initialize, &_KeyboardManager_ClassInfo_, clinit$KeyboardManager, allocate$KeyboardManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"currentManager", "Ljavax/swing/KeyboardManager;", nullptr, $STATIC, $staticField(KeyboardManager, currentManager)},
+		{"containerMap", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/awt/Container;Ljava/util/Hashtable<Ljava/lang/Object;Ljava/lang/Object;>;>;", 0, $field(KeyboardManager, containerMap)},
+		{"componentKeyStrokeMap", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljavax/swing/KeyboardManager$ComponentKeyStrokePair;Ljava/awt/Container;>;", 0, $field(KeyboardManager, componentKeyStrokeMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(KeyboardManager, init$, void)},
+		{"fireBinding", "(Ljavax/swing/JComponent;Ljavax/swing/KeyStroke;Ljava/awt/event/KeyEvent;Z)V", nullptr, 0, $virtualMethod(KeyboardManager, fireBinding, void, $JComponent*, $KeyStroke*, $KeyEvent*, bool)},
+		{"fireKeyboardAction", "(Ljava/awt/event/KeyEvent;ZLjava/awt/Container;)Z", nullptr, $PUBLIC, $virtualMethod(KeyboardManager, fireKeyboardAction, bool, $KeyEvent*, bool, $Container*)},
+		{"getCurrentManager", "()Ljavax/swing/KeyboardManager;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyboardManager, getCurrentManager, KeyboardManager*)},
+		{"getTopAncestor", "(Ljavax/swing/JComponent;)Ljava/awt/Container;", nullptr, $PRIVATE | $STATIC, $staticMethod(KeyboardManager, getTopAncestor, $Container*, $JComponent*)},
+		{"registerKeyStroke", "(Ljavax/swing/KeyStroke;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(KeyboardManager, registerKeyStroke, void, $KeyStroke*, $JComponent*)},
+		{"registerMenuBar", "(Ljavax/swing/JMenuBar;)V", nullptr, $PUBLIC, $virtualMethod(KeyboardManager, registerMenuBar, void, $JMenuBar*)},
+		{"registerNewTopContainer", "(Ljava/awt/Container;)Ljava/util/Hashtable;", "(Ljava/awt/Container;)Ljava/util/Hashtable<Ljava/lang/Object;Ljava/lang/Object;>;", $PROTECTED, $virtualMethod(KeyboardManager, registerNewTopContainer, $Hashtable*, $Container*)},
+		{"setCurrentManager", "(Ljavax/swing/KeyboardManager;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyboardManager, setCurrentManager, void, KeyboardManager*)},
+		{"unregisterKeyStroke", "(Ljavax/swing/KeyStroke;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(KeyboardManager, unregisterKeyStroke, void, $KeyStroke*, $JComponent*)},
+		{"unregisterMenuBar", "(Ljavax/swing/JMenuBar;)V", nullptr, $PUBLIC, $virtualMethod(KeyboardManager, unregisterMenuBar, void, $JMenuBar*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.KeyboardManager$ComponentKeyStrokePair", "javax.swing.KeyboardManager", "ComponentKeyStrokePair", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.KeyboardManager",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.KeyboardManager$ComponentKeyStrokePair"
+	};
+	$loadClass(KeyboardManager, name, initialize, &classInfo$$, KeyboardManager::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyboardManager);
+	});
 	return class$;
 }
 

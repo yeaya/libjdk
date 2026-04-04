@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/IncrementalSAXSource_Xerces.h>
-
 #include <com/sun/org/apache/xalan/internal/utils/ObjectFactory.h>
 #include <com/sun/org/apache/xerces/internal/parsers/SAXParser.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/CoroutineManager.h>
@@ -46,8 +45,6 @@ using $XMLSerializer = ::com::sun::org::apache::xml::internal::serialize::XMLSer
 using $WrappedRuntimeException = ::com::sun::org::apache::xml::internal::utils::WrappedRuntimeException;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $Reader = ::java::io::Reader;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -57,7 +54,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $Constructor = ::java::lang::reflect::Constructor;
-using $Method = ::java::lang::reflect::Method;
 using $ContentHandler = ::org::xml::sax::ContentHandler;
 using $DTDHandler = ::org::xml::sax::DTDHandler;
 using $InputSource = ::org::xml::sax::InputSource;
@@ -76,64 +72,11 @@ namespace com {
 						namespace dtm {
 							namespace ref {
 
-$CompoundAttribute _IncrementalSAXSource_Xerces_MethodAnnotations__main2[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _IncrementalSAXSource_Xerces_FieldInfo_[] = {
-	{"fParseSomeSetup", "Ljava/lang/reflect/Method;", nullptr, 0, $field(IncrementalSAXSource_Xerces, fParseSomeSetup)},
-	{"fParseSome", "Ljava/lang/reflect/Method;", nullptr, 0, $field(IncrementalSAXSource_Xerces, fParseSome)},
-	{"fPullParserConfig", "Ljava/lang/Object;", nullptr, 0, $field(IncrementalSAXSource_Xerces, fPullParserConfig)},
-	{"fConfigSetInput", "Ljava/lang/reflect/Method;", nullptr, 0, $field(IncrementalSAXSource_Xerces, fConfigSetInput)},
-	{"fConfigParse", "Ljava/lang/reflect/Method;", nullptr, 0, $field(IncrementalSAXSource_Xerces, fConfigParse)},
-	{"fSetInputSource", "Ljava/lang/reflect/Method;", nullptr, 0, $field(IncrementalSAXSource_Xerces, fSetInputSource)},
-	{"fConfigInputSourceCtor", "Ljava/lang/reflect/Constructor;", "Ljava/lang/reflect/Constructor<*>;", 0, $field(IncrementalSAXSource_Xerces, fConfigInputSourceCtor)},
-	{"fConfigSetByteStream", "Ljava/lang/reflect/Method;", nullptr, 0, $field(IncrementalSAXSource_Xerces, fConfigSetByteStream)},
-	{"fConfigSetCharStream", "Ljava/lang/reflect/Method;", nullptr, 0, $field(IncrementalSAXSource_Xerces, fConfigSetCharStream)},
-	{"fConfigSetEncoding", "Ljava/lang/reflect/Method;", nullptr, 0, $field(IncrementalSAXSource_Xerces, fConfigSetEncoding)},
-	{"fReset", "Ljava/lang/reflect/Method;", nullptr, 0, $field(IncrementalSAXSource_Xerces, fReset)},
-	{"fIncrementalParser", "Lcom/sun/org/apache/xerces/internal/parsers/SAXParser;", nullptr, 0, $field(IncrementalSAXSource_Xerces, fIncrementalParser)},
-	{"fParseInProgress", "Z", nullptr, $PRIVATE, $field(IncrementalSAXSource_Xerces, fParseInProgress)},
-	{"noparms", "[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IncrementalSAXSource_Xerces, noparms)},
-	{"parmsfalse", "[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IncrementalSAXSource_Xerces, parmsfalse)},
-	{}
-};
-
-$MethodInfo _IncrementalSAXSource_Xerces_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IncrementalSAXSource_Xerces, init$, void), "java.lang.NoSuchMethodException"},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/parsers/SAXParser;)V", nullptr, $PUBLIC, $method(IncrementalSAXSource_Xerces, init$, void, $SAXParser*), "java.lang.NoSuchMethodException"},
-	{"_main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(IncrementalSAXSource_Xerces, _main, void, $StringArray*), nullptr, nullptr, _IncrementalSAXSource_Xerces_MethodAnnotations__main2},
-	{"createIncrementalSAXSource", "()Lcom/sun/org/apache/xml/internal/dtm/ref/IncrementalSAXSource;", nullptr, $PUBLIC | $STATIC, $staticMethod(IncrementalSAXSource_Xerces, createIncrementalSAXSource, $IncrementalSAXSource*)},
-	{"createIncrementalSAXSource", "(Lcom/sun/org/apache/xerces/internal/parsers/SAXParser;)Lcom/sun/org/apache/xml/internal/dtm/ref/IncrementalSAXSource;", nullptr, $PUBLIC | $STATIC, $staticMethod(IncrementalSAXSource_Xerces, createIncrementalSAXSource, $IncrementalSAXSource*, $SAXParser*)},
-	{"deliverMoreNodes", "(Z)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IncrementalSAXSource_Xerces, deliverMoreNodes, $Object*, bool)},
-	{"parseSome", "()Z", nullptr, $PRIVATE, $method(IncrementalSAXSource_Xerces, parseSome, bool), "org.xml.sax.SAXException,java.io.IOException,java.lang.IllegalAccessException,java.lang.reflect.InvocationTargetException"},
-	{"parseSomeSetup", "(Lorg/xml/sax/InputSource;)Z", nullptr, $PRIVATE, $method(IncrementalSAXSource_Xerces, parseSomeSetup, bool, $InputSource*), "org.xml.sax.SAXException,java.io.IOException,java.lang.IllegalAccessException,java.lang.reflect.InvocationTargetException,java.lang.InstantiationException"},
-	{"setContentHandler", "(Lorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(IncrementalSAXSource_Xerces, setContentHandler, void, $ContentHandler*)},
-	{"setDTDHandler", "(Lorg/xml/sax/DTDHandler;)V", nullptr, $PUBLIC, $virtualMethod(IncrementalSAXSource_Xerces, setDTDHandler, void, $DTDHandler*)},
-	{"setLexicalHandler", "(Lorg/xml/sax/ext/LexicalHandler;)V", nullptr, $PUBLIC, $virtualMethod(IncrementalSAXSource_Xerces, setLexicalHandler, void, $LexicalHandler*)},
-	{"startParse", "(Lorg/xml/sax/InputSource;)V", nullptr, $PUBLIC, $virtualMethod(IncrementalSAXSource_Xerces, startParse, void, $InputSource*), "org.xml.sax.SAXException"},
-	{}
-};
-
-$ClassInfo _IncrementalSAXSource_Xerces_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.dtm.ref.IncrementalSAXSource_Xerces",
-	"java.lang.Object",
-	"com.sun.org.apache.xml.internal.dtm.ref.IncrementalSAXSource",
-	_IncrementalSAXSource_Xerces_FieldInfo_,
-	_IncrementalSAXSource_Xerces_MethodInfo_
-};
-
-$Object* allocate$IncrementalSAXSource_Xerces($Class* clazz) {
-	return $of($alloc(IncrementalSAXSource_Xerces));
-}
-
 $ObjectArray* IncrementalSAXSource_Xerces::noparms = nullptr;
 $ObjectArray* IncrementalSAXSource_Xerces::parmsfalse = nullptr;
 
 void IncrementalSAXSource_Xerces::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$set(this, fParseSomeSetup, nullptr);
 	$set(this, fParseSome, nullptr);
@@ -153,7 +96,7 @@ void IncrementalSAXSource_Xerces::init$() {
 		$load($SAXParser);
 		$var($Constructor, ctor, $SAXParser::class$->getConstructor(args1));
 		$Class* xniStdConfigClass = $ObjectFactory::findProviderClass("com.sun.org.apache.xerces.internal.parsers.StandardParserConfiguration"_s, true);
-		$set(this, fPullParserConfig, $nc($($nc(xniStdConfigClass)->getConstructor($$new($ClassArray, 0))))->newInstance($$new($ObjectArray, 0)));
+		$set(this, fPullParserConfig, $$nc($nc(xniStdConfigClass)->getConstructor($$new($ClassArray, 0)))->newInstance($$new($ObjectArray, 0)));
 		$var($ObjectArray, args2, $new($ObjectArray, {this->fPullParserConfig}));
 		$set(this, fIncrementalParser, $cast($SAXParser, $nc(ctor)->newInstance(args2)));
 		$Class* fXniInputSourceClass = $ObjectFactory::findProviderClass("com.sun.org.apache.xerces.internal.xni.parser.XMLInputSource"_s, true);
@@ -173,7 +116,6 @@ void IncrementalSAXSource_Xerces::init$() {
 		$set(this, fConfigSetCharStream, fXniInputSourceClass->getMethod("setCharacterStream"_s, args6));
 		$var($ClassArray, args7, $new($ClassArray, {$String::class$}));
 		$set(this, fConfigSetEncoding, fXniInputSourceClass->getMethod("setEncoding"_s, args7));
-		$init($Boolean);
 		$var($ClassArray, argsb, $new($ClassArray, {$Boolean::TYPE}));
 		$set(this, fConfigParse, xniStdConfigClass->getMethod("parse"_s, argsb));
 		$var($ClassArray, noargs, $new($ClassArray, 0));
@@ -204,14 +146,14 @@ void IncrementalSAXSource_Xerces::init$($SAXParser* parser) {
 	$Class* me = $nc($of(parser))->getClass();
 	$load($InputSource);
 	$var($ClassArray, parms, $new($ClassArray, {$InputSource::class$}));
-	$set(this, fParseSomeSetup, $nc(me)->getMethod("parseSomeSetup"_s, parms));
+	$set(this, fParseSomeSetup, me->getMethod("parseSomeSetup"_s, parms));
 	$assign(parms, $new($ClassArray, 0));
 	$set(this, fParseSome, me->getMethod("parseSome"_s, parms));
 }
 
 $IncrementalSAXSource* IncrementalSAXSource_Xerces::createIncrementalSAXSource() {
 	$init(IncrementalSAXSource_Xerces);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return $new(IncrementalSAXSource_Xerces);
 	} catch ($NoSuchMethodException& e) {
@@ -235,23 +177,23 @@ $IncrementalSAXSource* IncrementalSAXSource_Xerces::createIncrementalSAXSource($
 }
 
 void IncrementalSAXSource_Xerces::setContentHandler($ContentHandler* handler) {
-	$nc((static_cast<$XMLReader*>(this->fIncrementalParser)))->setContentHandler(handler);
+	$nc($cast($XMLReader, this->fIncrementalParser))->setContentHandler(handler);
 }
 
 void IncrementalSAXSource_Xerces::setLexicalHandler($LexicalHandler* handler) {
 	try {
-		$nc((static_cast<$XMLReader*>(this->fIncrementalParser)))->setProperty("http://xml.org/sax/properties/lexical-handler"_s, handler);
+		$nc($cast($XMLReader, this->fIncrementalParser))->setProperty("http://xml.org/sax/properties/lexical-handler"_s, handler);
 	} catch ($SAXNotRecognizedException& e) {
 	} catch ($SAXNotSupportedException& e) {
 	}
 }
 
 void IncrementalSAXSource_Xerces::setDTDHandler($DTDHandler* handler) {
-	$nc((static_cast<$XMLReader*>(this->fIncrementalParser)))->setDTDHandler(handler);
+	$nc($cast($XMLReader, this->fIncrementalParser))->setDTDHandler(handler);
 }
 
 void IncrementalSAXSource_Xerces::startParse($InputSource* source) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fIncrementalParser == nullptr) {
 		$init($XMLErrorResources);
 		$throwNew($SAXException, $($XMLMessages::createXMLMessage($XMLErrorResources::ER_STARTPARSE_NEEDS_SAXPARSER, nullptr)));
@@ -264,7 +206,7 @@ void IncrementalSAXSource_Xerces::startParse($InputSource* source) {
 	try {
 		ok = parseSomeSetup(source);
 	} catch ($Exception& ex) {
-		$throwNew($SAXException, $cast($Exception, ex));
+		$throwNew($SAXException, ex);
 	}
 	if (!ok) {
 		$init($XMLErrorResources);
@@ -275,35 +217,33 @@ void IncrementalSAXSource_Xerces::startParse($InputSource* source) {
 $Object* IncrementalSAXSource_Xerces::deliverMoreNodes(bool parsemore) {
 	if (!parsemore) {
 		this->fParseInProgress = false;
-		$init($Boolean);
 		return $of($Boolean::FALSE);
 	}
 	$var($Object, arg, nullptr);
 	try {
 		bool keepgoing = parseSome();
-		$init($Boolean);
 		$assign(arg, keepgoing ? $Boolean::TRUE : $Boolean::FALSE);
 	} catch ($SAXException& ex) {
 		$assign(arg, ex);
 	} catch ($IOException& ex) {
 		$assign(arg, ex);
 	} catch ($Exception& ex) {
-		$assign(arg, $new($SAXException, $cast($Exception, ex)));
+		$assign(arg, $new($SAXException, ex));
 	}
-	return $of(arg);
+	return arg;
 }
 
 bool IncrementalSAXSource_Xerces::parseSomeSetup($InputSource* source) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (this->fConfigSetInput != nullptr) {
 		$var($ObjectArray, parms1, $new($ObjectArray, {
-			$($of($nc(source)->getPublicId())),
-			$($of(source->getSystemId())),
-			($Object*)nullptr
+			$($nc(source)->getPublicId()),
+			$($nc(source)->getSystemId()),
+			nullptr
 		}));
 		$var($Object, xmlsource, $nc(this->fConfigInputSourceCtor)->newInstance(parms1));
-		$var($ObjectArray, parmsa, $new($ObjectArray, {$($of(source->getByteStream()))}));
+		$var($ObjectArray, parmsa, $new($ObjectArray, {$(source->getByteStream())}));
 		$nc(this->fConfigSetByteStream)->invoke(xmlsource, parmsa);
 		parmsa->set(0, $(source->getCharacterStream()));
 		$nc(this->fConfigSetCharStream)->invoke(xmlsource, parmsa);
@@ -315,37 +255,37 @@ bool IncrementalSAXSource_Xerces::parseSomeSetup($InputSource* source) {
 		$nc(this->fConfigSetInput)->invoke(this->fPullParserConfig, parmsa);
 		return parseSome();
 	} else {
-		$var($ObjectArray, parm, $new($ObjectArray, {$of(source)}));
+		$var($ObjectArray, parm, $new($ObjectArray, {source}));
 		$var($Object, ret, $nc(this->fParseSomeSetup)->invoke(this->fIncrementalParser, parm));
-		return $nc(($cast($Boolean, ret)))->booleanValue();
+		return $nc($cast($Boolean, ret))->booleanValue();
 	}
 }
 
 bool IncrementalSAXSource_Xerces::parseSome() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (this->fConfigSetInput != nullptr) {
-		$var($Object, ret, ($cast($Boolean, $nc(this->fConfigParse)->invoke(this->fPullParserConfig, IncrementalSAXSource_Xerces::parmsfalse))));
-		return $nc(($cast($Boolean, ret)))->booleanValue();
+		$var($Object, ret, $cast($Boolean, $nc(this->fConfigParse)->invoke(this->fPullParserConfig, IncrementalSAXSource_Xerces::parmsfalse)));
+		return $nc($cast($Boolean, ret))->booleanValue();
 	} else {
 		$var($Object, ret, $nc(this->fParseSome)->invoke(this->fIncrementalParser, IncrementalSAXSource_Xerces::noparms));
-		return $nc(($cast($Boolean, ret)))->booleanValue();
+		return $nc($cast($Boolean, ret))->booleanValue();
 	}
 }
 
 void IncrementalSAXSource_Xerces::_main($StringArray* args) {
 	$init(IncrementalSAXSource_Xerces);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println("Starting..."_s);
 	$var($CoroutineManager, co, $new($CoroutineManager));
 	int32_t appCoroutineID = co->co_joinCoroutineSet(-1);
 	if (appCoroutineID == -1) {
-		$nc($System::out)->println("ERROR: Couldn\'t allocate coroutine number.\n"_s);
+		$System::out->println("ERROR: Couldn\'t allocate coroutine number.\n"_s);
 		return;
 	}
 	$var($IncrementalSAXSource, parser, createIncrementalSAXSource());
 	$var($XMLSerializer, trace, nullptr);
-	$assign(trace, $new($XMLSerializer, static_cast<$OutputStream*>($System::out), ($OutputFormat*)nullptr));
+	$assign(trace, $new($XMLSerializer, $System::out, nullptr));
 	$nc(parser)->setContentHandler(trace);
 	parser->setLexicalHandler(trace);
 	for (int32_t arg = 0; arg < $nc(args)->length; ++arg) {
@@ -354,18 +294,17 @@ void IncrementalSAXSource_Xerces::_main($StringArray* args) {
 			$var($Object, result, nullptr);
 			bool more = true;
 			parser->startParse(source);
-			$init($Boolean);
 			for ($assign(result, parser->deliverMoreNodes(more)); $equals(result, $Boolean::TRUE); $assign(result, parser->deliverMoreNodes(more))) {
-				$nc($System::out)->println("\nSome parsing successful, trying more.\n"_s);
+				$System::out->println("\nSome parsing successful, trying more.\n"_s);
 				if (arg + 1 < args->length && "!"_s->equals(args->get(arg + 1))) {
 					++arg;
 					more = false;
 				}
 			}
-			if ($instanceOf($Boolean, result) && ($cast($Boolean, result)) == $Boolean::FALSE) {
-				$nc($System::out)->println("\nParser ended (EOF or on request).\n"_s);
+			if ($instanceOf($Boolean, result) && $cast($Boolean, result) == $Boolean::FALSE) {
+				$System::out->println("\nParser ended (EOF or on request).\n"_s);
 			} else if (result == nullptr) {
-				$nc($System::out)->println("\nUNEXPECTED: Parser says shut down prematurely.\n"_s);
+				$System::out->println("\nUNEXPECTED: Parser says shut down prematurely.\n"_s);
 			} else if ($instanceOf($Exception, result)) {
 				$throwNew($WrappedRuntimeException, $cast($Exception, result));
 			}
@@ -375,17 +314,63 @@ void IncrementalSAXSource_Xerces::_main($StringArray* args) {
 	}
 }
 
-void clinit$IncrementalSAXSource_Xerces($Class* class$) {
+void IncrementalSAXSource_Xerces::clinit$($Class* clazz) {
 	$assignStatic(IncrementalSAXSource_Xerces::noparms, $new($ObjectArray, 0));
-	$init($Boolean);
-	$assignStatic(IncrementalSAXSource_Xerces::parmsfalse, $new($ObjectArray, {$of($Boolean::FALSE)}));
+	$assignStatic(IncrementalSAXSource_Xerces::parmsfalse, $new($ObjectArray, {$Boolean::FALSE}));
 }
 
 IncrementalSAXSource_Xerces::IncrementalSAXSource_Xerces() {
 }
 
 $Class* IncrementalSAXSource_Xerces::load$($String* name, bool initialize) {
-	$loadClass(IncrementalSAXSource_Xerces, name, initialize, &_IncrementalSAXSource_Xerces_ClassInfo_, clinit$IncrementalSAXSource_Xerces, allocate$IncrementalSAXSource_Xerces);
+	$FieldInfo fieldInfos$$[] = {
+		{"fParseSomeSetup", "Ljava/lang/reflect/Method;", nullptr, 0, $field(IncrementalSAXSource_Xerces, fParseSomeSetup)},
+		{"fParseSome", "Ljava/lang/reflect/Method;", nullptr, 0, $field(IncrementalSAXSource_Xerces, fParseSome)},
+		{"fPullParserConfig", "Ljava/lang/Object;", nullptr, 0, $field(IncrementalSAXSource_Xerces, fPullParserConfig)},
+		{"fConfigSetInput", "Ljava/lang/reflect/Method;", nullptr, 0, $field(IncrementalSAXSource_Xerces, fConfigSetInput)},
+		{"fConfigParse", "Ljava/lang/reflect/Method;", nullptr, 0, $field(IncrementalSAXSource_Xerces, fConfigParse)},
+		{"fSetInputSource", "Ljava/lang/reflect/Method;", nullptr, 0, $field(IncrementalSAXSource_Xerces, fSetInputSource)},
+		{"fConfigInputSourceCtor", "Ljava/lang/reflect/Constructor;", "Ljava/lang/reflect/Constructor<*>;", 0, $field(IncrementalSAXSource_Xerces, fConfigInputSourceCtor)},
+		{"fConfigSetByteStream", "Ljava/lang/reflect/Method;", nullptr, 0, $field(IncrementalSAXSource_Xerces, fConfigSetByteStream)},
+		{"fConfigSetCharStream", "Ljava/lang/reflect/Method;", nullptr, 0, $field(IncrementalSAXSource_Xerces, fConfigSetCharStream)},
+		{"fConfigSetEncoding", "Ljava/lang/reflect/Method;", nullptr, 0, $field(IncrementalSAXSource_Xerces, fConfigSetEncoding)},
+		{"fReset", "Ljava/lang/reflect/Method;", nullptr, 0, $field(IncrementalSAXSource_Xerces, fReset)},
+		{"fIncrementalParser", "Lcom/sun/org/apache/xerces/internal/parsers/SAXParser;", nullptr, 0, $field(IncrementalSAXSource_Xerces, fIncrementalParser)},
+		{"fParseInProgress", "Z", nullptr, $PRIVATE, $field(IncrementalSAXSource_Xerces, fParseInProgress)},
+		{"noparms", "[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IncrementalSAXSource_Xerces, noparms)},
+		{"parmsfalse", "[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IncrementalSAXSource_Xerces, parmsfalse)},
+		{}
+	};
+	$CompoundAttribute _mainmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IncrementalSAXSource_Xerces, init$, void), "java.lang.NoSuchMethodException"},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/parsers/SAXParser;)V", nullptr, $PUBLIC, $method(IncrementalSAXSource_Xerces, init$, void, $SAXParser*), "java.lang.NoSuchMethodException"},
+		{"_main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(IncrementalSAXSource_Xerces, _main, void, $StringArray*), nullptr, nullptr, _mainmethodAnnotations$$},
+		{"createIncrementalSAXSource", "()Lcom/sun/org/apache/xml/internal/dtm/ref/IncrementalSAXSource;", nullptr, $PUBLIC | $STATIC, $staticMethod(IncrementalSAXSource_Xerces, createIncrementalSAXSource, $IncrementalSAXSource*)},
+		{"createIncrementalSAXSource", "(Lcom/sun/org/apache/xerces/internal/parsers/SAXParser;)Lcom/sun/org/apache/xml/internal/dtm/ref/IncrementalSAXSource;", nullptr, $PUBLIC | $STATIC, $staticMethod(IncrementalSAXSource_Xerces, createIncrementalSAXSource, $IncrementalSAXSource*, $SAXParser*)},
+		{"deliverMoreNodes", "(Z)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IncrementalSAXSource_Xerces, deliverMoreNodes, $Object*, bool)},
+		{"parseSome", "()Z", nullptr, $PRIVATE, $method(IncrementalSAXSource_Xerces, parseSome, bool), "org.xml.sax.SAXException,java.io.IOException,java.lang.IllegalAccessException,java.lang.reflect.InvocationTargetException"},
+		{"parseSomeSetup", "(Lorg/xml/sax/InputSource;)Z", nullptr, $PRIVATE, $method(IncrementalSAXSource_Xerces, parseSomeSetup, bool, $InputSource*), "org.xml.sax.SAXException,java.io.IOException,java.lang.IllegalAccessException,java.lang.reflect.InvocationTargetException,java.lang.InstantiationException"},
+		{"setContentHandler", "(Lorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(IncrementalSAXSource_Xerces, setContentHandler, void, $ContentHandler*)},
+		{"setDTDHandler", "(Lorg/xml/sax/DTDHandler;)V", nullptr, $PUBLIC, $virtualMethod(IncrementalSAXSource_Xerces, setDTDHandler, void, $DTDHandler*)},
+		{"setLexicalHandler", "(Lorg/xml/sax/ext/LexicalHandler;)V", nullptr, $PUBLIC, $virtualMethod(IncrementalSAXSource_Xerces, setLexicalHandler, void, $LexicalHandler*)},
+		{"startParse", "(Lorg/xml/sax/InputSource;)V", nullptr, $PUBLIC, $virtualMethod(IncrementalSAXSource_Xerces, startParse, void, $InputSource*), "org.xml.sax.SAXException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.dtm.ref.IncrementalSAXSource_Xerces",
+		"java.lang.Object",
+		"com.sun.org.apache.xml.internal.dtm.ref.IncrementalSAXSource",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IncrementalSAXSource_Xerces, name, initialize, &classInfo$$, IncrementalSAXSource_Xerces::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(IncrementalSAXSource_Xerces);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/LocatorProxy.h>
-
 #include <com/sun/org/apache/xerces/internal/xni/XMLLocator.h>
 #include <jcpp.h>
 
@@ -15,35 +14,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace util {
-
-$FieldInfo _LocatorProxy_FieldInfo_[] = {
-	{"fLocator", "Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;", nullptr, $PRIVATE | $FINAL, $field(LocatorProxy, fLocator)},
-	{}
-};
-
-$MethodInfo _LocatorProxy_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;)V", nullptr, $PUBLIC, $method(LocatorProxy, init$, void, $XMLLocator*)},
-	{"getColumnNumber", "()I", nullptr, $PUBLIC, $virtualMethod(LocatorProxy, getColumnNumber, int32_t)},
-	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocatorProxy, getEncoding, $String*)},
-	{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(LocatorProxy, getLineNumber, int32_t)},
-	{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocatorProxy, getPublicId, $String*)},
-	{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocatorProxy, getSystemId, $String*)},
-	{"getXMLVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocatorProxy, getXMLVersion, $String*)},
-	{}
-};
-
-$ClassInfo _LocatorProxy_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.util.LocatorProxy",
-	"java.lang.Object",
-	"org.xml.sax.ext.Locator2",
-	_LocatorProxy_FieldInfo_,
-	_LocatorProxy_MethodInfo_
-};
-
-$Object* allocate$LocatorProxy($Class* clazz) {
-	return $of($alloc(LocatorProxy));
-}
 
 void LocatorProxy::init$($XMLLocator* locator) {
 	$set(this, fLocator, locator);
@@ -77,7 +47,31 @@ LocatorProxy::LocatorProxy() {
 }
 
 $Class* LocatorProxy::load$($String* name, bool initialize) {
-	$loadClass(LocatorProxy, name, initialize, &_LocatorProxy_ClassInfo_, allocate$LocatorProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"fLocator", "Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;", nullptr, $PRIVATE | $FINAL, $field(LocatorProxy, fLocator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;)V", nullptr, $PUBLIC, $method(LocatorProxy, init$, void, $XMLLocator*)},
+		{"getColumnNumber", "()I", nullptr, $PUBLIC, $virtualMethod(LocatorProxy, getColumnNumber, int32_t)},
+		{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocatorProxy, getEncoding, $String*)},
+		{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(LocatorProxy, getLineNumber, int32_t)},
+		{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocatorProxy, getPublicId, $String*)},
+		{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocatorProxy, getSystemId, $String*)},
+		{"getXMLVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocatorProxy, getXMLVersion, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.util.LocatorProxy",
+		"java.lang.Object",
+		"org.xml.sax.ext.Locator2",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LocatorProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocatorProxy);
+	});
 	return class$;
 }
 

@@ -1,8 +1,6 @@
 #include <com/apple/laf/AquaInternalFrameBorder.h>
-
 #include <apple/laf/JRSUIConstants$AlignmentVertical.h>
 #include <apple/laf/JRSUIConstants$BooleanValue.h>
-#include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$State.h>
 #include <apple/laf/JRSUIConstants$Widget.h>
 #include <apple/laf/JRSUIConstants$WindowClipCorners.h>
@@ -30,7 +28,6 @@
 #include <java/beans/PropertyVetoException.h>
 #include <java/lang/Math.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JInternalFrame.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
@@ -57,7 +54,6 @@
 
 using $JRSUIConstants$AlignmentVertical = ::apple::laf::JRSUIConstants$AlignmentVertical;
 using $JRSUIConstants$BooleanValue = ::apple::laf::JRSUIConstants$BooleanValue;
-using $JRSUIConstants$Property = ::apple::laf::JRSUIConstants$Property;
 using $JRSUIConstants$State = ::apple::laf::JRSUIConstants$State;
 using $JRSUIConstants$Widget = ::apple::laf::JRSUIConstants$Widget;
 using $JRSUIConstants$WindowClipCorners = ::apple::laf::JRSUIConstants$WindowClipCorners;
@@ -83,7 +79,6 @@ using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $PropertyVetoException = ::java::beans::PropertyVetoException;
-using $PrintStream = ::java::io::PrintStream;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -91,7 +86,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Icon = ::javax::swing::Icon;
-using $JComponent = ::javax::swing::JComponent;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
@@ -102,95 +96,6 @@ using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaInternalFrameBorder_FieldInfo_[] = {
-	{"kCloseButton", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaInternalFrameBorder, kCloseButton)},
-	{"kIconButton", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaInternalFrameBorder, kIconButton)},
-	{"kGrowButton", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaInternalFrameBorder, kGrowButton)},
-	{"sMaxIconWidth", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaInternalFrameBorder, sMaxIconWidth)},
-	{"sMaxIconHeight", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaInternalFrameBorder, sMaxIconHeight)},
-	{"sAfterButtonPad", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaInternalFrameBorder, sAfterButtonPad)},
-	{"sAfterIconPad", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaInternalFrameBorder, sAfterIconPad)},
-	{"sRightSideTitleClip", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaInternalFrameBorder, sRightSideTitleClip)},
-	{"kContentTester", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaInternalFrameBorder, kContentTester)},
-	{"documentWindowFrame", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaInternalFrameBorder;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaInternalFrameBorder, documentWindowFrame)},
-	{"utilityWindowFrame", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaInternalFrameBorder;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaInternalFrameBorder, utilityWindowFrame)},
-	{"dialogWindowFrame", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaInternalFrameBorder;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaInternalFrameBorder, dialogWindowFrame)},
-	{"metrics", "Lcom/apple/laf/AquaInternalFrameBorderMetrics;", nullptr, $PRIVATE | $FINAL, $field(AquaInternalFrameBorder, metrics)},
-	{"fThisButtonSpan", "I", nullptr, $PRIVATE | $FINAL, $field(AquaInternalFrameBorder, fThisButtonSpan)},
-	{"fThisLeftSideTotal", "I", nullptr, $PRIVATE | $FINAL, $field(AquaInternalFrameBorder, fThisLeftSideTotal)},
-	{"fIsUtility", "Z", nullptr, $PRIVATE | $FINAL, $field(AquaInternalFrameBorder, fIsUtility)},
-	{"fWindowKind", "Lapple/laf/JRSUIConstants$WindowType;", nullptr, $PRIVATE | $FINAL, $field(AquaInternalFrameBorder, fWindowKind)},
-	{"fBorderInsets", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(AquaInternalFrameBorder, fBorderInsets)},
-	{"selectedTextColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(AquaInternalFrameBorder, selectedTextColor)},
-	{"notSelectedTextColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(AquaInternalFrameBorder, notSelectedTextColor)},
-	{"fInBounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(AquaInternalFrameBorder, fInBounds)},
-	{"titleBarPainter", "Lcom/apple/laf/AquaPainter;", "Lcom/apple/laf/AquaPainter<Lapple/laf/JRSUIState$TitleBarHeightState;>;", $PROTECTED | $FINAL, $field(AquaInternalFrameBorder, titleBarPainter)},
-	{"widgetPainter", "Lcom/apple/laf/AquaPainter;", "Lcom/apple/laf/AquaPainter<Lapple/laf/JRSUIState;>;", $PROTECTED | $FINAL, $field(AquaInternalFrameBorder, widgetPainter)},
-	{}
-};
-
-$MethodInfo _AquaInternalFrameBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lapple/laf/JRSUIConstants$WindowType;)V", nullptr, $PROTECTED, $method(AquaInternalFrameBorder, init$, void, $JRSUIConstants$WindowType*)},
-	{"dialog", "()Lcom/apple/laf/AquaInternalFrameBorder;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaInternalFrameBorder, dialog, AquaInternalFrameBorder*)},
-	{"doButtonAction", "(Ljavax/swing/JInternalFrame;I)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameBorder, doButtonAction, void, $JInternalFrame*, int32_t)},
-	{"drawAllWidgets", "(Ljava/awt/Graphics;Ljavax/swing/JInternalFrame;)V", nullptr, 0, $virtualMethod(AquaInternalFrameBorder, drawAllWidgets, void, $Graphics*, $JInternalFrame*)},
-	{"drawWindowTitle", "(Ljava/awt/Graphics;Ljavax/swing/JInternalFrame;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameBorder, drawWindowTitle, void, $Graphics*, $JInternalFrame*, int32_t, int32_t, int32_t, int32_t)},
-	{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameBorder, getBorderInsets, $Insets*, $Component*)},
-	{"getIconHeight", "(Ljavax/swing/JInternalFrame;)I", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameBorder, getIconHeight, int32_t, $JInternalFrame*)},
-	{"getIconWidth", "(Ljavax/swing/JInternalFrame;)I", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameBorder, getIconWidth, int32_t, $JInternalFrame*)},
-	{"getState", "(ZZZZ)Lapple/laf/JRSUIConstants$State;", nullptr, $STATIC, $staticMethod(AquaInternalFrameBorder, getState, $JRSUIConstants$State*, bool, bool, bool, bool)},
-	{"getTitleHeight", "()I", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameBorder, getTitleHeight, int32_t)},
-	{"getWhichButtonHit", "(Ljavax/swing/JInternalFrame;II)I", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameBorder, getWhichButtonHit, int32_t, $JInternalFrame*, int32_t, int32_t)},
-	{"getWidget", "(Ljavax/swing/JInternalFrame;I)Lapple/laf/JRSUIConstants$Widget;", nullptr, $STATIC, $staticMethod(AquaInternalFrameBorder, getWidget, $JRSUIConstants$Widget*, $JInternalFrame*, int32_t)},
-	{"getWithinRolloverArea", "(Ljava/awt/Insets;II)Z", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameBorder, getWithinRolloverArea, bool, $Insets*, int32_t, int32_t)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameBorder, isBorderOpaque, bool)},
-	{"isDirty", "(Ljavax/swing/JInternalFrame;)Z", nullptr, 0, $virtualMethod(AquaInternalFrameBorder, isDirty, bool, $JInternalFrame*)},
-	{"isInsideYButtonArea", "(Ljava/awt/Insets;I)Z", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameBorder, isInsideYButtonArea, bool, $Insets*, int32_t)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintBorder", "(Ljavax/swing/JInternalFrame;Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, 0, $virtualMethod(AquaInternalFrameBorder, paintBorder, void, $JInternalFrame*, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintButton", "(Ljava/awt/Graphics;Ljavax/swing/JInternalFrame;IIIIZZZZZ)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameBorder, paintButton, void, $Graphics*, $JInternalFrame*, int32_t, int32_t, int32_t, int32_t, bool, bool, bool, bool, bool)},
-	{"paintTitleContents", "(Ljava/awt/Graphics;Ljavax/swing/JInternalFrame;IIII)V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameBorder, paintTitleContents, void, $Graphics*, $JInternalFrame*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintTitleIcon", "(Ljava/awt/Graphics;Ljavax/swing/JInternalFrame;II)V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameBorder, paintTitleIcon, void, $Graphics*, $JInternalFrame*, int32_t, int32_t)},
-	{"repaintButtonArea", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameBorder, repaintButtonArea, void, $JInternalFrame*)},
-	{"setColors", "(Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameBorder, setColors, void, $Color*, $Color*)},
-	{"setInBounds", "(IIII)V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameBorder, setInBounds, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setMetrics", "(Ljavax/swing/JInternalFrame;Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameBorder, setMetrics, void, $JInternalFrame*, $Component*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"utility", "()Lcom/apple/laf/AquaInternalFrameBorder;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaInternalFrameBorder, utility, AquaInternalFrameBorder*)},
-	{"window", "()Lcom/apple/laf/AquaInternalFrameBorder;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaInternalFrameBorder, window, AquaInternalFrameBorder*)},
-	{}
-};
-
-$InnerClassInfo _AquaInternalFrameBorder_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaInternalFrameBorder$3", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaInternalFrameBorder$2", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaInternalFrameBorder$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaInternalFrameBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaInternalFrameBorder",
-	"java.lang.Object",
-	"javax.swing.border.Border,javax.swing.plaf.UIResource",
-	_AquaInternalFrameBorder_FieldInfo_,
-	_AquaInternalFrameBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaInternalFrameBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaInternalFrameBorder$3,com.apple.laf.AquaInternalFrameBorder$2,com.apple.laf.AquaInternalFrameBorder$1"
-};
-
-$Object* allocate$AquaInternalFrameBorder($Class* clazz) {
-	return $of($alloc(AquaInternalFrameBorder));
-}
 
 int32_t AquaInternalFrameBorder::hashCode() {
 	 return this->$Border::hashCode();
@@ -218,45 +123,45 @@ $AquaUtils$RecyclableSingleton* AquaInternalFrameBorder::dialogWindowFrame = nul
 
 AquaInternalFrameBorder* AquaInternalFrameBorder::window() {
 	$init(AquaInternalFrameBorder);
-	return $cast(AquaInternalFrameBorder, $nc(AquaInternalFrameBorder::documentWindowFrame)->get());
+	return $cast(AquaInternalFrameBorder, AquaInternalFrameBorder::documentWindowFrame->get());
 }
 
 AquaInternalFrameBorder* AquaInternalFrameBorder::utility() {
 	$init(AquaInternalFrameBorder);
-	return $cast(AquaInternalFrameBorder, $nc(AquaInternalFrameBorder::utilityWindowFrame)->get());
+	return $cast(AquaInternalFrameBorder, AquaInternalFrameBorder::utilityWindowFrame->get());
 }
 
 AquaInternalFrameBorder* AquaInternalFrameBorder::dialog() {
 	$init(AquaInternalFrameBorder);
-	return $cast(AquaInternalFrameBorder, $nc(AquaInternalFrameBorder::dialogWindowFrame)->get());
+	return $cast(AquaInternalFrameBorder, AquaInternalFrameBorder::dialogWindowFrame->get());
 }
 
 void AquaInternalFrameBorder::init$($JRSUIConstants$WindowType* kind) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, titleBarPainter, $AquaPainter::create($($JRSUIStateFactory::getTitleBar())));
 	$set(this, widgetPainter, $AquaPainter::create($($JRSUIState::getInstance())));
 	$set(this, fWindowKind, kind);
 	$init($JRSUIConstants$WindowClipCorners);
-	$nc(($cast($JRSUIState$TitleBarHeightState, $nc(this->titleBarPainter)->state)))->set($JRSUIConstants$WindowClipCorners::YES);
+	$nc($cast($JRSUIState$TitleBarHeightState, $nc(this->titleBarPainter)->state))->set($JRSUIConstants$WindowClipCorners::YES);
 	$init($JRSUIConstants$WindowType);
 	if (this->fWindowKind == $JRSUIConstants$WindowType::UTILITY) {
 		this->fIsUtility = true;
 		$set(this, metrics, $AquaInternalFrameBorderMetrics::getMetrics(true));
 		$nc($nc(this->widgetPainter)->state)->set($JRSUIConstants$WindowType::UTILITY);
-		$nc(($cast($JRSUIState$TitleBarHeightState, $nc(this->titleBarPainter)->state)))->set($JRSUIConstants$WindowType::UTILITY);
+		$nc($cast($JRSUIState$TitleBarHeightState, this->titleBarPainter->state))->set($JRSUIConstants$WindowType::UTILITY);
 	} else {
 		this->fIsUtility = false;
 		$set(this, metrics, $AquaInternalFrameBorderMetrics::getMetrics(false));
 		$nc($nc(this->widgetPainter)->state)->set($JRSUIConstants$WindowType::DOCUMENT);
-		$nc(($cast($JRSUIState$TitleBarHeightState, $nc(this->titleBarPainter)->state)))->set($JRSUIConstants$WindowType::DOCUMENT);
+		$nc($cast($JRSUIState$TitleBarHeightState, this->titleBarPainter->state))->set($JRSUIConstants$WindowType::DOCUMENT);
 	}
-	$nc(($cast($JRSUIState$TitleBarHeightState, $nc(this->titleBarPainter)->state)))->setValue((double)$nc(this->metrics)->titleBarHeight);
+	$nc($cast($JRSUIState$TitleBarHeightState, this->titleBarPainter->state))->setValue((double)$nc(this->metrics)->titleBarHeight);
 	$init($JRSUIConstants$WindowTitleBarSeparator);
-	$nc(($cast($JRSUIState$TitleBarHeightState, $nc(this->titleBarPainter)->state)))->set($JRSUIConstants$WindowTitleBarSeparator::YES);
+	$nc($cast($JRSUIState$TitleBarHeightState, this->titleBarPainter->state))->set($JRSUIConstants$WindowTitleBarSeparator::YES);
 	$init($JRSUIConstants$AlignmentVertical);
 	$nc($nc(this->widgetPainter)->state)->set($JRSUIConstants$AlignmentVertical::CENTER);
-	this->fThisButtonSpan = ($nc(this->metrics)->buttonWidth * 3) + ($nc(this->metrics)->buttonPadding * 2);
-	this->fThisLeftSideTotal = $nc(this->metrics)->leftSidePadding + this->fThisButtonSpan + AquaInternalFrameBorder::sAfterButtonPad;
+	this->fThisButtonSpan = (this->metrics->buttonWidth * 3) + (this->metrics->buttonPadding * 2);
+	this->fThisLeftSideTotal = this->metrics->leftSidePadding + this->fThisButtonSpan + AquaInternalFrameBorder::sAfterButtonPad;
 }
 
 void AquaInternalFrameBorder::setColors($Color* inSelectedTextColor, $Color* inNotSelectedTextColor) {
@@ -269,9 +174,9 @@ void AquaInternalFrameBorder::setInBounds(int32_t x, int32_t y, int32_t w, int32
 		$set(this, fInBounds, $new($Rectangle));
 	}
 	$nc(this->fInBounds)->x = x;
-	$nc(this->fInBounds)->y = y;
-	$nc(this->fInBounds)->width = w;
-	$nc(this->fInBounds)->height = h;
+	this->fInBounds->y = y;
+	this->fInBounds->width = w;
+	this->fInBounds->height = h;
 }
 
 bool AquaInternalFrameBorder::isBorderOpaque() {
@@ -283,12 +188,12 @@ void AquaInternalFrameBorder::paintBorder($Component* c, $Graphics* g, int32_t x
 }
 
 void AquaInternalFrameBorder::paintTitleContents($Graphics* g, $JInternalFrame* frame, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool isSelected = $nc(frame)->isSelected();
 	$var($Font, f, $nc(g)->getFont());
 	g->setFont($nc(this->metrics)->font);
 	$var($FontMetrics, fm, g->getFontMetrics());
-	int32_t var$1 = $nc(this->metrics)->titleBarHeight + $nc(fm)->getAscent();
+	int32_t var$1 = this->metrics->titleBarHeight + $nc(fm)->getAscent();
 	int32_t var$0 = var$1 - fm->getLeading();
 	int32_t baseline = (var$0 - fm->getDescent()) / 2;
 	int32_t usedWidth = this->fThisLeftSideTotal + AquaInternalFrameBorder::sRightSideTitleClip;
@@ -332,16 +237,16 @@ void AquaInternalFrameBorder::paintTitleContents($Graphics* g, $JInternalFrame* 
 			$init($Color);
 			g->setColor($Color::white);
 		}
-		$SwingUtilities2::drawString(static_cast<$JComponent*>(frame), g, text, x + startXPosition + iconWidth, y + baseline + 1);
+		$SwingUtilities2::drawString(frame, g, text, x + startXPosition + iconWidth, y + baseline + 1);
 		if (isSelected || this->fIsUtility) {
 			g->setColor(this->selectedTextColor);
 		} else {
 			g->setColor(this->notSelectedTextColor);
 		}
-		$SwingUtilities2::drawString(static_cast<$JComponent*>(frame), g, text, x + startXPosition + iconWidth, y + baseline);
+		$SwingUtilities2::drawString(frame, g, text, x + startXPosition + iconWidth, y + baseline);
 		g->setFont(f);
 	}
-	int32_t iconYPostion = ($nc(this->metrics)->titleBarHeight - getIconHeight(frame)) / 2;
+	int32_t iconYPostion = (this->metrics->titleBarHeight - getIconHeight(frame)) / 2;
 	paintTitleIcon(g, frame, x + startXPosition, y + iconYPostion);
 }
 
@@ -350,19 +255,19 @@ int32_t AquaInternalFrameBorder::getWhichButtonHit($JInternalFrame* frame, int32
 	$var($Insets, i, $nc(frame)->getInsets());
 	int32_t startX = $nc(i)->left + $nc(this->metrics)->leftSidePadding - 1;
 	if (isInsideYButtonArea(i, y) && x >= startX) {
-		if (x <= (startX + $nc(this->metrics)->buttonWidth)) {
+		if (x <= (startX + this->metrics->buttonWidth)) {
 			if (frame->isClosable()) {
 				buttonHit = AquaInternalFrameBorder::kCloseButton;
 			}
 		} else {
-			startX += $nc(this->metrics)->buttonWidth + $nc(this->metrics)->buttonPadding;
-			if (x >= startX && x <= (startX + $nc(this->metrics)->buttonWidth)) {
+			startX += this->metrics->buttonWidth + this->metrics->buttonPadding;
+			if (x >= startX && x <= (startX + this->metrics->buttonWidth)) {
 				if (frame->isIconifiable()) {
 					buttonHit = AquaInternalFrameBorder::kIconButton;
 				}
 			} else {
-				startX += $nc(this->metrics)->buttonWidth + $nc(this->metrics)->buttonPadding;
-				if (x >= startX && x <= (startX + $nc(this->metrics)->buttonWidth)) {
+				startX += this->metrics->buttonWidth + this->metrics->buttonPadding;
+				if (x >= startX && x <= (startX + this->metrics->buttonWidth)) {
 					if (frame->isMaximizable()) {
 						buttonHit = AquaInternalFrameBorder::kGrowButton;
 					}
@@ -376,56 +281,48 @@ int32_t AquaInternalFrameBorder::getWhichButtonHit($JInternalFrame* frame, int32
 void AquaInternalFrameBorder::doButtonAction($JInternalFrame* frame, int32_t whichButton) {
 	switch (whichButton) {
 	case AquaInternalFrameBorder::kCloseButton:
-		{
-			$nc(frame)->doDefaultCloseAction();
-			break;
-		}
+		$nc(frame)->doDefaultCloseAction();
+		break;
 	case AquaInternalFrameBorder::kIconButton:
-		{
-			if ($nc(frame)->isIconifiable()) {
-				if (!frame->isIcon()) {
-					try {
-						frame->setIcon(true);
-					} catch ($PropertyVetoException& e1) {
-					}
-				} else {
-					try {
-						frame->setIcon(false);
-					} catch ($PropertyVetoException& e1) {
-					}
+		if ($nc(frame)->isIconifiable()) {
+			if (!frame->isIcon()) {
+				try {
+					frame->setIcon(true);
+				} catch ($PropertyVetoException& e1) {
+				}
+			} else {
+				try {
+					frame->setIcon(false);
+				} catch ($PropertyVetoException& e1) {
 				}
 			}
-			break;
 		}
+		break;
 	case AquaInternalFrameBorder::kGrowButton:
-		{
-			if ($nc(frame)->isMaximizable()) {
-				if (!frame->isMaximum()) {
-					try {
-						frame->setMaximum(true);
-					} catch ($PropertyVetoException& e5) {
-					}
-				} else {
-					try {
-						frame->setMaximum(false);
-					} catch ($PropertyVetoException& e6) {
-					}
+		if ($nc(frame)->isMaximizable()) {
+			if (!frame->isMaximum()) {
+				try {
+					frame->setMaximum(true);
+				} catch ($PropertyVetoException& e5) {
+				}
+			} else {
+				try {
+					frame->setMaximum(false);
+				} catch ($PropertyVetoException& e6) {
 				}
 			}
-			break;
 		}
+		break;
 	default:
-		{
-			$nc($System::err)->println("AquaInternalFrameBorder should never get here!!!!"_s);
-			$Thread::dumpStack();
-			break;
-		}
+		$nc($System::err)->println("AquaInternalFrameBorder should never get here!!!!"_s);
+		$Thread::dumpStack();
+		break;
 	}
 }
 
 bool AquaInternalFrameBorder::isInsideYButtonArea($Insets* i, int32_t y) {
 	int32_t startY = ($nc(i)->top - $nc(this->metrics)->titleBarHeight / 2) - ($nc(this->metrics)->buttonHeight / 2) - 1;
-	int32_t endY = startY + $nc(this->metrics)->buttonHeight;
+	int32_t endY = startY + this->metrics->buttonHeight;
 	return y >= startY && y <= endY;
 }
 
@@ -436,7 +333,7 @@ bool AquaInternalFrameBorder::getWithinRolloverArea($Insets* i, int32_t x, int32
 }
 
 void AquaInternalFrameBorder::paintTitleIcon($Graphics* g, $JInternalFrame* frame, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Icon, icon, $nc(frame)->getFrameIcon());
 	if (icon == nullptr) {
 		$assign(icon, $UIManager::getIcon("InternalFrame.icon"_s));
@@ -445,7 +342,7 @@ void AquaInternalFrameBorder::paintTitleIcon($Graphics* g, $JInternalFrame* fram
 		return;
 	}
 	bool var$0 = $nc(icon)->getIconWidth() > AquaInternalFrameBorder::sMaxIconWidth;
-	if (var$0 || $nc(icon)->getIconHeight() > AquaInternalFrameBorder::sMaxIconHeight) {
+	if (var$0 || icon->getIconHeight() > AquaInternalFrameBorder::sMaxIconHeight) {
 		$var($Graphics2D, g2, $cast($Graphics2D, g));
 		$var($AffineTransform, savedAT, $nc(g2)->getTransform());
 		double xScaleFactor = (double)AquaInternalFrameBorder::sMaxIconWidth / icon->getIconWidth();
@@ -491,8 +388,8 @@ void AquaInternalFrameBorder::drawWindowTitle($Graphics* g, $JInternalFrame* fra
 	int32_t h = inH;
 	h = $nc(this->metrics)->titleBarHeight + inH;
 	$init($JRSUIConstants$State);
-	$nc(($cast($JRSUIState$TitleBarHeightState, $nc(this->titleBarPainter)->state)))->set($nc(frame)->isSelected() ? static_cast<$JRSUIConstants$Property*>($JRSUIConstants$State::ACTIVE) : static_cast<$JRSUIConstants$Property*>($JRSUIConstants$State::INACTIVE));
-	$nc(this->titleBarPainter)->paint(g, frame, x, y, w, h);
+	$nc($cast($JRSUIState$TitleBarHeightState, $nc(this->titleBarPainter)->state))->set($nc(frame)->isSelected() ? $JRSUIConstants$State::ACTIVE : $JRSUIConstants$State::INACTIVE);
+	this->titleBarPainter->paint(g, frame, x, y, w, h);
 	paintTitleContents(g, frame, x, y, w, h);
 	drawAllWidgets(g, frame);
 }
@@ -508,7 +405,6 @@ void AquaInternalFrameBorder::paintBorder($JInternalFrame* frame, $Component* c,
 
 bool AquaInternalFrameBorder::isDirty($JInternalFrame* frame) {
 	$var($Object, dirty, $nc(frame)->getClientProperty("windowModified"_s));
-	$init($Boolean);
 	if (dirty == nullptr || $equals(dirty, $Boolean::FALSE)) {
 		return false;
 	}
@@ -526,26 +422,26 @@ $Insets* AquaInternalFrameBorder::getBorderInsets($Component* c) {
 	setInBounds(0, 0, AquaInternalFrameBorder::kContentTester, AquaInternalFrameBorder::kContentTester);
 	setMetrics(frame, c);
 	$nc(this->fBorderInsets)->left = 0;
-	$nc(this->fBorderInsets)->top = $nc(this->metrics)->titleBarHeight;
-	$nc(this->fBorderInsets)->right = 0;
-	$nc(this->fBorderInsets)->bottom = 0;
+	this->fBorderInsets->top = $nc(this->metrics)->titleBarHeight;
+	this->fBorderInsets->right = 0;
+	this->fBorderInsets->bottom = 0;
 	return this->fBorderInsets;
 }
 
 void AquaInternalFrameBorder::repaintButtonArea($JInternalFrame* frame) {
 	$var($Insets, i, $nc(frame)->getInsets());
 	int32_t x = $nc(i)->left + $nc(this->metrics)->leftSidePadding;
-	int32_t y = i->top - $nc(this->metrics)->titleBarHeight + 1;
-	frame->repaint(x, y, this->fThisButtonSpan, $nc(this->metrics)->titleBarHeight - 2);
+	int32_t y = i->top - this->metrics->titleBarHeight + 1;
+	frame->repaint(x, y, this->fThisButtonSpan, this->metrics->titleBarHeight - 2);
 }
 
 void AquaInternalFrameBorder::drawAllWidgets($Graphics* g, $JInternalFrame* frame) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t x = $nc(this->metrics)->leftSidePadding;
-	int32_t y = ($nc(this->metrics)->titleBarHeight - $nc(this->metrics)->buttonHeight) / 2 - $nc(this->metrics)->titleBarHeight;
+	int32_t y = (this->metrics->titleBarHeight - this->metrics->buttonHeight) / 2 - this->metrics->titleBarHeight;
 	$var($Insets, insets, $nc(frame)->getInsets());
 	x += $nc(insets)->left;
-	y += insets->top + $nc(this->metrics)->downShift;
+	y += insets->top + this->metrics->downShift;
 	$var($AquaInternalFrameUI, ui, $cast($AquaInternalFrameUI, $cast($InternalFrameUI, frame->getUI())));
 	int32_t buttonPressedIndex = $nc(ui)->getWhichButtonPressed();
 	bool overButton = ui->getMouseOverPressedButton();
@@ -554,34 +450,30 @@ void AquaInternalFrameBorder::drawAllWidgets($Graphics* g, $JInternalFrame* fram
 	bool generalActive = rollover || frameSelected;
 	bool dirty = isDirty(frame);
 	paintButton(g, frame, x, y, AquaInternalFrameBorder::kCloseButton, buttonPressedIndex, overButton, frame->isClosable(), generalActive, rollover, dirty);
-	x += $nc(this->metrics)->buttonPadding + $nc(this->metrics)->buttonWidth;
+	x += this->metrics->buttonPadding + this->metrics->buttonWidth;
 	paintButton(g, frame, x, y, AquaInternalFrameBorder::kIconButton, buttonPressedIndex, overButton, frame->isIconifiable(), generalActive, rollover, false);
-	x += $nc(this->metrics)->buttonPadding + $nc(this->metrics)->buttonWidth;
+	x += this->metrics->buttonPadding + this->metrics->buttonWidth;
 	paintButton(g, frame, x, y, AquaInternalFrameBorder::kGrowButton, buttonPressedIndex, overButton, frame->isMaximizable(), generalActive, rollover, false);
 }
 
 void AquaInternalFrameBorder::paintButton($Graphics* g, $JInternalFrame* frame, int32_t x, int32_t y, int32_t buttonType, int32_t buttonPressedIndex, bool overButton, bool enabled, bool active, bool anyRollover, bool dirty) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($nc(this->widgetPainter)->state)->set($(getWidget(frame, buttonType)));
-	$nc($nc(this->widgetPainter)->state)->set($(getState(buttonPressedIndex == buttonType && overButton, anyRollover, active, enabled)));
+	$nc(this->widgetPainter->state)->set($(getState(buttonPressedIndex == buttonType && overButton, anyRollover, active, enabled)));
 	$init($JRSUIConstants$BooleanValue);
-	$nc($nc(this->widgetPainter)->state)->set(dirty ? static_cast<$JRSUIConstants$Property*>($JRSUIConstants$BooleanValue::YES) : static_cast<$JRSUIConstants$Property*>($JRSUIConstants$BooleanValue::NO));
-	$nc(this->widgetPainter)->paint(g, frame, x, y, $nc(this->metrics)->buttonWidth, $nc(this->metrics)->buttonHeight);
+	$nc(this->widgetPainter->state)->set(dirty ? $JRSUIConstants$BooleanValue::YES : $JRSUIConstants$BooleanValue::NO);
+	this->widgetPainter->paint(g, frame, x, y, $nc(this->metrics)->buttonWidth, $nc(this->metrics)->buttonHeight);
 }
 
 $JRSUIConstants$Widget* AquaInternalFrameBorder::getWidget($JInternalFrame* frame, int32_t buttonType) {
 	$init(AquaInternalFrameBorder);
 	switch (buttonType) {
 	case AquaInternalFrameBorder::kIconButton:
-		{
-			$init($JRSUIConstants$Widget);
-			return $JRSUIConstants$Widget::TITLE_BAR_COLLAPSE_BOX;
-		}
+		$init($JRSUIConstants$Widget);
+		return $JRSUIConstants$Widget::TITLE_BAR_COLLAPSE_BOX;
 	case AquaInternalFrameBorder::kGrowButton:
-		{
-			$init($JRSUIConstants$Widget);
-			return $JRSUIConstants$Widget::TITLE_BAR_ZOOM_BOX;
-		}
+		$init($JRSUIConstants$Widget);
+		return $JRSUIConstants$Widget::TITLE_BAR_ZOOM_BOX;
 	}
 	$init($JRSUIConstants$Widget);
 	return $JRSUIConstants$Widget::TITLE_BAR_CLOSE_BOX;
@@ -610,7 +502,7 @@ $JRSUIConstants$State* AquaInternalFrameBorder::getState(bool pressed, bool roll
 }
 
 void AquaInternalFrameBorder::setMetrics($JInternalFrame* frame, $Component* window) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, title, $nc(frame)->getTitle());
 	$var($FontMetrics, fm, frame->getFontMetrics($($UIManager::getFont("InternalFrame.titleFont"_s))));
 	int32_t titleWidth = 0;
@@ -629,7 +521,7 @@ int32_t AquaInternalFrameBorder::getTitleHeight() {
 	return $nc(this->metrics)->titleBarHeight;
 }
 
-void clinit$AquaInternalFrameBorder($Class* class$) {
+void AquaInternalFrameBorder::clinit$($Class* clazz) {
 	$assignStatic(AquaInternalFrameBorder::documentWindowFrame, $new($AquaInternalFrameBorder$1));
 	$assignStatic(AquaInternalFrameBorder::utilityWindowFrame, $new($AquaInternalFrameBorder$2));
 	$assignStatic(AquaInternalFrameBorder::dialogWindowFrame, $new($AquaInternalFrameBorder$3));
@@ -639,7 +531,90 @@ AquaInternalFrameBorder::AquaInternalFrameBorder() {
 }
 
 $Class* AquaInternalFrameBorder::load$($String* name, bool initialize) {
-	$loadClass(AquaInternalFrameBorder, name, initialize, &_AquaInternalFrameBorder_ClassInfo_, clinit$AquaInternalFrameBorder, allocate$AquaInternalFrameBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"kCloseButton", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaInternalFrameBorder, kCloseButton)},
+		{"kIconButton", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaInternalFrameBorder, kIconButton)},
+		{"kGrowButton", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaInternalFrameBorder, kGrowButton)},
+		{"sMaxIconWidth", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaInternalFrameBorder, sMaxIconWidth)},
+		{"sMaxIconHeight", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaInternalFrameBorder, sMaxIconHeight)},
+		{"sAfterButtonPad", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaInternalFrameBorder, sAfterButtonPad)},
+		{"sAfterIconPad", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaInternalFrameBorder, sAfterIconPad)},
+		{"sRightSideTitleClip", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaInternalFrameBorder, sRightSideTitleClip)},
+		{"kContentTester", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaInternalFrameBorder, kContentTester)},
+		{"documentWindowFrame", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaInternalFrameBorder;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaInternalFrameBorder, documentWindowFrame)},
+		{"utilityWindowFrame", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaInternalFrameBorder;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaInternalFrameBorder, utilityWindowFrame)},
+		{"dialogWindowFrame", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaInternalFrameBorder;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaInternalFrameBorder, dialogWindowFrame)},
+		{"metrics", "Lcom/apple/laf/AquaInternalFrameBorderMetrics;", nullptr, $PRIVATE | $FINAL, $field(AquaInternalFrameBorder, metrics)},
+		{"fThisButtonSpan", "I", nullptr, $PRIVATE | $FINAL, $field(AquaInternalFrameBorder, fThisButtonSpan)},
+		{"fThisLeftSideTotal", "I", nullptr, $PRIVATE | $FINAL, $field(AquaInternalFrameBorder, fThisLeftSideTotal)},
+		{"fIsUtility", "Z", nullptr, $PRIVATE | $FINAL, $field(AquaInternalFrameBorder, fIsUtility)},
+		{"fWindowKind", "Lapple/laf/JRSUIConstants$WindowType;", nullptr, $PRIVATE | $FINAL, $field(AquaInternalFrameBorder, fWindowKind)},
+		{"fBorderInsets", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(AquaInternalFrameBorder, fBorderInsets)},
+		{"selectedTextColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(AquaInternalFrameBorder, selectedTextColor)},
+		{"notSelectedTextColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(AquaInternalFrameBorder, notSelectedTextColor)},
+		{"fInBounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(AquaInternalFrameBorder, fInBounds)},
+		{"titleBarPainter", "Lcom/apple/laf/AquaPainter;", "Lcom/apple/laf/AquaPainter<Lapple/laf/JRSUIState$TitleBarHeightState;>;", $PROTECTED | $FINAL, $field(AquaInternalFrameBorder, titleBarPainter)},
+		{"widgetPainter", "Lcom/apple/laf/AquaPainter;", "Lcom/apple/laf/AquaPainter<Lapple/laf/JRSUIState;>;", $PROTECTED | $FINAL, $field(AquaInternalFrameBorder, widgetPainter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lapple/laf/JRSUIConstants$WindowType;)V", nullptr, $PROTECTED, $method(AquaInternalFrameBorder, init$, void, $JRSUIConstants$WindowType*)},
+		{"dialog", "()Lcom/apple/laf/AquaInternalFrameBorder;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaInternalFrameBorder, dialog, AquaInternalFrameBorder*)},
+		{"doButtonAction", "(Ljavax/swing/JInternalFrame;I)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameBorder, doButtonAction, void, $JInternalFrame*, int32_t)},
+		{"drawAllWidgets", "(Ljava/awt/Graphics;Ljavax/swing/JInternalFrame;)V", nullptr, 0, $virtualMethod(AquaInternalFrameBorder, drawAllWidgets, void, $Graphics*, $JInternalFrame*)},
+		{"drawWindowTitle", "(Ljava/awt/Graphics;Ljavax/swing/JInternalFrame;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameBorder, drawWindowTitle, void, $Graphics*, $JInternalFrame*, int32_t, int32_t, int32_t, int32_t)},
+		{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameBorder, getBorderInsets, $Insets*, $Component*)},
+		{"getIconHeight", "(Ljavax/swing/JInternalFrame;)I", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameBorder, getIconHeight, int32_t, $JInternalFrame*)},
+		{"getIconWidth", "(Ljavax/swing/JInternalFrame;)I", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameBorder, getIconWidth, int32_t, $JInternalFrame*)},
+		{"getState", "(ZZZZ)Lapple/laf/JRSUIConstants$State;", nullptr, $STATIC, $staticMethod(AquaInternalFrameBorder, getState, $JRSUIConstants$State*, bool, bool, bool, bool)},
+		{"getTitleHeight", "()I", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameBorder, getTitleHeight, int32_t)},
+		{"getWhichButtonHit", "(Ljavax/swing/JInternalFrame;II)I", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameBorder, getWhichButtonHit, int32_t, $JInternalFrame*, int32_t, int32_t)},
+		{"getWidget", "(Ljavax/swing/JInternalFrame;I)Lapple/laf/JRSUIConstants$Widget;", nullptr, $STATIC, $staticMethod(AquaInternalFrameBorder, getWidget, $JRSUIConstants$Widget*, $JInternalFrame*, int32_t)},
+		{"getWithinRolloverArea", "(Ljava/awt/Insets;II)Z", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameBorder, getWithinRolloverArea, bool, $Insets*, int32_t, int32_t)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameBorder, isBorderOpaque, bool)},
+		{"isDirty", "(Ljavax/swing/JInternalFrame;)Z", nullptr, 0, $virtualMethod(AquaInternalFrameBorder, isDirty, bool, $JInternalFrame*)},
+		{"isInsideYButtonArea", "(Ljava/awt/Insets;I)Z", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameBorder, isInsideYButtonArea, bool, $Insets*, int32_t)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintBorder", "(Ljavax/swing/JInternalFrame;Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, 0, $virtualMethod(AquaInternalFrameBorder, paintBorder, void, $JInternalFrame*, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintButton", "(Ljava/awt/Graphics;Ljavax/swing/JInternalFrame;IIIIZZZZZ)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameBorder, paintButton, void, $Graphics*, $JInternalFrame*, int32_t, int32_t, int32_t, int32_t, bool, bool, bool, bool, bool)},
+		{"paintTitleContents", "(Ljava/awt/Graphics;Ljavax/swing/JInternalFrame;IIII)V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameBorder, paintTitleContents, void, $Graphics*, $JInternalFrame*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintTitleIcon", "(Ljava/awt/Graphics;Ljavax/swing/JInternalFrame;II)V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameBorder, paintTitleIcon, void, $Graphics*, $JInternalFrame*, int32_t, int32_t)},
+		{"repaintButtonArea", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameBorder, repaintButtonArea, void, $JInternalFrame*)},
+		{"setColors", "(Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameBorder, setColors, void, $Color*, $Color*)},
+		{"setInBounds", "(IIII)V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameBorder, setInBounds, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setMetrics", "(Ljavax/swing/JInternalFrame;Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameBorder, setMetrics, void, $JInternalFrame*, $Component*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"utility", "()Lcom/apple/laf/AquaInternalFrameBorder;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaInternalFrameBorder, utility, AquaInternalFrameBorder*)},
+		{"window", "()Lcom/apple/laf/AquaInternalFrameBorder;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaInternalFrameBorder, window, AquaInternalFrameBorder*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaInternalFrameBorder$3", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaInternalFrameBorder$2", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaInternalFrameBorder$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaInternalFrameBorder",
+		"java.lang.Object",
+		"javax.swing.border.Border,javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaInternalFrameBorder$3,com.apple.laf.AquaInternalFrameBorder$2,com.apple.laf.AquaInternalFrameBorder$1"
+	};
+	$loadClass(AquaInternalFrameBorder, name, initialize, &classInfo$$, AquaInternalFrameBorder::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaInternalFrameBorder));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/MenuShortcut.h>
-
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/event/InputEvent.h>
@@ -18,39 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _MenuShortcut_FieldInfo_[] = {
-	{"key", "I", nullptr, 0, $field(MenuShortcut, key)},
-	{"usesShift", "Z", nullptr, 0, $field(MenuShortcut, usesShift)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MenuShortcut, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _MenuShortcut_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(MenuShortcut, init$, void, int32_t)},
-	{"<init>", "(IZ)V", nullptr, $PUBLIC, $method(MenuShortcut, init$, void, int32_t, bool)},
-	{"equals", "(Ljava/awt/MenuShortcut;)Z", nullptr, $PUBLIC, $virtualMethod(MenuShortcut, equals, bool, MenuShortcut*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MenuShortcut, equals, bool, Object$*)},
-	{"getKey", "()I", nullptr, $PUBLIC, $virtualMethod(MenuShortcut, getKey, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MenuShortcut, hashCode, int32_t)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MenuShortcut, paramString, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MenuShortcut, toString, $String*)},
-	{"usesShiftModifier", "()Z", nullptr, $PUBLIC, $virtualMethod(MenuShortcut, usesShiftModifier, bool)},
-	{}
-};
-
-$ClassInfo _MenuShortcut_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.MenuShortcut",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_MenuShortcut_FieldInfo_,
-	_MenuShortcut_MethodInfo_
-};
-
-$Object* allocate$MenuShortcut($Class* clazz) {
-	return $of($alloc(MenuShortcut));
-}
 
 void MenuShortcut::init$(int32_t key) {
 	MenuShortcut::init$(key, false);
@@ -86,20 +52,23 @@ int32_t MenuShortcut::hashCode() {
 }
 
 $String* MenuShortcut::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t modifiers = 0;
 	if (!$GraphicsEnvironment::isHeadless()) {
-		modifiers = $nc($($Toolkit::getDefaultToolkit()))->getMenuShortcutKeyMaskEx();
+		modifiers = $$nc($Toolkit::getDefaultToolkit())->getMenuShortcutKeyMaskEx();
 	}
 	if (usesShiftModifier()) {
 		modifiers |= $InputEvent::SHIFT_DOWN_MASK;
 	}
-	$var($String, var$0, $$str({$($InputEvent::getModifiersExText(modifiers)), "+"_s}));
-	return $concat(var$0, $($KeyEvent::getKeyText(this->key)));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($InputEvent::getModifiersExText(modifiers)));
+	var$0->append("+"_s);
+	var$0->append($($KeyEvent::getKeyText(this->key)));
+	return $str(var$0);
 }
 
 $String* MenuShortcut::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, $str({"key="_s, $$str(this->key)}));
 	if (usesShiftModifier()) {
 		$plusAssign(str, ",usesShiftModifier"_s);
@@ -111,7 +80,35 @@ MenuShortcut::MenuShortcut() {
 }
 
 $Class* MenuShortcut::load$($String* name, bool initialize) {
-	$loadClass(MenuShortcut, name, initialize, &_MenuShortcut_ClassInfo_, allocate$MenuShortcut);
+	$FieldInfo fieldInfos$$[] = {
+		{"key", "I", nullptr, 0, $field(MenuShortcut, key)},
+		{"usesShift", "Z", nullptr, 0, $field(MenuShortcut, usesShift)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MenuShortcut, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(MenuShortcut, init$, void, int32_t)},
+		{"<init>", "(IZ)V", nullptr, $PUBLIC, $method(MenuShortcut, init$, void, int32_t, bool)},
+		{"equals", "(Ljava/awt/MenuShortcut;)Z", nullptr, $PUBLIC, $virtualMethod(MenuShortcut, equals, bool, MenuShortcut*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MenuShortcut, equals, bool, Object$*)},
+		{"getKey", "()I", nullptr, $PUBLIC, $virtualMethod(MenuShortcut, getKey, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MenuShortcut, hashCode, int32_t)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MenuShortcut, paramString, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MenuShortcut, toString, $String*)},
+		{"usesShiftModifier", "()Z", nullptr, $PUBLIC, $virtualMethod(MenuShortcut, usesShiftModifier, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.MenuShortcut",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MenuShortcut, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MenuShortcut);
+	});
 	return class$;
 }
 

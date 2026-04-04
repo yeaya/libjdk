@@ -1,5 +1,4 @@
 #include <java.security.jgss.h>
-
 #include <java.base.h>
 #include <java.logging.h>
 #include <java.naming.h>
@@ -8,8 +7,6 @@
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 #include <javax/security/auth/kerberos/DelegationPermission.h>
 #include <javax/security/auth/kerberos/EncryptionKey.h>
 #include <javax/security/auth/kerberos/JavaxSecurityAuthKerberosAccessImpl.h>
@@ -635,6 +632,7 @@ void java$security$jgss::init() {
 	::java$base::init();
 	::java$logging::init();
 	::java$naming::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"java.security.jgss", "17.35", "",
 		&_java$security$jgss_ModuleInfo_,

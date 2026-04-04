@@ -1,5 +1,4 @@
 #include <sun/java2d/pipe/LCDTextRenderer.h>
-
 #include <sun/awt/SunHints.h>
 #include <sun/font/GlyphList.h>
 #include <sun/java2d/SunGraphics2D.h>
@@ -19,25 +18,6 @@ namespace sun {
 	namespace java2d {
 		namespace pipe {
 
-$MethodInfo _LCDTextRenderer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LCDTextRenderer, init$, void)},
-	{"drawGlyphList", "(Lsun/java2d/SunGraphics2D;Lsun/font/GlyphList;)V", nullptr, $PROTECTED, $virtualMethod(LCDTextRenderer, drawGlyphList, void, $SunGraphics2D*, $GlyphList*)},
-	{}
-};
-
-$ClassInfo _LCDTextRenderer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.pipe.LCDTextRenderer",
-	"sun.java2d.pipe.GlyphListLoopPipe",
-	nullptr,
-	nullptr,
-	_LCDTextRenderer_MethodInfo_
-};
-
-$Object* allocate$LCDTextRenderer($Class* clazz) {
-	return $of($alloc(LCDTextRenderer));
-}
-
 void LCDTextRenderer::init$() {
 	$GlyphListLoopPipe::init$();
 }
@@ -50,7 +30,22 @@ LCDTextRenderer::LCDTextRenderer() {
 }
 
 $Class* LCDTextRenderer::load$($String* name, bool initialize) {
-	$loadClass(LCDTextRenderer, name, initialize, &_LCDTextRenderer_ClassInfo_, allocate$LCDTextRenderer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LCDTextRenderer, init$, void)},
+		{"drawGlyphList", "(Lsun/java2d/SunGraphics2D;Lsun/font/GlyphList;)V", nullptr, $PROTECTED, $virtualMethod(LCDTextRenderer, drawGlyphList, void, $SunGraphics2D*, $GlyphList*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.pipe.LCDTextRenderer",
+		"sun.java2d.pipe.GlyphListLoopPipe",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LCDTextRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LCDTextRenderer));
+	});
 	return class$;
 }
 

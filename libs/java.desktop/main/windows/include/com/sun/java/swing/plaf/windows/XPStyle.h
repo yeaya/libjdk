@@ -61,6 +61,7 @@ class $import XPStyle : public ::java::lang::Object {
 	$class(XPStyle, 0, ::java::lang::Object)
 public:
 	XPStyle();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	bool getBoolean(::java::awt::Component* c, ::com::sun::java::swing::plaf::windows::TMSchema$Part* part, ::com::sun::java::swing::plaf::windows::TMSchema$State* state, ::com::sun::java::swing::plaf::windows::TMSchema$Prop* prop);
 	virtual ::javax::swing::border::Border* getBorder(::java::awt::Component* c, ::com::sun::java::swing::plaf::windows::TMSchema$Part* part);

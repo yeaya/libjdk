@@ -17,6 +17,7 @@ class InstanceFinder : public ::java::lang::Object {
 	$class(InstanceFinder, 0, ::java::lang::Object)
 public:
 	InstanceFinder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Class* type, bool allow, $String* suffix, $StringArray* packages);
 	virtual $Object* find($Class* type);
 	virtual $StringArray* getPackages();

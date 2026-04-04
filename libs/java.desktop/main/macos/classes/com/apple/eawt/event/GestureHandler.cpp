@@ -1,5 +1,4 @@
 #include <com/apple/eawt/event/GestureHandler.h>
-
 #include <com/apple/eawt/event/GestureHandler$1.h>
 #include <com/apple/eawt/event/GestureHandler$PerComponentNotifier.h>
 #include <com/apple/eawt/event/GestureListener.h>
@@ -10,7 +9,6 @@
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Window.h>
-#include <java/lang/Runnable.h>
 #include <java/util/LinkedList.h>
 #include <java/util/List.h>
 #include <javax/swing/JComponent.h>
@@ -36,9 +34,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $LinkedList = ::java::util::LinkedList;
-using $List = ::java::util::List;
 using $JComponent = ::javax::swing::JComponent;
 using $SunToolkit = ::sun::awt::SunToolkit;
 
@@ -47,64 +43,14 @@ namespace com {
 		namespace eawt {
 			namespace event {
 
-$FieldInfo _GestureHandler_FieldInfo_[] = {
-	{"CLIENT_PROPERTY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GestureHandler, CLIENT_PROPERTY)},
-	{"PHASE", "I", nullptr, $STATIC | $FINAL, $constField(GestureHandler, PHASE)},
-	{"ROTATE", "I", nullptr, $STATIC | $FINAL, $constField(GestureHandler, ROTATE)},
-	{"MAGNIFY", "I", nullptr, $STATIC | $FINAL, $constField(GestureHandler, MAGNIFY)},
-	{"SWIPE", "I", nullptr, $STATIC | $FINAL, $constField(GestureHandler, SWIPE)},
-	{"phasers", "Ljava/util/List;", "Ljava/util/List<Lcom/apple/eawt/event/GesturePhaseListener;>;", $FINAL, $field(GestureHandler, phasers)},
-	{"rotaters", "Ljava/util/List;", "Ljava/util/List<Lcom/apple/eawt/event/RotationListener;>;", $FINAL, $field(GestureHandler, rotaters)},
-	{"magnifiers", "Ljava/util/List;", "Ljava/util/List<Lcom/apple/eawt/event/MagnificationListener;>;", $FINAL, $field(GestureHandler, magnifiers)},
-	{"swipers", "Ljava/util/List;", "Ljava/util/List<Lcom/apple/eawt/event/SwipeListener;>;", $FINAL, $field(GestureHandler, swipers)},
-	{}
-};
-
-$MethodInfo _GestureHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(GestureHandler, init$, void)},
-	{"addGestureListenerTo", "(Ljavax/swing/JComponent;Lcom/apple/eawt/event/GestureListener;)V", nullptr, $STATIC, $staticMethod(GestureHandler, addGestureListenerTo, void, $JComponent*, $GestureListener*)},
-	{"addListener", "(Lcom/apple/eawt/event/GestureListener;)V", nullptr, 0, $method(GestureHandler, addListener, void, $GestureListener*)},
-	{"getHandlerForComponent", "(Ljava/awt/Component;)Lcom/apple/eawt/event/GestureHandler;", nullptr, $STATIC, $staticMethod(GestureHandler, getHandlerForComponent, GestureHandler*, $Component*)},
-	{"getNextNotifierForComponent", "(Ljava/awt/Component;)Lcom/apple/eawt/event/GestureHandler$PerComponentNotifier;", nullptr, $STATIC, $staticMethod(GestureHandler, getNextNotifierForComponent, $GestureHandler$PerComponentNotifier*, $Component*)},
-	{"handleGestureFromNative", "(Ljava/awt/Window;IDDDD)V", nullptr, $STATIC, $staticMethod(GestureHandler, handleGestureFromNative, void, $Window*, int32_t, double, double, double, double)},
-	{"removeGestureListenerFrom", "(Ljavax/swing/JComponent;Lcom/apple/eawt/event/GestureListener;)V", nullptr, $STATIC, $staticMethod(GestureHandler, removeGestureListenerFrom, void, $JComponent*, $GestureListener*)},
-	{"removeListener", "(Lcom/apple/eawt/event/GestureListener;)V", nullptr, 0, $method(GestureHandler, removeListener, void, $GestureListener*)},
-	{}
-};
-
-$InnerClassInfo _GestureHandler_InnerClassesInfo_[] = {
-	{"com.apple.eawt.event.GestureHandler$PerComponentNotifier", "com.apple.eawt.event.GestureHandler", "PerComponentNotifier", $STATIC},
-	{"com.apple.eawt.event.GestureHandler$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _GestureHandler_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.apple.eawt.event.GestureHandler",
-	"java.lang.Object",
-	nullptr,
-	_GestureHandler_FieldInfo_,
-	_GestureHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GestureHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.eawt.event.GestureHandler$PerComponentNotifier,com.apple.eawt.event.GestureHandler$1"
-};
-
-$Object* allocate$GestureHandler($Class* clazz) {
-	return $of($alloc(GestureHandler));
-}
-
 $String* GestureHandler::CLIENT_PROPERTY = nullptr;
 
 void GestureHandler::addGestureListenerTo($JComponent* component, $GestureListener* listener) {
 	$init(GestureHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, $nc(component)->getClientProperty(GestureHandler::CLIENT_PROPERTY));
 	if ($instanceOf(GestureHandler, value)) {
-		$nc(($cast(GestureHandler, value)))->addListener(listener);
+		$cast(GestureHandler, value)->addListener(listener);
 		return;
 	}
 	if (value != nullptr) {
@@ -121,7 +67,7 @@ void GestureHandler::removeGestureListenerFrom($JComponent* component, $GestureL
 	if (!($instanceOf(GestureHandler, value))) {
 		return;
 	}
-	$nc(($cast(GestureHandler, value)))->removeListener(listener);
+	$nc($cast(GestureHandler, value))->removeListener(listener);
 }
 
 void GestureHandler::handleGestureFromNative($Window* window, int32_t type, double x, double y, double a, double b) {
@@ -141,24 +87,24 @@ void GestureHandler::init$() {
 
 void GestureHandler::addListener($GestureListener* listener) {
 	if ($instanceOf($GesturePhaseListener, listener)) {
-		$nc(this->phasers)->add($cast($GesturePhaseListener, listener));
+		this->phasers->add($cast($GesturePhaseListener, listener));
 	}
 	if ($instanceOf($RotationListener, listener)) {
-		$nc(this->rotaters)->add($cast($RotationListener, listener));
+		this->rotaters->add($cast($RotationListener, listener));
 	}
 	if ($instanceOf($MagnificationListener, listener)) {
-		$nc(this->magnifiers)->add($cast($MagnificationListener, listener));
+		this->magnifiers->add($cast($MagnificationListener, listener));
 	}
 	if ($instanceOf($SwipeListener, listener)) {
-		$nc(this->swipers)->add($cast($SwipeListener, listener));
+		this->swipers->add($cast($SwipeListener, listener));
 	}
 }
 
 void GestureHandler::removeListener($GestureListener* listener) {
-	$nc(this->phasers)->remove($of(listener));
-	$nc(this->rotaters)->remove($of(listener));
-	$nc(this->magnifiers)->remove($of(listener));
-	$nc(this->swipers)->remove($of(listener));
+	this->phasers->remove(listener);
+	this->rotaters->remove(listener);
+	this->magnifiers->remove(listener);
+	this->swipers->remove(listener);
 }
 
 GestureHandler* GestureHandler::getHandlerForComponent($Component* c) {
@@ -166,7 +112,7 @@ GestureHandler* GestureHandler::getHandlerForComponent($Component* c) {
 	if (!($instanceOf($JComponent, c))) {
 		return nullptr;
 	}
-	$var($Object, value, $nc(($cast($JComponent, c)))->getClientProperty(GestureHandler::CLIENT_PROPERTY));
+	$var($Object, value, $nc($cast($JComponent, c))->getClientProperty(GestureHandler::CLIENT_PROPERTY));
 	if (!($instanceOf(GestureHandler, value))) {
 		return nullptr;
 	}
@@ -175,7 +121,7 @@ GestureHandler* GestureHandler::getHandlerForComponent($Component* c) {
 
 $GestureHandler$PerComponentNotifier* GestureHandler::getNextNotifierForComponent($Component* c) {
 	$init(GestureHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (c == nullptr) {
 		return nullptr;
 	}
@@ -189,12 +135,56 @@ $GestureHandler$PerComponentNotifier* GestureHandler::getNextNotifierForComponen
 GestureHandler::GestureHandler() {
 }
 
-void clinit$GestureHandler($Class* class$) {
+void GestureHandler::clinit$($Class* clazz) {
 	$assignStatic(GestureHandler::CLIENT_PROPERTY, "com.apple.eawt.event.internalGestureHandler"_s);
 }
 
 $Class* GestureHandler::load$($String* name, bool initialize) {
-	$loadClass(GestureHandler, name, initialize, &_GestureHandler_ClassInfo_, clinit$GestureHandler, allocate$GestureHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"CLIENT_PROPERTY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GestureHandler, CLIENT_PROPERTY)},
+		{"PHASE", "I", nullptr, $STATIC | $FINAL, $constField(GestureHandler, PHASE)},
+		{"ROTATE", "I", nullptr, $STATIC | $FINAL, $constField(GestureHandler, ROTATE)},
+		{"MAGNIFY", "I", nullptr, $STATIC | $FINAL, $constField(GestureHandler, MAGNIFY)},
+		{"SWIPE", "I", nullptr, $STATIC | $FINAL, $constField(GestureHandler, SWIPE)},
+		{"phasers", "Ljava/util/List;", "Ljava/util/List<Lcom/apple/eawt/event/GesturePhaseListener;>;", $FINAL, $field(GestureHandler, phasers)},
+		{"rotaters", "Ljava/util/List;", "Ljava/util/List<Lcom/apple/eawt/event/RotationListener;>;", $FINAL, $field(GestureHandler, rotaters)},
+		{"magnifiers", "Ljava/util/List;", "Ljava/util/List<Lcom/apple/eawt/event/MagnificationListener;>;", $FINAL, $field(GestureHandler, magnifiers)},
+		{"swipers", "Ljava/util/List;", "Ljava/util/List<Lcom/apple/eawt/event/SwipeListener;>;", $FINAL, $field(GestureHandler, swipers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(GestureHandler, init$, void)},
+		{"addGestureListenerTo", "(Ljavax/swing/JComponent;Lcom/apple/eawt/event/GestureListener;)V", nullptr, $STATIC, $staticMethod(GestureHandler, addGestureListenerTo, void, $JComponent*, $GestureListener*)},
+		{"addListener", "(Lcom/apple/eawt/event/GestureListener;)V", nullptr, 0, $method(GestureHandler, addListener, void, $GestureListener*)},
+		{"getHandlerForComponent", "(Ljava/awt/Component;)Lcom/apple/eawt/event/GestureHandler;", nullptr, $STATIC, $staticMethod(GestureHandler, getHandlerForComponent, GestureHandler*, $Component*)},
+		{"getNextNotifierForComponent", "(Ljava/awt/Component;)Lcom/apple/eawt/event/GestureHandler$PerComponentNotifier;", nullptr, $STATIC, $staticMethod(GestureHandler, getNextNotifierForComponent, $GestureHandler$PerComponentNotifier*, $Component*)},
+		{"handleGestureFromNative", "(Ljava/awt/Window;IDDDD)V", nullptr, $STATIC, $staticMethod(GestureHandler, handleGestureFromNative, void, $Window*, int32_t, double, double, double, double)},
+		{"removeGestureListenerFrom", "(Ljavax/swing/JComponent;Lcom/apple/eawt/event/GestureListener;)V", nullptr, $STATIC, $staticMethod(GestureHandler, removeGestureListenerFrom, void, $JComponent*, $GestureListener*)},
+		{"removeListener", "(Lcom/apple/eawt/event/GestureListener;)V", nullptr, 0, $method(GestureHandler, removeListener, void, $GestureListener*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.eawt.event.GestureHandler$PerComponentNotifier", "com.apple.eawt.event.GestureHandler", "PerComponentNotifier", $STATIC},
+		{"com.apple.eawt.event.GestureHandler$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.apple.eawt.event.GestureHandler",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.eawt.event.GestureHandler$PerComponentNotifier,com.apple.eawt.event.GestureHandler$1"
+	};
+	$loadClass(GestureHandler, name, initialize, &classInfo$$, GestureHandler::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GestureHandler);
+	});
 	return class$;
 }
 

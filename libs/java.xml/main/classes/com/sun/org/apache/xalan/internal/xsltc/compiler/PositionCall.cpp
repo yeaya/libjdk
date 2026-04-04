@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/PositionCall.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/ILOAD.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEINTERFACE.h>
@@ -21,7 +20,6 @@
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $ILOAD = ::com::sun::org::apache::bcel::internal::generic::ILOAD;
 using $INVOKEINTERFACE = ::com::sun::org::apache::bcel::internal::generic::INVOKEINTERFACE;
-using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
 using $FunctionCall = ::com::sun::org::apache::xalan::internal::xsltc::compiler::FunctionCall;
@@ -42,26 +40,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$MethodInfo _PositionCall_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)V", nullptr, $PUBLIC, $method(PositionCall, init$, void, $QName*)},
-	{"hasPositionCall", "()Z", nullptr, $PUBLIC, $virtualMethod(PositionCall, hasPositionCall, bool)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(PositionCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{}
-};
-
-$ClassInfo _PositionCall_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.PositionCall",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall",
-	nullptr,
-	nullptr,
-	_PositionCall_MethodInfo_
-};
-
-$Object* allocate$PositionCall($Class* clazz) {
-	return $of($alloc(PositionCall));
-}
-
 void PositionCall::init$($QName* fname) {
 	$FunctionCall::init$(fname);
 }
@@ -71,18 +49,18 @@ bool PositionCall::hasPositionCall() {
 }
 
 void PositionCall::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	if ($instanceOf($CompareGenerator, methodGen)) {
-		$nc(il)->append($($nc(($cast($CompareGenerator, methodGen)))->loadCurrentNode()));
+		$nc(il)->append($($cast($CompareGenerator, methodGen)->loadCurrentNode()));
 	} else if ($instanceOf($TestGenerator, methodGen)) {
-		$nc(il)->append(static_cast<$Instruction*>($$new($ILOAD, $Constants::POSITION_INDEX)));
+		$nc(il)->append($$new($ILOAD, $Constants::POSITION_INDEX));
 	} else {
 		$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 		$init($Constants);
 		int32_t index = $nc(cpg)->addInterfaceMethodref($Constants::NODE_ITERATOR, "getPosition"_s, "()I"_s);
 		$nc(il)->append($(methodGen->loadIterator()));
-		il->append(static_cast<$Instruction*>($$new($INVOKEINTERFACE, index, 1)));
+		il->append($$new($INVOKEINTERFACE, index, 1));
 	}
 }
 
@@ -90,7 +68,23 @@ PositionCall::PositionCall() {
 }
 
 $Class* PositionCall::load$($String* name, bool initialize) {
-	$loadClass(PositionCall, name, initialize, &_PositionCall_ClassInfo_, allocate$PositionCall);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)V", nullptr, $PUBLIC, $method(PositionCall, init$, void, $QName*)},
+		{"hasPositionCall", "()Z", nullptr, $PUBLIC, $virtualMethod(PositionCall, hasPositionCall, bool)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(PositionCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.PositionCall",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PositionCall, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PositionCall);
+	});
 	return class$;
 }
 

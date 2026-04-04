@@ -27,6 +27,7 @@ class LWWindowPeer$PeerType : public ::java::lang::Enum {
 public:
 	LWWindowPeer$PeerType();
 	static $Array<::sun::lwawt::LWWindowPeer$PeerType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::lwawt::LWWindowPeer$PeerType* valueOf($String* name);
 	static $Array<::sun::lwawt::LWWindowPeer$PeerType>* values();

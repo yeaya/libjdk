@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/processing/ServiceProxy$ServiceConfigurationError.h>
-
 #include <com/sun/tools/javac/processing/ServiceProxy.h>
 #include <java/lang/Error.h>
 #include <jcpp.h>
@@ -16,41 +15,6 @@ namespace com {
 			namespace javac {
 				namespace processing {
 
-$FieldInfo _ServiceProxy$ServiceConfigurationError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ServiceProxy$ServiceConfigurationError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ServiceProxy$ServiceConfigurationError_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(ServiceProxy$ServiceConfigurationError, init$, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _ServiceProxy$ServiceConfigurationError_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.processing.ServiceProxy$ServiceConfigurationError", "com.sun.tools.javac.processing.ServiceProxy", "ServiceConfigurationError", $STATIC},
-	{}
-};
-
-$ClassInfo _ServiceProxy$ServiceConfigurationError_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.processing.ServiceProxy$ServiceConfigurationError",
-	"java.lang.Error",
-	nullptr,
-	_ServiceProxy$ServiceConfigurationError_FieldInfo_,
-	_ServiceProxy$ServiceConfigurationError_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServiceProxy$ServiceConfigurationError_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.processing.ServiceProxy"
-};
-
-$Object* allocate$ServiceProxy$ServiceConfigurationError($Class* clazz) {
-	return $of($alloc(ServiceProxy$ServiceConfigurationError));
-}
-
 void ServiceProxy$ServiceConfigurationError::init$($String* msg) {
 	$Error::init$(msg);
 }
@@ -66,7 +30,36 @@ void ServiceProxy$ServiceConfigurationError::throw$() {
 }
 
 $Class* ServiceProxy$ServiceConfigurationError::load$($String* name, bool initialize) {
-	$loadClass(ServiceProxy$ServiceConfigurationError, name, initialize, &_ServiceProxy$ServiceConfigurationError_ClassInfo_, allocate$ServiceProxy$ServiceConfigurationError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ServiceProxy$ServiceConfigurationError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(ServiceProxy$ServiceConfigurationError, init$, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.processing.ServiceProxy$ServiceConfigurationError", "com.sun.tools.javac.processing.ServiceProxy", "ServiceConfigurationError", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.processing.ServiceProxy$ServiceConfigurationError",
+		"java.lang.Error",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.processing.ServiceProxy"
+	};
+	$loadClass(ServiceProxy$ServiceConfigurationError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServiceProxy$ServiceConfigurationError);
+	});
 	return class$;
 }
 

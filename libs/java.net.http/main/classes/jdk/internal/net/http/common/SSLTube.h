@@ -67,6 +67,7 @@ class $export SSLTube : public ::jdk::internal::net::http::common::FlowTube {
 	$class(SSLTube, 0, ::jdk::internal::net::http::common::FlowTube)
 public:
 	SSLTube();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::net::ssl::SSLEngine* engine, ::java::util::concurrent::Executor* executor, ::jdk::internal::net::http::common::FlowTube* tube);
 	void init$(::javax::net::ssl::SSLEngine* engine, ::java::util::concurrent::Executor* executor, ::java::util::function::Consumer* recycler, ::jdk::internal::net::http::common::FlowTube* tube);
 	virtual $Throwable* checkForHandshake($Throwable* t);

@@ -33,6 +33,7 @@ class $import MemoryNotificationInfo : public ::java::lang::Object {
 	$class(MemoryNotificationInfo, 0, ::java::lang::Object)
 public:
 	MemoryNotificationInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* poolName, ::java::lang::management::MemoryUsage* usage, int64_t count);
 	void init$(::javax::management::openmbean::CompositeData* cd);
 	static ::java::lang::management::MemoryNotificationInfo* from(::javax::management::openmbean::CompositeData* cd);

@@ -1,8 +1,6 @@
 #include <javax/management/AttributeList.h>
-
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/Iterator.h>
@@ -16,9 +14,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
@@ -29,48 +25,6 @@ using $RuntimeOperationsException = ::javax::management::RuntimeOperationsExcept
 namespace javax {
 	namespace management {
 
-$FieldInfo _AttributeList_FieldInfo_[] = {
-	{"typeSafe", "Z", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(AttributeList, typeSafe)},
-	{"tainted", "Z", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(AttributeList, tainted)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttributeList, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AttributeList_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AttributeList, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(AttributeList, init$, void, int32_t)},
-	{"<init>", "(Ljavax/management/AttributeList;)V", nullptr, $PUBLIC, $method(AttributeList, init$, void, AttributeList*)},
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljavax/management/Attribute;>;)V", $PUBLIC, $method(AttributeList, init$, void, $List*)},
-	{"add", "(Ljavax/management/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(AttributeList, add, void, $Attribute*)},
-	{"add", "(ILjavax/management/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(AttributeList, add, void, int32_t, $Attribute*)},
-	{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AttributeList, add, bool, Object$*)},
-	{"add", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AttributeList, add, void, int32_t, Object$*)},
-	{"addAll", "(Ljavax/management/AttributeList;)Z", nullptr, $PUBLIC, $virtualMethod(AttributeList, addAll, bool, AttributeList*)},
-	{"addAll", "(ILjavax/management/AttributeList;)Z", nullptr, $PUBLIC, $virtualMethod(AttributeList, addAll, bool, int32_t, AttributeList*)},
-	{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(AttributeList, addAll, bool, $Collection*)},
-	{"addAll", "(ILjava/util/Collection;)Z", "(ILjava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(AttributeList, addAll, bool, int32_t, $Collection*)},
-	{"adding", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(AttributeList, adding, void, Object$*)},
-	{"adding", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<*>;)V", $PRIVATE, $method(AttributeList, adding, void, $Collection*)},
-	{"asList", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/management/Attribute;>;", $PUBLIC, $virtualMethod(AttributeList, asList, $List*)},
-	{"set", "(ILjavax/management/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(AttributeList, set, void, int32_t, $Attribute*)},
-	{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AttributeList, set, $Object*, int32_t, Object$*)},
-	{}
-};
-
-$ClassInfo _AttributeList_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.AttributeList",
-	"java.util.ArrayList",
-	nullptr,
-	_AttributeList_FieldInfo_,
-	_AttributeList_MethodInfo_,
-	"Ljava/util/ArrayList<Ljava/lang/Object;>;"
-};
-
-$Object* allocate$AttributeList($Class* clazz) {
-	return $of($alloc(AttributeList));
-}
-
 void AttributeList::init$() {
 	$ArrayList::init$();
 }
@@ -80,7 +34,7 @@ void AttributeList::init$(int32_t initialCapacity) {
 }
 
 void AttributeList::init$(AttributeList* list) {
-	$ArrayList::init$(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(static_cast<$ArrayList*>(list)))));
+	$ArrayList::init$($cast($AbstractCollection, list));
 }
 
 void AttributeList::init$($List* list) {
@@ -88,16 +42,16 @@ void AttributeList::init$($List* list) {
 	if (list == nullptr) {
 		$throwNew($IllegalArgumentException, "Null parameter"_s);
 	}
-	adding(static_cast<$Collection*>(list));
+	adding(list);
 	$ArrayList::addAll(list);
 }
 
 $List* AttributeList::asList() {
 	this->typeSafe = true;
 	if (this->tainted) {
-		adding(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(static_cast<$ArrayList*>(this)))));
+		adding($cast($Collection, $cast($AbstractCollection, this)));
 	}
-	return static_cast<$List*>(this);
+	return $cast($List, this);
 }
 
 void AttributeList::add($Attribute* object) {
@@ -121,12 +75,12 @@ void AttributeList::set(int32_t index, $Attribute* object) {
 }
 
 bool AttributeList::addAll(AttributeList* list) {
-	return ($ArrayList::addAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(static_cast<$ArrayList*>(list))))));
+	return ($ArrayList::addAll($cast($AbstractCollection, list)));
 }
 
 bool AttributeList::addAll(int32_t index, AttributeList* list) {
 	try {
-		return $ArrayList::addAll(index, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(static_cast<$ArrayList*>(list)))));
+		return $ArrayList::addAll(index, $cast($AbstractCollection, list));
 	} catch ($IndexOutOfBoundsException& e) {
 		$throwNew($RuntimeOperationsException, e, "The specified index is out of range"_s);
 	}
@@ -155,7 +109,7 @@ bool AttributeList::addAll(int32_t index, $Collection* c) {
 
 $Object* AttributeList::set(int32_t index, Object$* element) {
 	adding(element);
-	return $of($ArrayList::set(index, element));
+	return $ArrayList::set(index, element);
 }
 
 void AttributeList::adding(Object$* x) {
@@ -170,13 +124,11 @@ void AttributeList::adding(Object$* x) {
 }
 
 void AttributeList::adding($Collection* c) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(c)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Object, x, i$->next());
-			adding(x);
-		}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(c)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Object, x, i$->next());
+		adding(x);
 	}
 }
 
@@ -184,7 +136,44 @@ AttributeList::AttributeList() {
 }
 
 $Class* AttributeList::load$($String* name, bool initialize) {
-	$loadClass(AttributeList, name, initialize, &_AttributeList_ClassInfo_, allocate$AttributeList);
+	$FieldInfo fieldInfos$$[] = {
+		{"typeSafe", "Z", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(AttributeList, typeSafe)},
+		{"tainted", "Z", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(AttributeList, tainted)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttributeList, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AttributeList, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(AttributeList, init$, void, int32_t)},
+		{"<init>", "(Ljavax/management/AttributeList;)V", nullptr, $PUBLIC, $method(AttributeList, init$, void, AttributeList*)},
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljavax/management/Attribute;>;)V", $PUBLIC, $method(AttributeList, init$, void, $List*)},
+		{"add", "(Ljavax/management/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(AttributeList, add, void, $Attribute*)},
+		{"add", "(ILjavax/management/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(AttributeList, add, void, int32_t, $Attribute*)},
+		{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AttributeList, add, bool, Object$*)},
+		{"add", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AttributeList, add, void, int32_t, Object$*)},
+		{"addAll", "(Ljavax/management/AttributeList;)Z", nullptr, $PUBLIC, $virtualMethod(AttributeList, addAll, bool, AttributeList*)},
+		{"addAll", "(ILjavax/management/AttributeList;)Z", nullptr, $PUBLIC, $virtualMethod(AttributeList, addAll, bool, int32_t, AttributeList*)},
+		{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(AttributeList, addAll, bool, $Collection*)},
+		{"addAll", "(ILjava/util/Collection;)Z", "(ILjava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(AttributeList, addAll, bool, int32_t, $Collection*)},
+		{"adding", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(AttributeList, adding, void, Object$*)},
+		{"adding", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<*>;)V", $PRIVATE, $method(AttributeList, adding, void, $Collection*)},
+		{"asList", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/management/Attribute;>;", $PUBLIC, $virtualMethod(AttributeList, asList, $List*)},
+		{"set", "(ILjavax/management/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(AttributeList, set, void, int32_t, $Attribute*)},
+		{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AttributeList, set, $Object*, int32_t, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.AttributeList",
+		"java.util.ArrayList",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/ArrayList<Ljava/lang/Object;>;"
+	};
+	$loadClass(AttributeList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AttributeList));
+	});
 	return class$;
 }
 

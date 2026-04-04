@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTableHeaderUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -11,8 +10,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/FocusListener.h>
 #include <java/awt/event/MouseEvent.h>
-#include <java/awt/event/MouseListener.h>
-#include <java/awt/event/MouseMotionListener.h>
 #include <java/lang/Math.h>
 #include <java/util/Enumeration.h>
 #include <javax/swing/Action.h>
@@ -55,7 +52,6 @@
 #undef WHEN_FOCUSED
 
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Container = ::java::awt::Container;
 using $Cursor = ::java::awt::Cursor;
 using $Dimension = ::java::awt::Dimension;
@@ -64,8 +60,6 @@ using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $FocusListener = ::java::awt::event::FocusListener;
 using $MouseEvent = ::java::awt::event::MouseEvent;
-using $MouseListener = ::java::awt::event::MouseListener;
-using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -74,7 +68,6 @@ using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Enumeration = ::java::util::Enumeration;
-using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $CellRendererPane = ::javax::swing::CellRendererPane;
 using $InputMap = ::javax::swing::InputMap;
@@ -102,80 +95,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicTableHeaderUI_FieldInfo_[] = {
-	{"resizeCursor", "Ljava/awt/Cursor;", nullptr, $PRIVATE | $STATIC, $staticField(BasicTableHeaderUI, resizeCursor)},
-	{"header", "Ljavax/swing/table/JTableHeader;", nullptr, $PROTECTED, $field(BasicTableHeaderUI, header)},
-	{"rendererPane", "Ljavax/swing/CellRendererPane;", nullptr, $PROTECTED, $field(BasicTableHeaderUI, rendererPane)},
-	{"mouseInputListener", "Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $field(BasicTableHeaderUI, mouseInputListener)},
-	{"rolloverColumn", "I", nullptr, $PRIVATE, $field(BasicTableHeaderUI, rolloverColumn)},
-	{"selectedColumnIndex", "I", nullptr, $PRIVATE, $field(BasicTableHeaderUI, selectedColumnIndex)},
-	{"focusListener", "Ljava/awt/event/FocusListener;", nullptr, $PRIVATE | $STATIC, $staticField(BasicTableHeaderUI, focusListener)},
-	{}
-};
-
-$MethodInfo _BasicTableHeaderUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicTableHeaderUI, init$, void)},
-	{"canResize", "(Ljavax/swing/table/TableColumn;Ljavax/swing/table/JTableHeader;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BasicTableHeaderUI, canResize, bool, $TableColumn*, $JTableHeader*)},
-	{"changeColumnWidth", "(Ljavax/swing/table/TableColumn;Ljavax/swing/table/JTableHeader;II)I", nullptr, $PRIVATE, $method(BasicTableHeaderUI, changeColumnWidth, int32_t, $TableColumn*, $JTableHeader*, int32_t, int32_t)},
-	{"createHeaderSize", "(J)Ljava/awt/Dimension;", nullptr, $PRIVATE, $method(BasicTableHeaderUI, createHeaderSize, $Dimension*, int64_t)},
-	{"createMouseInputListener", "()Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $virtualMethod(BasicTableHeaderUI, createMouseInputListener, $MouseInputListener*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicTableHeaderUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
-	{"getHeaderHeight", "()I", nullptr, $PRIVATE, $method(BasicTableHeaderUI, getHeaderHeight, int32_t)},
-	{"getHeaderRenderer", "(I)Ljava/awt/Component;", nullptr, $PRIVATE, $method(BasicTableHeaderUI, getHeaderRenderer, $Component*, int32_t)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getRolloverColumn", "()I", nullptr, $PROTECTED, $virtualMethod(BasicTableHeaderUI, getRolloverColumn, int32_t)},
-	{"getSelectedColumnIndex", "()I", nullptr, $PRIVATE, $method(BasicTableHeaderUI, getSelectedColumnIndex, int32_t)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTableHeaderUI, installDefaults, void)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTableHeaderUI, installKeyboardActions, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTableHeaderUI, installListeners, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI, installUI, void, $JComponent*)},
-	{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicTableHeaderUI, loadActionMap, void, $LazyActionMap*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI, paint, void, $Graphics*, $JComponent*)},
-	{"paintCell", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PRIVATE, $method(BasicTableHeaderUI, paintCell, void, $Graphics*, $Rectangle*, int32_t)},
-	{"rolloverColumnUpdated", "(II)V", nullptr, $PROTECTED, $virtualMethod(BasicTableHeaderUI, rolloverColumnUpdated, void, int32_t, int32_t)},
-	{"scrollToColumn", "(I)V", nullptr, $PRIVATE, $method(BasicTableHeaderUI, scrollToColumn, void, int32_t)},
-	{"selectColumn", "(I)V", nullptr, 0, $virtualMethod(BasicTableHeaderUI, selectColumn, void, int32_t)},
-	{"selectColumn", "(IZ)V", nullptr, 0, $virtualMethod(BasicTableHeaderUI, selectColumn, void, int32_t, bool)},
-	{"selectNextColumn", "(Z)I", nullptr, $PRIVATE, $method(BasicTableHeaderUI, selectNextColumn, int32_t, bool)},
-	{"selectPreviousColumn", "(Z)I", nullptr, $PRIVATE, $method(BasicTableHeaderUI, selectPreviousColumn, int32_t, bool)},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTableHeaderUI, uninstallDefaults, void)},
-	{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTableHeaderUI, uninstallKeyboardActions, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTableHeaderUI, uninstallListeners, void)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI, uninstallUI, void, $JComponent*)},
-	{"updateRolloverColumn", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(BasicTableHeaderUI, updateRolloverColumn, void, $MouseEvent*)},
-	{"viewIndexForColumn", "(Ljavax/swing/table/TableColumn;)I", nullptr, $PRIVATE, $method(BasicTableHeaderUI, viewIndexForColumn, int32_t, $TableColumn*)},
-	{}
-};
-
-$InnerClassInfo _BasicTableHeaderUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTableHeaderUI$Actions", "javax.swing.plaf.basic.BasicTableHeaderUI", "Actions", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.basic.BasicTableHeaderUI$MouseInputHandler", "javax.swing.plaf.basic.BasicTableHeaderUI", "MouseInputHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicTableHeaderUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BasicTableHeaderUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTableHeaderUI",
-	"javax.swing.plaf.TableHeaderUI",
-	nullptr,
-	_BasicTableHeaderUI_FieldInfo_,
-	_BasicTableHeaderUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTableHeaderUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTableHeaderUI$Actions,javax.swing.plaf.basic.BasicTableHeaderUI$MouseInputHandler,javax.swing.plaf.basic.BasicTableHeaderUI$1"
-};
-
-$Object* allocate$BasicTableHeaderUI($Class* clazz) {
-	return $of($alloc(BasicTableHeaderUI));
-}
-
 $Cursor* BasicTableHeaderUI::resizeCursor = nullptr;
 $FocusListener* BasicTableHeaderUI::focusListener = nullptr;
 
@@ -197,7 +116,7 @@ $ComponentUI* BasicTableHeaderUI::createUI($JComponent* h) {
 void BasicTableHeaderUI::installUI($JComponent* c) {
 	$set(this, header, $cast($JTableHeader, c));
 	$set(this, rendererPane, $new($CellRendererPane));
-	$nc(this->header)->add(static_cast<$Component*>(this->rendererPane));
+	$nc(this->header)->add(this->rendererPane);
 	installDefaults();
 	installListeners();
 	installKeyboardActions();
@@ -205,7 +124,6 @@ void BasicTableHeaderUI::installUI($JComponent* c) {
 
 void BasicTableHeaderUI::installDefaults() {
 	$LookAndFeel::installColorsAndFont(this->header, "TableHeader.background"_s, "TableHeader.foreground"_s, "TableHeader.font"_s);
-	$init($Boolean);
 	$LookAndFeel::installProperty(this->header, "opaque"_s, $Boolean::TRUE);
 }
 
@@ -226,7 +144,7 @@ void BasicTableHeaderUI::uninstallUI($JComponent* c) {
 	uninstallDefaults();
 	uninstallListeners();
 	uninstallKeyboardActions();
-	$nc(this->header)->remove(static_cast<$Component*>(this->rendererPane));
+	$nc(this->header)->remove(this->rendererPane);
 	$set(this, rendererPane, nullptr);
 	$set(this, header, nullptr);
 }
@@ -248,7 +166,7 @@ void BasicTableHeaderUI::uninstallKeyboardActions() {
 
 void BasicTableHeaderUI::loadActionMap($LazyActionMap* map) {
 	$init(BasicTableHeaderUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BasicTableHeaderUI$Actions);
 	$nc(map)->put($$new($BasicTableHeaderUI$Actions, $BasicTableHeaderUI$Actions::TOGGLE_SORT_ORDER));
 	map->put($$new($BasicTableHeaderUI$Actions, $BasicTableHeaderUI$Actions::SELECT_COLUMN_TO_LEFT));
@@ -268,10 +186,10 @@ void BasicTableHeaderUI::rolloverColumnUpdated(int32_t oldColumn, int32_t newCol
 }
 
 void BasicTableHeaderUI::updateRolloverColumn($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(this->header)->getDraggedColumn() == nullptr;
-	if (var$0 && $nc(this->header)->contains($($nc(e)->getPoint()))) {
-		int32_t col = $nc(this->header)->columnAtPoint($($nc(e)->getPoint()));
+	if (var$0 && this->header->contains($($nc(e)->getPoint()))) {
+		int32_t col = $nc(this->header)->columnAtPoint($(e->getPoint()));
 		if (col != this->rolloverColumn) {
 			int32_t oldRolloverColumn = this->rolloverColumn;
 			this->rolloverColumn = col;
@@ -282,7 +200,7 @@ void BasicTableHeaderUI::updateRolloverColumn($MouseEvent* e) {
 
 int32_t BasicTableHeaderUI::selectNextColumn(bool doIt) {
 	int32_t newIndex = getSelectedColumnIndex();
-	if (newIndex < $nc($($nc(this->header)->getColumnModel()))->getColumnCount() - 1) {
+	if (newIndex < $$nc($nc(this->header)->getColumnModel())->getColumnCount() - 1) {
 		++newIndex;
 		if (doIt) {
 			selectColumn(newIndex);
@@ -319,12 +237,12 @@ void BasicTableHeaderUI::selectColumn(int32_t newColIndex, bool doScroll) {
 }
 
 void BasicTableHeaderUI::scrollToColumn(int32_t col) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, container, nullptr);
 	$var($JTable, table, nullptr);
-	bool var$1 = ($nc(this->header)->getParent() == nullptr);
-	bool var$0 = var$1 || (($assign(container, $nc($($nc(this->header)->getParent()))->getParent())) == nullptr) || !($instanceOf($JScrollPane, container));
-	if (var$0 || (($assign(table, $nc(this->header)->getTable())) == nullptr)) {
+	bool var$1 = $nc(this->header)->getParent() == nullptr;
+	bool var$0 = var$1 || (($assign(container, $$nc(this->header->getParent())->getParent())) == nullptr) || !($instanceOf($JScrollPane, container));
+	if (var$0 || (($assign(table, this->header->getTable())) == nullptr)) {
 		return;
 	}
 	$var($Rectangle, vis, $nc(table)->getVisibleRect());
@@ -335,7 +253,7 @@ void BasicTableHeaderUI::scrollToColumn(int32_t col) {
 }
 
 int32_t BasicTableHeaderUI::getSelectedColumnIndex() {
-	int32_t numCols = $nc($($nc(this->header)->getColumnModel()))->getColumnCount();
+	int32_t numCols = $$nc($nc(this->header)->getColumnModel())->getColumnCount();
 	if (this->selectedColumnIndex >= numCols && numCols > 0) {
 		this->selectedColumnIndex = numCols - 1;
 	}
@@ -349,18 +267,18 @@ bool BasicTableHeaderUI::canResize($TableColumn* column, $JTableHeader* header) 
 }
 
 int32_t BasicTableHeaderUI::changeColumnWidth($TableColumn* resizingColumn, $JTableHeader* th, int32_t oldWidth, int32_t newWidth) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(resizingColumn)->setWidth(newWidth);
 	$var($Container, container, nullptr);
 	$var($JTable, table, nullptr);
-	bool var$1 = ($nc(th)->getParent() == nullptr);
-	bool var$0 = var$1 || (($assign(container, $nc($($nc(th)->getParent()))->getParent())) == nullptr) || !($instanceOf($JScrollPane, container));
-	if (var$0 || (($assign(table, $nc(th)->getTable())) == nullptr)) {
+	bool var$1 = $nc(th)->getParent() == nullptr;
+	bool var$0 = var$1 || (($assign(container, $$nc(th->getParent())->getParent())) == nullptr) || !($instanceOf($JScrollPane, container));
+	if (var$0 || (($assign(table, th->getTable())) == nullptr)) {
 		return 0;
 	}
-	bool var$2 = !$nc($($nc(container)->getComponentOrientation()))->isLeftToRight();
-	if (var$2 && !$nc($($nc(th)->getComponentOrientation()))->isLeftToRight()) {
-		$var($JViewport, viewport, $nc(($cast($JScrollPane, container)))->getViewport());
+	bool var$2 = !$$nc($nc(container)->getComponentOrientation())->isLeftToRight();
+	if (var$2 && !$$nc(th->getComponentOrientation())->isLeftToRight()) {
+		$var($JViewport, viewport, $cast($JScrollPane, container)->getViewport());
 		int32_t viewportWidth = $nc(viewport)->getWidth();
 		int32_t diff = newWidth - oldWidth;
 		int32_t newHeaderWidth = $nc(table)->getWidth() + diff;
@@ -369,7 +287,7 @@ int32_t BasicTableHeaderUI::changeColumnWidth($TableColumn* resizingColumn, $JTa
 		table->setSize(tableSize);
 		if ((newHeaderWidth >= viewportWidth) && (table->getAutoResizeMode() == $JTable::AUTO_RESIZE_OFF)) {
 			$var($Point, p, viewport->getViewPosition());
-			$nc(p)->x = $Math::max(0, $Math::min(newHeaderWidth - viewportWidth, p->x + diff));
+			$nc(p)->x = $Math::max(0, $Math::min(newHeaderWidth - viewportWidth, $nc(p)->x + diff));
 			viewport->setViewPosition(p);
 			return diff;
 		}
@@ -378,7 +296,7 @@ int32_t BasicTableHeaderUI::changeColumnWidth($TableColumn* resizingColumn, $JTa
 }
 
 int32_t BasicTableHeaderUI::getBaseline($JComponent* c, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$TableHeaderUI::getBaseline(c, width, height);
 	int32_t baseline = -1;
 	$var($TableColumnModel, columnModel, $nc(this->header)->getColumnModel());
@@ -400,11 +318,11 @@ int32_t BasicTableHeaderUI::getBaseline($JComponent* c, int32_t width, int32_t h
 }
 
 void BasicTableHeaderUI::paint($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc($($nc(this->header)->getColumnModel()))->getColumnCount() <= 0) {
+	$useLocalObjectStack();
+	if ($$nc($nc(this->header)->getColumnModel())->getColumnCount() <= 0) {
 		return;
 	}
-	bool ltr = $nc($($nc(this->header)->getComponentOrientation()))->isLeftToRight();
+	bool ltr = $$nc($nc(this->header)->getComponentOrientation())->isLeftToRight();
 	$var($Rectangle, clip, $nc(g)->getClipBounds());
 	$var($Point, left, $nc(clip)->getLocation());
 	$var($Point, right, $new($Point, clip->x + clip->width - 1, clip->y));
@@ -445,9 +363,9 @@ void BasicTableHeaderUI::paint($Graphics* g, $JComponent* c) {
 	if (draggedColumn != nullptr) {
 		int32_t draggedColumnIndex = viewIndexForColumn(draggedColumn);
 		$var($Rectangle, draggedCellRect, $nc(this->header)->getHeaderRect(draggedColumnIndex));
-		g->setColor($($nc($($nc(this->header)->getParent()))->getBackground()));
-		g->fillRect($nc(draggedCellRect)->x, draggedCellRect->y, draggedCellRect->width, draggedCellRect->height);
-		$nc(draggedCellRect)->x += $nc(this->header)->getDraggedDistance();
+		g->setColor($($$nc($nc(this->header)->getParent())->getBackground()));
+		g->fillRect($nc(draggedCellRect)->x, $nc(draggedCellRect)->y, $nc(draggedCellRect)->width, $nc(draggedCellRect)->height);
+		draggedCellRect->x += $nc(this->header)->getDraggedDistance();
 		g->setColor($($nc(this->header)->getBackground()));
 		g->fillRect(draggedCellRect->x, draggedCellRect->y, draggedCellRect->width, draggedCellRect->height);
 		paintCell(g, draggedCellRect, draggedColumnIndex);
@@ -456,22 +374,22 @@ void BasicTableHeaderUI::paint($Graphics* g, $JComponent* c) {
 }
 
 $Component* BasicTableHeaderUI::getHeaderRenderer(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
-	$var($TableColumn, aColumn, $nc($($nc(this->header)->getColumnModel()))->getColumn(columnIndex));
+	$useLocalObjectStack();
+	$var($TableColumn, aColumn, $$nc($nc(this->header)->getColumnModel())->getColumn(columnIndex));
 	$var($TableCellRenderer, renderer, $nc(aColumn)->getHeaderRenderer());
 	if (renderer == nullptr) {
 		$assign(renderer, $nc(this->header)->getDefaultRenderer());
 	}
 	bool var$1 = !$nc(this->header)->isPaintingForPrint();
 	bool var$0 = var$1 && (columnIndex == getSelectedColumnIndex());
-	bool hasFocus = var$0 && $nc(this->header)->hasFocus();
+	bool hasFocus = var$0 && this->header->hasFocus();
 	$var($JTable, var$2, $nc(this->header)->getTable());
 	return $nc(renderer)->getTableCellRendererComponent(var$2, $(aColumn->getHeaderValue()), false, hasFocus, -1, columnIndex);
 }
 
 void BasicTableHeaderUI::paintCell($Graphics* g, $Rectangle* cellRect, int32_t columnIndex) {
 	$var($Component, component, getHeaderRenderer(columnIndex));
-	$nc(this->rendererPane)->paintComponent(g, component, this->header, $nc(cellRect)->x, cellRect->y, cellRect->width, cellRect->height, true);
+	$nc(this->rendererPane)->paintComponent(g, component, this->header, $nc(cellRect)->x, $nc(cellRect)->y, $nc(cellRect)->width, $nc(cellRect)->height, true);
 }
 
 int32_t BasicTableHeaderUI::viewIndexForColumn($TableColumn* aColumn) {
@@ -485,7 +403,7 @@ int32_t BasicTableHeaderUI::viewIndexForColumn($TableColumn* aColumn) {
 }
 
 int32_t BasicTableHeaderUI::getHeaderHeight() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t height = 0;
 	bool accomodatedDefault = false;
 	$var($TableColumnModel, columnModel, $nc(this->header)->getColumnModel());
@@ -499,8 +417,8 @@ int32_t BasicTableHeaderUI::getHeaderHeight() {
 			if (isDefault && rendererHeight > 0) {
 				$var($Object, headerValue, aColumn->getHeaderValue());
 				if (headerValue != nullptr) {
-					$assign(headerValue, $of(headerValue)->toString());
-					if (headerValue != nullptr && !$of(headerValue)->equals(""_s)) {
+					$assign(headerValue, headerValue->toString());
+					if (headerValue != nullptr && !headerValue->equals(""_s)) {
 						accomodatedDefault = true;
 					}
 				}
@@ -518,9 +436,9 @@ $Dimension* BasicTableHeaderUI::createHeaderSize(int64_t width) {
 }
 
 $Dimension* BasicTableHeaderUI::getMinimumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t width = 0;
-	$var($Enumeration, enumeration, $nc($($nc(this->header)->getColumnModel()))->getColumns());
+	$var($Enumeration, enumeration, $$nc($nc(this->header)->getColumnModel())->getColumns());
 	while ($nc(enumeration)->hasMoreElements()) {
 		$var($TableColumn, aColumn, $cast($TableColumn, enumeration->nextElement()));
 		width = width + $nc(aColumn)->getMinWidth();
@@ -529,9 +447,9 @@ $Dimension* BasicTableHeaderUI::getMinimumSize($JComponent* c) {
 }
 
 $Dimension* BasicTableHeaderUI::getPreferredSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t width = 0;
-	$var($Enumeration, enumeration, $nc($($nc(this->header)->getColumnModel()))->getColumns());
+	$var($Enumeration, enumeration, $$nc($nc(this->header)->getColumnModel())->getColumns());
 	while ($nc(enumeration)->hasMoreElements()) {
 		$var($TableColumn, aColumn, $cast($TableColumn, enumeration->nextElement()));
 		width = width + $nc(aColumn)->getPreferredWidth();
@@ -540,9 +458,9 @@ $Dimension* BasicTableHeaderUI::getPreferredSize($JComponent* c) {
 }
 
 $Dimension* BasicTableHeaderUI::getMaximumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t width = 0;
-	$var($Enumeration, enumeration, $nc($($nc(this->header)->getColumnModel()))->getColumns());
+	$var($Enumeration, enumeration, $$nc($nc(this->header)->getColumnModel())->getColumns());
 	while ($nc(enumeration)->hasMoreElements()) {
 		$var($TableColumn, aColumn, $cast($TableColumn, enumeration->nextElement()));
 		width = width + $nc(aColumn)->getMaxWidth();
@@ -550,7 +468,7 @@ $Dimension* BasicTableHeaderUI::getMaximumSize($JComponent* c) {
 	return createHeaderSize(width);
 }
 
-void clinit$BasicTableHeaderUI($Class* class$) {
+void BasicTableHeaderUI::clinit$($Class* clazz) {
 	$assignStatic(BasicTableHeaderUI::resizeCursor, $Cursor::getPredefinedCursor($Cursor::E_RESIZE_CURSOR));
 	$assignStatic(BasicTableHeaderUI::focusListener, $new($BasicTableHeaderUI$1));
 }
@@ -559,7 +477,75 @@ BasicTableHeaderUI::BasicTableHeaderUI() {
 }
 
 $Class* BasicTableHeaderUI::load$($String* name, bool initialize) {
-	$loadClass(BasicTableHeaderUI, name, initialize, &_BasicTableHeaderUI_ClassInfo_, clinit$BasicTableHeaderUI, allocate$BasicTableHeaderUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"resizeCursor", "Ljava/awt/Cursor;", nullptr, $PRIVATE | $STATIC, $staticField(BasicTableHeaderUI, resizeCursor)},
+		{"header", "Ljavax/swing/table/JTableHeader;", nullptr, $PROTECTED, $field(BasicTableHeaderUI, header)},
+		{"rendererPane", "Ljavax/swing/CellRendererPane;", nullptr, $PROTECTED, $field(BasicTableHeaderUI, rendererPane)},
+		{"mouseInputListener", "Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $field(BasicTableHeaderUI, mouseInputListener)},
+		{"rolloverColumn", "I", nullptr, $PRIVATE, $field(BasicTableHeaderUI, rolloverColumn)},
+		{"selectedColumnIndex", "I", nullptr, $PRIVATE, $field(BasicTableHeaderUI, selectedColumnIndex)},
+		{"focusListener", "Ljava/awt/event/FocusListener;", nullptr, $PRIVATE | $STATIC, $staticField(BasicTableHeaderUI, focusListener)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicTableHeaderUI, init$, void)},
+		{"canResize", "(Ljavax/swing/table/TableColumn;Ljavax/swing/table/JTableHeader;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BasicTableHeaderUI, canResize, bool, $TableColumn*, $JTableHeader*)},
+		{"changeColumnWidth", "(Ljavax/swing/table/TableColumn;Ljavax/swing/table/JTableHeader;II)I", nullptr, $PRIVATE, $method(BasicTableHeaderUI, changeColumnWidth, int32_t, $TableColumn*, $JTableHeader*, int32_t, int32_t)},
+		{"createHeaderSize", "(J)Ljava/awt/Dimension;", nullptr, $PRIVATE, $method(BasicTableHeaderUI, createHeaderSize, $Dimension*, int64_t)},
+		{"createMouseInputListener", "()Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $virtualMethod(BasicTableHeaderUI, createMouseInputListener, $MouseInputListener*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicTableHeaderUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
+		{"getHeaderHeight", "()I", nullptr, $PRIVATE, $method(BasicTableHeaderUI, getHeaderHeight, int32_t)},
+		{"getHeaderRenderer", "(I)Ljava/awt/Component;", nullptr, $PRIVATE, $method(BasicTableHeaderUI, getHeaderRenderer, $Component*, int32_t)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getRolloverColumn", "()I", nullptr, $PROTECTED, $virtualMethod(BasicTableHeaderUI, getRolloverColumn, int32_t)},
+		{"getSelectedColumnIndex", "()I", nullptr, $PRIVATE, $method(BasicTableHeaderUI, getSelectedColumnIndex, int32_t)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTableHeaderUI, installDefaults, void)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTableHeaderUI, installKeyboardActions, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTableHeaderUI, installListeners, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI, installUI, void, $JComponent*)},
+		{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicTableHeaderUI, loadActionMap, void, $LazyActionMap*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI, paint, void, $Graphics*, $JComponent*)},
+		{"paintCell", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PRIVATE, $method(BasicTableHeaderUI, paintCell, void, $Graphics*, $Rectangle*, int32_t)},
+		{"rolloverColumnUpdated", "(II)V", nullptr, $PROTECTED, $virtualMethod(BasicTableHeaderUI, rolloverColumnUpdated, void, int32_t, int32_t)},
+		{"scrollToColumn", "(I)V", nullptr, $PRIVATE, $method(BasicTableHeaderUI, scrollToColumn, void, int32_t)},
+		{"selectColumn", "(I)V", nullptr, 0, $virtualMethod(BasicTableHeaderUI, selectColumn, void, int32_t)},
+		{"selectColumn", "(IZ)V", nullptr, 0, $virtualMethod(BasicTableHeaderUI, selectColumn, void, int32_t, bool)},
+		{"selectNextColumn", "(Z)I", nullptr, $PRIVATE, $method(BasicTableHeaderUI, selectNextColumn, int32_t, bool)},
+		{"selectPreviousColumn", "(Z)I", nullptr, $PRIVATE, $method(BasicTableHeaderUI, selectPreviousColumn, int32_t, bool)},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTableHeaderUI, uninstallDefaults, void)},
+		{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTableHeaderUI, uninstallKeyboardActions, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTableHeaderUI, uninstallListeners, void)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI, uninstallUI, void, $JComponent*)},
+		{"updateRolloverColumn", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(BasicTableHeaderUI, updateRolloverColumn, void, $MouseEvent*)},
+		{"viewIndexForColumn", "(Ljavax/swing/table/TableColumn;)I", nullptr, $PRIVATE, $method(BasicTableHeaderUI, viewIndexForColumn, int32_t, $TableColumn*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTableHeaderUI$Actions", "javax.swing.plaf.basic.BasicTableHeaderUI", "Actions", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.basic.BasicTableHeaderUI$MouseInputHandler", "javax.swing.plaf.basic.BasicTableHeaderUI", "MouseInputHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicTableHeaderUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTableHeaderUI",
+		"javax.swing.plaf.TableHeaderUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTableHeaderUI$Actions,javax.swing.plaf.basic.BasicTableHeaderUI$MouseInputHandler,javax.swing.plaf.basic.BasicTableHeaderUI$1"
+	};
+	$loadClass(BasicTableHeaderUI, name, initialize, &classInfo$$, BasicTableHeaderUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicTableHeaderUI);
+	});
 	return class$;
 }
 

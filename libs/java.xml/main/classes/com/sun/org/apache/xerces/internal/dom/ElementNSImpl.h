@@ -55,6 +55,7 @@ class ElementNSImpl : public ::com::sun::org::apache::xerces::internal::dom::Ele
 	$class(ElementNSImpl, 0, ::com::sun::org::apache::xerces::internal::dom::ElementImpl)
 public:
 	ElementNSImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::com::sun::org::apache::xerces::internal::dom::CoreDocumentImpl* ownerDocument, $String* namespaceURI, $String* qualifiedName);
 	void init$(::com::sun::org::apache::xerces::internal::dom::CoreDocumentImpl* ownerDocument, $String* namespaceURI, $String* qualifiedName, $String* localName);
@@ -71,7 +72,7 @@ public:
 	void setName($String* namespaceURI, $String* qname);
 	virtual void setPrefix($String* prefix) override;
 	virtual void setType(::com::sun::org::apache::xerces::internal::xs::XSTypeDefinition* type);
-	static const int64_t serialVersionUID = (int64_t)0x811FFCEC9520A0BE;
+	static const int64_t serialVersionUID = (int64_t)0x811ffcec9520a0be;
 	static $String* xmlURI;
 	$String* namespaceURI = nullptr;
 	$String* localName = nullptr;

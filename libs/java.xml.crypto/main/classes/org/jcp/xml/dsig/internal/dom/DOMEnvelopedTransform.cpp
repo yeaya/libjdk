@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMEnvelopedTransform.h>
-
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <javax/xml/crypto/dsig/spec/TransformParameterSpec.h>
 #include <org/jcp/xml/dsig/internal/dom/ApacheTransform.h>
@@ -18,25 +17,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$MethodInfo _DOMEnvelopedTransform_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DOMEnvelopedTransform, init$, void)},
-	{"init", "(Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(DOMEnvelopedTransform, init, void, $TransformParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{}
-};
-
-$ClassInfo _DOMEnvelopedTransform_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMEnvelopedTransform",
-	"org.jcp.xml.dsig.internal.dom.ApacheTransform",
-	nullptr,
-	nullptr,
-	_DOMEnvelopedTransform_MethodInfo_
-};
-
-$Object* allocate$DOMEnvelopedTransform($Class* clazz) {
-	return $of($alloc(DOMEnvelopedTransform));
-}
-
 void DOMEnvelopedTransform::init$() {
 	$ApacheTransform::init$();
 }
@@ -51,7 +31,22 @@ DOMEnvelopedTransform::DOMEnvelopedTransform() {
 }
 
 $Class* DOMEnvelopedTransform::load$($String* name, bool initialize) {
-	$loadClass(DOMEnvelopedTransform, name, initialize, &_DOMEnvelopedTransform_ClassInfo_, allocate$DOMEnvelopedTransform);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DOMEnvelopedTransform, init$, void)},
+		{"init", "(Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(DOMEnvelopedTransform, init, void, $TransformParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMEnvelopedTransform",
+		"org.jcp.xml.dsig.internal.dom.ApacheTransform",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DOMEnvelopedTransform, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMEnvelopedTransform));
+	});
 	return class$;
 }
 

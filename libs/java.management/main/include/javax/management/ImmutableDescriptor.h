@@ -23,6 +23,7 @@ class $import ImmutableDescriptor : public ::javax::management::Descriptor {
 	$class(ImmutableDescriptor, 0, ::javax::management::Descriptor)
 public:
 	ImmutableDescriptor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($StringArray* fieldNames, $ObjectArray* fieldValues);
 	void init$($StringArray* fields);
 	void init$(::java::util::Map* fields);
@@ -49,7 +50,7 @@ public:
 	virtual $String* toString() override;
 	static ::javax::management::ImmutableDescriptor* union$($Array<::javax::management::Descriptor>* descriptors);
 	static void unsupported();
-	static const int64_t serialVersionUID = (int64_t)0x7ADD4541BA450805;
+	static const int64_t serialVersionUID = (int64_t)0x7add4541ba450805;
 	$StringArray* names = nullptr;
 	$ObjectArray* values = nullptr;
 	int32_t hashCode$ = 0;

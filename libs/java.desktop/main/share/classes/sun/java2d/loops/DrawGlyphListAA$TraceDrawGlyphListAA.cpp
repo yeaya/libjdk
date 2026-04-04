@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/DrawGlyphListAA$TraceDrawGlyphListAA.h>
-
 #include <sun/font/GlyphList.h>
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
@@ -25,45 +24,8 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _DrawGlyphListAA$TraceDrawGlyphListAA_FieldInfo_[] = {
-	{"target", "Lsun/java2d/loops/DrawGlyphListAA;", nullptr, 0, $field(DrawGlyphListAA$TraceDrawGlyphListAA, target)},
-	{}
-};
-
-$MethodInfo _DrawGlyphListAA$TraceDrawGlyphListAA_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/DrawGlyphListAA;)V", nullptr, $PUBLIC, $method(DrawGlyphListAA$TraceDrawGlyphListAA, init$, void, $DrawGlyphListAA*)},
-	{"DrawGlyphListAA", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Lsun/font/GlyphList;II)V", nullptr, $PUBLIC, $virtualMethod(DrawGlyphListAA$TraceDrawGlyphListAA, DrawGlyphListAA$, void, $SunGraphics2D*, $SurfaceData*, $GlyphList*, int32_t, int32_t)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(DrawGlyphListAA$TraceDrawGlyphListAA, traceWrap, $GraphicsPrimitive*)},
-	{}
-};
-
-$InnerClassInfo _DrawGlyphListAA$TraceDrawGlyphListAA_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.DrawGlyphListAA$TraceDrawGlyphListAA", "sun.java2d.loops.DrawGlyphListAA", "TraceDrawGlyphListAA", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DrawGlyphListAA$TraceDrawGlyphListAA_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.DrawGlyphListAA$TraceDrawGlyphListAA",
-	"sun.java2d.loops.DrawGlyphListAA",
-	nullptr,
-	_DrawGlyphListAA$TraceDrawGlyphListAA_FieldInfo_,
-	_DrawGlyphListAA$TraceDrawGlyphListAA_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DrawGlyphListAA$TraceDrawGlyphListAA_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.DrawGlyphListAA"
-};
-
-$Object* allocate$DrawGlyphListAA$TraceDrawGlyphListAA($Class* clazz) {
-	return $of($alloc(DrawGlyphListAA$TraceDrawGlyphListAA));
-}
-
 void DrawGlyphListAA$TraceDrawGlyphListAA::init$($DrawGlyphListAA* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceType, var$0, $nc(target)->getSourceType());
 	$var($CompositeType, var$1, target->getCompositeType());
 	$DrawGlyphListAA::init$(var$0, var$1, $(target->getDestType()));
@@ -83,7 +45,38 @@ DrawGlyphListAA$TraceDrawGlyphListAA::DrawGlyphListAA$TraceDrawGlyphListAA() {
 }
 
 $Class* DrawGlyphListAA$TraceDrawGlyphListAA::load$($String* name, bool initialize) {
-	$loadClass(DrawGlyphListAA$TraceDrawGlyphListAA, name, initialize, &_DrawGlyphListAA$TraceDrawGlyphListAA_ClassInfo_, allocate$DrawGlyphListAA$TraceDrawGlyphListAA);
+	$FieldInfo fieldInfos$$[] = {
+		{"target", "Lsun/java2d/loops/DrawGlyphListAA;", nullptr, 0, $field(DrawGlyphListAA$TraceDrawGlyphListAA, target)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/DrawGlyphListAA;)V", nullptr, $PUBLIC, $method(DrawGlyphListAA$TraceDrawGlyphListAA, init$, void, $DrawGlyphListAA*)},
+		{"DrawGlyphListAA", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Lsun/font/GlyphList;II)V", nullptr, $PUBLIC, $virtualMethod(DrawGlyphListAA$TraceDrawGlyphListAA, DrawGlyphListAA$, void, $SunGraphics2D*, $SurfaceData*, $GlyphList*, int32_t, int32_t)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(DrawGlyphListAA$TraceDrawGlyphListAA, traceWrap, $GraphicsPrimitive*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.DrawGlyphListAA$TraceDrawGlyphListAA", "sun.java2d.loops.DrawGlyphListAA", "TraceDrawGlyphListAA", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.DrawGlyphListAA$TraceDrawGlyphListAA",
+		"sun.java2d.loops.DrawGlyphListAA",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.DrawGlyphListAA"
+	};
+	$loadClass(DrawGlyphListAA$TraceDrawGlyphListAA, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DrawGlyphListAA$TraceDrawGlyphListAA);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Flow$FlowKind.h>
-
 #include <com/sun/tools/javac/comp/Flow.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -19,49 +18,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Flow$FlowKind_FieldInfo_[] = {
-	{"NORMAL", "Lcom/sun/tools/javac/comp/Flow$FlowKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flow$FlowKind, NORMAL)},
-	{"SPECULATIVE_LOOP", "Lcom/sun/tools/javac/comp/Flow$FlowKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flow$FlowKind, SPECULATIVE_LOOP)},
-	{"$VALUES", "[Lcom/sun/tools/javac/comp/Flow$FlowKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Flow$FlowKind, $VALUES)},
-	{"errKey", "Ljava/lang/String;", nullptr, $FINAL, $field(Flow$FlowKind, errKey)},
-	{"isFinal", "Z", nullptr, $FINAL, $field(Flow$FlowKind, isFinal$)},
-	{}
-};
-
-$MethodInfo _Flow$FlowKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/Flow$FlowKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Flow$FlowKind, $values, $Flow$FlowKindArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Z)V", "(Ljava/lang/String;Z)V", $PRIVATE, $method(Flow$FlowKind, init$, void, $String*, int32_t, $String*, bool)},
-	{"isFinal", "()Z", nullptr, 0, $method(Flow$FlowKind, isFinal, bool)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Flow$FlowKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Flow$FlowKind, valueOf, Flow$FlowKind*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/comp/Flow$FlowKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Flow$FlowKind, values, $Flow$FlowKindArray*)},
-	{}
-};
-
-$InnerClassInfo _Flow$FlowKind_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Flow$FlowKind", "com.sun.tools.javac.comp.Flow", "FlowKind", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Flow$FlowKind_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.comp.Flow$FlowKind",
-	"java.lang.Enum",
-	nullptr,
-	_Flow$FlowKind_FieldInfo_,
-	_Flow$FlowKind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/comp/Flow$FlowKind;>;",
-	nullptr,
-	_Flow$FlowKind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Flow"
-};
-
-$Object* allocate$Flow$FlowKind($Class* clazz) {
-	return $of($alloc(Flow$FlowKind));
-}
 
 Flow$FlowKind* Flow$FlowKind::NORMAL = nullptr;
 Flow$FlowKind* Flow$FlowKind::SPECULATIVE_LOOP = nullptr;
@@ -95,7 +51,7 @@ bool Flow$FlowKind::isFinal() {
 	return this->isFinal$;
 }
 
-void clinit$Flow$FlowKind($Class* class$) {
+void Flow$FlowKind::clinit$($Class* clazz) {
 	$assignStatic(Flow$FlowKind::NORMAL, $new(Flow$FlowKind, "NORMAL"_s, 0, "var.might.already.be.assigned"_s, false));
 	$assignStatic(Flow$FlowKind::SPECULATIVE_LOOP, $new(Flow$FlowKind, "SPECULATIVE_LOOP"_s, 1, "var.might.be.assigned.in.loop"_s, true));
 	$assignStatic(Flow$FlowKind::$VALUES, Flow$FlowKind::$values());
@@ -105,7 +61,44 @@ Flow$FlowKind::Flow$FlowKind() {
 }
 
 $Class* Flow$FlowKind::load$($String* name, bool initialize) {
-	$loadClass(Flow$FlowKind, name, initialize, &_Flow$FlowKind_ClassInfo_, clinit$Flow$FlowKind, allocate$Flow$FlowKind);
+	$FieldInfo fieldInfos$$[] = {
+		{"NORMAL", "Lcom/sun/tools/javac/comp/Flow$FlowKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flow$FlowKind, NORMAL)},
+		{"SPECULATIVE_LOOP", "Lcom/sun/tools/javac/comp/Flow$FlowKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flow$FlowKind, SPECULATIVE_LOOP)},
+		{"$VALUES", "[Lcom/sun/tools/javac/comp/Flow$FlowKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Flow$FlowKind, $VALUES)},
+		{"errKey", "Ljava/lang/String;", nullptr, $FINAL, $field(Flow$FlowKind, errKey)},
+		{"isFinal", "Z", nullptr, $FINAL, $field(Flow$FlowKind, isFinal$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/comp/Flow$FlowKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Flow$FlowKind, $values, $Flow$FlowKindArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Z)V", "(Ljava/lang/String;Z)V", $PRIVATE, $method(Flow$FlowKind, init$, void, $String*, int32_t, $String*, bool)},
+		{"isFinal", "()Z", nullptr, 0, $method(Flow$FlowKind, isFinal, bool)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Flow$FlowKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Flow$FlowKind, valueOf, Flow$FlowKind*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/comp/Flow$FlowKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Flow$FlowKind, values, $Flow$FlowKindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Flow$FlowKind", "com.sun.tools.javac.comp.Flow", "FlowKind", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.comp.Flow$FlowKind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/comp/Flow$FlowKind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Flow"
+	};
+	$loadClass(Flow$FlowKind, name, initialize, &classInfo$$, Flow$FlowKind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Flow$FlowKind));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFileChooserUI$DoubleClickListener.h>
-
 #include <com/apple/laf/AquaFileChooserUI$JTableExtension.h>
 #include <com/apple/laf/AquaFileChooserUI.h>
 #include <com/apple/laf/AquaFileSystemModel.h>
@@ -21,48 +20,10 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JFileChooser = ::javax::swing::JFileChooser;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaFileChooserUI$DoubleClickListener_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$DoubleClickListener, this$0)},
-	{"list", "Lcom/apple/laf/AquaFileChooserUI$JTableExtension;", nullptr, 0, $field(AquaFileChooserUI$DoubleClickListener, list)},
-	{}
-};
-
-$MethodInfo _AquaFileChooserUI$DoubleClickListener_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;Lcom/apple/laf/AquaFileChooserUI$JTableExtension;)V", nullptr, $PUBLIC, $method(AquaFileChooserUI$DoubleClickListener, init$, void, $AquaFileChooserUI*, $AquaFileChooserUI$JTableExtension*)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$DoubleClickListener, mouseClicked, void, $MouseEvent*)},
-	{}
-};
-
-$InnerClassInfo _AquaFileChooserUI$DoubleClickListener_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFileChooserUI$DoubleClickListener", "com.apple.laf.AquaFileChooserUI", "DoubleClickListener", $PROTECTED},
-	{}
-};
-
-$ClassInfo _AquaFileChooserUI$DoubleClickListener_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaFileChooserUI$DoubleClickListener",
-	"java.awt.event.MouseAdapter",
-	nullptr,
-	_AquaFileChooserUI$DoubleClickListener_FieldInfo_,
-	_AquaFileChooserUI$DoubleClickListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaFileChooserUI$DoubleClickListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFileChooserUI"
-};
-
-$Object* allocate$AquaFileChooserUI$DoubleClickListener($Class* clazz) {
-	return $of($alloc(AquaFileChooserUI$DoubleClickListener));
-}
 
 void AquaFileChooserUI$DoubleClickListener::init$($AquaFileChooserUI* this$0, $AquaFileChooserUI$JTableExtension* list) {
 	$set(this, this$0, this$0);
@@ -71,29 +32,60 @@ void AquaFileChooserUI$DoubleClickListener::init$($AquaFileChooserUI* this$0, $A
 }
 
 void AquaFileChooserUI$DoubleClickListener::mouseClicked($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(e)->getClickCount() != 2) {
 		return;
 	}
-	int32_t index = $nc(this->list)->locationToIndex($($nc(e)->getPoint()));
+	int32_t index = $nc(this->list)->locationToIndex($(e->getPoint()));
 	if (index < 0) {
 		return;
 	}
-	$var($File, f, $cast($File, $nc(($cast($AquaFileSystemModel, $($nc(this->list)->getModel()))))->getElementAt(index)));
+	$var($File, f, $cast($File, $$sure($AquaFileSystemModel, $nc(this->list)->getModel())->getElementAt(index)));
 	if (this->this$0->openDirectory(f)) {
 		return;
 	}
 	if (!this->this$0->isSelectableInList(f)) {
 		return;
 	}
-	$nc($(this->this$0->getFileChooser()))->approveSelection();
+	$$nc(this->this$0->getFileChooser())->approveSelection();
 }
 
 AquaFileChooserUI$DoubleClickListener::AquaFileChooserUI$DoubleClickListener() {
 }
 
 $Class* AquaFileChooserUI$DoubleClickListener::load$($String* name, bool initialize) {
-	$loadClass(AquaFileChooserUI$DoubleClickListener, name, initialize, &_AquaFileChooserUI$DoubleClickListener_ClassInfo_, allocate$AquaFileChooserUI$DoubleClickListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$DoubleClickListener, this$0)},
+		{"list", "Lcom/apple/laf/AquaFileChooserUI$JTableExtension;", nullptr, 0, $field(AquaFileChooserUI$DoubleClickListener, list)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;Lcom/apple/laf/AquaFileChooserUI$JTableExtension;)V", nullptr, $PUBLIC, $method(AquaFileChooserUI$DoubleClickListener, init$, void, $AquaFileChooserUI*, $AquaFileChooserUI$JTableExtension*)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$DoubleClickListener, mouseClicked, void, $MouseEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFileChooserUI$DoubleClickListener", "com.apple.laf.AquaFileChooserUI", "DoubleClickListener", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaFileChooserUI$DoubleClickListener",
+		"java.awt.event.MouseAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFileChooserUI"
+	};
+	$loadClass(AquaFileChooserUI$DoubleClickListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaFileChooserUI$DoubleClickListener));
+	});
 	return class$;
 }
 

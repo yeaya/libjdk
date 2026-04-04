@@ -1,6 +1,4 @@
 #include <sun/awt/X11/XTaskbarPeer.h>
-
-#include <java/awt/AWTEvent.h>
 #include <java/awt/MenuItem.h>
 #include <java/awt/PopupMenu.h>
 #include <java/awt/Taskbar$Feature.h>
@@ -29,7 +27,6 @@
 #undef ICON_BADGE_TEXT
 
 using $MenuItemArray = $Array<::java::awt::MenuItem>;
-using $AWTEvent = ::java::awt::AWTEvent;
 using $MenuItem = ::java::awt::MenuItem;
 using $PopupMenu = ::java::awt::PopupMenu;
 using $Taskbar$Feature = ::java::awt::Taskbar$Feature;
@@ -49,7 +46,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $UNIXToolkit = ::sun::awt::UNIXToolkit;
-using $UNIXToolkit$GtkVersions = ::sun::awt::UNIXToolkit$GtkVersions;
 using $XTaskbarPeer$1 = ::sun::awt::X11::XTaskbarPeer$1;
 using $XToolkit = ::sun::awt::X11::XToolkit;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
@@ -66,27 +62,24 @@ public:
 	virtual void run() override {
 		XTaskbarPeer::lambda$initWithLock$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<XTaskbarPeer$$Lambda$lambda$initWithLock$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo XTaskbarPeer$$Lambda$lambda$initWithLock$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XTaskbarPeer$$Lambda$lambda$initWithLock$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(XTaskbarPeer$$Lambda$lambda$initWithLock$1, run, void)},
-	{}
-};
-$ClassInfo XTaskbarPeer$$Lambda$lambda$initWithLock$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.X11.XTaskbarPeer$$Lambda$lambda$initWithLock$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* XTaskbarPeer$$Lambda$lambda$initWithLock$1::load$($String* name, bool initialize) {
-	$loadClass(XTaskbarPeer$$Lambda$lambda$initWithLock$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XTaskbarPeer$$Lambda$lambda$initWithLock$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(XTaskbarPeer$$Lambda$lambda$initWithLock$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.X11.XTaskbarPeer$$Lambda$lambda$initWithLock$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XTaskbarPeer$$Lambda$lambda$initWithLock$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XTaskbarPeer$$Lambda$lambda$initWithLock$1);
+	});
 	return class$;
 }
 $Class* XTaskbarPeer$$Lambda$lambda$initWithLock$1::class$ = nullptr;
@@ -99,91 +92,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(XTaskbarPeer::lambda$static$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<XTaskbarPeer$$Lambda$lambda$static$0$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo XTaskbarPeer$$Lambda$lambda$static$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XTaskbarPeer$$Lambda$lambda$static$0$1, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XTaskbarPeer$$Lambda$lambda$static$0$1, run, $Object*)},
-	{}
-};
-$ClassInfo XTaskbarPeer$$Lambda$lambda$static$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.X11.XTaskbarPeer$$Lambda$lambda$static$0$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* XTaskbarPeer$$Lambda$lambda$static$0$1::load$($String* name, bool initialize) {
-	$loadClass(XTaskbarPeer$$Lambda$lambda$static$0$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XTaskbarPeer$$Lambda$lambda$static$0$1, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XTaskbarPeer$$Lambda$lambda$static$0$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.X11.XTaskbarPeer$$Lambda$lambda$static$0$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XTaskbarPeer$$Lambda$lambda$static$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XTaskbarPeer$$Lambda$lambda$static$0$1);
+	});
 	return class$;
 }
 $Class* XTaskbarPeer$$Lambda$lambda$static$0$1::class$ = nullptr;
-
-$FieldInfo _XTaskbarPeer_FieldInfo_[] = {
-	{"nativeLibraryLoaded", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XTaskbarPeer, nativeLibraryLoaded)},
-	{"initExecuted", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XTaskbarPeer, initExecuted)},
-	{"menu", "Ljava/awt/PopupMenu;", nullptr, $PRIVATE, $field(XTaskbarPeer, menu)},
-	{"isUnity", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XTaskbarPeer, isUnity)},
-	{}
-};
-
-$MethodInfo _XTaskbarPeer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(XTaskbarPeer, init$, void)},
-	{"getMenu", "()Ljava/awt/PopupMenu;", nullptr, $PUBLIC, $virtualMethod(XTaskbarPeer, getMenu, $PopupMenu*)},
-	{"init", "(Ljava/lang/String;IZ)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(XTaskbarPeer, init, bool, $String*, int32_t, bool)},
-	{"initWithLock", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(XTaskbarPeer, initWithLock, void)},
-	{"isSupported", "(Ljava/awt/Taskbar$Feature;)Z", nullptr, $PUBLIC, $virtualMethod(XTaskbarPeer, isSupported, bool, $Taskbar$Feature*)},
-	{"isTaskbarSupported", "()Z", nullptr, $STATIC, $staticMethod(XTaskbarPeer, isTaskbarSupported, bool)},
-	{"lambda$initWithLock$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XTaskbarPeer, lambda$initWithLock$1, void)},
-	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XTaskbarPeer, lambda$static$0, $String*)},
-	{"menuItemCallback", "(Ljava/awt/MenuItem;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(XTaskbarPeer, menuItemCallback, void, $MenuItem*)},
-	{"requestUserAttention", "(ZZ)V", nullptr, $PUBLIC, $virtualMethod(XTaskbarPeer, requestUserAttention, void, bool, bool)},
-	{"runloop", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(XTaskbarPeer, runloop, void)},
-	{"setBadge", "(JZ)V", nullptr, $PRIVATE | $NATIVE, $method(XTaskbarPeer, setBadge, void, int64_t, bool)},
-	{"setIconBadge", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XTaskbarPeer, setIconBadge, void, $String*)},
-	{"setMenu", "(Ljava/awt/PopupMenu;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XTaskbarPeer, setMenu, void, $PopupMenu*)},
-	{"setNativeMenu", "([Ljava/awt/MenuItem;)V", nullptr, $PRIVATE | $NATIVE, $method(XTaskbarPeer, setNativeMenu, void, $MenuItemArray*)},
-	{"setProgressValue", "(I)V", nullptr, $PUBLIC, $virtualMethod(XTaskbarPeer, setProgressValue, void, int32_t)},
-	{"setUrgent", "(Z)V", nullptr, $PRIVATE | $NATIVE, $method(XTaskbarPeer, setUrgent, void, bool)},
-	{"updateProgress", "(DZ)V", nullptr, $PRIVATE | $NATIVE, $method(XTaskbarPeer, updateProgress, void, double, bool)},
-	{}
-};
-
-#define _METHOD_INDEX_init 2
-#define _METHOD_INDEX_runloop 10
-#define _METHOD_INDEX_setBadge 11
-#define _METHOD_INDEX_setNativeMenu 14
-#define _METHOD_INDEX_setUrgent 16
-#define _METHOD_INDEX_updateProgress 17
-
-$InnerClassInfo _XTaskbarPeer_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XTaskbarPeer$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _XTaskbarPeer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.X11.XTaskbarPeer",
-	"java.lang.Object",
-	"java.awt.peer.TaskbarPeer",
-	_XTaskbarPeer_FieldInfo_,
-	_XTaskbarPeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XTaskbarPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XTaskbarPeer$1"
-};
-
-$Object* allocate$XTaskbarPeer($Class* clazz) {
-	return $of($alloc(XTaskbarPeer));
-}
 
 bool XTaskbarPeer::nativeLibraryLoaded = false;
 bool XTaskbarPeer::initExecuted = false;
@@ -191,32 +120,29 @@ bool XTaskbarPeer::isUnity = false;
 
 void XTaskbarPeer::initWithLock() {
 	$init(XTaskbarPeer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (!XTaskbarPeer::initExecuted) {
-				$var($String, dname, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "java.desktop.appName"_s, ""_s)))));
-				$var($String, var$1, dname);
-				int32_t var$2 = $nc($($UNIXToolkit::getEnabledGtkVersion()))->ordinal();
-				XTaskbarPeer::nativeLibraryLoaded = init(var$1, var$2, $UNIXToolkit::isGtkVerbose());
-				if (XTaskbarPeer::nativeLibraryLoaded) {
-					$var($Thread, t, $new($Thread, nullptr, static_cast<$Runnable*>($$new(XTaskbarPeer$$Lambda$lambda$initWithLock$1)), "TaskBar"_s, 0, false));
-					t->setDaemon(true);
-					t->start();
-				}
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (!XTaskbarPeer::initExecuted) {
+			$var($String, dname, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "java.desktop.appName"_s, ""_s))));
+			int32_t var$1 = $$nc($UNIXToolkit::getEnabledGtkVersion())->ordinal();
+			XTaskbarPeer::nativeLibraryLoaded = init(dname, var$1, $UNIXToolkit::isGtkVerbose());
+			if (XTaskbarPeer::nativeLibraryLoaded) {
+				$var($Thread, t, $new($Thread, nullptr, $$new(XTaskbarPeer$$Lambda$lambda$initWithLock$1), "TaskBar"_s, 0, false));
+				t->setDaemon(true);
+				t->start();
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} /*finally*/ {
-			XTaskbarPeer::initExecuted = true;
-			$XToolkit::awtUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		XTaskbarPeer::initExecuted = true;
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -238,19 +164,12 @@ bool XTaskbarPeer::isSupported($Taskbar$Feature* feature) {
 	$init($XTaskbarPeer$1);
 	switch ($nc($XTaskbarPeer$1::$SwitchMap$java$awt$Taskbar$Feature)->get($nc((feature))->ordinal())) {
 	case 1:
-		{}
 	case 2:
-		{}
 	case 3:
-		{}
 	case 4:
-		{
-			return true;
-		}
+		return true;
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
@@ -281,10 +200,10 @@ $PopupMenu* XTaskbarPeer::getMenu() {
 
 void XTaskbarPeer::setMenu($PopupMenu* m) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$set(this, menu, m);
-		if (this->menu != nullptr && $nc(this->menu)->getItemCount() > 0) {
-			int32_t msize = $nc(this->menu)->getItemCount();
+		if (this->menu != nullptr && this->menu->getItemCount() > 0) {
+			int32_t msize = this->menu->getItemCount();
 			$var($MenuItemArray, items, $new($MenuItemArray, msize));
 			for (int32_t i = 0; i < msize; ++i) {
 				items->set(i, $($nc(this->menu)->getItem(i)));
@@ -302,62 +221,59 @@ void XTaskbarPeer::requestUserAttention(bool enabled, bool critical) {
 
 void XTaskbarPeer::menuItemCallback($MenuItem* mi) {
 	$init(XTaskbarPeer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (mi != nullptr) {
 		$var($ActionEvent, ae, $new($ActionEvent, mi, $ActionEvent::ACTION_PERFORMED, $(mi->getActionCommand())));
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$XToolkit::awtLock();
-				$XToolkit::postEvent($($XToolkit::targetToAppContext($(ae->getSource()))), ae);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$XToolkit::awtUnlock();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			$XToolkit::awtLock();
+			$XToolkit::postEvent($($XToolkit::targetToAppContext($(ae->getSource()))), ae);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$XToolkit::awtUnlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 bool XTaskbarPeer::init($String* name, int32_t version, bool verbose) {
 	$init(XTaskbarPeer);
-	bool $ret = false;
-	$prepareNativeStatic(XTaskbarPeer, init, bool, $String* name, int32_t version, bool verbose);
-	$ret = $invokeNativeStatic(name, version, verbose);
+	$prepareNativeStatic(init, bool, $String* name, int32_t version, bool verbose);
+	bool $ret = $invokeNativeStatic(name, version, verbose);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void XTaskbarPeer::runloop() {
 	$init(XTaskbarPeer);
-	$prepareNativeStatic(XTaskbarPeer, runloop, void);
+	$prepareNativeStatic(runloop, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void XTaskbarPeer::setBadge(int64_t value, bool visible) {
-	$prepareNative(XTaskbarPeer, setBadge, void, int64_t value, bool visible);
+	$prepareNative(setBadge, void, int64_t value, bool visible);
 	$invokeNative(value, visible);
 	$finishNative();
 }
 
 void XTaskbarPeer::updateProgress(double value, bool visible) {
-	$prepareNative(XTaskbarPeer, updateProgress, void, double value, bool visible);
+	$prepareNative(updateProgress, void, double value, bool visible);
 	$invokeNative(value, visible);
 	$finishNative();
 }
 
 void XTaskbarPeer::setUrgent(bool urgent) {
-	$prepareNative(XTaskbarPeer, setUrgent, void, bool urgent);
+	$prepareNative(setUrgent, void, bool urgent);
 	$invokeNative(urgent);
 	$finishNative();
 }
 
 void XTaskbarPeer::setNativeMenu($MenuItemArray* items) {
-	$prepareNative(XTaskbarPeer, setNativeMenu, void, $MenuItemArray* items);
+	$prepareNative(setNativeMenu, void, $MenuItemArray* items);
 	$invokeNative(items);
 	$finishNative();
 }
@@ -372,13 +288,13 @@ $String* XTaskbarPeer::lambda$static$0() {
 	return $System::getenv("XDG_CURRENT_DESKTOP"_s);
 }
 
-void clinit$XTaskbarPeer($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void XTaskbarPeer::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	XTaskbarPeer::nativeLibraryLoaded = false;
 	XTaskbarPeer::initExecuted = false;
 	{
-		$var($String, de, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(XTaskbarPeer$$Lambda$lambda$static$0$1)))));
+		$var($String, de, $cast($String, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(XTaskbarPeer$$Lambda$lambda$static$0$1)))));
 		XTaskbarPeer::isUnity = de != nullptr && de->equals("Unity"_s);
 	}
 }
@@ -388,14 +304,62 @@ XTaskbarPeer::XTaskbarPeer() {
 
 $Class* XTaskbarPeer::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(XTaskbarPeer$$Lambda$lambda$initWithLock$1::classInfo$.name)) {
+		if (name->equals("sun.awt.X11.XTaskbarPeer$$Lambda$lambda$initWithLock$1")) {
 			return XTaskbarPeer$$Lambda$lambda$initWithLock$1::load$(name, initialize);
 		}
-		if (name->equals(XTaskbarPeer$$Lambda$lambda$static$0$1::classInfo$.name)) {
+		if (name->equals("sun.awt.X11.XTaskbarPeer$$Lambda$lambda$static$0$1")) {
 			return XTaskbarPeer$$Lambda$lambda$static$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(XTaskbarPeer, name, initialize, &_XTaskbarPeer_ClassInfo_, clinit$XTaskbarPeer, allocate$XTaskbarPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"nativeLibraryLoaded", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XTaskbarPeer, nativeLibraryLoaded)},
+		{"initExecuted", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XTaskbarPeer, initExecuted)},
+		{"menu", "Ljava/awt/PopupMenu;", nullptr, $PRIVATE, $field(XTaskbarPeer, menu)},
+		{"isUnity", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XTaskbarPeer, isUnity)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(XTaskbarPeer, init$, void)},
+		{"getMenu", "()Ljava/awt/PopupMenu;", nullptr, $PUBLIC, $virtualMethod(XTaskbarPeer, getMenu, $PopupMenu*)},
+		{"init", "(Ljava/lang/String;IZ)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(XTaskbarPeer, init, bool, $String*, int32_t, bool)},
+		{"initWithLock", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(XTaskbarPeer, initWithLock, void)},
+		{"isSupported", "(Ljava/awt/Taskbar$Feature;)Z", nullptr, $PUBLIC, $virtualMethod(XTaskbarPeer, isSupported, bool, $Taskbar$Feature*)},
+		{"isTaskbarSupported", "()Z", nullptr, $STATIC, $staticMethod(XTaskbarPeer, isTaskbarSupported, bool)},
+		{"lambda$initWithLock$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XTaskbarPeer, lambda$initWithLock$1, void)},
+		{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XTaskbarPeer, lambda$static$0, $String*)},
+		{"menuItemCallback", "(Ljava/awt/MenuItem;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(XTaskbarPeer, menuItemCallback, void, $MenuItem*)},
+		{"requestUserAttention", "(ZZ)V", nullptr, $PUBLIC, $virtualMethod(XTaskbarPeer, requestUserAttention, void, bool, bool)},
+		{"runloop", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(XTaskbarPeer, runloop, void)},
+		{"setBadge", "(JZ)V", nullptr, $PRIVATE | $NATIVE, $method(XTaskbarPeer, setBadge, void, int64_t, bool)},
+		{"setIconBadge", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XTaskbarPeer, setIconBadge, void, $String*)},
+		{"setMenu", "(Ljava/awt/PopupMenu;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XTaskbarPeer, setMenu, void, $PopupMenu*)},
+		{"setNativeMenu", "([Ljava/awt/MenuItem;)V", nullptr, $PRIVATE | $NATIVE, $method(XTaskbarPeer, setNativeMenu, void, $MenuItemArray*)},
+		{"setProgressValue", "(I)V", nullptr, $PUBLIC, $virtualMethod(XTaskbarPeer, setProgressValue, void, int32_t)},
+		{"setUrgent", "(Z)V", nullptr, $PRIVATE | $NATIVE, $method(XTaskbarPeer, setUrgent, void, bool)},
+		{"updateProgress", "(DZ)V", nullptr, $PRIVATE | $NATIVE, $method(XTaskbarPeer, updateProgress, void, double, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XTaskbarPeer$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.X11.XTaskbarPeer",
+		"java.lang.Object",
+		"java.awt.peer.TaskbarPeer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XTaskbarPeer$1"
+	};
+	$loadClass(XTaskbarPeer, name, initialize, &classInfo$$, XTaskbarPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XTaskbarPeer);
+	});
 	return class$;
 }
 

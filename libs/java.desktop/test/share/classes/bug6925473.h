@@ -12,6 +12,7 @@ class $export bug6925473 : public ::java::lang::Object {
 	$class(bug6925473, 0, ::java::lang::Object)
 public:
 	bug6925473();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static $String* LONG_TEXT;

@@ -1,5 +1,4 @@
 #include <sun/java2d/metal/MTLPaints.h>
-
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <sun/java2d/SunGraphics2D.h>
@@ -32,46 +31,6 @@ namespace sun {
 	namespace java2d {
 		namespace metal {
 
-$FieldInfo _MTLPaints_FieldInfo_[] = {
-	{"impls", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Lsun/java2d/metal/MTLPaints;>;", $PRIVATE | $STATIC, $staticField(MTLPaints, impls)},
-	{}
-};
-
-$MethodInfo _MTLPaints_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MTLPaints, init$, void)},
-	{"isPaintValid", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, $ABSTRACT, $virtualMethod(MTLPaints, isPaintValid, bool, $SunGraphics2D*)},
-	{"isValid", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, $STATIC, $staticMethod(MTLPaints, isValid, bool, $SunGraphics2D*)},
-	{}
-};
-
-$InnerClassInfo _MTLPaints_InnerClassesInfo_[] = {
-	{"sun.java2d.metal.MTLPaints$RadialGradient", "sun.java2d.metal.MTLPaints", "RadialGradient", $PRIVATE | $STATIC},
-	{"sun.java2d.metal.MTLPaints$LinearGradient", "sun.java2d.metal.MTLPaints", "LinearGradient", $PRIVATE | $STATIC},
-	{"sun.java2d.metal.MTLPaints$MultiGradient", "sun.java2d.metal.MTLPaints", "MultiGradient", $PRIVATE | $STATIC | $ABSTRACT},
-	{"sun.java2d.metal.MTLPaints$Texture", "sun.java2d.metal.MTLPaints", "Texture", $PRIVATE | $STATIC},
-	{"sun.java2d.metal.MTLPaints$Gradient", "sun.java2d.metal.MTLPaints", "Gradient", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MTLPaints_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.java2d.metal.MTLPaints",
-	"java.lang.Object",
-	nullptr,
-	_MTLPaints_FieldInfo_,
-	_MTLPaints_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MTLPaints_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.metal.MTLPaints$RadialGradient,sun.java2d.metal.MTLPaints$LinearGradient,sun.java2d.metal.MTLPaints$MultiGradient,sun.java2d.metal.MTLPaints$Texture,sun.java2d.metal.MTLPaints$Gradient"
-};
-
-$Object* allocate$MTLPaints($Class* clazz) {
-	return $of($alloc(MTLPaints));
-}
-
 $Map* MTLPaints::impls = nullptr;
 
 void MTLPaints::init$() {
@@ -79,23 +38,23 @@ void MTLPaints::init$() {
 
 bool MTLPaints::isValid($SunGraphics2D* sg2d) {
 	$init(MTLPaints);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(MTLPaints, impl, $cast(MTLPaints, $nc(MTLPaints::impls)->get($($Integer::valueOf($nc(sg2d)->paintState)))));
 	return (impl != nullptr && impl->isPaintValid(sg2d));
 }
 
-void clinit$MTLPaints($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void MTLPaints::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(MTLPaints::impls, $new($HashMap, 4, 1.0f));
 	{
-		$var($Object, var$0, $of($Integer::valueOf($SunGraphics2D::PAINT_GRADIENT)));
-		$nc(MTLPaints::impls)->put(var$0, $$new($MTLPaints$Gradient));
-		$var($Object, var$1, $of($Integer::valueOf($SunGraphics2D::PAINT_LIN_GRADIENT)));
-		$nc(MTLPaints::impls)->put(var$1, $$new($MTLPaints$LinearGradient));
-		$var($Object, var$2, $of($Integer::valueOf($SunGraphics2D::PAINT_RAD_GRADIENT)));
-		$nc(MTLPaints::impls)->put(var$2, $$new($MTLPaints$RadialGradient));
-		$var($Object, var$3, $of($Integer::valueOf($SunGraphics2D::PAINT_TEXTURE)));
-		$nc(MTLPaints::impls)->put(var$3, $$new($MTLPaints$Texture));
+		$var($Object, var$0, $Integer::valueOf($SunGraphics2D::PAINT_GRADIENT));
+		MTLPaints::impls->put(var$0, $$new($MTLPaints$Gradient));
+		$var($Object, var$1, $Integer::valueOf($SunGraphics2D::PAINT_LIN_GRADIENT));
+		MTLPaints::impls->put(var$1, $$new($MTLPaints$LinearGradient));
+		$var($Object, var$2, $Integer::valueOf($SunGraphics2D::PAINT_RAD_GRADIENT));
+		MTLPaints::impls->put(var$2, $$new($MTLPaints$RadialGradient));
+		$var($Object, var$3, $Integer::valueOf($SunGraphics2D::PAINT_TEXTURE));
+		MTLPaints::impls->put(var$3, $$new($MTLPaints$Texture));
 	}
 }
 
@@ -103,7 +62,41 @@ MTLPaints::MTLPaints() {
 }
 
 $Class* MTLPaints::load$($String* name, bool initialize) {
-	$loadClass(MTLPaints, name, initialize, &_MTLPaints_ClassInfo_, clinit$MTLPaints, allocate$MTLPaints);
+	$FieldInfo fieldInfos$$[] = {
+		{"impls", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Lsun/java2d/metal/MTLPaints;>;", $PRIVATE | $STATIC, $staticField(MTLPaints, impls)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MTLPaints, init$, void)},
+		{"isPaintValid", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, $ABSTRACT, $virtualMethod(MTLPaints, isPaintValid, bool, $SunGraphics2D*)},
+		{"isValid", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, $STATIC, $staticMethod(MTLPaints, isValid, bool, $SunGraphics2D*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.metal.MTLPaints$RadialGradient", "sun.java2d.metal.MTLPaints", "RadialGradient", $PRIVATE | $STATIC},
+		{"sun.java2d.metal.MTLPaints$LinearGradient", "sun.java2d.metal.MTLPaints", "LinearGradient", $PRIVATE | $STATIC},
+		{"sun.java2d.metal.MTLPaints$MultiGradient", "sun.java2d.metal.MTLPaints", "MultiGradient", $PRIVATE | $STATIC | $ABSTRACT},
+		{"sun.java2d.metal.MTLPaints$Texture", "sun.java2d.metal.MTLPaints", "Texture", $PRIVATE | $STATIC},
+		{"sun.java2d.metal.MTLPaints$Gradient", "sun.java2d.metal.MTLPaints", "Gradient", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.java2d.metal.MTLPaints",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.metal.MTLPaints$RadialGradient,sun.java2d.metal.MTLPaints$LinearGradient,sun.java2d.metal.MTLPaints$MultiGradient,sun.java2d.metal.MTLPaints$Texture,sun.java2d.metal.MTLPaints$Gradient"
+	};
+	$loadClass(MTLPaints, name, initialize, &classInfo$$, MTLPaints::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MTLPaints);
+	});
 	return class$;
 }
 

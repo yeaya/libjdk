@@ -1,5 +1,4 @@
 #include <JavadocExamples.h>
-
 #include <JavadocExamples$Foo.h>
 #include <JavadocExamples$FromMappingSubscriber.h>
 #include <JavadocExamples$LineParserSubscriber.h>
@@ -36,7 +35,6 @@
 #include <java/util/List.h>
 #include <java/util/concurrent/CompletableFuture.h>
 #include <java/util/concurrent/CompletionStage.h>
-#include <java/util/concurrent/Flow$Subscriber.h>
 #include <java/util/function/BiPredicate.h>
 #include <java/util/function/Consumer.h>
 #include <java/util/function/Function.h>
@@ -65,12 +63,10 @@ using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $ProxySelector = ::java::net::ProxySelector;
 using $URI = ::java::net::URI;
 using $HttpClient = ::java::net::http::HttpClient;
-using $HttpClient$Builder = ::java::net::http::HttpClient$Builder;
 using $HttpClient$Redirect = ::java::net::http::HttpClient$Redirect;
 using $HttpClient$Version = ::java::net::http::HttpClient$Version;
 using $HttpRequest = ::java::net::http::HttpRequest;
 using $HttpRequest$BodyPublishers = ::java::net::http::HttpRequest$BodyPublishers;
-using $HttpRequest$Builder = ::java::net::http::HttpRequest$Builder;
 using $HttpResponse = ::java::net::http::HttpResponse;
 using $HttpResponse$BodyHandler = ::java::net::http::HttpResponse$BodyHandler;
 using $HttpResponse$BodyHandlers = ::java::net::http::HttpResponse$BodyHandlers;
@@ -82,7 +78,6 @@ using $Paths = ::java::nio::file::Paths;
 using $Duration = ::java::time::Duration;
 using $List = ::java::util::List;
 using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
-using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $BiPredicate = ::java::util::function::BiPredicate;
 using $Consumer = ::java::util::function::Consumer;
 using $Function = ::java::util::function::Function;
@@ -97,27 +92,24 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $sure($HttpResponse, inst$)->body();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavadocExamples$$Lambda$body>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JavadocExamples$$Lambda$body::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$body, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$body, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo JavadocExamples$$Lambda$body::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JavadocExamples$$Lambda$body",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* JavadocExamples$$Lambda$body::load$($String* name, bool initialize) {
-	$loadClass(JavadocExamples$$Lambda$body, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$body, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$body, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JavadocExamples$$Lambda$body",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavadocExamples$$Lambda$body, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocExamples$$Lambda$body);
+	});
 	return class$;
 }
 $Class* JavadocExamples$$Lambda$body::class$ = nullptr;
@@ -131,33 +123,29 @@ public:
 	virtual void accept(Object$* arg0) override {
 		$nc(inst$)->println($cast($String, arg0));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavadocExamples$$Lambda$println$1>());
-	}
 	$PrintStream* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JavadocExamples$$Lambda$println$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JavadocExamples$$Lambda$println$1, inst$)},
-	{}
-};
-$MethodInfo JavadocExamples$$Lambda$println$1::methodInfos[3] = {
-	{"<init>", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$println$1, init$, void, $PrintStream*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$println$1, accept, void, Object$*)},
-	{}
-};
-$ClassInfo JavadocExamples$$Lambda$println$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JavadocExamples$$Lambda$println$1",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* JavadocExamples$$Lambda$println$1::load$($String* name, bool initialize) {
-	$loadClass(JavadocExamples$$Lambda$println$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JavadocExamples$$Lambda$println$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$println$1, init$, void, $PrintStream*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$println$1, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JavadocExamples$$Lambda$println$1",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JavadocExamples$$Lambda$println$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocExamples$$Lambda$println$1);
+	});
 	return class$;
 }
 $Class* JavadocExamples$$Lambda$println$1::class$ = nullptr;
@@ -170,27 +158,24 @@ public:
 	virtual bool test(Object$* n, Object$* v) override {
 		 return JavadocExamples::lambda$fromHttpRequest$0($cast($String, n), $cast($String, v));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavadocExamples$$Lambda$lambda$fromHttpRequest$0$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JavadocExamples$$Lambda$lambda$fromHttpRequest$0$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromHttpRequest$0$2, init$, void)},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromHttpRequest$0$2, test, bool, Object$*, Object$*)},
-	{}
-};
-$ClassInfo JavadocExamples$$Lambda$lambda$fromHttpRequest$0$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JavadocExamples$$Lambda$lambda$fromHttpRequest$0$2",
-	"java.lang.Object",
-	"java.util.function.BiPredicate",
-	nullptr,
-	methodInfos
 };
 $Class* JavadocExamples$$Lambda$lambda$fromHttpRequest$0$2::load$($String* name, bool initialize) {
-	$loadClass(JavadocExamples$$Lambda$lambda$fromHttpRequest$0$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromHttpRequest$0$2, init$, void)},
+		{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromHttpRequest$0$2, test, bool, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JavadocExamples$$Lambda$lambda$fromHttpRequest$0$2",
+		"java.lang.Object",
+		"java.util.function.BiPredicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavadocExamples$$Lambda$lambda$fromHttpRequest$0$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocExamples$$Lambda$lambda$fromHttpRequest$0$2);
+	});
 	return class$;
 }
 $Class* JavadocExamples$$Lambda$lambda$fromHttpRequest$0$2::class$ = nullptr;
@@ -203,27 +188,24 @@ public:
 	virtual bool test(Object$* n, Object$* v) override {
 		 return JavadocExamples::lambda$fromHttpRequest$1($cast($String, n), $cast($String, v));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavadocExamples$$Lambda$lambda$fromHttpRequest$1$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JavadocExamples$$Lambda$lambda$fromHttpRequest$1$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromHttpRequest$1$3, init$, void)},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromHttpRequest$1$3, test, bool, Object$*, Object$*)},
-	{}
-};
-$ClassInfo JavadocExamples$$Lambda$lambda$fromHttpRequest$1$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JavadocExamples$$Lambda$lambda$fromHttpRequest$1$3",
-	"java.lang.Object",
-	"java.util.function.BiPredicate",
-	nullptr,
-	methodInfos
 };
 $Class* JavadocExamples$$Lambda$lambda$fromHttpRequest$1$3::load$($String* name, bool initialize) {
-	$loadClass(JavadocExamples$$Lambda$lambda$fromHttpRequest$1$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromHttpRequest$1$3, init$, void)},
+		{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromHttpRequest$1$3, test, bool, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JavadocExamples$$Lambda$lambda$fromHttpRequest$1$3",
+		"java.lang.Object",
+		"java.util.function.BiPredicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavadocExamples$$Lambda$lambda$fromHttpRequest$1$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocExamples$$Lambda$lambda$fromHttpRequest$1$3);
+	});
 	return class$;
 }
 $Class* JavadocExamples$$Lambda$lambda$fromHttpRequest$1$3::class$ = nullptr;
@@ -236,27 +218,24 @@ public:
 	virtual bool test(Object$* name, Object$* value) override {
 		 return JavadocExamples::lambda$fromHttpRequest$2($cast($String, name), $cast($String, value));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavadocExamples$$Lambda$lambda$fromHttpRequest$2$4>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JavadocExamples$$Lambda$lambda$fromHttpRequest$2$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromHttpRequest$2$4, init$, void)},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromHttpRequest$2$4, test, bool, Object$*, Object$*)},
-	{}
-};
-$ClassInfo JavadocExamples$$Lambda$lambda$fromHttpRequest$2$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JavadocExamples$$Lambda$lambda$fromHttpRequest$2$4",
-	"java.lang.Object",
-	"java.util.function.BiPredicate",
-	nullptr,
-	methodInfos
 };
 $Class* JavadocExamples$$Lambda$lambda$fromHttpRequest$2$4::load$($String* name, bool initialize) {
-	$loadClass(JavadocExamples$$Lambda$lambda$fromHttpRequest$2$4, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromHttpRequest$2$4, init$, void)},
+		{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromHttpRequest$2$4, test, bool, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JavadocExamples$$Lambda$lambda$fromHttpRequest$2$4",
+		"java.lang.Object",
+		"java.util.function.BiPredicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavadocExamples$$Lambda$lambda$fromHttpRequest$2$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocExamples$$Lambda$lambda$fromHttpRequest$2$4);
+	});
 	return class$;
 }
 $Class* JavadocExamples$$Lambda$lambda$fromHttpRequest$2$4::class$ = nullptr;
@@ -270,33 +249,29 @@ public:
 	virtual void accept(Object$* arg0) override {
 		$nc(inst$)->println(arg0);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavadocExamples$$Lambda$println$5>());
-	}
 	$PrintStream* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JavadocExamples$$Lambda$println$5::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JavadocExamples$$Lambda$println$5, inst$)},
-	{}
-};
-$MethodInfo JavadocExamples$$Lambda$println$5::methodInfos[3] = {
-	{"<init>", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$println$5, init$, void, $PrintStream*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$println$5, accept, void, Object$*)},
-	{}
-};
-$ClassInfo JavadocExamples$$Lambda$println$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JavadocExamples$$Lambda$println$5",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* JavadocExamples$$Lambda$println$5::load$($String* name, bool initialize) {
-	$loadClass(JavadocExamples$$Lambda$println$5, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JavadocExamples$$Lambda$println$5, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$println$5, init$, void, $PrintStream*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$println$5, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JavadocExamples$$Lambda$println$5",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JavadocExamples$$Lambda$println$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocExamples$$Lambda$println$5);
+	});
 	return class$;
 }
 $Class* JavadocExamples$$Lambda$println$5::class$ = nullptr;
@@ -309,27 +284,24 @@ public:
 	virtual $HttpResponse$BodySubscriber* apply($HttpResponse$ResponseInfo* info) override {
 		 return JavadocExamples::lambda$fromHttpResponse$3(info);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavadocExamples$$Lambda$lambda$fromHttpResponse$3$6>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JavadocExamples$$Lambda$lambda$fromHttpResponse$3$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromHttpResponse$3$6, init$, void)},
-	{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromHttpResponse$3$6, apply, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
-	{}
-};
-$ClassInfo JavadocExamples$$Lambda$lambda$fromHttpResponse$3$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JavadocExamples$$Lambda$lambda$fromHttpResponse$3$6",
-	"java.lang.Object",
-	"java.net.http.HttpResponse$BodyHandler",
-	nullptr,
-	methodInfos
 };
 $Class* JavadocExamples$$Lambda$lambda$fromHttpResponse$3$6::load$($String* name, bool initialize) {
-	$loadClass(JavadocExamples$$Lambda$lambda$fromHttpResponse$3$6, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromHttpResponse$3$6, init$, void)},
+		{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromHttpResponse$3$6, apply, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JavadocExamples$$Lambda$lambda$fromHttpResponse$3$6",
+		"java.lang.Object",
+		"java.net.http.HttpResponse$BodyHandler",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavadocExamples$$Lambda$lambda$fromHttpResponse$3$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocExamples$$Lambda$lambda$fromHttpResponse$3$6);
+	});
 	return class$;
 }
 $Class* JavadocExamples$$Lambda$lambda$fromHttpResponse$3$6::class$ = nullptr;
@@ -342,27 +314,24 @@ public:
 	virtual $HttpResponse$BodySubscriber* apply($HttpResponse$ResponseInfo* responseInfo) override {
 		 return JavadocExamples::lambda$fromHttpResponse$4(responseInfo);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavadocExamples$$Lambda$lambda$fromHttpResponse$4$7>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JavadocExamples$$Lambda$lambda$fromHttpResponse$4$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromHttpResponse$4$7, init$, void)},
-	{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromHttpResponse$4$7, apply, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
-	{}
-};
-$ClassInfo JavadocExamples$$Lambda$lambda$fromHttpResponse$4$7::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JavadocExamples$$Lambda$lambda$fromHttpResponse$4$7",
-	"java.lang.Object",
-	"java.net.http.HttpResponse$BodyHandler",
-	nullptr,
-	methodInfos
 };
 $Class* JavadocExamples$$Lambda$lambda$fromHttpResponse$4$7::load$($String* name, bool initialize) {
-	$loadClass(JavadocExamples$$Lambda$lambda$fromHttpResponse$4$7, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromHttpResponse$4$7, init$, void)},
+		{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromHttpResponse$4$7, apply, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JavadocExamples$$Lambda$lambda$fromHttpResponse$4$7",
+		"java.lang.Object",
+		"java.net.http.HttpResponse$BodyHandler",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavadocExamples$$Lambda$lambda$fromHttpResponse$4$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocExamples$$Lambda$lambda$fromHttpResponse$4$7);
+	});
 	return class$;
 }
 $Class* JavadocExamples$$Lambda$lambda$fromHttpResponse$4$7::class$ = nullptr;
@@ -375,27 +344,24 @@ public:
 	virtual $HttpResponse$BodySubscriber* apply($HttpResponse$ResponseInfo* responseInfo) override {
 		 return JavadocExamples::lambda$fromHttpResponse$5(responseInfo);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavadocExamples$$Lambda$lambda$fromHttpResponse$5$8>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JavadocExamples$$Lambda$lambda$fromHttpResponse$5$8::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromHttpResponse$5$8, init$, void)},
-	{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromHttpResponse$5$8, apply, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
-	{}
-};
-$ClassInfo JavadocExamples$$Lambda$lambda$fromHttpResponse$5$8::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JavadocExamples$$Lambda$lambda$fromHttpResponse$5$8",
-	"java.lang.Object",
-	"java.net.http.HttpResponse$BodyHandler",
-	nullptr,
-	methodInfos
 };
 $Class* JavadocExamples$$Lambda$lambda$fromHttpResponse$5$8::load$($String* name, bool initialize) {
-	$loadClass(JavadocExamples$$Lambda$lambda$fromHttpResponse$5$8, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromHttpResponse$5$8, init$, void)},
+		{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromHttpResponse$5$8, apply, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JavadocExamples$$Lambda$lambda$fromHttpResponse$5$8",
+		"java.lang.Object",
+		"java.net.http.HttpResponse$BodyHandler",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavadocExamples$$Lambda$lambda$fromHttpResponse$5$8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocExamples$$Lambda$lambda$fromHttpResponse$5$8);
+	});
 	return class$;
 }
 $Class* JavadocExamples$$Lambda$lambda$fromHttpResponse$5$8::class$ = nullptr;
@@ -408,27 +374,24 @@ public:
 	virtual $HttpResponse$BodySubscriber* apply($HttpResponse$ResponseInfo* responseInfo) override {
 		 return JavadocExamples::lambda$fromHttpResponse$6(responseInfo);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavadocExamples$$Lambda$lambda$fromHttpResponse$6$9>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JavadocExamples$$Lambda$lambda$fromHttpResponse$6$9::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromHttpResponse$6$9, init$, void)},
-	{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromHttpResponse$6$9, apply, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
-	{}
-};
-$ClassInfo JavadocExamples$$Lambda$lambda$fromHttpResponse$6$9::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JavadocExamples$$Lambda$lambda$fromHttpResponse$6$9",
-	"java.lang.Object",
-	"java.net.http.HttpResponse$BodyHandler",
-	nullptr,
-	methodInfos
 };
 $Class* JavadocExamples$$Lambda$lambda$fromHttpResponse$6$9::load$($String* name, bool initialize) {
-	$loadClass(JavadocExamples$$Lambda$lambda$fromHttpResponse$6$9, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromHttpResponse$6$9, init$, void)},
+		{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromHttpResponse$6$9, apply, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JavadocExamples$$Lambda$lambda$fromHttpResponse$6$9",
+		"java.lang.Object",
+		"java.net.http.HttpResponse$BodyHandler",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavadocExamples$$Lambda$lambda$fromHttpResponse$6$9, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocExamples$$Lambda$lambda$fromHttpResponse$6$9);
+	});
 	return class$;
 }
 $Class* JavadocExamples$$Lambda$lambda$fromHttpResponse$6$9::class$ = nullptr;
@@ -441,27 +404,24 @@ public:
 	virtual $HttpResponse$BodySubscriber* apply($HttpResponse$ResponseInfo* responseInfo) override {
 		 return JavadocExamples::lambda$fromHttpResponse$7(responseInfo);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavadocExamples$$Lambda$lambda$fromHttpResponse$7$10>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JavadocExamples$$Lambda$lambda$fromHttpResponse$7$10::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromHttpResponse$7$10, init$, void)},
-	{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromHttpResponse$7$10, apply, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
-	{}
-};
-$ClassInfo JavadocExamples$$Lambda$lambda$fromHttpResponse$7$10::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JavadocExamples$$Lambda$lambda$fromHttpResponse$7$10",
-	"java.lang.Object",
-	"java.net.http.HttpResponse$BodyHandler",
-	nullptr,
-	methodInfos
 };
 $Class* JavadocExamples$$Lambda$lambda$fromHttpResponse$7$10::load$($String* name, bool initialize) {
-	$loadClass(JavadocExamples$$Lambda$lambda$fromHttpResponse$7$10, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromHttpResponse$7$10, init$, void)},
+		{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromHttpResponse$7$10, apply, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JavadocExamples$$Lambda$lambda$fromHttpResponse$7$10",
+		"java.lang.Object",
+		"java.net.http.HttpResponse$BodyHandler",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavadocExamples$$Lambda$lambda$fromHttpResponse$7$10, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocExamples$$Lambda$lambda$fromHttpResponse$7$10);
+	});
 	return class$;
 }
 $Class* JavadocExamples$$Lambda$lambda$fromHttpResponse$7$10::class$ = nullptr;
@@ -474,27 +434,24 @@ public:
 	virtual $HttpResponse$BodySubscriber* apply($HttpResponse$ResponseInfo* resp) override {
 		 return JavadocExamples::lambda$fromHttpResponse$8(resp);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavadocExamples$$Lambda$lambda$fromHttpResponse$8$11>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JavadocExamples$$Lambda$lambda$fromHttpResponse$8$11::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromHttpResponse$8$11, init$, void)},
-	{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromHttpResponse$8$11, apply, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
-	{}
-};
-$ClassInfo JavadocExamples$$Lambda$lambda$fromHttpResponse$8$11::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JavadocExamples$$Lambda$lambda$fromHttpResponse$8$11",
-	"java.lang.Object",
-	"java.net.http.HttpResponse$BodyHandler",
-	nullptr,
-	methodInfos
 };
 $Class* JavadocExamples$$Lambda$lambda$fromHttpResponse$8$11::load$($String* name, bool initialize) {
-	$loadClass(JavadocExamples$$Lambda$lambda$fromHttpResponse$8$11, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromHttpResponse$8$11, init$, void)},
+		{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromHttpResponse$8$11, apply, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JavadocExamples$$Lambda$lambda$fromHttpResponse$8$11",
+		"java.lang.Object",
+		"java.net.http.HttpResponse$BodyHandler",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavadocExamples$$Lambda$lambda$fromHttpResponse$8$11, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocExamples$$Lambda$lambda$fromHttpResponse$8$11);
+	});
 	return class$;
 }
 $Class* JavadocExamples$$Lambda$lambda$fromHttpResponse$8$11::class$ = nullptr;
@@ -507,27 +464,24 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $of($sure($HttpResponse, inst$)->statusCode());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavadocExamples$$Lambda$statusCode$12>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JavadocExamples$$Lambda$statusCode$12::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$statusCode$12, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$statusCode$12, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo JavadocExamples$$Lambda$statusCode$12::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JavadocExamples$$Lambda$statusCode$12",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* JavadocExamples$$Lambda$statusCode$12::load$($String* name, bool initialize) {
-	$loadClass(JavadocExamples$$Lambda$statusCode$12, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$statusCode$12, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$statusCode$12, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JavadocExamples$$Lambda$statusCode$12",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavadocExamples$$Lambda$statusCode$12, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocExamples$$Lambda$statusCode$12);
+	});
 	return class$;
 }
 $Class* JavadocExamples$$Lambda$statusCode$12::class$ = nullptr;
@@ -540,27 +494,24 @@ public:
 	virtual void accept(Object$* status) override {
 		JavadocExamples::lambda$fromLineSubscriber1$9($cast($Integer, status));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavadocExamples$$Lambda$lambda$fromLineSubscriber1$9$13>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JavadocExamples$$Lambda$lambda$fromLineSubscriber1$9$13::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromLineSubscriber1$9$13, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromLineSubscriber1$9$13, accept, void, Object$*)},
-	{}
-};
-$ClassInfo JavadocExamples$$Lambda$lambda$fromLineSubscriber1$9$13::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JavadocExamples$$Lambda$lambda$fromLineSubscriber1$9$13",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	nullptr,
-	methodInfos
 };
 $Class* JavadocExamples$$Lambda$lambda$fromLineSubscriber1$9$13::load$($String* name, bool initialize) {
-	$loadClass(JavadocExamples$$Lambda$lambda$fromLineSubscriber1$9$13, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromLineSubscriber1$9$13, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromLineSubscriber1$9$13, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JavadocExamples$$Lambda$lambda$fromLineSubscriber1$9$13",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavadocExamples$$Lambda$lambda$fromLineSubscriber1$9$13, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocExamples$$Lambda$lambda$fromLineSubscriber1$9$13);
+	});
 	return class$;
 }
 $Class* JavadocExamples$$Lambda$lambda$fromLineSubscriber1$9$13::class$ = nullptr;
@@ -571,29 +522,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(JavadocExamples::lambda$fromLineSubscriber2$10($cast($JavadocExamples$LineParserSubscriber, s)));
+		 return JavadocExamples::lambda$fromLineSubscriber2$10($cast($JavadocExamples$LineParserSubscriber, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavadocExamples$$Lambda$lambda$fromLineSubscriber2$10$14>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JavadocExamples$$Lambda$lambda$fromLineSubscriber2$10$14::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromLineSubscriber2$10$14, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromLineSubscriber2$10$14, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo JavadocExamples$$Lambda$lambda$fromLineSubscriber2$10$14::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JavadocExamples$$Lambda$lambda$fromLineSubscriber2$10$14",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* JavadocExamples$$Lambda$lambda$fromLineSubscriber2$10$14::load$($String* name, bool initialize) {
-	$loadClass(JavadocExamples$$Lambda$lambda$fromLineSubscriber2$10$14, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromLineSubscriber2$10$14, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromLineSubscriber2$10$14, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JavadocExamples$$Lambda$lambda$fromLineSubscriber2$10$14",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavadocExamples$$Lambda$lambda$fromLineSubscriber2$10$14, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocExamples$$Lambda$lambda$fromLineSubscriber2$10$14);
+	});
 	return class$;
 }
 $Class* JavadocExamples$$Lambda$lambda$fromLineSubscriber2$10$14::class$ = nullptr;
@@ -604,88 +552,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($String, inst$)->getBytes());
+		 return $sure($String, inst$)->getBytes();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavadocExamples$$Lambda$getBytes$15>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JavadocExamples$$Lambda$getBytes$15::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$getBytes$15, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$getBytes$15, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo JavadocExamples$$Lambda$getBytes$15::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JavadocExamples$$Lambda$getBytes$15",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* JavadocExamples$$Lambda$getBytes$15::load$($String* name, bool initialize) {
-	$loadClass(JavadocExamples$$Lambda$getBytes$15, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$getBytes$15, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$getBytes$15, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JavadocExamples$$Lambda$getBytes$15",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavadocExamples$$Lambda$getBytes$15, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocExamples$$Lambda$getBytes$15);
+	});
 	return class$;
 }
 $Class* JavadocExamples$$Lambda$getBytes$15::class$ = nullptr;
-
-$FieldInfo _JavadocExamples_FieldInfo_[] = {
-	{"request", "Ljava/net/http/HttpRequest;", nullptr, 0, $field(JavadocExamples, request)},
-	{"client", "Ljava/net/http/HttpClient;", nullptr, 0, $field(JavadocExamples, client)},
-	{"p", "Ljava/util/regex/Pattern;", nullptr, 0, $field(JavadocExamples, p)},
-	{}
-};
-
-$MethodInfo _JavadocExamples_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples, init$, void)},
-	{"fromHttpClientClasslevelDescription", "()V", nullptr, 0, $virtualMethod(JavadocExamples, fromHttpClientClasslevelDescription, void), "java.lang.Exception"},
-	{"fromHttpRequest", "()V", nullptr, 0, $virtualMethod(JavadocExamples, fromHttpRequest, void), "java.lang.Exception"},
-	{"fromHttpResponse", "()V", nullptr, 0, $virtualMethod(JavadocExamples, fromHttpResponse, void), "java.lang.Exception"},
-	{"fromLineSubscriber1", "()V", nullptr, 0, $virtualMethod(JavadocExamples, fromLineSubscriber1, void)},
-	{"fromLineSubscriber2", "()V", nullptr, 0, $virtualMethod(JavadocExamples, fromLineSubscriber2, void), "java.io.IOException,java.lang.InterruptedException"},
-	{"lambda$fromHttpRequest$0", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromHttpRequest$0, bool, $String*, $String*)},
-	{"lambda$fromHttpRequest$1", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromHttpRequest$1, bool, $String*, $String*)},
-	{"lambda$fromHttpRequest$2", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromHttpRequest$2, bool, $String*, $String*)},
-	{"lambda$fromHttpResponse$3", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromHttpResponse$3, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
-	{"lambda$fromHttpResponse$4", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromHttpResponse$4, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
-	{"lambda$fromHttpResponse$5", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromHttpResponse$5, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
-	{"lambda$fromHttpResponse$6", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromHttpResponse$6, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
-	{"lambda$fromHttpResponse$7", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromHttpResponse$7, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
-	{"lambda$fromHttpResponse$8", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromHttpResponse$8, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
-	{"lambda$fromLineSubscriber1$9", "(Ljava/lang/Integer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromLineSubscriber1$9, void, $Integer*)},
-	{"lambda$fromLineSubscriber2$10", "(LJavadocExamples$LineParserSubscriber;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromLineSubscriber2$10, $List*, $JavadocExamples$LineParserSubscriber*)},
-	{}
-};
-
-$InnerClassInfo _JavadocExamples_InnerClassesInfo_[] = {
-	{"JavadocExamples$FromMappingSubscriber", "JavadocExamples", "FromMappingSubscriber", $STATIC},
-	{"JavadocExamples$ObjectMapper", "JavadocExamples", "ObjectMapper", $STATIC},
-	{"JavadocExamples$Foo", "JavadocExamples", "Foo", $PUBLIC | $STATIC},
-	{"JavadocExamples$LineParserSubscriber", "JavadocExamples", "LineParserSubscriber", $STATIC | $FINAL},
-	{"JavadocExamples$PrintSubscriber", "JavadocExamples", "PrintSubscriber", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _JavadocExamples_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"JavadocExamples",
-	"java.lang.Object",
-	nullptr,
-	_JavadocExamples_FieldInfo_,
-	_JavadocExamples_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavadocExamples_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"JavadocExamples$FromMappingSubscriber,JavadocExamples$ObjectMapper,JavadocExamples$Foo,JavadocExamples$LineParserSubscriber,JavadocExamples$PrintSubscriber"
-};
-
-$Object* allocate$JavadocExamples($Class* clazz) {
-	return $of($alloc(JavadocExamples));
-}
 
 void JavadocExamples::init$() {
 	$set(this, request, nullptr);
@@ -694,63 +583,63 @@ void JavadocExamples::init$() {
 }
 
 void JavadocExamples::fromHttpClientClasslevelDescription() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($HttpClient$Version);
 	$init($HttpClient$Redirect);
-	$var($HttpClient, client, $nc($($nc($($nc($($nc($($nc($($nc($($HttpClient::newBuilder()))->version($HttpClient$Version::HTTP_1_1)))->followRedirects($HttpClient$Redirect::NORMAL)))->connectTimeout($($Duration::ofSeconds(20)))))->proxy($($ProxySelector::of($$new($InetSocketAddress, "proxy.example.com"_s, 80))))))->authenticator($($Authenticator::getDefault()))))->build());
+	$var($HttpClient, client, $$nc($$nc($$nc($$nc($$nc($$nc($HttpClient::newBuilder())->version($HttpClient$Version::HTTP_1_1))->followRedirects($HttpClient$Redirect::NORMAL))->connectTimeout($($Duration::ofSeconds(20))))->proxy($($ProxySelector::of($$new($InetSocketAddress, "proxy.example.com"_s, 80)))))->authenticator($($Authenticator::getDefault())))->build());
 	$var($HttpResponse, response, $nc(client)->send(this->request, $($HttpResponse$BodyHandlers::ofString())));
 	$nc($System::out)->println($nc(response)->statusCode());
-	$nc($System::out)->println($cast($String, $($nc(response)->body())));
-	$var($HttpRequest, request, $nc($($nc($($nc($($nc($($nc($($HttpRequest::newBuilder()))->uri($($URI::create("https://foo.com/"_s)))))->timeout($($Duration::ofMinutes(2)))))->header("Content-Type"_s, "application/json"_s)))->POST($($HttpRequest$BodyPublishers::ofFile($($Paths::get("file.json"_s, $$new($StringArray, 0))))))))->build());
-	$nc($($cast($CompletableFuture, $nc($(client->sendAsync(request, $($HttpResponse$BodyHandlers::ofString()))))->thenApply(static_cast<$Function*>($$new(JavadocExamples$$Lambda$body))))))->thenAccept(static_cast<$Consumer*>($$new(JavadocExamples$$Lambda$println$1, static_cast<$PrintStream*>($nc($System::out)))));
+	$System::out->println($$cast($String, response->body()));
+	$var($HttpRequest, request, $$nc($$nc($$nc($$nc($$nc($HttpRequest::newBuilder())->uri($($URI::create("https://foo.com/"_s))))->timeout($($Duration::ofMinutes(2))))->header("Content-Type"_s, "application/json"_s))->POST($($HttpRequest$BodyPublishers::ofFile($($Paths::get("file.json"_s, $$new($StringArray, 0)))))))->build());
+	$$sure($CompletableFuture, $$nc(client->sendAsync(request, $($HttpResponse$BodyHandlers::ofString())))->thenApply($$new(JavadocExamples$$Lambda$body)))->thenAccept($$new(JavadocExamples$$Lambda$println$1, $System::out));
 }
 
 void JavadocExamples::fromHttpRequest() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpClient, client, $HttpClient::newHttpClient());
-	$var($HttpRequest, request, $nc($($nc($($HttpRequest::newBuilder()))->uri($($URI::create("http://foo.com/"_s)))))->build());
-	$nc($($cast($CompletableFuture, $nc($($cast($CompletableFuture, $nc($($nc(client)->sendAsync(request, $($HttpResponse$BodyHandlers::ofString()))))->thenApply(static_cast<$Function*>($$new(JavadocExamples$$Lambda$body))))))->thenAccept(static_cast<$Consumer*>($$new(JavadocExamples$$Lambda$println$1, static_cast<$PrintStream*>($nc($System::out))))))))->join();
-	$var($HttpRequest, request1, $nc($($nc($($nc($($nc($($HttpRequest::newBuilder()))->uri($($URI::create("https://foo.com/"_s)))))->header("Content-Type"_s, "text/plain; charset=UTF-8"_s)))->POST($($HttpRequest$BodyPublishers::ofString("some body text"_s)))))->build());
-	$var($HttpRequest, request2, $nc($($nc($($nc($($nc($($HttpRequest::newBuilder()))->uri($($URI::create("https://foo.com/"_s)))))->header("Content-Type"_s, "application/json"_s)))->POST($($HttpRequest$BodyPublishers::ofFile($($Paths::get("file.json"_s, $$new($StringArray, 0))))))))->build());
-	$var($HttpRequest, request3, $nc($($nc($($nc($($HttpRequest::newBuilder()))->uri($($URI::create("https://foo.com/"_s)))))->POST($($HttpRequest$BodyPublishers::ofByteArray($$new($bytes, 0))))))->build());
-	$HttpRequest::newBuilder(request, static_cast<$BiPredicate*>($$new(JavadocExamples$$Lambda$lambda$fromHttpRequest$0$2)));
-	$HttpRequest::newBuilder(request, static_cast<$BiPredicate*>($$new(JavadocExamples$$Lambda$lambda$fromHttpRequest$1$3)));
-	$HttpRequest::newBuilder(request, static_cast<$BiPredicate*>($$new(JavadocExamples$$Lambda$lambda$fromHttpRequest$2$4)));
+	$var($HttpRequest, request, $$nc($$nc($HttpRequest::newBuilder())->uri($($URI::create("http://foo.com/"_s))))->build());
+	$$sure($CompletableFuture, $$sure($CompletableFuture, $$nc($nc(client)->sendAsync(request, $($HttpResponse$BodyHandlers::ofString())))->thenApply($$new(JavadocExamples$$Lambda$body)))->thenAccept($$new(JavadocExamples$$Lambda$println$1, $nc($System::out))))->join();
+	$var($HttpRequest, request1, $$nc($$nc($$nc($$nc($HttpRequest::newBuilder())->uri($($URI::create("https://foo.com/"_s))))->header("Content-Type"_s, "text/plain; charset=UTF-8"_s))->POST($($HttpRequest$BodyPublishers::ofString("some body text"_s))))->build());
+	$var($HttpRequest, request2, $$nc($$nc($$nc($$nc($HttpRequest::newBuilder())->uri($($URI::create("https://foo.com/"_s))))->header("Content-Type"_s, "application/json"_s))->POST($($HttpRequest$BodyPublishers::ofFile($($Paths::get("file.json"_s, $$new($StringArray, 0)))))))->build());
+	$var($HttpRequest, request3, $$nc($$nc($$nc($HttpRequest::newBuilder())->uri($($URI::create("https://foo.com/"_s))))->POST($($HttpRequest$BodyPublishers::ofByteArray($$new($bytes, 0)))))->build());
+	$HttpRequest::newBuilder(request, $$new(JavadocExamples$$Lambda$lambda$fromHttpRequest$0$2));
+	$HttpRequest::newBuilder(request, $$new(JavadocExamples$$Lambda$lambda$fromHttpRequest$1$3));
+	$HttpRequest::newBuilder(request, $$new(JavadocExamples$$Lambda$lambda$fromHttpRequest$2$4));
 }
 
 void JavadocExamples::fromHttpResponse() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpResponse, response, $nc(this->client)->send(this->request, $($HttpResponse$BodyHandlers::ofString())));
-	$var($HttpRequest, request, $nc($($nc($($HttpRequest::newBuilder()))->uri($($URI::create("http://www.foo.com/"_s)))))->build());
-	$nc($($cast($CompletableFuture, $nc($($nc(this->client)->sendAsync(request, $($HttpResponse$BodyHandlers::ofFile($($Paths::get("/tmp/f"_s, $$new($StringArray, 0))))))))->thenApply(static_cast<$Function*>($$new(JavadocExamples$$Lambda$body))))))->thenAccept(static_cast<$Consumer*>($$new(JavadocExamples$$Lambda$println$5, static_cast<$PrintStream*>($nc($System::out)))));
-	$var($HttpRequest, request1, $nc($($nc($($HttpRequest::newBuilder()))->uri($($URI::create("http://www.foo.com/"_s)))))->build());
-	$var($HttpResponse$BodyHandler, bodyHandler, static_cast<$HttpResponse$BodyHandler*>($new(JavadocExamples$$Lambda$lambda$fromHttpResponse$3$6)));
-	$nc($($cast($CompletableFuture, $nc($($nc(this->client)->sendAsync(request, bodyHandler)))->thenApply(static_cast<$Function*>($$new(JavadocExamples$$Lambda$body))))))->thenAccept(static_cast<$Consumer*>($$new(JavadocExamples$$Lambda$println$5, static_cast<$PrintStream*>($nc($System::out)))));
+	$var($HttpRequest, request, $$nc($$nc($HttpRequest::newBuilder())->uri($($URI::create("http://www.foo.com/"_s))))->build());
+	$$sure($CompletableFuture, $$nc($nc(this->client)->sendAsync(request, $($HttpResponse$BodyHandlers::ofFile($($Paths::get("/tmp/f"_s, $$new($StringArray, 0)))))))->thenApply($$new(JavadocExamples$$Lambda$body)))->thenAccept($$new(JavadocExamples$$Lambda$println$5, $nc($System::out)));
+	$var($HttpRequest, request1, $$nc($$nc($HttpRequest::newBuilder())->uri($($URI::create("http://www.foo.com/"_s))))->build());
+	$var($HttpResponse$BodyHandler, bodyHandler, $new(JavadocExamples$$Lambda$lambda$fromHttpResponse$3$6));
+	$$sure($CompletableFuture, $$nc($nc(this->client)->sendAsync(request, bodyHandler))->thenApply($$new(JavadocExamples$$Lambda$body)))->thenAccept($$new(JavadocExamples$$Lambda$println$5, $System::out));
 	$var($HttpResponse, response1, $nc(this->client)->send(request, $($HttpResponse$BodyHandlers::ofString())));
 	$var($HttpResponse, response2, $nc(this->client)->send(request, $($HttpResponse$BodyHandlers::ofFile($($Paths::get("example.html"_s, $$new($StringArray, 0)))))));
 	$var($HttpResponse, respons3, $nc(this->client)->send(request, $($HttpResponse$BodyHandlers::ofInputStream())));
 	$var($HttpResponse, respons4, $nc(this->client)->send(request, $($HttpResponse$BodyHandlers::discarding())));
-	$var($HttpResponse, response5, $nc(this->client)->send(request, static_cast<$HttpResponse$BodyHandler*>($$new(JavadocExamples$$Lambda$lambda$fromHttpResponse$4$7))));
-	$var($HttpResponse, response6, $nc(this->client)->send(request, static_cast<$HttpResponse$BodyHandler*>($$new(JavadocExamples$$Lambda$lambda$fromHttpResponse$5$8))));
-	$var($HttpResponse, response7, $nc(this->client)->send(request, static_cast<$HttpResponse$BodyHandler*>($$new(JavadocExamples$$Lambda$lambda$fromHttpResponse$6$9))));
-	$var($HttpResponse, response8, $nc(this->client)->send(request, static_cast<$HttpResponse$BodyHandler*>($$new(JavadocExamples$$Lambda$lambda$fromHttpResponse$7$10))));
-	$var($HttpResponse, response9, $nc(this->client)->send(request, static_cast<$HttpResponse$BodyHandler*>($$new(JavadocExamples$$Lambda$lambda$fromHttpResponse$8$11))));
-	$var($String, resp, $nc(($cast($JavadocExamples$Foo, $($nc(($cast($Supplier, $($nc(response9)->body()))))->get()))))->asString());
+	$var($HttpResponse, response5, $nc(this->client)->send(request, $$new(JavadocExamples$$Lambda$lambda$fromHttpResponse$4$7)));
+	$var($HttpResponse, response6, $nc(this->client)->send(request, $$new(JavadocExamples$$Lambda$lambda$fromHttpResponse$5$8)));
+	$var($HttpResponse, response7, $nc(this->client)->send(request, $$new(JavadocExamples$$Lambda$lambda$fromHttpResponse$6$9)));
+	$var($HttpResponse, response8, $nc(this->client)->send(request, $$new(JavadocExamples$$Lambda$lambda$fromHttpResponse$7$10)));
+	$var($HttpResponse, response9, $nc(this->client)->send(request, $$new(JavadocExamples$$Lambda$lambda$fromHttpResponse$8$11)));
+	$var($String, resp, $$sure($JavadocExamples$Foo, $$sure($Supplier, $nc(response9)->body())->get())->asString());
 }
 
 void JavadocExamples::fromLineSubscriber1() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JavadocExamples$PrintSubscriber, subscriber, $new($JavadocExamples$PrintSubscriber, $System::out));
-	$nc($($cast($CompletableFuture, $nc($($nc(this->client)->sendAsync(this->request, $($HttpResponse$BodyHandlers::fromLineSubscriber(subscriber)))))->thenApply(static_cast<$Function*>($$new(JavadocExamples$$Lambda$statusCode$12))))))->thenAccept(static_cast<$Consumer*>($$new(JavadocExamples$$Lambda$lambda$fromLineSubscriber1$9$13)));
+	$$sure($CompletableFuture, $$nc($nc(this->client)->sendAsync(this->request, $($HttpResponse$BodyHandlers::fromLineSubscriber(subscriber))))->thenApply($$new(JavadocExamples$$Lambda$statusCode$12)))->thenAccept($$new(JavadocExamples$$Lambda$lambda$fromLineSubscriber1$9$13));
 }
 
 void JavadocExamples::fromLineSubscriber2() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Pattern, pattern, this->p);
 	$var($JavadocExamples$LineParserSubscriber, subscriber, $new($JavadocExamples$LineParserSubscriber, pattern));
-	$var($HttpResponse, response, $nc(this->client)->send(this->request, $($HttpResponse$BodyHandlers::fromLineSubscriber(subscriber, static_cast<$Function*>($$new(JavadocExamples$$Lambda$lambda$fromLineSubscriber2$10$14)), "\n"_s))));
+	$var($HttpResponse, response, $nc(this->client)->send(this->request, $($HttpResponse$BodyHandlers::fromLineSubscriber(subscriber, $$new(JavadocExamples$$Lambda$lambda$fromLineSubscriber2$10$14), "\n"_s))));
 	if ($nc(response)->statusCode() != 200) {
-		$nc($System::err)->printf("ERROR: %d status received%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(response->statusCode())))}));
+		$nc($System::err)->printf("ERROR: %d status received%n"_s, $$new($ObjectArray, {$($Integer::valueOf(response->statusCode()))}));
 	}
 }
 
@@ -760,7 +649,7 @@ $List* JavadocExamples::lambda$fromLineSubscriber2$10($JavadocExamples$LineParse
 
 void JavadocExamples::lambda$fromLineSubscriber1$9($Integer* status) {
 	if ($nc(status)->intValue() != 200) {
-		$nc($System::err)->printf("ERROR: %d status received%n"_s, $$new($ObjectArray, {$of(status)}));
+		$nc($System::err)->printf("ERROR: %d status received%n"_s, $$new($ObjectArray, {status}));
 	}
 }
 
@@ -770,10 +659,10 @@ $HttpResponse$BodySubscriber* JavadocExamples::lambda$fromHttpResponse$8($HttpRe
 }
 
 $HttpResponse$BodySubscriber* JavadocExamples::lambda$fromHttpResponse$7($HttpResponse$ResponseInfo* responseInfo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($StandardCharsets);
 	$var($HttpResponse$BodySubscriber, var$0, $HttpResponse$BodySubscribers::ofString($StandardCharsets::UTF_8));
-	return $HttpResponse$BodySubscribers::mapping(var$0, static_cast<$Function*>($$new(JavadocExamples$$Lambda$getBytes$15)));
+	return $HttpResponse$BodySubscribers::mapping(var$0, $$new(JavadocExamples$$Lambda$getBytes$15));
 }
 
 $HttpResponse$BodySubscriber* JavadocExamples::lambda$fromHttpResponse$6($HttpResponse$ResponseInfo* responseInfo) {
@@ -785,12 +674,12 @@ $HttpResponse$BodySubscriber* JavadocExamples::lambda$fromHttpResponse$5($HttpRe
 }
 
 $HttpResponse$BodySubscriber* JavadocExamples::lambda$fromHttpResponse$4($HttpResponse$ResponseInfo* responseInfo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $HttpResponse$BodySubscribers::ofFile($($Paths::get("example.html"_s, $$new($StringArray, 0))));
 }
 
 $HttpResponse$BodySubscriber* JavadocExamples::lambda$fromHttpResponse$3($HttpResponse$ResponseInfo* info) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $nc(info)->statusCode() == 200 ? $HttpResponse$BodySubscribers::ofFile($($Paths::get("/tmp/f"_s, $$new($StringArray, 0)))) : $HttpResponse$BodySubscribers::replacing($($Paths::get("/NULL"_s, $$new($StringArray, 0))));
 }
 
@@ -811,56 +700,106 @@ JavadocExamples::JavadocExamples() {
 
 $Class* JavadocExamples::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JavadocExamples$$Lambda$body::classInfo$.name)) {
+		if (name->equals("JavadocExamples$$Lambda$body")) {
 			return JavadocExamples$$Lambda$body::load$(name, initialize);
 		}
-		if (name->equals(JavadocExamples$$Lambda$println$1::classInfo$.name)) {
+		if (name->equals("JavadocExamples$$Lambda$println$1")) {
 			return JavadocExamples$$Lambda$println$1::load$(name, initialize);
 		}
-		if (name->equals(JavadocExamples$$Lambda$lambda$fromHttpRequest$0$2::classInfo$.name)) {
+		if (name->equals("JavadocExamples$$Lambda$lambda$fromHttpRequest$0$2")) {
 			return JavadocExamples$$Lambda$lambda$fromHttpRequest$0$2::load$(name, initialize);
 		}
-		if (name->equals(JavadocExamples$$Lambda$lambda$fromHttpRequest$1$3::classInfo$.name)) {
+		if (name->equals("JavadocExamples$$Lambda$lambda$fromHttpRequest$1$3")) {
 			return JavadocExamples$$Lambda$lambda$fromHttpRequest$1$3::load$(name, initialize);
 		}
-		if (name->equals(JavadocExamples$$Lambda$lambda$fromHttpRequest$2$4::classInfo$.name)) {
+		if (name->equals("JavadocExamples$$Lambda$lambda$fromHttpRequest$2$4")) {
 			return JavadocExamples$$Lambda$lambda$fromHttpRequest$2$4::load$(name, initialize);
 		}
-		if (name->equals(JavadocExamples$$Lambda$println$5::classInfo$.name)) {
+		if (name->equals("JavadocExamples$$Lambda$println$5")) {
 			return JavadocExamples$$Lambda$println$5::load$(name, initialize);
 		}
-		if (name->equals(JavadocExamples$$Lambda$lambda$fromHttpResponse$3$6::classInfo$.name)) {
+		if (name->equals("JavadocExamples$$Lambda$lambda$fromHttpResponse$3$6")) {
 			return JavadocExamples$$Lambda$lambda$fromHttpResponse$3$6::load$(name, initialize);
 		}
-		if (name->equals(JavadocExamples$$Lambda$lambda$fromHttpResponse$4$7::classInfo$.name)) {
+		if (name->equals("JavadocExamples$$Lambda$lambda$fromHttpResponse$4$7")) {
 			return JavadocExamples$$Lambda$lambda$fromHttpResponse$4$7::load$(name, initialize);
 		}
-		if (name->equals(JavadocExamples$$Lambda$lambda$fromHttpResponse$5$8::classInfo$.name)) {
+		if (name->equals("JavadocExamples$$Lambda$lambda$fromHttpResponse$5$8")) {
 			return JavadocExamples$$Lambda$lambda$fromHttpResponse$5$8::load$(name, initialize);
 		}
-		if (name->equals(JavadocExamples$$Lambda$lambda$fromHttpResponse$6$9::classInfo$.name)) {
+		if (name->equals("JavadocExamples$$Lambda$lambda$fromHttpResponse$6$9")) {
 			return JavadocExamples$$Lambda$lambda$fromHttpResponse$6$9::load$(name, initialize);
 		}
-		if (name->equals(JavadocExamples$$Lambda$lambda$fromHttpResponse$7$10::classInfo$.name)) {
+		if (name->equals("JavadocExamples$$Lambda$lambda$fromHttpResponse$7$10")) {
 			return JavadocExamples$$Lambda$lambda$fromHttpResponse$7$10::load$(name, initialize);
 		}
-		if (name->equals(JavadocExamples$$Lambda$lambda$fromHttpResponse$8$11::classInfo$.name)) {
+		if (name->equals("JavadocExamples$$Lambda$lambda$fromHttpResponse$8$11")) {
 			return JavadocExamples$$Lambda$lambda$fromHttpResponse$8$11::load$(name, initialize);
 		}
-		if (name->equals(JavadocExamples$$Lambda$statusCode$12::classInfo$.name)) {
+		if (name->equals("JavadocExamples$$Lambda$statusCode$12")) {
 			return JavadocExamples$$Lambda$statusCode$12::load$(name, initialize);
 		}
-		if (name->equals(JavadocExamples$$Lambda$lambda$fromLineSubscriber1$9$13::classInfo$.name)) {
+		if (name->equals("JavadocExamples$$Lambda$lambda$fromLineSubscriber1$9$13")) {
 			return JavadocExamples$$Lambda$lambda$fromLineSubscriber1$9$13::load$(name, initialize);
 		}
-		if (name->equals(JavadocExamples$$Lambda$lambda$fromLineSubscriber2$10$14::classInfo$.name)) {
+		if (name->equals("JavadocExamples$$Lambda$lambda$fromLineSubscriber2$10$14")) {
 			return JavadocExamples$$Lambda$lambda$fromLineSubscriber2$10$14::load$(name, initialize);
 		}
-		if (name->equals(JavadocExamples$$Lambda$getBytes$15::classInfo$.name)) {
+		if (name->equals("JavadocExamples$$Lambda$getBytes$15")) {
 			return JavadocExamples$$Lambda$getBytes$15::load$(name, initialize);
 		}
 	}
-	$loadClass(JavadocExamples, name, initialize, &_JavadocExamples_ClassInfo_, allocate$JavadocExamples);
+	$FieldInfo fieldInfos$$[] = {
+		{"request", "Ljava/net/http/HttpRequest;", nullptr, 0, $field(JavadocExamples, request)},
+		{"client", "Ljava/net/http/HttpClient;", nullptr, 0, $field(JavadocExamples, client)},
+		{"p", "Ljava/util/regex/Pattern;", nullptr, 0, $field(JavadocExamples, p)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples, init$, void)},
+		{"fromHttpClientClasslevelDescription", "()V", nullptr, 0, $virtualMethod(JavadocExamples, fromHttpClientClasslevelDescription, void), "java.lang.Exception"},
+		{"fromHttpRequest", "()V", nullptr, 0, $virtualMethod(JavadocExamples, fromHttpRequest, void), "java.lang.Exception"},
+		{"fromHttpResponse", "()V", nullptr, 0, $virtualMethod(JavadocExamples, fromHttpResponse, void), "java.lang.Exception"},
+		{"fromLineSubscriber1", "()V", nullptr, 0, $virtualMethod(JavadocExamples, fromLineSubscriber1, void)},
+		{"fromLineSubscriber2", "()V", nullptr, 0, $virtualMethod(JavadocExamples, fromLineSubscriber2, void), "java.io.IOException,java.lang.InterruptedException"},
+		{"lambda$fromHttpRequest$0", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromHttpRequest$0, bool, $String*, $String*)},
+		{"lambda$fromHttpRequest$1", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromHttpRequest$1, bool, $String*, $String*)},
+		{"lambda$fromHttpRequest$2", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromHttpRequest$2, bool, $String*, $String*)},
+		{"lambda$fromHttpResponse$3", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromHttpResponse$3, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
+		{"lambda$fromHttpResponse$4", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromHttpResponse$4, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
+		{"lambda$fromHttpResponse$5", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromHttpResponse$5, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
+		{"lambda$fromHttpResponse$6", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromHttpResponse$6, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
+		{"lambda$fromHttpResponse$7", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromHttpResponse$7, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
+		{"lambda$fromHttpResponse$8", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromHttpResponse$8, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
+		{"lambda$fromLineSubscriber1$9", "(Ljava/lang/Integer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromLineSubscriber1$9, void, $Integer*)},
+		{"lambda$fromLineSubscriber2$10", "(LJavadocExamples$LineParserSubscriber;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromLineSubscriber2$10, $List*, $JavadocExamples$LineParserSubscriber*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"JavadocExamples$FromMappingSubscriber", "JavadocExamples", "FromMappingSubscriber", $STATIC},
+		{"JavadocExamples$ObjectMapper", "JavadocExamples", "ObjectMapper", $STATIC},
+		{"JavadocExamples$Foo", "JavadocExamples", "Foo", $PUBLIC | $STATIC},
+		{"JavadocExamples$LineParserSubscriber", "JavadocExamples", "LineParserSubscriber", $STATIC | $FINAL},
+		{"JavadocExamples$PrintSubscriber", "JavadocExamples", "PrintSubscriber", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"JavadocExamples",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"JavadocExamples$FromMappingSubscriber,JavadocExamples$ObjectMapper,JavadocExamples$Foo,JavadocExamples$LineParserSubscriber,JavadocExamples$PrintSubscriber"
+	};
+	$loadClass(JavadocExamples, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocExamples);
+	});
 	return class$;
 }
 

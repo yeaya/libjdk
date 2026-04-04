@@ -1,5 +1,4 @@
 #include <javax/swing/GrayFilter.h>
-
 #include <java/awt/Image.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/image/FilteredImageSource.h>
@@ -20,7 +19,6 @@
 using $Image = ::java::awt::Image;
 using $Toolkit = ::java::awt::Toolkit;
 using $FilteredImageSource = ::java::awt::image::FilteredImageSource;
-using $ImageFilter = ::java::awt::image::ImageFilter;
 using $ImageProducer = ::java::awt::image::ImageProducer;
 using $MultiResolutionImage = ::java::awt::image::MultiResolutionImage;
 using $RGBImageFilter = ::java::awt::image::RGBImageFilter;
@@ -42,75 +40,44 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* img) override {
-		 return $of(GrayFilter::lambda$createDisabledImage$0($cast($Image, img)));
+		 return GrayFilter::lambda$createDisabledImage$0($cast($Image, img));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<GrayFilter$$Lambda$lambda$createDisabledImage$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo GrayFilter$$Lambda$lambda$createDisabledImage$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GrayFilter$$Lambda$lambda$createDisabledImage$0, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(GrayFilter$$Lambda$lambda$createDisabledImage$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo GrayFilter$$Lambda$lambda$createDisabledImage$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.GrayFilter$$Lambda$lambda$createDisabledImage$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* GrayFilter$$Lambda$lambda$createDisabledImage$0::load$($String* name, bool initialize) {
-	$loadClass(GrayFilter$$Lambda$lambda$createDisabledImage$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GrayFilter$$Lambda$lambda$createDisabledImage$0, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(GrayFilter$$Lambda$lambda$createDisabledImage$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.GrayFilter$$Lambda$lambda$createDisabledImage$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GrayFilter$$Lambda$lambda$createDisabledImage$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GrayFilter$$Lambda$lambda$createDisabledImage$0);
+	});
 	return class$;
 }
 $Class* GrayFilter$$Lambda$lambda$createDisabledImage$0::class$ = nullptr;
 
-$FieldInfo _GrayFilter_FieldInfo_[] = {
-	{"brighter", "Z", nullptr, $PRIVATE, $field(GrayFilter, brighter)},
-	{"percent", "I", nullptr, $PRIVATE, $field(GrayFilter, percent)},
-	{}
-};
-
-$MethodInfo _GrayFilter_MethodInfo_[] = {
-	{"<init>", "(ZI)V", nullptr, $PUBLIC, $method(GrayFilter, init$, void, bool, int32_t)},
-	{"createDisabledImage", "(Ljava/awt/Image;)Ljava/awt/Image;", nullptr, $PUBLIC | $STATIC, $staticMethod(GrayFilter, createDisabledImage, $Image*, $Image*)},
-	{"createDisabledImageImpl", "(Ljava/awt/Image;)Ljava/awt/Image;", nullptr, $PRIVATE | $STATIC, $staticMethod(GrayFilter, createDisabledImageImpl, $Image*, $Image*)},
-	{"filterRGB", "(III)I", nullptr, $PUBLIC, $virtualMethod(GrayFilter, filterRGB, int32_t, int32_t, int32_t, int32_t)},
-	{"lambda$createDisabledImage$0", "(Ljava/awt/Image;)Ljava/awt/Image;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GrayFilter, lambda$createDisabledImage$0, $Image*, $Image*)},
-	{}
-};
-
-$ClassInfo _GrayFilter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.GrayFilter",
-	"java.awt.image.RGBImageFilter",
-	nullptr,
-	_GrayFilter_FieldInfo_,
-	_GrayFilter_MethodInfo_
-};
-
-$Object* allocate$GrayFilter($Class* clazz) {
-	return $of($alloc(GrayFilter));
-}
-
 $Image* GrayFilter::createDisabledImage($Image* i) {
 	$init(GrayFilter);
 	if ($instanceOf($MultiResolutionImage, i)) {
-		return $MultiResolutionCachedImage::map($cast($MultiResolutionImage, i), static_cast<$Function*>($$new(GrayFilter$$Lambda$lambda$createDisabledImage$0)));
+		return $MultiResolutionCachedImage::map($cast($MultiResolutionImage, i), $$new(GrayFilter$$Lambda$lambda$createDisabledImage$0));
 	}
 	return createDisabledImageImpl(i);
 }
 
 $Image* GrayFilter::createDisabledImageImpl($Image* i) {
 	$init(GrayFilter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(GrayFilter, filter, $new(GrayFilter, true, 50));
 	$var($ImageProducer, prod, $new($FilteredImageSource, $($nc(i)->getSource()), filter));
-	$var($Image, grayImage, $nc($($Toolkit::getDefaultToolkit()))->createImage(prod));
+	$var($Image, grayImage, $$nc($Toolkit::getDefaultToolkit())->createImage(prod));
 	return grayImage;
 }
 
@@ -122,7 +89,7 @@ void GrayFilter::init$(bool b, int32_t p) {
 }
 
 int32_t GrayFilter::filterRGB(int32_t x, int32_t y, int32_t rgb) {
-	int32_t gray = $cast(int32_t, ((0.3 * ((int32_t)((rgb >> 16) & (uint32_t)255)) + 0.59 * ((int32_t)((rgb >> 8) & (uint32_t)255)) + 0.11 * ((int32_t)(rgb & (uint32_t)255))) / 3));
+	int32_t gray = $cast(int32_t, ((0.3 * ((rgb >> 16) & 0xff) + 0.59 * ((rgb >> 8) & 0xff) + 0.11 * (rgb & 0xff)) / 3));
 	if (this->brighter) {
 		gray = (255 - ((255 - gray) * (100 - this->percent) / 100));
 	} else {
@@ -134,7 +101,7 @@ int32_t GrayFilter::filterRGB(int32_t x, int32_t y, int32_t rgb) {
 	if (gray > 255) {
 		gray = 255;
 	}
-	return ((((int32_t)(rgb & (uint32_t)(int32_t)0xFF000000)) | (gray << 16)) | (gray << 8)) | (gray << 0);
+	return (((rgb & (int32_t)0xff000000) | (gray << 16)) | (gray << 8)) | (gray << 0);
 }
 
 $Image* GrayFilter::lambda$createDisabledImage$0($Image* img) {
@@ -147,11 +114,34 @@ GrayFilter::GrayFilter() {
 
 $Class* GrayFilter::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(GrayFilter$$Lambda$lambda$createDisabledImage$0::classInfo$.name)) {
+		if (name->equals("javax.swing.GrayFilter$$Lambda$lambda$createDisabledImage$0")) {
 			return GrayFilter$$Lambda$lambda$createDisabledImage$0::load$(name, initialize);
 		}
 	}
-	$loadClass(GrayFilter, name, initialize, &_GrayFilter_ClassInfo_, allocate$GrayFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"brighter", "Z", nullptr, $PRIVATE, $field(GrayFilter, brighter)},
+		{"percent", "I", nullptr, $PRIVATE, $field(GrayFilter, percent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZI)V", nullptr, $PUBLIC, $method(GrayFilter, init$, void, bool, int32_t)},
+		{"createDisabledImage", "(Ljava/awt/Image;)Ljava/awt/Image;", nullptr, $PUBLIC | $STATIC, $staticMethod(GrayFilter, createDisabledImage, $Image*, $Image*)},
+		{"createDisabledImageImpl", "(Ljava/awt/Image;)Ljava/awt/Image;", nullptr, $PRIVATE | $STATIC, $staticMethod(GrayFilter, createDisabledImageImpl, $Image*, $Image*)},
+		{"filterRGB", "(III)I", nullptr, $PUBLIC, $virtualMethod(GrayFilter, filterRGB, int32_t, int32_t, int32_t, int32_t)},
+		{"lambda$createDisabledImage$0", "(Ljava/awt/Image;)Ljava/awt/Image;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GrayFilter, lambda$createDisabledImage$0, $Image*, $Image*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.GrayFilter",
+		"java.awt.image.RGBImageFilter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GrayFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GrayFilter));
+	});
 	return class$;
 }
 

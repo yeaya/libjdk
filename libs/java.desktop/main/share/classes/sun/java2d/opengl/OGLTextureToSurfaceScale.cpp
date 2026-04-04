@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/OGLTextureToSurfaceScale.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/AffineTransformOp.h>
@@ -34,25 +33,6 @@ namespace sun {
 	namespace java2d {
 		namespace opengl {
 
-$MethodInfo _OGLTextureToSurfaceScale_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(OGLTextureToSurfaceScale, init$, void)},
-	{"Scale", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIDDDD)V", nullptr, $PUBLIC, $virtualMethod(OGLTextureToSurfaceScale, Scale, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
-	{}
-};
-
-$ClassInfo _OGLTextureToSurfaceScale_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.opengl.OGLTextureToSurfaceScale",
-	"sun.java2d.loops.ScaledBlit",
-	nullptr,
-	nullptr,
-	_OGLTextureToSurfaceScale_MethodInfo_
-};
-
-$Object* allocate$OGLTextureToSurfaceScale($Class* clazz) {
-	return $of($alloc(OGLTextureToSurfaceScale));
-}
-
 void OGLTextureToSurfaceScale::init$() {
 	$init($OGLSurfaceData);
 	$init($CompositeType);
@@ -67,7 +47,22 @@ OGLTextureToSurfaceScale::OGLTextureToSurfaceScale() {
 }
 
 $Class* OGLTextureToSurfaceScale::load$($String* name, bool initialize) {
-	$loadClass(OGLTextureToSurfaceScale, name, initialize, &_OGLTextureToSurfaceScale_ClassInfo_, allocate$OGLTextureToSurfaceScale);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(OGLTextureToSurfaceScale, init$, void)},
+		{"Scale", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIDDDD)V", nullptr, $PUBLIC, $virtualMethod(OGLTextureToSurfaceScale, Scale, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.opengl.OGLTextureToSurfaceScale",
+		"sun.java2d.loops.ScaledBlit",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(OGLTextureToSurfaceScale, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OGLTextureToSurfaceScale);
+	});
 	return class$;
 }
 

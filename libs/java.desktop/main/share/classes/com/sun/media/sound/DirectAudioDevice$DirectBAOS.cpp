@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/DirectAudioDevice$DirectBAOS.h>
-
 #include <com/sun/media/sound/DirectAudioDevice.h>
 #include <java/io/ByteArrayOutputStream.h>
 #include <jcpp.h>
@@ -14,37 +13,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$MethodInfo _DirectAudioDevice$DirectBAOS_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DirectAudioDevice$DirectBAOS, init$, void)},
-	{"getInternalBuffer", "()[B", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectBAOS, getInternalBuffer, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _DirectAudioDevice$DirectBAOS_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.DirectAudioDevice$DirectBAOS", "com.sun.media.sound.DirectAudioDevice", "DirectBAOS", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DirectAudioDevice$DirectBAOS_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.media.sound.DirectAudioDevice$DirectBAOS",
-	"java.io.ByteArrayOutputStream",
-	nullptr,
-	nullptr,
-	_DirectAudioDevice$DirectBAOS_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DirectAudioDevice$DirectBAOS_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.DirectAudioDevice"
-};
-
-$Object* allocate$DirectAudioDevice$DirectBAOS($Class* clazz) {
-	return $of($alloc(DirectAudioDevice$DirectBAOS));
-}
-
 void DirectAudioDevice$DirectBAOS::init$() {
 	$ByteArrayOutputStream::init$();
 }
@@ -57,7 +25,33 @@ DirectAudioDevice$DirectBAOS::DirectAudioDevice$DirectBAOS() {
 }
 
 $Class* DirectAudioDevice$DirectBAOS::load$($String* name, bool initialize) {
-	$loadClass(DirectAudioDevice$DirectBAOS, name, initialize, &_DirectAudioDevice$DirectBAOS_ClassInfo_, allocate$DirectAudioDevice$DirectBAOS);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DirectAudioDevice$DirectBAOS, init$, void)},
+		{"getInternalBuffer", "()[B", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectBAOS, getInternalBuffer, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.DirectAudioDevice$DirectBAOS", "com.sun.media.sound.DirectAudioDevice", "DirectBAOS", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.media.sound.DirectAudioDevice$DirectBAOS",
+		"java.io.ByteArrayOutputStream",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.DirectAudioDevice"
+	};
+	$loadClass(DirectAudioDevice$DirectBAOS, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DirectAudioDevice$DirectBAOS));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/GraphicsDevice$1.h>
-
 #include <java/awt/GraphicsDevice$WindowTranslucency.h>
 #include <java/awt/GraphicsDevice.h>
 #include <java/lang/NoSuchFieldError.h>
@@ -19,57 +18,21 @@ using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
 namespace java {
 	namespace awt {
 
-$FieldInfo _GraphicsDevice$1_FieldInfo_[] = {
-	{"$SwitchMap$java$awt$GraphicsDevice$WindowTranslucency", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(GraphicsDevice$1, $SwitchMap$java$awt$GraphicsDevice$WindowTranslucency)},
-	{}
-};
-
-$EnclosingMethodInfo _GraphicsDevice$1_EnclosingMethodInfo_ = {
-	"java.awt.GraphicsDevice",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _GraphicsDevice$1_InnerClassesInfo_[] = {
-	{"java.awt.GraphicsDevice$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _GraphicsDevice$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"java.awt.GraphicsDevice$1",
-	"java.lang.Object",
-	nullptr,
-	_GraphicsDevice$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_GraphicsDevice$1_EnclosingMethodInfo_,
-	_GraphicsDevice$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.GraphicsDevice"
-};
-
-$Object* allocate$GraphicsDevice$1($Class* clazz) {
-	return $of($alloc(GraphicsDevice$1));
-}
-
 $ints* GraphicsDevice$1::$SwitchMap$java$awt$GraphicsDevice$WindowTranslucency = nullptr;
 
-void clinit$GraphicsDevice$1($Class* class$) {
+void GraphicsDevice$1::clinit$($Class* clazz) {
 	$assignStatic(GraphicsDevice$1::$SwitchMap$java$awt$GraphicsDevice$WindowTranslucency, $new($ints, $($GraphicsDevice$WindowTranslucency::values())->length));
 	{
 		try {
-			$nc(GraphicsDevice$1::$SwitchMap$java$awt$GraphicsDevice$WindowTranslucency)->set($GraphicsDevice$WindowTranslucency::PERPIXEL_TRANSPARENT->ordinal(), 1);
+			GraphicsDevice$1::$SwitchMap$java$awt$GraphicsDevice$WindowTranslucency->set($GraphicsDevice$WindowTranslucency::PERPIXEL_TRANSPARENT->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(GraphicsDevice$1::$SwitchMap$java$awt$GraphicsDevice$WindowTranslucency)->set($GraphicsDevice$WindowTranslucency::TRANSLUCENT->ordinal(), 2);
+			GraphicsDevice$1::$SwitchMap$java$awt$GraphicsDevice$WindowTranslucency->set($GraphicsDevice$WindowTranslucency::TRANSLUCENT->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(GraphicsDevice$1::$SwitchMap$java$awt$GraphicsDevice$WindowTranslucency)->set($GraphicsDevice$WindowTranslucency::PERPIXEL_TRANSLUCENT->ordinal(), 3);
+			GraphicsDevice$1::$SwitchMap$java$awt$GraphicsDevice$WindowTranslucency->set($GraphicsDevice$WindowTranslucency::PERPIXEL_TRANSLUCENT->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -79,7 +42,37 @@ GraphicsDevice$1::GraphicsDevice$1() {
 }
 
 $Class* GraphicsDevice$1::load$($String* name, bool initialize) {
-	$loadClass(GraphicsDevice$1, name, initialize, &_GraphicsDevice$1_ClassInfo_, clinit$GraphicsDevice$1, allocate$GraphicsDevice$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$awt$GraphicsDevice$WindowTranslucency", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(GraphicsDevice$1, $SwitchMap$java$awt$GraphicsDevice$WindowTranslucency)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.awt.GraphicsDevice",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.GraphicsDevice$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"java.awt.GraphicsDevice$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.GraphicsDevice"
+	};
+	$loadClass(GraphicsDevice$1, name, initialize, &classInfo$$, GraphicsDevice$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GraphicsDevice$1);
+	});
 	return class$;
 }
 

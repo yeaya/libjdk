@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dtd/XML11DTDValidator.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/dtd/DTDGrammarBucket.h>
 #include <com/sun/org/apache/xerces/internal/impl/dtd/XMLDTDValidator.h>
@@ -13,7 +12,6 @@
 
 using $Constants = ::com::sun::org::apache::xerces::internal::impl::Constants;
 using $XMLDTDValidator = ::com::sun::org::apache::xerces::internal::impl::dtd::XMLDTDValidator;
-using $DTDDVFactory = ::com::sun::org::apache::xerces::internal::impl::dv::DTDDVFactory;
 using $XMLComponentManager = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -29,31 +27,6 @@ namespace com {
 						namespace impl {
 							namespace dtd {
 
-$FieldInfo _XML11DTDValidator_FieldInfo_[] = {
-	{"DTD_VALIDATOR_PROPERTY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11DTDValidator, DTD_VALIDATOR_PROPERTY)},
-	{}
-};
-
-$MethodInfo _XML11DTDValidator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XML11DTDValidator, init$, void)},
-	{"init", "()V", nullptr, $PROTECTED, $virtualMethod(XML11DTDValidator, init, void)},
-	{"reset", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $virtualMethod(XML11DTDValidator, reset, void, $XMLComponentManager*)},
-	{}
-};
-
-$ClassInfo _XML11DTDValidator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dtd.XML11DTDValidator",
-	"com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator",
-	nullptr,
-	_XML11DTDValidator_FieldInfo_,
-	_XML11DTDValidator_MethodInfo_
-};
-
-$Object* allocate$XML11DTDValidator($Class* clazz) {
-	return $of($alloc(XML11DTDValidator));
-}
-
 $String* XML11DTDValidator::DTD_VALIDATOR_PROPERTY = nullptr;
 
 void XML11DTDValidator::init$() {
@@ -62,8 +35,7 @@ void XML11DTDValidator::init$() {
 
 void XML11DTDValidator::reset($XMLComponentManager* manager) {
 	$var($XMLDTDValidator, curr, nullptr);
-	bool var$0 = ($assign(curr, $cast($XMLDTDValidator, $nc(manager)->getProperty(XML11DTDValidator::DTD_VALIDATOR_PROPERTY)))) != nullptr;
-	if (var$0 && !$equals(curr, this)) {
+	if (($assign(curr, $cast($XMLDTDValidator, $nc(manager)->getProperty(XML11DTDValidator::DTD_VALIDATOR_PROPERTY)))) != nullptr && !$equals(curr, this)) {
 		$set(this, fGrammarBucket, $nc(curr)->getGrammarBucket());
 	}
 	$XMLDTDValidator::reset(manager);
@@ -87,13 +59,33 @@ void XML11DTDValidator::init() {
 XML11DTDValidator::XML11DTDValidator() {
 }
 
-void clinit$XML11DTDValidator($Class* class$) {
+void XML11DTDValidator::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(XML11DTDValidator::DTD_VALIDATOR_PROPERTY, $str({$Constants::XERCES_PROPERTY_PREFIX, $Constants::DTD_VALIDATOR_PROPERTY}));
 }
 
 $Class* XML11DTDValidator::load$($String* name, bool initialize) {
-	$loadClass(XML11DTDValidator, name, initialize, &_XML11DTDValidator_ClassInfo_, clinit$XML11DTDValidator, allocate$XML11DTDValidator);
+	$FieldInfo fieldInfos$$[] = {
+		{"DTD_VALIDATOR_PROPERTY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11DTDValidator, DTD_VALIDATOR_PROPERTY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XML11DTDValidator, init$, void)},
+		{"init", "()V", nullptr, $PROTECTED, $virtualMethod(XML11DTDValidator, init, void)},
+		{"reset", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $virtualMethod(XML11DTDValidator, reset, void, $XMLComponentManager*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dtd.XML11DTDValidator",
+		"com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XML11DTDValidator, name, initialize, &classInfo$$, XML11DTDValidator::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XML11DTDValidator));
+	});
 	return class$;
 }
 

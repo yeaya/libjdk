@@ -44,6 +44,7 @@ class $import RawDiagnosticFormatter : public ::com::sun::tools::javac::util::Ab
 	$class(RawDiagnosticFormatter, 0, ::com::sun::tools::javac::util::AbstractDiagnosticFormatter)
 public:
 	RawDiagnosticFormatter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Options* options);
 	virtual $String* formatArgument(::com::sun::tools::javac::util::JCDiagnostic* diag, Object$* arg, ::java::util::Locale* l) override;
 	virtual $String* formatDiagnostic(::com::sun::tools::javac::util::JCDiagnostic* d, ::java::util::Locale* l) override;

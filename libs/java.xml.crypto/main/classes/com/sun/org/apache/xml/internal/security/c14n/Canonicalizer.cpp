@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/c14n/Canonicalizer.h>
-
 #include <com/sun/org/apache/xml/internal/security/c14n/CanonicalizerSpi.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/ClassLoaderUtils.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/InvalidCanonicalizerException.h>
@@ -48,7 +47,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $AbstractMap = ::java::util::AbstractMap;
 using $Map = ::java::util::Map;
@@ -64,49 +62,6 @@ namespace com {
 					namespace internal {
 						namespace security {
 							namespace c14n {
-
-$FieldInfo _Canonicalizer_FieldInfo_[] = {
-	{"ENCODING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Canonicalizer, ENCODING)},
-	{"XPATH_C14N_WITH_COMMENTS_SINGLE_NODE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Canonicalizer, XPATH_C14N_WITH_COMMENTS_SINGLE_NODE)},
-	{"ALGO_ID_C14N_OMIT_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Canonicalizer, ALGO_ID_C14N_OMIT_COMMENTS)},
-	{"ALGO_ID_C14N_WITH_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Canonicalizer, ALGO_ID_C14N_WITH_COMMENTS)},
-	{"ALGO_ID_C14N_EXCL_OMIT_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Canonicalizer, ALGO_ID_C14N_EXCL_OMIT_COMMENTS)},
-	{"ALGO_ID_C14N_EXCL_WITH_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Canonicalizer, ALGO_ID_C14N_EXCL_WITH_COMMENTS)},
-	{"ALGO_ID_C14N11_OMIT_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Canonicalizer, ALGO_ID_C14N11_OMIT_COMMENTS)},
-	{"ALGO_ID_C14N11_WITH_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Canonicalizer, ALGO_ID_C14N11_WITH_COMMENTS)},
-	{"ALGO_ID_C14N_PHYSICAL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Canonicalizer, ALGO_ID_C14N_PHYSICAL)},
-	{"canonicalizerHash", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<+Lcom/sun/org/apache/xml/internal/security/c14n/CanonicalizerSpi;>;>;", $PRIVATE | $STATIC, $staticField(Canonicalizer, canonicalizerHash)},
-	{"canonicalizerSpi", "Lcom/sun/org/apache/xml/internal/security/c14n/CanonicalizerSpi;", nullptr, $PRIVATE | $FINAL, $field(Canonicalizer, canonicalizerSpi)},
-	{}
-};
-
-$MethodInfo _Canonicalizer_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Canonicalizer, init$, void, $String*), "com.sun.org.apache.xml.internal.security.c14n.InvalidCanonicalizerException"},
-	{"canonicalize", "([BLjava/io/OutputStream;Z)V", nullptr, $PUBLIC, $method(Canonicalizer, canonicalize, void, $bytes*, $OutputStream*, bool), "com.sun.org.apache.xml.internal.security.parser.XMLParserException,java.io.IOException,com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
-	{"canonicalizeSubtree", "(Lorg/w3c/dom/Node;Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(Canonicalizer, canonicalizeSubtree, void, $Node*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
-	{"canonicalizeSubtree", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(Canonicalizer, canonicalizeSubtree, void, $Node*, $String*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
-	{"canonicalizeSubtree", "(Lorg/w3c/dom/Node;Ljava/lang/String;ZLjava/io/OutputStream;)V", nullptr, $PUBLIC, $method(Canonicalizer, canonicalizeSubtree, void, $Node*, $String*, bool, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
-	{"canonicalizeXPathNodeSet", "(Ljava/util/Set;Ljava/io/OutputStream;)V", "(Ljava/util/Set<Lorg/w3c/dom/Node;>;Ljava/io/OutputStream;)V", $PUBLIC, $method(Canonicalizer, canonicalizeXPathNodeSet, void, $Set*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
-	{"canonicalizeXPathNodeSet", "(Ljava/util/Set;Ljava/lang/String;Ljava/io/OutputStream;)V", "(Ljava/util/Set<Lorg/w3c/dom/Node;>;Ljava/lang/String;Ljava/io/OutputStream;)V", $PUBLIC, $method(Canonicalizer, canonicalizeXPathNodeSet, void, $Set*, $String*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
-	{"getInstance", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/security/c14n/Canonicalizer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Canonicalizer, getInstance, Canonicalizer*, $String*), "com.sun.org.apache.xml.internal.security.c14n.InvalidCanonicalizerException"},
-	{"register", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Canonicalizer, register$, void, $String*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.AlgorithmAlreadyRegisteredException,java.lang.ClassNotFoundException"},
-	{"register", "(Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/Class<+Lcom/sun/org/apache/xml/internal/security/c14n/CanonicalizerSpi;>;)V", $PUBLIC | $STATIC, $staticMethod(Canonicalizer, register$, void, $String*, $Class*), "com.sun.org.apache.xml.internal.security.exceptions.AlgorithmAlreadyRegisteredException,java.lang.ClassNotFoundException"},
-	{"registerDefaultAlgorithms", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Canonicalizer, registerDefaultAlgorithms, void)},
-	{}
-};
-
-$ClassInfo _Canonicalizer_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.c14n.Canonicalizer",
-	"java.lang.Object",
-	nullptr,
-	_Canonicalizer_FieldInfo_,
-	_Canonicalizer_MethodInfo_
-};
-
-$Object* allocate$Canonicalizer($Class* clazz) {
-	return $of($alloc(Canonicalizer));
-}
 
 $String* Canonicalizer::ENCODING = nullptr;
 $String* Canonicalizer::XPATH_C14N_WITH_COMMENTS_SINGLE_NODE = nullptr;
@@ -124,8 +79,8 @@ void Canonicalizer::init$($String* algorithmURI) {
 		$Class* implementingClass = $cast($Class, $nc(Canonicalizer::canonicalizerHash)->get(algorithmURI));
 		$set(this, canonicalizerSpi, $cast($CanonicalizerSpi, $JavaUtils::newInstanceWithEmptyConstructor(implementingClass)));
 	} catch ($Exception& e) {
-		$var($ObjectArray, exArgs, $new($ObjectArray, {$of(algorithmURI)}));
-		$throwNew($InvalidCanonicalizerException, $cast($Exception, e), "signature.Canonicalizer.UnknownCanonicalizer"_s, exArgs);
+		$var($ObjectArray, exArgs, $new($ObjectArray, {algorithmURI}));
+		$throwNew($InvalidCanonicalizerException, e, "signature.Canonicalizer.UnknownCanonicalizer"_s, exArgs);
 	}
 }
 
@@ -140,12 +95,12 @@ void Canonicalizer::register$($String* algorithmURI, $String* implementingClass)
 	$Class* registeredClass = $cast($Class, $nc(Canonicalizer::canonicalizerHash)->get(algorithmURI));
 	if (registeredClass != nullptr) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of(algorithmURI),
-			$of(registeredClass)
+			algorithmURI,
+			registeredClass
 		}));
 		$throwNew($AlgorithmAlreadyRegisteredException, "algorithm.alreadyRegistered"_s, exArgs);
 	}
-	$nc(Canonicalizer::canonicalizerHash)->put(algorithmURI, $ClassLoaderUtils::loadClass(implementingClass, Canonicalizer::class$));
+	Canonicalizer::canonicalizerHash->put(algorithmURI, $ClassLoaderUtils::loadClass(implementingClass, Canonicalizer::class$));
 }
 
 void Canonicalizer::register$($String* algorithmURI, $Class* implementingClass) {
@@ -154,12 +109,12 @@ void Canonicalizer::register$($String* algorithmURI, $Class* implementingClass) 
 	$Class* registeredClass = $cast($Class, $nc(Canonicalizer::canonicalizerHash)->get(algorithmURI));
 	if (registeredClass != nullptr) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of(algorithmURI),
-			$of(registeredClass)
+			algorithmURI,
+			registeredClass
 		}));
 		$throwNew($AlgorithmAlreadyRegisteredException, "algorithm.alreadyRegistered"_s, exArgs);
 	}
-	$nc(Canonicalizer::canonicalizerHash)->put(algorithmURI, implementingClass);
+	Canonicalizer::canonicalizerHash->put(algorithmURI, implementingClass);
 }
 
 void Canonicalizer::registerDefaultAlgorithms() {
@@ -167,17 +122,17 @@ void Canonicalizer::registerDefaultAlgorithms() {
 	$load($Canonicalizer20010315OmitComments);
 	$nc(Canonicalizer::canonicalizerHash)->put(Canonicalizer::ALGO_ID_C14N_OMIT_COMMENTS, $Canonicalizer20010315OmitComments::class$);
 	$load($Canonicalizer20010315WithComments);
-	$nc(Canonicalizer::canonicalizerHash)->put(Canonicalizer::ALGO_ID_C14N_WITH_COMMENTS, $Canonicalizer20010315WithComments::class$);
+	Canonicalizer::canonicalizerHash->put(Canonicalizer::ALGO_ID_C14N_WITH_COMMENTS, $Canonicalizer20010315WithComments::class$);
 	$load($Canonicalizer20010315ExclOmitComments);
-	$nc(Canonicalizer::canonicalizerHash)->put(Canonicalizer::ALGO_ID_C14N_EXCL_OMIT_COMMENTS, $Canonicalizer20010315ExclOmitComments::class$);
+	Canonicalizer::canonicalizerHash->put(Canonicalizer::ALGO_ID_C14N_EXCL_OMIT_COMMENTS, $Canonicalizer20010315ExclOmitComments::class$);
 	$load($Canonicalizer20010315ExclWithComments);
-	$nc(Canonicalizer::canonicalizerHash)->put(Canonicalizer::ALGO_ID_C14N_EXCL_WITH_COMMENTS, $Canonicalizer20010315ExclWithComments::class$);
+	Canonicalizer::canonicalizerHash->put(Canonicalizer::ALGO_ID_C14N_EXCL_WITH_COMMENTS, $Canonicalizer20010315ExclWithComments::class$);
 	$load($Canonicalizer11_OmitComments);
-	$nc(Canonicalizer::canonicalizerHash)->put(Canonicalizer::ALGO_ID_C14N11_OMIT_COMMENTS, $Canonicalizer11_OmitComments::class$);
+	Canonicalizer::canonicalizerHash->put(Canonicalizer::ALGO_ID_C14N11_OMIT_COMMENTS, $Canonicalizer11_OmitComments::class$);
 	$load($Canonicalizer11_WithComments);
-	$nc(Canonicalizer::canonicalizerHash)->put(Canonicalizer::ALGO_ID_C14N11_WITH_COMMENTS, $Canonicalizer11_WithComments::class$);
+	Canonicalizer::canonicalizerHash->put(Canonicalizer::ALGO_ID_C14N11_WITH_COMMENTS, $Canonicalizer11_WithComments::class$);
 	$load($CanonicalizerPhysical);
-	$nc(Canonicalizer::canonicalizerHash)->put(Canonicalizer::ALGO_ID_C14N_PHYSICAL, $CanonicalizerPhysical::class$);
+	Canonicalizer::canonicalizerHash->put(Canonicalizer::ALGO_ID_C14N_PHYSICAL, $CanonicalizerPhysical::class$);
 }
 
 void Canonicalizer::canonicalize($bytes* inputBytes, $OutputStream* writer, bool secureValidation) {
@@ -204,7 +159,7 @@ void Canonicalizer::canonicalizeXPathNodeSet($Set* xpathNodeSet, $String* inclus
 	$nc(this->canonicalizerSpi)->engineCanonicalizeXPathNodeSet(xpathNodeSet, inclusiveNamespaces, writer);
 }
 
-void clinit$Canonicalizer($Class* class$) {
+void Canonicalizer::clinit$($Class* clazz) {
 	$assignStatic(Canonicalizer::XPATH_C14N_WITH_COMMENTS_SINGLE_NODE, "(.//. | .//@* | .//namespace::*)"_s);
 	$assignStatic(Canonicalizer::ALGO_ID_C14N_OMIT_COMMENTS, "http://www.w3.org/TR/2001/REC-xml-c14n-20010315"_s);
 	$assignStatic(Canonicalizer::ALGO_ID_C14N_WITH_COMMENTS, $str({Canonicalizer::ALGO_ID_C14N_OMIT_COMMENTS, "#WithComments"_s}));
@@ -215,14 +170,52 @@ void clinit$Canonicalizer($Class* class$) {
 	$assignStatic(Canonicalizer::ALGO_ID_C14N_PHYSICAL, "http://santuario.apache.org/c14n/physical"_s);
 	$init($StandardCharsets);
 	$assignStatic(Canonicalizer::ENCODING, $nc($StandardCharsets::UTF_8)->name());
-	$assignStatic(Canonicalizer::canonicalizerHash, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
+	$assignStatic(Canonicalizer::canonicalizerHash, $cast($AbstractMap, $new($ConcurrentHashMap)));
 }
 
 Canonicalizer::Canonicalizer() {
 }
 
 $Class* Canonicalizer::load$($String* name, bool initialize) {
-	$loadClass(Canonicalizer, name, initialize, &_Canonicalizer_ClassInfo_, clinit$Canonicalizer, allocate$Canonicalizer);
+	$FieldInfo fieldInfos$$[] = {
+		{"ENCODING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Canonicalizer, ENCODING)},
+		{"XPATH_C14N_WITH_COMMENTS_SINGLE_NODE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Canonicalizer, XPATH_C14N_WITH_COMMENTS_SINGLE_NODE)},
+		{"ALGO_ID_C14N_OMIT_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Canonicalizer, ALGO_ID_C14N_OMIT_COMMENTS)},
+		{"ALGO_ID_C14N_WITH_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Canonicalizer, ALGO_ID_C14N_WITH_COMMENTS)},
+		{"ALGO_ID_C14N_EXCL_OMIT_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Canonicalizer, ALGO_ID_C14N_EXCL_OMIT_COMMENTS)},
+		{"ALGO_ID_C14N_EXCL_WITH_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Canonicalizer, ALGO_ID_C14N_EXCL_WITH_COMMENTS)},
+		{"ALGO_ID_C14N11_OMIT_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Canonicalizer, ALGO_ID_C14N11_OMIT_COMMENTS)},
+		{"ALGO_ID_C14N11_WITH_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Canonicalizer, ALGO_ID_C14N11_WITH_COMMENTS)},
+		{"ALGO_ID_C14N_PHYSICAL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Canonicalizer, ALGO_ID_C14N_PHYSICAL)},
+		{"canonicalizerHash", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<+Lcom/sun/org/apache/xml/internal/security/c14n/CanonicalizerSpi;>;>;", $PRIVATE | $STATIC, $staticField(Canonicalizer, canonicalizerHash)},
+		{"canonicalizerSpi", "Lcom/sun/org/apache/xml/internal/security/c14n/CanonicalizerSpi;", nullptr, $PRIVATE | $FINAL, $field(Canonicalizer, canonicalizerSpi)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Canonicalizer, init$, void, $String*), "com.sun.org.apache.xml.internal.security.c14n.InvalidCanonicalizerException"},
+		{"canonicalize", "([BLjava/io/OutputStream;Z)V", nullptr, $PUBLIC, $method(Canonicalizer, canonicalize, void, $bytes*, $OutputStream*, bool), "com.sun.org.apache.xml.internal.security.parser.XMLParserException,java.io.IOException,com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
+		{"canonicalizeSubtree", "(Lorg/w3c/dom/Node;Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(Canonicalizer, canonicalizeSubtree, void, $Node*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
+		{"canonicalizeSubtree", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(Canonicalizer, canonicalizeSubtree, void, $Node*, $String*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
+		{"canonicalizeSubtree", "(Lorg/w3c/dom/Node;Ljava/lang/String;ZLjava/io/OutputStream;)V", nullptr, $PUBLIC, $method(Canonicalizer, canonicalizeSubtree, void, $Node*, $String*, bool, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
+		{"canonicalizeXPathNodeSet", "(Ljava/util/Set;Ljava/io/OutputStream;)V", "(Ljava/util/Set<Lorg/w3c/dom/Node;>;Ljava/io/OutputStream;)V", $PUBLIC, $method(Canonicalizer, canonicalizeXPathNodeSet, void, $Set*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
+		{"canonicalizeXPathNodeSet", "(Ljava/util/Set;Ljava/lang/String;Ljava/io/OutputStream;)V", "(Ljava/util/Set<Lorg/w3c/dom/Node;>;Ljava/lang/String;Ljava/io/OutputStream;)V", $PUBLIC, $method(Canonicalizer, canonicalizeXPathNodeSet, void, $Set*, $String*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
+		{"getInstance", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/security/c14n/Canonicalizer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Canonicalizer, getInstance, Canonicalizer*, $String*), "com.sun.org.apache.xml.internal.security.c14n.InvalidCanonicalizerException"},
+		{"register", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Canonicalizer, register$, void, $String*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.AlgorithmAlreadyRegisteredException,java.lang.ClassNotFoundException"},
+		{"register", "(Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/Class<+Lcom/sun/org/apache/xml/internal/security/c14n/CanonicalizerSpi;>;)V", $PUBLIC | $STATIC, $staticMethod(Canonicalizer, register$, void, $String*, $Class*), "com.sun.org.apache.xml.internal.security.exceptions.AlgorithmAlreadyRegisteredException,java.lang.ClassNotFoundException"},
+		{"registerDefaultAlgorithms", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Canonicalizer, registerDefaultAlgorithms, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.c14n.Canonicalizer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Canonicalizer, name, initialize, &classInfo$$, Canonicalizer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Canonicalizer);
+	});
 	return class$;
 }
 

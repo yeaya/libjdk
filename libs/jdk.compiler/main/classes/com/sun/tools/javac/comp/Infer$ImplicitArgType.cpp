@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Infer$ImplicitArgType.h>
-
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Symtab.h>
@@ -25,8 +24,6 @@ using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $Types = ::com::sun::tools::javac::code::Types;
-using $DeferredAttr = ::com::sun::tools::javac::comp::DeferredAttr;
 using $DeferredAttr$AttrMode = ::com::sun::tools::javac::comp::DeferredAttr$AttrMode;
 using $DeferredAttr$DeferredTypeMap = ::com::sun::tools::javac::comp::DeferredAttr$DeferredTypeMap;
 using $Infer = ::com::sun::tools::javac::comp::Infer;
@@ -43,66 +40,24 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Infer$ImplicitArgType_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Infer;", nullptr, $FINAL | $SYNTHETIC, $field(Infer$ImplicitArgType, this$0)},
-	{}
-};
-
-$MethodInfo _Infer$ImplicitArgType_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)V", nullptr, $PUBLIC, $method(Infer$ImplicitArgType, init$, void, $Infer*, $Symbol*, $Resolve$MethodResolutionPhase*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Infer$ImplicitArgType, visitClassType, $Type*, $Type$ClassType*, $Void*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Infer$ImplicitArgType, visitClassType, $Object*, $Type$ClassType*, Object$*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Infer$ImplicitArgType, visitType, $Type*, $Type*, $Void*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Infer$ImplicitArgType, visitType, $Object*, $Type*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _Infer$ImplicitArgType_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Infer$ImplicitArgType", "com.sun.tools.javac.comp.Infer", "ImplicitArgType", 0},
-	{"com.sun.tools.javac.comp.DeferredAttr$DeferredTypeMap", "com.sun.tools.javac.comp.DeferredAttr", "DeferredTypeMap", 0},
-	{}
-};
-
-$ClassInfo _Infer$ImplicitArgType_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Infer$ImplicitArgType",
-	"com.sun.tools.javac.comp.DeferredAttr$DeferredTypeMap",
-	nullptr,
-	_Infer$ImplicitArgType_FieldInfo_,
-	_Infer$ImplicitArgType_MethodInfo_,
-	"Lcom/sun/tools/javac/comp/DeferredAttr$DeferredTypeMap<Ljava/lang/Void;>;",
-	nullptr,
-	_Infer$ImplicitArgType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Infer"
-};
-
-$Object* allocate$Infer$ImplicitArgType($Class* clazz) {
-	return $of($alloc(Infer$ImplicitArgType));
-}
-
 void Infer$ImplicitArgType::init$($Infer* this$0, $Symbol* msym, $Resolve$MethodResolutionPhase* phase) {
 	$set(this, this$0, this$0);
 	$init($DeferredAttr$AttrMode);
-	$DeferredAttr$DeferredTypeMap::init$(static_cast<$DeferredAttr*>($nc(($nc(this$0->rs)->deferredAttr))), $DeferredAttr$AttrMode::SPECULATIVE, msym, phase);
+	$DeferredAttr$DeferredTypeMap::init$($nc(($nc(this$0->rs)->deferredAttr)), $DeferredAttr$AttrMode::SPECULATIVE, msym, phase);
 }
 
 $Type* Infer$ImplicitArgType::visitClassType($Type$ClassType* t, $Void* aVoid) {
-	return $nc(this->this$0->types)->erasure(static_cast<$Type*>(t));
+	return $nc(this->this$0->types)->erasure(t);
 }
 
 $Type* Infer$ImplicitArgType::visitType($Type* t$renamed, $Void* _unused) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, t, t$renamed);
 	$init($TypeTag);
 	if ($nc(t)->hasTag($TypeTag::DEFERRED)) {
-		return visit($($cast($Type, $DeferredAttr$DeferredTypeMap::visitType(t, nullptr))));
-	} else {
-		if (t->hasTag($TypeTag::BOT)) {
-			$assign(t, $nc($($nc(this->this$0->types)->boxedClass($nc(this->this$0->syms)->voidType)))->type);
-		}
+		return visit($$cast($Type, $DeferredAttr$DeferredTypeMap::visitType(t, nullptr)));
+	} else if (t->hasTag($TypeTag::BOT)) {
+		$assign(t, $nc($($nc(this->this$0->types)->boxedClass($nc(this->this$0->syms)->voidType)))->type);
 	}
 	return t;
 }
@@ -119,7 +74,41 @@ Infer$ImplicitArgType::Infer$ImplicitArgType() {
 }
 
 $Class* Infer$ImplicitArgType::load$($String* name, bool initialize) {
-	$loadClass(Infer$ImplicitArgType, name, initialize, &_Infer$ImplicitArgType_ClassInfo_, allocate$Infer$ImplicitArgType);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Infer;", nullptr, $FINAL | $SYNTHETIC, $field(Infer$ImplicitArgType, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)V", nullptr, $PUBLIC, $method(Infer$ImplicitArgType, init$, void, $Infer*, $Symbol*, $Resolve$MethodResolutionPhase*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Infer$ImplicitArgType, visitClassType, $Type*, $Type$ClassType*, $Void*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Infer$ImplicitArgType, visitClassType, $Object*, $Type$ClassType*, Object$*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Infer$ImplicitArgType, visitType, $Type*, $Type*, $Void*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Infer$ImplicitArgType, visitType, $Object*, $Type*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Infer$ImplicitArgType", "com.sun.tools.javac.comp.Infer", "ImplicitArgType", 0},
+		{"com.sun.tools.javac.comp.DeferredAttr$DeferredTypeMap", "com.sun.tools.javac.comp.DeferredAttr", "DeferredTypeMap", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Infer$ImplicitArgType",
+		"com.sun.tools.javac.comp.DeferredAttr$DeferredTypeMap",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/comp/DeferredAttr$DeferredTypeMap<Ljava/lang/Void;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Infer"
+	};
+	$loadClass(Infer$ImplicitArgType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Infer$ImplicitArgType));
+	});
 	return class$;
 }
 

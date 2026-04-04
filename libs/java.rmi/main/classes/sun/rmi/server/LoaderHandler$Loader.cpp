@@ -1,5 +1,4 @@
 #include <sun/rmi/server/LoaderHandler$Loader.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/SecurityManager.h>
 #include <java/net/URL.h>
@@ -33,48 +32,6 @@ namespace sun {
 	namespace rmi {
 		namespace server {
 
-$FieldInfo _LoaderHandler$Loader_FieldInfo_[] = {
-	{"parent", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE, $field(LoaderHandler$Loader, parent)},
-	{"annotation", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LoaderHandler$Loader, annotation)},
-	{"permissions", "Ljava/security/Permissions;", nullptr, $PRIVATE, $field(LoaderHandler$Loader, permissions)},
-	{}
-};
-
-$MethodInfo _LoaderHandler$Loader_MethodInfo_[] = {
-	{"<init>", "([Ljava/net/URL;Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE, $method(LoaderHandler$Loader, init$, void, $URLArray*, $ClassLoader*)},
-	{"checkPermissions", "()V", nullptr, $PRIVATE, $method(LoaderHandler$Loader, checkPermissions, void)},
-	{"getClassAnnotation", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LoaderHandler$Loader, getClassAnnotation, $String*)},
-	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED, $virtualMethod(LoaderHandler$Loader, getPermissions, $PermissionCollection*, $CodeSource*)},
-	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(LoaderHandler$Loader, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LoaderHandler$Loader, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _LoaderHandler$Loader_InnerClassesInfo_[] = {
-	{"sun.rmi.server.LoaderHandler$Loader", "sun.rmi.server.LoaderHandler", "Loader", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _LoaderHandler$Loader_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.rmi.server.LoaderHandler$Loader",
-	"java.net.URLClassLoader",
-	nullptr,
-	_LoaderHandler$Loader_FieldInfo_,
-	_LoaderHandler$Loader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LoaderHandler$Loader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.rmi.server.LoaderHandler"
-};
-
-$Object* allocate$LoaderHandler$Loader($Class* clazz) {
-	return $of($alloc(LoaderHandler$Loader));
-}
-
 void LoaderHandler$Loader::init$($URLArray* urls, $ClassLoader* parent) {
 	$URLClassLoader::init$(urls, parent);
 	$set(this, parent, parent);
@@ -88,12 +45,12 @@ $String* LoaderHandler$Loader::getClassAnnotation() {
 }
 
 void LoaderHandler$Loader::checkPermissions() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		$var($Enumeration, enum_, $nc(this->permissions)->elements());
 		while ($nc(enum_)->hasMoreElements()) {
-			sm->checkPermission($cast($Permission, $(enum_->nextElement())));
+			sm->checkPermission($$cast($Permission, enum_->nextElement()));
 		}
 	}
 }
@@ -118,7 +75,43 @@ LoaderHandler$Loader::LoaderHandler$Loader() {
 }
 
 $Class* LoaderHandler$Loader::load$($String* name, bool initialize) {
-	$loadClass(LoaderHandler$Loader, name, initialize, &_LoaderHandler$Loader_ClassInfo_, allocate$LoaderHandler$Loader);
+	$FieldInfo fieldInfos$$[] = {
+		{"parent", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE, $field(LoaderHandler$Loader, parent)},
+		{"annotation", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LoaderHandler$Loader, annotation)},
+		{"permissions", "Ljava/security/Permissions;", nullptr, $PRIVATE, $field(LoaderHandler$Loader, permissions)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/net/URL;Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE, $method(LoaderHandler$Loader, init$, void, $URLArray*, $ClassLoader*)},
+		{"checkPermissions", "()V", nullptr, $PRIVATE, $method(LoaderHandler$Loader, checkPermissions, void)},
+		{"getClassAnnotation", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LoaderHandler$Loader, getClassAnnotation, $String*)},
+		{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED, $virtualMethod(LoaderHandler$Loader, getPermissions, $PermissionCollection*, $CodeSource*)},
+		{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(LoaderHandler$Loader, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LoaderHandler$Loader, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.server.LoaderHandler$Loader", "sun.rmi.server.LoaderHandler", "Loader", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.rmi.server.LoaderHandler$Loader",
+		"java.net.URLClassLoader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.rmi.server.LoaderHandler"
+	};
+	$loadClass(LoaderHandler$Loader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LoaderHandler$Loader));
+	});
 	return class$;
 }
 

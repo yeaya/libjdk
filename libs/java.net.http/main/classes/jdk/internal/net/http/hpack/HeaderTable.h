@@ -39,6 +39,7 @@ class HeaderTable : public ::jdk::internal::net::http::hpack::SimpleHeaderTable 
 	$class(HeaderTable, 0, ::jdk::internal::net::http::hpack::SimpleHeaderTable)
 public:
 	HeaderTable();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t maxSize, ::jdk::internal::net::http::hpack::HPACK$Logger* logger);
 	virtual void add(::jdk::internal::net::http::hpack::SimpleHeaderTable$HeaderField* f) override;
 	int32_t indexOf(::java::lang::CharSequence* name, ::java::lang::CharSequence* value);

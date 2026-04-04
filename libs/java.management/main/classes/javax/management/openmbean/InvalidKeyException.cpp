@@ -1,5 +1,4 @@
 #include <javax/management/openmbean/InvalidKeyException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace management {
 		namespace openmbean {
-
-$FieldInfo _InvalidKeyException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidKeyException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InvalidKeyException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidKeyException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidKeyException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _InvalidKeyException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.openmbean.InvalidKeyException",
-	"java.lang.IllegalArgumentException",
-	nullptr,
-	_InvalidKeyException_FieldInfo_,
-	_InvalidKeyException_MethodInfo_
-};
-
-$Object* allocate$InvalidKeyException($Class* clazz) {
-	return $of($alloc(InvalidKeyException));
-}
 
 void InvalidKeyException::init$() {
 	$IllegalArgumentException::init$();
@@ -54,7 +29,26 @@ void InvalidKeyException::throw$() {
 }
 
 $Class* InvalidKeyException::load$($String* name, bool initialize) {
-	$loadClass(InvalidKeyException, name, initialize, &_InvalidKeyException_ClassInfo_, allocate$InvalidKeyException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidKeyException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidKeyException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidKeyException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.openmbean.InvalidKeyException",
+		"java.lang.IllegalArgumentException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InvalidKeyException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvalidKeyException);
+	});
 	return class$;
 }
 

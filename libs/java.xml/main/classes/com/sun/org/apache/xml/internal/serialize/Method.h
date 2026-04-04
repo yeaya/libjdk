@@ -28,6 +28,7 @@ class Method : public ::java::lang::Object {
 	$class(Method, 0, ::java::lang::Object)
 public:
 	Method();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* XML;
 	static $String* HTML;

@@ -89,6 +89,7 @@ class $import Arguments : public ::java::lang::Object {
 	$class(Arguments, 0, ::java::lang::Object)
 public:
 	Arguments();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual void allowEmpty();
 	bool checkDirectory(::com::sun::tools::javac::main::Option* option);

@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/hpack/NaiveHuffman$Writer.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/nio/ByteBuffer.h>
@@ -27,63 +26,17 @@ namespace jdk {
 			namespace http {
 				namespace hpack {
 
-$FieldInfo _NaiveHuffman$Writer_FieldInfo_[] = {
-	{"pos", "I", nullptr, $PRIVATE, $field(NaiveHuffman$Writer, pos)},
-	{"avail", "I", nullptr, $PRIVATE, $field(NaiveHuffman$Writer, avail)},
-	{"curr", "I", nullptr, $PRIVATE, $field(NaiveHuffman$Writer, curr)},
-	{"rem", "I", nullptr, $PRIVATE, $field(NaiveHuffman$Writer, rem)},
-	{"code", "I", nullptr, $PRIVATE, $field(NaiveHuffman$Writer, code)},
-	{"source", "Ljava/lang/CharSequence;", nullptr, $PRIVATE, $field(NaiveHuffman$Writer, source)},
-	{"end", "I", nullptr, $PRIVATE, $field(NaiveHuffman$Writer, end)},
-	{}
-};
-
-$MethodInfo _NaiveHuffman$Writer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(NaiveHuffman$Writer, init$, void)},
-	{"from", "(Ljava/lang/CharSequence;II)Ljdk/internal/net/http/hpack/NaiveHuffman$Writer;", nullptr, $PUBLIC, $virtualMethod(NaiveHuffman$Writer, from, NaiveHuffman$Writer*, $CharSequence*, int32_t, int32_t)},
-	{"lengthOf", "(Ljava/lang/CharSequence;II)I", nullptr, $PUBLIC, $virtualMethod(NaiveHuffman$Writer, lengthOf, int32_t, $CharSequence*, int32_t, int32_t)},
-	{"reset", "()Ljdk/internal/net/http/hpack/NaiveHuffman$Writer;", nullptr, $PUBLIC, $virtualMethod(NaiveHuffman$Writer, reset, NaiveHuffman$Writer*)},
-	{"write", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(NaiveHuffman$Writer, write, bool, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _NaiveHuffman$Writer_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.hpack.NaiveHuffman$Writer", "jdk.internal.net.http.hpack.NaiveHuffman", "Writer", $STATIC | $FINAL},
-	{"jdk.internal.net.http.hpack.Huffman$Writer", "jdk.internal.net.http.hpack.Huffman", "Writer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _NaiveHuffman$Writer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.hpack.NaiveHuffman$Writer",
-	"java.lang.Object",
-	"jdk.internal.net.http.hpack.Huffman$Writer",
-	_NaiveHuffman$Writer_FieldInfo_,
-	_NaiveHuffman$Writer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NaiveHuffman$Writer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.hpack.NaiveHuffman"
-};
-
-$Object* allocate$NaiveHuffman$Writer($Class* clazz) {
-	return $of($alloc(NaiveHuffman$Writer));
-}
-
 void NaiveHuffman$Writer::init$() {
 	this->avail = 8;
 }
 
 NaiveHuffman$Writer* NaiveHuffman$Writer::from($CharSequence* input, int32_t start, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (start < 0 || end < 0 || end > $nc(input)->length() || start > end) {
 		$throwNew($IndexOutOfBoundsException, $($String::format("input.length()=%s, start=%s, end=%s"_s, $$new($ObjectArray, {
-			$($of($Integer::valueOf($nc(input)->length()))),
-			$($of($Integer::valueOf(start))),
-			$($of($Integer::valueOf(end)))
+			$($Integer::valueOf($nc(input)->length())),
+			$($Integer::valueOf(start)),
+			$($Integer::valueOf(end))
 		}))));
 	}
 	this->pos = start;
@@ -93,7 +46,7 @@ NaiveHuffman$Writer* NaiveHuffman$Writer::from($CharSequence* input, int32_t sta
 }
 
 bool NaiveHuffman$Writer::write($ByteBuffer* destination) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (; this->pos < this->end; ++this->pos) {
 		if (this->rem == 0) {
 			$init($NaiveHuffman);
@@ -153,7 +106,47 @@ NaiveHuffman$Writer::NaiveHuffman$Writer() {
 }
 
 $Class* NaiveHuffman$Writer::load$($String* name, bool initialize) {
-	$loadClass(NaiveHuffman$Writer, name, initialize, &_NaiveHuffman$Writer_ClassInfo_, allocate$NaiveHuffman$Writer);
+	$FieldInfo fieldInfos$$[] = {
+		{"pos", "I", nullptr, $PRIVATE, $field(NaiveHuffman$Writer, pos)},
+		{"avail", "I", nullptr, $PRIVATE, $field(NaiveHuffman$Writer, avail)},
+		{"curr", "I", nullptr, $PRIVATE, $field(NaiveHuffman$Writer, curr)},
+		{"rem", "I", nullptr, $PRIVATE, $field(NaiveHuffman$Writer, rem)},
+		{"code", "I", nullptr, $PRIVATE, $field(NaiveHuffman$Writer, code)},
+		{"source", "Ljava/lang/CharSequence;", nullptr, $PRIVATE, $field(NaiveHuffman$Writer, source)},
+		{"end", "I", nullptr, $PRIVATE, $field(NaiveHuffman$Writer, end)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(NaiveHuffman$Writer, init$, void)},
+		{"from", "(Ljava/lang/CharSequence;II)Ljdk/internal/net/http/hpack/NaiveHuffman$Writer;", nullptr, $PUBLIC, $virtualMethod(NaiveHuffman$Writer, from, NaiveHuffman$Writer*, $CharSequence*, int32_t, int32_t)},
+		{"lengthOf", "(Ljava/lang/CharSequence;II)I", nullptr, $PUBLIC, $virtualMethod(NaiveHuffman$Writer, lengthOf, int32_t, $CharSequence*, int32_t, int32_t)},
+		{"reset", "()Ljdk/internal/net/http/hpack/NaiveHuffman$Writer;", nullptr, $PUBLIC, $virtualMethod(NaiveHuffman$Writer, reset, NaiveHuffman$Writer*)},
+		{"write", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(NaiveHuffman$Writer, write, bool, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.hpack.NaiveHuffman$Writer", "jdk.internal.net.http.hpack.NaiveHuffman", "Writer", $STATIC | $FINAL},
+		{"jdk.internal.net.http.hpack.Huffman$Writer", "jdk.internal.net.http.hpack.Huffman", "Writer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.hpack.NaiveHuffman$Writer",
+		"java.lang.Object",
+		"jdk.internal.net.http.hpack.Huffman$Writer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.hpack.NaiveHuffman"
+	};
+	$loadClass(NaiveHuffman$Writer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NaiveHuffman$Writer);
+	});
 	return class$;
 }
 

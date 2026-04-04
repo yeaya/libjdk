@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Position$LineTabMapImpl.h>
-
 #include <com/sun/tools/javac/util/LayoutCharacters.h>
 #include <com/sun/tools/javac/util/Position$LineMapImpl.h>
 #include <com/sun/tools/javac/util/Position.h>
@@ -19,51 +18,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$FieldInfo _Position$LineTabMapImpl_FieldInfo_[] = {
-	{"tabMap", "Ljava/util/BitSet;", nullptr, $PRIVATE, $field(Position$LineTabMapImpl, tabMap)},
-	{}
-};
-
-$MethodInfo _Position$LineTabMapImpl_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Position$LineTabMapImpl, init$, void, int32_t)},
-	{"getColumnNumber", "(I)I", nullptr, $PUBLIC, $virtualMethod(Position$LineTabMapImpl, getColumnNumber, int32_t, int32_t)},
-	{"getColumnNumber", "(J)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Position$LineTabMapImpl, getColumnNumber, int64_t, int64_t)},
-	{"getLineNumber", "(J)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Position$LineTabMapImpl, getLineNumber, int64_t, int64_t)},
-	{"getLineNumber", "(I)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Position$LineTabMapImpl, getLineNumber, int32_t, int32_t)},
-	{"getPosition", "(II)I", nullptr, $PUBLIC, $virtualMethod(Position$LineTabMapImpl, getPosition, int32_t, int32_t, int32_t)},
-	{"getPosition", "(JJ)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Position$LineTabMapImpl, getPosition, int64_t, int64_t, int64_t)},
-	{"getStartPosition", "(J)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Position$LineTabMapImpl, getStartPosition, int64_t, int64_t)},
-	{"getStartPosition", "(I)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Position$LineTabMapImpl, getStartPosition, int32_t, int32_t)},
-	{"setTabPosition", "(I)V", nullptr, $PROTECTED, $virtualMethod(Position$LineTabMapImpl, setTabPosition, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Position$LineTabMapImpl_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.Position$LineTabMapImpl", "com.sun.tools.javac.util.Position", "LineTabMapImpl", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.util.Position$LineMapImpl", "com.sun.tools.javac.util.Position", "LineMapImpl", $STATIC},
-	{}
-};
-
-$ClassInfo _Position$LineTabMapImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.Position$LineTabMapImpl",
-	"com.sun.tools.javac.util.Position$LineMapImpl",
-	nullptr,
-	_Position$LineTabMapImpl_FieldInfo_,
-	_Position$LineTabMapImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Position$LineTabMapImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.Position"
-};
-
-$Object* allocate$Position$LineTabMapImpl($Class* clazz) {
-	return $of($alloc(Position$LineTabMapImpl));
-}
 
 void Position$LineTabMapImpl::init$(int32_t max) {
 	$Position$LineMapImpl::init$();
@@ -130,7 +84,46 @@ Position$LineTabMapImpl::Position$LineTabMapImpl() {
 }
 
 $Class* Position$LineTabMapImpl::load$($String* name, bool initialize) {
-	$loadClass(Position$LineTabMapImpl, name, initialize, &_Position$LineTabMapImpl_ClassInfo_, allocate$Position$LineTabMapImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"tabMap", "Ljava/util/BitSet;", nullptr, $PRIVATE, $field(Position$LineTabMapImpl, tabMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(Position$LineTabMapImpl, init$, void, int32_t)},
+		{"getColumnNumber", "(I)I", nullptr, $PUBLIC, $virtualMethod(Position$LineTabMapImpl, getColumnNumber, int32_t, int32_t)},
+		{"getColumnNumber", "(J)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Position$LineTabMapImpl, getColumnNumber, int64_t, int64_t)},
+		{"getLineNumber", "(J)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Position$LineTabMapImpl, getLineNumber, int64_t, int64_t)},
+		{"getLineNumber", "(I)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Position$LineTabMapImpl, getLineNumber, int32_t, int32_t)},
+		{"getPosition", "(II)I", nullptr, $PUBLIC, $virtualMethod(Position$LineTabMapImpl, getPosition, int32_t, int32_t, int32_t)},
+		{"getPosition", "(JJ)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Position$LineTabMapImpl, getPosition, int64_t, int64_t, int64_t)},
+		{"getStartPosition", "(J)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Position$LineTabMapImpl, getStartPosition, int64_t, int64_t)},
+		{"getStartPosition", "(I)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Position$LineTabMapImpl, getStartPosition, int32_t, int32_t)},
+		{"setTabPosition", "(I)V", nullptr, $PROTECTED, $virtualMethod(Position$LineTabMapImpl, setTabPosition, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.Position$LineTabMapImpl", "com.sun.tools.javac.util.Position", "LineTabMapImpl", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.util.Position$LineMapImpl", "com.sun.tools.javac.util.Position", "LineMapImpl", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.Position$LineTabMapImpl",
+		"com.sun.tools.javac.util.Position$LineMapImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.Position"
+	};
+	$loadClass(Position$LineTabMapImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Position$LineTabMapImpl);
+	});
 	return class$;
 }
 

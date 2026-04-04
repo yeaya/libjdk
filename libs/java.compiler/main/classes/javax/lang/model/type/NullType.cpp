@@ -1,5 +1,4 @@
 #include <javax/lang/model/type/NullType.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,19 +8,16 @@ namespace javax {
 		namespace model {
 			namespace type {
 
-$ClassInfo _NullType_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.lang.model.type.NullType",
-	nullptr,
-	"javax.lang.model.type.ReferenceType"
-};
-
-$Object* allocate$NullType($Class* clazz) {
-	return $of($alloc(NullType));
-}
-
 $Class* NullType::load$($String* name, bool initialize) {
-	$loadClass(NullType, name, initialize, &_NullType_ClassInfo_, allocate$NullType);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.lang.model.type.NullType",
+		nullptr,
+		"javax.lang.model.type.ReferenceType"
+	};
+	$loadClass(NullType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NullType);
+	});
 	return class$;
 }
 

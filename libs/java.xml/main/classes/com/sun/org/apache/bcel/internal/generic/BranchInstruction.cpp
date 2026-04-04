@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ClassGenException.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
@@ -25,54 +24,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$FieldInfo _BranchInstruction_FieldInfo_[] = {
-	{"index", "I", nullptr, $PRIVATE, $field(BranchInstruction, index)},
-	{"target", "Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PRIVATE, $field(BranchInstruction, target)},
-	{"position", "I", nullptr, $PRIVATE, $field(BranchInstruction, position)},
-	{}
-};
-
-$MethodInfo _BranchInstruction_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, 0, $method(BranchInstruction, init$, void)},
-	{"<init>", "(SLcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PROTECTED, $method(BranchInstruction, init$, void, int16_t, $InstructionHandle*)},
-	{"containsTarget", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Z", nullptr, $PUBLIC, $virtualMethod(BranchInstruction, containsTarget, bool, $InstructionHandle*)},
-	{"dispose", "()V", nullptr, 0, $virtualMethod(BranchInstruction, dispose, void)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(BranchInstruction, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getIndex", "()I", nullptr, $PUBLIC | $FINAL, $method(BranchInstruction, getIndex, int32_t)},
-	{"getPosition", "()I", nullptr, $PROTECTED, $virtualMethod(BranchInstruction, getPosition, int32_t)},
-	{"getTarget", "()Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(BranchInstruction, getTarget, $InstructionHandle*)},
-	{"getTargetOffset", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)I", nullptr, $PROTECTED, $virtualMethod(BranchInstruction, getTargetOffset, int32_t, $InstructionHandle*)},
-	{"getTargetOffset", "()I", nullptr, $PROTECTED, $virtualMethod(BranchInstruction, getTargetOffset, int32_t)},
-	{"initFromFile", "(Lcom/sun/org/apache/bcel/internal/util/ByteSequence;Z)V", nullptr, $PROTECTED, $virtualMethod(BranchInstruction, initFromFile, void, $ByteSequence*, bool), "java.io.IOException"},
-	{"notifyTarget", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionTargeter;)V", nullptr, $STATIC, $staticMethod(BranchInstruction, notifyTarget, void, $InstructionHandle*, $InstructionHandle*, $InstructionTargeter*)},
-	{"setIndex", "(I)V", nullptr, $PROTECTED, $virtualMethod(BranchInstruction, setIndex, void, int32_t)},
-	{"setOpcode", "(S)V", nullptr, 0, $virtualMethod(BranchInstruction, setOpcode, void, int16_t)},
-	{"setPosition", "(I)V", nullptr, $PROTECTED, $virtualMethod(BranchInstruction, setPosition, void, int32_t)},
-	{"setTarget", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $virtualMethod(BranchInstruction, setTarget, void, $InstructionHandle*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BranchInstruction, toString, $String*, bool)},
-	{"updatePosition", "(II)I", nullptr, $PROTECTED, $virtualMethod(BranchInstruction, updatePosition, int32_t, int32_t, int32_t)},
-	{"updateTarget", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $virtualMethod(BranchInstruction, updateTarget, void, $InstructionHandle*, $InstructionHandle*)},
-	{}
-};
-
-$ClassInfo _BranchInstruction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.generic.BranchInstruction",
-	"com.sun.org.apache.bcel.internal.generic.Instruction",
-	"com.sun.org.apache.bcel.internal.generic.InstructionTargeter",
-	_BranchInstruction_FieldInfo_,
-	_BranchInstruction_MethodInfo_
-};
-
-$Object* allocate$BranchInstruction($Class* clazz) {
-	return $of($alloc(BranchInstruction));
-}
 
 $String* BranchInstruction::toString() {
 	 return this->$Instruction::toString();
@@ -104,7 +55,7 @@ void BranchInstruction::init$(int16_t opcode, $InstructionHandle* target) {
 }
 
 void BranchInstruction::dump($DataOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(out)->writeByte($Instruction::getOpcode());
 	this->index = getTargetOffset();
 	if (!isValidShort(this->index)) {
@@ -114,7 +65,7 @@ void BranchInstruction::dump($DataOutputStream* out) {
 }
 
 int32_t BranchInstruction::getTargetOffset($InstructionHandle* _target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (_target == nullptr) {
 		$throwNew($ClassGenException, $$str({"Target of "_s, $($Instruction::toString(true)), " is invalid null handle"_s}));
 	}
@@ -135,12 +86,12 @@ int32_t BranchInstruction::updatePosition(int32_t offset, int32_t max_offset) {
 }
 
 $String* BranchInstruction::toString(bool verbose) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, $Instruction::toString(verbose));
 	$var($String, t, "null"_s);
 	if (verbose) {
 		if (this->target != nullptr) {
-			if ($equals($nc(this->target)->getInstruction(), this)) {
+			if ($equals(this->target->getInstruction(), this)) {
 				$assign(t, "<points to itself>"_s);
 			} else if ($nc(this->target)->getInstruction() == nullptr) {
 				$assign(t, "<null instruction!!!?>"_s);
@@ -149,7 +100,7 @@ $String* BranchInstruction::toString(bool verbose) {
 			}
 		}
 	} else if (this->target != nullptr) {
-		this->index = $nc(this->target)->getPosition();
+		this->index = this->target->getPosition();
 		$assign(t, $str({""_s, $$str(this->index)}));
 	}
 	return $str({s, " -> "_s, t});
@@ -228,7 +179,50 @@ BranchInstruction::BranchInstruction() {
 }
 
 $Class* BranchInstruction::load$($String* name, bool initialize) {
-	$loadClass(BranchInstruction, name, initialize, &_BranchInstruction_ClassInfo_, allocate$BranchInstruction);
+	$FieldInfo fieldInfos$$[] = {
+		{"index", "I", nullptr, $PRIVATE, $field(BranchInstruction, index)},
+		{"target", "Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PRIVATE, $field(BranchInstruction, target)},
+		{"position", "I", nullptr, $PRIVATE, $field(BranchInstruction, position)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, 0, $method(BranchInstruction, init$, void)},
+		{"<init>", "(SLcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PROTECTED, $method(BranchInstruction, init$, void, int16_t, $InstructionHandle*)},
+		{"containsTarget", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Z", nullptr, $PUBLIC, $virtualMethod(BranchInstruction, containsTarget, bool, $InstructionHandle*)},
+		{"dispose", "()V", nullptr, 0, $virtualMethod(BranchInstruction, dispose, void)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(BranchInstruction, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getIndex", "()I", nullptr, $PUBLIC | $FINAL, $method(BranchInstruction, getIndex, int32_t)},
+		{"getPosition", "()I", nullptr, $PROTECTED, $virtualMethod(BranchInstruction, getPosition, int32_t)},
+		{"getTarget", "()Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(BranchInstruction, getTarget, $InstructionHandle*)},
+		{"getTargetOffset", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)I", nullptr, $PROTECTED, $virtualMethod(BranchInstruction, getTargetOffset, int32_t, $InstructionHandle*)},
+		{"getTargetOffset", "()I", nullptr, $PROTECTED, $virtualMethod(BranchInstruction, getTargetOffset, int32_t)},
+		{"initFromFile", "(Lcom/sun/org/apache/bcel/internal/util/ByteSequence;Z)V", nullptr, $PROTECTED, $virtualMethod(BranchInstruction, initFromFile, void, $ByteSequence*, bool), "java.io.IOException"},
+		{"notifyTarget", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionTargeter;)V", nullptr, $STATIC, $staticMethod(BranchInstruction, notifyTarget, void, $InstructionHandle*, $InstructionHandle*, $InstructionTargeter*)},
+		{"setIndex", "(I)V", nullptr, $PROTECTED, $virtualMethod(BranchInstruction, setIndex, void, int32_t)},
+		{"setOpcode", "(S)V", nullptr, 0, $virtualMethod(BranchInstruction, setOpcode, void, int16_t)},
+		{"setPosition", "(I)V", nullptr, $PROTECTED, $virtualMethod(BranchInstruction, setPosition, void, int32_t)},
+		{"setTarget", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $virtualMethod(BranchInstruction, setTarget, void, $InstructionHandle*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BranchInstruction, toString, $String*, bool)},
+		{"updatePosition", "(II)I", nullptr, $PROTECTED, $virtualMethod(BranchInstruction, updatePosition, int32_t, int32_t, int32_t)},
+		{"updateTarget", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $virtualMethod(BranchInstruction, updateTarget, void, $InstructionHandle*, $InstructionHandle*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.generic.BranchInstruction",
+		"com.sun.org.apache.bcel.internal.generic.Instruction",
+		"com.sun.org.apache.bcel.internal.generic.InstructionTargeter",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BranchInstruction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BranchInstruction));
+	});
 	return class$;
 }
 

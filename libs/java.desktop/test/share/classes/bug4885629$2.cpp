@@ -1,12 +1,10 @@
 #include <bug4885629$2.h>
-
 #include <bug4885629.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/FlowLayout.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/Window.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
@@ -27,11 +25,8 @@
 
 using $bug4885629 = ::bug4885629;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $FlowLayout = ::java::awt::FlowLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -44,51 +39,13 @@ using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $SplitPaneUI = ::javax::swing::plaf::SplitPaneUI;
 using $BasicBorders$SplitPaneBorder = ::javax::swing::plaf::basic::BasicBorders$SplitPaneBorder;
-using $BasicSplitPaneDivider = ::javax::swing::plaf::basic::BasicSplitPaneDivider;
 using $BasicSplitPaneUI = ::javax::swing::plaf::basic::BasicSplitPaneUI;
-
-$MethodInfo _bug4885629$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug4885629$2, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4885629$2, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug4885629$2_EnclosingMethodInfo_ = {
-	"bug4885629",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug4885629$2_InnerClassesInfo_[] = {
-	{"bug4885629$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug4885629$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug4885629$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug4885629$2_MethodInfo_,
-	nullptr,
-	&_bug4885629$2_EnclosingMethodInfo_,
-	_bug4885629$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug4885629"
-};
-
-$Object* allocate$bug4885629$2($Class* clazz) {
-	return $of($alloc(bug4885629$2));
-}
 
 void bug4885629$2::init$() {
 }
 
 void bug4885629$2::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($bug4885629);
 	$assignStatic($bug4885629::frame, $new($JFrame));
 	$var($JComponent, a, $new($JPanel));
@@ -99,16 +56,16 @@ void bug4885629$2::run() {
 	b->setBackground($Color::white);
 	b->setMinimumSize($$new($Dimension, 10, 10));
 	$assignStatic($bug4885629::sp, $new($JSplitPane, $JSplitPane::VERTICAL_SPLIT, a, b));
-	$nc($bug4885629::sp)->setPreferredSize($$new($Dimension, 20, 20));
+	$bug4885629::sp->setPreferredSize($$new($Dimension, 20, 20));
 	$nc($bug4885629::sp)->setBackground($bug4885629::BGCOLOR);
 	$var($Border, bo, $new($BasicBorders$SplitPaneBorder, $bug4885629::lightHighlight, $Color::red));
 	$var($Border, ibo, $new($EmptyBorder, 0, 0, 0, 0));
 	$nc($bug4885629::sp)->setBorder(bo);
 	$nc($bug4885629::sp)->setMinimumSize($$new($Dimension, 200, 200));
-	$nc($($nc(($cast($BasicSplitPaneUI, $($cast($SplitPaneUI, $nc($bug4885629::sp)->getUI())))))->getDivider()))->setBorder(ibo);
-	$nc($($nc($bug4885629::frame)->getContentPane()))->setLayout($$new($FlowLayout));
-	$nc($($nc($bug4885629::frame)->getContentPane()))->setBackground($bug4885629::darkShadow);
-	$nc($($nc($bug4885629::frame)->getContentPane()))->add(static_cast<$Component*>($bug4885629::sp));
+	$$nc($$sure($BasicSplitPaneUI, $cast($SplitPaneUI, $nc($bug4885629::sp)->getUI()))->getDivider())->setBorder(ibo);
+	$$nc($nc($bug4885629::frame)->getContentPane())->setLayout($$new($FlowLayout));
+	$$nc($nc($bug4885629::frame)->getContentPane())->setBackground($bug4885629::darkShadow);
+	$$nc($nc($bug4885629::frame)->getContentPane())->add($bug4885629::sp);
 	$nc($bug4885629::frame)->setSize(200, 200);
 	$nc($bug4885629::frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$nc($bug4885629::frame)->setVisible(true);
@@ -118,7 +75,38 @@ bug4885629$2::bug4885629$2() {
 }
 
 $Class* bug4885629$2::load$($String* name, bool initialize) {
-	$loadClass(bug4885629$2, name, initialize, &_bug4885629$2_ClassInfo_, allocate$bug4885629$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug4885629$2, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4885629$2, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug4885629",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug4885629$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug4885629$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug4885629"
+	};
+	$loadClass(bug4885629$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4885629$2);
+	});
 	return class$;
 }
 

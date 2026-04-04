@@ -1,5 +1,4 @@
 #include <bug6209975$MyIcon.h>
-
 #include <bug6209975$ReturnObject.h>
 #include <bug6209975.h>
 #include <java/awt/Color.h>
@@ -17,44 +16,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _bug6209975$MyIcon_FieldInfo_[] = {
-	{"thisObject", "Lbug6209975$ReturnObject;", nullptr, 0, $field(bug6209975$MyIcon, thisObject)},
-	{}
-};
-
-$MethodInfo _bug6209975$MyIcon_MethodInfo_[] = {
-	{"<init>", "(Lbug6209975$ReturnObject;)V", nullptr, $PUBLIC, $method(bug6209975$MyIcon, init$, void, $bug6209975$ReturnObject*)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(bug6209975$MyIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(bug6209975$MyIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(bug6209975$MyIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _bug6209975$MyIcon_InnerClassesInfo_[] = {
-	{"bug6209975$MyIcon", "bug6209975", "MyIcon", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _bug6209975$MyIcon_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6209975$MyIcon",
-	"java.lang.Object",
-	"javax.swing.Icon",
-	_bug6209975$MyIcon_FieldInfo_,
-	_bug6209975$MyIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6209975$MyIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6209975"
-};
-
-$Object* allocate$bug6209975$MyIcon($Class* clazz) {
-	return $of($alloc(bug6209975$MyIcon));
-}
 
 void bug6209975$MyIcon::init$($bug6209975$ReturnObject* ro) {
 	$set(this, thisObject, nullptr);
@@ -82,7 +43,39 @@ bug6209975$MyIcon::bug6209975$MyIcon() {
 }
 
 $Class* bug6209975$MyIcon::load$($String* name, bool initialize) {
-	$loadClass(bug6209975$MyIcon, name, initialize, &_bug6209975$MyIcon_ClassInfo_, allocate$bug6209975$MyIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"thisObject", "Lbug6209975$ReturnObject;", nullptr, 0, $field(bug6209975$MyIcon, thisObject)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug6209975$ReturnObject;)V", nullptr, $PUBLIC, $method(bug6209975$MyIcon, init$, void, $bug6209975$ReturnObject*)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(bug6209975$MyIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(bug6209975$MyIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(bug6209975$MyIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6209975$MyIcon", "bug6209975", "MyIcon", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6209975$MyIcon",
+		"java.lang.Object",
+		"javax.swing.Icon",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6209975"
+	};
+	$loadClass(bug6209975$MyIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6209975$MyIcon);
+	});
 	return class$;
 }
 

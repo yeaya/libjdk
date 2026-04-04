@@ -1,5 +1,4 @@
 #include <javax/management/monitor/StringMonitor$StringMonitorObservedObject.h>
-
 #include <javax/management/ObjectName.h>
 #include <javax/management/monitor/Monitor$ObservedObject.h>
 #include <javax/management/monitor/StringMonitor.h>
@@ -15,44 +14,6 @@ using $Monitor$ObservedObject = ::javax::management::monitor::Monitor$ObservedOb
 namespace javax {
 	namespace management {
 		namespace monitor {
-
-$FieldInfo _StringMonitor$StringMonitorObservedObject_FieldInfo_[] = {
-	{"status", "I", nullptr, $PRIVATE, $field(StringMonitor$StringMonitorObservedObject, status)},
-	{}
-};
-
-$MethodInfo _StringMonitor$StringMonitorObservedObject_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $method(StringMonitor$StringMonitorObservedObject, init$, void, $ObjectName*)},
-	{"getStatus", "()I", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(StringMonitor$StringMonitorObservedObject, getStatus, int32_t)},
-	{"setStatus", "(I)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(StringMonitor$StringMonitorObservedObject, setStatus, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _StringMonitor$StringMonitorObservedObject_InnerClassesInfo_[] = {
-	{"javax.management.monitor.StringMonitor$StringMonitorObservedObject", "javax.management.monitor.StringMonitor", "StringMonitorObservedObject", $STATIC},
-	{"javax.management.monitor.Monitor$ObservedObject", "javax.management.monitor.Monitor", "ObservedObject", $STATIC},
-	{}
-};
-
-$ClassInfo _StringMonitor$StringMonitorObservedObject_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.monitor.StringMonitor$StringMonitorObservedObject",
-	"javax.management.monitor.Monitor$ObservedObject",
-	nullptr,
-	_StringMonitor$StringMonitorObservedObject_FieldInfo_,
-	_StringMonitor$StringMonitorObservedObject_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StringMonitor$StringMonitorObservedObject_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.management.monitor.StringMonitor"
-};
-
-$Object* allocate$StringMonitor$StringMonitorObservedObject($Class* clazz) {
-	return $of($alloc(StringMonitor$StringMonitorObservedObject));
-}
 
 void StringMonitor$StringMonitorObservedObject::init$($ObjectName* observedObject) {
 	$Monitor$ObservedObject::init$(observedObject);
@@ -74,7 +35,39 @@ StringMonitor$StringMonitorObservedObject::StringMonitor$StringMonitorObservedOb
 }
 
 $Class* StringMonitor$StringMonitorObservedObject::load$($String* name, bool initialize) {
-	$loadClass(StringMonitor$StringMonitorObservedObject, name, initialize, &_StringMonitor$StringMonitorObservedObject_ClassInfo_, allocate$StringMonitor$StringMonitorObservedObject);
+	$FieldInfo fieldInfos$$[] = {
+		{"status", "I", nullptr, $PRIVATE, $field(StringMonitor$StringMonitorObservedObject, status)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $method(StringMonitor$StringMonitorObservedObject, init$, void, $ObjectName*)},
+		{"getStatus", "()I", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(StringMonitor$StringMonitorObservedObject, getStatus, int32_t)},
+		{"setStatus", "(I)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(StringMonitor$StringMonitorObservedObject, setStatus, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.monitor.StringMonitor$StringMonitorObservedObject", "javax.management.monitor.StringMonitor", "StringMonitorObservedObject", $STATIC},
+		{"javax.management.monitor.Monitor$ObservedObject", "javax.management.monitor.Monitor", "ObservedObject", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.monitor.StringMonitor$StringMonitorObservedObject",
+		"javax.management.monitor.Monitor$ObservedObject",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.management.monitor.StringMonitor"
+	};
+	$loadClass(StringMonitor$StringMonitorObservedObject, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringMonitor$StringMonitorObservedObject);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SF2Soundbank.h>
-
 #include <com/sun/media/sound/ModelByteBuffer.h>
 #include <com/sun/media/sound/ModelInstrumentComparator.h>
 #include <com/sun/media/sound/ModelPatch.h>
@@ -22,7 +21,6 @@
 #include <java/net/URL.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
-#include <java/util/Comparator.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <java/util/Map$Entry.h>
@@ -30,7 +28,6 @@
 #include <java/util/Set.h>
 #include <javax/sound/midi/Instrument.h>
 #include <javax/sound/midi/Patch.h>
-#include <javax/sound/midi/Soundbank.h>
 #include <javax/sound/midi/SoundbankResource.h>
 #include <jcpp.h>
 
@@ -71,110 +68,18 @@ using $Short = ::java::lang::Short;
 using $URL = ::java::net::URL;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Comparator = ::java::util::Comparator;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $Instrument = ::javax::sound::midi::Instrument;
 using $Patch = ::javax::sound::midi::Patch;
-using $Soundbank = ::javax::sound::midi::Soundbank;
 using $SoundbankResource = ::javax::sound::midi::SoundbankResource;
 
 namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _SF2Soundbank_FieldInfo_[] = {
-	{"major", "I", nullptr, 0, $field(SF2Soundbank, major)},
-	{"minor", "I", nullptr, 0, $field(SF2Soundbank, minor)},
-	{"targetEngine", "Ljava/lang/String;", nullptr, 0, $field(SF2Soundbank, targetEngine)},
-	{"name", "Ljava/lang/String;", nullptr, 0, $field(SF2Soundbank, name)},
-	{"romName", "Ljava/lang/String;", nullptr, 0, $field(SF2Soundbank, romName)},
-	{"romVersionMajor", "I", nullptr, 0, $field(SF2Soundbank, romVersionMajor)},
-	{"romVersionMinor", "I", nullptr, 0, $field(SF2Soundbank, romVersionMinor)},
-	{"creationDate", "Ljava/lang/String;", nullptr, 0, $field(SF2Soundbank, creationDate)},
-	{"engineers", "Ljava/lang/String;", nullptr, 0, $field(SF2Soundbank, engineers)},
-	{"product", "Ljava/lang/String;", nullptr, 0, $field(SF2Soundbank, product)},
-	{"copyright", "Ljava/lang/String;", nullptr, 0, $field(SF2Soundbank, copyright)},
-	{"comments", "Ljava/lang/String;", nullptr, 0, $field(SF2Soundbank, comments)},
-	{"tools", "Ljava/lang/String;", nullptr, 0, $field(SF2Soundbank, tools)},
-	{"sampleData", "Lcom/sun/media/sound/ModelByteBuffer;", nullptr, $PRIVATE, $field(SF2Soundbank, sampleData)},
-	{"sampleData24", "Lcom/sun/media/sound/ModelByteBuffer;", nullptr, $PRIVATE, $field(SF2Soundbank, sampleData24)},
-	{"sampleFile", "Ljava/io/File;", nullptr, $PRIVATE, $field(SF2Soundbank, sampleFile)},
-	{"largeFormat", "Z", nullptr, $PRIVATE, $field(SF2Soundbank, largeFormat)},
-	{"instruments", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/media/sound/SF2Instrument;>;", $PRIVATE | $FINAL, $field(SF2Soundbank, instruments)},
-	{"layers", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/media/sound/SF2Layer;>;", $PRIVATE | $FINAL, $field(SF2Soundbank, layers)},
-	{"samples", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/media/sound/SF2Sample;>;", $PRIVATE | $FINAL, $field(SF2Soundbank, samples)},
-	{}
-};
-
-$MethodInfo _SF2Soundbank_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SF2Soundbank, init$, void)},
-	{"<init>", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $method(SF2Soundbank, init$, void, $URL*), "java.io.IOException"},
-	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(SF2Soundbank, init$, void, $File*), "java.io.IOException"},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(SF2Soundbank, init$, void, $InputStream*), "java.io.IOException"},
-	{"addInstrument", "(Lcom/sun/media/sound/SF2Instrument;)V", nullptr, $PUBLIC, $method(SF2Soundbank, addInstrument, void, $SF2Instrument*)},
-	{"addResource", "(Ljavax/sound/midi/SoundbankResource;)V", nullptr, $PUBLIC, $method(SF2Soundbank, addResource, void, $SoundbankResource*)},
-	{"getCreationDate", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SF2Soundbank, getCreationDate, $String*)},
-	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SF2Soundbank, getDescription, $String*)},
-	{"getInstrument", "(Ljavax/sound/midi/Patch;)Ljavax/sound/midi/Instrument;", nullptr, $PUBLIC, $virtualMethod(SF2Soundbank, getInstrument, $Instrument*, $Patch*)},
-	{"getInstruments", "()[Lcom/sun/media/sound/SF2Instrument;", nullptr, $PUBLIC, $virtualMethod(SF2Soundbank, getInstruments, $InstrumentArray*)},
-	{"getLayers", "()[Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC, $method(SF2Soundbank, getLayers, $SF2LayerArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SF2Soundbank, getName, $String*)},
-	{"getProduct", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SF2Soundbank, getProduct, $String*)},
-	{"getResources", "()[Ljavax/sound/midi/SoundbankResource;", nullptr, $PUBLIC, $virtualMethod(SF2Soundbank, getResources, $SoundbankResourceArray*)},
-	{"getRomName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SF2Soundbank, getRomName, $String*)},
-	{"getRomVersionMajor", "()I", nullptr, $PUBLIC, $method(SF2Soundbank, getRomVersionMajor, int32_t)},
-	{"getRomVersionMinor", "()I", nullptr, $PUBLIC, $method(SF2Soundbank, getRomVersionMinor, int32_t)},
-	{"getSamples", "()[Lcom/sun/media/sound/SF2Sample;", nullptr, $PUBLIC, $method(SF2Soundbank, getSamples, $SF2SampleArray*)},
-	{"getTargetEngine", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SF2Soundbank, getTargetEngine, $String*)},
-	{"getTools", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SF2Soundbank, getTools, $String*)},
-	{"getVendor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SF2Soundbank, getVendor, $String*)},
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SF2Soundbank, getVersion, $String*)},
-	{"readInfoChunk", "(Lcom/sun/media/sound/RIFFReader;)V", nullptr, $PRIVATE, $method(SF2Soundbank, readInfoChunk, void, $RIFFReader*), "java.io.IOException"},
-	{"readPdtaChunk", "(Lcom/sun/media/sound/RIFFReader;)V", nullptr, $PRIVATE, $method(SF2Soundbank, readPdtaChunk, void, $RIFFReader*), "java.io.IOException"},
-	{"readSdtaChunk", "(Lcom/sun/media/sound/RIFFReader;)V", nullptr, $PRIVATE, $method(SF2Soundbank, readSdtaChunk, void, $RIFFReader*), "java.io.IOException"},
-	{"readSoundbank", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE, $method(SF2Soundbank, readSoundbank, void, $InputStream*), "java.io.IOException"},
-	{"removeInstrument", "(Lcom/sun/media/sound/SF2Instrument;)V", nullptr, $PUBLIC, $method(SF2Soundbank, removeInstrument, void, $SF2Instrument*)},
-	{"removeResource", "(Ljavax/sound/midi/SoundbankResource;)V", nullptr, $PUBLIC, $method(SF2Soundbank, removeResource, void, $SoundbankResource*)},
-	{"save", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SF2Soundbank, save, void, $String*), "java.io.IOException"},
-	{"save", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(SF2Soundbank, save, void, $File*), "java.io.IOException"},
-	{"save", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(SF2Soundbank, save, void, $OutputStream*), "java.io.IOException"},
-	{"setCreationDate", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SF2Soundbank, setCreationDate, void, $String*)},
-	{"setDescription", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SF2Soundbank, setDescription, void, $String*)},
-	{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SF2Soundbank, setName, void, $String*)},
-	{"setProduct", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SF2Soundbank, setProduct, void, $String*)},
-	{"setRomName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SF2Soundbank, setRomName, void, $String*)},
-	{"setRomVersionMajor", "(I)V", nullptr, $PUBLIC, $method(SF2Soundbank, setRomVersionMajor, void, int32_t)},
-	{"setRomVersionMinor", "(I)V", nullptr, $PUBLIC, $method(SF2Soundbank, setRomVersionMinor, void, int32_t)},
-	{"setTargetEngine", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SF2Soundbank, setTargetEngine, void, $String*)},
-	{"setTools", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SF2Soundbank, setTools, void, $String*)},
-	{"setVendor", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SF2Soundbank, setVendor, void, $String*)},
-	{"writeGenerators", "(Lcom/sun/media/sound/RIFFWriter;Ljava/util/Map;)V", "(Lcom/sun/media/sound/RIFFWriter;Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/Short;>;)V", $PRIVATE, $method(SF2Soundbank, writeGenerators, void, $RIFFWriter*, $Map*), "java.io.IOException"},
-	{"writeInfo", "(Lcom/sun/media/sound/RIFFWriter;)V", nullptr, $PRIVATE, $method(SF2Soundbank, writeInfo, void, $RIFFWriter*), "java.io.IOException"},
-	{"writeInfoStringChunk", "(Lcom/sun/media/sound/RIFFWriter;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SF2Soundbank, writeInfoStringChunk, void, $RIFFWriter*, $String*, $String*), "java.io.IOException"},
-	{"writeModulators", "(Lcom/sun/media/sound/RIFFWriter;Ljava/util/List;)V", "(Lcom/sun/media/sound/RIFFWriter;Ljava/util/List<Lcom/sun/media/sound/SF2Modulator;>;)V", $PRIVATE, $method(SF2Soundbank, writeModulators, void, $RIFFWriter*, $List*), "java.io.IOException"},
-	{"writePdtaChunk", "(Lcom/sun/media/sound/RIFFWriter;)V", nullptr, $PRIVATE, $method(SF2Soundbank, writePdtaChunk, void, $RIFFWriter*), "java.io.IOException"},
-	{"writeSdtaChunk", "(Lcom/sun/media/sound/RIFFWriter;)V", nullptr, $PRIVATE, $method(SF2Soundbank, writeSdtaChunk, void, $RIFFWriter*), "java.io.IOException"},
-	{"writeSoundbank", "(Lcom/sun/media/sound/RIFFWriter;)V", nullptr, $PRIVATE, $method(SF2Soundbank, writeSoundbank, void, $RIFFWriter*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _SF2Soundbank_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SF2Soundbank",
-	"java.lang.Object",
-	"javax.sound.midi.Soundbank",
-	_SF2Soundbank_FieldInfo_,
-	_SF2Soundbank_MethodInfo_
-};
-
-$Object* allocate$SF2Soundbank($Class* clazz) {
-	return $of($alloc(SF2Soundbank));
-}
 
 void SF2Soundbank::init$() {
 	this->major = 2;
@@ -200,7 +105,7 @@ void SF2Soundbank::init$() {
 }
 
 void SF2Soundbank::init$($URL* url) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->major = 2;
 	this->minor = 1;
 	$set(this, targetEngine, "EMU8000"_s);
@@ -222,23 +127,21 @@ void SF2Soundbank::init$($URL* url) {
 	$set(this, layers, $new($ArrayList));
 	$set(this, samples, $new($ArrayList));
 	$var($InputStream, is, $nc(url)->openStream());
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			readSoundbank(is);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(is)->close();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		readSoundbank(is);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(is)->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void SF2Soundbank::init$($File* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->major = 2;
 	this->minor = 1;
 	$set(this, targetEngine, "EMU8000"_s);
@@ -262,18 +165,16 @@ void SF2Soundbank::init$($File* file) {
 	this->largeFormat = true;
 	$set(this, sampleFile, file);
 	$var($InputStream, is, $new($FileInputStream, file));
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			readSoundbank(is);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			is->close();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		readSoundbank(is);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		is->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -302,24 +203,24 @@ void SF2Soundbank::init$($InputStream* inputstream) {
 }
 
 void SF2Soundbank::readSoundbank($InputStream* inputstream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($RIFFReader, riff, $new($RIFFReader, inputstream));
-	if (!$nc($(riff->getFormat()))->equals("RIFF"_s)) {
+	if (!$$nc(riff->getFormat())->equals("RIFF"_s)) {
 		$throwNew($RIFFInvalidFormatException, "Input stream is not a valid RIFF stream!"_s);
 	}
-	if (!$nc($(riff->getType()))->equals("sfbk"_s)) {
+	if (!$$nc(riff->getType())->equals("sfbk"_s)) {
 		$throwNew($RIFFInvalidFormatException, "Input stream is not a valid SoundFont!"_s);
 	}
 	while (riff->hasNextChunk()) {
 		$var($RIFFReader, chunk, riff->nextChunk());
-		if ($nc($($nc(chunk)->getFormat()))->equals("LIST"_s)) {
-			if ($nc($(chunk->getType()))->equals("INFO"_s)) {
+		if ($$nc($nc(chunk)->getFormat())->equals("LIST"_s)) {
+			if ($$nc(chunk->getType())->equals("INFO"_s)) {
 				readInfoChunk(chunk);
 			}
-			if ($nc($(chunk->getType()))->equals("sdta"_s)) {
+			if ($$nc(chunk->getType())->equals("sdta"_s)) {
 				readSdtaChunk(chunk);
 			}
-			if ($nc($(chunk->getType()))->equals("pdta"_s)) {
+			if ($$nc(chunk->getType())->equals("pdta"_s)) {
 				readPdtaChunk(chunk);
 			}
 		}
@@ -327,7 +228,7 @@ void SF2Soundbank::readSoundbank($InputStream* inputstream) {
 }
 
 void SF2Soundbank::readInfoChunk($RIFFReader* riff) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while ($nc(riff)->hasNextChunk()) {
 		$var($RIFFReader, chunk, riff->nextChunk());
 		$var($String, format, $nc(chunk)->getFormat());
@@ -360,10 +261,10 @@ void SF2Soundbank::readInfoChunk($RIFFReader* riff) {
 }
 
 void SF2Soundbank::readSdtaChunk($RIFFReader* riff) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while ($nc(riff)->hasNextChunk()) {
 		$var($RIFFReader, chunk, riff->nextChunk());
-		if ($nc($($nc(chunk)->getFormat()))->equals("smpl"_s)) {
+		if ($$nc($nc(chunk)->getFormat())->equals("smpl"_s)) {
 			if (!this->largeFormat) {
 				$var($bytes, sampleData, $new($bytes, chunk->available()));
 				int32_t read = 0;
@@ -381,10 +282,10 @@ void SF2Soundbank::readSdtaChunk($RIFFReader* riff) {
 			} else {
 				$var($File, var$0, this->sampleFile);
 				int64_t var$1 = chunk->getFilePointer();
-				$set(this, sampleData, $new($ModelByteBuffer, var$0, var$1, (int64_t)chunk->available()));
+				$set(this, sampleData, $new($ModelByteBuffer, var$0, var$1, chunk->available()));
 			}
 		}
-		if ($nc($($nc(chunk)->getFormat()))->equals("sm24"_s)) {
+		if ($$nc(chunk->getFormat())->equals("sm24"_s)) {
 			if (!this->largeFormat) {
 				$var($bytes, sampleData24, $new($bytes, chunk->available()));
 				int32_t read = 0;
@@ -402,14 +303,14 @@ void SF2Soundbank::readSdtaChunk($RIFFReader* riff) {
 			} else {
 				$var($File, var$2, this->sampleFile);
 				int64_t var$3 = chunk->getFilePointer();
-				$set(this, sampleData24, $new($ModelByteBuffer, var$2, var$3, (int64_t)chunk->available()));
+				$set(this, sampleData24, $new($ModelByteBuffer, var$2, var$3, chunk->available()));
 			}
 		}
 	}
 }
 
 void SF2Soundbank::readPdtaChunk($RIFFReader* riff) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, presets, $new($ArrayList));
 	$var($List, presets_bagNdx, $new($ArrayList));
 	$var($List, presets_splits_gen, $new($ArrayList));
@@ -459,7 +360,7 @@ void SF2Soundbank::readPdtaChunk($RIFFReader* riff) {
 			if (presets_bagNdx->isEmpty()) {
 				$throwNew($RIFFInvalidDataException);
 			}
-			int32_t offset = $nc(($cast($Integer, $(presets_bagNdx->get(0)))))->intValue();
+			int32_t offset = $$sure($Integer, presets_bagNdx->get(0))->intValue();
 			for (int32_t i = 0; i < offset; ++i) {
 				if (count == 0) {
 					$throwNew($RIFFInvalidDataException);
@@ -475,8 +376,8 @@ void SF2Soundbank::readPdtaChunk($RIFFReader* riff) {
 				--count;
 			}
 			for (int32_t i = 0; i < presets_bagNdx->size() - 1; ++i) {
-				int32_t var$0 = $nc(($cast($Integer, $(presets_bagNdx->get(i + 1)))))->intValue();
-				int32_t zone_count = var$0 - $nc(($cast($Integer, $(presets_bagNdx->get(i)))))->intValue();
+				int32_t var$0 = $$sure($Integer, presets_bagNdx->get(i + 1))->intValue();
+				int32_t zone_count = var$0 - $$sure($Integer, presets_bagNdx->get(i))->intValue();
 				$var($SF2Instrument, preset, $cast($SF2Instrument, presets->get(i)));
 				for (int32_t ii = 0; ii < zone_count; ++ii) {
 					if (count == 0) {
@@ -514,7 +415,7 @@ void SF2Soundbank::readPdtaChunk($RIFFReader* riff) {
 				int16_t amount = chunk->readShort();
 				$var($SF2InstrumentRegion, split, $cast($SF2InstrumentRegion, presets_splits_gen->get(i)));
 				if (split != nullptr) {
-					$var($Object, var$1, $of($Integer::valueOf(operator$)));
+					$var($Object, var$1, $Integer::valueOf(operator$));
 					$nc(split->generators)->put(var$1, $($Short::valueOf(amount)));
 				}
 			}
@@ -551,7 +452,7 @@ void SF2Soundbank::readPdtaChunk($RIFFReader* riff) {
 			if (instruments_bagNdx->isEmpty()) {
 				$throwNew($RIFFInvalidDataException);
 			}
-			int32_t offset = $nc(($cast($Integer, $(instruments_bagNdx->get(0)))))->intValue();
+			int32_t offset = $$sure($Integer, instruments_bagNdx->get(0))->intValue();
 			for (int32_t i = 0; i < offset; ++i) {
 				if (count == 0) {
 					$throwNew($RIFFInvalidDataException);
@@ -567,8 +468,8 @@ void SF2Soundbank::readPdtaChunk($RIFFReader* riff) {
 				--count;
 			}
 			for (int32_t i = 0; i < instruments_bagNdx->size() - 1; ++i) {
-				int32_t var$2 = $nc(($cast($Integer, $(instruments_bagNdx->get(i + 1)))))->intValue();
-				int32_t zone_count = var$2 - $nc(($cast($Integer, $(instruments_bagNdx->get(i)))))->intValue();
+				int32_t var$2 = $$sure($Integer, instruments_bagNdx->get(i + 1))->intValue();
+				int32_t zone_count = var$2 - $$sure($Integer, instruments_bagNdx->get(i))->intValue();
 				$var($SF2Layer, layer, $cast($SF2Layer, $nc(this->layers)->get(i)));
 				for (int32_t ii = 0; ii < zone_count; ++ii) {
 					if (count == 0) {
@@ -609,7 +510,7 @@ void SF2Soundbank::readPdtaChunk($RIFFReader* riff) {
 				int16_t amount = chunk->readShort();
 				$var($SF2LayerRegion, split, $cast($SF2LayerRegion, instruments_splits_gen->get(i)));
 				if (split != nullptr) {
-					$var($Object, var$3, $of($Integer::valueOf(operator$)));
+					$var($Object, var$3, $Integer::valueOf(operator$));
 					$nc(split->generators)->put(var$3, $($Short::valueOf(amount)));
 				}
 			}
@@ -624,10 +525,10 @@ void SF2Soundbank::readPdtaChunk($RIFFReader* riff) {
 				int64_t start = chunk->readUnsignedInt();
 				int64_t end = chunk->readUnsignedInt();
 				if (this->sampleData != nullptr) {
-					$set(sample, data, $nc(this->sampleData)->subbuffer(start * 2, end * 2, true));
+					$set(sample, data, this->sampleData->subbuffer(start * 2, end * 2, true));
 				}
 				if (this->sampleData24 != nullptr) {
-					$set(sample, data24, $nc(this->sampleData24)->subbuffer(start, end, true));
+					$set(sample, data24, this->sampleData24->subbuffer(start, end, true));
 				}
 				sample->startLoop = chunk->readUnsignedInt() - start;
 				sample->endLoop = chunk->readUnsignedInt() - start;
@@ -658,8 +559,8 @@ void SF2Soundbank::readPdtaChunk($RIFFReader* riff) {
 				while ($nc(siter)->hasNext()) {
 					$var($SF2LayerRegion, split, $cast($SF2LayerRegion, siter->next()));
 					if ($nc($nc(split)->generators)->get($($Integer::valueOf($SF2LayerRegion::GENERATOR_SAMPLEID))) != nullptr) {
-						int32_t sampleid = $nc(($cast($Short, $($nc(split->generators)->get($($Integer::valueOf($SF2LayerRegion::GENERATOR_SAMPLEID)))))))->shortValue();
-						$nc(split->generators)->remove($($Integer::valueOf($SF2LayerRegion::GENERATOR_SAMPLEID)));
+						int32_t sampleid = $$sure($Short, split->generators->get($($Integer::valueOf($SF2LayerRegion::GENERATOR_SAMPLEID))))->shortValue();
+						split->generators->remove($($Integer::valueOf($SF2LayerRegion::GENERATOR_SAMPLEID)));
 						if (sampleid < 0 || sampleid >= $nc(this->samples)->size()) {
 							$throwNew($RIFFInvalidDataException);
 						}
@@ -669,7 +570,7 @@ void SF2Soundbank::readPdtaChunk($RIFFReader* riff) {
 					}
 				}
 				if (globalsplit != nullptr) {
-					$nc($(layer->getRegions()))->remove($of(globalsplit));
+					$$nc(layer->getRegions())->remove(globalsplit);
 					$var($SF2GlobalRegion, gsplit, $new($SF2GlobalRegion));
 					$set(gsplit, generators, globalsplit->generators);
 					$set(gsplit, modulators, globalsplit->modulators);
@@ -688,8 +589,8 @@ void SF2Soundbank::readPdtaChunk($RIFFReader* riff) {
 				while ($nc(siter)->hasNext()) {
 					$var($SF2InstrumentRegion, split, $cast($SF2InstrumentRegion, siter->next()));
 					if ($nc($nc(split)->generators)->get($($Integer::valueOf($SF2LayerRegion::GENERATOR_INSTRUMENT))) != nullptr) {
-						int32_t instrumentid = $nc(($cast($Short, $($nc(split->generators)->get($($Integer::valueOf($SF2InstrumentRegion::GENERATOR_INSTRUMENT)))))))->shortValue();
-						$nc(split->generators)->remove($($Integer::valueOf($SF2LayerRegion::GENERATOR_INSTRUMENT)));
+						int32_t instrumentid = $$sure($Short, split->generators->get($($Integer::valueOf($SF2InstrumentRegion::GENERATOR_INSTRUMENT))))->shortValue();
+						split->generators->remove($($Integer::valueOf($SF2LayerRegion::GENERATOR_INSTRUMENT)));
 						if (instrumentid < 0 || instrumentid >= $nc(this->layers)->size()) {
 							$throwNew($RIFFInvalidDataException);
 						}
@@ -699,7 +600,7 @@ void SF2Soundbank::readPdtaChunk($RIFFReader* riff) {
 					}
 				}
 				if (globalsplit != nullptr) {
-					$nc($(instrument->getRegions()))->remove($of(globalsplit));
+					$$nc(instrument->getRegions())->remove(globalsplit);
 					$var($SF2GlobalRegion, gsplit, $new($SF2GlobalRegion));
 					$set(gsplit, generators, globalsplit->generators);
 					$set(gsplit, modulators, globalsplit->modulators);
@@ -723,15 +624,15 @@ void SF2Soundbank::save($OutputStream* out) {
 }
 
 void SF2Soundbank::writeSoundbank($RIFFWriter* writer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	writeInfo($($nc(writer)->writeList("INFO"_s)));
-	writeSdtaChunk($($nc(writer)->writeList("sdta"_s)));
-	writePdtaChunk($($nc(writer)->writeList("pdta"_s)));
-	$nc(writer)->close();
+	writeSdtaChunk($(writer->writeList("sdta"_s)));
+	writePdtaChunk($(writer->writeList("pdta"_s)));
+	writer->close();
 }
 
 void SF2Soundbank::writeInfoStringChunk($RIFFWriter* writer, $String* name, $String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (value == nullptr) {
 		return;
 	}
@@ -746,7 +647,7 @@ void SF2Soundbank::writeInfoStringChunk($RIFFWriter* writer, $String* name, $Str
 }
 
 void SF2Soundbank::writeInfo($RIFFWriter* writer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->targetEngine == nullptr) {
 		$set(this, targetEngine, "EMU8000"_s);
 	}
@@ -774,7 +675,7 @@ void SF2Soundbank::writeInfo($RIFFWriter* writer) {
 }
 
 void SF2Soundbank::writeSdtaChunk($RIFFWriter* writer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, pad, $new($bytes, 32));
 	$var($RIFFWriter, smpl_chunk, $nc(writer)->writeChunk("smpl"_s));
 	{
@@ -796,7 +697,7 @@ void SF2Soundbank::writeSdtaChunk($RIFFWriter* writer) {
 		return;
 	}
 	{
-		$var($Iterator, i$, $nc(this->samples)->iterator());
+		$var($Iterator, i$, this->samples->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($SF2Sample, sample, $cast($SF2Sample, i$->next()));
 			{
@@ -809,7 +710,7 @@ void SF2Soundbank::writeSdtaChunk($RIFFWriter* writer) {
 	}
 	$var($RIFFWriter, sm24_chunk, writer->writeChunk("sm24"_s));
 	{
-		$var($Iterator, i$, $nc(this->samples)->iterator());
+		$var($Iterator, i$, this->samples->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($SF2Sample, sample, $cast($SF2Sample, i$->next()));
 			{
@@ -822,24 +723,22 @@ void SF2Soundbank::writeSdtaChunk($RIFFWriter* writer) {
 }
 
 void SF2Soundbank::writeModulators($RIFFWriter* writer, $List* modulators) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(modulators)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($SF2Modulator, modulator, $cast($SF2Modulator, i$->next()));
-			{
-				$nc(writer)->writeUnsignedShort($nc(modulator)->sourceOperator);
-				writer->writeUnsignedShort($nc(modulator)->destinationOperator);
-				writer->writeShort($nc(modulator)->amount);
-				writer->writeUnsignedShort($nc(modulator)->amountSourceOperator);
-				writer->writeUnsignedShort($nc(modulator)->transportOperator);
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(modulators)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($SF2Modulator, modulator, $cast($SF2Modulator, i$->next()));
+		{
+			$nc(writer)->writeUnsignedShort($nc(modulator)->sourceOperator);
+			writer->writeUnsignedShort(modulator->destinationOperator);
+			writer->writeShort(modulator->amount);
+			writer->writeUnsignedShort(modulator->amountSourceOperator);
+			writer->writeUnsignedShort(modulator->transportOperator);
 		}
 	}
 }
 
 void SF2Soundbank::writeGenerators($RIFFWriter* writer, $Map* generators) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Short, keyrange, $cast($Short, $nc(generators)->get($($Integer::valueOf($SF2Region::GENERATOR_KEYRANGE)))));
 	$var($Short, velrange, $cast($Short, generators->get($($Integer::valueOf($SF2Region::GENERATOR_VELRANGE)))));
 	if (keyrange != nullptr) {
@@ -851,25 +750,25 @@ void SF2Soundbank::writeGenerators($RIFFWriter* writer, $Map* generators) {
 		writer->writeShort(velrange->shortValue());
 	}
 	{
-		$var($Iterator, i$, $nc($(generators->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(generators->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, generator, $cast($Map$Entry, i$->next()));
 			{
-				if ($nc(($cast($Integer, $($nc(generator)->getKey()))))->intValue() == $SF2Region::GENERATOR_KEYRANGE) {
+				if ($$sure($Integer, $nc(generator)->getKey())->intValue() == $SF2Region::GENERATOR_KEYRANGE) {
 					continue;
 				}
-				if ($nc(($cast($Integer, $($nc(generator)->getKey()))))->intValue() == $SF2Region::GENERATOR_VELRANGE) {
+				if ($$sure($Integer, generator->getKey())->intValue() == $SF2Region::GENERATOR_VELRANGE) {
 					continue;
 				}
-				$nc(writer)->writeUnsignedShort($nc(($cast($Integer, $($nc(generator)->getKey()))))->intValue());
-				writer->writeShort($nc(($cast($Short, $($nc(generator)->getValue()))))->shortValue());
+				$nc(writer)->writeUnsignedShort($$sure($Integer, generator->getKey())->intValue());
+				writer->writeShort($$sure($Short, generator->getValue())->shortValue());
 			}
 		}
 	}
 }
 
 void SF2Soundbank::writePdtaChunk($RIFFWriter* writer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($RIFFWriter, phdr_chunk, $nc(writer)->writeChunk("phdr"_s));
 	int32_t phdr_zone_count = 0;
 	{
@@ -878,13 +777,13 @@ void SF2Soundbank::writePdtaChunk($RIFFWriter* writer) {
 			$var($SF2Instrument, preset, $cast($SF2Instrument, i$->next()));
 			{
 				$nc(phdr_chunk)->writeString($nc(preset)->name, 20);
-				phdr_chunk->writeUnsignedShort($nc(preset)->preset);
-				phdr_chunk->writeUnsignedShort($nc(preset)->bank);
+				phdr_chunk->writeUnsignedShort(preset->preset);
+				phdr_chunk->writeUnsignedShort(preset->bank);
 				phdr_chunk->writeUnsignedShort(phdr_zone_count);
-				if ($nc(preset)->getGlobalRegion() != nullptr) {
+				if (preset->getGlobalRegion() != nullptr) {
 					phdr_zone_count += 1;
 				}
-				phdr_zone_count += $nc($($nc(preset)->getRegions()))->size();
+				phdr_zone_count += $$nc(preset->getRegions())->size();
 				phdr_chunk->writeUnsignedInt(preset->library);
 				phdr_chunk->writeUnsignedInt(preset->genre);
 				phdr_chunk->writeUnsignedInt(preset->morphology);
@@ -902,18 +801,18 @@ void SF2Soundbank::writePdtaChunk($RIFFWriter* writer) {
 	int32_t pbag_gencount = 0;
 	int32_t pbag_modcount = 0;
 	{
-		$var($Iterator, i$, $nc(this->instruments)->iterator());
+		$var($Iterator, i$, this->instruments->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($SF2Instrument, preset, $cast($SF2Instrument, i$->next()));
 			{
 				if ($nc(preset)->getGlobalRegion() != nullptr) {
 					$nc(pbag_chunk)->writeUnsignedShort(pbag_gencount);
 					pbag_chunk->writeUnsignedShort(pbag_modcount);
-					pbag_gencount += $nc($($nc($(preset->getGlobalRegion()))->getGenerators()))->size();
-					pbag_modcount += $nc($($nc($(preset->getGlobalRegion()))->getModulators()))->size();
+					pbag_gencount += $$nc($$nc(preset->getGlobalRegion())->getGenerators())->size();
+					pbag_modcount += $$nc($$nc(preset->getGlobalRegion())->getModulators())->size();
 				}
 				{
-					$var($Iterator, i$, $nc($($nc(preset)->getRegions()))->iterator());
+					$var($Iterator, i$, $$nc(preset->getRegions())->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($SF2InstrumentRegion, region, $cast($SF2InstrumentRegion, i$->next()));
 						{
@@ -922,8 +821,8 @@ void SF2Soundbank::writePdtaChunk($RIFFWriter* writer) {
 							if ($nc(this->layers)->indexOf($nc(region)->layer) != -1) {
 								pbag_gencount += 1;
 							}
-							pbag_gencount += $nc($($nc(region)->getGenerators()))->size();
-							pbag_modcount += $nc($(region->getModulators()))->size();
+							pbag_gencount += $$nc(region->getGenerators())->size();
+							pbag_modcount += $$nc(region->getModulators())->size();
 						}
 					}
 				}
@@ -934,15 +833,15 @@ void SF2Soundbank::writePdtaChunk($RIFFWriter* writer) {
 	pbag_chunk->writeUnsignedShort(pbag_modcount);
 	$var($RIFFWriter, pmod_chunk, writer->writeChunk("pmod"_s));
 	{
-		$var($Iterator, i$, $nc(this->instruments)->iterator());
+		$var($Iterator, i$, this->instruments->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($SF2Instrument, preset, $cast($SF2Instrument, i$->next()));
 			{
 				if ($nc(preset)->getGlobalRegion() != nullptr) {
-					writeModulators(pmod_chunk, $($nc($(preset->getGlobalRegion()))->getModulators()));
+					writeModulators(pmod_chunk, $($$nc(preset->getGlobalRegion())->getModulators()));
 				}
 				{
-					$var($Iterator, i$, $nc($($nc(preset)->getRegions()))->iterator());
+					$var($Iterator, i$, $$nc(preset->getRegions())->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($SF2InstrumentRegion, region, $cast($SF2InstrumentRegion, i$->next()));
 						writeModulators(pmod_chunk, $($nc(region)->getModulators()));
@@ -954,20 +853,20 @@ void SF2Soundbank::writePdtaChunk($RIFFWriter* writer) {
 	$nc(pmod_chunk)->write($$new($bytes, 10));
 	$var($RIFFWriter, pgen_chunk, writer->writeChunk("pgen"_s));
 	{
-		$var($Iterator, i$, $nc(this->instruments)->iterator());
+		$var($Iterator, i$, this->instruments->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($SF2Instrument, preset, $cast($SF2Instrument, i$->next()));
 			{
 				if ($nc(preset)->getGlobalRegion() != nullptr) {
-					writeGenerators(pgen_chunk, $($nc($(preset->getGlobalRegion()))->getGenerators()));
+					writeGenerators(pgen_chunk, $($$nc(preset->getGlobalRegion())->getGenerators()));
 				}
 				{
-					$var($Iterator, i$, $nc($($nc(preset)->getRegions()))->iterator());
+					$var($Iterator, i$, $$nc(preset->getRegions())->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($SF2InstrumentRegion, region, $cast($SF2InstrumentRegion, i$->next()));
 						{
 							writeGenerators(pgen_chunk, $($nc(region)->getGenerators()));
-							int32_t ix = $nc(this->layers)->indexOf($nc(region)->layer);
+							int32_t ix = $nc(this->layers)->indexOf(region->layer);
 							if (ix != -1) {
 								$nc(pgen_chunk)->writeUnsignedShort($SF2Region::GENERATOR_INSTRUMENT);
 								pgen_chunk->writeShort((int16_t)ix);
@@ -988,10 +887,10 @@ void SF2Soundbank::writePdtaChunk($RIFFWriter* writer) {
 			{
 				$nc(inst_chunk)->writeString($nc(instrument)->name, 20);
 				inst_chunk->writeUnsignedShort(inst_zone_count);
-				if ($nc(instrument)->getGlobalRegion() != nullptr) {
+				if (instrument->getGlobalRegion() != nullptr) {
 					inst_zone_count += 1;
 				}
-				inst_zone_count += $nc($($nc(instrument)->getRegions()))->size();
+				inst_zone_count += $$nc(instrument->getRegions())->size();
 			}
 		}
 	}
@@ -1001,18 +900,18 @@ void SF2Soundbank::writePdtaChunk($RIFFWriter* writer) {
 	int32_t ibag_gencount = 0;
 	int32_t ibag_modcount = 0;
 	{
-		$var($Iterator, i$, $nc(this->layers)->iterator());
+		$var($Iterator, i$, this->layers->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($SF2Layer, instrument, $cast($SF2Layer, i$->next()));
 			{
 				if ($nc(instrument)->getGlobalRegion() != nullptr) {
 					$nc(ibag_chunk)->writeUnsignedShort(ibag_gencount);
 					ibag_chunk->writeUnsignedShort(ibag_modcount);
-					ibag_gencount += $nc($($nc($(instrument->getGlobalRegion()))->getGenerators()))->size();
-					ibag_modcount += $nc($($nc($(instrument->getGlobalRegion()))->getModulators()))->size();
+					ibag_gencount += $$nc($$nc(instrument->getGlobalRegion())->getGenerators())->size();
+					ibag_modcount += $$nc($$nc(instrument->getGlobalRegion())->getModulators())->size();
 				}
 				{
-					$var($Iterator, i$, $nc($($nc(instrument)->getRegions()))->iterator());
+					$var($Iterator, i$, $$nc(instrument->getRegions())->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($SF2LayerRegion, region, $cast($SF2LayerRegion, i$->next()));
 						{
@@ -1021,8 +920,8 @@ void SF2Soundbank::writePdtaChunk($RIFFWriter* writer) {
 							if ($nc(this->samples)->indexOf($nc(region)->sample) != -1) {
 								ibag_gencount += 1;
 							}
-							ibag_gencount += $nc($($nc(region)->getGenerators()))->size();
-							ibag_modcount += $nc($(region->getModulators()))->size();
+							ibag_gencount += $$nc(region->getGenerators())->size();
+							ibag_modcount += $$nc(region->getModulators())->size();
 						}
 					}
 				}
@@ -1033,15 +932,15 @@ void SF2Soundbank::writePdtaChunk($RIFFWriter* writer) {
 	ibag_chunk->writeUnsignedShort(ibag_modcount);
 	$var($RIFFWriter, imod_chunk, writer->writeChunk("imod"_s));
 	{
-		$var($Iterator, i$, $nc(this->layers)->iterator());
+		$var($Iterator, i$, this->layers->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($SF2Layer, instrument, $cast($SF2Layer, i$->next()));
 			{
 				if ($nc(instrument)->getGlobalRegion() != nullptr) {
-					writeModulators(imod_chunk, $($nc($(instrument->getGlobalRegion()))->getModulators()));
+					writeModulators(imod_chunk, $($$nc(instrument->getGlobalRegion())->getModulators()));
 				}
 				{
-					$var($Iterator, i$, $nc($($nc(instrument)->getRegions()))->iterator());
+					$var($Iterator, i$, $$nc(instrument->getRegions())->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($SF2LayerRegion, region, $cast($SF2LayerRegion, i$->next()));
 						writeModulators(imod_chunk, $($nc(region)->getModulators()));
@@ -1053,20 +952,20 @@ void SF2Soundbank::writePdtaChunk($RIFFWriter* writer) {
 	$nc(imod_chunk)->write($$new($bytes, 10));
 	$var($RIFFWriter, igen_chunk, writer->writeChunk("igen"_s));
 	{
-		$var($Iterator, i$, $nc(this->layers)->iterator());
+		$var($Iterator, i$, this->layers->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($SF2Layer, instrument, $cast($SF2Layer, i$->next()));
 			{
 				if ($nc(instrument)->getGlobalRegion() != nullptr) {
-					writeGenerators(igen_chunk, $($nc($(instrument->getGlobalRegion()))->getGenerators()));
+					writeGenerators(igen_chunk, $($$nc(instrument->getGlobalRegion())->getGenerators()));
 				}
 				{
-					$var($Iterator, i$, $nc($($nc(instrument)->getRegions()))->iterator());
+					$var($Iterator, i$, $$nc(instrument->getRegions())->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($SF2LayerRegion, region, $cast($SF2LayerRegion, i$->next()));
 						{
 							writeGenerators(igen_chunk, $($nc(region)->getGenerators()));
-							int32_t ix = $nc(this->samples)->indexOf($nc(region)->sample);
+							int32_t ix = $nc(this->samples)->indexOf(region->sample);
 							if (ix != -1) {
 								$nc(igen_chunk)->writeUnsignedShort($SF2Region::GENERATOR_SAMPLEID);
 								igen_chunk->writeShort((int16_t)ix);
@@ -1087,7 +986,7 @@ void SF2Soundbank::writePdtaChunk($RIFFWriter* writer) {
 			{
 				$nc(shdr_chunk)->writeString($nc(sample)->name, 20);
 				int64_t start = sample_pos;
-				sample_pos += $nc($nc(sample)->data)->capacity() / 2;
+				sample_pos += $nc(sample->data)->capacity() / 2;
 				int64_t end = sample_pos;
 				int64_t startLoop = sample->startLoop + start;
 				int64_t endLoop = sample->endLoop + start;
@@ -1119,7 +1018,7 @@ $String* SF2Soundbank::getName() {
 }
 
 $String* SF2Soundbank::getVersion() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$$str(this->major), "."_s, $$str(this->minor)});
 }
 
@@ -1144,41 +1043,41 @@ void SF2Soundbank::setDescription($String* s) {
 }
 
 $SoundbankResourceArray* SF2Soundbank::getResources() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(this->layers)->size();
 	$var($SoundbankResourceArray, resources, $new($SoundbankResourceArray, var$0 + $nc(this->samples)->size()));
 	int32_t j = 0;
-	for (int32_t i = 0; i < $nc(this->layers)->size(); ++i) {
-		resources->set(j++, $cast($SoundbankResource, $($nc(this->layers)->get(i))));
+	for (int32_t i = 0; i < this->layers->size(); ++i) {
+		resources->set(j++, $$cast($SoundbankResource, this->layers->get(i)));
 	}
-	for (int32_t i = 0; i < $nc(this->samples)->size(); ++i) {
-		resources->set(j++, $cast($SoundbankResource, $($nc(this->samples)->get(i))));
+	for (int32_t i = 0; i < this->samples->size(); ++i) {
+		resources->set(j++, $$cast($SoundbankResource, this->samples->get(i)));
 	}
 	return resources;
 }
 
 $InstrumentArray* SF2Soundbank::getInstruments() {
-	$useLocalCurrentObjectStackCache();
-	$var($SF2InstrumentArray, inslist_array, $fcast($SF2InstrumentArray, $nc(this->instruments)->toArray($$new($SF2InstrumentArray, $nc(this->instruments)->size()))));
+	$useLocalObjectStack();
+	$var($SF2InstrumentArray, inslist_array, $cast($SF2InstrumentArray, $nc(this->instruments)->toArray($$new($SF2InstrumentArray, $nc(this->instruments)->size()))));
 	$Arrays::sort(inslist_array, $$new($ModelInstrumentComparator));
-	return $fcast($InstrumentArray, inslist_array);
+	return $cast($InstrumentArray, inslist_array);
 }
 
 $SF2LayerArray* SF2Soundbank::getLayers() {
-	return $fcast($SF2LayerArray, $nc(this->layers)->toArray($$new($SF2LayerArray, $nc(this->layers)->size())));
+	return $cast($SF2LayerArray, $nc(this->layers)->toArray($$new($SF2LayerArray, $nc(this->layers)->size())));
 }
 
 $SF2SampleArray* SF2Soundbank::getSamples() {
-	return $fcast($SF2SampleArray, $nc(this->samples)->toArray($$new($SF2SampleArray, $nc(this->samples)->size())));
+	return $cast($SF2SampleArray, $nc(this->samples)->toArray($$new($SF2SampleArray, $nc(this->samples)->size())));
 }
 
 $Instrument* SF2Soundbank::getInstrument($Patch* patch) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t program = $nc(patch)->getProgram();
 	int32_t bank = patch->getBank();
 	bool percussion = false;
 	if ($instanceOf($ModelPatch, patch)) {
-		percussion = $nc(($cast($ModelPatch, patch)))->isPercussion();
+		percussion = $cast($ModelPatch, patch)->isPercussion();
 	}
 	{
 		$var($Iterator, i$, $nc(this->instruments)->iterator());
@@ -1191,7 +1090,7 @@ $Instrument* SF2Soundbank::getInstrument($Patch* patch) {
 				if (program == program2 && bank == bank2) {
 					bool percussion2 = false;
 					if ($instanceOf($ModelPatch, patch2)) {
-						percussion2 = $nc(($cast($ModelPatch, patch2)))->isPercussion();
+						percussion2 = $cast($ModelPatch, patch2)->isPercussion();
 					}
 					if (percussion == percussion2) {
 						return instrument;
@@ -1273,13 +1172,13 @@ void SF2Soundbank::addResource($SoundbankResource* resource) {
 
 void SF2Soundbank::removeResource($SoundbankResource* resource) {
 	if ($instanceOf($SF2Instrument, resource)) {
-		$nc(this->instruments)->remove($of(resource));
+		$nc(this->instruments)->remove(resource);
 	}
 	if ($instanceOf($SF2Layer, resource)) {
-		$nc(this->layers)->remove($of(resource));
+		$nc(this->layers)->remove(resource);
 	}
 	if ($instanceOf($SF2Sample, resource)) {
-		$nc(this->samples)->remove($of(resource));
+		$nc(this->samples)->remove(resource);
 	}
 }
 
@@ -1288,14 +1187,98 @@ void SF2Soundbank::addInstrument($SF2Instrument* resource) {
 }
 
 void SF2Soundbank::removeInstrument($SF2Instrument* resource) {
-	$nc(this->instruments)->remove($of(resource));
+	$nc(this->instruments)->remove(resource);
 }
 
 SF2Soundbank::SF2Soundbank() {
 }
 
 $Class* SF2Soundbank::load$($String* name, bool initialize) {
-	$loadClass(SF2Soundbank, name, initialize, &_SF2Soundbank_ClassInfo_, allocate$SF2Soundbank);
+	$FieldInfo fieldInfos$$[] = {
+		{"major", "I", nullptr, 0, $field(SF2Soundbank, major)},
+		{"minor", "I", nullptr, 0, $field(SF2Soundbank, minor)},
+		{"targetEngine", "Ljava/lang/String;", nullptr, 0, $field(SF2Soundbank, targetEngine)},
+		{"name", "Ljava/lang/String;", nullptr, 0, $field(SF2Soundbank, name)},
+		{"romName", "Ljava/lang/String;", nullptr, 0, $field(SF2Soundbank, romName)},
+		{"romVersionMajor", "I", nullptr, 0, $field(SF2Soundbank, romVersionMajor)},
+		{"romVersionMinor", "I", nullptr, 0, $field(SF2Soundbank, romVersionMinor)},
+		{"creationDate", "Ljava/lang/String;", nullptr, 0, $field(SF2Soundbank, creationDate)},
+		{"engineers", "Ljava/lang/String;", nullptr, 0, $field(SF2Soundbank, engineers)},
+		{"product", "Ljava/lang/String;", nullptr, 0, $field(SF2Soundbank, product)},
+		{"copyright", "Ljava/lang/String;", nullptr, 0, $field(SF2Soundbank, copyright)},
+		{"comments", "Ljava/lang/String;", nullptr, 0, $field(SF2Soundbank, comments)},
+		{"tools", "Ljava/lang/String;", nullptr, 0, $field(SF2Soundbank, tools)},
+		{"sampleData", "Lcom/sun/media/sound/ModelByteBuffer;", nullptr, $PRIVATE, $field(SF2Soundbank, sampleData)},
+		{"sampleData24", "Lcom/sun/media/sound/ModelByteBuffer;", nullptr, $PRIVATE, $field(SF2Soundbank, sampleData24)},
+		{"sampleFile", "Ljava/io/File;", nullptr, $PRIVATE, $field(SF2Soundbank, sampleFile)},
+		{"largeFormat", "Z", nullptr, $PRIVATE, $field(SF2Soundbank, largeFormat)},
+		{"instruments", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/media/sound/SF2Instrument;>;", $PRIVATE | $FINAL, $field(SF2Soundbank, instruments)},
+		{"layers", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/media/sound/SF2Layer;>;", $PRIVATE | $FINAL, $field(SF2Soundbank, layers)},
+		{"samples", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/media/sound/SF2Sample;>;", $PRIVATE | $FINAL, $field(SF2Soundbank, samples)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SF2Soundbank, init$, void)},
+		{"<init>", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $method(SF2Soundbank, init$, void, $URL*), "java.io.IOException"},
+		{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(SF2Soundbank, init$, void, $File*), "java.io.IOException"},
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(SF2Soundbank, init$, void, $InputStream*), "java.io.IOException"},
+		{"addInstrument", "(Lcom/sun/media/sound/SF2Instrument;)V", nullptr, $PUBLIC, $method(SF2Soundbank, addInstrument, void, $SF2Instrument*)},
+		{"addResource", "(Ljavax/sound/midi/SoundbankResource;)V", nullptr, $PUBLIC, $method(SF2Soundbank, addResource, void, $SoundbankResource*)},
+		{"getCreationDate", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SF2Soundbank, getCreationDate, $String*)},
+		{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SF2Soundbank, getDescription, $String*)},
+		{"getInstrument", "(Ljavax/sound/midi/Patch;)Ljavax/sound/midi/Instrument;", nullptr, $PUBLIC, $virtualMethod(SF2Soundbank, getInstrument, $Instrument*, $Patch*)},
+		{"getInstruments", "()[Lcom/sun/media/sound/SF2Instrument;", nullptr, $PUBLIC, $virtualMethod(SF2Soundbank, getInstruments, $InstrumentArray*)},
+		{"getLayers", "()[Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC, $method(SF2Soundbank, getLayers, $SF2LayerArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SF2Soundbank, getName, $String*)},
+		{"getProduct", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SF2Soundbank, getProduct, $String*)},
+		{"getResources", "()[Ljavax/sound/midi/SoundbankResource;", nullptr, $PUBLIC, $virtualMethod(SF2Soundbank, getResources, $SoundbankResourceArray*)},
+		{"getRomName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SF2Soundbank, getRomName, $String*)},
+		{"getRomVersionMajor", "()I", nullptr, $PUBLIC, $method(SF2Soundbank, getRomVersionMajor, int32_t)},
+		{"getRomVersionMinor", "()I", nullptr, $PUBLIC, $method(SF2Soundbank, getRomVersionMinor, int32_t)},
+		{"getSamples", "()[Lcom/sun/media/sound/SF2Sample;", nullptr, $PUBLIC, $method(SF2Soundbank, getSamples, $SF2SampleArray*)},
+		{"getTargetEngine", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SF2Soundbank, getTargetEngine, $String*)},
+		{"getTools", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SF2Soundbank, getTools, $String*)},
+		{"getVendor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SF2Soundbank, getVendor, $String*)},
+		{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SF2Soundbank, getVersion, $String*)},
+		{"readInfoChunk", "(Lcom/sun/media/sound/RIFFReader;)V", nullptr, $PRIVATE, $method(SF2Soundbank, readInfoChunk, void, $RIFFReader*), "java.io.IOException"},
+		{"readPdtaChunk", "(Lcom/sun/media/sound/RIFFReader;)V", nullptr, $PRIVATE, $method(SF2Soundbank, readPdtaChunk, void, $RIFFReader*), "java.io.IOException"},
+		{"readSdtaChunk", "(Lcom/sun/media/sound/RIFFReader;)V", nullptr, $PRIVATE, $method(SF2Soundbank, readSdtaChunk, void, $RIFFReader*), "java.io.IOException"},
+		{"readSoundbank", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE, $method(SF2Soundbank, readSoundbank, void, $InputStream*), "java.io.IOException"},
+		{"removeInstrument", "(Lcom/sun/media/sound/SF2Instrument;)V", nullptr, $PUBLIC, $method(SF2Soundbank, removeInstrument, void, $SF2Instrument*)},
+		{"removeResource", "(Ljavax/sound/midi/SoundbankResource;)V", nullptr, $PUBLIC, $method(SF2Soundbank, removeResource, void, $SoundbankResource*)},
+		{"save", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SF2Soundbank, save, void, $String*), "java.io.IOException"},
+		{"save", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(SF2Soundbank, save, void, $File*), "java.io.IOException"},
+		{"save", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(SF2Soundbank, save, void, $OutputStream*), "java.io.IOException"},
+		{"setCreationDate", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SF2Soundbank, setCreationDate, void, $String*)},
+		{"setDescription", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SF2Soundbank, setDescription, void, $String*)},
+		{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SF2Soundbank, setName, void, $String*)},
+		{"setProduct", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SF2Soundbank, setProduct, void, $String*)},
+		{"setRomName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SF2Soundbank, setRomName, void, $String*)},
+		{"setRomVersionMajor", "(I)V", nullptr, $PUBLIC, $method(SF2Soundbank, setRomVersionMajor, void, int32_t)},
+		{"setRomVersionMinor", "(I)V", nullptr, $PUBLIC, $method(SF2Soundbank, setRomVersionMinor, void, int32_t)},
+		{"setTargetEngine", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SF2Soundbank, setTargetEngine, void, $String*)},
+		{"setTools", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SF2Soundbank, setTools, void, $String*)},
+		{"setVendor", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SF2Soundbank, setVendor, void, $String*)},
+		{"writeGenerators", "(Lcom/sun/media/sound/RIFFWriter;Ljava/util/Map;)V", "(Lcom/sun/media/sound/RIFFWriter;Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/Short;>;)V", $PRIVATE, $method(SF2Soundbank, writeGenerators, void, $RIFFWriter*, $Map*), "java.io.IOException"},
+		{"writeInfo", "(Lcom/sun/media/sound/RIFFWriter;)V", nullptr, $PRIVATE, $method(SF2Soundbank, writeInfo, void, $RIFFWriter*), "java.io.IOException"},
+		{"writeInfoStringChunk", "(Lcom/sun/media/sound/RIFFWriter;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SF2Soundbank, writeInfoStringChunk, void, $RIFFWriter*, $String*, $String*), "java.io.IOException"},
+		{"writeModulators", "(Lcom/sun/media/sound/RIFFWriter;Ljava/util/List;)V", "(Lcom/sun/media/sound/RIFFWriter;Ljava/util/List<Lcom/sun/media/sound/SF2Modulator;>;)V", $PRIVATE, $method(SF2Soundbank, writeModulators, void, $RIFFWriter*, $List*), "java.io.IOException"},
+		{"writePdtaChunk", "(Lcom/sun/media/sound/RIFFWriter;)V", nullptr, $PRIVATE, $method(SF2Soundbank, writePdtaChunk, void, $RIFFWriter*), "java.io.IOException"},
+		{"writeSdtaChunk", "(Lcom/sun/media/sound/RIFFWriter;)V", nullptr, $PRIVATE, $method(SF2Soundbank, writeSdtaChunk, void, $RIFFWriter*), "java.io.IOException"},
+		{"writeSoundbank", "(Lcom/sun/media/sound/RIFFWriter;)V", nullptr, $PRIVATE, $method(SF2Soundbank, writeSoundbank, void, $RIFFWriter*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SF2Soundbank",
+		"java.lang.Object",
+		"javax.sound.midi.Soundbank",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SF2Soundbank, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SF2Soundbank);
+	});
 	return class$;
 }
 

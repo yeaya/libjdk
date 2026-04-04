@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/RenderCache$Entry.h>
-
 #include <sun/java2d/loops/CompositeType.h>
 #include <sun/java2d/loops/RenderCache.h>
 #include <sun/java2d/loops/SurfaceType.h>
@@ -17,47 +16,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _RenderCache$Entry_FieldInfo_[] = {
-	{"this$0", "Lsun/java2d/loops/RenderCache;", nullptr, $FINAL | $SYNTHETIC, $field(RenderCache$Entry, this$0)},
-	{"src", "Lsun/java2d/loops/SurfaceType;", nullptr, $PRIVATE, $field(RenderCache$Entry, src)},
-	{"comp", "Lsun/java2d/loops/CompositeType;", nullptr, $PRIVATE, $field(RenderCache$Entry, comp)},
-	{"dst", "Lsun/java2d/loops/SurfaceType;", nullptr, $PRIVATE, $field(RenderCache$Entry, dst)},
-	{"value", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(RenderCache$Entry, value)},
-	{}
-};
-
-$MethodInfo _RenderCache$Entry_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/RenderCache;Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(RenderCache$Entry, init$, void, $RenderCache*, $SurfaceType*, $CompositeType*, $SurfaceType*, Object$*)},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(RenderCache$Entry, getValue, $Object*)},
-	{"matches", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Z", nullptr, $PUBLIC, $method(RenderCache$Entry, matches, bool, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{}
-};
-
-$InnerClassInfo _RenderCache$Entry_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.RenderCache$Entry", "sun.java2d.loops.RenderCache", "Entry", $FINAL},
-	{}
-};
-
-$ClassInfo _RenderCache$Entry_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.loops.RenderCache$Entry",
-	"java.lang.Object",
-	nullptr,
-	_RenderCache$Entry_FieldInfo_,
-	_RenderCache$Entry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RenderCache$Entry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.RenderCache"
-};
-
-$Object* allocate$RenderCache$Entry($Class* clazz) {
-	return $of($alloc(RenderCache$Entry));
-}
-
 void RenderCache$Entry::init$($RenderCache* this$0, $SurfaceType* src, $CompositeType* comp, $SurfaceType* dst, Object$* value) {
 	$set(this, this$0, this$0);
 	$set(this, src, src);
@@ -71,14 +29,49 @@ bool RenderCache$Entry::matches($SurfaceType* src, $CompositeType* comp, $Surfac
 }
 
 $Object* RenderCache$Entry::getValue() {
-	return $of(this->value);
+	return this->value;
 }
 
 RenderCache$Entry::RenderCache$Entry() {
 }
 
 $Class* RenderCache$Entry::load$($String* name, bool initialize) {
-	$loadClass(RenderCache$Entry, name, initialize, &_RenderCache$Entry_ClassInfo_, allocate$RenderCache$Entry);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/java2d/loops/RenderCache;", nullptr, $FINAL | $SYNTHETIC, $field(RenderCache$Entry, this$0)},
+		{"src", "Lsun/java2d/loops/SurfaceType;", nullptr, $PRIVATE, $field(RenderCache$Entry, src)},
+		{"comp", "Lsun/java2d/loops/CompositeType;", nullptr, $PRIVATE, $field(RenderCache$Entry, comp)},
+		{"dst", "Lsun/java2d/loops/SurfaceType;", nullptr, $PRIVATE, $field(RenderCache$Entry, dst)},
+		{"value", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(RenderCache$Entry, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/RenderCache;Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(RenderCache$Entry, init$, void, $RenderCache*, $SurfaceType*, $CompositeType*, $SurfaceType*, Object$*)},
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(RenderCache$Entry, getValue, $Object*)},
+		{"matches", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Z", nullptr, $PUBLIC, $method(RenderCache$Entry, matches, bool, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.RenderCache$Entry", "sun.java2d.loops.RenderCache", "Entry", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.loops.RenderCache$Entry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.RenderCache"
+	};
+	$loadClass(RenderCache$Entry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RenderCache$Entry);
+	});
 	return class$;
 }
 

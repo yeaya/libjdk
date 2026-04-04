@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/gif/GIFImageWriteParam.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/Locale.h>
 #include <javax/imageio/ImageWriteParam.h>
@@ -18,25 +17,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace gif {
-
-$MethodInfo _GIFImageWriteParam_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Locale;)V", nullptr, 0, $method(GIFImageWriteParam, init$, void, $Locale*)},
-	{"setCompressionMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(GIFImageWriteParam, setCompressionMode, void, int32_t)},
-	{}
-};
-
-$ClassInfo _GIFImageWriteParam_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.gif.GIFImageWriteParam",
-	"javax.imageio.ImageWriteParam",
-	nullptr,
-	nullptr,
-	_GIFImageWriteParam_MethodInfo_
-};
-
-$Object* allocate$GIFImageWriteParam($Class* clazz) {
-	return $of($alloc(GIFImageWriteParam));
-}
 
 void GIFImageWriteParam::init$($Locale* locale) {
 	$ImageWriteParam::init$(locale);
@@ -57,7 +37,22 @@ GIFImageWriteParam::GIFImageWriteParam() {
 }
 
 $Class* GIFImageWriteParam::load$($String* name, bool initialize) {
-	$loadClass(GIFImageWriteParam, name, initialize, &_GIFImageWriteParam_ClassInfo_, allocate$GIFImageWriteParam);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Locale;)V", nullptr, 0, $method(GIFImageWriteParam, init$, void, $Locale*)},
+		{"setCompressionMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(GIFImageWriteParam, setCompressionMode, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.gif.GIFImageWriteParam",
+		"javax.imageio.ImageWriteParam",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GIFImageWriteParam, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GIFImageWriteParam);
+	});
 	return class$;
 }
 

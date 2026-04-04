@@ -1,5 +1,4 @@
 #include <jdk/xml/internal/JdkProperty$ImplPropMap.h>
-
 #include <java/lang/Enum.h>
 #include <jdk/xml/internal/JdkProperty$State.h>
 #include <jdk/xml/internal/JdkProperty.h>
@@ -27,65 +26,6 @@ using $JdkProperty$State = ::jdk::xml::internal::JdkProperty$State;
 namespace jdk {
 	namespace xml {
 		namespace internal {
-
-$FieldInfo _JdkProperty$ImplPropMap_FieldInfo_[] = {
-	{"ISSTANDALONE", "Ljdk/xml/internal/JdkProperty$ImplPropMap;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$ImplPropMap, ISSTANDALONE)},
-	{"XSLTCISSTANDALONE", "Ljdk/xml/internal/JdkProperty$ImplPropMap;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$ImplPropMap, XSLTCISSTANDALONE)},
-	{"CDATACHUNKSIZE", "Ljdk/xml/internal/JdkProperty$ImplPropMap;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$ImplPropMap, CDATACHUNKSIZE)},
-	{"EXTCLSLOADER", "Ljdk/xml/internal/JdkProperty$ImplPropMap;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$ImplPropMap, EXTCLSLOADER)},
-	{"ENABLEEXTFUNC", "Ljdk/xml/internal/JdkProperty$ImplPropMap;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$ImplPropMap, ENABLEEXTFUNC)},
-	{"OVERRIDEPARSER", "Ljdk/xml/internal/JdkProperty$ImplPropMap;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$ImplPropMap, OVERRIDEPARSER)},
-	{"RESETSYMBOLTABLE", "Ljdk/xml/internal/JdkProperty$ImplPropMap;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$ImplPropMap, RESETSYMBOLTABLE)},
-	{"ENTITYCOUNT", "Ljdk/xml/internal/JdkProperty$ImplPropMap;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$ImplPropMap, ENTITYCOUNT)},
-	{"$VALUES", "[Ljdk/xml/internal/JdkProperty$ImplPropMap;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JdkProperty$ImplPropMap, $VALUES)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JdkProperty$ImplPropMap, name$)},
-	{"qName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JdkProperty$ImplPropMap, qName$)},
-	{"spName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JdkProperty$ImplPropMap, spName)},
-	{"differ", "Z", nullptr, $PRIVATE | $FINAL, $field(JdkProperty$ImplPropMap, differ)},
-	{"oldQName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JdkProperty$ImplPropMap, oldQName)},
-	{"oldSPName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JdkProperty$ImplPropMap, oldSPName)},
-	{}
-};
-
-$MethodInfo _JdkProperty$ImplPropMap_MethodInfo_[] = {
-	{"$values", "()[Ljdk/xml/internal/JdkProperty$ImplPropMap;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JdkProperty$ImplPropMap, $values, $JdkProperty$ImplPropMapArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(JdkProperty$ImplPropMap, init$, void, $String*, int32_t, $String*, $String*, $String*, bool, $String*, $String*)},
-	{"getState", "(Ljava/lang/String;)Ljdk/xml/internal/JdkProperty$State;", nullptr, $PUBLIC, $method(JdkProperty$ImplPropMap, getState, $JdkProperty$State*, $String*)},
-	{"is", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $method(JdkProperty$ImplPropMap, is, bool, $String*)},
-	{"isNameDiffer", "()Z", nullptr, $PUBLIC, $method(JdkProperty$ImplPropMap, isNameDiffer, bool)},
-	{"qName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(JdkProperty$ImplPropMap, qName, $String*)},
-	{"qNameOld", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(JdkProperty$ImplPropMap, qNameOld, $String*)},
-	{"systemProperty", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(JdkProperty$ImplPropMap, systemProperty, $String*)},
-	{"systemPropertyOld", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(JdkProperty$ImplPropMap, systemPropertyOld, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/xml/internal/JdkProperty$ImplPropMap;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkProperty$ImplPropMap, valueOf, JdkProperty$ImplPropMap*, $String*)},
-	{"values", "()[Ljdk/xml/internal/JdkProperty$ImplPropMap;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkProperty$ImplPropMap, values, $JdkProperty$ImplPropMapArray*)},
-	{}
-};
-
-$InnerClassInfo _JdkProperty$ImplPropMap_InnerClassesInfo_[] = {
-	{"jdk.xml.internal.JdkProperty$ImplPropMap", "jdk.xml.internal.JdkProperty", "ImplPropMap", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _JdkProperty$ImplPropMap_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"jdk.xml.internal.JdkProperty$ImplPropMap",
-	"java.lang.Enum",
-	nullptr,
-	_JdkProperty$ImplPropMap_FieldInfo_,
-	_JdkProperty$ImplPropMap_MethodInfo_,
-	"Ljava/lang/Enum<Ljdk/xml/internal/JdkProperty$ImplPropMap;>;",
-	nullptr,
-	_JdkProperty$ImplPropMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.xml.internal.JdkProperty"
-};
-
-$Object* allocate$JdkProperty$ImplPropMap($Class* clazz) {
-	return $of($alloc(JdkProperty$ImplPropMap));
-}
 
 JdkProperty$ImplPropMap* JdkProperty$ImplPropMap::ISSTANDALONE = nullptr;
 JdkProperty$ImplPropMap* JdkProperty$ImplPropMap::XSLTCISSTANDALONE = nullptr;
@@ -132,9 +72,9 @@ void JdkProperty$ImplPropMap::init$($String* $enum$name, int32_t $enum$ordinal, 
 }
 
 bool JdkProperty$ImplPropMap::is($String* name) {
-	bool var$1 = (this->spName != nullptr && $nc(this->spName)->equals(name));
+	bool var$1 = this->spName != nullptr && this->spName->equals(name);
 	bool var$0 = var$1 || (this->differ && $nc(this->qName$)->equals(name));
-	return var$0 || (this->oldQName != nullptr && $nc(this->oldQName)->equals(name));
+	return var$0 || (this->oldQName != nullptr && this->oldQName->equals(name));
 }
 
 bool JdkProperty$ImplPropMap::isNameDiffer() {
@@ -142,13 +82,13 @@ bool JdkProperty$ImplPropMap::isNameDiffer() {
 }
 
 $JdkProperty$State* JdkProperty$ImplPropMap::getState($String* name) {
-	bool var$0 = (this->spName != nullptr && $nc(this->spName)->equals(name));
+	bool var$0 = this->spName != nullptr && this->spName->equals(name);
 	if (var$0 || (this->spName == nullptr && $nc(this->qName$)->equals(name))) {
 		$init($JdkProperty$State);
 		return $JdkProperty$State::APIPROPERTY;
 	} else {
-		bool var$2 = (this->differ && $nc(this->qName$)->equals(name));
-		if (var$2 || (this->oldQName != nullptr && $nc(this->oldQName)->equals(name))) {
+		bool var$1 = this->differ && $nc(this->qName$)->equals(name);
+		if (var$1 || (this->oldQName != nullptr && this->oldQName->equals(name))) {
 			$init($JdkProperty$State);
 			return $JdkProperty$State::LEGACY_APIPROPERTY;
 		}
@@ -172,7 +112,7 @@ $String* JdkProperty$ImplPropMap::systemPropertyOld() {
 	return this->oldSPName;
 }
 
-void clinit$JdkProperty$ImplPropMap($Class* class$) {
+void JdkProperty$ImplPropMap::clinit$($Class* clazz) {
 	$assignStatic(JdkProperty$ImplPropMap::ISSTANDALONE, $new(JdkProperty$ImplPropMap, "ISSTANDALONE"_s, 0, "isStandalone"_s, "http://www.oracle.com/xml/jaxp/properties/isStandalone"_s, "jdk.xml.isStandalone"_s, true, nullptr, nullptr));
 	$assignStatic(JdkProperty$ImplPropMap::XSLTCISSTANDALONE, $new(JdkProperty$ImplPropMap, "XSLTCISSTANDALONE"_s, 1, "xsltcIsStandalone"_s, "http://www.oracle.com/xml/jaxp/properties/xsltcIsStandalone"_s, "jdk.xml.xsltcIsStandalone"_s, true, "http://www.oracle.com/xml/is-standalone"_s, nullptr));
 	$assignStatic(JdkProperty$ImplPropMap::CDATACHUNKSIZE, $new(JdkProperty$ImplPropMap, "CDATACHUNKSIZE"_s, 2, "cdataChunkSize"_s, "jdk.xml.cdataChunkSize"_s, "jdk.xml.cdataChunkSize"_s, false, nullptr, nullptr));
@@ -188,7 +128,60 @@ JdkProperty$ImplPropMap::JdkProperty$ImplPropMap() {
 }
 
 $Class* JdkProperty$ImplPropMap::load$($String* name, bool initialize) {
-	$loadClass(JdkProperty$ImplPropMap, name, initialize, &_JdkProperty$ImplPropMap_ClassInfo_, clinit$JdkProperty$ImplPropMap, allocate$JdkProperty$ImplPropMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"ISSTANDALONE", "Ljdk/xml/internal/JdkProperty$ImplPropMap;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$ImplPropMap, ISSTANDALONE)},
+		{"XSLTCISSTANDALONE", "Ljdk/xml/internal/JdkProperty$ImplPropMap;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$ImplPropMap, XSLTCISSTANDALONE)},
+		{"CDATACHUNKSIZE", "Ljdk/xml/internal/JdkProperty$ImplPropMap;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$ImplPropMap, CDATACHUNKSIZE)},
+		{"EXTCLSLOADER", "Ljdk/xml/internal/JdkProperty$ImplPropMap;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$ImplPropMap, EXTCLSLOADER)},
+		{"ENABLEEXTFUNC", "Ljdk/xml/internal/JdkProperty$ImplPropMap;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$ImplPropMap, ENABLEEXTFUNC)},
+		{"OVERRIDEPARSER", "Ljdk/xml/internal/JdkProperty$ImplPropMap;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$ImplPropMap, OVERRIDEPARSER)},
+		{"RESETSYMBOLTABLE", "Ljdk/xml/internal/JdkProperty$ImplPropMap;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$ImplPropMap, RESETSYMBOLTABLE)},
+		{"ENTITYCOUNT", "Ljdk/xml/internal/JdkProperty$ImplPropMap;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$ImplPropMap, ENTITYCOUNT)},
+		{"$VALUES", "[Ljdk/xml/internal/JdkProperty$ImplPropMap;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JdkProperty$ImplPropMap, $VALUES)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JdkProperty$ImplPropMap, name$)},
+		{"qName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JdkProperty$ImplPropMap, qName$)},
+		{"spName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JdkProperty$ImplPropMap, spName)},
+		{"differ", "Z", nullptr, $PRIVATE | $FINAL, $field(JdkProperty$ImplPropMap, differ)},
+		{"oldQName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JdkProperty$ImplPropMap, oldQName)},
+		{"oldSPName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JdkProperty$ImplPropMap, oldSPName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljdk/xml/internal/JdkProperty$ImplPropMap;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JdkProperty$ImplPropMap, $values, $JdkProperty$ImplPropMapArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(JdkProperty$ImplPropMap, init$, void, $String*, int32_t, $String*, $String*, $String*, bool, $String*, $String*)},
+		{"getState", "(Ljava/lang/String;)Ljdk/xml/internal/JdkProperty$State;", nullptr, $PUBLIC, $method(JdkProperty$ImplPropMap, getState, $JdkProperty$State*, $String*)},
+		{"is", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $method(JdkProperty$ImplPropMap, is, bool, $String*)},
+		{"isNameDiffer", "()Z", nullptr, $PUBLIC, $method(JdkProperty$ImplPropMap, isNameDiffer, bool)},
+		{"qName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(JdkProperty$ImplPropMap, qName, $String*)},
+		{"qNameOld", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(JdkProperty$ImplPropMap, qNameOld, $String*)},
+		{"systemProperty", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(JdkProperty$ImplPropMap, systemProperty, $String*)},
+		{"systemPropertyOld", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(JdkProperty$ImplPropMap, systemPropertyOld, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Ljdk/xml/internal/JdkProperty$ImplPropMap;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkProperty$ImplPropMap, valueOf, JdkProperty$ImplPropMap*, $String*)},
+		{"values", "()[Ljdk/xml/internal/JdkProperty$ImplPropMap;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkProperty$ImplPropMap, values, $JdkProperty$ImplPropMapArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.xml.internal.JdkProperty$ImplPropMap", "jdk.xml.internal.JdkProperty", "ImplPropMap", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"jdk.xml.internal.JdkProperty$ImplPropMap",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljdk/xml/internal/JdkProperty$ImplPropMap;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.xml.internal.JdkProperty"
+	};
+	$loadClass(JdkProperty$ImplPropMap, name, initialize, &classInfo$$, JdkProperty$ImplPropMap::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JdkProperty$ImplPropMap));
+	});
 	return class$;
 }
 

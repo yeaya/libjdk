@@ -1,5 +1,4 @@
 #include <sun/java2d/xr/GrowableIntArray.h>
-
 #include <java/lang/Math.h>
 #include <java/util/Arrays.h>
 #include <jcpp.h>
@@ -13,41 +12,6 @@ using $Arrays = ::java::util::Arrays;
 namespace sun {
 	namespace java2d {
 		namespace xr {
-
-$FieldInfo _GrowableIntArray_FieldInfo_[] = {
-	{"array", "[I", nullptr, 0, $field(GrowableIntArray, array)},
-	{"size", "I", nullptr, 0, $field(GrowableIntArray, size)},
-	{"cellSize", "I", nullptr, 0, $field(GrowableIntArray, cellSize)},
-	{}
-};
-
-$MethodInfo _GrowableIntArray_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(GrowableIntArray, init$, void, int32_t, int32_t)},
-	{"addInt", "(I)V", nullptr, $PUBLIC | $FINAL, $method(GrowableIntArray, addInt, void, int32_t)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(GrowableIntArray, clear, void)},
-	{"getArray", "()[I", nullptr, $PUBLIC, $virtualMethod(GrowableIntArray, getArray, $ints*)},
-	{"getCellIndex", "(I)I", nullptr, $PROTECTED | $FINAL, $method(GrowableIntArray, getCellIndex, int32_t, int32_t)},
-	{"getInt", "(I)I", nullptr, $PUBLIC | $FINAL, $method(GrowableIntArray, getInt, int32_t, int32_t)},
-	{"getNextCellIndex", "()I", nullptr, $PRIVATE, $method(GrowableIntArray, getNextCellIndex, int32_t)},
-	{"getNextIndex", "()I", nullptr, $PUBLIC | $FINAL, $method(GrowableIntArray, getNextIndex, int32_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $FINAL, $method(GrowableIntArray, getSize, int32_t)},
-	{"getSizedArray", "()[I", nullptr, $PUBLIC, $virtualMethod(GrowableIntArray, getSizedArray, $ints*)},
-	{"growArray", "()V", nullptr, $PROTECTED, $virtualMethod(GrowableIntArray, growArray, void)},
-	{}
-};
-
-$ClassInfo _GrowableIntArray_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.xr.GrowableIntArray",
-	"java.lang.Object",
-	nullptr,
-	_GrowableIntArray_FieldInfo_,
-	_GrowableIntArray_MethodInfo_
-};
-
-$Object* allocate$GrowableIntArray($Class* clazz) {
-	return $of($alloc(GrowableIntArray));
-}
 
 void GrowableIntArray::init$(int32_t cellSize, int32_t initialSize) {
 	$set(this, array, $new($ints, initialSize));
@@ -108,7 +72,37 @@ GrowableIntArray::GrowableIntArray() {
 }
 
 $Class* GrowableIntArray::load$($String* name, bool initialize) {
-	$loadClass(GrowableIntArray, name, initialize, &_GrowableIntArray_ClassInfo_, allocate$GrowableIntArray);
+	$FieldInfo fieldInfos$$[] = {
+		{"array", "[I", nullptr, 0, $field(GrowableIntArray, array)},
+		{"size", "I", nullptr, 0, $field(GrowableIntArray, size)},
+		{"cellSize", "I", nullptr, 0, $field(GrowableIntArray, cellSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(GrowableIntArray, init$, void, int32_t, int32_t)},
+		{"addInt", "(I)V", nullptr, $PUBLIC | $FINAL, $method(GrowableIntArray, addInt, void, int32_t)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(GrowableIntArray, clear, void)},
+		{"getArray", "()[I", nullptr, $PUBLIC, $virtualMethod(GrowableIntArray, getArray, $ints*)},
+		{"getCellIndex", "(I)I", nullptr, $PROTECTED | $FINAL, $method(GrowableIntArray, getCellIndex, int32_t, int32_t)},
+		{"getInt", "(I)I", nullptr, $PUBLIC | $FINAL, $method(GrowableIntArray, getInt, int32_t, int32_t)},
+		{"getNextCellIndex", "()I", nullptr, $PRIVATE, $method(GrowableIntArray, getNextCellIndex, int32_t)},
+		{"getNextIndex", "()I", nullptr, $PUBLIC | $FINAL, $method(GrowableIntArray, getNextIndex, int32_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $FINAL, $method(GrowableIntArray, getSize, int32_t)},
+		{"getSizedArray", "()[I", nullptr, $PUBLIC, $virtualMethod(GrowableIntArray, getSizedArray, $ints*)},
+		{"growArray", "()V", nullptr, $PROTECTED, $virtualMethod(GrowableIntArray, growArray, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.xr.GrowableIntArray",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GrowableIntArray, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GrowableIntArray);
+	});
 	return class$;
 }
 

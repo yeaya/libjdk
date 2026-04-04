@@ -15,10 +15,13 @@ public:
 	MidiUnavailableException();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0x54918F867F0D11C3;
+	static const int64_t serialVersionUID = (int64_t)0x54918f867f0d11c3;
 	MidiUnavailableException(const MidiUnavailableException& e);
 	virtual void throw$() override;
-	inline MidiUnavailableException* operator ->() {
+	inline MidiUnavailableException* operator ->() const {
+		return (MidiUnavailableException*)throwing$;
+	}
+	inline operator MidiUnavailableException*() const {
 		return (MidiUnavailableException*)throwing$;
 	}
 };

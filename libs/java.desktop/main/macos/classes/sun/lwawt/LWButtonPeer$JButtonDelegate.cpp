@@ -1,5 +1,4 @@
 #include <sun/lwawt/LWButtonPeer$JButtonDelegate.h>
-
 #include <java/awt/Button.h>
 #include <java/awt/Component.h>
 #include <javax/swing/JButton.h>
@@ -17,56 +16,50 @@ using $LWButtonPeer = ::sun::lwawt::LWButtonPeer;
 namespace sun {
 	namespace lwawt {
 
-$FieldInfo _LWButtonPeer$JButtonDelegate_FieldInfo_[] = {
-	{"this$0", "Lsun/lwawt/LWButtonPeer;", nullptr, $FINAL | $SYNTHETIC, $field(LWButtonPeer$JButtonDelegate, this$0)},
-	{}
-};
-
-$MethodInfo _LWButtonPeer$JButtonDelegate_MethodInfo_[] = {
-	{"<init>", "(Lsun/lwawt/LWButtonPeer;)V", nullptr, $PRIVATE, $method(LWButtonPeer$JButtonDelegate, init$, void, $LWButtonPeer*)},
-	{"hasFocus", "()Z", nullptr, $PUBLIC, $virtualMethod(LWButtonPeer$JButtonDelegate, hasFocus, bool)},
-	{}
-};
-
-$InnerClassInfo _LWButtonPeer$JButtonDelegate_InnerClassesInfo_[] = {
-	{"sun.lwawt.LWButtonPeer$JButtonDelegate", "sun.lwawt.LWButtonPeer", "JButtonDelegate", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _LWButtonPeer$JButtonDelegate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.lwawt.LWButtonPeer$JButtonDelegate",
-	"javax.swing.JButton",
-	nullptr,
-	_LWButtonPeer$JButtonDelegate_FieldInfo_,
-	_LWButtonPeer$JButtonDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LWButtonPeer$JButtonDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.LWButtonPeer"
-};
-
-$Object* allocate$LWButtonPeer$JButtonDelegate($Class* clazz) {
-	return $of($alloc(LWButtonPeer$JButtonDelegate));
-}
-
 void LWButtonPeer$JButtonDelegate::init$($LWButtonPeer* this$0) {
 	$set(this, this$0, this$0);
 	$JButton::init$();
 }
 
 bool LWButtonPeer$JButtonDelegate::hasFocus() {
-	return $nc(($cast($Button, $(this->this$0->getTarget()))))->hasFocus();
+	return $$sure($Button, this->this$0->getTarget())->hasFocus();
 }
 
 LWButtonPeer$JButtonDelegate::LWButtonPeer$JButtonDelegate() {
 }
 
 $Class* LWButtonPeer$JButtonDelegate::load$($String* name, bool initialize) {
-	$loadClass(LWButtonPeer$JButtonDelegate, name, initialize, &_LWButtonPeer$JButtonDelegate_ClassInfo_, allocate$LWButtonPeer$JButtonDelegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/lwawt/LWButtonPeer;", nullptr, $FINAL | $SYNTHETIC, $field(LWButtonPeer$JButtonDelegate, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/LWButtonPeer;)V", nullptr, $PRIVATE, $method(LWButtonPeer$JButtonDelegate, init$, void, $LWButtonPeer*)},
+		{"hasFocus", "()Z", nullptr, $PUBLIC, $virtualMethod(LWButtonPeer$JButtonDelegate, hasFocus, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.LWButtonPeer$JButtonDelegate", "sun.lwawt.LWButtonPeer", "JButtonDelegate", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.lwawt.LWButtonPeer$JButtonDelegate",
+		"javax.swing.JButton",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.LWButtonPeer"
+	};
+	$loadClass(LWButtonPeer$JButtonDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LWButtonPeer$JButtonDelegate));
+	});
 	return class$;
 }
 

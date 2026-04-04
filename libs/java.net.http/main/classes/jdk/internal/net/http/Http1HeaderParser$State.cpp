@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/Http1HeaderParser$State.h>
-
 #include <java/lang/Enum.h>
 #include <jdk/internal/net/http/Http1HeaderParser.h>
 #include <jcpp.h>
@@ -29,57 +28,6 @@ namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$FieldInfo _Http1HeaderParser$State_FieldInfo_[] = {
-	{"INITIAL", "Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1HeaderParser$State, INITIAL)},
-	{"STATUS_LINE", "Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1HeaderParser$State, STATUS_LINE)},
-	{"STATUS_LINE_FOUND_CR", "Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1HeaderParser$State, STATUS_LINE_FOUND_CR)},
-	{"STATUS_LINE_FOUND_LF", "Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1HeaderParser$State, STATUS_LINE_FOUND_LF)},
-	{"STATUS_LINE_END", "Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1HeaderParser$State, STATUS_LINE_END)},
-	{"STATUS_LINE_END_CR", "Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1HeaderParser$State, STATUS_LINE_END_CR)},
-	{"STATUS_LINE_END_LF", "Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1HeaderParser$State, STATUS_LINE_END_LF)},
-	{"HEADER", "Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1HeaderParser$State, HEADER)},
-	{"HEADER_FOUND_CR", "Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1HeaderParser$State, HEADER_FOUND_CR)},
-	{"HEADER_FOUND_LF", "Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1HeaderParser$State, HEADER_FOUND_LF)},
-	{"HEADER_FOUND_CR_LF", "Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1HeaderParser$State, HEADER_FOUND_CR_LF)},
-	{"HEADER_FOUND_CR_LF_CR", "Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1HeaderParser$State, HEADER_FOUND_CR_LF_CR)},
-	{"FINISHED", "Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1HeaderParser$State, FINISHED)},
-	{"$VALUES", "[Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Http1HeaderParser$State, $VALUES)},
-	{}
-};
-
-$MethodInfo _Http1HeaderParser$State_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http1HeaderParser$State, $values, $Http1HeaderParser$StateArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Http1HeaderParser$State, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Http1HeaderParser$State, valueOf, Http1HeaderParser$State*, $String*)},
-	{"values", "()[Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Http1HeaderParser$State, values, $Http1HeaderParser$StateArray*)},
-	{}
-};
-
-$InnerClassInfo _Http1HeaderParser$State_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.Http1HeaderParser$State", "jdk.internal.net.http.Http1HeaderParser", "State", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Http1HeaderParser$State_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"jdk.internal.net.http.Http1HeaderParser$State",
-	"java.lang.Enum",
-	nullptr,
-	_Http1HeaderParser$State_FieldInfo_,
-	_Http1HeaderParser$State_MethodInfo_,
-	"Ljava/lang/Enum<Ljdk/internal/net/http/Http1HeaderParser$State;>;",
-	nullptr,
-	_Http1HeaderParser$State_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.Http1HeaderParser"
-};
-
-$Object* allocate$Http1HeaderParser$State($Class* clazz) {
-	return $of($alloc(Http1HeaderParser$State));
-}
 
 Http1HeaderParser$State* Http1HeaderParser$State::INITIAL = nullptr;
 Http1HeaderParser$State* Http1HeaderParser$State::STATUS_LINE = nullptr;
@@ -129,7 +77,7 @@ void Http1HeaderParser$State::init$($String* $enum$name, int32_t $enum$ordinal) 
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Http1HeaderParser$State($Class* class$) {
+void Http1HeaderParser$State::clinit$($Class* clazz) {
 	$assignStatic(Http1HeaderParser$State::INITIAL, $new(Http1HeaderParser$State, "INITIAL"_s, 0));
 	$assignStatic(Http1HeaderParser$State::STATUS_LINE, $new(Http1HeaderParser$State, "STATUS_LINE"_s, 1));
 	$assignStatic(Http1HeaderParser$State::STATUS_LINE_FOUND_CR, $new(Http1HeaderParser$State, "STATUS_LINE_FOUND_CR"_s, 2));
@@ -150,7 +98,52 @@ Http1HeaderParser$State::Http1HeaderParser$State() {
 }
 
 $Class* Http1HeaderParser$State::load$($String* name, bool initialize) {
-	$loadClass(Http1HeaderParser$State, name, initialize, &_Http1HeaderParser$State_ClassInfo_, clinit$Http1HeaderParser$State, allocate$Http1HeaderParser$State);
+	$FieldInfo fieldInfos$$[] = {
+		{"INITIAL", "Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1HeaderParser$State, INITIAL)},
+		{"STATUS_LINE", "Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1HeaderParser$State, STATUS_LINE)},
+		{"STATUS_LINE_FOUND_CR", "Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1HeaderParser$State, STATUS_LINE_FOUND_CR)},
+		{"STATUS_LINE_FOUND_LF", "Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1HeaderParser$State, STATUS_LINE_FOUND_LF)},
+		{"STATUS_LINE_END", "Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1HeaderParser$State, STATUS_LINE_END)},
+		{"STATUS_LINE_END_CR", "Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1HeaderParser$State, STATUS_LINE_END_CR)},
+		{"STATUS_LINE_END_LF", "Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1HeaderParser$State, STATUS_LINE_END_LF)},
+		{"HEADER", "Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1HeaderParser$State, HEADER)},
+		{"HEADER_FOUND_CR", "Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1HeaderParser$State, HEADER_FOUND_CR)},
+		{"HEADER_FOUND_LF", "Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1HeaderParser$State, HEADER_FOUND_LF)},
+		{"HEADER_FOUND_CR_LF", "Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1HeaderParser$State, HEADER_FOUND_CR_LF)},
+		{"HEADER_FOUND_CR_LF_CR", "Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1HeaderParser$State, HEADER_FOUND_CR_LF_CR)},
+		{"FINISHED", "Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1HeaderParser$State, FINISHED)},
+		{"$VALUES", "[Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Http1HeaderParser$State, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http1HeaderParser$State, $values, $Http1HeaderParser$StateArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Http1HeaderParser$State, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Http1HeaderParser$State, valueOf, Http1HeaderParser$State*, $String*)},
+		{"values", "()[Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Http1HeaderParser$State, values, $Http1HeaderParser$StateArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.Http1HeaderParser$State", "jdk.internal.net.http.Http1HeaderParser", "State", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"jdk.internal.net.http.Http1HeaderParser$State",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljdk/internal/net/http/Http1HeaderParser$State;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.Http1HeaderParser"
+	};
+	$loadClass(Http1HeaderParser$State, name, initialize, &classInfo$$, Http1HeaderParser$State::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Http1HeaderParser$State));
+	});
 	return class$;
 }
 

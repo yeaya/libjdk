@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/ChunkedIntArray.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/ref/ChunkedIntArray$ChunksVector.h>
 #include <com/sun/org/apache/xml/internal/res/XMLErrorResources.h>
 #include <com/sun/org/apache/xml/internal/res/XMLMessages.h>
@@ -12,7 +11,6 @@
 using $ChunkedIntArray$ChunksVector = ::com::sun::org::apache::xml::internal::dtm::ref::ChunkedIntArray$ChunksVector;
 using $XMLErrorResources = ::com::sun::org::apache::xml::internal::res::XMLErrorResources;
 using $XMLMessages = ::com::sun::org::apache::xml::internal::res::XMLMessages;
-using $PrintStream = ::java::io::PrintStream;
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -29,75 +27,27 @@ namespace com {
 						namespace dtm {
 							namespace ref {
 
-$FieldInfo _ChunkedIntArray_FieldInfo_[] = {
-	{"slotsize", "I", nullptr, $STATIC | $FINAL, $constField(ChunkedIntArray, slotsize)},
-	{"lowbits", "I", nullptr, $STATIC | $FINAL, $constField(ChunkedIntArray, lowbits)},
-	{"chunkalloc", "I", nullptr, $STATIC | $FINAL, $constField(ChunkedIntArray, chunkalloc)},
-	{"lowmask", "I", nullptr, $STATIC | $FINAL, $constField(ChunkedIntArray, lowmask)},
-	{"chunks", "Lcom/sun/org/apache/xml/internal/dtm/ref/ChunkedIntArray$ChunksVector;", nullptr, 0, $field(ChunkedIntArray, chunks)},
-	{"fastArray", "[I", nullptr, $FINAL, $field(ChunkedIntArray, fastArray)},
-	{"lastUsed", "I", nullptr, 0, $field(ChunkedIntArray, lastUsed)},
-	{}
-};
-
-$MethodInfo _ChunkedIntArray_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(ChunkedIntArray, init$, void, int32_t)},
-	{"appendSlot", "(IIII)I", nullptr, 0, $method(ChunkedIntArray, appendSlot, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"discardLast", "()V", nullptr, 0, $method(ChunkedIntArray, discardLast, void)},
-	{"readEntry", "(II)I", nullptr, 0, $method(ChunkedIntArray, readEntry, int32_t, int32_t, int32_t), "java.lang.ArrayIndexOutOfBoundsException"},
-	{"readSlot", "(I[I)V", nullptr, 0, $method(ChunkedIntArray, readSlot, void, int32_t, $ints*)},
-	{"slotsUsed", "()I", nullptr, 0, $method(ChunkedIntArray, slotsUsed, int32_t)},
-	{"specialFind", "(II)I", nullptr, 0, $method(ChunkedIntArray, specialFind, int32_t, int32_t, int32_t)},
-	{"writeEntry", "(III)V", nullptr, 0, $method(ChunkedIntArray, writeEntry, void, int32_t, int32_t, int32_t), "java.lang.ArrayIndexOutOfBoundsException"},
-	{"writeSlot", "(IIIII)V", nullptr, 0, $method(ChunkedIntArray, writeSlot, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ChunkedIntArray_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.dtm.ref.ChunkedIntArray$ChunksVector", "com.sun.org.apache.xml.internal.dtm.ref.ChunkedIntArray", "ChunksVector", 0},
-	{}
-};
-
-$ClassInfo _ChunkedIntArray_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.dtm.ref.ChunkedIntArray",
-	"java.lang.Object",
-	nullptr,
-	_ChunkedIntArray_FieldInfo_,
-	_ChunkedIntArray_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ChunkedIntArray_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.dtm.ref.ChunkedIntArray$ChunksVector"
-};
-
-$Object* allocate$ChunkedIntArray($Class* clazz) {
-	return $of($alloc(ChunkedIntArray));
-}
-
 void ChunkedIntArray::init$(int32_t slotsize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, chunks, $new($ChunkedIntArray$ChunksVector, this));
 	$set(this, fastArray, $new($ints, ChunkedIntArray::chunkalloc));
 	this->lastUsed = 0;
 	if (this->slotsize < slotsize) {
 		$init($XMLErrorResources);
-		$throwNew($ArrayIndexOutOfBoundsException, $($XMLMessages::createXMLMessage($XMLErrorResources::ER_CHUNKEDINTARRAY_NOT_SUPPORTED, $$new($ObjectArray, {$($of($Integer::toString(slotsize)))}))));
+		$throwNew($ArrayIndexOutOfBoundsException, $($XMLMessages::createXMLMessage($XMLErrorResources::ER_CHUNKEDINTARRAY_NOT_SUPPORTED, $$new($ObjectArray, {$($Integer::toString(slotsize))}))));
 	} else if (this->slotsize > slotsize) {
 		$nc($System::out)->println($$str({"*****WARNING: ChunkedIntArray("_s, $$str(slotsize), ") wasting "_s, $$str((this->slotsize - slotsize)), " words per slot"_s}));
 	}
-	$nc(this->chunks)->addElement(this->fastArray);
+	this->chunks->addElement(this->fastArray);
 }
 
 int32_t ChunkedIntArray::appendSlot(int32_t w0, int32_t w1, int32_t w2, int32_t w3) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		int32_t slotsize = 4;
 		int32_t newoffset = (this->lastUsed + 1) * slotsize;
 		int32_t chunkpos = $sr(newoffset, ChunkedIntArray::lowbits);
-		int32_t slotpos = ((int32_t)(newoffset & (uint32_t)ChunkedIntArray::lowmask));
+		int32_t slotpos = (newoffset & ChunkedIntArray::lowmask);
 		if (chunkpos > $nc(this->chunks)->size() - 1) {
 			$nc(this->chunks)->addElement($$new($ints, ChunkedIntArray::chunkalloc));
 		}
@@ -111,7 +61,7 @@ int32_t ChunkedIntArray::appendSlot(int32_t w0, int32_t w1, int32_t w2, int32_t 
 }
 
 int32_t ChunkedIntArray::readEntry(int32_t position, int32_t offset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		if (offset >= ChunkedIntArray::slotsize) {
 			$init($XMLErrorResources);
@@ -119,19 +69,19 @@ int32_t ChunkedIntArray::readEntry(int32_t position, int32_t offset) {
 		}
 		position *= ChunkedIntArray::slotsize;
 		int32_t chunkpos = $sr(position, ChunkedIntArray::lowbits);
-		int32_t slotpos = (int32_t)(position & (uint32_t)ChunkedIntArray::lowmask);
+		int32_t slotpos = position & ChunkedIntArray::lowmask;
 		$var($ints, chunk, $nc(this->chunks)->elementAt(chunkpos));
 		return $nc(chunk)->get(slotpos + offset);
 	}
 }
 
 int32_t ChunkedIntArray::specialFind(int32_t startPos, int32_t position) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t ancestor = startPos;
 	while (ancestor > 0) {
 		ancestor *= ChunkedIntArray::slotsize;
 		int32_t chunkpos = $sr(ancestor, ChunkedIntArray::lowbits);
-		int32_t slotpos = (int32_t)(ancestor & (uint32_t)ChunkedIntArray::lowmask);
+		int32_t slotpos = ancestor & ChunkedIntArray::lowmask;
 		$var($ints, chunk, $nc(this->chunks)->elementAt(chunkpos));
 		ancestor = $nc(chunk)->get(slotpos + 1);
 		if (ancestor == position) {
@@ -153,7 +103,7 @@ void ChunkedIntArray::discardLast() {
 }
 
 void ChunkedIntArray::writeEntry(int32_t position, int32_t offset, int32_t value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		if (offset >= ChunkedIntArray::slotsize) {
 			$init($XMLErrorResources);
@@ -161,17 +111,17 @@ void ChunkedIntArray::writeEntry(int32_t position, int32_t offset, int32_t value
 		}
 		position *= ChunkedIntArray::slotsize;
 		int32_t chunkpos = $sr(position, ChunkedIntArray::lowbits);
-		int32_t slotpos = (int32_t)(position & (uint32_t)ChunkedIntArray::lowmask);
+		int32_t slotpos = position & ChunkedIntArray::lowmask;
 		$var($ints, chunk, $nc(this->chunks)->elementAt(chunkpos));
 		$nc(chunk)->set(slotpos + offset, value);
 	}
 }
 
 void ChunkedIntArray::writeSlot(int32_t position, int32_t w0, int32_t w1, int32_t w2, int32_t w3) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	position *= ChunkedIntArray::slotsize;
 	int32_t chunkpos = $sr(position, ChunkedIntArray::lowbits);
-	int32_t slotpos = ((int32_t)(position & (uint32_t)ChunkedIntArray::lowmask));
+	int32_t slotpos = (position & ChunkedIntArray::lowmask);
 	if (chunkpos > $nc(this->chunks)->size() - 1) {
 		$nc(this->chunks)->addElement($$new($ints, ChunkedIntArray::chunkalloc));
 	}
@@ -183,11 +133,11 @@ void ChunkedIntArray::writeSlot(int32_t position, int32_t w0, int32_t w1, int32_
 }
 
 void ChunkedIntArray::readSlot(int32_t position, $ints* buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		position *= ChunkedIntArray::slotsize;
 		int32_t chunkpos = $sr(position, ChunkedIntArray::lowbits);
-		int32_t slotpos = ((int32_t)(position & (uint32_t)ChunkedIntArray::lowmask));
+		int32_t slotpos = (position & ChunkedIntArray::lowmask);
 		if (chunkpos > $nc(this->chunks)->size() - 1) {
 			$nc(this->chunks)->addElement($$new($ints, ChunkedIntArray::chunkalloc));
 		}
@@ -200,7 +150,49 @@ ChunkedIntArray::ChunkedIntArray() {
 }
 
 $Class* ChunkedIntArray::load$($String* name, bool initialize) {
-	$loadClass(ChunkedIntArray, name, initialize, &_ChunkedIntArray_ClassInfo_, allocate$ChunkedIntArray);
+	$FieldInfo fieldInfos$$[] = {
+		{"slotsize", "I", nullptr, $STATIC | $FINAL, $constField(ChunkedIntArray, slotsize)},
+		{"lowbits", "I", nullptr, $STATIC | $FINAL, $constField(ChunkedIntArray, lowbits)},
+		{"chunkalloc", "I", nullptr, $STATIC | $FINAL, $constField(ChunkedIntArray, chunkalloc)},
+		{"lowmask", "I", nullptr, $STATIC | $FINAL, $constField(ChunkedIntArray, lowmask)},
+		{"chunks", "Lcom/sun/org/apache/xml/internal/dtm/ref/ChunkedIntArray$ChunksVector;", nullptr, 0, $field(ChunkedIntArray, chunks)},
+		{"fastArray", "[I", nullptr, $FINAL, $field(ChunkedIntArray, fastArray)},
+		{"lastUsed", "I", nullptr, 0, $field(ChunkedIntArray, lastUsed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(ChunkedIntArray, init$, void, int32_t)},
+		{"appendSlot", "(IIII)I", nullptr, 0, $method(ChunkedIntArray, appendSlot, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"discardLast", "()V", nullptr, 0, $method(ChunkedIntArray, discardLast, void)},
+		{"readEntry", "(II)I", nullptr, 0, $method(ChunkedIntArray, readEntry, int32_t, int32_t, int32_t), "java.lang.ArrayIndexOutOfBoundsException"},
+		{"readSlot", "(I[I)V", nullptr, 0, $method(ChunkedIntArray, readSlot, void, int32_t, $ints*)},
+		{"slotsUsed", "()I", nullptr, 0, $method(ChunkedIntArray, slotsUsed, int32_t)},
+		{"specialFind", "(II)I", nullptr, 0, $method(ChunkedIntArray, specialFind, int32_t, int32_t, int32_t)},
+		{"writeEntry", "(III)V", nullptr, 0, $method(ChunkedIntArray, writeEntry, void, int32_t, int32_t, int32_t), "java.lang.ArrayIndexOutOfBoundsException"},
+		{"writeSlot", "(IIIII)V", nullptr, 0, $method(ChunkedIntArray, writeSlot, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.dtm.ref.ChunkedIntArray$ChunksVector", "com.sun.org.apache.xml.internal.dtm.ref.ChunkedIntArray", "ChunksVector", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.dtm.ref.ChunkedIntArray",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.dtm.ref.ChunkedIntArray$ChunksVector"
+	};
+	$loadClass(ChunkedIntArray, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ChunkedIntArray);
+	});
 	return class$;
 }
 

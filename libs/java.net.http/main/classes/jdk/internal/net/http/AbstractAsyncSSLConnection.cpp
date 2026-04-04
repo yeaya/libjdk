@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/AbstractAsyncSSLConnection.h>
-
 #include <java/net/InetSocketAddress.h>
 #include <java/util/ArrayDeque.h>
 #include <java/util/Arrays.h>
@@ -42,43 +41,10 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$FieldInfo _AbstractAsyncSSLConnection_FieldInfo_[] = {
-	{"engine", "Ljavax/net/ssl/SSLEngine;", nullptr, $PROTECTED | $FINAL, $field(AbstractAsyncSSLConnection, engine)},
-	{"serverName", "Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $field(AbstractAsyncSSLConnection, serverName)},
-	{"sslParameters", "Ljavax/net/ssl/SSLParameters;", nullptr, $PROTECTED | $FINAL, $field(AbstractAsyncSSLConnection, sslParameters)},
-	{"disableHostnameVerification", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractAsyncSSLConnection, disableHostnameVerification)},
-	{}
-};
-
-$MethodInfo _AbstractAsyncSSLConnection_MethodInfo_[] = {
-	{"getConnectionFlow", "()Ljdk/internal/net/http/common/FlowTube;", nullptr, $ABSTRACT},
-	{"<init>", "(Ljava/net/InetSocketAddress;Ljdk/internal/net/http/HttpClientImpl;Ljdk/internal/net/http/common/Utils$ServerName;I[Ljava/lang/String;)V", nullptr, 0, $method(AbstractAsyncSSLConnection, init$, void, $InetSocketAddress*, $HttpClientImpl*, $Utils$ServerName*, int32_t, $StringArray*)},
-	{"contains", "([Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractAsyncSSLConnection, contains, bool, $StringArray*, $String*)},
-	{"createEngine", "(Ljavax/net/ssl/SSLContext;Ljava/lang/String;ILjavax/net/ssl/SSLParameters;)Ljavax/net/ssl/SSLEngine;", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractAsyncSSLConnection, createEngine, $SSLEngine*, $SSLContext*, $String*, int32_t, $SSLParameters*)},
-	{"createSSLParameters", "(Ljdk/internal/net/http/HttpClientImpl;Ljdk/internal/net/http/common/Utils$ServerName;[Ljava/lang/String;)Ljavax/net/ssl/SSLParameters;", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractAsyncSSLConnection, createSSLParameters, $SSLParameters*, $HttpClientImpl*, $Utils$ServerName*, $StringArray*)},
-	{"getALPN", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/String;>;", $FINAL, $method(AbstractAsyncSSLConnection, getALPN, $CompletableFuture*)},
-	{"getEngine", "()Ljavax/net/ssl/SSLEngine;", nullptr, $FINAL, $method(AbstractAsyncSSLConnection, getEngine, $SSLEngine*)},
-	{"isSecure", "()Z", nullptr, $FINAL, $virtualMethod(AbstractAsyncSSLConnection, isSecure, bool)},
-	{}
-};
-
-$ClassInfo _AbstractAsyncSSLConnection_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"jdk.internal.net.http.AbstractAsyncSSLConnection",
-	"jdk.internal.net.http.HttpConnection",
-	nullptr,
-	_AbstractAsyncSSLConnection_FieldInfo_,
-	_AbstractAsyncSSLConnection_MethodInfo_
-};
-
-$Object* allocate$AbstractAsyncSSLConnection($Class* clazz) {
-	return $of($alloc(AbstractAsyncSSLConnection));
-}
-
 bool AbstractAsyncSSLConnection::disableHostnameVerification = false;
 
 void AbstractAsyncSSLConnection::init$($InetSocketAddress* addr, $HttpClientImpl* client, $Utils$ServerName* serverName, int32_t port, $StringArray* alpn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$HttpConnection::init$(addr, client);
 	$set(this, serverName, $nc(serverName)->getName());
 	$var($SSLContext, context, $nc(client)->theSSLContext());
@@ -88,7 +54,7 @@ void AbstractAsyncSSLConnection::init$($InetSocketAddress* addr, $HttpClientImpl
 }
 
 $CompletableFuture* AbstractAsyncSSLConnection::getALPN() {
-	return $nc($($cast($SSLTube, getConnectionFlow())))->getALPN();
+	return $$sure($SSLTube, getConnectionFlow())->getALPN();
 }
 
 $SSLEngine* AbstractAsyncSSLConnection::getEngine() {
@@ -97,16 +63,12 @@ $SSLEngine* AbstractAsyncSSLConnection::getEngine() {
 
 bool AbstractAsyncSSLConnection::contains($StringArray* rr, $String* target) {
 	$init(AbstractAsyncSSLConnection);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($StringArray, arr$, rr);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($String, s, arr$->get(i$));
-			if ($nc(target)->equalsIgnoreCase(s)) {
-				return true;
-			}
+	$useLocalObjectStack();
+	$var($StringArray, arr$, rr);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($String, s, arr$->get(i$));
+		if ($nc(target)->equalsIgnoreCase(s)) {
+			return true;
 		}
 	}
 	return false;
@@ -114,16 +76,14 @@ bool AbstractAsyncSSLConnection::contains($StringArray* rr, $String* target) {
 
 $SSLParameters* AbstractAsyncSSLConnection::createSSLParameters($HttpClientImpl* client, $Utils$ServerName* serverName, $StringArray* alpn) {
 	$init(AbstractAsyncSSLConnection);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SSLParameters, sslp, $nc(client)->sslParameters());
 	$var($SSLParameters, sslParameters, $Utils::copySSLParameters(sslp));
 	if (alpn != nullptr && alpn->length != 0 && !contains(alpn, "http/1.1"_s)) {
 		$var($ArrayDeque, l, $new($ArrayDeque));
 		{
 			$var($StringArray, arr$, $nc(sslParameters)->getProtocols());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, proto, arr$->get(i$));
 				{
 					bool var$1 = !$nc(proto)->startsWith("SSL"_s);
@@ -134,14 +94,14 @@ $SSLParameters* AbstractAsyncSSLConnection::createSSLParameters($HttpClientImpl*
 				}
 			}
 		}
-		$var($StringArray, a1, $fcast($StringArray, l->toArray($$new($StringArray, 0))));
+		$var($StringArray, a1, $cast($StringArray, l->toArray($$new($StringArray, 0))));
 		sslParameters->setProtocols(a1);
 	}
 	if (!AbstractAsyncSSLConnection::disableHostnameVerification) {
 		$nc(sslParameters)->setEndpointIdentificationAlgorithm("HTTPS"_s);
 	}
 	if (alpn != nullptr) {
-		$Log::logSSL("AbstractAsyncSSLConnection: Setting application protocols: {0}"_s, $$new($ObjectArray, {$($of($Arrays::toString(alpn)))}));
+		$Log::logSSL("AbstractAsyncSSLConnection: Setting application protocols: {0}"_s, $$new($ObjectArray, {$($Arrays::toString(alpn))}));
 		$nc(sslParameters)->setApplicationProtocols(alpn);
 	} else {
 		$Log::logSSL("AbstractAsyncSSLConnection: no applications set!"_s, $$new($ObjectArray, 0));
@@ -149,7 +109,7 @@ $SSLParameters* AbstractAsyncSSLConnection::createSSLParameters($HttpClientImpl*
 	if (!$nc(serverName)->isLiteral()) {
 		$var($String, name, serverName->getName());
 		if (name != nullptr && name->length() > 0) {
-			$nc(sslParameters)->setServerNames($($List::of($of($$new($SNIHostName, name)))));
+			$nc(sslParameters)->setServerNames($($List::of($$new($SNIHostName, name))));
 		}
 	}
 	return sslParameters;
@@ -167,7 +127,7 @@ bool AbstractAsyncSSLConnection::isSecure() {
 	return true;
 }
 
-void clinit$AbstractAsyncSSLConnection($Class* class$) {
+void AbstractAsyncSSLConnection::clinit$($Class* clazz) {
 	AbstractAsyncSSLConnection::disableHostnameVerification = $Utils::isHostnameVerificationDisabled();
 }
 
@@ -175,7 +135,35 @@ AbstractAsyncSSLConnection::AbstractAsyncSSLConnection() {
 }
 
 $Class* AbstractAsyncSSLConnection::load$($String* name, bool initialize) {
-	$loadClass(AbstractAsyncSSLConnection, name, initialize, &_AbstractAsyncSSLConnection_ClassInfo_, clinit$AbstractAsyncSSLConnection, allocate$AbstractAsyncSSLConnection);
+	$FieldInfo fieldInfos$$[] = {
+		{"engine", "Ljavax/net/ssl/SSLEngine;", nullptr, $PROTECTED | $FINAL, $field(AbstractAsyncSSLConnection, engine)},
+		{"serverName", "Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $field(AbstractAsyncSSLConnection, serverName)},
+		{"sslParameters", "Ljavax/net/ssl/SSLParameters;", nullptr, $PROTECTED | $FINAL, $field(AbstractAsyncSSLConnection, sslParameters)},
+		{"disableHostnameVerification", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractAsyncSSLConnection, disableHostnameVerification)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"getConnectionFlow", "()Ljdk/internal/net/http/common/FlowTube;", nullptr, $ABSTRACT},
+		{"<init>", "(Ljava/net/InetSocketAddress;Ljdk/internal/net/http/HttpClientImpl;Ljdk/internal/net/http/common/Utils$ServerName;I[Ljava/lang/String;)V", nullptr, 0, $method(AbstractAsyncSSLConnection, init$, void, $InetSocketAddress*, $HttpClientImpl*, $Utils$ServerName*, int32_t, $StringArray*)},
+		{"contains", "([Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractAsyncSSLConnection, contains, bool, $StringArray*, $String*)},
+		{"createEngine", "(Ljavax/net/ssl/SSLContext;Ljava/lang/String;ILjavax/net/ssl/SSLParameters;)Ljavax/net/ssl/SSLEngine;", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractAsyncSSLConnection, createEngine, $SSLEngine*, $SSLContext*, $String*, int32_t, $SSLParameters*)},
+		{"createSSLParameters", "(Ljdk/internal/net/http/HttpClientImpl;Ljdk/internal/net/http/common/Utils$ServerName;[Ljava/lang/String;)Ljavax/net/ssl/SSLParameters;", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractAsyncSSLConnection, createSSLParameters, $SSLParameters*, $HttpClientImpl*, $Utils$ServerName*, $StringArray*)},
+		{"getALPN", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/String;>;", $FINAL, $method(AbstractAsyncSSLConnection, getALPN, $CompletableFuture*)},
+		{"getEngine", "()Ljavax/net/ssl/SSLEngine;", nullptr, $FINAL, $method(AbstractAsyncSSLConnection, getEngine, $SSLEngine*)},
+		{"isSecure", "()Z", nullptr, $FINAL, $virtualMethod(AbstractAsyncSSLConnection, isSecure, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"jdk.internal.net.http.AbstractAsyncSSLConnection",
+		"jdk.internal.net.http.HttpConnection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractAsyncSSLConnection, name, initialize, &classInfo$$, AbstractAsyncSSLConnection::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractAsyncSSLConnection);
+	});
 	return class$;
 }
 

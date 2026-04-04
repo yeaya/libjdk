@@ -1,5 +1,4 @@
 #include <sun/lwawt/LWChoicePeer$JComboBoxDelegate.h>
-
 #include <java/awt/Choice.h>
 #include <java/awt/Component.h>
 #include <java/awt/Point.h>
@@ -19,7 +18,6 @@
 #include <jcpp.h>
 
 using $Choice = ::java::awt::Choice;
-using $Component = ::java::awt::Component;
 using $Point = ::java::awt::Point;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -29,7 +27,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Accessible = ::javax::accessibility::Accessible;
-using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $JComboBox = ::javax::swing::JComboBox;
 using $JPopupMenu = ::javax::swing::JPopupMenu;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
@@ -47,76 +44,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$firePopupMenuWillBecomeVisible$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LWChoicePeer$JComboBoxDelegate$$Lambda$lambda$firePopupMenuWillBecomeVisible$0>());
-	}
 	LWChoicePeer$JComboBoxDelegate* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LWChoicePeer$JComboBoxDelegate$$Lambda$lambda$firePopupMenuWillBecomeVisible$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LWChoicePeer$JComboBoxDelegate$$Lambda$lambda$firePopupMenuWillBecomeVisible$0, inst$)},
-	{}
-};
-$MethodInfo LWChoicePeer$JComboBoxDelegate$$Lambda$lambda$firePopupMenuWillBecomeVisible$0::methodInfos[3] = {
-	{"<init>", "(Lsun/lwawt/LWChoicePeer$JComboBoxDelegate;)V", nullptr, $PUBLIC, $method(LWChoicePeer$JComboBoxDelegate$$Lambda$lambda$firePopupMenuWillBecomeVisible$0, init$, void, LWChoicePeer$JComboBoxDelegate*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LWChoicePeer$JComboBoxDelegate$$Lambda$lambda$firePopupMenuWillBecomeVisible$0, run, void)},
-	{}
-};
-$ClassInfo LWChoicePeer$JComboBoxDelegate$$Lambda$lambda$firePopupMenuWillBecomeVisible$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.LWChoicePeer$JComboBoxDelegate$$Lambda$lambda$firePopupMenuWillBecomeVisible$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* LWChoicePeer$JComboBoxDelegate$$Lambda$lambda$firePopupMenuWillBecomeVisible$0::load$($String* name, bool initialize) {
-	$loadClass(LWChoicePeer$JComboBoxDelegate$$Lambda$lambda$firePopupMenuWillBecomeVisible$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LWChoicePeer$JComboBoxDelegate$$Lambda$lambda$firePopupMenuWillBecomeVisible$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/LWChoicePeer$JComboBoxDelegate;)V", nullptr, $PUBLIC, $method(LWChoicePeer$JComboBoxDelegate$$Lambda$lambda$firePopupMenuWillBecomeVisible$0, init$, void, LWChoicePeer$JComboBoxDelegate*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LWChoicePeer$JComboBoxDelegate$$Lambda$lambda$firePopupMenuWillBecomeVisible$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.LWChoicePeer$JComboBoxDelegate$$Lambda$lambda$firePopupMenuWillBecomeVisible$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LWChoicePeer$JComboBoxDelegate$$Lambda$lambda$firePopupMenuWillBecomeVisible$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LWChoicePeer$JComboBoxDelegate$$Lambda$lambda$firePopupMenuWillBecomeVisible$0);
+	});
 	return class$;
 }
 $Class* LWChoicePeer$JComboBoxDelegate$$Lambda$lambda$firePopupMenuWillBecomeVisible$0::class$ = nullptr;
-
-$FieldInfo _LWChoicePeer$JComboBoxDelegate_FieldInfo_[] = {
-	{"this$0", "Lsun/lwawt/LWChoicePeer;", nullptr, $FINAL | $SYNTHETIC, $field(LWChoicePeer$JComboBoxDelegate, this$0)},
-	{}
-};
-
-$MethodInfo _LWChoicePeer$JComboBoxDelegate_MethodInfo_[] = {
-	{"<init>", "(Lsun/lwawt/LWChoicePeer;)V", nullptr, $PRIVATE, $method(LWChoicePeer$JComboBoxDelegate, init$, void, $LWChoicePeer*)},
-	{"firePopupMenuWillBecomeVisible", "()V", nullptr, $PUBLIC, $virtualMethod(LWChoicePeer$JComboBoxDelegate, firePopupMenuWillBecomeVisible, void)},
-	{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(LWChoicePeer$JComboBoxDelegate, getLocationOnScreen, $Point*)},
-	{"getPopupMenu", "()Ljavax/swing/JPopupMenu;", nullptr, $PRIVATE, $method(LWChoicePeer$JComboBoxDelegate, getPopupMenu, $JPopupMenu*)},
-	{"hasFocus", "()Z", nullptr, $PUBLIC, $virtualMethod(LWChoicePeer$JComboBoxDelegate, hasFocus, bool)},
-	{"lambda$firePopupMenuWillBecomeVisible$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(LWChoicePeer$JComboBoxDelegate, lambda$firePopupMenuWillBecomeVisible$0, void)},
-	{}
-};
-
-$InnerClassInfo _LWChoicePeer$JComboBoxDelegate_InnerClassesInfo_[] = {
-	{"sun.lwawt.LWChoicePeer$JComboBoxDelegate", "sun.lwawt.LWChoicePeer", "JComboBoxDelegate", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _LWChoicePeer$JComboBoxDelegate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.lwawt.LWChoicePeer$JComboBoxDelegate",
-	"javax.swing.JComboBox",
-	nullptr,
-	_LWChoicePeer$JComboBoxDelegate_FieldInfo_,
-	_LWChoicePeer$JComboBoxDelegate_MethodInfo_,
-	"Ljavax/swing/JComboBox<Ljava/lang/String;>;",
-	nullptr,
-	_LWChoicePeer$JComboBoxDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.LWChoicePeer"
-};
-
-$Object* allocate$LWChoicePeer$JComboBoxDelegate($Class* clazz) {
-	return $of($alloc(LWChoicePeer$JComboBoxDelegate));
-}
 
 void LWChoicePeer$JComboBoxDelegate::init$($LWChoicePeer* this$0) {
 	$set(this, this$0, this$0);
@@ -124,7 +77,7 @@ void LWChoicePeer$JComboBoxDelegate::init$($LWChoicePeer* this$0) {
 }
 
 bool LWChoicePeer$JComboBoxDelegate::hasFocus() {
-	return $nc(($cast($Choice, $(this->this$0->getTarget()))))->hasFocus();
+	return $$sure($Choice, this->this$0->getTarget())->hasFocus();
 }
 
 $Point* LWChoicePeer$JComboBoxDelegate::getLocationOnScreen() {
@@ -133,13 +86,13 @@ $Point* LWChoicePeer$JComboBoxDelegate::getLocationOnScreen() {
 
 void LWChoicePeer$JComboBoxDelegate::firePopupMenuWillBecomeVisible() {
 	$JComboBox::firePopupMenuWillBecomeVisible();
-	$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(LWChoicePeer$JComboBoxDelegate$$Lambda$lambda$firePopupMenuWillBecomeVisible$0, this)));
+	$SwingUtilities::invokeLater($$new(LWChoicePeer$JComboBoxDelegate$$Lambda$lambda$firePopupMenuWillBecomeVisible$0, this));
 }
 
 $JPopupMenu* LWChoicePeer$JComboBoxDelegate::getPopupMenu() {
-	$useLocalCurrentObjectStackCache();
-	for (int32_t i = 0; i < $nc($(getAccessibleContext()))->getAccessibleChildrenCount(); ++i) {
-		$var($Accessible, child, $nc($(getAccessibleContext()))->getAccessibleChild(i));
+	$useLocalObjectStack();
+	for (int32_t i = 0; i < $$nc(getAccessibleContext())->getAccessibleChildrenCount(); ++i) {
+		$var($Accessible, child, $$nc(getAccessibleContext())->getAccessibleChild(i));
 		if ($instanceOf($JPopupMenu, child)) {
 			return $cast($JPopupMenu, child);
 		}
@@ -148,17 +101,17 @@ $JPopupMenu* LWChoicePeer$JComboBoxDelegate::getPopupMenu() {
 }
 
 void LWChoicePeer$JComboBoxDelegate::lambda$firePopupMenuWillBecomeVisible$0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JPopupMenu, popupMenu, getPopupMenu());
 	bool var$0 = popupMenu != nullptr && popupMenu->isShowing();
 	if (var$0) {
 		var$0 = popupMenu->getInvoker() != this->this$0->getTarget();
 	}
 	if (var$0) {
-		$var($Point, loc, popupMenu->getLocationOnScreen());
+		$var($Point, loc, $nc(popupMenu)->getLocationOnScreen());
 		$SwingUtilities::convertPointFromScreen(loc, this);
 		popupMenu->setVisible(false);
-		popupMenu->show($(this->this$0->getTarget()), $nc(loc)->x, loc->y);
+		popupMenu->show($(this->this$0->getTarget()), $nc(loc)->x, $nc(loc)->y);
 	}
 }
 
@@ -167,11 +120,45 @@ LWChoicePeer$JComboBoxDelegate::LWChoicePeer$JComboBoxDelegate() {
 
 $Class* LWChoicePeer$JComboBoxDelegate::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(LWChoicePeer$JComboBoxDelegate$$Lambda$lambda$firePopupMenuWillBecomeVisible$0::classInfo$.name)) {
+		if (name->equals("sun.lwawt.LWChoicePeer$JComboBoxDelegate$$Lambda$lambda$firePopupMenuWillBecomeVisible$0")) {
 			return LWChoicePeer$JComboBoxDelegate$$Lambda$lambda$firePopupMenuWillBecomeVisible$0::load$(name, initialize);
 		}
 	}
-	$loadClass(LWChoicePeer$JComboBoxDelegate, name, initialize, &_LWChoicePeer$JComboBoxDelegate_ClassInfo_, allocate$LWChoicePeer$JComboBoxDelegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/lwawt/LWChoicePeer;", nullptr, $FINAL | $SYNTHETIC, $field(LWChoicePeer$JComboBoxDelegate, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/LWChoicePeer;)V", nullptr, $PRIVATE, $method(LWChoicePeer$JComboBoxDelegate, init$, void, $LWChoicePeer*)},
+		{"firePopupMenuWillBecomeVisible", "()V", nullptr, $PUBLIC, $virtualMethod(LWChoicePeer$JComboBoxDelegate, firePopupMenuWillBecomeVisible, void)},
+		{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(LWChoicePeer$JComboBoxDelegate, getLocationOnScreen, $Point*)},
+		{"getPopupMenu", "()Ljavax/swing/JPopupMenu;", nullptr, $PRIVATE, $method(LWChoicePeer$JComboBoxDelegate, getPopupMenu, $JPopupMenu*)},
+		{"hasFocus", "()Z", nullptr, $PUBLIC, $virtualMethod(LWChoicePeer$JComboBoxDelegate, hasFocus, bool)},
+		{"lambda$firePopupMenuWillBecomeVisible$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(LWChoicePeer$JComboBoxDelegate, lambda$firePopupMenuWillBecomeVisible$0, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.LWChoicePeer$JComboBoxDelegate", "sun.lwawt.LWChoicePeer", "JComboBoxDelegate", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.lwawt.LWChoicePeer$JComboBoxDelegate",
+		"javax.swing.JComboBox",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljavax/swing/JComboBox<Ljava/lang/String;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.LWChoicePeer"
+	};
+	$loadClass(LWChoicePeer$JComboBoxDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LWChoicePeer$JComboBoxDelegate));
+	});
 	return class$;
 }
 

@@ -19,7 +19,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual int32_t hashCode() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x2E98A6A61A8AE2D5;
+	static const int64_t serialVersionUID = (int64_t)0x2e98a6a61a8ae2d5;
 	$String* identifier = nullptr;
 };
 

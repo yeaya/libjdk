@@ -1,5 +1,4 @@
 #include <sun/java2d/ReentrantContextProvider.h>
-
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/SoftReference.h>
 #include <java/lang/ref/WeakReference.h>
@@ -27,50 +26,6 @@ using $ReentrantContextProvider$HardReference = ::sun::java2d::ReentrantContextP
 namespace sun {
 	namespace java2d {
 
-$FieldInfo _ReentrantContextProvider_FieldInfo_[] = {
-	{"USAGE_TL_INACTIVE", "B", nullptr, $STATIC | $FINAL, $constField(ReentrantContextProvider, USAGE_TL_INACTIVE)},
-	{"USAGE_TL_IN_USE", "B", nullptr, $STATIC | $FINAL, $constField(ReentrantContextProvider, USAGE_TL_IN_USE)},
-	{"USAGE_CLQ", "B", nullptr, $STATIC | $FINAL, $constField(ReentrantContextProvider, USAGE_CLQ)},
-	{"REF_HARD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ReentrantContextProvider, REF_HARD)},
-	{"REF_SOFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ReentrantContextProvider, REF_SOFT)},
-	{"REF_WEAK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ReentrantContextProvider, REF_WEAK)},
-	{"refType", "I", nullptr, $PRIVATE | $FINAL, $field(ReentrantContextProvider, refType)},
-	{}
-};
-
-$MethodInfo _ReentrantContextProvider_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(ReentrantContextProvider, init$, void, int32_t)},
-	{"acquire", "()Lsun/java2d/ReentrantContext;", "()TK;", $PUBLIC | $ABSTRACT, $virtualMethod(ReentrantContextProvider, acquire, $ReentrantContext*)},
-	{"getOrCreateReference", "(Lsun/java2d/ReentrantContext;)Ljava/lang/ref/Reference;", "(TK;)Ljava/lang/ref/Reference<TK;>;", $PROTECTED | $FINAL, $method(ReentrantContextProvider, getOrCreateReference, $Reference*, $ReentrantContext*)},
-	{"newContext", "()Lsun/java2d/ReentrantContext;", "()TK;", $PROTECTED | $ABSTRACT, $virtualMethod(ReentrantContextProvider, newContext, $ReentrantContext*)},
-	{"release", "(Lsun/java2d/ReentrantContext;)V", "(TK;)V", $PUBLIC | $ABSTRACT, $virtualMethod(ReentrantContextProvider, release, void, $ReentrantContext*)},
-	{}
-};
-
-$InnerClassInfo _ReentrantContextProvider_InnerClassesInfo_[] = {
-	{"sun.java2d.ReentrantContextProvider$HardReference", "sun.java2d.ReentrantContextProvider", "HardReference", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ReentrantContextProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.java2d.ReentrantContextProvider",
-	"java.lang.Object",
-	nullptr,
-	_ReentrantContextProvider_FieldInfo_,
-	_ReentrantContextProvider_MethodInfo_,
-	"<K:Lsun/java2d/ReentrantContext;>Ljava/lang/Object;",
-	nullptr,
-	_ReentrantContextProvider_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.ReentrantContextProvider$HardReference"
-};
-
-$Object* allocate$ReentrantContextProvider($Class* clazz) {
-	return $of($alloc(ReentrantContextProvider));
-}
-
 void ReentrantContextProvider::init$(int32_t refType) {
 	this->refType = refType;
 }
@@ -79,32 +34,63 @@ $Reference* ReentrantContextProvider::getOrCreateReference($ReentrantContext* ct
 	if ($nc(ctx)->reference == nullptr) {
 		switch (this->refType) {
 		case ReentrantContextProvider::REF_HARD:
-			{
-				$set(ctx, reference, $new($ReentrantContextProvider$HardReference, ctx));
-				break;
-			}
+			$set(ctx, reference, $new($ReentrantContextProvider$HardReference, ctx));
+			break;
 		case ReentrantContextProvider::REF_SOFT:
-			{
-				$set(ctx, reference, $new($SoftReference, ctx));
-				break;
-			}
+			$set(ctx, reference, $new($SoftReference, ctx));
+			break;
 		default:
-			{}
 		case ReentrantContextProvider::REF_WEAK:
-			{
-				$set(ctx, reference, $new($WeakReference, ctx));
-				break;
-			}
+			$set(ctx, reference, $new($WeakReference, ctx));
+			break;
 		}
 	}
-	return $nc(ctx)->reference;
+	return ctx->reference;
 }
 
 ReentrantContextProvider::ReentrantContextProvider() {
 }
 
 $Class* ReentrantContextProvider::load$($String* name, bool initialize) {
-	$loadClass(ReentrantContextProvider, name, initialize, &_ReentrantContextProvider_ClassInfo_, allocate$ReentrantContextProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"USAGE_TL_INACTIVE", "B", nullptr, $STATIC | $FINAL, $constField(ReentrantContextProvider, USAGE_TL_INACTIVE)},
+		{"USAGE_TL_IN_USE", "B", nullptr, $STATIC | $FINAL, $constField(ReentrantContextProvider, USAGE_TL_IN_USE)},
+		{"USAGE_CLQ", "B", nullptr, $STATIC | $FINAL, $constField(ReentrantContextProvider, USAGE_CLQ)},
+		{"REF_HARD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ReentrantContextProvider, REF_HARD)},
+		{"REF_SOFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ReentrantContextProvider, REF_SOFT)},
+		{"REF_WEAK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ReentrantContextProvider, REF_WEAK)},
+		{"refType", "I", nullptr, $PRIVATE | $FINAL, $field(ReentrantContextProvider, refType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(ReentrantContextProvider, init$, void, int32_t)},
+		{"acquire", "()Lsun/java2d/ReentrantContext;", "()TK;", $PUBLIC | $ABSTRACT, $virtualMethod(ReentrantContextProvider, acquire, $ReentrantContext*)},
+		{"getOrCreateReference", "(Lsun/java2d/ReentrantContext;)Ljava/lang/ref/Reference;", "(TK;)Ljava/lang/ref/Reference<TK;>;", $PROTECTED | $FINAL, $method(ReentrantContextProvider, getOrCreateReference, $Reference*, $ReentrantContext*)},
+		{"newContext", "()Lsun/java2d/ReentrantContext;", "()TK;", $PROTECTED | $ABSTRACT, $virtualMethod(ReentrantContextProvider, newContext, $ReentrantContext*)},
+		{"release", "(Lsun/java2d/ReentrantContext;)V", "(TK;)V", $PUBLIC | $ABSTRACT, $virtualMethod(ReentrantContextProvider, release, void, $ReentrantContext*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.ReentrantContextProvider$HardReference", "sun.java2d.ReentrantContextProvider", "HardReference", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.java2d.ReentrantContextProvider",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Lsun/java2d/ReentrantContext;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.ReentrantContextProvider$HardReference"
+	};
+	$loadClass(ReentrantContextProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReentrantContextProvider);
+	});
 	return class$;
 }
 

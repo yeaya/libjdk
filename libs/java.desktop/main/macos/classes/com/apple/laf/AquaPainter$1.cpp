@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaPainter$1.h>
-
 #include <apple/laf/JRSUIState.h>
 #include <com/apple/laf/AquaImageFactory$NineSliceMetrics.h>
 #include <com/apple/laf/AquaPainter.h>
@@ -16,57 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaPainter$1_FieldInfo_[] = {
-	{"val$stretchVertically", "Z", nullptr, $FINAL | $SYNTHETIC, $field(AquaPainter$1, val$stretchVertically)},
-	{"val$stretchHorizontally", "Z", nullptr, $FINAL | $SYNTHETIC, $field(AquaPainter$1, val$stretchHorizontally)},
-	{"val$useMiddle", "Z", nullptr, $FINAL | $SYNTHETIC, $field(AquaPainter$1, val$useMiddle)},
-	{"val$southCut", "I", nullptr, $FINAL | $SYNTHETIC, $field(AquaPainter$1, val$southCut)},
-	{"val$northCut", "I", nullptr, $FINAL | $SYNTHETIC, $field(AquaPainter$1, val$northCut)},
-	{"val$eastCut", "I", nullptr, $FINAL | $SYNTHETIC, $field(AquaPainter$1, val$eastCut)},
-	{"val$westCut", "I", nullptr, $FINAL | $SYNTHETIC, $field(AquaPainter$1, val$westCut)},
-	{"val$minHeight", "I", nullptr, $FINAL | $SYNTHETIC, $field(AquaPainter$1, val$minHeight)},
-	{"val$minWidth", "I", nullptr, $FINAL | $SYNTHETIC, $field(AquaPainter$1, val$minWidth)},
-	{}
-};
-
-$MethodInfo _AquaPainter$1_MethodInfo_[] = {
-	{"<init>", "(IIIIIIZZZ)V", "()V", 0, $method(AquaPainter$1, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool, bool, bool)},
-	{"getNineSliceMetricsForState", "(Lapple/laf/JRSUIState;)Lcom/apple/laf/AquaImageFactory$NineSliceMetrics;", nullptr, $PUBLIC, $virtualMethod(AquaPainter$1, getNineSliceMetricsForState, $AquaImageFactory$NineSliceMetrics*, $JRSUIState*)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaPainter$1_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaPainter",
-	"create",
-	"(Lapple/laf/JRSUIState;IIIIIIZZZ)Lcom/apple/laf/AquaPainter;"
-};
-
-$InnerClassInfo _AquaPainter$1_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaPainter$1", nullptr, nullptr, 0},
-	{"apple.laf.JRSUIUtils$NineSliceMetricsProvider", "apple.laf.JRSUIUtils", "NineSliceMetricsProvider", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaPainter$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaPainter$1",
-	"java.lang.Object",
-	"apple.laf.JRSUIUtils$NineSliceMetricsProvider",
-	_AquaPainter$1_FieldInfo_,
-	_AquaPainter$1_MethodInfo_,
-	nullptr,
-	&_AquaPainter$1_EnclosingMethodInfo_,
-	_AquaPainter$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaPainter"
-};
-
-$Object* allocate$AquaPainter$1($Class* clazz) {
-	return $of($alloc(AquaPainter$1));
-}
 
 void AquaPainter$1::init$(int32_t val$minWidth, int32_t val$minHeight, int32_t val$westCut, int32_t val$eastCut, int32_t val$northCut, int32_t val$southCut, bool val$useMiddle, bool val$stretchHorizontally, bool val$stretchVertically) {
 	this->val$minWidth = val$minWidth;
@@ -88,7 +36,51 @@ AquaPainter$1::AquaPainter$1() {
 }
 
 $Class* AquaPainter$1::load$($String* name, bool initialize) {
-	$loadClass(AquaPainter$1, name, initialize, &_AquaPainter$1_ClassInfo_, allocate$AquaPainter$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$stretchVertically", "Z", nullptr, $FINAL | $SYNTHETIC, $field(AquaPainter$1, val$stretchVertically)},
+		{"val$stretchHorizontally", "Z", nullptr, $FINAL | $SYNTHETIC, $field(AquaPainter$1, val$stretchHorizontally)},
+		{"val$useMiddle", "Z", nullptr, $FINAL | $SYNTHETIC, $field(AquaPainter$1, val$useMiddle)},
+		{"val$southCut", "I", nullptr, $FINAL | $SYNTHETIC, $field(AquaPainter$1, val$southCut)},
+		{"val$northCut", "I", nullptr, $FINAL | $SYNTHETIC, $field(AquaPainter$1, val$northCut)},
+		{"val$eastCut", "I", nullptr, $FINAL | $SYNTHETIC, $field(AquaPainter$1, val$eastCut)},
+		{"val$westCut", "I", nullptr, $FINAL | $SYNTHETIC, $field(AquaPainter$1, val$westCut)},
+		{"val$minHeight", "I", nullptr, $FINAL | $SYNTHETIC, $field(AquaPainter$1, val$minHeight)},
+		{"val$minWidth", "I", nullptr, $FINAL | $SYNTHETIC, $field(AquaPainter$1, val$minWidth)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IIIIIIZZZ)V", "()V", 0, $method(AquaPainter$1, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool, bool, bool)},
+		{"getNineSliceMetricsForState", "(Lapple/laf/JRSUIState;)Lcom/apple/laf/AquaImageFactory$NineSliceMetrics;", nullptr, $PUBLIC, $virtualMethod(AquaPainter$1, getNineSliceMetricsForState, $AquaImageFactory$NineSliceMetrics*, $JRSUIState*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaPainter",
+		"create",
+		"(Lapple/laf/JRSUIState;IIIIIIZZZ)Lcom/apple/laf/AquaPainter;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaPainter$1", nullptr, nullptr, 0},
+		{"apple.laf.JRSUIUtils$NineSliceMetricsProvider", "apple.laf.JRSUIUtils", "NineSliceMetricsProvider", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaPainter$1",
+		"java.lang.Object",
+		"apple.laf.JRSUIUtils$NineSliceMetricsProvider",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaPainter"
+	};
+	$loadClass(AquaPainter$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaPainter$1);
+	});
 	return class$;
 }
 

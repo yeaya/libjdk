@@ -1,5 +1,4 @@
 #include <sun/management/HotspotRuntimeMBean.h>
-
 #include <java/util/List.h>
 #include <jcpp.h>
 
@@ -10,29 +9,25 @@ using $List = ::java::util::List;
 namespace sun {
 	namespace management {
 
-$MethodInfo _HotspotRuntimeMBean_MethodInfo_[] = {
-	{"getInternalRuntimeCounters", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HotspotRuntimeMBean, getInternalRuntimeCounters, $List*)},
-	{"getSafepointCount", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HotspotRuntimeMBean, getSafepointCount, int64_t)},
-	{"getSafepointSyncTime", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HotspotRuntimeMBean, getSafepointSyncTime, int64_t)},
-	{"getTotalSafepointTime", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HotspotRuntimeMBean, getTotalSafepointTime, int64_t)},
-	{}
-};
-
-$ClassInfo _HotspotRuntimeMBean_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.management.HotspotRuntimeMBean",
-	nullptr,
-	nullptr,
-	nullptr,
-	_HotspotRuntimeMBean_MethodInfo_
-};
-
-$Object* allocate$HotspotRuntimeMBean($Class* clazz) {
-	return $of($alloc(HotspotRuntimeMBean));
-}
-
 $Class* HotspotRuntimeMBean::load$($String* name, bool initialize) {
-	$loadClass(HotspotRuntimeMBean, name, initialize, &_HotspotRuntimeMBean_ClassInfo_, allocate$HotspotRuntimeMBean);
+	$MethodInfo methodInfos$$[] = {
+		{"getInternalRuntimeCounters", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HotspotRuntimeMBean, getInternalRuntimeCounters, $List*)},
+		{"getSafepointCount", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HotspotRuntimeMBean, getSafepointCount, int64_t)},
+		{"getSafepointSyncTime", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HotspotRuntimeMBean, getSafepointSyncTime, int64_t)},
+		{"getTotalSafepointTime", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HotspotRuntimeMBean, getTotalSafepointTime, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.management.HotspotRuntimeMBean",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HotspotRuntimeMBean, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HotspotRuntimeMBean);
+	});
 	return class$;
 }
 

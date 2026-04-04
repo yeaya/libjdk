@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/dom/DeferredDocumentTypeImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DeferredDocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DeferredNode.h>
@@ -19,14 +18,12 @@
 #undef ENTITY_NODE
 #undef NOTATION_NODE
 
-using $CoreDocumentImpl = ::com::sun::org::apache::xerces::internal::dom::CoreDocumentImpl;
 using $DeferredDocumentImpl = ::com::sun::org::apache::xerces::internal::dom::DeferredDocumentImpl;
 using $DeferredNode = ::com::sun::org::apache::xerces::internal::dom::DeferredNode;
 using $DocumentImpl = ::com::sun::org::apache::xerces::internal::dom::DocumentImpl;
 using $DocumentTypeImpl = ::com::sun::org::apache::xerces::internal::dom::DocumentTypeImpl;
 using $NamedNodeMapImpl = ::com::sun::org::apache::xerces::internal::dom::NamedNodeMapImpl;
 using $NodeImpl = ::com::sun::org::apache::xerces::internal::dom::NodeImpl;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -43,75 +40,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace dom {
-
-$FieldInfo _DeferredDocumentTypeImpl_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(DeferredDocumentTypeImpl, serialVersionUID)},
-	{"fNodeIndex", "I", nullptr, $PROTECTED | $TRANSIENT, $field(DeferredDocumentTypeImpl, fNodeIndex)},
-	{}
-};
-
-$MethodInfo _DeferredDocumentTypeImpl_MethodInfo_[] = {
-	{"*appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*cloneNode", "(Z)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*compareDocumentPosition", "(Lorg/w3c/dom/Node;)S", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getAttributes", "()Lorg/w3c/dom/NamedNodeMap;", nullptr, $PUBLIC},
-	{"*getBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getChildNodes", "()Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC},
-	{"*getFeature", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*getFirstChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getLastChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getNodeName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getNodeType", "()S", nullptr, $PUBLIC},
-	{"*getNodeValue", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getOwnerDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC},
-	{"*getParentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getPreviousSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getTextContent", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getUserData", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*hasAttributes", "()Z", nullptr, $PUBLIC},
-	{"*hasChildNodes", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/dom/DeferredDocumentImpl;I)V", nullptr, 0, $method(DeferredDocumentTypeImpl, init$, void, $DeferredDocumentImpl*, int32_t)},
-	{"getNodeIndex", "()I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentTypeImpl, getNodeIndex, int32_t)},
-	{"*insertBefore", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*isDefaultNamespace", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"*isEqualNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC},
-	{"*isSameNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC},
-	{"*isSupported", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"*lookupNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*lookupPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*normalize", "()V", nullptr, $PUBLIC},
-	{"*removeChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*replaceChild", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*setNodeValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setTextContent", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setUserData", "(Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"synchronizeChildren", "()V", nullptr, $PROTECTED, $virtualMethod(DeferredDocumentTypeImpl, synchronizeChildren, void)},
-	{"synchronizeData", "()V", nullptr, $PROTECTED, $virtualMethod(DeferredDocumentTypeImpl, synchronizeData, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DeferredDocumentTypeImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.dom.DeferredDocumentTypeImpl",
-	"com.sun.org.apache.xerces.internal.dom.DocumentTypeImpl",
-	"com.sun.org.apache.xerces.internal.dom.DeferredNode",
-	_DeferredDocumentTypeImpl_FieldInfo_,
-	_DeferredDocumentTypeImpl_MethodInfo_
-};
-
-$Object* allocate$DeferredDocumentTypeImpl($Class* clazz) {
-	return $of($alloc(DeferredDocumentTypeImpl));
-}
 
 int16_t DeferredDocumentTypeImpl::getNodeType() {
 	 return this->$DocumentTypeImpl::getNodeType();
@@ -303,9 +231,9 @@ void DeferredDocumentTypeImpl::synchronizeData() {
 }
 
 void DeferredDocumentTypeImpl::synchronizeChildren() {
-	$useLocalCurrentObjectStackCache();
-	bool orig = $nc($(this->ownerDocument()))->getMutationEvents();
-	$nc($(this->ownerDocument()))->setMutationEvents(false);
+	$useLocalObjectStack();
+	bool orig = $$nc(this->ownerDocument())->getMutationEvents();
+	$$nc(this->ownerDocument())->setMutationEvents(false);
 	needsSyncChildren(false);
 	$var($DeferredDocumentImpl, ownerDocument, $cast($DeferredDocumentImpl, this->ownerDocument$));
 	$set(this, entities, $new($NamedNodeMapImpl, this));
@@ -318,45 +246,39 @@ void DeferredDocumentTypeImpl::synchronizeChildren() {
 		switch (type) {
 		case $Node::ENTITY_NODE:
 			{
-				{
-					$nc(this->entities)->setNamedItem(node);
-					break;
-				}
+				$nc(this->entities)->setNamedItem(node);
+				break;
 			}
 		case $Node::NOTATION_NODE:
 			{
-				{
-					$nc(this->notations)->setNamedItem(node);
-					break;
-				}
+				$nc(this->notations)->setNamedItem(node);
+				break;
 			}
 		case $NodeImpl::ELEMENT_DEFINITION_NODE:
 			{
-				{
-					$nc(this->elements)->setNamedItem(node);
-					break;
-				}
+				$nc(this->elements)->setNamedItem(node);
+				break;
 			}
 		case $Node::ELEMENT_NODE:
 			{
-				{
-					if ($nc(($cast($DocumentImpl, $(getOwnerDocument()))))->allowGrammarAccess) {
-						insertBefore(node, last);
-						$assign(last, node);
-					}
-					break;
+				if ($nc($$cast($DocumentImpl, getOwnerDocument()))->allowGrammarAccess) {
+					insertBefore(node, last);
+					$assign(last, node);
 				}
+				break;
 			}
 		default:
 			{
-				{
-					$var($String, var$0, $$str({"DeferredDocumentTypeImpl#synchronizeInfo: node.getNodeType() = "_s, $$str(node->getNodeType()), ", class = "_s}));
-					$nc($System::out)->println($$concat(var$0, $($of(node)->getClass()->getName())));
-				}
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append("DeferredDocumentTypeImpl#synchronizeInfo: node.getNodeType() = "_s);
+				var$0->append(node->getNodeType());
+				var$0->append(", class = "_s);
+				var$0->append($(node->getClass()->getName()));
+				$nc($System::out)->println($$str(var$0));
 			}
 		}
 	}
-	$nc($(this->ownerDocument()))->setMutationEvents(orig);
+	$$nc(this->ownerDocument())->setMutationEvents(orig);
 	setReadOnly(true, false);
 }
 
@@ -364,7 +286,71 @@ DeferredDocumentTypeImpl::DeferredDocumentTypeImpl() {
 }
 
 $Class* DeferredDocumentTypeImpl::load$($String* name, bool initialize) {
-	$loadClass(DeferredDocumentTypeImpl, name, initialize, &_DeferredDocumentTypeImpl_ClassInfo_, allocate$DeferredDocumentTypeImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(DeferredDocumentTypeImpl, serialVersionUID)},
+		{"fNodeIndex", "I", nullptr, $PROTECTED | $TRANSIENT, $field(DeferredDocumentTypeImpl, fNodeIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*cloneNode", "(Z)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*compareDocumentPosition", "(Lorg/w3c/dom/Node;)S", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getAttributes", "()Lorg/w3c/dom/NamedNodeMap;", nullptr, $PUBLIC},
+		{"*getBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getChildNodes", "()Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC},
+		{"*getFeature", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*getFirstChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getLastChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getNodeName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getNodeType", "()S", nullptr, $PUBLIC},
+		{"*getNodeValue", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getOwnerDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC},
+		{"*getParentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getPreviousSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getTextContent", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getUserData", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*hasAttributes", "()Z", nullptr, $PUBLIC},
+		{"*hasChildNodes", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/dom/DeferredDocumentImpl;I)V", nullptr, 0, $method(DeferredDocumentTypeImpl, init$, void, $DeferredDocumentImpl*, int32_t)},
+		{"getNodeIndex", "()I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentTypeImpl, getNodeIndex, int32_t)},
+		{"*insertBefore", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*isDefaultNamespace", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
+		{"*isEqualNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC},
+		{"*isSameNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC},
+		{"*isSupported", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC},
+		{"*lookupNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*lookupPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*normalize", "()V", nullptr, $PUBLIC},
+		{"*removeChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*replaceChild", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*setNodeValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setTextContent", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setUserData", "(Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"synchronizeChildren", "()V", nullptr, $PROTECTED, $virtualMethod(DeferredDocumentTypeImpl, synchronizeChildren, void)},
+		{"synchronizeData", "()V", nullptr, $PROTECTED, $virtualMethod(DeferredDocumentTypeImpl, synchronizeData, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.dom.DeferredDocumentTypeImpl",
+		"com.sun.org.apache.xerces.internal.dom.DocumentTypeImpl",
+		"com.sun.org.apache.xerces.internal.dom.DeferredNode",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DeferredDocumentTypeImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DeferredDocumentTypeImpl));
+	});
 	return class$;
 }
 

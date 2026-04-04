@@ -1,8 +1,6 @@
 #include <DefaultRowSorterCacheTest.h>
-
 #include <CustomTableModel.h>
 #include <DefaultRowSorterCacheTest$1.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/table/DefaultTableModel.h>
 #include <javax/swing/table/TableModel.h>
@@ -16,60 +14,27 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $DefaultTableModel = ::javax::swing::table::DefaultTableModel;
-using $TableModel = ::javax::swing::table::TableModel;
 using $TableRowSorter = ::javax::swing::table::TableRowSorter;
-
-$MethodInfo _DefaultRowSorterCacheTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultRowSorterCacheTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultRowSorterCacheTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"testSort", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultRowSorterCacheTest, testSort, void)},
-	{}
-};
-
-$InnerClassInfo _DefaultRowSorterCacheTest_InnerClassesInfo_[] = {
-	{"DefaultRowSorterCacheTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DefaultRowSorterCacheTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"DefaultRowSorterCacheTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_DefaultRowSorterCacheTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultRowSorterCacheTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"DefaultRowSorterCacheTest$1"
-};
-
-$Object* allocate$DefaultRowSorterCacheTest($Class* clazz) {
-	return $of($alloc(DefaultRowSorterCacheTest));
-}
 
 void DefaultRowSorterCacheTest::init$() {
 }
 
 void DefaultRowSorterCacheTest::testSort() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, values, $new($ObjectArray, {
-		$($of($Integer::valueOf(1))),
-		$($of($Integer::valueOf(2))),
-		$($of($Integer::valueOf(10)))
+		$($Integer::valueOf(1)),
+		$($Integer::valueOf(2)),
+		$($Integer::valueOf(10))
 	}));
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {values->get(0)}),
 		$$new($ObjectArray, {values->get(1)}),
 		$$new($ObjectArray, {values->get(2)})
 	}));
-	$var($DefaultTableModel, model, $new($CustomTableModel, data, $$new($ObjectArray, {$of("A"_s)})));
+	$var($DefaultTableModel, model, $new($CustomTableModel, data, $$new($ObjectArray, {"A"_s})));
 	$var($TableRowSorter, rowSorter, $new($TableRowSorter, model));
 	rowSorter->toggleSortOrder(0);
 	for (int32_t row = 0; row < model->getRowCount(); ++row) {
@@ -98,7 +63,33 @@ DefaultRowSorterCacheTest::DefaultRowSorterCacheTest() {
 }
 
 $Class* DefaultRowSorterCacheTest::load$($String* name, bool initialize) {
-	$loadClass(DefaultRowSorterCacheTest, name, initialize, &_DefaultRowSorterCacheTest_ClassInfo_, allocate$DefaultRowSorterCacheTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultRowSorterCacheTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultRowSorterCacheTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"testSort", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultRowSorterCacheTest, testSort, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"DefaultRowSorterCacheTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"DefaultRowSorterCacheTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"DefaultRowSorterCacheTest$1"
+	};
+	$loadClass(DefaultRowSorterCacheTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultRowSorterCacheTest);
+	});
 	return class$;
 }
 

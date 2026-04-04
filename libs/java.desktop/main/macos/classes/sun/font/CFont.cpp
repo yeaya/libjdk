@@ -1,5 +1,4 @@
 #include <sun/font/CFont.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/font/FontRenderContext.h>
 #include <java/awt/geom/AffineTransform.h>
@@ -65,75 +64,6 @@ using $StrikeMetrics = ::sun::font::StrikeMetrics;
 namespace sun {
 	namespace font {
 
-$FieldInfo _CFont_FieldInfo_[] = {
-	{"isFakeItalic", "Z", nullptr, $PRIVATE, $field(CFont, isFakeItalic)},
-	{"nativeFontName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CFont, nativeFontName)},
-	{"nativeFontPtr", "J", nullptr, $PRIVATE, $field(CFont, nativeFontPtr)},
-	{"fontWidth", "I", nullptr, $PRIVATE, $field(CFont, fontWidth)},
-	{"fontWeight", "I", nullptr, $PRIVATE, $field(CFont, fontWeight)},
-	{"compFont", "Lsun/font/CompositeFont;", nullptr, $PRIVATE, $field(CFont, compFont)},
-	{"DEFAULT_FRC", "Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE | $STATIC, $staticField(CFont, DEFAULT_FRC)},
-	{}
-};
-
-$MethodInfo _CFont_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CFont, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CFont, init$, void, $String*, $String*)},
-	{"<init>", "(Lsun/font/CFont;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CFont, init$, void, CFont*, $String*)},
-	{"createCompositeFont", "()Lsun/font/CompositeFont;", nullptr, $PRIVATE, $method(CFont, createCompositeFont, $CompositeFont*)},
-	{"createItalicVariant", "()Lsun/font/CFont;", nullptr, $PUBLIC, $method(CFont, createItalicVariant, CFont*)},
-	{"createNativeFont", "(Ljava/lang/String;I)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CFont, createNativeFont, int64_t, $String*, int32_t)},
-	{"createStrike", "(Lsun/font/FontStrikeDesc;)Lsun/font/FontStrike;", nullptr, $PROTECTED, $virtualMethod(CFont, createStrike, $FontStrike*, $FontStrikeDesc*)},
-	{"disposeNativeFont", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CFont, disposeNativeFont, void, int64_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CFont, equals, bool, Object$*)},
-	{"finalize", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(CFont, finalize, void)},
-	{"getCGFontPtrNative", "(J)J", nullptr, $PRIVATE | $NATIVE, $method(CFont, getCGFontPtrNative, int64_t, int64_t)},
-	{"getCascadeList", "(JLjava/util/ArrayList;)V", "(JLjava/util/ArrayList<Ljava/lang/String;>;)V", $STATIC | $NATIVE, $staticMethod(CFont, getCascadeList, void, int64_t, $ArrayList*)},
-	{"getCompositeFont2D", "()Lsun/font/CompositeFont;", nullptr, $PUBLIC, $virtualMethod(CFont, getCompositeFont2D, $CompositeFont*)},
-	{"getFontMetrics", "(J)Lsun/font/StrikeMetrics;", nullptr, 0, $virtualMethod(CFont, getFontMetrics, $StrikeMetrics*, int64_t)},
-	{"getGlyphAdvance", "(JI)F", nullptr, 0, $virtualMethod(CFont, getGlyphAdvance, float, int64_t, int32_t)},
-	{"getGlyphImage", "(JI)J", nullptr, 0, $virtualMethod(CFont, getGlyphImage, int64_t, int64_t, int32_t)},
-	{"getGlyphMetrics", "(JILjava/awt/geom/Point2D$Float;)V", nullptr, 0, $virtualMethod(CFont, getGlyphMetrics, void, int64_t, int32_t, $Point2D$Float*)},
-	{"getGlyphOutline", "(JIFF)Ljava/awt/geom/GeneralPath;", nullptr, 0, $virtualMethod(CFont, getGlyphOutline, $GeneralPath*, int64_t, int32_t, float, float)},
-	{"getGlyphOutlineBounds", "(JI)Ljava/awt/geom/Rectangle2D$Float;", nullptr, 0, $virtualMethod(CFont, getGlyphOutlineBounds, $Rectangle2D$Float*, int64_t, int32_t)},
-	{"getGlyphVectorOutline", "(J[IIFF)Ljava/awt/geom/GeneralPath;", nullptr, 0, $virtualMethod(CFont, getGlyphVectorOutline, $GeneralPath*, int64_t, $ints*, int32_t, float, float)},
-	{"getMapper", "()Lsun/font/CharToGlyphMapper;", nullptr, $PROTECTED, $virtualMethod(CFont, getMapper, $CharToGlyphMapper*)},
-	{"getNativeFontPtr", "()J", nullptr, $PROTECTED | $SYNCHRONIZED, $method(CFont, getNativeFontPtr, int64_t)},
-	{"getPlatformNativeFontPtr", "()J", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(CFont, getPlatformNativeFontPtr, int64_t)},
-	{"getStrike", "(Ljava/awt/Font;)Lsun/font/FontStrike;", nullptr, $PUBLIC, $virtualMethod(CFont, getStrike, $FontStrike*, $Font*)},
-	{"getTableBytes", "(I)[B", nullptr, $PROTECTED, $virtualMethod(CFont, getTableBytes, $bytes*, int32_t)},
-	{"getTableBytesNative", "(JI)[B", nullptr, $PRIVATE | $NATIVE, $method(CFont, getTableBytesNative, $bytes*, int64_t, int32_t)},
-	{"getWeight", "()I", nullptr, $PUBLIC, $virtualMethod(CFont, getWeight, int32_t)},
-	{"getWeightNative", "(J)F", nullptr, $PRIVATE | $NATIVE, $method(CFont, getWeightNative, float, int64_t)},
-	{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(CFont, getWidth, int32_t)},
-	{"getWidthNative", "(J)F", nullptr, $PRIVATE | $NATIVE, $method(CFont, getWidthNative, float, int64_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(CFont, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CFont, toString, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_createNativeFont 6
-#define _METHOD_INDEX_disposeNativeFont 8
-#define _METHOD_INDEX_getCGFontPtrNative 11
-#define _METHOD_INDEX_getCascadeList 12
-#define _METHOD_INDEX_getTableBytesNative 26
-#define _METHOD_INDEX_getWeightNative 28
-#define _METHOD_INDEX_getWidthNative 30
-
-$ClassInfo _CFont_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.font.CFont",
-	"sun.font.PhysicalFont",
-	"sun.font.FontSubstitution",
-	_CFont_FieldInfo_,
-	_CFont_MethodInfo_
-};
-
-$Object* allocate$CFont($Class* clazz) {
-	return $of($alloc(CFont));
-}
-
 $Object* CFont::clone() {
 	 return this->$PhysicalFont::clone();
 }
@@ -179,41 +109,37 @@ $bytes* CFont::getTableBytes(int32_t tag) {
 }
 
 $bytes* CFont::getTableBytesNative(int64_t nativeFontPtr, int32_t tag) {
-	$var($bytes, $ret, nullptr);
-	$prepareNative(CFont, getTableBytesNative, $bytes*, int64_t nativeFontPtr, int32_t tag);
-	$assign($ret, $invokeNativeObject(nativeFontPtr, tag));
+	$prepareNative(getTableBytesNative, $bytes*, int64_t nativeFontPtr, int32_t tag);
+	$var($bytes, $ret, $invokeNativeObject(nativeFontPtr, tag));
 	$finishNative();
 	return $ret;
 }
 
 int64_t CFont::createNativeFont($String* nativeFontName, int32_t style) {
 	$init(CFont);
-	int64_t $ret = 0;
-	$prepareNativeStatic(CFont, createNativeFont, int64_t, $String* nativeFontName, int32_t style);
-	$ret = $invokeNativeStatic(nativeFontName, style);
+	$prepareNativeStatic(createNativeFont, int64_t, $String* nativeFontName, int32_t style);
+	int64_t $ret = $invokeNativeStatic(nativeFontName, style);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void CFont::disposeNativeFont(int64_t nativeFontPtr) {
 	$init(CFont);
-	$prepareNativeStatic(CFont, disposeNativeFont, void, int64_t nativeFontPtr);
+	$prepareNativeStatic(disposeNativeFont, void, int64_t nativeFontPtr);
 	$invokeNativeStatic(nativeFontPtr);
 	$finishNativeStatic();
 }
 
 float CFont::getWidthNative(int64_t nativeFontPtr) {
-	float $ret = 0.0;
-	$prepareNative(CFont, getWidthNative, float, int64_t nativeFontPtr);
-	$ret = $invokeNative(nativeFontPtr);
+	$prepareNative(getWidthNative, float, int64_t nativeFontPtr);
+	float $ret = $invokeNative(nativeFontPtr);
 	$finishNative();
 	return $ret;
 }
 
 float CFont::getWeightNative(int64_t nativeFontPtr) {
-	float $ret = 0.0;
-	$prepareNative(CFont, getWeightNative, float, int64_t nativeFontPtr);
-	$ret = $invokeNative(nativeFontPtr);
+	$prepareNative(getWeightNative, float, int64_t nativeFontPtr);
+	float $ret = $invokeNative(nativeFontPtr);
 	$finishNative();
 	return $ret;
 }
@@ -301,7 +227,7 @@ CFont* CFont::createItalicVariant() {
 
 int64_t CFont::getNativeFontPtr() {
 	$synchronized(this) {
-		if (this->nativeFontPtr == (int64_t)0) {
+		if (this->nativeFontPtr == 0) {
 			this->nativeFontPtr = createNativeFont(this->nativeFontName, this->style);
 		}
 		return this->nativeFontPtr;
@@ -309,9 +235,8 @@ int64_t CFont::getNativeFontPtr() {
 }
 
 int64_t CFont::getCGFontPtrNative(int64_t ptr) {
-	int64_t $ret = 0;
-	$prepareNative(CFont, getCGFontPtrNative, int64_t, int64_t ptr);
-	$ret = $invokeNative(ptr);
+	$prepareNative(getCGFontPtrNative, int64_t, int64_t ptr);
+	int64_t $ret = $invokeNative(ptr);
 	$finishNative();
 	return $ret;
 }
@@ -324,13 +249,13 @@ int64_t CFont::getPlatformNativeFontPtr() {
 
 void CFont::getCascadeList(int64_t nativeFontPtr, $ArrayList* listOfString) {
 	$init(CFont);
-	$prepareNativeStatic(CFont, getCascadeList, void, int64_t nativeFontPtr, $ArrayList* listOfString);
+	$prepareNativeStatic(getCascadeList, void, int64_t nativeFontPtr, $ArrayList* listOfString);
 	$invokeNativeStatic(nativeFontPtr, listOfString);
 	$finishNativeStatic();
 }
 
 $CompositeFont* CFont::createCompositeFont() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, listOfString, $new($ArrayList));
 	getCascadeList(this->nativeFontPtr, listOfString);
 	listOfString->add("GeezaPro"_s);
@@ -395,11 +320,11 @@ $CharToGlyphMapper* CFont::getMapper() {
 }
 
 $FontStrike* CFont::createStrike($FontStrikeDesc* desc$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontStrikeDesc, desc, desc$renamed);
 	if (this->isFakeItalic) {
 		$assign(desc, $new($FontStrikeDesc, desc));
-		$nc(desc->glyphTx)->concatenate($($AffineTransform::getShearInstance(-0.2, (double)0)));
+		$nc(desc->glyphTx)->concatenate($($AffineTransform::getShearInstance(-0.2, 0)));
 	}
 	return $new($CStrike, this, desc);
 }
@@ -412,7 +337,7 @@ bool CFont::equals(Object$* o) {
 	if (!$PhysicalFont::equals(o)) {
 		return false;
 	}
-	int32_t var$0 = $nc(($cast($Font2D, o)))->getStyle();
+	int32_t var$0 = $nc($cast($Font2D, o))->getStyle();
 	return var$0 == this->getStyle();
 }
 
@@ -422,19 +347,75 @@ int32_t CFont::hashCode() {
 }
 
 $String* CFont::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"CFont { fullName: "_s, this->fullName, ",  familyName: "_s, this->familyName, ", style: "_s, $$str(this->style), " } aka: "_s, $($PhysicalFont::toString())});
 }
 
-void clinit$CFont($Class* class$) {
-	$assignStatic(CFont::DEFAULT_FRC, $new($FontRenderContext, ($AffineTransform*)nullptr, false, false));
+void CFont::clinit$($Class* clazz) {
+	$assignStatic(CFont::DEFAULT_FRC, $new($FontRenderContext, nullptr, false, false));
 }
 
 CFont::CFont() {
 }
 
 $Class* CFont::load$($String* name, bool initialize) {
-	$loadClass(CFont, name, initialize, &_CFont_ClassInfo_, clinit$CFont, allocate$CFont);
+	$FieldInfo fieldInfos$$[] = {
+		{"isFakeItalic", "Z", nullptr, $PRIVATE, $field(CFont, isFakeItalic)},
+		{"nativeFontName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CFont, nativeFontName)},
+		{"nativeFontPtr", "J", nullptr, $PRIVATE, $field(CFont, nativeFontPtr)},
+		{"fontWidth", "I", nullptr, $PRIVATE, $field(CFont, fontWidth)},
+		{"fontWeight", "I", nullptr, $PRIVATE, $field(CFont, fontWeight)},
+		{"compFont", "Lsun/font/CompositeFont;", nullptr, $PRIVATE, $field(CFont, compFont)},
+		{"DEFAULT_FRC", "Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE | $STATIC, $staticField(CFont, DEFAULT_FRC)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CFont, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CFont, init$, void, $String*, $String*)},
+		{"<init>", "(Lsun/font/CFont;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CFont, init$, void, CFont*, $String*)},
+		{"createCompositeFont", "()Lsun/font/CompositeFont;", nullptr, $PRIVATE, $method(CFont, createCompositeFont, $CompositeFont*)},
+		{"createItalicVariant", "()Lsun/font/CFont;", nullptr, $PUBLIC, $method(CFont, createItalicVariant, CFont*)},
+		{"createNativeFont", "(Ljava/lang/String;I)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CFont, createNativeFont, int64_t, $String*, int32_t)},
+		{"createStrike", "(Lsun/font/FontStrikeDesc;)Lsun/font/FontStrike;", nullptr, $PROTECTED, $virtualMethod(CFont, createStrike, $FontStrike*, $FontStrikeDesc*)},
+		{"disposeNativeFont", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CFont, disposeNativeFont, void, int64_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CFont, equals, bool, Object$*)},
+		{"finalize", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(CFont, finalize, void)},
+		{"getCGFontPtrNative", "(J)J", nullptr, $PRIVATE | $NATIVE, $method(CFont, getCGFontPtrNative, int64_t, int64_t)},
+		{"getCascadeList", "(JLjava/util/ArrayList;)V", "(JLjava/util/ArrayList<Ljava/lang/String;>;)V", $STATIC | $NATIVE, $staticMethod(CFont, getCascadeList, void, int64_t, $ArrayList*)},
+		{"getCompositeFont2D", "()Lsun/font/CompositeFont;", nullptr, $PUBLIC, $virtualMethod(CFont, getCompositeFont2D, $CompositeFont*)},
+		{"getFontMetrics", "(J)Lsun/font/StrikeMetrics;", nullptr, 0, $virtualMethod(CFont, getFontMetrics, $StrikeMetrics*, int64_t)},
+		{"getGlyphAdvance", "(JI)F", nullptr, 0, $virtualMethod(CFont, getGlyphAdvance, float, int64_t, int32_t)},
+		{"getGlyphImage", "(JI)J", nullptr, 0, $virtualMethod(CFont, getGlyphImage, int64_t, int64_t, int32_t)},
+		{"getGlyphMetrics", "(JILjava/awt/geom/Point2D$Float;)V", nullptr, 0, $virtualMethod(CFont, getGlyphMetrics, void, int64_t, int32_t, $Point2D$Float*)},
+		{"getGlyphOutline", "(JIFF)Ljava/awt/geom/GeneralPath;", nullptr, 0, $virtualMethod(CFont, getGlyphOutline, $GeneralPath*, int64_t, int32_t, float, float)},
+		{"getGlyphOutlineBounds", "(JI)Ljava/awt/geom/Rectangle2D$Float;", nullptr, 0, $virtualMethod(CFont, getGlyphOutlineBounds, $Rectangle2D$Float*, int64_t, int32_t)},
+		{"getGlyphVectorOutline", "(J[IIFF)Ljava/awt/geom/GeneralPath;", nullptr, 0, $virtualMethod(CFont, getGlyphVectorOutline, $GeneralPath*, int64_t, $ints*, int32_t, float, float)},
+		{"getMapper", "()Lsun/font/CharToGlyphMapper;", nullptr, $PROTECTED, $virtualMethod(CFont, getMapper, $CharToGlyphMapper*)},
+		{"getNativeFontPtr", "()J", nullptr, $PROTECTED | $SYNCHRONIZED, $method(CFont, getNativeFontPtr, int64_t)},
+		{"getPlatformNativeFontPtr", "()J", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(CFont, getPlatformNativeFontPtr, int64_t)},
+		{"getStrike", "(Ljava/awt/Font;)Lsun/font/FontStrike;", nullptr, $PUBLIC, $virtualMethod(CFont, getStrike, $FontStrike*, $Font*)},
+		{"getTableBytes", "(I)[B", nullptr, $PROTECTED, $virtualMethod(CFont, getTableBytes, $bytes*, int32_t)},
+		{"getTableBytesNative", "(JI)[B", nullptr, $PRIVATE | $NATIVE, $method(CFont, getTableBytesNative, $bytes*, int64_t, int32_t)},
+		{"getWeight", "()I", nullptr, $PUBLIC, $virtualMethod(CFont, getWeight, int32_t)},
+		{"getWeightNative", "(J)F", nullptr, $PRIVATE | $NATIVE, $method(CFont, getWeightNative, float, int64_t)},
+		{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(CFont, getWidth, int32_t)},
+		{"getWidthNative", "(J)F", nullptr, $PRIVATE | $NATIVE, $method(CFont, getWidthNative, float, int64_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(CFont, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CFont, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.font.CFont",
+		"sun.font.PhysicalFont",
+		"sun.font.FontSubstitution",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CFont, name, initialize, &classInfo$$, CFont::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CFont));
+	});
 	return class$;
 }
 

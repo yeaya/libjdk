@@ -13,6 +13,7 @@ class JTextComponent$5 : public ::java::lang::Object {
 	$class(JTextComponent$5, 0, ::java::lang::Object)
 public:
 	JTextComponent$5();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$swing$DropMode;
 };
 

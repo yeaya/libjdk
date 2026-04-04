@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/SAXImpl$NamespaceAttributeIterator.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/SAXImpl.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMAxisIteratorBase.h>
@@ -14,7 +13,6 @@
 using $SAXImpl = ::com::sun::org::apache::xalan::internal::xsltc::dom::SAXImpl;
 using $DTMAxisIterator = ::com::sun::org::apache::xml::internal::dtm::DTMAxisIterator;
 using $DTMDefaultBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBase;
-using $DTMDefaultBaseIterators = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators;
 using $DTMDefaultBaseIterators$InternalAxisIteratorBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators$InternalAxisIteratorBase;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -29,45 +27,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace dom {
-
-$FieldInfo _SAXImpl$NamespaceAttributeIterator_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xalan/internal/xsltc/dom/SAXImpl;", nullptr, $FINAL | $SYNTHETIC, $field(SAXImpl$NamespaceAttributeIterator, this$0)},
-	{"_nsType", "I", nullptr, $PRIVATE | $FINAL, $field(SAXImpl$NamespaceAttributeIterator, _nsType)},
-	{}
-};
-
-$MethodInfo _SAXImpl$NamespaceAttributeIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/dom/SAXImpl;I)V", nullptr, $PUBLIC, $method(SAXImpl$NamespaceAttributeIterator, init$, void, $SAXImpl*, int32_t)},
-	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NamespaceAttributeIterator, next, int32_t)},
-	{"setStartNode", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NamespaceAttributeIterator, setStartNode, $DTMAxisIterator*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _SAXImpl$NamespaceAttributeIterator_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xalan.internal.xsltc.dom.SAXImpl$NamespaceAttributeIterator", "com.sun.org.apache.xalan.internal.xsltc.dom.SAXImpl", "NamespaceAttributeIterator", $PUBLIC | $FINAL},
-	{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$InternalAxisIteratorBase", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators", "InternalAxisIteratorBase", $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SAXImpl$NamespaceAttributeIterator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.SAXImpl$NamespaceAttributeIterator",
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$InternalAxisIteratorBase",
-	nullptr,
-	_SAXImpl$NamespaceAttributeIterator_FieldInfo_,
-	_SAXImpl$NamespaceAttributeIterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SAXImpl$NamespaceAttributeIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.SAXImpl"
-};
-
-$Object* allocate$SAXImpl$NamespaceAttributeIterator($Class* clazz) {
-	return $of($alloc(SAXImpl$NamespaceAttributeIterator));
-}
 
 void SAXImpl$NamespaceAttributeIterator::init$($SAXImpl* this$0, int32_t nsType) {
 	$set(this, this$0, this$0);
@@ -113,7 +72,40 @@ SAXImpl$NamespaceAttributeIterator::SAXImpl$NamespaceAttributeIterator() {
 }
 
 $Class* SAXImpl$NamespaceAttributeIterator::load$($String* name, bool initialize) {
-	$loadClass(SAXImpl$NamespaceAttributeIterator, name, initialize, &_SAXImpl$NamespaceAttributeIterator_ClassInfo_, allocate$SAXImpl$NamespaceAttributeIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xalan/internal/xsltc/dom/SAXImpl;", nullptr, $FINAL | $SYNTHETIC, $field(SAXImpl$NamespaceAttributeIterator, this$0)},
+		{"_nsType", "I", nullptr, $PRIVATE | $FINAL, $field(SAXImpl$NamespaceAttributeIterator, _nsType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/dom/SAXImpl;I)V", nullptr, $PUBLIC, $method(SAXImpl$NamespaceAttributeIterator, init$, void, $SAXImpl*, int32_t)},
+		{"next", "()I", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NamespaceAttributeIterator, next, int32_t)},
+		{"setStartNode", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NamespaceAttributeIterator, setStartNode, $DTMAxisIterator*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xalan.internal.xsltc.dom.SAXImpl$NamespaceAttributeIterator", "com.sun.org.apache.xalan.internal.xsltc.dom.SAXImpl", "NamespaceAttributeIterator", $PUBLIC | $FINAL},
+		{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$InternalAxisIteratorBase", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators", "InternalAxisIteratorBase", $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.SAXImpl$NamespaceAttributeIterator",
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$InternalAxisIteratorBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.SAXImpl"
+	};
+	$loadClass(SAXImpl$NamespaceAttributeIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SAXImpl$NamespaceAttributeIterator);
+	});
 	return class$;
 }
 

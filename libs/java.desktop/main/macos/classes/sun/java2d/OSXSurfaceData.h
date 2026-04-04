@@ -90,6 +90,7 @@ class OSXSurfaceData : public ::sun::awt::image::BufImgSurfaceData {
 public:
 	OSXSurfaceData();
 	using ::sun::awt::image::BufImgSurfaceData::copyArea;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::java2d::loops::SurfaceType* sType, ::java::awt::image::ColorModel* cm);
 	void init$(::sun::java2d::loops::SurfaceType* sType, ::java::awt::image::ColorModel* cm, ::java::awt::GraphicsConfiguration* config, ::java::awt::Rectangle* bounds);
 	static bool IsSimpleColor(Object$* c);

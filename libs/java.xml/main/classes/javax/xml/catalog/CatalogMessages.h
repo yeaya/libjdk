@@ -56,6 +56,7 @@ class CatalogMessages : public ::java::lang::Object {
 	$class(CatalogMessages, 0, ::java::lang::Object)
 public:
 	CatalogMessages();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* formatMessage($String* key, $ObjectArray* arguments);
 	static $String* formatMessage($String* key, $ObjectArray* arguments, ::java::util::Locale* locale);

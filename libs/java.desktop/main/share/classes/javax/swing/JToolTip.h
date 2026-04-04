@@ -32,6 +32,7 @@ class $export JToolTip : public ::javax::swing::JComponent, public ::javax::acce
 	$class(JToolTip, 0, ::javax::swing::JComponent, ::javax::accessibility::Accessible)
 public:
 	JToolTip();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::swing::JComponent::contains;
 	using ::javax::swing::JComponent::enable;
 	using ::javax::swing::JComponent::getBounds;

@@ -1,5 +1,4 @@
 #include <javax/swing/filechooser/UnixFileSystemView.h>
-
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <java/text/MessageFormat.h>
@@ -21,35 +20,6 @@ namespace javax {
 	namespace swing {
 		namespace filechooser {
 
-$FieldInfo _UnixFileSystemView_FieldInfo_[] = {
-	{"newFolderString", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixFileSystemView, newFolderString)},
-	{"newFolderNextString", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixFileSystemView, newFolderNextString)},
-	{}
-};
-
-$MethodInfo _UnixFileSystemView_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(UnixFileSystemView, init$, void)},
-	{"createNewFolder", "(Ljava/io/File;)Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(UnixFileSystemView, createNewFolder, $File*, $File*), "java.io.IOException"},
-	{"isComputerNode", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(UnixFileSystemView, isComputerNode, bool, $File*)},
-	{"isDrive", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(UnixFileSystemView, isDrive, bool, $File*)},
-	{"isFileSystemRoot", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(UnixFileSystemView, isFileSystemRoot, bool, $File*)},
-	{"isFloppyDrive", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(UnixFileSystemView, isFloppyDrive, bool, $File*)},
-	{}
-};
-
-$ClassInfo _UnixFileSystemView_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.filechooser.UnixFileSystemView",
-	"javax.swing.filechooser.FileSystemView",
-	nullptr,
-	_UnixFileSystemView_FieldInfo_,
-	_UnixFileSystemView_MethodInfo_
-};
-
-$Object* allocate$UnixFileSystemView($Class* clazz) {
-	return $of($alloc(UnixFileSystemView));
-}
-
 $String* UnixFileSystemView::newFolderString = nullptr;
 $String* UnixFileSystemView::newFolderNextString = nullptr;
 
@@ -58,7 +28,7 @@ void UnixFileSystemView::init$() {
 }
 
 $File* UnixFileSystemView::createNewFolder($File* containingDir) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (containingDir == nullptr) {
 		$throwNew($IOException, "Containing directory is null:"_s);
 	}
@@ -66,7 +36,7 @@ $File* UnixFileSystemView::createNewFolder($File* containingDir) {
 	$assign(newFolder, createFileObject(containingDir, UnixFileSystemView::newFolderString));
 	int32_t i = 1;
 	while ($nc(newFolder)->exists() && i < 100) {
-		$assign(newFolder, createFileObject(containingDir, $($MessageFormat::format(UnixFileSystemView::newFolderNextString, $$new($ObjectArray, {$($of($Integer::valueOf(i)))})))));
+		$assign(newFolder, createFileObject(containingDir, $($MessageFormat::format(UnixFileSystemView::newFolderNextString, $$new($ObjectArray, {$($Integer::valueOf(i))})))));
 		++i;
 	}
 	if ($nc(newFolder)->exists()) {
@@ -78,7 +48,7 @@ $File* UnixFileSystemView::createNewFolder($File* containingDir) {
 }
 
 bool UnixFileSystemView::isFileSystemRoot($File* dir) {
-	return dir != nullptr && $nc($(dir->getAbsolutePath()))->equals("/"_s);
+	return dir != nullptr && $$nc(dir->getAbsolutePath())->equals("/"_s);
 }
 
 bool UnixFileSystemView::isDrive($File* dir) {
@@ -99,7 +69,7 @@ bool UnixFileSystemView::isComputerNode($File* dir) {
 	return false;
 }
 
-void clinit$UnixFileSystemView($Class* class$) {
+void UnixFileSystemView::clinit$($Class* clazz) {
 	$assignStatic(UnixFileSystemView::newFolderString, $UIManager::getString("FileChooser.other.newFolder"_s));
 	$assignStatic(UnixFileSystemView::newFolderNextString, $UIManager::getString("FileChooser.other.newFolder.subsequent"_s));
 }
@@ -108,7 +78,31 @@ UnixFileSystemView::UnixFileSystemView() {
 }
 
 $Class* UnixFileSystemView::load$($String* name, bool initialize) {
-	$loadClass(UnixFileSystemView, name, initialize, &_UnixFileSystemView_ClassInfo_, clinit$UnixFileSystemView, allocate$UnixFileSystemView);
+	$FieldInfo fieldInfos$$[] = {
+		{"newFolderString", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixFileSystemView, newFolderString)},
+		{"newFolderNextString", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixFileSystemView, newFolderNextString)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(UnixFileSystemView, init$, void)},
+		{"createNewFolder", "(Ljava/io/File;)Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(UnixFileSystemView, createNewFolder, $File*, $File*), "java.io.IOException"},
+		{"isComputerNode", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(UnixFileSystemView, isComputerNode, bool, $File*)},
+		{"isDrive", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(UnixFileSystemView, isDrive, bool, $File*)},
+		{"isFileSystemRoot", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(UnixFileSystemView, isFileSystemRoot, bool, $File*)},
+		{"isFloppyDrive", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(UnixFileSystemView, isFloppyDrive, bool, $File*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.filechooser.UnixFileSystemView",
+		"javax.swing.filechooser.FileSystemView",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnixFileSystemView, name, initialize, &classInfo$$, UnixFileSystemView::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(UnixFileSystemView);
+	});
 	return class$;
 }
 

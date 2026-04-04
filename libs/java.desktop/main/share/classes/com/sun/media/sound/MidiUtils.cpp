@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/MidiUtils.h>
-
 #include <com/sun/media/sound/MidiUtils$TempoCache.h>
 #include <javax/sound/midi/InvalidMidiDataException.h>
 #include <javax/sound/midi/MetaMessage.h>
@@ -27,7 +26,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $InvalidMidiDataException = ::javax::sound::midi::InvalidMidiDataException;
 using $MetaMessage = ::javax::sound::midi::MetaMessage;
 using $MidiDevice$Info = ::javax::sound::midi::MidiDevice$Info;
-using $MidiEvent = ::javax::sound::midi::MidiEvent;
 using $MidiMessage = ::javax::sound::midi::MidiMessage;
 using $Sequence = ::javax::sound::midi::Sequence;
 using $Track = ::javax::sound::midi::Track;
@@ -37,112 +35,64 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _MidiUtils_FieldInfo_[] = {
-	{"DEFAULT_TEMPO_MPQ", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MidiUtils, DEFAULT_TEMPO_MPQ)},
-	{"META_END_OF_TRACK_TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MidiUtils, META_END_OF_TRACK_TYPE)},
-	{"META_TEMPO_TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MidiUtils, META_TEMPO_TYPE)},
-	{}
-};
-
-$MethodInfo _MidiUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MidiUtils, init$, void)},
-	{"checkSysexStatus", "([BI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiUtils, checkSysexStatus, void, $bytes*, int32_t), "javax.sound.midi.InvalidMidiDataException"},
-	{"checkSysexStatus", "(I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiUtils, checkSysexStatus, void, int32_t), "javax.sound.midi.InvalidMidiDataException"},
-	{"convertTempo", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiUtils, convertTempo, double, double)},
-	{"getTempoMPQ", "(Ljavax/sound/midi/MidiMessage;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiUtils, getTempoMPQ, int32_t, $MidiMessage*)},
-	{"isMetaEndOfTrack", "(Ljavax/sound/midi/MidiMessage;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiUtils, isMetaEndOfTrack, bool, $MidiMessage*)},
-	{"isMetaTempo", "(Ljavax/sound/midi/MidiMessage;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiUtils, isMetaTempo, bool, $MidiMessage*)},
-	{"microsec2ticks", "(JDI)J", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiUtils, microsec2ticks, int64_t, int64_t, double, int32_t)},
-	{"microsecond2tick", "(Ljavax/sound/midi/Sequence;JLcom/sun/media/sound/MidiUtils$TempoCache;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiUtils, microsecond2tick, int64_t, $Sequence*, int64_t, $MidiUtils$TempoCache*)},
-	{"tick2index", "(Ljavax/sound/midi/Track;J)I", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiUtils, tick2index, int32_t, $Track*, int64_t)},
-	{"tick2microsecond", "(Ljavax/sound/midi/Sequence;JLcom/sun/media/sound/MidiUtils$TempoCache;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiUtils, tick2microsecond, int64_t, $Sequence*, int64_t, $MidiUtils$TempoCache*)},
-	{"ticks2microsec", "(JDI)J", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiUtils, ticks2microsec, int64_t, int64_t, double, int32_t)},
-	{"unsupportedDevice", "(Ljavax/sound/midi/MidiDevice$Info;)Ljava/lang/RuntimeException;", nullptr, $STATIC, $staticMethod(MidiUtils, unsupportedDevice, $RuntimeException*, $MidiDevice$Info*)},
-	{}
-};
-
-$InnerClassInfo _MidiUtils_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.MidiUtils$TempoCache", "com.sun.media.sound.MidiUtils", "TempoCache", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MidiUtils_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.MidiUtils",
-	"java.lang.Object",
-	nullptr,
-	_MidiUtils_FieldInfo_,
-	_MidiUtils_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MidiUtils_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.MidiUtils$TempoCache"
-};
-
-$Object* allocate$MidiUtils($Class* clazz) {
-	return $of($alloc(MidiUtils));
-}
-
 void MidiUtils::init$() {
 }
 
 $RuntimeException* MidiUtils::unsupportedDevice($MidiDevice$Info* info) {
-	$useLocalCurrentObjectStackCache();
-	return $new($IllegalArgumentException, $($String::format("MidiDevice %s not supported by this provider"_s, $$new($ObjectArray, {$of(info)}))));
+	$useLocalObjectStack();
+	return $new($IllegalArgumentException, $($String::format("MidiDevice %s not supported by this provider"_s, $$new($ObjectArray, {info}))));
 }
 
 void MidiUtils::checkSysexStatus($bytes* data, int32_t length) {
 	if ($nc(data)->length == 0 || length == 0) {
 		$throwNew($InvalidMidiDataException, "Status byte is missing"_s);
 	}
-	checkSysexStatus((int32_t)($nc(data)->get(0) & (uint32_t)255));
+	checkSysexStatus(data->get(0) & 0xff);
 }
 
 void MidiUtils::checkSysexStatus(int32_t status) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (status != 240 && status != 247) {
-		$throwNew($InvalidMidiDataException, $($String::format("Invalid status byte for sysex message: 0x%X"_s, $$new($ObjectArray, {$($of($Integer::valueOf(status)))}))));
+		$throwNew($InvalidMidiDataException, $($String::format("Invalid status byte for sysex message: 0x%X"_s, $$new($ObjectArray, {$($Integer::valueOf(status))}))));
 	}
 }
 
 bool MidiUtils::isMetaEndOfTrack($MidiMessage* midiMsg) {
 	bool var$0 = $nc(midiMsg)->getLength() != 3;
-	if (var$0 || $nc(midiMsg)->getStatus() != $MetaMessage::META) {
+	if (var$0 || midiMsg->getStatus() != $MetaMessage::META) {
 		return false;
 	}
-	$var($bytes, msg, $nc(midiMsg)->getMessage());
-	return (((int32_t)($nc(msg)->get(1) & (uint32_t)255)) == MidiUtils::META_END_OF_TRACK_TYPE) && (msg->get(2) == 0);
+	$var($bytes, msg, midiMsg->getMessage());
+	return (($nc(msg)->get(1) & 0xff) == MidiUtils::META_END_OF_TRACK_TYPE) && (msg->get(2) == 0);
 }
 
 bool MidiUtils::isMetaTempo($MidiMessage* midiMsg) {
 	bool var$0 = $nc(midiMsg)->getLength() != 6;
-	if (var$0 || $nc(midiMsg)->getStatus() != $MetaMessage::META) {
+	if (var$0 || midiMsg->getStatus() != $MetaMessage::META) {
 		return false;
 	}
-	$var($bytes, msg, $nc(midiMsg)->getMessage());
-	return (((int32_t)($nc(msg)->get(1) & (uint32_t)255)) == MidiUtils::META_TEMPO_TYPE) && (msg->get(2) == 3);
+	$var($bytes, msg, midiMsg->getMessage());
+	return (($nc(msg)->get(1) & 0xff) == MidiUtils::META_TEMPO_TYPE) && (msg->get(2) == 3);
 }
 
 int32_t MidiUtils::getTempoMPQ($MidiMessage* midiMsg) {
 	bool var$0 = $nc(midiMsg)->getLength() != 6;
-	if (var$0 || $nc(midiMsg)->getStatus() != $MetaMessage::META) {
+	if (var$0 || midiMsg->getStatus() != $MetaMessage::META) {
 		return -1;
 	}
-	$var($bytes, msg, $nc(midiMsg)->getMessage());
-	if ((((int32_t)($nc(msg)->get(1) & (uint32_t)255)) != MidiUtils::META_TEMPO_TYPE) || ($nc(msg)->get(2) != 3)) {
+	$var($bytes, msg, midiMsg->getMessage());
+	if ((($nc(msg)->get(1) & 0xff) != MidiUtils::META_TEMPO_TYPE) || (msg->get(2) != 3)) {
 		return -1;
 	}
-	int32_t tempo = (((int32_t)($nc(msg)->get(5) & (uint32_t)255)) | (((int32_t)(msg->get(4) & (uint32_t)255)) << 8)) | (((int32_t)(msg->get(3) & (uint32_t)255)) << 16);
+	int32_t tempo = ((msg->get(5) & 0xff) | ((msg->get(4) & 0xff) << 8)) | ((msg->get(3) & 0xff) << 16);
 	return tempo;
 }
 
 double MidiUtils::convertTempo(double tempo) {
 	if (tempo <= 0) {
-		tempo = (double)1;
+		tempo = 1;
 	}
-	return ((double)(int64_t)60000000) / tempo;
+	return ((double)60000000) / tempo;
 }
 
 int64_t MidiUtils::ticks2microsec(int64_t tick, double tempoMPQ, int32_t resolution) {
@@ -154,7 +104,7 @@ int64_t MidiUtils::microsec2ticks(int64_t us, double tempoMPQ, int32_t resolutio
 }
 
 int64_t MidiUtils::tick2microsecond($Sequence* seq, int64_t tick, $MidiUtils$TempoCache* cache$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MidiUtils$TempoCache, cache, cache$renamed);
 	$init($Sequence);
 	if ($nc(seq)->getDivisionType() != $Sequence::PPQ) {
@@ -162,12 +112,12 @@ int64_t MidiUtils::tick2microsecond($Sequence* seq, int64_t tick, $MidiUtils$Tem
 		float var$2 = seq->getDivisionType();
 		double var$1 = (double)(var$2 * seq->getResolution());
 		double seconds = (var$0 / var$1);
-		return $cast(int64_t, (0x000F4240 * seconds));
+		return $cast(int64_t, (1000000 * seconds));
 	}
 	if (cache == nullptr) {
 		$assign(cache, $new($MidiUtils$TempoCache, seq));
 	}
-	int32_t resolution = $nc(seq)->getResolution();
+	int32_t resolution = seq->getResolution();
 	$var($longs, ticks, $nc(cache)->ticks);
 	$var($ints, tempos, cache->tempos);
 	int32_t cacheCount = $nc(tempos)->length;
@@ -193,12 +143,12 @@ int64_t MidiUtils::tick2microsecond($Sequence* seq, int64_t tick, $MidiUtils$Tem
 }
 
 int64_t MidiUtils::microsecond2tick($Sequence* seq, int64_t micros, $MidiUtils$TempoCache* cache$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MidiUtils$TempoCache, cache, cache$renamed);
 	$init($Sequence);
 	if ($nc(seq)->getDivisionType() != $Sequence::PPQ) {
 		double var$0 = ((double)micros) * ((double)seq->getDivisionType());
-		double dTick = $div((var$0 * ((double)seq->getResolution())), ((double)0x000F4240));
+		double dTick = $div((var$0 * ((double)seq->getResolution())), ((double)1000000));
 		int64_t tick = $cast(int64_t, dTick);
 		if (cache != nullptr) {
 			cache->currTempo = $cast(int32_t, cache->getTempoMPQAt(tick));
@@ -211,14 +161,14 @@ int64_t MidiUtils::microsecond2tick($Sequence* seq, int64_t micros, $MidiUtils$T
 	$var($longs, ticks, $nc(cache)->ticks);
 	$var($ints, tempos, cache->tempos);
 	int32_t cacheCount = $nc(tempos)->length;
-	int32_t resolution = $nc(seq)->getResolution();
+	int32_t resolution = seq->getResolution();
 	int64_t us = 0;
 	int64_t tick = 0;
 	int32_t newReadPos = 0;
 	int32_t i = 1;
 	if (micros > 0 && cacheCount > 0) {
 		while (i < cacheCount) {
-			int64_t nextTime = us + ticks2microsec($nc(ticks)->get(i) - ticks->get(i - 1), (double)tempos->get(i - 1), resolution);
+			int64_t nextTime = us + ticks2microsec($nc(ticks)->get(i) - $nc(ticks)->get(i - 1), (double)tempos->get(i - 1), resolution);
 			if (nextTime > micros) {
 				break;
 			}
@@ -232,14 +182,14 @@ int64_t MidiUtils::microsecond2tick($Sequence* seq, int64_t micros, $MidiUtils$T
 }
 
 int32_t MidiUtils::tick2index($Track* track, int64_t tick) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t ret = 0;
 	if (tick > 0) {
 		int32_t low = 0;
 		int32_t high = $nc(track)->size() - 1;
 		while (low < high) {
 			ret = (low + high) >> 1;
-			int64_t t = $nc($(track->get(ret)))->getTick();
+			int64_t t = $$nc(track->get(ret))->getTick();
 			if (t == tick) {
 				break;
 			} else if (t < tick) {
@@ -260,7 +210,49 @@ MidiUtils::MidiUtils() {
 }
 
 $Class* MidiUtils::load$($String* name, bool initialize) {
-	$loadClass(MidiUtils, name, initialize, &_MidiUtils_ClassInfo_, allocate$MidiUtils);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_TEMPO_MPQ", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MidiUtils, DEFAULT_TEMPO_MPQ)},
+		{"META_END_OF_TRACK_TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MidiUtils, META_END_OF_TRACK_TYPE)},
+		{"META_TEMPO_TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MidiUtils, META_TEMPO_TYPE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MidiUtils, init$, void)},
+		{"checkSysexStatus", "([BI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiUtils, checkSysexStatus, void, $bytes*, int32_t), "javax.sound.midi.InvalidMidiDataException"},
+		{"checkSysexStatus", "(I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiUtils, checkSysexStatus, void, int32_t), "javax.sound.midi.InvalidMidiDataException"},
+		{"convertTempo", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiUtils, convertTempo, double, double)},
+		{"getTempoMPQ", "(Ljavax/sound/midi/MidiMessage;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiUtils, getTempoMPQ, int32_t, $MidiMessage*)},
+		{"isMetaEndOfTrack", "(Ljavax/sound/midi/MidiMessage;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiUtils, isMetaEndOfTrack, bool, $MidiMessage*)},
+		{"isMetaTempo", "(Ljavax/sound/midi/MidiMessage;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiUtils, isMetaTempo, bool, $MidiMessage*)},
+		{"microsec2ticks", "(JDI)J", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiUtils, microsec2ticks, int64_t, int64_t, double, int32_t)},
+		{"microsecond2tick", "(Ljavax/sound/midi/Sequence;JLcom/sun/media/sound/MidiUtils$TempoCache;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiUtils, microsecond2tick, int64_t, $Sequence*, int64_t, $MidiUtils$TempoCache*)},
+		{"tick2index", "(Ljavax/sound/midi/Track;J)I", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiUtils, tick2index, int32_t, $Track*, int64_t)},
+		{"tick2microsecond", "(Ljavax/sound/midi/Sequence;JLcom/sun/media/sound/MidiUtils$TempoCache;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiUtils, tick2microsecond, int64_t, $Sequence*, int64_t, $MidiUtils$TempoCache*)},
+		{"ticks2microsec", "(JDI)J", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiUtils, ticks2microsec, int64_t, int64_t, double, int32_t)},
+		{"unsupportedDevice", "(Ljavax/sound/midi/MidiDevice$Info;)Ljava/lang/RuntimeException;", nullptr, $STATIC, $staticMethod(MidiUtils, unsupportedDevice, $RuntimeException*, $MidiDevice$Info*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.MidiUtils$TempoCache", "com.sun.media.sound.MidiUtils", "TempoCache", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.MidiUtils",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.MidiUtils$TempoCache"
+	};
+	$loadClass(MidiUtils, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MidiUtils);
+	});
 	return class$;
 }
 

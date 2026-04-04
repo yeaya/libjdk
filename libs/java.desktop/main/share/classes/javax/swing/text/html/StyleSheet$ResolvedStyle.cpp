@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/StyleSheet$ResolvedStyle.h>
-
 #include <java/lang/Math.h>
 #include <java/util/Enumeration.h>
 #include <javax/swing/event/ChangeListener.h>
@@ -27,74 +26,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _StyleSheet$ResolvedStyle_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, 0, $field(StyleSheet$ResolvedStyle, name)},
-	{"extendedIndex", "I", nullptr, $PRIVATE, $field(StyleSheet$ResolvedStyle, extendedIndex)},
-	{}
-};
-
-$MethodInfo _StyleSheet$ResolvedStyle_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*containsAttribute", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*containsAttributes", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC},
-	{"*copyAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getAttribute", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*getAttributeCount", "()I", nullptr, $PUBLIC},
-	{"*getAttributeNames", "()Ljava/util/Enumeration;", nullptr, $PUBLIC},
-	{"*getResolveParent", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;[Ljavax/swing/text/AttributeSet;I)V", nullptr, 0, $method(StyleSheet$ResolvedStyle, init$, void, $String*, $AttributeSetArray*, int32_t)},
-	{"addAttribute", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$ResolvedStyle, addAttribute, void, Object$*, Object$*)},
-	{"addAttributes", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$ResolvedStyle, addAttributes, void, $AttributeSet*)},
-	{"addChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$ResolvedStyle, addChangeListener, void, $ChangeListener*)},
-	{"addExtendedStyle", "(Ljavax/swing/text/Style;)V", nullptr, $SYNCHRONIZED, $virtualMethod(StyleSheet$ResolvedStyle, addExtendedStyle, void, $Style*)},
-	{"boundedIndexOf", "(Ljava/lang/String;CII)I", nullptr, 0, $virtualMethod(StyleSheet$ResolvedStyle, boundedIndexOf, int32_t, $String*, char16_t, int32_t, int32_t)},
-	{"getChangeListeners", "()[Ljavax/swing/event/ChangeListener;", nullptr, $PUBLIC, $virtualMethod(StyleSheet$ResolvedStyle, getChangeListeners, $ChangeListenerArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StyleSheet$ResolvedStyle, getName, $String*)},
-	{"insertExtendedStyleAt", "(Ljavax/swing/text/Style;I)V", nullptr, $SYNCHRONIZED, $virtualMethod(StyleSheet$ResolvedStyle, insertExtendedStyleAt, void, $Style*, int32_t)},
-	{"insertStyle", "(Ljavax/swing/text/Style;I)V", nullptr, $SYNCHRONIZED, $virtualMethod(StyleSheet$ResolvedStyle, insertStyle, void, $Style*, int32_t)},
-	{"*isDefined", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*isEqual", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC},
-	{"matches", "(Ljava/lang/String;)Z", nullptr, $PROTECTED, $virtualMethod(StyleSheet$ResolvedStyle, matches, bool, $String*)},
-	{"matches", "(Ljava/lang/String;IIII)Z", nullptr, 0, $virtualMethod(StyleSheet$ResolvedStyle, matches, bool, $String*, int32_t, int32_t, int32_t, int32_t)},
-	{"removeAttribute", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$ResolvedStyle, removeAttribute, void, Object$*)},
-	{"removeAttributes", "(Ljava/util/Enumeration;)V", "(Ljava/util/Enumeration<*>;)V", $PUBLIC, $virtualMethod(StyleSheet$ResolvedStyle, removeAttributes, void, $Enumeration*)},
-	{"removeAttributes", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$ResolvedStyle, removeAttributes, void, $AttributeSet*)},
-	{"removeChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$ResolvedStyle, removeChangeListener, void, $ChangeListener*)},
-	{"removeExtendedStyleAt", "(I)V", nullptr, $SYNCHRONIZED, $virtualMethod(StyleSheet$ResolvedStyle, removeExtendedStyleAt, void, int32_t)},
-	{"removeStyle", "(Ljavax/swing/text/Style;)V", nullptr, $SYNCHRONIZED, $virtualMethod(StyleSheet$ResolvedStyle, removeStyle, void, $Style*)},
-	{"setResolveParent", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$ResolvedStyle, setResolveParent, void, $AttributeSet*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _StyleSheet$ResolvedStyle_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.StyleSheet$ResolvedStyle", "javax.swing.text.html.StyleSheet", "ResolvedStyle", $STATIC},
-	{}
-};
-
-$ClassInfo _StyleSheet$ResolvedStyle_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.StyleSheet$ResolvedStyle",
-	"javax.swing.text.html.MuxingAttributeSet",
-	"javax.swing.text.Style",
-	_StyleSheet$ResolvedStyle_FieldInfo_,
-	_StyleSheet$ResolvedStyle_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StyleSheet$ResolvedStyle_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.StyleSheet"
-};
-
-$Object* allocate$StyleSheet$ResolvedStyle($Class* clazz) {
-	return $of($alloc(StyleSheet$ResolvedStyle));
-}
 
 int32_t StyleSheet$ResolvedStyle::getAttributeCount() {
 	 return this->$MuxingAttributeSet::getAttributeCount();
@@ -160,12 +91,12 @@ void StyleSheet$ResolvedStyle::init$($String* name, $AttributeSetArray* attrs, i
 
 void StyleSheet$ResolvedStyle::insertStyle($Style* style, int32_t specificity) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($AttributeSetArray, attrs, getAttributes());
 		int32_t maxCounter = $nc(attrs)->length;
 		int32_t counter = 0;
 		for (; counter < this->extendedIndex; ++counter) {
-			if (specificity > $StyleSheet::getSpecificity($($nc(($cast($Style, attrs->get(counter))))->getName()))) {
+			if (specificity > $StyleSheet::getSpecificity($($nc($cast($Style, attrs->get(counter)))->getName()))) {
 				break;
 			}
 		}
@@ -213,8 +144,8 @@ bool StyleSheet$ResolvedStyle::matches($String* selector) {
 		return false;
 	}
 	int32_t thisLast = $nc(this->name)->length();
-	int32_t sCurrent = selector->lastIndexOf((int32_t)u' ');
-	int32_t thisCurrent = $nc(this->name)->lastIndexOf((int32_t)u' ');
+	int32_t sCurrent = selector->lastIndexOf(u' ');
+	int32_t thisCurrent = this->name->lastIndexOf(u' ');
 	if (sCurrent >= 0) {
 		++sCurrent;
 	}
@@ -226,14 +157,14 @@ bool StyleSheet$ResolvedStyle::matches($String* selector) {
 	}
 	while (sCurrent != -1) {
 		sLast = sCurrent - 1;
-		sCurrent = selector->lastIndexOf((int32_t)u' ', sLast - 1);
+		sCurrent = selector->lastIndexOf(u' ', sLast - 1);
 		if (sCurrent >= 0) {
 			++sCurrent;
 		}
 		bool match = false;
 		while (!match && thisCurrent != -1) {
 			thisLast = thisCurrent - 1;
-			thisCurrent = $nc(this->name)->lastIndexOf((int32_t)u' ', thisLast - 1);
+			thisCurrent = $nc(this->name)->lastIndexOf(u' ', thisLast - 1);
 			if (thisCurrent >= 0) {
 				++thisCurrent;
 			}
@@ -289,7 +220,7 @@ bool StyleSheet$ResolvedStyle::matches($String* selector, int32_t sCurrent, int3
 }
 
 int32_t StyleSheet$ResolvedStyle::boundedIndexOf($String* string, char16_t search, int32_t start, int32_t end) {
-	int32_t retValue = $nc(string)->indexOf((int32_t)search, start);
+	int32_t retValue = $nc(string)->indexOf(search, start);
 	if (retValue >= end) {
 		return -1;
 	}
@@ -332,7 +263,69 @@ StyleSheet$ResolvedStyle::StyleSheet$ResolvedStyle() {
 }
 
 $Class* StyleSheet$ResolvedStyle::load$($String* name, bool initialize) {
-	$loadClass(StyleSheet$ResolvedStyle, name, initialize, &_StyleSheet$ResolvedStyle_ClassInfo_, allocate$StyleSheet$ResolvedStyle);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, 0, $field(StyleSheet$ResolvedStyle, name)},
+		{"extendedIndex", "I", nullptr, $PRIVATE, $field(StyleSheet$ResolvedStyle, extendedIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*containsAttribute", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*containsAttributes", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC},
+		{"*copyAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getAttribute", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*getAttributeCount", "()I", nullptr, $PUBLIC},
+		{"*getAttributeNames", "()Ljava/util/Enumeration;", nullptr, $PUBLIC},
+		{"*getResolveParent", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;[Ljavax/swing/text/AttributeSet;I)V", nullptr, 0, $method(StyleSheet$ResolvedStyle, init$, void, $String*, $AttributeSetArray*, int32_t)},
+		{"addAttribute", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$ResolvedStyle, addAttribute, void, Object$*, Object$*)},
+		{"addAttributes", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$ResolvedStyle, addAttributes, void, $AttributeSet*)},
+		{"addChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$ResolvedStyle, addChangeListener, void, $ChangeListener*)},
+		{"addExtendedStyle", "(Ljavax/swing/text/Style;)V", nullptr, $SYNCHRONIZED, $virtualMethod(StyleSheet$ResolvedStyle, addExtendedStyle, void, $Style*)},
+		{"boundedIndexOf", "(Ljava/lang/String;CII)I", nullptr, 0, $virtualMethod(StyleSheet$ResolvedStyle, boundedIndexOf, int32_t, $String*, char16_t, int32_t, int32_t)},
+		{"getChangeListeners", "()[Ljavax/swing/event/ChangeListener;", nullptr, $PUBLIC, $virtualMethod(StyleSheet$ResolvedStyle, getChangeListeners, $ChangeListenerArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StyleSheet$ResolvedStyle, getName, $String*)},
+		{"insertExtendedStyleAt", "(Ljavax/swing/text/Style;I)V", nullptr, $SYNCHRONIZED, $virtualMethod(StyleSheet$ResolvedStyle, insertExtendedStyleAt, void, $Style*, int32_t)},
+		{"insertStyle", "(Ljavax/swing/text/Style;I)V", nullptr, $SYNCHRONIZED, $virtualMethod(StyleSheet$ResolvedStyle, insertStyle, void, $Style*, int32_t)},
+		{"*isDefined", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*isEqual", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC},
+		{"matches", "(Ljava/lang/String;)Z", nullptr, $PROTECTED, $virtualMethod(StyleSheet$ResolvedStyle, matches, bool, $String*)},
+		{"matches", "(Ljava/lang/String;IIII)Z", nullptr, 0, $virtualMethod(StyleSheet$ResolvedStyle, matches, bool, $String*, int32_t, int32_t, int32_t, int32_t)},
+		{"removeAttribute", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$ResolvedStyle, removeAttribute, void, Object$*)},
+		{"removeAttributes", "(Ljava/util/Enumeration;)V", "(Ljava/util/Enumeration<*>;)V", $PUBLIC, $virtualMethod(StyleSheet$ResolvedStyle, removeAttributes, void, $Enumeration*)},
+		{"removeAttributes", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$ResolvedStyle, removeAttributes, void, $AttributeSet*)},
+		{"removeChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$ResolvedStyle, removeChangeListener, void, $ChangeListener*)},
+		{"removeExtendedStyleAt", "(I)V", nullptr, $SYNCHRONIZED, $virtualMethod(StyleSheet$ResolvedStyle, removeExtendedStyleAt, void, int32_t)},
+		{"removeStyle", "(Ljavax/swing/text/Style;)V", nullptr, $SYNCHRONIZED, $virtualMethod(StyleSheet$ResolvedStyle, removeStyle, void, $Style*)},
+		{"setResolveParent", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$ResolvedStyle, setResolveParent, void, $AttributeSet*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.StyleSheet$ResolvedStyle", "javax.swing.text.html.StyleSheet", "ResolvedStyle", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.StyleSheet$ResolvedStyle",
+		"javax.swing.text.html.MuxingAttributeSet",
+		"javax.swing.text.Style",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.StyleSheet"
+	};
+	$loadClass(StyleSheet$ResolvedStyle, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StyleSheet$ResolvedStyle));
+	});
 	return class$;
 }
 

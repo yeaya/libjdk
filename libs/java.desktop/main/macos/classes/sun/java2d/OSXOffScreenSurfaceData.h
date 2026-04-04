@@ -60,6 +60,7 @@ class OSXOffScreenSurfaceData : public ::sun::java2d::OSXSurfaceData {
 public:
 	OSXOffScreenSurfaceData();
 	using ::sun::java2d::OSXSurfaceData::initRaster;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::image::BufferedImage* bufImg, ::sun::java2d::loops::SurfaceType* sType);
 	virtual void cacheRasters(::java::awt::image::BufferedImage* bim);
 	virtual void clearRect(::java::awt::image::BufferedImage* bim, int32_t w, int32_t h) override;

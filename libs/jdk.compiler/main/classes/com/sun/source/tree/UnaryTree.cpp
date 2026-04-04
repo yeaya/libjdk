@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/UnaryTree.h>
-
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _UnaryTree_MethodInfo_[] = {
-	{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UnaryTree, getExpression, $ExpressionTree*)},
-	{}
-};
-
-$ClassInfo _UnaryTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.UnaryTree",
-	nullptr,
-	"com.sun.source.tree.ExpressionTree",
-	nullptr,
-	_UnaryTree_MethodInfo_
-};
-
-$Object* allocate$UnaryTree($Class* clazz) {
-	return $of($alloc(UnaryTree));
-}
-
 $Class* UnaryTree::load$($String* name, bool initialize) {
-	$loadClass(UnaryTree, name, initialize, &_UnaryTree_ClassInfo_, allocate$UnaryTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UnaryTree, getExpression, $ExpressionTree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.UnaryTree",
+		nullptr,
+		"com.sun.source.tree.ExpressionTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UnaryTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnaryTree);
+	});
 	return class$;
 }
 

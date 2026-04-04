@@ -1,5 +1,4 @@
 #include <com/sun/jndi/toolkit/dir/HierarchicalName$1.h>
-
 #include <com/sun/jndi/toolkit/dir/HierarchicalName.h>
 #include <java/util/NoSuchElementException.h>
 #include <jcpp.h>
@@ -15,44 +14,6 @@ namespace com {
 		namespace jndi {
 			namespace toolkit {
 				namespace dir {
-
-$MethodInfo _HierarchicalName$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HierarchicalName$1, init$, void)},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(HierarchicalName$1, hasMoreElements, bool)},
-	{"nextElement", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HierarchicalName$1, nextElement, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _HierarchicalName$1_EnclosingMethodInfo_ = {
-	"com.sun.jndi.toolkit.dir.HierarchicalName",
-	"<init>",
-	"()V"
-};
-
-$InnerClassInfo _HierarchicalName$1_InnerClassesInfo_[] = {
-	{"com.sun.jndi.toolkit.dir.HierarchicalName$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HierarchicalName$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jndi.toolkit.dir.HierarchicalName$1",
-	"java.lang.Object",
-	"java.util.Enumeration",
-	nullptr,
-	_HierarchicalName$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/lang/String;>;",
-	&_HierarchicalName$1_EnclosingMethodInfo_,
-	_HierarchicalName$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jndi.toolkit.dir.HierarchicalName"
-};
-
-$Object* allocate$HierarchicalName$1($Class* clazz) {
-	return $of($alloc(HierarchicalName$1));
-}
 
 void HierarchicalName$1::init$() {
 }
@@ -70,7 +31,39 @@ HierarchicalName$1::HierarchicalName$1() {
 }
 
 $Class* HierarchicalName$1::load$($String* name, bool initialize) {
-	$loadClass(HierarchicalName$1, name, initialize, &_HierarchicalName$1_ClassInfo_, allocate$HierarchicalName$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HierarchicalName$1, init$, void)},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(HierarchicalName$1, hasMoreElements, bool)},
+		{"nextElement", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HierarchicalName$1, nextElement, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.jndi.toolkit.dir.HierarchicalName",
+		"<init>",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jndi.toolkit.dir.HierarchicalName$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jndi.toolkit.dir.HierarchicalName$1",
+		"java.lang.Object",
+		"java.util.Enumeration",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jndi.toolkit.dir.HierarchicalName"
+	};
+	$loadClass(HierarchicalName$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HierarchicalName$1);
+	});
 	return class$;
 }
 

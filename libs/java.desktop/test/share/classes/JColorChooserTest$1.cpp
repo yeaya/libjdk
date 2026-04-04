@@ -1,5 +1,4 @@
 #include <JColorChooserTest$1.h>
-
 #include <JColorChooserTest$1$1.h>
 #include <JColorChooserTest.h>
 #include <java/awt/Color.h>
@@ -33,10 +32,8 @@
 using $JColorChooserTest = ::JColorChooserTest;
 using $JColorChooserTest$1$1 = ::JColorChooserTest$1$1;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $Serializable = ::java::io::Serializable;
@@ -46,7 +43,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 using $JButton = ::javax::swing::JButton;
 using $JColorChooser = ::javax::swing::JColorChooser;
 using $JFrame = ::javax::swing::JFrame;
@@ -64,130 +60,81 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		$nc(inst$)->lambda$run$0(e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JColorChooserTest$1$$Lambda$lambda$run$0>());
-	}
 	JColorChooserTest$1* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JColorChooserTest$1$$Lambda$lambda$run$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JColorChooserTest$1$$Lambda$lambda$run$0, inst$)},
-	{}
-};
-$MethodInfo JColorChooserTest$1$$Lambda$lambda$run$0::methodInfos[3] = {
-	{"<init>", "(LJColorChooserTest$1;)V", nullptr, $PUBLIC, $method(JColorChooserTest$1$$Lambda$lambda$run$0, init$, void, JColorChooserTest$1*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JColorChooserTest$1$$Lambda$lambda$run$0, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo JColorChooserTest$1$$Lambda$lambda$run$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JColorChooserTest$1$$Lambda$lambda$run$0",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* JColorChooserTest$1$$Lambda$lambda$run$0::load$($String* name, bool initialize) {
-	$loadClass(JColorChooserTest$1$$Lambda$lambda$run$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JColorChooserTest$1$$Lambda$lambda$run$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LJColorChooserTest$1;)V", nullptr, $PUBLIC, $method(JColorChooserTest$1$$Lambda$lambda$run$0, init$, void, JColorChooserTest$1*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JColorChooserTest$1$$Lambda$lambda$run$0, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JColorChooserTest$1$$Lambda$lambda$run$0",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JColorChooserTest$1$$Lambda$lambda$run$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JColorChooserTest$1$$Lambda$lambda$run$0);
+	});
 	return class$;
 }
 $Class* JColorChooserTest$1$$Lambda$lambda$run$0::class$ = nullptr;
-
-$FieldInfo _JColorChooserTest$1_FieldInfo_[] = {
-	{"this$0", "LJColorChooserTest;", nullptr, $FINAL | $SYNTHETIC, $field(JColorChooserTest$1, this$0)},
-	{}
-};
-
-$MethodInfo _JColorChooserTest$1_MethodInfo_[] = {
-	{"<init>", "(LJColorChooserTest;)V", nullptr, 0, $method(JColorChooserTest$1, init$, void, $JColorChooserTest*)},
-	{"lambda$run$0", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(JColorChooserTest$1, lambda$run$0, void, $ActionEvent*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JColorChooserTest$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _JColorChooserTest$1_EnclosingMethodInfo_ = {
-	"JColorChooserTest",
-	"createUI",
-	"()V"
-};
-
-$InnerClassInfo _JColorChooserTest$1_InnerClassesInfo_[] = {
-	{"JColorChooserTest$1", nullptr, nullptr, 0},
-	{"JColorChooserTest$1$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JColorChooserTest$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"JColorChooserTest$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_JColorChooserTest$1_FieldInfo_,
-	_JColorChooserTest$1_MethodInfo_,
-	nullptr,
-	&_JColorChooserTest$1_EnclosingMethodInfo_,
-	_JColorChooserTest$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"JColorChooserTest"
-};
-
-$Object* allocate$JColorChooserTest$1($Class* clazz) {
-	return $of($alloc(JColorChooserTest$1));
-}
 
 void JColorChooserTest$1::init$($JColorChooserTest* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void JColorChooserTest$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JColorChooserTest);
 	$assignStatic($JColorChooserTest::mainFrame, $new($JFrame, "JColorChooser Test"_s));
 	$assignStatic($JColorChooserTest::layout, $new($GridBagLayout));
-	$assignStatic($JColorChooserTest::mainControlPanel, $new($JPanel, static_cast<$LayoutManager*>($JColorChooserTest::layout)));
-	$assignStatic($JColorChooserTest::resultButtonPanel, $new($JPanel, static_cast<$LayoutManager*>($JColorChooserTest::layout)));
+	$assignStatic($JColorChooserTest::mainControlPanel, $new($JPanel, $JColorChooserTest::layout));
+	$assignStatic($JColorChooserTest::resultButtonPanel, $new($JPanel, $JColorChooserTest::layout));
 	$var($GridBagConstraints, gbc, $new($GridBagConstraints));
 	$var($String, instructions, "INSTRUCTIONS:\n Select HSV, HSL, RGB or CMYK tab.\n If able to shift and view JColorChooser tabs\n then click Pass, else Fail."_s);
 	$assignStatic($JColorChooserTest::instructionTextArea, $new($JTextArea));
-	$nc($JColorChooserTest::instructionTextArea)->setText(instructions);
+	$JColorChooserTest::instructionTextArea->setText(instructions);
 	$nc($JColorChooserTest::instructionTextArea)->setEnabled(true);
 	gbc->gridx = 0;
 	gbc->gridy = 0;
 	gbc->fill = $GridBagConstraints::HORIZONTAL;
-	$nc($JColorChooserTest::mainControlPanel)->add(static_cast<$Component*>($JColorChooserTest::instructionTextArea), $of(gbc));
+	$nc($JColorChooserTest::mainControlPanel)->add($JColorChooserTest::instructionTextArea, gbc);
 	$UIManager::put("FormattedTextField.border"_s, $$new($EmptyBorder, 0, 10, 0, 10));
 	$init($Color);
 	$assignStatic($JColorChooserTest::colorChooser, $new($JColorChooser, $Color::BLUE));
 	gbc->gridx = 0;
 	gbc->gridy = 1;
-	$nc($JColorChooserTest::mainControlPanel)->add(static_cast<$Component*>($JColorChooserTest::colorChooser), $of(gbc));
+	$nc($JColorChooserTest::mainControlPanel)->add($JColorChooserTest::colorChooser, gbc);
 	$assignStatic($JColorChooserTest::passButton, $new($JButton, "Pass"_s));
-	$nc($JColorChooserTest::passButton)->setActionCommand("Pass"_s);
-	$nc($JColorChooserTest::passButton)->addActionListener(static_cast<$ActionListener*>($$new(JColorChooserTest$1$$Lambda$lambda$run$0, this)));
+	$JColorChooserTest::passButton->setActionCommand("Pass"_s);
+	$nc($JColorChooserTest::passButton)->addActionListener($$new(JColorChooserTest$1$$Lambda$lambda$run$0, this));
 	$assignStatic($JColorChooserTest::failButton, $new($JButton, "Fail"_s));
-	$nc($JColorChooserTest::failButton)->setActionCommand("Fail"_s);
+	$JColorChooserTest::failButton->setActionCommand("Fail"_s);
 	$nc($JColorChooserTest::failButton)->addActionListener($$new($JColorChooserTest$1$1, this));
 	gbc->gridx = 0;
 	gbc->gridy = 0;
-	$nc($JColorChooserTest::resultButtonPanel)->add(static_cast<$Component*>($JColorChooserTest::passButton), $of(gbc));
+	$nc($JColorChooserTest::resultButtonPanel)->add($JColorChooserTest::passButton, gbc);
 	gbc->gridx = 1;
 	gbc->gridy = 0;
-	$nc($JColorChooserTest::resultButtonPanel)->add(static_cast<$Component*>($JColorChooserTest::failButton), $of(gbc));
+	$nc($JColorChooserTest::resultButtonPanel)->add($JColorChooserTest::failButton, gbc);
 	gbc->gridx = 0;
 	gbc->gridy = 2;
-	$nc($JColorChooserTest::mainControlPanel)->add(static_cast<$Component*>($JColorChooserTest::resultButtonPanel), $of(gbc));
-	$nc($JColorChooserTest::mainFrame)->add(static_cast<$Component*>($JColorChooserTest::mainControlPanel));
+	$nc($JColorChooserTest::mainControlPanel)->add($JColorChooserTest::resultButtonPanel, gbc);
+	$nc($JColorChooserTest::mainFrame)->add($JColorChooserTest::mainControlPanel);
 	$nc($JColorChooserTest::mainFrame)->pack();
 	$nc($JColorChooserTest::mainFrame)->setVisible(true);
 }
 
 void JColorChooserTest$1::lambda$run$0($ActionEvent* e) {
 	this->this$0->testResult = true;
-	$init($JColorChooserTest);
 	$nc($JColorChooserTest::mainFrame)->dispose();
 	$nc(this->this$0->latch)->countDown();
 }
@@ -197,11 +144,48 @@ JColorChooserTest$1::JColorChooserTest$1() {
 
 $Class* JColorChooserTest$1::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JColorChooserTest$1$$Lambda$lambda$run$0::classInfo$.name)) {
+		if (name->equals("JColorChooserTest$1$$Lambda$lambda$run$0")) {
 			return JColorChooserTest$1$$Lambda$lambda$run$0::load$(name, initialize);
 		}
 	}
-	$loadClass(JColorChooserTest$1, name, initialize, &_JColorChooserTest$1_ClassInfo_, allocate$JColorChooserTest$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LJColorChooserTest;", nullptr, $FINAL | $SYNTHETIC, $field(JColorChooserTest$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LJColorChooserTest;)V", nullptr, 0, $method(JColorChooserTest$1, init$, void, $JColorChooserTest*)},
+		{"lambda$run$0", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(JColorChooserTest$1, lambda$run$0, void, $ActionEvent*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JColorChooserTest$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"JColorChooserTest",
+		"createUI",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"JColorChooserTest$1", nullptr, nullptr, 0},
+		{"JColorChooserTest$1$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"JColorChooserTest$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"JColorChooserTest"
+	};
+	$loadClass(JColorChooserTest$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JColorChooserTest$1);
+	});
 	return class$;
 }
 

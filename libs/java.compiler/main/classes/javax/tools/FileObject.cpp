@@ -1,5 +1,4 @@
 #include <javax/tools/FileObject.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Reader.h>
@@ -20,34 +19,30 @@ using $URI = ::java::net::URI;
 namespace javax {
 	namespace tools {
 
-$MethodInfo _FileObject_MethodInfo_[] = {
-	{"delete", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileObject, delete$, bool)},
-	{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileObject, getCharContent, $CharSequence*, bool), "java.io.IOException"},
-	{"getLastModified", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileObject, getLastModified, int64_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileObject, getName, $String*)},
-	{"openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileObject, openInputStream, $InputStream*), "java.io.IOException"},
-	{"openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileObject, openOutputStream, $OutputStream*), "java.io.IOException"},
-	{"openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileObject, openReader, $Reader*, bool), "java.io.IOException"},
-	{"openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileObject, openWriter, $Writer*), "java.io.IOException"},
-	{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileObject, toUri, $URI*)},
-	{}
-};
-
-$ClassInfo _FileObject_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.tools.FileObject",
-	nullptr,
-	nullptr,
-	nullptr,
-	_FileObject_MethodInfo_
-};
-
-$Object* allocate$FileObject($Class* clazz) {
-	return $of($alloc(FileObject));
-}
-
 $Class* FileObject::load$($String* name, bool initialize) {
-	$loadClass(FileObject, name, initialize, &_FileObject_ClassInfo_, allocate$FileObject);
+	$MethodInfo methodInfos$$[] = {
+		{"delete", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileObject, delete$, bool)},
+		{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileObject, getCharContent, $CharSequence*, bool), "java.io.IOException"},
+		{"getLastModified", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileObject, getLastModified, int64_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileObject, getName, $String*)},
+		{"openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileObject, openInputStream, $InputStream*), "java.io.IOException"},
+		{"openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileObject, openOutputStream, $OutputStream*), "java.io.IOException"},
+		{"openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileObject, openReader, $Reader*, bool), "java.io.IOException"},
+		{"openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileObject, openWriter, $Writer*), "java.io.IOException"},
+		{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileObject, toUri, $URI*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.tools.FileObject",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FileObject, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileObject);
+	});
 	return class$;
 }
 

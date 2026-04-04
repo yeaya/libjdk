@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/pubapi/ReferenceTypeDesc.h>
-
 #include <com/sun/tools/sjavac/pubapi/TypeDesc.h>
 #include <javax/lang/model/type/TypeKind.h>
 #include <jcpp.h>
@@ -18,33 +17,6 @@ namespace com {
 			namespace sjavac {
 				namespace pubapi {
 
-$FieldInfo _ReferenceTypeDesc_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ReferenceTypeDesc, serialVersionUID)},
-	{"javaType", "Ljava/lang/String;", nullptr, 0, $field(ReferenceTypeDesc, javaType)},
-	{}
-};
-
-$MethodInfo _ReferenceTypeDesc_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReferenceTypeDesc, init$, void, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ReferenceTypeDesc, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ReferenceTypeDesc, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ReferenceTypeDesc, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ReferenceTypeDesc_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.pubapi.ReferenceTypeDesc",
-	"com.sun.tools.sjavac.pubapi.TypeDesc",
-	nullptr,
-	_ReferenceTypeDesc_FieldInfo_,
-	_ReferenceTypeDesc_MethodInfo_
-};
-
-$Object* allocate$ReferenceTypeDesc($Class* clazz) {
-	return $of($alloc(ReferenceTypeDesc));
-}
-
 void ReferenceTypeDesc::init$($String* javaType) {
 	$init($TypeKind);
 	$TypeDesc::init$($TypeKind::DECLARED);
@@ -55,7 +27,7 @@ bool ReferenceTypeDesc::equals(Object$* obj) {
 	if (!$TypeDesc::equals(obj)) {
 		return false;
 	}
-	return $nc(this->javaType)->equals($nc(($cast(ReferenceTypeDesc, obj)))->javaType);
+	return $nc(this->javaType)->equals($nc($cast(ReferenceTypeDesc, obj))->javaType);
 }
 
 int32_t ReferenceTypeDesc::hashCode() {
@@ -64,10 +36,10 @@ int32_t ReferenceTypeDesc::hashCode() {
 }
 
 $String* ReferenceTypeDesc::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("%s[type: %s]"_s, $$new($ObjectArray, {
-		$($of($of(this)->getClass()->getSimpleName())),
-		$of(this->javaType)
+		$($of(this)->getClass()->getSimpleName()),
+		this->javaType
 	}));
 }
 
@@ -75,7 +47,29 @@ ReferenceTypeDesc::ReferenceTypeDesc() {
 }
 
 $Class* ReferenceTypeDesc::load$($String* name, bool initialize) {
-	$loadClass(ReferenceTypeDesc, name, initialize, &_ReferenceTypeDesc_ClassInfo_, allocate$ReferenceTypeDesc);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ReferenceTypeDesc, serialVersionUID)},
+		{"javaType", "Ljava/lang/String;", nullptr, 0, $field(ReferenceTypeDesc, javaType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReferenceTypeDesc, init$, void, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ReferenceTypeDesc, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ReferenceTypeDesc, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ReferenceTypeDesc, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.pubapi.ReferenceTypeDesc",
+		"com.sun.tools.sjavac.pubapi.TypeDesc",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ReferenceTypeDesc, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReferenceTypeDesc);
+	});
 	return class$;
 }
 

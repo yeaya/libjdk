@@ -15,6 +15,7 @@ class $export bug8078268 : public ::java::lang::Object {
 	$class(bug8078268, 0, ::java::lang::Object)
 public:
 	bug8078268();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* getDirURL();
 	static void main($StringArray* args);

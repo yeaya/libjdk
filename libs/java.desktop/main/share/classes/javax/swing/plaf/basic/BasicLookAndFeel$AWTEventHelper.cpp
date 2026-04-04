@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicLookAndFeel$AWTEventHelper.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -10,7 +9,6 @@
 #include <java/awt/event/MouseEvent.h>
 #include <java/beans/PropertyVetoException.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JInternalFrame.h>
 #include <javax/swing/JPopupMenu.h>
@@ -38,10 +36,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $JComponent = ::javax::swing::JComponent;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
-using $JPopupMenu = ::javax::swing::JPopupMenu;
 using $MenuSelectionManager = ::javax::swing::MenuSelectionManager;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
@@ -51,48 +47,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicLookAndFeel$AWTEventHelper_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicLookAndFeel;", nullptr, $FINAL | $SYNTHETIC, $field(BasicLookAndFeel$AWTEventHelper, this$0)},
-	{}
-};
-
-$MethodInfo _BasicLookAndFeel$AWTEventHelper_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicLookAndFeel;)V", nullptr, 0, $method(BasicLookAndFeel$AWTEventHelper, init$, void, $BasicLookAndFeel*)},
-	{"eventDispatched", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicLookAndFeel$AWTEventHelper, eventDispatched, void, $AWTEvent*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BasicLookAndFeel$AWTEventHelper, run, $Object*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicLookAndFeel$AWTEventHelper_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicLookAndFeel$AWTEventHelper", "javax.swing.plaf.basic.BasicLookAndFeel", "AWTEventHelper", 0},
-	{}
-};
-
-$ClassInfo _BasicLookAndFeel$AWTEventHelper_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicLookAndFeel$AWTEventHelper",
-	"java.lang.Object",
-	"java.awt.event.AWTEventListener,java.security.PrivilegedAction",
-	_BasicLookAndFeel$AWTEventHelper_FieldInfo_,
-	_BasicLookAndFeel$AWTEventHelper_MethodInfo_,
-	"Ljava/lang/Object;Ljava/awt/event/AWTEventListener;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
-	nullptr,
-	_BasicLookAndFeel$AWTEventHelper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicLookAndFeel"
-};
-
-$Object* allocate$BasicLookAndFeel$AWTEventHelper($Class* clazz) {
-	return $of($alloc(BasicLookAndFeel$AWTEventHelper));
-}
 
 int32_t BasicLookAndFeel$AWTEventHelper::hashCode() {
 	 return this->$AWTEventListener::hashCode();
@@ -117,7 +71,7 @@ void BasicLookAndFeel$AWTEventHelper::finalize() {
 void BasicLookAndFeel$AWTEventHelper::init$($BasicLookAndFeel* this$0) {
 	$beforeCallerSensitive();
 	$set(this, this$0, this$0);
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>(this));
+	$AccessController::doPrivileged(this);
 }
 
 $Object* BasicLookAndFeel$AWTEventHelper::run() {
@@ -127,16 +81,16 @@ $Object* BasicLookAndFeel$AWTEventHelper::run() {
 	} else {
 		$nc(tk)->removeAWTEventListener(this->this$0->invocator);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 void BasicLookAndFeel$AWTEventHelper::eventDispatched($AWTEvent* ev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t eventID = $nc(ev)->getID();
-	if (((int64_t)(eventID & (uint64_t)$AWTEvent::MOUSE_EVENT_MASK)) != 0) {
+	if ((eventID & $AWTEvent::MOUSE_EVENT_MASK) != 0) {
 		$var($MouseEvent, me, $cast($MouseEvent, ev));
 		if (me->isPopupTrigger()) {
-			$var($MenuElementArray, elems, $nc($($MenuSelectionManager::defaultManager()))->getSelectedPath());
+			$var($MenuElementArray, elems, $$nc($MenuSelectionManager::defaultManager())->getSelectedPath());
 			if (elems != nullptr && elems->length != 0) {
 				return;
 			}
@@ -145,7 +99,7 @@ void BasicLookAndFeel$AWTEventHelper::eventDispatched($AWTEvent* ev) {
 			if ($instanceOf($JComponent, c)) {
 				$assign(src, $cast($JComponent, c));
 			} else if ($instanceOf($BasicSplitPaneDivider, c)) {
-				$assign(src, $cast($JComponent, $nc(($cast($BasicSplitPaneDivider, c)))->getParent()));
+				$assign(src, $cast($JComponent, $cast($BasicSplitPaneDivider, c)->getParent()));
 			}
 			if (src != nullptr) {
 				if (src->getComponentPopupMenu() != nullptr) {
@@ -154,7 +108,7 @@ void BasicLookAndFeel$AWTEventHelper::eventDispatched($AWTEvent* ev) {
 						$assign(pt, me->getPoint());
 						$assign(pt, $SwingUtilities::convertPoint($cast($Component, c), pt, src));
 					}
-					$nc($(src->getComponentPopupMenu()))->show(src, $nc(pt)->x, pt->y);
+					$$nc(src->getComponentPopupMenu())->show(src, $nc(pt)->x, $nc(pt)->y);
 					me->consume();
 				}
 			}
@@ -171,7 +125,7 @@ void BasicLookAndFeel$AWTEventHelper::eventDispatched($AWTEvent* ev) {
 			while (parent != nullptr && !($instanceOf($Window, parent))) {
 				if ($instanceOf($JInternalFrame, parent)) {
 					try {
-						$nc(($cast($JInternalFrame, parent)))->setSelected(true);
+						$cast($JInternalFrame, parent)->setSelected(true);
 					} catch ($PropertyVetoException& e1) {
 					}
 				}
@@ -185,7 +139,43 @@ BasicLookAndFeel$AWTEventHelper::BasicLookAndFeel$AWTEventHelper() {
 }
 
 $Class* BasicLookAndFeel$AWTEventHelper::load$($String* name, bool initialize) {
-	$loadClass(BasicLookAndFeel$AWTEventHelper, name, initialize, &_BasicLookAndFeel$AWTEventHelper_ClassInfo_, allocate$BasicLookAndFeel$AWTEventHelper);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicLookAndFeel;", nullptr, $FINAL | $SYNTHETIC, $field(BasicLookAndFeel$AWTEventHelper, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicLookAndFeel;)V", nullptr, 0, $method(BasicLookAndFeel$AWTEventHelper, init$, void, $BasicLookAndFeel*)},
+		{"eventDispatched", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicLookAndFeel$AWTEventHelper, eventDispatched, void, $AWTEvent*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BasicLookAndFeel$AWTEventHelper, run, $Object*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicLookAndFeel$AWTEventHelper", "javax.swing.plaf.basic.BasicLookAndFeel", "AWTEventHelper", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicLookAndFeel$AWTEventHelper",
+		"java.lang.Object",
+		"java.awt.event.AWTEventListener,java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/awt/event/AWTEventListener;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicLookAndFeel"
+	};
+	$loadClass(BasicLookAndFeel$AWTEventHelper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicLookAndFeel$AWTEventHelper));
+	});
 	return class$;
 }
 

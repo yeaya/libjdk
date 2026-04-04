@@ -14,6 +14,7 @@ class JavadocHelper$2 : public ::java::lang::Object {
 	$class(JavadocHelper$2, 0, ::java::lang::Object)
 public:
 	JavadocHelper$2();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$lang$model$element$ElementKind;
 	static $ints* $SwitchMap$com$sun$source$doctree$DocTree$Kind;
 };

@@ -1,5 +1,4 @@
 #include <javax/swing/JComboBox$DefaultKeySelectionManager.h>
-
 #include <javax/swing/ComboBoxModel.h>
 #include <javax/swing/JComboBox$KeySelectionManager.h>
 #include <javax/swing/JComboBox.h>
@@ -15,48 +14,6 @@ using $JComboBox$KeySelectionManager = ::javax::swing::JComboBox$KeySelectionMan
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JComboBox$DefaultKeySelectionManager_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JComboBox;", nullptr, $FINAL | $SYNTHETIC, $field(JComboBox$DefaultKeySelectionManager, this$0)},
-	{}
-};
-
-$MethodInfo _JComboBox$DefaultKeySelectionManager_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JComboBox;)V", nullptr, 0, $method(JComboBox$DefaultKeySelectionManager, init$, void, $JComboBox*)},
-	{"selectionForKey", "(CLjavax/swing/ComboBoxModel;)I", "(CLjavax/swing/ComboBoxModel<*>;)I", $PUBLIC, $virtualMethod(JComboBox$DefaultKeySelectionManager, selectionForKey, int32_t, char16_t, $ComboBoxModel*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JComboBox$DefaultKeySelectionManager_InnerClassesInfo_[] = {
-	{"javax.swing.JComboBox$DefaultKeySelectionManager", "javax.swing.JComboBox", "DefaultKeySelectionManager", 0},
-	{"javax.swing.JComboBox$KeySelectionManager", "javax.swing.JComboBox", "KeySelectionManager", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JComboBox$DefaultKeySelectionManager_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JComboBox$DefaultKeySelectionManager",
-	"java.lang.Object",
-	"javax.swing.JComboBox$KeySelectionManager,java.io.Serializable",
-	_JComboBox$DefaultKeySelectionManager_FieldInfo_,
-	_JComboBox$DefaultKeySelectionManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JComboBox$DefaultKeySelectionManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JComboBox"
-};
-
-$Object* allocate$JComboBox$DefaultKeySelectionManager($Class* clazz) {
-	return $of($alloc(JComboBox$DefaultKeySelectionManager));
-}
 
 int32_t JComboBox$DefaultKeySelectionManager::hashCode() {
 	 return this->$JComboBox$KeySelectionManager::hashCode();
@@ -83,7 +40,7 @@ void JComboBox$DefaultKeySelectionManager::init$($JComboBox* this$0) {
 }
 
 int32_t JComboBox$DefaultKeySelectionManager::selectionForKey(char16_t aKey, $ComboBoxModel* aModel) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	int32_t c = 0;
 	int32_t currentSelection = -1;
@@ -102,8 +59,8 @@ int32_t JComboBox$DefaultKeySelectionManager::selectionForKey(char16_t aKey, $Co
 	aKey = pattern->charAt(0);
 	for (i = ++currentSelection, c = aModel->getSize(); i < c; ++i) {
 		$var($Object, elem, aModel->getElementAt(i));
-		if (elem != nullptr && $of(elem)->toString() != nullptr) {
-			$assign(v, $nc($($of(elem)->toString()))->toLowerCase());
+		if (elem != nullptr && elem->toString() != nullptr) {
+			$assign(v, $$nc(elem->toString())->toLowerCase());
 			bool var$0 = v->length() > 0;
 			if (var$0 && v->charAt(0) == aKey) {
 				return i;
@@ -112,8 +69,8 @@ int32_t JComboBox$DefaultKeySelectionManager::selectionForKey(char16_t aKey, $Co
 	}
 	for (i = 0; i < currentSelection; ++i) {
 		$var($Object, elem, aModel->getElementAt(i));
-		if (elem != nullptr && $of(elem)->toString() != nullptr) {
-			$assign(v, $nc($($of(elem)->toString()))->toLowerCase());
+		if (elem != nullptr && elem->toString() != nullptr) {
+			$assign(v, $$nc(elem->toString())->toLowerCase());
 			bool var$1 = v->length() > 0;
 			if (var$1 && v->charAt(0) == aKey) {
 				return i;
@@ -127,7 +84,43 @@ JComboBox$DefaultKeySelectionManager::JComboBox$DefaultKeySelectionManager() {
 }
 
 $Class* JComboBox$DefaultKeySelectionManager::load$($String* name, bool initialize) {
-	$loadClass(JComboBox$DefaultKeySelectionManager, name, initialize, &_JComboBox$DefaultKeySelectionManager_ClassInfo_, allocate$JComboBox$DefaultKeySelectionManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JComboBox;", nullptr, $FINAL | $SYNTHETIC, $field(JComboBox$DefaultKeySelectionManager, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JComboBox;)V", nullptr, 0, $method(JComboBox$DefaultKeySelectionManager, init$, void, $JComboBox*)},
+		{"selectionForKey", "(CLjavax/swing/ComboBoxModel;)I", "(CLjavax/swing/ComboBoxModel<*>;)I", $PUBLIC, $virtualMethod(JComboBox$DefaultKeySelectionManager, selectionForKey, int32_t, char16_t, $ComboBoxModel*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JComboBox$DefaultKeySelectionManager", "javax.swing.JComboBox", "DefaultKeySelectionManager", 0},
+		{"javax.swing.JComboBox$KeySelectionManager", "javax.swing.JComboBox", "KeySelectionManager", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JComboBox$DefaultKeySelectionManager",
+		"java.lang.Object",
+		"javax.swing.JComboBox$KeySelectionManager,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JComboBox"
+	};
+	$loadClass(JComboBox$DefaultKeySelectionManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JComboBox$DefaultKeySelectionManager));
+	});
 	return class$;
 }
 

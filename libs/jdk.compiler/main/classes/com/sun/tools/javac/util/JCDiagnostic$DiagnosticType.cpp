@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/JCDiagnostic$DiagnosticType.h>
-
 #include <com/sun/tools/javac/util/JCDiagnostic.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -21,49 +20,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$FieldInfo _JCDiagnostic$DiagnosticType_FieldInfo_[] = {
-	{"FRAGMENT", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCDiagnostic$DiagnosticType, FRAGMENT)},
-	{"NOTE", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCDiagnostic$DiagnosticType, NOTE)},
-	{"WARNING", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCDiagnostic$DiagnosticType, WARNING)},
-	{"ERROR", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCDiagnostic$DiagnosticType, ERROR)},
-	{"$VALUES", "[Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JCDiagnostic$DiagnosticType, $VALUES)},
-	{"key", "Ljava/lang/String;", nullptr, $FINAL, $field(JCDiagnostic$DiagnosticType, key)},
-	{}
-};
-
-$MethodInfo _JCDiagnostic$DiagnosticType_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JCDiagnostic$DiagnosticType, $values, $JCDiagnostic$DiagnosticTypeArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(JCDiagnostic$DiagnosticType, init$, void, $String*, int32_t, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCDiagnostic$DiagnosticType, valueOf, JCDiagnostic$DiagnosticType*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCDiagnostic$DiagnosticType, values, $JCDiagnostic$DiagnosticTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _JCDiagnostic$DiagnosticType_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticType", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _JCDiagnostic$DiagnosticType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.util.JCDiagnostic$DiagnosticType",
-	"java.lang.Enum",
-	nullptr,
-	_JCDiagnostic$DiagnosticType_FieldInfo_,
-	_JCDiagnostic$DiagnosticType_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;>;",
-	nullptr,
-	_JCDiagnostic$DiagnosticType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.JCDiagnostic"
-};
-
-$Object* allocate$JCDiagnostic$DiagnosticType($Class* clazz) {
-	return $of($alloc(JCDiagnostic$DiagnosticType));
-}
 
 JCDiagnostic$DiagnosticType* JCDiagnostic$DiagnosticType::FRAGMENT = nullptr;
 JCDiagnostic$DiagnosticType* JCDiagnostic$DiagnosticType::NOTE = nullptr;
@@ -96,7 +52,7 @@ void JCDiagnostic$DiagnosticType::init$($String* $enum$name, int32_t $enum$ordin
 	$set(this, key, key);
 }
 
-void clinit$JCDiagnostic$DiagnosticType($Class* class$) {
+void JCDiagnostic$DiagnosticType::clinit$($Class* clazz) {
 	$assignStatic(JCDiagnostic$DiagnosticType::FRAGMENT, $new(JCDiagnostic$DiagnosticType, "FRAGMENT"_s, 0, "misc"_s));
 	$assignStatic(JCDiagnostic$DiagnosticType::NOTE, $new(JCDiagnostic$DiagnosticType, "NOTE"_s, 1, "note"_s));
 	$assignStatic(JCDiagnostic$DiagnosticType::WARNING, $new(JCDiagnostic$DiagnosticType, "WARNING"_s, 2, "warn"_s));
@@ -108,7 +64,44 @@ JCDiagnostic$DiagnosticType::JCDiagnostic$DiagnosticType() {
 }
 
 $Class* JCDiagnostic$DiagnosticType::load$($String* name, bool initialize) {
-	$loadClass(JCDiagnostic$DiagnosticType, name, initialize, &_JCDiagnostic$DiagnosticType_ClassInfo_, clinit$JCDiagnostic$DiagnosticType, allocate$JCDiagnostic$DiagnosticType);
+	$FieldInfo fieldInfos$$[] = {
+		{"FRAGMENT", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCDiagnostic$DiagnosticType, FRAGMENT)},
+		{"NOTE", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCDiagnostic$DiagnosticType, NOTE)},
+		{"WARNING", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCDiagnostic$DiagnosticType, WARNING)},
+		{"ERROR", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCDiagnostic$DiagnosticType, ERROR)},
+		{"$VALUES", "[Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JCDiagnostic$DiagnosticType, $VALUES)},
+		{"key", "Ljava/lang/String;", nullptr, $FINAL, $field(JCDiagnostic$DiagnosticType, key)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JCDiagnostic$DiagnosticType, $values, $JCDiagnostic$DiagnosticTypeArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(JCDiagnostic$DiagnosticType, init$, void, $String*, int32_t, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCDiagnostic$DiagnosticType, valueOf, JCDiagnostic$DiagnosticType*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCDiagnostic$DiagnosticType, values, $JCDiagnostic$DiagnosticTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticType", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.util.JCDiagnostic$DiagnosticType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.JCDiagnostic"
+	};
+	$loadClass(JCDiagnostic$DiagnosticType, name, initialize, &classInfo$$, JCDiagnostic$DiagnosticType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCDiagnostic$DiagnosticType));
+	});
 	return class$;
 }
 

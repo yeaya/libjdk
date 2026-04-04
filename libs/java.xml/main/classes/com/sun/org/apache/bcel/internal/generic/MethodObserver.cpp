@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/MethodObserver.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/MethodGen.h>
 #include <jcpp.h>
 
@@ -15,26 +14,22 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$MethodInfo _MethodObserver_MethodInfo_[] = {
-	{"notify", "(Lcom/sun/org/apache/bcel/internal/generic/MethodGen;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MethodObserver, notify, void, $MethodGen*)},
-	{}
-};
-
-$ClassInfo _MethodObserver_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.generic.MethodObserver",
-	nullptr,
-	nullptr,
-	nullptr,
-	_MethodObserver_MethodInfo_
-};
-
-$Object* allocate$MethodObserver($Class* clazz) {
-	return $of($alloc(MethodObserver));
-}
-
 $Class* MethodObserver::load$($String* name, bool initialize) {
-	$loadClass(MethodObserver, name, initialize, &_MethodObserver_ClassInfo_, allocate$MethodObserver);
+	$MethodInfo methodInfos$$[] = {
+		{"notify", "(Lcom/sun/org/apache/bcel/internal/generic/MethodGen;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MethodObserver, notify, void, $MethodGen*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.generic.MethodObserver",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MethodObserver, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodObserver);
+	});
 	return class$;
 }
 

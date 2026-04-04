@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/AssignmentTree.h>
-
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <jcpp.h>
 
@@ -12,27 +11,23 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _AssignmentTree_MethodInfo_[] = {
-	{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AssignmentTree, getExpression, $ExpressionTree*)},
-	{"getVariable", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AssignmentTree, getVariable, $ExpressionTree*)},
-	{}
-};
-
-$ClassInfo _AssignmentTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.AssignmentTree",
-	nullptr,
-	"com.sun.source.tree.ExpressionTree",
-	nullptr,
-	_AssignmentTree_MethodInfo_
-};
-
-$Object* allocate$AssignmentTree($Class* clazz) {
-	return $of($alloc(AssignmentTree));
-}
-
 $Class* AssignmentTree::load$($String* name, bool initialize) {
-	$loadClass(AssignmentTree, name, initialize, &_AssignmentTree_ClassInfo_, allocate$AssignmentTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AssignmentTree, getExpression, $ExpressionTree*)},
+		{"getVariable", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AssignmentTree, getVariable, $ExpressionTree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.AssignmentTree",
+		nullptr,
+		"com.sun.source.tree.ExpressionTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AssignmentTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AssignmentTree);
+	});
 	return class$;
 }
 

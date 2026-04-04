@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/LocaleNames_ro_MD.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,43 +13,24 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _LocaleNames_ro_MD_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_ro_MD, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_ro_MD, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _LocaleNames_ro_MD_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.LocaleNames_ro_MD",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_LocaleNames_ro_MD_MethodInfo_
-};
-
-$Object* allocate$LocaleNames_ro_MD($Class* clazz) {
-	return $of($alloc(LocaleNames_ro_MD));
-}
-
 void LocaleNames_ro_MD::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* LocaleNames_ro_MD::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("MM"_s),
-			$of("Myanmar"_s)
+			"MM"_s,
+			"Myanmar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wal"_s),
-			$of("wolaytta"_s)
+			"wal"_s,
+			"wolaytta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sw_CD"_s),
-			$of("swahili (R. D. Congo)"_s)
+			"sw_CD"_s,
+			"swahili (R. D. Congo)"_s
 		})
 	}));
 	return data;
@@ -60,7 +40,22 @@ LocaleNames_ro_MD::LocaleNames_ro_MD() {
 }
 
 $Class* LocaleNames_ro_MD::load$($String* name, bool initialize) {
-	$loadClass(LocaleNames_ro_MD, name, initialize, &_LocaleNames_ro_MD_ClassInfo_, allocate$LocaleNames_ro_MD);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_ro_MD, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_ro_MD, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.LocaleNames_ro_MD",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNames_ro_MD, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNames_ro_MD);
+	});
 	return class$;
 }
 

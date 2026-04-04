@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFLZWUtil.h>
-
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/Math.h>
 #include <javax/imageio/IIOException.h>
@@ -20,46 +19,6 @@ namespace com {
 			namespace plugins {
 				namespace tiff {
 
-$FieldInfo _TIFFLZWUtil_FieldInfo_[] = {
-	{"srcData", "[B", nullptr, 0, $field(TIFFLZWUtil, srcData)},
-	{"srcIndex", "I", nullptr, 0, $field(TIFFLZWUtil, srcIndex)},
-	{"dstData", "[B", nullptr, 0, $field(TIFFLZWUtil, dstData)},
-	{"dstIndex", "I", nullptr, 0, $field(TIFFLZWUtil, dstIndex)},
-	{"stringTable", "[[B", nullptr, 0, $field(TIFFLZWUtil, stringTable)},
-	{"tableIndex", "I", nullptr, 0, $field(TIFFLZWUtil, tableIndex)},
-	{"bitsToGet", "I", nullptr, 0, $field(TIFFLZWUtil, bitsToGet)},
-	{"nextData", "I", nullptr, 0, $field(TIFFLZWUtil, nextData)},
-	{"nextBits", "I", nullptr, 0, $field(TIFFLZWUtil, nextBits)},
-	{"andTable", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFLZWUtil, andTable)},
-	{}
-};
-
-$MethodInfo _TIFFLZWUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFLZWUtil, init$, void)},
-	{"addStringToTable", "([BB)V", nullptr, $PUBLIC, $virtualMethod(TIFFLZWUtil, addStringToTable, void, $bytes*, int8_t)},
-	{"addStringToTable", "([B)V", nullptr, $PUBLIC, $virtualMethod(TIFFLZWUtil, addStringToTable, void, $bytes*)},
-	{"composeString", "([BB)[B", nullptr, $PUBLIC, $virtualMethod(TIFFLZWUtil, composeString, $bytes*, $bytes*, int8_t)},
-	{"decode", "([BIIII)[B", nullptr, $PUBLIC, $virtualMethod(TIFFLZWUtil, decode, $bytes*, $bytes*, int32_t, int32_t, int32_t, int32_t), "java.io.IOException"},
-	{"ensureCapacity", "(I)V", nullptr, $PRIVATE, $method(TIFFLZWUtil, ensureCapacity, void, int32_t)},
-	{"getNextCode", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFLZWUtil, getNextCode, int32_t)},
-	{"initializeStringTable", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFLZWUtil, initializeStringTable, void)},
-	{"writeString", "([B)V", nullptr, $PUBLIC, $virtualMethod(TIFFLZWUtil, writeString, void, $bytes*)},
-	{}
-};
-
-$ClassInfo _TIFFLZWUtil_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFLZWUtil",
-	"java.lang.Object",
-	nullptr,
-	_TIFFLZWUtil_FieldInfo_,
-	_TIFFLZWUtil_MethodInfo_
-};
-
-$Object* allocate$TIFFLZWUtil($Class* clazz) {
-	return $of($alloc(TIFFLZWUtil));
-}
-
 $ints* TIFFLZWUtil::andTable = nullptr;
 
 void TIFFLZWUtil::init$() {
@@ -70,7 +29,7 @@ void TIFFLZWUtil::init$() {
 }
 
 $bytes* TIFFLZWUtil::decode($bytes* data, int32_t predictor, int32_t samplesPerPixel, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(data)->get(0) == (int8_t)0 && data->get(1) == (int8_t)1) {
 		$throwNew($IIOException, "TIFF 5.0-style LZW compression is not supported!"_s);
 	}
@@ -122,11 +81,11 @@ $bytes* TIFFLZWUtil::decode($bytes* data, int32_t predictor, int32_t samplesPerP
 }
 
 void TIFFLZWUtil::initializeStringTable() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, stringTable, $new($byteArray2, 4096));
 	for (int32_t i = 0; i < 256; ++i) {
-		$nc(this->stringTable)->set(i, $$new($bytes, 1));
-		$nc($nc(this->stringTable)->get(i))->set(0, (int8_t)i);
+		this->stringTable->set(i, $$new($bytes, 1));
+		$nc(this->stringTable->get(i))->set(0, (int8_t)i);
 	}
 	this->tableIndex = 258;
 	this->bitsToGet = 9;
@@ -134,15 +93,15 @@ void TIFFLZWUtil::initializeStringTable() {
 
 void TIFFLZWUtil::ensureCapacity(int32_t bytesToAdd) {
 	if (this->dstIndex + bytesToAdd > $nc(this->dstData)->length) {
-		$var($bytes, newDstData, $new($bytes, $Math::max($cast(int32_t, ($nc(this->dstData)->length * 1.2f)), this->dstIndex + bytesToAdd)));
-		$System::arraycopy(this->dstData, 0, newDstData, 0, $nc(this->dstData)->length);
+		$var($bytes, newDstData, $new($bytes, $Math::max($cast(int32_t, (this->dstData->length * 1.2f)), this->dstIndex + bytesToAdd)));
+		$System::arraycopy(this->dstData, 0, newDstData, 0, this->dstData->length);
 		$set(this, dstData, newDstData);
 	}
 }
 
 void TIFFLZWUtil::writeString($bytes* string) {
 	ensureCapacity($nc(string)->length);
-	for (int32_t i = 0; i < $nc(string)->length; ++i) {
+	for (int32_t i = 0; i < string->length; ++i) {
 		$nc(this->dstData)->set(this->dstIndex++, string->get(i));
 	}
 }
@@ -183,13 +142,13 @@ $bytes* TIFFLZWUtil::composeString($bytes* oldString, int8_t newString) {
 
 int32_t TIFFLZWUtil::getNextCode() {
 	try {
-		this->nextData = (this->nextData << 8) | ((int32_t)($nc(this->srcData)->get(this->srcIndex++) & (uint32_t)255));
+		this->nextData = (this->nextData << 8) | ($nc(this->srcData)->get(this->srcIndex++) & 0xff);
 		this->nextBits += 8;
 		if (this->nextBits < this->bitsToGet) {
-			this->nextData = (this->nextData << 8) | ((int32_t)($nc(this->srcData)->get(this->srcIndex++) & (uint32_t)255));
+			this->nextData = (this->nextData << 8) | (this->srcData->get(this->srcIndex++) & 0xff);
 			this->nextBits += 8;
 		}
-		int32_t code = (int32_t)(($sr(this->nextData, this->nextBits - this->bitsToGet)) & (uint32_t)$nc(TIFFLZWUtil::andTable)->get(this->bitsToGet - 9));
+		int32_t code = ($sr(this->nextData, this->nextBits - this->bitsToGet)) & TIFFLZWUtil::andTable->get(this->bitsToGet - 9);
 		this->nextBits -= this->bitsToGet;
 		return code;
 	} catch ($ArrayIndexOutOfBoundsException& e) {
@@ -198,7 +157,7 @@ int32_t TIFFLZWUtil::getNextCode() {
 	$shouldNotReachHere();
 }
 
-void clinit$TIFFLZWUtil($Class* class$) {
+void TIFFLZWUtil::clinit$($Class* clazz) {
 	$assignStatic(TIFFLZWUtil::andTable, $new($ints, {
 		511,
 		1023,
@@ -211,7 +170,42 @@ TIFFLZWUtil::TIFFLZWUtil() {
 }
 
 $Class* TIFFLZWUtil::load$($String* name, bool initialize) {
-	$loadClass(TIFFLZWUtil, name, initialize, &_TIFFLZWUtil_ClassInfo_, clinit$TIFFLZWUtil, allocate$TIFFLZWUtil);
+	$FieldInfo fieldInfos$$[] = {
+		{"srcData", "[B", nullptr, 0, $field(TIFFLZWUtil, srcData)},
+		{"srcIndex", "I", nullptr, 0, $field(TIFFLZWUtil, srcIndex)},
+		{"dstData", "[B", nullptr, 0, $field(TIFFLZWUtil, dstData)},
+		{"dstIndex", "I", nullptr, 0, $field(TIFFLZWUtil, dstIndex)},
+		{"stringTable", "[[B", nullptr, 0, $field(TIFFLZWUtil, stringTable)},
+		{"tableIndex", "I", nullptr, 0, $field(TIFFLZWUtil, tableIndex)},
+		{"bitsToGet", "I", nullptr, 0, $field(TIFFLZWUtil, bitsToGet)},
+		{"nextData", "I", nullptr, 0, $field(TIFFLZWUtil, nextData)},
+		{"nextBits", "I", nullptr, 0, $field(TIFFLZWUtil, nextBits)},
+		{"andTable", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFLZWUtil, andTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFLZWUtil, init$, void)},
+		{"addStringToTable", "([BB)V", nullptr, $PUBLIC, $virtualMethod(TIFFLZWUtil, addStringToTable, void, $bytes*, int8_t)},
+		{"addStringToTable", "([B)V", nullptr, $PUBLIC, $virtualMethod(TIFFLZWUtil, addStringToTable, void, $bytes*)},
+		{"composeString", "([BB)[B", nullptr, $PUBLIC, $virtualMethod(TIFFLZWUtil, composeString, $bytes*, $bytes*, int8_t)},
+		{"decode", "([BIIII)[B", nullptr, $PUBLIC, $virtualMethod(TIFFLZWUtil, decode, $bytes*, $bytes*, int32_t, int32_t, int32_t, int32_t), "java.io.IOException"},
+		{"ensureCapacity", "(I)V", nullptr, $PRIVATE, $method(TIFFLZWUtil, ensureCapacity, void, int32_t)},
+		{"getNextCode", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFLZWUtil, getNextCode, int32_t)},
+		{"initializeStringTable", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFLZWUtil, initializeStringTable, void)},
+		{"writeString", "([B)V", nullptr, $PUBLIC, $virtualMethod(TIFFLZWUtil, writeString, void, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFLZWUtil",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFLZWUtil, name, initialize, &classInfo$$, TIFFLZWUtil::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFLZWUtil);
+	});
 	return class$;
 }
 

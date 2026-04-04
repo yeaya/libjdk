@@ -1,5 +1,4 @@
 #include <javax/management/modelmbean/ModelMBeanNotificationInfo.h>
-
 #include <com/sun/jmx/defaults/JmxProperties.h>
 #include <com/sun/jmx/mbeanserver/GetPropertyAction.h>
 #include <java/io/ObjectInputStream.h>
@@ -9,7 +8,6 @@
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$Logger.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <javax/management/Descriptor.h>
 #include <javax/management/MBeanFeatureInfo.h>
 #include <javax/management/MBeanNotificationInfo.h>
@@ -33,10 +31,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Descriptor = ::javax::management::Descriptor;
 using $MBeanNotificationInfo = ::javax::management::MBeanNotificationInfo;
 using $RuntimeOperationsException = ::javax::management::RuntimeOperationsException;
@@ -45,49 +41,6 @@ using $DescriptorSupport = ::javax::management::modelmbean::DescriptorSupport;
 namespace javax {
 	namespace management {
 		namespace modelmbean {
-
-$FieldInfo _ModelMBeanNotificationInfo_FieldInfo_[] = {
-	{"oldSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ModelMBeanNotificationInfo, oldSerialVersionUID)},
-	{"newSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ModelMBeanNotificationInfo, newSerialVersionUID)},
-	{"oldSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModelMBeanNotificationInfo, oldSerialPersistentFields)},
-	{"newSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModelMBeanNotificationInfo, newSerialPersistentFields)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModelMBeanNotificationInfo, serialVersionUID)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModelMBeanNotificationInfo, serialPersistentFields)},
-	{"compat", "Z", nullptr, $PRIVATE | $STATIC, $staticField(ModelMBeanNotificationInfo, compat)},
-	{"notificationDescriptor", "Ljavax/management/Descriptor;", nullptr, $PRIVATE, $field(ModelMBeanNotificationInfo, notificationDescriptor)},
-	{"currClass", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModelMBeanNotificationInfo, currClass)},
-	{}
-};
-
-$MethodInfo _ModelMBeanNotificationInfo_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ModelMBeanNotificationInfo, init$, void, $StringArray*, $String*, $String*)},
-	{"<init>", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(ModelMBeanNotificationInfo, init$, void, $StringArray*, $String*, $String*, $Descriptor*)},
-	{"<init>", "(Ljavax/management/modelmbean/ModelMBeanNotificationInfo;)V", nullptr, $PUBLIC, $method(ModelMBeanNotificationInfo, init$, void, ModelMBeanNotificationInfo*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModelMBeanNotificationInfo, clone, $Object*)},
-	{"getDescriptor", "()Ljavax/management/Descriptor;", nullptr, $PUBLIC, $virtualMethod(ModelMBeanNotificationInfo, getDescriptor, $Descriptor*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ModelMBeanNotificationInfo, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setDescriptor", "(Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $virtualMethod(ModelMBeanNotificationInfo, setDescriptor, void, $Descriptor*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModelMBeanNotificationInfo, toString, $String*)},
-	{"validDescriptor", "(Ljavax/management/Descriptor;)Ljavax/management/Descriptor;", nullptr, $PRIVATE, $method(ModelMBeanNotificationInfo, validDescriptor, $Descriptor*, $Descriptor*), "javax.management.RuntimeOperationsException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ModelMBeanNotificationInfo, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ModelMBeanNotificationInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.modelmbean.ModelMBeanNotificationInfo",
-	"javax.management.MBeanNotificationInfo",
-	"javax.management.DescriptorAccess",
-	_ModelMBeanNotificationInfo_FieldInfo_,
-	_ModelMBeanNotificationInfo_MethodInfo_
-};
-
-$Object* allocate$ModelMBeanNotificationInfo($Class* clazz) {
-	return $of($alloc(ModelMBeanNotificationInfo));
-}
 
 bool ModelMBeanNotificationInfo::equals(Object$* o) {
 	 return this->$MBeanNotificationInfo::equals(o);
@@ -117,13 +70,13 @@ void ModelMBeanNotificationInfo::init$($StringArray* notifTypes, $String* name, 
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Entry"_s);
 	}
 	$set(this, notificationDescriptor, validDescriptor(descriptor));
 }
 
 void ModelMBeanNotificationInfo::init$(ModelMBeanNotificationInfo* inInfo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, var$0, $nc(inInfo)->getNotifTypes());
 	$var($String, var$1, inInfo->getName());
 	$var($String, var$2, inInfo->getDescription());
@@ -134,46 +87,46 @@ $Object* ModelMBeanNotificationInfo::clone() {
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Entry"_s);
 	}
-	return $of(($new(ModelMBeanNotificationInfo, this)));
+	return ($of($new(ModelMBeanNotificationInfo, this)));
 }
 
 $Descriptor* ModelMBeanNotificationInfo::getDescriptor() {
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Entry"_s);
 	}
 	if (this->notificationDescriptor == nullptr) {
-		if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-			$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Descriptor value is null, setting descriptor to default values"_s);
+		if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+			$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Descriptor value is null, setting descriptor to default values"_s);
 		}
 		$set(this, notificationDescriptor, validDescriptor(nullptr));
 	}
-	return ($cast($Descriptor, $nc(this->notificationDescriptor)->clone()));
+	return $cast($Descriptor, $nc(this->notificationDescriptor)->clone());
 }
 
 void ModelMBeanNotificationInfo::setDescriptor($Descriptor* inDescriptor) {
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Entry"_s);
 	}
 	$set(this, notificationDescriptor, validDescriptor(inDescriptor));
 }
 
 $String* ModelMBeanNotificationInfo::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Entry"_s);
 	}
 	$var($StringBuilder, retStr, $new($StringBuilder));
 	retStr->append("ModelMBeanNotificationInfo: "_s)->append($(this->getName()));
 	retStr->append(" ; Description: "_s)->append($(this->getDescription()));
-	retStr->append(" ; Descriptor: "_s)->append($($of(this->getDescriptor())));
+	retStr->append(" ; Descriptor: "_s)->append($(this->getDescriptor()));
 	retStr->append(" ; Types: "_s);
 	$var($StringArray, nTypes, this->getNotifTypes());
 	for (int32_t i = 0; i < $nc(nTypes)->length; ++i) {
@@ -186,7 +139,7 @@ $String* ModelMBeanNotificationInfo::toString() {
 }
 
 $Descriptor* ModelMBeanNotificationInfo::validDescriptor($Descriptor* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Descriptor, clone, nullptr);
 	bool defaulted = (in == nullptr);
 	if (defaulted) {
@@ -215,24 +168,28 @@ $Descriptor* ModelMBeanNotificationInfo::validDescriptor($Descriptor* in) {
 		$init($System$Logger$Level);
 		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"Defaulting Descriptor displayName to "_s, $(this->getName())}));
 	}
-	if ($nc(clone)->getFieldValue("severity"_s) == nullptr) {
+	if (clone->getFieldValue("severity"_s) == nullptr) {
 		clone->setField("severity"_s, "6"_s);
 		$init($JmxProperties);
 		$init($System$Logger$Level);
 		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Defaulting Descriptor severity field to 6"_s);
 	}
-	if (!$nc(clone)->isValid()) {
-		$var($RuntimeException, var$0, static_cast<$RuntimeException*>($new($IllegalArgumentException, "Invalid Descriptor argument"_s)));
-		$throwNew($RuntimeOperationsException, var$0, $$str({"The isValid() method of the Descriptor object itself returned false,one or more required fields are invalid. Descriptor:"_s, $($of(clone)->toString())}));
+	if (!clone->isValid()) {
+		$var($RuntimeException, var$0, $new($IllegalArgumentException, "Invalid Descriptor argument"_s));
+		$throwNew($RuntimeOperationsException, var$0, $$str({"The isValid() method of the Descriptor object itself returned false,one or more required fields are invalid. Descriptor:"_s, $(clone->toString())}));
 	}
-	if (!$nc($(getName()))->equalsIgnoreCase($cast($String, $($nc(clone)->getFieldValue("name"_s))))) {
-		$var($RuntimeException, var$1, static_cast<$RuntimeException*>($new($IllegalArgumentException, "Invalid Descriptor argument"_s)));
-		$var($String, var$2, $$str({"The Descriptor \"name\" field does not match the object described.  Expected: "_s, $(this->getName()), " , was: "_s}));
-		$throwNew($RuntimeOperationsException, var$1, $$concat(var$2, $($nc(clone)->getFieldValue("name"_s))));
+	if (!$$nc(getName())->equalsIgnoreCase($$cast($String, clone->getFieldValue("name"_s)))) {
+		$var($RuntimeException, var$1, $new($IllegalArgumentException, "Invalid Descriptor argument"_s));
+		$var($StringBuilder, var$2, $new($StringBuilder));
+		var$2->append("The Descriptor \"name\" field does not match the object described.  Expected: "_s);
+		var$2->append($(this->getName()));
+		var$2->append(" , was: "_s);
+		var$2->append($(clone->getFieldValue("name"_s)));
+		$throwNew($RuntimeOperationsException, var$1, $$str(var$2));
 	}
-	if (!"notification"_s->equalsIgnoreCase($cast($String, $($nc(clone)->getFieldValue("descriptorType"_s))))) {
-		$var($RuntimeException, var$3, static_cast<$RuntimeException*>($new($IllegalArgumentException, "Invalid Descriptor argument"_s)));
-		$throwNew($RuntimeOperationsException, var$3, $$str({"The Descriptor \"descriptorType\" field does not match the object described.  Expected: \"notification\" , was: "_s, $($nc(clone)->getFieldValue("descriptorType"_s))}));
+	if (!"notification"_s->equalsIgnoreCase($$cast($String, clone->getFieldValue("descriptorType"_s)))) {
+		$var($RuntimeException, var$3, $new($IllegalArgumentException, "Invalid Descriptor argument"_s));
+		$throwNew($RuntimeOperationsException, var$3, $$str({"The Descriptor \"descriptorType\" field does not match the object described.  Expected: \"notification\" , was: "_s, $(clone->getFieldValue("descriptorType"_s))}));
 	}
 	return clone;
 }
@@ -244,16 +201,16 @@ void ModelMBeanNotificationInfo::readObject($ObjectInputStream* in) {
 void ModelMBeanNotificationInfo::writeObject($ObjectOutputStream* out) {
 	if (ModelMBeanNotificationInfo::compat) {
 		$var($ObjectOutputStream$PutField, fields, $nc(out)->putFields());
-		$nc(fields)->put("notificationDescriptor"_s, $of(this->notificationDescriptor));
-		fields->put("currClass"_s, $of(ModelMBeanNotificationInfo::currClass));
+		$nc(fields)->put("notificationDescriptor"_s, this->notificationDescriptor);
+		fields->put("currClass"_s, ModelMBeanNotificationInfo::currClass);
 		out->writeFields();
 	} else {
 		$nc(out)->defaultWriteObject();
 	}
 }
 
-void clinit$ModelMBeanNotificationInfo($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ModelMBeanNotificationInfo::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(ModelMBeanNotificationInfo::currClass, "ModelMBeanNotificationInfo"_s);
 	$beforeCallerSensitive();
 	$load($Descriptor);
@@ -266,7 +223,7 @@ void clinit$ModelMBeanNotificationInfo($Class* class$) {
 	{
 		try {
 			$var($GetPropertyAction, act, $new($GetPropertyAction, "jmx.serial.form"_s));
-			$var($String, form, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>(act))));
+			$var($String, form, $cast($String, $AccessController::doPrivileged(act)));
 			ModelMBeanNotificationInfo::compat = (form != nullptr && form->equals("1.0"_s));
 		} catch ($Exception& e) {
 		}
@@ -284,7 +241,45 @@ ModelMBeanNotificationInfo::ModelMBeanNotificationInfo() {
 }
 
 $Class* ModelMBeanNotificationInfo::load$($String* name, bool initialize) {
-	$loadClass(ModelMBeanNotificationInfo, name, initialize, &_ModelMBeanNotificationInfo_ClassInfo_, clinit$ModelMBeanNotificationInfo, allocate$ModelMBeanNotificationInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"oldSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ModelMBeanNotificationInfo, oldSerialVersionUID)},
+		{"newSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ModelMBeanNotificationInfo, newSerialVersionUID)},
+		{"oldSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModelMBeanNotificationInfo, oldSerialPersistentFields)},
+		{"newSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModelMBeanNotificationInfo, newSerialPersistentFields)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModelMBeanNotificationInfo, serialVersionUID)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModelMBeanNotificationInfo, serialPersistentFields)},
+		{"compat", "Z", nullptr, $PRIVATE | $STATIC, $staticField(ModelMBeanNotificationInfo, compat)},
+		{"notificationDescriptor", "Ljavax/management/Descriptor;", nullptr, $PRIVATE, $field(ModelMBeanNotificationInfo, notificationDescriptor)},
+		{"currClass", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModelMBeanNotificationInfo, currClass)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ModelMBeanNotificationInfo, init$, void, $StringArray*, $String*, $String*)},
+		{"<init>", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(ModelMBeanNotificationInfo, init$, void, $StringArray*, $String*, $String*, $Descriptor*)},
+		{"<init>", "(Ljavax/management/modelmbean/ModelMBeanNotificationInfo;)V", nullptr, $PUBLIC, $method(ModelMBeanNotificationInfo, init$, void, ModelMBeanNotificationInfo*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModelMBeanNotificationInfo, clone, $Object*)},
+		{"getDescriptor", "()Ljavax/management/Descriptor;", nullptr, $PUBLIC, $virtualMethod(ModelMBeanNotificationInfo, getDescriptor, $Descriptor*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ModelMBeanNotificationInfo, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"setDescriptor", "(Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $virtualMethod(ModelMBeanNotificationInfo, setDescriptor, void, $Descriptor*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModelMBeanNotificationInfo, toString, $String*)},
+		{"validDescriptor", "(Ljavax/management/Descriptor;)Ljavax/management/Descriptor;", nullptr, $PRIVATE, $method(ModelMBeanNotificationInfo, validDescriptor, $Descriptor*, $Descriptor*), "javax.management.RuntimeOperationsException"},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ModelMBeanNotificationInfo, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.modelmbean.ModelMBeanNotificationInfo",
+		"javax.management.MBeanNotificationInfo",
+		"javax.management.DescriptorAccess",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModelMBeanNotificationInfo, name, initialize, &classInfo$$, ModelMBeanNotificationInfo::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ModelMBeanNotificationInfo));
+	});
 	return class$;
 }
 

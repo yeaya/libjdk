@@ -35,6 +35,7 @@ class CustomMediaSizeName : public ::javax::print::attribute::standard::MediaSiz
 	$class(CustomMediaSizeName, 0, ::javax::print::attribute::standard::MediaSizeName)
 public:
 	CustomMediaSizeName();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t x);
 	void init$($String* name);
 	void init$($String* name, $String* choice, float width, float length);
@@ -49,7 +50,7 @@ public:
 	static ::java::util::ArrayList* customEnumTable;
 	$String* choiceName = nullptr;
 	::javax::print::attribute::standard::MediaSizeName* mediaName = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x66DF9538A70657C5;
+	static const int64_t serialVersionUID = (int64_t)0x66df9538a70657c5;
 };
 
 	} // print

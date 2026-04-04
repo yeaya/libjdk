@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/GLXSurfaceData$GLXWindowSurfaceData.h>
-
 #include <java/awt/Rectangle.h>
 #include <java/awt/image/ColorModel.h>
 #include <java/lang/Math.h>
@@ -28,46 +27,6 @@ namespace sun {
 	namespace java2d {
 		namespace opengl {
 
-$FieldInfo _GLXSurfaceData$GLXWindowSurfaceData_FieldInfo_[] = {
-	{"scale", "I", nullptr, $PROTECTED | $FINAL, $field(GLXSurfaceData$GLXWindowSurfaceData, scale)},
-	{}
-};
-
-$MethodInfo _GLXSurfaceData$GLXWindowSurfaceData_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11ComponentPeer;Lsun/java2d/opengl/GLXGraphicsConfig;)V", nullptr, $PUBLIC, $method(GLXSurfaceData$GLXWindowSurfaceData, init$, void, $X11ComponentPeer*, $GLXGraphicsConfig*)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(GLXSurfaceData$GLXWindowSurfaceData, getBounds, $Rectangle*)},
-	{"getDefaultScaleX", "()D", nullptr, $PUBLIC, $virtualMethod(GLXSurfaceData$GLXWindowSurfaceData, getDefaultScaleX, double)},
-	{"getDefaultScaleY", "()D", nullptr, $PUBLIC, $virtualMethod(GLXSurfaceData$GLXWindowSurfaceData, getDefaultScaleY, double)},
-	{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(GLXSurfaceData$GLXWindowSurfaceData, getDestination, $Object*)},
-	{"getReplacement", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(GLXSurfaceData$GLXWindowSurfaceData, getReplacement, $SurfaceData*)},
-	{}
-};
-
-$InnerClassInfo _GLXSurfaceData$GLXWindowSurfaceData_InnerClassesInfo_[] = {
-	{"sun.java2d.opengl.GLXSurfaceData$GLXWindowSurfaceData", "sun.java2d.opengl.GLXSurfaceData", "GLXWindowSurfaceData", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _GLXSurfaceData$GLXWindowSurfaceData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.opengl.GLXSurfaceData$GLXWindowSurfaceData",
-	"sun.java2d.opengl.GLXSurfaceData",
-	nullptr,
-	_GLXSurfaceData$GLXWindowSurfaceData_FieldInfo_,
-	_GLXSurfaceData$GLXWindowSurfaceData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GLXSurfaceData$GLXWindowSurfaceData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.opengl.GLXSurfaceData"
-};
-
-$Object* allocate$GLXSurfaceData$GLXWindowSurfaceData($Class* clazz) {
-	return $of($alloc(GLXSurfaceData$GLXWindowSurfaceData));
-}
-
 void GLXSurfaceData$GLXWindowSurfaceData::init$($X11ComponentPeer* peer, $GLXGraphicsConfig* gc) {
 	$GLXSurfaceData::init$(peer, gc, $($nc(peer)->getColorModel()), $AccelSurface::WINDOW);
 	this->scale = $nc(gc)->getScale();
@@ -79,14 +38,14 @@ $SurfaceData* GLXSurfaceData$GLXWindowSurfaceData::getReplacement() {
 
 $Rectangle* GLXSurfaceData$GLXWindowSurfaceData::getBounds() {
 	$var($Rectangle, r, $nc(this->peer)->getBounds());
-	$nc(r)->x = (r->y = 0);
+	$nc(r)->x = ($nc(r)->y = 0);
 	r->width = $cast(int32_t, $Math::ceil((double)(r->width * this->scale)));
 	r->height = $cast(int32_t, $Math::ceil((double)(r->height * this->scale)));
 	return r;
 }
 
 $Object* GLXSurfaceData$GLXWindowSurfaceData::getDestination() {
-	return $of($nc(this->peer)->getTarget());
+	return $nc(this->peer)->getTarget();
 }
 
 double GLXSurfaceData$GLXWindowSurfaceData::getDefaultScaleX() {
@@ -101,7 +60,41 @@ GLXSurfaceData$GLXWindowSurfaceData::GLXSurfaceData$GLXWindowSurfaceData() {
 }
 
 $Class* GLXSurfaceData$GLXWindowSurfaceData::load$($String* name, bool initialize) {
-	$loadClass(GLXSurfaceData$GLXWindowSurfaceData, name, initialize, &_GLXSurfaceData$GLXWindowSurfaceData_ClassInfo_, allocate$GLXSurfaceData$GLXWindowSurfaceData);
+	$FieldInfo fieldInfos$$[] = {
+		{"scale", "I", nullptr, $PROTECTED | $FINAL, $field(GLXSurfaceData$GLXWindowSurfaceData, scale)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11ComponentPeer;Lsun/java2d/opengl/GLXGraphicsConfig;)V", nullptr, $PUBLIC, $method(GLXSurfaceData$GLXWindowSurfaceData, init$, void, $X11ComponentPeer*, $GLXGraphicsConfig*)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(GLXSurfaceData$GLXWindowSurfaceData, getBounds, $Rectangle*)},
+		{"getDefaultScaleX", "()D", nullptr, $PUBLIC, $virtualMethod(GLXSurfaceData$GLXWindowSurfaceData, getDefaultScaleX, double)},
+		{"getDefaultScaleY", "()D", nullptr, $PUBLIC, $virtualMethod(GLXSurfaceData$GLXWindowSurfaceData, getDefaultScaleY, double)},
+		{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(GLXSurfaceData$GLXWindowSurfaceData, getDestination, $Object*)},
+		{"getReplacement", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(GLXSurfaceData$GLXWindowSurfaceData, getReplacement, $SurfaceData*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.opengl.GLXSurfaceData$GLXWindowSurfaceData", "sun.java2d.opengl.GLXSurfaceData", "GLXWindowSurfaceData", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.opengl.GLXSurfaceData$GLXWindowSurfaceData",
+		"sun.java2d.opengl.GLXSurfaceData",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.opengl.GLXSurfaceData"
+	};
+	$loadClass(GLXSurfaceData$GLXWindowSurfaceData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GLXSurfaceData$GLXWindowSurfaceData));
+	});
 	return class$;
 }
 

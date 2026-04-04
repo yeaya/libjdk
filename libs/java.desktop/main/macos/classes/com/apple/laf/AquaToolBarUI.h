@@ -48,6 +48,7 @@ class AquaToolBarUI : public ::javax::swing::plaf::basic::BasicToolBarUI {
 	$class(AquaToolBarUI, 0, ::javax::swing::plaf::basic::BasicToolBarUI)
 public:
 	AquaToolBarUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::swing::RootPaneContainer* createFloatingWindow(::javax::swing::JToolBar* toolbar) override;
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* c);

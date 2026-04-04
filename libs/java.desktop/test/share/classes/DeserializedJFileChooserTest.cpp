@@ -1,14 +1,11 @@
 #include <DeserializedJFileChooserTest.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/EventQueue.h>
 #include <java/awt/Robot.h>
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/ByteArrayOutputStream.h>
-#include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/IllegalAccessException.h>
@@ -35,11 +32,8 @@ using $EventQueue = ::java::awt::EventQueue;
 using $Robot = ::java::awt::Robot;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
-using $InputStream = ::java::io::InputStream;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
-using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
@@ -48,13 +42,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InstantiationException = ::java::lang::InstantiationException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $JButton = ::javax::swing::JButton;
 using $JFileChooser = ::javax::swing::JFileChooser;
-using $JRootPane = ::javax::swing::JRootPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
@@ -69,33 +61,29 @@ public:
 	virtual void run() override {
 		DeserializedJFileChooserTest::lambda$main$0(laf);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DeserializedJFileChooserTest$$Lambda$lambda$main$0>());
-	}
 	$UIManager$LookAndFeelInfo* laf = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo DeserializedJFileChooserTest$$Lambda$lambda$main$0::fieldInfos[2] = {
-	{"laf", "Ljavax/swing/UIManager$LookAndFeelInfo;", nullptr, $PUBLIC, $field(DeserializedJFileChooserTest$$Lambda$lambda$main$0, laf)},
-	{}
-};
-$MethodInfo DeserializedJFileChooserTest$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PUBLIC, $method(DeserializedJFileChooserTest$$Lambda$lambda$main$0, init$, void, $UIManager$LookAndFeelInfo*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DeserializedJFileChooserTest$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo DeserializedJFileChooserTest$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"DeserializedJFileChooserTest$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* DeserializedJFileChooserTest$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(DeserializedJFileChooserTest$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"laf", "Ljavax/swing/UIManager$LookAndFeelInfo;", nullptr, $PUBLIC, $field(DeserializedJFileChooserTest$$Lambda$lambda$main$0, laf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PUBLIC, $method(DeserializedJFileChooserTest$$Lambda$lambda$main$0, init$, void, $UIManager$LookAndFeelInfo*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DeserializedJFileChooserTest$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"DeserializedJFileChooserTest$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DeserializedJFileChooserTest$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeserializedJFileChooserTest$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* DeserializedJFileChooserTest$$Lambda$lambda$main$0::class$ = nullptr;
@@ -108,27 +96,24 @@ public:
 	virtual void run() override {
 		DeserializedJFileChooserTest::lambda$main$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DeserializedJFileChooserTest$$Lambda$lambda$main$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo DeserializedJFileChooserTest$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DeserializedJFileChooserTest$$Lambda$lambda$main$1$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DeserializedJFileChooserTest$$Lambda$lambda$main$1$1, run, void)},
-	{}
-};
-$ClassInfo DeserializedJFileChooserTest$$Lambda$lambda$main$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"DeserializedJFileChooserTest$$Lambda$lambda$main$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* DeserializedJFileChooserTest$$Lambda$lambda$main$1$1::load$($String* name, bool initialize) {
-	$loadClass(DeserializedJFileChooserTest$$Lambda$lambda$main$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DeserializedJFileChooserTest$$Lambda$lambda$main$1$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DeserializedJFileChooserTest$$Lambda$lambda$main$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"DeserializedJFileChooserTest$$Lambda$lambda$main$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DeserializedJFileChooserTest$$Lambda$lambda$main$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeserializedJFileChooserTest$$Lambda$lambda$main$1$1);
+	});
 	return class$;
 }
 $Class* DeserializedJFileChooserTest$$Lambda$lambda$main$1$1::class$ = nullptr;
@@ -141,59 +126,27 @@ public:
 	virtual void run() override {
 		DeserializedJFileChooserTest::lambda$main$2();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DeserializedJFileChooserTest$$Lambda$lambda$main$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo DeserializedJFileChooserTest$$Lambda$lambda$main$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DeserializedJFileChooserTest$$Lambda$lambda$main$2$2, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DeserializedJFileChooserTest$$Lambda$lambda$main$2$2, run, void)},
-	{}
-};
-$ClassInfo DeserializedJFileChooserTest$$Lambda$lambda$main$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"DeserializedJFileChooserTest$$Lambda$lambda$main$2$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* DeserializedJFileChooserTest$$Lambda$lambda$main$2$2::load$($String* name, bool initialize) {
-	$loadClass(DeserializedJFileChooserTest$$Lambda$lambda$main$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DeserializedJFileChooserTest$$Lambda$lambda$main$2$2, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DeserializedJFileChooserTest$$Lambda$lambda$main$2$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"DeserializedJFileChooserTest$$Lambda$lambda$main$2$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DeserializedJFileChooserTest$$Lambda$lambda$main$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeserializedJFileChooserTest$$Lambda$lambda$main$2$2);
+	});
 	return class$;
 }
 $Class* DeserializedJFileChooserTest$$Lambda$lambda$main$2$2::class$ = nullptr;
-
-$FieldInfo _DeserializedJFileChooserTest_FieldInfo_[] = {
-	{"defaultSet", "Ljavax/swing/JButton;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(DeserializedJFileChooserTest, defaultSet)},
-	{"deserialized", "Ljavax/swing/JFileChooser;", nullptr, $PRIVATE | $STATIC, $staticField(DeserializedJFileChooserTest, deserialized)},
-	{}
-};
-
-$MethodInfo _DeserializedJFileChooserTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DeserializedJFileChooserTest, init$, void)},
-	{"lambda$main$0", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DeserializedJFileChooserTest, lambda$main$0, void, $UIManager$LookAndFeelInfo*)},
-	{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DeserializedJFileChooserTest, lambda$main$1, void)},
-	{"lambda$main$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DeserializedJFileChooserTest, lambda$main$2, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DeserializedJFileChooserTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"setLookAndFeel", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DeserializedJFileChooserTest, setLookAndFeel, void, $UIManager$LookAndFeelInfo*)},
-	{}
-};
-
-$ClassInfo _DeserializedJFileChooserTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"DeserializedJFileChooserTest",
-	"java.lang.Object",
-	nullptr,
-	_DeserializedJFileChooserTest_FieldInfo_,
-	_DeserializedJFileChooserTest_MethodInfo_
-};
-
-$Object* allocate$DeserializedJFileChooserTest($Class* clazz) {
-	return $of($alloc(DeserializedJFileChooserTest));
-}
 
 $volatile($JButton*) DeserializedJFileChooserTest::defaultSet = nullptr;
 $JFileChooser* DeserializedJFileChooserTest::deserialized = nullptr;
@@ -202,55 +155,51 @@ void DeserializedJFileChooserTest::init$() {
 }
 
 void DeserializedJFileChooserTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($UIManager$LookAndFeelInfo, laf, arr$->get(i$));
-			{
-				$EventQueue::invokeAndWait(static_cast<$Runnable*>($$new(DeserializedJFileChooserTest$$Lambda$lambda$main$0, laf)));
-				$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(DeserializedJFileChooserTest$$Lambda$lambda$main$1$1)));
-				$var($Robot, robot, $new($Robot));
-				robot->waitForIdle();
-				$EventQueue::invokeAndWait(static_cast<$Runnable*>($$new(DeserializedJFileChooserTest$$Lambda$lambda$main$2$2)));
-				robot->waitForIdle();
-				$init(DeserializedJFileChooserTest);
-				if (DeserializedJFileChooserTest::defaultSet == nullptr) {
-					$throwNew($RuntimeException, "default button is null"_s);
-				}
+	$useLocalObjectStack();
+	$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($UIManager$LookAndFeelInfo, laf, arr$->get(i$));
+		{
+			$EventQueue::invokeAndWait($$new(DeserializedJFileChooserTest$$Lambda$lambda$main$0, laf));
+			$SwingUtilities::invokeLater($$new(DeserializedJFileChooserTest$$Lambda$lambda$main$1$1));
+			$var($Robot, robot, $new($Robot));
+			robot->waitForIdle();
+			$EventQueue::invokeAndWait($$new(DeserializedJFileChooserTest$$Lambda$lambda$main$2$2));
+			robot->waitForIdle();
+			$init(DeserializedJFileChooserTest);
+			if (DeserializedJFileChooserTest::defaultSet == nullptr) {
+				$throwNew($RuntimeException, "default button is null"_s);
 			}
 		}
 	}
 }
 
 void DeserializedJFileChooserTest::setLookAndFeel($UIManager$LookAndFeelInfo* laf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$nc($System::out)->println($$str({"laf = "_s, laf}));
 		$UIManager::setLookAndFeel($($nc(laf)->getClassName()));
 	} catch ($UnsupportedLookAndFeelException& ignored) {
 		$nc($System::out)->println($$str({"Unsupported LookAndFeel: "_s, $($nc(laf)->getClassName())}));
 	} catch ($ClassNotFoundException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($InstantiationException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($IllegalAccessException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
 void DeserializedJFileChooserTest::lambda$main$2() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(DeserializedJFileChooserTest);
-	$assignStatic(DeserializedJFileChooserTest::defaultSet, $nc($($nc(DeserializedJFileChooserTest::deserialized)->getRootPane()))->getDefaultButton());
+	$assignStatic(DeserializedJFileChooserTest::defaultSet, $$nc($nc(DeserializedJFileChooserTest::deserialized)->getRootPane())->getDefaultButton());
 	$nc(DeserializedJFileChooserTest::deserialized)->setVisible(false);
 	$($Thread::currentThread())->interrupt();
 }
 
 void DeserializedJFileChooserTest::lambda$main$1() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($JFileChooser, jfc, $new($JFileChooser));
 		$var($ByteArrayOutputStream, bos, $new($ByteArrayOutputStream));
@@ -263,7 +212,7 @@ void DeserializedJFileChooserTest::lambda$main$1() {
 		$assignStatic(DeserializedJFileChooserTest::deserialized, $cast($JFileChooser, ois->readObject()));
 		$nc(DeserializedJFileChooserTest::deserialized)->showOpenDialog(nullptr);
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
@@ -276,17 +225,41 @@ DeserializedJFileChooserTest::DeserializedJFileChooserTest() {
 
 $Class* DeserializedJFileChooserTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DeserializedJFileChooserTest$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("DeserializedJFileChooserTest$$Lambda$lambda$main$0")) {
 			return DeserializedJFileChooserTest$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(DeserializedJFileChooserTest$$Lambda$lambda$main$1$1::classInfo$.name)) {
+		if (name->equals("DeserializedJFileChooserTest$$Lambda$lambda$main$1$1")) {
 			return DeserializedJFileChooserTest$$Lambda$lambda$main$1$1::load$(name, initialize);
 		}
-		if (name->equals(DeserializedJFileChooserTest$$Lambda$lambda$main$2$2::classInfo$.name)) {
+		if (name->equals("DeserializedJFileChooserTest$$Lambda$lambda$main$2$2")) {
 			return DeserializedJFileChooserTest$$Lambda$lambda$main$2$2::load$(name, initialize);
 		}
 	}
-	$loadClass(DeserializedJFileChooserTest, name, initialize, &_DeserializedJFileChooserTest_ClassInfo_, allocate$DeserializedJFileChooserTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultSet", "Ljavax/swing/JButton;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(DeserializedJFileChooserTest, defaultSet)},
+		{"deserialized", "Ljavax/swing/JFileChooser;", nullptr, $PRIVATE | $STATIC, $staticField(DeserializedJFileChooserTest, deserialized)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DeserializedJFileChooserTest, init$, void)},
+		{"lambda$main$0", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DeserializedJFileChooserTest, lambda$main$0, void, $UIManager$LookAndFeelInfo*)},
+		{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DeserializedJFileChooserTest, lambda$main$1, void)},
+		{"lambda$main$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DeserializedJFileChooserTest, lambda$main$2, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DeserializedJFileChooserTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"setLookAndFeel", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DeserializedJFileChooserTest, setLookAndFeel, void, $UIManager$LookAndFeelInfo*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"DeserializedJFileChooserTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DeserializedJFileChooserTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeserializedJFileChooserTest);
+	});
 	return class$;
 }
 

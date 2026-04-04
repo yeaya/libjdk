@@ -51,6 +51,7 @@ class SjavacServer : public ::com::sun::tools::sjavac::server::Terminable {
 	$class(SjavacServer, 0, ::com::sun::tools::sjavac::server::Terminable)
 public:
 	SjavacServer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* settings);
 	void init$($String* portfilename, int32_t poolsize, int32_t keepalive);
 	virtual void addBuildTime(int64_t inc);

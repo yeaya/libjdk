@@ -18,6 +18,7 @@ class $export Cert : public ::java::lang::Enum {
 public:
 	Cert();
 	static $Array<Cert>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* keyAlgo, $String* certStr, $String* keyStr);
 	static ::Cert* valueOf($String* name);
 	static $Array<Cert>* values();

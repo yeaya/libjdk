@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/Code$LocalVar$Range.h>
-
 #include <com/sun/tools/javac/jvm/Code$LocalVar.h>
 #include <jcpp.h>
 
@@ -17,48 +16,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$FieldInfo _Code$LocalVar$Range_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/jvm/Code$LocalVar;", nullptr, $FINAL | $SYNTHETIC, $field(Code$LocalVar$Range, this$0)},
-	{"start_pc", "C", nullptr, 0, $field(Code$LocalVar$Range, start_pc)},
-	{"length", "C", nullptr, 0, $field(Code$LocalVar$Range, length)},
-	{}
-};
-
-$MethodInfo _Code$LocalVar$Range_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Code$LocalVar;)V", nullptr, 0, $method(Code$LocalVar$Range, init$, void, $Code$LocalVar*)},
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Code$LocalVar;C)V", nullptr, 0, $method(Code$LocalVar$Range, init$, void, $Code$LocalVar*, char16_t)},
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Code$LocalVar;CC)V", nullptr, 0, $method(Code$LocalVar$Range, init$, void, $Code$LocalVar*, char16_t, char16_t)},
-	{"closed", "()Z", nullptr, 0, $virtualMethod(Code$LocalVar$Range, closed, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Code$LocalVar$Range, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Code$LocalVar$Range_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.Code$LocalVar", "com.sun.tools.javac.jvm.Code", "LocalVar", $STATIC},
-	{"com.sun.tools.javac.jvm.Code$LocalVar$Range", "com.sun.tools.javac.jvm.Code$LocalVar", "Range", 0},
-	{}
-};
-
-$ClassInfo _Code$LocalVar$Range_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.Code$LocalVar$Range",
-	"java.lang.Object",
-	nullptr,
-	_Code$LocalVar$Range_FieldInfo_,
-	_Code$LocalVar$Range_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Code$LocalVar$Range_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.Code"
-};
-
-$Object* allocate$Code$LocalVar$Range($Class* clazz) {
-	return $of($alloc(Code$LocalVar$Range));
-}
 
 void Code$LocalVar$Range::init$($Code$LocalVar* this$0) {
 	$set(this, this$0, this$0);
@@ -86,7 +43,7 @@ bool Code$LocalVar$Range::closed() {
 }
 
 $String* Code$LocalVar$Range::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t currentStartPC = this->start_pc;
 	int32_t currentLength = this->length;
 	return $str({"startpc = "_s, $$str(currentStartPC), " length "_s, $$str(currentLength)});
@@ -96,7 +53,43 @@ Code$LocalVar$Range::Code$LocalVar$Range() {
 }
 
 $Class* Code$LocalVar$Range::load$($String* name, bool initialize) {
-	$loadClass(Code$LocalVar$Range, name, initialize, &_Code$LocalVar$Range_ClassInfo_, allocate$Code$LocalVar$Range);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/jvm/Code$LocalVar;", nullptr, $FINAL | $SYNTHETIC, $field(Code$LocalVar$Range, this$0)},
+		{"start_pc", "C", nullptr, 0, $field(Code$LocalVar$Range, start_pc)},
+		{"length", "C", nullptr, 0, $field(Code$LocalVar$Range, length)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/jvm/Code$LocalVar;)V", nullptr, 0, $method(Code$LocalVar$Range, init$, void, $Code$LocalVar*)},
+		{"<init>", "(Lcom/sun/tools/javac/jvm/Code$LocalVar;C)V", nullptr, 0, $method(Code$LocalVar$Range, init$, void, $Code$LocalVar*, char16_t)},
+		{"<init>", "(Lcom/sun/tools/javac/jvm/Code$LocalVar;CC)V", nullptr, 0, $method(Code$LocalVar$Range, init$, void, $Code$LocalVar*, char16_t, char16_t)},
+		{"closed", "()Z", nullptr, 0, $virtualMethod(Code$LocalVar$Range, closed, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Code$LocalVar$Range, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.Code$LocalVar", "com.sun.tools.javac.jvm.Code", "LocalVar", $STATIC},
+		{"com.sun.tools.javac.jvm.Code$LocalVar$Range", "com.sun.tools.javac.jvm.Code$LocalVar", "Range", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.Code$LocalVar$Range",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.Code"
+	};
+	$loadClass(Code$LocalVar$Range, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Code$LocalVar$Range);
+	});
 	return class$;
 }
 

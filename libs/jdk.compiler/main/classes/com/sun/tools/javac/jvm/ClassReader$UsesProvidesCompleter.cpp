@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/ClassReader$UsesProvidesCompleter.h>
-
 #include <com/sun/tools/javac/code/Directive$ProvidesDirective.h>
 #include <com/sun/tools/javac/code/Directive$UsesDirective.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
@@ -22,7 +21,6 @@ using $Directive$UsesDirective = ::com::sun::tools::javac::code::Directive$UsesD
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$ModuleSymbol = ::com::sun::tools::javac::code::Symbol$ModuleSymbol;
-using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $ClassReader = ::com::sun::tools::javac::jvm::ClassReader;
 using $ClassReader$InterimProvidesDirective = ::com::sun::tools::javac::jvm::ClassReader$InterimProvidesDirective;
 using $ClassReader$InterimUsesDirective = ::com::sun::tools::javac::jvm::ClassReader$InterimUsesDirective;
@@ -34,7 +32,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 
 namespace com {
@@ -42,46 +39,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$FieldInfo _ClassReader$UsesProvidesCompleter_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/jvm/ClassReader;", nullptr, $FINAL | $SYNTHETIC, $field(ClassReader$UsesProvidesCompleter, this$0)},
-	{"currentModule", "Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PRIVATE | $FINAL, $field(ClassReader$UsesProvidesCompleter, currentModule)},
-	{"interimUsesCopy", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$InterimUsesDirective;>;", $PRIVATE | $FINAL, $field(ClassReader$UsesProvidesCompleter, interimUsesCopy)},
-	{"interimProvidesCopy", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$InterimProvidesDirective;>;", $PRIVATE | $FINAL, $field(ClassReader$UsesProvidesCompleter, interimProvidesCopy)},
-	{}
-};
-
-$MethodInfo _ClassReader$UsesProvidesCompleter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$InterimUsesDirective;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$InterimProvidesDirective;>;)V", $PUBLIC, $method(ClassReader$UsesProvidesCompleter, init$, void, $ClassReader*, $Symbol$ModuleSymbol*, $List*, $List*)},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(ClassReader$UsesProvidesCompleter, complete, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{}
-};
-
-$InnerClassInfo _ClassReader$UsesProvidesCompleter_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.ClassReader$UsesProvidesCompleter", "com.sun.tools.javac.jvm.ClassReader", "UsesProvidesCompleter", $PRIVATE | $FINAL},
-	{"com.sun.tools.javac.code.Symbol$Completer", "com.sun.tools.javac.code.Symbol", "Completer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ClassReader$UsesProvidesCompleter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.tools.javac.jvm.ClassReader$UsesProvidesCompleter",
-	"java.lang.Object",
-	"com.sun.tools.javac.code.Symbol$Completer",
-	_ClassReader$UsesProvidesCompleter_FieldInfo_,
-	_ClassReader$UsesProvidesCompleter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClassReader$UsesProvidesCompleter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.ClassReader"
-};
-
-$Object* allocate$ClassReader$UsesProvidesCompleter($Class* clazz) {
-	return $of($alloc(ClassReader$UsesProvidesCompleter));
-}
 
 void ClassReader$UsesProvidesCompleter::init$($ClassReader* this$0, $Symbol$ModuleSymbol* currentModule, $List* interimUsesCopy, $List* interimProvidesCopy) {
 	$set(this, this$0, this$0);
@@ -91,9 +48,9 @@ void ClassReader$UsesProvidesCompleter::init$($ClassReader* this$0, $Symbol$Modu
 }
 
 void ClassReader$UsesProvidesCompleter::complete($Symbol* sym) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, directives, $new($ListBuffer));
-	directives->addAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>($nc(this->currentModule)->directives)));
+	directives->addAll($cast($AbstractCollection, $nc(this->currentModule)->directives));
 	$var($ListBuffer, uses, $new($ListBuffer));
 	{
 		$var($Iterator, i$, $nc(this->interimUsesCopy)->iterator());
@@ -106,7 +63,7 @@ void ClassReader$UsesProvidesCompleter::complete($Symbol* sym) {
 			}
 		}
 	}
-	$set($nc(this->currentModule), uses, uses->toList());
+	$set(this->currentModule, uses, uses->toList());
 	$var($ListBuffer, provides, $new($ListBuffer));
 	{
 		$var($Iterator, i$, $nc(this->interimProvidesCopy)->iterator());
@@ -130,15 +87,49 @@ void ClassReader$UsesProvidesCompleter::complete($Symbol* sym) {
 			}
 		}
 	}
-	$set($nc(this->currentModule), provides, provides->toList());
-	$set($nc(this->currentModule), directives, directives->toList());
+	$set(this->currentModule, provides, provides->toList());
+	$set(this->currentModule, directives, directives->toList());
 }
 
 ClassReader$UsesProvidesCompleter::ClassReader$UsesProvidesCompleter() {
 }
 
 $Class* ClassReader$UsesProvidesCompleter::load$($String* name, bool initialize) {
-	$loadClass(ClassReader$UsesProvidesCompleter, name, initialize, &_ClassReader$UsesProvidesCompleter_ClassInfo_, allocate$ClassReader$UsesProvidesCompleter);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/jvm/ClassReader;", nullptr, $FINAL | $SYNTHETIC, $field(ClassReader$UsesProvidesCompleter, this$0)},
+		{"currentModule", "Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PRIVATE | $FINAL, $field(ClassReader$UsesProvidesCompleter, currentModule)},
+		{"interimUsesCopy", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$InterimUsesDirective;>;", $PRIVATE | $FINAL, $field(ClassReader$UsesProvidesCompleter, interimUsesCopy)},
+		{"interimProvidesCopy", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$InterimProvidesDirective;>;", $PRIVATE | $FINAL, $field(ClassReader$UsesProvidesCompleter, interimProvidesCopy)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$InterimUsesDirective;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$InterimProvidesDirective;>;)V", $PUBLIC, $method(ClassReader$UsesProvidesCompleter, init$, void, $ClassReader*, $Symbol$ModuleSymbol*, $List*, $List*)},
+		{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(ClassReader$UsesProvidesCompleter, complete, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.ClassReader$UsesProvidesCompleter", "com.sun.tools.javac.jvm.ClassReader", "UsesProvidesCompleter", $PRIVATE | $FINAL},
+		{"com.sun.tools.javac.code.Symbol$Completer", "com.sun.tools.javac.code.Symbol", "Completer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.tools.javac.jvm.ClassReader$UsesProvidesCompleter",
+		"java.lang.Object",
+		"com.sun.tools.javac.code.Symbol$Completer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.ClassReader"
+	};
+	$loadClass(ClassReader$UsesProvidesCompleter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassReader$UsesProvidesCompleter);
+	});
 	return class$;
 }
 

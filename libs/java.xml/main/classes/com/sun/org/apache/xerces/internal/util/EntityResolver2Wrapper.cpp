@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/EntityResolver2Wrapper.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityDescription.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier.h>
 #include <com/sun/org/apache/xerces/internal/xni/XNIException.h>
@@ -35,35 +34,6 @@ namespace com {
 					namespace internal {
 						namespace util {
 
-$FieldInfo _EntityResolver2Wrapper_FieldInfo_[] = {
-	{"fEntityResolver", "Lorg/xml/sax/ext/EntityResolver2;", nullptr, $PROTECTED, $field(EntityResolver2Wrapper, fEntityResolver)},
-	{}
-};
-
-$MethodInfo _EntityResolver2Wrapper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(EntityResolver2Wrapper, init$, void)},
-	{"<init>", "(Lorg/xml/sax/ext/EntityResolver2;)V", nullptr, $PUBLIC, $method(EntityResolver2Wrapper, init$, void, $EntityResolver2*)},
-	{"createXMLInputSource", "(Lorg/xml/sax/InputSource;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;", nullptr, $PRIVATE, $method(EntityResolver2Wrapper, createXMLInputSource, $XMLInputSource*, $InputSource*, $String*)},
-	{"getEntityResolver", "()Lorg/xml/sax/ext/EntityResolver2;", nullptr, $PUBLIC, $virtualMethod(EntityResolver2Wrapper, getEntityResolver, $EntityResolver2*)},
-	{"getExternalSubset", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLDTDDescription;)Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;", nullptr, $PUBLIC, $virtualMethod(EntityResolver2Wrapper, getExternalSubset, $XMLInputSource*, $XMLDTDDescription*), "com.sun.org.apache.xerces.internal.xni.XNIException,java.io.IOException"},
-	{"resolveEntity", "(Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;)Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;", nullptr, $PUBLIC, $virtualMethod(EntityResolver2Wrapper, resolveEntity, $XMLInputSource*, $XMLResourceIdentifier*), "com.sun.org.apache.xerces.internal.xni.XNIException,java.io.IOException"},
-	{"setEntityResolver", "(Lorg/xml/sax/ext/EntityResolver2;)V", nullptr, $PUBLIC, $virtualMethod(EntityResolver2Wrapper, setEntityResolver, void, $EntityResolver2*)},
-	{}
-};
-
-$ClassInfo _EntityResolver2Wrapper_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.util.EntityResolver2Wrapper",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.impl.ExternalSubsetResolver",
-	_EntityResolver2Wrapper_FieldInfo_,
-	_EntityResolver2Wrapper_MethodInfo_
-};
-
-$Object* allocate$EntityResolver2Wrapper($Class* clazz) {
-	return $of($alloc(EntityResolver2Wrapper));
-}
-
 void EntityResolver2Wrapper::init$() {
 }
 
@@ -80,7 +50,7 @@ $EntityResolver2* EntityResolver2Wrapper::getEntityResolver() {
 }
 
 $XMLInputSource* EntityResolver2Wrapper::getExternalSubset($XMLDTDDescription* grammarDescription) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fEntityResolver != nullptr) {
 		$var($String, name, $nc(grammarDescription)->getRootName());
 		$var($String, baseURI, grammarDescription->getBaseSystemId());
@@ -99,7 +69,7 @@ $XMLInputSource* EntityResolver2Wrapper::getExternalSubset($XMLDTDDescription* g
 }
 
 $XMLInputSource* EntityResolver2Wrapper::resolveEntity($XMLResourceIdentifier* resourceIdentifier) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fEntityResolver != nullptr) {
 		$var($String, pubId, $nc(resourceIdentifier)->getPublicId());
 		$var($String, sysId, resourceIdentifier->getLiteralSystemId());
@@ -108,7 +78,7 @@ $XMLInputSource* EntityResolver2Wrapper::resolveEntity($XMLResourceIdentifier* r
 		if ($instanceOf($XMLDTDDescription, resourceIdentifier)) {
 			$assign(name, "[dtd]"_s);
 		} else if ($instanceOf($XMLEntityDescription, resourceIdentifier)) {
-			$assign(name, $nc(($cast($XMLEntityDescription, resourceIdentifier)))->getEntityName());
+			$assign(name, $cast($XMLEntityDescription, resourceIdentifier)->getEntityName());
 		}
 		if (pubId == nullptr && sysId == nullptr) {
 			return nullptr;
@@ -128,7 +98,7 @@ $XMLInputSource* EntityResolver2Wrapper::resolveEntity($XMLResourceIdentifier* r
 }
 
 $XMLInputSource* EntityResolver2Wrapper::createXMLInputSource($InputSource* source, $String* baseURI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, publicId, $nc(source)->getPublicId());
 	$var($String, systemId, source->getSystemId());
 	$var($String, baseSystemId, baseURI);
@@ -146,7 +116,31 @@ EntityResolver2Wrapper::EntityResolver2Wrapper() {
 }
 
 $Class* EntityResolver2Wrapper::load$($String* name, bool initialize) {
-	$loadClass(EntityResolver2Wrapper, name, initialize, &_EntityResolver2Wrapper_ClassInfo_, allocate$EntityResolver2Wrapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"fEntityResolver", "Lorg/xml/sax/ext/EntityResolver2;", nullptr, $PROTECTED, $field(EntityResolver2Wrapper, fEntityResolver)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(EntityResolver2Wrapper, init$, void)},
+		{"<init>", "(Lorg/xml/sax/ext/EntityResolver2;)V", nullptr, $PUBLIC, $method(EntityResolver2Wrapper, init$, void, $EntityResolver2*)},
+		{"createXMLInputSource", "(Lorg/xml/sax/InputSource;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;", nullptr, $PRIVATE, $method(EntityResolver2Wrapper, createXMLInputSource, $XMLInputSource*, $InputSource*, $String*)},
+		{"getEntityResolver", "()Lorg/xml/sax/ext/EntityResolver2;", nullptr, $PUBLIC, $virtualMethod(EntityResolver2Wrapper, getEntityResolver, $EntityResolver2*)},
+		{"getExternalSubset", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLDTDDescription;)Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;", nullptr, $PUBLIC, $virtualMethod(EntityResolver2Wrapper, getExternalSubset, $XMLInputSource*, $XMLDTDDescription*), "com.sun.org.apache.xerces.internal.xni.XNIException,java.io.IOException"},
+		{"resolveEntity", "(Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;)Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;", nullptr, $PUBLIC, $virtualMethod(EntityResolver2Wrapper, resolveEntity, $XMLInputSource*, $XMLResourceIdentifier*), "com.sun.org.apache.xerces.internal.xni.XNIException,java.io.IOException"},
+		{"setEntityResolver", "(Lorg/xml/sax/ext/EntityResolver2;)V", nullptr, $PUBLIC, $virtualMethod(EntityResolver2Wrapper, setEntityResolver, void, $EntityResolver2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.util.EntityResolver2Wrapper",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.impl.ExternalSubsetResolver",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EntityResolver2Wrapper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EntityResolver2Wrapper);
+	});
 	return class$;
 }
 

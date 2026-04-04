@@ -28,6 +28,7 @@ class SwingUtilities2$LSBCacheEntry : public ::java::lang::Object {
 	$class(SwingUtilities2$LSBCacheEntry, 0, ::java::lang::Object)
 public:
 	SwingUtilities2$LSBCacheEntry();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::font::FontRenderContext* frc, ::java::awt::Font* font);
 	virtual bool equals(Object$* entry) override;
 	virtual int32_t getLeftSideBearing(char16_t aChar);

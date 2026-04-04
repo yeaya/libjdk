@@ -1,5 +1,4 @@
 #include <sun/java2d/SurfaceData.h>
-
 #include <java/awt/AWTPermission.h>
 #include <java/awt/Color.h>
 #include <java/awt/GraphicsConfiguration.h>
@@ -100,7 +99,6 @@ using $AWTPermission = ::java::awt::AWTPermission;
 using $Color = ::java::awt::Color;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $Image = ::java::awt::Image;
-using $Paint = ::java::awt::Paint;
 using $Rectangle = ::java::awt::Rectangle;
 using $Transparency = ::java::awt::Transparency;
 using $ColorModel = ::java::awt::image::ColorModel;
@@ -156,11 +154,8 @@ using $LoopBasedPipe = ::sun::java2d::pipe::LoopBasedPipe;
 using $LoopPipe = ::sun::java2d::pipe::LoopPipe;
 using $OutlineTextRenderer = ::sun::java2d::pipe::OutlineTextRenderer;
 using $ParallelogramPipe = ::sun::java2d::pipe::ParallelogramPipe;
-using $PixelDrawPipe = ::sun::java2d::pipe::PixelDrawPipe;
-using $PixelFillPipe = ::sun::java2d::pipe::PixelFillPipe;
 using $PixelToParallelogramConverter = ::sun::java2d::pipe::PixelToParallelogramConverter;
 using $PixelToShapeConverter = ::sun::java2d::pipe::PixelToShapeConverter;
-using $ShapeDrawPipe = ::sun::java2d::pipe::ShapeDrawPipe;
 using $SolidTextRenderer = ::sun::java2d::pipe::SolidTextRenderer;
 using $SpanClipRenderer = ::sun::java2d::pipe::SpanClipRenderer;
 using $SpanShapeRenderer = ::sun::java2d::pipe::SpanShapeRenderer;
@@ -170,149 +165,6 @@ using $TextRenderer = ::sun::java2d::pipe::TextRenderer;
 
 namespace sun {
 	namespace java2d {
-
-$FieldInfo _SurfaceData_FieldInfo_[] = {
-	{"pData", "J", nullptr, $PRIVATE, $field(SurfaceData, pData)},
-	{"valid", "Z", nullptr, $PRIVATE, $field(SurfaceData, valid)},
-	{"surfaceLost", "Z", nullptr, $PRIVATE, $field(SurfaceData, surfaceLost)},
-	{"surfaceType", "Lsun/java2d/loops/SurfaceType;", nullptr, $PRIVATE, $field(SurfaceData, surfaceType)},
-	{"colorModel", "Ljava/awt/image/ColorModel;", nullptr, $PRIVATE, $field(SurfaceData, colorModel)},
-	{"disposerReferent", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(SurfaceData, disposerReferent)},
-	{"blitProxyKey", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(SurfaceData, blitProxyKey)},
-	{"stateDelegate", "Lsun/java2d/StateTrackableDelegate;", nullptr, $PRIVATE, $field(SurfaceData, stateDelegate)},
-	{"colorPrimitives", "Lsun/java2d/pipe/LoopPipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, colorPrimitives)},
-	{"outlineTextRenderer", "Lsun/java2d/pipe/TextPipe;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceData, outlineTextRenderer)},
-	{"solidTextRenderer", "Lsun/java2d/pipe/TextPipe;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceData, solidTextRenderer)},
-	{"aaTextRenderer", "Lsun/java2d/pipe/TextPipe;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceData, aaTextRenderer)},
-	{"lcdTextRenderer", "Lsun/java2d/pipe/TextPipe;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceData, lcdTextRenderer)},
-	{"colorPipe", "Lsun/java2d/pipe/AlphaColorPipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, colorPipe)},
-	{"colorViaShape", "Lsun/java2d/pipe/PixelToShapeConverter;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, colorViaShape)},
-	{"colorViaPgram", "Lsun/java2d/pipe/PixelToParallelogramConverter;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, colorViaPgram)},
-	{"colorText", "Lsun/java2d/pipe/TextPipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, colorText)},
-	{"clipColorPipe", "Lsun/java2d/pipe/CompositePipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, clipColorPipe)},
-	{"clipColorText", "Lsun/java2d/pipe/TextPipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, clipColorText)},
-	{"AAColorShape", "Lsun/java2d/pipe/AAShapePipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, AAColorShape)},
-	{"AAColorViaShape", "Lsun/java2d/pipe/PixelToParallelogramConverter;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, AAColorViaShape)},
-	{"AAColorViaPgram", "Lsun/java2d/pipe/PixelToParallelogramConverter;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, AAColorViaPgram)},
-	{"AAClipColorShape", "Lsun/java2d/pipe/AAShapePipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, AAClipColorShape)},
-	{"AAClipColorViaShape", "Lsun/java2d/pipe/PixelToParallelogramConverter;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, AAClipColorViaShape)},
-	{"paintPipe", "Lsun/java2d/pipe/CompositePipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, paintPipe)},
-	{"paintShape", "Lsun/java2d/pipe/SpanShapeRenderer;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, paintShape)},
-	{"paintViaShape", "Lsun/java2d/pipe/PixelToShapeConverter;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, paintViaShape)},
-	{"paintText", "Lsun/java2d/pipe/TextPipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, paintText)},
-	{"clipPaintPipe", "Lsun/java2d/pipe/CompositePipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, clipPaintPipe)},
-	{"clipPaintText", "Lsun/java2d/pipe/TextPipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, clipPaintText)},
-	{"AAPaintShape", "Lsun/java2d/pipe/AAShapePipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, AAPaintShape)},
-	{"AAPaintViaShape", "Lsun/java2d/pipe/PixelToParallelogramConverter;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, AAPaintViaShape)},
-	{"AAClipPaintShape", "Lsun/java2d/pipe/AAShapePipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, AAClipPaintShape)},
-	{"AAClipPaintViaShape", "Lsun/java2d/pipe/PixelToParallelogramConverter;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, AAClipPaintViaShape)},
-	{"compPipe", "Lsun/java2d/pipe/CompositePipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, compPipe)},
-	{"compShape", "Lsun/java2d/pipe/SpanShapeRenderer;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, compShape)},
-	{"compViaShape", "Lsun/java2d/pipe/PixelToShapeConverter;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, compViaShape)},
-	{"compText", "Lsun/java2d/pipe/TextPipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, compText)},
-	{"clipCompPipe", "Lsun/java2d/pipe/CompositePipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, clipCompPipe)},
-	{"clipCompText", "Lsun/java2d/pipe/TextPipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, clipCompText)},
-	{"AACompShape", "Lsun/java2d/pipe/AAShapePipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, AACompShape)},
-	{"AACompViaShape", "Lsun/java2d/pipe/PixelToParallelogramConverter;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, AACompViaShape)},
-	{"AAClipCompShape", "Lsun/java2d/pipe/AAShapePipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, AAClipCompShape)},
-	{"AAClipCompViaShape", "Lsun/java2d/pipe/PixelToParallelogramConverter;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, AAClipCompViaShape)},
-	{"imagepipe", "Lsun/java2d/pipe/DrawImagePipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, imagepipe)},
-	{"LOOP_UNKNOWN", "I", nullptr, $STATIC | $FINAL, $constField(SurfaceData, LOOP_UNKNOWN)},
-	{"LOOP_FOUND", "I", nullptr, $STATIC | $FINAL, $constField(SurfaceData, LOOP_FOUND)},
-	{"LOOP_NOTFOUND", "I", nullptr, $STATIC | $FINAL, $constField(SurfaceData, LOOP_NOTFOUND)},
-	{"haveLCDLoop", "I", nullptr, 0, $field(SurfaceData, haveLCDLoop)},
-	{"havePgramXORLoop", "I", nullptr, 0, $field(SurfaceData, havePgramXORLoop)},
-	{"havePgramSolidLoop", "I", nullptr, 0, $field(SurfaceData, havePgramSolidLoop)},
-	{"loopcache", "Lsun/java2d/loops/RenderCache;", nullptr, $PRIVATE | $STATIC, $staticField(SurfaceData, loopcache)},
-	{"compPermission", "Ljava/security/Permission;", nullptr, $STATIC, $staticField(SurfaceData, compPermission)},
-	{}
-};
-
-$MethodInfo _SurfaceData_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Ljava/awt/image/ColorModel;)V", nullptr, $PROTECTED, $method(SurfaceData, init$, void, $SurfaceType*, $ColorModel*)},
-	{"<init>", "(Lsun/java2d/StateTrackable$State;Lsun/java2d/loops/SurfaceType;Ljava/awt/image/ColorModel;)V", nullptr, $PROTECTED, $method(SurfaceData, init$, void, $StateTrackable$State*, $SurfaceType*, $ColorModel*)},
-	{"<init>", "(Lsun/java2d/StateTrackableDelegate;Lsun/java2d/loops/SurfaceType;Ljava/awt/image/ColorModel;)V", nullptr, $PROTECTED, $method(SurfaceData, init$, void, $StateTrackableDelegate*, $SurfaceType*, $ColorModel*)},
-	{"<init>", "(Lsun/java2d/StateTrackable$State;)V", nullptr, $PROTECTED, $method(SurfaceData, init$, void, $StateTrackable$State*)},
-	{"canRenderLCDText", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, $PUBLIC, $virtualMethod(SurfaceData, canRenderLCDText, bool, $SunGraphics2D*)},
-	{"canRenderParallelograms", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, $PUBLIC, $virtualMethod(SurfaceData, canRenderParallelograms, bool, $SunGraphics2D*)},
-	{"checkCustomComposite", "()V", nullptr, $PROTECTED, $virtualMethod(SurfaceData, checkCustomComposite, void)},
-	{"copyArea", "(Lsun/java2d/SunGraphics2D;IIIIII)Z", nullptr, $PUBLIC, $virtualMethod(SurfaceData, copyArea, bool, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(SurfaceData, flush, void)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SurfaceData, getBounds, $Rectangle*)},
-	{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $FINAL, $method(SurfaceData, getColorModel, $ColorModel*)},
-	{"getDefaultScaleX", "()D", nullptr, $PUBLIC, $virtualMethod(SurfaceData, getDefaultScaleX, double)},
-	{"getDefaultScaleY", "()D", nullptr, $PUBLIC, $virtualMethod(SurfaceData, getDefaultScaleY, double)},
-	{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SurfaceData, getDestination, $Object*)},
-	{"getDeviceConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SurfaceData, getDeviceConfiguration, $GraphicsConfiguration*)},
-	{"getDisposerReferent", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SurfaceData, getDisposerReferent, $Object*)},
-	{"getFillCompositeType", "(Lsun/java2d/SunGraphics2D;)Lsun/java2d/loops/CompositeType;", nullptr, $PRIVATE | $STATIC, $staticMethod(SurfaceData, getFillCompositeType, $CompositeType*, $SunGraphics2D*)},
-	{"getMaskFill", "(Lsun/java2d/SunGraphics2D;)Lsun/java2d/loops/MaskFill;", nullptr, $PROTECTED, $virtualMethod(SurfaceData, getMaskFill, $MaskFill*, $SunGraphics2D*)},
-	{"getNativeOps", "()J", nullptr, $PUBLIC, $virtualMethod(SurfaceData, getNativeOps, int64_t)},
-	{"getPaintSurfaceType", "(Lsun/java2d/SunGraphics2D;)Lsun/java2d/loops/SurfaceType;", nullptr, $PRIVATE | $STATIC, $staticMethod(SurfaceData, getPaintSurfaceType, $SurfaceType*, $SunGraphics2D*)},
-	{"getPrimarySurfaceData", "(Ljava/awt/Image;)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(SurfaceData, getPrimarySurfaceData, SurfaceData*, $Image*)},
-	{"getRaster", "(IIII)Ljava/awt/image/Raster;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SurfaceData, getRaster, $Raster*, int32_t, int32_t, int32_t, int32_t)},
-	{"getRenderLoops", "(Lsun/java2d/SunGraphics2D;)Lsun/java2d/loops/RenderLoops;", nullptr, $PUBLIC, $virtualMethod(SurfaceData, getRenderLoops, $RenderLoops*, $SunGraphics2D*)},
-	{"getReplacement", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SurfaceData, getReplacement, SurfaceData*)},
-	{"getSourceSurfaceData", "(Ljava/awt/Image;ILsun/java2d/loops/CompositeType;Ljava/awt/Color;)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(SurfaceData, getSourceSurfaceData, SurfaceData*, $Image*, int32_t, $CompositeType*, $Color*)},
-	{"getState", "()Lsun/java2d/StateTrackable$State;", nullptr, $PUBLIC, $virtualMethod(SurfaceData, getState, $StateTrackable$State*)},
-	{"getStateTracker", "()Lsun/java2d/StateTracker;", nullptr, $PUBLIC, $virtualMethod(SurfaceData, getStateTracker, $StateTracker*)},
-	{"getSurfaceType", "()Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $FINAL, $method(SurfaceData, getSurfaceType, $SurfaceType*)},
-	{"getTextPipe", "(Lsun/java2d/SunGraphics2D;Z)Lsun/java2d/pipe/TextPipe;", nullptr, $PRIVATE, $method(SurfaceData, getTextPipe, $TextPipe*, $SunGraphics2D*, bool)},
-	{"getTransparency", "()I", nullptr, $PUBLIC, $virtualMethod(SurfaceData, getTransparency, int32_t)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SurfaceData, initIDs, void)},
-	{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(SurfaceData, invalidate, void)},
-	{"isNull", "(Lsun/java2d/SurfaceData;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SurfaceData, isNull, bool, SurfaceData*)},
-	{"isOpaqueGray", "(Ljava/awt/image/IndexColorModel;)Z", nullptr, $PROTECTED | $STATIC | $NATIVE, $staticMethod(SurfaceData, isOpaqueGray, bool, $IndexColorModel*)},
-	{"isSurfaceLost", "()Z", nullptr, $PUBLIC, $virtualMethod(SurfaceData, isSurfaceLost, bool)},
-	{"isValid", "()Z", nullptr, $PUBLIC | $FINAL, $method(SurfaceData, isValid, bool)},
-	{"makeConverter", "(Lsun/java2d/pipe/AAShapePipe;Lsun/java2d/pipe/ParallelogramPipe;)Lsun/java2d/pipe/PixelToParallelogramConverter;", nullptr, $PRIVATE | $STATIC, $staticMethod(SurfaceData, makeConverter, $PixelToParallelogramConverter*, $AAShapePipe*, $ParallelogramPipe*)},
-	{"makeConverter", "(Lsun/java2d/pipe/AAShapePipe;)Lsun/java2d/pipe/PixelToParallelogramConverter;", nullptr, $PRIVATE | $STATIC, $staticMethod(SurfaceData, makeConverter, $PixelToParallelogramConverter*, $AAShapePipe*)},
-	{"makeProxyFor", "(Lsun/java2d/SurfaceData;)Lsun/java2d/SurfaceDataProxy;", nullptr, $PUBLIC, $virtualMethod(SurfaceData, makeProxyFor, $SurfaceDataProxy*, SurfaceData*)},
-	{"makeRenderLoops", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/RenderLoops;", nullptr, $PUBLIC | $STATIC, $staticMethod(SurfaceData, makeRenderLoops, $RenderLoops*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"markDirty", "()V", nullptr, $PUBLIC | $FINAL, $method(SurfaceData, markDirty, void)},
-	{"pixelFor", "(I)I", nullptr, $PUBLIC, $virtualMethod(SurfaceData, pixelFor, int32_t, int32_t)},
-	{"pixelFor", "(Ljava/awt/Color;)I", nullptr, $PUBLIC, $virtualMethod(SurfaceData, pixelFor, int32_t, $Color*)},
-	{"restoreContents", "(Ljava/awt/Image;)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(SurfaceData, restoreContents, SurfaceData*, $Image*)},
-	{"rgbFor", "(I)I", nullptr, $PUBLIC, $virtualMethod(SurfaceData, rgbFor, int32_t, int32_t)},
-	{"setBlitProxyKey", "(Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(SurfaceData, setBlitProxyKey, void, Object$*)},
-	{"setSurfaceLost", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SurfaceData, setSurfaceLost, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"useTightBBoxes", "()Z", nullptr, $PUBLIC, $virtualMethod(SurfaceData, useTightBBoxes, bool)},
-	{"validatePipe", "(Lsun/java2d/SunGraphics2D;)V", nullptr, $PUBLIC, $virtualMethod(SurfaceData, validatePipe, void, $SunGraphics2D*)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 34
-#define _METHOD_INDEX_isOpaqueGray 37
-
-$InnerClassInfo _SurfaceData_InnerClassesInfo_[] = {
-	{"sun.java2d.SurfaceData$PixelToPgramLoopConverter", "sun.java2d.SurfaceData", "PixelToPgramLoopConverter", $STATIC},
-	{"sun.java2d.SurfaceData$PixelToShapeLoopConverter", "sun.java2d.SurfaceData", "PixelToShapeLoopConverter", $STATIC},
-	{}
-};
-
-$ClassInfo _SurfaceData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.java2d.SurfaceData",
-	"java.lang.Object",
-	"java.awt.Transparency,sun.java2d.DisposerTarget,sun.java2d.StateTrackable,sun.java2d.Surface",
-	_SurfaceData_FieldInfo_,
-	_SurfaceData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SurfaceData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.SurfaceData$PixelToPgramLoopConverter,sun.java2d.SurfaceData$PixelToShapeLoopConverter"
-};
-
-$Object* allocate$SurfaceData($Class* clazz) {
-	return $of($alloc(SurfaceData));
-}
 
 int32_t SurfaceData::hashCode() {
 	 return this->$Transparency::hashCode();
@@ -376,7 +228,7 @@ $Permission* SurfaceData::compPermission = nullptr;
 
 void SurfaceData::initIDs() {
 	$init(SurfaceData);
-	$prepareNativeStatic(SurfaceData, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -411,12 +263,12 @@ void SurfaceData::setBlitProxyKey(Object$* key) {
 }
 
 SurfaceData* SurfaceData::getSourceSurfaceData($Image* img, int32_t txtype, $CompositeType* comp, $Color* bgColor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceManager, srcMgr, $SurfaceManager::getManager(img));
 	$var(SurfaceData, srcData, $nc(srcMgr)->getPrimarySurfaceData());
 	if ($nc(img)->getAccelerationPriority() > 0.0f && this->blitProxyKey != nullptr) {
 		$var($SurfaceDataProxy, sdp, $cast($SurfaceDataProxy, srcMgr->getCacheData(this->blitProxyKey)));
-		if (sdp == nullptr || !$nc(sdp)->isValid()) {
+		if (sdp == nullptr || !sdp->isValid()) {
 			$init($StateTrackable$State);
 			if ($nc(srcData)->getState() == $StateTrackable$State::UNTRACKABLE) {
 				$init($SurfaceDataProxy);
@@ -474,7 +326,7 @@ bool SurfaceData::isValid() {
 }
 
 $Object* SurfaceData::getDisposerReferent() {
-	return $of(this->disposerReferent);
+	return this->disposerReferent;
 }
 
 int64_t SurfaceData::getNativeOps() {
@@ -497,7 +349,7 @@ $PixelToParallelogramConverter* SurfaceData::makeConverter($AAShapePipe* rendere
 }
 
 bool SurfaceData::canRenderLCDText($SunGraphics2D* sg2d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(sg2d)->compositeState <= $SunGraphics2D::COMP_ISCOPY && sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR && sg2d->clipState <= $SunGraphics2D::CLIP_RECTANGULAR && $nc(sg2d->surfaceData)->getTransparency() == $Transparency::OPAQUE) {
 		if (this->haveLCDLoop == SurfaceData::LOOP_UNKNOWN) {
 			$init($SurfaceType);
@@ -511,7 +363,7 @@ bool SurfaceData::canRenderLCDText($SunGraphics2D* sg2d) {
 }
 
 bool SurfaceData::canRenderParallelograms($SunGraphics2D* sg2d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(sg2d)->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR) {
 		if (sg2d->compositeState == $SunGraphics2D::COMP_XOR) {
 			if (this->havePgramXORLoop == SurfaceData::LOOP_UNKNOWN) {
@@ -535,7 +387,7 @@ bool SurfaceData::canRenderParallelograms($SunGraphics2D* sg2d) {
 }
 
 void SurfaceData::validatePipe($SunGraphics2D* sg2d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set($nc(sg2d), imagepipe, SurfaceData::imagepipe);
 	if (sg2d->compositeState == $SunGraphics2D::COMP_XOR) {
 		if (sg2d->paintState > $SunGraphics2D::PAINT_ALPHACOLOR) {
@@ -603,7 +455,7 @@ void SurfaceData::validatePipe($SunGraphics2D* sg2d) {
 				$set(sg2d, shapepipe, SurfaceData::AAClipColorViaShape);
 				$set(sg2d, textpipe, SurfaceData::clipColorText);
 			} else {
-				$var($PixelToParallelogramConverter, converter, $nc(sg2d->alphafill)->canDoParallelograms() ? SurfaceData::AAColorViaPgram : SurfaceData::AAColorViaShape);
+				$var($PixelToParallelogramConverter, converter, sg2d->alphafill->canDoParallelograms() ? SurfaceData::AAColorViaPgram : SurfaceData::AAColorViaShape);
 				$set(sg2d, drawpipe, converter);
 				$set(sg2d, fillpipe, converter);
 				$set(sg2d, shapepipe, converter);
@@ -670,46 +522,29 @@ void SurfaceData::validatePipe($SunGraphics2D* sg2d) {
 $TextPipe* SurfaceData::getTextPipe($SunGraphics2D* sg2d, bool aaHintIsOn) {
 	switch ($nc(sg2d)->textAntialiasHint) {
 	case $SunHints::INTVAL_TEXT_ANTIALIAS_DEFAULT:
-		{
+		if (aaHintIsOn) {
+			return SurfaceData::aaTextRenderer;
+		} else {
+			return SurfaceData::solidTextRenderer;
+		}
+	case $SunHints::INTVAL_TEXT_ANTIALIAS_OFF:
+		return SurfaceData::solidTextRenderer;
+	case $SunHints::INTVAL_TEXT_ANTIALIAS_ON:
+		return SurfaceData::aaTextRenderer;
+	default:
+		switch ($nc($(sg2d->getFontInfo()))->aaHint) {
+		case $SunHints::INTVAL_TEXT_ANTIALIAS_LCD_HRGB:
+		case $SunHints::INTVAL_TEXT_ANTIALIAS_LCD_VRGB:
+			return SurfaceData::lcdTextRenderer;
+		case $SunHints::INTVAL_TEXT_ANTIALIAS_ON:
+			return SurfaceData::aaTextRenderer;
+		case $SunHints::INTVAL_TEXT_ANTIALIAS_OFF:
+			return SurfaceData::solidTextRenderer;
+		default:
 			if (aaHintIsOn) {
 				return SurfaceData::aaTextRenderer;
 			} else {
 				return SurfaceData::solidTextRenderer;
-			}
-		}
-	case $SunHints::INTVAL_TEXT_ANTIALIAS_OFF:
-		{
-			return SurfaceData::solidTextRenderer;
-		}
-	case $SunHints::INTVAL_TEXT_ANTIALIAS_ON:
-		{
-			return SurfaceData::aaTextRenderer;
-		}
-	default:
-		{
-			switch ($nc($(sg2d->getFontInfo()))->aaHint) {
-			case $SunHints::INTVAL_TEXT_ANTIALIAS_LCD_HRGB:
-				{}
-			case $SunHints::INTVAL_TEXT_ANTIALIAS_LCD_VRGB:
-				{
-					return SurfaceData::lcdTextRenderer;
-				}
-			case $SunHints::INTVAL_TEXT_ANTIALIAS_ON:
-				{
-					return SurfaceData::aaTextRenderer;
-				}
-			case $SunHints::INTVAL_TEXT_ANTIALIAS_OFF:
-				{
-					return SurfaceData::solidTextRenderer;
-				}
-			default:
-				{
-					if (aaHintIsOn) {
-						return SurfaceData::aaTextRenderer;
-					} else {
-						return SurfaceData::solidTextRenderer;
-					}
-				}
 			}
 		}
 	}
@@ -719,62 +554,47 @@ $SurfaceType* SurfaceData::getPaintSurfaceType($SunGraphics2D* sg2d) {
 	$init(SurfaceData);
 	switch ($nc(sg2d)->paintState) {
 	case $SunGraphics2D::PAINT_OPAQUECOLOR:
-		{
-			$init($SurfaceType);
-			return $SurfaceType::OpaqueColor;
-		}
+		$init($SurfaceType);
+		return $SurfaceType::OpaqueColor;
 	case $SunGraphics2D::PAINT_ALPHACOLOR:
-		{
-			$init($SurfaceType);
-			return $SurfaceType::AnyColor;
-		}
+		$init($SurfaceType);
+		return $SurfaceType::AnyColor;
 	case $SunGraphics2D::PAINT_GRADIENT:
-		{
-			if ($nc(sg2d->paint)->getTransparency() == $Transparency::OPAQUE) {
-				$init($SurfaceType);
-				return $SurfaceType::OpaqueGradientPaint;
-			} else {
-				$init($SurfaceType);
-				return $SurfaceType::GradientPaint;
-			}
+		if ($nc(sg2d->paint)->getTransparency() == $Transparency::OPAQUE) {
+			$init($SurfaceType);
+			return $SurfaceType::OpaqueGradientPaint;
+		} else {
+			$init($SurfaceType);
+			return $SurfaceType::GradientPaint;
 		}
 	case $SunGraphics2D::PAINT_LIN_GRADIENT:
-		{
-			if ($nc(sg2d->paint)->getTransparency() == $Transparency::OPAQUE) {
-				$init($SurfaceType);
-				return $SurfaceType::OpaqueLinearGradientPaint;
-			} else {
-				$init($SurfaceType);
-				return $SurfaceType::LinearGradientPaint;
-			}
+		if ($nc(sg2d->paint)->getTransparency() == $Transparency::OPAQUE) {
+			$init($SurfaceType);
+			return $SurfaceType::OpaqueLinearGradientPaint;
+		} else {
+			$init($SurfaceType);
+			return $SurfaceType::LinearGradientPaint;
 		}
 	case $SunGraphics2D::PAINT_RAD_GRADIENT:
-		{
-			if ($nc(sg2d->paint)->getTransparency() == $Transparency::OPAQUE) {
-				$init($SurfaceType);
-				return $SurfaceType::OpaqueRadialGradientPaint;
-			} else {
-				$init($SurfaceType);
-				return $SurfaceType::RadialGradientPaint;
-			}
+		if ($nc(sg2d->paint)->getTransparency() == $Transparency::OPAQUE) {
+			$init($SurfaceType);
+			return $SurfaceType::OpaqueRadialGradientPaint;
+		} else {
+			$init($SurfaceType);
+			return $SurfaceType::RadialGradientPaint;
 		}
 	case $SunGraphics2D::PAINT_TEXTURE:
-		{
-			if ($nc(sg2d->paint)->getTransparency() == $Transparency::OPAQUE) {
-				$init($SurfaceType);
-				return $SurfaceType::OpaqueTexturePaint;
-			} else {
-				$init($SurfaceType);
-				return $SurfaceType::TexturePaint;
-			}
+		if ($nc(sg2d->paint)->getTransparency() == $Transparency::OPAQUE) {
+			$init($SurfaceType);
+			return $SurfaceType::OpaqueTexturePaint;
+		} else {
+			$init($SurfaceType);
+			return $SurfaceType::TexturePaint;
 		}
 	default:
-		{}
 	case $SunGraphics2D::PAINT_CUSTOM:
-		{
-			$init($SurfaceType);
-			return $SurfaceType::AnyPaint;
-		}
+		$init($SurfaceType);
+		return $SurfaceType::AnyPaint;
 	}
 }
 
@@ -793,7 +613,7 @@ $CompositeType* SurfaceData::getFillCompositeType($SunGraphics2D* sg2d) {
 }
 
 $MaskFill* SurfaceData::getMaskFill($SunGraphics2D* sg2d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceType, src, getPaintSurfaceType(sg2d));
 	$var($CompositeType, comp, getFillCompositeType(sg2d));
 	$var($SurfaceType, dst, getSurfaceType());
@@ -801,10 +621,10 @@ $MaskFill* SurfaceData::getMaskFill($SunGraphics2D* sg2d) {
 }
 
 $RenderLoops* SurfaceData::getRenderLoops($SunGraphics2D* sg2d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceType, src, getPaintSurfaceType(sg2d));
 	$var($CompositeType, comp, getFillCompositeType(sg2d));
-	$var($SurfaceType, dst, $nc($($nc(sg2d)->getSurfaceData()))->getSurfaceType());
+	$var($SurfaceType, dst, $$nc($nc(sg2d)->getSurfaceData())->getSurfaceType());
 	$var($Object, o, $nc(SurfaceData::loopcache)->get(src, comp, dst));
 	if (o != nullptr) {
 		return $cast($RenderLoops, o);
@@ -842,7 +662,7 @@ $ColorModel* SurfaceData::getColorModel() {
 }
 
 int32_t SurfaceData::getTransparency() {
-	return $nc($(getColorModel()))->getTransparency();
+	return $$nc(getColorModel())->getTransparency();
 }
 
 bool SurfaceData::useTightBBoxes() {
@@ -873,9 +693,8 @@ void SurfaceData::checkCustomComposite() {
 
 bool SurfaceData::isOpaqueGray($IndexColorModel* icm) {
 	$init(SurfaceData);
-	bool $ret = false;
-	$prepareNativeStatic(SurfaceData, isOpaqueGray, bool, $IndexColorModel* icm);
-	$ret = $invokeNativeStatic(icm);
+	$prepareNativeStatic(isOpaqueGray, bool, $IndexColorModel* icm);
+	bool $ret = $invokeNativeStatic(icm);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -897,14 +716,14 @@ void SurfaceData::flush() {
 }
 
 double SurfaceData::getDefaultScaleX() {
-	return (double)1;
+	return 1;
 }
 
 double SurfaceData::getDefaultScaleY() {
-	return (double)1;
+	return 1;
 }
 
-void clinit$SurfaceData($Class* class$) {
+void SurfaceData::clinit$($Class* clazz) {
 	{
 		SurfaceData::initIDs();
 	}
@@ -959,7 +778,141 @@ SurfaceData::SurfaceData() {
 }
 
 $Class* SurfaceData::load$($String* name, bool initialize) {
-	$loadClass(SurfaceData, name, initialize, &_SurfaceData_ClassInfo_, clinit$SurfaceData, allocate$SurfaceData);
+	$FieldInfo fieldInfos$$[] = {
+		{"pData", "J", nullptr, $PRIVATE, $field(SurfaceData, pData)},
+		{"valid", "Z", nullptr, $PRIVATE, $field(SurfaceData, valid)},
+		{"surfaceLost", "Z", nullptr, $PRIVATE, $field(SurfaceData, surfaceLost)},
+		{"surfaceType", "Lsun/java2d/loops/SurfaceType;", nullptr, $PRIVATE, $field(SurfaceData, surfaceType)},
+		{"colorModel", "Ljava/awt/image/ColorModel;", nullptr, $PRIVATE, $field(SurfaceData, colorModel)},
+		{"disposerReferent", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(SurfaceData, disposerReferent)},
+		{"blitProxyKey", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(SurfaceData, blitProxyKey)},
+		{"stateDelegate", "Lsun/java2d/StateTrackableDelegate;", nullptr, $PRIVATE, $field(SurfaceData, stateDelegate)},
+		{"colorPrimitives", "Lsun/java2d/pipe/LoopPipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, colorPrimitives)},
+		{"outlineTextRenderer", "Lsun/java2d/pipe/TextPipe;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceData, outlineTextRenderer)},
+		{"solidTextRenderer", "Lsun/java2d/pipe/TextPipe;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceData, solidTextRenderer)},
+		{"aaTextRenderer", "Lsun/java2d/pipe/TextPipe;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceData, aaTextRenderer)},
+		{"lcdTextRenderer", "Lsun/java2d/pipe/TextPipe;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceData, lcdTextRenderer)},
+		{"colorPipe", "Lsun/java2d/pipe/AlphaColorPipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, colorPipe)},
+		{"colorViaShape", "Lsun/java2d/pipe/PixelToShapeConverter;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, colorViaShape)},
+		{"colorViaPgram", "Lsun/java2d/pipe/PixelToParallelogramConverter;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, colorViaPgram)},
+		{"colorText", "Lsun/java2d/pipe/TextPipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, colorText)},
+		{"clipColorPipe", "Lsun/java2d/pipe/CompositePipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, clipColorPipe)},
+		{"clipColorText", "Lsun/java2d/pipe/TextPipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, clipColorText)},
+		{"AAColorShape", "Lsun/java2d/pipe/AAShapePipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, AAColorShape)},
+		{"AAColorViaShape", "Lsun/java2d/pipe/PixelToParallelogramConverter;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, AAColorViaShape)},
+		{"AAColorViaPgram", "Lsun/java2d/pipe/PixelToParallelogramConverter;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, AAColorViaPgram)},
+		{"AAClipColorShape", "Lsun/java2d/pipe/AAShapePipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, AAClipColorShape)},
+		{"AAClipColorViaShape", "Lsun/java2d/pipe/PixelToParallelogramConverter;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, AAClipColorViaShape)},
+		{"paintPipe", "Lsun/java2d/pipe/CompositePipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, paintPipe)},
+		{"paintShape", "Lsun/java2d/pipe/SpanShapeRenderer;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, paintShape)},
+		{"paintViaShape", "Lsun/java2d/pipe/PixelToShapeConverter;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, paintViaShape)},
+		{"paintText", "Lsun/java2d/pipe/TextPipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, paintText)},
+		{"clipPaintPipe", "Lsun/java2d/pipe/CompositePipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, clipPaintPipe)},
+		{"clipPaintText", "Lsun/java2d/pipe/TextPipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, clipPaintText)},
+		{"AAPaintShape", "Lsun/java2d/pipe/AAShapePipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, AAPaintShape)},
+		{"AAPaintViaShape", "Lsun/java2d/pipe/PixelToParallelogramConverter;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, AAPaintViaShape)},
+		{"AAClipPaintShape", "Lsun/java2d/pipe/AAShapePipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, AAClipPaintShape)},
+		{"AAClipPaintViaShape", "Lsun/java2d/pipe/PixelToParallelogramConverter;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, AAClipPaintViaShape)},
+		{"compPipe", "Lsun/java2d/pipe/CompositePipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, compPipe)},
+		{"compShape", "Lsun/java2d/pipe/SpanShapeRenderer;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, compShape)},
+		{"compViaShape", "Lsun/java2d/pipe/PixelToShapeConverter;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, compViaShape)},
+		{"compText", "Lsun/java2d/pipe/TextPipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, compText)},
+		{"clipCompPipe", "Lsun/java2d/pipe/CompositePipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, clipCompPipe)},
+		{"clipCompText", "Lsun/java2d/pipe/TextPipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, clipCompText)},
+		{"AACompShape", "Lsun/java2d/pipe/AAShapePipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, AACompShape)},
+		{"AACompViaShape", "Lsun/java2d/pipe/PixelToParallelogramConverter;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, AACompViaShape)},
+		{"AAClipCompShape", "Lsun/java2d/pipe/AAShapePipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, AAClipCompShape)},
+		{"AAClipCompViaShape", "Lsun/java2d/pipe/PixelToParallelogramConverter;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, AAClipCompViaShape)},
+		{"imagepipe", "Lsun/java2d/pipe/DrawImagePipe;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SurfaceData, imagepipe)},
+		{"LOOP_UNKNOWN", "I", nullptr, $STATIC | $FINAL, $constField(SurfaceData, LOOP_UNKNOWN)},
+		{"LOOP_FOUND", "I", nullptr, $STATIC | $FINAL, $constField(SurfaceData, LOOP_FOUND)},
+		{"LOOP_NOTFOUND", "I", nullptr, $STATIC | $FINAL, $constField(SurfaceData, LOOP_NOTFOUND)},
+		{"haveLCDLoop", "I", nullptr, 0, $field(SurfaceData, haveLCDLoop)},
+		{"havePgramXORLoop", "I", nullptr, 0, $field(SurfaceData, havePgramXORLoop)},
+		{"havePgramSolidLoop", "I", nullptr, 0, $field(SurfaceData, havePgramSolidLoop)},
+		{"loopcache", "Lsun/java2d/loops/RenderCache;", nullptr, $PRIVATE | $STATIC, $staticField(SurfaceData, loopcache)},
+		{"compPermission", "Ljava/security/Permission;", nullptr, $STATIC, $staticField(SurfaceData, compPermission)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Ljava/awt/image/ColorModel;)V", nullptr, $PROTECTED, $method(SurfaceData, init$, void, $SurfaceType*, $ColorModel*)},
+		{"<init>", "(Lsun/java2d/StateTrackable$State;Lsun/java2d/loops/SurfaceType;Ljava/awt/image/ColorModel;)V", nullptr, $PROTECTED, $method(SurfaceData, init$, void, $StateTrackable$State*, $SurfaceType*, $ColorModel*)},
+		{"<init>", "(Lsun/java2d/StateTrackableDelegate;Lsun/java2d/loops/SurfaceType;Ljava/awt/image/ColorModel;)V", nullptr, $PROTECTED, $method(SurfaceData, init$, void, $StateTrackableDelegate*, $SurfaceType*, $ColorModel*)},
+		{"<init>", "(Lsun/java2d/StateTrackable$State;)V", nullptr, $PROTECTED, $method(SurfaceData, init$, void, $StateTrackable$State*)},
+		{"canRenderLCDText", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, $PUBLIC, $virtualMethod(SurfaceData, canRenderLCDText, bool, $SunGraphics2D*)},
+		{"canRenderParallelograms", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, $PUBLIC, $virtualMethod(SurfaceData, canRenderParallelograms, bool, $SunGraphics2D*)},
+		{"checkCustomComposite", "()V", nullptr, $PROTECTED, $virtualMethod(SurfaceData, checkCustomComposite, void)},
+		{"copyArea", "(Lsun/java2d/SunGraphics2D;IIIIII)Z", nullptr, $PUBLIC, $virtualMethod(SurfaceData, copyArea, bool, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(SurfaceData, flush, void)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SurfaceData, getBounds, $Rectangle*)},
+		{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $FINAL, $method(SurfaceData, getColorModel, $ColorModel*)},
+		{"getDefaultScaleX", "()D", nullptr, $PUBLIC, $virtualMethod(SurfaceData, getDefaultScaleX, double)},
+		{"getDefaultScaleY", "()D", nullptr, $PUBLIC, $virtualMethod(SurfaceData, getDefaultScaleY, double)},
+		{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SurfaceData, getDestination, $Object*)},
+		{"getDeviceConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SurfaceData, getDeviceConfiguration, $GraphicsConfiguration*)},
+		{"getDisposerReferent", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SurfaceData, getDisposerReferent, $Object*)},
+		{"getFillCompositeType", "(Lsun/java2d/SunGraphics2D;)Lsun/java2d/loops/CompositeType;", nullptr, $PRIVATE | $STATIC, $staticMethod(SurfaceData, getFillCompositeType, $CompositeType*, $SunGraphics2D*)},
+		{"getMaskFill", "(Lsun/java2d/SunGraphics2D;)Lsun/java2d/loops/MaskFill;", nullptr, $PROTECTED, $virtualMethod(SurfaceData, getMaskFill, $MaskFill*, $SunGraphics2D*)},
+		{"getNativeOps", "()J", nullptr, $PUBLIC, $virtualMethod(SurfaceData, getNativeOps, int64_t)},
+		{"getPaintSurfaceType", "(Lsun/java2d/SunGraphics2D;)Lsun/java2d/loops/SurfaceType;", nullptr, $PRIVATE | $STATIC, $staticMethod(SurfaceData, getPaintSurfaceType, $SurfaceType*, $SunGraphics2D*)},
+		{"getPrimarySurfaceData", "(Ljava/awt/Image;)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(SurfaceData, getPrimarySurfaceData, SurfaceData*, $Image*)},
+		{"getRaster", "(IIII)Ljava/awt/image/Raster;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SurfaceData, getRaster, $Raster*, int32_t, int32_t, int32_t, int32_t)},
+		{"getRenderLoops", "(Lsun/java2d/SunGraphics2D;)Lsun/java2d/loops/RenderLoops;", nullptr, $PUBLIC, $virtualMethod(SurfaceData, getRenderLoops, $RenderLoops*, $SunGraphics2D*)},
+		{"getReplacement", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SurfaceData, getReplacement, SurfaceData*)},
+		{"getSourceSurfaceData", "(Ljava/awt/Image;ILsun/java2d/loops/CompositeType;Ljava/awt/Color;)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(SurfaceData, getSourceSurfaceData, SurfaceData*, $Image*, int32_t, $CompositeType*, $Color*)},
+		{"getState", "()Lsun/java2d/StateTrackable$State;", nullptr, $PUBLIC, $virtualMethod(SurfaceData, getState, $StateTrackable$State*)},
+		{"getStateTracker", "()Lsun/java2d/StateTracker;", nullptr, $PUBLIC, $virtualMethod(SurfaceData, getStateTracker, $StateTracker*)},
+		{"getSurfaceType", "()Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $FINAL, $method(SurfaceData, getSurfaceType, $SurfaceType*)},
+		{"getTextPipe", "(Lsun/java2d/SunGraphics2D;Z)Lsun/java2d/pipe/TextPipe;", nullptr, $PRIVATE, $method(SurfaceData, getTextPipe, $TextPipe*, $SunGraphics2D*, bool)},
+		{"getTransparency", "()I", nullptr, $PUBLIC, $virtualMethod(SurfaceData, getTransparency, int32_t)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SurfaceData, initIDs, void)},
+		{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(SurfaceData, invalidate, void)},
+		{"isNull", "(Lsun/java2d/SurfaceData;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SurfaceData, isNull, bool, SurfaceData*)},
+		{"isOpaqueGray", "(Ljava/awt/image/IndexColorModel;)Z", nullptr, $PROTECTED | $STATIC | $NATIVE, $staticMethod(SurfaceData, isOpaqueGray, bool, $IndexColorModel*)},
+		{"isSurfaceLost", "()Z", nullptr, $PUBLIC, $virtualMethod(SurfaceData, isSurfaceLost, bool)},
+		{"isValid", "()Z", nullptr, $PUBLIC | $FINAL, $method(SurfaceData, isValid, bool)},
+		{"makeConverter", "(Lsun/java2d/pipe/AAShapePipe;Lsun/java2d/pipe/ParallelogramPipe;)Lsun/java2d/pipe/PixelToParallelogramConverter;", nullptr, $PRIVATE | $STATIC, $staticMethod(SurfaceData, makeConverter, $PixelToParallelogramConverter*, $AAShapePipe*, $ParallelogramPipe*)},
+		{"makeConverter", "(Lsun/java2d/pipe/AAShapePipe;)Lsun/java2d/pipe/PixelToParallelogramConverter;", nullptr, $PRIVATE | $STATIC, $staticMethod(SurfaceData, makeConverter, $PixelToParallelogramConverter*, $AAShapePipe*)},
+		{"makeProxyFor", "(Lsun/java2d/SurfaceData;)Lsun/java2d/SurfaceDataProxy;", nullptr, $PUBLIC, $virtualMethod(SurfaceData, makeProxyFor, $SurfaceDataProxy*, SurfaceData*)},
+		{"makeRenderLoops", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/RenderLoops;", nullptr, $PUBLIC | $STATIC, $staticMethod(SurfaceData, makeRenderLoops, $RenderLoops*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"markDirty", "()V", nullptr, $PUBLIC | $FINAL, $method(SurfaceData, markDirty, void)},
+		{"pixelFor", "(I)I", nullptr, $PUBLIC, $virtualMethod(SurfaceData, pixelFor, int32_t, int32_t)},
+		{"pixelFor", "(Ljava/awt/Color;)I", nullptr, $PUBLIC, $virtualMethod(SurfaceData, pixelFor, int32_t, $Color*)},
+		{"restoreContents", "(Ljava/awt/Image;)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(SurfaceData, restoreContents, SurfaceData*, $Image*)},
+		{"rgbFor", "(I)I", nullptr, $PUBLIC, $virtualMethod(SurfaceData, rgbFor, int32_t, int32_t)},
+		{"setBlitProxyKey", "(Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(SurfaceData, setBlitProxyKey, void, Object$*)},
+		{"setSurfaceLost", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SurfaceData, setSurfaceLost, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"useTightBBoxes", "()Z", nullptr, $PUBLIC, $virtualMethod(SurfaceData, useTightBBoxes, bool)},
+		{"validatePipe", "(Lsun/java2d/SunGraphics2D;)V", nullptr, $PUBLIC, $virtualMethod(SurfaceData, validatePipe, void, $SunGraphics2D*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.SurfaceData$PixelToPgramLoopConverter", "sun.java2d.SurfaceData", "PixelToPgramLoopConverter", $STATIC},
+		{"sun.java2d.SurfaceData$PixelToShapeLoopConverter", "sun.java2d.SurfaceData", "PixelToShapeLoopConverter", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.java2d.SurfaceData",
+		"java.lang.Object",
+		"java.awt.Transparency,sun.java2d.DisposerTarget,sun.java2d.StateTrackable,sun.java2d.Surface",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.SurfaceData$PixelToPgramLoopConverter,sun.java2d.SurfaceData$PixelToShapeLoopConverter"
+	};
+	$loadClass(SurfaceData, name, initialize, &classInfo$$, SurfaceData::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SurfaceData));
+	});
 	return class$;
 }
 

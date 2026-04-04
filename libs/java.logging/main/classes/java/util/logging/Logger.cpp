@@ -1,5 +1,4 @@
 #include <java/util/logging/Logger.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/InternalError.h>
@@ -71,7 +70,6 @@ using $Locale = ::java::util::Locale;
 using $MissingResourceException = ::java::util::MissingResourceException;
 using $Objects = ::java::util::Objects;
 using $ResourceBundle = ::java::util::ResourceBundle;
-using $CopyOnWriteArrayList = ::java::util::concurrent::CopyOnWriteArrayList;
 using $Supplier = ::java::util::function::Supplier;
 using $Filter = ::java::util::logging::Filter;
 using $Handler = ::java::util::logging::Handler;
@@ -83,7 +81,6 @@ using $Logger$ConfigurationData = ::java::util::logging::Logger$ConfigurationDat
 using $Logger$LoggerBundle = ::java::util::logging::Logger$LoggerBundle;
 using $Logger$RbAccess = ::java::util::logging::Logger$RbAccess;
 using $Logger$SystemLoggerHelper = ::java::util::logging::Logger$SystemLoggerHelper;
-using $JavaUtilResourceBundleAccess = ::jdk::internal::access::JavaUtilResourceBundleAccess;
 using $DefaultLoggerFinder = ::jdk::internal::logger::DefaultLoggerFinder;
 using $Reflection = ::jdk::internal::reflect::Reflection;
 
@@ -98,221 +95,34 @@ public:
 		$set(this, callerModule, callerModule);
 	}
 	virtual $Object* run() override {
-		 return $of(Logger::lambda$findResourceBundle$0(callerModule));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Logger$$Lambda$lambda$findResourceBundle$0>());
+		 return Logger::lambda$findResourceBundle$0(callerModule);
 	}
 	$Module* callerModule = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Logger$$Lambda$lambda$findResourceBundle$0::fieldInfos[2] = {
-	{"callerModule", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(Logger$$Lambda$lambda$findResourceBundle$0, callerModule)},
-	{}
-};
-$MethodInfo Logger$$Lambda$lambda$findResourceBundle$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(Logger$$Lambda$lambda$findResourceBundle$0, init$, void, $Module*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Logger$$Lambda$lambda$findResourceBundle$0, run, $Object*)},
-	{}
-};
-$ClassInfo Logger$$Lambda$lambda$findResourceBundle$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.logging.Logger$$Lambda$lambda$findResourceBundle$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* Logger$$Lambda$lambda$findResourceBundle$0::load$($String* name, bool initialize) {
-	$loadClass(Logger$$Lambda$lambda$findResourceBundle$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"callerModule", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(Logger$$Lambda$lambda$findResourceBundle$0, callerModule)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(Logger$$Lambda$lambda$findResourceBundle$0, init$, void, $Module*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Logger$$Lambda$lambda$findResourceBundle$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.logging.Logger$$Lambda$lambda$findResourceBundle$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Logger$$Lambda$lambda$findResourceBundle$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Logger$$Lambda$lambda$findResourceBundle$0);
+	});
 	return class$;
 }
 $Class* Logger$$Lambda$lambda$findResourceBundle$0::class$ = nullptr;
-
-$CompoundAttribute _Logger_FieldAnnotations_global[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Logger_MethodAnnotations_getAnonymousLogger27[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Logger_MethodAnnotations_getLogger34[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Logger_MethodAnnotations_getLogger36[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Logger_MethodAnnotations_logrb62[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Logger_MethodAnnotations_logrb63[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Logger_MethodAnnotations_logrb64[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Logger_MethodAnnotations_logrb67[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _Logger_FieldInfo_[] = {
-	{"emptyHandlers", "[Ljava/util/logging/Handler;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Logger, emptyHandlers)},
-	{"offValue", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Logger, offValue)},
-	{"SYSTEM_LOGGER_RB_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Logger, SYSTEM_LOGGER_RB_NAME)},
-	{"SYSTEM_BUNDLE", "Ljava/util/logging/Logger$LoggerBundle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Logger, SYSTEM_BUNDLE)},
-	{"NO_RESOURCE_BUNDLE", "Ljava/util/logging/Logger$LoggerBundle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Logger, NO_RESOURCE_BUNDLE)},
-	{"config", "Ljava/util/logging/Logger$ConfigurationData;", nullptr, $PRIVATE | $VOLATILE, $field(Logger, config$)},
-	{"manager", "Ljava/util/logging/LogManager;", nullptr, $PRIVATE | $VOLATILE, $field(Logger, manager)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Logger, name)},
-	{"loggerBundle", "Ljava/util/logging/Logger$LoggerBundle;", nullptr, $PRIVATE | $VOLATILE, $field(Logger, loggerBundle)},
-	{"anonymous", "Z", nullptr, $PRIVATE, $field(Logger, anonymous)},
-	{"catalogRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/util/ResourceBundle;>;", $PRIVATE, $field(Logger, catalogRef)},
-	{"catalogName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Logger, catalogName)},
-	{"catalogLocale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(Logger, catalogLocale)},
-	{"treeLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Logger, treeLock)},
-	{"parent", "Ljava/util/logging/Logger;", nullptr, $PRIVATE | $VOLATILE, $field(Logger, parent)},
-	{"kids", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/util/logging/LogManager$LoggerWeakRef;>;", $PRIVATE, $field(Logger, kids)},
-	{"callerModuleRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/lang/Module;>;", $PRIVATE, $field(Logger, callerModuleRef)},
-	{"isSystemLogger", "Z", nullptr, $PRIVATE | $FINAL, $field(Logger, isSystemLogger)},
-	{"GLOBAL_LOGGER_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Logger, GLOBAL_LOGGER_NAME)},
-	{"global", "Ljava/util/logging/Logger;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(Logger, global), _Logger_FieldAnnotations_global},
-	{}
-};
-
-$MethodInfo _Logger_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(Logger, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Module;Ljava/util/logging/LogManager;Z)V", nullptr, 0, $method(Logger, init$, void, $String*, $String*, $Module*, $LogManager*, bool)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Logger, init$, void, $String*)},
-	{"accessCheckedHandlers", "()[Ljava/util/logging/Handler;", nullptr, 0, $virtualMethod(Logger, accessCheckedHandlers, $HandlerArray*)},
-	{"addHandler", "(Ljava/util/logging/Handler;)V", nullptr, $PUBLIC, $virtualMethod(Logger, addHandler, void, $Handler*), "java.lang.SecurityException"},
-	{"catalog", "()Ljava/util/ResourceBundle;", nullptr, $PRIVATE, $method(Logger, catalog, $ResourceBundle*)},
-	{"checkPermission", "()V", nullptr, $PRIVATE, $method(Logger, checkPermission, void), "java.lang.SecurityException"},
-	{"config", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, config, void, $String*)},
-	{"config", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Logger, config, void, $Supplier*)},
-	{"demandLogger", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)Ljava/util/logging/Logger;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/util/logging/Logger;", $PRIVATE | $STATIC, $staticMethod(Logger, demandLogger, Logger*, $String*, $String*, $Class*)},
-	{"doLog", "(Ljava/util/logging/LogRecord;)V", nullptr, $PRIVATE, $method(Logger, doLog, void, $LogRecord*)},
-	{"doLog", "(Ljava/util/logging/LogRecord;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Logger, doLog, void, $LogRecord*, $String*)},
-	{"doLog", "(Ljava/util/logging/LogRecord;Ljava/util/ResourceBundle;)V", nullptr, $PRIVATE, $method(Logger, doLog, void, $LogRecord*, $ResourceBundle*)},
-	{"doSetParent", "(Ljava/util/logging/Logger;)V", nullptr, $PRIVATE, $method(Logger, doSetParent, void, Logger*)},
-	{"entering", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, entering, void, $String*, $String*)},
-	{"entering", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Logger, entering, void, $String*, $String*, Object$*)},
-	{"entering", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Logger, entering, void, $String*, $String*, $ObjectArray*)},
-	{"exiting", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, exiting, void, $String*, $String*)},
-	{"exiting", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Logger, exiting, void, $String*, $String*, Object$*)},
-	{"findResourceBundle", "(Ljava/lang/String;Z)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Logger, findResourceBundle, $ResourceBundle*, $String*, bool)},
-	{"fine", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, fine, void, $String*)},
-	{"fine", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Logger, fine, void, $Supplier*)},
-	{"finer", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, finer, void, $String*)},
-	{"finer", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Logger, finer, void, $Supplier*)},
-	{"finest", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, finest, void, $String*)},
-	{"finest", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Logger, finest, void, $Supplier*)},
-	{"getAnonymousLogger", "()Ljava/util/logging/Logger;", nullptr, $PUBLIC | $STATIC, $staticMethod(Logger, getAnonymousLogger, Logger*)},
-	{"getAnonymousLogger", "(Ljava/lang/String;)Ljava/util/logging/Logger;", nullptr, $PUBLIC | $STATIC, $staticMethod(Logger, getAnonymousLogger, Logger*, $String*), nullptr, nullptr, _Logger_MethodAnnotations_getAnonymousLogger27},
-	{"getCallerModule", "()Ljava/lang/Module;", nullptr, $PRIVATE, $method(Logger, getCallerModule, $Module*)},
-	{"getEffectiveLoggerBundle", "()Ljava/util/logging/Logger$LoggerBundle;", nullptr, $PRIVATE, $method(Logger, getEffectiveLoggerBundle, $Logger$LoggerBundle*)},
-	{"getFilter", "()Ljava/util/logging/Filter;", nullptr, $PUBLIC, $virtualMethod(Logger, getFilter, $Filter*)},
-	{"getGlobal", "()Ljava/util/logging/Logger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Logger, getGlobal, Logger*)},
-	{"getHandlers", "()[Ljava/util/logging/Handler;", nullptr, $PUBLIC, $virtualMethod(Logger, getHandlers, $HandlerArray*)},
-	{"getLevel", "()Ljava/util/logging/Level;", nullptr, $PUBLIC, $virtualMethod(Logger, getLevel, $Level*)},
-	{"getLogger", "(Ljava/lang/String;)Ljava/util/logging/Logger;", nullptr, $PUBLIC | $STATIC, $staticMethod(Logger, getLogger, Logger*, $String*), nullptr, nullptr, _Logger_MethodAnnotations_getLogger34},
-	{"getLogger", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/util/logging/Logger;", "(Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/util/logging/Logger;", $PRIVATE | $STATIC, $staticMethod(Logger, getLogger, Logger*, $String*, $Class*)},
-	{"getLogger", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/logging/Logger;", nullptr, $PUBLIC | $STATIC, $staticMethod(Logger, getLogger, Logger*, $String*, $String*), nullptr, nullptr, _Logger_MethodAnnotations_getLogger36},
-	{"getLogger", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)Ljava/util/logging/Logger;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/util/logging/Logger;", $PRIVATE | $STATIC, $staticMethod(Logger, getLogger, Logger*, $String*, $String*, $Class*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Logger, getName, $String*)},
-	{"getParent", "()Ljava/util/logging/Logger;", nullptr, $PUBLIC, $virtualMethod(Logger, getParent, Logger*)},
-	{"getPlatformLogger", "(Ljava/lang/String;)Ljava/util/logging/Logger;", nullptr, $STATIC, $staticMethod(Logger, getPlatformLogger, Logger*, $String*)},
-	{"getResourceBundle", "()Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $virtualMethod(Logger, getResourceBundle, $ResourceBundle*)},
-	{"getResourceBundleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Logger, getResourceBundleName, $String*)},
-	{"getUseParentHandlers", "()Z", nullptr, $PUBLIC, $virtualMethod(Logger, getUseParentHandlers, bool)},
-	{"info", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, info, void, $String*)},
-	{"info", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Logger, info, void, $Supplier*)},
-	{"isLevelInitialized", "()Z", nullptr, $FINAL, $method(Logger, isLevelInitialized, bool)},
-	{"isLoggable", "(Ljava/util/logging/Level;)Z", nullptr, $PUBLIC, $virtualMethod(Logger, isLoggable, bool, $Level*)},
-	{"lambda$findResourceBundle$0", "(Ljava/lang/Module;)Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Logger, lambda$findResourceBundle$0, $ClassLoader*, $Module*)},
-	{"log", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC, $virtualMethod(Logger, log, void, $LogRecord*)},
-	{"log", "(Ljava/util/logging/Level;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, log, void, $Level*, $String*)},
-	{"log", "(Ljava/util/logging/Level;Ljava/util/function/Supplier;)V", "(Ljava/util/logging/Level;Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Logger, log, void, $Level*, $Supplier*)},
-	{"log", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Logger, log, void, $Level*, $String*, Object$*)},
-	{"log", "(Ljava/util/logging/Level;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Logger, log, void, $Level*, $String*, $ObjectArray*)},
-	{"log", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Logger, log, void, $Level*, $String*, $Throwable*)},
-	{"log", "(Ljava/util/logging/Level;Ljava/lang/Throwable;Ljava/util/function/Supplier;)V", "(Ljava/util/logging/Level;Ljava/lang/Throwable;Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Logger, log, void, $Level*, $Throwable*, $Supplier*)},
-	{"logp", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, logp, void, $Level*, $String*, $String*, $String*)},
-	{"logp", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Supplier;)V", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Logger, logp, void, $Level*, $String*, $String*, $Supplier*)},
-	{"logp", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Logger, logp, void, $Level*, $String*, $String*, $String*, Object$*)},
-	{"logp", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Logger, logp, void, $Level*, $String*, $String*, $String*, $ObjectArray*)},
-	{"logp", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Logger, logp, void, $Level*, $String*, $String*, $String*, $Throwable*)},
-	{"logp", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;Ljava/util/function/Supplier;)V", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Logger, logp, void, $Level*, $String*, $String*, $Throwable*, $Supplier*)},
-	{"logrb", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Logger, logrb, void, $Level*, $String*, $String*, $String*, $String*), nullptr, nullptr, _Logger_MethodAnnotations_logrb62},
-	{"logrb", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Logger, logrb, void, $Level*, $String*, $String*, $String*, $String*, Object$*), nullptr, nullptr, _Logger_MethodAnnotations_logrb63},
-	{"logrb", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Logger, logrb, void, $Level*, $String*, $String*, $String*, $String*, $ObjectArray*), nullptr, nullptr, _Logger_MethodAnnotations_logrb64},
-	{"logrb", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Logger, logrb, void, $Level*, $String*, $String*, $ResourceBundle*, $String*, $ObjectArray*)},
-	{"logrb", "(Ljava/util/logging/Level;Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Logger, logrb, void, $Level*, $ResourceBundle*, $String*, $ObjectArray*)},
-	{"logrb", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Logger, logrb, void, $Level*, $String*, $String*, $String*, $String*, $Throwable*), nullptr, nullptr, _Logger_MethodAnnotations_logrb67},
-	{"logrb", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Logger, logrb, void, $Level*, $String*, $String*, $ResourceBundle*, $String*, $Throwable*)},
-	{"logrb", "(Ljava/util/logging/Level;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Logger, logrb, void, $Level*, $ResourceBundle*, $String*, $Throwable*)},
-	{"mergeWithSystemLogger", "(Ljava/util/logging/Logger;)V", nullptr, $FINAL, $method(Logger, mergeWithSystemLogger, void, Logger*)},
-	{"removeChildLogger", "(Ljava/util/logging/LogManager$LoggerWeakRef;)V", nullptr, $FINAL, $method(Logger, removeChildLogger, void, $LogManager$LoggerWeakRef*)},
-	{"removeHandler", "(Ljava/util/logging/Handler;)V", nullptr, $PUBLIC, $virtualMethod(Logger, removeHandler, void, $Handler*), "java.lang.SecurityException"},
-	{"setCallerModuleRef", "(Ljava/lang/Module;)V", nullptr, $PRIVATE, $method(Logger, setCallerModuleRef, void, $Module*)},
-	{"setFilter", "(Ljava/util/logging/Filter;)V", nullptr, $PUBLIC, $virtualMethod(Logger, setFilter, void, $Filter*), "java.lang.SecurityException"},
-	{"setLevel", "(Ljava/util/logging/Level;)V", nullptr, $PUBLIC, $virtualMethod(Logger, setLevel, void, $Level*), "java.lang.SecurityException"},
-	{"setLogManager", "(Ljava/util/logging/LogManager;)V", nullptr, 0, $virtualMethod(Logger, setLogManager, void, $LogManager*)},
-	{"setParent", "(Ljava/util/logging/Logger;)V", nullptr, $PUBLIC, $virtualMethod(Logger, setParent, void, Logger*)},
-	{"setResourceBundle", "(Ljava/util/ResourceBundle;)V", nullptr, $PUBLIC, $virtualMethod(Logger, setResourceBundle, void, $ResourceBundle*)},
-	{"setUseParentHandlers", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Logger, setUseParentHandlers, void, bool)},
-	{"setupResourceInfo", "(Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/Class<*>;)V", $PRIVATE, $method(Logger, setupResourceInfo, void, $String*, $Class*)},
-	{"setupResourceInfo", "(Ljava/lang/String;Ljava/lang/Module;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Logger, setupResourceInfo, void, $String*, $Module*)},
-	{"severe", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, severe, void, $String*)},
-	{"severe", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Logger, severe, void, $Supplier*)},
-	{"throwing", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Logger, throwing, void, $String*, $String*, $Throwable*)},
-	{"updateEffectiveLevel", "()V", nullptr, $PRIVATE, $method(Logger, updateEffectiveLevel, void)},
-	{"warning", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, warning, void, $String*)},
-	{"warning", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Logger, warning, void, $Supplier*)},
-	{}
-};
-
-$InnerClassInfo _Logger_InnerClassesInfo_[] = {
-	{"java.util.logging.Logger$SystemLoggerHelper", "java.util.logging.Logger", "SystemLoggerHelper", $PRIVATE | $STATIC},
-	{"java.util.logging.Logger$ConfigurationData", "java.util.logging.Logger", "ConfigurationData", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.logging.Logger$RbAccess", "java.util.logging.Logger", "RbAccess", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.logging.Logger$LoggerBundle", "java.util.logging.Logger", "LoggerBundle", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Logger_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.logging.Logger",
-	"java.lang.Object",
-	nullptr,
-	_Logger_FieldInfo_,
-	_Logger_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Logger_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.logging.Logger$SystemLoggerHelper,java.util.logging.Logger$SystemLoggerHelper$1,java.util.logging.Logger$ConfigurationData,java.util.logging.Logger$RbAccess,java.util.logging.Logger$LoggerBundle"
-};
-
-$Object* allocate$Logger($Class* clazz) {
-	return $of($alloc(Logger));
-}
 
 $HandlerArray* Logger::emptyHandlers = nullptr;
 int32_t Logger::offValue = 0;
@@ -343,12 +153,12 @@ void Logger::init$($String* name, $String* resourceBundleName, $Module* caller, 
 }
 
 void Logger::mergeWithSystemLogger(Logger* system) {
-	if (!$nc(system)->isSystemLogger || this->anonymous || this->name == nullptr || !$nc(this->name)->equals($nc(system)->name)) {
+	if (!$nc(system)->isSystemLogger || this->anonymous || this->name == nullptr || !this->name->equals(system->name)) {
 		$throwNew($InternalError, "invalid logger merge"_s);
 	}
 	checkPermission();
 	$var($Logger$ConfigurationData, cfg, this->config$);
-	if (cfg != $nc(system)->config$) {
+	if (cfg != system->config$) {
 		$set(this, config$, $nc(cfg)->merge(system));
 	}
 }
@@ -360,7 +170,7 @@ void Logger::setCallerModuleRef($Module* callerModule) {
 }
 
 $Module* Logger::getCallerModule() {
-	return (this->callerModuleRef != nullptr) ? $cast($Module, $nc(this->callerModuleRef)->get()) : ($Module*)nullptr;
+	return (this->callerModuleRef != nullptr) ? $cast($Module, this->callerModuleRef->get()) : ($Module*)nullptr;
 }
 
 void Logger::init$($String* name) {
@@ -385,7 +195,7 @@ void Logger::checkPermission() {
 
 Logger* Logger::demandLogger($String* name, $String* resourceBundleName, $Class* caller) {
 	$init(Logger);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LogManager, manager, $LogManager::getLogManager());
 	$init($Logger$SystemLoggerHelper);
 	if (!$Logger$SystemLoggerHelper::disableCallerCheck) {
@@ -420,7 +230,7 @@ Logger* Logger::getLogger($String* name, $String* resourceBundleName, $Class* ca
 
 Logger* Logger::getPlatformLogger($String* name) {
 	$init(Logger);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LogManager, manager, $LogManager::getLogManager());
 	$var(Logger, result, $nc(manager)->demandSystemLogger(name, Logger::SYSTEM_LOGGER_RB_NAME, ($Module*)nullptr));
 	return result;
@@ -434,7 +244,7 @@ Logger* Logger::getAnonymousLogger() {
 
 Logger* Logger::getAnonymousLogger($String* resourceBundleName) {
 	$init(Logger);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LogManager, manager, $LogManager::getLogManager());
 	$nc(manager)->drainLoggerRefQueueBounded();
 	$Class* callerClass = $Reflection::getCallerClass();
@@ -464,7 +274,7 @@ $Filter* Logger::getFilter() {
 }
 
 void Logger::log($LogRecord* record) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isLoggable($($nc(record)->getLevel()))) {
 		return;
 	}
@@ -477,9 +287,7 @@ void Logger::log($LogRecord* record) {
 		$var($HandlerArray, loggerHandlers, this->isSystemLogger ? logger->accessCheckedHandlers() : logger->getHandlers());
 		{
 			$var($HandlerArray, arr$, loggerHandlers);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Handler, handler, arr$->get(i$));
 				{
 					$nc(handler)->publish(record);
@@ -495,7 +303,7 @@ void Logger::log($LogRecord* record) {
 }
 
 void Logger::doLog($LogRecord* lr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(lr)->setLoggerName(this->name);
 	$var($Logger$LoggerBundle, lb, getEffectiveLoggerBundle());
 	$var($ResourceBundle, bundle, $nc(lb)->userBundle);
@@ -516,16 +324,16 @@ void Logger::log($Level* level, $String* msg) {
 }
 
 void Logger::log($Level* level, $Supplier* msgSupplier) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isLoggable(level)) {
 		return;
 	}
-	$var($LogRecord, lr, $new($LogRecord, level, $cast($String, $($nc(msgSupplier)->get()))));
+	$var($LogRecord, lr, $new($LogRecord, level, $$cast($String, $nc(msgSupplier)->get())));
 	doLog(lr);
 }
 
 void Logger::log($Level* level, $String* msg, Object$* param1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isLoggable(level)) {
 		return;
 	}
@@ -554,11 +362,11 @@ void Logger::log($Level* level, $String* msg, $Throwable* thrown) {
 }
 
 void Logger::log($Level* level, $Throwable* thrown, $Supplier* msgSupplier) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isLoggable(level)) {
 		return;
 	}
-	$var($LogRecord, lr, $new($LogRecord, level, $cast($String, $($nc(msgSupplier)->get()))));
+	$var($LogRecord, lr, $new($LogRecord, level, $$cast($String, $nc(msgSupplier)->get())));
 	lr->setThrown(thrown);
 	doLog(lr);
 }
@@ -574,18 +382,18 @@ void Logger::logp($Level* level, $String* sourceClass, $String* sourceMethod, $S
 }
 
 void Logger::logp($Level* level, $String* sourceClass, $String* sourceMethod, $Supplier* msgSupplier) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isLoggable(level)) {
 		return;
 	}
-	$var($LogRecord, lr, $new($LogRecord, level, $cast($String, $($nc(msgSupplier)->get()))));
+	$var($LogRecord, lr, $new($LogRecord, level, $$cast($String, $nc(msgSupplier)->get())));
 	lr->setSourceClassName(sourceClass);
 	lr->setSourceMethodName(sourceMethod);
 	doLog(lr);
 }
 
 void Logger::logp($Level* level, $String* sourceClass, $String* sourceMethod, $String* msg, Object$* param1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isLoggable(level)) {
 		return;
 	}
@@ -620,11 +428,11 @@ void Logger::logp($Level* level, $String* sourceClass, $String* sourceMethod, $S
 }
 
 void Logger::logp($Level* level, $String* sourceClass, $String* sourceMethod, $Throwable* thrown, $Supplier* msgSupplier) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isLoggable(level)) {
 		return;
 	}
-	$var($LogRecord, lr, $new($LogRecord, level, $cast($String, $($nc(msgSupplier)->get()))));
+	$var($LogRecord, lr, $new($LogRecord, level, $$cast($String, $nc(msgSupplier)->get())));
 	lr->setSourceClassName(sourceClass);
 	lr->setSourceMethodName(sourceMethod);
 	lr->setThrown(thrown);
@@ -660,7 +468,7 @@ void Logger::logrb($Level* level, $String* sourceClass, $String* sourceMethod, $
 }
 
 void Logger::logrb($Level* level, $String* sourceClass, $String* sourceMethod, $String* bundleName, $String* msg, Object$* param1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isLoggable(level)) {
 		return;
 	}
@@ -749,7 +557,7 @@ void Logger::entering($String* sourceClass, $String* sourceMethod, Object$* para
 }
 
 void Logger::entering($String* sourceClass, $String* sourceMethod, $ObjectArray* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, msg, "ENTRY"_s);
 	if (params == nullptr) {
 		$init($Level);
@@ -909,7 +717,7 @@ $HandlerArray* Logger::getHandlers() {
 }
 
 $HandlerArray* Logger::accessCheckedHandlers() {
-	return $fcast($HandlerArray, $nc($nc(this->config$)->handlers)->toArray(Logger::emptyHandlers));
+	return $cast($HandlerArray, $nc($nc(this->config$)->handlers)->toArray(Logger::emptyHandlers));
 }
 
 void Logger::setUseParentHandlers(bool useParentHandlers) {
@@ -923,12 +731,12 @@ bool Logger::getUseParentHandlers() {
 
 $ResourceBundle* Logger::catalog() {
 	$var($WeakReference, ref, this->catalogRef);
-	return ref == nullptr ? ($ResourceBundle*)nullptr : $cast($ResourceBundle, $nc(ref)->get());
+	return ref == nullptr ? ($ResourceBundle*)nullptr : $cast($ResourceBundle, ref->get());
 }
 
 $ResourceBundle* Logger::findResourceBundle($String* name, bool useCallersModule) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$beforeCallerSensitive();
 		if (name == nullptr) {
 			return nullptr;
@@ -939,8 +747,8 @@ $ResourceBundle* Logger::findResourceBundle($String* name, bool useCallersModule
 		if ($nc(lb)->userBundle != nullptr && $nc(name)->equals(lb->resourceBundleName)) {
 			return lb->userBundle;
 		} else {
-			bool var$1 = catalog != nullptr && $nc(currentLocale)->equals(this->catalogLocale);
-			if (var$1 && name->equals(this->catalogName)) {
+			bool var$0 = catalog != nullptr && $nc(currentLocale)->equals(this->catalogLocale);
+			if (var$0 && $nc(name)->equals(this->catalogName)) {
 				return catalog;
 			}
 		}
@@ -949,7 +757,7 @@ $ResourceBundle* Logger::findResourceBundle($String* name, bool useCallersModule
 			$assign(cl, $ClassLoader::getSystemClassLoader());
 		}
 		$var($Module, callerModule, getCallerModule());
-		if (!useCallersModule || callerModule == nullptr || !$nc(callerModule)->isNamed()) {
+		if (!useCallersModule || callerModule == nullptr || !callerModule->isNamed()) {
 			try {
 				$var($Module, mod, $nc(cl)->getUnnamedModule());
 				$init($Logger$RbAccess);
@@ -961,7 +769,7 @@ $ResourceBundle* Logger::findResourceBundle($String* name, bool useCallersModule
 			} catch ($MissingResourceException& ex) {
 				if (useCallersModule && callerModule != nullptr) {
 					try {
-						$var($PrivilegedAction, getModuleClassLoader, static_cast<$PrivilegedAction*>($new(Logger$$Lambda$lambda$findResourceBundle$0, callerModule)));
+						$var($PrivilegedAction, getModuleClassLoader, $new(Logger$$Lambda$lambda$findResourceBundle$0, callerModule));
 						$var($ClassLoader, moduleCL, $cast($ClassLoader, $AccessController::doPrivileged(getModuleClassLoader)));
 						if (moduleCL == cl || moduleCL == nullptr) {
 							return nullptr;
@@ -995,16 +803,16 @@ $ResourceBundle* Logger::findResourceBundle($String* name, bool useCallersModule
 }
 
 void Logger::setupResourceInfo($String* name, $Class* caller) {
-	$var($Module, module, caller == nullptr ? ($Module*)nullptr : $nc(caller)->getModule());
+	$var($Module, module, caller == nullptr ? ($Module*)nullptr : caller->getModule());
 	setupResourceInfo(name, module);
 }
 
 void Logger::setupResourceInfo($String* name, $Module* callerModule) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($Logger$LoggerBundle, lb, this->loggerBundle);
 		if ($nc(lb)->resourceBundleName != nullptr) {
-			if ($nc(lb->resourceBundleName)->equals(name)) {
+			if (lb->resourceBundleName->equals(name)) {
 				return;
 			}
 			$throwNew($IllegalArgumentException, $$str({lb->resourceBundleName, " != "_s, name}));
@@ -1030,15 +838,15 @@ void Logger::setupResourceInfo($String* name, $Module* callerModule) {
 }
 
 void Logger::setResourceBundle($ResourceBundle* bundle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkPermission();
 	$var($String, baseName, $nc(bundle)->getBaseBundleName());
-	if (baseName == nullptr || $nc(baseName)->isEmpty()) {
+	if (baseName == nullptr || baseName->isEmpty()) {
 		$throwNew($IllegalArgumentException, "resource bundle must have a name"_s);
 	}
 	$synchronized(this) {
 		$var($Logger$LoggerBundle, lb, this->loggerBundle);
-		bool canReplaceResourceBundle = $nc(lb)->resourceBundleName == nullptr || $nc($nc(lb)->resourceBundleName)->equals(baseName);
+		bool canReplaceResourceBundle = $nc(lb)->resourceBundleName == nullptr || lb->resourceBundleName->equals(baseName);
 		if (!canReplaceResourceBundle) {
 			$throwNew($IllegalArgumentException, "can\'t replace resource bundle"_s);
 		}
@@ -1062,20 +870,18 @@ void Logger::setParent(Logger* parent) {
 }
 
 void Logger::doSetParent(Logger* newParent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(Logger::treeLock) {
 		$var($LogManager$LoggerWeakRef, ref, nullptr);
 		if (this->parent != nullptr) {
-			{
-				$var($Iterator, iter, $nc($nc(this->parent)->kids)->iterator());
-				for (; $nc(iter)->hasNext();) {
-					$assign(ref, $cast($LogManager$LoggerWeakRef, iter->next()));
-					if ($nc(ref)->refersTo(this)) {
-						iter->remove();
-						break;
-					} else {
-						$assign(ref, nullptr);
-					}
+			$var($Iterator, iter, $nc($nc(this->parent)->kids)->iterator());
+			for (; $nc(iter)->hasNext();) {
+				$assign(ref, $cast($LogManager$LoggerWeakRef, iter->next()));
+				if ($nc(ref)->refersTo(this)) {
+					iter->remove();
+					break;
+				} else {
+					$assign(ref, nullptr);
 				}
 			}
 		}
@@ -1084,7 +890,7 @@ void Logger::doSetParent(Logger* newParent) {
 			$set($nc(this->parent), kids, $new($ArrayList, 2));
 		}
 		if (ref == nullptr) {
-			$assign(ref, $new($LogManager$LoggerWeakRef, static_cast<$LogManager*>($nc(this->manager)), this));
+			$assign(ref, $new($LogManager$LoggerWeakRef, $nc(this->manager), this));
 		}
 		$nc(ref)->setParentRef($$new($WeakReference, this->parent));
 		$nc($nc(this->parent)->kids)->add(ref);
@@ -1093,23 +899,21 @@ void Logger::doSetParent(Logger* newParent) {
 }
 
 void Logger::removeChildLogger($LogManager$LoggerWeakRef* child) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(Logger::treeLock) {
-		{
-			$var($Iterator, iter, $nc(this->kids)->iterator());
-			for (; $nc(iter)->hasNext();) {
-				$var($LogManager$LoggerWeakRef, ref, $cast($LogManager$LoggerWeakRef, iter->next()));
-				if (ref == child) {
-					iter->remove();
-					return;
-				}
+		$var($Iterator, iter, $nc(this->kids)->iterator());
+		for (; $nc(iter)->hasNext();) {
+			$var($LogManager$LoggerWeakRef, ref, $cast($LogManager$LoggerWeakRef, iter->next()));
+			if (ref == child) {
+				iter->remove();
+				return;
 			}
 		}
 	}
 }
 
 void Logger::updateEffectiveLevel() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t newLevelValue = 0;
 	$var($Logger$ConfigurationData, cfg, this->config$);
 	$var($Level, levelObject, $nc(cfg)->levelObject);
@@ -1126,15 +930,13 @@ void Logger::updateEffectiveLevel() {
 	}
 	cfg->setLevelValue(newLevelValue);
 	if (this->kids != nullptr) {
-		{
-			$var($Iterator, i$, $nc(this->kids)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($LogManager$LoggerWeakRef, ref, $cast($LogManager$LoggerWeakRef, i$->next()));
-				{
-					$var(Logger, kid, $cast(Logger, $nc(ref)->get()));
-					if (kid != nullptr) {
-						kid->updateEffectiveLevel();
-					}
+		$var($Iterator, i$, this->kids->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($LogManager$LoggerWeakRef, ref, $cast($LogManager$LoggerWeakRef, i$->next()));
+			{
+				$var(Logger, kid, $cast(Logger, $nc(ref)->get()));
+				if (kid != nullptr) {
+					kid->updateEffectiveLevel();
 				}
 			}
 		}
@@ -1142,13 +944,13 @@ void Logger::updateEffectiveLevel() {
 }
 
 $Logger$LoggerBundle* Logger::getEffectiveLoggerBundle() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Logger$LoggerBundle, lb, this->loggerBundle);
 	if ($nc(lb)->isSystemBundle()) {
 		return Logger::SYSTEM_BUNDLE;
 	}
 	$var($ResourceBundle, b, getResourceBundle());
-	if (b != nullptr && b == $nc(lb)->userBundle) {
+	if (b != nullptr && b == lb->userBundle) {
 		return lb;
 	} else if (b != nullptr) {
 		$var($String, rbName, getResourceBundleName());
@@ -1160,10 +962,10 @@ $Logger$LoggerBundle* Logger::getEffectiveLoggerBundle() {
 		if ($nc(trb)->isSystemBundle()) {
 			return Logger::SYSTEM_BUNDLE;
 		}
-		if ($nc(trb)->userBundle != nullptr) {
+		if (trb->userBundle != nullptr) {
 			return trb;
 		}
-		$var($String, rbName, this->isSystemLogger ? (target->isSystemLogger ? $nc(trb)->resourceBundleName : ($String*)nullptr) : target->getResourceBundleName());
+		$var($String, rbName, this->isSystemLogger ? (target->isSystemLogger ? trb->resourceBundleName : ($String*)nullptr) : target->getResourceBundleName());
 		if (rbName != nullptr) {
 			return $Logger$LoggerBundle::get(rbName, $(findResourceBundle(rbName, true)));
 		}
@@ -1177,7 +979,7 @@ $ClassLoader* Logger::lambda$findResourceBundle$0($Module* callerModule) {
 	return $nc(callerModule)->getClassLoader();
 }
 
-void clinit$Logger($Class* class$) {
+void Logger::clinit$($Class* clazz) {
 	$assignStatic(Logger::SYSTEM_LOGGER_RB_NAME, "sun.util.logging.resources.logging"_s);
 	$assignStatic(Logger::GLOBAL_LOGGER_NAME, "global"_s);
 	$assignStatic(Logger::emptyHandlers, $new($HandlerArray, 0));
@@ -1194,11 +996,180 @@ Logger::Logger() {
 
 $Class* Logger::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Logger$$Lambda$lambda$findResourceBundle$0::classInfo$.name)) {
+		if (name->equals("java.util.logging.Logger$$Lambda$lambda$findResourceBundle$0")) {
 			return Logger$$Lambda$lambda$findResourceBundle$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Logger, name, initialize, &_Logger_ClassInfo_, clinit$Logger, allocate$Logger);
+	$CompoundAttribute globalfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"emptyHandlers", "[Ljava/util/logging/Handler;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Logger, emptyHandlers)},
+		{"offValue", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Logger, offValue)},
+		{"SYSTEM_LOGGER_RB_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Logger, SYSTEM_LOGGER_RB_NAME)},
+		{"SYSTEM_BUNDLE", "Ljava/util/logging/Logger$LoggerBundle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Logger, SYSTEM_BUNDLE)},
+		{"NO_RESOURCE_BUNDLE", "Ljava/util/logging/Logger$LoggerBundle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Logger, NO_RESOURCE_BUNDLE)},
+		{"config", "Ljava/util/logging/Logger$ConfigurationData;", nullptr, $PRIVATE | $VOLATILE, $field(Logger, config$)},
+		{"manager", "Ljava/util/logging/LogManager;", nullptr, $PRIVATE | $VOLATILE, $field(Logger, manager)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Logger, name)},
+		{"loggerBundle", "Ljava/util/logging/Logger$LoggerBundle;", nullptr, $PRIVATE | $VOLATILE, $field(Logger, loggerBundle)},
+		{"anonymous", "Z", nullptr, $PRIVATE, $field(Logger, anonymous)},
+		{"catalogRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/util/ResourceBundle;>;", $PRIVATE, $field(Logger, catalogRef)},
+		{"catalogName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Logger, catalogName)},
+		{"catalogLocale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(Logger, catalogLocale)},
+		{"treeLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Logger, treeLock)},
+		{"parent", "Ljava/util/logging/Logger;", nullptr, $PRIVATE | $VOLATILE, $field(Logger, parent)},
+		{"kids", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/util/logging/LogManager$LoggerWeakRef;>;", $PRIVATE, $field(Logger, kids)},
+		{"callerModuleRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/lang/Module;>;", $PRIVATE, $field(Logger, callerModuleRef)},
+		{"isSystemLogger", "Z", nullptr, $PRIVATE | $FINAL, $field(Logger, isSystemLogger)},
+		{"GLOBAL_LOGGER_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Logger, GLOBAL_LOGGER_NAME)},
+		{"global", "Ljava/util/logging/Logger;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(Logger, global), globalfieldAnnotations$$},
+		{}
+	};
+	$CompoundAttribute getAnonymousLoggermethodAnnotations$$$1[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$CompoundAttribute getLoggermethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$CompoundAttribute getLoggermethodAnnotations$$$2[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$CompoundAttribute logrbmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute logrbmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute logrbmethodAnnotations$$$2[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute logrbmethodAnnotations$$$5[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(Logger, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Module;Ljava/util/logging/LogManager;Z)V", nullptr, 0, $method(Logger, init$, void, $String*, $String*, $Module*, $LogManager*, bool)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Logger, init$, void, $String*)},
+		{"accessCheckedHandlers", "()[Ljava/util/logging/Handler;", nullptr, 0, $virtualMethod(Logger, accessCheckedHandlers, $HandlerArray*)},
+		{"addHandler", "(Ljava/util/logging/Handler;)V", nullptr, $PUBLIC, $virtualMethod(Logger, addHandler, void, $Handler*), "java.lang.SecurityException"},
+		{"catalog", "()Ljava/util/ResourceBundle;", nullptr, $PRIVATE, $method(Logger, catalog, $ResourceBundle*)},
+		{"checkPermission", "()V", nullptr, $PRIVATE, $method(Logger, checkPermission, void), "java.lang.SecurityException"},
+		{"config", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, config, void, $String*)},
+		{"config", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Logger, config, void, $Supplier*)},
+		{"demandLogger", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)Ljava/util/logging/Logger;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/util/logging/Logger;", $PRIVATE | $STATIC, $staticMethod(Logger, demandLogger, Logger*, $String*, $String*, $Class*)},
+		{"doLog", "(Ljava/util/logging/LogRecord;)V", nullptr, $PRIVATE, $method(Logger, doLog, void, $LogRecord*)},
+		{"doLog", "(Ljava/util/logging/LogRecord;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Logger, doLog, void, $LogRecord*, $String*)},
+		{"doLog", "(Ljava/util/logging/LogRecord;Ljava/util/ResourceBundle;)V", nullptr, $PRIVATE, $method(Logger, doLog, void, $LogRecord*, $ResourceBundle*)},
+		{"doSetParent", "(Ljava/util/logging/Logger;)V", nullptr, $PRIVATE, $method(Logger, doSetParent, void, Logger*)},
+		{"entering", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, entering, void, $String*, $String*)},
+		{"entering", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Logger, entering, void, $String*, $String*, Object$*)},
+		{"entering", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Logger, entering, void, $String*, $String*, $ObjectArray*)},
+		{"exiting", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, exiting, void, $String*, $String*)},
+		{"exiting", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Logger, exiting, void, $String*, $String*, Object$*)},
+		{"findResourceBundle", "(Ljava/lang/String;Z)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Logger, findResourceBundle, $ResourceBundle*, $String*, bool)},
+		{"fine", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, fine, void, $String*)},
+		{"fine", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Logger, fine, void, $Supplier*)},
+		{"finer", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, finer, void, $String*)},
+		{"finer", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Logger, finer, void, $Supplier*)},
+		{"finest", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, finest, void, $String*)},
+		{"finest", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Logger, finest, void, $Supplier*)},
+		{"getAnonymousLogger", "()Ljava/util/logging/Logger;", nullptr, $PUBLIC | $STATIC, $staticMethod(Logger, getAnonymousLogger, Logger*)},
+		{"getAnonymousLogger", "(Ljava/lang/String;)Ljava/util/logging/Logger;", nullptr, $PUBLIC | $STATIC, $staticMethod(Logger, getAnonymousLogger, Logger*, $String*), nullptr, nullptr, getAnonymousLoggermethodAnnotations$$$1},
+		{"getCallerModule", "()Ljava/lang/Module;", nullptr, $PRIVATE, $method(Logger, getCallerModule, $Module*)},
+		{"getEffectiveLoggerBundle", "()Ljava/util/logging/Logger$LoggerBundle;", nullptr, $PRIVATE, $method(Logger, getEffectiveLoggerBundle, $Logger$LoggerBundle*)},
+		{"getFilter", "()Ljava/util/logging/Filter;", nullptr, $PUBLIC, $virtualMethod(Logger, getFilter, $Filter*)},
+		{"getGlobal", "()Ljava/util/logging/Logger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Logger, getGlobal, Logger*)},
+		{"getHandlers", "()[Ljava/util/logging/Handler;", nullptr, $PUBLIC, $virtualMethod(Logger, getHandlers, $HandlerArray*)},
+		{"getLevel", "()Ljava/util/logging/Level;", nullptr, $PUBLIC, $virtualMethod(Logger, getLevel, $Level*)},
+		{"getLogger", "(Ljava/lang/String;)Ljava/util/logging/Logger;", nullptr, $PUBLIC | $STATIC, $staticMethod(Logger, getLogger, Logger*, $String*), nullptr, nullptr, getLoggermethodAnnotations$$},
+		{"getLogger", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/util/logging/Logger;", "(Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/util/logging/Logger;", $PRIVATE | $STATIC, $staticMethod(Logger, getLogger, Logger*, $String*, $Class*)},
+		{"getLogger", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/logging/Logger;", nullptr, $PUBLIC | $STATIC, $staticMethod(Logger, getLogger, Logger*, $String*, $String*), nullptr, nullptr, getLoggermethodAnnotations$$$2},
+		{"getLogger", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)Ljava/util/logging/Logger;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/util/logging/Logger;", $PRIVATE | $STATIC, $staticMethod(Logger, getLogger, Logger*, $String*, $String*, $Class*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Logger, getName, $String*)},
+		{"getParent", "()Ljava/util/logging/Logger;", nullptr, $PUBLIC, $virtualMethod(Logger, getParent, Logger*)},
+		{"getPlatformLogger", "(Ljava/lang/String;)Ljava/util/logging/Logger;", nullptr, $STATIC, $staticMethod(Logger, getPlatformLogger, Logger*, $String*)},
+		{"getResourceBundle", "()Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $virtualMethod(Logger, getResourceBundle, $ResourceBundle*)},
+		{"getResourceBundleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Logger, getResourceBundleName, $String*)},
+		{"getUseParentHandlers", "()Z", nullptr, $PUBLIC, $virtualMethod(Logger, getUseParentHandlers, bool)},
+		{"info", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, info, void, $String*)},
+		{"info", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Logger, info, void, $Supplier*)},
+		{"isLevelInitialized", "()Z", nullptr, $FINAL, $method(Logger, isLevelInitialized, bool)},
+		{"isLoggable", "(Ljava/util/logging/Level;)Z", nullptr, $PUBLIC, $virtualMethod(Logger, isLoggable, bool, $Level*)},
+		{"lambda$findResourceBundle$0", "(Ljava/lang/Module;)Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Logger, lambda$findResourceBundle$0, $ClassLoader*, $Module*)},
+		{"log", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC, $virtualMethod(Logger, log, void, $LogRecord*)},
+		{"log", "(Ljava/util/logging/Level;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, log, void, $Level*, $String*)},
+		{"log", "(Ljava/util/logging/Level;Ljava/util/function/Supplier;)V", "(Ljava/util/logging/Level;Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Logger, log, void, $Level*, $Supplier*)},
+		{"log", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Logger, log, void, $Level*, $String*, Object$*)},
+		{"log", "(Ljava/util/logging/Level;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Logger, log, void, $Level*, $String*, $ObjectArray*)},
+		{"log", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Logger, log, void, $Level*, $String*, $Throwable*)},
+		{"log", "(Ljava/util/logging/Level;Ljava/lang/Throwable;Ljava/util/function/Supplier;)V", "(Ljava/util/logging/Level;Ljava/lang/Throwable;Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Logger, log, void, $Level*, $Throwable*, $Supplier*)},
+		{"logp", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, logp, void, $Level*, $String*, $String*, $String*)},
+		{"logp", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Supplier;)V", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Logger, logp, void, $Level*, $String*, $String*, $Supplier*)},
+		{"logp", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Logger, logp, void, $Level*, $String*, $String*, $String*, Object$*)},
+		{"logp", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Logger, logp, void, $Level*, $String*, $String*, $String*, $ObjectArray*)},
+		{"logp", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Logger, logp, void, $Level*, $String*, $String*, $String*, $Throwable*)},
+		{"logp", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;Ljava/util/function/Supplier;)V", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Logger, logp, void, $Level*, $String*, $String*, $Throwable*, $Supplier*)},
+		{"logrb", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Logger, logrb, void, $Level*, $String*, $String*, $String*, $String*), nullptr, nullptr, logrbmethodAnnotations$$},
+		{"logrb", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Logger, logrb, void, $Level*, $String*, $String*, $String*, $String*, Object$*), nullptr, nullptr, logrbmethodAnnotations$$$1},
+		{"logrb", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Logger, logrb, void, $Level*, $String*, $String*, $String*, $String*, $ObjectArray*), nullptr, nullptr, logrbmethodAnnotations$$$2},
+		{"logrb", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Logger, logrb, void, $Level*, $String*, $String*, $ResourceBundle*, $String*, $ObjectArray*)},
+		{"logrb", "(Ljava/util/logging/Level;Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Logger, logrb, void, $Level*, $ResourceBundle*, $String*, $ObjectArray*)},
+		{"logrb", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Logger, logrb, void, $Level*, $String*, $String*, $String*, $String*, $Throwable*), nullptr, nullptr, logrbmethodAnnotations$$$5},
+		{"logrb", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Logger, logrb, void, $Level*, $String*, $String*, $ResourceBundle*, $String*, $Throwable*)},
+		{"logrb", "(Ljava/util/logging/Level;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Logger, logrb, void, $Level*, $ResourceBundle*, $String*, $Throwable*)},
+		{"mergeWithSystemLogger", "(Ljava/util/logging/Logger;)V", nullptr, $FINAL, $method(Logger, mergeWithSystemLogger, void, Logger*)},
+		{"removeChildLogger", "(Ljava/util/logging/LogManager$LoggerWeakRef;)V", nullptr, $FINAL, $method(Logger, removeChildLogger, void, $LogManager$LoggerWeakRef*)},
+		{"removeHandler", "(Ljava/util/logging/Handler;)V", nullptr, $PUBLIC, $virtualMethod(Logger, removeHandler, void, $Handler*), "java.lang.SecurityException"},
+		{"setCallerModuleRef", "(Ljava/lang/Module;)V", nullptr, $PRIVATE, $method(Logger, setCallerModuleRef, void, $Module*)},
+		{"setFilter", "(Ljava/util/logging/Filter;)V", nullptr, $PUBLIC, $virtualMethod(Logger, setFilter, void, $Filter*), "java.lang.SecurityException"},
+		{"setLevel", "(Ljava/util/logging/Level;)V", nullptr, $PUBLIC, $virtualMethod(Logger, setLevel, void, $Level*), "java.lang.SecurityException"},
+		{"setLogManager", "(Ljava/util/logging/LogManager;)V", nullptr, 0, $virtualMethod(Logger, setLogManager, void, $LogManager*)},
+		{"setParent", "(Ljava/util/logging/Logger;)V", nullptr, $PUBLIC, $virtualMethod(Logger, setParent, void, Logger*)},
+		{"setResourceBundle", "(Ljava/util/ResourceBundle;)V", nullptr, $PUBLIC, $virtualMethod(Logger, setResourceBundle, void, $ResourceBundle*)},
+		{"setUseParentHandlers", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Logger, setUseParentHandlers, void, bool)},
+		{"setupResourceInfo", "(Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/Class<*>;)V", $PRIVATE, $method(Logger, setupResourceInfo, void, $String*, $Class*)},
+		{"setupResourceInfo", "(Ljava/lang/String;Ljava/lang/Module;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Logger, setupResourceInfo, void, $String*, $Module*)},
+		{"severe", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, severe, void, $String*)},
+		{"severe", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Logger, severe, void, $Supplier*)},
+		{"throwing", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Logger, throwing, void, $String*, $String*, $Throwable*)},
+		{"updateEffectiveLevel", "()V", nullptr, $PRIVATE, $method(Logger, updateEffectiveLevel, void)},
+		{"warning", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, warning, void, $String*)},
+		{"warning", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Logger, warning, void, $Supplier*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.logging.Logger$SystemLoggerHelper", "java.util.logging.Logger", "SystemLoggerHelper", $PRIVATE | $STATIC},
+		{"java.util.logging.Logger$ConfigurationData", "java.util.logging.Logger", "ConfigurationData", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.logging.Logger$RbAccess", "java.util.logging.Logger", "RbAccess", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.logging.Logger$LoggerBundle", "java.util.logging.Logger", "LoggerBundle", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.logging.Logger",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.logging.Logger$SystemLoggerHelper,java.util.logging.Logger$SystemLoggerHelper$1,java.util.logging.Logger$ConfigurationData,java.util.logging.Logger$RbAccess,java.util.logging.Logger$LoggerBundle"
+	};
+	$loadClass(Logger, name, initialize, &classInfo$$, Logger::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Logger);
+	});
 	return class$;
 }
 

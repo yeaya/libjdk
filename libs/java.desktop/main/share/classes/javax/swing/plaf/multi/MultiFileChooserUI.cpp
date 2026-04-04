@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/multi/MultiFileChooserUI.h>
-
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/io/File.h>
@@ -36,47 +35,6 @@ namespace javax {
 		namespace plaf {
 			namespace multi {
 
-$FieldInfo _MultiFileChooserUI_FieldInfo_[] = {
-	{"uis", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/plaf/ComponentUI;>;", $PROTECTED, $field(MultiFileChooserUI, uis)},
-	{}
-};
-
-$MethodInfo _MultiFileChooserUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MultiFileChooserUI, init$, void)},
-	{"contains", "(Ljavax/swing/JComponent;II)Z", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, contains, bool, $JComponent*, int32_t, int32_t)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MultiFileChooserUI, createUI, $ComponentUI*, $JComponent*)},
-	{"ensureFileIsVisible", "(Ljavax/swing/JFileChooser;Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, ensureFileIsVisible, void, $JFileChooser*, $File*)},
-	{"getAcceptAllFileFilter", "(Ljavax/swing/JFileChooser;)Ljavax/swing/filechooser/FileFilter;", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, getAcceptAllFileFilter, $FileFilter*, $JFileChooser*)},
-	{"getAccessibleChild", "(Ljavax/swing/JComponent;I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, getAccessibleChild, $Accessible*, $JComponent*, int32_t)},
-	{"getAccessibleChildrenCount", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, getAccessibleChildrenCount, int32_t, $JComponent*)},
-	{"getApproveButtonText", "(Ljavax/swing/JFileChooser;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, getApproveButtonText, $String*, $JFileChooser*)},
-	{"getDialogTitle", "(Ljavax/swing/JFileChooser;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, getDialogTitle, $String*, $JFileChooser*)},
-	{"getFileView", "(Ljavax/swing/JFileChooser;)Ljavax/swing/filechooser/FileView;", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, getFileView, $FileView*, $JFileChooser*)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getUIs", "()[Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, getUIs, $ComponentUIArray*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, installUI, void, $JComponent*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, paint, void, $Graphics*, $JComponent*)},
-	{"rescanCurrentDirectory", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, rescanCurrentDirectory, void, $JFileChooser*)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, uninstallUI, void, $JComponent*)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, update, void, $Graphics*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _MultiFileChooserUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.multi.MultiFileChooserUI",
-	"javax.swing.plaf.FileChooserUI",
-	nullptr,
-	_MultiFileChooserUI_FieldInfo_,
-	_MultiFileChooserUI_MethodInfo_
-};
-
-$Object* allocate$MultiFileChooserUI($Class* clazz) {
-	return $of($alloc(MultiFileChooserUI));
-}
-
 void MultiFileChooserUI::init$() {
 	$FileChooserUI::init$();
 	$set(this, uis, $new($Vector));
@@ -87,68 +45,68 @@ $ComponentUIArray* MultiFileChooserUI::getUIs() {
 }
 
 $FileFilter* MultiFileChooserUI::getAcceptAllFileFilter($JFileChooser* a) {
-	$useLocalCurrentObjectStackCache();
-	$var($FileFilter, returnValue, $nc((($cast($FileChooserUI, $($nc(this->uis)->elementAt(0))))))->getAcceptAllFileFilter(a));
+	$useLocalObjectStack();
+	$var($FileFilter, returnValue, $$cast($FileChooserUI, $nc(this->uis)->elementAt(0))->getAcceptAllFileFilter(a));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc((($cast($FileChooserUI, $($nc(this->uis)->elementAt(i))))))->getAcceptAllFileFilter(a);
+		$$cast($FileChooserUI, this->uis->elementAt(i))->getAcceptAllFileFilter(a);
 	}
 	return returnValue;
 }
 
 $FileView* MultiFileChooserUI::getFileView($JFileChooser* a) {
-	$useLocalCurrentObjectStackCache();
-	$var($FileView, returnValue, $nc((($cast($FileChooserUI, $($nc(this->uis)->elementAt(0))))))->getFileView(a));
+	$useLocalObjectStack();
+	$var($FileView, returnValue, $$cast($FileChooserUI, $nc(this->uis)->elementAt(0))->getFileView(a));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc((($cast($FileChooserUI, $($nc(this->uis)->elementAt(i))))))->getFileView(a);
+		$$cast($FileChooserUI, this->uis->elementAt(i))->getFileView(a);
 	}
 	return returnValue;
 }
 
 $String* MultiFileChooserUI::getApproveButtonText($JFileChooser* a) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, returnValue, $nc((($cast($FileChooserUI, $($nc(this->uis)->elementAt(0))))))->getApproveButtonText(a));
+	$useLocalObjectStack();
+	$var($String, returnValue, $$cast($FileChooserUI, $nc(this->uis)->elementAt(0))->getApproveButtonText(a));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc((($cast($FileChooserUI, $($nc(this->uis)->elementAt(i))))))->getApproveButtonText(a);
+		$$cast($FileChooserUI, this->uis->elementAt(i))->getApproveButtonText(a);
 	}
 	return returnValue;
 }
 
 $String* MultiFileChooserUI::getDialogTitle($JFileChooser* a) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, returnValue, $nc((($cast($FileChooserUI, $($nc(this->uis)->elementAt(0))))))->getDialogTitle(a));
+	$useLocalObjectStack();
+	$var($String, returnValue, $$cast($FileChooserUI, $nc(this->uis)->elementAt(0))->getDialogTitle(a));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc((($cast($FileChooserUI, $($nc(this->uis)->elementAt(i))))))->getDialogTitle(a);
+		$$cast($FileChooserUI, this->uis->elementAt(i))->getDialogTitle(a);
 	}
 	return returnValue;
 }
 
 void MultiFileChooserUI::rescanCurrentDirectory($JFileChooser* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
-		$nc((($cast($FileChooserUI, $($nc(this->uis)->elementAt(i))))))->rescanCurrentDirectory(a);
+		$$cast($FileChooserUI, this->uis->elementAt(i))->rescanCurrentDirectory(a);
 	}
 }
 
 void MultiFileChooserUI::ensureFileIsVisible($JFileChooser* a, $File* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
-		$nc((($cast($FileChooserUI, $($nc(this->uis)->elementAt(i))))))->ensureFileIsVisible(a, b);
+		$$cast($FileChooserUI, this->uis->elementAt(i))->ensureFileIsVisible(a, b);
 	}
 }
 
 bool MultiFileChooserUI::contains($JComponent* a, int32_t b, int32_t c) {
-	$useLocalCurrentObjectStackCache();
-	bool returnValue = $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->contains(a, b, c);
+	$useLocalObjectStack();
+	bool returnValue = $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->contains(a, b, c);
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->contains(a, b, c);
+		$$sure($ComponentUI, this->uis->elementAt(i))->contains(a, b, c);
 	}
 	return returnValue;
 }
 
 void MultiFileChooserUI::update($Graphics* a, $JComponent* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->update(a, b);
+		$$sure($ComponentUI, this->uis->elementAt(i))->update(a, b);
 	}
 }
 
@@ -159,67 +117,67 @@ $ComponentUI* MultiFileChooserUI::createUI($JComponent* a) {
 }
 
 void MultiFileChooserUI::installUI($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->installUI(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->installUI(a);
 	}
 }
 
 void MultiFileChooserUI::uninstallUI($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->uninstallUI(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->uninstallUI(a);
 	}
 }
 
 void MultiFileChooserUI::paint($Graphics* a, $JComponent* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->paint(a, b);
+		$$sure($ComponentUI, this->uis->elementAt(i))->paint(a, b);
 	}
 }
 
 $Dimension* MultiFileChooserUI::getPreferredSize($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
-	$var($Dimension, returnValue, $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getPreferredSize(a));
+	$useLocalObjectStack();
+	$var($Dimension, returnValue, $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->getPreferredSize(a));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getPreferredSize(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->getPreferredSize(a);
 	}
 	return returnValue;
 }
 
 $Dimension* MultiFileChooserUI::getMinimumSize($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
-	$var($Dimension, returnValue, $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getMinimumSize(a));
+	$useLocalObjectStack();
+	$var($Dimension, returnValue, $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->getMinimumSize(a));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getMinimumSize(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->getMinimumSize(a);
 	}
 	return returnValue;
 }
 
 $Dimension* MultiFileChooserUI::getMaximumSize($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
-	$var($Dimension, returnValue, $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getMaximumSize(a));
+	$useLocalObjectStack();
+	$var($Dimension, returnValue, $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->getMaximumSize(a));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getMaximumSize(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->getMaximumSize(a);
 	}
 	return returnValue;
 }
 
 int32_t MultiFileChooserUI::getAccessibleChildrenCount($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
-	int32_t returnValue = $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getAccessibleChildrenCount(a);
+	$useLocalObjectStack();
+	int32_t returnValue = $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->getAccessibleChildrenCount(a);
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getAccessibleChildrenCount(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->getAccessibleChildrenCount(a);
 	}
 	return returnValue;
 }
 
 $Accessible* MultiFileChooserUI::getAccessibleChild($JComponent* a, int32_t b) {
-	$useLocalCurrentObjectStackCache();
-	$var($Accessible, returnValue, $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getAccessibleChild(a, b));
+	$useLocalObjectStack();
+	$var($Accessible, returnValue, $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->getAccessibleChild(a, b));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getAccessibleChild(a, b);
+		$$sure($ComponentUI, this->uis->elementAt(i))->getAccessibleChild(a, b);
 	}
 	return returnValue;
 }
@@ -228,7 +186,43 @@ MultiFileChooserUI::MultiFileChooserUI() {
 }
 
 $Class* MultiFileChooserUI::load$($String* name, bool initialize) {
-	$loadClass(MultiFileChooserUI, name, initialize, &_MultiFileChooserUI_ClassInfo_, allocate$MultiFileChooserUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"uis", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/plaf/ComponentUI;>;", $PROTECTED, $field(MultiFileChooserUI, uis)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MultiFileChooserUI, init$, void)},
+		{"contains", "(Ljavax/swing/JComponent;II)Z", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, contains, bool, $JComponent*, int32_t, int32_t)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MultiFileChooserUI, createUI, $ComponentUI*, $JComponent*)},
+		{"ensureFileIsVisible", "(Ljavax/swing/JFileChooser;Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, ensureFileIsVisible, void, $JFileChooser*, $File*)},
+		{"getAcceptAllFileFilter", "(Ljavax/swing/JFileChooser;)Ljavax/swing/filechooser/FileFilter;", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, getAcceptAllFileFilter, $FileFilter*, $JFileChooser*)},
+		{"getAccessibleChild", "(Ljavax/swing/JComponent;I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, getAccessibleChild, $Accessible*, $JComponent*, int32_t)},
+		{"getAccessibleChildrenCount", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, getAccessibleChildrenCount, int32_t, $JComponent*)},
+		{"getApproveButtonText", "(Ljavax/swing/JFileChooser;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, getApproveButtonText, $String*, $JFileChooser*)},
+		{"getDialogTitle", "(Ljavax/swing/JFileChooser;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, getDialogTitle, $String*, $JFileChooser*)},
+		{"getFileView", "(Ljavax/swing/JFileChooser;)Ljavax/swing/filechooser/FileView;", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, getFileView, $FileView*, $JFileChooser*)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getUIs", "()[Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, getUIs, $ComponentUIArray*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, installUI, void, $JComponent*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, paint, void, $Graphics*, $JComponent*)},
+		{"rescanCurrentDirectory", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, rescanCurrentDirectory, void, $JFileChooser*)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, uninstallUI, void, $JComponent*)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiFileChooserUI, update, void, $Graphics*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.multi.MultiFileChooserUI",
+		"javax.swing.plaf.FileChooserUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MultiFileChooserUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiFileChooserUI);
+	});
 	return class$;
 }
 

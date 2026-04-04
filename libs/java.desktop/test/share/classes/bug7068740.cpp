@@ -1,5 +1,4 @@
 #include <bug7068740.h>
-
 #include <bug7068740$1.h>
 #include <bug7068740$2.h>
 #include <bug7068740$3.h>
@@ -10,7 +9,6 @@
 #include <java/awt/Window.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/util/concurrent/atomic/AtomicInteger.h>
 #include <javax/swing/JFrame.h>
@@ -44,7 +42,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
@@ -52,7 +49,6 @@ using $JFrame = ::javax::swing::JFrame;
 using $JLayer = ::javax::swing::JLayer;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTable = ::javax::swing::JTable;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $UnsupportedLookAndFeelException = ::javax::swing::UnsupportedLookAndFeelException;
@@ -60,63 +56,21 @@ using $WindowConstants = ::javax::swing::WindowConstants;
 using $LayerUI = ::javax::swing::plaf::LayerUI;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
 using $DefaultTableModel = ::javax::swing::table::DefaultTableModel;
-using $TableModel = ::javax::swing::table::TableModel;
-
-$FieldInfo _bug7068740_FieldInfo_[] = {
-	{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(bug7068740, robot)},
-	{"table", "Ljavax/swing/JTable;", nullptr, $PRIVATE | $STATIC, $staticField(bug7068740, table)},
-	{}
-};
-
-$MethodInfo _bug7068740_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug7068740, init$, void)},
-	{"doTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug7068740, doTest, void), "java.lang.Exception"},
-	{"getSelectedRow", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(bug7068740, getSelectedRow, int32_t), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug7068740, main, void, $StringArray*), "java.lang.Exception"},
-	{"setUp", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug7068740, setUp, void)},
-	{}
-};
-
-$InnerClassInfo _bug7068740_InnerClassesInfo_[] = {
-	{"bug7068740$3", nullptr, nullptr, 0},
-	{"bug7068740$2", nullptr, nullptr, 0},
-	{"bug7068740$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug7068740_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug7068740",
-	"javax.swing.JFrame",
-	nullptr,
-	_bug7068740_FieldInfo_,
-	_bug7068740_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug7068740_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug7068740$3,bug7068740$2,bug7068740$1"
-};
-
-$Object* allocate$bug7068740($Class* clazz) {
-	return $of($alloc(bug7068740));
-}
 
 $Robot* bug7068740::robot = nullptr;
 $JTable* bug7068740::table = nullptr;
 
 void bug7068740::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JFrame::init$();
 	setDefaultCloseOperation($WindowConstants::EXIT_ON_CLOSE);
 	$var($DefaultTableModel, model, $new($bug7068740$1, this));
 	$assignStatic(bug7068740::table, $new($JTable, model));
-	$nc(bug7068740::table)->setRowSelectionInterval(0, 0);
+	bug7068740::table->setRowSelectionInterval(0, 0);
 	$var($LayerUI, layerUI, $new($LayerUI));
 	$var($JLayer, layer, $new($JLayer, bug7068740::table, layerUI));
 	$var($JScrollPane, scrollPane, $new($JScrollPane, layer));
-	add(static_cast<$Component*>(scrollPane));
+	add(scrollPane);
 	pack();
 	setLocationRelativeTo(nullptr);
 }
@@ -126,7 +80,7 @@ void bug7068740::setUp() {
 	try {
 		if (bug7068740::robot == nullptr) {
 			$assignStatic(bug7068740::robot, $new($Robot));
-			$nc(bug7068740::robot)->setAutoDelay(50);
+			bug7068740::robot->setAutoDelay(50);
 		}
 		$SwingUtilities::invokeAndWait($$new($bug7068740$2));
 	} catch ($InterruptedException& e) {
@@ -143,7 +97,7 @@ void bug7068740::setUp() {
 
 int32_t bug7068740::getSelectedRow() {
 	$init(bug7068740);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AtomicInteger, row, $new($AtomicInteger, -1));
 	$SwingUtilities::invokeAndWait($$new($bug7068740$3, row));
 	return row->intValue();
@@ -169,7 +123,7 @@ void bug7068740::doTest() {
 void bug7068740::main($StringArray* args) {
 	$init(bug7068740);
 	try {
-		$UIManager::setLookAndFeel(static_cast<$LookAndFeel*>($$new($MetalLookAndFeel)));
+		$UIManager::setLookAndFeel($$new($MetalLookAndFeel));
 		setUp();
 		doTest();
 	} catch ($UnsupportedLookAndFeelException& e) {
@@ -178,7 +132,7 @@ void bug7068740::main($StringArray* args) {
 	}
 }
 
-void clinit$bug7068740($Class* class$) {
+void bug7068740::clinit$($Class* clazz) {
 	$assignStatic(bug7068740::robot, nullptr);
 	$assignStatic(bug7068740::table, nullptr);
 }
@@ -187,7 +141,42 @@ bug7068740::bug7068740() {
 }
 
 $Class* bug7068740::load$($String* name, bool initialize) {
-	$loadClass(bug7068740, name, initialize, &_bug7068740_ClassInfo_, clinit$bug7068740, allocate$bug7068740);
+	$FieldInfo fieldInfos$$[] = {
+		{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(bug7068740, robot)},
+		{"table", "Ljavax/swing/JTable;", nullptr, $PRIVATE | $STATIC, $staticField(bug7068740, table)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug7068740, init$, void)},
+		{"doTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug7068740, doTest, void), "java.lang.Exception"},
+		{"getSelectedRow", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(bug7068740, getSelectedRow, int32_t), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug7068740, main, void, $StringArray*), "java.lang.Exception"},
+		{"setUp", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug7068740, setUp, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug7068740$3", nullptr, nullptr, 0},
+		{"bug7068740$2", nullptr, nullptr, 0},
+		{"bug7068740$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug7068740",
+		"javax.swing.JFrame",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug7068740$3,bug7068740$2,bug7068740$1"
+	};
+	$loadClass(bug7068740, name, initialize, &classInfo$$, bug7068740::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug7068740));
+	});
 	return class$;
 }
 

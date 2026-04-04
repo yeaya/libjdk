@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicSliderUI$Handler.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/FocusEvent.h>
@@ -27,7 +26,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $BoundedRangeModel = ::javax::swing::BoundedRangeModel;
 using $InputMap = ::javax::swing::InputMap;
 using $JComponent = ::javax::swing::JComponent;
-using $JSlider = ::javax::swing::JSlider;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
@@ -38,54 +36,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicSliderUI$Handler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicSliderUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicSliderUI$Handler, this$0)},
-	{}
-};
-
-$MethodInfo _BasicSliderUI$Handler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicSliderUI;)V", nullptr, $PRIVATE, $method(BasicSliderUI$Handler, init$, void, $BasicSliderUI*)},
-	{"componentHidden", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI$Handler, componentHidden, void, $ComponentEvent*)},
-	{"componentMoved", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI$Handler, componentMoved, void, $ComponentEvent*)},
-	{"componentResized", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI$Handler, componentResized, void, $ComponentEvent*)},
-	{"componentShown", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI$Handler, componentShown, void, $ComponentEvent*)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI$Handler, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI$Handler, focusLost, void, $FocusEvent*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI$Handler, propertyChange, void, $PropertyChangeEvent*)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI$Handler, stateChanged, void, $ChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicSliderUI$Handler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicSliderUI$Handler", "javax.swing.plaf.basic.BasicSliderUI", "Handler", $PRIVATE},
-	{}
-};
-
-$ClassInfo _BasicSliderUI$Handler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicSliderUI$Handler",
-	"java.lang.Object",
-	"javax.swing.event.ChangeListener,java.awt.event.ComponentListener,java.awt.event.FocusListener,java.beans.PropertyChangeListener",
-	_BasicSliderUI$Handler_FieldInfo_,
-	_BasicSliderUI$Handler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicSliderUI$Handler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicSliderUI"
-};
-
-$Object* allocate$BasicSliderUI$Handler($Class* clazz) {
-	return $of($alloc(BasicSliderUI$Handler));
-}
 
 int32_t BasicSliderUI$Handler::hashCode() {
 	 return this->$ChangeListener::hashCode();
@@ -142,7 +92,7 @@ void BasicSliderUI$Handler::focusLost($FocusEvent* e) {
 }
 
 void BasicSliderUI$Handler::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, propertyName, $nc(e)->getPropertyName());
 	if (propertyName == "orientation"_s || propertyName == "inverted"_s || propertyName == "labelTable"_s || propertyName == "majorTickSpacing"_s || propertyName == "minorTickSpacing"_s || propertyName == "paintTicks"_s || propertyName == "paintTrack"_s || propertyName == "font"_s || $SwingUtilities2::isScaleChanged(e) || propertyName == "paintLabels"_s || propertyName == "Slider.paintThumbArrowShape"_s) {
 		this->this$0->checkedLabelBaselines = false;
@@ -154,8 +104,8 @@ void BasicSliderUI$Handler::propertyChange($PropertyChangeEvent* e) {
 		$var($InputMap, km, this->this$0->getInputMap($JComponent::WHEN_FOCUSED, this->this$0->slider));
 		$SwingUtilities::replaceUIInputMap(this->this$0->slider, $JComponent::WHEN_FOCUSED, km);
 	} else if (propertyName == "model"_s) {
-		$nc(($cast($BoundedRangeModel, $(e->getOldValue()))))->removeChangeListener(this->this$0->changeListener);
-		$nc(($cast($BoundedRangeModel, $(e->getNewValue()))))->addChangeListener(this->this$0->changeListener);
+		$$sure($BoundedRangeModel, e->getOldValue())->removeChangeListener(this->this$0->changeListener);
+		$$sure($BoundedRangeModel, e->getNewValue())->addChangeListener(this->this$0->changeListener);
 		this->this$0->calculateThumbLocation();
 		$nc(this->this$0->slider)->repaint();
 	}
@@ -165,7 +115,49 @@ BasicSliderUI$Handler::BasicSliderUI$Handler() {
 }
 
 $Class* BasicSliderUI$Handler::load$($String* name, bool initialize) {
-	$loadClass(BasicSliderUI$Handler, name, initialize, &_BasicSliderUI$Handler_ClassInfo_, allocate$BasicSliderUI$Handler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicSliderUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicSliderUI$Handler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicSliderUI;)V", nullptr, $PRIVATE, $method(BasicSliderUI$Handler, init$, void, $BasicSliderUI*)},
+		{"componentHidden", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI$Handler, componentHidden, void, $ComponentEvent*)},
+		{"componentMoved", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI$Handler, componentMoved, void, $ComponentEvent*)},
+		{"componentResized", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI$Handler, componentResized, void, $ComponentEvent*)},
+		{"componentShown", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI$Handler, componentShown, void, $ComponentEvent*)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI$Handler, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI$Handler, focusLost, void, $FocusEvent*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI$Handler, propertyChange, void, $PropertyChangeEvent*)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI$Handler, stateChanged, void, $ChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicSliderUI$Handler", "javax.swing.plaf.basic.BasicSliderUI", "Handler", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicSliderUI$Handler",
+		"java.lang.Object",
+		"javax.swing.event.ChangeListener,java.awt.event.ComponentListener,java.awt.event.FocusListener,java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicSliderUI"
+	};
+	$loadClass(BasicSliderUI$Handler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicSliderUI$Handler));
+	});
 	return class$;
 }
 

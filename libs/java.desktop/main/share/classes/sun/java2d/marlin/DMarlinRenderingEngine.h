@@ -89,6 +89,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::awt::Shape* createStrokedShape(::java::awt::Shape* src, float width, int32_t caps, int32_t join, float miterlimit, $floats* dashes, float dashphase) override;
 	virtual ::sun::java2d::pipe::AATileGenerator* getAATileGenerator(::java::awt::Shape* s, ::java::awt::geom::AffineTransform* at, ::sun::java2d::pipe::Region* clip, ::java::awt::BasicStroke* bs, bool thin, bool normalize, $ints* bbox) override;

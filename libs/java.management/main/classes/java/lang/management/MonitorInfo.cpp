@@ -1,5 +1,4 @@
 #include <java/lang/management/MonitorInfo.h>
-
 #include <java/lang/StackTraceElement.h>
 #include <java/lang/management/LockInfo.h>
 #include <javax/management/openmbean/CompositeData.h>
@@ -19,35 +18,8 @@ namespace java {
 	namespace lang {
 		namespace management {
 
-$FieldInfo _MonitorInfo_FieldInfo_[] = {
-	{"stackDepth", "I", nullptr, $PRIVATE, $field(MonitorInfo, stackDepth)},
-	{"stackFrame", "Ljava/lang/StackTraceElement;", nullptr, $PRIVATE, $field(MonitorInfo, stackFrame)},
-	{}
-};
-
-$MethodInfo _MonitorInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;IILjava/lang/StackTraceElement;)V", nullptr, $PUBLIC, $method(MonitorInfo, init$, void, $String*, int32_t, int32_t, $StackTraceElement*)},
-	{"from", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/management/MonitorInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(MonitorInfo, from, MonitorInfo*, $CompositeData*)},
-	{"getLockedStackDepth", "()I", nullptr, $PUBLIC, $virtualMethod(MonitorInfo, getLockedStackDepth, int32_t)},
-	{"getLockedStackFrame", "()Ljava/lang/StackTraceElement;", nullptr, $PUBLIC, $virtualMethod(MonitorInfo, getLockedStackFrame, $StackTraceElement*)},
-	{}
-};
-
-$ClassInfo _MonitorInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.management.MonitorInfo",
-	"java.lang.management.LockInfo",
-	nullptr,
-	_MonitorInfo_FieldInfo_,
-	_MonitorInfo_MethodInfo_
-};
-
-$Object* allocate$MonitorInfo($Class* clazz) {
-	return $of($alloc(MonitorInfo));
-}
-
 void MonitorInfo::init$($String* className, int32_t identityHashCode, int32_t stackDepth, $StackTraceElement* stackFrame) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LockInfo::init$(className, identityHashCode);
 	if (stackDepth >= 0 && stackFrame == nullptr) {
 		$throwNew($IllegalArgumentException, $$str({"Parameter stackDepth is "_s, $$str(stackDepth), " but stackFrame is null"_s}));
@@ -69,12 +41,12 @@ $StackTraceElement* MonitorInfo::getLockedStackFrame() {
 
 MonitorInfo* MonitorInfo::from($CompositeData* cd) {
 	$init(MonitorInfo);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (cd == nullptr) {
 		return nullptr;
 	}
 	if ($instanceOf($MonitorInfoCompositeData, cd)) {
-		return $nc(($cast($MonitorInfoCompositeData, cd)))->getMonitorInfo();
+		return $cast($MonitorInfoCompositeData, cd)->getMonitorInfo();
 	} else {
 		$MonitorInfoCompositeData::validateCompositeData(cd);
 		$var($String, className, $MonitorInfoCompositeData::getClassName(cd));
@@ -89,7 +61,29 @@ MonitorInfo::MonitorInfo() {
 }
 
 $Class* MonitorInfo::load$($String* name, bool initialize) {
-	$loadClass(MonitorInfo, name, initialize, &_MonitorInfo_ClassInfo_, allocate$MonitorInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"stackDepth", "I", nullptr, $PRIVATE, $field(MonitorInfo, stackDepth)},
+		{"stackFrame", "Ljava/lang/StackTraceElement;", nullptr, $PRIVATE, $field(MonitorInfo, stackFrame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;IILjava/lang/StackTraceElement;)V", nullptr, $PUBLIC, $method(MonitorInfo, init$, void, $String*, int32_t, int32_t, $StackTraceElement*)},
+		{"from", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/management/MonitorInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(MonitorInfo, from, MonitorInfo*, $CompositeData*)},
+		{"getLockedStackDepth", "()I", nullptr, $PUBLIC, $virtualMethod(MonitorInfo, getLockedStackDepth, int32_t)},
+		{"getLockedStackFrame", "()Ljava/lang/StackTraceElement;", nullptr, $PUBLIC, $virtualMethod(MonitorInfo, getLockedStackFrame, $StackTraceElement*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.management.MonitorInfo",
+		"java.lang.management.LockInfo",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MonitorInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MonitorInfo);
+	});
 	return class$;
 }
 

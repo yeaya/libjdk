@@ -113,6 +113,7 @@ class $import LambdaToMethod : public ::com::sun::tools::javac::tree::TreeTransl
 	$class(LambdaToMethod, 0, ::com::sun::tools::javac::tree::TreeTranslator)
 public:
 	LambdaToMethod();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	void addDeserializationCase(::com::sun::tools::javac::code::Symbol$MethodHandleSymbol* refSym, ::com::sun::tools::javac::code::Type* targetType, ::com::sun::tools::javac::code::Symbol$MethodSymbol* samSym, ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition* pos, ::com::sun::tools::javac::util::List* staticArgs, ::com::sun::tools::javac::code::Type$MethodType* indyType);
 	void apportionTypeAnnotations(::com::sun::tools::javac::tree::JCTree$JCLambda* tree, ::java::util::function::Supplier* source, ::java::util::function::Consumer* owner, ::java::util::function::Consumer* lambda);

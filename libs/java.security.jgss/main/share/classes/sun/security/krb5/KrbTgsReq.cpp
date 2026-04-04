@@ -1,5 +1,4 @@
 #include <sun/security/krb5/KrbTgsReq.h>
-
 #include <java/time/Instant.h>
 #include <java/util/Arrays.h>
 #include <sun/security/krb5/Checksum.h>
@@ -78,7 +77,6 @@ using $PAData = ::sun::security::krb5::internal::PAData;
 using $SeqNumber = ::sun::security::krb5::internal::SeqNumber;
 using $TGSReq = ::sun::security::krb5::internal::TGSReq;
 using $Ticket = ::sun::security::krb5::internal::Ticket;
-using $TicketFlags = ::sun::security::krb5::internal::TicketFlags;
 using $EType = ::sun::security::krb5::internal::crypto::EType;
 using $KeyUsage = ::sun::security::krb5::internal::crypto::KeyUsage;
 using $Nonce = ::sun::security::krb5::internal::crypto::Nonce;
@@ -87,66 +85,18 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 
-$FieldInfo _KrbTgsReq_FieldInfo_[] = {
-	{"princName", "Lsun/security/krb5/PrincipalName;", nullptr, $PRIVATE, $field(KrbTgsReq, princName)},
-	{"clientAlias", "Lsun/security/krb5/PrincipalName;", nullptr, $PRIVATE, $field(KrbTgsReq, clientAlias)},
-	{"servName", "Lsun/security/krb5/PrincipalName;", nullptr, $PRIVATE, $field(KrbTgsReq, servName)},
-	{"serverAlias", "Lsun/security/krb5/PrincipalName;", nullptr, $PRIVATE, $field(KrbTgsReq, serverAlias)},
-	{"tgsReqMessg", "Lsun/security/krb5/internal/TGSReq;", nullptr, $PRIVATE, $field(KrbTgsReq, tgsReqMessg)},
-	{"ctime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PRIVATE, $field(KrbTgsReq, ctime)},
-	{"secondTicket", "Lsun/security/krb5/internal/Ticket;", nullptr, $PRIVATE, $field(KrbTgsReq, secondTicket)},
-	{"useSubkey", "Z", nullptr, $PRIVATE, $field(KrbTgsReq, useSubkey)},
-	{"tgsReqKey", "Lsun/security/krb5/EncryptionKey;", nullptr, 0, $field(KrbTgsReq, tgsReqKey)},
-	{"obuf", "[B", nullptr, $PRIVATE, $field(KrbTgsReq, obuf)},
-	{"ibuf", "[B", nullptr, $PRIVATE, $field(KrbTgsReq, ibuf)},
-	{}
-};
-
-$MethodInfo _KrbTgsReq_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/internal/KDCOptions;Lsun/security/krb5/Credentials;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;[Lsun/security/krb5/internal/Ticket;[Lsun/security/krb5/internal/PAData;)V", nullptr, $PUBLIC, $method(KrbTgsReq, init$, void, $KDCOptions*, $Credentials*, $PrincipalName*, $PrincipalName*, $PrincipalName*, $PrincipalName*, $TicketArray*, $PADataArray*), "sun.security.krb5.KrbException,java.io.IOException"},
-	{"<init>", "(Lsun/security/krb5/internal/KDCOptions;Lsun/security/krb5/Credentials;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;[ILsun/security/krb5/internal/HostAddresses;Lsun/security/krb5/internal/AuthorizationData;[Lsun/security/krb5/internal/Ticket;Lsun/security/krb5/EncryptionKey;)V", nullptr, 0, $method(KrbTgsReq, init$, void, $KDCOptions*, $Credentials*, $PrincipalName*, $PrincipalName*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $ints*, $HostAddresses*, $AuthorizationData*, $TicketArray*, $EncryptionKey*), "sun.security.krb5.KrbException,java.io.IOException"},
-	{"<init>", "(Lsun/security/krb5/internal/KDCOptions;Lsun/security/krb5/Credentials;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;[ILsun/security/krb5/internal/HostAddresses;Lsun/security/krb5/internal/AuthorizationData;[Lsun/security/krb5/internal/Ticket;Lsun/security/krb5/EncryptionKey;[Lsun/security/krb5/internal/PAData;)V", nullptr, $PRIVATE, $method(KrbTgsReq, init$, void, $KDCOptions*, $Credentials*, $PrincipalName*, $PrincipalName*, $PrincipalName*, $PrincipalName*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $ints*, $HostAddresses*, $AuthorizationData*, $TicketArray*, $EncryptionKey*, $PADataArray*), "sun.security.krb5.KrbException,java.io.IOException"},
-	{"createRequest", "(Lsun/security/krb5/internal/KDCOptions;Lsun/security/krb5/internal/Ticket;Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;[ILsun/security/krb5/internal/HostAddresses;Lsun/security/krb5/internal/AuthorizationData;[Lsun/security/krb5/internal/Ticket;Lsun/security/krb5/EncryptionKey;[Lsun/security/krb5/internal/PAData;)Lsun/security/krb5/internal/TGSReq;", nullptr, $PRIVATE, $method(KrbTgsReq, createRequest, $TGSReq*, $KDCOptions*, $Ticket*, $EncryptionKey*, $KerberosTime*, $PrincipalName*, $PrincipalName*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $ints*, $HostAddresses*, $AuthorizationData*, $TicketArray*, $EncryptionKey*, $PADataArray*), "java.io.IOException,sun.security.krb5.KrbException,java.net.UnknownHostException"},
-	{"debug", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(KrbTgsReq, debug, void, $String*)},
-	{"getClientAlias", "()Lsun/security/krb5/PrincipalName;", nullptr, 0, $virtualMethod(KrbTgsReq, getClientAlias, $PrincipalName*)},
-	{"getCtime", "()Lsun/security/krb5/internal/KerberosTime;", nullptr, 0, $virtualMethod(KrbTgsReq, getCtime, $KerberosTime*)},
-	{"getMessage", "()Lsun/security/krb5/internal/TGSReq;", nullptr, 0, $virtualMethod(KrbTgsReq, getMessage, $TGSReq*)},
-	{"getReply", "()Lsun/security/krb5/KrbTgsRep;", nullptr, $PUBLIC, $virtualMethod(KrbTgsReq, getReply, $KrbTgsRep*), "sun.security.krb5.KrbException,java.io.IOException"},
-	{"getSecondTicket", "()Lsun/security/krb5/internal/Ticket;", nullptr, 0, $virtualMethod(KrbTgsReq, getSecondTicket, $Ticket*)},
-	{"getServerAlias", "()Lsun/security/krb5/PrincipalName;", nullptr, 0, $virtualMethod(KrbTgsReq, getServerAlias, $PrincipalName*)},
-	{"send", "()V", nullptr, $PUBLIC, $virtualMethod(KrbTgsReq, send, void), "java.io.IOException,sun.security.krb5.KrbException"},
-	{"sendAndGetCreds", "()Lsun/security/krb5/Credentials;", nullptr, $PUBLIC, $virtualMethod(KrbTgsReq, sendAndGetCreds, $Credentials*), "java.io.IOException,sun.security.krb5.KrbException"},
-	{"usedSubkey", "()Z", nullptr, 0, $virtualMethod(KrbTgsReq, usedSubkey, bool)},
-	{}
-};
-
-$ClassInfo _KrbTgsReq_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.KrbTgsReq",
-	"java.lang.Object",
-	nullptr,
-	_KrbTgsReq_FieldInfo_,
-	_KrbTgsReq_MethodInfo_
-};
-
-$Object* allocate$KrbTgsReq($Class* clazz) {
-	return $of($alloc(KrbTgsReq));
-}
-
 void KrbTgsReq::init$($KDCOptions* options, $Credentials* asCreds, $PrincipalName* cname, $PrincipalName* clientAlias, $PrincipalName* sname, $PrincipalName* serverAlias, $TicketArray* additionalTickets, $PADataArray* extraPAs) {
 	KrbTgsReq::init$(options, asCreds, cname, clientAlias, sname, serverAlias, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, additionalTickets, nullptr, extraPAs);
 }
 
 void KrbTgsReq::init$($KDCOptions* options, $Credentials* asCreds, $PrincipalName* sname, $PrincipalName* serverAlias, $KerberosTime* from, $KerberosTime* till, $KerberosTime* rtime, $ints* eTypes, $HostAddresses* addresses, $AuthorizationData* authorizationData, $TicketArray* additionalTickets, $EncryptionKey* subKey) {
-	$useLocalCurrentObjectStackCache();
-	$var($KDCOptions, var$0, options);
-	$var($Credentials, var$1, asCreds);
-	$var($PrincipalName, var$2, $nc(asCreds)->getClient());
-	KrbTgsReq::init$(var$0, var$1, var$2, $(asCreds->getClientAlias()), sname, serverAlias, from, till, rtime, eTypes, addresses, authorizationData, additionalTickets, subKey, nullptr);
+	$useLocalObjectStack();
+	$var($PrincipalName, var$0, $nc(asCreds)->getClient());
+	KrbTgsReq::init$(options, asCreds, var$0, $(asCreds->getClientAlias()), sname, serverAlias, from, till, rtime, eTypes, addresses, authorizationData, additionalTickets, subKey, nullptr);
 }
 
 void KrbTgsReq::init$($KDCOptions* options, $Credentials* asCreds, $PrincipalName* cname, $PrincipalName* clientAlias, $PrincipalName* sname, $PrincipalName* serverAlias, $KerberosTime* from$renamed, $KerberosTime* till, $KerberosTime* rtime$renamed, $ints* eTypes, $HostAddresses* addresses, $AuthorizationData* authorizationData, $TicketArray* additionalTickets$renamed, $EncryptionKey* subKey, $PADataArray* extraPAs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($KerberosTime, rtime, rtime$renamed);
 	$var($TicketArray, additionalTickets, additionalTickets$renamed);
 	$var($KerberosTime, from, from$renamed);
@@ -161,44 +111,44 @@ void KrbTgsReq::init$($KDCOptions* options, $Credentials* asCreds, $PrincipalNam
 	if (var$0 && (!($nc($nc(asCreds)->flags)->get($Krb5::TKT_OPTS_FORWARDABLE)))) {
 		options->set($KDCOptions::FORWARDABLE, false);
 	}
-	if ($nc(options)->get($KDCOptions::FORWARDED)) {
+	if (options->get($KDCOptions::FORWARDED)) {
 		if (!($nc($nc(asCreds)->flags)->get($KDCOptions::FORWARDABLE))) {
 			$throwNew($KrbException, $Krb5::KRB_AP_ERR_REQ_OPTIONS);
 		}
 	}
-	bool var$1 = $nc(options)->get($KDCOptions::PROXIABLE);
+	bool var$1 = options->get($KDCOptions::PROXIABLE);
 	if (var$1 && (!($nc($nc(asCreds)->flags)->get($Krb5::TKT_OPTS_PROXIABLE)))) {
 		$throwNew($KrbException, $Krb5::KRB_AP_ERR_REQ_OPTIONS);
 	}
-	if ($nc(options)->get($KDCOptions::PROXY)) {
+	if (options->get($KDCOptions::PROXY)) {
 		if (!($nc($nc(asCreds)->flags)->get($KDCOptions::PROXIABLE))) {
 			$throwNew($KrbException, $Krb5::KRB_AP_ERR_REQ_OPTIONS);
 		}
 	}
-	bool var$2 = $nc(options)->get($KDCOptions::ALLOW_POSTDATE);
+	bool var$2 = options->get($KDCOptions::ALLOW_POSTDATE);
 	if (var$2 && (!($nc($nc(asCreds)->flags)->get($Krb5::TKT_OPTS_MAY_POSTDATE)))) {
 		$throwNew($KrbException, $Krb5::KRB_AP_ERR_REQ_OPTIONS);
 	}
-	bool var$3 = $nc(options)->get($KDCOptions::RENEWABLE);
+	bool var$3 = options->get($KDCOptions::RENEWABLE);
 	if (var$3 && (!($nc($nc(asCreds)->flags)->get($Krb5::TKT_OPTS_RENEWABLE)))) {
 		$throwNew($KrbException, $Krb5::KRB_AP_ERR_REQ_OPTIONS);
 	}
-	if ($nc(options)->get($KDCOptions::POSTDATED)) {
+	if (options->get($KDCOptions::POSTDATED)) {
 		if (!($nc($nc(asCreds)->flags)->get($KDCOptions::POSTDATED))) {
 			$throwNew($KrbException, $Krb5::KRB_AP_ERR_REQ_OPTIONS);
 		}
 	} else if (from != nullptr) {
 		$assign(from, nullptr);
 	}
-	if ($nc(options)->get($KDCOptions::RENEWABLE)) {
+	if (options->get($KDCOptions::RENEWABLE)) {
 		if (!($nc($nc(asCreds)->flags)->get($KDCOptions::RENEWABLE))) {
 			$throwNew($KrbException, $Krb5::KRB_AP_ERR_REQ_OPTIONS);
 		}
 	} else if (rtime != nullptr) {
 		$assign(rtime, nullptr);
 	}
-	bool var$4 = $nc(options)->get($KDCOptions::ENC_TKT_IN_SKEY);
-	if (var$4 || $nc(options)->get($KDCOptions::CNAME_IN_ADDL_TKT)) {
+	bool var$4 = options->get($KDCOptions::ENC_TKT_IN_SKEY);
+	if (var$4 || options->get($KDCOptions::CNAME_IN_ADDL_TKT)) {
 		if (additionalTickets == nullptr) {
 			$throwNew($KrbException, $Krb5::KRB_AP_ERR_REQ_OPTIONS);
 		}
@@ -206,18 +156,18 @@ void KrbTgsReq::init$($KDCOptions* options, $Credentials* asCreds, $PrincipalNam
 	} else if (additionalTickets != nullptr) {
 		$assign(additionalTickets, nullptr);
 	}
-	$set(this, tgsReqMessg, createRequest(options, $nc(asCreds)->ticket, asCreds->key, this->ctime, this->princName, this->servName, from, till, rtime, eTypes, addresses, authorizationData, additionalTickets, subKey, extraPAs));
+	$set(this, tgsReqMessg, createRequest(options, $nc(asCreds)->ticket, $nc(asCreds)->key, this->ctime, this->princName, this->servName, from, till, rtime, eTypes, addresses, authorizationData, additionalTickets, subKey, extraPAs));
 	$set(this, obuf, $nc(this->tgsReqMessg)->asn1Encode());
-	if ($nc($nc(asCreds)->flags)->get($KDCOptions::FORWARDED)) {
-		$nc(options)->set($KDCOptions::FORWARDED, true);
+	if ($nc(asCreds->flags)->get($KDCOptions::FORWARDED)) {
+		options->set($KDCOptions::FORWARDED, true);
 	}
 }
 
 void KrbTgsReq::send() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, realmStr, nullptr);
 	if (this->servName != nullptr) {
-		$assign(realmStr, $nc(this->servName)->getRealmString());
+		$assign(realmStr, this->servName->getRealmString());
 	}
 	$var($KdcComm, comm, $new($KdcComm, realmStr));
 	$set(this, ibuf, comm->send(this->obuf));
@@ -228,7 +178,7 @@ $KrbTgsRep* KrbTgsReq::getReply() {
 }
 
 $Credentials* KrbTgsReq::sendAndGetCreds() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($KrbTgsRep, tgs_rep, nullptr);
 	$var($String, kdc, nullptr);
 	send();
@@ -241,15 +191,15 @@ $KerberosTime* KrbTgsReq::getCtime() {
 }
 
 $TGSReq* KrbTgsReq::createRequest($KDCOptions* kdc_options, $Ticket* ticket, $EncryptionKey* key, $KerberosTime* ctime, $PrincipalName* cname, $PrincipalName* sname, $KerberosTime* from, $KerberosTime* till, $KerberosTime* rtime, $ints* eTypes, $HostAddresses* addresses, $AuthorizationData* authorizationData, $TicketArray* additionalTickets, $EncryptionKey* subKey, $PADataArray* extraPAs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($KerberosTime, req_till, nullptr);
 	if (till == nullptr) {
-		$var($String, d, $nc($($Config::getInstance()))->get($$new($StringArray, {
+		$var($String, d, $$nc($Config::getInstance())->get($$new($StringArray, {
 			"libdefaults"_s,
 			"ticket_lifetime"_s
 		})));
 		if (d != nullptr) {
-			$assign(req_till, $new($KerberosTime, $($nc($($Instant::now()))->plusSeconds($Config::duration(d)))));
+			$assign(req_till, $new($KerberosTime, $($$nc($Instant::now())->plusSeconds($Config::duration(d)))));
 		} else {
 			$assign(req_till, $new($KerberosTime, (int64_t)0));
 		}
@@ -284,7 +234,7 @@ $TGSReq* KrbTgsReq::createRequest($KDCOptions* kdc_options, $Ticket* ticket, $En
 	$var($PAData, tgsPAData, $new($PAData, $Krb5::PA_TGS_REQ, tgs_ap_req));
 	$var($PADataArray, pa, nullptr);
 	if (extraPAs != nullptr) {
-		$assign(pa, $fcast($PADataArray, $Arrays::copyOf(extraPAs, extraPAs->length + 1)));
+		$assign(pa, $cast($PADataArray, $Arrays::copyOf(extraPAs, extraPAs->length + 1)));
 		pa->set(extraPAs->length, tgsPAData);
 	} else {
 		$assign(pa, $new($PADataArray, {tgsPAData}));
@@ -319,7 +269,48 @@ KrbTgsReq::KrbTgsReq() {
 }
 
 $Class* KrbTgsReq::load$($String* name, bool initialize) {
-	$loadClass(KrbTgsReq, name, initialize, &_KrbTgsReq_ClassInfo_, allocate$KrbTgsReq);
+	$FieldInfo fieldInfos$$[] = {
+		{"princName", "Lsun/security/krb5/PrincipalName;", nullptr, $PRIVATE, $field(KrbTgsReq, princName)},
+		{"clientAlias", "Lsun/security/krb5/PrincipalName;", nullptr, $PRIVATE, $field(KrbTgsReq, clientAlias)},
+		{"servName", "Lsun/security/krb5/PrincipalName;", nullptr, $PRIVATE, $field(KrbTgsReq, servName)},
+		{"serverAlias", "Lsun/security/krb5/PrincipalName;", nullptr, $PRIVATE, $field(KrbTgsReq, serverAlias)},
+		{"tgsReqMessg", "Lsun/security/krb5/internal/TGSReq;", nullptr, $PRIVATE, $field(KrbTgsReq, tgsReqMessg)},
+		{"ctime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PRIVATE, $field(KrbTgsReq, ctime)},
+		{"secondTicket", "Lsun/security/krb5/internal/Ticket;", nullptr, $PRIVATE, $field(KrbTgsReq, secondTicket)},
+		{"useSubkey", "Z", nullptr, $PRIVATE, $field(KrbTgsReq, useSubkey)},
+		{"tgsReqKey", "Lsun/security/krb5/EncryptionKey;", nullptr, 0, $field(KrbTgsReq, tgsReqKey)},
+		{"obuf", "[B", nullptr, $PRIVATE, $field(KrbTgsReq, obuf)},
+		{"ibuf", "[B", nullptr, $PRIVATE, $field(KrbTgsReq, ibuf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/krb5/internal/KDCOptions;Lsun/security/krb5/Credentials;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;[Lsun/security/krb5/internal/Ticket;[Lsun/security/krb5/internal/PAData;)V", nullptr, $PUBLIC, $method(KrbTgsReq, init$, void, $KDCOptions*, $Credentials*, $PrincipalName*, $PrincipalName*, $PrincipalName*, $PrincipalName*, $TicketArray*, $PADataArray*), "sun.security.krb5.KrbException,java.io.IOException"},
+		{"<init>", "(Lsun/security/krb5/internal/KDCOptions;Lsun/security/krb5/Credentials;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;[ILsun/security/krb5/internal/HostAddresses;Lsun/security/krb5/internal/AuthorizationData;[Lsun/security/krb5/internal/Ticket;Lsun/security/krb5/EncryptionKey;)V", nullptr, 0, $method(KrbTgsReq, init$, void, $KDCOptions*, $Credentials*, $PrincipalName*, $PrincipalName*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $ints*, $HostAddresses*, $AuthorizationData*, $TicketArray*, $EncryptionKey*), "sun.security.krb5.KrbException,java.io.IOException"},
+		{"<init>", "(Lsun/security/krb5/internal/KDCOptions;Lsun/security/krb5/Credentials;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;[ILsun/security/krb5/internal/HostAddresses;Lsun/security/krb5/internal/AuthorizationData;[Lsun/security/krb5/internal/Ticket;Lsun/security/krb5/EncryptionKey;[Lsun/security/krb5/internal/PAData;)V", nullptr, $PRIVATE, $method(KrbTgsReq, init$, void, $KDCOptions*, $Credentials*, $PrincipalName*, $PrincipalName*, $PrincipalName*, $PrincipalName*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $ints*, $HostAddresses*, $AuthorizationData*, $TicketArray*, $EncryptionKey*, $PADataArray*), "sun.security.krb5.KrbException,java.io.IOException"},
+		{"createRequest", "(Lsun/security/krb5/internal/KDCOptions;Lsun/security/krb5/internal/Ticket;Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;[ILsun/security/krb5/internal/HostAddresses;Lsun/security/krb5/internal/AuthorizationData;[Lsun/security/krb5/internal/Ticket;Lsun/security/krb5/EncryptionKey;[Lsun/security/krb5/internal/PAData;)Lsun/security/krb5/internal/TGSReq;", nullptr, $PRIVATE, $method(KrbTgsReq, createRequest, $TGSReq*, $KDCOptions*, $Ticket*, $EncryptionKey*, $KerberosTime*, $PrincipalName*, $PrincipalName*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $ints*, $HostAddresses*, $AuthorizationData*, $TicketArray*, $EncryptionKey*, $PADataArray*), "java.io.IOException,sun.security.krb5.KrbException,java.net.UnknownHostException"},
+		{"debug", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(KrbTgsReq, debug, void, $String*)},
+		{"getClientAlias", "()Lsun/security/krb5/PrincipalName;", nullptr, 0, $virtualMethod(KrbTgsReq, getClientAlias, $PrincipalName*)},
+		{"getCtime", "()Lsun/security/krb5/internal/KerberosTime;", nullptr, 0, $virtualMethod(KrbTgsReq, getCtime, $KerberosTime*)},
+		{"getMessage", "()Lsun/security/krb5/internal/TGSReq;", nullptr, 0, $virtualMethod(KrbTgsReq, getMessage, $TGSReq*)},
+		{"getReply", "()Lsun/security/krb5/KrbTgsRep;", nullptr, $PUBLIC, $virtualMethod(KrbTgsReq, getReply, $KrbTgsRep*), "sun.security.krb5.KrbException,java.io.IOException"},
+		{"getSecondTicket", "()Lsun/security/krb5/internal/Ticket;", nullptr, 0, $virtualMethod(KrbTgsReq, getSecondTicket, $Ticket*)},
+		{"getServerAlias", "()Lsun/security/krb5/PrincipalName;", nullptr, 0, $virtualMethod(KrbTgsReq, getServerAlias, $PrincipalName*)},
+		{"send", "()V", nullptr, $PUBLIC, $virtualMethod(KrbTgsReq, send, void), "java.io.IOException,sun.security.krb5.KrbException"},
+		{"sendAndGetCreds", "()Lsun/security/krb5/Credentials;", nullptr, $PUBLIC, $virtualMethod(KrbTgsReq, sendAndGetCreds, $Credentials*), "java.io.IOException,sun.security.krb5.KrbException"},
+		{"usedSubkey", "()Z", nullptr, 0, $virtualMethod(KrbTgsReq, usedSubkey, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.KrbTgsReq",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KrbTgsReq, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KrbTgsReq);
+	});
 	return class$;
 }
 

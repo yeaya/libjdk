@@ -1,10 +1,8 @@
 #include <sun/swing/plaf/synth/SynthFileChooserUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/io/File.h>
@@ -17,7 +15,6 @@
 #include <javax/swing/JFileChooser.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/border/Border.h>
-#include <javax/swing/event/ListDataListener.h>
 #include <javax/swing/filechooser/FileFilter.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/UIResource.h>
@@ -48,7 +45,6 @@
 using $FileArray = $Array<::java::io::File>;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $File = ::java::io::File;
@@ -56,7 +52,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Vector = ::java::util::Vector;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $JButton = ::javax::swing::JButton;
@@ -64,20 +59,16 @@ using $JComponent = ::javax::swing::JComponent;
 using $JFileChooser = ::javax::swing::JFileChooser;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $Border = ::javax::swing::border::Border;
-using $ListDataListener = ::javax::swing::event::ListDataListener;
 using $FileFilter = ::javax::swing::filechooser::FileFilter;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
-using $BasicDirectoryModel = ::javax::swing::plaf::basic::BasicDirectoryModel;
 using $BasicFileChooserUI = ::javax::swing::plaf::basic::BasicFileChooserUI;
 using $ColorType = ::javax::swing::plaf::synth::ColorType;
 using $Region = ::javax::swing::plaf::synth::Region;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
-using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
 using $SynthStyle = ::javax::swing::plaf::synth::SynthStyle;
-using $SynthStyleFactory = ::javax::swing::plaf::synth::SynthStyleFactory;
 using $SynthFileChooserUI$1 = ::sun::swing::plaf::synth::SynthFileChooserUI$1;
 using $SynthFileChooserUI$FileNameCompletionAction = ::sun::swing::plaf::synth::SynthFileChooserUI$FileNameCompletionAction;
 using $SynthFileChooserUI$SynthFCPropertyChangeListener = ::sun::swing::plaf::synth::SynthFileChooserUI$SynthFCPropertyChangeListener;
@@ -88,93 +79,6 @@ namespace sun {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthFileChooserUI_FieldInfo_[] = {
-	{"approveButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE, $field(SynthFileChooserUI, approveButton)},
-	{"cancelButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE, $field(SynthFileChooserUI, cancelButton)},
-	{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthFileChooserUI, style)},
-	{"fileNameCompletionAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(SynthFileChooserUI, fileNameCompletionAction)},
-	{"actualFileFilter", "Ljavax/swing/filechooser/FileFilter;", nullptr, $PRIVATE, $field(SynthFileChooserUI, actualFileFilter)},
-	{"globFilter", "Lsun/swing/plaf/synth/SynthFileChooserUI$GlobFilter;", nullptr, $PRIVATE, $field(SynthFileChooserUI, globFilter)},
-	{"fileNameCompletionString", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUI, fileNameCompletionString)},
-	{}
-};
-
-$MethodInfo _SynthFileChooserUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"createActionMap", "()Ljavax/swing/ActionMap;", nullptr, $PROTECTED | $ABSTRACT},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $method(SynthFileChooserUI, init$, void, $JFileChooser*)},
-	{"clearIconCache", "()V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI, clearIconCache, void)},
-	{"createPropertyChangeListener", "(Ljavax/swing/JFileChooser;)Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI, createPropertyChangeListener, $PropertyChangeListener*, $JFileChooser*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthFileChooserUI, createUI, $ComponentUI*, $JComponent*)},
-	{"doAccessoryChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, doAccessoryChanged, void, $PropertyChangeEvent*)},
-	{"doAncestorChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, doAncestorChanged, void, $PropertyChangeEvent*)},
-	{"doControlButtonsChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, doControlButtonsChanged, void, $PropertyChangeEvent*)},
-	{"doDirectoryChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, doDirectoryChanged, void, $PropertyChangeEvent*)},
-	{"doFileSelectionModeChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, doFileSelectionModeChanged, void, $PropertyChangeEvent*)},
-	{"doMultiSelectionChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, doMultiSelectionChanged, void, $PropertyChangeEvent*)},
-	{"doSelectedFileChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, doSelectedFileChanged, void, $PropertyChangeEvent*)},
-	{"doSelectedFilesChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, doSelectedFilesChanged, void, $PropertyChangeEvent*)},
-	{"getApproveButton", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, getApproveButton, $JButton*, $JFileChooser*)},
-	{"getCancelButton", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, getCancelButton, $JButton*, $JFileChooser*)},
-	{"getCommonStartString", "([Ljava/io/File;)Ljava/lang/String;", nullptr, $PRIVATE, $method(SynthFileChooserUI, getCommonStartString, $String*, $FileArray*)},
-	{"getComponentState", "(Ljavax/swing/JComponent;)I", nullptr, $PRIVATE, $method(SynthFileChooserUI, getComponentState, int32_t, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI, getContext, $SynthContext*, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, getContext, $SynthContext*, $JComponent*, int32_t)},
-	{"getFileNameCompletionAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI, getFileNameCompletionAction, $Action*)},
-	{"getRegion", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/Region;", nullptr, $PRIVATE, $method(SynthFileChooserUI, getRegion, $Region*, $JComponent*)},
-	{"installComponents", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI, installComponents, void, $JFileChooser*)},
-	{"installDefaults", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, installDefaults, void, $JFileChooser*)},
-	{"installIcons", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, installIcons, void, $JFileChooser*)},
-	{"installListeners", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, installListeners, void, $JFileChooser*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI, installUI, void, $JComponent*)},
-	{"isGlobPattern", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SynthFileChooserUI, isGlobPattern, bool, $String*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI, paint, void, $Graphics*, $JComponent*)},
-	{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, paint, void, $SynthContext*, $Graphics*)},
-	{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"resetGlobFilter", "()V", nullptr, $PRIVATE, $method(SynthFileChooserUI, resetGlobFilter, void)},
-	{"setFileName", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallComponents", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI, uninstallComponents, void, $JFileChooser*)},
-	{"uninstallDefaults", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, uninstallDefaults, void, $JFileChooser*)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI, update, void, $Graphics*, $JComponent*)},
-	{"updateFileNameCompletion", "()V", nullptr, $PRIVATE, $method(SynthFileChooserUI, updateFileNameCompletion, void)},
-	{"updateStyle", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(SynthFileChooserUI, updateStyle, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _SynthFileChooserUI_InnerClassesInfo_[] = {
-	{"sun.swing.plaf.synth.SynthFileChooserUI$UIBorder", "sun.swing.plaf.synth.SynthFileChooserUI", "UIBorder", $PRIVATE},
-	{"sun.swing.plaf.synth.SynthFileChooserUI$GlobFilter", "sun.swing.plaf.synth.SynthFileChooserUI", "GlobFilter", 0},
-	{"sun.swing.plaf.synth.SynthFileChooserUI$FileNameCompletionAction", "sun.swing.plaf.synth.SynthFileChooserUI", "FileNameCompletionAction", $PRIVATE},
-	{"sun.swing.plaf.synth.SynthFileChooserUI$SynthFCPropertyChangeListener", "sun.swing.plaf.synth.SynthFileChooserUI", "SynthFCPropertyChangeListener", $PRIVATE},
-	{"sun.swing.plaf.synth.SynthFileChooserUI$DelayedSelectionUpdater", "sun.swing.plaf.synth.SynthFileChooserUI", "DelayedSelectionUpdater", $PRIVATE},
-	{"sun.swing.plaf.synth.SynthFileChooserUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SynthFileChooserUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.swing.plaf.synth.SynthFileChooserUI",
-	"javax.swing.plaf.basic.BasicFileChooserUI",
-	"javax.swing.plaf.synth.SynthUI",
-	_SynthFileChooserUI_FieldInfo_,
-	_SynthFileChooserUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthFileChooserUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.swing.plaf.synth.SynthFileChooserUI$UIBorder,sun.swing.plaf.synth.SynthFileChooserUI$GlobFilter,sun.swing.plaf.synth.SynthFileChooserUI$FileNameCompletionAction,sun.swing.plaf.synth.SynthFileChooserUI$SynthFCPropertyChangeListener,sun.swing.plaf.synth.SynthFileChooserUI$DelayedSelectionUpdater,sun.swing.plaf.synth.SynthFileChooserUI$1"
-};
-
-$Object* allocate$SynthFileChooserUI($Class* clazz) {
-	return $of($alloc(SynthFileChooserUI));
-}
 
 $ActionMap* SynthFileChooserUI::createActionMap() {
 	 return this->$BasicFileChooserUI::createActionMap();
@@ -246,12 +150,12 @@ int32_t SynthFileChooserUI::getComponentState($JComponent* c) {
 }
 
 void SynthFileChooserUI::updateStyle($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Region);
-	$var($SynthStyle, newStyle, $nc($($SynthLookAndFeel::getStyleFactory()))->getStyle(c, $Region::FILE_CHOOSER));
+	$var($SynthStyle, newStyle, $$nc($SynthLookAndFeel::getStyleFactory())->getStyle(c, $Region::FILE_CHOOSER));
 	if (newStyle != this->style) {
 		if (this->style != nullptr) {
-			$nc(this->style)->uninstallDefaults($(getContext(c, $SynthConstants::ENABLED)));
+			this->style->uninstallDefaults($(getContext(c, $SynthConstants::ENABLED)));
 		}
 		$set(this, style, newStyle);
 		$var($SynthContext, context, getContext(c, $SynthConstants::ENABLED));
@@ -279,17 +183,17 @@ void SynthFileChooserUI::installUI($JComponent* c) {
 }
 
 void SynthFileChooserUI::installComponents($JFileChooser* fc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(fc, $SynthConstants::ENABLED));
 	$set(this, cancelButton, $new($JButton, this->cancelButtonText));
-	$nc(this->cancelButton)->setName("SynthFileChooser.cancelButton"_s);
-	$nc(this->cancelButton)->setIcon($($nc($($nc(context)->getStyle()))->getIcon(context, "FileChooser.cancelIcon"_s)));
+	this->cancelButton->setName("SynthFileChooser.cancelButton"_s);
+	$nc(this->cancelButton)->setIcon($($$nc($nc(context)->getStyle())->getIcon(context, "FileChooser.cancelIcon"_s)));
 	$nc(this->cancelButton)->setMnemonic(this->cancelButtonMnemonic);
 	$nc(this->cancelButton)->setToolTipText(this->cancelButtonToolTipText);
 	$nc(this->cancelButton)->addActionListener($(getCancelSelectionAction()));
 	$set(this, approveButton, $new($JButton, $(getApproveButtonText(fc))));
 	$nc(this->approveButton)->setName("SynthFileChooser.approveButton"_s);
-	$nc(this->approveButton)->setIcon($($nc($($nc(context)->getStyle()))->getIcon(context, "FileChooser.okIcon"_s)));
+	$nc(this->approveButton)->setIcon($($$nc(context->getStyle())->getIcon(context, "FileChooser.okIcon"_s)));
 	$nc(this->approveButton)->setMnemonic(getApproveButtonMnemonic(fc));
 	$nc(this->approveButton)->setToolTipText($(getApproveButtonToolTipText(fc)));
 	$nc(this->approveButton)->addActionListener($(getApproveSelectionAction()));
@@ -300,9 +204,9 @@ void SynthFileChooserUI::uninstallComponents($JFileChooser* fc) {
 }
 
 void SynthFileChooserUI::installListeners($JFileChooser* fc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicFileChooserUI::installListeners(fc);
-	$nc($(getModel()))->addListDataListener($$new($SynthFileChooserUI$1, this));
+	$$nc(getModel())->addListDataListener($$new($SynthFileChooserUI$1, this));
 }
 
 void SynthFileChooserUI::installDefaults($JFileChooser* fc) {
@@ -311,7 +215,7 @@ void SynthFileChooserUI::installDefaults($JFileChooser* fc) {
 }
 
 void SynthFileChooserUI::uninstallDefaults($JFileChooser* fc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicFileChooserUI::uninstallDefaults(fc);
 	$var($SynthContext, context, getContext($(getFileChooser()), $SynthConstants::ENABLED));
 	$nc(this->style)->uninstallDefaults(context);
@@ -322,7 +226,7 @@ void SynthFileChooserUI::installIcons($JFileChooser* fc) {
 }
 
 void SynthFileChooserUI::update($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(c));
 	if ($nc(c)->isOpaque()) {
 		$init($ColorType);
@@ -330,10 +234,8 @@ void SynthFileChooserUI::update($Graphics* g, $JComponent* c) {
 		int32_t var$0 = c->getWidth();
 		g->fillRect(0, 0, var$0, c->getHeight());
 	}
-	$var($SynthContext, var$1, context);
-	$var($Graphics, var$2, g);
-	int32_t var$3 = $nc(c)->getWidth();
-	$nc($($nc(this->style)->getPainter(context)))->paintFileChooserBackground(var$1, var$2, 0, 0, var$3, c->getHeight());
+	int32_t var$1 = c->getWidth();
+	$$nc($nc(this->style)->getPainter(context))->paintFileChooserBackground(context, g, 0, 0, var$1, c->getHeight());
 	paint(context, g);
 }
 
@@ -364,15 +266,15 @@ void SynthFileChooserUI::doFileSelectionModeChanged($PropertyChangeEvent* e) {
 }
 
 void SynthFileChooserUI::doMultiSelectionChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
-	if (!$nc($(getFileChooser()))->isMultiSelectionEnabled()) {
-		$nc($(getFileChooser()))->setSelectedFiles(nullptr);
+	$useLocalObjectStack();
+	if (!$$nc(getFileChooser())->isMultiSelectionEnabled()) {
+		$$nc(getFileChooser())->setSelectedFiles(nullptr);
 	}
 }
 
 void SynthFileChooserUI::doControlButtonsChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc($(getFileChooser()))->getControlButtonsAreShown()) {
+	$useLocalObjectStack();
+	if ($$nc(getFileChooser())->getControlButtonsAreShown()) {
 		$nc(this->approveButton)->setText($(getApproveButtonText($(getFileChooser()))));
 		$nc(this->approveButton)->setToolTipText($(getApproveButtonToolTipText($(getFileChooser()))));
 		$nc(this->approveButton)->setMnemonic(getApproveButtonMnemonic($(getFileChooser())));
@@ -387,10 +289,10 @@ $PropertyChangeListener* SynthFileChooserUI::createPropertyChangeListener($JFile
 }
 
 void SynthFileChooserUI::updateFileNameCompletion() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fileNameCompletionString != nullptr) {
-		if ($nc(this->fileNameCompletionString)->equals($(getFileName()))) {
-			$var($FileArray, files, $fcast($FileArray, $nc($($nc($(getModel()))->getFiles()))->toArray($$new($FileArray, 0))));
+		if (this->fileNameCompletionString->equals($(getFileName()))) {
+			$var($FileArray, files, $cast($FileArray, $$nc($$nc(getModel())->getFiles())->toArray($$new($FileArray, 0))));
 			$var($String, str, getCommonStartString(files));
 			if (str != nullptr && str->startsWith(this->fileNameCompletionString)) {
 				setFileName(str);
@@ -401,7 +303,7 @@ void SynthFileChooserUI::updateFileNameCompletion() {
 }
 
 $String* SynthFileChooserUI::getCommonStartString($FileArray* files) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, nullptr);
 	$var($String, str2, nullptr);
 	int32_t i = 0;
@@ -409,13 +311,13 @@ $String* SynthFileChooserUI::getCommonStartString($FileArray* files) {
 		return nullptr;
 	}
 	while (true) {
-		for (int32_t f = 0; f < $nc(files)->length; ++f) {
+		for (int32_t f = 0; f < files->length; ++f) {
 			$var($String, name, $nc(files->get(f))->getName());
 			if (f == 0) {
 				if ($nc(name)->length() == i) {
 					return str;
 				}
-				$assign(str2, $nc(name)->substring(0, i + 1));
+				$assign(str2, name->substring(0, i + 1));
 			}
 			if (!$nc(name)->startsWith(str2)) {
 				return str;
@@ -427,11 +329,11 @@ $String* SynthFileChooserUI::getCommonStartString($FileArray* files) {
 }
 
 void SynthFileChooserUI::resetGlobFilter() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->actualFileFilter != nullptr) {
 		$var($JFileChooser, chooser, getFileChooser());
 		$var($FileFilter, currentFilter, $nc(chooser)->getFileFilter());
-		if (currentFilter != nullptr && $of(currentFilter)->equals(this->globFilter)) {
+		if (currentFilter != nullptr && currentFilter->equals(this->globFilter)) {
 			chooser->setFileFilter(this->actualFileFilter);
 			chooser->removeChoosableFileFilter(this->globFilter);
 		}
@@ -442,15 +344,15 @@ void SynthFileChooserUI::resetGlobFilter() {
 bool SynthFileChooserUI::isGlobPattern($String* fileName) {
 	$init(SynthFileChooserUI);
 	$init($File);
-	bool var$0 = ($File::separatorChar == u'\\' && $nc(fileName)->indexOf((int32_t)u'*') >= 0);
+	bool var$0 = $File::separatorChar == u'\\' && $nc(fileName)->indexOf(u'*') >= 0;
 	if (!var$0) {
 		bool var$1 = $File::separatorChar == u'/';
 		if (var$1) {
-			bool var$3 = $nc(fileName)->indexOf((int32_t)u'*') >= 0;
-			bool var$2 = var$3 || $nc(fileName)->indexOf((int32_t)u'?') >= 0;
-			var$1 = (var$2 || $nc(fileName)->indexOf((int32_t)u'[') >= 0);
+			bool var$3 = $nc(fileName)->indexOf(u'*') >= 0;
+			bool var$2 = var$3 || fileName->indexOf(u'?') >= 0;
+			var$1 = var$2 || fileName->indexOf(u'[') >= 0;
 		}
-		var$0 = (var$1);
+		var$0 = var$1;
 	}
 	return (var$0);
 }
@@ -474,7 +376,88 @@ SynthFileChooserUI::SynthFileChooserUI() {
 }
 
 $Class* SynthFileChooserUI::load$($String* name, bool initialize) {
-	$loadClass(SynthFileChooserUI, name, initialize, &_SynthFileChooserUI_ClassInfo_, allocate$SynthFileChooserUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"approveButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE, $field(SynthFileChooserUI, approveButton)},
+		{"cancelButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE, $field(SynthFileChooserUI, cancelButton)},
+		{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthFileChooserUI, style)},
+		{"fileNameCompletionAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(SynthFileChooserUI, fileNameCompletionAction)},
+		{"actualFileFilter", "Ljavax/swing/filechooser/FileFilter;", nullptr, $PRIVATE, $field(SynthFileChooserUI, actualFileFilter)},
+		{"globFilter", "Lsun/swing/plaf/synth/SynthFileChooserUI$GlobFilter;", nullptr, $PRIVATE, $field(SynthFileChooserUI, globFilter)},
+		{"fileNameCompletionString", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUI, fileNameCompletionString)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"createActionMap", "()Ljavax/swing/ActionMap;", nullptr, $PROTECTED | $ABSTRACT},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $method(SynthFileChooserUI, init$, void, $JFileChooser*)},
+		{"clearIconCache", "()V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI, clearIconCache, void)},
+		{"createPropertyChangeListener", "(Ljavax/swing/JFileChooser;)Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI, createPropertyChangeListener, $PropertyChangeListener*, $JFileChooser*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthFileChooserUI, createUI, $ComponentUI*, $JComponent*)},
+		{"doAccessoryChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, doAccessoryChanged, void, $PropertyChangeEvent*)},
+		{"doAncestorChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, doAncestorChanged, void, $PropertyChangeEvent*)},
+		{"doControlButtonsChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, doControlButtonsChanged, void, $PropertyChangeEvent*)},
+		{"doDirectoryChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, doDirectoryChanged, void, $PropertyChangeEvent*)},
+		{"doFileSelectionModeChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, doFileSelectionModeChanged, void, $PropertyChangeEvent*)},
+		{"doMultiSelectionChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, doMultiSelectionChanged, void, $PropertyChangeEvent*)},
+		{"doSelectedFileChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, doSelectedFileChanged, void, $PropertyChangeEvent*)},
+		{"doSelectedFilesChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, doSelectedFilesChanged, void, $PropertyChangeEvent*)},
+		{"getApproveButton", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, getApproveButton, $JButton*, $JFileChooser*)},
+		{"getCancelButton", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, getCancelButton, $JButton*, $JFileChooser*)},
+		{"getCommonStartString", "([Ljava/io/File;)Ljava/lang/String;", nullptr, $PRIVATE, $method(SynthFileChooserUI, getCommonStartString, $String*, $FileArray*)},
+		{"getComponentState", "(Ljavax/swing/JComponent;)I", nullptr, $PRIVATE, $method(SynthFileChooserUI, getComponentState, int32_t, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI, getContext, $SynthContext*, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, getContext, $SynthContext*, $JComponent*, int32_t)},
+		{"getFileNameCompletionAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI, getFileNameCompletionAction, $Action*)},
+		{"getRegion", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/Region;", nullptr, $PRIVATE, $method(SynthFileChooserUI, getRegion, $Region*, $JComponent*)},
+		{"installComponents", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI, installComponents, void, $JFileChooser*)},
+		{"installDefaults", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, installDefaults, void, $JFileChooser*)},
+		{"installIcons", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, installIcons, void, $JFileChooser*)},
+		{"installListeners", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, installListeners, void, $JFileChooser*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI, installUI, void, $JComponent*)},
+		{"isGlobPattern", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SynthFileChooserUI, isGlobPattern, bool, $String*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI, paint, void, $Graphics*, $JComponent*)},
+		{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, paint, void, $SynthContext*, $Graphics*)},
+		{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"resetGlobFilter", "()V", nullptr, $PRIVATE, $method(SynthFileChooserUI, resetGlobFilter, void)},
+		{"setFileName", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallComponents", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI, uninstallComponents, void, $JFileChooser*)},
+		{"uninstallDefaults", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUI, uninstallDefaults, void, $JFileChooser*)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI, update, void, $Graphics*, $JComponent*)},
+		{"updateFileNameCompletion", "()V", nullptr, $PRIVATE, $method(SynthFileChooserUI, updateFileNameCompletion, void)},
+		{"updateStyle", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(SynthFileChooserUI, updateStyle, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.plaf.synth.SynthFileChooserUI$UIBorder", "sun.swing.plaf.synth.SynthFileChooserUI", "UIBorder", $PRIVATE},
+		{"sun.swing.plaf.synth.SynthFileChooserUI$GlobFilter", "sun.swing.plaf.synth.SynthFileChooserUI", "GlobFilter", 0},
+		{"sun.swing.plaf.synth.SynthFileChooserUI$FileNameCompletionAction", "sun.swing.plaf.synth.SynthFileChooserUI", "FileNameCompletionAction", $PRIVATE},
+		{"sun.swing.plaf.synth.SynthFileChooserUI$SynthFCPropertyChangeListener", "sun.swing.plaf.synth.SynthFileChooserUI", "SynthFCPropertyChangeListener", $PRIVATE},
+		{"sun.swing.plaf.synth.SynthFileChooserUI$DelayedSelectionUpdater", "sun.swing.plaf.synth.SynthFileChooserUI", "DelayedSelectionUpdater", $PRIVATE},
+		{"sun.swing.plaf.synth.SynthFileChooserUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.swing.plaf.synth.SynthFileChooserUI",
+		"javax.swing.plaf.basic.BasicFileChooserUI",
+		"javax.swing.plaf.synth.SynthUI",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.swing.plaf.synth.SynthFileChooserUI$UIBorder,sun.swing.plaf.synth.SynthFileChooserUI$GlobFilter,sun.swing.plaf.synth.SynthFileChooserUI$FileNameCompletionAction,sun.swing.plaf.synth.SynthFileChooserUI$SynthFCPropertyChangeListener,sun.swing.plaf.synth.SynthFileChooserUI$DelayedSelectionUpdater,sun.swing.plaf.synth.SynthFileChooserUI$1"
+	};
+	$loadClass(SynthFileChooserUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthFileChooserUI));
+	});
 	return class$;
 }
 

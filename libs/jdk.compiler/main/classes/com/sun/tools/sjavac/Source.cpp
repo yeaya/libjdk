@@ -1,12 +1,10 @@
 #include <com/sun/tools/sjavac/Source.h>
-
 #include <com/sun/tools/sjavac/Log.h>
 #include <com/sun/tools/sjavac/Module.h>
 #include <com/sun/tools/sjavac/Package.h>
 #include <com/sun/tools/sjavac/Source$1.h>
 #include <java/io/File.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Iterable.h>
 #include <java/nio/file/FileSystem.h>
 #include <java/nio/file/FileVisitor.h>
 #include <java/nio/file/Files.h>
@@ -34,11 +32,9 @@ using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $FileSystem = ::java::nio::file::FileSystem;
-using $FileVisitor = ::java::nio::file::FileVisitor;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 using $ArrayList = ::java::util::ArrayList;
@@ -54,68 +50,6 @@ namespace com {
 		namespace tools {
 			namespace sjavac {
 
-$FieldInfo _Source_FieldInfo_[] = {
-	{"pkg", "Lcom/sun/tools/sjavac/Package;", nullptr, $PRIVATE, $field(Source, pkg$)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Source, name$)},
-	{"suffix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Source, suffix$)},
-	{"lastModified", "J", nullptr, $PRIVATE, $field(Source, lastModified$)},
-	{"file", "Ljava/io/File;", nullptr, $PRIVATE, $field(Source, file$)},
-	{"isGenerated", "Z", nullptr, $PRIVATE, $field(Source, isGenerated$)},
-	{"linkedOnly", "Z", nullptr, $PRIVATE, $field(Source, linkedOnly)},
-	{}
-};
-
-$MethodInfo _Source_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/sjavac/Module;Ljava/lang/String;Ljava/io/File;)V", nullptr, $PUBLIC, $method(Source, init$, void, $Module*, $String*, $File*)},
-	{"<init>", "(Lcom/sun/tools/sjavac/Package;Ljava/lang/String;J)V", nullptr, $PUBLIC, $method(Source, init$, void, $Package*, $String*, int64_t)},
-	{"compareTo", "(Lcom/sun/tools/sjavac/Source;)I", nullptr, $PUBLIC, $virtualMethod(Source, compareTo, int32_t, Source*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Source, compareTo, int32_t, Object$*)},
-	{"createPathMatchers", "(Ljava/nio/file/FileSystem;Ljava/util/List;)Ljava/util/List;", "(Ljava/nio/file/FileSystem;Ljava/util/List<Ljava/lang/String;>;)Ljava/util/List<Ljava/nio/file/PathMatcher;>;", $PRIVATE | $STATIC, $staticMethod(Source, createPathMatchers, $List*, $FileSystem*, $List*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Source, equals, bool, Object$*)},
-	{"file", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(Source, file, $File*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Source, hashCode, int32_t)},
-	{"isGenerated", "()Z", nullptr, $PUBLIC, $virtualMethod(Source, isGenerated, bool)},
-	{"isLinkedOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(Source, isLinkedOnly, bool)},
-	{"lastModified", "()J", nullptr, $PUBLIC, $virtualMethod(Source, lastModified, int64_t)},
-	{"load", "(Lcom/sun/tools/sjavac/Package;Ljava/lang/String;Z)Lcom/sun/tools/sjavac/Source;", nullptr, $PUBLIC | $STATIC, $staticMethod(Source, load, Source*, $Package*, $String*, bool)},
-	{"markAsGenerated", "()V", nullptr, $PUBLIC, $virtualMethod(Source, markAsGenerated, void)},
-	{"markAsLinkedOnly", "()V", nullptr, $PUBLIC, $virtualMethod(Source, markAsLinkedOnly, void)},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Source, name, $String*)},
-	{"packageOfJavaFile", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Source, packageOfJavaFile, $String*, $Path*, $Path*)},
-	{"pkg", "()Lcom/sun/tools/sjavac/Package;", nullptr, $PUBLIC, $virtualMethod(Source, pkg, $Package*)},
-	{"save", "(Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE, $method(Source, save, void, $StringBuilder*)},
-	{"saveSources", "(Ljava/util/Map;Ljava/lang/StringBuilder;)V", "(Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Source;>;Ljava/lang/StringBuilder;)V", $PUBLIC | $STATIC, $staticMethod(Source, saveSources, void, $Map*, $StringBuilder*)},
-	{"scanRoot", "(Ljava/io/File;Ljava/util/Set;Ljava/util/List;Ljava/util/List;Ljava/util/Map;Ljava/util/Map;Lcom/sun/tools/sjavac/Module;ZZZ)V", "(Ljava/io/File;Ljava/util/Set<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Source;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Module;>;Lcom/sun/tools/sjavac/Module;ZZZ)V", $PUBLIC | $STATIC, $staticMethod(Source, scanRoot, void, $File*, $Set*, $List*, $List*, $Map*, $Map*, $Module*, bool, bool, bool), "java.io.IOException,com.sun.tools.sjavac.ProblemException"},
-	{"setPackage", "(Lcom/sun/tools/sjavac/Package;)V", nullptr, $PUBLIC, $virtualMethod(Source, setPackage, void, $Package*)},
-	{"suffix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Source, suffix, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Source, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Source_InnerClassesInfo_[] = {
-	{"com.sun.tools.sjavac.Source$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Source_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.Source",
-	"java.lang.Object",
-	"java.lang.Comparable",
-	_Source_FieldInfo_,
-	_Source_MethodInfo_,
-	"Ljava/lang/Object;Ljava/lang/Comparable<Lcom/sun/tools/sjavac/Source;>;",
-	nullptr,
-	_Source_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.sjavac.Source$1"
-};
-
-$Object* allocate$Source($Class* clazz) {
-	return $of($alloc(Source));
-}
-
 bool Source::equals(Object$* o) {
 	$var(Source, source, nullptr);
 	bool var$1 = $instanceOf(Source, o);
@@ -123,7 +57,7 @@ bool Source::equals(Object$* o) {
 		$assign(source, $cast(Source, o));
 		var$1 = true;
 	}
-	bool var$0 = (var$1);
+	bool var$0 = var$1;
 	return var$0 && $nc(this->name$)->equals($nc(source)->name$);
 }
 
@@ -160,7 +94,7 @@ void Source::init$($Package* p, $String* n, int64_t lm) {
 	$set(this, file$, nullptr);
 	this->lastModified$ = lm;
 	this->linkedOnly = false;
-	int32_t ls = n->lastIndexOf((int32_t)u'/');
+	int32_t ls = n->lastIndexOf(u'/');
 }
 
 $String* Source::name() {
@@ -204,7 +138,7 @@ bool Source::isLinkedOnly() {
 }
 
 void Source::save($StringBuilder* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, CL, this->linkedOnly ? "L"_s : "C"_s);
 	$var($String, GS, this->isGenerated$ ? "G"_s : "S"_s);
 	$nc(b)->append($$str({GS, " "_s, CL, " "_s, this->name$, " "_s, $$str($nc(this->file$)->lastModified()), "\n"_s}));
@@ -212,8 +146,8 @@ void Source::save($StringBuilder* b) {
 
 Source* Source::load($Package* lastPackage, $String* l, bool isGenerated) {
 	$init(Source);
-	$useLocalCurrentObjectStackCache();
-	int32_t sp = $nc(l)->indexOf((int32_t)u' ', 4);
+	$useLocalObjectStack();
+	int32_t sp = $nc(l)->indexOf(u' ', 4);
 	if (sp == -1) {
 		return nullptr;
 	}
@@ -240,10 +174,10 @@ Source* Source::load($Package* lastPackage, $String* l, bool isGenerated) {
 
 void Source::saveSources($Map* sources, $StringBuilder* b) {
 	$init(Source);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, sorted_sources, $new($ArrayList));
 	{
-		$var($Iterator, i$, $nc($($nc(sources)->keySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(sources)->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, key, $cast($String, i$->next()));
 			{
@@ -266,12 +200,12 @@ void Source::saveSources($Map* sources, $StringBuilder* b) {
 
 void Source::scanRoot($File* root, $Set* suffixes, $List* excludes, $List* includes$renamed, $Map* foundFiles, $Map* foundModules, $Module* currentModule, bool permitSourcesWithoutPackage, bool inGensrc, bool inLinksrc) {
 	$init(Source);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, includes, includes$renamed);
 	if (root == nullptr) {
 		return;
 	}
-	$var($FileSystem, fs, $nc($($nc(root)->toPath()))->getFileSystem());
+	$var($FileSystem, fs, $$nc($nc(root)->toPath())->getFileSystem());
 	if ($nc(includes)->isEmpty()) {
 		$assign(includes, $Collections::singletonList("**"_s));
 	}
@@ -283,19 +217,17 @@ void Source::scanRoot($File* root, $Set* suffixes, $List* excludes, $List* inclu
 
 $List* Source::createPathMatchers($FileSystem* fs, $List* patterns) {
 	$init(Source);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, matchers, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc(patterns)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, pattern, $cast($String, i$->next()));
-			{
-				try {
-					matchers->add($($nc(fs)->getPathMatcher($$str({"glob:"_s, pattern}))));
-				} catch ($PatternSyntaxException& e) {
-					$Log::error($$str({"Invalid pattern: "_s, pattern}));
-					$throw(e);
-				}
+			try {
+				matchers->add($($nc(fs)->getPathMatcher($$str({"glob:"_s, pattern}))));
+			} catch ($PatternSyntaxException& e) {
+				$Log::error($$str({"Invalid pattern: "_s, pattern}));
+				$throw(e);
 			}
 		}
 	}
@@ -304,7 +236,7 @@ $List* Source::createPathMatchers($FileSystem* fs, $List* patterns) {
 
 $String* Source::packageOfJavaFile($Path* sourceRoot, $Path* javaFile) {
 	$init(Source);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, javaFileDir, $nc(javaFile)->getParent());
 	$var($Path, packageDir, $nc(sourceRoot)->relativize(javaFileDir));
 	$var($List, separateDirs, $new($ArrayList));
@@ -313,23 +245,23 @@ $String* Source::packageOfJavaFile($Path* sourceRoot, $Path* javaFile) {
 		for (; $nc(i$)->hasNext();) {
 			$var($Path, pathElement, $cast($Path, i$->next()));
 			{
-				separateDirs->add($($nc($($nc(pathElement)->getFileName()))->toString()));
+				separateDirs->add($($$nc($nc(pathElement)->getFileName())->toString()));
 			}
 		}
 	}
-	return $String::join(static_cast<$CharSequence*>("."_s), static_cast<$Iterable*>(separateDirs));
+	return $String::join("."_s, separateDirs);
 }
 
 $String* Source::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("%s[pkg: %s, name: %s, suffix: %s, file: %s, isGenerated: %b, linkedOnly: %b]"_s, $$new($ObjectArray, {
-		$($of($of(this)->getClass()->getSimpleName())),
-		$of(this->pkg$),
-		$of(this->name$),
-		$of(this->suffix$),
-		$of(this->file$),
-		$($of($Boolean::valueOf(this->isGenerated$))),
-		$($of($Boolean::valueOf(this->linkedOnly)))
+		$($of(this)->getClass()->getSimpleName()),
+		this->pkg$,
+		this->name$,
+		this->suffix$,
+		this->file$,
+		$($Boolean::valueOf(this->isGenerated$)),
+		$($Boolean::valueOf(this->linkedOnly))
 	}));
 }
 
@@ -341,7 +273,63 @@ Source::Source() {
 }
 
 $Class* Source::load$($String* name, bool initialize) {
-	$loadClass(Source, name, initialize, &_Source_ClassInfo_, allocate$Source);
+	$FieldInfo fieldInfos$$[] = {
+		{"pkg", "Lcom/sun/tools/sjavac/Package;", nullptr, $PRIVATE, $field(Source, pkg$)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Source, name$)},
+		{"suffix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Source, suffix$)},
+		{"lastModified", "J", nullptr, $PRIVATE, $field(Source, lastModified$)},
+		{"file", "Ljava/io/File;", nullptr, $PRIVATE, $field(Source, file$)},
+		{"isGenerated", "Z", nullptr, $PRIVATE, $field(Source, isGenerated$)},
+		{"linkedOnly", "Z", nullptr, $PRIVATE, $field(Source, linkedOnly)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/sjavac/Module;Ljava/lang/String;Ljava/io/File;)V", nullptr, $PUBLIC, $method(Source, init$, void, $Module*, $String*, $File*)},
+		{"<init>", "(Lcom/sun/tools/sjavac/Package;Ljava/lang/String;J)V", nullptr, $PUBLIC, $method(Source, init$, void, $Package*, $String*, int64_t)},
+		{"compareTo", "(Lcom/sun/tools/sjavac/Source;)I", nullptr, $PUBLIC, $virtualMethod(Source, compareTo, int32_t, Source*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Source, compareTo, int32_t, Object$*)},
+		{"createPathMatchers", "(Ljava/nio/file/FileSystem;Ljava/util/List;)Ljava/util/List;", "(Ljava/nio/file/FileSystem;Ljava/util/List<Ljava/lang/String;>;)Ljava/util/List<Ljava/nio/file/PathMatcher;>;", $PRIVATE | $STATIC, $staticMethod(Source, createPathMatchers, $List*, $FileSystem*, $List*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Source, equals, bool, Object$*)},
+		{"file", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(Source, file, $File*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Source, hashCode, int32_t)},
+		{"isGenerated", "()Z", nullptr, $PUBLIC, $virtualMethod(Source, isGenerated, bool)},
+		{"isLinkedOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(Source, isLinkedOnly, bool)},
+		{"lastModified", "()J", nullptr, $PUBLIC, $virtualMethod(Source, lastModified, int64_t)},
+		{"load", "(Lcom/sun/tools/sjavac/Package;Ljava/lang/String;Z)Lcom/sun/tools/sjavac/Source;", nullptr, $PUBLIC | $STATIC, $staticMethod(Source, load, Source*, $Package*, $String*, bool)},
+		{"markAsGenerated", "()V", nullptr, $PUBLIC, $virtualMethod(Source, markAsGenerated, void)},
+		{"markAsLinkedOnly", "()V", nullptr, $PUBLIC, $virtualMethod(Source, markAsLinkedOnly, void)},
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Source, name, $String*)},
+		{"packageOfJavaFile", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Source, packageOfJavaFile, $String*, $Path*, $Path*)},
+		{"pkg", "()Lcom/sun/tools/sjavac/Package;", nullptr, $PUBLIC, $virtualMethod(Source, pkg, $Package*)},
+		{"save", "(Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE, $method(Source, save, void, $StringBuilder*)},
+		{"saveSources", "(Ljava/util/Map;Ljava/lang/StringBuilder;)V", "(Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Source;>;Ljava/lang/StringBuilder;)V", $PUBLIC | $STATIC, $staticMethod(Source, saveSources, void, $Map*, $StringBuilder*)},
+		{"scanRoot", "(Ljava/io/File;Ljava/util/Set;Ljava/util/List;Ljava/util/List;Ljava/util/Map;Ljava/util/Map;Lcom/sun/tools/sjavac/Module;ZZZ)V", "(Ljava/io/File;Ljava/util/Set<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Source;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Module;>;Lcom/sun/tools/sjavac/Module;ZZZ)V", $PUBLIC | $STATIC, $staticMethod(Source, scanRoot, void, $File*, $Set*, $List*, $List*, $Map*, $Map*, $Module*, bool, bool, bool), "java.io.IOException,com.sun.tools.sjavac.ProblemException"},
+		{"setPackage", "(Lcom/sun/tools/sjavac/Package;)V", nullptr, $PUBLIC, $virtualMethod(Source, setPackage, void, $Package*)},
+		{"suffix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Source, suffix, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Source, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.sjavac.Source$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.Source",
+		"java.lang.Object",
+		"java.lang.Comparable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/lang/Comparable<Lcom/sun/tools/sjavac/Source;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.sjavac.Source$1"
+	};
+	$loadClass(Source, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Source);
+	});
 	return class$;
 }
 

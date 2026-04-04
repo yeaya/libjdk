@@ -1,5 +1,4 @@
 #include <TooMuchWheelRotationEventsTest$2.h>
-
 #include <TooMuchWheelRotationEventsTest.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/WindowAdapter.h>
@@ -16,50 +15,7 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 using $JFrame = ::javax::swing::JFrame;
-
-$FieldInfo _TooMuchWheelRotationEventsTest$2_FieldInfo_[] = {
-	{"val$mainFrame", "Ljavax/swing/JFrame;", nullptr, $FINAL | $SYNTHETIC, $field(TooMuchWheelRotationEventsTest$2, val$mainFrame)},
-	{}
-};
-
-$MethodInfo _TooMuchWheelRotationEventsTest$2_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JFrame;)V", nullptr, 0, $method(TooMuchWheelRotationEventsTest$2, init$, void, $JFrame*)},
-	{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(TooMuchWheelRotationEventsTest$2, windowClosing, void, $WindowEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _TooMuchWheelRotationEventsTest$2_EnclosingMethodInfo_ = {
-	"TooMuchWheelRotationEventsTest",
-	"createUI",
-	"()V"
-};
-
-$InnerClassInfo _TooMuchWheelRotationEventsTest$2_InnerClassesInfo_[] = {
-	{"TooMuchWheelRotationEventsTest$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TooMuchWheelRotationEventsTest$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"TooMuchWheelRotationEventsTest$2",
-	"java.awt.event.WindowAdapter",
-	nullptr,
-	_TooMuchWheelRotationEventsTest$2_FieldInfo_,
-	_TooMuchWheelRotationEventsTest$2_MethodInfo_,
-	nullptr,
-	&_TooMuchWheelRotationEventsTest$2_EnclosingMethodInfo_,
-	_TooMuchWheelRotationEventsTest$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TooMuchWheelRotationEventsTest"
-};
-
-$Object* allocate$TooMuchWheelRotationEventsTest$2($Class* clazz) {
-	return $of($alloc(TooMuchWheelRotationEventsTest$2));
-}
 
 void TooMuchWheelRotationEventsTest$2::init$($JFrame* val$mainFrame) {
 	$set(this, val$mainFrame, val$mainFrame);
@@ -76,7 +32,42 @@ TooMuchWheelRotationEventsTest$2::TooMuchWheelRotationEventsTest$2() {
 }
 
 $Class* TooMuchWheelRotationEventsTest$2::load$($String* name, bool initialize) {
-	$loadClass(TooMuchWheelRotationEventsTest$2, name, initialize, &_TooMuchWheelRotationEventsTest$2_ClassInfo_, allocate$TooMuchWheelRotationEventsTest$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$mainFrame", "Ljavax/swing/JFrame;", nullptr, $FINAL | $SYNTHETIC, $field(TooMuchWheelRotationEventsTest$2, val$mainFrame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JFrame;)V", nullptr, 0, $method(TooMuchWheelRotationEventsTest$2, init$, void, $JFrame*)},
+		{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(TooMuchWheelRotationEventsTest$2, windowClosing, void, $WindowEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"TooMuchWheelRotationEventsTest",
+		"createUI",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TooMuchWheelRotationEventsTest$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TooMuchWheelRotationEventsTest$2",
+		"java.awt.event.WindowAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TooMuchWheelRotationEventsTest"
+	};
+	$loadClass(TooMuchWheelRotationEventsTest$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TooMuchWheelRotationEventsTest$2));
+	});
 	return class$;
 }
 

@@ -30,6 +30,7 @@ class HPACK$Logger$Level : public ::java::lang::Enum {
 public:
 	HPACK$Logger$Level();
 	static $Array<::jdk::internal::net::http::hpack::HPACK$Logger$Level>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t i, ::java::lang::System$Logger$Level* system);
 	bool implies(::jdk::internal::net::http::hpack::HPACK$Logger$Level* other);
 	static ::jdk::internal::net::http::hpack::HPACK$Logger$Level* valueOf($String* name);

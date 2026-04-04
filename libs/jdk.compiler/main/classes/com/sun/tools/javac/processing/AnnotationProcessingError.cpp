@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/processing/AnnotationProcessingError.h>
-
 #include <java/lang/Error.h>
 #include <jcpp.h>
 
@@ -13,29 +12,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace processing {
-
-$FieldInfo _AnnotationProcessingError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(AnnotationProcessingError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AnnotationProcessingError_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(AnnotationProcessingError, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _AnnotationProcessingError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.processing.AnnotationProcessingError",
-	"java.lang.Error",
-	nullptr,
-	_AnnotationProcessingError_FieldInfo_,
-	_AnnotationProcessingError_MethodInfo_
-};
-
-$Object* allocate$AnnotationProcessingError($Class* clazz) {
-	return $of($alloc(AnnotationProcessingError));
-}
 
 void AnnotationProcessingError::init$($Throwable* cause) {
 	$Error::init$(cause);
@@ -52,7 +28,25 @@ void AnnotationProcessingError::throw$() {
 }
 
 $Class* AnnotationProcessingError::load$($String* name, bool initialize) {
-	$loadClass(AnnotationProcessingError, name, initialize, &_AnnotationProcessingError_ClassInfo_, allocate$AnnotationProcessingError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(AnnotationProcessingError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(AnnotationProcessingError, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.processing.AnnotationProcessingError",
+		"java.lang.Error",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AnnotationProcessingError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AnnotationProcessingError);
+	});
 	return class$;
 }
 

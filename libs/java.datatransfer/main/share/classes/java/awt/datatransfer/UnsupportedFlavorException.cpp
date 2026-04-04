@@ -1,5 +1,4 @@
 #include <java/awt/datatransfer/UnsupportedFlavorException.h>
-
 #include <java/awt/datatransfer/DataFlavor.h>
 #include <jcpp.h>
 
@@ -13,31 +12,8 @@ namespace java {
 	namespace awt {
 		namespace datatransfer {
 
-$FieldInfo _UnsupportedFlavorException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnsupportedFlavorException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _UnsupportedFlavorException_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/datatransfer/DataFlavor;)V", nullptr, $PUBLIC, $method(UnsupportedFlavorException, init$, void, $DataFlavor*)},
-	{}
-};
-
-$ClassInfo _UnsupportedFlavorException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.datatransfer.UnsupportedFlavorException",
-	"java.lang.Exception",
-	nullptr,
-	_UnsupportedFlavorException_FieldInfo_,
-	_UnsupportedFlavorException_MethodInfo_
-};
-
-$Object* allocate$UnsupportedFlavorException($Class* clazz) {
-	return $of($alloc(UnsupportedFlavorException));
-}
-
 void UnsupportedFlavorException::init$($DataFlavor* flavor) {
-	$Exception::init$((flavor != nullptr) ? $($nc(flavor)->getHumanPresentableName()) : ($String*)nullptr);
+	$Exception::init$((flavor != nullptr) ? $(flavor->getHumanPresentableName()) : ($String*)nullptr);
 }
 
 UnsupportedFlavorException::UnsupportedFlavorException() {
@@ -51,7 +27,25 @@ void UnsupportedFlavorException::throw$() {
 }
 
 $Class* UnsupportedFlavorException::load$($String* name, bool initialize) {
-	$loadClass(UnsupportedFlavorException, name, initialize, &_UnsupportedFlavorException_ClassInfo_, allocate$UnsupportedFlavorException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnsupportedFlavorException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/datatransfer/DataFlavor;)V", nullptr, $PUBLIC, $method(UnsupportedFlavorException, init$, void, $DataFlavor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.datatransfer.UnsupportedFlavorException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnsupportedFlavorException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnsupportedFlavorException);
+	});
 	return class$;
 }
 

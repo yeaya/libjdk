@@ -24,6 +24,7 @@ class Arguments$ErrorMode : public ::java::lang::Enum {
 public:
 	Arguments$ErrorMode();
 	static $Array<::com::sun::tools::javac::main::Arguments$ErrorMode>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::main::Arguments$ErrorMode* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::main::Arguments$ErrorMode>* values();

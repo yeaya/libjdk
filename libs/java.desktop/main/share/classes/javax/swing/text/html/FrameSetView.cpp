@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/FrameSetView.h>
-
 #include <java/lang/Math.h>
 #include <java/util/StringTokenizer.h>
 #include <javax/swing/SizeRequirements.h>
@@ -38,49 +37,14 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _FrameSetView_FieldInfo_[] = {
-	{"children", "[Ljava/lang/String;", nullptr, 0, $field(FrameSetView, children)},
-	{"percentChildren", "[I", nullptr, 0, $field(FrameSetView, percentChildren)},
-	{"absoluteChildren", "[I", nullptr, 0, $field(FrameSetView, absoluteChildren)},
-	{"relativeChildren", "[I", nullptr, 0, $field(FrameSetView, relativeChildren)},
-	{"percentTotals", "I", nullptr, 0, $field(FrameSetView, percentTotals)},
-	{"absoluteTotals", "I", nullptr, 0, $field(FrameSetView, absoluteTotals)},
-	{"relativeTotals", "I", nullptr, 0, $field(FrameSetView, relativeTotals)},
-	{}
-};
-
-$MethodInfo _FrameSetView_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/Element;I)V", nullptr, $PUBLIC, $method(FrameSetView, init$, void, $Element*, int32_t)},
-	{"getChildRequests", "(II)[Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(FrameSetView, getChildRequests, $SizeRequirementsArray*, int32_t, int32_t)},
-	{"init", "()V", nullptr, $PRIVATE, $method(FrameSetView, init, void)},
-	{"layoutMajorAxis", "(II[I[I)V", nullptr, $PROTECTED, $virtualMethod(FrameSetView, layoutMajorAxis, void, int32_t, int32_t, $ints*, $ints*)},
-	{"parseDigits", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(FrameSetView, parseDigits, int32_t, $String*)},
-	{"parseRowColSpec", "(Ljavax/swing/text/html/HTML$Attribute;)[Ljava/lang/String;", nullptr, $PRIVATE, $method(FrameSetView, parseRowColSpec, $StringArray*, $HTML$Attribute*)},
-	{"spread", "(I[I)V", nullptr, $PRIVATE, $method(FrameSetView, spread, void, int32_t, $ints*)},
-	{}
-};
-
-$ClassInfo _FrameSetView_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.FrameSetView",
-	"javax.swing.text.BoxView",
-	nullptr,
-	_FrameSetView_FieldInfo_,
-	_FrameSetView_MethodInfo_
-};
-
-$Object* allocate$FrameSetView($Class* clazz) {
-	return $of($alloc(FrameSetView));
-}
-
 void FrameSetView::init$($Element* elem, int32_t axis) {
 	$BoxView::init$(elem, axis);
 	$set(this, children, nullptr);
 }
 
 $StringArray* FrameSetView::parseRowColSpec($HTML$Attribute* key) {
-	$useLocalCurrentObjectStackCache();
-	$var($AttributeSet, attributes, $nc($(getElement()))->getAttributes());
+	$useLocalObjectStack();
+	$var($AttributeSet, attributes, $$nc(getElement())->getAttributes());
 	$var($String, spec, "*"_s);
 	if (attributes != nullptr) {
 		if (attributes->getAttribute(key) != nullptr) {
@@ -93,7 +57,7 @@ $StringArray* FrameSetView::parseRowColSpec($HTML$Attribute* key) {
 	$var($StringArray, items, $new($StringArray, $Math::max(nTokens, n)));
 	int32_t i = 0;
 	for (; i < nTokens; ++i) {
-		items->set(i, $($nc($(tokenizer->nextToken()))->trim()));
+		items->set(i, $($$nc(tokenizer->nextToken())->trim()));
 		if ($nc(items->get(i))->equals("100%"_s)) {
 			items->set(i, "*"_s);
 		}
@@ -105,7 +69,7 @@ $StringArray* FrameSetView::parseRowColSpec($HTML$Attribute* key) {
 }
 
 void FrameSetView::init() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getAxis() == $View::Y_AXIS) {
 		$init($HTML$Attribute);
 		$set(this, children, parseRowColSpec($HTML$Attribute::ROWS));
@@ -114,22 +78,22 @@ void FrameSetView::init() {
 		$set(this, children, parseRowColSpec($HTML$Attribute::COLS));
 	}
 	$set(this, percentChildren, $new($ints, $nc(this->children)->length));
-	$set(this, relativeChildren, $new($ints, $nc(this->children)->length));
-	$set(this, absoluteChildren, $new($ints, $nc(this->children)->length));
+	$set(this, relativeChildren, $new($ints, this->children->length));
+	$set(this, absoluteChildren, $new($ints, this->children->length));
 	for (int32_t i = 0; i < $nc(this->children)->length; ++i) {
 		$nc(this->percentChildren)->set(i, -1);
 		$nc(this->relativeChildren)->set(i, -1);
 		$nc(this->absoluteChildren)->set(i, -1);
-		if ($nc($nc(this->children)->get(i))->endsWith("*"_s)) {
-			if ($nc($nc(this->children)->get(i))->length() > 1) {
-				$nc(this->relativeChildren)->set(i, $Integer::parseInt($($($nc($nc(this->children)->get(i))->substring(0, $nc($nc(this->children)->get(i))->length() - 1))->trim())));
-				this->relativeTotals += $nc(this->relativeChildren)->get(i);
+		if ($nc(this->children->get(i))->endsWith("*"_s)) {
+			if ($nc(this->children->get(i))->length() > 1) {
+				this->relativeChildren->set(i, $Integer::parseInt($($($nc(this->children->get(i))->substring(0, $nc(this->children->get(i))->length() - 1))->trim())));
+				this->relativeTotals += this->relativeChildren->get(i);
 			} else {
-				$nc(this->relativeChildren)->set(i, 1);
+				this->relativeChildren->set(i, 1);
 				this->relativeTotals += 1;
 			}
-		} else if ($nc($nc(this->children)->get(i))->indexOf((int32_t)u'%') != -1) {
-			$nc(this->percentChildren)->set(i, parseDigits($nc(this->children)->get(i)));
+		} else if ($nc(this->children->get(i))->indexOf(u'%') != -1) {
+			this->percentChildren->set(i, parseDigits(this->children->get(i)));
 			this->percentTotals += $nc(this->percentChildren)->get(i);
 		} else {
 			$var($String, value, $nc($nc(this->children)->get(i))->toLowerCase());
@@ -141,8 +105,8 @@ void FrameSetView::init() {
 	}
 	if (this->percentTotals > 100) {
 		for (int32_t i = 0; i < $nc(this->percentChildren)->length; ++i) {
-			if ($nc(this->percentChildren)->get(i) > 0) {
-				$nc(this->percentChildren)->set(i, $div(($nc(this->percentChildren)->get(i) * 100), this->percentTotals));
+			if (this->percentChildren->get(i) > 0) {
+				this->percentChildren->set(i, $div((this->percentChildren->get(i) * 100), this->percentTotals));
 			}
 		}
 		this->percentTotals = 100;
@@ -157,28 +121,24 @@ void FrameSetView::layoutMajorAxis(int32_t targetSpan, int32_t axis, $ints* offs
 }
 
 $SizeRequirementsArray* FrameSetView::getChildRequests(int32_t targetSpan, int32_t axis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, span, $new($ints, $nc(this->children)->length));
 	spread(targetSpan, span);
 	int32_t n = getViewCount();
 	$var($SizeRequirementsArray, reqs, $new($SizeRequirementsArray, n));
-	{
-		int32_t i = 0;
-		int32_t sIndex = 0;
-		for (; i < n; ++i) {
-			$var($View, v, getView(i));
-			if (($instanceOf($FrameView, v)) || ($instanceOf(FrameSetView, v))) {
-				int32_t var$0 = $cast(int32_t, $nc(v)->getMinimumSpan(axis));
-				int32_t var$1 = span->get(sIndex);
-				reqs->set(i, $$new($SizeRequirements, var$0, var$1, $cast(int32_t, v->getMaximumSpan(axis)), 0.5f));
-				++sIndex;
-			} else {
-				int32_t min = $cast(int32_t, $nc(v)->getMinimumSpan(axis));
-				int32_t pref = $cast(int32_t, v->getPreferredSpan(axis));
-				int32_t max = $cast(int32_t, v->getMaximumSpan(axis));
-				float a = v->getAlignment(axis);
-				reqs->set(i, $$new($SizeRequirements, min, pref, max, a));
-			}
+	for (int32_t i = 0, sIndex = 0; i < n; ++i) {
+		$var($View, v, getView(i));
+		if (($instanceOf($FrameView, v)) || ($instanceOf(FrameSetView, v))) {
+			int32_t var$0 = $cast(int32_t, $nc(v)->getMinimumSpan(axis));
+			int32_t var$1 = span->get(sIndex);
+			reqs->set(i, $$new($SizeRequirements, var$0, var$1, $cast(int32_t, v->getMaximumSpan(axis)), 0.5f));
+			++sIndex;
+		} else {
+			int32_t min = $cast(int32_t, $nc(v)->getMinimumSpan(axis));
+			int32_t pref = $cast(int32_t, v->getPreferredSpan(axis));
+			int32_t max = $cast(int32_t, v->getMaximumSpan(axis));
+			float a = v->getAlignment(axis);
+			reqs->set(i, $$new($SizeRequirements, min, pref, max, a));
 		}
 	}
 	return reqs;
@@ -192,29 +152,29 @@ void FrameSetView::spread(int32_t targetSpan, $ints* span) {
 	int32_t remainingSpace = targetSpan;
 	for (int32_t i = 0; i < $nc(span)->length; ++i) {
 		if ($nc(this->absoluteChildren)->get(i) > 0) {
-			span->set(i, $nc(this->absoluteChildren)->get(i));
+			span->set(i, this->absoluteChildren->get(i));
 			remainingSpace -= span->get(i);
 		}
 	}
 	tempSpace = remainingSpace;
-	for (int32_t i = 0; i < $nc(span)->length; ++i) {
+	for (int32_t i = 0; i < span->length; ++i) {
 		if ($nc(this->percentChildren)->get(i) > 0 && tempSpace > 0) {
-			span->set(i, ($nc(this->percentChildren)->get(i) * tempSpace) / 100);
+			span->set(i, (this->percentChildren->get(i) * tempSpace) / 100);
 			remainingSpace -= span->get(i);
-		} else if ($nc(this->percentChildren)->get(i) > 0 && tempSpace <= 0) {
+		} else if (this->percentChildren->get(i) > 0 && tempSpace <= 0) {
 			span->set(i, $div(targetSpan, span->length));
 			remainingSpace -= span->get(i);
 		}
 	}
 	if (remainingSpace > 0 && this->relativeTotals > 0) {
-		for (int32_t i = 0; i < $nc(span)->length; ++i) {
+		for (int32_t i = 0; i < span->length; ++i) {
 			if ($nc(this->relativeChildren)->get(i) > 0) {
-				span->set(i, $div((remainingSpace * $nc(this->relativeChildren)->get(i)), this->relativeTotals));
+				span->set(i, $div((remainingSpace * this->relativeChildren->get(i)), this->relativeTotals));
 			}
 		}
 	} else if (remainingSpace > 0) {
 		float vTotal = (float)(targetSpan - remainingSpace);
-		$var($floats, tempPercents, $new($floats, $nc(span)->length));
+		$var($floats, tempPercents, $new($floats, span->length));
 		remainingSpace = targetSpan;
 		for (int32_t i = 0; i < span->length; ++i) {
 			tempPercents->set(i, ((float)span->get(i) / vTotal) * 100.0f);
@@ -252,7 +212,37 @@ FrameSetView::FrameSetView() {
 }
 
 $Class* FrameSetView::load$($String* name, bool initialize) {
-	$loadClass(FrameSetView, name, initialize, &_FrameSetView_ClassInfo_, allocate$FrameSetView);
+	$FieldInfo fieldInfos$$[] = {
+		{"children", "[Ljava/lang/String;", nullptr, 0, $field(FrameSetView, children)},
+		{"percentChildren", "[I", nullptr, 0, $field(FrameSetView, percentChildren)},
+		{"absoluteChildren", "[I", nullptr, 0, $field(FrameSetView, absoluteChildren)},
+		{"relativeChildren", "[I", nullptr, 0, $field(FrameSetView, relativeChildren)},
+		{"percentTotals", "I", nullptr, 0, $field(FrameSetView, percentTotals)},
+		{"absoluteTotals", "I", nullptr, 0, $field(FrameSetView, absoluteTotals)},
+		{"relativeTotals", "I", nullptr, 0, $field(FrameSetView, relativeTotals)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/Element;I)V", nullptr, $PUBLIC, $method(FrameSetView, init$, void, $Element*, int32_t)},
+		{"getChildRequests", "(II)[Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(FrameSetView, getChildRequests, $SizeRequirementsArray*, int32_t, int32_t)},
+		{"init", "()V", nullptr, $PRIVATE, $method(FrameSetView, init, void)},
+		{"layoutMajorAxis", "(II[I[I)V", nullptr, $PROTECTED, $virtualMethod(FrameSetView, layoutMajorAxis, void, int32_t, int32_t, $ints*, $ints*)},
+		{"parseDigits", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(FrameSetView, parseDigits, int32_t, $String*)},
+		{"parseRowColSpec", "(Ljavax/swing/text/html/HTML$Attribute;)[Ljava/lang/String;", nullptr, $PRIVATE, $method(FrameSetView, parseRowColSpec, $StringArray*, $HTML$Attribute*)},
+		{"spread", "(I[I)V", nullptr, $PRIVATE, $method(FrameSetView, spread, void, int32_t, $ints*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.FrameSetView",
+		"javax.swing.text.BoxView",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FrameSetView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FrameSetView);
+	});
 	return class$;
 }
 

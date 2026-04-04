@@ -22,6 +22,7 @@ class $export LineEvent$Type : public ::java::lang::Object {
 	$class(LineEvent$Type, 0, ::java::lang::Object)
 public:
 	LineEvent$Type();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	virtual bool equals(Object$* obj) override;
 	virtual int32_t hashCode() override;

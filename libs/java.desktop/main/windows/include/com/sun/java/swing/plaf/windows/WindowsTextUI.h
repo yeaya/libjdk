@@ -25,6 +25,7 @@ class $import WindowsTextUI : public ::javax::swing::plaf::basic::BasicTextUI {
 	$class(WindowsTextUI, 0, ::javax::swing::plaf::basic::BasicTextUI)
 public:
 	WindowsTextUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::swing::text::Caret* createCaret() override;
 	static ::javax::swing::text::LayeredHighlighter$LayerPainter* WindowsPainter;

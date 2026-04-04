@@ -15,6 +15,7 @@ class Gen$4 : public ::java::lang::Object {
 	$class(Gen$4, 0, ::java::lang::Object)
 public:
 	Gen$4();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag;
 	static $ints* $SwitchMap$com$sun$tools$javac$code$TypeTag;
 };

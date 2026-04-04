@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/ccache/Tag.h>
-
 #include <java/io/ByteArrayOutputStream.h>
 #include <jcpp.h>
 
@@ -14,35 +13,6 @@ namespace sun {
 		namespace krb5 {
 			namespace internal {
 				namespace ccache {
-
-$FieldInfo _Tag_FieldInfo_[] = {
-	{"length", "I", nullptr, 0, $field(Tag, length)},
-	{"tag", "I", nullptr, 0, $field(Tag, tag)},
-	{"tagLen", "I", nullptr, 0, $field(Tag, tagLen)},
-	{"time_offset", "Ljava/lang/Integer;", nullptr, 0, $field(Tag, time_offset)},
-	{"usec_offset", "Ljava/lang/Integer;", nullptr, 0, $field(Tag, usec_offset)},
-	{}
-};
-
-$MethodInfo _Tag_MethodInfo_[] = {
-	{"<init>", "(IILjava/lang/Integer;Ljava/lang/Integer;)V", nullptr, $PUBLIC, $method(Tag, init$, void, int32_t, int32_t, $Integer*, $Integer*)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Tag, init$, void, int32_t)},
-	{"toByteArray", "()[B", nullptr, $PUBLIC, $virtualMethod(Tag, toByteArray, $bytes*)},
-	{}
-};
-
-$ClassInfo _Tag_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.ccache.Tag",
-	"java.lang.Object",
-	nullptr,
-	_Tag_FieldInfo_,
-	_Tag_MethodInfo_
-};
-
-$Object* allocate$Tag($Class* clazz) {
-	return $of($alloc(Tag));
-}
 
 void Tag::init$(int32_t len, int32_t new_tag, $Integer* new_time, $Integer* new_usec) {
 	this->tag = new_tag;
@@ -64,10 +34,10 @@ $bytes* Tag::toByteArray() {
 	os->write(this->tag);
 	os->write(this->tagLen);
 	if (this->time_offset != nullptr) {
-		os->write($nc(this->time_offset)->intValue());
+		os->write(this->time_offset->intValue());
 	}
 	if (this->usec_offset != nullptr) {
-		os->write($nc(this->usec_offset)->intValue());
+		os->write(this->usec_offset->intValue());
 	}
 	return os->toByteArray();
 }
@@ -76,7 +46,31 @@ Tag::Tag() {
 }
 
 $Class* Tag::load$($String* name, bool initialize) {
-	$loadClass(Tag, name, initialize, &_Tag_ClassInfo_, allocate$Tag);
+	$FieldInfo fieldInfos$$[] = {
+		{"length", "I", nullptr, 0, $field(Tag, length)},
+		{"tag", "I", nullptr, 0, $field(Tag, tag)},
+		{"tagLen", "I", nullptr, 0, $field(Tag, tagLen)},
+		{"time_offset", "Ljava/lang/Integer;", nullptr, 0, $field(Tag, time_offset)},
+		{"usec_offset", "Ljava/lang/Integer;", nullptr, 0, $field(Tag, usec_offset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IILjava/lang/Integer;Ljava/lang/Integer;)V", nullptr, $PUBLIC, $method(Tag, init$, void, int32_t, int32_t, $Integer*, $Integer*)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(Tag, init$, void, int32_t)},
+		{"toByteArray", "()[B", nullptr, $PUBLIC, $virtualMethod(Tag, toByteArray, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.ccache.Tag",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Tag, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Tag);
+	});
 	return class$;
 }
 

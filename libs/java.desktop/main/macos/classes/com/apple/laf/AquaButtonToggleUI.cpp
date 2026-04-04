@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaButtonToggleUI.h>
-
 #include <com/apple/laf/AquaButtonUI.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor.h>
@@ -20,31 +19,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaButtonToggleUI_FieldInfo_[] = {
-	{"aquaToggleButtonUI", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaButtonToggleUI;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaButtonToggleUI, aquaToggleButtonUI)},
-	{}
-};
-
-$MethodInfo _AquaButtonToggleUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaButtonToggleUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaButtonToggleUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AquaButtonToggleUI, getPropertyPrefix, $String*)},
-	{}
-};
-
-$ClassInfo _AquaButtonToggleUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaButtonToggleUI",
-	"com.apple.laf.AquaButtonUI",
-	nullptr,
-	_AquaButtonToggleUI_FieldInfo_,
-	_AquaButtonToggleUI_MethodInfo_
-};
-
-$Object* allocate$AquaButtonToggleUI($Class* clazz) {
-	return $of($alloc(AquaButtonToggleUI));
-}
-
 $AquaUtils$RecyclableSingleton* AquaButtonToggleUI::aquaToggleButtonUI = nullptr;
 
 void AquaButtonToggleUI::init$() {
@@ -53,14 +27,14 @@ void AquaButtonToggleUI::init$() {
 
 $ComponentUI* AquaButtonToggleUI::createUI($JComponent* b) {
 	$init(AquaButtonToggleUI);
-	return $cast($ComponentUI, $nc(AquaButtonToggleUI::aquaToggleButtonUI)->get());
+	return $cast($ComponentUI, AquaButtonToggleUI::aquaToggleButtonUI->get());
 }
 
 $String* AquaButtonToggleUI::getPropertyPrefix() {
 	return "ToggleButton."_s;
 }
 
-void clinit$AquaButtonToggleUI($Class* class$) {
+void AquaButtonToggleUI::clinit$($Class* clazz) {
 	$assignStatic(AquaButtonToggleUI::aquaToggleButtonUI, $new($AquaUtils$RecyclableSingletonFromDefaultConstructor, AquaButtonToggleUI::class$));
 }
 
@@ -68,7 +42,27 @@ AquaButtonToggleUI::AquaButtonToggleUI() {
 }
 
 $Class* AquaButtonToggleUI::load$($String* name, bool initialize) {
-	$loadClass(AquaButtonToggleUI, name, initialize, &_AquaButtonToggleUI_ClassInfo_, clinit$AquaButtonToggleUI, allocate$AquaButtonToggleUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"aquaToggleButtonUI", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaButtonToggleUI;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaButtonToggleUI, aquaToggleButtonUI)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaButtonToggleUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaButtonToggleUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AquaButtonToggleUI, getPropertyPrefix, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaButtonToggleUI",
+		"com.apple.laf.AquaButtonUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AquaButtonToggleUI, name, initialize, &classInfo$$, AquaButtonToggleUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaButtonToggleUI));
+	});
 	return class$;
 }
 

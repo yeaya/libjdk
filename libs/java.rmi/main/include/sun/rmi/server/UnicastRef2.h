@@ -32,7 +32,7 @@ public:
 	virtual $String* getRefClass(::java::io::ObjectOutput* out) override;
 	virtual void readExternal(::java::io::ObjectInput* in) override;
 	virtual void writeExternal(::java::io::ObjectOutput* out) override;
-	static const int64_t serialVersionUID = (int64_t)0x1963D2AD3494976E;
+	static const int64_t serialVersionUID = (int64_t)0x1963d2ad3494976e;
 };
 
 		} // server

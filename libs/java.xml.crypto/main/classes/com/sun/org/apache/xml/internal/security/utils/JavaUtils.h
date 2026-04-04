@@ -45,6 +45,7 @@ class JavaUtils : public ::java::lang::Object {
 	$class(JavaUtils, 0, ::java::lang::Object)
 public:
 	JavaUtils();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkRegisterPermission();
 	static $bytes* convertDsaASN1toXMLDSIG($bytes* asn1Bytes, int32_t size);

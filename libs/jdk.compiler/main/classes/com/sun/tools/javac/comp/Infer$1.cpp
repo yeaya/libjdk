@@ -1,11 +1,9 @@
 #include <com/sun/tools/javac/comp/Infer$1.h>
-
 #include <com/sun/tools/javac/code/Flags.h>
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type$StructuralTypeMapping.h>
 #include <com/sun/tools/javac/code/Type$TypeVar.h>
-#include <com/sun/tools/javac/code/Type$UndetVar$UndetVarListener.h>
 #include <com/sun/tools/javac/code/Type$UndetVar.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/Types$TypeMapping.h>
@@ -17,12 +15,10 @@
 #undef THROWS
 
 using $Flags = ::com::sun::tools::javac::code::Flags;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$StructuralTypeMapping = ::com::sun::tools::javac::code::Type$StructuralTypeMapping;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
-using $Type$UndetVar$UndetVarListener = ::com::sun::tools::javac::code::Type$UndetVar$UndetVarListener;
 using $Infer = ::com::sun::tools::javac::comp::Infer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -37,59 +33,15 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Infer$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Infer;", nullptr, $FINAL | $SYNTHETIC, $field(Infer$1, this$0)},
-	{}
-};
-
-$MethodInfo _Infer$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;)V", nullptr, 0, $method(Infer$1, init$, void, $Infer*)},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Infer$1, visitTypeVar, $Type*, $Type$TypeVar*, $Void*)},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Infer$1, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _Infer$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Infer",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Infer$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Infer$1", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Type$StructuralTypeMapping", "com.sun.tools.javac.code.Type", "StructuralTypeMapping", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Infer$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Infer$1",
-	"com.sun.tools.javac.code.Type$StructuralTypeMapping",
-	nullptr,
-	_Infer$1_FieldInfo_,
-	_Infer$1_MethodInfo_,
-	"Lcom/sun/tools/javac/code/Type$StructuralTypeMapping<Ljava/lang/Void;>;",
-	&_Infer$1_EnclosingMethodInfo_,
-	_Infer$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Infer"
-};
-
-$Object* allocate$Infer$1($Class* clazz) {
-	return $of($alloc(Infer$1));
-}
-
 void Infer$1::init$($Infer* this$0) {
 	$set(this, this$0, this$0);
 	$Type$StructuralTypeMapping::init$();
 }
 
 $Type* Infer$1::visitTypeVar($Type$TypeVar* tv, $Void* aVoid) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type$UndetVar, uv, $new($Type$UndetVar, tv, $(this->this$0->incorporationEngine()), this->this$0->types));
-	if (((int64_t)($nc($nc(tv)->tsym)->flags() & (uint64_t)$Flags::THROWS)) != 0) {
+	if (($nc($nc(tv)->tsym)->flags() & $Flags::THROWS) != 0) {
 		uv->setThrow();
 	}
 	return uv;
@@ -103,7 +55,44 @@ Infer$1::Infer$1() {
 }
 
 $Class* Infer$1::load$($String* name, bool initialize) {
-	$loadClass(Infer$1, name, initialize, &_Infer$1_ClassInfo_, allocate$Infer$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Infer;", nullptr, $FINAL | $SYNTHETIC, $field(Infer$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Infer;)V", nullptr, 0, $method(Infer$1, init$, void, $Infer*)},
+		{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Infer$1, visitTypeVar, $Type*, $Type$TypeVar*, $Void*)},
+		{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Infer$1, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Infer",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Infer$1", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Type$StructuralTypeMapping", "com.sun.tools.javac.code.Type", "StructuralTypeMapping", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Infer$1",
+		"com.sun.tools.javac.code.Type$StructuralTypeMapping",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/code/Type$StructuralTypeMapping<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Infer"
+	};
+	$loadClass(Infer$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Infer$1));
+	});
 	return class$;
 }
 

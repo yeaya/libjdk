@@ -24,6 +24,7 @@ class $export JavaCompiler$ImplicitSourcePolicy : public ::java::lang::Enum {
 public:
 	JavaCompiler$ImplicitSourcePolicy();
 	static $Array<::com::sun::tools::javac::main::JavaCompiler$ImplicitSourcePolicy>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::main::JavaCompiler$ImplicitSourcePolicy* decode($String* option);
 	static ::com::sun::tools::javac::main::JavaCompiler$ImplicitSourcePolicy* valueOf($String* name);

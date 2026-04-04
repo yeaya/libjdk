@@ -1,5 +1,4 @@
 #include <java/util/logging/Logger$LoggerBundle.h>
-
 #include <java/util/ResourceBundle.h>
 #include <java/util/logging/Logger.h>
 #include <jcpp.h>
@@ -17,44 +16,6 @@ using $Logger = ::java::util::logging::Logger;
 namespace java {
 	namespace util {
 		namespace logging {
-
-$FieldInfo _Logger$LoggerBundle_FieldInfo_[] = {
-	{"resourceBundleName", "Ljava/lang/String;", nullptr, $FINAL, $field(Logger$LoggerBundle, resourceBundleName)},
-	{"userBundle", "Ljava/util/ResourceBundle;", nullptr, $FINAL, $field(Logger$LoggerBundle, userBundle)},
-	{}
-};
-
-$MethodInfo _Logger$LoggerBundle_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/ResourceBundle;)V", nullptr, $PRIVATE, $method(Logger$LoggerBundle, init$, void, $String*, $ResourceBundle*)},
-	{"get", "(Ljava/lang/String;Ljava/util/ResourceBundle;)Ljava/util/logging/Logger$LoggerBundle;", nullptr, $STATIC, $staticMethod(Logger$LoggerBundle, get, Logger$LoggerBundle*, $String*, $ResourceBundle*)},
-	{"isSystemBundle", "()Z", nullptr, 0, $method(Logger$LoggerBundle, isSystemBundle, bool)},
-	{}
-};
-
-$InnerClassInfo _Logger$LoggerBundle_InnerClassesInfo_[] = {
-	{"java.util.logging.Logger$LoggerBundle", "java.util.logging.Logger", "LoggerBundle", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Logger$LoggerBundle_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.logging.Logger$LoggerBundle",
-	"java.lang.Object",
-	nullptr,
-	_Logger$LoggerBundle_FieldInfo_,
-	_Logger$LoggerBundle_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Logger$LoggerBundle_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.logging.Logger"
-};
-
-$Object* allocate$Logger$LoggerBundle($Class* clazz) {
-	return $of($alloc(Logger$LoggerBundle));
-}
 
 void Logger$LoggerBundle::init$($String* resourceBundleName, $ResourceBundle* bundle) {
 	$set(this, resourceBundleName, resourceBundleName);
@@ -81,7 +42,39 @@ Logger$LoggerBundle::Logger$LoggerBundle() {
 }
 
 $Class* Logger$LoggerBundle::load$($String* name, bool initialize) {
-	$loadClass(Logger$LoggerBundle, name, initialize, &_Logger$LoggerBundle_ClassInfo_, allocate$Logger$LoggerBundle);
+	$FieldInfo fieldInfos$$[] = {
+		{"resourceBundleName", "Ljava/lang/String;", nullptr, $FINAL, $field(Logger$LoggerBundle, resourceBundleName)},
+		{"userBundle", "Ljava/util/ResourceBundle;", nullptr, $FINAL, $field(Logger$LoggerBundle, userBundle)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/util/ResourceBundle;)V", nullptr, $PRIVATE, $method(Logger$LoggerBundle, init$, void, $String*, $ResourceBundle*)},
+		{"get", "(Ljava/lang/String;Ljava/util/ResourceBundle;)Ljava/util/logging/Logger$LoggerBundle;", nullptr, $STATIC, $staticMethod(Logger$LoggerBundle, get, Logger$LoggerBundle*, $String*, $ResourceBundle*)},
+		{"isSystemBundle", "()Z", nullptr, 0, $method(Logger$LoggerBundle, isSystemBundle, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.logging.Logger$LoggerBundle", "java.util.logging.Logger", "LoggerBundle", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.logging.Logger$LoggerBundle",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.logging.Logger"
+	};
+	$loadClass(Logger$LoggerBundle, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Logger$LoggerBundle);
+	});
 	return class$;
 }
 

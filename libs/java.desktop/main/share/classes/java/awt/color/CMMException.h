@@ -14,10 +14,13 @@ class $export CMMException : public ::java::lang::RuntimeException {
 public:
 	CMMException();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x5026E770E0CB0615;
+	static const int64_t serialVersionUID = (int64_t)0x5026e770e0cb0615;
 	CMMException(const CMMException& e);
 	virtual void throw$() override;
-	inline CMMException* operator ->() {
+	inline CMMException* operator ->() const {
+		return (CMMException*)throwing$;
+	}
+	inline operator CMMException*() const {
 		return (CMMException*)throwing$;
 	}
 };

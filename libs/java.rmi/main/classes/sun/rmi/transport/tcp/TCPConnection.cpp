@@ -1,5 +1,4 @@
 #include <sun/rmi/transport/tcp/TCPConnection.h>
-
 #include <java/io/BufferedInputStream.h>
 #include <java/io/BufferedOutputStream.h>
 #include <java/io/IOException.h>
@@ -40,48 +39,6 @@ namespace sun {
 		namespace transport {
 			namespace tcp {
 
-$FieldInfo _TCPConnection_FieldInfo_[] = {
-	{"socket", "Ljava/net/Socket;", nullptr, $PRIVATE, $field(TCPConnection, socket)},
-	{"channel", "Lsun/rmi/transport/Channel;", nullptr, $PRIVATE, $field(TCPConnection, channel)},
-	{"in", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(TCPConnection, in)},
-	{"out", "Ljava/io/OutputStream;", nullptr, $PRIVATE, $field(TCPConnection, out)},
-	{"expiration", "J", nullptr, $PRIVATE, $field(TCPConnection, expiration)},
-	{"lastuse", "J", nullptr, $PRIVATE, $field(TCPConnection, lastuse)},
-	{"roundtrip", "J", nullptr, $PRIVATE, $field(TCPConnection, roundtrip)},
-	{}
-};
-
-$MethodInfo _TCPConnection_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/transport/tcp/TCPChannel;Ljava/net/Socket;Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, 0, $method(TCPConnection, init$, void, $TCPChannel*, $Socket*, $InputStream*, $OutputStream*)},
-	{"<init>", "(Lsun/rmi/transport/tcp/TCPChannel;Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, 0, $method(TCPConnection, init$, void, $TCPChannel*, $InputStream*, $OutputStream*)},
-	{"<init>", "(Lsun/rmi/transport/tcp/TCPChannel;Ljava/net/Socket;)V", nullptr, 0, $method(TCPConnection, init$, void, $TCPChannel*, $Socket*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(TCPConnection, close, void), "java.io.IOException"},
-	{"expired", "(J)Z", nullptr, 0, $virtualMethod(TCPConnection, expired, bool, int64_t)},
-	{"getChannel", "()Lsun/rmi/transport/Channel;", nullptr, $PUBLIC, $virtualMethod(TCPConnection, getChannel, $Channel*)},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(TCPConnection, getInputStream, $InputStream*), "java.io.IOException"},
-	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(TCPConnection, getOutputStream, $OutputStream*), "java.io.IOException"},
-	{"isDead", "()Z", nullptr, $PUBLIC, $virtualMethod(TCPConnection, isDead, bool)},
-	{"isReusable", "()Z", nullptr, $PUBLIC, $virtualMethod(TCPConnection, isReusable, bool)},
-	{"releaseInputStream", "()V", nullptr, $PUBLIC, $virtualMethod(TCPConnection, releaseInputStream, void)},
-	{"releaseOutputStream", "()V", nullptr, $PUBLIC, $virtualMethod(TCPConnection, releaseOutputStream, void), "java.io.IOException"},
-	{"setExpiration", "(J)V", nullptr, 0, $virtualMethod(TCPConnection, setExpiration, void, int64_t)},
-	{"setLastUseTime", "(J)V", nullptr, 0, $virtualMethod(TCPConnection, setLastUseTime, void, int64_t)},
-	{}
-};
-
-$ClassInfo _TCPConnection_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.rmi.transport.tcp.TCPConnection",
-	"java.lang.Object",
-	"sun.rmi.transport.Connection",
-	_TCPConnection_FieldInfo_,
-	_TCPConnection_MethodInfo_
-};
-
-$Object* allocate$TCPConnection($Class* clazz) {
-	return $of($alloc(TCPConnection));
-}
-
 void TCPConnection::init$($TCPChannel* ch, $Socket* s, $InputStream* in, $OutputStream* out) {
 	$set(this, in, nullptr);
 	$set(this, out, nullptr);
@@ -111,7 +68,7 @@ $OutputStream* TCPConnection::getOutputStream() {
 
 void TCPConnection::releaseOutputStream() {
 	if (this->out != nullptr) {
-		$nc(this->out)->flush();
+		this->out->flush();
 	}
 }
 
@@ -142,7 +99,7 @@ bool TCPConnection::expired(int64_t time) {
 }
 
 bool TCPConnection::isDead() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputStream, i, nullptr);
 	$var($OutputStream, o, nullptr);
 	int64_t start = $System::currentTimeMillis();
@@ -157,14 +114,14 @@ bool TCPConnection::isDead() {
 	}
 	int32_t response = 0;
 	try {
-		$nc(o)->write((int32_t)$TransportConstants::Ping);
+		$nc(o)->write($TransportConstants::Ping);
 		o->flush();
 		response = $nc(i)->read();
 	} catch ($IOException& ex) {
 		$init($TCPTransport);
 		$init($Log);
 		$nc($TCPTransport::tcpLog)->log($Log::VERBOSE, "exception: "_s, ex);
-		$nc($TCPTransport::tcpLog)->log($Log::BRIEF, "server ping failed"_s);
+		$TCPTransport::tcpLog->log($Log::BRIEF, "server ping failed"_s);
 		return (true);
 	}
 	if (response == $TransportConstants::PingAck) {
@@ -174,7 +131,7 @@ bool TCPConnection::isDead() {
 	$init($TCPTransport);
 	$init($Log);
 	if ($nc($TCPTransport::tcpLog)->isLoggable($Log::BRIEF)) {
-		$nc($TCPTransport::tcpLog)->log($Log::BRIEF, (response == -1 ? "server has been deactivated"_s : $$str({"server protocol error: ping response = "_s, $$str(response)})));
+		$TCPTransport::tcpLog->log($Log::BRIEF, (response == -1 ? "server has been deactivated"_s : $$str({"server protocol error: ping response = "_s, $$str(response)})));
 	}
 	return (true);
 }
@@ -183,10 +140,10 @@ void TCPConnection::close() {
 	$init($TCPTransport);
 	$init($Log);
 	if ($nc($TCPTransport::tcpLog)->isLoggable($Log::BRIEF)) {
-		$nc($TCPTransport::tcpLog)->log($Log::BRIEF, $$str({"close connection, socket: "_s, this->socket}));
+		$TCPTransport::tcpLog->log($Log::BRIEF, $$str({"close connection, socket: "_s, this->socket}));
 	}
 	if (this->socket != nullptr) {
-		$nc(this->socket)->close();
+		this->socket->close();
 	} else {
 		$nc(this->in)->close();
 		$nc(this->out)->close();
@@ -201,7 +158,44 @@ TCPConnection::TCPConnection() {
 }
 
 $Class* TCPConnection::load$($String* name, bool initialize) {
-	$loadClass(TCPConnection, name, initialize, &_TCPConnection_ClassInfo_, allocate$TCPConnection);
+	$FieldInfo fieldInfos$$[] = {
+		{"socket", "Ljava/net/Socket;", nullptr, $PRIVATE, $field(TCPConnection, socket)},
+		{"channel", "Lsun/rmi/transport/Channel;", nullptr, $PRIVATE, $field(TCPConnection, channel)},
+		{"in", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(TCPConnection, in)},
+		{"out", "Ljava/io/OutputStream;", nullptr, $PRIVATE, $field(TCPConnection, out)},
+		{"expiration", "J", nullptr, $PRIVATE, $field(TCPConnection, expiration)},
+		{"lastuse", "J", nullptr, $PRIVATE, $field(TCPConnection, lastuse)},
+		{"roundtrip", "J", nullptr, $PRIVATE, $field(TCPConnection, roundtrip)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/rmi/transport/tcp/TCPChannel;Ljava/net/Socket;Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, 0, $method(TCPConnection, init$, void, $TCPChannel*, $Socket*, $InputStream*, $OutputStream*)},
+		{"<init>", "(Lsun/rmi/transport/tcp/TCPChannel;Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, 0, $method(TCPConnection, init$, void, $TCPChannel*, $InputStream*, $OutputStream*)},
+		{"<init>", "(Lsun/rmi/transport/tcp/TCPChannel;Ljava/net/Socket;)V", nullptr, 0, $method(TCPConnection, init$, void, $TCPChannel*, $Socket*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(TCPConnection, close, void), "java.io.IOException"},
+		{"expired", "(J)Z", nullptr, 0, $virtualMethod(TCPConnection, expired, bool, int64_t)},
+		{"getChannel", "()Lsun/rmi/transport/Channel;", nullptr, $PUBLIC, $virtualMethod(TCPConnection, getChannel, $Channel*)},
+		{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(TCPConnection, getInputStream, $InputStream*), "java.io.IOException"},
+		{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(TCPConnection, getOutputStream, $OutputStream*), "java.io.IOException"},
+		{"isDead", "()Z", nullptr, $PUBLIC, $virtualMethod(TCPConnection, isDead, bool)},
+		{"isReusable", "()Z", nullptr, $PUBLIC, $virtualMethod(TCPConnection, isReusable, bool)},
+		{"releaseInputStream", "()V", nullptr, $PUBLIC, $virtualMethod(TCPConnection, releaseInputStream, void)},
+		{"releaseOutputStream", "()V", nullptr, $PUBLIC, $virtualMethod(TCPConnection, releaseOutputStream, void), "java.io.IOException"},
+		{"setExpiration", "(J)V", nullptr, 0, $virtualMethod(TCPConnection, setExpiration, void, int64_t)},
+		{"setLastUseTime", "(J)V", nullptr, 0, $virtualMethod(TCPConnection, setLastUseTime, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.rmi.transport.tcp.TCPConnection",
+		"java.lang.Object",
+		"sun.rmi.transport.Connection",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TCPConnection, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TCPConnection);
+	});
 	return class$;
 }
 

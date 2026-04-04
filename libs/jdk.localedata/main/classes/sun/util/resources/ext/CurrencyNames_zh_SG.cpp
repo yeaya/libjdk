@@ -1,5 +1,4 @@
 #include <sun/util/resources/ext/CurrencyNames_zh_SG.h>
-
 #include <java/util/Locale.h>
 #include <java/util/ResourceBundle.h>
 #include <sun/util/locale/provider/LocaleProviderAdapter.h>
@@ -17,7 +16,6 @@ using $Locale = ::java::util::Locale;
 using $ResourceBundle = ::java::util::ResourceBundle;
 using $LocaleProviderAdapter = ::sun::util::locale::provider::LocaleProviderAdapter;
 using $ResourceBundleBasedAdapter = ::sun::util::locale::provider::ResourceBundleBasedAdapter;
-using $LocaleData = ::sun::util::resources::LocaleData;
 using $OpenListResourceBundle = ::sun::util::resources::OpenListResourceBundle;
 
 namespace sun {
@@ -25,43 +23,24 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _CurrencyNames_zh_SG_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_zh_SG, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(CurrencyNames_zh_SG, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_zh_SG_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.util.resources.ext.CurrencyNames_zh_SG",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_zh_SG_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_zh_SG($Class* clazz) {
-	return $of($alloc(CurrencyNames_zh_SG));
-}
-
 void CurrencyNames_zh_SG::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$OpenListResourceBundle::init$();
 	$init($Locale);
-	$var($ResourceBundle, bundle, $nc($($nc(($cast($ResourceBundleBasedAdapter, $($LocaleProviderAdapter::forJRE()))))->getLocaleData()))->getCurrencyNames($Locale::CHINA));
+	$var($ResourceBundle, bundle, $$nc($$sure($ResourceBundleBasedAdapter, $LocaleProviderAdapter::forJRE())->getLocaleData())->getCurrencyNames($Locale::CHINA));
 	setParent(bundle);
 }
 
 $ObjectArray2* CurrencyNames_zh_SG::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("CNY"_s),
-			$of("CNY"_s)
+			"CNY"_s,
+			"CNY"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SGD"_s),
-			$of("S$"_s)
+			"SGD"_s,
+			"S$"_s
 		})
 	});
 }
@@ -70,7 +49,22 @@ CurrencyNames_zh_SG::CurrencyNames_zh_SG() {
 }
 
 $Class* CurrencyNames_zh_SG::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_zh_SG, name, initialize, &_CurrencyNames_zh_SG_ClassInfo_, allocate$CurrencyNames_zh_SG);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_zh_SG, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(CurrencyNames_zh_SG, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.util.resources.ext.CurrencyNames_zh_SG",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_zh_SG, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_zh_SG);
+	});
 	return class$;
 }
 

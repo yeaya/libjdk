@@ -28,6 +28,7 @@ class $export TransparencyTest : public ::java::lang::Object {
 	$class(TransparencyTest, 0, ::java::lang::Object)
 public:
 	TransparencyTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createAndShowGUI();
 	static void main($StringArray* args);

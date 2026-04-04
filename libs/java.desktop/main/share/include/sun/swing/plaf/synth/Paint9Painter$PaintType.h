@@ -25,6 +25,7 @@ class $import Paint9Painter$PaintType : public ::java::lang::Enum {
 public:
 	Paint9Painter$PaintType();
 	static $Array<::sun::swing::plaf::synth::Paint9Painter$PaintType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::swing::plaf::synth::Paint9Painter$PaintType* valueOf($String* name);
 	static $Array<::sun::swing::plaf::synth::Paint9Painter$PaintType>* values();

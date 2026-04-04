@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/ScaledBlit.h>
-
 #include <java/awt/Composite.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/loops/CompositeType.h>
@@ -29,49 +28,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _ScaledBlit_FieldInfo_[] = {
-	{"methodSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ScaledBlit, methodSignature)},
-	{"primTypeID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ScaledBlit, primTypeID)},
-	{"blitcache", "Lsun/java2d/loops/RenderCache;", nullptr, $PRIVATE | $STATIC, $staticField(ScaledBlit, blitcache)},
-	{}
-};
-
-$MethodInfo _ScaledBlit_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(ScaledBlit, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"<init>", "(JLsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(ScaledBlit, init$, void, int64_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"Scale", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIDDDD)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(ScaledBlit, Scale, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
-	{"getFromCache", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/ScaledBlit;", nullptr, $PUBLIC | $STATIC, $staticMethod(ScaledBlit, getFromCache, ScaledBlit*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"locate", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/ScaledBlit;", nullptr, $PUBLIC | $STATIC, $staticMethod(ScaledBlit, locate, ScaledBlit*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(ScaledBlit, traceWrap, $GraphicsPrimitive*)},
-	{}
-};
-
-#define _METHOD_INDEX_Scale 2
-
-$InnerClassInfo _ScaledBlit_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.ScaledBlit$TraceScaledBlit", "sun.java2d.loops.ScaledBlit", "TraceScaledBlit", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ScaledBlit_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.loops.ScaledBlit",
-	"sun.java2d.loops.GraphicsPrimitive",
-	nullptr,
-	_ScaledBlit_FieldInfo_,
-	_ScaledBlit_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ScaledBlit_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.ScaledBlit$TraceScaledBlit"
-};
-
-$Object* allocate$ScaledBlit($Class* clazz) {
-	return $of($alloc(ScaledBlit));
-}
-
 $String* ScaledBlit::methodSignature = nullptr;
 int32_t ScaledBlit::primTypeID = 0;
 $RenderCache* ScaledBlit::blitcache = nullptr;
@@ -83,7 +39,7 @@ ScaledBlit* ScaledBlit::locate($SurfaceType* srctype, $CompositeType* comptype, 
 
 ScaledBlit* ScaledBlit::getFromCache($SurfaceType* src, $CompositeType* comp, $SurfaceType* dst) {
 	$init(ScaledBlit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, o, $nc(ScaledBlit::blitcache)->get(src, comp, dst));
 	if (o != nullptr) {
 		return $cast(ScaledBlit, o);
@@ -105,7 +61,7 @@ void ScaledBlit::init$(int64_t pNativePrim, $SurfaceType* srctype, $CompositeTyp
 }
 
 void ScaledBlit::Scale($SurfaceData* src, $SurfaceData* dst, $Composite* comp, $Region* clip, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, double dx1, double dy1, double dx2, double dy2) {
-	$prepareNative(ScaledBlit, Scale, void, $SurfaceData* src, $SurfaceData* dst, $Composite* comp, $Region* clip, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, double dx1, double dy1, double dx2, double dy2);
+	$prepareNative(Scale, void, $SurfaceData* src, $SurfaceData* dst, $Composite* comp, $Region* clip, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, double dx1, double dy1, double dx2, double dy2);
 	$invokeNative(src, dst, comp, clip, sx1, sy1, sx2, sy2, dx1, dy1, dx2, dy2);
 	$finishNative();
 }
@@ -114,7 +70,7 @@ $GraphicsPrimitive* ScaledBlit::traceWrap() {
 	return $new($ScaledBlit$TraceScaledBlit, this);
 }
 
-void clinit$ScaledBlit($Class* class$) {
+void ScaledBlit::clinit$($Class* clazz) {
 	$assignStatic(ScaledBlit::methodSignature, "ScaledBlit(...)"_s->toString());
 	ScaledBlit::primTypeID = $GraphicsPrimitive::makePrimTypeID();
 	$assignStatic(ScaledBlit::blitcache, $new($RenderCache, 20));
@@ -124,7 +80,42 @@ ScaledBlit::ScaledBlit() {
 }
 
 $Class* ScaledBlit::load$($String* name, bool initialize) {
-	$loadClass(ScaledBlit, name, initialize, &_ScaledBlit_ClassInfo_, clinit$ScaledBlit, allocate$ScaledBlit);
+	$FieldInfo fieldInfos$$[] = {
+		{"methodSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ScaledBlit, methodSignature)},
+		{"primTypeID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ScaledBlit, primTypeID)},
+		{"blitcache", "Lsun/java2d/loops/RenderCache;", nullptr, $PRIVATE | $STATIC, $staticField(ScaledBlit, blitcache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(ScaledBlit, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"<init>", "(JLsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(ScaledBlit, init$, void, int64_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"Scale", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIDDDD)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(ScaledBlit, Scale, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
+		{"getFromCache", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/ScaledBlit;", nullptr, $PUBLIC | $STATIC, $staticMethod(ScaledBlit, getFromCache, ScaledBlit*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"locate", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/ScaledBlit;", nullptr, $PUBLIC | $STATIC, $staticMethod(ScaledBlit, locate, ScaledBlit*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(ScaledBlit, traceWrap, $GraphicsPrimitive*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.ScaledBlit$TraceScaledBlit", "sun.java2d.loops.ScaledBlit", "TraceScaledBlit", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.loops.ScaledBlit",
+		"sun.java2d.loops.GraphicsPrimitive",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.ScaledBlit$TraceScaledBlit"
+	};
+	$loadClass(ScaledBlit, name, initialize, &classInfo$$, ScaledBlit::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ScaledBlit);
+	});
 	return class$;
 }
 

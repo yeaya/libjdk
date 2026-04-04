@@ -45,6 +45,7 @@ class Type1Font : public ::sun::font::FileFont {
 public:
 	Type1Font();
 	using ::sun::font::FileFont::getFontMetrics;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* platname, Object$* nativeNames);
 	void init$($String* platname, Object$* nativeNames, bool createdCopy);
 	virtual void close() override;

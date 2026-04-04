@@ -1,12 +1,10 @@
 #include <sun/swing/plaf/DesktopProperty.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Font.h>
 #include <java/awt/Frame.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/Window.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
@@ -29,12 +27,10 @@
 using $FrameArray = $Array<::java::awt::Frame>;
 using $WindowArray = $Array<::java::awt::Window>;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Font = ::java::awt::Font;
 using $Frame = ::java::awt::Frame;
 using $Toolkit = ::java::awt::Toolkit;
 using $Window = ::java::awt::Window;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -58,98 +54,39 @@ namespace sun {
 	namespace swing {
 		namespace plaf {
 
-$FieldInfo _DesktopProperty_FieldInfo_[] = {
-	{"DESKTOP_PROPERTY_UPDATE_PENDING_KEY", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DesktopProperty, DESKTOP_PROPERTY_UPDATE_PENDING_KEY)},
-	{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Lsun/swing/plaf/DesktopProperty;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DesktopProperty, queue)},
-	{"pcl", "Lsun/swing/plaf/DesktopProperty$WeakPCL;", nullptr, $PRIVATE, $field(DesktopProperty, pcl)},
-	{"key", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DesktopProperty, key)},
-	{"value", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(DesktopProperty, value)},
-	{"fallback", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(DesktopProperty, fallback)},
-	{}
-};
-
-$MethodInfo _DesktopProperty_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(DesktopProperty, init$, void, $String*, Object$*)},
-	{"configureValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(DesktopProperty, configureValue, $Object*, Object$*)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DesktopProperty, createValue, $Object*, $UIDefaults*)},
-	{"flushUnreferencedProperties", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(DesktopProperty, flushUnreferencedProperties, void)},
-	{"getDefaultValue", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(DesktopProperty, getDefaultValue, $Object*)},
-	{"getKey", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(DesktopProperty, getKey, $String*)},
-	{"getValueFromDesktop", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(DesktopProperty, getValueFromDesktop, $Object*)},
-	{"invalidate", "(Ljavax/swing/LookAndFeel;)V", nullptr, $PUBLIC, $virtualMethod(DesktopProperty, invalidate, void, $LookAndFeel*)},
-	{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(DesktopProperty, invalidate, void)},
-	{"isUpdatePending", "()Z", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(DesktopProperty, isUpdatePending, bool)},
-	{"setUpdatePending", "(Z)V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(DesktopProperty, setUpdatePending, void, bool)},
-	{"updateAllUIs", "()V", nullptr, $PROTECTED, $virtualMethod(DesktopProperty, updateAllUIs, void)},
-	{"updateUI", "()V", nullptr, $PROTECTED, $virtualMethod(DesktopProperty, updateUI, void)},
-	{"updateWindowUI", "(Ljava/awt/Window;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DesktopProperty, updateWindowUI, void, $Window*)},
-	{}
-};
-
-$InnerClassInfo _DesktopProperty_InnerClassesInfo_[] = {
-	{"javax.swing.UIDefaults$ActiveValue", "javax.swing.UIDefaults", "ActiveValue", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.swing.plaf.DesktopProperty$WeakPCL", "sun.swing.plaf.DesktopProperty", "WeakPCL", $PRIVATE | $STATIC},
-	{"sun.swing.plaf.DesktopProperty$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DesktopProperty_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.swing.plaf.DesktopProperty",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$ActiveValue",
-	_DesktopProperty_FieldInfo_,
-	_DesktopProperty_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DesktopProperty_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.swing.plaf.DesktopProperty$WeakPCL,sun.swing.plaf.DesktopProperty$1"
-};
-
-$Object* allocate$DesktopProperty($Class* clazz) {
-	return $of($alloc(DesktopProperty));
-}
-
 $StringBuilder* DesktopProperty::DESKTOP_PROPERTY_UPDATE_PENDING_KEY = nullptr;
 $ReferenceQueue* DesktopProperty::queue = nullptr;
 
 void DesktopProperty::flushUnreferencedProperties() {
 	$init(DesktopProperty);
 	$var($DesktopProperty$WeakPCL, pcl, nullptr);
-	while (($assign(pcl, $cast($DesktopProperty$WeakPCL, $nc(DesktopProperty::queue)->poll()))) != nullptr) {
+	while (($assign(pcl, $cast($DesktopProperty$WeakPCL, DesktopProperty::queue->poll()))) != nullptr) {
 		$nc(pcl)->dispose();
 	}
 }
 
 void DesktopProperty::setUpdatePending(bool update) {
-	$load(DesktopProperty);
+	$init(DesktopProperty);
 	$synchronized(class$) {
-		$init(DesktopProperty);
-		$useLocalCurrentObjectStackCache();
-		$nc($($AppContext::getAppContext()))->put(DesktopProperty::DESKTOP_PROPERTY_UPDATE_PENDING_KEY, $($Boolean::valueOf(update)));
+		$useLocalObjectStack();
+		$$nc($AppContext::getAppContext())->put(DesktopProperty::DESKTOP_PROPERTY_UPDATE_PENDING_KEY, $($Boolean::valueOf(update)));
 	}
 }
 
 bool DesktopProperty::isUpdatePending() {
-	$load(DesktopProperty);
+	$init(DesktopProperty);
 	$synchronized(class$) {
-		$init(DesktopProperty);
-		$useLocalCurrentObjectStackCache();
-		$init($Boolean);
-		return $nc($Boolean::TRUE)->equals($($nc($($AppContext::getAppContext()))->get(DesktopProperty::DESKTOP_PROPERTY_UPDATE_PENDING_KEY)));
+		$useLocalObjectStack();
+		return $nc($Boolean::TRUE)->equals($($$nc($AppContext::getAppContext())->get(DesktopProperty::DESKTOP_PROPERTY_UPDATE_PENDING_KEY)));
 	}
 }
 
 void DesktopProperty::updateAllUIs() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FrameArray, appFrames, $Frame::getFrames());
 	{
 		$var($FrameArray, arr$, appFrames);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Frame, appFrame, arr$->get(i$));
 			{
 				updateWindowUI(appFrame);
@@ -160,14 +97,12 @@ void DesktopProperty::updateAllUIs() {
 
 void DesktopProperty::updateWindowUI($Window* window) {
 	$init(DesktopProperty);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SwingUtilities::updateComponentTreeUI(window);
 	$var($WindowArray, ownedWins, $nc(window)->getOwnedWindows());
 	{
 		$var($WindowArray, arr$, ownedWins);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Window, ownedWin, arr$->get(i$));
 			{
 				updateWindowUI(ownedWin);
@@ -183,29 +118,29 @@ void DesktopProperty::init$($String* key, Object$* fallback) {
 }
 
 $Object* DesktopProperty::createValue($UIDefaults* table) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->value == nullptr) {
 		$set(this, value, configureValue($(getValueFromDesktop())));
 		if (this->value == nullptr) {
 			$set(this, value, configureValue($(getDefaultValue())));
 		}
 	}
-	return $of(this->value);
+	return this->value;
 }
 
 $Object* DesktopProperty::getValueFromDesktop() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Toolkit, toolkit, $Toolkit::getDefaultToolkit());
 	if (this->pcl == nullptr) {
 		$var($String, var$0, getKey());
 		$set(this, pcl, $new($DesktopProperty$WeakPCL, this, var$0, $($UIManager::getLookAndFeel())));
 		$nc(toolkit)->addPropertyChangeListener($(getKey()), this->pcl);
 	}
-	return $of($nc(toolkit)->getDesktopProperty($(getKey())));
+	return $nc(toolkit)->getDesktopProperty($(getKey()));
 }
 
 $Object* DesktopProperty::getDefaultValue() {
-	return $of(this->fallback);
+	return this->fallback;
 }
 
 void DesktopProperty::invalidate($LookAndFeel* laf) {
@@ -232,9 +167,9 @@ $Object* DesktopProperty::configureValue(Object$* value$renamed) {
 		} else if ($instanceOf($Font, value)) {
 			return $of($new($FontUIResource, $cast($Font, value)));
 		} else if ($instanceOf($UIDefaults$LazyValue, value)) {
-			$assign(value, $nc(($cast($UIDefaults$LazyValue, value)))->createValue(nullptr));
+			$assign(value, $cast($UIDefaults$LazyValue, value)->createValue(nullptr));
 		} else if ($instanceOf($UIDefaults$ActiveValue, value)) {
-			$assign(value, $nc(($cast($UIDefaults$ActiveValue, value)))->createValue(nullptr));
+			$assign(value, $cast($UIDefaults$ActiveValue, value)->createValue(nullptr));
 		}
 	}
 	return $of(value);
@@ -244,7 +179,7 @@ $String* DesktopProperty::getKey() {
 	return this->key;
 }
 
-void clinit$DesktopProperty($Class* class$) {
+void DesktopProperty::clinit$($Class* clazz) {
 	$assignStatic(DesktopProperty::DESKTOP_PROPERTY_UPDATE_PENDING_KEY, $new($StringBuilder, "DesktopPropertyUpdatePending"_s));
 	$assignStatic(DesktopProperty::queue, $new($ReferenceQueue));
 }
@@ -253,7 +188,55 @@ DesktopProperty::DesktopProperty() {
 }
 
 $Class* DesktopProperty::load$($String* name, bool initialize) {
-	$loadClass(DesktopProperty, name, initialize, &_DesktopProperty_ClassInfo_, clinit$DesktopProperty, allocate$DesktopProperty);
+	$FieldInfo fieldInfos$$[] = {
+		{"DESKTOP_PROPERTY_UPDATE_PENDING_KEY", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DesktopProperty, DESKTOP_PROPERTY_UPDATE_PENDING_KEY)},
+		{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Lsun/swing/plaf/DesktopProperty;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DesktopProperty, queue)},
+		{"pcl", "Lsun/swing/plaf/DesktopProperty$WeakPCL;", nullptr, $PRIVATE, $field(DesktopProperty, pcl)},
+		{"key", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DesktopProperty, key)},
+		{"value", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(DesktopProperty, value)},
+		{"fallback", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(DesktopProperty, fallback)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(DesktopProperty, init$, void, $String*, Object$*)},
+		{"configureValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(DesktopProperty, configureValue, $Object*, Object$*)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DesktopProperty, createValue, $Object*, $UIDefaults*)},
+		{"flushUnreferencedProperties", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(DesktopProperty, flushUnreferencedProperties, void)},
+		{"getDefaultValue", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(DesktopProperty, getDefaultValue, $Object*)},
+		{"getKey", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(DesktopProperty, getKey, $String*)},
+		{"getValueFromDesktop", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(DesktopProperty, getValueFromDesktop, $Object*)},
+		{"invalidate", "(Ljavax/swing/LookAndFeel;)V", nullptr, $PUBLIC, $virtualMethod(DesktopProperty, invalidate, void, $LookAndFeel*)},
+		{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(DesktopProperty, invalidate, void)},
+		{"isUpdatePending", "()Z", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(DesktopProperty, isUpdatePending, bool)},
+		{"setUpdatePending", "(Z)V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(DesktopProperty, setUpdatePending, void, bool)},
+		{"updateAllUIs", "()V", nullptr, $PROTECTED, $virtualMethod(DesktopProperty, updateAllUIs, void)},
+		{"updateUI", "()V", nullptr, $PROTECTED, $virtualMethod(DesktopProperty, updateUI, void)},
+		{"updateWindowUI", "(Ljava/awt/Window;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DesktopProperty, updateWindowUI, void, $Window*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.UIDefaults$ActiveValue", "javax.swing.UIDefaults", "ActiveValue", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.swing.plaf.DesktopProperty$WeakPCL", "sun.swing.plaf.DesktopProperty", "WeakPCL", $PRIVATE | $STATIC},
+		{"sun.swing.plaf.DesktopProperty$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.swing.plaf.DesktopProperty",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$ActiveValue",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.swing.plaf.DesktopProperty$WeakPCL,sun.swing.plaf.DesktopProperty$1"
+	};
+	$loadClass(DesktopProperty, name, initialize, &classInfo$$, DesktopProperty::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DesktopProperty);
+	});
 	return class$;
 }
 

@@ -35,7 +35,7 @@ public:
 	void writeObject(::java::io::ObjectOutputStream* out);
 	$String* key = nullptr;
 	$String* newValue = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x0B03E03D54D2278F;
+	static const int64_t serialVersionUID = (int64_t)0x0b03e03d54d2278f;
 };
 
 		} // prefs

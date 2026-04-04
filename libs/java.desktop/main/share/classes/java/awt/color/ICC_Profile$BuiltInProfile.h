@@ -31,6 +31,7 @@ namespace java {
 class ICC_Profile$BuiltInProfile : public ::java::lang::Object {
 	$interface(ICC_Profile$BuiltInProfile, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	static ::java::awt::color::ICC_Profile* SRGB;
 	static ::java::awt::color::ICC_Profile* LRGB;
 	static ::java::awt::color::ICC_Profile* XYZ;

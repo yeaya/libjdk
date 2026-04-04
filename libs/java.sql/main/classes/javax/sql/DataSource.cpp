@@ -1,5 +1,4 @@
 #include <javax/sql/DataSource.h>
-
 #include <java/sql/Connection.h>
 #include <java/sql/ConnectionBuilder.h>
 #include <java/sql/SQLFeatureNotSupportedException.h>
@@ -15,35 +14,6 @@ using $CommonDataSource = ::javax::sql::CommonDataSource;
 
 namespace javax {
 	namespace sql {
-
-$MethodInfo _DataSource_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"createConnectionBuilder", "()Ljava/sql/ConnectionBuilder;", nullptr, $PUBLIC, $virtualMethod(DataSource, createConnectionBuilder, $ConnectionBuilder*), "java.sql.SQLException"},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getConnection", "()Ljava/sql/Connection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DataSource, getConnection, $Connection*), "java.sql.SQLException"},
-	{"getConnection", "(Ljava/lang/String;Ljava/lang/String;)Ljava/sql/Connection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DataSource, getConnection, $Connection*, $String*, $String*), "java.sql.SQLException"},
-	{"getLogWriter", "()Ljava/io/PrintWriter;", nullptr, $PUBLIC | $ABSTRACT},
-	{"setLogWriter", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"setLoginTimeout", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"getLoginTimeout", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DataSource_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.sql.DataSource",
-	nullptr,
-	"javax.sql.CommonDataSource,java.sql.Wrapper",
-	nullptr,
-	_DataSource_MethodInfo_
-};
-
-$Object* allocate$DataSource($Class* clazz) {
-	return $of($alloc(DataSource));
-}
 
 int32_t DataSource::hashCode() {
 	 return this->$CommonDataSource::hashCode();
@@ -71,7 +41,32 @@ $ConnectionBuilder* DataSource::createConnectionBuilder() {
 }
 
 $Class* DataSource::load$($String* name, bool initialize) {
-	$loadClass(DataSource, name, initialize, &_DataSource_ClassInfo_, allocate$DataSource);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"createConnectionBuilder", "()Ljava/sql/ConnectionBuilder;", nullptr, $PUBLIC, $virtualMethod(DataSource, createConnectionBuilder, $ConnectionBuilder*), "java.sql.SQLException"},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"getConnection", "()Ljava/sql/Connection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DataSource, getConnection, $Connection*), "java.sql.SQLException"},
+		{"getConnection", "(Ljava/lang/String;Ljava/lang/String;)Ljava/sql/Connection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DataSource, getConnection, $Connection*, $String*, $String*), "java.sql.SQLException"},
+		{"getLogWriter", "()Ljava/io/PrintWriter;", nullptr, $PUBLIC | $ABSTRACT},
+		{"setLogWriter", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"setLoginTimeout", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"getLoginTimeout", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.sql.DataSource",
+		nullptr,
+		"javax.sql.CommonDataSource,java.sql.Wrapper",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DataSource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DataSource));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/krb5/Config$FileExistsAction.h>
-
 #include <java/io/File.h>
 #include <sun/security/krb5/Config.h>
 #include <jcpp.h>
@@ -15,42 +14,6 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 
-$FieldInfo _Config$FileExistsAction_FieldInfo_[] = {
-	{"fileName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Config$FileExistsAction, fileName)},
-	{}
-};
-
-$MethodInfo _Config$FileExistsAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Config$FileExistsAction, init$, void, $String*)},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Config$FileExistsAction, run, $Object*)},
-	{}
-};
-
-$InnerClassInfo _Config$FileExistsAction_InnerClassesInfo_[] = {
-	{"sun.security.krb5.Config$FileExistsAction", "sun.security.krb5.Config", "FileExistsAction", $STATIC},
-	{}
-};
-
-$ClassInfo _Config$FileExistsAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.krb5.Config$FileExistsAction",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_Config$FileExistsAction_FieldInfo_,
-	_Config$FileExistsAction_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
-	nullptr,
-	_Config$FileExistsAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.krb5.Config"
-};
-
-$Object* allocate$Config$FileExistsAction($Class* clazz) {
-	return $of($alloc(Config$FileExistsAction));
-}
-
 void Config$FileExistsAction::init$($String* fileName) {
 	$set(this, fileName, fileName);
 }
@@ -63,7 +26,37 @@ Config$FileExistsAction::Config$FileExistsAction() {
 }
 
 $Class* Config$FileExistsAction::load$($String* name, bool initialize) {
-	$loadClass(Config$FileExistsAction, name, initialize, &_Config$FileExistsAction_ClassInfo_, allocate$Config$FileExistsAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"fileName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Config$FileExistsAction, fileName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Config$FileExistsAction, init$, void, $String*)},
+		{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Config$FileExistsAction, run, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.krb5.Config$FileExistsAction", "sun.security.krb5.Config", "FileExistsAction", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.krb5.Config$FileExistsAction",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.krb5.Config"
+	};
+	$loadClass(Config$FileExistsAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Config$FileExistsAction);
+	});
 	return class$;
 }
 

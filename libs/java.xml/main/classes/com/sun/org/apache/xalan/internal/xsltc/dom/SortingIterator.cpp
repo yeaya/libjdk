@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/SortingIterator.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/NodeSortRecord.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/NodeSortRecordFactory.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/BasisLibrary.h>
@@ -33,44 +32,6 @@ namespace com {
 						namespace xsltc {
 							namespace dom {
 
-$FieldInfo _SortingIterator_FieldInfo_[] = {
-	{"INIT_DATA_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SortingIterator, INIT_DATA_SIZE)},
-	{"_source", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PRIVATE, $field(SortingIterator, _source)},
-	{"_factory", "Lcom/sun/org/apache/xalan/internal/xsltc/dom/NodeSortRecordFactory;", nullptr, $PRIVATE, $field(SortingIterator, _factory)},
-	{"_data", "[Lcom/sun/org/apache/xalan/internal/xsltc/dom/NodeSortRecord;", nullptr, $PRIVATE, $field(SortingIterator, _data)},
-	{"_free", "I", nullptr, $PRIVATE, $field(SortingIterator, _free)},
-	{"_current", "I", nullptr, $PRIVATE, $field(SortingIterator, _current)},
-	{}
-};
-
-$MethodInfo _SortingIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Lcom/sun/org/apache/xalan/internal/xsltc/dom/NodeSortRecordFactory;)V", nullptr, $PUBLIC, $method(SortingIterator, init$, void, $DTMAxisIterator*, $NodeSortRecordFactory*)},
-	{"addRecord", "(Lcom/sun/org/apache/xalan/internal/xsltc/dom/NodeSortRecord;)V", nullptr, $PRIVATE, $method(SortingIterator, addRecord, void, $NodeSortRecord*)},
-	{"cloneIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(SortingIterator, cloneIterator, $DTMAxisIterator*)},
-	{"getLast", "()I", nullptr, $PUBLIC, $virtualMethod(SortingIterator, getLast, int32_t)},
-	{"getPosition", "()I", nullptr, $PUBLIC, $virtualMethod(SortingIterator, getPosition, int32_t)},
-	{"gotoMark", "()V", nullptr, $PUBLIC, $virtualMethod(SortingIterator, gotoMark, void)},
-	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(SortingIterator, next, int32_t)},
-	{"partition", "(II)I", nullptr, $PRIVATE, $method(SortingIterator, partition, int32_t, int32_t, int32_t)},
-	{"quicksort", "(II)V", nullptr, $PRIVATE, $method(SortingIterator, quicksort, void, int32_t, int32_t)},
-	{"setMark", "()V", nullptr, $PUBLIC, $virtualMethod(SortingIterator, setMark, void)},
-	{"setStartNode", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(SortingIterator, setStartNode, $DTMAxisIterator*, int32_t)},
-	{}
-};
-
-$ClassInfo _SortingIterator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.SortingIterator",
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMAxisIteratorBase",
-	nullptr,
-	_SortingIterator_FieldInfo_,
-	_SortingIterator_MethodInfo_
-};
-
-$Object* allocate$SortingIterator($Class* clazz) {
-	return $of($alloc(SortingIterator));
-}
-
 void SortingIterator::init$($DTMAxisIterator* source, $NodeSortRecordFactory* factory) {
 	$DTMAxisIteratorBase::init$();
 	this->_free = 0;
@@ -83,7 +44,7 @@ int32_t SortingIterator::next() {
 }
 
 $DTMAxisIterator* SortingIterator::setStartNode(int32_t node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$nc(this->_source)->setStartNode(this->_startNode = node);
 		$set(this, _data, $new($NodeSortRecordArray, SortingIterator::INIT_DATA_SIZE));
@@ -119,7 +80,7 @@ void SortingIterator::gotoMark() {
 }
 
 $DTMAxisIterator* SortingIterator::cloneIterator() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var(SortingIterator, clone, $cast(SortingIterator, $DTMAxisIteratorBase::clone()));
 		$set($nc(clone), _source, $nc(this->_source)->cloneIterator());
@@ -131,7 +92,7 @@ $DTMAxisIterator* SortingIterator::cloneIterator() {
 		return clone->reset();
 	} catch ($CloneNotSupportedException& e) {
 		$init($BasisLibrary);
-		$BasisLibrary::runTimeError($BasisLibrary::ITERATOR_CLONE_ERR, $($of(e->toString())));
+		$BasisLibrary::runTimeError($BasisLibrary::ITERATOR_CLONE_ERR, $(e->toString()));
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -139,11 +100,11 @@ $DTMAxisIterator* SortingIterator::cloneIterator() {
 
 void SortingIterator::addRecord($NodeSortRecord* record) {
 	if (this->_free == $nc(this->_data)->length) {
-		$var($NodeSortRecordArray, newArray, $new($NodeSortRecordArray, $nc(this->_data)->length * 2));
+		$var($NodeSortRecordArray, newArray, $new($NodeSortRecordArray, this->_data->length * 2));
 		$System::arraycopy(this->_data, 0, newArray, 0, this->_free);
 		$set(this, _data, newArray);
 	}
-	$nc(this->_data)->set(this->_free++, record);
+	this->_data->set(this->_free++, record);
 }
 
 void SortingIterator::quicksort(int32_t p, int32_t r) {
@@ -155,19 +116,21 @@ void SortingIterator::quicksort(int32_t p, int32_t r) {
 }
 
 int32_t SortingIterator::partition(int32_t p, int32_t r) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NodeSortRecord, x, $nc(this->_data)->get((int32_t)((uint32_t)(p + r) >> 1)));
 	int32_t i = p - 1;
 	int32_t j = r + 1;
 	while (true) {
 		while ($nc(x)->compareTo($nc(this->_data)->get(--j)) < 0) {
+			;
 		}
-		while ($nc(x)->compareTo($nc(this->_data)->get(++i)) > 0) {
+		while (x->compareTo(this->_data->get(++i)) > 0) {
+			;
 		}
 		if (i < j) {
-			$var($NodeSortRecord, t, $nc(this->_data)->get(i));
-			$nc(this->_data)->set(i, $nc(this->_data)->get(j));
-			$nc(this->_data)->set(j, t);
+			$var($NodeSortRecord, t, this->_data->get(i));
+			this->_data->set(i, this->_data->get(j));
+			this->_data->set(j, t);
 		} else {
 			return (j);
 		}
@@ -178,7 +141,40 @@ SortingIterator::SortingIterator() {
 }
 
 $Class* SortingIterator::load$($String* name, bool initialize) {
-	$loadClass(SortingIterator, name, initialize, &_SortingIterator_ClassInfo_, allocate$SortingIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"INIT_DATA_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SortingIterator, INIT_DATA_SIZE)},
+		{"_source", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PRIVATE, $field(SortingIterator, _source)},
+		{"_factory", "Lcom/sun/org/apache/xalan/internal/xsltc/dom/NodeSortRecordFactory;", nullptr, $PRIVATE, $field(SortingIterator, _factory)},
+		{"_data", "[Lcom/sun/org/apache/xalan/internal/xsltc/dom/NodeSortRecord;", nullptr, $PRIVATE, $field(SortingIterator, _data)},
+		{"_free", "I", nullptr, $PRIVATE, $field(SortingIterator, _free)},
+		{"_current", "I", nullptr, $PRIVATE, $field(SortingIterator, _current)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Lcom/sun/org/apache/xalan/internal/xsltc/dom/NodeSortRecordFactory;)V", nullptr, $PUBLIC, $method(SortingIterator, init$, void, $DTMAxisIterator*, $NodeSortRecordFactory*)},
+		{"addRecord", "(Lcom/sun/org/apache/xalan/internal/xsltc/dom/NodeSortRecord;)V", nullptr, $PRIVATE, $method(SortingIterator, addRecord, void, $NodeSortRecord*)},
+		{"cloneIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(SortingIterator, cloneIterator, $DTMAxisIterator*)},
+		{"getLast", "()I", nullptr, $PUBLIC, $virtualMethod(SortingIterator, getLast, int32_t)},
+		{"getPosition", "()I", nullptr, $PUBLIC, $virtualMethod(SortingIterator, getPosition, int32_t)},
+		{"gotoMark", "()V", nullptr, $PUBLIC, $virtualMethod(SortingIterator, gotoMark, void)},
+		{"next", "()I", nullptr, $PUBLIC, $virtualMethod(SortingIterator, next, int32_t)},
+		{"partition", "(II)I", nullptr, $PRIVATE, $method(SortingIterator, partition, int32_t, int32_t, int32_t)},
+		{"quicksort", "(II)V", nullptr, $PRIVATE, $method(SortingIterator, quicksort, void, int32_t, int32_t)},
+		{"setMark", "()V", nullptr, $PUBLIC, $virtualMethod(SortingIterator, setMark, void)},
+		{"setStartNode", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(SortingIterator, setStartNode, $DTMAxisIterator*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.SortingIterator",
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMAxisIteratorBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SortingIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SortingIterator);
+	});
 	return class$;
 }
 

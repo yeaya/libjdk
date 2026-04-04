@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/dom/DeferredDocumentImpl$RefCount.h>
-
 #include <com/sun/org/apache/xerces/internal/dom/DeferredDocumentImpl.h>
 #include <jcpp.h>
 
@@ -16,41 +15,6 @@ namespace com {
 					namespace internal {
 						namespace dom {
 
-$FieldInfo _DeferredDocumentImpl$RefCount_FieldInfo_[] = {
-	{"fCount", "I", nullptr, 0, $field(DeferredDocumentImpl$RefCount, fCount)},
-	{}
-};
-
-$MethodInfo _DeferredDocumentImpl$RefCount_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DeferredDocumentImpl$RefCount, init$, void)},
-	{}
-};
-
-$InnerClassInfo _DeferredDocumentImpl$RefCount_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.dom.DeferredDocumentImpl$RefCount", "com.sun.org.apache.xerces.internal.dom.DeferredDocumentImpl", "RefCount", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DeferredDocumentImpl$RefCount_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.dom.DeferredDocumentImpl$RefCount",
-	"java.lang.Object",
-	nullptr,
-	_DeferredDocumentImpl$RefCount_FieldInfo_,
-	_DeferredDocumentImpl$RefCount_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DeferredDocumentImpl$RefCount_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.dom.DeferredDocumentImpl"
-};
-
-$Object* allocate$DeferredDocumentImpl$RefCount($Class* clazz) {
-	return $of($alloc(DeferredDocumentImpl$RefCount));
-}
-
 void DeferredDocumentImpl$RefCount::init$() {
 }
 
@@ -58,7 +22,36 @@ DeferredDocumentImpl$RefCount::DeferredDocumentImpl$RefCount() {
 }
 
 $Class* DeferredDocumentImpl$RefCount::load$($String* name, bool initialize) {
-	$loadClass(DeferredDocumentImpl$RefCount, name, initialize, &_DeferredDocumentImpl$RefCount_ClassInfo_, allocate$DeferredDocumentImpl$RefCount);
+	$FieldInfo fieldInfos$$[] = {
+		{"fCount", "I", nullptr, 0, $field(DeferredDocumentImpl$RefCount, fCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DeferredDocumentImpl$RefCount, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.dom.DeferredDocumentImpl$RefCount", "com.sun.org.apache.xerces.internal.dom.DeferredDocumentImpl", "RefCount", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.dom.DeferredDocumentImpl$RefCount",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.dom.DeferredDocumentImpl"
+	};
+	$loadClass(DeferredDocumentImpl$RefCount, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeferredDocumentImpl$RefCount);
+	});
 	return class$;
 }
 

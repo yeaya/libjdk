@@ -1,11 +1,9 @@
 #include <javax/security/auth/kerberos/KerberosPrincipal.h>
-
 #include <java/io/IOException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/security/Permission.h>
 #include <java/security/Principal.h>
 #include <javax/security/auth/kerberos/ServicePermission.h>
 #include <sun/security/krb5/KrbException.h>
@@ -33,7 +31,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $Permission = ::java::security::Permission;
 using $Principal = ::java::security::Principal;
 using $ServicePermission = ::javax::security::auth::kerberos::ServicePermission;
 using $KrbException = ::sun::security::krb5::KrbException;
@@ -45,50 +42,6 @@ namespace javax {
 	namespace security {
 		namespace auth {
 			namespace kerberos {
-
-$FieldInfo _KerberosPrincipal_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KerberosPrincipal, serialVersionUID)},
-	{"KRB_NT_UNKNOWN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KerberosPrincipal, KRB_NT_UNKNOWN)},
-	{"KRB_NT_PRINCIPAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KerberosPrincipal, KRB_NT_PRINCIPAL)},
-	{"KRB_NT_SRV_INST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KerberosPrincipal, KRB_NT_SRV_INST)},
-	{"KRB_NT_SRV_HST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KerberosPrincipal, KRB_NT_SRV_HST)},
-	{"KRB_NT_SRV_XHST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KerberosPrincipal, KRB_NT_SRV_XHST)},
-	{"KRB_NT_UID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KerberosPrincipal, KRB_NT_UID)},
-	{"KRB_NT_ENTERPRISE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KerberosPrincipal, KRB_NT_ENTERPRISE)},
-	{"fullName", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(KerberosPrincipal, fullName)},
-	{"realm", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(KerberosPrincipal, realm)},
-	{"nameType", "I", nullptr, $PRIVATE | $TRANSIENT, $field(KerberosPrincipal, nameType)},
-	{}
-};
-
-$MethodInfo _KerberosPrincipal_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KerberosPrincipal, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(KerberosPrincipal, init$, void, $String*, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KerberosPrincipal, equals, bool, Object$*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KerberosPrincipal, getName, $String*)},
-	{"getNameType", "()I", nullptr, $PUBLIC, $method(KerberosPrincipal, getNameType, int32_t)},
-	{"getRealm", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(KerberosPrincipal, getRealm, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KerberosPrincipal, hashCode, int32_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(KerberosPrincipal, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KerberosPrincipal, toString, $String*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(KerberosPrincipal, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _KerberosPrincipal_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.security.auth.kerberos.KerberosPrincipal",
-	"java.lang.Object",
-	"java.security.Principal,java.io.Serializable",
-	_KerberosPrincipal_FieldInfo_,
-	_KerberosPrincipal_MethodInfo_
-};
-
-$Object* allocate$KerberosPrincipal($Class* clazz) {
-	return $of($alloc(KerberosPrincipal));
-}
 
 $Object* KerberosPrincipal::clone() {
 	 return this->$Principal::clone();
@@ -103,7 +56,7 @@ void KerberosPrincipal::init$($String* name) {
 }
 
 void KerberosPrincipal::init$($String* name, int32_t nameType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PrincipalName, krb5Principal, nullptr);
 	try {
 		$assign(krb5Principal, $new($PrincipalName, name, nameType));
@@ -122,7 +75,7 @@ void KerberosPrincipal::init$($String* name, int32_t nameType) {
 		}
 	}
 	this->nameType = nameType;
-	$set(this, fullName, $nc(krb5Principal)->toString());
+	$set(this, fullName, krb5Principal->toString());
 	$set(this, realm, krb5Principal->getRealmString());
 }
 
@@ -131,11 +84,11 @@ $String* KerberosPrincipal::getRealm() {
 }
 
 int32_t KerberosPrincipal::hashCode() {
-	return $nc($(getName()))->hashCode();
+	return $$nc(getName())->hashCode();
 }
 
 bool KerberosPrincipal::equals(Object$* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(other, this)) {
 		return true;
 	}
@@ -143,24 +96,24 @@ bool KerberosPrincipal::equals(Object$* other) {
 		return false;
 	}
 	$var($String, myFullName, getName());
-	$var($String, otherFullName, $nc(($cast(KerberosPrincipal, other)))->getName());
+	$var($String, otherFullName, $nc($cast(KerberosPrincipal, other))->getName());
 	return $nc(myFullName)->equals(otherFullName);
 }
 
 void KerberosPrincipal::writeObject($ObjectOutputStream* oos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PrincipalName, krb5Principal, nullptr);
 	try {
 		$assign(krb5Principal, $new($PrincipalName, this->fullName, this->nameType));
 		$nc(oos)->writeObject($(krb5Principal->asn1Encode()));
-		oos->writeObject($($nc($(krb5Principal->getRealm()))->asn1Encode()));
+		oos->writeObject($($$nc(krb5Principal->getRealm())->asn1Encode()));
 	} catch ($Exception& e) {
-		$throwNew($IOException, static_cast<$Throwable*>(e));
+		$throwNew($IOException, e);
 	}
 }
 
 void KerberosPrincipal::readObject($ObjectInputStream* ois) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, asn1EncPrincipal, $cast($bytes, $nc(ois)->readObject()));
 	$var($bytes, encRealm, $cast($bytes, ois->readObject()));
 	try {
@@ -170,7 +123,7 @@ void KerberosPrincipal::readObject($ObjectInputStream* ois) {
 		$set(this, fullName, krb5Principal->toString());
 		this->nameType = krb5Principal->getNameType();
 	} catch ($Exception& e) {
-		$throwNew($IOException, static_cast<$Throwable*>(e));
+		$throwNew($IOException, e);
 	}
 }
 
@@ -190,7 +143,46 @@ KerberosPrincipal::KerberosPrincipal() {
 }
 
 $Class* KerberosPrincipal::load$($String* name, bool initialize) {
-	$loadClass(KerberosPrincipal, name, initialize, &_KerberosPrincipal_ClassInfo_, allocate$KerberosPrincipal);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KerberosPrincipal, serialVersionUID)},
+		{"KRB_NT_UNKNOWN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KerberosPrincipal, KRB_NT_UNKNOWN)},
+		{"KRB_NT_PRINCIPAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KerberosPrincipal, KRB_NT_PRINCIPAL)},
+		{"KRB_NT_SRV_INST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KerberosPrincipal, KRB_NT_SRV_INST)},
+		{"KRB_NT_SRV_HST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KerberosPrincipal, KRB_NT_SRV_HST)},
+		{"KRB_NT_SRV_XHST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KerberosPrincipal, KRB_NT_SRV_XHST)},
+		{"KRB_NT_UID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KerberosPrincipal, KRB_NT_UID)},
+		{"KRB_NT_ENTERPRISE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KerberosPrincipal, KRB_NT_ENTERPRISE)},
+		{"fullName", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(KerberosPrincipal, fullName)},
+		{"realm", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(KerberosPrincipal, realm)},
+		{"nameType", "I", nullptr, $PRIVATE | $TRANSIENT, $field(KerberosPrincipal, nameType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KerberosPrincipal, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(KerberosPrincipal, init$, void, $String*, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KerberosPrincipal, equals, bool, Object$*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KerberosPrincipal, getName, $String*)},
+		{"getNameType", "()I", nullptr, $PUBLIC, $method(KerberosPrincipal, getNameType, int32_t)},
+		{"getRealm", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(KerberosPrincipal, getRealm, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KerberosPrincipal, hashCode, int32_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(KerberosPrincipal, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KerberosPrincipal, toString, $String*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(KerberosPrincipal, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.security.auth.kerberos.KerberosPrincipal",
+		"java.lang.Object",
+		"java.security.Principal,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KerberosPrincipal, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(KerberosPrincipal));
+	});
 	return class$;
 }
 

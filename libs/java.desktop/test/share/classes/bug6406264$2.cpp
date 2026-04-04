@@ -1,5 +1,4 @@
 #include <bug6406264$2.h>
-
 #include <bug6406264.h>
 #include <jcpp.h>
 
@@ -8,43 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _bug6406264$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug6406264$2, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6406264$2, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug6406264$2_EnclosingMethodInfo_ = {
-	"bug6406264",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug6406264$2_InnerClassesInfo_[] = {
-	{"bug6406264$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6406264$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6406264$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug6406264$2_MethodInfo_,
-	nullptr,
-	&_bug6406264$2_EnclosingMethodInfo_,
-	_bug6406264$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6406264"
-};
-
-$Object* allocate$bug6406264$2($Class* clazz) {
-	return $of($alloc(bug6406264$2));
-}
 
 void bug6406264$2::init$() {
 }
@@ -58,7 +20,38 @@ bug6406264$2::bug6406264$2() {
 }
 
 $Class* bug6406264$2::load$($String* name, bool initialize) {
-	$loadClass(bug6406264$2, name, initialize, &_bug6406264$2_ClassInfo_, allocate$bug6406264$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug6406264$2, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6406264$2, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug6406264",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6406264$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6406264$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6406264"
+	};
+	$loadClass(bug6406264$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6406264$2);
+	});
 	return class$;
 }
 

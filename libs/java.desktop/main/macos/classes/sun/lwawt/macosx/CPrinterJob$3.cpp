@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CPrinterJob$3.h>
-
 #include <java/awt/print/PrinterAbortException.h>
 #include <sun/lwawt/macosx/CPrinterJob.h>
 #include <jcpp.h>
@@ -16,48 +15,6 @@ namespace sun {
 	namespace lwawt {
 		namespace macosx {
 
-$FieldInfo _CPrinterJob$3_FieldInfo_[] = {
-	{"this$0", "Lsun/lwawt/macosx/CPrinterJob;", nullptr, $FINAL | $SYNTHETIC, $field(CPrinterJob$3, this$0)},
-	{}
-};
-
-$MethodInfo _CPrinterJob$3_MethodInfo_[] = {
-	{"<init>", "(Lsun/lwawt/macosx/CPrinterJob;)V", nullptr, 0, $method(CPrinterJob$3, init$, void, $CPrinterJob*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CPrinterJob$3, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _CPrinterJob$3_EnclosingMethodInfo_ = {
-	"sun.lwawt.macosx.CPrinterJob",
-	"cancelCheck",
-	"()Z"
-};
-
-$InnerClassInfo _CPrinterJob$3_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.CPrinterJob$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CPrinterJob$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.lwawt.macosx.CPrinterJob$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_CPrinterJob$3_FieldInfo_,
-	_CPrinterJob$3_MethodInfo_,
-	nullptr,
-	&_CPrinterJob$3_EnclosingMethodInfo_,
-	_CPrinterJob$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.CPrinterJob"
-};
-
-$Object* allocate$CPrinterJob$3($Class* clazz) {
-	return $of($alloc(CPrinterJob$3));
-}
-
 void CPrinterJob$3::init$($CPrinterJob* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -73,7 +30,42 @@ CPrinterJob$3::CPrinterJob$3() {
 }
 
 $Class* CPrinterJob$3::load$($String* name, bool initialize) {
-	$loadClass(CPrinterJob$3, name, initialize, &_CPrinterJob$3_ClassInfo_, allocate$CPrinterJob$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/lwawt/macosx/CPrinterJob;", nullptr, $FINAL | $SYNTHETIC, $field(CPrinterJob$3, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/macosx/CPrinterJob;)V", nullptr, 0, $method(CPrinterJob$3, init$, void, $CPrinterJob*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CPrinterJob$3, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.lwawt.macosx.CPrinterJob",
+		"cancelCheck",
+		"()Z"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.CPrinterJob$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.lwawt.macosx.CPrinterJob$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.CPrinterJob"
+	};
+	$loadClass(CPrinterJob$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CPrinterJob$3);
+	});
 	return class$;
 }
 

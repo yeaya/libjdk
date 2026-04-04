@@ -46,7 +46,7 @@ public:
 	virtual void mouseMoved(::java::awt::event::MouseEvent* e) override;
 	virtual void mousePressed(::java::awt::event::MouseEvent* e) override;
 	virtual void mouseReleased(::java::awt::event::MouseEvent* e) override;
-	static const int64_t serialVersionUID = (int64_t)0xF451A39868D38F41;
+	static const int64_t serialVersionUID = (int64_t)0xf451a39868d38f41;
 	static int32_t motionThreshold;
 	static const int32_t ButtonMask = 7168; // InputEvent.BUTTON1_DOWN_MASK | InputEvent.BUTTON2_DOWN_MASK | InputEvent.BUTTON3_DOWN_MASK
 };

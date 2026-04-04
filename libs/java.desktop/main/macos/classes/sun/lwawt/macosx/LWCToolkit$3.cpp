@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/LWCToolkit$3.h>
-
 #include <sun/lwawt/macosx/LWCToolkit.h>
 #include <jcpp.h>
 
@@ -13,50 +12,6 @@ namespace sun {
 	namespace lwawt {
 		namespace macosx {
 
-$FieldInfo _LWCToolkit$3_FieldInfo_[] = {
-	{"val$b", "Ljava/lang/Object;", nullptr, $FINAL | $SYNTHETIC, $field(LWCToolkit$3, val$b)},
-	{"val$a", "Ljava/lang/Object;", nullptr, $FINAL | $SYNTHETIC, $field(LWCToolkit$3, val$a)},
-	{"val$ret", "[Z", nullptr, $FINAL | $SYNTHETIC, $field(LWCToolkit$3, val$ret)},
-	{}
-};
-
-$MethodInfo _LWCToolkit$3_MethodInfo_[] = {
-	{"<init>", "([ZLjava/lang/Object;Ljava/lang/Object;)V", "()V", 0, $method(LWCToolkit$3, init$, void, $booleans*, Object$*, Object$*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LWCToolkit$3, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _LWCToolkit$3_EnclosingMethodInfo_ = {
-	"sun.lwawt.macosx.LWCToolkit",
-	"doEquals",
-	"(Ljava/lang/Object;Ljava/lang/Object;Ljava/awt/Component;)Z"
-};
-
-$InnerClassInfo _LWCToolkit$3_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.LWCToolkit$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LWCToolkit$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.lwawt.macosx.LWCToolkit$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_LWCToolkit$3_FieldInfo_,
-	_LWCToolkit$3_MethodInfo_,
-	nullptr,
-	&_LWCToolkit$3_EnclosingMethodInfo_,
-	_LWCToolkit$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.LWCToolkit"
-};
-
-$Object* allocate$LWCToolkit$3($Class* clazz) {
-	return $of($alloc(LWCToolkit$3));
-}
-
 void LWCToolkit$3::init$($booleans* val$ret, Object$* val$a, Object$* val$b) {
 	$set(this, val$ret, val$ret);
 	$set(this, val$a, val$a);
@@ -65,7 +20,7 @@ void LWCToolkit$3::init$($booleans* val$ret, Object$* val$a, Object$* val$b) {
 
 void LWCToolkit$3::run() {
 	$synchronized(this->val$ret) {
-		$nc(this->val$ret)->set(0, $nc($of(this->val$a))->equals(this->val$b));
+		this->val$ret->set(0, $nc(this->val$a)->equals(this->val$b));
 	}
 }
 
@@ -73,7 +28,44 @@ LWCToolkit$3::LWCToolkit$3() {
 }
 
 $Class* LWCToolkit$3::load$($String* name, bool initialize) {
-	$loadClass(LWCToolkit$3, name, initialize, &_LWCToolkit$3_ClassInfo_, allocate$LWCToolkit$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$b", "Ljava/lang/Object;", nullptr, $FINAL | $SYNTHETIC, $field(LWCToolkit$3, val$b)},
+		{"val$a", "Ljava/lang/Object;", nullptr, $FINAL | $SYNTHETIC, $field(LWCToolkit$3, val$a)},
+		{"val$ret", "[Z", nullptr, $FINAL | $SYNTHETIC, $field(LWCToolkit$3, val$ret)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([ZLjava/lang/Object;Ljava/lang/Object;)V", "()V", 0, $method(LWCToolkit$3, init$, void, $booleans*, Object$*, Object$*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LWCToolkit$3, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.lwawt.macosx.LWCToolkit",
+		"doEquals",
+		"(Ljava/lang/Object;Ljava/lang/Object;Ljava/awt/Component;)Z"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.LWCToolkit$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.lwawt.macosx.LWCToolkit$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.LWCToolkit"
+	};
+	$loadClass(LWCToolkit$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LWCToolkit$3);
+	});
 	return class$;
 }
 

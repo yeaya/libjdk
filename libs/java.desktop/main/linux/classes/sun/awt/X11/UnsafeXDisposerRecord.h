@@ -34,6 +34,7 @@ class UnsafeXDisposerRecord : public ::sun::java2d::DisposerRecord {
 	$class(UnsafeXDisposerRecord, 0, ::sun::java2d::DisposerRecord)
 public:
 	UnsafeXDisposerRecord();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, $longs* unsafe_ptrs, $longs* x_ptrs);
 	void init$($String* name, $longs* unsafe_ptrs);
 	virtual void dispose() override;

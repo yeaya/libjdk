@@ -1,5 +1,4 @@
 #include <sun/rmi/transport/GC$LatencyRequest.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/InternalError.h>
 #include <java/util/SortedSet.h>
@@ -22,61 +21,18 @@ namespace sun {
 	namespace rmi {
 		namespace transport {
 
-$FieldInfo _GC$LatencyRequest_FieldInfo_[] = {
-	{"counter", "J", nullptr, $PRIVATE | $STATIC, $staticField(GC$LatencyRequest, counter)},
-	{"requests", "Ljava/util/SortedSet;", "Ljava/util/SortedSet<Lsun/rmi/transport/GC$LatencyRequest;>;", $PRIVATE | $STATIC, $staticField(GC$LatencyRequest, requests)},
-	{"latency", "J", nullptr, $PRIVATE, $field(GC$LatencyRequest, latency)},
-	{"id", "J", nullptr, $PRIVATE, $field(GC$LatencyRequest, id)},
-	{}
-};
-
-$MethodInfo _GC$LatencyRequest_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PRIVATE, $method(GC$LatencyRequest, init$, void, int64_t)},
-	{"adjustLatencyIfNeeded", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(GC$LatencyRequest, adjustLatencyIfNeeded, void)},
-	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(GC$LatencyRequest, cancel, void)},
-	{"compareTo", "(Lsun/rmi/transport/GC$LatencyRequest;)I", nullptr, $PUBLIC, $virtualMethod(GC$LatencyRequest, compareTo, int32_t, GC$LatencyRequest*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GC$LatencyRequest, compareTo, int32_t, Object$*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GC$LatencyRequest, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _GC$LatencyRequest_InnerClassesInfo_[] = {
-	{"sun.rmi.transport.GC$LatencyRequest", "sun.rmi.transport.GC", "LatencyRequest", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _GC$LatencyRequest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.rmi.transport.GC$LatencyRequest",
-	"java.lang.Object",
-	"java.lang.Comparable",
-	_GC$LatencyRequest_FieldInfo_,
-	_GC$LatencyRequest_MethodInfo_,
-	"Ljava/lang/Object;Ljava/lang/Comparable<Lsun/rmi/transport/GC$LatencyRequest;>;",
-	nullptr,
-	_GC$LatencyRequest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.rmi.transport.GC"
-};
-
-$Object* allocate$GC$LatencyRequest($Class* clazz) {
-	return $of($alloc(GC$LatencyRequest));
-}
-
 int64_t GC$LatencyRequest::counter = 0;
 $SortedSet* GC$LatencyRequest::requests = nullptr;
 
 void GC$LatencyRequest::adjustLatencyIfNeeded() {
 	$init(GC$LatencyRequest);
-	if ((GC$LatencyRequest::requests == nullptr) || $nc(GC$LatencyRequest::requests)->isEmpty()) {
+	if ((GC$LatencyRequest::requests == nullptr) || GC$LatencyRequest::requests->isEmpty()) {
 		$init($GC);
-		if ($GC::latencyTarget != (int64_t)0x7FFFFFFFFFFFFFFF) {
-			$GC::setLatencyTarget(0x7FFFFFFFFFFFFFFF);
+		if ($GC::latencyTarget != (int64_t)0x7fffffffffffffff) {
+			$GC::setLatencyTarget((int64_t)0x7fffffffffffffff);
 		}
 	} else {
-		$var(GC$LatencyRequest, r, $cast(GC$LatencyRequest, $nc(GC$LatencyRequest::requests)->first()));
+		$var(GC$LatencyRequest, r, $cast(GC$LatencyRequest, GC$LatencyRequest::requests->first()));
 		$init($GC);
 		if ($nc(r)->latency != $GC::latencyTarget) {
 			$GC::setLatencyTarget(r->latency);
@@ -85,7 +41,7 @@ void GC$LatencyRequest::adjustLatencyIfNeeded() {
 }
 
 void GC$LatencyRequest::init$(int64_t ms) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (ms <= 0) {
 		$throwNew($IllegalArgumentException, $$str({"Non-positive latency: "_s, $$str(ms)}));
 	}
@@ -104,16 +60,16 @@ void GC$LatencyRequest::init$(int64_t ms) {
 void GC$LatencyRequest::cancel() {
 	$init($GC);
 	$synchronized($GC::lock) {
-		if (this->latency == (int64_t)0x7FFFFFFFFFFFFFFF) {
+		if (this->latency == (int64_t)0x7fffffffffffffff) {
 			$throwNew($IllegalStateException, "Request already cancelled"_s);
 		}
 		if (!$nc(GC$LatencyRequest::requests)->remove(this)) {
 			$throwNew($InternalError, $$str({"Latency request "_s, this, " not found"_s}));
 		}
-		if ($nc(GC$LatencyRequest::requests)->isEmpty()) {
+		if (GC$LatencyRequest::requests->isEmpty()) {
 			$assignStatic(GC$LatencyRequest::requests, nullptr);
 		}
-		this->latency = 0x7FFFFFFFFFFFFFFF;
+		this->latency = (int64_t)0x7fffffffffffffff;
 		adjustLatencyIfNeeded();
 	}
 }
@@ -127,7 +83,7 @@ int32_t GC$LatencyRequest::compareTo(GC$LatencyRequest* r) {
 }
 
 $String* GC$LatencyRequest::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return ($str({$(GC$LatencyRequest::class$->getName()), "["_s, $$str(this->latency), ","_s, $$str(this->id), "]"_s}));
 }
 
@@ -135,7 +91,7 @@ int32_t GC$LatencyRequest::compareTo(Object$* r) {
 	return this->compareTo($cast(GC$LatencyRequest, r));
 }
 
-void clinit$GC$LatencyRequest($Class* class$) {
+void GC$LatencyRequest::clinit$($Class* clazz) {
 	GC$LatencyRequest::counter = 0;
 	$assignStatic(GC$LatencyRequest::requests, nullptr);
 }
@@ -144,7 +100,44 @@ GC$LatencyRequest::GC$LatencyRequest() {
 }
 
 $Class* GC$LatencyRequest::load$($String* name, bool initialize) {
-	$loadClass(GC$LatencyRequest, name, initialize, &_GC$LatencyRequest_ClassInfo_, clinit$GC$LatencyRequest, allocate$GC$LatencyRequest);
+	$FieldInfo fieldInfos$$[] = {
+		{"counter", "J", nullptr, $PRIVATE | $STATIC, $staticField(GC$LatencyRequest, counter)},
+		{"requests", "Ljava/util/SortedSet;", "Ljava/util/SortedSet<Lsun/rmi/transport/GC$LatencyRequest;>;", $PRIVATE | $STATIC, $staticField(GC$LatencyRequest, requests)},
+		{"latency", "J", nullptr, $PRIVATE, $field(GC$LatencyRequest, latency)},
+		{"id", "J", nullptr, $PRIVATE, $field(GC$LatencyRequest, id)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PRIVATE, $method(GC$LatencyRequest, init$, void, int64_t)},
+		{"adjustLatencyIfNeeded", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(GC$LatencyRequest, adjustLatencyIfNeeded, void)},
+		{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(GC$LatencyRequest, cancel, void)},
+		{"compareTo", "(Lsun/rmi/transport/GC$LatencyRequest;)I", nullptr, $PUBLIC, $virtualMethod(GC$LatencyRequest, compareTo, int32_t, GC$LatencyRequest*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GC$LatencyRequest, compareTo, int32_t, Object$*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GC$LatencyRequest, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.transport.GC$LatencyRequest", "sun.rmi.transport.GC", "LatencyRequest", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.rmi.transport.GC$LatencyRequest",
+		"java.lang.Object",
+		"java.lang.Comparable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/lang/Comparable<Lsun/rmi/transport/GC$LatencyRequest;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.rmi.transport.GC"
+	};
+	$loadClass(GC$LatencyRequest, name, initialize, &classInfo$$, GC$LatencyRequest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GC$LatencyRequest);
+	});
 	return class$;
 }
 

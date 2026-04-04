@@ -1,5 +1,4 @@
 #include <HeadlessJTextField.h>
-
 #include <HeadlessJTextField$1.h>
 #include <HeadlessJTextField$2.h>
 #include <HeadlessJTextField$3.h>
@@ -50,7 +49,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -61,43 +59,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 using $JTextField = ::javax::swing::JTextField;
 
-$MethodInfo _HeadlessJTextField_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJTextField, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJTextField, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _HeadlessJTextField_InnerClassesInfo_[] = {
-	{"HeadlessJTextField$3", nullptr, nullptr, 0},
-	{"HeadlessJTextField$2", nullptr, nullptr, 0},
-	{"HeadlessJTextField$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJTextField_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJTextField",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJTextField_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessJTextField_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadlessJTextField$3,HeadlessJTextField$2,HeadlessJTextField$1"
-};
-
-$Object* allocate$HeadlessJTextField($Class* clazz) {
-	return $of($alloc(HeadlessJTextField));
-}
-
 void HeadlessJTextField::init$() {
 }
 
 void HeadlessJTextField::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextField, t, $new($JTextField));
 	t->selectAll();
 	t->getSelectionStart();
@@ -112,9 +78,9 @@ void HeadlessJTextField::main($StringArray* args) {
 	t->getMaximumSize();
 	t->getMinimumSize();
 	t->contains(1, 2);
-	$var($Component, c1, t->add(static_cast<$Component*>($$new($HeadlessJTextField$1))));
-	$var($Component, c2, t->add(static_cast<$Component*>($$new($HeadlessJTextField$2))));
-	$var($Component, c3, t->add(static_cast<$Component*>($$new($HeadlessJTextField$3))));
+	$var($Component, c1, t->add($$new($HeadlessJTextField$1)));
+	$var($Component, c2, t->add($$new($HeadlessJTextField$2)));
+	$var($Component, c3, t->add($$new($HeadlessJTextField$3)));
 	$var($Insets, ins, t->getInsets());
 	t->getAlignmentY();
 	t->getAlignmentX();
@@ -125,26 +91,22 @@ void HeadlessJTextField::main($StringArray* args) {
 	t->setForeground($Color::red);
 	t->setBackground($Color::red);
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					t->setFont(f1);
-					t->setFont(f2);
-					t->setFont(f3);
-					t->setFont(f4);
-					t->getFontMetrics(f1);
-					t->getFontMetrics(f2);
-					t->getFontMetrics(f3);
-					t->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				t->setFont(f1);
+				t->setFont(f2);
+				t->setFont(f3);
+				t->setFont(f4);
+				t->getFontMetrics(f1);
+				t->getFontMetrics(f2);
+				t->getFontMetrics(f3);
+				t->getFontMetrics(f4);
 			}
 		}
 	}
@@ -209,13 +171,11 @@ void HeadlessJTextField::main($StringArray* args) {
 	t->getFont();
 	t->isFontSet();
 	$var($Container, c, $new($Container));
-	c->add(static_cast<$Component*>(t));
+	c->add(t);
 	t->getLocale();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			t->setLocale(locale);
 		}
@@ -272,7 +232,34 @@ HeadlessJTextField::HeadlessJTextField() {
 }
 
 $Class* HeadlessJTextField::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJTextField, name, initialize, &_HeadlessJTextField_ClassInfo_, allocate$HeadlessJTextField);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJTextField, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJTextField, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJTextField$3", nullptr, nullptr, 0},
+		{"HeadlessJTextField$2", nullptr, nullptr, 0},
+		{"HeadlessJTextField$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJTextField",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadlessJTextField$3,HeadlessJTextField$2,HeadlessJTextField$1"
+	};
+	$loadClass(HeadlessJTextField, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJTextField);
+	});
 	return class$;
 }
 

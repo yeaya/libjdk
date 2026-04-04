@@ -53,6 +53,7 @@ class WDesktopPeer : public ::java::awt::peer::DesktopPeer {
 	$class(WDesktopPeer, 0, ::java::awt::peer::DesktopPeer)
 public:
 	WDesktopPeer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void ShellExecute(::java::io::File* file, $String* verb);
 	void ShellExecute(::java::net::URI* uri, $String* verb);

@@ -1,5 +1,4 @@
 #include <sun/swing/FilePane$EditActionListener.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <sun/swing/FilePane.h>
 #include <jcpp.h>
@@ -14,42 +13,6 @@ using $FilePane = ::sun::swing::FilePane;
 namespace sun {
 	namespace swing {
 
-$FieldInfo _FilePane$EditActionListener_FieldInfo_[] = {
-	{"this$0", "Lsun/swing/FilePane;", nullptr, $FINAL | $SYNTHETIC, $field(FilePane$EditActionListener, this$0)},
-	{}
-};
-
-$MethodInfo _FilePane$EditActionListener_MethodInfo_[] = {
-	{"<init>", "(Lsun/swing/FilePane;)V", nullptr, 0, $method(FilePane$EditActionListener, init$, void, $FilePane*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(FilePane$EditActionListener, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _FilePane$EditActionListener_InnerClassesInfo_[] = {
-	{"sun.swing.FilePane$EditActionListener", "sun.swing.FilePane", "EditActionListener", 0},
-	{}
-};
-
-$ClassInfo _FilePane$EditActionListener_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.swing.FilePane$EditActionListener",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	_FilePane$EditActionListener_FieldInfo_,
-	_FilePane$EditActionListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FilePane$EditActionListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.FilePane"
-};
-
-$Object* allocate$FilePane$EditActionListener($Class* clazz) {
-	return $of($alloc(FilePane$EditActionListener));
-}
-
 void FilePane$EditActionListener::init$($FilePane* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -62,7 +25,37 @@ FilePane$EditActionListener::FilePane$EditActionListener() {
 }
 
 $Class* FilePane$EditActionListener::load$($String* name, bool initialize) {
-	$loadClass(FilePane$EditActionListener, name, initialize, &_FilePane$EditActionListener_ClassInfo_, allocate$FilePane$EditActionListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/swing/FilePane;", nullptr, $FINAL | $SYNTHETIC, $field(FilePane$EditActionListener, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/swing/FilePane;)V", nullptr, 0, $method(FilePane$EditActionListener, init$, void, $FilePane*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(FilePane$EditActionListener, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.FilePane$EditActionListener", "sun.swing.FilePane", "EditActionListener", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.swing.FilePane$EditActionListener",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.FilePane"
+	};
+	$loadClass(FilePane$EditActionListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FilePane$EditActionListener);
+	});
 	return class$;
 }
 

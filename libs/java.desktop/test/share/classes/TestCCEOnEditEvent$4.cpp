@@ -1,5 +1,4 @@
 #include <TestCCEOnEditEvent$4.h>
-
 #include <TestCCEOnEditEvent.h>
 #include <java/lang/ClassCastException.h>
 #include <javax/swing/event/DocumentEvent$EventType.h>
@@ -24,55 +23,13 @@ using $AbstractDocument$DefaultDocumentEvent = ::javax::swing::text::AbstractDoc
 using $CompoundEdit = ::javax::swing::undo::CompoundEdit;
 using $UndoManager = ::javax::swing::undo::UndoManager;
 
-$FieldInfo _TestCCEOnEditEvent$4_FieldInfo_[] = {
-	{"this$0", "LTestCCEOnEditEvent;", nullptr, $FINAL | $SYNTHETIC, $field(TestCCEOnEditEvent$4, this$0)},
-	{}
-};
-
-$MethodInfo _TestCCEOnEditEvent$4_MethodInfo_[] = {
-	{"<init>", "(LTestCCEOnEditEvent;)V", nullptr, 0, $method(TestCCEOnEditEvent$4, init$, void, $TestCCEOnEditEvent*)},
-	{"undoableEditHappened", "(Ljavax/swing/event/UndoableEditEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestCCEOnEditEvent$4, undoableEditHappened, void, $UndoableEditEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _TestCCEOnEditEvent$4_EnclosingMethodInfo_ = {
-	"TestCCEOnEditEvent",
-	"createTextArea",
-	"()V"
-};
-
-$InnerClassInfo _TestCCEOnEditEvent$4_InnerClassesInfo_[] = {
-	{"TestCCEOnEditEvent$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TestCCEOnEditEvent$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"TestCCEOnEditEvent$4",
-	"javax.swing.undo.UndoManager",
-	nullptr,
-	_TestCCEOnEditEvent$4_FieldInfo_,
-	_TestCCEOnEditEvent$4_MethodInfo_,
-	nullptr,
-	&_TestCCEOnEditEvent$4_EnclosingMethodInfo_,
-	_TestCCEOnEditEvent$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestCCEOnEditEvent"
-};
-
-$Object* allocate$TestCCEOnEditEvent$4($Class* clazz) {
-	return $of($alloc(TestCCEOnEditEvent$4));
-}
-
 void TestCCEOnEditEvent$4::init$($TestCCEOnEditEvent* this$0) {
 	$set(this, this$0, this$0);
 	$UndoManager::init$();
 }
 
 void TestCCEOnEditEvent$4::undoableEditHappened($UndoableEditEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CompoundEdit, edit, nullptr);
 	try {
 		$assign(edit, $cast($CompoundEdit, $nc(event)->getEdit()));
@@ -89,7 +46,42 @@ TestCCEOnEditEvent$4::TestCCEOnEditEvent$4() {
 }
 
 $Class* TestCCEOnEditEvent$4::load$($String* name, bool initialize) {
-	$loadClass(TestCCEOnEditEvent$4, name, initialize, &_TestCCEOnEditEvent$4_ClassInfo_, allocate$TestCCEOnEditEvent$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LTestCCEOnEditEvent;", nullptr, $FINAL | $SYNTHETIC, $field(TestCCEOnEditEvent$4, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LTestCCEOnEditEvent;)V", nullptr, 0, $method(TestCCEOnEditEvent$4, init$, void, $TestCCEOnEditEvent*)},
+		{"undoableEditHappened", "(Ljavax/swing/event/UndoableEditEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestCCEOnEditEvent$4, undoableEditHappened, void, $UndoableEditEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"TestCCEOnEditEvent",
+		"createTextArea",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestCCEOnEditEvent$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TestCCEOnEditEvent$4",
+		"javax.swing.undo.UndoManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestCCEOnEditEvent"
+	};
+	$loadClass(TestCCEOnEditEvent$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TestCCEOnEditEvent$4));
+	});
 	return class$;
 }
 

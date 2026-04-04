@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$4.h>
-
 #include <com/sun/tools/javac/code/Kinds$KindName.h>
 #include <com/sun/tools/javac/code/Kinds.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
@@ -40,7 +39,6 @@
 using $Kinds = ::com::sun::tools::javac::code::Kinds;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
 using $Check$CheckContext = ::com::sun::tools::javac::comp::Check$CheckContext;
 using $DeferredAttr$AttrMode = ::com::sun::tools::javac::comp::DeferredAttr$AttrMode;
@@ -53,7 +51,6 @@ using $Resolve$4$1 = ::com::sun::tools::javac::comp::Resolve$4$1;
 using $Resolve$AbstractMethodCheck = ::com::sun::tools::javac::comp::Resolve$AbstractMethodCheck;
 using $Resolve$MethodCheck = ::com::sun::tools::javac::comp::Resolve$MethodCheck;
 using $Resolve$MethodCheckDiag = ::com::sun::tools::javac::comp::Resolve$MethodCheckDiag;
-using $Resolve$MethodResolutionPhase = ::com::sun::tools::javac::comp::Resolve$MethodResolutionPhase;
 using $Resolve$MethodResultInfo = ::com::sun::tools::javac::comp::Resolve$MethodResultInfo;
 using $Resolve$MostSpecificCheck = ::com::sun::tools::javac::comp::Resolve$MostSpecificCheck;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
@@ -84,90 +81,36 @@ public:
 	virtual void typesInferred($InferenceContext* solvedContext) override {
 		$nc(inst$)->lambda$varargsAccessible$0(env, t, solvedContext);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Resolve$4$$Lambda$lambda$varargsAccessible$0>());
-	}
 	Resolve$4* inst$ = nullptr;
 	$Env* env = nullptr;
 	$Type* t = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Resolve$4$$Lambda$lambda$varargsAccessible$0::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Resolve$4$$Lambda$lambda$varargsAccessible$0, inst$)},
-	{"env", "Lcom/sun/tools/javac/comp/Env;", nullptr, $PUBLIC, $field(Resolve$4$$Lambda$lambda$varargsAccessible$0, env)},
-	{"t", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Resolve$4$$Lambda$lambda$varargsAccessible$0, t)},
-	{}
-};
-$MethodInfo Resolve$4$$Lambda$lambda$varargsAccessible$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$4;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Resolve$4$$Lambda$lambda$varargsAccessible$0, init$, void, Resolve$4*, $Env*, $Type*)},
-	{"typesInferred", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC, $virtualMethod(Resolve$4$$Lambda$lambda$varargsAccessible$0, typesInferred, void, $InferenceContext*)},
-	{}
-};
-$ClassInfo Resolve$4$$Lambda$lambda$varargsAccessible$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Resolve$4$$Lambda$lambda$varargsAccessible$0",
-	"java.lang.Object",
-	"com.sun.tools.javac.comp.Infer$FreeTypeListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* Resolve$4$$Lambda$lambda$varargsAccessible$0::load$($String* name, bool initialize) {
-	$loadClass(Resolve$4$$Lambda$lambda$varargsAccessible$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Resolve$4$$Lambda$lambda$varargsAccessible$0, inst$)},
+		{"env", "Lcom/sun/tools/javac/comp/Env;", nullptr, $PUBLIC, $field(Resolve$4$$Lambda$lambda$varargsAccessible$0, env)},
+		{"t", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Resolve$4$$Lambda$lambda$varargsAccessible$0, t)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$4;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Resolve$4$$Lambda$lambda$varargsAccessible$0, init$, void, Resolve$4*, $Env*, $Type*)},
+		{"typesInferred", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC, $virtualMethod(Resolve$4$$Lambda$lambda$varargsAccessible$0, typesInferred, void, $InferenceContext*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Resolve$4$$Lambda$lambda$varargsAccessible$0",
+		"java.lang.Object",
+		"com.sun.tools.javac.comp.Infer$FreeTypeListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Resolve$4$$Lambda$lambda$varargsAccessible$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$4$$Lambda$lambda$varargsAccessible$0);
+	});
 	return class$;
 }
 $Class* Resolve$4$$Lambda$lambda$varargsAccessible$0::class$ = nullptr;
-
-$FieldInfo _Resolve$4_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$4, this$0)},
-	{}
-};
-
-$MethodInfo _Resolve$4_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;)V", nullptr, 0, $method(Resolve$4, init$, void, $Resolve*)},
-	{"argumentsAcceptable", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Warner;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/Warner;)V", $PUBLIC, $virtualMethod(Resolve$4, argumentsAcceptable, void, $Env*, $DeferredAttr$DeferredAttrContext*, $List*, $List*, $Warner*)},
-	{"checkArg", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;ZLcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, 0, $virtualMethod(Resolve$4, checkArg, void, $JCDiagnostic$DiagnosticPosition*, bool, $Type*, $Type*, $DeferredAttr$DeferredAttrContext*, $Warner*)},
-	{"lambda$varargsAccessible$0", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Resolve$4, lambda$varargsAccessible$0, void, $Env*, $Type*, $InferenceContext*)},
-	{"methodCheckResult", "(ZLcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PRIVATE, $method(Resolve$4, methodCheckResult, $Attr$ResultInfo*, bool, $Type*, $DeferredAttr$DeferredAttrContext*, $Warner*)},
-	{"mostSpecificCheck", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/comp/Resolve$MethodCheck;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/comp/Resolve$MethodCheck;", $PUBLIC, $virtualMethod(Resolve$4, mostSpecificCheck, $Resolve$MethodCheck*, $List*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Resolve$4, toString, $String*)},
-	{"varargsAccessible", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/InferenceContext;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/InferenceContext;)V", $PRIVATE, $method(Resolve$4, varargsAccessible, void, $Env*, $Type*, $InferenceContext*)},
-	{}
-};
-
-$EnclosingMethodInfo _Resolve$4_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Resolve",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Resolve$4_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$4", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.Resolve$AbstractMethodCheck", "com.sun.tools.javac.comp.Resolve", "AbstractMethodCheck", $ABSTRACT},
-	{"com.sun.tools.javac.comp.Resolve$4$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Resolve$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Resolve$4",
-	"com.sun.tools.javac.comp.Resolve$AbstractMethodCheck",
-	nullptr,
-	_Resolve$4_FieldInfo_,
-	_Resolve$4_MethodInfo_,
-	nullptr,
-	&_Resolve$4_EnclosingMethodInfo_,
-	_Resolve$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$4($Class* clazz) {
-	return $of($alloc(Resolve$4));
-}
 
 void Resolve$4::init$($Resolve* this$0) {
 	$set(this, this$0, this$0);
@@ -180,28 +123,28 @@ void Resolve$4::checkArg($JCDiagnostic$DiagnosticPosition* pos, bool varargs, $T
 }
 
 void Resolve$4::argumentsAcceptable($Env* env, $DeferredAttr$DeferredAttrContext* deferredAttrContext, $List* argtypes, $List* formals, $Warner* warn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Resolve$AbstractMethodCheck::argumentsAcceptable(env, deferredAttrContext, argtypes, formals, warn);
 	if ($nc(deferredAttrContext)->phase->isVarargsRequired()) {
 		$init($DeferredAttr$AttrMode);
 		if (deferredAttrContext->mode == $DeferredAttr$AttrMode::CHECK || !this->this$0->checkVarargsAccessAfterResolution) {
-			varargsAccessible(env, $($nc(this->this$0->types)->elemtype($cast($Type, $($nc(formals)->last())))), deferredAttrContext->inferenceContext);
+			varargsAccessible(env, $($nc(this->this$0->types)->elemtype($$cast($Type, $nc(formals)->last()))), deferredAttrContext->inferenceContext);
 		}
 	}
 }
 
 void Resolve$4::varargsAccessible($Env* env, $Type* t, $InferenceContext* inferenceContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(inferenceContext)->free(t)) {
 		$var($List, var$0, $List::of(t));
-		inferenceContext->addFreeTypeListener(var$0, static_cast<$Infer$FreeTypeListener*>($$new(Resolve$4$$Lambda$lambda$varargsAccessible$0, this, env, t)));
+		inferenceContext->addFreeTypeListener(var$0, $$new(Resolve$4$$Lambda$lambda$varargsAccessible$0, this, env, t));
 	} else if (!this->this$0->isAccessible(env, $($nc(this->this$0->types)->erasure(t)))) {
 		$var($Symbol, location, $nc($nc(env)->enclClass)->sym);
 		$init($Resolve$MethodCheckDiag);
 		reportMC(env->tree, $Resolve$MethodCheckDiag::INACCESSIBLE_VARARGS, inferenceContext, $$new($ObjectArray, {
-			$of(t),
-			$($of($Kinds::kindName(location))),
-			$of(location)
+			t,
+			$($Kinds::kindName(location)),
+			location
 		}));
 	}
 }
@@ -228,11 +171,54 @@ Resolve$4::Resolve$4() {
 
 $Class* Resolve$4::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Resolve$4$$Lambda$lambda$varargsAccessible$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Resolve$4$$Lambda$lambda$varargsAccessible$0")) {
 			return Resolve$4$$Lambda$lambda$varargsAccessible$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Resolve$4, name, initialize, &_Resolve$4_ClassInfo_, allocate$Resolve$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$4, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;)V", nullptr, 0, $method(Resolve$4, init$, void, $Resolve*)},
+		{"argumentsAcceptable", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Warner;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/Warner;)V", $PUBLIC, $virtualMethod(Resolve$4, argumentsAcceptable, void, $Env*, $DeferredAttr$DeferredAttrContext*, $List*, $List*, $Warner*)},
+		{"checkArg", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;ZLcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, 0, $virtualMethod(Resolve$4, checkArg, void, $JCDiagnostic$DiagnosticPosition*, bool, $Type*, $Type*, $DeferredAttr$DeferredAttrContext*, $Warner*)},
+		{"lambda$varargsAccessible$0", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Resolve$4, lambda$varargsAccessible$0, void, $Env*, $Type*, $InferenceContext*)},
+		{"methodCheckResult", "(ZLcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PRIVATE, $method(Resolve$4, methodCheckResult, $Attr$ResultInfo*, bool, $Type*, $DeferredAttr$DeferredAttrContext*, $Warner*)},
+		{"mostSpecificCheck", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/comp/Resolve$MethodCheck;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/comp/Resolve$MethodCheck;", $PUBLIC, $virtualMethod(Resolve$4, mostSpecificCheck, $Resolve$MethodCheck*, $List*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Resolve$4, toString, $String*)},
+		{"varargsAccessible", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/InferenceContext;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/InferenceContext;)V", $PRIVATE, $method(Resolve$4, varargsAccessible, void, $Env*, $Type*, $InferenceContext*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Resolve",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$4", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.Resolve$AbstractMethodCheck", "com.sun.tools.javac.comp.Resolve", "AbstractMethodCheck", $ABSTRACT},
+		{"com.sun.tools.javac.comp.Resolve$4$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Resolve$4",
+		"com.sun.tools.javac.comp.Resolve$AbstractMethodCheck",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$4);
+	});
 	return class$;
 }
 

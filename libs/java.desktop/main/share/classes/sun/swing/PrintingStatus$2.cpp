@@ -1,5 +1,4 @@
 #include <sun/swing/PrintingStatus$2.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
 #include <java/awt/event/WindowAdapter.h>
@@ -16,53 +15,10 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Action = ::javax::swing::Action;
 using $PrintingStatus = ::sun::swing::PrintingStatus;
 
 namespace sun {
 	namespace swing {
-
-$FieldInfo _PrintingStatus$2_FieldInfo_[] = {
-	{"this$0", "Lsun/swing/PrintingStatus;", nullptr, $FINAL | $SYNTHETIC, $field(PrintingStatus$2, this$0)},
-	{}
-};
-
-$MethodInfo _PrintingStatus$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/swing/PrintingStatus;)V", nullptr, 0, $method(PrintingStatus$2, init$, void, $PrintingStatus*)},
-	{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(PrintingStatus$2, windowClosing, void, $WindowEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _PrintingStatus$2_EnclosingMethodInfo_ = {
-	"sun.swing.PrintingStatus",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _PrintingStatus$2_InnerClassesInfo_[] = {
-	{"sun.swing.PrintingStatus$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PrintingStatus$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.swing.PrintingStatus$2",
-	"java.awt.event.WindowAdapter",
-	nullptr,
-	_PrintingStatus$2_FieldInfo_,
-	_PrintingStatus$2_MethodInfo_,
-	nullptr,
-	&_PrintingStatus$2_EnclosingMethodInfo_,
-	_PrintingStatus$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.PrintingStatus"
-};
-
-$Object* allocate$PrintingStatus$2($Class* clazz) {
-	return $of($alloc(PrintingStatus$2));
-}
 
 void PrintingStatus$2::init$($PrintingStatus* this$0) {
 	$set(this, this$0, this$0);
@@ -77,7 +33,42 @@ PrintingStatus$2::PrintingStatus$2() {
 }
 
 $Class* PrintingStatus$2::load$($String* name, bool initialize) {
-	$loadClass(PrintingStatus$2, name, initialize, &_PrintingStatus$2_ClassInfo_, allocate$PrintingStatus$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/swing/PrintingStatus;", nullptr, $FINAL | $SYNTHETIC, $field(PrintingStatus$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/swing/PrintingStatus;)V", nullptr, 0, $method(PrintingStatus$2, init$, void, $PrintingStatus*)},
+		{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(PrintingStatus$2, windowClosing, void, $WindowEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.swing.PrintingStatus",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.PrintingStatus$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.swing.PrintingStatus$2",
+		"java.awt.event.WindowAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.PrintingStatus"
+	};
+	$loadClass(PrintingStatus$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PrintingStatus$2));
+	});
 	return class$;
 }
 

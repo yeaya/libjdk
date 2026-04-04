@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/WGLSurfaceData$WGLOffScreenSurfaceData.h>
-
 #include <java/awt/Image.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/image/ColorModel.h>
@@ -32,46 +31,6 @@ namespace sun {
 	namespace java2d {
 		namespace opengl {
 
-$FieldInfo _WGLSurfaceData$WGLOffScreenSurfaceData_FieldInfo_[] = {
-	{"offscreenImage", "Ljava/awt/Image;", nullptr, $PRIVATE, $field(WGLSurfaceData$WGLOffScreenSurfaceData, offscreenImage)},
-	{"width", "I", nullptr, $PRIVATE, $field(WGLSurfaceData$WGLOffScreenSurfaceData, width)},
-	{"height", "I", nullptr, $PRIVATE, $field(WGLSurfaceData$WGLOffScreenSurfaceData, height)},
-	{}
-};
-
-$MethodInfo _WGLSurfaceData$WGLOffScreenSurfaceData_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/windows/WComponentPeer;Lsun/java2d/opengl/WGLGraphicsConfig;IILjava/awt/Image;Ljava/awt/image/ColorModel;I)V", nullptr, $PUBLIC, $method(WGLSurfaceData$WGLOffScreenSurfaceData, init$, void, $WComponentPeer*, $WGLGraphicsConfig*, int32_t, int32_t, $Image*, $ColorModel*, int32_t)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(WGLSurfaceData$WGLOffScreenSurfaceData, getBounds, $Rectangle*)},
-	{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WGLSurfaceData$WGLOffScreenSurfaceData, getDestination, $Object*)},
-	{"getReplacement", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(WGLSurfaceData$WGLOffScreenSurfaceData, getReplacement, $SurfaceData*)},
-	{}
-};
-
-$InnerClassInfo _WGLSurfaceData$WGLOffScreenSurfaceData_InnerClassesInfo_[] = {
-	{"sun.java2d.opengl.WGLSurfaceData$WGLOffScreenSurfaceData", "sun.java2d.opengl.WGLSurfaceData", "WGLOffScreenSurfaceData", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _WGLSurfaceData$WGLOffScreenSurfaceData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.opengl.WGLSurfaceData$WGLOffScreenSurfaceData",
-	"sun.java2d.opengl.WGLSurfaceData",
-	nullptr,
-	_WGLSurfaceData$WGLOffScreenSurfaceData_FieldInfo_,
-	_WGLSurfaceData$WGLOffScreenSurfaceData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WGLSurfaceData$WGLOffScreenSurfaceData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.opengl.WGLSurfaceData"
-};
-
-$Object* allocate$WGLSurfaceData$WGLOffScreenSurfaceData($Class* clazz) {
-	return $of($alloc(WGLSurfaceData$WGLOffScreenSurfaceData));
-}
-
 void WGLSurfaceData$WGLOffScreenSurfaceData::init$($WComponentPeer* peer, $WGLGraphicsConfig* gc, int32_t width, int32_t height, $Image* image, $ColorModel* cm, int32_t type) {
 	$WGLSurfaceData::init$(peer, gc, cm, type);
 	this->width = $Region::clipRound(width * this->scaleX);
@@ -87,7 +46,7 @@ $SurfaceData* WGLSurfaceData$WGLOffScreenSurfaceData::getReplacement() {
 $Rectangle* WGLSurfaceData$WGLOffScreenSurfaceData::getBounds() {
 	if (this->type == $AccelSurface::FLIP_BACKBUFFER) {
 		$var($Rectangle, r, $nc(this->peer)->getBounds());
-		$nc(r)->width = $Region::clipRound(r->width * this->scaleX);
+		$nc(r)->width = $Region::clipRound($nc(r)->width * this->scaleX);
 		r->height = $Region::clipRound(r->height * this->scaleY);
 		r->x = (r->y = 0);
 		return r;
@@ -97,14 +56,48 @@ $Rectangle* WGLSurfaceData$WGLOffScreenSurfaceData::getBounds() {
 }
 
 $Object* WGLSurfaceData$WGLOffScreenSurfaceData::getDestination() {
-	return $of(this->offscreenImage);
+	return this->offscreenImage;
 }
 
 WGLSurfaceData$WGLOffScreenSurfaceData::WGLSurfaceData$WGLOffScreenSurfaceData() {
 }
 
 $Class* WGLSurfaceData$WGLOffScreenSurfaceData::load$($String* name, bool initialize) {
-	$loadClass(WGLSurfaceData$WGLOffScreenSurfaceData, name, initialize, &_WGLSurfaceData$WGLOffScreenSurfaceData_ClassInfo_, allocate$WGLSurfaceData$WGLOffScreenSurfaceData);
+	$FieldInfo fieldInfos$$[] = {
+		{"offscreenImage", "Ljava/awt/Image;", nullptr, $PRIVATE, $field(WGLSurfaceData$WGLOffScreenSurfaceData, offscreenImage)},
+		{"width", "I", nullptr, $PRIVATE, $field(WGLSurfaceData$WGLOffScreenSurfaceData, width)},
+		{"height", "I", nullptr, $PRIVATE, $field(WGLSurfaceData$WGLOffScreenSurfaceData, height)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/windows/WComponentPeer;Lsun/java2d/opengl/WGLGraphicsConfig;IILjava/awt/Image;Ljava/awt/image/ColorModel;I)V", nullptr, $PUBLIC, $method(WGLSurfaceData$WGLOffScreenSurfaceData, init$, void, $WComponentPeer*, $WGLGraphicsConfig*, int32_t, int32_t, $Image*, $ColorModel*, int32_t)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(WGLSurfaceData$WGLOffScreenSurfaceData, getBounds, $Rectangle*)},
+		{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WGLSurfaceData$WGLOffScreenSurfaceData, getDestination, $Object*)},
+		{"getReplacement", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(WGLSurfaceData$WGLOffScreenSurfaceData, getReplacement, $SurfaceData*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.opengl.WGLSurfaceData$WGLOffScreenSurfaceData", "sun.java2d.opengl.WGLSurfaceData", "WGLOffScreenSurfaceData", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.opengl.WGLSurfaceData$WGLOffScreenSurfaceData",
+		"sun.java2d.opengl.WGLSurfaceData",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.opengl.WGLSurfaceData"
+	};
+	$loadClass(WGLSurfaceData$WGLOffScreenSurfaceData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WGLSurfaceData$WGLOffScreenSurfaceData));
+	});
 	return class$;
 }
 

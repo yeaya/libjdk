@@ -1,5 +1,4 @@
 #include <java/beans/PropertyEditorSupport.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
@@ -23,48 +22,6 @@ using $Vector = ::java::util::Vector;
 namespace java {
 	namespace beans {
 
-$FieldInfo _PropertyEditorSupport_FieldInfo_[] = {
-	{"value", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(PropertyEditorSupport, value)},
-	{"source", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(PropertyEditorSupport, source)},
-	{"listeners", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/beans/PropertyChangeListener;>;", $PRIVATE, $field(PropertyEditorSupport, listeners)},
-	{}
-};
-
-$MethodInfo _PropertyEditorSupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PropertyEditorSupport, init$, void)},
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(PropertyEditorSupport, init$, void, Object$*)},
-	{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PropertyEditorSupport, addPropertyChangeListener, void, $PropertyChangeListener*)},
-	{"firePropertyChange", "()V", nullptr, $PUBLIC, $virtualMethod(PropertyEditorSupport, firePropertyChange, void)},
-	{"getAsText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PropertyEditorSupport, getAsText, $String*)},
-	{"getCustomEditor", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(PropertyEditorSupport, getCustomEditor, $Component*)},
-	{"getJavaInitializationString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PropertyEditorSupport, getJavaInitializationString, $String*)},
-	{"getSource", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PropertyEditorSupport, getSource, $Object*)},
-	{"getTags", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PropertyEditorSupport, getTags, $StringArray*)},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PropertyEditorSupport, getValue, $Object*)},
-	{"isPaintable", "()Z", nullptr, $PUBLIC, $virtualMethod(PropertyEditorSupport, isPaintable, bool)},
-	{"paintValue", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(PropertyEditorSupport, paintValue, void, $Graphics*, $Rectangle*)},
-	{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PropertyEditorSupport, removePropertyChangeListener, void, $PropertyChangeListener*)},
-	{"setAsText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PropertyEditorSupport, setAsText, void, $String*), "java.lang.IllegalArgumentException"},
-	{"setSource", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PropertyEditorSupport, setSource, void, Object$*)},
-	{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PropertyEditorSupport, setValue, void, Object$*)},
-	{"supportsCustomEditor", "()Z", nullptr, $PUBLIC, $virtualMethod(PropertyEditorSupport, supportsCustomEditor, bool)},
-	{"unsafeClone", "(Ljava/util/Vector;)Ljava/util/Vector;", "<T:Ljava/lang/Object;>(Ljava/util/Vector<TT;>;)Ljava/util/Vector<TT;>;", $PRIVATE, $method(PropertyEditorSupport, unsafeClone, $Vector*, $Vector*)},
-	{}
-};
-
-$ClassInfo _PropertyEditorSupport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.beans.PropertyEditorSupport",
-	"java.lang.Object",
-	"java.beans.PropertyEditor",
-	_PropertyEditorSupport_FieldInfo_,
-	_PropertyEditorSupport_MethodInfo_
-};
-
-$Object* allocate$PropertyEditorSupport($Class* clazz) {
-	return $of($alloc(PropertyEditorSupport));
-}
-
 void PropertyEditorSupport::init$() {
 	setSource(this);
 }
@@ -77,7 +34,7 @@ void PropertyEditorSupport::init$(Object$* source) {
 }
 
 $Object* PropertyEditorSupport::getSource() {
-	return $of(this->source);
+	return this->source;
 }
 
 void PropertyEditorSupport::setSource(Object$* source) {
@@ -90,7 +47,7 @@ void PropertyEditorSupport::setValue(Object$* value) {
 }
 
 $Object* PropertyEditorSupport::getValue() {
-	return $of(this->value);
+	return this->value;
 }
 
 bool PropertyEditorSupport::isPaintable() {
@@ -105,7 +62,7 @@ $String* PropertyEditorSupport::getJavaInitializationString() {
 }
 
 $String* PropertyEditorSupport::getAsText() {
-	return (this->value != nullptr) ? $nc($of(this->value))->toString() : ($String*)nullptr;
+	return (this->value != nullptr) ? this->value->toString() : ($String*)nullptr;
 }
 
 void PropertyEditorSupport::setAsText($String* text) {
@@ -147,7 +104,7 @@ void PropertyEditorSupport::removePropertyChangeListener($PropertyChangeListener
 }
 
 void PropertyEditorSupport::firePropertyChange() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, targets, nullptr);
 	$synchronized(this) {
 		if (this->listeners == nullptr) {
@@ -170,7 +127,44 @@ PropertyEditorSupport::PropertyEditorSupport() {
 }
 
 $Class* PropertyEditorSupport::load$($String* name, bool initialize) {
-	$loadClass(PropertyEditorSupport, name, initialize, &_PropertyEditorSupport_ClassInfo_, allocate$PropertyEditorSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(PropertyEditorSupport, value)},
+		{"source", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(PropertyEditorSupport, source)},
+		{"listeners", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/beans/PropertyChangeListener;>;", $PRIVATE, $field(PropertyEditorSupport, listeners)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PropertyEditorSupport, init$, void)},
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(PropertyEditorSupport, init$, void, Object$*)},
+		{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PropertyEditorSupport, addPropertyChangeListener, void, $PropertyChangeListener*)},
+		{"firePropertyChange", "()V", nullptr, $PUBLIC, $virtualMethod(PropertyEditorSupport, firePropertyChange, void)},
+		{"getAsText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PropertyEditorSupport, getAsText, $String*)},
+		{"getCustomEditor", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(PropertyEditorSupport, getCustomEditor, $Component*)},
+		{"getJavaInitializationString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PropertyEditorSupport, getJavaInitializationString, $String*)},
+		{"getSource", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PropertyEditorSupport, getSource, $Object*)},
+		{"getTags", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PropertyEditorSupport, getTags, $StringArray*)},
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PropertyEditorSupport, getValue, $Object*)},
+		{"isPaintable", "()Z", nullptr, $PUBLIC, $virtualMethod(PropertyEditorSupport, isPaintable, bool)},
+		{"paintValue", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(PropertyEditorSupport, paintValue, void, $Graphics*, $Rectangle*)},
+		{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PropertyEditorSupport, removePropertyChangeListener, void, $PropertyChangeListener*)},
+		{"setAsText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PropertyEditorSupport, setAsText, void, $String*), "java.lang.IllegalArgumentException"},
+		{"setSource", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PropertyEditorSupport, setSource, void, Object$*)},
+		{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PropertyEditorSupport, setValue, void, Object$*)},
+		{"supportsCustomEditor", "()Z", nullptr, $PUBLIC, $virtualMethod(PropertyEditorSupport, supportsCustomEditor, bool)},
+		{"unsafeClone", "(Ljava/util/Vector;)Ljava/util/Vector;", "<T:Ljava/lang/Object;>(Ljava/util/Vector<TT;>;)Ljava/util/Vector<TT;>;", $PRIVATE, $method(PropertyEditorSupport, unsafeClone, $Vector*, $Vector*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.beans.PropertyEditorSupport",
+		"java.lang.Object",
+		"java.beans.PropertyEditor",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PropertyEditorSupport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PropertyEditorSupport);
+	});
 	return class$;
 }
 

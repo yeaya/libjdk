@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xs/XSNamespaceItemList.h>
-
 #include <com/sun/org/apache/xerces/internal/xs/XSNamespaceItem.h>
 #include <jcpp.h>
 
@@ -15,28 +14,24 @@ namespace com {
 					namespace internal {
 						namespace xs {
 
-$MethodInfo _XSNamespaceItemList_MethodInfo_[] = {
-	{"getLength", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSNamespaceItemList, getLength, int32_t)},
-	{"item", "(I)Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSNamespaceItemList, item, $XSNamespaceItem*, int32_t)},
-	{}
-};
-
-$ClassInfo _XSNamespaceItemList_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.xs.XSNamespaceItemList",
-	nullptr,
-	"java.util.List",
-	nullptr,
-	_XSNamespaceItemList_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;>;"
-};
-
-$Object* allocate$XSNamespaceItemList($Class* clazz) {
-	return $of($alloc(XSNamespaceItemList));
-}
-
 $Class* XSNamespaceItemList::load$($String* name, bool initialize) {
-	$loadClass(XSNamespaceItemList, name, initialize, &_XSNamespaceItemList_ClassInfo_, allocate$XSNamespaceItemList);
+	$MethodInfo methodInfos$$[] = {
+		{"getLength", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSNamespaceItemList, getLength, int32_t)},
+		{"item", "(I)Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSNamespaceItemList, item, $XSNamespaceItem*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.xs.XSNamespaceItemList",
+		nullptr,
+		"java.util.List",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;>;"
+	};
+	$loadClass(XSNamespaceItemList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSNamespaceItemList);
+	});
 	return class$;
 }
 

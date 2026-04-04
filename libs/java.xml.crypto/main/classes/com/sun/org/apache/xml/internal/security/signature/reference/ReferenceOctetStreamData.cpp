@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/signature/reference/ReferenceOctetStreamData.h>
-
 #include <java/io/InputStream.h>
 #include <jcpp.h>
 
@@ -18,35 +17,6 @@ namespace com {
 						namespace security {
 							namespace signature {
 								namespace reference {
-
-$FieldInfo _ReferenceOctetStreamData_FieldInfo_[] = {
-	{"octetStream", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(ReferenceOctetStreamData, octetStream)},
-	{"uri", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ReferenceOctetStreamData, uri)},
-	{"mimeType", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ReferenceOctetStreamData, mimeType)},
-	{}
-};
-
-$MethodInfo _ReferenceOctetStreamData_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(ReferenceOctetStreamData, init$, void, $InputStream*)},
-	{"<init>", "(Ljava/io/InputStream;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReferenceOctetStreamData, init$, void, $InputStream*, $String*, $String*)},
-	{"getMimeType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ReferenceOctetStreamData, getMimeType, $String*)},
-	{"getOctetStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ReferenceOctetStreamData, getOctetStream, $InputStream*)},
-	{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ReferenceOctetStreamData, getURI, $String*)},
-	{}
-};
-
-$ClassInfo _ReferenceOctetStreamData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.signature.reference.ReferenceOctetStreamData",
-	"java.lang.Object",
-	"com.sun.org.apache.xml.internal.security.signature.reference.ReferenceData",
-	_ReferenceOctetStreamData_FieldInfo_,
-	_ReferenceOctetStreamData_MethodInfo_
-};
-
-$Object* allocate$ReferenceOctetStreamData($Class* clazz) {
-	return $of($alloc(ReferenceOctetStreamData));
-}
 
 void ReferenceOctetStreamData::init$($InputStream* octetStream) {
 	if (octetStream == nullptr) {
@@ -80,7 +50,31 @@ ReferenceOctetStreamData::ReferenceOctetStreamData() {
 }
 
 $Class* ReferenceOctetStreamData::load$($String* name, bool initialize) {
-	$loadClass(ReferenceOctetStreamData, name, initialize, &_ReferenceOctetStreamData_ClassInfo_, allocate$ReferenceOctetStreamData);
+	$FieldInfo fieldInfos$$[] = {
+		{"octetStream", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(ReferenceOctetStreamData, octetStream)},
+		{"uri", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ReferenceOctetStreamData, uri)},
+		{"mimeType", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ReferenceOctetStreamData, mimeType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(ReferenceOctetStreamData, init$, void, $InputStream*)},
+		{"<init>", "(Ljava/io/InputStream;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReferenceOctetStreamData, init$, void, $InputStream*, $String*, $String*)},
+		{"getMimeType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ReferenceOctetStreamData, getMimeType, $String*)},
+		{"getOctetStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ReferenceOctetStreamData, getOctetStream, $InputStream*)},
+		{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ReferenceOctetStreamData, getURI, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.signature.reference.ReferenceOctetStreamData",
+		"java.lang.Object",
+		"com.sun.org.apache.xml.internal.security.signature.reference.ReferenceData",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ReferenceOctetStreamData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReferenceOctetStreamData);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/frame/PingFrame.h>
-
 #include <java/lang/AssertionError.h>
 #include <jdk/internal/net/http/frame/Http2Frame.h>
 #include <jcpp.h>
@@ -18,36 +17,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 				namespace frame {
-
-$FieldInfo _PingFrame_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(PingFrame, $assertionsDisabled)},
-	{"data", "[B", nullptr, $PRIVATE | $FINAL, $field(PingFrame, data)},
-	{"TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PingFrame, TYPE)},
-	{"ACK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PingFrame, ACK)},
-	{}
-};
-
-$MethodInfo _PingFrame_MethodInfo_[] = {
-	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(PingFrame, init$, void, int32_t, $bytes*)},
-	{"flagAsString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PingFrame, flagAsString, $String*, int32_t)},
-	{"getData", "()[B", nullptr, $PUBLIC, $virtualMethod(PingFrame, getData, $bytes*)},
-	{"length", "()I", nullptr, 0, $virtualMethod(PingFrame, length, int32_t)},
-	{"type", "()I", nullptr, $PUBLIC, $virtualMethod(PingFrame, type, int32_t)},
-	{}
-};
-
-$ClassInfo _PingFrame_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.frame.PingFrame",
-	"jdk.internal.net.http.frame.Http2Frame",
-	nullptr,
-	_PingFrame_FieldInfo_,
-	_PingFrame_MethodInfo_
-};
-
-$Object* allocate$PingFrame($Class* clazz) {
-	return $of($alloc(PingFrame));
-}
 
 bool PingFrame::$assertionsDisabled = false;
 
@@ -68,19 +37,14 @@ int32_t PingFrame::length() {
 }
 
 $String* PingFrame::flagAsString(int32_t flag) {
-
-	$var($String, var$0, nullptr)
+	$var($String, var$0, nullptr);
 	switch (flag) {
 	case PingFrame::ACK:
-		{
-			$assign(var$0, "ACK"_s);
-			break;
-		}
+		$assign(var$0, "ACK"_s);
+		break;
 	default:
-		{
-			$assign(var$0, $Http2Frame::flagAsString(flag));
-			break;
-		}
+		$assign(var$0, $Http2Frame::flagAsString(flag));
+		break;
 	}
 	return var$0;
 }
@@ -89,7 +53,7 @@ $bytes* PingFrame::getData() {
 	return $cast($bytes, $nc(this->data)->clone());
 }
 
-void clinit$PingFrame($Class* class$) {
+void PingFrame::clinit$($Class* clazz) {
 	PingFrame::$assertionsDisabled = !PingFrame::class$->desiredAssertionStatus();
 }
 
@@ -97,7 +61,32 @@ PingFrame::PingFrame() {
 }
 
 $Class* PingFrame::load$($String* name, bool initialize) {
-	$loadClass(PingFrame, name, initialize, &_PingFrame_ClassInfo_, clinit$PingFrame, allocate$PingFrame);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(PingFrame, $assertionsDisabled)},
+		{"data", "[B", nullptr, $PRIVATE | $FINAL, $field(PingFrame, data)},
+		{"TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PingFrame, TYPE)},
+		{"ACK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PingFrame, ACK)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(PingFrame, init$, void, int32_t, $bytes*)},
+		{"flagAsString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PingFrame, flagAsString, $String*, int32_t)},
+		{"getData", "()[B", nullptr, $PUBLIC, $virtualMethod(PingFrame, getData, $bytes*)},
+		{"length", "()I", nullptr, 0, $virtualMethod(PingFrame, length, int32_t)},
+		{"type", "()I", nullptr, $PUBLIC, $virtualMethod(PingFrame, type, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.frame.PingFrame",
+		"jdk.internal.net.http.frame.Http2Frame",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PingFrame, name, initialize, &classInfo$$, PingFrame::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PingFrame);
+	});
 	return class$;
 }
 

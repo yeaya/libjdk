@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/LocaleNames_ceb.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,1409 +13,1390 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _LocaleNames_ceb_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_ceb, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_ceb, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _LocaleNames_ceb_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.LocaleNames_ceb",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_LocaleNames_ceb_MethodInfo_
-};
-
-$Object* allocate$LocaleNames_ceb($Class* clazz) {
-	return $of($alloc(LocaleNames_ceb));
-}
-
 void LocaleNames_ceb::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* LocaleNames_ceb::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, metaValue_ja, "Hinapon"_s);
 	$var($String, metaValue_ko, "Korean"_s);
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("PR"_s),
-			$of("Puerto Rico"_s)
+			"PR"_s,
+			"Puerto Rico"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PS"_s),
-			$of("Palestinian Territories"_s)
+			"PS"_s,
+			"Palestinian Territories"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PT"_s),
-			$of("Portugal"_s)
+			"PT"_s,
+			"Portugal"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt"_s),
-			$of("Portuguese"_s)
+			"pt"_s,
+			"Portuguese"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PW"_s),
-			$of("Palau"_s)
+			"PW"_s,
+			"Palau"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PY"_s),
-			$of("Paraguay"_s)
+			"PY"_s,
+			"Paraguay"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt_BR"_s),
-			$of("Brazilyanong Portuguese"_s)
+			"pt_BR"_s,
+			"Brazilyanong Portuguese"_s
 		}),
 		$$new($ObjectArray, {
-			$of("QA"_s),
-			$of("Qatar"_s)
+			"QA"_s,
+			"Qatar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es_ES"_s),
-			$of("Espanyol sa Europe"_s)
+			"es_ES"_s,
+			"Espanyol sa Europe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("QO"_s),
-			$of("Outlying Oceania"_s)
+			"QO"_s,
+			"Outlying Oceania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AC"_s),
-			$of("Ascension Island"_s)
+			"AC"_s,
+			"Ascension Island"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AD"_s),
-			$of("Andorra"_s)
+			"AD"_s,
+			"Andorra"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AE"_s),
-			$of("United Arab Emirates"_s)
+			"AE"_s,
+			"United Arab Emirates"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nl_BE"_s),
-			$of("Flemish"_s)
+			"nl_BE"_s,
+			"Flemish"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AF"_s),
-			$of("Afghanistan"_s)
+			"AF"_s,
+			"Afghanistan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AG"_s),
-			$of("Antigua & Barbuda"_s)
+			"AG"_s,
+			"Antigua & Barbuda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AI"_s),
-			$of("Anguilla"_s)
+			"AI"_s,
+			"Anguilla"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AL"_s),
-			$of("Albania"_s)
+			"AL"_s,
+			"Albania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AM"_s),
-			$of("Armenia"_s)
+			"AM"_s,
+			"Armenia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Arab"_s),
-			$of("Arabo"_s)
+			"Arab"_s,
+			"Arabo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AO"_s),
-			$of("Angola"_s)
+			"AO"_s,
+			"Angola"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Jpan"_s),
-			$of(metaValue_ja)
+			"Jpan"_s,
+			metaValue_ja
 		}),
 		$$new($ObjectArray, {
-			$of("AQ"_s),
-			$of("Antarctica"_s)
+			"AQ"_s,
+			"Antarctica"_s
 		}),
 		$$new($ObjectArray, {
-			$of("001"_s),
-			$of("Kalibutan"_s)
+			"001"_s,
+			"Kalibutan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AR"_s),
-			$of("Argentina"_s)
+			"AR"_s,
+			"Argentina"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ar"_s),
-			$of("Arabic"_s)
+			"ar"_s,
+			"Arabic"_s
 		}),
 		$$new($ObjectArray, {
-			$of("002"_s),
-			$of("Africa"_s)
+			"002"_s,
+			"Africa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AS"_s),
-			$of("American Samoa"_s)
+			"AS"_s,
+			"American Samoa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("003"_s),
-			$of("Amihanang Amerika"_s)
+			"003"_s,
+			"Amihanang Amerika"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AT"_s),
-			$of("Austria"_s)
+			"AT"_s,
+			"Austria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RE"_s),
-			$of("Reunion"_s)
+			"RE"_s,
+			"Reunion"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AU"_s),
-			$of("Australia"_s)
+			"AU"_s,
+			"Australia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("005"_s),
-			$of("South America"_s)
+			"005"_s,
+			"South America"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AW"_s),
-			$of("Aruba"_s)
+			"AW"_s,
+			"Aruba"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_US"_s),
-			$of("Ingles sa Amerika"_s)
+			"en_US"_s,
+			"Ingles sa Amerika"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AX"_s),
-			$of("Aland Islands"_s)
+			"AX"_s,
+			"Aland Islands"_s
 		}),
 		$$new($ObjectArray, {
-			$of("009"_s),
-			$of("Oceania"_s)
+			"009"_s,
+			"Oceania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AZ"_s),
-			$of("Azerbaijan"_s)
+			"AZ"_s,
+			"Azerbaijan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RO"_s),
-			$of("Romania"_s)
+			"RO"_s,
+			"Romania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BA"_s),
-			$of("Bosnia & Herzegovina"_s)
+			"BA"_s,
+			"Bosnia & Herzegovina"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BB"_s),
-			$of("Barbados"_s)
+			"BB"_s,
+			"Barbados"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RS"_s),
-			$of("Serbia"_s)
+			"RS"_s,
+			"Serbia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ceb"_s),
-			$of("Binisaya"_s)
+			"ceb"_s,
+			"Binisaya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BD"_s),
-			$of("Bangladesh"_s)
+			"BD"_s,
+			"Bangladesh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BE"_s),
-			$of("Belgium"_s)
+			"BE"_s,
+			"Belgium"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RU"_s),
-			$of("Russia"_s)
+			"RU"_s,
+			"Russia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ru"_s),
-			$of("Ruso"_s)
+			"ru"_s,
+			"Ruso"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BF"_s),
-			$of("Burkina Faso"_s)
+			"BF"_s,
+			"Burkina Faso"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BG"_s),
-			$of("Bulgaria"_s)
+			"BG"_s,
+			"Bulgaria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RW"_s),
-			$of("Rwanda"_s)
+			"RW"_s,
+			"Rwanda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BH"_s),
-			$of("Bahrain"_s)
+			"BH"_s,
+			"Bahrain"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BI"_s),
-			$of("Burundi"_s)
+			"BI"_s,
+			"Burundi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BJ"_s),
-			$of("Benin"_s)
+			"BJ"_s,
+			"Benin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_AU"_s),
-			$of("Ingles sa Australia"_s)
+			"en_AU"_s,
+			"Ingles sa Australia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BL"_s),
-			$of("St. Barthelemy"_s)
+			"BL"_s,
+			"St. Barthelemy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BM"_s),
-			$of("Bermuda"_s)
+			"BM"_s,
+			"Bermuda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BN"_s),
-			$of("Brunei"_s)
+			"BN"_s,
+			"Brunei"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bn"_s),
-			$of("Bangla"_s)
+			"bn"_s,
+			"Bangla"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BO"_s),
-			$of("Bolivia"_s)
+			"BO"_s,
+			"Bolivia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SA"_s),
-			$of("Saudi Arabia"_s)
+			"SA"_s,
+			"Saudi Arabia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BQ"_s),
-			$of("Caribbean Netherlands"_s)
+			"BQ"_s,
+			"Caribbean Netherlands"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SB"_s),
-			$of("Solomon Islands"_s)
+			"SB"_s,
+			"Solomon Islands"_s
 		}),
 		$$new($ObjectArray, {
-			$of("011"_s),
-			$of("Western Africa"_s)
+			"011"_s,
+			"Western Africa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BR"_s),
-			$of("Brazil"_s)
+			"BR"_s,
+			"Brazil"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SC"_s),
-			$of("Seychelles"_s)
+			"SC"_s,
+			"Seychelles"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BS"_s),
-			$of("Bahamas"_s)
+			"BS"_s,
+			"Bahamas"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SD"_s),
-			$of("Sudan"_s)
+			"SD"_s,
+			"Sudan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("013"_s),
-			$of("Central America"_s)
+			"013"_s,
+			"Central America"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BT"_s),
-			$of("Bhutan"_s)
+			"BT"_s,
+			"Bhutan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SE"_s),
-			$of("Sweden"_s)
+			"SE"_s,
+			"Sweden"_s
 		}),
 		$$new($ObjectArray, {
-			$of("014"_s),
-			$of("Eastern Africa"_s)
+			"014"_s,
+			"Eastern Africa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("015"_s),
-			$of("Northern Africa"_s)
+			"015"_s,
+			"Northern Africa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BV"_s),
-			$of("Bouvet Island"_s)
+			"BV"_s,
+			"Bouvet Island"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SG"_s),
-			$of("Singapore"_s)
+			"SG"_s,
+			"Singapore"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BW"_s),
-			$of("Botswana"_s)
+			"BW"_s,
+			"Botswana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SH"_s),
-			$of("St. Helena"_s)
+			"SH"_s,
+			"St. Helena"_s
 		}),
 		$$new($ObjectArray, {
-			$of("017"_s),
-			$of("Middle Africa"_s)
+			"017"_s,
+			"Middle Africa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SI"_s),
-			$of("Slovenia"_s)
+			"SI"_s,
+			"Slovenia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("018"_s),
-			$of("Southern Africa"_s)
+			"018"_s,
+			"Southern Africa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BY"_s),
-			$of("Belarus"_s)
+			"BY"_s,
+			"Belarus"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SJ"_s),
-			$of("Svalbard & Jan Mayen"_s)
+			"SJ"_s,
+			"Svalbard & Jan Mayen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("019"_s),
-			$of("Mga Amerika"_s)
+			"019"_s,
+			"Mga Amerika"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BZ"_s),
-			$of("Belize"_s)
+			"BZ"_s,
+			"Belize"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SK"_s),
-			$of("Slovakia"_s)
+			"SK"_s,
+			"Slovakia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SL"_s),
-			$of("Sierra Leone"_s)
+			"SL"_s,
+			"Sierra Leone"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SM"_s),
-			$of("San Marino"_s)
+			"SM"_s,
+			"San Marino"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SN"_s),
-			$of("Senegal"_s)
+			"SN"_s,
+			"Senegal"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SO"_s),
-			$of("Somalia"_s)
+			"SO"_s,
+			"Somalia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CA"_s),
-			$of("Canada"_s)
+			"CA"_s,
+			"Canada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SR"_s),
-			$of("Suriname"_s)
+			"SR"_s,
+			"Suriname"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CC"_s),
-			$of("Cocos (Keeling) Islands"_s)
+			"CC"_s,
+			"Cocos (Keeling) Islands"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SS"_s),
-			$of("South Sudan"_s)
+			"SS"_s,
+			"South Sudan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CD"_s),
-			$of("Congo - Kinshasa"_s)
+			"CD"_s,
+			"Congo - Kinshasa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ST"_s),
-			$of("Sao Tome & Principe"_s)
+			"ST"_s,
+			"Sao Tome & Principe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CF"_s),
-			$of("Central African Republic"_s)
+			"CF"_s,
+			"Central African Republic"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SV"_s),
-			$of("El Salvador"_s)
+			"SV"_s,
+			"El Salvador"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CG"_s),
-			$of("Congo - Brazzaville"_s)
+			"CG"_s,
+			"Congo - Brazzaville"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CH"_s),
-			$of("Switzerland"_s)
+			"CH"_s,
+			"Switzerland"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SX"_s),
-			$of("Sint Maarten"_s)
+			"SX"_s,
+			"Sint Maarten"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CI"_s),
-			$of(u"Cote d’Ivoire"_s)
+			"CI"_s,
+			u"Cote d’Ivoire"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SY"_s),
-			$of("Syria"_s)
+			"SY"_s,
+			"Syria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SZ"_s),
-			$of("Eswatini"_s)
+			"SZ"_s,
+			"Eswatini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CK"_s),
-			$of("Cook Islands"_s)
+			"CK"_s,
+			"Cook Islands"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CL"_s),
-			$of("Chile"_s)
+			"CL"_s,
+			"Chile"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CM"_s),
-			$of("Cameroon"_s)
+			"CM"_s,
+			"Cameroon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CN"_s),
-			$of("Tsina"_s)
+			"CN"_s,
+			"Tsina"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CO"_s),
-			$of("Colombia"_s)
+			"CO"_s,
+			"Colombia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CP"_s),
-			$of("Clipperton Island"_s)
+			"CP"_s,
+			"Clipperton Island"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TA"_s),
-			$of("Tristan da Cunha"_s)
+			"TA"_s,
+			"Tristan da Cunha"_s
 		}),
 		$$new($ObjectArray, {
-			$of("021"_s),
-			$of("Northern America"_s)
+			"021"_s,
+			"Northern America"_s
 		}),
 		$$new($ObjectArray, {
-			$of("142"_s),
-			$of("Asya"_s)
+			"142"_s,
+			"Asya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CR"_s),
-			$of("Costa Rica"_s)
+			"CR"_s,
+			"Costa Rica"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TC"_s),
-			$of("Turks & Caicos Islands"_s)
+			"TC"_s,
+			"Turks & Caicos Islands"_s
 		}),
 		$$new($ObjectArray, {
-			$of("143"_s),
-			$of("Central Asia"_s)
+			"143"_s,
+			"Central Asia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TD"_s),
-			$of("Chad"_s)
+			"TD"_s,
+			"Chad"_s
 		}),
 		$$new($ObjectArray, {
-			$of("145"_s),
-			$of("Western Asia"_s)
+			"145"_s,
+			"Western Asia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CU"_s),
-			$of("Cuba"_s)
+			"CU"_s,
+			"Cuba"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TF"_s),
-			$of("French Southern Territories"_s)
+			"TF"_s,
+			"French Southern Territories"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CV"_s),
-			$of("Cape Verde"_s)
+			"CV"_s,
+			"Cape Verde"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TG"_s),
-			$of("Togo"_s)
+			"TG"_s,
+			"Togo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CW"_s),
-			$of("Curacao"_s)
+			"CW"_s,
+			"Curacao"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TH"_s),
-			$of("Thailand"_s)
+			"TH"_s,
+			"Thailand"_s
 		}),
 		$$new($ObjectArray, {
-			$of("th"_s),
-			$of("Thai"_s)
+			"th"_s,
+			"Thai"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CX"_s),
-			$of("Christmas Island"_s)
+			"CX"_s,
+			"Christmas Island"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CY"_s),
-			$of("Cyprus"_s)
+			"CY"_s,
+			"Cyprus"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TJ"_s),
-			$of("Tajikistan"_s)
+			"TJ"_s,
+			"Tajikistan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_CA"_s),
-			$of("Ingles sa Canada"_s)
+			"en_CA"_s,
+			"Ingles sa Canada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("029"_s),
-			$of("Caribbean"_s)
+			"029"_s,
+			"Caribbean"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CZ"_s),
-			$of("Czechia"_s)
+			"CZ"_s,
+			"Czechia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TK"_s),
-			$of("Tokelau"_s)
+			"TK"_s,
+			"Tokelau"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TL"_s),
-			$of("Timor-Leste"_s)
+			"TL"_s,
+			"Timor-Leste"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TM"_s),
-			$of("Turkmenistan"_s)
+			"TM"_s,
+			"Turkmenistan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TN"_s),
-			$of("Tunisia"_s)
+			"TN"_s,
+			"Tunisia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TO"_s),
-			$of("Tonga"_s)
+			"TO"_s,
+			"Tonga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TR"_s),
-			$of("Turkey"_s)
+			"TR"_s,
+			"Turkey"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tr"_s),
-			$of("Turkish"_s)
+			"tr"_s,
+			"Turkish"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt_PT"_s),
-			$of("Portuguese sa Europe"_s)
+			"pt_PT"_s,
+			"Portuguese sa Europe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TT"_s),
-			$of("Trinidad & Tobago"_s)
+			"TT"_s,
+			"Trinidad & Tobago"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DE"_s),
-			$of("Alemanya"_s)
+			"DE"_s,
+			"Alemanya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de"_s),
-			$of("Aleman"_s)
+			"de"_s,
+			"Aleman"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TV"_s),
-			$of("Tuvalu"_s)
+			"TV"_s,
+			"Tuvalu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DG"_s),
-			$of("Diego Garcia"_s)
+			"DG"_s,
+			"Diego Garcia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TW"_s),
-			$of("Taiwan"_s)
+			"TW"_s,
+			"Taiwan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DJ"_s),
-			$of("Djibouti"_s)
+			"DJ"_s,
+			"Djibouti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TZ"_s),
-			$of("Tanzania"_s)
+			"TZ"_s,
+			"Tanzania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DK"_s),
-			$of("Denmark"_s)
+			"DK"_s,
+			"Denmark"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DM"_s),
-			$of("Dominica"_s)
+			"DM"_s,
+			"Dominica"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zzzz"_s),
-			$of("Wala Mailhing Script"_s)
+			"Zzzz"_s,
+			"Wala Mailhing Script"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DO"_s),
-			$of("Dominican Republic"_s)
+			"DO"_s,
+			"Dominican Republic"_s
 		}),
 		$$new($ObjectArray, {
-			$of("150"_s),
-			$of("Europe"_s)
+			"150"_s,
+			"Europe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UA"_s),
-			$of("Ukraine"_s)
+			"UA"_s,
+			"Ukraine"_s
 		}),
 		$$new($ObjectArray, {
-			$of("030"_s),
-			$of("Eastern Asia"_s)
+			"030"_s,
+			"Eastern Asia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("151"_s),
-			$of("Eastern Europe"_s)
+			"151"_s,
+			"Eastern Europe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("154"_s),
-			$of("Northern Europe"_s)
+			"154"_s,
+			"Northern Europe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("034"_s),
-			$of("Southern Asia"_s)
+			"034"_s,
+			"Southern Asia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("155"_s),
-			$of("Western Europe"_s)
+			"155"_s,
+			"Western Europe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("035"_s),
-			$of("Southeast Asia"_s)
+			"035"_s,
+			"Southeast Asia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UG"_s),
-			$of("Uganda"_s)
+			"UG"_s,
+			"Uganda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es_419"_s),
-			$of("Espanyol sa Latin Amerika"_s)
+			"es_419"_s,
+			"Espanyol sa Latin Amerika"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kore"_s),
-			$of(metaValue_ko)
+			"Kore"_s,
+			metaValue_ko
 		}),
 		$$new($ObjectArray, {
-			$of("039"_s),
-			$of("Southern Europe"_s)
+			"039"_s,
+			"Southern Europe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DZ"_s),
-			$of("Algeria"_s)
+			"DZ"_s,
+			"Algeria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UM"_s),
-			$of("U.S. Outlying Islands"_s)
+			"UM"_s,
+			"U.S. Outlying Islands"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UN"_s),
-			$of("Hiniusang Kanasoran"_s)
+			"UN"_s,
+			"Hiniusang Kanasoran"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EA"_s),
-			$of("Ceuta & Melilla"_s)
+			"EA"_s,
+			"Ceuta & Melilla"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EC"_s),
-			$of("Ecuador"_s)
+			"EC"_s,
+			"Ecuador"_s
 		}),
 		$$new($ObjectArray, {
-			$of("US"_s),
-			$of("Estados Unidos"_s)
+			"US"_s,
+			"Estados Unidos"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EE"_s),
-			$of("Estonia"_s)
+			"EE"_s,
+			"Estonia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EG"_s),
-			$of("Egypt"_s)
+			"EG"_s,
+			"Egypt"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EH"_s),
-			$of("Western Sahara"_s)
+			"EH"_s,
+			"Western Sahara"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UY"_s),
-			$of("Uruguay"_s)
+			"UY"_s,
+			"Uruguay"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UZ"_s),
-			$of("Uzbekistan"_s)
+			"UZ"_s,
+			"Uzbekistan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en"_s),
-			$of("Ingles"_s)
+			"en"_s,
+			"Ingles"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VA"_s),
-			$of("Vatican City"_s)
+			"VA"_s,
+			"Vatican City"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ER"_s),
-			$of("Eritrea"_s)
+			"ER"_s,
+			"Eritrea"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VC"_s),
-			$of("St. Vincent & Grenadines"_s)
+			"VC"_s,
+			"St. Vincent & Grenadines"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ES"_s),
-			$of("Espanya"_s)
+			"ES"_s,
+			"Espanya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es"_s),
-			$of("Espanyol"_s)
+			"es"_s,
+			"Espanyol"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ET"_s),
-			$of("Ethiopia"_s)
+			"ET"_s,
+			"Ethiopia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VE"_s),
-			$of("Venezuela"_s)
+			"VE"_s,
+			"Venezuela"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EU"_s),
-			$of("European Union"_s)
+			"EU"_s,
+			"European Union"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.gregorian"_s),
-			$of("Gregorian nga Kalendaryo"_s)
+			"type.ca.gregorian"_s,
+			"Gregorian nga Kalendaryo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VG"_s),
-			$of("British Virgin Islands"_s)
+			"VG"_s,
+			"British Virgin Islands"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VI"_s),
-			$of("U.S. Virgin Islands"_s)
+			"VI"_s,
+			"U.S. Virgin Islands"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EZ"_s),
-			$of("Eurozone"_s)
+			"EZ"_s,
+			"Eurozone"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VN"_s),
-			$of("Vietnam"_s)
+			"VN"_s,
+			"Vietnam"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hans"_s),
-			$of("Pinasimple"_s)
+			"Hans"_s,
+			"Pinasimple"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.latn"_s),
-			$of("Mga Western Digit"_s)
+			"type.nu.latn"_s,
+			"Mga Western Digit"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hant"_s),
-			$of("Tradisyonal"_s)
+			"Hant"_s,
+			"Tradisyonal"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VU"_s),
-			$of("Vanuatu"_s)
+			"VU"_s,
+			"Vanuatu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FI"_s),
-			$of("Finland"_s)
+			"FI"_s,
+			"Finland"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FJ"_s),
-			$of("Fiji"_s)
+			"FJ"_s,
+			"Fiji"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FK"_s),
-			$of("Falkland Islands"_s)
+			"FK"_s,
+			"Falkland Islands"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FM"_s),
-			$of("Micronesia"_s)
+			"FM"_s,
+			"Micronesia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FO"_s),
-			$of("Faroe Islands"_s)
+			"FO"_s,
+			"Faroe Islands"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FR"_s),
-			$of("Pransya"_s)
+			"FR"_s,
+			"Pransya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr"_s),
-			$of("Pranses"_s)
+			"fr"_s,
+			"Pranses"_s
 		}),
 		$$new($ObjectArray, {
-			$of("053"_s),
-			$of("Australasia"_s)
+			"053"_s,
+			"Australasia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("054"_s),
-			$of("Melanesia"_s)
+			"054"_s,
+			"Melanesia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WF"_s),
-			$of("Wallis & Futuna"_s)
+			"WF"_s,
+			"Wallis & Futuna"_s
 		}),
 		$$new($ObjectArray, {
-			$of("057"_s),
-			$of("Micronesian Region"_s)
+			"057"_s,
+			"Micronesian Region"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GA"_s),
-			$of("Gabon"_s)
+			"GA"_s,
+			"Gabon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GB"_s),
-			$of("United Kingdom"_s)
+			"GB"_s,
+			"United Kingdom"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ar_001"_s),
-			$of("Modernong Tamdanang Arabic"_s)
+			"ar_001"_s,
+			"Modernong Tamdanang Arabic"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WS"_s),
-			$of("Samoa"_s)
+			"WS"_s,
+			"Samoa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GD"_s),
-			$of("Grenada"_s)
+			"GD"_s,
+			"Grenada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GE"_s),
-			$of("Georgia"_s)
+			"GE"_s,
+			"Georgia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GF"_s),
-			$of("French Guiana"_s)
+			"GF"_s,
+			"French Guiana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GG"_s),
-			$of("Guernsey"_s)
+			"GG"_s,
+			"Guernsey"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GH"_s),
-			$of("Ghana"_s)
+			"GH"_s,
+			"Ghana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GI"_s),
-			$of("Gibraltar"_s)
+			"GI"_s,
+			"Gibraltar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GL"_s),
-			$of("Greenland"_s)
+			"GL"_s,
+			"Greenland"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GM"_s),
-			$of("Gambia"_s)
+			"GM"_s,
+			"Gambia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GN"_s),
-			$of("Guinea"_s)
+			"GN"_s,
+			"Guinea"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GP"_s),
-			$of("Guadeloupe"_s)
+			"GP"_s,
+			"Guadeloupe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("XA"_s),
-			$of("Pseudo-Accents"_s)
+			"XA"_s,
+			"Pseudo-Accents"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GQ"_s),
-			$of("Equatorial Guinea"_s)
+			"GQ"_s,
+			"Equatorial Guinea"_s
 		}),
 		$$new($ObjectArray, {
-			$of("XB"_s),
-			$of("Pseudo-Bidi"_s)
+			"XB"_s,
+			"Pseudo-Bidi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("und"_s),
-			$of("Wala Mailhing Lengguwahe"_s)
+			"und"_s,
+			"Wala Mailhing Lengguwahe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("061"_s),
-			$of("Polynesia"_s)
+			"061"_s,
+			"Polynesia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GR"_s),
-			$of("Greece"_s)
+			"GR"_s,
+			"Greece"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Latn"_s),
-			$of("Latin"_s)
+			"Latn"_s,
+			"Latin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GS"_s),
-			$of("South Georgia & South Sandwich Islands"_s)
+			"GS"_s,
+			"South Georgia & South Sandwich Islands"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GT"_s),
-			$of("Guatemala"_s)
+			"GT"_s,
+			"Guatemala"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GU"_s),
-			$of("Guam"_s)
+			"GU"_s,
+			"Guam"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GW"_s),
-			$of("Guinea-Bissau"_s)
+			"GW"_s,
+			"Guinea-Bissau"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GY"_s),
-			$of("Guyana"_s)
+			"GY"_s,
+			"Guyana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("XK"_s),
-			$of("Kosovo"_s)
+			"XK"_s,
+			"Kosovo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zxxx"_s),
-			$of("Dili Sinulat"_s)
+			"Zxxx"_s,
+			"Dili Sinulat"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hi"_s),
-			$of("Hindi"_s)
+			"hi"_s,
+			"Hindi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de_AT"_s),
-			$of("Austriano nga Aleman"_s)
+			"de_AT"_s,
+			"Austriano nga Aleman"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HK"_s),
-			$of("Hong Kong SAR China"_s)
+			"HK"_s,
+			"Hong Kong SAR China"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HM"_s),
-			$of("Heard & McDonald Islands"_s)
+			"HM"_s,
+			"Heard & McDonald Islands"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HN"_s),
-			$of("Honduras"_s)
+			"HN"_s,
+			"Honduras"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HR"_s),
-			$of("Croatia"_s)
+			"HR"_s,
+			"Croatia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HT"_s),
-			$of("Haiti"_s)
+			"HT"_s,
+			"Haiti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("YE"_s),
-			$of("Yemen"_s)
+			"YE"_s,
+			"Yemen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HU"_s),
-			$of("Hungary"_s)
+			"HU"_s,
+			"Hungary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.standard"_s),
-			$of("Tamdanang Paagi sa Paghan-ay"_s)
+			"type.co.standard"_s,
+			"Tamdanang Paagi sa Paghan-ay"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es_MX"_s),
-			$of("Espanyol sa Mexico"_s)
+			"es_MX"_s,
+			"Espanyol sa Mexico"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IC"_s),
-			$of("Canary Islands"_s)
+			"IC"_s,
+			"Canary Islands"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ID"_s),
-			$of("Indonesia"_s)
+			"ID"_s,
+			"Indonesia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("YT"_s),
-			$of("Mayotte"_s)
+			"YT"_s,
+			"Mayotte"_s
 		}),
 		$$new($ObjectArray, {
-			$of("id"_s),
-			$of("Indonesian"_s)
+			"id"_s,
+			"Indonesian"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IE"_s),
-			$of("Ireland"_s)
+			"IE"_s,
+			"Ireland"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IL"_s),
-			$of("Israel"_s)
+			"IL"_s,
+			"Israel"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IM"_s),
-			$of("Isle of Man"_s)
+			"IM"_s,
+			"Isle of Man"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IN"_s),
-			$of("India"_s)
+			"IN"_s,
+			"India"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IO"_s),
-			$of("British Indian Ocean Territory"_s)
+			"IO"_s,
+			"British Indian Ocean Territory"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZA"_s),
-			$of("South Africa"_s)
+			"ZA"_s,
+			"South Africa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IQ"_s),
-			$of("Iraq"_s)
+			"IQ"_s,
+			"Iraq"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IR"_s),
-			$of("Iran"_s)
+			"IR"_s,
+			"Iran"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IS"_s),
-			$of("Iceland"_s)
+			"IS"_s,
+			"Iceland"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IT"_s),
-			$of("Italya"_s)
+			"IT"_s,
+			"Italya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("it"_s),
-			$of("Italiano"_s)
+			"it"_s,
+			"Italiano"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh"_s),
-			$of("Inintsik"_s)
+			"zh"_s,
+			"Inintsik"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZM"_s),
-			$of("Zambia"_s)
+			"ZM"_s,
+			"Zambia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ja"_s),
-			$of(metaValue_ja)
+			"ja"_s,
+			metaValue_ja
 		}),
 		$$new($ObjectArray, {
-			$of("JE"_s),
-			$of("Jersey"_s)
+			"JE"_s,
+			"Jersey"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZW"_s),
-			$of("Zimbabwe"_s)
+			"ZW"_s,
+			"Zimbabwe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZZ"_s),
-			$of("Wala Mailhing Rehiyon"_s)
+			"ZZ"_s,
+			"Wala Mailhing Rehiyon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JM"_s),
-			$of("Jamaica"_s)
+			"JM"_s,
+			"Jamaica"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JO"_s),
-			$of("Jordan"_s)
+			"JO"_s,
+			"Jordan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JP"_s),
-			$of("Japan"_s)
+			"JP"_s,
+			"Japan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.iso8601"_s),
-			$of("Kalendaryo sa ISO-8601"_s)
+			"type.ca.iso8601"_s,
+			"Kalendaryo sa ISO-8601"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de_CH"_s),
-			$of("Taas nga Aleman sa Switzerland"_s)
+			"de_CH"_s,
+			"Taas nga Aleman sa Switzerland"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KE"_s),
-			$of("Kenya"_s)
+			"KE"_s,
+			"Kenya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("419"_s),
-			$of("Latin America"_s)
+			"419"_s,
+			"Latin America"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KG"_s),
-			$of("Kyrgyzstan"_s)
+			"KG"_s,
+			"Kyrgyzstan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KH"_s),
-			$of("Cambodia"_s)
+			"KH"_s,
+			"Cambodia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KI"_s),
-			$of("Kiribati"_s)
+			"KI"_s,
+			"Kiribati"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KM"_s),
-			$of("Comoros"_s)
+			"KM"_s,
+			"Comoros"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KN"_s),
-			$of("St. Kitts & Nevis"_s)
+			"KN"_s,
+			"St. Kitts & Nevis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr_CA"_s),
-			$of("Pranses sa Canada"_s)
+			"fr_CA"_s,
+			"Pranses sa Canada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ko"_s),
-			$of(metaValue_ko)
+			"ko"_s,
+			metaValue_ko
 		}),
 		$$new($ObjectArray, {
-			$of("KP"_s),
-			$of("North Korea"_s)
+			"KP"_s,
+			"North Korea"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KR"_s),
-			$of("South Korea"_s)
+			"KR"_s,
+			"South Korea"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr_CH"_s),
-			$of("Pranses sa Switzerland"_s)
+			"fr_CH"_s,
+			"Pranses sa Switzerland"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KW"_s),
-			$of("Kuwait"_s)
+			"KW"_s,
+			"Kuwait"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KY"_s),
-			$of("Cayman Islands"_s)
+			"KY"_s,
+			"Cayman Islands"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KZ"_s),
-			$of("Kazakhstan"_s)
+			"KZ"_s,
+			"Kazakhstan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cyrl"_s),
-			$of("Sirilisko"_s)
+			"Cyrl"_s,
+			"Sirilisko"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LA"_s),
-			$of("Laos"_s)
+			"LA"_s,
+			"Laos"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LB"_s),
-			$of("Lebanon"_s)
+			"LB"_s,
+			"Lebanon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LC"_s),
-			$of("St. Lucia"_s)
+			"LC"_s,
+			"St. Lucia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LI"_s),
-			$of("Liechtenstein"_s)
+			"LI"_s,
+			"Liechtenstein"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LK"_s),
-			$of("Sri Lanka"_s)
+			"LK"_s,
+			"Sri Lanka"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh_Hans"_s),
-			$of("Pinasimpleng Inintsik"_s)
+			"zh_Hans"_s,
+			"Pinasimpleng Inintsik"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LR"_s),
-			$of("Liberia"_s)
+			"LR"_s,
+			"Liberia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LS"_s),
-			$of("Lesotho"_s)
+			"LS"_s,
+			"Lesotho"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LT"_s),
-			$of("Lithuania"_s)
+			"LT"_s,
+			"Lithuania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LU"_s),
-			$of("Luxembourg"_s)
+			"LU"_s,
+			"Luxembourg"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LV"_s),
-			$of("Latvia"_s)
+			"LV"_s,
+			"Latvia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LY"_s),
-			$of("Libya"_s)
+			"LY"_s,
+			"Libya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MA"_s),
-			$of("Morocco"_s)
+			"MA"_s,
+			"Morocco"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MC"_s),
-			$of("Monaco"_s)
+			"MC"_s,
+			"Monaco"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MD"_s),
-			$of("Moldova"_s)
+			"MD"_s,
+			"Moldova"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ME"_s),
-			$of("Montenegro"_s)
+			"ME"_s,
+			"Montenegro"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MF"_s),
-			$of("St. Martin"_s)
+			"MF"_s,
+			"St. Martin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MG"_s),
-			$of("Madagascar"_s)
+			"MG"_s,
+			"Madagascar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MH"_s),
-			$of("Marshall Islands"_s)
+			"MH"_s,
+			"Marshall Islands"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh_Hant"_s),
-			$of("Tradisyonal nga Ininstsik"_s)
+			"zh_Hant"_s,
+			"Tradisyonal nga Ininstsik"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MK"_s),
-			$of("North Macedonia"_s)
+			"MK"_s,
+			"North Macedonia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ML"_s),
-			$of("Mali"_s)
+			"ML"_s,
+			"Mali"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MM"_s),
-			$of("Myanmar (Burma)"_s)
+			"MM"_s,
+			"Myanmar (Burma)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MN"_s),
-			$of("Mongolia"_s)
+			"MN"_s,
+			"Mongolia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MO"_s),
-			$of("Macao SAR China"_s)
+			"MO"_s,
+			"Macao SAR China"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MP"_s),
-			$of("Northern Mariana Islands"_s)
+			"MP"_s,
+			"Northern Mariana Islands"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MQ"_s),
-			$of("Martinique"_s)
+			"MQ"_s,
+			"Martinique"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MR"_s),
-			$of("Mauritania"_s)
+			"MR"_s,
+			"Mauritania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MS"_s),
-			$of("Montserrat"_s)
+			"MS"_s,
+			"Montserrat"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MT"_s),
-			$of("Malta"_s)
+			"MT"_s,
+			"Malta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MU"_s),
-			$of("Mauritius"_s)
+			"MU"_s,
+			"Mauritius"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MV"_s),
-			$of("Maldives"_s)
+			"MV"_s,
+			"Maldives"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MW"_s),
-			$of("Malawi"_s)
+			"MW"_s,
+			"Malawi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MX"_s),
-			$of("Mexico"_s)
+			"MX"_s,
+			"Mexico"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MY"_s),
-			$of("Malaysia"_s)
+			"MY"_s,
+			"Malaysia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MZ"_s),
-			$of("Mozambique"_s)
+			"MZ"_s,
+			"Mozambique"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NA"_s),
-			$of("Namibia"_s)
+			"NA"_s,
+			"Namibia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("202"_s),
-			$of("Sub-Saharan Africa"_s)
+			"202"_s,
+			"Sub-Saharan Africa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NC"_s),
-			$of("New Caledonia"_s)
+			"NC"_s,
+			"New Caledonia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NE"_s),
-			$of("Niger"_s)
+			"NE"_s,
+			"Niger"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NF"_s),
-			$of("Norfolk Island"_s)
+			"NF"_s,
+			"Norfolk Island"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NG"_s),
-			$of("Nigeria"_s)
+			"NG"_s,
+			"Nigeria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NI"_s),
-			$of("Nicaragua"_s)
+			"NI"_s,
+			"Nicaragua"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NL"_s),
-			$of("Netherlands"_s)
+			"NL"_s,
+			"Netherlands"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nl"_s),
-			$of("Dutch"_s)
+			"nl"_s,
+			"Dutch"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NO"_s),
-			$of("Norway"_s)
+			"NO"_s,
+			"Norway"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NP"_s),
-			$of("Nepal"_s)
+			"NP"_s,
+			"Nepal"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NR"_s),
-			$of("Nauru"_s)
+			"NR"_s,
+			"Nauru"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NU"_s),
-			$of("Niue"_s)
+			"NU"_s,
+			"Niue"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NZ"_s),
-			$of("New Zealand"_s)
+			"NZ"_s,
+			"New Zealand"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OM"_s),
-			$of("Oman"_s)
+			"OM"_s,
+			"Oman"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PA"_s),
-			$of("Panama"_s)
+			"PA"_s,
+			"Panama"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_GB"_s),
-			$of("Britanikong Ingles"_s)
+			"en_GB"_s,
+			"Britanikong Ingles"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PE"_s),
-			$of("Peru"_s)
+			"PE"_s,
+			"Peru"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PF"_s),
-			$of("French Polynesia"_s)
+			"PF"_s,
+			"French Polynesia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PG"_s),
-			$of("Papua New Guinea"_s)
+			"PG"_s,
+			"Papua New Guinea"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PH"_s),
-			$of("Pilipinas"_s)
+			"PH"_s,
+			"Pilipinas"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PK"_s),
-			$of("Pakistan"_s)
+			"PK"_s,
+			"Pakistan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PL"_s),
-			$of("Poland"_s)
+			"PL"_s,
+			"Poland"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pl"_s),
-			$of("Polish"_s)
+			"pl"_s,
+			"Polish"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PM"_s),
-			$of("St. Pierre & Miquelon"_s)
+			"PM"_s,
+			"St. Pierre & Miquelon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PN"_s),
-			$of("Pitcairn Islands"_s)
+			"PN"_s,
+			"Pitcairn Islands"_s
 		})
 	}));
 	return data;
@@ -1426,7 +1406,22 @@ LocaleNames_ceb::LocaleNames_ceb() {
 }
 
 $Class* LocaleNames_ceb::load$($String* name, bool initialize) {
-	$loadClass(LocaleNames_ceb, name, initialize, &_LocaleNames_ceb_ClassInfo_, allocate$LocaleNames_ceb);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_ceb, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_ceb, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.LocaleNames_ceb",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNames_ceb, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNames_ceb);
+	});
 	return class$;
 }
 

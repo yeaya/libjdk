@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/ArrayType.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/BasicType.h>
 #include <com/sun/org/apache/bcel/internal/generic/ClassGenException.h>
@@ -30,71 +29,34 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$FieldInfo _ArrayType_FieldInfo_[] = {
-	{"dimensions", "I", nullptr, $PRIVATE, $field(ArrayType, dimensions)},
-	{"basicType", "Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PRIVATE, $field(ArrayType, basicType)},
-	{}
-};
-
-$MethodInfo _ArrayType_MethodInfo_[] = {
-	{"<init>", "(BI)V", nullptr, $PUBLIC, $method(ArrayType, init$, void, int8_t, int32_t)},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(ArrayType, init$, void, $String*, int32_t)},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/Type;I)V", nullptr, $PUBLIC, $method(ArrayType, init$, void, $Type*, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ArrayType, equals, bool, Object$*)},
-	{"getBasicType", "()Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $method(ArrayType, getBasicType, $Type*)},
-	{"getDimensions", "()I", nullptr, $PUBLIC, $method(ArrayType, getDimensions, int32_t)},
-	{"getElementType", "()Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $method(ArrayType, getElementType, $Type*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayType, hashCode, int32_t)},
-	{}
-};
-
-$ClassInfo _ArrayType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.ArrayType",
-	"com.sun.org.apache.bcel.internal.generic.ReferenceType",
-	nullptr,
-	_ArrayType_FieldInfo_,
-	_ArrayType_MethodInfo_
-};
-
-$Object* allocate$ArrayType($Class* clazz) {
-	return $of($alloc(ArrayType));
-}
-
 void ArrayType::init$(int8_t type, int32_t dimensions) {
-	ArrayType::init$($(static_cast<$Type*>($BasicType::getType(type))), dimensions);
+	ArrayType::init$($($BasicType::getType(type)), dimensions);
 }
 
 void ArrayType::init$($String* class_name, int32_t dimensions) {
-	ArrayType::init$($(static_cast<$Type*>($ObjectType::getInstance(class_name))), dimensions);
+	ArrayType::init$($($ObjectType::getInstance(class_name)), dimensions);
 }
 
 void ArrayType::init$($Type* type, int32_t dimensions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ReferenceType::init$($Const::T_ARRAY, "<dummy>"_s);
 	if ((dimensions < 1) || (dimensions > $Const::MAX_BYTE)) {
 		$throwNew($ClassGenException, $$str({"Invalid number of dimensions: "_s, $$str(dimensions)}));
 	}
 	{
-		$var(ArrayType, array, nullptr)
+		$var(ArrayType, array, nullptr);
 		switch ($nc(type)->getType()) {
 		case $Const::T_ARRAY:
-			{
-				$assign(array, $cast(ArrayType, type));
-				this->dimensions = dimensions + $nc(array)->dimensions;
-				$set(this, basicType, $nc(array)->basicType);
-				break;
-			}
+			$assign(array, $cast(ArrayType, type));
+			this->dimensions = dimensions + $nc(array)->dimensions;
+			$set(this, basicType, array->basicType);
+			break;
 		case $Const::T_VOID:
-			{
-				$throwNew($ClassGenException, "Invalid type: void[]"_s);
-			}
+			$throwNew($ClassGenException, "Invalid type: void[]"_s);
 		default:
-			{
-				this->dimensions = dimensions;
-				$set(this, basicType, type);
-				break;
-			}
+			this->dimensions = dimensions;
+			$set(this, basicType, type);
+			break;
 		}
 	}
 	$var($StringBuilder, buf, $new($StringBuilder));
@@ -127,7 +89,7 @@ int32_t ArrayType::hashCode() {
 bool ArrayType::equals(Object$* _type) {
 	if ($instanceOf(ArrayType, _type)) {
 		$var(ArrayType, array, $cast(ArrayType, _type));
-		return ($nc(array)->dimensions == this->dimensions) && $nc(array->basicType)->equals(this->basicType);
+		return (array->dimensions == this->dimensions) && $nc(array->basicType)->equals(this->basicType);
 	}
 	return false;
 }
@@ -136,7 +98,33 @@ ArrayType::ArrayType() {
 }
 
 $Class* ArrayType::load$($String* name, bool initialize) {
-	$loadClass(ArrayType, name, initialize, &_ArrayType_ClassInfo_, allocate$ArrayType);
+	$FieldInfo fieldInfos$$[] = {
+		{"dimensions", "I", nullptr, $PRIVATE, $field(ArrayType, dimensions)},
+		{"basicType", "Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PRIVATE, $field(ArrayType, basicType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(BI)V", nullptr, $PUBLIC, $method(ArrayType, init$, void, int8_t, int32_t)},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(ArrayType, init$, void, $String*, int32_t)},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/Type;I)V", nullptr, $PUBLIC, $method(ArrayType, init$, void, $Type*, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ArrayType, equals, bool, Object$*)},
+		{"getBasicType", "()Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $method(ArrayType, getBasicType, $Type*)},
+		{"getDimensions", "()I", nullptr, $PUBLIC, $method(ArrayType, getDimensions, int32_t)},
+		{"getElementType", "()Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $method(ArrayType, getElementType, $Type*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayType, hashCode, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.ArrayType",
+		"com.sun.org.apache.bcel.internal.generic.ReferenceType",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ArrayType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArrayType);
+	});
 	return class$;
 }
 

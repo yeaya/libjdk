@@ -20,6 +20,7 @@ class $export FastTooltipSwitchIAE : public ::java::lang::Object {
 	$class(FastTooltipSwitchIAE, 0, ::java::lang::Object)
 public:
 	FastTooltipSwitchIAE();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void doTest();
 	static void lambda$main$0(::javax::swing::UIManager$LookAndFeelInfo* laf);

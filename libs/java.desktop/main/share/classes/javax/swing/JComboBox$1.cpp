@@ -1,5 +1,4 @@
 #include <javax/swing/JComboBox$1.h>
-
 #include <java/util/EventObject.h>
 #include <javax/swing/JComboBox.h>
 #include <javax/swing/event/AncestorEvent.h>
@@ -15,50 +14,6 @@ using $AncestorEvent = ::javax::swing::event::AncestorEvent;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JComboBox$1_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JComboBox;", nullptr, $FINAL | $SYNTHETIC, $field(JComboBox$1, this$0)},
-	{}
-};
-
-$MethodInfo _JComboBox$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JComboBox;)V", nullptr, 0, $method(JComboBox$1, init$, void, $JComboBox*)},
-	{"ancestorAdded", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(JComboBox$1, ancestorAdded, void, $AncestorEvent*)},
-	{"ancestorMoved", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(JComboBox$1, ancestorMoved, void, $AncestorEvent*)},
-	{"ancestorRemoved", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(JComboBox$1, ancestorRemoved, void, $AncestorEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _JComboBox$1_EnclosingMethodInfo_ = {
-	"javax.swing.JComboBox",
-	"installAncestorListener",
-	"()V"
-};
-
-$InnerClassInfo _JComboBox$1_InnerClassesInfo_[] = {
-	{"javax.swing.JComboBox$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JComboBox$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JComboBox$1",
-	"java.lang.Object",
-	"javax.swing.event.AncestorListener",
-	_JComboBox$1_FieldInfo_,
-	_JComboBox$1_MethodInfo_,
-	nullptr,
-	&_JComboBox$1_EnclosingMethodInfo_,
-	_JComboBox$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JComboBox"
-};
-
-$Object* allocate$JComboBox$1($Class* clazz) {
-	return $of($alloc(JComboBox$1));
-}
 
 void JComboBox$1::init$($JComboBox* this$0) {
 	$set(this, this$0, this$0);
@@ -82,7 +37,44 @@ JComboBox$1::JComboBox$1() {
 }
 
 $Class* JComboBox$1::load$($String* name, bool initialize) {
-	$loadClass(JComboBox$1, name, initialize, &_JComboBox$1_ClassInfo_, allocate$JComboBox$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JComboBox;", nullptr, $FINAL | $SYNTHETIC, $field(JComboBox$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JComboBox;)V", nullptr, 0, $method(JComboBox$1, init$, void, $JComboBox*)},
+		{"ancestorAdded", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(JComboBox$1, ancestorAdded, void, $AncestorEvent*)},
+		{"ancestorMoved", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(JComboBox$1, ancestorMoved, void, $AncestorEvent*)},
+		{"ancestorRemoved", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(JComboBox$1, ancestorRemoved, void, $AncestorEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.JComboBox",
+		"installAncestorListener",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JComboBox$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JComboBox$1",
+		"java.lang.Object",
+		"javax.swing.event.AncestorListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JComboBox"
+	};
+	$loadClass(JComboBox$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JComboBox$1);
+	});
 	return class$;
 }
 

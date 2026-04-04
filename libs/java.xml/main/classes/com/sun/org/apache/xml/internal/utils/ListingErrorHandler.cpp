@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/ListingErrorHandler.h>
-
 #include <com/sun/org/apache/xml/internal/res/XMLErrorResources.h>
 #include <com/sun/org/apache/xml/internal/res/XMLMessages.h>
 #include <com/sun/org/apache/xml/internal/utils/SAXSourceLocator.h>
@@ -10,7 +9,6 @@
 #include <java/io/InputStreamReader.h>
 #include <java/io/OutputStream.h>
 #include <java/io/PrintWriter.h>
-#include <java/io/Reader.h>
 #include <java/lang/StringBuffer.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
@@ -32,9 +30,7 @@ using $WrappedRuntimeException = ::com::sun::org::apache::xml::internal::utils::
 using $BufferedReader = ::java::io::BufferedReader;
 using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
-using $OutputStream = ::java::io::OutputStream;
 using $PrintWriter = ::java::io::PrintWriter;
-using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -57,53 +53,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace utils {
-
-$FieldInfo _ListingErrorHandler_FieldInfo_[] = {
-	{"m_pw", "Ljava/io/PrintWriter;", nullptr, $PROTECTED, $field(ListingErrorHandler, m_pw)},
-	{"throwOnWarning", "Z", nullptr, $PROTECTED, $field(ListingErrorHandler, throwOnWarning)},
-	{"throwOnError", "Z", nullptr, $PROTECTED, $field(ListingErrorHandler, throwOnError)},
-	{"throwOnFatalError", "Z", nullptr, $PROTECTED, $field(ListingErrorHandler, throwOnFatalError)},
-	{}
-};
-
-$MethodInfo _ListingErrorHandler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(ListingErrorHandler, init$, void, $PrintWriter*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ListingErrorHandler, init$, void)},
-	{"error", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(ListingErrorHandler, error, void, $SAXParseException*), "org.xml.sax.SAXException"},
-	{"error", "(Ljavax/xml/transform/TransformerException;)V", nullptr, $PUBLIC, $virtualMethod(ListingErrorHandler, error, void, $TransformerException*), "javax.xml.transform.TransformerException"},
-	{"fatalError", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(ListingErrorHandler, fatalError, void, $SAXParseException*), "org.xml.sax.SAXException"},
-	{"fatalError", "(Ljavax/xml/transform/TransformerException;)V", nullptr, $PUBLIC, $virtualMethod(ListingErrorHandler, fatalError, void, $TransformerException*), "javax.xml.transform.TransformerException"},
-	{"getSourceLine", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(ListingErrorHandler, getSourceLine, $String*, $String*, int32_t), "java.lang.Exception"},
-	{"getThrowOnError", "()Z", nullptr, $PUBLIC, $virtualMethod(ListingErrorHandler, getThrowOnError, bool)},
-	{"getThrowOnFatalError", "()Z", nullptr, $PUBLIC, $virtualMethod(ListingErrorHandler, getThrowOnFatalError, bool)},
-	{"getThrowOnWarning", "()Z", nullptr, $PUBLIC, $virtualMethod(ListingErrorHandler, getThrowOnWarning, bool)},
-	{"logExceptionLocation", "(Ljava/io/PrintWriter;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ListingErrorHandler, logExceptionLocation, void, $PrintWriter*, $Throwable*)},
-	{"logSourceLine", "(Ljava/io/PrintWriter;Ljavax/xml/transform/SourceLocator;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ListingErrorHandler, logSourceLine, void, $PrintWriter*, $SourceLocator*)},
-	{"setThrowOnError", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ListingErrorHandler, setThrowOnError, void, bool)},
-	{"setThrowOnFatalError", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ListingErrorHandler, setThrowOnFatalError, void, bool)},
-	{"setThrowOnWarning", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ListingErrorHandler, setThrowOnWarning, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"warning", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(ListingErrorHandler, warning, void, $SAXParseException*), "org.xml.sax.SAXException"},
-	{"warning", "(Ljavax/xml/transform/TransformerException;)V", nullptr, $PUBLIC, $virtualMethod(ListingErrorHandler, warning, void, $TransformerException*), "javax.xml.transform.TransformerException"},
-	{}
-};
-
-$ClassInfo _ListingErrorHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.ListingErrorHandler",
-	"java.lang.Object",
-	"org.xml.sax.ErrorHandler,javax.xml.transform.ErrorListener",
-	_ListingErrorHandler_FieldInfo_,
-	_ListingErrorHandler_MethodInfo_
-};
-
-$Object* allocate$ListingErrorHandler($Class* clazz) {
-	return $of($alloc(ListingErrorHandler));
-}
 
 int32_t ListingErrorHandler::hashCode() {
 	 return this->$ErrorHandler::hashCode();
@@ -142,11 +91,11 @@ void ListingErrorHandler::init$() {
 	this->throwOnWarning = false;
 	this->throwOnError = true;
 	this->throwOnFatalError = true;
-	$set(this, m_pw, $new($PrintWriter, static_cast<$OutputStream*>($System::err), true));
+	$set(this, m_pw, $new($PrintWriter, $System::err, true));
 }
 
 void ListingErrorHandler::warning($SAXParseException* exception) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	logExceptionLocation(this->m_pw, exception);
 	$nc(this->m_pw)->println($$str({"warning: "_s, $($nc(exception)->getMessage())}));
 	$nc(this->m_pw)->flush();
@@ -156,7 +105,7 @@ void ListingErrorHandler::warning($SAXParseException* exception) {
 }
 
 void ListingErrorHandler::error($SAXParseException* exception) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	logExceptionLocation(this->m_pw, exception);
 	$nc(this->m_pw)->println($$str({"error: "_s, $($nc(exception)->getMessage())}));
 	$nc(this->m_pw)->flush();
@@ -166,7 +115,7 @@ void ListingErrorHandler::error($SAXParseException* exception) {
 }
 
 void ListingErrorHandler::fatalError($SAXParseException* exception) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	logExceptionLocation(this->m_pw, exception);
 	$nc(this->m_pw)->println($$str({"fatalError: "_s, $($nc(exception)->getMessage())}));
 	$nc(this->m_pw)->flush();
@@ -176,30 +125,30 @@ void ListingErrorHandler::fatalError($SAXParseException* exception) {
 }
 
 void ListingErrorHandler::warning($TransformerException* exception) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	logExceptionLocation(this->m_pw, exception);
 	$nc(this->m_pw)->println($$str({"warning: "_s, $($nc(exception)->getMessage())}));
-	$nc(this->m_pw)->flush();
+	this->m_pw->flush();
 	if (getThrowOnWarning()) {
 		$throw(exception);
 	}
 }
 
 void ListingErrorHandler::error($TransformerException* exception) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	logExceptionLocation(this->m_pw, exception);
 	$nc(this->m_pw)->println($$str({"error: "_s, $($nc(exception)->getMessage())}));
-	$nc(this->m_pw)->flush();
+	this->m_pw->flush();
 	if (getThrowOnError()) {
 		$throw(exception);
 	}
 }
 
 void ListingErrorHandler::fatalError($TransformerException* exception) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	logExceptionLocation(this->m_pw, exception);
 	$nc(this->m_pw)->println($$str({"error: "_s, $($nc(exception)->getMessage())}));
-	$nc(this->m_pw)->flush();
+	this->m_pw->flush();
 	if (getThrowOnError()) {
 		$throw(exception);
 	}
@@ -207,10 +156,10 @@ void ListingErrorHandler::fatalError($TransformerException* exception) {
 
 void ListingErrorHandler::logExceptionLocation($PrintWriter* pw$renamed, $Throwable* exception) {
 	$init(ListingErrorHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PrintWriter, pw, pw$renamed);
 	if (nullptr == pw) {
-		$assign(pw, $new($PrintWriter, static_cast<$OutputStream*>($System::err), true));
+		$assign(pw, $new($PrintWriter, $System::err, true));
 	}
 	$var($SourceLocator, locator, nullptr);
 	$var($Throwable, cause, exception);
@@ -218,26 +167,31 @@ void ListingErrorHandler::logExceptionLocation($PrintWriter* pw$renamed, $Throwa
 		if ($instanceOf($SAXParseException, cause)) {
 			$assign(locator, $new($SAXSourceLocator, $cast($SAXParseException, cause)));
 		} else if ($instanceOf($TransformerException, cause)) {
-			$var($SourceLocator, causeLocator, $nc(($cast($TransformerException, cause)))->getLocator());
+			$var($SourceLocator, causeLocator, $cast($TransformerException, cause)->getLocator());
 			if (nullptr != causeLocator) {
 				$assign(locator, causeLocator);
 			}
 		}
 		if ($instanceOf($TransformerException, cause)) {
-			$assign(cause, $nc(($cast($TransformerException, cause)))->getCause());
+			$assign(cause, $cast($TransformerException, cause)->getCause());
 		} else if ($instanceOf($WrappedRuntimeException, cause)) {
-			$assign(cause, $nc(($cast($WrappedRuntimeException, cause)))->getException());
+			$assign(cause, $cast($WrappedRuntimeException, cause)->getException());
 		} else if ($instanceOf($SAXException, cause)) {
-			$assign(cause, $nc(($cast($SAXException, cause)))->getException());
+			$assign(cause, $cast($SAXException, cause)->getException());
 		} else {
 			$assign(cause, nullptr);
 		}
 	} while (nullptr != cause);
 	if (nullptr != locator) {
 		$var($String, id, (locator->getPublicId() != locator->getPublicId()) ? locator->getPublicId() : (nullptr != locator->getSystemId()) ? locator->getSystemId() : "SystemId-Unknown"_s);
-		$var($String, var$1, $$str({id, ":Line="_s, $$str(locator->getLineNumber()), ";Column="_s}));
-		$var($String, var$0, $$concat(var$1, $$str(locator->getColumnNumber())));
-		$nc(pw)->print($$concat(var$0, ": "_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append(id);
+		var$0->append(":Line="_s);
+		var$0->append(locator->getLineNumber());
+		var$0->append(";Column="_s);
+		var$0->append(locator->getColumnNumber());
+		var$0->append(": "_s);
+		$nc(pw)->print($$str(var$0));
 		pw->println($$str({"exception:"_s, $($nc(exception)->getMessage())}));
 		pw->println($$str({"root-cause:"_s, ((nullptr != cause) ? $(cause->getMessage()) : "null"_s)}));
 		logSourceLine(pw, locator);
@@ -250,13 +204,13 @@ void ListingErrorHandler::logExceptionLocation($PrintWriter* pw$renamed, $Throwa
 
 void ListingErrorHandler::logSourceLine($PrintWriter* pw$renamed, $SourceLocator* locator) {
 	$init(ListingErrorHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PrintWriter, pw, pw$renamed);
 	if (nullptr == locator) {
 		return;
 	}
 	if (nullptr == pw) {
-		$assign(pw, $new($PrintWriter, static_cast<$OutputStream*>($System::err), true));
+		$assign(pw, $new($PrintWriter, $System::err, true));
 	}
 	$var($String, url, $nc(locator)->getSystemId());
 	if (nullptr == url) {
@@ -282,13 +236,13 @@ void ListingErrorHandler::logSourceLine($PrintWriter* pw$renamed, $SourceLocator
 
 $String* ListingErrorHandler::getSourceLine($String* sourceUrl, int32_t lineNum) {
 	$init(ListingErrorHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URL, url, nullptr);
 	try {
 		$assign(url, $new($URL, sourceUrl));
 	} catch ($MalformedURLException& mue) {
-		int32_t indexOfColon = $nc(sourceUrl)->indexOf((int32_t)u':');
-		int32_t indexOfSlash = sourceUrl->indexOf((int32_t)u'/');
+		int32_t indexOfColon = $nc(sourceUrl)->indexOf(u':');
+		int32_t indexOfSlash = sourceUrl->indexOf(u'/');
 		if ((indexOfColon != -1) && (indexOfSlash != -1) && (indexOfColon < indexOfSlash)) {
 			$throw(mue);
 		} else {
@@ -298,24 +252,22 @@ $String* ListingErrorHandler::getSourceLine($String* sourceUrl, int32_t lineNum)
 	$var($String, line, nullptr);
 	$var($InputStream, is, nullptr);
 	$var($BufferedReader, br, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($URLConnection, uc, $nc(url)->openConnection());
-			$assign(is, $nc(uc)->getInputStream());
-			$assign(br, $new($BufferedReader, $$new($InputStreamReader, is)));
-			for (int32_t i = 1; i <= lineNum; ++i) {
-				$assign(line, br->readLine());
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(br)->close();
-			$nc(is)->close();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($URLConnection, uc, $nc(url)->openConnection());
+		$assign(is, $nc(uc)->getInputStream());
+		$assign(br, $new($BufferedReader, $$new($InputStreamReader, is)));
+		for (int32_t i = 1; i <= lineNum; ++i) {
+			$assign(line, br->readLine());
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(br)->close();
+		$nc(is)->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return line;
 }
@@ -348,7 +300,49 @@ ListingErrorHandler::ListingErrorHandler() {
 }
 
 $Class* ListingErrorHandler::load$($String* name, bool initialize) {
-	$loadClass(ListingErrorHandler, name, initialize, &_ListingErrorHandler_ClassInfo_, allocate$ListingErrorHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_pw", "Ljava/io/PrintWriter;", nullptr, $PROTECTED, $field(ListingErrorHandler, m_pw)},
+		{"throwOnWarning", "Z", nullptr, $PROTECTED, $field(ListingErrorHandler, throwOnWarning)},
+		{"throwOnError", "Z", nullptr, $PROTECTED, $field(ListingErrorHandler, throwOnError)},
+		{"throwOnFatalError", "Z", nullptr, $PROTECTED, $field(ListingErrorHandler, throwOnFatalError)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(ListingErrorHandler, init$, void, $PrintWriter*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ListingErrorHandler, init$, void)},
+		{"error", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(ListingErrorHandler, error, void, $SAXParseException*), "org.xml.sax.SAXException"},
+		{"error", "(Ljavax/xml/transform/TransformerException;)V", nullptr, $PUBLIC, $virtualMethod(ListingErrorHandler, error, void, $TransformerException*), "javax.xml.transform.TransformerException"},
+		{"fatalError", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(ListingErrorHandler, fatalError, void, $SAXParseException*), "org.xml.sax.SAXException"},
+		{"fatalError", "(Ljavax/xml/transform/TransformerException;)V", nullptr, $PUBLIC, $virtualMethod(ListingErrorHandler, fatalError, void, $TransformerException*), "javax.xml.transform.TransformerException"},
+		{"getSourceLine", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(ListingErrorHandler, getSourceLine, $String*, $String*, int32_t), "java.lang.Exception"},
+		{"getThrowOnError", "()Z", nullptr, $PUBLIC, $virtualMethod(ListingErrorHandler, getThrowOnError, bool)},
+		{"getThrowOnFatalError", "()Z", nullptr, $PUBLIC, $virtualMethod(ListingErrorHandler, getThrowOnFatalError, bool)},
+		{"getThrowOnWarning", "()Z", nullptr, $PUBLIC, $virtualMethod(ListingErrorHandler, getThrowOnWarning, bool)},
+		{"logExceptionLocation", "(Ljava/io/PrintWriter;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ListingErrorHandler, logExceptionLocation, void, $PrintWriter*, $Throwable*)},
+		{"logSourceLine", "(Ljava/io/PrintWriter;Ljavax/xml/transform/SourceLocator;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ListingErrorHandler, logSourceLine, void, $PrintWriter*, $SourceLocator*)},
+		{"setThrowOnError", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ListingErrorHandler, setThrowOnError, void, bool)},
+		{"setThrowOnFatalError", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ListingErrorHandler, setThrowOnFatalError, void, bool)},
+		{"setThrowOnWarning", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ListingErrorHandler, setThrowOnWarning, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"warning", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(ListingErrorHandler, warning, void, $SAXParseException*), "org.xml.sax.SAXException"},
+		{"warning", "(Ljavax/xml/transform/TransformerException;)V", nullptr, $PUBLIC, $virtualMethod(ListingErrorHandler, warning, void, $TransformerException*), "javax.xml.transform.TransformerException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.ListingErrorHandler",
+		"java.lang.Object",
+		"org.xml.sax.ErrorHandler,javax.xml.transform.ErrorListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ListingErrorHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ListingErrorHandler));
+	});
 	return class$;
 }
 

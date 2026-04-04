@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLSchemaDescription.h>
-
 #include <com/sun/org/apache/xerces/internal/xni/QName.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLAttributes.h>
 #include <jcpp.h>
@@ -28,43 +27,38 @@ namespace com {
 						namespace xni {
 							namespace grammars {
 
-$FieldInfo _XMLSchemaDescription_FieldInfo_[] = {
-	{"CONTEXT_INCLUDE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLSchemaDescription, CONTEXT_INCLUDE)},
-	{"CONTEXT_REDEFINE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLSchemaDescription, CONTEXT_REDEFINE)},
-	{"CONTEXT_IMPORT", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLSchemaDescription, CONTEXT_IMPORT)},
-	{"CONTEXT_PREPARSE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLSchemaDescription, CONTEXT_PREPARSE)},
-	{"CONTEXT_INSTANCE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLSchemaDescription, CONTEXT_INSTANCE)},
-	{"CONTEXT_ELEMENT", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLSchemaDescription, CONTEXT_ELEMENT)},
-	{"CONTEXT_ATTRIBUTE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLSchemaDescription, CONTEXT_ATTRIBUTE)},
-	{"CONTEXT_XSITYPE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLSchemaDescription, CONTEXT_XSITYPE)},
-	{}
-};
-
-$MethodInfo _XMLSchemaDescription_MethodInfo_[] = {
-	{"getAttributes", "()Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSchemaDescription, getAttributes, $XMLAttributes*)},
-	{"getContextType", "()S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSchemaDescription, getContextType, int16_t)},
-	{"getEnclosingElementName", "()Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSchemaDescription, getEnclosingElementName, $QName*)},
-	{"getLocationHints", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSchemaDescription, getLocationHints, $StringArray*)},
-	{"getTargetNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSchemaDescription, getTargetNamespace, $String*)},
-	{"getTriggeringComponent", "()Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSchemaDescription, getTriggeringComponent, $QName*)},
-	{}
-};
-
-$ClassInfo _XMLSchemaDescription_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.xni.grammars.XMLSchemaDescription",
-	nullptr,
-	"com.sun.org.apache.xerces.internal.xni.grammars.XMLGrammarDescription",
-	_XMLSchemaDescription_FieldInfo_,
-	_XMLSchemaDescription_MethodInfo_
-};
-
-$Object* allocate$XMLSchemaDescription($Class* clazz) {
-	return $of($alloc(XMLSchemaDescription));
-}
-
 $Class* XMLSchemaDescription::load$($String* name, bool initialize) {
-	$loadClass(XMLSchemaDescription, name, initialize, &_XMLSchemaDescription_ClassInfo_, allocate$XMLSchemaDescription);
+	$FieldInfo fieldInfos$$[] = {
+		{"CONTEXT_INCLUDE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLSchemaDescription, CONTEXT_INCLUDE)},
+		{"CONTEXT_REDEFINE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLSchemaDescription, CONTEXT_REDEFINE)},
+		{"CONTEXT_IMPORT", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLSchemaDescription, CONTEXT_IMPORT)},
+		{"CONTEXT_PREPARSE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLSchemaDescription, CONTEXT_PREPARSE)},
+		{"CONTEXT_INSTANCE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLSchemaDescription, CONTEXT_INSTANCE)},
+		{"CONTEXT_ELEMENT", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLSchemaDescription, CONTEXT_ELEMENT)},
+		{"CONTEXT_ATTRIBUTE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLSchemaDescription, CONTEXT_ATTRIBUTE)},
+		{"CONTEXT_XSITYPE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLSchemaDescription, CONTEXT_XSITYPE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"getAttributes", "()Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSchemaDescription, getAttributes, $XMLAttributes*)},
+		{"getContextType", "()S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSchemaDescription, getContextType, int16_t)},
+		{"getEnclosingElementName", "()Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSchemaDescription, getEnclosingElementName, $QName*)},
+		{"getLocationHints", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSchemaDescription, getLocationHints, $StringArray*)},
+		{"getTargetNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSchemaDescription, getTargetNamespace, $String*)},
+		{"getTriggeringComponent", "()Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSchemaDescription, getTriggeringComponent, $QName*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.xni.grammars.XMLSchemaDescription",
+		nullptr,
+		"com.sun.org.apache.xerces.internal.xni.grammars.XMLGrammarDescription",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLSchemaDescription, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLSchemaDescription);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <bug6823603.h>
-
 #include <bug6823603$1.h>
 #include <bug6823603$2.h>
 #include <bug6823603$3.h>
@@ -40,47 +39,6 @@ using $ListCellRenderer = ::javax::swing::ListCellRenderer;
 using $ListModel = ::javax::swing::ListModel;
 using $ListSelectionModel = ::javax::swing::ListSelectionModel;
 
-$FieldInfo _bug6823603_FieldInfo_[] = {
-	{"TEST_ELEMENT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug6823603, TEST_ELEMENT)},
-	{}
-};
-
-$MethodInfo _bug6823603_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6823603, init$, void)},
-	{"assertEquals", "([Ljava/lang/Object;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6823603, assertEquals, void, $ObjectArray*, $ObjectArray*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6823603, main, void, $StringArray*)},
-	{"testGenericSignatures", "()V", "<E:Ljava/lang/Object;>()V", $PRIVATE | $STATIC, $staticMethod(bug6823603, testGenericSignatures, void)},
-	{"testGetSelectedValuesList", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6823603, testGetSelectedValuesList, void)},
-	{"testRawSignatures", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6823603, testRawSignatures, void)},
-	{}
-};
-
-$InnerClassInfo _bug6823603_InnerClassesInfo_[] = {
-	{"bug6823603$3", nullptr, nullptr, 0},
-	{"bug6823603$2", nullptr, nullptr, 0},
-	{"bug6823603$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6823603_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6823603",
-	"java.lang.Object",
-	nullptr,
-	_bug6823603_FieldInfo_,
-	_bug6823603_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6823603_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug6823603$3,bug6823603$2,bug6823603$1"
-};
-
-$Object* allocate$bug6823603($Class* clazz) {
-	return $of($alloc(bug6823603));
-}
-
 $String* bug6823603::TEST_ELEMENT = nullptr;
 
 void bug6823603::init$() {
@@ -95,11 +53,11 @@ void bug6823603::main($StringArray* args) {
 
 void bug6823603::testRawSignatures() {
 	$init(bug6823603);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListModel, rawTestModel, $new($DefaultListModel));
 	$new($JList);
 	$new($JList, rawTestModel);
-	$new($JList, $$new($ObjectArray, {$of(bug6823603::TEST_ELEMENT)}));
+	$new($JList, $$new($ObjectArray, {bug6823603::TEST_ELEMENT}));
 	$var($JList, rawTestList, $new($JList, $$new($Vector)));
 	rawTestList->getPrototypeCellValue();
 	rawTestList->setPrototypeCellValue(bug6823603::TEST_ELEMENT);
@@ -107,13 +65,13 @@ void bug6823603::testRawSignatures() {
 	rawTestList->setCellRenderer($$new($DefaultListCellRenderer));
 	rawTestList->getModel();
 	rawTestList->setModel(rawTestModel);
-	rawTestList->setListData($$new($ObjectArray, {$of(bug6823603::TEST_ELEMENT)}));
+	rawTestList->setListData($$new($ObjectArray, {bug6823603::TEST_ELEMENT}));
 	rawTestList->setListData($$new($Vector));
 	$var($ObjectArray, selectedValues, rawTestList->getSelectedValues());
 	rawTestList->getSelectedValue();
 	$var($ListCellRenderer, rawTestCellRenderer, $new($DefaultListCellRenderer));
 	$var($String, testEntry, "Test"_s);
-	$var($JList, rawJList, $new($JList, $$new($ObjectArray, {$of(testEntry)})));
+	$var($JList, rawJList, $new($JList, $$new($ObjectArray, {testEntry})));
 	rawTestCellRenderer->getListCellRendererComponent(rawJList, testEntry, 0, true, true);
 	$var($DefaultListModel, testModel, $new($DefaultListModel));
 	testModel->addElement(bug6823603::TEST_ELEMENT);
@@ -135,13 +93,13 @@ void bug6823603::testRawSignatures() {
 	defaultListModel->remove(0);
 	$var($ListModel, abstractListModel, $new($bug6823603$1));
 	$var($DefaultListCellRenderer, cellRenderer, $new($DefaultListCellRenderer));
-	$var($JList, list, $new($JList, $$new($ObjectArray, {$of(testEntry)})));
+	$var($JList, list, $new($JList, $$new($ObjectArray, {testEntry})));
 	cellRenderer->getListCellRendererComponent(rawJList, testEntry, 0, true, true);
 }
 
 void bug6823603::testGenericSignatures() {
 	$init(bug6823603);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListModel, stringListModel, $new($DefaultListModel));
 	$new($JList);
 	$new($JList, stringListModel);
@@ -188,7 +146,7 @@ void bug6823603::testGenericSignatures() {
 
 void bug6823603::testGetSelectedValuesList() {
 	$init(bug6823603);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, data, $new($Vector));
 	for (int32_t i = 0; i < 10; ++i) {
 		data->add($($Integer::valueOf(i)));
@@ -210,22 +168,61 @@ void bug6823603::testGetSelectedValuesList() {
 
 void bug6823603::assertEquals($ObjectArray* expectedArray, $ObjectArray* actualArray) {
 	$init(bug6823603);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$Arrays::equals(expectedArray, actualArray)) {
-		$var($String, var$0, $$str({"Expected: "_s, $($Arrays::toString(expectedArray)), " but was: "_s}));
-		$throwNew($RuntimeException, $$concat(var$0, $($Arrays::toString(actualArray))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Expected: "_s);
+		var$0->append($($Arrays::toString(expectedArray)));
+		var$0->append(" but was: "_s);
+		var$0->append($($Arrays::toString(actualArray)));
+		$throwNew($RuntimeException, $$str(var$0));
 	}
 }
 
 bug6823603::bug6823603() {
 }
 
-void clinit$bug6823603($Class* class$) {
+void bug6823603::clinit$($Class* clazz) {
 	$assignStatic(bug6823603::TEST_ELEMENT, "Test1"_s);
 }
 
 $Class* bug6823603::load$($String* name, bool initialize) {
-	$loadClass(bug6823603, name, initialize, &_bug6823603_ClassInfo_, clinit$bug6823603, allocate$bug6823603);
+	$FieldInfo fieldInfos$$[] = {
+		{"TEST_ELEMENT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug6823603, TEST_ELEMENT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6823603, init$, void)},
+		{"assertEquals", "([Ljava/lang/Object;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6823603, assertEquals, void, $ObjectArray*, $ObjectArray*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6823603, main, void, $StringArray*)},
+		{"testGenericSignatures", "()V", "<E:Ljava/lang/Object;>()V", $PRIVATE | $STATIC, $staticMethod(bug6823603, testGenericSignatures, void)},
+		{"testGetSelectedValuesList", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6823603, testGetSelectedValuesList, void)},
+		{"testRawSignatures", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6823603, testRawSignatures, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6823603$3", nullptr, nullptr, 0},
+		{"bug6823603$2", nullptr, nullptr, 0},
+		{"bug6823603$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6823603",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug6823603$3,bug6823603$2,bug6823603$1"
+	};
+	$loadClass(bug6823603, name, initialize, &classInfo$$, bug6823603::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6823603);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XFileDialogPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BorderLayout.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
@@ -20,7 +19,6 @@
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/Image.h>
 #include <java/awt/Insets.h>
-#include <java/awt/KeyEventDispatcher.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/Label.h>
 #include <java/awt/LayoutManager.h>
@@ -29,10 +27,8 @@
 #include <java/awt/Point.h>
 #include <java/awt/TextField.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/FocusEvent$Cause.h>
 #include <java/awt/event/ItemEvent.h>
-#include <java/awt/event/ItemListener.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/PaintEvent.h>
 #include <java/awt/event/WindowListener.h>
@@ -44,7 +40,6 @@
 #include <java/io/FilenameFilter.h>
 #include <java/io/IOException.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Arrays.h>
 #include <java/util/EventObject.h>
 #include <java/util/List.h>
@@ -57,7 +52,6 @@
 #include <sun/awt/X11/ListHelper.h>
 #include <sun/awt/X11/Separator.h>
 #include <sun/awt/X11/XChoicePeer.h>
-#include <sun/awt/X11/XChoicePeerListener.h>
 #include <sun/awt/X11/XDecoratedPeer.h>
 #include <sun/awt/X11/XDialogPeer.h>
 #include <sun/awt/X11/XFileDialogPeer$1.h>
@@ -109,22 +103,17 @@ using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $Image = ::java::awt::Image;
 using $Insets = ::java::awt::Insets;
-using $KeyEventDispatcher = ::java::awt::KeyEventDispatcher;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $Label = ::java::awt::Label;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $1List = ::java::awt::List;
 using $Panel = ::java::awt::Panel;
 using $Point = ::java::awt::Point;
 using $TextField = ::java::awt::TextField;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $FocusEvent$Cause = ::java::awt::event::FocusEvent$Cause;
 using $ItemEvent = ::java::awt::event::ItemEvent;
-using $ItemListener = ::java::awt::event::ItemListener;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $PaintEvent = ::java::awt::event::PaintEvent;
-using $WindowListener = ::java::awt::event::WindowListener;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $VolatileImage = ::java::awt::image::VolatileImage;
 using $ComponentPeer = ::java::awt::peer::ComponentPeer;
@@ -138,7 +127,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Arrays = ::java::util::Arrays;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
@@ -150,7 +138,6 @@ using $FileDialogFilter = ::sun::awt::X11::FileDialogFilter;
 using $ListHelper = ::sun::awt::X11::ListHelper;
 using $Separator = ::sun::awt::X11::Separator;
 using $XChoicePeer = ::sun::awt::X11::XChoicePeer;
-using $XChoicePeerListener = ::sun::awt::X11::XChoicePeerListener;
 using $XDialogPeer = ::sun::awt::X11::XDialogPeer;
 using $XFileDialogPeer$1 = ::sun::awt::X11::XFileDialogPeer$1;
 using $XFileDialogPeer$2 = ::sun::awt::X11::XFileDialogPeer$2;
@@ -163,159 +150,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XFileDialogPeer_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XFileDialogPeer, log)},
-	{"target", "Ljava/awt/FileDialog;", nullptr, 0, $field(XFileDialogPeer, target)},
-	{"file", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, file)},
-	{"dir", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, dir)},
-	{"title", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, title)},
-	{"mode", "I", nullptr, 0, $field(XFileDialogPeer, mode)},
-	{"filter", "Ljava/io/FilenameFilter;", nullptr, 0, $field(XFileDialogPeer, filter)},
-	{"PATH_CHOICE_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XFileDialogPeer, PATH_CHOICE_WIDTH)},
-	{"savedFile", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, savedFile)},
-	{"savedDir", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, savedDir)},
-	{"userDir", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, userDir)},
-	{"fileDialog", "Ljava/awt/Dialog;", nullptr, 0, $field(XFileDialogPeer, fileDialog)},
-	{"gbl", "Ljava/awt/GridBagLayout;", nullptr, 0, $field(XFileDialogPeer, gbl)},
-	{"gblButtons", "Ljava/awt/GridBagLayout;", nullptr, 0, $field(XFileDialogPeer, gblButtons)},
-	{"gbc", "Ljava/awt/GridBagConstraints;", nullptr, 0, $field(XFileDialogPeer, gbc)},
-	{"filterField", "Ljava/awt/TextField;", nullptr, 0, $field(XFileDialogPeer, filterField)},
-	{"selectionField", "Ljava/awt/TextField;", nullptr, 0, $field(XFileDialogPeer, selectionField)},
-	{"directoryList", "Ljava/awt/List;", nullptr, 0, $field(XFileDialogPeer, directoryList)},
-	{"fileList", "Ljava/awt/List;", nullptr, 0, $field(XFileDialogPeer, fileList)},
-	{"buttons", "Ljava/awt/Panel;", nullptr, 0, $field(XFileDialogPeer, buttons)},
-	{"openButton", "Ljava/awt/Button;", nullptr, 0, $field(XFileDialogPeer, openButton)},
-	{"filterButton", "Ljava/awt/Button;", nullptr, 0, $field(XFileDialogPeer, filterButton)},
-	{"cancelButton", "Ljava/awt/Button;", nullptr, 0, $field(XFileDialogPeer, cancelButton)},
-	{"pathChoice", "Ljava/awt/Choice;", nullptr, 0, $field(XFileDialogPeer, pathChoice)},
-	{"pathField", "Ljava/awt/TextField;", nullptr, 0, $field(XFileDialogPeer, pathField)},
-	{"pathPanel", "Ljava/awt/Panel;", nullptr, 0, $field(XFileDialogPeer, pathPanel)},
-	{"cancelButtonText", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, cancelButtonText)},
-	{"enterFileNameLabelText", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, enterFileNameLabelText)},
-	{"filesLabelText", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, filesLabelText)},
-	{"foldersLabelText", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, foldersLabelText)},
-	{"pathLabelText", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, pathLabelText)},
-	{"filterLabelText", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, filterLabelText)},
-	{"openButtonText", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, openButtonText)},
-	{"saveButtonText", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, saveButtonText)},
-	{"actionButtonText", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, actionButtonText)},
-	{}
-};
-
-$MethodInfo _XFileDialogPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
-	{"*beginLayout", "()V", nullptr, $PUBLIC},
-	{"*beginValidate", "()V", nullptr, $PUBLIC},
-	{"*blockWindows", "(Ljava/util/List;)V", nullptr, $PUBLIC},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC},
-	{"*endLayout", "()V", nullptr, $PUBLIC},
-	{"*endValidate", "()V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
-	{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/FileDialog;)V", nullptr, 0, $method(XFileDialogPeer, init$, void, $FileDialog*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(XFileDialogPeer, actionPerformed, void, $ActionEvent*)},
-	{"addComponent", "(Ljava/awt/Component;Ljava/awt/GridBagLayout;Ljava/awt/GridBagConstraints;IIIILjava/awt/Container;IIILjava/awt/Insets;)V", nullptr, 0, $virtualMethod(XFileDialogPeer, addComponent, void, $Component*, $GridBagLayout*, $GridBagConstraints*, int32_t, int32_t, int32_t, int32_t, $Container*, int32_t, int32_t, int32_t, $Insets*)},
-	{"addItemsToPathChoice", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XFileDialogPeer, addItemsToPathChoice, void, $String*)},
-	{"dispatchKeyEvent", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PUBLIC, $virtualMethod(XFileDialogPeer, dispatchKeyEvent, bool, $KeyEvent*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XFileDialogPeer, dispose, void)},
-	{"getDirList", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, 0, $virtualMethod(XFileDialogPeer, getDirList, $StringArray*, $String*)},
-	{"getFileName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(XFileDialogPeer, getFileName, $String*, $String*)},
-	{"getParentDirectory", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XFileDialogPeer, getParentDirectory, $String*)},
-	{"handleCancel", "()V", nullptr, 0, $virtualMethod(XFileDialogPeer, handleCancel, void)},
-	{"handleFilter", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(XFileDialogPeer, handleFilter, void, $String*)},
-	{"handleQuitButton", "()V", nullptr, 0, $virtualMethod(XFileDialogPeer, handleQuitButton, void)},
-	{"handleSelection", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(XFileDialogPeer, handleSelection, void, $String*)},
-	{"init", "(Ljava/awt/FileDialog;)V", nullptr, $PRIVATE, $method(XFileDialogPeer, init, void, $FileDialog*)},
-	{"installStrings", "()V", nullptr, 0, $virtualMethod(XFileDialogPeer, installStrings, void)},
-	{"*isFocusable", "()Z", nullptr, $PUBLIC},
-	{"*isObscured", "()Z", nullptr, $PUBLIC},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(XFileDialogPeer, itemStateChanged, void, $ItemEvent*)},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*repositionSecurityWarning", "()V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"setDirectory", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XFileDialogPeer, setDirectory, void, $String*)},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"setFile", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XFileDialogPeer, setFile, void, $String*)},
-	{"setFilenameFilter", "(Ljava/io/FilenameFilter;)V", nullptr, $PUBLIC, $virtualMethod(XFileDialogPeer, setFilenameFilter, void, $FilenameFilter*)},
-	{"setFilterEntry", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(XFileDialogPeer, setFilterEntry, void, $String*, $String*)},
-	{"setFilterField", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(XFileDialogPeer, setFilterField, void, $String*)},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"*setModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC},
-	{"*setOpacity", "(F)V", nullptr, $PUBLIC},
-	{"*setOpaque", "(Z)V", nullptr, $PUBLIC},
-	{"*setResizable", "(Z)V", nullptr, $PUBLIC},
-	{"setSelectionField", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(XFileDialogPeer, setSelectionField, void, $String*)},
-	{"*setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XFileDialogPeer, setVisible, void, bool)},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"*toBack", "()V", nullptr, $PUBLIC},
-	{"*toFront", "()V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unfurledChoiceClosing", "()V", nullptr, $PUBLIC, $virtualMethod(XFileDialogPeer, unfurledChoiceClosing, void)},
-	{"unfurledChoiceOpening", "(Lsun/awt/X11/ListHelper;)V", nullptr, $PUBLIC, $virtualMethod(XFileDialogPeer, unfurledChoiceOpening, void, $ListHelper*)},
-	{"*updateAlwaysOnTopState", "()V", nullptr, $PUBLIC},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"updateDirectoryByUserAction", "(Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(XFileDialogPeer, updateDirectoryByUserAction, bool, $String*)},
-	{"*updateFocusableWindowState", "()V", nullptr, $PUBLIC},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"updateIconImages", "()V", nullptr, $PUBLIC, $virtualMethod(XFileDialogPeer, updateIconImages, void)},
-	{"updateMinimumSize", "()V", nullptr, $PUBLIC, $virtualMethod(XFileDialogPeer, updateMinimumSize, void)},
-	{"*updateWindow", "()V", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _XFileDialogPeer_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XFileDialogPeer$3", nullptr, nullptr, 0},
-	{"sun.awt.X11.XFileDialogPeer$2", nullptr, nullptr, 0},
-	{"sun.awt.X11.XFileDialogPeer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XFileDialogPeer_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XFileDialogPeer",
-	"sun.awt.X11.XDialogPeer",
-	"java.awt.peer.FileDialogPeer,java.awt.event.ActionListener,java.awt.event.ItemListener,java.awt.KeyEventDispatcher,sun.awt.X11.XChoicePeerListener",
-	_XFileDialogPeer_FieldInfo_,
-	_XFileDialogPeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XFileDialogPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XFileDialogPeer$3,sun.awt.X11.XFileDialogPeer$2,sun.awt.X11.XFileDialogPeer$1"
-};
-
-$Object* allocate$XFileDialogPeer($Class* clazz) {
-	return $of($alloc(XFileDialogPeer));
-}
 
 void XFileDialogPeer::blockWindows($List* toBlock) {
 	this->$XDialogPeer::blockWindows(toBlock);
@@ -544,7 +378,7 @@ void XFileDialogPeer::finalize() {
 $PlatformLogger* XFileDialogPeer::log = nullptr;
 
 void XFileDialogPeer::installStrings() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, l, $nc(this->target)->getLocale());
 	$var($UIDefaults, uid, $XToolkit::getUIDefaults());
 	$set(this, cancelButtonText, $nc(uid)->getString("FileChooser.cancelButtonText"_s, l));
@@ -558,7 +392,7 @@ void XFileDialogPeer::installStrings() {
 }
 
 void XFileDialogPeer::init$($FileDialog* target) {
-	$XDialogPeer::init$(static_cast<$Dialog*>(target));
+	$XDialogPeer::init$($cast($Dialog, target));
 	$set(this, cancelButtonText, nullptr);
 	$set(this, enterFileNameLabelText, nullptr);
 	$set(this, filesLabelText, nullptr);
@@ -572,7 +406,7 @@ void XFileDialogPeer::init$($FileDialog* target) {
 }
 
 void XFileDialogPeer::init($FileDialog* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$set(this, fileDialog, target);
 	$set(this, title, $nc(target)->getTitle());
@@ -581,14 +415,14 @@ void XFileDialogPeer::init($FileDialog* target) {
 	$set(this, filter, target->getFilenameFilter());
 	$set(this, savedFile, target->getFile());
 	$set(this, savedDir, target->getDirectory());
-	$set(this, userDir, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($XFileDialogPeer$1, this)))));
+	$set(this, userDir, $cast($String, $AccessController::doPrivileged($$new($XFileDialogPeer$1, this))));
 	installStrings();
 	$set(this, gbl, $new($GridBagLayout));
 	$set(this, gblButtons, $new($GridBagLayout));
 	$set(this, gbc, $new($GridBagConstraints));
 	$nc(this->fileDialog)->setLayout(this->gbl);
 	$set(this, buttons, $new($Panel));
-	$nc(this->buttons)->setLayout(this->gblButtons);
+	this->buttons->setLayout(this->gblButtons);
 	$set(this, actionButtonText, (target->getMode() == $FileDialog::SAVE) ? this->saveButtonText : this->openButtonText);
 	$set(this, openButton, $new($Button, this->actionButtonText));
 	$set(this, filterButton, $new($Button, this->filterLabelText));
@@ -597,7 +431,7 @@ void XFileDialogPeer::init($FileDialog* target) {
 	$set(this, fileList, $new($1List));
 	$set(this, filterField, $new($TextField));
 	$set(this, selectionField, $new($TextField));
-	bool isMultipleMode = $nc($($AWTAccessor::getFileDialogAccessor()))->isMultipleMode(target);
+	bool isMultipleMode = $$nc($AWTAccessor::getFileDialogAccessor())->isMultipleMode(target);
 	$nc(this->fileList)->setMultipleMode(isMultipleMode);
 	$var($Insets, noInset, $new($Insets, 0, 0, 0, 0));
 	$var($Insets, textFieldInset, $new($Insets, 0, 8, 0, 8));
@@ -610,39 +444,38 @@ void XFileDialogPeer::init($FileDialog* target) {
 	$var($Font, f, $new($Font, $Font::DIALOG, $Font::PLAIN, 12));
 	$var($Label, label, $new($Label, this->pathLabelText));
 	label->setFont(f);
-	addComponent(label, this->gbl, this->gbc, 0, 0, 1, $GridBagConstraints::WEST, static_cast<$Container*>(this->fileDialog), 1, 0, $GridBagConstraints::NONE, labelInset);
+	addComponent(label, this->gbl, this->gbc, 0, 0, 1, $GridBagConstraints::WEST, $cast($Container, this->fileDialog), 1, 0, $GridBagConstraints::NONE, labelInset);
 	$set(this, pathField, $new($TextField, this->savedDir != nullptr ? this->savedDir : this->userDir));
 	$var($Choice, tmp, $new($XFileDialogPeer$2, this));
 	$set(this, pathChoice, tmp);
 	$set(this, pathPanel, $new($Panel));
-	$nc(this->pathPanel)->setLayout($$new($BorderLayout));
-	$init($BorderLayout);
-	$nc(this->pathPanel)->add(static_cast<$Component*>(this->pathField), $of($BorderLayout::CENTER));
-	$nc(this->pathPanel)->add(static_cast<$Component*>(this->pathChoice), $of($BorderLayout::EAST));
-	addComponent(this->pathPanel, this->gbl, this->gbc, 0, 1, 2, $GridBagConstraints::WEST, static_cast<$Container*>(this->fileDialog), 1, 0, $GridBagConstraints::HORIZONTAL, textFieldInset);
+	this->pathPanel->setLayout($$new($BorderLayout));
+	$nc(this->pathPanel)->add(this->pathField, $BorderLayout::CENTER);
+	$nc(this->pathPanel)->add(this->pathChoice, $BorderLayout::EAST);
+	addComponent(this->pathPanel, this->gbl, this->gbc, 0, 1, 2, $GridBagConstraints::WEST, $cast($Container, this->fileDialog), 1, 0, $GridBagConstraints::HORIZONTAL, textFieldInset);
 	$assign(label, $new($Label, this->filterLabelText));
 	label->setFont(f);
-	addComponent(label, this->gbl, this->gbc, 0, 2, 1, $GridBagConstraints::WEST, static_cast<$Container*>(this->fileDialog), 1, 0, $GridBagConstraints::NONE, labelInset);
-	addComponent(this->filterField, this->gbl, this->gbc, 0, 3, 2, $GridBagConstraints::WEST, static_cast<$Container*>(this->fileDialog), 1, 0, $GridBagConstraints::HORIZONTAL, textFieldInset);
+	addComponent(label, this->gbl, this->gbc, 0, 2, 1, $GridBagConstraints::WEST, $cast($Container, this->fileDialog), 1, 0, $GridBagConstraints::NONE, labelInset);
+	addComponent(this->filterField, this->gbl, this->gbc, 0, 3, 2, $GridBagConstraints::WEST, $cast($Container, this->fileDialog), 1, 0, $GridBagConstraints::HORIZONTAL, textFieldInset);
 	$assign(label, $new($Label, this->foldersLabelText));
 	label->setFont(f);
-	addComponent(label, this->gbl, this->gbc, 0, 4, 1, $GridBagConstraints::WEST, static_cast<$Container*>(this->fileDialog), 1, 0, $GridBagConstraints::NONE, labelInset);
+	addComponent(label, this->gbl, this->gbc, 0, 4, 1, $GridBagConstraints::WEST, $cast($Container, this->fileDialog), 1, 0, $GridBagConstraints::NONE, labelInset);
 	$assign(label, $new($Label, this->filesLabelText));
 	label->setFont(f);
-	addComponent(label, this->gbl, this->gbc, 1, 4, 1, $GridBagConstraints::WEST, static_cast<$Container*>(this->fileDialog), 1, 0, $GridBagConstraints::NONE, labelInset);
-	addComponent(this->directoryList, this->gbl, this->gbc, 0, 5, 1, $GridBagConstraints::WEST, static_cast<$Container*>(this->fileDialog), 1, 1, $GridBagConstraints::BOTH, leftListInset);
-	addComponent(this->fileList, this->gbl, this->gbc, 1, 5, 1, $GridBagConstraints::WEST, static_cast<$Container*>(this->fileDialog), 1, 1, $GridBagConstraints::BOTH, rightListInset);
+	addComponent(label, this->gbl, this->gbc, 1, 4, 1, $GridBagConstraints::WEST, $cast($Container, this->fileDialog), 1, 0, $GridBagConstraints::NONE, labelInset);
+	addComponent(this->directoryList, this->gbl, this->gbc, 0, 5, 1, $GridBagConstraints::WEST, $cast($Container, this->fileDialog), 1, 1, $GridBagConstraints::BOTH, leftListInset);
+	addComponent(this->fileList, this->gbl, this->gbc, 1, 5, 1, $GridBagConstraints::WEST, $cast($Container, this->fileDialog), 1, 1, $GridBagConstraints::BOTH, rightListInset);
 	$assign(label, $new($Label, this->enterFileNameLabelText));
 	label->setFont(f);
-	addComponent(label, this->gbl, this->gbc, 0, 6, 1, $GridBagConstraints::WEST, static_cast<$Container*>(this->fileDialog), 1, 0, $GridBagConstraints::NONE, labelInset);
-	addComponent(this->selectionField, this->gbl, this->gbc, 0, 7, 2, $GridBagConstraints::WEST, static_cast<$Container*>(this->fileDialog), 1, 0, $GridBagConstraints::HORIZONTAL, textFieldInset);
-	addComponent($$new($Separator, $nc($($nc(this->fileDialog)->size()))->width, 2, $Separator::HORIZONTAL), this->gbl, this->gbc, 0, 8, 15, $GridBagConstraints::WEST, static_cast<$Container*>(this->fileDialog), 1, 0, $GridBagConstraints::HORIZONTAL, separatorInset);
-	addComponent(this->openButton, this->gblButtons, this->gbc, 0, 0, 1, $GridBagConstraints::WEST, static_cast<$Container*>(this->buttons), 1, 0, $GridBagConstraints::NONE, noInset);
-	addComponent(this->filterButton, this->gblButtons, this->gbc, 1, 0, 1, $GridBagConstraints::CENTER, static_cast<$Container*>(this->buttons), 1, 0, $GridBagConstraints::NONE, noInset);
-	addComponent(this->cancelButton, this->gblButtons, this->gbc, 2, 0, 1, $GridBagConstraints::EAST, static_cast<$Container*>(this->buttons), 1, 0, $GridBagConstraints::NONE, noInset);
-	addComponent(this->buttons, this->gbl, this->gbc, 0, 9, 2, $GridBagConstraints::WEST, static_cast<$Container*>(this->fileDialog), 1, 0, $GridBagConstraints::HORIZONTAL, buttonsInset);
+	addComponent(label, this->gbl, this->gbc, 0, 6, 1, $GridBagConstraints::WEST, $cast($Container, this->fileDialog), 1, 0, $GridBagConstraints::NONE, labelInset);
+	addComponent(this->selectionField, this->gbl, this->gbc, 0, 7, 2, $GridBagConstraints::WEST, $cast($Container, this->fileDialog), 1, 0, $GridBagConstraints::HORIZONTAL, textFieldInset);
+	addComponent($$new($Separator, $nc($($nc(this->fileDialog)->size()))->width, 2, $Separator::HORIZONTAL), this->gbl, this->gbc, 0, 8, 15, $GridBagConstraints::WEST, $cast($Container, this->fileDialog), 1, 0, $GridBagConstraints::HORIZONTAL, separatorInset);
+	addComponent(this->openButton, this->gblButtons, this->gbc, 0, 0, 1, $GridBagConstraints::WEST, $cast($Container, this->buttons), 1, 0, $GridBagConstraints::NONE, noInset);
+	addComponent(this->filterButton, this->gblButtons, this->gbc, 1, 0, 1, $GridBagConstraints::CENTER, $cast($Container, this->buttons), 1, 0, $GridBagConstraints::NONE, noInset);
+	addComponent(this->cancelButton, this->gblButtons, this->gbc, 2, 0, 1, $GridBagConstraints::EAST, $cast($Container, this->buttons), 1, 0, $GridBagConstraints::NONE, noInset);
+	addComponent(this->buttons, this->gbl, this->gbc, 0, 9, 2, $GridBagConstraints::WEST, $cast($Container, this->fileDialog), 1, 0, $GridBagConstraints::HORIZONTAL, buttonsInset);
 	$nc(this->fileDialog)->setSize(400, 400);
-	$var($XChoicePeer, choicePeer, $cast($XChoicePeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(this->pathChoice)));
+	$var($XChoicePeer, choicePeer, $cast($XChoicePeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(this->pathChoice)));
 	$nc(choicePeer)->setDrawSelectedItem(false);
 	choicePeer->setAlignUnder(this->pathField);
 	$nc(this->filterField)->addActionListener(this);
@@ -665,8 +498,8 @@ void XFileDialogPeer::updateMinimumSize() {
 
 void XFileDialogPeer::updateIconImages() {
 	if ($nc(this->winAttr)->icons == nullptr) {
-		$nc(this->winAttr)->iconsInherited = false;
-		$set($nc(this->winAttr), icons, getDefaultIconInfo());
+		this->winAttr->iconsInherited = false;
+		$set(this->winAttr, icons, getDefaultIconInfo());
 		setIconHints($nc(this->winAttr)->icons);
 	}
 }
@@ -688,7 +521,7 @@ $String* XFileDialogPeer::getFileName($String* str) {
 	if (str == nullptr) {
 		return ""_s;
 	}
-	int32_t index = $nc(str)->lastIndexOf((int32_t)u'/');
+	int32_t index = $nc(str)->lastIndexOf(u'/');
 	if (index == -1) {
 		return str;
 	} else {
@@ -710,9 +543,9 @@ void XFileDialogPeer::handleFilter($String* f) {
 }
 
 void XFileDialogPeer::handleSelection($String* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($File);
-	int32_t index = $nc(file)->lastIndexOf((int32_t)$File::separatorChar);
+	int32_t index = $nc(file)->lastIndexOf($File::separatorChar);
 	if (index == -1) {
 		$set(this, savedDir, this->dir);
 		$set(this, savedFile, file);
@@ -721,10 +554,10 @@ void XFileDialogPeer::handleSelection($String* file) {
 		$set(this, savedFile, file->substring(index + 1));
 	}
 	$var($StringArray, fileNames, $nc(this->fileList)->getSelectedItems());
-	int32_t filesNumber = (fileNames != nullptr) ? $nc(fileNames)->length : 0;
+	int32_t filesNumber = (fileNames != nullptr) ? fileNames->length : 0;
 	$var($FileArray, files, $new($FileArray, filesNumber));
 	for (int32_t i = 0; i < filesNumber; ++i) {
-		files->set(i, $$new($File, this->savedDir, fileNames->get(i)));
+		files->set(i, $$new($File, this->savedDir, $nc(fileNames)->get(i)));
 	}
 	$var($AWTAccessor$FileDialogAccessor, fileDialogAccessor, $AWTAccessor::getFileDialogAccessor());
 	$nc(fileDialogAccessor)->setDirectory(this->target, this->savedDir);
@@ -733,8 +566,8 @@ void XFileDialogPeer::handleSelection($String* file) {
 }
 
 void XFileDialogPeer::handleCancel() {
-	$useLocalCurrentObjectStackCache();
-	$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->removeKeyEventDispatcher(this);
+	$useLocalObjectStack();
+	$$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->removeKeyEventDispatcher(this);
 	setSelectionField(nullptr);
 	setFilterField(nullptr);
 	$nc(this->directoryList)->clear();
@@ -753,7 +586,7 @@ void XFileDialogPeer::handleQuitButton() {
 }
 
 void XFileDialogPeer::setFilterEntry($String* d, $String* f$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, f, f$renamed);
 	$var($File, fe, $new($File, d));
 	bool var$0 = fe->isDirectory();
@@ -766,7 +599,7 @@ void XFileDialogPeer::setFilterEntry($String* d, $String* f$renamed) {
 			setFilterField(f);
 		}
 		$var($StringArray, l, nullptr);
-		if ($nc(f)->equals("*"_s)) {
+		if (f->equals("*"_s)) {
 			$assign(l, fe->list());
 		} else {
 			$var($FileDialogFilter, ff, $new($FileDialogFilter, f));
@@ -787,7 +620,7 @@ void XFileDialogPeer::setFilterEntry($String* d, $String* f$renamed) {
 			if (file->isDirectory()) {
 				$nc(this->directoryList)->addItem($$str({l->get(i), "/"_s}));
 			} else if (this->filter != nullptr) {
-				if ($nc(this->filter)->accept($$new($File, l->get(i)), l->get(i))) {
+				if (this->filter->accept($$new($File, l->get(i)), l->get(i))) {
 					$nc(this->fileList)->addItem(l->get(i));
 				}
 			} else {
@@ -803,12 +636,12 @@ void XFileDialogPeer::setFilterEntry($String* d, $String* f$renamed) {
 }
 
 $StringArray* XFileDialogPeer::getDirList($String* dir$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, dir, dir$renamed);
 	if (!$nc(dir)->endsWith("/"_s)) {
 		$assign(dir, $str({dir, "/"_s}));
 	}
-	$var($chars, charr, $nc(dir)->toCharArray());
+	$var($chars, charr, dir->toCharArray());
 	int32_t numSlashes = 0;
 	for (int32_t i = 0; i < charr->length; ++i) {
 		if (charr->get(i) == u'/') {
@@ -834,25 +667,25 @@ void XFileDialogPeer::setFilterField($String* str) {
 }
 
 void XFileDialogPeer::itemStateChanged($ItemEvent* itemEvent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(itemEvent)->getID() != $ItemEvent::ITEM_STATE_CHANGED;
-	if (var$0 || $nc(itemEvent)->getStateChange() == $ItemEvent::DESELECTED) {
+	if (var$0 || itemEvent->getStateChange() == $ItemEvent::DESELECTED) {
 		return;
 	}
-	$var($Object, source, $nc(itemEvent)->getSource());
+	$var($Object, source, itemEvent->getSource());
 	if ($equals(source, this->pathChoice)) {
 		$var($String, dir, $nc(this->pathChoice)->getSelectedItem());
 		$nc(this->pathField)->setText(dir);
 	} else if ($equals(this->directoryList, source)) {
 		setFilterField($(getFileName($($nc(this->filterField)->getText()))));
 	} else if ($equals(this->fileList, source)) {
-		$var($String, file, $nc(this->fileList)->getItem($nc(($cast($Integer, $(itemEvent->getItem()))))->intValue()));
+		$var($String, file, $nc(this->fileList)->getItem($$sure($Integer, itemEvent->getItem())->intValue()));
 		setSelectionField(file);
 	}
 }
 
 bool XFileDialogPeer::updateDirectoryByUserAction($String* str) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, dir, nullptr);
 	if ($nc(str)->equals(".."_s)) {
 		$assign(dir, getParentDirectory());
@@ -872,15 +705,15 @@ $String* XFileDialogPeer::getParentDirectory() {
 	$var($String, parent, this->dir);
 	if (!$nc(this->dir)->equals("/"_s)) {
 		if ($nc(this->dir)->endsWith("/"_s)) {
-			$assign(parent, $nc(parent)->substring(0, parent->lastIndexOf("/"_s)));
+			$assign(parent, $nc(parent)->substring(0, $nc(parent)->lastIndexOf("/"_s)));
 		}
-		$assign(parent, $nc(parent)->substring(0, parent->lastIndexOf("/"_s) + 1));
+		$assign(parent, $nc(parent)->substring(0, $nc(parent)->lastIndexOf("/"_s) + 1));
 	}
 	return parent;
 }
 
 void XFileDialogPeer::actionPerformed($ActionEvent* actionEvent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, actionCommand, $nc(actionEvent)->getActionCommand());
 	$var($Object, source, actionEvent->getSource());
 	if ($nc(actionCommand)->equals(this->actionButtonText)) {
@@ -891,20 +724,20 @@ void XFileDialogPeer::actionPerformed($ActionEvent* actionEvent) {
 	} else if (actionCommand->equals(this->cancelButtonText)) {
 		handleCancel();
 	} else if ($instanceOf($TextField, source)) {
-		if (this->selectionField == ($cast($TextField, source))) {
+		if (this->selectionField == $cast($TextField, source)) {
 			handleSelection($($nc(this->selectionField)->getText()));
 			handleQuitButton();
-		} else if (this->filterField == ($cast($TextField, source))) {
+		} else if (this->filterField == $cast($TextField, source)) {
 			handleFilter($($nc(this->filterField)->getText()));
-		} else if (this->pathField == ($cast($TextField, source))) {
+		} else if (this->pathField == $cast($TextField, source)) {
 			$nc(this->target)->setDirectory($($nc(this->pathField)->getText()));
 		}
 	} else if ($instanceOf($1List, source)) {
-		if (this->directoryList == ($cast($1List, source))) {
+		if (this->directoryList == $cast($1List, source)) {
 			if (updateDirectoryByUserAction(actionCommand)) {
 				handleFilter($(getFileName($($nc(this->filterField)->getText()))));
 			}
-		} else if (this->fileList == ($cast($1List, source))) {
+		} else if (this->fileList == $cast($1List, source)) {
 			handleSelection(actionCommand);
 			handleQuitButton();
 		}
@@ -912,7 +745,7 @@ void XFileDialogPeer::actionPerformed($ActionEvent* actionEvent) {
 }
 
 bool XFileDialogPeer::dispatchKeyEvent($KeyEvent* keyEvent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t id = $nc(keyEvent)->getID();
 	int32_t keyCode = keyEvent->getKeyCode();
 	if (id == $KeyEvent::KEY_PRESSED && keyCode == $KeyEvent::VK_ESCAPE) {
@@ -939,7 +772,7 @@ bool XFileDialogPeer::dispatchKeyEvent($KeyEvent* keyEvent) {
 }
 
 void XFileDialogPeer::setFile($String* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (file == nullptr) {
 		$set(this, file, nullptr);
 		return;
@@ -961,7 +794,7 @@ void XFileDialogPeer::setFile($String* file) {
 }
 
 void XFileDialogPeer::setDirectory($String* dir$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, dir, dir$renamed);
 	if (dir == nullptr) {
 		$set(this, dir, nullptr);
@@ -971,15 +804,17 @@ void XFileDialogPeer::setDirectory($String* dir$renamed) {
 		return;
 	}
 	int32_t i = 0;
-	if ((i = $nc(dir)->indexOf("~"_s)) != -1) {
-		$var($String, var$1, $(dir->substring(0, i)));
-		$var($String, var$0, $$concat(var$1, $($System::getProperty("user.home"_s))));
-		$assign(dir, $concat(var$0, $(dir->substring(i + 1, dir->length()))));
+	if ((i = dir->indexOf("~"_s)) != -1) {
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(dir->substring(0, i)));
+		var$0->append($($System::getProperty("user.home"_s)));
+		var$0->append($(dir->substring(i + 1, dir->length())));
+		$assign(dir, $str(var$0));
 	}
 	$var($File, fe, $$new($File, dir)->getAbsoluteFile());
 	$init($PlatformLogger$Level);
 	if ($nc(XFileDialogPeer::log)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XFileDialogPeer::log)->fine($$str({"Current directory : "_s, fe}));
+		XFileDialogPeer::log->fine($$str({"Current directory : "_s, fe}));
 	}
 	if (!$nc(fe)->isDirectory()) {
 		$assign(dir, "./"_s);
@@ -989,9 +824,9 @@ void XFileDialogPeer::setDirectory($String* dir$renamed) {
 		}
 	}
 	try {
-		$assign(dir, ($set(this, dir, $nc(fe)->getCanonicalPath())));
+		$assign(dir, $set(this, dir, fe->getCanonicalPath()));
 	} catch ($IOException& ie) {
-		$assign(dir, ($set(this, dir, $nc(fe)->getAbsolutePath())));
+		$assign(dir, $set(this, dir, fe->getAbsolutePath()));
 	}
 	$nc(this->pathField)->setText(this->dir);
 	if ($nc(dir)->endsWith("/"_s)) {
@@ -1016,7 +851,7 @@ void XFileDialogPeer::dispose() {
 }
 
 void XFileDialogPeer::setVisible(bool b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fileDialog == nullptr) {
 		init(this->target);
 	}
@@ -1027,13 +862,13 @@ void XFileDialogPeer::setVisible(bool b) {
 		setFile(this->savedFile);
 	}
 	$XDialogPeer::setVisible(b);
-	$var($XChoicePeer, choicePeer, $cast($XChoicePeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(this->pathChoice)));
+	$var($XChoicePeer, choicePeer, $cast($XChoicePeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(this->pathChoice)));
 	if (b == true) {
 		$nc(choicePeer)->addXChoicePeerListener(this);
-		$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->addKeyEventDispatcher(this);
+		$$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->addKeyEventDispatcher(this);
 	} else {
 		$nc(choicePeer)->removeXChoicePeerListener();
-		$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->removeKeyEventDispatcher(this);
+		$$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->removeKeyEventDispatcher(this);
 	}
 	$nc(this->selectionField)->requestFocusInWindow();
 }
@@ -1046,12 +881,12 @@ void XFileDialogPeer::addItemsToPathChoice($String* text) {
 }
 
 void XFileDialogPeer::unfurledChoiceOpening($ListHelper* choiceHelper) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(choiceHelper)->getItemCount() == 0) {
 		addItemsToPathChoice($($nc(this->pathField)->getText()));
 		return;
 	}
-	if ($nc($($nc(this->pathChoice)->getItem(0)))->equals($($nc(this->pathField)->getText()))) {
+	if ($$nc($nc(this->pathChoice)->getItem(0))->equals($($nc(this->pathField)->getText()))) {
 		return;
 	}
 	$nc(this->pathChoice)->removeAll();
@@ -1063,7 +898,7 @@ void XFileDialogPeer::unfurledChoiceClosing() {
 	$nc(this->target)->setDirectory(dir);
 }
 
-void clinit$XFileDialogPeer($Class* class$) {
+void XFileDialogPeer::clinit$($Class* clazz) {
 	$assignStatic(XFileDialogPeer::log, $PlatformLogger::getLogger("sun.awt.X11.XFileDialogPeer"_s));
 }
 
@@ -1071,7 +906,154 @@ XFileDialogPeer::XFileDialogPeer() {
 }
 
 $Class* XFileDialogPeer::load$($String* name, bool initialize) {
-	$loadClass(XFileDialogPeer, name, initialize, &_XFileDialogPeer_ClassInfo_, clinit$XFileDialogPeer, allocate$XFileDialogPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XFileDialogPeer, log)},
+		{"target", "Ljava/awt/FileDialog;", nullptr, 0, $field(XFileDialogPeer, target)},
+		{"file", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, file)},
+		{"dir", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, dir)},
+		{"title", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, title)},
+		{"mode", "I", nullptr, 0, $field(XFileDialogPeer, mode)},
+		{"filter", "Ljava/io/FilenameFilter;", nullptr, 0, $field(XFileDialogPeer, filter)},
+		{"PATH_CHOICE_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XFileDialogPeer, PATH_CHOICE_WIDTH)},
+		{"savedFile", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, savedFile)},
+		{"savedDir", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, savedDir)},
+		{"userDir", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, userDir)},
+		{"fileDialog", "Ljava/awt/Dialog;", nullptr, 0, $field(XFileDialogPeer, fileDialog)},
+		{"gbl", "Ljava/awt/GridBagLayout;", nullptr, 0, $field(XFileDialogPeer, gbl)},
+		{"gblButtons", "Ljava/awt/GridBagLayout;", nullptr, 0, $field(XFileDialogPeer, gblButtons)},
+		{"gbc", "Ljava/awt/GridBagConstraints;", nullptr, 0, $field(XFileDialogPeer, gbc)},
+		{"filterField", "Ljava/awt/TextField;", nullptr, 0, $field(XFileDialogPeer, filterField)},
+		{"selectionField", "Ljava/awt/TextField;", nullptr, 0, $field(XFileDialogPeer, selectionField)},
+		{"directoryList", "Ljava/awt/List;", nullptr, 0, $field(XFileDialogPeer, directoryList)},
+		{"fileList", "Ljava/awt/List;", nullptr, 0, $field(XFileDialogPeer, fileList)},
+		{"buttons", "Ljava/awt/Panel;", nullptr, 0, $field(XFileDialogPeer, buttons)},
+		{"openButton", "Ljava/awt/Button;", nullptr, 0, $field(XFileDialogPeer, openButton)},
+		{"filterButton", "Ljava/awt/Button;", nullptr, 0, $field(XFileDialogPeer, filterButton)},
+		{"cancelButton", "Ljava/awt/Button;", nullptr, 0, $field(XFileDialogPeer, cancelButton)},
+		{"pathChoice", "Ljava/awt/Choice;", nullptr, 0, $field(XFileDialogPeer, pathChoice)},
+		{"pathField", "Ljava/awt/TextField;", nullptr, 0, $field(XFileDialogPeer, pathField)},
+		{"pathPanel", "Ljava/awt/Panel;", nullptr, 0, $field(XFileDialogPeer, pathPanel)},
+		{"cancelButtonText", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, cancelButtonText)},
+		{"enterFileNameLabelText", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, enterFileNameLabelText)},
+		{"filesLabelText", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, filesLabelText)},
+		{"foldersLabelText", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, foldersLabelText)},
+		{"pathLabelText", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, pathLabelText)},
+		{"filterLabelText", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, filterLabelText)},
+		{"openButtonText", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, openButtonText)},
+		{"saveButtonText", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, saveButtonText)},
+		{"actionButtonText", "Ljava/lang/String;", nullptr, 0, $field(XFileDialogPeer, actionButtonText)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
+		{"*beginLayout", "()V", nullptr, $PUBLIC},
+		{"*beginValidate", "()V", nullptr, $PUBLIC},
+		{"*blockWindows", "(Ljava/util/List;)V", nullptr, $PUBLIC},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC},
+		{"*endLayout", "()V", nullptr, $PUBLIC},
+		{"*endValidate", "()V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
+		{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/FileDialog;)V", nullptr, 0, $method(XFileDialogPeer, init$, void, $FileDialog*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(XFileDialogPeer, actionPerformed, void, $ActionEvent*)},
+		{"addComponent", "(Ljava/awt/Component;Ljava/awt/GridBagLayout;Ljava/awt/GridBagConstraints;IIIILjava/awt/Container;IIILjava/awt/Insets;)V", nullptr, 0, $virtualMethod(XFileDialogPeer, addComponent, void, $Component*, $GridBagLayout*, $GridBagConstraints*, int32_t, int32_t, int32_t, int32_t, $Container*, int32_t, int32_t, int32_t, $Insets*)},
+		{"addItemsToPathChoice", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XFileDialogPeer, addItemsToPathChoice, void, $String*)},
+		{"dispatchKeyEvent", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PUBLIC, $virtualMethod(XFileDialogPeer, dispatchKeyEvent, bool, $KeyEvent*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XFileDialogPeer, dispose, void)},
+		{"getDirList", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, 0, $virtualMethod(XFileDialogPeer, getDirList, $StringArray*, $String*)},
+		{"getFileName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(XFileDialogPeer, getFileName, $String*, $String*)},
+		{"getParentDirectory", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XFileDialogPeer, getParentDirectory, $String*)},
+		{"handleCancel", "()V", nullptr, 0, $virtualMethod(XFileDialogPeer, handleCancel, void)},
+		{"handleFilter", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(XFileDialogPeer, handleFilter, void, $String*)},
+		{"handleQuitButton", "()V", nullptr, 0, $virtualMethod(XFileDialogPeer, handleQuitButton, void)},
+		{"handleSelection", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(XFileDialogPeer, handleSelection, void, $String*)},
+		{"init", "(Ljava/awt/FileDialog;)V", nullptr, $PRIVATE, $method(XFileDialogPeer, init, void, $FileDialog*)},
+		{"installStrings", "()V", nullptr, 0, $virtualMethod(XFileDialogPeer, installStrings, void)},
+		{"*isFocusable", "()Z", nullptr, $PUBLIC},
+		{"*isObscured", "()Z", nullptr, $PUBLIC},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(XFileDialogPeer, itemStateChanged, void, $ItemEvent*)},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*repositionSecurityWarning", "()V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"setDirectory", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XFileDialogPeer, setDirectory, void, $String*)},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"setFile", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XFileDialogPeer, setFile, void, $String*)},
+		{"setFilenameFilter", "(Ljava/io/FilenameFilter;)V", nullptr, $PUBLIC, $virtualMethod(XFileDialogPeer, setFilenameFilter, void, $FilenameFilter*)},
+		{"setFilterEntry", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(XFileDialogPeer, setFilterEntry, void, $String*, $String*)},
+		{"setFilterField", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(XFileDialogPeer, setFilterField, void, $String*)},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"*setModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC},
+		{"*setOpacity", "(F)V", nullptr, $PUBLIC},
+		{"*setOpaque", "(Z)V", nullptr, $PUBLIC},
+		{"*setResizable", "(Z)V", nullptr, $PUBLIC},
+		{"setSelectionField", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(XFileDialogPeer, setSelectionField, void, $String*)},
+		{"*setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XFileDialogPeer, setVisible, void, bool)},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"*toBack", "()V", nullptr, $PUBLIC},
+		{"*toFront", "()V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unfurledChoiceClosing", "()V", nullptr, $PUBLIC, $virtualMethod(XFileDialogPeer, unfurledChoiceClosing, void)},
+		{"unfurledChoiceOpening", "(Lsun/awt/X11/ListHelper;)V", nullptr, $PUBLIC, $virtualMethod(XFileDialogPeer, unfurledChoiceOpening, void, $ListHelper*)},
+		{"*updateAlwaysOnTopState", "()V", nullptr, $PUBLIC},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"updateDirectoryByUserAction", "(Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(XFileDialogPeer, updateDirectoryByUserAction, bool, $String*)},
+		{"*updateFocusableWindowState", "()V", nullptr, $PUBLIC},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"updateIconImages", "()V", nullptr, $PUBLIC, $virtualMethod(XFileDialogPeer, updateIconImages, void)},
+		{"updateMinimumSize", "()V", nullptr, $PUBLIC, $virtualMethod(XFileDialogPeer, updateMinimumSize, void)},
+		{"*updateWindow", "()V", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XFileDialogPeer$3", nullptr, nullptr, 0},
+		{"sun.awt.X11.XFileDialogPeer$2", nullptr, nullptr, 0},
+		{"sun.awt.X11.XFileDialogPeer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XFileDialogPeer",
+		"sun.awt.X11.XDialogPeer",
+		"java.awt.peer.FileDialogPeer,java.awt.event.ActionListener,java.awt.event.ItemListener,java.awt.KeyEventDispatcher,sun.awt.X11.XChoicePeerListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XFileDialogPeer$3,sun.awt.X11.XFileDialogPeer$2,sun.awt.X11.XFileDialogPeer$1"
+	};
+	$loadClass(XFileDialogPeer, name, initialize, &classInfo$$, XFileDialogPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XFileDialogPeer));
+	});
 	return class$;
 }
 

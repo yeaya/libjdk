@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Source$Feature.h>
-
 #include <com/sun/tools/javac/code/Source$Feature$DiagKind.h>
 #include <com/sun/tools/javac/code/Source.h>
 #include <com/sun/tools/javac/resources/CompilerProperties$Errors.h>
@@ -82,95 +81,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Source$Feature_FieldInfo_[] = {
-	{"DIAMOND", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, DIAMOND)},
-	{"MODULES", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, MODULES)},
-	{"EFFECTIVELY_FINAL_VARIABLES_IN_TRY_WITH_RESOURCES", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, EFFECTIVELY_FINAL_VARIABLES_IN_TRY_WITH_RESOURCES)},
-	{"DEPRECATION_ON_IMPORT", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, DEPRECATION_ON_IMPORT)},
-	{"POLY", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, POLY)},
-	{"LAMBDA", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, LAMBDA)},
-	{"METHOD_REFERENCES", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, METHOD_REFERENCES)},
-	{"DEFAULT_METHODS", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, DEFAULT_METHODS)},
-	{"STATIC_INTERFACE_METHODS", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, STATIC_INTERFACE_METHODS)},
-	{"STATIC_INTERFACE_METHODS_INVOKE", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, STATIC_INTERFACE_METHODS_INVOKE)},
-	{"STRICT_METHOD_CLASH_CHECK", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, STRICT_METHOD_CLASH_CHECK)},
-	{"EFFECTIVELY_FINAL_IN_INNER_CLASSES", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, EFFECTIVELY_FINAL_IN_INNER_CLASSES)},
-	{"TYPE_ANNOTATIONS", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, TYPE_ANNOTATIONS)},
-	{"ANNOTATIONS_AFTER_TYPE_PARAMS", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, ANNOTATIONS_AFTER_TYPE_PARAMS)},
-	{"REPEATED_ANNOTATIONS", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, REPEATED_ANNOTATIONS)},
-	{"INTERSECTION_TYPES_IN_CAST", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, INTERSECTION_TYPES_IN_CAST)},
-	{"GRAPH_INFERENCE", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, GRAPH_INFERENCE)},
-	{"FUNCTIONAL_INTERFACE_MOST_SPECIFIC", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, FUNCTIONAL_INTERFACE_MOST_SPECIFIC)},
-	{"POST_APPLICABILITY_VARARGS_ACCESS_CHECK", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, POST_APPLICABILITY_VARARGS_ACCESS_CHECK)},
-	{"MAP_CAPTURES_TO_BOUNDS", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, MAP_CAPTURES_TO_BOUNDS)},
-	{"PRIVATE_SAFE_VARARGS", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, PRIVATE_SAFE_VARARGS)},
-	{"DIAMOND_WITH_ANONYMOUS_CLASS_CREATION", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, DIAMOND_WITH_ANONYMOUS_CLASS_CREATION)},
-	{"UNDERSCORE_IDENTIFIER", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, UNDERSCORE_IDENTIFIER)},
-	{"PRIVATE_INTERFACE_METHODS", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, PRIVATE_INTERFACE_METHODS)},
-	{"LOCAL_VARIABLE_TYPE_INFERENCE", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, LOCAL_VARIABLE_TYPE_INFERENCE)},
-	{"VAR_SYNTAX_IMPLICIT_LAMBDAS", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, VAR_SYNTAX_IMPLICIT_LAMBDAS)},
-	{"IMPORT_ON_DEMAND_OBSERVABLE_PACKAGES", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, IMPORT_ON_DEMAND_OBSERVABLE_PACKAGES)},
-	{"SWITCH_MULTIPLE_CASE_LABELS", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, SWITCH_MULTIPLE_CASE_LABELS)},
-	{"SWITCH_RULE", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, SWITCH_RULE)},
-	{"SWITCH_EXPRESSION", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, SWITCH_EXPRESSION)},
-	{"TEXT_BLOCKS", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, TEXT_BLOCKS)},
-	{"PATTERN_MATCHING_IN_INSTANCEOF", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, PATTERN_MATCHING_IN_INSTANCEOF)},
-	{"REIFIABLE_TYPES_INSTANCEOF", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, REIFIABLE_TYPES_INSTANCEOF)},
-	{"RECORDS", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, RECORDS)},
-	{"SEALED_CLASSES", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, SEALED_CLASSES)},
-	{"CASE_NULL", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, CASE_NULL)},
-	{"PATTERN_SWITCH", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, PATTERN_SWITCH)},
-	{"REDUNDANT_STRICTFP", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, REDUNDANT_STRICTFP)},
-	{"$VALUES", "[Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Source$Feature, $VALUES)},
-	{"minLevel", "Lcom/sun/tools/javac/code/Source;", nullptr, $PRIVATE | $FINAL, $field(Source$Feature, minLevel)},
-	{"maxLevel", "Lcom/sun/tools/javac/code/Source;", nullptr, $PRIVATE | $FINAL, $field(Source$Feature, maxLevel)},
-	{"optFragment", "Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, $PRIVATE | $FINAL, $field(Source$Feature, optFragment)},
-	{"optKind", "Lcom/sun/tools/javac/code/Source$Feature$DiagKind;", nullptr, $PRIVATE | $FINAL, $field(Source$Feature, optKind)},
-	{}
-};
-
-$MethodInfo _Source$Feature_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Source$Feature, $values, $Source$FeatureArray*)},
-	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Source;)V", "(Lcom/sun/tools/javac/code/Source;)V", $PRIVATE, $method(Source$Feature, init$, void, $String*, int32_t, $Source*)},
-	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;Lcom/sun/tools/javac/code/Source$Feature$DiagKind;)V", "(Lcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;Lcom/sun/tools/javac/code/Source$Feature$DiagKind;)V", $PRIVATE, $method(Source$Feature, init$, void, $String*, int32_t, $Source*, $JCDiagnostic$Fragment*, $Source$Feature$DiagKind*)},
-	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/code/Source;)V", "(Lcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/code/Source;)V", $PRIVATE, $method(Source$Feature, init$, void, $String*, int32_t, $Source*, $Source*)},
-	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;Lcom/sun/tools/javac/code/Source$Feature$DiagKind;)V", "(Lcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;Lcom/sun/tools/javac/code/Source$Feature$DiagKind;)V", $PRIVATE, $method(Source$Feature, init$, void, $String*, int32_t, $Source*, $Source*, $JCDiagnostic$Fragment*, $Source$Feature$DiagKind*)},
-	{"allowedInSource", "(Lcom/sun/tools/javac/code/Source;)Z", nullptr, $PUBLIC, $method(Source$Feature, allowedInSource, bool, $Source*)},
-	{"error", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/JCDiagnostic$Error;", nullptr, $PUBLIC, $method(Source$Feature, error, $JCDiagnostic$Error*, $String*)},
-	{"fragment", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, $PUBLIC, $method(Source$Feature, fragment, $JCDiagnostic$Fragment*, $String*)},
-	{"isPlural", "()Z", nullptr, $PUBLIC, $method(Source$Feature, isPlural, bool)},
-	{"nameFragment", "()Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, $PUBLIC, $method(Source$Feature, nameFragment, $JCDiagnostic$Fragment*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC, $staticMethod(Source$Feature, valueOf, Source$Feature*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC, $staticMethod(Source$Feature, values, $Source$FeatureArray*)},
-	{}
-};
-
-$InnerClassInfo _Source$Feature_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Source$Feature", "com.sun.tools.javac.code.Source", "Feature", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"com.sun.tools.javac.code.Source$Feature$DiagKind", "com.sun.tools.javac.code.Source$Feature", "DiagKind", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Source$Feature_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.code.Source$Feature",
-	"java.lang.Enum",
-	nullptr,
-	_Source$Feature_FieldInfo_,
-	_Source$Feature_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/code/Source$Feature;>;",
-	nullptr,
-	_Source$Feature_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Source"
-};
-
-$Object* allocate$Source$Feature($Class* clazz) {
-	return $of($alloc(Source$Feature));
-}
 
 Source$Feature* Source$Feature::DIAMOND = nullptr;
 Source$Feature* Source$Feature::MODULES = nullptr;
@@ -288,8 +198,8 @@ void Source$Feature::init$($String* $enum$name, int32_t $enum$ordinal, $Source* 
 }
 
 bool Source$Feature::allowedInSource($Source* source) {
-	bool var$0 = $nc(source)->compareTo(static_cast<$Enum*>(this->minLevel)) >= 0;
-	return var$0 && source->compareTo(static_cast<$Enum*>(this->maxLevel)) <= 0;
+	bool var$0 = $nc(source)->compareTo(this->minLevel) >= 0;
+	return var$0 && source->compareTo(this->maxLevel) <= 0;
 }
 
 bool Source$Feature::isPlural() {
@@ -315,7 +225,7 @@ $JCDiagnostic$Error* Source$Feature::error($String* sourceName) {
 	return this->optKind == $Source$Feature$DiagKind::NORMAL ? $CompilerProperties$Errors::FeatureNotSupportedInSource(this->optFragment, sourceName, this->minLevel->name$) : $CompilerProperties$Errors::FeatureNotSupportedInSourcePlural(this->optFragment, sourceName, this->minLevel->name$);
 }
 
-void clinit$Source$Feature($Class* class$) {
+void Source$Feature::clinit$($Class* clazz) {
 	$init($Source);
 	$init($CompilerProperties$Fragments);
 	$init($Source$Feature$DiagKind);
@@ -364,7 +274,90 @@ Source$Feature::Source$Feature() {
 }
 
 $Class* Source$Feature::load$($String* name, bool initialize) {
-	$loadClass(Source$Feature, name, initialize, &_Source$Feature_ClassInfo_, clinit$Source$Feature, allocate$Source$Feature);
+	$FieldInfo fieldInfos$$[] = {
+		{"DIAMOND", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, DIAMOND)},
+		{"MODULES", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, MODULES)},
+		{"EFFECTIVELY_FINAL_VARIABLES_IN_TRY_WITH_RESOURCES", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, EFFECTIVELY_FINAL_VARIABLES_IN_TRY_WITH_RESOURCES)},
+		{"DEPRECATION_ON_IMPORT", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, DEPRECATION_ON_IMPORT)},
+		{"POLY", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, POLY)},
+		{"LAMBDA", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, LAMBDA)},
+		{"METHOD_REFERENCES", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, METHOD_REFERENCES)},
+		{"DEFAULT_METHODS", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, DEFAULT_METHODS)},
+		{"STATIC_INTERFACE_METHODS", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, STATIC_INTERFACE_METHODS)},
+		{"STATIC_INTERFACE_METHODS_INVOKE", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, STATIC_INTERFACE_METHODS_INVOKE)},
+		{"STRICT_METHOD_CLASH_CHECK", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, STRICT_METHOD_CLASH_CHECK)},
+		{"EFFECTIVELY_FINAL_IN_INNER_CLASSES", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, EFFECTIVELY_FINAL_IN_INNER_CLASSES)},
+		{"TYPE_ANNOTATIONS", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, TYPE_ANNOTATIONS)},
+		{"ANNOTATIONS_AFTER_TYPE_PARAMS", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, ANNOTATIONS_AFTER_TYPE_PARAMS)},
+		{"REPEATED_ANNOTATIONS", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, REPEATED_ANNOTATIONS)},
+		{"INTERSECTION_TYPES_IN_CAST", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, INTERSECTION_TYPES_IN_CAST)},
+		{"GRAPH_INFERENCE", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, GRAPH_INFERENCE)},
+		{"FUNCTIONAL_INTERFACE_MOST_SPECIFIC", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, FUNCTIONAL_INTERFACE_MOST_SPECIFIC)},
+		{"POST_APPLICABILITY_VARARGS_ACCESS_CHECK", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, POST_APPLICABILITY_VARARGS_ACCESS_CHECK)},
+		{"MAP_CAPTURES_TO_BOUNDS", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, MAP_CAPTURES_TO_BOUNDS)},
+		{"PRIVATE_SAFE_VARARGS", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, PRIVATE_SAFE_VARARGS)},
+		{"DIAMOND_WITH_ANONYMOUS_CLASS_CREATION", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, DIAMOND_WITH_ANONYMOUS_CLASS_CREATION)},
+		{"UNDERSCORE_IDENTIFIER", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, UNDERSCORE_IDENTIFIER)},
+		{"PRIVATE_INTERFACE_METHODS", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, PRIVATE_INTERFACE_METHODS)},
+		{"LOCAL_VARIABLE_TYPE_INFERENCE", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, LOCAL_VARIABLE_TYPE_INFERENCE)},
+		{"VAR_SYNTAX_IMPLICIT_LAMBDAS", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, VAR_SYNTAX_IMPLICIT_LAMBDAS)},
+		{"IMPORT_ON_DEMAND_OBSERVABLE_PACKAGES", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, IMPORT_ON_DEMAND_OBSERVABLE_PACKAGES)},
+		{"SWITCH_MULTIPLE_CASE_LABELS", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, SWITCH_MULTIPLE_CASE_LABELS)},
+		{"SWITCH_RULE", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, SWITCH_RULE)},
+		{"SWITCH_EXPRESSION", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, SWITCH_EXPRESSION)},
+		{"TEXT_BLOCKS", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, TEXT_BLOCKS)},
+		{"PATTERN_MATCHING_IN_INSTANCEOF", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, PATTERN_MATCHING_IN_INSTANCEOF)},
+		{"REIFIABLE_TYPES_INSTANCEOF", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, REIFIABLE_TYPES_INSTANCEOF)},
+		{"RECORDS", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, RECORDS)},
+		{"SEALED_CLASSES", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, SEALED_CLASSES)},
+		{"CASE_NULL", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, CASE_NULL)},
+		{"PATTERN_SWITCH", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, PATTERN_SWITCH)},
+		{"REDUNDANT_STRICTFP", "Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source$Feature, REDUNDANT_STRICTFP)},
+		{"$VALUES", "[Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Source$Feature, $VALUES)},
+		{"minLevel", "Lcom/sun/tools/javac/code/Source;", nullptr, $PRIVATE | $FINAL, $field(Source$Feature, minLevel)},
+		{"maxLevel", "Lcom/sun/tools/javac/code/Source;", nullptr, $PRIVATE | $FINAL, $field(Source$Feature, maxLevel)},
+		{"optFragment", "Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, $PRIVATE | $FINAL, $field(Source$Feature, optFragment)},
+		{"optKind", "Lcom/sun/tools/javac/code/Source$Feature$DiagKind;", nullptr, $PRIVATE | $FINAL, $field(Source$Feature, optKind)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Source$Feature, $values, $Source$FeatureArray*)},
+		{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Source;)V", "(Lcom/sun/tools/javac/code/Source;)V", $PRIVATE, $method(Source$Feature, init$, void, $String*, int32_t, $Source*)},
+		{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;Lcom/sun/tools/javac/code/Source$Feature$DiagKind;)V", "(Lcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;Lcom/sun/tools/javac/code/Source$Feature$DiagKind;)V", $PRIVATE, $method(Source$Feature, init$, void, $String*, int32_t, $Source*, $JCDiagnostic$Fragment*, $Source$Feature$DiagKind*)},
+		{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/code/Source;)V", "(Lcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/code/Source;)V", $PRIVATE, $method(Source$Feature, init$, void, $String*, int32_t, $Source*, $Source*)},
+		{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;Lcom/sun/tools/javac/code/Source$Feature$DiagKind;)V", "(Lcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;Lcom/sun/tools/javac/code/Source$Feature$DiagKind;)V", $PRIVATE, $method(Source$Feature, init$, void, $String*, int32_t, $Source*, $Source*, $JCDiagnostic$Fragment*, $Source$Feature$DiagKind*)},
+		{"allowedInSource", "(Lcom/sun/tools/javac/code/Source;)Z", nullptr, $PUBLIC, $method(Source$Feature, allowedInSource, bool, $Source*)},
+		{"error", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/JCDiagnostic$Error;", nullptr, $PUBLIC, $method(Source$Feature, error, $JCDiagnostic$Error*, $String*)},
+		{"fragment", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, $PUBLIC, $method(Source$Feature, fragment, $JCDiagnostic$Fragment*, $String*)},
+		{"isPlural", "()Z", nullptr, $PUBLIC, $method(Source$Feature, isPlural, bool)},
+		{"nameFragment", "()Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, $PUBLIC, $method(Source$Feature, nameFragment, $JCDiagnostic$Fragment*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC, $staticMethod(Source$Feature, valueOf, Source$Feature*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC, $staticMethod(Source$Feature, values, $Source$FeatureArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Source$Feature", "com.sun.tools.javac.code.Source", "Feature", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"com.sun.tools.javac.code.Source$Feature$DiagKind", "com.sun.tools.javac.code.Source$Feature", "DiagKind", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.code.Source$Feature",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/code/Source$Feature;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Source"
+	};
+	$loadClass(Source$Feature, name, initialize, &classInfo$$, Source$Feature::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Source$Feature));
+	});
 	return class$;
 }
 

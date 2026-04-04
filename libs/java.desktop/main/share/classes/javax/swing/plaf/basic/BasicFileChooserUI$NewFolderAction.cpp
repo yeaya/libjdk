@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicFileChooserUI$NewFolderAction.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/io/File.h>
@@ -17,7 +16,6 @@
 #undef WARNING_MESSAGE
 
 using $FileArray = $Array<::java::io::File>;
-using $Component = ::java::awt::Component;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
@@ -28,7 +26,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractAction = ::javax::swing::AbstractAction;
 using $JFileChooser = ::javax::swing::JFileChooser;
 using $JOptionPane = ::javax::swing::JOptionPane;
-using $FileSystemView = ::javax::swing::filechooser::FileSystemView;
 using $BasicFileChooserUI = ::javax::swing::plaf::basic::BasicFileChooserUI;
 using $FilePane = ::sun::swing::FilePane;
 
@@ -37,42 +34,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicFileChooserUI$NewFolderAction_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicFileChooserUI$NewFolderAction, this$0)},
-	{}
-};
-
-$MethodInfo _BasicFileChooserUI$NewFolderAction_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicFileChooserUI;)V", nullptr, $PROTECTED, $method(BasicFileChooserUI$NewFolderAction, init$, void, $BasicFileChooserUI*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI$NewFolderAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicFileChooserUI$NewFolderAction_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicFileChooserUI$NewFolderAction", "javax.swing.plaf.basic.BasicFileChooserUI", "NewFolderAction", $PROTECTED},
-	{}
-};
-
-$ClassInfo _BasicFileChooserUI$NewFolderAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicFileChooserUI$NewFolderAction",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_BasicFileChooserUI$NewFolderAction_FieldInfo_,
-	_BasicFileChooserUI$NewFolderAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicFileChooserUI$NewFolderAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicFileChooserUI"
-};
-
-$Object* allocate$BasicFileChooserUI$NewFolderAction($Class* clazz) {
-	return $of($alloc(BasicFileChooserUI$NewFolderAction));
-}
-
 void BasicFileChooserUI$NewFolderAction::init$($BasicFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
 	$init($FilePane);
@@ -80,7 +41,7 @@ void BasicFileChooserUI$NewFolderAction::init$($BasicFileChooserUI* this$0) {
 }
 
 void BasicFileChooserUI$NewFolderAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$0->readOnly) {
 		return;
 	}
@@ -92,7 +53,7 @@ void BasicFileChooserUI$NewFolderAction::actionPerformed($ActionEvent* e) {
 	}
 	$var($File, newFolder, nullptr);
 	try {
-		$assign(newFolder, $nc($(fc->getFileSystemView()))->createNewFolder(currentDirectory));
+		$assign(newFolder, $$nc(fc->getFileSystemView())->createNewFolder(currentDirectory));
 		if (fc->isMultiSelectionEnabled()) {
 			fc->setSelectedFiles($$new($FileArray, {newFolder}));
 		} else {
@@ -109,7 +70,37 @@ BasicFileChooserUI$NewFolderAction::BasicFileChooserUI$NewFolderAction() {
 }
 
 $Class* BasicFileChooserUI$NewFolderAction::load$($String* name, bool initialize) {
-	$loadClass(BasicFileChooserUI$NewFolderAction, name, initialize, &_BasicFileChooserUI$NewFolderAction_ClassInfo_, allocate$BasicFileChooserUI$NewFolderAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicFileChooserUI$NewFolderAction, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicFileChooserUI;)V", nullptr, $PROTECTED, $method(BasicFileChooserUI$NewFolderAction, init$, void, $BasicFileChooserUI*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI$NewFolderAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicFileChooserUI$NewFolderAction", "javax.swing.plaf.basic.BasicFileChooserUI", "NewFolderAction", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicFileChooserUI$NewFolderAction",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicFileChooserUI"
+	};
+	$loadClass(BasicFileChooserUI$NewFolderAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicFileChooserUI$NewFolderAction));
+	});
 	return class$;
 }
 

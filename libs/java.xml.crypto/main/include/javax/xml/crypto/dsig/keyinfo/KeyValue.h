@@ -27,6 +27,7 @@ namespace javax {
 class $import KeyValue : public ::javax::xml::crypto::XMLStructure {
 	$interface(KeyValue, 0, ::javax::xml::crypto::XMLStructure)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual ::java::security::PublicKey* getPublicKey() {return nullptr;}
 	static $String* DSA_TYPE;
 	static $String* RSA_TYPE;

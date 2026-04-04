@@ -1,8 +1,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Key.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/BranchHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/CompoundInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/GOTO.h>
 #include <com/sun/org/apache/bcel/internal/generic/IFEQ.h>
@@ -26,7 +24,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Pattern.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/QName.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/TopLevelElement.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg.h>
@@ -55,8 +52,6 @@
 #undef TRANSLET_CLASS
 
 using $BranchHandle = ::com::sun::org::apache::bcel::internal::generic::BranchHandle;
-using $BranchInstruction = ::com::sun::org::apache::bcel::internal::generic::BranchInstruction;
-using $CompoundInstruction = ::com::sun::org::apache::bcel::internal::generic::CompoundInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $GOTO = ::com::sun::org::apache::bcel::internal::generic::GOTO;
 using $IFEQ = ::com::sun::org::apache::bcel::internal::generic::IFEQ;
@@ -66,19 +61,14 @@ using $ILOAD = ::com::sun::org::apache::bcel::internal::generic::ILOAD;
 using $INVOKEINTERFACE = ::com::sun::org::apache::bcel::internal::generic::INVOKEINTERFACE;
 using $INVOKEVIRTUAL = ::com::sun::org::apache::bcel::internal::generic::INVOKEVIRTUAL;
 using $ISTORE = ::com::sun::org::apache::bcel::internal::generic::ISTORE;
-using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $LocalVariableGen = ::com::sun::org::apache::bcel::internal::generic::LocalVariableGen;
 using $PUSH = ::com::sun::org::apache::bcel::internal::generic::PUSH;
 using $CastExpr = ::com::sun::org::apache::xalan::internal::xsltc::compiler::CastExpr;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
-using $Expression = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression;
 using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
-using $Pattern = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Pattern;
-using $QName = ::com::sun::org::apache::xalan::internal::xsltc::compiler::QName;
 using $SymbolTable = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SymbolTable;
-using $SyntaxTreeNode = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SyntaxTreeNode;
 using $TopLevelElement = ::com::sun::org::apache::xalan::internal::xsltc::compiler::TopLevelElement;
 using $ClassGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ClassGenerator;
 using $ErrorMsg = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ErrorMsg;
@@ -102,51 +92,20 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _Key_FieldInfo_[] = {
-	{"_name", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE, $field(Key, _name)},
-	{"_match", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;", nullptr, $PRIVATE, $field(Key, _match)},
-	{"_use", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(Key, _use)},
-	{"_useType", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PRIVATE, $field(Key, _useType)},
-	{}
-};
-
-$MethodInfo _Key_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Key, init$, void)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Key, getName, $String*)},
-	{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(Key, parseContents, void, $Parser*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Key, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"traverseNodeSet", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;I)V", nullptr, $PUBLIC, $method(Key, traverseNodeSet, void, $ClassGenerator*, $MethodGenerator*, int32_t)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(Key, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _Key_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Key",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.TopLevelElement",
-	nullptr,
-	_Key_FieldInfo_,
-	_Key_MethodInfo_
-};
-
-$Object* allocate$Key($Class* clazz) {
-	return $of($alloc(Key));
-}
-
 void Key::init$() {
 	$TopLevelElement::init$();
 }
 
 void Key::parseContents($Parser* parser) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, getAttribute("name"_s));
 	if (!$XML11Char::isXML11ValidQName(name)) {
 		$init($ErrorMsg);
-		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::INVALID_QNAME_ERR, $of(name), static_cast<$SyntaxTreeNode*>(this)));
+		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::INVALID_QNAME_ERR, name, this));
 		$nc(parser)->reportError($Constants::ERROR, err);
 	}
 	$set(this, _name, $nc(parser)->getQNameIgnoreDefaultNs(name));
-	$nc($(getSymbolTable()))->addKey(this->_name, this);
+	$$nc(getSymbolTable())->addKey(this->_name, this);
 	$set(this, _match, parser->parsePattern(this, "match"_s, nullptr));
 	$set(this, _use, parser->parseExpression(this, "use"_s, nullptr));
 	if (this->_name == nullptr) {
@@ -182,7 +141,7 @@ $Type* Key::typeCheck($SymbolTable* stable) {
 }
 
 void Key::traverseNodeSet($ClassGenerator* classGen, $MethodGenerator* methodGen, int32_t buildKeyIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	$init($Constants);
@@ -190,36 +149,36 @@ void Key::traverseNodeSet($ClassGenerator* classGen, $MethodGenerator* methodGen
 	int32_t getNodeIdent = cpg->addInterfaceMethodref($Constants::DOM_INTF, "getNodeIdent"_s, $$str({"(I)"_s, $Constants::NODE_SIG}));
 	int32_t keyDom = cpg->addMethodref($Constants::TRANSLET_CLASS, "setKeyIndexDom"_s, $$str({"("_s, $Constants::STRING_SIG, $Constants::DOM_INTF_SIG, ")V"_s}));
 	$var($LocalVariableGen, parentNode, methodGen->addLocalVariable("parentNode"_s, $($Util::getJCRefType("I"_s)), nullptr, nullptr));
-	$nc(parentNode)->setStart($($nc(il)->append(static_cast<$Instruction*>($$new($ISTORE, parentNode->getIndex())))));
-	$nc(il)->append($(methodGen->loadCurrentNode()));
+	$nc(parentNode)->setStart($($nc(il)->append($$new($ISTORE, $nc(parentNode)->getIndex()))));
+	il->append($(methodGen->loadCurrentNode()));
 	il->append($(methodGen->loadIterator()));
 	$nc(this->_use)->translate(classGen, methodGen);
 	$nc(this->_use)->startIterator(classGen, methodGen);
 	il->append($(methodGen->storeIterator()));
-	$var($BranchHandle, nextNode, il->append(static_cast<$BranchInstruction*>($$new($GOTO, nullptr))));
+	$var($BranchHandle, nextNode, il->append($$new($GOTO, nullptr)));
 	$var($InstructionHandle, loop, il->append($Constants::NOP));
 	il->append($(classGen->loadTranslet()));
-	il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, $($nc(this->_name)->toString()))));
-	parentNode->setEnd($(il->append(static_cast<$Instruction*>($$new($ILOAD, parentNode->getIndex())))));
+	il->append($$new($PUSH, cpg, $($nc(this->_name)->toString())));
+	parentNode->setEnd($(il->append($$new($ILOAD, parentNode->getIndex()))));
 	il->append($(methodGen->loadDOM()));
 	il->append($(methodGen->loadCurrentNode()));
-	il->append(static_cast<$Instruction*>($$new($INVOKEINTERFACE, getNodeValue, 2)));
-	il->append(static_cast<$Instruction*>($$new($INVOKEVIRTUAL, buildKeyIndex)));
+	il->append($$new($INVOKEINTERFACE, getNodeValue, 2));
+	il->append($$new($INVOKEVIRTUAL, buildKeyIndex));
 	il->append($(classGen->loadTranslet()));
-	il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, $(getName()))));
+	il->append($$new($PUSH, cpg, $(getName())));
 	il->append($(methodGen->loadDOM()));
-	il->append(static_cast<$Instruction*>($$new($INVOKEVIRTUAL, keyDom)));
+	il->append($$new($INVOKEVIRTUAL, keyDom));
 	$nc(nextNode)->setTarget($(il->append($(methodGen->loadIterator()))));
 	il->append($(methodGen->nextNode()));
-	il->append(static_cast<$Instruction*>($Constants::DUP));
+	il->append($Constants::DUP);
 	il->append($(methodGen->storeCurrentNode()));
-	il->append(static_cast<$BranchInstruction*>($$new($IFGE, loop)));
+	il->append($$new($IFGE, loop));
 	il->append($(methodGen->storeIterator()));
 	il->append($(methodGen->storeCurrentNode()));
 }
 
 void Key::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	int32_t current = methodGen->getLocalIndex("current"_s);
@@ -231,37 +190,37 @@ void Key::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
 	$nc(il)->append($(methodGen->loadCurrentNode()));
 	il->append($(methodGen->loadIterator()));
 	il->append($(methodGen->loadDOM()));
-	il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, $Axis::DESCENDANT)));
-	il->append(static_cast<$Instruction*>($$new($INVOKEINTERFACE, git, 2)));
+	il->append($$new($PUSH, cpg, $Axis::DESCENDANT));
+	il->append($$new($INVOKEINTERFACE, git, 2));
 	il->append($(methodGen->loadCurrentNode()));
 	il->append($(methodGen->setStartNode()));
 	il->append($(methodGen->storeIterator()));
-	$var($BranchHandle, nextNode, il->append(static_cast<$BranchInstruction*>($$new($GOTO, nullptr))));
+	$var($BranchHandle, nextNode, il->append($$new($GOTO, nullptr)));
 	$var($InstructionHandle, loop, il->append($Constants::NOP));
 	il->append($(methodGen->loadCurrentNode()));
 	$nc(this->_match)->translate(classGen, methodGen);
 	$nc(this->_match)->synthesize(classGen, methodGen);
-	$var($BranchHandle, skipNode, il->append(static_cast<$BranchInstruction*>($$new($IFEQ, nullptr))));
+	$var($BranchHandle, skipNode, il->append($$new($IFEQ, nullptr)));
 	if ($instanceOf($NodeSetType, this->_useType)) {
 		il->append($(methodGen->loadCurrentNode()));
 		traverseNodeSet(classGen, methodGen, key);
 	} else {
 		il->append($(classGen->loadTranslet()));
-		il->append(static_cast<$Instruction*>($Constants::DUP));
-		il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, $($nc(this->_name)->toString()))));
-		il->append(static_cast<$Instruction*>($Constants::DUP_X1));
+		il->append($Constants::DUP);
+		il->append($$new($PUSH, cpg, $($nc(this->_name)->toString())));
+		il->append($Constants::DUP_X1);
 		il->append($(methodGen->loadCurrentNode()));
 		$nc(this->_use)->translate(classGen, methodGen);
-		il->append(static_cast<$Instruction*>($$new($INVOKEVIRTUAL, key)));
+		il->append($$new($INVOKEVIRTUAL, key));
 		il->append($(methodGen->loadDOM()));
-		il->append(static_cast<$Instruction*>($$new($INVOKEVIRTUAL, keyDom)));
+		il->append($$new($INVOKEVIRTUAL, keyDom));
 	}
 	$var($InstructionHandle, skip, il->append($Constants::NOP));
 	il->append($(methodGen->loadIterator()));
 	il->append($(methodGen->nextNode()));
-	il->append(static_cast<$Instruction*>($Constants::DUP));
+	il->append($Constants::DUP);
 	il->append($(methodGen->storeCurrentNode()));
-	il->append(static_cast<$BranchInstruction*>($$new($IFGT, loop)));
+	il->append($$new($IFGT, loop));
 	il->append($(methodGen->storeIterator()));
 	il->append($(methodGen->storeCurrentNode()));
 	$nc(nextNode)->setTarget(skip);
@@ -272,7 +231,33 @@ Key::Key() {
 }
 
 $Class* Key::load$($String* name, bool initialize) {
-	$loadClass(Key, name, initialize, &_Key_ClassInfo_, allocate$Key);
+	$FieldInfo fieldInfos$$[] = {
+		{"_name", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE, $field(Key, _name)},
+		{"_match", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;", nullptr, $PRIVATE, $field(Key, _match)},
+		{"_use", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(Key, _use)},
+		{"_useType", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PRIVATE, $field(Key, _useType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Key, init$, void)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Key, getName, $String*)},
+		{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(Key, parseContents, void, $Parser*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Key, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"traverseNodeSet", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;I)V", nullptr, $PUBLIC, $method(Key, traverseNodeSet, void, $ClassGenerator*, $MethodGenerator*, int32_t)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(Key, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Key",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.TopLevelElement",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Key, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Key);
+	});
 	return class$;
 }
 

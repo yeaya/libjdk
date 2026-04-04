@@ -44,6 +44,7 @@ class $import DefaultDesktopManager : public ::javax::swing::DesktopManager, pub
 	$class(DefaultDesktopManager, 0, ::javax::swing::DesktopManager, ::java::io::Serializable)
 public:
 	DefaultDesktopManager();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

@@ -1,5 +1,4 @@
 #include <sun/awt/shell/Win32ShellFolder2.h>
-
 #include <java/awt/Image.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/ImageObserver.h>
@@ -49,7 +48,6 @@
 #include <sun/awt/shell/Win32ShellFolder2$SystemIcon.h>
 #include <sun/awt/shell/Win32ShellFolderManager2.h>
 #include <sun/java2d/Disposer.h>
-#include <sun/java2d/DisposerRecord.h>
 #include <jcpp.h>
 
 #undef ALTSTARTUP
@@ -186,7 +184,6 @@ using $Win32ShellFolder2$MultiResolutionIconImage = ::sun::awt::shell::Win32Shel
 using $Win32ShellFolder2$SystemIcon = ::sun::awt::shell::Win32ShellFolder2$SystemIcon;
 using $Win32ShellFolderManager2 = ::sun::awt::shell::Win32ShellFolderManager2;
 using $Disposer = ::sun::java2d::Disposer;
-using $DisposerRecord = ::sun::java2d::DisposerRecord;
 
 namespace sun {
 	namespace awt {
@@ -200,307 +197,36 @@ public:
 		this->size = size;
 	}
 	virtual $Object* call() override {
-		 return $of($nc(inst$)->lambda$getIcon$0(size));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Win32ShellFolder2$$Lambda$lambda$getIcon$0>());
+		 return $nc(inst$)->lambda$getIcon$0(size);
 	}
 	Win32ShellFolder2* inst$ = nullptr;
 	int32_t size = 0;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Win32ShellFolder2$$Lambda$lambda$getIcon$0::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Win32ShellFolder2$$Lambda$lambda$getIcon$0, inst$)},
-	{"size", "I", nullptr, $PUBLIC, $field(Win32ShellFolder2$$Lambda$lambda$getIcon$0, size)},
-	{}
-};
-$MethodInfo Win32ShellFolder2$$Lambda$lambda$getIcon$0::methodInfos[3] = {
-	{"<init>", "(Lsun/awt/shell/Win32ShellFolder2;I)V", nullptr, $PUBLIC, $method(Win32ShellFolder2$$Lambda$lambda$getIcon$0, init$, void, Win32ShellFolder2*, int32_t)},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2$$Lambda$lambda$getIcon$0, call, $Object*)},
-	{}
-};
-$ClassInfo Win32ShellFolder2$$Lambda$lambda$getIcon$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.shell.Win32ShellFolder2$$Lambda$lambda$getIcon$0",
-	"java.lang.Object",
-	"java.util.concurrent.Callable",
-	fieldInfos,
-	methodInfos
 };
 $Class* Win32ShellFolder2$$Lambda$lambda$getIcon$0::load$($String* name, bool initialize) {
-	$loadClass(Win32ShellFolder2$$Lambda$lambda$getIcon$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Win32ShellFolder2$$Lambda$lambda$getIcon$0, inst$)},
+		{"size", "I", nullptr, $PUBLIC, $field(Win32ShellFolder2$$Lambda$lambda$getIcon$0, size)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/shell/Win32ShellFolder2;I)V", nullptr, $PUBLIC, $method(Win32ShellFolder2$$Lambda$lambda$getIcon$0, init$, void, Win32ShellFolder2*, int32_t)},
+		{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2$$Lambda$lambda$getIcon$0, call, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.shell.Win32ShellFolder2$$Lambda$lambda$getIcon$0",
+		"java.lang.Object",
+		"java.util.concurrent.Callable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Win32ShellFolder2$$Lambda$lambda$getIcon$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Win32ShellFolder2$$Lambda$lambda$getIcon$0);
+	});
 	return class$;
 }
 $Class* Win32ShellFolder2$$Lambda$lambda$getIcon$0::class$ = nullptr;
-
-$FieldInfo _Win32ShellFolder2_FieldInfo_[] = {
-	{"SMALL_ICON_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(Win32ShellFolder2, SMALL_ICON_SIZE)},
-	{"LARGE_ICON_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(Win32ShellFolder2, LARGE_ICON_SIZE)},
-	{"MIN_QUALITY_ICON", "I", nullptr, $STATIC | $FINAL, $constField(Win32ShellFolder2, MIN_QUALITY_ICON)},
-	{"MAX_QUALITY_ICON", "I", nullptr, $STATIC | $FINAL, $constField(Win32ShellFolder2, MAX_QUALITY_ICON)},
-	{"ICON_RESOLUTIONS", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Win32ShellFolder2, ICON_RESOLUTIONS)},
-	{"FILE_ICON_ID", "I", nullptr, $STATIC | $FINAL, $constField(Win32ShellFolder2, FILE_ICON_ID)},
-	{"FOLDER_ICON_ID", "I", nullptr, $STATIC | $FINAL, $constField(Win32ShellFolder2, FOLDER_ICON_ID)},
-	{"DESKTOP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, DESKTOP)},
-	{"INTERNET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, INTERNET)},
-	{"PROGRAMS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, PROGRAMS)},
-	{"CONTROLS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, CONTROLS)},
-	{"PRINTERS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, PRINTERS)},
-	{"PERSONAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, PERSONAL)},
-	{"FAVORITES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, FAVORITES)},
-	{"STARTUP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, STARTUP)},
-	{"RECENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, RECENT)},
-	{"SENDTO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, SENDTO)},
-	{"BITBUCKET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, BITBUCKET)},
-	{"STARTMENU", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, STARTMENU)},
-	{"DESKTOPDIRECTORY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, DESKTOPDIRECTORY)},
-	{"DRIVES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, DRIVES)},
-	{"NETWORK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, NETWORK)},
-	{"NETHOOD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, NETHOOD)},
-	{"FONTS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, FONTS)},
-	{"TEMPLATES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, TEMPLATES)},
-	{"COMMON_STARTMENU", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, COMMON_STARTMENU)},
-	{"COMMON_PROGRAMS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, COMMON_PROGRAMS)},
-	{"COMMON_STARTUP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, COMMON_STARTUP)},
-	{"COMMON_DESKTOPDIRECTORY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, COMMON_DESKTOPDIRECTORY)},
-	{"APPDATA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, APPDATA)},
-	{"PRINTHOOD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, PRINTHOOD)},
-	{"ALTSTARTUP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ALTSTARTUP)},
-	{"COMMON_ALTSTARTUP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, COMMON_ALTSTARTUP)},
-	{"COMMON_FAVORITES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, COMMON_FAVORITES)},
-	{"INTERNET_CACHE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, INTERNET_CACHE)},
-	{"COOKIES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, COOKIES)},
-	{"HISTORY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, HISTORY)},
-	{"ATTRIB_CANCOPY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_CANCOPY)},
-	{"ATTRIB_CANMOVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_CANMOVE)},
-	{"ATTRIB_CANLINK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_CANLINK)},
-	{"ATTRIB_CANRENAME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_CANRENAME)},
-	{"ATTRIB_CANDELETE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_CANDELETE)},
-	{"ATTRIB_HASPROPSHEET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_HASPROPSHEET)},
-	{"ATTRIB_DROPTARGET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_DROPTARGET)},
-	{"ATTRIB_LINK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_LINK)},
-	{"ATTRIB_SHARE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_SHARE)},
-	{"ATTRIB_READONLY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_READONLY)},
-	{"ATTRIB_GHOSTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_GHOSTED)},
-	{"ATTRIB_HIDDEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_HIDDEN)},
-	{"ATTRIB_FILESYSANCESTOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_FILESYSANCESTOR)},
-	{"ATTRIB_FOLDER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_FOLDER)},
-	{"ATTRIB_FILESYSTEM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_FILESYSTEM)},
-	{"ATTRIB_HASSUBFOLDER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_HASSUBFOLDER)},
-	{"ATTRIB_VALIDATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_VALIDATE)},
-	{"ATTRIB_REMOVABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_REMOVABLE)},
-	{"ATTRIB_COMPRESSED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_COMPRESSED)},
-	{"ATTRIB_BROWSABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_BROWSABLE)},
-	{"ATTRIB_NONENUMERATED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_NONENUMERATED)},
-	{"ATTRIB_NEWCONTENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_NEWCONTENT)},
-	{"SHGDN_NORMAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, SHGDN_NORMAL)},
-	{"SHGDN_INFOLDER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, SHGDN_INFOLDER)},
-	{"SHGDN_INCLUDE_NONFILESYS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, SHGDN_INCLUDE_NONFILESYS)},
-	{"SHGDN_FORADDRESSBAR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, SHGDN_FORADDRESSBAR)},
-	{"SHGDN_FORPARSING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, SHGDN_FORPARSING)},
-	{"disposerReferent", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(Win32ShellFolder2, disposerReferent)},
-	{"disposer", "Lsun/awt/shell/Win32ShellFolder2$FolderDisposer;", nullptr, 0, $field(Win32ShellFolder2, disposer)},
-	{"pIShellIcon", "J", nullptr, $PRIVATE, $field(Win32ShellFolder2, pIShellIcon)},
-	{"folderType", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Win32ShellFolder2, folderType)},
-	{"displayName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Win32ShellFolder2, displayName)},
-	{"smallIcon", "Ljava/awt/Image;", nullptr, $PRIVATE, $field(Win32ShellFolder2, smallIcon)},
-	{"largeIcon", "Ljava/awt/Image;", nullptr, $PRIVATE, $field(Win32ShellFolder2, largeIcon)},
-	{"isDir", "Ljava/lang/Boolean;", nullptr, $PRIVATE, $field(Win32ShellFolder2, isDir)},
-	{"isLib", "Z", nullptr, $PRIVATE | $FINAL, $field(Win32ShellFolder2, isLib)},
-	{"FNAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Win32ShellFolder2, FNAME)},
-	{"FSIZE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Win32ShellFolder2, FSIZE)},
-	{"FTYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Win32ShellFolder2, FTYPE)},
-	{"FDATE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Win32ShellFolder2, FDATE)},
-	{"isPersonal", "Z", nullptr, $PRIVATE, $field(Win32ShellFolder2, isPersonal)},
-	{"cachedIsFileSystem", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $VOLATILE, $field(Win32ShellFolder2, cachedIsFileSystem)},
-	{"cachedIsLink", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $VOLATILE, $field(Win32ShellFolder2, cachedIsLink)},
-	{"smallSystemImages", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Ljava/awt/Image;>;", $PRIVATE | $STATIC, $staticField(Win32ShellFolder2, smallSystemImages)},
-	{"largeSystemImages", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Ljava/awt/Image;>;", $PRIVATE | $STATIC, $staticField(Win32ShellFolder2, largeSystemImages)},
-	{"smallLinkedSystemImages", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Ljava/awt/Image;>;", $PRIVATE | $STATIC, $staticField(Win32ShellFolder2, smallLinkedSystemImages)},
-	{"largeLinkedSystemImages", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Ljava/awt/Image;>;", $PRIVATE | $STATIC, $staticField(Win32ShellFolder2, largeLinkedSystemImages)},
-	{"LVCFMT_LEFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32ShellFolder2, LVCFMT_LEFT)},
-	{"LVCFMT_RIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32ShellFolder2, LVCFMT_RIGHT)},
-	{"LVCFMT_CENTER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32ShellFolder2, LVCFMT_CENTER)},
-	{}
-};
-
-$MethodInfo _Win32ShellFolder2_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(Win32ShellFolder2, init$, void, int32_t), "java.io.IOException,java.lang.InterruptedException"},
-	{"<init>", "(Lsun/awt/shell/Win32ShellFolder2;JJLjava/lang/String;Z)V", nullptr, 0, $method(Win32ShellFolder2, init$, void, Win32ShellFolder2*, int64_t, int64_t, $String*, bool)},
-	{"access$001", "(Lsun/awt/shell/Win32ShellFolder2;Z)Ljava/awt/Image;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(Win32ShellFolder2, access$001, $Image*, Win32ShellFolder2*, bool)},
-	{"bindToObject", "(JJ)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, bindToObject, int64_t, int64_t, int64_t)},
-	{"combinePIDLs", "(JJ)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, combinePIDLs, int64_t, int64_t, int64_t)},
-	{"compareIDs", "(JJJ)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, compareIDs, int32_t, int64_t, int64_t, int64_t)},
-	{"compareIDsByColumn", "(JJJI)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, compareIDsByColumn, int32_t, int64_t, int64_t, int64_t, int32_t)},
-	{"compareTo", "(Ljava/io/File;)I", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, compareTo, int32_t, $File*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Win32ShellFolder2, compareTo, int32_t, Object$*)},
-	{"composePathForCsidl", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Win32ShellFolder2, composePathForCsidl, $String*, int32_t), "java.io.IOException,java.lang.InterruptedException"},
-	{"copyFirstPIDLEntry", "(J)J", nullptr, $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, copyFirstPIDLEntry, int64_t, int64_t)},
-	{"createShellFolder", "(Lsun/awt/shell/Win32ShellFolder2;J)Lsun/awt/shell/Win32ShellFolder2;", nullptr, $STATIC, $staticMethod(Win32ShellFolder2, createShellFolder, Win32ShellFolder2*, Win32ShellFolder2*, int64_t), "java.lang.InterruptedException"},
-	{"dispose", "()V", nullptr, $PROTECTED, $method(Win32ShellFolder2, dispose, void)},
-	{"disposeIcon", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, disposeIcon, void, int64_t)},
-	{"doGetColumnInfo", "(J)[Lsun/awt/shell/ShellFolderColumnInfo;", nullptr, $PRIVATE | $NATIVE, $method(Win32ShellFolder2, doGetColumnInfo, $ShellFolderColumnInfoArray*, int64_t)},
-	{"doGetColumnValue", "(JJI)Ljava/lang/Object;", nullptr, $PRIVATE | $NATIVE, $method(Win32ShellFolder2, doGetColumnValue, $Object*, int64_t, int64_t, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, equals, bool, Object$*)},
-	{"extractIcon", "(JJIZ)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, extractIcon, int64_t, int64_t, int64_t, int32_t, bool)},
-	{"getAbsolutePIDL", "()J", nullptr, $PRIVATE, $method(Win32ShellFolder2, getAbsolutePIDL, int64_t)},
-	{"getAttributes0", "(JJI)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, getAttributes0, int32_t, int64_t, int64_t, int32_t)},
-	{"getCanonicalFile", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, getCanonicalFile, $File*), "java.io.IOException"},
-	{"getChildByPath", "(Ljava/lang/String;)Lsun/awt/shell/Win32ShellFolder2;", nullptr, 0, $method(Win32ShellFolder2, getChildByPath, Win32ShellFolder2*, $String*), "java.lang.InterruptedException"},
-	{"getDesktop", "()Lsun/awt/shell/Win32ShellFolder2;", nullptr, $PUBLIC, $method(Win32ShellFolder2, getDesktop, Win32ShellFolder2*)},
-	{"getDesktopIShellFolder", "()J", nullptr, $PUBLIC, $method(Win32ShellFolder2, getDesktopIShellFolder, int64_t)},
-	{"getDisplayName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, getDisplayName, $String*)},
-	{"getDisplayNameOf", "(JJI)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, getDisplayNameOf, $String*, int64_t, int64_t, int32_t)},
-	{"getEnumObjects", "(Z)J", nullptr, $PRIVATE, $method(Win32ShellFolder2, getEnumObjects, int64_t, bool), "java.lang.InterruptedException"},
-	{"getEnumObjects", "(JZZ)J", nullptr, $PRIVATE | $NATIVE, $method(Win32ShellFolder2, getEnumObjects, int64_t, int64_t, bool, bool)},
-	{"getExecutableType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(Win32ShellFolder2, getExecutableType, $String*, $String*)},
-	{"getExecutableType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, getExecutableType, $String*)},
-	{"getFileSystemPath", "(JJ)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Win32ShellFolder2, getFileSystemPath, $String*, int64_t, int64_t)},
-	{"getFileSystemPath", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Win32ShellFolder2, getFileSystemPath, $String*, int32_t), "java.io.IOException,java.lang.InterruptedException"},
-	{"getFileSystemPath0", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, getFileSystemPath0, $String*, int32_t), "java.io.IOException"},
-	{"getFolderColumnValue", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, getFolderColumnValue, $Object*, int32_t)},
-	{"getFolderColumns", "()[Lsun/awt/shell/ShellFolderColumnInfo;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, getFolderColumns, $ShellFolderColumnInfoArray*)},
-	{"getFolderType", "(J)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, getFolderType, $String*, int64_t)},
-	{"getFolderType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, getFolderType, $String*)},
-	{"getIShellFolder", "()J", nullptr, $PRIVATE, $method(Win32ShellFolder2, getIShellFolder, int64_t)},
-	{"getIShellIcon", "(J)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, getIShellIcon, int64_t, int64_t)},
-	{"getIShellIcon", "()J", nullptr, $PRIVATE, $method(Win32ShellFolder2, getIShellIcon, int64_t)},
-	{"getIcon", "(Ljava/lang/String;Z)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, getIcon, int64_t, $String*, bool)},
-	{"getIcon", "(Z)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, getIcon, $Image*, bool)},
-	{"getIcon", "(II)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, getIcon, $Image*, int32_t, int32_t)},
-	{"getIconBits", "(J)[I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, getIconBits, $ints*, int64_t)},
-	{"getIconIndex", "(JJ)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, getIconIndex, int32_t, int64_t, int64_t)},
-	{"getIconResource", "(Ljava/lang/String;III)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, getIconResource, int64_t, $String*, int32_t, int32_t, int32_t)},
-	{"getLibraries", "()Ljava/util/List;", "()Ljava/util/List<Lsun/awt/shell/Win32ShellFolder2$KnownFolderDefinition;>;", $PRIVATE | $STATIC, $staticMethod(Win32ShellFolder2, getLibraries, $List*)},
-	{"getLinkLocation", "(JJZ)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, getLinkLocation, int64_t, int64_t, int64_t, bool)},
-	{"getLinkLocation", "()Lsun/awt/shell/ShellFolder;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, getLinkLocation, $ShellFolder*)},
-	{"getLinkLocation", "(Z)Lsun/awt/shell/Win32ShellFolder2;", nullptr, $PRIVATE, $method(Win32ShellFolder2, getLinkLocation, Win32ShellFolder2*, bool)},
-	{"getNextChild", "(J)J", nullptr, $PRIVATE | $NATIVE, $method(Win32ShellFolder2, getNextChild, int64_t, int64_t)},
-	{"getNextPIDLEntry", "(J)J", nullptr, $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, getNextPIDLEntry, int64_t, int64_t)},
-	{"getParentFile", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, getParentFile, $File*)},
-	{"getParentIShellFolder", "()J", nullptr, $PUBLIC, $method(Win32ShellFolder2, getParentIShellFolder, int64_t)},
-	{"getRelativePIDL", "()J", nullptr, $PUBLIC, $method(Win32ShellFolder2, getRelativePIDL, int64_t)},
-	{"getShell32Icon", "(II)Ljava/awt/Image;", nullptr, $STATIC, $staticMethod(Win32ShellFolder2, getShell32Icon, $Image*, int32_t, int32_t)},
-	{"getStandardViewButton0", "(IZ)[I", nullptr, $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, getStandardViewButton0, $ints*, int32_t, bool)},
-	{"getSystemIcon", "(I)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, getSystemIcon, int64_t, int32_t)},
-	{"getSystemIcon", "(Lsun/awt/shell/Win32ShellFolder2$SystemIcon;)Ljava/awt/Image;", nullptr, $STATIC, $staticMethod(Win32ShellFolder2, getSystemIcon, $Image*, $Win32ShellFolder2$SystemIcon*)},
-	{"hasAttribute", "(I)Z", nullptr, $PUBLIC, $method(Win32ShellFolder2, hasAttribute, bool, int32_t)},
-	{"hiResIconAvailable", "(JJ)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, hiResIconAvailable, bool, int64_t, int64_t)},
-	{"initDesktop", "()V", nullptr, $PRIVATE | $NATIVE, $method(Win32ShellFolder2, initDesktop, void)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, initIDs, void)},
-	{"initSpecial", "(JI)V", nullptr, $PRIVATE | $NATIVE, $method(Win32ShellFolder2, initSpecial, void, int64_t, int32_t)},
-	{"isDirectory", "()Z", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, isDirectory, bool)},
-	{"isFileSystem", "()Z", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, isFileSystem, bool)},
-	{"isHidden", "()Z", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, isHidden, bool)},
-	{"isLibrary", "()Z", nullptr, 0, $method(Win32ShellFolder2, isLibrary, bool)},
-	{"isLink", "()Z", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, isLink, bool)},
-	{"isNetworkRoot", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Win32ShellFolder2, isNetworkRoot, bool, $String*)},
-	{"isSpecial", "()Z", nullptr, $PUBLIC, $method(Win32ShellFolder2, isSpecial, bool)},
-	{"lambda$getIcon$0", "(I)Ljava/awt/Image;", nullptr, $PRIVATE | $SYNTHETIC, $method(Win32ShellFolder2, lambda$getIcon$0, $Image*, int32_t), "java.lang.Exception"},
-	{"listFiles", "(Z)[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, listFiles, $FileArray*, bool)},
-	{"loadKnownFolders", "()[Lsun/awt/shell/Win32ShellFolder2$KnownFolderDefinition;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, loadKnownFolders, $Win32ShellFolder2$KnownFolderDefinitionArray*)},
-	{"makeIcon", "(J)Ljava/awt/Image;", nullptr, $PRIVATE | $STATIC, $staticMethod(Win32ShellFolder2, makeIcon, $Image*, int64_t)},
-	{"parseDisplayName", "(Ljava/lang/String;)J", nullptr, 0, $method(Win32ShellFolder2, parseDisplayName, int64_t, $String*), "java.io.IOException,java.lang.InterruptedException"},
-	{"parseDisplayName0", "(JLjava/lang/String;)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, parseDisplayName0, int64_t, int64_t, $String*), "java.io.IOException"},
-	{"pathsEqual", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Win32ShellFolder2, pathsEqual, bool, $String*, $String*)},
-	{"pidlsEqual", "(JJJ)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Win32ShellFolder2, pidlsEqual, bool, int64_t, int64_t, int64_t), "java.lang.InterruptedException"},
-	{"releaseEnumObjects", "(J)V", nullptr, $PRIVATE | $NATIVE, $method(Win32ShellFolder2, releaseEnumObjects, void, int64_t)},
-	{"releaseIShellFolder", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, releaseIShellFolder, void, int64_t)},
-	{"releasePIDL", "(J)V", nullptr, $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, releasePIDL, void, int64_t)},
-	{"resolveLibrary", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Win32ShellFolder2, resolveLibrary, $String*, $String*)},
-	{"resolveLibrary", "()Lsun/awt/shell/ShellFolder;", nullptr, $PRIVATE, $method(Win32ShellFolder2, resolveLibrary, $ShellFolder*)},
-	{"setIShellFolder", "(J)V", nullptr, $PRIVATE, $method(Win32ShellFolder2, setIShellFolder, void, int64_t)},
-	{"setIsPersonal", "()V", nullptr, $PUBLIC, $method(Win32ShellFolder2, setIsPersonal, void)},
-	{"setRelativePIDL", "(J)V", nullptr, $PRIVATE, $method(Win32ShellFolder2, setRelativePIDL, void, int64_t)},
-	{"sortChildren", "(Ljava/util/List;)V", "(Ljava/util/List<+Ljava/io/File;>;)V", $PUBLIC, $virtualMethod(Win32ShellFolder2, sortChildren, void, $List*)},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(Win32ShellFolder2, writeReplace, $Object*), "java.io.ObjectStreamException"},
-	{}
-};
-
-#define _METHOD_INDEX_bindToObject 3
-#define _METHOD_INDEX_combinePIDLs 4
-#define _METHOD_INDEX_compareIDs 5
-#define _METHOD_INDEX_compareIDsByColumn 6
-#define _METHOD_INDEX_copyFirstPIDLEntry 10
-#define _METHOD_INDEX_disposeIcon 13
-#define _METHOD_INDEX_doGetColumnInfo 14
-#define _METHOD_INDEX_doGetColumnValue 15
-#define _METHOD_INDEX_extractIcon 17
-#define _METHOD_INDEX_getAttributes0 19
-#define _METHOD_INDEX_getDisplayNameOf 25
-#define _METHOD_INDEX_getEnumObjects 27
-#define _METHOD_INDEX_getExecutableType 28
-#define _METHOD_INDEX_getFileSystemPath0 32
-#define _METHOD_INDEX_getFolderType 35
-#define _METHOD_INDEX_getIShellIcon 38
-#define _METHOD_INDEX_getIcon 40
-#define _METHOD_INDEX_getIconBits 43
-#define _METHOD_INDEX_getIconIndex 44
-#define _METHOD_INDEX_getIconResource 45
-#define _METHOD_INDEX_getLinkLocation 47
-#define _METHOD_INDEX_getNextChild 50
-#define _METHOD_INDEX_getNextPIDLEntry 51
-#define _METHOD_INDEX_getStandardViewButton0 56
-#define _METHOD_INDEX_getSystemIcon 57
-#define _METHOD_INDEX_hiResIconAvailable 60
-#define _METHOD_INDEX_initDesktop 61
-#define _METHOD_INDEX_initIDs 62
-#define _METHOD_INDEX_initSpecial 63
-#define _METHOD_INDEX_loadKnownFolders 73
-#define _METHOD_INDEX_parseDisplayName0 76
-#define _METHOD_INDEX_releaseEnumObjects 79
-#define _METHOD_INDEX_releaseIShellFolder 80
-#define _METHOD_INDEX_releasePIDL 81
-
-$InnerClassInfo _Win32ShellFolder2_InnerClassesInfo_[] = {
-	{"sun.awt.shell.Win32ShellFolder2$MultiResolutionIconImage", "sun.awt.shell.Win32ShellFolder2", "MultiResolutionIconImage", $STATIC},
-	{"sun.awt.shell.Win32ShellFolder2$ColumnComparator", "sun.awt.shell.Win32ShellFolder2", "ColumnComparator", $PRIVATE | $STATIC},
-	{"sun.awt.shell.Win32ShellFolder2$FolderDisposer", "sun.awt.shell.Win32ShellFolder2", "FolderDisposer", $STATIC},
-	{"sun.awt.shell.Win32ShellFolder2$KnownLibraries", "sun.awt.shell.Win32ShellFolder2", "KnownLibraries", $STATIC | $FINAL},
-	{"sun.awt.shell.Win32ShellFolder2$KnownFolderDefinition", "sun.awt.shell.Win32ShellFolder2", "KnownFolderDefinition", $STATIC | $FINAL},
-	{"sun.awt.shell.Win32ShellFolder2$SystemIcon", "sun.awt.shell.Win32ShellFolder2", "SystemIcon", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"sun.awt.shell.Win32ShellFolder2$19", nullptr, nullptr, 0},
-	{"sun.awt.shell.Win32ShellFolder2$18", nullptr, nullptr, 0},
-	{"sun.awt.shell.Win32ShellFolder2$17", nullptr, nullptr, 0},
-	{"sun.awt.shell.Win32ShellFolder2$16", nullptr, nullptr, 0},
-	{"sun.awt.shell.Win32ShellFolder2$15", nullptr, nullptr, 0},
-	{"sun.awt.shell.Win32ShellFolder2$14", nullptr, nullptr, 0},
-	{"sun.awt.shell.Win32ShellFolder2$13", nullptr, nullptr, 0},
-	{"sun.awt.shell.Win32ShellFolder2$12", nullptr, nullptr, 0},
-	{"sun.awt.shell.Win32ShellFolder2$11", nullptr, nullptr, 0},
-	{"sun.awt.shell.Win32ShellFolder2$10", nullptr, nullptr, 0},
-	{"sun.awt.shell.Win32ShellFolder2$9", nullptr, nullptr, 0},
-	{"sun.awt.shell.Win32ShellFolder2$8", nullptr, nullptr, 0},
-	{"sun.awt.shell.Win32ShellFolder2$7", nullptr, nullptr, 0},
-	{"sun.awt.shell.Win32ShellFolder2$6", nullptr, nullptr, 0},
-	{"sun.awt.shell.Win32ShellFolder2$5", nullptr, nullptr, 0},
-	{"sun.awt.shell.Win32ShellFolder2$4", nullptr, nullptr, 0},
-	{"sun.awt.shell.Win32ShellFolder2$3", nullptr, nullptr, 0},
-	{"sun.awt.shell.Win32ShellFolder2$2", nullptr, nullptr, 0},
-	{"sun.awt.shell.Win32ShellFolder2$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Win32ShellFolder2_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.shell.Win32ShellFolder2",
-	"sun.awt.shell.ShellFolder",
-	nullptr,
-	_Win32ShellFolder2_FieldInfo_,
-	_Win32ShellFolder2_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Win32ShellFolder2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.shell.Win32ShellFolder2$MultiResolutionIconImage,sun.awt.shell.Win32ShellFolder2$ColumnComparator,sun.awt.shell.Win32ShellFolder2$ColumnComparator$1,sun.awt.shell.Win32ShellFolder2$FolderDisposer,sun.awt.shell.Win32ShellFolder2$FolderDisposer$1,sun.awt.shell.Win32ShellFolder2$KnownLibraries,sun.awt.shell.Win32ShellFolder2$KnownFolderDefinition,sun.awt.shell.Win32ShellFolder2$SystemIcon,sun.awt.shell.Win32ShellFolder2$19,sun.awt.shell.Win32ShellFolder2$18,sun.awt.shell.Win32ShellFolder2$17,sun.awt.shell.Win32ShellFolder2$16,sun.awt.shell.Win32ShellFolder2$15,sun.awt.shell.Win32ShellFolder2$14,sun.awt.shell.Win32ShellFolder2$13,sun.awt.shell.Win32ShellFolder2$12,sun.awt.shell.Win32ShellFolder2$11,sun.awt.shell.Win32ShellFolder2$10,sun.awt.shell.Win32ShellFolder2$9,sun.awt.shell.Win32ShellFolder2$8,sun.awt.shell.Win32ShellFolder2$7,sun.awt.shell.Win32ShellFolder2$6,sun.awt.shell.Win32ShellFolder2$5,sun.awt.shell.Win32ShellFolder2$4,sun.awt.shell.Win32ShellFolder2$3,sun.awt.shell.Win32ShellFolder2$2,sun.awt.shell.Win32ShellFolder2$1"
-};
-
-$Object* allocate$Win32ShellFolder2($Class* clazz) {
-	return $of($alloc(Win32ShellFolder2));
-}
 
 $ints* Win32ShellFolder2::ICON_RESOLUTIONS = nullptr;
 $String* Win32ShellFolder2::FNAME = nullptr;
@@ -519,7 +245,7 @@ $Image* Win32ShellFolder2::access$001(Win32ShellFolder2* x0, bool x1) {
 
 void Win32ShellFolder2::initIDs() {
 	$init(Win32ShellFolder2);
-	$prepareNativeStatic(Win32ShellFolder2, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -534,13 +260,13 @@ void Win32ShellFolder2::setRelativePIDL(int64_t relativePIDL) {
 
 $String* Win32ShellFolder2::composePathForCsidl(int32_t csidl) {
 	$init(Win32ShellFolder2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, path, getFileSystemPath(csidl));
 	return path == nullptr ? ($str({"ShellFolder: 0x"_s, $($Integer::toHexString(csidl))})) : path;
 }
 
 void Win32ShellFolder2::init$(int32_t csidl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ShellFolder::init$(nullptr, $(composePathForCsidl(csidl)));
 	$set(this, disposerReferent, $new($Object));
 	$set(this, disposer, $new($Win32ShellFolder2$FolderDisposer));
@@ -568,14 +294,13 @@ void Win32ShellFolder2::init$(Win32ShellFolder2* parent, int64_t pIShellFolder, 
 	$set(this, isDir, nullptr);
 	this->isLib = isLib;
 	$nc(this->disposer)->pIShellFolder = pIShellFolder;
-	$nc(this->disposer)->relativePIDL = relativePIDL;
+	this->disposer->relativePIDL = relativePIDL;
 	$Disposer::addObjectRecord(this->disposerReferent, this->disposer);
 }
 
 Win32ShellFolder2* Win32ShellFolder2::createShellFolder(Win32ShellFolder2* parent, int64_t pIDL) {
 	$init(Win32ShellFolder2);
-	$useLocalCurrentObjectStackCache();
-	$load($RuntimeException);
+	$useLocalObjectStack();
 	$var($String, path, $cast($String, invoke($$new($Win32ShellFolder2$2, parent, pIDL), $RuntimeException::class$)));
 	$var($String, libPath, resolveLibrary(path));
 	if (libPath == nullptr) {
@@ -586,13 +311,13 @@ Win32ShellFolder2* Win32ShellFolder2::createShellFolder(Win32ShellFolder2* paren
 }
 
 void Win32ShellFolder2::initDesktop() {
-	$prepareNative(Win32ShellFolder2, initDesktop, void);
+	$prepareNative(initDesktop, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void Win32ShellFolder2::initSpecial(int64_t desktopIShellFolder, int32_t csidl) {
-	$prepareNative(Win32ShellFolder2, initSpecial, void, int64_t desktopIShellFolder, int32_t csidl);
+	$prepareNative(initSpecial, void, int64_t desktopIShellFolder, int32_t csidl);
 	$invokeNative(desktopIShellFolder, csidl);
 	$finishNative();
 }
@@ -602,7 +327,7 @@ void Win32ShellFolder2::setIsPersonal() {
 }
 
 $Object* Win32ShellFolder2::writeReplace() {
-	return $of(invoke($$new($Win32ShellFolder2$3, this)));
+	return invoke($$new($Win32ShellFolder2$3, this));
 }
 
 void Win32ShellFolder2::dispose() {
@@ -611,51 +336,47 @@ void Win32ShellFolder2::dispose() {
 
 int64_t Win32ShellFolder2::getNextPIDLEntry(int64_t pIDL) {
 	$init(Win32ShellFolder2);
-	int64_t $ret = 0;
-	$prepareNativeStatic(Win32ShellFolder2, getNextPIDLEntry, int64_t, int64_t pIDL);
-	$ret = $invokeNativeStatic(pIDL);
+	$prepareNativeStatic(getNextPIDLEntry, int64_t, int64_t pIDL);
+	int64_t $ret = $invokeNativeStatic(pIDL);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int64_t Win32ShellFolder2::copyFirstPIDLEntry(int64_t pIDL) {
 	$init(Win32ShellFolder2);
-	int64_t $ret = 0;
-	$prepareNativeStatic(Win32ShellFolder2, copyFirstPIDLEntry, int64_t, int64_t pIDL);
-	$ret = $invokeNativeStatic(pIDL);
+	$prepareNativeStatic(copyFirstPIDLEntry, int64_t, int64_t pIDL);
+	int64_t $ret = $invokeNativeStatic(pIDL);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int64_t Win32ShellFolder2::combinePIDLs(int64_t ppIDL, int64_t pIDL) {
 	$init(Win32ShellFolder2);
-	int64_t $ret = 0;
-	$prepareNativeStatic(Win32ShellFolder2, combinePIDLs, int64_t, int64_t ppIDL, int64_t pIDL);
-	$ret = $invokeNativeStatic(ppIDL, pIDL);
+	$prepareNativeStatic(combinePIDLs, int64_t, int64_t ppIDL, int64_t pIDL);
+	int64_t $ret = $invokeNativeStatic(ppIDL, pIDL);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void Win32ShellFolder2::releasePIDL(int64_t pIDL) {
 	$init(Win32ShellFolder2);
-	$prepareNativeStatic(Win32ShellFolder2, releasePIDL, void, int64_t pIDL);
+	$prepareNativeStatic(releasePIDL, void, int64_t pIDL);
 	$invokeNativeStatic(pIDL);
 	$finishNativeStatic();
 }
 
 void Win32ShellFolder2::releaseIShellFolder(int64_t pIShellFolder) {
 	$init(Win32ShellFolder2);
-	$prepareNativeStatic(Win32ShellFolder2, releaseIShellFolder, void, int64_t pIShellFolder);
+	$prepareNativeStatic(releaseIShellFolder, void, int64_t pIShellFolder);
 	$invokeNativeStatic(pIShellFolder);
 	$finishNativeStatic();
 }
 
 int64_t Win32ShellFolder2::getIShellFolder() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->disposer)->pIShellFolder == 0) {
 		try {
-			$load($RuntimeException);
-			$nc(this->disposer)->pIShellFolder = $nc(($cast($Long, $(invoke($$new($Win32ShellFolder2$4, this), $RuntimeException::class$)))))->longValue();
+			this->disposer->pIShellFolder = $$sure($Long, invoke($$new($Win32ShellFolder2$4, this), $RuntimeException::class$))->longValue();
 		} catch ($InterruptedException& e) {
 		}
 	}
@@ -674,7 +395,7 @@ int64_t Win32ShellFolder2::getRelativePIDL() {
 	if ($nc(this->disposer)->relativePIDL == 0) {
 		$throwNew($InternalError, "Should always have a relative PIDL"_s);
 	}
-	return $nc(this->disposer)->relativePIDL;
+	return this->disposer->relativePIDL;
 }
 
 int64_t Win32ShellFolder2::getAbsolutePIDL() {
@@ -682,8 +403,8 @@ int64_t Win32ShellFolder2::getAbsolutePIDL() {
 		return getRelativePIDL();
 	} else {
 		if ($nc(this->disposer)->absolutePIDL == 0) {
-			int64_t var$0 = $nc(($cast(Win32ShellFolder2, this->parent)))->getAbsolutePIDL();
-			$nc(this->disposer)->absolutePIDL = combinePIDLs(var$0, getRelativePIDL());
+			int64_t var$0 = $cast(Win32ShellFolder2, this->parent)->getAbsolutePIDL();
+			this->disposer->absolutePIDL = combinePIDLs(var$0, getRelativePIDL());
 		}
 		return $nc(this->disposer)->absolutePIDL;
 	}
@@ -694,7 +415,7 @@ Win32ShellFolder2* Win32ShellFolder2::getDesktop() {
 }
 
 int64_t Win32ShellFolder2::getDesktopIShellFolder() {
-	return $nc($(getDesktop()))->getIShellFolder();
+	return $$nc(getDesktop())->getIShellFolder();
 }
 
 bool Win32ShellFolder2::pathsEqual($String* path1, $String* path2) {
@@ -703,13 +424,13 @@ bool Win32ShellFolder2::pathsEqual($String* path1, $String* path2) {
 }
 
 bool Win32ShellFolder2::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (o == nullptr || !($instanceOf(Win32ShellFolder2, o))) {
 		if (!($instanceOf($File, o))) {
 			return $ShellFolder::equals(o);
 		}
 		$var($String, var$0, getPath());
-		return pathsEqual(var$0, $($nc(($cast($File, o)))->getPath()));
+		return pathsEqual(var$0, $($nc($cast($File, o))->getPath()));
 	}
 	$var(Win32ShellFolder2, rhs, $cast(Win32ShellFolder2, o));
 	if ((this->parent == nullptr && $nc(rhs)->parent != nullptr) || (this->parent != nullptr && $nc(rhs)->parent == nullptr)) {
@@ -721,9 +442,9 @@ bool Win32ShellFolder2::equals(Object$* o) {
 		bool var$2 = pathsEqual(var$3, $(rhs->getPath()));
 		return (var$2 && (this->parent == rhs->parent || $nc(this->parent)->equals(rhs->parent)));
 	}
-	if (this->parent == $nc(rhs)->parent || $nc(this->parent)->equals($nc(rhs)->parent)) {
+	if (this->parent == $nc(rhs)->parent || $nc(this->parent)->equals(rhs->parent)) {
 		try {
-			return pidlsEqual(getParentIShellFolder(), $nc(this->disposer)->relativePIDL, $nc($nc(rhs)->disposer)->relativePIDL);
+			return pidlsEqual(getParentIShellFolder(), $nc(this->disposer)->relativePIDL, $nc(rhs->disposer)->relativePIDL);
 		} catch ($InterruptedException& e) {
 			return false;
 		}
@@ -733,16 +454,14 @@ bool Win32ShellFolder2::equals(Object$* o) {
 
 bool Win32ShellFolder2::pidlsEqual(int64_t pIShellFolder, int64_t pidl1, int64_t pidl2) {
 	$init(Win32ShellFolder2);
-	$useLocalCurrentObjectStackCache();
-	$load($RuntimeException);
-	return $nc(($cast($Boolean, $(invoke($$new($Win32ShellFolder2$5, pIShellFolder, pidl1, pidl2), $RuntimeException::class$)))))->booleanValue();
+	$useLocalObjectStack();
+	return $$sure($Boolean, invoke($$new($Win32ShellFolder2$5, pIShellFolder, pidl1, pidl2), $RuntimeException::class$))->booleanValue();
 }
 
 int32_t Win32ShellFolder2::compareIDs(int64_t pParentIShellFolder, int64_t pidl1, int64_t pidl2) {
 	$init(Win32ShellFolder2);
-	int32_t $ret = 0;
-	$prepareNativeStatic(Win32ShellFolder2, compareIDs, int32_t, int64_t pParentIShellFolder, int64_t pidl1, int64_t pidl2);
-	$ret = $invokeNativeStatic(pParentIShellFolder, pidl1, pidl2);
+	$prepareNativeStatic(compareIDs, int32_t, int64_t pParentIShellFolder, int64_t pidl1, int64_t pidl2);
+	int32_t $ret = $invokeNativeStatic(pParentIShellFolder, pidl1, pidl2);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -755,27 +474,26 @@ bool Win32ShellFolder2::isFileSystem() {
 }
 
 bool Win32ShellFolder2::hasAttribute(int32_t attribute) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Boolean, result, $cast($Boolean, invoke($$new($Win32ShellFolder2$6, this, attribute))));
 	return result != nullptr && result->booleanValue();
 }
 
 int32_t Win32ShellFolder2::getAttributes0(int64_t pParentIShellFolder, int64_t pIDL, int32_t attrsMask) {
 	$init(Win32ShellFolder2);
-	int32_t $ret = 0;
-	$prepareNativeStatic(Win32ShellFolder2, getAttributes0, int32_t, int64_t pParentIShellFolder, int64_t pIDL, int32_t attrsMask);
-	$ret = $invokeNativeStatic(pParentIShellFolder, pIDL, attrsMask);
+	$prepareNativeStatic(getAttributes0, int32_t, int64_t pParentIShellFolder, int64_t pIDL, int32_t attrsMask);
+	int32_t $ret = $invokeNativeStatic(pParentIShellFolder, pIDL, attrsMask);
 	$finishNativeStatic();
 	return $ret;
 }
 
 $String* Win32ShellFolder2::getFileSystemPath(int64_t parentIShellFolder, int64_t relativePIDL) {
 	$init(Win32ShellFolder2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t linkedFolder = Win32ShellFolder2::ATTRIB_LINK | Win32ShellFolder2::ATTRIB_FOLDER;
-	bool var$0 = parentIShellFolder == $nc($($Win32ShellFolderManager2::getNetwork()))->getIShellFolder();
+	bool var$0 = parentIShellFolder == $$nc($Win32ShellFolderManager2::getNetwork())->getIShellFolder();
 	if (var$0 && getAttributes0(parentIShellFolder, relativePIDL, linkedFolder) == linkedFolder) {
-		int64_t var$1 = $nc($($Win32ShellFolderManager2::getDesktop()))->getIShellFolder();
+		int64_t var$1 = $$nc($Win32ShellFolderManager2::getDesktop())->getIShellFolder();
 		$var($String, s, getFileSystemPath(var$1, getLinkLocation(parentIShellFolder, relativePIDL, false)));
 		if (s != nullptr && s->startsWith("\\\\"_s)) {
 			return s;
@@ -787,19 +505,17 @@ $String* Win32ShellFolder2::getFileSystemPath(int64_t parentIShellFolder, int64_
 
 $String* Win32ShellFolder2::resolveLibrary($String* path) {
 	$init(Win32ShellFolder2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = path != nullptr && path->startsWith("::{"_s);
 	if (var$0 && $(path->toLowerCase())->endsWith(".library-ms"_s)) {
-		{
-			$init($Win32ShellFolder2$KnownLibraries);
-			$var($Iterator, i$, $nc($Win32ShellFolder2$KnownLibraries::INSTANCE)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Win32ShellFolder2$KnownFolderDefinition, kf, $cast($Win32ShellFolder2$KnownFolderDefinition, i$->next()));
-				{
-					bool var$1 = $(path->toLowerCase())->endsWith($$str({"\\"_s, $($nc($nc(kf)->relativePath)->toLowerCase())}));
-					if (var$1 && $(path->toUpperCase())->startsWith($($($nc($nc(kf)->parsingName)->substring(0, 40))->toUpperCase()))) {
-						return $nc(kf)->saveLocation;
-					}
+		$init($Win32ShellFolder2$KnownLibraries);
+		$var($Iterator, i$, $nc($Win32ShellFolder2$KnownLibraries::INSTANCE)->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Win32ShellFolder2$KnownFolderDefinition, kf, $cast($Win32ShellFolder2$KnownFolderDefinition, i$->next()));
+			{
+				bool var$1 = $(path->toLowerCase())->endsWith($$str({"\\"_s, $($nc($nc(kf)->relativePath)->toLowerCase())}));
+				if (var$1 && $(path->toUpperCase())->startsWith($($($nc(kf->parsingName)->substring(0, 40))->toUpperCase()))) {
+					return kf->saveLocation;
 				}
 			}
 		}
@@ -809,7 +525,7 @@ $String* Win32ShellFolder2::resolveLibrary($String* path) {
 
 $String* Win32ShellFolder2::getFileSystemPath(int32_t csidl) {
 	$init(Win32ShellFolder2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($IOException);
 	$var($String, path, $cast($String, invoke($$new($Win32ShellFolder2$7, csidl), $IOException::class$)));
 	if (path != nullptr) {
@@ -823,9 +539,8 @@ $String* Win32ShellFolder2::getFileSystemPath(int32_t csidl) {
 
 $String* Win32ShellFolder2::getFileSystemPath0(int32_t csidl) {
 	$init(Win32ShellFolder2);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(Win32ShellFolder2, getFileSystemPath0, $String*, int32_t csidl);
-	$assign($ret, $invokeNativeStaticObject(csidl));
+	$prepareNativeStatic(getFileSystemPath0, $String*, int32_t csidl);
+	$var($String, $ret, $invokeNativeStaticObject(csidl));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -833,9 +548,9 @@ $String* Win32ShellFolder2::getFileSystemPath0(int32_t csidl) {
 bool Win32ShellFolder2::isNetworkRoot($String* path) {
 	$init(Win32ShellFolder2);
 	bool var$2 = $nc(path)->equals("\\\\"_s);
-	bool var$1 = var$2 || $nc(path)->equals("\\"_s);
-	bool var$0 = var$1 || $nc(path)->equals("//"_s);
-	return (var$0 || $nc(path)->equals("/"_s));
+	bool var$1 = var$2 || path->equals("\\"_s);
+	bool var$0 = var$1 || path->equals("//"_s);
+	return (var$0 || path->equals("/"_s));
 }
 
 $File* Win32ShellFolder2::getParentFile() {
@@ -846,13 +561,11 @@ bool Win32ShellFolder2::isDirectory() {
 	if (this->isDir == nullptr) {
 		bool var$0 = hasAttribute(Win32ShellFolder2::ATTRIB_FOLDER);
 		if (var$0 && !hasAttribute(Win32ShellFolder2::ATTRIB_BROWSABLE)) {
-			$init($Boolean);
 			$set(this, isDir, $Boolean::TRUE);
 		} else if (isLink()) {
 			$var($ShellFolder, linkLocation, getLinkLocation(false));
 			$set(this, isDir, $Boolean::valueOf(linkLocation != nullptr && linkLocation->isDirectory()));
 		} else {
-			$init($Boolean);
 			$set(this, isDir, $Boolean::FALSE);
 		}
 	}
@@ -860,44 +573,40 @@ bool Win32ShellFolder2::isDirectory() {
 }
 
 int64_t Win32ShellFolder2::getEnumObjects(bool includeHiddenFiles) {
-	$useLocalCurrentObjectStackCache();
-	$load($RuntimeException);
-	return $nc(($cast($Long, $(invoke($$new($Win32ShellFolder2$8, this, includeHiddenFiles), $RuntimeException::class$)))))->longValue();
+	$useLocalObjectStack();
+	return $$sure($Long, invoke($$new($Win32ShellFolder2$8, this, includeHiddenFiles), $RuntimeException::class$))->longValue();
 }
 
 int64_t Win32ShellFolder2::getEnumObjects(int64_t pIShellFolder, bool isDesktop, bool includeHiddenFiles) {
-	int64_t $ret = 0;
-	$prepareNative(Win32ShellFolder2, getEnumObjects, int64_t, int64_t pIShellFolder, bool isDesktop, bool includeHiddenFiles);
-	$ret = $invokeNative(pIShellFolder, isDesktop, includeHiddenFiles);
+	$prepareNative(getEnumObjects, int64_t, int64_t pIShellFolder, bool isDesktop, bool includeHiddenFiles);
+	int64_t $ret = $invokeNative(pIShellFolder, isDesktop, includeHiddenFiles);
 	$finishNative();
 	return $ret;
 }
 
 int64_t Win32ShellFolder2::getNextChild(int64_t pEnumObjects) {
-	int64_t $ret = 0;
-	$prepareNative(Win32ShellFolder2, getNextChild, int64_t, int64_t pEnumObjects);
-	$ret = $invokeNative(pEnumObjects);
+	$prepareNative(getNextChild, int64_t, int64_t pEnumObjects);
+	int64_t $ret = $invokeNative(pEnumObjects);
 	$finishNative();
 	return $ret;
 }
 
 void Win32ShellFolder2::releaseEnumObjects(int64_t pEnumObjects) {
-	$prepareNative(Win32ShellFolder2, releaseEnumObjects, void, int64_t pEnumObjects);
+	$prepareNative(releaseEnumObjects, void, int64_t pEnumObjects);
 	$invokeNative(pEnumObjects);
 	$finishNative();
 }
 
 int64_t Win32ShellFolder2::bindToObject(int64_t parentIShellFolder, int64_t pIDL) {
 	$init(Win32ShellFolder2);
-	int64_t $ret = 0;
-	$prepareNativeStatic(Win32ShellFolder2, bindToObject, int64_t, int64_t parentIShellFolder, int64_t pIDL);
-	$ret = $invokeNativeStatic(parentIShellFolder, pIDL);
+	$prepareNativeStatic(bindToObject, int64_t, int64_t parentIShellFolder, int64_t pIDL);
+	int64_t $ret = $invokeNativeStatic(parentIShellFolder, pIDL);
 	$finishNativeStatic();
 	return $ret;
 }
 
 $FileArray* Win32ShellFolder2::listFiles(bool includeHiddenFiles) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
 		security->checkRead($(getPath()));
@@ -930,9 +639,8 @@ bool Win32ShellFolder2::isHidden() {
 
 int64_t Win32ShellFolder2::getLinkLocation(int64_t parentIShellFolder, int64_t relativePIDL, bool resolve) {
 	$init(Win32ShellFolder2);
-	int64_t $ret = 0;
-	$prepareNativeStatic(Win32ShellFolder2, getLinkLocation, int64_t, int64_t parentIShellFolder, int64_t relativePIDL, bool resolve);
-	$ret = $invokeNativeStatic(parentIShellFolder, relativePIDL, resolve);
+	$prepareNativeStatic(getLinkLocation, int64_t, int64_t parentIShellFolder, int64_t relativePIDL, bool resolve);
+	int64_t $ret = $invokeNativeStatic(parentIShellFolder, relativePIDL, resolve);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -946,34 +654,31 @@ Win32ShellFolder2* Win32ShellFolder2::getLinkLocation(bool resolve) {
 }
 
 int64_t Win32ShellFolder2::parseDisplayName($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($IOException);
-	return $nc(($cast($Long, $(invoke($$new($Win32ShellFolder2$12, this, name), $IOException::class$)))))->longValue();
+	return $$sure($Long, invoke($$new($Win32ShellFolder2$12, this, name), $IOException::class$))->longValue();
 }
 
 int64_t Win32ShellFolder2::parseDisplayName0(int64_t pIShellFolder, $String* name) {
 	$init(Win32ShellFolder2);
-	int64_t $ret = 0;
-	$prepareNativeStatic(Win32ShellFolder2, parseDisplayName0, int64_t, int64_t pIShellFolder, $String* name);
-	$ret = $invokeNativeStatic(pIShellFolder, name);
+	$prepareNativeStatic(parseDisplayName0, int64_t, int64_t pIShellFolder, $String* name);
+	int64_t $ret = $invokeNativeStatic(pIShellFolder, name);
 	$finishNativeStatic();
 	return $ret;
 }
 
 $String* Win32ShellFolder2::getDisplayNameOf(int64_t parentIShellFolder, int64_t relativePIDL, int32_t attrs) {
 	$init(Win32ShellFolder2);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(Win32ShellFolder2, getDisplayNameOf, $String*, int64_t parentIShellFolder, int64_t relativePIDL, int32_t attrs);
-	$assign($ret, $invokeNativeStaticObject(parentIShellFolder, relativePIDL, attrs));
+	$prepareNativeStatic(getDisplayNameOf, $String*, int64_t parentIShellFolder, int64_t relativePIDL, int32_t attrs);
+	$var($String, $ret, $invokeNativeStaticObject(parentIShellFolder, relativePIDL, attrs));
 	$finishNativeStatic();
 	return $ret;
 }
 
 $Win32ShellFolder2$KnownFolderDefinitionArray* Win32ShellFolder2::loadKnownFolders() {
 	$init(Win32ShellFolder2);
-	$var($Win32ShellFolder2$KnownFolderDefinitionArray, $ret, nullptr);
-	$prepareNativeStatic(Win32ShellFolder2, loadKnownFolders, $Win32ShellFolder2$KnownFolderDefinitionArray*);
-	$assign($ret, $invokeNativeStaticObject());
+	$prepareNativeStatic(loadKnownFolders, $Win32ShellFolder2$KnownFolderDefinitionArray*);
+	$var($Win32ShellFolder2$KnownFolderDefinitionArray, $ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
@@ -987,9 +692,8 @@ $String* Win32ShellFolder2::getDisplayName() {
 
 $String* Win32ShellFolder2::getFolderType(int64_t pIDL) {
 	$init(Win32ShellFolder2);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(Win32ShellFolder2, getFolderType, $String*, int64_t pIDL);
-	$assign($ret, $invokeNativeStaticObject(pIDL));
+	$prepareNativeStatic(getFolderType, $String*, int64_t pIDL);
+	$var($String, $ret, $invokeNativeStaticObject(pIDL));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1003,9 +707,8 @@ $String* Win32ShellFolder2::getFolderType() {
 }
 
 $String* Win32ShellFolder2::getExecutableType($String* path) {
-	$var($String, $ret, nullptr);
-	$prepareNative(Win32ShellFolder2, getExecutableType, $String*, $String* path);
-	$assign($ret, $invokeNativeObject(path));
+	$prepareNative(getExecutableType, $String*, $String* path);
+	$var($String, $ret, $invokeNativeObject(path));
 	$finishNative();
 	return $ret;
 }
@@ -1019,94 +722,85 @@ $String* Win32ShellFolder2::getExecutableType() {
 
 int64_t Win32ShellFolder2::getIShellIcon(int64_t pIShellFolder) {
 	$init(Win32ShellFolder2);
-	int64_t $ret = 0;
-	$prepareNativeStatic(Win32ShellFolder2, getIShellIcon, int64_t, int64_t pIShellFolder);
-	$ret = $invokeNativeStatic(pIShellFolder);
+	$prepareNativeStatic(getIShellIcon, int64_t, int64_t pIShellFolder);
+	int64_t $ret = $invokeNativeStatic(pIShellFolder);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t Win32ShellFolder2::getIconIndex(int64_t parentIShellIcon, int64_t relativePIDL) {
 	$init(Win32ShellFolder2);
-	int32_t $ret = 0;
-	$prepareNativeStatic(Win32ShellFolder2, getIconIndex, int32_t, int64_t parentIShellIcon, int64_t relativePIDL);
-	$ret = $invokeNativeStatic(parentIShellIcon, relativePIDL);
+	$prepareNativeStatic(getIconIndex, int32_t, int64_t parentIShellIcon, int64_t relativePIDL);
+	int32_t $ret = $invokeNativeStatic(parentIShellIcon, relativePIDL);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int64_t Win32ShellFolder2::getIcon($String* absolutePath, bool getLargeIcon) {
 	$init(Win32ShellFolder2);
-	int64_t $ret = 0;
-	$prepareNativeStatic(Win32ShellFolder2, getIcon, int64_t, $String* absolutePath, bool getLargeIcon);
-	$ret = $invokeNativeStatic(absolutePath, getLargeIcon);
+	$prepareNativeStatic(getIcon, int64_t, $String* absolutePath, bool getLargeIcon);
+	int64_t $ret = $invokeNativeStatic(absolutePath, getLargeIcon);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int64_t Win32ShellFolder2::extractIcon(int64_t parentIShellFolder, int64_t relativePIDL, int32_t size, bool getDefaultIcon) {
 	$init(Win32ShellFolder2);
-	int64_t $ret = 0;
-	$prepareNativeStatic(Win32ShellFolder2, extractIcon, int64_t, int64_t parentIShellFolder, int64_t relativePIDL, int32_t size, bool getDefaultIcon);
-	$ret = $invokeNativeStatic(parentIShellFolder, relativePIDL, size, getDefaultIcon);
+	$prepareNativeStatic(extractIcon, int64_t, int64_t parentIShellFolder, int64_t relativePIDL, int32_t size, bool getDefaultIcon);
+	int64_t $ret = $invokeNativeStatic(parentIShellFolder, relativePIDL, size, getDefaultIcon);
 	$finishNativeStatic();
 	return $ret;
 }
 
 bool Win32ShellFolder2::hiResIconAvailable(int64_t parentIShellFolder, int64_t relativePIDL) {
 	$init(Win32ShellFolder2);
-	bool $ret = false;
-	$prepareNativeStatic(Win32ShellFolder2, hiResIconAvailable, bool, int64_t parentIShellFolder, int64_t relativePIDL);
-	$ret = $invokeNativeStatic(parentIShellFolder, relativePIDL);
+	$prepareNativeStatic(hiResIconAvailable, bool, int64_t parentIShellFolder, int64_t relativePIDL);
+	bool $ret = $invokeNativeStatic(parentIShellFolder, relativePIDL);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int64_t Win32ShellFolder2::getSystemIcon(int32_t iconID) {
 	$init(Win32ShellFolder2);
-	int64_t $ret = 0;
-	$prepareNativeStatic(Win32ShellFolder2, getSystemIcon, int64_t, int32_t iconID);
-	$ret = $invokeNativeStatic(iconID);
+	$prepareNativeStatic(getSystemIcon, int64_t, int32_t iconID);
+	int64_t $ret = $invokeNativeStatic(iconID);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int64_t Win32ShellFolder2::getIconResource($String* libName, int32_t iconID, int32_t cxDesired, int32_t cyDesired) {
 	$init(Win32ShellFolder2);
-	int64_t $ret = 0;
-	$prepareNativeStatic(Win32ShellFolder2, getIconResource, int64_t, $String* libName, int32_t iconID, int32_t cxDesired, int32_t cyDesired);
-	$ret = $invokeNativeStatic(libName, iconID, cxDesired, cyDesired);
+	$prepareNativeStatic(getIconResource, int64_t, $String* libName, int32_t iconID, int32_t cxDesired, int32_t cyDesired);
+	int64_t $ret = $invokeNativeStatic(libName, iconID, cxDesired, cyDesired);
 	$finishNativeStatic();
 	return $ret;
 }
 
 $ints* Win32ShellFolder2::getIconBits(int64_t hIcon) {
 	$init(Win32ShellFolder2);
-	$var($ints, $ret, nullptr);
-	$prepareNativeStatic(Win32ShellFolder2, getIconBits, $ints*, int64_t hIcon);
-	$assign($ret, $invokeNativeStaticObject(hIcon));
+	$prepareNativeStatic(getIconBits, $ints*, int64_t hIcon);
+	$var($ints, $ret, $invokeNativeStaticObject(hIcon));
 	$finishNativeStatic();
 	return $ret;
 }
 
 void Win32ShellFolder2::disposeIcon(int64_t hIcon) {
 	$init(Win32ShellFolder2);
-	$prepareNativeStatic(Win32ShellFolder2, disposeIcon, void, int64_t hIcon);
+	$prepareNativeStatic(disposeIcon, void, int64_t hIcon);
 	$invokeNativeStatic(hIcon);
 	$finishNativeStatic();
 }
 
 $ints* Win32ShellFolder2::getStandardViewButton0(int32_t iconIndex, bool small) {
 	$init(Win32ShellFolder2);
-	$var($ints, $ret, nullptr);
-	$prepareNativeStatic(Win32ShellFolder2, getStandardViewButton0, $ints*, int32_t iconIndex, bool small);
-	$assign($ret, $invokeNativeStaticObject(iconIndex, small));
+	$prepareNativeStatic(getStandardViewButton0, $ints*, int32_t iconIndex, bool small);
+	$var($ints, $ret, $invokeNativeStaticObject(iconIndex, small));
 	$finishNativeStatic();
 	return $ret;
 }
 
 int64_t Win32ShellFolder2::getIShellIcon() {
-	if (this->pIShellIcon == (int64_t)-1) {
+	if (this->pIShellIcon == -1) {
 		this->pIShellIcon = getIShellIcon(getIShellFolder());
 	}
 	return this->pIShellIcon;
@@ -1114,8 +808,8 @@ int64_t Win32ShellFolder2::getIShellIcon() {
 
 $Image* Win32ShellFolder2::makeIcon(int64_t hIcon) {
 	$init(Win32ShellFolder2);
-	$useLocalCurrentObjectStackCache();
-	if (hIcon != (int64_t)0 && hIcon != (int64_t)-1) {
+	$useLocalObjectStack();
+	if (hIcon != 0 && hIcon != -1) {
 		$var($ints, iconBits, getIconBits(hIcon));
 		if (iconBits != nullptr) {
 			int32_t iconSize = $cast(int32_t, $Math::sqrt((double)iconBits->length));
@@ -1128,7 +822,7 @@ $Image* Win32ShellFolder2::makeIcon(int64_t hIcon) {
 }
 
 $Image* Win32ShellFolder2::getIcon(bool getLargeIcon) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Image, icon, getLargeIcon ? this->largeIcon : this->smallIcon);
 	int32_t size = getLargeIcon ? Win32ShellFolder2::LARGE_ICON_SIZE : Win32ShellFolder2::SMALL_ICON_SIZE;
 	if (icon == nullptr) {
@@ -1139,7 +833,7 @@ $Image* Win32ShellFolder2::getIcon(bool getLargeIcon) {
 
 $Image* Win32ShellFolder2::getIcon(int32_t width, int32_t height) {
 	int32_t size = $Math::max(width, height);
-	return $cast($Image, invoke(static_cast<$Callable*>($$new(Win32ShellFolder2$$Lambda$lambda$getIcon$0, this, size))));
+	return $cast($Image, invoke($$new(Win32ShellFolder2$$Lambda$lambda$getIcon$0, this, size)));
 }
 
 $Image* Win32ShellFolder2::getSystemIcon($Win32ShellFolder2$SystemIcon* iconType) {
@@ -1189,7 +883,7 @@ int32_t Win32ShellFolder2::compareTo($File* file2) {
 }
 
 $ShellFolderColumnInfoArray* Win32ShellFolder2::getFolderColumns() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ShellFolder, library, resolveLibrary());
 	if (library != nullptr) {
 		return library->getFolderColumns();
@@ -1198,14 +892,14 @@ $ShellFolderColumnInfoArray* Win32ShellFolder2::getFolderColumns() {
 }
 
 $Object* Win32ShellFolder2::getFolderColumnValue(int32_t column) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isLibrary()) {
 		$var($ShellFolder, library, resolveLibrary());
 		if (library != nullptr) {
-			return $of(library->getFolderColumnValue(column));
+			return library->getFolderColumnValue(column);
 		}
 	}
-	return $of(invoke($$new($Win32ShellFolder2$17, this, column)));
+	return invoke($$new($Win32ShellFolder2$17, this, column));
 }
 
 bool Win32ShellFolder2::isLibrary() {
@@ -1213,45 +907,40 @@ bool Win32ShellFolder2::isLibrary() {
 }
 
 $ShellFolder* Win32ShellFolder2::resolveLibrary() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($ShellFolder, f, this);
-		for (; f != nullptr; $assign(f, f->parent)) {
-			if (!$nc(f)->isFileSystem()) {
-				if ($instanceOf(Win32ShellFolder2, f) && $nc(($cast(Win32ShellFolder2, f)))->isLibrary()) {
-					try {
-						return getShellFolder($$new($File, $(getPath())));
-					} catch ($FileNotFoundException& e) {
-					}
+	$useLocalObjectStack();
+	$var($ShellFolder, f, this);
+	for (; f != nullptr; $assign(f, f->parent)) {
+		if (!f->isFileSystem()) {
+			if ($instanceOf(Win32ShellFolder2, f) && $cast(Win32ShellFolder2, f)->isLibrary()) {
+				try {
+					return getShellFolder($$new($File, $(getPath())));
+				} catch ($FileNotFoundException& e) {
 				}
-				break;
 			}
+			break;
 		}
 	}
 	return nullptr;
 }
 
 $ShellFolderColumnInfoArray* Win32ShellFolder2::doGetColumnInfo(int64_t iShellFolder2) {
-	$var($ShellFolderColumnInfoArray, $ret, nullptr);
-	$prepareNative(Win32ShellFolder2, doGetColumnInfo, $ShellFolderColumnInfoArray*, int64_t iShellFolder2);
-	$assign($ret, $invokeNativeObject(iShellFolder2));
+	$prepareNative(doGetColumnInfo, $ShellFolderColumnInfoArray*, int64_t iShellFolder2);
+	$var($ShellFolderColumnInfoArray, $ret, $invokeNativeObject(iShellFolder2));
 	$finishNative();
 	return $ret;
 }
 
 $Object* Win32ShellFolder2::doGetColumnValue(int64_t parentIShellFolder2, int64_t childPIDL, int32_t columnIdx) {
-	$var($Object, $ret, nullptr);
-	$prepareNative(Win32ShellFolder2, doGetColumnValue, $Object*, int64_t parentIShellFolder2, int64_t childPIDL, int32_t columnIdx);
-	$assign($ret, $invokeNativeObject(parentIShellFolder2, childPIDL, columnIdx));
+	$prepareNative(doGetColumnValue, $Object*, int64_t parentIShellFolder2, int64_t childPIDL, int32_t columnIdx);
+	$var($Object, $ret, $invokeNativeObject(parentIShellFolder2, childPIDL, columnIdx));
 	$finishNative();
 	return $ret;
 }
 
 int32_t Win32ShellFolder2::compareIDsByColumn(int64_t pParentIShellFolder, int64_t pidl1, int64_t pidl2, int32_t columnIdx) {
 	$init(Win32ShellFolder2);
-	int32_t $ret = 0;
-	$prepareNativeStatic(Win32ShellFolder2, compareIDsByColumn, int32_t, int64_t pParentIShellFolder, int64_t pidl1, int64_t pidl2, int32_t columnIdx);
-	$ret = $invokeNativeStatic(pParentIShellFolder, pidl1, pidl2, columnIdx);
+	$prepareNativeStatic(compareIDsByColumn, int32_t, int64_t pParentIShellFolder, int64_t pidl1, int64_t pidl2, int32_t columnIdx);
+	int32_t $ret = $invokeNativeStatic(pParentIShellFolder, pidl1, pidl2, columnIdx);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1270,7 +959,7 @@ int32_t Win32ShellFolder2::compareTo(Object$* file2) {
 }
 
 $Image* Win32ShellFolder2::lambda$getIcon$0(int32_t size) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Image, newIcon, nullptr);
 	if (isLink()) {
 		$var(Win32ShellFolder2, folder, getLinkLocation(false));
@@ -1279,11 +968,11 @@ $Image* Win32ShellFolder2::lambda$getIcon$0(int32_t size) {
 		}
 	}
 	$var($Map, multiResolutionIcon, $new($HashMap));
-	int32_t start = size > Win32ShellFolder2::MAX_QUALITY_ICON ? $nc(Win32ShellFolder2::ICON_RESOLUTIONS)->length - 1 : 0;
+	int32_t start = size > Win32ShellFolder2::MAX_QUALITY_ICON ? Win32ShellFolder2::ICON_RESOLUTIONS->length - 1 : 0;
 	int32_t increment = size > Win32ShellFolder2::MAX_QUALITY_ICON ? -1 : 1;
-	int32_t end = size > Win32ShellFolder2::MAX_QUALITY_ICON ? -1 : $nc(Win32ShellFolder2::ICON_RESOLUTIONS)->length;
+	int32_t end = size > Win32ShellFolder2::MAX_QUALITY_ICON ? -1 : Win32ShellFolder2::ICON_RESOLUTIONS->length;
 	for (int32_t i = start; i != end; i += increment) {
-		int32_t s = $nc(Win32ShellFolder2::ICON_RESOLUTIONS)->get(i);
+		int32_t s = Win32ShellFolder2::ICON_RESOLUTIONS->get(i);
 		if (size < Win32ShellFolder2::MIN_QUALITY_ICON || size > Win32ShellFolder2::MAX_QUALITY_ICON || (s >= size && s <= size * 2)) {
 			int64_t var$0 = getParentIShellFolder();
 			int64_t hIcon = extractIcon(var$0, getRelativePIDL(), s, false);
@@ -1309,7 +998,7 @@ $Image* Win32ShellFolder2::lambda$getIcon$0(int32_t size) {
 	return $new($Win32ShellFolder2$MultiResolutionIconImage, size, multiResolutionIcon);
 }
 
-void clinit$Win32ShellFolder2($Class* class$) {
+void Win32ShellFolder2::clinit$($Class* clazz) {
 	$init($ShellFolder);
 	$assignStatic(Win32ShellFolder2::FNAME, $ShellFolder::COLUMN_NAME);
 	$assignStatic(Win32ShellFolder2::FSIZE, $ShellFolder::COLUMN_SIZE);
@@ -1340,11 +1029,237 @@ Win32ShellFolder2::Win32ShellFolder2() {
 
 $Class* Win32ShellFolder2::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Win32ShellFolder2$$Lambda$lambda$getIcon$0::classInfo$.name)) {
+		if (name->equals("sun.awt.shell.Win32ShellFolder2$$Lambda$lambda$getIcon$0")) {
 			return Win32ShellFolder2$$Lambda$lambda$getIcon$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Win32ShellFolder2, name, initialize, &_Win32ShellFolder2_ClassInfo_, clinit$Win32ShellFolder2, allocate$Win32ShellFolder2);
+	$FieldInfo fieldInfos$$[] = {
+		{"SMALL_ICON_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(Win32ShellFolder2, SMALL_ICON_SIZE)},
+		{"LARGE_ICON_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(Win32ShellFolder2, LARGE_ICON_SIZE)},
+		{"MIN_QUALITY_ICON", "I", nullptr, $STATIC | $FINAL, $constField(Win32ShellFolder2, MIN_QUALITY_ICON)},
+		{"MAX_QUALITY_ICON", "I", nullptr, $STATIC | $FINAL, $constField(Win32ShellFolder2, MAX_QUALITY_ICON)},
+		{"ICON_RESOLUTIONS", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Win32ShellFolder2, ICON_RESOLUTIONS)},
+		{"FILE_ICON_ID", "I", nullptr, $STATIC | $FINAL, $constField(Win32ShellFolder2, FILE_ICON_ID)},
+		{"FOLDER_ICON_ID", "I", nullptr, $STATIC | $FINAL, $constField(Win32ShellFolder2, FOLDER_ICON_ID)},
+		{"DESKTOP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, DESKTOP)},
+		{"INTERNET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, INTERNET)},
+		{"PROGRAMS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, PROGRAMS)},
+		{"CONTROLS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, CONTROLS)},
+		{"PRINTERS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, PRINTERS)},
+		{"PERSONAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, PERSONAL)},
+		{"FAVORITES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, FAVORITES)},
+		{"STARTUP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, STARTUP)},
+		{"RECENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, RECENT)},
+		{"SENDTO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, SENDTO)},
+		{"BITBUCKET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, BITBUCKET)},
+		{"STARTMENU", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, STARTMENU)},
+		{"DESKTOPDIRECTORY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, DESKTOPDIRECTORY)},
+		{"DRIVES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, DRIVES)},
+		{"NETWORK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, NETWORK)},
+		{"NETHOOD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, NETHOOD)},
+		{"FONTS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, FONTS)},
+		{"TEMPLATES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, TEMPLATES)},
+		{"COMMON_STARTMENU", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, COMMON_STARTMENU)},
+		{"COMMON_PROGRAMS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, COMMON_PROGRAMS)},
+		{"COMMON_STARTUP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, COMMON_STARTUP)},
+		{"COMMON_DESKTOPDIRECTORY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, COMMON_DESKTOPDIRECTORY)},
+		{"APPDATA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, APPDATA)},
+		{"PRINTHOOD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, PRINTHOOD)},
+		{"ALTSTARTUP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ALTSTARTUP)},
+		{"COMMON_ALTSTARTUP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, COMMON_ALTSTARTUP)},
+		{"COMMON_FAVORITES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, COMMON_FAVORITES)},
+		{"INTERNET_CACHE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, INTERNET_CACHE)},
+		{"COOKIES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, COOKIES)},
+		{"HISTORY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, HISTORY)},
+		{"ATTRIB_CANCOPY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_CANCOPY)},
+		{"ATTRIB_CANMOVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_CANMOVE)},
+		{"ATTRIB_CANLINK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_CANLINK)},
+		{"ATTRIB_CANRENAME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_CANRENAME)},
+		{"ATTRIB_CANDELETE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_CANDELETE)},
+		{"ATTRIB_HASPROPSHEET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_HASPROPSHEET)},
+		{"ATTRIB_DROPTARGET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_DROPTARGET)},
+		{"ATTRIB_LINK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_LINK)},
+		{"ATTRIB_SHARE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_SHARE)},
+		{"ATTRIB_READONLY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_READONLY)},
+		{"ATTRIB_GHOSTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_GHOSTED)},
+		{"ATTRIB_HIDDEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_HIDDEN)},
+		{"ATTRIB_FILESYSANCESTOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_FILESYSANCESTOR)},
+		{"ATTRIB_FOLDER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_FOLDER)},
+		{"ATTRIB_FILESYSTEM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_FILESYSTEM)},
+		{"ATTRIB_HASSUBFOLDER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_HASSUBFOLDER)},
+		{"ATTRIB_VALIDATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_VALIDATE)},
+		{"ATTRIB_REMOVABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_REMOVABLE)},
+		{"ATTRIB_COMPRESSED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_COMPRESSED)},
+		{"ATTRIB_BROWSABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_BROWSABLE)},
+		{"ATTRIB_NONENUMERATED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_NONENUMERATED)},
+		{"ATTRIB_NEWCONTENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, ATTRIB_NEWCONTENT)},
+		{"SHGDN_NORMAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, SHGDN_NORMAL)},
+		{"SHGDN_INFOLDER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, SHGDN_INFOLDER)},
+		{"SHGDN_INCLUDE_NONFILESYS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, SHGDN_INCLUDE_NONFILESYS)},
+		{"SHGDN_FORADDRESSBAR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, SHGDN_FORADDRESSBAR)},
+		{"SHGDN_FORPARSING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Win32ShellFolder2, SHGDN_FORPARSING)},
+		{"disposerReferent", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(Win32ShellFolder2, disposerReferent)},
+		{"disposer", "Lsun/awt/shell/Win32ShellFolder2$FolderDisposer;", nullptr, 0, $field(Win32ShellFolder2, disposer)},
+		{"pIShellIcon", "J", nullptr, $PRIVATE, $field(Win32ShellFolder2, pIShellIcon)},
+		{"folderType", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Win32ShellFolder2, folderType)},
+		{"displayName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Win32ShellFolder2, displayName)},
+		{"smallIcon", "Ljava/awt/Image;", nullptr, $PRIVATE, $field(Win32ShellFolder2, smallIcon)},
+		{"largeIcon", "Ljava/awt/Image;", nullptr, $PRIVATE, $field(Win32ShellFolder2, largeIcon)},
+		{"isDir", "Ljava/lang/Boolean;", nullptr, $PRIVATE, $field(Win32ShellFolder2, isDir)},
+		{"isLib", "Z", nullptr, $PRIVATE | $FINAL, $field(Win32ShellFolder2, isLib)},
+		{"FNAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Win32ShellFolder2, FNAME)},
+		{"FSIZE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Win32ShellFolder2, FSIZE)},
+		{"FTYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Win32ShellFolder2, FTYPE)},
+		{"FDATE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Win32ShellFolder2, FDATE)},
+		{"isPersonal", "Z", nullptr, $PRIVATE, $field(Win32ShellFolder2, isPersonal)},
+		{"cachedIsFileSystem", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $VOLATILE, $field(Win32ShellFolder2, cachedIsFileSystem)},
+		{"cachedIsLink", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $VOLATILE, $field(Win32ShellFolder2, cachedIsLink)},
+		{"smallSystemImages", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Ljava/awt/Image;>;", $PRIVATE | $STATIC, $staticField(Win32ShellFolder2, smallSystemImages)},
+		{"largeSystemImages", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Ljava/awt/Image;>;", $PRIVATE | $STATIC, $staticField(Win32ShellFolder2, largeSystemImages)},
+		{"smallLinkedSystemImages", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Ljava/awt/Image;>;", $PRIVATE | $STATIC, $staticField(Win32ShellFolder2, smallLinkedSystemImages)},
+		{"largeLinkedSystemImages", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Ljava/awt/Image;>;", $PRIVATE | $STATIC, $staticField(Win32ShellFolder2, largeLinkedSystemImages)},
+		{"LVCFMT_LEFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32ShellFolder2, LVCFMT_LEFT)},
+		{"LVCFMT_RIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32ShellFolder2, LVCFMT_RIGHT)},
+		{"LVCFMT_CENTER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32ShellFolder2, LVCFMT_CENTER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(Win32ShellFolder2, init$, void, int32_t), "java.io.IOException,java.lang.InterruptedException"},
+		{"<init>", "(Lsun/awt/shell/Win32ShellFolder2;JJLjava/lang/String;Z)V", nullptr, 0, $method(Win32ShellFolder2, init$, void, Win32ShellFolder2*, int64_t, int64_t, $String*, bool)},
+		{"access$001", "(Lsun/awt/shell/Win32ShellFolder2;Z)Ljava/awt/Image;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(Win32ShellFolder2, access$001, $Image*, Win32ShellFolder2*, bool)},
+		{"bindToObject", "(JJ)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, bindToObject, int64_t, int64_t, int64_t)},
+		{"combinePIDLs", "(JJ)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, combinePIDLs, int64_t, int64_t, int64_t)},
+		{"compareIDs", "(JJJ)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, compareIDs, int32_t, int64_t, int64_t, int64_t)},
+		{"compareIDsByColumn", "(JJJI)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, compareIDsByColumn, int32_t, int64_t, int64_t, int64_t, int32_t)},
+		{"compareTo", "(Ljava/io/File;)I", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, compareTo, int32_t, $File*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Win32ShellFolder2, compareTo, int32_t, Object$*)},
+		{"composePathForCsidl", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Win32ShellFolder2, composePathForCsidl, $String*, int32_t), "java.io.IOException,java.lang.InterruptedException"},
+		{"copyFirstPIDLEntry", "(J)J", nullptr, $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, copyFirstPIDLEntry, int64_t, int64_t)},
+		{"createShellFolder", "(Lsun/awt/shell/Win32ShellFolder2;J)Lsun/awt/shell/Win32ShellFolder2;", nullptr, $STATIC, $staticMethod(Win32ShellFolder2, createShellFolder, Win32ShellFolder2*, Win32ShellFolder2*, int64_t), "java.lang.InterruptedException"},
+		{"dispose", "()V", nullptr, $PROTECTED, $method(Win32ShellFolder2, dispose, void)},
+		{"disposeIcon", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, disposeIcon, void, int64_t)},
+		{"doGetColumnInfo", "(J)[Lsun/awt/shell/ShellFolderColumnInfo;", nullptr, $PRIVATE | $NATIVE, $method(Win32ShellFolder2, doGetColumnInfo, $ShellFolderColumnInfoArray*, int64_t)},
+		{"doGetColumnValue", "(JJI)Ljava/lang/Object;", nullptr, $PRIVATE | $NATIVE, $method(Win32ShellFolder2, doGetColumnValue, $Object*, int64_t, int64_t, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, equals, bool, Object$*)},
+		{"extractIcon", "(JJIZ)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, extractIcon, int64_t, int64_t, int64_t, int32_t, bool)},
+		{"getAbsolutePIDL", "()J", nullptr, $PRIVATE, $method(Win32ShellFolder2, getAbsolutePIDL, int64_t)},
+		{"getAttributes0", "(JJI)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, getAttributes0, int32_t, int64_t, int64_t, int32_t)},
+		{"getCanonicalFile", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, getCanonicalFile, $File*), "java.io.IOException"},
+		{"getChildByPath", "(Ljava/lang/String;)Lsun/awt/shell/Win32ShellFolder2;", nullptr, 0, $method(Win32ShellFolder2, getChildByPath, Win32ShellFolder2*, $String*), "java.lang.InterruptedException"},
+		{"getDesktop", "()Lsun/awt/shell/Win32ShellFolder2;", nullptr, $PUBLIC, $method(Win32ShellFolder2, getDesktop, Win32ShellFolder2*)},
+		{"getDesktopIShellFolder", "()J", nullptr, $PUBLIC, $method(Win32ShellFolder2, getDesktopIShellFolder, int64_t)},
+		{"getDisplayName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, getDisplayName, $String*)},
+		{"getDisplayNameOf", "(JJI)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, getDisplayNameOf, $String*, int64_t, int64_t, int32_t)},
+		{"getEnumObjects", "(Z)J", nullptr, $PRIVATE, $method(Win32ShellFolder2, getEnumObjects, int64_t, bool), "java.lang.InterruptedException"},
+		{"getEnumObjects", "(JZZ)J", nullptr, $PRIVATE | $NATIVE, $method(Win32ShellFolder2, getEnumObjects, int64_t, int64_t, bool, bool)},
+		{"getExecutableType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(Win32ShellFolder2, getExecutableType, $String*, $String*)},
+		{"getExecutableType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, getExecutableType, $String*)},
+		{"getFileSystemPath", "(JJ)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Win32ShellFolder2, getFileSystemPath, $String*, int64_t, int64_t)},
+		{"getFileSystemPath", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Win32ShellFolder2, getFileSystemPath, $String*, int32_t), "java.io.IOException,java.lang.InterruptedException"},
+		{"getFileSystemPath0", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, getFileSystemPath0, $String*, int32_t), "java.io.IOException"},
+		{"getFolderColumnValue", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, getFolderColumnValue, $Object*, int32_t)},
+		{"getFolderColumns", "()[Lsun/awt/shell/ShellFolderColumnInfo;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, getFolderColumns, $ShellFolderColumnInfoArray*)},
+		{"getFolderType", "(J)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, getFolderType, $String*, int64_t)},
+		{"getFolderType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, getFolderType, $String*)},
+		{"getIShellFolder", "()J", nullptr, $PRIVATE, $method(Win32ShellFolder2, getIShellFolder, int64_t)},
+		{"getIShellIcon", "(J)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, getIShellIcon, int64_t, int64_t)},
+		{"getIShellIcon", "()J", nullptr, $PRIVATE, $method(Win32ShellFolder2, getIShellIcon, int64_t)},
+		{"getIcon", "(Ljava/lang/String;Z)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, getIcon, int64_t, $String*, bool)},
+		{"getIcon", "(Z)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, getIcon, $Image*, bool)},
+		{"getIcon", "(II)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, getIcon, $Image*, int32_t, int32_t)},
+		{"getIconBits", "(J)[I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, getIconBits, $ints*, int64_t)},
+		{"getIconIndex", "(JJ)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, getIconIndex, int32_t, int64_t, int64_t)},
+		{"getIconResource", "(Ljava/lang/String;III)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, getIconResource, int64_t, $String*, int32_t, int32_t, int32_t)},
+		{"getLibraries", "()Ljava/util/List;", "()Ljava/util/List<Lsun/awt/shell/Win32ShellFolder2$KnownFolderDefinition;>;", $PRIVATE | $STATIC, $staticMethod(Win32ShellFolder2, getLibraries, $List*)},
+		{"getLinkLocation", "(JJZ)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, getLinkLocation, int64_t, int64_t, int64_t, bool)},
+		{"getLinkLocation", "()Lsun/awt/shell/ShellFolder;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, getLinkLocation, $ShellFolder*)},
+		{"getLinkLocation", "(Z)Lsun/awt/shell/Win32ShellFolder2;", nullptr, $PRIVATE, $method(Win32ShellFolder2, getLinkLocation, Win32ShellFolder2*, bool)},
+		{"getNextChild", "(J)J", nullptr, $PRIVATE | $NATIVE, $method(Win32ShellFolder2, getNextChild, int64_t, int64_t)},
+		{"getNextPIDLEntry", "(J)J", nullptr, $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, getNextPIDLEntry, int64_t, int64_t)},
+		{"getParentFile", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, getParentFile, $File*)},
+		{"getParentIShellFolder", "()J", nullptr, $PUBLIC, $method(Win32ShellFolder2, getParentIShellFolder, int64_t)},
+		{"getRelativePIDL", "()J", nullptr, $PUBLIC, $method(Win32ShellFolder2, getRelativePIDL, int64_t)},
+		{"getShell32Icon", "(II)Ljava/awt/Image;", nullptr, $STATIC, $staticMethod(Win32ShellFolder2, getShell32Icon, $Image*, int32_t, int32_t)},
+		{"getStandardViewButton0", "(IZ)[I", nullptr, $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, getStandardViewButton0, $ints*, int32_t, bool)},
+		{"getSystemIcon", "(I)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, getSystemIcon, int64_t, int32_t)},
+		{"getSystemIcon", "(Lsun/awt/shell/Win32ShellFolder2$SystemIcon;)Ljava/awt/Image;", nullptr, $STATIC, $staticMethod(Win32ShellFolder2, getSystemIcon, $Image*, $Win32ShellFolder2$SystemIcon*)},
+		{"hasAttribute", "(I)Z", nullptr, $PUBLIC, $method(Win32ShellFolder2, hasAttribute, bool, int32_t)},
+		{"hiResIconAvailable", "(JJ)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, hiResIconAvailable, bool, int64_t, int64_t)},
+		{"initDesktop", "()V", nullptr, $PRIVATE | $NATIVE, $method(Win32ShellFolder2, initDesktop, void)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, initIDs, void)},
+		{"initSpecial", "(JI)V", nullptr, $PRIVATE | $NATIVE, $method(Win32ShellFolder2, initSpecial, void, int64_t, int32_t)},
+		{"isDirectory", "()Z", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, isDirectory, bool)},
+		{"isFileSystem", "()Z", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, isFileSystem, bool)},
+		{"isHidden", "()Z", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, isHidden, bool)},
+		{"isLibrary", "()Z", nullptr, 0, $method(Win32ShellFolder2, isLibrary, bool)},
+		{"isLink", "()Z", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, isLink, bool)},
+		{"isNetworkRoot", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Win32ShellFolder2, isNetworkRoot, bool, $String*)},
+		{"isSpecial", "()Z", nullptr, $PUBLIC, $method(Win32ShellFolder2, isSpecial, bool)},
+		{"lambda$getIcon$0", "(I)Ljava/awt/Image;", nullptr, $PRIVATE | $SYNTHETIC, $method(Win32ShellFolder2, lambda$getIcon$0, $Image*, int32_t), "java.lang.Exception"},
+		{"listFiles", "(Z)[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2, listFiles, $FileArray*, bool)},
+		{"loadKnownFolders", "()[Lsun/awt/shell/Win32ShellFolder2$KnownFolderDefinition;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, loadKnownFolders, $Win32ShellFolder2$KnownFolderDefinitionArray*)},
+		{"makeIcon", "(J)Ljava/awt/Image;", nullptr, $PRIVATE | $STATIC, $staticMethod(Win32ShellFolder2, makeIcon, $Image*, int64_t)},
+		{"parseDisplayName", "(Ljava/lang/String;)J", nullptr, 0, $method(Win32ShellFolder2, parseDisplayName, int64_t, $String*), "java.io.IOException,java.lang.InterruptedException"},
+		{"parseDisplayName0", "(JLjava/lang/String;)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, parseDisplayName0, int64_t, int64_t, $String*), "java.io.IOException"},
+		{"pathsEqual", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Win32ShellFolder2, pathsEqual, bool, $String*, $String*)},
+		{"pidlsEqual", "(JJJ)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Win32ShellFolder2, pidlsEqual, bool, int64_t, int64_t, int64_t), "java.lang.InterruptedException"},
+		{"releaseEnumObjects", "(J)V", nullptr, $PRIVATE | $NATIVE, $method(Win32ShellFolder2, releaseEnumObjects, void, int64_t)},
+		{"releaseIShellFolder", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, releaseIShellFolder, void, int64_t)},
+		{"releasePIDL", "(J)V", nullptr, $STATIC | $NATIVE, $staticMethod(Win32ShellFolder2, releasePIDL, void, int64_t)},
+		{"resolveLibrary", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Win32ShellFolder2, resolveLibrary, $String*, $String*)},
+		{"resolveLibrary", "()Lsun/awt/shell/ShellFolder;", nullptr, $PRIVATE, $method(Win32ShellFolder2, resolveLibrary, $ShellFolder*)},
+		{"setIShellFolder", "(J)V", nullptr, $PRIVATE, $method(Win32ShellFolder2, setIShellFolder, void, int64_t)},
+		{"setIsPersonal", "()V", nullptr, $PUBLIC, $method(Win32ShellFolder2, setIsPersonal, void)},
+		{"setRelativePIDL", "(J)V", nullptr, $PRIVATE, $method(Win32ShellFolder2, setRelativePIDL, void, int64_t)},
+		{"sortChildren", "(Ljava/util/List;)V", "(Ljava/util/List<+Ljava/io/File;>;)V", $PUBLIC, $virtualMethod(Win32ShellFolder2, sortChildren, void, $List*)},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(Win32ShellFolder2, writeReplace, $Object*), "java.io.ObjectStreamException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.shell.Win32ShellFolder2$MultiResolutionIconImage", "sun.awt.shell.Win32ShellFolder2", "MultiResolutionIconImage", $STATIC},
+		{"sun.awt.shell.Win32ShellFolder2$ColumnComparator", "sun.awt.shell.Win32ShellFolder2", "ColumnComparator", $PRIVATE | $STATIC},
+		{"sun.awt.shell.Win32ShellFolder2$FolderDisposer", "sun.awt.shell.Win32ShellFolder2", "FolderDisposer", $STATIC},
+		{"sun.awt.shell.Win32ShellFolder2$KnownLibraries", "sun.awt.shell.Win32ShellFolder2", "KnownLibraries", $STATIC | $FINAL},
+		{"sun.awt.shell.Win32ShellFolder2$KnownFolderDefinition", "sun.awt.shell.Win32ShellFolder2", "KnownFolderDefinition", $STATIC | $FINAL},
+		{"sun.awt.shell.Win32ShellFolder2$SystemIcon", "sun.awt.shell.Win32ShellFolder2", "SystemIcon", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"sun.awt.shell.Win32ShellFolder2$19", nullptr, nullptr, 0},
+		{"sun.awt.shell.Win32ShellFolder2$18", nullptr, nullptr, 0},
+		{"sun.awt.shell.Win32ShellFolder2$17", nullptr, nullptr, 0},
+		{"sun.awt.shell.Win32ShellFolder2$16", nullptr, nullptr, 0},
+		{"sun.awt.shell.Win32ShellFolder2$15", nullptr, nullptr, 0},
+		{"sun.awt.shell.Win32ShellFolder2$14", nullptr, nullptr, 0},
+		{"sun.awt.shell.Win32ShellFolder2$13", nullptr, nullptr, 0},
+		{"sun.awt.shell.Win32ShellFolder2$12", nullptr, nullptr, 0},
+		{"sun.awt.shell.Win32ShellFolder2$11", nullptr, nullptr, 0},
+		{"sun.awt.shell.Win32ShellFolder2$10", nullptr, nullptr, 0},
+		{"sun.awt.shell.Win32ShellFolder2$9", nullptr, nullptr, 0},
+		{"sun.awt.shell.Win32ShellFolder2$8", nullptr, nullptr, 0},
+		{"sun.awt.shell.Win32ShellFolder2$7", nullptr, nullptr, 0},
+		{"sun.awt.shell.Win32ShellFolder2$6", nullptr, nullptr, 0},
+		{"sun.awt.shell.Win32ShellFolder2$5", nullptr, nullptr, 0},
+		{"sun.awt.shell.Win32ShellFolder2$4", nullptr, nullptr, 0},
+		{"sun.awt.shell.Win32ShellFolder2$3", nullptr, nullptr, 0},
+		{"sun.awt.shell.Win32ShellFolder2$2", nullptr, nullptr, 0},
+		{"sun.awt.shell.Win32ShellFolder2$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.shell.Win32ShellFolder2",
+		"sun.awt.shell.ShellFolder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.shell.Win32ShellFolder2$MultiResolutionIconImage,sun.awt.shell.Win32ShellFolder2$ColumnComparator,sun.awt.shell.Win32ShellFolder2$ColumnComparator$1,sun.awt.shell.Win32ShellFolder2$FolderDisposer,sun.awt.shell.Win32ShellFolder2$FolderDisposer$1,sun.awt.shell.Win32ShellFolder2$KnownLibraries,sun.awt.shell.Win32ShellFolder2$KnownFolderDefinition,sun.awt.shell.Win32ShellFolder2$SystemIcon,sun.awt.shell.Win32ShellFolder2$19,sun.awt.shell.Win32ShellFolder2$18,sun.awt.shell.Win32ShellFolder2$17,sun.awt.shell.Win32ShellFolder2$16,sun.awt.shell.Win32ShellFolder2$15,sun.awt.shell.Win32ShellFolder2$14,sun.awt.shell.Win32ShellFolder2$13,sun.awt.shell.Win32ShellFolder2$12,sun.awt.shell.Win32ShellFolder2$11,sun.awt.shell.Win32ShellFolder2$10,sun.awt.shell.Win32ShellFolder2$9,sun.awt.shell.Win32ShellFolder2$8,sun.awt.shell.Win32ShellFolder2$7,sun.awt.shell.Win32ShellFolder2$6,sun.awt.shell.Win32ShellFolder2$5,sun.awt.shell.Win32ShellFolder2$4,sun.awt.shell.Win32ShellFolder2$3,sun.awt.shell.Win32ShellFolder2$2,sun.awt.shell.Win32ShellFolder2$1"
+	};
+	$loadClass(Win32ShellFolder2, name, initialize, &classInfo$$, Win32ShellFolder2::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Win32ShellFolder2));
+	});
 	return class$;
 }
 

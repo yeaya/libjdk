@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/Attributes.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/DOM.h>
 #include <jcpp.h>
 
@@ -16,36 +15,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace runtime {
-
-$FieldInfo _Attributes_FieldInfo_[] = {
-	{"_element", "I", nullptr, $PRIVATE, $field(Attributes, _element)},
-	{"_document", "Lcom/sun/org/apache/xalan/internal/xsltc/DOM;", nullptr, $PRIVATE, $field(Attributes, _document)},
-	{}
-};
-
-$MethodInfo _Attributes_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/DOM;I)V", nullptr, $PUBLIC, $method(Attributes, init$, void, $DOM*, int32_t)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(Attributes, getLength, int32_t)},
-	{"getName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attributes, getName, $String*, int32_t)},
-	{"getType", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attributes, getType, $String*, int32_t)},
-	{"getType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attributes, getType, $String*, $String*)},
-	{"getValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attributes, getValue, $String*, int32_t)},
-	{"getValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attributes, getValue, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _Attributes_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.runtime.Attributes",
-	"java.lang.Object",
-	"org.xml.sax.AttributeList",
-	_Attributes_FieldInfo_,
-	_Attributes_MethodInfo_
-};
-
-$Object* allocate$Attributes($Class* clazz) {
-	return $of($alloc(Attributes));
-}
 
 void Attributes::init$($DOM* document, int32_t element) {
 	this->_element = element;
@@ -80,7 +49,32 @@ Attributes::Attributes() {
 }
 
 $Class* Attributes::load$($String* name, bool initialize) {
-	$loadClass(Attributes, name, initialize, &_Attributes_ClassInfo_, allocate$Attributes);
+	$FieldInfo fieldInfos$$[] = {
+		{"_element", "I", nullptr, $PRIVATE, $field(Attributes, _element)},
+		{"_document", "Lcom/sun/org/apache/xalan/internal/xsltc/DOM;", nullptr, $PRIVATE, $field(Attributes, _document)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/DOM;I)V", nullptr, $PUBLIC, $method(Attributes, init$, void, $DOM*, int32_t)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(Attributes, getLength, int32_t)},
+		{"getName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attributes, getName, $String*, int32_t)},
+		{"getType", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attributes, getType, $String*, int32_t)},
+		{"getType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attributes, getType, $String*, $String*)},
+		{"getValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attributes, getValue, $String*, int32_t)},
+		{"getValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attributes, getValue, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.runtime.Attributes",
+		"java.lang.Object",
+		"org.xml.sax.AttributeList",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Attributes, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Attributes);
+	});
 	return class$;
 }
 

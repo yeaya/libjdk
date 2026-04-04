@@ -1,7 +1,5 @@
 #include <com/apple/laf/AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout.h>
-
 #include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI$TabbedPaneLayout.h>
-#include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI.h>
 #include <com/apple/laf/AquaTabbedPaneTabState.h>
 #include <com/apple/laf/AquaTabbedPaneUI.h>
 #include <com/apple/laf/AquaUtils.h>
@@ -24,9 +22,7 @@
 #undef TOP
 
 using $RectangleArray = $Array<::java::awt::Rectangle>;
-using $AquaTabbedPaneCopyFromBasicUI = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI;
 using $AquaTabbedPaneCopyFromBasicUI$TabbedPaneLayout = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI$TabbedPaneLayout;
-using $AquaTabbedPaneTabState = ::com::apple::laf::AquaTabbedPaneTabState;
 using $AquaTabbedPaneUI = ::com::apple::laf::AquaTabbedPaneUI;
 using $AquaUtils = ::com::apple::laf::AquaUtils;
 using $Component = ::java::awt::Component;
@@ -41,56 +37,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $SwingConstants = ::javax::swing::SwingConstants;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout, this$0)},
-	{}
-};
-
-$MethodInfo _AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaTabbedPaneUI;)V", nullptr, $PROTECTED, $method(AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout, init$, void, $AquaTabbedPaneUI*)},
-	{"calculateHorizontalTabRunRect", "(Ljava/awt/Rectangle;Ljava/awt/FontMetrics;IIIII)V", nullptr, $PRIVATE, $method(AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout, calculateHorizontalTabRunRect, void, $Rectangle*, $FontMetrics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"calculateTabRects", "(II)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout, calculateTabRects, void, int32_t, int32_t)},
-	{"calculateVerticalTabRunRect", "(Ljava/awt/Rectangle;Ljava/awt/FontMetrics;IIIII)V", nullptr, $PRIVATE, $method(AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout, calculateVerticalTabRunRect, void, $Rectangle*, $FontMetrics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"layoutTabComponents", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout, layoutTabComponents, void)},
-	{"padTabRun", "(IIII)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout, padTabRun, void, int32_t, int32_t, int32_t, int32_t)},
-	{"preferredTabAreaHeight", "(II)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout, preferredTabAreaHeight, int32_t, int32_t, int32_t)},
-	{"preferredTabAreaWidth", "(II)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout, preferredTabAreaWidth, int32_t, int32_t, int32_t)},
-	{"superCalculateTabRects", "(II)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout, superCalculateTabRects, void, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout", "com.apple.laf.AquaTabbedPaneUI", "AquaTruncatingTabbedPaneLayout", $PROTECTED},
-	{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$TabbedPaneLayout", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "TabbedPaneLayout", $PUBLIC},
-	{}
-};
-
-$ClassInfo _AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout",
-	"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$TabbedPaneLayout",
-	nullptr,
-	_AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout_FieldInfo_,
-	_AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaTabbedPaneUI"
-};
-
-$Object* allocate$AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout($Class* clazz) {
-	return $of($alloc(AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout));
-}
 
 void AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout::init$($AquaTabbedPaneUI* this$0) {
 	$set(this, this$0, this$0);
@@ -112,7 +63,7 @@ int32_t AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout::preferredTabAreaHeight(
 }
 
 void AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout::calculateTabRects(int32_t tabPlacement, int32_t tabCount) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (tabCount <= 0) {
 		return;
 	}
@@ -122,33 +73,32 @@ void AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout::calculateTabRects(int32_t 
 	}
 	$var($RectangleArray, var$0, this->this$0->rects);
 	$var($Dimension, var$1, $nc(this->this$0->tabPane)->getSize());
-	int32_t var$2 = tabPlacement;
-	$nc(this->this$0->visibleTabState)->alignRectsRunFor(var$0, var$1, var$2, $AquaUtils::isLeftToRight(this->this$0->tabPane));
+	$nc(this->this$0->visibleTabState)->alignRectsRunFor(var$0, var$1, tabPlacement, $AquaUtils::isLeftToRight(this->this$0->tabPane));
 }
 
 void AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout::padTabRun(int32_t tabPlacement, int32_t start, int32_t end, int32_t max) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (tabPlacement == $SwingConstants::TOP || tabPlacement == $SwingConstants::BOTTOM) {
 		$AquaTabbedPaneCopyFromBasicUI$TabbedPaneLayout::padTabRun(tabPlacement, start, end, max);
 		return;
 	}
 	$var($Rectangle, lastRect, $nc(this->this$0->rects)->get(end));
-	int32_t runHeight = ($nc(lastRect)->y + lastRect->height) - $nc($nc(this->this$0->rects)->get(start))->y;
+	int32_t runHeight = ($nc(lastRect)->y + $nc(lastRect)->height) - $nc(this->this$0->rects->get(start))->y;
 	int32_t deltaHeight = max - (lastRect->y + lastRect->height);
 	float factor = (float)deltaHeight / (float)runHeight;
 	for (int32_t i = start; i <= end; ++i) {
-		$var($Rectangle, pastRect, $nc(this->this$0->rects)->get(i));
+		$var($Rectangle, pastRect, this->this$0->rects->get(i));
 		if (i > start) {
-			$nc(pastRect)->y = $nc($nc(this->this$0->rects)->get(i - 1))->y + $nc($nc(this->this$0->rects)->get(i - 1))->height;
+			$nc(pastRect)->y = $nc(this->this$0->rects->get(i - 1))->y + $nc(this->this$0->rects->get(i - 1))->height;
 		}
-		$nc(pastRect)->height += $Math::round(pastRect->height * factor);
+		$nc(pastRect)->height += $Math::round($nc(pastRect)->height * factor);
 	}
 	lastRect->height = max - lastRect->y;
 }
 
 void AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout::superCalculateTabRects(int32_t tabPlacement, int32_t tabCount) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($Dimension, size, $nc(this->this$0->tabPane)->getSize());
 		$var($Insets, insets, $nc(this->this$0->tabPane)->getInsets());
 		$var($Insets, localTabAreaInsets, this->this$0->getTabAreaInsets(tabPlacement));
@@ -157,39 +107,30 @@ void AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout::superCalculateTabRects(int
 		int32_t y = 0;
 		switch (tabPlacement) {
 		case $SwingConstants::LEFT:
-			{
-				this->this$0->maxTabWidth = this->this$0->calculateMaxTabHeight(tabPlacement);
-				x = $nc(insets)->left + $nc(localTabAreaInsets)->left;
-				y = $nc(insets)->top + $nc(localTabAreaInsets)->top;
-				returnAt = $nc(size)->height - ($nc(insets)->bottom + $nc(localTabAreaInsets)->bottom);
-				break;
-			}
+			this->this$0->maxTabWidth = this->this$0->calculateMaxTabHeight(tabPlacement);
+			x = $nc(insets)->left + $nc(localTabAreaInsets)->left;
+			y = insets->top + localTabAreaInsets->top;
+			returnAt = $nc(size)->height - (insets->bottom + localTabAreaInsets->bottom);
+			break;
 		case $SwingConstants::RIGHT:
-			{
-				this->this$0->maxTabWidth = this->this$0->calculateMaxTabHeight(tabPlacement);
-				x = $nc(size)->width - $nc(insets)->right - $nc(localTabAreaInsets)->right - this->this$0->maxTabWidth - 1;
-				y = $nc(insets)->top + $nc(localTabAreaInsets)->top;
-				returnAt = $nc(size)->height - ($nc(insets)->bottom + $nc(localTabAreaInsets)->bottom);
-				break;
-			}
+			this->this$0->maxTabWidth = this->this$0->calculateMaxTabHeight(tabPlacement);
+			x = $nc(size)->width - $nc(insets)->right - $nc(localTabAreaInsets)->right - this->this$0->maxTabWidth - 1;
+			y = insets->top + localTabAreaInsets->top;
+			returnAt = size->height - (insets->bottom + localTabAreaInsets->bottom);
+			break;
 		case $SwingConstants::BOTTOM:
-			{
-				this->this$0->maxTabHeight = this->this$0->calculateMaxTabHeight(tabPlacement);
-				x = $nc(insets)->left + $nc(localTabAreaInsets)->left;
-				y = $nc(size)->height - $nc(insets)->bottom - $nc(localTabAreaInsets)->bottom - this->this$0->maxTabHeight;
-				returnAt = $nc(size)->width - ($nc(insets)->right + $nc(localTabAreaInsets)->right);
-				break;
-			}
+			this->this$0->maxTabHeight = this->this$0->calculateMaxTabHeight(tabPlacement);
+			x = $nc(insets)->left + $nc(localTabAreaInsets)->left;
+			y = $nc(size)->height - insets->bottom - localTabAreaInsets->bottom - this->this$0->maxTabHeight;
+			returnAt = size->width - (insets->right + localTabAreaInsets->right);
+			break;
 		case $SwingConstants::TOP:
-			{}
 		default:
-			{
-				this->this$0->maxTabHeight = this->this$0->calculateMaxTabHeight(tabPlacement);
-				x = $nc(insets)->left + $nc(localTabAreaInsets)->left;
-				y = $nc(insets)->top + $nc(localTabAreaInsets)->top;
-				returnAt = $nc(size)->width - ($nc(insets)->right + $nc(localTabAreaInsets)->right);
-				break;
-			}
+			this->this$0->maxTabHeight = this->this$0->calculateMaxTabHeight(tabPlacement);
+			x = $nc(insets)->left + $nc(localTabAreaInsets)->left;
+			y = insets->top + localTabAreaInsets->top;
+			returnAt = $nc(size)->width - (insets->right + localTabAreaInsets->right);
+			break;
 		}
 		this->this$0->tabRunOverlay = this->this$0->getTabRunOverlay(tabPlacement);
 		this->this$0->runCount = 0;
@@ -205,17 +146,17 @@ void AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout::superCalculateTabRects(int
 			$var($Rectangle, rect, $nc(this->this$0->rects)->get(i));
 			if (verticalTabRuns) {
 				calculateVerticalTabRunRect(rect, metrics, tabPlacement, returnAt, i, x, y);
-				if ($nc(rect)->y + rect->height > returnAt) {
-					$nc(this->this$0->visibleTabState)->setNeedsScrollers(true);
+				if ($nc(rect)->y + $nc(rect)->height > returnAt) {
+					this->this$0->visibleTabState->setNeedsScrollers(true);
 				}
 			} else {
 				calculateHorizontalTabRunRect(rect, metrics, tabPlacement, returnAt, i, x, y);
-				if ($nc(rect)->x + rect->width > returnAt) {
-					$nc(this->this$0->visibleTabState)->setNeedsScrollers(true);
+				if ($nc(rect)->x + $nc(rect)->width > returnAt) {
+					this->this$0->visibleTabState->setNeedsScrollers(true);
 				}
 			}
 		}
-		$nc(this->this$0->visibleTabState)->relayoutForScrolling(this->this$0->rects, x, y, returnAt, selectedIndex, verticalTabRuns, tabCount, $AquaUtils::isLeftToRight(this->this$0->tabPane));
+		this->this$0->visibleTabState->relayoutForScrolling(this->this$0->rects, x, y, returnAt, selectedIndex, verticalTabRuns, tabCount, $AquaUtils::isLeftToRight(this->this$0->tabPane));
 		if (!$AquaUtils::isLeftToRight(this->this$0->tabPane) && !verticalTabRuns) {
 			int32_t rightMargin = $nc(size)->width - ($nc(insets)->right + $nc(localTabAreaInsets)->right);
 			for (int32_t i = 0; i < tabCount; ++i) {
@@ -256,7 +197,7 @@ void AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout::calculateVerticalTabRunRec
 }
 
 void AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout::layoutTabComponents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, tabContainer, getTabContainer());
 	if (tabContainer == nullptr) {
 		return;
@@ -292,7 +233,45 @@ AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout::AquaTabbedPaneUI$AquaTruncating
 }
 
 $Class* AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout::load$($String* name, bool initialize) {
-	$loadClass(AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout, name, initialize, &_AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout_ClassInfo_, allocate$AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaTabbedPaneUI;)V", nullptr, $PROTECTED, $method(AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout, init$, void, $AquaTabbedPaneUI*)},
+		{"calculateHorizontalTabRunRect", "(Ljava/awt/Rectangle;Ljava/awt/FontMetrics;IIIII)V", nullptr, $PRIVATE, $method(AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout, calculateHorizontalTabRunRect, void, $Rectangle*, $FontMetrics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"calculateTabRects", "(II)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout, calculateTabRects, void, int32_t, int32_t)},
+		{"calculateVerticalTabRunRect", "(Ljava/awt/Rectangle;Ljava/awt/FontMetrics;IIIII)V", nullptr, $PRIVATE, $method(AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout, calculateVerticalTabRunRect, void, $Rectangle*, $FontMetrics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"layoutTabComponents", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout, layoutTabComponents, void)},
+		{"padTabRun", "(IIII)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout, padTabRun, void, int32_t, int32_t, int32_t, int32_t)},
+		{"preferredTabAreaHeight", "(II)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout, preferredTabAreaHeight, int32_t, int32_t, int32_t)},
+		{"preferredTabAreaWidth", "(II)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout, preferredTabAreaWidth, int32_t, int32_t, int32_t)},
+		{"superCalculateTabRects", "(II)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout, superCalculateTabRects, void, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout", "com.apple.laf.AquaTabbedPaneUI", "AquaTruncatingTabbedPaneLayout", $PROTECTED},
+		{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$TabbedPaneLayout", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "TabbedPaneLayout", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout",
+		"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$TabbedPaneLayout",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaTabbedPaneUI"
+	};
+	$loadClass(AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaTabbedPaneUI$AquaTruncatingTabbedPaneLayout);
+	});
 	return class$;
 }
 

@@ -65,7 +65,7 @@ public:
 	void init$();
 	virtual ::com::sun::org::apache::xpath::internal::objects::XObject* execute(::com::sun::org::apache::xpath::internal::XPathContext* xctxt) override;
 	virtual void setFunctionTable(::com::sun::org::apache::xpath::internal::compiler::FunctionTable* aTable);
-	static const int64_t serialVersionUID = (int64_t)0x4709AE7FAFE83EF1;
+	static const int64_t serialVersionUID = (int64_t)0x4709ae7fafe83ef1;
 	::com::sun::org::apache::xpath::internal::compiler::FunctionTable* m_functionTable = nullptr;
 };
 

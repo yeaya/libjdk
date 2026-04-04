@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$5.h>
-
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Symtab.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -17,7 +16,6 @@
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $List = ::com::sun::tools::javac::util::List;
@@ -33,56 +31,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Resolve$5_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$5, this$0)},
-	{"val$intype", "Lcom/sun/tools/javac/code/Type;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$5, val$intype)},
-	{"seen", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;>;", 0, $field(Resolve$5, seen)},
-	{"currentSym", "Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, 0, $field(Resolve$5, currentSym)},
-	{"prevSym", "Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, 0, $field(Resolve$5, prevSym)},
-	{}
-};
-
-$MethodInfo _Resolve$5_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/code/Type;)V", "()V", 0, $method(Resolve$5, init$, void, $Resolve*, $Type*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Resolve$5, hasNext, bool)},
-	{"next", "()Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, $PUBLIC, $virtualMethod(Resolve$5, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Resolve$5, remove, void)},
-	{"symbolFor", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, 0, $virtualMethod(Resolve$5, symbolFor, $Symbol$TypeSymbol*, $Type*)},
-	{}
-};
-
-$EnclosingMethodInfo _Resolve$5_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Resolve",
-	"superclasses",
-	"(Lcom/sun/tools/javac/code/Type;)Ljava/lang/Iterable;"
-};
-
-$InnerClassInfo _Resolve$5_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$5", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Symbol$TypeSymbol", "com.sun.tools.javac.code.Symbol", "TypeSymbol", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Resolve$5_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Resolve$5",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_Resolve$5_FieldInfo_,
-	_Resolve$5_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;>;",
-	&_Resolve$5_EnclosingMethodInfo_,
-	_Resolve$5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$5($Class* clazz) {
-	return $of($alloc(Resolve$5));
-}
 
 void Resolve$5::init$($Resolve* this$0, $Type* val$intype) {
 	$set(this, this$0, this$0);
@@ -102,7 +50,7 @@ bool Resolve$5::hasNext() {
 $Object* Resolve$5::next() {
 	$set(this, prevSym, this->currentSym);
 	$set(this, currentSym, $nc(this->this$0->syms)->noSymbol);
-	$Assert::check(this->prevSym != nullptr || this->prevSym != $nc(this->this$0->syms)->noSymbol);
+	$Assert::check(this->prevSym != nullptr || this->prevSym != this->this$0->syms->noSymbol);
 	return $of(this->prevSym);
 }
 
@@ -121,15 +69,58 @@ $Symbol$TypeSymbol* Resolve$5::symbolFor($Type* t$renamed) {
 	if ($nc(this->seen)->contains($nc(t)->tsym)) {
 		return nullptr;
 	}
-	$set(this, seen, $nc(this->seen)->prepend($nc(t)->tsym));
-	return $nc(t)->tsym;
+	$set(this, seen, $nc(this->seen)->prepend(t->tsym));
+	return t->tsym;
 }
 
 Resolve$5::Resolve$5() {
 }
 
 $Class* Resolve$5::load$($String* name, bool initialize) {
-	$loadClass(Resolve$5, name, initialize, &_Resolve$5_ClassInfo_, allocate$Resolve$5);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$5, this$0)},
+		{"val$intype", "Lcom/sun/tools/javac/code/Type;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$5, val$intype)},
+		{"seen", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;>;", 0, $field(Resolve$5, seen)},
+		{"currentSym", "Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, 0, $field(Resolve$5, currentSym)},
+		{"prevSym", "Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, 0, $field(Resolve$5, prevSym)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/code/Type;)V", "()V", 0, $method(Resolve$5, init$, void, $Resolve*, $Type*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Resolve$5, hasNext, bool)},
+		{"next", "()Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, $PUBLIC, $virtualMethod(Resolve$5, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Resolve$5, remove, void)},
+		{"symbolFor", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, 0, $virtualMethod(Resolve$5, symbolFor, $Symbol$TypeSymbol*, $Type*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Resolve",
+		"superclasses",
+		"(Lcom/sun/tools/javac/code/Type;)Ljava/lang/Iterable;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$5", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Symbol$TypeSymbol", "com.sun.tools.javac.code.Symbol", "TypeSymbol", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Resolve$5",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$5);
+	});
 	return class$;
 }
 

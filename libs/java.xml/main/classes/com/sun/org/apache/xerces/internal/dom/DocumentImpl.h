@@ -104,6 +104,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(bool grammarAccess);
 	void init$(::org::w3c::dom::DocumentType* doctype);
@@ -155,7 +156,7 @@ public:
 	virtual void splitData(::org::w3c::dom::Node* node, ::org::w3c::dom::Node* newNode, int32_t offset);
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t serialVersionUID = (int64_t)0x0728175AAC81FA76;
+	static const int64_t serialVersionUID = (int64_t)0x0728175aac81fa76;
 	::java::util::List* iterators = nullptr;
 	::java::util::List* ranges = nullptr;
 	::java::util::Map* eventListeners = nullptr;

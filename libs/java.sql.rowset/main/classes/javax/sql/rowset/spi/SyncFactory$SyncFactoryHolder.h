@@ -24,6 +24,7 @@ class SyncFactory$SyncFactoryHolder : public ::java::lang::Object {
 	$class(SyncFactory$SyncFactoryHolder, 0, ::java::lang::Object)
 public:
 	SyncFactory$SyncFactoryHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::sql::rowset::spi::SyncFactory* factory;
 };

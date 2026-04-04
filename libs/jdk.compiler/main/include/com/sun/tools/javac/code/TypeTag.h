@@ -87,6 +87,7 @@ class $import TypeTag : public ::java::lang::Enum {
 public:
 	TypeTag();
 	static $Array<::com::sun::tools::javac::code::TypeTag>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t numericClass, int32_t superClasses, bool isPrimitive);
 	virtual bool checkRange(int32_t value);

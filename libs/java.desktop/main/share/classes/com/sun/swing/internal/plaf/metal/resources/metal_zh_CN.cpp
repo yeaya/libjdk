@@ -1,5 +1,4 @@
 #include <com/sun/swing/internal/plaf/metal/resources/metal_zh_CN.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -16,147 +15,128 @@ namespace com {
 					namespace metal {
 						namespace resources {
 
-$MethodInfo _metal_zh_CN_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(metal_zh_CN, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(metal_zh_CN, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _metal_zh_CN_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.swing.internal.plaf.metal.resources.metal_zh_CN",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_metal_zh_CN_MethodInfo_
-};
-
-$Object* allocate$metal_zh_CN($Class* clazz) {
-	return $of($alloc(metal_zh_CN));
-}
-
 void metal_zh_CN::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* metal_zh_CN::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("FileChooser.detailsViewActionLabel.textAndMnemonic"_s),
-			$of(u"详细信息"_s)
+			"FileChooser.detailsViewActionLabel.textAndMnemonic"_s,
+			u"详细信息"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.detailsViewButtonAccessibleName"_s),
-			$of(u"详细信息"_s)
+			"FileChooser.detailsViewButtonAccessibleName"_s,
+			u"详细信息"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.detailsViewButtonToolTip.textAndMnemonic"_s),
-			$of(u"详细信息"_s)
+			"FileChooser.detailsViewButtonToolTip.textAndMnemonic"_s,
+			u"详细信息"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileAttrHeader.textAndMnemonic"_s),
-			$of(u"属性"_s)
+			"FileChooser.fileAttrHeader.textAndMnemonic"_s,
+			u"属性"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileDateHeader.textAndMnemonic"_s),
-			$of(u"修改日期"_s)
+			"FileChooser.fileDateHeader.textAndMnemonic"_s,
+			u"修改日期"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileNameHeader.textAndMnemonic"_s),
-			$of(u"名称"_s)
+			"FileChooser.fileNameHeader.textAndMnemonic"_s,
+			u"名称"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileNameLabel.textAndMnemonic"_s),
-			$of(u"文件名(&N):"_s)
+			"FileChooser.fileNameLabel.textAndMnemonic"_s,
+			u"文件名(&N):"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileSizeHeader.textAndMnemonic"_s),
-			$of(u"大小"_s)
+			"FileChooser.fileSizeHeader.textAndMnemonic"_s,
+			u"大小"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileTypeHeader.textAndMnemonic"_s),
-			$of(u"类型"_s)
+			"FileChooser.fileTypeHeader.textAndMnemonic"_s,
+			u"类型"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.filesOfTypeLabel.textAndMnemonic"_s),
-			$of(u"文件类型(&T):"_s)
+			"FileChooser.filesOfTypeLabel.textAndMnemonic"_s,
+			u"文件类型(&T):"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.folderNameLabel.textAndMnemonic"_s),
-			$of(u"文件夹名(&N):"_s)
+			"FileChooser.folderNameLabel.textAndMnemonic"_s,
+			u"文件夹名(&N):"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.homeFolderAccessibleName"_s),
-			$of(u"主目录"_s)
+			"FileChooser.homeFolderAccessibleName"_s,
+			u"主目录"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.homeFolderToolTip.textAndMnemonic"_s),
-			$of(u"主目录"_s)
+			"FileChooser.homeFolderToolTip.textAndMnemonic"_s,
+			u"主目录"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.listViewActionLabel.textAndMnemonic"_s),
-			$of(u"列表"_s)
+			"FileChooser.listViewActionLabel.textAndMnemonic"_s,
+			u"列表"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.listViewButtonAccessibleName"_s),
-			$of(u"列表"_s)
+			"FileChooser.listViewButtonAccessibleName"_s,
+			u"列表"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.listViewButtonToolTip.textAndMnemonic"_s),
-			$of(u"列表"_s)
+			"FileChooser.listViewButtonToolTip.textAndMnemonic"_s,
+			u"列表"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.lookInLabel.textAndMnemonic"_s),
-			$of(u"查找(&I):"_s)
+			"FileChooser.lookInLabel.textAndMnemonic"_s,
+			u"查找(&I):"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderAccessibleName"_s),
-			$of(u"新建文件夹"_s)
+			"FileChooser.newFolderAccessibleName"_s,
+			u"新建文件夹"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderActionLabel.textAndMnemonic"_s),
-			$of(u"新建文件夹"_s)
+			"FileChooser.newFolderActionLabel.textAndMnemonic"_s,
+			u"新建文件夹"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderToolTip.textAndMnemonic"_s),
-			$of(u"创建新文件夹"_s)
+			"FileChooser.newFolderToolTip.textAndMnemonic"_s,
+			u"创建新文件夹"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.refreshActionLabel.textAndMnemonic"_s),
-			$of(u"刷新"_s)
+			"FileChooser.refreshActionLabel.textAndMnemonic"_s,
+			u"刷新"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.saveInLabel.textAndMnemonic"_s),
-			$of(u"保存: "_s)
+			"FileChooser.saveInLabel.textAndMnemonic"_s,
+			u"保存: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.upFolderAccessibleName"_s),
-			$of(u"向上"_s)
+			"FileChooser.upFolderAccessibleName"_s,
+			u"向上"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.upFolderToolTip.textAndMnemonic"_s),
-			$of(u"向上一级"_s)
+			"FileChooser.upFolderToolTip.textAndMnemonic"_s,
+			u"向上一级"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.viewMenuLabel.textAndMnemonic"_s),
-			$of(u"视图"_s)
+			"FileChooser.viewMenuLabel.textAndMnemonic"_s,
+			u"视图"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MetalTitlePane.close.titleAndMnemonic"_s),
-			$of(u"关闭(&C)"_s)
+			"MetalTitlePane.close.titleAndMnemonic"_s,
+			u"关闭(&C)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MetalTitlePane.iconify.titleAndMnemonic"_s),
-			$of(u"最小化(&E)"_s)
+			"MetalTitlePane.iconify.titleAndMnemonic"_s,
+			u"最小化(&E)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MetalTitlePane.maximize.titleAndMnemonic"_s),
-			$of(u"最大化(&X)"_s)
+			"MetalTitlePane.maximize.titleAndMnemonic"_s,
+			u"最大化(&X)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MetalTitlePane.restore.titleAndMnemonic"_s),
-			$of(u"还原(&R)"_s)
+			"MetalTitlePane.restore.titleAndMnemonic"_s,
+			u"还原(&R)"_s
 		})
 	});
 }
@@ -165,7 +145,22 @@ metal_zh_CN::metal_zh_CN() {
 }
 
 $Class* metal_zh_CN::load$($String* name, bool initialize) {
-	$loadClass(metal_zh_CN, name, initialize, &_metal_zh_CN_ClassInfo_, allocate$metal_zh_CN);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(metal_zh_CN, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(metal_zh_CN, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.swing.internal.plaf.metal.resources.metal_zh_CN",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(metal_zh_CN, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(metal_zh_CN);
+	});
 	return class$;
 }
 

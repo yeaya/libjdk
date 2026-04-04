@@ -193,6 +193,7 @@ class TransformerImpl : public ::javax::xml::transform::Transformer, public ::co
 	$class(TransformerImpl, 0, ::javax::xml::transform::Transformer, ::com::sun::org::apache::xalan::internal::xsltc::DOMCache)
 public:
 	TransformerImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

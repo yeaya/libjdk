@@ -1,5 +1,4 @@
 #include <sun/java2d/pipe/GeneralCompositePipe$TileContext.h>
-
 #include <java/awt/CompositeContext.h>
 #include <java/awt/PaintContext.h>
 #include <java/awt/image/ColorModel.h>
@@ -21,46 +20,6 @@ namespace sun {
 	namespace java2d {
 		namespace pipe {
 
-$FieldInfo _GeneralCompositePipe$TileContext_FieldInfo_[] = {
-	{"this$0", "Lsun/java2d/pipe/GeneralCompositePipe;", nullptr, $FINAL | $SYNTHETIC, $field(GeneralCompositePipe$TileContext, this$0)},
-	{"sunG2D", "Lsun/java2d/SunGraphics2D;", nullptr, 0, $field(GeneralCompositePipe$TileContext, sunG2D)},
-	{"paintCtxt", "Ljava/awt/PaintContext;", nullptr, 0, $field(GeneralCompositePipe$TileContext, paintCtxt)},
-	{"compCtxt", "Ljava/awt/CompositeContext;", nullptr, 0, $field(GeneralCompositePipe$TileContext, compCtxt)},
-	{"compModel", "Ljava/awt/image/ColorModel;", nullptr, 0, $field(GeneralCompositePipe$TileContext, compModel)},
-	{"pipeState", "Ljava/lang/Object;", nullptr, 0, $field(GeneralCompositePipe$TileContext, pipeState)},
-	{}
-};
-
-$MethodInfo _GeneralCompositePipe$TileContext_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/pipe/GeneralCompositePipe;Lsun/java2d/SunGraphics2D;Ljava/awt/PaintContext;Ljava/awt/CompositeContext;Ljava/awt/image/ColorModel;)V", nullptr, $PUBLIC, $method(GeneralCompositePipe$TileContext, init$, void, $GeneralCompositePipe*, $SunGraphics2D*, $PaintContext*, $CompositeContext*, $ColorModel*)},
-	{}
-};
-
-$InnerClassInfo _GeneralCompositePipe$TileContext_InnerClassesInfo_[] = {
-	{"sun.java2d.pipe.GeneralCompositePipe$TileContext", "sun.java2d.pipe.GeneralCompositePipe", "TileContext", 0},
-	{}
-};
-
-$ClassInfo _GeneralCompositePipe$TileContext_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.pipe.GeneralCompositePipe$TileContext",
-	"java.lang.Object",
-	nullptr,
-	_GeneralCompositePipe$TileContext_FieldInfo_,
-	_GeneralCompositePipe$TileContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GeneralCompositePipe$TileContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.pipe.GeneralCompositePipe"
-};
-
-$Object* allocate$GeneralCompositePipe$TileContext($Class* clazz) {
-	return $of($alloc(GeneralCompositePipe$TileContext));
-}
-
 void GeneralCompositePipe$TileContext::init$($GeneralCompositePipe* this$0, $SunGraphics2D* sg, $PaintContext* pCtx, $CompositeContext* cCtx, $ColorModel* cModel) {
 	$set(this, this$0, this$0);
 	$set(this, sunG2D, sg);
@@ -73,7 +32,41 @@ GeneralCompositePipe$TileContext::GeneralCompositePipe$TileContext() {
 }
 
 $Class* GeneralCompositePipe$TileContext::load$($String* name, bool initialize) {
-	$loadClass(GeneralCompositePipe$TileContext, name, initialize, &_GeneralCompositePipe$TileContext_ClassInfo_, allocate$GeneralCompositePipe$TileContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/java2d/pipe/GeneralCompositePipe;", nullptr, $FINAL | $SYNTHETIC, $field(GeneralCompositePipe$TileContext, this$0)},
+		{"sunG2D", "Lsun/java2d/SunGraphics2D;", nullptr, 0, $field(GeneralCompositePipe$TileContext, sunG2D)},
+		{"paintCtxt", "Ljava/awt/PaintContext;", nullptr, 0, $field(GeneralCompositePipe$TileContext, paintCtxt)},
+		{"compCtxt", "Ljava/awt/CompositeContext;", nullptr, 0, $field(GeneralCompositePipe$TileContext, compCtxt)},
+		{"compModel", "Ljava/awt/image/ColorModel;", nullptr, 0, $field(GeneralCompositePipe$TileContext, compModel)},
+		{"pipeState", "Ljava/lang/Object;", nullptr, 0, $field(GeneralCompositePipe$TileContext, pipeState)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/pipe/GeneralCompositePipe;Lsun/java2d/SunGraphics2D;Ljava/awt/PaintContext;Ljava/awt/CompositeContext;Ljava/awt/image/ColorModel;)V", nullptr, $PUBLIC, $method(GeneralCompositePipe$TileContext, init$, void, $GeneralCompositePipe*, $SunGraphics2D*, $PaintContext*, $CompositeContext*, $ColorModel*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.pipe.GeneralCompositePipe$TileContext", "sun.java2d.pipe.GeneralCompositePipe", "TileContext", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.pipe.GeneralCompositePipe$TileContext",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.pipe.GeneralCompositePipe"
+	};
+	$loadClass(GeneralCompositePipe$TileContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GeneralCompositePipe$TileContext);
+	});
 	return class$;
 }
 

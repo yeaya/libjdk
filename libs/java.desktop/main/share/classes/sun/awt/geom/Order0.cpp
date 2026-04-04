@@ -1,5 +1,4 @@
 #include <sun/awt/geom/Order0.h>
-
 #include <java/awt/geom/PathIterator.h>
 #include <java/awt/geom/Rectangle2D.h>
 #include <sun/awt/geom/Crossings.h>
@@ -20,54 +19,6 @@ using $Curve = ::sun::awt::geom::Curve;
 namespace sun {
 	namespace awt {
 		namespace geom {
-
-$FieldInfo _Order0_FieldInfo_[] = {
-	{"x", "D", nullptr, $PRIVATE, $field(Order0, x)},
-	{"y", "D", nullptr, $PRIVATE, $field(Order0, y)},
-	{}
-};
-
-$MethodInfo _Order0_MethodInfo_[] = {
-	{"<init>", "(DD)V", nullptr, $PUBLIC, $method(Order0, init$, void, double, double)},
-	{"TforY", "(D)D", nullptr, $PUBLIC, $virtualMethod(Order0, TforY, double, double)},
-	{"XforT", "(D)D", nullptr, $PUBLIC, $virtualMethod(Order0, XforT, double, double)},
-	{"XforY", "(D)D", nullptr, $PUBLIC, $virtualMethod(Order0, XforY, double, double)},
-	{"YforT", "(D)D", nullptr, $PUBLIC, $virtualMethod(Order0, YforT, double, double)},
-	{"accumulateCrossings", "(Lsun/awt/geom/Crossings;)Z", nullptr, $PUBLIC, $virtualMethod(Order0, accumulateCrossings, bool, $Crossings*)},
-	{"crossingsFor", "(DD)I", nullptr, $PUBLIC, $virtualMethod(Order0, crossingsFor, int32_t, double, double)},
-	{"dXforT", "(DI)D", nullptr, $PUBLIC, $virtualMethod(Order0, dXforT, double, double, int32_t)},
-	{"dYforT", "(DI)D", nullptr, $PUBLIC, $virtualMethod(Order0, dYforT, double, double, int32_t)},
-	{"enlarge", "(Ljava/awt/geom/Rectangle2D;)V", nullptr, $PUBLIC, $virtualMethod(Order0, enlarge, void, $Rectangle2D*)},
-	{"getOrder", "()I", nullptr, $PUBLIC, $virtualMethod(Order0, getOrder, int32_t)},
-	{"getReversedCurve", "()Lsun/awt/geom/Curve;", nullptr, $PUBLIC, $virtualMethod(Order0, getReversedCurve, $Curve*)},
-	{"getSegment", "([D)I", nullptr, $PUBLIC, $virtualMethod(Order0, getSegment, int32_t, $doubles*)},
-	{"getSubCurve", "(DDI)Lsun/awt/geom/Curve;", nullptr, $PUBLIC, $virtualMethod(Order0, getSubCurve, $Curve*, double, double, int32_t)},
-	{"getX0", "()D", nullptr, $PUBLIC, $virtualMethod(Order0, getX0, double)},
-	{"getX1", "()D", nullptr, $PUBLIC, $virtualMethod(Order0, getX1, double)},
-	{"getXBot", "()D", nullptr, $PUBLIC, $virtualMethod(Order0, getXBot, double)},
-	{"getXMax", "()D", nullptr, $PUBLIC, $virtualMethod(Order0, getXMax, double)},
-	{"getXMin", "()D", nullptr, $PUBLIC, $virtualMethod(Order0, getXMin, double)},
-	{"getXTop", "()D", nullptr, $PUBLIC, $virtualMethod(Order0, getXTop, double)},
-	{"getY0", "()D", nullptr, $PUBLIC, $virtualMethod(Order0, getY0, double)},
-	{"getY1", "()D", nullptr, $PUBLIC, $virtualMethod(Order0, getY1, double)},
-	{"getYBot", "()D", nullptr, $PUBLIC, $virtualMethod(Order0, getYBot, double)},
-	{"getYTop", "()D", nullptr, $PUBLIC, $virtualMethod(Order0, getYTop, double)},
-	{"nextVertical", "(DD)D", nullptr, $PUBLIC, $virtualMethod(Order0, nextVertical, double, double, double)},
-	{}
-};
-
-$ClassInfo _Order0_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.geom.Order0",
-	"sun.awt.geom.Curve",
-	nullptr,
-	_Order0_FieldInfo_,
-	_Order0_MethodInfo_
-};
-
-$Object* allocate$Order0($Class* clazz) {
-	return $of($alloc(Order0));
-}
 
 void Order0::init$(double x, double y) {
 	$Curve::init$($Curve::INCREASING);
@@ -124,7 +75,7 @@ double Order0::XforY(double y) {
 }
 
 double Order0::TforY(double y) {
-	return (double)0;
+	return 0;
 }
 
 double Order0::XforT(double t) {
@@ -136,11 +87,11 @@ double Order0::YforT(double t) {
 }
 
 double Order0::dXforT(double t, int32_t deriv) {
-	return (double)0;
+	return 0;
 }
 
 double Order0::dYforT(double t, int32_t deriv) {
-	return (double)0;
+	return 0;
 }
 
 double Order0::nextVertical(double t0, double t1) {
@@ -180,7 +131,50 @@ Order0::Order0() {
 }
 
 $Class* Order0::load$($String* name, bool initialize) {
-	$loadClass(Order0, name, initialize, &_Order0_ClassInfo_, allocate$Order0);
+	$FieldInfo fieldInfos$$[] = {
+		{"x", "D", nullptr, $PRIVATE, $field(Order0, x)},
+		{"y", "D", nullptr, $PRIVATE, $field(Order0, y)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(DD)V", nullptr, $PUBLIC, $method(Order0, init$, void, double, double)},
+		{"TforY", "(D)D", nullptr, $PUBLIC, $virtualMethod(Order0, TforY, double, double)},
+		{"XforT", "(D)D", nullptr, $PUBLIC, $virtualMethod(Order0, XforT, double, double)},
+		{"XforY", "(D)D", nullptr, $PUBLIC, $virtualMethod(Order0, XforY, double, double)},
+		{"YforT", "(D)D", nullptr, $PUBLIC, $virtualMethod(Order0, YforT, double, double)},
+		{"accumulateCrossings", "(Lsun/awt/geom/Crossings;)Z", nullptr, $PUBLIC, $virtualMethod(Order0, accumulateCrossings, bool, $Crossings*)},
+		{"crossingsFor", "(DD)I", nullptr, $PUBLIC, $virtualMethod(Order0, crossingsFor, int32_t, double, double)},
+		{"dXforT", "(DI)D", nullptr, $PUBLIC, $virtualMethod(Order0, dXforT, double, double, int32_t)},
+		{"dYforT", "(DI)D", nullptr, $PUBLIC, $virtualMethod(Order0, dYforT, double, double, int32_t)},
+		{"enlarge", "(Ljava/awt/geom/Rectangle2D;)V", nullptr, $PUBLIC, $virtualMethod(Order0, enlarge, void, $Rectangle2D*)},
+		{"getOrder", "()I", nullptr, $PUBLIC, $virtualMethod(Order0, getOrder, int32_t)},
+		{"getReversedCurve", "()Lsun/awt/geom/Curve;", nullptr, $PUBLIC, $virtualMethod(Order0, getReversedCurve, $Curve*)},
+		{"getSegment", "([D)I", nullptr, $PUBLIC, $virtualMethod(Order0, getSegment, int32_t, $doubles*)},
+		{"getSubCurve", "(DDI)Lsun/awt/geom/Curve;", nullptr, $PUBLIC, $virtualMethod(Order0, getSubCurve, $Curve*, double, double, int32_t)},
+		{"getX0", "()D", nullptr, $PUBLIC, $virtualMethod(Order0, getX0, double)},
+		{"getX1", "()D", nullptr, $PUBLIC, $virtualMethod(Order0, getX1, double)},
+		{"getXBot", "()D", nullptr, $PUBLIC, $virtualMethod(Order0, getXBot, double)},
+		{"getXMax", "()D", nullptr, $PUBLIC, $virtualMethod(Order0, getXMax, double)},
+		{"getXMin", "()D", nullptr, $PUBLIC, $virtualMethod(Order0, getXMin, double)},
+		{"getXTop", "()D", nullptr, $PUBLIC, $virtualMethod(Order0, getXTop, double)},
+		{"getY0", "()D", nullptr, $PUBLIC, $virtualMethod(Order0, getY0, double)},
+		{"getY1", "()D", nullptr, $PUBLIC, $virtualMethod(Order0, getY1, double)},
+		{"getYBot", "()D", nullptr, $PUBLIC, $virtualMethod(Order0, getYBot, double)},
+		{"getYTop", "()D", nullptr, $PUBLIC, $virtualMethod(Order0, getYTop, double)},
+		{"nextVertical", "(DD)D", nullptr, $PUBLIC, $virtualMethod(Order0, nextVertical, double, double, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.geom.Order0",
+		"sun.awt.geom.Curve",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Order0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Order0);
+	});
 	return class$;
 }
 

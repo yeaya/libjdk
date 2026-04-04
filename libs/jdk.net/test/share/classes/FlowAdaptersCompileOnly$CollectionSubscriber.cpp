@@ -1,5 +1,4 @@
 #include <FlowAdaptersCompileOnly$CollectionSubscriber.h>
-
 #include <FlowAdaptersCompileOnly.h>
 #include <java/util/Collection.h>
 #include <java/util/concurrent/Flow$Subscription.h>
@@ -10,42 +9,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Collection = ::java::util::Collection;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
-
-$MethodInfo _FlowAdaptersCompileOnly$CollectionSubscriber_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(FlowAdaptersCompileOnly$CollectionSubscriber, init$, void)},
-	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$CollectionSubscriber, onComplete, void)},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$CollectionSubscriber, onError, void, $Throwable*)},
-	{"onNext", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$CollectionSubscriber, onNext, void, $Collection*)},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(FlowAdaptersCompileOnly$CollectionSubscriber, onNext, void, Object$*)},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$CollectionSubscriber, onSubscribe, void, $Flow$Subscription*)},
-	{}
-};
-
-$InnerClassInfo _FlowAdaptersCompileOnly$CollectionSubscriber_InnerClassesInfo_[] = {
-	{"FlowAdaptersCompileOnly$CollectionSubscriber", "FlowAdaptersCompileOnly", "CollectionSubscriber", $STATIC},
-	{"java.util.concurrent.Flow$Subscriber", "java.util.concurrent.Flow", "Subscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _FlowAdaptersCompileOnly$CollectionSubscriber_ClassInfo_ = {
-	$ACC_SUPER,
-	"FlowAdaptersCompileOnly$CollectionSubscriber",
-	"java.lang.Object",
-	"java.util.concurrent.Flow$Subscriber",
-	nullptr,
-	_FlowAdaptersCompileOnly$CollectionSubscriber_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Flow$Subscriber<Ljava/util/Collection<Ljava/nio/ByteBuffer;>;>;",
-	nullptr,
-	_FlowAdaptersCompileOnly$CollectionSubscriber_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"FlowAdaptersCompileOnly"
-};
-
-$Object* allocate$FlowAdaptersCompileOnly$CollectionSubscriber($Class* clazz) {
-	return $of($alloc(FlowAdaptersCompileOnly$CollectionSubscriber));
-}
 
 void FlowAdaptersCompileOnly$CollectionSubscriber::init$() {
 }
@@ -70,7 +33,38 @@ FlowAdaptersCompileOnly$CollectionSubscriber::FlowAdaptersCompileOnly$Collection
 }
 
 $Class* FlowAdaptersCompileOnly$CollectionSubscriber::load$($String* name, bool initialize) {
-	$loadClass(FlowAdaptersCompileOnly$CollectionSubscriber, name, initialize, &_FlowAdaptersCompileOnly$CollectionSubscriber_ClassInfo_, allocate$FlowAdaptersCompileOnly$CollectionSubscriber);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(FlowAdaptersCompileOnly$CollectionSubscriber, init$, void)},
+		{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$CollectionSubscriber, onComplete, void)},
+		{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$CollectionSubscriber, onError, void, $Throwable*)},
+		{"onNext", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$CollectionSubscriber, onNext, void, $Collection*)},
+		{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(FlowAdaptersCompileOnly$CollectionSubscriber, onNext, void, Object$*)},
+		{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$CollectionSubscriber, onSubscribe, void, $Flow$Subscription*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"FlowAdaptersCompileOnly$CollectionSubscriber", "FlowAdaptersCompileOnly", "CollectionSubscriber", $STATIC},
+		{"java.util.concurrent.Flow$Subscriber", "java.util.concurrent.Flow", "Subscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"FlowAdaptersCompileOnly$CollectionSubscriber",
+		"java.lang.Object",
+		"java.util.concurrent.Flow$Subscriber",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Flow$Subscriber<Ljava/util/Collection<Ljava/nio/ByteBuffer;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"FlowAdaptersCompileOnly"
+	};
+	$loadClass(FlowAdaptersCompileOnly$CollectionSubscriber, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FlowAdaptersCompileOnly$CollectionSubscriber);
+	});
 	return class$;
 }
 

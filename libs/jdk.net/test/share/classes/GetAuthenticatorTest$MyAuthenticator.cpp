@@ -1,47 +1,14 @@
 #include <GetAuthenticatorTest$MyAuthenticator.h>
-
 #include <GetAuthenticatorTest.h>
 #include <java/net/Authenticator.h>
 #include <java/net/PasswordAuthentication.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Authenticator = ::java::net::Authenticator;
 using $PasswordAuthentication = ::java::net::PasswordAuthentication;
-
-$MethodInfo _GetAuthenticatorTest$MyAuthenticator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(GetAuthenticatorTest$MyAuthenticator, init$, void)},
-	{"getPasswordAuthentication", "()Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC, $virtualMethod(GetAuthenticatorTest$MyAuthenticator, getPasswordAuthentication, $PasswordAuthentication*)},
-	{}
-};
-
-$InnerClassInfo _GetAuthenticatorTest$MyAuthenticator_InnerClassesInfo_[] = {
-	{"GetAuthenticatorTest$MyAuthenticator", "GetAuthenticatorTest", "MyAuthenticator", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _GetAuthenticatorTest$MyAuthenticator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"GetAuthenticatorTest$MyAuthenticator",
-	"java.net.Authenticator",
-	nullptr,
-	nullptr,
-	_GetAuthenticatorTest$MyAuthenticator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GetAuthenticatorTest$MyAuthenticator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"GetAuthenticatorTest"
-};
-
-$Object* allocate$GetAuthenticatorTest$MyAuthenticator($Class* clazz) {
-	return $of($alloc(GetAuthenticatorTest$MyAuthenticator));
-}
 
 void GetAuthenticatorTest$MyAuthenticator::init$() {
 	$Authenticator::init$();
@@ -56,7 +23,33 @@ GetAuthenticatorTest$MyAuthenticator::GetAuthenticatorTest$MyAuthenticator() {
 }
 
 $Class* GetAuthenticatorTest$MyAuthenticator::load$($String* name, bool initialize) {
-	$loadClass(GetAuthenticatorTest$MyAuthenticator, name, initialize, &_GetAuthenticatorTest$MyAuthenticator_ClassInfo_, allocate$GetAuthenticatorTest$MyAuthenticator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(GetAuthenticatorTest$MyAuthenticator, init$, void)},
+		{"getPasswordAuthentication", "()Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC, $virtualMethod(GetAuthenticatorTest$MyAuthenticator, getPasswordAuthentication, $PasswordAuthentication*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"GetAuthenticatorTest$MyAuthenticator", "GetAuthenticatorTest", "MyAuthenticator", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"GetAuthenticatorTest$MyAuthenticator",
+		"java.net.Authenticator",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"GetAuthenticatorTest"
+	};
+	$loadClass(GetAuthenticatorTest$MyAuthenticator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GetAuthenticatorTest$MyAuthenticator);
+	});
 	return class$;
 }
 

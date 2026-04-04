@@ -24,6 +24,7 @@ class $import Type$UndetVar$InferenceBound : public ::java::lang::Enum {
 public:
 	Type$UndetVar$InferenceBound();
 	static $Array<::com::sun::tools::javac::code::Type$UndetVar$InferenceBound>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual ::com::sun::tools::javac::code::Type$UndetVar$InferenceBound* complement() {return nullptr;}
 	virtual bool lessThan(::com::sun::tools::javac::code::Type$UndetVar$InferenceBound* that);

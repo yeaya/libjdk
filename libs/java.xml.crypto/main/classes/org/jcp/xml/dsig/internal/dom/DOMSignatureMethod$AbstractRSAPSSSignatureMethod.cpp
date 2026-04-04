@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod$AbstractRSAPSSSignatureMethod.h>
-
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/Provider.h>
@@ -30,40 +29,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$MethodInfo _DOMSignatureMethod$AbstractRSAPSSSignatureMethod_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMSignatureMethod$AbstractRSAPSSSignatureMethod, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMSignatureMethod$AbstractRSAPSSSignatureMethod, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
-	{"getPSSParameterSpec", "()Ljava/security/spec/PSSParameterSpec;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DOMSignatureMethod$AbstractRSAPSSSignatureMethod, getPSSParameterSpec, $PSSParameterSpec*)},
-	{"getSignature", "(Ljava/security/Provider;)Ljava/security/Signature;", nullptr, 0, $virtualMethod(DOMSignatureMethod$AbstractRSAPSSSignatureMethod, getSignature, $Signature*, $Provider*), "java.security.NoSuchAlgorithmException"},
-	{}
-};
-
-$InnerClassInfo _DOMSignatureMethod$AbstractRSAPSSSignatureMethod_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractRSAPSSSignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractRSAPSSSignatureMethod", $STATIC | $ABSTRACT},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractRSASignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractRSASignatureMethod", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DOMSignatureMethod$AbstractRSAPSSSignatureMethod_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractRSAPSSSignatureMethod",
-	"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractRSASignatureMethod",
-	nullptr,
-	nullptr,
-	_DOMSignatureMethod$AbstractRSAPSSSignatureMethod_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DOMSignatureMethod$AbstractRSAPSSSignatureMethod_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod"
-};
-
-$Object* allocate$DOMSignatureMethod$AbstractRSAPSSSignatureMethod($Class* clazz) {
-	return $of($alloc(DOMSignatureMethod$AbstractRSAPSSSignatureMethod));
-}
-
 void DOMSignatureMethod$AbstractRSAPSSSignatureMethod::init$($AlgorithmParameterSpec* params) {
 	$DOMSignatureMethod$AbstractRSASignatureMethod::init$(params);
 }
@@ -73,7 +38,7 @@ void DOMSignatureMethod$AbstractRSAPSSSignatureMethod::init$($Element* dmElem) {
 }
 
 $Signature* DOMSignatureMethod$AbstractRSAPSSSignatureMethod::getSignature($Provider* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($Signature, s, (p == nullptr) ? $Signature::getInstance("RSASSA-PSS"_s) : $Signature::getInstance("RSASSA-PSS"_s, p));
 		try {
@@ -92,7 +57,36 @@ DOMSignatureMethod$AbstractRSAPSSSignatureMethod::DOMSignatureMethod$AbstractRSA
 }
 
 $Class* DOMSignatureMethod$AbstractRSAPSSSignatureMethod::load$($String* name, bool initialize) {
-	$loadClass(DOMSignatureMethod$AbstractRSAPSSSignatureMethod, name, initialize, &_DOMSignatureMethod$AbstractRSAPSSSignatureMethod_ClassInfo_, allocate$DOMSignatureMethod$AbstractRSAPSSSignatureMethod);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMSignatureMethod$AbstractRSAPSSSignatureMethod, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMSignatureMethod$AbstractRSAPSSSignatureMethod, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+		{"getPSSParameterSpec", "()Ljava/security/spec/PSSParameterSpec;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DOMSignatureMethod$AbstractRSAPSSSignatureMethod, getPSSParameterSpec, $PSSParameterSpec*)},
+		{"getSignature", "(Ljava/security/Provider;)Ljava/security/Signature;", nullptr, 0, $virtualMethod(DOMSignatureMethod$AbstractRSAPSSSignatureMethod, getSignature, $Signature*, $Provider*), "java.security.NoSuchAlgorithmException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractRSAPSSSignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractRSAPSSSignatureMethod", $STATIC | $ABSTRACT},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractRSASignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractRSASignatureMethod", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractRSAPSSSignatureMethod",
+		"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractRSASignatureMethod",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod"
+	};
+	$loadClass(DOMSignatureMethod$AbstractRSAPSSSignatureMethod, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMSignatureMethod$AbstractRSAPSSSignatureMethod));
+	});
 	return class$;
 }
 

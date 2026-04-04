@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/EventDispatcher$EventInfo.h>
-
 #include <com/sun/media/sound/EventDispatcher.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -16,46 +15,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _EventDispatcher$EventInfo_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/media/sound/EventDispatcher;", nullptr, $FINAL | $SYNTHETIC, $field(EventDispatcher$EventInfo, this$0)},
-	{"event", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(EventDispatcher$EventInfo, event)},
-	{"listeners", "[Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(EventDispatcher$EventInfo, listeners)},
-	{}
-};
-
-$MethodInfo _EventDispatcher$EventInfo_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/EventDispatcher;Ljava/lang/Object;Ljava/util/List;)V", "(Ljava/lang/Object;Ljava/util/List<Ljava/lang/Object;>;)V", 0, $method(EventDispatcher$EventInfo, init$, void, $EventDispatcher*, Object$*, $List*)},
-	{"getEvent", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(EventDispatcher$EventInfo, getEvent, $Object*)},
-	{"getListener", "(I)Ljava/lang/Object;", nullptr, 0, $virtualMethod(EventDispatcher$EventInfo, getListener, $Object*, int32_t)},
-	{"getListenerCount", "()I", nullptr, 0, $virtualMethod(EventDispatcher$EventInfo, getListenerCount, int32_t)},
-	{}
-};
-
-$InnerClassInfo _EventDispatcher$EventInfo_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.EventDispatcher$EventInfo", "com.sun.media.sound.EventDispatcher", "EventInfo", $PRIVATE},
-	{}
-};
-
-$ClassInfo _EventDispatcher$EventInfo_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.media.sound.EventDispatcher$EventInfo",
-	"java.lang.Object",
-	nullptr,
-	_EventDispatcher$EventInfo_FieldInfo_,
-	_EventDispatcher$EventInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_EventDispatcher$EventInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.EventDispatcher"
-};
-
-$Object* allocate$EventDispatcher$EventInfo($Class* clazz) {
-	return $of($alloc(EventDispatcher$EventInfo));
-}
-
 void EventDispatcher$EventInfo::init$($EventDispatcher* this$0, Object$* event, $List* listeners) {
 	$set(this, this$0, this$0);
 	$set(this, event, event);
@@ -63,7 +22,7 @@ void EventDispatcher$EventInfo::init$($EventDispatcher* this$0, Object$* event, 
 }
 
 $Object* EventDispatcher$EventInfo::getEvent() {
-	return $of(this->event);
+	return this->event;
 }
 
 int32_t EventDispatcher$EventInfo::getListenerCount() {
@@ -71,14 +30,48 @@ int32_t EventDispatcher$EventInfo::getListenerCount() {
 }
 
 $Object* EventDispatcher$EventInfo::getListener(int32_t index) {
-	return $of($nc(this->listeners)->get(index));
+	return $nc(this->listeners)->get(index);
 }
 
 EventDispatcher$EventInfo::EventDispatcher$EventInfo() {
 }
 
 $Class* EventDispatcher$EventInfo::load$($String* name, bool initialize) {
-	$loadClass(EventDispatcher$EventInfo, name, initialize, &_EventDispatcher$EventInfo_ClassInfo_, allocate$EventDispatcher$EventInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/media/sound/EventDispatcher;", nullptr, $FINAL | $SYNTHETIC, $field(EventDispatcher$EventInfo, this$0)},
+		{"event", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(EventDispatcher$EventInfo, event)},
+		{"listeners", "[Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(EventDispatcher$EventInfo, listeners)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/EventDispatcher;Ljava/lang/Object;Ljava/util/List;)V", "(Ljava/lang/Object;Ljava/util/List<Ljava/lang/Object;>;)V", 0, $method(EventDispatcher$EventInfo, init$, void, $EventDispatcher*, Object$*, $List*)},
+		{"getEvent", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(EventDispatcher$EventInfo, getEvent, $Object*)},
+		{"getListener", "(I)Ljava/lang/Object;", nullptr, 0, $virtualMethod(EventDispatcher$EventInfo, getListener, $Object*, int32_t)},
+		{"getListenerCount", "()I", nullptr, 0, $virtualMethod(EventDispatcher$EventInfo, getListenerCount, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.EventDispatcher$EventInfo", "com.sun.media.sound.EventDispatcher", "EventInfo", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.media.sound.EventDispatcher$EventInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.EventDispatcher"
+	};
+	$loadClass(EventDispatcher$EventInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EventDispatcher$EventInfo);
+	});
 	return class$;
 }
 

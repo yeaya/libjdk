@@ -1,5 +1,4 @@
 #include <javax/naming/NameNotFoundException.h>
-
 #include <javax/naming/NamingException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $NamingException = ::javax::naming::NamingException;
 
 namespace javax {
 	namespace naming {
-
-$FieldInfo _NameNotFoundException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NameNotFoundException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NameNotFoundException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NameNotFoundException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NameNotFoundException, init$, void)},
-	{}
-};
-
-$ClassInfo _NameNotFoundException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.NameNotFoundException",
-	"javax.naming.NamingException",
-	nullptr,
-	_NameNotFoundException_FieldInfo_,
-	_NameNotFoundException_MethodInfo_
-};
-
-$Object* allocate$NameNotFoundException($Class* clazz) {
-	return $of($alloc(NameNotFoundException));
-}
 
 void NameNotFoundException::init$($String* explanation) {
 	$NamingException::init$(explanation);
@@ -54,7 +29,26 @@ void NameNotFoundException::throw$() {
 }
 
 $Class* NameNotFoundException::load$($String* name, bool initialize) {
-	$loadClass(NameNotFoundException, name, initialize, &_NameNotFoundException_ClassInfo_, allocate$NameNotFoundException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NameNotFoundException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NameNotFoundException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NameNotFoundException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.NameNotFoundException",
+		"javax.naming.NamingException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NameNotFoundException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NameNotFoundException);
+	});
 	return class$;
 }
 

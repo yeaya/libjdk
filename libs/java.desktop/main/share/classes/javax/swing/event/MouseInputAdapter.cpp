@@ -1,5 +1,4 @@
 #include <javax/swing/event/MouseInputAdapter.h>
-
 #include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseEvent.h>
 #include <jcpp.h>
@@ -12,36 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace swing {
 		namespace event {
-
-$MethodInfo _MouseInputAdapter_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(MouseInputAdapter, init$, void)},
-	{"*mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC},
-	{"*mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC},
-	{"*mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC},
-	{"*mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC},
-	{"*mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC},
-	{"*mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC},
-	{"*mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _MouseInputAdapter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.event.MouseInputAdapter",
-	"java.awt.event.MouseAdapter",
-	"javax.swing.event.MouseInputListener",
-	nullptr,
-	_MouseInputAdapter_MethodInfo_
-};
-
-$Object* allocate$MouseInputAdapter($Class* clazz) {
-	return $of($alloc(MouseInputAdapter));
-}
 
 void MouseInputAdapter::mouseClicked($MouseEvent* e) {
 	this->$MouseAdapter::mouseClicked(e);
@@ -99,7 +68,33 @@ MouseInputAdapter::MouseInputAdapter() {
 }
 
 $Class* MouseInputAdapter::load$($String* name, bool initialize) {
-	$loadClass(MouseInputAdapter, name, initialize, &_MouseInputAdapter_ClassInfo_, allocate$MouseInputAdapter);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(MouseInputAdapter, init$, void)},
+		{"*mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC},
+		{"*mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC},
+		{"*mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC},
+		{"*mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC},
+		{"*mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC},
+		{"*mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC},
+		{"*mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.event.MouseInputAdapter",
+		"java.awt.event.MouseAdapter",
+		"javax.swing.event.MouseInputListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MouseInputAdapter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MouseInputAdapter));
+	});
 	return class$;
 }
 

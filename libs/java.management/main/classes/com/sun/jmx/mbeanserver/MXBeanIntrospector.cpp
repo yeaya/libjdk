@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/MXBeanIntrospector.h>
-
 #include <com/sun/jmx/mbeanserver/ConvertingMethod.h>
 #include <com/sun/jmx/mbeanserver/Introspector.h>
 #include <com/sun/jmx/mbeanserver/MBeanAnalyzer.h>
@@ -10,7 +9,6 @@
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/reflect/AccessibleObject.h>
 #include <java/lang/reflect/AnnotatedElement.h>
-#include <java/lang/reflect/Executable.h>
 #include <java/lang/reflect/GenericArrayType.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/ParameterizedType.h>
@@ -48,8 +46,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessibleObject = ::java::lang::reflect::AccessibleObject;
-using $AnnotatedElement = ::java::lang::reflect::AnnotatedElement;
-using $Executable = ::java::lang::reflect::Executable;
 using $GenericArrayType = ::java::lang::reflect::GenericArrayType;
 using $Method = ::java::lang::reflect::Method;
 using $ParameterizedType = ::java::lang::reflect::ParameterizedType;
@@ -68,62 +64,6 @@ namespace com {
 	namespace sun {
 		namespace jmx {
 			namespace mbeanserver {
-
-$FieldInfo _MXBeanIntrospector_FieldInfo_[] = {
-	{"instance", "Lcom/sun/jmx/mbeanserver/MXBeanIntrospector;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MXBeanIntrospector, instance)},
-	{"perInterfaceMap", "Lcom/sun/jmx/mbeanserver/MBeanIntrospector$PerInterfaceMap;", "Lcom/sun/jmx/mbeanserver/MBeanIntrospector$PerInterfaceMap<Lcom/sun/jmx/mbeanserver/ConvertingMethod;>;", $PRIVATE | $FINAL, $field(MXBeanIntrospector, perInterfaceMap)},
-	{"mbeanInfoMap", "Lcom/sun/jmx/mbeanserver/MBeanIntrospector$MBeanInfoMap;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MXBeanIntrospector, mbeanInfoMap)},
-	{}
-};
-
-$MethodInfo _MXBeanIntrospector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MXBeanIntrospector, init$, void)},
-	{"canUseOpenInfo", "(Ljava/lang/reflect/Type;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MXBeanIntrospector, canUseOpenInfo, bool, $Type*)},
-	{"checkMethod", "(Lcom/sun/jmx/mbeanserver/ConvertingMethod;)V", nullptr, 0, $virtualMethod(MXBeanIntrospector, checkMethod, void, $ConvertingMethod*)},
-	{"checkMethod", "(Ljava/lang/Object;)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(MXBeanIntrospector, checkMethod, void, Object$*)},
-	{"getAnalyzer", "(Ljava/lang/Class;)Lcom/sun/jmx/mbeanserver/MBeanAnalyzer;", "(Ljava/lang/Class<*>;)Lcom/sun/jmx/mbeanserver/MBeanAnalyzer<Lcom/sun/jmx/mbeanserver/ConvertingMethod;>;", 0, $virtualMethod(MXBeanIntrospector, getAnalyzer, $MBeanAnalyzer*, $Class*), "javax.management.NotCompliantMBeanException"},
-	{"getBasicMBeanDescriptor", "()Ljavax/management/Descriptor;", nullptr, 0, $virtualMethod(MXBeanIntrospector, getBasicMBeanDescriptor, $Descriptor*)},
-	{"getGenericParameterTypes", "(Lcom/sun/jmx/mbeanserver/ConvertingMethod;)[Ljava/lang/reflect/Type;", nullptr, 0, $virtualMethod(MXBeanIntrospector, getGenericParameterTypes, $TypeArray*, $ConvertingMethod*)},
-	{"getGenericParameterTypes", "(Ljava/lang/Object;)[Ljava/lang/reflect/Type;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(MXBeanIntrospector, getGenericParameterTypes, $TypeArray*, Object$*)},
-	{"getGenericReturnType", "(Lcom/sun/jmx/mbeanserver/ConvertingMethod;)Ljava/lang/reflect/Type;", nullptr, 0, $virtualMethod(MXBeanIntrospector, getGenericReturnType, $Type*, $ConvertingMethod*)},
-	{"getGenericReturnType", "(Ljava/lang/Object;)Ljava/lang/reflect/Type;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(MXBeanIntrospector, getGenericReturnType, $Type*, Object$*)},
-	{"getInstance", "()Lcom/sun/jmx/mbeanserver/MXBeanIntrospector;", nullptr, $STATIC, $staticMethod(MXBeanIntrospector, getInstance, MXBeanIntrospector*)},
-	{"getMBeanAttributeInfo", "(Ljava/lang/String;Lcom/sun/jmx/mbeanserver/ConvertingMethod;Lcom/sun/jmx/mbeanserver/ConvertingMethod;)Ljavax/management/MBeanAttributeInfo;", nullptr, 0, $virtualMethod(MXBeanIntrospector, getMBeanAttributeInfo, $MBeanAttributeInfo*, $String*, $ConvertingMethod*, $ConvertingMethod*)},
-	{"getMBeanAttributeInfo", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Ljavax/management/MBeanAttributeInfo;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(MXBeanIntrospector, getMBeanAttributeInfo, $MBeanAttributeInfo*, $String*, Object$*, Object$*)},
-	{"getMBeanDescriptor", "(Ljava/lang/Class;)Ljavax/management/Descriptor;", "(Ljava/lang/Class<*>;)Ljavax/management/Descriptor;", 0, $virtualMethod(MXBeanIntrospector, getMBeanDescriptor, $Descriptor*, $Class*)},
-	{"getMBeanInfoMap", "()Lcom/sun/jmx/mbeanserver/MBeanIntrospector$MBeanInfoMap;", nullptr, 0, $virtualMethod(MXBeanIntrospector, getMBeanInfoMap, $MBeanIntrospector$MBeanInfoMap*)},
-	{"getMBeanOperationInfo", "(Ljava/lang/String;Lcom/sun/jmx/mbeanserver/ConvertingMethod;)Ljavax/management/MBeanOperationInfo;", nullptr, 0, $virtualMethod(MXBeanIntrospector, getMBeanOperationInfo, $MBeanOperationInfo*, $String*, $ConvertingMethod*)},
-	{"getMBeanOperationInfo", "(Ljava/lang/String;Ljava/lang/Object;)Ljavax/management/MBeanOperationInfo;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(MXBeanIntrospector, getMBeanOperationInfo, $MBeanOperationInfo*, $String*, Object$*)},
-	{"getName", "(Lcom/sun/jmx/mbeanserver/ConvertingMethod;)Ljava/lang/String;", nullptr, 0, $virtualMethod(MXBeanIntrospector, getName, $String*, $ConvertingMethod*)},
-	{"getName", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(MXBeanIntrospector, getName, $String*, Object$*)},
-	{"getPerInterfaceMap", "()Lcom/sun/jmx/mbeanserver/MBeanIntrospector$PerInterfaceMap;", "()Lcom/sun/jmx/mbeanserver/MBeanIntrospector$PerInterfaceMap<Lcom/sun/jmx/mbeanserver/ConvertingMethod;>;", 0, $virtualMethod(MXBeanIntrospector, getPerInterfaceMap, $MBeanIntrospector$PerInterfaceMap*)},
-	{"getSignature", "(Lcom/sun/jmx/mbeanserver/ConvertingMethod;)[Ljava/lang/String;", nullptr, 0, $virtualMethod(MXBeanIntrospector, getSignature, $StringArray*, $ConvertingMethod*)},
-	{"getSignature", "(Ljava/lang/Object;)[Ljava/lang/String;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(MXBeanIntrospector, getSignature, $StringArray*, Object$*)},
-	{"invokeM2", "(Lcom/sun/jmx/mbeanserver/ConvertingMethod;Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(MXBeanIntrospector, invokeM2, $Object*, $ConvertingMethod*, Object$*, $ObjectArray*, Object$*), "java.lang.reflect.InvocationTargetException,java.lang.IllegalAccessException,javax.management.MBeanException"},
-	{"invokeM2", "(Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(MXBeanIntrospector, invokeM2, $Object*, Object$*, Object$*, $ObjectArray*, Object$*), "java.lang.reflect.InvocationTargetException,java.lang.IllegalAccessException,javax.management.MBeanException"},
-	{"isMXBean", "()Z", nullptr, 0, $virtualMethod(MXBeanIntrospector, isMXBean, bool)},
-	{"mFrom", "(Ljava/lang/reflect/Method;)Lcom/sun/jmx/mbeanserver/ConvertingMethod;", nullptr, 0, $virtualMethod(MXBeanIntrospector, mFrom, $Object*, $Method*)},
-	{"originalTypeString", "(Ljava/lang/reflect/Type;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MXBeanIntrospector, originalTypeString, $String*, $Type*)},
-	{"typeDescriptor", "(Ljavax/management/openmbean/OpenType;Ljava/lang/reflect/Type;)Ljavax/management/Descriptor;", "(Ljavax/management/openmbean/OpenType<*>;Ljava/lang/reflect/Type;)Ljavax/management/Descriptor;", $PRIVATE | $STATIC, $staticMethod(MXBeanIntrospector, typeDescriptor, $Descriptor*, $OpenType*, $Type*)},
-	{"typeName", "(Ljava/lang/reflect/Type;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(MXBeanIntrospector, typeName, $String*, $Type*)},
-	{"validParameter", "(Lcom/sun/jmx/mbeanserver/ConvertingMethod;Ljava/lang/Object;ILjava/lang/Object;)Z", nullptr, 0, $virtualMethod(MXBeanIntrospector, validParameter, bool, $ConvertingMethod*, Object$*, int32_t, Object$*)},
-	{"validParameter", "(Ljava/lang/Object;Ljava/lang/Object;ILjava/lang/Object;)Z", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(MXBeanIntrospector, validParameter, bool, Object$*, Object$*, int32_t, Object$*)},
-	{}
-};
-
-$ClassInfo _MXBeanIntrospector_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jmx.mbeanserver.MXBeanIntrospector",
-	"com.sun.jmx.mbeanserver.MBeanIntrospector",
-	nullptr,
-	_MXBeanIntrospector_FieldInfo_,
-	_MXBeanIntrospector_MethodInfo_,
-	"Lcom/sun/jmx/mbeanserver/MBeanIntrospector<Lcom/sun/jmx/mbeanserver/ConvertingMethod;>;"
-};
-
-$Object* allocate$MXBeanIntrospector($Class* clazz) {
-	return $of($alloc(MXBeanIntrospector));
-}
 
 MXBeanIntrospector* MXBeanIntrospector::instance = nullptr;
 $MBeanIntrospector$MBeanInfoMap* MXBeanIntrospector::mbeanInfoMap = nullptr;
@@ -155,7 +95,7 @@ bool MXBeanIntrospector::isMXBean() {
 }
 
 $Object* MXBeanIntrospector::mFrom($Method* m) {
-	return $of($ConvertingMethod::from(m));
+	return $ConvertingMethod::from(m);
 }
 
 $String* MXBeanIntrospector::getName($ConvertingMethod* m) {
@@ -179,14 +119,14 @@ void MXBeanIntrospector::checkMethod($ConvertingMethod* m) {
 }
 
 $Object* MXBeanIntrospector::invokeM2($ConvertingMethod* m, Object$* target, $ObjectArray* args, Object$* cookie) {
-	return $of($nc(m)->invokeWithOpenReturn($cast($MXBeanLookup, cookie), target, args));
+	return $nc(m)->invokeWithOpenReturn($cast($MXBeanLookup, cookie), target, args);
 }
 
 bool MXBeanIntrospector::validParameter($ConvertingMethod* m, Object$* value, int32_t paramNo, Object$* cookie) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (value == nullptr) {
 		$var($Type, t, $nc($($nc(m)->getGenericParameterTypes()))->get(paramNo));
-		return (!($instanceOf($Class, t)) || !$nc(($cast($Class, t)))->isPrimitive());
+		return (!($instanceOf($Class, t)) || !$cast($Class, t)->isPrimitive());
 	} else {
 		$var($Object, v, nullptr);
 		try {
@@ -199,31 +139,31 @@ bool MXBeanIntrospector::validParameter($ConvertingMethod* m, Object$* value, in
 }
 
 $MBeanAttributeInfo* MXBeanIntrospector::getMBeanAttributeInfo($String* attributeName, $ConvertingMethod* getter, $ConvertingMethod* setter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool isReadable = (getter != nullptr);
 	bool isWritable = (setter != nullptr);
-	bool isIs = isReadable && $nc($(getName(getter)))->startsWith("is"_s);
+	bool isIs = isReadable && $$nc(getName(getter))->startsWith("is"_s);
 	$var($String, description, attributeName);
 	$var($OpenType, openType, nullptr);
 	$var($Type, originalType, nullptr);
 	if (isReadable) {
-		$assign(openType, getter->getOpenReturnType());
+		$assign(openType, $nc(getter)->getOpenReturnType());
 		$assign(originalType, getter->getGenericReturnType());
 	} else {
-		$assign(openType, $nc($(setter->getOpenParameterTypes()))->get(0));
+		$assign(openType, $nc($($nc(setter)->getOpenParameterTypes()))->get(0));
 		$assign(originalType, $nc($(setter->getGenericParameterTypes()))->get(0));
 	}
 	$var($Descriptor, descriptor, typeDescriptor(openType, originalType));
 	if (isReadable) {
 		$assign(descriptor, $ImmutableDescriptor::union$($$new($DescriptorArray, {
 			descriptor,
-			$(getter->getDescriptor())
+			$($nc(getter)->getDescriptor())
 		})));
 	}
 	if (isWritable) {
 		$assign(descriptor, $ImmutableDescriptor::union$($$new($DescriptorArray, {
 			descriptor,
-			$(setter->getDescriptor())
+			$($nc(setter)->getDescriptor())
 		})));
 	}
 	$var($MBeanAttributeInfo, ai, nullptr);
@@ -236,7 +176,7 @@ $MBeanAttributeInfo* MXBeanIntrospector::getMBeanAttributeInfo($String* attribut
 }
 
 $MBeanOperationInfo* MXBeanIntrospector::getMBeanOperationInfo($String* operationName, $ConvertingMethod* operation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Method, method, $nc(operation)->getMethod());
 	$var($String, description, operationName);
 	int32_t impact = $MBeanOperationInfo::UNKNOWN;
@@ -270,7 +210,7 @@ $MBeanOperationInfo* MXBeanIntrospector::getMBeanOperationInfo($String* operatio
 	$var($Descriptor, descriptor, typeDescriptor(returnType, originalReturnType));
 	$assign(descriptor, $ImmutableDescriptor::union$($$new($DescriptorArray, {
 		descriptor,
-		$($Introspector::descriptorForElement(static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(method)))))
+		$($Introspector::descriptorForElement($cast($AccessibleObject, method)))
 	})));
 	$var($MBeanOperationInfo, oi, nullptr);
 	if (openReturnType && openParameterTypes) {
@@ -297,30 +237,30 @@ $Descriptor* MXBeanIntrospector::getMBeanDescriptor($Class* resourceClass) {
 
 $Descriptor* MXBeanIntrospector::typeDescriptor($OpenType* openType, $Type* originalType) {
 	$init(MXBeanIntrospector);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ImmutableDescriptor, $$new($StringArray, {
 		"openType"_s,
 		"originalType"_s
 	}), $$new($ObjectArray, {
-		$of(openType),
-		$($of(originalTypeString(originalType)))
+		openType,
+		$(originalTypeString(originalType))
 	}));
 }
 
 bool MXBeanIntrospector::canUseOpenInfo($Type* type) {
 	$init(MXBeanIntrospector);
 	if ($instanceOf($GenericArrayType, type)) {
-		return canUseOpenInfo($($nc(($cast($GenericArrayType, type)))->getGenericComponentType()));
-	} else if ($instanceOf($Class, type) && $nc(($cast($Class, type)))->isArray()) {
-		return canUseOpenInfo(($cast($Class, type))->getComponentType());
+		return canUseOpenInfo($($cast($GenericArrayType, type)->getGenericComponentType()));
+	} else if ($instanceOf($Class, type) && $cast($Class, type)->isArray()) {
+		return canUseOpenInfo($cast($Class, type)->getComponentType());
 	}
-	return (!($instanceOf($Class, type) && $nc(($cast($Class, type)))->isPrimitive()));
+	return (!($instanceOf($Class, type) && $cast($Class, type)->isPrimitive()));
 }
 
 $String* MXBeanIntrospector::originalTypeString($Type* type) {
 	$init(MXBeanIntrospector);
 	if ($instanceOf($Class, type)) {
-		return $nc(($cast($Class, type)))->getName();
+		return $cast($Class, type)->getName();
 	} else {
 		return typeName(type);
 	}
@@ -328,27 +268,25 @@ $String* MXBeanIntrospector::originalTypeString($Type* type) {
 
 $String* MXBeanIntrospector::typeName($Type* type) {
 	$init(MXBeanIntrospector);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Class, type)) {
 		$Class* c = $cast($Class, type);
-		if ($nc(c)->isArray()) {
+		if (c->isArray()) {
 			return $str({$(typeName(c->getComponentType())), "[]"_s});
 		} else {
 			return c->getName();
 		}
 	} else if ($instanceOf($GenericArrayType, type)) {
 		$var($GenericArrayType, gat, $cast($GenericArrayType, type));
-		return $str({$(typeName($($nc(gat)->getGenericComponentType()))), "[]"_s});
+		return $str({$(typeName($(gat->getGenericComponentType()))), "[]"_s});
 	} else if ($instanceOf($ParameterizedType, type)) {
 		$var($ParameterizedType, pt, $cast($ParameterizedType, type));
 		$var($StringBuilder, sb, $new($StringBuilder));
-		sb->append($(typeName($($nc(pt)->getRawType()))))->append("<"_s);
+		sb->append($(typeName($(pt->getRawType()))))->append("<"_s);
 		$var($String, sep, ""_s);
 		{
-			$var($TypeArray, arr$, $nc(pt)->getActualTypeArguments());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			$var($TypeArray, arr$, pt->getActualTypeArguments());
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Type, t, arr$->get(i$));
 				{
 					sb->append(sep)->append($(typeName(t)));
@@ -375,7 +313,7 @@ bool MXBeanIntrospector::validParameter(Object$* m, Object$* value, int32_t para
 }
 
 $Object* MXBeanIntrospector::invokeM2(Object$* m, Object$* target, $ObjectArray* args, Object$* cookie) {
-	return $of(this->invokeM2($cast($ConvertingMethod, m), target, args, cookie));
+	return this->invokeM2($cast($ConvertingMethod, m), target, args, cookie);
 }
 
 void MXBeanIntrospector::checkMethod(Object$* m) {
@@ -398,7 +336,7 @@ $String* MXBeanIntrospector::getName(Object$* m) {
 	return this->getName($cast($ConvertingMethod, m));
 }
 
-void clinit$MXBeanIntrospector($Class* class$) {
+void MXBeanIntrospector::clinit$($Class* clazz) {
 	$assignStatic(MXBeanIntrospector::instance, $new(MXBeanIntrospector));
 	$assignStatic(MXBeanIntrospector::mbeanInfoMap, $new($MBeanIntrospector$MBeanInfoMap));
 }
@@ -407,7 +345,58 @@ MXBeanIntrospector::MXBeanIntrospector() {
 }
 
 $Class* MXBeanIntrospector::load$($String* name, bool initialize) {
-	$loadClass(MXBeanIntrospector, name, initialize, &_MXBeanIntrospector_ClassInfo_, clinit$MXBeanIntrospector, allocate$MXBeanIntrospector);
+	$FieldInfo fieldInfos$$[] = {
+		{"instance", "Lcom/sun/jmx/mbeanserver/MXBeanIntrospector;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MXBeanIntrospector, instance)},
+		{"perInterfaceMap", "Lcom/sun/jmx/mbeanserver/MBeanIntrospector$PerInterfaceMap;", "Lcom/sun/jmx/mbeanserver/MBeanIntrospector$PerInterfaceMap<Lcom/sun/jmx/mbeanserver/ConvertingMethod;>;", $PRIVATE | $FINAL, $field(MXBeanIntrospector, perInterfaceMap)},
+		{"mbeanInfoMap", "Lcom/sun/jmx/mbeanserver/MBeanIntrospector$MBeanInfoMap;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MXBeanIntrospector, mbeanInfoMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MXBeanIntrospector, init$, void)},
+		{"canUseOpenInfo", "(Ljava/lang/reflect/Type;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MXBeanIntrospector, canUseOpenInfo, bool, $Type*)},
+		{"checkMethod", "(Lcom/sun/jmx/mbeanserver/ConvertingMethod;)V", nullptr, 0, $virtualMethod(MXBeanIntrospector, checkMethod, void, $ConvertingMethod*)},
+		{"checkMethod", "(Ljava/lang/Object;)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(MXBeanIntrospector, checkMethod, void, Object$*)},
+		{"getAnalyzer", "(Ljava/lang/Class;)Lcom/sun/jmx/mbeanserver/MBeanAnalyzer;", "(Ljava/lang/Class<*>;)Lcom/sun/jmx/mbeanserver/MBeanAnalyzer<Lcom/sun/jmx/mbeanserver/ConvertingMethod;>;", 0, $virtualMethod(MXBeanIntrospector, getAnalyzer, $MBeanAnalyzer*, $Class*), "javax.management.NotCompliantMBeanException"},
+		{"getBasicMBeanDescriptor", "()Ljavax/management/Descriptor;", nullptr, 0, $virtualMethod(MXBeanIntrospector, getBasicMBeanDescriptor, $Descriptor*)},
+		{"getGenericParameterTypes", "(Lcom/sun/jmx/mbeanserver/ConvertingMethod;)[Ljava/lang/reflect/Type;", nullptr, 0, $virtualMethod(MXBeanIntrospector, getGenericParameterTypes, $TypeArray*, $ConvertingMethod*)},
+		{"getGenericParameterTypes", "(Ljava/lang/Object;)[Ljava/lang/reflect/Type;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(MXBeanIntrospector, getGenericParameterTypes, $TypeArray*, Object$*)},
+		{"getGenericReturnType", "(Lcom/sun/jmx/mbeanserver/ConvertingMethod;)Ljava/lang/reflect/Type;", nullptr, 0, $virtualMethod(MXBeanIntrospector, getGenericReturnType, $Type*, $ConvertingMethod*)},
+		{"getGenericReturnType", "(Ljava/lang/Object;)Ljava/lang/reflect/Type;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(MXBeanIntrospector, getGenericReturnType, $Type*, Object$*)},
+		{"getInstance", "()Lcom/sun/jmx/mbeanserver/MXBeanIntrospector;", nullptr, $STATIC, $staticMethod(MXBeanIntrospector, getInstance, MXBeanIntrospector*)},
+		{"getMBeanAttributeInfo", "(Ljava/lang/String;Lcom/sun/jmx/mbeanserver/ConvertingMethod;Lcom/sun/jmx/mbeanserver/ConvertingMethod;)Ljavax/management/MBeanAttributeInfo;", nullptr, 0, $virtualMethod(MXBeanIntrospector, getMBeanAttributeInfo, $MBeanAttributeInfo*, $String*, $ConvertingMethod*, $ConvertingMethod*)},
+		{"getMBeanAttributeInfo", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Ljavax/management/MBeanAttributeInfo;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(MXBeanIntrospector, getMBeanAttributeInfo, $MBeanAttributeInfo*, $String*, Object$*, Object$*)},
+		{"getMBeanDescriptor", "(Ljava/lang/Class;)Ljavax/management/Descriptor;", "(Ljava/lang/Class<*>;)Ljavax/management/Descriptor;", 0, $virtualMethod(MXBeanIntrospector, getMBeanDescriptor, $Descriptor*, $Class*)},
+		{"getMBeanInfoMap", "()Lcom/sun/jmx/mbeanserver/MBeanIntrospector$MBeanInfoMap;", nullptr, 0, $virtualMethod(MXBeanIntrospector, getMBeanInfoMap, $MBeanIntrospector$MBeanInfoMap*)},
+		{"getMBeanOperationInfo", "(Ljava/lang/String;Lcom/sun/jmx/mbeanserver/ConvertingMethod;)Ljavax/management/MBeanOperationInfo;", nullptr, 0, $virtualMethod(MXBeanIntrospector, getMBeanOperationInfo, $MBeanOperationInfo*, $String*, $ConvertingMethod*)},
+		{"getMBeanOperationInfo", "(Ljava/lang/String;Ljava/lang/Object;)Ljavax/management/MBeanOperationInfo;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(MXBeanIntrospector, getMBeanOperationInfo, $MBeanOperationInfo*, $String*, Object$*)},
+		{"getName", "(Lcom/sun/jmx/mbeanserver/ConvertingMethod;)Ljava/lang/String;", nullptr, 0, $virtualMethod(MXBeanIntrospector, getName, $String*, $ConvertingMethod*)},
+		{"getName", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(MXBeanIntrospector, getName, $String*, Object$*)},
+		{"getPerInterfaceMap", "()Lcom/sun/jmx/mbeanserver/MBeanIntrospector$PerInterfaceMap;", "()Lcom/sun/jmx/mbeanserver/MBeanIntrospector$PerInterfaceMap<Lcom/sun/jmx/mbeanserver/ConvertingMethod;>;", 0, $virtualMethod(MXBeanIntrospector, getPerInterfaceMap, $MBeanIntrospector$PerInterfaceMap*)},
+		{"getSignature", "(Lcom/sun/jmx/mbeanserver/ConvertingMethod;)[Ljava/lang/String;", nullptr, 0, $virtualMethod(MXBeanIntrospector, getSignature, $StringArray*, $ConvertingMethod*)},
+		{"getSignature", "(Ljava/lang/Object;)[Ljava/lang/String;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(MXBeanIntrospector, getSignature, $StringArray*, Object$*)},
+		{"invokeM2", "(Lcom/sun/jmx/mbeanserver/ConvertingMethod;Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(MXBeanIntrospector, invokeM2, $Object*, $ConvertingMethod*, Object$*, $ObjectArray*, Object$*), "java.lang.reflect.InvocationTargetException,java.lang.IllegalAccessException,javax.management.MBeanException"},
+		{"invokeM2", "(Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(MXBeanIntrospector, invokeM2, $Object*, Object$*, Object$*, $ObjectArray*, Object$*), "java.lang.reflect.InvocationTargetException,java.lang.IllegalAccessException,javax.management.MBeanException"},
+		{"isMXBean", "()Z", nullptr, 0, $virtualMethod(MXBeanIntrospector, isMXBean, bool)},
+		{"mFrom", "(Ljava/lang/reflect/Method;)Lcom/sun/jmx/mbeanserver/ConvertingMethod;", nullptr, 0, $virtualMethod(MXBeanIntrospector, mFrom, $Object*, $Method*)},
+		{"originalTypeString", "(Ljava/lang/reflect/Type;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MXBeanIntrospector, originalTypeString, $String*, $Type*)},
+		{"typeDescriptor", "(Ljavax/management/openmbean/OpenType;Ljava/lang/reflect/Type;)Ljavax/management/Descriptor;", "(Ljavax/management/openmbean/OpenType<*>;Ljava/lang/reflect/Type;)Ljavax/management/Descriptor;", $PRIVATE | $STATIC, $staticMethod(MXBeanIntrospector, typeDescriptor, $Descriptor*, $OpenType*, $Type*)},
+		{"typeName", "(Ljava/lang/reflect/Type;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(MXBeanIntrospector, typeName, $String*, $Type*)},
+		{"validParameter", "(Lcom/sun/jmx/mbeanserver/ConvertingMethod;Ljava/lang/Object;ILjava/lang/Object;)Z", nullptr, 0, $virtualMethod(MXBeanIntrospector, validParameter, bool, $ConvertingMethod*, Object$*, int32_t, Object$*)},
+		{"validParameter", "(Ljava/lang/Object;Ljava/lang/Object;ILjava/lang/Object;)Z", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(MXBeanIntrospector, validParameter, bool, Object$*, Object$*, int32_t, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jmx.mbeanserver.MXBeanIntrospector",
+		"com.sun.jmx.mbeanserver.MBeanIntrospector",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/jmx/mbeanserver/MBeanIntrospector<Lcom/sun/jmx/mbeanserver/ConvertingMethod;>;"
+	};
+	$loadClass(MXBeanIntrospector, name, initialize, &classInfo$$, MXBeanIntrospector::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MXBeanIntrospector);
+	});
 	return class$;
 }
 

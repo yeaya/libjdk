@@ -47,6 +47,7 @@ class $export BasicRadioButtonUI : public ::javax::swing::plaf::basic::BasicTogg
 	$class(BasicRadioButtonUI, 0, ::javax::swing::plaf::basic::BasicToggleButtonUI)
 public:
 	BasicRadioButtonUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* b);
 	virtual ::javax::swing::Icon* getDefaultIcon();

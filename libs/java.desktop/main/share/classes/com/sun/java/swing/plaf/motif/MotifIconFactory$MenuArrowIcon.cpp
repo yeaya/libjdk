@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifIconFactory$MenuArrowIcon.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifIconFactory.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -13,7 +12,6 @@
 
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Graphics = ::java::awt::Graphics;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -30,51 +28,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace motif {
-
-$FieldInfo _MotifIconFactory$MenuArrowIcon_FieldInfo_[] = {
-	{"focus", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifIconFactory$MenuArrowIcon, focus)},
-	{"shadow", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifIconFactory$MenuArrowIcon, shadow)},
-	{"highlight", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifIconFactory$MenuArrowIcon, highlight)},
-	{}
-};
-
-$MethodInfo _MotifIconFactory$MenuArrowIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MotifIconFactory$MenuArrowIcon, init$, void)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MotifIconFactory$MenuArrowIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MotifIconFactory$MenuArrowIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MotifIconFactory$MenuArrowIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MotifIconFactory$MenuArrowIcon_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifIconFactory$MenuArrowIcon", "com.sun.java.swing.plaf.motif.MotifIconFactory", "MenuArrowIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MotifIconFactory$MenuArrowIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifIconFactory$MenuArrowIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
-	_MotifIconFactory$MenuArrowIcon_FieldInfo_,
-	_MotifIconFactory$MenuArrowIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifIconFactory$MenuArrowIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifIconFactory"
-};
-
-$Object* allocate$MotifIconFactory$MenuArrowIcon($Class* clazz) {
-	return $of($alloc(MotifIconFactory$MenuArrowIcon));
-}
 
 int32_t MotifIconFactory$MenuArrowIcon::hashCode() {
 	 return this->$Icon::hashCode();
@@ -103,14 +56,14 @@ void MotifIconFactory$MenuArrowIcon::init$() {
 }
 
 void MotifIconFactory$MenuArrowIcon::paintIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, b, $cast($AbstractButton, c));
 	$var($ButtonModel, model, $nc(b)->getModel());
 	int32_t w = getIconWidth();
 	int32_t h = getIconHeight();
 	$var($Color, oldColor, $nc(g)->getColor());
 	if ($nc(model)->isSelected()) {
-		if ($nc($($nc(c)->getComponentOrientation()))->isLeftToRight()) {
+		if ($$nc($nc(c)->getComponentOrientation())->isLeftToRight()) {
 			g->setColor(this->shadow);
 			g->fillRect(x + 1, y + 1, 2, h);
 			g->drawLine(x + 4, y + 2, x + 4, y + 2);
@@ -141,7 +94,7 @@ void MotifIconFactory$MenuArrowIcon::paintIcon($Component* c, $Graphics* g, int3
 			g->drawLine(x + 5, y + 2, x + 5, y + 2);
 			g->drawLine(x + 7, y + 1, x + 7, y + 1);
 		}
-	} else if ($nc($($nc(c)->getComponentOrientation()))->isLeftToRight()) {
+	} else if ($$nc($nc(c)->getComponentOrientation())->isLeftToRight()) {
 		g->setColor(this->highlight);
 		g->drawLine(x + 1, y + 1, x + 1, y + h);
 		g->drawLine(x + 2, y + 1, x + 2, y + h - 2);
@@ -182,7 +135,46 @@ MotifIconFactory$MenuArrowIcon::MotifIconFactory$MenuArrowIcon() {
 }
 
 $Class* MotifIconFactory$MenuArrowIcon::load$($String* name, bool initialize) {
-	$loadClass(MotifIconFactory$MenuArrowIcon, name, initialize, &_MotifIconFactory$MenuArrowIcon_ClassInfo_, allocate$MotifIconFactory$MenuArrowIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"focus", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifIconFactory$MenuArrowIcon, focus)},
+		{"shadow", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifIconFactory$MenuArrowIcon, shadow)},
+		{"highlight", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifIconFactory$MenuArrowIcon, highlight)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MotifIconFactory$MenuArrowIcon, init$, void)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MotifIconFactory$MenuArrowIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MotifIconFactory$MenuArrowIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MotifIconFactory$MenuArrowIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifIconFactory$MenuArrowIcon", "com.sun.java.swing.plaf.motif.MotifIconFactory", "MenuArrowIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifIconFactory$MenuArrowIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifIconFactory"
+	};
+	$loadClass(MotifIconFactory$MenuArrowIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifIconFactory$MenuArrowIcon));
+	});
 	return class$;
 }
 

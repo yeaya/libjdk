@@ -1,5 +1,4 @@
 #include <java/awt/MenuComponent.h>
-
 #include <java/awt/AWTError.h>
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
@@ -18,7 +17,6 @@
 #include <java/security/AccessController.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/accessibility/AccessibleStateSet.h>
-#include <sun/awt/AWTAccessor$MenuComponentAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <sun/awt/AppContext.h>
 #include <sun/awt/ComponentFactory.h>
@@ -50,90 +48,11 @@ using $AccessController = ::java::security::AccessController;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AccessibleStateSet = ::javax::accessibility::AccessibleStateSet;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$MenuComponentAccessor = ::sun::awt::AWTAccessor$MenuComponentAccessor;
 using $AppContext = ::sun::awt::AppContext;
 using $ComponentFactory = ::sun::awt::ComponentFactory;
 
 namespace java {
 	namespace awt {
-
-$CompoundAttribute _MenuComponent_MethodAnnotations_postEvent19[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _MenuComponent_FieldInfo_[] = {
-	{"peer", "Ljava/awt/peer/MenuComponentPeer;", nullptr, $VOLATILE | $TRANSIENT, $field(MenuComponent, peer)},
-	{"parent", "Ljava/awt/MenuContainer;", nullptr, $VOLATILE | $TRANSIENT, $field(MenuComponent, parent)},
-	{"appContext", "Lsun/awt/AppContext;", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(MenuComponent, appContext)},
-	{"font", "Ljava/awt/Font;", nullptr, $PRIVATE | $VOLATILE, $field(MenuComponent, font)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $VOLATILE, $field(MenuComponent, name)},
-	{"nameExplicitlySet", "Z", nullptr, $PRIVATE | $VOLATILE, $field(MenuComponent, nameExplicitlySet)},
-	{"newEventsOnly", "Z", nullptr, $VOLATILE, $field(MenuComponent, newEventsOnly)},
-	{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(MenuComponent, acc)},
-	{"actionListenerK", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(MenuComponent, actionListenerK)},
-	{"itemListenerK", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(MenuComponent, itemListenerK)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MenuComponent, serialVersionUID)},
-	{"accessibleContext", "Ljavax/accessibility/AccessibleContext;", nullptr, 0, $field(MenuComponent, accessibleContext)},
-	{}
-};
-
-$MethodInfo _MenuComponent_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MenuComponent, init$, void), "java.awt.HeadlessException"},
-	{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MenuComponent, constructComponentName, $String*)},
-	{"dispatchEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC | $FINAL, $method(MenuComponent, dispatchEvent, void, $AWTEvent*)},
-	{"dispatchEventImpl", "(Ljava/awt/AWTEvent;)V", nullptr, 0, $virtualMethod(MenuComponent, dispatchEventImpl, void, $AWTEvent*)},
-	{"eventEnabled", "(Ljava/awt/AWTEvent;)Z", nullptr, 0, $virtualMethod(MenuComponent, eventEnabled, bool, $AWTEvent*)},
-	{"getAccessControlContext", "()Ljava/security/AccessControlContext;", nullptr, $FINAL, $method(MenuComponent, getAccessControlContext, $AccessControlContext*)},
-	{"getAccessibleChildIndex", "(Ljava/awt/MenuComponent;)I", nullptr, 0, $virtualMethod(MenuComponent, getAccessibleChildIndex, int32_t, MenuComponent*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(MenuComponent, getAccessibleContext, $AccessibleContext*)},
-	{"getAccessibleIndexInParent", "()I", nullptr, 0, $virtualMethod(MenuComponent, getAccessibleIndexInParent, int32_t)},
-	{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, 0, $virtualMethod(MenuComponent, getAccessibleStateSet, $AccessibleStateSet*)},
-	{"getComponentFactory", "()Lsun/awt/ComponentFactory;", nullptr, $FINAL, $method(MenuComponent, getComponentFactory, $ComponentFactory*)},
-	{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(MenuComponent, getFont, $Font*)},
-	{"getFont_NoClientCode", "()Ljava/awt/Font;", nullptr, $FINAL, $method(MenuComponent, getFont_NoClientCode, $Font*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MenuComponent, getName, $String*)},
-	{"getParent", "()Ljava/awt/MenuContainer;", nullptr, $PUBLIC, $virtualMethod(MenuComponent, getParent, $MenuContainer*)},
-	{"getParent_NoClientCode", "()Ljava/awt/MenuContainer;", nullptr, $FINAL, $method(MenuComponent, getParent_NoClientCode, $MenuContainer*)},
-	{"getTreeLock", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $method(MenuComponent, getTreeLock, $Object*)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MenuComponent, initIDs, void)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MenuComponent, paramString, $String*)},
-	{"postEvent", "(Ljava/awt/Event;)Z", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(MenuComponent, postEvent, bool, $Event*), nullptr, nullptr, _MenuComponent_MethodAnnotations_postEvent19},
-	{"processEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PROTECTED, $virtualMethod(MenuComponent, processEvent, void, $AWTEvent*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MenuComponent, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException,java.awt.HeadlessException"},
-	{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(MenuComponent, removeNotify, void)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent, setFont, void, $Font*)},
-	{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent, setName, void, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MenuComponent, toString, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 17
-
-$InnerClassInfo _MenuComponent_InnerClassesInfo_[] = {
-	{"java.awt.MenuComponent$AccessibleAWTMenuComponent", "java.awt.MenuComponent", "AccessibleAWTMenuComponent", $PROTECTED | $ABSTRACT},
-	{"java.awt.MenuComponent$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MenuComponent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.MenuComponent",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_MenuComponent_FieldInfo_,
-	_MenuComponent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MenuComponent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.MenuComponent$AccessibleAWTMenuComponent,java.awt.MenuComponent$1"
-};
-
-$Object* allocate$MenuComponent($Class* clazz) {
-	return $of($alloc(MenuComponent));
-}
 
 $String* MenuComponent::actionListenerK = nullptr;
 $String* MenuComponent::itemListenerK = nullptr;
@@ -157,7 +76,7 @@ $String* MenuComponent::constructComponentName() {
 }
 
 $ComponentFactory* MenuComponent::getComponentFactory() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Toolkit, toolkit, $Toolkit::getDefaultToolkit());
 	if ($instanceOf($ComponentFactory, toolkit)) {
 		return $cast($ComponentFactory, toolkit);
@@ -192,7 +111,7 @@ $MenuContainer* MenuComponent::getParent_NoClientCode() {
 }
 
 $Font* MenuComponent::getFont() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Font, font, this->font);
 	if (font != nullptr) {
 		return font;
@@ -205,7 +124,7 @@ $Font* MenuComponent::getFont() {
 }
 
 $Font* MenuComponent::getFont_NoClientCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Font, font, this->font);
 	if (font != nullptr) {
 		return font;
@@ -213,9 +132,9 @@ $Font* MenuComponent::getFont_NoClientCode() {
 	$var($Object, parent, this->parent);
 	if (parent != nullptr) {
 		if ($instanceOf($Component, parent)) {
-			$assign(font, $nc(($cast($Component, parent)))->getFont_NoClientCode());
+			$assign(font, $cast($Component, parent)->getFont_NoClientCode());
 		} else if ($instanceOf(MenuComponent, parent)) {
-			$assign(font, $nc(($cast(MenuComponent, parent)))->getFont_NoClientCode());
+			$assign(font, $cast(MenuComponent, parent)->getFont_NoClientCode());
 		}
 	}
 	return font;
@@ -232,11 +151,11 @@ void MenuComponent::setFont($Font* f) {
 }
 
 void MenuComponent::removeNotify() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getTreeLock()) {
 		$var($MenuComponentPeer, p, this->peer);
 		if (p != nullptr) {
-			$nc($($Toolkit::getEventQueue()))->removeSourceEvents(this, true);
+			$$nc($Toolkit::getEventQueue())->removeSourceEvents(this, true);
 			$set(this, peer, nullptr);
 			p->dispose();
 		}
@@ -256,15 +175,15 @@ void MenuComponent::dispatchEvent($AWTEvent* e) {
 }
 
 void MenuComponent::dispatchEventImpl($AWTEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$EventQueue::setCurrentEventAndMostRecentTime(e);
-	$nc($($Toolkit::getDefaultToolkit()))->notifyAWTEventListeners(e);
-	if (this->newEventsOnly || (this->parent != nullptr && $instanceOf(MenuComponent, this->parent) && $nc(($cast(MenuComponent, this->parent)))->newEventsOnly)) {
+	$$nc($Toolkit::getDefaultToolkit())->notifyAWTEventListeners(e);
+	if (this->newEventsOnly || (this->parent != nullptr && $instanceOf(MenuComponent, this->parent) && $nc($cast(MenuComponent, this->parent))->newEventsOnly)) {
 		if (eventEnabled(e)) {
 			processEvent(e);
 		} else if ($instanceOf($ActionEvent, e) && this->parent != nullptr) {
-			$nc(e)->setSource(this->parent);
-			$nc(($cast(MenuComponent, this->parent)))->dispatchEvent(e);
+			e->setSource(this->parent);
+			$nc($cast(MenuComponent, this->parent))->dispatchEvent(e);
 		}
 	} else {
 		$var($Event, olde, $nc(e)->convertToOld());
@@ -287,15 +206,18 @@ $String* MenuComponent::paramString() {
 }
 
 $String* MenuComponent::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({$($of(this)->getClass()->getName()), "["_s}));
-	$var($String, var$0, $$concat(var$1, $(paramString())));
-	return $concat(var$0, "]"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($of(this)->getClass()->getName()));
+	var$0->append("["_s);
+	var$0->append($(paramString()));
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 $Object* MenuComponent::getTreeLock() {
 	$init($Component);
-	return $of($Component::LOCK);
+	return $Component::LOCK;
 }
 
 void MenuComponent::readObject($ObjectInputStream* s) {
@@ -307,7 +229,7 @@ void MenuComponent::readObject($ObjectInputStream* s) {
 
 void MenuComponent::initIDs() {
 	$init(MenuComponent);
-	$prepareNativeStatic(MenuComponent, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -317,7 +239,7 @@ $AccessibleContext* MenuComponent::getAccessibleContext() {
 }
 
 int32_t MenuComponent::getAccessibleIndexInParent() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MenuContainer, localParent, this->parent);
 	if (!($instanceOf(MenuComponent, localParent))) {
 		return -1;
@@ -335,7 +257,7 @@ $AccessibleStateSet* MenuComponent::getAccessibleStateSet() {
 	return states;
 }
 
-void clinit$MenuComponent($Class* class$) {
+void MenuComponent::clinit$($Class* clazz) {
 	$init($Component);
 	$assignStatic(MenuComponent::actionListenerK, $Component::actionListenerK);
 	$assignStatic(MenuComponent::itemListenerK, $Component::itemListenerK);
@@ -354,7 +276,76 @@ MenuComponent::MenuComponent() {
 }
 
 $Class* MenuComponent::load$($String* name, bool initialize) {
-	$loadClass(MenuComponent, name, initialize, &_MenuComponent_ClassInfo_, clinit$MenuComponent, allocate$MenuComponent);
+	$FieldInfo fieldInfos$$[] = {
+		{"peer", "Ljava/awt/peer/MenuComponentPeer;", nullptr, $VOLATILE | $TRANSIENT, $field(MenuComponent, peer)},
+		{"parent", "Ljava/awt/MenuContainer;", nullptr, $VOLATILE | $TRANSIENT, $field(MenuComponent, parent)},
+		{"appContext", "Lsun/awt/AppContext;", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(MenuComponent, appContext)},
+		{"font", "Ljava/awt/Font;", nullptr, $PRIVATE | $VOLATILE, $field(MenuComponent, font)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $VOLATILE, $field(MenuComponent, name)},
+		{"nameExplicitlySet", "Z", nullptr, $PRIVATE | $VOLATILE, $field(MenuComponent, nameExplicitlySet)},
+		{"newEventsOnly", "Z", nullptr, $VOLATILE, $field(MenuComponent, newEventsOnly)},
+		{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(MenuComponent, acc)},
+		{"actionListenerK", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(MenuComponent, actionListenerK)},
+		{"itemListenerK", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(MenuComponent, itemListenerK)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MenuComponent, serialVersionUID)},
+		{"accessibleContext", "Ljavax/accessibility/AccessibleContext;", nullptr, 0, $field(MenuComponent, accessibleContext)},
+		{}
+	};
+	$CompoundAttribute postEventmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MenuComponent, init$, void), "java.awt.HeadlessException"},
+		{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MenuComponent, constructComponentName, $String*)},
+		{"dispatchEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC | $FINAL, $method(MenuComponent, dispatchEvent, void, $AWTEvent*)},
+		{"dispatchEventImpl", "(Ljava/awt/AWTEvent;)V", nullptr, 0, $virtualMethod(MenuComponent, dispatchEventImpl, void, $AWTEvent*)},
+		{"eventEnabled", "(Ljava/awt/AWTEvent;)Z", nullptr, 0, $virtualMethod(MenuComponent, eventEnabled, bool, $AWTEvent*)},
+		{"getAccessControlContext", "()Ljava/security/AccessControlContext;", nullptr, $FINAL, $method(MenuComponent, getAccessControlContext, $AccessControlContext*)},
+		{"getAccessibleChildIndex", "(Ljava/awt/MenuComponent;)I", nullptr, 0, $virtualMethod(MenuComponent, getAccessibleChildIndex, int32_t, MenuComponent*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(MenuComponent, getAccessibleContext, $AccessibleContext*)},
+		{"getAccessibleIndexInParent", "()I", nullptr, 0, $virtualMethod(MenuComponent, getAccessibleIndexInParent, int32_t)},
+		{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, 0, $virtualMethod(MenuComponent, getAccessibleStateSet, $AccessibleStateSet*)},
+		{"getComponentFactory", "()Lsun/awt/ComponentFactory;", nullptr, $FINAL, $method(MenuComponent, getComponentFactory, $ComponentFactory*)},
+		{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(MenuComponent, getFont, $Font*)},
+		{"getFont_NoClientCode", "()Ljava/awt/Font;", nullptr, $FINAL, $method(MenuComponent, getFont_NoClientCode, $Font*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MenuComponent, getName, $String*)},
+		{"getParent", "()Ljava/awt/MenuContainer;", nullptr, $PUBLIC, $virtualMethod(MenuComponent, getParent, $MenuContainer*)},
+		{"getParent_NoClientCode", "()Ljava/awt/MenuContainer;", nullptr, $FINAL, $method(MenuComponent, getParent_NoClientCode, $MenuContainer*)},
+		{"getTreeLock", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $method(MenuComponent, getTreeLock, $Object*)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MenuComponent, initIDs, void)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MenuComponent, paramString, $String*)},
+		{"postEvent", "(Ljava/awt/Event;)Z", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(MenuComponent, postEvent, bool, $Event*), nullptr, nullptr, postEventmethodAnnotations$$},
+		{"processEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PROTECTED, $virtualMethod(MenuComponent, processEvent, void, $AWTEvent*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MenuComponent, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException,java.awt.HeadlessException"},
+		{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(MenuComponent, removeNotify, void)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent, setFont, void, $Font*)},
+		{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent, setName, void, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MenuComponent, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.MenuComponent$AccessibleAWTMenuComponent", "java.awt.MenuComponent", "AccessibleAWTMenuComponent", $PROTECTED | $ABSTRACT},
+		{"java.awt.MenuComponent$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.MenuComponent",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.MenuComponent$AccessibleAWTMenuComponent,java.awt.MenuComponent$1"
+	};
+	$loadClass(MenuComponent, name, initialize, &classInfo$$, MenuComponent::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MenuComponent);
+	});
 	return class$;
 }
 

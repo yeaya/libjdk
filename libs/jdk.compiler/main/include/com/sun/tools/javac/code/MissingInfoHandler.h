@@ -50,6 +50,7 @@ class $import MissingInfoHandler : public ::java::lang::Object {
 	$class(MissingInfoHandler, 0, ::java::lang::Object)
 public:
 	MissingInfoHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual ::com::sun::tools::javac::util::Name* getParameterName(::com::sun::tools::javac::code::Symbol$ParamSymbol* parameter);
 	static ::com::sun::tools::javac::code::MissingInfoHandler* instance(::com::sun::tools::javac::util::Context* context);

@@ -29,6 +29,7 @@ class $export bug6608456 : public ::java::lang::Object {
 	$class(bug6608456, 0, ::java::lang::Object)
 public:
 	bug6608456();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void blockTillDisplayed(::java::awt::Component* comp);
 	static $Object* invokeAndWait(::java::util::concurrent::Callable* callable);

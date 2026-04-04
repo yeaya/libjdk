@@ -1,5 +1,4 @@
 #include <com/sun/rowset/internal/InsertRow.h>
-
 #include <com/sun/rowset/JdbcRowSetResourceBundle.h>
 #include <com/sun/rowset/internal/BaseRow.h>
 #include <java/io/IOException.h>
@@ -28,38 +27,6 @@ namespace com {
 		namespace rowset {
 			namespace internal {
 
-$FieldInfo _InsertRow_FieldInfo_[] = {
-	{"colsInserted", "Ljava/util/BitSet;", nullptr, $PRIVATE, $field(InsertRow, colsInserted)},
-	{"cols", "I", nullptr, $PRIVATE, $field(InsertRow, cols)},
-	{"resBundle", "Lcom/sun/rowset/JdbcRowSetResourceBundle;", nullptr, $PRIVATE, $field(InsertRow, resBundle)},
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(InsertRow, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InsertRow_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(InsertRow, init$, void, int32_t)},
-	{"getColumnObject", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(InsertRow, getColumnObject, $Object*, int32_t), "java.sql.SQLException"},
-	{"initInsertRow", "()V", nullptr, $PUBLIC, $virtualMethod(InsertRow, initInsertRow, void)},
-	{"isCompleteRow", "(Ljavax/sql/RowSetMetaData;)Z", nullptr, $PUBLIC, $virtualMethod(InsertRow, isCompleteRow, bool, $RowSetMetaData*), "java.sql.SQLException"},
-	{"markColInserted", "(I)V", nullptr, $PROTECTED, $virtualMethod(InsertRow, markColInserted, void, int32_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(InsertRow, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setColumnObject", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InsertRow, setColumnObject, void, int32_t, Object$*)},
-	{}
-};
-
-$ClassInfo _InsertRow_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.rowset.internal.InsertRow",
-	"com.sun.rowset.internal.BaseRow",
-	nullptr,
-	_InsertRow_FieldInfo_,
-	_InsertRow_MethodInfo_
-};
-
-$Object* allocate$InsertRow($Class* clazz) {
-	return $of($alloc(InsertRow));
-}
-
 void InsertRow::init$(int32_t numCols) {
 	$BaseRow::init$();
 	$set(this, origVals, $new($ObjectArray, numCols));
@@ -68,7 +35,7 @@ void InsertRow::init$(int32_t numCols) {
 	try {
 		$set(this, resBundle, $JdbcRowSetResourceBundle::getJdbcRowSetResourceBundle());
 	} catch ($IOException& ioe) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(ioe));
+		$throwNew($RuntimeException, ioe);
 	}
 }
 
@@ -93,11 +60,11 @@ void InsertRow::initInsertRow() {
 }
 
 $Object* InsertRow::getColumnObject(int32_t idx) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->colsInserted)->get(idx - 1) == false) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("insertrow.novalue"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("insertrow.novalue"_s))->toString()));
 	}
-	return $of(($nc(this->origVals)->get(idx - 1)));
+	return ($nc(this->origVals)->get(idx - 1));
 }
 
 void InsertRow::setColumnObject(int32_t idx, Object$* val) {
@@ -110,7 +77,7 @@ void InsertRow::readObject($ObjectInputStream* ois) {
 	try {
 		$set(this, resBundle, $JdbcRowSetResourceBundle::getJdbcRowSetResourceBundle());
 	} catch ($IOException& ioe) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(ioe));
+		$throwNew($RuntimeException, ioe);
 	}
 }
 
@@ -118,7 +85,34 @@ InsertRow::InsertRow() {
 }
 
 $Class* InsertRow::load$($String* name, bool initialize) {
-	$loadClass(InsertRow, name, initialize, &_InsertRow_ClassInfo_, allocate$InsertRow);
+	$FieldInfo fieldInfos$$[] = {
+		{"colsInserted", "Ljava/util/BitSet;", nullptr, $PRIVATE, $field(InsertRow, colsInserted)},
+		{"cols", "I", nullptr, $PRIVATE, $field(InsertRow, cols)},
+		{"resBundle", "Lcom/sun/rowset/JdbcRowSetResourceBundle;", nullptr, $PRIVATE, $field(InsertRow, resBundle)},
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(InsertRow, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(InsertRow, init$, void, int32_t)},
+		{"getColumnObject", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(InsertRow, getColumnObject, $Object*, int32_t), "java.sql.SQLException"},
+		{"initInsertRow", "()V", nullptr, $PUBLIC, $virtualMethod(InsertRow, initInsertRow, void)},
+		{"isCompleteRow", "(Ljavax/sql/RowSetMetaData;)Z", nullptr, $PUBLIC, $virtualMethod(InsertRow, isCompleteRow, bool, $RowSetMetaData*), "java.sql.SQLException"},
+		{"markColInserted", "(I)V", nullptr, $PROTECTED, $virtualMethod(InsertRow, markColInserted, void, int32_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(InsertRow, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"setColumnObject", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InsertRow, setColumnObject, void, int32_t, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.rowset.internal.InsertRow",
+		"com.sun.rowset.internal.BaseRow",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InsertRow, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(InsertRow));
+	});
 	return class$;
 }
 

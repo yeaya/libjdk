@@ -1,5 +1,4 @@
 #include <jdk/net/LinuxSocketOptions.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/SecurityManager.h>
 #include <java/lang/invoke/CallSite.h>
@@ -41,100 +40,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(LinuxSocketOptions::lambda$static$0());
+		 return LinuxSocketOptions::lambda$static$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LinuxSocketOptions$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo LinuxSocketOptions$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LinuxSocketOptions$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LinuxSocketOptions$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo LinuxSocketOptions$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.net.LinuxSocketOptions$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* LinuxSocketOptions$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(LinuxSocketOptions$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LinuxSocketOptions$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LinuxSocketOptions$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.net.LinuxSocketOptions$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LinuxSocketOptions$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LinuxSocketOptions$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* LinuxSocketOptions$$Lambda$lambda$static$0::class$ = nullptr;
-
-$MethodInfo _LinuxSocketOptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LinuxSocketOptions, init$, void)},
-	{"getIncomingNapiId", "(I)I", nullptr, 0, $virtualMethod(LinuxSocketOptions, getIncomingNapiId, int32_t, int32_t), "java.net.SocketException"},
-	{"getIncomingNapiId0", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxSocketOptions, getIncomingNapiId0, int32_t, int32_t), "java.net.SocketException"},
-	{"getQuickAck", "(I)Z", nullptr, 0, $virtualMethod(LinuxSocketOptions, getQuickAck, bool, int32_t), "java.net.SocketException"},
-	{"getQuickAck0", "(I)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxSocketOptions, getQuickAck0, bool, int32_t), "java.net.SocketException"},
-	{"getSoPeerCred", "(I)Ljdk/net/UnixDomainPrincipal;", nullptr, 0, $virtualMethod(LinuxSocketOptions, getSoPeerCred, $UnixDomainPrincipal*, int32_t), "java.net.SocketException"},
-	{"getSoPeerCred0", "(I)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxSocketOptions, getSoPeerCred0, int64_t, int32_t), "java.net.SocketException"},
-	{"getTcpKeepAliveIntvl", "(I)I", nullptr, 0, $virtualMethod(LinuxSocketOptions, getTcpKeepAliveIntvl, int32_t, int32_t), "java.net.SocketException"},
-	{"getTcpKeepAliveIntvl0", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxSocketOptions, getTcpKeepAliveIntvl0, int32_t, int32_t), "java.net.SocketException"},
-	{"getTcpKeepAliveTime", "(I)I", nullptr, 0, $virtualMethod(LinuxSocketOptions, getTcpKeepAliveTime, int32_t, int32_t), "java.net.SocketException"},
-	{"getTcpKeepAliveTime0", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxSocketOptions, getTcpKeepAliveTime0, int32_t, int32_t), "java.net.SocketException"},
-	{"getTcpkeepAliveProbes", "(I)I", nullptr, 0, $virtualMethod(LinuxSocketOptions, getTcpkeepAliveProbes, int32_t, int32_t), "java.net.SocketException"},
-	{"getTcpkeepAliveProbes0", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxSocketOptions, getTcpkeepAliveProbes0, int32_t, int32_t), "java.net.SocketException"},
-	{"incomingNapiIdSupported", "()Z", nullptr, 0, $virtualMethod(LinuxSocketOptions, incomingNapiIdSupported, bool)},
-	{"incomingNapiIdSupported0", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxSocketOptions, incomingNapiIdSupported0, bool)},
-	{"keepAliveOptionsSupported", "()Z", nullptr, 0, $virtualMethod(LinuxSocketOptions, keepAliveOptionsSupported, bool)},
-	{"keepAliveOptionsSupported0", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxSocketOptions, keepAliveOptionsSupported0, bool)},
-	{"lambda$static$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LinuxSocketOptions, lambda$static$0, $Void*)},
-	{"peerCredentialsSupported", "()Z", nullptr, 0, $virtualMethod(LinuxSocketOptions, peerCredentialsSupported, bool)},
-	{"quickAckSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(LinuxSocketOptions, quickAckSupported, bool)},
-	{"quickAckSupported0", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxSocketOptions, quickAckSupported0, bool)},
-	{"setQuickAck", "(IZ)V", nullptr, 0, $virtualMethod(LinuxSocketOptions, setQuickAck, void, int32_t, bool), "java.net.SocketException"},
-	{"setQuickAck0", "(IZ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxSocketOptions, setQuickAck0, void, int32_t, bool), "java.net.SocketException"},
-	{"setTcpKeepAliveIntvl", "(II)V", nullptr, 0, $virtualMethod(LinuxSocketOptions, setTcpKeepAliveIntvl, void, int32_t, int32_t), "java.net.SocketException"},
-	{"setTcpKeepAliveIntvl0", "(II)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxSocketOptions, setTcpKeepAliveIntvl0, void, int32_t, int32_t), "java.net.SocketException"},
-	{"setTcpKeepAliveTime", "(II)V", nullptr, 0, $virtualMethod(LinuxSocketOptions, setTcpKeepAliveTime, void, int32_t, int32_t), "java.net.SocketException"},
-	{"setTcpKeepAliveTime0", "(II)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxSocketOptions, setTcpKeepAliveTime0, void, int32_t, int32_t), "java.net.SocketException"},
-	{"setTcpkeepAliveProbes", "(II)V", nullptr, 0, $virtualMethod(LinuxSocketOptions, setTcpkeepAliveProbes, void, int32_t, int32_t), "java.net.SocketException"},
-	{"setTcpkeepAliveProbes0", "(II)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxSocketOptions, setTcpkeepAliveProbes0, void, int32_t, int32_t), "java.net.SocketException"},
-	{}
-};
-
-#define _METHOD_INDEX_getIncomingNapiId0 2
-#define _METHOD_INDEX_getQuickAck0 4
-#define _METHOD_INDEX_getSoPeerCred0 6
-#define _METHOD_INDEX_getTcpKeepAliveIntvl0 8
-#define _METHOD_INDEX_getTcpKeepAliveTime0 10
-#define _METHOD_INDEX_getTcpkeepAliveProbes0 12
-#define _METHOD_INDEX_incomingNapiIdSupported0 14
-#define _METHOD_INDEX_keepAliveOptionsSupported0 16
-#define _METHOD_INDEX_quickAckSupported0 20
-#define _METHOD_INDEX_setQuickAck0 22
-#define _METHOD_INDEX_setTcpKeepAliveIntvl0 24
-#define _METHOD_INDEX_setTcpKeepAliveTime0 26
-#define _METHOD_INDEX_setTcpkeepAliveProbes0 28
-
-$InnerClassInfo _LinuxSocketOptions_InnerClassesInfo_[] = {
-	{"jdk.net.ExtendedSocketOptions$PlatformSocketOptions", "jdk.net.ExtendedSocketOptions", "PlatformSocketOptions", $STATIC},
-	{}
-};
-
-$ClassInfo _LinuxSocketOptions_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.net.LinuxSocketOptions",
-	"jdk.net.ExtendedSocketOptions$PlatformSocketOptions",
-	nullptr,
-	nullptr,
-	_LinuxSocketOptions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LinuxSocketOptions_InnerClassesInfo_
-};
-
-$Object* allocate$LinuxSocketOptions($Class* clazz) {
-	return $of($alloc(LinuxSocketOptions));
-}
 
 void LinuxSocketOptions::init$() {
 	$ExtendedSocketOptions$PlatformSocketOptions::init$();
@@ -193,7 +121,7 @@ int32_t LinuxSocketOptions::getIncomingNapiId(int32_t fd) {
 }
 
 $UnixDomainPrincipal* LinuxSocketOptions::getSoPeerCred(int32_t fd) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t l = getSoPeerCred0(fd);
 	int32_t uid = (int32_t)(l >> 32);
 	int32_t gid = (int32_t)l;
@@ -204,109 +132,100 @@ $UnixDomainPrincipal* LinuxSocketOptions::getSoPeerCred(int32_t fd) {
 
 void LinuxSocketOptions::setTcpkeepAliveProbes0(int32_t fd, int32_t value) {
 	$init(LinuxSocketOptions);
-	$prepareNativeStatic(LinuxSocketOptions, setTcpkeepAliveProbes0, void, int32_t fd, int32_t value);
+	$prepareNativeStatic(setTcpkeepAliveProbes0, void, int32_t fd, int32_t value);
 	$invokeNativeStatic(fd, value);
 	$finishNativeStatic();
 }
 
 void LinuxSocketOptions::setTcpKeepAliveTime0(int32_t fd, int32_t value) {
 	$init(LinuxSocketOptions);
-	$prepareNativeStatic(LinuxSocketOptions, setTcpKeepAliveTime0, void, int32_t fd, int32_t value);
+	$prepareNativeStatic(setTcpKeepAliveTime0, void, int32_t fd, int32_t value);
 	$invokeNativeStatic(fd, value);
 	$finishNativeStatic();
 }
 
 void LinuxSocketOptions::setTcpKeepAliveIntvl0(int32_t fd, int32_t value) {
 	$init(LinuxSocketOptions);
-	$prepareNativeStatic(LinuxSocketOptions, setTcpKeepAliveIntvl0, void, int32_t fd, int32_t value);
+	$prepareNativeStatic(setTcpKeepAliveIntvl0, void, int32_t fd, int32_t value);
 	$invokeNativeStatic(fd, value);
 	$finishNativeStatic();
 }
 
 int32_t LinuxSocketOptions::getTcpkeepAliveProbes0(int32_t fd) {
 	$init(LinuxSocketOptions);
-	int32_t $ret = 0;
-	$prepareNativeStatic(LinuxSocketOptions, getTcpkeepAliveProbes0, int32_t, int32_t fd);
-	$ret = $invokeNativeStatic(fd);
+	$prepareNativeStatic(getTcpkeepAliveProbes0, int32_t, int32_t fd);
+	int32_t $ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t LinuxSocketOptions::getTcpKeepAliveTime0(int32_t fd) {
 	$init(LinuxSocketOptions);
-	int32_t $ret = 0;
-	$prepareNativeStatic(LinuxSocketOptions, getTcpKeepAliveTime0, int32_t, int32_t fd);
-	$ret = $invokeNativeStatic(fd);
+	$prepareNativeStatic(getTcpKeepAliveTime0, int32_t, int32_t fd);
+	int32_t $ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t LinuxSocketOptions::getTcpKeepAliveIntvl0(int32_t fd) {
 	$init(LinuxSocketOptions);
-	int32_t $ret = 0;
-	$prepareNativeStatic(LinuxSocketOptions, getTcpKeepAliveIntvl0, int32_t, int32_t fd);
-	$ret = $invokeNativeStatic(fd);
+	$prepareNativeStatic(getTcpKeepAliveIntvl0, int32_t, int32_t fd);
+	int32_t $ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void LinuxSocketOptions::setQuickAck0(int32_t fd, bool on) {
 	$init(LinuxSocketOptions);
-	$prepareNativeStatic(LinuxSocketOptions, setQuickAck0, void, int32_t fd, bool on);
+	$prepareNativeStatic(setQuickAck0, void, int32_t fd, bool on);
 	$invokeNativeStatic(fd, on);
 	$finishNativeStatic();
 }
 
 bool LinuxSocketOptions::getQuickAck0(int32_t fd) {
 	$init(LinuxSocketOptions);
-	bool $ret = false;
-	$prepareNativeStatic(LinuxSocketOptions, getQuickAck0, bool, int32_t fd);
-	$ret = $invokeNativeStatic(fd);
+	$prepareNativeStatic(getQuickAck0, bool, int32_t fd);
+	bool $ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int64_t LinuxSocketOptions::getSoPeerCred0(int32_t fd) {
 	$init(LinuxSocketOptions);
-	int64_t $ret = 0;
-	$prepareNativeStatic(LinuxSocketOptions, getSoPeerCred0, int64_t, int32_t fd);
-	$ret = $invokeNativeStatic(fd);
+	$prepareNativeStatic(getSoPeerCred0, int64_t, int32_t fd);
+	int64_t $ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
 
 bool LinuxSocketOptions::keepAliveOptionsSupported0() {
 	$init(LinuxSocketOptions);
-	bool $ret = false;
-	$prepareNativeStatic(LinuxSocketOptions, keepAliveOptionsSupported0, bool);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(keepAliveOptionsSupported0, bool);
+	bool $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 bool LinuxSocketOptions::quickAckSupported0() {
 	$init(LinuxSocketOptions);
-	bool $ret = false;
-	$prepareNativeStatic(LinuxSocketOptions, quickAckSupported0, bool);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(quickAckSupported0, bool);
+	bool $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 bool LinuxSocketOptions::incomingNapiIdSupported0() {
 	$init(LinuxSocketOptions);
-	bool $ret = false;
-	$prepareNativeStatic(LinuxSocketOptions, incomingNapiIdSupported0, bool);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(incomingNapiIdSupported0, bool);
+	bool $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t LinuxSocketOptions::getIncomingNapiId0(int32_t fd) {
 	$init(LinuxSocketOptions);
-	int32_t $ret = 0;
-	$prepareNativeStatic(LinuxSocketOptions, getIncomingNapiId0, int32_t, int32_t fd);
-	$ret = $invokeNativeStatic(fd);
+	$prepareNativeStatic(getIncomingNapiId0, int32_t, int32_t fd);
+	int32_t $ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -318,13 +237,13 @@ $Void* LinuxSocketOptions::lambda$static$0() {
 	return nullptr;
 }
 
-void clinit$LinuxSocketOptions($Class* class$) {
+void LinuxSocketOptions::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
 		if ($System::getSecurityManager() == nullptr) {
 			$System::loadLibrary("extnet"_s);
 		} else {
-			$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(LinuxSocketOptions$$Lambda$lambda$static$0)));
+			$AccessController::doPrivileged($cast($PrivilegedAction, $$new(LinuxSocketOptions$$Lambda$lambda$static$0)));
 		}
 	}
 }
@@ -334,11 +253,60 @@ LinuxSocketOptions::LinuxSocketOptions() {
 
 $Class* LinuxSocketOptions::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(LinuxSocketOptions$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("jdk.net.LinuxSocketOptions$$Lambda$lambda$static$0")) {
 			return LinuxSocketOptions$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(LinuxSocketOptions, name, initialize, &_LinuxSocketOptions_ClassInfo_, clinit$LinuxSocketOptions, allocate$LinuxSocketOptions);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LinuxSocketOptions, init$, void)},
+		{"getIncomingNapiId", "(I)I", nullptr, 0, $virtualMethod(LinuxSocketOptions, getIncomingNapiId, int32_t, int32_t), "java.net.SocketException"},
+		{"getIncomingNapiId0", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxSocketOptions, getIncomingNapiId0, int32_t, int32_t), "java.net.SocketException"},
+		{"getQuickAck", "(I)Z", nullptr, 0, $virtualMethod(LinuxSocketOptions, getQuickAck, bool, int32_t), "java.net.SocketException"},
+		{"getQuickAck0", "(I)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxSocketOptions, getQuickAck0, bool, int32_t), "java.net.SocketException"},
+		{"getSoPeerCred", "(I)Ljdk/net/UnixDomainPrincipal;", nullptr, 0, $virtualMethod(LinuxSocketOptions, getSoPeerCred, $UnixDomainPrincipal*, int32_t), "java.net.SocketException"},
+		{"getSoPeerCred0", "(I)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxSocketOptions, getSoPeerCred0, int64_t, int32_t), "java.net.SocketException"},
+		{"getTcpKeepAliveIntvl", "(I)I", nullptr, 0, $virtualMethod(LinuxSocketOptions, getTcpKeepAliveIntvl, int32_t, int32_t), "java.net.SocketException"},
+		{"getTcpKeepAliveIntvl0", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxSocketOptions, getTcpKeepAliveIntvl0, int32_t, int32_t), "java.net.SocketException"},
+		{"getTcpKeepAliveTime", "(I)I", nullptr, 0, $virtualMethod(LinuxSocketOptions, getTcpKeepAliveTime, int32_t, int32_t), "java.net.SocketException"},
+		{"getTcpKeepAliveTime0", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxSocketOptions, getTcpKeepAliveTime0, int32_t, int32_t), "java.net.SocketException"},
+		{"getTcpkeepAliveProbes", "(I)I", nullptr, 0, $virtualMethod(LinuxSocketOptions, getTcpkeepAliveProbes, int32_t, int32_t), "java.net.SocketException"},
+		{"getTcpkeepAliveProbes0", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxSocketOptions, getTcpkeepAliveProbes0, int32_t, int32_t), "java.net.SocketException"},
+		{"incomingNapiIdSupported", "()Z", nullptr, 0, $virtualMethod(LinuxSocketOptions, incomingNapiIdSupported, bool)},
+		{"incomingNapiIdSupported0", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxSocketOptions, incomingNapiIdSupported0, bool)},
+		{"keepAliveOptionsSupported", "()Z", nullptr, 0, $virtualMethod(LinuxSocketOptions, keepAliveOptionsSupported, bool)},
+		{"keepAliveOptionsSupported0", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxSocketOptions, keepAliveOptionsSupported0, bool)},
+		{"lambda$static$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LinuxSocketOptions, lambda$static$0, $Void*)},
+		{"peerCredentialsSupported", "()Z", nullptr, 0, $virtualMethod(LinuxSocketOptions, peerCredentialsSupported, bool)},
+		{"quickAckSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(LinuxSocketOptions, quickAckSupported, bool)},
+		{"quickAckSupported0", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxSocketOptions, quickAckSupported0, bool)},
+		{"setQuickAck", "(IZ)V", nullptr, 0, $virtualMethod(LinuxSocketOptions, setQuickAck, void, int32_t, bool), "java.net.SocketException"},
+		{"setQuickAck0", "(IZ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxSocketOptions, setQuickAck0, void, int32_t, bool), "java.net.SocketException"},
+		{"setTcpKeepAliveIntvl", "(II)V", nullptr, 0, $virtualMethod(LinuxSocketOptions, setTcpKeepAliveIntvl, void, int32_t, int32_t), "java.net.SocketException"},
+		{"setTcpKeepAliveIntvl0", "(II)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxSocketOptions, setTcpKeepAliveIntvl0, void, int32_t, int32_t), "java.net.SocketException"},
+		{"setTcpKeepAliveTime", "(II)V", nullptr, 0, $virtualMethod(LinuxSocketOptions, setTcpKeepAliveTime, void, int32_t, int32_t), "java.net.SocketException"},
+		{"setTcpKeepAliveTime0", "(II)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxSocketOptions, setTcpKeepAliveTime0, void, int32_t, int32_t), "java.net.SocketException"},
+		{"setTcpkeepAliveProbes", "(II)V", nullptr, 0, $virtualMethod(LinuxSocketOptions, setTcpkeepAliveProbes, void, int32_t, int32_t), "java.net.SocketException"},
+		{"setTcpkeepAliveProbes0", "(II)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxSocketOptions, setTcpkeepAliveProbes0, void, int32_t, int32_t), "java.net.SocketException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.net.ExtendedSocketOptions$PlatformSocketOptions", "jdk.net.ExtendedSocketOptions", "PlatformSocketOptions", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.net.LinuxSocketOptions",
+		"jdk.net.ExtendedSocketOptions$PlatformSocketOptions",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(LinuxSocketOptions, name, initialize, &classInfo$$, LinuxSocketOptions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LinuxSocketOptions);
+	});
 	return class$;
 }
 

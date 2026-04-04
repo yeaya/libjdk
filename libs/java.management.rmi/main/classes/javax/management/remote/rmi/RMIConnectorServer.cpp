@@ -1,12 +1,10 @@
 #include <javax/management/remote/rmi/RMIConnectorServer.h>
-
 #include <com/sun/jmx/remote/security/MBeanServerFileAccessController.h>
 #include <com/sun/jmx/remote/util/ClassLogger.h>
 #include <com/sun/jmx/remote/util/EnvHelp.h>
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/net/MalformedURLException.h>
@@ -48,7 +46,6 @@ using $EnvHelp = ::com::sun::jmx::remote::util::EnvHelp;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -83,66 +80,6 @@ namespace javax {
 		namespace remote {
 			namespace rmi {
 
-$FieldInfo _RMIConnectorServer_FieldInfo_[] = {
-	{"JNDI_REBIND_ATTRIBUTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RMIConnectorServer, JNDI_REBIND_ATTRIBUTE)},
-	{"RMI_CLIENT_SOCKET_FACTORY_ATTRIBUTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RMIConnectorServer, RMI_CLIENT_SOCKET_FACTORY_ATTRIBUTE)},
-	{"RMI_SERVER_SOCKET_FACTORY_ATTRIBUTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RMIConnectorServer, RMI_SERVER_SOCKET_FACTORY_ATTRIBUTE)},
-	{"CREDENTIALS_FILTER_PATTERN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RMIConnectorServer, CREDENTIALS_FILTER_PATTERN)},
-	{"SERIAL_FILTER_PATTERN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RMIConnectorServer, SERIAL_FILTER_PATTERN)},
-	{"intToAlpha", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RMIConnectorServer, intToAlpha)},
-	{"logger", "Lcom/sun/jmx/remote/util/ClassLogger;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectorServer, logger)},
-	{"address", "Ljavax/management/remote/JMXServiceURL;", nullptr, $PRIVATE, $field(RMIConnectorServer, address)},
-	{"rmiServerImpl", "Ljavax/management/remote/rmi/RMIServerImpl;", nullptr, $PRIVATE, $field(RMIConnectorServer, rmiServerImpl)},
-	{"attributes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;*>;", $PRIVATE | $FINAL, $field(RMIConnectorServer, attributes)},
-	{"defaultClassLoader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE, $field(RMIConnectorServer, defaultClassLoader)},
-	{"boundJndiUrl", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RMIConnectorServer, boundJndiUrl)},
-	{"CREATED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RMIConnectorServer, CREATED)},
-	{"STARTED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RMIConnectorServer, STARTED)},
-	{"STOPPED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RMIConnectorServer, STOPPED)},
-	{"state", "I", nullptr, $PRIVATE, $field(RMIConnectorServer, state)},
-	{"openedServers", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/management/remote/rmi/RMIConnectorServer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(RMIConnectorServer, openedServers)},
-	{}
-};
-
-$MethodInfo _RMIConnectorServer_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;)V", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC, $method(RMIConnectorServer, init$, void, $JMXServiceURL*, $Map*), "java.io.IOException"},
-	{"<init>", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;Ljavax/management/MBeanServer;)V", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/management/MBeanServer;)V", $PUBLIC, $method(RMIConnectorServer, init$, void, $JMXServiceURL*, $Map*, $MBeanServer*), "java.io.IOException"},
-	{"<init>", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;Ljavax/management/remote/rmi/RMIServerImpl;Ljavax/management/MBeanServer;)V", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/management/remote/rmi/RMIServerImpl;Ljavax/management/MBeanServer;)V", $PUBLIC, $method(RMIConnectorServer, init$, void, $JMXServiceURL*, $Map*, $RMIServerImpl*, $MBeanServer*), "java.io.IOException"},
-	{"bind", "(Ljava/lang/String;Ljava/util/Hashtable;Ljavax/management/remote/rmi/RMIServer;Z)V", "(Ljava/lang/String;Ljava/util/Hashtable<**>;Ljavax/management/remote/rmi/RMIServer;Z)V", 0, $virtualMethod(RMIConnectorServer, bind, void, $String*, $Hashtable*, $RMIServer*, bool), "javax.naming.NamingException,java.net.MalformedURLException"},
-	{"byteArrayToBase64", "([B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(RMIConnectorServer, byteArrayToBase64, $String*, $bytes*)},
-	{"connectionClosed", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(RMIConnectorServer, connectionClosed, void, $String*, $String*, Object$*)},
-	{"connectionFailed", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(RMIConnectorServer, connectionFailed, void, $String*, $String*, Object$*)},
-	{"connectionOpened", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(RMIConnectorServer, connectionOpened, void, $String*, $String*, Object$*)},
-	{"encodeJRMPStub", "(Ljavax/management/remote/rmi/RMIServer;Ljava/util/Map;)Ljava/lang/String;", "(Ljavax/management/remote/rmi/RMIServer;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/lang/String;", $STATIC, $staticMethod(RMIConnectorServer, encodeJRMPStub, $String*, $RMIServer*, $Map*), "java.io.IOException"},
-	{"encodeStub", "(Ljavax/management/remote/rmi/RMIServer;Ljava/util/Map;)Ljava/lang/String;", "(Ljavax/management/remote/rmi/RMIServer;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/lang/String;", $STATIC, $staticMethod(RMIConnectorServer, encodeStub, $String*, $RMIServer*, $Map*), "java.io.IOException"},
-	{"encodeStubInAddress", "(Ljavax/management/remote/rmi/RMIServer;Ljava/util/Map;)V", "(Ljavax/management/remote/rmi/RMIServer;Ljava/util/Map<Ljava/lang/String;*>;)V", $PRIVATE, $method(RMIConnectorServer, encodeStubInAddress, void, $RMIServer*, $Map*), "java.io.IOException"},
-	{"getAddress", "()Ljavax/management/remote/JMXServiceURL;", nullptr, $PUBLIC, $virtualMethod(RMIConnectorServer, getAddress, $JMXServiceURL*)},
-	{"getAttributes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;*>;", $PUBLIC, $virtualMethod(RMIConnectorServer, getAttributes, $Map*)},
-	{"isActive", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RMIConnectorServer, isActive, bool)},
-	{"newIOException", "(Ljava/lang/String;Ljava/lang/Throwable;)Ljava/io/IOException;", nullptr, $PRIVATE | $STATIC, $staticMethod(RMIConnectorServer, newIOException, $IOException*, $String*, $Throwable*)},
-	{"newJRMPServer", "(Ljava/util/Map;I)Ljavax/management/remote/rmi/RMIServerImpl;", "(Ljava/util/Map<Ljava/lang/String;*>;I)Ljavax/management/remote/rmi/RMIServerImpl;", $PRIVATE | $STATIC, $staticMethod(RMIConnectorServer, newJRMPServer, $RMIServerImpl*, $Map*, int32_t), "java.io.IOException"},
-	{"newServer", "()Ljavax/management/remote/rmi/RMIServerImpl;", nullptr, 0, $virtualMethod(RMIConnectorServer, newServer, $RMIServerImpl*), "java.io.IOException"},
-	{"objectToBind", "(Ljavax/management/remote/rmi/RMIServerImpl;Ljava/util/Map;)Ljavax/management/remote/rmi/RMIServer;", "(Ljavax/management/remote/rmi/RMIServerImpl;Ljava/util/Map<Ljava/lang/String;*>;)Ljavax/management/remote/rmi/RMIServer;", $PRIVATE | $STATIC, $staticMethod(RMIConnectorServer, objectToBind, $RMIServer*, $RMIServerImpl*, $Map*), "java.io.IOException"},
-	{"setMBeanServerForwarder", "(Ljavax/management/remote/MBeanServerForwarder;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RMIConnectorServer, setMBeanServerForwarder, void, $MBeanServerForwarder*)},
-	{"start", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RMIConnectorServer, start, void), "java.io.IOException"},
-	{"stop", "()V", nullptr, $PUBLIC, $virtualMethod(RMIConnectorServer, stop, void), "java.io.IOException"},
-	{"toJMXConnector", "(Ljava/util/Map;)Ljavax/management/remote/JMXConnector;", "(Ljava/util/Map<Ljava/lang/String;*>;)Ljavax/management/remote/JMXConnector;", $PUBLIC, $virtualMethod(RMIConnectorServer, toJMXConnector, $JMXConnector*, $Map*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _RMIConnectorServer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.remote.rmi.RMIConnectorServer",
-	"javax.management.remote.JMXConnectorServer",
-	nullptr,
-	_RMIConnectorServer_FieldInfo_,
-	_RMIConnectorServer_MethodInfo_
-};
-
-$Object* allocate$RMIConnectorServer($Class* clazz) {
-	return $of($alloc(RMIConnectorServer));
-}
-
 $String* RMIConnectorServer::JNDI_REBIND_ATTRIBUTE = nullptr;
 $String* RMIConnectorServer::RMI_CLIENT_SOCKET_FACTORY_ATTRIBUTE = nullptr;
 $String* RMIConnectorServer::RMI_SERVER_SOCKET_FACTORY_ATTRIBUTE = nullptr;
@@ -161,7 +98,7 @@ void RMIConnectorServer::init$($JMXServiceURL* url, $Map* environment, $MBeanSer
 }
 
 void RMIConnectorServer::init$($JMXServiceURL* url, $Map* environment, $RMIServerImpl* rmiServerImpl, $MBeanServer* mbeanServer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JMXConnectorServer::init$(mbeanServer);
 	$set(this, defaultClassLoader, nullptr);
 	this->state = RMIConnectorServer::CREATED;
@@ -170,7 +107,7 @@ void RMIConnectorServer::init$($JMXServiceURL* url, $Map* environment, $RMIServe
 	}
 	if (rmiServerImpl == nullptr) {
 		$var($String, prt, $nc(url)->getProtocol());
-		if (prt == nullptr || !($nc(prt)->equals("rmi"_s))) {
+		if (prt == nullptr || !(prt->equals("rmi"_s))) {
 			$var($String, msg, $str({"Invalid protocol type: "_s, prt}));
 			$throwNew($MalformedURLException, msg);
 		}
@@ -193,7 +130,7 @@ void RMIConnectorServer::init$($JMXServiceURL* url, $Map* environment, $RMIServe
 }
 
 $JMXConnector* RMIConnectorServer::toJMXConnector($Map* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isActive()) {
 		$throwNew($IllegalStateException, "Connector is not active"_s);
 	}
@@ -209,7 +146,7 @@ $JMXConnector* RMIConnectorServer::toJMXConnector($Map* env) {
 
 void RMIConnectorServer::start() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		bool tracing = $nc(RMIConnectorServer::logger)->traceOn();
 		if (this->state == RMIConnectorServer::STARTED) {
 			if (tracing) {
@@ -226,13 +163,13 @@ void RMIConnectorServer::start() {
 			$throwNew($IllegalStateException, "This connector server is not attached to an MBean server"_s);
 		}
 		if (this->attributes != nullptr) {
-			$var($String, accessFile, $cast($String, $nc(this->attributes)->get("jmx.remote.x.access.file"_s)));
+			$var($String, accessFile, $cast($String, this->attributes->get("jmx.remote.x.access.file"_s)));
 			if (accessFile != nullptr) {
 				$var($MBeanServerForwarder, mbsf, nullptr);
 				try {
 					$assign(mbsf, $new($MBeanServerFileAccessController, accessFile));
 				} catch ($IOException& e) {
-					$throw($cast($IllegalArgumentException, $($EnvHelp::initCause($$new($IllegalArgumentException, $(e->getMessage())), e))));
+					$throw($$cast($IllegalArgumentException, $EnvHelp::initCause($$new($IllegalArgumentException, $(e->getMessage())), e)));
 				}
 				setMBeanServerForwarder(mbsf);
 			}
@@ -244,7 +181,7 @@ void RMIConnectorServer::start() {
 			$set(this, defaultClassLoader, $EnvHelp::resolveServerClassLoader(this->attributes, $(getMBeanServer())));
 		} catch ($InstanceNotFoundException& infc) {
 			$var($IllegalArgumentException, x, $new($IllegalArgumentException, $$str({"ClassLoader not found: "_s, infc})));
-			$throw($cast($IllegalArgumentException, $($EnvHelp::initCause(x, infc))));
+			$throw($$cast($IllegalArgumentException, $EnvHelp::initCause(x, infc)));
 		}
 		if (tracing) {
 			$nc(RMIConnectorServer::logger)->trace("start"_s, "setting RMIServer object"_s);
@@ -264,8 +201,8 @@ void RMIConnectorServer::start() {
 				$nc(RMIConnectorServer::logger)->trace("start"_s, "getting RMIServer object to export"_s);
 			}
 			$var($RMIServer, objref, objectToBind(rmiServer, this->attributes));
-			if (this->address != nullptr && $nc($($nc(this->address)->getURLPath()))->startsWith("/jndi/"_s)) {
-				$var($String, jndiUrl, $nc($($nc(this->address)->getURLPath()))->substring(6));
+			if (this->address != nullptr && $$nc(this->address->getURLPath())->startsWith("/jndi/"_s)) {
+				$var($String, jndiUrl, $$nc(this->address->getURLPath())->substring(6));
 				if (tracing) {
 					$nc(RMIConnectorServer::logger)->trace("start"_s, $$str({"Using external directory: "_s, jndiUrl}));
 				}
@@ -308,7 +245,7 @@ void RMIConnectorServer::start() {
 		}
 		$set(this, rmiServerImpl, rmiServer);
 		$synchronized(RMIConnectorServer::openedServers) {
-			$nc(RMIConnectorServer::openedServers)->add(this);
+			RMIConnectorServer::openedServers->add(this);
 		}
 		this->state = RMIConnectorServer::STARTED;
 		if (tracing) {
@@ -319,7 +256,7 @@ void RMIConnectorServer::start() {
 }
 
 void RMIConnectorServer::stop() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool tracing = $nc(RMIConnectorServer::logger)->traceOn();
 	$synchronized(this) {
 		if (this->state == RMIConnectorServer::STOPPED) {
@@ -338,7 +275,7 @@ void RMIConnectorServer::stop() {
 		this->state = RMIConnectorServer::STOPPED;
 	}
 	$synchronized(RMIConnectorServer::openedServers) {
-		$nc(RMIConnectorServer::openedServers)->remove(this);
+		RMIConnectorServer::openedServers->remove(this);
 	}
 	$var($IOException, exception, nullptr);
 	if (this->rmiServerImpl != nullptr) {
@@ -352,7 +289,7 @@ void RMIConnectorServer::stop() {
 				$nc(RMIConnectorServer::logger)->trace("stop"_s, $$str({"failed to close RMI server: "_s, e}));
 			}
 			if ($nc(RMIConnectorServer::logger)->debugOn()) {
-				$nc(RMIConnectorServer::logger)->debug("stop"_s, static_cast<$Throwable*>(e));
+				$nc(RMIConnectorServer::logger)->debug("stop"_s, e);
 			}
 			$assign(exception, e);
 		}
@@ -371,7 +308,7 @@ void RMIConnectorServer::stop() {
 				$nc(RMIConnectorServer::logger)->trace("stop"_s, $$str({"failed to unbind RMI server: "_s, e}));
 			}
 			if ($nc(RMIConnectorServer::logger)->debugOn()) {
-				$nc(RMIConnectorServer::logger)->debug("stop"_s, static_cast<$Throwable*>(e));
+				$nc(RMIConnectorServer::logger)->debug("stop"_s, e);
 			}
 			if (exception == nullptr) {
 				$assign(exception, newIOException($$str({"Cannot bind to URL: "_s, e}), e));
@@ -408,7 +345,7 @@ void RMIConnectorServer::setMBeanServerForwarder($MBeanServerForwarder* mbsf) {
 	$synchronized(this) {
 		$JMXConnectorServer::setMBeanServerForwarder(mbsf);
 		if (this->rmiServerImpl != nullptr) {
-			$nc(this->rmiServerImpl)->setMBeanServer($(getMBeanServer()));
+			this->rmiServerImpl->setMBeanServer($(getMBeanServer()));
 		}
 	}
 }
@@ -428,9 +365,9 @@ void RMIConnectorServer::connectionFailed($String* connectionId, $String* messag
 void RMIConnectorServer::bind($String* jndiUrl, $Hashtable* attributes, $RMIServer* rmiServer, bool rebind) {
 	$var($InitialContext, ctx, $new($InitialContext, attributes));
 	if (rebind) {
-		ctx->rebind(jndiUrl, $of(rmiServer));
+		ctx->rebind(jndiUrl, rmiServer);
 	} else {
-		ctx->bind(jndiUrl, $of(rmiServer));
+		ctx->bind(jndiUrl, rmiServer);
 	}
 	ctx->close();
 }
@@ -440,13 +377,13 @@ $RMIServerImpl* RMIConnectorServer::newServer() {
 	if (this->address == nullptr) {
 		port = 0;
 	} else {
-		port = $nc(this->address)->getPort();
+		port = this->address->getPort();
 	}
 	return newJRMPServer(this->attributes, port);
 }
 
 void RMIConnectorServer::encodeStubInAddress($RMIServer* rmiServer, $Map* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, protocol, nullptr);
 	$var($String, host, nullptr);
 	int32_t port = 0;
@@ -455,8 +392,8 @@ void RMIConnectorServer::encodeStubInAddress($RMIServer* rmiServer, $Map* attrib
 		$assign(host, nullptr);
 		port = 0;
 	} else {
-		$assign(protocol, $nc(this->address)->getProtocol());
-		$assign(host, ($nc($($nc(this->address)->getHost()))->isEmpty()) ? ($String*)nullptr : $nc(this->address)->getHost());
+		$assign(protocol, this->address->getProtocol());
+		$assign(host, ($$nc($nc(this->address)->getHost())->isEmpty()) ? ($String*)nullptr : this->address->getHost());
 		port = $nc(this->address)->getPort();
 	}
 	$var($String, urlPath, encodeStub(rmiServer, attributes));
@@ -470,7 +407,7 @@ $String* RMIConnectorServer::encodeStub($RMIServer* rmiServer, $Map* env) {
 
 $String* RMIConnectorServer::encodeJRMPStub($RMIServer* rmiServer, $Map* env) {
 	$init(RMIConnectorServer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteArrayOutputStream, bout, $new($ByteArrayOutputStream));
 	$var($ObjectOutputStream, oout, $new($ObjectOutputStream, bout));
 	oout->writeObject(rmiServer);
@@ -486,7 +423,7 @@ $RMIServer* RMIConnectorServer::objectToBind($RMIServerImpl* rmiServer, $Map* en
 
 $RMIServerImpl* RMIConnectorServer::newJRMPServer($Map* env, int32_t port) {
 	$init(RMIConnectorServer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($RMIClientSocketFactory, csf, $cast($RMIClientSocketFactory, $nc(env)->get(RMIConnectorServer::RMI_CLIENT_SOCKET_FACTORY_ATTRIBUTE)));
 	$var($RMIServerSocketFactory, ssf, $cast($RMIServerSocketFactory, env->get(RMIConnectorServer::RMI_SERVER_SOCKET_FACTORY_ATTRIBUTE)));
 	return $new($RMIJRMPServerImpl, port, csf, ssf, env);
@@ -501,24 +438,24 @@ $String* RMIConnectorServer::byteArrayToBase64($bytes* a) {
 	$var($StringBuilder, result, $new($StringBuilder, resultLen));
 	int32_t inCursor = 0;
 	for (int32_t i = 0; i < numFullGroups; ++i) {
-		int32_t byte0 = (int32_t)(a->get(inCursor++) & (uint32_t)255);
-		int32_t byte1 = (int32_t)(a->get(inCursor++) & (uint32_t)255);
-		int32_t byte2 = (int32_t)(a->get(inCursor++) & (uint32_t)255);
-		result->append($nc(RMIConnectorServer::intToAlpha)->get(byte0 >> 2));
-		result->append($nc(RMIConnectorServer::intToAlpha)->get(((int32_t)((byte0 << 4) & (uint32_t)63)) | (byte1 >> 4)));
-		result->append($nc(RMIConnectorServer::intToAlpha)->get(((int32_t)((byte1 << 2) & (uint32_t)63)) | (byte2 >> 6)));
-		result->append($nc(RMIConnectorServer::intToAlpha)->get((int32_t)(byte2 & (uint32_t)63)));
+		int32_t byte0 = a->get(inCursor++) & 0xff;
+		int32_t byte1 = a->get(inCursor++) & 0xff;
+		int32_t byte2 = a->get(inCursor++) & 0xff;
+		result->append(RMIConnectorServer::intToAlpha->get(byte0 >> 2));
+		result->append(RMIConnectorServer::intToAlpha->get(((byte0 << 4) & 0x3f) | (byte1 >> 4)));
+		result->append(RMIConnectorServer::intToAlpha->get(((byte1 << 2) & 0x3f) | (byte2 >> 6)));
+		result->append(RMIConnectorServer::intToAlpha->get(byte2 & 0x3f));
 	}
 	if (numBytesInPartialGroup != 0) {
-		int32_t byte0 = (int32_t)(a->get(inCursor++) & (uint32_t)255);
-		result->append($nc(RMIConnectorServer::intToAlpha)->get(byte0 >> 2));
+		int32_t byte0 = a->get(inCursor++) & 0xff;
+		result->append(RMIConnectorServer::intToAlpha->get(byte0 >> 2));
 		if (numBytesInPartialGroup == 1) {
-			result->append($nc(RMIConnectorServer::intToAlpha)->get((int32_t)((byte0 << 4) & (uint32_t)63)));
+			result->append(RMIConnectorServer::intToAlpha->get((byte0 << 4) & 0x3f));
 			result->append("=="_s);
 		} else {
-			int32_t byte1 = (int32_t)(a->get(inCursor++) & (uint32_t)255);
-			result->append($nc(RMIConnectorServer::intToAlpha)->get(((int32_t)((byte0 << 4) & (uint32_t)63)) | (byte1 >> 4)));
-			result->append($nc(RMIConnectorServer::intToAlpha)->get((int32_t)((byte1 << 2) & (uint32_t)63)));
+			int32_t byte1 = a->get(inCursor++) & 0xff;
+			result->append(RMIConnectorServer::intToAlpha->get(((byte0 << 4) & 0x3f) | (byte1 >> 4)));
+			result->append(RMIConnectorServer::intToAlpha->get((byte1 << 2) & 0x3f));
 			result->append(u'=');
 		}
 	}
@@ -531,7 +468,7 @@ $IOException* RMIConnectorServer::newIOException($String* message, $Throwable* c
 	return $cast($IOException, $EnvHelp::initCause(x, cause));
 }
 
-void clinit$RMIConnectorServer($Class* class$) {
+void RMIConnectorServer::clinit$($Class* clazz) {
 	$assignStatic(RMIConnectorServer::JNDI_REBIND_ATTRIBUTE, "jmx.remote.jndi.rebind"_s);
 	$assignStatic(RMIConnectorServer::RMI_CLIENT_SOCKET_FACTORY_ATTRIBUTE, "jmx.remote.rmi.client.socket.factory"_s);
 	$assignStatic(RMIConnectorServer::RMI_SERVER_SOCKET_FACTORY_ATTRIBUTE, "jmx.remote.rmi.server.socket.factory"_s);
@@ -611,7 +548,62 @@ RMIConnectorServer::RMIConnectorServer() {
 }
 
 $Class* RMIConnectorServer::load$($String* name, bool initialize) {
-	$loadClass(RMIConnectorServer, name, initialize, &_RMIConnectorServer_ClassInfo_, clinit$RMIConnectorServer, allocate$RMIConnectorServer);
+	$FieldInfo fieldInfos$$[] = {
+		{"JNDI_REBIND_ATTRIBUTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RMIConnectorServer, JNDI_REBIND_ATTRIBUTE)},
+		{"RMI_CLIENT_SOCKET_FACTORY_ATTRIBUTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RMIConnectorServer, RMI_CLIENT_SOCKET_FACTORY_ATTRIBUTE)},
+		{"RMI_SERVER_SOCKET_FACTORY_ATTRIBUTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RMIConnectorServer, RMI_SERVER_SOCKET_FACTORY_ATTRIBUTE)},
+		{"CREDENTIALS_FILTER_PATTERN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RMIConnectorServer, CREDENTIALS_FILTER_PATTERN)},
+		{"SERIAL_FILTER_PATTERN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RMIConnectorServer, SERIAL_FILTER_PATTERN)},
+		{"intToAlpha", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RMIConnectorServer, intToAlpha)},
+		{"logger", "Lcom/sun/jmx/remote/util/ClassLogger;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectorServer, logger)},
+		{"address", "Ljavax/management/remote/JMXServiceURL;", nullptr, $PRIVATE, $field(RMIConnectorServer, address)},
+		{"rmiServerImpl", "Ljavax/management/remote/rmi/RMIServerImpl;", nullptr, $PRIVATE, $field(RMIConnectorServer, rmiServerImpl)},
+		{"attributes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;*>;", $PRIVATE | $FINAL, $field(RMIConnectorServer, attributes)},
+		{"defaultClassLoader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE, $field(RMIConnectorServer, defaultClassLoader)},
+		{"boundJndiUrl", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RMIConnectorServer, boundJndiUrl)},
+		{"CREATED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RMIConnectorServer, CREATED)},
+		{"STARTED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RMIConnectorServer, STARTED)},
+		{"STOPPED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RMIConnectorServer, STOPPED)},
+		{"state", "I", nullptr, $PRIVATE, $field(RMIConnectorServer, state)},
+		{"openedServers", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/management/remote/rmi/RMIConnectorServer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(RMIConnectorServer, openedServers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;)V", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC, $method(RMIConnectorServer, init$, void, $JMXServiceURL*, $Map*), "java.io.IOException"},
+		{"<init>", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;Ljavax/management/MBeanServer;)V", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/management/MBeanServer;)V", $PUBLIC, $method(RMIConnectorServer, init$, void, $JMXServiceURL*, $Map*, $MBeanServer*), "java.io.IOException"},
+		{"<init>", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;Ljavax/management/remote/rmi/RMIServerImpl;Ljavax/management/MBeanServer;)V", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/management/remote/rmi/RMIServerImpl;Ljavax/management/MBeanServer;)V", $PUBLIC, $method(RMIConnectorServer, init$, void, $JMXServiceURL*, $Map*, $RMIServerImpl*, $MBeanServer*), "java.io.IOException"},
+		{"bind", "(Ljava/lang/String;Ljava/util/Hashtable;Ljavax/management/remote/rmi/RMIServer;Z)V", "(Ljava/lang/String;Ljava/util/Hashtable<**>;Ljavax/management/remote/rmi/RMIServer;Z)V", 0, $virtualMethod(RMIConnectorServer, bind, void, $String*, $Hashtable*, $RMIServer*, bool), "javax.naming.NamingException,java.net.MalformedURLException"},
+		{"byteArrayToBase64", "([B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(RMIConnectorServer, byteArrayToBase64, $String*, $bytes*)},
+		{"connectionClosed", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(RMIConnectorServer, connectionClosed, void, $String*, $String*, Object$*)},
+		{"connectionFailed", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(RMIConnectorServer, connectionFailed, void, $String*, $String*, Object$*)},
+		{"connectionOpened", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(RMIConnectorServer, connectionOpened, void, $String*, $String*, Object$*)},
+		{"encodeJRMPStub", "(Ljavax/management/remote/rmi/RMIServer;Ljava/util/Map;)Ljava/lang/String;", "(Ljavax/management/remote/rmi/RMIServer;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/lang/String;", $STATIC, $staticMethod(RMIConnectorServer, encodeJRMPStub, $String*, $RMIServer*, $Map*), "java.io.IOException"},
+		{"encodeStub", "(Ljavax/management/remote/rmi/RMIServer;Ljava/util/Map;)Ljava/lang/String;", "(Ljavax/management/remote/rmi/RMIServer;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/lang/String;", $STATIC, $staticMethod(RMIConnectorServer, encodeStub, $String*, $RMIServer*, $Map*), "java.io.IOException"},
+		{"encodeStubInAddress", "(Ljavax/management/remote/rmi/RMIServer;Ljava/util/Map;)V", "(Ljavax/management/remote/rmi/RMIServer;Ljava/util/Map<Ljava/lang/String;*>;)V", $PRIVATE, $method(RMIConnectorServer, encodeStubInAddress, void, $RMIServer*, $Map*), "java.io.IOException"},
+		{"getAddress", "()Ljavax/management/remote/JMXServiceURL;", nullptr, $PUBLIC, $virtualMethod(RMIConnectorServer, getAddress, $JMXServiceURL*)},
+		{"getAttributes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;*>;", $PUBLIC, $virtualMethod(RMIConnectorServer, getAttributes, $Map*)},
+		{"isActive", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RMIConnectorServer, isActive, bool)},
+		{"newIOException", "(Ljava/lang/String;Ljava/lang/Throwable;)Ljava/io/IOException;", nullptr, $PRIVATE | $STATIC, $staticMethod(RMIConnectorServer, newIOException, $IOException*, $String*, $Throwable*)},
+		{"newJRMPServer", "(Ljava/util/Map;I)Ljavax/management/remote/rmi/RMIServerImpl;", "(Ljava/util/Map<Ljava/lang/String;*>;I)Ljavax/management/remote/rmi/RMIServerImpl;", $PRIVATE | $STATIC, $staticMethod(RMIConnectorServer, newJRMPServer, $RMIServerImpl*, $Map*, int32_t), "java.io.IOException"},
+		{"newServer", "()Ljavax/management/remote/rmi/RMIServerImpl;", nullptr, 0, $virtualMethod(RMIConnectorServer, newServer, $RMIServerImpl*), "java.io.IOException"},
+		{"objectToBind", "(Ljavax/management/remote/rmi/RMIServerImpl;Ljava/util/Map;)Ljavax/management/remote/rmi/RMIServer;", "(Ljavax/management/remote/rmi/RMIServerImpl;Ljava/util/Map<Ljava/lang/String;*>;)Ljavax/management/remote/rmi/RMIServer;", $PRIVATE | $STATIC, $staticMethod(RMIConnectorServer, objectToBind, $RMIServer*, $RMIServerImpl*, $Map*), "java.io.IOException"},
+		{"setMBeanServerForwarder", "(Ljavax/management/remote/MBeanServerForwarder;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RMIConnectorServer, setMBeanServerForwarder, void, $MBeanServerForwarder*)},
+		{"start", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RMIConnectorServer, start, void), "java.io.IOException"},
+		{"stop", "()V", nullptr, $PUBLIC, $virtualMethod(RMIConnectorServer, stop, void), "java.io.IOException"},
+		{"toJMXConnector", "(Ljava/util/Map;)Ljavax/management/remote/JMXConnector;", "(Ljava/util/Map<Ljava/lang/String;*>;)Ljavax/management/remote/JMXConnector;", $PUBLIC, $virtualMethod(RMIConnectorServer, toJMXConnector, $JMXConnector*, $Map*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.remote.rmi.RMIConnectorServer",
+		"javax.management.remote.JMXConnectorServer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RMIConnectorServer, name, initialize, &classInfo$$, RMIConnectorServer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RMIConnectorServer));
+	});
 	return class$;
 }
 

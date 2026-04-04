@@ -39,6 +39,7 @@ class PhysicalStrike : public ::sun::font::FontStrike {
 	$class(PhysicalStrike, 0, ::sun::font::FontStrike)
 public:
 	PhysicalStrike();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::font::PhysicalFont* physicalFont, ::sun::font::FontStrikeDesc* desc);
 	void init$();
 	virtual void adjustPoint(::java::awt::geom::Point2D$Float* pt);
@@ -48,7 +49,7 @@ public:
 	virtual ::java::awt::geom::Point2D$Float* getGlyphPoint(int32_t glyphCode, int32_t ptNumber);
 	virtual int32_t getNumGlyphs() override;
 	virtual int32_t getSlot0GlyphImagePtrs($ints* glyphCodes, $longs* images, int32_t len);
-	static const int64_t INTMASK = (int64_t)0x00000000FFFFFFFF;
+	static const int64_t INTMASK = (int64_t)0x00000000ffffffff;
 	static bool longAddresses;
 	::sun::font::PhysicalFont* physicalFont = nullptr;
 	::sun::font::CharToGlyphMapper* mapper = nullptr;

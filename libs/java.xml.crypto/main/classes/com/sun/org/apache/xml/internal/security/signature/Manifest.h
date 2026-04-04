@@ -109,6 +109,7 @@ class Manifest : public ::com::sun::org::apache::xml::internal::security::utils:
 	$class(Manifest, 0, ::com::sun::org::apache::xml::internal::security::utils::SignatureElementProxy)
 public:
 	Manifest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::org::w3c::dom::Document* doc);
 	void init$(::org::w3c::dom::Element* element, $String* baseURI);
 	void init$(::org::w3c::dom::Element* element, $String* baseURI, bool secureValidation);

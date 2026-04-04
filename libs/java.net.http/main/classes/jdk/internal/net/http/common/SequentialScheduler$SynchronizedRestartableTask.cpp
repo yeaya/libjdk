@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/common/SequentialScheduler$SynchronizedRestartableTask.h>
-
 #include <java/lang/Runnable.h>
 #include <jdk/internal/net/http/common/SequentialScheduler$CompleteRestartableTask.h>
 #include <jdk/internal/net/http/common/SequentialScheduler.h>
@@ -18,44 +17,6 @@ namespace jdk {
 			namespace http {
 				namespace common {
 
-$FieldInfo _SequentialScheduler$SynchronizedRestartableTask_FieldInfo_[] = {
-	{"mainLoop", "Ljava/lang/Runnable;", nullptr, $PRIVATE | $FINAL, $field(SequentialScheduler$SynchronizedRestartableTask, mainLoop)},
-	{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(SequentialScheduler$SynchronizedRestartableTask, lock)},
-	{}
-};
-
-$MethodInfo _SequentialScheduler$SynchronizedRestartableTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(SequentialScheduler$SynchronizedRestartableTask, init$, void, $Runnable*)},
-	{"run", "()V", nullptr, $PROTECTED, $virtualMethod(SequentialScheduler$SynchronizedRestartableTask, run, void)},
-	{}
-};
-
-$InnerClassInfo _SequentialScheduler$SynchronizedRestartableTask_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.common.SequentialScheduler$SynchronizedRestartableTask", "jdk.internal.net.http.common.SequentialScheduler", "SynchronizedRestartableTask", $PUBLIC | $STATIC | $FINAL},
-	{"jdk.internal.net.http.common.SequentialScheduler$CompleteRestartableTask", "jdk.internal.net.http.common.SequentialScheduler", "CompleteRestartableTask", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SequentialScheduler$SynchronizedRestartableTask_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.common.SequentialScheduler$SynchronizedRestartableTask",
-	"jdk.internal.net.http.common.SequentialScheduler$CompleteRestartableTask",
-	nullptr,
-	_SequentialScheduler$SynchronizedRestartableTask_FieldInfo_,
-	_SequentialScheduler$SynchronizedRestartableTask_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SequentialScheduler$SynchronizedRestartableTask_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.common.SequentialScheduler"
-};
-
-$Object* allocate$SequentialScheduler$SynchronizedRestartableTask($Class* clazz) {
-	return $of($alloc(SequentialScheduler$SynchronizedRestartableTask));
-}
-
 void SequentialScheduler$SynchronizedRestartableTask::init$($Runnable* mainLoop) {
 	$SequentialScheduler$CompleteRestartableTask::init$();
 	$set(this, lock, $new($Object));
@@ -72,7 +33,39 @@ SequentialScheduler$SynchronizedRestartableTask::SequentialScheduler$Synchronize
 }
 
 $Class* SequentialScheduler$SynchronizedRestartableTask::load$($String* name, bool initialize) {
-	$loadClass(SequentialScheduler$SynchronizedRestartableTask, name, initialize, &_SequentialScheduler$SynchronizedRestartableTask_ClassInfo_, allocate$SequentialScheduler$SynchronizedRestartableTask);
+	$FieldInfo fieldInfos$$[] = {
+		{"mainLoop", "Ljava/lang/Runnable;", nullptr, $PRIVATE | $FINAL, $field(SequentialScheduler$SynchronizedRestartableTask, mainLoop)},
+		{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(SequentialScheduler$SynchronizedRestartableTask, lock)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(SequentialScheduler$SynchronizedRestartableTask, init$, void, $Runnable*)},
+		{"run", "()V", nullptr, $PROTECTED, $virtualMethod(SequentialScheduler$SynchronizedRestartableTask, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.common.SequentialScheduler$SynchronizedRestartableTask", "jdk.internal.net.http.common.SequentialScheduler", "SynchronizedRestartableTask", $PUBLIC | $STATIC | $FINAL},
+		{"jdk.internal.net.http.common.SequentialScheduler$CompleteRestartableTask", "jdk.internal.net.http.common.SequentialScheduler", "CompleteRestartableTask", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.common.SequentialScheduler$SynchronizedRestartableTask",
+		"jdk.internal.net.http.common.SequentialScheduler$CompleteRestartableTask",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.common.SequentialScheduler"
+	};
+	$loadClass(SequentialScheduler$SynchronizedRestartableTask, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SequentialScheduler$SynchronizedRestartableTask);
+	});
 	return class$;
 }
 

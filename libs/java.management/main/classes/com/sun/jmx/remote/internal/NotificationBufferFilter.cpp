@@ -1,5 +1,4 @@
 #include <com/sun/jmx/remote/internal/NotificationBufferFilter.h>
-
 #include <java/util/List.h>
 #include <javax/management/Notification.h>
 #include <javax/management/ObjectName.h>
@@ -17,26 +16,22 @@ namespace com {
 			namespace remote {
 				namespace internal {
 
-$MethodInfo _NotificationBufferFilter_MethodInfo_[] = {
-	{"apply", "(Ljava/util/List;Ljavax/management/ObjectName;Ljavax/management/Notification;)V", "(Ljava/util/List<Ljavax/management/remote/TargetedNotification;>;Ljavax/management/ObjectName;Ljavax/management/Notification;)V", $PUBLIC | $ABSTRACT, $virtualMethod(NotificationBufferFilter, apply, void, $List*, $ObjectName*, $Notification*)},
-	{}
-};
-
-$ClassInfo _NotificationBufferFilter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.jmx.remote.internal.NotificationBufferFilter",
-	nullptr,
-	nullptr,
-	nullptr,
-	_NotificationBufferFilter_MethodInfo_
-};
-
-$Object* allocate$NotificationBufferFilter($Class* clazz) {
-	return $of($alloc(NotificationBufferFilter));
-}
-
 $Class* NotificationBufferFilter::load$($String* name, bool initialize) {
-	$loadClass(NotificationBufferFilter, name, initialize, &_NotificationBufferFilter_ClassInfo_, allocate$NotificationBufferFilter);
+	$MethodInfo methodInfos$$[] = {
+		{"apply", "(Ljava/util/List;Ljavax/management/ObjectName;Ljavax/management/Notification;)V", "(Ljava/util/List<Ljavax/management/remote/TargetedNotification;>;Ljavax/management/ObjectName;Ljavax/management/Notification;)V", $PUBLIC | $ABSTRACT, $virtualMethod(NotificationBufferFilter, apply, void, $List*, $ObjectName*, $Notification*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.jmx.remote.internal.NotificationBufferFilter",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NotificationBufferFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NotificationBufferFilter);
+	});
 	return class$;
 }
 

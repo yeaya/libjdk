@@ -1,5 +1,4 @@
 #include <RepaintOnFrameIconifiedStateChangeTest$6.h>
-
 #include <RepaintOnFrameIconifiedStateChangeTest.h>
 #include <java/awt/Graphics.h>
 #include <javax/swing/JComponent.h>
@@ -13,43 +12,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JLabel = ::javax::swing::JLabel;
-
-$MethodInfo _RepaintOnFrameIconifiedStateChangeTest$6_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(RepaintOnFrameIconifiedStateChangeTest$6, init$, void, $String*)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(RepaintOnFrameIconifiedStateChangeTest$6, paint, void, $Graphics*)},
-	{}
-};
-
-$EnclosingMethodInfo _RepaintOnFrameIconifiedStateChangeTest$6_EnclosingMethodInfo_ = {
-	"RepaintOnFrameIconifiedStateChangeTest",
-	"createGUI",
-	"()V"
-};
-
-$InnerClassInfo _RepaintOnFrameIconifiedStateChangeTest$6_InnerClassesInfo_[] = {
-	{"RepaintOnFrameIconifiedStateChangeTest$6", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _RepaintOnFrameIconifiedStateChangeTest$6_ClassInfo_ = {
-	$ACC_SUPER,
-	"RepaintOnFrameIconifiedStateChangeTest$6",
-	"javax.swing.JLabel",
-	nullptr,
-	nullptr,
-	_RepaintOnFrameIconifiedStateChangeTest$6_MethodInfo_,
-	nullptr,
-	&_RepaintOnFrameIconifiedStateChangeTest$6_EnclosingMethodInfo_,
-	_RepaintOnFrameIconifiedStateChangeTest$6_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"RepaintOnFrameIconifiedStateChangeTest"
-};
-
-$Object* allocate$RepaintOnFrameIconifiedStateChangeTest$6($Class* clazz) {
-	return $of($alloc(RepaintOnFrameIconifiedStateChangeTest$6));
-}
 
 void RepaintOnFrameIconifiedStateChangeTest$6::init$($String* arg0) {
 	$JLabel::init$(arg0);
@@ -67,7 +29,38 @@ RepaintOnFrameIconifiedStateChangeTest$6::RepaintOnFrameIconifiedStateChangeTest
 }
 
 $Class* RepaintOnFrameIconifiedStateChangeTest$6::load$($String* name, bool initialize) {
-	$loadClass(RepaintOnFrameIconifiedStateChangeTest$6, name, initialize, &_RepaintOnFrameIconifiedStateChangeTest$6_ClassInfo_, allocate$RepaintOnFrameIconifiedStateChangeTest$6);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(RepaintOnFrameIconifiedStateChangeTest$6, init$, void, $String*)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(RepaintOnFrameIconifiedStateChangeTest$6, paint, void, $Graphics*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"RepaintOnFrameIconifiedStateChangeTest",
+		"createGUI",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"RepaintOnFrameIconifiedStateChangeTest$6", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"RepaintOnFrameIconifiedStateChangeTest$6",
+		"javax.swing.JLabel",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"RepaintOnFrameIconifiedStateChangeTest"
+	};
+	$loadClass(RepaintOnFrameIconifiedStateChangeTest$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RepaintOnFrameIconifiedStateChangeTest$6));
+	});
 	return class$;
 }
 

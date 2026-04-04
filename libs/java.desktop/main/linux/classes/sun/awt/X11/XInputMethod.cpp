@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XInputMethod.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Rectangle.h>
@@ -23,14 +22,12 @@
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Rectangle = ::java::awt::Rectangle;
-using $InputMethod = ::java::awt::im::spi::InputMethod;
 using $InputMethodContext = ::java::awt::im::spi::InputMethodContext;
 using $ComponentPeer = ::java::awt::peer::ComponentPeer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $XComponentPeer = ::sun::awt::X11::XComponentPeer;
 using $XToolkit = ::sun::awt::X11::XToolkit;
 using $XWindow = ::sun::awt::X11::XWindow;
@@ -41,51 +38,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XInputMethod_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XInputMethod, log)},
-	{"xicFocus", "J", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(XInputMethod, xicFocus)},
-	{}
-};
-
-$MethodInfo _XInputMethod_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XInputMethod, init$, void), "java.awt.AWTException"},
-	{"adjustStatusWindow", "(J)V", nullptr, $PRIVATE | $NATIVE, $method(XInputMethod, adjustStatusWindow, void, int64_t)},
-	{"awtLock", "()V", nullptr, $PROTECTED, $virtualMethod(XInputMethod, awtLock, void)},
-	{"awtUnlock", "()V", nullptr, $PROTECTED, $virtualMethod(XInputMethod, awtUnlock, void)},
-	{"createXIC", "()Z", nullptr, $PROTECTED, $virtualMethod(XInputMethod, createXIC, bool)},
-	{"createXICNative", "(J)Z", nullptr, $PRIVATE | $NATIVE, $method(XInputMethod, createXICNative, bool, int64_t)},
-	{"disposeImpl", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(XInputMethod, disposeImpl, void)},
-	{"getCurrentParentWindow", "()J", nullptr, 0, $virtualMethod(XInputMethod, getCurrentParentWindow, int64_t)},
-	{"getParent", "(Ljava/awt/Component;)Ljava/awt/Container;", nullptr, $PROTECTED, $virtualMethod(XInputMethod, getParent, $Container*, $Component*)},
-	{"getPeer", "(Ljava/awt/Component;)Ljava/awt/peer/ComponentPeer;", nullptr, $PROTECTED, $virtualMethod(XInputMethod, getPeer, $ComponentPeer*, $Component*)},
-	{"getXICFocus", "()J", nullptr, $PUBLIC | $STATIC, $staticMethod(XInputMethod, getXICFocus, int64_t)},
-	{"notifyClientWindowChange", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(XInputMethod, notifyClientWindowChange, void, $Rectangle*)},
-	{"openXIM", "()Z", nullptr, $PROTECTED, $virtualMethod(XInputMethod, openXIM, bool)},
-	{"openXIMNative", "(J)Z", nullptr, $PRIVATE | $NATIVE, $method(XInputMethod, openXIMNative, bool, int64_t)},
-	{"setInputMethodContext", "(Ljava/awt/im/spi/InputMethodContext;)V", nullptr, $PUBLIC, $virtualMethod(XInputMethod, setInputMethodContext, void, $InputMethodContext*)},
-	{"setXICFocus", "(Ljava/awt/peer/ComponentPeer;ZZ)V", nullptr, $PROTECTED, $virtualMethod(XInputMethod, setXICFocus, void, $ComponentPeer*, bool, bool)},
-	{"setXICFocusNative", "(JZZ)V", nullptr, $PRIVATE | $NATIVE, $method(XInputMethod, setXICFocusNative, void, int64_t, bool, bool)},
-	{}
-};
-
-#define _METHOD_INDEX_adjustStatusWindow 1
-#define _METHOD_INDEX_createXICNative 5
-#define _METHOD_INDEX_openXIMNative 13
-#define _METHOD_INDEX_setXICFocusNative 16
-
-$ClassInfo _XInputMethod_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XInputMethod",
-	"sun.awt.X11InputMethod",
-	nullptr,
-	_XInputMethod_FieldInfo_,
-	_XInputMethod_MethodInfo_
-};
-
-$Object* allocate$XInputMethod($Class* clazz) {
-	return $of($alloc(XInputMethod));
-}
 
 $PlatformLogger* XInputMethod::log = nullptr;
 $volatile(int64_t) XInputMethod::xicFocus = 0;
@@ -121,8 +73,8 @@ void XInputMethod::setXICFocus($ComponentPeer* peer, bool value, bool active) {
 	if (peer == nullptr) {
 		return;
 	}
-	XInputMethod::xicFocus = $nc(($cast($XComponentPeer, peer)))->getContentWindow();
-	setXICFocusNative(($cast($XComponentPeer, peer))->getContentWindow(), value, active);
+	XInputMethod::xicFocus = $nc($cast($XComponentPeer, peer))->getContentWindow();
+	setXICFocusNative($cast($XComponentPeer, peer)->getContentWindow(), value, active);
 }
 
 int64_t XInputMethod::getXICFocus() {
@@ -135,22 +87,22 @@ $Container* XInputMethod::getParent($Component* client) {
 }
 
 $ComponentPeer* XInputMethod::getPeer($Component* client$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, client, client$renamed);
 	$var($XComponentPeer, peer, nullptr);
 	$init($PlatformLogger$Level);
 	if ($nc(XInputMethod::log)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XInputMethod::log)->fine($$str({"Client is "_s, client}));
+		XInputMethod::log->fine($$str({"Client is "_s, client}));
 	}
 	$assign(peer, $cast($XComponentPeer, $XToolkit::targetToPeer(client)));
 	while (client != nullptr && peer == nullptr) {
 		$assign(client, getParent(client));
 		$assign(peer, $cast($XComponentPeer, $XToolkit::targetToPeer(client)));
 	}
-	if ($nc(XInputMethod::log)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XInputMethod::log)->fine("Peer is {0}, client is {1}"_s, $$new($ObjectArray, {
-			$of(peer),
-			$of(client)
+	if (XInputMethod::log->isLoggable($PlatformLogger$Level::FINE)) {
+		XInputMethod::log->fine("Peer is {0}, client is {1}"_s, $$new($ObjectArray, {
+			peer,
+			client
 		}));
 	}
 	if (peer != nullptr) {
@@ -175,40 +127,38 @@ void XInputMethod::awtUnlock() {
 }
 
 int64_t XInputMethod::getCurrentParentWindow() {
-	$useLocalCurrentObjectStackCache();
-	$var($XWindow, peer, $cast($XWindow, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(this->clientComponentWindow)));
+	$useLocalObjectStack();
+	$var($XWindow, peer, $cast($XWindow, $$nc($AWTAccessor::getComponentAccessor())->getPeer(this->clientComponentWindow)));
 	return $nc(peer)->getContentWindow();
 }
 
 bool XInputMethod::openXIMNative(int64_t display) {
-	bool $ret = false;
-	$prepareNative(XInputMethod, openXIMNative, bool, int64_t display);
-	$ret = $invokeNative(display);
+	$prepareNative(openXIMNative, bool, int64_t display);
+	bool $ret = $invokeNative(display);
 	$finishNative();
 	return $ret;
 }
 
 bool XInputMethod::createXICNative(int64_t window) {
-	bool $ret = false;
-	$prepareNative(XInputMethod, createXICNative, bool, int64_t window);
-	$ret = $invokeNative(window);
+	$prepareNative(createXICNative, bool, int64_t window);
+	bool $ret = $invokeNative(window);
 	$finishNative();
 	return $ret;
 }
 
 void XInputMethod::setXICFocusNative(int64_t window, bool value, bool active) {
-	$prepareNative(XInputMethod, setXICFocusNative, void, int64_t window, bool value, bool active);
+	$prepareNative(setXICFocusNative, void, int64_t window, bool value, bool active);
 	$invokeNative(window, value, active);
 	$finishNative();
 }
 
 void XInputMethod::adjustStatusWindow(int64_t window) {
-	$prepareNative(XInputMethod, adjustStatusWindow, void, int64_t window);
+	$prepareNative(adjustStatusWindow, void, int64_t window);
 	$invokeNative(window);
 	$finishNative();
 }
 
-void clinit$XInputMethod($Class* class$) {
+void XInputMethod::clinit$($Class* clazz) {
 	$assignStatic(XInputMethod::log, $PlatformLogger::getLogger("sun.awt.X11.XInputMethod"_s));
 	XInputMethod::xicFocus = 0;
 }
@@ -217,7 +167,42 @@ XInputMethod::XInputMethod() {
 }
 
 $Class* XInputMethod::load$($String* name, bool initialize) {
-	$loadClass(XInputMethod, name, initialize, &_XInputMethod_ClassInfo_, clinit$XInputMethod, allocate$XInputMethod);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XInputMethod, log)},
+		{"xicFocus", "J", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(XInputMethod, xicFocus)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XInputMethod, init$, void), "java.awt.AWTException"},
+		{"adjustStatusWindow", "(J)V", nullptr, $PRIVATE | $NATIVE, $method(XInputMethod, adjustStatusWindow, void, int64_t)},
+		{"awtLock", "()V", nullptr, $PROTECTED, $virtualMethod(XInputMethod, awtLock, void)},
+		{"awtUnlock", "()V", nullptr, $PROTECTED, $virtualMethod(XInputMethod, awtUnlock, void)},
+		{"createXIC", "()Z", nullptr, $PROTECTED, $virtualMethod(XInputMethod, createXIC, bool)},
+		{"createXICNative", "(J)Z", nullptr, $PRIVATE | $NATIVE, $method(XInputMethod, createXICNative, bool, int64_t)},
+		{"disposeImpl", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(XInputMethod, disposeImpl, void)},
+		{"getCurrentParentWindow", "()J", nullptr, 0, $virtualMethod(XInputMethod, getCurrentParentWindow, int64_t)},
+		{"getParent", "(Ljava/awt/Component;)Ljava/awt/Container;", nullptr, $PROTECTED, $virtualMethod(XInputMethod, getParent, $Container*, $Component*)},
+		{"getPeer", "(Ljava/awt/Component;)Ljava/awt/peer/ComponentPeer;", nullptr, $PROTECTED, $virtualMethod(XInputMethod, getPeer, $ComponentPeer*, $Component*)},
+		{"getXICFocus", "()J", nullptr, $PUBLIC | $STATIC, $staticMethod(XInputMethod, getXICFocus, int64_t)},
+		{"notifyClientWindowChange", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(XInputMethod, notifyClientWindowChange, void, $Rectangle*)},
+		{"openXIM", "()Z", nullptr, $PROTECTED, $virtualMethod(XInputMethod, openXIM, bool)},
+		{"openXIMNative", "(J)Z", nullptr, $PRIVATE | $NATIVE, $method(XInputMethod, openXIMNative, bool, int64_t)},
+		{"setInputMethodContext", "(Ljava/awt/im/spi/InputMethodContext;)V", nullptr, $PUBLIC, $virtualMethod(XInputMethod, setInputMethodContext, void, $InputMethodContext*)},
+		{"setXICFocus", "(Ljava/awt/peer/ComponentPeer;ZZ)V", nullptr, $PROTECTED, $virtualMethod(XInputMethod, setXICFocus, void, $ComponentPeer*, bool, bool)},
+		{"setXICFocusNative", "(JZZ)V", nullptr, $PRIVATE | $NATIVE, $method(XInputMethod, setXICFocusNative, void, int64_t, bool, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XInputMethod",
+		"sun.awt.X11InputMethod",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XInputMethod, name, initialize, &classInfo$$, XInputMethod::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XInputMethod);
+	});
 	return class$;
 }
 

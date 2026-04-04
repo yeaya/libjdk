@@ -1,16 +1,12 @@
 #include <java/awt/font/NumericShaper.h>
-
 #include <java/awt/font/JavaAWTFontAccessImpl.h>
 #include <java/awt/font/NumericShaper$1.h>
 #include <java/awt/font/NumericShaper$Range.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/Serializable.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/Enum.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
-#include <java/util/Comparator.h>
 #include <java/util/EnumSet.h>
 #include <java/util/Set.h>
 #include <jdk/internal/access/JavaAWTFontAccess.h>
@@ -70,7 +66,6 @@ using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
@@ -79,132 +74,13 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
-using $Comparator = ::java::util::Comparator;
 using $EnumSet = ::java::util::EnumSet;
 using $Set = ::java::util::Set;
-using $JavaAWTFontAccess = ::jdk::internal::access::JavaAWTFontAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 
 namespace java {
 	namespace awt {
 		namespace font {
-
-$FieldInfo _NumericShaper_FieldInfo_[] = {
-	{"key", "I", nullptr, $PRIVATE, $field(NumericShaper, key)},
-	{"mask", "I", nullptr, $PRIVATE, $field(NumericShaper, mask)},
-	{"shapingRange", "Ljava/awt/font/NumericShaper$Range;", nullptr, $PRIVATE, $field(NumericShaper, shapingRange)},
-	{"rangeSet", "Ljava/util/Set;", "Ljava/util/Set<Ljava/awt/font/NumericShaper$Range;>;", $PRIVATE | $TRANSIENT, $field(NumericShaper, rangeSet)},
-	{"rangeArray", "[Ljava/awt/font/NumericShaper$Range;", nullptr, $PRIVATE | $TRANSIENT, $field(NumericShaper, rangeArray)},
-	{"BSEARCH_THRESHOLD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, BSEARCH_THRESHOLD)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, serialVersionUID)},
-	{"EUROPEAN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, EUROPEAN)},
-	{"ARABIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, ARABIC)},
-	{"EASTERN_ARABIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, EASTERN_ARABIC)},
-	{"DEVANAGARI", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, DEVANAGARI)},
-	{"BENGALI", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, BENGALI)},
-	{"GURMUKHI", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, GURMUKHI)},
-	{"GUJARATI", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, GUJARATI)},
-	{"ORIYA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, ORIYA)},
-	{"TAMIL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, TAMIL)},
-	{"TELUGU", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, TELUGU)},
-	{"KANNADA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, KANNADA)},
-	{"MALAYALAM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, MALAYALAM)},
-	{"THAI", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, THAI)},
-	{"LAO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, LAO)},
-	{"TIBETAN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, TIBETAN)},
-	{"MYANMAR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, MYANMAR)},
-	{"ETHIOPIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, ETHIOPIC)},
-	{"KHMER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, KHMER)},
-	{"MONGOLIAN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, MONGOLIAN)},
-	{"ALL_RANGES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, ALL_RANGES)},
-	{"EUROPEAN_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, EUROPEAN_KEY)},
-	{"ARABIC_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, ARABIC_KEY)},
-	{"EASTERN_ARABIC_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, EASTERN_ARABIC_KEY)},
-	{"DEVANAGARI_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, DEVANAGARI_KEY)},
-	{"BENGALI_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, BENGALI_KEY)},
-	{"GURMUKHI_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, GURMUKHI_KEY)},
-	{"GUJARATI_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, GUJARATI_KEY)},
-	{"ORIYA_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, ORIYA_KEY)},
-	{"TAMIL_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, TAMIL_KEY)},
-	{"TELUGU_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, TELUGU_KEY)},
-	{"KANNADA_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, KANNADA_KEY)},
-	{"MALAYALAM_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, MALAYALAM_KEY)},
-	{"THAI_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, THAI_KEY)},
-	{"LAO_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, LAO_KEY)},
-	{"TIBETAN_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, TIBETAN_KEY)},
-	{"MYANMAR_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, MYANMAR_KEY)},
-	{"ETHIOPIC_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, ETHIOPIC_KEY)},
-	{"KHMER_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, KHMER_KEY)},
-	{"MONGOLIAN_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, MONGOLIAN_KEY)},
-	{"NUM_KEYS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, NUM_KEYS)},
-	{"CONTEXTUAL_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, CONTEXTUAL_MASK)},
-	{"bases", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NumericShaper, bases)},
-	{"contexts", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NumericShaper, contexts)},
-	{"ctCache", "I", nullptr, $PRIVATE | $STATIC, $staticField(NumericShaper, ctCache)},
-	{"ctCacheLimit", "I", nullptr, $PRIVATE | $STATIC, $staticField(NumericShaper, ctCacheLimit)},
-	{"currentRange", "Ljava/awt/font/NumericShaper$Range;", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(NumericShaper, currentRange)},
-	{"strongTable", "[I", nullptr, $PRIVATE | $STATIC, $staticField(NumericShaper, strongTable)},
-	{"stCache", "I", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(NumericShaper, stCache)},
-	{}
-};
-
-$MethodInfo _NumericShaper_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PRIVATE, $method(NumericShaper, init$, void, int32_t, int32_t)},
-	{"<init>", "(Ljava/awt/font/NumericShaper$Range;Ljava/util/Set;)V", "(Ljava/awt/font/NumericShaper$Range;Ljava/util/Set<Ljava/awt/font/NumericShaper$Range;>;)V", $PRIVATE, $method(NumericShaper, init$, void, $NumericShaper$Range*, $Set*)},
-	{"checkParams", "([CII)V", nullptr, $PRIVATE, $method(NumericShaper, checkParams, void, $chars*, int32_t, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NumericShaper, equals, bool, Object$*)},
-	{"getContextKey", "(C)I", nullptr, $PRIVATE | $STATIC, $staticMethod(NumericShaper, getContextKey, int32_t, char16_t)},
-	{"getContextualShaper", "(I)Ljava/awt/font/NumericShaper;", nullptr, $PUBLIC | $STATIC, $staticMethod(NumericShaper, getContextualShaper, NumericShaper*, int32_t)},
-	{"getContextualShaper", "(Ljava/util/Set;)Ljava/awt/font/NumericShaper;", "(Ljava/util/Set<Ljava/awt/font/NumericShaper$Range;>;)Ljava/awt/font/NumericShaper;", $PUBLIC | $STATIC, $staticMethod(NumericShaper, getContextualShaper, NumericShaper*, $Set*)},
-	{"getContextualShaper", "(II)Ljava/awt/font/NumericShaper;", nullptr, $PUBLIC | $STATIC, $staticMethod(NumericShaper, getContextualShaper, NumericShaper*, int32_t, int32_t)},
-	{"getContextualShaper", "(Ljava/util/Set;Ljava/awt/font/NumericShaper$Range;)Ljava/awt/font/NumericShaper;", "(Ljava/util/Set<Ljava/awt/font/NumericShaper$Range;>;Ljava/awt/font/NumericShaper$Range;)Ljava/awt/font/NumericShaper;", $PUBLIC | $STATIC, $staticMethod(NumericShaper, getContextualShaper, NumericShaper*, $Set*, $NumericShaper$Range*)},
-	{"getHighBit", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(NumericShaper, getHighBit, int32_t, int32_t)},
-	{"getKeyFromMask", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(NumericShaper, getKeyFromMask, int32_t, int32_t)},
-	{"getRangeSet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/awt/font/NumericShaper$Range;>;", $PUBLIC, $method(NumericShaper, getRangeSet, $Set*)},
-	{"getRanges", "()I", nullptr, $PUBLIC, $method(NumericShaper, getRanges, int32_t)},
-	{"getShaper", "(I)Ljava/awt/font/NumericShaper;", nullptr, $PUBLIC | $STATIC, $staticMethod(NumericShaper, getShaper, NumericShaper*, int32_t)},
-	{"getShaper", "(Ljava/awt/font/NumericShaper$Range;)Ljava/awt/font/NumericShaper;", nullptr, $PUBLIC | $STATIC, $staticMethod(NumericShaper, getShaper, NumericShaper*, $NumericShaper$Range*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(NumericShaper, hashCode, int32_t)},
-	{"isContextual", "()Z", nullptr, $PUBLIC, $method(NumericShaper, isContextual, bool)},
-	{"isStrongDirectional", "(C)Z", nullptr, $PRIVATE, $method(NumericShaper, isStrongDirectional, bool, char16_t)},
-	{"rangeForCodePoint", "(I)Ljava/awt/font/NumericShaper$Range;", nullptr, $PRIVATE, $method(NumericShaper, rangeForCodePoint, $NumericShaper$Range*, int32_t)},
-	{"search", "(I[III)I", nullptr, $PRIVATE | $STATIC, $staticMethod(NumericShaper, search, int32_t, int32_t, $ints*, int32_t, int32_t)},
-	{"shape", "([CII)V", nullptr, $PUBLIC, $method(NumericShaper, shape, void, $chars*, int32_t, int32_t)},
-	{"shape", "([CIII)V", nullptr, $PUBLIC, $method(NumericShaper, shape, void, $chars*, int32_t, int32_t, int32_t)},
-	{"shape", "([CIILjava/awt/font/NumericShaper$Range;)V", nullptr, $PUBLIC, $method(NumericShaper, shape, void, $chars*, int32_t, int32_t, $NumericShaper$Range*)},
-	{"shapeContextually", "([CIII)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(NumericShaper, shapeContextually, void, $chars*, int32_t, int32_t, int32_t)},
-	{"shapeContextually", "([CIILjava/awt/font/NumericShaper$Range;)V", nullptr, $PRIVATE, $method(NumericShaper, shapeContextually, void, $chars*, int32_t, int32_t, $NumericShaper$Range*)},
-	{"shapeNonContextually", "([CII)V", nullptr, $PRIVATE, $method(NumericShaper, shapeNonContextually, void, $chars*, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NumericShaper, toString, $String*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(NumericShaper, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _NumericShaper_InnerClassesInfo_[] = {
-	{"java.awt.font.NumericShaper$Range", "java.awt.font.NumericShaper", "Range", $PUBLIC | $STATIC | $ENUM},
-	{"java.awt.font.NumericShaper$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NumericShaper_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.font.NumericShaper",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_NumericShaper_FieldInfo_,
-	_NumericShaper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NumericShaper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.font.NumericShaper$Range,java.awt.font.NumericShaper$Range$1,java.awt.font.NumericShaper$1"
-};
-
-$Object* allocate$NumericShaper($Class* clazz) {
-	return $of($alloc(NumericShaper));
-}
 
 $chars* NumericShaper::bases = nullptr;
 $chars* NumericShaper::contexts = nullptr;
@@ -214,18 +90,16 @@ $ints* NumericShaper::strongTable = nullptr;
 
 int32_t NumericShaper::getContextKey(char16_t c) {
 	$init(NumericShaper);
-	if (c < $nc(NumericShaper::contexts)->get(NumericShaper::ctCache)) {
-		while (NumericShaper::ctCache > 0 && c < $nc(NumericShaper::contexts)->get(NumericShaper::ctCache)) {
+	if (c < NumericShaper::contexts->get(NumericShaper::ctCache)) {
+		while (NumericShaper::ctCache > 0 && c < NumericShaper::contexts->get(NumericShaper::ctCache)) {
 			--NumericShaper::ctCache;
 		}
-	} else {
-		if (c >= $nc(NumericShaper::contexts)->get(NumericShaper::ctCache + 1)) {
-			while (NumericShaper::ctCache < NumericShaper::ctCacheLimit && c >= $nc(NumericShaper::contexts)->get(NumericShaper::ctCache + 1)) {
-				++NumericShaper::ctCache;
-			}
+	} else if (c >= NumericShaper::contexts->get(NumericShaper::ctCache + 1)) {
+		while (NumericShaper::ctCache < NumericShaper::ctCacheLimit && c >= NumericShaper::contexts->get(NumericShaper::ctCache + 1)) {
+			++NumericShaper::ctCache;
 		}
 	}
-	return ((int32_t)(NumericShaper::ctCache & (uint32_t)1)) == 0 ? (NumericShaper::ctCache / 2) : NumericShaper::EUROPEAN_KEY;
+	return (NumericShaper::ctCache & 1) == 0 ? (NumericShaper::ctCache / 2) : NumericShaper::EUROPEAN_KEY;
 }
 
 $NumericShaper$Range* NumericShaper::rangeForCodePoint(int32_t codepoint) {
@@ -262,22 +136,22 @@ bool NumericShaper::isStrongDirectional(char16_t c) {
 	int32_t cachedIndex = this->stCache;
 	if (c < $nc(NumericShaper::strongTable)->get(cachedIndex)) {
 		cachedIndex = search(c, NumericShaper::strongTable, 0, cachedIndex);
-	} else if (c >= $nc(NumericShaper::strongTable)->get(cachedIndex + 1)) {
-		cachedIndex = search(c, NumericShaper::strongTable, cachedIndex + 1, $nc(NumericShaper::strongTable)->length - cachedIndex - 1);
+	} else if (c >= NumericShaper::strongTable->get(cachedIndex + 1)) {
+		cachedIndex = search(c, NumericShaper::strongTable, cachedIndex + 1, NumericShaper::strongTable->length - cachedIndex - 1);
 	}
-	bool val = ((int32_t)(cachedIndex & (uint32_t)1)) == 1;
+	bool val = (cachedIndex & 1) == 1;
 	this->stCache = cachedIndex;
 	return val;
 }
 
 int32_t NumericShaper::getKeyFromMask(int32_t mask) {
 	$init(NumericShaper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t key = 0;
-	while (key < NumericShaper::NUM_KEYS && (((int32_t)(mask & (uint32_t)($sl(1, key)))) == 0)) {
+	while (key < NumericShaper::NUM_KEYS && ((mask & ($sl(1, key))) == 0)) {
 		++key;
 	}
-	if (key == NumericShaper::NUM_KEYS || (((int32_t)(mask & (uint32_t)~($sl(1, key)))) != 0)) {
+	if (key == NumericShaper::NUM_KEYS || ((mask & ~($sl(1, key))) != 0)) {
 		$throwNew($IllegalArgumentException, $$str({"invalid shaper: "_s, $($Integer::toHexString(mask))}));
 	}
 	return key;
@@ -291,7 +165,7 @@ NumericShaper* NumericShaper::getShaper(int32_t singleRange) {
 
 NumericShaper* NumericShaper::getShaper($NumericShaper$Range* singleRange) {
 	$init(NumericShaper);
-	return $new(NumericShaper, singleRange, $(static_cast<$Set*>($EnumSet::of(singleRange))));
+	return $new(NumericShaper, singleRange, $($EnumSet::of(singleRange)));
 }
 
 NumericShaper* NumericShaper::getContextualShaper(int32_t ranges) {
@@ -334,21 +208,21 @@ void NumericShaper::init$(int32_t key, int32_t mask) {
 }
 
 void NumericShaper::init$($NumericShaper$Range* defaultContext, $Set* ranges) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($NumericShaper$Range);
 	$set(this, currentRange, $NumericShaper$Range::EUROPEAN);
 	this->stCache = 0;
 	$set(this, shapingRange, defaultContext);
-	$set(this, rangeSet, $EnumSet::copyOf(static_cast<$Collection*>(ranges)));
+	$set(this, rangeSet, $EnumSet::copyOf(ranges));
 	bool var$0 = $nc(this->rangeSet)->contains($NumericShaper$Range::EASTERN_ARABIC);
-	if (var$0 && $nc(this->rangeSet)->contains($NumericShaper$Range::ARABIC)) {
-		$nc(this->rangeSet)->remove($NumericShaper$Range::ARABIC);
+	if (var$0 && this->rangeSet->contains($NumericShaper$Range::ARABIC)) {
+		this->rangeSet->remove($NumericShaper$Range::ARABIC);
 	}
-	bool var$1 = $nc(this->rangeSet)->contains($NumericShaper$Range::TAI_THAM_THAM);
-	if (var$1 && $nc(this->rangeSet)->contains($NumericShaper$Range::TAI_THAM_HORA)) {
-		$nc(this->rangeSet)->remove($NumericShaper$Range::TAI_THAM_HORA);
+	bool var$1 = this->rangeSet->contains($NumericShaper$Range::TAI_THAM_THAM);
+	if (var$1 && this->rangeSet->contains($NumericShaper$Range::TAI_THAM_HORA)) {
+		this->rangeSet->remove($NumericShaper$Range::TAI_THAM_HORA);
 	}
-	$set(this, rangeArray, $fcast($NumericShaper$RangeArray, $nc(this->rangeSet)->toArray($$new($NumericShaper$RangeArray, $nc(this->rangeSet)->size()))));
+	$set(this, rangeArray, $cast($NumericShaper$RangeArray, this->rangeSet->toArray($$new($NumericShaper$RangeArray, this->rangeSet->size()))));
 	if ($nc(this->rangeArray)->length > NumericShaper::BSEARCH_THRESHOLD) {
 		$Arrays::sort(this->rangeArray, $$new($NumericShaper$1, this));
 	}
@@ -403,26 +277,26 @@ void NumericShaper::shape($chars* text, int32_t start, int32_t count, $NumericSh
 }
 
 void NumericShaper::checkParams($chars* text, int32_t start, int32_t count) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (text == nullptr) {
 		$throwNew($NullPointerException, "text is null"_s);
 	}
 	if ((start < 0) || (start > $nc(text)->length) || ((start + count) < 0) || ((start + count) > $nc(text)->length)) {
-		$throwNew($IndexOutOfBoundsException, $$str({"bad start or count for text of length "_s, $$str(text->length)}));
+		$throwNew($IndexOutOfBoundsException, $$str({"bad start or count for text of length "_s, $$str($nc(text)->length)}));
 	}
 }
 
 bool NumericShaper::isContextual() {
-	return ((int32_t)(this->mask & (uint32_t)NumericShaper::CONTEXTUAL_MASK)) != 0;
+	return (this->mask & NumericShaper::CONTEXTUAL_MASK) != 0;
 }
 
 int32_t NumericShaper::getRanges() {
-	return (int32_t)(this->mask & (uint32_t)~NumericShaper::CONTEXTUAL_MASK);
+	return this->mask & ~NumericShaper::CONTEXTUAL_MASK;
 }
 
 $Set* NumericShaper::getRangeSet() {
 	if (this->rangeSet != nullptr) {
-		return $EnumSet::copyOf(static_cast<$Collection*>(this->rangeSet));
+		return $EnumSet::copyOf(this->rangeSet);
 	}
 	return $NumericShaper$Range::maskToRangeSet(this->mask);
 }
@@ -431,58 +305,50 @@ void NumericShaper::shapeNonContextually($chars* text, int32_t start, int32_t co
 	int32_t base = 0;
 	char16_t minDigit = u'0';
 	if (this->shapingRange != nullptr) {
-		base = $nc(this->shapingRange)->getDigitBase();
+		base = this->shapingRange->getDigitBase();
 		minDigit += $nc(this->shapingRange)->getNumericBase();
 	} else {
-		base = $nc(NumericShaper::bases)->get(this->key);
+		base = NumericShaper::bases->get(this->key);
 		if (this->key == NumericShaper::ETHIOPIC_KEY) {
 			++minDigit;
 		}
 	}
-	{
-		int32_t i = start;
-		int32_t e = start + count;
-		for (; i < e; ++i) {
-			char16_t c = $nc(text)->get(i);
-			if (c >= minDigit && c <= u'9') {
-				text->set(i, (char16_t)(c + base));
-			}
+	for (int32_t i = start, e = start + count; i < e; ++i) {
+		char16_t c = $nc(text)->get(i);
+		if (c >= minDigit && c <= u'9') {
+			text->set(i, (char16_t)(c + base));
 		}
 	}
 }
 
 void NumericShaper::shapeContextually($chars* text, int32_t start, int32_t count, int32_t ctxKey) {
 	$synchronized(this) {
-		if (((int32_t)(this->mask & (uint32_t)($sl(1, ctxKey)))) == 0) {
+		if ((this->mask & ($sl(1, ctxKey))) == 0) {
 			ctxKey = NumericShaper::EUROPEAN_KEY;
 		}
 		int32_t lastkey = ctxKey;
-		int32_t base = $nc(NumericShaper::bases)->get(ctxKey);
+		int32_t base = NumericShaper::bases->get(ctxKey);
 		char16_t minDigit = ctxKey == NumericShaper::ETHIOPIC_KEY ? u'1' : u'0';
 		$synchronized(NumericShaper::class$) {
-			{
-				int32_t i = start;
-				int32_t e = start + count;
-				for (; i < e; ++i) {
-					char16_t c = $nc(text)->get(i);
-					if (c >= minDigit && c <= u'9') {
-						text->set(i, (char16_t)(c + base));
-					}
-					if (isStrongDirectional(c)) {
-						int32_t newkey = getContextKey(c);
-						if (newkey != lastkey) {
-							lastkey = newkey;
-							ctxKey = newkey;
-							if ((((int32_t)(this->mask & (uint32_t)NumericShaper::EASTERN_ARABIC)) != 0) && (ctxKey == NumericShaper::ARABIC_KEY || ctxKey == NumericShaper::EASTERN_ARABIC_KEY)) {
-								ctxKey = NumericShaper::EASTERN_ARABIC_KEY;
-							} else if ((((int32_t)(this->mask & (uint32_t)NumericShaper::ARABIC)) != 0) && (ctxKey == NumericShaper::ARABIC_KEY || ctxKey == NumericShaper::EASTERN_ARABIC_KEY)) {
-								ctxKey = NumericShaper::ARABIC_KEY;
-							} else if (((int32_t)(this->mask & (uint32_t)($sl(1, ctxKey)))) == 0) {
-								ctxKey = NumericShaper::EUROPEAN_KEY;
-							}
-							base = $nc(NumericShaper::bases)->get(ctxKey);
-							minDigit = ctxKey == NumericShaper::ETHIOPIC_KEY ? u'1' : u'0';
+			for (int32_t i = start, e = start + count; i < e; ++i) {
+				char16_t c = $nc(text)->get(i);
+				if (c >= minDigit && c <= u'9') {
+					text->set(i, (char16_t)(c + base));
+				}
+				if (isStrongDirectional(c)) {
+					int32_t newkey = getContextKey(c);
+					if (newkey != lastkey) {
+						lastkey = newkey;
+						ctxKey = newkey;
+						if (((this->mask & NumericShaper::EASTERN_ARABIC) != 0) && (ctxKey == NumericShaper::ARABIC_KEY || ctxKey == NumericShaper::EASTERN_ARABIC_KEY)) {
+							ctxKey = NumericShaper::EASTERN_ARABIC_KEY;
+						} else if (((this->mask & NumericShaper::ARABIC) != 0) && (ctxKey == NumericShaper::ARABIC_KEY || ctxKey == NumericShaper::EASTERN_ARABIC_KEY)) {
+							ctxKey = NumericShaper::ARABIC_KEY;
+						} else if ((this->mask & ($sl(1, ctxKey))) == 0) {
+							ctxKey = NumericShaper::EUROPEAN_KEY;
 						}
+						base = NumericShaper::bases->get(ctxKey);
+						minDigit = ctxKey == NumericShaper::ETHIOPIC_KEY ? u'1' : u'0';
 					}
 				}
 			}
@@ -510,7 +376,7 @@ void NumericShaper::shapeContextually($chars* text, int32_t start, int32_t count
 			ctxKey = rangeForCodePoint(c);
 			if (ctxKey != lastKey) {
 				lastKey = ctxKey;
-				base = ctxKey->getDigitBase();
+				base = $nc(ctxKey)->getDigitBase();
 				minDigit = (char16_t)(u'0' + ctxKey->getNumericBase());
 			}
 		}
@@ -521,13 +387,13 @@ int32_t NumericShaper::hashCode() {
 	int32_t hash = this->mask;
 	if (this->rangeSet != nullptr) {
 		hash &= (uint32_t)NumericShaper::CONTEXTUAL_MASK;
-		hash ^= $nc(this->rangeSet)->hashCode();
+		hash ^= this->rangeSet->hashCode();
 	}
 	return hash;
 }
 
 bool NumericShaper::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (o != nullptr) {
 		try {
 			$var(NumericShaper, rhs, $cast(NumericShaper, o));
@@ -535,11 +401,11 @@ bool NumericShaper::equals(Object$* o) {
 				if (rhs->rangeSet != nullptr) {
 					bool var$1 = isContextual();
 					bool var$0 = var$1 == rhs->isContextual();
-					return var$0 && $nc(this->rangeSet)->equals(rhs->rangeSet) && this->shapingRange == rhs->shapingRange;
+					return var$0 && this->rangeSet->equals(rhs->rangeSet) && this->shapingRange == rhs->shapingRange;
 				}
 				bool var$4 = isContextual();
 				bool var$3 = var$4 == rhs->isContextual();
-				bool var$2 = var$3 && $nc(this->rangeSet)->equals($($NumericShaper$Range::maskToRangeSet(rhs->mask)));
+				bool var$2 = var$3 && this->rangeSet->equals($($NumericShaper$Range::maskToRangeSet(rhs->mask)));
 				return var$2 && this->shapingRange == $NumericShaper$Range::indexToRange(rhs->key);
 			} else if (rhs->rangeSet != nullptr) {
 				$var($Set, rset, $NumericShaper$Range::maskToRangeSet(this->mask));
@@ -556,29 +422,29 @@ bool NumericShaper::equals(Object$* o) {
 }
 
 $String* NumericShaper::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder, $($Serializable::toString())));
 	buf->append("[contextual:"_s)->append(isContextual());
 	$var($StringArray, keyNames, nullptr);
 	if (isContextual()) {
 		buf->append(", context:"_s);
-		buf->append(this->shapingRange == nullptr ? $of($($NumericShaper$Range::values())->get(this->key)) : $of(this->shapingRange));
+		buf->append(this->shapingRange == nullptr ? $($NumericShaper$Range::values())->get(this->key) : this->shapingRange);
 	}
 	if (this->rangeSet == nullptr) {
 		buf->append(", range(s): "_s);
 		bool first = true;
 		for (int32_t i = 0; i < NumericShaper::NUM_KEYS; ++i) {
-			if (((int32_t)(this->mask & (uint32_t)($sl(1, i)))) != 0) {
+			if ((this->mask & ($sl(1, i))) != 0) {
 				if (first) {
 					first = false;
 				} else {
 					buf->append(", "_s);
 				}
-				buf->append($of($($NumericShaper$Range::values())->get(i)));
+				buf->append($($NumericShaper$Range::values())->get(i));
 			}
 		}
 	} else {
-		buf->append(", range set: "_s)->append($of(this->rangeSet));
+		buf->append(", range set: "_s)->append(this->rangeSet);
 	}
 	buf->append(u']');
 	return buf->toString();
@@ -623,7 +489,7 @@ int32_t NumericShaper::search(int32_t value, $ints* array, int32_t start, int32_
 	}
 	while (probe > 1) {
 		probe >>= 1;
-		if (value >= $nc(array)->get(index + probe)) {
+		if (value >= array->get(index + probe)) {
 			index += probe;
 		}
 	}
@@ -643,7 +509,7 @@ void NumericShaper::writeObject($ObjectOutputStream* stream) {
 	$nc(stream)->defaultWriteObject();
 }
 
-void clinit$NumericShaper($Class* class$) {
+void NumericShaper::clinit$($Class* clazz) {
 	{
 		if ($SharedSecrets::getJavaAWTFontAccess() == nullptr) {
 			$SharedSecrets::setJavaAWTFontAccess($$new($JavaAWTFontAccessImpl));
@@ -651,55 +517,55 @@ void clinit$NumericShaper($Class* class$) {
 	}
 	$assignStatic(NumericShaper::bases, $new($chars, {
 		(char16_t)(u'0' - u'0'),
-		(char16_t)((char16_t)0x660 - u'0'),
-		(char16_t)((char16_t)0x6F0 - u'0'),
-		(char16_t)((char16_t)0x966 - u'0'),
-		(char16_t)((char16_t)0x9E6 - u'0'),
-		(char16_t)((char16_t)0xA66 - u'0'),
-		(char16_t)((char16_t)0xAE6 - u'0'),
-		(char16_t)((char16_t)0xB66 - u'0'),
-		(char16_t)((char16_t)0xBE6 - u'0'),
-		(char16_t)((char16_t)0xC66 - u'0'),
-		(char16_t)((char16_t)0xCE6 - u'0'),
-		(char16_t)((char16_t)0xD66 - u'0'),
-		(char16_t)((char16_t)0xE50 - u'0'),
-		(char16_t)((char16_t)0xED0 - u'0'),
-		(char16_t)((char16_t)0xF20 - u'0'),
+		(char16_t)((char16_t)0x0660 - u'0'),
+		(char16_t)((char16_t)0x06f0 - u'0'),
+		(char16_t)((char16_t)0x0966 - u'0'),
+		(char16_t)((char16_t)0x09e6 - u'0'),
+		(char16_t)((char16_t)0x0a66 - u'0'),
+		(char16_t)((char16_t)0x0ae6 - u'0'),
+		(char16_t)((char16_t)0x0b66 - u'0'),
+		(char16_t)((char16_t)0x0be6 - u'0'),
+		(char16_t)((char16_t)0x0c66 - u'0'),
+		(char16_t)((char16_t)0x0ce6 - u'0'),
+		(char16_t)((char16_t)0x0d66 - u'0'),
+		(char16_t)((char16_t)0x0e50 - u'0'),
+		(char16_t)((char16_t)0x0ed0 - u'0'),
+		(char16_t)((char16_t)0x0f20 - u'0'),
 		(char16_t)((char16_t)0x1040 - u'0'),
 		(char16_t)((char16_t)0x1369 - u'1'),
-		(char16_t)((char16_t)0x17E0 - u'0'),
+		(char16_t)((char16_t)0x17e0 - u'0'),
 		(char16_t)((char16_t)0x1810 - u'0')
 	}));
 	$assignStatic(NumericShaper::contexts, $new($chars, {
 		u'\0',
-		(char16_t)0x300,
-		(char16_t)0x600,
-		(char16_t)0x780,
-		(char16_t)0x600,
-		(char16_t)0x780,
-		(char16_t)0x900,
-		(char16_t)0x980,
-		(char16_t)0x980,
-		(char16_t)0xA00,
-		(char16_t)0xA00,
-		(char16_t)0xA80,
-		(char16_t)0xA80,
-		(char16_t)0xB00,
-		(char16_t)0xB00,
-		(char16_t)0xB80,
-		(char16_t)0xB80,
-		(char16_t)0xC00,
-		(char16_t)0xC00,
-		(char16_t)0xC80,
-		(char16_t)0xC80,
-		(char16_t)0xD00,
-		(char16_t)0xD00,
-		(char16_t)0xD80,
-		(char16_t)0xE00,
-		(char16_t)0xE80,
-		(char16_t)0xE80,
-		(char16_t)0xF00,
-		(char16_t)0xF00,
+		(char16_t)0x0300,
+		(char16_t)0x0600,
+		(char16_t)0x0780,
+		(char16_t)0x0600,
+		(char16_t)0x0780,
+		(char16_t)0x0900,
+		(char16_t)0x0980,
+		(char16_t)0x0980,
+		(char16_t)0x0a00,
+		(char16_t)0x0a00,
+		(char16_t)0x0a80,
+		(char16_t)0x0a80,
+		(char16_t)0x0b00,
+		(char16_t)0x0b00,
+		(char16_t)0x0b80,
+		(char16_t)0x0b80,
+		(char16_t)0x0c00,
+		(char16_t)0x0c00,
+		(char16_t)0x0c80,
+		(char16_t)0x0c80,
+		(char16_t)0x0d00,
+		(char16_t)0x0d00,
+		(char16_t)0x0d80,
+		(char16_t)0x0e00,
+		(char16_t)0x0e80,
+		(char16_t)0x0e80,
+		(char16_t)0x0f00,
+		(char16_t)0x0f00,
 		(char16_t)0x1000,
 		(char16_t)0x1000,
 		(char16_t)0x1080,
@@ -709,10 +575,10 @@ void clinit$NumericShaper($Class* class$) {
 		(char16_t)0x1800,
 		(char16_t)0x1800,
 		(char16_t)0x1900,
-		(char16_t)0xFFFF
+		(char16_t)0xffff
 	}));
 	NumericShaper::ctCache = 0;
-	NumericShaper::ctCacheLimit = $nc(NumericShaper::contexts)->length - 2;
+	NumericShaper::ctCacheLimit = NumericShaper::contexts->length - 2;
 	$assignStatic(NumericShaper::strongTable, $new($ints, {
 		0,
 		65,
@@ -1514,175 +1380,175 @@ void clinit$NumericShaper($Class* class$) {
 		13312,
 		19894,
 		19968,
-		0x00009FF0,
-		0x0000A000,
-		0x0000A48D,
-		0x0000A4D0,
-		0x0000A60D,
-		0x0000A610,
-		0x0000A62C,
-		0x0000A640,
-		0x0000A66F,
-		0x0000A680,
-		0x0000A69E,
-		0x0000A6A0,
-		0x0000A6F0,
-		0x0000A6F2,
-		0x0000A6F8,
-		0x0000A722,
-		0x0000A788,
-		0x0000A789,
-		0x0000A7BA,
-		0x0000A7F7,
-		0x0000A802,
-		0x0000A803,
-		0x0000A806,
-		0x0000A807,
-		0x0000A80B,
-		0x0000A80C,
-		0x0000A825,
-		0x0000A827,
-		0x0000A828,
-		0x0000A830,
-		0x0000A838,
-		0x0000A840,
-		0x0000A874,
-		0x0000A880,
-		0x0000A8C4,
-		0x0000A8CE,
-		0x0000A8DA,
-		0x0000A8F2,
-		0x0000A8FF,
-		0x0000A900,
-		0x0000A926,
-		0x0000A92E,
-		0x0000A947,
-		0x0000A952,
-		0x0000A954,
-		0x0000A95F,
-		0x0000A97D,
-		0x0000A983,
-		0x0000A9B3,
-		0x0000A9B4,
-		0x0000A9B6,
-		0x0000A9BA,
-		0x0000A9BC,
-		0x0000A9BD,
-		0x0000A9CE,
-		0x0000A9CF,
-		0x0000A9DA,
-		0x0000A9DE,
-		0x0000A9E5,
-		0x0000A9E6,
-		0x0000A9FF,
-		0x0000AA00,
-		0x0000AA29,
-		0x0000AA2F,
-		0x0000AA31,
-		0x0000AA33,
-		0x0000AA35,
-		0x0000AA40,
-		0x0000AA43,
-		0x0000AA44,
-		0x0000AA4C,
-		0x0000AA4D,
-		0x0000AA4E,
-		0x0000AA50,
-		0x0000AA5A,
-		0x0000AA5C,
-		0x0000AA7C,
-		0x0000AA7D,
-		0x0000AAB0,
-		0x0000AAB1,
-		0x0000AAB2,
-		0x0000AAB5,
-		0x0000AAB7,
-		0x0000AAB9,
-		0x0000AABE,
-		0x0000AAC0,
-		0x0000AAC1,
-		0x0000AAC2,
-		0x0000AAC3,
-		0x0000AADB,
-		0x0000AAEC,
-		0x0000AAEE,
-		0x0000AAF6,
-		0x0000AB01,
-		0x0000AB07,
-		0x0000AB09,
-		0x0000AB0F,
-		0x0000AB11,
-		0x0000AB17,
-		0x0000AB20,
-		0x0000AB27,
-		0x0000AB28,
-		0x0000AB2F,
-		0x0000AB30,
-		0x0000AB66,
-		0x0000AB70,
-		0x0000ABE5,
-		0x0000ABE6,
-		0x0000ABE8,
-		0x0000ABE9,
-		0x0000ABED,
-		0x0000ABF0,
-		0x0000ABFA,
-		0x0000AC00,
-		0x0000D7A4,
-		0x0000D7B0,
-		0x0000D7C7,
-		0x0000D7CB,
-		0x0000D7FC,
-		0x0000E000,
-		0x0000FA6E,
-		0x0000FA70,
-		0x0000FADA,
-		0x0000FB00,
-		0x0000FB07,
-		0x0000FB13,
-		0x0000FB18,
-		0x0000FB1D,
-		0x0000FB1E,
-		0x0000FB1F,
-		0x0000FB29,
-		0x0000FB2A,
-		0x0000FD3E,
-		0x0000FD40,
-		0x0000FDD0,
-		0x0000FDF0,
-		0x0000FDFD,
-		0x0000FDFE,
-		0x0000FE00,
-		0x0000FE70,
-		0x0000FEFF,
-		0x0000FF21,
-		0x0000FF3B,
-		0x0000FF41,
-		0x0000FF5B,
-		0x0000FF66,
-		0x0000FFBF,
-		0x0000FFC2,
-		0x0000FFC8,
-		0x0000FFCA,
-		0x0000FFD0,
-		0x0000FFD2,
-		0x0000FFD8,
-		0x0000FFDA,
-		0x0000FFDD,
+		0x00009ff0,
+		0x0000a000,
+		0x0000a48d,
+		0x0000a4d0,
+		0x0000a60d,
+		0x0000a610,
+		0x0000a62c,
+		0x0000a640,
+		0x0000a66f,
+		0x0000a680,
+		0x0000a69e,
+		0x0000a6a0,
+		0x0000a6f0,
+		0x0000a6f2,
+		0x0000a6f8,
+		0x0000a722,
+		0x0000a788,
+		0x0000a789,
+		0x0000a7ba,
+		42999,
+		0x0000a802,
+		0x0000a803,
+		0x0000a806,
+		0x0000a807,
+		0x0000a80b,
+		0x0000a80c,
+		0x0000a825,
+		0x0000a827,
+		0x0000a828,
+		0x0000a830,
+		0x0000a838,
+		0x0000a840,
+		0x0000a874,
+		0x0000a880,
+		0x0000a8c4,
+		0x0000a8ce,
+		0x0000a8da,
+		0x0000a8f2,
+		0x0000a8ff,
+		0x0000a900,
+		0x0000a926,
+		0x0000a92e,
+		0x0000a947,
+		0x0000a952,
+		0x0000a954,
+		0x0000a95f,
+		0x0000a97d,
+		0x0000a983,
+		0x0000a9b3,
+		0x0000a9b4,
+		0x0000a9b6,
+		0x0000a9ba,
+		0x0000a9bc,
+		0x0000a9bd,
+		0x0000a9ce,
+		0x0000a9cf,
+		0x0000a9da,
+		0x0000a9de,
+		0x0000a9e5,
+		0x0000a9e6,
+		0x0000a9ff,
+		0x0000aa00,
+		0x0000aa29,
+		0x0000aa2f,
+		0x0000aa31,
+		0x0000aa33,
+		0x0000aa35,
+		0x0000aa40,
+		0x0000aa43,
+		0x0000aa44,
+		0x0000aa4c,
+		0x0000aa4d,
+		0x0000aa4e,
+		0x0000aa50,
+		0x0000aa5a,
+		0x0000aa5c,
+		0x0000aa7c,
+		0x0000aa7d,
+		0x0000aab0,
+		0x0000aab1,
+		0x0000aab2,
+		0x0000aab5,
+		0x0000aab7,
+		0x0000aab9,
+		0x0000aabe,
+		0x0000aac0,
+		0x0000aac1,
+		0x0000aac2,
+		0x0000aac3,
+		0x0000aadb,
+		0x0000aaec,
+		0x0000aaee,
+		0x0000aaf6,
+		0x0000ab01,
+		0x0000ab07,
+		0x0000ab09,
+		0x0000ab0f,
+		0x0000ab11,
+		0x0000ab17,
+		0x0000ab20,
+		0x0000ab27,
+		0x0000ab28,
+		0x0000ab2f,
+		0x0000ab30,
+		0x0000ab66,
+		0x0000ab70,
+		0x0000abe5,
+		0x0000abe6,
+		0x0000abe8,
+		0x0000abe9,
+		0x0000abed,
+		0x0000abf0,
+		0x0000abfa,
+		0x0000ac00,
+		0x0000d7a4,
+		0x0000d7b0,
+		0x0000d7c7,
+		0x0000d7cb,
+		0x0000d7fc,
+		0x0000e000,
+		0x0000fa6e,
+		0x0000fa70,
+		0x0000fada,
+		0x0000fb00,
+		0x0000fb07,
+		0x0000fb13,
+		0x0000fb18,
+		0x0000fb1d,
+		0x0000fb1e,
+		0x0000fb1f,
+		0x0000fb29,
+		0x0000fb2a,
+		0x0000fd3e,
+		0x0000fd40,
+		0x0000fdd0,
+		0x0000fdf0,
+		0x0000fdfd,
+		0x0000fdfe,
+		0x0000fe00,
+		0x0000fe70,
+		0x0000feff,
+		0x0000ff21,
+		0x0000ff3b,
+		0x0000ff41,
+		0x0000ff5b,
+		0x0000ff66,
+		0x0000ffbf,
+		0x0000ffc2,
+		0x0000ffc8,
+		0x0000ffca,
+		0x0000ffd0,
+		0x0000ffd2,
+		0x0000ffd8,
+		0x0000ffda,
+		0x0000ffdd,
 		0x00010000,
-		0x0001000C,
-		0x0001000D,
+		0x0001000c,
+		0x0001000d,
 		0x00010027,
 		0x00010028,
-		0x0001003B,
-		0x0001003C,
-		0x0001003E,
-		0x0001003F,
-		0x0001004E,
+		0x0001003b,
+		0x0001003c,
+		0x0001003e,
+		0x0001003f,
+		0x0001004e,
 		0x00010050,
-		0x0001005E,
+		0x0001005e,
 		0x00010080,
-		0x000100FB,
+		0x000100fb,
 		0x00010100,
 		0x00010101,
 		0x00010102,
@@ -1691,39 +1557,39 @@ void clinit$NumericShaper($Class* class$) {
 		0x00010134,
 		0x00010137,
 		0x00010140,
-		0x0001018D,
-		0x0001018F,
-		0x000101D0,
-		0x000101FD,
+		0x0001018d,
+		0x0001018f,
+		66000,
+		0x000101fd,
 		0x00010280,
-		0x0001029D,
-		0x000102A0,
-		0x000102D1,
+		0x0001029d,
+		0x000102a0,
+		0x000102d1,
 		0x00010300,
 		0x00010324,
-		0x0001032D,
-		0x0001034B,
+		0x0001032d,
+		0x0001034b,
 		0x00010350,
 		0x00010376,
 		0x00010380,
-		0x0001039E,
-		0x0001039F,
-		0x000103C4,
-		0x000103C8,
-		0x000103D6,
+		0x0001039e,
+		0x0001039f,
+		0x000103c4,
+		0x000103c8,
+		0x000103d6,
 		0x00010400,
-		0x0001049E,
-		0x000104A0,
-		0x000104AA,
-		0x000104D3,
-		0x000104D4,
-		0x000104D8,
-		0x000104FC,
+		0x0001049e,
+		0x000104a0,
+		0x000104aa,
+		0x000104d3,
+		0x000104d4,
+		0x000104d8,
+		0x000104fc,
 		0x00010500,
 		0x00010528,
 		0x00010530,
 		0x00010564,
-		0x0001056F,
+		0x0001056f,
 		0x00010570,
 		0x00010600,
 		0x00010737,
@@ -1732,51 +1598,51 @@ void clinit$NumericShaper($Class* class$) {
 		0x00010760,
 		0x00010768,
 		0x00010800,
-		0x0001091F,
+		0x0001091f,
 		0x00010920,
-		0x00010A01,
-		0x00010A04,
-		0x00010A05,
-		0x00010A07,
-		0x00010A0C,
-		0x00010A10,
-		0x00010A38,
-		0x00010A3B,
-		0x00010A3F,
-		0x00010A40,
-		0x00010AE5,
-		0x00010AE7,
-		0x00010B39,
-		0x00010B40,
-		0x00010D00,
-		0x00010D40,
-		0x00010E60,
-		0x00010E7F,
-		0x00010F30,
-		0x00010F70,
+		0x00010a01,
+		0x00010a04,
+		0x00010a05,
+		0x00010a07,
+		0x00010a0c,
+		0x00010a10,
+		0x00010a38,
+		0x00010a3b,
+		0x00010a3f,
+		0x00010a40,
+		0x00010ae5,
+		0x00010ae7,
+		0x00010b39,
+		0x00010b40,
+		0x00010d00,
+		0x00010d40,
+		0x00010e60,
+		0x00010e7f,
+		0x00010f30,
+		0x00010f70,
 		0x00011001,
 		0x00011002,
 		0x00011038,
 		0x00011047,
-		0x0001104E,
+		0x0001104e,
 		0x00011066,
 		0x00011070,
 		0x00011082,
-		0x000110B3,
-		0x000110B7,
-		0x000110B9,
-		0x000110BB,
-		0x000110C2,
-		0x000110CD,
-		0x000110CE,
-		0x000110D0,
-		0x000110E9,
-		0x000110F0,
-		0x000110FA,
+		0x000110b3,
+		0x000110b7,
+		0x000110b9,
+		0x000110bb,
+		0x000110c2,
+		0x000110cd,
+		0x000110ce,
+		0x000110d0,
+		0x000110e9,
+		0x000110f0,
+		0x000110fa,
 		0x00011103,
 		0x00011127,
-		0x0001112C,
-		0x0001112D,
+		0x0001112c,
+		0x0001112d,
 		0x00011136,
 		0x00011147,
 		0x00011150,
@@ -1784,68 +1650,68 @@ void clinit$NumericShaper($Class* class$) {
 		0x00011174,
 		0x00011177,
 		0x00011182,
-		0x000111B6,
-		0x000111BF,
-		0x000111C9,
-		0x000111CD,
-		0x000111CE,
-		0x000111D0,
-		0x000111E0,
-		0x000111E1,
-		0x000111F5,
+		0x000111b6,
+		0x000111bf,
+		0x000111c9,
+		0x000111cd,
+		0x000111ce,
+		0x000111d0,
+		0x000111e0,
+		0x000111e1,
+		0x000111f5,
 		0x00011200,
 		0x00011212,
 		0x00011213,
-		0x0001122F,
+		0x0001122f,
 		0x00011232,
 		0x00011234,
 		0x00011235,
 		0x00011236,
 		0x00011238,
-		0x0001123E,
+		0x0001123e,
 		0x00011280,
 		0x00011287,
 		0x00011288,
 		0x00011289,
-		0x0001128A,
-		0x0001128E,
-		0x0001128F,
-		0x0001129E,
-		0x0001129F,
-		0x000112AA,
-		0x000112B0,
-		0x000112DF,
-		0x000112E0,
-		0x000112E3,
-		0x000112F0,
-		0x000112FA,
+		0x0001128a,
+		0x0001128e,
+		0x0001128f,
+		0x0001129e,
+		0x0001129f,
+		0x000112aa,
+		0x000112b0,
+		0x000112df,
+		0x000112e0,
+		0x000112e3,
+		0x000112f0,
+		0x000112fa,
 		0x00011302,
 		0x00011304,
 		0x00011305,
-		0x0001130D,
-		0x0001130F,
+		0x0001130d,
+		0x0001130f,
 		0x00011311,
 		0x00011313,
 		0x00011329,
-		0x0001132A,
+		0x0001132a,
 		0x00011331,
 		0x00011332,
 		0x00011334,
 		0x00011335,
-		0x0001133A,
-		0x0001133D,
+		0x0001133a,
+		0x0001133d,
 		0x00011340,
 		0x00011341,
 		0x00011345,
 		0x00011347,
 		0x00011349,
-		0x0001134B,
-		0x0001134E,
+		0x0001134b,
+		0x0001134e,
 		0x00011350,
 		0x00011351,
 		0x00011357,
 		0x00011358,
-		0x0001135D,
+		0x0001135d,
 		0x00011364,
 		0x00011400,
 		0x00011438,
@@ -1854,320 +1720,320 @@ void clinit$NumericShaper($Class* class$) {
 		0x00011445,
 		0x00011446,
 		0x00011447,
-		0x0001145A,
-		0x0001145B,
-		0x0001145C,
-		0x0001145D,
-		0x0001145E,
+		0x0001145a,
+		0x0001145b,
+		0x0001145c,
+		0x0001145d,
+		0x0001145e,
 		0x00011480,
-		0x000114B3,
-		0x000114B9,
-		0x000114BA,
-		0x000114BB,
-		0x000114BF,
-		0x000114C1,
-		0x000114C2,
-		0x000114C4,
-		0x000114C8,
-		0x000114D0,
-		0x000114DA,
+		0x000114b3,
+		0x000114b9,
+		0x000114ba,
+		0x000114bb,
+		0x000114bf,
+		0x000114c1,
+		0x000114c2,
+		0x000114c4,
+		0x000114c8,
+		0x000114d0,
+		0x000114da,
 		0x00011580,
-		0x000115B2,
-		0x000115B8,
-		0x000115BC,
-		0x000115BE,
-		0x000115BF,
-		0x000115C1,
-		0x000115DC,
+		0x000115b2,
+		0x000115b8,
+		0x000115bc,
+		0x000115be,
+		0x000115bf,
+		0x000115c1,
+		0x000115dc,
 		0x00011600,
 		0x00011633,
-		0x0001163B,
-		0x0001163D,
-		0x0001163E,
-		0x0001163F,
+		0x0001163b,
+		0x0001163d,
+		0x0001163e,
+		0x0001163f,
 		0x00011641,
 		0x00011645,
 		0x00011650,
-		0x0001165A,
+		0x0001165a,
 		0x00011680,
-		0x000116AB,
-		0x000116AC,
-		0x000116AD,
-		0x000116AE,
-		0x000116B0,
-		0x000116B6,
-		0x000116B7,
-		0x000116C0,
-		0x000116CA,
+		0x000116ab,
+		0x000116ac,
+		0x000116ad,
+		0x000116ae,
+		0x000116b0,
+		0x000116b6,
+		0x000116b7,
+		0x000116c0,
+		0x000116ca,
 		0x00011700,
-		0x0001171B,
+		0x0001171b,
 		0x00011720,
 		0x00011722,
 		0x00011726,
 		0x00011727,
 		0x00011730,
-		0x0001182F,
+		0x0001182f,
 		0x00011838,
 		0x00011839,
-		0x0001183B,
-		0x0001183C,
-		0x000118A0,
-		0x000118F3,
-		0x000118FF,
+		0x0001183b,
+		0x0001183c,
+		0x000118a0,
+		0x000118f3,
+		0x000118ff,
 		0x00011900,
-		0x00011A00,
-		0x00011A01,
-		0x00011A07,
-		0x00011A09,
-		0x00011A0B,
-		0x00011A33,
-		0x00011A3A,
-		0x00011A3B,
-		0x00011A3F,
-		0x00011A47,
-		0x00011A50,
-		0x00011A51,
-		0x00011A57,
-		0x00011A59,
-		0x00011A5C,
-		0x00011A84,
-		0x00011A86,
-		0x00011A8A,
-		0x00011A97,
-		0x00011A98,
-		0x00011A9A,
-		0x00011AA3,
-		0x00011AC0,
-		0x00011AF9,
-		0x00011C00,
-		0x00011C09,
-		0x00011C0A,
-		0x00011C30,
-		0x00011C3E,
-		0x00011C46,
-		0x00011C50,
-		0x00011C6D,
-		0x00011C70,
-		0x00011C90,
-		0x00011CA9,
-		0x00011CAA,
-		0x00011CB1,
-		0x00011CB2,
-		0x00011CB4,
-		0x00011CB5,
-		0x00011D00,
-		0x00011D07,
-		0x00011D08,
-		0x00011D0A,
-		0x00011D0B,
-		0x00011D31,
-		0x00011D46,
-		0x00011D47,
-		0x00011D50,
-		0x00011D5A,
-		0x00011D60,
-		0x00011D66,
-		0x00011D67,
-		0x00011D69,
-		0x00011D6A,
-		0x00011D8F,
-		0x00011D93,
-		0x00011D95,
-		0x00011D96,
-		0x00011D97,
-		0x00011D98,
-		0x00011D99,
-		0x00011DA0,
-		0x00011DAA,
-		0x00011EE0,
-		0x00011EF3,
-		0x00011EF5,
-		0x00011EF9,
+		0x00011a00,
+		0x00011a01,
+		0x00011a07,
+		0x00011a09,
+		0x00011a0b,
+		0x00011a33,
+		0x00011a3a,
+		0x00011a3b,
+		0x00011a3f,
+		0x00011a47,
+		0x00011a50,
+		0x00011a51,
+		0x00011a57,
+		0x00011a59,
+		0x00011a5c,
+		0x00011a84,
+		0x00011a86,
+		0x00011a8a,
+		0x00011a97,
+		0x00011a98,
+		0x00011a9a,
+		0x00011aa3,
+		0x00011ac0,
+		0x00011af9,
+		0x00011c00,
+		0x00011c09,
+		0x00011c0a,
+		0x00011c30,
+		0x00011c3e,
+		0x00011c46,
+		0x00011c50,
+		0x00011c6d,
+		0x00011c70,
+		0x00011c90,
+		0x00011ca9,
+		0x00011caa,
+		0x00011cb1,
+		0x00011cb2,
+		0x00011cb4,
+		0x00011cb5,
+		0x00011d00,
+		0x00011d07,
+		0x00011d08,
+		0x00011d0a,
+		0x00011d0b,
+		0x00011d31,
+		0x00011d46,
+		0x00011d47,
+		0x00011d50,
+		0x00011d5a,
+		0x00011d60,
+		0x00011d66,
+		0x00011d67,
+		0x00011d69,
+		0x00011d6a,
+		0x00011d8f,
+		0x00011d93,
+		0x00011d95,
+		0x00011d96,
+		0x00011d97,
+		0x00011d98,
+		0x00011d99,
+		0x00011da0,
+		0x00011daa,
+		0x00011ee0,
+		0x00011ef3,
+		0x00011ef5,
+		0x00011ef9,
 		0x00012000,
-		0x0001239A,
+		0x0001239a,
 		0x00012400,
-		0x0001246F,
+		0x0001246f,
 		0x00012470,
 		0x00012475,
 		0x00012480,
 		0x00012544,
 		0x00013000,
-		0x0001342F,
+		0x0001342f,
 		0x00014400,
 		0x00014647,
 		0x00016800,
-		0x00016A39,
-		0x00016A40,
-		0x00016A5F,
-		0x00016A60,
-		0x00016A6A,
-		0x00016A6E,
-		0x00016A70,
-		0x00016AD0,
-		0x00016AEE,
-		0x00016AF5,
-		0x00016AF6,
-		0x00016B00,
-		0x00016B30,
-		0x00016B37,
-		0x00016B46,
-		0x00016B50,
-		0x00016B5A,
-		0x00016B5B,
-		0x00016B62,
-		0x00016B63,
-		0x00016B78,
-		0x00016B7D,
-		0x00016B90,
-		0x00016E40,
-		0x00016E9B,
-		0x00016F00,
-		0x00016F45,
-		0x00016F50,
-		0x00016F7F,
-		0x00016F93,
-		0x00016FA0,
-		0x00016FE0,
-		0x00016FE2,
+		0x00016a39,
+		0x00016a40,
+		0x00016a5f,
+		0x00016a60,
+		0x00016a6a,
+		0x00016a6e,
+		0x00016a70,
+		0x00016ad0,
+		0x00016aee,
+		0x00016af5,
+		0x00016af6,
+		0x00016b00,
+		0x00016b30,
+		0x00016b37,
+		0x00016b46,
+		0x00016b50,
+		0x00016b5a,
+		0x00016b5b,
+		0x00016b62,
+		0x00016b63,
+		0x00016b78,
+		0x00016b7d,
+		0x00016b90,
+		0x00016e40,
+		0x00016e9b,
+		0x00016f00,
+		0x00016f45,
+		0x00016f50,
+		0x00016f7f,
+		0x00016f93,
+		0x00016fa0,
+		0x00016fe0,
+		0x00016fe2,
 		0x00017000,
-		0x000187F2,
+		0x000187f2,
 		0x00018800,
-		0x00018AF3,
-		0x0001B000,
-		0x0001B11F,
-		0x0001B170,
-		0x0001B2FC,
-		0x0001BC00,
-		0x0001BC6B,
-		0x0001BC70,
-		0x0001BC7D,
-		0x0001BC80,
-		0x0001BC89,
-		0x0001BC90,
-		0x0001BC9A,
-		0x0001BC9C,
-		0x0001BC9D,
-		0x0001BC9F,
-		0x0001BCA0,
-		0x0001D000,
-		0x0001D0F6,
-		0x0001D100,
-		0x0001D127,
-		0x0001D129,
-		0x0001D167,
-		0x0001D16A,
-		0x0001D173,
-		0x0001D183,
-		0x0001D185,
-		0x0001D18C,
-		0x0001D1AA,
-		0x0001D1AE,
-		0x0001D1E9,
-		0x0001D2E0,
-		0x0001D2F4,
-		0x0001D360,
-		0x0001D379,
-		0x0001D400,
-		0x0001D455,
-		0x0001D456,
-		0x0001D49D,
-		0x0001D49E,
-		0x0001D4A0,
-		0x0001D4A2,
-		0x0001D4A3,
-		0x0001D4A5,
-		0x0001D4A7,
-		0x0001D4A9,
-		0x0001D4AD,
-		0x0001D4AE,
-		0x0001D4BA,
-		0x0001D4BB,
-		0x0001D4BC,
-		0x0001D4BD,
-		0x0001D4C4,
-		0x0001D4C5,
-		0x0001D506,
-		0x0001D507,
-		0x0001D50B,
-		0x0001D50D,
-		0x0001D515,
-		0x0001D516,
-		0x0001D51D,
-		0x0001D51E,
-		0x0001D53A,
-		0x0001D53B,
-		0x0001D53F,
-		0x0001D540,
-		0x0001D545,
-		0x0001D546,
-		0x0001D547,
-		0x0001D54A,
-		0x0001D551,
-		0x0001D552,
-		0x0001D6A6,
-		0x0001D6A8,
-		0x0001D6DB,
-		0x0001D6DC,
-		0x0001D715,
-		0x0001D716,
-		0x0001D74F,
-		0x0001D750,
-		0x0001D789,
-		0x0001D78A,
-		0x0001D7C3,
-		0x0001D7C4,
-		0x0001D7CC,
-		0x0001D800,
-		0x0001DA00,
-		0x0001DA37,
-		0x0001DA3B,
-		0x0001DA6D,
-		0x0001DA75,
-		0x0001DA76,
-		0x0001DA84,
-		0x0001DA85,
-		0x0001DA8C,
-		0x0001E800,
-		0x0001E8D0,
-		0x0001E8D7,
-		0x0001E944,
-		0x0001E94B,
-		0x0001EC70,
-		0x0001ECC0,
-		0x0001EE00,
-		0x0001EF00,
-		0x0001F000,
-		0x0001F110,
-		0x0001F12F,
-		0x0001F130,
-		0x0001F16A,
-		0x0001F170,
-		0x0001F1AD,
-		0x0001F1E6,
-		0x0001F203,
-		0x0001F210,
-		0x0001F23C,
-		0x0001F240,
-		0x0001F249,
-		0x0001F250,
-		0x0001F252,
+		0x00018af3,
+		0x0001b000,
+		0x0001b11f,
+		0x0001b170,
+		0x0001b2fc,
+		0x0001bc00,
+		0x0001bc6b,
+		0x0001bc70,
+		0x0001bc7d,
+		0x0001bc80,
+		0x0001bc89,
+		0x0001bc90,
+		0x0001bc9a,
+		0x0001bc9c,
+		0x0001bc9d,
+		0x0001bc9f,
+		0x0001bca0,
+		0x0001d000,
+		0x0001d0f6,
+		0x0001d100,
+		0x0001d127,
+		0x0001d129,
+		0x0001d167,
+		0x0001d16a,
+		0x0001d173,
+		0x0001d183,
+		0x0001d185,
+		0x0001d18c,
+		0x0001d1aa,
+		0x0001d1ae,
+		0x0001d1e9,
+		0x0001d2e0,
+		0x0001d2f4,
+		0x0001d360,
+		0x0001d379,
+		0x0001d400,
+		0x0001d455,
+		0x0001d456,
+		0x0001d49d,
+		0x0001d49e,
+		0x0001d4a0,
+		0x0001d4a2,
+		0x0001d4a3,
+		0x0001d4a5,
+		0x0001d4a7,
+		0x0001d4a9,
+		0x0001d4ad,
+		0x0001d4ae,
+		0x0001d4ba,
+		0x0001d4bb,
+		0x0001d4bc,
+		0x0001d4bd,
+		0x0001d4c4,
+		0x0001d4c5,
+		0x0001d506,
+		0x0001d507,
+		0x0001d50b,
+		0x0001d50d,
+		0x0001d515,
+		0x0001d516,
+		0x0001d51d,
+		0x0001d51e,
+		0x0001d53a,
+		0x0001d53b,
+		0x0001d53f,
+		0x0001d540,
+		0x0001d545,
+		0x0001d546,
+		0x0001d547,
+		0x0001d54a,
+		0x0001d551,
+		0x0001d552,
+		0x0001d6a6,
+		0x0001d6a8,
+		0x0001d6db,
+		0x0001d6dc,
+		0x0001d715,
+		0x0001d716,
+		0x0001d74f,
+		0x0001d750,
+		0x0001d789,
+		0x0001d78a,
+		0x0001d7c3,
+		0x0001d7c4,
+		0x0001d7cc,
+		0x0001d800,
+		0x0001da00,
+		0x0001da37,
+		0x0001da3b,
+		0x0001da6d,
+		0x0001da75,
+		0x0001da76,
+		0x0001da84,
+		0x0001da85,
+		0x0001da8c,
+		0x0001e800,
+		0x0001e8d0,
+		0x0001e8d7,
+		0x0001e944,
+		0x0001e94b,
+		0x0001ec70,
+		0x0001ecc0,
+		0x0001ee00,
+		0x0001ef00,
+		0x0001f000,
+		0x0001f110,
+		0x0001f12f,
+		0x0001f130,
+		0x0001f16a,
+		0x0001f170,
+		0x0001f1ad,
+		0x0001f1e6,
+		0x0001f203,
+		0x0001f210,
+		0x0001f23c,
+		0x0001f240,
+		0x0001f249,
+		0x0001f250,
+		0x0001f252,
 		0x00020000,
-		0x0002A6D7,
-		0x0002A700,
-		0x0002B735,
-		0x0002B740,
-		0x0002B81E,
-		0x0002B820,
-		0x0002CEA2,
-		0x0002CEB0,
-		0x0002EBE1,
-		0x0002F800,
-		0x0002FA1E,
-		0x000F0000,
-		0x000FFFFE,
+		0x0002a6d7,
+		0x0002a700,
+		0x0002b735,
+		0x0002b740,
+		0x0002b81e,
+		0x0002b820,
+		0x0002cea2,
+		0x0002ceb0,
+		0x0002ebe1,
+		0x0002f800,
+		0x0002fa1e,
+		0x000f0000,
+		0x000ffffe,
 		0x00100000,
-		0x0010FFFE,
-		0x0010FFFF
+		0x0010fffe,
+		0x0010ffff
 	}));
 }
 
@@ -2175,7 +2041,117 @@ NumericShaper::NumericShaper() {
 }
 
 $Class* NumericShaper::load$($String* name, bool initialize) {
-	$loadClass(NumericShaper, name, initialize, &_NumericShaper_ClassInfo_, clinit$NumericShaper, allocate$NumericShaper);
+	$FieldInfo fieldInfos$$[] = {
+		{"key", "I", nullptr, $PRIVATE, $field(NumericShaper, key)},
+		{"mask", "I", nullptr, $PRIVATE, $field(NumericShaper, mask)},
+		{"shapingRange", "Ljava/awt/font/NumericShaper$Range;", nullptr, $PRIVATE, $field(NumericShaper, shapingRange)},
+		{"rangeSet", "Ljava/util/Set;", "Ljava/util/Set<Ljava/awt/font/NumericShaper$Range;>;", $PRIVATE | $TRANSIENT, $field(NumericShaper, rangeSet)},
+		{"rangeArray", "[Ljava/awt/font/NumericShaper$Range;", nullptr, $PRIVATE | $TRANSIENT, $field(NumericShaper, rangeArray)},
+		{"BSEARCH_THRESHOLD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, BSEARCH_THRESHOLD)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, serialVersionUID)},
+		{"EUROPEAN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, EUROPEAN)},
+		{"ARABIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, ARABIC)},
+		{"EASTERN_ARABIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, EASTERN_ARABIC)},
+		{"DEVANAGARI", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, DEVANAGARI)},
+		{"BENGALI", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, BENGALI)},
+		{"GURMUKHI", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, GURMUKHI)},
+		{"GUJARATI", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, GUJARATI)},
+		{"ORIYA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, ORIYA)},
+		{"TAMIL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, TAMIL)},
+		{"TELUGU", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, TELUGU)},
+		{"KANNADA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, KANNADA)},
+		{"MALAYALAM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, MALAYALAM)},
+		{"THAI", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, THAI)},
+		{"LAO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, LAO)},
+		{"TIBETAN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, TIBETAN)},
+		{"MYANMAR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, MYANMAR)},
+		{"ETHIOPIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, ETHIOPIC)},
+		{"KHMER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, KHMER)},
+		{"MONGOLIAN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, MONGOLIAN)},
+		{"ALL_RANGES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumericShaper, ALL_RANGES)},
+		{"EUROPEAN_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, EUROPEAN_KEY)},
+		{"ARABIC_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, ARABIC_KEY)},
+		{"EASTERN_ARABIC_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, EASTERN_ARABIC_KEY)},
+		{"DEVANAGARI_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, DEVANAGARI_KEY)},
+		{"BENGALI_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, BENGALI_KEY)},
+		{"GURMUKHI_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, GURMUKHI_KEY)},
+		{"GUJARATI_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, GUJARATI_KEY)},
+		{"ORIYA_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, ORIYA_KEY)},
+		{"TAMIL_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, TAMIL_KEY)},
+		{"TELUGU_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, TELUGU_KEY)},
+		{"KANNADA_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, KANNADA_KEY)},
+		{"MALAYALAM_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, MALAYALAM_KEY)},
+		{"THAI_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, THAI_KEY)},
+		{"LAO_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, LAO_KEY)},
+		{"TIBETAN_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, TIBETAN_KEY)},
+		{"MYANMAR_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, MYANMAR_KEY)},
+		{"ETHIOPIC_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, ETHIOPIC_KEY)},
+		{"KHMER_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, KHMER_KEY)},
+		{"MONGOLIAN_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, MONGOLIAN_KEY)},
+		{"NUM_KEYS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, NUM_KEYS)},
+		{"CONTEXTUAL_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericShaper, CONTEXTUAL_MASK)},
+		{"bases", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NumericShaper, bases)},
+		{"contexts", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NumericShaper, contexts)},
+		{"ctCache", "I", nullptr, $PRIVATE | $STATIC, $staticField(NumericShaper, ctCache)},
+		{"ctCacheLimit", "I", nullptr, $PRIVATE | $STATIC, $staticField(NumericShaper, ctCacheLimit)},
+		{"currentRange", "Ljava/awt/font/NumericShaper$Range;", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(NumericShaper, currentRange)},
+		{"strongTable", "[I", nullptr, $PRIVATE | $STATIC, $staticField(NumericShaper, strongTable)},
+		{"stCache", "I", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(NumericShaper, stCache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II)V", nullptr, $PRIVATE, $method(NumericShaper, init$, void, int32_t, int32_t)},
+		{"<init>", "(Ljava/awt/font/NumericShaper$Range;Ljava/util/Set;)V", "(Ljava/awt/font/NumericShaper$Range;Ljava/util/Set<Ljava/awt/font/NumericShaper$Range;>;)V", $PRIVATE, $method(NumericShaper, init$, void, $NumericShaper$Range*, $Set*)},
+		{"checkParams", "([CII)V", nullptr, $PRIVATE, $method(NumericShaper, checkParams, void, $chars*, int32_t, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NumericShaper, equals, bool, Object$*)},
+		{"getContextKey", "(C)I", nullptr, $PRIVATE | $STATIC, $staticMethod(NumericShaper, getContextKey, int32_t, char16_t)},
+		{"getContextualShaper", "(I)Ljava/awt/font/NumericShaper;", nullptr, $PUBLIC | $STATIC, $staticMethod(NumericShaper, getContextualShaper, NumericShaper*, int32_t)},
+		{"getContextualShaper", "(Ljava/util/Set;)Ljava/awt/font/NumericShaper;", "(Ljava/util/Set<Ljava/awt/font/NumericShaper$Range;>;)Ljava/awt/font/NumericShaper;", $PUBLIC | $STATIC, $staticMethod(NumericShaper, getContextualShaper, NumericShaper*, $Set*)},
+		{"getContextualShaper", "(II)Ljava/awt/font/NumericShaper;", nullptr, $PUBLIC | $STATIC, $staticMethod(NumericShaper, getContextualShaper, NumericShaper*, int32_t, int32_t)},
+		{"getContextualShaper", "(Ljava/util/Set;Ljava/awt/font/NumericShaper$Range;)Ljava/awt/font/NumericShaper;", "(Ljava/util/Set<Ljava/awt/font/NumericShaper$Range;>;Ljava/awt/font/NumericShaper$Range;)Ljava/awt/font/NumericShaper;", $PUBLIC | $STATIC, $staticMethod(NumericShaper, getContextualShaper, NumericShaper*, $Set*, $NumericShaper$Range*)},
+		{"getHighBit", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(NumericShaper, getHighBit, int32_t, int32_t)},
+		{"getKeyFromMask", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(NumericShaper, getKeyFromMask, int32_t, int32_t)},
+		{"getRangeSet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/awt/font/NumericShaper$Range;>;", $PUBLIC, $method(NumericShaper, getRangeSet, $Set*)},
+		{"getRanges", "()I", nullptr, $PUBLIC, $method(NumericShaper, getRanges, int32_t)},
+		{"getShaper", "(I)Ljava/awt/font/NumericShaper;", nullptr, $PUBLIC | $STATIC, $staticMethod(NumericShaper, getShaper, NumericShaper*, int32_t)},
+		{"getShaper", "(Ljava/awt/font/NumericShaper$Range;)Ljava/awt/font/NumericShaper;", nullptr, $PUBLIC | $STATIC, $staticMethod(NumericShaper, getShaper, NumericShaper*, $NumericShaper$Range*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(NumericShaper, hashCode, int32_t)},
+		{"isContextual", "()Z", nullptr, $PUBLIC, $method(NumericShaper, isContextual, bool)},
+		{"isStrongDirectional", "(C)Z", nullptr, $PRIVATE, $method(NumericShaper, isStrongDirectional, bool, char16_t)},
+		{"rangeForCodePoint", "(I)Ljava/awt/font/NumericShaper$Range;", nullptr, $PRIVATE, $method(NumericShaper, rangeForCodePoint, $NumericShaper$Range*, int32_t)},
+		{"search", "(I[III)I", nullptr, $PRIVATE | $STATIC, $staticMethod(NumericShaper, search, int32_t, int32_t, $ints*, int32_t, int32_t)},
+		{"shape", "([CII)V", nullptr, $PUBLIC, $method(NumericShaper, shape, void, $chars*, int32_t, int32_t)},
+		{"shape", "([CIII)V", nullptr, $PUBLIC, $method(NumericShaper, shape, void, $chars*, int32_t, int32_t, int32_t)},
+		{"shape", "([CIILjava/awt/font/NumericShaper$Range;)V", nullptr, $PUBLIC, $method(NumericShaper, shape, void, $chars*, int32_t, int32_t, $NumericShaper$Range*)},
+		{"shapeContextually", "([CIII)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(NumericShaper, shapeContextually, void, $chars*, int32_t, int32_t, int32_t)},
+		{"shapeContextually", "([CIILjava/awt/font/NumericShaper$Range;)V", nullptr, $PRIVATE, $method(NumericShaper, shapeContextually, void, $chars*, int32_t, int32_t, $NumericShaper$Range*)},
+		{"shapeNonContextually", "([CII)V", nullptr, $PRIVATE, $method(NumericShaper, shapeNonContextually, void, $chars*, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NumericShaper, toString, $String*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(NumericShaper, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.font.NumericShaper$Range", "java.awt.font.NumericShaper", "Range", $PUBLIC | $STATIC | $ENUM},
+		{"java.awt.font.NumericShaper$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.font.NumericShaper",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.font.NumericShaper$Range,java.awt.font.NumericShaper$Range$1,java.awt.font.NumericShaper$1"
+	};
+	$loadClass(NumericShaper, name, initialize, &classInfo$$, NumericShaper::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NumericShaper);
+	});
 	return class$;
 }
 

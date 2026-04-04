@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaComboBoxUI.h>
-
 #include <apple/laf/JRSUIConstants$Size.h>
 #include <com/apple/laf/AquaBorder.h>
 #include <com/apple/laf/AquaButtonBorder.h>
@@ -128,182 +127,6 @@ using $ComboPopup = ::javax::swing::plaf::basic::ComboPopup;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaComboBoxUI_FieldInfo_[] = {
-	{"POPDOWN_CLIENT_PROPERTY_KEY", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaComboBoxUI, POPDOWN_CLIENT_PROPERTY_KEY)},
-	{"ISSQUARE_CLIENT_PROPERTY_KEY", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaComboBoxUI, ISSQUARE_CLIENT_PROPERTY_KEY)},
-	{"wasOpaque", "Z", nullptr, $PRIVATE, $field(AquaComboBoxUI, wasOpaque)},
-	{"highlightNextAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(AquaComboBoxUI, highlightNextAction)},
-	{"highlightPreviousAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(AquaComboBoxUI, highlightPreviousAction)},
-	{"highlightFirstAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(AquaComboBoxUI, highlightFirstAction)},
-	{"highlightLastAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(AquaComboBoxUI, highlightLastAction)},
-	{"highlightPageUpAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(AquaComboBoxUI, highlightPageUpAction)},
-	{"highlightPageDownAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(AquaComboBoxUI, highlightPageDownAction)},
-	{"IS_TABLE_CELL_EDITOR", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AquaComboBoxUI, IS_TABLE_CELL_EDITOR)},
-	{"triggerSelectionAction", "Ljavax/swing/Action;", nullptr, $PRIVATE | $FINAL, $field(AquaComboBoxUI, triggerSelectionAction)},
-	{"toggleSelectionAction", "Ljavax/swing/Action;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaComboBoxUI, toggleSelectionAction)},
-	{"hideAction", "Ljavax/swing/Action;", nullptr, $PRIVATE | $FINAL, $field(AquaComboBoxUI, hideAction)},
-	{"APPLICATOR", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/ClientPropertyApplicator<Ljavax/swing/JComboBox<*>;Lcom/apple/laf/AquaComboBoxUI;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaComboBoxUI, APPLICATOR)},
-	{}
-};
-
-$MethodInfo _AquaComboBoxUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaComboBoxUI, init$, void)},
-	{"access$000", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/plaf/basic/ComboPopup;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$000, $ComboPopup*, AquaComboBoxUI*)},
-	{"access$100", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/plaf/basic/ComboPopup;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$100, $ComboPopup*, AquaComboBoxUI*)},
-	{"access$1000", "(Lcom/apple/laf/AquaComboBoxUI;)Ljava/awt/Component;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$1000, $Component*, AquaComboBoxUI*)},
-	{"access$1100", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$1100, $JButton*, AquaComboBoxUI*)},
-	{"access$1200", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$1200, $JButton*, AquaComboBoxUI*)},
-	{"access$1302", "(Lcom/apple/laf/AquaComboBoxUI;Z)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$1302, bool, AquaComboBoxUI*, bool)},
-	{"access$1400", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$1400, $JComboBox*, AquaComboBoxUI*)},
-	{"access$1500", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$1500, $JComboBox*, AquaComboBoxUI*)},
-	{"access$1600", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$1600, $JComboBox*, AquaComboBoxUI*)},
-	{"access$1700", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$1700, $JButton*, AquaComboBoxUI*)},
-	{"access$1800", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$1800, $JButton*, AquaComboBoxUI*)},
-	{"access$1900", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$1900, $JComboBox*, AquaComboBoxUI*)},
-	{"access$200", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$200, $JComboBox*, AquaComboBoxUI*)},
-	{"access$2000", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$2000, $JComboBox*, AquaComboBoxUI*)},
-	{"access$2100", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$2100, $JComboBox*, AquaComboBoxUI*)},
-	{"access$2200", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$2200, $JComboBox*, AquaComboBoxUI*)},
-	{"access$2300", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$2300, $JComboBox*, AquaComboBoxUI*)},
-	{"access$2400", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$2400, $JList*, AquaComboBoxUI*)},
-	{"access$2500", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$2500, $JComboBox*, AquaComboBoxUI*)},
-	{"access$2600", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$2600, $JList*, AquaComboBoxUI*)},
-	{"access$2700", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$2700, $JList*, AquaComboBoxUI*)},
-	{"access$2800", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$2800, $JComboBox*, AquaComboBoxUI*)},
-	{"access$2900", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$2900, $JList*, AquaComboBoxUI*)},
-	{"access$300", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/plaf/basic/ComboPopup;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$300, $ComboPopup*, AquaComboBoxUI*)},
-	{"access$3000", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$3000, $JList*, AquaComboBoxUI*)},
-	{"access$3100", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$3100, $JList*, AquaComboBoxUI*)},
-	{"access$3200", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$3200, $JComboBox*, AquaComboBoxUI*)},
-	{"access$3300", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$3300, $JList*, AquaComboBoxUI*)},
-	{"access$3400", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$3400, $JList*, AquaComboBoxUI*)},
-	{"access$3500", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$3500, $JList*, AquaComboBoxUI*)},
-	{"access$3600", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$3600, $JList*, AquaComboBoxUI*)},
-	{"access$3700", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$3700, $JList*, AquaComboBoxUI*)},
-	{"access$3800", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$3800, $JList*, AquaComboBoxUI*)},
-	{"access$3900", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$3900, $JList*, AquaComboBoxUI*)},
-	{"access$400", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$400, $JList*, AquaComboBoxUI*)},
-	{"access$4000", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$4000, $JList*, AquaComboBoxUI*)},
-	{"access$4100", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$4100, $JList*, AquaComboBoxUI*)},
-	{"access$4200", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$4200, $JList*, AquaComboBoxUI*)},
-	{"access$4300", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$4300, $JList*, AquaComboBoxUI*)},
-	{"access$4400", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$4400, $JList*, AquaComboBoxUI*)},
-	{"access$4500", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$4500, $JList*, AquaComboBoxUI*)},
-	{"access$4600", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$4600, $JList*, AquaComboBoxUI*)},
-	{"access$4700", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$4700, $JList*, AquaComboBoxUI*)},
-	{"access$4800", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$4800, $JList*, AquaComboBoxUI*)},
-	{"access$4900", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$4900, $JList*, AquaComboBoxUI*)},
-	{"access$500", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/plaf/basic/ComboPopup;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$500, $ComboPopup*, AquaComboBoxUI*)},
-	{"access$5000", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$5000, $JList*, AquaComboBoxUI*)},
-	{"access$5100", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$5100, $JList*, AquaComboBoxUI*)},
-	{"access$5200", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$5200, $JList*, AquaComboBoxUI*)},
-	{"access$5300", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$5300, $JButton*, AquaComboBoxUI*)},
-	{"access$5400", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$5400, $JComboBox*, AquaComboBoxUI*)},
-	{"access$5500", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$5500, $JComboBox*, AquaComboBoxUI*)},
-	{"access$5600", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$5600, $JComboBox*, AquaComboBoxUI*)},
-	{"access$5700", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$5700, $JComboBox*, AquaComboBoxUI*)},
-	{"access$5800", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$5800, $JButton*, AquaComboBoxUI*)},
-	{"access$5900", "(Lcom/apple/laf/AquaComboBoxUI;)Ljava/awt/Insets;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$5900, $Insets*, AquaComboBoxUI*)},
-	{"access$600", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/plaf/basic/ComboPopup;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$600, $ComboPopup*, AquaComboBoxUI*)},
-	{"access$6000", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$6000, $JButton*, AquaComboBoxUI*)},
-	{"access$6100", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$6100, $JButton*, AquaComboBoxUI*)},
-	{"access$6200", "(Lcom/apple/laf/AquaComboBoxUI;)Ljava/awt/Component;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$6200, $Component*, AquaComboBoxUI*)},
-	{"access$6300", "(Lcom/apple/laf/AquaComboBoxUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$6300, $Rectangle*, AquaComboBoxUI*)},
-	{"access$6400", "(Lcom/apple/laf/AquaComboBoxUI;)Ljava/awt/Component;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$6400, $Component*, AquaComboBoxUI*)},
-	{"access$6500", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$6500, $JComboBox*, AquaComboBoxUI*)},
-	{"access$6600", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$6600, $JComboBox*, AquaComboBoxUI*)},
-	{"access$6700", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$6700, $JComboBox*, AquaComboBoxUI*)},
-	{"access$6800", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$6800, $JComboBox*, AquaComboBoxUI*)},
-	{"access$6900", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$6900, $JList*, AquaComboBoxUI*)},
-	{"access$700", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/plaf/basic/ComboPopup;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$700, $ComboPopup*, AquaComboBoxUI*)},
-	{"access$7000", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$7000, $JList*, AquaComboBoxUI*)},
-	{"access$7100", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$7100, $JComboBox*, AquaComboBoxUI*)},
-	{"access$7200", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$7200, $JComboBox*, AquaComboBoxUI*)},
-	{"access$7300", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$7300, $JButton*, AquaComboBoxUI*)},
-	{"access$7400", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$7400, $JButton*, AquaComboBoxUI*)},
-	{"access$7500", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$7500, $JList*, AquaComboBoxUI*)},
-	{"access$7600", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$7600, $JList*, AquaComboBoxUI*)},
-	{"access$7700", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$7700, $JButton*, AquaComboBoxUI*)},
-	{"access$7800", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$7800, $JButton*, AquaComboBoxUI*)},
-	{"access$7900", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$7900, $JList*, AquaComboBoxUI*)},
-	{"access$800", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$800, $JComboBox*, AquaComboBoxUI*)},
-	{"access$8000", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$8000, $JList*, AquaComboBoxUI*)},
-	{"access$8100", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$8100, $JButton*, AquaComboBoxUI*)},
-	{"access$8200", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$8200, $JButton*, AquaComboBoxUI*)},
-	{"access$8300", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$8300, $JButton*, AquaComboBoxUI*)},
-	{"access$8400", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$8400, $JButton*, AquaComboBoxUI*)},
-	{"access$900", "(Lcom/apple/laf/AquaComboBoxUI;)Ljava/awt/Component;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$900, $Component*, AquaComboBoxUI*)},
-	{"applySizeFor", "(Ljavax/swing/JComponent;Lapple/laf/JRSUIConstants$Size;)V", nullptr, $PUBLIC, $virtualMethod(AquaComboBoxUI, applySizeFor, void, $JComponent*, $JRSUIConstants$Size*)},
-	{"createArrowButton", "()Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxUI, createArrowButton, $JButton*)},
-	{"createEditor", "()Ljavax/swing/ComboBoxEditor;", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxUI, createEditor, $ComboBoxEditor*)},
-	{"createFocusListener", "()Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxUI, createFocusListener, $FocusListener*)},
-	{"createItemListener", "()Ljava/awt/event/ItemListener;", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxUI, createItemListener, $ItemListener*)},
-	{"createLayoutManager", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxUI, createLayoutManager, $LayoutManager*)},
-	{"createPopup", "()Ljavax/swing/plaf/basic/ComboPopup;", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxUI, createPopup, $ComboPopup*)},
-	{"createRenderer", "()Ljavax/swing/ListCellRenderer;", "()Ljavax/swing/ListCellRenderer<Ljava/lang/Object;>;", $PROTECTED, $virtualMethod(AquaComboBoxUI, createRenderer, $ListCellRenderer*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaComboBoxUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getApplicator", "()Lcom/apple/laf/ClientPropertyApplicator;", "()Lcom/apple/laf/ClientPropertyApplicator<Ljavax/swing/JComboBox<*>;Lcom/apple/laf/AquaComboBoxUI;>;", $STATIC, $staticMethod(AquaComboBoxUI, getApplicator, $ClientPropertyApplicator*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaComboBoxUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getPopup", "()Ljavax/swing/plaf/basic/ComboPopup;", nullptr, $PUBLIC, $virtualMethod(AquaComboBoxUI, getPopup, $ComboPopup*)},
-	{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxUI, installComponents, void)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxUI, installKeyboardActions, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxUI, installListeners, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaComboBoxUI, installUI, void, $JComponent*)},
-	{"isPopdown", "(Ljavax/swing/JComboBox;)Z", "(Ljavax/swing/JComboBox<*>;)Z", $PROTECTED | $STATIC, $staticMethod(AquaComboBoxUI, isPopdown, bool, $JComboBox*)},
-	{"isTableCellEditor", "(Ljavax/swing/JComponent;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaComboBoxUI, isTableCellEditor, bool, $JComponent*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaComboBoxUI, paint, void, $Graphics*, $JComponent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"triggerSelectionEvent", "(Ljavax/swing/JComboBox;Ljava/awt/event/ActionEvent;)V", "(Ljavax/swing/JComboBox<*>;Ljava/awt/event/ActionEvent;)V", $PROTECTED | $STATIC, $staticMethod(AquaComboBoxUI, triggerSelectionEvent, void, $JComboBox*, $ActionEvent*)},
-	{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxUI, uninstallComponents, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxUI, uninstallListeners, void)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaComboBoxUI, uninstallUI, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _AquaComboBoxUI_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaUtilControlSize$Sizeable", "com.apple.laf.AquaUtilControlSize", "Sizeable", $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.apple.laf.AquaComboBoxUI$AquaComboBoxLayoutManager", "com.apple.laf.AquaComboBoxUI", "AquaComboBoxLayoutManager", 0},
-	{"com.apple.laf.AquaComboBoxUI$ComboBoxAction", "com.apple.laf.AquaComboBoxUI", "ComboBoxAction", $PRIVATE | $ABSTRACT},
-	{"com.apple.laf.AquaComboBoxUI$AquaCustomComboTextField", "com.apple.laf.AquaComboBoxUI", "AquaCustomComboTextField", 0},
-	{"com.apple.laf.AquaComboBoxUI$AquaComboBoxEditor", "com.apple.laf.AquaComboBoxUI", "AquaComboBoxEditor", $FINAL},
-	{"com.apple.laf.AquaComboBoxUI$12", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaComboBoxUI$11", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaComboBoxUI$10", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaComboBoxUI$9", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaComboBoxUI$8", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaComboBoxUI$7", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaComboBoxUI$6", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaComboBoxUI$5", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaComboBoxUI$4", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaComboBoxUI$3", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaComboBoxUI$2", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaComboBoxUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaComboBoxUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaComboBoxUI",
-	"javax.swing.plaf.basic.BasicComboBoxUI",
-	"com.apple.laf.AquaUtilControlSize$Sizeable",
-	_AquaComboBoxUI_FieldInfo_,
-	_AquaComboBoxUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaComboBoxUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaComboBoxUI$AquaComboBoxLayoutManager,com.apple.laf.AquaComboBoxUI$ComboBoxAction,com.apple.laf.AquaComboBoxUI$AquaCustomComboTextField,com.apple.laf.AquaComboBoxUI$AquaCustomComboTextField$1,com.apple.laf.AquaComboBoxUI$AquaComboBoxEditor,com.apple.laf.AquaComboBoxUI$12,com.apple.laf.AquaComboBoxUI$12$7,com.apple.laf.AquaComboBoxUI$12$6,com.apple.laf.AquaComboBoxUI$12$5,com.apple.laf.AquaComboBoxUI$12$4,com.apple.laf.AquaComboBoxUI$12$3,com.apple.laf.AquaComboBoxUI$12$2,com.apple.laf.AquaComboBoxUI$12$1,com.apple.laf.AquaComboBoxUI$11,com.apple.laf.AquaComboBoxUI$10,com.apple.laf.AquaComboBoxUI$9,com.apple.laf.AquaComboBoxUI$8,com.apple.laf.AquaComboBoxUI$7,com.apple.laf.AquaComboBoxUI$6,com.apple.laf.AquaComboBoxUI$5,com.apple.laf.AquaComboBoxUI$4,com.apple.laf.AquaComboBoxUI$3,com.apple.laf.AquaComboBoxUI$2,com.apple.laf.AquaComboBoxUI$1,com.apple.laf.AquaComboBoxUI$1$1"
-};
-
-$Object* allocate$AquaComboBoxUI($Class* clazz) {
-	return $of($alloc(AquaComboBoxUI));
-}
 
 int32_t AquaComboBoxUI::hashCode() {
 	 return this->$BasicComboBoxUI::hashCode();
@@ -775,7 +598,6 @@ $ComponentUI* AquaComboBoxUI::createUI($JComponent* c) {
 
 void AquaComboBoxUI::installUI($JComponent* c) {
 	$BasicComboBoxUI::installUI(c);
-	$init($Boolean);
 	$LookAndFeel::installProperty(c, "opaque"_s, $Boolean::FALSE);
 	this->wasOpaque = $nc(c)->isOpaque();
 	c->setOpaque(false);
@@ -798,13 +620,13 @@ void AquaComboBoxUI::uninstallListeners() {
 
 void AquaComboBoxUI::installComponents() {
 	$BasicComboBoxUI::installComponents();
-	$nc($(getApplicator()))->attachAndApplyClientProperties(this->comboBox);
+	$$nc(getApplicator())->attachAndApplyClientProperties(this->comboBox);
 }
 
 void AquaComboBoxUI::uninstallComponents() {
-	$useLocalCurrentObjectStackCache();
-	$nc($(getApplicator()))->removeFrom(this->comboBox);
-	$nc($($cast($ButtonUI, $nc(this->arrowButton)->getUI())))->uninstallUI(this->arrowButton);
+	$useLocalObjectStack();
+	$$nc(getApplicator())->removeFrom(this->comboBox);
+	$$sure($ButtonUI, $nc(this->arrowButton)->getUI())->uninstallUI(this->arrowButton);
 	$BasicComboBoxUI::uninstallComponents();
 }
 
@@ -860,33 +682,31 @@ $LayoutManager* AquaComboBoxUI::createLayoutManager() {
 
 bool AquaComboBoxUI::isTableCellEditor($JComponent* c) {
 	$init(AquaComboBoxUI);
-	$init($Boolean);
 	return $nc($Boolean::TRUE)->equals($($nc(c)->getClientProperty(AquaComboBoxUI::IS_TABLE_CELL_EDITOR)));
 }
 
 bool AquaComboBoxUI::isPopdown($JComboBox* c) {
 	$init(AquaComboBoxUI);
 	bool var$0 = $nc(c)->isEditable();
-	$init($Boolean);
-	return var$0 || $nc($Boolean::TRUE)->equals($($nc(c)->getClientProperty(AquaComboBoxUI::POPDOWN_CLIENT_PROPERTY_KEY)));
+	return var$0 || $nc($Boolean::TRUE)->equals($(c->getClientProperty(AquaComboBoxUI::POPDOWN_CLIENT_PROPERTY_KEY)));
 }
 
 void AquaComboBoxUI::triggerSelectionEvent($JComboBox* comboBox, $ActionEvent* e) {
 	$init(AquaComboBoxUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(comboBox)->isEnabled()) {
 		return;
 	}
-	$var(AquaComboBoxUI, aquaUi, $cast(AquaComboBoxUI, $cast($ComboBoxUI, $nc(comboBox)->getUI())));
-	if ($nc($($nc($($nc(aquaUi)->getPopup()))->getList()))->getSelectedIndex() < 0) {
+	$var(AquaComboBoxUI, aquaUi, $cast(AquaComboBoxUI, $cast($ComboBoxUI, comboBox->getUI())));
+	if ($$nc($$nc($nc(aquaUi)->getPopup())->getList())->getSelectedIndex() < 0) {
 		comboBox->setPopupVisible(false);
 	}
 	if (isTableCellEditor(comboBox)) {
-		comboBox->setSelectedIndex($nc($($nc($($nc(aquaUi)->getPopup()))->getList()))->getSelectedIndex());
+		comboBox->setSelectedIndex($$nc($$nc(aquaUi->getPopup())->getList())->getSelectedIndex());
 		return;
 	}
 	if (comboBox->isPopupVisible()) {
-		comboBox->setSelectedIndex($nc($($nc($($nc(aquaUi)->getPopup()))->getList()))->getSelectedIndex());
+		comboBox->setSelectedIndex($$nc($$nc(aquaUi->getPopup())->getList())->getSelectedIndex());
 		comboBox->setPopupVisible(false);
 		return;
 	}
@@ -907,15 +727,14 @@ void AquaComboBoxUI::triggerSelectionEvent($JComboBox* comboBox, $ActionEvent* e
 	if (action == nullptr) {
 		return;
 	}
-	$var($Object, var$0, $of(root));
-	int32_t var$1 = $nc(e)->getID();
-	$var($String, var$2, e->getActionCommand());
-	int64_t var$3 = e->getWhen();
-	$nc(action)->actionPerformed($$new($ActionEvent, var$0, var$1, var$2, var$3, e->getModifiers()));
+	int32_t var$0 = $nc(e)->getID();
+	$var($String, var$1, e->getActionCommand());
+	int64_t var$2 = e->getWhen();
+	$nc(action)->actionPerformed($$new($ActionEvent, root, var$0, var$1, var$2, e->getModifiers()));
 }
 
 void AquaComboBoxUI::applySizeFor($JComponent* c, $JRSUIConstants$Size* size) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->arrowButton == nullptr) {
 		return;
 	}
@@ -928,7 +747,7 @@ void AquaComboBoxUI::applySizeFor($JComponent* c, $JRSUIConstants$Size* size) {
 }
 
 $Dimension* AquaComboBoxUI::getMinimumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->isMinimumSizeDirty) {
 		return $new($Dimension, this->cachedMinimumSize);
 	}
@@ -940,7 +759,7 @@ $Dimension* AquaComboBoxUI::getMinimumSize($JComponent* c) {
 		$var($Insets, insets, $new($Insets, 0, 5, 0, 25));
 		$assign(size, getDisplaySize());
 		$nc(size)->width += insets->left + insets->right;
-		size->width += $nc(buttonInsets)->left + buttonInsets->right;
+		size->width += $nc(buttonInsets)->left + $nc(buttonInsets)->right;
 		size->width += buttonInsets->right + 10;
 		size->height += insets->top + insets->bottom;
 		size->height += buttonInsets->top + buttonInsets->bottom;
@@ -948,27 +767,27 @@ $Dimension* AquaComboBoxUI::getMinimumSize($JComponent* c) {
 	} else if (editable && this->arrowButton != nullptr && this->editor != nullptr) {
 		$assign(size, $BasicComboBoxUI::getMinimumSize(c));
 		$var($Insets, margin, $nc(this->arrowButton)->getMargin());
-		$nc(size)->height += $nc(margin)->top + margin->bottom;
+		$nc(size)->height += $nc(margin)->top + $nc(margin)->bottom;
 	} else {
 		$assign(size, $BasicComboBoxUI::getMinimumSize(c));
 	}
 	$var($Border, border, $nc(c)->getBorder());
 	if (border != nullptr) {
 		$var($Insets, insets, border->getBorderInsets(c));
-		$nc(size)->height += $nc(insets)->top + insets->bottom;
+		$nc(size)->height += $nc(insets)->top + $nc(insets)->bottom;
 		size->width += insets->left + insets->right;
 	}
-	$nc(this->cachedMinimumSize)->setSize($nc(size)->width, size->height);
+	$nc(this->cachedMinimumSize)->setSize($nc(size)->width, $nc(size)->height);
 	this->isMinimumSizeDirty = false;
 	return $new($Dimension, this->cachedMinimumSize);
 }
 
 $ClientPropertyApplicator* AquaComboBoxUI::getApplicator() {
 	$init(AquaComboBoxUI);
-	return $cast($ClientPropertyApplicator, $nc(AquaComboBoxUI::APPLICATOR)->get());
+	return $cast($ClientPropertyApplicator, AquaComboBoxUI::APPLICATOR->get());
 }
 
-void clinit$AquaComboBoxUI($Class* class$) {
+void AquaComboBoxUI::clinit$($Class* clazz) {
 	$assignStatic(AquaComboBoxUI::POPDOWN_CLIENT_PROPERTY_KEY, "JComboBox.isPopDown"_s);
 	$assignStatic(AquaComboBoxUI::ISSQUARE_CLIENT_PROPERTY_KEY, "JComboBox.isSquare"_s);
 	$assignStatic(AquaComboBoxUI::IS_TABLE_CELL_EDITOR, "JComboBox.isTableCellEditor"_s);
@@ -980,7 +799,177 @@ AquaComboBoxUI::AquaComboBoxUI() {
 }
 
 $Class* AquaComboBoxUI::load$($String* name, bool initialize) {
-	$loadClass(AquaComboBoxUI, name, initialize, &_AquaComboBoxUI_ClassInfo_, clinit$AquaComboBoxUI, allocate$AquaComboBoxUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"POPDOWN_CLIENT_PROPERTY_KEY", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaComboBoxUI, POPDOWN_CLIENT_PROPERTY_KEY)},
+		{"ISSQUARE_CLIENT_PROPERTY_KEY", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaComboBoxUI, ISSQUARE_CLIENT_PROPERTY_KEY)},
+		{"wasOpaque", "Z", nullptr, $PRIVATE, $field(AquaComboBoxUI, wasOpaque)},
+		{"highlightNextAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(AquaComboBoxUI, highlightNextAction)},
+		{"highlightPreviousAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(AquaComboBoxUI, highlightPreviousAction)},
+		{"highlightFirstAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(AquaComboBoxUI, highlightFirstAction)},
+		{"highlightLastAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(AquaComboBoxUI, highlightLastAction)},
+		{"highlightPageUpAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(AquaComboBoxUI, highlightPageUpAction)},
+		{"highlightPageDownAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(AquaComboBoxUI, highlightPageDownAction)},
+		{"IS_TABLE_CELL_EDITOR", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AquaComboBoxUI, IS_TABLE_CELL_EDITOR)},
+		{"triggerSelectionAction", "Ljavax/swing/Action;", nullptr, $PRIVATE | $FINAL, $field(AquaComboBoxUI, triggerSelectionAction)},
+		{"toggleSelectionAction", "Ljavax/swing/Action;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaComboBoxUI, toggleSelectionAction)},
+		{"hideAction", "Ljavax/swing/Action;", nullptr, $PRIVATE | $FINAL, $field(AquaComboBoxUI, hideAction)},
+		{"APPLICATOR", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/ClientPropertyApplicator<Ljavax/swing/JComboBox<*>;Lcom/apple/laf/AquaComboBoxUI;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaComboBoxUI, APPLICATOR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaComboBoxUI, init$, void)},
+		{"access$000", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/plaf/basic/ComboPopup;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$000, $ComboPopup*, AquaComboBoxUI*)},
+		{"access$100", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/plaf/basic/ComboPopup;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$100, $ComboPopup*, AquaComboBoxUI*)},
+		{"access$1000", "(Lcom/apple/laf/AquaComboBoxUI;)Ljava/awt/Component;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$1000, $Component*, AquaComboBoxUI*)},
+		{"access$1100", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$1100, $JButton*, AquaComboBoxUI*)},
+		{"access$1200", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$1200, $JButton*, AquaComboBoxUI*)},
+		{"access$1302", "(Lcom/apple/laf/AquaComboBoxUI;Z)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$1302, bool, AquaComboBoxUI*, bool)},
+		{"access$1400", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$1400, $JComboBox*, AquaComboBoxUI*)},
+		{"access$1500", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$1500, $JComboBox*, AquaComboBoxUI*)},
+		{"access$1600", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$1600, $JComboBox*, AquaComboBoxUI*)},
+		{"access$1700", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$1700, $JButton*, AquaComboBoxUI*)},
+		{"access$1800", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$1800, $JButton*, AquaComboBoxUI*)},
+		{"access$1900", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$1900, $JComboBox*, AquaComboBoxUI*)},
+		{"access$200", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$200, $JComboBox*, AquaComboBoxUI*)},
+		{"access$2000", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$2000, $JComboBox*, AquaComboBoxUI*)},
+		{"access$2100", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$2100, $JComboBox*, AquaComboBoxUI*)},
+		{"access$2200", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$2200, $JComboBox*, AquaComboBoxUI*)},
+		{"access$2300", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$2300, $JComboBox*, AquaComboBoxUI*)},
+		{"access$2400", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$2400, $JList*, AquaComboBoxUI*)},
+		{"access$2500", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$2500, $JComboBox*, AquaComboBoxUI*)},
+		{"access$2600", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$2600, $JList*, AquaComboBoxUI*)},
+		{"access$2700", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$2700, $JList*, AquaComboBoxUI*)},
+		{"access$2800", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$2800, $JComboBox*, AquaComboBoxUI*)},
+		{"access$2900", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$2900, $JList*, AquaComboBoxUI*)},
+		{"access$300", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/plaf/basic/ComboPopup;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$300, $ComboPopup*, AquaComboBoxUI*)},
+		{"access$3000", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$3000, $JList*, AquaComboBoxUI*)},
+		{"access$3100", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$3100, $JList*, AquaComboBoxUI*)},
+		{"access$3200", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$3200, $JComboBox*, AquaComboBoxUI*)},
+		{"access$3300", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$3300, $JList*, AquaComboBoxUI*)},
+		{"access$3400", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$3400, $JList*, AquaComboBoxUI*)},
+		{"access$3500", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$3500, $JList*, AquaComboBoxUI*)},
+		{"access$3600", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$3600, $JList*, AquaComboBoxUI*)},
+		{"access$3700", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$3700, $JList*, AquaComboBoxUI*)},
+		{"access$3800", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$3800, $JList*, AquaComboBoxUI*)},
+		{"access$3900", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$3900, $JList*, AquaComboBoxUI*)},
+		{"access$400", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$400, $JList*, AquaComboBoxUI*)},
+		{"access$4000", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$4000, $JList*, AquaComboBoxUI*)},
+		{"access$4100", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$4100, $JList*, AquaComboBoxUI*)},
+		{"access$4200", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$4200, $JList*, AquaComboBoxUI*)},
+		{"access$4300", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$4300, $JList*, AquaComboBoxUI*)},
+		{"access$4400", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$4400, $JList*, AquaComboBoxUI*)},
+		{"access$4500", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$4500, $JList*, AquaComboBoxUI*)},
+		{"access$4600", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$4600, $JList*, AquaComboBoxUI*)},
+		{"access$4700", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$4700, $JList*, AquaComboBoxUI*)},
+		{"access$4800", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$4800, $JList*, AquaComboBoxUI*)},
+		{"access$4900", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$4900, $JList*, AquaComboBoxUI*)},
+		{"access$500", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/plaf/basic/ComboPopup;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$500, $ComboPopup*, AquaComboBoxUI*)},
+		{"access$5000", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$5000, $JList*, AquaComboBoxUI*)},
+		{"access$5100", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$5100, $JList*, AquaComboBoxUI*)},
+		{"access$5200", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$5200, $JList*, AquaComboBoxUI*)},
+		{"access$5300", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$5300, $JButton*, AquaComboBoxUI*)},
+		{"access$5400", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$5400, $JComboBox*, AquaComboBoxUI*)},
+		{"access$5500", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$5500, $JComboBox*, AquaComboBoxUI*)},
+		{"access$5600", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$5600, $JComboBox*, AquaComboBoxUI*)},
+		{"access$5700", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$5700, $JComboBox*, AquaComboBoxUI*)},
+		{"access$5800", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$5800, $JButton*, AquaComboBoxUI*)},
+		{"access$5900", "(Lcom/apple/laf/AquaComboBoxUI;)Ljava/awt/Insets;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$5900, $Insets*, AquaComboBoxUI*)},
+		{"access$600", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/plaf/basic/ComboPopup;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$600, $ComboPopup*, AquaComboBoxUI*)},
+		{"access$6000", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$6000, $JButton*, AquaComboBoxUI*)},
+		{"access$6100", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$6100, $JButton*, AquaComboBoxUI*)},
+		{"access$6200", "(Lcom/apple/laf/AquaComboBoxUI;)Ljava/awt/Component;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$6200, $Component*, AquaComboBoxUI*)},
+		{"access$6300", "(Lcom/apple/laf/AquaComboBoxUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$6300, $Rectangle*, AquaComboBoxUI*)},
+		{"access$6400", "(Lcom/apple/laf/AquaComboBoxUI;)Ljava/awt/Component;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$6400, $Component*, AquaComboBoxUI*)},
+		{"access$6500", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$6500, $JComboBox*, AquaComboBoxUI*)},
+		{"access$6600", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$6600, $JComboBox*, AquaComboBoxUI*)},
+		{"access$6700", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$6700, $JComboBox*, AquaComboBoxUI*)},
+		{"access$6800", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$6800, $JComboBox*, AquaComboBoxUI*)},
+		{"access$6900", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$6900, $JList*, AquaComboBoxUI*)},
+		{"access$700", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/plaf/basic/ComboPopup;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$700, $ComboPopup*, AquaComboBoxUI*)},
+		{"access$7000", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$7000, $JList*, AquaComboBoxUI*)},
+		{"access$7100", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$7100, $JComboBox*, AquaComboBoxUI*)},
+		{"access$7200", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$7200, $JComboBox*, AquaComboBoxUI*)},
+		{"access$7300", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$7300, $JButton*, AquaComboBoxUI*)},
+		{"access$7400", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$7400, $JButton*, AquaComboBoxUI*)},
+		{"access$7500", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$7500, $JList*, AquaComboBoxUI*)},
+		{"access$7600", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$7600, $JList*, AquaComboBoxUI*)},
+		{"access$7700", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$7700, $JButton*, AquaComboBoxUI*)},
+		{"access$7800", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$7800, $JButton*, AquaComboBoxUI*)},
+		{"access$7900", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$7900, $JList*, AquaComboBoxUI*)},
+		{"access$800", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$800, $JComboBox*, AquaComboBoxUI*)},
+		{"access$8000", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$8000, $JList*, AquaComboBoxUI*)},
+		{"access$8100", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$8100, $JButton*, AquaComboBoxUI*)},
+		{"access$8200", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$8200, $JButton*, AquaComboBoxUI*)},
+		{"access$8300", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$8300, $JButton*, AquaComboBoxUI*)},
+		{"access$8400", "(Lcom/apple/laf/AquaComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$8400, $JButton*, AquaComboBoxUI*)},
+		{"access$900", "(Lcom/apple/laf/AquaComboBoxUI;)Ljava/awt/Component;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaComboBoxUI, access$900, $Component*, AquaComboBoxUI*)},
+		{"applySizeFor", "(Ljavax/swing/JComponent;Lapple/laf/JRSUIConstants$Size;)V", nullptr, $PUBLIC, $virtualMethod(AquaComboBoxUI, applySizeFor, void, $JComponent*, $JRSUIConstants$Size*)},
+		{"createArrowButton", "()Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxUI, createArrowButton, $JButton*)},
+		{"createEditor", "()Ljavax/swing/ComboBoxEditor;", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxUI, createEditor, $ComboBoxEditor*)},
+		{"createFocusListener", "()Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxUI, createFocusListener, $FocusListener*)},
+		{"createItemListener", "()Ljava/awt/event/ItemListener;", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxUI, createItemListener, $ItemListener*)},
+		{"createLayoutManager", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxUI, createLayoutManager, $LayoutManager*)},
+		{"createPopup", "()Ljavax/swing/plaf/basic/ComboPopup;", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxUI, createPopup, $ComboPopup*)},
+		{"createRenderer", "()Ljavax/swing/ListCellRenderer;", "()Ljavax/swing/ListCellRenderer<Ljava/lang/Object;>;", $PROTECTED, $virtualMethod(AquaComboBoxUI, createRenderer, $ListCellRenderer*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaComboBoxUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getApplicator", "()Lcom/apple/laf/ClientPropertyApplicator;", "()Lcom/apple/laf/ClientPropertyApplicator<Ljavax/swing/JComboBox<*>;Lcom/apple/laf/AquaComboBoxUI;>;", $STATIC, $staticMethod(AquaComboBoxUI, getApplicator, $ClientPropertyApplicator*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaComboBoxUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getPopup", "()Ljavax/swing/plaf/basic/ComboPopup;", nullptr, $PUBLIC, $virtualMethod(AquaComboBoxUI, getPopup, $ComboPopup*)},
+		{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxUI, installComponents, void)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxUI, installKeyboardActions, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxUI, installListeners, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaComboBoxUI, installUI, void, $JComponent*)},
+		{"isPopdown", "(Ljavax/swing/JComboBox;)Z", "(Ljavax/swing/JComboBox<*>;)Z", $PROTECTED | $STATIC, $staticMethod(AquaComboBoxUI, isPopdown, bool, $JComboBox*)},
+		{"isTableCellEditor", "(Ljavax/swing/JComponent;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaComboBoxUI, isTableCellEditor, bool, $JComponent*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaComboBoxUI, paint, void, $Graphics*, $JComponent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"triggerSelectionEvent", "(Ljavax/swing/JComboBox;Ljava/awt/event/ActionEvent;)V", "(Ljavax/swing/JComboBox<*>;Ljava/awt/event/ActionEvent;)V", $PROTECTED | $STATIC, $staticMethod(AquaComboBoxUI, triggerSelectionEvent, void, $JComboBox*, $ActionEvent*)},
+		{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxUI, uninstallComponents, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxUI, uninstallListeners, void)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaComboBoxUI, uninstallUI, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaUtilControlSize$Sizeable", "com.apple.laf.AquaUtilControlSize", "Sizeable", $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.apple.laf.AquaComboBoxUI$AquaComboBoxLayoutManager", "com.apple.laf.AquaComboBoxUI", "AquaComboBoxLayoutManager", 0},
+		{"com.apple.laf.AquaComboBoxUI$ComboBoxAction", "com.apple.laf.AquaComboBoxUI", "ComboBoxAction", $PRIVATE | $ABSTRACT},
+		{"com.apple.laf.AquaComboBoxUI$AquaCustomComboTextField", "com.apple.laf.AquaComboBoxUI", "AquaCustomComboTextField", 0},
+		{"com.apple.laf.AquaComboBoxUI$AquaComboBoxEditor", "com.apple.laf.AquaComboBoxUI", "AquaComboBoxEditor", $FINAL},
+		{"com.apple.laf.AquaComboBoxUI$12", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaComboBoxUI$11", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaComboBoxUI$10", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaComboBoxUI$9", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaComboBoxUI$8", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaComboBoxUI$7", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaComboBoxUI$6", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaComboBoxUI$5", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaComboBoxUI$4", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaComboBoxUI$3", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaComboBoxUI$2", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaComboBoxUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaComboBoxUI",
+		"javax.swing.plaf.basic.BasicComboBoxUI",
+		"com.apple.laf.AquaUtilControlSize$Sizeable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaComboBoxUI$AquaComboBoxLayoutManager,com.apple.laf.AquaComboBoxUI$ComboBoxAction,com.apple.laf.AquaComboBoxUI$AquaCustomComboTextField,com.apple.laf.AquaComboBoxUI$AquaCustomComboTextField$1,com.apple.laf.AquaComboBoxUI$AquaComboBoxEditor,com.apple.laf.AquaComboBoxUI$12,com.apple.laf.AquaComboBoxUI$12$7,com.apple.laf.AquaComboBoxUI$12$6,com.apple.laf.AquaComboBoxUI$12$5,com.apple.laf.AquaComboBoxUI$12$4,com.apple.laf.AquaComboBoxUI$12$3,com.apple.laf.AquaComboBoxUI$12$2,com.apple.laf.AquaComboBoxUI$12$1,com.apple.laf.AquaComboBoxUI$11,com.apple.laf.AquaComboBoxUI$10,com.apple.laf.AquaComboBoxUI$9,com.apple.laf.AquaComboBoxUI$8,com.apple.laf.AquaComboBoxUI$7,com.apple.laf.AquaComboBoxUI$6,com.apple.laf.AquaComboBoxUI$5,com.apple.laf.AquaComboBoxUI$4,com.apple.laf.AquaComboBoxUI$3,com.apple.laf.AquaComboBoxUI$2,com.apple.laf.AquaComboBoxUI$1,com.apple.laf.AquaComboBoxUI$1$1"
+	};
+	$loadClass(AquaComboBoxUI, name, initialize, &classInfo$$, AquaComboBoxUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaComboBoxUI));
+	});
 	return class$;
 }
 

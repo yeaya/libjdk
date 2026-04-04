@@ -104,6 +104,7 @@ class $import Toolkit : public ::java::lang::Object {
 	$class(Toolkit, 0, ::java::lang::Object)
 public:
 	Toolkit();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addAWTEventListener(::java::awt::event::AWTEventListener* listener, int64_t eventMask);
 	virtual void addPropertyChangeListener($String* name, ::java::beans::PropertyChangeListener* pcl);

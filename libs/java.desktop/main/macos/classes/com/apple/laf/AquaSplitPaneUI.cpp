@@ -1,11 +1,8 @@
 #include <com/apple/laf/AquaSplitPaneUI.h>
-
 #include <com/apple/laf/AquaSplitPaneDividerUI.h>
 #include <java/awt/Component.h>
 #include <java/awt/event/MouseEvent.h>
-#include <java/awt/event/MouseListener.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JSplitPane.h>
 #include <javax/swing/border/Border.h>
@@ -18,15 +15,12 @@
 
 using $AquaSplitPaneDividerUI = ::com::apple::laf::AquaSplitPaneDividerUI;
 using $MouseEvent = ::java::awt::event::MouseEvent;
-using $MouseListener = ::java::awt::event::MouseListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
-using $JSplitPane = ::javax::swing::JSplitPane;
 using $Border = ::javax::swing::border::Border;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $BasicSplitPaneDivider = ::javax::swing::plaf::basic::BasicSplitPaneDivider;
@@ -35,44 +29,6 @@ using $BasicSplitPaneUI = ::javax::swing::plaf::basic::BasicSplitPaneUI;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaSplitPaneUI_FieldInfo_[] = {
-	{"DIVIDER_PAINTER_KEY", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaSplitPaneUI, DIVIDER_PAINTER_KEY)},
-	{}
-};
-
-$MethodInfo _AquaSplitPaneUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaSplitPaneUI, init$, void)},
-	{"createDefaultDivider", "()Ljavax/swing/plaf/basic/BasicSplitPaneDivider;", nullptr, $PUBLIC, $virtualMethod(AquaSplitPaneUI, createDefaultDivider, $BasicSplitPaneDivider*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaSplitPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaSplitPaneUI, installListeners, void)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSplitPaneUI, mouseClicked, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSplitPaneUI, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSplitPaneUI, mouseExited, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSplitPaneUI, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSplitPaneUI, mouseReleased, void, $MouseEvent*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSplitPaneUI, propertyChange, void, $PropertyChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaSplitPaneUI, uninstallListeners, void)},
-	{}
-};
-
-$ClassInfo _AquaSplitPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaSplitPaneUI",
-	"javax.swing.plaf.basic.BasicSplitPaneUI",
-	"java.awt.event.MouseListener,java.beans.PropertyChangeListener",
-	_AquaSplitPaneUI_FieldInfo_,
-	_AquaSplitPaneUI_MethodInfo_
-};
-
-$Object* allocate$AquaSplitPaneUI($Class* clazz) {
-	return $of($alloc(AquaSplitPaneUI));
-}
 
 int32_t AquaSplitPaneUI::hashCode() {
 	 return this->$BasicSplitPaneUI::hashCode();
@@ -161,11 +117,11 @@ void AquaSplitPaneUI::mouseReleased($MouseEvent* e) {
 }
 
 void AquaSplitPaneUI::propertyChange($PropertyChangeEvent* evt) {
-	$useLocalCurrentObjectStackCache();
-	if (!$nc(AquaSplitPaneUI::DIVIDER_PAINTER_KEY)->equals($($nc(evt)->getPropertyName()))) {
+	$useLocalObjectStack();
+	if (!AquaSplitPaneUI::DIVIDER_PAINTER_KEY->equals($($nc(evt)->getPropertyName()))) {
 		return;
 	}
-	$var($Object, value, $nc(evt)->getNewValue());
+	$var($Object, value, evt->getNewValue());
 	if ($instanceOf($Border, value)) {
 		$nc(this->divider)->setBorder($cast($Border, value));
 	} else {
@@ -176,12 +132,45 @@ void AquaSplitPaneUI::propertyChange($PropertyChangeEvent* evt) {
 AquaSplitPaneUI::AquaSplitPaneUI() {
 }
 
-void clinit$AquaSplitPaneUI($Class* class$) {
+void AquaSplitPaneUI::clinit$($Class* clazz) {
 	$assignStatic(AquaSplitPaneUI::DIVIDER_PAINTER_KEY, "JSplitPane.dividerPainter"_s);
 }
 
 $Class* AquaSplitPaneUI::load$($String* name, bool initialize) {
-	$loadClass(AquaSplitPaneUI, name, initialize, &_AquaSplitPaneUI_ClassInfo_, clinit$AquaSplitPaneUI, allocate$AquaSplitPaneUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"DIVIDER_PAINTER_KEY", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaSplitPaneUI, DIVIDER_PAINTER_KEY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaSplitPaneUI, init$, void)},
+		{"createDefaultDivider", "()Ljavax/swing/plaf/basic/BasicSplitPaneDivider;", nullptr, $PUBLIC, $virtualMethod(AquaSplitPaneUI, createDefaultDivider, $BasicSplitPaneDivider*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaSplitPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaSplitPaneUI, installListeners, void)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSplitPaneUI, mouseClicked, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSplitPaneUI, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSplitPaneUI, mouseExited, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSplitPaneUI, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSplitPaneUI, mouseReleased, void, $MouseEvent*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSplitPaneUI, propertyChange, void, $PropertyChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaSplitPaneUI, uninstallListeners, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaSplitPaneUI",
+		"javax.swing.plaf.basic.BasicSplitPaneUI",
+		"java.awt.event.MouseListener,java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AquaSplitPaneUI, name, initialize, &classInfo$$, AquaSplitPaneUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaSplitPaneUI));
+	});
 	return class$;
 }
 

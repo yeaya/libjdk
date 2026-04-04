@@ -26,6 +26,7 @@ class MBeanServerFileAccessController$AccessType : public ::java::lang::Enum {
 public:
 	MBeanServerFileAccessController$AccessType();
 	static $Array<::com::sun::jmx::remote::security::MBeanServerFileAccessController$AccessType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::jmx::remote::security::MBeanServerFileAccessController$AccessType* valueOf($String* name);
 	static $Array<::com::sun::jmx::remote::security::MBeanServerFileAccessController$AccessType>* values();

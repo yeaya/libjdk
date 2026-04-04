@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifBorders.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics.h>
 #include <jcpp.h>
@@ -16,43 +15,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace motif {
-
-$MethodInfo _MotifBorders_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifBorders, init$, void)},
-	{"drawBezel", "(Ljava/awt/Graphics;IIIIZZLjava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifBorders, drawBezel, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, bool, bool, $Color*, $Color*, $Color*, $Color*)},
-	{}
-};
-
-$InnerClassInfo _MotifBorders_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifBorders$MotifPopupMenuBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "MotifPopupMenuBorder", $PUBLIC | $STATIC},
-	{"com.sun.java.swing.plaf.motif.MotifBorders$InternalFrameBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "InternalFrameBorder", $PUBLIC | $STATIC},
-	{"com.sun.java.swing.plaf.motif.MotifBorders$FrameBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "FrameBorder", $PUBLIC | $STATIC},
-	{"com.sun.java.swing.plaf.motif.MotifBorders$MenuBarBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "MenuBarBorder", $PUBLIC | $STATIC},
-	{"com.sun.java.swing.plaf.motif.MotifBorders$ToggleButtonBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "ToggleButtonBorder", $PUBLIC | $STATIC},
-	{"com.sun.java.swing.plaf.motif.MotifBorders$ButtonBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "ButtonBorder", $PUBLIC | $STATIC},
-	{"com.sun.java.swing.plaf.motif.MotifBorders$FocusBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "FocusBorder", $PUBLIC | $STATIC},
-	{"com.sun.java.swing.plaf.motif.MotifBorders$BevelBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "BevelBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MotifBorders_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifBorders",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_MotifBorders_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifBorders_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifBorders$MotifPopupMenuBorder,com.sun.java.swing.plaf.motif.MotifBorders$InternalFrameBorder,com.sun.java.swing.plaf.motif.MotifBorders$FrameBorder,com.sun.java.swing.plaf.motif.MotifBorders$MenuBarBorder,com.sun.java.swing.plaf.motif.MotifBorders$ToggleButtonBorder,com.sun.java.swing.plaf.motif.MotifBorders$ButtonBorder,com.sun.java.swing.plaf.motif.MotifBorders$FocusBorder,com.sun.java.swing.plaf.motif.MotifBorders$BevelBorder"
-};
-
-$Object* allocate$MotifBorders($Class* clazz) {
-	return $of($alloc(MotifBorders));
-}
 
 void MotifBorders::init$() {
 }
@@ -103,7 +65,39 @@ MotifBorders::MotifBorders() {
 }
 
 $Class* MotifBorders::load$($String* name, bool initialize) {
-	$loadClass(MotifBorders, name, initialize, &_MotifBorders_ClassInfo_, allocate$MotifBorders);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifBorders, init$, void)},
+		{"drawBezel", "(Ljava/awt/Graphics;IIIIZZLjava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifBorders, drawBezel, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, bool, bool, $Color*, $Color*, $Color*, $Color*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifBorders$MotifPopupMenuBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "MotifPopupMenuBorder", $PUBLIC | $STATIC},
+		{"com.sun.java.swing.plaf.motif.MotifBorders$InternalFrameBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "InternalFrameBorder", $PUBLIC | $STATIC},
+		{"com.sun.java.swing.plaf.motif.MotifBorders$FrameBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "FrameBorder", $PUBLIC | $STATIC},
+		{"com.sun.java.swing.plaf.motif.MotifBorders$MenuBarBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "MenuBarBorder", $PUBLIC | $STATIC},
+		{"com.sun.java.swing.plaf.motif.MotifBorders$ToggleButtonBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "ToggleButtonBorder", $PUBLIC | $STATIC},
+		{"com.sun.java.swing.plaf.motif.MotifBorders$ButtonBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "ButtonBorder", $PUBLIC | $STATIC},
+		{"com.sun.java.swing.plaf.motif.MotifBorders$FocusBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "FocusBorder", $PUBLIC | $STATIC},
+		{"com.sun.java.swing.plaf.motif.MotifBorders$BevelBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "BevelBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifBorders",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifBorders$MotifPopupMenuBorder,com.sun.java.swing.plaf.motif.MotifBorders$InternalFrameBorder,com.sun.java.swing.plaf.motif.MotifBorders$FrameBorder,com.sun.java.swing.plaf.motif.MotifBorders$MenuBarBorder,com.sun.java.swing.plaf.motif.MotifBorders$ToggleButtonBorder,com.sun.java.swing.plaf.motif.MotifBorders$ButtonBorder,com.sun.java.swing.plaf.motif.MotifBorders$FocusBorder,com.sun.java.swing.plaf.motif.MotifBorders$BevelBorder"
+	};
+	$loadClass(MotifBorders, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MotifBorders);
+	});
 	return class$;
 }
 

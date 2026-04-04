@@ -22,13 +22,14 @@ class $export InvalidTargetObjectTypeException : public ::java::lang::Exception 
 	$class(InvalidTargetObjectTypeException, 0, ::java::lang::Exception)
 public:
 	InvalidTargetObjectTypeException();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* s);
 	void init$(::java::lang::Exception* e, $String* s);
 	void readObject(::java::io::ObjectInputStream* in);
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t oldSerialVersionUID = (int64_t)0x3382B1D4CE42548A;
-	static const int64_t newSerialVersionUID = (int64_t)0x1085A26FF64F1351;
+	static const int64_t oldSerialVersionUID = (int64_t)0x3382b1d4ce42548a;
+	static const int64_t newSerialVersionUID = (int64_t)0x1085a26ff64f1351;
 	static $Array<::java::io::ObjectStreamField>* oldSerialPersistentFields;
 	static $Array<::java::io::ObjectStreamField>* newSerialPersistentFields;
 	static int64_t serialVersionUID;
@@ -37,7 +38,10 @@ public:
 	::java::lang::Exception* exception = nullptr;
 	InvalidTargetObjectTypeException(const InvalidTargetObjectTypeException& e);
 	virtual void throw$() override;
-	inline InvalidTargetObjectTypeException* operator ->() {
+	inline InvalidTargetObjectTypeException* operator ->() const {
+		return (InvalidTargetObjectTypeException*)throwing$;
+	}
+	inline operator InvalidTargetObjectTypeException*() const {
 		return (InvalidTargetObjectTypeException*)throwing$;
 	}
 };

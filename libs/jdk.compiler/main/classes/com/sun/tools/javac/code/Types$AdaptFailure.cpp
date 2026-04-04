@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$AdaptFailure.h>
-
 #include <com/sun/tools/javac/code/Types.h>
 #include <jcpp.h>
 
@@ -14,41 +13,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Types$AdaptFailure_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Types$AdaptFailure, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Types$AdaptFailure_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Types$AdaptFailure, init$, void)},
-	{}
-};
-
-$InnerClassInfo _Types$AdaptFailure_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$AdaptFailure", "com.sun.tools.javac.code.Types", "AdaptFailure", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Types$AdaptFailure_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Types$AdaptFailure",
-	"java.lang.RuntimeException",
-	nullptr,
-	_Types$AdaptFailure_FieldInfo_,
-	_Types$AdaptFailure_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Types$AdaptFailure_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$AdaptFailure($Class* clazz) {
-	return $of($alloc(Types$AdaptFailure));
-}
 
 void Types$AdaptFailure::init$() {
 	$RuntimeException::init$();
@@ -65,7 +29,36 @@ void Types$AdaptFailure::throw$() {
 }
 
 $Class* Types$AdaptFailure::load$($String* name, bool initialize) {
-	$loadClass(Types$AdaptFailure, name, initialize, &_Types$AdaptFailure_ClassInfo_, allocate$Types$AdaptFailure);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Types$AdaptFailure, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Types$AdaptFailure, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$AdaptFailure", "com.sun.tools.javac.code.Types", "AdaptFailure", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Types$AdaptFailure",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$AdaptFailure, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$AdaptFailure);
+	});
 	return class$;
 }
 

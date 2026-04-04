@@ -1,5 +1,4 @@
 #include <sun/awt/shell/Win32ShellFolderManager2.h>
-
 #include <java/awt/Image.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/image/BufferedImage.h>
@@ -18,10 +17,8 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/List.h>
 #include <java/util/function/IntFunction.h>
 #include <java/util/function/Predicate.h>
@@ -63,7 +60,6 @@ using $FileNotFoundException = ::java::io::FileNotFoundException;
 using $IOException = ::java::io::IOException;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
@@ -75,16 +71,13 @@ using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
 using $IntFunction = ::java::util::function::IntFunction;
 using $Predicate = ::java::util::function::Predicate;
 using $Stream = ::java::util::stream::Stream;
 using $OSInfo = ::sun::awt::OSInfo;
-using $OSInfo$WindowsVersion = ::sun::awt::OSInfo$WindowsVersion;
 using $ShellFolder = ::sun::awt::shell::ShellFolder;
 using $ShellFolder$Invoker = ::sun::awt::shell::ShellFolder$Invoker;
 using $ShellFolderManager = ::sun::awt::shell::ShellFolderManager;
@@ -110,33 +103,29 @@ public:
 	virtual bool test(Object$* file) override {
 		 return Win32ShellFolderManager2::lambda$checkFiles$0(sm, $cast($File, file));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Win32ShellFolderManager2$$Lambda$lambda$checkFiles$0>());
-	}
 	$SecurityManager* sm = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Win32ShellFolderManager2$$Lambda$lambda$checkFiles$0::fieldInfos[2] = {
-	{"sm", "Ljava/lang/SecurityManager;", nullptr, $PUBLIC, $field(Win32ShellFolderManager2$$Lambda$lambda$checkFiles$0, sm)},
-	{}
-};
-$MethodInfo Win32ShellFolderManager2$$Lambda$lambda$checkFiles$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/SecurityManager;)V", nullptr, $PUBLIC, $method(Win32ShellFolderManager2$$Lambda$lambda$checkFiles$0, init$, void, $SecurityManager*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolderManager2$$Lambda$lambda$checkFiles$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Win32ShellFolderManager2$$Lambda$lambda$checkFiles$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.shell.Win32ShellFolderManager2$$Lambda$lambda$checkFiles$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Win32ShellFolderManager2$$Lambda$lambda$checkFiles$0::load$($String* name, bool initialize) {
-	$loadClass(Win32ShellFolderManager2$$Lambda$lambda$checkFiles$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"sm", "Ljava/lang/SecurityManager;", nullptr, $PUBLIC, $field(Win32ShellFolderManager2$$Lambda$lambda$checkFiles$0, sm)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/SecurityManager;)V", nullptr, $PUBLIC, $method(Win32ShellFolderManager2$$Lambda$lambda$checkFiles$0, init$, void, $SecurityManager*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolderManager2$$Lambda$lambda$checkFiles$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.shell.Win32ShellFolderManager2$$Lambda$lambda$checkFiles$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Win32ShellFolderManager2$$Lambda$lambda$checkFiles$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Win32ShellFolderManager2$$Lambda$lambda$checkFiles$0);
+	});
 	return class$;
 }
 $Class* Win32ShellFolderManager2$$Lambda$lambda$checkFiles$0::class$ = nullptr;
@@ -147,107 +136,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return $of(Win32ShellFolderManager2::lambda$checkFiles$1(x$0));
+		 return Win32ShellFolderManager2::lambda$checkFiles$1(x$0);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Win32ShellFolderManager2$$Lambda$lambda$checkFiles$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Win32ShellFolderManager2$$Lambda$lambda$checkFiles$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Win32ShellFolderManager2$$Lambda$lambda$checkFiles$1$1, init$, void)},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolderManager2$$Lambda$lambda$checkFiles$1$1, apply, $Object*, int32_t)},
-	{}
-};
-$ClassInfo Win32ShellFolderManager2$$Lambda$lambda$checkFiles$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.shell.Win32ShellFolderManager2$$Lambda$lambda$checkFiles$1$1",
-	"java.lang.Object",
-	"java.util.function.IntFunction",
-	nullptr,
-	methodInfos
 };
 $Class* Win32ShellFolderManager2$$Lambda$lambda$checkFiles$1$1::load$($String* name, bool initialize) {
-	$loadClass(Win32ShellFolderManager2$$Lambda$lambda$checkFiles$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Win32ShellFolderManager2$$Lambda$lambda$checkFiles$1$1, init$, void)},
+		{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolderManager2$$Lambda$lambda$checkFiles$1$1, apply, $Object*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.shell.Win32ShellFolderManager2$$Lambda$lambda$checkFiles$1$1",
+		"java.lang.Object",
+		"java.util.function.IntFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Win32ShellFolderManager2$$Lambda$lambda$checkFiles$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Win32ShellFolderManager2$$Lambda$lambda$checkFiles$1$1);
+	});
 	return class$;
 }
 $Class* Win32ShellFolderManager2$$Lambda$lambda$checkFiles$1$1::class$ = nullptr;
-
-$FieldInfo _Win32ShellFolderManager2_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Win32ShellFolderManager2, log)},
-	{"VIEW_LIST", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32ShellFolderManager2, VIEW_LIST)},
-	{"VIEW_DETAILS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32ShellFolderManager2, VIEW_DETAILS)},
-	{"VIEW_PARENTFOLDER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32ShellFolderManager2, VIEW_PARENTFOLDER)},
-	{"VIEW_NEWFOLDER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32ShellFolderManager2, VIEW_NEWFOLDER)},
-	{"STANDARD_VIEW_BUTTONS", "[Ljava/awt/Image;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Win32ShellFolderManager2, STANDARD_VIEW_BUTTONS)},
-	{"desktop", "Lsun/awt/shell/Win32ShellFolder2;", nullptr, $PRIVATE | $STATIC, $staticField(Win32ShellFolderManager2, desktop)},
-	{"drives", "Lsun/awt/shell/Win32ShellFolder2;", nullptr, $PRIVATE | $STATIC, $staticField(Win32ShellFolderManager2, drives)},
-	{"recent", "Lsun/awt/shell/Win32ShellFolder2;", nullptr, $PRIVATE | $STATIC, $staticField(Win32ShellFolderManager2, recent)},
-	{"network", "Lsun/awt/shell/Win32ShellFolder2;", nullptr, $PRIVATE | $STATIC, $staticField(Win32ShellFolderManager2, network)},
-	{"personal", "Lsun/awt/shell/Win32ShellFolder2;", nullptr, $PRIVATE | $STATIC, $staticField(Win32ShellFolderManager2, personal)},
-	{"roots", "[Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticField(Win32ShellFolderManager2, roots)},
-	{"topFolderList", "Ljava/util/List;", "Ljava/util/List<Lsun/awt/shell/Win32ShellFolder2;>;", $PRIVATE | $STATIC, $staticField(Win32ShellFolderManager2, topFolderList)},
-	{}
-};
-
-$MethodInfo _Win32ShellFolderManager2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Win32ShellFolderManager2, init$, void)},
-	{"checkFile", "(Ljava/io/File;)Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticMethod(Win32ShellFolderManager2, checkFile, $File*, $File*)},
-	{"checkFile", "(Ljava/io/File;Ljava/lang/SecurityManager;)Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticMethod(Win32ShellFolderManager2, checkFile, $File*, $File*, $SecurityManager*)},
-	{"checkFiles", "([Ljava/io/File;)[Ljava/io/File;", nullptr, $STATIC, $staticMethod(Win32ShellFolderManager2, checkFiles, $FileArray*, $FileArray*)},
-	{"checkFiles", "(Ljava/util/List;)[Ljava/io/File;", "(Ljava/util/List<Ljava/io/File;>;)[Ljava/io/File;", $PRIVATE | $STATIC, $staticMethod(Win32ShellFolderManager2, checkFiles, $FileArray*, $List*)},
-	{"checkFiles", "(Ljava/util/stream/Stream;Ljava/lang/SecurityManager;)[Ljava/io/File;", "(Ljava/util/stream/Stream<Ljava/io/File;>;Ljava/lang/SecurityManager;)[Ljava/io/File;", $PRIVATE | $STATIC, $staticMethod(Win32ShellFolderManager2, checkFiles, $FileArray*, $Stream*, $SecurityManager*)},
-	{"compareNames", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $STATIC, $staticMethod(Win32ShellFolderManager2, compareNames, int32_t, $String*, $String*)},
-	{"compareShellFolders", "(Lsun/awt/shell/Win32ShellFolder2;Lsun/awt/shell/Win32ShellFolder2;)I", nullptr, $STATIC, $staticMethod(Win32ShellFolderManager2, compareShellFolders, int32_t, $Win32ShellFolder2*, $Win32ShellFolder2*)},
-	{"createInvoker", "()Lsun/awt/shell/ShellFolder$Invoker;", nullptr, $PROTECTED, $virtualMethod(Win32ShellFolderManager2, createInvoker, $ShellFolder$Invoker*)},
-	{"createShellFolder", "(Ljava/io/File;)Lsun/awt/shell/ShellFolder;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolderManager2, createShellFolder, $ShellFolder*, $File*), "java.io.FileNotFoundException"},
-	{"createShellFolder", "(Lsun/awt/shell/Win32ShellFolder2;Ljava/io/File;)Lsun/awt/shell/Win32ShellFolder2;", nullptr, $STATIC, $staticMethod(Win32ShellFolderManager2, createShellFolder, $Win32ShellFolder2*, $Win32ShellFolder2*, $File*), "java.io.FileNotFoundException,java.lang.InterruptedException"},
-	{"createShellFolderFromRelativePIDL", "(Lsun/awt/shell/Win32ShellFolder2;J)Lsun/awt/shell/Win32ShellFolder2;", nullptr, $STATIC, $staticMethod(Win32ShellFolderManager2, createShellFolderFromRelativePIDL, $Win32ShellFolder2*, $Win32ShellFolder2*, int64_t), "java.lang.InterruptedException"},
-	{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolderManager2, get, $Object*, $String*)},
-	{"getDesktop", "()Lsun/awt/shell/Win32ShellFolder2;", nullptr, $STATIC, $staticMethod(Win32ShellFolderManager2, getDesktop, $Win32ShellFolder2*)},
-	{"getDrives", "()Lsun/awt/shell/Win32ShellFolder2;", nullptr, $STATIC, $staticMethod(Win32ShellFolderManager2, getDrives, $Win32ShellFolder2*)},
-	{"getNetwork", "()Lsun/awt/shell/Win32ShellFolder2;", nullptr, $STATIC, $staticMethod(Win32ShellFolderManager2, getNetwork, $Win32ShellFolder2*)},
-	{"getPersonal", "()Lsun/awt/shell/Win32ShellFolder2;", nullptr, $STATIC, $staticMethod(Win32ShellFolderManager2, getPersonal, $Win32ShellFolder2*)},
-	{"getRecent", "()Lsun/awt/shell/Win32ShellFolder2;", nullptr, $STATIC, $staticMethod(Win32ShellFolderManager2, getRecent, $Win32ShellFolder2*)},
-	{"getStandardViewButton", "(I)Ljava/awt/Image;", nullptr, $PRIVATE | $STATIC, $staticMethod(Win32ShellFolderManager2, getStandardViewButton, $Image*, int32_t)},
-	{"initializeCom", "()V", nullptr, $STATIC | $NATIVE, $staticMethod(Win32ShellFolderManager2, initializeCom, void)},
-	{"isComputerNode", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolderManager2, isComputerNode, bool, $File*)},
-	{"isDrive", "(Ljava/io/File;)Z", nullptr, $PRIVATE, $method(Win32ShellFolderManager2, isDrive, bool, $File*)},
-	{"isFileSystemRoot", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolderManager2, isFileSystemRoot, bool, $File*)},
-	{"lambda$checkFiles$0", "(Ljava/lang/SecurityManager;Ljava/io/File;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Win32ShellFolderManager2, lambda$checkFiles$0, bool, $SecurityManager*, $File*)},
-	{"lambda$checkFiles$1", "(I)[Ljava/io/File;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Win32ShellFolderManager2, lambda$checkFiles$1, $FileArray*, int32_t)},
-	{"uninitializeCom", "()V", nullptr, $STATIC | $NATIVE, $staticMethod(Win32ShellFolderManager2, uninitializeCom, void)},
-	{}
-};
-
-#define _METHOD_INDEX_initializeCom 19
-#define _METHOD_INDEX_uninitializeCom 25
-
-$InnerClassInfo _Win32ShellFolderManager2_InnerClassesInfo_[] = {
-	{"sun.awt.shell.Win32ShellFolderManager2$ComInvoker", "sun.awt.shell.Win32ShellFolderManager2", "ComInvoker", $PRIVATE | $STATIC},
-	{"sun.awt.shell.Win32ShellFolderManager2$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Win32ShellFolderManager2_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.shell.Win32ShellFolderManager2",
-	"sun.awt.shell.ShellFolderManager",
-	nullptr,
-	_Win32ShellFolderManager2_FieldInfo_,
-	_Win32ShellFolderManager2_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Win32ShellFolderManager2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.shell.Win32ShellFolderManager2$ComInvoker,sun.awt.shell.Win32ShellFolderManager2$ComInvoker$2,sun.awt.shell.Win32ShellFolderManager2$ComInvoker$1,sun.awt.shell.Win32ShellFolderManager2$1"
-};
-
-$Object* allocate$Win32ShellFolderManager2($Class* clazz) {
-	return $of($alloc(Win32ShellFolderManager2));
-}
 
 $PlatformLogger* Win32ShellFolderManager2::log = nullptr;
 $ImageArray* Win32ShellFolderManager2::STANDARD_VIEW_BUTTONS = nullptr;
@@ -274,7 +185,7 @@ $ShellFolder* Win32ShellFolderManager2::createShellFolder($File* file) {
 
 $Win32ShellFolder2* Win32ShellFolderManager2::createShellFolder($Win32ShellFolder2* parent, $File* file) {
 	$init(Win32ShellFolderManager2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t pIDL = 0;
 	try {
 		pIDL = $nc(parent)->parseDisplayName($($nc(file)->getCanonicalPath()));
@@ -284,25 +195,23 @@ $Win32ShellFolder2* Win32ShellFolderManager2::createShellFolder($Win32ShellFolde
 	if (pIDL == 0) {
 		$throwNew($FileNotFoundException, $$str({"File "_s, $($nc(file)->getAbsolutePath()), " not found"_s}));
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Win32ShellFolder2, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, createShellFolderFromRelativePIDL(parent, pIDL));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$Win32ShellFolder2::releasePIDL(pIDL);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($Win32ShellFolder2, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, createShellFolderFromRelativePIDL(parent, pIDL));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$Win32ShellFolder2::releasePIDL(pIDL);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -324,8 +233,8 @@ $Win32ShellFolder2* Win32ShellFolderManager2::createShellFolderFromRelativePIDL(
 
 $Image* Win32ShellFolderManager2::getStandardViewButton(int32_t iconIndex) {
 	$init(Win32ShellFolderManager2);
-	$useLocalCurrentObjectStackCache();
-	$var($Image, result, $nc(Win32ShellFolderManager2::STANDARD_VIEW_BUTTONS)->get(iconIndex));
+	$useLocalObjectStack();
+	$var($Image, result, Win32ShellFolderManager2::STANDARD_VIEW_BUTTONS->get(iconIndex));
 	if (result != nullptr) {
 		return result;
 	}
@@ -334,9 +243,9 @@ $Image* Win32ShellFolderManager2::getStandardViewButton(int32_t iconIndex) {
 		int32_t size = $cast(int32_t, $Math::sqrt((double)iconBits->length));
 		$var($BufferedImage, img, $new($BufferedImage, size, size, $BufferedImage::TYPE_INT_ARGB));
 		img->setRGB(0, 0, size, size, iconBits, 0, size);
-		$nc(Win32ShellFolderManager2::STANDARD_VIEW_BUTTONS)->set(iconIndex, (size == 16) ? static_cast<$Image*>(img) : static_cast<$Image*>($$new($Win32ShellFolder2$MultiResolutionIconImage, 16, static_cast<$Image*>(img))));
+		Win32ShellFolderManager2::STANDARD_VIEW_BUTTONS->set(iconIndex, (size == 16) ? $cast($Image, img) : $$cast($Image, $new($Win32ShellFolder2$MultiResolutionIconImage, 16, img)));
 	}
-	return $nc(Win32ShellFolderManager2::STANDARD_VIEW_BUTTONS)->get(iconIndex);
+	return Win32ShellFolderManager2::STANDARD_VIEW_BUTTONS->get(iconIndex);
 }
 
 $Win32ShellFolder2* Win32ShellFolderManager2::getDesktop() {
@@ -348,12 +257,12 @@ $Win32ShellFolder2* Win32ShellFolderManager2::getDesktop() {
 		} catch ($IOException& e) {
 			$init($PlatformLogger$Level);
 			if ($nc(Win32ShellFolderManager2::log)->isLoggable($PlatformLogger$Level::WARNING)) {
-				$nc(Win32ShellFolderManager2::log)->warning("Cannot access \'Desktop\'"_s, static_cast<$Throwable*>(e));
+				Win32ShellFolderManager2::log->warning("Cannot access \'Desktop\'"_s, e);
 			}
 		} catch ($InterruptedException& e) {
 			$init($PlatformLogger$Level);
 			if ($nc(Win32ShellFolderManager2::log)->isLoggable($PlatformLogger$Level::WARNING)) {
-				$nc(Win32ShellFolderManager2::log)->warning("Cannot access \'Desktop\'"_s, static_cast<$Throwable*>(e));
+				Win32ShellFolderManager2::log->warning("Cannot access \'Desktop\'"_s, e);
 			}
 		}
 	}
@@ -369,12 +278,12 @@ $Win32ShellFolder2* Win32ShellFolderManager2::getDrives() {
 		} catch ($IOException& e) {
 			$init($PlatformLogger$Level);
 			if ($nc(Win32ShellFolderManager2::log)->isLoggable($PlatformLogger$Level::WARNING)) {
-				$nc(Win32ShellFolderManager2::log)->warning("Cannot access \'Drives\'"_s, static_cast<$Throwable*>(e));
+				Win32ShellFolderManager2::log->warning("Cannot access \'Drives\'"_s, e);
 			}
 		} catch ($InterruptedException& e) {
 			$init($PlatformLogger$Level);
 			if ($nc(Win32ShellFolderManager2::log)->isLoggable($PlatformLogger$Level::WARNING)) {
-				$nc(Win32ShellFolderManager2::log)->warning("Cannot access \'Drives\'"_s, static_cast<$Throwable*>(e));
+				Win32ShellFolderManager2::log->warning("Cannot access \'Drives\'"_s, e);
 			}
 		}
 	}
@@ -383,7 +292,7 @@ $Win32ShellFolder2* Win32ShellFolderManager2::getDrives() {
 
 $Win32ShellFolder2* Win32ShellFolderManager2::getRecent() {
 	$init(Win32ShellFolderManager2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (Win32ShellFolderManager2::recent == nullptr) {
 		try {
 			$var($String, path, $Win32ShellFolder2::getFileSystemPath(8));
@@ -395,12 +304,12 @@ $Win32ShellFolder2* Win32ShellFolderManager2::getRecent() {
 		} catch ($InterruptedException& e) {
 			$init($PlatformLogger$Level);
 			if ($nc(Win32ShellFolderManager2::log)->isLoggable($PlatformLogger$Level::WARNING)) {
-				$nc(Win32ShellFolderManager2::log)->warning("Cannot access \'Recent\'"_s, static_cast<$Throwable*>(e));
+				Win32ShellFolderManager2::log->warning("Cannot access \'Recent\'"_s, e);
 			}
 		} catch ($IOException& e) {
 			$init($PlatformLogger$Level);
 			if ($nc(Win32ShellFolderManager2::log)->isLoggable($PlatformLogger$Level::WARNING)) {
-				$nc(Win32ShellFolderManager2::log)->warning("Cannot access \'Recent\'"_s, static_cast<$Throwable*>(e));
+				Win32ShellFolderManager2::log->warning("Cannot access \'Recent\'"_s, e);
 			}
 		}
 	}
@@ -416,12 +325,12 @@ $Win32ShellFolder2* Win32ShellFolderManager2::getNetwork() {
 		} catch ($IOException& e) {
 			$init($PlatformLogger$Level);
 			if ($nc(Win32ShellFolderManager2::log)->isLoggable($PlatformLogger$Level::WARNING)) {
-				$nc(Win32ShellFolderManager2::log)->warning("Cannot access \'Network\'"_s, static_cast<$Throwable*>(e));
+				Win32ShellFolderManager2::log->warning("Cannot access \'Network\'"_s, e);
 			}
 		} catch ($InterruptedException& e) {
 			$init($PlatformLogger$Level);
 			if ($nc(Win32ShellFolderManager2::log)->isLoggable($PlatformLogger$Level::WARNING)) {
-				$nc(Win32ShellFolderManager2::log)->warning("Cannot access \'Network\'"_s, static_cast<$Throwable*>(e));
+				Win32ShellFolderManager2::log->warning("Cannot access \'Network\'"_s, e);
 			}
 		}
 	}
@@ -430,7 +339,7 @@ $Win32ShellFolder2* Win32ShellFolderManager2::getNetwork() {
 
 $Win32ShellFolder2* Win32ShellFolderManager2::getPersonal() {
 	$init(Win32ShellFolderManager2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (Win32ShellFolderManager2::personal == nullptr) {
 		try {
 			$var($String, path, $Win32ShellFolder2::getFileSystemPath(5));
@@ -442,19 +351,19 @@ $Win32ShellFolder2* Win32ShellFolderManager2::getPersonal() {
 					$assignStatic(Win32ShellFolderManager2::personal, createShellFolder(var$0, $$new($File, path)));
 				}
 				if (Win32ShellFolderManager2::personal != nullptr) {
-					$nc(Win32ShellFolderManager2::personal)->setIsPersonal();
+					Win32ShellFolderManager2::personal->setIsPersonal();
 				}
 			}
 		} catch ($SecurityException& ignored) {
 		} catch ($InterruptedException& e) {
 			$init($PlatformLogger$Level);
 			if ($nc(Win32ShellFolderManager2::log)->isLoggable($PlatformLogger$Level::WARNING)) {
-				$nc(Win32ShellFolderManager2::log)->warning("Cannot access \'Personal\'"_s, static_cast<$Throwable*>(e));
+				Win32ShellFolderManager2::log->warning("Cannot access \'Personal\'"_s, e);
 			}
 		} catch ($IOException& e) {
 			$init($PlatformLogger$Level);
 			if ($nc(Win32ShellFolderManager2::log)->isLoggable($PlatformLogger$Level::WARNING)) {
-				$nc(Win32ShellFolderManager2::log)->warning("Cannot access \'Personal\'"_s, static_cast<$Throwable*>(e));
+				Win32ShellFolderManager2::log->warning("Cannot access \'Personal\'"_s, e);
 			}
 		}
 	}
@@ -462,7 +371,7 @@ $Win32ShellFolder2* Win32ShellFolderManager2::getPersonal() {
 }
 
 $Object* Win32ShellFolderManager2::get($String* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(key)->equals("fileChooserDefaultFolder"_s)) {
 		$var($File, file, getPersonal());
 		if (file == nullptr) {
@@ -478,7 +387,7 @@ $Object* Win32ShellFolderManager2::get($String* key) {
 				$assignStatic(Win32ShellFolderManager2::roots, $cast($FileArray, $ShellFolderManager::get(key)));
 			}
 		}
-		return $of(checkFiles(Win32ShellFolderManager2::roots));
+		return checkFiles(Win32ShellFolderManager2::roots);
 	} else if (key->equals("fileChooserComboBoxFolders"_s)) {
 		$var($Win32ShellFolder2, desktop, getDesktop());
 		if (desktop != nullptr && checkFile(desktop) != nullptr) {
@@ -486,7 +395,7 @@ $Object* Win32ShellFolderManager2::get($String* key) {
 			$var($Win32ShellFolder2, drives, getDrives());
 			$var($Win32ShellFolder2, recentFolder, getRecent());
 			$init($OSInfo);
-			if (recentFolder != nullptr && $nc($($OSInfo::getWindowsVersion()))->compareTo($OSInfo::WINDOWS_2000) >= 0) {
+			if (recentFolder != nullptr && $$nc($OSInfo::getWindowsVersion())->compareTo($OSInfo::WINDOWS_2000) >= 0) {
 				folders->add(recentFolder);
 			}
 			folders->add(desktop);
@@ -494,16 +403,14 @@ $Object* Win32ShellFolderManager2::get($String* key) {
 			$Arrays::sort(secondLevelFolders);
 			{
 				$var($FileArray, arr$, secondLevelFolders);
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
+				for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 					$var($File, secondLevelFolder, arr$->get(i$));
 					{
 						$var($Win32ShellFolder2, folder, $cast($Win32ShellFolder2, secondLevelFolder));
 						bool var$0 = !$nc(folder)->isFileSystem();
 						if (!var$0) {
-							bool var$1 = $nc(folder)->isDirectory();
-							var$0 = (var$1 && !folder->isLink());
+							bool var$1 = folder->isDirectory();
+							var$0 = var$1 && !folder->isLink();
 						}
 						if (var$0) {
 							folders->add(folder);
@@ -519,9 +426,9 @@ $Object* Win32ShellFolderManager2::get($String* key) {
 					}
 				}
 			}
-			return $of(checkFiles(static_cast<$List*>(folders)));
+			return checkFiles(folders);
 		} else {
-			return $of($ShellFolderManager::get(key));
+			return $ShellFolderManager::get(key);
 		}
 	} else if (key->equals("fileChooserShortcutPanelFolders"_s)) {
 		$var($Toolkit, toolkit, $Toolkit::getDefaultToolkit());
@@ -532,45 +439,39 @@ $Object* Win32ShellFolderManager2::get($String* key) {
 			$assign(value, $nc(toolkit)->getDesktopProperty($$str({"win.comdlg.placesBarPlace"_s, $$str(i++)})));
 			try {
 				if ($instanceOf($Integer, value)) {
-					folders->add($$new($Win32ShellFolder2, $nc(($cast($Integer, value)))->intValue()));
+					folders->add($$new($Win32ShellFolder2, $cast($Integer, value)->intValue()));
 				} else if ($instanceOf($String, value)) {
 					folders->add($(createShellFolder($$new($File, $cast($String, value)))));
 				}
 			} catch ($IOException& e) {
 				$init($PlatformLogger$Level);
 				if ($nc(Win32ShellFolderManager2::log)->isLoggable($PlatformLogger$Level::WARNING)) {
-					$nc(Win32ShellFolderManager2::log)->warning($$str({"Cannot read value = "_s, value}), static_cast<$Throwable*>(e));
+					Win32ShellFolderManager2::log->warning($$str({"Cannot read value = "_s, value}), e);
 				}
 			} catch ($InterruptedException& e) {
 				$init($PlatformLogger$Level);
 				if ($nc(Win32ShellFolderManager2::log)->isLoggable($PlatformLogger$Level::WARNING)) {
-					$nc(Win32ShellFolderManager2::log)->warning($$str({"Cannot read value = "_s, value}), static_cast<$Throwable*>(e));
+					Win32ShellFolderManager2::log->warning($$str({"Cannot read value = "_s, value}), e);
 				}
-				return $of($new($FileArray, 0));
+				return $new($FileArray, 0);
 			}
 		} while (value != nullptr);
 		if (folders->size() == 0) {
-			{
-				$var($FileArray, arr$, $new($FileArray, {
-					$(static_cast<$File*>(getRecent())),
-					$(static_cast<$File*>(getDesktop())),
-					$(static_cast<$File*>(getPersonal())),
-					$(static_cast<$File*>(getDrives())),
-					$(static_cast<$File*>(getNetwork()))
-				}));
-				int32_t len$ = arr$->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					$var($File, f, arr$->get(i$));
-					{
-						if (f != nullptr) {
-							folders->add(f);
-						}
-					}
+			$var($FileArray, arr$, $new($FileArray, {
+				$(getRecent()),
+				$(getDesktop()),
+				$(getPersonal()),
+				$(getDrives()),
+				$(getNetwork())
+			}));
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+				$var($File, f, arr$->get(i$));
+				if (f != nullptr) {
+					folders->add(f);
 				}
 			}
 		}
-		return $of(checkFiles(static_cast<$List*>(folders)));
+		return checkFiles(folders);
 	} else if (key->startsWith("fileChooserIcon "_s)) {
 		$var($String, name, key->substring(key->indexOf(" "_s) + 1));
 		int32_t iconIndex = 0;
@@ -584,9 +485,9 @@ $Object* Win32ShellFolderManager2::get($String* key) {
 		} else if (name->equals("NewFolder"_s)) {
 			iconIndex = Win32ShellFolderManager2::VIEW_NEWFOLDER;
 		} else {
-			return $of(nullptr);
+			return nullptr;
 		}
-		return $of(getStandardViewButton(iconIndex));
+		return getStandardViewButton(iconIndex);
 	} else if (key->startsWith("optionPaneIcon "_s)) {
 		$Win32ShellFolder2$SystemIcon* iconType = nullptr;
 		if (key == "optionPaneIcon Error"_s) {
@@ -602,23 +503,23 @@ $Object* Win32ShellFolderManager2::get($String* key) {
 			$init($Win32ShellFolder2$SystemIcon);
 			iconType = $Win32ShellFolder2$SystemIcon::IDI_EXCLAMATION;
 		} else {
-			return $of(nullptr);
+			return nullptr;
 		}
-		return $of($Win32ShellFolder2::getSystemIcon(iconType));
+		return $Win32ShellFolder2::getSystemIcon(iconType);
 	} else {
-		bool var$4 = key->startsWith("shell32Icon "_s);
-		if (var$4 || key->startsWith("shell32LargeIcon "_s)) {
+		bool var$3 = key->startsWith("shell32Icon "_s);
+		if (var$3 || key->startsWith("shell32LargeIcon "_s)) {
 			$var($String, name, key->substring(key->indexOf(" "_s) + 1));
 			try {
 				int32_t i = $Integer::parseInt(name);
 				if (i >= 0) {
-					return $of($Win32ShellFolder2::getShell32Icon(i, key->startsWith("shell32LargeIcon "_s) ? 32 : 16));
+					return $Win32ShellFolder2::getShell32Icon(i, key->startsWith("shell32LargeIcon "_s) ? 32 : 16);
 				}
 			} catch ($NumberFormatException& ex) {
 			}
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $File* Win32ShellFolderManager2::checkFile($File* file) {
@@ -629,12 +530,12 @@ $File* Win32ShellFolderManager2::checkFile($File* file) {
 
 $File* Win32ShellFolderManager2::checkFile($File* file, $SecurityManager* sm) {
 	$init(Win32ShellFolderManager2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$nc(sm)->checkRead($($nc(file)->getPath()));
 		if ($instanceOf($Win32ShellFolder2, file)) {
 			$var($Win32ShellFolder2, f, $cast($Win32ShellFolder2, file));
-			if ($nc(f)->isLink()) {
+			if (f->isLink()) {
 				$var($Win32ShellFolder2, link, $cast($Win32ShellFolder2, f->getLinkLocation()));
 				if (link != nullptr) {
 					sm->checkRead($(link->getPath()));
@@ -650,9 +551,9 @@ $File* Win32ShellFolderManager2::checkFile($File* file, $SecurityManager* sm) {
 
 $FileArray* Win32ShellFolderManager2::checkFiles($FileArray* files) {
 	$init(Win32ShellFolderManager2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
-	if (sm == nullptr || files == nullptr || $nc(files)->length == 0) {
+	if (sm == nullptr || files == nullptr || files->length == 0) {
 		return files;
 	}
 	return checkFiles($($Arrays::stream(files)), sm);
@@ -660,45 +561,45 @@ $FileArray* Win32ShellFolderManager2::checkFiles($FileArray* files) {
 
 $FileArray* Win32ShellFolderManager2::checkFiles($List* files) {
 	$init(Win32ShellFolderManager2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm == nullptr || $nc(files)->isEmpty()) {
-		return $fcast($FileArray, files->toArray($$new($FileArray, files->size())));
+		return $cast($FileArray, $nc(files)->toArray($$new($FileArray, $nc(files)->size())));
 	}
 	return checkFiles($($nc(files)->stream()), sm);
 }
 
 $FileArray* Win32ShellFolderManager2::checkFiles($Stream* filesStream, $SecurityManager* sm) {
 	$init(Win32ShellFolderManager2);
-	$useLocalCurrentObjectStackCache();
-	return $fcast($FileArray, $nc($($nc(filesStream)->filter(static_cast<$Predicate*>($$new(Win32ShellFolderManager2$$Lambda$lambda$checkFiles$0, sm)))))->toArray(static_cast<$IntFunction*>($$new(Win32ShellFolderManager2$$Lambda$lambda$checkFiles$1$1))));
+	$useLocalObjectStack();
+	return $cast($FileArray, $$nc($nc(filesStream)->filter($$new(Win32ShellFolderManager2$$Lambda$lambda$checkFiles$0, sm)))->toArray($$new(Win32ShellFolderManager2$$Lambda$lambda$checkFiles$1$1)));
 }
 
 bool Win32ShellFolderManager2::isComputerNode($File* dir) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (dir != nullptr && $equals(dir, getDrives())) {
 		return true;
 	} else {
-		$var($String, path, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Win32ShellFolderManager2$1, this, dir)))));
+		$var($String, path, $cast($String, $AccessController::doPrivileged($$new($Win32ShellFolderManager2$1, this, dir))));
 		bool var$0 = $nc(path)->startsWith("\\\\"_s);
 		return (var$0 && path->indexOf("\\"_s, 2) < 0);
 	}
 }
 
 bool Win32ShellFolderManager2::isFileSystemRoot($File* dir) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (dir != nullptr) {
 		if ($instanceOf($Win32ShellFolder2, dir)) {
 			$var($Win32ShellFolder2, sf, $cast($Win32ShellFolder2, dir));
 			bool var$0 = sf->isFileSystem() && sf->parent != nullptr;
 			if (var$0) {
-				bool var$1 = $nc(sf->parent)->equals($(getDrives()));
+				bool var$1 = sf->parent->equals($(getDrives()));
 				if (!var$1) {
-					bool var$2 = $nc(sf->parent)->equals($(getDesktop()));
-					var$1 = (var$2 && isDrive(dir));
+					bool var$2 = sf->parent->equals($(getDesktop()));
+					var$1 = var$2 && isDrive(dir);
 				}
-				var$0 = (var$1);
+				var$0 = var$1;
 			}
 			return (var$0);
 		}
@@ -708,19 +609,19 @@ bool Win32ShellFolderManager2::isFileSystemRoot($File* dir) {
 }
 
 bool Win32ShellFolderManager2::isDrive($File* dir) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, path, $nc(dir)->getPath());
 	bool var$0 = $nc(path)->length() != 3;
-	if (var$0 || $nc(path)->charAt(1) != u':') {
+	if (var$0 || path->charAt(1) != u':') {
 		return false;
 	}
 	$var($FileArray, roots, $Win32ShellFolder2::listRoots());
-	return roots != nullptr && $nc($($Arrays::asList(roots)))->contains(dir);
+	return roots != nullptr && $$nc($Arrays::asList(roots))->contains(dir);
 }
 
 int32_t Win32ShellFolderManager2::compareShellFolders($Win32ShellFolder2* sf1, $Win32ShellFolder2* sf2) {
 	$init(Win32ShellFolderManager2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool special1 = $nc(sf1)->isSpecial();
 	bool special2 = $nc(sf2)->isSpecial();
 	if (special1 || special2) {
@@ -733,7 +634,7 @@ int32_t Win32ShellFolderManager2::compareShellFolders($Win32ShellFolder2* sf1, $
 			$assignStatic(Win32ShellFolderManager2::topFolderList, tmpTopFolderList);
 		}
 		int32_t i1 = $nc(Win32ShellFolderManager2::topFolderList)->indexOf(sf1);
-		int32_t i2 = $nc(Win32ShellFolderManager2::topFolderList)->indexOf(sf2);
+		int32_t i2 = Win32ShellFolderManager2::topFolderList->indexOf(sf2);
 		if (i1 >= 0 && i2 >= 0) {
 			return (i1 - i2);
 		} else if (i1 >= 0) {
@@ -767,14 +668,14 @@ $ShellFolder$Invoker* Win32ShellFolderManager2::createInvoker() {
 
 void Win32ShellFolderManager2::initializeCom() {
 	$init(Win32ShellFolderManager2);
-	$prepareNativeStatic(Win32ShellFolderManager2, initializeCom, void);
+	$prepareNativeStatic(initializeCom, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void Win32ShellFolderManager2::uninitializeCom() {
 	$init(Win32ShellFolderManager2);
-	$prepareNativeStatic(Win32ShellFolderManager2, uninitializeCom, void);
+	$prepareNativeStatic(uninitializeCom, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -789,7 +690,7 @@ bool Win32ShellFolderManager2::lambda$checkFiles$0($SecurityManager* sm, $File* 
 	return checkFile(file, sm) != nullptr;
 }
 
-void clinit$Win32ShellFolderManager2($Class* class$) {
+void Win32ShellFolderManager2::clinit$($Class* clazz) {
 	$assignStatic(Win32ShellFolderManager2::log, $PlatformLogger::getLogger("sun.awt.shell.Win32ShellFolderManager2"_s));
 	{
 		$WToolkit::loadLibraries();
@@ -803,14 +704,80 @@ Win32ShellFolderManager2::Win32ShellFolderManager2() {
 
 $Class* Win32ShellFolderManager2::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Win32ShellFolderManager2$$Lambda$lambda$checkFiles$0::classInfo$.name)) {
+		if (name->equals("sun.awt.shell.Win32ShellFolderManager2$$Lambda$lambda$checkFiles$0")) {
 			return Win32ShellFolderManager2$$Lambda$lambda$checkFiles$0::load$(name, initialize);
 		}
-		if (name->equals(Win32ShellFolderManager2$$Lambda$lambda$checkFiles$1$1::classInfo$.name)) {
+		if (name->equals("sun.awt.shell.Win32ShellFolderManager2$$Lambda$lambda$checkFiles$1$1")) {
 			return Win32ShellFolderManager2$$Lambda$lambda$checkFiles$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(Win32ShellFolderManager2, name, initialize, &_Win32ShellFolderManager2_ClassInfo_, clinit$Win32ShellFolderManager2, allocate$Win32ShellFolderManager2);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Win32ShellFolderManager2, log)},
+		{"VIEW_LIST", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32ShellFolderManager2, VIEW_LIST)},
+		{"VIEW_DETAILS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32ShellFolderManager2, VIEW_DETAILS)},
+		{"VIEW_PARENTFOLDER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32ShellFolderManager2, VIEW_PARENTFOLDER)},
+		{"VIEW_NEWFOLDER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32ShellFolderManager2, VIEW_NEWFOLDER)},
+		{"STANDARD_VIEW_BUTTONS", "[Ljava/awt/Image;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Win32ShellFolderManager2, STANDARD_VIEW_BUTTONS)},
+		{"desktop", "Lsun/awt/shell/Win32ShellFolder2;", nullptr, $PRIVATE | $STATIC, $staticField(Win32ShellFolderManager2, desktop)},
+		{"drives", "Lsun/awt/shell/Win32ShellFolder2;", nullptr, $PRIVATE | $STATIC, $staticField(Win32ShellFolderManager2, drives)},
+		{"recent", "Lsun/awt/shell/Win32ShellFolder2;", nullptr, $PRIVATE | $STATIC, $staticField(Win32ShellFolderManager2, recent)},
+		{"network", "Lsun/awt/shell/Win32ShellFolder2;", nullptr, $PRIVATE | $STATIC, $staticField(Win32ShellFolderManager2, network)},
+		{"personal", "Lsun/awt/shell/Win32ShellFolder2;", nullptr, $PRIVATE | $STATIC, $staticField(Win32ShellFolderManager2, personal)},
+		{"roots", "[Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticField(Win32ShellFolderManager2, roots)},
+		{"topFolderList", "Ljava/util/List;", "Ljava/util/List<Lsun/awt/shell/Win32ShellFolder2;>;", $PRIVATE | $STATIC, $staticField(Win32ShellFolderManager2, topFolderList)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Win32ShellFolderManager2, init$, void)},
+		{"checkFile", "(Ljava/io/File;)Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticMethod(Win32ShellFolderManager2, checkFile, $File*, $File*)},
+		{"checkFile", "(Ljava/io/File;Ljava/lang/SecurityManager;)Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticMethod(Win32ShellFolderManager2, checkFile, $File*, $File*, $SecurityManager*)},
+		{"checkFiles", "([Ljava/io/File;)[Ljava/io/File;", nullptr, $STATIC, $staticMethod(Win32ShellFolderManager2, checkFiles, $FileArray*, $FileArray*)},
+		{"checkFiles", "(Ljava/util/List;)[Ljava/io/File;", "(Ljava/util/List<Ljava/io/File;>;)[Ljava/io/File;", $PRIVATE | $STATIC, $staticMethod(Win32ShellFolderManager2, checkFiles, $FileArray*, $List*)},
+		{"checkFiles", "(Ljava/util/stream/Stream;Ljava/lang/SecurityManager;)[Ljava/io/File;", "(Ljava/util/stream/Stream<Ljava/io/File;>;Ljava/lang/SecurityManager;)[Ljava/io/File;", $PRIVATE | $STATIC, $staticMethod(Win32ShellFolderManager2, checkFiles, $FileArray*, $Stream*, $SecurityManager*)},
+		{"compareNames", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $STATIC, $staticMethod(Win32ShellFolderManager2, compareNames, int32_t, $String*, $String*)},
+		{"compareShellFolders", "(Lsun/awt/shell/Win32ShellFolder2;Lsun/awt/shell/Win32ShellFolder2;)I", nullptr, $STATIC, $staticMethod(Win32ShellFolderManager2, compareShellFolders, int32_t, $Win32ShellFolder2*, $Win32ShellFolder2*)},
+		{"createInvoker", "()Lsun/awt/shell/ShellFolder$Invoker;", nullptr, $PROTECTED, $virtualMethod(Win32ShellFolderManager2, createInvoker, $ShellFolder$Invoker*)},
+		{"createShellFolder", "(Ljava/io/File;)Lsun/awt/shell/ShellFolder;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolderManager2, createShellFolder, $ShellFolder*, $File*), "java.io.FileNotFoundException"},
+		{"createShellFolder", "(Lsun/awt/shell/Win32ShellFolder2;Ljava/io/File;)Lsun/awt/shell/Win32ShellFolder2;", nullptr, $STATIC, $staticMethod(Win32ShellFolderManager2, createShellFolder, $Win32ShellFolder2*, $Win32ShellFolder2*, $File*), "java.io.FileNotFoundException,java.lang.InterruptedException"},
+		{"createShellFolderFromRelativePIDL", "(Lsun/awt/shell/Win32ShellFolder2;J)Lsun/awt/shell/Win32ShellFolder2;", nullptr, $STATIC, $staticMethod(Win32ShellFolderManager2, createShellFolderFromRelativePIDL, $Win32ShellFolder2*, $Win32ShellFolder2*, int64_t), "java.lang.InterruptedException"},
+		{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolderManager2, get, $Object*, $String*)},
+		{"getDesktop", "()Lsun/awt/shell/Win32ShellFolder2;", nullptr, $STATIC, $staticMethod(Win32ShellFolderManager2, getDesktop, $Win32ShellFolder2*)},
+		{"getDrives", "()Lsun/awt/shell/Win32ShellFolder2;", nullptr, $STATIC, $staticMethod(Win32ShellFolderManager2, getDrives, $Win32ShellFolder2*)},
+		{"getNetwork", "()Lsun/awt/shell/Win32ShellFolder2;", nullptr, $STATIC, $staticMethod(Win32ShellFolderManager2, getNetwork, $Win32ShellFolder2*)},
+		{"getPersonal", "()Lsun/awt/shell/Win32ShellFolder2;", nullptr, $STATIC, $staticMethod(Win32ShellFolderManager2, getPersonal, $Win32ShellFolder2*)},
+		{"getRecent", "()Lsun/awt/shell/Win32ShellFolder2;", nullptr, $STATIC, $staticMethod(Win32ShellFolderManager2, getRecent, $Win32ShellFolder2*)},
+		{"getStandardViewButton", "(I)Ljava/awt/Image;", nullptr, $PRIVATE | $STATIC, $staticMethod(Win32ShellFolderManager2, getStandardViewButton, $Image*, int32_t)},
+		{"initializeCom", "()V", nullptr, $STATIC | $NATIVE, $staticMethod(Win32ShellFolderManager2, initializeCom, void)},
+		{"isComputerNode", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolderManager2, isComputerNode, bool, $File*)},
+		{"isDrive", "(Ljava/io/File;)Z", nullptr, $PRIVATE, $method(Win32ShellFolderManager2, isDrive, bool, $File*)},
+		{"isFileSystemRoot", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolderManager2, isFileSystemRoot, bool, $File*)},
+		{"lambda$checkFiles$0", "(Ljava/lang/SecurityManager;Ljava/io/File;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Win32ShellFolderManager2, lambda$checkFiles$0, bool, $SecurityManager*, $File*)},
+		{"lambda$checkFiles$1", "(I)[Ljava/io/File;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Win32ShellFolderManager2, lambda$checkFiles$1, $FileArray*, int32_t)},
+		{"uninitializeCom", "()V", nullptr, $STATIC | $NATIVE, $staticMethod(Win32ShellFolderManager2, uninitializeCom, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.shell.Win32ShellFolderManager2$ComInvoker", "sun.awt.shell.Win32ShellFolderManager2", "ComInvoker", $PRIVATE | $STATIC},
+		{"sun.awt.shell.Win32ShellFolderManager2$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.shell.Win32ShellFolderManager2",
+		"sun.awt.shell.ShellFolderManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.shell.Win32ShellFolderManager2$ComInvoker,sun.awt.shell.Win32ShellFolderManager2$ComInvoker$2,sun.awt.shell.Win32ShellFolderManager2$ComInvoker$1,sun.awt.shell.Win32ShellFolderManager2$1"
+	};
+	$loadClass(Win32ShellFolderManager2, name, initialize, &classInfo$$, Win32ShellFolderManager2::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Win32ShellFolderManager2);
+	});
 	return class$;
 }
 

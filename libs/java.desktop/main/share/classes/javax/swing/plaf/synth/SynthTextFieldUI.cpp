@@ -1,10 +1,8 @@
 #include <javax/swing/plaf/synth/SynthTextFieldUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
-#include <java/awt/event/FocusListener.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/lang/Number.h>
 #include <javax/swing/JComponent.h>
@@ -19,7 +17,6 @@
 #include <javax/swing/plaf/synth/SynthPainter.h>
 #include <javax/swing/plaf/synth/SynthStyle.h>
 #include <javax/swing/plaf/synth/SynthTextFieldUI$Handler.h>
-#include <javax/swing/plaf/synth/SynthUI.h>
 #include <javax/swing/text/Caret.h>
 #include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
@@ -33,10 +30,8 @@
 #undef TEXT_FOREGROUND
 
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
-using $FocusListener = ::java::awt::event::FocusListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -52,10 +47,8 @@ using $ColorType = ::javax::swing::plaf::synth::ColorType;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
-using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
 using $SynthStyle = ::javax::swing::plaf::synth::SynthStyle;
 using $SynthTextFieldUI$Handler = ::javax::swing::plaf::synth::SynthTextFieldUI$Handler;
-using $SynthUI = ::javax::swing::plaf::synth::SynthUI;
 using $Caret = ::javax::swing::text::Caret;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 
@@ -63,62 +56,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthTextFieldUI_FieldInfo_[] = {
-	{"handler", "Ljavax/swing/plaf/synth/SynthTextFieldUI$Handler;", nullptr, $PRIVATE, $field(SynthTextFieldUI, handler)},
-	{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthTextFieldUI, style)},
-	{"updateKBAction", "Z", nullptr, $PRIVATE, $field(SynthTextFieldUI, updateKBAction)},
-	{}
-};
-
-$MethodInfo _SynthTextFieldUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SynthTextFieldUI, init$, void)},
-	{"access$000", "(Ljavax/swing/plaf/synth/SynthTextFieldUI;)Ljavax/swing/text/JTextComponent;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTextFieldUI, access$000, $JTextComponent*, SynthTextFieldUI*)},
-	{"access$100", "(Ljavax/swing/plaf/synth/SynthTextFieldUI;)Ljavax/swing/text/JTextComponent;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTextFieldUI, access$100, $JTextComponent*, SynthTextFieldUI*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthTextFieldUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthTextFieldUI, getContext, $SynthContext*, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthTextFieldUI, getContext, $SynthContext*, $JComponent*, int32_t)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthTextFieldUI, installDefaults, void)},
-	{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthTextFieldUI, paint, void, $SynthContext*, $Graphics*)},
-	{"paintBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, 0, $virtualMethod(SynthTextFieldUI, paintBackground, void, $SynthContext*, $Graphics*, $JComponent*)},
-	{"paintBackground", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthTextFieldUI, paintBackground, void, $Graphics*)},
-	{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthTextFieldUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthTextFieldUI, propertyChange, void, $PropertyChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthTextFieldUI, uninstallDefaults, void)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthTextFieldUI, update, void, $Graphics*, $JComponent*)},
-	{"updateStyle", "(Ljavax/swing/text/JTextComponent;Z)V", nullptr, $PRIVATE, $method(SynthTextFieldUI, updateStyle, void, $JTextComponent*, bool)},
-	{"updateStyle", "(Ljavax/swing/text/JTextComponent;Ljavax/swing/plaf/synth/SynthContext;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(SynthTextFieldUI, updateStyle, void, $JTextComponent*, $SynthContext*, $String*)},
-	{}
-};
-
-$InnerClassInfo _SynthTextFieldUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthTextFieldUI$Handler", "javax.swing.plaf.synth.SynthTextFieldUI", "Handler", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _SynthTextFieldUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.synth.SynthTextFieldUI",
-	"javax.swing.plaf.basic.BasicTextFieldUI",
-	"javax.swing.plaf.synth.SynthUI",
-	_SynthTextFieldUI_FieldInfo_,
-	_SynthTextFieldUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthTextFieldUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthTextFieldUI$Handler"
-};
-
-$Object* allocate$SynthTextFieldUI($Class* clazz) {
-	return $of($alloc(SynthTextFieldUI));
-}
 
 int32_t SynthTextFieldUI::hashCode() {
 	 return this->$BasicTextFieldUI::hashCode();
@@ -162,7 +99,7 @@ $ComponentUI* SynthTextFieldUI::createUI($JComponent* c) {
 }
 
 void SynthTextFieldUI::updateStyle($JTextComponent* comp, bool updateKBAction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(comp, $SynthConstants::ENABLED));
 	$var($SynthStyle, oldStyle, this->style);
 	$set(this, style, $SynthLookAndFeel::updateStyle(context, this));
@@ -177,11 +114,11 @@ void SynthTextFieldUI::updateStyle($JTextComponent* comp, bool updateKBAction) {
 
 void SynthTextFieldUI::updateStyle($JTextComponent* comp, $SynthContext* context, $String* prefix) {
 	$init(SynthTextFieldUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthStyle, style, $nc(context)->getStyle());
 	$var($Color, color, $nc(comp)->getCaretColor());
 	if (color == nullptr || $instanceOf($UIResource, color)) {
-		comp->setCaretColor($cast($Color, $($nc(style)->get(context, $$str({prefix, ".caretForeground"_s})))));
+		comp->setCaretColor($$cast($Color, $nc(style)->get(context, $$str({prefix, ".caretForeground"_s}))));
 	}
 	$var($Color, fg, comp->getForeground());
 	if (fg == nullptr || $instanceOf($UIResource, fg)) {
@@ -226,7 +163,7 @@ void SynthTextFieldUI::updateStyle($JTextComponent* comp, $SynthContext* context
 		$var($Object, o, style->get(context, $$str({prefix, ".caretBlinkRate"_s})));
 		if (o != nullptr && $instanceOf($Integer, o)) {
 			$var($Integer, rate, $cast($Integer, o));
-			$nc(caret)->setBlinkRate(rate->intValue());
+			caret->setBlinkRate(rate->intValue());
 		}
 	}
 }
@@ -251,23 +188,20 @@ void SynthTextFieldUI::paint($SynthContext* context, $Graphics* g) {
 }
 
 void SynthTextFieldUI::paintBackground($SynthContext* context, $Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
-	$var($SynthContext, var$0, context);
-	$var($Graphics, var$1, g);
-	int32_t var$2 = $nc(c)->getWidth();
-	$nc($($nc(context)->getPainter()))->paintTextFieldBackground(var$0, var$1, 0, 0, var$2, c->getHeight());
+	int32_t var$0 = $nc(c)->getWidth();
+	$$nc($nc(context)->getPainter())->paintTextFieldBackground(context, g, 0, 0, var$0, c->getHeight());
 }
 
 void SynthTextFieldUI::paintBorder($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$nc($($nc(context)->getPainter()))->paintTextFieldBorder(context, g, x, y, w, h);
+	$$nc($nc(context)->getPainter())->paintTextFieldBorder(context, g, x, y, w, h);
 }
 
 void SynthTextFieldUI::paintBackground($Graphics* g) {
 }
 
 void SynthTextFieldUI::propertyChange($PropertyChangeEvent* evt) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc($($nc(evt)->getPropertyName()))->equals("keymap"_s)) {
+	$useLocalObjectStack();
+	if ($$nc($nc(evt)->getPropertyName())->equals("keymap"_s)) {
 		if (evt->getNewValue() != nullptr) {
 			this->updateKBAction = false;
 		} else {
@@ -275,23 +209,23 @@ void SynthTextFieldUI::propertyChange($PropertyChangeEvent* evt) {
 		}
 	}
 	if ($SynthLookAndFeel::shouldUpdateStyle(evt)) {
-		updateStyle($cast($JTextComponent, $($nc(evt)->getSource())), this->updateKBAction);
+		updateStyle($$cast($JTextComponent, evt->getSource()), this->updateKBAction);
 	}
 	$BasicTextFieldUI::propertyChange(evt);
 }
 
 void SynthTextFieldUI::installDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicTextFieldUI::installDefaults();
 	updateStyle($(getComponent()), true);
-	$nc($(getComponent()))->addFocusListener(this->handler);
+	$$nc(getComponent())->addFocusListener(this->handler);
 }
 
 void SynthTextFieldUI::uninstallDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext($(getComponent()), $SynthConstants::ENABLED));
-	$nc($(getComponent()))->putClientProperty("caretAspectRatio"_s, nullptr);
-	$nc($(getComponent()))->removeFocusListener(this->handler);
+	$$nc(getComponent())->putClientProperty("caretAspectRatio"_s, nullptr);
+	$$nc(getComponent())->removeFocusListener(this->handler);
 	$nc(this->style)->uninstallDefaults(context);
 	$set(this, style, nullptr);
 	$BasicTextFieldUI::uninstallDefaults();
@@ -301,7 +235,57 @@ SynthTextFieldUI::SynthTextFieldUI() {
 }
 
 $Class* SynthTextFieldUI::load$($String* name, bool initialize) {
-	$loadClass(SynthTextFieldUI, name, initialize, &_SynthTextFieldUI_ClassInfo_, allocate$SynthTextFieldUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"handler", "Ljavax/swing/plaf/synth/SynthTextFieldUI$Handler;", nullptr, $PRIVATE, $field(SynthTextFieldUI, handler)},
+		{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthTextFieldUI, style)},
+		{"updateKBAction", "Z", nullptr, $PRIVATE, $field(SynthTextFieldUI, updateKBAction)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SynthTextFieldUI, init$, void)},
+		{"access$000", "(Ljavax/swing/plaf/synth/SynthTextFieldUI;)Ljavax/swing/text/JTextComponent;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTextFieldUI, access$000, $JTextComponent*, SynthTextFieldUI*)},
+		{"access$100", "(Ljavax/swing/plaf/synth/SynthTextFieldUI;)Ljavax/swing/text/JTextComponent;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTextFieldUI, access$100, $JTextComponent*, SynthTextFieldUI*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthTextFieldUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthTextFieldUI, getContext, $SynthContext*, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthTextFieldUI, getContext, $SynthContext*, $JComponent*, int32_t)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthTextFieldUI, installDefaults, void)},
+		{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthTextFieldUI, paint, void, $SynthContext*, $Graphics*)},
+		{"paintBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, 0, $virtualMethod(SynthTextFieldUI, paintBackground, void, $SynthContext*, $Graphics*, $JComponent*)},
+		{"paintBackground", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthTextFieldUI, paintBackground, void, $Graphics*)},
+		{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthTextFieldUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthTextFieldUI, propertyChange, void, $PropertyChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthTextFieldUI, uninstallDefaults, void)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthTextFieldUI, update, void, $Graphics*, $JComponent*)},
+		{"updateStyle", "(Ljavax/swing/text/JTextComponent;Z)V", nullptr, $PRIVATE, $method(SynthTextFieldUI, updateStyle, void, $JTextComponent*, bool)},
+		{"updateStyle", "(Ljavax/swing/text/JTextComponent;Ljavax/swing/plaf/synth/SynthContext;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(SynthTextFieldUI, updateStyle, void, $JTextComponent*, $SynthContext*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthTextFieldUI$Handler", "javax.swing.plaf.synth.SynthTextFieldUI", "Handler", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.synth.SynthTextFieldUI",
+		"javax.swing.plaf.basic.BasicTextFieldUI",
+		"javax.swing.plaf.synth.SynthUI",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthTextFieldUI$Handler"
+	};
+	$loadClass(SynthTextFieldUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthTextFieldUI));
+	});
 	return class$;
 }
 

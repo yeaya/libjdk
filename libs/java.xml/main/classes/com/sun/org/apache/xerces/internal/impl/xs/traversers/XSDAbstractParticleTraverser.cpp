@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/traversers/XSDAbstractParticleTraverser.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaSymbols.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSAnnotationImpl.h>
@@ -49,24 +48,19 @@ using $XSParticleDecl = ::com::sun::org::apache::xerces::internal::impl::xs::XSP
 using $XSAttributeChecker = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSAttributeChecker;
 using $XSDAbstractParticleTraverser$ParticleArray = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDAbstractParticleTraverser$ParticleArray;
 using $XSDAbstractTraverser = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDAbstractTraverser;
-using $XSDElementTraverser = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDElementTraverser;
-using $XSDGroupTraverser = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDGroupTraverser;
 using $XSDHandler = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDHandler;
-using $XSDWildcardTraverser = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDWildcardTraverser;
 using $XSDocumentInfo = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDocumentInfo;
 using $XInt = ::com::sun::org::apache::xerces::internal::impl::xs::util::XInt;
 using $XSObjectListImpl = ::com::sun::org::apache::xerces::internal::impl::xs::util::XSObjectListImpl;
 using $DOMUtil = ::com::sun::org::apache::xerces::internal::util::DOMUtil;
 using $XSObject = ::com::sun::org::apache::xerces::internal::xs::XSObject;
 using $XSObjectList = ::com::sun::org::apache::xerces::internal::xs::XSObjectList;
-using $XSTerm = ::com::sun::org::apache::xerces::internal::xs::XSTerm;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Element = ::org::w3c::dom::Element;
-using $Node = ::org::w3c::dom::Node;
 
 namespace com {
 	namespace sun {
@@ -78,57 +72,18 @@ namespace com {
 							namespace xs {
 								namespace traversers {
 
-$FieldInfo _XSDAbstractParticleTraverser_FieldInfo_[] = {
-	{"fPArray", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;", nullptr, 0, $field(XSDAbstractParticleTraverser, fPArray)},
-	{}
-};
-
-$MethodInfo _XSDAbstractParticleTraverser_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDHandler;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSAttributeChecker;)V", nullptr, 0, $method(XSDAbstractParticleTraverser, init$, void, $XSDHandler*, $XSAttributeChecker*)},
-	{"hasAllContent", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;)Z", nullptr, $PROTECTED, $virtualMethod(XSDAbstractParticleTraverser, hasAllContent, bool, $XSParticleDecl*)},
-	{"traverseAll", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;ILcom/sun/org/apache/xerces/internal/xs/XSObject;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, 0, $virtualMethod(XSDAbstractParticleTraverser, traverseAll, $XSParticleDecl*, $Element*, $XSDocumentInfo*, $SchemaGrammar*, int32_t, $XSObject*)},
-	{"traverseChoice", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;ILcom/sun/org/apache/xerces/internal/xs/XSObject;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, 0, $virtualMethod(XSDAbstractParticleTraverser, traverseChoice, $XSParticleDecl*, $Element*, $XSDocumentInfo*, $SchemaGrammar*, int32_t, $XSObject*)},
-	{"traverseSeqChoice", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;IZLcom/sun/org/apache/xerces/internal/xs/XSObject;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, $PRIVATE, $method(XSDAbstractParticleTraverser, traverseSeqChoice, $XSParticleDecl*, $Element*, $XSDocumentInfo*, $SchemaGrammar*, int32_t, bool, $XSObject*)},
-	{"traverseSequence", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;ILcom/sun/org/apache/xerces/internal/xs/XSObject;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, 0, $virtualMethod(XSDAbstractParticleTraverser, traverseSequence, $XSParticleDecl*, $Element*, $XSDocumentInfo*, $SchemaGrammar*, int32_t, $XSObject*)},
-	{}
-};
-
-$InnerClassInfo _XSDAbstractParticleTraverser_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractParticleTraverser$ParticleArray", "com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractParticleTraverser", "ParticleArray", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _XSDAbstractParticleTraverser_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractParticleTraverser",
-	"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractTraverser",
-	nullptr,
-	_XSDAbstractParticleTraverser_FieldInfo_,
-	_XSDAbstractParticleTraverser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XSDAbstractParticleTraverser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractParticleTraverser$ParticleArray"
-};
-
-$Object* allocate$XSDAbstractParticleTraverser($Class* clazz) {
-	return $of($alloc(XSDAbstractParticleTraverser));
-}
-
 void XSDAbstractParticleTraverser::init$($XSDHandler* handler, $XSAttributeChecker* gAttrCheck) {
 	$XSDAbstractTraverser::init$(handler, gAttrCheck);
 	$set(this, fPArray, $new($XSDAbstractParticleTraverser$ParticleArray));
 }
 
 $XSParticleDecl* XSDAbstractParticleTraverser::traverseAll($Element* allDecl, $XSDocumentInfo* schemaDoc, $SchemaGrammar* grammar, int32_t allContextFlags, $XSObject* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, attrValues, $nc(this->fAttrChecker)->checkAttributes(allDecl, false, schemaDoc));
 	$var($Element, child, $DOMUtil::getFirstChildElement(allDecl));
 	$var($XSAnnotationImpl, annotation, nullptr);
 	$init($SchemaSymbols);
-	if (child != nullptr && $nc($($DOMUtil::getLocalName(child)))->equals($SchemaSymbols::ELT_ANNOTATION)) {
+	if (child != nullptr && $$nc($DOMUtil::getLocalName(child))->equals($SchemaSymbols::ELT_ANNOTATION)) {
 		$assign(annotation, traverseAnnotationDecl(child, attrValues, false, schemaDoc));
 		$assign(child, $DOMUtil::getNextSiblingElement(child));
 	} else {
@@ -147,9 +102,9 @@ $XSParticleDecl* XSDAbstractParticleTraverser::traverseAll($Element* allDecl, $X
 			$assign(particle, $nc($nc(this->fSchemaHandler)->fElementTraverser)->traverseLocal(child, schemaDoc, grammar, $XSDAbstractTraverser::PROCESSING_ALL_EL, parent));
 		} else {
 			$var($ObjectArray, args, $new($ObjectArray, {
-				$of("all"_s),
-				$of("(annotation?, element*)"_s),
-				$($of($DOMUtil::getLocalName(child)))
+				"all"_s,
+				"(annotation?, element*)"_s,
+				$($DOMUtil::getLocalName(child))
 			}));
 			reportSchemaError("s4s-elt-must-match.1"_s, args, child);
 		}
@@ -168,7 +123,7 @@ $XSParticleDecl* XSDAbstractParticleTraverser::traverseAll($Element* allDecl, $X
 	$var($XSObjectList, annotations, nullptr);
 	if (annotation != nullptr) {
 		$assign(annotations, $new($XSObjectListImpl));
-		$nc(($cast($XSObjectListImpl, annotations)))->addXSObject(annotation);
+		$cast($XSObjectListImpl, annotations)->addXSObject(annotation);
 	} else {
 		$init($XSObjectListImpl);
 		$assign(annotations, $XSObjectListImpl::EMPTY_LIST);
@@ -180,11 +135,9 @@ $XSParticleDecl* XSDAbstractParticleTraverser::traverseAll($Element* allDecl, $X
 	particle->fMaxOccurs = $nc(maxAtt)->intValue();
 	$set(particle, fValue, group);
 	$set(particle, fAnnotations, annotations);
-	$var($XSParticleDecl, var$0, particle);
-	$var($String, var$1, $SchemaSymbols::ELT_ALL);
-	$var($Element, var$2, $cast($Element, $nc(allDecl)->getParentNode()));
-	int32_t var$3 = allContextFlags;
-	$assign(particle, checkOccurrences(var$0, var$1, var$2, var$3, $nc(defaultVals)->longValue()));
+	$var($String, var$0, $SchemaSymbols::ELT_ALL);
+	$var($Element, var$1, $cast($Element, $nc(allDecl)->getParentNode()));
+	$assign(particle, checkOccurrences(particle, var$0, var$1, allContextFlags, $nc(defaultVals)->longValue()));
 	$nc(this->fAttrChecker)->returnAttrArray(attrValues, schemaDoc);
 	return particle;
 }
@@ -198,12 +151,12 @@ $XSParticleDecl* XSDAbstractParticleTraverser::traverseChoice($Element* choiceDe
 }
 
 $XSParticleDecl* XSDAbstractParticleTraverser::traverseSeqChoice($Element* decl, $XSDocumentInfo* schemaDoc, $SchemaGrammar* grammar, int32_t allContextFlags, bool choice, $XSObject* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, attrValues, $nc(this->fAttrChecker)->checkAttributes(decl, false, schemaDoc));
 	$var($Element, child, $DOMUtil::getFirstChildElement(decl));
 	$var($XSAnnotationImpl, annotation, nullptr);
 	$init($SchemaSymbols);
-	if (child != nullptr && $nc($($DOMUtil::getLocalName(child)))->equals($SchemaSymbols::ELT_ANNOTATION)) {
+	if (child != nullptr && $$nc($DOMUtil::getLocalName(child))->equals($SchemaSymbols::ELT_ANNOTATION)) {
 		$assign(annotation, traverseAnnotationDecl(child, attrValues, false, schemaDoc));
 		$assign(child, $DOMUtil::getNextSiblingElement(child));
 	} else {
@@ -220,42 +173,34 @@ $XSParticleDecl* XSDAbstractParticleTraverser::traverseSeqChoice($Element* decl,
 		$assign(childName, $DOMUtil::getLocalName(child));
 		if ($nc(childName)->equals($SchemaSymbols::ELT_ELEMENT)) {
 			$assign(particle, $nc($nc(this->fSchemaHandler)->fElementTraverser)->traverseLocal(child, schemaDoc, grammar, $XSDAbstractTraverser::NOT_ALL_CONTEXT, parent));
-		} else {
-			if (childName->equals($SchemaSymbols::ELT_GROUP)) {
-				$assign(particle, $nc($nc(this->fSchemaHandler)->fGroupTraverser)->traverseLocal(child, schemaDoc, grammar));
-				if (hasAllContent(particle)) {
-					$assign(particle, nullptr);
-					reportSchemaError("cos-all-limited.1.2"_s, nullptr, child);
-				}
-			} else {
-				if (childName->equals($SchemaSymbols::ELT_CHOICE)) {
-					$assign(particle, traverseChoice(child, schemaDoc, grammar, $XSDAbstractTraverser::NOT_ALL_CONTEXT, parent));
-				} else {
-					if (childName->equals($SchemaSymbols::ELT_SEQUENCE)) {
-						$assign(particle, traverseSequence(child, schemaDoc, grammar, $XSDAbstractTraverser::NOT_ALL_CONTEXT, parent));
-					} else {
-						if (childName->equals($SchemaSymbols::ELT_ANY)) {
-							$assign(particle, $nc($nc(this->fSchemaHandler)->fWildCardTraverser)->traverseAny(child, schemaDoc, grammar));
-						} else {
-							$var($ObjectArray, args, nullptr);
-							if (choice) {
-								$assign(args, $new($ObjectArray, {
-									$of("choice"_s),
-									$of("(annotation?, (element | group | choice | sequence | any)*)"_s),
-									$($of($DOMUtil::getLocalName(child)))
-								}));
-							} else {
-								$assign(args, $new($ObjectArray, {
-									$of("sequence"_s),
-									$of("(annotation?, (element | group | choice | sequence | any)*)"_s),
-									$($of($DOMUtil::getLocalName(child)))
-								}));
-							}
-							reportSchemaError("s4s-elt-must-match.1"_s, args, child);
-						}
-					}
-				}
+		} else if (childName->equals($SchemaSymbols::ELT_GROUP)) {
+			$assign(particle, $nc($nc(this->fSchemaHandler)->fGroupTraverser)->traverseLocal(child, schemaDoc, grammar));
+			if (hasAllContent(particle)) {
+				$assign(particle, nullptr);
+				reportSchemaError("cos-all-limited.1.2"_s, nullptr, child);
 			}
+		} else if (childName->equals($SchemaSymbols::ELT_CHOICE)) {
+			$assign(particle, traverseChoice(child, schemaDoc, grammar, $XSDAbstractTraverser::NOT_ALL_CONTEXT, parent));
+		} else if (childName->equals($SchemaSymbols::ELT_SEQUENCE)) {
+			$assign(particle, traverseSequence(child, schemaDoc, grammar, $XSDAbstractTraverser::NOT_ALL_CONTEXT, parent));
+		} else if (childName->equals($SchemaSymbols::ELT_ANY)) {
+			$assign(particle, $nc($nc(this->fSchemaHandler)->fWildCardTraverser)->traverseAny(child, schemaDoc, grammar));
+		} else {
+			$var($ObjectArray, args, nullptr);
+			if (choice) {
+				$assign(args, $new($ObjectArray, {
+					"choice"_s,
+					"(annotation?, (element | group | choice | sequence | any)*)"_s,
+					$($DOMUtil::getLocalName(child))
+				}));
+			} else {
+				$assign(args, $new($ObjectArray, {
+					"sequence"_s,
+					"(annotation?, (element | group | choice | sequence | any)*)"_s,
+					$($DOMUtil::getLocalName(child))
+				}));
+			}
+			reportSchemaError("s4s-elt-must-match.1"_s, args, child);
 		}
 		if (particle != nullptr) {
 			$nc(this->fPArray)->addParticle(particle);
@@ -272,7 +217,7 @@ $XSParticleDecl* XSDAbstractParticleTraverser::traverseSeqChoice($Element* decl,
 	$var($XSObjectList, annotations, nullptr);
 	if (annotation != nullptr) {
 		$assign(annotations, $new($XSObjectListImpl));
-		$nc(($cast($XSObjectListImpl, annotations)))->addXSObject(annotation);
+		$cast($XSObjectListImpl, annotations)->addXSObject(annotation);
 	} else {
 		$init($XSObjectListImpl);
 		$assign(annotations, $XSObjectListImpl::EMPTY_LIST);
@@ -284,18 +229,16 @@ $XSParticleDecl* XSDAbstractParticleTraverser::traverseSeqChoice($Element* decl,
 	particle->fMaxOccurs = $nc(maxAtt)->intValue();
 	$set(particle, fValue, group);
 	$set(particle, fAnnotations, annotations);
-	$var($XSParticleDecl, var$0, particle);
-	$var($String, var$1, choice ? $SchemaSymbols::ELT_CHOICE : $SchemaSymbols::ELT_SEQUENCE);
-	$var($Element, var$2, $cast($Element, $nc(decl)->getParentNode()));
-	int32_t var$3 = allContextFlags;
-	$assign(particle, checkOccurrences(var$0, var$1, var$2, var$3, $nc(defaultVals)->longValue()));
+	$var($String, var$0, choice ? $SchemaSymbols::ELT_CHOICE : $SchemaSymbols::ELT_SEQUENCE);
+	$var($Element, var$1, $cast($Element, $nc(decl)->getParentNode()));
+	$assign(particle, checkOccurrences(particle, var$0, var$1, allContextFlags, $nc(defaultVals)->longValue()));
 	$nc(this->fAttrChecker)->returnAttrArray(attrValues, schemaDoc);
 	return particle;
 }
 
 bool XSDAbstractParticleTraverser::hasAllContent($XSParticleDecl* particle) {
 	if (particle != nullptr && particle->fType == $XSParticleDecl::PARTICLE_MODELGROUP) {
-		return $nc(($cast($XSModelGroupImpl, particle->fValue)))->fCompositor == $XSModelGroupImpl::MODELGROUP_ALL;
+		return $nc($cast($XSModelGroupImpl, particle->fValue))->fCompositor == $XSModelGroupImpl::MODELGROUP_ALL;
 	}
 	return false;
 }
@@ -304,7 +247,40 @@ XSDAbstractParticleTraverser::XSDAbstractParticleTraverser() {
 }
 
 $Class* XSDAbstractParticleTraverser::load$($String* name, bool initialize) {
-	$loadClass(XSDAbstractParticleTraverser, name, initialize, &_XSDAbstractParticleTraverser_ClassInfo_, allocate$XSDAbstractParticleTraverser);
+	$FieldInfo fieldInfos$$[] = {
+		{"fPArray", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;", nullptr, 0, $field(XSDAbstractParticleTraverser, fPArray)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDHandler;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSAttributeChecker;)V", nullptr, 0, $method(XSDAbstractParticleTraverser, init$, void, $XSDHandler*, $XSAttributeChecker*)},
+		{"hasAllContent", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;)Z", nullptr, $PROTECTED, $virtualMethod(XSDAbstractParticleTraverser, hasAllContent, bool, $XSParticleDecl*)},
+		{"traverseAll", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;ILcom/sun/org/apache/xerces/internal/xs/XSObject;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, 0, $virtualMethod(XSDAbstractParticleTraverser, traverseAll, $XSParticleDecl*, $Element*, $XSDocumentInfo*, $SchemaGrammar*, int32_t, $XSObject*)},
+		{"traverseChoice", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;ILcom/sun/org/apache/xerces/internal/xs/XSObject;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, 0, $virtualMethod(XSDAbstractParticleTraverser, traverseChoice, $XSParticleDecl*, $Element*, $XSDocumentInfo*, $SchemaGrammar*, int32_t, $XSObject*)},
+		{"traverseSeqChoice", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;IZLcom/sun/org/apache/xerces/internal/xs/XSObject;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, $PRIVATE, $method(XSDAbstractParticleTraverser, traverseSeqChoice, $XSParticleDecl*, $Element*, $XSDocumentInfo*, $SchemaGrammar*, int32_t, bool, $XSObject*)},
+		{"traverseSequence", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;ILcom/sun/org/apache/xerces/internal/xs/XSObject;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, 0, $virtualMethod(XSDAbstractParticleTraverser, traverseSequence, $XSParticleDecl*, $Element*, $XSDocumentInfo*, $SchemaGrammar*, int32_t, $XSObject*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractParticleTraverser$ParticleArray", "com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractParticleTraverser", "ParticleArray", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractParticleTraverser",
+		"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractTraverser",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractParticleTraverser$ParticleArray"
+	};
+	$loadClass(XSDAbstractParticleTraverser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSDAbstractParticleTraverser);
+	});
 	return class$;
 }
 

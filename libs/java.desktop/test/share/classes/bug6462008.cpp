@@ -1,5 +1,4 @@
 #include <bug6462008.h>
-
 #include <bug6462008$1.h>
 #include <bug6462008$2.h>
 #include <bug6462008$3.h>
@@ -62,8 +61,6 @@ using $bug6462008$7 = ::bug6462008$7;
 using $bug6462008$8 = ::bug6462008$8;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
 using $InputEvent = ::java::awt::event::InputEvent;
@@ -83,9 +80,7 @@ using $DefaultListSelectionModel = ::javax::swing::DefaultListSelectionModel;
 using $JFrame = ::javax::swing::JFrame;
 using $JList = ::javax::swing::JList;
 using $JPanel = ::javax::swing::JPanel;
-using $ListModel = ::javax::swing::ListModel;
 using $ListSelectionModel = ::javax::swing::ListSelectionModel;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 
@@ -97,92 +92,27 @@ public:
 	virtual void run() override {
 		bug6462008::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6462008$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug6462008$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6462008$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6462008$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo bug6462008$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6462008$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug6462008$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(bug6462008$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6462008$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6462008$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6462008$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug6462008$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6462008$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* bug6462008$$Lambda$lambda$main$0::class$ = nullptr;
-
-$FieldInfo _bug6462008_FieldInfo_[] = {
-	{"DONT_CARE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(bug6462008, DONT_CARE)},
-	{"anchorLead", "I", nullptr, $PRIVATE | $STATIC, $staticField(bug6462008, anchorLead)},
-	{"isAquaLAF", "Z", nullptr, $PRIVATE | $STATIC, $staticField(bug6462008, isAquaLAF)},
-	{"controlKey", "I", nullptr, $PRIVATE | $STATIC, $staticField(bug6462008, controlKey)},
-	{"list", "Ljavax/swing/JList;", nullptr, $PRIVATE | $STATIC, $staticField(bug6462008, list)},
-	{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(bug6462008, robot)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug6462008, frame)},
-	{}
-};
-
-$MethodInfo _bug6462008_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6462008, init$, void)},
-	{"checkSelection", "([I)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(bug6462008, checkSelection, void, $ints*), "java.lang.Exception"},
-	{"checkSelectionAL", "(II[I)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(bug6462008, checkSelectionAL, void, int32_t, int32_t, $ints*), "java.lang.Exception"},
-	{"checkSelectionNonThreadSafe", "(II[I)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(bug6462008, checkSelectionNonThreadSafe, void, int32_t, int32_t, $ints*)},
-	{"clickItem4", "()Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6462008, clickItem4, $Point*), "java.lang.Exception"},
-	{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6462008, createAndShowGUI, void)},
-	{"getModel", "()Ljavax/swing/DefaultListModel;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6462008, getModel, $DefaultListModel*)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6462008, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6462008, main, void, $StringArray*), "java.lang.Exception"},
-	{"resetList", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6462008, resetList, void), "java.lang.Exception"},
-	{"scrollDownExtendSelection", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6462008, scrollDownExtendSelection, void), "java.lang.Exception"},
-	{"setAnchorLead", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6462008, setAnchorLead, void, int32_t), "java.lang.Exception"},
-	{"setAnchorLeadNonThreadSafe", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6462008, setAnchorLeadNonThreadSafe, void)},
-	{"setSelectionInterval", "(II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6462008, setSelectionInterval, void, int32_t, int32_t), "java.lang.Exception"},
-	{"setSelectionMode", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6462008, setSelectionMode, void, int32_t), "java.lang.Exception"},
-	{"testListSelection", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6462008, testListSelection, void), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug6462008_InnerClassesInfo_[] = {
-	{"bug6462008$8", nullptr, nullptr, 0},
-	{"bug6462008$7", nullptr, nullptr, 0},
-	{"bug6462008$6", nullptr, nullptr, 0},
-	{"bug6462008$5", nullptr, nullptr, 0},
-	{"bug6462008$4", nullptr, nullptr, 0},
-	{"bug6462008$3", nullptr, nullptr, 0},
-	{"bug6462008$2", nullptr, nullptr, 0},
-	{"bug6462008$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6462008_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6462008",
-	"java.lang.Object",
-	nullptr,
-	_bug6462008_FieldInfo_,
-	_bug6462008_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6462008_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug6462008$8,bug6462008$7,bug6462008$6,bug6462008$5,bug6462008$4,bug6462008$3,bug6462008$2,bug6462008$1"
-};
-
-$Object* allocate$bug6462008($Class* clazz) {
-	return $of($alloc(bug6462008));
-}
 
 int32_t bug6462008::anchorLead = 0;
 bool bug6462008::isAquaLAF = false;
@@ -195,40 +125,38 @@ void bug6462008::init$() {
 }
 
 void bug6462008::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$init(bug6462008);
-			$assignStatic(bug6462008::robot, $new($Robot));
-			$nc(bug6462008::robot)->setAutoDelay(100);
-			bug6462008::isAquaLAF = "Aqua"_s->equals($($nc($($UIManager::getLookAndFeel()))->getID()));
-			bug6462008::controlKey = bug6462008::isAquaLAF ? $KeyEvent::VK_META : $KeyEvent::VK_CONTROL;
-			$SwingUtilities::invokeAndWait($$new($bug6462008$1));
-			$nc(bug6462008::robot)->waitForIdle();
-			$nc(bug6462008::robot)->delay(1000);
-			setAnchorLead(-1);
-			$nc(bug6462008::robot)->waitForIdle();
-			testListSelection();
-			setAnchorLead(100);
-			$nc(bug6462008::robot)->waitForIdle();
-			testListSelection();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$init(bug6462008);
-			if (bug6462008::frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6462008$$Lambda$lambda$main$0)));
-			}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$init(bug6462008);
+		$assignStatic(bug6462008::robot, $new($Robot));
+		bug6462008::robot->setAutoDelay(100);
+		bug6462008::isAquaLAF = "Aqua"_s->equals($($$nc($UIManager::getLookAndFeel())->getID()));
+		bug6462008::controlKey = bug6462008::isAquaLAF ? $KeyEvent::VK_META : $KeyEvent::VK_CONTROL;
+		$SwingUtilities::invokeAndWait($$new($bug6462008$1));
+		$nc(bug6462008::robot)->waitForIdle();
+		$nc(bug6462008::robot)->delay(1000);
+		setAnchorLead(-1);
+		$nc(bug6462008::robot)->waitForIdle();
+		testListSelection();
+		setAnchorLead(100);
+		$nc(bug6462008::robot)->waitForIdle();
+		testListSelection();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$init(bug6462008);
+		if (bug6462008::frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(bug6462008$$Lambda$lambda$main$0));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void bug6462008::testListSelection() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(bug6462008);
 	$nc(bug6462008::robot)->keyPress($KeyEvent::VK_SPACE);
 	$nc(bug6462008::robot)->keyRelease($KeyEvent::VK_SPACE);
@@ -343,7 +271,7 @@ void bug6462008::testListSelection() {
 	resetList();
 	$nc(bug6462008::robot)->waitForIdle();
 	$var($Point, p, clickItem4());
-	$nc(bug6462008::robot)->mouseMove($nc(p)->x, p->y);
+	$nc(bug6462008::robot)->mouseMove($nc(p)->x, $nc(p)->y);
 	$nc(bug6462008::robot)->mousePress($InputEvent::BUTTON1_MASK);
 	$nc(bug6462008::robot)->mouseRelease($InputEvent::BUTTON1_MASK);
 	$nc(bug6462008::robot)->waitForIdle();
@@ -352,7 +280,7 @@ void bug6462008::testListSelection() {
 	$nc(bug6462008::robot)->waitForIdle();
 	$nc(bug6462008::robot)->keyPress(bug6462008::controlKey);
 	$assign(p, clickItem4());
-	$nc(bug6462008::robot)->mouseMove($nc(p)->x, p->y);
+	$nc(bug6462008::robot)->mouseMove($nc(p)->x, $nc(p)->y);
 	$nc(bug6462008::robot)->mousePress($InputEvent::BUTTON1_MASK);
 	$nc(bug6462008::robot)->mouseRelease($InputEvent::BUTTON1_MASK);
 	$nc(bug6462008::robot)->keyRelease(bug6462008::controlKey);
@@ -362,7 +290,7 @@ void bug6462008::testListSelection() {
 	$nc(bug6462008::robot)->waitForIdle();
 	$nc(bug6462008::robot)->keyPress($KeyEvent::VK_SHIFT);
 	$assign(p, clickItem4());
-	$nc(bug6462008::robot)->mouseMove($nc(p)->x, p->y);
+	$nc(bug6462008::robot)->mouseMove($nc(p)->x, $nc(p)->y);
 	$nc(bug6462008::robot)->mousePress($InputEvent::BUTTON1_MASK);
 	$nc(bug6462008::robot)->mouseRelease($InputEvent::BUTTON1_MASK);
 	$nc(bug6462008::robot)->keyRelease($KeyEvent::VK_SHIFT);
@@ -379,7 +307,7 @@ void bug6462008::testListSelection() {
 	$nc(bug6462008::robot)->keyPress(bug6462008::controlKey);
 	$nc(bug6462008::robot)->keyPress($KeyEvent::VK_SHIFT);
 	$assign(p, clickItem4());
-	$nc(bug6462008::robot)->mouseMove($nc(p)->x, p->y);
+	$nc(bug6462008::robot)->mouseMove($nc(p)->x, $nc(p)->y);
 	$nc(bug6462008::robot)->mousePress($InputEvent::BUTTON1_MASK);
 	$nc(bug6462008::robot)->mouseRelease($InputEvent::BUTTON1_MASK);
 	$nc(bug6462008::robot)->keyRelease($KeyEvent::VK_SHIFT);
@@ -391,7 +319,7 @@ void bug6462008::testListSelection() {
 }
 
 $DefaultListModel* bug6462008::getModel() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DefaultListModel, listModel, $new($DefaultListModel));
 	for (int32_t i = 0; i < 10; ++i) {
 		listModel->addElement($$str({"List Item "_s, $$str(i)}));
@@ -400,7 +328,7 @@ $DefaultListModel* bug6462008::getModel() {
 }
 
 $Point* bug6462008::clickItem4() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PointArray, result, $new($PointArray, 1));
 	$SwingUtilities::invokeAndWait($$new($bug6462008$2, result));
 	return result->get(0);
@@ -427,22 +355,22 @@ void bug6462008::setAnchorLead(int32_t anchorLeadValue) {
 }
 
 void bug6462008::setAnchorLeadNonThreadSafe() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(bug6462008);
-	$nc($($nc(bug6462008::list)->getSelectionModel()))->setAnchorSelectionIndex(bug6462008::anchorLead);
-	$nc(($cast($DefaultListSelectionModel, $($nc(bug6462008::list)->getSelectionModel()))))->moveLeadSelectionIndex(bug6462008::anchorLead);
+	$$nc($nc(bug6462008::list)->getSelectionModel())->setAnchorSelectionIndex(bug6462008::anchorLead);
+	$$sure($DefaultListSelectionModel, $nc(bug6462008::list)->getSelectionModel())->moveLeadSelectionIndex(bug6462008::anchorLead);
 }
 
 void bug6462008::createAndShowGUI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(bug6462008);
 	$assignStatic(bug6462008::frame, $new($JFrame, "bug6462008"_s));
-	$nc(bug6462008::frame)->setSize(200, 500);
+	bug6462008::frame->setSize(200, 500);
 	$nc(bug6462008::frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
-	$assignStatic(bug6462008::list, $new($JList, $(static_cast<$ListModel*>(getModel()))));
-	$var($JPanel, panel, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout))));
-	panel->add(static_cast<$Component*>(bug6462008::list));
-	$nc($($nc(bug6462008::frame)->getContentPane()))->add(static_cast<$Component*>(panel));
+	$assignStatic(bug6462008::list, $new($JList, $(getModel())));
+	$var($JPanel, panel, $new($JPanel, $$new($BorderLayout)));
+	panel->add(bug6462008::list);
+	$$nc($nc(bug6462008::frame)->getContentPane())->add(panel);
 	$nc(bug6462008::frame)->setVisible(true);
 	$nc(bug6462008::frame)->setLocationRelativeTo(nullptr);
 }
@@ -456,7 +384,7 @@ void bug6462008::checkSelectionAL(int32_t anchor, int32_t lead, $ints* sels) {
 }
 
 void bug6462008::checkSelectionNonThreadSafe(int32_t anchor, int32_t lead, $ints* sels) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(bug6462008);
 	$var($ListSelectionModel, lsm, $nc(bug6462008::list)->getSelectionModel());
 	int32_t actualAnchor = $nc(lsm)->getAnchorSelectionIndex();
@@ -468,12 +396,10 @@ void bug6462008::checkSelectionNonThreadSafe(int32_t anchor, int32_t lead, $ints
 		$throwNew($RuntimeException, $$str({"lead is "_s, $$str(actualLead), ", should be "_s, $$str(lead)}));
 	}
 	$Arrays::sort(sels);
-	$var($booleans, checks, $new($booleans, $nc($($nc(bug6462008::list)->getModel()))->getSize()));
+	$var($booleans, checks, $new($booleans, $$nc($nc(bug6462008::list)->getModel())->getSize()));
 	{
 		$var($ints, arr$, sels);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int32_t i = arr$->get(i$);
 			{
 				checks->set(i, true);
@@ -482,16 +408,14 @@ void bug6462008::checkSelectionNonThreadSafe(int32_t anchor, int32_t lead, $ints
 	}
 	int32_t index0 = $Math::min(lsm->getMinSelectionIndex(), 0);
 	int32_t var$0 = lsm->getMaxSelectionIndex();
-	int32_t index1 = $Math::max(var$0, $nc($($nc(bug6462008::list)->getModel()))->getSize() - 1);
+	int32_t index1 = $Math::max(var$0, $$nc($nc(bug6462008::list)->getModel())->getSize() - 1);
 	for (int32_t i = index0; i <= index1; ++i) {
 		if (lsm->isSelectedIndex(i)) {
-			if (i < 0 || i >= $nc($($nc(bug6462008::list)->getModel()))->getSize() || !checks->get(i)) {
+			if (i < 0 || i >= $$nc($nc(bug6462008::list)->getModel())->getSize() || !checks->get(i)) {
 				$throwNew($RuntimeException, $$str({$$str(i), " is selected when it should not be"_s}));
 			}
-		} else {
-			if (i >= 0 && i < $nc($($nc(bug6462008::list)->getModel()))->getSize() && checks->get(i)) {
-				$throwNew($RuntimeException, $$str({$$str(i), " is supposed to be selected"_s}));
-			}
+		} else if (i >= 0 && i < $$nc($nc(bug6462008::list)->getModel())->getSize() && checks->get(i)) {
+			$throwNew($RuntimeException, $$str({$$str(i), " is supposed to be selected"_s}));
 		}
 	}
 }
@@ -506,11 +430,67 @@ bug6462008::bug6462008() {
 
 $Class* bug6462008::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug6462008$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("bug6462008$$Lambda$lambda$main$0")) {
 			return bug6462008$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(bug6462008, name, initialize, &_bug6462008_ClassInfo_, allocate$bug6462008);
+	$FieldInfo fieldInfos$$[] = {
+		{"DONT_CARE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(bug6462008, DONT_CARE)},
+		{"anchorLead", "I", nullptr, $PRIVATE | $STATIC, $staticField(bug6462008, anchorLead)},
+		{"isAquaLAF", "Z", nullptr, $PRIVATE | $STATIC, $staticField(bug6462008, isAquaLAF)},
+		{"controlKey", "I", nullptr, $PRIVATE | $STATIC, $staticField(bug6462008, controlKey)},
+		{"list", "Ljavax/swing/JList;", nullptr, $PRIVATE | $STATIC, $staticField(bug6462008, list)},
+		{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(bug6462008, robot)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug6462008, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6462008, init$, void)},
+		{"checkSelection", "([I)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(bug6462008, checkSelection, void, $ints*), "java.lang.Exception"},
+		{"checkSelectionAL", "(II[I)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(bug6462008, checkSelectionAL, void, int32_t, int32_t, $ints*), "java.lang.Exception"},
+		{"checkSelectionNonThreadSafe", "(II[I)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(bug6462008, checkSelectionNonThreadSafe, void, int32_t, int32_t, $ints*)},
+		{"clickItem4", "()Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6462008, clickItem4, $Point*), "java.lang.Exception"},
+		{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6462008, createAndShowGUI, void)},
+		{"getModel", "()Ljavax/swing/DefaultListModel;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6462008, getModel, $DefaultListModel*)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6462008, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6462008, main, void, $StringArray*), "java.lang.Exception"},
+		{"resetList", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6462008, resetList, void), "java.lang.Exception"},
+		{"scrollDownExtendSelection", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6462008, scrollDownExtendSelection, void), "java.lang.Exception"},
+		{"setAnchorLead", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6462008, setAnchorLead, void, int32_t), "java.lang.Exception"},
+		{"setAnchorLeadNonThreadSafe", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6462008, setAnchorLeadNonThreadSafe, void)},
+		{"setSelectionInterval", "(II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6462008, setSelectionInterval, void, int32_t, int32_t), "java.lang.Exception"},
+		{"setSelectionMode", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6462008, setSelectionMode, void, int32_t), "java.lang.Exception"},
+		{"testListSelection", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6462008, testListSelection, void), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6462008$8", nullptr, nullptr, 0},
+		{"bug6462008$7", nullptr, nullptr, 0},
+		{"bug6462008$6", nullptr, nullptr, 0},
+		{"bug6462008$5", nullptr, nullptr, 0},
+		{"bug6462008$4", nullptr, nullptr, 0},
+		{"bug6462008$3", nullptr, nullptr, 0},
+		{"bug6462008$2", nullptr, nullptr, 0},
+		{"bug6462008$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6462008",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug6462008$8,bug6462008$7,bug6462008$6,bug6462008$5,bug6462008$4,bug6462008$3,bug6462008$2,bug6462008$1"
+	};
+	$loadClass(bug6462008, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6462008);
+	});
 	return class$;
 }
 

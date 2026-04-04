@@ -40,6 +40,7 @@ class GSSNameElement : public ::sun::security::jgss::spi::GSSNameSpi {
 	$class(GSSNameElement, $HAS_FINALIZE, ::sun::security::jgss::spi::GSSNameSpi)
 public:
 	GSSNameElement();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int64_t pNativeName, ::sun::security::jgss::wrapper::GSSLibStub* stub);
 	void init$($bytes* nameBytes, ::org::ietf::jgss::Oid* nameType, ::sun::security::jgss::wrapper::GSSLibStub* stub);

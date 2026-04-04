@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/main/JavaCompiler$1MethodBodyRemover.h>
-
 #include <com/sun/tools/javac/code/Flags.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$MethodSymbol.h>
@@ -32,18 +31,12 @@
 #undef SYNCHRONIZED
 
 using $Flags = ::com::sun::tools::javac::code::Flags;
-using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
-using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
-using $Symbol$PackageSymbol = ::com::sun::tools::javac::code::Symbol$PackageSymbol;
-using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
-using $Type = ::com::sun::tools::javac::code::Type;
 using $JavaCompiler = ::com::sun::tools::javac::main::JavaCompiler;
 using $JavaCompiler$2 = ::com::sun::tools::javac::main::JavaCompiler$2;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCMethodDecl = ::com::sun::tools::javac::tree::JCTree$JCMethodDecl;
 using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
-using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $TreeTranslator = ::com::sun::tools::javac::tree::TreeTranslator;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
@@ -60,52 +53,6 @@ namespace com {
 			namespace javac {
 				namespace main {
 
-$FieldInfo _JavaCompiler$1MethodBodyRemover_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/main/JavaCompiler;", nullptr, $FINAL | $SYNTHETIC, $field(JavaCompiler$1MethodBodyRemover, this$0)},
-	{"val$isInterface", "Z", nullptr, $FINAL | $SYNTHETIC, $field(JavaCompiler$1MethodBodyRemover, val$isInterface)},
-	{}
-};
-
-$MethodInfo _JavaCompiler$1MethodBodyRemover_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/main/JavaCompiler;Z)V", "()V", 0, $method(JavaCompiler$1MethodBodyRemover, init$, void, $JavaCompiler*, bool)},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavaCompiler$1MethodBodyRemover, visitClassDef, void, $JCTree$JCClassDecl*)},
-	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavaCompiler$1MethodBodyRemover, visitMethodDef, void, $JCTree$JCMethodDecl*)},
-	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavaCompiler$1MethodBodyRemover, visitVarDef, void, $JCTree$JCVariableDecl*)},
-	{}
-};
-
-$EnclosingMethodInfo _JavaCompiler$1MethodBodyRemover_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.main.JavaCompiler",
-	"removeMethodBodies",
-	"(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;"
-};
-
-$InnerClassInfo _JavaCompiler$1MethodBodyRemover_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.main.JavaCompiler$1MethodBodyRemover", nullptr, "MethodBodyRemover", 0},
-	{"com.sun.tools.javac.tree.JCTree$JCClassDecl", "com.sun.tools.javac.tree.JCTree", "JCClassDecl", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JavaCompiler$1MethodBodyRemover_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.main.JavaCompiler$1MethodBodyRemover",
-	"com.sun.tools.javac.tree.TreeTranslator",
-	nullptr,
-	_JavaCompiler$1MethodBodyRemover_FieldInfo_,
-	_JavaCompiler$1MethodBodyRemover_MethodInfo_,
-	nullptr,
-	&_JavaCompiler$1MethodBodyRemover_EnclosingMethodInfo_,
-	_JavaCompiler$1MethodBodyRemover_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.main.JavaCompiler"
-};
-
-$Object* allocate$JavaCompiler$1MethodBodyRemover($Class* clazz) {
-	return $of($alloc(JavaCompiler$1MethodBodyRemover));
-}
-
 void JavaCompiler$1MethodBodyRemover::init$($JavaCompiler* this$0, bool val$isInterface) {
 	$set(this, this$0, this$0);
 	this->val$isInterface = val$isInterface;
@@ -113,7 +60,7 @@ void JavaCompiler$1MethodBodyRemover::init$($JavaCompiler* this$0, bool val$isIn
 }
 
 void JavaCompiler$1MethodBodyRemover::visitMethodDef($JCTree$JCMethodDecl* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($nc(tree)->mods)->flags &= (uint64_t)~$Flags::SYNCHRONIZED;
 	{
 		$var($Iterator, i$, $nc(tree->params)->iterator());
@@ -127,46 +74,38 @@ void JavaCompiler$1MethodBodyRemover::visitMethodDef($JCTree$JCMethodDecl* tree)
 }
 
 void JavaCompiler$1MethodBodyRemover::visitVarDef($JCTree$JCVariableDecl* tree) {
-	if ($nc(tree)->init != nullptr && $nc($nc(tree->init)->type)->constValue() == nullptr) {
+	if ($nc(tree)->init != nullptr && $nc(tree->init->type)->constValue() == nullptr) {
 		$set(tree, init, nullptr);
 	}
 	$TreeTranslator::visitVarDef(tree);
 }
 
 void JavaCompiler$1MethodBodyRemover::visitClassDef($JCTree$JCClassDecl* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, newdefs, $new($ListBuffer));
 	{
 		$var($List, it, $nc(tree)->defs);
-		for (; $nc(it)->tail != nullptr; $assign(it, $nc(it)->tail)) {
+		for (; $nc(it)->tail != nullptr; $assign(it, it->tail)) {
 			$var($JCTree, t, $cast($JCTree, it->head));
 			$init($JavaCompiler$2);
-			switch ($nc($JavaCompiler$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(t)->getTag())))->ordinal())) {
+			switch ($nc($JavaCompiler$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(t)->getTag()))->ordinal())) {
 			case 1:
-				{
-					if (this->val$isInterface || ((int64_t)($nc($nc(($cast($JCTree$JCClassDecl, t)))->mods)->flags & (uint64_t)(int64_t)($Flags::PROTECTED | $Flags::PUBLIC))) != 0 || ((int64_t)($nc($nc(($cast($JCTree$JCClassDecl, t)))->mods)->flags & (uint64_t)(int64_t)($Flags::PRIVATE))) == 0 && $nc($($nc($nc(($cast($JCTree$JCClassDecl, t)))->sym)->packge()))->getQualifiedName() == $nc(this->this$0->names)->java_lang) {
-						newdefs->append(t);
-					}
-					break;
+				if (this->val$isInterface || ($nc($cast($JCTree$JCClassDecl, t)->mods)->flags & ($Flags::PROTECTED | $Flags::PUBLIC)) != 0 || ($nc($cast($JCTree$JCClassDecl, t)->mods)->flags & ($Flags::PRIVATE)) == 0 && $$nc($nc($cast($JCTree$JCClassDecl, t)->sym)->packge())->getQualifiedName() == $nc(this->this$0->names)->java_lang) {
+					newdefs->append(t);
 				}
+				break;
 			case 2:
-				{
-					if (this->val$isInterface || ((int64_t)($nc($nc(($cast($JCTree$JCMethodDecl, t)))->mods)->flags & (uint64_t)(int64_t)($Flags::PROTECTED | $Flags::PUBLIC))) != 0 || $nc($nc(($cast($JCTree$JCMethodDecl, t)))->sym)->name == $nc(this->this$0->names)->init || ((int64_t)($nc($nc(($cast($JCTree$JCMethodDecl, t)))->mods)->flags & (uint64_t)(int64_t)($Flags::PRIVATE))) == 0 && $nc($($nc($nc(($cast($JCTree$JCMethodDecl, t)))->sym)->packge()))->getQualifiedName() == $nc(this->this$0->names)->java_lang) {
-						newdefs->append(t);
-					}
-					break;
+				if (this->val$isInterface || ($nc($cast($JCTree$JCMethodDecl, t)->mods)->flags & ($Flags::PROTECTED | $Flags::PUBLIC)) != 0 || $nc($cast($JCTree$JCMethodDecl, t)->sym)->name == $nc(this->this$0->names)->init || ($nc($cast($JCTree$JCMethodDecl, t)->mods)->flags & ($Flags::PRIVATE)) == 0 && $$nc($nc($cast($JCTree$JCMethodDecl, t)->sym)->packge())->getQualifiedName() == $nc(this->this$0->names)->java_lang) {
+					newdefs->append(t);
 				}
+				break;
 			case 3:
-				{
-					if (this->val$isInterface || ((int64_t)($nc($nc(($cast($JCTree$JCVariableDecl, t)))->mods)->flags & (uint64_t)(int64_t)($Flags::PROTECTED | $Flags::PUBLIC))) != 0 || ((int64_t)($nc($nc(($cast($JCTree$JCVariableDecl, t)))->mods)->flags & (uint64_t)(int64_t)($Flags::PRIVATE))) == 0 && $nc($($nc($nc(($cast($JCTree$JCVariableDecl, t)))->sym)->packge()))->getQualifiedName() == $nc(this->this$0->names)->java_lang) {
-						newdefs->append(t);
-					}
-					break;
+				if (this->val$isInterface || ($nc($cast($JCTree$JCVariableDecl, t)->mods)->flags & ($Flags::PROTECTED | $Flags::PUBLIC)) != 0 || ($nc($cast($JCTree$JCVariableDecl, t)->mods)->flags & ($Flags::PRIVATE)) == 0 && $$nc($nc($cast($JCTree$JCVariableDecl, t)->sym)->packge())->getQualifiedName() == $nc(this->this$0->names)->java_lang) {
+					newdefs->append(t);
 				}
+				break;
 			default:
-				{
-					break;
-				}
+				break;
 			}
 		}
 	}
@@ -178,7 +117,46 @@ JavaCompiler$1MethodBodyRemover::JavaCompiler$1MethodBodyRemover() {
 }
 
 $Class* JavaCompiler$1MethodBodyRemover::load$($String* name, bool initialize) {
-	$loadClass(JavaCompiler$1MethodBodyRemover, name, initialize, &_JavaCompiler$1MethodBodyRemover_ClassInfo_, allocate$JavaCompiler$1MethodBodyRemover);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/main/JavaCompiler;", nullptr, $FINAL | $SYNTHETIC, $field(JavaCompiler$1MethodBodyRemover, this$0)},
+		{"val$isInterface", "Z", nullptr, $FINAL | $SYNTHETIC, $field(JavaCompiler$1MethodBodyRemover, val$isInterface)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/main/JavaCompiler;Z)V", "()V", 0, $method(JavaCompiler$1MethodBodyRemover, init$, void, $JavaCompiler*, bool)},
+		{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavaCompiler$1MethodBodyRemover, visitClassDef, void, $JCTree$JCClassDecl*)},
+		{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavaCompiler$1MethodBodyRemover, visitMethodDef, void, $JCTree$JCMethodDecl*)},
+		{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavaCompiler$1MethodBodyRemover, visitVarDef, void, $JCTree$JCVariableDecl*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.main.JavaCompiler",
+		"removeMethodBodies",
+		"(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.main.JavaCompiler$1MethodBodyRemover", nullptr, "MethodBodyRemover", 0},
+		{"com.sun.tools.javac.tree.JCTree$JCClassDecl", "com.sun.tools.javac.tree.JCTree", "JCClassDecl", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.main.JavaCompiler$1MethodBodyRemover",
+		"com.sun.tools.javac.tree.TreeTranslator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.main.JavaCompiler"
+	};
+	$loadClass(JavaCompiler$1MethodBodyRemover, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavaCompiler$1MethodBodyRemover);
+	});
 	return class$;
 }
 

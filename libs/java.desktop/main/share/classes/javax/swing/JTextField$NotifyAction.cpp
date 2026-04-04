@@ -1,5 +1,4 @@
 #include <javax/swing/JTextField$NotifyAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/JTextField.h>
 #include <javax/swing/text/JTextComponent.h>
@@ -17,55 +16,23 @@ using $TextAction = ::javax::swing::text::TextAction;
 namespace javax {
 	namespace swing {
 
-$MethodInfo _JTextField$NotifyAction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(JTextField$NotifyAction, init$, void)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTextField$NotifyAction, actionPerformed, void, $ActionEvent*)},
-	{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JTextField$NotifyAction, isEnabled, bool)},
-	{}
-};
-
-$InnerClassInfo _JTextField$NotifyAction_InnerClassesInfo_[] = {
-	{"javax.swing.JTextField$NotifyAction", "javax.swing.JTextField", "NotifyAction", $STATIC},
-	{}
-};
-
-$ClassInfo _JTextField$NotifyAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JTextField$NotifyAction",
-	"javax.swing.text.TextAction",
-	nullptr,
-	nullptr,
-	_JTextField$NotifyAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTextField$NotifyAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JTextField"
-};
-
-$Object* allocate$JTextField$NotifyAction($Class* clazz) {
-	return $of($alloc(JTextField$NotifyAction));
-}
-
 void JTextField$NotifyAction::init$() {
 	$TextAction::init$("notify-field-accept"_s);
 }
 
 void JTextField$NotifyAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextComponent, target, getFocusedComponent());
 	if ($instanceOf($JTextField, target)) {
 		$var($JTextField, field, $cast($JTextField, target));
-		$nc(field)->postActionEvent();
+		field->postActionEvent();
 	}
 }
 
 bool JTextField$NotifyAction::isEnabled() {
 	$var($JTextComponent, target, getFocusedComponent());
 	if ($instanceOf($JTextField, target)) {
-		return $nc(($cast($JTextField, target)))->hasActionListener();
+		return $cast($JTextField, target)->hasActionListener();
 	}
 	return false;
 }
@@ -74,7 +41,34 @@ JTextField$NotifyAction::JTextField$NotifyAction() {
 }
 
 $Class* JTextField$NotifyAction::load$($String* name, bool initialize) {
-	$loadClass(JTextField$NotifyAction, name, initialize, &_JTextField$NotifyAction_ClassInfo_, allocate$JTextField$NotifyAction);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(JTextField$NotifyAction, init$, void)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTextField$NotifyAction, actionPerformed, void, $ActionEvent*)},
+		{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JTextField$NotifyAction, isEnabled, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JTextField$NotifyAction", "javax.swing.JTextField", "NotifyAction", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JTextField$NotifyAction",
+		"javax.swing.text.TextAction",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JTextField"
+	};
+	$loadClass(JTextField$NotifyAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JTextField$NotifyAction));
+	});
 	return class$;
 }
 

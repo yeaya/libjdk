@@ -36,6 +36,7 @@ class $export AtomicContext : public ::com::sun::jndi::toolkit::ctx::ComponentCo
 	$class(AtomicContext, 0, ::com::sun::jndi::toolkit::ctx::ComponentContext)
 public:
 	AtomicContext();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void a_bind($String* name, Object$* obj, ::com::sun::jndi::toolkit::ctx::Continuation* cont) {}
 	virtual void a_bind_nns($String* name, Object$* obj, ::com::sun::jndi::toolkit::ctx::Continuation* cont);

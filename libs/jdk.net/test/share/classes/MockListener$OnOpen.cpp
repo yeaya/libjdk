@@ -1,5 +1,4 @@
 #include <MockListener$OnOpen.h>
-
 #include <MockListener$Invocation.h>
 #include <MockListener.h>
 #include <java/net/http/WebSocket.h>
@@ -13,40 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $WebSocket = ::java::net::http::WebSocket;
 using $Objects = ::java::util::Objects;
 
-$MethodInfo _MockListener$OnOpen_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/http/WebSocket;)V", nullptr, $PUBLIC, $method(MockListener$OnOpen, init$, void, $WebSocket*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MockListener$OnOpen, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MockListener$OnOpen, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MockListener$OnOpen, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _MockListener$OnOpen_InnerClassesInfo_[] = {
-	{"MockListener$OnOpen", "MockListener", "OnOpen", $PUBLIC | $STATIC | $FINAL},
-	{"MockListener$Invocation", "MockListener", "Invocation", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MockListener$OnOpen_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"MockListener$OnOpen",
-	"MockListener$Invocation",
-	nullptr,
-	nullptr,
-	_MockListener$OnOpen_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MockListener$OnOpen_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"MockListener"
-};
-
-$Object* allocate$MockListener$OnOpen($Class* clazz) {
-	return $of($alloc(MockListener$OnOpen));
-}
-
 void MockListener$OnOpen::init$($WebSocket* webSocket) {
 	$MockListener$Invocation::init$(webSocket);
 }
@@ -57,7 +22,7 @@ bool MockListener$OnOpen::equals(Object$* o) {
 	}
 	bool var$0 = o == nullptr;
 	if (!var$0) {
-		var$0 = $of(this)->getClass() != $nc($of(o))->getClass();
+		var$0 = $of(this)->getClass() != $of(o)->getClass();
 	}
 	if (var$0) {
 		return false;
@@ -71,14 +36,43 @@ int32_t MockListener$OnOpen::hashCode() {
 }
 
 $String* MockListener$OnOpen::toString() {
-	return $String::format("onOpen(%s)"_s, $$new($ObjectArray, {$of(this->webSocket)}));
+	return $String::format("onOpen(%s)"_s, $$new($ObjectArray, {this->webSocket}));
 }
 
 MockListener$OnOpen::MockListener$OnOpen() {
 }
 
 $Class* MockListener$OnOpen::load$($String* name, bool initialize) {
-	$loadClass(MockListener$OnOpen, name, initialize, &_MockListener$OnOpen_ClassInfo_, allocate$MockListener$OnOpen);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/http/WebSocket;)V", nullptr, $PUBLIC, $method(MockListener$OnOpen, init$, void, $WebSocket*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MockListener$OnOpen, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MockListener$OnOpen, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MockListener$OnOpen, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"MockListener$OnOpen", "MockListener", "OnOpen", $PUBLIC | $STATIC | $FINAL},
+		{"MockListener$Invocation", "MockListener", "Invocation", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"MockListener$OnOpen",
+		"MockListener$Invocation",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"MockListener"
+	};
+	$loadClass(MockListener$OnOpen, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MockListener$OnOpen);
+	});
 	return class$;
 }
 

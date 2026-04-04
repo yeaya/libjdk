@@ -1,5 +1,4 @@
 #include <javax/accessibility/AccessibleState.h>
-
 #include <javax/accessibility/AccessibleBundle.h>
 #include <jcpp.h>
 
@@ -41,57 +40,6 @@ using $AccessibleBundle = ::javax::accessibility::AccessibleBundle;
 namespace javax {
 	namespace accessibility {
 
-$FieldInfo _AccessibleState_FieldInfo_[] = {
-	{"ACTIVE", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, ACTIVE)},
-	{"PRESSED", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, PRESSED)},
-	{"ARMED", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, ARMED)},
-	{"BUSY", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, BUSY)},
-	{"CHECKED", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, CHECKED)},
-	{"EDITABLE", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, EDITABLE)},
-	{"EXPANDABLE", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, EXPANDABLE)},
-	{"COLLAPSED", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, COLLAPSED)},
-	{"EXPANDED", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, EXPANDED)},
-	{"ENABLED", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, ENABLED)},
-	{"FOCUSABLE", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, FOCUSABLE)},
-	{"FOCUSED", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, FOCUSED)},
-	{"ICONIFIED", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, ICONIFIED)},
-	{"MODAL", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, MODAL)},
-	{"OPAQUE", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, OPAQUE)},
-	{"RESIZABLE", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, RESIZABLE)},
-	{"MULTISELECTABLE", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, MULTISELECTABLE)},
-	{"SELECTABLE", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, SELECTABLE)},
-	{"SELECTED", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, SELECTED)},
-	{"SHOWING", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, SHOWING)},
-	{"VISIBLE", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, VISIBLE)},
-	{"VERTICAL", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, VERTICAL)},
-	{"HORIZONTAL", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, HORIZONTAL)},
-	{"SINGLE_LINE", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, SINGLE_LINE)},
-	{"MULTI_LINE", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, MULTI_LINE)},
-	{"TRANSIENT", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, TRANSIENT)},
-	{"MANAGES_DESCENDANTS", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, MANAGES_DESCENDANTS)},
-	{"INDETERMINATE", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, INDETERMINATE)},
-	{"TRUNCATED", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, TRUNCATED)},
-	{}
-};
-
-$MethodInfo _AccessibleState_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(AccessibleState, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _AccessibleState_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.accessibility.AccessibleState",
-	"javax.accessibility.AccessibleBundle",
-	nullptr,
-	_AccessibleState_FieldInfo_,
-	_AccessibleState_MethodInfo_
-};
-
-$Object* allocate$AccessibleState($Class* clazz) {
-	return $of($alloc(AccessibleState));
-}
-
 AccessibleState* AccessibleState::ACTIVE = nullptr;
 AccessibleState* AccessibleState::PRESSED = nullptr;
 AccessibleState* AccessibleState::ARMED = nullptr;
@@ -127,7 +75,7 @@ void AccessibleState::init$($String* key) {
 	$set(this, key, key);
 }
 
-void clinit$AccessibleState($Class* class$) {
+void AccessibleState::clinit$($Class* clazz) {
 	$assignStatic(AccessibleState::ACTIVE, $new(AccessibleState, "active"_s));
 	$assignStatic(AccessibleState::PRESSED, $new(AccessibleState, "pressed"_s));
 	$assignStatic(AccessibleState::ARMED, $new(AccessibleState, "armed"_s));
@@ -163,7 +111,53 @@ AccessibleState::AccessibleState() {
 }
 
 $Class* AccessibleState::load$($String* name, bool initialize) {
-	$loadClass(AccessibleState, name, initialize, &_AccessibleState_ClassInfo_, clinit$AccessibleState, allocate$AccessibleState);
+	$FieldInfo fieldInfos$$[] = {
+		{"ACTIVE", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, ACTIVE)},
+		{"PRESSED", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, PRESSED)},
+		{"ARMED", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, ARMED)},
+		{"BUSY", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, BUSY)},
+		{"CHECKED", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, CHECKED)},
+		{"EDITABLE", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, EDITABLE)},
+		{"EXPANDABLE", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, EXPANDABLE)},
+		{"COLLAPSED", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, COLLAPSED)},
+		{"EXPANDED", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, EXPANDED)},
+		{"ENABLED", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, ENABLED)},
+		{"FOCUSABLE", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, FOCUSABLE)},
+		{"FOCUSED", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, FOCUSED)},
+		{"ICONIFIED", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, ICONIFIED)},
+		{"MODAL", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, MODAL)},
+		{"OPAQUE", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, OPAQUE)},
+		{"RESIZABLE", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, RESIZABLE)},
+		{"MULTISELECTABLE", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, MULTISELECTABLE)},
+		{"SELECTABLE", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, SELECTABLE)},
+		{"SELECTED", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, SELECTED)},
+		{"SHOWING", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, SHOWING)},
+		{"VISIBLE", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, VISIBLE)},
+		{"VERTICAL", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, VERTICAL)},
+		{"HORIZONTAL", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, HORIZONTAL)},
+		{"SINGLE_LINE", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, SINGLE_LINE)},
+		{"MULTI_LINE", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, MULTI_LINE)},
+		{"TRANSIENT", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, TRANSIENT)},
+		{"MANAGES_DESCENDANTS", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, MANAGES_DESCENDANTS)},
+		{"INDETERMINATE", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, INDETERMINATE)},
+		{"TRUNCATED", "Ljavax/accessibility/AccessibleState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleState, TRUNCATED)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(AccessibleState, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.accessibility.AccessibleState",
+		"javax.accessibility.AccessibleBundle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AccessibleState, name, initialize, &classInfo$$, AccessibleState::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AccessibleState);
+	});
 	return class$;
 }
 

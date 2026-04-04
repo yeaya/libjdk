@@ -50,6 +50,7 @@ class $import PlainHttpConnection$ConnectEvent : public ::jdk::internal::net::ht
 	$class(PlainHttpConnection$ConnectEvent, 0, ::jdk::internal::net::http::AsyncEvent)
 public:
 	PlainHttpConnection$ConnectEvent();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::PlainHttpConnection* this$0, ::java::util::concurrent::CompletableFuture* cf, ::jdk::internal::net::http::Exchange* exchange);
 	virtual void abort(::java::io::IOException* ioe) override;
 	virtual ::java::nio::channels::SelectableChannel* channel() override;

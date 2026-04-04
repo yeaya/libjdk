@@ -26,10 +26,13 @@ public:
 	void init$($String* message);
 	void init$($Throwable* e);
 	void init$($String* message, $Throwable* e);
-	static const int64_t serialVersionUID = (int64_t)0xF53C995B1E86EF32;
+	static const int64_t serialVersionUID = (int64_t)0xf53c995b1e86ef32;
 	DTMException(const DTMException& e);
 	virtual void throw$() override;
-	inline DTMException* operator ->() {
+	inline DTMException* operator ->() const {
+		return (DTMException*)throwing$;
+	}
+	inline operator DTMException*() const {
 		return (DTMException*)throwing$;
 	}
 };

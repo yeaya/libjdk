@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/Gen$GenFinalizer.h>
-
 #include <com/sun/tools/javac/jvm/Gen.h>
 #include <jcpp.h>
 
@@ -14,45 +13,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$FieldInfo _Gen$GenFinalizer_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/jvm/Gen;", nullptr, $FINAL | $SYNTHETIC, $field(Gen$GenFinalizer, this$0)},
-	{}
-};
-
-$MethodInfo _Gen$GenFinalizer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Gen;)V", nullptr, 0, $method(Gen$GenFinalizer, init$, void, $Gen*)},
-	{"afterBody", "()V", nullptr, 0, $virtualMethod(Gen$GenFinalizer, afterBody, void)},
-	{"gen", "()V", nullptr, $ABSTRACT, $virtualMethod(Gen$GenFinalizer, gen, void)},
-	{"genLast", "()V", nullptr, $ABSTRACT, $virtualMethod(Gen$GenFinalizer, genLast, void)},
-	{"hasFinalizer", "()Z", nullptr, 0, $virtualMethod(Gen$GenFinalizer, hasFinalizer, bool)},
-	{}
-};
-
-$InnerClassInfo _Gen$GenFinalizer_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.Gen$GenFinalizer", "com.sun.tools.javac.jvm.Gen", "GenFinalizer", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Gen$GenFinalizer_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.jvm.Gen$GenFinalizer",
-	"java.lang.Object",
-	nullptr,
-	_Gen$GenFinalizer_FieldInfo_,
-	_Gen$GenFinalizer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Gen$GenFinalizer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.Gen"
-};
-
-$Object* allocate$Gen$GenFinalizer($Class* clazz) {
-	return $of($alloc(Gen$GenFinalizer));
-}
 
 void Gen$GenFinalizer::init$($Gen* this$0) {
 	$set(this, this$0, this$0);
@@ -69,7 +29,40 @@ Gen$GenFinalizer::Gen$GenFinalizer() {
 }
 
 $Class* Gen$GenFinalizer::load$($String* name, bool initialize) {
-	$loadClass(Gen$GenFinalizer, name, initialize, &_Gen$GenFinalizer_ClassInfo_, allocate$Gen$GenFinalizer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/jvm/Gen;", nullptr, $FINAL | $SYNTHETIC, $field(Gen$GenFinalizer, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/jvm/Gen;)V", nullptr, 0, $method(Gen$GenFinalizer, init$, void, $Gen*)},
+		{"afterBody", "()V", nullptr, 0, $virtualMethod(Gen$GenFinalizer, afterBody, void)},
+		{"gen", "()V", nullptr, $ABSTRACT, $virtualMethod(Gen$GenFinalizer, gen, void)},
+		{"genLast", "()V", nullptr, $ABSTRACT, $virtualMethod(Gen$GenFinalizer, genLast, void)},
+		{"hasFinalizer", "()Z", nullptr, 0, $virtualMethod(Gen$GenFinalizer, hasFinalizer, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.Gen$GenFinalizer", "com.sun.tools.javac.jvm.Gen", "GenFinalizer", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.jvm.Gen$GenFinalizer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.Gen"
+	};
+	$loadClass(Gen$GenFinalizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Gen$GenFinalizer);
+	});
 	return class$;
 }
 

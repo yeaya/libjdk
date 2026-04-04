@@ -49,6 +49,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::rmi::server::RemoteRef* ref);
 	virtual void clean($Array<::java::rmi::server::ObjID>* $param_arrayOf_ObjID_1, int64_t $param_long_2, ::java::rmi::dgc::VMID* $param_VMID_3, bool $param_boolean_4) override;
@@ -56,7 +57,7 @@ public:
 	static ::java::io::ObjectInputFilter$Status* leaseFilter(::java::io::ObjectInputFilter$FilterInfo* filterInfo);
 	virtual $String* toString() override;
 	static $Array<::java::rmi::server::Operation>* operations;
-	static const int64_t interfaceHash = (int64_t)0xF6B6898D8BF28643;
+	static const int64_t interfaceHash = (int64_t)0xf6b6898d8bf28643;
 	static int32_t DGCCLIENT_MAX_DEPTH;
 	static int32_t DGCCLIENT_MAX_ARRAY_SIZE;
 };

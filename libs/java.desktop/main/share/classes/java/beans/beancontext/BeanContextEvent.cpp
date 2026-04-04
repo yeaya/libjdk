@@ -1,5 +1,4 @@
 #include <java/beans/beancontext/BeanContextEvent.h>
-
 #include <java/beans/beancontext/BeanContext.h>
 #include <java/util/EventObject.h>
 #include <jcpp.h>
@@ -13,34 +12,6 @@ using $EventObject = ::java::util::EventObject;
 namespace java {
 	namespace beans {
 		namespace beancontext {
-
-$FieldInfo _BeanContextEvent_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BeanContextEvent, serialVersionUID)},
-	{"propagatedFrom", "Ljava/beans/beancontext/BeanContext;", nullptr, $PROTECTED, $field(BeanContextEvent, propagatedFrom)},
-	{}
-};
-
-$MethodInfo _BeanContextEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/beans/beancontext/BeanContext;)V", nullptr, $PROTECTED, $method(BeanContextEvent, init$, void, $BeanContext*)},
-	{"getBeanContext", "()Ljava/beans/beancontext/BeanContext;", nullptr, $PUBLIC, $virtualMethod(BeanContextEvent, getBeanContext, $BeanContext*)},
-	{"getPropagatedFrom", "()Ljava/beans/beancontext/BeanContext;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BeanContextEvent, getPropagatedFrom, $BeanContext*)},
-	{"isPropagated", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BeanContextEvent, isPropagated, bool)},
-	{"setPropagatedFrom", "(Ljava/beans/beancontext/BeanContext;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BeanContextEvent, setPropagatedFrom, void, $BeanContext*)},
-	{}
-};
-
-$ClassInfo _BeanContextEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.beans.beancontext.BeanContextEvent",
-	"java.util.EventObject",
-	nullptr,
-	_BeanContextEvent_FieldInfo_,
-	_BeanContextEvent_MethodInfo_
-};
-
-$Object* allocate$BeanContextEvent($Class* clazz) {
-	return $of($alloc(BeanContextEvent));
-}
 
 void BeanContextEvent::init$($BeanContext* bc) {
 	$EventObject::init$(bc);
@@ -72,7 +43,30 @@ BeanContextEvent::BeanContextEvent() {
 }
 
 $Class* BeanContextEvent::load$($String* name, bool initialize) {
-	$loadClass(BeanContextEvent, name, initialize, &_BeanContextEvent_ClassInfo_, allocate$BeanContextEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BeanContextEvent, serialVersionUID)},
+		{"propagatedFrom", "Ljava/beans/beancontext/BeanContext;", nullptr, $PROTECTED, $field(BeanContextEvent, propagatedFrom)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/beans/beancontext/BeanContext;)V", nullptr, $PROTECTED, $method(BeanContextEvent, init$, void, $BeanContext*)},
+		{"getBeanContext", "()Ljava/beans/beancontext/BeanContext;", nullptr, $PUBLIC, $virtualMethod(BeanContextEvent, getBeanContext, $BeanContext*)},
+		{"getPropagatedFrom", "()Ljava/beans/beancontext/BeanContext;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BeanContextEvent, getPropagatedFrom, $BeanContext*)},
+		{"isPropagated", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BeanContextEvent, isPropagated, bool)},
+		{"setPropagatedFrom", "(Ljava/beans/beancontext/BeanContext;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BeanContextEvent, setPropagatedFrom, void, $BeanContext*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.beans.beancontext.BeanContextEvent",
+		"java.util.EventObject",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BeanContextEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BeanContextEvent);
+	});
 	return class$;
 }
 

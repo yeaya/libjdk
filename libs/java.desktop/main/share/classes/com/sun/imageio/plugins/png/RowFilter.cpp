@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/png/RowFilter.h>
-
 #include <com/sun/imageio/plugins/png/PNGImageReader.h>
 #include <jcpp.h>
 
@@ -18,29 +17,6 @@ namespace com {
 			namespace plugins {
 				namespace png {
 
-$MethodInfo _RowFilter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RowFilter, init$, void)},
-	{"abs", "(I)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(RowFilter, abs, int32_t, int32_t)},
-	{"filterRow", "(I[B[B[[BII)I", nullptr, $PUBLIC, $virtualMethod(RowFilter, filterRow, int32_t, int32_t, $bytes*, $bytes*, $byteArray2*, int32_t, int32_t)},
-	{"paethPredictor", "(III)I", nullptr, $PROTECTED | $FINAL, $method(RowFilter, paethPredictor, int32_t, int32_t, int32_t, int32_t)},
-	{"subFilter", "([B[BII)I", nullptr, $PROTECTED | $STATIC, $staticMethod(RowFilter, subFilter, int32_t, $bytes*, $bytes*, int32_t, int32_t)},
-	{"upFilter", "([B[B[BII)I", nullptr, $PROTECTED | $STATIC, $staticMethod(RowFilter, upFilter, int32_t, $bytes*, $bytes*, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _RowFilter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.png.RowFilter",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_RowFilter_MethodInfo_
-};
-
-$Object* allocate$RowFilter($Class* clazz) {
-	return $of($alloc(RowFilter));
-}
-
 void RowFilter::init$() {
 }
 
@@ -51,8 +27,8 @@ int32_t RowFilter::abs(int32_t x) {
 int32_t RowFilter::subFilter($bytes* currRow, $bytes* subFilteredRow, int32_t bytesPerPixel, int32_t bytesPerRow) {
 	int32_t badness = 0;
 	for (int32_t i = bytesPerPixel; i < bytesPerRow + bytesPerPixel; ++i) {
-		int32_t curr = (int32_t)($nc(currRow)->get(i) & (uint32_t)255);
-		int32_t left = (int32_t)(currRow->get(i - bytesPerPixel) & (uint32_t)255);
+		int32_t curr = $nc(currRow)->get(i) & 0xff;
+		int32_t left = currRow->get(i - bytesPerPixel) & 0xff;
 		int32_t difference = curr - left;
 		$nc(subFilteredRow)->set(i, (int8_t)difference);
 		badness += abs(difference);
@@ -63,8 +39,8 @@ int32_t RowFilter::subFilter($bytes* currRow, $bytes* subFilteredRow, int32_t by
 int32_t RowFilter::upFilter($bytes* currRow, $bytes* prevRow, $bytes* upFilteredRow, int32_t bytesPerPixel, int32_t bytesPerRow) {
 	int32_t badness = 0;
 	for (int32_t i = bytesPerPixel; i < bytesPerRow + bytesPerPixel; ++i) {
-		int32_t curr = (int32_t)($nc(currRow)->get(i) & (uint32_t)255);
-		int32_t up = (int32_t)($nc(prevRow)->get(i) & (uint32_t)255);
+		int32_t curr = $nc(currRow)->get(i) & 0xff;
+		int32_t up = $nc(prevRow)->get(i) & 0xff;
 		int32_t difference = curr - up;
 		$nc(upFilteredRow)->set(i, (int8_t)difference);
 		badness += abs(difference);
@@ -87,7 +63,7 @@ int32_t RowFilter::paethPredictor(int32_t a, int32_t b, int32_t c) {
 }
 
 int32_t RowFilter::filterRow(int32_t colorType, $bytes* currRow, $bytes* prevRow, $byteArray2* scratchRows, int32_t bytesPerRow, int32_t bytesPerPixel) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (colorType != $PNGImageReader::PNG_COLOR_PALETTE) {
 		$System::arraycopy(currRow, bytesPerPixel, $nc(scratchRows)->get(0), bytesPerPixel, bytesPerRow);
 		return 0;
@@ -99,7 +75,7 @@ int32_t RowFilter::filterRow(int32_t colorType, $bytes* currRow, $bytes* prevRow
 	{
 		int32_t badness = 0;
 		for (int32_t i = bytesPerPixel; i < bytesPerRow + bytesPerPixel; ++i) {
-			int32_t curr = (int32_t)($nc(currRow)->get(i) & (uint32_t)255);
+			int32_t curr = $nc(currRow)->get(i) & 0xff;
 			badness += curr;
 		}
 		filterBadness->set(0, badness);
@@ -110,31 +86,32 @@ int32_t RowFilter::filterRow(int32_t colorType, $bytes* currRow, $bytes* prevRow
 		filterBadness->set(1, badness);
 	}
 	{
-		$var($bytes, upFilteredRow, $nc(scratchRows)->get(2));
+		$var($bytes, upFilteredRow, scratchRows->get(2));
 		int32_t badness = upFilter(currRow, prevRow, upFilteredRow, bytesPerPixel, bytesPerRow);
 		filterBadness->set(2, badness);
 	}
 	{
-		$var($bytes, averageFilteredRow, $nc(scratchRows)->get(3));
+		$var($bytes, averageFilteredRow, scratchRows->get(3));
 		int32_t badness = 0;
 		for (int32_t i = bytesPerPixel; i < bytesPerRow + bytesPerPixel; ++i) {
-			int32_t curr = (int32_t)($nc(currRow)->get(i) & (uint32_t)255);
-			int32_t left = (int32_t)(currRow->get(i - bytesPerPixel) & (uint32_t)255);
-			int32_t up = (int32_t)($nc(prevRow)->get(i) & (uint32_t)255);
+			int32_t curr = $nc(currRow)->get(i) & 0xff;
+			int32_t left = currRow->get(i - bytesPerPixel) & 0xff;
+			int32_t up = $nc(prevRow)->get(i) & 0xff;
 			int32_t difference = curr - (left + up) / 2;
+			;
 			$nc(averageFilteredRow)->set(i, (int8_t)difference);
 			badness += abs(difference);
 		}
 		filterBadness->set(3, badness);
 	}
 	{
-		$var($bytes, paethFilteredRow, $nc(scratchRows)->get(4));
+		$var($bytes, paethFilteredRow, scratchRows->get(4));
 		int32_t badness = 0;
 		for (int32_t i = bytesPerPixel; i < bytesPerRow + bytesPerPixel; ++i) {
-			int32_t curr = (int32_t)($nc(currRow)->get(i) & (uint32_t)255);
-			int32_t left = (int32_t)(currRow->get(i - bytesPerPixel) & (uint32_t)255);
-			int32_t up = (int32_t)($nc(prevRow)->get(i) & (uint32_t)255);
-			int32_t upleft = (int32_t)(prevRow->get(i - bytesPerPixel) & (uint32_t)255);
+			int32_t curr = $nc(currRow)->get(i) & 0xff;
+			int32_t left = currRow->get(i - bytesPerPixel) & 0xff;
+			int32_t up = $nc(prevRow)->get(i) & 0xff;
+			int32_t upleft = prevRow->get(i - bytesPerPixel) & 0xff;
 			int32_t predictor = paethPredictor(left, up, upleft);
 			int32_t difference = curr - predictor;
 			$nc(paethFilteredRow)->set(i, (int8_t)difference);
@@ -151,7 +128,7 @@ int32_t RowFilter::filterRow(int32_t colorType, $bytes* currRow, $bytes* prevRow
 		}
 	}
 	if (filterType == 0) {
-		$System::arraycopy(currRow, bytesPerPixel, $nc(scratchRows)->get(0), bytesPerPixel, bytesPerRow);
+		$System::arraycopy(currRow, bytesPerPixel, scratchRows->get(0), bytesPerPixel, bytesPerRow);
 	}
 	return filterType;
 }
@@ -160,7 +137,26 @@ RowFilter::RowFilter() {
 }
 
 $Class* RowFilter::load$($String* name, bool initialize) {
-	$loadClass(RowFilter, name, initialize, &_RowFilter_ClassInfo_, allocate$RowFilter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RowFilter, init$, void)},
+		{"abs", "(I)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(RowFilter, abs, int32_t, int32_t)},
+		{"filterRow", "(I[B[B[[BII)I", nullptr, $PUBLIC, $virtualMethod(RowFilter, filterRow, int32_t, int32_t, $bytes*, $bytes*, $byteArray2*, int32_t, int32_t)},
+		{"paethPredictor", "(III)I", nullptr, $PROTECTED | $FINAL, $method(RowFilter, paethPredictor, int32_t, int32_t, int32_t, int32_t)},
+		{"subFilter", "([B[BII)I", nullptr, $PROTECTED | $STATIC, $staticMethod(RowFilter, subFilter, int32_t, $bytes*, $bytes*, int32_t, int32_t)},
+		{"upFilter", "([B[B[BII)I", nullptr, $PROTECTED | $STATIC, $staticMethod(RowFilter, upFilter, int32_t, $bytes*, $bytes*, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.png.RowFilter",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RowFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RowFilter);
+	});
 	return class$;
 }
 

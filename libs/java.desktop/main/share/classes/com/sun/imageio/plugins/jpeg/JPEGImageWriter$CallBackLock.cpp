@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/jpeg/JPEGImageWriter$CallBackLock.h>
-
 #include <com/sun/imageio/plugins/jpeg/JPEGImageWriter$CallBackLock$State.h>
 #include <com/sun/imageio/plugins/jpeg/JPEGImageWriter.h>
 #include <java/lang/IllegalStateException.h>
@@ -17,45 +16,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace jpeg {
-
-$FieldInfo _JPEGImageWriter$CallBackLock_FieldInfo_[] = {
-	{"lockState", "Lcom/sun/imageio/plugins/jpeg/JPEGImageWriter$CallBackLock$State;", nullptr, $PRIVATE, $field(JPEGImageWriter$CallBackLock, lockState)},
-	{}
-};
-
-$MethodInfo _JPEGImageWriter$CallBackLock_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(JPEGImageWriter$CallBackLock, init$, void)},
-	{"check", "()V", nullptr, 0, $virtualMethod(JPEGImageWriter$CallBackLock, check, void)},
-	{"lock", "()V", nullptr, $PRIVATE, $method(JPEGImageWriter$CallBackLock, lock, void)},
-	{"unlock", "()V", nullptr, $PRIVATE, $method(JPEGImageWriter$CallBackLock, unlock, void)},
-	{}
-};
-
-$InnerClassInfo _JPEGImageWriter$CallBackLock_InnerClassesInfo_[] = {
-	{"com.sun.imageio.plugins.jpeg.JPEGImageWriter$CallBackLock", "com.sun.imageio.plugins.jpeg.JPEGImageWriter", "CallBackLock", $PRIVATE | $STATIC},
-	{"com.sun.imageio.plugins.jpeg.JPEGImageWriter$CallBackLock$State", "com.sun.imageio.plugins.jpeg.JPEGImageWriter$CallBackLock", "State", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _JPEGImageWriter$CallBackLock_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.jpeg.JPEGImageWriter$CallBackLock",
-	"java.lang.Object",
-	nullptr,
-	_JPEGImageWriter$CallBackLock_FieldInfo_,
-	_JPEGImageWriter$CallBackLock_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JPEGImageWriter$CallBackLock_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.imageio.plugins.jpeg.JPEGImageWriter"
-};
-
-$Object* allocate$JPEGImageWriter$CallBackLock($Class* clazz) {
-	return $of($alloc(JPEGImageWriter$CallBackLock));
-}
 
 void JPEGImageWriter$CallBackLock::init$() {
 	$init($JPEGImageWriter$CallBackLock$State);
@@ -83,7 +43,40 @@ JPEGImageWriter$CallBackLock::JPEGImageWriter$CallBackLock() {
 }
 
 $Class* JPEGImageWriter$CallBackLock::load$($String* name, bool initialize) {
-	$loadClass(JPEGImageWriter$CallBackLock, name, initialize, &_JPEGImageWriter$CallBackLock_ClassInfo_, allocate$JPEGImageWriter$CallBackLock);
+	$FieldInfo fieldInfos$$[] = {
+		{"lockState", "Lcom/sun/imageio/plugins/jpeg/JPEGImageWriter$CallBackLock$State;", nullptr, $PRIVATE, $field(JPEGImageWriter$CallBackLock, lockState)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(JPEGImageWriter$CallBackLock, init$, void)},
+		{"check", "()V", nullptr, 0, $virtualMethod(JPEGImageWriter$CallBackLock, check, void)},
+		{"lock", "()V", nullptr, $PRIVATE, $method(JPEGImageWriter$CallBackLock, lock, void)},
+		{"unlock", "()V", nullptr, $PRIVATE, $method(JPEGImageWriter$CallBackLock, unlock, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.imageio.plugins.jpeg.JPEGImageWriter$CallBackLock", "com.sun.imageio.plugins.jpeg.JPEGImageWriter", "CallBackLock", $PRIVATE | $STATIC},
+		{"com.sun.imageio.plugins.jpeg.JPEGImageWriter$CallBackLock$State", "com.sun.imageio.plugins.jpeg.JPEGImageWriter$CallBackLock", "State", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.jpeg.JPEGImageWriter$CallBackLock",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.imageio.plugins.jpeg.JPEGImageWriter"
+	};
+	$loadClass(JPEGImageWriter$CallBackLock, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JPEGImageWriter$CallBackLock);
+	});
 	return class$;
 }
 

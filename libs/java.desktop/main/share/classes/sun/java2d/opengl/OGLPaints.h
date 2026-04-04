@@ -24,6 +24,7 @@ class OGLPaints : public ::java::lang::Object {
 	$class(OGLPaints, 0, ::java::lang::Object)
 public:
 	OGLPaints();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool isPaintValid(::sun::java2d::SunGraphics2D* sg2d) {return false;}
 	static bool isValid(::sun::java2d::SunGraphics2D* sg2d);

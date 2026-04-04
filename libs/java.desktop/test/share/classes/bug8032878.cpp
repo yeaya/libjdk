@@ -1,5 +1,4 @@
 #include <bug8032878.h>
-
 #include <bug8032878$1.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -21,7 +20,6 @@
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/plaf/metal/MetalLookAndFeel.h>
-#include <javax/swing/table/TableCellEditor.h>
 #include <javax/swing/table/TableColumn.h>
 #include <javax/swing/table/TableColumnModel.h>
 #include <jcpp.h>
@@ -43,7 +41,6 @@ using $bug8032878$1 = ::bug8032878$1;
 using $Component = ::java::awt::Component;
 using $Robot = ::java::awt::Robot;
 using $KeyEvent = ::java::awt::event::KeyEvent;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -56,13 +53,9 @@ using $DefaultCellEditor = ::javax::swing::DefaultCellEditor;
 using $JComboBox = ::javax::swing::JComboBox;
 using $JFrame = ::javax::swing::JFrame;
 using $JTable = ::javax::swing::JTable;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
-using $TableCellEditor = ::javax::swing::table::TableCellEditor;
-using $TableColumn = ::javax::swing::table::TableColumn;
-using $TableColumnModel = ::javax::swing::table::TableColumnModel;
 
 class bug8032878$$Lambda$lambda$test$0 : public $Runnable {
 	$class(bug8032878$$Lambda$lambda$test$0, $NO_CLASS_INIT, $Runnable)
@@ -73,85 +66,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$test$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug8032878$$Lambda$lambda$test$0>());
-	}
 	bug8032878* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo bug8032878$$Lambda$lambda$test$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug8032878$$Lambda$lambda$test$0, inst$)},
-	{}
-};
-$MethodInfo bug8032878$$Lambda$lambda$test$0::methodInfos[3] = {
-	{"<init>", "(Lbug8032878;)V", nullptr, $PUBLIC, $method(bug8032878$$Lambda$lambda$test$0, init$, void, bug8032878*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8032878$$Lambda$lambda$test$0, run, void)},
-	{}
-};
-$ClassInfo bug8032878$$Lambda$lambda$test$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug8032878$$Lambda$lambda$test$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* bug8032878$$Lambda$lambda$test$0::load$($String* name, bool initialize) {
-	$loadClass(bug8032878$$Lambda$lambda$test$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug8032878$$Lambda$lambda$test$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug8032878;)V", nullptr, $PUBLIC, $method(bug8032878$$Lambda$lambda$test$0, init$, void, bug8032878*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8032878$$Lambda$lambda$test$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug8032878$$Lambda$lambda$test$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug8032878$$Lambda$lambda$test$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8032878$$Lambda$lambda$test$0);
+	});
 	return class$;
 }
 $Class* bug8032878$$Lambda$lambda$test$0::class$ = nullptr;
-
-$FieldInfo _bug8032878_FieldInfo_[] = {
-	{"ONE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug8032878, ONE)},
-	{"TWO", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug8032878, TWO)},
-	{"THREE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug8032878, THREE)},
-	{"EXPECTED", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug8032878, EXPECTED)},
-	{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $FINAL, $field(bug8032878, robot)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE, $field(bug8032878, frame)},
-	{"cb", "Ljavax/swing/JComboBox;", nullptr, $PRIVATE, $field(bug8032878, cb)},
-	{"surrender", "Z", nullptr, $PRIVATE | $VOLATILE, $field(bug8032878, surrender)},
-	{"text", "Ljava/lang/String;", nullptr, $PRIVATE | $VOLATILE, $field(bug8032878, text)},
-	{}
-};
-
-$MethodInfo _bug8032878_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug8032878, init$, void), "java.awt.AWTException"},
-	{"checkResult", "()V", nullptr, $PRIVATE, $method(bug8032878, checkResult, void), "java.lang.Exception"},
-	{"lambda$test$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(bug8032878, lambda$test$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug8032878, main, void, $StringArray*), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8032878, run, void)},
-	{"runTest", "()V", nullptr, $PRIVATE, $method(bug8032878, runTest, void), "java.lang.Exception"},
-	{"setupUI", "()V", nullptr, $PRIVATE, $method(bug8032878, setupUI, void)},
-	{"test", "(Z)V", nullptr, $PRIVATE, $method(bug8032878, test, void, bool), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug8032878_InnerClassesInfo_[] = {
-	{"bug8032878$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug8032878_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug8032878",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_bug8032878_FieldInfo_,
-	_bug8032878_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug8032878_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug8032878$1"
-};
-
-$Object* allocate$bug8032878($Class* clazz) {
-	return $of($alloc(bug8032878));
-}
 
 $String* bug8032878::ONE = nullptr;
 $String* bug8032878::TWO = nullptr;
@@ -160,8 +100,8 @@ $String* bug8032878::EXPECTED = nullptr;
 
 void bug8032878::main($StringArray* args) {
 	$init(bug8032878);
-	$useLocalCurrentObjectStackCache();
-	$UIManager::setLookAndFeel(static_cast<$LookAndFeel*>($$new($MetalLookAndFeel)));
+	$useLocalObjectStack();
+	$UIManager::setLookAndFeel($$new($MetalLookAndFeel));
 	$var(bug8032878, test, $new(bug8032878));
 	test->test(false);
 	test->test(true);
@@ -169,14 +109,14 @@ void bug8032878::main($StringArray* args) {
 
 void bug8032878::init$() {
 	$set(this, robot, $new($Robot));
-	$nc(this->robot)->setAutoDelay(100);
+	this->robot->setAutoDelay(100);
 }
 
 void bug8032878::setupUI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, frame, $new($JFrame));
-	$nc(this->frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
-	$var($JTable, table, $new($JTable, $fcast($ObjectArray2, $$new($StringArray2, {
+	this->frame->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
+	$var($JTable, table, $new($JTable, $$cast($ObjectArray2, $new($StringArray2, {
 		$$new($StringArray, {bug8032878::ONE}),
 		$$new($StringArray, {bug8032878::TWO}),
 		$$new($StringArray, {bug8032878::THREE})
@@ -187,61 +127,59 @@ void bug8032878::setupUI() {
 		bug8032878::TWO,
 		bug8032878::THREE
 	})));
-	$nc(this->cb)->setEditable(true);
+	this->cb->setEditable(true);
 	$var($DefaultCellEditor, comboEditor, $new($DefaultCellEditor, this->cb));
 	comboEditor->setClickCountToStart(1);
-	$nc($($nc($(table->getColumnModel()))->getColumn(0)))->setCellEditor(comboEditor);
-	$nc(this->frame)->add(static_cast<$Component*>(table));
+	$$nc($$nc(table->getColumnModel())->getColumn(0))->setCellEditor(comboEditor);
+	$nc(this->frame)->add(table);
 	$nc(this->frame)->pack();
 	$nc(this->frame)->setVisible(true);
 	$nc(this->frame)->setLocationRelativeTo(nullptr);
 }
 
 void bug8032878::test(bool flag) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			this->surrender = flag;
-			$SwingUtilities::invokeAndWait(this);
-			$nc(this->robot)->waitForIdle();
-			$nc(this->robot)->delay(1000);
-			runTest();
-			checkResult();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (this->frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug8032878$$Lambda$lambda$test$0, this)));
-			}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		this->surrender = flag;
+		$SwingUtilities::invokeAndWait(this);
+		this->robot->waitForIdle();
+		this->robot->delay(1000);
+		runTest();
+		checkResult();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (this->frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(bug8032878$$Lambda$lambda$test$0, this));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void bug8032878::runTest() {
-	$nc(this->robot)->waitForIdle();
-	$nc(this->robot)->keyPress($KeyEvent::VK_TAB);
-	$nc(this->robot)->keyRelease($KeyEvent::VK_TAB);
-	$nc(this->robot)->waitForIdle();
-	$nc(this->robot)->keyPress($KeyEvent::VK_1);
-	$nc(this->robot)->keyRelease($KeyEvent::VK_1);
-	$nc(this->robot)->waitForIdle();
-	$nc(this->robot)->keyPress($KeyEvent::VK_2);
-	$nc(this->robot)->keyRelease($KeyEvent::VK_2);
-	$nc(this->robot)->waitForIdle();
-	$nc(this->robot)->keyPress($KeyEvent::VK_3);
-	$nc(this->robot)->keyRelease($KeyEvent::VK_3);
-	$nc(this->robot)->waitForIdle();
-	$nc(this->robot)->keyPress($KeyEvent::VK_ENTER);
-	$nc(this->robot)->keyRelease($KeyEvent::VK_ENTER);
-	$nc(this->robot)->waitForIdle();
+	this->robot->waitForIdle();
+	this->robot->keyPress($KeyEvent::VK_TAB);
+	this->robot->keyRelease($KeyEvent::VK_TAB);
+	this->robot->waitForIdle();
+	this->robot->keyPress($KeyEvent::VK_1);
+	this->robot->keyRelease($KeyEvent::VK_1);
+	this->robot->waitForIdle();
+	this->robot->keyPress($KeyEvent::VK_2);
+	this->robot->keyRelease($KeyEvent::VK_2);
+	this->robot->waitForIdle();
+	this->robot->keyPress($KeyEvent::VK_3);
+	this->robot->keyRelease($KeyEvent::VK_3);
+	this->robot->waitForIdle();
+	this->robot->keyPress($KeyEvent::VK_ENTER);
+	this->robot->keyRelease($KeyEvent::VK_ENTER);
+	this->robot->waitForIdle();
 }
 
 void bug8032878::checkResult() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SwingUtilities::invokeAndWait($$new($bug8032878$1, this));
 	if ($nc(this->text)->equals(bug8032878::EXPECTED)) {
 		$nc($System::out)->println($$str({"Test with surrender = "_s, $$str(this->surrender), " passed"_s}));
@@ -262,7 +200,7 @@ void bug8032878::lambda$test$0() {
 bug8032878::bug8032878() {
 }
 
-void clinit$bug8032878($Class* class$) {
+void bug8032878::clinit$($Class* clazz) {
 	$assignStatic(bug8032878::ONE, "one"_s);
 	$assignStatic(bug8032878::TWO, "two"_s);
 	$assignStatic(bug8032878::THREE, "three"_s);
@@ -271,11 +209,54 @@ void clinit$bug8032878($Class* class$) {
 
 $Class* bug8032878::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug8032878$$Lambda$lambda$test$0::classInfo$.name)) {
+		if (name->equals("bug8032878$$Lambda$lambda$test$0")) {
 			return bug8032878$$Lambda$lambda$test$0::load$(name, initialize);
 		}
 	}
-	$loadClass(bug8032878, name, initialize, &_bug8032878_ClassInfo_, clinit$bug8032878, allocate$bug8032878);
+	$FieldInfo fieldInfos$$[] = {
+		{"ONE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug8032878, ONE)},
+		{"TWO", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug8032878, TWO)},
+		{"THREE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug8032878, THREE)},
+		{"EXPECTED", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug8032878, EXPECTED)},
+		{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $FINAL, $field(bug8032878, robot)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE, $field(bug8032878, frame)},
+		{"cb", "Ljavax/swing/JComboBox;", nullptr, $PRIVATE, $field(bug8032878, cb)},
+		{"surrender", "Z", nullptr, $PRIVATE | $VOLATILE, $field(bug8032878, surrender)},
+		{"text", "Ljava/lang/String;", nullptr, $PRIVATE | $VOLATILE, $field(bug8032878, text)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug8032878, init$, void), "java.awt.AWTException"},
+		{"checkResult", "()V", nullptr, $PRIVATE, $method(bug8032878, checkResult, void), "java.lang.Exception"},
+		{"lambda$test$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(bug8032878, lambda$test$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug8032878, main, void, $StringArray*), "java.lang.Exception"},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8032878, run, void)},
+		{"runTest", "()V", nullptr, $PRIVATE, $method(bug8032878, runTest, void), "java.lang.Exception"},
+		{"setupUI", "()V", nullptr, $PRIVATE, $method(bug8032878, setupUI, void)},
+		{"test", "(Z)V", nullptr, $PRIVATE, $method(bug8032878, test, void, bool), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug8032878$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug8032878",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug8032878$1"
+	};
+	$loadClass(bug8032878, name, initialize, &classInfo$$, bug8032878::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8032878);
+	});
 	return class$;
 }
 

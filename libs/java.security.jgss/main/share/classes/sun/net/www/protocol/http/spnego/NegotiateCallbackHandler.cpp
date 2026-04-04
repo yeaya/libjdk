@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/http/spnego/NegotiateCallbackHandler.h>
-
 #include <java/net/Authenticator$RequestorType.h>
 #include <java/net/Authenticator.h>
 #include <java/net/InetAddress.h>
@@ -37,51 +36,23 @@ namespace sun {
 				namespace http {
 					namespace spnego {
 
-$FieldInfo _NegotiateCallbackHandler_FieldInfo_[] = {
-	{"username", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NegotiateCallbackHandler, username)},
-	{"password", "[C", nullptr, $PRIVATE, $field(NegotiateCallbackHandler, password)},
-	{"answered", "Z", nullptr, $PRIVATE, $field(NegotiateCallbackHandler, answered)},
-	{"hci", "Lsun/net/www/protocol/http/HttpCallerInfo;", nullptr, $PRIVATE | $FINAL, $field(NegotiateCallbackHandler, hci)},
-	{}
-};
-
-$MethodInfo _NegotiateCallbackHandler_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/protocol/http/HttpCallerInfo;)V", nullptr, $PUBLIC, $method(NegotiateCallbackHandler, init$, void, $HttpCallerInfo*)},
-	{"getAnswer", "()V", nullptr, $PRIVATE, $method(NegotiateCallbackHandler, getAnswer, void)},
-	{"handle", "([Ljavax/security/auth/callback/Callback;)V", nullptr, $PUBLIC, $virtualMethod(NegotiateCallbackHandler, handle, void, $CallbackArray*), "javax.security.auth.callback.UnsupportedCallbackException,java.io.IOException"},
-	{}
-};
-
-$ClassInfo _NegotiateCallbackHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.www.protocol.http.spnego.NegotiateCallbackHandler",
-	"java.lang.Object",
-	"javax.security.auth.callback.CallbackHandler",
-	_NegotiateCallbackHandler_FieldInfo_,
-	_NegotiateCallbackHandler_MethodInfo_
-};
-
-$Object* allocate$NegotiateCallbackHandler($Class* clazz) {
-	return $of($alloc(NegotiateCallbackHandler));
-}
-
 void NegotiateCallbackHandler::init$($HttpCallerInfo* hci) {
 	$set(this, hci, hci);
 }
 
 void NegotiateCallbackHandler::getAnswer() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->answered) {
 		this->answered = true;
 		$var($Authenticator, auth, nullptr);
 		if ($nc(this->hci)->authenticator != nullptr) {
-			$assign(auth, $nc(this->hci)->authenticator);
+			$assign(auth, this->hci->authenticator);
 		} else {
 			$init($LoginConfigImpl);
 			$assign(auth, $LoginConfigImpl::HTTP_USE_GLOBAL_CREDS ? $Authenticator::getDefault() : ($Authenticator*)nullptr);
 		}
 		if (auth != nullptr) {
-			$var($PasswordAuthentication, passAuth, auth->requestPasswordAuthenticationInstance($nc(this->hci)->host, $nc(this->hci)->addr, $nc(this->hci)->port, $nc(this->hci)->protocol, $nc(this->hci)->prompt, $nc(this->hci)->scheme, $nc(this->hci)->url, $nc(this->hci)->authType));
+			$var($PasswordAuthentication, passAuth, auth->requestPasswordAuthenticationInstance(this->hci->host, this->hci->addr, this->hci->port, this->hci->protocol, this->hci->prompt, this->hci->scheme, this->hci->url, this->hci->authType));
 			if (passAuth != nullptr) {
 				$set(this, username, passAuth->getUserName());
 				$set(this, password, passAuth->getPassword());
@@ -91,15 +62,15 @@ void NegotiateCallbackHandler::getAnswer() {
 }
 
 void NegotiateCallbackHandler::handle($CallbackArray* callbacks) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(callbacks)->length; ++i) {
 		$var($Callback, callBack, callbacks->get(i));
 		if ($instanceOf($NameCallback, callBack)) {
 			getAnswer();
-			$nc(($cast($NameCallback, callBack)))->setName(this->username);
+			$cast($NameCallback, callBack)->setName(this->username);
 		} else if ($instanceOf($PasswordCallback, callBack)) {
 			getAnswer();
-			$nc(($cast($PasswordCallback, callBack)))->setPassword(this->password);
+			$cast($PasswordCallback, callBack)->setPassword(this->password);
 			if (this->password != nullptr) {
 				$Arrays::fill(this->password, u' ');
 			}
@@ -113,7 +84,30 @@ NegotiateCallbackHandler::NegotiateCallbackHandler() {
 }
 
 $Class* NegotiateCallbackHandler::load$($String* name, bool initialize) {
-	$loadClass(NegotiateCallbackHandler, name, initialize, &_NegotiateCallbackHandler_ClassInfo_, allocate$NegotiateCallbackHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"username", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NegotiateCallbackHandler, username)},
+		{"password", "[C", nullptr, $PRIVATE, $field(NegotiateCallbackHandler, password)},
+		{"answered", "Z", nullptr, $PRIVATE, $field(NegotiateCallbackHandler, answered)},
+		{"hci", "Lsun/net/www/protocol/http/HttpCallerInfo;", nullptr, $PRIVATE | $FINAL, $field(NegotiateCallbackHandler, hci)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/www/protocol/http/HttpCallerInfo;)V", nullptr, $PUBLIC, $method(NegotiateCallbackHandler, init$, void, $HttpCallerInfo*)},
+		{"getAnswer", "()V", nullptr, $PRIVATE, $method(NegotiateCallbackHandler, getAnswer, void)},
+		{"handle", "([Ljavax/security/auth/callback/Callback;)V", nullptr, $PUBLIC, $virtualMethod(NegotiateCallbackHandler, handle, void, $CallbackArray*), "javax.security.auth.callback.UnsupportedCallbackException,java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.www.protocol.http.spnego.NegotiateCallbackHandler",
+		"java.lang.Object",
+		"javax.security.auth.callback.CallbackHandler",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NegotiateCallbackHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NegotiateCallbackHandler);
+	});
 	return class$;
 }
 

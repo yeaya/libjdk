@@ -1,5 +1,4 @@
 #include <jdk/net/UnixDomainPrincipal.h>
-
 #include <java/lang/Record.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
@@ -20,35 +19,6 @@ using $Objects = ::java::util::Objects;
 
 namespace jdk {
 	namespace net {
-
-$FieldInfo _UnixDomainPrincipal_FieldInfo_[] = {
-	{"user", "Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PRIVATE | $FINAL, $field(UnixDomainPrincipal, user$)},
-	{"group", "Ljava/nio/file/attribute/GroupPrincipal;", nullptr, $PRIVATE | $FINAL, $field(UnixDomainPrincipal, group$)},
-	{}
-};
-
-$MethodInfo _UnixDomainPrincipal_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/attribute/UserPrincipal;Ljava/nio/file/attribute/GroupPrincipal;)V", nullptr, $PUBLIC, $method(UnixDomainPrincipal, init$, void, $UserPrincipal*, $GroupPrincipal*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(UnixDomainPrincipal, equals, bool, Object$*)},
-	{"group", "()Ljava/nio/file/attribute/GroupPrincipal;", nullptr, $PUBLIC, $method(UnixDomainPrincipal, group, $GroupPrincipal*)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(UnixDomainPrincipal, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(UnixDomainPrincipal, toString, $String*)},
-	{"user", "()Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PUBLIC, $method(UnixDomainPrincipal, user, $UserPrincipal*)},
-	{}
-};
-
-$ClassInfo _UnixDomainPrincipal_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.net.UnixDomainPrincipal",
-	"java.lang.Record",
-	nullptr,
-	_UnixDomainPrincipal_FieldInfo_,
-	_UnixDomainPrincipal_MethodInfo_
-};
-
-$Object* allocate$UnixDomainPrincipal($Class* clazz) {
-	return $of($alloc(UnixDomainPrincipal));
-}
 
 void UnixDomainPrincipal::init$($UserPrincipal* user, $GroupPrincipal* group) {
 	$Record::init$();
@@ -82,7 +52,31 @@ UnixDomainPrincipal::UnixDomainPrincipal() {
 }
 
 $Class* UnixDomainPrincipal::load$($String* name, bool initialize) {
-	$loadClass(UnixDomainPrincipal, name, initialize, &_UnixDomainPrincipal_ClassInfo_, allocate$UnixDomainPrincipal);
+	$FieldInfo fieldInfos$$[] = {
+		{"user", "Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PRIVATE | $FINAL, $field(UnixDomainPrincipal, user$)},
+		{"group", "Ljava/nio/file/attribute/GroupPrincipal;", nullptr, $PRIVATE | $FINAL, $field(UnixDomainPrincipal, group$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/file/attribute/UserPrincipal;Ljava/nio/file/attribute/GroupPrincipal;)V", nullptr, $PUBLIC, $method(UnixDomainPrincipal, init$, void, $UserPrincipal*, $GroupPrincipal*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(UnixDomainPrincipal, equals, bool, Object$*)},
+		{"group", "()Ljava/nio/file/attribute/GroupPrincipal;", nullptr, $PUBLIC, $method(UnixDomainPrincipal, group, $GroupPrincipal*)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(UnixDomainPrincipal, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(UnixDomainPrincipal, toString, $String*)},
+		{"user", "()Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PUBLIC, $method(UnixDomainPrincipal, user, $UserPrincipal*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.net.UnixDomainPrincipal",
+		"java.lang.Record",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnixDomainPrincipal, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnixDomainPrincipal);
+	});
 	return class$;
 }
 

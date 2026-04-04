@@ -27,6 +27,7 @@ namespace com {
 class NamespaceContext : public ::java::lang::Object {
 	$interface(NamespaceContext, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual bool declarePrefix($String* prefix, $String* uri) {return false;}
 	virtual ::java::util::Enumeration* getAllPrefixes() {return nullptr;}
 	virtual $String* getDeclaredPrefixAt(int32_t index) {return nullptr;}

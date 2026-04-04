@@ -30,6 +30,7 @@ class XMLSecurityPropertyManager$State : public ::java::lang::Enum {
 public:
 	XMLSecurityPropertyManager$State();
 	static $Array<::com::sun::org::apache::xerces::internal::utils::XMLSecurityPropertyManager$State>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::org::apache::xerces::internal::utils::XMLSecurityPropertyManager$State* valueOf($String* name);
 	static $Array<::com::sun::org::apache::xerces::internal::utils::XMLSecurityPropertyManager$State>* values();

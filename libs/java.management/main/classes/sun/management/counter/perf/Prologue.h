@@ -41,7 +41,7 @@ public:
 	virtual bool isAccessible();
 	static const int8_t PERFDATA_BIG_ENDIAN = 0;
 	static const int8_t PERFDATA_LITTLE_ENDIAN = 1;
-	static const int32_t PERFDATA_MAGIC = 0xCAFEC0C0;
+	static const int32_t PERFDATA_MAGIC = 0xcafec0c0;
 	::java::nio::ByteBuffer* header = nullptr;
 	int32_t magic = 0;
 };

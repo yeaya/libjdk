@@ -1,8 +1,6 @@
 #include <TitledBorderLabelUITest.h>
-
 #include <TitledBorderLabelUITest$TestLookAndFeel.h>
 #include <java/awt/Component.h>
-#include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/io/Serializable.h>
@@ -28,8 +26,6 @@
 #undef TYPE_INT_RGB
 
 using $TitledBorderLabelUITest$TestLookAndFeel = ::TitledBorderLabelUITest$TestLookAndFeel;
-using $Component = ::java::awt::Component;
-using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $Serializable = ::java::io::Serializable;
@@ -43,11 +39,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIManager = ::javax::swing::UIManager;
-using $Border = ::javax::swing::border::Border;
 using $TitledBorder = ::javax::swing::border::TitledBorder;
 using $MetalLabelUI = ::javax::swing::plaf::metal::MetalLabelUI;
 using $NimbusLookAndFeel = ::javax::swing::plaf::nimbus::NimbusLookAndFeel;
@@ -60,69 +53,27 @@ public:
 	virtual void run() override {
 		TitledBorderLabelUITest::createAndShowGUI();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TitledBorderLabelUITest$$Lambda$createAndShowGUI>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TitledBorderLabelUITest$$Lambda$createAndShowGUI::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TitledBorderLabelUITest$$Lambda$createAndShowGUI, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TitledBorderLabelUITest$$Lambda$createAndShowGUI, run, void)},
-	{}
-};
-$ClassInfo TitledBorderLabelUITest$$Lambda$createAndShowGUI::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TitledBorderLabelUITest$$Lambda$createAndShowGUI",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TitledBorderLabelUITest$$Lambda$createAndShowGUI::load$($String* name, bool initialize) {
-	$loadClass(TitledBorderLabelUITest$$Lambda$createAndShowGUI, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TitledBorderLabelUITest$$Lambda$createAndShowGUI, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TitledBorderLabelUITest$$Lambda$createAndShowGUI, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TitledBorderLabelUITest$$Lambda$createAndShowGUI",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TitledBorderLabelUITest$$Lambda$createAndShowGUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TitledBorderLabelUITest$$Lambda$createAndShowGUI);
+	});
 	return class$;
 }
 $Class* TitledBorderLabelUITest$$Lambda$createAndShowGUI::class$ = nullptr;
-
-$FieldInfo _TitledBorderLabelUITest_FieldInfo_[] = {
-	{"SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TitledBorderLabelUITest, SIZE)},
-	{"useLAF", "Z", nullptr, $PRIVATE | $STATIC, $staticField(TitledBorderLabelUITest, useLAF)},
-	{}
-};
-
-$MethodInfo _TitledBorderLabelUITest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TitledBorderLabelUITest, init$, void)},
-	{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TitledBorderLabelUITest, createAndShowGUI, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TitledBorderLabelUITest, main, void, $StringArray*), "java.lang.Exception"},
-	{"paintToImage", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TitledBorderLabelUITest, paintToImage, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _TitledBorderLabelUITest_InnerClassesInfo_[] = {
-	{"TitledBorderLabelUITest$TestLabelUI", "TitledBorderLabelUITest", "TestLabelUI", $PUBLIC | $STATIC},
-	{"TitledBorderLabelUITest$TestLookAndFeel", "TitledBorderLabelUITest", "TestLookAndFeel", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _TitledBorderLabelUITest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TitledBorderLabelUITest",
-	"java.lang.Object",
-	nullptr,
-	_TitledBorderLabelUITest_FieldInfo_,
-	_TitledBorderLabelUITest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TitledBorderLabelUITest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TitledBorderLabelUITest$TestLabelUI,TitledBorderLabelUITest$TestLookAndFeel"
-};
-
-$Object* allocate$TitledBorderLabelUITest($Class* clazz) {
-	return $of($alloc(TitledBorderLabelUITest));
-}
 
 bool TitledBorderLabelUITest::useLAF = false;
 
@@ -132,33 +83,33 @@ void TitledBorderLabelUITest::init$() {
 void TitledBorderLabelUITest::main($StringArray* args) {
 	$init(TitledBorderLabelUITest);
 	TitledBorderLabelUITest::useLAF = "LAF"_s->equals($nc(args)->get(0));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TitledBorderLabelUITest$$Lambda$createAndShowGUI)));
+	$SwingUtilities::invokeAndWait($$new(TitledBorderLabelUITest$$Lambda$createAndShowGUI));
 }
 
 void TitledBorderLabelUITest::createAndShowGUI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$UIManager::setLookAndFeel(static_cast<$LookAndFeel*>($$new($TitledBorderLabelUITest$TestLookAndFeel)));
+		$UIManager::setLookAndFeel($$new($TitledBorderLabelUITest$TestLookAndFeel));
 		$var($JLabel, label, $new($JLabel, "Test Label"_s));
 		label->setSize(TitledBorderLabelUITest::SIZE, TitledBorderLabelUITest::SIZE);
 		$var($TitledBorder, border, $new($TitledBorder, "ABCDEF"_s));
-		label->setBorder($$new($TitledBorder, static_cast<$Border*>(border)));
+		label->setBorder($$new($TitledBorder, border));
 		$init(TitledBorderLabelUITest);
 		if (TitledBorderLabelUITest::useLAF) {
-			$UIManager::setLookAndFeel(static_cast<$LookAndFeel*>($$new($NimbusLookAndFeel)));
+			$UIManager::setLookAndFeel($$new($NimbusLookAndFeel));
 		} else {
 			$load($MetalLabelUI);
-			$nc($($UIManager::getDefaults()))->put("LabelUI"_s, $($MetalLabelUI::class$->getName()));
+			$$nc($UIManager::getDefaults())->put("LabelUI"_s, $($MetalLabelUI::class$->getName()));
 		}
 		$SwingUtilities::updateComponentTreeUI(label);
 		paintToImage(label);
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
 void TitledBorderLabelUITest::paintToImage($JComponent* comp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, image, $new($BufferedImage, TitledBorderLabelUITest::SIZE, TitledBorderLabelUITest::SIZE, $BufferedImage::TYPE_INT_RGB));
 	$var($Graphics2D, g, image->createGraphics());
 	$nc(comp)->paint(g);
@@ -170,11 +121,44 @@ TitledBorderLabelUITest::TitledBorderLabelUITest() {
 
 $Class* TitledBorderLabelUITest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TitledBorderLabelUITest$$Lambda$createAndShowGUI::classInfo$.name)) {
+		if (name->equals("TitledBorderLabelUITest$$Lambda$createAndShowGUI")) {
 			return TitledBorderLabelUITest$$Lambda$createAndShowGUI::load$(name, initialize);
 		}
 	}
-	$loadClass(TitledBorderLabelUITest, name, initialize, &_TitledBorderLabelUITest_ClassInfo_, allocate$TitledBorderLabelUITest);
+	$FieldInfo fieldInfos$$[] = {
+		{"SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TitledBorderLabelUITest, SIZE)},
+		{"useLAF", "Z", nullptr, $PRIVATE | $STATIC, $staticField(TitledBorderLabelUITest, useLAF)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TitledBorderLabelUITest, init$, void)},
+		{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TitledBorderLabelUITest, createAndShowGUI, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TitledBorderLabelUITest, main, void, $StringArray*), "java.lang.Exception"},
+		{"paintToImage", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TitledBorderLabelUITest, paintToImage, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TitledBorderLabelUITest$TestLabelUI", "TitledBorderLabelUITest", "TestLabelUI", $PUBLIC | $STATIC},
+		{"TitledBorderLabelUITest$TestLookAndFeel", "TitledBorderLabelUITest", "TestLookAndFeel", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TitledBorderLabelUITest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TitledBorderLabelUITest$TestLabelUI,TitledBorderLabelUITest$TestLookAndFeel"
+	};
+	$loadClass(TitledBorderLabelUITest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TitledBorderLabelUITest);
+	});
 	return class$;
 }
 

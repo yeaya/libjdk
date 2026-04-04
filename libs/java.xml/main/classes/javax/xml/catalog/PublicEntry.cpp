@@ -1,5 +1,4 @@
 #include <javax/xml/catalog/PublicEntry.h>
-
 #include <java/net/URL.h>
 #include <javax/xml/catalog/BaseEntry$CatalogEntryType.h>
 #include <javax/xml/catalog/BaseEntry.h>
@@ -21,35 +20,6 @@ using $Normalizer = ::javax::xml::catalog::Normalizer;
 namespace javax {
 	namespace xml {
 		namespace catalog {
-
-$FieldInfo _PublicEntry_FieldInfo_[] = {
-	{"publicId", "Ljava/lang/String;", nullptr, 0, $field(PublicEntry, publicId)},
-	{"uri", "Ljava/net/URL;", nullptr, 0, $field(PublicEntry, uri)},
-	{}
-};
-
-$MethodInfo _PublicEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PublicEntry, init$, void, $String*, $String*, $String*)},
-	{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(PublicEntry, getPublicId, $String*)},
-	{"getURI", "()Ljava/net/URL;", nullptr, $PUBLIC, $method(PublicEntry, getURI, $URL*)},
-	{"match", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PublicEntry, match, $String*, $String*)},
-	{"setPublicId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PublicEntry, setPublicId, void, $String*)},
-	{"setURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PublicEntry, setURI, void, $String*)},
-	{}
-};
-
-$ClassInfo _PublicEntry_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.xml.catalog.PublicEntry",
-	"javax.xml.catalog.BaseEntry",
-	nullptr,
-	_PublicEntry_FieldInfo_,
-	_PublicEntry_MethodInfo_
-};
-
-$Object* allocate$PublicEntry($Class* clazz) {
-	return $of($alloc(PublicEntry));
-}
 
 void PublicEntry::init$($String* base, $String* publicId, $String* uri) {
 	$init($BaseEntry$CatalogEntryType);
@@ -86,7 +56,31 @@ PublicEntry::PublicEntry() {
 }
 
 $Class* PublicEntry::load$($String* name, bool initialize) {
-	$loadClass(PublicEntry, name, initialize, &_PublicEntry_ClassInfo_, allocate$PublicEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"publicId", "Ljava/lang/String;", nullptr, 0, $field(PublicEntry, publicId)},
+		{"uri", "Ljava/net/URL;", nullptr, 0, $field(PublicEntry, uri)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PublicEntry, init$, void, $String*, $String*, $String*)},
+		{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(PublicEntry, getPublicId, $String*)},
+		{"getURI", "()Ljava/net/URL;", nullptr, $PUBLIC, $method(PublicEntry, getURI, $URL*)},
+		{"match", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PublicEntry, match, $String*, $String*)},
+		{"setPublicId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PublicEntry, setPublicId, void, $String*)},
+		{"setURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PublicEntry, setURI, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.xml.catalog.PublicEntry",
+		"javax.xml.catalog.BaseEntry",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PublicEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PublicEntry);
+	});
 	return class$;
 }
 

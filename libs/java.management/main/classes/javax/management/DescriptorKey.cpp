@@ -1,5 +1,4 @@
 #include <javax/management/DescriptorKey.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -11,52 +10,44 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 namespace javax {
 	namespace management {
 
-$NamedAttribute DescriptorKey_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$Attribute DescriptorKey_Attribute_var$2[] = {
-	{'e', "Ljava/lang/annotation/ElementType; METHOD"},
-	{'-'}
-};
-
-$NamedAttribute DescriptorKey_Attribute_var$1[] = {
-	{"value", '[', DescriptorKey_Attribute_var$2},
-	{}
-};
-
-$CompoundAttribute _DescriptorKey_Annotations_[] = {
-	{"Ljava/lang/annotation/Documented;", nullptr},
-	{"Ljava/lang/annotation/Retention;", DescriptorKey_Attribute_var$0},
-	{"Ljava/lang/annotation/Target;", DescriptorKey_Attribute_var$1},
-	{}
-};
-
-$MethodInfo _DescriptorKey_MethodInfo_[] = {
-	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DescriptorKey, value, $String*)},
-	{}
-};
-
-$ClassInfo _DescriptorKey_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"javax.management.DescriptorKey",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_DescriptorKey_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_DescriptorKey_Annotations_
-};
-
-$Object* allocate$DescriptorKey($Class* clazz) {
-	return $of($alloc(DescriptorKey));
-}
-
 $Class* DescriptorKey::load$($String* name, bool initialize) {
-	$loadClass(DescriptorKey, name, initialize, &_DescriptorKey_ClassInfo_, allocate$DescriptorKey);
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DescriptorKey, value, $String*)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; METHOD"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Documented;", nullptr},
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"javax.management.DescriptorKey",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(DescriptorKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DescriptorKey);
+	});
 	return class$;
 }
 

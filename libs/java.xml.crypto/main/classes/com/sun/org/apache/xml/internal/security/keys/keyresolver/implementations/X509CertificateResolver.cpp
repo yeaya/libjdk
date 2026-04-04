@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/keyresolver/implementations/X509CertificateResolver.h>
-
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
 #include <com/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509Certificate.h>
 #include <com/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverException.h>
@@ -32,7 +31,6 @@ using $XMLUtils = ::com::sun::org::apache::xml::internal::security::utils::XMLUt
 using $Logger = ::com::sun::org::slf4j::internal::Logger;
 using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $PrivateKey = ::java::security::PrivateKey;
@@ -51,34 +49,6 @@ namespace com {
 							namespace keys {
 								namespace keyresolver {
 									namespace implementations {
-
-$FieldInfo _X509CertificateResolver_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(X509CertificateResolver, LOG)},
-	{}
-};
-
-$MethodInfo _X509CertificateResolver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(X509CertificateResolver, init$, void)},
-	{"engineCanResolve", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;)Z", nullptr, $PROTECTED, $virtualMethod(X509CertificateResolver, engineCanResolve, bool, $Element*, $String*, $StorageResolver*)},
-	{"engineResolvePrivateKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PrivateKey;", nullptr, $PROTECTED, $virtualMethod(X509CertificateResolver, engineResolvePrivateKey, $PrivateKey*, $Element*, $String*, $StorageResolver*, bool)},
-	{"engineResolvePublicKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PublicKey;", nullptr, $PROTECTED, $virtualMethod(X509CertificateResolver, engineResolvePublicKey, $PublicKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"engineResolveSecretKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(X509CertificateResolver, engineResolveSecretKey, $SecretKey*, $Element*, $String*, $StorageResolver*, bool)},
-	{"engineResolveX509Certificate", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/cert/X509Certificate;", nullptr, $PROTECTED, $virtualMethod(X509CertificateResolver, engineResolveX509Certificate, $X509Certificate*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{}
-};
-
-$ClassInfo _X509CertificateResolver_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.keys.keyresolver.implementations.X509CertificateResolver",
-	"com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverSpi",
-	nullptr,
-	_X509CertificateResolver_FieldInfo_,
-	_X509CertificateResolver_MethodInfo_
-};
-
-$Object* allocate$X509CertificateResolver($Class* clazz) {
-	return $of($alloc(X509CertificateResolver));
-}
 
 $Logger* X509CertificateResolver::LOG = nullptr;
 
@@ -100,12 +70,12 @@ $PublicKey* X509CertificateResolver::engineResolvePublicKey($Element* element, $
 }
 
 $X509Certificate* X509CertificateResolver::engineResolveX509Certificate($Element* element, $String* baseURI, $StorageResolver* storage, bool secureValidation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($Constants);
 		$var($ElementArray, els, $XMLUtils::selectDsNodes($($nc(element)->getFirstChild()), $Constants::_TAG_X509CERTIFICATE));
-		if (els == nullptr || $nc(els)->length == 0) {
-			$var($Element, el, $XMLUtils::selectDsNode($($nc(element)->getFirstChild()), $Constants::_TAG_X509DATA, 0));
+		if (els == nullptr || els->length == 0) {
+			$var($Element, el, $XMLUtils::selectDsNode($(element->getFirstChild()), $Constants::_TAG_X509DATA, 0));
 			if (el != nullptr) {
 				return engineResolveX509Certificate(el, baseURI, storage, secureValidation);
 			}
@@ -120,8 +90,8 @@ $X509Certificate* X509CertificateResolver::engineResolveX509Certificate($Element
 		}
 		return nullptr;
 	} catch ($XMLSecurityException& ex) {
-		$nc(X509CertificateResolver::LOG)->debug("Security Exception"_s, static_cast<$Throwable*>(ex));
-		$throwNew($KeyResolverException, static_cast<$Exception*>(ex));
+		$nc(X509CertificateResolver::LOG)->debug("Security Exception"_s, ex);
+		$throwNew($KeyResolverException, ex);
 	}
 	$shouldNotReachHere();
 }
@@ -134,7 +104,7 @@ $PrivateKey* X509CertificateResolver::engineResolvePrivateKey($Element* element,
 	return nullptr;
 }
 
-void clinit$X509CertificateResolver($Class* class$) {
+void X509CertificateResolver::clinit$($Class* clazz) {
 	$assignStatic(X509CertificateResolver::LOG, $LoggerFactory::getLogger(X509CertificateResolver::class$));
 }
 
@@ -142,7 +112,30 @@ X509CertificateResolver::X509CertificateResolver() {
 }
 
 $Class* X509CertificateResolver::load$($String* name, bool initialize) {
-	$loadClass(X509CertificateResolver, name, initialize, &_X509CertificateResolver_ClassInfo_, clinit$X509CertificateResolver, allocate$X509CertificateResolver);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(X509CertificateResolver, LOG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(X509CertificateResolver, init$, void)},
+		{"engineCanResolve", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;)Z", nullptr, $PROTECTED, $virtualMethod(X509CertificateResolver, engineCanResolve, bool, $Element*, $String*, $StorageResolver*)},
+		{"engineResolvePrivateKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PrivateKey;", nullptr, $PROTECTED, $virtualMethod(X509CertificateResolver, engineResolvePrivateKey, $PrivateKey*, $Element*, $String*, $StorageResolver*, bool)},
+		{"engineResolvePublicKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PublicKey;", nullptr, $PROTECTED, $virtualMethod(X509CertificateResolver, engineResolvePublicKey, $PublicKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"engineResolveSecretKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(X509CertificateResolver, engineResolveSecretKey, $SecretKey*, $Element*, $String*, $StorageResolver*, bool)},
+		{"engineResolveX509Certificate", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/cert/X509Certificate;", nullptr, $PROTECTED, $virtualMethod(X509CertificateResolver, engineResolveX509Certificate, $X509Certificate*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.keys.keyresolver.implementations.X509CertificateResolver",
+		"com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(X509CertificateResolver, name, initialize, &classInfo$$, X509CertificateResolver::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(X509CertificateResolver);
+	});
 	return class$;
 }
 

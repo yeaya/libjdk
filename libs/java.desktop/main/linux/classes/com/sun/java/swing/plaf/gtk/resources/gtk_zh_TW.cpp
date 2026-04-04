@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/resources/gtk_zh_TW.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -16,151 +15,132 @@ namespace com {
 					namespace gtk {
 						namespace resources {
 
-$MethodInfo _gtk_zh_TW_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(gtk_zh_TW, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(gtk_zh_TW, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _gtk_zh_TW_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.resources.gtk_zh_TW",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_gtk_zh_TW_MethodInfo_
-};
-
-$Object* allocate$gtk_zh_TW($Class* clazz) {
-	return $of($alloc(gtk_zh_TW));
-}
-
 void gtk_zh_TW::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* gtk_zh_TW::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("FileChooser.acceptAllFileFilter.textAndMnemonic"_s),
-			$of(u"所有檔案"_s)
+			"FileChooser.acceptAllFileFilter.textAndMnemonic"_s,
+			u"所有檔案"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.cancelButton.textAndMnemonic"_s),
-			$of(u"取消"_s)
+			"FileChooser.cancelButton.textAndMnemonic"_s,
+			u"取消"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.cancelButtonToolTip.textAndMnemonic"_s),
-			$of(u"中止檔案選擇器對話方塊。"_s)
+			"FileChooser.cancelButtonToolTip.textAndMnemonic"_s,
+			u"中止檔案選擇器對話方塊。"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.deleteFileButton.textAndMnemonic"_s),
-			$of(u"刪除檔案(&L)"_s)
+			"FileChooser.deleteFileButton.textAndMnemonic"_s,
+			u"刪除檔案(&L)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.filesLabel.textAndMnemonic"_s),
-			$of(u"檔案(&F)"_s)
+			"FileChooser.filesLabel.textAndMnemonic"_s,
+			u"檔案(&F)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.filterLabel.textAndMnemonic"_s),
-			$of(u"篩選:"_s)
+			"FileChooser.filterLabel.textAndMnemonic"_s,
+			u"篩選:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.foldersLabel.textAndMnemonic"_s),
-			$of(u"資料夾(&D)"_s)
+			"FileChooser.foldersLabel.textAndMnemonic"_s,
+			u"資料夾(&D)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderButton.textAndMnemonic"_s),
-			$of(u"新建資料夾(&N)"_s)
+			"FileChooser.newFolderButton.textAndMnemonic"_s,
+			u"新建資料夾(&N)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderDialog.textAndMnemonic"_s),
-			$of(u"資料夾名稱:"_s)
+			"FileChooser.newFolderDialog.textAndMnemonic"_s,
+			u"資料夾名稱:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderNoDirectoryError.textAndMnemonic"_s),
-			$of(u"建立目錄 \"{0}\" 時發生錯誤: 沒有此檔案或目錄"_s)
+			"FileChooser.newFolderNoDirectoryError.textAndMnemonic"_s,
+			u"建立目錄 \"{0}\" 時發生錯誤: 沒有此檔案或目錄"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderNoDirectoryErrorTitle.textAndMnemonic"_s),
-			$of(u"錯誤"_s)
+			"FileChooser.newFolderNoDirectoryErrorTitle.textAndMnemonic"_s,
+			u"錯誤"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.openButton.textAndMnemonic"_s),
-			$of(u"確定"_s)
+			"FileChooser.openButton.textAndMnemonic"_s,
+			u"確定"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.openButtonToolTip.textAndMnemonic"_s),
-			$of(u"開啟選取的檔案。"_s)
+			"FileChooser.openButtonToolTip.textAndMnemonic"_s,
+			u"開啟選取的檔案。"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.openDialogTitle.textAndMnemonic"_s),
-			$of(u"開啟"_s)
+			"FileChooser.openDialogTitle.textAndMnemonic"_s,
+			u"開啟"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.pathLabel.textAndMnemonic"_s),
-			$of(u"選取(&S):"_s)
+			"FileChooser.pathLabel.textAndMnemonic"_s,
+			u"選取(&S):"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.renameFileButton.textAndMnemonic"_s),
-			$of(u"重新命名檔案(&R)"_s)
+			"FileChooser.renameFileButton.textAndMnemonic"_s,
+			u"重新命名檔案(&R)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.renameFileDialog.textAndMnemonic"_s),
-			$of(u"將檔案 \"{0}\" 重新命名為"_s)
+			"FileChooser.renameFileDialog.textAndMnemonic"_s,
+			u"將檔案 \"{0}\" 重新命名為"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.renameFileError.textAndMnemonic"_s),
-			$of(u"將檔案 \"{0}\" 重新命名為 \"{1}\" 時出現錯誤"_s)
+			"FileChooser.renameFileError.textAndMnemonic"_s,
+			u"將檔案 \"{0}\" 重新命名為 \"{1}\" 時出現錯誤"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.renameFileError.titleAndMnemonic"_s),
-			$of(u"錯誤"_s)
+			"FileChooser.renameFileError.titleAndMnemonic"_s,
+			u"錯誤"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.saveButton.textAndMnemonic"_s),
-			$of(u"確定"_s)
+			"FileChooser.saveButton.textAndMnemonic"_s,
+			u"確定"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.saveButtonToolTip.textAndMnemonic"_s),
-			$of(u"儲存選取的檔案。"_s)
+			"FileChooser.saveButtonToolTip.textAndMnemonic"_s,
+			u"儲存選取的檔案。"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.saveDialogTitle.textAndMnemonic"_s),
-			$of(u"儲存"_s)
+			"FileChooser.saveDialogTitle.textAndMnemonic"_s,
+			u"儲存"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GTKColorChooserPanel.blue.textAndMnemonic"_s),
-			$of(u"藍(&B):"_s)
+			"GTKColorChooserPanel.blue.textAndMnemonic"_s,
+			u"藍(&B):"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GTKColorChooserPanel.color.textAndMnemonic"_s),
-			$of(u"顏色名稱(&N):"_s)
+			"GTKColorChooserPanel.color.textAndMnemonic"_s,
+			u"顏色名稱(&N):"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GTKColorChooserPanel.green.textAndMnemonic"_s),
-			$of(u"綠(&G):"_s)
+			"GTKColorChooserPanel.green.textAndMnemonic"_s,
+			u"綠(&G):"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GTKColorChooserPanel.hue.textAndMnemonic"_s),
-			$of(u"色調(&H):"_s)
+			"GTKColorChooserPanel.hue.textAndMnemonic"_s,
+			u"色調(&H):"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GTKColorChooserPanel.red.textAndMnemonic"_s),
-			$of(u"紅(&E):"_s)
+			"GTKColorChooserPanel.red.textAndMnemonic"_s,
+			u"紅(&E):"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GTKColorChooserPanel.saturation.textAndMnemonic"_s),
-			$of(u"彩度(&S):"_s)
+			"GTKColorChooserPanel.saturation.textAndMnemonic"_s,
+			u"彩度(&S):"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GTKColorChooserPanel.textAndMnemonic"_s),
-			$of(u"GTK 色彩選擇器(&G)"_s)
+			"GTKColorChooserPanel.textAndMnemonic"_s,
+			u"GTK 色彩選擇器(&G)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GTKColorChooserPanel.value.textAndMnemonic"_s),
-			$of(u"值(&V):"_s)
+			"GTKColorChooserPanel.value.textAndMnemonic"_s,
+			u"值(&V):"_s
 		})
 	});
 }
@@ -169,7 +149,22 @@ gtk_zh_TW::gtk_zh_TW() {
 }
 
 $Class* gtk_zh_TW::load$($String* name, bool initialize) {
-	$loadClass(gtk_zh_TW, name, initialize, &_gtk_zh_TW_ClassInfo_, allocate$gtk_zh_TW);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(gtk_zh_TW, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(gtk_zh_TW, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.resources.gtk_zh_TW",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(gtk_zh_TW, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(gtk_zh_TW);
+	});
 	return class$;
 }
 

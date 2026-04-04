@@ -44,8 +44,8 @@ public:
 	::sun::font::CharToGlyphMapper* getSlotMapper(int32_t slot);
 	void initMapper();
 	void setCachedGlyphCode(int32_t unicode, int32_t glyphCode);
-	static const int32_t SLOTMASK = 0xFF000000;
-	static const int32_t GLYPHMASK = 0x00FFFFFF;
+	static const int32_t SLOTMASK = 0xff000000;
+	static const int32_t GLYPHMASK = 0x00ffffff;
 	static const int32_t NBLOCKS = 216;
 	static const int32_t BLOCKSZ = 256;
 	static const int32_t MAXUNICODE = 55296; // NBLOCKS * BLOCKSZ

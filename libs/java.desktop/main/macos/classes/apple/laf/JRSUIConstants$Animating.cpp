@@ -1,5 +1,4 @@
 #include <apple/laf/JRSUIConstants$Animating.h>
-
 #include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$PropertyEncoding.h>
 #include <apple/laf/JRSUIConstants.h>
@@ -21,51 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace apple {
 	namespace laf {
 
-$FieldInfo _JRSUIConstants$Animating_FieldInfo_[] = {
-	{"SHIFT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Animating, SHIFT)},
-	{"SIZE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Animating, SIZE)},
-	{"MASK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Animating, MASK)},
-	{"animating", "Lapple/laf/JRSUIConstants$PropertyEncoding;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JRSUIConstants$Animating, animating)},
-	{"_no", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Animating, _no)},
-	{"NO", "Lapple/laf/JRSUIConstants$Animating;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Animating, NO)},
-	{"_yes", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Animating, _yes)},
-	{"YES", "Lapple/laf/JRSUIConstants$Animating;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Animating, YES)},
-	{}
-};
-
-$MethodInfo _JRSUIConstants$Animating_MethodInfo_[] = {
-	{"<init>", "(B)V", nullptr, 0, $method(JRSUIConstants$Animating, init$, void, int8_t)},
-	{"apply", "(J)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JRSUIConstants$Animating, apply, int64_t, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JRSUIConstants$Animating, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _JRSUIConstants$Animating_InnerClassesInfo_[] = {
-	{"apple.laf.JRSUIConstants$Animating", "apple.laf.JRSUIConstants", "Animating", $PUBLIC | $STATIC},
-	{"apple.laf.JRSUIConstants$Property", "apple.laf.JRSUIConstants", "Property", $STATIC},
-	{}
-};
-
-$ClassInfo _JRSUIConstants$Animating_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"apple.laf.JRSUIConstants$Animating",
-	"apple.laf.JRSUIConstants$Property",
-	nullptr,
-	_JRSUIConstants$Animating_FieldInfo_,
-	_JRSUIConstants$Animating_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JRSUIConstants$Animating_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"apple.laf.JRSUIConstants"
-};
-
-$Object* allocate$JRSUIConstants$Animating($Class* clazz) {
-	return $of($alloc(JRSUIConstants$Animating));
-}
-
 $JRSUIConstants$PropertyEncoding* JRSUIConstants$Animating::animating = nullptr;
 JRSUIConstants$Animating* JRSUIConstants$Animating::NO = nullptr;
 JRSUIConstants$Animating* JRSUIConstants$Animating::YES = nullptr;
@@ -82,7 +36,7 @@ int64_t JRSUIConstants$Animating::apply(int64_t encodedState) {
 	return $JRSUIConstants$Property::apply(encodedState);
 }
 
-void clinit$JRSUIConstants$Animating($Class* class$) {
+void JRSUIConstants$Animating::clinit$($Class* clazz) {
 	$assignStatic(JRSUIConstants$Animating::animating, $new($JRSUIConstants$PropertyEncoding, JRSUIConstants$Animating::MASK, JRSUIConstants$Animating::SHIFT));
 	$assignStatic(JRSUIConstants$Animating::NO, $new(JRSUIConstants$Animating, JRSUIConstants$Animating::_no));
 	$assignStatic(JRSUIConstants$Animating::YES, $new(JRSUIConstants$Animating, JRSUIConstants$Animating::_yes));
@@ -92,7 +46,46 @@ JRSUIConstants$Animating::JRSUIConstants$Animating() {
 }
 
 $Class* JRSUIConstants$Animating::load$($String* name, bool initialize) {
-	$loadClass(JRSUIConstants$Animating, name, initialize, &_JRSUIConstants$Animating_ClassInfo_, clinit$JRSUIConstants$Animating, allocate$JRSUIConstants$Animating);
+	$FieldInfo fieldInfos$$[] = {
+		{"SHIFT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Animating, SHIFT)},
+		{"SIZE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Animating, SIZE)},
+		{"MASK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Animating, MASK)},
+		{"animating", "Lapple/laf/JRSUIConstants$PropertyEncoding;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JRSUIConstants$Animating, animating)},
+		{"_no", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Animating, _no)},
+		{"NO", "Lapple/laf/JRSUIConstants$Animating;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Animating, NO)},
+		{"_yes", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Animating, _yes)},
+		{"YES", "Lapple/laf/JRSUIConstants$Animating;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Animating, YES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(B)V", nullptr, 0, $method(JRSUIConstants$Animating, init$, void, int8_t)},
+		{"apply", "(J)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JRSUIConstants$Animating, apply, int64_t, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JRSUIConstants$Animating, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"apple.laf.JRSUIConstants$Animating", "apple.laf.JRSUIConstants", "Animating", $PUBLIC | $STATIC},
+		{"apple.laf.JRSUIConstants$Property", "apple.laf.JRSUIConstants", "Property", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"apple.laf.JRSUIConstants$Animating",
+		"apple.laf.JRSUIConstants$Property",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"apple.laf.JRSUIConstants"
+	};
+	$loadClass(JRSUIConstants$Animating, name, initialize, &classInfo$$, JRSUIConstants$Animating::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JRSUIConstants$Animating);
+	});
 	return class$;
 }
 

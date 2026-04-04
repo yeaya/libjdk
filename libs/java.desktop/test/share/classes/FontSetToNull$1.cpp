@@ -1,5 +1,4 @@
 #include <FontSetToNull$1.h>
-
 #include <FontSetToNull.h>
 #include <java/awt/Font.h>
 #include <javax/swing/JSpinner.h>
@@ -11,43 +10,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JSpinner = ::javax::swing::JSpinner;
-
-$MethodInfo _FontSetToNull$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(FontSetToNull$1, init$, void)},
-	{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(FontSetToNull$1, getFont, $Font*)},
-	{}
-};
-
-$EnclosingMethodInfo _FontSetToNull$1_EnclosingMethodInfo_ = {
-	"FontSetToNull",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _FontSetToNull$1_InnerClassesInfo_[] = {
-	{"FontSetToNull$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FontSetToNull$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"FontSetToNull$1",
-	"javax.swing.JSpinner",
-	nullptr,
-	nullptr,
-	_FontSetToNull$1_MethodInfo_,
-	nullptr,
-	&_FontSetToNull$1_EnclosingMethodInfo_,
-	_FontSetToNull$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"FontSetToNull"
-};
-
-$Object* allocate$FontSetToNull$1($Class* clazz) {
-	return $of($alloc(FontSetToNull$1));
-}
 
 void FontSetToNull$1::init$() {
 	$JSpinner::init$();
@@ -61,7 +23,38 @@ FontSetToNull$1::FontSetToNull$1() {
 }
 
 $Class* FontSetToNull$1::load$($String* name, bool initialize) {
-	$loadClass(FontSetToNull$1, name, initialize, &_FontSetToNull$1_ClassInfo_, allocate$FontSetToNull$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(FontSetToNull$1, init$, void)},
+		{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(FontSetToNull$1, getFont, $Font*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"FontSetToNull",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"FontSetToNull$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"FontSetToNull$1",
+		"javax.swing.JSpinner",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"FontSetToNull"
+	};
+	$loadClass(FontSetToNull$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FontSetToNull$1));
+	});
 	return class$;
 }
 

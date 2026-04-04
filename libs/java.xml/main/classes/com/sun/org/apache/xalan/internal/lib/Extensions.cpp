@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/lib/Extensions.h>
-
 #include <com/sun/org/apache/xalan/internal/extensions/ExpressionContext.h>
 #include <com/sun/org/apache/xalan/internal/lib/ExsltDynamic.h>
 #include <com/sun/org/apache/xalan/internal/lib/ExsltSets.h>
@@ -45,37 +44,11 @@ namespace com {
 					namespace internal {
 						namespace lib {
 
-$MethodInfo _Extensions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Extensions, init$, void)},
-	{"difference", "(Lorg/w3c/dom/NodeList;Lorg/w3c/dom/NodeList;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(Extensions, difference, $NodeList*, $NodeList*, $NodeList*)},
-	{"distinct", "(Lorg/w3c/dom/NodeList;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(Extensions, distinct, $NodeList*, $NodeList*)},
-	{"evaluate", "(Lcom/sun/org/apache/xalan/internal/extensions/ExpressionContext;Ljava/lang/String;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC | $STATIC, $staticMethod(Extensions, evaluate, $XObject*, $ExpressionContext*, $String*), "org.xml.sax.SAXNotSupportedException"},
-	{"hasSameNodes", "(Lorg/w3c/dom/NodeList;Lorg/w3c/dom/NodeList;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Extensions, hasSameNodes, bool, $NodeList*, $NodeList*)},
-	{"intersection", "(Lorg/w3c/dom/NodeList;Lorg/w3c/dom/NodeList;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(Extensions, intersection, $NodeList*, $NodeList*, $NodeList*)},
-	{"nodeset", "(Lcom/sun/org/apache/xalan/internal/extensions/ExpressionContext;Ljava/lang/Object;)Lcom/sun/org/apache/xpath/internal/NodeSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(Extensions, nodeset, $NodeSet*, $ExpressionContext*, Object$*)},
-	{"tokenize", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(Extensions, tokenize, $NodeList*, $String*, $String*)},
-	{"tokenize", "(Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(Extensions, tokenize, $NodeList*, $String*)},
-	{}
-};
-
-$ClassInfo _Extensions_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.lib.Extensions",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Extensions_MethodInfo_
-};
-
-$Object* allocate$Extensions($Class* clazz) {
-	return $of($alloc(Extensions));
-}
-
 void Extensions::init$() {
 }
 
 $NodeSet* Extensions::nodeset($ExpressionContext* myProcessor, Object$* rtf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, textNodeValue, nullptr);
 	if ($instanceOf($NodeIterator, rtf)) {
 		return $new($NodeSet, $cast($NodeIterator, rtf));
@@ -83,9 +56,9 @@ $NodeSet* Extensions::nodeset($ExpressionContext* myProcessor, Object$* rtf) {
 		if ($instanceOf($String, rtf)) {
 			$assign(textNodeValue, $cast($String, rtf));
 		} else if ($instanceOf($Boolean, rtf)) {
-			$assign(textNodeValue, $$new($XBoolean, $nc(($cast($Boolean, rtf)))->booleanValue())->str());
+			$assign(textNodeValue, $$new($XBoolean, $cast($Boolean, rtf)->booleanValue())->str());
 		} else if ($instanceOf($Double, rtf)) {
-			$assign(textNodeValue, $$new($XNumber, $nc(($cast($Double, rtf)))->doubleValue())->str());
+			$assign(textNodeValue, $$new($XNumber, $cast($Double, rtf)->doubleValue())->str());
 		} else {
 			$assign(textNodeValue, $nc($of(rtf))->toString());
 		}
@@ -93,7 +66,7 @@ $NodeSet* Extensions::nodeset($ExpressionContext* myProcessor, Object$* rtf) {
 		$var($Text, textNode, $nc(myDoc)->createTextNode(textNodeValue));
 		$var($DocumentFragment, docFrag, myDoc->createDocumentFragment());
 		$nc(docFrag)->appendChild(textNode);
-		return $new($NodeSet, static_cast<$Node*>(docFrag));
+		return $new($NodeSet, docFrag);
 	}
 }
 
@@ -110,7 +83,7 @@ $NodeList* Extensions::distinct($NodeList* nl) {
 }
 
 bool Extensions::hasSameNodes($NodeList* nl1, $NodeList* nl2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NodeSet, ns1, $new($NodeSet, nl1));
 	$var($NodeSet, ns2, $new($NodeSet, nl2));
 	int32_t var$0 = ns1->getLength();
@@ -131,13 +104,13 @@ $XObject* Extensions::evaluate($ExpressionContext* myContext, $String* xpathExpr
 }
 
 $NodeList* Extensions::tokenize($String* toTokenize, $String* delims) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, $JdkXmlUtils::getDOMDocument());
 	$var($StringTokenizer, lTokenizer, $new($StringTokenizer, toTokenize, delims));
 	$var($NodeSet, resultSet, $new($NodeSet));
 	$synchronized(doc) {
 		while (lTokenizer->hasMoreTokens()) {
-			resultSet->addNode($($nc(doc)->createTextNode($(lTokenizer->nextToken()))));
+			resultSet->addNode($(doc->createTextNode($(lTokenizer->nextToken()))));
 		}
 	}
 	return resultSet;
@@ -151,7 +124,29 @@ Extensions::Extensions() {
 }
 
 $Class* Extensions::load$($String* name, bool initialize) {
-	$loadClass(Extensions, name, initialize, &_Extensions_ClassInfo_, allocate$Extensions);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Extensions, init$, void)},
+		{"difference", "(Lorg/w3c/dom/NodeList;Lorg/w3c/dom/NodeList;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(Extensions, difference, $NodeList*, $NodeList*, $NodeList*)},
+		{"distinct", "(Lorg/w3c/dom/NodeList;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(Extensions, distinct, $NodeList*, $NodeList*)},
+		{"evaluate", "(Lcom/sun/org/apache/xalan/internal/extensions/ExpressionContext;Ljava/lang/String;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC | $STATIC, $staticMethod(Extensions, evaluate, $XObject*, $ExpressionContext*, $String*), "org.xml.sax.SAXNotSupportedException"},
+		{"hasSameNodes", "(Lorg/w3c/dom/NodeList;Lorg/w3c/dom/NodeList;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Extensions, hasSameNodes, bool, $NodeList*, $NodeList*)},
+		{"intersection", "(Lorg/w3c/dom/NodeList;Lorg/w3c/dom/NodeList;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(Extensions, intersection, $NodeList*, $NodeList*, $NodeList*)},
+		{"nodeset", "(Lcom/sun/org/apache/xalan/internal/extensions/ExpressionContext;Ljava/lang/Object;)Lcom/sun/org/apache/xpath/internal/NodeSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(Extensions, nodeset, $NodeSet*, $ExpressionContext*, Object$*)},
+		{"tokenize", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(Extensions, tokenize, $NodeList*, $String*, $String*)},
+		{"tokenize", "(Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(Extensions, tokenize, $NodeList*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.lib.Extensions",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Extensions, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Extensions);
+	});
 	return class$;
 }
 

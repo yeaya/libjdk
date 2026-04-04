@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFileSystemModel$FilesLoader.h>
-
 #include <com/apple/laf/AquaFileSystemModel$DoChangeContents.h>
 #include <com/apple/laf/AquaFileSystemModel$SortableFile.h>
 #include <com/apple/laf/AquaFileSystemModel.h>
@@ -26,54 +25,12 @@ using $Runnable = ::java::lang::Runnable;
 using $ThreadGroup = ::java::lang::ThreadGroup;
 using $Iterator = ::java::util::Iterator;
 using $Vector = ::java::util::Vector;
-using $JFileChooser = ::javax::swing::JFileChooser;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $FileSystemView = ::javax::swing::filechooser::FileSystemView;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaFileSystemModel$FilesLoader_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaFileSystemModel;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileSystemModel$FilesLoader, this$0)},
-	{"queuedTasks", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/Runnable;>;", 0, $field(AquaFileSystemModel$FilesLoader, queuedTasks)},
-	{"currentDirectory", "Ljava/io/File;", nullptr, 0, $field(AquaFileSystemModel$FilesLoader, currentDirectory)},
-	{"fid", "I", nullptr, 0, $field(AquaFileSystemModel$FilesLoader, fid)},
-	{"loadThread", "Ljava/lang/Thread;", nullptr, 0, $field(AquaFileSystemModel$FilesLoader, loadThread)},
-	{}
-};
-
-$MethodInfo _AquaFileSystemModel$FilesLoader_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaFileSystemModel;Ljava/io/File;I)V", nullptr, $PUBLIC, $method(AquaFileSystemModel$FilesLoader, init$, void, $AquaFileSystemModel*, $File*, int32_t)},
-	{"cancelRunnables", "(Ljava/util/Vector;)V", "(Ljava/util/Vector<Lcom/apple/laf/AquaFileSystemModel$DoChangeContents;>;)V", $PUBLIC, $virtualMethod(AquaFileSystemModel$FilesLoader, cancelRunnables, void, $Vector*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel$FilesLoader, run, void)},
-	{}
-};
-
-$InnerClassInfo _AquaFileSystemModel$FilesLoader_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFileSystemModel$FilesLoader", "com.apple.laf.AquaFileSystemModel", "FilesLoader", 0},
-	{}
-};
-
-$ClassInfo _AquaFileSystemModel$FilesLoader_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaFileSystemModel$FilesLoader",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_AquaFileSystemModel$FilesLoader_FieldInfo_,
-	_AquaFileSystemModel$FilesLoader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaFileSystemModel$FilesLoader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFileSystemModel"
-};
-
-$Object* allocate$AquaFileSystemModel$FilesLoader($Class* clazz) {
-	return $of($alloc(AquaFileSystemModel$FilesLoader));
-}
 
 void AquaFileSystemModel$FilesLoader::init$($AquaFileSystemModel* this$0, $File* currentDirectory, int32_t fid) {
 	$set(this, this$0, this$0);
@@ -83,20 +40,18 @@ void AquaFileSystemModel$FilesLoader::init$($AquaFileSystemModel* this$0, $File*
 	this->fid = fid;
 	$var($String, name, "Aqua L&F File Loading Thread"_s);
 	$set(this, loadThread, $new($Thread, nullptr, this, name, 0, false));
-	$nc(this->loadThread)->start();
+	this->loadThread->start();
 }
 
 void AquaFileSystemModel$FilesLoader::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, runnables, $new($Vector, 10));
 	$var($FileSystemView, fileSystem, $nc(this->this$0->filechooser)->getFileSystemView());
 	$var($FileArray, list, $nc(fileSystem)->getFiles(this->currentDirectory, $nc(this->this$0->filechooser)->isFileHidingEnabled()));
 	$var($Vector, acceptsList, $new($Vector));
 	{
 		$var($FileArray, arr$, list);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($File, element, arr$->get(i$));
 			{
 				acceptsList->addElement($$new($AquaFileSystemModel$SortableFile, this->this$0, element));
@@ -122,22 +77,20 @@ void AquaFileSystemModel$FilesLoader::run() {
 		}
 	}
 	$synchronized(this->this$0->fileCacheLock) {
-		{
-			$var($Iterator, i$, $nc(this->queuedTasks)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Runnable, r, $cast($Runnable, i$->next()));
-				{
-					$SwingUtilities::invokeLater(r);
-				}
+		$var($Iterator, i$, $nc(this->queuedTasks)->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Runnable, r, $cast($Runnable, i$->next()));
+			{
+				$SwingUtilities::invokeLater(r);
 			}
 		}
 	}
 }
 
 void AquaFileSystemModel$FilesLoader::cancelRunnables($Vector* runnables) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(runnables)->size(); ++i) {
-		$nc(($cast($AquaFileSystemModel$DoChangeContents, $(runnables->elementAt(i)))))->cancel();
+		$$sure($AquaFileSystemModel$DoChangeContents, runnables->elementAt(i))->cancel();
 	}
 }
 
@@ -145,7 +98,42 @@ AquaFileSystemModel$FilesLoader::AquaFileSystemModel$FilesLoader() {
 }
 
 $Class* AquaFileSystemModel$FilesLoader::load$($String* name, bool initialize) {
-	$loadClass(AquaFileSystemModel$FilesLoader, name, initialize, &_AquaFileSystemModel$FilesLoader_ClassInfo_, allocate$AquaFileSystemModel$FilesLoader);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaFileSystemModel;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileSystemModel$FilesLoader, this$0)},
+		{"queuedTasks", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/Runnable;>;", 0, $field(AquaFileSystemModel$FilesLoader, queuedTasks)},
+		{"currentDirectory", "Ljava/io/File;", nullptr, 0, $field(AquaFileSystemModel$FilesLoader, currentDirectory)},
+		{"fid", "I", nullptr, 0, $field(AquaFileSystemModel$FilesLoader, fid)},
+		{"loadThread", "Ljava/lang/Thread;", nullptr, 0, $field(AquaFileSystemModel$FilesLoader, loadThread)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaFileSystemModel;Ljava/io/File;I)V", nullptr, $PUBLIC, $method(AquaFileSystemModel$FilesLoader, init$, void, $AquaFileSystemModel*, $File*, int32_t)},
+		{"cancelRunnables", "(Ljava/util/Vector;)V", "(Ljava/util/Vector<Lcom/apple/laf/AquaFileSystemModel$DoChangeContents;>;)V", $PUBLIC, $virtualMethod(AquaFileSystemModel$FilesLoader, cancelRunnables, void, $Vector*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel$FilesLoader, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFileSystemModel$FilesLoader", "com.apple.laf.AquaFileSystemModel", "FilesLoader", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaFileSystemModel$FilesLoader",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFileSystemModel"
+	};
+	$loadClass(AquaFileSystemModel$FilesLoader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaFileSystemModel$FilesLoader);
+	});
 	return class$;
 }
 

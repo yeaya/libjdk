@@ -1,5 +1,4 @@
 #include <sun/print/resources/serviceui_it.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -12,667 +11,648 @@ namespace sun {
 	namespace print {
 		namespace resources {
 
-$MethodInfo _serviceui_it_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(serviceui_it, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(serviceui_it, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _serviceui_it_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.print.resources.serviceui_it",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_serviceui_it_MethodInfo_
-};
-
-$Object* allocate$serviceui_it($Class* clazz) {
-	return $of($alloc(serviceui_it));
-}
-
 void serviceui_it::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* serviceui_it::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("Automatic-Feeder"_s),
-			$of("Alimentazione automatica"_s)
+			"Automatic-Feeder"_s,
+			"Alimentazione automatica"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cassette"_s),
-			$of("Cassetta"_s)
+			"Cassette"_s,
+			"Cassetta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Form-Source"_s),
-			$of("Origine modulo"_s)
+			"Form-Source"_s,
+			"Origine modulo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Large-Format"_s),
-			$of("Formato grande"_s)
+			"Large-Format"_s,
+			"Formato grande"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Manual-Envelope"_s),
-			$of("Busta manuale"_s)
+			"Manual-Envelope"_s,
+			"Busta manuale"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Small-Format"_s),
-			$of("Formato piccolo"_s)
+			"Small-Format"_s,
+			"Formato piccolo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tractor-Feeder"_s),
-			$of("Alimentazione continua"_s)
+			"Tractor-Feeder"_s,
+			"Alimentazione continua"_s
 		}),
 		$$new($ObjectArray, {
-			$of("a"_s),
-			$of("Engineering A"_s)
+			"a"_s,
+			"Engineering A"_s
 		}),
 		$$new($ObjectArray, {
-			$of("accepting-jobs"_s),
-			$of("Accettazione job"_s)
+			"accepting-jobs"_s,
+			"Accettazione job"_s
 		}),
 		$$new($ObjectArray, {
-			$of("auto-select"_s),
-			$of("Seleziona automaticamente"_s)
+			"auto-select"_s,
+			"Seleziona automaticamente"_s
 		}),
 		$$new($ObjectArray, {
-			$of("b"_s),
-			$of("Engineering B"_s)
+			"b"_s,
+			"Engineering B"_s
 		}),
 		$$new($ObjectArray, {
-			$of("border.chromaticity"_s),
-			$of("Aspetto colore"_s)
+			"border.chromaticity"_s,
+			"Aspetto colore"_s
 		}),
 		$$new($ObjectArray, {
-			$of("border.copies"_s),
-			$of("Copie"_s)
+			"border.copies"_s,
+			"Copie"_s
 		}),
 		$$new($ObjectArray, {
-			$of("border.jobattributes"_s),
-			$of("Attributi job"_s)
+			"border.jobattributes"_s,
+			"Attributi job"_s
 		}),
 		$$new($ObjectArray, {
-			$of("border.margins"_s),
-			$of("Margini"_s)
+			"border.margins"_s,
+			"Margini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("border.media"_s),
-			$of("Supporti"_s)
+			"border.media"_s,
+			"Supporti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("border.orientation"_s),
-			$of("Orientamento"_s)
+			"border.orientation"_s,
+			"Orientamento"_s
 		}),
 		$$new($ObjectArray, {
-			$of("border.printrange"_s),
-			$of("Intervallo di stampa"_s)
+			"border.printrange"_s,
+			"Intervallo di stampa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("border.printservice"_s),
-			$of("Servizio di stampa"_s)
+			"border.printservice"_s,
+			"Servizio di stampa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("border.quality"_s),
-			$of(u"Qualità"_s)
+			"border.quality"_s,
+			u"Qualità"_s
 		}),
 		$$new($ObjectArray, {
-			$of("border.sides"_s),
-			$of("Lati"_s)
+			"border.sides"_s,
+			"Lati"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bottom"_s),
-			$of("Basso"_s)
+			"bottom"_s,
+			"Basso"_s
 		}),
 		$$new($ObjectArray, {
-			$of("button.cancel"_s),
-			$of("Annulla"_s)
+			"button.cancel"_s,
+			"Annulla"_s
 		}),
 		$$new($ObjectArray, {
-			$of("button.ok"_s),
-			$of("OK"_s)
+			"button.ok"_s,
+			"OK"_s
 		}),
 		$$new($ObjectArray, {
-			$of("button.print"_s),
-			$of("Stampa"_s)
+			"button.print"_s,
+			"Stampa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("button.properties"_s),
-			$of(u"P&roprietà..."_s)
+			"button.properties"_s,
+			u"P&roprietà..."_s
 		}),
 		$$new($ObjectArray, {
-			$of("c"_s),
-			$of("Engineering C"_s)
+			"c"_s,
+			"Engineering C"_s
 		}),
 		$$new($ObjectArray, {
-			$of("checkbox.collate"_s),
-			$of("Fascico&la"_s)
+			"checkbox.collate"_s,
+			"Fascico&la"_s
 		}),
 		$$new($ObjectArray, {
-			$of("checkbox.jobsheets"_s),
-			$of("Pagina &banner"_s)
+			"checkbox.jobsheets"_s,
+			"Pagina &banner"_s
 		}),
 		$$new($ObjectArray, {
-			$of("checkbox.printtofile"_s),
-			$of("Stampa su &file"_s)
+			"checkbox.printtofile"_s,
+			"Stampa su &file"_s
 		}),
 		$$new($ObjectArray, {
-			$of("d"_s),
-			$of("Engineering D"_s)
+			"d"_s,
+			"Engineering D"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dialog.noprintermsg"_s),
-			$of("Nessun servizio di stampa trovato"_s)
+			"dialog.noprintermsg"_s,
+			"Nessun servizio di stampa trovato"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dialog.overwrite"_s),
-			$of(u"Il file esiste già. Sovrascrivere il file esistente?"_s)
+			"dialog.overwrite"_s,
+			u"Il file esiste già. Sovrascrivere il file esistente?"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dialog.owtitle"_s),
-			$of("Stampa su file"_s)
+			"dialog.owtitle"_s,
+			"Stampa su file"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dialog.printtitle"_s),
-			$of("Stampa"_s)
+			"dialog.printtitle"_s,
+			"Stampa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dialog.printtofile"_s),
-			$of("Stampa su file"_s)
+			"dialog.printtofile"_s,
+			"Stampa su file"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dialog.pstitle"_s),
-			$of("Imposta pagina"_s)
+			"dialog.pstitle"_s,
+			"Imposta pagina"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dialog.writeerror"_s),
-			$of("Impossibile scrivere nel file:"_s)
+			"dialog.writeerror"_s,
+			"Impossibile scrivere nel file:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("e"_s),
-			$of("Engineering E"_s)
+			"e"_s,
+			"Engineering E"_s
 		}),
 		$$new($ObjectArray, {
-			$of("envelope"_s),
-			$of("Busta"_s)
+			"envelope"_s,
+			"Busta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("error.destination"_s),
-			$of("Nome file non valido; riprovare"_s)
+			"error.destination"_s,
+			"Nome file non valido; riprovare"_s
 		}),
 		$$new($ObjectArray, {
-			$of("error.pagerange"_s),
-			$of("Intervallo pagine non valido; immettere nuovamente i valori (ad es. 1-3,5,7-10)"_s)
+			"error.pagerange"_s,
+			"Intervallo pagine non valido; immettere nuovamente i valori (ad es. 1-3,5,7-10)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("executive"_s),
-			$of("Executive"_s)
+			"executive"_s,
+			"Executive"_s
 		}),
 		$$new($ObjectArray, {
-			$of("folio"_s),
-			$of("Folio"_s)
+			"folio"_s,
+			"Folio"_s
 		}),
 		$$new($ObjectArray, {
-			$of("invite-envelope"_s),
-			$of("Busta invito"_s)
+			"invite-envelope"_s,
+			"Busta invito"_s
 		}),
 		$$new($ObjectArray, {
-			$of("invoice"_s),
-			$of("Fattura"_s)
+			"invoice"_s,
+			"Fattura"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-2a0"_s),
-			$of("2A0 (ISO/DIN & JIS)"_s)
+			"iso-2a0"_s,
+			"2A0 (ISO/DIN & JIS)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-4a0"_s),
-			$of("4A0 (ISO/DIN & JIS)"_s)
+			"iso-4a0"_s,
+			"4A0 (ISO/DIN & JIS)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-a0"_s),
-			$of("A0 (ISO/DIN & JIS)"_s)
+			"iso-a0"_s,
+			"A0 (ISO/DIN & JIS)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-a1"_s),
-			$of("A1 (ISO/DIN & JIS)"_s)
+			"iso-a1"_s,
+			"A1 (ISO/DIN & JIS)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-a10"_s),
-			$of("A10 (ISO/DIN & JIS)"_s)
+			"iso-a10"_s,
+			"A10 (ISO/DIN & JIS)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-a2"_s),
-			$of("A2 (ISO/DIN & JIS)"_s)
+			"iso-a2"_s,
+			"A2 (ISO/DIN & JIS)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-a3"_s),
-			$of("A3 (ISO/DIN & JIS)"_s)
+			"iso-a3"_s,
+			"A3 (ISO/DIN & JIS)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-a4"_s),
-			$of("A4 (ISO/DIN & JIS)"_s)
+			"iso-a4"_s,
+			"A4 (ISO/DIN & JIS)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-a5"_s),
-			$of("A5 (ISO/DIN & JIS)"_s)
+			"iso-a5"_s,
+			"A5 (ISO/DIN & JIS)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-a6"_s),
-			$of("A6 (ISO/DIN & JIS)"_s)
+			"iso-a6"_s,
+			"A6 (ISO/DIN & JIS)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-a7"_s),
-			$of("A7 (ISO/DIN & JIS)"_s)
+			"iso-a7"_s,
+			"A7 (ISO/DIN & JIS)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-a8"_s),
-			$of("A8 (ISO/DIN & JIS)"_s)
+			"iso-a8"_s,
+			"A8 (ISO/DIN & JIS)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-a9"_s),
-			$of("A9 (ISO/DIN & JIS)"_s)
+			"iso-a9"_s,
+			"A9 (ISO/DIN & JIS)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-b0"_s),
-			$of("B0 (ISO/DIN)"_s)
+			"iso-b0"_s,
+			"B0 (ISO/DIN)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-b1"_s),
-			$of("B1 (ISO/DIN)"_s)
+			"iso-b1"_s,
+			"B1 (ISO/DIN)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-b10"_s),
-			$of("B10 (ISO/DIN)"_s)
+			"iso-b10"_s,
+			"B10 (ISO/DIN)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-b2"_s),
-			$of("B2 (ISO/DIN)"_s)
+			"iso-b2"_s,
+			"B2 (ISO/DIN)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-b3"_s),
-			$of("B3 (ISO/DIN)"_s)
+			"iso-b3"_s,
+			"B3 (ISO/DIN)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-b4"_s),
-			$of("B4 (ISO/DIN)"_s)
+			"iso-b4"_s,
+			"B4 (ISO/DIN)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-b5"_s),
-			$of("B5 (ISO/DIN)"_s)
+			"iso-b5"_s,
+			"B5 (ISO/DIN)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-b6"_s),
-			$of("B6 (ISO/DIN)"_s)
+			"iso-b6"_s,
+			"B6 (ISO/DIN)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-b7"_s),
-			$of("B7 (ISO/DIN)"_s)
+			"iso-b7"_s,
+			"B7 (ISO/DIN)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-b8"_s),
-			$of("B8 (ISO/DIN)"_s)
+			"iso-b8"_s,
+			"B8 (ISO/DIN)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-b9"_s),
-			$of("B9 (ISO/DIN)"_s)
+			"iso-b9"_s,
+			"B9 (ISO/DIN)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-c0"_s),
-			$of("C0 (ISO/DIN)"_s)
+			"iso-c0"_s,
+			"C0 (ISO/DIN)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-c1"_s),
-			$of("C1 (ISO/DIN)"_s)
+			"iso-c1"_s,
+			"C1 (ISO/DIN)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-c10"_s),
-			$of("C10 (ISO/DIN)"_s)
+			"iso-c10"_s,
+			"C10 (ISO/DIN)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-c2"_s),
-			$of("C2 (ISO/DIN)"_s)
+			"iso-c2"_s,
+			"C2 (ISO/DIN)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-c3"_s),
-			$of("C3 (ISO/DIN)"_s)
+			"iso-c3"_s,
+			"C3 (ISO/DIN)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-c4"_s),
-			$of("C4 (ISO/DIN)"_s)
+			"iso-c4"_s,
+			"C4 (ISO/DIN)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-c5"_s),
-			$of("C5 (ISO/DIN)"_s)
+			"iso-c5"_s,
+			"C5 (ISO/DIN)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-c6"_s),
-			$of("C6 (ISO/DIN)"_s)
+			"iso-c6"_s,
+			"C6 (ISO/DIN)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-c7"_s),
-			$of("C7 (ISO/DIN)"_s)
+			"iso-c7"_s,
+			"C7 (ISO/DIN)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-c8"_s),
-			$of("C8 (ISO/DIN)"_s)
+			"iso-c8"_s,
+			"C8 (ISO/DIN)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-c9"_s),
-			$of("C9 (ISO/DIN)"_s)
+			"iso-c9"_s,
+			"C9 (ISO/DIN)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iso-designated-long"_s),
-			$of("Lunghezza ISO"_s)
+			"iso-designated-long"_s,
+			"Lunghezza ISO"_s
 		}),
 		$$new($ObjectArray, {
-			$of("italian-envelope"_s),
-			$of("Busta Italia"_s)
+			"italian-envelope"_s,
+			"Busta Italia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("italy-envelope"_s),
-			$of("Busta Italia"_s)
+			"italy-envelope"_s,
+			"Busta Italia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("japanese-postcard"_s),
-			$of("Cartolina giapponese (JIS)"_s)
+			"japanese-postcard"_s,
+			"Cartolina giapponese (JIS)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jis-b0"_s),
-			$of("B0 (JIS)"_s)
+			"jis-b0"_s,
+			"B0 (JIS)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jis-b1"_s),
-			$of("B1 (JIS)"_s)
+			"jis-b1"_s,
+			"B1 (JIS)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jis-b10"_s),
-			$of("B10 (JIS)"_s)
+			"jis-b10"_s,
+			"B10 (JIS)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jis-b2"_s),
-			$of("B2 (JIS)"_s)
+			"jis-b2"_s,
+			"B2 (JIS)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jis-b3"_s),
-			$of("B3 (JIS)"_s)
+			"jis-b3"_s,
+			"B3 (JIS)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jis-b4"_s),
-			$of("B4 (JIS)"_s)
+			"jis-b4"_s,
+			"B4 (JIS)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jis-b5"_s),
-			$of("B5 (JIS)"_s)
+			"jis-b5"_s,
+			"B5 (JIS)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jis-b6"_s),
-			$of("B6 (JIS)"_s)
+			"jis-b6"_s,
+			"B6 (JIS)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jis-b7"_s),
-			$of("B7 (JIS)"_s)
+			"jis-b7"_s,
+			"B7 (JIS)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jis-b8"_s),
-			$of("B8 (JIS)"_s)
+			"jis-b8"_s,
+			"B8 (JIS)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jis-b9"_s),
-			$of("B9 (JIS)"_s)
+			"jis-b9"_s,
+			"B9 (JIS)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("label.bottommargin"_s),
-			$of("in&feriore"_s)
+			"label.bottommargin"_s,
+			"in&feriore"_s
 		}),
 		$$new($ObjectArray, {
-			$of("label.inches"_s),
-			$of("(poll.)"_s)
+			"label.inches"_s,
+			"(poll.)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("label.info"_s),
-			$of("Informazioni:"_s)
+			"label.info"_s,
+			"Informazioni:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("label.jobname"_s),
-			$of("Nome &job:"_s)
+			"label.jobname"_s,
+			"Nome &job:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("label.leftmargin"_s),
-			$of("sinis&tro"_s)
+			"label.leftmargin"_s,
+			"sinis&tro"_s
 		}),
 		$$new($ObjectArray, {
-			$of("label.millimetres"_s),
-			$of("(mm)"_s)
+			"label.millimetres"_s,
+			"(mm)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("label.numcopies"_s),
-			$of("Numero di c&opie:"_s)
+			"label.numcopies"_s,
+			"Numero di c&opie:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("label.priority"_s),
-			$of(u"P&riorità:"_s)
+			"label.priority"_s,
+			u"P&riorità:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("label.psname"_s),
-			$of("&Nome:"_s)
+			"label.psname"_s,
+			"&Nome:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("label.pstype"_s),
-			$of("Tipo:"_s)
+			"label.pstype"_s,
+			"Tipo:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("label.rangeto"_s),
-			$of("A"_s)
+			"label.rangeto"_s,
+			"A"_s
 		}),
 		$$new($ObjectArray, {
-			$of("label.rightmargin"_s),
-			$of("&destro"_s)
+			"label.rightmargin"_s,
+			"&destro"_s
 		}),
 		$$new($ObjectArray, {
-			$of("label.size"_s),
-			$of("Di&mensioni:"_s)
+			"label.size"_s,
+			"Di&mensioni:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("label.source"_s),
-			$of("O&rigine:"_s)
+			"label.source"_s,
+			"O&rigine:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("label.status"_s),
-			$of("Stato:"_s)
+			"label.status"_s,
+			"Stato:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("label.topmargin"_s),
-			$of("su&periore"_s)
+			"label.topmargin"_s,
+			"su&periore"_s
 		}),
 		$$new($ObjectArray, {
-			$of("label.username"_s),
-			$of("Nome &utente:"_s)
+			"label.username"_s,
+			"Nome &utente:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("large-capacity"_s),
-			$of(u"Grande capacità"_s)
+			"large-capacity"_s,
+			u"Grande capacità"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ledger"_s),
-			$of("Ledger"_s)
+			"ledger"_s,
+			"Ledger"_s
 		}),
 		$$new($ObjectArray, {
-			$of("main"_s),
-			$of("Principale"_s)
+			"main"_s,
+			"Principale"_s
 		}),
 		$$new($ObjectArray, {
-			$of("manual"_s),
-			$of("Manuale"_s)
+			"manual"_s,
+			"Manuale"_s
 		}),
 		$$new($ObjectArray, {
-			$of("middle"_s),
-			$of("Medio"_s)
+			"middle"_s,
+			"Medio"_s
 		}),
 		$$new($ObjectArray, {
-			$of("monarch-envelope"_s),
-			$of("Busta Monarch"_s)
+			"monarch-envelope"_s,
+			"Busta Monarch"_s
 		}),
 		$$new($ObjectArray, {
-			$of("na-10x13-envelope"_s),
-			$of("Busta 10x15"_s)
+			"na-10x13-envelope"_s,
+			"Busta 10x15"_s
 		}),
 		$$new($ObjectArray, {
-			$of("na-10x14-envelope"_s),
-			$of("Busta 10x15"_s)
+			"na-10x14-envelope"_s,
+			"Busta 10x15"_s
 		}),
 		$$new($ObjectArray, {
-			$of("na-10x15-envelope"_s),
-			$of("Busta 10x15"_s)
+			"na-10x15-envelope"_s,
+			"Busta 10x15"_s
 		}),
 		$$new($ObjectArray, {
-			$of("na-5x7"_s),
-			$of("Foglio 5\" x 7\""_s)
+			"na-5x7"_s,
+			"Foglio 5\" x 7\""_s
 		}),
 		$$new($ObjectArray, {
-			$of("na-6x9-envelope"_s),
-			$of("Busta 6x9"_s)
+			"na-6x9-envelope"_s,
+			"Busta 6x9"_s
 		}),
 		$$new($ObjectArray, {
-			$of("na-7x9-envelope"_s),
-			$of("Busta 6x7"_s)
+			"na-7x9-envelope"_s,
+			"Busta 6x7"_s
 		}),
 		$$new($ObjectArray, {
-			$of("na-8x10"_s),
-			$of("Foglio 8\" x 10\""_s)
+			"na-8x10"_s,
+			"Foglio 8\" x 10\""_s
 		}),
 		$$new($ObjectArray, {
-			$of("na-9x11-envelope"_s),
-			$of("Busta 9x11"_s)
+			"na-9x11-envelope"_s,
+			"Busta 9x11"_s
 		}),
 		$$new($ObjectArray, {
-			$of("na-9x12-envelope"_s),
-			$of("Busta 9x12"_s)
+			"na-9x12-envelope"_s,
+			"Busta 9x12"_s
 		}),
 		$$new($ObjectArray, {
-			$of("na-legal"_s),
-			$of("Legale"_s)
+			"na-legal"_s,
+			"Legale"_s
 		}),
 		$$new($ObjectArray, {
-			$of("na-letter"_s),
-			$of("Lettera"_s)
+			"na-letter"_s,
+			"Lettera"_s
 		}),
 		$$new($ObjectArray, {
-			$of("na-number-10-envelope"_s),
-			$of("Busta n. 10"_s)
+			"na-number-10-envelope"_s,
+			"Busta n. 10"_s
 		}),
 		$$new($ObjectArray, {
-			$of("na-number-11-envelope"_s),
-			$of("Busta n. 11"_s)
+			"na-number-11-envelope"_s,
+			"Busta n. 11"_s
 		}),
 		$$new($ObjectArray, {
-			$of("na-number-12-envelope"_s),
-			$of("Busta n. 12"_s)
+			"na-number-12-envelope"_s,
+			"Busta n. 12"_s
 		}),
 		$$new($ObjectArray, {
-			$of("na-number-14-envelope"_s),
-			$of("Busta n. 14"_s)
+			"na-number-14-envelope"_s,
+			"Busta n. 14"_s
 		}),
 		$$new($ObjectArray, {
-			$of("na-number-9-envelope"_s),
-			$of("Busta n. 9"_s)
+			"na-number-9-envelope"_s,
+			"Busta n. 9"_s
 		}),
 		$$new($ObjectArray, {
-			$of("not-accepting-jobs"_s),
-			$of("Rifiuto job"_s)
+			"not-accepting-jobs"_s,
+			"Rifiuto job"_s
 		}),
 		$$new($ObjectArray, {
-			$of("oufuko-postcard"_s),
-			$of("Cartolina giapponese doppia (JIS)"_s)
+			"oufuko-postcard"_s,
+			"Cartolina giapponese doppia (JIS)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("personal-envelope"_s),
-			$of("Busta personalizzata"_s)
+			"personal-envelope"_s,
+			"Busta personalizzata"_s
 		}),
 		$$new($ObjectArray, {
-			$of("quarto"_s),
-			$of("Quarto"_s)
+			"quarto"_s,
+			"Quarto"_s
 		}),
 		$$new($ObjectArray, {
-			$of("radiobutton.color"_s),
-			$of("&Colore"_s)
+			"radiobutton.color"_s,
+			"&Colore"_s
 		}),
 		$$new($ObjectArray, {
-			$of("radiobutton.draftq"_s),
-			$of("Bo&zza"_s)
+			"radiobutton.draftq"_s,
+			"Bo&zza"_s
 		}),
 		$$new($ObjectArray, {
-			$of("radiobutton.duplex"_s),
-			$of("&Fronte retro"_s)
+			"radiobutton.duplex"_s,
+			"&Fronte retro"_s
 		}),
 		$$new($ObjectArray, {
-			$of("radiobutton.highq"_s),
-			$of("A&lta"_s)
+			"radiobutton.highq"_s,
+			"A&lta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("radiobutton.landscape"_s),
-			$of("Orizzonta&le"_s)
+			"radiobutton.landscape"_s,
+			"Orizzonta&le"_s
 		}),
 		$$new($ObjectArray, {
-			$of("radiobutton.monochrome"_s),
-			$of("Monocrom&atico"_s)
+			"radiobutton.monochrome"_s,
+			"Monocrom&atico"_s
 		}),
 		$$new($ObjectArray, {
-			$of("radiobutton.normalq"_s),
-			$of("&Normale"_s)
+			"radiobutton.normalq"_s,
+			"&Normale"_s
 		}),
 		$$new($ObjectArray, {
-			$of("radiobutton.oneside"_s),
-			$of("Un lat&o"_s)
+			"radiobutton.oneside"_s,
+			"Un lat&o"_s
 		}),
 		$$new($ObjectArray, {
-			$of("radiobutton.portrait"_s),
-			$of("&Verticale"_s)
+			"radiobutton.portrait"_s,
+			"&Verticale"_s
 		}),
 		$$new($ObjectArray, {
-			$of("radiobutton.rangeall"_s),
-			$of("T&utto"_s)
+			"radiobutton.rangeall"_s,
+			"T&utto"_s
 		}),
 		$$new($ObjectArray, {
-			$of("radiobutton.rangepages"_s),
-			$of("Pagin&e"_s)
+			"radiobutton.rangepages"_s,
+			"Pagin&e"_s
 		}),
 		$$new($ObjectArray, {
-			$of("radiobutton.revlandscape"_s),
-			$of("Orizzo&ntale capovolto"_s)
+			"radiobutton.revlandscape"_s,
+			"Orizzo&ntale capovolto"_s
 		}),
 		$$new($ObjectArray, {
-			$of("radiobutton.revportrait"_s),
-			$of("Vert&icale capovolto"_s)
+			"radiobutton.revportrait"_s,
+			"Vert&icale capovolto"_s
 		}),
 		$$new($ObjectArray, {
-			$of("radiobutton.tumble"_s),
-			$of("La&to corto"_s)
+			"radiobutton.tumble"_s,
+			"La&to corto"_s
 		}),
 		$$new($ObjectArray, {
-			$of("side"_s),
-			$of("Laterale"_s)
+			"side"_s,
+			"Laterale"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tab.appearance"_s),
-			$of("As&petto"_s)
+			"tab.appearance"_s,
+			"As&petto"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tab.general"_s),
-			$of("&Generale"_s)
+			"tab.general"_s,
+			"&Generale"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tab.pagesetup"_s),
-			$of("Impo&sta pagina"_s)
+			"tab.pagesetup"_s,
+			"Impo&sta pagina"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tabloid"_s),
-			$of("Tabloid"_s)
+			"tabloid"_s,
+			"Tabloid"_s
 		}),
 		$$new($ObjectArray, {
-			$of("top"_s),
-			$of("Alto"_s)
+			"top"_s,
+			"Alto"_s
 		})
 	});
 }
@@ -681,7 +661,22 @@ serviceui_it::serviceui_it() {
 }
 
 $Class* serviceui_it::load$($String* name, bool initialize) {
-	$loadClass(serviceui_it, name, initialize, &_serviceui_it_ClassInfo_, allocate$serviceui_it);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(serviceui_it, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(serviceui_it, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.print.resources.serviceui_it",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(serviceui_it, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(serviceui_it);
+	});
 	return class$;
 }
 

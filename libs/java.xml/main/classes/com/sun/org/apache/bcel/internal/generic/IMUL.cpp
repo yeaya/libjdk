@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/IMUL.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/ArithmeticInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackConsumer.h>
@@ -12,9 +11,6 @@
 
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
 using $ArithmeticInstruction = ::com::sun::org::apache::bcel::internal::generic::ArithmeticInstruction;
-using $StackConsumer = ::com::sun::org::apache::bcel::internal::generic::StackConsumer;
-using $StackProducer = ::com::sun::org::apache::bcel::internal::generic::StackProducer;
-using $TypedInstruction = ::com::sun::org::apache::bcel::internal::generic::TypedInstruction;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -26,25 +22,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$MethodInfo _IMUL_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IMUL, init$, void)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(IMUL, accept, void, $Visitor*)},
-	{}
-};
-
-$ClassInfo _IMUL_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.IMUL",
-	"com.sun.org.apache.bcel.internal.generic.ArithmeticInstruction",
-	nullptr,
-	nullptr,
-	_IMUL_MethodInfo_
-};
-
-$Object* allocate$IMUL($Class* clazz) {
-	return $of($alloc(IMUL));
-}
 
 void IMUL::init$() {
 	$ArithmeticInstruction::init$($Const::IMUL);
@@ -62,7 +39,22 @@ IMUL::IMUL() {
 }
 
 $Class* IMUL::load$($String* name, bool initialize) {
-	$loadClass(IMUL, name, initialize, &_IMUL_ClassInfo_, allocate$IMUL);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IMUL, init$, void)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(IMUL, accept, void, $Visitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.IMUL",
+		"com.sun.org.apache.bcel.internal.generic.ArithmeticInstruction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(IMUL, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(IMUL));
+	});
 	return class$;
 }
 

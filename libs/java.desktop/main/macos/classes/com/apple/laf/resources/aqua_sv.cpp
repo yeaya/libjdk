@@ -1,5 +1,4 @@
 #include <com/apple/laf/resources/aqua_sv.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -13,415 +12,396 @@ namespace com {
 		namespace laf {
 			namespace resources {
 
-$MethodInfo _aqua_sv_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(aqua_sv, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(aqua_sv, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _aqua_sv_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.apple.laf.resources.aqua_sv",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_aqua_sv_MethodInfo_
-};
-
-$Object* allocate$aqua_sv($Class* clazz) {
-	return $of($alloc(aqua_sv));
-}
-
 void aqua_sv::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* aqua_sv::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("AbstractButton.click.textAndMnemonic"_s),
-			$of("klicka"_s)
+			"AbstractButton.click.textAndMnemonic"_s,
+			"klicka"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AbstractDocument.addition.textAndMnemonic"_s),
-			$of(u"tillägg"_s)
+			"AbstractDocument.addition.textAndMnemonic"_s,
+			u"tillägg"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AbstractDocument.deletion.textAndMnemonic"_s),
-			$of("borttagning"_s)
+			"AbstractDocument.deletion.textAndMnemonic"_s,
+			"borttagning"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AbstractDocument.redo.textAndMnemonic"_s),
-			$of(u"Gör om"_s)
+			"AbstractDocument.redo.textAndMnemonic"_s,
+			u"Gör om"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AbstractDocument.styleChange.textAndMnemonic"_s),
-			$of(u"formatändring"_s)
+			"AbstractDocument.styleChange.textAndMnemonic"_s,
+			u"formatändring"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AbstractDocument.undo.textAndMnemonic"_s),
-			$of(u"Ångra"_s)
+			"AbstractDocument.undo.textAndMnemonic"_s,
+			u"Ångra"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AbstractUndoableEdit.redo.textAndMnemonic"_s),
-			$of(u"Gör om"_s)
+			"AbstractUndoableEdit.redo.textAndMnemonic"_s,
+			u"Gör om"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AbstractUndoableEdit.undo.textAndMnemonic"_s),
-			$of(u"Ångra"_s)
+			"AbstractUndoableEdit.undo.textAndMnemonic"_s,
+			u"Ångra"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.cancel.textAndMnemonic"_s),
-			$of("Avbryt"_s)
+			"ColorChooser.cancel.textAndMnemonic"_s,
+			"Avbryt"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.hsb.textAndMnemonic"_s),
-			$of("&HSB"_s)
+			"ColorChooser.hsb.textAndMnemonic"_s,
+			"&HSB"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.hsbBlue.textAndMnemonic"_s),
-			$of("B"_s)
+			"ColorChooser.hsbBlue.textAndMnemonic"_s,
+			"B"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.hsbBrightness.textAndMnemonic"_s),
-			$of("B"_s)
+			"ColorChooser.hsbBrightness.textAndMnemonic"_s,
+			"B"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.hsbGreen.textAndMnemonic"_s),
-			$of("G"_s)
+			"ColorChooser.hsbGreen.textAndMnemonic"_s,
+			"G"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.hsbHue.textAndMnemonic"_s),
-			$of("H"_s)
+			"ColorChooser.hsbHue.textAndMnemonic"_s,
+			"H"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.hsbRed.textAndMnemonic"_s),
-			$of("R"_s)
+			"ColorChooser.hsbRed.textAndMnemonic"_s,
+			"R"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.hsbSaturation.textAndMnemonic"_s),
-			$of("S"_s)
+			"ColorChooser.hsbSaturation.textAndMnemonic"_s,
+			"S"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.ok.textAndMnemonic"_s),
-			$of("OK"_s)
+			"ColorChooser.ok.textAndMnemonic"_s,
+			"OK"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.preview.textAndMnemonic"_s),
-			$of(u"Förhandsgranska"_s)
+			"ColorChooser.preview.textAndMnemonic"_s,
+			u"Förhandsgranska"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.reset.textAndMnemonic"_s),
-			$of(u"&Återställ"_s)
+			"ColorChooser.reset.textAndMnemonic"_s,
+			u"&Återställ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.rgb.textAndMnemonic"_s),
-			$of("R&GB"_s)
+			"ColorChooser.rgb.textAndMnemonic"_s,
+			"R&GB"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.rgbBlue.textAndMnemonic"_s),
-			$of(u"&Blå"_s)
+			"ColorChooser.rgbBlue.textAndMnemonic"_s,
+			u"&Blå"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.rgbGreen.textAndMnemonic"_s),
-			$of(u"Grö&n"_s)
+			"ColorChooser.rgbGreen.textAndMnemonic"_s,
+			u"Grö&n"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.rgbRed.textAndMnemonic"_s),
-			$of(u"Rö&d"_s)
+			"ColorChooser.rgbRed.textAndMnemonic"_s,
+			u"Rö&d"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.sample.textAndMnemonic"_s),
-			$of("Exempeltext  Exempeltext"_s)
+			"ColorChooser.sample.textAndMnemonic"_s,
+			"Exempeltext  Exempeltext"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.swatches.textAndMnemonic"_s),
-			$of("&Prov"_s)
+			"ColorChooser.swatches.textAndMnemonic"_s,
+			"&Prov"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.swatchesRecent.textAndMnemonic"_s),
-			$of("Senaste:"_s)
+			"ColorChooser.swatchesRecent.textAndMnemonic"_s,
+			"Senaste:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ComboBox.togglePopup.textAndMnemonic"_s),
-			$of(u"växlaPopup"_s)
+			"ComboBox.togglePopup.textAndMnemonic"_s,
+			u"växlaPopup"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.acceptAllFileFilter.textAndMnemonic"_s),
-			$of("Alla filer"_s)
+			"FileChooser.acceptAllFileFilter.textAndMnemonic"_s,
+			"Alla filer"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.by.textAndMnemonic"_s),
-			$of("Namn"_s)
+			"FileChooser.by.textAndMnemonic"_s,
+			"Namn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.byDate.textAndMnemonic"_s),
-			$of(u"Ändringsdatum"_s)
+			"FileChooser.byDate.textAndMnemonic"_s,
+			u"Ändringsdatum"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.cancelButton.textAndMnemonic"_s),
-			$of("Avbryt"_s)
+			"FileChooser.cancelButton.textAndMnemonic"_s,
+			"Avbryt"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.chooseButton.textAndMnemonic"_s),
-			$of(u"Välj"_s)
+			"FileChooser.chooseButton.textAndMnemonic"_s,
+			u"Välj"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.createButton.textAndMnemonic"_s),
-			$of("Skapa"_s)
+			"FileChooser.createButton.textAndMnemonic"_s,
+			"Skapa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.desktopName"_s),
-			$of("Klientdator"_s)
+			"FileChooser.desktopName"_s,
+			"Klientdator"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.directoryDescription.textAndMnemonic"_s),
-			$of("Katalog"_s)
+			"FileChooser.directoryDescription.textAndMnemonic"_s,
+			"Katalog"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.directoryOpenButton.textAndMnemonic"_s),
-			$of(u"Öppna"_s)
+			"FileChooser.directoryOpenButton.textAndMnemonic"_s,
+			u"Öppna"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileDescription.textAndMnemonic"_s),
-			$of("Generisk fil"_s)
+			"FileChooser.fileDescription.textAndMnemonic"_s,
+			"Generisk fil"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileNameLabel.textAndMnemonic"_s),
-			$of("Fil:"_s)
+			"FileChooser.fileNameLabel.textAndMnemonic"_s,
+			"Fil:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileSizeGigaBytes"_s),
-			$of("{0} GB"_s)
+			"FileChooser.fileSizeGigaBytes"_s,
+			"{0} GB"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileSizeKiloBytes"_s),
-			$of("{0} KB"_s)
+			"FileChooser.fileSizeKiloBytes"_s,
+			"{0} KB"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileSizeMegaBytes"_s),
-			$of("{0} MB"_s)
+			"FileChooser.fileSizeMegaBytes"_s,
+			"{0} MB"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.filesOfTypeLabel.textAndMnemonic"_s),
-			$of("Filformat:"_s)
+			"FileChooser.filesOfTypeLabel.textAndMnemonic"_s,
+			"Filformat:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.helpButton.textAndMnemonic"_s),
-			$of(u"Hjälp"_s)
+			"FileChooser.helpButton.textAndMnemonic"_s,
+			u"Hjälp"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.mac.newFolder"_s),
-			$of(u"namnlös mapp"_s)
+			"FileChooser.mac.newFolder"_s,
+			u"namnlös mapp"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.mac.newFolder.subsequent"_s),
-			$of(u"namnlös mapp {0}"_s)
+			"FileChooser.mac.newFolder.subsequent"_s,
+			u"namnlös mapp {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderAccessibleName"_s),
-			$of("Ny mapp"_s)
+			"FileChooser.newFolderAccessibleName"_s,
+			"Ny mapp"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderButton.textAndMnemonic"_s),
-			$of("Ny mapp"_s)
+			"FileChooser.newFolderButton.textAndMnemonic"_s,
+			"Ny mapp"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderError.textAndMnemonic"_s),
-			$of(u"Ett fel inträffade när en mapp skulle skapas"_s)
+			"FileChooser.newFolderError.textAndMnemonic"_s,
+			u"Ett fel inträffade när en mapp skulle skapas"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderErrorSeparator"_s),
-			$of(":"_s)
+			"FileChooser.newFolderErrorSeparator"_s,
+			":"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderExistsError.textAndMnemonic"_s),
-			$of("Namnet finns redan"_s)
+			"FileChooser.newFolderExistsError.textAndMnemonic"_s,
+			"Namnet finns redan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderPrompt.textAndMnemonic"_s),
-			$of(u"Namn på ny mapp:"_s)
+			"FileChooser.newFolderPrompt.textAndMnemonic"_s,
+			u"Namn på ny mapp:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderTitle.textAndMnemonic"_s),
-			$of("Ny mapp"_s)
+			"FileChooser.newFolderTitle.textAndMnemonic"_s,
+			"Ny mapp"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.openButton.textAndMnemonic"_s),
-			$of(u"Öppna"_s)
+			"FileChooser.openButton.textAndMnemonic"_s,
+			u"Öppna"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.openDialogTitle.textAndMnemonic"_s),
-			$of(u"Öppna"_s)
+			"FileChooser.openDialogTitle.textAndMnemonic"_s,
+			u"Öppna"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.openTitle.textAndMnemonic"_s),
-			$of(u"Öppna"_s)
+			"FileChooser.openTitle.textAndMnemonic"_s,
+			u"Öppna"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.saveButton.textAndMnemonic"_s),
-			$of("Spara"_s)
+			"FileChooser.saveButton.textAndMnemonic"_s,
+			"Spara"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.saveDialogFileNameLabel.textAndMnemonic"_s),
-			$of("Spara som:"_s)
+			"FileChooser.saveDialogFileNameLabel.textAndMnemonic"_s,
+			"Spara som:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.saveDialogTitle.textAndMnemonic"_s),
-			$of("Spara"_s)
+			"FileChooser.saveDialogTitle.textAndMnemonic"_s,
+			"Spara"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.saveTitle.textAndMnemonic"_s),
-			$of("Spara"_s)
+			"FileChooser.saveTitle.textAndMnemonic"_s,
+			"Spara"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.untitledFileName"_s),
-			$of(u"namnlös"_s)
+			"FileChooser.untitledFileName"_s,
+			u"namnlös"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.untitledFolderName"_s),
-			$of(u"namnlös mapp"_s)
+			"FileChooser.untitledFolderName"_s,
+			u"namnlös mapp"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.updateButton.textAndMnemonic"_s),
-			$of("Uppdatera"_s)
+			"FileChooser.updateButton.textAndMnemonic"_s,
+			"Uppdatera"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FormView.browseFileButton.textAndMnemonic"_s),
-			$of(u"Bläddra..."_s)
+			"FormView.browseFileButton.textAndMnemonic"_s,
+			u"Bläddra..."_s
 		}),
 		$$new($ObjectArray, {
-			$of("FormView.resetButton.textAndMnemonic"_s),
-			$of(u"Återställ"_s)
+			"FormView.resetButton.textAndMnemonic"_s,
+			u"Återställ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FormView.submitButton.textAndMnemonic"_s),
-			$of(u"Skicka fråga"_s)
+			"FormView.submitButton.textAndMnemonic"_s,
+			u"Skicka fråga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrame.closeButtonToolTip"_s),
-			$of(u"Stäng"_s)
+			"InternalFrame.closeButtonToolTip"_s,
+			u"Stäng"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrame.iconButtonToolTip"_s),
-			$of("Minimera"_s)
+			"InternalFrame.iconButtonToolTip"_s,
+			"Minimera"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrame.maxButtonToolTip"_s),
-			$of("Maximera"_s)
+			"InternalFrame.maxButtonToolTip"_s,
+			"Maximera"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrame.restoreButtonToolTip"_s),
-			$of(u"Återställ"_s)
+			"InternalFrame.restoreButtonToolTip"_s,
+			u"Återställ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrameTitlePane.closeButton.textAndMnemonic"_s),
-			$of(u"Stäng"_s)
+			"InternalFrameTitlePane.closeButton.textAndMnemonic"_s,
+			u"Stäng"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrameTitlePane.closeButtonAccessibleName"_s),
-			$of(u"Stäng"_s)
+			"InternalFrameTitlePane.closeButtonAccessibleName"_s,
+			u"Stäng"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrameTitlePane.iconifyButtonAccessibleName"_s),
-			$of("Minimera"_s)
+			"InternalFrameTitlePane.iconifyButtonAccessibleName"_s,
+			"Minimera"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrameTitlePane.maximizeButton.textAndMnemonic"_s),
-			$of("Maximera"_s)
+			"InternalFrameTitlePane.maximizeButton.textAndMnemonic"_s,
+			"Maximera"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrameTitlePane.maximizeButtonAccessibleName"_s),
-			$of("Maximera"_s)
+			"InternalFrameTitlePane.maximizeButtonAccessibleName"_s,
+			"Maximera"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrameTitlePane.minimizeButton.textAndMnemonic"_s),
-			$of("Minimera"_s)
+			"InternalFrameTitlePane.minimizeButton.textAndMnemonic"_s,
+			"Minimera"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrameTitlePane.moveButton.textAndMnemonic"_s),
-			$of("Flytta"_s)
+			"InternalFrameTitlePane.moveButton.textAndMnemonic"_s,
+			"Flytta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrameTitlePane.restoreButton.textAndMnemonic"_s),
-			$of(u"Återställ"_s)
+			"InternalFrameTitlePane.restoreButton.textAndMnemonic"_s,
+			u"Återställ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrameTitlePane.sizeButton.textAndMnemonic"_s),
-			$of("Storlek"_s)
+			"InternalFrameTitlePane.sizeButton.textAndMnemonic"_s,
+			"Storlek"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IsindexView.prompt"_s),
-			$of(u"Detta är ett sökbart index. Ange sökord:"_s)
+			"IsindexView.prompt"_s,
+			u"Detta är ett sökbart index. Ange sökord:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OptionPane.cancelButton.textAndMnemonic"_s),
-			$of("Avbryt"_s)
+			"OptionPane.cancelButton.textAndMnemonic"_s,
+			"Avbryt"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OptionPane.inputDialog.titleAndMnemonic"_s),
-			$of("Indata"_s)
+			"OptionPane.inputDialog.titleAndMnemonic"_s,
+			"Indata"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OptionPane.messageDialog.titleAndMnemonic"_s),
-			$of("Meddelande"_s)
+			"OptionPane.messageDialog.titleAndMnemonic"_s,
+			"Meddelande"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OptionPane.noButton.textAndMnemonic"_s),
-			$of("&Nej"_s)
+			"OptionPane.noButton.textAndMnemonic"_s,
+			"&Nej"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OptionPane.okButton.textAndMnemonic"_s),
-			$of("OK"_s)
+			"OptionPane.okButton.textAndMnemonic"_s,
+			"OK"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OptionPane.title.textAndMnemonic"_s),
-			$of(u"Välj ett alternativ"_s)
+			"OptionPane.title.textAndMnemonic"_s,
+			u"Välj ett alternativ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OptionPane.yesButton.textAndMnemonic"_s),
-			$of("&Ja"_s)
+			"OptionPane.yesButton.textAndMnemonic"_s,
+			"&Ja"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PrintingDialog.abortButton.textAndMnemonic"_s),
-			$of("&Avbryt"_s)
+			"PrintingDialog.abortButton.textAndMnemonic"_s,
+			"&Avbryt"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PrintingDialog.abortButtonToolTip.textAndMnemonic"_s),
-			$of("Avbryt utskrift"_s)
+			"PrintingDialog.abortButtonToolTip.textAndMnemonic"_s,
+			"Avbryt utskrift"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PrintingDialog.contentAborting.textAndMnemonic"_s),
-			$of("Utskriften avbryts..."_s)
+			"PrintingDialog.contentAborting.textAndMnemonic"_s,
+			"Utskriften avbryts..."_s
 		}),
 		$$new($ObjectArray, {
-			$of("PrintingDialog.contentInitial.textAndMnemonic"_s),
-			$of(u"Utskrift pågår..."_s)
+			"PrintingDialog.contentInitial.textAndMnemonic"_s,
+			u"Utskrift pågår..."_s
 		}),
 		$$new($ObjectArray, {
-			$of("PrintingDialog.contentProgress.textAndMnemonic"_s),
-			$of("Skriver ut sida {0}..."_s)
+			"PrintingDialog.contentProgress.textAndMnemonic"_s,
+			"Skriver ut sida {0}..."_s
 		}),
 		$$new($ObjectArray, {
-			$of("PrintingDialog.titleAborting.textAndMnemonic"_s),
-			$of("Skriver ut (avbryter)"_s)
+			"PrintingDialog.titleAborting.textAndMnemonic"_s,
+			"Skriver ut (avbryter)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PrintingDialog.titleProgress.textAndMnemonic"_s),
-			$of("Skriver ut"_s)
+			"PrintingDialog.titleProgress.textAndMnemonic"_s,
+			"Skriver ut"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ProgressMonitor.progress.textAndMnemonic"_s),
-			$of(u"Pågår..."_s)
+			"ProgressMonitor.progress.textAndMnemonic"_s,
+			u"Pågår..."_s
 		}),
 		$$new($ObjectArray, {
-			$of("SplitPane.leftButton.textAndMnemonic"_s),
-			$of(u"vänsterknapp"_s)
+			"SplitPane.leftButton.textAndMnemonic"_s,
+			u"vänsterknapp"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SplitPane.rightButton.textAndMnemonic"_s),
-			$of(u"högerknapp"_s)
+			"SplitPane.rightButton.textAndMnemonic"_s,
+			u"högerknapp"_s
 		})
 	});
 }
@@ -430,7 +410,22 @@ aqua_sv::aqua_sv() {
 }
 
 $Class* aqua_sv::load$($String* name, bool initialize) {
-	$loadClass(aqua_sv, name, initialize, &_aqua_sv_ClassInfo_, allocate$aqua_sv);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(aqua_sv, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(aqua_sv, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.apple.laf.resources.aqua_sv",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(aqua_sv, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(aqua_sv);
+	});
 	return class$;
 }
 

@@ -1,11 +1,9 @@
 #include <com/apple/laf/AquaTableHeaderBorder.h>
-
 #include <apple/laf/JRSUIConstants$AlignmentHorizontal.h>
 #include <apple/laf/JRSUIConstants$AlignmentVertical.h>
 #include <apple/laf/JRSUIConstants$BooleanValue.h>
 #include <apple/laf/JRSUIConstants$Direction.h>
 #include <apple/laf/JRSUIConstants$Focused.h>
-#include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$State.h>
 #include <apple/laf/JRSUIConstants$Widget.h>
 #include <apple/laf/JRSUIState.h>
@@ -45,7 +43,6 @@ using $JRSUIConstants$AlignmentVertical = ::apple::laf::JRSUIConstants$Alignment
 using $JRSUIConstants$BooleanValue = ::apple::laf::JRSUIConstants$BooleanValue;
 using $JRSUIConstants$Direction = ::apple::laf::JRSUIConstants$Direction;
 using $JRSUIConstants$Focused = ::apple::laf::JRSUIConstants$Focused;
-using $JRSUIConstants$Property = ::apple::laf::JRSUIConstants$Property;
 using $JRSUIConstants$State = ::apple::laf::JRSUIConstants$State;
 using $JRSUIConstants$Widget = ::apple::laf::JRSUIConstants$Widget;
 using $JRSUIState = ::apple::laf::JRSUIState;
@@ -72,59 +69,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaTableHeaderBorder_FieldInfo_[] = {
-	{"SORT_NONE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AquaTableHeaderBorder, SORT_NONE)},
-	{"SORT_ASCENDING", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AquaTableHeaderBorder, SORT_ASCENDING)},
-	{"SORT_DECENDING", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AquaTableHeaderBorder, SORT_DECENDING)},
-	{"editorBorderInsets", "Ljava/awt/Insets;", nullptr, $PROTECTED | $FINAL, $field(AquaTableHeaderBorder, editorBorderInsets)},
-	{"painter", "Lcom/apple/laf/AquaPainter;", "Lcom/apple/laf/AquaPainter<Lapple/laf/JRSUIState;>;", $PROTECTED | $FINAL, $field(AquaTableHeaderBorder, painter)},
-	{"doPaint", "Z", nullptr, $PROTECTED, $field(AquaTableHeaderBorder, doPaint)},
-	{"alternateBorder", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/border/Border;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaTableHeaderBorder, alternateBorder)},
-	{"selected", "Z", nullptr, $PRIVATE, $field(AquaTableHeaderBorder, selected)},
-	{"fHorizontalShift", "I", nullptr, $PRIVATE, $field(AquaTableHeaderBorder, fHorizontalShift)},
-	{"sortOrder", "I", nullptr, $PRIVATE, $field(AquaTableHeaderBorder, sortOrder)},
-	{}
-};
-
-$MethodInfo _AquaTableHeaderBorder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AquaTableHeaderBorder, init$, void)},
-	{"getAlternateBorder", "()Ljavax/swing/border/Border;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTableHeaderBorder, getAlternateBorder, $Border*)},
-	{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaTableHeaderBorder, getBorderInsets, $Insets*, $Component*)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaTableHeaderBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"getListHeaderBorder", "()Lcom/apple/laf/AquaTableHeaderBorder;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTableHeaderBorder, getListHeaderBorder, AquaTableHeaderBorder*)},
-	{"getState", "(Ljavax/swing/JComponent;)Lapple/laf/JRSUIConstants$State;", nullptr, $PROTECTED, $virtualMethod(AquaTableHeaderBorder, getState, $JRSUIConstants$State*, $JComponent*)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaTableHeaderBorder, isBorderOpaque, bool)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaTableHeaderBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"setHorizontalShift", "(I)V", nullptr, $PROTECTED, $virtualMethod(AquaTableHeaderBorder, setHorizontalShift, void, int32_t)},
-	{"setSelected", "(Z)V", nullptr, $PROTECTED, $virtualMethod(AquaTableHeaderBorder, setSelected, void, bool)},
-	{"setSortOrder", "(I)V", nullptr, $PROTECTED, $virtualMethod(AquaTableHeaderBorder, setSortOrder, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AquaTableHeaderBorder_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaTableHeaderBorder$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaTableHeaderBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaTableHeaderBorder",
-	"javax.swing.border.AbstractBorder",
-	nullptr,
-	_AquaTableHeaderBorder_FieldInfo_,
-	_AquaTableHeaderBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaTableHeaderBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaTableHeaderBorder$1"
-};
-
-$Object* allocate$AquaTableHeaderBorder($Class* clazz) {
-	return $of($alloc(AquaTableHeaderBorder));
-}
-
 $AquaUtils$RecyclableSingleton* AquaTableHeaderBorder::alternateBorder = nullptr;
 
 AquaTableHeaderBorder* AquaTableHeaderBorder::getListHeaderBorder() {
@@ -143,11 +87,11 @@ void AquaTableHeaderBorder::init$() {
 	$init($JRSUIConstants$AlignmentHorizontal);
 	$nc($nc(this->painter)->state)->set($JRSUIConstants$AlignmentHorizontal::LEFT);
 	$init($JRSUIConstants$AlignmentVertical);
-	$nc($nc(this->painter)->state)->set($JRSUIConstants$AlignmentVertical::TOP);
+	$nc(this->painter->state)->set($JRSUIConstants$AlignmentVertical::TOP);
 }
 
 void AquaTableHeaderBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->doPaint) {
 		return;
 	}
@@ -156,43 +100,37 @@ void AquaTableHeaderBorder::paintBorder($Component* c, $Graphics* g, int32_t x, 
 	if (!($instanceOf($UIResource, componentBackground))) {
 		this->doPaint = false;
 		jc->paint(g);
-		$nc($(getAlternateBorder()))->paintBorder(jc, g, x, y, width, height);
+		$$nc(getAlternateBorder())->paintBorder(jc, g, x, y, width, height);
 		this->doPaint = true;
 		return;
 	}
 	$var($JRSUIConstants$State, state, getState(jc));
 	$nc($nc(this->painter)->state)->set(state);
 	$init($JRSUIConstants$Focused);
-	$nc($nc(this->painter)->state)->set(jc->hasFocus() ? static_cast<$JRSUIConstants$Property*>($JRSUIConstants$Focused::YES) : static_cast<$JRSUIConstants$Property*>($JRSUIConstants$Focused::NO));
+	$nc(this->painter->state)->set(jc->hasFocus() ? $JRSUIConstants$Focused::YES : $JRSUIConstants$Focused::NO);
 	$init($JRSUIConstants$Widget);
-	$nc($nc(this->painter)->state)->set(height > 16 ? static_cast<$JRSUIConstants$Property*>($JRSUIConstants$Widget::BUTTON_BEVEL) : static_cast<$JRSUIConstants$Property*>($JRSUIConstants$Widget::BUTTON_LIST_HEADER));
+	$nc(this->painter->state)->set(height > 16 ? $JRSUIConstants$Widget::BUTTON_BEVEL : $JRSUIConstants$Widget::BUTTON_LIST_HEADER);
 	$init($JRSUIConstants$BooleanValue);
-	$nc($nc(this->painter)->state)->set(this->selected ? static_cast<$JRSUIConstants$Property*>($JRSUIConstants$BooleanValue::YES) : static_cast<$JRSUIConstants$Property*>($JRSUIConstants$BooleanValue::NO));
+	$nc(this->painter->state)->set(this->selected ? $JRSUIConstants$BooleanValue::YES : $JRSUIConstants$BooleanValue::NO);
 	switch (this->sortOrder) {
 	case AquaTableHeaderBorder::SORT_ASCENDING:
-		{
-			$init($JRSUIConstants$Direction);
-			$nc($nc(this->painter)->state)->set($JRSUIConstants$Direction::UP);
-			break;
-		}
+		$init($JRSUIConstants$Direction);
+		$nc(this->painter->state)->set($JRSUIConstants$Direction::UP);
+		break;
 	case AquaTableHeaderBorder::SORT_DECENDING:
-		{
-			$init($JRSUIConstants$Direction);
-			$nc($nc(this->painter)->state)->set($JRSUIConstants$Direction::DOWN);
-			break;
-		}
+		$init($JRSUIConstants$Direction);
+		$nc(this->painter->state)->set($JRSUIConstants$Direction::DOWN);
+		break;
 	default:
-		{
-			$init($JRSUIConstants$Direction);
-			$nc($nc(this->painter)->state)->set($JRSUIConstants$Direction::NONE);
-			break;
-		}
+		$init($JRSUIConstants$Direction);
+		$nc(this->painter->state)->set($JRSUIConstants$Direction::NONE);
+		break;
 	}
 	int32_t newX = x;
 	int32_t newY = y;
 	int32_t newWidth = width;
 	int32_t newHeight = height;
-	$nc(this->painter)->paint(g, c, newX - 1, newY - 1, newWidth + 1, newHeight);
+	this->painter->paint(g, c, newX - 1, newY - 1, newWidth + 1, newHeight);
 	$nc(g)->clipRect(newX, y, newWidth, height);
 	g->translate(this->fHorizontalShift, -1);
 	this->doPaint = false;
@@ -205,7 +143,7 @@ $JRSUIConstants$State* AquaTableHeaderBorder::getState($JComponent* jc) {
 		$init($JRSUIConstants$State);
 		return $JRSUIConstants$State::DISABLED;
 	}
-	$var($JRootPane, rootPane, $nc(jc)->getRootPane());
+	$var($JRootPane, rootPane, jc->getRootPane());
 	if (rootPane == nullptr) {
 		$init($JRSUIConstants$State);
 		return $JRSUIConstants$State::ACTIVE;
@@ -220,7 +158,7 @@ $JRSUIConstants$State* AquaTableHeaderBorder::getState($JComponent* jc) {
 
 $Border* AquaTableHeaderBorder::getAlternateBorder() {
 	$init(AquaTableHeaderBorder);
-	return $cast($Border, $nc(AquaTableHeaderBorder::alternateBorder)->get());
+	return $cast($Border, AquaTableHeaderBorder::alternateBorder->get());
 }
 
 $Insets* AquaTableHeaderBorder::getBorderInsets($Component* c) {
@@ -228,10 +166,10 @@ $Insets* AquaTableHeaderBorder::getBorderInsets($Component* c) {
 }
 
 $Insets* AquaTableHeaderBorder::getBorderInsets($Component* c, $Insets* insets) {
-	$nc(insets)->left = $nc(this->editorBorderInsets)->left;
-	insets->top = $nc(this->editorBorderInsets)->top;
-	insets->right = $nc(this->editorBorderInsets)->right;
-	insets->bottom = $nc(this->editorBorderInsets)->bottom;
+	$nc(insets)->left = this->editorBorderInsets->left;
+	insets->top = this->editorBorderInsets->top;
+	insets->right = this->editorBorderInsets->right;
+	insets->bottom = this->editorBorderInsets->bottom;
 	return insets;
 }
 
@@ -248,14 +186,14 @@ void AquaTableHeaderBorder::setHorizontalShift(int32_t inShift) {
 }
 
 void AquaTableHeaderBorder::setSortOrder(int32_t inSortOrder) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (inSortOrder < AquaTableHeaderBorder::SORT_DECENDING || inSortOrder > AquaTableHeaderBorder::SORT_ASCENDING) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid sort order constant: "_s, $$str(inSortOrder)}));
 	}
 	this->sortOrder = inSortOrder;
 }
 
-void clinit$AquaTableHeaderBorder($Class* class$) {
+void AquaTableHeaderBorder::clinit$($Class* clazz) {
 	$assignStatic(AquaTableHeaderBorder::alternateBorder, $new($AquaTableHeaderBorder$1));
 }
 
@@ -263,7 +201,54 @@ AquaTableHeaderBorder::AquaTableHeaderBorder() {
 }
 
 $Class* AquaTableHeaderBorder::load$($String* name, bool initialize) {
-	$loadClass(AquaTableHeaderBorder, name, initialize, &_AquaTableHeaderBorder_ClassInfo_, clinit$AquaTableHeaderBorder, allocate$AquaTableHeaderBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"SORT_NONE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AquaTableHeaderBorder, SORT_NONE)},
+		{"SORT_ASCENDING", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AquaTableHeaderBorder, SORT_ASCENDING)},
+		{"SORT_DECENDING", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AquaTableHeaderBorder, SORT_DECENDING)},
+		{"editorBorderInsets", "Ljava/awt/Insets;", nullptr, $PROTECTED | $FINAL, $field(AquaTableHeaderBorder, editorBorderInsets)},
+		{"painter", "Lcom/apple/laf/AquaPainter;", "Lcom/apple/laf/AquaPainter<Lapple/laf/JRSUIState;>;", $PROTECTED | $FINAL, $field(AquaTableHeaderBorder, painter)},
+		{"doPaint", "Z", nullptr, $PROTECTED, $field(AquaTableHeaderBorder, doPaint)},
+		{"alternateBorder", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/border/Border;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaTableHeaderBorder, alternateBorder)},
+		{"selected", "Z", nullptr, $PRIVATE, $field(AquaTableHeaderBorder, selected)},
+		{"fHorizontalShift", "I", nullptr, $PRIVATE, $field(AquaTableHeaderBorder, fHorizontalShift)},
+		{"sortOrder", "I", nullptr, $PRIVATE, $field(AquaTableHeaderBorder, sortOrder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AquaTableHeaderBorder, init$, void)},
+		{"getAlternateBorder", "()Ljavax/swing/border/Border;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTableHeaderBorder, getAlternateBorder, $Border*)},
+		{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaTableHeaderBorder, getBorderInsets, $Insets*, $Component*)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaTableHeaderBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"getListHeaderBorder", "()Lcom/apple/laf/AquaTableHeaderBorder;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTableHeaderBorder, getListHeaderBorder, AquaTableHeaderBorder*)},
+		{"getState", "(Ljavax/swing/JComponent;)Lapple/laf/JRSUIConstants$State;", nullptr, $PROTECTED, $virtualMethod(AquaTableHeaderBorder, getState, $JRSUIConstants$State*, $JComponent*)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaTableHeaderBorder, isBorderOpaque, bool)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaTableHeaderBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"setHorizontalShift", "(I)V", nullptr, $PROTECTED, $virtualMethod(AquaTableHeaderBorder, setHorizontalShift, void, int32_t)},
+		{"setSelected", "(Z)V", nullptr, $PROTECTED, $virtualMethod(AquaTableHeaderBorder, setSelected, void, bool)},
+		{"setSortOrder", "(I)V", nullptr, $PROTECTED, $virtualMethod(AquaTableHeaderBorder, setSortOrder, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaTableHeaderBorder$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaTableHeaderBorder",
+		"javax.swing.border.AbstractBorder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaTableHeaderBorder$1"
+	};
+	$loadClass(AquaTableHeaderBorder, name, initialize, &classInfo$$, AquaTableHeaderBorder::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaTableHeaderBorder));
+	});
 	return class$;
 }
 

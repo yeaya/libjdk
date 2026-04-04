@@ -1,11 +1,9 @@
 #include <sun/rmi/transport/tcp/TCPTransport$AcceptLoop.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/Error.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/NoClassDefFoundError.h>
 #include <java/lang/OutOfMemoryError.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/lang/reflect/UndeclaredThrowableException.h>
@@ -37,7 +35,6 @@ using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoClassDefFoundError = ::java::lang::NoClassDefFoundError;
 using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
-using $Runnable = ::java::lang::Runnable;
 using $SecurityException = ::java::lang::SecurityException;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $UndeclaredThrowableException = ::java::lang::reflect::UndeclaredThrowableException;
@@ -46,7 +43,6 @@ using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;
 using $RMIFailureHandler = ::java::rmi::server::RMIFailureHandler;
 using $RMISocketFactory = ::java::rmi::server::RMISocketFactory;
-using $ExecutorService = ::java::util::concurrent::ExecutorService;
 using $RejectedExecutionException = ::java::util::concurrent::RejectedExecutionException;
 using $Level = ::java::util::logging::Level;
 using $Log = ::sun::rmi::runtime::Log;
@@ -59,48 +55,6 @@ namespace sun {
 		namespace transport {
 			namespace tcp {
 
-$FieldInfo _TCPTransport$AcceptLoop_FieldInfo_[] = {
-	{"this$0", "Lsun/rmi/transport/tcp/TCPTransport;", nullptr, $FINAL | $SYNTHETIC, $field(TCPTransport$AcceptLoop, this$0)},
-	{"serverSocket", "Ljava/net/ServerSocket;", nullptr, $PRIVATE | $FINAL, $field(TCPTransport$AcceptLoop, serverSocket)},
-	{"lastExceptionTime", "J", nullptr, $PRIVATE, $field(TCPTransport$AcceptLoop, lastExceptionTime)},
-	{"recentExceptionCount", "I", nullptr, $PRIVATE, $field(TCPTransport$AcceptLoop, recentExceptionCount)},
-	{}
-};
-
-$MethodInfo _TCPTransport$AcceptLoop_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/transport/tcp/TCPTransport;Ljava/net/ServerSocket;)V", nullptr, 0, $method(TCPTransport$AcceptLoop, init$, void, $TCPTransport*, $ServerSocket*)},
-	{"continueAfterAcceptFailure", "(Ljava/lang/Throwable;)Z", nullptr, $PRIVATE, $method(TCPTransport$AcceptLoop, continueAfterAcceptFailure, bool, $Throwable*)},
-	{"executeAcceptLoop", "()V", nullptr, $PRIVATE, $method(TCPTransport$AcceptLoop, executeAcceptLoop, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TCPTransport$AcceptLoop, run, void)},
-	{"throttleLoopOnException", "()V", nullptr, $PRIVATE, $method(TCPTransport$AcceptLoop, throttleLoopOnException, void)},
-	{}
-};
-
-$InnerClassInfo _TCPTransport$AcceptLoop_InnerClassesInfo_[] = {
-	{"sun.rmi.transport.tcp.TCPTransport$AcceptLoop", "sun.rmi.transport.tcp.TCPTransport", "AcceptLoop", $PRIVATE},
-	{}
-};
-
-$ClassInfo _TCPTransport$AcceptLoop_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.rmi.transport.tcp.TCPTransport$AcceptLoop",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_TCPTransport$AcceptLoop_FieldInfo_,
-	_TCPTransport$AcceptLoop_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TCPTransport$AcceptLoop_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.rmi.transport.tcp.TCPTransport"
-};
-
-$Object* allocate$TCPTransport$AcceptLoop($Class* clazz) {
-	return $of($alloc(TCPTransport$AcceptLoop));
-}
-
 void TCPTransport$AcceptLoop::init$($TCPTransport* this$0, $ServerSocket* serverSocket) {
 	$set(this, this$0, this$0);
 	this->lastExceptionTime = 0;
@@ -108,84 +62,80 @@ void TCPTransport$AcceptLoop::init$($TCPTransport* this$0, $ServerSocket* server
 }
 
 void TCPTransport$AcceptLoop::run() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		executeAcceptLoop();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
 		try {
-			executeAcceptLoop();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			try {
-				$init($TCPTransport);
-				$init($Log);
-				if ($nc($TCPTransport::tcpLog)->isLoggable($Log::BRIEF)) {
-					$nc($TCPTransport::tcpLog)->log($Log::BRIEF, $$str({"server socket close: "_s, this->serverSocket}));
-				}
-				$nc(this->serverSocket)->close();
-			} catch ($IOException& e) {
-				$init($TCPTransport);
-				$init($Log);
-				if ($nc($TCPTransport::tcpLog)->isLoggable($Log::BRIEF)) {
-					$nc($TCPTransport::tcpLog)->log($Log::BRIEF, $$str({"server socket close throws: "_s, e}));
-				}
+			$init($TCPTransport);
+			$init($Log);
+			if ($nc($TCPTransport::tcpLog)->isLoggable($Log::BRIEF)) {
+				$TCPTransport::tcpLog->log($Log::BRIEF, $$str({"server socket close: "_s, this->serverSocket}));
+			}
+			$nc(this->serverSocket)->close();
+		} catch ($IOException& e) {
+			$init($TCPTransport);
+			$init($Log);
+			if ($nc($TCPTransport::tcpLog)->isLoggable($Log::BRIEF)) {
+				$TCPTransport::tcpLog->log($Log::BRIEF, $$str({"server socket close throws: "_s, e}));
 			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void TCPTransport$AcceptLoop::executeAcceptLoop() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TCPTransport);
 	$init($Log);
 	if ($nc($TCPTransport::tcpLog)->isLoggable($Log::BRIEF)) {
-		$nc($TCPTransport::tcpLog)->log($Log::BRIEF, $$str({"listening on port "_s, $$str($nc($(this->this$0->getEndpoint()))->getPort())}));
+		$TCPTransport::tcpLog->log($Log::BRIEF, $$str({"listening on port "_s, $$str($$nc(this->this$0->getEndpoint())->getPort())}));
 	}
 	while (true) {
 		$var($Socket, socket, nullptr);
 		try {
 			$assign(socket, $nc(this->serverSocket)->accept());
 			$var($InetAddress, clientAddr, $nc(socket)->getInetAddress());
-			$var($String, clientHost, clientAddr != nullptr ? $nc(clientAddr)->getHostAddress() : "0.0.0.0"_s);
+			$var($String, clientHost, clientAddr != nullptr ? clientAddr->getHostAddress() : "0.0.0.0"_s);
 			try {
 				$nc($TCPTransport::connectionThreadPool)->execute($$new($TCPTransport$ConnectionHandler, this->this$0, socket, clientHost));
 			} catch ($RejectedExecutionException& e) {
 				$TCPTransport::closeSocket(socket);
-				$nc($TCPTransport::tcpLog)->log($Log::BRIEF, $$str({"rejected connection from "_s, clientHost}));
+				$TCPTransport::tcpLog->log($Log::BRIEF, $$str({"rejected connection from "_s, clientHost}));
 			}
 		} catch ($Throwable& t) {
-			{
-				$var($Throwable, var$0, nullptr);
-				bool break$1 = false;
+			$var($Throwable, var$0, nullptr);
+			bool break$1 = false;
+			try {
+				if ($nc(this->serverSocket)->isClosed()) {
+					// break;
+					break$1 = true;
+					goto $finally;
+				}
 				try {
-					if ($nc(this->serverSocket)->isClosed()) {
-						// break;
-						break$1 = true;
-						goto $finally;
+					$init($Level);
+					if ($TCPTransport::tcpLog->isLoggable($Level::WARNING)) {
+						$TCPTransport::tcpLog->log($Level::WARNING, $$str({"accept loop for "_s, this->serverSocket, " throws"_s}), t);
 					}
-					try {
-						$init($Level);
-						if ($nc($TCPTransport::tcpLog)->isLoggable($Level::WARNING)) {
-							$nc($TCPTransport::tcpLog)->log($Level::WARNING, $$str({"accept loop for "_s, this->serverSocket, " throws"_s}), t);
-						}
-					} catch ($Throwable& tt) {
-					}
-				} catch ($Throwable& var$2) {
-					$assign(var$0, var$2);
-				} $finally: {
-					if (socket != nullptr) {
-						$TCPTransport::closeSocket(socket);
-					}
+				} catch ($Throwable& tt) {
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
+			} catch ($Throwable& var$2) {
+				$assign(var$0, var$2);
+			} $finally: {
+				if (socket != nullptr) {
+					$TCPTransport::closeSocket(socket);
 				}
-				if (break$1) {
-					break;
-				}
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+			if (break$1) {
+				break;
 			}
 			if (!($instanceOf($SecurityException, t))) {
 				try {
@@ -207,10 +157,10 @@ void TCPTransport$AcceptLoop::executeAcceptLoop() {
 }
 
 bool TCPTransport$AcceptLoop::continueAfterAcceptFailure($Throwable* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($RMIFailureHandler, fh, $RMISocketFactory::getFailureHandler());
 	if (fh != nullptr) {
-		return fh->failure($instanceOf($Exception, t) ? $cast($Exception, t) : static_cast<$Exception*>($$new($InvocationTargetException, t)));
+		return fh->failure($instanceOf($Exception, t) ? $cast($Exception, t) : $$cast($Exception, $new($InvocationTargetException, t)));
 	} else {
 		throttleLoopOnException();
 		return true;
@@ -219,7 +169,7 @@ bool TCPTransport$AcceptLoop::continueAfterAcceptFailure($Throwable* t) {
 
 void TCPTransport$AcceptLoop::throttleLoopOnException() {
 	int64_t now = $System::currentTimeMillis();
-	if (this->lastExceptionTime == (int64_t)0 || (now - this->lastExceptionTime) > 5000) {
+	if (this->lastExceptionTime == 0 || (now - this->lastExceptionTime) > 5000) {
 		this->lastExceptionTime = now;
 		this->recentExceptionCount = 0;
 	} else if (++this->recentExceptionCount >= 10) {
@@ -234,7 +184,43 @@ TCPTransport$AcceptLoop::TCPTransport$AcceptLoop() {
 }
 
 $Class* TCPTransport$AcceptLoop::load$($String* name, bool initialize) {
-	$loadClass(TCPTransport$AcceptLoop, name, initialize, &_TCPTransport$AcceptLoop_ClassInfo_, allocate$TCPTransport$AcceptLoop);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/rmi/transport/tcp/TCPTransport;", nullptr, $FINAL | $SYNTHETIC, $field(TCPTransport$AcceptLoop, this$0)},
+		{"serverSocket", "Ljava/net/ServerSocket;", nullptr, $PRIVATE | $FINAL, $field(TCPTransport$AcceptLoop, serverSocket)},
+		{"lastExceptionTime", "J", nullptr, $PRIVATE, $field(TCPTransport$AcceptLoop, lastExceptionTime)},
+		{"recentExceptionCount", "I", nullptr, $PRIVATE, $field(TCPTransport$AcceptLoop, recentExceptionCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/rmi/transport/tcp/TCPTransport;Ljava/net/ServerSocket;)V", nullptr, 0, $method(TCPTransport$AcceptLoop, init$, void, $TCPTransport*, $ServerSocket*)},
+		{"continueAfterAcceptFailure", "(Ljava/lang/Throwable;)Z", nullptr, $PRIVATE, $method(TCPTransport$AcceptLoop, continueAfterAcceptFailure, bool, $Throwable*)},
+		{"executeAcceptLoop", "()V", nullptr, $PRIVATE, $method(TCPTransport$AcceptLoop, executeAcceptLoop, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TCPTransport$AcceptLoop, run, void)},
+		{"throttleLoopOnException", "()V", nullptr, $PRIVATE, $method(TCPTransport$AcceptLoop, throttleLoopOnException, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.transport.tcp.TCPTransport$AcceptLoop", "sun.rmi.transport.tcp.TCPTransport", "AcceptLoop", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.rmi.transport.tcp.TCPTransport$AcceptLoop",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.rmi.transport.tcp.TCPTransport"
+	};
+	$loadClass(TCPTransport$AcceptLoop, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TCPTransport$AcceptLoop);
+	});
 	return class$;
 }
 

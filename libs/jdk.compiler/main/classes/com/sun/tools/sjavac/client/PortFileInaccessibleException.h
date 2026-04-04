@@ -22,10 +22,13 @@ class PortFileInaccessibleException : public ::java::io::IOException {
 public:
 	PortFileInaccessibleException();
 	void init$($Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0xBE01EA836087E543;
+	static const int64_t serialVersionUID = (int64_t)0xbe01ea836087e543;
 	PortFileInaccessibleException(const PortFileInaccessibleException& e);
 	virtual void throw$() override;
-	inline PortFileInaccessibleException* operator ->() {
+	inline PortFileInaccessibleException* operator ->() const {
+		return (PortFileInaccessibleException*)throwing$;
+	}
+	inline operator PortFileInaccessibleException*() const {
 		return (PortFileInaccessibleException*)throwing$;
 	}
 };

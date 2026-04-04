@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/IntStack.h>
-
 #include <com/sun/org/apache/xml/internal/utils/IntVector.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/util/EmptyStackException.h>
@@ -19,35 +18,6 @@ namespace com {
 					namespace internal {
 						namespace utils {
 
-$MethodInfo _IntStack_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IntStack, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(IntStack, init$, void, int32_t)},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/utils/IntStack;)V", nullptr, $PUBLIC, $method(IntStack, init$, void, IntStack*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IntStack, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"empty", "()Z", nullptr, $PUBLIC, $virtualMethod(IntStack, empty, bool)},
-	{"peek", "()I", nullptr, $PUBLIC | $FINAL, $method(IntStack, peek, int32_t)},
-	{"peek", "(I)I", nullptr, $PUBLIC, $virtualMethod(IntStack, peek, int32_t, int32_t)},
-	{"pop", "()I", nullptr, $PUBLIC | $FINAL, $method(IntStack, pop, int32_t)},
-	{"push", "(I)I", nullptr, $PUBLIC, $virtualMethod(IntStack, push, int32_t, int32_t)},
-	{"quickPop", "(I)V", nullptr, $PUBLIC | $FINAL, $method(IntStack, quickPop, void, int32_t)},
-	{"search", "(I)I", nullptr, $PUBLIC, $virtualMethod(IntStack, search, int32_t, int32_t)},
-	{"setTop", "(I)V", nullptr, $PUBLIC, $virtualMethod(IntStack, setTop, void, int32_t)},
-	{}
-};
-
-$ClassInfo _IntStack_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.IntStack",
-	"com.sun.org.apache.xml.internal.utils.IntVector",
-	nullptr,
-	nullptr,
-	_IntStack_MethodInfo_
-};
-
-$Object* allocate$IntStack($Class* clazz) {
-	return $of($alloc(IntStack));
-}
-
 void IntStack::init$() {
 	$IntVector::init$();
 }
@@ -57,7 +27,7 @@ void IntStack::init$(int32_t blocksize) {
 }
 
 void IntStack::init$(IntStack* v) {
-	$IntVector::init$(static_cast<$IntVector*>(v));
+	$IntVector::init$(v);
 }
 
 int32_t IntStack::push(int32_t i) {
@@ -119,14 +89,39 @@ int32_t IntStack::search(int32_t o) {
 }
 
 $Object* IntStack::clone() {
-	return $of($cast(IntStack, $IntVector::clone()));
+	return $cast(IntStack, $IntVector::clone());
 }
 
 IntStack::IntStack() {
 }
 
 $Class* IntStack::load$($String* name, bool initialize) {
-	$loadClass(IntStack, name, initialize, &_IntStack_ClassInfo_, allocate$IntStack);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IntStack, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(IntStack, init$, void, int32_t)},
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/utils/IntStack;)V", nullptr, $PUBLIC, $method(IntStack, init$, void, IntStack*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IntStack, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"empty", "()Z", nullptr, $PUBLIC, $virtualMethod(IntStack, empty, bool)},
+		{"peek", "()I", nullptr, $PUBLIC | $FINAL, $method(IntStack, peek, int32_t)},
+		{"peek", "(I)I", nullptr, $PUBLIC, $virtualMethod(IntStack, peek, int32_t, int32_t)},
+		{"pop", "()I", nullptr, $PUBLIC | $FINAL, $method(IntStack, pop, int32_t)},
+		{"push", "(I)I", nullptr, $PUBLIC, $virtualMethod(IntStack, push, int32_t, int32_t)},
+		{"quickPop", "(I)V", nullptr, $PUBLIC | $FINAL, $method(IntStack, quickPop, void, int32_t)},
+		{"search", "(I)I", nullptr, $PUBLIC, $virtualMethod(IntStack, search, int32_t, int32_t)},
+		{"setTop", "(I)V", nullptr, $PUBLIC, $virtualMethod(IntStack, setTop, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.IntStack",
+		"com.sun.org.apache.xml.internal.utils.IntVector",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(IntStack, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IntStack);
+	});
 	return class$;
 }
 

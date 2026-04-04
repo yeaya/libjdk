@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/SetDrawRectANY.h>
-
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/loops/CompositeType.h>
@@ -23,25 +22,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$MethodInfo _SetDrawRectANY_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SetDrawRectANY, init$, void)},
-	{"DrawRect", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;IIII)V", nullptr, $PUBLIC, $virtualMethod(SetDrawRectANY, DrawRect$, void, $SunGraphics2D*, $SurfaceData*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _SetDrawRectANY_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.SetDrawRectANY",
-	"sun.java2d.loops.DrawRect",
-	nullptr,
-	nullptr,
-	_SetDrawRectANY_MethodInfo_
-};
-
-$Object* allocate$SetDrawRectANY($Class* clazz) {
-	return $of($alloc(SetDrawRectANY));
-}
-
 void SetDrawRectANY::init$() {
 	$init($SurfaceType);
 	$init($CompositeType);
@@ -57,7 +37,22 @@ SetDrawRectANY::SetDrawRectANY() {
 }
 
 $Class* SetDrawRectANY::load$($String* name, bool initialize) {
-	$loadClass(SetDrawRectANY, name, initialize, &_SetDrawRectANY_ClassInfo_, allocate$SetDrawRectANY);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SetDrawRectANY, init$, void)},
+		{"DrawRect", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;IIII)V", nullptr, $PUBLIC, $virtualMethod(SetDrawRectANY, DrawRect$, void, $SunGraphics2D*, $SurfaceData*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.SetDrawRectANY",
+		"sun.java2d.loops.DrawRect",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SetDrawRectANY, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SetDrawRectANY);
+	});
 	return class$;
 }
 

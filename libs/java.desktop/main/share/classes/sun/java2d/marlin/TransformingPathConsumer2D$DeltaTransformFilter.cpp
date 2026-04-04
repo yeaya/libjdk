@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/TransformingPathConsumer2D$DeltaTransformFilter.h>
-
 #include <sun/java2d/marlin/DPathConsumer2D.h>
 #include <sun/java2d/marlin/TransformingPathConsumer2D.h>
 #include <jcpp.h>
@@ -13,53 +12,6 @@ using $DPathConsumer2D = ::sun::java2d::marlin::DPathConsumer2D;
 namespace sun {
 	namespace java2d {
 		namespace marlin {
-
-$FieldInfo _TransformingPathConsumer2D$DeltaTransformFilter_FieldInfo_[] = {
-	{"out", "Lsun/java2d/marlin/DPathConsumer2D;", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$DeltaTransformFilter, out)},
-	{"mxx", "D", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$DeltaTransformFilter, mxx)},
-	{"mxy", "D", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$DeltaTransformFilter, mxy)},
-	{"myx", "D", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$DeltaTransformFilter, myx)},
-	{"myy", "D", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$DeltaTransformFilter, myy)},
-	{}
-};
-
-$MethodInfo _TransformingPathConsumer2D$DeltaTransformFilter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TransformingPathConsumer2D$DeltaTransformFilter, init$, void)},
-	{"closePath", "()V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$DeltaTransformFilter, closePath, void)},
-	{"curveTo", "(DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$DeltaTransformFilter, curveTo, void, double, double, double, double, double, double)},
-	{"getNativeConsumer", "()J", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$DeltaTransformFilter, getNativeConsumer, int64_t)},
-	{"init", "(Lsun/java2d/marlin/DPathConsumer2D;DDDD)Lsun/java2d/marlin/TransformingPathConsumer2D$DeltaTransformFilter;", nullptr, 0, $method(TransformingPathConsumer2D$DeltaTransformFilter, init, TransformingPathConsumer2D$DeltaTransformFilter*, $DPathConsumer2D*, double, double, double, double)},
-	{"lineTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$DeltaTransformFilter, lineTo, void, double, double)},
-	{"moveTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$DeltaTransformFilter, moveTo, void, double, double)},
-	{"pathDone", "()V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$DeltaTransformFilter, pathDone, void)},
-	{"quadTo", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$DeltaTransformFilter, quadTo, void, double, double, double, double)},
-	{}
-};
-
-$InnerClassInfo _TransformingPathConsumer2D$DeltaTransformFilter_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.TransformingPathConsumer2D$DeltaTransformFilter", "sun.java2d.marlin.TransformingPathConsumer2D", "DeltaTransformFilter", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _TransformingPathConsumer2D$DeltaTransformFilter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.TransformingPathConsumer2D$DeltaTransformFilter",
-	"java.lang.Object",
-	"sun.java2d.marlin.DPathConsumer2D",
-	_TransformingPathConsumer2D$DeltaTransformFilter_FieldInfo_,
-	_TransformingPathConsumer2D$DeltaTransformFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TransformingPathConsumer2D$DeltaTransformFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.TransformingPathConsumer2D"
-};
-
-$Object* allocate$TransformingPathConsumer2D$DeltaTransformFilter($Class* clazz) {
-	return $of($alloc(TransformingPathConsumer2D$DeltaTransformFilter));
-}
 
 void TransformingPathConsumer2D$DeltaTransformFilter::init$() {
 }
@@ -105,7 +57,48 @@ TransformingPathConsumer2D$DeltaTransformFilter::TransformingPathConsumer2D$Delt
 }
 
 $Class* TransformingPathConsumer2D$DeltaTransformFilter::load$($String* name, bool initialize) {
-	$loadClass(TransformingPathConsumer2D$DeltaTransformFilter, name, initialize, &_TransformingPathConsumer2D$DeltaTransformFilter_ClassInfo_, allocate$TransformingPathConsumer2D$DeltaTransformFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"out", "Lsun/java2d/marlin/DPathConsumer2D;", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$DeltaTransformFilter, out)},
+		{"mxx", "D", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$DeltaTransformFilter, mxx)},
+		{"mxy", "D", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$DeltaTransformFilter, mxy)},
+		{"myx", "D", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$DeltaTransformFilter, myx)},
+		{"myy", "D", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$DeltaTransformFilter, myy)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TransformingPathConsumer2D$DeltaTransformFilter, init$, void)},
+		{"closePath", "()V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$DeltaTransformFilter, closePath, void)},
+		{"curveTo", "(DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$DeltaTransformFilter, curveTo, void, double, double, double, double, double, double)},
+		{"getNativeConsumer", "()J", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$DeltaTransformFilter, getNativeConsumer, int64_t)},
+		{"init", "(Lsun/java2d/marlin/DPathConsumer2D;DDDD)Lsun/java2d/marlin/TransformingPathConsumer2D$DeltaTransformFilter;", nullptr, 0, $method(TransformingPathConsumer2D$DeltaTransformFilter, init, TransformingPathConsumer2D$DeltaTransformFilter*, $DPathConsumer2D*, double, double, double, double)},
+		{"lineTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$DeltaTransformFilter, lineTo, void, double, double)},
+		{"moveTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$DeltaTransformFilter, moveTo, void, double, double)},
+		{"pathDone", "()V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$DeltaTransformFilter, pathDone, void)},
+		{"quadTo", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$DeltaTransformFilter, quadTo, void, double, double, double, double)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.TransformingPathConsumer2D$DeltaTransformFilter", "sun.java2d.marlin.TransformingPathConsumer2D", "DeltaTransformFilter", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.TransformingPathConsumer2D$DeltaTransformFilter",
+		"java.lang.Object",
+		"sun.java2d.marlin.DPathConsumer2D",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.TransformingPathConsumer2D"
+	};
+	$loadClass(TransformingPathConsumer2D$DeltaTransformFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransformingPathConsumer2D$DeltaTransformFilter);
+	});
 	return class$;
 }
 

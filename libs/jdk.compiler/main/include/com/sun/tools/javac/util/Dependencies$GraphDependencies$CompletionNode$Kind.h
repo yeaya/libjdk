@@ -22,6 +22,7 @@ class $import Dependencies$GraphDependencies$CompletionNode$Kind : public ::java
 public:
 	Dependencies$GraphDependencies$CompletionNode$Kind();
 	static $Array<::com::sun::tools::javac::util::Dependencies$GraphDependencies$CompletionNode$Kind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* dotStyle);
 	static ::com::sun::tools::javac::util::Dependencies$GraphDependencies$CompletionNode$Kind* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::util::Dependencies$GraphDependencies$CompletionNode$Kind>* values();

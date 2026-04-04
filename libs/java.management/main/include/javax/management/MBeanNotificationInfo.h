@@ -32,6 +32,7 @@ class $import MBeanNotificationInfo : public ::javax::management::MBeanFeatureIn
 public:
 	MBeanNotificationInfo();
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($StringArray* notifTypes, $String* name, $String* description);
 	void init$($StringArray* notifTypes, $String* name, $String* description, ::javax::management::Descriptor* descriptor);
 	virtual $Object* clone() override;
@@ -41,7 +42,7 @@ public:
 	virtual int32_t hashCode() override;
 	void readObject(::java::io::ObjectInputStream* ois);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xCA09BAA9DD73FD48;
+	static const int64_t serialVersionUID = (int64_t)0xca09baa9dd73fd48;
 	static $StringArray* NO_TYPES;
 	static $Array<::javax::management::MBeanNotificationInfo>* NO_NOTIFICATIONS;
 	$StringArray* types = nullptr;

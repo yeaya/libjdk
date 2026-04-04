@@ -167,6 +167,7 @@ class GTKEngine$WidgetType : public ::java::lang::Enum {
 public:
 	GTKEngine$WidgetType();
 	static $Array<::com::sun::java::swing::plaf::gtk::GTKEngine$WidgetType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::java::swing::plaf::gtk::GTKEngine$WidgetType* valueOf($String* name);
 	static $Array<::com::sun::java::swing::plaf::gtk::GTKEngine$WidgetType>* values();

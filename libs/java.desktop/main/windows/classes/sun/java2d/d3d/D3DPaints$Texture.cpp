@@ -1,9 +1,7 @@
 #include <sun/java2d/d3d/D3DPaints$Texture.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/GraphicsDevice.h>
-#include <java/awt/Image.h>
 #include <java/awt/Paint.h>
 #include <java/awt/TexturePaint.h>
 #include <java/awt/image/BufferedImage.h>
@@ -19,8 +17,6 @@
 #undef TRANSFORM_ISIDENT
 
 using $Color = ::java::awt::Color;
-using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
-using $Image = ::java::awt::Image;
 using $TexturePaint = ::java::awt::TexturePaint;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -37,55 +33,24 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$MethodInfo _D3DPaints$Texture_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(D3DPaints$Texture, init$, void)},
-	{"isPaintValid", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, $PUBLIC, $virtualMethod(D3DPaints$Texture, isPaintValid, bool, $SunGraphics2D*)},
-	{}
-};
-
-$InnerClassInfo _D3DPaints$Texture_InnerClassesInfo_[] = {
-	{"sun.java2d.d3d.D3DPaints$Texture", "sun.java2d.d3d.D3DPaints", "Texture", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _D3DPaints$Texture_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.d3d.D3DPaints$Texture",
-	"sun.java2d.d3d.D3DPaints",
-	nullptr,
-	nullptr,
-	_D3DPaints$Texture_MethodInfo_,
-	nullptr,
-	nullptr,
-	_D3DPaints$Texture_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.d3d.D3DPaints"
-};
-
-$Object* allocate$D3DPaints$Texture($Class* clazz) {
-	return $of($alloc(D3DPaints$Texture));
-}
-
 void D3DPaints$Texture::init$() {
 	$D3DPaints::init$();
 }
 
 bool D3DPaints$Texture::isPaintValid($SunGraphics2D* sg2d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TexturePaint, paint, $cast($TexturePaint, $nc(sg2d)->paint));
 	$var($D3DSurfaceData, dstData, $cast($D3DSurfaceData, sg2d->surfaceData));
 	$var($BufferedImage, bi, $nc(paint)->getImage());
-	$var($D3DGraphicsDevice, gd, $cast($D3DGraphicsDevice, $nc($($nc(dstData)->getDeviceConfiguration()))->getDevice()));
+	$var($D3DGraphicsDevice, gd, $cast($D3DGraphicsDevice, $$nc($nc(dstData)->getDeviceConfiguration())->getDevice()));
 	int32_t imgw = $nc(bi)->getWidth();
 	int32_t imgh = bi->getHeight();
 	if (!$nc(gd)->isCapPresent(32)) {
-		if (((int32_t)(imgw & (uint32_t)(imgw - 1))) != 0 || ((int32_t)(imgh & (uint32_t)(imgh - 1))) != 0) {
+		if ((imgw & (imgw - 1)) != 0 || (imgh & (imgh - 1)) != 0) {
 			return false;
 		}
 	}
-	if (!$nc(gd)->isCapPresent(64) && imgw != imgh) {
+	if (!gd->isCapPresent(64) && imgw != imgh) {
 		return false;
 	}
 	$init($CompositeType);
@@ -107,7 +72,33 @@ D3DPaints$Texture::D3DPaints$Texture() {
 }
 
 $Class* D3DPaints$Texture::load$($String* name, bool initialize) {
-	$loadClass(D3DPaints$Texture, name, initialize, &_D3DPaints$Texture_ClassInfo_, allocate$D3DPaints$Texture);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(D3DPaints$Texture, init$, void)},
+		{"isPaintValid", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, $PUBLIC, $virtualMethod(D3DPaints$Texture, isPaintValid, bool, $SunGraphics2D*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.d3d.D3DPaints$Texture", "sun.java2d.d3d.D3DPaints", "Texture", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.d3d.D3DPaints$Texture",
+		"sun.java2d.d3d.D3DPaints",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.d3d.D3DPaints"
+	};
+	$loadClass(D3DPaints$Texture, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DPaints$Texture);
+	});
 	return class$;
 }
 

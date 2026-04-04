@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/DMarlinRenderingEngine$2.h>
-
 #include <sun/java2d/ReentrantContext.h>
 #include <sun/java2d/ReentrantContextProviderCLQ.h>
 #include <sun/java2d/marlin/DMarlinRenderingEngine.h>
@@ -18,43 +17,6 @@ namespace sun {
 	namespace java2d {
 		namespace marlin {
 
-$MethodInfo _DMarlinRenderingEngine$2_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(DMarlinRenderingEngine$2, init$, void, int32_t)},
-	{"newContext", "()Lsun/java2d/marlin/RendererContext;", nullptr, $PROTECTED, $virtualMethod(DMarlinRenderingEngine$2, newContext, $ReentrantContext*)},
-	{}
-};
-
-$EnclosingMethodInfo _DMarlinRenderingEngine$2_EnclosingMethodInfo_ = {
-	"sun.java2d.marlin.DMarlinRenderingEngine",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _DMarlinRenderingEngine$2_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.DMarlinRenderingEngine$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DMarlinRenderingEngine$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.marlin.DMarlinRenderingEngine$2",
-	"sun.java2d.ReentrantContextProviderCLQ",
-	nullptr,
-	nullptr,
-	_DMarlinRenderingEngine$2_MethodInfo_,
-	"Lsun/java2d/ReentrantContextProviderCLQ<Lsun/java2d/marlin/RendererContext;>;",
-	&_DMarlinRenderingEngine$2_EnclosingMethodInfo_,
-	_DMarlinRenderingEngine$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.DMarlinRenderingEngine"
-};
-
-$Object* allocate$DMarlinRenderingEngine$2($Class* clazz) {
-	return $of($alloc(DMarlinRenderingEngine$2));
-}
-
 void DMarlinRenderingEngine$2::init$(int32_t refType) {
 	$ReentrantContextProviderCLQ::init$(refType);
 }
@@ -67,7 +29,38 @@ DMarlinRenderingEngine$2::DMarlinRenderingEngine$2() {
 }
 
 $Class* DMarlinRenderingEngine$2::load$($String* name, bool initialize) {
-	$loadClass(DMarlinRenderingEngine$2, name, initialize, &_DMarlinRenderingEngine$2_ClassInfo_, allocate$DMarlinRenderingEngine$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(DMarlinRenderingEngine$2, init$, void, int32_t)},
+		{"newContext", "()Lsun/java2d/marlin/RendererContext;", nullptr, $PROTECTED, $virtualMethod(DMarlinRenderingEngine$2, newContext, $ReentrantContext*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.java2d.marlin.DMarlinRenderingEngine",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.DMarlinRenderingEngine$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.marlin.DMarlinRenderingEngine$2",
+		"sun.java2d.ReentrantContextProviderCLQ",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Lsun/java2d/ReentrantContextProviderCLQ<Lsun/java2d/marlin/RendererContext;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.DMarlinRenderingEngine"
+	};
+	$loadClass(DMarlinRenderingEngine$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DMarlinRenderingEngine$2);
+	});
 	return class$;
 }
 

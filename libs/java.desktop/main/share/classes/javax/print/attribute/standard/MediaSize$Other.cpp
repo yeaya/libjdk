@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/MediaSize$Other.h>
-
 #include <javax/print/attribute/Size2DSyntax.h>
 #include <javax/print/attribute/standard/MediaSize.h>
 #include <javax/print/attribute/standard/MediaSizeName.h>
@@ -33,51 +32,6 @@ namespace javax {
 		namespace attribute {
 			namespace standard {
 
-$FieldInfo _MediaSize$Other_FieldInfo_[] = {
-	{"EXECUTIVE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$Other, EXECUTIVE)},
-	{"LEDGER", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$Other, LEDGER)},
-	{"TABLOID", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$Other, TABLOID)},
-	{"INVOICE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$Other, INVOICE)},
-	{"FOLIO", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$Other, FOLIO)},
-	{"QUARTO", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$Other, QUARTO)},
-	{"ITALY_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$Other, ITALY_ENVELOPE)},
-	{"MONARCH_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$Other, MONARCH_ENVELOPE)},
-	{"PERSONAL_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$Other, PERSONAL_ENVELOPE)},
-	{"JAPANESE_POSTCARD", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$Other, JAPANESE_POSTCARD)},
-	{"JAPANESE_DOUBLE_POSTCARD", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$Other, JAPANESE_DOUBLE_POSTCARD)},
-	{}
-};
-
-$MethodInfo _MediaSize$Other_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MediaSize$Other, init$, void)},
-	{}
-};
-
-$InnerClassInfo _MediaSize$Other_InnerClassesInfo_[] = {
-	{"javax.print.attribute.standard.MediaSize$Other", "javax.print.attribute.standard.MediaSize", "Other", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MediaSize$Other_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.MediaSize$Other",
-	"java.lang.Object",
-	nullptr,
-	_MediaSize$Other_FieldInfo_,
-	_MediaSize$Other_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MediaSize$Other_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.print.attribute.standard.MediaSize"
-};
-
-$Object* allocate$MediaSize$Other($Class* clazz) {
-	return $of($alloc(MediaSize$Other));
-}
-
 $MediaSize* MediaSize$Other::EXECUTIVE = nullptr;
 $MediaSize* MediaSize$Other::LEDGER = nullptr;
 $MediaSize* MediaSize$Other::TABLOID = nullptr;
@@ -93,7 +47,7 @@ $MediaSize* MediaSize$Other::JAPANESE_DOUBLE_POSTCARD = nullptr;
 void MediaSize$Other::init$() {
 }
 
-void clinit$MediaSize$Other($Class* class$) {
+void MediaSize$Other::clinit$($Class* clazz) {
 	$init($MediaSizeName);
 	$assignStatic(MediaSize$Other::EXECUTIVE, $new($MediaSize, 7.25f, 10.5f, $Size2DSyntax::INCH, $MediaSizeName::EXECUTIVE));
 	$assignStatic(MediaSize$Other::LEDGER, $new($MediaSize, 11.0f, 17.0f, $Size2DSyntax::INCH, $MediaSizeName::LEDGER));
@@ -112,7 +66,46 @@ MediaSize$Other::MediaSize$Other() {
 }
 
 $Class* MediaSize$Other::load$($String* name, bool initialize) {
-	$loadClass(MediaSize$Other, name, initialize, &_MediaSize$Other_ClassInfo_, clinit$MediaSize$Other, allocate$MediaSize$Other);
+	$FieldInfo fieldInfos$$[] = {
+		{"EXECUTIVE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$Other, EXECUTIVE)},
+		{"LEDGER", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$Other, LEDGER)},
+		{"TABLOID", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$Other, TABLOID)},
+		{"INVOICE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$Other, INVOICE)},
+		{"FOLIO", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$Other, FOLIO)},
+		{"QUARTO", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$Other, QUARTO)},
+		{"ITALY_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$Other, ITALY_ENVELOPE)},
+		{"MONARCH_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$Other, MONARCH_ENVELOPE)},
+		{"PERSONAL_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$Other, PERSONAL_ENVELOPE)},
+		{"JAPANESE_POSTCARD", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$Other, JAPANESE_POSTCARD)},
+		{"JAPANESE_DOUBLE_POSTCARD", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$Other, JAPANESE_DOUBLE_POSTCARD)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MediaSize$Other, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.print.attribute.standard.MediaSize$Other", "javax.print.attribute.standard.MediaSize", "Other", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.MediaSize$Other",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.print.attribute.standard.MediaSize"
+	};
+	$loadClass(MediaSize$Other, name, initialize, &classInfo$$, MediaSize$Other::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MediaSize$Other);
+	});
 	return class$;
 }
 

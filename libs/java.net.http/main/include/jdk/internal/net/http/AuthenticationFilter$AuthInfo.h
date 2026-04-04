@@ -29,6 +29,7 @@ class $import AuthenticationFilter$AuthInfo : public ::java::lang::Object {
 	$class(AuthenticationFilter$AuthInfo, 0, ::java::lang::Object)
 public:
 	AuthenticationFilter$AuthInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool fromcache, $String* scheme, ::java::net::PasswordAuthentication* credentials, bool isUTF8);
 	void init$(bool fromcache, $String* scheme, ::java::net::PasswordAuthentication* credentials, ::jdk::internal::net::http::AuthenticationFilter$CacheEntry* ca, bool isUTF8);
 	virtual ::jdk::internal::net::http::AuthenticationFilter$AuthInfo* retryWithCredentials(::java::net::PasswordAuthentication* pw, bool isUTF8);

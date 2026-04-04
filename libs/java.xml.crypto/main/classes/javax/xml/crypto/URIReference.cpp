@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/URIReference.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,27 +8,23 @@ namespace javax {
 	namespace xml {
 		namespace crypto {
 
-$MethodInfo _URIReference_MethodInfo_[] = {
-	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(URIReference, getType, $String*)},
-	{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(URIReference, getURI, $String*)},
-	{}
-};
-
-$ClassInfo _URIReference_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.xml.crypto.URIReference",
-	nullptr,
-	nullptr,
-	nullptr,
-	_URIReference_MethodInfo_
-};
-
-$Object* allocate$URIReference($Class* clazz) {
-	return $of($alloc(URIReference));
-}
-
 $Class* URIReference::load$($String* name, bool initialize) {
-	$loadClass(URIReference, name, initialize, &_URIReference_ClassInfo_, allocate$URIReference);
+	$MethodInfo methodInfos$$[] = {
+		{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(URIReference, getType, $String*)},
+		{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(URIReference, getURI, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.xml.crypto.URIReference",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(URIReference, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(URIReference);
+	});
 	return class$;
 }
 

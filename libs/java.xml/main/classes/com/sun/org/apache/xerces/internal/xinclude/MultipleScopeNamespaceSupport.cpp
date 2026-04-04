@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xinclude/MultipleScopeNamespaceSupport.h>
-
 #include <com/sun/org/apache/xerces/internal/util/NamespaceSupport$Prefixes.h>
 #include <com/sun/org/apache/xerces/internal/util/NamespaceSupport.h>
 #include <com/sun/org/apache/xerces/internal/util/XMLSymbols.h>
@@ -29,58 +28,22 @@ namespace com {
 					namespace internal {
 						namespace xinclude {
 
-$FieldInfo _MultipleScopeNamespaceSupport_FieldInfo_[] = {
-	{"fScope", "[I", nullptr, $PROTECTED, $field(MultipleScopeNamespaceSupport, fScope)},
-	{"fCurrentScope", "I", nullptr, $PROTECTED, $field(MultipleScopeNamespaceSupport, fCurrentScope)},
-	{}
-};
-
-$MethodInfo _MultipleScopeNamespaceSupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MultipleScopeNamespaceSupport, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;)V", nullptr, $PUBLIC, $method(MultipleScopeNamespaceSupport, init$, void, $NamespaceContext*)},
-	{"getAllPrefixes", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(MultipleScopeNamespaceSupport, getAllPrefixes, $Enumeration*)},
-	{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MultipleScopeNamespaceSupport, getPrefix, $String*, $String*)},
-	{"getPrefix", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MultipleScopeNamespaceSupport, getPrefix, $String*, $String*, int32_t)},
-	{"getPrefix", "(Ljava/lang/String;II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MultipleScopeNamespaceSupport, getPrefix, $String*, $String*, int32_t, int32_t)},
-	{"getScopeForContext", "(I)I", nullptr, $PUBLIC, $virtualMethod(MultipleScopeNamespaceSupport, getScopeForContext, int32_t, int32_t)},
-	{"getURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MultipleScopeNamespaceSupport, getURI, $String*, $String*)},
-	{"getURI", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MultipleScopeNamespaceSupport, getURI, $String*, $String*, int32_t)},
-	{"getURI", "(Ljava/lang/String;II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MultipleScopeNamespaceSupport, getURI, $String*, $String*, int32_t, int32_t)},
-	{"popScope", "()V", nullptr, $PUBLIC, $virtualMethod(MultipleScopeNamespaceSupport, popScope, void)},
-	{"pushScope", "()V", nullptr, $PUBLIC, $virtualMethod(MultipleScopeNamespaceSupport, pushScope, void)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(MultipleScopeNamespaceSupport, reset, void)},
-	{}
-};
-
-$ClassInfo _MultipleScopeNamespaceSupport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.xinclude.MultipleScopeNamespaceSupport",
-	"com.sun.org.apache.xerces.internal.util.NamespaceSupport",
-	nullptr,
-	_MultipleScopeNamespaceSupport_FieldInfo_,
-	_MultipleScopeNamespaceSupport_MethodInfo_
-};
-
-$Object* allocate$MultipleScopeNamespaceSupport($Class* clazz) {
-	return $of($alloc(MultipleScopeNamespaceSupport));
-}
-
 void MultipleScopeNamespaceSupport::init$() {
 	$NamespaceSupport::init$();
 	$set(this, fScope, $new($ints, 8));
 	this->fCurrentScope = 0;
-	$nc(this->fScope)->set(0, 0);
+	this->fScope->set(0, 0);
 }
 
 void MultipleScopeNamespaceSupport::init$($NamespaceContext* context) {
 	$NamespaceSupport::init$(context);
 	$set(this, fScope, $new($ints, 8));
 	this->fCurrentScope = 0;
-	$nc(this->fScope)->set(0, 0);
+	this->fScope->set(0, 0);
 }
 
 $Enumeration* MultipleScopeNamespaceSupport::getAllPrefixes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = 0;
 	if ($nc(this->fPrefixes)->length < ($nc(this->fNamespace)->length / 2)) {
 		$var($StringArray, prefixes, $new($StringArray, this->fNamespaceSize));
@@ -89,15 +52,15 @@ $Enumeration* MultipleScopeNamespaceSupport::getAllPrefixes() {
 	$var($String, prefix, nullptr);
 	bool unique = true;
 	for (int32_t i = $nc(this->fContext)->get($nc(this->fScope)->get(this->fCurrentScope)); i <= (this->fNamespaceSize - 2); i += 2) {
-		$assign(prefix, $nc(this->fNamespace)->get(i));
+		$assign(prefix, this->fNamespace->get(i));
 		for (int32_t k = 0; k < count; ++k) {
-			if ($nc(this->fPrefixes)->get(k) == prefix) {
+			if (this->fPrefixes->get(k) == prefix) {
 				unique = false;
 				break;
 			}
 		}
 		if (unique) {
-			$nc(this->fPrefixes)->set(count++, prefix);
+			this->fPrefixes->set(count++, prefix);
 		}
 		unique = true;
 	}
@@ -140,7 +103,7 @@ $String* MultipleScopeNamespaceSupport::getPrefix($String* uri, int32_t start, i
 	}
 	for (int32_t i = start; i > end; i -= 2) {
 		if ($nc(this->fNamespace)->get(i - 1) == uri) {
-			if (getURI($nc(this->fNamespace)->get(i - 2)) == uri) {
+			if (getURI(this->fNamespace->get(i - 2)) == uri) {
 				return $nc(this->fNamespace)->get(i - 2);
 			}
 		}
@@ -160,7 +123,7 @@ $String* MultipleScopeNamespaceSupport::getURI($String* prefix, int32_t start, i
 	}
 	for (int32_t i = start; i > end; i -= 2) {
 		if ($nc(this->fNamespace)->get(i - 2) == prefix) {
-			return $nc(this->fNamespace)->get(i - 1);
+			return this->fNamespace->get(i - 1);
 		}
 	}
 	return nullptr;
@@ -173,8 +136,8 @@ void MultipleScopeNamespaceSupport::reset() {
 
 void MultipleScopeNamespaceSupport::pushScope() {
 	if (this->fCurrentScope + 1 == $nc(this->fScope)->length) {
-		$var($ints, contextarray, $new($ints, $nc(this->fScope)->length * 2));
-		$System::arraycopy(this->fScope, 0, contextarray, 0, $nc(this->fScope)->length);
+		$var($ints, contextarray, $new($ints, this->fScope->length * 2));
+		$System::arraycopy(this->fScope, 0, contextarray, 0, this->fScope->length);
 		$set(this, fScope, contextarray);
 	}
 	pushContext();
@@ -190,7 +153,38 @@ MultipleScopeNamespaceSupport::MultipleScopeNamespaceSupport() {
 }
 
 $Class* MultipleScopeNamespaceSupport::load$($String* name, bool initialize) {
-	$loadClass(MultipleScopeNamespaceSupport, name, initialize, &_MultipleScopeNamespaceSupport_ClassInfo_, allocate$MultipleScopeNamespaceSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"fScope", "[I", nullptr, $PROTECTED, $field(MultipleScopeNamespaceSupport, fScope)},
+		{"fCurrentScope", "I", nullptr, $PROTECTED, $field(MultipleScopeNamespaceSupport, fCurrentScope)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MultipleScopeNamespaceSupport, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;)V", nullptr, $PUBLIC, $method(MultipleScopeNamespaceSupport, init$, void, $NamespaceContext*)},
+		{"getAllPrefixes", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(MultipleScopeNamespaceSupport, getAllPrefixes, $Enumeration*)},
+		{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MultipleScopeNamespaceSupport, getPrefix, $String*, $String*)},
+		{"getPrefix", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MultipleScopeNamespaceSupport, getPrefix, $String*, $String*, int32_t)},
+		{"getPrefix", "(Ljava/lang/String;II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MultipleScopeNamespaceSupport, getPrefix, $String*, $String*, int32_t, int32_t)},
+		{"getScopeForContext", "(I)I", nullptr, $PUBLIC, $virtualMethod(MultipleScopeNamespaceSupport, getScopeForContext, int32_t, int32_t)},
+		{"getURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MultipleScopeNamespaceSupport, getURI, $String*, $String*)},
+		{"getURI", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MultipleScopeNamespaceSupport, getURI, $String*, $String*, int32_t)},
+		{"getURI", "(Ljava/lang/String;II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MultipleScopeNamespaceSupport, getURI, $String*, $String*, int32_t, int32_t)},
+		{"popScope", "()V", nullptr, $PUBLIC, $virtualMethod(MultipleScopeNamespaceSupport, popScope, void)},
+		{"pushScope", "()V", nullptr, $PUBLIC, $virtualMethod(MultipleScopeNamespaceSupport, pushScope, void)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(MultipleScopeNamespaceSupport, reset, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.xinclude.MultipleScopeNamespaceSupport",
+		"com.sun.org.apache.xerces.internal.util.NamespaceSupport",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MultipleScopeNamespaceSupport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultipleScopeNamespaceSupport);
+	});
 	return class$;
 }
 

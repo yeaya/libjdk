@@ -1,9 +1,7 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMXMLObject.h>
-
 #include <java/lang/ClassCastException.h>
 #include <java/security/Provider.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -34,7 +32,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Provider = ::java::security::Provider;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
@@ -62,45 +59,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$FieldInfo _DOMXMLObject_FieldInfo_[] = {
-	{"id", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DOMXMLObject, id)},
-	{"mimeType", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DOMXMLObject, mimeType)},
-	{"encoding", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DOMXMLObject, encoding)},
-	{"content", "Ljava/util/List;", "Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PRIVATE | $FINAL, $field(DOMXMLObject, content)},
-	{"objectElem", "Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(DOMXMLObject, objectElem)},
-	{}
-};
-
-$MethodInfo _DOMXMLObject_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/util/List<+Ljavax/xml/crypto/XMLStructure;>;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", $PUBLIC, $method(DOMXMLObject, init$, void, $List*, $String*, $String*, $String*)},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljavax/xml/crypto/XMLCryptoContext;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(DOMXMLObject, init$, void, $Element*, $XMLCryptoContext*, $Provider*), "javax.xml.crypto.MarshalException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMXMLObject, equals, bool, Object$*)},
-	{"getContent", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PUBLIC, $virtualMethod(DOMXMLObject, getContent, $List*)},
-	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMXMLObject, getEncoding, $String*)},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMXMLObject, getId, $String*)},
-	{"getMimeType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMXMLObject, getMimeType, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMXMLObject, hashCode, int32_t)},
-	{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
-	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMXMLObject, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DOMXMLObject_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMXMLObject",
-	"org.jcp.xml.dsig.internal.dom.DOMStructure",
-	"javax.xml.crypto.dsig.XMLObject",
-	_DOMXMLObject_FieldInfo_,
-	_DOMXMLObject_MethodInfo_
-};
-
-$Object* allocate$DOMXMLObject($Class* clazz) {
-	return $of($alloc(DOMXMLObject));
-}
-
 bool DOMXMLObject::isFeatureSupported($String* feature) {
 	 return this->$DOMStructure::isFeatureSupported(feature);
 }
@@ -118,19 +76,15 @@ void DOMXMLObject::finalize() {
 }
 
 void DOMXMLObject::init$($List* content, $String* id, $String* mimeType, $String* encoding) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DOMStructure::init$();
-	if (content == nullptr || $nc(content)->isEmpty()) {
+	if (content == nullptr || content->isEmpty()) {
 		$set(this, content, $Collections::emptyList());
 	} else {
-		$set(this, content, $Collections::unmodifiableList($$new($ArrayList, static_cast<$Collection*>(content))));
-		{
-			int32_t i = 0;
-			int32_t size = $nc(this->content)->size();
-			for (; i < size; ++i) {
-				if (!($instanceOf($XMLStructure, $($nc(this->content)->get(i))))) {
-					$throwNew($ClassCastException, $$str({"content["_s, $$str(i), "] is not a valid type"_s}));
-				}
+		$set(this, content, $Collections::unmodifiableList($$new($ArrayList, content)));
+		for (int32_t i = 0, size = $nc(this->content)->size(); i < size; ++i) {
+			if (!($instanceOf($XMLStructure, $(this->content->get(i))))) {
+				$throwNew($ClassCastException, $$str({"content["_s, $$str(i), "] is not a valid type"_s}));
 			}
 		}
 	}
@@ -140,7 +94,7 @@ void DOMXMLObject::init$($List* content, $String* id, $String* mimeType, $String
 }
 
 void DOMXMLObject::init$($Element* objElem, $XMLCryptoContext* context, $Provider* provider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DOMStructure::init$();
 	$set(this, encoding, $DOMUtils::getAttributeValue(objElem, "Encoding"_s));
 	$var($Attr, attr, $nc(objElem)->getAttributeNodeNS(nullptr, "Id"_s));
@@ -163,12 +117,12 @@ void DOMXMLObject::init$($Element* objElem, $XMLCryptoContext* context, $Provide
 			if (var$0 && $nc($XMLSignature::XMLNS)->equals(namespace$)) {
 				newContent->add($$new($DOMManifest, childElem, context, provider));
 			} else {
-				bool var$2 = "SignatureProperties"_s->equals(tag);
-				if (var$2 && $nc($XMLSignature::XMLNS)->equals(namespace$)) {
+				bool var$1 = "SignatureProperties"_s->equals(tag);
+				if (var$1 && $nc($XMLSignature::XMLNS)->equals(namespace$)) {
 					newContent->add($$new($DOMSignatureProperties, childElem));
 				} else {
-					bool var$4 = "X509Data"_s->equals(tag);
-					if (var$4 && $nc($XMLSignature::XMLNS)->equals(namespace$)) {
+					bool var$2 = "X509Data"_s->equals(tag);
+					if (var$2 && $nc($XMLSignature::XMLNS)->equals(namespace$)) {
 						newContent->add($$new($DOMX509Data, childElem));
 					} else {
 						newContent->add($$new($1DOMStructure, firstChild));
@@ -212,7 +166,7 @@ $String* DOMXMLObject::getEncoding() {
 }
 
 void DOMXMLObject::marshal($Node* parent, $String* dsPrefix, $DOMCryptoContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, ownerDoc, $DOMUtils::getOwnerDocument(parent));
 	$var($Element, objElem, this->objectElem);
 	if (objElem == nullptr) {
@@ -225,13 +179,11 @@ void DOMXMLObject::marshal($Node* parent, $String* dsPrefix, $DOMCryptoContext* 
 			$var($Iterator, i$, $nc(this->content)->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($XMLStructure, object, $cast($XMLStructure, i$->next()));
-				{
-					if ($instanceOf($DOMStructure, object)) {
-						$nc(($cast($DOMStructure, object)))->marshal(objElem, dsPrefix, context);
-					} else {
-						$var($1DOMStructure, domObject, $cast($1DOMStructure, object));
-						$DOMUtils::appendChild(objElem, $($nc(domObject)->getNode()));
-					}
+				if ($instanceOf($DOMStructure, object)) {
+					$cast($DOMStructure, object)->marshal(objElem, dsPrefix, context);
+				} else {
+					$var($1DOMStructure, domObject, $cast($1DOMStructure, object));
+					$DOMUtils::appendChild(objElem, $($nc(domObject)->getNode()));
 				}
 			}
 		}
@@ -240,7 +192,7 @@ void DOMXMLObject::marshal($Node* parent, $String* dsPrefix, $DOMCryptoContext* 
 }
 
 bool DOMXMLObject::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, o)) {
 		return true;
 	}
@@ -248,22 +200,22 @@ bool DOMXMLObject::equals(Object$* o) {
 		return false;
 	}
 	$var($XMLObject, oxo, $cast($XMLObject, o));
-	bool idsEqual = this->id == nullptr ? $nc(oxo)->getId() == nullptr : $nc(this->id)->equals($(oxo->getId()));
-	bool encodingsEqual = this->encoding == nullptr ? oxo->getEncoding() == nullptr : $nc(this->encoding)->equals($(oxo->getEncoding()));
-	bool mimeTypesEqual = this->mimeType == nullptr ? oxo->getMimeType() == nullptr : $nc(this->mimeType)->equals($(oxo->getMimeType()));
-	return idsEqual && encodingsEqual && mimeTypesEqual && equalsContent(this->content, $(oxo->getContent()));
+	bool idsEqual = this->id == nullptr ? $nc(oxo)->getId() == nullptr : this->id->equals($($nc(oxo)->getId()));
+	bool encodingsEqual = this->encoding == nullptr ? $nc(oxo)->getEncoding() == nullptr : this->encoding->equals($($nc(oxo)->getEncoding()));
+	bool mimeTypesEqual = this->mimeType == nullptr ? $nc(oxo)->getMimeType() == nullptr : this->mimeType->equals($($nc(oxo)->getMimeType()));
+	return idsEqual && encodingsEqual && mimeTypesEqual && equalsContent(this->content, $($nc(oxo)->getContent()));
 }
 
 int32_t DOMXMLObject::hashCode() {
 	int32_t result = 17;
 	if (this->id != nullptr) {
-		result = 31 * result + $nc(this->id)->hashCode();
+		result = 31 * result + this->id->hashCode();
 	}
 	if (this->encoding != nullptr) {
-		result = 31 * result + $nc(this->encoding)->hashCode();
+		result = 31 * result + this->encoding->hashCode();
 	}
 	if (this->mimeType != nullptr) {
-		result = 31 * result + $nc(this->mimeType)->hashCode();
+		result = 31 * result + this->mimeType->hashCode();
 	}
 	result = 31 * result + $nc(this->content)->hashCode();
 	return result;
@@ -273,7 +225,41 @@ DOMXMLObject::DOMXMLObject() {
 }
 
 $Class* DOMXMLObject::load$($String* name, bool initialize) {
-	$loadClass(DOMXMLObject, name, initialize, &_DOMXMLObject_ClassInfo_, allocate$DOMXMLObject);
+	$FieldInfo fieldInfos$$[] = {
+		{"id", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DOMXMLObject, id)},
+		{"mimeType", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DOMXMLObject, mimeType)},
+		{"encoding", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DOMXMLObject, encoding)},
+		{"content", "Ljava/util/List;", "Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PRIVATE | $FINAL, $field(DOMXMLObject, content)},
+		{"objectElem", "Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(DOMXMLObject, objectElem)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/util/List<+Ljavax/xml/crypto/XMLStructure;>;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", $PUBLIC, $method(DOMXMLObject, init$, void, $List*, $String*, $String*, $String*)},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljavax/xml/crypto/XMLCryptoContext;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(DOMXMLObject, init$, void, $Element*, $XMLCryptoContext*, $Provider*), "javax.xml.crypto.MarshalException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMXMLObject, equals, bool, Object$*)},
+		{"getContent", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PUBLIC, $virtualMethod(DOMXMLObject, getContent, $List*)},
+		{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMXMLObject, getEncoding, $String*)},
+		{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMXMLObject, getId, $String*)},
+		{"getMimeType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMXMLObject, getMimeType, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMXMLObject, hashCode, int32_t)},
+		{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
+		{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMXMLObject, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMXMLObject",
+		"org.jcp.xml.dsig.internal.dom.DOMStructure",
+		"javax.xml.crypto.dsig.XMLObject",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMXMLObject, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMXMLObject));
+	});
 	return class$;
 }
 

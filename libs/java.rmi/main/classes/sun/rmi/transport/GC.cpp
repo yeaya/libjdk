@@ -1,7 +1,5 @@
 #include <sun/rmi/transport/GC.h>
-
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <sun/rmi/transport/GC$1.h>
 #include <sun/rmi/transport/GC$Daemon.h>
 #include <sun/rmi/transport/GC$LatencyLock.h>
@@ -16,7 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $GC$1 = ::sun::rmi::transport::GC$1;
 using $GC$Daemon = ::sun::rmi::transport::GC$Daemon;
 using $GC$LatencyLock = ::sun::rmi::transport::GC$LatencyLock;
@@ -25,52 +22,6 @@ using $GC$LatencyRequest = ::sun::rmi::transport::GC$LatencyRequest;
 namespace sun {
 	namespace rmi {
 		namespace transport {
-
-$FieldInfo _GC_FieldInfo_[] = {
-	{"NO_TARGET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GC, NO_TARGET)},
-	{"latencyTarget", "J", nullptr, $PRIVATE | $STATIC, $staticField(GC, latencyTarget)},
-	{"daemon", "Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC, $staticField(GC, daemon)},
-	{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(GC, lock)},
-	{}
-};
-
-$MethodInfo _GC_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(GC, init$, void)},
-	{"currentLatencyTarget", "()J", nullptr, $PUBLIC | $STATIC, $staticMethod(GC, currentLatencyTarget, int64_t)},
-	{"maxObjectInspectionAge", "()J", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(GC, maxObjectInspectionAge, int64_t)},
-	{"requestLatency", "(J)Lsun/rmi/transport/GC$LatencyRequest;", nullptr, $PUBLIC | $STATIC, $staticMethod(GC, requestLatency, $GC$LatencyRequest*, int64_t)},
-	{"setLatencyTarget", "(J)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GC, setLatencyTarget, void, int64_t)},
-	{}
-};
-
-#define _METHOD_INDEX_maxObjectInspectionAge 2
-
-$InnerClassInfo _GC_InnerClassesInfo_[] = {
-	{"sun.rmi.transport.GC$LatencyRequest", "sun.rmi.transport.GC", "LatencyRequest", $PUBLIC | $STATIC},
-	{"sun.rmi.transport.GC$Daemon", "sun.rmi.transport.GC", "Daemon", $PRIVATE | $STATIC},
-	{"sun.rmi.transport.GC$LatencyLock", "sun.rmi.transport.GC", "LatencyLock", $PRIVATE | $STATIC},
-	{"sun.rmi.transport.GC$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _GC_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.rmi.transport.GC",
-	"java.lang.Object",
-	nullptr,
-	_GC_FieldInfo_,
-	_GC_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GC_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.rmi.transport.GC$LatencyRequest,sun.rmi.transport.GC$Daemon,sun.rmi.transport.GC$Daemon$1,sun.rmi.transport.GC$LatencyLock,sun.rmi.transport.GC$1"
-};
-
-$Object* allocate$GC($Class* clazz) {
-	return $of($alloc(GC));
-}
 
 int64_t GC::latencyTarget = 0;
 $Thread* GC::daemon = nullptr;
@@ -81,9 +32,8 @@ void GC::init$() {
 
 int64_t GC::maxObjectInspectionAge() {
 	$init(GC);
-	int64_t $ret = 0;
-	$prepareNativeStatic(GC, maxObjectInspectionAge, int64_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(maxObjectInspectionAge, int64_t);
+	int64_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -94,7 +44,7 @@ void GC::setLatencyTarget(int64_t ms) {
 	if (GC::daemon == nullptr) {
 		$GC$Daemon::create();
 	} else {
-		$nc($of(GC::lock))->notify();
+		$nc(GC::lock)->notify();
 	}
 }
 
@@ -106,16 +56,16 @@ $GC$LatencyRequest* GC::requestLatency(int64_t latency) {
 int64_t GC::currentLatencyTarget() {
 	$init(GC);
 	int64_t t = GC::latencyTarget;
-	return (t == GC::NO_TARGET) ? (int64_t)0 : t;
+	return (t == GC::NO_TARGET) ? 0 : t;
 }
 
-void clinit$GC($Class* class$) {
+void GC::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	GC::latencyTarget = GC::NO_TARGET;
 	$assignStatic(GC::daemon, nullptr);
 	$assignStatic(GC::lock, $new($GC$LatencyLock));
 	{
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GC$1)));
+		$AccessController::doPrivileged($$new($GC$1));
 	}
 }
 
@@ -123,7 +73,45 @@ GC::GC() {
 }
 
 $Class* GC::load$($String* name, bool initialize) {
-	$loadClass(GC, name, initialize, &_GC_ClassInfo_, clinit$GC, allocate$GC);
+	$FieldInfo fieldInfos$$[] = {
+		{"NO_TARGET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GC, NO_TARGET)},
+		{"latencyTarget", "J", nullptr, $PRIVATE | $STATIC, $staticField(GC, latencyTarget)},
+		{"daemon", "Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC, $staticField(GC, daemon)},
+		{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(GC, lock)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(GC, init$, void)},
+		{"currentLatencyTarget", "()J", nullptr, $PUBLIC | $STATIC, $staticMethod(GC, currentLatencyTarget, int64_t)},
+		{"maxObjectInspectionAge", "()J", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(GC, maxObjectInspectionAge, int64_t)},
+		{"requestLatency", "(J)Lsun/rmi/transport/GC$LatencyRequest;", nullptr, $PUBLIC | $STATIC, $staticMethod(GC, requestLatency, $GC$LatencyRequest*, int64_t)},
+		{"setLatencyTarget", "(J)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GC, setLatencyTarget, void, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.transport.GC$LatencyRequest", "sun.rmi.transport.GC", "LatencyRequest", $PUBLIC | $STATIC},
+		{"sun.rmi.transport.GC$Daemon", "sun.rmi.transport.GC", "Daemon", $PRIVATE | $STATIC},
+		{"sun.rmi.transport.GC$LatencyLock", "sun.rmi.transport.GC", "LatencyLock", $PRIVATE | $STATIC},
+		{"sun.rmi.transport.GC$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.rmi.transport.GC",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.rmi.transport.GC$LatencyRequest,sun.rmi.transport.GC$Daemon,sun.rmi.transport.GC$Daemon$1,sun.rmi.transport.GC$LatencyLock,sun.rmi.transport.GC$1"
+	};
+	$loadClass(GC, name, initialize, &classInfo$$, GC::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GC);
+	});
 	return class$;
 }
 

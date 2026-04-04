@@ -1,5 +1,4 @@
 #include <sun/print/IPPPrintService$ExtFinishing.h>
-
 #include <javax/print/attribute/EnumSyntax.h>
 #include <javax/print/attribute/standard/Finishings.h>
 #include <sun/print/IPPPrintService.h>
@@ -16,42 +15,6 @@ using $IPPPrintService = ::sun::print::IPPPrintService;
 namespace sun {
 	namespace print {
 
-$FieldInfo _IPPPrintService$ExtFinishing_FieldInfo_[] = {
-	{"this$0", "Lsun/print/IPPPrintService;", nullptr, $FINAL | $SYNTHETIC, $field(IPPPrintService$ExtFinishing, this$0)},
-	{}
-};
-
-$MethodInfo _IPPPrintService$ExtFinishing_MethodInfo_[] = {
-	{"<init>", "(Lsun/print/IPPPrintService;I)V", nullptr, 0, $method(IPPPrintService$ExtFinishing, init$, void, $IPPPrintService*, int32_t)},
-	{"getAll", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, 0, $virtualMethod(IPPPrintService$ExtFinishing, getAll, $EnumSyntaxArray*)},
-	{}
-};
-
-$InnerClassInfo _IPPPrintService$ExtFinishing_InnerClassesInfo_[] = {
-	{"sun.print.IPPPrintService$ExtFinishing", "sun.print.IPPPrintService", "ExtFinishing", $PRIVATE},
-	{}
-};
-
-$ClassInfo _IPPPrintService$ExtFinishing_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.print.IPPPrintService$ExtFinishing",
-	"javax.print.attribute.standard.Finishings",
-	nullptr,
-	_IPPPrintService$ExtFinishing_FieldInfo_,
-	_IPPPrintService$ExtFinishing_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IPPPrintService$ExtFinishing_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.print.IPPPrintService"
-};
-
-$Object* allocate$IPPPrintService$ExtFinishing($Class* clazz) {
-	return $of($alloc(IPPPrintService$ExtFinishing));
-}
-
 void IPPPrintService$ExtFinishing::init$($IPPPrintService* this$0, int32_t value) {
 	$set(this, this$0, this$0);
 	$Finishings::init$(100);
@@ -66,7 +29,37 @@ IPPPrintService$ExtFinishing::IPPPrintService$ExtFinishing() {
 }
 
 $Class* IPPPrintService$ExtFinishing::load$($String* name, bool initialize) {
-	$loadClass(IPPPrintService$ExtFinishing, name, initialize, &_IPPPrintService$ExtFinishing_ClassInfo_, allocate$IPPPrintService$ExtFinishing);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/print/IPPPrintService;", nullptr, $FINAL | $SYNTHETIC, $field(IPPPrintService$ExtFinishing, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/print/IPPPrintService;I)V", nullptr, 0, $method(IPPPrintService$ExtFinishing, init$, void, $IPPPrintService*, int32_t)},
+		{"getAll", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, 0, $virtualMethod(IPPPrintService$ExtFinishing, getAll, $EnumSyntaxArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.IPPPrintService$ExtFinishing", "sun.print.IPPPrintService", "ExtFinishing", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.print.IPPPrintService$ExtFinishing",
+		"javax.print.attribute.standard.Finishings",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.print.IPPPrintService"
+	};
+	$loadClass(IPPPrintService$ExtFinishing, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(IPPPrintService$ExtFinishing));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XMSelection$1.h>
-
 #include <sun/awt/X11/XEvent.h>
 #include <sun/awt/X11/XMSelection.h>
 #include <jcpp.h>
@@ -16,48 +15,6 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XMSelection$1_FieldInfo_[] = {
-	{"val$screen", "I", nullptr, $FINAL | $SYNTHETIC, $field(XMSelection$1, val$screen)},
-	{}
-};
-
-$MethodInfo _XMSelection$1_MethodInfo_[] = {
-	{"<init>", "(I)V", "()V", 0, $method(XMSelection$1, init$, void, int32_t)},
-	{"dispatchEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XMSelection$1, dispatchEvent, void, $XEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _XMSelection$1_EnclosingMethodInfo_ = {
-	"sun.awt.X11.XMSelection",
-	"initScreen",
-	"(JI)V"
-};
-
-$InnerClassInfo _XMSelection$1_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XMSelection$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XMSelection$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XMSelection$1",
-	"java.lang.Object",
-	"sun.awt.X11.XEventDispatcher",
-	_XMSelection$1_FieldInfo_,
-	_XMSelection$1_MethodInfo_,
-	nullptr,
-	&_XMSelection$1_EnclosingMethodInfo_,
-	_XMSelection$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XMSelection"
-};
-
-$Object* allocate$XMSelection$1($Class* clazz) {
-	return $of($alloc(XMSelection$1));
-}
-
 void XMSelection$1::init$(int32_t val$screen) {
 	this->val$screen = val$screen;
 }
@@ -70,7 +27,42 @@ XMSelection$1::XMSelection$1() {
 }
 
 $Class* XMSelection$1::load$($String* name, bool initialize) {
-	$loadClass(XMSelection$1, name, initialize, &_XMSelection$1_ClassInfo_, allocate$XMSelection$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$screen", "I", nullptr, $FINAL | $SYNTHETIC, $field(XMSelection$1, val$screen)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", "()V", 0, $method(XMSelection$1, init$, void, int32_t)},
+		{"dispatchEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XMSelection$1, dispatchEvent, void, $XEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.X11.XMSelection",
+		"initScreen",
+		"(JI)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XMSelection$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XMSelection$1",
+		"java.lang.Object",
+		"sun.awt.X11.XEventDispatcher",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XMSelection"
+	};
+	$loadClass(XMSelection$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMSelection$1);
+	});
 	return class$;
 }
 

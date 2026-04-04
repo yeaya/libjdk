@@ -1,5 +1,4 @@
 #include <java/lang/management/CompilationMXBean.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,28 +8,24 @@ namespace java {
 	namespace lang {
 		namespace management {
 
-$MethodInfo _CompilationMXBean_MethodInfo_[] = {
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CompilationMXBean, getName, $String*)},
-	{"getTotalCompilationTime", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CompilationMXBean, getTotalCompilationTime, int64_t)},
-	{"isCompilationTimeMonitoringSupported", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CompilationMXBean, isCompilationTimeMonitoringSupported, bool)},
-	{}
-};
-
-$ClassInfo _CompilationMXBean_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.lang.management.CompilationMXBean",
-	nullptr,
-	"java.lang.management.PlatformManagedObject",
-	nullptr,
-	_CompilationMXBean_MethodInfo_
-};
-
-$Object* allocate$CompilationMXBean($Class* clazz) {
-	return $of($alloc(CompilationMXBean));
-}
-
 $Class* CompilationMXBean::load$($String* name, bool initialize) {
-	$loadClass(CompilationMXBean, name, initialize, &_CompilationMXBean_ClassInfo_, allocate$CompilationMXBean);
+	$MethodInfo methodInfos$$[] = {
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CompilationMXBean, getName, $String*)},
+		{"getTotalCompilationTime", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CompilationMXBean, getTotalCompilationTime, int64_t)},
+		{"isCompilationTimeMonitoringSupported", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CompilationMXBean, isCompilationTimeMonitoringSupported, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.lang.management.CompilationMXBean",
+		nullptr,
+		"java.lang.management.PlatformManagedObject",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CompilationMXBean, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CompilationMXBean);
+	});
 	return class$;
 }
 

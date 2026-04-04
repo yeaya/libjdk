@@ -1,9 +1,7 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMKeyInfo.h>
-
 #include <java/lang/ClassCastException.h>
 #include <java/security/Provider.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -40,7 +38,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $Provider = ::java::security::Provider;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
@@ -71,44 +68,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$FieldInfo _DOMKeyInfo_FieldInfo_[] = {
-	{"id", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DOMKeyInfo, id)},
-	{"keyInfoTypes", "Ljava/util/List;", "Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PRIVATE | $FINAL, $field(DOMKeyInfo, keyInfoTypes)},
-	{}
-};
-
-$MethodInfo _DOMKeyInfo_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/util/List;Ljava/lang/String;)V", "(Ljava/util/List<+Ljavax/xml/crypto/XMLStructure;>;Ljava/lang/String;)V", $PUBLIC, $method(DOMKeyInfo, init$, void, $List*, $String*)},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljavax/xml/crypto/XMLCryptoContext;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(DOMKeyInfo, init$, void, $Element*, $XMLCryptoContext*, $Provider*), "javax.xml.crypto.MarshalException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMKeyInfo, equals, bool, Object$*)},
-	{"getContent", "(Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;)Ljava/util/List;", "(Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;)Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PUBLIC | $STATIC, $staticMethod(DOMKeyInfo, getContent, $List*, $KeyInfo*)},
-	{"getContent", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PUBLIC, $virtualMethod(DOMKeyInfo, getContent, $List*)},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMKeyInfo, getId, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMKeyInfo, hashCode, int32_t)},
-	{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
-	{"marshal", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMKeyInfo, marshal, void, $XMLStructure*, $XMLCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMKeyInfo, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"marshal", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $method(DOMKeyInfo, marshal, void, $Node*, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"marshal", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Element;Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PRIVATE, $method(DOMKeyInfo, marshal, void, $Node*, $Element*, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DOMKeyInfo_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMKeyInfo",
-	"org.jcp.xml.dsig.internal.dom.DOMStructure",
-	"javax.xml.crypto.dsig.keyinfo.KeyInfo",
-	_DOMKeyInfo_FieldInfo_,
-	_DOMKeyInfo_MethodInfo_
-};
-
-$Object* allocate$DOMKeyInfo($Class* clazz) {
-	return $of($alloc(DOMKeyInfo));
-}
-
 bool DOMKeyInfo::isFeatureSupported($String* feature) {
 	 return this->$DOMStructure::isFeatureSupported(feature);
 }
@@ -131,29 +90,25 @@ $List* DOMKeyInfo::getContent($KeyInfo* ki) {
 }
 
 void DOMKeyInfo::init$($List* content, $String* id) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DOMStructure::init$();
 	if (content == nullptr) {
 		$throwNew($NullPointerException, "content cannot be null"_s);
 	}
-	$set(this, keyInfoTypes, $Collections::unmodifiableList($$new($ArrayList, static_cast<$Collection*>(content))));
+	$set(this, keyInfoTypes, $Collections::unmodifiableList($$new($ArrayList, content)));
 	if ($nc(this->keyInfoTypes)->isEmpty()) {
 		$throwNew($IllegalArgumentException, "content cannot be empty"_s);
 	}
-	{
-		int32_t i = 0;
-		int32_t size = $nc(this->keyInfoTypes)->size();
-		for (; i < size; ++i) {
-			if (!($instanceOf($XMLStructure, $($nc(this->keyInfoTypes)->get(i))))) {
-				$throwNew($ClassCastException, $$str({"content["_s, $$str(i), "] is not a valid KeyInfo type"_s}));
-			}
+	for (int32_t i = 0, size = this->keyInfoTypes->size(); i < size; ++i) {
+		if (!($instanceOf($XMLStructure, $(this->keyInfoTypes->get(i))))) {
+			$throwNew($ClassCastException, $$str({"content["_s, $$str(i), "] is not a valid KeyInfo type"_s}));
 		}
 	}
 	$set(this, id, id);
 }
 
 void DOMKeyInfo::init$($Element* kiElem, $XMLCryptoContext* context, $Provider* provider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DOMStructure::init$();
 	$var($Attr, attr, $nc(kiElem)->getAttributeNodeNS(nullptr, "Id"_s));
 	if (attr != nullptr) {
@@ -177,20 +132,20 @@ void DOMKeyInfo::init$($Element* kiElem, $XMLCryptoContext* context, $Provider* 
 			if (var$0 && $nc($XMLSignature::XMLNS)->equals(namespace$)) {
 				content->add($$new($DOMX509Data, childElem));
 			} else {
-				bool var$2 = "KeyName"_s->equals(localName);
-				if (var$2 && $nc($XMLSignature::XMLNS)->equals(namespace$)) {
+				bool var$1 = "KeyName"_s->equals(localName);
+				if (var$1 && $nc($XMLSignature::XMLNS)->equals(namespace$)) {
 					content->add($$new($DOMKeyName, childElem));
 				} else {
-					bool var$4 = "KeyValue"_s->equals(localName);
-					if (var$4 && $nc($XMLSignature::XMLNS)->equals(namespace$)) {
+					bool var$2 = "KeyValue"_s->equals(localName);
+					if (var$2 && $nc($XMLSignature::XMLNS)->equals(namespace$)) {
 						content->add($($DOMKeyValue::unmarshal(childElem)));
 					} else {
-						bool var$6 = "RetrievalMethod"_s->equals(localName);
-						if (var$6 && $nc($XMLSignature::XMLNS)->equals(namespace$)) {
+						bool var$3 = "RetrievalMethod"_s->equals(localName);
+						if (var$3 && $nc($XMLSignature::XMLNS)->equals(namespace$)) {
 							content->add($$new($DOMRetrievalMethod, childElem, context, provider));
 						} else {
-							bool var$8 = "PGPData"_s->equals(localName);
-							if (var$8 && $nc($XMLSignature::XMLNS)->equals(namespace$)) {
+							bool var$4 = "PGPData"_s->equals(localName);
+							if (var$4 && $nc($XMLSignature::XMLNS)->equals(namespace$)) {
 								content->add($$new($DOMPGPData, childElem));
 							} else {
 								content->add($$new($1DOMStructure, childElem));
@@ -214,25 +169,25 @@ $List* DOMKeyInfo::getContent() {
 }
 
 void DOMKeyInfo::marshal($XMLStructure* parent, $XMLCryptoContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (parent == nullptr) {
 		$throwNew($NullPointerException, "parent is null"_s);
 	}
 	if (!($instanceOf($1DOMStructure, parent))) {
 		$throwNew($ClassCastException, "parent must be of type DOMStructure"_s);
 	}
-	$var($Node, pNode, $nc(($cast($1DOMStructure, parent)))->getNode());
+	$var($Node, pNode, $nc($cast($1DOMStructure, parent))->getNode());
 	$var($String, dsPrefix, $DOMUtils::getSignaturePrefix(context));
 	$init($XMLSignature);
 	$var($Element, kiElem, $DOMUtils::createElement($($DOMUtils::getOwnerDocument(pNode)), "KeyInfo"_s, $XMLSignature::XMLNS, dsPrefix));
-	if (dsPrefix == nullptr || $nc(dsPrefix)->length() == 0) {
+	if (dsPrefix == nullptr || dsPrefix->length() == 0) {
 		$nc(kiElem)->setAttributeNS("http://www.w3.org/2000/xmlns/"_s, "xmlns"_s, $XMLSignature::XMLNS);
 	} else {
 		$nc(kiElem)->setAttributeNS("http://www.w3.org/2000/xmlns/"_s, $$str({"xmlns:"_s, dsPrefix}), $XMLSignature::XMLNS);
 	}
 	$var($Node, nextSibling, nullptr);
 	if ($instanceOf($DOMSignContext, context)) {
-		$assign(nextSibling, $nc(($cast($DOMSignContext, context)))->getNextSibling());
+		$assign(nextSibling, $cast($DOMSignContext, context)->getNextSibling());
 	}
 	marshal(pNode, kiElem, nextSibling, dsPrefix, $cast($DOMCryptoContext, context));
 }
@@ -242,7 +197,7 @@ void DOMKeyInfo::marshal($Node* parent, $String* dsPrefix, $DOMCryptoContext* co
 }
 
 void DOMKeyInfo::marshal($Node* parent, $Node* nextSibling, $String* dsPrefix, $DOMCryptoContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, ownerDoc, $DOMUtils::getOwnerDocument(parent));
 	$init($XMLSignature);
 	$var($Element, kiElem, $DOMUtils::createElement(ownerDoc, "KeyInfo"_s, $XMLSignature::XMLNS, dsPrefix));
@@ -250,17 +205,15 @@ void DOMKeyInfo::marshal($Node* parent, $Node* nextSibling, $String* dsPrefix, $
 }
 
 void DOMKeyInfo::marshal($Node* parent, $Element* kiElem, $Node* nextSibling, $String* dsPrefix, $DOMCryptoContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Iterator, i$, $nc(this->keyInfoTypes)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($XMLStructure, kiType, $cast($XMLStructure, i$->next()));
-			{
-				if ($instanceOf($DOMStructure, kiType)) {
-					$nc(($cast($DOMStructure, kiType)))->marshal(kiElem, dsPrefix, context);
-				} else {
-					$DOMUtils::appendChild(kiElem, $($nc(($cast($1DOMStructure, kiType)))->getNode()));
-				}
+			if ($instanceOf($DOMStructure, kiType)) {
+				$cast($DOMStructure, kiType)->marshal(kiElem, dsPrefix, context);
+			} else {
+				$DOMUtils::appendChild(kiElem, $($nc($cast($1DOMStructure, kiType))->getNode()));
 			}
 		}
 	}
@@ -269,7 +222,7 @@ void DOMKeyInfo::marshal($Node* parent, $Element* kiElem, $Node* nextSibling, $S
 }
 
 bool DOMKeyInfo::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, o)) {
 		return true;
 	}
@@ -277,14 +230,14 @@ bool DOMKeyInfo::equals(Object$* o) {
 		return false;
 	}
 	$var($KeyInfo, oki, $cast($KeyInfo, o));
-	bool idsEqual = this->id == nullptr ? $nc(oki)->getId() == nullptr : $nc(this->id)->equals($(oki->getId()));
-	return $nc(this->keyInfoTypes)->equals($(oki->getContent())) && idsEqual;
+	bool idsEqual = this->id == nullptr ? $nc(oki)->getId() == nullptr : this->id->equals($($nc(oki)->getId()));
+	return $nc(this->keyInfoTypes)->equals($($nc(oki)->getContent())) && idsEqual;
 }
 
 int32_t DOMKeyInfo::hashCode() {
 	int32_t result = 17;
 	if (this->id != nullptr) {
-		result = 31 * result + $nc(this->id)->hashCode();
+		result = 31 * result + this->id->hashCode();
 	}
 	result = 31 * result + $nc(this->keyInfoTypes)->hashCode();
 	return result;
@@ -294,7 +247,40 @@ DOMKeyInfo::DOMKeyInfo() {
 }
 
 $Class* DOMKeyInfo::load$($String* name, bool initialize) {
-	$loadClass(DOMKeyInfo, name, initialize, &_DOMKeyInfo_ClassInfo_, allocate$DOMKeyInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"id", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DOMKeyInfo, id)},
+		{"keyInfoTypes", "Ljava/util/List;", "Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PRIVATE | $FINAL, $field(DOMKeyInfo, keyInfoTypes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/util/List;Ljava/lang/String;)V", "(Ljava/util/List<+Ljavax/xml/crypto/XMLStructure;>;Ljava/lang/String;)V", $PUBLIC, $method(DOMKeyInfo, init$, void, $List*, $String*)},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljavax/xml/crypto/XMLCryptoContext;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(DOMKeyInfo, init$, void, $Element*, $XMLCryptoContext*, $Provider*), "javax.xml.crypto.MarshalException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMKeyInfo, equals, bool, Object$*)},
+		{"getContent", "(Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;)Ljava/util/List;", "(Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;)Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PUBLIC | $STATIC, $staticMethod(DOMKeyInfo, getContent, $List*, $KeyInfo*)},
+		{"getContent", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PUBLIC, $virtualMethod(DOMKeyInfo, getContent, $List*)},
+		{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMKeyInfo, getId, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMKeyInfo, hashCode, int32_t)},
+		{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
+		{"marshal", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMKeyInfo, marshal, void, $XMLStructure*, $XMLCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMKeyInfo, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"marshal", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $method(DOMKeyInfo, marshal, void, $Node*, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"marshal", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Element;Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PRIVATE, $method(DOMKeyInfo, marshal, void, $Node*, $Element*, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMKeyInfo",
+		"org.jcp.xml.dsig.internal.dom.DOMStructure",
+		"javax.xml.crypto.dsig.keyinfo.KeyInfo",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMKeyInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMKeyInfo));
+	});
 	return class$;
 }
 

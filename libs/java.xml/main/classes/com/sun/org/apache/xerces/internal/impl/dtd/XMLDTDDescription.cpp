@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dtd/XMLDTDDescription.h>
-
 #include <com/sun/org/apache/xerces/internal/util/XMLResourceIdentifierImpl.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription.h>
@@ -28,51 +27,6 @@ namespace com {
 					namespace internal {
 						namespace impl {
 							namespace dtd {
-
-$FieldInfo _XMLDTDDescription_FieldInfo_[] = {
-	{"fRootName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(XMLDTDDescription, fRootName)},
-	{"fPossibleRoots", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PROTECTED, $field(XMLDTDDescription, fPossibleRoots)},
-	{}
-};
-
-$MethodInfo _XMLDTDDescription_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getBaseSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getExpandedSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getLiteralSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLDTDDescription, init$, void, $XMLResourceIdentifier*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLDTDDescription, init$, void, $String*, $String*, $String*, $String*, $String*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V", nullptr, $PUBLIC, $method(XMLDTDDescription, init$, void, $XMLInputSource*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XMLDTDDescription, equals, bool, Object$*)},
-	{"getGrammarType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLDTDDescription, getGrammarType, $String*)},
-	{"getRootName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLDTDDescription, getRootName, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(XMLDTDDescription, hashCode, int32_t)},
-	{"*setBaseSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setExpandedSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setLiteralSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setNamespace", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setPossibleRoots", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(XMLDTDDescription, setPossibleRoots, void, $List*)},
-	{"*setPublicId", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setRootName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLDTDDescription, setRootName, void, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _XMLDTDDescription_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDDescription",
-	"com.sun.org.apache.xerces.internal.util.XMLResourceIdentifierImpl",
-	"com.sun.org.apache.xerces.internal.xni.grammars.XMLDTDDescription",
-	_XMLDTDDescription_FieldInfo_,
-	_XMLDTDDescription_MethodInfo_
-};
-
-$Object* allocate$XMLDTDDescription($Class* clazz) {
-	return $of($alloc(XMLDTDDescription));
-}
 
 void XMLDTDDescription::setPublicId($String* publicId) {
 	this->$XMLResourceIdentifierImpl::setPublicId(publicId);
@@ -127,7 +81,7 @@ void XMLDTDDescription::finalize() {
 }
 
 void XMLDTDDescription::init$($XMLResourceIdentifier* id, $String* rootName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XMLResourceIdentifierImpl::init$();
 	$set(this, fRootName, nullptr);
 	$set(this, fPossibleRoots, nullptr);
@@ -149,7 +103,7 @@ void XMLDTDDescription::init$($String* publicId, $String* literalId, $String* ba
 }
 
 void XMLDTDDescription::init$($XMLInputSource* source) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XMLResourceIdentifierImpl::init$();
 	$set(this, fRootName, nullptr);
 	$set(this, fPossibleRoots, nullptr);
@@ -179,23 +133,23 @@ void XMLDTDDescription::setPossibleRoots($List* possibleRoots) {
 }
 
 bool XMLDTDDescription::equals(Object$* desc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($XMLGrammarDescription, desc))) {
 		return false;
 	}
-	if (!$nc($(getGrammarType()))->equals($($nc(($cast($XMLGrammarDescription, desc)))->getGrammarType()))) {
+	if (!$$nc(getGrammarType())->equals($($nc($cast($XMLGrammarDescription, desc))->getGrammarType()))) {
 		return false;
 	}
 	$var(XMLDTDDescription, dtdDesc, $cast(XMLDTDDescription, desc));
 	if (this->fRootName != nullptr) {
-		if (($nc(dtdDesc)->fRootName) != nullptr && !$nc(dtdDesc->fRootName)->equals(this->fRootName)) {
+		if ((dtdDesc->fRootName) != nullptr && !dtdDesc->fRootName->equals(this->fRootName)) {
 			return false;
-		} else if (dtdDesc->fPossibleRoots != nullptr && !$nc(dtdDesc->fPossibleRoots)->contains(this->fRootName)) {
+		} else if (dtdDesc->fPossibleRoots != nullptr && !dtdDesc->fPossibleRoots->contains(this->fRootName)) {
 			return false;
 		}
 	} else if (this->fPossibleRoots != nullptr) {
-		if ($nc(dtdDesc)->fRootName != nullptr) {
-			if (!$nc(this->fPossibleRoots)->contains(dtdDesc->fRootName)) {
+		if (dtdDesc->fRootName != nullptr) {
+			if (!this->fPossibleRoots->contains(dtdDesc->fRootName)) {
 				return false;
 			}
 		} else if (dtdDesc->fPossibleRoots == nullptr) {
@@ -203,11 +157,11 @@ bool XMLDTDDescription::equals(Object$* desc) {
 		} else {
 			bool found = false;
 			{
-				$var($Iterator, i$, $nc(this->fPossibleRoots)->iterator());
+				$var($Iterator, i$, this->fPossibleRoots->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($String, root, $cast($String, i$->next()));
 					{
-						found = $nc(dtdDesc->fPossibleRoots)->contains(root);
+						found = dtdDesc->fPossibleRoots->contains(root);
 						if (found) {
 							break;
 						}
@@ -220,17 +174,17 @@ bool XMLDTDDescription::equals(Object$* desc) {
 		}
 	}
 	if (this->fExpandedSystemId != nullptr) {
-		if (!$nc(this->fExpandedSystemId)->equals($nc(dtdDesc)->fExpandedSystemId)) {
+		if (!this->fExpandedSystemId->equals(dtdDesc->fExpandedSystemId)) {
 			return false;
 		}
-	} else if ($nc(dtdDesc)->fExpandedSystemId != nullptr) {
+	} else if (dtdDesc->fExpandedSystemId != nullptr) {
 		return false;
 	}
 	if (this->fPublicId != nullptr) {
-		if (!$nc(this->fPublicId)->equals($nc(dtdDesc)->fPublicId)) {
+		if (!this->fPublicId->equals(dtdDesc->fPublicId)) {
 			return false;
 		}
-	} else if ($nc(dtdDesc)->fPublicId != nullptr) {
+	} else if (dtdDesc->fPublicId != nullptr) {
 		return false;
 	}
 	return true;
@@ -238,10 +192,10 @@ bool XMLDTDDescription::equals(Object$* desc) {
 
 int32_t XMLDTDDescription::hashCode() {
 	if (this->fExpandedSystemId != nullptr) {
-		return $nc(this->fExpandedSystemId)->hashCode();
+		return this->fExpandedSystemId->hashCode();
 	}
 	if (this->fPublicId != nullptr) {
-		return $nc(this->fPublicId)->hashCode();
+		return this->fPublicId->hashCode();
 	}
 	return 0;
 }
@@ -250,7 +204,47 @@ XMLDTDDescription::XMLDTDDescription() {
 }
 
 $Class* XMLDTDDescription::load$($String* name, bool initialize) {
-	$loadClass(XMLDTDDescription, name, initialize, &_XMLDTDDescription_ClassInfo_, allocate$XMLDTDDescription);
+	$FieldInfo fieldInfos$$[] = {
+		{"fRootName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(XMLDTDDescription, fRootName)},
+		{"fPossibleRoots", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PROTECTED, $field(XMLDTDDescription, fPossibleRoots)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getBaseSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getExpandedSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getLiteralSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLDTDDescription, init$, void, $XMLResourceIdentifier*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLDTDDescription, init$, void, $String*, $String*, $String*, $String*, $String*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V", nullptr, $PUBLIC, $method(XMLDTDDescription, init$, void, $XMLInputSource*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XMLDTDDescription, equals, bool, Object$*)},
+		{"getGrammarType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLDTDDescription, getGrammarType, $String*)},
+		{"getRootName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLDTDDescription, getRootName, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(XMLDTDDescription, hashCode, int32_t)},
+		{"*setBaseSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setExpandedSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setLiteralSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setNamespace", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"setPossibleRoots", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(XMLDTDDescription, setPossibleRoots, void, $List*)},
+		{"*setPublicId", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"setRootName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLDTDDescription, setRootName, void, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDDescription",
+		"com.sun.org.apache.xerces.internal.util.XMLResourceIdentifierImpl",
+		"com.sun.org.apache.xerces.internal.xni.grammars.XMLDTDDescription",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLDTDDescription, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XMLDTDDescription));
+	});
 	return class$;
 }
 

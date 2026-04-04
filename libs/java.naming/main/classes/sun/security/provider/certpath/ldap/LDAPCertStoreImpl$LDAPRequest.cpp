@@ -1,5 +1,4 @@
 #include <sun/security/provider/certpath/ldap/LDAPCertStoreImpl$LDAPRequest.h>
-
 #include <com/sun/jndi/ldap/LdapReferralException.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/net/URI.h>
@@ -44,7 +43,6 @@ using $CertStoreException = ::java::security::cert::CertStoreException;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $CommunicationException = ::javax::naming::CommunicationException;
 using $CompositeName = ::javax::naming::CompositeName;
@@ -56,7 +54,6 @@ using $Attribute = ::javax::naming::directory::Attribute;
 using $Attributes = ::javax::naming::directory::Attributes;
 using $LdapContext = ::javax::naming::ldap::LdapContext;
 using $LDAPCertStoreImpl = ::sun::security::provider::certpath::ldap::LDAPCertStoreImpl;
-using $Cache = ::sun::security::util::Cache;
 using $Debug = ::sun::security::util::Debug;
 
 namespace sun {
@@ -65,50 +62,6 @@ namespace sun {
 			namespace certpath {
 				namespace ldap {
 
-$FieldInfo _LDAPCertStoreImpl$LDAPRequest_FieldInfo_[] = {
-	{"this$0", "Lsun/security/provider/certpath/ldap/LDAPCertStoreImpl;", nullptr, $FINAL | $SYNTHETIC, $field(LDAPCertStoreImpl$LDAPRequest, this$0)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(LDAPCertStoreImpl$LDAPRequest, name)},
-	{"valueMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;[[B>;", $PRIVATE, $field(LDAPCertStoreImpl$LDAPRequest, valueMap)},
-	{"requestedAttributes", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(LDAPCertStoreImpl$LDAPRequest, requestedAttributes)},
-	{}
-};
-
-$MethodInfo _LDAPCertStoreImpl$LDAPRequest_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/provider/certpath/ldap/LDAPCertStoreImpl;Ljava/lang/String;)V", nullptr, 0, $method(LDAPCertStoreImpl$LDAPRequest, init$, void, $LDAPCertStoreImpl*, $String*), "java.security.cert.CertStoreException"},
-	{"addRequestedAttribute", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(LDAPCertStoreImpl$LDAPRequest, addRequestedAttribute, void, $String*)},
-	{"cacheAttribute", "(Ljava/lang/String;[[B)V", nullptr, $PRIVATE, $method(LDAPCertStoreImpl$LDAPRequest, cacheAttribute, void, $String*, $byteArray2*)},
-	{"checkName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(LDAPCertStoreImpl$LDAPRequest, checkName, $String*, $String*), "java.security.cert.CertStoreException"},
-	{"getAttributeValues", "(Ljavax/naming/directory/Attribute;)[[B", nullptr, $PRIVATE, $method(LDAPCertStoreImpl$LDAPRequest, getAttributeValues, $byteArray2*, $Attribute*), "javax.naming.NamingException"},
-	{"getValueMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;[[B>;", $PRIVATE, $method(LDAPCertStoreImpl$LDAPRequest, getValueMap, $Map*), "javax.naming.NamingException"},
-	{"getValues", "(Ljava/lang/String;)[[B", nullptr, 0, $virtualMethod(LDAPCertStoreImpl$LDAPRequest, getValues, $byteArray2*, $String*), "javax.naming.NamingException"},
-	{}
-};
-
-$InnerClassInfo _LDAPCertStoreImpl$LDAPRequest_InnerClassesInfo_[] = {
-	{"sun.security.provider.certpath.ldap.LDAPCertStoreImpl$LDAPRequest", "sun.security.provider.certpath.ldap.LDAPCertStoreImpl", "LDAPRequest", $PRIVATE},
-	{}
-};
-
-$ClassInfo _LDAPCertStoreImpl$LDAPRequest_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.provider.certpath.ldap.LDAPCertStoreImpl$LDAPRequest",
-	"java.lang.Object",
-	nullptr,
-	_LDAPCertStoreImpl$LDAPRequest_FieldInfo_,
-	_LDAPCertStoreImpl$LDAPRequest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LDAPCertStoreImpl$LDAPRequest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.certpath.ldap.LDAPCertStoreImpl"
-};
-
-$Object* allocate$LDAPCertStoreImpl$LDAPRequest($Class* clazz) {
-	return $of($alloc(LDAPCertStoreImpl$LDAPRequest));
-}
-
 void LDAPCertStoreImpl$LDAPRequest::init$($LDAPCertStoreImpl* this$0, $String* name) {
 	$set(this, this$0, this$0);
 	$set(this, name, checkName(name));
@@ -116,7 +69,7 @@ void LDAPCertStoreImpl$LDAPRequest::init$($LDAPCertStoreImpl* this$0, $String* n
 }
 
 $String* LDAPCertStoreImpl$LDAPRequest::checkName($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == nullptr) {
 		$throwNew($CertStoreException, "Name absent"_s);
 	}
@@ -134,14 +87,14 @@ void LDAPCertStoreImpl$LDAPRequest::addRequestedAttribute($String* attrId) {
 	if (this->valueMap != nullptr) {
 		$throwNew($IllegalStateException, "Request already sent"_s);
 	}
-	$nc(this->requestedAttributes)->add(attrId);
+	this->requestedAttributes->add(attrId);
 }
 
 $byteArray2* LDAPCertStoreImpl$LDAPRequest::getValues($String* attrId) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($LDAPCertStoreImpl);
 	if ($LDAPCertStoreImpl::debug != nullptr && $Debug::isVerbose() && ((this->this$0->cacheHits + this->this$0->cacheMisses) % 50 == 0)) {
-		$nc($LDAPCertStoreImpl::debug)->println($$str({"LDAPRequest Cache hits: "_s, $$str(this->this$0->cacheHits), "; misses: "_s, $$str(this->this$0->cacheMisses)}));
+		$LDAPCertStoreImpl::debug->println($$str({"LDAPRequest Cache hits: "_s, $$str(this->this$0->cacheHits), "; misses: "_s, $$str(this->this$0->cacheMisses)}));
 	}
 	$var($String, cacheKey, $str({this->name, "|"_s, attrId}));
 	$var($byteArray2, values, $cast($byteArray2, $nc(this->this$0->valueCache)->get(cacheKey)));
@@ -156,20 +109,20 @@ $byteArray2* LDAPCertStoreImpl$LDAPRequest::getValues($String* attrId) {
 }
 
 $Map* LDAPCertStoreImpl$LDAPRequest::getValueMap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->valueMap != nullptr) {
 		return this->valueMap;
 	}
 	$init($LDAPCertStoreImpl);
 	if ($LDAPCertStoreImpl::debug != nullptr && $Debug::isVerbose()) {
-		$nc($LDAPCertStoreImpl::debug)->println($$str({"LDAPRequest: "_s, this->name, ":"_s, this->requestedAttributes}));
+		$LDAPCertStoreImpl::debug->println($$str({"LDAPRequest: "_s, this->name, ":"_s, this->requestedAttributes}));
 		++this->this$0->requests;
 		if (this->this$0->requests % 5 == 0) {
-			$nc($LDAPCertStoreImpl::debug)->println($$str({"LDAP requests: "_s, $$str(this->this$0->requests)}));
+			$LDAPCertStoreImpl::debug->println($$str({"LDAP requests: "_s, $$str(this->this$0->requests)}));
 		}
 	}
 	$set(this, valueMap, $new($HashMap, 8));
-	$var($StringArray, attrIds, $fcast($StringArray, $nc(this->requestedAttributes)->toArray($LDAPCertStoreImpl::STRING0)));
+	$var($StringArray, attrIds, $cast($StringArray, this->requestedAttributes->toArray($LDAPCertStoreImpl::STRING0)));
 	$var($Attributes, attrs, nullptr);
 	if (this->this$0->communicationError) {
 		$nc(this->this$0->ctx)->reconnect(nullptr);
@@ -182,7 +135,7 @@ $Map* LDAPCertStoreImpl$LDAPRequest::getValueMap() {
 			try {
 				$var($String, newName, $cast($String, $nc(lre)->getReferralInfo()));
 				$var($URI, newUri, $new($URI, newName));
-				if (!$nc($(newUri->getScheme()))->equalsIgnoreCase("ldap"_s)) {
+				if (!$$nc(newUri->getScheme())->equalsIgnoreCase("ldap"_s)) {
 					$throwNew($IllegalArgumentException, "Not LDAP"_s);
 				}
 				$var($String, newDn, newUri->getPath());
@@ -194,36 +147,34 @@ $Map* LDAPCertStoreImpl$LDAPRequest::getValueMap() {
 				$throwNew($NamingException, $$str({"Cannot follow referral to "_s, $($nc(lre)->getReferralInfo())}));
 			}
 			$var($LdapContext, refCtx, $cast($LdapContext, $nc(lre)->getReferralContext()));
-			{
-				$var($Throwable, var$0, nullptr);
-				bool break$1 = false;
-				bool continue$2 = false;
+			$var($Throwable, var$0, nullptr);
+			bool break$1 = false;
+			bool continue$2 = false;
+			try {
 				try {
-					try {
-						$assign(attrs, $nc(refCtx)->getAttributes(this->name, attrIds));
-						// break;
-						break$1 = true;
-						goto $finally;
-					} catch ($LdapReferralException& re) {
-						$assign(lre, re);
-						// continue;
-						continue$2 = true;
-						goto $finally;
-					}
-				} catch ($Throwable& var$3) {
-					$assign(var$0, var$3);
-				} $finally: {
-					$nc(refCtx)->close();
+					$assign(attrs, $nc(refCtx)->getAttributes(this->name, attrIds));
+					// break;
+					break$1 = true;
+					goto $finally;
+				} catch ($LdapReferralException& re) {
+					$assign(lre, re);
+					// continue;
+					continue$2 = true;
+					goto $finally;
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
-				if (break$1) {
-					break;
-				}
-				if (continue$2) {
-					continue;
-				}
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
+			} $finally: {
+				$nc(refCtx)->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+			if (break$1) {
+				break;
+			}
+			if (continue$2) {
+				continue;
 			}
 		}
 	} catch ($CommunicationException& ce) {
@@ -233,7 +184,7 @@ $Map* LDAPCertStoreImpl$LDAPRequest::getValueMap() {
 		$assign(attrs, $LDAPCertStoreImpl::EMPTY_ATTRIBUTES);
 	}
 	{
-		$var($Iterator, i$, $nc(this->requestedAttributes)->iterator());
+		$var($Iterator, i$, this->requestedAttributes->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, attrId, $cast($String, i$->next()));
 			{
@@ -253,13 +204,13 @@ void LDAPCertStoreImpl$LDAPRequest::cacheAttribute($String* attrId, $byteArray2*
 }
 
 $byteArray2* LDAPCertStoreImpl$LDAPRequest::getAttributeValues($Attribute* attr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($byteArray2, values, nullptr);
 	if (attr == nullptr) {
 		$init($LDAPCertStoreImpl);
 		$assign(values, $LDAPCertStoreImpl::BB0);
 	} else {
-		$assign(values, $new($byteArray2, $nc(attr)->size()));
+		$assign(values, $new($byteArray2, attr->size()));
 		int32_t i = 0;
 		$var($NamingEnumeration, enum_, attr->getAll());
 		while ($nc(enum_)->hasMore()) {
@@ -267,7 +218,7 @@ $byteArray2* LDAPCertStoreImpl$LDAPRequest::getAttributeValues($Attribute* attr)
 			$init($LDAPCertStoreImpl);
 			if ($LDAPCertStoreImpl::debug != nullptr) {
 				if ($instanceOf($String, obj)) {
-					$nc($LDAPCertStoreImpl::debug)->println($$str({"LDAPCertStore.getAttrValues() enum.next is a string!: "_s, obj}));
+					$LDAPCertStoreImpl::debug->println($$str({"LDAPCertStore.getAttrValues() enum.next is a string!: "_s, obj}));
 				}
 			}
 			$var($bytes, value, $cast($bytes, obj));
@@ -281,7 +232,45 @@ LDAPCertStoreImpl$LDAPRequest::LDAPCertStoreImpl$LDAPRequest() {
 }
 
 $Class* LDAPCertStoreImpl$LDAPRequest::load$($String* name, bool initialize) {
-	$loadClass(LDAPCertStoreImpl$LDAPRequest, name, initialize, &_LDAPCertStoreImpl$LDAPRequest_ClassInfo_, allocate$LDAPCertStoreImpl$LDAPRequest);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/security/provider/certpath/ldap/LDAPCertStoreImpl;", nullptr, $FINAL | $SYNTHETIC, $field(LDAPCertStoreImpl$LDAPRequest, this$0)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(LDAPCertStoreImpl$LDAPRequest, name)},
+		{"valueMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;[[B>;", $PRIVATE, $field(LDAPCertStoreImpl$LDAPRequest, valueMap)},
+		{"requestedAttributes", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(LDAPCertStoreImpl$LDAPRequest, requestedAttributes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/provider/certpath/ldap/LDAPCertStoreImpl;Ljava/lang/String;)V", nullptr, 0, $method(LDAPCertStoreImpl$LDAPRequest, init$, void, $LDAPCertStoreImpl*, $String*), "java.security.cert.CertStoreException"},
+		{"addRequestedAttribute", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(LDAPCertStoreImpl$LDAPRequest, addRequestedAttribute, void, $String*)},
+		{"cacheAttribute", "(Ljava/lang/String;[[B)V", nullptr, $PRIVATE, $method(LDAPCertStoreImpl$LDAPRequest, cacheAttribute, void, $String*, $byteArray2*)},
+		{"checkName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(LDAPCertStoreImpl$LDAPRequest, checkName, $String*, $String*), "java.security.cert.CertStoreException"},
+		{"getAttributeValues", "(Ljavax/naming/directory/Attribute;)[[B", nullptr, $PRIVATE, $method(LDAPCertStoreImpl$LDAPRequest, getAttributeValues, $byteArray2*, $Attribute*), "javax.naming.NamingException"},
+		{"getValueMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;[[B>;", $PRIVATE, $method(LDAPCertStoreImpl$LDAPRequest, getValueMap, $Map*), "javax.naming.NamingException"},
+		{"getValues", "(Ljava/lang/String;)[[B", nullptr, 0, $virtualMethod(LDAPCertStoreImpl$LDAPRequest, getValues, $byteArray2*, $String*), "javax.naming.NamingException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.certpath.ldap.LDAPCertStoreImpl$LDAPRequest", "sun.security.provider.certpath.ldap.LDAPCertStoreImpl", "LDAPRequest", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.provider.certpath.ldap.LDAPCertStoreImpl$LDAPRequest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.certpath.ldap.LDAPCertStoreImpl"
+	};
+	$loadClass(LDAPCertStoreImpl$LDAPRequest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LDAPCertStoreImpl$LDAPRequest);
+	});
 	return class$;
 }
 

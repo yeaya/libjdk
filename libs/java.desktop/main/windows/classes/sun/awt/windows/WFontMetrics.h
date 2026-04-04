@@ -25,6 +25,7 @@ class WFontMetrics : public ::java::awt::FontMetrics {
 	$class(WFontMetrics, 0, ::java::awt::FontMetrics)
 public:
 	WFontMetrics();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Font* font);
 	virtual int32_t bytesWidth($bytes* data, int32_t off, int32_t len) override;
 	virtual int32_t charsWidth($chars* data, int32_t off, int32_t len) override;

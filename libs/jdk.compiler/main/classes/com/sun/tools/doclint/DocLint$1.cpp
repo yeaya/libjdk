@@ -1,5 +1,4 @@
 #include <com/sun/tools/doclint/DocLint$1.h>
-
 #include <com/sun/tools/doclint/DocLint$NoDocLint.h>
 #include <jcpp.h>
 
@@ -14,45 +13,6 @@ namespace com {
 		namespace tools {
 			namespace doclint {
 
-$MethodInfo _DocLint$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DocLint$1, init$, void)},
-	{"get", "()Lcom/sun/tools/doclint/DocLint;", nullptr, $PUBLIC, $virtualMethod(DocLint$1, get, $Object*)},
-	{"type", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Lcom/sun/tools/doclint/DocLint;>;", $PUBLIC, $virtualMethod(DocLint$1, type, $Class*)},
-	{}
-};
-
-$EnclosingMethodInfo _DocLint$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.doclint.DocLint",
-	"newDocLint",
-	"()Lcom/sun/tools/doclint/DocLint;"
-};
-
-$InnerClassInfo _DocLint$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.doclint.DocLint$1", nullptr, nullptr, 0},
-	{"java.util.ServiceLoader$Provider", "java.util.ServiceLoader", "Provider", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DocLint$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.doclint.DocLint$1",
-	"java.lang.Object",
-	"java.util.ServiceLoader$Provider",
-	nullptr,
-	_DocLint$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/ServiceLoader$Provider<Lcom/sun/tools/doclint/DocLint;>;",
-	&_DocLint$1_EnclosingMethodInfo_,
-	_DocLint$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.doclint.DocLint"
-};
-
-$Object* allocate$DocLint$1($Class* clazz) {
-	return $of($alloc(DocLint$1));
-}
-
 void DocLint$1::init$() {
 }
 
@@ -62,14 +22,47 @@ $Class* DocLint$1::type() {
 }
 
 $Object* DocLint$1::get() {
-	return $of($new($DocLint$NoDocLint));
+	return $new($DocLint$NoDocLint);
 }
 
 DocLint$1::DocLint$1() {
 }
 
 $Class* DocLint$1::load$($String* name, bool initialize) {
-	$loadClass(DocLint$1, name, initialize, &_DocLint$1_ClassInfo_, allocate$DocLint$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DocLint$1, init$, void)},
+		{"get", "()Lcom/sun/tools/doclint/DocLint;", nullptr, $PUBLIC, $virtualMethod(DocLint$1, get, $Object*)},
+		{"type", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Lcom/sun/tools/doclint/DocLint;>;", $PUBLIC, $virtualMethod(DocLint$1, type, $Class*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.doclint.DocLint",
+		"newDocLint",
+		"()Lcom/sun/tools/doclint/DocLint;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.doclint.DocLint$1", nullptr, nullptr, 0},
+		{"java.util.ServiceLoader$Provider", "java.util.ServiceLoader", "Provider", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.doclint.DocLint$1",
+		"java.lang.Object",
+		"java.util.ServiceLoader$Provider",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/ServiceLoader$Provider<Lcom/sun/tools/doclint/DocLint;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.doclint.DocLint"
+	};
+	$loadClass(DocLint$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DocLint$1);
+	});
 	return class$;
 }
 

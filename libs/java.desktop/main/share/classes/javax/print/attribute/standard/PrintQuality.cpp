@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/PrintQuality.h>
-
 #include <javax/print/attribute/EnumSyntax.h>
 #include <jcpp.h>
 
@@ -18,44 +17,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _PrintQuality_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrintQuality, serialVersionUID)},
-	{"DRAFT", "Ljavax/print/attribute/standard/PrintQuality;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrintQuality, DRAFT)},
-	{"NORMAL", "Ljavax/print/attribute/standard/PrintQuality;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrintQuality, NORMAL)},
-	{"HIGH", "Ljavax/print/attribute/standard/PrintQuality;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrintQuality, HIGH)},
-	{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintQuality, myStringTable)},
-	{"myEnumValueTable", "[Ljavax/print/attribute/standard/PrintQuality;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintQuality, myEnumValueTable)},
-	{}
-};
-
-$MethodInfo _PrintQuality_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(PrintQuality, init$, void, int32_t)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(PrintQuality, getCategory, $Class*)},
-	{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(PrintQuality, getEnumValueTable, $EnumSyntaxArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(PrintQuality, getName, $String*)},
-	{"getOffset", "()I", nullptr, $PROTECTED, $virtualMethod(PrintQuality, getOffset, int32_t)},
-	{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(PrintQuality, getStringTable, $StringArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _PrintQuality_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.print.attribute.standard.PrintQuality",
-	"javax.print.attribute.EnumSyntax",
-	"javax.print.attribute.DocAttribute,javax.print.attribute.PrintRequestAttribute,javax.print.attribute.PrintJobAttribute",
-	_PrintQuality_FieldInfo_,
-	_PrintQuality_MethodInfo_
-};
-
-$Object* allocate$PrintQuality($Class* clazz) {
-	return $of($alloc(PrintQuality));
-}
 
 $Object* PrintQuality::clone() {
 	 return this->$EnumSyntax::clone();
@@ -88,11 +49,11 @@ void PrintQuality::init$(int32_t value) {
 }
 
 $StringArray* PrintQuality::getStringTable() {
-	return $cast($StringArray, $nc(PrintQuality::myStringTable)->clone());
+	return $cast($StringArray, PrintQuality::myStringTable->clone());
 }
 
 $EnumSyntaxArray* PrintQuality::getEnumValueTable() {
-	return $cast($EnumSyntaxArray, $nc(PrintQuality::myEnumValueTable)->clone());
+	return $cast($EnumSyntaxArray, PrintQuality::myEnumValueTable->clone());
 }
 
 int32_t PrintQuality::getOffset() {
@@ -107,7 +68,7 @@ $String* PrintQuality::getName() {
 	return "print-quality"_s;
 }
 
-void clinit$PrintQuality($Class* class$) {
+void PrintQuality::clinit$($Class* clazz) {
 	$assignStatic(PrintQuality::DRAFT, $new(PrintQuality, 3));
 	$assignStatic(PrintQuality::NORMAL, $new(PrintQuality, 4));
 	$assignStatic(PrintQuality::HIGH, $new(PrintQuality, 5));
@@ -127,7 +88,40 @@ PrintQuality::PrintQuality() {
 }
 
 $Class* PrintQuality::load$($String* name, bool initialize) {
-	$loadClass(PrintQuality, name, initialize, &_PrintQuality_ClassInfo_, clinit$PrintQuality, allocate$PrintQuality);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrintQuality, serialVersionUID)},
+		{"DRAFT", "Ljavax/print/attribute/standard/PrintQuality;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrintQuality, DRAFT)},
+		{"NORMAL", "Ljavax/print/attribute/standard/PrintQuality;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrintQuality, NORMAL)},
+		{"HIGH", "Ljavax/print/attribute/standard/PrintQuality;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrintQuality, HIGH)},
+		{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintQuality, myStringTable)},
+		{"myEnumValueTable", "[Ljavax/print/attribute/standard/PrintQuality;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintQuality, myEnumValueTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(PrintQuality, init$, void, int32_t)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(PrintQuality, getCategory, $Class*)},
+		{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(PrintQuality, getEnumValueTable, $EnumSyntaxArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(PrintQuality, getName, $String*)},
+		{"getOffset", "()I", nullptr, $PROTECTED, $virtualMethod(PrintQuality, getOffset, int32_t)},
+		{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(PrintQuality, getStringTable, $StringArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.print.attribute.standard.PrintQuality",
+		"javax.print.attribute.EnumSyntax",
+		"javax.print.attribute.DocAttribute,javax.print.attribute.PrintRequestAttribute,javax.print.attribute.PrintJobAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PrintQuality, name, initialize, &classInfo$$, PrintQuality::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PrintQuality));
+	});
 	return class$;
 }
 

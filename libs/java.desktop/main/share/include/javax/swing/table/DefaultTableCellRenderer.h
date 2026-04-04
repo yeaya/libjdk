@@ -53,6 +53,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void firePropertyChange($String* propertyName, Object$* oldValue, Object$* newValue) override;
 	virtual void firePropertyChange($String* propertyName, bool oldValue, bool newValue) override;

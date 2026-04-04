@@ -19,7 +19,10 @@ public:
 	static const int64_t serialVersionUID = 0;
 	Gen$CodeSizeOverflow(const Gen$CodeSizeOverflow& e);
 	virtual void throw$() override;
-	inline Gen$CodeSizeOverflow* operator ->() {
+	inline Gen$CodeSizeOverflow* operator ->() const {
+		return (Gen$CodeSizeOverflow*)throwing$;
+	}
+	inline operator Gen$CodeSizeOverflow*() const {
 		return (Gen$CodeSizeOverflow*)throwing$;
 	}
 };

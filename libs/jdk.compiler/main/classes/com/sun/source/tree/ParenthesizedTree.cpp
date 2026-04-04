@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/ParenthesizedTree.h>
-
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _ParenthesizedTree_MethodInfo_[] = {
-	{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParenthesizedTree, getExpression, $ExpressionTree*)},
-	{}
-};
-
-$ClassInfo _ParenthesizedTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.ParenthesizedTree",
-	nullptr,
-	"com.sun.source.tree.ExpressionTree",
-	nullptr,
-	_ParenthesizedTree_MethodInfo_
-};
-
-$Object* allocate$ParenthesizedTree($Class* clazz) {
-	return $of($alloc(ParenthesizedTree));
-}
-
 $Class* ParenthesizedTree::load$($String* name, bool initialize) {
-	$loadClass(ParenthesizedTree, name, initialize, &_ParenthesizedTree_ClassInfo_, allocate$ParenthesizedTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParenthesizedTree, getExpression, $ExpressionTree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.ParenthesizedTree",
+		nullptr,
+		"com.sun.source.tree.ExpressionTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ParenthesizedTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ParenthesizedTree);
+	});
 	return class$;
 }
 

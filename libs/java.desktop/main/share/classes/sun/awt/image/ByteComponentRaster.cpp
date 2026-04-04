@@ -1,5 +1,4 @@
 #include <sun/awt/image/ByteComponentRaster.h>
-
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/image/ComponentSampleModel.h>
@@ -23,7 +22,6 @@
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $ComponentSampleModel = ::java::awt::image::ComponentSampleModel;
-using $DataBuffer = ::java::awt::image::DataBuffer;
 using $DataBufferByte = ::java::awt::image::DataBufferByte;
 using $Raster = ::java::awt::image::Raster;
 using $RasterFormatException = ::java::awt::image::RasterFormatException;
@@ -43,77 +41,20 @@ namespace sun {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _ByteComponentRaster_FieldInfo_[] = {
-	{"bandOffset", "I", nullptr, $PROTECTED, $field(ByteComponentRaster, bandOffset)},
-	{"dataOffsets", "[I", nullptr, $PROTECTED, $field(ByteComponentRaster, dataOffsets)},
-	{"scanlineStride", "I", nullptr, $PROTECTED, $field(ByteComponentRaster, scanlineStride)},
-	{"pixelStride", "I", nullptr, $PROTECTED, $field(ByteComponentRaster, pixelStride)},
-	{"data", "[B", nullptr, $PROTECTED, $field(ByteComponentRaster, data)},
-	{"type", "I", nullptr, 0, $field(ByteComponentRaster, type)},
-	{"maxX", "I", nullptr, $PRIVATE, $field(ByteComponentRaster, maxX)},
-	{"maxY", "I", nullptr, $PRIVATE, $field(ByteComponentRaster, maxY)},
-	{}
-};
-
-$MethodInfo _ByteComponentRaster_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(ByteComponentRaster, init$, void, $SampleModel*, $Point*)},
-	{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBufferByte;Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(ByteComponentRaster, init$, void, $SampleModel*, $DataBufferByte*, $Point*)},
-	{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBufferByte;Ljava/awt/Rectangle;Ljava/awt/Point;Lsun/awt/image/ByteComponentRaster;)V", nullptr, $PUBLIC, $method(ByteComponentRaster, init$, void, $SampleModel*, $DataBufferByte*, $Rectangle*, $Point*, ByteComponentRaster*)},
-	{"createChild", "(IIIIII[I)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, createChild, $Raster*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"createCompatibleWritableRaster", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, createCompatibleWritableRaster, $WritableRaster*, int32_t, int32_t)},
-	{"createCompatibleWritableRaster", "()Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, createCompatibleWritableRaster, $WritableRaster*)},
-	{"createWritableChild", "(IIIIII[I)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, createWritableChild, $WritableRaster*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"getByteData", "(IIIII[B)[B", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, getByteData, $bytes*, int32_t, int32_t, int32_t, int32_t, int32_t, $bytes*)},
-	{"getByteData", "(IIII[B)[B", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, getByteData, $bytes*, int32_t, int32_t, int32_t, int32_t, $bytes*)},
-	{"getDataElements", "(IILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, getDataElements, $Object*, int32_t, int32_t, Object$*)},
-	{"getDataElements", "(IIIILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, getDataElements, $Object*, int32_t, int32_t, int32_t, int32_t, Object$*)},
-	{"getDataOffset", "(I)I", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, getDataOffset, int32_t, int32_t)},
-	{"getDataOffsets", "()[I", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, getDataOffsets, $ints*)},
-	{"getDataStorage", "()[B", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, getDataStorage, $bytes*)},
-	{"getPixelStride", "()I", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, getPixelStride, int32_t)},
-	{"getScanlineStride", "()I", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, getScanlineStride, int32_t)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ByteComponentRaster, initIDs, void)},
-	{"putByteData", "(IIIII[B)V", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, putByteData, void, int32_t, int32_t, int32_t, int32_t, int32_t, $bytes*)},
-	{"putByteData", "(IIII[B)V", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, putByteData, void, int32_t, int32_t, int32_t, int32_t, $bytes*)},
-	{"setDataElements", "(IILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, setDataElements, void, int32_t, int32_t, Object$*)},
-	{"setDataElements", "(IILjava/awt/image/Raster;)V", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, setDataElements, void, int32_t, int32_t, $Raster*)},
-	{"setDataElements", "(IIIILjava/awt/image/Raster;)V", nullptr, $PRIVATE, $method(ByteComponentRaster, setDataElements, void, int32_t, int32_t, int32_t, int32_t, $Raster*)},
-	{"setDataElements", "(IIIILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, setDataElements, void, int32_t, int32_t, int32_t, int32_t, Object$*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, toString, $String*)},
-	{"verify", "()V", nullptr, $PROTECTED | $FINAL, $method(ByteComponentRaster, verify, void)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 16
-
-$ClassInfo _ByteComponentRaster_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.image.ByteComponentRaster",
-	"sun.awt.image.SunWritableRaster",
-	nullptr,
-	_ByteComponentRaster_FieldInfo_,
-	_ByteComponentRaster_MethodInfo_
-};
-
-$Object* allocate$ByteComponentRaster($Class* clazz) {
-	return $of($alloc(ByteComponentRaster));
-}
-
 void ByteComponentRaster::initIDs() {
 	$init(ByteComponentRaster);
-	$prepareNativeStatic(ByteComponentRaster, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void ByteComponentRaster::init$($SampleModel* sampleModel, $Point* origin) {
-	$useLocalCurrentObjectStackCache();
-	$var($SampleModel, var$0, sampleModel);
-	$var($DataBufferByte, var$1, $cast($DataBufferByte, $nc(sampleModel)->createDataBuffer()));
-	int32_t var$2 = $nc(origin)->x;
-	int32_t var$3 = origin->y;
-	int32_t var$4 = sampleModel->getWidth();
-	ByteComponentRaster::init$(var$0, var$1, $$new($Rectangle, var$2, var$3, var$4, sampleModel->getHeight()), origin, nullptr);
+	$useLocalObjectStack();
+	$var($DataBufferByte, var$0, $cast($DataBufferByte, $nc(sampleModel)->createDataBuffer()));
+	int32_t var$1 = $nc(origin)->x;
+	int32_t var$2 = origin->y;
+	int32_t var$3 = sampleModel->getWidth();
+	ByteComponentRaster::init$(sampleModel, var$0, $$new($Rectangle, var$1, var$2, var$3, sampleModel->getHeight()), origin, nullptr);
 }
 
 void ByteComponentRaster::init$($SampleModel* sampleModel, $DataBufferByte* dataBuffer, $Point* origin) {
@@ -124,7 +65,7 @@ void ByteComponentRaster::init$($SampleModel* sampleModel, $DataBufferByte* data
 }
 
 void ByteComponentRaster::init$($SampleModel* sampleModel, $DataBufferByte* dataBuffer, $Rectangle* aRegion, $Point* origin, ByteComponentRaster* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SunWritableRaster::init$(sampleModel, dataBuffer, aRegion, origin, parent);
 	this->maxX = this->minX + this->width;
 	this->maxY = this->minY + this->height;
@@ -132,11 +73,11 @@ void ByteComponentRaster::init$($SampleModel* sampleModel, $DataBufferByte* data
 	if ($nc(dataBuffer)->getNumBanks() != 1) {
 		$throwNew($RasterFormatException, "DataBuffer for ByteComponentRasters must only have 1 bank."_s);
 	}
-	int32_t dbOffset = $nc(dataBuffer)->getOffset();
+	int32_t dbOffset = dataBuffer->getOffset();
 	if ($instanceOf($ComponentSampleModel, sampleModel)) {
 		$var($ComponentSampleModel, ism, $cast($ComponentSampleModel, sampleModel));
 		this->type = $IntegerComponentRaster::TYPE_BYTE_SAMPLES;
-		this->scanlineStride = $nc(ism)->getScanlineStride();
+		this->scanlineStride = ism->getScanlineStride();
 		this->pixelStride = ism->getPixelStride();
 		$set(this, dataOffsets, ism->getBandOffsets());
 		int32_t xOffset = $nc(aRegion)->x - $nc(origin)->x;
@@ -147,10 +88,10 @@ void ByteComponentRaster::init$($SampleModel* sampleModel, $DataBufferByte* data
 	} else if ($instanceOf($SinglePixelPackedSampleModel, sampleModel)) {
 		$var($SinglePixelPackedSampleModel, sppsm, $cast($SinglePixelPackedSampleModel, sampleModel));
 		this->type = $IntegerComponentRaster::TYPE_BYTE_PACKED_SAMPLES;
-		this->scanlineStride = $nc(sppsm)->getScanlineStride();
+		this->scanlineStride = sppsm->getScanlineStride();
 		this->pixelStride = 1;
 		$set(this, dataOffsets, $new($ints, 1));
-		$nc(this->dataOffsets)->set(0, dbOffset);
+		this->dataOffsets->set(0, dbOffset);
 		int32_t xOffset = $nc(aRegion)->x - $nc(origin)->x;
 		int32_t yOffset = aRegion->y - origin->y;
 		(*$nc(this->dataOffsets))[0] += xOffset * this->pixelStride + yOffset * this->scanlineStride;
@@ -195,7 +136,7 @@ $Object* ByteComponentRaster::getDataElements(int32_t x, int32_t y, Object$* obj
 	for (int32_t band = 0; band < this->numDataElements; ++band) {
 		$nc(outData)->set(band, $nc(this->data)->get($nc(this->dataOffsets)->get(band) + off));
 	}
-	return $of(outData);
+	return outData;
 }
 
 $Object* ByteComponentRaster::getDataElements(int32_t x, int32_t y, int32_t w, int32_t h, Object$* obj) {
@@ -221,7 +162,7 @@ $Object* ByteComponentRaster::getDataElements(int32_t x, int32_t y, int32_t w, i
 			}
 		}
 	}
-	return $of(outData);
+	return outData;
 }
 
 $bytes* ByteComponentRaster::getByteData(int32_t x, int32_t y, int32_t w, int32_t h, int32_t band, $bytes* outData$renamed) {
@@ -305,7 +246,7 @@ void ByteComponentRaster::setDataElements(int32_t x, int32_t y, $Raster* inRaste
 }
 
 void ByteComponentRaster::setDataElements(int32_t dstX, int32_t dstY, int32_t width, int32_t height, $Raster* inRaster) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (width <= 0 || height <= 0) {
 		return;
 	}
@@ -444,11 +385,11 @@ void ByteComponentRaster::putByteData(int32_t x, int32_t y, int32_t w, int32_t h
 
 $Raster* ByteComponentRaster::createChild(int32_t x, int32_t y, int32_t width, int32_t height, int32_t x0, int32_t y0, $ints* bandList) {
 	$var($WritableRaster, newRaster, createWritableChild(x, y, width, height, x0, y0, bandList));
-	return static_cast<$Raster*>(newRaster);
+	return $cast($Raster, newRaster);
 }
 
 $WritableRaster* ByteComponentRaster::createWritableChild(int32_t x, int32_t y, int32_t width, int32_t height, int32_t x0, int32_t y0, $ints* bandList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (x < this->minX) {
 		$throwNew($RasterFormatException, "x lies outside the raster"_s);
 	}
@@ -469,14 +410,13 @@ $WritableRaster* ByteComponentRaster::createWritableChild(int32_t x, int32_t y, 
 	}
 	int32_t deltaX = x0 - x;
 	int32_t deltaY = y0 - y;
-	$var($SampleModel, var$0, sm);
-	$var($DataBufferByte, var$1, $cast($DataBufferByte, this->dataBuffer));
-	$var($Rectangle, var$2, $new($Rectangle, x0, y0, width, height));
-	return $new(ByteComponentRaster, var$0, var$1, var$2, $$new($Point, this->sampleModelTranslateX + deltaX, this->sampleModelTranslateY + deltaY), this);
+	$var($DataBufferByte, var$0, $cast($DataBufferByte, this->dataBuffer));
+	$var($Rectangle, var$1, $new($Rectangle, x0, y0, width, height));
+	return $new(ByteComponentRaster, sm, var$0, var$1, $$new($Point, this->sampleModelTranslateX + deltaX, this->sampleModelTranslateY + deltaY), this);
 }
 
 $WritableRaster* ByteComponentRaster::createCompatibleWritableRaster(int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (w <= 0 || h <= 0) {
 		$throwNew($RasterFormatException, $$str({"negative "_s, ((w <= 0) ? "width"_s : "height"_s)}));
 	}
@@ -489,13 +429,13 @@ $WritableRaster* ByteComponentRaster::createCompatibleWritableRaster() {
 }
 
 void ByteComponentRaster::verify() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->width <= 0 || this->height <= 0 || this->height > ($div($Integer::MAX_VALUE, this->width))) {
 		$throwNew($RasterFormatException, "Invalid raster dimension"_s);
 	}
 	for (int32_t i = 0; i < $nc(this->dataOffsets)->length; ++i) {
-		if ($nc(this->dataOffsets)->get(i) < 0) {
-			$throwNew($RasterFormatException, $$str({"Data offsets for band "_s, $$str(i), "("_s, $$str($nc(this->dataOffsets)->get(i)), ") must be >= 0"_s}));
+		if (this->dataOffsets->get(i) < 0) {
+			$throwNew($RasterFormatException, $$str({"Data offsets for band "_s, $$str(i), "("_s, $$str(this->dataOffsets->get(i)), ") must be >= 0"_s}));
 		}
 	}
 	if ((int64_t)this->minX - this->sampleModelTranslateX < 0 || (int64_t)this->minY - this->sampleModelTranslateY < 0) {
@@ -521,10 +461,10 @@ void ByteComponentRaster::verify() {
 	int32_t index = 0;
 	int32_t maxIndex = 0;
 	for (int32_t i = 0; i < this->numDataElements; ++i) {
-		if ($nc(this->dataOffsets)->get(i) > ($Integer::MAX_VALUE - lastPixelOffset)) {
-			$throwNew($RasterFormatException, $$str({"Incorrect band offset: "_s, $$str($nc(this->dataOffsets)->get(i))}));
+		if (this->dataOffsets->get(i) > ($Integer::MAX_VALUE - lastPixelOffset)) {
+			$throwNew($RasterFormatException, $$str({"Incorrect band offset: "_s, $$str(this->dataOffsets->get(i))}));
 		}
-		index = lastPixelOffset + $nc(this->dataOffsets)->get(i);
+		index = lastPixelOffset + this->dataOffsets->get(i);
 		if (index > maxIndex) {
 			maxIndex = index;
 		}
@@ -535,11 +475,11 @@ void ByteComponentRaster::verify() {
 }
 
 $String* ByteComponentRaster::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($String, $$str({"ByteComponentRaster: width = "_s, $$str(this->width), " height = "_s, $$str(this->height), " #numDataElements "_s, $$str(this->numDataElements), " dataOff[0] = "_s, $$str($nc(this->dataOffsets)->get(0))}));
 }
 
-void clinit$ByteComponentRaster($Class* class$) {
+void ByteComponentRaster::clinit$($Class* clazz) {
 	{
 		$NativeLibLoader::loadLibraries();
 		ByteComponentRaster::initIDs();
@@ -550,7 +490,56 @@ ByteComponentRaster::ByteComponentRaster() {
 }
 
 $Class* ByteComponentRaster::load$($String* name, bool initialize) {
-	$loadClass(ByteComponentRaster, name, initialize, &_ByteComponentRaster_ClassInfo_, clinit$ByteComponentRaster, allocate$ByteComponentRaster);
+	$FieldInfo fieldInfos$$[] = {
+		{"bandOffset", "I", nullptr, $PROTECTED, $field(ByteComponentRaster, bandOffset)},
+		{"dataOffsets", "[I", nullptr, $PROTECTED, $field(ByteComponentRaster, dataOffsets)},
+		{"scanlineStride", "I", nullptr, $PROTECTED, $field(ByteComponentRaster, scanlineStride)},
+		{"pixelStride", "I", nullptr, $PROTECTED, $field(ByteComponentRaster, pixelStride)},
+		{"data", "[B", nullptr, $PROTECTED, $field(ByteComponentRaster, data)},
+		{"type", "I", nullptr, 0, $field(ByteComponentRaster, type)},
+		{"maxX", "I", nullptr, $PRIVATE, $field(ByteComponentRaster, maxX)},
+		{"maxY", "I", nullptr, $PRIVATE, $field(ByteComponentRaster, maxY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(ByteComponentRaster, init$, void, $SampleModel*, $Point*)},
+		{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBufferByte;Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(ByteComponentRaster, init$, void, $SampleModel*, $DataBufferByte*, $Point*)},
+		{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBufferByte;Ljava/awt/Rectangle;Ljava/awt/Point;Lsun/awt/image/ByteComponentRaster;)V", nullptr, $PUBLIC, $method(ByteComponentRaster, init$, void, $SampleModel*, $DataBufferByte*, $Rectangle*, $Point*, ByteComponentRaster*)},
+		{"createChild", "(IIIIII[I)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, createChild, $Raster*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"createCompatibleWritableRaster", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, createCompatibleWritableRaster, $WritableRaster*, int32_t, int32_t)},
+		{"createCompatibleWritableRaster", "()Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, createCompatibleWritableRaster, $WritableRaster*)},
+		{"createWritableChild", "(IIIIII[I)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, createWritableChild, $WritableRaster*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"getByteData", "(IIIII[B)[B", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, getByteData, $bytes*, int32_t, int32_t, int32_t, int32_t, int32_t, $bytes*)},
+		{"getByteData", "(IIII[B)[B", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, getByteData, $bytes*, int32_t, int32_t, int32_t, int32_t, $bytes*)},
+		{"getDataElements", "(IILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, getDataElements, $Object*, int32_t, int32_t, Object$*)},
+		{"getDataElements", "(IIIILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, getDataElements, $Object*, int32_t, int32_t, int32_t, int32_t, Object$*)},
+		{"getDataOffset", "(I)I", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, getDataOffset, int32_t, int32_t)},
+		{"getDataOffsets", "()[I", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, getDataOffsets, $ints*)},
+		{"getDataStorage", "()[B", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, getDataStorage, $bytes*)},
+		{"getPixelStride", "()I", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, getPixelStride, int32_t)},
+		{"getScanlineStride", "()I", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, getScanlineStride, int32_t)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ByteComponentRaster, initIDs, void)},
+		{"putByteData", "(IIIII[B)V", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, putByteData, void, int32_t, int32_t, int32_t, int32_t, int32_t, $bytes*)},
+		{"putByteData", "(IIII[B)V", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, putByteData, void, int32_t, int32_t, int32_t, int32_t, $bytes*)},
+		{"setDataElements", "(IILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, setDataElements, void, int32_t, int32_t, Object$*)},
+		{"setDataElements", "(IILjava/awt/image/Raster;)V", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, setDataElements, void, int32_t, int32_t, $Raster*)},
+		{"setDataElements", "(IIIILjava/awt/image/Raster;)V", nullptr, $PRIVATE, $method(ByteComponentRaster, setDataElements, void, int32_t, int32_t, int32_t, int32_t, $Raster*)},
+		{"setDataElements", "(IIIILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, setDataElements, void, int32_t, int32_t, int32_t, int32_t, Object$*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ByteComponentRaster, toString, $String*)},
+		{"verify", "()V", nullptr, $PROTECTED | $FINAL, $method(ByteComponentRaster, verify, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.image.ByteComponentRaster",
+		"sun.awt.image.SunWritableRaster",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ByteComponentRaster, name, initialize, &classInfo$$, ByteComponentRaster::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ByteComponentRaster);
+	});
 	return class$;
 }
 

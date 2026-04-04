@@ -17,10 +17,11 @@ class ManageReferralControl : public ::com::sun::jndi::ldap::BasicControl {
 	$class(ManageReferralControl, 0, ::com::sun::jndi::ldap::BasicControl)
 public:
 	ManageReferralControl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(bool criticality);
 	static $String* OID;
-	static const int64_t serialVersionUID = (int64_t)0x0C9EC6BDA475BDE8;
+	static const int64_t serialVersionUID = (int64_t)0x0c9ec6bda475bde8;
 };
 
 			} // ldap

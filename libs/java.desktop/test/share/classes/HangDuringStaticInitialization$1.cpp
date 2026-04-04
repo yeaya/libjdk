@@ -1,5 +1,4 @@
 #include <HangDuringStaticInitialization$1.h>
-
 #include <HangDuringStaticInitialization.h>
 #include <java/lang/ClassLoader.h>
 #include <java/nio/file/FileVisitResult.h>
@@ -20,54 +19,16 @@ using $Path = ::java::nio::file::Path;
 using $SimpleFileVisitor = ::java::nio::file::SimpleFileVisitor;
 using $BasicFileAttributes = ::java::nio::file::attribute::BasicFileAttributes;
 
-$MethodInfo _HangDuringStaticInitialization$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HangDuringStaticInitialization$1, init$, void)},
-	{"visitFile", "(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC, $virtualMethod(HangDuringStaticInitialization$1, visitFile, $FileVisitResult*, $Path*, $BasicFileAttributes*)},
-	{"visitFile", "(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(HangDuringStaticInitialization$1, visitFile, $FileVisitResult*, Object$*, $BasicFileAttributes*), "java.io.IOException"},
-	{}
-};
-
-$EnclosingMethodInfo _HangDuringStaticInitialization$1_EnclosingMethodInfo_ = {
-	"HangDuringStaticInitialization",
-	"test",
-	"(Ljava/nio/file/FileSystem;Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _HangDuringStaticInitialization$1_InnerClassesInfo_[] = {
-	{"HangDuringStaticInitialization$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HangDuringStaticInitialization$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"HangDuringStaticInitialization$1",
-	"java.nio.file.SimpleFileVisitor",
-	nullptr,
-	nullptr,
-	_HangDuringStaticInitialization$1_MethodInfo_,
-	"Ljava/nio/file/SimpleFileVisitor<Ljava/nio/file/Path;>;",
-	&_HangDuringStaticInitialization$1_EnclosingMethodInfo_,
-	_HangDuringStaticInitialization$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"HangDuringStaticInitialization"
-};
-
-$Object* allocate$HangDuringStaticInitialization$1($Class* clazz) {
-	return $of($alloc(HangDuringStaticInitialization$1));
-}
-
 void HangDuringStaticInitialization$1::init$() {
 	$SimpleFileVisitor::init$();
 }
 
 $FileVisitResult* HangDuringStaticInitialization$1::visitFile($Path* file$renamed, $BasicFileAttributes* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, file, file$renamed);
 	$beforeCallerSensitive();
-	$assign(file, $nc(file)->subpath(2, file->getNameCount()));
-	$var($String, name, file->toString());
+	$assign(file, $nc(file)->subpath(2, $nc(file)->getNameCount()));
+	$var($String, name, $nc(file)->toString());
 	if ($nc(name)->endsWith(".class"_s)) {
 		$assign(name, $(name->substring(0, name->indexOf("."_s)))->replace(u'/', u'.'));
 		try {
@@ -87,7 +48,39 @@ HangDuringStaticInitialization$1::HangDuringStaticInitialization$1() {
 }
 
 $Class* HangDuringStaticInitialization$1::load$($String* name, bool initialize) {
-	$loadClass(HangDuringStaticInitialization$1, name, initialize, &_HangDuringStaticInitialization$1_ClassInfo_, allocate$HangDuringStaticInitialization$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HangDuringStaticInitialization$1, init$, void)},
+		{"visitFile", "(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC, $virtualMethod(HangDuringStaticInitialization$1, visitFile, $FileVisitResult*, $Path*, $BasicFileAttributes*)},
+		{"visitFile", "(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(HangDuringStaticInitialization$1, visitFile, $FileVisitResult*, Object$*, $BasicFileAttributes*), "java.io.IOException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"HangDuringStaticInitialization",
+		"test",
+		"(Ljava/nio/file/FileSystem;Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HangDuringStaticInitialization$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"HangDuringStaticInitialization$1",
+		"java.nio.file.SimpleFileVisitor",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Ljava/nio/file/SimpleFileVisitor<Ljava/nio/file/Path;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"HangDuringStaticInitialization"
+	};
+	$loadClass(HangDuringStaticInitialization$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HangDuringStaticInitialization$1);
+	});
 	return class$;
 }
 

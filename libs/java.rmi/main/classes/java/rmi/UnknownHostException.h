@@ -20,10 +20,13 @@ public:
 	UnknownHostException();
 	void init$($String* s);
 	void init$($String* s, ::java::lang::Exception* ex);
-	static const int64_t serialVersionUID = (int64_t)0x8EDBC1399086994C;
+	static const int64_t serialVersionUID = (int64_t)0x8edbc1399086994c;
 	UnknownHostException(const UnknownHostException& e);
 	virtual void throw$() override;
-	inline UnknownHostException* operator ->() {
+	inline UnknownHostException* operator ->() const {
+		return (UnknownHostException*)throwing$;
+	}
+	inline operator UnknownHostException*() const {
 		return (UnknownHostException*)throwing$;
 	}
 };

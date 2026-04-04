@@ -1,5 +1,4 @@
 #include <sun/awt/geom/CurveLink.h>
-
 #include <java/lang/InternalError.h>
 #include <java/lang/Math.h>
 #include <sun/awt/geom/Curve.h>
@@ -18,70 +17,29 @@ namespace sun {
 	namespace awt {
 		namespace geom {
 
-$FieldInfo _CurveLink_FieldInfo_[] = {
-	{"curve", "Lsun/awt/geom/Curve;", nullptr, 0, $field(CurveLink, curve)},
-	{"ytop", "D", nullptr, 0, $field(CurveLink, ytop)},
-	{"ybot", "D", nullptr, 0, $field(CurveLink, ybot)},
-	{"etag", "I", nullptr, 0, $field(CurveLink, etag)},
-	{"next", "Lsun/awt/geom/CurveLink;", nullptr, 0, $field(CurveLink, next)},
-	{}
-};
-
-$MethodInfo _CurveLink_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/geom/Curve;DDI)V", nullptr, $PUBLIC, $method(CurveLink, init$, void, $Curve*, double, double, int32_t)},
-	{"absorb", "(Lsun/awt/geom/CurveLink;)Z", nullptr, $PUBLIC, $method(CurveLink, absorb, bool, CurveLink*)},
-	{"absorb", "(Lsun/awt/geom/Curve;DDI)Z", nullptr, $PUBLIC, $method(CurveLink, absorb, bool, $Curve*, double, double, int32_t)},
-	{"getCurve", "()Lsun/awt/geom/Curve;", nullptr, $PUBLIC, $method(CurveLink, getCurve, $Curve*)},
-	{"getEdgeTag", "()I", nullptr, $PUBLIC, $method(CurveLink, getEdgeTag, int32_t)},
-	{"getMoveto", "()Lsun/awt/geom/Curve;", nullptr, $PUBLIC, $method(CurveLink, getMoveto, $Curve*)},
-	{"getNext", "()Lsun/awt/geom/CurveLink;", nullptr, $PUBLIC, $method(CurveLink, getNext, CurveLink*)},
-	{"getSubCurve", "()Lsun/awt/geom/Curve;", nullptr, $PUBLIC, $method(CurveLink, getSubCurve, $Curve*)},
-	{"getX", "()D", nullptr, $PUBLIC, $method(CurveLink, getX, double)},
-	{"getXBot", "()D", nullptr, $PUBLIC, $method(CurveLink, getXBot, double)},
-	{"getXTop", "()D", nullptr, $PUBLIC, $method(CurveLink, getXTop, double)},
-	{"getYBot", "()D", nullptr, $PUBLIC, $method(CurveLink, getYBot, double)},
-	{"getYTop", "()D", nullptr, $PUBLIC, $method(CurveLink, getYTop, double)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $method(CurveLink, isEmpty, bool)},
-	{"setNext", "(Lsun/awt/geom/CurveLink;)V", nullptr, $PUBLIC, $method(CurveLink, setNext, void, CurveLink*)},
-	{}
-};
-
-$ClassInfo _CurveLink_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.geom.CurveLink",
-	"java.lang.Object",
-	nullptr,
-	_CurveLink_FieldInfo_,
-	_CurveLink_MethodInfo_
-};
-
-$Object* allocate$CurveLink($Class* clazz) {
-	return $of($alloc(CurveLink));
-}
-
 void CurveLink::init$($Curve* curve, double ystart, double yend, int32_t etag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, curve, curve);
 	this->ytop = ystart;
 	this->ybot = yend;
 	this->etag = etag;
 	bool var$0 = this->ytop < $nc(curve)->getYTop();
-	if (var$0 || this->ybot > $nc(curve)->getYBot()) {
+	if (var$0 || this->ybot > curve->getYBot()) {
 		$throwNew($InternalError, $$str({"bad curvelink ["_s, $$str(this->ytop), "=>"_s, $$str(this->ybot), "] for "_s, curve}));
 	}
 }
 
 bool CurveLink::absorb(CurveLink* link) {
-	return absorb($nc(link)->curve, link->ytop, link->ybot, link->etag);
+	return absorb($nc(link)->curve, $nc(link)->ytop, $nc(link)->ybot, $nc(link)->etag);
 }
 
 bool CurveLink::absorb($Curve* curve, double ystart, double yend, int32_t etag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->curve != curve || this->etag != etag || this->ybot < ystart || this->ytop > yend) {
 		return false;
 	}
 	bool var$0 = ystart < $nc(curve)->getYTop();
-	if (var$0 || yend > $nc(curve)->getYBot()) {
+	if (var$0 || yend > curve->getYBot()) {
 		$throwNew($InternalError, $$str({"bad curvelink ["_s, $$str(ystart), "=>"_s, $$str(yend), "] for "_s, curve}));
 	}
 	this->ytop = $Math::min(this->ytop, ystart);
@@ -99,7 +57,7 @@ $Curve* CurveLink::getCurve() {
 
 $Curve* CurveLink::getSubCurve() {
 	bool var$0 = this->ytop == $nc(this->curve)->getYTop();
-	if (var$0 && this->ybot == $nc(this->curve)->getYBot()) {
+	if (var$0 && this->ybot == this->curve->getYBot()) {
 		return $nc(this->curve)->getWithDirection(this->etag);
 	}
 	return $nc(this->curve)->getSubCurve(this->ytop, this->ybot, this->etag);
@@ -146,7 +104,43 @@ CurveLink::CurveLink() {
 }
 
 $Class* CurveLink::load$($String* name, bool initialize) {
-	$loadClass(CurveLink, name, initialize, &_CurveLink_ClassInfo_, allocate$CurveLink);
+	$FieldInfo fieldInfos$$[] = {
+		{"curve", "Lsun/awt/geom/Curve;", nullptr, 0, $field(CurveLink, curve)},
+		{"ytop", "D", nullptr, 0, $field(CurveLink, ytop)},
+		{"ybot", "D", nullptr, 0, $field(CurveLink, ybot)},
+		{"etag", "I", nullptr, 0, $field(CurveLink, etag)},
+		{"next", "Lsun/awt/geom/CurveLink;", nullptr, 0, $field(CurveLink, next)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/geom/Curve;DDI)V", nullptr, $PUBLIC, $method(CurveLink, init$, void, $Curve*, double, double, int32_t)},
+		{"absorb", "(Lsun/awt/geom/CurveLink;)Z", nullptr, $PUBLIC, $method(CurveLink, absorb, bool, CurveLink*)},
+		{"absorb", "(Lsun/awt/geom/Curve;DDI)Z", nullptr, $PUBLIC, $method(CurveLink, absorb, bool, $Curve*, double, double, int32_t)},
+		{"getCurve", "()Lsun/awt/geom/Curve;", nullptr, $PUBLIC, $method(CurveLink, getCurve, $Curve*)},
+		{"getEdgeTag", "()I", nullptr, $PUBLIC, $method(CurveLink, getEdgeTag, int32_t)},
+		{"getMoveto", "()Lsun/awt/geom/Curve;", nullptr, $PUBLIC, $method(CurveLink, getMoveto, $Curve*)},
+		{"getNext", "()Lsun/awt/geom/CurveLink;", nullptr, $PUBLIC, $method(CurveLink, getNext, CurveLink*)},
+		{"getSubCurve", "()Lsun/awt/geom/Curve;", nullptr, $PUBLIC, $method(CurveLink, getSubCurve, $Curve*)},
+		{"getX", "()D", nullptr, $PUBLIC, $method(CurveLink, getX, double)},
+		{"getXBot", "()D", nullptr, $PUBLIC, $method(CurveLink, getXBot, double)},
+		{"getXTop", "()D", nullptr, $PUBLIC, $method(CurveLink, getXTop, double)},
+		{"getYBot", "()D", nullptr, $PUBLIC, $method(CurveLink, getYBot, double)},
+		{"getYTop", "()D", nullptr, $PUBLIC, $method(CurveLink, getYTop, double)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $method(CurveLink, isEmpty, bool)},
+		{"setNext", "(Lsun/awt/geom/CurveLink;)V", nullptr, $PUBLIC, $method(CurveLink, setNext, void, CurveLink*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.geom.CurveLink",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CurveLink, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurveLink);
+	});
 	return class$;
 }
 

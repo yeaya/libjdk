@@ -45,6 +45,7 @@ class $export ToolTipManager : public ::java::awt::event::MouseAdapter {
 	$class(ToolTipManager, 0, ::java::awt::event::MouseAdapter)
 public:
 	ToolTipManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void checkForTipChange(::java::awt::event::MouseEvent* event);
 	::java::awt::event::FocusListener* createFocusChangeListener();

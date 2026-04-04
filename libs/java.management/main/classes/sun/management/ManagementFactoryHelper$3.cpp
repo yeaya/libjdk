@@ -1,5 +1,4 @@
 #include <sun/management/ManagementFactoryHelper$3.h>
-
 #include <javax/management/InstanceNotFoundException.h>
 #include <javax/management/MBeanServer.h>
 #include <javax/management/ObjectName.h>
@@ -18,49 +17,6 @@ using $ObjectName = ::javax::management::ObjectName;
 namespace sun {
 	namespace management {
 
-$FieldInfo _ManagementFactoryHelper$3_FieldInfo_[] = {
-	{"val$objName", "Ljavax/management/ObjectName;", nullptr, $FINAL | $SYNTHETIC, $field(ManagementFactoryHelper$3, val$objName)},
-	{"val$mbs0", "Ljavax/management/MBeanServer;", nullptr, $FINAL | $SYNTHETIC, $field(ManagementFactoryHelper$3, val$mbs0)},
-	{}
-};
-
-$MethodInfo _ManagementFactoryHelper$3_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)V", "()V", 0, $method(ManagementFactoryHelper$3, init$, void, $MBeanServer*, $ObjectName*)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ManagementFactoryHelper$3, run, $Object*), "javax.management.MBeanRegistrationException,javax.management.RuntimeOperationsException"},
-	{}
-};
-
-$EnclosingMethodInfo _ManagementFactoryHelper$3_EnclosingMethodInfo_ = {
-	"sun.management.ManagementFactoryHelper",
-	"unregisterMBean",
-	"(Ljavax/management/MBeanServer;Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _ManagementFactoryHelper$3_InnerClassesInfo_[] = {
-	{"sun.management.ManagementFactoryHelper$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ManagementFactoryHelper$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.management.ManagementFactoryHelper$3",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	_ManagementFactoryHelper$3_FieldInfo_,
-	_ManagementFactoryHelper$3_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/Void;>;",
-	&_ManagementFactoryHelper$3_EnclosingMethodInfo_,
-	_ManagementFactoryHelper$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.management.ManagementFactoryHelper"
-};
-
-$Object* allocate$ManagementFactoryHelper$3($Class* clazz) {
-	return $of($alloc(ManagementFactoryHelper$3));
-}
-
 void ManagementFactoryHelper$3::init$($MBeanServer* val$mbs0, $ObjectName* val$objName) {
 	$set(this, val$mbs0, val$mbs0);
 	$set(this, val$objName, val$objName);
@@ -71,14 +27,50 @@ $Object* ManagementFactoryHelper$3::run() {
 		$nc(this->val$mbs0)->unregisterMBean(this->val$objName);
 	} catch ($InstanceNotFoundException& e) {
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 ManagementFactoryHelper$3::ManagementFactoryHelper$3() {
 }
 
 $Class* ManagementFactoryHelper$3::load$($String* name, bool initialize) {
-	$loadClass(ManagementFactoryHelper$3, name, initialize, &_ManagementFactoryHelper$3_ClassInfo_, allocate$ManagementFactoryHelper$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$objName", "Ljavax/management/ObjectName;", nullptr, $FINAL | $SYNTHETIC, $field(ManagementFactoryHelper$3, val$objName)},
+		{"val$mbs0", "Ljavax/management/MBeanServer;", nullptr, $FINAL | $SYNTHETIC, $field(ManagementFactoryHelper$3, val$mbs0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)V", "()V", 0, $method(ManagementFactoryHelper$3, init$, void, $MBeanServer*, $ObjectName*)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ManagementFactoryHelper$3, run, $Object*), "javax.management.MBeanRegistrationException,javax.management.RuntimeOperationsException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.management.ManagementFactoryHelper",
+		"unregisterMBean",
+		"(Ljavax/management/MBeanServer;Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.management.ManagementFactoryHelper$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.management.ManagementFactoryHelper$3",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.management.ManagementFactoryHelper"
+	};
+	$loadClass(ManagementFactoryHelper$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ManagementFactoryHelper$3);
+	});
 	return class$;
 }
 

@@ -20,6 +20,7 @@ class $import MetalComboBoxEditor : public ::javax::swing::plaf::basic::BasicCom
 	$class(MetalComboBoxEditor, 0, ::javax::swing::plaf::basic::BasicComboBoxEditor)
 public:
 	MetalComboBoxEditor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::awt::Insets* editorBorderInsets;
 };

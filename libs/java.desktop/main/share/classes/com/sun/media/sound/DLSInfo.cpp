@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/DLSInfo.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,45 +9,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _DLSInfo_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, name)},
-	{"creationDate", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, creationDate)},
-	{"engineers", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, engineers)},
-	{"product", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, product)},
-	{"copyright", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, copyright)},
-	{"comments", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, comments)},
-	{"tools", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, tools)},
-	{"archival_location", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, archival_location)},
-	{"artist", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, artist)},
-	{"commissioned", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, commissioned)},
-	{"genre", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, genre)},
-	{"keywords", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, keywords)},
-	{"medium", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, medium)},
-	{"subject", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, subject)},
-	{"source", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, source)},
-	{"source_form", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, source_form)},
-	{"technician", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, technician)},
-	{}
-};
-
-$MethodInfo _DLSInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DLSInfo, init$, void)},
-	{}
-};
-
-$ClassInfo _DLSInfo_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.DLSInfo",
-	"java.lang.Object",
-	nullptr,
-	_DLSInfo_FieldInfo_,
-	_DLSInfo_MethodInfo_
-};
-
-$Object* allocate$DLSInfo($Class* clazz) {
-	return $of($alloc(DLSInfo));
-}
 
 void DLSInfo::init$() {
 	$set(this, name, "untitled"_s);
@@ -74,7 +34,41 @@ DLSInfo::DLSInfo() {
 }
 
 $Class* DLSInfo::load$($String* name, bool initialize) {
-	$loadClass(DLSInfo, name, initialize, &_DLSInfo_ClassInfo_, allocate$DLSInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, name)},
+		{"creationDate", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, creationDate)},
+		{"engineers", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, engineers)},
+		{"product", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, product)},
+		{"copyright", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, copyright)},
+		{"comments", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, comments)},
+		{"tools", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, tools)},
+		{"archival_location", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, archival_location)},
+		{"artist", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, artist)},
+		{"commissioned", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, commissioned)},
+		{"genre", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, genre)},
+		{"keywords", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, keywords)},
+		{"medium", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, medium)},
+		{"subject", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, subject)},
+		{"source", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, source)},
+		{"source_form", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, source_form)},
+		{"technician", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DLSInfo, technician)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DLSInfo, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.DLSInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DLSInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DLSInfo);
+	});
 	return class$;
 }
 

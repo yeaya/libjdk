@@ -36,7 +36,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)1;
 	InvalidDigestValueException(const InvalidDigestValueException& e);
 	virtual void throw$() override;
-	inline InvalidDigestValueException* operator ->() {
+	inline InvalidDigestValueException* operator ->() const {
+		return (InvalidDigestValueException*)throwing$;
+	}
+	inline operator InvalidDigestValueException*() const {
 		return (InvalidDigestValueException*)throwing$;
 	}
 };

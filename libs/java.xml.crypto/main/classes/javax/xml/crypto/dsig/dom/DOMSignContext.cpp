@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/dsig/dom/DOMSignContext.h>
-
 #include <java/security/Key.h>
 #include <javax/xml/crypto/KeySelector.h>
 #include <javax/xml/crypto/URIDereferencer.h>
@@ -22,56 +21,6 @@ namespace javax {
 		namespace crypto {
 			namespace dsig {
 				namespace dom {
-
-$FieldInfo _DOMSignContext_FieldInfo_[] = {
-	{"parent", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(DOMSignContext, parent)},
-	{"nextSibling", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(DOMSignContext, nextSibling)},
-	{}
-};
-
-$MethodInfo _DOMSignContext_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*getBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getDefaultNamespacePrefix", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getKeySelector", "()Ljavax/xml/crypto/KeySelector;", nullptr, $PUBLIC},
-	{"*getNamespacePrefix", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*getURIDereferencer", "()Ljavax/xml/crypto/URIDereferencer;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/security/Key;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMSignContext, init$, void, $Key*, $Node*)},
-	{"<init>", "(Ljava/security/Key;Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMSignContext, init$, void, $Key*, $Node*, $Node*)},
-	{"<init>", "(Ljavax/xml/crypto/KeySelector;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMSignContext, init$, void, $KeySelector*, $Node*)},
-	{"<init>", "(Ljavax/xml/crypto/KeySelector;Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMSignContext, init$, void, $KeySelector*, $Node*, $Node*)},
-	{"getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMSignContext, getNextSibling, $Node*)},
-	{"getParent", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMSignContext, getParent, $Node*)},
-	{"*put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*putNamespacePrefix", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*setBaseURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setDefaultNamespacePrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setKeySelector", "(Ljavax/xml/crypto/KeySelector;)V", nullptr, $PUBLIC},
-	{"setNextSibling", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(DOMSignContext, setNextSibling, void, $Node*)},
-	{"setParent", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(DOMSignContext, setParent, void, $Node*)},
-	{"*setURIDereferencer", "(Ljavax/xml/crypto/URIDereferencer;)V", nullptr, $PUBLIC},
-	{"*setProperty", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DOMSignContext_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.xml.crypto.dsig.dom.DOMSignContext",
-	"javax.xml.crypto.dom.DOMCryptoContext",
-	"javax.xml.crypto.dsig.XMLSignContext",
-	_DOMSignContext_FieldInfo_,
-	_DOMSignContext_MethodInfo_
-};
-
-$Object* allocate$DOMSignContext($Class* clazz) {
-	return $of($alloc(DOMSignContext));
-}
 
 $String* DOMSignContext::getNamespacePrefix($String* namespaceURI, $String* defaultPrefix) {
 	 return this->$DOMCryptoContext::getNamespacePrefix(namespaceURI, defaultPrefix);
@@ -228,7 +177,52 @@ DOMSignContext::DOMSignContext() {
 }
 
 $Class* DOMSignContext::load$($String* name, bool initialize) {
-	$loadClass(DOMSignContext, name, initialize, &_DOMSignContext_ClassInfo_, allocate$DOMSignContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"parent", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(DOMSignContext, parent)},
+		{"nextSibling", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(DOMSignContext, nextSibling)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*getBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getDefaultNamespacePrefix", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getKeySelector", "()Ljavax/xml/crypto/KeySelector;", nullptr, $PUBLIC},
+		{"*getNamespacePrefix", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*getURIDereferencer", "()Ljavax/xml/crypto/URIDereferencer;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/security/Key;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMSignContext, init$, void, $Key*, $Node*)},
+		{"<init>", "(Ljava/security/Key;Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMSignContext, init$, void, $Key*, $Node*, $Node*)},
+		{"<init>", "(Ljavax/xml/crypto/KeySelector;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMSignContext, init$, void, $KeySelector*, $Node*)},
+		{"<init>", "(Ljavax/xml/crypto/KeySelector;Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMSignContext, init$, void, $KeySelector*, $Node*, $Node*)},
+		{"getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMSignContext, getNextSibling, $Node*)},
+		{"getParent", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMSignContext, getParent, $Node*)},
+		{"*put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*putNamespacePrefix", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*setBaseURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setDefaultNamespacePrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setKeySelector", "(Ljavax/xml/crypto/KeySelector;)V", nullptr, $PUBLIC},
+		{"setNextSibling", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(DOMSignContext, setNextSibling, void, $Node*)},
+		{"setParent", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(DOMSignContext, setParent, void, $Node*)},
+		{"*setURIDereferencer", "(Ljavax/xml/crypto/URIDereferencer;)V", nullptr, $PUBLIC},
+		{"*setProperty", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.xml.crypto.dsig.dom.DOMSignContext",
+		"javax.xml.crypto.dom.DOMCryptoContext",
+		"javax.xml.crypto.dsig.XMLSignContext",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMSignContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMSignContext));
+	});
 	return class$;
 }
 

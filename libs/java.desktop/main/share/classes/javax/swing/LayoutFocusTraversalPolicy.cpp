@@ -1,5 +1,4 @@
 #include <javax/swing/LayoutFocusTraversalPolicy.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Container.h>
@@ -50,42 +49,6 @@ using $SunToolkit = ::sun::awt::SunToolkit;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _LayoutFocusTraversalPolicy_FieldInfo_[] = {
-	{"fitnessTestPolicy", "Ljavax/swing/SwingDefaultFocusTraversalPolicy;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LayoutFocusTraversalPolicy, fitnessTestPolicy)},
-	{}
-};
-
-$MethodInfo _LayoutFocusTraversalPolicy_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LayoutFocusTraversalPolicy, init$, void)},
-	{"<init>", "(Ljava/util/Comparator;)V", "(Ljava/util/Comparator<-Ljava/awt/Component;>;)V", 0, $method(LayoutFocusTraversalPolicy, init$, void, $Comparator*)},
-	{"accept", "(Ljava/awt/Component;)Z", nullptr, $PROTECTED, $virtualMethod(LayoutFocusTraversalPolicy, accept, bool, $Component*)},
-	{"getComponentAfter", "(Ljava/awt/Container;Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(LayoutFocusTraversalPolicy, getComponentAfter, $Component*, $Container*, $Component*)},
-	{"getComponentBefore", "(Ljava/awt/Container;Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(LayoutFocusTraversalPolicy, getComponentBefore, $Component*, $Container*, $Component*)},
-	{"getFirstComponent", "(Ljava/awt/Container;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(LayoutFocusTraversalPolicy, getFirstComponent, $Component*, $Container*)},
-	{"getLastComponent", "(Ljava/awt/Container;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(LayoutFocusTraversalPolicy, getLastComponent, $Component*, $Container*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(LayoutFocusTraversalPolicy, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(LayoutFocusTraversalPolicy, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _LayoutFocusTraversalPolicy_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.LayoutFocusTraversalPolicy",
-	"javax.swing.SortingFocusTraversalPolicy",
-	"java.io.Serializable",
-	_LayoutFocusTraversalPolicy_FieldInfo_,
-	_LayoutFocusTraversalPolicy_MethodInfo_
-};
-
-$Object* allocate$LayoutFocusTraversalPolicy($Class* clazz) {
-	return $of($alloc(LayoutFocusTraversalPolicy));
-}
-
 int32_t LayoutFocusTraversalPolicy::hashCode() {
 	 return this->$SortingFocusTraversalPolicy::hashCode();
 }
@@ -117,65 +80,65 @@ void LayoutFocusTraversalPolicy::init$($Comparator* c) {
 }
 
 $Component* LayoutFocusTraversalPolicy::getComponentAfter($Container* aContainer, $Component* aComponent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (aContainer == nullptr || aComponent == nullptr) {
 		$throwNew($IllegalArgumentException, "aContainer and aComponent cannot be null"_s);
 	}
 	$var($Comparator, comparator, getComparator());
 	if ($instanceOf($LayoutComparator, comparator)) {
-		$nc(($cast($LayoutComparator, comparator)))->setComponentOrientation($($nc(aContainer)->getComponentOrientation()));
+		$cast($LayoutComparator, comparator)->setComponentOrientation($($nc(aContainer)->getComponentOrientation()));
 	}
 	return $SortingFocusTraversalPolicy::getComponentAfter(aContainer, aComponent);
 }
 
 $Component* LayoutFocusTraversalPolicy::getComponentBefore($Container* aContainer, $Component* aComponent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (aContainer == nullptr || aComponent == nullptr) {
 		$throwNew($IllegalArgumentException, "aContainer and aComponent cannot be null"_s);
 	}
 	$var($Comparator, comparator, getComparator());
 	if ($instanceOf($LayoutComparator, comparator)) {
-		$nc(($cast($LayoutComparator, comparator)))->setComponentOrientation($($nc(aContainer)->getComponentOrientation()));
+		$cast($LayoutComparator, comparator)->setComponentOrientation($($nc(aContainer)->getComponentOrientation()));
 	}
 	return $SortingFocusTraversalPolicy::getComponentBefore(aContainer, aComponent);
 }
 
 $Component* LayoutFocusTraversalPolicy::getFirstComponent($Container* aContainer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (aContainer == nullptr) {
 		$throwNew($IllegalArgumentException, "aContainer cannot be null"_s);
 	}
 	$var($Comparator, comparator, getComparator());
 	if ($instanceOf($LayoutComparator, comparator)) {
-		$nc(($cast($LayoutComparator, comparator)))->setComponentOrientation($($nc(aContainer)->getComponentOrientation()));
+		$cast($LayoutComparator, comparator)->setComponentOrientation($($nc(aContainer)->getComponentOrientation()));
 	}
 	return $SortingFocusTraversalPolicy::getFirstComponent(aContainer);
 }
 
 $Component* LayoutFocusTraversalPolicy::getLastComponent($Container* aContainer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (aContainer == nullptr) {
 		$throwNew($IllegalArgumentException, "aContainer cannot be null"_s);
 	}
 	$var($Comparator, comparator, getComparator());
 	if ($instanceOf($LayoutComparator, comparator)) {
-		$nc(($cast($LayoutComparator, comparator)))->setComponentOrientation($($nc(aContainer)->getComponentOrientation()));
+		$cast($LayoutComparator, comparator)->setComponentOrientation($($nc(aContainer)->getComponentOrientation()));
 	}
 	return $SortingFocusTraversalPolicy::getLastComponent(aContainer);
 }
 
 bool LayoutFocusTraversalPolicy::accept($Component* aComponent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$SortingFocusTraversalPolicy::accept(aComponent)) {
 		return false;
-	} else if ($SunToolkit::isInstanceOf($of(aComponent), "javax.swing.JTable"_s)) {
+	} else if ($SunToolkit::isInstanceOf(aComponent, "javax.swing.JTable"_s)) {
 		return true;
-	} else if ($SunToolkit::isInstanceOf($of(aComponent), "javax.swing.JComboBox"_s)) {
+	} else if ($SunToolkit::isInstanceOf(aComponent, "javax.swing.JComboBox"_s)) {
 		$var($JComboBox, box, $cast($JComboBox, aComponent));
-		return $nc($($cast($ComboBoxUI, $nc(box)->getUI())))->isFocusTraversable(box);
+		return $$sure($ComboBoxUI, $nc(box)->getUI())->isFocusTraversable(box);
 	} else if ($instanceOf($JComponent, aComponent)) {
-		if ($SunToolkit::isInstanceOf($of(aComponent), "javax.swing.JToggleButton"_s)) {
-			$var($ButtonModel, model, $nc(($cast($JToggleButton, aComponent)))->getModel());
+		if ($SunToolkit::isInstanceOf(aComponent, "javax.swing.JToggleButton"_s)) {
+			$var($ButtonModel, model, $cast($JToggleButton, aComponent)->getModel());
 			if (model != nullptr) {
 				$var($ButtonGroup, group, model->getGroup());
 				if (group != nullptr) {
@@ -183,7 +146,7 @@ bool LayoutFocusTraversalPolicy::accept($Component* aComponent) {
 					int32_t idx = 0;
 					while ($nc(elements)->hasMoreElements()) {
 						$var($AbstractButton, member, $cast($AbstractButton, elements->nextElement()));
-						bool var$2 = $instanceOf($JToggleButton, member) && $nc(member)->isVisible();
+						bool var$2 = $instanceOf($JToggleButton, member) && member->isVisible();
 						bool var$1 = var$2 && member->isDisplayable();
 						bool var$0 = var$1 && member->isEnabled();
 						if (var$0 && member->isFocusable()) {
@@ -197,7 +160,7 @@ bool LayoutFocusTraversalPolicy::accept($Component* aComponent) {
 			}
 		}
 		$var($JComponent, jComponent, $cast($JComponent, aComponent));
-		$var($InputMap, inputMap, $nc(jComponent)->getInputMap($JComponent::WHEN_FOCUSED, false));
+		$var($InputMap, inputMap, jComponent->getInputMap($JComponent::WHEN_FOCUSED, false));
 		while (inputMap != nullptr && inputMap->size() == 0) {
 			$assign(inputMap, inputMap->getParent());
 		}
@@ -205,7 +168,7 @@ bool LayoutFocusTraversalPolicy::accept($Component* aComponent) {
 			return true;
 		}
 	}
-	return $nc(LayoutFocusTraversalPolicy::fitnessTestPolicy)->accept(aComponent);
+	return LayoutFocusTraversalPolicy::fitnessTestPolicy->accept(aComponent);
 }
 
 void LayoutFocusTraversalPolicy::writeObject($ObjectOutputStream* out) {
@@ -214,11 +177,11 @@ void LayoutFocusTraversalPolicy::writeObject($ObjectOutputStream* out) {
 }
 
 void LayoutFocusTraversalPolicy::readObject($ObjectInputStream* in) {
-	setComparator($cast($Comparator, $($nc(in)->readObject())));
-	setImplicitDownCycleTraversal($nc(in)->readBoolean());
+	setComparator($$cast($Comparator, $nc(in)->readObject()));
+	setImplicitDownCycleTraversal(in->readBoolean());
 }
 
-void clinit$LayoutFocusTraversalPolicy($Class* class$) {
+void LayoutFocusTraversalPolicy::clinit$($Class* clazz) {
 	$assignStatic(LayoutFocusTraversalPolicy::fitnessTestPolicy, $new($SwingDefaultFocusTraversalPolicy));
 }
 
@@ -226,7 +189,38 @@ LayoutFocusTraversalPolicy::LayoutFocusTraversalPolicy() {
 }
 
 $Class* LayoutFocusTraversalPolicy::load$($String* name, bool initialize) {
-	$loadClass(LayoutFocusTraversalPolicy, name, initialize, &_LayoutFocusTraversalPolicy_ClassInfo_, clinit$LayoutFocusTraversalPolicy, allocate$LayoutFocusTraversalPolicy);
+	$FieldInfo fieldInfos$$[] = {
+		{"fitnessTestPolicy", "Ljavax/swing/SwingDefaultFocusTraversalPolicy;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LayoutFocusTraversalPolicy, fitnessTestPolicy)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LayoutFocusTraversalPolicy, init$, void)},
+		{"<init>", "(Ljava/util/Comparator;)V", "(Ljava/util/Comparator<-Ljava/awt/Component;>;)V", 0, $method(LayoutFocusTraversalPolicy, init$, void, $Comparator*)},
+		{"accept", "(Ljava/awt/Component;)Z", nullptr, $PROTECTED, $virtualMethod(LayoutFocusTraversalPolicy, accept, bool, $Component*)},
+		{"getComponentAfter", "(Ljava/awt/Container;Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(LayoutFocusTraversalPolicy, getComponentAfter, $Component*, $Container*, $Component*)},
+		{"getComponentBefore", "(Ljava/awt/Container;Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(LayoutFocusTraversalPolicy, getComponentBefore, $Component*, $Container*, $Component*)},
+		{"getFirstComponent", "(Ljava/awt/Container;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(LayoutFocusTraversalPolicy, getFirstComponent, $Component*, $Container*)},
+		{"getLastComponent", "(Ljava/awt/Container;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(LayoutFocusTraversalPolicy, getLastComponent, $Component*, $Container*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(LayoutFocusTraversalPolicy, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(LayoutFocusTraversalPolicy, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.LayoutFocusTraversalPolicy",
+		"javax.swing.SortingFocusTraversalPolicy",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LayoutFocusTraversalPolicy, name, initialize, &classInfo$$, LayoutFocusTraversalPolicy::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LayoutFocusTraversalPolicy));
+	});
 	return class$;
 }
 

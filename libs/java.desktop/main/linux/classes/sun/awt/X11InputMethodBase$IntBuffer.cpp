@@ -1,5 +1,4 @@
 #include <sun/awt/X11InputMethodBase$IntBuffer.h>
-
 #include <sun/awt/X11InputMethodBase.h>
 #include <jcpp.h>
 
@@ -11,53 +10,6 @@ using $X11InputMethodBase = ::sun::awt::X11InputMethodBase;
 
 namespace sun {
 	namespace awt {
-
-$FieldInfo _X11InputMethodBase$IntBuffer_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/X11InputMethodBase;", nullptr, $FINAL | $SYNTHETIC, $field(X11InputMethodBase$IntBuffer, this$0)},
-	{"intArray", "[I", nullptr, $PRIVATE, $field(X11InputMethodBase$IntBuffer, intArray)},
-	{"size", "I", nullptr, $PRIVATE, $field(X11InputMethodBase$IntBuffer, size)},
-	{"index", "I", nullptr, $PRIVATE, $field(X11InputMethodBase$IntBuffer, index)},
-	{}
-};
-
-$MethodInfo _X11InputMethodBase$IntBuffer_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11InputMethodBase;I)V", nullptr, 0, $method(X11InputMethodBase$IntBuffer, init$, void, $X11InputMethodBase*, int32_t)},
-	{"getNext", "()I", nullptr, 0, $method(X11InputMethodBase$IntBuffer, getNext, int32_t)},
-	{"getOffset", "()I", nullptr, 0, $method(X11InputMethodBase$IntBuffer, getOffset, int32_t)},
-	{"insert", "(I[I)V", nullptr, 0, $method(X11InputMethodBase$IntBuffer, insert, void, int32_t, $ints*)},
-	{"remove", "(II)V", nullptr, 0, $method(X11InputMethodBase$IntBuffer, remove, void, int32_t, int32_t)},
-	{"removeAll", "()V", nullptr, 0, $method(X11InputMethodBase$IntBuffer, removeAll, void)},
-	{"replace", "(I[I)V", nullptr, 0, $method(X11InputMethodBase$IntBuffer, replace, void, int32_t, $ints*)},
-	{"rewind", "()V", nullptr, 0, $method(X11InputMethodBase$IntBuffer, rewind, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X11InputMethodBase$IntBuffer, toString, $String*)},
-	{"unget", "()V", nullptr, 0, $method(X11InputMethodBase$IntBuffer, unget, void)},
-	{}
-};
-
-$InnerClassInfo _X11InputMethodBase$IntBuffer_InnerClassesInfo_[] = {
-	{"sun.awt.X11InputMethodBase$IntBuffer", "sun.awt.X11InputMethodBase", "IntBuffer", $PROTECTED | $FINAL},
-	{}
-};
-
-$ClassInfo _X11InputMethodBase$IntBuffer_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.X11InputMethodBase$IntBuffer",
-	"java.lang.Object",
-	nullptr,
-	_X11InputMethodBase$IntBuffer_FieldInfo_,
-	_X11InputMethodBase$IntBuffer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_X11InputMethodBase$IntBuffer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11InputMethodBase"
-};
-
-$Object* allocate$X11InputMethodBase$IntBuffer($Class* clazz) {
-	return $of($alloc(X11InputMethodBase$IntBuffer));
-}
 
 void X11InputMethodBase$IntBuffer::init$($X11InputMethodBase* this$0, int32_t initialCapacity) {
 	$set(this, this$0, this$0);
@@ -136,7 +88,48 @@ X11InputMethodBase$IntBuffer::X11InputMethodBase$IntBuffer() {
 }
 
 $Class* X11InputMethodBase$IntBuffer::load$($String* name, bool initialize) {
-	$loadClass(X11InputMethodBase$IntBuffer, name, initialize, &_X11InputMethodBase$IntBuffer_ClassInfo_, allocate$X11InputMethodBase$IntBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/X11InputMethodBase;", nullptr, $FINAL | $SYNTHETIC, $field(X11InputMethodBase$IntBuffer, this$0)},
+		{"intArray", "[I", nullptr, $PRIVATE, $field(X11InputMethodBase$IntBuffer, intArray)},
+		{"size", "I", nullptr, $PRIVATE, $field(X11InputMethodBase$IntBuffer, size)},
+		{"index", "I", nullptr, $PRIVATE, $field(X11InputMethodBase$IntBuffer, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11InputMethodBase;I)V", nullptr, 0, $method(X11InputMethodBase$IntBuffer, init$, void, $X11InputMethodBase*, int32_t)},
+		{"getNext", "()I", nullptr, 0, $method(X11InputMethodBase$IntBuffer, getNext, int32_t)},
+		{"getOffset", "()I", nullptr, 0, $method(X11InputMethodBase$IntBuffer, getOffset, int32_t)},
+		{"insert", "(I[I)V", nullptr, 0, $method(X11InputMethodBase$IntBuffer, insert, void, int32_t, $ints*)},
+		{"remove", "(II)V", nullptr, 0, $method(X11InputMethodBase$IntBuffer, remove, void, int32_t, int32_t)},
+		{"removeAll", "()V", nullptr, 0, $method(X11InputMethodBase$IntBuffer, removeAll, void)},
+		{"replace", "(I[I)V", nullptr, 0, $method(X11InputMethodBase$IntBuffer, replace, void, int32_t, $ints*)},
+		{"rewind", "()V", nullptr, 0, $method(X11InputMethodBase$IntBuffer, rewind, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X11InputMethodBase$IntBuffer, toString, $String*)},
+		{"unget", "()V", nullptr, 0, $method(X11InputMethodBase$IntBuffer, unget, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11InputMethodBase$IntBuffer", "sun.awt.X11InputMethodBase", "IntBuffer", $PROTECTED | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.X11InputMethodBase$IntBuffer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11InputMethodBase"
+	};
+	$loadClass(X11InputMethodBase$IntBuffer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(X11InputMethodBase$IntBuffer);
+	});
 	return class$;
 }
 

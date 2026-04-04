@@ -1,5 +1,4 @@
 #include <java/rmi/MarshalledObject$MarshalledObjectInputStream.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/ObjectInputFilter.h>
 #include <java/io/ObjectInputStream.h>
@@ -40,95 +39,54 @@ public:
 		$set(this, filter, filter);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$new$0(filter));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0>());
+		 return $nc(inst$)->lambda$new$0(filter);
 	}
 	MarshalledObject$MarshalledObjectInputStream* inst$ = nullptr;
 	$ObjectInputFilter* filter = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0, inst$)},
-	{"filter", "Ljava/io/ObjectInputFilter;", nullptr, $PUBLIC, $field(MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0, filter)},
-	{}
-};
-$MethodInfo MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Ljava/rmi/MarshalledObject$MarshalledObjectInputStream;Ljava/io/ObjectInputFilter;)V", nullptr, $PUBLIC, $method(MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0, init$, void, MarshalledObject$MarshalledObjectInputStream*, $ObjectInputFilter*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0, run, $Object*)},
-	{}
-};
-$ClassInfo MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.rmi.MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
-	$loadClass(MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0, inst$)},
+		{"filter", "Ljava/io/ObjectInputFilter;", nullptr, $PUBLIC, $field(MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0, filter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/rmi/MarshalledObject$MarshalledObjectInputStream;Ljava/io/ObjectInputFilter;)V", nullptr, $PUBLIC, $method(MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0, init$, void, MarshalledObject$MarshalledObjectInputStream*, $ObjectInputFilter*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.rmi.MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0);
+	});
 	return class$;
 }
 $Class* MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0::class$ = nullptr;
-
-$FieldInfo _MarshalledObject$MarshalledObjectInputStream_FieldInfo_[] = {
-	{"locIn", "Ljava/io/ObjectInputStream;", nullptr, $PRIVATE, $field(MarshalledObject$MarshalledObjectInputStream, locIn)},
-	{}
-};
-
-$MethodInfo _MarshalledObject$MarshalledObjectInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Ljava/io/InputStream;Ljava/io/ObjectInputFilter;)V", nullptr, 0, $method(MarshalledObject$MarshalledObjectInputStream, init$, void, $InputStream*, $InputStream*, $ObjectInputFilter*), "java.io.IOException"},
-	{"lambda$new$0", "(Ljava/io/ObjectInputFilter;)Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(MarshalledObject$MarshalledObjectInputStream, lambda$new$0, $Void*, $ObjectInputFilter*)},
-	{"readLocation", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(MarshalledObject$MarshalledObjectInputStream, readLocation, $Object*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{}
-};
-
-$InnerClassInfo _MarshalledObject$MarshalledObjectInputStream_InnerClassesInfo_[] = {
-	{"java.rmi.MarshalledObject$MarshalledObjectInputStream", "java.rmi.MarshalledObject", "MarshalledObjectInputStream", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MarshalledObject$MarshalledObjectInputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.rmi.MarshalledObject$MarshalledObjectInputStream",
-	"sun.rmi.server.MarshalInputStream",
-	nullptr,
-	_MarshalledObject$MarshalledObjectInputStream_FieldInfo_,
-	_MarshalledObject$MarshalledObjectInputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MarshalledObject$MarshalledObjectInputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.rmi.MarshalledObject"
-};
-
-$Object* allocate$MarshalledObject$MarshalledObjectInputStream($Class* clazz) {
-	return $of($alloc(MarshalledObject$MarshalledObjectInputStream));
-}
 
 void MarshalledObject$MarshalledObjectInputStream::init$($InputStream* objIn, $InputStream* locIn, $ObjectInputFilter* filter) {
 	$beforeCallerSensitive();
 	$MarshalInputStream::init$(objIn);
 	$set(this, locIn, locIn == nullptr ? ($ObjectInputStream*)nullptr : $new($ObjectInputStream, locIn));
 	if (filter != nullptr) {
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0, this, filter)));
+		$AccessController::doPrivileged($cast($PrivilegedAction, $$new(MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0, this, filter)));
 	}
 }
 
 $Object* MarshalledObject$MarshalledObjectInputStream::readLocation() {
-	return $of((this->locIn == nullptr ? ($Object*)nullptr : $nc(this->locIn)->readObject()));
+	return (this->locIn == nullptr ? ($Object*)nullptr : this->locIn->readObject());
 }
 
 $Void* MarshalledObject$MarshalledObjectInputStream::lambda$new$0($ObjectInputFilter* filter) {
 	this->setObjectInputFilter(filter);
 	if (this->locIn != nullptr) {
-		$nc(this->locIn)->setObjectInputFilter(filter);
+		this->locIn->setObjectInputFilter(filter);
 	}
 	return nullptr;
 }
@@ -138,11 +96,42 @@ MarshalledObject$MarshalledObjectInputStream::MarshalledObject$MarshalledObjectI
 
 $Class* MarshalledObject$MarshalledObjectInputStream::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0::classInfo$.name)) {
+		if (name->equals("java.rmi.MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0")) {
 			return MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0::load$(name, initialize);
 		}
 	}
-	$loadClass(MarshalledObject$MarshalledObjectInputStream, name, initialize, &_MarshalledObject$MarshalledObjectInputStream_ClassInfo_, allocate$MarshalledObject$MarshalledObjectInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"locIn", "Ljava/io/ObjectInputStream;", nullptr, $PRIVATE, $field(MarshalledObject$MarshalledObjectInputStream, locIn)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;Ljava/io/InputStream;Ljava/io/ObjectInputFilter;)V", nullptr, 0, $method(MarshalledObject$MarshalledObjectInputStream, init$, void, $InputStream*, $InputStream*, $ObjectInputFilter*), "java.io.IOException"},
+		{"lambda$new$0", "(Ljava/io/ObjectInputFilter;)Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(MarshalledObject$MarshalledObjectInputStream, lambda$new$0, $Void*, $ObjectInputFilter*)},
+		{"readLocation", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(MarshalledObject$MarshalledObjectInputStream, readLocation, $Object*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.rmi.MarshalledObject$MarshalledObjectInputStream", "java.rmi.MarshalledObject", "MarshalledObjectInputStream", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.rmi.MarshalledObject$MarshalledObjectInputStream",
+		"sun.rmi.server.MarshalInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.rmi.MarshalledObject"
+	};
+	$loadClass(MarshalledObject$MarshalledObjectInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MarshalledObject$MarshalledObjectInputStream));
+	});
 	return class$;
 }
 

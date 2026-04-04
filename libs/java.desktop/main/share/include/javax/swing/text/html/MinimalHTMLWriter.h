@@ -50,6 +50,7 @@ class $import MinimalHTMLWriter : public ::javax::swing::text::AbstractWriter {
 	$class(MinimalHTMLWriter, 0, ::javax::swing::text::AbstractWriter)
 public:
 	MinimalHTMLWriter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::Writer* w, ::javax::swing::text::StyledDocument* doc);
 	void init$(::java::io::Writer* w, ::javax::swing::text::StyledDocument* doc, int32_t pos, int32_t len);
 	$String* addStyleName($String* style);

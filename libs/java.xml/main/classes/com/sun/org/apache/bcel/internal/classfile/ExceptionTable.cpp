@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/ExceptionTable.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Attribute.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
@@ -30,41 +29,8 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$FieldInfo _ExceptionTable_FieldInfo_[] = {
-	{"exceptionIndexTable", "[I", nullptr, $PRIVATE, $field(ExceptionTable, exceptionIndexTable)},
-	{}
-};
-
-$MethodInfo _ExceptionTable_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/ExceptionTable;)V", nullptr, $PUBLIC, $method(ExceptionTable, init$, void, ExceptionTable*)},
-	{"<init>", "(II[ILcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(ExceptionTable, init$, void, int32_t, int32_t, $ints*, $ConstantPool*)},
-	{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(ExceptionTable, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ExceptionTable, accept, void, $Visitor*)},
-	{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(ExceptionTable, copy, $Attribute*, $ConstantPool*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ExceptionTable, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getExceptionIndexTable", "()[I", nullptr, $PUBLIC, $method(ExceptionTable, getExceptionIndexTable, $ints*)},
-	{"getExceptionNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $method(ExceptionTable, getExceptionNames, $StringArray*)},
-	{"getNumberOfExceptions", "()I", nullptr, $PUBLIC, $method(ExceptionTable, getNumberOfExceptions, int32_t)},
-	{"setExceptionIndexTable", "([I)V", nullptr, $PUBLIC, $method(ExceptionTable, setExceptionIndexTable, void, $ints*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ExceptionTable, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ExceptionTable_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.ExceptionTable",
-	"com.sun.org.apache.bcel.internal.classfile.Attribute",
-	nullptr,
-	_ExceptionTable_FieldInfo_,
-	_ExceptionTable_MethodInfo_
-};
-
-$Object* allocate$ExceptionTable($Class* clazz) {
-	return $of($alloc(ExceptionTable));
-}
-
 void ExceptionTable::init$(ExceptionTable* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(c)->getNameIndex();
 	int32_t var$1 = c->getLength();
 	$var($ints, var$2, c->getExceptionIndexTable());
@@ -81,7 +47,7 @@ void ExceptionTable::init$(int32_t nameIndex, int32_t length, $DataInput* input,
 	int32_t number_of_exceptions = $nc(input)->readUnsignedShort();
 	$set(this, exceptionIndexTable, $new($ints, number_of_exceptions));
 	for (int32_t i = 0; i < number_of_exceptions; ++i) {
-		$nc(this->exceptionIndexTable)->set(i, input->readUnsignedShort());
+		this->exceptionIndexTable->set(i, input->readUnsignedShort());
 	}
 }
 
@@ -94,9 +60,7 @@ void ExceptionTable::dump($DataOutputStream* file) {
 	$nc(file)->writeShort($nc(this->exceptionIndexTable)->length);
 	{
 		$var($ints, arr$, this->exceptionIndexTable);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int32_t index = arr$->get(i$);
 			{
 				file->writeShort(index);
@@ -110,14 +74,14 @@ $ints* ExceptionTable::getExceptionIndexTable() {
 }
 
 int32_t ExceptionTable::getNumberOfExceptions() {
-	return this->exceptionIndexTable == nullptr ? 0 : $nc(this->exceptionIndexTable)->length;
+	return this->exceptionIndexTable == nullptr ? 0 : this->exceptionIndexTable->length;
 }
 
 $StringArray* ExceptionTable::getExceptionNames() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, names, $new($StringArray, $nc(this->exceptionIndexTable)->length));
 	for (int32_t i = 0; i < $nc(this->exceptionIndexTable)->length; ++i) {
-		names->set(i, $($nc($($nc($($Attribute::getConstantPool()))->getConstantString($nc(this->exceptionIndexTable)->get(i), $Const::CONSTANT_Class)))->replace(u'/', u'.')));
+		names->set(i, $($$nc($$nc($Attribute::getConstantPool())->getConstantString(this->exceptionIndexTable->get(i), $Const::CONSTANT_Class))->replace(u'/', u'.')));
 	}
 	return names;
 }
@@ -127,12 +91,12 @@ void ExceptionTable::setExceptionIndexTable($ints* exceptionIndexTable) {
 }
 
 $String* ExceptionTable::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	$var($String, str, nullptr);
 	buf->append("Exceptions: "_s);
 	for (int32_t i = 0; i < $nc(this->exceptionIndexTable)->length; ++i) {
-		$assign(str, $nc($($Attribute::getConstantPool()))->getConstantString($nc(this->exceptionIndexTable)->get(i), $Const::CONSTANT_Class));
+		$assign(str, $$nc($Attribute::getConstantPool())->getConstantString(this->exceptionIndexTable->get(i), $Const::CONSTANT_Class));
 		buf->append($($Utility::compactClassName(str, false)));
 		if (i < $nc(this->exceptionIndexTable)->length - 1) {
 			buf->append(", "_s);
@@ -144,8 +108,8 @@ $String* ExceptionTable::toString() {
 $Attribute* ExceptionTable::copy($ConstantPool* _constant_pool) {
 	$var(ExceptionTable, c, $cast(ExceptionTable, clone()));
 	if (this->exceptionIndexTable != nullptr) {
-		$set($nc(c), exceptionIndexTable, $new($ints, $nc(this->exceptionIndexTable)->length));
-		$System::arraycopy(this->exceptionIndexTable, 0, c->exceptionIndexTable, 0, $nc(this->exceptionIndexTable)->length);
+		$set($nc(c), exceptionIndexTable, $new($ints, this->exceptionIndexTable->length));
+		$System::arraycopy(this->exceptionIndexTable, 0, c->exceptionIndexTable, 0, this->exceptionIndexTable->length);
 	}
 	$nc(c)->setConstantPool(_constant_pool);
 	return c;
@@ -155,7 +119,35 @@ ExceptionTable::ExceptionTable() {
 }
 
 $Class* ExceptionTable::load$($String* name, bool initialize) {
-	$loadClass(ExceptionTable, name, initialize, &_ExceptionTable_ClassInfo_, allocate$ExceptionTable);
+	$FieldInfo fieldInfos$$[] = {
+		{"exceptionIndexTable", "[I", nullptr, $PRIVATE, $field(ExceptionTable, exceptionIndexTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/ExceptionTable;)V", nullptr, $PUBLIC, $method(ExceptionTable, init$, void, ExceptionTable*)},
+		{"<init>", "(II[ILcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(ExceptionTable, init$, void, int32_t, int32_t, $ints*, $ConstantPool*)},
+		{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(ExceptionTable, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ExceptionTable, accept, void, $Visitor*)},
+		{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(ExceptionTable, copy, $Attribute*, $ConstantPool*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ExceptionTable, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getExceptionIndexTable", "()[I", nullptr, $PUBLIC, $method(ExceptionTable, getExceptionIndexTable, $ints*)},
+		{"getExceptionNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $method(ExceptionTable, getExceptionNames, $StringArray*)},
+		{"getNumberOfExceptions", "()I", nullptr, $PUBLIC, $method(ExceptionTable, getNumberOfExceptions, int32_t)},
+		{"setExceptionIndexTable", "([I)V", nullptr, $PUBLIC, $method(ExceptionTable, setExceptionIndexTable, void, $ints*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ExceptionTable, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.ExceptionTable",
+		"com.sun.org.apache.bcel.internal.classfile.Attribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ExceptionTable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ExceptionTable));
+	});
 	return class$;
 }
 

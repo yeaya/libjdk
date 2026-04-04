@@ -1,5 +1,4 @@
 #include <javax/annotation/processing/SupportedOptions.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -12,52 +11,44 @@ namespace javax {
 	namespace annotation {
 		namespace processing {
 
-$Attribute SupportedOptions_Attribute_var$1[] = {
-	{'e', "Ljava/lang/annotation/ElementType; TYPE"},
-	{'-'}
-};
-
-$NamedAttribute SupportedOptions_Attribute_var$0[] = {
-	{"value", '[', SupportedOptions_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute SupportedOptions_Attribute_var$2[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _SupportedOptions_Annotations_[] = {
-	{"Ljava/lang/annotation/Documented;", nullptr},
-	{"Ljava/lang/annotation/Target;", SupportedOptions_Attribute_var$0},
-	{"Ljava/lang/annotation/Retention;", SupportedOptions_Attribute_var$2},
-	{}
-};
-
-$MethodInfo _SupportedOptions_MethodInfo_[] = {
-	{"value", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SupportedOptions, value, $StringArray*)},
-	{}
-};
-
-$ClassInfo _SupportedOptions_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"javax.annotation.processing.SupportedOptions",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_SupportedOptions_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SupportedOptions_Annotations_
-};
-
-$Object* allocate$SupportedOptions($Class* clazz) {
-	return $of($alloc(SupportedOptions));
-}
-
 $Class* SupportedOptions::load$($String* name, bool initialize) {
-	$loadClass(SupportedOptions, name, initialize, &_SupportedOptions_ClassInfo_, allocate$SupportedOptions);
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SupportedOptions, value, $StringArray*)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; TYPE"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Documented;", nullptr},
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"javax.annotation.processing.SupportedOptions",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SupportedOptions, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SupportedOptions);
+	});
 	return class$;
 }
 

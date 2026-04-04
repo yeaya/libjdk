@@ -23,6 +23,7 @@ class MS50220$Holder : public ::java::lang::Object {
 	$class(MS50220$Holder, 0, ::java::lang::Object)
 public:
 	MS50220$Holder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::nio::cs::DoubleByte$Decoder* DEC0208;
 	static ::sun::nio::cs::DoubleByte$Decoder* DEC0212;

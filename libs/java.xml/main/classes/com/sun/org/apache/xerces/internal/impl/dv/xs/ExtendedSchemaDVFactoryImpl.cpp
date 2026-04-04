@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/ExtendedSchemaDVFactoryImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/XSSimpleType.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/BaseSchemaDVFactory.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl.h>
@@ -34,32 +33,6 @@ namespace com {
 							namespace dv {
 								namespace xs {
 
-$FieldInfo _ExtendedSchemaDVFactoryImpl_FieldInfo_[] = {
-	{"fBuiltInTypes", "Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, $STATIC, $staticField(ExtendedSchemaDVFactoryImpl, fBuiltInTypes)},
-	{}
-};
-
-$MethodInfo _ExtendedSchemaDVFactoryImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExtendedSchemaDVFactoryImpl, init$, void)},
-	{"createBuiltInTypes", "()V", nullptr, $STATIC, $staticMethod(ExtendedSchemaDVFactoryImpl, createBuiltInTypes, void)},
-	{"getBuiltInType", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, $PUBLIC, $virtualMethod(ExtendedSchemaDVFactoryImpl, getBuiltInType, $XSSimpleType*, $String*)},
-	{"getBuiltInTypes", "()Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, $PUBLIC, $virtualMethod(ExtendedSchemaDVFactoryImpl, getBuiltInTypes, $SymbolHash*)},
-	{}
-};
-
-$ClassInfo _ExtendedSchemaDVFactoryImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.ExtendedSchemaDVFactoryImpl",
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.BaseSchemaDVFactory",
-	nullptr,
-	_ExtendedSchemaDVFactoryImpl_FieldInfo_,
-	_ExtendedSchemaDVFactoryImpl_MethodInfo_
-};
-
-$Object* allocate$ExtendedSchemaDVFactoryImpl($Class* clazz) {
-	return $of($alloc(ExtendedSchemaDVFactoryImpl));
-}
-
 $SymbolHash* ExtendedSchemaDVFactoryImpl::fBuiltInTypes = nullptr;
 
 void ExtendedSchemaDVFactoryImpl::init$() {
@@ -68,7 +41,7 @@ void ExtendedSchemaDVFactoryImpl::init$() {
 
 void ExtendedSchemaDVFactoryImpl::createBuiltInTypes() {
 	$init(ExtendedSchemaDVFactoryImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, ANYATOMICTYPE, "anyAtomicType"_s);
 	$var($String, DURATION, "duration"_s);
 	$var($String, YEARMONTHDURATION, "yearMonthDuration"_s);
@@ -89,7 +62,7 @@ $SymbolHash* ExtendedSchemaDVFactoryImpl::getBuiltInTypes() {
 	return $nc(ExtendedSchemaDVFactoryImpl::fBuiltInTypes)->makeClone();
 }
 
-void clinit$ExtendedSchemaDVFactoryImpl($Class* class$) {
+void ExtendedSchemaDVFactoryImpl::clinit$($Class* clazz) {
 	$assignStatic(ExtendedSchemaDVFactoryImpl::fBuiltInTypes, $new($SymbolHash));
 	{
 		ExtendedSchemaDVFactoryImpl::createBuiltInTypes();
@@ -100,7 +73,28 @@ ExtendedSchemaDVFactoryImpl::ExtendedSchemaDVFactoryImpl() {
 }
 
 $Class* ExtendedSchemaDVFactoryImpl::load$($String* name, bool initialize) {
-	$loadClass(ExtendedSchemaDVFactoryImpl, name, initialize, &_ExtendedSchemaDVFactoryImpl_ClassInfo_, clinit$ExtendedSchemaDVFactoryImpl, allocate$ExtendedSchemaDVFactoryImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fBuiltInTypes", "Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, $STATIC, $staticField(ExtendedSchemaDVFactoryImpl, fBuiltInTypes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExtendedSchemaDVFactoryImpl, init$, void)},
+		{"createBuiltInTypes", "()V", nullptr, $STATIC, $staticMethod(ExtendedSchemaDVFactoryImpl, createBuiltInTypes, void)},
+		{"getBuiltInType", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, $PUBLIC, $virtualMethod(ExtendedSchemaDVFactoryImpl, getBuiltInType, $XSSimpleType*, $String*)},
+		{"getBuiltInTypes", "()Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, $PUBLIC, $virtualMethod(ExtendedSchemaDVFactoryImpl, getBuiltInTypes, $SymbolHash*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.ExtendedSchemaDVFactoryImpl",
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.BaseSchemaDVFactory",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ExtendedSchemaDVFactoryImpl, name, initialize, &classInfo$$, ExtendedSchemaDVFactoryImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ExtendedSchemaDVFactoryImpl);
+	});
 	return class$;
 }
 

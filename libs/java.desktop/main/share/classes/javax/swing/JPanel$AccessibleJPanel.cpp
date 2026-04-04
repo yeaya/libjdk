@@ -1,8 +1,6 @@
 #include <javax/swing/JPanel$AccessibleJPanel.h>
-
 #include <javax/accessibility/AccessibleRole.h>
 #include <javax/swing/JComponent$AccessibleJComponent.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JPanel.h>
 #include <jcpp.h>
 
@@ -13,49 +11,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessibleRole = ::javax::accessibility::AccessibleRole;
-using $JComponent = ::javax::swing::JComponent;
 using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JPanel = ::javax::swing::JPanel;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JPanel$AccessibleJPanel_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JPanel;", nullptr, $FINAL | $SYNTHETIC, $field(JPanel$AccessibleJPanel, this$0)},
-	{}
-};
-
-$MethodInfo _JPanel$AccessibleJPanel_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JPanel;)V", nullptr, $PROTECTED, $method(JPanel$AccessibleJPanel, init$, void, $JPanel*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JPanel$AccessibleJPanel, getAccessibleRole, $AccessibleRole*)},
-	{}
-};
-
-$InnerClassInfo _JPanel$AccessibleJPanel_InnerClassesInfo_[] = {
-	{"javax.swing.JPanel$AccessibleJPanel", "javax.swing.JPanel", "AccessibleJPanel", $PROTECTED},
-	{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JPanel$AccessibleJPanel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JPanel$AccessibleJPanel",
-	"javax.swing.JComponent$AccessibleJComponent",
-	nullptr,
-	_JPanel$AccessibleJPanel_FieldInfo_,
-	_JPanel$AccessibleJPanel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JPanel$AccessibleJPanel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JPanel"
-};
-
-$Object* allocate$JPanel$AccessibleJPanel($Class* clazz) {
-	return $of($alloc(JPanel$AccessibleJPanel));
-}
 
 void JPanel$AccessibleJPanel::init$($JPanel* this$0) {
 	$set(this, this$0, this$0);
@@ -71,7 +31,38 @@ JPanel$AccessibleJPanel::JPanel$AccessibleJPanel() {
 }
 
 $Class* JPanel$AccessibleJPanel::load$($String* name, bool initialize) {
-	$loadClass(JPanel$AccessibleJPanel, name, initialize, &_JPanel$AccessibleJPanel_ClassInfo_, allocate$JPanel$AccessibleJPanel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JPanel;", nullptr, $FINAL | $SYNTHETIC, $field(JPanel$AccessibleJPanel, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JPanel;)V", nullptr, $PROTECTED, $method(JPanel$AccessibleJPanel, init$, void, $JPanel*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JPanel$AccessibleJPanel, getAccessibleRole, $AccessibleRole*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JPanel$AccessibleJPanel", "javax.swing.JPanel", "AccessibleJPanel", $PROTECTED},
+		{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JPanel$AccessibleJPanel",
+		"javax.swing.JComponent$AccessibleJComponent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JPanel"
+	};
+	$loadClass(JPanel$AccessibleJPanel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JPanel$AccessibleJPanel));
+	});
 	return class$;
 }
 

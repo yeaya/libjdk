@@ -42,6 +42,7 @@ class ImageCache : public ::java::lang::Object {
 	$class(ImageCache, 0, ::java::lang::Object)
 public:
 	ImageCache();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t maxPixelCount, int32_t maxSingleImagePixelSize);
 	virtual void flush();

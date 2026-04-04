@@ -1,5 +1,4 @@
 #include <com/sun/source/doctree/DocTree.h>
-
 #include <com/sun/source/doctree/DocTree$Kind.h>
 #include <com/sun/source/doctree/DocTreeVisitor.h>
 #include <jcpp.h>
@@ -15,38 +14,33 @@ namespace com {
 		namespace source {
 			namespace doctree {
 
-$MethodInfo _DocTree_MethodInfo_[] = {
-	{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(DocTree, accept, $Object*, $DocTreeVisitor*, Object$*)},
-	{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocTree, getKind, $DocTree$Kind*)},
-	{}
-};
-
-$InnerClassInfo _DocTree_InnerClassesInfo_[] = {
-	{"com.sun.source.doctree.DocTree$Kind", "com.sun.source.doctree.DocTree", "Kind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _DocTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.doctree.DocTree",
-	nullptr,
-	nullptr,
-	nullptr,
-	_DocTree_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DocTree_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.source.doctree.DocTree$Kind"
-};
-
-$Object* allocate$DocTree($Class* clazz) {
-	return $of($alloc(DocTree));
-}
-
 $Class* DocTree::load$($String* name, bool initialize) {
-	$loadClass(DocTree, name, initialize, &_DocTree_ClassInfo_, allocate$DocTree);
+	$MethodInfo methodInfos$$[] = {
+		{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(DocTree, accept, $Object*, $DocTreeVisitor*, Object$*)},
+		{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocTree, getKind, $DocTree$Kind*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.source.doctree.DocTree$Kind", "com.sun.source.doctree.DocTree", "Kind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.doctree.DocTree",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.source.doctree.DocTree$Kind"
+	};
+	$loadClass(DocTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DocTree);
+	});
 	return class$;
 }
 

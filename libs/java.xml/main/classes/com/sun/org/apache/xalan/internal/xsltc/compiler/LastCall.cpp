@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/LastCall.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/ILOAD.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEINTERFACE.h>
@@ -21,7 +20,6 @@
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $ILOAD = ::com::sun::org::apache::bcel::internal::generic::ILOAD;
 using $INVOKEINTERFACE = ::com::sun::org::apache::bcel::internal::generic::INVOKEINTERFACE;
-using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
 using $FunctionCall = ::com::sun::org::apache::xalan::internal::xsltc::compiler::FunctionCall;
@@ -42,27 +40,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$MethodInfo _LastCall_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)V", nullptr, $PUBLIC, $method(LastCall, init$, void, $QName*)},
-	{"hasLastCall", "()Z", nullptr, $PUBLIC, $virtualMethod(LastCall, hasLastCall, bool)},
-	{"hasPositionCall", "()Z", nullptr, $PUBLIC, $virtualMethod(LastCall, hasPositionCall, bool)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(LastCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{}
-};
-
-$ClassInfo _LastCall_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.LastCall",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall",
-	nullptr,
-	nullptr,
-	_LastCall_MethodInfo_
-};
-
-$Object* allocate$LastCall($Class* clazz) {
-	return $of($alloc(LastCall));
-}
-
 void LastCall::init$($QName* fname) {
 	$FunctionCall::init$(fname);
 }
@@ -76,18 +53,18 @@ bool LastCall::hasLastCall() {
 }
 
 void LastCall::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	if ($instanceOf($CompareGenerator, methodGen)) {
-		$nc(il)->append($($nc(($cast($CompareGenerator, methodGen)))->loadLastNode()));
+		$nc(il)->append($($cast($CompareGenerator, methodGen)->loadLastNode()));
 	} else if ($instanceOf($TestGenerator, methodGen)) {
-		$nc(il)->append(static_cast<$Instruction*>($$new($ILOAD, $Constants::LAST_INDEX)));
+		$nc(il)->append($$new($ILOAD, $Constants::LAST_INDEX));
 	} else {
 		$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 		$init($Constants);
 		int32_t getLast = $nc(cpg)->addInterfaceMethodref($Constants::NODE_ITERATOR, "getLast"_s, "()I"_s);
 		$nc(il)->append($(methodGen->loadIterator()));
-		il->append(static_cast<$Instruction*>($$new($INVOKEINTERFACE, getLast, 1)));
+		il->append($$new($INVOKEINTERFACE, getLast, 1));
 	}
 }
 
@@ -95,7 +72,24 @@ LastCall::LastCall() {
 }
 
 $Class* LastCall::load$($String* name, bool initialize) {
-	$loadClass(LastCall, name, initialize, &_LastCall_ClassInfo_, allocate$LastCall);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)V", nullptr, $PUBLIC, $method(LastCall, init$, void, $QName*)},
+		{"hasLastCall", "()Z", nullptr, $PUBLIC, $virtualMethod(LastCall, hasLastCall, bool)},
+		{"hasPositionCall", "()Z", nullptr, $PUBLIC, $virtualMethod(LastCall, hasPositionCall, bool)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(LastCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.LastCall",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LastCall, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LastCall);
+	});
 	return class$;
 }
 

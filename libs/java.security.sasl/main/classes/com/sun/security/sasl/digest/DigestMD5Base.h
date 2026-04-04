@@ -125,6 +125,7 @@ class DigestMD5Base : public ::com::sun::security::sasl::util::AbstractSaslImpl 
 	$class(DigestMD5Base, 0, ::com::sun::security::sasl::util::AbstractSaslImpl)
 public:
 	DigestMD5Base();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::Map* props, $String* className, int32_t firstStep, $String* digestUri, ::javax::security::auth::callback::CallbackHandler* cbh);
 	static void access$000(int32_t x0, $bytes* x1, int32_t x2, int32_t x3);
 	static ::java::util::logging::Logger* access$100();

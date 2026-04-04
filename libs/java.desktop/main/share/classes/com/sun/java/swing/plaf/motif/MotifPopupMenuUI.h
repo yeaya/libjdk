@@ -57,6 +57,7 @@ class $export MotifPopupMenuUI : public ::javax::swing::plaf::basic::BasicPopupM
 	$class(MotifPopupMenuUI, 0, ::javax::swing::plaf::basic::BasicPopupMenuUI)
 public:
 	MotifPopupMenuUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::swing::event::ChangeListener* createChangeListener(::javax::swing::JPopupMenu* m);
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* x);

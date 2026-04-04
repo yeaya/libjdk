@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/MarlinTileGenerator.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/Arrays.h>
 #include <jdk/internal/misc/Unsafe.h>
@@ -30,7 +29,6 @@
 #undef TILE_W
 #undef UNSAFE
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
@@ -45,60 +43,11 @@ using $MarlinUtils = ::sun::java2d::marlin::MarlinUtils;
 using $OffHeapArray = ::sun::java2d::marlin::OffHeapArray;
 using $Renderer = ::sun::java2d::marlin::Renderer;
 using $RendererStats = ::sun::java2d::marlin::RendererStats;
-using $Histogram = ::sun::java2d::marlin::stats::Histogram;
 using $AATileGenerator = ::sun::java2d::pipe::AATileGenerator;
 
 namespace sun {
 	namespace java2d {
 		namespace marlin {
-
-$FieldInfo _MarlinTileGenerator_FieldInfo_[] = {
-	{"DISABLE_BLEND", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MarlinTileGenerator, DISABLE_BLEND)},
-	{"MAX_TILE_ALPHA_SUM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MarlinTileGenerator, MAX_TILE_ALPHA_SUM)},
-	{"TH_AA_ALPHA_FILL_EMPTY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MarlinTileGenerator, TH_AA_ALPHA_FILL_EMPTY)},
-	{"TH_AA_ALPHA_FILL_FULL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MarlinTileGenerator, TH_AA_ALPHA_FILL_FULL)},
-	{"FILL_TILE_W", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MarlinTileGenerator, FILL_TILE_W)},
-	{"renderer", "Lsun/java2d/marlin/Renderer;", nullptr, $PRIVATE | $FINAL, $field(MarlinTileGenerator, renderer)},
-	{"cache", "Lsun/java2d/marlin/MarlinCache;", nullptr, $PRIVATE | $FINAL, $field(MarlinTileGenerator, cache)},
-	{"x", "I", nullptr, $PRIVATE, $field(MarlinTileGenerator, x)},
-	{"y", "I", nullptr, $PRIVATE, $field(MarlinTileGenerator, y)},
-	{"rdrStats", "Lsun/java2d/marlin/RendererStats;", nullptr, $FINAL, $field(MarlinTileGenerator, rdrStats)},
-	{}
-};
-
-$MethodInfo _MarlinTileGenerator_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/java2d/marlin/RendererStats;Lsun/java2d/marlin/Renderer;Lsun/java2d/marlin/MarlinCache;)V", nullptr, 0, $method(MarlinTileGenerator, init$, void, $RendererStats*, $Renderer*, $MarlinCache*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(MarlinTileGenerator, dispose, void)},
-	{"getAlpha", "([BII)V", nullptr, $PUBLIC, $virtualMethod(MarlinTileGenerator, getAlpha, void, $bytes*, int32_t, int32_t)},
-	{"getAlphaNoRLE", "([BII)V", nullptr, $PRIVATE, $method(MarlinTileGenerator, getAlphaNoRLE, void, $bytes*, int32_t, int32_t)},
-	{"getAlphaRLE", "([BII)V", nullptr, $PRIVATE, $method(MarlinTileGenerator, getAlphaRLE, void, $bytes*, int32_t, int32_t)},
-	{"getBbox", "([I)V", nullptr, 0, $method(MarlinTileGenerator, getBbox, void, $ints*)},
-	{"getTileHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MarlinTileGenerator, getTileHeight, int32_t)},
-	{"getTileWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MarlinTileGenerator, getTileWidth, int32_t)},
-	{"getTypicalAlpha", "()I", nullptr, $PUBLIC, $virtualMethod(MarlinTileGenerator, getTypicalAlpha, int32_t)},
-	{"hex", "(II)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(MarlinTileGenerator, hex, $String*, int32_t, int32_t)},
-	{"init", "()Lsun/java2d/marlin/MarlinTileGenerator;", nullptr, 0, $method(MarlinTileGenerator, init, MarlinTileGenerator*)},
-	{"nextTile", "()V", nullptr, $PUBLIC, $virtualMethod(MarlinTileGenerator, nextTile, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _MarlinTileGenerator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.MarlinTileGenerator",
-	"java.lang.Object",
-	"sun.java2d.pipe.AATileGenerator,sun.java2d.marlin.MarlinConst",
-	_MarlinTileGenerator_FieldInfo_,
-	_MarlinTileGenerator_MethodInfo_
-};
-
-$Object* allocate$MarlinTileGenerator($Class* clazz) {
-	return $of($alloc(MarlinTileGenerator));
-}
 
 int32_t MarlinTileGenerator::hashCode() {
 	 return this->$AATileGenerator::hashCode();
@@ -133,23 +82,25 @@ void MarlinTileGenerator::init$($RendererStats* stats, $Renderer* r, $MarlinCach
 
 MarlinTileGenerator* MarlinTileGenerator::init() {
 	this->x = $nc(this->cache)->bboxX0;
-	this->y = $nc(this->cache)->bboxY0;
+	this->y = this->cache->bboxY0;
 	return this;
 }
 
 void MarlinTileGenerator::dispose() {
+	;
 	$nc(this->cache)->dispose();
 	$nc(this->renderer)->dispose();
 }
 
 void MarlinTileGenerator::getBbox($ints* bbox) {
 	$nc(bbox)->set(0, $nc(this->cache)->bboxX0);
-	bbox->set(1, $nc(this->cache)->bboxY0);
-	bbox->set(2, $nc(this->cache)->bboxX1);
-	bbox->set(3, $nc(this->cache)->bboxY1);
+	bbox->set(1, this->cache->bboxY0);
+	bbox->set(2, this->cache->bboxX1);
+	bbox->set(3, this->cache->bboxY1);
 }
 
 int32_t MarlinTileGenerator::getTileWidth() {
+	;
 	$init($MarlinConst);
 	return $MarlinConst::TILE_W;
 }
@@ -160,6 +111,7 @@ int32_t MarlinTileGenerator::getTileHeight() {
 }
 
 int32_t MarlinTileGenerator::getTypicalAlpha() {
+	;
 	int32_t al = $nc(this->cache)->alphaSumInTile(this->x);
 	int32_t alpha = (al == 0 ? 0 : (al == MarlinTileGenerator::MAX_TILE_ALPHA_SUM ? 255 : 128));
 	$init($MarlinConst);
@@ -172,9 +124,9 @@ int32_t MarlinTileGenerator::getTypicalAlpha() {
 void MarlinTileGenerator::nextTile() {
 	$init($MarlinConst);
 	if ((this->x += $MarlinConst::TILE_W) >= $nc(this->cache)->bboxX1) {
-		this->x = $nc(this->cache)->bboxX0;
+		this->x = this->cache->bboxX0;
 		this->y += $MarlinConst::TILE_H;
-		if (this->y < $nc(this->cache)->bboxY1) {
+		if (this->y < this->cache->bboxY1) {
 			$nc(this->renderer)->endRendering(this->y);
 		}
 	}
@@ -189,7 +141,8 @@ void MarlinTileGenerator::getAlpha($bytes* tile, int32_t offset, int32_t rowstri
 }
 
 void MarlinTileGenerator::getAlphaNoRLE($bytes* tile, int32_t offset, int32_t rowstride) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	$var($MarlinCache, _cache, this->cache);
 	$var($longs, rowAAChunkIndex, $nc(_cache)->rowAAChunkIndex);
 	$var($ints, rowAAx0, _cache->rowAAx0);
@@ -212,48 +165,46 @@ void MarlinTileGenerator::getAlphaNoRLE($bytes* tile, int32_t offset, int32_t ro
 	int32_t aax1 = 0;
 	int32_t end = 0;
 	int32_t idx = offset;
-	{
-		int32_t cy = y0;
-		int32_t cx = 0;
-		for (; cy < y1; ++cy) {
-			cx = x0;
-			aax1 = $nc(rowAAx1)->get(cy);
-			if (aax1 > x0) {
-				aax0 = $nc(rowAAx0)->get(cy);
-				if (aax0 < x1) {
-					cx = aax0;
-					if (cx <= x0) {
-						cx = x0;
-					} else {
-						for (end = x0; end < cx; ++end) {
-							$nc(tile)->set(idx++, (int8_t)0);
-						}
-					}
-					addr = addr_rowAA + $nc(rowAAChunkIndex)->get(cy) + (cx - aax0);
-					for (end = (aax1 <= x1) ? aax1 : x1; cx < end; ++cx) {
-						$nc(tile)->set(idx++, $nc(_unsafe)->getByte(addr));
-						addr += SIZE;
+	for (int32_t cy = y0, cx = 0; cy < y1; ++cy) {
+		cx = x0;
+		aax1 = $nc(rowAAx1)->get(cy);
+		if (aax1 > x0) {
+			aax0 = $nc(rowAAx0)->get(cy);
+			if (aax0 < x1) {
+				cx = aax0;
+				if (cx <= x0) {
+					cx = x0;
+				} else {
+					for (end = x0; end < cx; ++end) {
+						$nc(tile)->set(idx++, 0);
 					}
 				}
-			}
-			while (cx < x1) {
-				$nc(tile)->set(idx++, (int8_t)0);
-				++cx;
-			}
-			if ($MarlinConst::DO_TRACE) {
-				for (int32_t i = idx - (x1 - x0); i < idx; ++i) {
-					$nc($System::out)->print($(hex($nc(tile)->get(i), 2)));
+				addr = addr_rowAA + $nc(rowAAChunkIndex)->get(cy) + (cx - aax0);
+				for (end = (aax1 <= x1) ? aax1 : x1; cx < end; ++cx) {
+					$nc(tile)->set(idx++, $nc(_unsafe)->getByte(addr));
+					addr += SIZE;
 				}
-				$nc($System::out)->println();
 			}
-			idx += skipRowPixels;
 		}
+		while (cx < x1) {
+			$nc(tile)->set(idx++, 0);
+			++cx;
+		}
+		if ($MarlinConst::DO_TRACE) {
+			for (int32_t i = idx - (x1 - x0); i < idx; ++i) {
+				$nc($System::out)->print($(hex($nc(tile)->get(i), 2)));
+			}
+			$nc($System::out)->println();
+		}
+		idx += skipRowPixels;
 	}
 	nextTile();
+	;
 }
 
 void MarlinTileGenerator::getAlphaRLE($bytes* tile, int32_t offset, int32_t rowstride) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	$var($MarlinCache, _cache, this->cache);
 	$var($longs, rowAAChunkIndex, $nc(_cache)->rowAAChunkIndex);
 	$var($ints, rowAAx0, _cache->rowAAx0);
@@ -277,17 +228,17 @@ void MarlinTileGenerator::getAlphaRLE($bytes* tile, int32_t offset, int32_t rows
 		int32_t alphaSum = $nc(this->cache)->alphaSumInTile(x0);
 		if (alphaSum < area * MarlinTileGenerator::TH_AA_ALPHA_FILL_EMPTY) {
 			clearTile = 1;
-			refVal = (int8_t)0;
+			refVal = 0;
 		} else if (alphaSum > area * MarlinTileGenerator::TH_AA_ALPHA_FILL_FULL) {
 			clearTile = 2;
 			refVal = (int8_t)255;
 		} else {
 			clearTile = 0;
-			refVal = (int8_t)0;
+			refVal = 0;
 		}
 	} else {
 		clearTile = 0;
-		refVal = (int8_t)0;
+		refVal = 0;
 	}
 	$init($OffHeapArray);
 	$var($Unsafe, _unsafe, $OffHeapArray::UNSAFE);
@@ -311,249 +262,243 @@ void MarlinTileGenerator::getAlphaRLE($bytes* tile, int32_t offset, int32_t rows
 	int32_t idx = offset;
 	switch (clearTile) {
 	case 1:
-		{
-			$Arrays::fill(tile, offset, offset + (y1 * rowstride), refVal);
-			for (cy = y0; cy < y1; ++cy) {
-				cx = x0;
-				if ($nc(rowAAEnc)->get(cy) == 0) {
-					int32_t aax1 = $nc(rowAAx1)->get(cy);
-					if (aax1 > x0) {
-						int32_t aax0 = $nc(rowAAx0)->get(cy);
-						if (aax0 < x1) {
-							cx = aax0;
-							if (cx <= x0) {
-								cx = x0;
-							} else {
-								idx += (cx - x0);
-							}
-							addr = addr_rowAA + $nc(rowAAChunkIndex)->get(cy) + (cx - aax0);
-							for (end = (aax1 <= x1) ? aax1 : x1; cx < end; ++cx) {
-								$nc(tile)->set(idx++, $nc(_unsafe)->getByte(addr));
-								addr += SIZE_BYTE;
-							}
+		$Arrays::fill(tile, offset, offset + (y1 * rowstride), refVal);
+		for (cy = y0; cy < y1; ++cy) {
+			cx = x0;
+			if ($nc(rowAAEnc)->get(cy) == 0) {
+				int32_t aax1 = $nc(rowAAx1)->get(cy);
+				if (aax1 > x0) {
+					int32_t aax0 = $nc(rowAAx0)->get(cy);
+					if (aax0 < x1) {
+						cx = aax0;
+						if (cx <= x0) {
+							cx = x0;
+						} else {
+							idx += (cx - x0);
+						}
+						addr = addr_rowAA + $nc(rowAAChunkIndex)->get(cy) + (cx - aax0);
+						for (end = (aax1 <= x1) ? aax1 : x1; cx < end; ++cx) {
+							$nc(tile)->set(idx++, $nc(_unsafe)->getByte(addr));
+							addr += SIZE_BYTE;
 						}
 					}
-				} else if ($nc(rowAAx1)->get(cy) > x0) {
-					cx = $nc(rowAAx0)->get(cy);
-					if (cx > x1) {
+				}
+			} else if ($nc(rowAAx1)->get(cy) > x0) {
+				cx = $nc(rowAAx0)->get(cy);
+				if (cx > x1) {
+					cx = x1;
+				}
+				if (cx > x0) {
+					idx += (cx - x0);
+				}
+				addr_row = addr_rowAA + $nc(rowAAChunkIndex)->get(cy);
+				addr_end = addr_row + $nc(rowAALen)->get(cy);
+				addr = addr_row + $nc(rowAAPos)->get(cy);
+				last_addr = 0;
+				while ((cx < x1) && (addr < addr_end)) {
+					last_addr = addr;
+					packed = $nc(_unsafe)->getInt(addr);
+					cx1 = (packed >> 8);
+					addr += SIZE_INT;
+					rx0 = cx;
+					if (rx0 < x0) {
+						rx0 = x0;
+					}
+					rx1 = (cx = cx1);
+					if (rx1 > x1) {
+						rx1 = x1;
 						cx = x1;
 					}
-					if (cx > x0) {
-						idx += (cx - x0);
-					}
-					addr_row = addr_rowAA + $nc(rowAAChunkIndex)->get(cy);
-					addr_end = addr_row + $nc(rowAALen)->get(cy);
-					addr = addr_row + $nc(rowAAPos)->get(cy);
-					last_addr = 0;
-					while ((cx < x1) && (addr < addr_end)) {
-						last_addr = addr;
-						packed = $nc(_unsafe)->getInt(addr);
-						cx1 = (packed >> 8);
-						addr += SIZE_INT;
-						rx0 = cx;
-						if (rx0 < x0) {
-							rx0 = x0;
+					runLen = rx1 - rx0;
+					if (runLen > 0) {
+						packed &= (uint32_t)255;
+						if (packed == 0) {
+							idx += runLen;
+							continue;
 						}
-						rx1 = (cx = cx1);
-						if (rx1 > x1) {
-							rx1 = x1;
-							cx = x1;
-						}
-						runLen = rx1 - rx0;
-						if (runLen > 0) {
-							packed &= (uint32_t)255;
-							if (packed == 0) {
-								idx += runLen;
-								continue;
-							}
-							val = (int8_t)packed;
-							do {
-								$nc(tile)->set(idx++, val);
-							} while (--runLen > 0);
-						}
-					}
-					if (last_addr != (int64_t)0) {
-						rowAAx0->set(cy, cx);
-						rowAAPos->set(cy, (last_addr - addr_row));
+						val = (int8_t)packed;
+						do {
+							$nc(tile)->set(idx++, val);
+						} while (--runLen > 0);
 					}
 				}
-				if (cx < x1) {
-					idx += (x1 - cx);
+				if (last_addr != 0) {
+					rowAAx0->set(cy, cx);
+					rowAAPos->set(cy, (last_addr - addr_row));
 				}
-				if ($MarlinConst::DO_TRACE) {
-					for (int32_t i = idx - (x1 - x0); i < idx; ++i) {
-						$nc($System::out)->print($(hex($nc(tile)->get(i), 2)));
-					}
-					$nc($System::out)->println();
-				}
-				idx += skipRowPixels;
 			}
-			break;
+			if (cx < x1) {
+				idx += (x1 - cx);
+			}
+			if ($MarlinConst::DO_TRACE) {
+				for (int32_t i = idx - (x1 - x0); i < idx; ++i) {
+					$nc($System::out)->print($(hex($nc(tile)->get(i), 2)));
+				}
+				$nc($System::out)->println();
+			}
+			idx += skipRowPixels;
 		}
+		break;
 	case 0:
-		{}
 	default:
-		{
-			for (cy = y0; cy < y1; ++cy) {
-				cx = x0;
-				if ($nc(rowAAEnc)->get(cy) == 0) {
-					int32_t aax1 = $nc(rowAAx1)->get(cy);
-					if (aax1 > x0) {
-						int32_t aax0 = $nc(rowAAx0)->get(cy);
-						if (aax0 < x1) {
-							cx = aax0;
-							if (cx <= x0) {
-								cx = x0;
-							} else {
-								for (end = x0; end < cx; ++end) {
-									$nc(tile)->set(idx++, (int8_t)0);
-								}
-							}
-							addr = addr_rowAA + $nc(rowAAChunkIndex)->get(cy) + (cx - aax0);
-							for (end = (aax1 <= x1) ? aax1 : x1; cx < end; ++cx) {
-								$nc(tile)->set(idx++, $nc(_unsafe)->getByte(addr));
-								addr += SIZE_BYTE;
+		for (cy = y0; cy < y1; ++cy) {
+			cx = x0;
+			if ($nc(rowAAEnc)->get(cy) == 0) {
+				int32_t aax1 = $nc(rowAAx1)->get(cy);
+				if (aax1 > x0) {
+					int32_t aax0 = $nc(rowAAx0)->get(cy);
+					if (aax0 < x1) {
+						cx = aax0;
+						if (cx <= x0) {
+							cx = x0;
+						} else {
+							for (end = x0; end < cx; ++end) {
+								$nc(tile)->set(idx++, 0);
 							}
 						}
+						addr = addr_rowAA + $nc(rowAAChunkIndex)->get(cy) + (cx - aax0);
+						for (end = (aax1 <= x1) ? aax1 : x1; cx < end; ++cx) {
+							$nc(tile)->set(idx++, $nc(_unsafe)->getByte(addr));
+							addr += SIZE_BYTE;
+						}
 					}
-				} else if ($nc(rowAAx1)->get(cy) > x0) {
-					cx = $nc(rowAAx0)->get(cy);
-					if (cx > x1) {
+				}
+			} else if ($nc(rowAAx1)->get(cy) > x0) {
+				cx = $nc(rowAAx0)->get(cy);
+				if (cx > x1) {
+					cx = x1;
+				}
+				for (end = x0; end < cx; ++end) {
+					$nc(tile)->set(idx++, 0);
+				}
+				addr_row = addr_rowAA + $nc(rowAAChunkIndex)->get(cy);
+				addr_end = addr_row + $nc(rowAALen)->get(cy);
+				addr = addr_row + $nc(rowAAPos)->get(cy);
+				last_addr = 0;
+				while ((cx < x1) && (addr < addr_end)) {
+					last_addr = addr;
+					packed = $nc(_unsafe)->getInt(addr);
+					cx1 = (packed >> 8);
+					addr += SIZE_INT;
+					rx0 = cx;
+					if (rx0 < x0) {
+						rx0 = x0;
+					}
+					rx1 = (cx = cx1);
+					if (rx1 > x1) {
+						rx1 = x1;
 						cx = x1;
 					}
-					for (end = x0; end < cx; ++end) {
-						$nc(tile)->set(idx++, (int8_t)0);
-					}
-					addr_row = addr_rowAA + $nc(rowAAChunkIndex)->get(cy);
-					addr_end = addr_row + $nc(rowAALen)->get(cy);
-					addr = addr_row + $nc(rowAAPos)->get(cy);
-					last_addr = 0;
-					while ((cx < x1) && (addr < addr_end)) {
-						last_addr = addr;
-						packed = $nc(_unsafe)->getInt(addr);
-						cx1 = (packed >> 8);
-						addr += SIZE_INT;
-						rx0 = cx;
-						if (rx0 < x0) {
-							rx0 = x0;
-						}
-						rx1 = (cx = cx1);
-						if (rx1 > x1) {
-							rx1 = x1;
-							cx = x1;
-						}
-						runLen = rx1 - rx0;
-						if (runLen > 0) {
-							packed &= (uint32_t)255;
-							val = (int8_t)packed;
-							do {
-								$nc(tile)->set(idx++, val);
-							} while (--runLen > 0);
-						}
-					}
-					if (last_addr != (int64_t)0) {
-						rowAAx0->set(cy, cx);
-						rowAAPos->set(cy, (last_addr - addr_row));
+					runLen = rx1 - rx0;
+					if (runLen > 0) {
+						packed &= (uint32_t)255;
+						val = (int8_t)packed;
+						do {
+							$nc(tile)->set(idx++, val);
+						} while (--runLen > 0);
 					}
 				}
-				while (cx < x1) {
-					$nc(tile)->set(idx++, (int8_t)0);
-					++cx;
+				if (last_addr != 0) {
+					rowAAx0->set(cy, cx);
+					rowAAPos->set(cy, (last_addr - addr_row));
 				}
-				if ($MarlinConst::DO_TRACE) {
-					for (int32_t i = idx - (x1 - x0); i < idx; ++i) {
-						$nc($System::out)->print($(hex($nc(tile)->get(i), 2)));
-					}
-					$nc($System::out)->println();
-				}
-				idx += skipRowPixels;
 			}
-			break;
+			while (cx < x1) {
+				$nc(tile)->set(idx++, 0);
+				++cx;
+			}
+			if ($MarlinConst::DO_TRACE) {
+				for (int32_t i = idx - (x1 - x0); i < idx; ++i) {
+					$nc($System::out)->print($(hex($nc(tile)->get(i), 2)));
+				}
+				$nc($System::out)->println();
+			}
+			idx += skipRowPixels;
 		}
+		break;
 	case 2:
-		{
-			$Arrays::fill(tile, offset, offset + (y1 * rowstride), refVal);
-			for (cy = y0; cy < y1; ++cy) {
-				cx = x0;
-				if ($nc(rowAAEnc)->get(cy) == 0) {
-					int32_t aax1 = $nc(rowAAx1)->get(cy);
-					if (aax1 > x0) {
-						int32_t aax0 = $nc(rowAAx0)->get(cy);
-						if (aax0 < x1) {
-							cx = aax0;
-							if (cx <= x0) {
-								cx = x0;
-							} else {
-								for (end = x0; end < cx; ++end) {
-									$nc(tile)->set(idx++, (int8_t)0);
-								}
-							}
-							addr = addr_rowAA + $nc(rowAAChunkIndex)->get(cy) + (cx - aax0);
-							for (end = (aax1 <= x1) ? aax1 : x1; cx < end; ++cx) {
-								$nc(tile)->set(idx++, $nc(_unsafe)->getByte(addr));
-								addr += SIZE_BYTE;
+		$Arrays::fill(tile, offset, offset + (y1 * rowstride), refVal);
+		for (cy = y0; cy < y1; ++cy) {
+			cx = x0;
+			if ($nc(rowAAEnc)->get(cy) == 0) {
+				int32_t aax1 = $nc(rowAAx1)->get(cy);
+				if (aax1 > x0) {
+					int32_t aax0 = $nc(rowAAx0)->get(cy);
+					if (aax0 < x1) {
+						cx = aax0;
+						if (cx <= x0) {
+							cx = x0;
+						} else {
+							for (end = x0; end < cx; ++end) {
+								$nc(tile)->set(idx++, 0);
 							}
 						}
+						addr = addr_rowAA + $nc(rowAAChunkIndex)->get(cy) + (cx - aax0);
+						for (end = (aax1 <= x1) ? aax1 : x1; cx < end; ++cx) {
+							$nc(tile)->set(idx++, $nc(_unsafe)->getByte(addr));
+							addr += SIZE_BYTE;
+						}
 					}
-				} else if ($nc(rowAAx1)->get(cy) > x0) {
-					cx = $nc(rowAAx0)->get(cy);
-					if (cx > x1) {
+				}
+			} else if ($nc(rowAAx1)->get(cy) > x0) {
+				cx = $nc(rowAAx0)->get(cy);
+				if (cx > x1) {
+					cx = x1;
+				}
+				for (end = x0; end < cx; ++end) {
+					$nc(tile)->set(idx++, 0);
+				}
+				addr_row = addr_rowAA + $nc(rowAAChunkIndex)->get(cy);
+				addr_end = addr_row + $nc(rowAALen)->get(cy);
+				addr = addr_row + $nc(rowAAPos)->get(cy);
+				last_addr = 0;
+				while ((cx < x1) && (addr < addr_end)) {
+					last_addr = addr;
+					packed = $nc(_unsafe)->getInt(addr);
+					cx1 = (packed >> 8);
+					addr += SIZE_INT;
+					rx0 = cx;
+					if (rx0 < x0) {
+						rx0 = x0;
+					}
+					rx1 = (cx = cx1);
+					if (rx1 > x1) {
+						rx1 = x1;
 						cx = x1;
 					}
-					for (end = x0; end < cx; ++end) {
-						$nc(tile)->set(idx++, (int8_t)0);
-					}
-					addr_row = addr_rowAA + $nc(rowAAChunkIndex)->get(cy);
-					addr_end = addr_row + $nc(rowAALen)->get(cy);
-					addr = addr_row + $nc(rowAAPos)->get(cy);
-					last_addr = 0;
-					while ((cx < x1) && (addr < addr_end)) {
-						last_addr = addr;
-						packed = $nc(_unsafe)->getInt(addr);
-						cx1 = (packed >> 8);
-						addr += SIZE_INT;
-						rx0 = cx;
-						if (rx0 < x0) {
-							rx0 = x0;
+					runLen = rx1 - rx0;
+					if (runLen > 0) {
+						packed &= (uint32_t)255;
+						if (packed == 255) {
+							idx += runLen;
+							continue;
 						}
-						rx1 = (cx = cx1);
-						if (rx1 > x1) {
-							rx1 = x1;
-							cx = x1;
-						}
-						runLen = rx1 - rx0;
-						if (runLen > 0) {
-							packed &= (uint32_t)255;
-							if (packed == 255) {
-								idx += runLen;
-								continue;
-							}
-							val = (int8_t)packed;
-							do {
-								$nc(tile)->set(idx++, val);
-							} while (--runLen > 0);
-						}
-					}
-					if (last_addr != (int64_t)0) {
-						rowAAx0->set(cy, cx);
-						rowAAPos->set(cy, (last_addr - addr_row));
+						val = (int8_t)packed;
+						do {
+							$nc(tile)->set(idx++, val);
+						} while (--runLen > 0);
 					}
 				}
-				while (cx < x1) {
-					$nc(tile)->set(idx++, (int8_t)0);
-					++cx;
+				if (last_addr != 0) {
+					rowAAx0->set(cy, cx);
+					rowAAPos->set(cy, (last_addr - addr_row));
 				}
-				if ($MarlinConst::DO_TRACE) {
-					for (int32_t i = idx - (x1 - x0); i < idx; ++i) {
-						$nc($System::out)->print($(hex($nc(tile)->get(i), 2)));
-					}
-					$nc($System::out)->println();
-				}
-				idx += skipRowPixels;
 			}
+			while (cx < x1) {
+				$nc(tile)->set(idx++, 0);
+				++cx;
+			}
+			if ($MarlinConst::DO_TRACE) {
+				for (int32_t i = idx - (x1 - x0); i < idx; ++i) {
+					$nc($System::out)->print($(hex($nc(tile)->get(i), 2)));
+				}
+				$nc($System::out)->println();
+			}
+			idx += skipRowPixels;
 		}
 	}
 	nextTile();
+	;
 }
 
 $String* MarlinTileGenerator::hex(int32_t v, int32_t d) {
@@ -562,11 +507,11 @@ $String* MarlinTileGenerator::hex(int32_t v, int32_t d) {
 	while ($nc(s)->length() < d) {
 		$assign(s, $str({"0"_s, s}));
 	}
-	return $nc(s)->substring(0, d);
+	return s->substring(0, d);
 }
 
-void clinit$MarlinTileGenerator($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void MarlinTileGenerator::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$init($MarlinConst);
 	MarlinTileGenerator::MAX_TILE_ALPHA_SUM = $MarlinConst::TILE_W * $MarlinConst::TILE_H * $MarlinConst::MAX_AA_ALPHA;
 	MarlinTileGenerator::TH_AA_ALPHA_FILL_EMPTY = (($MarlinConst::MAX_AA_ALPHA + 1) / 3);
@@ -589,7 +534,50 @@ MarlinTileGenerator::MarlinTileGenerator() {
 }
 
 $Class* MarlinTileGenerator::load$($String* name, bool initialize) {
-	$loadClass(MarlinTileGenerator, name, initialize, &_MarlinTileGenerator_ClassInfo_, clinit$MarlinTileGenerator, allocate$MarlinTileGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"DISABLE_BLEND", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MarlinTileGenerator, DISABLE_BLEND)},
+		{"MAX_TILE_ALPHA_SUM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MarlinTileGenerator, MAX_TILE_ALPHA_SUM)},
+		{"TH_AA_ALPHA_FILL_EMPTY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MarlinTileGenerator, TH_AA_ALPHA_FILL_EMPTY)},
+		{"TH_AA_ALPHA_FILL_FULL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MarlinTileGenerator, TH_AA_ALPHA_FILL_FULL)},
+		{"FILL_TILE_W", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MarlinTileGenerator, FILL_TILE_W)},
+		{"renderer", "Lsun/java2d/marlin/Renderer;", nullptr, $PRIVATE | $FINAL, $field(MarlinTileGenerator, renderer)},
+		{"cache", "Lsun/java2d/marlin/MarlinCache;", nullptr, $PRIVATE | $FINAL, $field(MarlinTileGenerator, cache)},
+		{"x", "I", nullptr, $PRIVATE, $field(MarlinTileGenerator, x)},
+		{"y", "I", nullptr, $PRIVATE, $field(MarlinTileGenerator, y)},
+		{"rdrStats", "Lsun/java2d/marlin/RendererStats;", nullptr, $FINAL, $field(MarlinTileGenerator, rdrStats)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/java2d/marlin/RendererStats;Lsun/java2d/marlin/Renderer;Lsun/java2d/marlin/MarlinCache;)V", nullptr, 0, $method(MarlinTileGenerator, init$, void, $RendererStats*, $Renderer*, $MarlinCache*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(MarlinTileGenerator, dispose, void)},
+		{"getAlpha", "([BII)V", nullptr, $PUBLIC, $virtualMethod(MarlinTileGenerator, getAlpha, void, $bytes*, int32_t, int32_t)},
+		{"getAlphaNoRLE", "([BII)V", nullptr, $PRIVATE, $method(MarlinTileGenerator, getAlphaNoRLE, void, $bytes*, int32_t, int32_t)},
+		{"getAlphaRLE", "([BII)V", nullptr, $PRIVATE, $method(MarlinTileGenerator, getAlphaRLE, void, $bytes*, int32_t, int32_t)},
+		{"getBbox", "([I)V", nullptr, 0, $method(MarlinTileGenerator, getBbox, void, $ints*)},
+		{"getTileHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MarlinTileGenerator, getTileHeight, int32_t)},
+		{"getTileWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MarlinTileGenerator, getTileWidth, int32_t)},
+		{"getTypicalAlpha", "()I", nullptr, $PUBLIC, $virtualMethod(MarlinTileGenerator, getTypicalAlpha, int32_t)},
+		{"hex", "(II)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(MarlinTileGenerator, hex, $String*, int32_t, int32_t)},
+		{"init", "()Lsun/java2d/marlin/MarlinTileGenerator;", nullptr, 0, $method(MarlinTileGenerator, init, MarlinTileGenerator*)},
+		{"nextTile", "()V", nullptr, $PUBLIC, $virtualMethod(MarlinTileGenerator, nextTile, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.MarlinTileGenerator",
+		"java.lang.Object",
+		"sun.java2d.pipe.AATileGenerator,sun.java2d.marlin.MarlinConst",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MarlinTileGenerator, name, initialize, &classInfo$$, MarlinTileGenerator::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MarlinTileGenerator));
+	});
 	return class$;
 }
 

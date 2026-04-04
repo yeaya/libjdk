@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XTextAreaPeer$BevelBorder.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -23,53 +22,6 @@ using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XTextAreaPeer$BevelBorder_FieldInfo_[] = {
-	{"darkShadow", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(XTextAreaPeer$BevelBorder, darkShadow)},
-	{"lightShadow", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(XTextAreaPeer$BevelBorder, lightShadow)},
-	{"control", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(XTextAreaPeer$BevelBorder, control)},
-	{"isRaised", "Z", nullptr, $PRIVATE, $field(XTextAreaPeer$BevelBorder, isRaised)},
-	{}
-};
-
-$MethodInfo _XTextAreaPeer$BevelBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(ZLjava/awt/Color;Ljava/awt/Color;)V", nullptr, 0, $method(XTextAreaPeer$BevelBorder, init$, void, bool, $Color*, $Color*)},
-	{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$BevelBorder, getBorderInsets, $Insets*, $Component*)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$BevelBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"isOpaque", "(Ljava/awt/Component;)Z", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$BevelBorder, isOpaque, bool, $Component*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$BevelBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _XTextAreaPeer$BevelBorder_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XTextAreaPeer$BevelBorder", "sun.awt.X11.XTextAreaPeer", "BevelBorder", $STATIC},
-	{}
-};
-
-$ClassInfo _XTextAreaPeer$BevelBorder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XTextAreaPeer$BevelBorder",
-	"javax.swing.border.AbstractBorder",
-	"javax.swing.plaf.UIResource",
-	_XTextAreaPeer$BevelBorder_FieldInfo_,
-	_XTextAreaPeer$BevelBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XTextAreaPeer$BevelBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XTextAreaPeer"
-};
-
-$Object* allocate$XTextAreaPeer$BevelBorder($Class* clazz) {
-	return $of($alloc(XTextAreaPeer$BevelBorder));
-}
 
 int32_t XTextAreaPeer$BevelBorder::hashCode() {
 	 return this->$AbstractBorder::hashCode();
@@ -122,7 +74,7 @@ $Insets* XTextAreaPeer$BevelBorder::getBorderInsets($Component* c) {
 }
 
 $Insets* XTextAreaPeer$BevelBorder::getBorderInsets($Component* c, $Insets* insets) {
-	$nc(insets)->top = (insets->left = (insets->bottom = (insets->right = 2)));
+	$nc(insets)->top = ($nc(insets)->left = ($nc(insets)->bottom = ($nc(insets)->right = 2)));
 	return insets;
 }
 
@@ -134,7 +86,48 @@ XTextAreaPeer$BevelBorder::XTextAreaPeer$BevelBorder() {
 }
 
 $Class* XTextAreaPeer$BevelBorder::load$($String* name, bool initialize) {
-	$loadClass(XTextAreaPeer$BevelBorder, name, initialize, &_XTextAreaPeer$BevelBorder_ClassInfo_, allocate$XTextAreaPeer$BevelBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"darkShadow", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(XTextAreaPeer$BevelBorder, darkShadow)},
+		{"lightShadow", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(XTextAreaPeer$BevelBorder, lightShadow)},
+		{"control", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(XTextAreaPeer$BevelBorder, control)},
+		{"isRaised", "Z", nullptr, $PRIVATE, $field(XTextAreaPeer$BevelBorder, isRaised)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(ZLjava/awt/Color;Ljava/awt/Color;)V", nullptr, 0, $method(XTextAreaPeer$BevelBorder, init$, void, bool, $Color*, $Color*)},
+		{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$BevelBorder, getBorderInsets, $Insets*, $Component*)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$BevelBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"isOpaque", "(Ljava/awt/Component;)Z", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$BevelBorder, isOpaque, bool, $Component*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$BevelBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XTextAreaPeer$BevelBorder", "sun.awt.X11.XTextAreaPeer", "BevelBorder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XTextAreaPeer$BevelBorder",
+		"javax.swing.border.AbstractBorder",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XTextAreaPeer"
+	};
+	$loadClass(XTextAreaPeer$BevelBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XTextAreaPeer$BevelBorder));
+	});
 	return class$;
 }
 

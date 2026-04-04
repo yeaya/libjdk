@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/NodeImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/DefaultNode.h>
 #include <jcpp.h>
 
@@ -17,42 +16,6 @@ namespace com {
 						namespace impl {
 							namespace xs {
 								namespace opti {
-
-$FieldInfo _NodeImpl_FieldInfo_[] = {
-	{"prefix", "Ljava/lang/String;", nullptr, 0, $field(NodeImpl, prefix)},
-	{"localpart", "Ljava/lang/String;", nullptr, 0, $field(NodeImpl, localpart)},
-	{"rawname", "Ljava/lang/String;", nullptr, 0, $field(NodeImpl, rawname)},
-	{"uri", "Ljava/lang/String;", nullptr, 0, $field(NodeImpl, uri)},
-	{"nodeType", "S", nullptr, 0, $field(NodeImpl, nodeType)},
-	{"hidden", "Z", nullptr, 0, $field(NodeImpl, hidden)},
-	{}
-};
-
-$MethodInfo _NodeImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NodeImpl, init$, void)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;S)V", nullptr, $PUBLIC, $method(NodeImpl, init$, void, $String*, $String*, $String*, $String*, int16_t)},
-	{"getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NodeImpl, getLocalName, $String*)},
-	{"getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NodeImpl, getNamespaceURI, $String*)},
-	{"getNodeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NodeImpl, getNodeName, $String*)},
-	{"getNodeType", "()S", nullptr, $PUBLIC, $virtualMethod(NodeImpl, getNodeType, int16_t)},
-	{"getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NodeImpl, getPrefix, $String*)},
-	{"getReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeImpl, getReadOnly, bool)},
-	{"setReadOnly", "(ZZ)V", nullptr, $PUBLIC, $virtualMethod(NodeImpl, setReadOnly, void, bool, bool)},
-	{}
-};
-
-$ClassInfo _NodeImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.opti.NodeImpl",
-	"com.sun.org.apache.xerces.internal.impl.xs.opti.DefaultNode",
-	nullptr,
-	_NodeImpl_FieldInfo_,
-	_NodeImpl_MethodInfo_
-};
-
-$Object* allocate$NodeImpl($Class* clazz) {
-	return $of($alloc(NodeImpl));
-}
 
 void NodeImpl::init$() {
 	$DefaultNode::init$();
@@ -99,7 +62,38 @@ NodeImpl::NodeImpl() {
 }
 
 $Class* NodeImpl::load$($String* name, bool initialize) {
-	$loadClass(NodeImpl, name, initialize, &_NodeImpl_ClassInfo_, allocate$NodeImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"prefix", "Ljava/lang/String;", nullptr, 0, $field(NodeImpl, prefix)},
+		{"localpart", "Ljava/lang/String;", nullptr, 0, $field(NodeImpl, localpart)},
+		{"rawname", "Ljava/lang/String;", nullptr, 0, $field(NodeImpl, rawname)},
+		{"uri", "Ljava/lang/String;", nullptr, 0, $field(NodeImpl, uri)},
+		{"nodeType", "S", nullptr, 0, $field(NodeImpl, nodeType)},
+		{"hidden", "Z", nullptr, 0, $field(NodeImpl, hidden)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NodeImpl, init$, void)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;S)V", nullptr, $PUBLIC, $method(NodeImpl, init$, void, $String*, $String*, $String*, $String*, int16_t)},
+		{"getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NodeImpl, getLocalName, $String*)},
+		{"getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NodeImpl, getNamespaceURI, $String*)},
+		{"getNodeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NodeImpl, getNodeName, $String*)},
+		{"getNodeType", "()S", nullptr, $PUBLIC, $virtualMethod(NodeImpl, getNodeType, int16_t)},
+		{"getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NodeImpl, getPrefix, $String*)},
+		{"getReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeImpl, getReadOnly, bool)},
+		{"setReadOnly", "(ZZ)V", nullptr, $PUBLIC, $virtualMethod(NodeImpl, setReadOnly, void, bool, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.opti.NodeImpl",
+		"com.sun.org.apache.xerces.internal.impl.xs.opti.DefaultNode",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NodeImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NodeImpl);
+	});
 	return class$;
 }
 

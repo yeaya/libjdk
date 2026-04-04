@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Check$4.h>
-
 #include <com/sun/tools/javac/code/Attribute$Compound.h>
 #include <com/sun/tools/javac/code/Attribute.h>
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
@@ -27,7 +26,6 @@
 #include <com/sun/tools/javac/tree/JCTree$JCModifiers.h>
 #include <com/sun/tools/javac/tree/JCTree$JCTypeApply.h>
 #include <com/sun/tools/javac/tree/JCTree$JCVariableDecl.h>
-#include <com/sun/tools/javac/tree/JCTree.h>
 #include <com/sun/tools/javac/tree/TreeInfo.h>
 #include <com/sun/tools/javac/tree/TreeScanner.h>
 #include <com/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition.h>
@@ -46,13 +44,10 @@ using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Lint = ::com::sun::tools::javac::code::Lint;
 using $Lint$LintCategory = ::com::sun::tools::javac::code::Lint$LintCategory;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
-using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $AttrContext = ::com::sun::tools::javac::comp::AttrContext;
 using $Check = ::com::sun::tools::javac::comp::Check;
 using $Env = ::com::sun::tools::javac::comp::Env;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCAnnotation = ::com::sun::tools::javac::tree::JCTree$JCAnnotation;
 using $JCTree$JCBlock = ::com::sun::tools::javac::tree::JCTree$JCBlock;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
@@ -77,61 +72,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Check$4_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Check;", nullptr, $FINAL | $SYNTHETIC, $field(Check$4, this$0)},
-	{"val$toplevel", "Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", nullptr, $FINAL | $SYNTHETIC, $field(Check$4, val$toplevel)},
-	{"val$check", "Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;", nullptr, $FINAL | $SYNTHETIC, $field(Check$4, val$check)},
-	{"val$env", "Lcom/sun/tools/javac/comp/Env;", nullptr, $FINAL | $SYNTHETIC, $field(Check$4, val$env)},
-	{"lint", "Lcom/sun/tools/javac/code/Lint;", nullptr, 0, $field(Check$4, lint)},
-	{"inSuperType", "Z", nullptr, 0, $field(Check$4, inSuperType)},
-	{}
-};
-
-$MethodInfo _Check$4_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, 0, $method(Check$4, init$, void, $Check*, $Env*, $JCTree$JCClassDecl*, $JCTree$JCCompilationUnit*)},
-	{"visitAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)V", nullptr, $PUBLIC, $virtualMethod(Check$4, visitAnnotation, void, $JCTree$JCAnnotation*)},
-	{"visitBlock", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", nullptr, $PUBLIC, $virtualMethod(Check$4, visitBlock, void, $JCTree$JCBlock*)},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Check$4, visitClassDef, void, $JCTree$JCClassDecl*)},
-	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(Check$4, visitIdent, void, $JCTree$JCIdent*)},
-	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(Check$4, visitMethodDef, void, $JCTree$JCMethodDecl*)},
-	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(Check$4, visitSelect, void, $JCTree$JCFieldAccess*)},
-	{"visitTypeApply", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeApply;)V", nullptr, $PUBLIC, $virtualMethod(Check$4, visitTypeApply, void, $JCTree$JCTypeApply*)},
-	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(Check$4, visitVarDef, void, $JCTree$JCVariableDecl*)},
-	{}
-};
-
-$EnclosingMethodInfo _Check$4_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Check",
-	"checkLeaksNotAccessible",
-	"(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V"
-};
-
-$InnerClassInfo _Check$4_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Check$4", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.tree.JCTree$JCClassDecl", "com.sun.tools.javac.tree.JCTree", "JCClassDecl", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Check$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Check$4",
-	"com.sun.tools.javac.tree.TreeScanner",
-	nullptr,
-	_Check$4_FieldInfo_,
-	_Check$4_MethodInfo_,
-	nullptr,
-	&_Check$4_EnclosingMethodInfo_,
-	_Check$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Check"
-};
-
-$Object* allocate$Check$4($Class* clazz) {
-	return $of($alloc(Check$4));
-}
-
 void Check$4::init$($Check* this$0, $Env* val$env, $JCTree$JCClassDecl* val$check, $JCTree$JCCompilationUnit* val$toplevel) {
 	$set(this, this$0, this$0);
 	$set(this, val$env, val$env);
@@ -145,59 +85,55 @@ void Check$4::visitBlock($JCTree$JCBlock* tree) {
 }
 
 void Check$4::visitMethodDef($JCTree$JCMethodDecl* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->this$0->isAPISymbol($nc(tree)->sym)) {
 		return;
 	}
 	$var($Lint, prevLint, this->lint);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$set(this, lint, $nc(this->lint)->augment(static_cast<$Symbol*>($nc(tree)->sym)));
-			$init($Lint$LintCategory);
-			if ($nc(this->lint)->isEnabled($Lint$LintCategory::EXPORTS)) {
-				$TreeScanner::visitMethodDef(tree);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$set(this, lint, prevLint);
+	$var($Throwable, var$0, nullptr);
+	try {
+		$set(this, lint, $nc(this->lint)->augment(tree->sym));
+		$init($Lint$LintCategory);
+		if ($nc(this->lint)->isEnabled($Lint$LintCategory::EXPORTS)) {
+			$TreeScanner::visitMethodDef(tree);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$set(this, lint, prevLint);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void Check$4::visitVarDef($JCTree$JCVariableDecl* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Kinds$Kind);
-	if (!this->this$0->isAPISymbol($nc(tree)->sym) && $nc($nc($nc(tree)->sym)->owner)->kind != $Kinds$Kind::MTH) {
+	if (!this->this$0->isAPISymbol($nc(tree)->sym) && $nc($nc(tree->sym)->owner)->kind != $Kinds$Kind::MTH) {
 		return;
 	}
 	$var($Lint, prevLint, this->lint);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$set(this, lint, $nc(this->lint)->augment(static_cast<$Symbol*>($nc(tree)->sym)));
-			$init($Lint$LintCategory);
-			if ($nc(this->lint)->isEnabled($Lint$LintCategory::EXPORTS)) {
-				scan(static_cast<$JCTree*>($nc(tree)->mods));
-				scan(static_cast<$JCTree*>($nc(tree)->vartype));
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$set(this, lint, prevLint);
+	$var($Throwable, var$0, nullptr);
+	try {
+		$set(this, lint, $nc(this->lint)->augment(tree->sym));
+		$init($Lint$LintCategory);
+		if ($nc(this->lint)->isEnabled($Lint$LintCategory::EXPORTS)) {
+			scan(tree->mods);
+			scan(tree->vartype);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$set(this, lint, prevLint);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void Check$4::visitClassDef($JCTree$JCClassDecl* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (tree != this->val$check) {
 		return;
 	}
@@ -205,63 +141,57 @@ void Check$4::visitClassDef($JCTree$JCClassDecl* tree) {
 		return;
 	}
 	$var($Lint, prevLint, this->lint);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$set(this, lint, $nc(this->lint)->augment(static_cast<$Symbol*>($nc(tree)->sym)));
-			$init($Lint$LintCategory);
-			if ($nc(this->lint)->isEnabled($Lint$LintCategory::EXPORTS)) {
-				scan(static_cast<$JCTree*>($nc(tree)->mods));
-				scan($nc(tree)->typarams);
-				{
-					$var($Throwable, var$1, nullptr);
-					try {
-						this->inSuperType = true;
-						scan(static_cast<$JCTree*>($nc(tree)->extending));
-						scan($nc(tree)->implementing);
-					} catch ($Throwable& var$2) {
-						$assign(var$1, var$2);
-					} /*finally*/ {
-						this->inSuperType = false;
-					}
-					if (var$1 != nullptr) {
-						$throw(var$1);
-					}
-				}
-				scan($nc(tree)->defs);
+	$var($Throwable, var$0, nullptr);
+	try {
+		$set(this, lint, $nc(this->lint)->augment(tree->sym));
+		$init($Lint$LintCategory);
+		if ($nc(this->lint)->isEnabled($Lint$LintCategory::EXPORTS)) {
+			scan(tree->mods);
+			scan(tree->typarams);
+			$var($Throwable, var$1, nullptr);
+			try {
+				this->inSuperType = true;
+				scan(tree->extending);
+				scan(tree->implementing);
+			} catch ($Throwable& var$2) {
+				$assign(var$1, var$2);
+			} /*finally*/ {
+				this->inSuperType = false;
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} /*finally*/ {
-			$set(this, lint, prevLint);
+			if (var$1 != nullptr) {
+				$throw(var$1);
+			}
+			scan(tree->defs);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		$set(this, lint, prevLint);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void Check$4::visitTypeApply($JCTree$JCTypeApply* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->clazz));
+	scan($nc(tree)->clazz);
 	bool oldInSuperType = this->inSuperType;
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			this->inSuperType = false;
-			scan($nc(tree)->arguments);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			this->inSuperType = oldInSuperType;
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		this->inSuperType = false;
+		scan(tree->arguments);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->inSuperType = oldInSuperType;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void Check$4::visitIdent($JCTree$JCIdent* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol, sym, $TreeInfo::symbol(tree));
 	$init($Kinds$Kind);
 	$init($TypeTag);
@@ -271,12 +201,12 @@ void Check$4::visitIdent($JCTree$JCIdent* tree) {
 }
 
 void Check$4::visitSelect($JCTree$JCFieldAccess* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol, sym, $TreeInfo::symbol(tree));
 	$var($Symbol, sitesym, $TreeInfo::symbol($nc(tree)->selected));
 	$init($Kinds$Kind);
 	if ($nc(sym)->kind == $Kinds$Kind::TYP && $nc(sitesym)->kind == $Kinds$Kind::PCK) {
-		this->this$0->checkVisible($($nc(tree)->pos()), sym, $nc(this->val$toplevel)->packge, this->inSuperType);
+		this->this$0->checkVisible($(tree->pos()), sym, $nc(this->val$toplevel)->packge, this->inSuperType);
 	} else {
 		$TreeScanner::visitSelect(tree);
 	}
@@ -293,7 +223,55 @@ Check$4::Check$4() {
 }
 
 $Class* Check$4::load$($String* name, bool initialize) {
-	$loadClass(Check$4, name, initialize, &_Check$4_ClassInfo_, allocate$Check$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Check;", nullptr, $FINAL | $SYNTHETIC, $field(Check$4, this$0)},
+		{"val$toplevel", "Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", nullptr, $FINAL | $SYNTHETIC, $field(Check$4, val$toplevel)},
+		{"val$check", "Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;", nullptr, $FINAL | $SYNTHETIC, $field(Check$4, val$check)},
+		{"val$env", "Lcom/sun/tools/javac/comp/Env;", nullptr, $FINAL | $SYNTHETIC, $field(Check$4, val$env)},
+		{"lint", "Lcom/sun/tools/javac/code/Lint;", nullptr, 0, $field(Check$4, lint)},
+		{"inSuperType", "Z", nullptr, 0, $field(Check$4, inSuperType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, 0, $method(Check$4, init$, void, $Check*, $Env*, $JCTree$JCClassDecl*, $JCTree$JCCompilationUnit*)},
+		{"visitAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)V", nullptr, $PUBLIC, $virtualMethod(Check$4, visitAnnotation, void, $JCTree$JCAnnotation*)},
+		{"visitBlock", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", nullptr, $PUBLIC, $virtualMethod(Check$4, visitBlock, void, $JCTree$JCBlock*)},
+		{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Check$4, visitClassDef, void, $JCTree$JCClassDecl*)},
+		{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(Check$4, visitIdent, void, $JCTree$JCIdent*)},
+		{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(Check$4, visitMethodDef, void, $JCTree$JCMethodDecl*)},
+		{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(Check$4, visitSelect, void, $JCTree$JCFieldAccess*)},
+		{"visitTypeApply", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeApply;)V", nullptr, $PUBLIC, $virtualMethod(Check$4, visitTypeApply, void, $JCTree$JCTypeApply*)},
+		{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(Check$4, visitVarDef, void, $JCTree$JCVariableDecl*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Check",
+		"checkLeaksNotAccessible",
+		"(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Check$4", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.tree.JCTree$JCClassDecl", "com.sun.tools.javac.tree.JCTree", "JCClassDecl", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Check$4",
+		"com.sun.tools.javac.tree.TreeScanner",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Check"
+	};
+	$loadClass(Check$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$4);
+	});
 	return class$;
 }
 

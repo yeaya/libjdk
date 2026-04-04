@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicProgressBarUI$Handler.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/HierarchyEvent.h>
 #include <java/beans/PropertyChangeEvent.h>
@@ -19,7 +18,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BoundedRangeModel = ::javax::swing::BoundedRangeModel;
-using $JProgressBar = ::javax::swing::JProgressBar;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $BasicProgressBarUI = ::javax::swing::plaf::basic::BasicProgressBarUI;
@@ -28,49 +26,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicProgressBarUI$Handler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicProgressBarUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicProgressBarUI$Handler, this$0)},
-	{}
-};
-
-$MethodInfo _BasicProgressBarUI$Handler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicProgressBarUI;)V", nullptr, $PRIVATE, $method(BasicProgressBarUI$Handler, init$, void, $BasicProgressBarUI*)},
-	{"hierarchyChanged", "(Ljava/awt/event/HierarchyEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicProgressBarUI$Handler, hierarchyChanged, void, $HierarchyEvent*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicProgressBarUI$Handler, propertyChange, void, $PropertyChangeEvent*)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicProgressBarUI$Handler, stateChanged, void, $ChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicProgressBarUI$Handler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicProgressBarUI$Handler", "javax.swing.plaf.basic.BasicProgressBarUI", "Handler", $PRIVATE},
-	{}
-};
-
-$ClassInfo _BasicProgressBarUI$Handler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicProgressBarUI$Handler",
-	"java.lang.Object",
-	"javax.swing.event.ChangeListener,java.beans.PropertyChangeListener,java.awt.event.HierarchyListener",
-	_BasicProgressBarUI$Handler_FieldInfo_,
-	_BasicProgressBarUI$Handler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicProgressBarUI$Handler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicProgressBarUI"
-};
-
-$Object* allocate$BasicProgressBarUI$Handler($Class* clazz) {
-	return $of($alloc(BasicProgressBarUI$Handler));
-}
 
 int32_t BasicProgressBarUI$Handler::hashCode() {
 	 return this->$ChangeListener::hashCode();
@@ -126,7 +81,7 @@ void BasicProgressBarUI$Handler::propertyChange($PropertyChangeEvent* e) {
 }
 
 void BasicProgressBarUI$Handler::hierarchyChanged($HierarchyEvent* he) {
-	if (((int64_t)($nc(he)->getChangeFlags() & (uint64_t)(int64_t)$HierarchyEvent::DISPLAYABILITY_CHANGED)) != 0) {
+	if (($nc(he)->getChangeFlags() & $HierarchyEvent::DISPLAYABILITY_CHANGED) != 0) {
 		if ($nc(this->this$0->progressBar)->isIndeterminate()) {
 			if ($nc(this->this$0->progressBar)->isDisplayable()) {
 				this->this$0->startAnimationTimer();
@@ -141,7 +96,44 @@ BasicProgressBarUI$Handler::BasicProgressBarUI$Handler() {
 }
 
 $Class* BasicProgressBarUI$Handler::load$($String* name, bool initialize) {
-	$loadClass(BasicProgressBarUI$Handler, name, initialize, &_BasicProgressBarUI$Handler_ClassInfo_, allocate$BasicProgressBarUI$Handler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicProgressBarUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicProgressBarUI$Handler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicProgressBarUI;)V", nullptr, $PRIVATE, $method(BasicProgressBarUI$Handler, init$, void, $BasicProgressBarUI*)},
+		{"hierarchyChanged", "(Ljava/awt/event/HierarchyEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicProgressBarUI$Handler, hierarchyChanged, void, $HierarchyEvent*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicProgressBarUI$Handler, propertyChange, void, $PropertyChangeEvent*)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicProgressBarUI$Handler, stateChanged, void, $ChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicProgressBarUI$Handler", "javax.swing.plaf.basic.BasicProgressBarUI", "Handler", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicProgressBarUI$Handler",
+		"java.lang.Object",
+		"javax.swing.event.ChangeListener,java.beans.PropertyChangeListener,java.awt.event.HierarchyListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicProgressBarUI"
+	};
+	$loadClass(BasicProgressBarUI$Handler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicProgressBarUI$Handler));
+	});
 	return class$;
 }
 

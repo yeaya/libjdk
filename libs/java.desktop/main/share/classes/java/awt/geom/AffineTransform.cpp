@@ -1,5 +1,4 @@
 #include <java/awt/geom/AffineTransform.h>
-
 #include <java/awt/Shape.h>
 #include <java/awt/geom/NoninvertibleTransformException.h>
 #include <java/awt/geom/Path2D$Double.h>
@@ -60,153 +59,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 namespace java {
 	namespace awt {
 		namespace geom {
-
-$Attribute AffineTransform_Attribute_var$1[] = {
-	{'s', "scaleX"},
-	{'s', "shearY"},
-	{'s', "shearX"},
-	{'s', "scaleY"},
-	{'s', "translateX"},
-	{'s', "translateY"},
-	{'-'}
-};
-
-$NamedAttribute AffineTransform_Attribute_var$0[] = {
-	{"value", '[', AffineTransform_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _AffineTransform_MethodAnnotations_init$3[] = {
-	{"Ljava/beans/ConstructorProperties;", AffineTransform_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _AffineTransform_FieldInfo_[] = {
-	{"TYPE_UNKNOWN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AffineTransform, TYPE_UNKNOWN)},
-	{"TYPE_IDENTITY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AffineTransform, TYPE_IDENTITY)},
-	{"TYPE_TRANSLATION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AffineTransform, TYPE_TRANSLATION)},
-	{"TYPE_UNIFORM_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AffineTransform, TYPE_UNIFORM_SCALE)},
-	{"TYPE_GENERAL_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AffineTransform, TYPE_GENERAL_SCALE)},
-	{"TYPE_MASK_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AffineTransform, TYPE_MASK_SCALE)},
-	{"TYPE_FLIP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AffineTransform, TYPE_FLIP)},
-	{"TYPE_QUADRANT_ROTATION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AffineTransform, TYPE_QUADRANT_ROTATION)},
-	{"TYPE_GENERAL_ROTATION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AffineTransform, TYPE_GENERAL_ROTATION)},
-	{"TYPE_MASK_ROTATION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AffineTransform, TYPE_MASK_ROTATION)},
-	{"TYPE_GENERAL_TRANSFORM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AffineTransform, TYPE_GENERAL_TRANSFORM)},
-	{"APPLY_IDENTITY", "I", nullptr, $STATIC | $FINAL, $constField(AffineTransform, APPLY_IDENTITY)},
-	{"APPLY_TRANSLATE", "I", nullptr, $STATIC | $FINAL, $constField(AffineTransform, APPLY_TRANSLATE)},
-	{"APPLY_SCALE", "I", nullptr, $STATIC | $FINAL, $constField(AffineTransform, APPLY_SCALE)},
-	{"APPLY_SHEAR", "I", nullptr, $STATIC | $FINAL, $constField(AffineTransform, APPLY_SHEAR)},
-	{"HI_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AffineTransform, HI_SHIFT)},
-	{"HI_IDENTITY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AffineTransform, HI_IDENTITY)},
-	{"HI_TRANSLATE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AffineTransform, HI_TRANSLATE)},
-	{"HI_SCALE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AffineTransform, HI_SCALE)},
-	{"HI_SHEAR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AffineTransform, HI_SHEAR)},
-	{"m00", "D", nullptr, 0, $field(AffineTransform, m00)},
-	{"m10", "D", nullptr, 0, $field(AffineTransform, m10)},
-	{"m01", "D", nullptr, 0, $field(AffineTransform, m01)},
-	{"m11", "D", nullptr, 0, $field(AffineTransform, m11)},
-	{"m02", "D", nullptr, 0, $field(AffineTransform, m02)},
-	{"m12", "D", nullptr, 0, $field(AffineTransform, m12)},
-	{"state", "I", nullptr, $TRANSIENT, $field(AffineTransform, state)},
-	{"type", "I", nullptr, $PRIVATE | $TRANSIENT, $field(AffineTransform, type)},
-	{"rot90conversion", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AffineTransform, rot90conversion)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AffineTransform, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AffineTransform_MethodInfo_[] = {
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(DDDDDDI)V", nullptr, $PRIVATE, $method(AffineTransform, init$, void, double, double, double, double, double, double, int32_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AffineTransform, init$, void)},
-	{"<init>", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $method(AffineTransform, init$, void, AffineTransform*)},
-	{"<init>", "(FFFFFF)V", nullptr, $PUBLIC, $method(AffineTransform, init$, void, float, float, float, float, float, float), nullptr, nullptr, _AffineTransform_MethodAnnotations_init$3},
-	{"<init>", "([F)V", nullptr, $PUBLIC, $method(AffineTransform, init$, void, $floats*)},
-	{"<init>", "(DDDDDD)V", nullptr, $PUBLIC, $method(AffineTransform, init$, void, double, double, double, double, double, double)},
-	{"<init>", "([D)V", nullptr, $PUBLIC, $method(AffineTransform, init$, void, $doubles*)},
-	{"_matround", "(D)D", nullptr, $PRIVATE | $STATIC, $staticMethod(AffineTransform, _matround, double, double)},
-	{"calculateType", "()V", nullptr, $PRIVATE, $method(AffineTransform, calculateType, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AffineTransform, clone, $Object*)},
-	{"concatenate", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, concatenate, void, AffineTransform*)},
-	{"createInverse", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(AffineTransform, createInverse, AffineTransform*), "java.awt.geom.NoninvertibleTransformException"},
-	{"createTransformedShape", "(Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(AffineTransform, createTransformedShape, $Shape*, $Shape*)},
-	{"deltaTransform", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(AffineTransform, deltaTransform, $Point2D*, $Point2D*, $Point2D*)},
-	{"deltaTransform", "([DI[DII)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, deltaTransform, void, $doubles*, int32_t, $doubles*, int32_t, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AffineTransform, equals, bool, Object$*)},
-	{"getDeterminant", "()D", nullptr, $PUBLIC, $virtualMethod(AffineTransform, getDeterminant, double)},
-	{"getMatrix", "([D)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, getMatrix, void, $doubles*)},
-	{"getQuadrantRotateInstance", "(I)Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $STATIC, $staticMethod(AffineTransform, getQuadrantRotateInstance, AffineTransform*, int32_t)},
-	{"getQuadrantRotateInstance", "(IDD)Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $STATIC, $staticMethod(AffineTransform, getQuadrantRotateInstance, AffineTransform*, int32_t, double, double)},
-	{"getRotateInstance", "(D)Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $STATIC, $staticMethod(AffineTransform, getRotateInstance, AffineTransform*, double)},
-	{"getRotateInstance", "(DDD)Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $STATIC, $staticMethod(AffineTransform, getRotateInstance, AffineTransform*, double, double, double)},
-	{"getRotateInstance", "(DD)Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $STATIC, $staticMethod(AffineTransform, getRotateInstance, AffineTransform*, double, double)},
-	{"getRotateInstance", "(DDDD)Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $STATIC, $staticMethod(AffineTransform, getRotateInstance, AffineTransform*, double, double, double, double)},
-	{"getScaleInstance", "(DD)Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $STATIC, $staticMethod(AffineTransform, getScaleInstance, AffineTransform*, double, double)},
-	{"getScaleX", "()D", nullptr, $PUBLIC, $virtualMethod(AffineTransform, getScaleX, double)},
-	{"getScaleY", "()D", nullptr, $PUBLIC, $virtualMethod(AffineTransform, getScaleY, double)},
-	{"getShearInstance", "(DD)Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $STATIC, $staticMethod(AffineTransform, getShearInstance, AffineTransform*, double, double)},
-	{"getShearX", "()D", nullptr, $PUBLIC, $virtualMethod(AffineTransform, getShearX, double)},
-	{"getShearY", "()D", nullptr, $PUBLIC, $virtualMethod(AffineTransform, getShearY, double)},
-	{"getTranslateInstance", "(DD)Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $STATIC, $staticMethod(AffineTransform, getTranslateInstance, AffineTransform*, double, double)},
-	{"getTranslateX", "()D", nullptr, $PUBLIC, $virtualMethod(AffineTransform, getTranslateX, double)},
-	{"getTranslateY", "()D", nullptr, $PUBLIC, $virtualMethod(AffineTransform, getTranslateY, double)},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(AffineTransform, getType, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AffineTransform, hashCode, int32_t)},
-	{"inverseTransform", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(AffineTransform, inverseTransform, $Point2D*, $Point2D*, $Point2D*), "java.awt.geom.NoninvertibleTransformException"},
-	{"inverseTransform", "([DI[DII)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, inverseTransform, void, $doubles*, int32_t, $doubles*, int32_t, int32_t), "java.awt.geom.NoninvertibleTransformException"},
-	{"invert", "()V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, invert, void), "java.awt.geom.NoninvertibleTransformException"},
-	{"isIdentity", "()Z", nullptr, $PUBLIC, $virtualMethod(AffineTransform, isIdentity, bool)},
-	{"preConcatenate", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, preConcatenate, void, AffineTransform*)},
-	{"quadrantRotate", "(I)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, quadrantRotate, void, int32_t)},
-	{"quadrantRotate", "(IDD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, quadrantRotate, void, int32_t, double, double)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(AffineTransform, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"rotate", "(D)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, rotate, void, double)},
-	{"rotate", "(DDD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, rotate, void, double, double, double)},
-	{"rotate", "(DD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, rotate, void, double, double)},
-	{"rotate", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, rotate, void, double, double, double, double)},
-	{"rotate180", "()V", nullptr, $PRIVATE, $method(AffineTransform, rotate180, void)},
-	{"rotate270", "()V", nullptr, $PRIVATE, $method(AffineTransform, rotate270, void)},
-	{"rotate90", "()V", nullptr, $PRIVATE, $method(AffineTransform, rotate90, void)},
-	{"scale", "(DD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, scale, void, double, double)},
-	{"setToIdentity", "()V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, setToIdentity, void)},
-	{"setToQuadrantRotation", "(I)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, setToQuadrantRotation, void, int32_t)},
-	{"setToQuadrantRotation", "(IDD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, setToQuadrantRotation, void, int32_t, double, double)},
-	{"setToRotation", "(D)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, setToRotation, void, double)},
-	{"setToRotation", "(DDD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, setToRotation, void, double, double, double)},
-	{"setToRotation", "(DD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, setToRotation, void, double, double)},
-	{"setToRotation", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, setToRotation, void, double, double, double, double)},
-	{"setToScale", "(DD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, setToScale, void, double, double)},
-	{"setToShear", "(DD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, setToShear, void, double, double)},
-	{"setToTranslation", "(DD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, setToTranslation, void, double, double)},
-	{"setTransform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, setTransform, void, AffineTransform*)},
-	{"setTransform", "(DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, setTransform, void, double, double, double, double, double, double)},
-	{"shear", "(DD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, shear, void, double, double)},
-	{"stateError", "()V", nullptr, $PRIVATE, $method(AffineTransform, stateError, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AffineTransform, toString, $String*)},
-	{"transform", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(AffineTransform, transform, $Point2D*, $Point2D*, $Point2D*)},
-	{"transform", "([Ljava/awt/geom/Point2D;I[Ljava/awt/geom/Point2D;II)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, transform, void, $Point2DArray*, int32_t, $Point2DArray*, int32_t, int32_t)},
-	{"transform", "([FI[FII)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, transform, void, $floats*, int32_t, $floats*, int32_t, int32_t)},
-	{"transform", "([DI[DII)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, transform, void, $doubles*, int32_t, $doubles*, int32_t, int32_t)},
-	{"transform", "([FI[DII)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, transform, void, $floats*, int32_t, $doubles*, int32_t, int32_t)},
-	{"transform", "([DI[FII)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, transform, void, $doubles*, int32_t, $floats*, int32_t, int32_t)},
-	{"translate", "(DD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, translate, void, double, double)},
-	{"updateState", "()V", nullptr, 0, $virtualMethod(AffineTransform, updateState, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(AffineTransform, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _AffineTransform_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.geom.AffineTransform",
-	"java.lang.Object",
-	"java.lang.Cloneable,java.io.Serializable",
-	_AffineTransform_FieldInfo_,
-	_AffineTransform_MethodInfo_
-};
-
-$Object* allocate$AffineTransform($Class* clazz) {
-	return $of($alloc(AffineTransform));
-}
 
 void AffineTransform::finalize() {
 	this->$Cloneable::finalize();
@@ -391,111 +243,93 @@ void AffineTransform::calculateType() {
 		goto case$8;
 case$8:
 		// default
-		{
-			stateError();
-		}
+		stateError();
 case$0:
 		// (APPLY_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-			ret = AffineTransform::TYPE_TRANSLATION;
-		}
+		ret = AffineTransform::TYPE_TRANSLATION;
 case$1:
 		// (APPLY_SHEAR | APPLY_SCALE)
-		{
-			if ((M0 = this->m00) * (M2 = this->m01) + (M3 = this->m10) * (M1 = this->m11) != 0) {
-				this->type = AffineTransform::TYPE_GENERAL_TRANSFORM;
-				return;
-			}
-			sgn0 = (M0 >= 0.0);
-			sgn1 = (M1 >= 0.0);
-			if (sgn0 == sgn1) {
-				if (M0 != M1 || M2 != -M3) {
-					ret |= (AffineTransform::TYPE_GENERAL_ROTATION | AffineTransform::TYPE_GENERAL_SCALE);
-				} else if (M0 * M1 - M2 * M3 != 1.0) {
-					ret |= (AffineTransform::TYPE_GENERAL_ROTATION | AffineTransform::TYPE_UNIFORM_SCALE);
-				} else {
-					ret |= AffineTransform::TYPE_GENERAL_ROTATION;
-				}
-			} else if (M0 != -M1 || M2 != M3) {
-				ret |= ((AffineTransform::TYPE_GENERAL_ROTATION | AffineTransform::TYPE_FLIP) | AffineTransform::TYPE_GENERAL_SCALE);
-			} else if (M0 * M1 - M2 * M3 != 1.0) {
-				ret |= ((AffineTransform::TYPE_GENERAL_ROTATION | AffineTransform::TYPE_FLIP) | AffineTransform::TYPE_UNIFORM_SCALE);
-			} else {
-				ret |= (AffineTransform::TYPE_GENERAL_ROTATION | AffineTransform::TYPE_FLIP);
-			}
-			break;
+		if ((M0 = this->m00) * (M2 = this->m01) + (M3 = this->m10) * (M1 = this->m11) != 0) {
+			this->type = AffineTransform::TYPE_GENERAL_TRANSFORM;
+			return;
 		}
+		sgn0 = (M0 >= 0.0);
+		sgn1 = (M1 >= 0.0);
+		if (sgn0 == sgn1) {
+			if (M0 != M1 || M2 != -M3) {
+				ret |= (AffineTransform::TYPE_GENERAL_ROTATION | AffineTransform::TYPE_GENERAL_SCALE);
+			} else if (M0 * M1 - M2 * M3 != 1.0) {
+				ret |= (AffineTransform::TYPE_GENERAL_ROTATION | AffineTransform::TYPE_UNIFORM_SCALE);
+			} else {
+				ret |= AffineTransform::TYPE_GENERAL_ROTATION;
+			}
+		} else if (M0 != -M1 || M2 != M3) {
+			ret |= ((AffineTransform::TYPE_GENERAL_ROTATION | AffineTransform::TYPE_FLIP) | AffineTransform::TYPE_GENERAL_SCALE);
+		} else if (M0 * M1 - M2 * M3 != 1.0) {
+			ret |= ((AffineTransform::TYPE_GENERAL_ROTATION | AffineTransform::TYPE_FLIP) | AffineTransform::TYPE_UNIFORM_SCALE);
+		} else {
+			ret |= (AffineTransform::TYPE_GENERAL_ROTATION | AffineTransform::TYPE_FLIP);
+		}
+		break;
 case$2:
 		// (APPLY_SHEAR | APPLY_TRANSLATE)
-		{
-			ret = AffineTransform::TYPE_TRANSLATION;
-		}
+		ret = AffineTransform::TYPE_TRANSLATION;
 case$3:
 		// (APPLY_SHEAR)
-		{
-			sgn0 = ((M0 = this->m01) >= 0.0);
-			sgn1 = ((M1 = this->m10) >= 0.0);
-			if (sgn0 != sgn1) {
-				if (M0 != -M1) {
-					ret |= (AffineTransform::TYPE_QUADRANT_ROTATION | AffineTransform::TYPE_GENERAL_SCALE);
-				} else if (M0 != 1.0 && M0 != -1.0) {
-					ret |= (AffineTransform::TYPE_QUADRANT_ROTATION | AffineTransform::TYPE_UNIFORM_SCALE);
-				} else {
-					ret |= AffineTransform::TYPE_QUADRANT_ROTATION;
-				}
-			} else if (M0 == M1) {
-				ret |= ((AffineTransform::TYPE_QUADRANT_ROTATION | AffineTransform::TYPE_FLIP) | AffineTransform::TYPE_UNIFORM_SCALE);
+		sgn0 = ((M0 = this->m01) >= 0.0);
+		sgn1 = ((M1 = this->m10) >= 0.0);
+		if (sgn0 != sgn1) {
+			if (M0 != -M1) {
+				ret |= (AffineTransform::TYPE_QUADRANT_ROTATION | AffineTransform::TYPE_GENERAL_SCALE);
+			} else if (M0 != 1.0 && M0 != -1.0) {
+				ret |= (AffineTransform::TYPE_QUADRANT_ROTATION | AffineTransform::TYPE_UNIFORM_SCALE);
 			} else {
-				ret |= ((AffineTransform::TYPE_QUADRANT_ROTATION | AffineTransform::TYPE_FLIP) | AffineTransform::TYPE_GENERAL_SCALE);
+				ret |= AffineTransform::TYPE_QUADRANT_ROTATION;
 			}
-			break;
+		} else if (M0 == M1) {
+			ret |= ((AffineTransform::TYPE_QUADRANT_ROTATION | AffineTransform::TYPE_FLIP) | AffineTransform::TYPE_UNIFORM_SCALE);
+		} else {
+			ret |= ((AffineTransform::TYPE_QUADRANT_ROTATION | AffineTransform::TYPE_FLIP) | AffineTransform::TYPE_GENERAL_SCALE);
 		}
+		break;
 case$4:
 		// (APPLY_SCALE | APPLY_TRANSLATE)
-		{
-			ret = AffineTransform::TYPE_TRANSLATION;
-		}
+		ret = AffineTransform::TYPE_TRANSLATION;
 case$5:
 		// (APPLY_SCALE)
-		{
-			sgn0 = ((M0 = this->m00) >= 0.0);
-			sgn1 = ((M1 = this->m11) >= 0.0);
-			if (sgn0 == sgn1) {
-				if (sgn0) {
-					if (M0 == M1) {
-						ret |= AffineTransform::TYPE_UNIFORM_SCALE;
-					} else {
-						ret |= AffineTransform::TYPE_GENERAL_SCALE;
-					}
-				} else if (M0 != M1) {
-					ret |= (AffineTransform::TYPE_QUADRANT_ROTATION | AffineTransform::TYPE_GENERAL_SCALE);
-				} else if (M0 != -1.0) {
-					ret |= (AffineTransform::TYPE_QUADRANT_ROTATION | AffineTransform::TYPE_UNIFORM_SCALE);
+		sgn0 = ((M0 = this->m00) >= 0.0);
+		sgn1 = ((M1 = this->m11) >= 0.0);
+		if (sgn0 == sgn1) {
+			if (sgn0) {
+				if (M0 == M1) {
+					ret |= AffineTransform::TYPE_UNIFORM_SCALE;
 				} else {
-					ret |= AffineTransform::TYPE_QUADRANT_ROTATION;
+					ret |= AffineTransform::TYPE_GENERAL_SCALE;
 				}
-			} else if (M0 == -M1) {
-				if (M0 == 1.0 || M0 == -1.0) {
-					ret |= AffineTransform::TYPE_FLIP;
-				} else {
-					ret |= (AffineTransform::TYPE_FLIP | AffineTransform::TYPE_UNIFORM_SCALE);
-				}
+			} else if (M0 != M1) {
+				ret |= (AffineTransform::TYPE_QUADRANT_ROTATION | AffineTransform::TYPE_GENERAL_SCALE);
+			} else if (M0 != -1.0) {
+				ret |= (AffineTransform::TYPE_QUADRANT_ROTATION | AffineTransform::TYPE_UNIFORM_SCALE);
 			} else {
-				ret |= (AffineTransform::TYPE_FLIP | AffineTransform::TYPE_GENERAL_SCALE);
+				ret |= AffineTransform::TYPE_QUADRANT_ROTATION;
 			}
-			break;
+		} else if (M0 == -M1) {
+			if (M0 == 1.0 || M0 == -1.0) {
+				ret |= AffineTransform::TYPE_FLIP;
+			} else {
+				ret |= (AffineTransform::TYPE_FLIP | AffineTransform::TYPE_UNIFORM_SCALE);
+			}
+		} else {
+			ret |= (AffineTransform::TYPE_FLIP | AffineTransform::TYPE_GENERAL_SCALE);
 		}
+		break;
 case$6:
 		// (APPLY_TRANSLATE)
-		{
-			ret = AffineTransform::TYPE_TRANSLATION;
-			break;
-		}
+		ret = AffineTransform::TYPE_TRANSLATION;
+		break;
 case$7:
 		// (APPLY_IDENTITY)
-		{
-			break;
-		}
+		break;
 	} while (false);
 	this->type = ret;
 }
@@ -529,45 +363,27 @@ double AffineTransform::getDeterminant() {
 		goto case$17;
 case$17:
 		// default
-		{
-			stateError();
-		}
+		stateError();
 case$9:
 		// (APPLY_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-		}
 case$10:
 		// (APPLY_SHEAR | APPLY_SCALE)
-		{
-			return this->m00 * this->m11 - this->m01 * this->m10;
-		}
+		return this->m00 * this->m11 - this->m01 * this->m10;
 case$11:
 		// (APPLY_SHEAR | APPLY_TRANSLATE)
-		{
-		}
 case$12:
 		// (APPLY_SHEAR)
-		{
-			return -(this->m01 * this->m10);
-		}
+		return -(this->m01 * this->m10);
 case$13:
 		// (APPLY_SCALE | APPLY_TRANSLATE)
-		{
-		}
 case$14:
 		// (APPLY_SCALE)
-		{
-			return this->m00 * this->m11;
-		}
+		return this->m00 * this->m11;
 case$15:
 		// (APPLY_TRANSLATE)
-		{
-		}
 case$16:
 		// (APPLY_IDENTITY)
-		{
-			return 1.0;
-		}
+		return 1.0;
 	} while (false);
 }
 
@@ -673,104 +489,86 @@ void AffineTransform::translate(double tx, double ty) {
 		goto case$26;
 case$26:
 		// default
-		{
-			stateError();
-			return;
-		}
+		stateError();
+		return;
 case$18:
 		// (APPLY_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-			this->m02 = tx * this->m00 + ty * this->m01 + this->m02;
-			this->m12 = tx * this->m10 + ty * this->m11 + this->m12;
-			if (this->m02 == 0.0 && this->m12 == 0.0) {
-				this->state = AffineTransform::APPLY_SHEAR | AffineTransform::APPLY_SCALE;
-				if (this->type != AffineTransform::TYPE_UNKNOWN) {
-					this->type -= AffineTransform::TYPE_TRANSLATION;
-				}
+		this->m02 = tx * this->m00 + ty * this->m01 + this->m02;
+		this->m12 = tx * this->m10 + ty * this->m11 + this->m12;
+		if (this->m02 == 0.0 && this->m12 == 0.0) {
+			this->state = AffineTransform::APPLY_SHEAR | AffineTransform::APPLY_SCALE;
+			if (this->type != AffineTransform::TYPE_UNKNOWN) {
+				this->type -= AffineTransform::TYPE_TRANSLATION;
 			}
-			return;
 		}
+		return;
 case$19:
 		// (APPLY_SHEAR | APPLY_SCALE)
-		{
-			this->m02 = tx * this->m00 + ty * this->m01;
-			this->m12 = tx * this->m10 + ty * this->m11;
-			if (this->m02 != 0.0 || this->m12 != 0.0) {
-				this->state = (AffineTransform::APPLY_SHEAR | AffineTransform::APPLY_SCALE) | AffineTransform::APPLY_TRANSLATE;
-				this->type |= AffineTransform::TYPE_TRANSLATION;
-			}
-			return;
+		this->m02 = tx * this->m00 + ty * this->m01;
+		this->m12 = tx * this->m10 + ty * this->m11;
+		if (this->m02 != 0.0 || this->m12 != 0.0) {
+			this->state = (AffineTransform::APPLY_SHEAR | AffineTransform::APPLY_SCALE) | AffineTransform::APPLY_TRANSLATE;
+			this->type |= AffineTransform::TYPE_TRANSLATION;
 		}
+		return;
 case$20:
 		// (APPLY_SHEAR | APPLY_TRANSLATE)
-		{
-			this->m02 = ty * this->m01 + this->m02;
-			this->m12 = tx * this->m10 + this->m12;
-			if (this->m02 == 0.0 && this->m12 == 0.0) {
-				this->state = AffineTransform::APPLY_SHEAR;
-				if (this->type != AffineTransform::TYPE_UNKNOWN) {
-					this->type -= AffineTransform::TYPE_TRANSLATION;
-				}
+		this->m02 = ty * this->m01 + this->m02;
+		this->m12 = tx * this->m10 + this->m12;
+		if (this->m02 == 0.0 && this->m12 == 0.0) {
+			this->state = AffineTransform::APPLY_SHEAR;
+			if (this->type != AffineTransform::TYPE_UNKNOWN) {
+				this->type -= AffineTransform::TYPE_TRANSLATION;
 			}
-			return;
 		}
+		return;
 case$21:
 		// (APPLY_SHEAR)
-		{
-			this->m02 = ty * this->m01;
-			this->m12 = tx * this->m10;
-			if (this->m02 != 0.0 || this->m12 != 0.0) {
-				this->state = AffineTransform::APPLY_SHEAR | AffineTransform::APPLY_TRANSLATE;
-				this->type |= AffineTransform::TYPE_TRANSLATION;
-			}
-			return;
+		this->m02 = ty * this->m01;
+		this->m12 = tx * this->m10;
+		if (this->m02 != 0.0 || this->m12 != 0.0) {
+			this->state = AffineTransform::APPLY_SHEAR | AffineTransform::APPLY_TRANSLATE;
+			this->type |= AffineTransform::TYPE_TRANSLATION;
 		}
+		return;
 case$22:
 		// (APPLY_SCALE | APPLY_TRANSLATE)
-		{
-			this->m02 = tx * this->m00 + this->m02;
-			this->m12 = ty * this->m11 + this->m12;
-			if (this->m02 == 0.0 && this->m12 == 0.0) {
-				this->state = AffineTransform::APPLY_SCALE;
-				if (this->type != AffineTransform::TYPE_UNKNOWN) {
-					this->type -= AffineTransform::TYPE_TRANSLATION;
-				}
+		this->m02 = tx * this->m00 + this->m02;
+		this->m12 = ty * this->m11 + this->m12;
+		if (this->m02 == 0.0 && this->m12 == 0.0) {
+			this->state = AffineTransform::APPLY_SCALE;
+			if (this->type != AffineTransform::TYPE_UNKNOWN) {
+				this->type -= AffineTransform::TYPE_TRANSLATION;
 			}
-			return;
 		}
+		return;
 case$23:
 		// (APPLY_SCALE)
-		{
-			this->m02 = tx * this->m00;
-			this->m12 = ty * this->m11;
-			if (this->m02 != 0.0 || this->m12 != 0.0) {
-				this->state = AffineTransform::APPLY_SCALE | AffineTransform::APPLY_TRANSLATE;
-				this->type |= AffineTransform::TYPE_TRANSLATION;
-			}
-			return;
+		this->m02 = tx * this->m00;
+		this->m12 = ty * this->m11;
+		if (this->m02 != 0.0 || this->m12 != 0.0) {
+			this->state = AffineTransform::APPLY_SCALE | AffineTransform::APPLY_TRANSLATE;
+			this->type |= AffineTransform::TYPE_TRANSLATION;
 		}
+		return;
 case$24:
 		// (APPLY_TRANSLATE)
-		{
-			this->m02 = tx + this->m02;
-			this->m12 = ty + this->m12;
-			if (this->m02 == 0.0 && this->m12 == 0.0) {
-				this->state = AffineTransform::APPLY_IDENTITY;
-				this->type = AffineTransform::TYPE_IDENTITY;
-			}
-			return;
+		this->m02 = tx + this->m02;
+		this->m12 = ty + this->m12;
+		if (this->m02 == 0.0 && this->m12 == 0.0) {
+			this->state = AffineTransform::APPLY_IDENTITY;
+			this->type = AffineTransform::TYPE_IDENTITY;
 		}
+		return;
 case$25:
 		// (APPLY_IDENTITY)
-		{
-			this->m02 = tx;
-			this->m12 = ty;
-			if (tx != 0.0 || ty != 0.0) {
-				this->state = AffineTransform::APPLY_TRANSLATE;
-				this->type = AffineTransform::TYPE_TRANSLATION;
-			}
-			return;
+		this->m02 = tx;
+		this->m12 = ty;
+		if (tx != 0.0 || ty != 0.0) {
+			this->state = AffineTransform::APPLY_TRANSLATE;
+			this->type = AffineTransform::TYPE_TRANSLATION;
 		}
+		return;
 	} while (false);
 }
 
@@ -781,8 +579,8 @@ void AffineTransform::rotate90() {
 	M0 = this->m10;
 	this->m10 = this->m11;
 	this->m11 = -M0;
-	int32_t state = $nc(AffineTransform::rot90conversion)->get(this->state);
-	if (((int32_t)(state & (uint32_t)(AffineTransform::APPLY_SHEAR | AffineTransform::APPLY_SCALE))) == AffineTransform::APPLY_SCALE && this->m00 == 1.0 && this->m11 == 1.0) {
+	int32_t state = AffineTransform::rot90conversion->get(this->state);
+	if ((state & (AffineTransform::APPLY_SHEAR | AffineTransform::APPLY_SCALE)) == AffineTransform::APPLY_SCALE && this->m00 == 1.0 && this->m11 == 1.0) {
 		state -= AffineTransform::APPLY_SCALE;
 	}
 	this->state = state;
@@ -793,11 +591,11 @@ void AffineTransform::rotate180() {
 	this->m00 = -this->m00;
 	this->m11 = -this->m11;
 	int32_t state = this->state;
-	if (((int32_t)(state & (uint32_t)(AffineTransform::APPLY_SHEAR))) != 0) {
+	if ((state & (AffineTransform::APPLY_SHEAR)) != 0) {
 		this->m01 = -this->m01;
 		this->m10 = -this->m10;
 	} else if (this->m00 == 1.0 && this->m11 == 1.0) {
-		this->state = (int32_t)(state & (uint32_t)~AffineTransform::APPLY_SCALE);
+		this->state = state & ~AffineTransform::APPLY_SCALE;
 	} else {
 		this->state = state | AffineTransform::APPLY_SCALE;
 	}
@@ -811,8 +609,8 @@ void AffineTransform::rotate270() {
 	M0 = this->m10;
 	this->m10 = -this->m11;
 	this->m11 = M0;
-	int32_t state = $nc(AffineTransform::rot90conversion)->get(this->state);
-	if (((int32_t)(state & (uint32_t)(AffineTransform::APPLY_SHEAR | AffineTransform::APPLY_SCALE))) == AffineTransform::APPLY_SCALE && this->m00 == 1.0 && this->m11 == 1.0) {
+	int32_t state = AffineTransform::rot90conversion->get(this->state);
+	if ((state & (AffineTransform::APPLY_SHEAR | AffineTransform::APPLY_SCALE)) == AffineTransform::APPLY_SCALE && this->m00 == 1.0 && this->m11 == 1.0) {
 		state -= AffineTransform::APPLY_SCALE;
 	}
 	this->state = state;
@@ -887,56 +685,40 @@ void AffineTransform::rotate(double vecx, double vecy, double anchorx, double an
 }
 
 void AffineTransform::quadrantRotate(int32_t numquadrants) {
-	switch ((int32_t)(numquadrants & (uint32_t)3)) {
+	switch (numquadrants & 3) {
 	case 0:
-		{
-			break;
-		}
+		break;
 	case 1:
-		{
-			rotate90();
-			break;
-		}
+		rotate90();
+		break;
 	case 2:
-		{
-			rotate180();
-			break;
-		}
+		rotate180();
+		break;
 	case 3:
-		{
-			rotate270();
-			break;
-		}
+		rotate270();
+		break;
 	}
 }
 
 void AffineTransform::quadrantRotate(int32_t numquadrants, double anchorx, double anchory) {
-	switch ((int32_t)(numquadrants & (uint32_t)3)) {
+	switch (numquadrants & 3) {
 	case 0:
-		{
-			return;
-		}
+		return;
 	case 1:
-		{
-			this->m02 += anchorx * (this->m00 - this->m01) + anchory * (this->m01 + this->m00);
-			this->m12 += anchorx * (this->m10 - this->m11) + anchory * (this->m11 + this->m10);
-			rotate90();
-			break;
-		}
+		this->m02 += anchorx * (this->m00 - this->m01) + anchory * (this->m01 + this->m00);
+		this->m12 += anchorx * (this->m10 - this->m11) + anchory * (this->m11 + this->m10);
+		rotate90();
+		break;
 	case 2:
-		{
-			this->m02 += anchorx * (this->m00 + this->m00) + anchory * (this->m01 + this->m01);
-			this->m12 += anchorx * (this->m10 + this->m10) + anchory * (this->m11 + this->m11);
-			rotate180();
-			break;
-		}
+		this->m02 += anchorx * (this->m00 + this->m00) + anchory * (this->m01 + this->m01);
+		this->m12 += anchorx * (this->m10 + this->m10) + anchory * (this->m11 + this->m11);
+		rotate180();
+		break;
 	case 3:
-		{
-			this->m02 += anchorx * (this->m00 + this->m01) + anchory * (this->m01 - this->m00);
-			this->m12 += anchorx * (this->m10 + this->m11) + anchory * (this->m11 - this->m10);
-			rotate270();
-			break;
-		}
+		this->m02 += anchorx * (this->m00 + this->m01) + anchory * (this->m01 - this->m00);
+		this->m12 += anchorx * (this->m10 + this->m11) + anchory * (this->m11 - this->m10);
+		rotate270();
+		break;
 	}
 	if (this->m02 == 0.0 && this->m12 == 0.0) {
 		this->state &= (uint32_t)~AffineTransform::APPLY_TRANSLATE;
@@ -975,72 +757,54 @@ void AffineTransform::scale(double sx, double sy) {
 		goto case$35;
 case$35:
 		// default
-		{
-			stateError();
-		}
+		stateError();
 case$27:
 		// (APPLY_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-		}
 case$28:
 		// (APPLY_SHEAR | APPLY_SCALE)
-		{
-			this->m00 *= sx;
-			this->m11 *= sy;
-		}
+		this->m00 *= sx;
+		this->m11 *= sy;
 case$29:
 		// (APPLY_SHEAR | APPLY_TRANSLATE)
-		{
-		}
 case$30:
 		// (APPLY_SHEAR)
-		{
-			this->m01 *= sy;
-			this->m10 *= sx;
-			if (this->m01 == 0 && this->m10 == 0) {
-				state &= (uint32_t)AffineTransform::APPLY_TRANSLATE;
-				if (this->m00 == 1.0 && this->m11 == 1.0) {
-					this->type = (state == AffineTransform::APPLY_IDENTITY ? AffineTransform::TYPE_IDENTITY : AffineTransform::TYPE_TRANSLATION);
-				} else {
-					state |= AffineTransform::APPLY_SCALE;
-					this->type = AffineTransform::TYPE_UNKNOWN;
-				}
-				this->state = state;
-			}
-			return;
-		}
-case$31:
-		// (APPLY_SCALE | APPLY_TRANSLATE)
-		{
-		}
-case$32:
-		// (APPLY_SCALE)
-		{
-			this->m00 *= sx;
-			this->m11 *= sy;
+		this->m01 *= sy;
+		this->m10 *= sx;
+		if (this->m01 == 0 && this->m10 == 0) {
+			state &= (uint32_t)AffineTransform::APPLY_TRANSLATE;
 			if (this->m00 == 1.0 && this->m11 == 1.0) {
-				this->state = (state &= (uint32_t)AffineTransform::APPLY_TRANSLATE);
 				this->type = (state == AffineTransform::APPLY_IDENTITY ? AffineTransform::TYPE_IDENTITY : AffineTransform::TYPE_TRANSLATION);
 			} else {
+				state |= AffineTransform::APPLY_SCALE;
 				this->type = AffineTransform::TYPE_UNKNOWN;
 			}
-			return;
+			this->state = state;
 		}
+		return;
+case$31:
+		// (APPLY_SCALE | APPLY_TRANSLATE)
+case$32:
+		// (APPLY_SCALE)
+		this->m00 *= sx;
+		this->m11 *= sy;
+		if (this->m00 == 1.0 && this->m11 == 1.0) {
+			this->state = (state &= (uint32_t)AffineTransform::APPLY_TRANSLATE);
+			this->type = (state == AffineTransform::APPLY_IDENTITY ? AffineTransform::TYPE_IDENTITY : AffineTransform::TYPE_TRANSLATION);
+		} else {
+			this->type = AffineTransform::TYPE_UNKNOWN;
+		}
+		return;
 case$33:
 		// (APPLY_TRANSLATE)
-		{
-		}
 case$34:
 		// (APPLY_IDENTITY)
-		{
-			this->m00 = sx;
-			this->m11 = sy;
-			if (sx != 1.0 || sy != 1.0) {
-				this->state = state | AffineTransform::APPLY_SCALE;
-				this->type = AffineTransform::TYPE_UNKNOWN;
-			}
-			return;
+		this->m00 = sx;
+		this->m11 = sy;
+		if (sx != 1.0 || sy != 1.0) {
+			this->state = state | AffineTransform::APPLY_SCALE;
+			this->type = AffineTransform::TYPE_UNKNOWN;
 		}
+		return;
 	} while (false);
 }
 
@@ -1077,73 +841,55 @@ void AffineTransform::shear(double shx, double shy) {
 			goto case$44;
 case$44:
 			// default
-			{
-				stateError();
-				return;
-			}
+			stateError();
+			return;
 case$36:
 			// (APPLY_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-			{
-			}
 case$37:
 			// (APPLY_SHEAR | APPLY_SCALE)
-			{
-				M0 = this->m00;
-				M1 = this->m01;
-				this->m00 = M0 + M1 * shy;
-				this->m01 = M0 * shx + M1;
-				M0 = this->m10;
-				M1 = this->m11;
-				this->m10 = M0 + M1 * shy;
-				this->m11 = M0 * shx + M1;
-				updateState();
-				return;
-			}
+			M0 = this->m00;
+			M1 = this->m01;
+			this->m00 = M0 + M1 * shy;
+			this->m01 = M0 * shx + M1;
+			M0 = this->m10;
+			M1 = this->m11;
+			this->m10 = M0 + M1 * shy;
+			this->m11 = M0 * shx + M1;
+			updateState();
+			return;
 case$38:
 			// (APPLY_SHEAR | APPLY_TRANSLATE)
-			{
-			}
 case$39:
 			// (APPLY_SHEAR)
-			{
-				this->m00 = this->m01 * shy;
-				this->m11 = this->m10 * shx;
-				if (this->m00 != 0.0 || this->m11 != 0.0) {
-					this->state = state | AffineTransform::APPLY_SCALE;
-				}
-				this->type = AffineTransform::TYPE_UNKNOWN;
-				return;
+			this->m00 = this->m01 * shy;
+			this->m11 = this->m10 * shx;
+			if (this->m00 != 0.0 || this->m11 != 0.0) {
+				this->state = state | AffineTransform::APPLY_SCALE;
 			}
+			this->type = AffineTransform::TYPE_UNKNOWN;
+			return;
 case$40:
 			// (APPLY_SCALE | APPLY_TRANSLATE)
-			{
-			}
 case$41:
 			// (APPLY_SCALE)
-			{
-				this->m01 = this->m00 * shx;
-				this->m10 = this->m11 * shy;
-				if (this->m01 != 0.0 || this->m10 != 0.0) {
-					this->state = state | AffineTransform::APPLY_SHEAR;
-				}
-				this->type = AffineTransform::TYPE_UNKNOWN;
-				return;
+			this->m01 = this->m00 * shx;
+			this->m10 = this->m11 * shy;
+			if (this->m01 != 0.0 || this->m10 != 0.0) {
+				this->state = state | AffineTransform::APPLY_SHEAR;
 			}
+			this->type = AffineTransform::TYPE_UNKNOWN;
+			return;
 case$42:
 			// (APPLY_TRANSLATE)
-			{
-			}
 case$43:
 			// (APPLY_IDENTITY)
-			{
-				this->m01 = shx;
-				this->m10 = shy;
-				if (this->m01 != 0.0 || this->m10 != 0.0) {
-					this->state = (state | AffineTransform::APPLY_SCALE) | AffineTransform::APPLY_SHEAR;
-					this->type = AffineTransform::TYPE_UNKNOWN;
-				}
-				return;
+			this->m01 = shx;
+			this->m10 = shy;
+			if (this->m01 != 0.0 || this->m10 != 0.0) {
+				this->state = (state | AffineTransform::APPLY_SCALE) | AffineTransform::APPLY_SHEAR;
+				this->type = AffineTransform::TYPE_UNKNOWN;
 			}
+			return;
 		} while (false);
 	}
 }
@@ -1260,123 +1006,107 @@ void AffineTransform::setToRotation(double vecx, double vecy, double anchorx, do
 }
 
 void AffineTransform::setToQuadrantRotation(int32_t numquadrants) {
-	switch ((int32_t)(numquadrants & (uint32_t)3)) {
+	switch (numquadrants & 3) {
 	case 0:
-		{
-			this->m00 = 1.0;
-			this->m10 = 0.0;
-			this->m01 = 0.0;
-			this->m11 = 1.0;
-			this->m02 = 0.0;
-			this->m12 = 0.0;
-			this->state = AffineTransform::APPLY_IDENTITY;
-			this->type = AffineTransform::TYPE_IDENTITY;
-			break;
-		}
+		this->m00 = 1.0;
+		this->m10 = 0.0;
+		this->m01 = 0.0;
+		this->m11 = 1.0;
+		this->m02 = 0.0;
+		this->m12 = 0.0;
+		this->state = AffineTransform::APPLY_IDENTITY;
+		this->type = AffineTransform::TYPE_IDENTITY;
+		break;
 	case 1:
-		{
-			this->m00 = 0.0;
-			this->m10 = 1.0;
-			this->m01 = -1.0;
-			this->m11 = 0.0;
-			this->m02 = 0.0;
-			this->m12 = 0.0;
-			this->state = AffineTransform::APPLY_SHEAR;
-			this->type = AffineTransform::TYPE_QUADRANT_ROTATION;
-			break;
-		}
+		this->m00 = 0.0;
+		this->m10 = 1.0;
+		this->m01 = -1.0;
+		this->m11 = 0.0;
+		this->m02 = 0.0;
+		this->m12 = 0.0;
+		this->state = AffineTransform::APPLY_SHEAR;
+		this->type = AffineTransform::TYPE_QUADRANT_ROTATION;
+		break;
 	case 2:
-		{
-			this->m00 = -1.0;
-			this->m10 = 0.0;
-			this->m01 = 0.0;
-			this->m11 = -1.0;
-			this->m02 = 0.0;
-			this->m12 = 0.0;
-			this->state = AffineTransform::APPLY_SCALE;
-			this->type = AffineTransform::TYPE_QUADRANT_ROTATION;
-			break;
-		}
+		this->m00 = -1.0;
+		this->m10 = 0.0;
+		this->m01 = 0.0;
+		this->m11 = -1.0;
+		this->m02 = 0.0;
+		this->m12 = 0.0;
+		this->state = AffineTransform::APPLY_SCALE;
+		this->type = AffineTransform::TYPE_QUADRANT_ROTATION;
+		break;
 	case 3:
-		{
-			this->m00 = 0.0;
-			this->m10 = -1.0;
-			this->m01 = 1.0;
-			this->m11 = 0.0;
-			this->m02 = 0.0;
-			this->m12 = 0.0;
-			this->state = AffineTransform::APPLY_SHEAR;
-			this->type = AffineTransform::TYPE_QUADRANT_ROTATION;
-			break;
-		}
+		this->m00 = 0.0;
+		this->m10 = -1.0;
+		this->m01 = 1.0;
+		this->m11 = 0.0;
+		this->m02 = 0.0;
+		this->m12 = 0.0;
+		this->state = AffineTransform::APPLY_SHEAR;
+		this->type = AffineTransform::TYPE_QUADRANT_ROTATION;
+		break;
 	}
 }
 
 void AffineTransform::setToQuadrantRotation(int32_t numquadrants, double anchorx, double anchory) {
-	switch ((int32_t)(numquadrants & (uint32_t)3)) {
+	switch (numquadrants & 3) {
 	case 0:
-		{
-			this->m00 = 1.0;
-			this->m10 = 0.0;
-			this->m01 = 0.0;
-			this->m11 = 1.0;
-			this->m02 = 0.0;
-			this->m12 = 0.0;
-			this->state = AffineTransform::APPLY_IDENTITY;
-			this->type = AffineTransform::TYPE_IDENTITY;
-			break;
-		}
+		this->m00 = 1.0;
+		this->m10 = 0.0;
+		this->m01 = 0.0;
+		this->m11 = 1.0;
+		this->m02 = 0.0;
+		this->m12 = 0.0;
+		this->state = AffineTransform::APPLY_IDENTITY;
+		this->type = AffineTransform::TYPE_IDENTITY;
+		break;
 	case 1:
-		{
-			this->m00 = 0.0;
-			this->m10 = 1.0;
-			this->m01 = -1.0;
-			this->m11 = 0.0;
-			this->m02 = anchorx + anchory;
-			this->m12 = anchory - anchorx;
-			if (this->m02 == 0.0 && this->m12 == 0.0) {
-				this->state = AffineTransform::APPLY_SHEAR;
-				this->type = AffineTransform::TYPE_QUADRANT_ROTATION;
-			} else {
-				this->state = AffineTransform::APPLY_SHEAR | AffineTransform::APPLY_TRANSLATE;
-				this->type = AffineTransform::TYPE_QUADRANT_ROTATION | AffineTransform::TYPE_TRANSLATION;
-			}
-			break;
+		this->m00 = 0.0;
+		this->m10 = 1.0;
+		this->m01 = -1.0;
+		this->m11 = 0.0;
+		this->m02 = anchorx + anchory;
+		this->m12 = anchory - anchorx;
+		if (this->m02 == 0.0 && this->m12 == 0.0) {
+			this->state = AffineTransform::APPLY_SHEAR;
+			this->type = AffineTransform::TYPE_QUADRANT_ROTATION;
+		} else {
+			this->state = AffineTransform::APPLY_SHEAR | AffineTransform::APPLY_TRANSLATE;
+			this->type = AffineTransform::TYPE_QUADRANT_ROTATION | AffineTransform::TYPE_TRANSLATION;
 		}
+		break;
 	case 2:
-		{
-			this->m00 = -1.0;
-			this->m10 = 0.0;
-			this->m01 = 0.0;
-			this->m11 = -1.0;
-			this->m02 = anchorx + anchorx;
-			this->m12 = anchory + anchory;
-			if (this->m02 == 0.0 && this->m12 == 0.0) {
-				this->state = AffineTransform::APPLY_SCALE;
-				this->type = AffineTransform::TYPE_QUADRANT_ROTATION;
-			} else {
-				this->state = AffineTransform::APPLY_SCALE | AffineTransform::APPLY_TRANSLATE;
-				this->type = AffineTransform::TYPE_QUADRANT_ROTATION | AffineTransform::TYPE_TRANSLATION;
-			}
-			break;
+		this->m00 = -1.0;
+		this->m10 = 0.0;
+		this->m01 = 0.0;
+		this->m11 = -1.0;
+		this->m02 = anchorx + anchorx;
+		this->m12 = anchory + anchory;
+		if (this->m02 == 0.0 && this->m12 == 0.0) {
+			this->state = AffineTransform::APPLY_SCALE;
+			this->type = AffineTransform::TYPE_QUADRANT_ROTATION;
+		} else {
+			this->state = AffineTransform::APPLY_SCALE | AffineTransform::APPLY_TRANSLATE;
+			this->type = AffineTransform::TYPE_QUADRANT_ROTATION | AffineTransform::TYPE_TRANSLATION;
 		}
+		break;
 	case 3:
-		{
-			this->m00 = 0.0;
-			this->m10 = -1.0;
-			this->m01 = 1.0;
-			this->m11 = 0.0;
-			this->m02 = anchorx - anchory;
-			this->m12 = anchory + anchorx;
-			if (this->m02 == 0.0 && this->m12 == 0.0) {
-				this->state = AffineTransform::APPLY_SHEAR;
-				this->type = AffineTransform::TYPE_QUADRANT_ROTATION;
-			} else {
-				this->state = AffineTransform::APPLY_SHEAR | AffineTransform::APPLY_TRANSLATE;
-				this->type = AffineTransform::TYPE_QUADRANT_ROTATION | AffineTransform::TYPE_TRANSLATION;
-			}
-			break;
+		this->m00 = 0.0;
+		this->m10 = -1.0;
+		this->m01 = 1.0;
+		this->m11 = 0.0;
+		this->m02 = anchorx - anchory;
+		this->m12 = anchory + anchorx;
+		if (this->m02 == 0.0 && this->m12 == 0.0) {
+			this->state = AffineTransform::APPLY_SHEAR;
+			this->type = AffineTransform::TYPE_QUADRANT_ROTATION;
+		} else {
+			this->state = AffineTransform::APPLY_SHEAR | AffineTransform::APPLY_TRANSLATE;
+			this->type = AffineTransform::TYPE_QUADRANT_ROTATION | AffineTransform::TYPE_TRANSLATION;
 		}
+		break;
 	}
 }
 
@@ -1557,208 +1287,136 @@ void AffineTransform::concatenate(AffineTransform* Tx) {
 		break;
 case$45:
 		// (HI_IDENTITY | APPLY_IDENTITY)
-		{
-		}
 case$46:
 		// (HI_IDENTITY | APPLY_TRANSLATE)
-		{
-		}
 case$47:
 		// (HI_IDENTITY | APPLY_SCALE)
-		{
-		}
 case$48:
 		// (HI_IDENTITY | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-		}
 case$49:
 		// (HI_IDENTITY | APPLY_SHEAR)
-		{
-		}
 case$50:
 		// (HI_IDENTITY | APPLY_SHEAR | APPLY_TRANSLATE)
-		{
-		}
 case$51:
 		// (HI_IDENTITY | APPLY_SHEAR | APPLY_SCALE)
-		{
-		}
 case$52:
 		// (HI_IDENTITY | APPLY_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-			return;
-		}
+		return;
 case$53:
 		// (HI_SHEAR | HI_SCALE | HI_TRANSLATE | APPLY_IDENTITY)
-		{
-			this->m01 = Tx->m01;
-			this->m10 = Tx->m10;
-		}
+		this->m01 = Tx->m01;
+		this->m10 = Tx->m10;
 case$54:
 		// (HI_SCALE | HI_TRANSLATE | APPLY_IDENTITY)
-		{
-			this->m00 = Tx->m00;
-			this->m11 = Tx->m11;
-		}
+		this->m00 = Tx->m00;
+		this->m11 = Tx->m11;
 case$55:
 		// (HI_TRANSLATE | APPLY_IDENTITY)
-		{
-			this->m02 = Tx->m02;
-			this->m12 = Tx->m12;
-			this->state = txstate;
-			this->type = Tx->type;
-			return;
-		}
+		this->m02 = Tx->m02;
+		this->m12 = Tx->m12;
+		this->state = txstate;
+		this->type = Tx->type;
+		return;
 case$56:
 		// (HI_SHEAR | HI_SCALE | APPLY_IDENTITY)
-		{
-			this->m01 = Tx->m01;
-			this->m10 = Tx->m10;
-		}
+		this->m01 = Tx->m01;
+		this->m10 = Tx->m10;
 case$57:
 		// (HI_SCALE | APPLY_IDENTITY)
-		{
-			this->m00 = Tx->m00;
-			this->m11 = Tx->m11;
-			this->state = txstate;
-			this->type = Tx->type;
-			return;
-		}
+		this->m00 = Tx->m00;
+		this->m11 = Tx->m11;
+		this->state = txstate;
+		this->type = Tx->type;
+		return;
 case$58:
 		// (HI_SHEAR | HI_TRANSLATE | APPLY_IDENTITY)
-		{
-			this->m02 = Tx->m02;
-			this->m12 = Tx->m12;
-		}
+		this->m02 = Tx->m02;
+		this->m12 = Tx->m12;
 case$59:
 		// (HI_SHEAR | APPLY_IDENTITY)
-		{
-			this->m01 = Tx->m01;
-			this->m10 = Tx->m10;
-			this->m00 = (this->m11 = 0.0);
-			this->state = txstate;
-			this->type = Tx->type;
-			return;
-		}
+		this->m01 = Tx->m01;
+		this->m10 = Tx->m10;
+		this->m00 = (this->m11 = 0.0);
+		this->state = txstate;
+		this->type = Tx->type;
+		return;
 case$60:
 		// (HI_TRANSLATE | APPLY_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-		}
 case$61:
 		// (HI_TRANSLATE | APPLY_SHEAR | APPLY_SCALE)
-		{
-		}
 case$62:
 		// (HI_TRANSLATE | APPLY_SHEAR | APPLY_TRANSLATE)
-		{
-		}
 case$63:
 		// (HI_TRANSLATE | APPLY_SHEAR)
-		{
-		}
 case$64:
 		// (HI_TRANSLATE | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-		}
 case$65:
 		// (HI_TRANSLATE | APPLY_SCALE)
-		{
-		}
 case$66:
 		// (HI_TRANSLATE | APPLY_TRANSLATE)
-		{
-			translate(Tx->m02, Tx->m12);
-			return;
-		}
+		translate(Tx->m02, Tx->m12);
+		return;
 case$67:
 		// (HI_SCALE | APPLY_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-		}
 case$68:
 		// (HI_SCALE | APPLY_SHEAR | APPLY_SCALE)
-		{
-		}
 case$69:
 		// (HI_SCALE | APPLY_SHEAR | APPLY_TRANSLATE)
-		{
-		}
 case$70:
 		// (HI_SCALE | APPLY_SHEAR)
-		{
-		}
 case$71:
 		// (HI_SCALE | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-		}
 case$72:
 		// (HI_SCALE | APPLY_SCALE)
-		{
-		}
 case$73:
 		// (HI_SCALE | APPLY_TRANSLATE)
-		{
-			scale(Tx->m00, Tx->m11);
-			return;
-		}
+		scale(Tx->m00, Tx->m11);
+		return;
 case$74:
 		// (HI_SHEAR | APPLY_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-		}
 case$75:
 		// (HI_SHEAR | APPLY_SHEAR | APPLY_SCALE)
-		{
-			T01 = Tx->m01;
-			T10 = Tx->m10;
-			M0 = this->m00;
-			this->m00 = this->m01 * T10;
-			this->m01 = M0 * T01;
-			M0 = this->m10;
-			this->m10 = this->m11 * T10;
-			this->m11 = M0 * T01;
-			this->type = AffineTransform::TYPE_UNKNOWN;
-			return;
-		}
+		T01 = Tx->m01;
+		T10 = Tx->m10;
+		M0 = this->m00;
+		this->m00 = this->m01 * T10;
+		this->m01 = M0 * T01;
+		M0 = this->m10;
+		this->m10 = this->m11 * T10;
+		this->m11 = M0 * T01;
+		this->type = AffineTransform::TYPE_UNKNOWN;
+		return;
 case$76:
 		// (HI_SHEAR | APPLY_SHEAR | APPLY_TRANSLATE)
-		{
-		}
 case$77:
 		// (HI_SHEAR | APPLY_SHEAR)
-		{
-			this->m00 = this->m01 * Tx->m10;
-			this->m01 = 0.0;
-			this->m11 = this->m10 * Tx->m01;
-			this->m10 = 0.0;
-			this->state = mystate ^ (AffineTransform::APPLY_SHEAR | AffineTransform::APPLY_SCALE);
-			this->type = AffineTransform::TYPE_UNKNOWN;
-			return;
-		}
+		this->m00 = this->m01 * Tx->m10;
+		this->m01 = 0.0;
+		this->m11 = this->m10 * Tx->m01;
+		this->m10 = 0.0;
+		this->state = mystate ^ (AffineTransform::APPLY_SHEAR | AffineTransform::APPLY_SCALE);
+		this->type = AffineTransform::TYPE_UNKNOWN;
+		return;
 case$78:
 		// (HI_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-		}
 case$79:
 		// (HI_SHEAR | APPLY_SCALE)
-		{
-			this->m01 = this->m00 * Tx->m01;
-			this->m00 = 0.0;
-			this->m10 = this->m11 * Tx->m10;
-			this->m11 = 0.0;
-			this->state = mystate ^ (AffineTransform::APPLY_SHEAR | AffineTransform::APPLY_SCALE);
-			this->type = AffineTransform::TYPE_UNKNOWN;
-			return;
-		}
+		this->m01 = this->m00 * Tx->m01;
+		this->m00 = 0.0;
+		this->m10 = this->m11 * Tx->m10;
+		this->m11 = 0.0;
+		this->state = mystate ^ (AffineTransform::APPLY_SHEAR | AffineTransform::APPLY_SCALE);
+		this->type = AffineTransform::TYPE_UNKNOWN;
+		return;
 case$80:
 		// (HI_SHEAR | APPLY_TRANSLATE)
-		{
-			this->m00 = 0.0;
-			this->m01 = Tx->m01;
-			this->m10 = Tx->m10;
-			this->m11 = 0.0;
-			this->state = AffineTransform::APPLY_TRANSLATE | AffineTransform::APPLY_SHEAR;
-			this->type = AffineTransform::TYPE_UNKNOWN;
-			return;
-		}
+		this->m00 = 0.0;
+		this->m01 = Tx->m01;
+		this->m10 = Tx->m10;
+		this->m11 = 0.0;
+		this->state = AffineTransform::APPLY_TRANSLATE | AffineTransform::APPLY_SHEAR;
+		this->type = AffineTransform::TYPE_UNKNOWN;
+		return;
 	} while (false);
 	T00 = Tx->m00;
 	T01 = Tx->m01;
@@ -1791,77 +1449,61 @@ case$80:
 		goto case$88;
 case$88:
 		// default
-		{
-			stateError();
-		}
+		stateError();
 case$81:
 		// (APPLY_SHEAR | APPLY_SCALE)
-		{
-			this->state = mystate | txstate;
-		}
+		this->state = mystate | txstate;
 case$82:
 		// (APPLY_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-			M0 = this->m00;
-			M1 = this->m01;
-			this->m00 = T00 * M0 + T10 * M1;
-			this->m01 = T01 * M0 + T11 * M1;
-			this->m02 += T02 * M0 + T12 * M1;
-			M0 = this->m10;
-			M1 = this->m11;
-			this->m10 = T00 * M0 + T10 * M1;
-			this->m11 = T01 * M0 + T11 * M1;
-			this->m12 += T02 * M0 + T12 * M1;
-			this->type = AffineTransform::TYPE_UNKNOWN;
-			return;
-		}
+		M0 = this->m00;
+		M1 = this->m01;
+		this->m00 = T00 * M0 + T10 * M1;
+		this->m01 = T01 * M0 + T11 * M1;
+		this->m02 += T02 * M0 + T12 * M1;
+		M0 = this->m10;
+		M1 = this->m11;
+		this->m10 = T00 * M0 + T10 * M1;
+		this->m11 = T01 * M0 + T11 * M1;
+		this->m12 += T02 * M0 + T12 * M1;
+		this->type = AffineTransform::TYPE_UNKNOWN;
+		return;
 case$83:
 		// (APPLY_SHEAR | APPLY_TRANSLATE)
-		{
-		}
 case$84:
 		// (APPLY_SHEAR)
-		{
-			M0 = this->m01;
-			this->m00 = T10 * M0;
-			this->m01 = T11 * M0;
-			this->m02 += T12 * M0;
-			M0 = this->m10;
-			this->m10 = T00 * M0;
-			this->m11 = T01 * M0;
-			this->m12 += T02 * M0;
-			break;
-		}
+		M0 = this->m01;
+		this->m00 = T10 * M0;
+		this->m01 = T11 * M0;
+		this->m02 += T12 * M0;
+		M0 = this->m10;
+		this->m10 = T00 * M0;
+		this->m11 = T01 * M0;
+		this->m12 += T02 * M0;
+		break;
 case$85:
 		// (APPLY_SCALE | APPLY_TRANSLATE)
-		{
-		}
 case$86:
 		// (APPLY_SCALE)
-		{
-			M0 = this->m00;
-			this->m00 = T00 * M0;
-			this->m01 = T01 * M0;
-			this->m02 += T02 * M0;
-			M0 = this->m11;
-			this->m10 = T10 * M0;
-			this->m11 = T11 * M0;
-			this->m12 += T12 * M0;
-			break;
-		}
+		M0 = this->m00;
+		this->m00 = T00 * M0;
+		this->m01 = T01 * M0;
+		this->m02 += T02 * M0;
+		M0 = this->m11;
+		this->m10 = T10 * M0;
+		this->m11 = T11 * M0;
+		this->m12 += T12 * M0;
+		break;
 case$87:
 		// (APPLY_TRANSLATE)
-		{
-			this->m00 = T00;
-			this->m01 = T01;
-			this->m02 += T02;
-			this->m10 = T10;
-			this->m11 = T11;
-			this->m12 += T12;
-			this->state = txstate | AffineTransform::APPLY_TRANSLATE;
-			this->type = AffineTransform::TYPE_UNKNOWN;
-			return;
-		}
+		this->m00 = T00;
+		this->m01 = T01;
+		this->m02 += T02;
+		this->m10 = T10;
+		this->m11 = T11;
+		this->m12 += T12;
+		this->state = txstate | AffineTransform::APPLY_TRANSLATE;
+		this->type = AffineTransform::TYPE_UNKNOWN;
+		return;
 	} while (false);
 	updateState();
 }
@@ -1978,176 +1620,112 @@ void AffineTransform::preConcatenate(AffineTransform* Tx) {
 		break;
 case$89:
 		// (HI_IDENTITY | APPLY_IDENTITY)
-		{
-		}
 case$90:
 		// (HI_IDENTITY | APPLY_TRANSLATE)
-		{
-		}
 case$91:
 		// (HI_IDENTITY | APPLY_SCALE)
-		{
-		}
 case$92:
 		// (HI_IDENTITY | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-		}
 case$93:
 		// (HI_IDENTITY | APPLY_SHEAR)
-		{
-		}
 case$94:
 		// (HI_IDENTITY | APPLY_SHEAR | APPLY_TRANSLATE)
-		{
-		}
 case$95:
 		// (HI_IDENTITY | APPLY_SHEAR | APPLY_SCALE)
-		{
-		}
 case$96:
 		// (HI_IDENTITY | APPLY_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-			return;
-		}
+		return;
 case$97:
 		// (HI_TRANSLATE | APPLY_IDENTITY)
-		{
-		}
 case$98:
 		// (HI_TRANSLATE | APPLY_SCALE)
-		{
-		}
 case$99:
 		// (HI_TRANSLATE | APPLY_SHEAR)
-		{
-		}
 case$100:
 		// (HI_TRANSLATE | APPLY_SHEAR | APPLY_SCALE)
-		{
-			this->m02 = Tx->m02;
-			this->m12 = Tx->m12;
-			this->state = mystate | AffineTransform::APPLY_TRANSLATE;
-			this->type |= AffineTransform::TYPE_TRANSLATION;
-			return;
-		}
+		this->m02 = Tx->m02;
+		this->m12 = Tx->m12;
+		this->state = mystate | AffineTransform::APPLY_TRANSLATE;
+		this->type |= AffineTransform::TYPE_TRANSLATION;
+		return;
 case$101:
 		// (HI_TRANSLATE | APPLY_TRANSLATE)
-		{
-		}
 case$102:
 		// (HI_TRANSLATE | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-		}
 case$103:
 		// (HI_TRANSLATE | APPLY_SHEAR | APPLY_TRANSLATE)
-		{
-		}
 case$104:
 		// (HI_TRANSLATE | APPLY_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-			this->m02 = this->m02 + Tx->m02;
-			this->m12 = this->m12 + Tx->m12;
-			return;
-		}
+		this->m02 = this->m02 + Tx->m02;
+		this->m12 = this->m12 + Tx->m12;
+		return;
 case$105:
 		// (HI_SCALE | APPLY_TRANSLATE)
-		{
-		}
 case$106:
 		// (HI_SCALE | APPLY_IDENTITY)
-		{
-			this->state = mystate | AffineTransform::APPLY_SCALE;
-		}
+		this->state = mystate | AffineTransform::APPLY_SCALE;
 case$107:
 		// (HI_SCALE | APPLY_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-		}
 case$108:
 		// (HI_SCALE | APPLY_SHEAR | APPLY_SCALE)
-		{
-		}
 case$109:
 		// (HI_SCALE | APPLY_SHEAR | APPLY_TRANSLATE)
-		{
-		}
 case$110:
 		// (HI_SCALE | APPLY_SHEAR)
-		{
-		}
 case$111:
 		// (HI_SCALE | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-		}
 case$112:
 		// (HI_SCALE | APPLY_SCALE)
-		{
-			T00 = Tx->m00;
-			T11 = Tx->m11;
-			if (((int32_t)(mystate & (uint32_t)AffineTransform::APPLY_SHEAR)) != 0) {
-				this->m01 = this->m01 * T00;
-				this->m10 = this->m10 * T11;
-				if (((int32_t)(mystate & (uint32_t)AffineTransform::APPLY_SCALE)) != 0) {
-					this->m00 = this->m00 * T00;
-					this->m11 = this->m11 * T11;
-				}
-			} else {
+		T00 = Tx->m00;
+		T11 = Tx->m11;
+		if ((mystate & AffineTransform::APPLY_SHEAR) != 0) {
+			this->m01 = this->m01 * T00;
+			this->m10 = this->m10 * T11;
+			if ((mystate & AffineTransform::APPLY_SCALE) != 0) {
 				this->m00 = this->m00 * T00;
 				this->m11 = this->m11 * T11;
 			}
-			if (((int32_t)(mystate & (uint32_t)AffineTransform::APPLY_TRANSLATE)) != 0) {
-				this->m02 = this->m02 * T00;
-				this->m12 = this->m12 * T11;
-			}
-			this->type = AffineTransform::TYPE_UNKNOWN;
-			return;
+		} else {
+			this->m00 = this->m00 * T00;
+			this->m11 = this->m11 * T11;
 		}
+		if ((mystate & AffineTransform::APPLY_TRANSLATE) != 0) {
+			this->m02 = this->m02 * T00;
+			this->m12 = this->m12 * T11;
+		}
+		this->type = AffineTransform::TYPE_UNKNOWN;
+		return;
 case$113:
 		// (HI_SHEAR | APPLY_SHEAR | APPLY_TRANSLATE)
-		{
-		}
 case$114:
 		// (HI_SHEAR | APPLY_SHEAR)
-		{
-			mystate = mystate | AffineTransform::APPLY_SCALE;
-		}
+		mystate = mystate | AffineTransform::APPLY_SCALE;
 case$115:
 		// (HI_SHEAR | APPLY_TRANSLATE)
-		{
-		}
 case$116:
 		// (HI_SHEAR | APPLY_IDENTITY)
-		{
-		}
 case$117:
 		// (HI_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-		}
 case$118:
 		// (HI_SHEAR | APPLY_SCALE)
-		{
-			this->state = mystate ^ AffineTransform::APPLY_SHEAR;
-		}
+		this->state = mystate ^ AffineTransform::APPLY_SHEAR;
 case$119:
 		// (HI_SHEAR | APPLY_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-		}
 case$120:
 		// (HI_SHEAR | APPLY_SHEAR | APPLY_SCALE)
-		{
-			T01 = Tx->m01;
-			T10 = Tx->m10;
-			M0 = this->m00;
-			this->m00 = this->m10 * T01;
-			this->m10 = M0 * T10;
-			M0 = this->m01;
-			this->m01 = this->m11 * T01;
-			this->m11 = M0 * T10;
-			M0 = this->m02;
-			this->m02 = this->m12 * T01;
-			this->m12 = M0 * T10;
-			this->type = AffineTransform::TYPE_UNKNOWN;
-			return;
-		}
+		T01 = Tx->m01;
+		T10 = Tx->m10;
+		M0 = this->m00;
+		this->m00 = this->m10 * T01;
+		this->m10 = M0 * T10;
+		M0 = this->m01;
+		this->m01 = this->m11 * T01;
+		this->m11 = M0 * T10;
+		M0 = this->m02;
+		this->m02 = this->m12 * T01;
+		this->m12 = M0 * T10;
+		this->type = AffineTransform::TYPE_UNKNOWN;
+		return;
 	} while (false);
 	T00 = Tx->m00;
 	T01 = Tx->m01;
@@ -2183,101 +1761,83 @@ case$120:
 		goto case$129;
 case$129:
 		// default
-		{
-			stateError();
-		}
+		stateError();
 case$121:
 		// (APPLY_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-			M0 = this->m02;
-			M1 = this->m12;
-			T02 += M0 * T00 + M1 * T01;
-			T12 += M0 * T10 + M1 * T11;
-		}
+		M0 = this->m02;
+		M1 = this->m12;
+		T02 += M0 * T00 + M1 * T01;
+		T12 += M0 * T10 + M1 * T11;
 case$122:
 		// (APPLY_SHEAR | APPLY_SCALE)
-		{
-			this->m02 = T02;
-			this->m12 = T12;
-			M0 = this->m00;
-			M1 = this->m10;
-			this->m00 = M0 * T00 + M1 * T01;
-			this->m10 = M0 * T10 + M1 * T11;
-			M0 = this->m01;
-			M1 = this->m11;
-			this->m01 = M0 * T00 + M1 * T01;
-			this->m11 = M0 * T10 + M1 * T11;
-			break;
-		}
+		this->m02 = T02;
+		this->m12 = T12;
+		M0 = this->m00;
+		M1 = this->m10;
+		this->m00 = M0 * T00 + M1 * T01;
+		this->m10 = M0 * T10 + M1 * T11;
+		M0 = this->m01;
+		M1 = this->m11;
+		this->m01 = M0 * T00 + M1 * T01;
+		this->m11 = M0 * T10 + M1 * T11;
+		break;
 case$123:
 		// (APPLY_SHEAR | APPLY_TRANSLATE)
-		{
-			M0 = this->m02;
-			M1 = this->m12;
-			T02 += M0 * T00 + M1 * T01;
-			T12 += M0 * T10 + M1 * T11;
-		}
+		M0 = this->m02;
+		M1 = this->m12;
+		T02 += M0 * T00 + M1 * T01;
+		T12 += M0 * T10 + M1 * T11;
 case$124:
 		// (APPLY_SHEAR)
-		{
-			this->m02 = T02;
-			this->m12 = T12;
-			M0 = this->m10;
-			this->m00 = M0 * T01;
-			this->m10 = M0 * T11;
-			M0 = this->m01;
-			this->m01 = M0 * T00;
-			this->m11 = M0 * T10;
-			break;
-		}
+		this->m02 = T02;
+		this->m12 = T12;
+		M0 = this->m10;
+		this->m00 = M0 * T01;
+		this->m10 = M0 * T11;
+		M0 = this->m01;
+		this->m01 = M0 * T00;
+		this->m11 = M0 * T10;
+		break;
 case$125:
 		// (APPLY_SCALE | APPLY_TRANSLATE)
-		{
-			M0 = this->m02;
-			M1 = this->m12;
-			T02 += M0 * T00 + M1 * T01;
-			T12 += M0 * T10 + M1 * T11;
-		}
+		M0 = this->m02;
+		M1 = this->m12;
+		T02 += M0 * T00 + M1 * T01;
+		T12 += M0 * T10 + M1 * T11;
 case$126:
 		// (APPLY_SCALE)
-		{
-			this->m02 = T02;
-			this->m12 = T12;
-			M0 = this->m00;
-			this->m00 = M0 * T00;
-			this->m10 = M0 * T10;
-			M0 = this->m11;
-			this->m01 = M0 * T01;
-			this->m11 = M0 * T11;
-			break;
-		}
+		this->m02 = T02;
+		this->m12 = T12;
+		M0 = this->m00;
+		this->m00 = M0 * T00;
+		this->m10 = M0 * T10;
+		M0 = this->m11;
+		this->m01 = M0 * T01;
+		this->m11 = M0 * T11;
+		break;
 case$127:
 		// (APPLY_TRANSLATE)
-		{
-			M0 = this->m02;
-			M1 = this->m12;
-			T02 += M0 * T00 + M1 * T01;
-			T12 += M0 * T10 + M1 * T11;
-		}
+		M0 = this->m02;
+		M1 = this->m12;
+		T02 += M0 * T00 + M1 * T01;
+		T12 += M0 * T10 + M1 * T11;
 case$128:
 		// (APPLY_IDENTITY)
-		{
-			this->m02 = T02;
-			this->m12 = T12;
-			this->m00 = T00;
-			this->m10 = T10;
-			this->m01 = T01;
-			this->m11 = T11;
-			this->state = mystate | txstate;
-			this->type = AffineTransform::TYPE_UNKNOWN;
-			return;
-		}
+		this->m02 = T02;
+		this->m12 = T12;
+		this->m00 = T00;
+		this->m10 = T10;
+		this->m01 = T01;
+		this->m11 = T11;
+		this->state = mystate | txstate;
+		this->type = AffineTransform::TYPE_UNKNOWN;
+		return;
 	} while (false);
 	updateState();
 }
 
 AffineTransform* AffineTransform::createInverse() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	double det = 0.0;
 	do {
 		if (this->state == ((AffineTransform::APPLY_SHEAR | AffineTransform::APPLY_SCALE) | AffineTransform::APPLY_TRANSLATE)) {
@@ -2307,77 +1867,57 @@ AffineTransform* AffineTransform::createInverse() {
 		goto case$138;
 case$138:
 		// default
-		{
-			stateError();
-			return nullptr;
-		}
+		stateError();
+		return nullptr;
 case$130:
 		// (APPLY_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-			det = this->m00 * this->m11 - this->m01 * this->m10;
-			$init($Double);
-			if ($Math::abs(det) <= $Double::MIN_VALUE) {
-				$throwNew($NoninvertibleTransformException, $$str({"Determinant is "_s, $$str(det)}));
-			}
-			return $new(AffineTransform, this->m11 / det, -this->m10 / det, -this->m01 / det, this->m00 / det, (this->m01 * this->m12 - this->m11 * this->m02) / det, (this->m10 * this->m02 - this->m00 * this->m12) / det, ((AffineTransform::APPLY_SHEAR | AffineTransform::APPLY_SCALE) | AffineTransform::APPLY_TRANSLATE));
+		det = this->m00 * this->m11 - this->m01 * this->m10;
+		if ($Math::abs(det) <= $Double::MIN_VALUE) {
+			$throwNew($NoninvertibleTransformException, $$str({"Determinant is "_s, $$str(det)}));
 		}
+		return $new(AffineTransform, this->m11 / det, -this->m10 / det, -this->m01 / det, this->m00 / det, (this->m01 * this->m12 - this->m11 * this->m02) / det, (this->m10 * this->m02 - this->m00 * this->m12) / det, ((AffineTransform::APPLY_SHEAR | AffineTransform::APPLY_SCALE) | AffineTransform::APPLY_TRANSLATE));
 case$131:
 		// (APPLY_SHEAR | APPLY_SCALE)
-		{
-			det = this->m00 * this->m11 - this->m01 * this->m10;
-			$init($Double);
-			if ($Math::abs(det) <= $Double::MIN_VALUE) {
-				$throwNew($NoninvertibleTransformException, $$str({"Determinant is "_s, $$str(det)}));
-			}
-			return $new(AffineTransform, this->m11 / det, -this->m10 / det, -this->m01 / det, this->m00 / det, 0.0, 0.0, (AffineTransform::APPLY_SHEAR | AffineTransform::APPLY_SCALE));
+		det = this->m00 * this->m11 - this->m01 * this->m10;
+		if ($Math::abs(det) <= $Double::MIN_VALUE) {
+			$throwNew($NoninvertibleTransformException, $$str({"Determinant is "_s, $$str(det)}));
 		}
+		return $new(AffineTransform, this->m11 / det, -this->m10 / det, -this->m01 / det, this->m00 / det, 0.0, 0.0, (AffineTransform::APPLY_SHEAR | AffineTransform::APPLY_SCALE));
 case$132:
 		// (APPLY_SHEAR | APPLY_TRANSLATE)
-		{
-			if (this->m01 == 0.0 || this->m10 == 0.0) {
-				$throwNew($NoninvertibleTransformException, "Determinant is 0"_s);
-			}
-			return $new(AffineTransform, 0.0, 1.0 / this->m01, 1.0 / this->m10, 0.0, -this->m12 / this->m10, -this->m02 / this->m01, (AffineTransform::APPLY_SHEAR | AffineTransform::APPLY_TRANSLATE));
+		if (this->m01 == 0.0 || this->m10 == 0.0) {
+			$throwNew($NoninvertibleTransformException, "Determinant is 0"_s);
 		}
+		return $new(AffineTransform, 0.0, 1.0 / this->m01, 1.0 / this->m10, 0.0, -this->m12 / this->m10, -this->m02 / this->m01, (AffineTransform::APPLY_SHEAR | AffineTransform::APPLY_TRANSLATE));
 case$133:
 		// (APPLY_SHEAR)
-		{
-			if (this->m01 == 0.0 || this->m10 == 0.0) {
-				$throwNew($NoninvertibleTransformException, "Determinant is 0"_s);
-			}
-			return $new(AffineTransform, 0.0, 1.0 / this->m01, 1.0 / this->m10, 0.0, 0.0, 0.0, (AffineTransform::APPLY_SHEAR));
+		if (this->m01 == 0.0 || this->m10 == 0.0) {
+			$throwNew($NoninvertibleTransformException, "Determinant is 0"_s);
 		}
+		return $new(AffineTransform, 0.0, 1.0 / this->m01, 1.0 / this->m10, 0.0, 0.0, 0.0, (AffineTransform::APPLY_SHEAR));
 case$134:
 		// (APPLY_SCALE | APPLY_TRANSLATE)
-		{
-			if (this->m00 == 0.0 || this->m11 == 0.0) {
-				$throwNew($NoninvertibleTransformException, "Determinant is 0"_s);
-			}
-			return $new(AffineTransform, 1.0 / this->m00, 0.0, 0.0, 1.0 / this->m11, -this->m02 / this->m00, -this->m12 / this->m11, (AffineTransform::APPLY_SCALE | AffineTransform::APPLY_TRANSLATE));
+		if (this->m00 == 0.0 || this->m11 == 0.0) {
+			$throwNew($NoninvertibleTransformException, "Determinant is 0"_s);
 		}
+		return $new(AffineTransform, 1.0 / this->m00, 0.0, 0.0, 1.0 / this->m11, -this->m02 / this->m00, -this->m12 / this->m11, (AffineTransform::APPLY_SCALE | AffineTransform::APPLY_TRANSLATE));
 case$135:
 		// (APPLY_SCALE)
-		{
-			if (this->m00 == 0.0 || this->m11 == 0.0) {
-				$throwNew($NoninvertibleTransformException, "Determinant is 0"_s);
-			}
-			return $new(AffineTransform, 1.0 / this->m00, 0.0, 0.0, 1.0 / this->m11, 0.0, 0.0, (AffineTransform::APPLY_SCALE));
+		if (this->m00 == 0.0 || this->m11 == 0.0) {
+			$throwNew($NoninvertibleTransformException, "Determinant is 0"_s);
 		}
+		return $new(AffineTransform, 1.0 / this->m00, 0.0, 0.0, 1.0 / this->m11, 0.0, 0.0, (AffineTransform::APPLY_SCALE));
 case$136:
 		// (APPLY_TRANSLATE)
-		{
-			return $new(AffineTransform, 1.0, 0.0, 0.0, 1.0, -this->m02, -this->m12, (AffineTransform::APPLY_TRANSLATE));
-		}
+		return $new(AffineTransform, 1.0, 0.0, 0.0, 1.0, -this->m02, -this->m12, (AffineTransform::APPLY_TRANSLATE));
 case$137:
 		// (APPLY_IDENTITY)
-		{
-			return $new(AffineTransform);
-		}
+		return $new(AffineTransform);
 	} while (false);
 }
 
 void AffineTransform::invert() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	double M00 = 0.0;
 	double M01 = 0.0;
 	double M02 = 0.0;
@@ -2413,118 +1953,98 @@ void AffineTransform::invert() {
 		goto case$147;
 case$147:
 		// default
-		{
-			stateError();
-			return;
-		}
+		stateError();
+		return;
 case$139:
 		// (APPLY_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-			M00 = this->m00;
-			M01 = this->m01;
-			M02 = this->m02;
-			M10 = this->m10;
-			M11 = this->m11;
-			M12 = this->m12;
-			det = M00 * M11 - M01 * M10;
-			$init($Double);
-			if ($Math::abs(det) <= $Double::MIN_VALUE) {
-				$throwNew($NoninvertibleTransformException, $$str({"Determinant is "_s, $$str(det)}));
-			}
-			this->m00 = M11 / det;
-			this->m10 = -M10 / det;
-			this->m01 = -M01 / det;
-			this->m11 = M00 / det;
-			this->m02 = (M01 * M12 - M11 * M02) / det;
-			this->m12 = (M10 * M02 - M00 * M12) / det;
-			break;
+		M00 = this->m00;
+		M01 = this->m01;
+		M02 = this->m02;
+		M10 = this->m10;
+		M11 = this->m11;
+		M12 = this->m12;
+		det = M00 * M11 - M01 * M10;
+		if ($Math::abs(det) <= $Double::MIN_VALUE) {
+			$throwNew($NoninvertibleTransformException, $$str({"Determinant is "_s, $$str(det)}));
 		}
+		this->m00 = M11 / det;
+		this->m10 = -M10 / det;
+		this->m01 = -M01 / det;
+		this->m11 = M00 / det;
+		this->m02 = (M01 * M12 - M11 * M02) / det;
+		this->m12 = (M10 * M02 - M00 * M12) / det;
+		break;
 case$140:
 		// (APPLY_SHEAR | APPLY_SCALE)
-		{
-			M00 = this->m00;
-			M01 = this->m01;
-			M10 = this->m10;
-			M11 = this->m11;
-			det = M00 * M11 - M01 * M10;
-			$init($Double);
-			if ($Math::abs(det) <= $Double::MIN_VALUE) {
-				$throwNew($NoninvertibleTransformException, $$str({"Determinant is "_s, $$str(det)}));
-			}
-			this->m00 = M11 / det;
-			this->m10 = -M10 / det;
-			this->m01 = -M01 / det;
-			this->m11 = M00 / det;
-			break;
+		M00 = this->m00;
+		M01 = this->m01;
+		M10 = this->m10;
+		M11 = this->m11;
+		det = M00 * M11 - M01 * M10;
+		if ($Math::abs(det) <= $Double::MIN_VALUE) {
+			$throwNew($NoninvertibleTransformException, $$str({"Determinant is "_s, $$str(det)}));
 		}
+		this->m00 = M11 / det;
+		this->m10 = -M10 / det;
+		this->m01 = -M01 / det;
+		this->m11 = M00 / det;
+		break;
 case$141:
 		// (APPLY_SHEAR | APPLY_TRANSLATE)
-		{
-			M01 = this->m01;
-			M02 = this->m02;
-			M10 = this->m10;
-			M12 = this->m12;
-			if (M01 == 0.0 || M10 == 0.0) {
-				$throwNew($NoninvertibleTransformException, "Determinant is 0"_s);
-			}
-			this->m10 = 1.0 / M01;
-			this->m01 = 1.0 / M10;
-			this->m02 = -M12 / M10;
-			this->m12 = -M02 / M01;
-			break;
+		M01 = this->m01;
+		M02 = this->m02;
+		M10 = this->m10;
+		M12 = this->m12;
+		if (M01 == 0.0 || M10 == 0.0) {
+			$throwNew($NoninvertibleTransformException, "Determinant is 0"_s);
 		}
+		this->m10 = 1.0 / M01;
+		this->m01 = 1.0 / M10;
+		this->m02 = -M12 / M10;
+		this->m12 = -M02 / M01;
+		break;
 case$142:
 		// (APPLY_SHEAR)
-		{
-			M01 = this->m01;
-			M10 = this->m10;
-			if (M01 == 0.0 || M10 == 0.0) {
-				$throwNew($NoninvertibleTransformException, "Determinant is 0"_s);
-			}
-			this->m10 = 1.0 / M01;
-			this->m01 = 1.0 / M10;
-			break;
+		M01 = this->m01;
+		M10 = this->m10;
+		if (M01 == 0.0 || M10 == 0.0) {
+			$throwNew($NoninvertibleTransformException, "Determinant is 0"_s);
 		}
+		this->m10 = 1.0 / M01;
+		this->m01 = 1.0 / M10;
+		break;
 case$143:
 		// (APPLY_SCALE | APPLY_TRANSLATE)
-		{
-			M00 = this->m00;
-			M02 = this->m02;
-			M11 = this->m11;
-			M12 = this->m12;
-			if (M00 == 0.0 || M11 == 0.0) {
-				$throwNew($NoninvertibleTransformException, "Determinant is 0"_s);
-			}
-			this->m00 = 1.0 / M00;
-			this->m11 = 1.0 / M11;
-			this->m02 = -M02 / M00;
-			this->m12 = -M12 / M11;
-			break;
+		M00 = this->m00;
+		M02 = this->m02;
+		M11 = this->m11;
+		M12 = this->m12;
+		if (M00 == 0.0 || M11 == 0.0) {
+			$throwNew($NoninvertibleTransformException, "Determinant is 0"_s);
 		}
+		this->m00 = 1.0 / M00;
+		this->m11 = 1.0 / M11;
+		this->m02 = -M02 / M00;
+		this->m12 = -M12 / M11;
+		break;
 case$144:
 		// (APPLY_SCALE)
-		{
-			M00 = this->m00;
-			M11 = this->m11;
-			if (M00 == 0.0 || M11 == 0.0) {
-				$throwNew($NoninvertibleTransformException, "Determinant is 0"_s);
-			}
-			this->m00 = 1.0 / M00;
-			this->m11 = 1.0 / M11;
-			break;
+		M00 = this->m00;
+		M11 = this->m11;
+		if (M00 == 0.0 || M11 == 0.0) {
+			$throwNew($NoninvertibleTransformException, "Determinant is 0"_s);
 		}
+		this->m00 = 1.0 / M00;
+		this->m11 = 1.0 / M11;
+		break;
 case$145:
 		// (APPLY_TRANSLATE)
-		{
-			this->m02 = -this->m02;
-			this->m12 = -this->m12;
-			break;
-		}
+		this->m02 = -this->m02;
+		this->m12 = -this->m12;
+		break;
 case$146:
 		// (APPLY_IDENTITY)
-		{
-			break;
-		}
+		break;
 	} while (false);
 }
 
@@ -2567,63 +2087,45 @@ $Point2D* AffineTransform::transform($Point2D* ptSrc, $Point2D* ptDst$renamed) {
 		goto case$156;
 case$156:
 		// default
-		{
-			stateError();
-			return nullptr;
-		}
+		stateError();
+		return nullptr;
 case$148:
 		// (APPLY_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-			$nc(ptDst)->setLocation(x * this->m00 + y * this->m01 + this->m02, x * this->m10 + y * this->m11 + this->m12);
-			return ptDst;
-		}
+		$nc(ptDst)->setLocation(x * this->m00 + y * this->m01 + this->m02, x * this->m10 + y * this->m11 + this->m12);
+		return ptDst;
 case$149:
 		// (APPLY_SHEAR | APPLY_SCALE)
-		{
-			$nc(ptDst)->setLocation(x * this->m00 + y * this->m01, x * this->m10 + y * this->m11);
-			return ptDst;
-		}
+		$nc(ptDst)->setLocation(x * this->m00 + y * this->m01, x * this->m10 + y * this->m11);
+		return ptDst;
 case$150:
 		// (APPLY_SHEAR | APPLY_TRANSLATE)
-		{
-			$nc(ptDst)->setLocation(y * this->m01 + this->m02, x * this->m10 + this->m12);
-			return ptDst;
-		}
+		$nc(ptDst)->setLocation(y * this->m01 + this->m02, x * this->m10 + this->m12);
+		return ptDst;
 case$151:
 		// (APPLY_SHEAR)
-		{
-			$nc(ptDst)->setLocation(y * this->m01, x * this->m10);
-			return ptDst;
-		}
+		$nc(ptDst)->setLocation(y * this->m01, x * this->m10);
+		return ptDst;
 case$152:
 		// (APPLY_SCALE | APPLY_TRANSLATE)
-		{
-			$nc(ptDst)->setLocation(x * this->m00 + this->m02, y * this->m11 + this->m12);
-			return ptDst;
-		}
+		$nc(ptDst)->setLocation(x * this->m00 + this->m02, y * this->m11 + this->m12);
+		return ptDst;
 case$153:
 		// (APPLY_SCALE)
-		{
-			$nc(ptDst)->setLocation(x * this->m00, y * this->m11);
-			return ptDst;
-		}
+		$nc(ptDst)->setLocation(x * this->m00, y * this->m11);
+		return ptDst;
 case$154:
 		// (APPLY_TRANSLATE)
-		{
-			$nc(ptDst)->setLocation(x + this->m02, y + this->m12);
-			return ptDst;
-		}
+		$nc(ptDst)->setLocation(x + this->m02, y + this->m12);
+		return ptDst;
 case$155:
 		// (APPLY_IDENTITY)
-		{
-			$nc(ptDst)->setLocation(x, y);
-			return ptDst;
-		}
+		$nc(ptDst)->setLocation(x, y);
+		return ptDst;
 	} while (false);
 }
 
 void AffineTransform::transform($Point2DArray* ptSrc, int32_t srcOff, $Point2DArray* ptDst, int32_t dstOff, int32_t numPts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t state = this->state;
 	while (--numPts >= 0) {
 		$var($Point2D, src, $nc(ptSrc)->get(srcOff++));
@@ -2666,58 +2168,40 @@ void AffineTransform::transform($Point2DArray* ptSrc, int32_t srcOff, $Point2DAr
 			goto case$165;
 case$165:
 			// default
-			{
-				stateError();
-				return;
-			}
+			stateError();
+			return;
 case$157:
 			// (APPLY_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-			{
-				$nc(dst)->setLocation(x * this->m00 + y * this->m01 + this->m02, x * this->m10 + y * this->m11 + this->m12);
-				break;
-			}
+			$nc(dst)->setLocation(x * this->m00 + y * this->m01 + this->m02, x * this->m10 + y * this->m11 + this->m12);
+			break;
 case$158:
 			// (APPLY_SHEAR | APPLY_SCALE)
-			{
-				$nc(dst)->setLocation(x * this->m00 + y * this->m01, x * this->m10 + y * this->m11);
-				break;
-			}
+			$nc(dst)->setLocation(x * this->m00 + y * this->m01, x * this->m10 + y * this->m11);
+			break;
 case$159:
 			// (APPLY_SHEAR | APPLY_TRANSLATE)
-			{
-				$nc(dst)->setLocation(y * this->m01 + this->m02, x * this->m10 + this->m12);
-				break;
-			}
+			$nc(dst)->setLocation(y * this->m01 + this->m02, x * this->m10 + this->m12);
+			break;
 case$160:
 			// (APPLY_SHEAR)
-			{
-				$nc(dst)->setLocation(y * this->m01, x * this->m10);
-				break;
-			}
+			$nc(dst)->setLocation(y * this->m01, x * this->m10);
+			break;
 case$161:
 			// (APPLY_SCALE | APPLY_TRANSLATE)
-			{
-				$nc(dst)->setLocation(x * this->m00 + this->m02, y * this->m11 + this->m12);
-				break;
-			}
+			$nc(dst)->setLocation(x * this->m00 + this->m02, y * this->m11 + this->m12);
+			break;
 case$162:
 			// (APPLY_SCALE)
-			{
-				$nc(dst)->setLocation(x * this->m00, y * this->m11);
-				break;
-			}
+			$nc(dst)->setLocation(x * this->m00, y * this->m11);
+			break;
 case$163:
 			// (APPLY_TRANSLATE)
-			{
-				$nc(dst)->setLocation(x + this->m02, y + this->m12);
-				break;
-			}
+			$nc(dst)->setLocation(x + this->m02, y + this->m12);
+			break;
 case$164:
 			// (APPLY_IDENTITY)
-			{
-				$nc(dst)->setLocation(x, y);
-				break;
-			}
+			$nc(dst)->setLocation(x, y);
+			break;
 		} while (false);
 	}
 }
@@ -2761,111 +2245,93 @@ void AffineTransform::transform($floats* srcPts, int32_t srcOff, $floats* dstPts
 		goto case$174;
 case$174:
 		// default
-		{
-			stateError();
-			return;
-		}
+		stateError();
+		return;
 case$166:
 		// (APPLY_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-			M00 = this->m00;
-			M01 = this->m01;
-			M02 = this->m02;
-			M10 = this->m10;
-			M11 = this->m11;
-			M12 = this->m12;
-			while (--numPts >= 0) {
-				double x = $nc(srcPts)->get(srcOff++);
-				double y = srcPts->get(srcOff++);
-				$nc(dstPts)->set(dstOff++, (float)(M00 * x + M01 * y + M02));
-				dstPts->set(dstOff++, (float)(M10 * x + M11 * y + M12));
-			}
-			return;
+		M00 = this->m00;
+		M01 = this->m01;
+		M02 = this->m02;
+		M10 = this->m10;
+		M11 = this->m11;
+		M12 = this->m12;
+		while (--numPts >= 0) {
+			double x = $nc(srcPts)->get(srcOff++);
+			double y = srcPts->get(srcOff++);
+			$nc(dstPts)->set(dstOff++, (float)(M00 * x + M01 * y + M02));
+			dstPts->set(dstOff++, (float)(M10 * x + M11 * y + M12));
 		}
+		return;
 case$167:
 		// (APPLY_SHEAR | APPLY_SCALE)
-		{
-			M00 = this->m00;
-			M01 = this->m01;
-			M10 = this->m10;
-			M11 = this->m11;
-			while (--numPts >= 0) {
-				double x = $nc(srcPts)->get(srcOff++);
-				double y = srcPts->get(srcOff++);
-				$nc(dstPts)->set(dstOff++, (float)(M00 * x + M01 * y));
-				dstPts->set(dstOff++, (float)(M10 * x + M11 * y));
-			}
-			return;
+		M00 = this->m00;
+		M01 = this->m01;
+		M10 = this->m10;
+		M11 = this->m11;
+		while (--numPts >= 0) {
+			double x = $nc(srcPts)->get(srcOff++);
+			double y = srcPts->get(srcOff++);
+			$nc(dstPts)->set(dstOff++, (float)(M00 * x + M01 * y));
+			dstPts->set(dstOff++, (float)(M10 * x + M11 * y));
 		}
+		return;
 case$168:
 		// (APPLY_SHEAR | APPLY_TRANSLATE)
-		{
-			M01 = this->m01;
-			M02 = this->m02;
-			M10 = this->m10;
-			M12 = this->m12;
-			while (--numPts >= 0) {
-				double x = $nc(srcPts)->get(srcOff++);
-				$nc(dstPts)->set(dstOff++, (float)(M01 * srcPts->get(srcOff++) + M02));
-				dstPts->set(dstOff++, (float)(M10 * x + M12));
-			}
-			return;
+		M01 = this->m01;
+		M02 = this->m02;
+		M10 = this->m10;
+		M12 = this->m12;
+		while (--numPts >= 0) {
+			double x = $nc(srcPts)->get(srcOff++);
+			$nc(dstPts)->set(dstOff++, (float)(M01 * srcPts->get(srcOff++) + M02));
+			dstPts->set(dstOff++, (float)(M10 * x + M12));
 		}
+		return;
 case$169:
 		// (APPLY_SHEAR)
-		{
-			M01 = this->m01;
-			M10 = this->m10;
-			while (--numPts >= 0) {
-				double x = $nc(srcPts)->get(srcOff++);
-				$nc(dstPts)->set(dstOff++, (float)(M01 * srcPts->get(srcOff++)));
-				dstPts->set(dstOff++, (float)(M10 * x));
-			}
-			return;
+		M01 = this->m01;
+		M10 = this->m10;
+		while (--numPts >= 0) {
+			double x = $nc(srcPts)->get(srcOff++);
+			$nc(dstPts)->set(dstOff++, (float)(M01 * srcPts->get(srcOff++)));
+			dstPts->set(dstOff++, (float)(M10 * x));
 		}
+		return;
 case$170:
 		// (APPLY_SCALE | APPLY_TRANSLATE)
-		{
-			M00 = this->m00;
-			M02 = this->m02;
-			M11 = this->m11;
-			M12 = this->m12;
-			while (--numPts >= 0) {
-				$nc(dstPts)->set(dstOff++, (float)(M00 * $nc(srcPts)->get(srcOff++) + M02));
-				dstPts->set(dstOff++, (float)(M11 * srcPts->get(srcOff++) + M12));
-			}
-			return;
+		M00 = this->m00;
+		M02 = this->m02;
+		M11 = this->m11;
+		M12 = this->m12;
+		while (--numPts >= 0) {
+			$nc(dstPts)->set(dstOff++, (float)(M00 * $nc(srcPts)->get(srcOff++) + M02));
+			dstPts->set(dstOff++, (float)(M11 * srcPts->get(srcOff++) + M12));
 		}
+		return;
 case$171:
 		// (APPLY_SCALE)
-		{
-			M00 = this->m00;
-			M11 = this->m11;
-			while (--numPts >= 0) {
-				$nc(dstPts)->set(dstOff++, (float)(M00 * $nc(srcPts)->get(srcOff++)));
-				dstPts->set(dstOff++, (float)(M11 * srcPts->get(srcOff++)));
-			}
-			return;
+		M00 = this->m00;
+		M11 = this->m11;
+		while (--numPts >= 0) {
+			$nc(dstPts)->set(dstOff++, (float)(M00 * $nc(srcPts)->get(srcOff++)));
+			dstPts->set(dstOff++, (float)(M11 * srcPts->get(srcOff++)));
 		}
+		return;
 case$172:
 		// (APPLY_TRANSLATE)
-		{
-			M02 = this->m02;
-			M12 = this->m12;
-			while (--numPts >= 0) {
-				$nc(dstPts)->set(dstOff++, (float)($nc(srcPts)->get(srcOff++) + M02));
-				dstPts->set(dstOff++, (float)(srcPts->get(srcOff++) + M12));
-			}
-			return;
+		M02 = this->m02;
+		M12 = this->m12;
+		while (--numPts >= 0) {
+			$nc(dstPts)->set(dstOff++, (float)($nc(srcPts)->get(srcOff++) + M02));
+			dstPts->set(dstOff++, (float)(srcPts->get(srcOff++) + M12));
 		}
+		return;
 case$173:
 		// (APPLY_IDENTITY)
-		{
-			if (srcPts != dstPts || srcOff != dstOff) {
-				$System::arraycopy(srcPts, srcOff, dstPts, dstOff, numPts * 2);
-			}
-			return;
+		if (srcPts != dstPts || srcOff != dstOff) {
+			$System::arraycopy(srcPts, srcOff, dstPts, dstOff, numPts * 2);
 		}
+		return;
 	} while (false);
 }
 
@@ -2908,111 +2374,93 @@ void AffineTransform::transform($doubles* srcPts, int32_t srcOff, $doubles* dstP
 		goto case$183;
 case$183:
 		// default
-		{
-			stateError();
-			return;
-		}
+		stateError();
+		return;
 case$175:
 		// (APPLY_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-			M00 = this->m00;
-			M01 = this->m01;
-			M02 = this->m02;
-			M10 = this->m10;
-			M11 = this->m11;
-			M12 = this->m12;
-			while (--numPts >= 0) {
-				double x = $nc(srcPts)->get(srcOff++);
-				double y = srcPts->get(srcOff++);
-				$nc(dstPts)->set(dstOff++, M00 * x + M01 * y + M02);
-				dstPts->set(dstOff++, M10 * x + M11 * y + M12);
-			}
-			return;
+		M00 = this->m00;
+		M01 = this->m01;
+		M02 = this->m02;
+		M10 = this->m10;
+		M11 = this->m11;
+		M12 = this->m12;
+		while (--numPts >= 0) {
+			double x = $nc(srcPts)->get(srcOff++);
+			double y = srcPts->get(srcOff++);
+			$nc(dstPts)->set(dstOff++, M00 * x + M01 * y + M02);
+			dstPts->set(dstOff++, M10 * x + M11 * y + M12);
 		}
+		return;
 case$176:
 		// (APPLY_SHEAR | APPLY_SCALE)
-		{
-			M00 = this->m00;
-			M01 = this->m01;
-			M10 = this->m10;
-			M11 = this->m11;
-			while (--numPts >= 0) {
-				double x = $nc(srcPts)->get(srcOff++);
-				double y = srcPts->get(srcOff++);
-				$nc(dstPts)->set(dstOff++, M00 * x + M01 * y);
-				dstPts->set(dstOff++, M10 * x + M11 * y);
-			}
-			return;
+		M00 = this->m00;
+		M01 = this->m01;
+		M10 = this->m10;
+		M11 = this->m11;
+		while (--numPts >= 0) {
+			double x = $nc(srcPts)->get(srcOff++);
+			double y = srcPts->get(srcOff++);
+			$nc(dstPts)->set(dstOff++, M00 * x + M01 * y);
+			dstPts->set(dstOff++, M10 * x + M11 * y);
 		}
+		return;
 case$177:
 		// (APPLY_SHEAR | APPLY_TRANSLATE)
-		{
-			M01 = this->m01;
-			M02 = this->m02;
-			M10 = this->m10;
-			M12 = this->m12;
-			while (--numPts >= 0) {
-				double x = $nc(srcPts)->get(srcOff++);
-				$nc(dstPts)->set(dstOff++, M01 * srcPts->get(srcOff++) + M02);
-				dstPts->set(dstOff++, M10 * x + M12);
-			}
-			return;
+		M01 = this->m01;
+		M02 = this->m02;
+		M10 = this->m10;
+		M12 = this->m12;
+		while (--numPts >= 0) {
+			double x = $nc(srcPts)->get(srcOff++);
+			$nc(dstPts)->set(dstOff++, M01 * srcPts->get(srcOff++) + M02);
+			dstPts->set(dstOff++, M10 * x + M12);
 		}
+		return;
 case$178:
 		// (APPLY_SHEAR)
-		{
-			M01 = this->m01;
-			M10 = this->m10;
-			while (--numPts >= 0) {
-				double x = $nc(srcPts)->get(srcOff++);
-				$nc(dstPts)->set(dstOff++, M01 * srcPts->get(srcOff++));
-				dstPts->set(dstOff++, M10 * x);
-			}
-			return;
+		M01 = this->m01;
+		M10 = this->m10;
+		while (--numPts >= 0) {
+			double x = $nc(srcPts)->get(srcOff++);
+			$nc(dstPts)->set(dstOff++, M01 * srcPts->get(srcOff++));
+			dstPts->set(dstOff++, M10 * x);
 		}
+		return;
 case$179:
 		// (APPLY_SCALE | APPLY_TRANSLATE)
-		{
-			M00 = this->m00;
-			M02 = this->m02;
-			M11 = this->m11;
-			M12 = this->m12;
-			while (--numPts >= 0) {
-				$nc(dstPts)->set(dstOff++, M00 * $nc(srcPts)->get(srcOff++) + M02);
-				dstPts->set(dstOff++, M11 * srcPts->get(srcOff++) + M12);
-			}
-			return;
+		M00 = this->m00;
+		M02 = this->m02;
+		M11 = this->m11;
+		M12 = this->m12;
+		while (--numPts >= 0) {
+			$nc(dstPts)->set(dstOff++, M00 * $nc(srcPts)->get(srcOff++) + M02);
+			dstPts->set(dstOff++, M11 * srcPts->get(srcOff++) + M12);
 		}
+		return;
 case$180:
 		// (APPLY_SCALE)
-		{
-			M00 = this->m00;
-			M11 = this->m11;
-			while (--numPts >= 0) {
-				$nc(dstPts)->set(dstOff++, M00 * $nc(srcPts)->get(srcOff++));
-				dstPts->set(dstOff++, M11 * srcPts->get(srcOff++));
-			}
-			return;
+		M00 = this->m00;
+		M11 = this->m11;
+		while (--numPts >= 0) {
+			$nc(dstPts)->set(dstOff++, M00 * $nc(srcPts)->get(srcOff++));
+			dstPts->set(dstOff++, M11 * srcPts->get(srcOff++));
 		}
+		return;
 case$181:
 		// (APPLY_TRANSLATE)
-		{
-			M02 = this->m02;
-			M12 = this->m12;
-			while (--numPts >= 0) {
-				$nc(dstPts)->set(dstOff++, $nc(srcPts)->get(srcOff++) + M02);
-				dstPts->set(dstOff++, srcPts->get(srcOff++) + M12);
-			}
-			return;
+		M02 = this->m02;
+		M12 = this->m12;
+		while (--numPts >= 0) {
+			$nc(dstPts)->set(dstOff++, $nc(srcPts)->get(srcOff++) + M02);
+			dstPts->set(dstOff++, srcPts->get(srcOff++) + M12);
 		}
+		return;
 case$182:
 		// (APPLY_IDENTITY)
-		{
-			if (srcPts != dstPts || srcOff != dstOff) {
-				$System::arraycopy(srcPts, srcOff, dstPts, dstOff, numPts * 2);
-			}
-			return;
+		if (srcPts != dstPts || srcOff != dstOff) {
+			$System::arraycopy(srcPts, srcOff, dstPts, dstOff, numPts * 2);
 		}
+		return;
 	} while (false);
 }
 
@@ -3051,112 +2499,94 @@ void AffineTransform::transform($floats* srcPts, int32_t srcOff, $doubles* dstPt
 		goto case$192;
 case$192:
 		// default
-		{
-			stateError();
-			return;
-		}
+		stateError();
+		return;
 case$184:
 		// (APPLY_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-			M00 = this->m00;
-			M01 = this->m01;
-			M02 = this->m02;
-			M10 = this->m10;
-			M11 = this->m11;
-			M12 = this->m12;
-			while (--numPts >= 0) {
-				double x = $nc(srcPts)->get(srcOff++);
-				double y = srcPts->get(srcOff++);
-				$nc(dstPts)->set(dstOff++, M00 * x + M01 * y + M02);
-				dstPts->set(dstOff++, M10 * x + M11 * y + M12);
-			}
-			return;
+		M00 = this->m00;
+		M01 = this->m01;
+		M02 = this->m02;
+		M10 = this->m10;
+		M11 = this->m11;
+		M12 = this->m12;
+		while (--numPts >= 0) {
+			double x = $nc(srcPts)->get(srcOff++);
+			double y = srcPts->get(srcOff++);
+			$nc(dstPts)->set(dstOff++, M00 * x + M01 * y + M02);
+			dstPts->set(dstOff++, M10 * x + M11 * y + M12);
 		}
+		return;
 case$185:
 		// (APPLY_SHEAR | APPLY_SCALE)
-		{
-			M00 = this->m00;
-			M01 = this->m01;
-			M10 = this->m10;
-			M11 = this->m11;
-			while (--numPts >= 0) {
-				double x = $nc(srcPts)->get(srcOff++);
-				double y = srcPts->get(srcOff++);
-				$nc(dstPts)->set(dstOff++, M00 * x + M01 * y);
-				dstPts->set(dstOff++, M10 * x + M11 * y);
-			}
-			return;
+		M00 = this->m00;
+		M01 = this->m01;
+		M10 = this->m10;
+		M11 = this->m11;
+		while (--numPts >= 0) {
+			double x = $nc(srcPts)->get(srcOff++);
+			double y = srcPts->get(srcOff++);
+			$nc(dstPts)->set(dstOff++, M00 * x + M01 * y);
+			dstPts->set(dstOff++, M10 * x + M11 * y);
 		}
+		return;
 case$186:
 		// (APPLY_SHEAR | APPLY_TRANSLATE)
-		{
-			M01 = this->m01;
-			M02 = this->m02;
-			M10 = this->m10;
-			M12 = this->m12;
-			while (--numPts >= 0) {
-				double x = $nc(srcPts)->get(srcOff++);
-				$nc(dstPts)->set(dstOff++, M01 * srcPts->get(srcOff++) + M02);
-				dstPts->set(dstOff++, M10 * x + M12);
-			}
-			return;
+		M01 = this->m01;
+		M02 = this->m02;
+		M10 = this->m10;
+		M12 = this->m12;
+		while (--numPts >= 0) {
+			double x = $nc(srcPts)->get(srcOff++);
+			$nc(dstPts)->set(dstOff++, M01 * srcPts->get(srcOff++) + M02);
+			dstPts->set(dstOff++, M10 * x + M12);
 		}
+		return;
 case$187:
 		// (APPLY_SHEAR)
-		{
-			M01 = this->m01;
-			M10 = this->m10;
-			while (--numPts >= 0) {
-				double x = $nc(srcPts)->get(srcOff++);
-				$nc(dstPts)->set(dstOff++, M01 * srcPts->get(srcOff++));
-				dstPts->set(dstOff++, M10 * x);
-			}
-			return;
+		M01 = this->m01;
+		M10 = this->m10;
+		while (--numPts >= 0) {
+			double x = $nc(srcPts)->get(srcOff++);
+			$nc(dstPts)->set(dstOff++, M01 * srcPts->get(srcOff++));
+			dstPts->set(dstOff++, M10 * x);
 		}
+		return;
 case$188:
 		// (APPLY_SCALE | APPLY_TRANSLATE)
-		{
-			M00 = this->m00;
-			M02 = this->m02;
-			M11 = this->m11;
-			M12 = this->m12;
-			while (--numPts >= 0) {
-				$nc(dstPts)->set(dstOff++, M00 * $nc(srcPts)->get(srcOff++) + M02);
-				dstPts->set(dstOff++, M11 * srcPts->get(srcOff++) + M12);
-			}
-			return;
+		M00 = this->m00;
+		M02 = this->m02;
+		M11 = this->m11;
+		M12 = this->m12;
+		while (--numPts >= 0) {
+			$nc(dstPts)->set(dstOff++, M00 * $nc(srcPts)->get(srcOff++) + M02);
+			dstPts->set(dstOff++, M11 * srcPts->get(srcOff++) + M12);
 		}
+		return;
 case$189:
 		// (APPLY_SCALE)
-		{
-			M00 = this->m00;
-			M11 = this->m11;
-			while (--numPts >= 0) {
-				$nc(dstPts)->set(dstOff++, M00 * $nc(srcPts)->get(srcOff++));
-				dstPts->set(dstOff++, M11 * srcPts->get(srcOff++));
-			}
-			return;
+		M00 = this->m00;
+		M11 = this->m11;
+		while (--numPts >= 0) {
+			$nc(dstPts)->set(dstOff++, M00 * $nc(srcPts)->get(srcOff++));
+			dstPts->set(dstOff++, M11 * srcPts->get(srcOff++));
 		}
+		return;
 case$190:
 		// (APPLY_TRANSLATE)
-		{
-			M02 = this->m02;
-			M12 = this->m12;
-			while (--numPts >= 0) {
-				$nc(dstPts)->set(dstOff++, $nc(srcPts)->get(srcOff++) + M02);
-				dstPts->set(dstOff++, srcPts->get(srcOff++) + M12);
-			}
-			return;
+		M02 = this->m02;
+		M12 = this->m12;
+		while (--numPts >= 0) {
+			$nc(dstPts)->set(dstOff++, $nc(srcPts)->get(srcOff++) + M02);
+			dstPts->set(dstOff++, srcPts->get(srcOff++) + M12);
 		}
+		return;
 case$191:
 		// (APPLY_IDENTITY)
-		{
-			while (--numPts >= 0) {
-				$nc(dstPts)->set(dstOff++, $nc(srcPts)->get(srcOff++));
-				dstPts->set(dstOff++, srcPts->get(srcOff++));
-			}
-			return;
+		while (--numPts >= 0) {
+			$nc(dstPts)->set(dstOff++, $nc(srcPts)->get(srcOff++));
+			dstPts->set(dstOff++, srcPts->get(srcOff++));
 		}
+		return;
 	} while (false);
 }
 
@@ -3195,117 +2625,99 @@ void AffineTransform::transform($doubles* srcPts, int32_t srcOff, $floats* dstPt
 		goto case$201;
 case$201:
 		// default
-		{
-			stateError();
-			return;
-		}
+		stateError();
+		return;
 case$193:
 		// (APPLY_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-			M00 = this->m00;
-			M01 = this->m01;
-			M02 = this->m02;
-			M10 = this->m10;
-			M11 = this->m11;
-			M12 = this->m12;
-			while (--numPts >= 0) {
-				double x = $nc(srcPts)->get(srcOff++);
-				double y = srcPts->get(srcOff++);
-				$nc(dstPts)->set(dstOff++, (float)(M00 * x + M01 * y + M02));
-				dstPts->set(dstOff++, (float)(M10 * x + M11 * y + M12));
-			}
-			return;
+		M00 = this->m00;
+		M01 = this->m01;
+		M02 = this->m02;
+		M10 = this->m10;
+		M11 = this->m11;
+		M12 = this->m12;
+		while (--numPts >= 0) {
+			double x = $nc(srcPts)->get(srcOff++);
+			double y = srcPts->get(srcOff++);
+			$nc(dstPts)->set(dstOff++, (float)(M00 * x + M01 * y + M02));
+			dstPts->set(dstOff++, (float)(M10 * x + M11 * y + M12));
 		}
+		return;
 case$194:
 		// (APPLY_SHEAR | APPLY_SCALE)
-		{
-			M00 = this->m00;
-			M01 = this->m01;
-			M10 = this->m10;
-			M11 = this->m11;
-			while (--numPts >= 0) {
-				double x = $nc(srcPts)->get(srcOff++);
-				double y = srcPts->get(srcOff++);
-				$nc(dstPts)->set(dstOff++, (float)(M00 * x + M01 * y));
-				dstPts->set(dstOff++, (float)(M10 * x + M11 * y));
-			}
-			return;
+		M00 = this->m00;
+		M01 = this->m01;
+		M10 = this->m10;
+		M11 = this->m11;
+		while (--numPts >= 0) {
+			double x = $nc(srcPts)->get(srcOff++);
+			double y = srcPts->get(srcOff++);
+			$nc(dstPts)->set(dstOff++, (float)(M00 * x + M01 * y));
+			dstPts->set(dstOff++, (float)(M10 * x + M11 * y));
 		}
+		return;
 case$195:
 		// (APPLY_SHEAR | APPLY_TRANSLATE)
-		{
-			M01 = this->m01;
-			M02 = this->m02;
-			M10 = this->m10;
-			M12 = this->m12;
-			while (--numPts >= 0) {
-				double x = $nc(srcPts)->get(srcOff++);
-				$nc(dstPts)->set(dstOff++, (float)(M01 * srcPts->get(srcOff++) + M02));
-				dstPts->set(dstOff++, (float)(M10 * x + M12));
-			}
-			return;
+		M01 = this->m01;
+		M02 = this->m02;
+		M10 = this->m10;
+		M12 = this->m12;
+		while (--numPts >= 0) {
+			double x = $nc(srcPts)->get(srcOff++);
+			$nc(dstPts)->set(dstOff++, (float)(M01 * srcPts->get(srcOff++) + M02));
+			dstPts->set(dstOff++, (float)(M10 * x + M12));
 		}
+		return;
 case$196:
 		// (APPLY_SHEAR)
-		{
-			M01 = this->m01;
-			M10 = this->m10;
-			while (--numPts >= 0) {
-				double x = $nc(srcPts)->get(srcOff++);
-				$nc(dstPts)->set(dstOff++, (float)(M01 * srcPts->get(srcOff++)));
-				dstPts->set(dstOff++, (float)(M10 * x));
-			}
-			return;
+		M01 = this->m01;
+		M10 = this->m10;
+		while (--numPts >= 0) {
+			double x = $nc(srcPts)->get(srcOff++);
+			$nc(dstPts)->set(dstOff++, (float)(M01 * srcPts->get(srcOff++)));
+			dstPts->set(dstOff++, (float)(M10 * x));
 		}
+		return;
 case$197:
 		// (APPLY_SCALE | APPLY_TRANSLATE)
-		{
-			M00 = this->m00;
-			M02 = this->m02;
-			M11 = this->m11;
-			M12 = this->m12;
-			while (--numPts >= 0) {
-				$nc(dstPts)->set(dstOff++, (float)(M00 * $nc(srcPts)->get(srcOff++) + M02));
-				dstPts->set(dstOff++, (float)(M11 * srcPts->get(srcOff++) + M12));
-			}
-			return;
+		M00 = this->m00;
+		M02 = this->m02;
+		M11 = this->m11;
+		M12 = this->m12;
+		while (--numPts >= 0) {
+			$nc(dstPts)->set(dstOff++, (float)(M00 * $nc(srcPts)->get(srcOff++) + M02));
+			dstPts->set(dstOff++, (float)(M11 * srcPts->get(srcOff++) + M12));
 		}
+		return;
 case$198:
 		// (APPLY_SCALE)
-		{
-			M00 = this->m00;
-			M11 = this->m11;
-			while (--numPts >= 0) {
-				$nc(dstPts)->set(dstOff++, (float)(M00 * $nc(srcPts)->get(srcOff++)));
-				dstPts->set(dstOff++, (float)(M11 * srcPts->get(srcOff++)));
-			}
-			return;
+		M00 = this->m00;
+		M11 = this->m11;
+		while (--numPts >= 0) {
+			$nc(dstPts)->set(dstOff++, (float)(M00 * $nc(srcPts)->get(srcOff++)));
+			dstPts->set(dstOff++, (float)(M11 * srcPts->get(srcOff++)));
 		}
+		return;
 case$199:
 		// (APPLY_TRANSLATE)
-		{
-			M02 = this->m02;
-			M12 = this->m12;
-			while (--numPts >= 0) {
-				$nc(dstPts)->set(dstOff++, (float)($nc(srcPts)->get(srcOff++) + M02));
-				dstPts->set(dstOff++, (float)(srcPts->get(srcOff++) + M12));
-			}
-			return;
+		M02 = this->m02;
+		M12 = this->m12;
+		while (--numPts >= 0) {
+			$nc(dstPts)->set(dstOff++, (float)($nc(srcPts)->get(srcOff++) + M02));
+			dstPts->set(dstOff++, (float)(srcPts->get(srcOff++) + M12));
 		}
+		return;
 case$200:
 		// (APPLY_IDENTITY)
-		{
-			while (--numPts >= 0) {
-				$nc(dstPts)->set(dstOff++, (float)($nc(srcPts)->get(srcOff++)));
-				dstPts->set(dstOff++, (float)(srcPts->get(srcOff++)));
-			}
-			return;
+		while (--numPts >= 0) {
+			$nc(dstPts)->set(dstOff++, (float)($nc(srcPts)->get(srcOff++)));
+			dstPts->set(dstOff++, (float)(srcPts->get(srcOff++)));
 		}
+		return;
 	} while (false);
 }
 
 $Point2D* AffineTransform::inverseTransform($Point2D* ptSrc, $Point2D* ptDst$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Point2D, ptDst, ptDst$renamed);
 	if (ptDst == nullptr) {
 		if ($instanceOf($Point2D$Double, ptSrc)) {
@@ -3346,74 +2758,55 @@ $Point2D* AffineTransform::inverseTransform($Point2D* ptSrc, $Point2D* ptDst$ren
 			goto case$210;
 case$210:
 			// default
-			{
-				stateError();
-			}
+			stateError();
 case$202:
 			// (APPLY_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-			{
-				x -= this->m02;
-				y -= this->m12;
-			}
+			x -= this->m02;
+			y -= this->m12;
 case$203:
 			// (APPLY_SHEAR | APPLY_SCALE)
-			{
-				det = this->m00 * this->m11 - this->m01 * this->m10;
-				$init($Double);
-				if ($Math::abs(det) <= $Double::MIN_VALUE) {
-					$throwNew($NoninvertibleTransformException, $$str({"Determinant is "_s, $$str(det)}));
-				}
-				$nc(ptDst)->setLocation((x * this->m11 - y * this->m01) / det, (y * this->m00 - x * this->m10) / det);
-				return ptDst;
+			det = this->m00 * this->m11 - this->m01 * this->m10;
+			if ($Math::abs(det) <= $Double::MIN_VALUE) {
+				$throwNew($NoninvertibleTransformException, $$str({"Determinant is "_s, $$str(det)}));
 			}
+			$nc(ptDst)->setLocation((x * this->m11 - y * this->m01) / det, (y * this->m00 - x * this->m10) / det);
+			return ptDst;
 case$204:
 			// (APPLY_SHEAR | APPLY_TRANSLATE)
-			{
-				x -= this->m02;
-				y -= this->m12;
-			}
+			x -= this->m02;
+			y -= this->m12;
 case$205:
 			// (APPLY_SHEAR)
-			{
-				if (this->m01 == 0.0 || this->m10 == 0.0) {
-					$throwNew($NoninvertibleTransformException, "Determinant is 0"_s);
-				}
-				$nc(ptDst)->setLocation(y / this->m10, x / this->m01);
-				return ptDst;
+			if (this->m01 == 0.0 || this->m10 == 0.0) {
+				$throwNew($NoninvertibleTransformException, "Determinant is 0"_s);
 			}
+			$nc(ptDst)->setLocation(y / this->m10, x / this->m01);
+			return ptDst;
 case$206:
 			// (APPLY_SCALE | APPLY_TRANSLATE)
-			{
-				x -= this->m02;
-				y -= this->m12;
-			}
+			x -= this->m02;
+			y -= this->m12;
 case$207:
 			// (APPLY_SCALE)
-			{
-				if (this->m00 == 0.0 || this->m11 == 0.0) {
-					$throwNew($NoninvertibleTransformException, "Determinant is 0"_s);
-				}
-				$nc(ptDst)->setLocation(x / this->m00, y / this->m11);
-				return ptDst;
+			if (this->m00 == 0.0 || this->m11 == 0.0) {
+				$throwNew($NoninvertibleTransformException, "Determinant is 0"_s);
 			}
+			$nc(ptDst)->setLocation(x / this->m00, y / this->m11);
+			return ptDst;
 case$208:
 			// (APPLY_TRANSLATE)
-			{
-				$nc(ptDst)->setLocation(x - this->m02, y - this->m12);
-				return ptDst;
-			}
+			$nc(ptDst)->setLocation(x - this->m02, y - this->m12);
+			return ptDst;
 case$209:
 			// (APPLY_IDENTITY)
-			{
-				$nc(ptDst)->setLocation(x, y);
-				return ptDst;
-			}
+			$nc(ptDst)->setLocation(x, y);
+			return ptDst;
 		} while (false);
 	}
 }
 
 void AffineTransform::inverseTransform($doubles* srcPts, int32_t srcOff, $doubles* dstPts, int32_t dstOff, int32_t numPts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	double M00 = 0.0;
 	double M01 = 0.0;
 	double M02 = 0.0;
@@ -3453,133 +2846,113 @@ void AffineTransform::inverseTransform($doubles* srcPts, int32_t srcOff, $double
 		goto case$219;
 case$219:
 		// default
-		{
-			stateError();
-			return;
-		}
+		stateError();
+		return;
 case$211:
 		// (APPLY_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-			M00 = this->m00;
-			M01 = this->m01;
-			M02 = this->m02;
-			M10 = this->m10;
-			M11 = this->m11;
-			M12 = this->m12;
-			det = M00 * M11 - M01 * M10;
-			$init($Double);
-			if ($Math::abs(det) <= $Double::MIN_VALUE) {
-				$throwNew($NoninvertibleTransformException, $$str({"Determinant is "_s, $$str(det)}));
-			}
-			while (--numPts >= 0) {
-				double x = $nc(srcPts)->get(srcOff++) - M02;
-				double y = srcPts->get(srcOff++) - M12;
-				$nc(dstPts)->set(dstOff++, (x * M11 - y * M01) / det);
-				dstPts->set(dstOff++, (y * M00 - x * M10) / det);
-			}
-			return;
+		M00 = this->m00;
+		M01 = this->m01;
+		M02 = this->m02;
+		M10 = this->m10;
+		M11 = this->m11;
+		M12 = this->m12;
+		det = M00 * M11 - M01 * M10;
+		if ($Math::abs(det) <= $Double::MIN_VALUE) {
+			$throwNew($NoninvertibleTransformException, $$str({"Determinant is "_s, $$str(det)}));
 		}
+		while (--numPts >= 0) {
+			double x = $nc(srcPts)->get(srcOff++) - M02;
+			double y = srcPts->get(srcOff++) - M12;
+			$nc(dstPts)->set(dstOff++, (x * M11 - y * M01) / det);
+			dstPts->set(dstOff++, (y * M00 - x * M10) / det);
+		}
+		return;
 case$212:
 		// (APPLY_SHEAR | APPLY_SCALE)
-		{
-			M00 = this->m00;
-			M01 = this->m01;
-			M10 = this->m10;
-			M11 = this->m11;
-			det = M00 * M11 - M01 * M10;
-			$init($Double);
-			if ($Math::abs(det) <= $Double::MIN_VALUE) {
-				$throwNew($NoninvertibleTransformException, $$str({"Determinant is "_s, $$str(det)}));
-			}
-			while (--numPts >= 0) {
-				double x = $nc(srcPts)->get(srcOff++);
-				double y = srcPts->get(srcOff++);
-				$nc(dstPts)->set(dstOff++, (x * M11 - y * M01) / det);
-				dstPts->set(dstOff++, (y * M00 - x * M10) / det);
-			}
-			return;
+		M00 = this->m00;
+		M01 = this->m01;
+		M10 = this->m10;
+		M11 = this->m11;
+		det = M00 * M11 - M01 * M10;
+		if ($Math::abs(det) <= $Double::MIN_VALUE) {
+			$throwNew($NoninvertibleTransformException, $$str({"Determinant is "_s, $$str(det)}));
 		}
+		while (--numPts >= 0) {
+			double x = $nc(srcPts)->get(srcOff++);
+			double y = srcPts->get(srcOff++);
+			$nc(dstPts)->set(dstOff++, (x * M11 - y * M01) / det);
+			dstPts->set(dstOff++, (y * M00 - x * M10) / det);
+		}
+		return;
 case$213:
 		// (APPLY_SHEAR | APPLY_TRANSLATE)
-		{
-			M01 = this->m01;
-			M02 = this->m02;
-			M10 = this->m10;
-			M12 = this->m12;
-			if (M01 == 0.0 || M10 == 0.0) {
-				$throwNew($NoninvertibleTransformException, "Determinant is 0"_s);
-			}
-			while (--numPts >= 0) {
-				double x = $nc(srcPts)->get(srcOff++) - M02;
-				$nc(dstPts)->set(dstOff++, (srcPts->get(srcOff++) - M12) / M10);
-				dstPts->set(dstOff++, x / M01);
-			}
-			return;
+		M01 = this->m01;
+		M02 = this->m02;
+		M10 = this->m10;
+		M12 = this->m12;
+		if (M01 == 0.0 || M10 == 0.0) {
+			$throwNew($NoninvertibleTransformException, "Determinant is 0"_s);
 		}
+		while (--numPts >= 0) {
+			double x = $nc(srcPts)->get(srcOff++) - M02;
+			$nc(dstPts)->set(dstOff++, (srcPts->get(srcOff++) - M12) / M10);
+			dstPts->set(dstOff++, x / M01);
+		}
+		return;
 case$214:
 		// (APPLY_SHEAR)
-		{
-			M01 = this->m01;
-			M10 = this->m10;
-			if (M01 == 0.0 || M10 == 0.0) {
-				$throwNew($NoninvertibleTransformException, "Determinant is 0"_s);
-			}
-			while (--numPts >= 0) {
-				double x = $nc(srcPts)->get(srcOff++);
-				$nc(dstPts)->set(dstOff++, srcPts->get(srcOff++) / M10);
-				dstPts->set(dstOff++, x / M01);
-			}
-			return;
+		M01 = this->m01;
+		M10 = this->m10;
+		if (M01 == 0.0 || M10 == 0.0) {
+			$throwNew($NoninvertibleTransformException, "Determinant is 0"_s);
 		}
+		while (--numPts >= 0) {
+			double x = $nc(srcPts)->get(srcOff++);
+			$nc(dstPts)->set(dstOff++, srcPts->get(srcOff++) / M10);
+			dstPts->set(dstOff++, x / M01);
+		}
+		return;
 case$215:
 		// (APPLY_SCALE | APPLY_TRANSLATE)
-		{
-			M00 = this->m00;
-			M02 = this->m02;
-			M11 = this->m11;
-			M12 = this->m12;
-			if (M00 == 0.0 || M11 == 0.0) {
-				$throwNew($NoninvertibleTransformException, "Determinant is 0"_s);
-			}
-			while (--numPts >= 0) {
-				$nc(dstPts)->set(dstOff++, ($nc(srcPts)->get(srcOff++) - M02) / M00);
-				dstPts->set(dstOff++, (srcPts->get(srcOff++) - M12) / M11);
-			}
-			return;
+		M00 = this->m00;
+		M02 = this->m02;
+		M11 = this->m11;
+		M12 = this->m12;
+		if (M00 == 0.0 || M11 == 0.0) {
+			$throwNew($NoninvertibleTransformException, "Determinant is 0"_s);
 		}
+		while (--numPts >= 0) {
+			$nc(dstPts)->set(dstOff++, ($nc(srcPts)->get(srcOff++) - M02) / M00);
+			dstPts->set(dstOff++, (srcPts->get(srcOff++) - M12) / M11);
+		}
+		return;
 case$216:
 		// (APPLY_SCALE)
-		{
-			M00 = this->m00;
-			M11 = this->m11;
-			if (M00 == 0.0 || M11 == 0.0) {
-				$throwNew($NoninvertibleTransformException, "Determinant is 0"_s);
-			}
-			while (--numPts >= 0) {
-				$nc(dstPts)->set(dstOff++, $nc(srcPts)->get(srcOff++) / M00);
-				dstPts->set(dstOff++, srcPts->get(srcOff++) / M11);
-			}
-			return;
+		M00 = this->m00;
+		M11 = this->m11;
+		if (M00 == 0.0 || M11 == 0.0) {
+			$throwNew($NoninvertibleTransformException, "Determinant is 0"_s);
 		}
+		while (--numPts >= 0) {
+			$nc(dstPts)->set(dstOff++, $nc(srcPts)->get(srcOff++) / M00);
+			dstPts->set(dstOff++, srcPts->get(srcOff++) / M11);
+		}
+		return;
 case$217:
 		// (APPLY_TRANSLATE)
-		{
-			M02 = this->m02;
-			M12 = this->m12;
-			while (--numPts >= 0) {
-				$nc(dstPts)->set(dstOff++, $nc(srcPts)->get(srcOff++) - M02);
-				dstPts->set(dstOff++, srcPts->get(srcOff++) - M12);
-			}
-			return;
+		M02 = this->m02;
+		M12 = this->m12;
+		while (--numPts >= 0) {
+			$nc(dstPts)->set(dstOff++, $nc(srcPts)->get(srcOff++) - M02);
+			dstPts->set(dstOff++, srcPts->get(srcOff++) - M12);
 		}
+		return;
 case$218:
 		// (APPLY_IDENTITY)
-		{
-			if (srcPts != dstPts || srcOff != dstOff) {
-				$System::arraycopy(srcPts, srcOff, dstPts, dstOff, numPts * 2);
-			}
-			return;
+		if (srcPts != dstPts || srcOff != dstOff) {
+			$System::arraycopy(srcPts, srcOff, dstPts, dstOff, numPts * 2);
 		}
+		return;
 	} while (false);
 }
 
@@ -3622,50 +2995,32 @@ $Point2D* AffineTransform::deltaTransform($Point2D* ptSrc, $Point2D* ptDst$renam
 		goto case$228;
 case$228:
 		// default
-		{
-			stateError();
-			return nullptr;
-		}
+		stateError();
+		return nullptr;
 case$220:
 		// (APPLY_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-		}
 case$221:
 		// (APPLY_SHEAR | APPLY_SCALE)
-		{
-			$nc(ptDst)->setLocation(x * this->m00 + y * this->m01, x * this->m10 + y * this->m11);
-			return ptDst;
-		}
+		$nc(ptDst)->setLocation(x * this->m00 + y * this->m01, x * this->m10 + y * this->m11);
+		return ptDst;
 case$222:
 		// (APPLY_SHEAR | APPLY_TRANSLATE)
-		{
-		}
 case$223:
 		// (APPLY_SHEAR)
-		{
-			$nc(ptDst)->setLocation(y * this->m01, x * this->m10);
-			return ptDst;
-		}
+		$nc(ptDst)->setLocation(y * this->m01, x * this->m10);
+		return ptDst;
 case$224:
 		// (APPLY_SCALE | APPLY_TRANSLATE)
-		{
-		}
 case$225:
 		// (APPLY_SCALE)
-		{
-			$nc(ptDst)->setLocation(x * this->m00, y * this->m11);
-			return ptDst;
-		}
+		$nc(ptDst)->setLocation(x * this->m00, y * this->m11);
+		return ptDst;
 case$226:
 		// (APPLY_TRANSLATE)
-		{
-		}
 case$227:
 		// (APPLY_IDENTITY)
-		{
-			$nc(ptDst)->setLocation(x, y);
-			return ptDst;
-		}
+		$nc(ptDst)->setLocation(x, y);
+		return ptDst;
 	} while (false);
 }
 
@@ -3706,72 +3061,54 @@ void AffineTransform::deltaTransform($doubles* srcPts, int32_t srcOff, $doubles*
 		goto case$237;
 case$237:
 		// default
-		{
-			stateError();
-			return;
-		}
+		stateError();
+		return;
 case$229:
 		// (APPLY_SHEAR | APPLY_SCALE | APPLY_TRANSLATE)
-		{
-		}
 case$230:
 		// (APPLY_SHEAR | APPLY_SCALE)
-		{
-			M00 = this->m00;
-			M01 = this->m01;
-			M10 = this->m10;
-			M11 = this->m11;
-			while (--numPts >= 0) {
-				double x = $nc(srcPts)->get(srcOff++);
-				double y = srcPts->get(srcOff++);
-				$nc(dstPts)->set(dstOff++, x * M00 + y * M01);
-				dstPts->set(dstOff++, x * M10 + y * M11);
-			}
-			return;
+		M00 = this->m00;
+		M01 = this->m01;
+		M10 = this->m10;
+		M11 = this->m11;
+		while (--numPts >= 0) {
+			double x = $nc(srcPts)->get(srcOff++);
+			double y = srcPts->get(srcOff++);
+			$nc(dstPts)->set(dstOff++, x * M00 + y * M01);
+			dstPts->set(dstOff++, x * M10 + y * M11);
 		}
+		return;
 case$231:
 		// (APPLY_SHEAR | APPLY_TRANSLATE)
-		{
-		}
 case$232:
 		// (APPLY_SHEAR)
-		{
-			M01 = this->m01;
-			M10 = this->m10;
-			while (--numPts >= 0) {
-				double x = $nc(srcPts)->get(srcOff++);
-				$nc(dstPts)->set(dstOff++, srcPts->get(srcOff++) * M01);
-				dstPts->set(dstOff++, x * M10);
-			}
-			return;
+		M01 = this->m01;
+		M10 = this->m10;
+		while (--numPts >= 0) {
+			double x = $nc(srcPts)->get(srcOff++);
+			$nc(dstPts)->set(dstOff++, srcPts->get(srcOff++) * M01);
+			dstPts->set(dstOff++, x * M10);
 		}
+		return;
 case$233:
 		// (APPLY_SCALE | APPLY_TRANSLATE)
-		{
-		}
 case$234:
 		// (APPLY_SCALE)
-		{
-			M00 = this->m00;
-			M11 = this->m11;
-			while (--numPts >= 0) {
-				$nc(dstPts)->set(dstOff++, $nc(srcPts)->get(srcOff++) * M00);
-				dstPts->set(dstOff++, srcPts->get(srcOff++) * M11);
-			}
-			return;
+		M00 = this->m00;
+		M11 = this->m11;
+		while (--numPts >= 0) {
+			$nc(dstPts)->set(dstOff++, $nc(srcPts)->get(srcOff++) * M00);
+			dstPts->set(dstOff++, srcPts->get(srcOff++) * M11);
 		}
+		return;
 case$235:
 		// (APPLY_TRANSLATE)
-		{
-		}
 case$236:
 		// (APPLY_IDENTITY)
-		{
-			if (srcPts != dstPts || srcOff != dstOff) {
-				$System::arraycopy(srcPts, srcOff, dstPts, dstOff, numPts * 2);
-			}
-			return;
+		if (srcPts != dstPts || srcOff != dstOff) {
+			$System::arraycopy(srcPts, srcOff, dstPts, dstOff, numPts * 2);
 		}
+		return;
 	} while (false);
 }
 
@@ -3788,18 +3125,21 @@ double AffineTransform::_matround(double matval) {
 }
 
 $String* AffineTransform::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$9, $$str({"AffineTransform[["_s, $$str(_matround(this->m00)), ", "_s}));
-	$var($String, var$8, $$concat(var$9, $$str(_matround(this->m01))));
-	$var($String, var$7, $$concat(var$8, ", "_s));
-	$var($String, var$6, $$concat(var$7, $$str(_matround(this->m02))));
-	$var($String, var$5, $$concat(var$6, "], ["_s));
-	$var($String, var$4, $$concat(var$5, $$str(_matround(this->m10))));
-	$var($String, var$3, $$concat(var$4, ", "_s));
-	$var($String, var$2, $$concat(var$3, $$str(_matround(this->m11))));
-	$var($String, var$1, $$concat(var$2, ", "_s));
-	$var($String, var$0, $$concat(var$1, $$str(_matround(this->m12))));
-	return ($concat(var$0, "]]"_s));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("AffineTransform[["_s);
+	var$0->append(_matround(this->m00));
+	var$0->append(", "_s);
+	var$0->append(_matround(this->m01));
+	var$0->append(", "_s);
+	var$0->append(_matround(this->m02));
+	var$0->append("], ["_s);
+	var$0->append(_matround(this->m10));
+	var$0->append(", "_s);
+	var$0->append(_matround(this->m11));
+	var$0->append(", "_s);
+	var$0->append(_matround(this->m12));
+	var$0->append("]]"_s);
+	return ($str(var$0));
 }
 
 bool AffineTransform::isIdentity() {
@@ -3808,9 +3148,9 @@ bool AffineTransform::isIdentity() {
 
 $Object* AffineTransform::clone() {
 	try {
-		return $of($Cloneable::clone());
+		return $Cloneable::clone();
 	} catch ($CloneNotSupportedException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
 }
@@ -3842,7 +3182,7 @@ void AffineTransform::readObject($ObjectInputStream* s) {
 	updateState();
 }
 
-void clinit$AffineTransform($Class* class$) {
+void AffineTransform::clinit$($Class* clazz) {
 	$assignStatic(AffineTransform::rot90conversion, $new($ints, {
 		AffineTransform::APPLY_SHEAR,
 		AffineTransform::APPLY_SHEAR | AffineTransform::APPLY_TRANSLATE,
@@ -3859,7 +3199,146 @@ AffineTransform::AffineTransform() {
 }
 
 $Class* AffineTransform::load$($String* name, bool initialize) {
-	$loadClass(AffineTransform, name, initialize, &_AffineTransform_ClassInfo_, clinit$AffineTransform, allocate$AffineTransform);
+	$FieldInfo fieldInfos$$[] = {
+		{"TYPE_UNKNOWN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AffineTransform, TYPE_UNKNOWN)},
+		{"TYPE_IDENTITY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AffineTransform, TYPE_IDENTITY)},
+		{"TYPE_TRANSLATION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AffineTransform, TYPE_TRANSLATION)},
+		{"TYPE_UNIFORM_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AffineTransform, TYPE_UNIFORM_SCALE)},
+		{"TYPE_GENERAL_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AffineTransform, TYPE_GENERAL_SCALE)},
+		{"TYPE_MASK_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AffineTransform, TYPE_MASK_SCALE)},
+		{"TYPE_FLIP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AffineTransform, TYPE_FLIP)},
+		{"TYPE_QUADRANT_ROTATION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AffineTransform, TYPE_QUADRANT_ROTATION)},
+		{"TYPE_GENERAL_ROTATION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AffineTransform, TYPE_GENERAL_ROTATION)},
+		{"TYPE_MASK_ROTATION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AffineTransform, TYPE_MASK_ROTATION)},
+		{"TYPE_GENERAL_TRANSFORM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AffineTransform, TYPE_GENERAL_TRANSFORM)},
+		{"APPLY_IDENTITY", "I", nullptr, $STATIC | $FINAL, $constField(AffineTransform, APPLY_IDENTITY)},
+		{"APPLY_TRANSLATE", "I", nullptr, $STATIC | $FINAL, $constField(AffineTransform, APPLY_TRANSLATE)},
+		{"APPLY_SCALE", "I", nullptr, $STATIC | $FINAL, $constField(AffineTransform, APPLY_SCALE)},
+		{"APPLY_SHEAR", "I", nullptr, $STATIC | $FINAL, $constField(AffineTransform, APPLY_SHEAR)},
+		{"HI_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AffineTransform, HI_SHIFT)},
+		{"HI_IDENTITY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AffineTransform, HI_IDENTITY)},
+		{"HI_TRANSLATE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AffineTransform, HI_TRANSLATE)},
+		{"HI_SCALE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AffineTransform, HI_SCALE)},
+		{"HI_SHEAR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AffineTransform, HI_SHEAR)},
+		{"m00", "D", nullptr, 0, $field(AffineTransform, m00)},
+		{"m10", "D", nullptr, 0, $field(AffineTransform, m10)},
+		{"m01", "D", nullptr, 0, $field(AffineTransform, m01)},
+		{"m11", "D", nullptr, 0, $field(AffineTransform, m11)},
+		{"m02", "D", nullptr, 0, $field(AffineTransform, m02)},
+		{"m12", "D", nullptr, 0, $field(AffineTransform, m12)},
+		{"state", "I", nullptr, $TRANSIENT, $field(AffineTransform, state)},
+		{"type", "I", nullptr, $PRIVATE | $TRANSIENT, $field(AffineTransform, type)},
+		{"rot90conversion", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AffineTransform, rot90conversion)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AffineTransform, serialVersionUID)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "scaleX"},
+		{'s', "shearY"},
+		{'s', "shearX"},
+		{'s', "scaleY"},
+		{'s', "translateX"},
+		{'s', "translateY"},
+		{'-'}
+	};
+	$NamedAttribute init$methodAnnotations$$$3$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$3[] = {
+		{"Ljava/beans/ConstructorProperties;", init$methodAnnotations$$$3$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(DDDDDDI)V", nullptr, $PRIVATE, $method(AffineTransform, init$, void, double, double, double, double, double, double, int32_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AffineTransform, init$, void)},
+		{"<init>", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $method(AffineTransform, init$, void, AffineTransform*)},
+		{"<init>", "(FFFFFF)V", nullptr, $PUBLIC, $method(AffineTransform, init$, void, float, float, float, float, float, float), nullptr, nullptr, init$methodAnnotations$$$3},
+		{"<init>", "([F)V", nullptr, $PUBLIC, $method(AffineTransform, init$, void, $floats*)},
+		{"<init>", "(DDDDDD)V", nullptr, $PUBLIC, $method(AffineTransform, init$, void, double, double, double, double, double, double)},
+		{"<init>", "([D)V", nullptr, $PUBLIC, $method(AffineTransform, init$, void, $doubles*)},
+		{"_matround", "(D)D", nullptr, $PRIVATE | $STATIC, $staticMethod(AffineTransform, _matround, double, double)},
+		{"calculateType", "()V", nullptr, $PRIVATE, $method(AffineTransform, calculateType, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AffineTransform, clone, $Object*)},
+		{"concatenate", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, concatenate, void, AffineTransform*)},
+		{"createInverse", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(AffineTransform, createInverse, AffineTransform*), "java.awt.geom.NoninvertibleTransformException"},
+		{"createTransformedShape", "(Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(AffineTransform, createTransformedShape, $Shape*, $Shape*)},
+		{"deltaTransform", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(AffineTransform, deltaTransform, $Point2D*, $Point2D*, $Point2D*)},
+		{"deltaTransform", "([DI[DII)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, deltaTransform, void, $doubles*, int32_t, $doubles*, int32_t, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AffineTransform, equals, bool, Object$*)},
+		{"getDeterminant", "()D", nullptr, $PUBLIC, $virtualMethod(AffineTransform, getDeterminant, double)},
+		{"getMatrix", "([D)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, getMatrix, void, $doubles*)},
+		{"getQuadrantRotateInstance", "(I)Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $STATIC, $staticMethod(AffineTransform, getQuadrantRotateInstance, AffineTransform*, int32_t)},
+		{"getQuadrantRotateInstance", "(IDD)Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $STATIC, $staticMethod(AffineTransform, getQuadrantRotateInstance, AffineTransform*, int32_t, double, double)},
+		{"getRotateInstance", "(D)Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $STATIC, $staticMethod(AffineTransform, getRotateInstance, AffineTransform*, double)},
+		{"getRotateInstance", "(DDD)Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $STATIC, $staticMethod(AffineTransform, getRotateInstance, AffineTransform*, double, double, double)},
+		{"getRotateInstance", "(DD)Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $STATIC, $staticMethod(AffineTransform, getRotateInstance, AffineTransform*, double, double)},
+		{"getRotateInstance", "(DDDD)Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $STATIC, $staticMethod(AffineTransform, getRotateInstance, AffineTransform*, double, double, double, double)},
+		{"getScaleInstance", "(DD)Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $STATIC, $staticMethod(AffineTransform, getScaleInstance, AffineTransform*, double, double)},
+		{"getScaleX", "()D", nullptr, $PUBLIC, $virtualMethod(AffineTransform, getScaleX, double)},
+		{"getScaleY", "()D", nullptr, $PUBLIC, $virtualMethod(AffineTransform, getScaleY, double)},
+		{"getShearInstance", "(DD)Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $STATIC, $staticMethod(AffineTransform, getShearInstance, AffineTransform*, double, double)},
+		{"getShearX", "()D", nullptr, $PUBLIC, $virtualMethod(AffineTransform, getShearX, double)},
+		{"getShearY", "()D", nullptr, $PUBLIC, $virtualMethod(AffineTransform, getShearY, double)},
+		{"getTranslateInstance", "(DD)Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $STATIC, $staticMethod(AffineTransform, getTranslateInstance, AffineTransform*, double, double)},
+		{"getTranslateX", "()D", nullptr, $PUBLIC, $virtualMethod(AffineTransform, getTranslateX, double)},
+		{"getTranslateY", "()D", nullptr, $PUBLIC, $virtualMethod(AffineTransform, getTranslateY, double)},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(AffineTransform, getType, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AffineTransform, hashCode, int32_t)},
+		{"inverseTransform", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(AffineTransform, inverseTransform, $Point2D*, $Point2D*, $Point2D*), "java.awt.geom.NoninvertibleTransformException"},
+		{"inverseTransform", "([DI[DII)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, inverseTransform, void, $doubles*, int32_t, $doubles*, int32_t, int32_t), "java.awt.geom.NoninvertibleTransformException"},
+		{"invert", "()V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, invert, void), "java.awt.geom.NoninvertibleTransformException"},
+		{"isIdentity", "()Z", nullptr, $PUBLIC, $virtualMethod(AffineTransform, isIdentity, bool)},
+		{"preConcatenate", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, preConcatenate, void, AffineTransform*)},
+		{"quadrantRotate", "(I)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, quadrantRotate, void, int32_t)},
+		{"quadrantRotate", "(IDD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, quadrantRotate, void, int32_t, double, double)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(AffineTransform, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"rotate", "(D)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, rotate, void, double)},
+		{"rotate", "(DDD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, rotate, void, double, double, double)},
+		{"rotate", "(DD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, rotate, void, double, double)},
+		{"rotate", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, rotate, void, double, double, double, double)},
+		{"rotate180", "()V", nullptr, $PRIVATE, $method(AffineTransform, rotate180, void)},
+		{"rotate270", "()V", nullptr, $PRIVATE, $method(AffineTransform, rotate270, void)},
+		{"rotate90", "()V", nullptr, $PRIVATE, $method(AffineTransform, rotate90, void)},
+		{"scale", "(DD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, scale, void, double, double)},
+		{"setToIdentity", "()V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, setToIdentity, void)},
+		{"setToQuadrantRotation", "(I)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, setToQuadrantRotation, void, int32_t)},
+		{"setToQuadrantRotation", "(IDD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, setToQuadrantRotation, void, int32_t, double, double)},
+		{"setToRotation", "(D)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, setToRotation, void, double)},
+		{"setToRotation", "(DDD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, setToRotation, void, double, double, double)},
+		{"setToRotation", "(DD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, setToRotation, void, double, double)},
+		{"setToRotation", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, setToRotation, void, double, double, double, double)},
+		{"setToScale", "(DD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, setToScale, void, double, double)},
+		{"setToShear", "(DD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, setToShear, void, double, double)},
+		{"setToTranslation", "(DD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, setToTranslation, void, double, double)},
+		{"setTransform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, setTransform, void, AffineTransform*)},
+		{"setTransform", "(DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, setTransform, void, double, double, double, double, double, double)},
+		{"shear", "(DD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, shear, void, double, double)},
+		{"stateError", "()V", nullptr, $PRIVATE, $method(AffineTransform, stateError, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AffineTransform, toString, $String*)},
+		{"transform", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(AffineTransform, transform, $Point2D*, $Point2D*, $Point2D*)},
+		{"transform", "([Ljava/awt/geom/Point2D;I[Ljava/awt/geom/Point2D;II)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, transform, void, $Point2DArray*, int32_t, $Point2DArray*, int32_t, int32_t)},
+		{"transform", "([FI[FII)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, transform, void, $floats*, int32_t, $floats*, int32_t, int32_t)},
+		{"transform", "([DI[DII)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, transform, void, $doubles*, int32_t, $doubles*, int32_t, int32_t)},
+		{"transform", "([FI[DII)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, transform, void, $floats*, int32_t, $doubles*, int32_t, int32_t)},
+		{"transform", "([DI[FII)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, transform, void, $doubles*, int32_t, $floats*, int32_t, int32_t)},
+		{"translate", "(DD)V", nullptr, $PUBLIC, $virtualMethod(AffineTransform, translate, void, double, double)},
+		{"updateState", "()V", nullptr, 0, $virtualMethod(AffineTransform, updateState, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(AffineTransform, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.geom.AffineTransform",
+		"java.lang.Object",
+		"java.lang.Cloneable,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AffineTransform, name, initialize, &classInfo$$, AffineTransform::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AffineTransform));
+	});
 	return class$;
 }
 

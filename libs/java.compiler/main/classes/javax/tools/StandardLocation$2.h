@@ -12,6 +12,7 @@ class StandardLocation$2 : public ::java::lang::Object {
 	$class(StandardLocation$2, 0, ::java::lang::Object)
 public:
 	StandardLocation$2();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$tools$StandardLocation;
 };
 

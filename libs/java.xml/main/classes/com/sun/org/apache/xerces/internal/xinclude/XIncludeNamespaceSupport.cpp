@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xinclude/XIncludeNamespaceSupport.h>
-
 #include <com/sun/org/apache/xerces/internal/util/NamespaceSupport.h>
 #include <com/sun/org/apache/xerces/internal/xinclude/MultipleScopeNamespaceSupport.h>
 #include <com/sun/org/apache/xerces/internal/xni/NamespaceContext.h>
@@ -19,33 +18,6 @@ namespace com {
 					namespace internal {
 						namespace xinclude {
 
-$FieldInfo _XIncludeNamespaceSupport_FieldInfo_[] = {
-	{"fValidContext", "[Z", nullptr, $PRIVATE, $field(XIncludeNamespaceSupport, fValidContext)},
-	{}
-};
-
-$MethodInfo _XIncludeNamespaceSupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XIncludeNamespaceSupport, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;)V", nullptr, $PUBLIC, $method(XIncludeNamespaceSupport, init$, void, $NamespaceContext*)},
-	{"getURIFromIncludeParent", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XIncludeNamespaceSupport, getURIFromIncludeParent, $String*, $String*)},
-	{"pushContext", "()V", nullptr, $PUBLIC, $virtualMethod(XIncludeNamespaceSupport, pushContext, void)},
-	{"setContextInvalid", "()V", nullptr, $PUBLIC, $virtualMethod(XIncludeNamespaceSupport, setContextInvalid, void)},
-	{}
-};
-
-$ClassInfo _XIncludeNamespaceSupport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.xinclude.XIncludeNamespaceSupport",
-	"com.sun.org.apache.xerces.internal.xinclude.MultipleScopeNamespaceSupport",
-	nullptr,
-	_XIncludeNamespaceSupport_FieldInfo_,
-	_XIncludeNamespaceSupport_MethodInfo_
-};
-
-$Object* allocate$XIncludeNamespaceSupport($Class* clazz) {
-	return $of($alloc(XIncludeNamespaceSupport));
-}
-
 void XIncludeNamespaceSupport::init$() {
 	$MultipleScopeNamespaceSupport::init$();
 	$set(this, fValidContext, $new($booleans, 8));
@@ -59,11 +31,11 @@ void XIncludeNamespaceSupport::init$($NamespaceContext* context) {
 void XIncludeNamespaceSupport::pushContext() {
 	$MultipleScopeNamespaceSupport::pushContext();
 	if (this->fCurrentContext + 1 == $nc(this->fValidContext)->length) {
-		$var($booleans, contextarray, $new($booleans, $nc(this->fValidContext)->length * 2));
-		$System::arraycopy(this->fValidContext, 0, contextarray, 0, $nc(this->fValidContext)->length);
+		$var($booleans, contextarray, $new($booleans, this->fValidContext->length * 2));
+		$System::arraycopy(this->fValidContext, 0, contextarray, 0, this->fValidContext->length);
 		$set(this, fValidContext, contextarray);
 	}
-	$nc(this->fValidContext)->set(this->fCurrentContext, true);
+	this->fValidContext->set(this->fCurrentContext, true);
 }
 
 void XIncludeNamespaceSupport::setContextInvalid() {
@@ -82,7 +54,29 @@ XIncludeNamespaceSupport::XIncludeNamespaceSupport() {
 }
 
 $Class* XIncludeNamespaceSupport::load$($String* name, bool initialize) {
-	$loadClass(XIncludeNamespaceSupport, name, initialize, &_XIncludeNamespaceSupport_ClassInfo_, allocate$XIncludeNamespaceSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"fValidContext", "[Z", nullptr, $PRIVATE, $field(XIncludeNamespaceSupport, fValidContext)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XIncludeNamespaceSupport, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;)V", nullptr, $PUBLIC, $method(XIncludeNamespaceSupport, init$, void, $NamespaceContext*)},
+		{"getURIFromIncludeParent", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XIncludeNamespaceSupport, getURIFromIncludeParent, $String*, $String*)},
+		{"pushContext", "()V", nullptr, $PUBLIC, $virtualMethod(XIncludeNamespaceSupport, pushContext, void)},
+		{"setContextInvalid", "()V", nullptr, $PUBLIC, $virtualMethod(XIncludeNamespaceSupport, setContextInvalid, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.xinclude.XIncludeNamespaceSupport",
+		"com.sun.org.apache.xerces.internal.xinclude.MultipleScopeNamespaceSupport",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XIncludeNamespaceSupport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XIncludeNamespaceSupport);
+	});
 	return class$;
 }
 

@@ -31,7 +31,7 @@ public:
 	virtual ::javax::management::QueryExp* getRightExp();
 	virtual void setMBeanServer(::javax::management::MBeanServer* s) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xF0FC58E41492EA31;
+	static const int64_t serialVersionUID = (int64_t)0xf0fc58e41492ea31;
 	::javax::management::QueryExp* exp1 = nullptr;
 	::javax::management::QueryExp* exp2 = nullptr;
 };

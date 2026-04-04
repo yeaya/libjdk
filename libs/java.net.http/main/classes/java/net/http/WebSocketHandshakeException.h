@@ -33,7 +33,10 @@ public:
 	::java::net::http::HttpResponse* response = nullptr;
 	WebSocketHandshakeException(const WebSocketHandshakeException& e);
 	virtual void throw$() override;
-	inline WebSocketHandshakeException* operator ->() {
+	inline WebSocketHandshakeException* operator ->() const {
+		return (WebSocketHandshakeException*)throwing$;
+	}
+	inline operator WebSocketHandshakeException*() const {
 		return (WebSocketHandshakeException*)throwing$;
 	}
 };

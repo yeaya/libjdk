@@ -49,6 +49,7 @@ class $export MotifButtonUI : public ::javax::swing::plaf::basic::BasicButtonUI 
 	$class(MotifButtonUI, 0, ::javax::swing::plaf::basic::BasicButtonUI)
 public:
 	MotifButtonUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::swing::plaf::basic::BasicButtonListener* createButtonListener(::javax::swing::AbstractButton* b) override;
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* c);

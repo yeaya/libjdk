@@ -42,6 +42,7 @@ class $import DeferredCompletionFailureHandler : public ::java::lang::Object {
 	$class(DeferredCompletionFailureHandler, 0, ::java::lang::Object)
 public:
 	DeferredCompletionFailureHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual void classSymbolCompleteFailed(::com::sun::tools::javac::code::Symbol$ClassSymbol* sym, ::com::sun::tools::javac::code::Symbol$Completer* origCompleter);
 	virtual void classSymbolRemoved(::com::sun::tools::javac::code::Symbol$ClassSymbol* sym);

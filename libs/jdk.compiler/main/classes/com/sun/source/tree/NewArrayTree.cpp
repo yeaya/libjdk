@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/NewArrayTree.h>
-
 #include <com/sun/source/tree/Tree.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -14,30 +13,26 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _NewArrayTree_MethodInfo_[] = {
-	{"getAnnotations", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/AnnotationTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NewArrayTree, getAnnotations, $List*)},
-	{"getDimAnnotations", "()Ljava/util/List;", "()Ljava/util/List<+Ljava/util/List<+Lcom/sun/source/tree/AnnotationTree;>;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NewArrayTree, getDimAnnotations, $List*)},
-	{"getDimensions", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/ExpressionTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NewArrayTree, getDimensions, $List*)},
-	{"getInitializers", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/ExpressionTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NewArrayTree, getInitializers, $List*)},
-	{"getType", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NewArrayTree, getType, $Tree*)},
-	{}
-};
-
-$ClassInfo _NewArrayTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.NewArrayTree",
-	nullptr,
-	"com.sun.source.tree.ExpressionTree",
-	nullptr,
-	_NewArrayTree_MethodInfo_
-};
-
-$Object* allocate$NewArrayTree($Class* clazz) {
-	return $of($alloc(NewArrayTree));
-}
-
 $Class* NewArrayTree::load$($String* name, bool initialize) {
-	$loadClass(NewArrayTree, name, initialize, &_NewArrayTree_ClassInfo_, allocate$NewArrayTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getAnnotations", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/AnnotationTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NewArrayTree, getAnnotations, $List*)},
+		{"getDimAnnotations", "()Ljava/util/List;", "()Ljava/util/List<+Ljava/util/List<+Lcom/sun/source/tree/AnnotationTree;>;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NewArrayTree, getDimAnnotations, $List*)},
+		{"getDimensions", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/ExpressionTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NewArrayTree, getDimensions, $List*)},
+		{"getInitializers", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/ExpressionTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NewArrayTree, getInitializers, $List*)},
+		{"getType", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NewArrayTree, getType, $Tree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.NewArrayTree",
+		nullptr,
+		"com.sun.source.tree.ExpressionTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NewArrayTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NewArrayTree);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <GetUI$1.h>
-
 #include <GetUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <jcpp.h>
@@ -10,42 +9,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 
-$MethodInfo _GetUI$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(GetUI$1, init$, void)},
-	{}
-};
-
-$EnclosingMethodInfo _GetUI$1_EnclosingMethodInfo_ = {
-	"GetUI",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _GetUI$1_InnerClassesInfo_[] = {
-	{"GetUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _GetUI$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"GetUI$1",
-	"javax.swing.plaf.ComponentUI",
-	nullptr,
-	nullptr,
-	_GetUI$1_MethodInfo_,
-	nullptr,
-	&_GetUI$1_EnclosingMethodInfo_,
-	_GetUI$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"GetUI"
-};
-
-$Object* allocate$GetUI$1($Class* clazz) {
-	return $of($alloc(GetUI$1));
-}
-
 void GetUI$1::init$() {
 	$ComponentUI::init$();
 }
@@ -54,7 +17,37 @@ GetUI$1::GetUI$1() {
 }
 
 $Class* GetUI$1::load$($String* name, bool initialize) {
-	$loadClass(GetUI$1, name, initialize, &_GetUI$1_ClassInfo_, allocate$GetUI$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(GetUI$1, init$, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"GetUI",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"GetUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"GetUI$1",
+		"javax.swing.plaf.ComponentUI",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"GetUI"
+	};
+	$loadClass(GetUI$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GetUI$1);
+	});
 	return class$;
 }
 

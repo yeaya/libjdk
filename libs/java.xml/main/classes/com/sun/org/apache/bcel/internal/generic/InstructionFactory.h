@@ -56,6 +56,7 @@ class InstructionFactory : public ::java::lang::Object {
 	$class(InstructionFactory, 0, ::java::lang::Object)
 public:
 	InstructionFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::bcel::internal::generic::ClassGen* cg, ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen* cp);
 	void init$(::com::sun::org::apache::bcel::internal::generic::ClassGen* cg);
 	void init$(::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen* cp);

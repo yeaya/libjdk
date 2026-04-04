@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/functions/FuncNamespace.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
 #include <com/sun/org/apache/xpath/internal/functions/FunctionDef1Arg.h>
@@ -29,36 +28,12 @@ namespace com {
 					namespace internal {
 						namespace functions {
 
-$FieldInfo _FuncNamespace_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FuncNamespace, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _FuncNamespace_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FuncNamespace, init$, void)},
-	{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(FuncNamespace, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
-	{}
-};
-
-$ClassInfo _FuncNamespace_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.functions.FuncNamespace",
-	"com.sun.org.apache.xpath.internal.functions.FunctionDef1Arg",
-	nullptr,
-	_FuncNamespace_FieldInfo_,
-	_FuncNamespace_MethodInfo_
-};
-
-$Object* allocate$FuncNamespace($Class* clazz) {
-	return $of($alloc(FuncNamespace));
-}
-
 void FuncNamespace::init$() {
 	$FunctionDef1Arg::init$();
 }
 
 $XObject* FuncNamespace::execute($XPathContext* xctxt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t context = getArg0AsNode(xctxt);
 	$var($String, s, nullptr);
 	if (context != $DTM::NULL) {
@@ -69,7 +44,7 @@ $XObject* FuncNamespace::execute($XPathContext* xctxt) {
 		} else if (t == $DTM::ATTRIBUTE_NODE) {
 			$assign(s, dtm->getNodeName(context));
 			bool var$0 = $nc(s)->startsWith("xmlns:"_s);
-			if (var$0 || $nc(s)->equals("xmlns"_s)) {
+			if (var$0 || s->equals("xmlns"_s)) {
 				$init($XString);
 				return $XString::EMPTYSTRING;
 			}
@@ -83,14 +58,33 @@ $XObject* FuncNamespace::execute($XPathContext* xctxt) {
 		return $XString::EMPTYSTRING;
 	}
 	$init($XString);
-	return ((nullptr == s) ? static_cast<$XObject*>($XString::EMPTYSTRING) : static_cast<$XObject*>($new($XString, s)));
+	return ((nullptr == s) ? $XString::EMPTYSTRING : $new($XString, s));
 }
 
 FuncNamespace::FuncNamespace() {
 }
 
 $Class* FuncNamespace::load$($String* name, bool initialize) {
-	$loadClass(FuncNamespace, name, initialize, &_FuncNamespace_ClassInfo_, allocate$FuncNamespace);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FuncNamespace, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FuncNamespace, init$, void)},
+		{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(FuncNamespace, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.functions.FuncNamespace",
+		"com.sun.org.apache.xpath.internal.functions.FunctionDef1Arg",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FuncNamespace, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FuncNamespace));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/Color.h>
-
 #include <java/awt/ColorPaintContext.h>
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Paint.h>
@@ -60,118 +59,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 namespace java {
 	namespace awt {
 
-$Attribute Color_Attribute_var$1[] = {
-	{'s', "red"},
-	{'s', "green"},
-	{'s', "blue"},
-	{'s', "alpha"},
-	{'-'}
-};
-
-$NamedAttribute Color_Attribute_var$0[] = {
-	{"value", '[', Color_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _Color_MethodAnnotations_init$1[] = {
-	{"Ljava/beans/ConstructorProperties;", Color_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _Color_FieldInfo_[] = {
-	{"white", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, white)},
-	{"WHITE", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, WHITE)},
-	{"lightGray", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, lightGray)},
-	{"LIGHT_GRAY", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, LIGHT_GRAY)},
-	{"gray", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, gray)},
-	{"GRAY", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, GRAY)},
-	{"darkGray", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, darkGray)},
-	{"DARK_GRAY", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, DARK_GRAY)},
-	{"black", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, black)},
-	{"BLACK", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, BLACK)},
-	{"red", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, red)},
-	{"RED", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, RED)},
-	{"pink", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, pink)},
-	{"PINK", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, PINK)},
-	{"orange", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, orange)},
-	{"ORANGE", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, ORANGE)},
-	{"yellow", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, yellow)},
-	{"YELLOW", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, YELLOW)},
-	{"green", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, green)},
-	{"GREEN", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, GREEN)},
-	{"magenta", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, magenta)},
-	{"MAGENTA", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, MAGENTA)},
-	{"cyan", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, cyan)},
-	{"CYAN", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, CYAN)},
-	{"blue", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, blue)},
-	{"BLUE", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, BLUE)},
-	{"value", "I", nullptr, 0, $field(Color, value)},
-	{"frgbvalue", "[F", nullptr, $PRIVATE, $field(Color, frgbvalue)},
-	{"fvalue", "[F", nullptr, $PRIVATE, $field(Color, fvalue)},
-	{"falpha", "F", nullptr, $PRIVATE, $field(Color, falpha)},
-	{"cs", "Ljava/awt/color/ColorSpace;", nullptr, $PRIVATE, $field(Color, cs)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Color, serialVersionUID)},
-	{"FACTOR", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Color, FACTOR)},
-	{}
-};
-
-$MethodInfo _Color_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(III)V", nullptr, $PUBLIC, $method(Color, init$, void, int32_t, int32_t, int32_t)},
-	{"<init>", "(IIII)V", nullptr, $PUBLIC, $method(Color, init$, void, int32_t, int32_t, int32_t, int32_t), nullptr, nullptr, _Color_MethodAnnotations_init$1},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Color, init$, void, int32_t)},
-	{"<init>", "(IZ)V", nullptr, $PUBLIC, $method(Color, init$, void, int32_t, bool)},
-	{"<init>", "(FFF)V", nullptr, $PUBLIC, $method(Color, init$, void, float, float, float)},
-	{"<init>", "(FFFF)V", nullptr, $PUBLIC, $method(Color, init$, void, float, float, float, float)},
-	{"<init>", "(Ljava/awt/color/ColorSpace;[FF)V", nullptr, $PUBLIC, $method(Color, init$, void, $ColorSpace*, $floats*, float)},
-	{"HSBtoRGB", "(FFF)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Color, HSBtoRGB, int32_t, float, float, float)},
-	{"RGBtoHSB", "(III[F)[F", nullptr, $PUBLIC | $STATIC, $staticMethod(Color, RGBtoHSB, $floats*, int32_t, int32_t, int32_t, $floats*)},
-	{"brighter", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(Color, brighter, Color*)},
-	{"createContext", "(Ljava/awt/image/ColorModel;Ljava/awt/Rectangle;Ljava/awt/geom/Rectangle2D;Ljava/awt/geom/AffineTransform;Ljava/awt/RenderingHints;)Ljava/awt/PaintContext;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Color, createContext, $PaintContext*, $ColorModel*, $Rectangle*, $Rectangle2D*, $AffineTransform*, $RenderingHints*)},
-	{"darker", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(Color, darker, Color*)},
-	{"decode", "(Ljava/lang/String;)Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC, $staticMethod(Color, decode, Color*, $String*), "java.lang.NumberFormatException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Color, equals, bool, Object$*)},
-	{"getAlpha", "()I", nullptr, $PUBLIC, $virtualMethod(Color, getAlpha, int32_t)},
-	{"getBlue", "()I", nullptr, $PUBLIC, $virtualMethod(Color, getBlue, int32_t)},
-	{"getColor", "(Ljava/lang/String;)Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC, $staticMethod(Color, getColor, Color*, $String*)},
-	{"getColor", "(Ljava/lang/String;Ljava/awt/Color;)Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC, $staticMethod(Color, getColor, Color*, $String*, Color*)},
-	{"getColor", "(Ljava/lang/String;I)Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC, $staticMethod(Color, getColor, Color*, $String*, int32_t)},
-	{"getColorComponents", "([F)[F", nullptr, $PUBLIC, $virtualMethod(Color, getColorComponents, $floats*, $floats*)},
-	{"getColorComponents", "(Ljava/awt/color/ColorSpace;[F)[F", nullptr, $PUBLIC, $virtualMethod(Color, getColorComponents, $floats*, $ColorSpace*, $floats*)},
-	{"getColorSpace", "()Ljava/awt/color/ColorSpace;", nullptr, $PUBLIC, $virtualMethod(Color, getColorSpace, $ColorSpace*)},
-	{"getComponents", "([F)[F", nullptr, $PUBLIC, $virtualMethod(Color, getComponents, $floats*, $floats*)},
-	{"getComponents", "(Ljava/awt/color/ColorSpace;[F)[F", nullptr, $PUBLIC, $virtualMethod(Color, getComponents, $floats*, $ColorSpace*, $floats*)},
-	{"getGreen", "()I", nullptr, $PUBLIC, $virtualMethod(Color, getGreen, int32_t)},
-	{"getHSBColor", "(FFF)Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC, $staticMethod(Color, getHSBColor, Color*, float, float, float)},
-	{"getRGB", "()I", nullptr, $PUBLIC, $virtualMethod(Color, getRGB, int32_t)},
-	{"getRGBColorComponents", "([F)[F", nullptr, $PUBLIC, $virtualMethod(Color, getRGBColorComponents, $floats*, $floats*)},
-	{"getRGBComponents", "([F)[F", nullptr, $PUBLIC, $virtualMethod(Color, getRGBComponents, $floats*, $floats*)},
-	{"getRed", "()I", nullptr, $PUBLIC, $virtualMethod(Color, getRed, int32_t)},
-	{"getTransparency", "()I", nullptr, $PUBLIC, $virtualMethod(Color, getTransparency, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Color, hashCode, int32_t)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Color, initIDs, void)},
-	{"testColorValueRange", "(IIII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Color, testColorValueRange, void, int32_t, int32_t, int32_t, int32_t)},
-	{"testColorValueRange", "(FFFF)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Color, testColorValueRange, void, float, float, float, float)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Color, toString, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 34
-
-$ClassInfo _Color_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Color",
-	"java.lang.Object",
-	"java.awt.Paint,java.io.Serializable",
-	_Color_FieldInfo_,
-	_Color_MethodInfo_
-};
-
-$Object* allocate$Color($Class* clazz) {
-	return $of($alloc(Color));
-}
-
 $Object* Color::clone() {
 	 return this->$Paint::clone();
 }
@@ -210,14 +97,14 @@ double Color::FACTOR = 0.0;
 
 void Color::initIDs() {
 	$init(Color);
-	$prepareNativeStatic(Color, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void Color::testColorValueRange(int32_t r, int32_t g, int32_t b, int32_t a) {
 	$init(Color);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool rangeError = false;
 	$var($String, badComponentString, ""_s);
 	if (a < 0 || a > 255) {
@@ -243,7 +130,7 @@ void Color::testColorValueRange(int32_t r, int32_t g, int32_t b, int32_t a) {
 
 void Color::testColorValueRange(float r, float g, float b, float a) {
 	$init(Color);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool rangeError = false;
 	$var($String, badComponentString, ""_s);
 	if (a < 0.0 || a > 1.0) {
@@ -276,7 +163,7 @@ void Color::init$(int32_t r, int32_t g, int32_t b, int32_t a) {
 	$set(this, fvalue, nullptr);
 	this->falpha = 0.0f;
 	$set(this, cs, nullptr);
-	this->value = (((((int32_t)(a & (uint32_t)255)) << 24) | (((int32_t)(r & (uint32_t)255)) << 16)) | (((int32_t)(g & (uint32_t)255)) << 8)) | (((int32_t)(b & (uint32_t)255)) << 0);
+	this->value = ((((a & 0xff) << 24) | ((r & 0xff) << 16)) | ((g & 0xff) << 8)) | ((b & 0xff) << 0);
 	testColorValueRange(r, g, b, a);
 }
 
@@ -285,7 +172,7 @@ void Color::init$(int32_t rgb) {
 	$set(this, fvalue, nullptr);
 	this->falpha = 0.0f;
 	$set(this, cs, nullptr);
-	this->value = (int32_t)0xFF000000 | rgb;
+	this->value = (int32_t)0xff000000 | rgb;
 }
 
 void Color::init$(int32_t rgba, bool hasalpha) {
@@ -296,7 +183,7 @@ void Color::init$(int32_t rgba, bool hasalpha) {
 	if (hasalpha) {
 		this->value = rgba;
 	} else {
-		this->value = (int32_t)0xFF000000 | rgba;
+		this->value = (int32_t)0xff000000 | rgba;
 	}
 }
 
@@ -304,9 +191,9 @@ void Color::init$(float r, float g, float b) {
 	Color::init$($cast(int32_t, (r * 255 + 0.5)), $cast(int32_t, (g * 255 + 0.5)), $cast(int32_t, (b * 255 + 0.5)));
 	testColorValueRange(r, g, b, 1.0f);
 	$set(this, frgbvalue, $new($floats, 3));
-	$nc(this->frgbvalue)->set(0, r);
-	$nc(this->frgbvalue)->set(1, g);
-	$nc(this->frgbvalue)->set(2, b);
+	this->frgbvalue->set(0, r);
+	this->frgbvalue->set(1, g);
+	this->frgbvalue->set(2, b);
 	this->falpha = 1.0f;
 	$set(this, fvalue, this->frgbvalue);
 }
@@ -314,15 +201,15 @@ void Color::init$(float r, float g, float b) {
 void Color::init$(float r, float g, float b, float a) {
 	Color::init$($cast(int32_t, (r * 255 + 0.5)), $cast(int32_t, (g * 255 + 0.5)), $cast(int32_t, (b * 255 + 0.5)), $cast(int32_t, (a * 255 + 0.5)));
 	$set(this, frgbvalue, $new($floats, 3));
-	$nc(this->frgbvalue)->set(0, r);
-	$nc(this->frgbvalue)->set(1, g);
-	$nc(this->frgbvalue)->set(2, b);
+	this->frgbvalue->set(0, r);
+	this->frgbvalue->set(1, g);
+	this->frgbvalue->set(2, b);
 	this->falpha = a;
 	$set(this, fvalue, this->frgbvalue);
 }
 
 void Color::init$($ColorSpace* cspace, $floats* components, float alpha) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, frgbvalue, nullptr);
 	$set(this, fvalue, nullptr);
 	this->falpha = 0.0f;
@@ -332,11 +219,11 @@ void Color::init$($ColorSpace* cspace, $floats* components, float alpha) {
 	int32_t n = $nc(cspace)->getNumComponents();
 	$set(this, fvalue, $new($floats, n));
 	for (int32_t i = 0; i < n; ++i) {
-		if ($nc(components)->get(i) < 0.0 || $nc(components)->get(i) > 1.0) {
+		if ($nc(components)->get(i) < 0.0 || components->get(i) > 1.0) {
 			rangeError = true;
 			$assign(badComponentString, $str({badComponentString, "Component "_s, $$str(i), " "_s}));
 		} else {
-			$nc(this->fvalue)->set(i, components->get(i));
+			this->fvalue->set(i, components->get(i));
 		}
 	}
 	if (alpha < 0.0 || alpha > 1.0) {
@@ -350,23 +237,23 @@ void Color::init$($ColorSpace* cspace, $floats* components, float alpha) {
 	}
 	$set(this, frgbvalue, cspace->toRGB(this->fvalue));
 	$set(this, cs, cspace);
-	this->value = (((((int32_t)(($cast(int32_t, (this->falpha * 255))) & (uint32_t)255)) << 24) | (((int32_t)(($cast(int32_t, ($nc(this->frgbvalue)->get(0) * 255))) & (uint32_t)255)) << 16)) | (((int32_t)(($cast(int32_t, ($nc(this->frgbvalue)->get(1) * 255))) & (uint32_t)255)) << 8)) | (((int32_t)(($cast(int32_t, ($nc(this->frgbvalue)->get(2) * 255))) & (uint32_t)255)) << 0);
+	this->value = ((((($cast(int32_t, (this->falpha * 255))) & 0xff) << 24) | ((($cast(int32_t, ($nc(this->frgbvalue)->get(0) * 255))) & 0xff) << 16)) | ((($cast(int32_t, ($nc(this->frgbvalue)->get(1) * 255))) & 0xff) << 8)) | ((($cast(int32_t, ($nc(this->frgbvalue)->get(2) * 255))) & 0xff) << 0);
 }
 
 int32_t Color::getRed() {
-	return (int32_t)((getRGB() >> 16) & (uint32_t)255);
+	return (getRGB() >> 16) & 0xff;
 }
 
 int32_t Color::getGreen() {
-	return (int32_t)((getRGB() >> 8) & (uint32_t)255);
+	return (getRGB() >> 8) & 0xff;
 }
 
 int32_t Color::getBlue() {
-	return (int32_t)((getRGB() >> 0) & (uint32_t)255);
+	return (getRGB() >> 0) & 0xff;
 }
 
 int32_t Color::getAlpha() {
-	return (int32_t)((getRGB() >> 24) & (uint32_t)255);
+	return (getRGB() >> 24) & 0xff;
 }
 
 int32_t Color::getRGB() {
@@ -410,33 +297,36 @@ int32_t Color::hashCode() {
 bool Color::equals(Object$* obj) {
 	bool var$0 = $instanceOf(Color, obj);
 	if (var$0) {
-		int32_t var$1 = $nc(($cast(Color, obj)))->getRGB();
+		int32_t var$1 = $cast(Color, obj)->getRGB();
 		var$0 = var$1 == this->getRGB();
 	}
 	return var$0;
 }
 
 $String* Color::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$5, $$str({$($of(this)->getClass()->getName()), "[r="_s}));
-	$var($String, var$4, $$concat(var$5, $$str(getRed())));
-	$var($String, var$3, $$concat(var$4, ",g="_s));
-	$var($String, var$2, $$concat(var$3, $$str(getGreen())));
-	$var($String, var$1, $$concat(var$2, ",b="_s));
-	$var($String, var$0, $$concat(var$1, $$str(getBlue())));
-	return $concat(var$0, "]"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($of(this)->getClass()->getName()));
+	var$0->append("[r="_s);
+	var$0->append(getRed());
+	var$0->append(",g="_s);
+	var$0->append(getGreen());
+	var$0->append(",b="_s);
+	var$0->append(getBlue());
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 Color* Color::decode($String* nm) {
 	$init(Color);
 	$var($Integer, intval, $Integer::decode(nm));
-	int32_t i = $nc(intval)->intValue();
-	return $new(Color, (int32_t)((i >> 16) & (uint32_t)255), (int32_t)((i >> 8) & (uint32_t)255), (int32_t)(i & (uint32_t)255));
+	int32_t i = intval->intValue();
+	return $new(Color, (i >> 16) & 0xff, (i >> 8) & 0xff, i & 0xff);
 }
 
 Color* Color::getColor($String* nm) {
 	$init(Color);
-	return getColor(nm, (Color*)nullptr);
+	return getColor(nm, nullptr);
 }
 
 Color* Color::getColor($String* nm, Color* v) {
@@ -446,14 +336,14 @@ Color* Color::getColor($String* nm, Color* v) {
 		return v;
 	}
 	int32_t i = $nc(intval)->intValue();
-	return $new(Color, (int32_t)((i >> 16) & (uint32_t)255), (int32_t)((i >> 8) & (uint32_t)255), (int32_t)(i & (uint32_t)255));
+	return $new(Color, (i >> 16) & 0xff, (i >> 8) & 0xff, i & 0xff);
 }
 
 Color* Color::getColor($String* nm, int32_t v) {
 	$init(Color);
 	$var($Integer, intval, $Integer::getInteger(nm));
-	int32_t i = (intval != nullptr) ? $nc(intval)->intValue() : v;
-	return $new(Color, (int32_t)((i >> 16) & (uint32_t)255), (int32_t)((i >> 8) & (uint32_t)255), (int32_t)((i >> 0) & (uint32_t)255));
+	int32_t i = (intval != nullptr) ? intval->intValue() : v;
+	return $new(Color, (i >> 16) & 0xff, (i >> 8) & 0xff, (i >> 0) & 0xff);
 }
 
 int32_t Color::HSBtoRGB(float hue, float saturation, float brightness) {
@@ -471,50 +361,38 @@ int32_t Color::HSBtoRGB(float hue, float saturation, float brightness) {
 		float t = brightness * (1.0f - (saturation * (1.0f - f)));
 		switch ($cast(int32_t, h)) {
 		case 0:
-			{
-				r = $cast(int32_t, (brightness * 255.0f + 0.5f));
-				g = $cast(int32_t, (t * 255.0f + 0.5f));
-				b = $cast(int32_t, (p * 255.0f + 0.5f));
-				break;
-			}
+			r = $cast(int32_t, (brightness * 255.0f + 0.5f));
+			g = $cast(int32_t, (t * 255.0f + 0.5f));
+			b = $cast(int32_t, (p * 255.0f + 0.5f));
+			break;
 		case 1:
-			{
-				r = $cast(int32_t, (q * 255.0f + 0.5f));
-				g = $cast(int32_t, (brightness * 255.0f + 0.5f));
-				b = $cast(int32_t, (p * 255.0f + 0.5f));
-				break;
-			}
+			r = $cast(int32_t, (q * 255.0f + 0.5f));
+			g = $cast(int32_t, (brightness * 255.0f + 0.5f));
+			b = $cast(int32_t, (p * 255.0f + 0.5f));
+			break;
 		case 2:
-			{
-				r = $cast(int32_t, (p * 255.0f + 0.5f));
-				g = $cast(int32_t, (brightness * 255.0f + 0.5f));
-				b = $cast(int32_t, (t * 255.0f + 0.5f));
-				break;
-			}
+			r = $cast(int32_t, (p * 255.0f + 0.5f));
+			g = $cast(int32_t, (brightness * 255.0f + 0.5f));
+			b = $cast(int32_t, (t * 255.0f + 0.5f));
+			break;
 		case 3:
-			{
-				r = $cast(int32_t, (p * 255.0f + 0.5f));
-				g = $cast(int32_t, (q * 255.0f + 0.5f));
-				b = $cast(int32_t, (brightness * 255.0f + 0.5f));
-				break;
-			}
+			r = $cast(int32_t, (p * 255.0f + 0.5f));
+			g = $cast(int32_t, (q * 255.0f + 0.5f));
+			b = $cast(int32_t, (brightness * 255.0f + 0.5f));
+			break;
 		case 4:
-			{
-				r = $cast(int32_t, (t * 255.0f + 0.5f));
-				g = $cast(int32_t, (p * 255.0f + 0.5f));
-				b = $cast(int32_t, (brightness * 255.0f + 0.5f));
-				break;
-			}
+			r = $cast(int32_t, (t * 255.0f + 0.5f));
+			g = $cast(int32_t, (p * 255.0f + 0.5f));
+			b = $cast(int32_t, (brightness * 255.0f + 0.5f));
+			break;
 		case 5:
-			{
-				r = $cast(int32_t, (brightness * 255.0f + 0.5f));
-				g = $cast(int32_t, (p * 255.0f + 0.5f));
-				b = $cast(int32_t, (q * 255.0f + 0.5f));
-				break;
-			}
+			r = $cast(int32_t, (brightness * 255.0f + 0.5f));
+			g = $cast(int32_t, (p * 255.0f + 0.5f));
+			b = $cast(int32_t, (q * 255.0f + 0.5f));
+			break;
 		}
 	}
-	return (((int32_t)0xFF000000 | (r << 16)) | (g << 8)) | (b << 0);
+	return (((int32_t)0xff000000 | (r << 16)) | (g << 8)) | (b << 0);
 }
 
 $floats* Color::RGBtoHSB(int32_t r, int32_t g, int32_t b, $floats* hsbvals$renamed) {
@@ -538,10 +416,10 @@ $floats* Color::RGBtoHSB(int32_t r, int32_t g, int32_t b, $floats* hsbvals$renam
 	if (cmax != 0) {
 		saturation = ((float)(cmax - cmin)) / ((float)cmax);
 	} else {
-		saturation = (float)0;
+		saturation = 0;
 	}
 	if (saturation == 0) {
-		hue = (float)0;
+		hue = 0;
 	} else {
 		float redc = ((float)(cmax - r)) / ((float)(cmax - cmin));
 		float greenc = ((float)(cmax - g)) / ((float)(cmax - cmin));
@@ -582,9 +460,9 @@ $floats* Color::getRGBComponents($floats* compArray) {
 		f->set(2, ((float)getBlue()) / 255.0f);
 		f->set(3, ((float)getAlpha()) / 255.0f);
 	} else {
-		$nc(f)->set(0, $nc(this->frgbvalue)->get(0));
-		f->set(1, $nc(this->frgbvalue)->get(1));
-		f->set(2, $nc(this->frgbvalue)->get(2));
+		$nc(f)->set(0, this->frgbvalue->get(0));
+		f->set(1, this->frgbvalue->get(1));
+		f->set(2, this->frgbvalue->get(2));
 		f->set(3, this->falpha);
 	}
 	return f;
@@ -602,9 +480,9 @@ $floats* Color::getRGBColorComponents($floats* compArray) {
 		f->set(1, ((float)getGreen()) / 255.0f);
 		f->set(2, ((float)getBlue()) / 255.0f);
 	} else {
-		$nc(f)->set(0, $nc(this->frgbvalue)->get(0));
-		f->set(1, $nc(this->frgbvalue)->get(1));
-		f->set(2, $nc(this->frgbvalue)->get(2));
+		$nc(f)->set(0, this->frgbvalue->get(0));
+		f->set(1, this->frgbvalue->get(1));
+		f->set(2, this->frgbvalue->get(2));
 	}
 	return f;
 }
@@ -621,7 +499,7 @@ $floats* Color::getComponents($floats* compArray) {
 		$assign(f, compArray);
 	}
 	for (int32_t i = 0; i < n; ++i) {
-		$nc(f)->set(i, $nc(this->fvalue)->get(i));
+		$nc(f)->set(i, this->fvalue->get(i));
 	}
 	$nc(f)->set(n, this->falpha);
 	return f;
@@ -639,13 +517,13 @@ $floats* Color::getColorComponents($floats* compArray) {
 		$assign(f, compArray);
 	}
 	for (int32_t i = 0; i < n; ++i) {
-		$nc(f)->set(i, $nc(this->fvalue)->get(i));
+		$nc(f)->set(i, this->fvalue->get(i));
 	}
 	return f;
 }
 
 $floats* Color::getComponents($ColorSpace* cspace, $floats* compArray$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($floats, compArray, compArray$renamed);
 	if (this->cs == nullptr) {
 		$set(this, cs, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
@@ -668,15 +546,15 @@ $floats* Color::getComponents($ColorSpace* cspace, $floats* compArray$renamed) {
 		$nc(compArray)->set(i, tmpout->get(i));
 	}
 	if (this->fvalue == nullptr) {
-		$nc(compArray)->set($nc(tmpout)->length, ((float)getAlpha()) / 255.0f);
+		$nc(compArray)->set(tmpout->length, ((float)getAlpha()) / 255.0f);
 	} else {
-		$nc(compArray)->set($nc(tmpout)->length, this->falpha);
+		$nc(compArray)->set(tmpout->length, this->falpha);
 	}
 	return compArray;
 }
 
 $floats* Color::getColorComponents($ColorSpace* cspace, $floats* compArray) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->cs == nullptr) {
 		$set(this, cs, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
 	}
@@ -724,7 +602,7 @@ int32_t Color::getTransparency() {
 	}
 }
 
-void clinit$Color($Class* class$) {
+void Color::clinit$($Class* clazz) {
 	Color::FACTOR = 0.7;
 	$assignStatic(Color::white, $new(Color, 255, 255, 255));
 	$assignStatic(Color::WHITE, Color::white);
@@ -764,7 +642,109 @@ Color::Color() {
 }
 
 $Class* Color::load$($String* name, bool initialize) {
-	$loadClass(Color, name, initialize, &_Color_ClassInfo_, clinit$Color, allocate$Color);
+	$FieldInfo fieldInfos$$[] = {
+		{"white", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, white)},
+		{"WHITE", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, WHITE)},
+		{"lightGray", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, lightGray)},
+		{"LIGHT_GRAY", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, LIGHT_GRAY)},
+		{"gray", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, gray)},
+		{"GRAY", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, GRAY)},
+		{"darkGray", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, darkGray)},
+		{"DARK_GRAY", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, DARK_GRAY)},
+		{"black", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, black)},
+		{"BLACK", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, BLACK)},
+		{"red", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, red)},
+		{"RED", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, RED)},
+		{"pink", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, pink)},
+		{"PINK", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, PINK)},
+		{"orange", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, orange)},
+		{"ORANGE", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, ORANGE)},
+		{"yellow", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, yellow)},
+		{"YELLOW", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, YELLOW)},
+		{"green", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, green)},
+		{"GREEN", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, GREEN)},
+		{"magenta", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, magenta)},
+		{"MAGENTA", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, MAGENTA)},
+		{"cyan", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, cyan)},
+		{"CYAN", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, CYAN)},
+		{"blue", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, blue)},
+		{"BLUE", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Color, BLUE)},
+		{"value", "I", nullptr, 0, $field(Color, value)},
+		{"frgbvalue", "[F", nullptr, $PRIVATE, $field(Color, frgbvalue)},
+		{"fvalue", "[F", nullptr, $PRIVATE, $field(Color, fvalue)},
+		{"falpha", "F", nullptr, $PRIVATE, $field(Color, falpha)},
+		{"cs", "Ljava/awt/color/ColorSpace;", nullptr, $PRIVATE, $field(Color, cs)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Color, serialVersionUID)},
+		{"FACTOR", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Color, FACTOR)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "red"},
+		{'s', "green"},
+		{'s', "blue"},
+		{'s', "alpha"},
+		{'-'}
+	};
+	$NamedAttribute init$methodAnnotations$$$1$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$1[] = {
+		{"Ljava/beans/ConstructorProperties;", init$methodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(III)V", nullptr, $PUBLIC, $method(Color, init$, void, int32_t, int32_t, int32_t)},
+		{"<init>", "(IIII)V", nullptr, $PUBLIC, $method(Color, init$, void, int32_t, int32_t, int32_t, int32_t), nullptr, nullptr, init$methodAnnotations$$$1},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(Color, init$, void, int32_t)},
+		{"<init>", "(IZ)V", nullptr, $PUBLIC, $method(Color, init$, void, int32_t, bool)},
+		{"<init>", "(FFF)V", nullptr, $PUBLIC, $method(Color, init$, void, float, float, float)},
+		{"<init>", "(FFFF)V", nullptr, $PUBLIC, $method(Color, init$, void, float, float, float, float)},
+		{"<init>", "(Ljava/awt/color/ColorSpace;[FF)V", nullptr, $PUBLIC, $method(Color, init$, void, $ColorSpace*, $floats*, float)},
+		{"HSBtoRGB", "(FFF)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Color, HSBtoRGB, int32_t, float, float, float)},
+		{"RGBtoHSB", "(III[F)[F", nullptr, $PUBLIC | $STATIC, $staticMethod(Color, RGBtoHSB, $floats*, int32_t, int32_t, int32_t, $floats*)},
+		{"brighter", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(Color, brighter, Color*)},
+		{"createContext", "(Ljava/awt/image/ColorModel;Ljava/awt/Rectangle;Ljava/awt/geom/Rectangle2D;Ljava/awt/geom/AffineTransform;Ljava/awt/RenderingHints;)Ljava/awt/PaintContext;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Color, createContext, $PaintContext*, $ColorModel*, $Rectangle*, $Rectangle2D*, $AffineTransform*, $RenderingHints*)},
+		{"darker", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(Color, darker, Color*)},
+		{"decode", "(Ljava/lang/String;)Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC, $staticMethod(Color, decode, Color*, $String*), "java.lang.NumberFormatException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Color, equals, bool, Object$*)},
+		{"getAlpha", "()I", nullptr, $PUBLIC, $virtualMethod(Color, getAlpha, int32_t)},
+		{"getBlue", "()I", nullptr, $PUBLIC, $virtualMethod(Color, getBlue, int32_t)},
+		{"getColor", "(Ljava/lang/String;)Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC, $staticMethod(Color, getColor, Color*, $String*)},
+		{"getColor", "(Ljava/lang/String;Ljava/awt/Color;)Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC, $staticMethod(Color, getColor, Color*, $String*, Color*)},
+		{"getColor", "(Ljava/lang/String;I)Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC, $staticMethod(Color, getColor, Color*, $String*, int32_t)},
+		{"getColorComponents", "([F)[F", nullptr, $PUBLIC, $virtualMethod(Color, getColorComponents, $floats*, $floats*)},
+		{"getColorComponents", "(Ljava/awt/color/ColorSpace;[F)[F", nullptr, $PUBLIC, $virtualMethod(Color, getColorComponents, $floats*, $ColorSpace*, $floats*)},
+		{"getColorSpace", "()Ljava/awt/color/ColorSpace;", nullptr, $PUBLIC, $virtualMethod(Color, getColorSpace, $ColorSpace*)},
+		{"getComponents", "([F)[F", nullptr, $PUBLIC, $virtualMethod(Color, getComponents, $floats*, $floats*)},
+		{"getComponents", "(Ljava/awt/color/ColorSpace;[F)[F", nullptr, $PUBLIC, $virtualMethod(Color, getComponents, $floats*, $ColorSpace*, $floats*)},
+		{"getGreen", "()I", nullptr, $PUBLIC, $virtualMethod(Color, getGreen, int32_t)},
+		{"getHSBColor", "(FFF)Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC, $staticMethod(Color, getHSBColor, Color*, float, float, float)},
+		{"getRGB", "()I", nullptr, $PUBLIC, $virtualMethod(Color, getRGB, int32_t)},
+		{"getRGBColorComponents", "([F)[F", nullptr, $PUBLIC, $virtualMethod(Color, getRGBColorComponents, $floats*, $floats*)},
+		{"getRGBComponents", "([F)[F", nullptr, $PUBLIC, $virtualMethod(Color, getRGBComponents, $floats*, $floats*)},
+		{"getRed", "()I", nullptr, $PUBLIC, $virtualMethod(Color, getRed, int32_t)},
+		{"getTransparency", "()I", nullptr, $PUBLIC, $virtualMethod(Color, getTransparency, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Color, hashCode, int32_t)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Color, initIDs, void)},
+		{"testColorValueRange", "(IIII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Color, testColorValueRange, void, int32_t, int32_t, int32_t, int32_t)},
+		{"testColorValueRange", "(FFFF)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Color, testColorValueRange, void, float, float, float, float)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Color, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Color",
+		"java.lang.Object",
+		"java.awt.Paint,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Color, name, initialize, &classInfo$$, Color::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Color));
+	});
 	return class$;
 }
 

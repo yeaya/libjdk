@@ -52,6 +52,7 @@ class AquaUtils : public ::java::lang::Object {
 	$class(AquaUtils, 0, ::java::lang::Object)
 public:
 	AquaUtils();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool animationsEnabled();
 	static void blinkMenu(::com::apple::laf::AquaUtils$Selectable* selectable);

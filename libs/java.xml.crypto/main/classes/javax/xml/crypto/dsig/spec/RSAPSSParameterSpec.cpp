@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/dsig/spec/RSAPSSParameterSpec.h>
-
 #include <java/security/spec/PSSParameterSpec.h>
 #include <java/util/Objects.h>
 #include <jcpp.h>
@@ -16,30 +15,6 @@ namespace javax {
 			namespace dsig {
 				namespace spec {
 
-$FieldInfo _RSAPSSParameterSpec_FieldInfo_[] = {
-	{"spec", "Ljava/security/spec/PSSParameterSpec;", nullptr, $PRIVATE | $FINAL, $field(RSAPSSParameterSpec, spec)},
-	{}
-};
-
-$MethodInfo _RSAPSSParameterSpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/PSSParameterSpec;)V", nullptr, $PUBLIC, $method(RSAPSSParameterSpec, init$, void, $PSSParameterSpec*)},
-	{"getPSSParameterSpec", "()Ljava/security/spec/PSSParameterSpec;", nullptr, $PUBLIC, $method(RSAPSSParameterSpec, getPSSParameterSpec, $PSSParameterSpec*)},
-	{}
-};
-
-$ClassInfo _RSAPSSParameterSpec_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.xml.crypto.dsig.spec.RSAPSSParameterSpec",
-	"java.lang.Object",
-	"javax.xml.crypto.dsig.spec.SignatureMethodParameterSpec",
-	_RSAPSSParameterSpec_FieldInfo_,
-	_RSAPSSParameterSpec_MethodInfo_
-};
-
-$Object* allocate$RSAPSSParameterSpec($Class* clazz) {
-	return $of($alloc(RSAPSSParameterSpec));
-}
-
 void RSAPSSParameterSpec::init$($PSSParameterSpec* spec) {
 	$set(this, spec, $cast($PSSParameterSpec, $Objects::requireNonNull(spec)));
 }
@@ -52,7 +27,26 @@ RSAPSSParameterSpec::RSAPSSParameterSpec() {
 }
 
 $Class* RSAPSSParameterSpec::load$($String* name, bool initialize) {
-	$loadClass(RSAPSSParameterSpec, name, initialize, &_RSAPSSParameterSpec_ClassInfo_, allocate$RSAPSSParameterSpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"spec", "Ljava/security/spec/PSSParameterSpec;", nullptr, $PRIVATE | $FINAL, $field(RSAPSSParameterSpec, spec)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/spec/PSSParameterSpec;)V", nullptr, $PUBLIC, $method(RSAPSSParameterSpec, init$, void, $PSSParameterSpec*)},
+		{"getPSSParameterSpec", "()Ljava/security/spec/PSSParameterSpec;", nullptr, $PUBLIC, $method(RSAPSSParameterSpec, getPSSParameterSpec, $PSSParameterSpec*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.xml.crypto.dsig.spec.RSAPSSParameterSpec",
+		"java.lang.Object",
+		"javax.xml.crypto.dsig.spec.SignatureMethodParameterSpec",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RSAPSSParameterSpec, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RSAPSSParameterSpec);
+	});
 	return class$;
 }
 

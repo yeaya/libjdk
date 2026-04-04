@@ -93,7 +93,7 @@ public:
 	static const int32_t DST_SPEAKER = 512;
 	static const int32_t DST_HEADPHONE = 768;
 	static const int32_t DST_LINE_OUT = 1024;
-	static const int32_t DST_MASK = 0x0000FF00;
+	static const int32_t DST_MASK = 0x0000ff00;
 	$Array<::javax::sound::sampled::Port$Info>* portInfos = nullptr;
 	$Array<::com::sun::media::sound::PortMixer$PortMixerPort>* ports = nullptr;
 	int64_t id = 0;

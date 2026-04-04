@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/traversers/XSDHandler.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityManager.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLErrorReporter.h>
@@ -68,7 +67,6 @@
 #include <com/sun/org/apache/xerces/internal/utils/XMLSecurityPropertyManager$Property.h>
 #include <com/sun/org/apache/xerces/internal/utils/XMLSecurityPropertyManager.h>
 #include <com/sun/org/apache/xerces/internal/xni/QName.h>
-#include <com/sun/org/apache/xerces/internal/xni/XMLLocator.h>
 #include <com/sun/org/apache/xerces/internal/xni/XNIException.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/Grammar.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription.h>
@@ -272,7 +270,6 @@ using $XMLErrorReporter = ::com::sun::org::apache::xerces::internal::impl::XMLEr
 using $SchemaDVFactory = ::com::sun::org::apache::xerces::internal::impl::dv::SchemaDVFactory;
 using $XSSimpleTypeDecl = ::com::sun::org::apache::xerces::internal::impl::dv::xs::XSSimpleTypeDecl;
 using $SchemaGrammar = ::com::sun::org::apache::xerces::internal::impl::xs::SchemaGrammar;
-using $SchemaGrammar$BuiltinSchemaGrammar = ::com::sun::org::apache::xerces::internal::impl::xs::SchemaGrammar$BuiltinSchemaGrammar;
 using $SchemaNamespaceSupport = ::com::sun::org::apache::xerces::internal::impl::xs::SchemaNamespaceSupport;
 using $SchemaSymbols = ::com::sun::org::apache::xerces::internal::impl::xs::SchemaSymbols;
 using $XMLSchemaException = ::com::sun::org::apache::xerces::internal::impl::xs::XMLSchemaException;
@@ -332,15 +329,12 @@ using $XMLSecurityManager = ::com::sun::org::apache::xerces::internal::utils::XM
 using $XMLSecurityPropertyManager = ::com::sun::org::apache::xerces::internal::utils::XMLSecurityPropertyManager;
 using $XMLSecurityPropertyManager$Property = ::com::sun::org::apache::xerces::internal::utils::XMLSecurityPropertyManager$Property;
 using $QName = ::com::sun::org::apache::xerces::internal::xni::QName;
-using $XMLLocator = ::com::sun::org::apache::xerces::internal::xni::XMLLocator;
-using $XMLGrammarDescription = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLGrammarDescription;
 using $XMLGrammarPool = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLGrammarPool;
 using $XMLComponentManager = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager;
 using $XMLConfigurationException = ::com::sun::org::apache::xerces::internal::xni::parser::XMLConfigurationException;
 using $XMLEntityResolver = ::com::sun::org::apache::xerces::internal::xni::parser::XMLEntityResolver;
 using $XMLInputSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLInputSource;
 using $XMLParseException = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParseException;
-using $XMLParserConfiguration = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParserConfiguration;
 using $StringList = ::com::sun::org::apache::xerces::internal::xs::StringList;
 using $XSAttributeDeclaration = ::com::sun::org::apache::xerces::internal::xs::XSAttributeDeclaration;
 using $XSAttributeGroupDefinition = ::com::sun::org::apache::xerces::internal::xs::XSAttributeGroupDefinition;
@@ -358,7 +352,6 @@ using $XSTerm = ::com::sun::org::apache::xerces::internal::xs::XSTerm;
 using $XSTypeDefinition = ::com::sun::org::apache::xerces::internal::xs::XSTypeDefinition;
 using $ObjectList = ::com::sun::org::apache::xerces::internal::xs::datatypes::ObjectList;
 using $IOException = ::java::io::IOException;
-using $Reader = ::java::io::Reader;
 using $StringReader = ::java::io::StringReader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -374,14 +367,12 @@ using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $Stack = ::java::util::Stack;
 using $XMLConstants = ::javax::xml::XMLConstants;
 using $CatalogFeatures$Feature = ::javax::xml::catalog::CatalogFeatures$Feature;
 using $XMLEventReader = ::javax::xml::stream::XMLEventReader;
 using $XMLStreamException = ::javax::xml::stream::XMLStreamException;
 using $XMLStreamReader = ::javax::xml::stream::XMLStreamReader;
-using $XMLEvent = ::javax::xml::stream::events::XMLEvent;
 using $JdkConstants = ::jdk::xml::internal::JdkConstants;
 using $JdkXmlUtils = ::jdk::xml::internal::JdkXmlUtils;
 using $SecuritySupport = ::jdk::xml::internal::SecuritySupport;
@@ -405,297 +396,6 @@ namespace com {
 						namespace impl {
 							namespace xs {
 								namespace traversers {
-
-$FieldInfo _XSDHandler_FieldInfo_[] = {
-	{"VALIDATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, VALIDATION)},
-	{"XMLSCHEMA_VALIDATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, XMLSCHEMA_VALIDATION)},
-	{"ALLOW_JAVA_ENCODINGS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, ALLOW_JAVA_ENCODINGS)},
-	{"CONTINUE_AFTER_FATAL_ERROR", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, CONTINUE_AFTER_FATAL_ERROR)},
-	{"STANDARD_URI_CONFORMANT_FEATURE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, STANDARD_URI_CONFORMANT_FEATURE)},
-	{"DISALLOW_DOCTYPE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, DISALLOW_DOCTYPE)},
-	{"GENERATE_SYNTHETIC_ANNOTATIONS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, GENERATE_SYNTHETIC_ANNOTATIONS)},
-	{"VALIDATE_ANNOTATIONS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, VALIDATE_ANNOTATIONS)},
-	{"HONOUR_ALL_SCHEMALOCATIONS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, HONOUR_ALL_SCHEMALOCATIONS)},
-	{"NAMESPACE_GROWTH", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, NAMESPACE_GROWTH)},
-	{"TOLERATE_DUPLICATES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, TOLERATE_DUPLICATES)},
-	{"NAMESPACE_PREFIXES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSDHandler, NAMESPACE_PREFIXES)},
-	{"STRING_INTERNING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, STRING_INTERNING)},
-	{"ERROR_HANDLER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, ERROR_HANDLER)},
-	{"JAXP_SCHEMA_SOURCE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, JAXP_SCHEMA_SOURCE)},
-	{"ENTITY_RESOLVER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSDHandler, ENTITY_RESOLVER)},
-	{"ENTITY_MANAGER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, ENTITY_MANAGER)},
-	{"ERROR_REPORTER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSDHandler, ERROR_REPORTER)},
-	{"XMLGRAMMAR_POOL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSDHandler, XMLGRAMMAR_POOL)},
-	{"SYMBOL_TABLE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSDHandler, SYMBOL_TABLE)},
-	{"SECURITY_MANAGER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, SECURITY_MANAGER)},
-	{"LOCALE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, LOCALE)},
-	{"XML_SECURITY_PROPERTY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSDHandler, XML_SECURITY_PROPERTY_MANAGER)},
-	{"DEBUG_NODE_POOL", "Z", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSDHandler, DEBUG_NODE_POOL)},
-	{"ATTRIBUTE_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(XSDHandler, ATTRIBUTE_TYPE)},
-	{"ATTRIBUTEGROUP_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(XSDHandler, ATTRIBUTEGROUP_TYPE)},
-	{"ELEMENT_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(XSDHandler, ELEMENT_TYPE)},
-	{"GROUP_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(XSDHandler, GROUP_TYPE)},
-	{"IDENTITYCONSTRAINT_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(XSDHandler, IDENTITYCONSTRAINT_TYPE)},
-	{"NOTATION_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(XSDHandler, NOTATION_TYPE)},
-	{"TYPEDECL_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(XSDHandler, TYPEDECL_TYPE)},
-	{"REDEF_IDENTIFIER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSDHandler, REDEF_IDENTIFIER)},
-	{"fDeclPool", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSDeclarationPool;", nullptr, $PROTECTED, $field(XSDHandler, fDeclPool)},
-	{"fSecurityManager", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager;", nullptr, $PROTECTED, $field(XSDHandler, fSecurityManager)},
-	{"fAccessExternalSchema", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSDHandler, fAccessExternalSchema)},
-	{"fAccessExternalDTD", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSDHandler, fAccessExternalDTD)},
-	{"registryEmpty", "Z", nullptr, $PRIVATE, $field(XSDHandler, registryEmpty)},
-	{"fUnparsedAttributeRegistry", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lorg/w3c/dom/Element;>;", $PRIVATE, $field(XSDHandler, fUnparsedAttributeRegistry)},
-	{"fUnparsedAttributeGroupRegistry", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lorg/w3c/dom/Element;>;", $PRIVATE, $field(XSDHandler, fUnparsedAttributeGroupRegistry)},
-	{"fUnparsedElementRegistry", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lorg/w3c/dom/Element;>;", $PRIVATE, $field(XSDHandler, fUnparsedElementRegistry)},
-	{"fUnparsedGroupRegistry", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lorg/w3c/dom/Element;>;", $PRIVATE, $field(XSDHandler, fUnparsedGroupRegistry)},
-	{"fUnparsedIdentityConstraintRegistry", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lorg/w3c/dom/Element;>;", $PRIVATE, $field(XSDHandler, fUnparsedIdentityConstraintRegistry)},
-	{"fUnparsedNotationRegistry", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lorg/w3c/dom/Element;>;", $PRIVATE, $field(XSDHandler, fUnparsedNotationRegistry)},
-	{"fUnparsedTypeRegistry", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lorg/w3c/dom/Element;>;", $PRIVATE, $field(XSDHandler, fUnparsedTypeRegistry)},
-	{"fUnparsedAttributeRegistrySub", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;>;", $PRIVATE, $field(XSDHandler, fUnparsedAttributeRegistrySub)},
-	{"fUnparsedAttributeGroupRegistrySub", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;>;", $PRIVATE, $field(XSDHandler, fUnparsedAttributeGroupRegistrySub)},
-	{"fUnparsedElementRegistrySub", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;>;", $PRIVATE, $field(XSDHandler, fUnparsedElementRegistrySub)},
-	{"fUnparsedGroupRegistrySub", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;>;", $PRIVATE, $field(XSDHandler, fUnparsedGroupRegistrySub)},
-	{"fUnparsedIdentityConstraintRegistrySub", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;>;", $PRIVATE, $field(XSDHandler, fUnparsedIdentityConstraintRegistrySub)},
-	{"fUnparsedNotationRegistrySub", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;>;", $PRIVATE, $field(XSDHandler, fUnparsedNotationRegistrySub)},
-	{"fUnparsedTypeRegistrySub", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;>;", $PRIVATE, $field(XSDHandler, fUnparsedTypeRegistrySub)},
-	{"fUnparsedRegistriesExt", "[Ljava/util/Map;", "[Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;>;", $PRIVATE, $field(XSDHandler, fUnparsedRegistriesExt)},
-	{"fDependencyMap", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;>;>;", $PRIVATE, $field(XSDHandler, fDependencyMap)},
-	{"fImportMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PRIVATE, $field(XSDHandler, fImportMap)},
-	{"fAllTNSs", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(XSDHandler, fAllTNSs)},
-	{"fLocationPairs", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/XMLSchemaLoader$LocationArray;>;", $PRIVATE, $field(XSDHandler, fLocationPairs)},
-	{"fHiddenNodes", "Ljava/util/Map;", "Ljava/util/Map<Lorg/w3c/dom/Node;Ljava/lang/String;>;", 0, $field(XSDHandler, fHiddenNodes)},
-	{"fTraversed", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDHandler$XSDKey;Lorg/w3c/dom/Element;>;", $PRIVATE, $field(XSDHandler, fTraversed)},
-	{"fDoc2SystemId", "Ljava/util/Map;", "Ljava/util/Map<Lorg/w3c/dom/Element;Ljava/lang/String;>;", $PRIVATE, $field(XSDHandler, fDoc2SystemId)},
-	{"fRoot", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;", nullptr, $PRIVATE, $field(XSDHandler, fRoot)},
-	{"fDoc2XSDocumentMap", "Ljava/util/Map;", "Ljava/util/Map<Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;>;", $PRIVATE, $field(XSDHandler, fDoc2XSDocumentMap)},
-	{"fRedefine2XSDMap", "Ljava/util/Map;", "Ljava/util/Map<Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;>;", $PRIVATE, $field(XSDHandler, fRedefine2XSDMap)},
-	{"fRedefine2NSSupport", "Ljava/util/Map;", "Ljava/util/Map<Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaNamespaceSupport;>;", $PRIVATE, $field(XSDHandler, fRedefine2NSSupport)},
-	{"fRedefinedRestrictedAttributeGroupRegistry", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(XSDHandler, fRedefinedRestrictedAttributeGroupRegistry)},
-	{"fRedefinedRestrictedGroupRegistry", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(XSDHandler, fRedefinedRestrictedGroupRegistry)},
-	{"fLastSchemaWasDuplicate", "Z", nullptr, $PRIVATE, $field(XSDHandler, fLastSchemaWasDuplicate)},
-	{"fValidateAnnotations", "Z", nullptr, $PRIVATE, $field(XSDHandler, fValidateAnnotations)},
-	{"fHonourAllSchemaLocations", "Z", nullptr, $PRIVATE, $field(XSDHandler, fHonourAllSchemaLocations)},
-	{"fNamespaceGrowth", "Z", nullptr, 0, $field(XSDHandler, fNamespaceGrowth)},
-	{"fTolerateDuplicates", "Z", nullptr, 0, $field(XSDHandler, fTolerateDuplicates)},
-	{"fErrorReporter", "Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;", nullptr, $PRIVATE, $field(XSDHandler, fErrorReporter)},
-	{"fErrorHandler", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler;", nullptr, $PRIVATE, $field(XSDHandler, fErrorHandler)},
-	{"fLocale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(XSDHandler, fLocale)},
-	{"fEntityManager", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager;", nullptr, $PRIVATE, $field(XSDHandler, fEntityManager)},
-	{"fAttributeChecker", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSAttributeChecker;", nullptr, $PRIVATE, $field(XSDHandler, fAttributeChecker)},
-	{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PRIVATE, $field(XSDHandler, fSymbolTable)},
-	{"fGrammarBucket", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSGrammarBucket;", nullptr, $PRIVATE, $field(XSDHandler, fGrammarBucket)},
-	{"fSchemaGrammarDescription", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSDDescription;", nullptr, $PRIVATE, $field(XSDHandler, fSchemaGrammarDescription)},
-	{"fGrammarPool", "Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;", nullptr, $PRIVATE, $field(XSDHandler, fGrammarPool)},
-	{"fSecurityPropertyMgr", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityPropertyManager;", nullptr, $PRIVATE, $field(XSDHandler, fSecurityPropertyMgr)},
-	{"fUseCatalog", "Z", nullptr, $PRIVATE, $field(XSDHandler, fUseCatalog)},
-	{"fCatalogFile", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSDHandler, fCatalogFile)},
-	{"fDefer", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSDHandler, fDefer)},
-	{"fPrefer", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSDHandler, fPrefer)},
-	{"fResolve", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSDHandler, fResolve)},
-	{"fOverrideDefaultParser", "Z", nullptr, $PRIVATE, $field(XSDHandler, fOverrideDefaultParser)},
-	{"fAttributeGroupTraverser", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDAttributeGroupTraverser;", nullptr, 0, $field(XSDHandler, fAttributeGroupTraverser)},
-	{"fAttributeTraverser", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDAttributeTraverser;", nullptr, 0, $field(XSDHandler, fAttributeTraverser)},
-	{"fComplexTypeTraverser", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDComplexTypeTraverser;", nullptr, 0, $field(XSDHandler, fComplexTypeTraverser)},
-	{"fElementTraverser", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDElementTraverser;", nullptr, 0, $field(XSDHandler, fElementTraverser)},
-	{"fGroupTraverser", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDGroupTraverser;", nullptr, 0, $field(XSDHandler, fGroupTraverser)},
-	{"fKeyrefTraverser", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDKeyrefTraverser;", nullptr, 0, $field(XSDHandler, fKeyrefTraverser)},
-	{"fNotationTraverser", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDNotationTraverser;", nullptr, 0, $field(XSDHandler, fNotationTraverser)},
-	{"fSimpleTypeTraverser", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDSimpleTypeTraverser;", nullptr, 0, $field(XSDHandler, fSimpleTypeTraverser)},
-	{"fUniqueOrKeyTraverser", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDUniqueOrKeyTraverser;", nullptr, 0, $field(XSDHandler, fUniqueOrKeyTraverser)},
-	{"fWildCardTraverser", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDWildcardTraverser;", nullptr, 0, $field(XSDHandler, fWildCardTraverser)},
-	{"fDVFactory", "Lcom/sun/org/apache/xerces/internal/impl/dv/SchemaDVFactory;", nullptr, 0, $field(XSDHandler, fDVFactory)},
-	{"fSchemaParser", "Lcom/sun/org/apache/xerces/internal/impl/xs/opti/SchemaDOMParser;", nullptr, 0, $field(XSDHandler, fSchemaParser)},
-	{"fXSContentHandler", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/SchemaContentHandler;", nullptr, 0, $field(XSDHandler, fXSContentHandler)},
-	{"fStAXSchemaParser", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/StAXSchemaParser;", nullptr, 0, $field(XSDHandler, fStAXSchemaParser)},
-	{"fAnnotationValidator", "Lcom/sun/org/apache/xerces/internal/parsers/XML11Configuration;", nullptr, 0, $field(XSDHandler, fAnnotationValidator)},
-	{"fGrammarBucketAdapter", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDHandler$XSAnnotationGrammarPool;", nullptr, 0, $field(XSDHandler, fGrammarBucketAdapter)},
-	{"INIT_STACK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSDHandler, INIT_STACK_SIZE)},
-	{"INC_STACK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSDHandler, INC_STACK_SIZE)},
-	{"fLocalElemStackPos", "I", nullptr, $PRIVATE, $field(XSDHandler, fLocalElemStackPos)},
-	{"fParticle", "[Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, $PRIVATE, $field(XSDHandler, fParticle)},
-	{"fLocalElementDecl", "[Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(XSDHandler, fLocalElementDecl)},
-	{"fLocalElementDecl_schema", "[Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;", nullptr, $PRIVATE, $field(XSDHandler, fLocalElementDecl_schema)},
-	{"fAllContext", "[I", nullptr, $PRIVATE, $field(XSDHandler, fAllContext)},
-	{"fParent", "[Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, $PRIVATE, $field(XSDHandler, fParent)},
-	{"fLocalElemNamespaceContext", "[[Ljava/lang/String;", nullptr, $PRIVATE, $field(XSDHandler, fLocalElemNamespaceContext)},
-	{"INIT_KEYREF_STACK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSDHandler, INIT_KEYREF_STACK)},
-	{"INC_KEYREF_STACK_AMOUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSDHandler, INC_KEYREF_STACK_AMOUNT)},
-	{"fKeyrefStackPos", "I", nullptr, $PRIVATE, $field(XSDHandler, fKeyrefStackPos)},
-	{"fKeyrefs", "[Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(XSDHandler, fKeyrefs)},
-	{"fKeyrefsMapXSDocumentInfo", "[Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;", nullptr, $PRIVATE, $field(XSDHandler, fKeyrefsMapXSDocumentInfo)},
-	{"fKeyrefElems", "[Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;", nullptr, $PRIVATE, $field(XSDHandler, fKeyrefElems)},
-	{"fKeyrefNamespaceContext", "[[Ljava/lang/String;", nullptr, $PRIVATE, $field(XSDHandler, fKeyrefNamespaceContext)},
-	{"fGlobalAttrDecls", "Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, 0, $field(XSDHandler, fGlobalAttrDecls)},
-	{"fGlobalAttrGrpDecls", "Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, 0, $field(XSDHandler, fGlobalAttrGrpDecls)},
-	{"fGlobalElemDecls", "Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, 0, $field(XSDHandler, fGlobalElemDecls)},
-	{"fGlobalGroupDecls", "Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, 0, $field(XSDHandler, fGlobalGroupDecls)},
-	{"fGlobalNotationDecls", "Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, 0, $field(XSDHandler, fGlobalNotationDecls)},
-	{"fGlobalIDConstraintDecls", "Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, 0, $field(XSDHandler, fGlobalIDConstraintDecls)},
-	{"fGlobalTypeDecls", "Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, 0, $field(XSDHandler, fGlobalTypeDecls)},
-	{"NS_ERROR_CODES", "[[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSDHandler, NS_ERROR_CODES)},
-	{"ELE_ERROR_CODES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSDHandler, ELE_ERROR_CODES)},
-	{"fReportedTNS", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(XSDHandler, fReportedTNS)},
-	{"COMP_TYPE", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSDHandler, COMP_TYPE)},
-	{"CIRCULAR_CODES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSDHandler, CIRCULAR_CODES)},
-	{"xl", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/SimpleLocator;", nullptr, $PRIVATE, $field(XSDHandler, xl)},
-	{}
-};
-
-$MethodInfo _XSDHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XSDHandler, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSGrammarBucket;)V", nullptr, $PUBLIC, $method(XSDHandler, init$, void, $XSGrammarBucket*)},
-	{"addGlobalAttributeDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeDecl;)V", nullptr, 0, $virtualMethod(XSDHandler, addGlobalAttributeDecl, void, $XSAttributeDecl*)},
-	{"addGlobalAttributeDecls", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDHandler, addGlobalAttributeDecls, void, $SchemaGrammar*, $SchemaGrammar*)},
-	{"addGlobalAttributeGroupDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;)V", nullptr, 0, $virtualMethod(XSDHandler, addGlobalAttributeGroupDecl, void, $XSAttributeGroupDecl*)},
-	{"addGlobalAttributeGroupDecls", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDHandler, addGlobalAttributeGroupDecls, void, $SchemaGrammar*, $SchemaGrammar*)},
-	{"addGlobalComponent", "(Lcom/sun/org/apache/xerces/internal/xs/XSObject;Lcom/sun/org/apache/xerces/internal/impl/xs/XSDDescription;)V", nullptr, $PRIVATE, $method(XSDHandler, addGlobalComponent, void, $XSObject*, $XSDDescription*)},
-	{"addGlobalComponents", "(Ljava/util/List;Ljava/util/Map;)V", "(Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, addGlobalComponents, void, $List*, $Map*)},
-	{"addGlobalElementDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;)V", nullptr, 0, $virtualMethod(XSDHandler, addGlobalElementDecl, void, $XSElementDecl*)},
-	{"addGlobalElementDecls", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDHandler, addGlobalElementDecls, void, $SchemaGrammar*, $SchemaGrammar*)},
-	{"addGlobalGroupDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSGroupDecl;)V", nullptr, 0, $virtualMethod(XSDHandler, addGlobalGroupDecl, void, $XSGroupDecl*)},
-	{"addGlobalGroupDecls", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDHandler, addGlobalGroupDecls, void, $SchemaGrammar*, $SchemaGrammar*)},
-	{"addGlobalNotationDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSNotationDecl;)V", nullptr, 0, $virtualMethod(XSDHandler, addGlobalNotationDecl, void, $XSNotationDecl*)},
-	{"addGlobalNotationDecls", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDHandler, addGlobalNotationDecls, void, $SchemaGrammar*, $SchemaGrammar*)},
-	{"addGlobalTypeDecl", "(Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;)V", nullptr, 0, $virtualMethod(XSDHandler, addGlobalTypeDecl, void, $XSTypeDefinition*)},
-	{"addGlobalTypeDecls", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDHandler, addGlobalTypeDecls, void, $SchemaGrammar*, $SchemaGrammar*)},
-	{"addGrammarComponents", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDHandler, addGrammarComponents, void, $SchemaGrammar*, $SchemaGrammar*)},
-	{"addGrammars", "(Ljava/util/List;)V", "(Ljava/util/List<Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;>;)V", $PRIVATE, $method(XSDHandler, addGrammars, void, $List*)},
-	{"addIDConstraintDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint;)V", nullptr, 0, $virtualMethod(XSDHandler, addIDConstraintDecl, void, $IdentityConstraint*)},
-	{"addImportList", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Ljava/util/List;Ljava/util/List;)V", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;>;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE, $method(XSDHandler, addImportList, void, $SchemaGrammar*, $List*, $List*)},
-	{"addNamespaceDependency", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE, $method(XSDHandler, addNamespaceDependency, void, $String*, $String*, $List*)},
-	{"addNewGrammarComponents", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDHandler, addNewGrammarComponents, void, $SchemaGrammar*, $SchemaGrammar*)},
-	{"addNewGrammarLocations", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDHandler, addNewGrammarLocations, void, $SchemaGrammar*, $SchemaGrammar*)},
-	{"addNewImportedGrammars", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDHandler, addNewImportedGrammars, void, $SchemaGrammar*, $SchemaGrammar*)},
-	{"addRelatedAttribute", "(Lcom/sun/org/apache/xerces/internal/xs/XSAttributeDeclaration;Ljava/util/List;Ljava/lang/String;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/xs/XSAttributeDeclaration;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, addRelatedAttribute, void, $XSAttributeDeclaration*, $List*, $String*, $Map*)},
-	{"addRelatedElement", "(Lcom/sun/org/apache/xerces/internal/xs/XSElementDeclaration;Ljava/util/List;Ljava/lang/String;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/xs/XSElementDeclaration;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, addRelatedElement, void, $XSElementDeclaration*, $List*, $String*, $Map*)},
-	{"addRelatedType", "(Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;Ljava/util/List;Ljava/lang/String;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, addRelatedType, void, $XSTypeDefinition*, $List*, $String*, $Map*)},
-	{"buildGlobalNameRegistries", "()V", nullptr, $PROTECTED, $virtualMethod(XSDHandler, buildGlobalNameRegistries, void)},
-	{"canAddComponent", "(Lcom/sun/org/apache/xerces/internal/xs/XSObject;Lcom/sun/org/apache/xerces/internal/impl/xs/XSDDescription;)Z", nullptr, $PRIVATE, $method(XSDHandler, canAddComponent, bool, $XSObject*, $XSDDescription*)},
-	{"canAddComponents", "(Ljava/util/List;)Z", "(Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;)Z", $PRIVATE, $method(XSDHandler, canAddComponents, bool, $List*)},
-	{"changeRedefineGroup", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;)I", nullptr, $PRIVATE, $method(XSDHandler, changeRedefineGroup, int32_t, $String*, $String*, $String*, $Element*, $XSDocumentInfo*)},
-	{"checkForDuplicateNames", "(Ljava/lang/String;ILjava/util/Map;Ljava/util/Map;Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;)V", "(Ljava/lang/String;ILjava/util/Map<Ljava/lang/String;Lorg/w3c/dom/Element;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;>;Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;)V", 0, $virtualMethod(XSDHandler, checkForDuplicateNames, void, $String*, int32_t, $Map*, $Map*, $Element*, $XSDocumentInfo*)},
-	{"checkForDuplicateNames", "(Ljava/lang/String;ILorg/w3c/dom/Element;)V", nullptr, 0, $virtualMethod(XSDHandler, checkForDuplicateNames, void, $String*, int32_t, $Element*)},
-	{"constructTrees", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/XSDDescription;Z)Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;", nullptr, $PROTECTED, $virtualMethod(XSDHandler, constructTrees, $XSDocumentInfo*, $Element*, $String*, $XSDDescription*, bool)},
-	{"containedImportedGrammar", "(Ljava/util/List;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)Z", "(Ljava/util/List<Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;>;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)Z", $PRIVATE, $method(XSDHandler, containedImportedGrammar, bool, $List*, $SchemaGrammar*)},
-	{"createAnnotationValidator", "()V", nullptr, $PRIVATE, $method(XSDHandler, createAnnotationValidator, void)},
-	{"createGrammarFrom", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;", nullptr, $PRIVATE, $method(XSDHandler, createGrammarFrom, $SchemaGrammar*, $SchemaGrammar*)},
-	{"createTraversers", "()V", nullptr, $PRIVATE, $method(XSDHandler, createTraversers, void)},
-	{"doc2SystemId", "(Lorg/w3c/dom/Element;)Ljava/lang/String;", nullptr, $PRIVATE, $method(XSDHandler, doc2SystemId, $String*, $Element*)},
-	{"element2Locator", "(Lorg/w3c/dom/Element;)Lcom/sun/org/apache/xerces/internal/impl/xs/util/SimpleLocator;", nullptr, $PUBLIC, $virtualMethod(XSDHandler, element2Locator, $SimpleLocator*, $Element*)},
-	{"element2Locator", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/util/SimpleLocator;)Z", nullptr, $PUBLIC, $virtualMethod(XSDHandler, element2Locator, bool, $Element*, $SimpleLocator*)},
-	{"emptyString2Null", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(XSDHandler, emptyString2Null, $String*, $String*)},
-	{"existingGrammars", "(Ljava/util/List;)Z", "(Ljava/util/List<Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;>;)Z", $PRIVATE, $method(XSDHandler, existingGrammars, bool, $List*)},
-	{"expandComponents", "([Lcom/sun/org/apache/xerces/internal/xs/XSObject;Ljava/util/Map;)Ljava/util/List;", "([Lcom/sun/org/apache/xerces/internal/xs/XSObject;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;", $PRIVATE, $method(XSDHandler, expandComponents, $List*, $XSObjectArray*, $Map*)},
-	{"expandGrammars", "([Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)Ljava/util/List;", "([Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)Ljava/util/List<Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;>;", $PRIVATE, $method(XSDHandler, expandGrammars, $List*, $SchemaGrammarArray*)},
-	{"expandImportList", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE, $method(XSDHandler, expandImportList, void, $String*, $List*)},
-	{"expandRelatedAttributeComponents", "(Lcom/sun/org/apache/xerces/internal/xs/XSAttributeDeclaration;Ljava/util/List;Ljava/lang/String;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/xs/XSAttributeDeclaration;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, expandRelatedAttributeComponents, void, $XSAttributeDeclaration*, $List*, $String*, $Map*)},
-	{"expandRelatedAttributeGroupComponents", "(Lcom/sun/org/apache/xerces/internal/xs/XSAttributeGroupDefinition;Ljava/util/List;Ljava/lang/String;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/xs/XSAttributeGroupDefinition;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, expandRelatedAttributeGroupComponents, void, $XSAttributeGroupDefinition*, $List*, $String*, $Map*)},
-	{"expandRelatedAttributeUseComponents", "(Lcom/sun/org/apache/xerces/internal/xs/XSAttributeUse;Ljava/util/List;Ljava/lang/String;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/xs/XSAttributeUse;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, expandRelatedAttributeUseComponents, void, $XSAttributeUse*, $List*, $String*, $Map*)},
-	{"expandRelatedAttributeUsesComponents", "(Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;Ljava/util/List;Ljava/lang/String;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, expandRelatedAttributeUsesComponents, void, $XSObjectList*, $List*, $String*, $Map*)},
-	{"expandRelatedComplexTypeComponents", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;Ljava/util/List;Ljava/lang/String;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, expandRelatedComplexTypeComponents, void, $XSComplexTypeDecl*, $List*, $String*, $Map*)},
-	{"expandRelatedComponents", "(Lcom/sun/org/apache/xerces/internal/xs/XSObject;Ljava/util/List;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/xs/XSObject;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, expandRelatedComponents, void, $XSObject*, $List*, $Map*)},
-	{"expandRelatedElementComponents", "(Lcom/sun/org/apache/xerces/internal/xs/XSElementDeclaration;Ljava/util/List;Ljava/lang/String;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/xs/XSElementDeclaration;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, expandRelatedElementComponents, void, $XSElementDeclaration*, $List*, $String*, $Map*)},
-	{"expandRelatedModelGroupComponents", "(Lcom/sun/org/apache/xerces/internal/xs/XSModelGroup;Ljava/util/List;Ljava/lang/String;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/xs/XSModelGroup;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, expandRelatedModelGroupComponents, void, $XSModelGroup*, $List*, $String*, $Map*)},
-	{"expandRelatedModelGroupDefinitionComponents", "(Lcom/sun/org/apache/xerces/internal/xs/XSModelGroupDefinition;Ljava/util/List;Ljava/lang/String;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/xs/XSModelGroupDefinition;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, expandRelatedModelGroupDefinitionComponents, void, $XSModelGroupDefinition*, $List*, $String*, $Map*)},
-	{"expandRelatedParticleComponents", "(Lcom/sun/org/apache/xerces/internal/xs/XSParticle;Ljava/util/List;Ljava/lang/String;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/xs/XSParticle;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, expandRelatedParticleComponents, void, $XSParticle*, $List*, $String*, $Map*)},
-	{"expandRelatedSimpleTypeComponents", "(Lcom/sun/org/apache/xerces/internal/xs/XSSimpleTypeDefinition;Ljava/util/List;Ljava/lang/String;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/xs/XSSimpleTypeDefinition;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, expandRelatedSimpleTypeComponents, void, $XSSimpleTypeDefinition*, $List*, $String*, $Map*)},
-	{"expandRelatedTypeComponents", "(Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;Ljava/util/List;Ljava/lang/String;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, expandRelatedTypeComponents, void, $XSTypeDefinition*, $List*, $String*, $Map*)},
-	{"fillInLocalElemInfo", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;ILcom/sun/org/apache/xerces/internal/xs/XSObject;Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;)V", nullptr, 0, $virtualMethod(XSDHandler, fillInLocalElemInfo, void, $Element*, $XSDocumentInfo*, int32_t, $XSObject*, $XSParticleDecl*)},
-	{"findDependentNamespaces", "(Ljava/lang/String;Ljava/util/Map;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $method(XSDHandler, findDependentNamespaces, $List*, $String*, $Map*)},
-	{"findGrammar", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSDDescription;Z)Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;", nullptr, $PROTECTED, $virtualMethod(XSDHandler, findGrammar, $SchemaGrammar*, $XSDDescription*, bool)},
-	{"findQName", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;)Ljava/lang/String;", nullptr, $PRIVATE, $method(XSDHandler, findQName, $String*, $String*, $XSDocumentInfo*)},
-	{"findXSDocumentForDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;)Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;", nullptr, $PRIVATE, $method(XSDHandler, findXSDocumentForDecl, $XSDocumentInfo*, $XSDocumentInfo*, $Element*, $XSDocumentInfo*)},
-	{"getDVFactory", "()Lcom/sun/org/apache/xerces/internal/impl/dv/SchemaDVFactory;", nullptr, $PUBLIC, $virtualMethod(XSDHandler, getDVFactory, $SchemaDVFactory*)},
-	{"getDocInfoFromMap", "(Ljava/util/Map;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;", "(Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;>;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;", $PRIVATE, $method(XSDHandler, getDocInfoFromMap, $XSDocumentInfo*, $Map*, $String*)},
-	{"getElementFromMap", "(Ljava/util/Map;Ljava/lang/String;)Lorg/w3c/dom/Element;", "(Ljava/util/Map<Ljava/lang/String;Lorg/w3c/dom/Element;>;Ljava/lang/String;)Lorg/w3c/dom/Element;", $PRIVATE, $method(XSDHandler, getElementFromMap, $Element*, $Map*, $String*)},
-	{"getFromMap", "(Ljava/util/Map;Ljava/lang/String;)Ljava/util/List;", "(Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $method(XSDHandler, getFromMap, $List*, $Map*, $String*)},
-	{"getGlobalAttributeDecl", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeDecl;", nullptr, $PRIVATE, $method(XSDHandler, getGlobalAttributeDecl, $XSAttributeDecl*, $String*)},
-	{"getGlobalAttributeGroupDecl", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;", nullptr, $PRIVATE, $method(XSDHandler, getGlobalAttributeGroupDecl, $XSAttributeGroupDecl*, $String*)},
-	{"getGlobalDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;ILcom/sun/org/apache/xerces/internal/xni/QName;Lorg/w3c/dom/Element;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(XSDHandler, getGlobalDecl, $Object*, $XSDocumentInfo*, int32_t, $QName*, $Element*)},
-	{"getGlobalDecl", "(Ljava/lang/String;I)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(XSDHandler, getGlobalDecl, $Object*, $String*, int32_t)},
-	{"getGlobalDeclFromGrammar", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;ILjava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(XSDHandler, getGlobalDeclFromGrammar, $Object*, $SchemaGrammar*, int32_t, $String*)},
-	{"getGlobalDeclFromGrammar", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;ILjava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(XSDHandler, getGlobalDeclFromGrammar, $Object*, $SchemaGrammar*, int32_t, $String*, $String*)},
-	{"getGlobalElementDecl", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;", nullptr, $PRIVATE, $method(XSDHandler, getGlobalElementDecl, $XSElementDecl*, $String*)},
-	{"getGlobalGroupDecl", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSGroupDecl;", nullptr, $PRIVATE, $method(XSDHandler, getGlobalGroupDecl, $XSGroupDecl*, $String*)},
-	{"getGlobalNotationDecl", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSNotationDecl;", nullptr, $PRIVATE, $method(XSDHandler, getGlobalNotationDecl, $XSNotationDecl*, $String*)},
-	{"getGlobalTypeDecl", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;", nullptr, $PRIVATE, $method(XSDHandler, getGlobalTypeDecl, $XSTypeDefinition*, $String*)},
-	{"getGrammar", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;", nullptr, 0, $virtualMethod(XSDHandler, getGrammar, $SchemaGrammar*, $String*)},
-	{"getGrpOrAttrGrpRedefinedByRestriction", "(ILcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lorg/w3c/dom/Element;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(XSDHandler, getGrpOrAttrGrpRedefinedByRestriction, $Object*, int32_t, $QName*, $XSDocumentInfo*, $Element*)},
-	{"getIDConstraintDecl", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint;", nullptr, $PRIVATE, $method(XSDHandler, getIDConstraintDecl, $IdentityConstraint*, $String*)},
-	{"getIDRegistry", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lorg/w3c/dom/Element;>;", $PROTECTED, $virtualMethod(XSDHandler, getIDRegistry, $Map*)},
-	{"getIDRegistry_sub", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;>;", $PROTECTED, $virtualMethod(XSDHandler, getIDRegistry_sub, $Map*)},
-	{"getSchemaDocument", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;ZSLorg/w3c/dom/Element;)Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $method(XSDHandler, getSchemaDocument, $Element*, $String*, $XMLInputSource*, bool, int16_t, $Element*)},
-	{"getSchemaDocument", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/util/SAXInputSource;ZSLorg/w3c/dom/Element;)Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $method(XSDHandler, getSchemaDocument, $Element*, $String*, $SAXInputSource*, bool, int16_t, $Element*)},
-	{"getSchemaDocument", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/util/DOMInputSource;ZSLorg/w3c/dom/Element;)Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $method(XSDHandler, getSchemaDocument, $Element*, $String*, $DOMInputSource*, bool, int16_t, $Element*)},
-	{"getSchemaDocument", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/util/StAXInputSource;ZSLorg/w3c/dom/Element;)Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $method(XSDHandler, getSchemaDocument, $Element*, $String*, $StAXInputSource*, bool, int16_t, $Element*)},
-	{"getSchemaDocument", "(Lcom/sun/org/apache/xerces/internal/impl/xs/util/XSInputSource;Lcom/sun/org/apache/xerces/internal/impl/xs/XSDDescription;)Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $method(XSDHandler, getSchemaDocument, $Element*, $XSInputSource*, $XSDDescription*)},
-	{"getSchemaDocument0", "(Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDHandler$XSDKey;Ljava/lang/String;Lorg/w3c/dom/Element;)Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $method(XSDHandler, getSchemaDocument0, $Element*, $XSDHandler$XSDKey*, $String*, $Element*)},
-	{"getSchemaDocument1", "(ZZLcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;Lorg/w3c/dom/Element;Ljava/io/IOException;)Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $method(XSDHandler, getSchemaDocument1, $Element*, bool, bool, $XMLInputSource*, $Element*, $IOException*)},
-	{"getSchemaGrammar", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSDDescription;)Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;", nullptr, $PRIVATE, $method(XSDHandler, getSchemaGrammar, $SchemaGrammar*, $XSDDescription*)},
-	{"isExistingGrammar", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSDDescription;Z)Z", nullptr, $PRIVATE, $method(XSDHandler, isExistingGrammar, bool, $XSDDescription*, bool)},
-	{"needReportTNSError", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $FINAL, $method(XSDHandler, needReportTNSError, bool, $String*)},
-	{"nonAnnotationContent", "(Lorg/w3c/dom/Element;)Z", nullptr, $PRIVATE, $method(XSDHandler, nonAnnotationContent, bool, $Element*)},
-	{"null2EmptyString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(XSDHandler, null2EmptyString, $String*, $String*)},
-	{"parseSchema", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;Lcom/sun/org/apache/xerces/internal/impl/xs/XSDDescription;Ljava/util/Map;)Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;Lcom/sun/org/apache/xerces/internal/impl/xs/XSDDescription;Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/XMLSchemaLoader$LocationArray;>;)Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;", $PUBLIC, $virtualMethod(XSDHandler, parseSchema, $SchemaGrammar*, $XMLInputSource*, $XSDDescription*, $Map*), "java.io.IOException"},
-	{"prepareForParse", "()V", nullptr, 0, $virtualMethod(XSDHandler, prepareForParse, void)},
-	{"prepareForTraverse", "()V", nullptr, 0, $virtualMethod(XSDHandler, prepareForTraverse, void)},
-	{"removeParticle", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSModelGroupImpl;Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;)Z", nullptr, $PRIVATE, $method(XSDHandler, removeParticle, bool, $XSModelGroupImpl*, $XSParticleDecl*)},
-	{"renameRedefiningComponents", "(Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lorg/w3c/dom/Element;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XSDHandler, renameRedefiningComponents, void, $XSDocumentInfo*, $Element*, $String*, $String*, $String*)},
-	{"reportSchemaErr", "(Ljava/lang/String;[Ljava/lang/Object;Lorg/w3c/dom/Element;SLjava/lang/Exception;)V", nullptr, 0, $virtualMethod(XSDHandler, reportSchemaErr, void, $String*, $ObjectArray*, $Element*, int16_t, $Exception*)},
-	{"reportSchemaError", "(Ljava/lang/String;[Ljava/lang/Object;Lorg/w3c/dom/Element;)V", nullptr, 0, $virtualMethod(XSDHandler, reportSchemaError, void, $String*, $ObjectArray*, $Element*)},
-	{"reportSchemaError", "(Ljava/lang/String;[Ljava/lang/Object;Lorg/w3c/dom/Element;Ljava/lang/Exception;)V", nullptr, 0, $virtualMethod(XSDHandler, reportSchemaError, void, $String*, $ObjectArray*, $Element*, $Exception*)},
-	{"reportSchemaFatalError", "(Ljava/lang/String;[Ljava/lang/Object;Lorg/w3c/dom/Element;)V", nullptr, 0, $virtualMethod(XSDHandler, reportSchemaFatalError, void, $String*, $ObjectArray*, $Element*)},
-	{"reportSchemaWarning", "(Ljava/lang/String;[Ljava/lang/Object;Lorg/w3c/dom/Element;)V", nullptr, 0, $virtualMethod(XSDHandler, reportSchemaWarning, void, $String*, $ObjectArray*, $Element*)},
-	{"reportSchemaWarning", "(Ljava/lang/String;[Ljava/lang/Object;Lorg/w3c/dom/Element;Ljava/lang/Exception;)V", nullptr, 0, $virtualMethod(XSDHandler, reportSchemaWarning, void, $String*, $ObjectArray*, $Element*, $Exception*)},
-	{"reportSharingError", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XSDHandler, reportSharingError, void, $String*, $String*)},
-	{"reset", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $virtualMethod(XSDHandler, reset, void, $XMLComponentManager*)},
-	{"resolveKeyRefs", "()V", nullptr, $PROTECTED, $virtualMethod(XSDHandler, resolveKeyRefs, void)},
-	{"resolveSchema", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSDDescription;ZLorg/w3c/dom/Element;Z)Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $method(XSDHandler, resolveSchema, $Element*, $XSDDescription*, bool, $Element*, bool)},
-	{"resolveSchema", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;Lcom/sun/org/apache/xerces/internal/impl/xs/XSDDescription;ZLorg/w3c/dom/Element;)Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $method(XSDHandler, resolveSchema, $Element*, $XMLInputSource*, $XSDDescription*, bool, $Element*)},
-	{"resolveSchemaSource", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSDDescription;ZLorg/w3c/dom/Element;Z)Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;", nullptr, $PRIVATE, $method(XSDHandler, resolveSchemaSource, $XMLInputSource*, $XSDDescription*, bool, $Element*, bool)},
-	{"schemaDocument2SystemId", "(Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSDHandler, schemaDocument2SystemId, $String*, $XSDocumentInfo*)},
-	{"setDVFactory", "(Lcom/sun/org/apache/xerces/internal/impl/dv/SchemaDVFactory;)V", nullptr, $PUBLIC, $virtualMethod(XSDHandler, setDVFactory, void, $SchemaDVFactory*)},
-	{"setDeclPool", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSDeclarationPool;)V", nullptr, $PUBLIC, $virtualMethod(XSDHandler, setDeclPool, void, $XSDeclarationPool*)},
-	{"setGenerateSyntheticAnnotations", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XSDHandler, setGenerateSyntheticAnnotations, void, bool)},
-	{"setSchemasVisible", "(Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;)V", nullptr, $PRIVATE, $method(XSDHandler, setSchemasVisible, void, $XSDocumentInfo*)},
-	{"storeKeyRef", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;)V", nullptr, $PROTECTED, $virtualMethod(XSDHandler, storeKeyRef, void, $Element*, $XSDocumentInfo*, $XSElementDecl*)},
-	{"traverseGlobalDecl", "(ILorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(XSDHandler, traverseGlobalDecl, $Object*, int32_t, $Element*, $XSDocumentInfo*, $SchemaGrammar*)},
-	{"traverseLocalElements", "()V", nullptr, 0, $virtualMethod(XSDHandler, traverseLocalElements, void)},
-	{"traverseSchemas", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/Object;>;)V", $PROTECTED, $virtualMethod(XSDHandler, traverseSchemas, void, $List*)},
-	{"updateImportDependencies", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, updateImportDependencies, void, $Map*)},
-	{"updateImportList", "(Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/List<Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;>;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;>;)V", $PRIVATE, $method(XSDHandler, updateImportList, void, $List*, $List*)},
-	{"updateImportList", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Ljava/util/List;Ljava/util/List;)V", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;>;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE, $method(XSDHandler, updateImportList, void, $SchemaGrammar*, $List*, $List*)},
-	{"updateImportListFor", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDHandler, updateImportListFor, void, $SchemaGrammar*)},
-	{"updateImportListWith", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDHandler, updateImportListWith, void, $SchemaGrammar*)},
-	{"validateAnnotations", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/Object;>;)V", $PRIVATE, $method(XSDHandler, validateAnnotations, void, $List*)},
-	{}
-};
-
-$InnerClassInfo _XSDHandler_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDHandler$SAX2XNIUtil", "com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDHandler", "SAX2XNIUtil", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDHandler$XSDKey", "com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDHandler", "XSDKey", $PRIVATE | $STATIC},
-	{"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDHandler$XSAnnotationGrammarPool", "com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDHandler", "XSAnnotationGrammarPool", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _XSDHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDHandler",
-	"java.lang.Object",
-	nullptr,
-	_XSDHandler_FieldInfo_,
-	_XSDHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XSDHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDHandler$SAX2XNIUtil,com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDHandler$XSDKey,com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDHandler$XSAnnotationGrammarPool"
-};
-
-$Object* allocate$XSDHandler($Class* clazz) {
-	return $of($alloc(XSDHandler));
-}
 
 $String* XSDHandler::VALIDATION = nullptr;
 $String* XSDHandler::XMLSCHEMA_VALIDATION = nullptr;
@@ -737,10 +437,10 @@ $String* XSDHandler::emptyString2Null($String* ns) {
 }
 
 $String* XSDHandler::doc2SystemId($Element* ele) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, documentURI, nullptr);
 	if ($instanceOf($SchemaDOM, $($nc(ele)->getOwnerDocument()))) {
-		$assign(documentURI, $nc(($cast($SchemaDOM, $(ele->getOwnerDocument()))))->getDocumentURI());
+		$assign(documentURI, $$sure($SchemaDOM, ele->getOwnerDocument())->getDocumentURI());
 	}
 	return documentURI != nullptr ? documentURI : $cast($String, $nc(this->fDoc2SystemId)->get(ele));
 }
@@ -763,15 +463,15 @@ void XSDHandler::init$() {
 	$set(this, fUnparsedIdentityConstraintRegistrySub, $new($HashMap));
 	$set(this, fUnparsedNotationRegistrySub, $new($HashMap));
 	$set(this, fUnparsedTypeRegistrySub, $new($HashMap));
-	$set(this, fUnparsedRegistriesExt, $fcast($MapArray, $new($HashMapArray, {
-		($HashMap*)nullptr,
-		($HashMap*)nullptr,
-		($HashMap*)nullptr,
-		($HashMap*)nullptr,
-		($HashMap*)nullptr,
-		($HashMap*)nullptr,
-		($HashMap*)nullptr,
-		($HashMap*)nullptr
+	$set(this, fUnparsedRegistriesExt, $cast($MapArray, $new($HashMapArray, {
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr
 	})));
 	$set(this, fDependencyMap, $new($HashMap));
 	$set(this, fImportMap, $new($HashMap));
@@ -814,7 +514,7 @@ void XSDHandler::init$() {
 	$set(this, fReportedTNS, nullptr);
 	$set(this, xl, $new($SimpleLocator));
 	$set(this, fHiddenNodes, $new($HashMap));
-	$set(this, fSchemaParser, $new($SchemaDOMParser, static_cast<$XMLParserConfiguration*>(static_cast<$BasicParserConfiguration*>($$new($SchemaParsingConfig)))));
+	$set(this, fSchemaParser, $new($SchemaDOMParser, $$cast($BasicParserConfiguration, $new($SchemaParsingConfig))));
 }
 
 void XSDHandler::init$($XSGrammarBucket* gBucket) {
@@ -824,7 +524,7 @@ void XSDHandler::init$($XSGrammarBucket* gBucket) {
 }
 
 $SchemaGrammar* XSDHandler::parseSchema($XMLInputSource* is, $XSDDescription* desc, $Map* locationPairs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, fLocationPairs, locationPairs);
 	$nc(this->fSchemaParser)->resetNodePool();
 	$var($SchemaGrammar, grammar, nullptr);
@@ -842,7 +542,7 @@ $SchemaGrammar* XSDHandler::parseSchema($XMLInputSource* is, $XSDDescription* de
 			} else {
 				try {
 					$var($String, var$0, $nc(is)->getSystemId());
-					if ($nc($(grammar->getDocumentLocations()))->contains($($XMLEntityManager::expandSystemId(var$0, $(is->getBaseSystemId()), false)))) {
+					if ($$nc(grammar->getDocumentLocations())->contains($($XMLEntityManager::expandSystemId(var$0, $(is->getBaseSystemId()), false)))) {
 						return grammar;
 					}
 				} catch ($URI$MalformedURIException& e) {
@@ -857,20 +557,20 @@ $SchemaGrammar* XSDHandler::parseSchema($XMLInputSource* is, $XSDDescription* de
 	prepareForParse();
 	$var($Element, schemaRoot, nullptr);
 	if ($instanceOf($DOMInputSource, is)) {
-		$assign(schemaRoot, getSchemaDocument(schemaNamespace, $cast($DOMInputSource, is), referType == $XSDDescription::CONTEXT_PREPARSE, referType, ($Element*)nullptr));
+		$assign(schemaRoot, getSchemaDocument(schemaNamespace, $cast($DOMInputSource, is), referType == $XSDDescription::CONTEXT_PREPARSE, referType, nullptr));
 	} else if ($instanceOf($SAXInputSource, is)) {
-		$assign(schemaRoot, getSchemaDocument(schemaNamespace, $cast($SAXInputSource, is), referType == $XSDDescription::CONTEXT_PREPARSE, referType, ($Element*)nullptr));
+		$assign(schemaRoot, getSchemaDocument(schemaNamespace, $cast($SAXInputSource, is), referType == $XSDDescription::CONTEXT_PREPARSE, referType, nullptr));
 	} else if ($instanceOf($StAXInputSource, is)) {
-		$assign(schemaRoot, getSchemaDocument(schemaNamespace, $cast($StAXInputSource, is), referType == $XSDDescription::CONTEXT_PREPARSE, referType, ($Element*)nullptr));
+		$assign(schemaRoot, getSchemaDocument(schemaNamespace, $cast($StAXInputSource, is), referType == $XSDDescription::CONTEXT_PREPARSE, referType, nullptr));
 	} else if ($instanceOf($XSInputSource, is)) {
 		$assign(schemaRoot, getSchemaDocument($cast($XSInputSource, is), desc));
 	} else {
-		$assign(schemaRoot, getSchemaDocument(schemaNamespace, is, referType == $XSDDescription::CONTEXT_PREPARSE, referType, ($Element*)nullptr));
+		$assign(schemaRoot, getSchemaDocument(schemaNamespace, is, referType == $XSDDescription::CONTEXT_PREPARSE, referType, nullptr));
 	}
 	if (schemaRoot == nullptr) {
 		if ($instanceOf($XSInputSource, is)) {
 			$var($XSInputSource, xsinput, $cast($XSInputSource, is));
-			$var($SchemaGrammarArray, grammars, $nc(xsinput)->getGrammars());
+			$var($SchemaGrammarArray, grammars, xsinput->getGrammars());
 			if (grammars != nullptr && grammars->length > 0) {
 				$assign(grammar, $nc(this->fGrammarBucket)->getGrammar($($nc(grammars->get(0))->getTargetNamespace())));
 			} else {
@@ -896,7 +596,7 @@ $SchemaGrammar* XSDHandler::parseSchema($XMLInputSource* is, $XSDDescription* de
 		$var($String, var$1, $nc(is)->getSystemId());
 		$var($String, schemaId, $XMLEntityManager::expandSystemId(var$1, $(is->getBaseSystemId()), false));
 		if (grammar != nullptr) {
-			if (!this->fNamespaceGrowth || (schemaId != nullptr && $nc($(grammar->getDocumentLocations()))->contains(schemaId))) {
+			if (!this->fNamespaceGrowth || (schemaId != nullptr && $$nc(grammar->getDocumentLocations())->contains(schemaId))) {
 				return grammar;
 			}
 		}
@@ -912,7 +612,7 @@ $SchemaGrammar* XSDHandler::parseSchema($XMLInputSource* is, $XSDDescription* de
 		return nullptr;
 	}
 	buildGlobalNameRegistries();
-	$var($List, annotationInfo, this->fValidateAnnotations ? static_cast<$List*>($new($ArrayList)) : ($List*)nullptr);
+	$var($List, annotationInfo, this->fValidateAnnotations ? $cast($List, $new($ArrayList)) : ($List*)nullptr);
 	traverseSchemas(annotationInfo);
 	traverseLocalElements();
 	resolveKeyRefs();
@@ -927,7 +627,7 @@ $SchemaGrammar* XSDHandler::parseSchema($XMLInputSource* is, $XSDDescription* de
 		$var($SchemaGrammar, isg, nullptr);
 		int32_t count = 0;
 		for (int32_t j = 0; j < $nc(ins)->size(); ++j) {
-			$assign(isg, $nc(this->fGrammarBucket)->getGrammar($cast($String, $(ins->get(j)))));
+			$assign(isg, $nc(this->fGrammarBucket)->getGrammar($$cast($String, ins->get(j))));
 			if (isg != nullptr) {
 				grammars->add(isg);
 			}
@@ -941,7 +641,7 @@ $SchemaGrammar* XSDHandler::parseSchema($XMLInputSource* is, $XSDDescription* de
 }
 
 void XSDHandler::validateAnnotations($List* annotationInfo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fAnnotationValidator == nullptr) {
 		createAnnotationValidator();
 	}
@@ -949,7 +649,7 @@ void XSDHandler::validateAnnotations($List* annotationInfo) {
 	$var($XMLInputSource, src, $new($XMLInputSource, nullptr, nullptr, nullptr, false));
 	$nc(this->fGrammarBucketAdapter)->refreshGrammars(this->fGrammarBucket);
 	for (int32_t i = 0; i < size; i += 2) {
-		src->setSystemId($cast($String, $(annotationInfo->get(i))));
+		src->setSystemId($$cast($String, annotationInfo->get(i)));
 		$var($XSAnnotationInfo, annotation, $cast($XSAnnotationInfo, annotationInfo->get(i + 1)));
 		while (annotation != nullptr) {
 			src->setCharacterStream($$new($StringReader, annotation->fAnnotation));
@@ -963,15 +663,15 @@ void XSDHandler::validateAnnotations($List* annotationInfo) {
 }
 
 void XSDHandler::createAnnotationValidator() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, fAnnotationValidator, $new($XML11Configuration));
 	$set(this, fGrammarBucketAdapter, $new($XSDHandler$XSAnnotationGrammarPool));
-	$nc(this->fAnnotationValidator)->setFeature(XSDHandler::VALIDATION, true);
+	this->fAnnotationValidator->setFeature(XSDHandler::VALIDATION, true);
 	$nc(this->fAnnotationValidator)->setFeature(XSDHandler::XMLSCHEMA_VALIDATION, true);
 	$nc(this->fAnnotationValidator)->setProperty(XSDHandler::XMLGRAMMAR_POOL, this->fGrammarBucketAdapter);
-	$nc(this->fAnnotationValidator)->setProperty(XSDHandler::SECURITY_MANAGER, (this->fSecurityManager != nullptr) ? $of(this->fSecurityManager) : $of($$new($XMLSecurityManager, true)));
+	$nc(this->fAnnotationValidator)->setProperty(XSDHandler::SECURITY_MANAGER, (this->fSecurityManager != nullptr) ? this->fSecurityManager : $$new($XMLSecurityManager, true));
 	$nc(this->fAnnotationValidator)->setProperty(XSDHandler::XML_SECURITY_PROPERTY_MANAGER, this->fSecurityPropertyMgr);
-	$nc(this->fAnnotationValidator)->setProperty(XSDHandler::ERROR_HANDLER, (this->fErrorHandler != nullptr) ? $of(this->fErrorHandler) : $of($$new($DefaultErrorHandler)));
+	$nc(this->fAnnotationValidator)->setProperty(XSDHandler::ERROR_HANDLER, (this->fErrorHandler != nullptr) ? $of(this->fErrorHandler) : $$of($new($DefaultErrorHandler)));
 	$nc(this->fAnnotationValidator)->setProperty(XSDHandler::LOCALE, this->fLocale);
 	$init($XMLConstants);
 	$nc(this->fAnnotationValidator)->setFeature($XMLConstants::USE_CATALOG, this->fUseCatalog);
@@ -987,11 +687,11 @@ $SchemaGrammar* XSDHandler::getGrammar($String* tns) {
 }
 
 $SchemaGrammar* XSDHandler::findGrammar($XSDDescription* desc, bool ignoreConflict) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SchemaGrammar, sg, $nc(this->fGrammarBucket)->getGrammar($($nc(desc)->getTargetNamespace())));
 	if (sg == nullptr) {
 		if (this->fGrammarPool != nullptr) {
-			$assign(sg, $cast($SchemaGrammar, $nc(this->fGrammarPool)->retrieveGrammar(desc)));
+			$assign(sg, $cast($SchemaGrammar, this->fGrammarPool->retrieveGrammar(desc)));
 			if (sg != nullptr) {
 				if (!$nc(this->fGrammarBucket)->putGrammar(sg, true, ignoreConflict)) {
 					reportSchemaWarning("GrammarConflict"_s, nullptr, nullptr);
@@ -1004,7 +704,7 @@ $SchemaGrammar* XSDHandler::findGrammar($XSDDescription* desc, bool ignoreConfli
 }
 
 $XSDocumentInfo* XSDHandler::constructTrees($Element* schemaRoot, $String* locationHint, $XSDDescription* desc, bool nsCollision) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (schemaRoot == nullptr) {
 		return nullptr;
 	}
@@ -1014,47 +714,47 @@ $XSDocumentInfo* XSDHandler::constructTrees($Element* schemaRoot, $String* locat
 	try {
 		$assign(currSchemaInfo, $new($XSDocumentInfo, schemaRoot, this->fAttributeChecker, this->fSymbolTable));
 	} catch ($XMLSchemaException& se) {
-		reportSchemaError($nc(XSDHandler::ELE_ERROR_CODES)->get(referType), $$new($ObjectArray, {$of(locationHint)}), schemaRoot);
+		reportSchemaError(XSDHandler::ELE_ERROR_CODES->get(referType), $$new($ObjectArray, {locationHint}), schemaRoot);
 		return nullptr;
 	}
-	if ($nc(currSchemaInfo)->fTargetNamespace != nullptr && $nc(currSchemaInfo->fTargetNamespace)->length() == 0) {
-		reportSchemaWarning("EmptyTargetNamespace"_s, $$new($ObjectArray, {$of(locationHint)}), schemaRoot);
+	if ($nc(currSchemaInfo)->fTargetNamespace != nullptr && currSchemaInfo->fTargetNamespace->length() == 0) {
+		reportSchemaWarning("EmptyTargetNamespace"_s, $$new($ObjectArray, {locationHint}), schemaRoot);
 		$set(currSchemaInfo, fTargetNamespace, nullptr);
 	}
 	if (callerTNS != nullptr) {
 		int32_t secondIdx = 0;
 		if (referType == $XSDDescription::CONTEXT_INCLUDE || referType == $XSDDescription::CONTEXT_REDEFINE) {
-			if ($nc(currSchemaInfo)->fTargetNamespace == nullptr) {
+			if (currSchemaInfo->fTargetNamespace == nullptr) {
 				$set(currSchemaInfo, fTargetNamespace, callerTNS);
 				currSchemaInfo->fIsChameleonSchema = true;
 			} else if (callerTNS != currSchemaInfo->fTargetNamespace) {
-				reportSchemaError($nc($nc(XSDHandler::NS_ERROR_CODES)->get(referType))->get(secondIdx), $$new($ObjectArray, {
-					$of(callerTNS),
-					$of(currSchemaInfo->fTargetNamespace)
+				reportSchemaError($nc(XSDHandler::NS_ERROR_CODES->get(referType))->get(secondIdx), $$new($ObjectArray, {
+					callerTNS,
+					currSchemaInfo->fTargetNamespace
 				}), schemaRoot);
 				return nullptr;
 			}
-		} else if (referType != $XSDDescription::CONTEXT_PREPARSE && callerTNS != $nc(currSchemaInfo)->fTargetNamespace) {
-			reportSchemaError($nc($nc(XSDHandler::NS_ERROR_CODES)->get(referType))->get(secondIdx), $$new($ObjectArray, {
-				$of(callerTNS),
-				$of(currSchemaInfo->fTargetNamespace)
+		} else if (referType != $XSDDescription::CONTEXT_PREPARSE && callerTNS != currSchemaInfo->fTargetNamespace) {
+			reportSchemaError($nc(XSDHandler::NS_ERROR_CODES->get(referType))->get(secondIdx), $$new($ObjectArray, {
+				callerTNS,
+				currSchemaInfo->fTargetNamespace
 			}), schemaRoot);
 			return nullptr;
 		}
-	} else if ($nc(currSchemaInfo)->fTargetNamespace != nullptr) {
+	} else if (currSchemaInfo->fTargetNamespace != nullptr) {
 		if (referType == $XSDDescription::CONTEXT_PREPARSE) {
 			desc->setTargetNamespace(currSchemaInfo->fTargetNamespace);
 			$assign(callerTNS, currSchemaInfo->fTargetNamespace);
 		} else {
 			int32_t secondIdx = 1;
-			reportSchemaError($nc($nc(XSDHandler::NS_ERROR_CODES)->get(referType))->get(secondIdx), $$new($ObjectArray, {
-				$of(callerTNS),
-				$of(currSchemaInfo->fTargetNamespace)
+			reportSchemaError($nc(XSDHandler::NS_ERROR_CODES->get(referType))->get(secondIdx), $$new($ObjectArray, {
+				callerTNS,
+				currSchemaInfo->fTargetNamespace
 			}), schemaRoot);
 			return nullptr;
 		}
 	}
-	$nc(currSchemaInfo)->addAllowedNS(currSchemaInfo->fTargetNamespace);
+	currSchemaInfo->addAllowedNS(currSchemaInfo->fTargetNamespace);
 	$var($SchemaGrammar, sg, nullptr);
 	if (nsCollision) {
 		$var($SchemaGrammar, sg2, $nc(this->fGrammarBucket)->getGrammar(currSchemaInfo->fTargetNamespace));
@@ -1078,7 +778,7 @@ $XSDocumentInfo* XSDHandler::constructTrees($Element* schemaRoot, $String* locat
 		$assign(sg, $new($SchemaGrammar, currSchemaInfo->fTargetNamespace, $(desc->makeClone()), this->fSymbolTable));
 		$nc(this->fGrammarBucket)->putGrammar(sg);
 	}
-	$nc(sg)->addDocument(nullptr, $cast($String, $($nc(this->fDoc2SystemId)->get(currSchemaInfo->fSchemaElement))));
+	$nc(sg)->addDocument(nullptr, $$cast($String, $nc(this->fDoc2SystemId)->get(currSchemaInfo->fSchemaElement)));
 	$nc(this->fDoc2XSDocumentMap)->put(schemaRoot, currSchemaInfo);
 	$var($List, dependencies, $new($ArrayList));
 	$var($Element, rootNode, schemaRoot);
@@ -1089,180 +789,176 @@ $XSDocumentInfo* XSDHandler::constructTrees($Element* schemaRoot, $String* locat
 			$var($String, schemaNamespace, nullptr);
 			$var($String, schemaHint, nullptr);
 			$var($String, localName, $DOMUtil::getLocalName(child));
-			int16_t refType = (int16_t)-1;
+			int16_t refType = -1;
 			bool importCollision = false;
 			$init($SchemaSymbols);
 			if ($nc(localName)->equals($SchemaSymbols::ELT_ANNOTATION)) {
 				continue;
-			} else {
-				if (localName->equals($SchemaSymbols::ELT_IMPORT)) {
-					refType = $XSDDescription::CONTEXT_IMPORT;
-					$var($ObjectArray, importAttrs, $nc(this->fAttributeChecker)->checkAttributes(child, true, currSchemaInfo));
-					$assign(schemaHint, $cast($String, $nc(importAttrs)->get($XSAttributeChecker::ATTIDX_SCHEMALOCATION)));
-					$assign(schemaNamespace, $cast($String, importAttrs->get($XSAttributeChecker::ATTIDX_NAMESPACE)));
-					if (schemaNamespace != nullptr) {
-						$assign(schemaNamespace, $nc(this->fSymbolTable)->addSymbol(schemaNamespace));
-					}
-					$var($Element, importChild, $DOMUtil::getFirstChildElement(child));
-					if (importChild != nullptr) {
-						$var($String, importComponentType, $DOMUtil::getLocalName(importChild));
-						if ($nc(importComponentType)->equals($SchemaSymbols::ELT_ANNOTATION)) {
-							sg->addAnnotation($($nc(this->fElementTraverser)->traverseAnnotationDecl(importChild, importAttrs, true, currSchemaInfo)));
-						} else {
-							reportSchemaError("s4s-elt-must-match.1"_s, $$new($ObjectArray, {
-								$of(localName),
-								$of("annotation?"_s),
-								$of(importComponentType)
-							}), child);
-						}
-						if ($DOMUtil::getNextSiblingElement(importChild) != nullptr) {
-							reportSchemaError("s4s-elt-must-match.1"_s, $$new($ObjectArray, {
-								$of(localName),
-								$of("annotation?"_s),
-								$($of($DOMUtil::getLocalName($($DOMUtil::getNextSiblingElement(importChild)))))
-							}), child);
-						}
+			} else if (localName->equals($SchemaSymbols::ELT_IMPORT)) {
+				refType = $XSDDescription::CONTEXT_IMPORT;
+				$var($ObjectArray, importAttrs, $nc(this->fAttributeChecker)->checkAttributes(child, true, currSchemaInfo));
+				$assign(schemaHint, $cast($String, $nc(importAttrs)->get($XSAttributeChecker::ATTIDX_SCHEMALOCATION)));
+				$assign(schemaNamespace, $cast($String, importAttrs->get($XSAttributeChecker::ATTIDX_NAMESPACE)));
+				if (schemaNamespace != nullptr) {
+					$assign(schemaNamespace, $nc(this->fSymbolTable)->addSymbol(schemaNamespace));
+				}
+				$var($Element, importChild, $DOMUtil::getFirstChildElement(child));
+				if (importChild != nullptr) {
+					$var($String, importComponentType, $DOMUtil::getLocalName(importChild));
+					if ($nc(importComponentType)->equals($SchemaSymbols::ELT_ANNOTATION)) {
+						sg->addAnnotation($($nc(this->fElementTraverser)->traverseAnnotationDecl(importChild, importAttrs, true, currSchemaInfo)));
 					} else {
-						$var($String, text, $DOMUtil::getSyntheticAnnotation(child));
-						if (text != nullptr) {
-							sg->addAnnotation($($nc(this->fElementTraverser)->traverseSyntheticAnnotation(child, text, importAttrs, true, currSchemaInfo)));
-						}
+						reportSchemaError("s4s-elt-must-match.1"_s, $$new($ObjectArray, {
+							localName,
+							"annotation?"_s,
+							importComponentType
+						}), child);
 					}
-					$nc(this->fAttributeChecker)->returnAttrArray(importAttrs, currSchemaInfo);
-					if (schemaNamespace == currSchemaInfo->fTargetNamespace) {
-						reportSchemaError(schemaNamespace != nullptr ? "src-import.1.1"_s : "src-import.1.2"_s, $$new($ObjectArray, {$of(schemaNamespace)}), child);
+					if ($DOMUtil::getNextSiblingElement(importChild) != nullptr) {
+						reportSchemaError("s4s-elt-must-match.1"_s, $$new($ObjectArray, {
+							localName,
+							"annotation?"_s,
+							$($DOMUtil::getLocalName($($DOMUtil::getNextSiblingElement(importChild))))
+						}), child);
+					}
+				} else {
+					$var($String, text, $DOMUtil::getSyntheticAnnotation(child));
+					if (text != nullptr) {
+						sg->addAnnotation($($nc(this->fElementTraverser)->traverseSyntheticAnnotation(child, text, importAttrs, true, currSchemaInfo)));
+					}
+				}
+				$nc(this->fAttributeChecker)->returnAttrArray(importAttrs, currSchemaInfo);
+				if (schemaNamespace == currSchemaInfo->fTargetNamespace) {
+					reportSchemaError(schemaNamespace != nullptr ? "src-import.1.1"_s : "src-import.1.2"_s, $$new($ObjectArray, {schemaNamespace}), child);
+					continue;
+				}
+				if (currSchemaInfo->isAllowedNS(schemaNamespace)) {
+					if (!this->fHonourAllSchemaLocations && !this->fNamespaceGrowth) {
 						continue;
 					}
-					if (currSchemaInfo->isAllowedNS(schemaNamespace)) {
-						if (!this->fHonourAllSchemaLocations && !this->fNamespaceGrowth) {
-							continue;
+				} else {
+					currSchemaInfo->addAllowedNS(schemaNamespace);
+				}
+				$var($String, tns, null2EmptyString(currSchemaInfo->fTargetNamespace));
+				$var($List, ins, $cast($List, $nc(this->fImportMap)->get(tns)));
+				if (ins == nullptr) {
+					$nc(this->fAllTNSs)->add(tns);
+					$assign(ins, $new($ArrayList));
+					this->fImportMap->put(tns, ins);
+					ins->add(schemaNamespace);
+				} else if (!ins->contains(schemaNamespace)) {
+					ins->add(schemaNamespace);
+				}
+				$nc(this->fSchemaGrammarDescription)->reset();
+				$nc(this->fSchemaGrammarDescription)->setContextType($XSDDescription::CONTEXT_IMPORT);
+				$nc(this->fSchemaGrammarDescription)->setBaseSystemId($(doc2SystemId(schemaRoot)));
+				$nc(this->fSchemaGrammarDescription)->setLiteralSystemId(schemaHint);
+				$nc(this->fSchemaGrammarDescription)->setLocationHints($$new($StringArray, {schemaHint}));
+				$nc(this->fSchemaGrammarDescription)->setTargetNamespace(schemaNamespace);
+				$var($SchemaGrammar, isg, findGrammar(this->fSchemaGrammarDescription, this->fNamespaceGrowth));
+				if (isg != nullptr) {
+					if (this->fNamespaceGrowth) {
+						try {
+							if ($$nc(isg->getDocumentLocations())->contains($($XMLEntityManager::expandSystemId(schemaHint, $($nc(this->fSchemaGrammarDescription)->getBaseSystemId()), false)))) {
+								continue;
+							} else {
+								importCollision = true;
+							}
+						} catch ($URI$MalformedURIException& e) {
+						}
+					} else if (!this->fHonourAllSchemaLocations || isExistingGrammar(this->fSchemaGrammarDescription, false)) {
+						continue;
+					}
+				}
+				$assign(newSchemaRoot, resolveSchema(this->fSchemaGrammarDescription, false, child, isg == nullptr));
+			} else {
+				bool var$0 = localName->equals($SchemaSymbols::ELT_INCLUDE);
+				if (var$0 || (localName->equals($SchemaSymbols::ELT_REDEFINE))) {
+					$var($ObjectArray, includeAttrs, $nc(this->fAttributeChecker)->checkAttributes(child, true, currSchemaInfo));
+					$assign(schemaHint, $cast($String, $nc(includeAttrs)->get($XSAttributeChecker::ATTIDX_SCHEMALOCATION)));
+					if (localName->equals($SchemaSymbols::ELT_REDEFINE)) {
+						if (this->fRedefine2NSSupport == nullptr) {
+							$set(this, fRedefine2NSSupport, $new($HashMap));
+						}
+						$nc(this->fRedefine2NSSupport)->put(child, $$new($SchemaNamespaceSupport, currSchemaInfo->fNamespaceSupport));
+					}
+					if (localName->equals($SchemaSymbols::ELT_INCLUDE)) {
+						$var($Element, includeChild, $DOMUtil::getFirstChildElement(child));
+						if (includeChild != nullptr) {
+							$var($String, includeComponentType, $DOMUtil::getLocalName(includeChild));
+							if ($nc(includeComponentType)->equals($SchemaSymbols::ELT_ANNOTATION)) {
+								sg->addAnnotation($($nc(this->fElementTraverser)->traverseAnnotationDecl(includeChild, includeAttrs, true, currSchemaInfo)));
+							} else {
+								reportSchemaError("s4s-elt-must-match.1"_s, $$new($ObjectArray, {
+									localName,
+									"annotation?"_s,
+									includeComponentType
+								}), child);
+							}
+							if ($DOMUtil::getNextSiblingElement(includeChild) != nullptr) {
+								reportSchemaError("s4s-elt-must-match.1"_s, $$new($ObjectArray, {
+									localName,
+									"annotation?"_s,
+									$($DOMUtil::getLocalName($($DOMUtil::getNextSiblingElement(includeChild))))
+								}), child);
+							}
+						} else {
+							$var($String, text, $DOMUtil::getSyntheticAnnotation(child));
+							if (text != nullptr) {
+								sg->addAnnotation($($nc(this->fElementTraverser)->traverseSyntheticAnnotation(child, text, includeAttrs, true, currSchemaInfo)));
+							}
 						}
 					} else {
-						currSchemaInfo->addAllowedNS(schemaNamespace);
-					}
-					$var($String, tns, null2EmptyString(currSchemaInfo->fTargetNamespace));
-					$var($List, ins, $cast($List, $nc(this->fImportMap)->get(tns)));
-					if (ins == nullptr) {
-						$nc(this->fAllTNSs)->add(tns);
-						$assign(ins, $new($ArrayList));
-						$nc(this->fImportMap)->put(tns, ins);
-						ins->add(schemaNamespace);
-					} else if (!$nc(ins)->contains(schemaNamespace)) {
-						ins->add(schemaNamespace);
-					}
-					$nc(this->fSchemaGrammarDescription)->reset();
-					$nc(this->fSchemaGrammarDescription)->setContextType($XSDDescription::CONTEXT_IMPORT);
-					$nc(this->fSchemaGrammarDescription)->setBaseSystemId($(doc2SystemId(schemaRoot)));
-					$nc(this->fSchemaGrammarDescription)->setLiteralSystemId(schemaHint);
-					$nc(this->fSchemaGrammarDescription)->setLocationHints($$new($StringArray, {schemaHint}));
-					$nc(this->fSchemaGrammarDescription)->setTargetNamespace(schemaNamespace);
-					$var($SchemaGrammar, isg, findGrammar(this->fSchemaGrammarDescription, this->fNamespaceGrowth));
-					if (isg != nullptr) {
-						if (this->fNamespaceGrowth) {
-							try {
-								if ($nc($(isg->getDocumentLocations()))->contains($($XMLEntityManager::expandSystemId(schemaHint, $($nc(this->fSchemaGrammarDescription)->getBaseSystemId()), false)))) {
-									continue;
-								} else {
-									importCollision = true;
-								}
-							} catch ($URI$MalformedURIException& e) {
-							}
-						} else if (!this->fHonourAllSchemaLocations || isExistingGrammar(this->fSchemaGrammarDescription, false)) {
-							continue;
-						}
-					}
-					$assign(newSchemaRoot, resolveSchema(this->fSchemaGrammarDescription, false, child, isg == nullptr));
-				} else {
-					bool var$1 = (localName->equals($SchemaSymbols::ELT_INCLUDE));
-					if (var$1 || (localName->equals($SchemaSymbols::ELT_REDEFINE))) {
-						$var($ObjectArray, includeAttrs, $nc(this->fAttributeChecker)->checkAttributes(child, true, currSchemaInfo));
-						$assign(schemaHint, $cast($String, $nc(includeAttrs)->get($XSAttributeChecker::ATTIDX_SCHEMALOCATION)));
-						if (localName->equals($SchemaSymbols::ELT_REDEFINE)) {
-							if (this->fRedefine2NSSupport == nullptr) {
-								$set(this, fRedefine2NSSupport, $new($HashMap));
-							}
-							$nc(this->fRedefine2NSSupport)->put(child, $$new($SchemaNamespaceSupport, currSchemaInfo->fNamespaceSupport));
-						}
-						if (localName->equals($SchemaSymbols::ELT_INCLUDE)) {
-							$var($Element, includeChild, $DOMUtil::getFirstChildElement(child));
-							if (includeChild != nullptr) {
-								$var($String, includeComponentType, $DOMUtil::getLocalName(includeChild));
-								if ($nc(includeComponentType)->equals($SchemaSymbols::ELT_ANNOTATION)) {
-									sg->addAnnotation($($nc(this->fElementTraverser)->traverseAnnotationDecl(includeChild, includeAttrs, true, currSchemaInfo)));
-								} else {
-									reportSchemaError("s4s-elt-must-match.1"_s, $$new($ObjectArray, {
-										$of(localName),
-										$of("annotation?"_s),
-										$of(includeComponentType)
-									}), child);
-								}
-								if ($DOMUtil::getNextSiblingElement(includeChild) != nullptr) {
-									reportSchemaError("s4s-elt-must-match.1"_s, $$new($ObjectArray, {
-										$of(localName),
-										$of("annotation?"_s),
-										$($of($DOMUtil::getLocalName($($DOMUtil::getNextSiblingElement(includeChild)))))
-									}), child);
-								}
+						$var($Element, redefinedChild, $DOMUtil::getFirstChildElement(child));
+						for (; redefinedChild != nullptr; $assign(redefinedChild, $DOMUtil::getNextSiblingElement(redefinedChild))) {
+							$var($String, redefinedComponentType, $DOMUtil::getLocalName(redefinedChild));
+							if ($nc(redefinedComponentType)->equals($SchemaSymbols::ELT_ANNOTATION)) {
+								sg->addAnnotation($($nc(this->fElementTraverser)->traverseAnnotationDecl(redefinedChild, includeAttrs, true, currSchemaInfo)));
+								$DOMUtil::setHidden(redefinedChild, this->fHiddenNodes);
 							} else {
 								$var($String, text, $DOMUtil::getSyntheticAnnotation(child));
 								if (text != nullptr) {
 									sg->addAnnotation($($nc(this->fElementTraverser)->traverseSyntheticAnnotation(child, text, includeAttrs, true, currSchemaInfo)));
 								}
 							}
-						} else {
-							{
-								$var($Element, redefinedChild, $DOMUtil::getFirstChildElement(child));
-								for (; redefinedChild != nullptr; $assign(redefinedChild, $DOMUtil::getNextSiblingElement(redefinedChild))) {
-									$var($String, redefinedComponentType, $DOMUtil::getLocalName(redefinedChild));
-									if ($nc(redefinedComponentType)->equals($SchemaSymbols::ELT_ANNOTATION)) {
-										sg->addAnnotation($($nc(this->fElementTraverser)->traverseAnnotationDecl(redefinedChild, includeAttrs, true, currSchemaInfo)));
-										$DOMUtil::setHidden(redefinedChild, this->fHiddenNodes);
-									} else {
-										$var($String, text, $DOMUtil::getSyntheticAnnotation(child));
-										if (text != nullptr) {
-											sg->addAnnotation($($nc(this->fElementTraverser)->traverseSyntheticAnnotation(child, text, includeAttrs, true, currSchemaInfo)));
-										}
-									}
-								}
-							}
 						}
-						$nc(this->fAttributeChecker)->returnAttrArray(includeAttrs, currSchemaInfo);
-						if (schemaHint == nullptr) {
-							reportSchemaError("s4s-att-must-appear"_s, $$new($ObjectArray, {
-								$of("<include> or <redefine>"_s),
-								$of("schemaLocation"_s)
-							}), child);
-						}
-						bool mustResolve = false;
-						refType = $XSDDescription::CONTEXT_INCLUDE;
-						if (localName->equals($SchemaSymbols::ELT_REDEFINE)) {
-							mustResolve = nonAnnotationContent(child);
-							refType = $XSDDescription::CONTEXT_REDEFINE;
-						}
-						$nc(this->fSchemaGrammarDescription)->reset();
-						$nc(this->fSchemaGrammarDescription)->setContextType(refType);
-						$nc(this->fSchemaGrammarDescription)->setBaseSystemId($(doc2SystemId(schemaRoot)));
-						$nc(this->fSchemaGrammarDescription)->setLocationHints($$new($StringArray, {schemaHint}));
-						$nc(this->fSchemaGrammarDescription)->setTargetNamespace(callerTNS);
-						bool alreadyTraversed = false;
-						$var($XMLInputSource, schemaSource, resolveSchemaSource(this->fSchemaGrammarDescription, mustResolve, child, true));
-						if (this->fNamespaceGrowth && refType == $XSDDescription::CONTEXT_INCLUDE) {
-							try {
-								$var($String, var$2, $nc(schemaSource)->getSystemId());
-								$var($String, schemaId, $XMLEntityManager::expandSystemId(var$2, $(schemaSource->getBaseSystemId()), false));
-								alreadyTraversed = $nc($(sg->getDocumentLocations()))->contains(schemaId);
-							} catch ($URI$MalformedURIException& e) {
-							}
-						}
-						if (!alreadyTraversed) {
-							$assign(newSchemaRoot, resolveSchema(schemaSource, this->fSchemaGrammarDescription, mustResolve, child));
-							$assign(schemaNamespace, currSchemaInfo->fTargetNamespace);
-						} else {
-							this->fLastSchemaWasDuplicate = true;
-						}
-					} else {
-						break;
 					}
+					$nc(this->fAttributeChecker)->returnAttrArray(includeAttrs, currSchemaInfo);
+					if (schemaHint == nullptr) {
+						reportSchemaError("s4s-att-must-appear"_s, $$new($ObjectArray, {
+							"<include> or <redefine>"_s,
+							"schemaLocation"_s
+						}), child);
+					}
+					bool mustResolve = false;
+					refType = $XSDDescription::CONTEXT_INCLUDE;
+					if (localName->equals($SchemaSymbols::ELT_REDEFINE)) {
+						mustResolve = nonAnnotationContent(child);
+						refType = $XSDDescription::CONTEXT_REDEFINE;
+					}
+					$nc(this->fSchemaGrammarDescription)->reset();
+					$nc(this->fSchemaGrammarDescription)->setContextType(refType);
+					$nc(this->fSchemaGrammarDescription)->setBaseSystemId($(doc2SystemId(schemaRoot)));
+					$nc(this->fSchemaGrammarDescription)->setLocationHints($$new($StringArray, {schemaHint}));
+					$nc(this->fSchemaGrammarDescription)->setTargetNamespace(callerTNS);
+					bool alreadyTraversed = false;
+					$var($XMLInputSource, schemaSource, resolveSchemaSource(this->fSchemaGrammarDescription, mustResolve, child, true));
+					if (this->fNamespaceGrowth && refType == $XSDDescription::CONTEXT_INCLUDE) {
+						try {
+							$var($String, var$1, $nc(schemaSource)->getSystemId());
+							$var($String, schemaId, $XMLEntityManager::expandSystemId(var$1, $(schemaSource->getBaseSystemId()), false));
+							alreadyTraversed = $$nc(sg->getDocumentLocations())->contains(schemaId);
+						} catch ($URI$MalformedURIException& e) {
+						}
+					}
+					if (!alreadyTraversed) {
+						$assign(newSchemaRoot, resolveSchema(schemaSource, this->fSchemaGrammarDescription, mustResolve, child));
+						$assign(schemaNamespace, currSchemaInfo->fTargetNamespace);
+					} else {
+						this->fLastSchemaWasDuplicate = true;
+					}
+				} else {
+					break;
 				}
 			}
 			$var($XSDocumentInfo, newSchemaInfo, nullptr);
@@ -1271,7 +967,7 @@ $XSDocumentInfo* XSDHandler::constructTrees($Element* schemaRoot, $String* locat
 			} else {
 				$assign(newSchemaInfo, constructTrees(newSchemaRoot, schemaHint, this->fSchemaGrammarDescription, importCollision));
 			}
-			if ($nc(localName)->equals($SchemaSymbols::ELT_REDEFINE) && newSchemaInfo != nullptr) {
+			if (localName->equals($SchemaSymbols::ELT_REDEFINE) && newSchemaInfo != nullptr) {
 				if (this->fRedefine2XSDMap == nullptr) {
 					$set(this, fRedefine2XSDMap, $new($HashMap));
 				}
@@ -1290,16 +986,16 @@ $XSDocumentInfo* XSDHandler::constructTrees($Element* schemaRoot, $String* locat
 }
 
 bool XSDHandler::isExistingGrammar($XSDDescription* desc, bool ignoreConflict) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SchemaGrammar, sg, $nc(this->fGrammarBucket)->getGrammar($($nc(desc)->getTargetNamespace())));
 	if (sg == nullptr) {
 		return findGrammar(desc, ignoreConflict) != nullptr;
-	} else if ($nc(sg)->isImmutable()) {
+	} else if (sg->isImmutable()) {
 		return true;
 	} else {
 		try {
-			$var($String, var$0, $nc(desc)->getLiteralSystemId());
-			return $nc($(sg->getDocumentLocations()))->contains($($XMLEntityManager::expandSystemId(var$0, $(desc->getBaseSystemId()), false)));
+			$var($String, var$0, desc->getLiteralSystemId());
+			return $$nc(sg->getDocumentLocations())->contains($($XMLEntityManager::expandSystemId(var$0, $(desc->getBaseSystemId()), false)));
 		} catch ($URI$MalformedURIException& e) {
 			return false;
 		}
@@ -1308,7 +1004,7 @@ bool XSDHandler::isExistingGrammar($XSDDescription* desc, bool ignoreConflict) {
 }
 
 void XSDHandler::updateImportListFor($SchemaGrammar* grammar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, importedGrammars, $nc(grammar)->getImportedGrammars());
 	if (importedGrammars != nullptr) {
 		for (int32_t i = 0; i < importedGrammars->size(); ++i) {
@@ -1322,7 +1018,7 @@ void XSDHandler::updateImportListFor($SchemaGrammar* grammar) {
 }
 
 void XSDHandler::updateImportListWith($SchemaGrammar* newGrammar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SchemaGrammarArray, schemaGrammars, $nc(this->fGrammarBucket)->getGrammars());
 	for (int32_t i = 0; i < $nc(schemaGrammars)->length; ++i) {
 		$var($SchemaGrammar, sg, schemaGrammars->get(i));
@@ -1331,7 +1027,7 @@ void XSDHandler::updateImportListWith($SchemaGrammar* newGrammar) {
 			if (importedGrammars != nullptr) {
 				for (int32_t j = 0; j < importedGrammars->size(); ++j) {
 					$var($SchemaGrammar, isg, $cast($SchemaGrammar, importedGrammars->get(j)));
-					if ($nc($(null2EmptyString($($nc(isg)->getTargetNamespace()))))->equals($(null2EmptyString($($nc(newGrammar)->getTargetNamespace()))))) {
+					if ($$nc(null2EmptyString($($nc(isg)->getTargetNamespace())))->equals($(null2EmptyString($($nc(newGrammar)->getTargetNamespace()))))) {
 						if (isg != newGrammar) {
 							importedGrammars->set(j, newGrammar);
 						}
@@ -1344,7 +1040,7 @@ void XSDHandler::updateImportListWith($SchemaGrammar* newGrammar) {
 }
 
 void XSDHandler::buildGlobalNameRegistries() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->registryEmpty = false;
 	$var($Stack, schemasToProcess, $new($Stack));
 	schemasToProcess->push(this->fRoot);
@@ -1360,86 +1056,74 @@ void XSDHandler::buildGlobalNameRegistries() {
 			$var($Element, globalComp, $DOMUtil::getFirstChildElement(currRoot));
 			for (; globalComp != nullptr; $assign(globalComp, $DOMUtil::getNextSiblingElement(globalComp))) {
 				$init($SchemaSymbols);
-				if ($nc($($DOMUtil::getLocalName(globalComp)))->equals($SchemaSymbols::ELT_ANNOTATION)) {
+				if ($$nc($DOMUtil::getLocalName(globalComp))->equals($SchemaSymbols::ELT_ANNOTATION)) {
 					continue;
 				} else {
-					bool var$1 = $nc($($DOMUtil::getLocalName(globalComp)))->equals($SchemaSymbols::ELT_INCLUDE);
-					if (var$1 || $nc($($DOMUtil::getLocalName(globalComp)))->equals($SchemaSymbols::ELT_IMPORT)) {
+					bool var$0 = $$nc($DOMUtil::getLocalName(globalComp))->equals($SchemaSymbols::ELT_INCLUDE);
+					if (var$0 || $$nc($DOMUtil::getLocalName(globalComp))->equals($SchemaSymbols::ELT_IMPORT)) {
 						if (!dependenciesCanOccur) {
-							reportSchemaError("s4s-elt-invalid-content.3"_s, $$new($ObjectArray, {$($of($DOMUtil::getLocalName(globalComp)))}), globalComp);
+							reportSchemaError("s4s-elt-invalid-content.3"_s, $$new($ObjectArray, {$($DOMUtil::getLocalName(globalComp))}), globalComp);
 						}
 						$DOMUtil::setHidden(globalComp, this->fHiddenNodes);
-					} else {
-						if ($nc($($DOMUtil::getLocalName(globalComp)))->equals($SchemaSymbols::ELT_REDEFINE)) {
-							if (!dependenciesCanOccur) {
-								reportSchemaError("s4s-elt-invalid-content.3"_s, $$new($ObjectArray, {$($of($DOMUtil::getLocalName(globalComp)))}), globalComp);
-							}
-							{
-								$var($Element, redefineComp, $DOMUtil::getFirstChildElement(globalComp));
-								for (; redefineComp != nullptr; $assign(redefineComp, $DOMUtil::getNextSiblingElement(redefineComp))) {
-									$var($String, lName, $DOMUtil::getAttrValue(redefineComp, $SchemaSymbols::ATT_NAME));
-									if ($nc(lName)->length() == 0) {
-										continue;
-									}
-									$var($String, qName, currSchemaDoc->fTargetNamespace == nullptr ? $str({","_s, lName}) : $str({currSchemaDoc->fTargetNamespace, ","_s, lName}));
-									$assign(qName, $XMLChar::trim(qName));
-									$var($String, componentType, $DOMUtil::getLocalName(redefineComp));
-									if ($nc(componentType)->equals($SchemaSymbols::ELT_ATTRIBUTEGROUP)) {
-										checkForDuplicateNames(qName, XSDHandler::ATTRIBUTEGROUP_TYPE, this->fUnparsedAttributeGroupRegistry, this->fUnparsedAttributeGroupRegistrySub, redefineComp, currSchemaDoc);
-										$var($String, targetLName, $str({$($DOMUtil::getAttrValue(redefineComp, $SchemaSymbols::ATT_NAME)), XSDHandler::REDEF_IDENTIFIER}));
-										renameRedefiningComponents(currSchemaDoc, redefineComp, $SchemaSymbols::ELT_ATTRIBUTEGROUP, lName, targetLName);
-									} else {
-										bool var$3 = (componentType->equals($SchemaSymbols::ELT_COMPLEXTYPE));
-										if (var$3 || (componentType->equals($SchemaSymbols::ELT_SIMPLETYPE))) {
-											checkForDuplicateNames(qName, XSDHandler::TYPEDECL_TYPE, this->fUnparsedTypeRegistry, this->fUnparsedTypeRegistrySub, redefineComp, currSchemaDoc);
-											$var($String, targetLName, $str({$($DOMUtil::getAttrValue(redefineComp, $SchemaSymbols::ATT_NAME)), XSDHandler::REDEF_IDENTIFIER}));
-											if (componentType->equals($SchemaSymbols::ELT_COMPLEXTYPE)) {
-												renameRedefiningComponents(currSchemaDoc, redefineComp, $SchemaSymbols::ELT_COMPLEXTYPE, lName, targetLName);
-											} else {
-												renameRedefiningComponents(currSchemaDoc, redefineComp, $SchemaSymbols::ELT_SIMPLETYPE, lName, targetLName);
-											}
-										} else {
-											if (componentType->equals($SchemaSymbols::ELT_GROUP)) {
-												checkForDuplicateNames(qName, XSDHandler::GROUP_TYPE, this->fUnparsedGroupRegistry, this->fUnparsedGroupRegistrySub, redefineComp, currSchemaDoc);
-												$var($String, targetLName, $str({$($DOMUtil::getAttrValue(redefineComp, $SchemaSymbols::ATT_NAME)), XSDHandler::REDEF_IDENTIFIER}));
-												renameRedefiningComponents(currSchemaDoc, redefineComp, $SchemaSymbols::ELT_GROUP, lName, targetLName);
-											}
-										}
-									}
+					} else if ($$nc($DOMUtil::getLocalName(globalComp))->equals($SchemaSymbols::ELT_REDEFINE)) {
+						if (!dependenciesCanOccur) {
+							reportSchemaError("s4s-elt-invalid-content.3"_s, $$new($ObjectArray, {$($DOMUtil::getLocalName(globalComp))}), globalComp);
+						}
+						{
+							$var($Element, redefineComp, $DOMUtil::getFirstChildElement(globalComp));
+							for (; redefineComp != nullptr; $assign(redefineComp, $DOMUtil::getNextSiblingElement(redefineComp))) {
+								$var($String, lName, $DOMUtil::getAttrValue(redefineComp, $SchemaSymbols::ATT_NAME));
+								if ($nc(lName)->length() == 0) {
+									continue;
 								}
-							}
-						} else {
-							dependenciesCanOccur = false;
-							$var($String, lName, $DOMUtil::getAttrValue(globalComp, $SchemaSymbols::ATT_NAME));
-							if ($nc(lName)->length() == 0) {
-								continue;
-							}
-							$var($String, qName, currSchemaDoc->fTargetNamespace == nullptr ? $str({","_s, lName}) : $str({currSchemaDoc->fTargetNamespace, ","_s, lName}));
-							$assign(qName, $XMLChar::trim(qName));
-							$var($String, componentType, $DOMUtil::getLocalName(globalComp));
-							if ($nc(componentType)->equals($SchemaSymbols::ELT_ATTRIBUTE)) {
-								checkForDuplicateNames(qName, XSDHandler::ATTRIBUTE_TYPE, this->fUnparsedAttributeRegistry, this->fUnparsedAttributeRegistrySub, globalComp, currSchemaDoc);
-							} else {
-								if (componentType->equals($SchemaSymbols::ELT_ATTRIBUTEGROUP)) {
-									checkForDuplicateNames(qName, XSDHandler::ATTRIBUTEGROUP_TYPE, this->fUnparsedAttributeGroupRegistry, this->fUnparsedAttributeGroupRegistrySub, globalComp, currSchemaDoc);
+								$var($String, qName, currSchemaDoc->fTargetNamespace == nullptr ? $str({","_s, lName}) : $str({currSchemaDoc->fTargetNamespace, ","_s, lName}));
+								$assign(qName, $XMLChar::trim(qName));
+								$var($String, componentType, $DOMUtil::getLocalName(redefineComp));
+								if ($nc(componentType)->equals($SchemaSymbols::ELT_ATTRIBUTEGROUP)) {
+									checkForDuplicateNames(qName, XSDHandler::ATTRIBUTEGROUP_TYPE, this->fUnparsedAttributeGroupRegistry, this->fUnparsedAttributeGroupRegistrySub, redefineComp, currSchemaDoc);
+									$var($String, targetLName, $str({$($DOMUtil::getAttrValue(redefineComp, $SchemaSymbols::ATT_NAME)), XSDHandler::REDEF_IDENTIFIER}));
+									renameRedefiningComponents(currSchemaDoc, redefineComp, $SchemaSymbols::ELT_ATTRIBUTEGROUP, lName, targetLName);
 								} else {
-									bool var$5 = (componentType->equals($SchemaSymbols::ELT_COMPLEXTYPE));
-									if (var$5 || (componentType->equals($SchemaSymbols::ELT_SIMPLETYPE))) {
-										checkForDuplicateNames(qName, XSDHandler::TYPEDECL_TYPE, this->fUnparsedTypeRegistry, this->fUnparsedTypeRegistrySub, globalComp, currSchemaDoc);
-									} else {
-										if (componentType->equals($SchemaSymbols::ELT_ELEMENT)) {
-											checkForDuplicateNames(qName, XSDHandler::ELEMENT_TYPE, this->fUnparsedElementRegistry, this->fUnparsedElementRegistrySub, globalComp, currSchemaDoc);
+									bool var$1 = componentType->equals($SchemaSymbols::ELT_COMPLEXTYPE);
+									if (var$1 || (componentType->equals($SchemaSymbols::ELT_SIMPLETYPE))) {
+										checkForDuplicateNames(qName, XSDHandler::TYPEDECL_TYPE, this->fUnparsedTypeRegistry, this->fUnparsedTypeRegistrySub, redefineComp, currSchemaDoc);
+										$var($String, targetLName, $str({$($DOMUtil::getAttrValue(redefineComp, $SchemaSymbols::ATT_NAME)), XSDHandler::REDEF_IDENTIFIER}));
+										if (componentType->equals($SchemaSymbols::ELT_COMPLEXTYPE)) {
+											renameRedefiningComponents(currSchemaDoc, redefineComp, $SchemaSymbols::ELT_COMPLEXTYPE, lName, targetLName);
 										} else {
-											if (componentType->equals($SchemaSymbols::ELT_GROUP)) {
-												checkForDuplicateNames(qName, XSDHandler::GROUP_TYPE, this->fUnparsedGroupRegistry, this->fUnparsedGroupRegistrySub, globalComp, currSchemaDoc);
-											} else {
-												if (componentType->equals($SchemaSymbols::ELT_NOTATION)) {
-													checkForDuplicateNames(qName, XSDHandler::NOTATION_TYPE, this->fUnparsedNotationRegistry, this->fUnparsedNotationRegistrySub, globalComp, currSchemaDoc);
-												}
-											}
+											renameRedefiningComponents(currSchemaDoc, redefineComp, $SchemaSymbols::ELT_SIMPLETYPE, lName, targetLName);
 										}
+									} else if (componentType->equals($SchemaSymbols::ELT_GROUP)) {
+										checkForDuplicateNames(qName, XSDHandler::GROUP_TYPE, this->fUnparsedGroupRegistry, this->fUnparsedGroupRegistrySub, redefineComp, currSchemaDoc);
+										$var($String, targetLName, $str({$($DOMUtil::getAttrValue(redefineComp, $SchemaSymbols::ATT_NAME)), XSDHandler::REDEF_IDENTIFIER}));
+										renameRedefiningComponents(currSchemaDoc, redefineComp, $SchemaSymbols::ELT_GROUP, lName, targetLName);
 									}
 								}
+							}
+						}
+					} else {
+						dependenciesCanOccur = false;
+						$var($String, lName, $DOMUtil::getAttrValue(globalComp, $SchemaSymbols::ATT_NAME));
+						if ($nc(lName)->length() == 0) {
+							continue;
+						}
+						$var($String, qName, currSchemaDoc->fTargetNamespace == nullptr ? $str({","_s, lName}) : $str({currSchemaDoc->fTargetNamespace, ","_s, lName}));
+						$assign(qName, $XMLChar::trim(qName));
+						$var($String, componentType, $DOMUtil::getLocalName(globalComp));
+						if ($nc(componentType)->equals($SchemaSymbols::ELT_ATTRIBUTE)) {
+							checkForDuplicateNames(qName, XSDHandler::ATTRIBUTE_TYPE, this->fUnparsedAttributeRegistry, this->fUnparsedAttributeRegistrySub, globalComp, currSchemaDoc);
+						} else if (componentType->equals($SchemaSymbols::ELT_ATTRIBUTEGROUP)) {
+							checkForDuplicateNames(qName, XSDHandler::ATTRIBUTEGROUP_TYPE, this->fUnparsedAttributeGroupRegistry, this->fUnparsedAttributeGroupRegistrySub, globalComp, currSchemaDoc);
+						} else {
+							bool var$2 = componentType->equals($SchemaSymbols::ELT_COMPLEXTYPE);
+							if (var$2 || (componentType->equals($SchemaSymbols::ELT_SIMPLETYPE))) {
+								checkForDuplicateNames(qName, XSDHandler::TYPEDECL_TYPE, this->fUnparsedTypeRegistry, this->fUnparsedTypeRegistrySub, globalComp, currSchemaDoc);
+							} else if (componentType->equals($SchemaSymbols::ELT_ELEMENT)) {
+								checkForDuplicateNames(qName, XSDHandler::ELEMENT_TYPE, this->fUnparsedElementRegistry, this->fUnparsedElementRegistrySub, globalComp, currSchemaDoc);
+							} else if (componentType->equals($SchemaSymbols::ELT_GROUP)) {
+								checkForDuplicateNames(qName, XSDHandler::GROUP_TYPE, this->fUnparsedGroupRegistry, this->fUnparsedGroupRegistrySub, globalComp, currSchemaDoc);
+							} else if (componentType->equals($SchemaSymbols::ELT_NOTATION)) {
+								checkForDuplicateNames(qName, XSDHandler::NOTATION_TYPE, this->fUnparsedNotationRegistry, this->fUnparsedNotationRegistrySub, globalComp, currSchemaDoc);
 							}
 						}
 					}
@@ -1461,7 +1145,7 @@ void XSDHandler::buildGlobalNameRegistries() {
 }
 
 void XSDHandler::traverseSchemas($List* annotationInfo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setSchemasVisible(this->fRoot);
 	$var($Stack, schemasToProcess, $new($Stack));
 	schemasToProcess->push(this->fRoot);
@@ -1480,8 +1164,8 @@ void XSDHandler::traverseSchemas($List* annotationInfo) {
 				$DOMUtil::setHidden(globalComp, this->fHiddenNodes);
 				$var($String, componentType, $DOMUtil::getLocalName(globalComp));
 				$init($SchemaSymbols);
-				if ($nc($($DOMUtil::getLocalName(globalComp)))->equals($SchemaSymbols::ELT_REDEFINE)) {
-					currSchemaDoc->backupNSSupport((this->fRedefine2NSSupport != nullptr) ? $cast($SchemaNamespaceSupport, $($nc(this->fRedefine2NSSupport)->get(globalComp))) : ($SchemaNamespaceSupport*)nullptr);
+				if ($$nc($DOMUtil::getLocalName(globalComp))->equals($SchemaSymbols::ELT_REDEFINE)) {
+					currSchemaDoc->backupNSSupport((this->fRedefine2NSSupport != nullptr) ? $$cast($SchemaNamespaceSupport, this->fRedefine2NSSupport->get(globalComp)) : ($SchemaNamespaceSupport*)nullptr);
 					{
 						$var($Element, redefinedComp, $DOMUtil::getFirstVisibleChildElement(globalComp, this->fHiddenNodes));
 						for (; redefinedComp != nullptr; $assign(redefinedComp, $DOMUtil::getNextVisibleSiblingElement(redefinedComp, this->fHiddenNodes))) {
@@ -1489,66 +1173,44 @@ void XSDHandler::traverseSchemas($List* annotationInfo) {
 							$DOMUtil::setHidden(redefinedComp, this->fHiddenNodes);
 							if ($nc(redefinedComponentType)->equals($SchemaSymbols::ELT_ATTRIBUTEGROUP)) {
 								$nc(this->fAttributeGroupTraverser)->traverseGlobal(redefinedComp, currSchemaDoc, currSG);
+							} else if (redefinedComponentType->equals($SchemaSymbols::ELT_COMPLEXTYPE)) {
+								$nc(this->fComplexTypeTraverser)->traverseGlobal(redefinedComp, currSchemaDoc, currSG);
+							} else if (redefinedComponentType->equals($SchemaSymbols::ELT_GROUP)) {
+								$nc(this->fGroupTraverser)->traverseGlobal(redefinedComp, currSchemaDoc, currSG);
+							} else if (redefinedComponentType->equals($SchemaSymbols::ELT_SIMPLETYPE)) {
+								$nc(this->fSimpleTypeTraverser)->traverseGlobal(redefinedComp, currSchemaDoc, currSG);
 							} else {
-								if (redefinedComponentType->equals($SchemaSymbols::ELT_COMPLEXTYPE)) {
-									$nc(this->fComplexTypeTraverser)->traverseGlobal(redefinedComp, currSchemaDoc, currSG);
-								} else {
-									if (redefinedComponentType->equals($SchemaSymbols::ELT_GROUP)) {
-										$nc(this->fGroupTraverser)->traverseGlobal(redefinedComp, currSchemaDoc, currSG);
-									} else {
-										if (redefinedComponentType->equals($SchemaSymbols::ELT_SIMPLETYPE)) {
-											$nc(this->fSimpleTypeTraverser)->traverseGlobal(redefinedComp, currSchemaDoc, currSG);
-										} else {
-											reportSchemaError("s4s-elt-must-match.1"_s, $$new($ObjectArray, {
-												$($of($DOMUtil::getLocalName(globalComp))),
-												$of("(annotation | (simpleType | complexType | group | attributeGroup))*"_s),
-												$of(redefinedComponentType)
-											}), redefinedComp);
-										}
-									}
-								}
+								reportSchemaError("s4s-elt-must-match.1"_s, $$new($ObjectArray, {
+									$($DOMUtil::getLocalName(globalComp)),
+									"(annotation | (simpleType | complexType | group | attributeGroup))*"_s,
+									redefinedComponentType
+								}), redefinedComp);
 							}
 						}
 					}
 					currSchemaDoc->restoreNSSupport();
+				} else if ($nc(componentType)->equals($SchemaSymbols::ELT_ATTRIBUTE)) {
+					$nc(this->fAttributeTraverser)->traverseGlobal(globalComp, currSchemaDoc, currSG);
+				} else if (componentType->equals($SchemaSymbols::ELT_ATTRIBUTEGROUP)) {
+					$nc(this->fAttributeGroupTraverser)->traverseGlobal(globalComp, currSchemaDoc, currSG);
+				} else if (componentType->equals($SchemaSymbols::ELT_COMPLEXTYPE)) {
+					$nc(this->fComplexTypeTraverser)->traverseGlobal(globalComp, currSchemaDoc, currSG);
+				} else if (componentType->equals($SchemaSymbols::ELT_ELEMENT)) {
+					$nc(this->fElementTraverser)->traverseGlobal(globalComp, currSchemaDoc, currSG);
+				} else if (componentType->equals($SchemaSymbols::ELT_GROUP)) {
+					$nc(this->fGroupTraverser)->traverseGlobal(globalComp, currSchemaDoc, currSG);
+				} else if (componentType->equals($SchemaSymbols::ELT_NOTATION)) {
+					$nc(this->fNotationTraverser)->traverse(globalComp, currSchemaDoc, currSG);
+				} else if (componentType->equals($SchemaSymbols::ELT_SIMPLETYPE)) {
+					$nc(this->fSimpleTypeTraverser)->traverseGlobal(globalComp, currSchemaDoc, currSG);
+				} else if (componentType->equals($SchemaSymbols::ELT_ANNOTATION)) {
+					$nc(currSG)->addAnnotation($($nc(this->fElementTraverser)->traverseAnnotationDecl(globalComp, $(currSchemaDoc->getSchemaAttrs()), true, currSchemaDoc)));
+					sawAnnotation = true;
 				} else {
-					if ($nc(componentType)->equals($SchemaSymbols::ELT_ATTRIBUTE)) {
-						$nc(this->fAttributeTraverser)->traverseGlobal(globalComp, currSchemaDoc, currSG);
-					} else {
-						if (componentType->equals($SchemaSymbols::ELT_ATTRIBUTEGROUP)) {
-							$nc(this->fAttributeGroupTraverser)->traverseGlobal(globalComp, currSchemaDoc, currSG);
-						} else {
-							if (componentType->equals($SchemaSymbols::ELT_COMPLEXTYPE)) {
-								$nc(this->fComplexTypeTraverser)->traverseGlobal(globalComp, currSchemaDoc, currSG);
-							} else {
-								if (componentType->equals($SchemaSymbols::ELT_ELEMENT)) {
-									$nc(this->fElementTraverser)->traverseGlobal(globalComp, currSchemaDoc, currSG);
-								} else {
-									if (componentType->equals($SchemaSymbols::ELT_GROUP)) {
-										$nc(this->fGroupTraverser)->traverseGlobal(globalComp, currSchemaDoc, currSG);
-									} else {
-										if (componentType->equals($SchemaSymbols::ELT_NOTATION)) {
-											$nc(this->fNotationTraverser)->traverse(globalComp, currSchemaDoc, currSG);
-										} else {
-											if (componentType->equals($SchemaSymbols::ELT_SIMPLETYPE)) {
-												$nc(this->fSimpleTypeTraverser)->traverseGlobal(globalComp, currSchemaDoc, currSG);
-											} else {
-												if (componentType->equals($SchemaSymbols::ELT_ANNOTATION)) {
-													$nc(currSG)->addAnnotation($($nc(this->fElementTraverser)->traverseAnnotationDecl(globalComp, $(currSchemaDoc->getSchemaAttrs()), true, currSchemaDoc)));
-													sawAnnotation = true;
-												} else {
-													reportSchemaError("s4s-elt-invalid-content.1"_s, $$new($ObjectArray, {
-														$of($SchemaSymbols::ELT_SCHEMA),
-														$($of($DOMUtil::getLocalName(globalComp)))
-													}), globalComp);
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
+					reportSchemaError("s4s-elt-invalid-content.1"_s, $$new($ObjectArray, {
+						$SchemaSymbols::ELT_SCHEMA,
+						$($DOMUtil::getLocalName(globalComp))
+					}), globalComp);
 				}
 			}
 		}
@@ -1583,7 +1245,7 @@ void XSDHandler::traverseSchemas($List* annotationInfo) {
 bool XSDHandler::needReportTNSError($String* uri) {
 	if (this->fReportedTNS == nullptr) {
 		$set(this, fReportedTNS, $new($ArrayList));
-	} else if ($nc(this->fReportedTNS)->contains(uri)) {
+	} else if (this->fReportedTNS->contains(uri)) {
 		return false;
 	}
 	$nc(this->fReportedTNS)->add(uri);
@@ -1591,63 +1253,63 @@ bool XSDHandler::needReportTNSError($String* uri) {
 }
 
 void XSDHandler::addGlobalAttributeDecl($XSAttributeDecl* decl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, namespace$, $nc(decl)->getNamespace());
-	$var($String, declKey, (namespace$ == nullptr || $nc(namespace$)->length() == 0) ? $str({","_s, $(decl->getName())}) : $str({namespace$, ","_s, $(decl->getName())}));
+	$var($String, declKey, (namespace$ == nullptr || namespace$->length() == 0) ? $str({","_s, $(decl->getName())}) : $str({namespace$, ","_s, $(decl->getName())}));
 	if ($nc(this->fGlobalAttrDecls)->get(declKey) == nullptr) {
 		$nc(this->fGlobalAttrDecls)->put(declKey, decl);
 	}
 }
 
 void XSDHandler::addGlobalAttributeGroupDecl($XSAttributeGroupDecl* decl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, namespace$, $nc(decl)->getNamespace());
-	$var($String, declKey, (namespace$ == nullptr || $nc(namespace$)->length() == 0) ? $str({","_s, $(decl->getName())}) : $str({namespace$, ","_s, $(decl->getName())}));
+	$var($String, declKey, (namespace$ == nullptr || namespace$->length() == 0) ? $str({","_s, $(decl->getName())}) : $str({namespace$, ","_s, $(decl->getName())}));
 	if ($nc(this->fGlobalAttrGrpDecls)->get(declKey) == nullptr) {
 		$nc(this->fGlobalAttrGrpDecls)->put(declKey, decl);
 	}
 }
 
 void XSDHandler::addGlobalElementDecl($XSElementDecl* decl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, namespace$, $nc(decl)->getNamespace());
-	$var($String, declKey, (namespace$ == nullptr || $nc(namespace$)->length() == 0) ? $str({","_s, $(decl->getName())}) : $str({namespace$, ","_s, $(decl->getName())}));
+	$var($String, declKey, (namespace$ == nullptr || namespace$->length() == 0) ? $str({","_s, $(decl->getName())}) : $str({namespace$, ","_s, $(decl->getName())}));
 	if ($nc(this->fGlobalElemDecls)->get(declKey) == nullptr) {
 		$nc(this->fGlobalElemDecls)->put(declKey, decl);
 	}
 }
 
 void XSDHandler::addGlobalGroupDecl($XSGroupDecl* decl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, namespace$, $nc(decl)->getNamespace());
-	$var($String, declKey, (namespace$ == nullptr || $nc(namespace$)->length() == 0) ? $str({","_s, $(decl->getName())}) : $str({namespace$, ","_s, $(decl->getName())}));
+	$var($String, declKey, (namespace$ == nullptr || namespace$->length() == 0) ? $str({","_s, $(decl->getName())}) : $str({namespace$, ","_s, $(decl->getName())}));
 	if ($nc(this->fGlobalGroupDecls)->get(declKey) == nullptr) {
 		$nc(this->fGlobalGroupDecls)->put(declKey, decl);
 	}
 }
 
 void XSDHandler::addGlobalNotationDecl($XSNotationDecl* decl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, namespace$, $nc(decl)->getNamespace());
-	$var($String, declKey, (namespace$ == nullptr || $nc(namespace$)->length() == 0) ? $str({","_s, $(decl->getName())}) : $str({namespace$, ","_s, $(decl->getName())}));
+	$var($String, declKey, (namespace$ == nullptr || namespace$->length() == 0) ? $str({","_s, $(decl->getName())}) : $str({namespace$, ","_s, $(decl->getName())}));
 	if ($nc(this->fGlobalNotationDecls)->get(declKey) == nullptr) {
 		$nc(this->fGlobalNotationDecls)->put(declKey, decl);
 	}
 }
 
 void XSDHandler::addGlobalTypeDecl($XSTypeDefinition* decl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, namespace$, $nc(decl)->getNamespace());
-	$var($String, declKey, (namespace$ == nullptr || $nc(namespace$)->length() == 0) ? $str({","_s, $(decl->getName())}) : $str({namespace$, ","_s, $(decl->getName())}));
+	$var($String, declKey, (namespace$ == nullptr || namespace$->length() == 0) ? $str({","_s, $(decl->getName())}) : $str({namespace$, ","_s, $(decl->getName())}));
 	if ($nc(this->fGlobalTypeDecls)->get(declKey) == nullptr) {
 		$nc(this->fGlobalTypeDecls)->put(declKey, decl);
 	}
 }
 
 void XSDHandler::addIDConstraintDecl($IdentityConstraint* decl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, namespace$, $nc(decl)->getNamespace());
-	$var($String, declKey, (namespace$ == nullptr || $nc(namespace$)->length() == 0) ? $str({","_s, $(decl->getIdentityConstraintName())}) : $str({namespace$, ","_s, $(decl->getIdentityConstraintName())}));
+	$var($String, declKey, (namespace$ == nullptr || namespace$->length() == 0) ? $str({","_s, $(decl->getIdentityConstraintName())}) : $str({namespace$, ","_s, $(decl->getIdentityConstraintName())}));
 	if ($nc(this->fGlobalIDConstraintDecls)->get(declKey) == nullptr) {
 		$nc(this->fGlobalIDConstraintDecls)->put(declKey, decl);
 	}
@@ -1682,47 +1344,48 @@ $IdentityConstraint* XSDHandler::getIDConstraintDecl($String* declKey) {
 }
 
 $Object* XSDHandler::getGlobalDecl($XSDocumentInfo* currSchema, int32_t declType, $QName* declToTraverse, $Element* elmNode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	$init($SchemaSymbols);
 	if ($nc(declToTraverse)->uri != nullptr && declToTraverse->uri == $SchemaSymbols::URI_SCHEMAFORSCHEMA) {
 		if (declType == XSDHandler::TYPEDECL_TYPE) {
 			$init($SchemaGrammar);
 			$var($Object, retObj, $nc($SchemaGrammar::SG_SchemaNS)->getGlobalTypeDecl(declToTraverse->localpart));
 			if (retObj != nullptr) {
-				return $of(retObj);
+				return retObj;
 			}
 		}
 	}
-	if (!$nc(currSchema)->isAllowedNS($nc(declToTraverse)->uri)) {
-		if (currSchema->needReportTNSError($nc(declToTraverse)->uri)) {
-			$var($String, code, $nc(declToTraverse)->uri == nullptr ? "src-resolve.4.1"_s : "src-resolve.4.2"_s);
+	if (!$nc(currSchema)->isAllowedNS(declToTraverse->uri)) {
+		if (currSchema->needReportTNSError(declToTraverse->uri)) {
+			$var($String, code, declToTraverse->uri == nullptr ? "src-resolve.4.1"_s : "src-resolve.4.2"_s);
 			reportSchemaError(code, $$new($ObjectArray, {
 				$($nc(this->fDoc2SystemId)->get(currSchema->fSchemaElement)),
-				$of($nc(declToTraverse)->uri),
-				$of(declToTraverse->rawname)
+				declToTraverse->uri,
+				declToTraverse->rawname
 			}), elmNode);
 		}
 	}
-	$var($SchemaGrammar, sGrammar, $nc(this->fGrammarBucket)->getGrammar($nc(declToTraverse)->uri));
+	$var($SchemaGrammar, sGrammar, $nc(this->fGrammarBucket)->getGrammar(declToTraverse->uri));
 	if (sGrammar == nullptr) {
-		if (needReportTNSError($nc(declToTraverse)->uri)) {
+		if (needReportTNSError(declToTraverse->uri)) {
 			reportSchemaError("src-resolve"_s, $$new($ObjectArray, {
-				$of($nc(declToTraverse)->rawname),
-				$of($nc(XSDHandler::COMP_TYPE)->get(declType))
+				declToTraverse->rawname,
+				XSDHandler::COMP_TYPE->get(declType)
 			}), elmNode);
 		}
-		return $of(nullptr);
+		return nullptr;
 	}
-	$var($Object, retObj, getGlobalDeclFromGrammar(sGrammar, declType, $nc(declToTraverse)->localpart));
-	$var($String, declKey, $nc(declToTraverse)->uri == nullptr ? $str({","_s, $nc(declToTraverse)->localpart}) : $str({declToTraverse->uri, ","_s, declToTraverse->localpart}));
+	$var($Object, retObj, getGlobalDeclFromGrammar(sGrammar, declType, declToTraverse->localpart));
+	$var($String, declKey, declToTraverse->uri == nullptr ? $str({","_s, declToTraverse->localpart}) : $str({declToTraverse->uri, ","_s, declToTraverse->localpart}));
 	if (!this->fTolerateDuplicates) {
 		if (retObj != nullptr) {
-			return $of(retObj);
+			return retObj;
 		}
 	} else {
 		$var($Object, retObj2, getGlobalDecl(declKey, declType));
 		if (retObj2 != nullptr) {
-			return $of(retObj2);
+			return retObj2;
 		}
 	}
 	$var($XSDocumentInfo, schemaWithDecl, nullptr);
@@ -1730,267 +1393,195 @@ $Object* XSDHandler::getGlobalDecl($XSDocumentInfo* currSchema, int32_t declType
 	$var($XSDocumentInfo, declDoc, nullptr);
 	switch (declType) {
 	case XSDHandler::ATTRIBUTE_TYPE:
-		{
-			$assign(decl, getElementFromMap(this->fUnparsedAttributeRegistry, declKey));
-			$assign(declDoc, getDocInfoFromMap(this->fUnparsedAttributeRegistrySub, declKey));
-			break;
-		}
+		$assign(decl, getElementFromMap(this->fUnparsedAttributeRegistry, declKey));
+		$assign(declDoc, getDocInfoFromMap(this->fUnparsedAttributeRegistrySub, declKey));
+		break;
 	case XSDHandler::ATTRIBUTEGROUP_TYPE:
-		{
-			$assign(decl, getElementFromMap(this->fUnparsedAttributeGroupRegistry, declKey));
-			$assign(declDoc, getDocInfoFromMap(this->fUnparsedAttributeGroupRegistrySub, declKey));
-			break;
-		}
+		$assign(decl, getElementFromMap(this->fUnparsedAttributeGroupRegistry, declKey));
+		$assign(declDoc, getDocInfoFromMap(this->fUnparsedAttributeGroupRegistrySub, declKey));
+		break;
 	case XSDHandler::ELEMENT_TYPE:
-		{
-			$assign(decl, getElementFromMap(this->fUnparsedElementRegistry, declKey));
-			$assign(declDoc, getDocInfoFromMap(this->fUnparsedElementRegistrySub, declKey));
-			break;
-		}
+		$assign(decl, getElementFromMap(this->fUnparsedElementRegistry, declKey));
+		$assign(declDoc, getDocInfoFromMap(this->fUnparsedElementRegistrySub, declKey));
+		break;
 	case XSDHandler::GROUP_TYPE:
-		{
-			$assign(decl, getElementFromMap(this->fUnparsedGroupRegistry, declKey));
-			$assign(declDoc, getDocInfoFromMap(this->fUnparsedGroupRegistrySub, declKey));
-			break;
-		}
+		$assign(decl, getElementFromMap(this->fUnparsedGroupRegistry, declKey));
+		$assign(declDoc, getDocInfoFromMap(this->fUnparsedGroupRegistrySub, declKey));
+		break;
 	case XSDHandler::IDENTITYCONSTRAINT_TYPE:
-		{
-			$assign(decl, getElementFromMap(this->fUnparsedIdentityConstraintRegistry, declKey));
-			$assign(declDoc, getDocInfoFromMap(this->fUnparsedIdentityConstraintRegistrySub, declKey));
-			break;
-		}
+		$assign(decl, getElementFromMap(this->fUnparsedIdentityConstraintRegistry, declKey));
+		$assign(declDoc, getDocInfoFromMap(this->fUnparsedIdentityConstraintRegistrySub, declKey));
+		break;
 	case XSDHandler::NOTATION_TYPE:
-		{
-			$assign(decl, getElementFromMap(this->fUnparsedNotationRegistry, declKey));
-			$assign(declDoc, getDocInfoFromMap(this->fUnparsedNotationRegistrySub, declKey));
-			break;
-		}
+		$assign(decl, getElementFromMap(this->fUnparsedNotationRegistry, declKey));
+		$assign(declDoc, getDocInfoFromMap(this->fUnparsedNotationRegistrySub, declKey));
+		break;
 	case XSDHandler::TYPEDECL_TYPE:
-		{
-			$assign(decl, getElementFromMap(this->fUnparsedTypeRegistry, declKey));
-			$assign(declDoc, getDocInfoFromMap(this->fUnparsedTypeRegistrySub, declKey));
-			break;
-		}
+		$assign(decl, getElementFromMap(this->fUnparsedTypeRegistry, declKey));
+		$assign(declDoc, getDocInfoFromMap(this->fUnparsedTypeRegistrySub, declKey));
+		break;
 	default:
-		{
-			reportSchemaError("Internal-Error"_s, $$new($ObjectArray, {$of($$str({"XSDHandler asked to locate component of type "_s, $$str(declType), "; it does not recognize this type!"_s}))}), elmNode);
-		}
+		reportSchemaError("Internal-Error"_s, $$new($ObjectArray, {$$str({"XSDHandler asked to locate component of type "_s, $$str(declType), "; it does not recognize this type!"_s})}), elmNode);
 	}
 	if (decl == nullptr) {
 		if (retObj == nullptr) {
 			reportSchemaError("src-resolve"_s, $$new($ObjectArray, {
-				$of(declToTraverse->rawname),
-				$of($nc(XSDHandler::COMP_TYPE)->get(declType))
+				declToTraverse->rawname,
+				XSDHandler::COMP_TYPE->get(declType)
 			}), elmNode);
 		}
-		return $of(retObj);
+		return retObj;
 	}
 	$assign(schemaWithDecl, findXSDocumentForDecl(currSchema, decl, declDoc));
 	if (schemaWithDecl == nullptr) {
 		if (retObj == nullptr) {
 			$var($String, code, declToTraverse->uri == nullptr ? "src-resolve.4.1"_s : "src-resolve.4.2"_s);
 			reportSchemaError(code, $$new($ObjectArray, {
-				$($nc(this->fDoc2SystemId)->get($nc(currSchema)->fSchemaElement)),
-				$of(declToTraverse->uri),
-				$of(declToTraverse->rawname)
+				$($nc(this->fDoc2SystemId)->get(currSchema->fSchemaElement)),
+				declToTraverse->uri,
+				declToTraverse->rawname
 			}), elmNode);
 		}
-		return $of(retObj);
+		return retObj;
 	}
 	if ($DOMUtil::isHidden(decl, this->fHiddenNodes)) {
 		if (retObj == nullptr) {
-			$var($String, code, $nc(XSDHandler::CIRCULAR_CODES)->get(declType));
+			$var($String, code, XSDHandler::CIRCULAR_CODES->get(declType));
 			if (declType == XSDHandler::TYPEDECL_TYPE) {
 				if ($nc($SchemaSymbols::ELT_COMPLEXTYPE)->equals($($DOMUtil::getLocalName(decl)))) {
 					$assign(code, "ct-props-correct.3"_s);
 				}
 			}
-			reportSchemaError(code, $$new($ObjectArray, {$of($$str({declToTraverse->prefix, ":"_s, declToTraverse->localpart}))}), elmNode);
+			reportSchemaError(code, $$new($ObjectArray, {$$str({declToTraverse->prefix, ":"_s, declToTraverse->localpart})}), elmNode);
 		}
-		return $of(retObj);
+		return retObj;
 	}
-	return $of(traverseGlobalDecl(declType, decl, schemaWithDecl, sGrammar));
+	return traverseGlobalDecl(declType, decl, schemaWithDecl, sGrammar);
 }
 
 $Object* XSDHandler::getGlobalDecl($String* declKey, int32_t declType) {
 	$var($Object, retObj, nullptr);
 	switch (declType) {
 	case XSDHandler::ATTRIBUTE_TYPE:
-		{
-			$assign(retObj, getGlobalAttributeDecl(declKey));
-			break;
-		}
+		$assign(retObj, getGlobalAttributeDecl(declKey));
+		break;
 	case XSDHandler::ATTRIBUTEGROUP_TYPE:
-		{
-			$assign(retObj, getGlobalAttributeGroupDecl(declKey));
-			break;
-		}
+		$assign(retObj, getGlobalAttributeGroupDecl(declKey));
+		break;
 	case XSDHandler::ELEMENT_TYPE:
-		{
-			$assign(retObj, getGlobalElementDecl(declKey));
-			break;
-		}
+		$assign(retObj, getGlobalElementDecl(declKey));
+		break;
 	case XSDHandler::GROUP_TYPE:
-		{
-			$assign(retObj, getGlobalGroupDecl(declKey));
-			break;
-		}
+		$assign(retObj, getGlobalGroupDecl(declKey));
+		break;
 	case XSDHandler::IDENTITYCONSTRAINT_TYPE:
-		{
-			$assign(retObj, getIDConstraintDecl(declKey));
-			break;
-		}
+		$assign(retObj, getIDConstraintDecl(declKey));
+		break;
 	case XSDHandler::NOTATION_TYPE:
-		{
-			$assign(retObj, getGlobalNotationDecl(declKey));
-			break;
-		}
+		$assign(retObj, getGlobalNotationDecl(declKey));
+		break;
 	case XSDHandler::TYPEDECL_TYPE:
-		{
-			$assign(retObj, getGlobalTypeDecl(declKey));
-			break;
-		}
+		$assign(retObj, getGlobalTypeDecl(declKey));
+		break;
 	}
-	return $of(retObj);
+	return retObj;
 }
 
 $Object* XSDHandler::getGlobalDeclFromGrammar($SchemaGrammar* sGrammar, int32_t declType, $String* localpart) {
 	$var($Object, retObj, nullptr);
 	switch (declType) {
 	case XSDHandler::ATTRIBUTE_TYPE:
-		{
-			$assign(retObj, $nc(sGrammar)->getGlobalAttributeDecl(localpart));
-			break;
-		}
+		$assign(retObj, $nc(sGrammar)->getGlobalAttributeDecl(localpart));
+		break;
 	case XSDHandler::ATTRIBUTEGROUP_TYPE:
-		{
-			$assign(retObj, $nc(sGrammar)->getGlobalAttributeGroupDecl(localpart));
-			break;
-		}
+		$assign(retObj, $nc(sGrammar)->getGlobalAttributeGroupDecl(localpart));
+		break;
 	case XSDHandler::ELEMENT_TYPE:
-		{
-			$assign(retObj, $nc(sGrammar)->getGlobalElementDecl(localpart));
-			break;
-		}
+		$assign(retObj, $nc(sGrammar)->getGlobalElementDecl(localpart));
+		break;
 	case XSDHandler::GROUP_TYPE:
-		{
-			$assign(retObj, $nc(sGrammar)->getGlobalGroupDecl(localpart));
-			break;
-		}
+		$assign(retObj, $nc(sGrammar)->getGlobalGroupDecl(localpart));
+		break;
 	case XSDHandler::IDENTITYCONSTRAINT_TYPE:
-		{
-			$assign(retObj, $nc(sGrammar)->getIDConstraintDecl(localpart));
-			break;
-		}
+		$assign(retObj, $nc(sGrammar)->getIDConstraintDecl(localpart));
+		break;
 	case XSDHandler::NOTATION_TYPE:
-		{
-			$assign(retObj, $nc(sGrammar)->getGlobalNotationDecl(localpart));
-			break;
-		}
+		$assign(retObj, $nc(sGrammar)->getGlobalNotationDecl(localpart));
+		break;
 	case XSDHandler::TYPEDECL_TYPE:
-		{
-			$assign(retObj, $nc(sGrammar)->getGlobalTypeDecl(localpart));
-			break;
-		}
+		$assign(retObj, $nc(sGrammar)->getGlobalTypeDecl(localpart));
+		break;
 	}
-	return $of(retObj);
+	return retObj;
 }
 
 $Object* XSDHandler::getGlobalDeclFromGrammar($SchemaGrammar* sGrammar, int32_t declType, $String* localpart, $String* schemaLoc) {
 	$var($Object, retObj, nullptr);
 	switch (declType) {
 	case XSDHandler::ATTRIBUTE_TYPE:
-		{
-			$assign(retObj, $nc(sGrammar)->getGlobalAttributeDecl(localpart, schemaLoc));
-			break;
-		}
+		$assign(retObj, $nc(sGrammar)->getGlobalAttributeDecl(localpart, schemaLoc));
+		break;
 	case XSDHandler::ATTRIBUTEGROUP_TYPE:
-		{
-			$assign(retObj, $nc(sGrammar)->getGlobalAttributeGroupDecl(localpart, schemaLoc));
-			break;
-		}
+		$assign(retObj, $nc(sGrammar)->getGlobalAttributeGroupDecl(localpart, schemaLoc));
+		break;
 	case XSDHandler::ELEMENT_TYPE:
-		{
-			$assign(retObj, $nc(sGrammar)->getGlobalElementDecl(localpart, schemaLoc));
-			break;
-		}
+		$assign(retObj, $nc(sGrammar)->getGlobalElementDecl(localpart, schemaLoc));
+		break;
 	case XSDHandler::GROUP_TYPE:
-		{
-			$assign(retObj, $nc(sGrammar)->getGlobalGroupDecl(localpart, schemaLoc));
-			break;
-		}
+		$assign(retObj, $nc(sGrammar)->getGlobalGroupDecl(localpart, schemaLoc));
+		break;
 	case XSDHandler::IDENTITYCONSTRAINT_TYPE:
-		{
-			$assign(retObj, $nc(sGrammar)->getIDConstraintDecl(localpart, schemaLoc));
-			break;
-		}
+		$assign(retObj, $nc(sGrammar)->getIDConstraintDecl(localpart, schemaLoc));
+		break;
 	case XSDHandler::NOTATION_TYPE:
-		{
-			$assign(retObj, $nc(sGrammar)->getGlobalNotationDecl(localpart, schemaLoc));
-			break;
-		}
+		$assign(retObj, $nc(sGrammar)->getGlobalNotationDecl(localpart, schemaLoc));
+		break;
 	case XSDHandler::TYPEDECL_TYPE:
-		{
-			$assign(retObj, $nc(sGrammar)->getGlobalTypeDecl(localpart, schemaLoc));
-			break;
-		}
+		$assign(retObj, $nc(sGrammar)->getGlobalTypeDecl(localpart, schemaLoc));
+		break;
 	}
-	return $of(retObj);
+	return retObj;
 }
 
 $Object* XSDHandler::traverseGlobalDecl(int32_t declType, $Element* decl, $XSDocumentInfo* schemaDoc, $SchemaGrammar* grammar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, retObj, nullptr);
 	$DOMUtil::setHidden(decl, this->fHiddenNodes);
 	$var($SchemaNamespaceSupport, nsSupport, nullptr);
 	$var($Element, parent, $DOMUtil::getParent(decl));
 	$init($SchemaSymbols);
-	if ($nc($($DOMUtil::getLocalName(parent)))->equals($SchemaSymbols::ELT_REDEFINE)) {
-		$assign(nsSupport, (this->fRedefine2NSSupport != nullptr) ? $cast($SchemaNamespaceSupport, $nc(this->fRedefine2NSSupport)->get(parent)) : ($SchemaNamespaceSupport*)nullptr);
+	if ($$nc($DOMUtil::getLocalName(parent))->equals($SchemaSymbols::ELT_REDEFINE)) {
+		$assign(nsSupport, (this->fRedefine2NSSupport != nullptr) ? $cast($SchemaNamespaceSupport, this->fRedefine2NSSupport->get(parent)) : ($SchemaNamespaceSupport*)nullptr);
 	}
 	$nc(schemaDoc)->backupNSSupport(nsSupport);
 	switch (declType) {
 	case XSDHandler::TYPEDECL_TYPE:
-		{
-			if ($nc($($DOMUtil::getLocalName(decl)))->equals($SchemaSymbols::ELT_COMPLEXTYPE)) {
-				$assign(retObj, $nc(this->fComplexTypeTraverser)->traverseGlobal(decl, schemaDoc, grammar));
-			} else {
-				$assign(retObj, $nc(this->fSimpleTypeTraverser)->traverseGlobal(decl, schemaDoc, grammar));
-			}
-			break;
+		if ($$nc($DOMUtil::getLocalName(decl))->equals($SchemaSymbols::ELT_COMPLEXTYPE)) {
+			$assign(retObj, $nc(this->fComplexTypeTraverser)->traverseGlobal(decl, schemaDoc, grammar));
+		} else {
+			$assign(retObj, $nc(this->fSimpleTypeTraverser)->traverseGlobal(decl, schemaDoc, grammar));
 		}
+		break;
 	case XSDHandler::ATTRIBUTE_TYPE:
-		{
-			$assign(retObj, $nc(this->fAttributeTraverser)->traverseGlobal(decl, schemaDoc, grammar));
-			break;
-		}
+		$assign(retObj, $nc(this->fAttributeTraverser)->traverseGlobal(decl, schemaDoc, grammar));
+		break;
 	case XSDHandler::ELEMENT_TYPE:
-		{
-			$assign(retObj, $nc(this->fElementTraverser)->traverseGlobal(decl, schemaDoc, grammar));
-			break;
-		}
+		$assign(retObj, $nc(this->fElementTraverser)->traverseGlobal(decl, schemaDoc, grammar));
+		break;
 	case XSDHandler::ATTRIBUTEGROUP_TYPE:
-		{
-			$assign(retObj, $nc(this->fAttributeGroupTraverser)->traverseGlobal(decl, schemaDoc, grammar));
-			break;
-		}
+		$assign(retObj, $nc(this->fAttributeGroupTraverser)->traverseGlobal(decl, schemaDoc, grammar));
+		break;
 	case XSDHandler::GROUP_TYPE:
-		{
-			$assign(retObj, $nc(this->fGroupTraverser)->traverseGlobal(decl, schemaDoc, grammar));
-			break;
-		}
+		$assign(retObj, $nc(this->fGroupTraverser)->traverseGlobal(decl, schemaDoc, grammar));
+		break;
 	case XSDHandler::NOTATION_TYPE:
-		{
-			$assign(retObj, $nc(this->fNotationTraverser)->traverse(decl, schemaDoc, grammar));
-			break;
-		}
+		$assign(retObj, $nc(this->fNotationTraverser)->traverse(decl, schemaDoc, grammar));
+		break;
 	case XSDHandler::IDENTITYCONSTRAINT_TYPE:
-		{
-			break;
-		}
+		break;
 	}
 	schemaDoc->restoreNSSupport();
-	return $of(retObj);
+	return retObj;
 }
 
 $String* XSDHandler::schemaDocument2SystemId($XSDocumentInfo* schemaDoc) {
@@ -1998,27 +1589,21 @@ $String* XSDHandler::schemaDocument2SystemId($XSDocumentInfo* schemaDoc) {
 }
 
 $Object* XSDHandler::getGrpOrAttrGrpRedefinedByRestriction(int32_t type, $QName* name, $XSDocumentInfo* currSchema, $Element* elmNode) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, realName, $nc(name)->uri != nullptr ? $str({$nc(name)->uri, ","_s, name->localpart}) : $str({","_s, name->localpart}));
+	$useLocalObjectStack();
+	$var($String, realName, $nc(name)->uri != nullptr ? $str({name->uri, ","_s, name->localpart}) : $str({","_s, name->localpart}));
 	$var($String, nameToFind, nullptr);
 	switch (type) {
 	case XSDHandler::ATTRIBUTEGROUP_TYPE:
-		{
-			$assign(nameToFind, $cast($String, $nc(this->fRedefinedRestrictedAttributeGroupRegistry)->get(realName)));
-			break;
-		}
+		$assign(nameToFind, $cast($String, $nc(this->fRedefinedRestrictedAttributeGroupRegistry)->get(realName)));
+		break;
 	case XSDHandler::GROUP_TYPE:
-		{
-			$assign(nameToFind, $cast($String, $nc(this->fRedefinedRestrictedGroupRegistry)->get(realName)));
-			break;
-		}
+		$assign(nameToFind, $cast($String, $nc(this->fRedefinedRestrictedGroupRegistry)->get(realName)));
+		break;
 	default:
-		{
-			return $of(nullptr);
-		}
+		return nullptr;
 	}
 	if (nameToFind == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	int32_t commaPos = $nc(nameToFind)->indexOf(","_s);
 	$init($XMLSymbols);
@@ -2030,23 +1615,19 @@ $Object* XSDHandler::getGrpOrAttrGrpRedefinedByRestriction(int32_t type, $QName*
 	if (retObj == nullptr) {
 		switch (type) {
 		case XSDHandler::ATTRIBUTEGROUP_TYPE:
-			{
-				reportSchemaError("src-redefine.7.2.1"_s, $$new($ObjectArray, {$of(name->localpart)}), elmNode);
-				break;
-			}
+			reportSchemaError("src-redefine.7.2.1"_s, $$new($ObjectArray, {name->localpart}), elmNode);
+			break;
 		case XSDHandler::GROUP_TYPE:
-			{
-				reportSchemaError("src-redefine.6.2.1"_s, $$new($ObjectArray, {$of(name->localpart)}), elmNode);
-				break;
-			}
+			reportSchemaError("src-redefine.6.2.1"_s, $$new($ObjectArray, {name->localpart}), elmNode);
+			break;
 		}
-		return $of(nullptr);
+		return nullptr;
 	}
-	return $of(retObj);
+	return retObj;
 }
 
 void XSDHandler::resolveKeyRefs() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < this->fKeyrefStackPos; ++i) {
 		$var($XSDocumentInfo, keyrefSchemaDoc, $nc(this->fKeyrefsMapXSDocumentInfo)->get(i));
 		$nc($nc(keyrefSchemaDoc)->fNamespaceSupport)->makeGlobal();
@@ -2066,11 +1647,11 @@ $Map* XSDHandler::getIDRegistry_sub() {
 }
 
 void XSDHandler::storeKeyRef($Element* keyrefToStore, $XSDocumentInfo* schemaDoc, $XSElementDecl* currElemDecl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($SchemaSymbols);
 	$var($String, keyrefName, $DOMUtil::getAttrValue(keyrefToStore, $SchemaSymbols::ATT_NAME));
 	if ($nc(keyrefName)->length() != 0) {
-		$var($String, keyrefQName, $nc(schemaDoc)->fTargetNamespace == nullptr ? $str({","_s, keyrefName}) : $str({$nc(schemaDoc)->fTargetNamespace, ","_s, keyrefName}));
+		$var($String, keyrefQName, $nc(schemaDoc)->fTargetNamespace == nullptr ? $str({","_s, keyrefName}) : $str({schemaDoc->fTargetNamespace, ","_s, keyrefName}));
 		checkForDuplicateNames(keyrefQName, XSDHandler::IDENTITYCONSTRAINT_TYPE, this->fUnparsedIdentityConstraintRegistry, this->fUnparsedIdentityConstraintRegistrySub, keyrefToStore, schemaDoc);
 	}
 	if (this->fKeyrefStackPos == $nc(this->fKeyrefs)->length) {
@@ -2087,93 +1668,77 @@ void XSDHandler::storeKeyRef($Element* keyrefToStore, $XSDocumentInfo* schemaDoc
 		$System::arraycopy(this->fKeyrefsMapXSDocumentInfo, 0, xsDocumentInfo, 0, this->fKeyrefStackPos);
 		$set(this, fKeyrefsMapXSDocumentInfo, xsDocumentInfo);
 	}
-	$nc(this->fKeyrefs)->set(this->fKeyrefStackPos, keyrefToStore);
+	this->fKeyrefs->set(this->fKeyrefStackPos, keyrefToStore);
 	$nc(this->fKeyrefElems)->set(this->fKeyrefStackPos, currElemDecl);
 	$nc(this->fKeyrefNamespaceContext)->set(this->fKeyrefStackPos, $($nc($nc(schemaDoc)->fNamespaceSupport)->getEffectiveLocalContext()));
 	$nc(this->fKeyrefsMapXSDocumentInfo)->set(this->fKeyrefStackPos++, schemaDoc);
 }
 
 $Element* XSDHandler::resolveSchema($XSDDescription* desc, bool mustResolve, $Element* referElement, bool usePairs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XMLInputSource, schemaSource, nullptr);
 	try {
 		$var($Map, pairs, usePairs ? this->fLocationPairs : $Collections::emptyMap());
 		$assign(schemaSource, $XMLSchemaLoader::resolveDocument(desc, pairs, this->fEntityManager));
 	} catch ($IOException& ex) {
 		if (mustResolve) {
-			reportSchemaError("schema_reference.4"_s, $$new($ObjectArray, {$of($nc($($nc(desc)->getLocationHints()))->get(0))}), referElement);
+			reportSchemaError("schema_reference.4"_s, $$new($ObjectArray, {$nc($($nc(desc)->getLocationHints()))->get(0)}), referElement);
 		} else {
-			reportSchemaWarning("schema_reference.4"_s, $$new($ObjectArray, {$of($nc($($nc(desc)->getLocationHints()))->get(0))}), referElement);
+			reportSchemaWarning("schema_reference.4"_s, $$new($ObjectArray, {$nc($($nc(desc)->getLocationHints()))->get(0)}), referElement);
 		}
 	}
 	if ($instanceOf($DOMInputSource, schemaSource)) {
 		$var($String, var$0, $nc(desc)->getTargetNamespace());
-		$var($DOMInputSource, var$1, $cast($DOMInputSource, schemaSource));
-		bool var$2 = mustResolve;
-		return getSchemaDocument(var$0, var$1, var$2, desc->getContextType(), referElement);
+		return getSchemaDocument(var$0, $cast($DOMInputSource, schemaSource), mustResolve, desc->getContextType(), referElement);
 	} else if ($instanceOf($SAXInputSource, schemaSource)) {
-		$var($String, var$3, $nc(desc)->getTargetNamespace());
-		$var($SAXInputSource, var$4, $cast($SAXInputSource, schemaSource));
-		bool var$5 = mustResolve;
-		return getSchemaDocument(var$3, var$4, var$5, desc->getContextType(), referElement);
+		$var($String, var$1, $nc(desc)->getTargetNamespace());
+		return getSchemaDocument(var$1, $cast($SAXInputSource, schemaSource), mustResolve, desc->getContextType(), referElement);
 	} else if ($instanceOf($StAXInputSource, schemaSource)) {
-		$var($String, var$6, $nc(desc)->getTargetNamespace());
-		$var($StAXInputSource, var$7, $cast($StAXInputSource, schemaSource));
-		bool var$8 = mustResolve;
-		return getSchemaDocument(var$6, var$7, var$8, desc->getContextType(), referElement);
+		$var($String, var$2, $nc(desc)->getTargetNamespace());
+		return getSchemaDocument(var$2, $cast($StAXInputSource, schemaSource), mustResolve, desc->getContextType(), referElement);
 	} else if ($instanceOf($XSInputSource, schemaSource)) {
 		return getSchemaDocument($cast($XSInputSource, schemaSource), desc);
 	}
-	$var($String, var$9, $nc(desc)->getTargetNamespace());
-	$var($XMLInputSource, var$10, schemaSource);
-	bool var$11 = mustResolve;
-	return getSchemaDocument(var$9, var$10, var$11, desc->getContextType(), referElement);
+	$var($String, var$3, $nc(desc)->getTargetNamespace());
+	return getSchemaDocument(var$3, schemaSource, mustResolve, desc->getContextType(), referElement);
 }
 
 $Element* XSDHandler::resolveSchema($XMLInputSource* schemaSource, $XSDDescription* desc, bool mustResolve, $Element* referElement) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($DOMInputSource, schemaSource)) {
 		$var($String, var$0, $nc(desc)->getTargetNamespace());
-		$var($DOMInputSource, var$1, $cast($DOMInputSource, schemaSource));
-		bool var$2 = mustResolve;
-		return getSchemaDocument(var$0, var$1, var$2, desc->getContextType(), referElement);
+		return getSchemaDocument(var$0, $cast($DOMInputSource, schemaSource), mustResolve, desc->getContextType(), referElement);
 	} else if ($instanceOf($SAXInputSource, schemaSource)) {
-		$var($String, var$3, $nc(desc)->getTargetNamespace());
-		$var($SAXInputSource, var$4, $cast($SAXInputSource, schemaSource));
-		bool var$5 = mustResolve;
-		return getSchemaDocument(var$3, var$4, var$5, desc->getContextType(), referElement);
+		$var($String, var$1, $nc(desc)->getTargetNamespace());
+		return getSchemaDocument(var$1, $cast($SAXInputSource, schemaSource), mustResolve, desc->getContextType(), referElement);
 	} else if ($instanceOf($StAXInputSource, schemaSource)) {
-		$var($String, var$6, $nc(desc)->getTargetNamespace());
-		$var($StAXInputSource, var$7, $cast($StAXInputSource, schemaSource));
-		bool var$8 = mustResolve;
-		return getSchemaDocument(var$6, var$7, var$8, desc->getContextType(), referElement);
+		$var($String, var$2, $nc(desc)->getTargetNamespace());
+		return getSchemaDocument(var$2, $cast($StAXInputSource, schemaSource), mustResolve, desc->getContextType(), referElement);
 	} else if ($instanceOf($XSInputSource, schemaSource)) {
 		return getSchemaDocument($cast($XSInputSource, schemaSource), desc);
 	}
-	$var($String, var$9, $nc(desc)->getTargetNamespace());
-	$var($XMLInputSource, var$10, schemaSource);
-	bool var$11 = mustResolve;
-	return getSchemaDocument(var$9, var$10, var$11, desc->getContextType(), referElement);
+	$var($String, var$3, $nc(desc)->getTargetNamespace());
+	return getSchemaDocument(var$3, schemaSource, mustResolve, desc->getContextType(), referElement);
 }
 
 $XMLInputSource* XSDHandler::resolveSchemaSource($XSDDescription* desc, bool mustResolve, $Element* referElement, bool usePairs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XMLInputSource, schemaSource, nullptr);
 	try {
 		$var($Map, pairs, usePairs ? this->fLocationPairs : $Collections::emptyMap());
 		$assign(schemaSource, $XMLSchemaLoader::resolveDocument(desc, pairs, this->fEntityManager));
 	} catch ($IOException& ex) {
 		if (mustResolve) {
-			reportSchemaError("schema_reference.4"_s, $$new($ObjectArray, {$of($nc($($nc(desc)->getLocationHints()))->get(0))}), referElement);
+			reportSchemaError("schema_reference.4"_s, $$new($ObjectArray, {$nc($($nc(desc)->getLocationHints()))->get(0)}), referElement);
 		} else {
-			reportSchemaWarning("schema_reference.4"_s, $$new($ObjectArray, {$of($nc($($nc(desc)->getLocationHints()))->get(0))}), referElement);
+			reportSchemaWarning("schema_reference.4"_s, $$new($ObjectArray, {$nc($($nc(desc)->getLocationHints()))->get(0)}), referElement);
 		}
 	}
 	return schemaSource;
 }
 
 $Element* XSDHandler::getSchemaDocument($String* schemaNamespace, $XMLInputSource* schemaSource, bool mustResolve, int16_t referType, $Element* referElement) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool hasInput = true;
 	$var($IOException, exception, nullptr);
 	$var($Element, schemaElement, nullptr);
@@ -2181,8 +1746,8 @@ $Element* XSDHandler::getSchemaDocument($String* schemaNamespace, $XMLInputSourc
 		bool var$0 = schemaSource != nullptr;
 		if (var$0) {
 			bool var$2 = schemaSource->getSystemId() != nullptr;
-			bool var$1 = var$2 || $nc(schemaSource)->getByteStream() != nullptr;
-			var$0 = (var$1 || schemaSource->getCharacterStream() != nullptr);
+			bool var$1 = var$2 || schemaSource->getByteStream() != nullptr;
+			var$0 = var$1 || schemaSource->getCharacterStream() != nullptr;
 		}
 		if (var$0) {
 			$var($XSDHandler$XSDKey, key, nullptr);
@@ -2195,13 +1760,13 @@ $Element* XSDHandler::getSchemaDocument($String* schemaNamespace, $XMLInputSourc
 					this->fLastSchemaWasDuplicate = true;
 					return schemaElement;
 				}
-				if ((!$nc(schemaSource)->isCreatedByResolver()) && (referType == $XSDDescription::CONTEXT_IMPORT || referType == $XSDDescription::CONTEXT_INCLUDE || referType == $XSDDescription::CONTEXT_REDEFINE)) {
+				if ((!schemaSource->isCreatedByResolver()) && (referType == $XSDDescription::CONTEXT_IMPORT || referType == $XSDDescription::CONTEXT_INCLUDE || referType == $XSDDescription::CONTEXT_REDEFINE)) {
 					$init($JdkConstants);
 					$var($String, accessError, $SecuritySupport::checkAccess(schemaId, this->fAccessExternalSchema, $JdkConstants::ACCESS_EXTERNAL_ALL));
 					if (accessError != nullptr) {
 						reportSchemaFatalError("schema_reference.access"_s, $$new($ObjectArray, {
-							$($of($SecuritySupport::sanitizePath(schemaId))),
-							$of(accessError)
+							$($SecuritySupport::sanitizePath(schemaId)),
+							accessError
 						}), referElement);
 					}
 				}
@@ -2220,7 +1785,7 @@ $Element* XSDHandler::getSchemaDocument($String* schemaNamespace, $XMLInputSourc
 }
 
 $Element* XSDHandler::getSchemaDocument($String* schemaNamespace, $SAXInputSource* schemaSource, bool mustResolve, int16_t referType, $Element* referElement) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XMLReader, parser, $nc(schemaSource)->getXMLReader());
 	$var($InputSource, inputSource, schemaSource->getInputSource());
 	bool hasInput = true;
@@ -2230,8 +1795,8 @@ $Element* XSDHandler::getSchemaDocument($String* schemaNamespace, $SAXInputSourc
 		bool var$0 = inputSource != nullptr;
 		if (var$0) {
 			bool var$2 = inputSource->getSystemId() != nullptr;
-			bool var$1 = var$2 || $nc(inputSource)->getByteStream() != nullptr;
-			var$0 = (var$1 || inputSource->getCharacterStream() != nullptr);
+			bool var$1 = var$2 || inputSource->getByteStream() != nullptr;
+			var$0 = var$1 || inputSource->getCharacterStream() != nullptr;
 		}
 		if (var$0) {
 			$var($XSDHandler$XSDKey, key, nullptr);
@@ -2268,7 +1833,7 @@ $Element* XSDHandler::getSchemaDocument($String* schemaNamespace, $SAXInputSourc
 					$nc(parser)->setProperty($XMLConstants::ACCESS_EXTERNAL_DTD, this->fAccessExternalDTD);
 				} catch ($SAXNotRecognizedException& exc) {
 					$init($XMLConstants);
-					$XMLSecurityManager::printWarning($($nc($of(parser))->getClass()->getName()), $XMLConstants::ACCESS_EXTERNAL_DTD, exc);
+					$XMLSecurityManager::printWarning($($nc(parser)->getClass()->getName()), $XMLConstants::ACCESS_EXTERNAL_DTD, exc);
 				}
 			}
 			bool stringsInternalized = false;
@@ -2305,13 +1870,13 @@ $Element* XSDHandler::getSchemaDocument($String* schemaNamespace, $SAXInputSourc
 }
 
 $Element* XSDHandler::getSchemaDocument($String* schemaNamespace, $DOMInputSource* schemaSource, bool mustResolve, int16_t referType, $Element* referElement) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool hasInput = true;
 	$var($IOException, exception, nullptr);
 	$var($Element, schemaElement, nullptr);
 	$var($Element, schemaRootElement, nullptr);
 	$var($Node, node, $nc(schemaSource)->getNode());
-	int16_t nodeType = (int16_t)-1;
+	int16_t nodeType = -1;
 	if (node != nullptr) {
 		nodeType = node->getNodeType();
 		if (nodeType == $Node::DOCUMENT_NODE) {
@@ -2354,7 +1919,7 @@ $Element* XSDHandler::getSchemaDocument($String* schemaNamespace, $DOMInputSourc
 }
 
 $Element* XSDHandler::getSchemaDocument($String* schemaNamespace, $StAXInputSource* schemaSource, bool mustResolve, int16_t referType, $Element* referElement) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IOException, exception, nullptr);
 	$var($Element, schemaElement, nullptr);
 	try {
@@ -2371,7 +1936,7 @@ $Element* XSDHandler::getSchemaDocument($String* schemaNamespace, $StAXInputSour
 				if (streamReader != nullptr) {
 					isDocument = (streamReader->getEventType() == $XMLStreamReader::START_DOCUMENT);
 				} else {
-					isDocument = $nc($($nc(eventReader)->peek()))->isStartDocument();
+					isDocument = $$nc($nc(eventReader)->peek())->isStartDocument();
 				}
 			}
 			if (isDocument) {
@@ -2431,22 +1996,22 @@ $Element* XSDHandler::getSchemaDocument0($XSDHandler$XSDKey* key, $String* schem
 }
 
 $Element* XSDHandler::getSchemaDocument1(bool mustResolve, bool hasInput, $XMLInputSource* schemaSource, $Element* referElement, $IOException* ioe) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (mustResolve) {
 		if (hasInput) {
-			reportSchemaError("schema_reference.4"_s, $$new($ObjectArray, {$($of($nc(schemaSource)->getSystemId()))}), referElement, ioe);
+			reportSchemaError("schema_reference.4"_s, $$new($ObjectArray, {$($nc(schemaSource)->getSystemId())}), referElement, ioe);
 		} else {
-			reportSchemaError("schema_reference.4"_s, $$new($ObjectArray, {schemaSource == nullptr ? $of(""_s) : $($of($nc(schemaSource)->getSystemId()))}), referElement, ioe);
+			reportSchemaError("schema_reference.4"_s, $$new($ObjectArray, {schemaSource == nullptr ? ""_s : $(schemaSource->getSystemId())}), referElement, ioe);
 		}
 	} else if (hasInput) {
-		reportSchemaWarning("schema_reference.4"_s, $$new($ObjectArray, {$($of($nc(schemaSource)->getSystemId()))}), referElement, ioe);
+		reportSchemaWarning("schema_reference.4"_s, $$new($ObjectArray, {$($nc(schemaSource)->getSystemId())}), referElement, ioe);
 	}
 	this->fLastSchemaWasDuplicate = false;
 	return nullptr;
 }
 
 $Element* XSDHandler::getSchemaDocument($XSInputSource* schemaSource, $XSDDescription* desc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SchemaGrammarArray, grammars, $nc(schemaSource)->getGrammars());
 	int16_t referType = $nc(desc)->getContextType();
 	if (grammars != nullptr && grammars->length > 0) {
@@ -2474,7 +2039,7 @@ $Element* XSDHandler::getSchemaDocument($XSInputSource* schemaSource, $XSDDescri
 }
 
 $List* XSDHandler::expandGrammars($SchemaGrammarArray* grammars) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, currGrammars, $new($ArrayList));
 	for (int32_t i = 0; i < $nc(grammars)->length; ++i) {
 		if (!currGrammars->contains(grammars->get(i))) {
@@ -2501,7 +2066,7 @@ $List* XSDHandler::expandGrammars($SchemaGrammarArray* grammars) {
 }
 
 bool XSDHandler::existingGrammars($List* grammars) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = $nc(grammars)->size();
 	$var($XSDDescription, desc, $new($XSDDescription));
 	for (int32_t i = 0; i < length; ++i) {
@@ -2516,7 +2081,7 @@ bool XSDHandler::existingGrammars($List* grammars) {
 }
 
 bool XSDHandler::canAddComponents($List* components) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = $nc(components)->size();
 	$var($XSDDescription, desc, $new($XSDDescription));
 	for (int32_t i = 0; i < size; ++i) {
@@ -2529,73 +2094,57 @@ bool XSDHandler::canAddComponents($List* components) {
 }
 
 bool XSDHandler::canAddComponent($XSObject* component, $XSDDescription* desc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(desc)->setNamespace($($nc(component)->getNamespace()));
 	$var($SchemaGrammar, sg, findGrammar(desc, false));
 	if (sg == nullptr) {
 		return true;
-	} else if ($nc(sg)->isImmutable()) {
+	} else if (sg->isImmutable()) {
 		return false;
 	}
-	int16_t componentType = $nc(component)->getType();
+	int16_t componentType = component->getType();
 	$var($String, name, component->getName());
 	switch (componentType) {
 	case $XSConstants::TYPE_DEFINITION:
-		{
-			if ($equals($nc(sg)->getGlobalTypeDecl(name), component)) {
-				return true;
-			}
-			break;
-		}
-	case $XSConstants::ATTRIBUTE_DECLARATION:
-		{
-			if ($equals($nc(sg)->getGlobalAttributeDecl(name), component)) {
-				return true;
-			}
-			break;
-		}
-	case $XSConstants::ATTRIBUTE_GROUP:
-		{
-			if ($equals($nc(sg)->getGlobalAttributeDecl(name), component)) {
-				return true;
-			}
-			break;
-		}
-	case $XSConstants::ELEMENT_DECLARATION:
-		{
-			if ($equals($nc(sg)->getGlobalElementDecl(name), component)) {
-				return true;
-			}
-			break;
-		}
-	case $XSConstants::MODEL_GROUP_DEFINITION:
-		{
-			if ($equals($nc(sg)->getGlobalGroupDecl(name), component)) {
-				return true;
-			}
-			break;
-		}
-	case $XSConstants::NOTATION_DECLARATION:
-		{
-			if ($equals($nc(sg)->getGlobalNotationDecl(name), component)) {
-				return true;
-			}
-			break;
-		}
-	case $XSConstants::IDENTITY_CONSTRAINT:
-		{}
-	case $XSConstants::ATTRIBUTE_USE:
-		{}
-	default:
-		{
+		if ($equals($nc(sg)->getGlobalTypeDecl(name), component)) {
 			return true;
 		}
+		break;
+	case $XSConstants::ATTRIBUTE_DECLARATION:
+		if ($equals($nc(sg)->getGlobalAttributeDecl(name), component)) {
+			return true;
+		}
+		break;
+	case $XSConstants::ATTRIBUTE_GROUP:
+		if ($equals($nc(sg)->getGlobalAttributeDecl(name), component)) {
+			return true;
+		}
+		break;
+	case $XSConstants::ELEMENT_DECLARATION:
+		if ($equals($nc(sg)->getGlobalElementDecl(name), component)) {
+			return true;
+		}
+		break;
+	case $XSConstants::MODEL_GROUP_DEFINITION:
+		if ($equals($nc(sg)->getGlobalGroupDecl(name), component)) {
+			return true;
+		}
+		break;
+	case $XSConstants::NOTATION_DECLARATION:
+		if ($equals($nc(sg)->getGlobalNotationDecl(name), component)) {
+			return true;
+		}
+		break;
+	case $XSConstants::IDENTITY_CONSTRAINT:
+	case $XSConstants::ATTRIBUTE_USE:
+	default:
+		return true;
 	}
 	return false;
 }
 
 void XSDHandler::addGrammars($List* grammars) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = $nc(grammars)->size();
 	$var($XSDDescription, desc, $new($XSDDescription));
 	for (int32_t i = 0; i < length; ++i) {
@@ -2631,7 +2180,7 @@ $SchemaGrammar* XSDHandler::createGrammarFrom($SchemaGrammar* grammar) {
 }
 
 void XSDHandler::addNewGrammarLocations($SchemaGrammar* srcGrammar, $SchemaGrammar* dstGrammar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringList, locations, $nc(srcGrammar)->getDocumentLocations());
 	int32_t locSize = $nc(locations)->size();
 	$var($StringList, locations2, $nc(dstGrammar)->getDocumentLocations());
@@ -2644,7 +2193,7 @@ void XSDHandler::addNewGrammarLocations($SchemaGrammar* srcGrammar, $SchemaGramm
 }
 
 void XSDHandler::addNewImportedGrammars($SchemaGrammar* srcGrammar, $SchemaGrammar* dstGrammar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, src, $cast($ArrayList, $nc(srcGrammar)->getImportedGrammars()));
 	if (src != nullptr) {
 		$var($ArrayList, dst, $cast($ArrayList, $nc(dstGrammar)->getImportedGrammars()));
@@ -2671,7 +2220,7 @@ void XSDHandler::addNewImportedGrammars($SchemaGrammar* srcGrammar, $SchemaGramm
 }
 
 void XSDHandler::updateImportList($List* importedSrc, $List* importedDst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = $nc(importedSrc)->size();
 	for (int32_t i = 0; i < size; ++i) {
 		$var($SchemaGrammar, sg, $cast($SchemaGrammar, importedSrc->get(i)));
@@ -2692,7 +2241,7 @@ void XSDHandler::addNewGrammarComponents($SchemaGrammar* srcGrammar, $SchemaGram
 }
 
 void XSDHandler::addGlobalElementDecls($SchemaGrammar* srcGrammar, $SchemaGrammar* dstGrammar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XSNamedMap, components, $nc(srcGrammar)->getComponents($XSConstants::ELEMENT_DECLARATION));
 	int32_t len = $nc(components)->getLength();
 	$var($XSElementDecl, srcDecl, nullptr);
@@ -2709,7 +2258,7 @@ void XSDHandler::addGlobalElementDecls($SchemaGrammar* srcGrammar, $SchemaGramma
 	len = $nc(componentsExt)->getLength();
 	for (int32_t i = 0; i < len; i += 2) {
 		$var($String, key, $cast($String, componentsExt->item(i)));
-		int32_t index = $nc(key)->indexOf((int32_t)u',');
+		int32_t index = $nc(key)->indexOf(u',');
 		$var($String, location, key->substring(0, index));
 		$var($String, name, key->substring(index + 1, key->length()));
 		$assign(srcDecl, $cast($XSElementDecl, componentsExt->item(i + 1)));
@@ -2722,7 +2271,7 @@ void XSDHandler::addGlobalElementDecls($SchemaGrammar* srcGrammar, $SchemaGramma
 }
 
 void XSDHandler::addGlobalAttributeDecls($SchemaGrammar* srcGrammar, $SchemaGrammar* dstGrammar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XSNamedMap, components, $nc(srcGrammar)->getComponents($XSConstants::ATTRIBUTE_DECLARATION));
 	int32_t len = $nc(components)->getLength();
 	$var($XSAttributeDecl, srcDecl, nullptr);
@@ -2733,7 +2282,7 @@ void XSDHandler::addGlobalAttributeDecls($SchemaGrammar* srcGrammar, $SchemaGram
 		if (dstDecl == nullptr) {
 			dstGrammar->addGlobalAttributeDecl(srcDecl);
 		} else if (dstDecl != srcDecl && !this->fTolerateDuplicates) {
-			$var($String, var$0, $nc(srcDecl)->getNamespace());
+			$var($String, var$0, srcDecl->getNamespace());
 			reportSharingError(var$0, $(srcDecl->getName()));
 		}
 	}
@@ -2741,7 +2290,7 @@ void XSDHandler::addGlobalAttributeDecls($SchemaGrammar* srcGrammar, $SchemaGram
 	len = $nc(componentsExt)->getLength();
 	for (int32_t i = 0; i < len; i += 2) {
 		$var($String, key, $cast($String, componentsExt->item(i)));
-		int32_t index = $nc(key)->indexOf((int32_t)u',');
+		int32_t index = $nc(key)->indexOf(u',');
 		$var($String, location, key->substring(0, index));
 		$var($String, name, key->substring(index + 1, key->length()));
 		$assign(srcDecl, $cast($XSAttributeDecl, componentsExt->item(i + 1)));
@@ -2754,7 +2303,7 @@ void XSDHandler::addGlobalAttributeDecls($SchemaGrammar* srcGrammar, $SchemaGram
 }
 
 void XSDHandler::addGlobalAttributeGroupDecls($SchemaGrammar* srcGrammar, $SchemaGrammar* dstGrammar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XSNamedMap, components, $nc(srcGrammar)->getComponents($XSConstants::ATTRIBUTE_GROUP));
 	int32_t len = $nc(components)->getLength();
 	$var($XSAttributeGroupDecl, srcDecl, nullptr);
@@ -2765,7 +2314,7 @@ void XSDHandler::addGlobalAttributeGroupDecls($SchemaGrammar* srcGrammar, $Schem
 		if (dstDecl == nullptr) {
 			dstGrammar->addGlobalAttributeGroupDecl(srcDecl);
 		} else if (dstDecl != srcDecl && !this->fTolerateDuplicates) {
-			$var($String, var$0, $nc(srcDecl)->getNamespace());
+			$var($String, var$0, srcDecl->getNamespace());
 			reportSharingError(var$0, $(srcDecl->getName()));
 		}
 	}
@@ -2773,7 +2322,7 @@ void XSDHandler::addGlobalAttributeGroupDecls($SchemaGrammar* srcGrammar, $Schem
 	len = $nc(componentsExt)->getLength();
 	for (int32_t i = 0; i < len; i += 2) {
 		$var($String, key, $cast($String, componentsExt->item(i)));
-		int32_t index = $nc(key)->indexOf((int32_t)u',');
+		int32_t index = $nc(key)->indexOf(u',');
 		$var($String, location, key->substring(0, index));
 		$var($String, name, key->substring(index + 1, key->length()));
 		$assign(srcDecl, $cast($XSAttributeGroupDecl, componentsExt->item(i + 1)));
@@ -2786,7 +2335,7 @@ void XSDHandler::addGlobalAttributeGroupDecls($SchemaGrammar* srcGrammar, $Schem
 }
 
 void XSDHandler::addGlobalNotationDecls($SchemaGrammar* srcGrammar, $SchemaGrammar* dstGrammar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XSNamedMap, components, $nc(srcGrammar)->getComponents($XSConstants::NOTATION_DECLARATION));
 	int32_t len = $nc(components)->getLength();
 	$var($XSNotationDecl, srcDecl, nullptr);
@@ -2797,7 +2346,7 @@ void XSDHandler::addGlobalNotationDecls($SchemaGrammar* srcGrammar, $SchemaGramm
 		if (dstDecl == nullptr) {
 			dstGrammar->addGlobalNotationDecl(srcDecl);
 		} else if (dstDecl != srcDecl && !this->fTolerateDuplicates) {
-			$var($String, var$0, $nc(srcDecl)->getNamespace());
+			$var($String, var$0, srcDecl->getNamespace());
 			reportSharingError(var$0, $(srcDecl->getName()));
 		}
 	}
@@ -2805,7 +2354,7 @@ void XSDHandler::addGlobalNotationDecls($SchemaGrammar* srcGrammar, $SchemaGramm
 	len = $nc(componentsExt)->getLength();
 	for (int32_t i = 0; i < len; i += 2) {
 		$var($String, key, $cast($String, componentsExt->item(i)));
-		int32_t index = $nc(key)->indexOf((int32_t)u',');
+		int32_t index = $nc(key)->indexOf(u',');
 		$var($String, location, key->substring(0, index));
 		$var($String, name, key->substring(index + 1, key->length()));
 		$assign(srcDecl, $cast($XSNotationDecl, componentsExt->item(i + 1)));
@@ -2818,7 +2367,7 @@ void XSDHandler::addGlobalNotationDecls($SchemaGrammar* srcGrammar, $SchemaGramm
 }
 
 void XSDHandler::addGlobalGroupDecls($SchemaGrammar* srcGrammar, $SchemaGrammar* dstGrammar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XSNamedMap, components, $nc(srcGrammar)->getComponents($XSConstants::MODEL_GROUP_DEFINITION));
 	int32_t len = $nc(components)->getLength();
 	$var($XSGroupDecl, srcDecl, nullptr);
@@ -2829,7 +2378,7 @@ void XSDHandler::addGlobalGroupDecls($SchemaGrammar* srcGrammar, $SchemaGrammar*
 		if (dstDecl == nullptr) {
 			dstGrammar->addGlobalGroupDecl(srcDecl);
 		} else if (srcDecl != dstDecl && !this->fTolerateDuplicates) {
-			$var($String, var$0, $nc(srcDecl)->getNamespace());
+			$var($String, var$0, srcDecl->getNamespace());
 			reportSharingError(var$0, $(srcDecl->getName()));
 		}
 	}
@@ -2837,7 +2386,7 @@ void XSDHandler::addGlobalGroupDecls($SchemaGrammar* srcGrammar, $SchemaGrammar*
 	len = $nc(componentsExt)->getLength();
 	for (int32_t i = 0; i < len; i += 2) {
 		$var($String, key, $cast($String, componentsExt->item(i)));
-		int32_t index = $nc(key)->indexOf((int32_t)u',');
+		int32_t index = $nc(key)->indexOf(u',');
 		$var($String, location, key->substring(0, index));
 		$var($String, name, key->substring(index + 1, key->length()));
 		$assign(srcDecl, $cast($XSGroupDecl, componentsExt->item(i + 1)));
@@ -2850,7 +2399,7 @@ void XSDHandler::addGlobalGroupDecls($SchemaGrammar* srcGrammar, $SchemaGrammar*
 }
 
 void XSDHandler::addGlobalTypeDecls($SchemaGrammar* srcGrammar, $SchemaGrammar* dstGrammar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XSNamedMap, components, $nc(srcGrammar)->getComponents($XSConstants::TYPE_DEFINITION));
 	int32_t len = $nc(components)->getLength();
 	$var($XSTypeDefinition, srcDecl, nullptr);
@@ -2861,7 +2410,7 @@ void XSDHandler::addGlobalTypeDecls($SchemaGrammar* srcGrammar, $SchemaGrammar* 
 		if (dstDecl == nullptr) {
 			dstGrammar->addGlobalTypeDecl(srcDecl);
 		} else if (dstDecl != srcDecl && !this->fTolerateDuplicates) {
-			$var($String, var$0, $nc(srcDecl)->getNamespace());
+			$var($String, var$0, srcDecl->getNamespace());
 			reportSharingError(var$0, $(srcDecl->getName()));
 		}
 	}
@@ -2869,7 +2418,7 @@ void XSDHandler::addGlobalTypeDecls($SchemaGrammar* srcGrammar, $SchemaGrammar* 
 	len = $nc(componentsExt)->getLength();
 	for (int32_t i = 0; i < len; i += 2) {
 		$var($String, key, $cast($String, componentsExt->item(i)));
-		int32_t index = $nc(key)->indexOf((int32_t)u',');
+		int32_t index = $nc(key)->indexOf(u',');
 		$var($String, location, key->substring(0, index));
 		$var($String, name, key->substring(index + 1, key->length()));
 		$assign(srcDecl, $cast($XSTypeDefinition, componentsExt->item(i + 1)));
@@ -2882,7 +2431,7 @@ void XSDHandler::addGlobalTypeDecls($SchemaGrammar* srcGrammar, $SchemaGrammar* 
 }
 
 $List* XSDHandler::expandComponents($XSObjectArray* components, $Map* dependencies) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, newComponents, $new($ArrayList));
 	for (int32_t i = 0; i < $nc(components)->length; ++i) {
 		if (!newComponents->contains(components->get(i))) {
@@ -2897,42 +2446,27 @@ $List* XSDHandler::expandComponents($XSObjectArray* components, $Map* dependenci
 }
 
 void XSDHandler::expandRelatedComponents($XSObject* component, $List* componentList, $Map* dependencies) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int16_t componentType = $nc(component)->getType();
 	switch (componentType) {
 	case $XSConstants::TYPE_DEFINITION:
-		{
-			expandRelatedTypeComponents($cast($XSTypeDefinition, component), componentList, $(component->getNamespace()), dependencies);
-			break;
-		}
+		expandRelatedTypeComponents($cast($XSTypeDefinition, component), componentList, $(component->getNamespace()), dependencies);
+		break;
 	case $XSConstants::ATTRIBUTE_DECLARATION:
-		{
-			expandRelatedAttributeComponents($cast($XSAttributeDeclaration, component), componentList, $(component->getNamespace()), dependencies);
-			break;
-		}
+		expandRelatedAttributeComponents($cast($XSAttributeDeclaration, component), componentList, $(component->getNamespace()), dependencies);
+		break;
 	case $XSConstants::ATTRIBUTE_GROUP:
-		{
-			expandRelatedAttributeGroupComponents($cast($XSAttributeGroupDefinition, component), componentList, $(component->getNamespace()), dependencies);
-		}
+		expandRelatedAttributeGroupComponents($cast($XSAttributeGroupDefinition, component), componentList, $(component->getNamespace()), dependencies);
 	case $XSConstants::ELEMENT_DECLARATION:
-		{
-			expandRelatedElementComponents($cast($XSElementDeclaration, component), componentList, $(component->getNamespace()), dependencies);
-			break;
-		}
+		expandRelatedElementComponents($cast($XSElementDeclaration, component), componentList, $(component->getNamespace()), dependencies);
+		break;
 	case $XSConstants::MODEL_GROUP_DEFINITION:
-		{
-			expandRelatedModelGroupDefinitionComponents($cast($XSModelGroupDefinition, component), componentList, $(component->getNamespace()), dependencies);
-		}
+		expandRelatedModelGroupDefinitionComponents($cast($XSModelGroupDefinition, component), componentList, $(component->getNamespace()), dependencies);
 	case $XSConstants::ATTRIBUTE_USE:
-		{}
 	case $XSConstants::NOTATION_DECLARATION:
-		{}
 	case $XSConstants::IDENTITY_CONSTRAINT:
-		{}
 	default:
-		{
-			break;
-		}
+		break;
 	}
 }
 
@@ -2941,9 +2475,9 @@ void XSDHandler::expandRelatedAttributeComponents($XSAttributeDeclaration* decl,
 }
 
 void XSDHandler::expandRelatedElementComponents($XSElementDeclaration* decl, $List* componentList, $String* namespace$, $Map* dependencies) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	addRelatedType($($nc(decl)->getTypeDefinition()), componentList, namespace$, dependencies);
-	$var($XSElementDeclaration, subElemDecl, $nc(decl)->getSubstitutionGroupAffiliation());
+	$var($XSElementDeclaration, subElemDecl, decl->getSubstitutionGroupAffiliation());
 	if (subElemDecl != nullptr) {
 		addRelatedElement(subElemDecl, componentList, namespace$, dependencies);
 	}
@@ -2966,17 +2500,17 @@ void XSDHandler::expandRelatedAttributeGroupComponents($XSAttributeGroupDefiniti
 }
 
 void XSDHandler::expandRelatedComplexTypeComponents($XSComplexTypeDecl* type, $List* componentList, $String* namespace$, $Map* dependencies) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	addRelatedType($($nc(type)->getBaseType()), componentList, namespace$, dependencies);
-	expandRelatedAttributeUsesComponents($($nc(type)->getAttributeUses()), componentList, namespace$, dependencies);
-	$var($XSParticle, particle, $nc(type)->getParticle());
+	expandRelatedAttributeUsesComponents($(type->getAttributeUses()), componentList, namespace$, dependencies);
+	$var($XSParticle, particle, type->getParticle());
 	if (particle != nullptr) {
 		expandRelatedParticleComponents(particle, componentList, namespace$, dependencies);
 	}
 }
 
 void XSDHandler::expandRelatedSimpleTypeComponents($XSSimpleTypeDefinition* type, $List* componentList, $String* namespace$, $Map* dependencies) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XSTypeDefinition, baseType, $nc(type)->getBaseType());
 	if (baseType != nullptr) {
 		addRelatedType(baseType, componentList, namespace$, dependencies);
@@ -2992,16 +2526,16 @@ void XSDHandler::expandRelatedSimpleTypeComponents($XSSimpleTypeDefinition* type
 	$var($XSObjectList, memberTypes, type->getMemberTypes());
 	if ($nc(memberTypes)->size() > 0) {
 		for (int32_t i = 0; i < memberTypes->size(); ++i) {
-			addRelatedType($cast($XSTypeDefinition, $(memberTypes->item(i))), componentList, namespace$, dependencies);
+			addRelatedType($$cast($XSTypeDefinition, memberTypes->item(i)), componentList, namespace$, dependencies);
 		}
 	}
 }
 
 void XSDHandler::expandRelatedAttributeUsesComponents($XSObjectList* attrUses, $List* componentList, $String* namespace$, $Map* dependencies) {
-	$useLocalCurrentObjectStackCache();
-	int32_t attrUseSize = (attrUses == nullptr) ? 0 : $nc(attrUses)->size();
+	$useLocalObjectStack();
+	int32_t attrUseSize = (attrUses == nullptr) ? 0 : attrUses->size();
 	for (int32_t i = 0; i < attrUseSize; ++i) {
-		expandRelatedAttributeUseComponents($cast($XSAttributeUse, $(attrUses->item(i))), componentList, namespace$, dependencies);
+		expandRelatedAttributeUseComponents($$cast($XSAttributeUse, $nc(attrUses)->item(i)), componentList, namespace$, dependencies);
 	}
 }
 
@@ -3013,33 +2547,27 @@ void XSDHandler::expandRelatedParticleComponents($XSParticle* component, $List* 
 	$var($XSTerm, term, $nc(component)->getTerm());
 	switch ($nc(term)->getType()) {
 	case $XSConstants::ELEMENT_DECLARATION:
-		{
-			addRelatedElement($cast($XSElementDeclaration, term), componentList, namespace$, dependencies);
-			break;
-		}
+		addRelatedElement($cast($XSElementDeclaration, term), componentList, namespace$, dependencies);
+		break;
 	case $XSConstants::MODEL_GROUP:
-		{
-			expandRelatedModelGroupComponents($cast($XSModelGroup, term), componentList, namespace$, dependencies);
-			break;
-		}
+		expandRelatedModelGroupComponents($cast($XSModelGroup, term), componentList, namespace$, dependencies);
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 }
 
 void XSDHandler::expandRelatedModelGroupComponents($XSModelGroup* modelGroup, $List* componentList, $String* namespace$, $Map* dependencies) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XSObjectList, particles, $nc(modelGroup)->getParticles());
-	int32_t length = (particles == nullptr) ? 0 : $nc(particles)->getLength();
+	int32_t length = (particles == nullptr) ? 0 : particles->getLength();
 	for (int32_t i = 0; i < length; ++i) {
-		expandRelatedParticleComponents($cast($XSParticle, $(particles->item(i))), componentList, namespace$, dependencies);
+		expandRelatedParticleComponents($$cast($XSParticle, $nc(particles)->item(i)), componentList, namespace$, dependencies);
 	}
 }
 
 void XSDHandler::addRelatedType($XSTypeDefinition* type, $List* componentList, $String* namespace$, $Map* dependencies) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(type)->getAnonymous()) {
 		$init($SchemaSymbols);
 		if (!$nc($SchemaSymbols::URI_SCHEMAFORSCHEMA)->equals($(type->getNamespace()))) {
@@ -3055,7 +2583,7 @@ void XSDHandler::addRelatedType($XSTypeDefinition* type, $List* componentList, $
 }
 
 void XSDHandler::addRelatedElement($XSElementDeclaration* decl, $List* componentList, $String* namespace$, $Map* dependencies) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(decl)->getScope() == $XSConstants::SCOPE_GLOBAL) {
 		if (!$nc(componentList)->contains(decl)) {
 			$var($List, importedNamespaces, findDependentNamespaces(namespace$, dependencies));
@@ -3068,7 +2596,7 @@ void XSDHandler::addRelatedElement($XSElementDeclaration* decl, $List* component
 }
 
 void XSDHandler::addRelatedAttribute($XSAttributeDeclaration* decl, $List* componentList, $String* namespace$, $Map* dependencies) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(decl)->getScope() == $XSConstants::SCOPE_GLOBAL) {
 		if (!$nc(componentList)->contains(decl)) {
 			$var($List, importedNamespaces, findDependentNamespaces(namespace$, dependencies));
@@ -3081,17 +2609,17 @@ void XSDHandler::addRelatedAttribute($XSAttributeDeclaration* decl, $List* compo
 }
 
 void XSDHandler::addGlobalComponents($List* components, $Map* importDependencies) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XSDDescription, desc, $new($XSDDescription));
 	int32_t size = $nc(components)->size();
 	for (int32_t i = 0; i < size; ++i) {
-		addGlobalComponent($cast($XSObject, $(components->get(i))), desc);
+		addGlobalComponent($$cast($XSObject, components->get(i)), desc);
 	}
 	updateImportDependencies(importDependencies);
 }
 
 void XSDHandler::addGlobalComponent($XSObject* component, $XSDDescription* desc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, namespace$, $nc(component)->getNamespace());
 	$nc(desc)->setNamespace(namespace$);
 	$var($SchemaGrammar, sg, getSchemaGrammar(desc));
@@ -3099,92 +2627,76 @@ void XSDHandler::addGlobalComponent($XSObject* component, $XSDDescription* desc)
 	$var($String, name, component->getName());
 	switch (componentType) {
 	case $XSConstants::TYPE_DEFINITION:
-		{
-			if (!$nc(($cast($XSTypeDefinition, component)))->getAnonymous()) {
-				if ($nc(sg)->getGlobalTypeDecl(name) == nullptr) {
-					sg->addGlobalTypeDecl($cast($XSTypeDefinition, component));
-				}
-				if ($nc(sg)->getGlobalTypeDecl(name, ""_s) == nullptr) {
-					sg->addGlobalTypeDecl($cast($XSTypeDefinition, component), ""_s);
-				}
+		if (!$cast($XSTypeDefinition, component)->getAnonymous()) {
+			if ($nc(sg)->getGlobalTypeDecl(name) == nullptr) {
+				sg->addGlobalTypeDecl($cast($XSTypeDefinition, component));
 			}
-			break;
+			if (sg->getGlobalTypeDecl(name, ""_s) == nullptr) {
+				sg->addGlobalTypeDecl($cast($XSTypeDefinition, component), ""_s);
+			}
 		}
+		break;
 	case $XSConstants::ATTRIBUTE_DECLARATION:
-		{
-			if ($nc(($cast($XSAttributeDecl, component)))->getScope() == $XSAttributeDecl::SCOPE_GLOBAL) {
-				if ($nc(sg)->getGlobalAttributeDecl(name) == nullptr) {
-					sg->addGlobalAttributeDecl($cast($XSAttributeDecl, component));
-				}
-				if ($nc(sg)->getGlobalAttributeDecl(name, ""_s) == nullptr) {
-					sg->addGlobalAttributeDecl($cast($XSAttributeDecl, component), ""_s);
-				}
-			}
-			break;
-		}
-	case $XSConstants::ATTRIBUTE_GROUP:
-		{
+		if ($cast($XSAttributeDecl, component)->getScope() == $XSAttributeDecl::SCOPE_GLOBAL) {
 			if ($nc(sg)->getGlobalAttributeDecl(name) == nullptr) {
-				sg->addGlobalAttributeGroupDecl($cast($XSAttributeGroupDecl, component));
+				sg->addGlobalAttributeDecl($cast($XSAttributeDecl, component));
 			}
-			if ($nc(sg)->getGlobalAttributeDecl(name, ""_s) == nullptr) {
-				sg->addGlobalAttributeGroupDecl($cast($XSAttributeGroupDecl, component), ""_s);
+			if (sg->getGlobalAttributeDecl(name, ""_s) == nullptr) {
+				sg->addGlobalAttributeDecl($cast($XSAttributeDecl, component), ""_s);
 			}
-			break;
 		}
+		break;
+	case $XSConstants::ATTRIBUTE_GROUP:
+		if ($nc(sg)->getGlobalAttributeDecl(name) == nullptr) {
+			sg->addGlobalAttributeGroupDecl($cast($XSAttributeGroupDecl, component));
+		}
+		if (sg->getGlobalAttributeDecl(name, ""_s) == nullptr) {
+			sg->addGlobalAttributeGroupDecl($cast($XSAttributeGroupDecl, component), ""_s);
+		}
+		break;
 	case $XSConstants::ELEMENT_DECLARATION:
-		{
-			if ($nc(($cast($XSElementDecl, component)))->getScope() == $XSElementDecl::SCOPE_GLOBAL) {
-				$nc(sg)->addGlobalElementDeclAll($cast($XSElementDecl, component));
-				if (sg->getGlobalElementDecl(name) == nullptr) {
-					sg->addGlobalElementDecl($cast($XSElementDecl, component));
-				}
-				if (sg->getGlobalElementDecl(name, ""_s) == nullptr) {
-					sg->addGlobalElementDecl($cast($XSElementDecl, component), ""_s);
-				}
+		if ($cast($XSElementDecl, component)->getScope() == $XSElementDecl::SCOPE_GLOBAL) {
+			$nc(sg)->addGlobalElementDeclAll($cast($XSElementDecl, component));
+			if (sg->getGlobalElementDecl(name) == nullptr) {
+				sg->addGlobalElementDecl($cast($XSElementDecl, component));
 			}
-			break;
+			if (sg->getGlobalElementDecl(name, ""_s) == nullptr) {
+				sg->addGlobalElementDecl($cast($XSElementDecl, component), ""_s);
+			}
 		}
+		break;
 	case $XSConstants::MODEL_GROUP_DEFINITION:
-		{
-			if ($nc(sg)->getGlobalGroupDecl(name) == nullptr) {
-				sg->addGlobalGroupDecl($cast($XSGroupDecl, component));
-			}
-			if ($nc(sg)->getGlobalGroupDecl(name, ""_s) == nullptr) {
-				sg->addGlobalGroupDecl($cast($XSGroupDecl, component), ""_s);
-			}
-			break;
+		if ($nc(sg)->getGlobalGroupDecl(name) == nullptr) {
+			sg->addGlobalGroupDecl($cast($XSGroupDecl, component));
 		}
+		if (sg->getGlobalGroupDecl(name, ""_s) == nullptr) {
+			sg->addGlobalGroupDecl($cast($XSGroupDecl, component), ""_s);
+		}
+		break;
 	case $XSConstants::NOTATION_DECLARATION:
-		{
-			if ($nc(sg)->getGlobalNotationDecl(name) == nullptr) {
-				sg->addGlobalNotationDecl($cast($XSNotationDecl, component));
-			}
-			if ($nc(sg)->getGlobalNotationDecl(name, ""_s) == nullptr) {
-				sg->addGlobalNotationDecl($cast($XSNotationDecl, component), ""_s);
-			}
-			break;
+		if ($nc(sg)->getGlobalNotationDecl(name) == nullptr) {
+			sg->addGlobalNotationDecl($cast($XSNotationDecl, component));
 		}
+		if (sg->getGlobalNotationDecl(name, ""_s) == nullptr) {
+			sg->addGlobalNotationDecl($cast($XSNotationDecl, component), ""_s);
+		}
+		break;
 	case $XSConstants::IDENTITY_CONSTRAINT:
-		{}
 	case $XSConstants::ATTRIBUTE_USE:
-		{}
 	default:
-		{
-			break;
-		}
+		break;
 	}
 }
 
 void XSDHandler::updateImportDependencies($Map* table) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (table == nullptr) {
 		return;
 	}
 	$var($String, namespace$, nullptr);
 	$var($List, importList, nullptr);
 	{
-		$var($Iterator, i$, $nc($($nc(table)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(table)->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
@@ -3199,7 +2711,7 @@ void XSDHandler::updateImportDependencies($Map* table) {
 }
 
 void XSDHandler::expandImportList($String* namespace$, $List* namespaceList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SchemaGrammar, sg, $nc(this->fGrammarBucket)->getGrammar(namespace$));
 	if (sg != nullptr) {
 		$var($List, isgs, sg->getImportedGrammars());
@@ -3214,11 +2726,11 @@ void XSDHandler::expandImportList($String* namespace$, $List* namespaceList) {
 }
 
 void XSDHandler::addImportList($SchemaGrammar* sg, $List* importedGrammars, $List* namespaceList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = $nc(namespaceList)->size();
 	$var($SchemaGrammar, isg, nullptr);
 	for (int32_t i = 0; i < size; ++i) {
-		$assign(isg, $nc(this->fGrammarBucket)->getGrammar($cast($String, $(namespaceList->get(i)))));
+		$assign(isg, $nc(this->fGrammarBucket)->getGrammar($$cast($String, namespaceList->get(i))));
 		if (isg != nullptr) {
 			$nc(importedGrammars)->add(isg);
 		} else {
@@ -3227,11 +2739,11 @@ void XSDHandler::addImportList($SchemaGrammar* sg, $List* importedGrammars, $Lis
 }
 
 void XSDHandler::updateImportList($SchemaGrammar* sg, $List* importedGrammars, $List* namespaceList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = $nc(namespaceList)->size();
 	$var($SchemaGrammar, isg, nullptr);
 	for (int32_t i = 0; i < size; ++i) {
-		$assign(isg, $nc(this->fGrammarBucket)->getGrammar($cast($String, $(namespaceList->get(i)))));
+		$assign(isg, $nc(this->fGrammarBucket)->getGrammar($$cast($String, namespaceList->get(i))));
 		if (isg != nullptr) {
 			if (!containedImportedGrammar(importedGrammars, isg)) {
 				$nc(importedGrammars)->add(isg);
@@ -3242,12 +2754,12 @@ void XSDHandler::updateImportList($SchemaGrammar* sg, $List* importedGrammars, $
 }
 
 bool XSDHandler::containedImportedGrammar($List* importedGrammar, $SchemaGrammar* grammar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = $nc(importedGrammar)->size();
 	$var($SchemaGrammar, sg, nullptr);
 	for (int32_t i = 0; i < size; ++i) {
 		$assign(sg, $cast($SchemaGrammar, importedGrammar->get(i)));
-		if ($nc($(null2EmptyString($($nc(sg)->getTargetNamespace()))))->equals($(null2EmptyString($($nc(grammar)->getTargetNamespace()))))) {
+		if ($$nc(null2EmptyString($($nc(sg)->getTargetNamespace())))->equals($(null2EmptyString($($nc(grammar)->getTargetNamespace()))))) {
 			return true;
 		}
 	}
@@ -3255,20 +2767,20 @@ bool XSDHandler::containedImportedGrammar($List* importedGrammar, $SchemaGrammar
 }
 
 $SchemaGrammar* XSDHandler::getSchemaGrammar($XSDDescription* desc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SchemaGrammar, sg, findGrammar(desc, this->fNamespaceGrowth));
 	if (sg == nullptr) {
 		$var($String, var$0, $nc(desc)->getNamespace());
 		$assign(sg, $new($SchemaGrammar, var$0, $(desc->makeClone()), this->fSymbolTable));
 		$nc(this->fGrammarBucket)->putGrammar(sg);
-	} else if ($nc(sg)->isImmutable()) {
+	} else if (sg->isImmutable()) {
 		$assign(sg, createGrammarFrom(sg));
 	}
 	return sg;
 }
 
 $List* XSDHandler::findDependentNamespaces($String* namespace$, $Map* table) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, ns, null2EmptyString(namespace$));
 	$var($List, namespaceList, getFromMap(table, ns));
 	if (namespaceList == nullptr) {
@@ -3279,7 +2791,7 @@ $List* XSDHandler::findDependentNamespaces($String* namespace$, $Map* table) {
 }
 
 void XSDHandler::addNamespaceDependency($String* namespace1, $String* namespace2, $List* list) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, ns1, null2EmptyString(namespace1));
 	$var($String, ns2, null2EmptyString(namespace2));
 	if (!$nc(ns1)->equals(ns2)) {
@@ -3290,9 +2802,9 @@ void XSDHandler::addNamespaceDependency($String* namespace1, $String* namespace2
 }
 
 void XSDHandler::reportSharingError($String* namespace$, $String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, qName, (namespace$ == nullptr) ? $str({","_s, name}) : $str({namespace$, ","_s, name}));
-	reportSchemaError("sch-props-correct.2"_s, $$new($ObjectArray, {$of(qName)}), nullptr);
+	reportSchemaError("sch-props-correct.2"_s, $$new($ObjectArray, {qName}), nullptr);
 }
 
 void XSDHandler::createTraversers() {
@@ -3335,16 +2847,16 @@ void XSDHandler::prepareForTraverse() {
 	}
 	for (int32_t i = 1; i <= XSDHandler::TYPEDECL_TYPE; ++i) {
 		if ($nc(this->fUnparsedRegistriesExt)->get(i) != nullptr) {
-			$nc($nc(this->fUnparsedRegistriesExt)->get(i))->clear();
+			$nc(this->fUnparsedRegistriesExt->get(i))->clear();
 		}
 	}
 	$nc(this->fDependencyMap)->clear();
 	$nc(this->fDoc2XSDocumentMap)->clear();
 	if (this->fRedefine2XSDMap != nullptr) {
-		$nc(this->fRedefine2XSDMap)->clear();
+		this->fRedefine2XSDMap->clear();
 	}
 	if (this->fRedefine2NSSupport != nullptr) {
-		$nc(this->fRedefine2NSSupport)->clear();
+		this->fRedefine2NSSupport->clear();
 	}
 	$nc(this->fAllTNSs)->clear();
 	$nc(this->fImportMap)->clear();
@@ -3402,7 +2914,7 @@ $SchemaDVFactory* XSDHandler::getDVFactory() {
 }
 
 void XSDHandler::reset($XMLComponentManager* componentManager) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, fSymbolTable, $cast($SymbolTable, $nc(componentManager)->getProperty(XSDHandler::SYMBOL_TABLE)));
 	$set(this, fSecurityManager, $cast($XMLSecurityManager, componentManager->getProperty(XSDHandler::SECURITY_MANAGER, nullptr)));
 	$set(this, fEntityManager, $cast($XMLEntityManager, componentManager->getProperty(XSDHandler::ENTITY_MANAGER)));
@@ -3419,15 +2931,15 @@ void XSDHandler::reset($XMLComponentManager* componentManager) {
 	this->fTolerateDuplicates = componentManager->getFeature(XSDHandler::TOLERATE_DUPLICATES, false);
 	try {
 		if (!$equals(this->fErrorHandler, $nc(this->fSchemaParser)->getProperty(XSDHandler::ERROR_HANDLER))) {
-			$nc(this->fSchemaParser)->setProperty(XSDHandler::ERROR_HANDLER, (this->fErrorHandler != nullptr) ? $of(this->fErrorHandler) : $of($$new($DefaultErrorHandler)));
+			$nc(this->fSchemaParser)->setProperty(XSDHandler::ERROR_HANDLER, (this->fErrorHandler != nullptr) ? $of(this->fErrorHandler) : $$of($new($DefaultErrorHandler)));
 			if (this->fAnnotationValidator != nullptr) {
-				$nc(this->fAnnotationValidator)->setProperty(XSDHandler::ERROR_HANDLER, (this->fErrorHandler != nullptr) ? $of(this->fErrorHandler) : $of($$new($DefaultErrorHandler)));
+				this->fAnnotationValidator->setProperty(XSDHandler::ERROR_HANDLER, (this->fErrorHandler != nullptr) ? $of(this->fErrorHandler) : $$of($new($DefaultErrorHandler)));
 			}
 		}
 		if (!$equals(this->fLocale, $nc(this->fSchemaParser)->getProperty(XSDHandler::LOCALE))) {
 			$nc(this->fSchemaParser)->setProperty(XSDHandler::LOCALE, this->fLocale);
 			if (this->fAnnotationValidator != nullptr) {
-				$nc(this->fAnnotationValidator)->setProperty(XSDHandler::LOCALE, this->fLocale);
+				this->fAnnotationValidator->setProperty(XSDHandler::LOCALE, this->fLocale);
 			}
 		}
 	} catch ($XMLConfigurationException& e) {
@@ -3485,14 +2997,12 @@ void XSDHandler::reset($XMLComponentManager* componentManager) {
 	$set(this, fResolve, $cast($String, componentManager->getProperty($JdkXmlUtils::CATALOG_RESOLVE)));
 	{
 		$var($CatalogFeatures$FeatureArray, arr$, $CatalogFeatures$Feature::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$CatalogFeatures$Feature* f = arr$->get(i$);
 			{
 				$var($String, var$0, $nc(f)->getPropertyName());
 				$nc(this->fSchemaParser)->setProperty(var$0, $(componentManager->getProperty($(f->getPropertyName()))));
-				$var($String, var$1, $nc(f)->getPropertyName());
+				$var($String, var$1, f->getPropertyName());
 				$nc(this->fEntityManager)->setProperty(var$1, $(componentManager->getProperty($(f->getPropertyName()))));
 			}
 		}
@@ -3502,7 +3012,7 @@ void XSDHandler::reset($XMLComponentManager* componentManager) {
 }
 
 void XSDHandler::traverseLocalElements() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->fElementTraverser)->fDeferTraversingLocalElements = false;
 	for (int32_t i = 0; i < this->fLocalElemStackPos; ++i) {
 		$var($Element, currElem, $nc(this->fLocalElementDecl)->get(i));
@@ -3512,12 +3022,12 @@ void XSDHandler::traverseLocalElements() {
 		if ($nc($nc(this->fParticle)->get(i))->fType == $XSParticleDecl::PARTICLE_EMPTY) {
 			$var($XSModelGroupImpl, group, nullptr);
 			if ($instanceOf($XSComplexTypeDecl, $nc(this->fParent)->get(i))) {
-				$var($XSParticle, p, $nc(($cast($XSComplexTypeDecl, $nc(this->fParent)->get(i))))->getParticle());
+				$var($XSParticle, p, $nc($cast($XSComplexTypeDecl, this->fParent->get(i)))->getParticle());
 				if (p != nullptr) {
 					$assign(group, $cast($XSModelGroupImpl, p->getTerm()));
 				}
 			} else {
-				$assign(group, $nc(($cast($XSGroupDecl, $nc(this->fParent)->get(i))))->fModelGroup);
+				$assign(group, $nc($cast($XSGroupDecl, this->fParent->get(i)))->fModelGroup);
 			}
 			if (group != nullptr) {
 				removeParticle(group, $nc(this->fParticle)->get(i));
@@ -3532,7 +3042,7 @@ bool XSDHandler::removeParticle($XSModelGroupImpl* group, $XSParticleDecl* parti
 		$assign(member, $nc(group->fParticles)->get(i));
 		if (member == particle) {
 			for (int32_t j = i; j < group->fParticleCount - 1; ++j) {
-				$nc(group->fParticles)->set(j, $nc(group->fParticles)->get(j + 1));
+				group->fParticles->set(j, group->fParticles->get(j + 1));
 			}
 			--group->fParticleCount;
 			return true;
@@ -3547,7 +3057,7 @@ bool XSDHandler::removeParticle($XSModelGroupImpl* group, $XSParticleDecl* parti
 }
 
 void XSDHandler::fillInLocalElemInfo($Element* elmDecl, $XSDocumentInfo* schemaDoc, int32_t allContextFlags, $XSObject* parent, $XSParticleDecl* particle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->fParticle)->length == this->fLocalElemStackPos) {
 		$var($XSParticleDeclArray, newStackP, $new($XSParticleDeclArray, this->fLocalElemStackPos + XSDHandler::INC_STACK_SIZE));
 		$System::arraycopy(this->fParticle, 0, newStackP, 0, this->fLocalElemStackPos);
@@ -3568,7 +3078,7 @@ void XSDHandler::fillInLocalElemInfo($Element* elmDecl, $XSDocumentInfo* schemaD
 		$System::arraycopy(this->fLocalElemNamespaceContext, 0, newStackN, 0, this->fLocalElemStackPos);
 		$set(this, fLocalElemNamespaceContext, newStackN);
 	}
-	$nc(this->fParticle)->set(this->fLocalElemStackPos, particle);
+	this->fParticle->set(this->fLocalElemStackPos, particle);
 	$nc(this->fLocalElementDecl)->set(this->fLocalElemStackPos, elmDecl);
 	$nc(this->fLocalElementDecl_schema)->set(this->fLocalElemStackPos, schemaDoc);
 	$nc(this->fAllContext)->set(this->fLocalElemStackPos, allContextFlags);
@@ -3577,7 +3087,7 @@ void XSDHandler::fillInLocalElemInfo($Element* elmDecl, $XSDocumentInfo* schemaD
 }
 
 void XSDHandler::checkForDuplicateNames($String* qName, int32_t declType, $Map* registry, $Map* registry_sub, $Element* currComp, $XSDocumentInfo* currSchema) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, objElem, nullptr);
 	if (($assign(objElem, $nc(registry)->get(qName))) == nullptr) {
 		if (this->fNamespaceGrowth && !this->fTolerateDuplicates) {
@@ -3595,20 +3105,18 @@ void XSDHandler::checkForDuplicateNames($String* qName, int32_t declType, $Map* 
 		$var($XSDocumentInfo, redefinedSchema, nullptr);
 		bool collidedWithRedefine = true;
 		$init($SchemaSymbols);
-		if ($nc($($DOMUtil::getLocalName((($assign(elemParent, $DOMUtil::getParent(collidingElem)))))))->equals($SchemaSymbols::ELT_REDEFINE)) {
-			$assign(redefinedSchema, (this->fRedefine2XSDMap != nullptr) ? $cast($XSDocumentInfo, $nc(this->fRedefine2XSDMap)->get(elemParent)) : ($XSDocumentInfo*)nullptr);
-		} else {
-			if ($nc($($DOMUtil::getLocalName($($DOMUtil::getParent(currComp)))))->equals($SchemaSymbols::ELT_REDEFINE)) {
-				$assign(redefinedSchema, collidingElemSchema);
-				collidedWithRedefine = false;
-			}
+		if ($$nc($DOMUtil::getLocalName(($assign(elemParent, $DOMUtil::getParent(collidingElem)))))->equals($SchemaSymbols::ELT_REDEFINE)) {
+			$assign(redefinedSchema, (this->fRedefine2XSDMap != nullptr) ? $cast($XSDocumentInfo, this->fRedefine2XSDMap->get(elemParent)) : ($XSDocumentInfo*)nullptr);
+		} else if ($$nc($DOMUtil::getLocalName($($DOMUtil::getParent(currComp))))->equals($SchemaSymbols::ELT_REDEFINE)) {
+			$assign(redefinedSchema, collidingElemSchema);
+			collidedWithRedefine = false;
 		}
 		if (redefinedSchema != nullptr) {
 			if (collidingElemSchema == currSchema) {
-				reportSchemaError("sch-props-correct.2"_s, $$new($ObjectArray, {$of(qName)}), currComp);
+				reportSchemaError("sch-props-correct.2"_s, $$new($ObjectArray, {qName}), currComp);
 				return;
 			}
-			$var($String, newName, $str({$($nc(qName)->substring(qName->lastIndexOf((int32_t)u',') + 1)), XSDHandler::REDEF_IDENTIFIER}));
+			$var($String, newName, $str({$($nc(qName)->substring($nc(qName)->lastIndexOf(u',') + 1)), XSDHandler::REDEF_IDENTIFIER}));
 			if (redefinedSchema == currSchema) {
 				$nc(currComp)->setAttribute($SchemaSymbols::ATT_NAME, newName);
 				if ($nc(currSchema)->fTargetNamespace == nullptr) {
@@ -3618,7 +3126,7 @@ void XSDHandler::checkForDuplicateNames($String* qName, int32_t declType, $Map* 
 					registry->put($$str({currSchema->fTargetNamespace, ","_s, newName}), currComp);
 					registry_sub->put($$str({currSchema->fTargetNamespace, ","_s, newName}), currSchema);
 				}
-				if ($nc(currSchema)->fTargetNamespace == nullptr) {
+				if (currSchema->fTargetNamespace == nullptr) {
 					checkForDuplicateNames($$str({","_s, newName}), declType, registry, registry_sub, currComp, currSchema);
 				} else {
 					checkForDuplicateNames($$str({currSchema->fTargetNamespace, ","_s, newName}), declType, registry, registry_sub, currComp, currSchema);
@@ -3630,39 +3138,39 @@ void XSDHandler::checkForDuplicateNames($String* qName, int32_t declType, $Map* 
 					checkForDuplicateNames($$str({currSchema->fTargetNamespace, ","_s, newName}), declType, registry, registry_sub, currComp, currSchema);
 				}
 			} else {
-				reportSchemaError("sch-props-correct.2"_s, $$new($ObjectArray, {$of(qName)}), currComp);
+				reportSchemaError("sch-props-correct.2"_s, $$new($ObjectArray, {qName}), currComp);
 			}
 		} else if (!this->fTolerateDuplicates) {
-			reportSchemaError("sch-props-correct.2"_s, $$new($ObjectArray, {$of(qName)}), currComp);
+			reportSchemaError("sch-props-correct.2"_s, $$new($ObjectArray, {qName}), currComp);
 		} else if ($nc(this->fUnparsedRegistriesExt)->get(declType) != nullptr) {
-			if ($equals($nc($nc(this->fUnparsedRegistriesExt)->get(declType))->get(qName), currSchema)) {
-				reportSchemaError("sch-props-correct.2"_s, $$new($ObjectArray, {$of(qName)}), currComp);
+			if ($equals($nc(this->fUnparsedRegistriesExt->get(declType))->get(qName), currSchema)) {
+				reportSchemaError("sch-props-correct.2"_s, $$new($ObjectArray, {qName}), currComp);
 			}
 		}
 	}
 	if (this->fTolerateDuplicates) {
 		if ($nc(this->fUnparsedRegistriesExt)->get(declType) == nullptr) {
-			$nc(this->fUnparsedRegistriesExt)->set(declType, $$new($HashMap));
+			this->fUnparsedRegistriesExt->set(declType, $$new($HashMap));
 		}
-		$nc($nc(this->fUnparsedRegistriesExt)->get(declType))->put(qName, currSchema);
+		$nc(this->fUnparsedRegistriesExt->get(declType))->put(qName, currSchema);
 	}
 }
 
 void XSDHandler::checkForDuplicateNames($String* qName, int32_t declType, $Element* currComp) {
-	$useLocalCurrentObjectStackCache();
-	int32_t namespaceEnd = $nc(qName)->indexOf((int32_t)u',');
+	$useLocalObjectStack();
+	int32_t namespaceEnd = $nc(qName)->indexOf(u',');
 	$var($String, namespace$, qName->substring(0, namespaceEnd));
 	$var($SchemaGrammar, grammar, $nc(this->fGrammarBucket)->getGrammar($(emptyString2Null(namespace$))));
 	if (grammar != nullptr) {
 		$var($Object, obj, getGlobalDeclFromGrammar(grammar, declType, $(qName->substring(namespaceEnd + 1))));
 		if (obj != nullptr) {
-			reportSchemaError("sch-props-correct.2"_s, $$new($ObjectArray, {$of(qName)}), currComp);
+			reportSchemaError("sch-props-correct.2"_s, $$new($ObjectArray, {qName}), currComp);
 		}
 	}
 }
 
 void XSDHandler::renameRedefiningComponents($XSDocumentInfo* currSchema, $Element* child, $String* componentType, $String* oldName, $String* newName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($SchemaSymbols);
 	if ($nc(componentType)->equals($SchemaSymbols::ELT_SIMPLETYPE)) {
 		$var($Element, grandKid, $DOMUtil::getFirstChildElement(child));
@@ -3678,105 +3186,99 @@ void XSDHandler::renameRedefiningComponents($XSDocumentInfo* currSchema, $Elemen
 			} else {
 				$assign(grandKidName, $DOMUtil::getLocalName(grandKid));
 				if (!$nc(grandKidName)->equals($SchemaSymbols::ELT_RESTRICTION)) {
-					reportSchemaError("src-redefine.5.a.b"_s, $$new($ObjectArray, {$of(grandKidName)}), child);
+					reportSchemaError("src-redefine.5.a.b"_s, $$new($ObjectArray, {grandKidName}), child);
 				} else {
 					$var($ObjectArray, attrs, $nc(this->fAttributeChecker)->checkAttributes(grandKid, false, currSchema));
 					$var($QName, derivedBase, $cast($QName, $nc(attrs)->get($XSAttributeChecker::ATTIDX_BASE)));
-					if (derivedBase == nullptr || $nc(derivedBase)->uri != $nc(currSchema)->fTargetNamespace || !$nc($nc(derivedBase)->localpart)->equals(oldName)) {
+					if (derivedBase == nullptr || derivedBase->uri != $nc(currSchema)->fTargetNamespace || !$nc(derivedBase->localpart)->equals(oldName)) {
 						reportSchemaError("src-redefine.5.a.c"_s, $$new($ObjectArray, {
-							$of(grandKidName),
-							$of($$str({($nc(currSchema)->fTargetNamespace == nullptr ? ""_s : $nc(currSchema)->fTargetNamespace), ","_s, oldName}))
+							grandKidName,
+							$$str({($nc(currSchema)->fTargetNamespace == nullptr ? ""_s : currSchema->fTargetNamespace), ","_s, oldName})
 						}), child);
-					} else if (derivedBase->prefix != nullptr && $nc(derivedBase->prefix)->length() > 0) {
-						$nc(grandKid)->setAttribute($SchemaSymbols::ATT_BASE, $$str({derivedBase->prefix, ":"_s, newName}));
+					} else if (derivedBase->prefix != nullptr && derivedBase->prefix->length() > 0) {
+						grandKid->setAttribute($SchemaSymbols::ATT_BASE, $$str({derivedBase->prefix, ":"_s, newName}));
 					} else {
-						$nc(grandKid)->setAttribute($SchemaSymbols::ATT_BASE, newName);
+						grandKid->setAttribute($SchemaSymbols::ATT_BASE, newName);
 					}
 					$nc(this->fAttributeChecker)->returnAttrArray(attrs, currSchema);
 				}
 			}
 		}
-	} else {
-		if (componentType->equals($SchemaSymbols::ELT_COMPLEXTYPE)) {
-			$var($Element, grandKid, $DOMUtil::getFirstChildElement(child));
+	} else if (componentType->equals($SchemaSymbols::ELT_COMPLEXTYPE)) {
+		$var($Element, grandKid, $DOMUtil::getFirstChildElement(child));
+		if (grandKid == nullptr) {
+			reportSchemaError("src-redefine.5.b.a"_s, nullptr, child);
+		} else {
+			if ($$nc($DOMUtil::getLocalName(grandKid))->equals($SchemaSymbols::ELT_ANNOTATION)) {
+				$assign(grandKid, $DOMUtil::getNextSiblingElement(grandKid));
+			}
 			if (grandKid == nullptr) {
 				reportSchemaError("src-redefine.5.b.a"_s, nullptr, child);
 			} else {
-				if ($nc($($DOMUtil::getLocalName(grandKid)))->equals($SchemaSymbols::ELT_ANNOTATION)) {
-					$assign(grandKid, $DOMUtil::getNextSiblingElement(grandKid));
-				}
-				if (grandKid == nullptr) {
-					reportSchemaError("src-redefine.5.b.a"_s, nullptr, child);
+				$var($Element, greatGrandKid, $DOMUtil::getFirstChildElement(grandKid));
+				if (greatGrandKid == nullptr) {
+					reportSchemaError("src-redefine.5.b.b"_s, nullptr, grandKid);
 				} else {
-					$var($Element, greatGrandKid, $DOMUtil::getFirstChildElement(grandKid));
+					$var($String, greatGrandKidName, $DOMUtil::getLocalName(greatGrandKid));
+					if ($nc(greatGrandKidName)->equals($SchemaSymbols::ELT_ANNOTATION)) {
+						$assign(greatGrandKid, $DOMUtil::getNextSiblingElement(greatGrandKid));
+					}
 					if (greatGrandKid == nullptr) {
 						reportSchemaError("src-redefine.5.b.b"_s, nullptr, grandKid);
 					} else {
-						$var($String, greatGrandKidName, $DOMUtil::getLocalName(greatGrandKid));
-						if ($nc(greatGrandKidName)->equals($SchemaSymbols::ELT_ANNOTATION)) {
-							$assign(greatGrandKid, $DOMUtil::getNextSiblingElement(greatGrandKid));
-						}
-						if (greatGrandKid == nullptr) {
-							reportSchemaError("src-redefine.5.b.b"_s, nullptr, grandKid);
+						$assign(greatGrandKidName, $DOMUtil::getLocalName(greatGrandKid));
+						bool var$0 = !$nc(greatGrandKidName)->equals($SchemaSymbols::ELT_RESTRICTION);
+						if (var$0 && !greatGrandKidName->equals($SchemaSymbols::ELT_EXTENSION)) {
+							reportSchemaError("src-redefine.5.b.c"_s, $$new($ObjectArray, {greatGrandKidName}), greatGrandKid);
 						} else {
-							$assign(greatGrandKidName, $DOMUtil::getLocalName(greatGrandKid));
-							bool var$0 = !$nc(greatGrandKidName)->equals($SchemaSymbols::ELT_RESTRICTION);
-							if (var$0 && !greatGrandKidName->equals($SchemaSymbols::ELT_EXTENSION)) {
-								reportSchemaError("src-redefine.5.b.c"_s, $$new($ObjectArray, {$of(greatGrandKidName)}), greatGrandKid);
+							$var($ObjectArray, attrs, $nc(this->fAttributeChecker)->checkAttributes(greatGrandKid, false, currSchema));
+							$var($QName, derivedBase, $cast($QName, $nc(attrs)->get($XSAttributeChecker::ATTIDX_BASE)));
+							if (derivedBase == nullptr || derivedBase->uri != $nc(currSchema)->fTargetNamespace || !$nc(derivedBase->localpart)->equals(oldName)) {
+								reportSchemaError("src-redefine.5.b.d"_s, $$new($ObjectArray, {
+									greatGrandKidName,
+									$$str({($nc(currSchema)->fTargetNamespace == nullptr ? ""_s : currSchema->fTargetNamespace), ","_s, oldName})
+								}), greatGrandKid);
+							} else if (derivedBase->prefix != nullptr && derivedBase->prefix->length() > 0) {
+								greatGrandKid->setAttribute($SchemaSymbols::ATT_BASE, $$str({derivedBase->prefix, ":"_s, newName}));
 							} else {
-								$var($ObjectArray, attrs, $nc(this->fAttributeChecker)->checkAttributes(greatGrandKid, false, currSchema));
-								$var($QName, derivedBase, $cast($QName, $nc(attrs)->get($XSAttributeChecker::ATTIDX_BASE)));
-								if (derivedBase == nullptr || $nc(derivedBase)->uri != $nc(currSchema)->fTargetNamespace || !$nc($nc(derivedBase)->localpart)->equals(oldName)) {
-									reportSchemaError("src-redefine.5.b.d"_s, $$new($ObjectArray, {
-										$of(greatGrandKidName),
-										$of($$str({($nc(currSchema)->fTargetNamespace == nullptr ? ""_s : $nc(currSchema)->fTargetNamespace), ","_s, oldName}))
-									}), greatGrandKid);
-								} else if (derivedBase->prefix != nullptr && $nc(derivedBase->prefix)->length() > 0) {
-									$nc(greatGrandKid)->setAttribute($SchemaSymbols::ATT_BASE, $$str({derivedBase->prefix, ":"_s, newName}));
-								} else {
-									$nc(greatGrandKid)->setAttribute($SchemaSymbols::ATT_BASE, newName);
-								}
+								greatGrandKid->setAttribute($SchemaSymbols::ATT_BASE, newName);
 							}
 						}
 					}
 				}
 			}
-		} else {
-			if (componentType->equals($SchemaSymbols::ELT_ATTRIBUTEGROUP)) {
-				$var($String, processedBaseName, ($nc(currSchema)->fTargetNamespace == nullptr) ? $str({","_s, oldName}) : $str({$nc(currSchema)->fTargetNamespace, ","_s, oldName}));
-				int32_t attGroupRefsCount = changeRedefineGroup(processedBaseName, componentType, newName, child, currSchema);
-				if (attGroupRefsCount > 1) {
-					reportSchemaError("src-redefine.7.1"_s, $$new($ObjectArray, {$($of($Integer::valueOf(attGroupRefsCount)))}), child);
-				} else if (attGroupRefsCount == 1) {
-				} else if (currSchema->fTargetNamespace == nullptr) {
-					$nc(this->fRedefinedRestrictedAttributeGroupRegistry)->put(processedBaseName, $$str({","_s, newName}));
-				} else {
-					$nc(this->fRedefinedRestrictedAttributeGroupRegistry)->put(processedBaseName, $$str({currSchema->fTargetNamespace, ","_s, newName}));
-				}
-			} else {
-				if (componentType->equals($SchemaSymbols::ELT_GROUP)) {
-					$var($String, processedBaseName, ($nc(currSchema)->fTargetNamespace == nullptr) ? $str({","_s, oldName}) : $str({$nc(currSchema)->fTargetNamespace, ","_s, oldName}));
-					int32_t groupRefsCount = changeRedefineGroup(processedBaseName, componentType, newName, child, currSchema);
-					if (groupRefsCount > 1) {
-						reportSchemaError("src-redefine.6.1.1"_s, $$new($ObjectArray, {$($of($Integer::valueOf(groupRefsCount)))}), child);
-					} else if (groupRefsCount == 1) {
-					} else if (currSchema->fTargetNamespace == nullptr) {
-						$nc(this->fRedefinedRestrictedGroupRegistry)->put(processedBaseName, $$str({","_s, newName}));
-					} else {
-						$nc(this->fRedefinedRestrictedGroupRegistry)->put(processedBaseName, $$str({currSchema->fTargetNamespace, ","_s, newName}));
-					}
-				} else {
-					reportSchemaError("Internal-Error"_s, $$new($ObjectArray, {$of("could not handle this particular <redefine>; please submit your schemas and instance document in a bug report!"_s)}), child);
-				}
-			}
 		}
+	} else if (componentType->equals($SchemaSymbols::ELT_ATTRIBUTEGROUP)) {
+		$var($String, processedBaseName, ($nc(currSchema)->fTargetNamespace == nullptr) ? $str({","_s, oldName}) : $str({currSchema->fTargetNamespace, ","_s, oldName}));
+		int32_t attGroupRefsCount = changeRedefineGroup(processedBaseName, componentType, newName, child, currSchema);
+		if (attGroupRefsCount > 1) {
+			reportSchemaError("src-redefine.7.1"_s, $$new($ObjectArray, {$($Integer::valueOf(attGroupRefsCount))}), child);
+		} else if (attGroupRefsCount == 1) {
+		} else if (currSchema->fTargetNamespace == nullptr) {
+			$nc(this->fRedefinedRestrictedAttributeGroupRegistry)->put(processedBaseName, $$str({","_s, newName}));
+		} else {
+			$nc(this->fRedefinedRestrictedAttributeGroupRegistry)->put(processedBaseName, $$str({currSchema->fTargetNamespace, ","_s, newName}));
+		}
+	} else if (componentType->equals($SchemaSymbols::ELT_GROUP)) {
+		$var($String, processedBaseName, ($nc(currSchema)->fTargetNamespace == nullptr) ? $str({","_s, oldName}) : $str({currSchema->fTargetNamespace, ","_s, oldName}));
+		int32_t groupRefsCount = changeRedefineGroup(processedBaseName, componentType, newName, child, currSchema);
+		if (groupRefsCount > 1) {
+			reportSchemaError("src-redefine.6.1.1"_s, $$new($ObjectArray, {$($Integer::valueOf(groupRefsCount))}), child);
+		} else if (groupRefsCount == 1) {
+		} else if (currSchema->fTargetNamespace == nullptr) {
+			$nc(this->fRedefinedRestrictedGroupRegistry)->put(processedBaseName, $$str({","_s, newName}));
+		} else {
+			$nc(this->fRedefinedRestrictedGroupRegistry)->put(processedBaseName, $$str({currSchema->fTargetNamespace, ","_s, newName}));
+		}
+	} else {
+		reportSchemaError("Internal-Error"_s, $$new($ObjectArray, {"could not handle this particular <redefine>; please submit your schemas and instance document in a bug report!"_s}), child);
 	}
 }
 
 $String* XSDHandler::findQName($String* name, $XSDocumentInfo* schemaDoc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SchemaNamespaceSupport, currNSMap, $nc(schemaDoc)->fNamespaceSupport);
-	int32_t colonPtr = $nc(name)->indexOf((int32_t)u':');
+	int32_t colonPtr = $nc(name)->indexOf(u':');
 	$init($XMLSymbols);
 	$var($String, prefix, $XMLSymbols::EMPTY_STRING);
 	if (colonPtr > 0) {
@@ -3794,7 +3296,7 @@ $String* XSDHandler::findQName($String* name, $XSDocumentInfo* schemaDoc) {
 }
 
 int32_t XSDHandler::changeRedefineGroup($String* originalQName, $String* elementSought, $String* newName, $Element* curr, $XSDocumentInfo* schemaDoc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t result = 0;
 	{
 		$var($Element, child, $DOMUtil::getFirstChildElement(curr));
@@ -3804,7 +3306,7 @@ int32_t XSDHandler::changeRedefineGroup($String* originalQName, $String* element
 				result += changeRedefineGroup(originalQName, elementSought, newName, child, schemaDoc);
 			} else {
 				$init($SchemaSymbols);
-				$var($String, ref, $nc(child)->getAttribute($SchemaSymbols::ATT_REF));
+				$var($String, ref, child->getAttribute($SchemaSymbols::ATT_REF));
 				if ($nc(ref)->length() != 0) {
 					$var($String, processedRef, findQName(ref, schemaDoc));
 					if ($nc(originalQName)->equals(processedRef)) {
@@ -3822,13 +3324,13 @@ int32_t XSDHandler::changeRedefineGroup($String* originalQName, $String* element
 							$var($String, minOccurs, child->getAttribute($SchemaSymbols::ATT_MINOCCURS));
 							$var($String, maxOccurs, child->getAttribute($SchemaSymbols::ATT_MAXOCCURS));
 							bool var$1 = $nc(maxOccurs)->length() == 0;
-							bool var$0 = (var$1 || $nc(maxOccurs)->equals("1"_s));
+							bool var$0 = var$1 || maxOccurs->equals("1"_s);
 							if (var$0) {
 								bool var$2 = $nc(minOccurs)->length() == 0;
-								var$0 = (var$2 || $nc(minOccurs)->equals("1"_s));
+								var$0 = var$2 || minOccurs->equals("1"_s);
 							}
 							if (!(var$0)) {
-								reportSchemaError("src-redefine.6.1.2"_s, $$new($ObjectArray, {$of(ref)}), child);
+								reportSchemaError("src-redefine.6.1.2"_s, $$new($ObjectArray, {ref}), child);
 							}
 						}
 					}
@@ -3840,7 +3342,8 @@ int32_t XSDHandler::changeRedefineGroup($String* originalQName, $String* element
 }
 
 $XSDocumentInfo* XSDHandler::findXSDocumentForDecl($XSDocumentInfo* currSchema, $Element* decl, $XSDocumentInfo* decl_Doc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	$var($Object, temp, decl_Doc);
 	if (temp == nullptr) {
 		return nullptr;
@@ -3850,26 +3353,24 @@ $XSDocumentInfo* XSDHandler::findXSDocumentForDecl($XSDocumentInfo* currSchema, 
 }
 
 bool XSDHandler::nonAnnotationContent($Element* elem) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Element, child, $DOMUtil::getFirstChildElement(elem));
-		for (; child != nullptr; $assign(child, $DOMUtil::getNextSiblingElement(child))) {
-			$init($SchemaSymbols);
-			if (!($nc($($DOMUtil::getLocalName(child)))->equals($SchemaSymbols::ELT_ANNOTATION))) {
-				return true;
-			}
+	$useLocalObjectStack();
+	$var($Element, child, $DOMUtil::getFirstChildElement(elem));
+	for (; child != nullptr; $assign(child, $DOMUtil::getNextSiblingElement(child))) {
+		$init($SchemaSymbols);
+		if (!($$nc($DOMUtil::getLocalName(child))->equals($SchemaSymbols::ELT_ANNOTATION))) {
+			return true;
 		}
 	}
 	return false;
 }
 
 void XSDHandler::setSchemasVisible($XSDocumentInfo* startSchema) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($DOMUtil::isHidden($nc(startSchema)->fSchemaElement, this->fHiddenNodes)) {
-		$DOMUtil::setVisible($nc(startSchema)->fSchemaElement, this->fHiddenNodes);
+		$DOMUtil::setVisible(startSchema->fSchemaElement, this->fHiddenNodes);
 		$var($List, dependingSchemas, $cast($List, $nc(this->fDependencyMap)->get(startSchema)));
 		for (int32_t i = 0; i < $nc(dependingSchemas)->size(); ++i) {
-			setSchemasVisible($cast($XSDocumentInfo, $(dependingSchemas->get(i))));
+			setSchemasVisible($$cast($XSDocumentInfo, dependingSchemas->get(i)));
 		}
 	}
 }
@@ -3883,13 +3384,13 @@ $SimpleLocator* XSDHandler::element2Locator($Element* e) {
 }
 
 bool XSDHandler::element2Locator($Element* e, $SimpleLocator* l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (l == nullptr) {
 		return false;
 	}
 	if ($instanceOf($ElementImpl, e)) {
 		$var($ElementImpl, ele, $cast($ElementImpl, e));
-		$var($Document, doc, $nc(ele)->getOwnerDocument());
+		$var($Document, doc, ele->getOwnerDocument());
 		$var($String, sid, $cast($String, $nc(this->fDoc2SystemId)->get($($DOMUtil::getRoot(doc)))));
 		int32_t line = ele->getLineNumber();
 		int32_t column = ele->getColumnNumber();
@@ -3954,8 +3455,8 @@ void XSDHandler::setGenerateSyntheticAnnotations(bool state) {
 	$nc(this->fSchemaParser)->setFeature(XSDHandler::GENERATE_SYNTHETIC_ANNOTATIONS, state);
 }
 
-void clinit$XSDHandler($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void XSDHandler::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$init($Constants);
 	$assignStatic(XSDHandler::VALIDATION, $str({$Constants::SAX_FEATURE_PREFIX, $Constants::VALIDATION_FEATURE}));
 	$assignStatic(XSDHandler::XMLSCHEMA_VALIDATION, $str({$Constants::XERCES_FEATURE_PREFIX, $Constants::SCHEMA_VALIDATION_FEATURE}));
@@ -3995,7 +3496,7 @@ void clinit$XSDHandler($Class* class$) {
 			"src-import.3.1"_s,
 			"src-import.3.2"_s
 		}),
-		($StringArray*)nullptr,
+		nullptr,
 		$$new($StringArray, {
 			"TargetNamespace.1"_s,
 			"TargetNamespace.2"_s
@@ -4024,7 +3525,7 @@ void clinit$XSDHandler($Class* class$) {
 		"schema_reference.4"_s
 	}));
 	$assignStatic(XSDHandler::COMP_TYPE, $new($StringArray, {
-		($String*)nullptr,
+		nullptr,
 		"attribute declaration"_s,
 		"attribute group"_s,
 		"element declaration"_s,
@@ -4049,7 +3550,292 @@ XSDHandler::XSDHandler() {
 }
 
 $Class* XSDHandler::load$($String* name, bool initialize) {
-	$loadClass(XSDHandler, name, initialize, &_XSDHandler_ClassInfo_, clinit$XSDHandler, allocate$XSDHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"VALIDATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, VALIDATION)},
+		{"XMLSCHEMA_VALIDATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, XMLSCHEMA_VALIDATION)},
+		{"ALLOW_JAVA_ENCODINGS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, ALLOW_JAVA_ENCODINGS)},
+		{"CONTINUE_AFTER_FATAL_ERROR", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, CONTINUE_AFTER_FATAL_ERROR)},
+		{"STANDARD_URI_CONFORMANT_FEATURE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, STANDARD_URI_CONFORMANT_FEATURE)},
+		{"DISALLOW_DOCTYPE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, DISALLOW_DOCTYPE)},
+		{"GENERATE_SYNTHETIC_ANNOTATIONS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, GENERATE_SYNTHETIC_ANNOTATIONS)},
+		{"VALIDATE_ANNOTATIONS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, VALIDATE_ANNOTATIONS)},
+		{"HONOUR_ALL_SCHEMALOCATIONS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, HONOUR_ALL_SCHEMALOCATIONS)},
+		{"NAMESPACE_GROWTH", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, NAMESPACE_GROWTH)},
+		{"TOLERATE_DUPLICATES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, TOLERATE_DUPLICATES)},
+		{"NAMESPACE_PREFIXES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSDHandler, NAMESPACE_PREFIXES)},
+		{"STRING_INTERNING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, STRING_INTERNING)},
+		{"ERROR_HANDLER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, ERROR_HANDLER)},
+		{"JAXP_SCHEMA_SOURCE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, JAXP_SCHEMA_SOURCE)},
+		{"ENTITY_RESOLVER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSDHandler, ENTITY_RESOLVER)},
+		{"ENTITY_MANAGER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, ENTITY_MANAGER)},
+		{"ERROR_REPORTER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSDHandler, ERROR_REPORTER)},
+		{"XMLGRAMMAR_POOL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSDHandler, XMLGRAMMAR_POOL)},
+		{"SYMBOL_TABLE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSDHandler, SYMBOL_TABLE)},
+		{"SECURITY_MANAGER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, SECURITY_MANAGER)},
+		{"LOCALE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XSDHandler, LOCALE)},
+		{"XML_SECURITY_PROPERTY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSDHandler, XML_SECURITY_PROPERTY_MANAGER)},
+		{"DEBUG_NODE_POOL", "Z", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSDHandler, DEBUG_NODE_POOL)},
+		{"ATTRIBUTE_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(XSDHandler, ATTRIBUTE_TYPE)},
+		{"ATTRIBUTEGROUP_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(XSDHandler, ATTRIBUTEGROUP_TYPE)},
+		{"ELEMENT_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(XSDHandler, ELEMENT_TYPE)},
+		{"GROUP_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(XSDHandler, GROUP_TYPE)},
+		{"IDENTITYCONSTRAINT_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(XSDHandler, IDENTITYCONSTRAINT_TYPE)},
+		{"NOTATION_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(XSDHandler, NOTATION_TYPE)},
+		{"TYPEDECL_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(XSDHandler, TYPEDECL_TYPE)},
+		{"REDEF_IDENTIFIER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSDHandler, REDEF_IDENTIFIER)},
+		{"fDeclPool", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSDeclarationPool;", nullptr, $PROTECTED, $field(XSDHandler, fDeclPool)},
+		{"fSecurityManager", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager;", nullptr, $PROTECTED, $field(XSDHandler, fSecurityManager)},
+		{"fAccessExternalSchema", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSDHandler, fAccessExternalSchema)},
+		{"fAccessExternalDTD", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSDHandler, fAccessExternalDTD)},
+		{"registryEmpty", "Z", nullptr, $PRIVATE, $field(XSDHandler, registryEmpty)},
+		{"fUnparsedAttributeRegistry", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lorg/w3c/dom/Element;>;", $PRIVATE, $field(XSDHandler, fUnparsedAttributeRegistry)},
+		{"fUnparsedAttributeGroupRegistry", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lorg/w3c/dom/Element;>;", $PRIVATE, $field(XSDHandler, fUnparsedAttributeGroupRegistry)},
+		{"fUnparsedElementRegistry", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lorg/w3c/dom/Element;>;", $PRIVATE, $field(XSDHandler, fUnparsedElementRegistry)},
+		{"fUnparsedGroupRegistry", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lorg/w3c/dom/Element;>;", $PRIVATE, $field(XSDHandler, fUnparsedGroupRegistry)},
+		{"fUnparsedIdentityConstraintRegistry", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lorg/w3c/dom/Element;>;", $PRIVATE, $field(XSDHandler, fUnparsedIdentityConstraintRegistry)},
+		{"fUnparsedNotationRegistry", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lorg/w3c/dom/Element;>;", $PRIVATE, $field(XSDHandler, fUnparsedNotationRegistry)},
+		{"fUnparsedTypeRegistry", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lorg/w3c/dom/Element;>;", $PRIVATE, $field(XSDHandler, fUnparsedTypeRegistry)},
+		{"fUnparsedAttributeRegistrySub", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;>;", $PRIVATE, $field(XSDHandler, fUnparsedAttributeRegistrySub)},
+		{"fUnparsedAttributeGroupRegistrySub", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;>;", $PRIVATE, $field(XSDHandler, fUnparsedAttributeGroupRegistrySub)},
+		{"fUnparsedElementRegistrySub", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;>;", $PRIVATE, $field(XSDHandler, fUnparsedElementRegistrySub)},
+		{"fUnparsedGroupRegistrySub", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;>;", $PRIVATE, $field(XSDHandler, fUnparsedGroupRegistrySub)},
+		{"fUnparsedIdentityConstraintRegistrySub", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;>;", $PRIVATE, $field(XSDHandler, fUnparsedIdentityConstraintRegistrySub)},
+		{"fUnparsedNotationRegistrySub", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;>;", $PRIVATE, $field(XSDHandler, fUnparsedNotationRegistrySub)},
+		{"fUnparsedTypeRegistrySub", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;>;", $PRIVATE, $field(XSDHandler, fUnparsedTypeRegistrySub)},
+		{"fUnparsedRegistriesExt", "[Ljava/util/Map;", "[Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;>;", $PRIVATE, $field(XSDHandler, fUnparsedRegistriesExt)},
+		{"fDependencyMap", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;>;>;", $PRIVATE, $field(XSDHandler, fDependencyMap)},
+		{"fImportMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PRIVATE, $field(XSDHandler, fImportMap)},
+		{"fAllTNSs", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(XSDHandler, fAllTNSs)},
+		{"fLocationPairs", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/XMLSchemaLoader$LocationArray;>;", $PRIVATE, $field(XSDHandler, fLocationPairs)},
+		{"fHiddenNodes", "Ljava/util/Map;", "Ljava/util/Map<Lorg/w3c/dom/Node;Ljava/lang/String;>;", 0, $field(XSDHandler, fHiddenNodes)},
+		{"fTraversed", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDHandler$XSDKey;Lorg/w3c/dom/Element;>;", $PRIVATE, $field(XSDHandler, fTraversed)},
+		{"fDoc2SystemId", "Ljava/util/Map;", "Ljava/util/Map<Lorg/w3c/dom/Element;Ljava/lang/String;>;", $PRIVATE, $field(XSDHandler, fDoc2SystemId)},
+		{"fRoot", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;", nullptr, $PRIVATE, $field(XSDHandler, fRoot)},
+		{"fDoc2XSDocumentMap", "Ljava/util/Map;", "Ljava/util/Map<Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;>;", $PRIVATE, $field(XSDHandler, fDoc2XSDocumentMap)},
+		{"fRedefine2XSDMap", "Ljava/util/Map;", "Ljava/util/Map<Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;>;", $PRIVATE, $field(XSDHandler, fRedefine2XSDMap)},
+		{"fRedefine2NSSupport", "Ljava/util/Map;", "Ljava/util/Map<Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaNamespaceSupport;>;", $PRIVATE, $field(XSDHandler, fRedefine2NSSupport)},
+		{"fRedefinedRestrictedAttributeGroupRegistry", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(XSDHandler, fRedefinedRestrictedAttributeGroupRegistry)},
+		{"fRedefinedRestrictedGroupRegistry", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(XSDHandler, fRedefinedRestrictedGroupRegistry)},
+		{"fLastSchemaWasDuplicate", "Z", nullptr, $PRIVATE, $field(XSDHandler, fLastSchemaWasDuplicate)},
+		{"fValidateAnnotations", "Z", nullptr, $PRIVATE, $field(XSDHandler, fValidateAnnotations)},
+		{"fHonourAllSchemaLocations", "Z", nullptr, $PRIVATE, $field(XSDHandler, fHonourAllSchemaLocations)},
+		{"fNamespaceGrowth", "Z", nullptr, 0, $field(XSDHandler, fNamespaceGrowth)},
+		{"fTolerateDuplicates", "Z", nullptr, 0, $field(XSDHandler, fTolerateDuplicates)},
+		{"fErrorReporter", "Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;", nullptr, $PRIVATE, $field(XSDHandler, fErrorReporter)},
+		{"fErrorHandler", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler;", nullptr, $PRIVATE, $field(XSDHandler, fErrorHandler)},
+		{"fLocale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(XSDHandler, fLocale)},
+		{"fEntityManager", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager;", nullptr, $PRIVATE, $field(XSDHandler, fEntityManager)},
+		{"fAttributeChecker", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSAttributeChecker;", nullptr, $PRIVATE, $field(XSDHandler, fAttributeChecker)},
+		{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PRIVATE, $field(XSDHandler, fSymbolTable)},
+		{"fGrammarBucket", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSGrammarBucket;", nullptr, $PRIVATE, $field(XSDHandler, fGrammarBucket)},
+		{"fSchemaGrammarDescription", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSDDescription;", nullptr, $PRIVATE, $field(XSDHandler, fSchemaGrammarDescription)},
+		{"fGrammarPool", "Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;", nullptr, $PRIVATE, $field(XSDHandler, fGrammarPool)},
+		{"fSecurityPropertyMgr", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityPropertyManager;", nullptr, $PRIVATE, $field(XSDHandler, fSecurityPropertyMgr)},
+		{"fUseCatalog", "Z", nullptr, $PRIVATE, $field(XSDHandler, fUseCatalog)},
+		{"fCatalogFile", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSDHandler, fCatalogFile)},
+		{"fDefer", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSDHandler, fDefer)},
+		{"fPrefer", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSDHandler, fPrefer)},
+		{"fResolve", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSDHandler, fResolve)},
+		{"fOverrideDefaultParser", "Z", nullptr, $PRIVATE, $field(XSDHandler, fOverrideDefaultParser)},
+		{"fAttributeGroupTraverser", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDAttributeGroupTraverser;", nullptr, 0, $field(XSDHandler, fAttributeGroupTraverser)},
+		{"fAttributeTraverser", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDAttributeTraverser;", nullptr, 0, $field(XSDHandler, fAttributeTraverser)},
+		{"fComplexTypeTraverser", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDComplexTypeTraverser;", nullptr, 0, $field(XSDHandler, fComplexTypeTraverser)},
+		{"fElementTraverser", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDElementTraverser;", nullptr, 0, $field(XSDHandler, fElementTraverser)},
+		{"fGroupTraverser", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDGroupTraverser;", nullptr, 0, $field(XSDHandler, fGroupTraverser)},
+		{"fKeyrefTraverser", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDKeyrefTraverser;", nullptr, 0, $field(XSDHandler, fKeyrefTraverser)},
+		{"fNotationTraverser", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDNotationTraverser;", nullptr, 0, $field(XSDHandler, fNotationTraverser)},
+		{"fSimpleTypeTraverser", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDSimpleTypeTraverser;", nullptr, 0, $field(XSDHandler, fSimpleTypeTraverser)},
+		{"fUniqueOrKeyTraverser", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDUniqueOrKeyTraverser;", nullptr, 0, $field(XSDHandler, fUniqueOrKeyTraverser)},
+		{"fWildCardTraverser", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDWildcardTraverser;", nullptr, 0, $field(XSDHandler, fWildCardTraverser)},
+		{"fDVFactory", "Lcom/sun/org/apache/xerces/internal/impl/dv/SchemaDVFactory;", nullptr, 0, $field(XSDHandler, fDVFactory)},
+		{"fSchemaParser", "Lcom/sun/org/apache/xerces/internal/impl/xs/opti/SchemaDOMParser;", nullptr, 0, $field(XSDHandler, fSchemaParser)},
+		{"fXSContentHandler", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/SchemaContentHandler;", nullptr, 0, $field(XSDHandler, fXSContentHandler)},
+		{"fStAXSchemaParser", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/StAXSchemaParser;", nullptr, 0, $field(XSDHandler, fStAXSchemaParser)},
+		{"fAnnotationValidator", "Lcom/sun/org/apache/xerces/internal/parsers/XML11Configuration;", nullptr, 0, $field(XSDHandler, fAnnotationValidator)},
+		{"fGrammarBucketAdapter", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDHandler$XSAnnotationGrammarPool;", nullptr, 0, $field(XSDHandler, fGrammarBucketAdapter)},
+		{"INIT_STACK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSDHandler, INIT_STACK_SIZE)},
+		{"INC_STACK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSDHandler, INC_STACK_SIZE)},
+		{"fLocalElemStackPos", "I", nullptr, $PRIVATE, $field(XSDHandler, fLocalElemStackPos)},
+		{"fParticle", "[Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, $PRIVATE, $field(XSDHandler, fParticle)},
+		{"fLocalElementDecl", "[Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(XSDHandler, fLocalElementDecl)},
+		{"fLocalElementDecl_schema", "[Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;", nullptr, $PRIVATE, $field(XSDHandler, fLocalElementDecl_schema)},
+		{"fAllContext", "[I", nullptr, $PRIVATE, $field(XSDHandler, fAllContext)},
+		{"fParent", "[Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, $PRIVATE, $field(XSDHandler, fParent)},
+		{"fLocalElemNamespaceContext", "[[Ljava/lang/String;", nullptr, $PRIVATE, $field(XSDHandler, fLocalElemNamespaceContext)},
+		{"INIT_KEYREF_STACK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSDHandler, INIT_KEYREF_STACK)},
+		{"INC_KEYREF_STACK_AMOUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSDHandler, INC_KEYREF_STACK_AMOUNT)},
+		{"fKeyrefStackPos", "I", nullptr, $PRIVATE, $field(XSDHandler, fKeyrefStackPos)},
+		{"fKeyrefs", "[Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(XSDHandler, fKeyrefs)},
+		{"fKeyrefsMapXSDocumentInfo", "[Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;", nullptr, $PRIVATE, $field(XSDHandler, fKeyrefsMapXSDocumentInfo)},
+		{"fKeyrefElems", "[Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;", nullptr, $PRIVATE, $field(XSDHandler, fKeyrefElems)},
+		{"fKeyrefNamespaceContext", "[[Ljava/lang/String;", nullptr, $PRIVATE, $field(XSDHandler, fKeyrefNamespaceContext)},
+		{"fGlobalAttrDecls", "Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, 0, $field(XSDHandler, fGlobalAttrDecls)},
+		{"fGlobalAttrGrpDecls", "Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, 0, $field(XSDHandler, fGlobalAttrGrpDecls)},
+		{"fGlobalElemDecls", "Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, 0, $field(XSDHandler, fGlobalElemDecls)},
+		{"fGlobalGroupDecls", "Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, 0, $field(XSDHandler, fGlobalGroupDecls)},
+		{"fGlobalNotationDecls", "Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, 0, $field(XSDHandler, fGlobalNotationDecls)},
+		{"fGlobalIDConstraintDecls", "Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, 0, $field(XSDHandler, fGlobalIDConstraintDecls)},
+		{"fGlobalTypeDecls", "Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, 0, $field(XSDHandler, fGlobalTypeDecls)},
+		{"NS_ERROR_CODES", "[[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSDHandler, NS_ERROR_CODES)},
+		{"ELE_ERROR_CODES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSDHandler, ELE_ERROR_CODES)},
+		{"fReportedTNS", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(XSDHandler, fReportedTNS)},
+		{"COMP_TYPE", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSDHandler, COMP_TYPE)},
+		{"CIRCULAR_CODES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSDHandler, CIRCULAR_CODES)},
+		{"xl", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/SimpleLocator;", nullptr, $PRIVATE, $field(XSDHandler, xl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XSDHandler, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSGrammarBucket;)V", nullptr, $PUBLIC, $method(XSDHandler, init$, void, $XSGrammarBucket*)},
+		{"addGlobalAttributeDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeDecl;)V", nullptr, 0, $virtualMethod(XSDHandler, addGlobalAttributeDecl, void, $XSAttributeDecl*)},
+		{"addGlobalAttributeDecls", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDHandler, addGlobalAttributeDecls, void, $SchemaGrammar*, $SchemaGrammar*)},
+		{"addGlobalAttributeGroupDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;)V", nullptr, 0, $virtualMethod(XSDHandler, addGlobalAttributeGroupDecl, void, $XSAttributeGroupDecl*)},
+		{"addGlobalAttributeGroupDecls", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDHandler, addGlobalAttributeGroupDecls, void, $SchemaGrammar*, $SchemaGrammar*)},
+		{"addGlobalComponent", "(Lcom/sun/org/apache/xerces/internal/xs/XSObject;Lcom/sun/org/apache/xerces/internal/impl/xs/XSDDescription;)V", nullptr, $PRIVATE, $method(XSDHandler, addGlobalComponent, void, $XSObject*, $XSDDescription*)},
+		{"addGlobalComponents", "(Ljava/util/List;Ljava/util/Map;)V", "(Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, addGlobalComponents, void, $List*, $Map*)},
+		{"addGlobalElementDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;)V", nullptr, 0, $virtualMethod(XSDHandler, addGlobalElementDecl, void, $XSElementDecl*)},
+		{"addGlobalElementDecls", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDHandler, addGlobalElementDecls, void, $SchemaGrammar*, $SchemaGrammar*)},
+		{"addGlobalGroupDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSGroupDecl;)V", nullptr, 0, $virtualMethod(XSDHandler, addGlobalGroupDecl, void, $XSGroupDecl*)},
+		{"addGlobalGroupDecls", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDHandler, addGlobalGroupDecls, void, $SchemaGrammar*, $SchemaGrammar*)},
+		{"addGlobalNotationDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSNotationDecl;)V", nullptr, 0, $virtualMethod(XSDHandler, addGlobalNotationDecl, void, $XSNotationDecl*)},
+		{"addGlobalNotationDecls", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDHandler, addGlobalNotationDecls, void, $SchemaGrammar*, $SchemaGrammar*)},
+		{"addGlobalTypeDecl", "(Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;)V", nullptr, 0, $virtualMethod(XSDHandler, addGlobalTypeDecl, void, $XSTypeDefinition*)},
+		{"addGlobalTypeDecls", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDHandler, addGlobalTypeDecls, void, $SchemaGrammar*, $SchemaGrammar*)},
+		{"addGrammarComponents", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDHandler, addGrammarComponents, void, $SchemaGrammar*, $SchemaGrammar*)},
+		{"addGrammars", "(Ljava/util/List;)V", "(Ljava/util/List<Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;>;)V", $PRIVATE, $method(XSDHandler, addGrammars, void, $List*)},
+		{"addIDConstraintDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint;)V", nullptr, 0, $virtualMethod(XSDHandler, addIDConstraintDecl, void, $IdentityConstraint*)},
+		{"addImportList", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Ljava/util/List;Ljava/util/List;)V", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;>;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE, $method(XSDHandler, addImportList, void, $SchemaGrammar*, $List*, $List*)},
+		{"addNamespaceDependency", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE, $method(XSDHandler, addNamespaceDependency, void, $String*, $String*, $List*)},
+		{"addNewGrammarComponents", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDHandler, addNewGrammarComponents, void, $SchemaGrammar*, $SchemaGrammar*)},
+		{"addNewGrammarLocations", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDHandler, addNewGrammarLocations, void, $SchemaGrammar*, $SchemaGrammar*)},
+		{"addNewImportedGrammars", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDHandler, addNewImportedGrammars, void, $SchemaGrammar*, $SchemaGrammar*)},
+		{"addRelatedAttribute", "(Lcom/sun/org/apache/xerces/internal/xs/XSAttributeDeclaration;Ljava/util/List;Ljava/lang/String;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/xs/XSAttributeDeclaration;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, addRelatedAttribute, void, $XSAttributeDeclaration*, $List*, $String*, $Map*)},
+		{"addRelatedElement", "(Lcom/sun/org/apache/xerces/internal/xs/XSElementDeclaration;Ljava/util/List;Ljava/lang/String;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/xs/XSElementDeclaration;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, addRelatedElement, void, $XSElementDeclaration*, $List*, $String*, $Map*)},
+		{"addRelatedType", "(Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;Ljava/util/List;Ljava/lang/String;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, addRelatedType, void, $XSTypeDefinition*, $List*, $String*, $Map*)},
+		{"buildGlobalNameRegistries", "()V", nullptr, $PROTECTED, $virtualMethod(XSDHandler, buildGlobalNameRegistries, void)},
+		{"canAddComponent", "(Lcom/sun/org/apache/xerces/internal/xs/XSObject;Lcom/sun/org/apache/xerces/internal/impl/xs/XSDDescription;)Z", nullptr, $PRIVATE, $method(XSDHandler, canAddComponent, bool, $XSObject*, $XSDDescription*)},
+		{"canAddComponents", "(Ljava/util/List;)Z", "(Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;)Z", $PRIVATE, $method(XSDHandler, canAddComponents, bool, $List*)},
+		{"changeRedefineGroup", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;)I", nullptr, $PRIVATE, $method(XSDHandler, changeRedefineGroup, int32_t, $String*, $String*, $String*, $Element*, $XSDocumentInfo*)},
+		{"checkForDuplicateNames", "(Ljava/lang/String;ILjava/util/Map;Ljava/util/Map;Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;)V", "(Ljava/lang/String;ILjava/util/Map<Ljava/lang/String;Lorg/w3c/dom/Element;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;>;Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;)V", 0, $virtualMethod(XSDHandler, checkForDuplicateNames, void, $String*, int32_t, $Map*, $Map*, $Element*, $XSDocumentInfo*)},
+		{"checkForDuplicateNames", "(Ljava/lang/String;ILorg/w3c/dom/Element;)V", nullptr, 0, $virtualMethod(XSDHandler, checkForDuplicateNames, void, $String*, int32_t, $Element*)},
+		{"constructTrees", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/XSDDescription;Z)Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;", nullptr, $PROTECTED, $virtualMethod(XSDHandler, constructTrees, $XSDocumentInfo*, $Element*, $String*, $XSDDescription*, bool)},
+		{"containedImportedGrammar", "(Ljava/util/List;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)Z", "(Ljava/util/List<Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;>;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)Z", $PRIVATE, $method(XSDHandler, containedImportedGrammar, bool, $List*, $SchemaGrammar*)},
+		{"createAnnotationValidator", "()V", nullptr, $PRIVATE, $method(XSDHandler, createAnnotationValidator, void)},
+		{"createGrammarFrom", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;", nullptr, $PRIVATE, $method(XSDHandler, createGrammarFrom, $SchemaGrammar*, $SchemaGrammar*)},
+		{"createTraversers", "()V", nullptr, $PRIVATE, $method(XSDHandler, createTraversers, void)},
+		{"doc2SystemId", "(Lorg/w3c/dom/Element;)Ljava/lang/String;", nullptr, $PRIVATE, $method(XSDHandler, doc2SystemId, $String*, $Element*)},
+		{"element2Locator", "(Lorg/w3c/dom/Element;)Lcom/sun/org/apache/xerces/internal/impl/xs/util/SimpleLocator;", nullptr, $PUBLIC, $virtualMethod(XSDHandler, element2Locator, $SimpleLocator*, $Element*)},
+		{"element2Locator", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/util/SimpleLocator;)Z", nullptr, $PUBLIC, $virtualMethod(XSDHandler, element2Locator, bool, $Element*, $SimpleLocator*)},
+		{"emptyString2Null", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(XSDHandler, emptyString2Null, $String*, $String*)},
+		{"existingGrammars", "(Ljava/util/List;)Z", "(Ljava/util/List<Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;>;)Z", $PRIVATE, $method(XSDHandler, existingGrammars, bool, $List*)},
+		{"expandComponents", "([Lcom/sun/org/apache/xerces/internal/xs/XSObject;Ljava/util/Map;)Ljava/util/List;", "([Lcom/sun/org/apache/xerces/internal/xs/XSObject;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;", $PRIVATE, $method(XSDHandler, expandComponents, $List*, $XSObjectArray*, $Map*)},
+		{"expandGrammars", "([Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)Ljava/util/List;", "([Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)Ljava/util/List<Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;>;", $PRIVATE, $method(XSDHandler, expandGrammars, $List*, $SchemaGrammarArray*)},
+		{"expandImportList", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE, $method(XSDHandler, expandImportList, void, $String*, $List*)},
+		{"expandRelatedAttributeComponents", "(Lcom/sun/org/apache/xerces/internal/xs/XSAttributeDeclaration;Ljava/util/List;Ljava/lang/String;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/xs/XSAttributeDeclaration;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, expandRelatedAttributeComponents, void, $XSAttributeDeclaration*, $List*, $String*, $Map*)},
+		{"expandRelatedAttributeGroupComponents", "(Lcom/sun/org/apache/xerces/internal/xs/XSAttributeGroupDefinition;Ljava/util/List;Ljava/lang/String;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/xs/XSAttributeGroupDefinition;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, expandRelatedAttributeGroupComponents, void, $XSAttributeGroupDefinition*, $List*, $String*, $Map*)},
+		{"expandRelatedAttributeUseComponents", "(Lcom/sun/org/apache/xerces/internal/xs/XSAttributeUse;Ljava/util/List;Ljava/lang/String;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/xs/XSAttributeUse;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, expandRelatedAttributeUseComponents, void, $XSAttributeUse*, $List*, $String*, $Map*)},
+		{"expandRelatedAttributeUsesComponents", "(Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;Ljava/util/List;Ljava/lang/String;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, expandRelatedAttributeUsesComponents, void, $XSObjectList*, $List*, $String*, $Map*)},
+		{"expandRelatedComplexTypeComponents", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;Ljava/util/List;Ljava/lang/String;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, expandRelatedComplexTypeComponents, void, $XSComplexTypeDecl*, $List*, $String*, $Map*)},
+		{"expandRelatedComponents", "(Lcom/sun/org/apache/xerces/internal/xs/XSObject;Ljava/util/List;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/xs/XSObject;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, expandRelatedComponents, void, $XSObject*, $List*, $Map*)},
+		{"expandRelatedElementComponents", "(Lcom/sun/org/apache/xerces/internal/xs/XSElementDeclaration;Ljava/util/List;Ljava/lang/String;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/xs/XSElementDeclaration;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, expandRelatedElementComponents, void, $XSElementDeclaration*, $List*, $String*, $Map*)},
+		{"expandRelatedModelGroupComponents", "(Lcom/sun/org/apache/xerces/internal/xs/XSModelGroup;Ljava/util/List;Ljava/lang/String;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/xs/XSModelGroup;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, expandRelatedModelGroupComponents, void, $XSModelGroup*, $List*, $String*, $Map*)},
+		{"expandRelatedModelGroupDefinitionComponents", "(Lcom/sun/org/apache/xerces/internal/xs/XSModelGroupDefinition;Ljava/util/List;Ljava/lang/String;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/xs/XSModelGroupDefinition;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, expandRelatedModelGroupDefinitionComponents, void, $XSModelGroupDefinition*, $List*, $String*, $Map*)},
+		{"expandRelatedParticleComponents", "(Lcom/sun/org/apache/xerces/internal/xs/XSParticle;Ljava/util/List;Ljava/lang/String;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/xs/XSParticle;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, expandRelatedParticleComponents, void, $XSParticle*, $List*, $String*, $Map*)},
+		{"expandRelatedSimpleTypeComponents", "(Lcom/sun/org/apache/xerces/internal/xs/XSSimpleTypeDefinition;Ljava/util/List;Ljava/lang/String;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/xs/XSSimpleTypeDefinition;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, expandRelatedSimpleTypeComponents, void, $XSSimpleTypeDefinition*, $List*, $String*, $Map*)},
+		{"expandRelatedTypeComponents", "(Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;Ljava/util/List;Ljava/lang/String;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, expandRelatedTypeComponents, void, $XSTypeDefinition*, $List*, $String*, $Map*)},
+		{"fillInLocalElemInfo", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;ILcom/sun/org/apache/xerces/internal/xs/XSObject;Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;)V", nullptr, 0, $virtualMethod(XSDHandler, fillInLocalElemInfo, void, $Element*, $XSDocumentInfo*, int32_t, $XSObject*, $XSParticleDecl*)},
+		{"findDependentNamespaces", "(Ljava/lang/String;Ljava/util/Map;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $method(XSDHandler, findDependentNamespaces, $List*, $String*, $Map*)},
+		{"findGrammar", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSDDescription;Z)Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;", nullptr, $PROTECTED, $virtualMethod(XSDHandler, findGrammar, $SchemaGrammar*, $XSDDescription*, bool)},
+		{"findQName", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;)Ljava/lang/String;", nullptr, $PRIVATE, $method(XSDHandler, findQName, $String*, $String*, $XSDocumentInfo*)},
+		{"findXSDocumentForDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;)Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;", nullptr, $PRIVATE, $method(XSDHandler, findXSDocumentForDecl, $XSDocumentInfo*, $XSDocumentInfo*, $Element*, $XSDocumentInfo*)},
+		{"getDVFactory", "()Lcom/sun/org/apache/xerces/internal/impl/dv/SchemaDVFactory;", nullptr, $PUBLIC, $virtualMethod(XSDHandler, getDVFactory, $SchemaDVFactory*)},
+		{"getDocInfoFromMap", "(Ljava/util/Map;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;", "(Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;>;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;", $PRIVATE, $method(XSDHandler, getDocInfoFromMap, $XSDocumentInfo*, $Map*, $String*)},
+		{"getElementFromMap", "(Ljava/util/Map;Ljava/lang/String;)Lorg/w3c/dom/Element;", "(Ljava/util/Map<Ljava/lang/String;Lorg/w3c/dom/Element;>;Ljava/lang/String;)Lorg/w3c/dom/Element;", $PRIVATE, $method(XSDHandler, getElementFromMap, $Element*, $Map*, $String*)},
+		{"getFromMap", "(Ljava/util/Map;Ljava/lang/String;)Ljava/util/List;", "(Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $method(XSDHandler, getFromMap, $List*, $Map*, $String*)},
+		{"getGlobalAttributeDecl", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeDecl;", nullptr, $PRIVATE, $method(XSDHandler, getGlobalAttributeDecl, $XSAttributeDecl*, $String*)},
+		{"getGlobalAttributeGroupDecl", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;", nullptr, $PRIVATE, $method(XSDHandler, getGlobalAttributeGroupDecl, $XSAttributeGroupDecl*, $String*)},
+		{"getGlobalDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;ILcom/sun/org/apache/xerces/internal/xni/QName;Lorg/w3c/dom/Element;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(XSDHandler, getGlobalDecl, $Object*, $XSDocumentInfo*, int32_t, $QName*, $Element*)},
+		{"getGlobalDecl", "(Ljava/lang/String;I)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(XSDHandler, getGlobalDecl, $Object*, $String*, int32_t)},
+		{"getGlobalDeclFromGrammar", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;ILjava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(XSDHandler, getGlobalDeclFromGrammar, $Object*, $SchemaGrammar*, int32_t, $String*)},
+		{"getGlobalDeclFromGrammar", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;ILjava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(XSDHandler, getGlobalDeclFromGrammar, $Object*, $SchemaGrammar*, int32_t, $String*, $String*)},
+		{"getGlobalElementDecl", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;", nullptr, $PRIVATE, $method(XSDHandler, getGlobalElementDecl, $XSElementDecl*, $String*)},
+		{"getGlobalGroupDecl", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSGroupDecl;", nullptr, $PRIVATE, $method(XSDHandler, getGlobalGroupDecl, $XSGroupDecl*, $String*)},
+		{"getGlobalNotationDecl", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSNotationDecl;", nullptr, $PRIVATE, $method(XSDHandler, getGlobalNotationDecl, $XSNotationDecl*, $String*)},
+		{"getGlobalTypeDecl", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;", nullptr, $PRIVATE, $method(XSDHandler, getGlobalTypeDecl, $XSTypeDefinition*, $String*)},
+		{"getGrammar", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;", nullptr, 0, $virtualMethod(XSDHandler, getGrammar, $SchemaGrammar*, $String*)},
+		{"getGrpOrAttrGrpRedefinedByRestriction", "(ILcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lorg/w3c/dom/Element;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(XSDHandler, getGrpOrAttrGrpRedefinedByRestriction, $Object*, int32_t, $QName*, $XSDocumentInfo*, $Element*)},
+		{"getIDConstraintDecl", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint;", nullptr, $PRIVATE, $method(XSDHandler, getIDConstraintDecl, $IdentityConstraint*, $String*)},
+		{"getIDRegistry", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lorg/w3c/dom/Element;>;", $PROTECTED, $virtualMethod(XSDHandler, getIDRegistry, $Map*)},
+		{"getIDRegistry_sub", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;>;", $PROTECTED, $virtualMethod(XSDHandler, getIDRegistry_sub, $Map*)},
+		{"getSchemaDocument", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;ZSLorg/w3c/dom/Element;)Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $method(XSDHandler, getSchemaDocument, $Element*, $String*, $XMLInputSource*, bool, int16_t, $Element*)},
+		{"getSchemaDocument", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/util/SAXInputSource;ZSLorg/w3c/dom/Element;)Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $method(XSDHandler, getSchemaDocument, $Element*, $String*, $SAXInputSource*, bool, int16_t, $Element*)},
+		{"getSchemaDocument", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/util/DOMInputSource;ZSLorg/w3c/dom/Element;)Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $method(XSDHandler, getSchemaDocument, $Element*, $String*, $DOMInputSource*, bool, int16_t, $Element*)},
+		{"getSchemaDocument", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/util/StAXInputSource;ZSLorg/w3c/dom/Element;)Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $method(XSDHandler, getSchemaDocument, $Element*, $String*, $StAXInputSource*, bool, int16_t, $Element*)},
+		{"getSchemaDocument", "(Lcom/sun/org/apache/xerces/internal/impl/xs/util/XSInputSource;Lcom/sun/org/apache/xerces/internal/impl/xs/XSDDescription;)Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $method(XSDHandler, getSchemaDocument, $Element*, $XSInputSource*, $XSDDescription*)},
+		{"getSchemaDocument0", "(Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDHandler$XSDKey;Ljava/lang/String;Lorg/w3c/dom/Element;)Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $method(XSDHandler, getSchemaDocument0, $Element*, $XSDHandler$XSDKey*, $String*, $Element*)},
+		{"getSchemaDocument1", "(ZZLcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;Lorg/w3c/dom/Element;Ljava/io/IOException;)Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $method(XSDHandler, getSchemaDocument1, $Element*, bool, bool, $XMLInputSource*, $Element*, $IOException*)},
+		{"getSchemaGrammar", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSDDescription;)Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;", nullptr, $PRIVATE, $method(XSDHandler, getSchemaGrammar, $SchemaGrammar*, $XSDDescription*)},
+		{"isExistingGrammar", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSDDescription;Z)Z", nullptr, $PRIVATE, $method(XSDHandler, isExistingGrammar, bool, $XSDDescription*, bool)},
+		{"needReportTNSError", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $FINAL, $method(XSDHandler, needReportTNSError, bool, $String*)},
+		{"nonAnnotationContent", "(Lorg/w3c/dom/Element;)Z", nullptr, $PRIVATE, $method(XSDHandler, nonAnnotationContent, bool, $Element*)},
+		{"null2EmptyString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(XSDHandler, null2EmptyString, $String*, $String*)},
+		{"parseSchema", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;Lcom/sun/org/apache/xerces/internal/impl/xs/XSDDescription;Ljava/util/Map;)Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;Lcom/sun/org/apache/xerces/internal/impl/xs/XSDDescription;Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/XMLSchemaLoader$LocationArray;>;)Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;", $PUBLIC, $virtualMethod(XSDHandler, parseSchema, $SchemaGrammar*, $XMLInputSource*, $XSDDescription*, $Map*), "java.io.IOException"},
+		{"prepareForParse", "()V", nullptr, 0, $virtualMethod(XSDHandler, prepareForParse, void)},
+		{"prepareForTraverse", "()V", nullptr, 0, $virtualMethod(XSDHandler, prepareForTraverse, void)},
+		{"removeParticle", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSModelGroupImpl;Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;)Z", nullptr, $PRIVATE, $method(XSDHandler, removeParticle, bool, $XSModelGroupImpl*, $XSParticleDecl*)},
+		{"renameRedefiningComponents", "(Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lorg/w3c/dom/Element;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XSDHandler, renameRedefiningComponents, void, $XSDocumentInfo*, $Element*, $String*, $String*, $String*)},
+		{"reportSchemaErr", "(Ljava/lang/String;[Ljava/lang/Object;Lorg/w3c/dom/Element;SLjava/lang/Exception;)V", nullptr, 0, $virtualMethod(XSDHandler, reportSchemaErr, void, $String*, $ObjectArray*, $Element*, int16_t, $Exception*)},
+		{"reportSchemaError", "(Ljava/lang/String;[Ljava/lang/Object;Lorg/w3c/dom/Element;)V", nullptr, 0, $virtualMethod(XSDHandler, reportSchemaError, void, $String*, $ObjectArray*, $Element*)},
+		{"reportSchemaError", "(Ljava/lang/String;[Ljava/lang/Object;Lorg/w3c/dom/Element;Ljava/lang/Exception;)V", nullptr, 0, $virtualMethod(XSDHandler, reportSchemaError, void, $String*, $ObjectArray*, $Element*, $Exception*)},
+		{"reportSchemaFatalError", "(Ljava/lang/String;[Ljava/lang/Object;Lorg/w3c/dom/Element;)V", nullptr, 0, $virtualMethod(XSDHandler, reportSchemaFatalError, void, $String*, $ObjectArray*, $Element*)},
+		{"reportSchemaWarning", "(Ljava/lang/String;[Ljava/lang/Object;Lorg/w3c/dom/Element;)V", nullptr, 0, $virtualMethod(XSDHandler, reportSchemaWarning, void, $String*, $ObjectArray*, $Element*)},
+		{"reportSchemaWarning", "(Ljava/lang/String;[Ljava/lang/Object;Lorg/w3c/dom/Element;Ljava/lang/Exception;)V", nullptr, 0, $virtualMethod(XSDHandler, reportSchemaWarning, void, $String*, $ObjectArray*, $Element*, $Exception*)},
+		{"reportSharingError", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XSDHandler, reportSharingError, void, $String*, $String*)},
+		{"reset", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $virtualMethod(XSDHandler, reset, void, $XMLComponentManager*)},
+		{"resolveKeyRefs", "()V", nullptr, $PROTECTED, $virtualMethod(XSDHandler, resolveKeyRefs, void)},
+		{"resolveSchema", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSDDescription;ZLorg/w3c/dom/Element;Z)Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $method(XSDHandler, resolveSchema, $Element*, $XSDDescription*, bool, $Element*, bool)},
+		{"resolveSchema", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;Lcom/sun/org/apache/xerces/internal/impl/xs/XSDDescription;ZLorg/w3c/dom/Element;)Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $method(XSDHandler, resolveSchema, $Element*, $XMLInputSource*, $XSDDescription*, bool, $Element*)},
+		{"resolveSchemaSource", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSDDescription;ZLorg/w3c/dom/Element;Z)Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;", nullptr, $PRIVATE, $method(XSDHandler, resolveSchemaSource, $XMLInputSource*, $XSDDescription*, bool, $Element*, bool)},
+		{"schemaDocument2SystemId", "(Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSDHandler, schemaDocument2SystemId, $String*, $XSDocumentInfo*)},
+		{"setDVFactory", "(Lcom/sun/org/apache/xerces/internal/impl/dv/SchemaDVFactory;)V", nullptr, $PUBLIC, $virtualMethod(XSDHandler, setDVFactory, void, $SchemaDVFactory*)},
+		{"setDeclPool", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSDeclarationPool;)V", nullptr, $PUBLIC, $virtualMethod(XSDHandler, setDeclPool, void, $XSDeclarationPool*)},
+		{"setGenerateSyntheticAnnotations", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XSDHandler, setGenerateSyntheticAnnotations, void, bool)},
+		{"setSchemasVisible", "(Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;)V", nullptr, $PRIVATE, $method(XSDHandler, setSchemasVisible, void, $XSDocumentInfo*)},
+		{"storeKeyRef", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;)V", nullptr, $PROTECTED, $virtualMethod(XSDHandler, storeKeyRef, void, $Element*, $XSDocumentInfo*, $XSElementDecl*)},
+		{"traverseGlobalDecl", "(ILorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(XSDHandler, traverseGlobalDecl, $Object*, int32_t, $Element*, $XSDocumentInfo*, $SchemaGrammar*)},
+		{"traverseLocalElements", "()V", nullptr, 0, $virtualMethod(XSDHandler, traverseLocalElements, void)},
+		{"traverseSchemas", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/Object;>;)V", $PROTECTED, $virtualMethod(XSDHandler, traverseSchemas, void, $List*)},
+		{"updateImportDependencies", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(XSDHandler, updateImportDependencies, void, $Map*)},
+		{"updateImportList", "(Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/List<Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;>;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;>;)V", $PRIVATE, $method(XSDHandler, updateImportList, void, $List*, $List*)},
+		{"updateImportList", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Ljava/util/List;Ljava/util/List;)V", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;>;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE, $method(XSDHandler, updateImportList, void, $SchemaGrammar*, $List*, $List*)},
+		{"updateImportListFor", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDHandler, updateImportListFor, void, $SchemaGrammar*)},
+		{"updateImportListWith", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDHandler, updateImportListWith, void, $SchemaGrammar*)},
+		{"validateAnnotations", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/Object;>;)V", $PRIVATE, $method(XSDHandler, validateAnnotations, void, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDHandler$SAX2XNIUtil", "com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDHandler", "SAX2XNIUtil", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDHandler$XSDKey", "com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDHandler", "XSDKey", $PRIVATE | $STATIC},
+		{"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDHandler$XSAnnotationGrammarPool", "com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDHandler", "XSAnnotationGrammarPool", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDHandler",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDHandler$SAX2XNIUtil,com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDHandler$XSDKey,com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDHandler$XSAnnotationGrammarPool"
+	};
+	$loadClass(XSDHandler, name, initialize, &classInfo$$, XSDHandler::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XSDHandler);
+	});
 	return class$;
 }
 

@@ -25,6 +25,7 @@ class BasicOptionPaneUI$Actions : public ::sun::swing::UIAction {
 	$class(BasicOptionPaneUI$Actions, 0, ::sun::swing::UIAction)
 public:
 	BasicOptionPaneUI$Actions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* key);
 	virtual void actionPerformed(::java::awt::event::ActionEvent* e) override;
 	static $String* CLOSE;

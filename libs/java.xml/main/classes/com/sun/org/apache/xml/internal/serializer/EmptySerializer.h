@@ -75,6 +75,7 @@ class EmptySerializer : public ::com::sun::org::apache::xml::internal::serialize
 	$class(EmptySerializer, 0, ::com::sun::org::apache::xml::internal::serializer::SerializationHandler)
 public:
 	EmptySerializer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void aMethodIsCalled();
 	virtual void addAttribute($String* uri, $String* localName, $String* rawName, $String* type, $String* value, bool XSLAttribute) override;

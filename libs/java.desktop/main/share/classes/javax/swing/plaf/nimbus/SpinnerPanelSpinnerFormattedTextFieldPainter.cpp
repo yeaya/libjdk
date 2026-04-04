@@ -1,18 +1,14 @@
 #include <javax/swing/plaf/nimbus/SpinnerPanelSpinnerFormattedTextFieldPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/LinearGradientPaint.h>
 #include <java/awt/Paint.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/Ellipse2D$Float.h>
-#include <java/awt/geom/Ellipse2D.h>
 #include <java/awt/geom/Path2D$Float.h>
-#include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
 #include <java/awt/geom/RoundRectangle2D$Float.h>
-#include <java/awt/geom/RoundRectangle2D.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter.h>
@@ -28,13 +24,10 @@ using $ColorArray = $Array<::java::awt::Color>;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Paint = ::java::awt::Paint;
 using $Shape = ::java::awt::Shape;
-using $Ellipse2D = ::java::awt::geom::Ellipse2D;
 using $Ellipse2D$Float = ::java::awt::geom::Ellipse2D$Float;
-using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RoundRectangle2D = ::java::awt::geom::RoundRectangle2D;
 using $RoundRectangle2D$Float = ::java::awt::geom::RoundRectangle2D$Float;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -49,79 +42,12 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _SpinnerPanelSpinnerFormattedTextFieldPainter_FieldInfo_[] = {
-	{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPanelSpinnerFormattedTextFieldPainter, BACKGROUND_DISABLED)},
-	{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPanelSpinnerFormattedTextFieldPainter, BACKGROUND_ENABLED)},
-	{"BACKGROUND_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPanelSpinnerFormattedTextFieldPainter, BACKGROUND_FOCUSED)},
-	{"BACKGROUND_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPanelSpinnerFormattedTextFieldPainter, BACKGROUND_SELECTED)},
-	{"BACKGROUND_SELECTED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPanelSpinnerFormattedTextFieldPainter, BACKGROUND_SELECTED_FOCUSED)},
-	{"state", "I", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, state)},
-	{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, ctx)},
-	{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, path)},
-	{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, rect)},
-	{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, roundRect)},
-	{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, ellipse)},
-	{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color1)},
-	{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color2)},
-	{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color3)},
-	{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color4)},
-	{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color5)},
-	{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color6)},
-	{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color7)},
-	{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color8)},
-	{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color9)},
-	{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color10)},
-	{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color11)},
-	{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color12)},
-	{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color13)},
-	{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color14)},
-	{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color15)},
-	{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, componentColors)},
-	{}
-};
-
-$MethodInfo _SpinnerPanelSpinnerFormattedTextFieldPainter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
-	{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, decodeGradient1, $Paint*, $Shape*)},
-	{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, decodeGradient2, $Paint*, $Shape*)},
-	{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, decodeGradient3, $Paint*, $Shape*)},
-	{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, decodeGradient4, $Paint*, $Shape*)},
-	{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, decodeGradient5, $Paint*, $Shape*)},
-	{"decodeRect1", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, decodeRect1, $Rectangle2D*)},
-	{"decodeRect2", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, decodeRect2, $Rectangle2D*)},
-	{"decodeRect3", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, decodeRect3, $Rectangle2D*)},
-	{"decodeRect4", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, decodeRect4, $Rectangle2D*)},
-	{"decodeRect5", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, decodeRect5, $Rectangle2D*)},
-	{"decodeRect6", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, decodeRect6, $Rectangle2D*)},
-	{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(SpinnerPanelSpinnerFormattedTextFieldPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(SpinnerPanelSpinnerFormattedTextFieldPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
-	{"paintBackgroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, paintBackgroundDisabled, void, $Graphics2D*)},
-	{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, paintBackgroundEnabled, void, $Graphics2D*)},
-	{"paintBackgroundFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, paintBackgroundFocused, void, $Graphics2D*)},
-	{"paintBackgroundSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, paintBackgroundSelected, void, $Graphics2D*)},
-	{"paintBackgroundSelectedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, paintBackgroundSelectedAndFocused, void, $Graphics2D*)},
-	{}
-};
-
-$ClassInfo _SpinnerPanelSpinnerFormattedTextFieldPainter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.SpinnerPanelSpinnerFormattedTextFieldPainter",
-	"javax.swing.plaf.nimbus.AbstractRegionPainter",
-	nullptr,
-	_SpinnerPanelSpinnerFormattedTextFieldPainter_FieldInfo_,
-	_SpinnerPanelSpinnerFormattedTextFieldPainter_MethodInfo_
-};
-
-$Object* allocate$SpinnerPanelSpinnerFormattedTextFieldPainter($Class* clazz) {
-	return $of($alloc(SpinnerPanelSpinnerFormattedTextFieldPainter));
-}
-
 void SpinnerPanelSpinnerFormattedTextFieldPainter::init$($AbstractRegionPainter$PaintContext* ctx, int32_t state) {
 	$AbstractRegionPainter::init$();
 	$set(this, path, $new($Path2D$Float));
-	$set(this, rect, $new($Rectangle2D$Float, (float)0, (float)0, (float)0, (float)0));
-	$set(this, roundRect, $new($RoundRectangle2D$Float, (float)0, (float)0, (float)0, (float)0, (float)0, (float)0));
-	$set(this, ellipse, $new($Ellipse2D$Float, (float)0, (float)0, (float)0, (float)0));
+	$set(this, rect, $new($Rectangle2D$Float, 0, 0, 0, 0));
+	$set(this, roundRect, $new($RoundRectangle2D$Float, 0, 0, 0, 0, 0, 0));
+	$set(this, ellipse, $new($Ellipse2D$Float, 0, 0, 0, 0));
 	$set(this, color1, decodeColor("nimbusBlueGrey"_s, -0.6111111f, -0.110526316f, -0.74509805f, -237));
 	$set(this, color2, decodeColor("nimbusBlueGrey"_s, -0.006944418f, -0.07187897f, 0.06666666f, 0));
 	$set(this, color3, decodeColor("nimbusBlueGrey"_s, 0.007936537f, -0.07703349f, 0.0745098f, 0));
@@ -145,30 +71,20 @@ void SpinnerPanelSpinnerFormattedTextFieldPainter::doPaint($Graphics2D* g, $JCom
 	$set(this, componentColors, extendedCacheKeys);
 	switch (this->state) {
 	case SpinnerPanelSpinnerFormattedTextFieldPainter::BACKGROUND_DISABLED:
-		{
-			paintBackgroundDisabled(g);
-			break;
-		}
+		paintBackgroundDisabled(g);
+		break;
 	case SpinnerPanelSpinnerFormattedTextFieldPainter::BACKGROUND_ENABLED:
-		{
-			paintBackgroundEnabled(g);
-			break;
-		}
+		paintBackgroundEnabled(g);
+		break;
 	case SpinnerPanelSpinnerFormattedTextFieldPainter::BACKGROUND_FOCUSED:
-		{
-			paintBackgroundFocused(g);
-			break;
-		}
+		paintBackgroundFocused(g);
+		break;
 	case SpinnerPanelSpinnerFormattedTextFieldPainter::BACKGROUND_SELECTED:
-		{
-			paintBackgroundSelected(g);
-			break;
-		}
+		paintBackgroundSelected(g);
+		break;
 	case SpinnerPanelSpinnerFormattedTextFieldPainter::BACKGROUND_SELECTED_FOCUSED:
-		{
-			paintBackgroundSelectedAndFocused(g);
-			break;
-		}
+		paintBackgroundSelectedAndFocused(g);
+		break;
 	}
 }
 
@@ -177,7 +93,7 @@ $AbstractRegionPainter$PaintContext* SpinnerPanelSpinnerFormattedTextFieldPainte
 }
 
 void SpinnerPanelSpinnerFormattedTextFieldPainter::paintBackgroundDisabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, rect, decodeRect1());
 	$nc(g)->setPaint(this->color1);
 	g->fill(this->rect);
@@ -196,7 +112,7 @@ void SpinnerPanelSpinnerFormattedTextFieldPainter::paintBackgroundDisabled($Grap
 }
 
 void SpinnerPanelSpinnerFormattedTextFieldPainter::paintBackgroundEnabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, rect, decodeRect1());
 	$nc(g)->setPaint(this->color1);
 	g->fill(this->rect);
@@ -215,7 +131,7 @@ void SpinnerPanelSpinnerFormattedTextFieldPainter::paintBackgroundEnabled($Graph
 }
 
 void SpinnerPanelSpinnerFormattedTextFieldPainter::paintBackgroundFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, rect, decodeRect6());
 	$nc(g)->setPaint(this->color14);
 	g->fill(this->rect);
@@ -234,7 +150,7 @@ void SpinnerPanelSpinnerFormattedTextFieldPainter::paintBackgroundFocused($Graph
 }
 
 void SpinnerPanelSpinnerFormattedTextFieldPainter::paintBackgroundSelected($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, rect, decodeRect1());
 	$nc(g)->setPaint(this->color1);
 	g->fill(this->rect);
@@ -253,7 +169,7 @@ void SpinnerPanelSpinnerFormattedTextFieldPainter::paintBackgroundSelected($Grap
 }
 
 void SpinnerPanelSpinnerFormattedTextFieldPainter::paintBackgroundSelectedAndFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, rect, decodeRect6());
 	$nc(g)->setPaint(this->color14);
 	g->fill(this->rect);
@@ -272,67 +188,67 @@ void SpinnerPanelSpinnerFormattedTextFieldPainter::paintBackgroundSelectedAndFoc
 }
 
 $Rectangle2D* SpinnerPanelSpinnerFormattedTextFieldPainter::decodeRect1() {
-	double var$0 = (double)decodeX(0.6666667f);
-	double var$1 = (double)decodeY(2.3333333f);
+	double var$0 = decodeX(0.6666667f);
+	double var$1 = decodeY(2.3333333f);
 	float var$3 = decodeX(3.0f);
-	double var$2 = (double)(var$3 - decodeX(0.6666667f));
+	double var$2 = var$3 - decodeX(0.6666667f);
 	float var$4 = decodeY(2.6666667f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(2.3333333f));
 	return this->rect;
 }
 
 $Rectangle2D* SpinnerPanelSpinnerFormattedTextFieldPainter::decodeRect2() {
-	double var$0 = (double)decodeX(0.6666667f);
-	double var$1 = (double)decodeY(0.4f);
+	double var$0 = decodeX(0.6666667f);
+	double var$1 = decodeY(0.4f);
 	float var$3 = decodeX(3.0f);
-	double var$2 = (double)(var$3 - decodeX(0.6666667f));
+	double var$2 = var$3 - decodeX(0.6666667f);
 	float var$4 = decodeY(1.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.4f));
 	return this->rect;
 }
 
 $Rectangle2D* SpinnerPanelSpinnerFormattedTextFieldPainter::decodeRect3() {
-	double var$0 = (double)decodeX(1.0f);
-	double var$1 = (double)decodeY(0.6f);
+	double var$0 = decodeX(1.0f);
+	double var$1 = decodeY(0.6f);
 	float var$3 = decodeX(3.0f);
-	double var$2 = (double)(var$3 - decodeX(1.0f));
+	double var$2 = var$3 - decodeX(1.0f);
 	float var$4 = decodeY(1.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.6f));
 	return this->rect;
 }
 
 $Rectangle2D* SpinnerPanelSpinnerFormattedTextFieldPainter::decodeRect4() {
-	double var$0 = (double)decodeX(0.6666667f);
-	double var$1 = (double)decodeY(1.0f);
+	double var$0 = decodeX(0.6666667f);
+	double var$1 = decodeY(1.0f);
 	float var$3 = decodeX(3.0f);
-	double var$2 = (double)(var$3 - decodeX(0.6666667f));
+	double var$2 = var$3 - decodeX(0.6666667f);
 	float var$4 = decodeY(2.3333333f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.0f));
 	return this->rect;
 }
 
 $Rectangle2D* SpinnerPanelSpinnerFormattedTextFieldPainter::decodeRect5() {
-	double var$0 = (double)decodeX(1.0f);
-	double var$1 = (double)decodeY(1.0f);
+	double var$0 = decodeX(1.0f);
+	double var$1 = decodeY(1.0f);
 	float var$3 = decodeX(3.0f);
-	double var$2 = (double)(var$3 - decodeX(1.0f));
+	double var$2 = var$3 - decodeX(1.0f);
 	float var$4 = decodeY(2.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.0f));
 	return this->rect;
 }
 
 $Rectangle2D* SpinnerPanelSpinnerFormattedTextFieldPainter::decodeRect6() {
-	double var$0 = (double)decodeX(0.22222222f);
-	double var$1 = (double)decodeY(0.13333334f);
+	double var$0 = decodeX(0.22222222f);
+	double var$1 = decodeY(0.13333334f);
 	float var$3 = decodeX(2.916668f);
-	double var$2 = (double)(var$3 - decodeX(0.22222222f));
+	double var$2 = var$3 - decodeX(0.22222222f);
 	float var$4 = decodeY(2.75f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.13333334f));
 	return this->rect;
 }
 
 $Paint* SpinnerPanelSpinnerFormattedTextFieldPainter::decodeGradient1($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -350,7 +266,7 @@ $Paint* SpinnerPanelSpinnerFormattedTextFieldPainter::decodeGradient1($Shape* s)
 }
 
 $Paint* SpinnerPanelSpinnerFormattedTextFieldPainter::decodeGradient2($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -368,7 +284,7 @@ $Paint* SpinnerPanelSpinnerFormattedTextFieldPainter::decodeGradient2($Shape* s)
 }
 
 $Paint* SpinnerPanelSpinnerFormattedTextFieldPainter::decodeGradient3($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -386,7 +302,7 @@ $Paint* SpinnerPanelSpinnerFormattedTextFieldPainter::decodeGradient3($Shape* s)
 }
 
 $Paint* SpinnerPanelSpinnerFormattedTextFieldPainter::decodeGradient4($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -404,7 +320,7 @@ $Paint* SpinnerPanelSpinnerFormattedTextFieldPainter::decodeGradient4($Shape* s)
 }
 
 $Paint* SpinnerPanelSpinnerFormattedTextFieldPainter::decodeGradient5($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -425,7 +341,69 @@ SpinnerPanelSpinnerFormattedTextFieldPainter::SpinnerPanelSpinnerFormattedTextFi
 }
 
 $Class* SpinnerPanelSpinnerFormattedTextFieldPainter::load$($String* name, bool initialize) {
-	$loadClass(SpinnerPanelSpinnerFormattedTextFieldPainter, name, initialize, &_SpinnerPanelSpinnerFormattedTextFieldPainter_ClassInfo_, allocate$SpinnerPanelSpinnerFormattedTextFieldPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPanelSpinnerFormattedTextFieldPainter, BACKGROUND_DISABLED)},
+		{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPanelSpinnerFormattedTextFieldPainter, BACKGROUND_ENABLED)},
+		{"BACKGROUND_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPanelSpinnerFormattedTextFieldPainter, BACKGROUND_FOCUSED)},
+		{"BACKGROUND_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPanelSpinnerFormattedTextFieldPainter, BACKGROUND_SELECTED)},
+		{"BACKGROUND_SELECTED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPanelSpinnerFormattedTextFieldPainter, BACKGROUND_SELECTED_FOCUSED)},
+		{"state", "I", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, state)},
+		{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, ctx)},
+		{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, path)},
+		{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, rect)},
+		{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, roundRect)},
+		{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, ellipse)},
+		{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color1)},
+		{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color2)},
+		{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color3)},
+		{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color4)},
+		{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color5)},
+		{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color6)},
+		{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color7)},
+		{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color8)},
+		{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color9)},
+		{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color10)},
+		{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color11)},
+		{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color12)},
+		{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color13)},
+		{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color14)},
+		{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, color15)},
+		{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(SpinnerPanelSpinnerFormattedTextFieldPainter, componentColors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
+		{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, decodeGradient1, $Paint*, $Shape*)},
+		{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, decodeGradient2, $Paint*, $Shape*)},
+		{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, decodeGradient3, $Paint*, $Shape*)},
+		{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, decodeGradient4, $Paint*, $Shape*)},
+		{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, decodeGradient5, $Paint*, $Shape*)},
+		{"decodeRect1", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, decodeRect1, $Rectangle2D*)},
+		{"decodeRect2", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, decodeRect2, $Rectangle2D*)},
+		{"decodeRect3", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, decodeRect3, $Rectangle2D*)},
+		{"decodeRect4", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, decodeRect4, $Rectangle2D*)},
+		{"decodeRect5", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, decodeRect5, $Rectangle2D*)},
+		{"decodeRect6", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, decodeRect6, $Rectangle2D*)},
+		{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(SpinnerPanelSpinnerFormattedTextFieldPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(SpinnerPanelSpinnerFormattedTextFieldPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
+		{"paintBackgroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, paintBackgroundDisabled, void, $Graphics2D*)},
+		{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, paintBackgroundEnabled, void, $Graphics2D*)},
+		{"paintBackgroundFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, paintBackgroundFocused, void, $Graphics2D*)},
+		{"paintBackgroundSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, paintBackgroundSelected, void, $Graphics2D*)},
+		{"paintBackgroundSelectedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPanelSpinnerFormattedTextFieldPainter, paintBackgroundSelectedAndFocused, void, $Graphics2D*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.SpinnerPanelSpinnerFormattedTextFieldPainter",
+		"javax.swing.plaf.nimbus.AbstractRegionPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SpinnerPanelSpinnerFormattedTextFieldPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SpinnerPanelSpinnerFormattedTextFieldPainter);
+	});
 	return class$;
 }
 

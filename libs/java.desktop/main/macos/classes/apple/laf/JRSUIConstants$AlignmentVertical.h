@@ -31,6 +31,7 @@ class JRSUIConstants$AlignmentVertical : public ::apple::laf::JRSUIConstants$Pro
 	$class(JRSUIConstants$AlignmentVertical, 0, ::apple::laf::JRSUIConstants$Property)
 public:
 	JRSUIConstants$AlignmentVertical();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int8_t value);
 	virtual int64_t apply(int64_t encodedState) override;
 	virtual $String* toString() override;

@@ -57,6 +57,7 @@ class IntegerComponentRaster : public ::sun::awt::image::SunWritableRaster {
 public:
 	IntegerComponentRaster();
 	using ::sun::awt::image::SunWritableRaster::createCompatibleWritableRaster;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::image::SampleModel* sampleModel, ::java::awt::Point* origin);
 	void init$(::java::awt::image::SampleModel* sampleModel, ::java::awt::image::DataBufferInt* dataBuffer, ::java::awt::Point* origin);
 	void init$(::java::awt::image::SampleModel* sampleModel, ::java::awt::image::DataBufferInt* dataBuffer, ::java::awt::Rectangle* aRegion, ::java::awt::Point* origin, ::sun::awt::image::IntegerComponentRaster* parent);

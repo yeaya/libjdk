@@ -61,6 +61,7 @@ class $import ResponseBodyHandlers$FileDownloadBodyHandler : public ::java::net:
 	$class(ResponseBodyHandlers$FileDownloadBodyHandler, 0, ::java::net::http::HttpResponse$BodyHandler)
 public:
 	ResponseBodyHandlers$FileDownloadBodyHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::file::Path* directory, ::java::util::List* openOptions, ::java::security::AccessControlContext* acc, $Array<::java::io::FilePermission>* filePermissions);
 	virtual ::java::net::http::HttpResponse$BodySubscriber* apply(::java::net::http::HttpResponse$ResponseInfo* responseInfo) override;
 	static ::jdk::internal::net::http::ResponseBodyHandlers$FileDownloadBodyHandler* create(::java::nio::file::Path* directory, ::java::util::List* openOptions);

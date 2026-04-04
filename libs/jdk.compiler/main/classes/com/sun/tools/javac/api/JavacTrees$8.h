@@ -15,6 +15,7 @@ class JavacTrees$8 : public ::java::lang::Object {
 	$class(JavacTrees$8, 0, ::java::lang::Object)
 public:
 	JavacTrees$8();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$tools$Diagnostic$Kind;
 	static $ints* $SwitchMap$com$sun$source$tree$Tree$Kind;
 	static $ints* $SwitchMap$com$sun$source$doctree$DocTree$Kind;

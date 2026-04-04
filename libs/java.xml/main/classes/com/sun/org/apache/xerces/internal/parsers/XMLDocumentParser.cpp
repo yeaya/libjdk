@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/parsers/XMLDocumentParser.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/parsers/AbstractXMLDocumentParser.h>
 #include <com/sun/org/apache/xerces/internal/parsers/XIncludeAwareParserConfiguration.h>
@@ -30,27 +29,6 @@ namespace com {
 					namespace internal {
 						namespace parsers {
 
-$MethodInfo _XMLDocumentParser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLDocumentParser, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration;)V", nullptr, $PUBLIC, $method(XMLDocumentParser, init$, void, $XMLParserConfiguration*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(XMLDocumentParser, init$, void, $SymbolTable*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;)V", nullptr, $PUBLIC, $method(XMLDocumentParser, init$, void, $SymbolTable*, $XMLGrammarPool*)},
-	{}
-};
-
-$ClassInfo _XMLDocumentParser_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.parsers.XMLDocumentParser",
-	"com.sun.org.apache.xerces.internal.parsers.AbstractXMLDocumentParser",
-	nullptr,
-	nullptr,
-	_XMLDocumentParser_MethodInfo_
-};
-
-$Object* allocate$XMLDocumentParser($Class* clazz) {
-	return $of($alloc(XMLDocumentParser));
-}
-
 void XMLDocumentParser::init$() {
 	$AbstractXMLDocumentParser::init$($$new($XIncludeAwareParserConfiguration));
 }
@@ -60,14 +38,14 @@ void XMLDocumentParser::init$($XMLParserConfiguration* config) {
 }
 
 void XMLDocumentParser::init$($SymbolTable* symbolTable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AbstractXMLDocumentParser::init$($$new($XIncludeAwareParserConfiguration));
 	$init($Constants);
 	$nc(this->fConfiguration)->setProperty($$str({$Constants::XERCES_PROPERTY_PREFIX, $Constants::SYMBOL_TABLE_PROPERTY}), symbolTable);
 }
 
 void XMLDocumentParser::init$($SymbolTable* symbolTable, $XMLGrammarPool* grammarPool) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AbstractXMLDocumentParser::init$($$new($XIncludeAwareParserConfiguration));
 	$init($Constants);
 	$nc(this->fConfiguration)->setProperty($$str({$Constants::XERCES_PROPERTY_PREFIX, $Constants::SYMBOL_TABLE_PROPERTY}), symbolTable);
@@ -78,7 +56,24 @@ XMLDocumentParser::XMLDocumentParser() {
 }
 
 $Class* XMLDocumentParser::load$($String* name, bool initialize) {
-	$loadClass(XMLDocumentParser, name, initialize, &_XMLDocumentParser_ClassInfo_, allocate$XMLDocumentParser);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLDocumentParser, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration;)V", nullptr, $PUBLIC, $method(XMLDocumentParser, init$, void, $XMLParserConfiguration*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(XMLDocumentParser, init$, void, $SymbolTable*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;)V", nullptr, $PUBLIC, $method(XMLDocumentParser, init$, void, $SymbolTable*, $XMLGrammarPool*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.parsers.XMLDocumentParser",
+		"com.sun.org.apache.xerces.internal.parsers.AbstractXMLDocumentParser",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XMLDocumentParser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XMLDocumentParser));
+	});
 	return class$;
 }
 

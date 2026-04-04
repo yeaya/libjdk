@@ -106,6 +106,7 @@ class $export Main : public ::java::lang::Object {
 	$class(Main, 0, ::java::lang::Object)
 public:
 	Main();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	$String* certsAndTSInfo($String* tab1, $String* tab2, ::java::util::List* certs, ::java::security::Timestamp* ts);
 	virtual void checkCertUsage(::java::security::cert::X509Certificate* userCert, $booleans* bad);

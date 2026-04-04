@@ -15,6 +15,7 @@ class DeferredAttr$5 : public ::java::lang::Object {
 	$class(DeferredAttr$5, 0, ::java::lang::Object)
 public:
 	DeferredAttr$5();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$code$Kinds$Kind;
 	static $ints* $SwitchMap$com$sun$tools$javac$comp$DeferredAttr$AttrMode;
 };

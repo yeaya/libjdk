@@ -1,5 +1,4 @@
 #include <TestUtil.h>
-
 #include <java/io/BufferedWriter.h>
 #include <java/io/IOException.h>
 #include <java/io/UncheckedIOException.h>
@@ -29,34 +28,6 @@ using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 using $Arrays = ::java::util::Arrays;
 
-$FieldInfo _TestUtil_FieldInfo_[] = {
-	{"CWD", "Ljava/nio/file/Path;", nullptr, $STATIC | $FINAL, $staticField(TestUtil, CWD)},
-	{"fileContent", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(TestUtil, fileContent)},
-	{}
-};
-
-$MethodInfo _TestUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestUtil, init$, void)},
-	{"compareContents", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, $STATIC, $staticMethod(TestUtil, compareContents, void, $Path*, $Path*)},
-	{"compareFiles", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/lang/Void;", nullptr, $PUBLIC | $STATIC, $staticMethod(TestUtil, compareFiles, $Void*, $Path*, $Path*)},
-	{"getAFile", "(I)Ljava/nio/file/Path;", nullptr, $PUBLIC | $STATIC, $staticMethod(TestUtil, getAFile, $Path*, int32_t), "java.io.IOException"},
-	{"tempFile", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $STATIC, $staticMethod(TestUtil, tempFile, $Path*)},
-	{}
-};
-
-$ClassInfo _TestUtil_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestUtil",
-	"java.lang.Object",
-	nullptr,
-	_TestUtil_FieldInfo_,
-	_TestUtil_MethodInfo_
-};
-
-$Object* allocate$TestUtil($Class* clazz) {
-	return $of($alloc(TestUtil));
-}
-
 $Path* TestUtil::CWD = nullptr;
 $String* TestUtil::fileContent = nullptr;
 
@@ -65,10 +36,10 @@ void TestUtil::init$() {
 
 $Path* TestUtil::getAFile(int32_t size) {
 	$init(TestUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, p, tempFile());
 	$var($BufferedWriter, writer, $Files::newBufferedWriter(p, $$new($OpenOptionArray, 0)));
-	int32_t len = $nc(TestUtil::fileContent)->length();
+	int32_t len = TestUtil::fileContent->length();
 	int32_t iterations = $div(size, len);
 	int32_t remainder = size - (iterations * len);
 	for (int32_t i = 0; i < iterations; ++i) {
@@ -81,7 +52,7 @@ $Path* TestUtil::getAFile(int32_t size) {
 
 $Path* TestUtil::tempFile() {
 	$init(TestUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($Path, p, $Files::createTempFile(TestUtil::CWD, "TestUtil_tmp_"_s, "_HTTPClient"_s, $$new($FileAttributeArray, 0)));
 		return p;
@@ -93,13 +64,17 @@ $Path* TestUtil::tempFile() {
 
 $Void* TestUtil::compareFiles($Path* path1, $Path* path2) {
 	$init(TestUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		int64_t size1 = $Files::size(path1);
 		int64_t size2 = $Files::size(path2);
 		if (size1 != size2) {
-			$var($String, var$0, $$str({"File sizes do not match "_s, $($Long::toString(size1)), "/"_s}));
-			$var($String, msg, $concat(var$0, $($Long::toString(size2))));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("File sizes do not match "_s);
+			var$0->append($($Long::toString(size1)));
+			var$0->append("/"_s);
+			var$0->append($($Long::toString(size2)));
+			$var($String, msg, $str(var$0));
 			$throwNew($RuntimeException, msg);
 		}
 		compareContents(path1, path2);
@@ -112,7 +87,7 @@ $Void* TestUtil::compareFiles($Path* path1, $Path* path2) {
 
 void TestUtil::compareContents($Path* path1, $Path* path2) {
 	$init(TestUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($bytes, b1, $Files::readAllBytes(path1));
 		$var($bytes, b2, $Files::readAllBytes(path2));
@@ -124,7 +99,7 @@ void TestUtil::compareContents($Path* path1, $Path* path2) {
 	}
 }
 
-void clinit$TestUtil($Class* class$) {
+void TestUtil::clinit$($Class* clazz) {
 	$assignStatic(TestUtil::fileContent, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"_s);
 	$assignStatic(TestUtil::CWD, $Paths::get("."_s, $$new($StringArray, 0)));
 }
@@ -133,7 +108,30 @@ TestUtil::TestUtil() {
 }
 
 $Class* TestUtil::load$($String* name, bool initialize) {
-	$loadClass(TestUtil, name, initialize, &_TestUtil_ClassInfo_, clinit$TestUtil, allocate$TestUtil);
+	$FieldInfo fieldInfos$$[] = {
+		{"CWD", "Ljava/nio/file/Path;", nullptr, $STATIC | $FINAL, $staticField(TestUtil, CWD)},
+		{"fileContent", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(TestUtil, fileContent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestUtil, init$, void)},
+		{"compareContents", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, $STATIC, $staticMethod(TestUtil, compareContents, void, $Path*, $Path*)},
+		{"compareFiles", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/lang/Void;", nullptr, $PUBLIC | $STATIC, $staticMethod(TestUtil, compareFiles, $Void*, $Path*, $Path*)},
+		{"getAFile", "(I)Ljava/nio/file/Path;", nullptr, $PUBLIC | $STATIC, $staticMethod(TestUtil, getAFile, $Path*, int32_t), "java.io.IOException"},
+		{"tempFile", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $STATIC, $staticMethod(TestUtil, tempFile, $Path*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestUtil",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestUtil, name, initialize, &classInfo$$, TestUtil::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TestUtil);
+	});
 	return class$;
 }
 

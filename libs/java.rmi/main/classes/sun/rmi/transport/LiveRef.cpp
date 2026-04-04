@@ -1,7 +1,4 @@
 #include <sun/rmi/transport/LiveRef.h>
-
-#include <java/io/DataInput.h>
-#include <java/io/DataOutput.h>
 #include <java/io/ObjectInput.h>
 #include <java/io/ObjectOutput.h>
 #include <java/lang/CloneNotSupportedException.h>
@@ -26,8 +23,6 @@
 #include <jcpp.h>
 
 using $LiveRefArray = $Array<::sun::rmi::transport::LiveRef>;
-using $DataInput = ::java::io::DataInput;
-using $DataOutput = ::java::io::DataOutput;
 using $ObjectInput = ::java::io::ObjectInput;
 using $ObjectOutput = ::java::io::ObjectOutput;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -55,50 +50,6 @@ namespace sun {
 	namespace rmi {
 		namespace transport {
 
-$FieldInfo _LiveRef_FieldInfo_[] = {
-	{"ep", "Lsun/rmi/transport/Endpoint;", nullptr, $PRIVATE | $FINAL, $field(LiveRef, ep)},
-	{"id", "Ljava/rmi/server/ObjID;", nullptr, $PRIVATE | $FINAL, $field(LiveRef, id)},
-	{"ch", "Lsun/rmi/transport/Channel;", nullptr, $PRIVATE | $TRANSIENT, $field(LiveRef, ch)},
-	{"isLocal", "Z", nullptr, $PRIVATE | $FINAL, $field(LiveRef, isLocal)},
-	{}
-};
-
-$MethodInfo _LiveRef_MethodInfo_[] = {
-	{"<init>", "(Ljava/rmi/server/ObjID;Lsun/rmi/transport/Endpoint;Z)V", nullptr, $PUBLIC, $method(LiveRef, init$, void, $ObjID*, $Endpoint*, bool)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(LiveRef, init$, void, int32_t)},
-	{"<init>", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;)V", nullptr, $PUBLIC, $method(LiveRef, init$, void, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*)},
-	{"<init>", "(Ljava/rmi/server/ObjID;I)V", nullptr, $PUBLIC, $method(LiveRef, init$, void, $ObjID*, int32_t)},
-	{"<init>", "(Ljava/rmi/server/ObjID;ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;)V", nullptr, $PUBLIC, $method(LiveRef, init$, void, $ObjID*, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LiveRef, clone, $Object*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LiveRef, equals, bool, Object$*)},
-	{"exportObject", "(Lsun/rmi/transport/Target;)V", nullptr, $PUBLIC, $virtualMethod(LiveRef, exportObject, void, $Target*), "java.rmi.RemoteException"},
-	{"getChannel", "()Lsun/rmi/transport/Channel;", nullptr, $PUBLIC, $virtualMethod(LiveRef, getChannel, $Channel*), "java.rmi.RemoteException"},
-	{"getClientSocketFactory", "()Ljava/rmi/server/RMIClientSocketFactory;", nullptr, $PUBLIC, $virtualMethod(LiveRef, getClientSocketFactory, $RMIClientSocketFactory*)},
-	{"getEndpoint", "()Lsun/rmi/transport/Endpoint;", nullptr, 0, $virtualMethod(LiveRef, getEndpoint, $Endpoint*)},
-	{"getObjID", "()Ljava/rmi/server/ObjID;", nullptr, $PUBLIC, $virtualMethod(LiveRef, getObjID, $ObjID*)},
-	{"getPort", "()I", nullptr, $PUBLIC, $virtualMethod(LiveRef, getPort, int32_t)},
-	{"getServerSocketFactory", "()Ljava/rmi/server/RMIServerSocketFactory;", nullptr, $PUBLIC, $virtualMethod(LiveRef, getServerSocketFactory, $RMIServerSocketFactory*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LiveRef, hashCode, int32_t)},
-	{"read", "(Ljava/io/ObjectInput;Z)Lsun/rmi/transport/LiveRef;", nullptr, $PUBLIC | $STATIC, $staticMethod(LiveRef, read, LiveRef*, $ObjectInput*, bool), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"remoteEquals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LiveRef, remoteEquals, bool, Object$*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LiveRef, toString, $String*)},
-	{"write", "(Ljava/io/ObjectOutput;Z)V", nullptr, $PUBLIC, $virtualMethod(LiveRef, write, void, $ObjectOutput*, bool), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _LiveRef_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.rmi.transport.LiveRef",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_LiveRef_FieldInfo_,
-	_LiveRef_MethodInfo_
-};
-
-$Object* allocate$LiveRef($Class* clazz) {
-	return $of($alloc(LiveRef));
-}
-
 void LiveRef::init$($ObjID* objID, $Endpoint* endpoint, bool isLocal) {
 	$set(this, ep, endpoint);
 	$set(this, id, objID);
@@ -114,18 +65,18 @@ void LiveRef::init$(int32_t port, $RMIClientSocketFactory* csf, $RMIServerSocket
 }
 
 void LiveRef::init$($ObjID* objID, int32_t port) {
-	LiveRef::init$(objID, $(static_cast<$Endpoint*>($TCPEndpoint::getLocalEndpoint(port))), true);
+	LiveRef::init$(objID, $($TCPEndpoint::getLocalEndpoint(port)), true);
 }
 
 void LiveRef::init$($ObjID* objID, int32_t port, $RMIClientSocketFactory* csf, $RMIServerSocketFactory* ssf) {
-	LiveRef::init$(objID, $(static_cast<$Endpoint*>($TCPEndpoint::getLocalEndpoint(port, csf, ssf))), true);
+	LiveRef::init$(objID, $($TCPEndpoint::getLocalEndpoint(port, csf, ssf)), true);
 }
 
 $Object* LiveRef::clone() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var(LiveRef, newRef, $cast(LiveRef, $Cloneable::clone()));
-		return $of(newRef);
+		return newRef;
 	} catch ($CloneNotSupportedException& e) {
 		$throwNew($InternalError, $(e->toString()), e);
 	}
@@ -133,15 +84,15 @@ $Object* LiveRef::clone() {
 }
 
 int32_t LiveRef::getPort() {
-	return $nc(($cast($TCPEndpoint, this->ep)))->getPort();
+	return $nc($cast($TCPEndpoint, this->ep))->getPort();
 }
 
 $RMIClientSocketFactory* LiveRef::getClientSocketFactory() {
-	return $nc(($cast($TCPEndpoint, this->ep)))->getClientSocketFactory();
+	return $nc($cast($TCPEndpoint, this->ep))->getClientSocketFactory();
 }
 
 $RMIServerSocketFactory* LiveRef::getServerSocketFactory() {
-	return $nc(($cast($TCPEndpoint, this->ep)))->getServerSocketFactory();
+	return $nc($cast($TCPEndpoint, this->ep))->getServerSocketFactory();
 }
 
 void LiveRef::exportObject($Target* target) {
@@ -180,7 +131,7 @@ int32_t LiveRef::hashCode() {
 bool LiveRef::equals(Object$* obj) {
 	if (obj != nullptr && $instanceOf(LiveRef, obj)) {
 		$var(LiveRef, ref, $cast(LiveRef, obj));
-		bool var$0 = $nc($of(this->ep))->equals(ref->ep);
+		bool var$0 = $nc(this->ep)->equals(ref->ep);
 		return (var$0 && $nc(this->id)->equals(ref->id) && this->isLocal == ref->isLocal);
 	} else {
 		return false;
@@ -188,7 +139,7 @@ bool LiveRef::equals(Object$* obj) {
 }
 
 bool LiveRef::remoteEquals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (obj != nullptr && $instanceOf(LiveRef, obj)) {
 		$var(LiveRef, ref, $cast(LiveRef, obj));
 		$var($TCPEndpoint, thisEp, $cast($TCPEndpoint, this->ep));
@@ -197,16 +148,16 @@ bool LiveRef::remoteEquals(Object$* obj) {
 		$var($RMIClientSocketFactory, refClientFactory, $nc(refEp)->getClientSocketFactory());
 		int32_t var$1 = thisEp->getPort();
 		bool var$0 = var$1 != refEp->getPort();
-		if (var$0 || !$nc($(thisEp->getHost()))->equals($(refEp->getHost()))) {
+		if (var$0 || !$$nc(thisEp->getHost())->equals($(refEp->getHost()))) {
 			return false;
 		}
 		if ((thisClientFactory == nullptr) ^ (refClientFactory == nullptr)) {
 			return false;
 		}
-		bool var$2 = (thisClientFactory != nullptr);
+		bool var$2 = thisClientFactory != nullptr;
 		if (var$2) {
-			bool var$3 = ($of(thisClientFactory)->getClass() == $nc($of(refClientFactory))->getClass());
-			var$2 = !(var$3 && ($of(thisClientFactory)->equals(refClientFactory)));
+			bool var$3 = thisClientFactory->getClass() == $nc(refClientFactory)->getClass();
+			var$2 = !(var$3 && (thisClientFactory->equals(refClientFactory)));
 		}
 		if (var$2) {
 			return false;
@@ -218,11 +169,11 @@ bool LiveRef::remoteEquals(Object$* obj) {
 }
 
 void LiveRef::write($ObjectOutput* out, bool useNewFormat) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool isResultStream = false;
 	if ($instanceOf($ConnectionOutputStream, out)) {
 		$var($ConnectionOutputStream, stream, $cast($ConnectionOutputStream, out));
-		isResultStream = $nc(stream)->isResultStream();
+		isResultStream = stream->isResultStream();
 		if (this->isLocal) {
 			$var($ObjectEndpoint, oe, $new($ObjectEndpoint, this->id, $($nc(this->ep)->getInboundTransport())));
 			$var($Target, target, $ObjectTable::getTarget(oe));
@@ -237,9 +188,9 @@ void LiveRef::write($ObjectOutput* out, bool useNewFormat) {
 		}
 	}
 	if (useNewFormat) {
-		$nc(($cast($TCPEndpoint, this->ep)))->write(out);
+		$nc($cast($TCPEndpoint, this->ep))->write(out);
 	} else {
-		$nc(($cast($TCPEndpoint, this->ep)))->writeHostPortFormat(out);
+		$nc($cast($TCPEndpoint, this->ep))->writeHostPortFormat(out);
 	}
 	$nc(this->id)->write(out);
 	$nc(out)->writeBoolean(isResultStream);
@@ -247,7 +198,7 @@ void LiveRef::write($ObjectOutput* out, bool useNewFormat) {
 
 LiveRef* LiveRef::read($ObjectInput* in, bool useNewFormat) {
 	$init(LiveRef);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Endpoint, ep, nullptr);
 	$var($ObjID, id, nullptr);
 	if (useNewFormat) {
@@ -274,7 +225,46 @@ LiveRef::LiveRef() {
 }
 
 $Class* LiveRef::load$($String* name, bool initialize) {
-	$loadClass(LiveRef, name, initialize, &_LiveRef_ClassInfo_, allocate$LiveRef);
+	$FieldInfo fieldInfos$$[] = {
+		{"ep", "Lsun/rmi/transport/Endpoint;", nullptr, $PRIVATE | $FINAL, $field(LiveRef, ep)},
+		{"id", "Ljava/rmi/server/ObjID;", nullptr, $PRIVATE | $FINAL, $field(LiveRef, id)},
+		{"ch", "Lsun/rmi/transport/Channel;", nullptr, $PRIVATE | $TRANSIENT, $field(LiveRef, ch)},
+		{"isLocal", "Z", nullptr, $PRIVATE | $FINAL, $field(LiveRef, isLocal)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/rmi/server/ObjID;Lsun/rmi/transport/Endpoint;Z)V", nullptr, $PUBLIC, $method(LiveRef, init$, void, $ObjID*, $Endpoint*, bool)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(LiveRef, init$, void, int32_t)},
+		{"<init>", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;)V", nullptr, $PUBLIC, $method(LiveRef, init$, void, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*)},
+		{"<init>", "(Ljava/rmi/server/ObjID;I)V", nullptr, $PUBLIC, $method(LiveRef, init$, void, $ObjID*, int32_t)},
+		{"<init>", "(Ljava/rmi/server/ObjID;ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;)V", nullptr, $PUBLIC, $method(LiveRef, init$, void, $ObjID*, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LiveRef, clone, $Object*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LiveRef, equals, bool, Object$*)},
+		{"exportObject", "(Lsun/rmi/transport/Target;)V", nullptr, $PUBLIC, $virtualMethod(LiveRef, exportObject, void, $Target*), "java.rmi.RemoteException"},
+		{"getChannel", "()Lsun/rmi/transport/Channel;", nullptr, $PUBLIC, $virtualMethod(LiveRef, getChannel, $Channel*), "java.rmi.RemoteException"},
+		{"getClientSocketFactory", "()Ljava/rmi/server/RMIClientSocketFactory;", nullptr, $PUBLIC, $virtualMethod(LiveRef, getClientSocketFactory, $RMIClientSocketFactory*)},
+		{"getEndpoint", "()Lsun/rmi/transport/Endpoint;", nullptr, 0, $virtualMethod(LiveRef, getEndpoint, $Endpoint*)},
+		{"getObjID", "()Ljava/rmi/server/ObjID;", nullptr, $PUBLIC, $virtualMethod(LiveRef, getObjID, $ObjID*)},
+		{"getPort", "()I", nullptr, $PUBLIC, $virtualMethod(LiveRef, getPort, int32_t)},
+		{"getServerSocketFactory", "()Ljava/rmi/server/RMIServerSocketFactory;", nullptr, $PUBLIC, $virtualMethod(LiveRef, getServerSocketFactory, $RMIServerSocketFactory*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LiveRef, hashCode, int32_t)},
+		{"read", "(Ljava/io/ObjectInput;Z)Lsun/rmi/transport/LiveRef;", nullptr, $PUBLIC | $STATIC, $staticMethod(LiveRef, read, LiveRef*, $ObjectInput*, bool), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"remoteEquals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LiveRef, remoteEquals, bool, Object$*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LiveRef, toString, $String*)},
+		{"write", "(Ljava/io/ObjectOutput;Z)V", nullptr, $PUBLIC, $virtualMethod(LiveRef, write, void, $ObjectOutput*, bool), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.rmi.transport.LiveRef",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LiveRef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LiveRef);
+	});
 	return class$;
 }
 

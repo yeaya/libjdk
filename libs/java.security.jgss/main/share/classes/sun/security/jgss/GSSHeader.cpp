@@ -1,5 +1,4 @@
 #include <sun/security/jgss/GSSHeader.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -15,7 +14,6 @@
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
@@ -28,44 +26,6 @@ using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 namespace sun {
 	namespace security {
 		namespace jgss {
-
-$FieldInfo _GSSHeader_FieldInfo_[] = {
-	{"mechOid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE, $field(GSSHeader, mechOid)},
-	{"mechOidBytes", "[B", nullptr, $PRIVATE, $field(GSSHeader, mechOidBytes)},
-	{"mechTokenLength", "I", nullptr, $PRIVATE, $field(GSSHeader, mechTokenLength)},
-	{"TOKEN_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSHeader, TOKEN_ID)},
-	{}
-};
-
-$MethodInfo _GSSHeader_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/ObjectIdentifier;I)V", nullptr, $PUBLIC, $method(GSSHeader, init$, void, $ObjectIdentifier*, int32_t), "java.io.IOException"},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(GSSHeader, init$, void, $InputStream*), "java.io.IOException,org.ietf.jgss.GSSException"},
-	{"debug", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(GSSHeader, debug, void, $String*)},
-	{"encode", "(Ljava/io/OutputStream;)I", nullptr, $PUBLIC, $virtualMethod(GSSHeader, encode, int32_t, $OutputStream*), "java.io.IOException"},
-	{"getHexBytes", "([BI)Ljava/lang/String;", nullptr, $PRIVATE, $method(GSSHeader, getHexBytes, $String*, $bytes*, int32_t), "java.io.IOException"},
-	{"getLenFieldSize", "(I)I", nullptr, $PRIVATE, $method(GSSHeader, getLenFieldSize, int32_t, int32_t)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(GSSHeader, getLength, int32_t)},
-	{"getLength", "(Ljava/io/InputStream;)I", nullptr, $PRIVATE, $method(GSSHeader, getLength, int32_t, $InputStream*), "java.io.IOException"},
-	{"getLength", "(ILjava/io/InputStream;)I", nullptr, $PRIVATE, $method(GSSHeader, getLength, int32_t, int32_t, $InputStream*), "java.io.IOException"},
-	{"getMaxMechTokenSize", "(Lsun/security/util/ObjectIdentifier;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(GSSHeader, getMaxMechTokenSize, int32_t, $ObjectIdentifier*, int32_t)},
-	{"getMechTokenLength", "()I", nullptr, $PUBLIC, $virtualMethod(GSSHeader, getMechTokenLength, int32_t)},
-	{"getOid", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC, $virtualMethod(GSSHeader, getOid, $ObjectIdentifier*)},
-	{"putLength", "(ILjava/io/OutputStream;)I", nullptr, $PRIVATE, $method(GSSHeader, putLength, int32_t, int32_t, $OutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _GSSHeader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.jgss.GSSHeader",
-	"java.lang.Object",
-	nullptr,
-	_GSSHeader_FieldInfo_,
-	_GSSHeader_MethodInfo_
-};
-
-$Object* allocate$GSSHeader($Class* clazz) {
-	return $of($alloc(GSSHeader));
-}
 
 void GSSHeader::init$($ObjectIdentifier* mechOid, int32_t mechTokenLength) {
 	$set(this, mechOid, nullptr);
@@ -103,11 +63,11 @@ int32_t GSSHeader::getMechTokenLength() {
 
 int32_t GSSHeader::getLength() {
 	int32_t lenField = $nc(this->mechOidBytes)->length + this->mechTokenLength;
-	return (1 + getLenFieldSize(lenField) + $nc(this->mechOidBytes)->length);
+	return (1 + getLenFieldSize(lenField) + this->mechOidBytes->length);
 }
 
 int32_t GSSHeader::getMaxMechTokenSize($ObjectIdentifier* mechOid, int32_t maxTotalSize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t mechOidBytesSize = 0;
 	try {
 		$var($DerOutputStream, temp, $new($DerOutputStream));
@@ -139,7 +99,7 @@ int32_t GSSHeader::getLenFieldSize(int32_t len) {
 int32_t GSSHeader::encode($OutputStream* os) {
 	int32_t retVal = 1 + $nc(this->mechOidBytes)->length;
 	$nc(os)->write(GSSHeader::TOKEN_ID);
-	int32_t length = $nc(this->mechOidBytes)->length + this->mechTokenLength;
+	int32_t length = this->mechOidBytes->length + this->mechTokenLength;
 	retVal += putLength(length, os);
 	os->write(this->mechOidBytes);
 	return retVal;
@@ -150,11 +110,11 @@ int32_t GSSHeader::getLength($InputStream* in) {
 }
 
 int32_t GSSHeader::getLength(int32_t lenByte, $InputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t value = 0;
 	int32_t tmp = 0;
 	tmp = lenByte;
-	if (((int32_t)(tmp & (uint32_t)128)) == 0) {
+	if ((tmp & 0x80) == 0) {
 		value = tmp;
 	} else {
 		tmp &= (uint32_t)127;
@@ -166,7 +126,7 @@ int32_t GSSHeader::getLength(int32_t lenByte, $InputStream* in) {
 		}
 		for (value = 0; tmp > 0; --tmp) {
 			value <<= 8;
-			value += (int32_t)(255 & (uint32_t)$nc(in)->read());
+			value += 0xff & $nc(in)->read();
 		}
 		if (value < 0) {
 			$throwNew($IOException, "Invalid length bytes"_s);
@@ -178,29 +138,29 @@ int32_t GSSHeader::getLength(int32_t lenByte, $InputStream* in) {
 int32_t GSSHeader::putLength(int32_t len, $OutputStream* out) {
 	int32_t retVal = 0;
 	if (len < 128) {
-		$nc(out)->write((int32_t)(int8_t)len);
+		$nc(out)->write((int8_t)len);
 		retVal = 1;
 	} else if (len < (1 << 8)) {
-		$nc(out)->write((int32_t)(int8_t)129);
-		out->write((int32_t)(int8_t)len);
+		$nc(out)->write((int8_t)129);
+		out->write((int8_t)len);
 		retVal = 2;
 	} else if (len < (1 << 16)) {
-		$nc(out)->write((int32_t)(int8_t)130);
-		out->write((int32_t)(int8_t)(len >> 8));
-		out->write((int32_t)(int8_t)len);
+		$nc(out)->write((int8_t)130);
+		out->write((int8_t)(len >> 8));
+		out->write((int8_t)len);
 		retVal = 3;
 	} else if (len < (1 << 24)) {
-		$nc(out)->write((int32_t)(int8_t)131);
-		out->write((int32_t)(int8_t)(len >> 16));
-		out->write((int32_t)(int8_t)(len >> 8));
-		out->write((int32_t)(int8_t)len);
+		$nc(out)->write((int8_t)131);
+		out->write((int8_t)(len >> 16));
+		out->write((int8_t)(len >> 8));
+		out->write((int8_t)len);
 		retVal = 4;
 	} else {
-		$nc(out)->write((int32_t)(int8_t)132);
-		out->write((int32_t)(int8_t)(len >> 24));
-		out->write((int32_t)(int8_t)(len >> 16));
-		out->write((int32_t)(int8_t)(len >> 8));
-		out->write((int32_t)(int8_t)len);
+		$nc(out)->write((int8_t)132);
+		out->write((int8_t)(len >> 24));
+		out->write((int8_t)(len >> 16));
+		out->write((int8_t)(len >> 8));
+		out->write((int8_t)len);
 		retVal = 5;
 	}
 	return retVal;
@@ -211,11 +171,11 @@ void GSSHeader::debug($String* str) {
 }
 
 $String* GSSHeader::getHexBytes($bytes* bytes, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	for (int32_t i = 0; i < len; ++i) {
-		int32_t b1 = (int32_t)(($nc(bytes)->get(i) >> 4) & (uint32_t)15);
-		int32_t b2 = (int32_t)(bytes->get(i) & (uint32_t)15);
+		int32_t b1 = ($nc(bytes)->get(i) >> 4) & 0x0f;
+		int32_t b2 = bytes->get(i) & 0x0f;
 		sb->append($($Integer::toHexString(b1)));
 		sb->append($($Integer::toHexString(b2)));
 		sb->append(u' ');
@@ -227,7 +187,40 @@ GSSHeader::GSSHeader() {
 }
 
 $Class* GSSHeader::load$($String* name, bool initialize) {
-	$loadClass(GSSHeader, name, initialize, &_GSSHeader_ClassInfo_, allocate$GSSHeader);
+	$FieldInfo fieldInfos$$[] = {
+		{"mechOid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE, $field(GSSHeader, mechOid)},
+		{"mechOidBytes", "[B", nullptr, $PRIVATE, $field(GSSHeader, mechOidBytes)},
+		{"mechTokenLength", "I", nullptr, $PRIVATE, $field(GSSHeader, mechTokenLength)},
+		{"TOKEN_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSHeader, TOKEN_ID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/util/ObjectIdentifier;I)V", nullptr, $PUBLIC, $method(GSSHeader, init$, void, $ObjectIdentifier*, int32_t), "java.io.IOException"},
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(GSSHeader, init$, void, $InputStream*), "java.io.IOException,org.ietf.jgss.GSSException"},
+		{"debug", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(GSSHeader, debug, void, $String*)},
+		{"encode", "(Ljava/io/OutputStream;)I", nullptr, $PUBLIC, $virtualMethod(GSSHeader, encode, int32_t, $OutputStream*), "java.io.IOException"},
+		{"getHexBytes", "([BI)Ljava/lang/String;", nullptr, $PRIVATE, $method(GSSHeader, getHexBytes, $String*, $bytes*, int32_t), "java.io.IOException"},
+		{"getLenFieldSize", "(I)I", nullptr, $PRIVATE, $method(GSSHeader, getLenFieldSize, int32_t, int32_t)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(GSSHeader, getLength, int32_t)},
+		{"getLength", "(Ljava/io/InputStream;)I", nullptr, $PRIVATE, $method(GSSHeader, getLength, int32_t, $InputStream*), "java.io.IOException"},
+		{"getLength", "(ILjava/io/InputStream;)I", nullptr, $PRIVATE, $method(GSSHeader, getLength, int32_t, int32_t, $InputStream*), "java.io.IOException"},
+		{"getMaxMechTokenSize", "(Lsun/security/util/ObjectIdentifier;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(GSSHeader, getMaxMechTokenSize, int32_t, $ObjectIdentifier*, int32_t)},
+		{"getMechTokenLength", "()I", nullptr, $PUBLIC, $virtualMethod(GSSHeader, getMechTokenLength, int32_t)},
+		{"getOid", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC, $virtualMethod(GSSHeader, getOid, $ObjectIdentifier*)},
+		{"putLength", "(ILjava/io/OutputStream;)I", nullptr, $PRIVATE, $method(GSSHeader, putLength, int32_t, int32_t, $OutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.jgss.GSSHeader",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GSSHeader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GSSHeader);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/PSVIErrorList.h>
-
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/util/AbstractList.h>
 #include <java/util/Collection.h>
@@ -40,71 +39,6 @@ namespace com {
 					namespace internal {
 						namespace impl {
 							namespace xs {
-
-$FieldInfo _PSVIErrorList_FieldInfo_[] = {
-	{"fArray", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(PSVIErrorList, fArray)},
-	{"fLength", "I", nullptr, $PRIVATE | $FINAL, $field(PSVIErrorList, fLength)},
-	{"fOffset", "I", nullptr, $PRIVATE | $FINAL, $field(PSVIErrorList, fOffset)},
-	{}
-};
-
-$MethodInfo _PSVIErrorList_MethodInfo_[] = {
-	{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*add", "(ILjava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*addAll", "(ILjava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"*indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
-	{"<init>", "([Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(PSVIErrorList, init$, void, $StringArray*, bool)},
-	{"contains", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(PSVIErrorList, contains, bool, $String*)},
-	{"get", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PSVIErrorList, get, $Object*, int32_t)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(PSVIErrorList, getLength, int32_t)},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"item", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PSVIErrorList, item, $String*, int32_t)},
-	{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
-	{"*lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
-	{"*listIterator", "()Ljava/util/ListIterator;", nullptr, $PUBLIC},
-	{"*listIterator", "(I)Ljava/util/ListIterator;", nullptr, $PUBLIC},
-	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*remove", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*replaceAll", "(Ljava/util/function/UnaryOperator;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*set", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(PSVIErrorList, size, int32_t)},
-	{"*subList", "(II)Ljava/util/List;", nullptr, $PUBLIC},
-	{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*sort", "(Ljava/util/Comparator;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _PSVIErrorList_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.PSVIErrorList",
-	"java.util.AbstractList",
-	"com.sun.org.apache.xerces.internal.xs.StringList",
-	_PSVIErrorList_FieldInfo_,
-	_PSVIErrorList_MethodInfo_,
-	"Ljava/util/AbstractList<Ljava/lang/String;>;Lcom/sun/org/apache/xerces/internal/xs/StringList;"
-};
-
-$Object* allocate$PSVIErrorList($Class* clazz) {
-	return $of($alloc(PSVIErrorList));
-}
 
 bool PSVIErrorList::add(Object$* arg0) {
 	 return this->$AbstractList::add(arg0);
@@ -258,7 +192,7 @@ bool PSVIErrorList::contains($String* item) {
 		}
 	} else {
 		for (int32_t i = 0; i < this->fLength; ++i) {
-			if ($nc(item)->equals($nc(this->fArray)->get((i << 1) + this->fOffset))) {
+			if (item->equals($nc(this->fArray)->get((i << 1) + this->fOffset))) {
 				return true;
 			}
 		}
@@ -278,7 +212,7 @@ $String* PSVIErrorList::item(int32_t index) {
 }
 
 $Object* PSVIErrorList::get(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (index >= 0 && index < this->fLength) {
 		return $of($nc(this->fArray)->get((index << 1) + this->fOffset));
 	}
@@ -293,7 +227,67 @@ PSVIErrorList::PSVIErrorList() {
 }
 
 $Class* PSVIErrorList::load$($String* name, bool initialize) {
-	$loadClass(PSVIErrorList, name, initialize, &_PSVIErrorList_ClassInfo_, allocate$PSVIErrorList);
+	$FieldInfo fieldInfos$$[] = {
+		{"fArray", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(PSVIErrorList, fArray)},
+		{"fLength", "I", nullptr, $PRIVATE | $FINAL, $field(PSVIErrorList, fLength)},
+		{"fOffset", "I", nullptr, $PRIVATE | $FINAL, $field(PSVIErrorList, fOffset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*add", "(ILjava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*addAll", "(ILjava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"*indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
+		{"<init>", "([Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(PSVIErrorList, init$, void, $StringArray*, bool)},
+		{"contains", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(PSVIErrorList, contains, bool, $String*)},
+		{"get", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PSVIErrorList, get, $Object*, int32_t)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(PSVIErrorList, getLength, int32_t)},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"item", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PSVIErrorList, item, $String*, int32_t)},
+		{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
+		{"*lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
+		{"*listIterator", "()Ljava/util/ListIterator;", nullptr, $PUBLIC},
+		{"*listIterator", "(I)Ljava/util/ListIterator;", nullptr, $PUBLIC},
+		{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*remove", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*replaceAll", "(Ljava/util/function/UnaryOperator;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*set", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(PSVIErrorList, size, int32_t)},
+		{"*subList", "(II)Ljava/util/List;", nullptr, $PUBLIC},
+		{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*sort", "(Ljava/util/Comparator;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.PSVIErrorList",
+		"java.util.AbstractList",
+		"com.sun.org.apache.xerces.internal.xs.StringList",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractList<Ljava/lang/String;>;Lcom/sun/org/apache/xerces/internal/xs/StringList;"
+	};
+	$loadClass(PSVIErrorList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PSVIErrorList));
+	});
 	return class$;
 }
 

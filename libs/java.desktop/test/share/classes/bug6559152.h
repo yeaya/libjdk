@@ -23,6 +23,7 @@ class $export bug6559152 : public ::java::lang::Object {
 	$class(bug6559152, 0, ::java::lang::Object)
 public:
 	bug6559152();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void blockTillDisplayed(::javax::swing::JComponent* comp);
 	static void checkResult();

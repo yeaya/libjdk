@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/Token.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/REUtil.h>
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/RangeToken.h>
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression.h>
@@ -118,164 +117,6 @@ namespace com {
 						namespace impl {
 							namespace xpath {
 								namespace regex {
-
-$FieldInfo _Token_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Token, serialVersionUID)},
-	{"COUNTTOKENS", "Z", nullptr, $STATIC | $FINAL, $constField(Token, COUNTTOKENS)},
-	{"tokens", "I", nullptr, $STATIC, $staticField(Token, tokens)},
-	{"CHAR", "I", nullptr, $STATIC | $FINAL, $constField(Token, CHAR)},
-	{"DOT", "I", nullptr, $STATIC | $FINAL, $constField(Token, DOT)},
-	{"CONCAT", "I", nullptr, $STATIC | $FINAL, $constField(Token, CONCAT)},
-	{"UNION", "I", nullptr, $STATIC | $FINAL, $constField(Token, UNION)},
-	{"CLOSURE", "I", nullptr, $STATIC | $FINAL, $constField(Token, CLOSURE)},
-	{"RANGE", "I", nullptr, $STATIC | $FINAL, $constField(Token, RANGE)},
-	{"NRANGE", "I", nullptr, $STATIC | $FINAL, $constField(Token, NRANGE)},
-	{"PAREN", "I", nullptr, $STATIC | $FINAL, $constField(Token, PAREN)},
-	{"EMPTY", "I", nullptr, $STATIC | $FINAL, $constField(Token, EMPTY)},
-	{"ANCHOR", "I", nullptr, $STATIC | $FINAL, $constField(Token, ANCHOR)},
-	{"NONGREEDYCLOSURE", "I", nullptr, $STATIC | $FINAL, $constField(Token, NONGREEDYCLOSURE)},
-	{"STRING", "I", nullptr, $STATIC | $FINAL, $constField(Token, STRING)},
-	{"BACKREFERENCE", "I", nullptr, $STATIC | $FINAL, $constField(Token, BACKREFERENCE)},
-	{"LOOKAHEAD", "I", nullptr, $STATIC | $FINAL, $constField(Token, LOOKAHEAD)},
-	{"NEGATIVELOOKAHEAD", "I", nullptr, $STATIC | $FINAL, $constField(Token, NEGATIVELOOKAHEAD)},
-	{"LOOKBEHIND", "I", nullptr, $STATIC | $FINAL, $constField(Token, LOOKBEHIND)},
-	{"NEGATIVELOOKBEHIND", "I", nullptr, $STATIC | $FINAL, $constField(Token, NEGATIVELOOKBEHIND)},
-	{"INDEPENDENT", "I", nullptr, $STATIC | $FINAL, $constField(Token, INDEPENDENT)},
-	{"MODIFIERGROUP", "I", nullptr, $STATIC | $FINAL, $constField(Token, MODIFIERGROUP)},
-	{"CONDITION", "I", nullptr, $STATIC | $FINAL, $constField(Token, CONDITION)},
-	{"UTF16_MAX", "I", nullptr, $STATIC | $FINAL, $constField(Token, UTF16_MAX)},
-	{"type", "I", nullptr, $FINAL, $field(Token, type)},
-	{"token_dot", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_dot)},
-	{"token_0to9", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_0to9)},
-	{"token_wordchars", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_wordchars)},
-	{"token_not_0to9", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_not_0to9)},
-	{"token_not_wordchars", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_not_wordchars)},
-	{"token_spaces", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_spaces)},
-	{"token_not_spaces", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_not_spaces)},
-	{"token_empty", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_empty)},
-	{"token_linebeginning", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_linebeginning)},
-	{"token_linebeginning2", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_linebeginning2)},
-	{"token_lineend", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_lineend)},
-	{"token_stringbeginning", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_stringbeginning)},
-	{"token_stringend", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_stringend)},
-	{"token_stringend2", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_stringend2)},
-	{"token_wordedge", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_wordedge)},
-	{"token_not_wordedge", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_not_wordedge)},
-	{"token_wordbeginning", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_wordbeginning)},
-	{"token_wordend", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_wordend)},
-	{"FC_CONTINUE", "I", nullptr, $STATIC | $FINAL, $constField(Token, FC_CONTINUE)},
-	{"FC_TERMINAL", "I", nullptr, $STATIC | $FINAL, $constField(Token, FC_TERMINAL)},
-	{"FC_ANY", "I", nullptr, $STATIC | $FINAL, $constField(Token, FC_ANY)},
-	{"categories", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;>;", $PRIVATE | $STATIC | $VOLATILE, $staticField(Token, categories)},
-	{"categories2", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;>;", $PRIVATE | $STATIC | $VOLATILE, $staticField(Token, categories2)},
-	{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Token, lock)},
-	{"categoryNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Token, categoryNames)},
-	{"CHAR_INIT_QUOTE", "I", nullptr, $STATIC | $FINAL, $constField(Token, CHAR_INIT_QUOTE)},
-	{"CHAR_FINAL_QUOTE", "I", nullptr, $STATIC | $FINAL, $constField(Token, CHAR_FINAL_QUOTE)},
-	{"CHAR_LETTER", "I", nullptr, $STATIC | $FINAL, $constField(Token, CHAR_LETTER)},
-	{"CHAR_MARK", "I", nullptr, $STATIC | $FINAL, $constField(Token, CHAR_MARK)},
-	{"CHAR_NUMBER", "I", nullptr, $STATIC | $FINAL, $constField(Token, CHAR_NUMBER)},
-	{"CHAR_SEPARATOR", "I", nullptr, $STATIC | $FINAL, $constField(Token, CHAR_SEPARATOR)},
-	{"CHAR_OTHER", "I", nullptr, $STATIC | $FINAL, $constField(Token, CHAR_OTHER)},
-	{"CHAR_PUNCTUATION", "I", nullptr, $STATIC | $FINAL, $constField(Token, CHAR_PUNCTUATION)},
-	{"CHAR_SYMBOL", "I", nullptr, $STATIC | $FINAL, $constField(Token, CHAR_SYMBOL)},
-	{"blockNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Token, blockNames)},
-	{"blockRanges", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Token, blockRanges)},
-	{"nonBMPBlockRanges", "[I", nullptr, $STATIC | $FINAL, $staticField(Token, nonBMPBlockRanges)},
-	{"NONBMP_BLOCK_START", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Token, NONBMP_BLOCK_START)},
-	{"nonxs", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(Token, nonxs)},
-	{"viramaString", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Token, viramaString)},
-	{"token_grapheme", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $PRIVATE | $STATIC, $staticField(Token, token_grapheme)},
-	{"token_ccs", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $PRIVATE | $STATIC, $staticField(Token, token_ccs)},
-	{}
-};
-
-$MethodInfo _Token_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(Token, init$, void, int32_t)},
-	{"addChild", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)V", nullptr, 0, $virtualMethod(Token, addChild, void, Token*)},
-	{"addRange", "(II)V", nullptr, $PROTECTED, $virtualMethod(Token, addRange, void, int32_t, int32_t)},
-	{"analyzeFirstCharacter", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RangeToken;I)I", nullptr, $FINAL, $method(Token, analyzeFirstCharacter, int32_t, $RangeToken*, int32_t)},
-	{"compactRanges", "()V", nullptr, $PROTECTED, $virtualMethod(Token, compactRanges, void)},
-	{"complementRanges", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticMethod(Token, complementRanges, Token*, Token*)},
-	{"createAnchor", "(I)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token$CharToken;", nullptr, $PRIVATE | $STATIC, $staticMethod(Token, createAnchor, $Token$CharToken*, int32_t)},
-	{"createBackReference", "(I)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token$StringToken;", nullptr, $STATIC, $staticMethod(Token, createBackReference, $Token$StringToken*, int32_t)},
-	{"createChar", "(I)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token$CharToken;", nullptr, $STATIC, $staticMethod(Token, createChar, $Token$CharToken*, int32_t)},
-	{"createClosure", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token$ClosureToken;", nullptr, $STATIC, $staticMethod(Token, createClosure, $Token$ClosureToken*, Token*)},
-	{"createConcat", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token$ConcatToken;", nullptr, $STATIC, $staticMethod(Token, createConcat, $Token$ConcatToken*, Token*, Token*)},
-	{"createConcat", "()Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token$UnionToken;", nullptr, $STATIC, $staticMethod(Token, createConcat, $Token$UnionToken*)},
-	{"createCondition", "(ILcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token$ConditionToken;", nullptr, $STATIC, $staticMethod(Token, createCondition, $Token$ConditionToken*, int32_t, Token*, Token*, Token*)},
-	{"createEmpty", "()Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticMethod(Token, createEmpty, Token*)},
-	{"createLook", "(ILcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token$ParenToken;", nullptr, $STATIC, $staticMethod(Token, createLook, $Token$ParenToken*, int32_t, Token*)},
-	{"createModifierGroup", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;II)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token$ModifierToken;", nullptr, $STATIC, $staticMethod(Token, createModifierGroup, $Token$ModifierToken*, Token*, int32_t, int32_t)},
-	{"createNGClosure", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token$ClosureToken;", nullptr, $STATIC, $staticMethod(Token, createNGClosure, $Token$ClosureToken*, Token*)},
-	{"createNRange", "()Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RangeToken;", nullptr, $STATIC, $staticMethod(Token, createNRange, $RangeToken*)},
-	{"createParen", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;I)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token$ParenToken;", nullptr, $STATIC, $staticMethod(Token, createParen, $Token$ParenToken*, Token*, int32_t)},
-	{"createRange", "()Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RangeToken;", nullptr, $STATIC, $staticMethod(Token, createRange, $RangeToken*)},
-	{"createString", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token$StringToken;", nullptr, $STATIC, $staticMethod(Token, createString, $Token$StringToken*, $String*)},
-	{"createUnion", "()Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token$UnionToken;", nullptr, $STATIC, $staticMethod(Token, createUnion, $Token$UnionToken*)},
-	{"findFixedString", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token$FixedStringContainer;I)V", nullptr, $FINAL, $method(Token, findFixedString, void, $Token$FixedStringContainer*, int32_t)},
-	{"getChar", "()I", nullptr, 0, $virtualMethod(Token, getChar, int32_t)},
-	{"getChild", "(I)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, 0, $virtualMethod(Token, getChild, Token*, int32_t)},
-	{"getCombiningCharacterSequence", "()Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(Token, getCombiningCharacterSequence, Token*)},
-	{"getGraphemePattern", "()Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(Token, getGraphemePattern, Token*)},
-	{"getMax", "()I", nullptr, 0, $virtualMethod(Token, getMax, int32_t)},
-	{"getMaxLength", "()I", nullptr, $FINAL, $method(Token, getMaxLength, int32_t)},
-	{"getMin", "()I", nullptr, 0, $virtualMethod(Token, getMin, int32_t)},
-	{"getMinLength", "()I", nullptr, $FINAL, $method(Token, getMinLength, int32_t)},
-	{"getParenNumber", "()I", nullptr, 0, $virtualMethod(Token, getParenNumber, int32_t)},
-	{"getRange", "(Ljava/lang/String;Z)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RangeToken;", nullptr, $PROTECTED | $STATIC, $staticMethod(Token, getRange, $RangeToken*, $String*, bool)},
-	{"getRange", "(Ljava/lang/String;ZZ)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RangeToken;", nullptr, $PROTECTED | $STATIC, $staticMethod(Token, getRange, $RangeToken*, $String*, bool, bool)},
-	{"getReferenceNumber", "()I", nullptr, 0, $virtualMethod(Token, getReferenceNumber, int32_t)},
-	{"getString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Token, getString, $String*)},
-	{"intersectRanges", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)V", nullptr, $PROTECTED, $virtualMethod(Token, intersectRanges, void, Token*)},
-	{"isRegisterNonXS", "(Ljava/lang/String;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(Token, isRegisterNonXS, bool, $String*)},
-	{"isSet", "(II)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(Token, isSet, bool, int32_t, int32_t)},
-	{"isShorterThan", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)Z", nullptr, $PRIVATE | $FINAL, $method(Token, isShorterThan, bool, Token*)},
-	{"match", "(I)Z", nullptr, 0, $virtualMethod(Token, match, bool, int32_t)},
-	{"mergeRanges", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)V", nullptr, $PROTECTED, $virtualMethod(Token, mergeRanges, void, Token*)},
-	{"registerNonXS", "(Ljava/lang/String;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(Token, registerNonXS, void, $String*)},
-	{"setAlias", "(Ljava/util/Map;Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;Z)V", "(Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;>;Ljava/lang/String;Ljava/lang/String;Z)V", $PRIVATE | $STATIC, $staticMethod(Token, setAlias, void, $Map*, $Map*, $String*, $String*, bool)},
-	{"setMax", "(I)V", nullptr, 0, $virtualMethod(Token, setMax, void, int32_t)},
-	{"setMin", "(I)V", nullptr, 0, $virtualMethod(Token, setMin, void, int32_t)},
-	{"size", "()I", nullptr, 0, $virtualMethod(Token, size, int32_t)},
-	{"sortRanges", "()V", nullptr, $PROTECTED, $virtualMethod(Token, sortRanges, void)},
-	{"subtractRanges", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)V", nullptr, $PROTECTED, $virtualMethod(Token, subtractRanges, void, Token*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Token, toString, $String*)},
-	{"toString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Token, toString, $String*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Token_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$UnionToken", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Token", "UnionToken", $STATIC},
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$ModifierToken", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Token", "ModifierToken", $STATIC},
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$ConditionToken", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Token", "ConditionToken", $STATIC},
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$ParenToken", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Token", "ParenToken", $STATIC},
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$ClosureToken", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Token", "ClosureToken", $STATIC},
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$CharToken", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Token", "CharToken", $STATIC},
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$ConcatToken", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Token", "ConcatToken", $STATIC},
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$StringToken", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Token", "StringToken", $STATIC},
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$FixedStringContainer", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Token", "FixedStringContainer", $STATIC},
-	{}
-};
-
-$ClassInfo _Token_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_Token_FieldInfo_,
-	_Token_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Token_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$UnionToken,com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$ModifierToken,com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$ConditionToken,com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$ParenToken,com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$ClosureToken,com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$CharToken,com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$ConcatToken,com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$StringToken,com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$FixedStringContainer"
-};
-
-$Object* allocate$Token($Class* clazz) {
-	return $of($alloc(Token));
-}
 
 int32_t Token::tokens = 0;
 Token* Token::token_dot = nullptr;
@@ -487,359 +328,256 @@ $String* Token::toString(int32_t options) {
 }
 
 int32_t Token::getMinLength() {
-	$useLocalCurrentObjectStackCache();
-	{
-		int32_t sum = 0;
-		int32_t ret = 0;
-		switch (this->type) {
-		case Token::CONCAT:
-			{
-				sum = 0;
-				for (int32_t i = 0; i < this->size(); ++i) {
-					sum += $nc($(this->getChild(i)))->getMinLength();
-				}
-				return sum;
-			}
-		case Token::CONDITION:
-			{}
-		case Token::UNION:
-			{
-				if (this->size() == 0) {
-					return 0;
-				}
-				ret = $nc($(this->getChild(0)))->getMinLength();
-				for (int32_t i = 1; i < this->size(); ++i) {
-					int32_t min = $nc($(this->getChild(i)))->getMinLength();
-					if (min < ret) {
-						ret = min;
-					}
-				}
-				return ret;
-			}
-		case Token::CLOSURE:
-			{}
-		case Token::NONGREEDYCLOSURE:
-			{
-				if (this->getMin() >= 0) {
-					int32_t var$0 = this->getMin();
-					return var$0 * $nc($(this->getChild(0)))->getMinLength();
-				}
-				return 0;
-			}
-		case Token::EMPTY:
-			{}
-		case Token::ANCHOR:
-			{
-				return 0;
-			}
-		case Token::DOT:
-			{}
-		case Token::CHAR:
-			{}
-		case Token::RANGE:
-			{}
-		case Token::NRANGE:
-			{
-				return 1;
-			}
-		case Token::INDEPENDENT:
-			{}
-		case Token::PAREN:
-			{}
-		case Token::MODIFIERGROUP:
-			{
-				return $nc($(this->getChild(0)))->getMinLength();
-			}
-		case Token::BACKREFERENCE:
-			{
-				return 0;
-			}
-		case Token::STRING:
-			{
-				return $nc($(this->getString()))->length();
-			}
-		case Token::LOOKAHEAD:
-			{}
-		case Token::NEGATIVELOOKAHEAD:
-			{}
-		case Token::LOOKBEHIND:
-			{}
-		case Token::NEGATIVELOOKBEHIND:
-			{
-				return 0;
-			}
-		default:
-			{
-				$throwNew($RuntimeException, $$str({"Token#getMinLength(): Invalid Type: "_s, $$str(this->type)}));
+	$useLocalObjectStack();
+	int32_t sum = 0;
+	int32_t ret = 0;
+	switch (this->type) {
+	case Token::CONCAT:
+		sum = 0;
+		for (int32_t i = 0; i < this->size(); ++i) {
+			sum += $$nc(this->getChild(i))->getMinLength();
+		}
+		return sum;
+	case Token::CONDITION:
+	case Token::UNION:
+		if (this->size() == 0) {
+			return 0;
+		}
+		ret = $$nc(this->getChild(0))->getMinLength();
+		for (int32_t i = 1; i < this->size(); ++i) {
+			int32_t min = $$nc(this->getChild(i))->getMinLength();
+			if (min < ret) {
+				ret = min;
 			}
 		}
+		return ret;
+	case Token::CLOSURE:
+	case Token::NONGREEDYCLOSURE:
+		if (this->getMin() >= 0) {
+			int32_t var$0 = this->getMin();
+			return var$0 * $$nc(this->getChild(0))->getMinLength();
+		}
+		return 0;
+	case Token::EMPTY:
+	case Token::ANCHOR:
+		return 0;
+	case Token::DOT:
+	case Token::CHAR:
+	case Token::RANGE:
+	case Token::NRANGE:
+		return 1;
+	case Token::INDEPENDENT:
+	case Token::PAREN:
+	case Token::MODIFIERGROUP:
+		return $$nc(this->getChild(0))->getMinLength();
+	case Token::BACKREFERENCE:
+		return 0;
+	case Token::STRING:
+		return $$nc(this->getString())->length();
+	case Token::LOOKAHEAD:
+	case Token::NEGATIVELOOKAHEAD:
+	case Token::LOOKBEHIND:
+	case Token::NEGATIVELOOKBEHIND:
+		return 0;
+	default:
+		$throwNew($RuntimeException, $$str({"Token#getMinLength(): Invalid Type: "_s, $$str(this->type)}));
 	}
 }
 
 int32_t Token::getMaxLength() {
-	$useLocalCurrentObjectStackCache();
-	{
-		int32_t sum = 0;
-		int32_t ret = 0;
-		switch (this->type) {
-		case Token::CONCAT:
-			{
-				sum = 0;
-				for (int32_t i = 0; i < this->size(); ++i) {
-					int32_t d = $nc($(this->getChild(i)))->getMaxLength();
-					if (d < 0) {
-						return -1;
-					}
-					sum += d;
-				}
-				return sum;
-			}
-		case Token::CONDITION:
-			{}
-		case Token::UNION:
-			{
-				if (this->size() == 0) {
-					return 0;
-				}
-				ret = $nc($(this->getChild(0)))->getMaxLength();
-				for (int32_t i = 1; ret >= 0 && i < this->size(); ++i) {
-					int32_t max = $nc($(this->getChild(i)))->getMaxLength();
-					if (max < 0) {
-						ret = -1;
-						break;
-					}
-					if (max > ret) {
-						ret = max;
-					}
-				}
-				return ret;
-			}
-		case Token::CLOSURE:
-			{}
-		case Token::NONGREEDYCLOSURE:
-			{
-				if (this->getMax() >= 0) {
-					int32_t var$0 = this->getMax();
-					return var$0 * $nc($(this->getChild(0)))->getMaxLength();
-				}
+	$useLocalObjectStack();
+	int32_t sum = 0;
+	int32_t ret = 0;
+	switch (this->type) {
+	case Token::CONCAT:
+		sum = 0;
+		for (int32_t i = 0; i < this->size(); ++i) {
+			int32_t d = $$nc(this->getChild(i))->getMaxLength();
+			if (d < 0) {
 				return -1;
 			}
-		case Token::EMPTY:
-			{}
-		case Token::ANCHOR:
-			{
-				return 0;
+			sum += d;
+		}
+		return sum;
+	case Token::CONDITION:
+	case Token::UNION:
+		if (this->size() == 0) {
+			return 0;
+		}
+		ret = $$nc(this->getChild(0))->getMaxLength();
+		for (int32_t i = 1; ret >= 0 && i < this->size(); ++i) {
+			int32_t max = $$nc(this->getChild(i))->getMaxLength();
+			if (max < 0) {
+				ret = -1;
+				break;
 			}
-		case Token::CHAR:
-			{
-				return 1;
-			}
-		case Token::DOT:
-			{}
-		case Token::RANGE:
-			{}
-		case Token::NRANGE:
-			{
-				return 2;
-			}
-		case Token::INDEPENDENT:
-			{}
-		case Token::PAREN:
-			{}
-		case Token::MODIFIERGROUP:
-			{
-				return $nc($(this->getChild(0)))->getMaxLength();
-			}
-		case Token::BACKREFERENCE:
-			{
-				return -1;
-			}
-		case Token::STRING:
-			{
-				return $nc($(this->getString()))->length();
-			}
-		case Token::LOOKAHEAD:
-			{}
-		case Token::NEGATIVELOOKAHEAD:
-			{}
-		case Token::LOOKBEHIND:
-			{}
-		case Token::NEGATIVELOOKBEHIND:
-			{
-				return 0;
-			}
-		default:
-			{
-				$throwNew($RuntimeException, $$str({"Token#getMaxLength(): Invalid Type: "_s, $$str(this->type)}));
+			if (max > ret) {
+				ret = max;
 			}
 		}
+		return ret;
+	case Token::CLOSURE:
+	case Token::NONGREEDYCLOSURE:
+		if (this->getMax() >= 0) {
+			int32_t var$0 = this->getMax();
+			return var$0 * $$nc(this->getChild(0))->getMaxLength();
+		}
+		return -1;
+	case Token::EMPTY:
+	case Token::ANCHOR:
+		return 0;
+	case Token::CHAR:
+		return 1;
+	case Token::DOT:
+	case Token::RANGE:
+	case Token::NRANGE:
+		return 2;
+	case Token::INDEPENDENT:
+	case Token::PAREN:
+	case Token::MODIFIERGROUP:
+		return $$nc(this->getChild(0))->getMaxLength();
+	case Token::BACKREFERENCE:
+		return -1;
+	case Token::STRING:
+		return $$nc(this->getString())->length();
+	case Token::LOOKAHEAD:
+	case Token::NEGATIVELOOKAHEAD:
+	case Token::LOOKBEHIND:
+	case Token::NEGATIVELOOKBEHIND:
+		return 0;
+	default:
+		$throwNew($RuntimeException, $$str({"Token#getMaxLength(): Invalid Type: "_s, $$str(this->type)}));
 	}
 }
 
 bool Token::isSet(int32_t options, int32_t flag) {
 	$init(Token);
-	return ((int32_t)(options & (uint32_t)flag)) == flag;
+	return (options & flag) == flag;
 }
 
 int32_t Token::analyzeFirstCharacter($RangeToken* result, int32_t options) {
-	$useLocalCurrentObjectStackCache();
-	{
-		int32_t ret = 0;
-		int32_t ret2 = 0;
-		bool hasEmpty = false;
-		int32_t ret3 = 0;
-		int32_t ret4 = 0;
-		int32_t ch = 0;
-		int32_t cha = 0;
-		int32_t ch2 = 0;
-		switch (this->type) {
-		case Token::CONCAT:
-			{
-				ret = Token::FC_CONTINUE;
-				for (int32_t i = 0; i < this->size(); ++i) {
-					if ((ret = $nc($(this->getChild(i)))->analyzeFirstCharacter(result, options)) != Token::FC_CONTINUE) {
-						break;
-					}
-				}
-				return ret;
-			}
-		case Token::UNION:
-			{
-				if (this->size() == 0) {
-					return Token::FC_CONTINUE;
-				}
-				ret2 = Token::FC_CONTINUE;
-				hasEmpty = false;
-				for (int32_t i = 0; i < this->size(); ++i) {
-					ret2 = $nc($(this->getChild(i)))->analyzeFirstCharacter(result, options);
-					if (ret2 == Token::FC_ANY) {
-						break;
-					} else if (ret2 == Token::FC_CONTINUE) {
-						hasEmpty = true;
-					}
-				}
-				return hasEmpty ? Token::FC_CONTINUE : ret2;
-			}
-		case Token::CONDITION:
-			{
-				ret3 = $nc($(this->getChild(0)))->analyzeFirstCharacter(result, options);
-				if (this->size() == 1) {
-					return Token::FC_CONTINUE;
-				}
-				if (ret3 == Token::FC_ANY) {
-					return ret3;
-				}
-				ret4 = $nc($(this->getChild(1)))->analyzeFirstCharacter(result, options);
-				if (ret4 == Token::FC_ANY) {
-					return ret4;
-				}
-				return ret3 == Token::FC_CONTINUE || ret4 == Token::FC_CONTINUE ? Token::FC_CONTINUE : Token::FC_TERMINAL;
-			}
-		case Token::CLOSURE:
-			{}
-		case Token::NONGREEDYCLOSURE:
-			{
-				$nc($(this->getChild(0)))->analyzeFirstCharacter(result, options);
-				return Token::FC_CONTINUE;
-			}
-		case Token::EMPTY:
-			{}
-		case Token::ANCHOR:
-			{
-				return Token::FC_CONTINUE;
-			}
-		case Token::CHAR:
-			{
-				ch = this->getChar();
-				$nc(result)->addRange(ch, ch);
-				if (ch < 0x00010000 && isSet(options, $RegularExpression::IGNORE_CASE)) {
-					ch = $Character::toUpperCase((char16_t)ch);
-					$nc(result)->addRange(ch, ch);
-					ch = $Character::toLowerCase((char16_t)ch);
-					result->addRange(ch, ch);
-				}
-				return Token::FC_TERMINAL;
-			}
-		case Token::DOT:
-			{
-				return Token::FC_ANY;
-			}
-		case Token::RANGE:
-			{
-				$nc(result)->mergeRanges(this);
-				return Token::FC_TERMINAL;
-			}
-		case Token::NRANGE:
-			{
-				$nc(result)->mergeRanges($(Token::complementRanges(this)));
-				return Token::FC_TERMINAL;
-			}
-		case Token::INDEPENDENT:
-			{}
-		case Token::PAREN:
-			{
-				return $nc($(this->getChild(0)))->analyzeFirstCharacter(result, options);
-			}
-		case Token::MODIFIERGROUP:
-			{
-				options |= $nc(($cast($Token$ModifierToken, this)))->getOptions();
-				options &= (uint32_t)~$nc(($cast($Token$ModifierToken, this)))->getOptionsMask();
-				return $nc($(this->getChild(0)))->analyzeFirstCharacter(result, options);
-			}
-		case Token::BACKREFERENCE:
-			{
-				$nc(result)->addRange(0, Token::UTF16_MAX);
-				return Token::FC_ANY;
-			}
-		case Token::STRING:
-			{
-				cha = $nc($(this->getString()))->charAt(0);
-				bool var$1 = $REUtil::isHighSurrogate(cha);
-				bool var$0 = var$1 && $nc($(this->getString()))->length() >= 2;
-				if (var$0 && $REUtil::isLowSurrogate((ch2 = $nc($(this->getString()))->charAt(1)))) {
-					cha = $REUtil::composeFromSurrogates(cha, ch2);
-				}
-				$nc(result)->addRange(cha, cha);
-				if (cha < 0x00010000 && isSet(options, $RegularExpression::IGNORE_CASE)) {
-					cha = $Character::toUpperCase((char16_t)cha);
-					$nc(result)->addRange(cha, cha);
-					cha = $Character::toLowerCase((char16_t)cha);
-					result->addRange(cha, cha);
-				}
-				return Token::FC_TERMINAL;
-			}
-		case Token::LOOKAHEAD:
-			{}
-		case Token::NEGATIVELOOKAHEAD:
-			{}
-		case Token::LOOKBEHIND:
-			{}
-		case Token::NEGATIVELOOKBEHIND:
-			{
-				return Token::FC_CONTINUE;
-			}
-		default:
-			{
-				$throwNew($RuntimeException, $$str({"Token#analyzeHeadCharacter(): Invalid Type: "_s, $$str(this->type)}));
+	$useLocalObjectStack();
+	int32_t ret = 0;
+	int32_t ret2 = 0;
+	bool hasEmpty = false;
+	int32_t ret3 = 0;
+	int32_t ret4 = 0;
+	int32_t ch = 0;
+	int32_t cha = 0;
+	int32_t ch2 = 0;
+	switch (this->type) {
+	case Token::CONCAT:
+		ret = Token::FC_CONTINUE;
+		for (int32_t i = 0; i < this->size(); ++i) {
+			if ((ret = $$nc(this->getChild(i))->analyzeFirstCharacter(result, options)) != Token::FC_CONTINUE) {
+				break;
 			}
 		}
+		return ret;
+	case Token::UNION:
+		if (this->size() == 0) {
+			return Token::FC_CONTINUE;
+		}
+		ret2 = Token::FC_CONTINUE;
+		hasEmpty = false;
+		for (int32_t i = 0; i < this->size(); ++i) {
+			ret2 = $$nc(this->getChild(i))->analyzeFirstCharacter(result, options);
+			if (ret2 == Token::FC_ANY) {
+				break;
+			} else if (ret2 == Token::FC_CONTINUE) {
+				hasEmpty = true;
+			}
+		}
+		return hasEmpty ? Token::FC_CONTINUE : ret2;
+	case Token::CONDITION:
+		ret3 = $$nc(this->getChild(0))->analyzeFirstCharacter(result, options);
+		if (this->size() == 1) {
+			return Token::FC_CONTINUE;
+		}
+		if (ret3 == Token::FC_ANY) {
+			return ret3;
+		}
+		ret4 = $$nc(this->getChild(1))->analyzeFirstCharacter(result, options);
+		if (ret4 == Token::FC_ANY) {
+			return ret4;
+		}
+		return ret3 == Token::FC_CONTINUE || ret4 == Token::FC_CONTINUE ? Token::FC_CONTINUE : Token::FC_TERMINAL;
+	case Token::CLOSURE:
+	case Token::NONGREEDYCLOSURE:
+		$$nc(this->getChild(0))->analyzeFirstCharacter(result, options);
+		return Token::FC_CONTINUE;
+	case Token::EMPTY:
+	case Token::ANCHOR:
+		return Token::FC_CONTINUE;
+	case Token::CHAR:
+		ch = this->getChar();
+		$nc(result)->addRange(ch, ch);
+		if (ch < 0x00010000 && isSet(options, $RegularExpression::IGNORE_CASE)) {
+			ch = $Character::toUpperCase((char16_t)ch);
+			result->addRange(ch, ch);
+			ch = $Character::toLowerCase((char16_t)ch);
+			result->addRange(ch, ch);
+		}
+		return Token::FC_TERMINAL;
+	case Token::DOT:
+		return Token::FC_ANY;
+	case Token::RANGE:
+		$nc(result)->mergeRanges(this);
+		return Token::FC_TERMINAL;
+	case Token::NRANGE:
+		$nc(result)->mergeRanges($(Token::complementRanges(this)));
+		return Token::FC_TERMINAL;
+	case Token::INDEPENDENT:
+	case Token::PAREN:
+		return $$nc(this->getChild(0))->analyzeFirstCharacter(result, options);
+	case Token::MODIFIERGROUP:
+		options |= $cast($Token$ModifierToken, this)->getOptions();
+		options &= (uint32_t)~$cast($Token$ModifierToken, this)->getOptionsMask();
+		return $$nc(this->getChild(0))->analyzeFirstCharacter(result, options);
+	case Token::BACKREFERENCE:
+		$nc(result)->addRange(0, Token::UTF16_MAX);
+		return Token::FC_ANY;
+	case Token::STRING:
+		{
+			cha = $$nc(this->getString())->charAt(0);
+			bool var$1 = $REUtil::isHighSurrogate(cha);
+			bool var$0 = var$1 && $$nc(this->getString())->length() >= 2;
+			if (var$0 && $REUtil::isLowSurrogate((ch2 = $$nc(this->getString())->charAt(1)))) {
+				cha = $REUtil::composeFromSurrogates(cha, ch2);
+			}
+			$nc(result)->addRange(cha, cha);
+			if (cha < 0x00010000 && isSet(options, $RegularExpression::IGNORE_CASE)) {
+				cha = $Character::toUpperCase((char16_t)cha);
+				result->addRange(cha, cha);
+				cha = $Character::toLowerCase((char16_t)cha);
+				result->addRange(cha, cha);
+			}
+			return Token::FC_TERMINAL;
+		}
+	case Token::LOOKAHEAD:
+	case Token::NEGATIVELOOKAHEAD:
+	case Token::LOOKBEHIND:
+	case Token::NEGATIVELOOKBEHIND:
+		return Token::FC_CONTINUE;
+	default:
+		$throwNew($RuntimeException, $$str({"Token#analyzeHeadCharacter(): Invalid Type: "_s, $$str(this->type)}));
 	}
 }
 
 bool Token::isShorterThan(Token* tok) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (tok == nullptr) {
 		return false;
 	}
 	int32_t mylength = 0;
 	if (this->type == Token::STRING) {
-		mylength = $nc($(this->getString()))->length();
+		mylength = $$nc(this->getString())->length();
 	} else {
 		$throwNew($RuntimeException, $$str({"Internal Error: Illegal type: "_s, $$str(this->type)}));
 	}
 	int32_t otherlength = 0;
 	if ($nc(tok)->type == Token::STRING) {
-		otherlength = $nc($(tok->getString()))->length();
+		otherlength = $$nc(tok->getString())->length();
 	} else {
 		$throwNew($RuntimeException, $$str({"Internal Error: Illegal type: "_s, $$str(tok->type)}));
 	}
@@ -847,99 +585,69 @@ bool Token::isShorterThan(Token* tok) {
 }
 
 void Token::findFixedString($Token$FixedStringContainer* container, int32_t options) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var(Token, prevToken, nullptr)
-		int32_t prevOptions = 0;
-		switch (this->type) {
-		case Token::CONCAT:
-			{
-				$assign(prevToken, nullptr);
-				prevOptions = 0;
-				for (int32_t i = 0; i < this->size(); ++i) {
-					$nc($(this->getChild(i)))->findFixedString(container, options);
-					if (prevToken == nullptr || $nc(prevToken)->isShorterThan($nc(container)->token)) {
-						$assign(prevToken, $nc(container)->token);
-						prevOptions = container->options;
-					}
-				}
-				$set($nc(container), token, prevToken);
-				$nc(container)->options = prevOptions;
-				return;
-			}
-		case Token::UNION:
-			{}
-		case Token::CLOSURE:
-			{}
-		case Token::NONGREEDYCLOSURE:
-			{}
-		case Token::EMPTY:
-			{}
-		case Token::ANCHOR:
-			{}
-		case Token::RANGE:
-			{}
-		case Token::DOT:
-			{}
-		case Token::NRANGE:
-			{}
-		case Token::BACKREFERENCE:
-			{}
-		case Token::LOOKAHEAD:
-			{}
-		case Token::NEGATIVELOOKAHEAD:
-			{}
-		case Token::LOOKBEHIND:
-			{}
-		case Token::NEGATIVELOOKBEHIND:
-			{}
-		case Token::CONDITION:
-			{
-				$set($nc(container), token, nullptr);
-				return;
-			}
-		case Token::CHAR:
-			{
-				$set($nc(container), token, nullptr);
-				return;
-			}
-		case Token::STRING:
-			{
-				$set($nc(container), token, this);
-				$nc(container)->options = options;
-				return;
-			}
-		case Token::INDEPENDENT:
-			{}
-		case Token::PAREN:
-			{
-				$nc($(this->getChild(0)))->findFixedString(container, options);
-				return;
-			}
-		case Token::MODIFIERGROUP:
-			{
-				options |= $nc(($cast($Token$ModifierToken, this)))->getOptions();
-				options &= (uint32_t)~$nc(($cast($Token$ModifierToken, this)))->getOptionsMask();
-				$nc($(this->getChild(0)))->findFixedString(container, options);
-				return;
-			}
-		default:
-			{
-				$throwNew($RuntimeException, $$str({"Token#findFixedString(): Invalid Type: "_s, $$str(this->type)}));
+	$useLocalObjectStack();
+	$var(Token, prevToken, nullptr);
+	int32_t prevOptions = 0;
+	switch (this->type) {
+	case Token::CONCAT:
+		$assign(prevToken, nullptr);
+		prevOptions = 0;
+		for (int32_t i = 0; i < this->size(); ++i) {
+			$$nc(this->getChild(i))->findFixedString(container, options);
+			if (prevToken == nullptr || prevToken->isShorterThan($nc(container)->token)) {
+				$assign(prevToken, $nc(container)->token);
+				prevOptions = container->options;
 			}
 		}
+		$set($nc(container), token, prevToken);
+		container->options = prevOptions;
+		return;
+	case Token::UNION:
+	case Token::CLOSURE:
+	case Token::NONGREEDYCLOSURE:
+	case Token::EMPTY:
+	case Token::ANCHOR:
+	case Token::RANGE:
+	case Token::DOT:
+	case Token::NRANGE:
+	case Token::BACKREFERENCE:
+	case Token::LOOKAHEAD:
+	case Token::NEGATIVELOOKAHEAD:
+	case Token::LOOKBEHIND:
+	case Token::NEGATIVELOOKBEHIND:
+	case Token::CONDITION:
+		$set($nc(container), token, nullptr);
+		return;
+	case Token::CHAR:
+		$set($nc(container), token, nullptr);
+		return;
+	case Token::STRING:
+		$set($nc(container), token, this);
+		container->options = options;
+		return;
+	case Token::INDEPENDENT:
+	case Token::PAREN:
+		$$nc(this->getChild(0))->findFixedString(container, options);
+		return;
+	case Token::MODIFIERGROUP:
+		options |= $cast($Token$ModifierToken, this)->getOptions();
+		options &= (uint32_t)~$cast($Token$ModifierToken, this)->getOptionsMask();
+		$$nc(this->getChild(0))->findFixedString(container, options);
+		return;
+	default:
+		$throwNew($RuntimeException, $$str({"Token#findFixedString(): Invalid Type: "_s, $$str(this->type)}));
 	}
 }
 
 bool Token::match(int32_t ch) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$throwNew($RuntimeException, $$str({"NFAArrow#match(): Internal error: "_s, $$str(this->type)}));
 	$shouldNotReachHere();
 }
 
 $RangeToken* Token::getRange($String* name, bool positive) {
 	$init(Token);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, localCat, Token::categories);
 	if (localCat == nullptr) {
 		$synchronized(Token::lock) {
@@ -947,7 +655,7 @@ $RangeToken* Token::getRange($String* name, bool positive) {
 			if (localCat == nullptr) {
 				$var($Map, tmpCat, $new($HashMap));
 				$var($Map, tmpCat2, $new($HashMap));
-				$var($TokenArray, ranges, $new($TokenArray, $nc(Token::categoryNames)->length));
+				$var($TokenArray, ranges, $new($TokenArray, Token::categoryNames->length));
 				for (int32_t i = 0; i < ranges->length; ++i) {
 					ranges->set(i, $(Token::createRange()));
 				}
@@ -965,129 +673,90 @@ $RangeToken* Token::getRange($String* name, bool positive) {
 					$nc(ranges->get(type))->addRange(i, i);
 					switch (type) {
 					case $Character::UPPERCASE_LETTER:
-						{}
 					case $Character::LOWERCASE_LETTER:
-						{}
 					case $Character::TITLECASE_LETTER:
-						{}
 					case $Character::MODIFIER_LETTER:
-						{}
 					case $Character::OTHER_LETTER:
-						{
-							type = Token::CHAR_LETTER;
-							break;
-						}
+						type = Token::CHAR_LETTER;
+						break;
 					case $Character::NON_SPACING_MARK:
-						{}
 					case $Character::COMBINING_SPACING_MARK:
-						{}
 					case $Character::ENCLOSING_MARK:
-						{
-							type = Token::CHAR_MARK;
-							break;
-						}
+						type = Token::CHAR_MARK;
+						break;
 					case $Character::DECIMAL_DIGIT_NUMBER:
-						{}
 					case $Character::LETTER_NUMBER:
-						{}
 					case $Character::OTHER_NUMBER:
-						{
-							type = Token::CHAR_NUMBER;
-							break;
-						}
+						type = Token::CHAR_NUMBER;
+						break;
 					case $Character::SPACE_SEPARATOR:
-						{}
 					case $Character::LINE_SEPARATOR:
-						{}
 					case $Character::PARAGRAPH_SEPARATOR:
-						{
-							type = Token::CHAR_SEPARATOR;
-							break;
-						}
+						type = Token::CHAR_SEPARATOR;
+						break;
 					case $Character::CONTROL:
-						{}
 					case $Character::FORMAT:
-						{}
 					case $Character::SURROGATE:
-						{}
 					case $Character::PRIVATE_USE:
-						{}
 					case $Character::UNASSIGNED:
-						{
-							type = Token::CHAR_OTHER;
-							break;
-						}
+						type = Token::CHAR_OTHER;
+						break;
 					case $Character::CONNECTOR_PUNCTUATION:
-						{}
 					case $Character::DASH_PUNCTUATION:
-						{}
 					case $Character::START_PUNCTUATION:
-						{}
 					case $Character::END_PUNCTUATION:
-						{}
 					case Token::CHAR_INIT_QUOTE:
-						{}
 					case Token::CHAR_FINAL_QUOTE:
-						{}
 					case $Character::OTHER_PUNCTUATION:
-						{
-							type = Token::CHAR_PUNCTUATION;
-							break;
-						}
+						type = Token::CHAR_PUNCTUATION;
+						break;
 					case $Character::MATH_SYMBOL:
-						{}
 					case $Character::CURRENCY_SYMBOL:
-						{}
 					case $Character::MODIFIER_SYMBOL:
-						{}
 					case $Character::OTHER_SYMBOL:
-						{
-							type = Token::CHAR_SYMBOL;
-							break;
-						}
+						type = Token::CHAR_SYMBOL;
+						break;
 					default:
-						{
-							$throwNew($RuntimeException, $$str({"org.apache.xerces.utils.regex.Token#getRange(): Unknown Unicode category: "_s, $$str(type)}));
-						}
+						$throwNew($RuntimeException, $$str({"org.apache.xerces.utils.regex.Token#getRange(): Unknown Unicode category: "_s, $$str(type)}));
 					}
 					$nc(ranges->get(type))->addRange(i, i);
 				}
 				$nc(ranges->get($Character::UNASSIGNED))->addRange(0x00010000, Token::UTF16_MAX);
 				for (int32_t i = 0; i < ranges->length; ++i) {
-					if ($nc(Token::categoryNames)->get(i) != nullptr) {
+					if (Token::categoryNames->get(i) != nullptr) {
 						if (i == $Character::UNASSIGNED) {
 							$nc(ranges->get(i))->addRange(0x00010000, Token::UTF16_MAX);
 						}
-						tmpCat->put($nc(Token::categoryNames)->get(i), ranges->get(i));
-						tmpCat2->put($nc(Token::categoryNames)->get(i), $(Token::complementRanges(ranges->get(i))));
+						tmpCat->put(Token::categoryNames->get(i), ranges->get(i));
+						tmpCat2->put(Token::categoryNames->get(i), $(Token::complementRanges(ranges->get(i))));
 					}
 				}
 				$var($StringBuilder, buffer, $new($StringBuilder, 50));
-				for (int32_t i = 0; i < $nc(Token::blockNames)->length; ++i) {
+				for (int32_t i = 0; i < Token::blockNames->length; ++i) {
 					$var(Token, r1, Token::createRange());
 					int32_t location = 0;
 					if (i < Token::NONBMP_BLOCK_START) {
 						location = i * 2;
-						int32_t rstart = $nc(Token::blockRanges)->charAt(location);
-						int32_t rend = $nc(Token::blockRanges)->charAt(location + 1);
+						int32_t rstart = Token::blockRanges->charAt(location);
+						int32_t rend = Token::blockRanges->charAt(location + 1);
 						$nc(r1)->addRange(rstart, rend);
 					} else {
 						location = (i - Token::NONBMP_BLOCK_START) * 2;
-						$nc(r1)->addRange($nc(Token::nonBMPBlockRanges)->get(location), $nc(Token::nonBMPBlockRanges)->get(location + 1));
+						$nc(r1)->addRange(Token::nonBMPBlockRanges->get(location), Token::nonBMPBlockRanges->get(location + 1));
 					}
-					$var($String, n, $nc(Token::blockNames)->get(i));
+					$var($String, n, Token::blockNames->get(i));
 					if ($nc(n)->equals("Specials"_s)) {
-						$nc(r1)->addRange(0x0000FFF0, 0x0000FFFD);
+						$nc(r1)->addRange(0x0000fff0, 0x0000fffd);
 					}
-					if ($nc(n)->equals("Private Use"_s)) {
-						$nc(r1)->addRange(0x000F0000, 0x000FFFFD);
-						r1->addRange(0x00100000, 0x0010FFFD);
+					if (n->equals("Private Use"_s)) {
+						$nc(r1)->addRange(0x000f0000, 0x000ffffd);
+						r1->addRange(0x00100000, 0x0010fffd);
 					}
 					tmpCat->put(n, r1);
 					tmpCat2->put(n, $(Token::complementRanges(r1)));
 					buffer->setLength(0);
 					buffer->append("Is"_s);
-					if ($nc(n)->indexOf((int32_t)u' ') >= 0) {
+					if (n->indexOf(u' ') >= 0) {
 						for (int32_t ci = 0; ci < n->length(); ++ci) {
 							if (n->charAt(ci) != u' ') {
 								buffer->append(n->charAt(ci));
@@ -1188,7 +857,7 @@ $RangeToken* Token::getRange($String* name, bool positive) {
 				Token::registerNonXS("upper"_s);
 				Token::registerNonXS("word"_s);
 				Token::registerNonXS("xdigit"_s);
-				$assignStatic(Token::categories, ($assign(localCat, $Collections::unmodifiableMap(tmpCat))));
+				$assignStatic(Token::categories, $assign(localCat, $Collections::unmodifiableMap(tmpCat)));
 				$assignStatic(Token::categories2, $Collections::unmodifiableMap(tmpCat2));
 			}
 		}
@@ -1217,7 +886,7 @@ bool Token::isRegisterNonXS($String* name) {
 
 void Token::setAlias($Map* tmpCat, $Map* tmpCat2, $String* newName, $String* name, bool positive) {
 	$init(Token);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(Token, t1, $cast(Token, $nc(tmpCat)->get(name)));
 	$var(Token, t2, $cast(Token, $nc(tmpCat2)->get(name)));
 	if (positive) {
@@ -1230,10 +899,9 @@ void Token::setAlias($Map* tmpCat, $Map* tmpCat2, $String* newName, $String* nam
 }
 
 Token* Token::getGraphemePattern() {
-	$load(Token);
+	$init(Token);
 	$synchronized(class$) {
-		$init(Token);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (Token::token_grapheme != nullptr) {
 			return Token::token_grapheme;
 		}
@@ -1242,13 +910,13 @@ Token* Token::getGraphemePattern() {
 		base_char->subtractRanges($(Token::getRange("M"_s, true)));
 		base_char->subtractRanges($(Token::getRange("C"_s, true)));
 		$var(Token, virama, Token::createRange());
-		for (int32_t i = 0; i < $nc(Token::viramaString)->length(); ++i) {
+		for (int32_t i = 0; i < Token::viramaString->length(); ++i) {
 			$nc(virama)->addRange(i, i);
 		}
 		$var(Token, combiner_wo_virama, Token::createRange());
 		$nc(combiner_wo_virama)->mergeRanges($(Token::getRange("M"_s, true)));
 		combiner_wo_virama->addRange(4448, 4607);
-		combiner_wo_virama->addRange(0x0000FF9E, 0x0000FF9F);
+		combiner_wo_virama->addRange(0x0000ff9e, 0x0000ff9f);
 		$var(Token, left, Token::createUnion());
 		$nc(left)->addChild(base_char);
 		left->addChild(Token::token_empty);
@@ -1263,10 +931,9 @@ Token* Token::getGraphemePattern() {
 }
 
 Token* Token::getCombiningCharacterSequence() {
-	$load(Token);
+	$init(Token);
 	$synchronized(class$) {
-		$init(Token);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (Token::token_ccs != nullptr) {
 			return Token::token_ccs;
 		}
@@ -1277,8 +944,8 @@ Token* Token::getCombiningCharacterSequence() {
 	}
 }
 
-void clinit$Token($Class* class$) {
-	$assignStatic(Token::blockRanges, $cstr({'\0', 0x7F, 0x80, 0xFF, 0x100, 0x17F, 0x180, 0x24F, 0x250, 0x2AF, 0x2B0, 0x2FF, 0x300, 0x36F, 0x370, 0x3FF, 0x400, 0x4FF, 0x530, 0x58F, 0x590, 0x5FF, 0x600, 0x6FF, 0x700, 0x74F, 0x780, 0x7BF, 0x900, 0x97F, 0x980, 0x9FF, 0xA00, 0xA7F, 0xA80, 0xAFF, 0xB00, 0xB7F, 0xB80, 0xBFF, 0xC00, 0xC7F, 0xC80, 0xCFF, 0xD00, 0xD7F, 0xD80, 0xDFF, 0xE00, 0xE7F, 0xE80, 0xEFF, 0xF00, 0xFFF, 0x1000, 0x109F, 0x10A0, 0x10FF, 0x1100, 0x11FF, 0x1200, 0x137F, 0x13A0, 0x13FF, 0x1400, 0x167F, 0x1680, 0x169F, 0x16A0, 0x16FF, 0x1780, 0x17FF, 0x1800, 0x18AF, 0x1E00, 0x1EFF, 0x1F00, 0x1FFF, 0x2000, 0x206F, 0x2070, 0x209F, 0x20A0, 0x20CF, 0x20D0, 0x20FF, 0x2100, 0x214F, 0x2150, 0x218F, 0x2190, 0x21FF, 0x2200, 0x22FF, 0x2300, 0x23FF, 0x2400, 0x243F, 0x2440, 0x245F, 0x2460, 0x24FF, 0x2500, 0x257F, 0x2580, 0x259F, 0x25A0, 0x25FF, 0x2600, 0x26FF, 0x2700, 0x27BF, 0x2800, 0x28FF, 0x2E80, 0x2EFF, 0x2F00, 0x2FDF, 0x2FF0, 0x2FFF, 0x3000, 0x303F, 0x3040, 0x309F, 0x30A0, 0x30FF, 0x3100, 0x312F, 0x3130, 0x318F, 0x3190, 0x319F, 0x31A0, 0x31BF, 0x3200, 0x32FF, 0x3300, 0x33FF, 0x3400, 0x4DB5, 0x4E00, 0x9FFF, 0xA000, 0xA48F, 0xA490, 0xA4CF, 0xAC00, 0xD7A3, 0xE000, 0xF8FF, 0xF900, 0xFAFF, 0xFB00, 0xFB4F, 0xFB50, 0xFDFF, 0xFE20, 0xFE2F, 0xFE30, 0xFE4F, 0xFE50, 0xFE6F, 0xFE70, 0xFEFE, 0xFEFF, 0xFEFF, 0xFF00, 0xFFEF}));
+void Token::clinit$($Class* clazz) {
+	$assignStatic(Token::blockRanges, $cstr({'\0', 0x7f, 0x80, 0xff, 0x0100, 0x017f, 0x0180, 0x024f, 0x0250, 0x02af, 0x02b0, 0x02ff, 0x0300, 0x036f, 0x0370, 0x03ff, 0x0400, 0x04ff, 0x0530, 0x058f, 0x0590, 0x05ff, 0x0600, 0x06ff, 0x0700, 0x074f, 0x0780, 0x07bf, 0x0900, 0x097f, 0x0980, 0x09ff, 0x0a00, 0x0a7f, 0x0a80, 0x0aff, 0x0b00, 0x0b7f, 0x0b80, 0x0bff, 0x0c00, 0x0c7f, 0x0c80, 0x0cff, 0x0d00, 0x0d7f, 0x0d80, 0x0dff, 0x0e00, 0x0e7f, 0x0e80, 0x0eff, 0x0f00, 0x0fff, 0x1000, 0x109f, 0x10a0, 0x10ff, 0x1100, 0x11ff, 0x1200, 0x137f, 0x13a0, 0x13ff, 0x1400, 0x167f, 0x1680, 0x169f, 0x16a0, 0x16ff, 0x1780, 0x17ff, 0x1800, 0x18af, 0x1e00, 0x1eff, 0x1f00, 0x1fff, 0x2000, 0x206f, 0x2070, 0x209f, 0x20a0, 0x20cf, 0x20d0, 0x20ff, 0x2100, 0x214f, 0x2150, 0x218f, 0x2190, 0x21ff, 0x2200, 0x22ff, 0x2300, 0x23ff, 0x2400, 0x243f, 0x2440, 0x245f, 0x2460, 0x24ff, 0x2500, 0x257f, 0x2580, 0x259f, 0x25a0, 0x25ff, 0x2600, 0x26ff, 0x2700, 0x27bf, 0x2800, 0x28ff, 0x2e80, 0x2eff, 0x2f00, 0x2fdf, 0x2ff0, 0x2fff, 0x3000, 0x303f, 0x3040, 0x309f, 0x30a0, 0x30ff, 0x3100, 0x312f, 0x3130, 0x318f, 0x3190, 0x319f, 0x31a0, 0x31bf, 0x3200, 0x32ff, 0x3300, 0x33ff, 0x3400, 0x4db5, 0x4e00, 0x9fff, 0xa000, 0xa48f, 0xa490, 0xa4cf, 0xac00, 0xd7a3, 0xe000, 0xf8ff, 0xf900, 0xfaff, 0xfb00, 0xfb4f, 0xfb50, 0xfdff, 0xfe20, 0xfe2f, 0xfe30, 0xfe4f, 0xfe50, 0xfe6f, 0xfe70, 0xfefe, 0xfeff, 0xfeff, 0xff00, 0xffef}));
 	$assignStatic(Token::viramaString, u"्্੍્୍்్್്ฺ྄"_s);
 	Token::tokens = 0;
 	{
@@ -1332,7 +999,7 @@ void clinit$Token($Class* class$) {
 		"Zp"_s,
 		"Cc"_s,
 		"Cf"_s,
-		($String*)nullptr,
+		nullptr,
 		"Co"_s,
 		"Cs"_s,
 		"Pd"_s,
@@ -1451,23 +1118,23 @@ void clinit$Token($Class* class$) {
 	}));
 	$assignStatic(Token::nonBMPBlockRanges, $new($ints, {
 		0x00010300,
-		0x0001032F,
+		0x0001032f,
 		0x00010330,
-		0x0001034F,
+		0x0001034f,
 		0x00010400,
-		0x0001044F,
-		0x0001D000,
-		0x0001D0FF,
-		0x0001D100,
-		0x0001D1FF,
-		0x0001D400,
-		0x0001D7FF,
+		0x0001044f,
+		0x0001d000,
+		0x0001d0ff,
+		0x0001d100,
+		0x0001d1ff,
+		0x0001d400,
+		0x0001d7ff,
 		0x00020000,
-		0x0002A6D6,
-		0x0002F800,
-		0x0002FA1F,
-		0x000E0000,
-		0x000E007F
+		0x0002a6d6,
+		0x0002f800,
+		0x0002fa1f,
+		0x000e0000,
+		0x000e007f
 	}));
 	$assignStatic(Token::nonxs, $Collections::synchronizedSet($$new($HashSet)));
 	$assignStatic(Token::token_grapheme, nullptr);
@@ -1478,7 +1145,159 @@ Token::Token() {
 }
 
 $Class* Token::load$($String* name, bool initialize) {
-	$loadClass(Token, name, initialize, &_Token_ClassInfo_, clinit$Token, allocate$Token);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Token, serialVersionUID)},
+		{"COUNTTOKENS", "Z", nullptr, $STATIC | $FINAL, $constField(Token, COUNTTOKENS)},
+		{"tokens", "I", nullptr, $STATIC, $staticField(Token, tokens)},
+		{"CHAR", "I", nullptr, $STATIC | $FINAL, $constField(Token, CHAR)},
+		{"DOT", "I", nullptr, $STATIC | $FINAL, $constField(Token, DOT)},
+		{"CONCAT", "I", nullptr, $STATIC | $FINAL, $constField(Token, CONCAT)},
+		{"UNION", "I", nullptr, $STATIC | $FINAL, $constField(Token, UNION)},
+		{"CLOSURE", "I", nullptr, $STATIC | $FINAL, $constField(Token, CLOSURE)},
+		{"RANGE", "I", nullptr, $STATIC | $FINAL, $constField(Token, RANGE)},
+		{"NRANGE", "I", nullptr, $STATIC | $FINAL, $constField(Token, NRANGE)},
+		{"PAREN", "I", nullptr, $STATIC | $FINAL, $constField(Token, PAREN)},
+		{"EMPTY", "I", nullptr, $STATIC | $FINAL, $constField(Token, EMPTY)},
+		{"ANCHOR", "I", nullptr, $STATIC | $FINAL, $constField(Token, ANCHOR)},
+		{"NONGREEDYCLOSURE", "I", nullptr, $STATIC | $FINAL, $constField(Token, NONGREEDYCLOSURE)},
+		{"STRING", "I", nullptr, $STATIC | $FINAL, $constField(Token, STRING)},
+		{"BACKREFERENCE", "I", nullptr, $STATIC | $FINAL, $constField(Token, BACKREFERENCE)},
+		{"LOOKAHEAD", "I", nullptr, $STATIC | $FINAL, $constField(Token, LOOKAHEAD)},
+		{"NEGATIVELOOKAHEAD", "I", nullptr, $STATIC | $FINAL, $constField(Token, NEGATIVELOOKAHEAD)},
+		{"LOOKBEHIND", "I", nullptr, $STATIC | $FINAL, $constField(Token, LOOKBEHIND)},
+		{"NEGATIVELOOKBEHIND", "I", nullptr, $STATIC | $FINAL, $constField(Token, NEGATIVELOOKBEHIND)},
+		{"INDEPENDENT", "I", nullptr, $STATIC | $FINAL, $constField(Token, INDEPENDENT)},
+		{"MODIFIERGROUP", "I", nullptr, $STATIC | $FINAL, $constField(Token, MODIFIERGROUP)},
+		{"CONDITION", "I", nullptr, $STATIC | $FINAL, $constField(Token, CONDITION)},
+		{"UTF16_MAX", "I", nullptr, $STATIC | $FINAL, $constField(Token, UTF16_MAX)},
+		{"type", "I", nullptr, $FINAL, $field(Token, type)},
+		{"token_dot", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_dot)},
+		{"token_0to9", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_0to9)},
+		{"token_wordchars", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_wordchars)},
+		{"token_not_0to9", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_not_0to9)},
+		{"token_not_wordchars", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_not_wordchars)},
+		{"token_spaces", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_spaces)},
+		{"token_not_spaces", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_not_spaces)},
+		{"token_empty", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_empty)},
+		{"token_linebeginning", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_linebeginning)},
+		{"token_linebeginning2", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_linebeginning2)},
+		{"token_lineend", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_lineend)},
+		{"token_stringbeginning", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_stringbeginning)},
+		{"token_stringend", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_stringend)},
+		{"token_stringend2", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_stringend2)},
+		{"token_wordedge", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_wordedge)},
+		{"token_not_wordedge", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_not_wordedge)},
+		{"token_wordbeginning", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_wordbeginning)},
+		{"token_wordend", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticField(Token, token_wordend)},
+		{"FC_CONTINUE", "I", nullptr, $STATIC | $FINAL, $constField(Token, FC_CONTINUE)},
+		{"FC_TERMINAL", "I", nullptr, $STATIC | $FINAL, $constField(Token, FC_TERMINAL)},
+		{"FC_ANY", "I", nullptr, $STATIC | $FINAL, $constField(Token, FC_ANY)},
+		{"categories", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;>;", $PRIVATE | $STATIC | $VOLATILE, $staticField(Token, categories)},
+		{"categories2", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;>;", $PRIVATE | $STATIC | $VOLATILE, $staticField(Token, categories2)},
+		{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Token, lock)},
+		{"categoryNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Token, categoryNames)},
+		{"CHAR_INIT_QUOTE", "I", nullptr, $STATIC | $FINAL, $constField(Token, CHAR_INIT_QUOTE)},
+		{"CHAR_FINAL_QUOTE", "I", nullptr, $STATIC | $FINAL, $constField(Token, CHAR_FINAL_QUOTE)},
+		{"CHAR_LETTER", "I", nullptr, $STATIC | $FINAL, $constField(Token, CHAR_LETTER)},
+		{"CHAR_MARK", "I", nullptr, $STATIC | $FINAL, $constField(Token, CHAR_MARK)},
+		{"CHAR_NUMBER", "I", nullptr, $STATIC | $FINAL, $constField(Token, CHAR_NUMBER)},
+		{"CHAR_SEPARATOR", "I", nullptr, $STATIC | $FINAL, $constField(Token, CHAR_SEPARATOR)},
+		{"CHAR_OTHER", "I", nullptr, $STATIC | $FINAL, $constField(Token, CHAR_OTHER)},
+		{"CHAR_PUNCTUATION", "I", nullptr, $STATIC | $FINAL, $constField(Token, CHAR_PUNCTUATION)},
+		{"CHAR_SYMBOL", "I", nullptr, $STATIC | $FINAL, $constField(Token, CHAR_SYMBOL)},
+		{"blockNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Token, blockNames)},
+		{"blockRanges", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Token, blockRanges)},
+		{"nonBMPBlockRanges", "[I", nullptr, $STATIC | $FINAL, $staticField(Token, nonBMPBlockRanges)},
+		{"NONBMP_BLOCK_START", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Token, NONBMP_BLOCK_START)},
+		{"nonxs", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(Token, nonxs)},
+		{"viramaString", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Token, viramaString)},
+		{"token_grapheme", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $PRIVATE | $STATIC, $staticField(Token, token_grapheme)},
+		{"token_ccs", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $PRIVATE | $STATIC, $staticField(Token, token_ccs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(Token, init$, void, int32_t)},
+		{"addChild", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)V", nullptr, 0, $virtualMethod(Token, addChild, void, Token*)},
+		{"addRange", "(II)V", nullptr, $PROTECTED, $virtualMethod(Token, addRange, void, int32_t, int32_t)},
+		{"analyzeFirstCharacter", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RangeToken;I)I", nullptr, $FINAL, $method(Token, analyzeFirstCharacter, int32_t, $RangeToken*, int32_t)},
+		{"compactRanges", "()V", nullptr, $PROTECTED, $virtualMethod(Token, compactRanges, void)},
+		{"complementRanges", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticMethod(Token, complementRanges, Token*, Token*)},
+		{"createAnchor", "(I)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token$CharToken;", nullptr, $PRIVATE | $STATIC, $staticMethod(Token, createAnchor, $Token$CharToken*, int32_t)},
+		{"createBackReference", "(I)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token$StringToken;", nullptr, $STATIC, $staticMethod(Token, createBackReference, $Token$StringToken*, int32_t)},
+		{"createChar", "(I)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token$CharToken;", nullptr, $STATIC, $staticMethod(Token, createChar, $Token$CharToken*, int32_t)},
+		{"createClosure", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token$ClosureToken;", nullptr, $STATIC, $staticMethod(Token, createClosure, $Token$ClosureToken*, Token*)},
+		{"createConcat", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token$ConcatToken;", nullptr, $STATIC, $staticMethod(Token, createConcat, $Token$ConcatToken*, Token*, Token*)},
+		{"createConcat", "()Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token$UnionToken;", nullptr, $STATIC, $staticMethod(Token, createConcat, $Token$UnionToken*)},
+		{"createCondition", "(ILcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token$ConditionToken;", nullptr, $STATIC, $staticMethod(Token, createCondition, $Token$ConditionToken*, int32_t, Token*, Token*, Token*)},
+		{"createEmpty", "()Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC, $staticMethod(Token, createEmpty, Token*)},
+		{"createLook", "(ILcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token$ParenToken;", nullptr, $STATIC, $staticMethod(Token, createLook, $Token$ParenToken*, int32_t, Token*)},
+		{"createModifierGroup", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;II)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token$ModifierToken;", nullptr, $STATIC, $staticMethod(Token, createModifierGroup, $Token$ModifierToken*, Token*, int32_t, int32_t)},
+		{"createNGClosure", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token$ClosureToken;", nullptr, $STATIC, $staticMethod(Token, createNGClosure, $Token$ClosureToken*, Token*)},
+		{"createNRange", "()Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RangeToken;", nullptr, $STATIC, $staticMethod(Token, createNRange, $RangeToken*)},
+		{"createParen", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;I)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token$ParenToken;", nullptr, $STATIC, $staticMethod(Token, createParen, $Token$ParenToken*, Token*, int32_t)},
+		{"createRange", "()Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RangeToken;", nullptr, $STATIC, $staticMethod(Token, createRange, $RangeToken*)},
+		{"createString", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token$StringToken;", nullptr, $STATIC, $staticMethod(Token, createString, $Token$StringToken*, $String*)},
+		{"createUnion", "()Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token$UnionToken;", nullptr, $STATIC, $staticMethod(Token, createUnion, $Token$UnionToken*)},
+		{"findFixedString", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token$FixedStringContainer;I)V", nullptr, $FINAL, $method(Token, findFixedString, void, $Token$FixedStringContainer*, int32_t)},
+		{"getChar", "()I", nullptr, 0, $virtualMethod(Token, getChar, int32_t)},
+		{"getChild", "(I)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, 0, $virtualMethod(Token, getChild, Token*, int32_t)},
+		{"getCombiningCharacterSequence", "()Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(Token, getCombiningCharacterSequence, Token*)},
+		{"getGraphemePattern", "()Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(Token, getGraphemePattern, Token*)},
+		{"getMax", "()I", nullptr, 0, $virtualMethod(Token, getMax, int32_t)},
+		{"getMaxLength", "()I", nullptr, $FINAL, $method(Token, getMaxLength, int32_t)},
+		{"getMin", "()I", nullptr, 0, $virtualMethod(Token, getMin, int32_t)},
+		{"getMinLength", "()I", nullptr, $FINAL, $method(Token, getMinLength, int32_t)},
+		{"getParenNumber", "()I", nullptr, 0, $virtualMethod(Token, getParenNumber, int32_t)},
+		{"getRange", "(Ljava/lang/String;Z)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RangeToken;", nullptr, $PROTECTED | $STATIC, $staticMethod(Token, getRange, $RangeToken*, $String*, bool)},
+		{"getRange", "(Ljava/lang/String;ZZ)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RangeToken;", nullptr, $PROTECTED | $STATIC, $staticMethod(Token, getRange, $RangeToken*, $String*, bool, bool)},
+		{"getReferenceNumber", "()I", nullptr, 0, $virtualMethod(Token, getReferenceNumber, int32_t)},
+		{"getString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Token, getString, $String*)},
+		{"intersectRanges", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)V", nullptr, $PROTECTED, $virtualMethod(Token, intersectRanges, void, Token*)},
+		{"isRegisterNonXS", "(Ljava/lang/String;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(Token, isRegisterNonXS, bool, $String*)},
+		{"isSet", "(II)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(Token, isSet, bool, int32_t, int32_t)},
+		{"isShorterThan", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)Z", nullptr, $PRIVATE | $FINAL, $method(Token, isShorterThan, bool, Token*)},
+		{"match", "(I)Z", nullptr, 0, $virtualMethod(Token, match, bool, int32_t)},
+		{"mergeRanges", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)V", nullptr, $PROTECTED, $virtualMethod(Token, mergeRanges, void, Token*)},
+		{"registerNonXS", "(Ljava/lang/String;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(Token, registerNonXS, void, $String*)},
+		{"setAlias", "(Ljava/util/Map;Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;Z)V", "(Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;>;Ljava/lang/String;Ljava/lang/String;Z)V", $PRIVATE | $STATIC, $staticMethod(Token, setAlias, void, $Map*, $Map*, $String*, $String*, bool)},
+		{"setMax", "(I)V", nullptr, 0, $virtualMethod(Token, setMax, void, int32_t)},
+		{"setMin", "(I)V", nullptr, 0, $virtualMethod(Token, setMin, void, int32_t)},
+		{"size", "()I", nullptr, 0, $virtualMethod(Token, size, int32_t)},
+		{"sortRanges", "()V", nullptr, $PROTECTED, $virtualMethod(Token, sortRanges, void)},
+		{"subtractRanges", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)V", nullptr, $PROTECTED, $virtualMethod(Token, subtractRanges, void, Token*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Token, toString, $String*)},
+		{"toString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Token, toString, $String*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$UnionToken", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Token", "UnionToken", $STATIC},
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$ModifierToken", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Token", "ModifierToken", $STATIC},
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$ConditionToken", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Token", "ConditionToken", $STATIC},
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$ParenToken", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Token", "ParenToken", $STATIC},
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$ClosureToken", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Token", "ClosureToken", $STATIC},
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$CharToken", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Token", "CharToken", $STATIC},
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$ConcatToken", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Token", "ConcatToken", $STATIC},
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$StringToken", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Token", "StringToken", $STATIC},
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$FixedStringContainer", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Token", "FixedStringContainer", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$UnionToken,com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$ModifierToken,com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$ConditionToken,com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$ParenToken,com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$ClosureToken,com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$CharToken,com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$ConcatToken,com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$StringToken,com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$FixedStringContainer"
+	};
+	$loadClass(Token, name, initialize, &classInfo$$, Token::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Token);
+	});
 	return class$;
 }
 

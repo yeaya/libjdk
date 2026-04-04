@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/StringVector.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -13,43 +12,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace utils {
-
-$FieldInfo _StringVector_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(StringVector, serialVersionUID)},
-	{"m_blocksize", "I", nullptr, $PROTECTED, $field(StringVector, m_blocksize)},
-	{"m_map", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(StringVector, m_map)},
-	{"m_firstFree", "I", nullptr, $PROTECTED, $field(StringVector, m_firstFree)},
-	{"m_mapSize", "I", nullptr, $PROTECTED, $field(StringVector, m_mapSize)},
-	{}
-};
-
-$MethodInfo _StringVector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StringVector, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(StringVector, init$, void, int32_t)},
-	{"addElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $method(StringVector, addElement, void, $String*)},
-	{"contains", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL, $method(StringVector, contains, bool, $String*)},
-	{"containsIgnoreCase", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL, $method(StringVector, containsIgnoreCase, bool, $String*)},
-	{"elementAt", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(StringVector, elementAt, $String*, int32_t)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(StringVector, getLength, int32_t)},
-	{"peek", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(StringVector, peek, $String*)},
-	{"pop", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(StringVector, pop, $String*)},
-	{"push", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $method(StringVector, push, void, $String*)},
-	{"size", "()I", nullptr, $PUBLIC | $FINAL, $method(StringVector, size, int32_t)},
-	{}
-};
-
-$ClassInfo _StringVector_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.StringVector",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_StringVector_FieldInfo_,
-	_StringVector_MethodInfo_
-};
-
-$Object* allocate$StringVector($Class* clazz) {
-	return $of($alloc(StringVector));
-}
 
 void StringVector::init$() {
 	this->m_firstFree = 0;
@@ -129,7 +91,7 @@ $String* StringVector::pop() {
 	}
 	--this->m_firstFree;
 	$var($String, s, $nc(this->m_map)->get(this->m_firstFree));
-	$nc(this->m_map)->set(this->m_firstFree, nullptr);
+	this->m_map->set(this->m_firstFree, nullptr);
 	return s;
 }
 
@@ -141,7 +103,39 @@ StringVector::StringVector() {
 }
 
 $Class* StringVector::load$($String* name, bool initialize) {
-	$loadClass(StringVector, name, initialize, &_StringVector_ClassInfo_, allocate$StringVector);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(StringVector, serialVersionUID)},
+		{"m_blocksize", "I", nullptr, $PROTECTED, $field(StringVector, m_blocksize)},
+		{"m_map", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(StringVector, m_map)},
+		{"m_firstFree", "I", nullptr, $PROTECTED, $field(StringVector, m_firstFree)},
+		{"m_mapSize", "I", nullptr, $PROTECTED, $field(StringVector, m_mapSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StringVector, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(StringVector, init$, void, int32_t)},
+		{"addElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $method(StringVector, addElement, void, $String*)},
+		{"contains", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL, $method(StringVector, contains, bool, $String*)},
+		{"containsIgnoreCase", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL, $method(StringVector, containsIgnoreCase, bool, $String*)},
+		{"elementAt", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(StringVector, elementAt, $String*, int32_t)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(StringVector, getLength, int32_t)},
+		{"peek", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(StringVector, peek, $String*)},
+		{"pop", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(StringVector, pop, $String*)},
+		{"push", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $method(StringVector, push, void, $String*)},
+		{"size", "()I", nullptr, $PUBLIC | $FINAL, $method(StringVector, size, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.StringVector",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StringVector, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringVector);
+	});
 	return class$;
 }
 

@@ -29,6 +29,7 @@ class CramMD5Base : public ::java::lang::Object {
 	$class(CramMD5Base, $HAS_FINALIZE, ::java::lang::Object)
 public:
 	CramMD5Base();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* HMAC_MD5($bytes* key, $bytes* text);
 	virtual void clearPassword();

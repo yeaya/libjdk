@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/CompileJavaPackages.h>
-
 #include <com/sun/tools/javac/main/Main$Result.h>
 #include <com/sun/tools/sjavac/CompileChunk.h>
 #include <com/sun/tools/sjavac/Log.h>
@@ -19,7 +18,6 @@
 #include <java/net/URI.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
@@ -59,7 +57,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $URI = ::java::net::URI;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
@@ -74,7 +71,6 @@ using $Executors = ::java::util::concurrent::Executors;
 using $Future = ::java::util::concurrent::Future;
 using $BiFunction = ::java::util::function::BiFunction;
 using $Consumer = ::java::util::function::Consumer;
-using $Stream = ::java::util::stream::Stream;
 
 namespace com {
 	namespace sun {
@@ -94,10 +90,7 @@ public:
 		$set(this, lock, lock);
 	}
 	virtual $Object* call() override {
-		 return $of($nc(inst$)->lambda$transform$0(log, sjavac, chunkId, cc, visibleSources, lock));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CompileJavaPackages$$Lambda$lambda$transform$0>());
+		 return $nc(inst$)->lambda$transform$0(log, sjavac, chunkId, cc, visibleSources, lock);
 	}
 	CompileJavaPackages* inst$ = nullptr;
 	$Log* log = nullptr;
@@ -106,35 +99,34 @@ public:
 	$CompileChunk* cc = nullptr;
 	$Set* visibleSources = nullptr;
 	$Object* lock = nullptr;
-	static $FieldInfo fieldInfos[8];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CompileJavaPackages$$Lambda$lambda$transform$0::fieldInfos[8] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CompileJavaPackages$$Lambda$lambda$transform$0, inst$)},
-	{"log", "Lcom/sun/tools/sjavac/Log;", nullptr, $PUBLIC, $field(CompileJavaPackages$$Lambda$lambda$transform$0, log)},
-	{"sjavac", "Lcom/sun/tools/sjavac/comp/CompilationService;", nullptr, $PUBLIC, $field(CompileJavaPackages$$Lambda$lambda$transform$0, sjavac)},
-	{"chunkId", "Ljava/lang/String;", nullptr, $PUBLIC, $field(CompileJavaPackages$$Lambda$lambda$transform$0, chunkId)},
-	{"cc", "Lcom/sun/tools/sjavac/CompileChunk;", nullptr, $PUBLIC, $field(CompileJavaPackages$$Lambda$lambda$transform$0, cc)},
-	{"visibleSources", "Ljava/util/Set;", nullptr, $PUBLIC, $field(CompileJavaPackages$$Lambda$lambda$transform$0, visibleSources)},
-	{"lock", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CompileJavaPackages$$Lambda$lambda$transform$0, lock)},
-	{}
-};
-$MethodInfo CompileJavaPackages$$Lambda$lambda$transform$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/sjavac/CompileJavaPackages;Lcom/sun/tools/sjavac/Log;Lcom/sun/tools/sjavac/comp/CompilationService;Ljava/lang/String;Lcom/sun/tools/sjavac/CompileChunk;Ljava/util/Set;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(CompileJavaPackages$$Lambda$lambda$transform$0, init$, void, CompileJavaPackages*, $Log*, $CompilationService*, $String*, $CompileChunk*, $Set*, Object$*)},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CompileJavaPackages$$Lambda$lambda$transform$0, call, $Object*)},
-	{}
-};
-$ClassInfo CompileJavaPackages$$Lambda$lambda$transform$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.sjavac.CompileJavaPackages$$Lambda$lambda$transform$0",
-	"java.lang.Object",
-	"java.util.concurrent.Callable",
-	fieldInfos,
-	methodInfos
 };
 $Class* CompileJavaPackages$$Lambda$lambda$transform$0::load$($String* name, bool initialize) {
-	$loadClass(CompileJavaPackages$$Lambda$lambda$transform$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CompileJavaPackages$$Lambda$lambda$transform$0, inst$)},
+		{"log", "Lcom/sun/tools/sjavac/Log;", nullptr, $PUBLIC, $field(CompileJavaPackages$$Lambda$lambda$transform$0, log)},
+		{"sjavac", "Lcom/sun/tools/sjavac/comp/CompilationService;", nullptr, $PUBLIC, $field(CompileJavaPackages$$Lambda$lambda$transform$0, sjavac)},
+		{"chunkId", "Ljava/lang/String;", nullptr, $PUBLIC, $field(CompileJavaPackages$$Lambda$lambda$transform$0, chunkId)},
+		{"cc", "Lcom/sun/tools/sjavac/CompileChunk;", nullptr, $PUBLIC, $field(CompileJavaPackages$$Lambda$lambda$transform$0, cc)},
+		{"visibleSources", "Ljava/util/Set;", nullptr, $PUBLIC, $field(CompileJavaPackages$$Lambda$lambda$transform$0, visibleSources)},
+		{"lock", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CompileJavaPackages$$Lambda$lambda$transform$0, lock)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/sjavac/CompileJavaPackages;Lcom/sun/tools/sjavac/Log;Lcom/sun/tools/sjavac/comp/CompilationService;Ljava/lang/String;Lcom/sun/tools/sjavac/CompileChunk;Ljava/util/Set;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(CompileJavaPackages$$Lambda$lambda$transform$0, init$, void, CompileJavaPackages*, $Log*, $CompilationService*, $String*, $CompileChunk*, $Set*, Object$*)},
+		{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CompileJavaPackages$$Lambda$lambda$transform$0, call, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.sjavac.CompileJavaPackages$$Lambda$lambda$transform$0",
+		"java.lang.Object",
+		"java.util.concurrent.Callable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CompileJavaPackages$$Lambda$lambda$transform$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CompileJavaPackages$$Lambda$lambda$transform$0);
+	});
 	return class$;
 }
 $Class* CompileJavaPackages$$Lambda$lambda$transform$0::class$ = nullptr;
@@ -145,29 +137,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s1, Object$* s2) override {
-		 return $of($Util::union$($cast($Set, s1), $cast($Set, s2)));
+		 return $Util::union$($cast($Set, s1), $cast($Set, s2));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CompileJavaPackages$$Lambda$union$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo CompileJavaPackages$$Lambda$union$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CompileJavaPackages$$Lambda$union$1, init$, void)},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CompileJavaPackages$$Lambda$union$1, apply, $Object*, Object$*, Object$*)},
-	{}
-};
-$ClassInfo CompileJavaPackages$$Lambda$union$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.sjavac.CompileJavaPackages$$Lambda$union$1",
-	"java.lang.Object",
-	"java.util.function.BiFunction",
-	nullptr,
-	methodInfos
 };
 $Class* CompileJavaPackages$$Lambda$union$1::load$($String* name, bool initialize) {
-	$loadClass(CompileJavaPackages$$Lambda$union$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CompileJavaPackages$$Lambda$union$1, init$, void)},
+		{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CompileJavaPackages$$Lambda$union$1, apply, $Object*, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.sjavac.CompileJavaPackages$$Lambda$union$1",
+		"java.lang.Object",
+		"java.util.function.BiFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CompileJavaPackages$$Lambda$union$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CompileJavaPackages$$Lambda$union$1);
+	});
 	return class$;
 }
 $Class* CompileJavaPackages$$Lambda$union$1::class$ = nullptr;
@@ -178,29 +167,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* api1, Object$* api2) override {
-		 return $of($PubApi::mergeTypes($cast($PubApi, api1), $cast($PubApi, api2)));
+		 return $PubApi::mergeTypes($cast($PubApi, api1), $cast($PubApi, api2));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CompileJavaPackages$$Lambda$mergeTypes$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo CompileJavaPackages$$Lambda$mergeTypes$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CompileJavaPackages$$Lambda$mergeTypes$2, init$, void)},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CompileJavaPackages$$Lambda$mergeTypes$2, apply, $Object*, Object$*, Object$*)},
-	{}
-};
-$ClassInfo CompileJavaPackages$$Lambda$mergeTypes$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.sjavac.CompileJavaPackages$$Lambda$mergeTypes$2",
-	"java.lang.Object",
-	"java.util.function.BiFunction",
-	nullptr,
-	methodInfos
 };
 $Class* CompileJavaPackages$$Lambda$mergeTypes$2::load$($String* name, bool initialize) {
-	$loadClass(CompileJavaPackages$$Lambda$mergeTypes$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CompileJavaPackages$$Lambda$mergeTypes$2, init$, void)},
+		{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CompileJavaPackages$$Lambda$mergeTypes$2, apply, $Object*, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.sjavac.CompileJavaPackages$$Lambda$mergeTypes$2",
+		"java.lang.Object",
+		"java.util.function.BiFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CompileJavaPackages$$Lambda$mergeTypes$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CompileJavaPackages$$Lambda$mergeTypes$2);
+	});
 	return class$;
 }
 $Class* CompileJavaPackages$$Lambda$mergeTypes$2::class$ = nullptr;
@@ -213,27 +199,24 @@ public:
 	virtual void accept(Object$* msg) override {
 		$Log::info($cast($String, msg));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CompileJavaPackages$$Lambda$info$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo CompileJavaPackages$$Lambda$info$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CompileJavaPackages$$Lambda$info$3, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CompileJavaPackages$$Lambda$info$3, accept, void, Object$*)},
-	{}
-};
-$ClassInfo CompileJavaPackages$$Lambda$info$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.sjavac.CompileJavaPackages$$Lambda$info$3",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	nullptr,
-	methodInfos
 };
 $Class* CompileJavaPackages$$Lambda$info$3::load$($String* name, bool initialize) {
-	$loadClass(CompileJavaPackages$$Lambda$info$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CompileJavaPackages$$Lambda$info$3, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CompileJavaPackages$$Lambda$info$3, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.sjavac.CompileJavaPackages$$Lambda$info$3",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CompileJavaPackages$$Lambda$info$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CompileJavaPackages$$Lambda$info$3);
+	});
 	return class$;
 }
 $Class* CompileJavaPackages$$Lambda$info$3::class$ = nullptr;
@@ -246,59 +229,27 @@ public:
 	virtual void accept(Object$* msg) override {
 		$Log::error($cast($String, msg));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CompileJavaPackages$$Lambda$error$4>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo CompileJavaPackages$$Lambda$error$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CompileJavaPackages$$Lambda$error$4, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CompileJavaPackages$$Lambda$error$4, accept, void, Object$*)},
-	{}
-};
-$ClassInfo CompileJavaPackages$$Lambda$error$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.sjavac.CompileJavaPackages$$Lambda$error$4",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	nullptr,
-	methodInfos
 };
 $Class* CompileJavaPackages$$Lambda$error$4::load$($String* name, bool initialize) {
-	$loadClass(CompileJavaPackages$$Lambda$error$4, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CompileJavaPackages$$Lambda$error$4, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CompileJavaPackages$$Lambda$error$4, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.sjavac.CompileJavaPackages$$Lambda$error$4",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CompileJavaPackages$$Lambda$error$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CompileJavaPackages$$Lambda$error$4);
+	});
 	return class$;
 }
 $Class* CompileJavaPackages$$Lambda$error$4::class$ = nullptr;
-
-$FieldInfo _CompileJavaPackages_FieldInfo_[] = {
-	{"limitOnConcurrency", "I", nullptr, $STATIC | $FINAL, $constField(CompileJavaPackages, limitOnConcurrency)},
-	{"args", "Lcom/sun/tools/sjavac/options/Options;", nullptr, 0, $field(CompileJavaPackages, args)},
-	{}
-};
-
-$MethodInfo _CompileJavaPackages_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CompileJavaPackages, init$, void)},
-	{"createCompileChunks", "(Ljava/util/Map;Ljava/util/Map;II)[Lcom/sun/tools/sjavac/CompileChunk;", "(Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/net/URI;>;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;II)[Lcom/sun/tools/sjavac/CompileChunk;", 0, $virtualMethod(CompileJavaPackages, createCompileChunks, $CompileChunkArray*, $Map*, $Map*, int32_t, int32_t)},
-	{"lambda$transform$0", "(Lcom/sun/tools/sjavac/Log;Lcom/sun/tools/sjavac/comp/CompilationService;Ljava/lang/String;Lcom/sun/tools/sjavac/CompileChunk;Ljava/util/Set;Ljava/lang/Object;)Lcom/sun/tools/sjavac/server/CompilationSubResult;", nullptr, $PRIVATE | $SYNTHETIC, $method(CompileJavaPackages, lambda$transform$0, $CompilationSubResult*, $Log*, $CompilationService*, $String*, $CompileChunk*, $Set*, Object$*), "java.lang.Exception"},
-	{"setExtra", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CompileJavaPackages, setExtra, void, $String*)},
-	{"setExtra", "(Lcom/sun/tools/sjavac/options/Options;)V", nullptr, $PUBLIC, $virtualMethod(CompileJavaPackages, setExtra, void, $Options*)},
-	{"transform", "(Lcom/sun/tools/sjavac/comp/CompilationService;Ljava/util/Map;Ljava/util/Set;Ljava/util/Map;Ljava/net/URI;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;IZI)Z", "(Lcom/sun/tools/sjavac/comp/CompilationService;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/net/URI;>;>;Ljava/util/Set<Ljava/net/URI;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/net/URI;>;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;>;IZI)Z", $PUBLIC, $virtualMethod(CompileJavaPackages, transform, bool, $CompilationService*, $Map*, $Set*, $Map*, $URI*, $Map*, $Map*, $Map*, $Map*, $Map*, int32_t, bool, int32_t)},
-	{}
-};
-
-$ClassInfo _CompileJavaPackages_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.CompileJavaPackages",
-	"java.lang.Object",
-	"com.sun.tools.sjavac.Transformer",
-	_CompileJavaPackages_FieldInfo_,
-	_CompileJavaPackages_MethodInfo_
-};
-
-$Object* allocate$CompileJavaPackages($Class* clazz) {
-	return $of($alloc(CompileJavaPackages));
-}
 
 void CompileJavaPackages::init$() {
 }
@@ -311,7 +262,7 @@ void CompileJavaPackages::setExtra($Options* a) {
 }
 
 bool CompileJavaPackages::transform($CompilationService* sjavac, $Map* pkgSrcs, $Set* visibleSources, $Map* oldPackageDependents, $URI* destRoot, $Map* packageArtifacts, $Map* packageDependencies, $Map* packageCpDependencies, $Map* packagePubapis, $Map* dependencyPubapis, int32_t debugLevel, bool incremental, int32_t numCores) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Log::debug("Performing CompileJavaPackages transform..."_s);
 	bool rc = true;
 	bool concurrentCompiles = true;
@@ -334,7 +285,7 @@ bool CompileJavaPackages::transform($CompilationService* sjavac, $Map* pkgSrcs, 
 	}
 	int32_t numSources = 0;
 	{
-		$var($Iterator, i$, $nc($($nc(pkgSrcs)->keySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(pkgSrcs)->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, s, $cast($String, i$->next()));
 			{
@@ -411,7 +362,7 @@ bool CompileJavaPackages::transform($CompilationService* sjavac, $Map* pkgSrcs, 
 		}
 		$var($String, chunkId, $str({id, "-"_s, $($String::valueOf(i))}));
 		$var($Log, log, $Log::get());
-		compilationCalls->add(static_cast<$Callable*>($$new(CompileJavaPackages$$Lambda$lambda$transform$0, this, log, sjavac, chunkId, cc, visibleSources, lock)));
+		compilationCalls->add($$new(CompileJavaPackages$$Lambda$lambda$transform$0, this, log, sjavac, chunkId, cc, visibleSources, lock));
 	}
 	$var($List, subResults, $new($ArrayList));
 	$var($List, futs, $new($ArrayList));
@@ -429,17 +380,15 @@ bool CompileJavaPackages::transform($CompilationService* sjavac, $Map* pkgSrcs, 
 		$var($Iterator, i$, futs->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Future, fut, $cast($Future, i$->next()));
-			{
-				try {
-					subResults->add($cast($CompilationSubResult, $($nc(fut)->get())));
-				} catch ($ExecutionException& ee) {
-					$Log::error($$str({"Compilation failed: "_s, $(ee->getMessage())}));
-					$Log::error(static_cast<$Throwable*>(ee));
-				} catch ($InterruptedException& ie) {
-					$Log::error($$str({"Compilation interrupted: "_s, $(ie->getMessage())}));
-					$Log::error(static_cast<$Throwable*>(ie));
-					$($Thread::currentThread())->interrupt();
-				}
+			try {
+				subResults->add($$cast($CompilationSubResult, $nc(fut)->get()));
+			} catch ($ExecutionException& ee) {
+				$Log::error($$str({"Compilation failed: "_s, $(ee->getMessage())}));
+				$Log::error(ee);
+			} catch ($InterruptedException& ie) {
+				$Log::error($$str({"Compilation interrupted: "_s, $(ie->getMessage())}));
+				$Log::error(ie);
+				$($Thread::currentThread())->interrupt();
 			}
 		}
 	}
@@ -450,54 +399,52 @@ bool CompileJavaPackages::transform($CompilationService* sjavac, $Map* pkgSrcs, 
 			$var($CompilationSubResult, subResult, $cast($CompilationSubResult, i$->next()));
 			{
 				{
-					$var($Iterator, i$, $nc($($nc($nc(subResult)->packageArtifacts)->keySet()))->iterator());
+					$var($Iterator, i$, $$nc($nc($nc(subResult)->packageArtifacts)->keySet())->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($String, pkg, $cast($String, i$->next()));
 						{
-							$var($Set, pkgArtifacts, $cast($Set, $nc(subResult->packageArtifacts)->get(pkg)));
-							$nc(packageArtifacts)->merge(pkg, pkgArtifacts, static_cast<$BiFunction*>($$new(CompileJavaPackages$$Lambda$union$1)));
+							$var($Set, pkgArtifacts, $cast($Set, subResult->packageArtifacts->get(pkg)));
+							$nc(packageArtifacts)->merge(pkg, pkgArtifacts, $$new(CompileJavaPackages$$Lambda$union$1));
 						}
 					}
 				}
 				{
-					$var($Iterator, i$, $nc($($nc(subResult->packageDependencies)->keySet()))->iterator());
+					$var($Iterator, i$, $$nc($nc(subResult->packageDependencies)->keySet())->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($String, pkg, $cast($String, i$->next()));
 						{
 							$nc(packageDependencies)->putIfAbsent(pkg, $$new($HashMap));
-							$nc(($cast($Map, $(packageDependencies->get(pkg)))))->putAll($cast($Map, $($nc(subResult->packageDependencies)->get(pkg))));
+							$$sure($Map, packageDependencies->get(pkg))->putAll($$cast($Map, subResult->packageDependencies->get(pkg)));
 						}
 					}
 				}
 				{
-					$var($Iterator, i$, $nc($($nc(subResult->packageCpDependencies)->keySet()))->iterator());
+					$var($Iterator, i$, $$nc($nc(subResult->packageCpDependencies)->keySet())->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($String, pkg, $cast($String, i$->next()));
 						{
 							$nc(packageCpDependencies)->putIfAbsent(pkg, $$new($HashMap));
-							$nc(($cast($Map, $(packageCpDependencies->get(pkg)))))->putAll($cast($Map, $($nc(subResult->packageCpDependencies)->get(pkg))));
+							$$sure($Map, packageCpDependencies->get(pkg))->putAll($$cast($Map, subResult->packageCpDependencies->get(pkg)));
 						}
 					}
 				}
 				{
-					$var($Iterator, i$, $nc($($nc(subResult->packagePubapis)->keySet()))->iterator());
+					$var($Iterator, i$, $$nc($nc(subResult->packagePubapis)->keySet())->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($String, pkg, $cast($String, i$->next()));
 						{
-							$var($Object, var$0, $of(pkg));
-							$var($Object, var$1, $cast($PubApi, $nc(subResult->packagePubapis)->get(pkg)));
-							$nc(packagePubapis)->merge(var$0, var$1, static_cast<$BiFunction*>($$new(CompileJavaPackages$$Lambda$mergeTypes$2)));
+							$var($Object, var$0, $cast($PubApi, subResult->packagePubapis->get(pkg)));
+							$nc(packagePubapis)->merge(pkg, var$0, $$new(CompileJavaPackages$$Lambda$mergeTypes$2));
 						}
 					}
 				}
 				{
-					$var($Iterator, i$, $nc($($nc(subResult->dependencyPubapis)->keySet()))->iterator());
+					$var($Iterator, i$, $$nc($nc(subResult->dependencyPubapis)->keySet())->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($String, pkg, $cast($String, i$->next()));
 						{
-							$var($Object, var$2, $of(pkg));
-							$var($Object, var$3, $cast($PubApi, $nc(subResult->dependencyPubapis)->get(pkg)));
-							$nc(dependencyPubapis)->merge(var$2, var$3, static_cast<$BiFunction*>($$new(CompileJavaPackages$$Lambda$mergeTypes$2)));
+							$var($Object, var$1, $cast($PubApi, subResult->dependencyPubapis->get(pkg)));
+							$nc(dependencyPubapis)->merge(pkg, var$1, $$new(CompileJavaPackages$$Lambda$mergeTypes$2));
 						}
 					}
 				}
@@ -509,27 +456,25 @@ bool CompileJavaPackages::transform($CompilationService* sjavac, $Map* pkgSrcs, 
 		}
 	}
 	int64_t duration = $System::currentTimeMillis() - start;
-	int64_t minutes = duration / 0x0000EA60;
-	int64_t seconds = (duration - minutes * 0x0000EA60) / 1000;
+	int64_t minutes = duration / 60000;
+	int64_t seconds = (duration - minutes * 60000) / 1000;
 	$Log::debug($$str({"Compilation of "_s, $$str(numSources), " source files took "_s, $$str(minutes), "m "_s, $$str(seconds), "s"_s}));
 	return rc;
 }
 
 $CompileChunkArray* CompileJavaPackages::createCompileChunks($Map* pkgSrcs, $Map* oldPackageDependents, int32_t numCompiles, int32_t sourcesPerCompile) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CompileChunkArray, compileChunks, $new($CompileChunkArray, numCompiles));
 	for (int32_t i = 0; i < compileChunks->length; ++i) {
 		compileChunks->set(i, $$new($CompileChunk));
 	}
 	int32_t ci = 0;
-	$var($StringArray, packageNames, $fcast($StringArray, $nc($($nc(pkgSrcs)->keySet()))->toArray($$new($StringArray, 0))));
+	$var($StringArray, packageNames, $cast($StringArray, $$nc($nc(pkgSrcs)->keySet())->toArray($$new($StringArray, 0))));
 	$Arrays::sort(packageNames);
 	$var($String, from, nullptr);
 	{
 		$var($StringArray, arr$, packageNames);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, pkgName, arr$->get(i$));
 			{
 				$var($CompileChunk, cc, compileChunks->get(ci));
@@ -541,16 +486,16 @@ $CompileChunkArray* CompileJavaPackages::createCompileChunks($Map* pkgSrcs, $Map
 					$assign(cc, compileChunks->get(ci));
 				}
 				++$nc(cc)->numPackages;
-				$nc(cc->srcs)->addAll(s);
+				cc->srcs->addAll(s);
 				$var($String, justPkgName, $Util::justPackageName(pkgName));
 				$var($Set, ss, $cast($Set, $nc(oldPackageDependents)->get(pkgName)));
 				if (ss != nullptr) {
 					cc->numDependents += ss->size();
 				}
-				if (from == nullptr || $($nc(from)->trim())->equals(""_s)) {
+				if (from == nullptr || $(from->trim())->equals(""_s)) {
 					$assign(from, justPkgName);
 				}
-				$nc(cc->pkgNames)->append($$str({justPkgName, "("_s, $$str($nc(s)->size()), ") "_s}));
+				$nc(cc->pkgNames)->append($$str({justPkgName, "("_s, $$str(s->size()), ") "_s}));
 				$set(cc, pkgFromTos, $str({from, " to "_s, justPkgName}));
 			}
 		}
@@ -560,15 +505,14 @@ $CompileChunkArray* CompileJavaPackages::createCompileChunks($Map* pkgSrcs, $Map
 }
 
 $CompilationSubResult* CompileJavaPackages::lambda$transform$0($Log* log, $CompilationService* sjavac, $String* chunkId, $CompileChunk* cc, $Set* visibleSources, Object$* lock) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Log::setLogForCurrentThread(log);
 	$var($String, var$0, "n/a"_s);
-	$var($String, var$1, chunkId);
-	$var($StringArray, var$2, $nc(this->args)->prepJavacArgs());
-	$var($CompilationSubResult, result, $nc(sjavac)->compile(var$0, var$1, var$2, $($Collections::emptyList()), $nc(cc)->srcs, visibleSources));
+	$var($StringArray, var$1, $nc(this->args)->prepJavacArgs());
+	$var($CompilationSubResult, result, $nc(sjavac)->compile(var$0, chunkId, var$1, $($Collections::emptyList()), $nc(cc)->srcs, visibleSources));
 	$synchronized(lock) {
-		$nc($($Util::getLines($nc(result)->stdout)))->forEach(static_cast<$Consumer*>($$new(CompileJavaPackages$$Lambda$info$3)));
-		$nc($($Util::getLines($nc(result)->stderr)))->forEach(static_cast<$Consumer*>($$new(CompileJavaPackages$$Lambda$error$4)));
+		$$nc($Util::getLines($nc(result)->stdout))->forEach($$new(CompileJavaPackages$$Lambda$info$3));
+		$$nc($Util::getLines(result->stderr))->forEach($$new(CompileJavaPackages$$Lambda$error$4));
 	}
 	return result;
 }
@@ -578,23 +522,47 @@ CompileJavaPackages::CompileJavaPackages() {
 
 $Class* CompileJavaPackages::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(CompileJavaPackages$$Lambda$lambda$transform$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.sjavac.CompileJavaPackages$$Lambda$lambda$transform$0")) {
 			return CompileJavaPackages$$Lambda$lambda$transform$0::load$(name, initialize);
 		}
-		if (name->equals(CompileJavaPackages$$Lambda$union$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.sjavac.CompileJavaPackages$$Lambda$union$1")) {
 			return CompileJavaPackages$$Lambda$union$1::load$(name, initialize);
 		}
-		if (name->equals(CompileJavaPackages$$Lambda$mergeTypes$2::classInfo$.name)) {
+		if (name->equals("com.sun.tools.sjavac.CompileJavaPackages$$Lambda$mergeTypes$2")) {
 			return CompileJavaPackages$$Lambda$mergeTypes$2::load$(name, initialize);
 		}
-		if (name->equals(CompileJavaPackages$$Lambda$info$3::classInfo$.name)) {
+		if (name->equals("com.sun.tools.sjavac.CompileJavaPackages$$Lambda$info$3")) {
 			return CompileJavaPackages$$Lambda$info$3::load$(name, initialize);
 		}
-		if (name->equals(CompileJavaPackages$$Lambda$error$4::classInfo$.name)) {
+		if (name->equals("com.sun.tools.sjavac.CompileJavaPackages$$Lambda$error$4")) {
 			return CompileJavaPackages$$Lambda$error$4::load$(name, initialize);
 		}
 	}
-	$loadClass(CompileJavaPackages, name, initialize, &_CompileJavaPackages_ClassInfo_, allocate$CompileJavaPackages);
+	$FieldInfo fieldInfos$$[] = {
+		{"limitOnConcurrency", "I", nullptr, $STATIC | $FINAL, $constField(CompileJavaPackages, limitOnConcurrency)},
+		{"args", "Lcom/sun/tools/sjavac/options/Options;", nullptr, 0, $field(CompileJavaPackages, args)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CompileJavaPackages, init$, void)},
+		{"createCompileChunks", "(Ljava/util/Map;Ljava/util/Map;II)[Lcom/sun/tools/sjavac/CompileChunk;", "(Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/net/URI;>;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;II)[Lcom/sun/tools/sjavac/CompileChunk;", 0, $virtualMethod(CompileJavaPackages, createCompileChunks, $CompileChunkArray*, $Map*, $Map*, int32_t, int32_t)},
+		{"lambda$transform$0", "(Lcom/sun/tools/sjavac/Log;Lcom/sun/tools/sjavac/comp/CompilationService;Ljava/lang/String;Lcom/sun/tools/sjavac/CompileChunk;Ljava/util/Set;Ljava/lang/Object;)Lcom/sun/tools/sjavac/server/CompilationSubResult;", nullptr, $PRIVATE | $SYNTHETIC, $method(CompileJavaPackages, lambda$transform$0, $CompilationSubResult*, $Log*, $CompilationService*, $String*, $CompileChunk*, $Set*, Object$*), "java.lang.Exception"},
+		{"setExtra", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CompileJavaPackages, setExtra, void, $String*)},
+		{"setExtra", "(Lcom/sun/tools/sjavac/options/Options;)V", nullptr, $PUBLIC, $virtualMethod(CompileJavaPackages, setExtra, void, $Options*)},
+		{"transform", "(Lcom/sun/tools/sjavac/comp/CompilationService;Ljava/util/Map;Ljava/util/Set;Ljava/util/Map;Ljava/net/URI;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;IZI)Z", "(Lcom/sun/tools/sjavac/comp/CompilationService;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/net/URI;>;>;Ljava/util/Set<Ljava/net/URI;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/net/URI;>;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;>;IZI)Z", $PUBLIC, $virtualMethod(CompileJavaPackages, transform, bool, $CompilationService*, $Map*, $Set*, $Map*, $URI*, $Map*, $Map*, $Map*, $Map*, $Map*, int32_t, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.CompileJavaPackages",
+		"java.lang.Object",
+		"com.sun.tools.sjavac.Transformer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CompileJavaPackages, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CompileJavaPackages);
+	});
 	return class$;
 }
 

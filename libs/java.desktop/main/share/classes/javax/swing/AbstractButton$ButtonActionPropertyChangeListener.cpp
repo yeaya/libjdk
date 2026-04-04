@@ -1,5 +1,4 @@
 #include <javax/swing/AbstractButton$ButtonActionPropertyChangeListener.h>
-
 #include <java/beans/PropertyChangeEvent.h>
 #include <javax/swing/AbstractAction.h>
 #include <javax/swing/AbstractButton.h>
@@ -21,38 +20,6 @@ using $JComponent = ::javax::swing::JComponent;
 namespace javax {
 	namespace swing {
 
-$MethodInfo _AbstractButton$ButtonActionPropertyChangeListener_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/AbstractButton;Ljavax/swing/Action;)V", nullptr, 0, $method(AbstractButton$ButtonActionPropertyChangeListener, init$, void, $AbstractButton*, $Action*)},
-	{"actionPropertyChanged", "(Ljavax/swing/AbstractButton;Ljavax/swing/Action;Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(AbstractButton$ButtonActionPropertyChangeListener, actionPropertyChanged, void, $AbstractButton*, $Action*, $PropertyChangeEvent*)},
-	{"actionPropertyChanged", "(Ljavax/swing/JComponent;Ljavax/swing/Action;Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(AbstractButton$ButtonActionPropertyChangeListener, actionPropertyChanged, void, $JComponent*, $Action*, $PropertyChangeEvent*)},
-	{}
-};
-
-$InnerClassInfo _AbstractButton$ButtonActionPropertyChangeListener_InnerClassesInfo_[] = {
-	{"javax.swing.AbstractButton$ButtonActionPropertyChangeListener", "javax.swing.AbstractButton", "ButtonActionPropertyChangeListener", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AbstractButton$ButtonActionPropertyChangeListener_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.AbstractButton$ButtonActionPropertyChangeListener",
-	"javax.swing.ActionPropertyChangeListener",
-	nullptr,
-	nullptr,
-	_AbstractButton$ButtonActionPropertyChangeListener_MethodInfo_,
-	"Ljavax/swing/ActionPropertyChangeListener<Ljavax/swing/AbstractButton;>;",
-	nullptr,
-	_AbstractButton$ButtonActionPropertyChangeListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.AbstractButton"
-};
-
-$Object* allocate$AbstractButton$ButtonActionPropertyChangeListener($Class* clazz) {
-	return $of($alloc(AbstractButton$ButtonActionPropertyChangeListener));
-}
-
 void AbstractButton$ButtonActionPropertyChangeListener::init$($AbstractButton* b, $Action* a) {
 	$ActionPropertyChangeListener::init$(b, a);
 }
@@ -73,7 +40,34 @@ AbstractButton$ButtonActionPropertyChangeListener::AbstractButton$ButtonActionPr
 }
 
 $Class* AbstractButton$ButtonActionPropertyChangeListener::load$($String* name, bool initialize) {
-	$loadClass(AbstractButton$ButtonActionPropertyChangeListener, name, initialize, &_AbstractButton$ButtonActionPropertyChangeListener_ClassInfo_, allocate$AbstractButton$ButtonActionPropertyChangeListener);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/AbstractButton;Ljavax/swing/Action;)V", nullptr, 0, $method(AbstractButton$ButtonActionPropertyChangeListener, init$, void, $AbstractButton*, $Action*)},
+		{"actionPropertyChanged", "(Ljavax/swing/AbstractButton;Ljavax/swing/Action;Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(AbstractButton$ButtonActionPropertyChangeListener, actionPropertyChanged, void, $AbstractButton*, $Action*, $PropertyChangeEvent*)},
+		{"actionPropertyChanged", "(Ljavax/swing/JComponent;Ljavax/swing/Action;Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(AbstractButton$ButtonActionPropertyChangeListener, actionPropertyChanged, void, $JComponent*, $Action*, $PropertyChangeEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.AbstractButton$ButtonActionPropertyChangeListener", "javax.swing.AbstractButton", "ButtonActionPropertyChangeListener", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.AbstractButton$ButtonActionPropertyChangeListener",
+		"javax.swing.ActionPropertyChangeListener",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Ljavax/swing/ActionPropertyChangeListener<Ljavax/swing/AbstractButton;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.AbstractButton"
+	};
+	$loadClass(AbstractButton$ButtonActionPropertyChangeListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractButton$ButtonActionPropertyChangeListener));
+	});
 	return class$;
 }
 

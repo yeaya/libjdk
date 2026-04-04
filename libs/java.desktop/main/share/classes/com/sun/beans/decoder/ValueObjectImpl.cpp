@@ -1,5 +1,4 @@
 #include <com/sun/beans/decoder/ValueObjectImpl.h>
-
 #include <com/sun/beans/decoder/ValueObject.h>
 #include <jcpp.h>
 
@@ -16,42 +15,12 @@ namespace com {
 		namespace beans {
 			namespace decoder {
 
-$FieldInfo _ValueObjectImpl_FieldInfo_[] = {
-	{"NULL", "Lcom/sun/beans/decoder/ValueObject;", nullptr, $STATIC | $FINAL, $staticField(ValueObjectImpl, NULL)},
-	{"VOID", "Lcom/sun/beans/decoder/ValueObject;", nullptr, $STATIC | $FINAL, $staticField(ValueObjectImpl, VOID)},
-	{"value", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(ValueObjectImpl, value)},
-	{"isVoid", "Z", nullptr, $PRIVATE, $field(ValueObjectImpl, isVoid$)},
-	{}
-};
-
-$MethodInfo _ValueObjectImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ValueObjectImpl, init$, void)},
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(ValueObjectImpl, init$, void, Object$*)},
-	{"create", "(Ljava/lang/Object;)Lcom/sun/beans/decoder/ValueObject;", nullptr, $STATIC, $staticMethod(ValueObjectImpl, create, $ValueObject*, Object$*)},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ValueObjectImpl, getValue, $Object*)},
-	{"isVoid", "()Z", nullptr, $PUBLIC, $virtualMethod(ValueObjectImpl, isVoid, bool)},
-	{}
-};
-
-$ClassInfo _ValueObjectImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.beans.decoder.ValueObjectImpl",
-	"java.lang.Object",
-	"com.sun.beans.decoder.ValueObject",
-	_ValueObjectImpl_FieldInfo_,
-	_ValueObjectImpl_MethodInfo_
-};
-
-$Object* allocate$ValueObjectImpl($Class* clazz) {
-	return $of($alloc(ValueObjectImpl));
-}
-
 $ValueObject* ValueObjectImpl::NULL = nullptr;
 $ValueObject* ValueObjectImpl::VOID = nullptr;
 
 $ValueObject* ValueObjectImpl::create(Object$* value) {
 	$init(ValueObjectImpl);
-	return (value != nullptr) ? static_cast<$ValueObject*>($new(ValueObjectImpl, value)) : ValueObjectImpl::NULL;
+	return (value != nullptr) ? $cast($ValueObject, $new(ValueObjectImpl, value)) : ValueObjectImpl::NULL;
 }
 
 void ValueObjectImpl::init$() {
@@ -63,14 +32,14 @@ void ValueObjectImpl::init$(Object$* value) {
 }
 
 $Object* ValueObjectImpl::getValue() {
-	return $of(this->value);
+	return this->value;
 }
 
 bool ValueObjectImpl::isVoid() {
 	return this->isVoid$;
 }
 
-void clinit$ValueObjectImpl($Class* class$) {
+void ValueObjectImpl::clinit$($Class* clazz) {
 	$assignStatic(ValueObjectImpl::NULL, $new(ValueObjectImpl, nullptr));
 	$assignStatic(ValueObjectImpl::VOID, $new(ValueObjectImpl));
 }
@@ -79,7 +48,32 @@ ValueObjectImpl::ValueObjectImpl() {
 }
 
 $Class* ValueObjectImpl::load$($String* name, bool initialize) {
-	$loadClass(ValueObjectImpl, name, initialize, &_ValueObjectImpl_ClassInfo_, clinit$ValueObjectImpl, allocate$ValueObjectImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"NULL", "Lcom/sun/beans/decoder/ValueObject;", nullptr, $STATIC | $FINAL, $staticField(ValueObjectImpl, NULL)},
+		{"VOID", "Lcom/sun/beans/decoder/ValueObject;", nullptr, $STATIC | $FINAL, $staticField(ValueObjectImpl, VOID)},
+		{"value", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(ValueObjectImpl, value)},
+		{"isVoid", "Z", nullptr, $PRIVATE, $field(ValueObjectImpl, isVoid$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ValueObjectImpl, init$, void)},
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(ValueObjectImpl, init$, void, Object$*)},
+		{"create", "(Ljava/lang/Object;)Lcom/sun/beans/decoder/ValueObject;", nullptr, $STATIC, $staticMethod(ValueObjectImpl, create, $ValueObject*, Object$*)},
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ValueObjectImpl, getValue, $Object*)},
+		{"isVoid", "()Z", nullptr, $PUBLIC, $virtualMethod(ValueObjectImpl, isVoid, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.beans.decoder.ValueObjectImpl",
+		"java.lang.Object",
+		"com.sun.beans.decoder.ValueObject",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ValueObjectImpl, name, initialize, &classInfo$$, ValueObjectImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ValueObjectImpl);
+	});
 	return class$;
 }
 

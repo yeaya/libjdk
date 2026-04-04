@@ -1,5 +1,4 @@
 #include <sun/management/ThreadInfoCompositeData.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Runtime$Version.h>
@@ -70,7 +69,6 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $Runtime = ::java::lang::Runtime;
-using $Runtime$Version = ::java::lang::Runtime$Version;
 using $StackTraceElement = ::java::lang::StackTraceElement;
 using $Thread$State = ::java::lang::Thread$State;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
@@ -81,7 +79,6 @@ using $Arrays = ::java::util::Arrays;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $Predicate = ::java::util::function::Predicate;
-using $Stream = ::java::util::stream::Stream;
 using $CompositeData = ::javax::management::openmbean::CompositeData;
 using $CompositeDataSupport = ::javax::management::openmbean::CompositeDataSupport;
 using $CompositeType = ::javax::management::openmbean::CompositeType;
@@ -104,118 +101,32 @@ public:
 	virtual bool test(Object$* itemName) override {
 		 return $nc(inst$)->containsKey($cast($String, itemName));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ThreadInfoCompositeData$$Lambda$containsKey>());
-	}
 	$CompositeType* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ThreadInfoCompositeData$$Lambda$containsKey::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ThreadInfoCompositeData$$Lambda$containsKey, inst$)},
-	{}
-};
-$MethodInfo ThreadInfoCompositeData$$Lambda$containsKey::methodInfos[3] = {
-	{"<init>", "(Ljavax/management/openmbean/CompositeType;)V", nullptr, $PUBLIC, $method(ThreadInfoCompositeData$$Lambda$containsKey, init$, void, $CompositeType*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData$$Lambda$containsKey, test, bool, Object$*)},
-	{}
-};
-$ClassInfo ThreadInfoCompositeData$$Lambda$containsKey::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.management.ThreadInfoCompositeData$$Lambda$containsKey",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* ThreadInfoCompositeData$$Lambda$containsKey::load$($String* name, bool initialize) {
-	$loadClass(ThreadInfoCompositeData$$Lambda$containsKey, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ThreadInfoCompositeData$$Lambda$containsKey, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/openmbean/CompositeType;)V", nullptr, $PUBLIC, $method(ThreadInfoCompositeData$$Lambda$containsKey, init$, void, $CompositeType*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData$$Lambda$containsKey, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.management.ThreadInfoCompositeData$$Lambda$containsKey",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ThreadInfoCompositeData$$Lambda$containsKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ThreadInfoCompositeData$$Lambda$containsKey);
+	});
 	return class$;
 }
 $Class* ThreadInfoCompositeData$$Lambda$containsKey::class$ = nullptr;
-
-$FieldInfo _ThreadInfoCompositeData_FieldInfo_[] = {
-	{"threadInfo", "Ljava/lang/management/ThreadInfo;", nullptr, $PRIVATE | $FINAL, $field(ThreadInfoCompositeData, threadInfo)},
-	{"cdata", "Ljavax/management/openmbean/CompositeData;", nullptr, $PRIVATE | $FINAL, $field(ThreadInfoCompositeData, cdata)},
-	{"THREAD_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, THREAD_ID)},
-	{"THREAD_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, THREAD_NAME)},
-	{"THREAD_STATE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, THREAD_STATE)},
-	{"BLOCKED_TIME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, BLOCKED_TIME)},
-	{"BLOCKED_COUNT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, BLOCKED_COUNT)},
-	{"WAITED_TIME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, WAITED_TIME)},
-	{"WAITED_COUNT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, WAITED_COUNT)},
-	{"LOCK_INFO", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, LOCK_INFO)},
-	{"LOCK_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, LOCK_NAME)},
-	{"LOCK_OWNER_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, LOCK_OWNER_ID)},
-	{"LOCK_OWNER_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, LOCK_OWNER_NAME)},
-	{"STACK_TRACE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, STACK_TRACE)},
-	{"SUSPENDED", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, SUSPENDED)},
-	{"IN_NATIVE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, IN_NATIVE)},
-	{"DAEMON", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, DAEMON)},
-	{"PRIORITY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, PRIORITY)},
-	{"LOCKED_MONITORS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, LOCKED_MONITORS)},
-	{"LOCKED_SYNCS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, LOCKED_SYNCS)},
-	{"V5_ATTRIBUTES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, V5_ATTRIBUTES)},
-	{"V6_ATTRIBUTES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, V6_ATTRIBUTES)},
-	{"V9_ATTRIBUTES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, V9_ATTRIBUTES)},
-	{"RUNTIME_VERSION", "I", nullptr, $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, RUNTIME_VERSION)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ThreadInfoCompositeData, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ThreadInfoCompositeData_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/management/ThreadInfo;)V", nullptr, $PRIVATE, $method(ThreadInfoCompositeData, init$, void, $ThreadInfo*)},
-	{"<init>", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, $PRIVATE, $method(ThreadInfoCompositeData, init$, void, $CompositeData*)},
-	{"blockedCount", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, blockedCount, int64_t)},
-	{"blockedTime", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, blockedTime, int64_t)},
-	{"getCompositeData", "()Ljavax/management/openmbean/CompositeData;", nullptr, $PROTECTED, $virtualMethod(ThreadInfoCompositeData, getCompositeData, $CompositeData*)},
-	{"getInstance", "(Ljavax/management/openmbean/CompositeData;)Lsun/management/ThreadInfoCompositeData;", nullptr, $PUBLIC | $STATIC, $staticMethod(ThreadInfoCompositeData, getInstance, ThreadInfoCompositeData*, $CompositeData*)},
-	{"getPriority", "()I", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, getPriority, int32_t)},
-	{"getThreadInfo", "()Ljava/lang/management/ThreadInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, getThreadInfo, $ThreadInfo*)},
-	{"inNative", "()Z", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, inNative, bool)},
-	{"isDaemon", "()Z", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, isDaemon, bool)},
-	{"lockInfo", "()Ljava/lang/management/LockInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, lockInfo, $LockInfo*)},
-	{"lockName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, lockName, $String*)},
-	{"lockOwnerId", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, lockOwnerId, int64_t)},
-	{"lockOwnerName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, lockOwnerName, $String*)},
-	{"lockedMonitors", "()[Ljava/lang/management/MonitorInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, lockedMonitors, $MonitorInfoArray*)},
-	{"lockedSynchronizers", "()[Ljava/lang/management/LockInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, lockedSynchronizers, $LockInfoArray*)},
-	{"stackTrace", "()[Ljava/lang/StackTraceElement;", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, stackTrace, $StackTraceElementArray*)},
-	{"suspended", "()Z", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, suspended, bool)},
-	{"threadId", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, threadId, int64_t)},
-	{"threadName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, threadName, $String*)},
-	{"threadState", "()Ljava/lang/Thread$State;", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, threadState, $Thread$State*)},
-	{"toCompositeData", "(Ljava/lang/management/ThreadInfo;)Ljavax/management/openmbean/CompositeData;", nullptr, $PUBLIC | $STATIC, $staticMethod(ThreadInfoCompositeData, toCompositeData, $CompositeData*, $ThreadInfo*)},
-	{"validateCompositeData", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ThreadInfoCompositeData, validateCompositeData, void, $CompositeData*)},
-	{"waitedCount", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, waitedCount, int64_t)},
-	{"waitedTime", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, waitedTime, int64_t)},
-	{}
-};
-
-$InnerClassInfo _ThreadInfoCompositeData_InnerClassesInfo_[] = {
-	{"sun.management.ThreadInfoCompositeData$ThreadInfoCompositeTypes", "sun.management.ThreadInfoCompositeData", "ThreadInfoCompositeTypes", $STATIC},
-	{}
-};
-
-$ClassInfo _ThreadInfoCompositeData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.management.ThreadInfoCompositeData",
-	"sun.management.LazyCompositeData",
-	nullptr,
-	_ThreadInfoCompositeData_FieldInfo_,
-	_ThreadInfoCompositeData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ThreadInfoCompositeData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.management.ThreadInfoCompositeData$ThreadInfoCompositeTypes"
-};
-
-$Object* allocate$ThreadInfoCompositeData($Class* clazz) {
-	return $of($alloc(ThreadInfoCompositeData));
-}
 
 $String* ThreadInfoCompositeData::THREAD_ID = nullptr;
 $String* ThreadInfoCompositeData::THREAD_NAME = nullptr;
@@ -269,45 +180,45 @@ $CompositeData* ThreadInfoCompositeData::toCompositeData($ThreadInfo* ti) {
 }
 
 $CompositeData* ThreadInfoCompositeData::getCompositeData() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StackTraceElementArray, stackTrace, $nc(this->threadInfo)->getStackTrace());
 	$var($CompositeDataArray, stackTraceData, $new($CompositeDataArray, $nc(stackTrace)->length));
 	for (int32_t i = 0; i < stackTrace->length; ++i) {
 		$var($StackTraceElement, ste, stackTrace->get(i));
 		stackTraceData->set(i, $($StackTraceElementCompositeData::toCompositeData(ste)));
 	}
-	$var($CompositeData, lockInfoData, $LockInfoCompositeData::toCompositeData($($nc(this->threadInfo)->getLockInfo())));
-	$var($LockInfoArray, lockedSyncs, $nc(this->threadInfo)->getLockedSynchronizers());
+	$var($CompositeData, lockInfoData, $LockInfoCompositeData::toCompositeData($(this->threadInfo->getLockInfo())));
+	$var($LockInfoArray, lockedSyncs, this->threadInfo->getLockedSynchronizers());
 	$var($CompositeDataArray, lockedSyncsData, $new($CompositeDataArray, $nc(lockedSyncs)->length));
 	for (int32_t i = 0; i < lockedSyncs->length; ++i) {
 		$var($LockInfo, li, lockedSyncs->get(i));
 		lockedSyncsData->set(i, $($LockInfoCompositeData::toCompositeData(li)));
 	}
-	$var($MonitorInfoArray, lockedMonitors, $nc(this->threadInfo)->getLockedMonitors());
+	$var($MonitorInfoArray, lockedMonitors, this->threadInfo->getLockedMonitors());
 	$var($CompositeDataArray, lockedMonitorsData, $new($CompositeDataArray, $nc(lockedMonitors)->length));
 	for (int32_t i = 0; i < lockedMonitors->length; ++i) {
 		$var($MonitorInfo, mi, lockedMonitors->get(i));
 		lockedMonitorsData->set(i, $($MonitorInfoCompositeData::toCompositeData(mi)));
 	}
 	$var($Map, items, $new($HashMap));
-	items->put(ThreadInfoCompositeData::THREAD_ID, $($Long::valueOf($nc(this->threadInfo)->getThreadId())));
-	items->put(ThreadInfoCompositeData::THREAD_NAME, $($nc(this->threadInfo)->getThreadName()));
-	items->put(ThreadInfoCompositeData::THREAD_STATE, $($nc($($nc(this->threadInfo)->getThreadState()))->name()));
-	items->put(ThreadInfoCompositeData::BLOCKED_TIME, $($Long::valueOf($nc(this->threadInfo)->getBlockedTime())));
-	items->put(ThreadInfoCompositeData::BLOCKED_COUNT, $($Long::valueOf($nc(this->threadInfo)->getBlockedCount())));
-	items->put(ThreadInfoCompositeData::WAITED_TIME, $($Long::valueOf($nc(this->threadInfo)->getWaitedTime())));
-	items->put(ThreadInfoCompositeData::WAITED_COUNT, $($Long::valueOf($nc(this->threadInfo)->getWaitedCount())));
+	items->put(ThreadInfoCompositeData::THREAD_ID, $($Long::valueOf(this->threadInfo->getThreadId())));
+	items->put(ThreadInfoCompositeData::THREAD_NAME, $(this->threadInfo->getThreadName()));
+	items->put(ThreadInfoCompositeData::THREAD_STATE, $($$nc(this->threadInfo->getThreadState())->name()));
+	items->put(ThreadInfoCompositeData::BLOCKED_TIME, $($Long::valueOf(this->threadInfo->getBlockedTime())));
+	items->put(ThreadInfoCompositeData::BLOCKED_COUNT, $($Long::valueOf(this->threadInfo->getBlockedCount())));
+	items->put(ThreadInfoCompositeData::WAITED_TIME, $($Long::valueOf(this->threadInfo->getWaitedTime())));
+	items->put(ThreadInfoCompositeData::WAITED_COUNT, $($Long::valueOf(this->threadInfo->getWaitedCount())));
 	items->put(ThreadInfoCompositeData::LOCK_INFO, lockInfoData);
-	items->put(ThreadInfoCompositeData::LOCK_NAME, $($nc(this->threadInfo)->getLockName()));
-	items->put(ThreadInfoCompositeData::LOCK_OWNER_ID, $($Long::valueOf($nc(this->threadInfo)->getLockOwnerId())));
-	items->put(ThreadInfoCompositeData::LOCK_OWNER_NAME, $($nc(this->threadInfo)->getLockOwnerName()));
+	items->put(ThreadInfoCompositeData::LOCK_NAME, $(this->threadInfo->getLockName()));
+	items->put(ThreadInfoCompositeData::LOCK_OWNER_ID, $($Long::valueOf(this->threadInfo->getLockOwnerId())));
+	items->put(ThreadInfoCompositeData::LOCK_OWNER_NAME, $(this->threadInfo->getLockOwnerName()));
 	items->put(ThreadInfoCompositeData::STACK_TRACE, stackTraceData);
-	items->put(ThreadInfoCompositeData::SUSPENDED, $($Boolean::valueOf($nc(this->threadInfo)->isSuspended())));
-	items->put(ThreadInfoCompositeData::IN_NATIVE, $($Boolean::valueOf($nc(this->threadInfo)->isInNative())));
+	items->put(ThreadInfoCompositeData::SUSPENDED, $($Boolean::valueOf(this->threadInfo->isSuspended())));
+	items->put(ThreadInfoCompositeData::IN_NATIVE, $($Boolean::valueOf(this->threadInfo->isInNative())));
 	items->put(ThreadInfoCompositeData::LOCKED_MONITORS, lockedMonitorsData);
 	items->put(ThreadInfoCompositeData::LOCKED_SYNCS, lockedSyncsData);
-	items->put(ThreadInfoCompositeData::DAEMON, $($Boolean::valueOf($nc(this->threadInfo)->isDaemon())));
-	items->put(ThreadInfoCompositeData::PRIORITY, $($Integer::valueOf($nc(this->threadInfo)->getPriority())));
+	items->put(ThreadInfoCompositeData::DAEMON, $($Boolean::valueOf(this->threadInfo->isDaemon())));
+	items->put(ThreadInfoCompositeData::PRIORITY, $($Integer::valueOf(this->threadInfo->getPriority())));
 	try {
 		return $new($CompositeDataSupport, $($ThreadInfoCompositeData$ThreadInfoCompositeTypes::ofVersion(ThreadInfoCompositeData::RUNTIME_VERSION)), items);
 	} catch ($OpenDataException& e) {
@@ -321,7 +232,7 @@ int64_t ThreadInfoCompositeData::threadId() {
 }
 
 $String* ThreadInfoCompositeData::threadName() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, getString(this->cdata, ThreadInfoCompositeData::THREAD_NAME));
 	if (name == nullptr) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid composite data: Attribute "_s, ThreadInfoCompositeData::THREAD_NAME, " has null value"_s}));
@@ -378,7 +289,7 @@ int32_t ThreadInfoCompositeData::getPriority() {
 }
 
 $StackTraceElementArray* ThreadInfoCompositeData::stackTrace() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CompositeDataArray, stackTraceData, $cast($CompositeDataArray, $nc(this->cdata)->get(ThreadInfoCompositeData::STACK_TRACE)));
 	$var($StackTraceElementArray, stackTrace, $new($StackTraceElementArray, $nc(stackTraceData)->length));
 	for (int32_t i = 0; i < stackTraceData->length; ++i) {
@@ -389,9 +300,9 @@ $StackTraceElementArray* ThreadInfoCompositeData::stackTrace() {
 }
 
 $LockInfo* ThreadInfoCompositeData::lockInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->cdata)->containsKey(ThreadInfoCompositeData::LOCK_INFO)) {
-		$var($CompositeData, lockInfoData, $cast($CompositeData, $nc(this->cdata)->get(ThreadInfoCompositeData::LOCK_INFO)));
+		$var($CompositeData, lockInfoData, $cast($CompositeData, this->cdata->get(ThreadInfoCompositeData::LOCK_INFO)));
 		return $LockInfo::from(lockInfoData);
 	} else {
 		$var($String, lockName, this->lockName());
@@ -408,11 +319,11 @@ $LockInfo* ThreadInfoCompositeData::lockInfo() {
 }
 
 $MonitorInfoArray* ThreadInfoCompositeData::lockedMonitors() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(this->cdata)->containsKey(ThreadInfoCompositeData::LOCKED_MONITORS)) {
 		return $new($MonitorInfoArray, 0);
 	}
-	$var($CompositeDataArray, lockedMonitorsData, $cast($CompositeDataArray, $nc(this->cdata)->get(ThreadInfoCompositeData::LOCKED_MONITORS)));
+	$var($CompositeDataArray, lockedMonitorsData, $cast($CompositeDataArray, this->cdata->get(ThreadInfoCompositeData::LOCKED_MONITORS)));
 	$var($MonitorInfoArray, monitors, $new($MonitorInfoArray, $nc(lockedMonitorsData)->length));
 	for (int32_t i = 0; i < lockedMonitorsData->length; ++i) {
 		$var($CompositeData, cdi, lockedMonitorsData->get(i));
@@ -422,11 +333,11 @@ $MonitorInfoArray* ThreadInfoCompositeData::lockedMonitors() {
 }
 
 $LockInfoArray* ThreadInfoCompositeData::lockedSynchronizers() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(this->cdata)->containsKey(ThreadInfoCompositeData::LOCKED_SYNCS)) {
 		return $new($LockInfoArray, 0);
 	}
-	$var($CompositeDataArray, lockedSyncsData, $cast($CompositeDataArray, $nc(this->cdata)->get(ThreadInfoCompositeData::LOCKED_SYNCS)));
+	$var($CompositeDataArray, lockedSyncsData, $cast($CompositeDataArray, this->cdata->get(ThreadInfoCompositeData::LOCKED_SYNCS)));
 	$var($LockInfoArray, locks, $new($LockInfoArray, $nc(lockedSyncsData)->length));
 	for (int32_t i = 0; i < lockedSyncsData->length; ++i) {
 		$var($CompositeData, cdi, lockedSyncsData->get(i));
@@ -437,27 +348,25 @@ $LockInfoArray* ThreadInfoCompositeData::lockedSynchronizers() {
 
 void ThreadInfoCompositeData::validateCompositeData($CompositeData* cd) {
 	$init(ThreadInfoCompositeData);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (cd == nullptr) {
 		$throwNew($NullPointerException, "Null CompositeData"_s);
 	}
 	$var($CompositeType, type, $nc(cd)->getCompositeType());
 	int32_t version = 0;
-	if ($nc($($Arrays::stream(ThreadInfoCompositeData::V9_ATTRIBUTES)))->anyMatch(static_cast<$Predicate*>($$new(ThreadInfoCompositeData$$Lambda$containsKey, static_cast<$CompositeType*>($nc(type)))))) {
-		version = $nc($($Runtime::version()))->feature();
+	if ($$nc($Arrays::stream(ThreadInfoCompositeData::V9_ATTRIBUTES))->anyMatch($$new(ThreadInfoCompositeData$$Lambda$containsKey, $nc(type)))) {
+		version = $$nc($Runtime::version())->feature();
+	} else if ($$nc($Arrays::stream(ThreadInfoCompositeData::V6_ATTRIBUTES))->anyMatch($$new(ThreadInfoCompositeData$$Lambda$containsKey, type))) {
+		version = 6;
 	} else {
-		if ($nc($($Arrays::stream(ThreadInfoCompositeData::V6_ATTRIBUTES)))->anyMatch(static_cast<$Predicate*>($$new(ThreadInfoCompositeData$$Lambda$containsKey, static_cast<$CompositeType*>($nc(type)))))) {
-			version = 6;
-		} else {
-			version = 5;
-		}
+		version = 5;
 	}
 	if (!isTypeMatched($($ThreadInfoCompositeData$ThreadInfoCompositeTypes::ofVersion(version)), type)) {
 		$throwNew($IllegalArgumentException, $$str({"Unexpected composite type for ThreadInfo of version "_s, $$str(version)}));
 	}
 }
 
-void clinit$ThreadInfoCompositeData($Class* class$) {
+void ThreadInfoCompositeData::clinit$($Class* clazz) {
 	$assignStatic(ThreadInfoCompositeData::THREAD_ID, "threadId"_s);
 	$assignStatic(ThreadInfoCompositeData::THREAD_NAME, "threadName"_s);
 	$assignStatic(ThreadInfoCompositeData::THREAD_STATE, "threadState"_s);
@@ -500,7 +409,7 @@ void clinit$ThreadInfoCompositeData($Class* class$) {
 		ThreadInfoCompositeData::DAEMON,
 		ThreadInfoCompositeData::PRIORITY
 	}));
-	ThreadInfoCompositeData::RUNTIME_VERSION = $nc($($Runtime::version()))->feature();
+	ThreadInfoCompositeData::RUNTIME_VERSION = $$nc($Runtime::version())->feature();
 }
 
 ThreadInfoCompositeData::ThreadInfoCompositeData() {
@@ -508,11 +417,87 @@ ThreadInfoCompositeData::ThreadInfoCompositeData() {
 
 $Class* ThreadInfoCompositeData::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ThreadInfoCompositeData$$Lambda$containsKey::classInfo$.name)) {
+		if (name->equals("sun.management.ThreadInfoCompositeData$$Lambda$containsKey")) {
 			return ThreadInfoCompositeData$$Lambda$containsKey::load$(name, initialize);
 		}
 	}
-	$loadClass(ThreadInfoCompositeData, name, initialize, &_ThreadInfoCompositeData_ClassInfo_, clinit$ThreadInfoCompositeData, allocate$ThreadInfoCompositeData);
+	$FieldInfo fieldInfos$$[] = {
+		{"threadInfo", "Ljava/lang/management/ThreadInfo;", nullptr, $PRIVATE | $FINAL, $field(ThreadInfoCompositeData, threadInfo)},
+		{"cdata", "Ljavax/management/openmbean/CompositeData;", nullptr, $PRIVATE | $FINAL, $field(ThreadInfoCompositeData, cdata)},
+		{"THREAD_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, THREAD_ID)},
+		{"THREAD_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, THREAD_NAME)},
+		{"THREAD_STATE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, THREAD_STATE)},
+		{"BLOCKED_TIME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, BLOCKED_TIME)},
+		{"BLOCKED_COUNT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, BLOCKED_COUNT)},
+		{"WAITED_TIME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, WAITED_TIME)},
+		{"WAITED_COUNT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, WAITED_COUNT)},
+		{"LOCK_INFO", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, LOCK_INFO)},
+		{"LOCK_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, LOCK_NAME)},
+		{"LOCK_OWNER_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, LOCK_OWNER_ID)},
+		{"LOCK_OWNER_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, LOCK_OWNER_NAME)},
+		{"STACK_TRACE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, STACK_TRACE)},
+		{"SUSPENDED", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, SUSPENDED)},
+		{"IN_NATIVE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, IN_NATIVE)},
+		{"DAEMON", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, DAEMON)},
+		{"PRIORITY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, PRIORITY)},
+		{"LOCKED_MONITORS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, LOCKED_MONITORS)},
+		{"LOCKED_SYNCS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, LOCKED_SYNCS)},
+		{"V5_ATTRIBUTES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, V5_ATTRIBUTES)},
+		{"V6_ATTRIBUTES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, V6_ATTRIBUTES)},
+		{"V9_ATTRIBUTES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, V9_ATTRIBUTES)},
+		{"RUNTIME_VERSION", "I", nullptr, $STATIC | $FINAL, $staticField(ThreadInfoCompositeData, RUNTIME_VERSION)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ThreadInfoCompositeData, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/management/ThreadInfo;)V", nullptr, $PRIVATE, $method(ThreadInfoCompositeData, init$, void, $ThreadInfo*)},
+		{"<init>", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, $PRIVATE, $method(ThreadInfoCompositeData, init$, void, $CompositeData*)},
+		{"blockedCount", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, blockedCount, int64_t)},
+		{"blockedTime", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, blockedTime, int64_t)},
+		{"getCompositeData", "()Ljavax/management/openmbean/CompositeData;", nullptr, $PROTECTED, $virtualMethod(ThreadInfoCompositeData, getCompositeData, $CompositeData*)},
+		{"getInstance", "(Ljavax/management/openmbean/CompositeData;)Lsun/management/ThreadInfoCompositeData;", nullptr, $PUBLIC | $STATIC, $staticMethod(ThreadInfoCompositeData, getInstance, ThreadInfoCompositeData*, $CompositeData*)},
+		{"getPriority", "()I", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, getPriority, int32_t)},
+		{"getThreadInfo", "()Ljava/lang/management/ThreadInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, getThreadInfo, $ThreadInfo*)},
+		{"inNative", "()Z", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, inNative, bool)},
+		{"isDaemon", "()Z", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, isDaemon, bool)},
+		{"lockInfo", "()Ljava/lang/management/LockInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, lockInfo, $LockInfo*)},
+		{"lockName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, lockName, $String*)},
+		{"lockOwnerId", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, lockOwnerId, int64_t)},
+		{"lockOwnerName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, lockOwnerName, $String*)},
+		{"lockedMonitors", "()[Ljava/lang/management/MonitorInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, lockedMonitors, $MonitorInfoArray*)},
+		{"lockedSynchronizers", "()[Ljava/lang/management/LockInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, lockedSynchronizers, $LockInfoArray*)},
+		{"stackTrace", "()[Ljava/lang/StackTraceElement;", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, stackTrace, $StackTraceElementArray*)},
+		{"suspended", "()Z", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, suspended, bool)},
+		{"threadId", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, threadId, int64_t)},
+		{"threadName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, threadName, $String*)},
+		{"threadState", "()Ljava/lang/Thread$State;", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, threadState, $Thread$State*)},
+		{"toCompositeData", "(Ljava/lang/management/ThreadInfo;)Ljavax/management/openmbean/CompositeData;", nullptr, $PUBLIC | $STATIC, $staticMethod(ThreadInfoCompositeData, toCompositeData, $CompositeData*, $ThreadInfo*)},
+		{"validateCompositeData", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ThreadInfoCompositeData, validateCompositeData, void, $CompositeData*)},
+		{"waitedCount", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, waitedCount, int64_t)},
+		{"waitedTime", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData, waitedTime, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.management.ThreadInfoCompositeData$ThreadInfoCompositeTypes", "sun.management.ThreadInfoCompositeData", "ThreadInfoCompositeTypes", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.management.ThreadInfoCompositeData",
+		"sun.management.LazyCompositeData",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.management.ThreadInfoCompositeData$ThreadInfoCompositeTypes"
+	};
+	$loadClass(ThreadInfoCompositeData, name, initialize, &classInfo$$, ThreadInfoCompositeData::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ThreadInfoCompositeData));
+	});
 	return class$;
 }
 

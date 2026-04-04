@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/transforms/params/XPathContainer.h>
-
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <com/sun/org/apache/xml/internal/security/utils/ElementProxy.h>
 #include <com/sun/org/apache/xml/internal/security/utils/SignatureElementProxy.h>
@@ -16,7 +15,6 @@ using $SignatureElementProxy = ::com::sun::org::apache::xml::internal::security:
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Document = ::org::w3c::dom::Document;
-using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;
 using $Text = ::org::w3c::dom::Text;
 
@@ -29,32 +27,6 @@ namespace com {
 						namespace security {
 							namespace transforms {
 								namespace params {
-
-$MethodInfo _XPathContainer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(XPathContainer, init$, void, $Document*)},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XPathContainer, getBaseLocalName, $String*)},
-	{"getXPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XPathContainer, getXPath, $String*)},
-	{"setXPath", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XPathContainer, setXPath, void, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _XPathContainer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.transforms.params.XPathContainer",
-	"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
-	"com.sun.org.apache.xml.internal.security.transforms.TransformParam",
-	nullptr,
-	_XPathContainer_MethodInfo_
-};
-
-$Object* allocate$XPathContainer($Class* clazz) {
-	return $of($alloc(XPathContainer));
-}
 
 int32_t XPathContainer::hashCode() {
 	 return this->$SignatureElementProxy::hashCode();
@@ -81,15 +53,15 @@ void XPathContainer::init$($Document* doc) {
 }
 
 void XPathContainer::setXPath($String* xpath) {
-	$useLocalCurrentObjectStackCache();
-	$var($Node, childNode, $nc($(getElement()))->getFirstChild());
+	$useLocalObjectStack();
+	$var($Node, childNode, $$nc(getElement())->getFirstChild());
 	while (childNode != nullptr) {
 		$var($Node, nodeToBeRemoved, childNode);
 		$assign(childNode, childNode->getNextSibling());
-		$nc($(getElement()))->removeChild(nodeToBeRemoved);
+		$$nc(getElement())->removeChild(nodeToBeRemoved);
 	}
 	$var($Text, xpathText, createText(xpath));
-	appendSelf(static_cast<$Node*>(xpathText));
+	appendSelf(xpathText);
 }
 
 $String* XPathContainer::getXPath() {
@@ -105,7 +77,29 @@ XPathContainer::XPathContainer() {
 }
 
 $Class* XPathContainer::load$($String* name, bool initialize) {
-	$loadClass(XPathContainer, name, initialize, &_XPathContainer_ClassInfo_, allocate$XPathContainer);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(XPathContainer, init$, void, $Document*)},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XPathContainer, getBaseLocalName, $String*)},
+		{"getXPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XPathContainer, getXPath, $String*)},
+		{"setXPath", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XPathContainer, setXPath, void, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.transforms.params.XPathContainer",
+		"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
+		"com.sun.org.apache.xml.internal.security.transforms.TransformParam",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XPathContainer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XPathContainer));
+	});
 	return class$;
 }
 

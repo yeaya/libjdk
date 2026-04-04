@@ -69,6 +69,7 @@ class $import JMenu : public ::javax::swing::JMenuItem {
 	$class(JMenu, 0, ::javax::swing::JMenuItem)
 public:
 	JMenu();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::swing::JMenuItem::doClick;
 	using ::javax::swing::JMenuItem::contains;
 	using ::javax::swing::JMenuItem::enable;

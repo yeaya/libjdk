@@ -1,5 +1,4 @@
 #include <javax/lang/model/UnknownEntityException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,29 +9,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 namespace javax {
 	namespace lang {
 		namespace model {
-
-$FieldInfo _UnknownEntityException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnknownEntityException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _UnknownEntityException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(UnknownEntityException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _UnknownEntityException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.lang.model.UnknownEntityException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_UnknownEntityException_FieldInfo_,
-	_UnknownEntityException_MethodInfo_
-};
-
-$Object* allocate$UnknownEntityException($Class* clazz) {
-	return $of($alloc(UnknownEntityException));
-}
 
 void UnknownEntityException::init$($String* message) {
 	$RuntimeException::init$(message);
@@ -49,7 +25,25 @@ void UnknownEntityException::throw$() {
 }
 
 $Class* UnknownEntityException::load$($String* name, bool initialize) {
-	$loadClass(UnknownEntityException, name, initialize, &_UnknownEntityException_ClassInfo_, allocate$UnknownEntityException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnknownEntityException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(UnknownEntityException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.lang.model.UnknownEntityException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnknownEntityException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnknownEntityException);
+	});
 	return class$;
 }
 

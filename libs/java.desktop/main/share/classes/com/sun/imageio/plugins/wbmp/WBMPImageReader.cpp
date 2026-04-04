@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/wbmp/WBMPImageReader.h>
-
 #include <com/sun/imageio/plugins/common/I18N.h>
 #include <com/sun/imageio/plugins/common/ReaderUtil.h>
 #include <com/sun/imageio/plugins/wbmp/WBMPMetadata.h>
@@ -35,7 +34,6 @@ using $BufferedImage = ::java::awt::image::BufferedImage;
 using $DataBufferByte = ::java::awt::image::DataBufferByte;
 using $MultiPixelPackedSampleModel = ::java::awt::image::MultiPixelPackedSampleModel;
 using $Raster = ::java::awt::image::Raster;
-using $RenderedImage = ::java::awt::image::RenderedImage;
 using $WritableRaster = ::java::awt::image::WritableRaster;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -59,50 +57,6 @@ namespace com {
 			namespace plugins {
 				namespace wbmp {
 
-$FieldInfo _WBMPImageReader_FieldInfo_[] = {
-	{"iis", "Ljavax/imageio/stream/ImageInputStream;", nullptr, $PRIVATE, $field(WBMPImageReader, iis)},
-	{"gotHeader", "Z", nullptr, $PRIVATE, $field(WBMPImageReader, gotHeader)},
-	{"width", "I", nullptr, $PRIVATE, $field(WBMPImageReader, width)},
-	{"height", "I", nullptr, $PRIVATE, $field(WBMPImageReader, height)},
-	{"wbmpType", "I", nullptr, $PRIVATE, $field(WBMPImageReader, wbmpType)},
-	{"metadata", "Lcom/sun/imageio/plugins/wbmp/WBMPMetadata;", nullptr, $PRIVATE, $field(WBMPImageReader, metadata)},
-	{}
-};
-
-$MethodInfo _WBMPImageReader_MethodInfo_[] = {
-	{"<init>", "(Ljavax/imageio/spi/ImageReaderSpi;)V", nullptr, $PUBLIC, $method(WBMPImageReader, init$, void, $ImageReaderSpi*)},
-	{"canReadRaster", "()Z", nullptr, $PUBLIC, $virtualMethod(WBMPImageReader, canReadRaster, bool)},
-	{"checkIndex", "(I)V", nullptr, $PRIVATE, $method(WBMPImageReader, checkIndex, void, int32_t)},
-	{"getDefaultReadParam", "()Ljavax/imageio/ImageReadParam;", nullptr, $PUBLIC, $virtualMethod(WBMPImageReader, getDefaultReadParam, $ImageReadParam*)},
-	{"getHeight", "(I)I", nullptr, $PUBLIC, $virtualMethod(WBMPImageReader, getHeight, int32_t, int32_t), "java.io.IOException"},
-	{"getImageMetadata", "(I)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(WBMPImageReader, getImageMetadata, $IIOMetadata*, int32_t), "java.io.IOException"},
-	{"getImageTypes", "(I)Ljava/util/Iterator;", "(I)Ljava/util/Iterator<Ljavax/imageio/ImageTypeSpecifier;>;", $PUBLIC, $virtualMethod(WBMPImageReader, getImageTypes, $Iterator*, int32_t), "java.io.IOException"},
-	{"getNumImages", "(Z)I", nullptr, $PUBLIC, $virtualMethod(WBMPImageReader, getNumImages, int32_t, bool), "java.io.IOException"},
-	{"getStreamMetadata", "()Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(WBMPImageReader, getStreamMetadata, $IIOMetadata*), "java.io.IOException"},
-	{"getWidth", "(I)I", nullptr, $PUBLIC, $virtualMethod(WBMPImageReader, getWidth, int32_t, int32_t), "java.io.IOException"},
-	{"isRandomAccessEasy", "(I)Z", nullptr, $PUBLIC, $virtualMethod(WBMPImageReader, isRandomAccessEasy, bool, int32_t), "java.io.IOException"},
-	{"isValidWbmpType", "(I)Z", nullptr, 0, $virtualMethod(WBMPImageReader, isValidWbmpType, bool, int32_t)},
-	{"read", "(ILjavax/imageio/ImageReadParam;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(WBMPImageReader, read, $BufferedImage*, int32_t, $ImageReadParam*), "java.io.IOException"},
-	{"readHeader", "()V", nullptr, $PUBLIC, $virtualMethod(WBMPImageReader, readHeader, void), "java.io.IOException"},
-	{"readRaster", "(ILjavax/imageio/ImageReadParam;)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(WBMPImageReader, readRaster, $Raster*, int32_t, $ImageReadParam*), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(WBMPImageReader, reset, void)},
-	{"setInput", "(Ljava/lang/Object;ZZ)V", nullptr, $PUBLIC, $virtualMethod(WBMPImageReader, setInput, void, Object$*, bool, bool)},
-	{}
-};
-
-$ClassInfo _WBMPImageReader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.wbmp.WBMPImageReader",
-	"javax.imageio.ImageReader",
-	nullptr,
-	_WBMPImageReader_FieldInfo_,
-	_WBMPImageReader_MethodInfo_
-};
-
-$Object* allocate$WBMPImageReader($Class* clazz) {
-	return $of($alloc(WBMPImageReader));
-}
-
 void WBMPImageReader::init$($ImageReaderSpi* originator) {
 	$ImageReader::init$(originator);
 	$set(this, iis, nullptr);
@@ -116,7 +70,7 @@ void WBMPImageReader::setInput(Object$* input, bool seekForwardOnly, bool ignore
 }
 
 int32_t WBMPImageReader::getNumImages(bool allowSearch) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->iis == nullptr) {
 		$throwNew($IllegalStateException, $($I18N::getString("GetNumImages0"_s)));
 	}
@@ -171,7 +125,7 @@ void WBMPImageReader::readHeader() {
 }
 
 $Iterator* WBMPImageReader::getImageTypes(int32_t imageIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkIndex(imageIndex);
 	readHeader();
 	$var($BufferedImage, bi, $new($BufferedImage, 1, 1, $BufferedImage::TYPE_BYTE_BINARY));
@@ -197,7 +151,7 @@ $IIOMetadata* WBMPImageReader::getStreamMetadata() {
 }
 
 $BufferedImage* WBMPImageReader::read(int32_t imageIndex, $ImageReadParam* param$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ImageReadParam, param, param$renamed);
 	if (this->iis == nullptr) {
 		$throwNew($IllegalStateException, $($I18N::getString("WBMPImageReader1"_s)));
@@ -212,7 +166,7 @@ $BufferedImage* WBMPImageReader::read(int32_t imageIndex, $ImageReadParam* param
 	$var($Rectangle, sourceRegion, $new($Rectangle, 0, 0, 0, 0));
 	$var($Rectangle, destinationRegion, $new($Rectangle, 0, 0, 0, 0));
 	computeRegions(param, this->width, this->height, $($nc(param)->getDestination()), sourceRegion, destinationRegion);
-	int32_t scaleX = $nc(param)->getSourceXSubsampling();
+	int32_t scaleX = param->getSourceXSubsampling();
 	int32_t scaleY = param->getSourceYSubsampling();
 	int32_t xOffset = param->getSubsamplingXOffset();
 	int32_t yOffset = param->getSubsamplingYOffset();
@@ -233,14 +187,14 @@ $BufferedImage* WBMPImageReader::read(int32_t imageIndex, $ImageReadParam* param
 			processReadAborted();
 			return bi;
 		}
-		$var($bytes, var$2, $nc(($cast($DataBufferByte, $($nc(tile)->getDataBuffer()))))->getData());
+		$var($bytes, var$2, $$sure($DataBufferByte, $nc(tile)->getDataBuffer())->getData());
 		$nc(this->iis)->read(var$2, 0, this->height * $nc(sm)->getScanlineStride());
 		processImageUpdate(bi, 0, 0, this->width, this->height, 1, 1, $$new($ints, {0}));
 		processImageProgress(100.0f);
 	} else {
 		int32_t len = (this->width + 7) / 8;
 		$var($bytes, buf, $new($bytes, len));
-		$var($bytes, data, $nc(($cast($DataBufferByte, $($nc(tile)->getDataBuffer()))))->getData());
+		$var($bytes, data, $$sure($DataBufferByte, $nc(tile)->getDataBuffer())->getData());
 		int32_t lineStride = $nc(sm)->getScanlineStride();
 		$nc(this->iis)->skipBytes(len * sourceRegion->y);
 		int32_t skipLength = len * (scaleY - 1);
@@ -248,35 +202,25 @@ $BufferedImage* WBMPImageReader::read(int32_t imageIndex, $ImageReadParam* param
 		$var($ints, destOff, $new($ints, destinationRegion->width));
 		$var($ints, srcPos, $new($ints, destinationRegion->width));
 		$var($ints, destPos, $new($ints, destinationRegion->width));
-		{
-			int32_t i = destinationRegion->x;
-			int32_t x = sourceRegion->x;
-			int32_t j = 0;
-			for (; i < destinationRegion->x + destinationRegion->width; ++i, ++j, x += scaleX) {
-				srcPos->set(j, x >> 3);
-				srcOff->set(j, 7 - ((int32_t)(x & (uint32_t)7)));
-				destPos->set(j, i >> 3);
-				destOff->set(j, 7 - ((int32_t)(i & (uint32_t)7)));
-			}
+		for (int32_t i = destinationRegion->x, x = sourceRegion->x, j = 0; i < destinationRegion->x + destinationRegion->width; ++i, ++j, x += scaleX) {
+			srcPos->set(j, x >> 3);
+			srcOff->set(j, 7 - (x & 7));
+			destPos->set(j, i >> 3);
+			destOff->set(j, 7 - (i & 7));
 		}
-		{
-			int32_t j = 0;
-			int32_t y = sourceRegion->y;
-			int32_t k = destinationRegion->y * lineStride;
-			for (; j < destinationRegion->height; ++j, y += scaleY) {
-				if (abortRequested()) {
-					break;
-				}
-				$nc(this->iis)->read(buf, 0, len);
-				for (int32_t i = 0; i < destinationRegion->width; ++i) {
-					int32_t v = (int32_t)(($sr((int32_t)buf->get(srcPos->get(i)), srcOff->get(i))) & (uint32_t)1);
-					(*$nc(data))[k + destPos->get(i)] |= $sl(v, destOff->get(i));
-				}
-				k += lineStride;
-				$nc(this->iis)->skipBytes(skipLength);
-				processImageUpdate(bi, 0, j, destinationRegion->width, 1, 1, 1, $$new($ints, {0}));
-				processImageProgress(100.0f * j / destinationRegion->height);
+		for (int32_t j = 0, y = sourceRegion->y, k = destinationRegion->y * lineStride; j < destinationRegion->height; ++j, y += scaleY) {
+			if (abortRequested()) {
+				break;
 			}
+			$nc(this->iis)->read(buf, 0, len);
+			for (int32_t i = 0; i < destinationRegion->width; ++i) {
+				int32_t v = ($sr(buf->get(srcPos->get(i)), srcOff->get(i))) & 1;
+				(*$nc(data))[k + destPos->get(i)] |= $sl(v, destOff->get(i));
+			}
+			k += lineStride;
+			$nc(this->iis)->skipBytes(skipLength);
+			processImageUpdate(bi, 0, j, destinationRegion->width, 1, 1, 1, $$new($ints, {0}));
+			processImageProgress(100.0f * j / destinationRegion->height);
 		}
 	}
 	if (abortRequested()) {
@@ -310,7 +254,46 @@ WBMPImageReader::WBMPImageReader() {
 }
 
 $Class* WBMPImageReader::load$($String* name, bool initialize) {
-	$loadClass(WBMPImageReader, name, initialize, &_WBMPImageReader_ClassInfo_, allocate$WBMPImageReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"iis", "Ljavax/imageio/stream/ImageInputStream;", nullptr, $PRIVATE, $field(WBMPImageReader, iis)},
+		{"gotHeader", "Z", nullptr, $PRIVATE, $field(WBMPImageReader, gotHeader)},
+		{"width", "I", nullptr, $PRIVATE, $field(WBMPImageReader, width)},
+		{"height", "I", nullptr, $PRIVATE, $field(WBMPImageReader, height)},
+		{"wbmpType", "I", nullptr, $PRIVATE, $field(WBMPImageReader, wbmpType)},
+		{"metadata", "Lcom/sun/imageio/plugins/wbmp/WBMPMetadata;", nullptr, $PRIVATE, $field(WBMPImageReader, metadata)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/imageio/spi/ImageReaderSpi;)V", nullptr, $PUBLIC, $method(WBMPImageReader, init$, void, $ImageReaderSpi*)},
+		{"canReadRaster", "()Z", nullptr, $PUBLIC, $virtualMethod(WBMPImageReader, canReadRaster, bool)},
+		{"checkIndex", "(I)V", nullptr, $PRIVATE, $method(WBMPImageReader, checkIndex, void, int32_t)},
+		{"getDefaultReadParam", "()Ljavax/imageio/ImageReadParam;", nullptr, $PUBLIC, $virtualMethod(WBMPImageReader, getDefaultReadParam, $ImageReadParam*)},
+		{"getHeight", "(I)I", nullptr, $PUBLIC, $virtualMethod(WBMPImageReader, getHeight, int32_t, int32_t), "java.io.IOException"},
+		{"getImageMetadata", "(I)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(WBMPImageReader, getImageMetadata, $IIOMetadata*, int32_t), "java.io.IOException"},
+		{"getImageTypes", "(I)Ljava/util/Iterator;", "(I)Ljava/util/Iterator<Ljavax/imageio/ImageTypeSpecifier;>;", $PUBLIC, $virtualMethod(WBMPImageReader, getImageTypes, $Iterator*, int32_t), "java.io.IOException"},
+		{"getNumImages", "(Z)I", nullptr, $PUBLIC, $virtualMethod(WBMPImageReader, getNumImages, int32_t, bool), "java.io.IOException"},
+		{"getStreamMetadata", "()Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(WBMPImageReader, getStreamMetadata, $IIOMetadata*), "java.io.IOException"},
+		{"getWidth", "(I)I", nullptr, $PUBLIC, $virtualMethod(WBMPImageReader, getWidth, int32_t, int32_t), "java.io.IOException"},
+		{"isRandomAccessEasy", "(I)Z", nullptr, $PUBLIC, $virtualMethod(WBMPImageReader, isRandomAccessEasy, bool, int32_t), "java.io.IOException"},
+		{"isValidWbmpType", "(I)Z", nullptr, 0, $virtualMethod(WBMPImageReader, isValidWbmpType, bool, int32_t)},
+		{"read", "(ILjavax/imageio/ImageReadParam;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(WBMPImageReader, read, $BufferedImage*, int32_t, $ImageReadParam*), "java.io.IOException"},
+		{"readHeader", "()V", nullptr, $PUBLIC, $virtualMethod(WBMPImageReader, readHeader, void), "java.io.IOException"},
+		{"readRaster", "(ILjavax/imageio/ImageReadParam;)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(WBMPImageReader, readRaster, $Raster*, int32_t, $ImageReadParam*), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(WBMPImageReader, reset, void)},
+		{"setInput", "(Ljava/lang/Object;ZZ)V", nullptr, $PUBLIC, $virtualMethod(WBMPImageReader, setInput, void, Object$*, bool, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.wbmp.WBMPImageReader",
+		"javax.imageio.ImageReader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WBMPImageReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WBMPImageReader);
+	});
 	return class$;
 }
 

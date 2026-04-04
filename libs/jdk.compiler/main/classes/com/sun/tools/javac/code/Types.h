@@ -123,6 +123,7 @@ class $export Types : public ::java::lang::Object {
 public:
 	Types();
 	using ::java::lang::Object::hashCode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual void adapt(::com::sun::tools::javac::code::Type* source, ::com::sun::tools::javac::code::Type* target, ::com::sun::tools::javac::util::ListBuffer* from, ::com::sun::tools::javac::util::ListBuffer* to);
 	void adaptSelf(::com::sun::tools::javac::code::Type* t, ::com::sun::tools::javac::util::ListBuffer* from, ::com::sun::tools::javac::util::ListBuffer* to);

@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFDeflater.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFCompressor.h>
 #include <java/util/zip/Deflater.h>
 #include <javax/imageio/ImageWriteParam.h>
@@ -18,38 +17,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Deflater = ::java::util::zip::Deflater;
 using $ImageWriteParam = ::javax::imageio::ImageWriteParam;
 using $BaselineTIFFTagSet = ::javax::imageio::plugins::tiff::BaselineTIFFTagSet;
-using $ImageOutputStream = ::javax::imageio::stream::ImageOutputStream;
 
 namespace com {
 	namespace sun {
 		namespace imageio {
 			namespace plugins {
 				namespace tiff {
-
-$FieldInfo _TIFFDeflater_FieldInfo_[] = {
-	{"deflater", "Ljava/util/zip/Deflater;", nullptr, 0, $field(TIFFDeflater, deflater)},
-	{"predictor", "I", nullptr, 0, $field(TIFFDeflater, predictor)},
-	{}
-};
-
-$MethodInfo _TIFFDeflater_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjavax/imageio/ImageWriteParam;I)V", nullptr, $PUBLIC, $method(TIFFDeflater, init$, void, $String*, int32_t, $ImageWriteParam*, int32_t)},
-	{"encode", "([BIII[II)I", nullptr, $PUBLIC, $virtualMethod(TIFFDeflater, encode, int32_t, $bytes*, int32_t, int32_t, int32_t, $ints*, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _TIFFDeflater_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFDeflater",
-	"com.sun.imageio.plugins.tiff.TIFFCompressor",
-	nullptr,
-	_TIFFDeflater_FieldInfo_,
-	_TIFFDeflater_MethodInfo_
-};
-
-$Object* allocate$TIFFDeflater($Class* clazz) {
-	return $of($alloc(TIFFDeflater));
-}
 
 void TIFFDeflater::init$($String* compressionType, int32_t compressionTagValue, $ImageWriteParam* param, int32_t predictorValue) {
 	$TIFFCompressor::init$(compressionType, compressionTagValue, true);
@@ -65,9 +38,9 @@ void TIFFDeflater::init$($String* compressionType, int32_t compressionTagValue, 
 }
 
 int32_t TIFFDeflater::encode($bytes* b, int32_t off, int32_t width, int32_t height, $ints* bitsPerSample, int32_t scanlineStride) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t inputSize = height * scanlineStride;
-	int32_t blocks = (inputSize + 32767) / 32768;
+	int32_t blocks = (inputSize + 32767) / 0x00008000;
 	$var($bytes, compData, $new($bytes, inputSize + 5 * blocks + 6));
 	int32_t numCompressedBytes = 0;
 	if (this->predictor == $BaselineTIFFTagSet::PREDICTOR_HORIZONTAL_DIFFERENCING) {
@@ -108,7 +81,27 @@ TIFFDeflater::TIFFDeflater() {
 }
 
 $Class* TIFFDeflater::load$($String* name, bool initialize) {
-	$loadClass(TIFFDeflater, name, initialize, &_TIFFDeflater_ClassInfo_, allocate$TIFFDeflater);
+	$FieldInfo fieldInfos$$[] = {
+		{"deflater", "Ljava/util/zip/Deflater;", nullptr, 0, $field(TIFFDeflater, deflater)},
+		{"predictor", "I", nullptr, 0, $field(TIFFDeflater, predictor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;ILjavax/imageio/ImageWriteParam;I)V", nullptr, $PUBLIC, $method(TIFFDeflater, init$, void, $String*, int32_t, $ImageWriteParam*, int32_t)},
+		{"encode", "([BIII[II)I", nullptr, $PUBLIC, $virtualMethod(TIFFDeflater, encode, int32_t, $bytes*, int32_t, int32_t, int32_t, $ints*, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFDeflater",
+		"com.sun.imageio.plugins.tiff.TIFFCompressor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFDeflater, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFDeflater);
+	});
 	return class$;
 }
 

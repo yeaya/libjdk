@@ -27,6 +27,7 @@ class GTKConstants$PositionType : public ::java::lang::Enum {
 public:
 	GTKConstants$PositionType();
 	static $Array<::com::sun::java::swing::plaf::gtk::GTKConstants$PositionType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::java::swing::plaf::gtk::GTKConstants$PositionType* valueOf($String* name);
 	static $Array<::com::sun::java::swing::plaf::gtk::GTKConstants$PositionType>* values();

@@ -80,6 +80,7 @@ class IntegrityHmac : public ::com::sun::org::apache::xml::internal::security::a
 	$class(IntegrityHmac, 0, ::com::sun::org::apache::xml::internal::security::algorithms::SignatureAlgorithmSpi)
 public:
 	IntegrityHmac();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::security::Provider* provider);
 	virtual void engineAddContextToElement(::org::w3c::dom::Element* element) override;

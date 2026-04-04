@@ -1,5 +1,4 @@
 #include <javax/management/InstanceAlreadyExistsException.h>
-
 #include <javax/management/OperationsException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $OperationsException = ::javax::management::OperationsException;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _InstanceAlreadyExistsException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InstanceAlreadyExistsException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InstanceAlreadyExistsException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InstanceAlreadyExistsException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InstanceAlreadyExistsException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _InstanceAlreadyExistsException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.InstanceAlreadyExistsException",
-	"javax.management.OperationsException",
-	nullptr,
-	_InstanceAlreadyExistsException_FieldInfo_,
-	_InstanceAlreadyExistsException_MethodInfo_
-};
-
-$Object* allocate$InstanceAlreadyExistsException($Class* clazz) {
-	return $of($alloc(InstanceAlreadyExistsException));
-}
 
 void InstanceAlreadyExistsException::init$() {
 	$OperationsException::init$();
@@ -54,7 +29,26 @@ void InstanceAlreadyExistsException::throw$() {
 }
 
 $Class* InstanceAlreadyExistsException::load$($String* name, bool initialize) {
-	$loadClass(InstanceAlreadyExistsException, name, initialize, &_InstanceAlreadyExistsException_ClassInfo_, allocate$InstanceAlreadyExistsException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InstanceAlreadyExistsException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InstanceAlreadyExistsException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InstanceAlreadyExistsException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.InstanceAlreadyExistsException",
+		"javax.management.OperationsException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InstanceAlreadyExistsException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InstanceAlreadyExistsException);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/beans/MetaData$java_lang_reflect_Method_PersistenceDelegate.h>
-
 #include <java/beans/Encoder.h>
 #include <java/beans/Expression.h>
 #include <java/beans/MetaData.h>
@@ -18,38 +17,6 @@ using $Method = ::java::lang::reflect::Method;
 namespace java {
 	namespace beans {
 
-$MethodInfo _MetaData$java_lang_reflect_Method_PersistenceDelegate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MetaData$java_lang_reflect_Method_PersistenceDelegate, init$, void)},
-	{"instantiate", "(Ljava/lang/Object;Ljava/beans/Encoder;)Ljava/beans/Expression;", nullptr, $PROTECTED, $virtualMethod(MetaData$java_lang_reflect_Method_PersistenceDelegate, instantiate, $Expression*, Object$*, $Encoder*)},
-	{"mutatesTo", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(MetaData$java_lang_reflect_Method_PersistenceDelegate, mutatesTo, bool, Object$*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _MetaData$java_lang_reflect_Method_PersistenceDelegate_InnerClassesInfo_[] = {
-	{"java.beans.MetaData$java_lang_reflect_Method_PersistenceDelegate", "java.beans.MetaData", "java_lang_reflect_Method_PersistenceDelegate", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MetaData$java_lang_reflect_Method_PersistenceDelegate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.beans.MetaData$java_lang_reflect_Method_PersistenceDelegate",
-	"java.beans.PersistenceDelegate",
-	nullptr,
-	nullptr,
-	_MetaData$java_lang_reflect_Method_PersistenceDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetaData$java_lang_reflect_Method_PersistenceDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.beans.MetaData"
-};
-
-$Object* allocate$MetaData$java_lang_reflect_Method_PersistenceDelegate($Class* clazz) {
-	return $of($alloc(MetaData$java_lang_reflect_Method_PersistenceDelegate));
-}
-
 void MetaData$java_lang_reflect_Method_PersistenceDelegate::init$() {
 	$PersistenceDelegate::init$();
 }
@@ -59,14 +26,13 @@ bool MetaData$java_lang_reflect_Method_PersistenceDelegate::mutatesTo(Object$* o
 }
 
 $Expression* MetaData$java_lang_reflect_Method_PersistenceDelegate::instantiate(Object$* oldInstance, $Encoder* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Method, m, $cast($Method, oldInstance));
-	$var($Object, var$0, oldInstance);
-	$var($Object, var$1, $of($nc(m)->getDeclaringClass()));
-	$var($String, var$2, "getMethod"_s);
-	return $new($Expression, var$0, var$1, var$2, $$new($ObjectArray, {
-		$($of(m->getName())),
-		$($of(m->getParameterTypes()))
+	$var($Object, var$0, $nc(m)->getDeclaringClass());
+	$var($String, var$1, "getMethod"_s);
+	return $new($Expression, oldInstance, var$0, var$1, $$new($ObjectArray, {
+		$(m->getName()),
+		$(m->getParameterTypes())
 	}));
 }
 
@@ -74,7 +40,34 @@ MetaData$java_lang_reflect_Method_PersistenceDelegate::MetaData$java_lang_reflec
 }
 
 $Class* MetaData$java_lang_reflect_Method_PersistenceDelegate::load$($String* name, bool initialize) {
-	$loadClass(MetaData$java_lang_reflect_Method_PersistenceDelegate, name, initialize, &_MetaData$java_lang_reflect_Method_PersistenceDelegate_ClassInfo_, allocate$MetaData$java_lang_reflect_Method_PersistenceDelegate);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MetaData$java_lang_reflect_Method_PersistenceDelegate, init$, void)},
+		{"instantiate", "(Ljava/lang/Object;Ljava/beans/Encoder;)Ljava/beans/Expression;", nullptr, $PROTECTED, $virtualMethod(MetaData$java_lang_reflect_Method_PersistenceDelegate, instantiate, $Expression*, Object$*, $Encoder*)},
+		{"mutatesTo", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(MetaData$java_lang_reflect_Method_PersistenceDelegate, mutatesTo, bool, Object$*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.MetaData$java_lang_reflect_Method_PersistenceDelegate", "java.beans.MetaData", "java_lang_reflect_Method_PersistenceDelegate", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.beans.MetaData$java_lang_reflect_Method_PersistenceDelegate",
+		"java.beans.PersistenceDelegate",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.beans.MetaData"
+	};
+	$loadClass(MetaData$java_lang_reflect_Method_PersistenceDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetaData$java_lang_reflect_Method_PersistenceDelegate);
+	});
 	return class$;
 }
 

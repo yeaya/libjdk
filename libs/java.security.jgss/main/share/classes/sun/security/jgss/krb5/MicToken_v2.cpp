@@ -1,5 +1,4 @@
 #include <sun/security/jgss/krb5/MicToken_v2.h>
-
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -29,32 +28,6 @@ namespace sun {
 	namespace security {
 		namespace jgss {
 			namespace krb5 {
-
-$MethodInfo _MicToken_v2_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;[BIILorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $method(MicToken_v2, init$, void, $Krb5Context*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Ljava/io/InputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $method(MicToken_v2, init$, void, $Krb5Context*, $InputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Lorg/ietf/jgss/MessageProp;[BII)V", nullptr, $PUBLIC, $method(MicToken_v2, init$, void, $Krb5Context*, $MessageProp*, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
-	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Lorg/ietf/jgss/MessageProp;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(MicToken_v2, init$, void, $Krb5Context*, $MessageProp*, $InputStream*), "org.ietf.jgss.GSSException,java.io.IOException"},
-	{"encode", "()[B", nullptr, $PUBLIC, $virtualMethod(MicToken_v2, encode, $bytes*), "java.io.IOException"},
-	{"encode", "([BI)I", nullptr, $PUBLIC, $virtualMethod(MicToken_v2, encode, int32_t, $bytes*, int32_t), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(MicToken_v2, encode, void, $OutputStream*), "java.io.IOException"},
-	{"verify", "([BII)V", nullptr, $PUBLIC, $virtualMethod(MicToken_v2, verify, void, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
-	{"verify", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(MicToken_v2, verify, void, $InputStream*), "org.ietf.jgss.GSSException"},
-	{}
-};
-
-$ClassInfo _MicToken_v2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.jgss.krb5.MicToken_v2",
-	"sun.security.jgss.krb5.MessageToken_v2",
-	nullptr,
-	nullptr,
-	_MicToken_v2_MethodInfo_
-};
-
-$Object* allocate$MicToken_v2($Class* clazz) {
-	return $of($alloc(MicToken_v2));
-}
 
 void MicToken_v2::init$($Krb5Context* context, $bytes* tokenBytes, int32_t tokenOffset, int32_t tokenLen, $MessageProp* prop) {
 	$MessageToken_v2::init$($Krb5Token::MIC_ID_v2, context, tokenBytes, tokenOffset, tokenLen, prop);
@@ -91,7 +64,7 @@ void MicToken_v2::init$($Krb5Context* context, $MessageProp* prop$renamed, $byte
 }
 
 void MicToken_v2::init$($Krb5Context* context, $MessageProp* prop$renamed, $InputStream* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MessageProp, prop, prop$renamed);
 	$MessageToken_v2::init$($Krb5Token::MIC_ID_v2, context);
 	$var($bytes, dataBytes, $new($bytes, $nc(data)->available()));
@@ -111,7 +84,7 @@ $bytes* MicToken_v2::encode() {
 int32_t MicToken_v2::encode($bytes* outToken, int32_t offset) {
 	$var($bytes, token, encode());
 	$System::arraycopy(token, 0, outToken, offset, $nc(token)->length);
-	return $nc(token)->length;
+	return token->length;
 }
 
 void MicToken_v2::encode($OutputStream* os) {
@@ -123,7 +96,29 @@ MicToken_v2::MicToken_v2() {
 }
 
 $Class* MicToken_v2::load$($String* name, bool initialize) {
-	$loadClass(MicToken_v2, name, initialize, &_MicToken_v2_ClassInfo_, allocate$MicToken_v2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;[BIILorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $method(MicToken_v2, init$, void, $Krb5Context*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Ljava/io/InputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $method(MicToken_v2, init$, void, $Krb5Context*, $InputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Lorg/ietf/jgss/MessageProp;[BII)V", nullptr, $PUBLIC, $method(MicToken_v2, init$, void, $Krb5Context*, $MessageProp*, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+		{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Lorg/ietf/jgss/MessageProp;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(MicToken_v2, init$, void, $Krb5Context*, $MessageProp*, $InputStream*), "org.ietf.jgss.GSSException,java.io.IOException"},
+		{"encode", "()[B", nullptr, $PUBLIC, $virtualMethod(MicToken_v2, encode, $bytes*), "java.io.IOException"},
+		{"encode", "([BI)I", nullptr, $PUBLIC, $virtualMethod(MicToken_v2, encode, int32_t, $bytes*, int32_t), "java.io.IOException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(MicToken_v2, encode, void, $OutputStream*), "java.io.IOException"},
+		{"verify", "([BII)V", nullptr, $PUBLIC, $virtualMethod(MicToken_v2, verify, void, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+		{"verify", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(MicToken_v2, verify, void, $InputStream*), "org.ietf.jgss.GSSException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.jgss.krb5.MicToken_v2",
+		"sun.security.jgss.krb5.MessageToken_v2",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MicToken_v2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MicToken_v2);
+	});
 	return class$;
 }
 

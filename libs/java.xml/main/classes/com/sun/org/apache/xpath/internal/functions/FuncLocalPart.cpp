@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/functions/FuncLocalPart.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
 #include <com/sun/org/apache/xpath/internal/functions/FunctionDef1Arg.h>
@@ -27,36 +26,12 @@ namespace com {
 					namespace internal {
 						namespace functions {
 
-$FieldInfo _FuncLocalPart_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FuncLocalPart, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _FuncLocalPart_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FuncLocalPart, init$, void)},
-	{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(FuncLocalPart, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
-	{}
-};
-
-$ClassInfo _FuncLocalPart_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.functions.FuncLocalPart",
-	"com.sun.org.apache.xpath.internal.functions.FunctionDef1Arg",
-	nullptr,
-	_FuncLocalPart_FieldInfo_,
-	_FuncLocalPart_MethodInfo_
-};
-
-$Object* allocate$FuncLocalPart($Class* clazz) {
-	return $of($alloc(FuncLocalPart));
-}
-
 void FuncLocalPart::init$() {
 	$FunctionDef1Arg::init$();
 }
 
 $XObject* FuncLocalPart::execute($XPathContext* xctxt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t context = getArg0AsNode(xctxt);
 	if ($DTM::NULL == context) {
 		$init($XString);
@@ -65,7 +40,7 @@ $XObject* FuncLocalPart::execute($XPathContext* xctxt) {
 	$var($DTM, dtm, $nc(xctxt)->getDTM(context));
 	$var($String, s, (context != $DTM::NULL) ? $nc(dtm)->getLocalName(context) : ""_s);
 	bool var$0 = $nc(s)->startsWith("#"_s);
-	if (var$0 || $nc(s)->equals("xmlns"_s)) {
+	if (var$0 || s->equals("xmlns"_s)) {
 		$init($XString);
 		return $XString::EMPTYSTRING;
 	}
@@ -76,7 +51,26 @@ FuncLocalPart::FuncLocalPart() {
 }
 
 $Class* FuncLocalPart::load$($String* name, bool initialize) {
-	$loadClass(FuncLocalPart, name, initialize, &_FuncLocalPart_ClassInfo_, allocate$FuncLocalPart);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FuncLocalPart, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FuncLocalPart, init$, void)},
+		{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(FuncLocalPart, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.functions.FuncLocalPart",
+		"com.sun.org.apache.xpath.internal.functions.FunctionDef1Arg",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FuncLocalPart, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FuncLocalPart));
+	});
 	return class$;
 }
 

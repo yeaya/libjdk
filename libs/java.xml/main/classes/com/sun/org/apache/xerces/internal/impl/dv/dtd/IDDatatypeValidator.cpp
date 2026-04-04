@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/dtd/IDDatatypeValidator.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/InvalidDatatypeValueException.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
 #include <com/sun/org/apache/xerces/internal/util/XMLChar.h>
@@ -21,48 +20,44 @@ namespace com {
 							namespace dv {
 								namespace dtd {
 
-$MethodInfo _IDDatatypeValidator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IDDatatypeValidator, init$, void)},
-	{"validate", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)V", nullptr, $PUBLIC, $virtualMethod(IDDatatypeValidator, validate, void, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{}
-};
-
-$ClassInfo _IDDatatypeValidator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.dtd.IDDatatypeValidator",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.impl.dv.DatatypeValidator",
-	nullptr,
-	_IDDatatypeValidator_MethodInfo_
-};
-
-$Object* allocate$IDDatatypeValidator($Class* clazz) {
-	return $of($alloc(IDDatatypeValidator));
-}
-
 void IDDatatypeValidator::init$() {
 }
 
 void IDDatatypeValidator::validate($String* content, $ValidationContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(context)->useNamespaces()) {
 		if (!$XMLChar::isValidNCName(content)) {
-			$throwNew($InvalidDatatypeValueException, "IDInvalidWithNamespaces"_s, $$new($ObjectArray, {$of(content)}));
+			$throwNew($InvalidDatatypeValueException, "IDInvalidWithNamespaces"_s, $$new($ObjectArray, {content}));
 		}
 	} else if (!$XMLChar::isValidName(content)) {
-		$throwNew($InvalidDatatypeValueException, "IDInvalid"_s, $$new($ObjectArray, {$of(content)}));
+		$throwNew($InvalidDatatypeValueException, "IDInvalid"_s, $$new($ObjectArray, {content}));
 	}
-	if ($nc(context)->isIdDeclared(content)) {
-		$throwNew($InvalidDatatypeValueException, "IDNotUnique"_s, $$new($ObjectArray, {$of(content)}));
+	if (context->isIdDeclared(content)) {
+		$throwNew($InvalidDatatypeValueException, "IDNotUnique"_s, $$new($ObjectArray, {content}));
 	}
-	$nc(context)->addId(content);
+	context->addId(content);
 }
 
 IDDatatypeValidator::IDDatatypeValidator() {
 }
 
 $Class* IDDatatypeValidator::load$($String* name, bool initialize) {
-	$loadClass(IDDatatypeValidator, name, initialize, &_IDDatatypeValidator_ClassInfo_, allocate$IDDatatypeValidator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IDDatatypeValidator, init$, void)},
+		{"validate", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)V", nullptr, $PUBLIC, $virtualMethod(IDDatatypeValidator, validate, void, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.dtd.IDDatatypeValidator",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.impl.dv.DatatypeValidator",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(IDDatatypeValidator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IDDatatypeValidator);
+	});
 	return class$;
 }
 

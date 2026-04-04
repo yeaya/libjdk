@@ -1,8 +1,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/IdKeyPattern.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/BranchHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/CompoundInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/GOTO.h>
 #include <com/sun/org/apache/bcel/internal/generic/IFNE.h>
@@ -32,18 +30,14 @@
 #undef SWAP
 #undef TRANSLET_CLASS
 
-using $BranchInstruction = ::com::sun::org::apache::bcel::internal::generic::BranchInstruction;
-using $CompoundInstruction = ::com::sun::org::apache::bcel::internal::generic::CompoundInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $GOTO = ::com::sun::org::apache::bcel::internal::generic::GOTO;
 using $IFNE = ::com::sun::org::apache::bcel::internal::generic::IFNE;
 using $INVOKEVIRTUAL = ::com::sun::org::apache::bcel::internal::generic::INVOKEVIRTUAL;
-using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $PUSH = ::com::sun::org::apache::bcel::internal::generic::PUSH;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
-using $FlowList = ::com::sun::org::apache::xalan::internal::xsltc::compiler::FlowList;
 using $IdPattern = ::com::sun::org::apache::xalan::internal::xsltc::compiler::IdPattern;
 using $LocationPathPattern = ::com::sun::org::apache::xalan::internal::xsltc::compiler::LocationPathPattern;
 using $RelativePathPattern = ::com::sun::org::apache::xalan::internal::xsltc::compiler::RelativePathPattern;
@@ -64,39 +58,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace compiler {
-
-$FieldInfo _IdKeyPattern_FieldInfo_[] = {
-	{"_left", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/RelativePathPattern;", nullptr, $PROTECTED, $field(IdKeyPattern, _left)},
-	{"_index", "Ljava/lang/String;", nullptr, $PRIVATE, $field(IdKeyPattern, _index)},
-	{"_value", "Ljava/lang/String;", nullptr, $PRIVATE, $field(IdKeyPattern, _value)},
-	{}
-};
-
-$MethodInfo _IdKeyPattern_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IdKeyPattern, init$, void, $String*, $String*)},
-	{"getIndexName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IdKeyPattern, getIndexName, $String*)},
-	{"getKernelPattern", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/StepPattern;", nullptr, $PUBLIC, $virtualMethod(IdKeyPattern, getKernelPattern, $StepPattern*)},
-	{"isWildcard", "()Z", nullptr, $PUBLIC, $virtualMethod(IdKeyPattern, isWildcard, bool)},
-	{"reduceKernelPattern", "()V", nullptr, $PUBLIC, $virtualMethod(IdKeyPattern, reduceKernelPattern, void)},
-	{"setLeft", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/RelativePathPattern;)V", nullptr, $PUBLIC, $virtualMethod(IdKeyPattern, setLeft, void, $RelativePathPattern*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IdKeyPattern, toString, $String*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(IdKeyPattern, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(IdKeyPattern, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _IdKeyPattern_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.IdKeyPattern",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.LocationPathPattern",
-	nullptr,
-	_IdKeyPattern_FieldInfo_,
-	_IdKeyPattern_MethodInfo_
-};
-
-$Object* allocate$IdKeyPattern($Class* clazz) {
-	return $of($alloc(IdKeyPattern));
-}
 
 void IdKeyPattern::init$($String* index, $String* value) {
 	$LocationPathPattern::init$();
@@ -136,7 +97,7 @@ $String* IdKeyPattern::toString() {
 }
 
 void IdKeyPattern::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	$init($Constants);
@@ -145,24 +106,52 @@ void IdKeyPattern::translate($ClassGenerator* classGen, $MethodGenerator* method
 	int32_t lookupKey = cpg->addMethodref($Constants::KEY_INDEX_CLASS, "containsKey"_s, "(ILjava/lang/Object;)I"_s);
 	int32_t getNodeIdent = cpg->addInterfaceMethodref($Constants::DOM_INTF, "getNodeIdent"_s, $$str({"(I)"_s, $Constants::NODE_SIG}));
 	$nc(il)->append($(classGen->loadTranslet()));
-	il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, this->_index)));
-	il->append(static_cast<$Instruction*>($$new($INVOKEVIRTUAL, getKeyIndex)));
-	il->append(static_cast<$Instruction*>($Constants::SWAP));
-	il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, this->_value)));
+	il->append($$new($PUSH, cpg, this->_index));
+	il->append($$new($INVOKEVIRTUAL, getKeyIndex));
+	il->append($Constants::SWAP);
+	il->append($$new($PUSH, cpg, this->_value));
 	if ($instanceOf($IdPattern, this)) {
-		il->append(static_cast<$Instruction*>($$new($INVOKEVIRTUAL, lookupId)));
+		il->append($$new($INVOKEVIRTUAL, lookupId));
 	} else {
-		il->append(static_cast<$Instruction*>($$new($INVOKEVIRTUAL, lookupKey)));
+		il->append($$new($INVOKEVIRTUAL, lookupKey));
 	}
-	$nc(this->_trueList)->add($(il->append(static_cast<$BranchInstruction*>($$new($IFNE, nullptr)))));
-	$nc(this->_falseList)->add($(il->append(static_cast<$BranchInstruction*>($$new($GOTO, nullptr)))));
+	$nc(this->_trueList)->add($(il->append($$new($IFNE, nullptr))));
+	$nc(this->_falseList)->add($(il->append($$new($GOTO, nullptr))));
 }
 
 IdKeyPattern::IdKeyPattern() {
 }
 
 $Class* IdKeyPattern::load$($String* name, bool initialize) {
-	$loadClass(IdKeyPattern, name, initialize, &_IdKeyPattern_ClassInfo_, allocate$IdKeyPattern);
+	$FieldInfo fieldInfos$$[] = {
+		{"_left", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/RelativePathPattern;", nullptr, $PROTECTED, $field(IdKeyPattern, _left)},
+		{"_index", "Ljava/lang/String;", nullptr, $PRIVATE, $field(IdKeyPattern, _index)},
+		{"_value", "Ljava/lang/String;", nullptr, $PRIVATE, $field(IdKeyPattern, _value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IdKeyPattern, init$, void, $String*, $String*)},
+		{"getIndexName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IdKeyPattern, getIndexName, $String*)},
+		{"getKernelPattern", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/StepPattern;", nullptr, $PUBLIC, $virtualMethod(IdKeyPattern, getKernelPattern, $StepPattern*)},
+		{"isWildcard", "()Z", nullptr, $PUBLIC, $virtualMethod(IdKeyPattern, isWildcard, bool)},
+		{"reduceKernelPattern", "()V", nullptr, $PUBLIC, $virtualMethod(IdKeyPattern, reduceKernelPattern, void)},
+		{"setLeft", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/RelativePathPattern;)V", nullptr, $PUBLIC, $virtualMethod(IdKeyPattern, setLeft, void, $RelativePathPattern*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IdKeyPattern, toString, $String*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(IdKeyPattern, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(IdKeyPattern, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.IdKeyPattern",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.LocationPathPattern",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IdKeyPattern, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IdKeyPattern);
+	});
 	return class$;
 }
 

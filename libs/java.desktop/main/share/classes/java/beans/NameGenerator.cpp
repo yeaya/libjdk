@@ -1,5 +1,4 @@
 #include <java/beans/NameGenerator.h>
-
 #include <java/util/HashMap.h>
 #include <java/util/IdentityHashMap.h>
 #include <java/util/Locale.h>
@@ -15,38 +14,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $HashMap = ::java::util::HashMap;
 using $IdentityHashMap = ::java::util::IdentityHashMap;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 
 namespace java {
 	namespace beans {
-
-$FieldInfo _NameGenerator_FieldInfo_[] = {
-	{"valueToName", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Object;Ljava/lang/String;>;", $PRIVATE, $field(NameGenerator, valueToName)},
-	{"nameToCount", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE, $field(NameGenerator, nameToCount)},
-	{}
-};
-
-$MethodInfo _NameGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NameGenerator, init$, void)},
-	{"capitalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(NameGenerator, capitalize, $String*, $String*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(NameGenerator, clear, void)},
-	{"instanceName", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NameGenerator, instanceName, $String*, Object$*)},
-	{"unqualifiedClassName", "(Ljava/lang/Class;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(NameGenerator, unqualifiedClassName, $String*, $Class*)},
-	{}
-};
-
-$ClassInfo _NameGenerator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.beans.NameGenerator",
-	"java.lang.Object",
-	nullptr,
-	_NameGenerator_FieldInfo_,
-	_NameGenerator_MethodInfo_
-};
-
-$Object* allocate$NameGenerator($Class* clazz) {
-	return $of($alloc(NameGenerator));
-}
 
 void NameGenerator::init$() {
 	$set(this, valueToName, $new($IdentityHashMap));
@@ -59,26 +29,28 @@ void NameGenerator::clear() {
 }
 
 $String* NameGenerator::unqualifiedClassName($Class* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(type)->isArray()) {
 		return $str({$(unqualifiedClassName(type->getComponentType())), "Array"_s});
 	}
-	$var($String, name, $nc(type)->getName());
-	return $nc(name)->substring(name->lastIndexOf((int32_t)u'.') + 1);
+	$var($String, name, type->getName());
+	return $nc(name)->substring($nc(name)->lastIndexOf(u'.') + 1);
 }
 
 $String* NameGenerator::capitalize($String* name) {
-	$useLocalCurrentObjectStackCache();
-	if (name == nullptr || $nc(name)->length() == 0) {
+	$useLocalObjectStack();
+	if (name == nullptr || name->length() == 0) {
 		return name;
 	}
+	$var($StringBuilder, var$0, $new($StringBuilder));
 	$init($Locale);
-	$var($String, var$0, $($($nc(name)->substring(0, 1))->toUpperCase($Locale::ENGLISH)));
-	return $concat(var$0, $(name->substring(1)));
+	var$0->append($($($nc(name)->substring(0, 1))->toUpperCase($Locale::ENGLISH)));
+	var$0->append($(name->substring(1)));
+	return $str(var$0);
 }
 
 $String* NameGenerator::instanceName(Object$* instance) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (instance == nullptr) {
 		return "null"_s;
 	}
@@ -92,8 +64,8 @@ $String* NameGenerator::instanceName(Object$* instance) {
 		$Class* type = $nc($of(instance))->getClass();
 		$var($String, className, unqualifiedClassName(type));
 		$var($Integer, size, $cast($Integer, $nc(this->nameToCount)->get(className)));
-		int32_t instanceNumber = (size == nullptr) ? 0 : $nc((size))->intValue() + 1;
-		$nc(this->nameToCount)->put(className, $($Integer::valueOf(instanceNumber)));
+		int32_t instanceNumber = (size == nullptr) ? 0 : (size)->intValue() + 1;
+		this->nameToCount->put(className, $($Integer::valueOf(instanceNumber)));
 		$assign(result, $str({className, $$str(instanceNumber)}));
 		$nc(this->valueToName)->put(instance, result);
 		return result;
@@ -104,7 +76,30 @@ NameGenerator::NameGenerator() {
 }
 
 $Class* NameGenerator::load$($String* name, bool initialize) {
-	$loadClass(NameGenerator, name, initialize, &_NameGenerator_ClassInfo_, allocate$NameGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"valueToName", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Object;Ljava/lang/String;>;", $PRIVATE, $field(NameGenerator, valueToName)},
+		{"nameToCount", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE, $field(NameGenerator, nameToCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NameGenerator, init$, void)},
+		{"capitalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(NameGenerator, capitalize, $String*, $String*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(NameGenerator, clear, void)},
+		{"instanceName", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NameGenerator, instanceName, $String*, Object$*)},
+		{"unqualifiedClassName", "(Ljava/lang/Class;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(NameGenerator, unqualifiedClassName, $String*, $Class*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.beans.NameGenerator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NameGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NameGenerator);
+	});
 	return class$;
 }
 

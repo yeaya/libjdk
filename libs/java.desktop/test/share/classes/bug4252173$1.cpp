@@ -1,5 +1,4 @@
 #include <bug4252173$1.h>
-
 #include <bug4252173.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -10,12 +9,10 @@
 #include <javax/swing/UIManager.h>
 #include <javax/swing/plaf/metal/DefaultMetalTheme.h>
 #include <javax/swing/plaf/metal/MetalLookAndFeel.h>
-#include <javax/swing/plaf/metal/MetalTheme.h>
 #include <jcpp.h>
 
 #undef TYPE_4BYTE_ABGR
 
-using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -28,50 +25,12 @@ using $JLabel = ::javax::swing::JLabel;
 using $UIManager = ::javax::swing::UIManager;
 using $DefaultMetalTheme = ::javax::swing::plaf::metal::DefaultMetalTheme;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
-using $MetalTheme = ::javax::swing::plaf::metal::MetalTheme;
-
-$MethodInfo _bug4252173$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug4252173$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4252173$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug4252173$1_EnclosingMethodInfo_ = {
-	"bug4252173",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug4252173$1_InnerClassesInfo_[] = {
-	{"bug4252173$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug4252173$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug4252173$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug4252173$1_MethodInfo_,
-	nullptr,
-	&_bug4252173$1_EnclosingMethodInfo_,
-	_bug4252173$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug4252173"
-};
-
-$Object* allocate$bug4252173$1($Class* clazz) {
-	return $of($alloc(bug4252173$1));
-}
 
 void bug4252173$1::init$() {
 }
 
 void bug4252173$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MetalLookAndFeel::setCurrentTheme($$new($DefaultMetalTheme));
 	$var($JComponent, component, $new($JLabel));
 	$var($Icon, horizontalThumbIcon, $UIManager::getIcon("Slider.horizontalThumbIcon"_s));
@@ -85,7 +44,38 @@ bug4252173$1::bug4252173$1() {
 }
 
 $Class* bug4252173$1::load$($String* name, bool initialize) {
-	$loadClass(bug4252173$1, name, initialize, &_bug4252173$1_ClassInfo_, allocate$bug4252173$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug4252173$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4252173$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug4252173",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug4252173$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug4252173$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug4252173"
+	};
+	$loadClass(bug4252173$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4252173$1);
+	});
 	return class$;
 }
 

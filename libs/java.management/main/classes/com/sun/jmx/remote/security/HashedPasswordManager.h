@@ -51,6 +51,7 @@ class $export HashedPasswordManager : public ::java::lang::Object {
 	$class(HashedPasswordManager, 0, ::java::lang::Object)
 public:
 	HashedPasswordManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* filename, bool shouldHashPasswords);
 	bool authenticate($String* userName, $chars* inputPassword);
 	$StringArray* getHash($String* algorithm, $String* password);

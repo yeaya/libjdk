@@ -140,6 +140,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::imageio::spi::ImageReaderSpi* originator);
 	static void access$000(::com::sun::imageio::plugins::bmp::BMPImageReader* x0, float x1);
 	static void access$100(::com::sun::imageio::plugins::bmp::BMPImageReader* x0, ::java::awt::image::BufferedImage* x1, int32_t x2, int32_t x3, int32_t x4, int32_t x5, int32_t x6, int32_t x7, $ints* x8);

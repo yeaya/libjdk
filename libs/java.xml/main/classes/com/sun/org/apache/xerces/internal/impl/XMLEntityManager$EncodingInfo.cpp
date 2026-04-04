@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityManager$EncodingInfo.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityManager.h>
 #include <jcpp.h>
 
@@ -37,62 +36,6 @@ namespace com {
 					namespace internal {
 						namespace impl {
 
-$FieldInfo _XMLEntityManager$EncodingInfo_FieldInfo_[] = {
-	{"STR_UTF8", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, STR_UTF8)},
-	{"STR_UTF16", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, STR_UTF16)},
-	{"STR_UTF16BE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, STR_UTF16BE)},
-	{"STR_UTF16LE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, STR_UTF16LE)},
-	{"STR_UCS4", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, STR_UCS4)},
-	{"STR_UCS2", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, STR_UCS2)},
-	{"STR_CP037", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, STR_CP037)},
-	{"UTF_8", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager$EncodingInfo;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, UTF_8)},
-	{"UTF_8_WITH_BOM", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager$EncodingInfo;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, UTF_8_WITH_BOM)},
-	{"UTF_16_BIG_ENDIAN", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager$EncodingInfo;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, UTF_16_BIG_ENDIAN)},
-	{"UTF_16_BIG_ENDIAN_WITH_BOM", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager$EncodingInfo;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, UTF_16_BIG_ENDIAN_WITH_BOM)},
-	{"UTF_16_LITTLE_ENDIAN", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager$EncodingInfo;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, UTF_16_LITTLE_ENDIAN)},
-	{"UTF_16_LITTLE_ENDIAN_WITH_BOM", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager$EncodingInfo;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, UTF_16_LITTLE_ENDIAN_WITH_BOM)},
-	{"UCS_4_BIG_ENDIAN", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager$EncodingInfo;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, UCS_4_BIG_ENDIAN)},
-	{"UCS_4_LITTLE_ENDIAN", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager$EncodingInfo;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, UCS_4_LITTLE_ENDIAN)},
-	{"UCS_4_UNUSUAL_BYTE_ORDER", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager$EncodingInfo;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, UCS_4_UNUSUAL_BYTE_ORDER)},
-	{"EBCDIC", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager$EncodingInfo;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, EBCDIC)},
-	{"autoDetectedEncoding", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(XMLEntityManager$EncodingInfo, autoDetectedEncoding)},
-	{"readerEncoding", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(XMLEntityManager$EncodingInfo, readerEncoding)},
-	{"isBigEndian", "Ljava/lang/Boolean;", nullptr, $PUBLIC | $FINAL, $field(XMLEntityManager$EncodingInfo, isBigEndian)},
-	{"hasBOM", "Z", nullptr, $PUBLIC | $FINAL, $field(XMLEntityManager$EncodingInfo, hasBOM)},
-	{}
-};
-
-$MethodInfo _XMLEntityManager$EncodingInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Boolean;Z)V", nullptr, $PRIVATE, $method(XMLEntityManager$EncodingInfo, init$, void, $String*, $Boolean*, bool)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Z)V", nullptr, $PRIVATE, $method(XMLEntityManager$EncodingInfo, init$, void, $String*, $String*, $Boolean*, bool)},
-	{}
-};
-
-$InnerClassInfo _XMLEntityManager$EncodingInfo_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.XMLEntityManager$EncodingInfo", "com.sun.org.apache.xerces.internal.impl.XMLEntityManager", "EncodingInfo", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _XMLEntityManager$EncodingInfo_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.XMLEntityManager$EncodingInfo",
-	"java.lang.Object",
-	nullptr,
-	_XMLEntityManager$EncodingInfo_FieldInfo_,
-	_XMLEntityManager$EncodingInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XMLEntityManager$EncodingInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.XMLEntityManager"
-};
-
-$Object* allocate$XMLEntityManager$EncodingInfo($Class* clazz) {
-	return $of($alloc(XMLEntityManager$EncodingInfo));
-}
-
 $String* XMLEntityManager$EncodingInfo::STR_UTF8 = nullptr;
 $String* XMLEntityManager$EncodingInfo::STR_UTF16 = nullptr;
 $String* XMLEntityManager$EncodingInfo::STR_UTF16BE = nullptr;
@@ -122,7 +65,7 @@ void XMLEntityManager$EncodingInfo::init$($String* autoDetectedEncoding, $String
 	this->hasBOM = hasBOM;
 }
 
-void clinit$XMLEntityManager$EncodingInfo($Class* class$) {
+void XMLEntityManager$EncodingInfo::clinit$($Class* clazz) {
 	$assignStatic(XMLEntityManager$EncodingInfo::STR_UTF8, "UTF-8"_s);
 	$assignStatic(XMLEntityManager$EncodingInfo::STR_UTF16, "UTF-16"_s);
 	$assignStatic(XMLEntityManager$EncodingInfo::STR_UTF16BE, "UTF-16BE"_s);
@@ -132,7 +75,6 @@ void clinit$XMLEntityManager$EncodingInfo($Class* class$) {
 	$assignStatic(XMLEntityManager$EncodingInfo::STR_CP037, "CP037"_s);
 	$assignStatic(XMLEntityManager$EncodingInfo::UTF_8, $new(XMLEntityManager$EncodingInfo, XMLEntityManager$EncodingInfo::STR_UTF8, nullptr, false));
 	$assignStatic(XMLEntityManager$EncodingInfo::UTF_8_WITH_BOM, $new(XMLEntityManager$EncodingInfo, XMLEntityManager$EncodingInfo::STR_UTF8, nullptr, true));
-	$init($Boolean);
 	$assignStatic(XMLEntityManager$EncodingInfo::UTF_16_BIG_ENDIAN, $new(XMLEntityManager$EncodingInfo, XMLEntityManager$EncodingInfo::STR_UTF16BE, XMLEntityManager$EncodingInfo::STR_UTF16, $Boolean::TRUE, false));
 	$assignStatic(XMLEntityManager$EncodingInfo::UTF_16_BIG_ENDIAN_WITH_BOM, $new(XMLEntityManager$EncodingInfo, XMLEntityManager$EncodingInfo::STR_UTF16BE, XMLEntityManager$EncodingInfo::STR_UTF16, $Boolean::TRUE, true));
 	$assignStatic(XMLEntityManager$EncodingInfo::UTF_16_LITTLE_ENDIAN, $new(XMLEntityManager$EncodingInfo, XMLEntityManager$EncodingInfo::STR_UTF16LE, XMLEntityManager$EncodingInfo::STR_UTF16, $Boolean::FALSE, false));
@@ -147,7 +89,57 @@ XMLEntityManager$EncodingInfo::XMLEntityManager$EncodingInfo() {
 }
 
 $Class* XMLEntityManager$EncodingInfo::load$($String* name, bool initialize) {
-	$loadClass(XMLEntityManager$EncodingInfo, name, initialize, &_XMLEntityManager$EncodingInfo_ClassInfo_, clinit$XMLEntityManager$EncodingInfo, allocate$XMLEntityManager$EncodingInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"STR_UTF8", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, STR_UTF8)},
+		{"STR_UTF16", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, STR_UTF16)},
+		{"STR_UTF16BE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, STR_UTF16BE)},
+		{"STR_UTF16LE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, STR_UTF16LE)},
+		{"STR_UCS4", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, STR_UCS4)},
+		{"STR_UCS2", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, STR_UCS2)},
+		{"STR_CP037", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, STR_CP037)},
+		{"UTF_8", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager$EncodingInfo;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, UTF_8)},
+		{"UTF_8_WITH_BOM", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager$EncodingInfo;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, UTF_8_WITH_BOM)},
+		{"UTF_16_BIG_ENDIAN", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager$EncodingInfo;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, UTF_16_BIG_ENDIAN)},
+		{"UTF_16_BIG_ENDIAN_WITH_BOM", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager$EncodingInfo;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, UTF_16_BIG_ENDIAN_WITH_BOM)},
+		{"UTF_16_LITTLE_ENDIAN", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager$EncodingInfo;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, UTF_16_LITTLE_ENDIAN)},
+		{"UTF_16_LITTLE_ENDIAN_WITH_BOM", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager$EncodingInfo;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, UTF_16_LITTLE_ENDIAN_WITH_BOM)},
+		{"UCS_4_BIG_ENDIAN", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager$EncodingInfo;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, UCS_4_BIG_ENDIAN)},
+		{"UCS_4_LITTLE_ENDIAN", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager$EncodingInfo;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, UCS_4_LITTLE_ENDIAN)},
+		{"UCS_4_UNUSUAL_BYTE_ORDER", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager$EncodingInfo;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, UCS_4_UNUSUAL_BYTE_ORDER)},
+		{"EBCDIC", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager$EncodingInfo;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLEntityManager$EncodingInfo, EBCDIC)},
+		{"autoDetectedEncoding", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(XMLEntityManager$EncodingInfo, autoDetectedEncoding)},
+		{"readerEncoding", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(XMLEntityManager$EncodingInfo, readerEncoding)},
+		{"isBigEndian", "Ljava/lang/Boolean;", nullptr, $PUBLIC | $FINAL, $field(XMLEntityManager$EncodingInfo, isBigEndian)},
+		{"hasBOM", "Z", nullptr, $PUBLIC | $FINAL, $field(XMLEntityManager$EncodingInfo, hasBOM)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Boolean;Z)V", nullptr, $PRIVATE, $method(XMLEntityManager$EncodingInfo, init$, void, $String*, $Boolean*, bool)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Z)V", nullptr, $PRIVATE, $method(XMLEntityManager$EncodingInfo, init$, void, $String*, $String*, $Boolean*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.XMLEntityManager$EncodingInfo", "com.sun.org.apache.xerces.internal.impl.XMLEntityManager", "EncodingInfo", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.XMLEntityManager$EncodingInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.XMLEntityManager"
+	};
+	$loadClass(XMLEntityManager$EncodingInfo, name, initialize, &classInfo$$, XMLEntityManager$EncodingInfo::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLEntityManager$EncodingInfo);
+	});
 	return class$;
 }
 

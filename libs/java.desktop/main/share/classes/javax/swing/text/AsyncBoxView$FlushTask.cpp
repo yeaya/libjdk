@@ -1,5 +1,4 @@
 #include <javax/swing/text/AsyncBoxView$FlushTask.h>
-
 #include <javax/swing/text/AsyncBoxView.h>
 #include <jcpp.h>
 
@@ -13,42 +12,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _AsyncBoxView$FlushTask_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/AsyncBoxView;", nullptr, $FINAL | $SYNTHETIC, $field(AsyncBoxView$FlushTask, this$0)},
-	{}
-};
-
-$MethodInfo _AsyncBoxView$FlushTask_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/AsyncBoxView;)V", nullptr, 0, $method(AsyncBoxView$FlushTask, init$, void, $AsyncBoxView*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AsyncBoxView$FlushTask, run, void)},
-	{}
-};
-
-$InnerClassInfo _AsyncBoxView$FlushTask_InnerClassesInfo_[] = {
-	{"javax.swing.text.AsyncBoxView$FlushTask", "javax.swing.text.AsyncBoxView", "FlushTask", 0},
-	{}
-};
-
-$ClassInfo _AsyncBoxView$FlushTask_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.AsyncBoxView$FlushTask",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_AsyncBoxView$FlushTask_FieldInfo_,
-	_AsyncBoxView$FlushTask_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AsyncBoxView$FlushTask_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.AsyncBoxView"
-};
-
-$Object* allocate$AsyncBoxView$FlushTask($Class* clazz) {
-	return $of($alloc(AsyncBoxView$FlushTask));
-}
-
 void AsyncBoxView$FlushTask::init$($AsyncBoxView* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -61,7 +24,37 @@ AsyncBoxView$FlushTask::AsyncBoxView$FlushTask() {
 }
 
 $Class* AsyncBoxView$FlushTask::load$($String* name, bool initialize) {
-	$loadClass(AsyncBoxView$FlushTask, name, initialize, &_AsyncBoxView$FlushTask_ClassInfo_, allocate$AsyncBoxView$FlushTask);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/AsyncBoxView;", nullptr, $FINAL | $SYNTHETIC, $field(AsyncBoxView$FlushTask, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/AsyncBoxView;)V", nullptr, 0, $method(AsyncBoxView$FlushTask, init$, void, $AsyncBoxView*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AsyncBoxView$FlushTask, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.AsyncBoxView$FlushTask", "javax.swing.text.AsyncBoxView", "FlushTask", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.AsyncBoxView$FlushTask",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.AsyncBoxView"
+	};
+	$loadClass(AsyncBoxView$FlushTask, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AsyncBoxView$FlushTask);
+	});
 	return class$;
 }
 

@@ -27,6 +27,7 @@ class $export MethodsTest : public ::java::lang::Object {
 	$class(MethodsTest, 0, ::java::lang::Object)
 public:
 	MethodsTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void bad($String* name);
 	static void good($String* name);

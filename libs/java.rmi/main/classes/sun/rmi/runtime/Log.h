@@ -56,6 +56,7 @@ class Log : public ::java::lang::Object {
 	$class(Log, 0, ::java::lang::Object)
 public:
 	Log();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::rmi::runtime::Log* getLog($String* loggerName, $String* oldLogName, int32_t override$);
 	static ::sun::rmi::runtime::Log* getLog($String* loggerName, $String* oldLogName, bool override$);

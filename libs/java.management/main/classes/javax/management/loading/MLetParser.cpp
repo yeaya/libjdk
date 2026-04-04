@@ -1,5 +1,4 @@
 #include <javax/management/loading/MLetParser.h>
-
 #include <com/sun/jmx/defaults/JmxProperties.h>
 #include <java/io/BufferedReader.h>
 #include <java/io/File.h>
@@ -32,7 +31,6 @@ using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $URL = ::java::net::URL;
 using $URLConnection = ::java::net::URLConnection;
@@ -46,35 +44,6 @@ using $MLetContent = ::javax::management::loading::MLetContent;
 namespace javax {
 	namespace management {
 		namespace loading {
-
-$FieldInfo _MLetParser_FieldInfo_[] = {
-	{"c", "I", nullptr, $PRIVATE, $field(MLetParser, c)},
-	{"tag", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(MLetParser, tag)},
-	{}
-};
-
-$MethodInfo _MLetParser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MLetParser, init$, void)},
-	{"parse", "(Ljava/net/URL;)Ljava/util/List;", "(Ljava/net/URL;)Ljava/util/List<Ljavax/management/loading/MLetContent;>;", $PUBLIC, $virtualMethod(MLetParser, parse, $List*, $URL*), "java.io.IOException"},
-	{"parseURL", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljavax/management/loading/MLetContent;>;", $PUBLIC, $virtualMethod(MLetParser, parseURL, $List*, $String*), "java.io.IOException"},
-	{"scanIdentifier", "(Ljava/io/Reader;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MLetParser, scanIdentifier, $String*, $Reader*), "java.io.IOException"},
-	{"scanTag", "(Ljava/io/Reader;)Ljava/util/Map;", "(Ljava/io/Reader;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(MLetParser, scanTag, $Map*, $Reader*), "java.io.IOException"},
-	{"skipSpace", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(MLetParser, skipSpace, void, $Reader*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _MLetParser_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.loading.MLetParser",
-	"java.lang.Object",
-	nullptr,
-	_MLetParser_FieldInfo_,
-	_MLetParser_MethodInfo_
-};
-
-$Object* allocate$MLetParser($Class* clazz) {
-	return $of($alloc(MLetParser));
-}
 
 $String* MLetParser::tag = nullptr;
 
@@ -100,7 +69,7 @@ $String* MLetParser::scanIdentifier($Reader* in) {
 }
 
 $Map* MLetParser::scanTag($Reader* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, atts, $new($HashMap));
 	skipSpace(in);
 	while (this->c >= 0 && this->c != u'>') {
@@ -137,7 +106,7 @@ $Map* MLetParser::scanTag($Reader* in) {
 }
 
 $List* MLetParser::parse($URL* url$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URL, url, url$renamed);
 	$var($String, requiresTypeWarning, "<arg type=... value=...> tag requires type parameter."_s);
 	$var($String, requiresValueWarning, "<arg type=... value=...> tag requires value parameter."_s);
@@ -147,7 +116,7 @@ $List* MLetParser::parse($URL* url$renamed) {
 	$var($URLConnection, conn, nullptr);
 	$assign(conn, $nc(url)->openConnection());
 	$var($Reader, in, $new($BufferedReader, $$new($InputStreamReader, $($nc(conn)->getInputStream()), "UTF-8"_s)));
-	$assign(url, $nc(conn)->getURL());
+	$assign(url, conn->getURL());
 	$var($List, mlets, $new($ArrayList));
 	$var($Map, atts, nullptr);
 	$var($List, types, $new($ArrayList));
@@ -214,7 +183,7 @@ $List* MLetParser::parse($URL* url$renamed) {
 						$nc($JmxProperties::MLET_LOGGER)->log($System$Logger$Level::TRACE, requiresCodeWarning);
 						$throwNew($IOException, requiresCodeWarning);
 					}
-					if ($nc(atts)->get("archive"_s) == nullptr) {
+					if (atts->get("archive"_s) == nullptr) {
 						$init($JmxProperties);
 						$init($System$Logger$Level);
 						$nc($JmxProperties::MLET_LOGGER)->log($System$Logger$Level::TRACE, requiresJarsWarning);
@@ -229,19 +198,19 @@ $List* MLetParser::parse($URL* url$renamed) {
 }
 
 $List* MLetParser::parseURL($String* urlname) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URL, url, nullptr);
-	if ($nc(urlname)->indexOf((int32_t)u':') <= 1) {
+	if ($nc(urlname)->indexOf(u':') <= 1) {
 		$var($String, userDir, $System::getProperty("user.dir"_s));
 		$var($String, prot, nullptr);
 		bool var$0 = $nc(userDir)->charAt(0) == u'/';
 		$init($File);
-		if (var$0 || $nc(userDir)->charAt(0) == $File::separatorChar) {
+		if (var$0 || userDir->charAt(0) == $File::separatorChar) {
 			$assign(prot, "file:"_s);
 		} else {
 			$assign(prot, "file:/"_s);
 		}
-		$assign(url, $new($URL, $$str({prot, $($nc(userDir)->replace($File::separatorChar, u'/')), "/"_s})));
+		$assign(url, $new($URL, $$str({prot, $(userDir->replace($File::separatorChar, u'/')), "/"_s})));
 		$assign(url, $new($URL, url, urlname));
 	} else {
 		$assign(url, $new($URL, urlname));
@@ -249,7 +218,7 @@ $List* MLetParser::parseURL($String* urlname) {
 	return parse(url);
 }
 
-void clinit$MLetParser($Class* class$) {
+void MLetParser::clinit$($Class* clazz) {
 	$assignStatic(MLetParser::tag, "mlet"_s);
 }
 
@@ -257,7 +226,31 @@ MLetParser::MLetParser() {
 }
 
 $Class* MLetParser::load$($String* name, bool initialize) {
-	$loadClass(MLetParser, name, initialize, &_MLetParser_ClassInfo_, clinit$MLetParser, allocate$MLetParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"c", "I", nullptr, $PRIVATE, $field(MLetParser, c)},
+		{"tag", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(MLetParser, tag)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MLetParser, init$, void)},
+		{"parse", "(Ljava/net/URL;)Ljava/util/List;", "(Ljava/net/URL;)Ljava/util/List<Ljavax/management/loading/MLetContent;>;", $PUBLIC, $virtualMethod(MLetParser, parse, $List*, $URL*), "java.io.IOException"},
+		{"parseURL", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljavax/management/loading/MLetContent;>;", $PUBLIC, $virtualMethod(MLetParser, parseURL, $List*, $String*), "java.io.IOException"},
+		{"scanIdentifier", "(Ljava/io/Reader;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MLetParser, scanIdentifier, $String*, $Reader*), "java.io.IOException"},
+		{"scanTag", "(Ljava/io/Reader;)Ljava/util/Map;", "(Ljava/io/Reader;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(MLetParser, scanTag, $Map*, $Reader*), "java.io.IOException"},
+		{"skipSpace", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(MLetParser, skipSpace, void, $Reader*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.loading.MLetParser",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MLetParser, name, initialize, &classInfo$$, MLetParser::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MLetParser);
+	});
 	return class$;
 }
 

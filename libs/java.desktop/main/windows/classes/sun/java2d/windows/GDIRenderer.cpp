@@ -1,5 +1,4 @@
 #include <sun/java2d/windows/GDIRenderer.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/Shape.h>
 #include <java/awt/Stroke.h>
@@ -24,7 +23,6 @@
 
 using $Composite = ::java::awt::Composite;
 using $Shape = ::java::awt::Shape;
-using $Stroke = ::java::awt::Stroke;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -43,84 +41,6 @@ using $GDIWindowSurfaceData = ::sun::java2d::windows::GDIWindowSurfaceData;
 namespace sun {
 	namespace java2d {
 		namespace windows {
-
-$MethodInfo _GDIRenderer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GDIRenderer, init$, void)},
-	{"devCopyArea", "(Lsun/java2d/windows/GDIWindowSurfaceData;IIIIII)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(GDIRenderer, devCopyArea, void, $GDIWindowSurfaceData*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"doDrawArc", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIIIII)V", nullptr, $NATIVE, $virtualMethod(GDIRenderer, doDrawArc, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"doDrawLine", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIII)V", nullptr, $NATIVE, $virtualMethod(GDIRenderer, doDrawLine, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"doDrawOval", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIII)V", nullptr, $NATIVE, $virtualMethod(GDIRenderer, doDrawOval, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"doDrawPoly", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;III[I[IIZ)V", nullptr, $NATIVE, $virtualMethod(GDIRenderer, doDrawPoly, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, $ints*, $ints*, int32_t, bool)},
-	{"doDrawRect", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIII)V", nullptr, $NATIVE, $virtualMethod(GDIRenderer, doDrawRect, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"doDrawRoundRect", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIIIII)V", nullptr, $NATIVE, $virtualMethod(GDIRenderer, doDrawRoundRect, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"doFillArc", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIIIII)V", nullptr, $NATIVE, $virtualMethod(GDIRenderer, doFillArc, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"doFillOval", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIII)V", nullptr, $NATIVE, $virtualMethod(GDIRenderer, doFillOval, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"doFillPoly", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;III[I[II)V", nullptr, $NATIVE, $virtualMethod(GDIRenderer, doFillPoly, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, $ints*, $ints*, int32_t)},
-	{"doFillRect", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIII)V", nullptr, $NATIVE, $virtualMethod(GDIRenderer, doFillRect, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"doFillRoundRect", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIIIII)V", nullptr, $NATIVE, $virtualMethod(GDIRenderer, doFillRoundRect, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"doFillSpans", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/pipe/SpanIterator;)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, doFillSpans, void, $SunGraphics2D*, $SpanIterator*)},
-	{"doShape", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIILjava/awt/geom/Path2D$Float;Z)V", nullptr, $NATIVE, $virtualMethod(GDIRenderer, doShape, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, $Path2D$Float*, bool)},
-	{"doShape", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;Z)V", nullptr, 0, $virtualMethod(GDIRenderer, doShape, void, $SunGraphics2D*, $Shape*, bool)},
-	{"draw", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, draw, void, $SunGraphics2D*, $Shape*)},
-	{"drawArc", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, drawArc, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"drawLine", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, drawLine, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawOval", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, drawOval, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawPolygon", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, drawPolygon, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
-	{"drawPolyline", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, drawPolyline, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
-	{"drawRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, drawRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawRoundRect", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, drawRoundRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"fill", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, fill, void, $SunGraphics2D*, $Shape*)},
-	{"fillArc", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, fillArc, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"fillOval", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, fillOval, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"fillPolygon", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, fillPolygon, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
-	{"fillRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, fillRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"fillRoundRect", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, fillRoundRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"traceWrap", "()Lsun/java2d/windows/GDIRenderer;", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, traceWrap, GDIRenderer*)},
-	{}
-};
-
-#define _METHOD_INDEX_devCopyArea 5
-#define _METHOD_INDEX_doDrawArc 6
-#define _METHOD_INDEX_doDrawLine 7
-#define _METHOD_INDEX_doDrawOval 8
-#define _METHOD_INDEX_doDrawPoly 9
-#define _METHOD_INDEX_doDrawRect 10
-#define _METHOD_INDEX_doDrawRoundRect 11
-#define _METHOD_INDEX_doFillArc 12
-#define _METHOD_INDEX_doFillOval 13
-#define _METHOD_INDEX_doFillPoly 14
-#define _METHOD_INDEX_doFillRect 15
-#define _METHOD_INDEX_doFillRoundRect 16
-#define _METHOD_INDEX_doShape 18
-
-$InnerClassInfo _GDIRenderer_InnerClassesInfo_[] = {
-	{"sun.java2d.windows.GDIRenderer$Tracer", "sun.java2d.windows.GDIRenderer", "Tracer", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _GDIRenderer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.windows.GDIRenderer",
-	"java.lang.Object",
-	"sun.java2d.pipe.PixelDrawPipe,sun.java2d.pipe.PixelFillPipe,sun.java2d.pipe.ShapeDrawPipe",
-	nullptr,
-	_GDIRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GDIRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.windows.GDIRenderer$Tracer"
-};
-
-$Object* allocate$GDIRenderer($Class* clazz) {
-	return $of($alloc(GDIRenderer));
-}
 
 int32_t GDIRenderer::hashCode() {
 	 return this->$PixelDrawPipe::hashCode();
@@ -146,13 +66,13 @@ void GDIRenderer::init$() {
 }
 
 void GDIRenderer::doDrawLine($GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
-	$prepareNative(GDIRenderer, doDrawLine, void, $GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t x1, int32_t y1, int32_t x2, int32_t y2);
+	$prepareNative(doDrawLine, void, $GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t x1, int32_t y1, int32_t x2, int32_t y2);
 	$invokeNative(sData, clip, comp, color, x1, y1, x2, y2);
 	$finishNative();
 }
 
 void GDIRenderer::drawLine($SunGraphics2D* sg2d, int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t transx = $nc(sg2d)->transX;
 	int32_t transy = sg2d->transY;
 	try {
@@ -163,172 +83,172 @@ void GDIRenderer::drawLine($SunGraphics2D* sg2d, int32_t x1, int32_t y1, int32_t
 }
 
 void GDIRenderer::doDrawRect($GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$prepareNative(GDIRenderer, doDrawRect, void, $GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t x, int32_t y, int32_t w, int32_t h);
+	$prepareNative(doDrawRect, void, $GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t x, int32_t y, int32_t w, int32_t h);
 	$invokeNative(sData, clip, comp, color, x, y, w, h);
 	$finishNative();
 }
 
 void GDIRenderer::drawRect($SunGraphics2D* sg2d, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		doDrawRect($cast($GDIWindowSurfaceData, $nc(sg2d)->surfaceData), $(sg2d->getCompClip()), sg2d->composite, sg2d->eargb, x + sg2d->transX, y + sg2d->transY, width, height);
+		doDrawRect($cast($GDIWindowSurfaceData, $nc(sg2d)->surfaceData), $($nc(sg2d)->getCompClip()), $nc(sg2d)->composite, $nc(sg2d)->eargb, x + $nc(sg2d)->transX, y + $nc(sg2d)->transY, width, height);
 	} catch ($ClassCastException& e) {
 		$throwNew($InvalidPipeException, $$str({"wrong surface data type: "_s, $nc(sg2d)->surfaceData}));
 	}
 }
 
 void GDIRenderer::doDrawRoundRect($GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t x, int32_t y, int32_t w, int32_t h, int32_t arcW, int32_t arcH) {
-	$prepareNative(GDIRenderer, doDrawRoundRect, void, $GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t x, int32_t y, int32_t w, int32_t h, int32_t arcW, int32_t arcH);
+	$prepareNative(doDrawRoundRect, void, $GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t x, int32_t y, int32_t w, int32_t h, int32_t arcW, int32_t arcH);
 	$invokeNative(sData, clip, comp, color, x, y, w, h, arcW, arcH);
 	$finishNative();
 }
 
 void GDIRenderer::drawRoundRect($SunGraphics2D* sg2d, int32_t x, int32_t y, int32_t width, int32_t height, int32_t arcWidth, int32_t arcHeight) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		doDrawRoundRect($cast($GDIWindowSurfaceData, $nc(sg2d)->surfaceData), $(sg2d->getCompClip()), sg2d->composite, sg2d->eargb, x + sg2d->transX, y + sg2d->transY, width, height, arcWidth, arcHeight);
+		doDrawRoundRect($cast($GDIWindowSurfaceData, $nc(sg2d)->surfaceData), $($nc(sg2d)->getCompClip()), $nc(sg2d)->composite, $nc(sg2d)->eargb, x + $nc(sg2d)->transX, y + $nc(sg2d)->transY, width, height, arcWidth, arcHeight);
 	} catch ($ClassCastException& e) {
 		$throwNew($InvalidPipeException, $$str({"wrong surface data type: "_s, $nc(sg2d)->surfaceData}));
 	}
 }
 
 void GDIRenderer::doDrawOval($GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$prepareNative(GDIRenderer, doDrawOval, void, $GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t x, int32_t y, int32_t w, int32_t h);
+	$prepareNative(doDrawOval, void, $GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t x, int32_t y, int32_t w, int32_t h);
 	$invokeNative(sData, clip, comp, color, x, y, w, h);
 	$finishNative();
 }
 
 void GDIRenderer::drawOval($SunGraphics2D* sg2d, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		doDrawOval($cast($GDIWindowSurfaceData, $nc(sg2d)->surfaceData), $(sg2d->getCompClip()), sg2d->composite, sg2d->eargb, x + sg2d->transX, y + sg2d->transY, width, height);
+		doDrawOval($cast($GDIWindowSurfaceData, $nc(sg2d)->surfaceData), $($nc(sg2d)->getCompClip()), $nc(sg2d)->composite, $nc(sg2d)->eargb, x + $nc(sg2d)->transX, y + $nc(sg2d)->transY, width, height);
 	} catch ($ClassCastException& e) {
 		$throwNew($InvalidPipeException, $$str({"wrong surface data type: "_s, $nc(sg2d)->surfaceData}));
 	}
 }
 
 void GDIRenderer::doDrawArc($GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t x, int32_t y, int32_t w, int32_t h, int32_t angleStart, int32_t angleExtent) {
-	$prepareNative(GDIRenderer, doDrawArc, void, $GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t x, int32_t y, int32_t w, int32_t h, int32_t angleStart, int32_t angleExtent);
+	$prepareNative(doDrawArc, void, $GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t x, int32_t y, int32_t w, int32_t h, int32_t angleStart, int32_t angleExtent);
 	$invokeNative(sData, clip, comp, color, x, y, w, h, angleStart, angleExtent);
 	$finishNative();
 }
 
 void GDIRenderer::drawArc($SunGraphics2D* sg2d, int32_t x, int32_t y, int32_t width, int32_t height, int32_t startAngle, int32_t arcAngle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		doDrawArc($cast($GDIWindowSurfaceData, $nc(sg2d)->surfaceData), $(sg2d->getCompClip()), sg2d->composite, sg2d->eargb, x + sg2d->transX, y + sg2d->transY, width, height, startAngle, arcAngle);
+		doDrawArc($cast($GDIWindowSurfaceData, $nc(sg2d)->surfaceData), $($nc(sg2d)->getCompClip()), $nc(sg2d)->composite, $nc(sg2d)->eargb, x + $nc(sg2d)->transX, y + $nc(sg2d)->transY, width, height, startAngle, arcAngle);
 	} catch ($ClassCastException& e) {
 		$throwNew($InvalidPipeException, $$str({"wrong surface data type: "_s, $nc(sg2d)->surfaceData}));
 	}
 }
 
 void GDIRenderer::doDrawPoly($GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t transx, int32_t transy, $ints* xpoints, $ints* ypoints, int32_t npoints, bool isclosed) {
-	$prepareNative(GDIRenderer, doDrawPoly, void, $GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t transx, int32_t transy, $ints* xpoints, $ints* ypoints, int32_t npoints, bool isclosed);
+	$prepareNative(doDrawPoly, void, $GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t transx, int32_t transy, $ints* xpoints, $ints* ypoints, int32_t npoints, bool isclosed);
 	$invokeNative(sData, clip, comp, color, transx, transy, xpoints, ypoints, npoints, isclosed);
 	$finishNative();
 }
 
 void GDIRenderer::drawPolyline($SunGraphics2D* sg2d, $ints* xpoints, $ints* ypoints, int32_t npoints) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		doDrawPoly($cast($GDIWindowSurfaceData, $nc(sg2d)->surfaceData), $(sg2d->getCompClip()), sg2d->composite, sg2d->eargb, sg2d->transX, sg2d->transY, xpoints, ypoints, npoints, false);
+		doDrawPoly($cast($GDIWindowSurfaceData, $nc(sg2d)->surfaceData), $($nc(sg2d)->getCompClip()), $nc(sg2d)->composite, $nc(sg2d)->eargb, $nc(sg2d)->transX, $nc(sg2d)->transY, xpoints, ypoints, npoints, false);
 	} catch ($ClassCastException& e) {
 		$throwNew($InvalidPipeException, $$str({"wrong surface data type: "_s, $nc(sg2d)->surfaceData}));
 	}
 }
 
 void GDIRenderer::drawPolygon($SunGraphics2D* sg2d, $ints* xpoints, $ints* ypoints, int32_t npoints) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		doDrawPoly($cast($GDIWindowSurfaceData, $nc(sg2d)->surfaceData), $(sg2d->getCompClip()), sg2d->composite, sg2d->eargb, sg2d->transX, sg2d->transY, xpoints, ypoints, npoints, true);
+		doDrawPoly($cast($GDIWindowSurfaceData, $nc(sg2d)->surfaceData), $($nc(sg2d)->getCompClip()), $nc(sg2d)->composite, $nc(sg2d)->eargb, $nc(sg2d)->transX, $nc(sg2d)->transY, xpoints, ypoints, npoints, true);
 	} catch ($ClassCastException& e) {
 		$throwNew($InvalidPipeException, $$str({"wrong surface data type: "_s, $nc(sg2d)->surfaceData}));
 	}
 }
 
 void GDIRenderer::doFillRect($GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$prepareNative(GDIRenderer, doFillRect, void, $GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t x, int32_t y, int32_t w, int32_t h);
+	$prepareNative(doFillRect, void, $GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t x, int32_t y, int32_t w, int32_t h);
 	$invokeNative(sData, clip, comp, color, x, y, w, h);
 	$finishNative();
 }
 
 void GDIRenderer::fillRect($SunGraphics2D* sg2d, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		doFillRect($cast($GDIWindowSurfaceData, $nc(sg2d)->surfaceData), $(sg2d->getCompClip()), sg2d->composite, sg2d->eargb, x + sg2d->transX, y + sg2d->transY, width, height);
+		doFillRect($cast($GDIWindowSurfaceData, $nc(sg2d)->surfaceData), $($nc(sg2d)->getCompClip()), $nc(sg2d)->composite, $nc(sg2d)->eargb, x + $nc(sg2d)->transX, y + $nc(sg2d)->transY, width, height);
 	} catch ($ClassCastException& e) {
 		$throwNew($InvalidPipeException, $$str({"wrong surface data type: "_s, $nc(sg2d)->surfaceData}));
 	}
 }
 
 void GDIRenderer::doFillRoundRect($GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t x, int32_t y, int32_t w, int32_t h, int32_t arcW, int32_t arcH) {
-	$prepareNative(GDIRenderer, doFillRoundRect, void, $GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t x, int32_t y, int32_t w, int32_t h, int32_t arcW, int32_t arcH);
+	$prepareNative(doFillRoundRect, void, $GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t x, int32_t y, int32_t w, int32_t h, int32_t arcW, int32_t arcH);
 	$invokeNative(sData, clip, comp, color, x, y, w, h, arcW, arcH);
 	$finishNative();
 }
 
 void GDIRenderer::fillRoundRect($SunGraphics2D* sg2d, int32_t x, int32_t y, int32_t width, int32_t height, int32_t arcWidth, int32_t arcHeight) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		doFillRoundRect($cast($GDIWindowSurfaceData, $nc(sg2d)->surfaceData), $(sg2d->getCompClip()), sg2d->composite, sg2d->eargb, x + sg2d->transX, y + sg2d->transY, width, height, arcWidth, arcHeight);
+		doFillRoundRect($cast($GDIWindowSurfaceData, $nc(sg2d)->surfaceData), $($nc(sg2d)->getCompClip()), $nc(sg2d)->composite, $nc(sg2d)->eargb, x + $nc(sg2d)->transX, y + $nc(sg2d)->transY, width, height, arcWidth, arcHeight);
 	} catch ($ClassCastException& e) {
 		$throwNew($InvalidPipeException, $$str({"wrong surface data type: "_s, $nc(sg2d)->surfaceData}));
 	}
 }
 
 void GDIRenderer::doFillOval($GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$prepareNative(GDIRenderer, doFillOval, void, $GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t x, int32_t y, int32_t w, int32_t h);
+	$prepareNative(doFillOval, void, $GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t x, int32_t y, int32_t w, int32_t h);
 	$invokeNative(sData, clip, comp, color, x, y, w, h);
 	$finishNative();
 }
 
 void GDIRenderer::fillOval($SunGraphics2D* sg2d, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		doFillOval($cast($GDIWindowSurfaceData, $nc(sg2d)->surfaceData), $(sg2d->getCompClip()), sg2d->composite, sg2d->eargb, x + sg2d->transX, y + sg2d->transY, width, height);
+		doFillOval($cast($GDIWindowSurfaceData, $nc(sg2d)->surfaceData), $($nc(sg2d)->getCompClip()), $nc(sg2d)->composite, $nc(sg2d)->eargb, x + $nc(sg2d)->transX, y + $nc(sg2d)->transY, width, height);
 	} catch ($ClassCastException& e) {
 		$throwNew($InvalidPipeException, $$str({"wrong surface data type: "_s, $nc(sg2d)->surfaceData}));
 	}
 }
 
 void GDIRenderer::doFillArc($GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t x, int32_t y, int32_t w, int32_t h, int32_t angleStart, int32_t angleExtent) {
-	$prepareNative(GDIRenderer, doFillArc, void, $GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t x, int32_t y, int32_t w, int32_t h, int32_t angleStart, int32_t angleExtent);
+	$prepareNative(doFillArc, void, $GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t x, int32_t y, int32_t w, int32_t h, int32_t angleStart, int32_t angleExtent);
 	$invokeNative(sData, clip, comp, color, x, y, w, h, angleStart, angleExtent);
 	$finishNative();
 }
 
 void GDIRenderer::fillArc($SunGraphics2D* sg2d, int32_t x, int32_t y, int32_t width, int32_t height, int32_t startAngle, int32_t arcAngle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		doFillArc($cast($GDIWindowSurfaceData, $nc(sg2d)->surfaceData), $(sg2d->getCompClip()), sg2d->composite, sg2d->eargb, x + sg2d->transX, y + sg2d->transY, width, height, startAngle, arcAngle);
+		doFillArc($cast($GDIWindowSurfaceData, $nc(sg2d)->surfaceData), $($nc(sg2d)->getCompClip()), $nc(sg2d)->composite, $nc(sg2d)->eargb, x + $nc(sg2d)->transX, y + $nc(sg2d)->transY, width, height, startAngle, arcAngle);
 	} catch ($ClassCastException& e) {
 		$throwNew($InvalidPipeException, $$str({"wrong surface data type: "_s, $nc(sg2d)->surfaceData}));
 	}
 }
 
 void GDIRenderer::doFillPoly($GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t transx, int32_t transy, $ints* xpoints, $ints* ypoints, int32_t npoints) {
-	$prepareNative(GDIRenderer, doFillPoly, void, $GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t transx, int32_t transy, $ints* xpoints, $ints* ypoints, int32_t npoints);
+	$prepareNative(doFillPoly, void, $GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t transx, int32_t transy, $ints* xpoints, $ints* ypoints, int32_t npoints);
 	$invokeNative(sData, clip, comp, color, transx, transy, xpoints, ypoints, npoints);
 	$finishNative();
 }
 
 void GDIRenderer::fillPolygon($SunGraphics2D* sg2d, $ints* xpoints, $ints* ypoints, int32_t npoints) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		doFillPoly($cast($GDIWindowSurfaceData, $nc(sg2d)->surfaceData), $(sg2d->getCompClip()), sg2d->composite, sg2d->eargb, sg2d->transX, sg2d->transY, xpoints, ypoints, npoints);
+		doFillPoly($cast($GDIWindowSurfaceData, $nc(sg2d)->surfaceData), $($nc(sg2d)->getCompClip()), $nc(sg2d)->composite, $nc(sg2d)->eargb, $nc(sg2d)->transX, $nc(sg2d)->transY, xpoints, ypoints, npoints);
 	} catch ($ClassCastException& e) {
 		$throwNew($InvalidPipeException, $$str({"wrong surface data type: "_s, $nc(sg2d)->surfaceData}));
 	}
 }
 
 void GDIRenderer::doShape($GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t transX, int32_t transY, $Path2D$Float* p2df, bool isfill) {
-	$prepareNative(GDIRenderer, doShape, void, $GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t transX, int32_t transY, $Path2D$Float* p2df, bool isfill);
+	$prepareNative(doShape, void, $GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t transX, int32_t transY, $Path2D$Float* p2df, bool isfill);
 	$invokeNative(sData, clip, comp, color, transX, transY, p2df, isfill);
 	$finishNative();
 }
 
 void GDIRenderer::doShape($SunGraphics2D* sg2d, $Shape* s, bool isfill) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path2D$Float, p2df, nullptr);
 	int32_t transX = 0;
 	int32_t transY = 0;
@@ -346,14 +266,14 @@ void GDIRenderer::doShape($SunGraphics2D* sg2d, $Shape* s, bool isfill) {
 		transY = 0;
 	}
 	try {
-		doShape($cast($GDIWindowSurfaceData, $nc(sg2d)->surfaceData), $(sg2d->getCompClip()), sg2d->composite, sg2d->eargb, transX, transY, p2df, isfill);
+		doShape($cast($GDIWindowSurfaceData, sg2d->surfaceData), $(sg2d->getCompClip()), sg2d->composite, sg2d->eargb, transX, transY, p2df, isfill);
 	} catch ($ClassCastException& e) {
-		$throwNew($InvalidPipeException, $$str({"wrong surface data type: "_s, $nc(sg2d)->surfaceData}));
+		$throwNew($InvalidPipeException, $$str({"wrong surface data type: "_s, sg2d->surfaceData}));
 	}
 }
 
 void GDIRenderer::doFillSpans($SunGraphics2D* sg2d, $SpanIterator* si) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, box, $new($ints, 4));
 	$var($GDIWindowSurfaceData, sd, nullptr);
 	try {
@@ -370,23 +290,21 @@ void GDIRenderer::doFillSpans($SunGraphics2D* sg2d, $SpanIterator* si) {
 }
 
 void GDIRenderer::draw($SunGraphics2D* sg2d, $Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(sg2d)->strokeState == $SunGraphics2D::STROKE_THIN) {
 		doShape(sg2d, s, false);
 	} else if (sg2d->strokeState < $SunGraphics2D::STROKE_CUSTOM) {
 		$var($ShapeSpanIterator, si, $LoopPipe::getStrokeSpans(sg2d, s));
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				doFillSpans(sg2d, si);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(si)->dispose();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			doFillSpans(sg2d, si);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$nc(si)->dispose();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} else {
 		doShape(sg2d, $($nc(sg2d->stroke)->createStrokedShape(s)), true);
@@ -398,7 +316,7 @@ void GDIRenderer::fill($SunGraphics2D* sg2d, $Shape* s) {
 }
 
 void GDIRenderer::devCopyArea($GDIWindowSurfaceData* sData, int32_t srcx, int32_t srcy, int32_t dx, int32_t dy, int32_t w, int32_t h) {
-	$prepareNative(GDIRenderer, devCopyArea, void, $GDIWindowSurfaceData* sData, int32_t srcx, int32_t srcy, int32_t dx, int32_t dy, int32_t w, int32_t h);
+	$prepareNative(devCopyArea, void, $GDIWindowSurfaceData* sData, int32_t srcx, int32_t srcy, int32_t dx, int32_t dy, int32_t w, int32_t h);
 	$invokeNative(sData, srcx, srcy, dx, dy, w, h);
 	$finishNative();
 }
@@ -411,7 +329,66 @@ GDIRenderer::GDIRenderer() {
 }
 
 $Class* GDIRenderer::load$($String* name, bool initialize) {
-	$loadClass(GDIRenderer, name, initialize, &_GDIRenderer_ClassInfo_, allocate$GDIRenderer);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GDIRenderer, init$, void)},
+		{"devCopyArea", "(Lsun/java2d/windows/GDIWindowSurfaceData;IIIIII)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(GDIRenderer, devCopyArea, void, $GDIWindowSurfaceData*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"doDrawArc", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIIIII)V", nullptr, $NATIVE, $virtualMethod(GDIRenderer, doDrawArc, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"doDrawLine", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIII)V", nullptr, $NATIVE, $virtualMethod(GDIRenderer, doDrawLine, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"doDrawOval", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIII)V", nullptr, $NATIVE, $virtualMethod(GDIRenderer, doDrawOval, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"doDrawPoly", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;III[I[IIZ)V", nullptr, $NATIVE, $virtualMethod(GDIRenderer, doDrawPoly, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, $ints*, $ints*, int32_t, bool)},
+		{"doDrawRect", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIII)V", nullptr, $NATIVE, $virtualMethod(GDIRenderer, doDrawRect, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"doDrawRoundRect", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIIIII)V", nullptr, $NATIVE, $virtualMethod(GDIRenderer, doDrawRoundRect, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"doFillArc", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIIIII)V", nullptr, $NATIVE, $virtualMethod(GDIRenderer, doFillArc, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"doFillOval", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIII)V", nullptr, $NATIVE, $virtualMethod(GDIRenderer, doFillOval, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"doFillPoly", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;III[I[II)V", nullptr, $NATIVE, $virtualMethod(GDIRenderer, doFillPoly, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, $ints*, $ints*, int32_t)},
+		{"doFillRect", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIII)V", nullptr, $NATIVE, $virtualMethod(GDIRenderer, doFillRect, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"doFillRoundRect", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIIIII)V", nullptr, $NATIVE, $virtualMethod(GDIRenderer, doFillRoundRect, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"doFillSpans", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/pipe/SpanIterator;)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, doFillSpans, void, $SunGraphics2D*, $SpanIterator*)},
+		{"doShape", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIILjava/awt/geom/Path2D$Float;Z)V", nullptr, $NATIVE, $virtualMethod(GDIRenderer, doShape, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, $Path2D$Float*, bool)},
+		{"doShape", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;Z)V", nullptr, 0, $virtualMethod(GDIRenderer, doShape, void, $SunGraphics2D*, $Shape*, bool)},
+		{"draw", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, draw, void, $SunGraphics2D*, $Shape*)},
+		{"drawArc", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, drawArc, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"drawLine", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, drawLine, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawOval", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, drawOval, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawPolygon", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, drawPolygon, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
+		{"drawPolyline", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, drawPolyline, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
+		{"drawRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, drawRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawRoundRect", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, drawRoundRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"fill", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, fill, void, $SunGraphics2D*, $Shape*)},
+		{"fillArc", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, fillArc, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"fillOval", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, fillOval, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"fillPolygon", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, fillPolygon, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
+		{"fillRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, fillRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"fillRoundRect", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, fillRoundRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"traceWrap", "()Lsun/java2d/windows/GDIRenderer;", nullptr, $PUBLIC, $virtualMethod(GDIRenderer, traceWrap, GDIRenderer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.windows.GDIRenderer$Tracer", "sun.java2d.windows.GDIRenderer", "Tracer", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.windows.GDIRenderer",
+		"java.lang.Object",
+		"sun.java2d.pipe.PixelDrawPipe,sun.java2d.pipe.PixelFillPipe,sun.java2d.pipe.ShapeDrawPipe",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.windows.GDIRenderer$Tracer"
+	};
+	$loadClass(GDIRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GDIRenderer));
+	});
 	return class$;
 }
 

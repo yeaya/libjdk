@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKGraphicsUtils.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKLookAndFeel.h>
 #include <com/sun/java/swing/plaf/gtk/GTKPainter.h>
 #include <com/sun/java/swing/plaf/gtk/GTKStyle.h>
@@ -51,41 +50,20 @@ namespace com {
 				namespace plaf {
 					namespace gtk {
 
-$MethodInfo _GTKGraphicsUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(GTKGraphicsUtils, init$, void)},
-	{"paintText", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljava/lang/String;III)V", nullptr, $PUBLIC, $virtualMethod(GTKGraphicsUtils, paintText, void, $SynthContext*, $Graphics*, $String*, int32_t, int32_t, int32_t)},
-	{"paintText", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljava/lang/String;Ljava/awt/Rectangle;I)V", nullptr, $PUBLIC, $virtualMethod(GTKGraphicsUtils, paintText, void, $SynthContext*, $Graphics*, $String*, $Rectangle*, int32_t)},
-	{"shouldShadowText", "(Ljavax/swing/plaf/synth/Region;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(GTKGraphicsUtils, shouldShadowText, bool, $Region*, int32_t)},
-	{}
-};
-
-$ClassInfo _GTKGraphicsUtils_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.GTKGraphicsUtils",
-	"javax.swing.plaf.synth.SynthGraphicsUtils",
-	nullptr,
-	nullptr,
-	_GTKGraphicsUtils_MethodInfo_
-};
-
-$Object* allocate$GTKGraphicsUtils($Class* clazz) {
-	return $of($alloc(GTKGraphicsUtils));
-}
-
 void GTKGraphicsUtils::init$() {
 	$SynthGraphicsUtils::init$();
 }
 
 void GTKGraphicsUtils::paintText($SynthContext* context, $Graphics* g, $String* text, int32_t x, int32_t y, int32_t mnemonicIndex) {
-	$useLocalCurrentObjectStackCache();
-	if (text == nullptr || $nc(text)->length() <= 0) {
+	$useLocalObjectStack();
+	if (text == nullptr || text->length() <= 0) {
 		return;
 	}
 	$init($Region);
 	if ($nc(context)->getRegion() == $Region::INTERNAL_FRAME_TITLE_PANE) {
 		return;
 	}
-	int32_t componentState = $nc(context)->getComponentState();
+	int32_t componentState = context->getComponentState();
 	$var($String, themeName, $GTKLookAndFeel::getGtkThemeName());
 	bool var$0 = themeName != nullptr && themeName->startsWith("blueprint"_s);
 	if (var$0 && shouldShadowText($(context->getRegion()), componentState)) {
@@ -98,15 +76,15 @@ void GTKGraphicsUtils::paintText($SynthContext* context, $Graphics* g, $String* 
 }
 
 void GTKGraphicsUtils::paintText($SynthContext* context, $Graphics* g, $String* text, $Rectangle* bounds, int32_t mnemonicIndex) {
-	$useLocalCurrentObjectStackCache();
-	if (text == nullptr || $nc(text)->length() <= 0) {
+	$useLocalObjectStack();
+	if (text == nullptr || text->length() <= 0) {
 		return;
 	}
 	$var($Region, id, $nc(context)->getRegion());
 	$init($Region);
-	if ((id == $Region::RADIO_BUTTON || id == $Region::CHECK_BOX || id == $Region::TABBED_PANE_TAB) && ((int32_t)(context->getComponentState() & (uint32_t)$SynthConstants::FOCUSED)) != 0) {
+	if ((id == $Region::RADIO_BUTTON || id == $Region::CHECK_BOX || id == $Region::TABBED_PANE_TAB) && (context->getComponentState() & $SynthConstants::FOCUSED) != 0) {
 		$var($JComponent, source, context->getComponent());
-		if (!($instanceOf($AbstractButton, source)) || $nc(($cast($AbstractButton, source)))->isFocusPainted()) {
+		if (!($instanceOf($AbstractButton, source)) || $cast($AbstractButton, source)->isFocusPainted()) {
 			int32_t synthState = context->getComponentState();
 			$var($GTKStyle, style, $cast($GTKStyle, context->getStyle()));
 			int32_t focusSize = $nc(style)->getClassSpecificIntValue(context, "focus-line-width"_s, 1);
@@ -136,7 +114,24 @@ GTKGraphicsUtils::GTKGraphicsUtils() {
 }
 
 $Class* GTKGraphicsUtils::load$($String* name, bool initialize) {
-	$loadClass(GTKGraphicsUtils, name, initialize, &_GTKGraphicsUtils_ClassInfo_, allocate$GTKGraphicsUtils);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(GTKGraphicsUtils, init$, void)},
+		{"paintText", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljava/lang/String;III)V", nullptr, $PUBLIC, $virtualMethod(GTKGraphicsUtils, paintText, void, $SynthContext*, $Graphics*, $String*, int32_t, int32_t, int32_t)},
+		{"paintText", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljava/lang/String;Ljava/awt/Rectangle;I)V", nullptr, $PUBLIC, $virtualMethod(GTKGraphicsUtils, paintText, void, $SynthContext*, $Graphics*, $String*, $Rectangle*, int32_t)},
+		{"shouldShadowText", "(Ljavax/swing/plaf/synth/Region;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(GTKGraphicsUtils, shouldShadowText, bool, $Region*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.GTKGraphicsUtils",
+		"javax.swing.plaf.synth.SynthGraphicsUtils",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GTKGraphicsUtils, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GTKGraphicsUtils);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/awt/X11/MotifDnDDropTargetProtocol.h>
-
 #include <java/awt/Point.h>
 #include <java/awt/dnd/DnDConstants.h>
 #include <java/awt/event/MouseEvent.h>
@@ -99,13 +98,10 @@ using $XDropTargetProtocol = ::sun::awt::X11::XDropTargetProtocol;
 using $XDropTargetProtocol$EmbedderRegistryEntry = ::sun::awt::X11::XDropTargetProtocol$EmbedderRegistryEntry;
 using $XDropTargetProtocolListener = ::sun::awt::X11::XDropTargetProtocolListener;
 using $XDropTargetRegistry = ::sun::awt::X11::XDropTargetRegistry;
-using $XErrorEvent = ::sun::awt::X11::XErrorEvent;
-using $XErrorHandler = ::sun::awt::X11::XErrorHandler;
 using $XErrorHandler$IgnoreBadWindowHandler = ::sun::awt::X11::XErrorHandler$IgnoreBadWindowHandler;
 using $XErrorHandler$VerifyChangePropertyHandler = ::sun::awt::X11::XErrorHandler$VerifyChangePropertyHandler;
 using $XErrorHandlerUtil = ::sun::awt::X11::XErrorHandlerUtil;
 using $XException = ::sun::awt::X11::XException;
-using $XRootWindow = ::sun::awt::X11::XRootWindow;
 using $XSelection = ::sun::awt::X11::XSelection;
 using $XToolkit = ::sun::awt::X11::XToolkit;
 using $XWindow = ::sun::awt::X11::XWindow;
@@ -115,66 +111,6 @@ using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _MotifDnDDropTargetProtocol_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MotifDnDDropTargetProtocol, $assertionsDisabled)},
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MotifDnDDropTargetProtocol, unsafe)},
-	{"sourceWindow", "J", nullptr, $PRIVATE, $field(MotifDnDDropTargetProtocol, sourceWindow)},
-	{"sourceWindowMask", "J", nullptr, $PRIVATE, $field(MotifDnDDropTargetProtocol, sourceWindowMask)},
-	{"sourceProtocolVersion", "I", nullptr, $PRIVATE, $field(MotifDnDDropTargetProtocol, sourceProtocolVersion)},
-	{"sourceActions", "I", nullptr, $PRIVATE, $field(MotifDnDDropTargetProtocol, sourceActions)},
-	{"sourceFormats", "[J", nullptr, $PRIVATE, $field(MotifDnDDropTargetProtocol, sourceFormats)},
-	{"sourceAtom", "J", nullptr, $PRIVATE, $field(MotifDnDDropTargetProtocol, sourceAtom)},
-	{"userAction", "I", nullptr, $PRIVATE, $field(MotifDnDDropTargetProtocol, userAction)},
-	{"sourceX", "I", nullptr, $PRIVATE, $field(MotifDnDDropTargetProtocol, sourceX)},
-	{"sourceY", "I", nullptr, $PRIVATE, $field(MotifDnDDropTargetProtocol, sourceY)},
-	{"targetXWindow", "Lsun/awt/X11/XWindow;", nullptr, $PRIVATE, $field(MotifDnDDropTargetProtocol, targetXWindow)},
-	{"topLevelLeavePostponed", "Z", nullptr, $PRIVATE, $field(MotifDnDDropTargetProtocol, topLevelLeavePostponed)},
-	{}
-};
-
-$MethodInfo _MotifDnDDropTargetProtocol_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/XDropTargetProtocolListener;)V", nullptr, $PROTECTED, $method(MotifDnDDropTargetProtocol, init$, void, $XDropTargetProtocolListener*)},
-	{"cleanup", "()V", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, cleanup, void)},
-	{"createInstance", "(Lsun/awt/X11/XDropTargetProtocolListener;)Lsun/awt/X11/XDropTargetProtocol;", nullptr, $STATIC, $staticMethod(MotifDnDDropTargetProtocol, createInstance, $XDropTargetProtocol*, $XDropTargetProtocolListener*)},
-	{"forwardEventToEmbedded", "(JJI)Z", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, forwardEventToEmbedded, bool, int64_t, int64_t, int32_t)},
-	{"getData", "(JJ)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, getData, $Object*, int64_t, int64_t), "java.lang.IllegalArgumentException,java.io.IOException"},
-	{"getMessageType", "(Lsun/awt/X11/XClientMessageEvent;)I", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, getMessageType, int32_t, $XClientMessageEvent*)},
-	{"getProtocolName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, getProtocolName, $String*)},
-	{"getSourceWindow", "()J", nullptr, $PUBLIC | $FINAL, $virtualMethod(MotifDnDDropTargetProtocol, getSourceWindow, int64_t)},
-	{"isDragOverComponent", "()Z", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, isDragOverComponent, bool)},
-	{"isProtocolSupported", "(J)Z", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, isProtocolSupported, bool, int64_t)},
-	{"isXEmbedSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, isXEmbedSupported, bool)},
-	{"notifyProtocolListener", "(Lsun/awt/X11/XWindow;IIIILsun/awt/X11/XClientMessageEvent;I)V", nullptr, $PRIVATE, $method(MotifDnDDropTargetProtocol, notifyProtocolListener, void, $XWindow*, int32_t, int32_t, int32_t, int32_t, $XClientMessageEvent*, int32_t)},
-	{"processClientMessageImpl", "(Lsun/awt/X11/XClientMessageEvent;)Z", nullptr, $PROTECTED, $virtualMethod(MotifDnDDropTargetProtocol, processClientMessageImpl, bool, $XClientMessageEvent*)},
-	{"processDragMotion", "(Lsun/awt/X11/XClientMessageEvent;)Z", nullptr, $PRIVATE, $method(MotifDnDDropTargetProtocol, processDragMotion, bool, $XClientMessageEvent*)},
-	{"processDropStart", "(Lsun/awt/X11/XClientMessageEvent;)Z", nullptr, $PRIVATE, $method(MotifDnDDropTargetProtocol, processDropStart, bool, $XClientMessageEvent*)},
-	{"processTopLevelEnter", "(Lsun/awt/X11/XClientMessageEvent;)Z", nullptr, $PRIVATE, $method(MotifDnDDropTargetProtocol, processTopLevelEnter, bool, $XClientMessageEvent*)},
-	{"processTopLevelLeave", "(Lsun/awt/X11/XClientMessageEvent;)Z", nullptr, $PRIVATE, $method(MotifDnDDropTargetProtocol, processTopLevelLeave, bool, $XClientMessageEvent*)},
-	{"registerDropTarget", "(J)V", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, registerDropTarget, void, int64_t)},
-	{"registerEmbeddedDropSite", "(J)V", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, registerEmbeddedDropSite, void, int64_t)},
-	{"registerEmbedderDropSite", "(J)V", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, registerEmbedderDropSite, void, int64_t)},
-	{"sendDropDone", "(JZI)Z", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, sendDropDone, bool, int64_t, bool, int32_t)},
-	{"sendEnterMessageToToplevel", "(JLsun/awt/X11/XClientMessageEvent;)V", nullptr, $PROTECTED, $virtualMethod(MotifDnDDropTargetProtocol, sendEnterMessageToToplevel, void, int64_t, $XClientMessageEvent*)},
-	{"sendLeaveMessageToToplevel", "(JLsun/awt/X11/XClientMessageEvent;)V", nullptr, $PROTECTED, $virtualMethod(MotifDnDDropTargetProtocol, sendLeaveMessageToToplevel, void, int64_t, $XClientMessageEvent*)},
-	{"sendResponse", "(JII)Z", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, sendResponse, bool, int64_t, int32_t, int32_t)},
-	{"unregisterDropTarget", "(J)V", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, unregisterDropTarget, void, int64_t)},
-	{"unregisterEmbedderDropSite", "(J)V", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, unregisterEmbedderDropSite, void, int64_t)},
-	{}
-};
-
-$ClassInfo _MotifDnDDropTargetProtocol_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.MotifDnDDropTargetProtocol",
-	"sun.awt.X11.XDropTargetProtocol",
-	nullptr,
-	_MotifDnDDropTargetProtocol_FieldInfo_,
-	_MotifDnDDropTargetProtocol_MethodInfo_
-};
-
-$Object* allocate$MotifDnDDropTargetProtocol($Class* clazz) {
-	return $of($alloc(MotifDnDDropTargetProtocol));
-}
 
 bool MotifDnDDropTargetProtocol::$assertionsDisabled = false;
 $Unsafe* MotifDnDDropTargetProtocol::unsafe = nullptr;
@@ -220,7 +156,7 @@ void MotifDnDDropTargetProtocol::unregisterDropTarget(int64_t window) {
 }
 
 void MotifDnDDropTargetProtocol::registerEmbedderDropSite(int64_t embedder) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!MotifDnDDropTargetProtocol::$assertionsDisabled && !$XToolkit::isAWTLockHeldByCurrentThread()) {
 		$throwNew($AssertionError);
 	}
@@ -232,79 +168,76 @@ void MotifDnDDropTargetProtocol::registerEmbedderDropSite(int64_t embedder) {
 	int64_t data = 0;
 	int32_t dataSize = $MotifDnDConstants::MOTIF_RECEIVER_INFO_SIZE;
 	$init($MotifDnDConstants);
-	$var($WindowPropertyGetter, wpg, $new($WindowPropertyGetter, embedder, $MotifDnDConstants::XA_MOTIF_DRAG_RECEIVER_INFO, (int64_t)0, (int64_t)0x0000FFFF, false, $XConstants::AnyPropertyType));
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
-		try {
-			status = wpg->execute($($XErrorHandler$IgnoreBadWindowHandler::getInstance()));
-			bool var$4 = status == $XConstants::Success && wpg->getData() != 0;
-			bool var$3 = var$4 && wpg->getActualType() != 0;
-			bool var$2 = var$3 && wpg->getActualFormat() == 8;
-			if (var$2 && wpg->getNumberOfItems() >= $MotifDnDConstants::MOTIF_RECEIVER_INFO_SIZE) {
-				overriden = true;
-				data = wpg->getData();
-				dataSize = wpg->getNumberOfItems();
-				int8_t byteOrderByte = $nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data);
-				{
-					int32_t tproxy = $nc(MotifDnDDropTargetProtocol::unsafe)->getInt(data + 4);
-					if (byteOrderByte != $MotifDnDConstants::getByteOrderByte()) {
-						tproxy = $MotifDnDConstants$Swapper::swap(tproxy);
-					}
-					proxy = tproxy;
+	$var($WindowPropertyGetter, wpg, $new($WindowPropertyGetter, embedder, $MotifDnDConstants::XA_MOTIF_DRAG_RECEIVER_INFO, 0, 0x0000ffff, false, $XConstants::AnyPropertyType));
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		status = wpg->execute($($XErrorHandler$IgnoreBadWindowHandler::getInstance()));
+		bool var$4 = status == $XConstants::Success && wpg->getData() != 0;
+		bool var$3 = var$4 && wpg->getActualType() != 0;
+		bool var$2 = var$3 && wpg->getActualFormat() == 8;
+		if (var$2 && wpg->getNumberOfItems() >= $MotifDnDConstants::MOTIF_RECEIVER_INFO_SIZE) {
+			overriden = true;
+			data = wpg->getData();
+			dataSize = wpg->getNumberOfItems();
+			int8_t byteOrderByte = $nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data);
+			{
+				int32_t tproxy = MotifDnDDropTargetProtocol::unsafe->getInt(data + 4);
+				if (byteOrderByte != $MotifDnDConstants::getByteOrderByte()) {
+					tproxy = $MotifDnDConstants$Swapper::swap(tproxy);
 				}
-				if (proxy == newProxy) {
-					return$1 = true;
-					goto $finally;
+				proxy = tproxy;
+			}
+			if (proxy == newProxy) {
+				return$1 = true;
+				goto $finally;
+			}
+			{
+				int32_t tproxy = (int32_t)newProxy;
+				if (byteOrderByte != $MotifDnDConstants::getByteOrderByte()) {
+					tproxy = $MotifDnDConstants$Swapper::swap(tproxy);
 				}
-				{
-					int32_t tproxy = (int32_t)newProxy;
-					if (byteOrderByte != $MotifDnDConstants::getByteOrderByte()) {
-						tproxy = $MotifDnDConstants$Swapper::swap(tproxy);
-					}
-					$nc(MotifDnDDropTargetProtocol::unsafe)->putInt(data + 4, tproxy);
-				}
-			} else {
-				data = $nc(MotifDnDDropTargetProtocol::unsafe)->allocateMemory(dataSize);
-				$nc(MotifDnDDropTargetProtocol::unsafe)->putByte(data, $MotifDnDConstants::getByteOrderByte());
-				$nc(MotifDnDDropTargetProtocol::unsafe)->putByte(data + 1, $MotifDnDConstants::MOTIF_DND_PROTOCOL_VERSION);
-				$nc(MotifDnDDropTargetProtocol::unsafe)->putByte(data + 2, (int8_t)$MotifDnDConstants::MOTIF_DYNAMIC_STYLE);
-				$nc(MotifDnDDropTargetProtocol::unsafe)->putByte(data + 3, (int8_t)0);
-				$nc(MotifDnDDropTargetProtocol::unsafe)->putInt(data + 4, (int32_t)newProxy);
-				$nc(MotifDnDDropTargetProtocol::unsafe)->putShort(data + 8, (int16_t)0);
-				$nc(MotifDnDDropTargetProtocol::unsafe)->putShort(data + 10, (int16_t)0);
-				$nc(MotifDnDDropTargetProtocol::unsafe)->putInt(data + 12, dataSize);
+				MotifDnDDropTargetProtocol::unsafe->putInt(data + 4, tproxy);
 			}
-			$XErrorHandlerUtil::WITH_XERROR_HANDLER($($XErrorHandler$VerifyChangePropertyHandler::getInstance()));
-			int64_t var$5 = $XToolkit::getDisplay();
-			int64_t var$6 = embedder;
-			int64_t var$7 = $nc($MotifDnDConstants::XA_MOTIF_DRAG_RECEIVER_INFO)->getAtom();
-			$XlibWrapper::XChangeProperty(var$5, var$6, var$7, $nc($MotifDnDConstants::XA_MOTIF_DRAG_RECEIVER_INFO)->getAtom(), 8, $XConstants::PropModeReplace, data, dataSize);
-			$XErrorHandlerUtil::RESTORE_XERROR_HANDLER();
-			if (($XErrorHandlerUtil::saved_error != nullptr) && ($nc($XErrorHandlerUtil::saved_error)->get_error_code() != $XConstants::Success)) {
-				$throwNew($XException, "Cannot write Motif receiver info property"_s);
-			}
-		} catch ($Throwable& var$8) {
-			$assign(var$0, var$8);
-		} $finally: {
-			if (!overriden) {
-				$nc(MotifDnDDropTargetProtocol::unsafe)->freeMemory(data);
-				data = 0;
-			}
-			wpg->dispose();
+		} else {
+			data = $nc(MotifDnDDropTargetProtocol::unsafe)->allocateMemory(dataSize);
+			MotifDnDDropTargetProtocol::unsafe->putByte(data, $MotifDnDConstants::getByteOrderByte());
+			MotifDnDDropTargetProtocol::unsafe->putByte(data + 1, $MotifDnDConstants::MOTIF_DND_PROTOCOL_VERSION);
+			MotifDnDDropTargetProtocol::unsafe->putByte(data + 2, (int8_t)$MotifDnDConstants::MOTIF_DYNAMIC_STYLE);
+			MotifDnDDropTargetProtocol::unsafe->putByte(data + 3, (int8_t)0);
+			MotifDnDDropTargetProtocol::unsafe->putInt(data + 4, (int32_t)newProxy);
+			MotifDnDDropTargetProtocol::unsafe->putShort(data + 8, (int16_t)0);
+			MotifDnDDropTargetProtocol::unsafe->putShort(data + 10, (int16_t)0);
+			MotifDnDDropTargetProtocol::unsafe->putInt(data + 12, dataSize);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$XErrorHandlerUtil::WITH_XERROR_HANDLER($($XErrorHandler$VerifyChangePropertyHandler::getInstance()));
+		int64_t var$5 = $XToolkit::getDisplay();
+		int64_t var$6 = $nc($MotifDnDConstants::XA_MOTIF_DRAG_RECEIVER_INFO)->getAtom();
+		$XlibWrapper::XChangeProperty(var$5, embedder, var$6, $MotifDnDConstants::XA_MOTIF_DRAG_RECEIVER_INFO->getAtom(), 8, $XConstants::PropModeReplace, data, dataSize);
+		$XErrorHandlerUtil::RESTORE_XERROR_HANDLER();
+		if (($XErrorHandlerUtil::saved_error != nullptr) && ($nc($XErrorHandlerUtil::saved_error)->get_error_code() != $XConstants::Success)) {
+			$throwNew($XException, "Cannot write Motif receiver info property"_s);
 		}
-		if (return$1) {
-			return;
+	} catch ($Throwable& var$7) {
+		$assign(var$0, var$7);
+	} $finally: {
+		if (!overriden) {
+			$nc(MotifDnDDropTargetProtocol::unsafe)->freeMemory(data);
+			data = 0;
 		}
+		wpg->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 	putEmbedderRegistryEntry(embedder, overriden, version, proxy);
 }
 
 void MotifDnDDropTargetProtocol::unregisterEmbedderDropSite(int64_t embedder) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!MotifDnDDropTargetProtocol::$assertionsDisabled && !$XToolkit::isAWTLockHeldByCurrentThread()) {
 		$throwNew($AssertionError);
 	}
@@ -315,41 +248,38 @@ void MotifDnDDropTargetProtocol::unregisterEmbedderDropSite(int64_t embedder) {
 	if ($nc(entry)->isOverriden()) {
 		int32_t status = 0;
 		$init($MotifDnDConstants);
-		$var($WindowPropertyGetter, wpg, $new($WindowPropertyGetter, embedder, $MotifDnDConstants::XA_MOTIF_DRAG_RECEIVER_INFO, (int64_t)0, (int64_t)0x0000FFFF, false, $XConstants::AnyPropertyType));
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				status = wpg->execute($($XErrorHandler$IgnoreBadWindowHandler::getInstance()));
-				bool var$3 = status == $XConstants::Success && wpg->getData() != 0;
-				bool var$2 = var$3 && wpg->getActualType() != 0;
-				bool var$1 = var$2 && wpg->getActualFormat() == 8;
-				if (var$1 && wpg->getNumberOfItems() >= $MotifDnDConstants::MOTIF_RECEIVER_INFO_SIZE) {
-					int32_t dataSize = $MotifDnDConstants::MOTIF_RECEIVER_INFO_SIZE;
-					int64_t data = wpg->getData();
-					int8_t byteOrderByte = $nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data);
-					int32_t tproxy = (int32_t)entry->getProxy();
-					if ($MotifDnDConstants::getByteOrderByte() != byteOrderByte) {
-						tproxy = $MotifDnDConstants$Swapper::swap(tproxy);
-					}
-					$nc(MotifDnDDropTargetProtocol::unsafe)->putInt(data + 4, tproxy);
-					$XErrorHandlerUtil::WITH_XERROR_HANDLER($($XErrorHandler$VerifyChangePropertyHandler::getInstance()));
-					int64_t var$4 = $XToolkit::getDisplay();
-					int64_t var$5 = embedder;
-					int64_t var$6 = $nc($MotifDnDConstants::XA_MOTIF_DRAG_RECEIVER_INFO)->getAtom();
-					$XlibWrapper::XChangeProperty(var$4, var$5, var$6, $nc($MotifDnDConstants::XA_MOTIF_DRAG_RECEIVER_INFO)->getAtom(), 8, $XConstants::PropModeReplace, data, dataSize);
-					$XErrorHandlerUtil::RESTORE_XERROR_HANDLER();
-					if (($XErrorHandlerUtil::saved_error != nullptr) && ($nc($XErrorHandlerUtil::saved_error)->get_error_code() != $XConstants::Success)) {
-						$throwNew($XException, "Cannot write Motif receiver info property"_s);
-					}
+		$var($WindowPropertyGetter, wpg, $new($WindowPropertyGetter, embedder, $MotifDnDConstants::XA_MOTIF_DRAG_RECEIVER_INFO, 0, 0x0000ffff, false, $XConstants::AnyPropertyType));
+		$var($Throwable, var$0, nullptr);
+		try {
+			status = wpg->execute($($XErrorHandler$IgnoreBadWindowHandler::getInstance()));
+			bool var$3 = status == $XConstants::Success && wpg->getData() != 0;
+			bool var$2 = var$3 && wpg->getActualType() != 0;
+			bool var$1 = var$2 && wpg->getActualFormat() == 8;
+			if (var$1 && wpg->getNumberOfItems() >= $MotifDnDConstants::MOTIF_RECEIVER_INFO_SIZE) {
+				int32_t dataSize = $MotifDnDConstants::MOTIF_RECEIVER_INFO_SIZE;
+				int64_t data = wpg->getData();
+				int8_t byteOrderByte = $nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data);
+				int32_t tproxy = (int32_t)entry->getProxy();
+				if ($MotifDnDConstants::getByteOrderByte() != byteOrderByte) {
+					tproxy = $MotifDnDConstants$Swapper::swap(tproxy);
 				}
-			} catch ($Throwable& var$7) {
-				$assign(var$0, var$7);
-			} /*finally*/ {
-				wpg->dispose();
+				MotifDnDDropTargetProtocol::unsafe->putInt(data + 4, tproxy);
+				$XErrorHandlerUtil::WITH_XERROR_HANDLER($($XErrorHandler$VerifyChangePropertyHandler::getInstance()));
+				int64_t var$4 = $XToolkit::getDisplay();
+				int64_t var$5 = $nc($MotifDnDConstants::XA_MOTIF_DRAG_RECEIVER_INFO)->getAtom();
+				$XlibWrapper::XChangeProperty(var$4, embedder, var$5, $MotifDnDConstants::XA_MOTIF_DRAG_RECEIVER_INFO->getAtom(), 8, $XConstants::PropModeReplace, data, dataSize);
+				$XErrorHandlerUtil::RESTORE_XERROR_HANDLER();
+				if (($XErrorHandlerUtil::saved_error != nullptr) && ($nc($XErrorHandlerUtil::saved_error)->get_error_code() != $XConstants::Success)) {
+					$throwNew($XException, "Cannot write Motif receiver info property"_s);
+				}
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$6) {
+			$assign(var$0, var$6);
+		} /*finally*/ {
+			wpg->dispose();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} else {
 		$init($MotifDnDConstants);
@@ -358,7 +288,7 @@ void MotifDnDDropTargetProtocol::unregisterEmbedderDropSite(int64_t embedder) {
 }
 
 void MotifDnDDropTargetProtocol::registerEmbeddedDropSite(int64_t embedded) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!MotifDnDDropTargetProtocol::$assertionsDisabled && !$XToolkit::isAWTLockHeldByCurrentThread()) {
 		$throwNew($AssertionError);
 	}
@@ -367,77 +297,73 @@ void MotifDnDDropTargetProtocol::registerEmbeddedDropSite(int64_t embedded) {
 	int64_t proxy = 0;
 	int32_t status = 0;
 	$init($MotifDnDConstants);
-	$var($WindowPropertyGetter, wpg, $new($WindowPropertyGetter, embedded, $MotifDnDConstants::XA_MOTIF_DRAG_RECEIVER_INFO, (int64_t)0, (int64_t)0x0000FFFF, false, $XConstants::AnyPropertyType));
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			status = wpg->execute($($XErrorHandler$IgnoreBadWindowHandler::getInstance()));
-			bool var$3 = status == $XConstants::Success && wpg->getData() != 0;
-			bool var$2 = var$3 && wpg->getActualType() != 0;
-			bool var$1 = var$2 && wpg->getActualFormat() == 8;
-			if (var$1 && wpg->getNumberOfItems() >= $MotifDnDConstants::MOTIF_RECEIVER_INFO_SIZE) {
-				overriden = true;
-				int64_t data = wpg->getData();
-				int8_t byteOrderByte = $nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data);
-				{
-					int32_t tproxy = $nc(MotifDnDDropTargetProtocol::unsafe)->getInt(data + 4);
-					if (byteOrderByte != $MotifDnDConstants::getByteOrderByte()) {
-						tproxy = $MotifDnDConstants$Swapper::swap(tproxy);
-					}
-					proxy = tproxy;
+	$var($WindowPropertyGetter, wpg, $new($WindowPropertyGetter, embedded, $MotifDnDConstants::XA_MOTIF_DRAG_RECEIVER_INFO, 0, 0x0000ffff, false, $XConstants::AnyPropertyType));
+	$var($Throwable, var$0, nullptr);
+	try {
+		status = wpg->execute($($XErrorHandler$IgnoreBadWindowHandler::getInstance()));
+		bool var$3 = status == $XConstants::Success && wpg->getData() != 0;
+		bool var$2 = var$3 && wpg->getActualType() != 0;
+		bool var$1 = var$2 && wpg->getActualFormat() == 8;
+		if (var$1 && wpg->getNumberOfItems() >= $MotifDnDConstants::MOTIF_RECEIVER_INFO_SIZE) {
+			overriden = true;
+			int64_t data = wpg->getData();
+			int8_t byteOrderByte = $nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data);
+			{
+				int32_t tproxy = MotifDnDDropTargetProtocol::unsafe->getInt(data + 4);
+				if (byteOrderByte != $MotifDnDConstants::getByteOrderByte()) {
+					tproxy = $MotifDnDConstants$Swapper::swap(tproxy);
 				}
+				proxy = tproxy;
 			}
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} /*finally*/ {
-			wpg->dispose();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} /*finally*/ {
+		wpg->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	putEmbedderRegistryEntry(embedded, overriden, version, proxy);
 }
 
 bool MotifDnDDropTargetProtocol::isProtocolSupported(int64_t window) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($MotifDnDConstants);
-	$var($WindowPropertyGetter, wpg, $new($WindowPropertyGetter, window, $MotifDnDConstants::XA_MOTIF_DRAG_RECEIVER_INFO, (int64_t)0, (int64_t)0x0000FFFF, false, $XConstants::AnyPropertyType));
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			int32_t status = wpg->execute($($XErrorHandler$IgnoreBadWindowHandler::getInstance()));
-			bool var$5 = status == $XConstants::Success && wpg->getData() != 0;
-			bool var$4 = var$5 && wpg->getActualType() != 0;
-			bool var$3 = var$4 && wpg->getActualFormat() == 8;
-			if (var$3 && wpg->getNumberOfItems() >= $MotifDnDConstants::MOTIF_RECEIVER_INFO_SIZE) {
-				var$2 = true;
-				return$1 = true;
-				goto $finally;
-			} else {
-				var$2 = false;
-				return$1 = true;
-				goto $finally;
-			}
-		} catch ($Throwable& var$6) {
-			$assign(var$0, var$6);
-		} $finally: {
-			wpg->dispose();
+	$var($WindowPropertyGetter, wpg, $new($WindowPropertyGetter, window, $MotifDnDConstants::XA_MOTIF_DRAG_RECEIVER_INFO, 0, 0x0000ffff, false, $XConstants::AnyPropertyType));
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		int32_t status = wpg->execute($($XErrorHandler$IgnoreBadWindowHandler::getInstance()));
+		bool var$5 = status == $XConstants::Success && wpg->getData() != 0;
+		bool var$4 = var$5 && wpg->getActualType() != 0;
+		bool var$3 = var$4 && wpg->getActualFormat() == 8;
+		if (var$3 && wpg->getNumberOfItems() >= $MotifDnDConstants::MOTIF_RECEIVER_INFO_SIZE) {
+			var$2 = true;
+			return$1 = true;
+			goto $finally;
+		} else {
+			var$2 = false;
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$6) {
+		$assign(var$0, var$6);
+	} $finally: {
+		wpg->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 bool MotifDnDDropTargetProtocol::processTopLevelEnter($XClientMessageEvent* xclient) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!MotifDnDDropTargetProtocol::$assertionsDisabled && !$XToolkit::isAWTLockHeldByCurrentThread()) {
 		$throwNew($AssertionError);
 	}
@@ -445,7 +371,7 @@ bool MotifDnDDropTargetProtocol::processTopLevelEnter($XClientMessageEvent* xcli
 		return false;
 	}
 	bool var$0 = !($instanceOf($XWindow, $($XToolkit::windowToXWindow($nc(xclient)->get_window()))));
-	if (var$0 && getEmbedderRegistryEntry($nc(xclient)->get_window()) == nullptr) {
+	if (var$0 && getEmbedderRegistryEntry(xclient->get_window()) == nullptr) {
 		return false;
 	}
 	int64_t source_win = 0;
@@ -454,75 +380,70 @@ bool MotifDnDDropTargetProtocol::processTopLevelEnter($XClientMessageEvent* xcli
 	int64_t property_atom = 0;
 	$var($longs, formats, nullptr);
 	{
-		int64_t data = $nc(xclient)->get_data();
+		int64_t data = xclient->get_data();
 		int8_t eventByteOrder = $nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data + 1);
 		source_win = $MotifDnDConstants$Swapper::getInt(data + 8, eventByteOrder);
 		property_atom = $MotifDnDConstants$Swapper::getInt(data + 12, eventByteOrder);
 	}
 	{
-		int64_t var$1 = source_win;
-		$var($XAtom, var$2, $XAtom::get(property_atom));
+		$var($XAtom, var$1, $XAtom::get(property_atom));
 		$init($MotifDnDConstants);
-		$var($WindowPropertyGetter, wpg, $new($WindowPropertyGetter, var$1, var$2, (int64_t)0, (int64_t)0x0000FFFF, false, $nc($MotifDnDConstants::XA_MOTIF_DRAG_INITIATOR_INFO)->getAtom()));
-		{
-			$var($Throwable, var$3, nullptr);
-			bool var$5 = false;
-			bool return$4 = false;
-			try {
-				int32_t status = wpg->execute($($XErrorHandler$IgnoreBadWindowHandler::getInstance()));
-				bool var$8 = status == $XConstants::Success && wpg->getData() != 0;
-				if (var$8) {
-					int64_t var$9 = wpg->getActualType();
-					var$8 = var$9 == $nc($MotifDnDConstants::XA_MOTIF_DRAG_INITIATOR_INFO)->getAtom();
+		$var($WindowPropertyGetter, wpg, $new($WindowPropertyGetter, source_win, var$1, 0, 0x0000ffff, false, $nc($MotifDnDConstants::XA_MOTIF_DRAG_INITIATOR_INFO)->getAtom()));
+		$var($Throwable, var$2, nullptr);
+		bool var$4 = false;
+		bool return$3 = false;
+		try {
+			int32_t status = wpg->execute($($XErrorHandler$IgnoreBadWindowHandler::getInstance()));
+			bool var$7 = status == $XConstants::Success && wpg->getData() != 0;
+			if (var$7) {
+				int64_t var$8 = wpg->getActualType();
+				var$7 = var$8 == $MotifDnDConstants::XA_MOTIF_DRAG_INITIATOR_INFO->getAtom();
+			}
+			bool var$6 = var$7;
+			bool var$5 = var$6 && wpg->getActualFormat() == 8;
+			if (var$5 && wpg->getNumberOfItems() == $MotifDnDConstants::MOTIF_INITIATOR_INFO_SIZE) {
+				int64_t data = wpg->getData();
+				int8_t propertyByteOrder = MotifDnDDropTargetProtocol::unsafe->getByte(data);
+				protocol_version = MotifDnDDropTargetProtocol::unsafe->getByte(data + 1);
+				if (protocol_version != $MotifDnDConstants::MOTIF_DND_PROTOCOL_VERSION) {
+					var$4 = false;
+					return$3 = true;
+					goto $finally;
 				}
-				bool var$7 = var$8;
-				bool var$6 = var$7 && wpg->getActualFormat() == 8;
-				if (var$6 && wpg->getNumberOfItems() == $MotifDnDConstants::MOTIF_INITIATOR_INFO_SIZE) {
-					int64_t data = wpg->getData();
-					int8_t propertyByteOrder = $nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data);
-					protocol_version = $nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data + 1);
-					if (protocol_version != $MotifDnDConstants::MOTIF_DND_PROTOCOL_VERSION) {
-						var$5 = false;
-						return$4 = true;
-						goto $finally;
-					}
-					int32_t index = $MotifDnDConstants$Swapper::getShort(data + 2, propertyByteOrder);
-					$assign(formats, $MotifDnDConstants::getTargetListForIndex(index));
-				} else {
-					$assign(formats, $new($longs, 0));
-				}
-			} catch ($Throwable& var$10) {
-				$assign(var$3, var$10);
-			} $finally: {
-				wpg->dispose();
+				int32_t index = $MotifDnDConstants$Swapper::getShort(data + 2, propertyByteOrder);
+				$assign(formats, $MotifDnDConstants::getTargetListForIndex(index));
+			} else {
+				$assign(formats, $new($longs, 0));
 			}
-			if (var$3 != nullptr) {
-				$throw(var$3);
-			}
-			if (return$4) {
-				return var$5;
-			}
+		} catch ($Throwable& var$9) {
+			$assign(var$2, var$9);
+		} $finally: {
+			wpg->dispose();
+		}
+		if (var$2 != nullptr) {
+			$throw(var$2);
+		}
+		if (return$3) {
+			return var$4;
 		}
 	}
 	$var($XWindowAttributes, wattr, $new($XWindowAttributes));
-	{
-		$var($Throwable, var$11, nullptr);
-		try {
-			$XErrorHandlerUtil::WITH_XERROR_HANDLER($($XErrorHandler$IgnoreBadWindowHandler::getInstance()));
-			int32_t status = $XlibWrapper::XGetWindowAttributes($XToolkit::getDisplay(), source_win, wattr->pData);
-			$XErrorHandlerUtil::RESTORE_XERROR_HANDLER();
-			if ((status == 0) || (($XErrorHandlerUtil::saved_error != nullptr) && ($nc($XErrorHandlerUtil::saved_error)->get_error_code() != $XConstants::Success))) {
-				$throwNew($XException, "XGetWindowAttributes failed"_s);
-			}
-			source_win_mask = wattr->get_your_event_mask();
-		} catch ($Throwable& var$12) {
-			$assign(var$11, var$12);
-		} /*finally*/ {
-			wattr->dispose();
+	$var($Throwable, var$10, nullptr);
+	try {
+		$XErrorHandlerUtil::WITH_XERROR_HANDLER($($XErrorHandler$IgnoreBadWindowHandler::getInstance()));
+		int32_t status = $XlibWrapper::XGetWindowAttributes($XToolkit::getDisplay(), source_win, wattr->pData);
+		$XErrorHandlerUtil::RESTORE_XERROR_HANDLER();
+		if ((status == 0) || (($XErrorHandlerUtil::saved_error != nullptr) && ($nc($XErrorHandlerUtil::saved_error)->get_error_code() != $XConstants::Success))) {
+			$throwNew($XException, "XGetWindowAttributes failed"_s);
 		}
-		if (var$11 != nullptr) {
-			$throw(var$11);
-		}
+		source_win_mask = wattr->get_your_event_mask();
+	} catch ($Throwable& var$11) {
+		$assign(var$10, var$11);
+	} /*finally*/ {
+		wattr->dispose();
+	}
+	if (var$10 != nullptr) {
+		$throw(var$10);
 	}
 	$XErrorHandlerUtil::WITH_XERROR_HANDLER($($XErrorHandler$IgnoreBadWindowHandler::getInstance()));
 	$XlibWrapper::XSelectInput($XToolkit::getDisplay(), source_win, source_win_mask | $XConstants::StructureNotifyMask);
@@ -540,15 +461,15 @@ bool MotifDnDDropTargetProtocol::processTopLevelEnter($XClientMessageEvent* xcli
 }
 
 bool MotifDnDDropTargetProtocol::processDragMotion($XClientMessageEvent* xclient) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t data = $nc(xclient)->get_data();
 	int8_t eventByteOrder = $nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data + 1);
-	int8_t eventReason = (int8_t)((int32_t)($nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data) & (uint32_t)(int32_t)$MotifDnDConstants::MOTIF_MESSAGE_REASON_MASK));
+	int8_t eventReason = (int8_t)(MotifDnDDropTargetProtocol::unsafe->getByte(data) & $MotifDnDConstants::MOTIF_MESSAGE_REASON_MASK);
 	int32_t x = 0;
 	int32_t y = 0;
 	int16_t flags = $MotifDnDConstants$Swapper::getShort(data + 2, eventByteOrder);
-	int32_t motif_action = $sr((int32_t)(flags & (uint32_t)$MotifDnDConstants::MOTIF_DND_ACTION_MASK), $MotifDnDConstants::MOTIF_DND_ACTION_SHIFT);
-	int32_t motif_actions = $sr((int32_t)(flags & (uint32_t)$MotifDnDConstants::MOTIF_DND_ACTIONS_MASK), $MotifDnDConstants::MOTIF_DND_ACTIONS_SHIFT);
+	int32_t motif_action = $sr(flags & $MotifDnDConstants::MOTIF_DND_ACTION_MASK, $MotifDnDConstants::MOTIF_DND_ACTION_SHIFT);
+	int32_t motif_actions = $sr(flags & $MotifDnDConstants::MOTIF_DND_ACTIONS_MASK, $MotifDnDConstants::MOTIF_DND_ACTIONS_SHIFT);
 	int32_t java_action = $MotifDnDConstants::getJavaActionsForMotifActions(motif_action);
 	int32_t java_actions = $MotifDnDConstants::getJavaActionsForMotifActions(motif_actions);
 	{
@@ -556,7 +477,7 @@ bool MotifDnDDropTargetProtocol::processDragMotion($XClientMessageEvent* xclient
 		if (eventByteOrder != $MotifDnDConstants::getByteOrderByte()) {
 			win = $MotifDnDConstants$Swapper::swap(win);
 		}
-		$nc(MotifDnDDropTargetProtocol::unsafe)->putInt(data + 12, win);
+		MotifDnDDropTargetProtocol::unsafe->putInt(data + 12, win);
 	}
 	$var($XWindow, xwindow, nullptr);
 	{
@@ -575,7 +496,7 @@ bool MotifDnDDropTargetProtocol::processDragMotion($XClientMessageEvent* xclient
 		x = $MotifDnDConstants$Swapper::getShort(data + 8, eventByteOrder);
 		y = $MotifDnDConstants$Swapper::getShort(data + 10, eventByteOrder);
 		if (xwindow == nullptr) {
-			int64_t receiver = $nc($($XDropTargetRegistry::getRegistry()))->getEmbeddedDropSite(xclient->get_window(), x, y);
+			int64_t receiver = $$nc($XDropTargetRegistry::getRegistry())->getEmbeddedDropSite(xclient->get_window(), x, y);
 			if (receiver != 0) {
 				$var($XBaseWindow, xbasewindow, $XToolkit::windowToXWindow(receiver));
 				if ($instanceOf($XWindow, xbasewindow)) {
@@ -611,7 +532,7 @@ bool MotifDnDDropTargetProtocol::processDragMotion($XClientMessageEvent* xclient
 }
 
 bool MotifDnDDropTargetProtocol::processTopLevelLeave($XClientMessageEvent* xclient) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!MotifDnDDropTargetProtocol::$assertionsDisabled && !$XToolkit::isAWTLockHeldByCurrentThread()) {
 		$throwNew($AssertionError);
 	}
@@ -630,34 +551,32 @@ bool MotifDnDDropTargetProtocol::processTopLevelLeave($XClientMessageEvent* xcli
 			proxy = xclient->get_window();
 		}
 		$var($XClientMessageEvent, dummy, $new($XClientMessageEvent));
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				dummy->set_type($XConstants::ClientMessage);
-				dummy->set_window(xclient->get_window());
-				dummy->set_format(32);
-				dummy->set_message_type(0);
-				dummy->set_data(0, 0);
-				dummy->set_data(1, 0);
-				dummy->set_data(2, 0);
-				dummy->set_data(3, 0);
-				dummy->set_data(4, 0);
-				$XlibWrapper::XSendEvent($XToolkit::getDisplay(), proxy, false, $XConstants::NoEventMask, dummy->pData);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				dummy->dispose();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			dummy->set_type($XConstants::ClientMessage);
+			dummy->set_window(xclient->get_window());
+			dummy->set_format(32);
+			dummy->set_message_type(0);
+			dummy->set_data(0, 0);
+			dummy->set_data(1, 0);
+			dummy->set_data(2, 0);
+			dummy->set_data(3, 0);
+			dummy->set_data(4, 0);
+			$XlibWrapper::XSendEvent($XToolkit::getDisplay(), proxy, false, $XConstants::NoEventMask, dummy->pData);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			dummy->dispose();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	return true;
 }
 
 bool MotifDnDDropTargetProtocol::processDropStart($XClientMessageEvent* xclient) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t data = $nc(xclient)->get_data();
 	int8_t eventByteOrder = $nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data + 1);
 	int64_t source_win = $MotifDnDConstants$Swapper::getInt(data + 16, eventByteOrder);
@@ -666,8 +585,8 @@ bool MotifDnDDropTargetProtocol::processDropStart($XClientMessageEvent* xclient)
 	}
 	int64_t property_atom = $MotifDnDConstants$Swapper::getInt(data + 12, eventByteOrder);
 	int16_t flags = $MotifDnDConstants$Swapper::getShort(data + 2, eventByteOrder);
-	int32_t motif_action = $sr((int32_t)(flags & (uint32_t)$MotifDnDConstants::MOTIF_DND_ACTION_MASK), $MotifDnDConstants::MOTIF_DND_ACTION_SHIFT);
-	int32_t motif_actions = $sr((int32_t)(flags & (uint32_t)$MotifDnDConstants::MOTIF_DND_ACTIONS_MASK), $MotifDnDConstants::MOTIF_DND_ACTIONS_SHIFT);
+	int32_t motif_action = $sr(flags & $MotifDnDConstants::MOTIF_DND_ACTION_MASK, $MotifDnDConstants::MOTIF_DND_ACTION_SHIFT);
+	int32_t motif_actions = $sr(flags & $MotifDnDConstants::MOTIF_DND_ACTIONS_MASK, $MotifDnDConstants::MOTIF_DND_ACTIONS_SHIFT);
 	int32_t java_action = $MotifDnDConstants::getJavaActionsForMotifActions(motif_action);
 	int32_t java_actions = $MotifDnDConstants::getJavaActionsForMotifActions(motif_actions);
 	int32_t x = $MotifDnDConstants$Swapper::getShort(data + 8, eventByteOrder);
@@ -680,7 +599,7 @@ bool MotifDnDDropTargetProtocol::processDropStart($XClientMessageEvent* xclient)
 		}
 	}
 	if (xwindow == nullptr) {
-		int64_t receiver = $nc($($XDropTargetRegistry::getRegistry()))->getEmbeddedDropSite(xclient->get_window(), x, y);
+		int64_t receiver = $$nc($XDropTargetRegistry::getRegistry())->getEmbeddedDropSite(xclient->get_window(), x, y);
 		if (receiver != 0) {
 			$var($XBaseWindow, xbasewindow, $XToolkit::windowToXWindow(receiver));
 			if ($instanceOf($XWindow, xbasewindow)) {
@@ -707,31 +626,20 @@ int32_t MotifDnDDropTargetProtocol::getMessageType($XClientMessageEvent* xclient
 	if (var$0 != $nc($MotifDnDConstants::XA_MOTIF_DRAG_AND_DROP_MESSAGE)->getAtom()) {
 		return $XDropTargetProtocol::UNKNOWN_MESSAGE;
 	}
-	int64_t data = $nc(xclient)->get_data();
-	int8_t reason = (int8_t)((int32_t)($nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data) & (uint32_t)(int32_t)$MotifDnDConstants::MOTIF_MESSAGE_REASON_MASK));
+	int64_t data = xclient->get_data();
+	int8_t reason = (int8_t)($nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data) & $MotifDnDConstants::MOTIF_MESSAGE_REASON_MASK);
 	switch (reason) {
 	case $MotifDnDConstants::TOP_LEVEL_ENTER:
-		{
-			return $XDropTargetProtocol::ENTER_MESSAGE;
-		}
+		return $XDropTargetProtocol::ENTER_MESSAGE;
 	case $MotifDnDConstants::DRAG_MOTION:
-		{}
 	case $MotifDnDConstants::OPERATION_CHANGED:
-		{
-			return $XDropTargetProtocol::MOTION_MESSAGE;
-		}
+		return $XDropTargetProtocol::MOTION_MESSAGE;
 	case $MotifDnDConstants::TOP_LEVEL_LEAVE:
-		{
-			return $XDropTargetProtocol::LEAVE_MESSAGE;
-		}
+		return $XDropTargetProtocol::LEAVE_MESSAGE;
 	case $MotifDnDConstants::DROP_START:
-		{
-			return $XDropTargetProtocol::DROP_MESSAGE;
-		}
+		return $XDropTargetProtocol::DROP_MESSAGE;
 	default:
-		{
-			return $XDropTargetProtocol::UNKNOWN_MESSAGE;
-		}
+		return $XDropTargetProtocol::UNKNOWN_MESSAGE;
 	}
 }
 
@@ -745,9 +653,9 @@ bool MotifDnDDropTargetProtocol::processClientMessageImpl($XClientMessageEvent* 
 		}
 		return false;
 	}
-	int64_t data = $nc(xclient)->get_data();
-	int8_t reason = (int8_t)((int32_t)($nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data) & (uint32_t)(int32_t)$MotifDnDConstants::MOTIF_MESSAGE_REASON_MASK));
-	int8_t origin = (int8_t)((int32_t)($nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data) & (uint32_t)(int32_t)$MotifDnDConstants::MOTIF_MESSAGE_SENDER_MASK));
+	int64_t data = xclient->get_data();
+	int8_t reason = (int8_t)($nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data) & $MotifDnDConstants::MOTIF_MESSAGE_REASON_MASK);
+	int8_t origin = (int8_t)(MotifDnDDropTargetProtocol::unsafe->getByte(data) & $MotifDnDConstants::MOTIF_MESSAGE_SENDER_MASK);
 	if (this->topLevelLeavePostponed) {
 		this->topLevelLeavePostponed = false;
 		if (reason != $MotifDnDConstants::DROP_START) {
@@ -759,27 +667,16 @@ bool MotifDnDDropTargetProtocol::processClientMessageImpl($XClientMessageEvent* 
 	}
 	switch (reason) {
 	case $MotifDnDConstants::TOP_LEVEL_ENTER:
-		{
-			return processTopLevelEnter(xclient);
-		}
+		return processTopLevelEnter(xclient);
 	case $MotifDnDConstants::DRAG_MOTION:
-		{}
 	case $MotifDnDConstants::OPERATION_CHANGED:
-		{
-			return processDragMotion(xclient);
-		}
+		return processDragMotion(xclient);
 	case $MotifDnDConstants::TOP_LEVEL_LEAVE:
-		{
-			return processTopLevelLeave(xclient);
-		}
+		return processTopLevelLeave(xclient);
 	case $MotifDnDConstants::DROP_START:
-		{
-			return processDropStart(xclient);
-		}
+		return processDropStart(xclient);
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
@@ -800,7 +697,7 @@ bool MotifDnDDropTargetProtocol::isXEmbedSupported() {
 }
 
 bool MotifDnDDropTargetProtocol::sendResponse(int64_t ctxt, int32_t eventID, int32_t action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XClientMessageEvent, xclient, $new($XClientMessageEvent, ctxt));
 	int64_t var$0 = xclient->get_message_type();
 	$init($MotifDnDConstants);
@@ -808,117 +705,97 @@ bool MotifDnDDropTargetProtocol::sendResponse(int64_t ctxt, int32_t eventID, int
 		return false;
 	}
 	int64_t data = xclient->get_data();
-	int8_t reason = (int8_t)((int32_t)($nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data) & (uint32_t)(int32_t)$MotifDnDConstants::MOTIF_MESSAGE_REASON_MASK));
-	int8_t origin = (int8_t)((int32_t)($nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data) & (uint32_t)(int32_t)$MotifDnDConstants::MOTIF_MESSAGE_SENDER_MASK));
-	int8_t eventByteOrder = $nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data + 1);
+	int8_t reason = (int8_t)($nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data) & $MotifDnDConstants::MOTIF_MESSAGE_REASON_MASK);
+	int8_t origin = (int8_t)(MotifDnDDropTargetProtocol::unsafe->getByte(data) & $MotifDnDConstants::MOTIF_MESSAGE_SENDER_MASK);
+	int8_t eventByteOrder = MotifDnDDropTargetProtocol::unsafe->getByte(data + 1);
 	int8_t response_reason = (int8_t)0;
 	if (origin != $MotifDnDConstants::MOTIF_MESSAGE_FROM_INITIATOR) {
 		return false;
 	}
 	switch (reason) {
 	case $MotifDnDConstants::TOP_LEVEL_ENTER:
-		{}
 	case $MotifDnDConstants::TOP_LEVEL_LEAVE:
-		{
-			return false;
-		}
+		return false;
 	case $MotifDnDConstants::DRAG_MOTION:
-		{
-			switch (eventID) {
-			case $MouseEvent::MOUSE_ENTERED:
-				{
-					response_reason = $MotifDnDConstants::DROP_SITE_ENTER;
-					break;
-				}
-			case $MouseEvent::MOUSE_DRAGGED:
-				{
-					response_reason = $MotifDnDConstants::DRAG_MOTION;
-					break;
-				}
-			case $MouseEvent::MOUSE_EXITED:
-				{
-					response_reason = $MotifDnDConstants::DROP_SITE_LEAVE;
-					break;
-				}
-			}
+		switch (eventID) {
+		case $MouseEvent::MOUSE_ENTERED:
+			response_reason = $MotifDnDConstants::DROP_SITE_ENTER;
+			break;
+		case $MouseEvent::MOUSE_DRAGGED:
+			response_reason = $MotifDnDConstants::DRAG_MOTION;
+			break;
+		case $MouseEvent::MOUSE_EXITED:
+			response_reason = $MotifDnDConstants::DROP_SITE_LEAVE;
 			break;
 		}
+		break;
 	case $MotifDnDConstants::OPERATION_CHANGED:
-		{}
 	case $MotifDnDConstants::DROP_START:
-		{
-			response_reason = reason;
-			break;
-		}
+		response_reason = reason;
+		break;
 	default:
-		{
-			if (!MotifDnDDropTargetProtocol::$assertionsDisabled) {
-				$throwNew($AssertionError);
-			}
+		if (!MotifDnDDropTargetProtocol::$assertionsDisabled) {
+			$throwNew($AssertionError);
 		}
 	}
 	$var($XClientMessageEvent, msg, $new($XClientMessageEvent));
-	{
-		$var($Throwable, var$1, nullptr);
+	$var($Throwable, var$1, nullptr);
+	try {
+		msg->set_type($XConstants::ClientMessage);
+		msg->set_window($MotifDnDConstants$Swapper::getInt(data + 12, eventByteOrder));
+		msg->set_format(8);
+		msg->set_message_type($MotifDnDConstants::XA_MOTIF_DRAG_AND_DROP_MESSAGE->getAtom());
+		int64_t responseData = msg->get_data();
+		MotifDnDDropTargetProtocol::unsafe->putByte(responseData, (int8_t)(response_reason | $MotifDnDConstants::MOTIF_MESSAGE_FROM_RECEIVER));
+		MotifDnDDropTargetProtocol::unsafe->putByte(responseData + 1, $MotifDnDConstants::getByteOrderByte());
+		int32_t response_flags = 0;
+		if (response_reason != $MotifDnDConstants::DROP_SITE_LEAVE) {
+			int16_t flags = $MotifDnDConstants$Swapper::getShort(data + 2, eventByteOrder);
+			int8_t dropSiteStatus = (action == $DnDConstants::ACTION_NONE) ? $MotifDnDConstants::MOTIF_INVALID_DROP_SITE : $MotifDnDConstants::MOTIF_VALID_DROP_SITE;
+			response_flags = (flags & ~$MotifDnDConstants::MOTIF_DND_ACTION_MASK) & ~$MotifDnDConstants::MOTIF_DND_STATUS_MASK;
+			response_flags |= $sl($MotifDnDConstants::getMotifActionsForJavaActions(action), $MotifDnDConstants::MOTIF_DND_ACTION_SHIFT);
+			response_flags |= $sl(dropSiteStatus, $MotifDnDConstants::MOTIF_DND_STATUS_SHIFT);
+		} else {
+			response_flags = 0;
+		}
+		MotifDnDDropTargetProtocol::unsafe->putShort(responseData + 2, (int16_t)response_flags);
+		int32_t time = $MotifDnDConstants$Swapper::getInt(data + 4, eventByteOrder);
+		MotifDnDDropTargetProtocol::unsafe->putInt(responseData + 4, time);
+		if (response_reason != $MotifDnDConstants::DROP_SITE_LEAVE) {
+			int16_t x = $MotifDnDConstants$Swapper::getShort(data + 8, eventByteOrder);
+			int16_t y = $MotifDnDConstants$Swapper::getShort(data + 10, eventByteOrder);
+			MotifDnDDropTargetProtocol::unsafe->putShort(responseData + 8, x);
+			MotifDnDDropTargetProtocol::unsafe->putShort(responseData + 10, y);
+		} else {
+			MotifDnDDropTargetProtocol::unsafe->putShort(responseData + 8, (int16_t)0);
+			MotifDnDDropTargetProtocol::unsafe->putShort(responseData + 10, (int16_t)0);
+		}
+		$XToolkit::awtLock();
+		$var($Throwable, var$2, nullptr);
 		try {
-			msg->set_type($XConstants::ClientMessage);
-			msg->set_window($MotifDnDConstants$Swapper::getInt(data + 12, eventByteOrder));
-			msg->set_format(8);
-			msg->set_message_type($nc($MotifDnDConstants::XA_MOTIF_DRAG_AND_DROP_MESSAGE)->getAtom());
-			int64_t responseData = msg->get_data();
-			$nc(MotifDnDDropTargetProtocol::unsafe)->putByte(responseData, (int8_t)(response_reason | $MotifDnDConstants::MOTIF_MESSAGE_FROM_RECEIVER));
-			$nc(MotifDnDDropTargetProtocol::unsafe)->putByte(responseData + 1, $MotifDnDConstants::getByteOrderByte());
-			int32_t response_flags = 0;
-			if (response_reason != $MotifDnDConstants::DROP_SITE_LEAVE) {
-				int16_t flags = $MotifDnDConstants$Swapper::getShort(data + 2, eventByteOrder);
-				int8_t dropSiteStatus = (action == $DnDConstants::ACTION_NONE) ? $MotifDnDConstants::MOTIF_INVALID_DROP_SITE : $MotifDnDConstants::MOTIF_VALID_DROP_SITE;
-				response_flags = (int32_t)(((int32_t)(flags & (uint32_t)~$MotifDnDConstants::MOTIF_DND_ACTION_MASK)) & (uint32_t)~$MotifDnDConstants::MOTIF_DND_STATUS_MASK);
-				response_flags |= $sl($MotifDnDConstants::getMotifActionsForJavaActions(action), $MotifDnDConstants::MOTIF_DND_ACTION_SHIFT);
-				response_flags |= $sl((int32_t)dropSiteStatus, $MotifDnDConstants::MOTIF_DND_STATUS_SHIFT);
-			} else {
-				response_flags = 0;
-			}
-			$nc(MotifDnDDropTargetProtocol::unsafe)->putShort(responseData + 2, (int16_t)response_flags);
-			int32_t time = $MotifDnDConstants$Swapper::getInt(data + 4, eventByteOrder);
-			$nc(MotifDnDDropTargetProtocol::unsafe)->putInt(responseData + 4, time);
-			if (response_reason != $MotifDnDConstants::DROP_SITE_LEAVE) {
-				int16_t x = $MotifDnDConstants$Swapper::getShort(data + 8, eventByteOrder);
-				int16_t y = $MotifDnDConstants$Swapper::getShort(data + 10, eventByteOrder);
-				$nc(MotifDnDDropTargetProtocol::unsafe)->putShort(responseData + 8, x);
-				$nc(MotifDnDDropTargetProtocol::unsafe)->putShort(responseData + 10, y);
-			} else {
-				$nc(MotifDnDDropTargetProtocol::unsafe)->putShort(responseData + 8, (int16_t)0);
-				$nc(MotifDnDDropTargetProtocol::unsafe)->putShort(responseData + 10, (int16_t)0);
-			}
-			$XToolkit::awtLock();
-			{
-				$var($Throwable, var$2, nullptr);
-				try {
-					int64_t var$3 = $XToolkit::getDisplay();
-					$XlibWrapper::XSendEvent(var$3, msg->get_window(), false, $XConstants::NoEventMask, msg->pData);
-				} catch ($Throwable& var$4) {
-					$assign(var$2, var$4);
-				} /*finally*/ {
-					$XToolkit::awtUnlock();
-				}
-				if (var$2 != nullptr) {
-					$throw(var$2);
-				}
-			}
-		} catch ($Throwable& var$5) {
-			$assign(var$1, var$5);
+			int64_t var$3 = $XToolkit::getDisplay();
+			$XlibWrapper::XSendEvent(var$3, msg->get_window(), false, $XConstants::NoEventMask, msg->pData);
+		} catch ($Throwable& var$4) {
+			$assign(var$2, var$4);
 		} /*finally*/ {
-			msg->dispose();
+			$XToolkit::awtUnlock();
 		}
-		if (var$1 != nullptr) {
-			$throw(var$1);
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
+	} catch ($Throwable& var$5) {
+		$assign(var$1, var$5);
+	} /*finally*/ {
+		msg->dispose();
+	}
+	if (var$1 != nullptr) {
+		$throw(var$1);
 	}
 	return true;
 }
 
 $Object* MotifDnDDropTargetProtocol::getData(int64_t ctxt, int64_t format) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XClientMessageEvent, xclient, $new($XClientMessageEvent, ctxt));
 	int64_t var$0 = xclient->get_message_type();
 	$init($MotifDnDConstants);
@@ -926,45 +803,38 @@ $Object* MotifDnDDropTargetProtocol::getData(int64_t ctxt, int64_t format) {
 		$throwNew($IllegalArgumentException);
 	}
 	int64_t data = xclient->get_data();
-	int8_t reason = (int8_t)((int32_t)($nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data) & (uint32_t)(int32_t)$MotifDnDConstants::MOTIF_MESSAGE_REASON_MASK));
-	int8_t origin = (int8_t)((int32_t)($nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data) & (uint32_t)(int32_t)$MotifDnDConstants::MOTIF_MESSAGE_SENDER_MASK));
-	int8_t eventByteOrder = $nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data + 1);
+	int8_t reason = (int8_t)($nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data) & $MotifDnDConstants::MOTIF_MESSAGE_REASON_MASK);
+	int8_t origin = (int8_t)(MotifDnDDropTargetProtocol::unsafe->getByte(data) & $MotifDnDConstants::MOTIF_MESSAGE_SENDER_MASK);
+	int8_t eventByteOrder = MotifDnDDropTargetProtocol::unsafe->getByte(data + 1);
 	if (origin != $MotifDnDConstants::MOTIF_MESSAGE_FROM_INITIATOR) {
 		$throwNew($IOException, "Cannot get data: corrupted context"_s);
 	}
 	int64_t selatom = 0;
 	switch (reason) {
 	case $MotifDnDConstants::DRAG_MOTION:
-		{}
 	case $MotifDnDConstants::OPERATION_CHANGED:
-		{
-			selatom = this->sourceAtom;
-			break;
-		}
+		selatom = this->sourceAtom;
+		break;
 	case $MotifDnDConstants::DROP_START:
-		{
-			selatom = $MotifDnDConstants$Swapper::getInt(data + 12, eventByteOrder);
-			break;
-		}
+		selatom = $MotifDnDConstants$Swapper::getInt(data + 12, eventByteOrder);
+		break;
 	default:
-		{
-			$throwNew($IOException, "Cannot get data: invalid message reason"_s);
-		}
+		$throwNew($IOException, "Cannot get data: invalid message reason"_s);
 	}
 	if (selatom == 0) {
 		$throwNew($IOException, "Cannot get data: drag source property atom unavailable"_s);
 	}
-	int64_t time_stamp = (int64_t)($MotifDnDConstants$Swapper::getInt(data + 4, eventByteOrder) & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+	int64_t time_stamp = $MotifDnDConstants$Swapper::getInt(data + 4, eventByteOrder) & (int64_t)0xffffffff;
 	$var($XAtom, selectionAtom, $XAtom::get(selatom));
 	$var($XSelection, selection, $XSelection::getSelection(selectionAtom));
 	if (selection == nullptr) {
 		$assign(selection, $new($XSelection, selectionAtom));
 	}
-	return $of($nc(selection)->getData(format, time_stamp));
+	return $nc(selection)->getData(format, time_stamp);
 }
 
 bool MotifDnDDropTargetProtocol::sendDropDone(int64_t ctxt, bool success, int32_t dropAction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XClientMessageEvent, xclient, $new($XClientMessageEvent, ctxt));
 	int64_t var$0 = xclient->get_message_type();
 	$init($MotifDnDConstants);
@@ -972,16 +842,16 @@ bool MotifDnDDropTargetProtocol::sendDropDone(int64_t ctxt, bool success, int32_
 		return false;
 	}
 	int64_t data = xclient->get_data();
-	int8_t reason = (int8_t)((int32_t)($nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data) & (uint32_t)(int32_t)$MotifDnDConstants::MOTIF_MESSAGE_REASON_MASK));
-	int8_t origin = (int8_t)((int32_t)($nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data) & (uint32_t)(int32_t)$MotifDnDConstants::MOTIF_MESSAGE_SENDER_MASK));
-	int8_t eventByteOrder = $nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data + 1);
+	int8_t reason = (int8_t)($nc(MotifDnDDropTargetProtocol::unsafe)->getByte(data) & $MotifDnDConstants::MOTIF_MESSAGE_REASON_MASK);
+	int8_t origin = (int8_t)(MotifDnDDropTargetProtocol::unsafe->getByte(data) & $MotifDnDConstants::MOTIF_MESSAGE_SENDER_MASK);
+	int8_t eventByteOrder = MotifDnDDropTargetProtocol::unsafe->getByte(data + 1);
 	if (origin != $MotifDnDConstants::MOTIF_MESSAGE_FROM_INITIATOR) {
 		return false;
 	}
 	if (reason != $MotifDnDConstants::DROP_START) {
 		return false;
 	}
-	int64_t time_stamp = (int64_t)($MotifDnDConstants$Swapper::getInt(data + 4, eventByteOrder) & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+	int64_t time_stamp = $MotifDnDConstants$Swapper::getInt(data + 4, eventByteOrder) & (int64_t)0xffffffff;
 	int64_t sel_atom = $MotifDnDConstants$Swapper::getInt(data + 12, eventByteOrder);
 	int64_t status_atom = 0;
 	if (success) {
@@ -990,23 +860,19 @@ bool MotifDnDDropTargetProtocol::sendDropDone(int64_t ctxt, bool success, int32_
 		status_atom = $nc($MotifDnDConstants::XA_XmTRANSFER_FAILURE)->getAtom();
 	}
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$1, nullptr);
-		try {
-			int64_t var$2 = $XToolkit::getDisplay();
-			int64_t var$3 = sel_atom;
-			int64_t var$4 = status_atom;
-			int64_t var$5 = $nc($MotifDnDConstants::XA_MOTIF_ATOM_0)->getAtom();
-			$XlibWrapper::XConvertSelection(var$2, var$3, var$4, var$5, $nc($($XWindow::getXAWTRootWindow()))->getWindow(), time_stamp);
-			$XlibWrapper::XFlush($XToolkit::getDisplay());
-		} catch ($Throwable& var$6) {
-			$assign(var$1, var$6);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
-		}
-		if (var$1 != nullptr) {
-			$throw(var$1);
-		}
+	$var($Throwable, var$1, nullptr);
+	try {
+		int64_t var$2 = $XToolkit::getDisplay();
+		int64_t var$3 = $nc($MotifDnDConstants::XA_MOTIF_ATOM_0)->getAtom();
+		$XlibWrapper::XConvertSelection(var$2, sel_atom, status_atom, var$3, $$nc($XWindow::getXAWTRootWindow())->getWindow(), time_stamp);
+		$XlibWrapper::XFlush($XToolkit::getDisplay());
+	} catch ($Throwable& var$4) {
+		$assign(var$1, var$4);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$1 != nullptr) {
+		$throw(var$1);
 	}
 	$set(this, targetXWindow, nullptr);
 	cleanup();
@@ -1018,27 +884,25 @@ int64_t MotifDnDDropTargetProtocol::getSourceWindow() {
 }
 
 void MotifDnDDropTargetProtocol::cleanup() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XDropTargetEventProcessor::reset();
 	if (this->targetXWindow != nullptr) {
 		notifyProtocolListener(this->targetXWindow, 0, 0, $DnDConstants::ACTION_NONE, this->sourceActions, nullptr, $MouseEvent::MOUSE_EXITED);
 	}
 	if (this->sourceWindow != 0) {
 		$XToolkit::awtLock();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$XErrorHandlerUtil::WITH_XERROR_HANDLER($($XErrorHandler$IgnoreBadWindowHandler::getInstance()));
-				$XlibWrapper::XSelectInput($XToolkit::getDisplay(), this->sourceWindow, this->sourceWindowMask);
-				$XErrorHandlerUtil::RESTORE_XERROR_HANDLER();
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$XToolkit::awtUnlock();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			$XErrorHandlerUtil::WITH_XERROR_HANDLER($($XErrorHandler$IgnoreBadWindowHandler::getInstance()));
+			$XlibWrapper::XSelectInput($XToolkit::getDisplay(), this->sourceWindow, this->sourceWindowMask);
+			$XErrorHandlerUtil::RESTORE_XERROR_HANDLER();
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$XToolkit::awtUnlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	this->sourceWindow = 0;
@@ -1063,12 +927,12 @@ void MotifDnDDropTargetProtocol::notifyProtocolListener($XWindow* xwindow, int32
 	if (xclient != nullptr) {
 		int32_t size = $XClientMessageEvent::getSize();
 		nativeCtxt = $nc(MotifDnDDropTargetProtocol::unsafe)->allocateMemory(size + 4 * $Native::getLongSize());
-		$nc(MotifDnDDropTargetProtocol::unsafe)->copyMemory(xclient->pData, nativeCtxt, size);
+		MotifDnDDropTargetProtocol::unsafe->copyMemory(xclient->pData, nativeCtxt, size);
 	}
-	$nc($(getProtocolListener()))->handleDropTargetNotification(xwindow, x, y, dropAction, actions, this->sourceFormats, nativeCtxt, eventID);
+	$$nc(getProtocolListener())->handleDropTargetNotification(xwindow, x, y, dropAction, actions, this->sourceFormats, nativeCtxt, eventID);
 }
 
-void clinit$MotifDnDDropTargetProtocol($Class* class$) {
+void MotifDnDDropTargetProtocol::clinit$($Class* clazz) {
 	MotifDnDDropTargetProtocol::$assertionsDisabled = !MotifDnDDropTargetProtocol::class$->desiredAssertionStatus();
 	$init($XlibWrapper);
 	$assignStatic(MotifDnDDropTargetProtocol::unsafe, $XlibWrapper::unsafe);
@@ -1078,7 +942,62 @@ MotifDnDDropTargetProtocol::MotifDnDDropTargetProtocol() {
 }
 
 $Class* MotifDnDDropTargetProtocol::load$($String* name, bool initialize) {
-	$loadClass(MotifDnDDropTargetProtocol, name, initialize, &_MotifDnDDropTargetProtocol_ClassInfo_, clinit$MotifDnDDropTargetProtocol, allocate$MotifDnDDropTargetProtocol);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MotifDnDDropTargetProtocol, $assertionsDisabled)},
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MotifDnDDropTargetProtocol, unsafe)},
+		{"sourceWindow", "J", nullptr, $PRIVATE, $field(MotifDnDDropTargetProtocol, sourceWindow)},
+		{"sourceWindowMask", "J", nullptr, $PRIVATE, $field(MotifDnDDropTargetProtocol, sourceWindowMask)},
+		{"sourceProtocolVersion", "I", nullptr, $PRIVATE, $field(MotifDnDDropTargetProtocol, sourceProtocolVersion)},
+		{"sourceActions", "I", nullptr, $PRIVATE, $field(MotifDnDDropTargetProtocol, sourceActions)},
+		{"sourceFormats", "[J", nullptr, $PRIVATE, $field(MotifDnDDropTargetProtocol, sourceFormats)},
+		{"sourceAtom", "J", nullptr, $PRIVATE, $field(MotifDnDDropTargetProtocol, sourceAtom)},
+		{"userAction", "I", nullptr, $PRIVATE, $field(MotifDnDDropTargetProtocol, userAction)},
+		{"sourceX", "I", nullptr, $PRIVATE, $field(MotifDnDDropTargetProtocol, sourceX)},
+		{"sourceY", "I", nullptr, $PRIVATE, $field(MotifDnDDropTargetProtocol, sourceY)},
+		{"targetXWindow", "Lsun/awt/X11/XWindow;", nullptr, $PRIVATE, $field(MotifDnDDropTargetProtocol, targetXWindow)},
+		{"topLevelLeavePostponed", "Z", nullptr, $PRIVATE, $field(MotifDnDDropTargetProtocol, topLevelLeavePostponed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XDropTargetProtocolListener;)V", nullptr, $PROTECTED, $method(MotifDnDDropTargetProtocol, init$, void, $XDropTargetProtocolListener*)},
+		{"cleanup", "()V", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, cleanup, void)},
+		{"createInstance", "(Lsun/awt/X11/XDropTargetProtocolListener;)Lsun/awt/X11/XDropTargetProtocol;", nullptr, $STATIC, $staticMethod(MotifDnDDropTargetProtocol, createInstance, $XDropTargetProtocol*, $XDropTargetProtocolListener*)},
+		{"forwardEventToEmbedded", "(JJI)Z", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, forwardEventToEmbedded, bool, int64_t, int64_t, int32_t)},
+		{"getData", "(JJ)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, getData, $Object*, int64_t, int64_t), "java.lang.IllegalArgumentException,java.io.IOException"},
+		{"getMessageType", "(Lsun/awt/X11/XClientMessageEvent;)I", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, getMessageType, int32_t, $XClientMessageEvent*)},
+		{"getProtocolName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, getProtocolName, $String*)},
+		{"getSourceWindow", "()J", nullptr, $PUBLIC | $FINAL, $virtualMethod(MotifDnDDropTargetProtocol, getSourceWindow, int64_t)},
+		{"isDragOverComponent", "()Z", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, isDragOverComponent, bool)},
+		{"isProtocolSupported", "(J)Z", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, isProtocolSupported, bool, int64_t)},
+		{"isXEmbedSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, isXEmbedSupported, bool)},
+		{"notifyProtocolListener", "(Lsun/awt/X11/XWindow;IIIILsun/awt/X11/XClientMessageEvent;I)V", nullptr, $PRIVATE, $method(MotifDnDDropTargetProtocol, notifyProtocolListener, void, $XWindow*, int32_t, int32_t, int32_t, int32_t, $XClientMessageEvent*, int32_t)},
+		{"processClientMessageImpl", "(Lsun/awt/X11/XClientMessageEvent;)Z", nullptr, $PROTECTED, $virtualMethod(MotifDnDDropTargetProtocol, processClientMessageImpl, bool, $XClientMessageEvent*)},
+		{"processDragMotion", "(Lsun/awt/X11/XClientMessageEvent;)Z", nullptr, $PRIVATE, $method(MotifDnDDropTargetProtocol, processDragMotion, bool, $XClientMessageEvent*)},
+		{"processDropStart", "(Lsun/awt/X11/XClientMessageEvent;)Z", nullptr, $PRIVATE, $method(MotifDnDDropTargetProtocol, processDropStart, bool, $XClientMessageEvent*)},
+		{"processTopLevelEnter", "(Lsun/awt/X11/XClientMessageEvent;)Z", nullptr, $PRIVATE, $method(MotifDnDDropTargetProtocol, processTopLevelEnter, bool, $XClientMessageEvent*)},
+		{"processTopLevelLeave", "(Lsun/awt/X11/XClientMessageEvent;)Z", nullptr, $PRIVATE, $method(MotifDnDDropTargetProtocol, processTopLevelLeave, bool, $XClientMessageEvent*)},
+		{"registerDropTarget", "(J)V", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, registerDropTarget, void, int64_t)},
+		{"registerEmbeddedDropSite", "(J)V", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, registerEmbeddedDropSite, void, int64_t)},
+		{"registerEmbedderDropSite", "(J)V", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, registerEmbedderDropSite, void, int64_t)},
+		{"sendDropDone", "(JZI)Z", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, sendDropDone, bool, int64_t, bool, int32_t)},
+		{"sendEnterMessageToToplevel", "(JLsun/awt/X11/XClientMessageEvent;)V", nullptr, $PROTECTED, $virtualMethod(MotifDnDDropTargetProtocol, sendEnterMessageToToplevel, void, int64_t, $XClientMessageEvent*)},
+		{"sendLeaveMessageToToplevel", "(JLsun/awt/X11/XClientMessageEvent;)V", nullptr, $PROTECTED, $virtualMethod(MotifDnDDropTargetProtocol, sendLeaveMessageToToplevel, void, int64_t, $XClientMessageEvent*)},
+		{"sendResponse", "(JII)Z", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, sendResponse, bool, int64_t, int32_t, int32_t)},
+		{"unregisterDropTarget", "(J)V", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, unregisterDropTarget, void, int64_t)},
+		{"unregisterEmbedderDropSite", "(J)V", nullptr, $PUBLIC, $virtualMethod(MotifDnDDropTargetProtocol, unregisterEmbedderDropSite, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.MotifDnDDropTargetProtocol",
+		"sun.awt.X11.XDropTargetProtocol",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MotifDnDDropTargetProtocol, name, initialize, &classInfo$$, MotifDnDDropTargetProtocol::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MotifDnDDropTargetProtocol);
+	});
 	return class$;
 }
 

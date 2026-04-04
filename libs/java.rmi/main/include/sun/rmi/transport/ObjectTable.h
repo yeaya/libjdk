@@ -60,6 +60,7 @@ class $import ObjectTable : public ::java::lang::Object {
 	$class(ObjectTable, 0, ::java::lang::Object)
 public:
 	ObjectTable();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void decrementKeepAliveCount();
 	static ::java::rmi::Remote* getStub(::java::rmi::Remote* impl);

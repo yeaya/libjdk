@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverXPointer.h>
-
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureInput.h>
 #include <com/sun/org/apache/xml/internal/security/utils/XMLUtils.h>
 #include <com/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext.h>
@@ -27,7 +26,6 @@ using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Attr = ::org::w3c::dom::Attr;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;
@@ -43,36 +41,6 @@ namespace com {
 								namespace resolver {
 									namespace implementations {
 
-$FieldInfo _ResolverXPointer_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResolverXPointer, LOG)},
-	{"XP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResolverXPointer, XP)},
-	{"XP_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResolverXPointer, XP_LENGTH)},
-	{}
-};
-
-$MethodInfo _ResolverXPointer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ResolverXPointer, init$, void)},
-	{"engineCanResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Z", nullptr, $PUBLIC, $virtualMethod(ResolverXPointer, engineCanResolveURI, bool, $ResourceResolverContext*)},
-	{"engineResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(ResolverXPointer, engineResolveURI, $XMLSignatureInput*, $ResourceResolverContext*), "com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverException"},
-	{"getXPointerId", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResolverXPointer, getXPointerId, $String*, $String*)},
-	{"isXPointerId", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ResolverXPointer, isXPointerId, bool, $String*)},
-	{"isXPointerSlash", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ResolverXPointer, isXPointerSlash, bool, $String*)},
-	{}
-};
-
-$ClassInfo _ResolverXPointer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.utils.resolver.implementations.ResolverXPointer",
-	"com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverSpi",
-	nullptr,
-	_ResolverXPointer_FieldInfo_,
-	_ResolverXPointer_MethodInfo_
-};
-
-$Object* allocate$ResolverXPointer($Class* clazz) {
-	return $of($alloc(ResolverXPointer));
-}
-
 $Logger* ResolverXPointer::LOG = nullptr;
 $String* ResolverXPointer::XP = nullptr;
 int32_t ResolverXPointer::XP_LENGTH = 0;
@@ -82,31 +50,31 @@ void ResolverXPointer::init$() {
 }
 
 $XMLSignatureInput* ResolverXPointer::engineResolveURI($ResourceResolverContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, resultNode, nullptr);
-	$var($Document, doc, $nc($($nc($nc(context)->attr)->getOwnerElement()))->getOwnerDocument());
+	$var($Document, doc, $$nc($nc($nc(context)->attr)->getOwnerElement())->getOwnerDocument());
 	if (isXPointerSlash(context->uriToResolve)) {
 		$assign(resultNode, doc);
 	} else if (isXPointerId(context->uriToResolve)) {
 		$var($String, id, getXPointerId(context->uriToResolve));
 		$assign(resultNode, $nc(doc)->getElementById(id));
 		if (context->secureValidation) {
-			$var($Element, start, $nc($($nc(context->attr)->getOwnerDocument()))->getDocumentElement());
+			$var($Element, start, $$nc(context->attr->getOwnerDocument())->getDocumentElement());
 			if (!$XMLUtils::protectAgainstWrappingAttack(start, id)) {
-				$var($ObjectArray, exArgs, $new($ObjectArray, {$of(id)}));
+				$var($ObjectArray, exArgs, $new($ObjectArray, {id}));
 				$throwNew($ResourceResolverException, "signature.Verification.MultipleIDs"_s, exArgs, context->uriToResolve, context->baseUri);
 			}
 		}
 		if (resultNode == nullptr) {
-			$var($ObjectArray, exArgs, $new($ObjectArray, {$of(id)}));
+			$var($ObjectArray, exArgs, $new($ObjectArray, {id}));
 			$throwNew($ResourceResolverException, "signature.Verification.MissingID"_s, exArgs, context->uriToResolve, context->baseUri);
 		}
 	}
 	$var($XMLSignatureInput, result, $new($XMLSignatureInput, resultNode));
 	result->setSecureValidation(context->secureValidation);
 	result->setMIMEType("text/xml"_s);
-	if (context->baseUri != nullptr && $nc(context->baseUri)->length() > 0) {
-		result->setSourceURI($($nc(context->baseUri)->concat(context->uriToResolve)));
+	if (context->baseUri != nullptr && context->baseUri->length() > 0) {
+		result->setSourceURI($(context->baseUri->concat(context->uriToResolve)));
 	} else {
 		result->setSourceURI(context->uriToResolve);
 	}
@@ -115,7 +83,7 @@ $XMLSignatureInput* ResolverXPointer::engineResolveURI($ResourceResolverContext*
 
 bool ResolverXPointer::engineCanResolveURI($ResourceResolverContext* context) {
 	bool var$0 = isXPointerSlash($nc(context)->uriToResolve);
-	return var$0 || isXPointerId($nc(context)->uriToResolve);
+	return var$0 || isXPointerId(context->uriToResolve);
 }
 
 bool ResolverXPointer::isXPointerSlash($String* uri) {
@@ -125,7 +93,7 @@ bool ResolverXPointer::isXPointerSlash($String* uri) {
 
 bool ResolverXPointer::isXPointerId($String* uri) {
 	$init(ResolverXPointer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = uri != nullptr && uri->startsWith(ResolverXPointer::XP);
 	if (var$0 && uri->endsWith("))"_s)) {
 		$var($String, idPlusDelim, uri->substring(ResolverXPointer::XP_LENGTH, uri->length() - 2));
@@ -137,7 +105,7 @@ bool ResolverXPointer::isXPointerId($String* uri) {
 			var$1 = var$3 && idPlusDelim->charAt(idLen) == u'\'';
 		}
 		if (var$1) {
-			$nc(ResolverXPointer::LOG)->debug("Id = {}"_s, $$new($ObjectArray, {$($of(idPlusDelim->substring(1, idLen)))}));
+			$nc(ResolverXPointer::LOG)->debug("Id = {}"_s, $$new($ObjectArray, {$(idPlusDelim->substring(1, idLen))}));
 			return true;
 		}
 	}
@@ -163,17 +131,42 @@ $String* ResolverXPointer::getXPointerId($String* uri) {
 	return nullptr;
 }
 
-void clinit$ResolverXPointer($Class* class$) {
+void ResolverXPointer::clinit$($Class* clazz) {
 	$assignStatic(ResolverXPointer::XP, "#xpointer(id("_s);
 	$assignStatic(ResolverXPointer::LOG, $LoggerFactory::getLogger(ResolverXPointer::class$));
-	ResolverXPointer::XP_LENGTH = $nc(ResolverXPointer::XP)->length();
+	ResolverXPointer::XP_LENGTH = ResolverXPointer::XP->length();
 }
 
 ResolverXPointer::ResolverXPointer() {
 }
 
 $Class* ResolverXPointer::load$($String* name, bool initialize) {
-	$loadClass(ResolverXPointer, name, initialize, &_ResolverXPointer_ClassInfo_, clinit$ResolverXPointer, allocate$ResolverXPointer);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResolverXPointer, LOG)},
+		{"XP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResolverXPointer, XP)},
+		{"XP_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResolverXPointer, XP_LENGTH)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ResolverXPointer, init$, void)},
+		{"engineCanResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Z", nullptr, $PUBLIC, $virtualMethod(ResolverXPointer, engineCanResolveURI, bool, $ResourceResolverContext*)},
+		{"engineResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(ResolverXPointer, engineResolveURI, $XMLSignatureInput*, $ResourceResolverContext*), "com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverException"},
+		{"getXPointerId", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResolverXPointer, getXPointerId, $String*, $String*)},
+		{"isXPointerId", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ResolverXPointer, isXPointerId, bool, $String*)},
+		{"isXPointerSlash", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ResolverXPointer, isXPointerSlash, bool, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.utils.resolver.implementations.ResolverXPointer",
+		"com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResolverXPointer, name, initialize, &classInfo$$, ResolverXPointer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ResolverXPointer);
+	});
 	return class$;
 }
 

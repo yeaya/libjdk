@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/lib/ExsltMath.h>
-
 #include <com/sun/org/apache/xalan/internal/lib/ExsltBase.h>
 #include <com/sun/org/apache/xpath/internal/NodeSet.h>
 #include <java/lang/Math.h>
@@ -33,53 +32,6 @@ namespace com {
 					namespace internal {
 						namespace lib {
 
-$FieldInfo _ExsltMath_FieldInfo_[] = {
-	{"PI", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(ExsltMath, PI)},
-	{"E", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(ExsltMath, E)},
-	{"SQRRT2", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(ExsltMath, SQRRT2)},
-	{"LN2", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(ExsltMath, LN2)},
-	{"LN10", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(ExsltMath, LN10)},
-	{"LOG2E", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(ExsltMath, LOG2E)},
-	{"SQRT1_2", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(ExsltMath, SQRT1_2)},
-	{}
-};
-
-$MethodInfo _ExsltMath_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExsltMath, init$, void)},
-	{"abs", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, abs, double, double)},
-	{"acos", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, acos, double, double)},
-	{"asin", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, asin, double, double)},
-	{"atan", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, atan, double, double)},
-	{"atan2", "(DD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, atan2, double, double, double)},
-	{"constant", "(Ljava/lang/String;D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, constant, double, $String*, double)},
-	{"cos", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, cos, double, double)},
-	{"exp", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, exp, double, double)},
-	{"highest", "(Lorg/w3c/dom/NodeList;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, highest, $NodeList*, $NodeList*)},
-	{"log", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, log, double, double)},
-	{"lowest", "(Lorg/w3c/dom/NodeList;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, lowest, $NodeList*, $NodeList*)},
-	{"max", "(Lorg/w3c/dom/NodeList;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, max, double, $NodeList*)},
-	{"min", "(Lorg/w3c/dom/NodeList;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, min, double, $NodeList*)},
-	{"power", "(DD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, power, double, double, double)},
-	{"random", "()D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, random, double)},
-	{"sin", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, sin, double, double)},
-	{"sqrt", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, sqrt, double, double)},
-	{"tan", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, tan, double, double)},
-	{}
-};
-
-$ClassInfo _ExsltMath_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.lib.ExsltMath",
-	"com.sun.org.apache.xalan.internal.lib.ExsltBase",
-	nullptr,
-	_ExsltMath_FieldInfo_,
-	_ExsltMath_MethodInfo_
-};
-
-$Object* allocate$ExsltMath($Class* clazz) {
-	return $of($alloc(ExsltMath));
-}
-
 $String* ExsltMath::PI = nullptr;
 $String* ExsltMath::E = nullptr;
 $String* ExsltMath::SQRRT2 = nullptr;
@@ -94,12 +46,10 @@ void ExsltMath::init$() {
 
 double ExsltMath::max($NodeList* nl) {
 	$init(ExsltMath);
-	$useLocalCurrentObjectStackCache();
-	if (nl == nullptr || $nc(nl)->getLength() == 0) {
-		$init($Double);
+	$useLocalObjectStack();
+	if (nl == nullptr || nl->getLength() == 0) {
 		return $Double::NaN;
 	}
-	$init($Double);
 	double m = -$Double::MAX_VALUE;
 	for (int32_t i = 0; i < $nc(nl)->getLength(); ++i) {
 		$var($Node, n, nl->item(i));
@@ -115,12 +65,10 @@ double ExsltMath::max($NodeList* nl) {
 
 double ExsltMath::min($NodeList* nl) {
 	$init(ExsltMath);
-	$useLocalCurrentObjectStackCache();
-	if (nl == nullptr || $nc(nl)->getLength() == 0) {
-		$init($Double);
+	$useLocalObjectStack();
+	if (nl == nullptr || nl->getLength() == 0) {
 		return $Double::NaN;
 	}
-	$init($Double);
 	double m = $Double::MAX_VALUE;
 	for (int32_t i = 0; i < $nc(nl)->getLength(); ++i) {
 		$var($Node, n, nl->item(i));
@@ -136,7 +84,7 @@ double ExsltMath::min($NodeList* nl) {
 
 $NodeList* ExsltMath::highest($NodeList* nl) {
 	$init(ExsltMath);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	double maxValue = max(nl);
 	$var($NodeSet, highNodes, $new($NodeSet));
 	highNodes->setShouldCacheNodes(true);
@@ -155,7 +103,7 @@ $NodeList* ExsltMath::highest($NodeList* nl) {
 
 $NodeList* ExsltMath::lowest($NodeList* nl) {
 	$init(ExsltMath);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	double minValue = min(nl);
 	$var($NodeSet, lowNodes, $new($NodeSet));
 	lowNodes->setShouldCacheNodes(true);
@@ -262,12 +210,11 @@ double ExsltMath::constant($String* name, double precision) {
 		}
 		return $Double::parseDouble(value);
 	} else {
-		$init($Double);
 		return $Double::NaN;
 	}
 }
 
-void clinit$ExsltMath($Class* class$) {
+void ExsltMath::clinit$($Class* clazz) {
 	$assignStatic(ExsltMath::PI, "3.1415926535897932384626433832795028841971693993751"_s);
 	$assignStatic(ExsltMath::E, "2.71828182845904523536028747135266249775724709369996"_s);
 	$assignStatic(ExsltMath::SQRRT2, "1.41421356237309504880168872420969807856967187537694"_s);
@@ -281,7 +228,49 @@ ExsltMath::ExsltMath() {
 }
 
 $Class* ExsltMath::load$($String* name, bool initialize) {
-	$loadClass(ExsltMath, name, initialize, &_ExsltMath_ClassInfo_, clinit$ExsltMath, allocate$ExsltMath);
+	$FieldInfo fieldInfos$$[] = {
+		{"PI", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(ExsltMath, PI)},
+		{"E", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(ExsltMath, E)},
+		{"SQRRT2", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(ExsltMath, SQRRT2)},
+		{"LN2", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(ExsltMath, LN2)},
+		{"LN10", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(ExsltMath, LN10)},
+		{"LOG2E", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(ExsltMath, LOG2E)},
+		{"SQRT1_2", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(ExsltMath, SQRT1_2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExsltMath, init$, void)},
+		{"abs", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, abs, double, double)},
+		{"acos", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, acos, double, double)},
+		{"asin", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, asin, double, double)},
+		{"atan", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, atan, double, double)},
+		{"atan2", "(DD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, atan2, double, double, double)},
+		{"constant", "(Ljava/lang/String;D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, constant, double, $String*, double)},
+		{"cos", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, cos, double, double)},
+		{"exp", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, exp, double, double)},
+		{"highest", "(Lorg/w3c/dom/NodeList;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, highest, $NodeList*, $NodeList*)},
+		{"log", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, log, double, double)},
+		{"lowest", "(Lorg/w3c/dom/NodeList;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, lowest, $NodeList*, $NodeList*)},
+		{"max", "(Lorg/w3c/dom/NodeList;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, max, double, $NodeList*)},
+		{"min", "(Lorg/w3c/dom/NodeList;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, min, double, $NodeList*)},
+		{"power", "(DD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, power, double, double, double)},
+		{"random", "()D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, random, double)},
+		{"sin", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, sin, double, double)},
+		{"sqrt", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, sqrt, double, double)},
+		{"tan", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltMath, tan, double, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.lib.ExsltMath",
+		"com.sun.org.apache.xalan.internal.lib.ExsltBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ExsltMath, name, initialize, &classInfo$$, ExsltMath::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ExsltMath);
+	});
 	return class$;
 }
 

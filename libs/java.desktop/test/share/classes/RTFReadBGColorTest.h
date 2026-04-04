@@ -18,6 +18,7 @@ class $export RTFReadBGColorTest : public ::java::lang::Object {
 	$class(RTFReadBGColorTest, 0, ::java::lang::Object)
 public:
 	RTFReadBGColorTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void lambda$main$0();
 	static void main($StringArray* a);

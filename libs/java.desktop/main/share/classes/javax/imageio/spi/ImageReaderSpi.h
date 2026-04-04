@@ -23,6 +23,7 @@ class $export ImageReaderSpi : public ::javax::imageio::spi::ImageReaderWriterSp
 	$class(ImageReaderSpi, 0, ::javax::imageio::spi::ImageReaderWriterSpi)
 public:
 	ImageReaderSpi();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* vendorName, $String* version, $StringArray* names, $StringArray* suffixes, $StringArray* MIMETypes, $String* readerClassName, $ClassArray* inputTypes, $StringArray* writerSpiNames, bool supportsStandardStreamMetadataFormat, $String* nativeStreamMetadataFormatName, $String* nativeStreamMetadataFormatClassName, $StringArray* extraStreamMetadataFormatNames, $StringArray* extraStreamMetadataFormatClassNames, bool supportsStandardImageMetadataFormat, $String* nativeImageMetadataFormatName, $String* nativeImageMetadataFormatClassName, $StringArray* extraImageMetadataFormatNames, $StringArray* extraImageMetadataFormatClassNames);
 	virtual bool canDecodeInput(Object$* source) {return false;}

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/NimbusDefaults$LazyStyle$Part.h>
-
 #include <java/lang/CharSequence.h>
 #include <javax/swing/plaf/nimbus/NimbusDefaults$LazyStyle.h>
 #include <jcpp.h>
@@ -17,47 +16,8 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _NimbusDefaults$LazyStyle$Part_FieldInfo_[] = {
-	{"this$1", "Ljavax/swing/plaf/nimbus/NimbusDefaults$LazyStyle;", nullptr, $FINAL | $SYNTHETIC, $field(NimbusDefaults$LazyStyle$Part, this$1)},
-	{"s", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NimbusDefaults$LazyStyle$Part, s)},
-	{"named", "Z", nullptr, $PRIVATE, $field(NimbusDefaults$LazyStyle$Part, named)},
-	{"c", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(NimbusDefaults$LazyStyle$Part, c)},
-	{}
-};
-
-$MethodInfo _NimbusDefaults$LazyStyle$Part_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/nimbus/NimbusDefaults$LazyStyle;Ljava/lang/String;)V", nullptr, 0, $method(NimbusDefaults$LazyStyle$Part, init$, void, $NimbusDefaults$LazyStyle*, $String*)},
-	{}
-};
-
-$InnerClassInfo _NimbusDefaults$LazyStyle$Part_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.nimbus.NimbusDefaults$LazyStyle", "javax.swing.plaf.nimbus.NimbusDefaults", "LazyStyle", $PRIVATE | $FINAL},
-	{"javax.swing.plaf.nimbus.NimbusDefaults$LazyStyle$Part", "javax.swing.plaf.nimbus.NimbusDefaults$LazyStyle", "Part", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _NimbusDefaults$LazyStyle$Part_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.NimbusDefaults$LazyStyle$Part",
-	"java.lang.Object",
-	nullptr,
-	_NimbusDefaults$LazyStyle$Part_FieldInfo_,
-	_NimbusDefaults$LazyStyle$Part_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NimbusDefaults$LazyStyle$Part_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.nimbus.NimbusDefaults"
-};
-
-$Object* allocate$NimbusDefaults$LazyStyle$Part($Class* clazz) {
-	return $of($alloc(NimbusDefaults$LazyStyle$Part));
-}
-
 void NimbusDefaults$LazyStyle$Part::init$($NimbusDefaults$LazyStyle* this$1, $String* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$set(this, this$1, this$1);
 	bool var$0 = $nc(s)->charAt(0) == u'\"';
@@ -71,7 +31,7 @@ void NimbusDefaults$LazyStyle$Part::init$($NimbusDefaults$LazyStyle* this$1, $St
 		} catch ($Exception& e) {
 		}
 		try {
-			$set(this, c, $Class::forName($(s->replace(static_cast<$CharSequence*>("_"_s), static_cast<$CharSequence*>("."_s)))));
+			$set(this, c, $Class::forName($(s->replace("_"_s, "."_s))));
 		} catch ($Exception& e) {
 		}
 	}
@@ -81,7 +41,40 @@ NimbusDefaults$LazyStyle$Part::NimbusDefaults$LazyStyle$Part() {
 }
 
 $Class* NimbusDefaults$LazyStyle$Part::load$($String* name, bool initialize) {
-	$loadClass(NimbusDefaults$LazyStyle$Part, name, initialize, &_NimbusDefaults$LazyStyle$Part_ClassInfo_, allocate$NimbusDefaults$LazyStyle$Part);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljavax/swing/plaf/nimbus/NimbusDefaults$LazyStyle;", nullptr, $FINAL | $SYNTHETIC, $field(NimbusDefaults$LazyStyle$Part, this$1)},
+		{"s", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NimbusDefaults$LazyStyle$Part, s)},
+		{"named", "Z", nullptr, $PRIVATE, $field(NimbusDefaults$LazyStyle$Part, named)},
+		{"c", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(NimbusDefaults$LazyStyle$Part, c)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/nimbus/NimbusDefaults$LazyStyle;Ljava/lang/String;)V", nullptr, 0, $method(NimbusDefaults$LazyStyle$Part, init$, void, $NimbusDefaults$LazyStyle*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.nimbus.NimbusDefaults$LazyStyle", "javax.swing.plaf.nimbus.NimbusDefaults", "LazyStyle", $PRIVATE | $FINAL},
+		{"javax.swing.plaf.nimbus.NimbusDefaults$LazyStyle$Part", "javax.swing.plaf.nimbus.NimbusDefaults$LazyStyle", "Part", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.NimbusDefaults$LazyStyle$Part",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.nimbus.NimbusDefaults"
+	};
+	$loadClass(NimbusDefaults$LazyStyle$Part, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NimbusDefaults$LazyStyle$Part);
+	});
 	return class$;
 }
 

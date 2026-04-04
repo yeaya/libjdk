@@ -21,6 +21,7 @@ class $export SwingUtilities2$Section : public ::java::lang::Enum {
 public:
 	SwingUtilities2$Section();
 	static $Array<::sun::swing::SwingUtilities2$Section>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::swing::SwingUtilities2$Section* valueOf($String* name);
 	static $Array<::sun::swing::SwingUtilities2$Section>* values();

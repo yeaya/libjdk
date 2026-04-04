@@ -1,5 +1,4 @@
 #include <sun/swing/text/TextComponentPrintable.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -92,7 +91,6 @@ using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
-using $Shape = ::java::awt::Shape;
 using $PageFormat = ::java::awt::print::PageFormat;
 using $Printable = ::java::awt::print::Printable;
 using $PrinterException = ::java::awt::print::PrinterException;
@@ -136,7 +134,6 @@ using $Document = ::javax::swing::text::Document;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $HTML$Tag = ::javax::swing::text::html::HTML$Tag;
 using $HTMLDocument = ::javax::swing::text::html::HTMLDocument;
-using $HTMLDocument$Iterator = ::javax::swing::text::html::HTMLDocument$Iterator;
 using $CompoundPrintable = ::sun::swing::text::CompoundPrintable;
 using $CountingPrintable = ::sun::swing::text::CountingPrintable;
 using $TextComponentPrintable$1 = ::sun::swing::text::TextComponentPrintable$1;
@@ -156,88 +153,14 @@ namespace sun {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _TextComponentPrintable_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TextComponentPrintable, $assertionsDisabled)},
-	{"LIST_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TextComponentPrintable, LIST_SIZE)},
-	{"isLayouted", "Z", nullptr, $PRIVATE, $field(TextComponentPrintable, isLayouted)},
-	{"textComponentToPrint", "Ljavax/swing/text/JTextComponent;", nullptr, $PRIVATE | $FINAL, $field(TextComponentPrintable, textComponentToPrint)},
-	{"frc", "Ljava/util/concurrent/atomic/AtomicReference;", "Ljava/util/concurrent/atomic/AtomicReference<Ljava/awt/font/FontRenderContext;>;", $PRIVATE | $FINAL, $field(TextComponentPrintable, frc)},
-	{"printShell", "Ljavax/swing/text/JTextComponent;", nullptr, $PRIVATE | $FINAL, $field(TextComponentPrintable, printShell)},
-	{"headerFormat", "Ljava/text/MessageFormat;", nullptr, $PRIVATE | $FINAL, $field(TextComponentPrintable, headerFormat)},
-	{"footerFormat", "Ljava/text/MessageFormat;", nullptr, $PRIVATE | $FINAL, $field(TextComponentPrintable, footerFormat)},
-	{"HEADER_FONT_SIZE", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TextComponentPrintable, HEADER_FONT_SIZE)},
-	{"FOOTER_FONT_SIZE", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TextComponentPrintable, FOOTER_FONT_SIZE)},
-	{"headerFont", "Ljava/awt/Font;", nullptr, $PRIVATE | $FINAL, $field(TextComponentPrintable, headerFont)},
-	{"footerFont", "Ljava/awt/Font;", nullptr, $PRIVATE | $FINAL, $field(TextComponentPrintable, footerFont)},
-	{"rowsMetrics", "Ljava/util/List;", "Ljava/util/List<Lsun/swing/text/TextComponentPrintable$IntegerSegment;>;", $PRIVATE | $FINAL, $field(TextComponentPrintable, rowsMetrics)},
-	{"pagesMetrics", "Ljava/util/List;", "Ljava/util/List<Lsun/swing/text/TextComponentPrintable$IntegerSegment;>;", $PRIVATE | $FINAL, $field(TextComponentPrintable, pagesMetrics)},
-	{"needReadLock", "Z", nullptr, $PRIVATE, $field(TextComponentPrintable, needReadLock)},
-	{}
-};
-
-$MethodInfo _TextComponentPrintable_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/JTextComponent;Ljava/text/MessageFormat;Ljava/text/MessageFormat;)V", nullptr, $PRIVATE, $method(TextComponentPrintable, init$, void, $JTextComponent*, $MessageFormat*, $MessageFormat*)},
-	{"acquireReadLock", "()V", nullptr, $PRIVATE, $method(TextComponentPrintable, acquireReadLock, void)},
-	{"calculateRowsMetrics", "()V", nullptr, $PRIVATE, $method(TextComponentPrintable, calculateRowsMetrics, void)},
-	{"createFrames", "(Ljavax/swing/JEditorPane;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TextComponentPrintable, createFrames, void, $JEditorPane*)},
-	{"createPrintShell", "(Ljavax/swing/text/JTextComponent;)Ljavax/swing/text/JTextComponent;", nullptr, $PRIVATE, $method(TextComponentPrintable, createPrintShell, $JTextComponent*, $JTextComponent*)},
-	{"createPrintShellOnEDT", "(Ljavax/swing/text/JTextComponent;)Ljavax/swing/text/JTextComponent;", nullptr, $PRIVATE, $method(TextComponentPrintable, createPrintShellOnEDT, $JTextComponent*, $JTextComponent*)},
-	{"getFrames", "(Ljavax/swing/JEditorPane;)Ljava/util/List;", "(Ljavax/swing/JEditorPane;)Ljava/util/List<Ljavax/swing/JEditorPane;>;", $PRIVATE | $STATIC, $staticMethod(TextComponentPrintable, getFrames, $List*, $JEditorPane*)},
-	{"getFrames", "(Ljava/awt/Container;Ljava/util/List;)V", "(Ljava/awt/Container;Ljava/util/List<Ljavax/swing/JEditorPane;>;)V", $PRIVATE | $STATIC, $staticMethod(TextComponentPrintable, getFrames, void, $Container*, $List*)},
-	{"getNumberOfPages", "()I", nullptr, $PUBLIC, $virtualMethod(TextComponentPrintable, getNumberOfPages, int32_t)},
-	{"getPrintable", "(Ljavax/swing/text/JTextComponent;Ljava/text/MessageFormat;Ljava/text/MessageFormat;)Ljava/awt/print/Printable;", nullptr, $PUBLIC | $STATIC, $staticMethod(TextComponentPrintable, getPrintable, $Printable*, $JTextComponent*, $MessageFormat*, $MessageFormat*)},
-	{"isFrameSetDocument", "(Ljavax/swing/text/Document;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(TextComponentPrintable, isFrameSetDocument, bool, $Document*)},
-	{"layout", "(I)V", nullptr, $PRIVATE, $method(TextComponentPrintable, layout, void, int32_t)},
-	{"layoutOnEDT", "(I)V", nullptr, $PRIVATE, $method(TextComponentPrintable, layoutOnEDT, void, int32_t)},
-	{"print", "(Ljava/awt/Graphics;Ljava/awt/print/PageFormat;I)I", nullptr, $PUBLIC, $virtualMethod(TextComponentPrintable, print, int32_t, $Graphics*, $PageFormat*, int32_t), "java.awt.print.PrinterException"},
-	{"printOnEDT", "(Ljava/awt/Graphics;Ljava/awt/print/PageFormat;I)I", nullptr, $PRIVATE, $method(TextComponentPrintable, printOnEDT, int32_t, $Graphics*, $PageFormat*, int32_t), "java.awt.print.PrinterException"},
-	{"releaseReadLock", "()V", nullptr, $PRIVATE, $method(TextComponentPrintable, releaseReadLock, void)},
-	{"updatePagesMetrics", "(II)V", nullptr, $PRIVATE, $method(TextComponentPrintable, updatePagesMetrics, void, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _TextComponentPrintable_InnerClassesInfo_[] = {
-	{"sun.swing.text.TextComponentPrintable$IntegerSegment", "sun.swing.text.TextComponentPrintable", "IntegerSegment", $PRIVATE | $STATIC},
-	{"sun.swing.text.TextComponentPrintable$10", nullptr, nullptr, 0},
-	{"sun.swing.text.TextComponentPrintable$9", nullptr, nullptr, 0},
-	{"sun.swing.text.TextComponentPrintable$8", nullptr, nullptr, 0},
-	{"sun.swing.text.TextComponentPrintable$7", nullptr, nullptr, 0},
-	{"sun.swing.text.TextComponentPrintable$6", nullptr, nullptr, 0},
-	{"sun.swing.text.TextComponentPrintable$5", nullptr, nullptr, 0},
-	{"sun.swing.text.TextComponentPrintable$4", nullptr, nullptr, 0},
-	{"sun.swing.text.TextComponentPrintable$3", nullptr, nullptr, 0},
-	{"sun.swing.text.TextComponentPrintable$2", nullptr, nullptr, 0},
-	{"sun.swing.text.TextComponentPrintable$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TextComponentPrintable_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.swing.text.TextComponentPrintable",
-	"java.lang.Object",
-	"sun.swing.text.CountingPrintable",
-	_TextComponentPrintable_FieldInfo_,
-	_TextComponentPrintable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TextComponentPrintable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.swing.text.TextComponentPrintable$IntegerSegment,sun.swing.text.TextComponentPrintable$10,sun.swing.text.TextComponentPrintable$9,sun.swing.text.TextComponentPrintable$8,sun.swing.text.TextComponentPrintable$7,sun.swing.text.TextComponentPrintable$6,sun.swing.text.TextComponentPrintable$5,sun.swing.text.TextComponentPrintable$4,sun.swing.text.TextComponentPrintable$3,sun.swing.text.TextComponentPrintable$2,sun.swing.text.TextComponentPrintable$1"
-};
-
-$Object* allocate$TextComponentPrintable($Class* clazz) {
-	return $of($alloc(TextComponentPrintable));
-}
-
 bool TextComponentPrintable::$assertionsDisabled = false;
 float TextComponentPrintable::HEADER_FONT_SIZE = 0.0;
 float TextComponentPrintable::FOOTER_FONT_SIZE = 0.0;
 
 $Printable* TextComponentPrintable::getPrintable($JTextComponent* textComponent, $MessageFormat* headerFormat, $MessageFormat* footerFormat) {
 	$init(TextComponentPrintable);
-	$useLocalCurrentObjectStackCache();
-	if ($instanceOf($JEditorPane, textComponent) && isFrameSetDocument($($nc(textComponent)->getDocument()))) {
+	$useLocalObjectStack();
+	if ($instanceOf($JEditorPane, textComponent) && isFrameSetDocument($(textComponent->getDocument()))) {
 		$var($List, frames, getFrames($cast($JEditorPane, textComponent)));
 		$var($List, printables, $new($ArrayList));
 		{
@@ -245,7 +168,7 @@ $Printable* TextComponentPrintable::getPrintable($JTextComponent* textComponent,
 			for (; $nc(i$)->hasNext();) {
 				$var($JEditorPane, frame, $cast($JEditorPane, i$->next()));
 				{
-					printables->add($cast($CountingPrintable, $(getPrintable(frame, headerFormat, footerFormat))));
+					printables->add($$cast($CountingPrintable, getPrintable(frame, headerFormat, footerFormat)));
 				}
 			}
 		}
@@ -257,12 +180,12 @@ $Printable* TextComponentPrintable::getPrintable($JTextComponent* textComponent,
 
 bool TextComponentPrintable::isFrameSetDocument($Document* document) {
 	$init(TextComponentPrintable);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool ret = false;
 	if ($instanceOf($HTMLDocument, document)) {
 		$var($HTMLDocument, htmlDocument, $cast($HTMLDocument, document));
 		$init($HTML$Tag);
-		if ($nc($($nc(htmlDocument)->getIterator($HTML$Tag::FRAME)))->isValid()) {
+		if ($$nc(htmlDocument->getIterator($HTML$Tag::FRAME))->isValid()) {
 			ret = true;
 		}
 	}
@@ -282,20 +205,14 @@ $List* TextComponentPrintable::getFrames($JEditorPane* editor) {
 
 void TextComponentPrintable::getFrames($Container* container, $List* list) {
 	$init(TextComponentPrintable);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($ComponentArray, arr$, $nc(container)->getComponents());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($Component, c, arr$->get(i$));
-			{
-				if ($instanceOf($FrameEditorPaneTag, c) && $instanceOf($JEditorPane, c)) {
-					$nc(list)->add($cast($JEditorPane, c));
-				} else if ($instanceOf($Container, c)) {
-					getFrames($cast($Container, c), list);
-				}
-			}
+	$useLocalObjectStack();
+	$var($ComponentArray, arr$, $nc(container)->getComponents());
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($Component, c, arr$->get(i$));
+		if ($instanceOf($FrameEditorPaneTag, c) && $instanceOf($JEditorPane, c)) {
+			$nc(list)->add($cast($JEditorPane, c));
+		} else if ($instanceOf($Container, c)) {
+			getFrames($cast($Container, c), list);
 		}
 	}
 }
@@ -312,29 +229,29 @@ void TextComponentPrintable::createFrames($JEditorPane* editor) {
 			if ($instanceOf($RuntimeException, e)) {
 				$throw($cast($RuntimeException, e));
 			} else {
-				$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+				$throwNew($RuntimeException, e);
 			}
 		}
 	}
 }
 
 void TextComponentPrintable::init$($JTextComponent* textComponent, $MessageFormat* headerFormat, $MessageFormat* footerFormat) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->isLayouted = false;
 	$set(this, frc, $new($AtomicReference, nullptr));
 	this->needReadLock = false;
 	$set(this, textComponentToPrint, textComponent);
 	$set(this, headerFormat, headerFormat);
 	$set(this, footerFormat, footerFormat);
-	$set(this, headerFont, $nc($($nc(textComponent)->getFont()))->deriveFont($Font::BOLD, TextComponentPrintable::HEADER_FONT_SIZE));
-	$set(this, footerFont, $nc($(textComponent->getFont()))->deriveFont($Font::PLAIN, TextComponentPrintable::FOOTER_FONT_SIZE));
+	$set(this, headerFont, $$nc($nc(textComponent)->getFont())->deriveFont($Font::BOLD, TextComponentPrintable::HEADER_FONT_SIZE));
+	$set(this, footerFont, $$nc(textComponent->getFont())->deriveFont($Font::PLAIN, TextComponentPrintable::FOOTER_FONT_SIZE));
 	$set(this, pagesMetrics, $Collections::synchronizedList($$new($ArrayList)));
 	$set(this, rowsMetrics, $new($ArrayList, TextComponentPrintable::LIST_SIZE));
 	$set(this, printShell, createPrintShell(textComponent));
 }
 
 $JTextComponent* TextComponentPrintable::createPrintShell($JTextComponent* textComponent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($SwingUtilities::isEventDispatchThread()) {
 		return createPrintShellOnEDT(textComponent);
 	} else {
@@ -343,7 +260,7 @@ $JTextComponent* TextComponentPrintable::createPrintShell($JTextComponent* textC
 		try {
 			return $cast($JTextComponent, futureCreateShell->get());
 		} catch ($InterruptedException& e) {
-			$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+			$throwNew($RuntimeException, e);
 		} catch ($ExecutionException& e) {
 			$var($Throwable, cause, e->getCause());
 			if ($instanceOf($Error, cause)) {
@@ -352,14 +269,14 @@ $JTextComponent* TextComponentPrintable::createPrintShell($JTextComponent* textC
 			if ($instanceOf($RuntimeException, cause)) {
 				$throw($cast($RuntimeException, cause));
 			}
-			$throwNew($AssertionError, $of(cause));
+			$throwNew($AssertionError, cause);
 		}
 	}
 	$shouldNotReachHere();
 }
 
 $JTextComponent* TextComponentPrintable::createPrintShellOnEDT($JTextComponent* textComponent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!TextComponentPrintable::$assertionsDisabled && !$SwingUtilities::isEventDispatchThread()) {
 		$throwNew($AssertionError);
 	}
@@ -377,19 +294,19 @@ $JTextComponent* TextComponentPrintable::createPrintShellOnEDT($JTextComponent* 
 	}
 	$nc(ret)->setBorder(nullptr);
 	ret->setOpaque($nc(textComponent)->isOpaque());
-	ret->setEditable($nc(textComponent)->isEditable());
-	ret->setEnabled($nc(textComponent)->isEnabled());
-	ret->setFont($($nc(textComponent)->getFont()));
-	ret->setBackground($($nc(textComponent)->getBackground()));
-	ret->setForeground($($nc(textComponent)->getForeground()));
-	ret->setComponentOrientation($($nc(textComponent)->getComponentOrientation()));
+	ret->setEditable(textComponent->isEditable());
+	ret->setEnabled(textComponent->isEnabled());
+	ret->setFont($(textComponent->getFont()));
+	ret->setBackground($(textComponent->getBackground()));
+	ret->setForeground($(textComponent->getForeground()));
+	ret->setComponentOrientation($(textComponent->getComponentOrientation()));
 	if ($instanceOf($JEditorPane, ret)) {
 		$init($JEditorPane);
-		ret->putClientProperty($JEditorPane::HONOR_DISPLAY_PROPERTIES, $($nc(textComponent)->getClientProperty($JEditorPane::HONOR_DISPLAY_PROPERTIES)));
-		ret->putClientProperty($JEditorPane::W3C_LENGTH_UNITS, $($nc(textComponent)->getClientProperty($JEditorPane::W3C_LENGTH_UNITS)));
-		ret->putClientProperty("charset"_s, $($nc(textComponent)->getClientProperty("charset"_s)));
+		ret->putClientProperty($JEditorPane::HONOR_DISPLAY_PROPERTIES, $(textComponent->getClientProperty($JEditorPane::HONOR_DISPLAY_PROPERTIES)));
+		ret->putClientProperty($JEditorPane::W3C_LENGTH_UNITS, $(textComponent->getClientProperty($JEditorPane::W3C_LENGTH_UNITS)));
+		ret->putClientProperty("charset"_s, $(textComponent->getClientProperty("charset"_s)));
 	}
-	ret->setDocument($($nc(textComponent)->getDocument()));
+	ret->setDocument($(textComponent->getDocument()));
 	return ret;
 }
 
@@ -398,10 +315,10 @@ int32_t TextComponentPrintable::getNumberOfPages() {
 }
 
 int32_t TextComponentPrintable::print($Graphics* graphics, $PageFormat* pf, int32_t pageIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->isLayouted) {
 		if ($instanceOf($Graphics2D, graphics)) {
-			$nc(this->frc)->set($($nc(($cast($Graphics2D, graphics)))->getFontRenderContext()));
+			this->frc->set($($cast($Graphics2D, graphics)->getFontRenderContext()));
 		}
 		layout($cast(int32_t, $Math::floor($nc(pf)->getImageableWidth())));
 		calculateRowsMetrics();
@@ -412,9 +329,9 @@ int32_t TextComponentPrintable::print($Graphics* graphics, $PageFormat* pf, int3
 		$var($FutureTask, futurePrintOnEDT, $new($FutureTask, doPrintOnEDT));
 		$SwingUtilities::invokeLater(futurePrintOnEDT);
 		try {
-			ret = $nc(($cast($Integer, $(futurePrintOnEDT->get()))))->intValue();
+			ret = $$sure($Integer, futurePrintOnEDT->get())->intValue();
 		} catch ($InterruptedException& e) {
-			$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+			$throwNew($RuntimeException, e);
 		} catch ($ExecutionException& e) {
 			$var($Throwable, cause, e->getCause());
 			if ($instanceOf($PrinterException, cause)) {
@@ -434,51 +351,48 @@ int32_t TextComponentPrintable::print($Graphics* graphics, $PageFormat* pf, int3
 }
 
 int32_t TextComponentPrintable::printOnEDT($Graphics* graphics, $PageFormat* pf, int32_t pageIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!TextComponentPrintable::$assertionsDisabled && !$SwingUtilities::isEventDispatchThread()) {
 		$throwNew($AssertionError);
 	}
 	$var($Border, border, $BorderFactory::createEmptyBorder());
 	if (this->headerFormat != nullptr || this->footerFormat != nullptr) {
-		$var($ObjectArray, formatArg, $new($ObjectArray, {$($of($Integer::valueOf(pageIndex + 1)))}));
+		$var($ObjectArray, formatArg, $new($ObjectArray, {$($Integer::valueOf(pageIndex + 1))}));
 		if (this->headerFormat != nullptr) {
-			$var($Border, var$0, border);
-			$var($String, var$1, $nc(this->headerFormat)->format(formatArg));
-			$var($Font, var$2, this->headerFont);
-			$assign(border, $new($TitledBorder, var$0, var$1, $TitledBorder::CENTER, $TitledBorder::ABOVE_TOP, var$2, $($nc(this->printShell)->getForeground())));
+			$var($String, var$0, this->headerFormat->format(formatArg));
+			$var($Font, var$1, this->headerFont);
+			$assign(border, $new($TitledBorder, border, var$0, $TitledBorder::CENTER, $TitledBorder::ABOVE_TOP, var$1, $($nc(this->printShell)->getForeground())));
 		}
 		if (this->footerFormat != nullptr) {
-			$var($Border, var$3, border);
-			$var($String, var$4, $nc(this->footerFormat)->format(formatArg));
-			$var($Font, var$5, this->footerFont);
-			$assign(border, $new($TitledBorder, var$3, var$4, $TitledBorder::CENTER, $TitledBorder::BELOW_BOTTOM, var$5, $($nc(this->printShell)->getForeground())));
+			$var($String, var$2, this->footerFormat->format(formatArg));
+			$var($Font, var$3, this->footerFont);
+			$assign(border, $new($TitledBorder, border, var$2, $TitledBorder::CENTER, $TitledBorder::BELOW_BOTTOM, var$3, $($nc(this->printShell)->getForeground())));
 		}
 	}
 	$var($Insets, borderInsets, $nc(border)->getBorderInsets(this->printShell));
-	updatePagesMetrics(pageIndex, $cast(int32_t, $Math::floor($nc(pf)->getImageableHeight())) - $nc(borderInsets)->top - borderInsets->bottom);
+	updatePagesMetrics(pageIndex, $cast(int32_t, $Math::floor($nc(pf)->getImageableHeight())) - $nc(borderInsets)->top - $nc(borderInsets)->bottom);
 	if ($nc(this->pagesMetrics)->size() <= pageIndex) {
 		return $Printable::NO_SUCH_PAGE;
 	}
 	$var($Graphics2D, g2d, $cast($Graphics2D, $nc(graphics)->create()));
-	double var$6 = $nc(pf)->getImageableX();
-	$nc(g2d)->translate(var$6, pf->getImageableY());
-	$var($Component, var$7, static_cast<$Component*>(this->printShell));
-	$var($Graphics, var$8, static_cast<$Graphics*>(g2d));
-	int32_t var$9 = $cast(int32_t, $Math::floor($nc(pf)->getImageableWidth()));
-	border->paintBorder(var$7, var$8, 0, 0, var$9, $cast(int32_t, $Math::floor($nc(pf)->getImageableHeight())));
-	g2d->translate(0, $nc(borderInsets)->top);
-	int32_t var$10 = $cast(int32_t, $nc(pf)->getWidth());
-	int32_t var$11 = $nc(($cast($TextComponentPrintable$IntegerSegment, $($nc(this->pagesMetrics)->get(pageIndex)))))->end;
-	$var($Rectangle, clip, $new($Rectangle, 0, 0, var$10, var$11 - $nc(($cast($TextComponentPrintable$IntegerSegment, $($nc(this->pagesMetrics)->get(pageIndex)))))->start + 1));
+	double var$4 = pf->getImageableX();
+	$nc(g2d)->translate(var$4, pf->getImageableY());
+	$var($Component, var$5, this->printShell);
+	int32_t var$6 = $cast(int32_t, $Math::floor(pf->getImageableWidth()));
+	border->paintBorder(var$5, g2d, 0, 0, var$6, $cast(int32_t, $Math::floor(pf->getImageableHeight())));
+	$nc(g2d)->translate(0, borderInsets->top);
+	int32_t var$7 = $cast(int32_t, pf->getWidth());
+	int32_t var$8 = $nc(($$cast($TextComponentPrintable$IntegerSegment, this->pagesMetrics->get(pageIndex))))->end;
+	$var($Rectangle, clip, $new($Rectangle, 0, 0, var$7, var$8 - $nc(($$cast($TextComponentPrintable$IntegerSegment, this->pagesMetrics->get(pageIndex))))->start + 1));
 	g2d->clip(clip);
 	int32_t xStart = 0;
 	$init($ComponentOrientation);
 	if ($ComponentOrientation::RIGHT_TO_LEFT == $nc(this->printShell)->getComponentOrientation()) {
-		int32_t var$12 = $cast(int32_t, $nc(pf)->getImageableWidth());
-		xStart = var$12 - $nc(this->printShell)->getWidth();
+		int32_t var$9 = $cast(int32_t, pf->getImageableWidth());
+		xStart = var$9 - this->printShell->getWidth();
 	}
-	g2d->translate(xStart, -$nc(($cast($TextComponentPrintable$IntegerSegment, $($nc(this->pagesMetrics)->get(pageIndex)))))->start);
-	$nc(this->printShell)->print(g2d);
+	g2d->translate(xStart, -$nc(($$cast($TextComponentPrintable$IntegerSegment, this->pagesMetrics->get(pageIndex))))->start);
+	this->printShell->print(g2d);
 	g2d->dispose();
 	return $Printable::PAGE_EXISTS;
 }
@@ -490,7 +404,7 @@ void TextComponentPrintable::releaseReadLock() {
 	$var($Document, document, $nc(this->textComponentToPrint)->getDocument());
 	if ($instanceOf($AbstractDocument, document)) {
 		try {
-			$nc(($cast($AbstractDocument, document)))->readUnlock();
+			$cast($AbstractDocument, document)->readUnlock();
 			this->needReadLock = true;
 		} catch ($Error& ignore) {
 		}
@@ -498,7 +412,7 @@ void TextComponentPrintable::releaseReadLock() {
 }
 
 void TextComponentPrintable::acquireReadLock() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!TextComponentPrintable::$assertionsDisabled && ! !$SwingUtilities::isEventDispatchThread()) {
 		$throwNew($AssertionError);
 	}
@@ -509,43 +423,41 @@ void TextComponentPrintable::acquireReadLock() {
 		} catch ($InvocationTargetException& ignore) {
 		}
 		$var($Document, document, $nc(this->textComponentToPrint)->getDocument());
-		$nc(($cast($AbstractDocument, document)))->readLock();
+		$nc($cast($AbstractDocument, document))->readLock();
 		this->needReadLock = false;
 	}
 }
 
 void TextComponentPrintable::layout(int32_t width) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$SwingUtilities::isEventDispatchThread()) {
 		$var($Callable, doLayoutOnEDT, $new($TextComponentPrintable$10, this, width));
 		$var($FutureTask, futureLayoutOnEDT, $new($FutureTask, doLayoutOnEDT));
 		releaseReadLock();
 		$SwingUtilities::invokeLater(futureLayoutOnEDT);
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					futureLayoutOnEDT->get();
-				} catch ($InterruptedException& e) {
-					$throwNew($RuntimeException, static_cast<$Throwable*>(e));
-				} catch ($ExecutionException& e) {
-					$var($Throwable, cause, e->getCause());
-					if ($instanceOf($RuntimeException, cause)) {
-						$throw($cast($RuntimeException, cause));
-					} else if ($instanceOf($Error, cause)) {
-						$throw($cast($Error, cause));
-					} else {
-						$throwNew($RuntimeException, cause);
-					}
+				futureLayoutOnEDT->get();
+			} catch ($InterruptedException& e) {
+				$throwNew($RuntimeException, e);
+			} catch ($ExecutionException& e) {
+				$var($Throwable, cause, e->getCause());
+				if ($instanceOf($RuntimeException, cause)) {
+					$throw($cast($RuntimeException, cause));
+				} else if ($instanceOf($Error, cause)) {
+					$throw($cast($Error, cause));
+				} else {
+					$throwNew($RuntimeException, cause);
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				acquireReadLock();
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			acquireReadLock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} else {
 		layoutOnEDT(width);
@@ -554,7 +466,7 @@ void TextComponentPrintable::layout(int32_t width) {
 }
 
 void TextComponentPrintable::layoutOnEDT(int32_t width) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!TextComponentPrintable::$assertionsDisabled && !$SwingUtilities::isEventDispatchThread()) {
 		$throwNew($AssertionError);
 	}
@@ -564,44 +476,41 @@ void TextComponentPrintable::layoutOnEDT(int32_t width) {
 	viewport->setBorder(nullptr);
 	$var($Dimension, size, $new($Dimension, width, HUGE_INTEGER));
 	if ($instanceOf($JTextField, this->printShell)) {
-		$assign(size, $new($Dimension, size->width, $nc($($nc(this->printShell)->getPreferredSize()))->height));
+		$assign(size, $new($Dimension, size->width, $nc($(this->printShell->getPreferredSize()))->height));
 	}
 	$nc(this->printShell)->setSize(size);
-	viewport->setComponentOrientation($($nc(this->printShell)->getComponentOrientation()));
+	viewport->setComponentOrientation($(this->printShell->getComponentOrientation()));
 	viewport->setSize(size);
-	viewport->add(static_cast<$Component*>(this->printShell));
-	rendererPane->add(static_cast<$Component*>(viewport));
+	viewport->add(this->printShell);
+	rendererPane->add(viewport);
 }
 
 void TextComponentPrintable::updatePagesMetrics(int32_t pageIndex, int32_t pageHeight) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (true) {
 		bool var$0 = pageIndex >= $nc(this->pagesMetrics)->size();
 		if (!(var$0 && !$nc(this->rowsMetrics)->isEmpty())) {
 			break;
 		}
 		{
-			int32_t lastPage = $nc(this->pagesMetrics)->size() - 1;
-			int32_t pageStart = (lastPage >= 0) ? $nc(($cast($TextComponentPrintable$IntegerSegment, $($nc(this->pagesMetrics)->get(lastPage)))))->end + 1 : 0;
+			int32_t lastPage = this->pagesMetrics->size() - 1;
+			int32_t pageStart = (lastPage >= 0) ? $nc(($$cast($TextComponentPrintable$IntegerSegment, this->pagesMetrics->get(lastPage))))->end + 1 : 0;
 			int32_t rowIndex = 0;
-			{
-				rowIndex = 0;
-				for (;; ++rowIndex) {
-					bool var$1 = rowIndex < $nc(this->rowsMetrics)->size();
-					if (!(var$1 && ($nc(($cast($TextComponentPrintable$IntegerSegment, $($nc(this->rowsMetrics)->get(rowIndex)))))->end - pageStart + 1) <= pageHeight)) {
-						break;
-					}
-					{
-					}
+			for (rowIndex = 0;; ++rowIndex) {
+				bool var$1 = rowIndex < $nc(this->rowsMetrics)->size();
+				if (!(var$1 && ($nc(($$cast($TextComponentPrintable$IntegerSegment, this->rowsMetrics->get(rowIndex))))->end - pageStart + 1) <= pageHeight)) {
+					break;
+				}
+				{
 				}
 			}
 			if (rowIndex == 0) {
-				$nc(this->pagesMetrics)->add($$new($TextComponentPrintable$IntegerSegment, pageStart, pageStart + pageHeight - 1));
+				this->pagesMetrics->add($$new($TextComponentPrintable$IntegerSegment, pageStart, pageStart + pageHeight - 1));
 			} else {
 				--rowIndex;
-				$nc(this->pagesMetrics)->add($$new($TextComponentPrintable$IntegerSegment, pageStart, $nc(($cast($TextComponentPrintable$IntegerSegment, $($nc(this->rowsMetrics)->get(rowIndex)))))->end));
+				this->pagesMetrics->add($$new($TextComponentPrintable$IntegerSegment, pageStart, $nc(($$cast($TextComponentPrintable$IntegerSegment, this->rowsMetrics->get(rowIndex))))->end));
 				for (int32_t i = 0; i <= rowIndex; ++i) {
-					$nc(this->rowsMetrics)->remove(0);
+					this->rowsMetrics->remove(0);
 				}
 			}
 		}
@@ -609,30 +518,25 @@ void TextComponentPrintable::updatePagesMetrics(int32_t pageIndex, int32_t pageH
 }
 
 void TextComponentPrintable::calculateRowsMetrics() {
-	$useLocalCurrentObjectStackCache();
-	int32_t documentLength = $nc($($nc(this->printShell)->getDocument()))->getLength();
+	$useLocalObjectStack();
+	int32_t documentLength = $$nc($nc(this->printShell)->getDocument())->getLength();
 	$var($List, documentMetrics, $new($ArrayList, TextComponentPrintable::LIST_SIZE));
 	$var($Rectangle, rect, nullptr);
-	{
-		int32_t i = 0;
-		int32_t previousY = -1;
-		int32_t previousHeight = -1;
-		for (; i < documentLength; ++i) {
-			try {
-				$assign(rect, $nc(this->printShell)->modelToView(i));
-				if (rect != nullptr) {
-					int32_t y = $cast(int32_t, rect->getY());
-					int32_t height = $cast(int32_t, rect->getHeight());
-					if (height != 0 && (y != previousY || height != previousHeight)) {
-						previousY = y;
-						previousHeight = height;
-						documentMetrics->add($$new($TextComponentPrintable$IntegerSegment, y, y + height - 1));
-					}
+	for (int32_t i = 0, previousY = -1, previousHeight = -1; i < documentLength; ++i) {
+		try {
+			$assign(rect, this->printShell->modelToView(i));
+			if (rect != nullptr) {
+				int32_t y = $cast(int32_t, rect->getY());
+				int32_t height = $cast(int32_t, rect->getHeight());
+				if (height != 0 && (y != previousY || height != previousHeight)) {
+					previousY = y;
+					previousHeight = height;
+					documentMetrics->add($$new($TextComponentPrintable$IntegerSegment, y, y + height - 1));
 				}
-			} catch ($BadLocationException& e) {
-				if (!TextComponentPrintable::$assertionsDisabled) {
-					$throwNew($AssertionError);
-				}
+			}
+		} catch ($BadLocationException& e) {
+			if (!TextComponentPrintable::$assertionsDisabled) {
+				$throwNew($AssertionError);
 			}
 		}
 	}
@@ -643,16 +547,14 @@ void TextComponentPrintable::calculateRowsMetrics() {
 		$var($Iterator, i$, documentMetrics->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($TextComponentPrintable$IntegerSegment, segment, $cast($TextComponentPrintable$IntegerSegment, i$->next()));
-			{
-				if (yEnd < $nc(segment)->start) {
-					if (yEnd != $Integer::MIN_VALUE) {
-						$nc(this->rowsMetrics)->add($$new($TextComponentPrintable$IntegerSegment, yStart, yEnd));
-					}
-					yStart = segment->start;
-					yEnd = segment->end;
-				} else {
-					yEnd = segment->end;
+			if (yEnd < $nc(segment)->start) {
+				if (yEnd != $Integer::MIN_VALUE) {
+					$nc(this->rowsMetrics)->add($$new($TextComponentPrintable$IntegerSegment, yStart, yEnd));
 				}
+				yStart = segment->start;
+				yEnd = segment->end;
+			} else {
+				yEnd = segment->end;
 			}
 		}
 	}
@@ -661,7 +563,7 @@ void TextComponentPrintable::calculateRowsMetrics() {
 	}
 }
 
-void clinit$TextComponentPrintable($Class* class$) {
+void TextComponentPrintable::clinit$($Class* clazz) {
 	TextComponentPrintable::HEADER_FONT_SIZE = 18.0f;
 	TextComponentPrintable::FOOTER_FONT_SIZE = 12.0f;
 	TextComponentPrintable::$assertionsDisabled = !TextComponentPrintable::class$->desiredAssertionStatus();
@@ -671,7 +573,75 @@ TextComponentPrintable::TextComponentPrintable() {
 }
 
 $Class* TextComponentPrintable::load$($String* name, bool initialize) {
-	$loadClass(TextComponentPrintable, name, initialize, &_TextComponentPrintable_ClassInfo_, clinit$TextComponentPrintable, allocate$TextComponentPrintable);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TextComponentPrintable, $assertionsDisabled)},
+		{"LIST_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TextComponentPrintable, LIST_SIZE)},
+		{"isLayouted", "Z", nullptr, $PRIVATE, $field(TextComponentPrintable, isLayouted)},
+		{"textComponentToPrint", "Ljavax/swing/text/JTextComponent;", nullptr, $PRIVATE | $FINAL, $field(TextComponentPrintable, textComponentToPrint)},
+		{"frc", "Ljava/util/concurrent/atomic/AtomicReference;", "Ljava/util/concurrent/atomic/AtomicReference<Ljava/awt/font/FontRenderContext;>;", $PRIVATE | $FINAL, $field(TextComponentPrintable, frc)},
+		{"printShell", "Ljavax/swing/text/JTextComponent;", nullptr, $PRIVATE | $FINAL, $field(TextComponentPrintable, printShell)},
+		{"headerFormat", "Ljava/text/MessageFormat;", nullptr, $PRIVATE | $FINAL, $field(TextComponentPrintable, headerFormat)},
+		{"footerFormat", "Ljava/text/MessageFormat;", nullptr, $PRIVATE | $FINAL, $field(TextComponentPrintable, footerFormat)},
+		{"HEADER_FONT_SIZE", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TextComponentPrintable, HEADER_FONT_SIZE)},
+		{"FOOTER_FONT_SIZE", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TextComponentPrintable, FOOTER_FONT_SIZE)},
+		{"headerFont", "Ljava/awt/Font;", nullptr, $PRIVATE | $FINAL, $field(TextComponentPrintable, headerFont)},
+		{"footerFont", "Ljava/awt/Font;", nullptr, $PRIVATE | $FINAL, $field(TextComponentPrintable, footerFont)},
+		{"rowsMetrics", "Ljava/util/List;", "Ljava/util/List<Lsun/swing/text/TextComponentPrintable$IntegerSegment;>;", $PRIVATE | $FINAL, $field(TextComponentPrintable, rowsMetrics)},
+		{"pagesMetrics", "Ljava/util/List;", "Ljava/util/List<Lsun/swing/text/TextComponentPrintable$IntegerSegment;>;", $PRIVATE | $FINAL, $field(TextComponentPrintable, pagesMetrics)},
+		{"needReadLock", "Z", nullptr, $PRIVATE, $field(TextComponentPrintable, needReadLock)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/JTextComponent;Ljava/text/MessageFormat;Ljava/text/MessageFormat;)V", nullptr, $PRIVATE, $method(TextComponentPrintable, init$, void, $JTextComponent*, $MessageFormat*, $MessageFormat*)},
+		{"acquireReadLock", "()V", nullptr, $PRIVATE, $method(TextComponentPrintable, acquireReadLock, void)},
+		{"calculateRowsMetrics", "()V", nullptr, $PRIVATE, $method(TextComponentPrintable, calculateRowsMetrics, void)},
+		{"createFrames", "(Ljavax/swing/JEditorPane;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TextComponentPrintable, createFrames, void, $JEditorPane*)},
+		{"createPrintShell", "(Ljavax/swing/text/JTextComponent;)Ljavax/swing/text/JTextComponent;", nullptr, $PRIVATE, $method(TextComponentPrintable, createPrintShell, $JTextComponent*, $JTextComponent*)},
+		{"createPrintShellOnEDT", "(Ljavax/swing/text/JTextComponent;)Ljavax/swing/text/JTextComponent;", nullptr, $PRIVATE, $method(TextComponentPrintable, createPrintShellOnEDT, $JTextComponent*, $JTextComponent*)},
+		{"getFrames", "(Ljavax/swing/JEditorPane;)Ljava/util/List;", "(Ljavax/swing/JEditorPane;)Ljava/util/List<Ljavax/swing/JEditorPane;>;", $PRIVATE | $STATIC, $staticMethod(TextComponentPrintable, getFrames, $List*, $JEditorPane*)},
+		{"getFrames", "(Ljava/awt/Container;Ljava/util/List;)V", "(Ljava/awt/Container;Ljava/util/List<Ljavax/swing/JEditorPane;>;)V", $PRIVATE | $STATIC, $staticMethod(TextComponentPrintable, getFrames, void, $Container*, $List*)},
+		{"getNumberOfPages", "()I", nullptr, $PUBLIC, $virtualMethod(TextComponentPrintable, getNumberOfPages, int32_t)},
+		{"getPrintable", "(Ljavax/swing/text/JTextComponent;Ljava/text/MessageFormat;Ljava/text/MessageFormat;)Ljava/awt/print/Printable;", nullptr, $PUBLIC | $STATIC, $staticMethod(TextComponentPrintable, getPrintable, $Printable*, $JTextComponent*, $MessageFormat*, $MessageFormat*)},
+		{"isFrameSetDocument", "(Ljavax/swing/text/Document;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(TextComponentPrintable, isFrameSetDocument, bool, $Document*)},
+		{"layout", "(I)V", nullptr, $PRIVATE, $method(TextComponentPrintable, layout, void, int32_t)},
+		{"layoutOnEDT", "(I)V", nullptr, $PRIVATE, $method(TextComponentPrintable, layoutOnEDT, void, int32_t)},
+		{"print", "(Ljava/awt/Graphics;Ljava/awt/print/PageFormat;I)I", nullptr, $PUBLIC, $virtualMethod(TextComponentPrintable, print, int32_t, $Graphics*, $PageFormat*, int32_t), "java.awt.print.PrinterException"},
+		{"printOnEDT", "(Ljava/awt/Graphics;Ljava/awt/print/PageFormat;I)I", nullptr, $PRIVATE, $method(TextComponentPrintable, printOnEDT, int32_t, $Graphics*, $PageFormat*, int32_t), "java.awt.print.PrinterException"},
+		{"releaseReadLock", "()V", nullptr, $PRIVATE, $method(TextComponentPrintable, releaseReadLock, void)},
+		{"updatePagesMetrics", "(II)V", nullptr, $PRIVATE, $method(TextComponentPrintable, updatePagesMetrics, void, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.text.TextComponentPrintable$IntegerSegment", "sun.swing.text.TextComponentPrintable", "IntegerSegment", $PRIVATE | $STATIC},
+		{"sun.swing.text.TextComponentPrintable$10", nullptr, nullptr, 0},
+		{"sun.swing.text.TextComponentPrintable$9", nullptr, nullptr, 0},
+		{"sun.swing.text.TextComponentPrintable$8", nullptr, nullptr, 0},
+		{"sun.swing.text.TextComponentPrintable$7", nullptr, nullptr, 0},
+		{"sun.swing.text.TextComponentPrintable$6", nullptr, nullptr, 0},
+		{"sun.swing.text.TextComponentPrintable$5", nullptr, nullptr, 0},
+		{"sun.swing.text.TextComponentPrintable$4", nullptr, nullptr, 0},
+		{"sun.swing.text.TextComponentPrintable$3", nullptr, nullptr, 0},
+		{"sun.swing.text.TextComponentPrintable$2", nullptr, nullptr, 0},
+		{"sun.swing.text.TextComponentPrintable$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.swing.text.TextComponentPrintable",
+		"java.lang.Object",
+		"sun.swing.text.CountingPrintable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.swing.text.TextComponentPrintable$IntegerSegment,sun.swing.text.TextComponentPrintable$10,sun.swing.text.TextComponentPrintable$9,sun.swing.text.TextComponentPrintable$8,sun.swing.text.TextComponentPrintable$7,sun.swing.text.TextComponentPrintable$6,sun.swing.text.TextComponentPrintable$5,sun.swing.text.TextComponentPrintable$4,sun.swing.text.TextComponentPrintable$3,sun.swing.text.TextComponentPrintable$2,sun.swing.text.TextComponentPrintable$1"
+	};
+	$loadClass(TextComponentPrintable, name, initialize, &classInfo$$, TextComponentPrintable::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TextComponentPrintable);
+	});
 	return class$;
 }
 

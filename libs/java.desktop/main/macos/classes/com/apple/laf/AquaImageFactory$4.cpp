@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaImageFactory$4.h>
-
 #include <com/apple/laf/AquaIcon$CachingScalingIcon.h>
 #include <com/apple/laf/AquaImageFactory.h>
 #include <java/awt/Image.h>
@@ -17,44 +16,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaImageFactory$4_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, 0, $method(AquaImageFactory$4, init$, void, int32_t, int32_t)},
-	{"createImage", "()Ljava/awt/Image;", nullptr, 0, $virtualMethod(AquaImageFactory$4, createImage, $Image*)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaImageFactory$4_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaImageFactory",
-	"getAppIconImageCompositedOn",
-	"(Ljava/awt/Image;I)Ljava/awt/image/BufferedImage;"
-};
-
-$InnerClassInfo _AquaImageFactory$4_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaImageFactory$4", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaIcon$CachingScalingIcon", "com.apple.laf.AquaIcon", "CachingScalingIcon", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaImageFactory$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaImageFactory$4",
-	"com.apple.laf.AquaIcon$CachingScalingIcon",
-	nullptr,
-	nullptr,
-	_AquaImageFactory$4_MethodInfo_,
-	nullptr,
-	&_AquaImageFactory$4_EnclosingMethodInfo_,
-	_AquaImageFactory$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaImageFactory"
-};
-
-$Object* allocate$AquaImageFactory$4($Class* clazz) {
-	return $of($alloc(AquaImageFactory$4));
-}
-
 void AquaImageFactory$4::init$(int32_t width, int32_t height) {
 	$AquaIcon$CachingScalingIcon::init$(width, height);
 }
@@ -67,7 +28,39 @@ AquaImageFactory$4::AquaImageFactory$4() {
 }
 
 $Class* AquaImageFactory$4::load$($String* name, bool initialize) {
-	$loadClass(AquaImageFactory$4, name, initialize, &_AquaImageFactory$4_ClassInfo_, allocate$AquaImageFactory$4);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II)V", nullptr, 0, $method(AquaImageFactory$4, init$, void, int32_t, int32_t)},
+		{"createImage", "()Ljava/awt/Image;", nullptr, 0, $virtualMethod(AquaImageFactory$4, createImage, $Image*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaImageFactory",
+		"getAppIconImageCompositedOn",
+		"(Ljava/awt/Image;I)Ljava/awt/image/BufferedImage;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaImageFactory$4", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaIcon$CachingScalingIcon", "com.apple.laf.AquaIcon", "CachingScalingIcon", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaImageFactory$4",
+		"com.apple.laf.AquaIcon$CachingScalingIcon",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaImageFactory"
+	};
+	$loadClass(AquaImageFactory$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaImageFactory$4));
+	});
 	return class$;
 }
 

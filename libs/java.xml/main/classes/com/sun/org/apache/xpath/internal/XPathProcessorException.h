@@ -25,10 +25,13 @@ public:
 	void init$($String* message);
 	void init$($String* message, ::java::lang::Exception* e);
 	using ::com::sun::org::apache::xpath::internal::XPathException::printStackTrace;
-	static const int64_t serialVersionUID = (int64_t)0x10DE5B603C804FAB;
+	static const int64_t serialVersionUID = (int64_t)0x10de5b603c804fab;
 	XPathProcessorException(const XPathProcessorException& e);
 	virtual void throw$() override;
-	inline XPathProcessorException* operator ->() {
+	inline XPathProcessorException* operator ->() const {
+		return (XPathProcessorException*)throwing$;
+	}
+	inline operator XPathProcessorException*() const {
 		return (XPathProcessorException*)throwing$;
 	}
 };

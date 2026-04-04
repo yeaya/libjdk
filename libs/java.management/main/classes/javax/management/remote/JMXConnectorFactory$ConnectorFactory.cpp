@@ -1,5 +1,4 @@
 #include <javax/management/remote/JMXConnectorFactory$ConnectorFactory.h>
-
 #include <javax/management/remote/JMXConnectorFactory.h>
 #include <jcpp.h>
 
@@ -12,43 +11,37 @@ namespace javax {
 	namespace management {
 		namespace remote {
 
-$CompoundAttribute _JMXConnectorFactory$ConnectorFactory_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _JMXConnectorFactory$ConnectorFactory_MethodInfo_[] = {
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TP;)TC;", $PUBLIC | $ABSTRACT, $virtualMethod(JMXConnectorFactory$ConnectorFactory, apply, $Object*, Object$*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _JMXConnectorFactory$ConnectorFactory_InnerClassesInfo_[] = {
-	{"javax.management.remote.JMXConnectorFactory$ConnectorFactory", "javax.management.remote.JMXConnectorFactory", "ConnectorFactory", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JMXConnectorFactory$ConnectorFactory_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"javax.management.remote.JMXConnectorFactory$ConnectorFactory",
-	nullptr,
-	nullptr,
-	nullptr,
-	_JMXConnectorFactory$ConnectorFactory_MethodInfo_,
-	"<P:Ljava/lang/Object;C:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_JMXConnectorFactory$ConnectorFactory_InnerClassesInfo_,
-	_JMXConnectorFactory$ConnectorFactory_Annotations_,
-	nullptr,
-	nullptr,
-	"javax.management.remote.JMXConnectorFactory"
-};
-
-$Object* allocate$JMXConnectorFactory$ConnectorFactory($Class* clazz) {
-	return $of($alloc(JMXConnectorFactory$ConnectorFactory));
-}
-
 $Class* JMXConnectorFactory$ConnectorFactory::load$($String* name, bool initialize) {
-	$loadClass(JMXConnectorFactory$ConnectorFactory, name, initialize, &_JMXConnectorFactory$ConnectorFactory_ClassInfo_, allocate$JMXConnectorFactory$ConnectorFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TP;)TC;", $PUBLIC | $ABSTRACT, $virtualMethod(JMXConnectorFactory$ConnectorFactory, apply, $Object*, Object$*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.remote.JMXConnectorFactory$ConnectorFactory", "javax.management.remote.JMXConnectorFactory", "ConnectorFactory", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"javax.management.remote.JMXConnectorFactory$ConnectorFactory",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<P:Ljava/lang/Object;C:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"javax.management.remote.JMXConnectorFactory"
+	};
+	$loadClass(JMXConnectorFactory$ConnectorFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JMXConnectorFactory$ConnectorFactory);
+	});
 	return class$;
 }
 

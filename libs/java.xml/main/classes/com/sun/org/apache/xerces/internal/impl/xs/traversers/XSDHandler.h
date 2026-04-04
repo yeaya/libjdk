@@ -404,6 +404,7 @@ class XSDHandler : public ::java::lang::Object {
 	$class(XSDHandler, 0, ::java::lang::Object)
 public:
 	XSDHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::com::sun::org::apache::xerces::internal::impl::xs::XSGrammarBucket* gBucket);
 	virtual void addGlobalAttributeDecl(::com::sun::org::apache::xerces::internal::impl::xs::XSAttributeDecl* decl);

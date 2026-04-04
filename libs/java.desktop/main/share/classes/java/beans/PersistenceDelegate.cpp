@@ -1,5 +1,4 @@
 #include <java/beans/PersistenceDelegate.h>
-
 #include <java/beans/Encoder.h>
 #include <java/beans/Expression.h>
 #include <jcpp.h>
@@ -12,33 +11,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace beans {
 
-$MethodInfo _PersistenceDelegate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(PersistenceDelegate, init$, void)},
-	{"initialize", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", $PROTECTED, $virtualMethod(PersistenceDelegate, initialize, void, $Class*, Object$*, Object$*, $Encoder*)},
-	{"instantiate", "(Ljava/lang/Object;Ljava/beans/Encoder;)Ljava/beans/Expression;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PersistenceDelegate, instantiate, $Expression*, Object$*, $Encoder*)},
-	{"mutatesTo", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(PersistenceDelegate, mutatesTo, bool, Object$*, Object$*)},
-	{"writeObject", "(Ljava/lang/Object;Ljava/beans/Encoder;)V", nullptr, $PUBLIC, $virtualMethod(PersistenceDelegate, writeObject, void, Object$*, $Encoder*)},
-	{}
-};
-
-$ClassInfo _PersistenceDelegate_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.beans.PersistenceDelegate",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_PersistenceDelegate_MethodInfo_
-};
-
-$Object* allocate$PersistenceDelegate($Class* clazz) {
-	return $of($alloc(PersistenceDelegate));
-}
-
 void PersistenceDelegate::init$() {
 }
 
 void PersistenceDelegate::writeObject(Object$* oldInstance, $Encoder* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, newInstance, $nc(out)->get(oldInstance));
 	if (!mutatesTo(oldInstance, newInstance)) {
 		out->remove(oldInstance);
@@ -66,7 +43,25 @@ PersistenceDelegate::PersistenceDelegate() {
 }
 
 $Class* PersistenceDelegate::load$($String* name, bool initialize) {
-	$loadClass(PersistenceDelegate, name, initialize, &_PersistenceDelegate_ClassInfo_, allocate$PersistenceDelegate);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(PersistenceDelegate, init$, void)},
+		{"initialize", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", $PROTECTED, $virtualMethod(PersistenceDelegate, initialize, void, $Class*, Object$*, Object$*, $Encoder*)},
+		{"instantiate", "(Ljava/lang/Object;Ljava/beans/Encoder;)Ljava/beans/Expression;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PersistenceDelegate, instantiate, $Expression*, Object$*, $Encoder*)},
+		{"mutatesTo", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(PersistenceDelegate, mutatesTo, bool, Object$*, Object$*)},
+		{"writeObject", "(Ljava/lang/Object;Ljava/beans/Encoder;)V", nullptr, $PUBLIC, $virtualMethod(PersistenceDelegate, writeObject, void, Object$*, $Encoder*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.beans.PersistenceDelegate",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PersistenceDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PersistenceDelegate);
+	});
 	return class$;
 }
 

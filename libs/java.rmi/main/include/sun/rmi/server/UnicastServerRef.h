@@ -80,6 +80,7 @@ public:
 	virtual int32_t hashCode() override;
 	virtual $Object* invoke(::java::rmi::Remote* obj, ::java::lang::reflect::Method* method, $ObjectArray* params, int64_t opnum) override;
 	virtual void invoke(::java::rmi::server::RemoteCall* call) override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::sun::rmi::transport::LiveRef* ref);
 	void init$(::sun::rmi::transport::LiveRef* ref, ::java::io::ObjectInputFilter* filter);
@@ -110,7 +111,7 @@ public:
 	virtual void writeExternal(::java::io::ObjectOutput* out) override;
 	static bool logCalls;
 	static ::sun::rmi::runtime::Log* callLog;
-	static const int64_t serialVersionUID = (int64_t)0x9985C838F3945334;
+	static const int64_t serialVersionUID = (int64_t)0x9985c838f3945334;
 	static bool wantExceptionLog;
 	bool forceStubUse = false;
 	static bool suppressStackTraces;

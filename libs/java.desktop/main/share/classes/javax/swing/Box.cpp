@@ -1,5 +1,4 @@
 #include <javax/swing/Box.h>
-
 #include <java/awt/AWTError.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -21,7 +20,6 @@
 
 using $AWTError = ::java::awt::AWTError;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $LayoutManager = ::java::awt::LayoutManager;
@@ -39,72 +37,6 @@ using $JComponent = ::javax::swing::JComponent;
 
 namespace javax {
 	namespace swing {
-
-$NamedAttribute Box_Attribute_var$0[] = {
-	{"defaultProperty", 's', "accessibleContext"},
-	{}
-};
-
-$CompoundAttribute _Box_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", Box_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute Box_Attribute_var$1[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _Box_MethodAnnotations_getAccessibleContext9[] = {
-	{"Ljava/beans/BeanProperty;", Box_Attribute_var$1},
-	{}
-};
-
-$MethodInfo _Box_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Box, init$, void, int32_t)},
-	{"createGlue", "()Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC, $staticMethod(Box, createGlue, $Component*)},
-	{"createHorizontalBox", "()Ljavax/swing/Box;", nullptr, $PUBLIC | $STATIC, $staticMethod(Box, createHorizontalBox, Box*)},
-	{"createHorizontalGlue", "()Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC, $staticMethod(Box, createHorizontalGlue, $Component*)},
-	{"createHorizontalStrut", "(I)Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC, $staticMethod(Box, createHorizontalStrut, $Component*, int32_t)},
-	{"createRigidArea", "(Ljava/awt/Dimension;)Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC, $staticMethod(Box, createRigidArea, $Component*, $Dimension*)},
-	{"createVerticalBox", "()Ljavax/swing/Box;", nullptr, $PUBLIC | $STATIC, $staticMethod(Box, createVerticalBox, Box*)},
-	{"createVerticalGlue", "()Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC, $staticMethod(Box, createVerticalGlue, $Component*)},
-	{"createVerticalStrut", "(I)Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC, $staticMethod(Box, createVerticalStrut, $Component*, int32_t)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(Box, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, _Box_MethodAnnotations_getAccessibleContext9},
-	{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(Box, paintComponent, void, $Graphics*)},
-	{"setLayout", "(Ljava/awt/LayoutManager;)V", nullptr, $PUBLIC, $virtualMethod(Box, setLayout, void, $LayoutManager*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Box_InnerClassesInfo_[] = {
-	{"javax.swing.Box$AccessibleBox", "javax.swing.Box", "AccessibleBox", $PROTECTED},
-	{"javax.swing.Box$Filler", "javax.swing.Box", "Filler", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Box_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.Box",
-	"javax.swing.JComponent",
-	"javax.accessibility.Accessible",
-	nullptr,
-	_Box_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Box_InnerClassesInfo_,
-	_Box_Annotations_,
-	nullptr,
-	"javax.swing.Box$AccessibleBox,javax.swing.Box$Filler,javax.swing.Box$Filler$AccessibleBoxFiller"
-};
-
-$Object* allocate$Box($Class* clazz) {
-	return $of($alloc(Box));
-}
 
 $String* Box::toString() {
 	 return this->$JComponent::toString();
@@ -148,7 +80,7 @@ $Component* Box::createRigidArea($Dimension* d) {
 
 $Component* Box::createHorizontalStrut(int32_t width) {
 	$init(Box);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, var$0, $new($Dimension, width, 0));
 	$var($Dimension, var$1, $new($Dimension, width, 0));
 	return $new($Box$Filler, var$0, var$1, $$new($Dimension, width, $Short::MAX_VALUE));
@@ -156,7 +88,7 @@ $Component* Box::createHorizontalStrut(int32_t width) {
 
 $Component* Box::createVerticalStrut(int32_t height) {
 	$init(Box);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, var$0, $new($Dimension, 0, height));
 	$var($Dimension, var$1, $new($Dimension, 0, height));
 	return $new($Box$Filler, var$0, var$1, $$new($Dimension, $Short::MAX_VALUE, height));
@@ -164,7 +96,7 @@ $Component* Box::createVerticalStrut(int32_t height) {
 
 $Component* Box::createGlue() {
 	$init(Box);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, var$0, $new($Dimension, 0, 0));
 	$var($Dimension, var$1, $new($Dimension, 0, 0));
 	return $new($Box$Filler, var$0, var$1, $$new($Dimension, $Short::MAX_VALUE, $Short::MAX_VALUE));
@@ -172,7 +104,7 @@ $Component* Box::createGlue() {
 
 $Component* Box::createHorizontalGlue() {
 	$init(Box);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, var$0, $new($Dimension, 0, 0));
 	$var($Dimension, var$1, $new($Dimension, 0, 0));
 	return $new($Box$Filler, var$0, var$1, $$new($Dimension, $Short::MAX_VALUE, 0));
@@ -180,7 +112,7 @@ $Component* Box::createHorizontalGlue() {
 
 $Component* Box::createVerticalGlue() {
 	$init(Box);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, var$0, $new($Dimension, 0, 0));
 	$var($Dimension, var$1, $new($Dimension, 0, 0));
 	return $new($Box$Filler, var$0, var$1, $$new($Dimension, 0, $Short::MAX_VALUE));
@@ -211,7 +143,64 @@ Box::Box() {
 }
 
 $Class* Box::load$($String* name, bool initialize) {
-	$loadClass(Box, name, initialize, &_Box_ClassInfo_, allocate$Box);
+	$NamedAttribute getAccessibleContextmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getAccessibleContextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getAccessibleContextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(Box, init$, void, int32_t)},
+		{"createGlue", "()Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC, $staticMethod(Box, createGlue, $Component*)},
+		{"createHorizontalBox", "()Ljavax/swing/Box;", nullptr, $PUBLIC | $STATIC, $staticMethod(Box, createHorizontalBox, Box*)},
+		{"createHorizontalGlue", "()Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC, $staticMethod(Box, createHorizontalGlue, $Component*)},
+		{"createHorizontalStrut", "(I)Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC, $staticMethod(Box, createHorizontalStrut, $Component*, int32_t)},
+		{"createRigidArea", "(Ljava/awt/Dimension;)Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC, $staticMethod(Box, createRigidArea, $Component*, $Dimension*)},
+		{"createVerticalBox", "()Ljavax/swing/Box;", nullptr, $PUBLIC | $STATIC, $staticMethod(Box, createVerticalBox, Box*)},
+		{"createVerticalGlue", "()Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC, $staticMethod(Box, createVerticalGlue, $Component*)},
+		{"createVerticalStrut", "(I)Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC, $staticMethod(Box, createVerticalStrut, $Component*, int32_t)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(Box, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, getAccessibleContextmethodAnnotations$$},
+		{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(Box, paintComponent, void, $Graphics*)},
+		{"setLayout", "(Ljava/awt/LayoutManager;)V", nullptr, $PUBLIC, $virtualMethod(Box, setLayout, void, $LayoutManager*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.Box$AccessibleBox", "javax.swing.Box", "AccessibleBox", $PROTECTED},
+		{"javax.swing.Box$Filler", "javax.swing.Box", "Filler", $PUBLIC | $STATIC},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"defaultProperty", 's', "accessibleContext"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.Box",
+		"javax.swing.JComponent",
+		"javax.accessibility.Accessible",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.Box$AccessibleBox,javax.swing.Box$Filler,javax.swing.Box$Filler$AccessibleBoxFiller"
+	};
+	$loadClass(Box, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Box));
+	});
 	return class$;
 }
 

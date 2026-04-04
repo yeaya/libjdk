@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Lower$2.h>
-
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Kinds.h>
 #include <com/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode.h>
@@ -60,210 +59,170 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Lower$2_FieldInfo_[] = {
-	{"$SwitchMap$com$sun$tools$javac$main$Option$PkgInfo", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Lower$2, $SwitchMap$com$sun$tools$javac$main$Option$PkgInfo)},
-	{"$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Lower$2, $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)},
-	{"$SwitchMap$com$sun$tools$javac$code$TypeTag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Lower$2, $SwitchMap$com$sun$tools$javac$code$TypeTag)},
-	{"$SwitchMap$com$sun$tools$javac$code$Symbol$OperatorSymbol$AccessCode", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Lower$2, $SwitchMap$com$sun$tools$javac$code$Symbol$OperatorSymbol$AccessCode)},
-	{"$SwitchMap$com$sun$tools$javac$code$Kinds$Kind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Lower$2, $SwitchMap$com$sun$tools$javac$code$Kinds$Kind)},
-	{}
-};
-
-$EnclosingMethodInfo _Lower$2_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Lower",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Lower$2_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Lower$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _Lower$2_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.tools.javac.comp.Lower$2",
-	"java.lang.Object",
-	nullptr,
-	_Lower$2_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_Lower$2_EnclosingMethodInfo_,
-	_Lower$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Lower"
-};
-
-$Object* allocate$Lower$2($Class* clazz) {
-	return $of($alloc(Lower$2));
-}
-
 $ints* Lower$2::$SwitchMap$com$sun$tools$javac$main$Option$PkgInfo = nullptr;
 $ints* Lower$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag = nullptr;
 $ints* Lower$2::$SwitchMap$com$sun$tools$javac$code$TypeTag = nullptr;
 $ints* Lower$2::$SwitchMap$com$sun$tools$javac$code$Symbol$OperatorSymbol$AccessCode = nullptr;
 $ints* Lower$2::$SwitchMap$com$sun$tools$javac$code$Kinds$Kind = nullptr;
 
-void clinit$Lower$2($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Lower$2::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Lower$2::$SwitchMap$com$sun$tools$javac$main$Option$PkgInfo, $new($ints, $($Option$PkgInfo::values())->length));
 	{
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$main$Option$PkgInfo)->set($Option$PkgInfo::ALWAYS->ordinal(), 1);
+			Lower$2::$SwitchMap$com$sun$tools$javac$main$Option$PkgInfo->set($Option$PkgInfo::ALWAYS->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$main$Option$PkgInfo)->set($Option$PkgInfo::LEGACY->ordinal(), 2);
+			Lower$2::$SwitchMap$com$sun$tools$javac$main$Option$PkgInfo->set($Option$PkgInfo::LEGACY->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$main$Option$PkgInfo)->set($Option$PkgInfo::NONEMPTY->ordinal(), 3);
+			Lower$2::$SwitchMap$com$sun$tools$javac$main$Option$PkgInfo->set($Option$PkgInfo::NONEMPTY->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(Lower$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag, $new($ints, $($JCTree$Tag::values())->length));
 	{
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::LITERAL->ordinal(), 1);
+			Lower$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::LITERAL->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::IDENT->ordinal(), 2);
+			Lower$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::IDENT->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::SELECT->ordinal(), 3);
+			Lower$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::SELECT->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::INDEXED->ordinal(), 4);
+			Lower$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::INDEXED->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::TYPECAST->ordinal(), 5);
+			Lower$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::TYPECAST->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::EQ->ordinal(), 6);
+			Lower$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::EQ->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::NE->ordinal(), 7);
+			Lower$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::NE->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::PREINC->ordinal(), 8);
+			Lower$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::PREINC->ordinal(), 8);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::PREDEC->ordinal(), 9);
+			Lower$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::PREDEC->ordinal(), 9);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::POSTINC->ordinal(), 10);
+			Lower$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::POSTINC->ordinal(), 10);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::POSTDEC->ordinal(), 11);
+			Lower$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::POSTDEC->ordinal(), 11);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::OR->ordinal(), 12);
+			Lower$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::OR->ordinal(), 12);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::AND->ordinal(), 13);
+			Lower$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::AND->ordinal(), 13);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(Lower$2::$SwitchMap$com$sun$tools$javac$code$TypeTag, $new($ints, $($TypeTag::values())->length));
 	{
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::BYTE->ordinal(), 1);
+			Lower$2::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::BYTE->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::SHORT->ordinal(), 2);
+			Lower$2::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::SHORT->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::CHAR->ordinal(), 3);
+			Lower$2::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::CHAR->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::INT->ordinal(), 4);
+			Lower$2::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::INT->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::LONG->ordinal(), 5);
+			Lower$2::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::LONG->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::FLOAT->ordinal(), 6);
+			Lower$2::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::FLOAT->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::DOUBLE->ordinal(), 7);
+			Lower$2::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::DOUBLE->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::BOOLEAN->ordinal(), 8);
+			Lower$2::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::BOOLEAN->ordinal(), 8);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::VOID->ordinal(), 9);
+			Lower$2::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::VOID->ordinal(), 9);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::CLASS->ordinal(), 10);
+			Lower$2::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::CLASS->ordinal(), 10);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::ARRAY->ordinal(), 11);
+			Lower$2::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::ARRAY->ordinal(), 11);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(Lower$2::$SwitchMap$com$sun$tools$javac$code$Symbol$OperatorSymbol$AccessCode, $new($ints, $($Symbol$OperatorSymbol$AccessCode::values())->length));
 	{
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$code$Symbol$OperatorSymbol$AccessCode)->set($Symbol$OperatorSymbol$AccessCode::DEREF->ordinal(), 1);
+			Lower$2::$SwitchMap$com$sun$tools$javac$code$Symbol$OperatorSymbol$AccessCode->set($Symbol$OperatorSymbol$AccessCode::DEREF->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$code$Symbol$OperatorSymbol$AccessCode)->set($Symbol$OperatorSymbol$AccessCode::ASSIGN->ordinal(), 2);
+			Lower$2::$SwitchMap$com$sun$tools$javac$code$Symbol$OperatorSymbol$AccessCode->set($Symbol$OperatorSymbol$AccessCode::ASSIGN->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$code$Symbol$OperatorSymbol$AccessCode)->set($Symbol$OperatorSymbol$AccessCode::PREINC->ordinal(), 3);
+			Lower$2::$SwitchMap$com$sun$tools$javac$code$Symbol$OperatorSymbol$AccessCode->set($Symbol$OperatorSymbol$AccessCode::PREINC->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$code$Symbol$OperatorSymbol$AccessCode)->set($Symbol$OperatorSymbol$AccessCode::POSTINC->ordinal(), 4);
+			Lower$2::$SwitchMap$com$sun$tools$javac$code$Symbol$OperatorSymbol$AccessCode->set($Symbol$OperatorSymbol$AccessCode::POSTINC->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$code$Symbol$OperatorSymbol$AccessCode)->set($Symbol$OperatorSymbol$AccessCode::PREDEC->ordinal(), 5);
+			Lower$2::$SwitchMap$com$sun$tools$javac$code$Symbol$OperatorSymbol$AccessCode->set($Symbol$OperatorSymbol$AccessCode::PREDEC->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$code$Symbol$OperatorSymbol$AccessCode)->set($Symbol$OperatorSymbol$AccessCode::POSTDEC->ordinal(), 6);
+			Lower$2::$SwitchMap$com$sun$tools$javac$code$Symbol$OperatorSymbol$AccessCode->set($Symbol$OperatorSymbol$AccessCode::POSTDEC->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(Lower$2::$SwitchMap$com$sun$tools$javac$code$Kinds$Kind, $new($ints, $($Kinds$Kind::values())->length));
 	{
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$code$Kinds$Kind)->set($Kinds$Kind::VAR->ordinal(), 1);
+			Lower$2::$SwitchMap$com$sun$tools$javac$code$Kinds$Kind->set($Kinds$Kind::VAR->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$code$Kinds$Kind)->set($Kinds$Kind::MTH->ordinal(), 2);
+			Lower$2::$SwitchMap$com$sun$tools$javac$code$Kinds$Kind->set($Kinds$Kind::MTH->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Lower$2::$SwitchMap$com$sun$tools$javac$code$Kinds$Kind)->set($Kinds$Kind::TYP->ordinal(), 3);
+			Lower$2::$SwitchMap$com$sun$tools$javac$code$Kinds$Kind->set($Kinds$Kind::TYP->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -273,7 +232,41 @@ Lower$2::Lower$2() {
 }
 
 $Class* Lower$2::load$($String* name, bool initialize) {
-	$loadClass(Lower$2, name, initialize, &_Lower$2_ClassInfo_, clinit$Lower$2, allocate$Lower$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$com$sun$tools$javac$main$Option$PkgInfo", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Lower$2, $SwitchMap$com$sun$tools$javac$main$Option$PkgInfo)},
+		{"$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Lower$2, $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)},
+		{"$SwitchMap$com$sun$tools$javac$code$TypeTag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Lower$2, $SwitchMap$com$sun$tools$javac$code$TypeTag)},
+		{"$SwitchMap$com$sun$tools$javac$code$Symbol$OperatorSymbol$AccessCode", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Lower$2, $SwitchMap$com$sun$tools$javac$code$Symbol$OperatorSymbol$AccessCode)},
+		{"$SwitchMap$com$sun$tools$javac$code$Kinds$Kind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Lower$2, $SwitchMap$com$sun$tools$javac$code$Kinds$Kind)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Lower",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Lower$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.tools.javac.comp.Lower$2",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Lower"
+	};
+	$loadClass(Lower$2, name, initialize, &classInfo$$, Lower$2::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Lower$2);
+	});
 	return class$;
 }
 

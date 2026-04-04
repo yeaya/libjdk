@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/lib/ExsltSets.h>
-
 #include <com/sun/org/apache/xalan/internal/lib/ExsltBase.h>
 #include <com/sun/org/apache/xml/internal/utils/DOM2Helper.h>
 #include <com/sun/org/apache/xpath/internal/NodeSet.h>
@@ -27,43 +26,19 @@ namespace com {
 					namespace internal {
 						namespace lib {
 
-$MethodInfo _ExsltSets_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExsltSets, init$, void)},
-	{"difference", "(Lorg/w3c/dom/NodeList;Lorg/w3c/dom/NodeList;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltSets, difference, $NodeList*, $NodeList*, $NodeList*)},
-	{"distinct", "(Lorg/w3c/dom/NodeList;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltSets, distinct, $NodeList*, $NodeList*)},
-	{"hasSameNode", "(Lorg/w3c/dom/NodeList;Lorg/w3c/dom/NodeList;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltSets, hasSameNode, bool, $NodeList*, $NodeList*)},
-	{"intersection", "(Lorg/w3c/dom/NodeList;Lorg/w3c/dom/NodeList;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltSets, intersection, $NodeList*, $NodeList*, $NodeList*)},
-	{"leading", "(Lorg/w3c/dom/NodeList;Lorg/w3c/dom/NodeList;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltSets, leading, $NodeList*, $NodeList*, $NodeList*)},
-	{"trailing", "(Lorg/w3c/dom/NodeList;Lorg/w3c/dom/NodeList;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltSets, trailing, $NodeList*, $NodeList*, $NodeList*)},
-	{}
-};
-
-$ClassInfo _ExsltSets_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.lib.ExsltSets",
-	"com.sun.org.apache.xalan.internal.lib.ExsltBase",
-	nullptr,
-	nullptr,
-	_ExsltSets_MethodInfo_
-};
-
-$Object* allocate$ExsltSets($Class* clazz) {
-	return $of($alloc(ExsltSets));
-}
-
 void ExsltSets::init$() {
 	$ExsltBase::init$();
 }
 
 $NodeList* ExsltSets::leading($NodeList* nl1, $NodeList* nl2) {
 	$init(ExsltSets);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(nl2)->getLength() == 0) {
 		return nl1;
 	}
 	$var($NodeSet, ns1, $new($NodeSet, nl1));
 	$var($NodeSet, leadNodes, $new($NodeSet));
-	$var($Node, endNode, $nc(nl2)->item(0));
+	$var($Node, endNode, nl2->item(0));
 	if (!ns1->contains(endNode)) {
 		return leadNodes;
 	}
@@ -79,13 +54,13 @@ $NodeList* ExsltSets::leading($NodeList* nl1, $NodeList* nl2) {
 
 $NodeList* ExsltSets::trailing($NodeList* nl1, $NodeList* nl2) {
 	$init(ExsltSets);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(nl2)->getLength() == 0) {
 		return nl1;
 	}
 	$var($NodeSet, ns1, $new($NodeSet, nl1));
 	$var($NodeSet, trailNodes, $new($NodeSet));
-	$var($Node, startNode, $nc(nl2)->item(0));
+	$var($Node, startNode, nl2->item(0));
 	if (!ns1->contains(startNode)) {
 		return trailNodes;
 	}
@@ -101,7 +76,7 @@ $NodeList* ExsltSets::trailing($NodeList* nl1, $NodeList* nl2) {
 
 $NodeList* ExsltSets::intersection($NodeList* nl1, $NodeList* nl2) {
 	$init(ExsltSets);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NodeSet, ns1, $new($NodeSet, nl1));
 	$var($NodeSet, ns2, $new($NodeSet, nl2));
 	$var($NodeSet, inter, $new($NodeSet));
@@ -117,7 +92,7 @@ $NodeList* ExsltSets::intersection($NodeList* nl1, $NodeList* nl2) {
 
 $NodeList* ExsltSets::difference($NodeList* nl1, $NodeList* nl2) {
 	$init(ExsltSets);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NodeSet, ns1, $new($NodeSet, nl1));
 	$var($NodeSet, ns2, $new($NodeSet, nl2));
 	$var($NodeSet, diff, $new($NodeSet));
@@ -133,7 +108,7 @@ $NodeList* ExsltSets::difference($NodeList* nl1, $NodeList* nl2) {
 
 $NodeList* ExsltSets::distinct($NodeList* nl) {
 	$init(ExsltSets);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NodeSet, dist, $new($NodeSet));
 	dist->setShouldCacheNodes(true);
 	$var($Map, stringTable, $new($HashMap));
@@ -152,7 +127,7 @@ $NodeList* ExsltSets::distinct($NodeList* nl) {
 
 bool ExsltSets::hasSameNode($NodeList* nl1, $NodeList* nl2) {
 	$init(ExsltSets);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NodeSet, ns1, $new($NodeSet, nl1));
 	$var($NodeSet, ns2, $new($NodeSet, nl2));
 	for (int32_t i = 0; i < ns1->getLength(); ++i) {
@@ -167,7 +142,27 @@ ExsltSets::ExsltSets() {
 }
 
 $Class* ExsltSets::load$($String* name, bool initialize) {
-	$loadClass(ExsltSets, name, initialize, &_ExsltSets_ClassInfo_, allocate$ExsltSets);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExsltSets, init$, void)},
+		{"difference", "(Lorg/w3c/dom/NodeList;Lorg/w3c/dom/NodeList;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltSets, difference, $NodeList*, $NodeList*, $NodeList*)},
+		{"distinct", "(Lorg/w3c/dom/NodeList;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltSets, distinct, $NodeList*, $NodeList*)},
+		{"hasSameNode", "(Lorg/w3c/dom/NodeList;Lorg/w3c/dom/NodeList;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltSets, hasSameNode, bool, $NodeList*, $NodeList*)},
+		{"intersection", "(Lorg/w3c/dom/NodeList;Lorg/w3c/dom/NodeList;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltSets, intersection, $NodeList*, $NodeList*, $NodeList*)},
+		{"leading", "(Lorg/w3c/dom/NodeList;Lorg/w3c/dom/NodeList;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltSets, leading, $NodeList*, $NodeList*, $NodeList*)},
+		{"trailing", "(Lorg/w3c/dom/NodeList;Lorg/w3c/dom/NodeList;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltSets, trailing, $NodeList*, $NodeList*, $NodeList*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.lib.ExsltSets",
+		"com.sun.org.apache.xalan.internal.lib.ExsltBase",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ExsltSets, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExsltSets);
+	});
 	return class$;
 }
 

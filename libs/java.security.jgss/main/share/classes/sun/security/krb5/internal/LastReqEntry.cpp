@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/LastReqEntry.h>
-
 #include <java/math/BigInteger.h>
 #include <sun/security/krb5/Asn1Exception.h>
 #include <sun/security/krb5/internal/KerberosTime.h>
@@ -15,11 +14,9 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BigInteger = ::java::math::BigInteger;
 using $Asn1Exception = ::sun::security::krb5::Asn1Exception;
 using $KerberosTime = ::sun::security::krb5::internal::KerberosTime;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 
@@ -27,34 +24,6 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 			namespace internal {
-
-$FieldInfo _LastReqEntry_FieldInfo_[] = {
-	{"lrType", "I", nullptr, $PRIVATE, $field(LastReqEntry, lrType)},
-	{"lrValue", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PRIVATE, $field(LastReqEntry, lrValue)},
-	{}
-};
-
-$MethodInfo _LastReqEntry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(LastReqEntry, init$, void)},
-	{"<init>", "(ILsun/security/krb5/internal/KerberosTime;)V", nullptr, $PUBLIC, $method(LastReqEntry, init$, void, int32_t, $KerberosTime*)},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(LastReqEntry, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(LastReqEntry, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LastReqEntry, clone, $Object*)},
-	{}
-};
-
-$ClassInfo _LastReqEntry_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.LastReqEntry",
-	"java.lang.Object",
-	nullptr,
-	_LastReqEntry_FieldInfo_,
-	_LastReqEntry_MethodInfo_
-};
-
-$Object* allocate$LastReqEntry($Class* clazz) {
-	return $of($alloc(LastReqEntry));
-}
 
 void LastReqEntry::init$() {
 }
@@ -65,25 +34,25 @@ void LastReqEntry::init$(int32_t Type, $KerberosTime* time) {
 }
 
 void LastReqEntry::init$($DerValue* encoding) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(encoding)->getTag() != $DerValue::tag_Sequence) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
 	$var($DerValue, der, nullptr);
-	$assign(der, $nc($($nc(encoding)->getData()))->getDerValue());
-	if (((int32_t)($nc(der)->getTag() & (uint32_t)31)) == 0) {
-		this->lrType = $nc($($nc($(der->getData()))->getBigInteger()))->intValue();
+	$assign(der, $$nc(encoding->getData())->getDerValue());
+	if (($nc(der)->getTag() & 0x1f) == 0) {
+		this->lrType = $$nc($$nc(der->getData())->getBigInteger())->intValue();
 	} else {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
 	$set(this, lrValue, $KerberosTime::parse($(encoding->getData()), (int8_t)1, false));
-	if ($nc($(encoding->getData()))->available() > 0) {
+	if ($$nc(encoding->getData())->available() > 0) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
 }
 
 $bytes* LastReqEntry::asn1Encode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, bytes, $new($DerOutputStream));
 	$var($DerOutputStream, temp, $new($DerOutputStream));
 	temp->putInteger(this->lrType);
@@ -99,14 +68,37 @@ $Object* LastReqEntry::clone() {
 	$var(LastReqEntry, newEntry, $new(LastReqEntry));
 	newEntry->lrType = this->lrType;
 	$set(newEntry, lrValue, this->lrValue);
-	return $of(newEntry);
+	return newEntry;
 }
 
 LastReqEntry::LastReqEntry() {
 }
 
 $Class* LastReqEntry::load$($String* name, bool initialize) {
-	$loadClass(LastReqEntry, name, initialize, &_LastReqEntry_ClassInfo_, allocate$LastReqEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"lrType", "I", nullptr, $PRIVATE, $field(LastReqEntry, lrType)},
+		{"lrValue", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PRIVATE, $field(LastReqEntry, lrValue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(LastReqEntry, init$, void)},
+		{"<init>", "(ILsun/security/krb5/internal/KerberosTime;)V", nullptr, $PUBLIC, $method(LastReqEntry, init$, void, int32_t, $KerberosTime*)},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(LastReqEntry, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(LastReqEntry, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LastReqEntry, clone, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.LastReqEntry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LastReqEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LastReqEntry);
+	});
 	return class$;
 }
 

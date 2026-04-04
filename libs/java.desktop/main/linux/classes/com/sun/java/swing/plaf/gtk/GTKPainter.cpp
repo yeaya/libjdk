@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKPainter.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKColorType.h>
 #include <com/sun/java/swing/plaf/gtk/GTKConstants$ArrowType.h>
 #include <com/sun/java/swing/plaf/gtk/GTKConstants$ExpanderStyle.h>
@@ -19,7 +18,6 @@
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
-#include <java/awt/Image.h>
 #include <java/awt/Insets.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/image/BufferedImage.h>
@@ -116,7 +114,6 @@ using $GTKConstants$ExpanderStyle = ::com::sun::java::swing::plaf::gtk::GTKConst
 using $GTKConstants$Orientation = ::com::sun::java::swing::plaf::gtk::GTKConstants$Orientation;
 using $GTKConstants$PositionType = ::com::sun::java::swing::plaf::gtk::GTKConstants$PositionType;
 using $GTKConstants$ShadowType = ::com::sun::java::swing::plaf::gtk::GTKConstants$ShadowType;
-using $GTKConstants$StateType = ::com::sun::java::swing::plaf::gtk::GTKConstants$StateType;
 using $GTKEngine = ::com::sun::java::swing::plaf::gtk::GTKEngine;
 using $GTKEngine$WidgetType = ::com::sun::java::swing::plaf::gtk::GTKEngine$WidgetType;
 using $GTKIconFactory = ::com::sun::java::swing::plaf::gtk::GTKIconFactory;
@@ -125,11 +122,9 @@ using $GTKStyle = ::com::sun::java::swing::plaf::gtk::GTKStyle;
 using $Metacity = ::com::sun::java::swing::plaf::gtk::Metacity;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
-using $Image = ::java::awt::Image;
 using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
 using $BufferedImage = ::java::awt::image::BufferedImage;
@@ -177,110 +172,6 @@ namespace com {
 				namespace plaf {
 					namespace gtk {
 
-$FieldInfo _GTKPainter_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(GTKPainter, $assertionsDisabled)},
-	{"POSITIONS", "[Lcom/sun/java/swing/plaf/gtk/GTKConstants$PositionType;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKPainter, POSITIONS)},
-	{"SHADOWS", "[Lcom/sun/java/swing/plaf/gtk/GTKConstants$ShadowType;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKPainter, SHADOWS)},
-	{"ENGINE", "Lcom/sun/java/swing/plaf/gtk/GTKEngine;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKPainter, ENGINE)},
-	{"INSTANCE", "Lcom/sun/java/swing/plaf/gtk/GTKPainter;", nullptr, $STATIC | $FINAL, $staticField(GTKPainter, INSTANCE)},
-	{}
-};
-
-$MethodInfo _GTKPainter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(GTKPainter, init$, void)},
-	{"fillArea", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIILjavax/swing/plaf/synth/ColorType;)V", nullptr, $PRIVATE, $method(GTKPainter, fillArea, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, $ColorType*)},
-	{"getName", "(Ljavax/swing/plaf/synth/SynthContext;)Ljava/lang/String;", nullptr, $PRIVATE, $method(GTKPainter, getName, $String*, $SynthContext*)},
-	{"paintArrowButtonBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintArrowButtonBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintArrowButtonForeground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintArrowButtonForeground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"paintAscendingSortIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintAscendingSortIcon, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"paintButtonBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintButtonBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintButtonBackgroundImpl", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljavax/swing/plaf/synth/Region;Ljava/lang/String;IIIIZZZZ)V", nullptr, $PRIVATE, $method(GTKPainter, paintButtonBackgroundImpl, void, $SynthContext*, $Graphics*, $Region*, $String*, int32_t, int32_t, int32_t, int32_t, bool, bool, bool, bool)},
-	{"paintCheckBoxBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintCheckBoxBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintCheckBoxIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintCheckBoxIcon, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"paintCheckBoxMenuItemBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintCheckBoxMenuItemBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintCheckBoxMenuItemCheckIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintCheckBoxMenuItemCheckIcon, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"paintComponentBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PRIVATE, $method(GTKPainter, paintComponentBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintDescendingSortIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintDescendingSortIcon, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"paintDesktopIconBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintDesktopIconBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintDesktopPaneBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintDesktopPaneBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintEditorPaneBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintEditorPaneBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintFocus", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljavax/swing/plaf/synth/Region;ILjava/lang/String;IIII)V", nullptr, 0, $virtualMethod(GTKPainter, paintFocus, void, $SynthContext*, $Graphics*, $Region*, int32_t, $String*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintFormattedTextFieldBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintFormattedTextFieldBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljava/lang/reflect/Method;IIII)V", nullptr, 0, $virtualMethod(GTKPainter, paintIcon, void, $SynthContext*, $Graphics*, $Method*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljava/lang/reflect/Method;IIIILjava/lang/Object;)V", nullptr, 0, $virtualMethod(GTKPainter, paintIcon, void, $SynthContext*, $Graphics*, $Method*, int32_t, int32_t, int32_t, int32_t, Object$*)},
-	{"paintInternalFrameBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintInternalFrameBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintLabelBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintLabelBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintListBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintListBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintMenuArrowIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIIILcom/sun/java/swing/plaf/gtk/GTKConstants$ArrowType;)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintMenuArrowIcon, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, $GTKConstants$ArrowType*)},
-	{"paintMenuBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintMenuBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintMenuBarBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintMenuBarBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintMenuItemBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintMenuItemBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintMetacityElement", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;ILjava/lang/String;IIIILcom/sun/java/swing/plaf/gtk/GTKConstants$ShadowType;Lcom/sun/java/swing/plaf/gtk/GTKConstants$ArrowType;)V", nullptr, 0, $virtualMethod(GTKPainter, paintMetacityElement, void, $SynthContext*, $Graphics*, int32_t, $String*, int32_t, int32_t, int32_t, int32_t, $GTKConstants$ShadowType*, $GTKConstants$ArrowType*)},
-	{"paintPasswordFieldBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintPasswordFieldBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintPopupMenuBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintPopupMenuBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintProgressBarBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintProgressBarBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintProgressBarForeground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintProgressBarForeground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"paintRadioButtonBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintRadioButtonBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintRadioButtonIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintRadioButtonIcon, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"paintRadioButtonMenuItemBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintRadioButtonMenuItemBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintRadioButtonMenuItemCheckIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintRadioButtonMenuItemCheckIcon, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"paintRootPaneBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintRootPaneBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintScrollBarBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintScrollBarBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintScrollBarThumbBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintScrollBarThumbBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"paintSeparatorBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintSeparatorBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"paintSliderThumbBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintSliderThumbBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"paintSliderTrackBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintSliderTrackBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintSpinnerBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintSpinnerBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintSplitPaneDividerBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintSplitPaneDividerBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintSplitPaneDragDivider", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintSplitPaneDragDivider, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"paintTabbedPaneContentBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintTabbedPaneContentBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintTabbedPaneTabBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintTabbedPaneTabBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"paintTextAreaBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintTextAreaBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintTextBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PRIVATE, $method(GTKPainter, paintTextBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintTextFieldBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintTextFieldBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintTextPaneBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintTextPaneBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintToggleButtonBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintToggleButtonBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintToolBarBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintToolBarBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintToolBarContentBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintToolBarContentBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintToolBarDragWindowBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintToolBarDragWindowBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintToolBarHandleIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIIILcom/sun/java/swing/plaf/gtk/GTKConstants$Orientation;)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintToolBarHandleIcon, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, $GTKConstants$Orientation*)},
-	{"paintToolTipBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintToolTipBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintTreeBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintTreeBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintTreeCellBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintTreeCellBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintTreeCellEditorBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PRIVATE, $method(GTKPainter, paintTreeCellEditorBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintTreeCellFocus", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintTreeCellFocus, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintTreeCollapsedIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintTreeCollapsedIcon, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"paintTreeExpandedIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintTreeExpandedIcon, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"paintViewportBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintViewportBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintViewportBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintViewportBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _GTKPainter_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKPainter$TitledBorder", "com.sun.java.swing.plaf.gtk.GTKPainter", "TitledBorder", $STATIC},
-	{"com.sun.java.swing.plaf.gtk.GTKPainter$ListTableFocusBorder", "com.sun.java.swing.plaf.gtk.GTKPainter", "ListTableFocusBorder", $STATIC},
-	{}
-};
-
-$ClassInfo _GTKPainter_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.GTKPainter",
-	"javax.swing.plaf.synth.SynthPainter",
-	nullptr,
-	_GTKPainter_FieldInfo_,
-	_GTKPainter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GTKPainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKPainter$TitledBorder,com.sun.java.swing.plaf.gtk.GTKPainter$ListTableFocusBorder"
-};
-
-$Object* allocate$GTKPainter($Class* clazz) {
-	return $of($alloc(GTKPainter));
-}
-
 bool GTKPainter::$assertionsDisabled = false;
 $GTKConstants$PositionTypeArray* GTKPainter::POSITIONS = nullptr;
 $GTKConstants$ShadowTypeArray* GTKPainter::SHADOWS = nullptr;
@@ -292,8 +183,8 @@ void GTKPainter::init$() {
 }
 
 $String* GTKPainter::getName($SynthContext* context) {
-	$useLocalCurrentObjectStackCache();
-	return ($nc($($nc(context)->getRegion()))->isSubregion()) ? ($String*)nullptr : $nc($($nc(context)->getComponent()))->getName();
+	$useLocalObjectStack();
+	return ($$nc($nc(context)->getRegion())->isSubregion()) ? ($String*)nullptr : $$nc(context->getComponent())->getName();
 }
 
 void GTKPainter::paintCheckBoxBackground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
@@ -313,47 +204,47 @@ void GTKPainter::paintToolBarDragWindowBackground($SynthContext* context, $Graph
 }
 
 void GTKPainter::paintToolBarBackground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, id, $nc(context)->getRegion());
 	int32_t state = context->getComponentState();
 	int32_t gtkState = $GTKLookAndFeel::synthStateToGTKState(id, state);
-	int32_t orientation = $nc(($cast($JToolBar, $(context->getComponent()))))->getOrientation();
+	int32_t orientation = $$sure($JToolBar, context->getComponent())->getOrientation();
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
 		if (!$nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {
-			$of(id),
-			$($of($Integer::valueOf(state))),
-			$($of($Integer::valueOf(orientation)))
+			id,
+			$($Integer::valueOf(state)),
+			$($Integer::valueOf(orientation))
 		}))) {
-			$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {
-				$of(id),
-				$($of($Integer::valueOf(state))),
-				$($of($Integer::valueOf(orientation)))
+			GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {
+				id,
+				$($Integer::valueOf(state)),
+				$($Integer::valueOf(orientation))
 			}));
 			$init($GTKConstants$ShadowType);
-			$nc(GTKPainter::ENGINE)->paintBox(g, context, id, gtkState, $GTKConstants$ShadowType::OUT, "handlebox_bin"_s, x, y, w, h);
-			$nc(GTKPainter::ENGINE)->finishPainting();
+			GTKPainter::ENGINE->paintBox(g, context, id, gtkState, $GTKConstants$ShadowType::OUT, "handlebox_bin"_s, x, y, w, h);
+			GTKPainter::ENGINE->finishPainting();
 		}
 	}
 }
 
 void GTKPainter::paintToolBarContentBackground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, id, $nc(context)->getRegion());
-	int32_t orientation = $nc(($cast($JToolBar, $(context->getComponent()))))->getOrientation();
+	int32_t orientation = $$sure($JToolBar, context->getComponent())->getOrientation();
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
 		if (!$nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {
-			$of(id),
-			$($of($Integer::valueOf(orientation)))
+			id,
+			$($Integer::valueOf(orientation))
 		}))) {
-			$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {
-				$of(id),
-				$($of($Integer::valueOf(orientation)))
+			GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {
+				id,
+				$($Integer::valueOf(orientation))
 			}));
 			$init($GTKConstants$ShadowType);
-			$nc(GTKPainter::ENGINE)->paintBox(g, context, id, $SynthConstants::ENABLED, $GTKConstants$ShadowType::OUT, "toolbar"_s, x, y, w, h);
-			$nc(GTKPainter::ENGINE)->finishPainting();
+			GTKPainter::ENGINE->paintBox(g, context, id, $SynthConstants::ENABLED, $GTKConstants$ShadowType::OUT, "toolbar"_s, x, y, w, h);
+			GTKPainter::ENGINE->finishPainting();
 		}
 	}
 }
@@ -371,29 +262,29 @@ void GTKPainter::paintTextFieldBackground($SynthContext* context, $Graphics* g, 
 }
 
 void GTKPainter::paintRadioButtonBackground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, id, $nc(context)->getRegion());
 	int32_t gtkState = $GTKLookAndFeel::synthStateToGTKState(id, context->getComponentState());
 	if (gtkState == $SynthConstants::MOUSE_OVER) {
 		$init($UNIXToolkit);
 		$synchronized($UNIXToolkit::GTK_LOCK) {
-			if (!$nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {$of(id)}))) {
-				$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {$of(id)}));
+			if (!$nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {id}))) {
+				GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {id}));
 				$init($GTKConstants$ShadowType);
 				$init($ColorType);
-				$nc(GTKPainter::ENGINE)->paintFlatBox(g, context, id, $SynthConstants::MOUSE_OVER, $GTKConstants$ShadowType::ETCHED_OUT, "checkbutton"_s, x, y, w, h, $ColorType::BACKGROUND);
-				$nc(GTKPainter::ENGINE)->finishPainting();
+				GTKPainter::ENGINE->paintFlatBox(g, context, id, $SynthConstants::MOUSE_OVER, $GTKConstants$ShadowType::ETCHED_OUT, "checkbutton"_s, x, y, w, h, $ColorType::BACKGROUND);
+				GTKPainter::ENGINE->finishPainting();
 			}
 		}
 	}
 }
 
 void GTKPainter::paintComponentBackground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GTKStyle, style, $cast($GTKStyle, $nc(context)->getStyle()));
 	$init($GTKEngine$WidgetType);
 	int32_t var$0 = $GTKEngine$WidgetType::TEXT_AREA->ordinal();
-	int32_t var$1 = $nc($($GTKLookAndFeel::synthStateToGTKStateType($SynthConstants::SELECTED)))->ordinal();
+	int32_t var$1 = $$nc($GTKLookAndFeel::synthStateToGTKStateType($SynthConstants::SELECTED))->ordinal();
 	$init($ColorType);
 	$var($Color, highlightColor, $nc(style)->getGTKColor(var$0, var$1, $nc($ColorType::BACKGROUND)->getID()));
 	$nc(g)->setColor(highlightColor);
@@ -401,7 +292,7 @@ void GTKPainter::paintComponentBackground($SynthContext* context, $Graphics* g, 
 }
 
 void GTKPainter::paintRadioButtonMenuItemBackground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, id, $nc(context)->getRegion());
 	int32_t gtkState = $GTKLookAndFeel::synthStateToGTKState(id, context->getComponentState());
 	if (gtkState == $SynthConstants::MOUSE_OVER) {
@@ -411,19 +302,19 @@ void GTKPainter::paintRadioButtonMenuItemBackground($SynthContext* context, $Gra
 		}
 		$init($UNIXToolkit);
 		$synchronized($UNIXToolkit::GTK_LOCK) {
-			if (!$nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {$of(id)}))) {
+			if (!$nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {id}))) {
 				$init($GTKConstants$ShadowType);
 				$GTKConstants$ShadowType* shadow = ($GTKLookAndFeel::is2_2() ? $GTKConstants$ShadowType::NONE : $GTKConstants$ShadowType::OUT);
-				$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {$of(id)}));
-				$nc(GTKPainter::ENGINE)->paintBox(g, context, id, gtkState, shadow, "menuitem"_s, x, y, w, h);
-				$nc(GTKPainter::ENGINE)->finishPainting();
+				GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {id}));
+				GTKPainter::ENGINE->paintBox(g, context, id, gtkState, shadow, "menuitem"_s, x, y, w, h);
+				GTKPainter::ENGINE->finishPainting();
 			}
 		}
 	}
 }
 
 void GTKPainter::paintLabelBackground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, getName(context));
 	$var($JComponent, c, $nc(context)->getComponent());
 	$var($Container, container, $nc(c)->getParent());
@@ -451,7 +342,7 @@ void GTKPainter::paintDesktopIconBorder($SynthContext* context, $Graphics* g, in
 }
 
 void GTKPainter::paintButtonBackground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, getName(context));
 	if (name != nullptr && name->startsWith("InternalFrameTitlePane."_s)) {
 		$init($Metacity);
@@ -461,7 +352,7 @@ void GTKPainter::paintButtonBackground($SynthContext* context, $Graphics* g, int
 		bool var$0 = $nc(button)->isContentAreaFilled();
 		bool paintBG = var$0 && button->isBorderPainted();
 		bool paintFocus = button->isFocusPainted();
-		bool defaultCapable = ($instanceOf($JButton, button)) && $nc(($cast($JButton, button)))->isDefaultCapable();
+		bool defaultCapable = ($instanceOf($JButton, button)) && $cast($JButton, button)->isDefaultCapable();
 		bool toolButton = ($instanceOf($JToolBar, $(button->getParent())));
 		$init($Region);
 		paintButtonBackgroundImpl(context, g, $Region::BUTTON, "button"_s, x, y, w, h, paintBG, paintFocus, defaultCapable, toolButton);
@@ -469,37 +360,37 @@ void GTKPainter::paintButtonBackground($SynthContext* context, $Graphics* g, int
 }
 
 void GTKPainter::paintButtonBackgroundImpl($SynthContext* context, $Graphics* g, $Region* id, $String* detail, int32_t x, int32_t y, int32_t w, int32_t h, bool paintBackground, bool paintFocus, bool defaultCapable, bool toolButton) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t state = $nc(context)->getComponentState();
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
 		if ($nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {
-			$of(id),
-			$($of($Integer::valueOf(state))),
-			$of(detail),
-			$($of($Boolean::valueOf(paintBackground))),
-			$($of($Boolean::valueOf(paintFocus))),
-			$($of($Boolean::valueOf(defaultCapable))),
-			$($of($Boolean::valueOf(toolButton)))
+			id,
+			$($Integer::valueOf(state)),
+			detail,
+			$($Boolean::valueOf(paintBackground)),
+			$($Boolean::valueOf(paintFocus)),
+			$($Boolean::valueOf(defaultCapable)),
+			$($Boolean::valueOf(toolButton))
 		}))) {
 			return;
 		}
-		$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {
-			$of(id),
-			$($of($Integer::valueOf(state))),
-			$of(detail),
-			$($of($Boolean::valueOf(paintBackground))),
-			$($of($Boolean::valueOf(paintFocus))),
-			$($of($Boolean::valueOf(defaultCapable))),
-			$($of($Boolean::valueOf(toolButton)))
+		GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {
+			id,
+			$($Integer::valueOf(state)),
+			detail,
+			$($Boolean::valueOf(paintBackground)),
+			$($Boolean::valueOf(paintFocus)),
+			$($Boolean::valueOf(defaultCapable)),
+			$($Boolean::valueOf(toolButton))
 		}));
 		$var($GTKStyle, style, $cast($GTKStyle, context->getStyle()));
 		if (defaultCapable && !toolButton) {
 			$init($GTKStyle);
 			$var($Insets, defaultInsets, $nc(style)->getClassSpecificInsetsValue(context, "default-border"_s, $GTKStyle::BUTTON_DEFAULT_BORDER_INSETS));
-			if (paintBackground && ((int32_t)(state & (uint32_t)$SynthConstants::DEFAULT)) != 0) {
+			if (paintBackground && (state & $SynthConstants::DEFAULT) != 0) {
 				$init($GTKConstants$ShadowType);
-				$nc(GTKPainter::ENGINE)->paintBox(g, context, id, $SynthConstants::ENABLED, $GTKConstants$ShadowType::IN, "buttondefault"_s, x, y, w, h);
+				GTKPainter::ENGINE->paintBox(g, context, id, $SynthConstants::ENABLED, $GTKConstants$ShadowType::IN, "buttondefault"_s, x, y, w, h);
 			}
 			x += $nc(defaultInsets)->left;
 			y += defaultInsets->top;
@@ -512,7 +403,7 @@ void GTKPainter::paintButtonBackgroundImpl($SynthContext* context, $Graphics* g,
 		int32_t totalFocusSize = focusSize + focusPad;
 		int32_t xThickness = style->getXThickness();
 		int32_t yThickness = style->getYThickness();
-		if (!interiorFocus && ((int32_t)(state & (uint32_t)$SynthConstants::FOCUSED)) == $SynthConstants::FOCUSED) {
+		if (!interiorFocus && (state & $SynthConstants::FOCUSED) == $SynthConstants::FOCUSED) {
 			x += totalFocusSize;
 			y += totalFocusSize;
 			w -= 2 * totalFocusSize;
@@ -528,12 +419,12 @@ void GTKPainter::paintButtonBackgroundImpl($SynthContext* context, $Graphics* g,
 		if (paintBg) {
 			$init($GTKConstants$ShadowType);
 			$GTKConstants$ShadowType* shadowType = $GTKConstants$ShadowType::OUT;
-			if (((int32_t)(state & (uint32_t)($SynthConstants::PRESSED | $SynthConstants::SELECTED))) != 0) {
+			if ((state & ($SynthConstants::PRESSED | $SynthConstants::SELECTED)) != 0) {
 				shadowType = $GTKConstants$ShadowType::IN;
 			}
-			$nc(GTKPainter::ENGINE)->paintBox(g, context, id, gtkState, shadowType, detail, x, y, w, h);
+			GTKPainter::ENGINE->paintBox(g, context, id, gtkState, shadowType, detail, x, y, w, h);
 		}
-		if (paintFocus && ((int32_t)(state & (uint32_t)$SynthConstants::FOCUSED)) != 0) {
+		if (paintFocus && (state & $SynthConstants::FOCUSED) != 0) {
 			if (interiorFocus) {
 				x += xThickness + focusPad;
 				y += yThickness + focusPad;
@@ -545,43 +436,35 @@ void GTKPainter::paintButtonBackgroundImpl($SynthContext* context, $Graphics* g,
 				w += 2 * totalFocusSize;
 				h += 2 * totalFocusSize;
 			}
-			$nc(GTKPainter::ENGINE)->paintFocus(g, context, id, gtkState, detail, x, y, w, h);
+			GTKPainter::ENGINE->paintFocus(g, context, id, gtkState, detail, x, y, w, h);
 		}
-		$nc(GTKPainter::ENGINE)->finishPainting();
+		GTKPainter::ENGINE->finishPainting();
 	}
 }
 
 void GTKPainter::paintArrowButtonForeground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h, int32_t direction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, id, $nc(context)->getRegion());
 	$var($Component, c, context->getComponent());
 	$var($String, name, $nc(c)->getName());
 	$GTKConstants$ArrowType* arrowType = nullptr;
 	switch (direction) {
 	case $SwingConstants::NORTH:
-		{
-			$init($GTKConstants$ArrowType);
-			arrowType = $GTKConstants$ArrowType::UP;
-			break;
-		}
+		$init($GTKConstants$ArrowType);
+		arrowType = $GTKConstants$ArrowType::UP;
+		break;
 	case $SwingConstants::SOUTH:
-		{
-			$init($GTKConstants$ArrowType);
-			arrowType = $GTKConstants$ArrowType::DOWN;
-			break;
-		}
+		$init($GTKConstants$ArrowType);
+		arrowType = $GTKConstants$ArrowType::DOWN;
+		break;
 	case $SwingConstants::EAST:
-		{
-			$init($GTKConstants$ArrowType);
-			arrowType = $GTKConstants$ArrowType::RIGHT;
-			break;
-		}
+		$init($GTKConstants$ArrowType);
+		arrowType = $GTKConstants$ArrowType::RIGHT;
+		break;
 	case $SwingConstants::WEST:
-		{
-			$init($GTKConstants$ArrowType);
-			arrowType = $GTKConstants$ArrowType::LEFT;
-			break;
-		}
+		$init($GTKConstants$ArrowType);
+		arrowType = $GTKConstants$ArrowType::LEFT;
+		break;
 	}
 	$var($String, detail, "arrow"_s);
 	if ((name == "ScrollBar.button"_s) || (name == "TabbedPane.button"_s)) {
@@ -595,7 +478,7 @@ void GTKPainter::paintArrowButtonForeground($SynthContext* context, $Graphics* g
 		$assign(detail, "spinbutton"_s);
 	} else if (name != "ComboBox.arrowButton"_s) {
 		if (!GTKPainter::$assertionsDisabled) {
-			$throwNew($AssertionError, $of($$str({"unexpected name: "_s, name})));
+			$throwNew($AssertionError, $$of($str({"unexpected name: "_s, name})));
 		}
 	}
 	int32_t gtkState = $GTKLookAndFeel::synthStateToGTKState(id, context->getComponentState());
@@ -604,24 +487,24 @@ void GTKPainter::paintArrowButtonForeground($SynthContext* context, $Graphics* g
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
 		if ($nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {
-			$($of($Integer::valueOf(gtkState))),
-			$of(name),
-			$($of($Integer::valueOf(direction)))
+			$($Integer::valueOf(gtkState)),
+			name,
+			$($Integer::valueOf(direction))
 		}))) {
 			return;
 		}
-		$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {
-			$($of($Integer::valueOf(gtkState))),
-			$of(name),
-			$($of($Integer::valueOf(direction)))
+		GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {
+			$($Integer::valueOf(gtkState)),
+			name,
+			$($Integer::valueOf(direction))
 		}));
-		$nc(GTKPainter::ENGINE)->paintArrow(g, context, id, gtkState, shadowType, arrowType, detail, x, y, w, h);
-		$nc(GTKPainter::ENGINE)->finishPainting();
+		GTKPainter::ENGINE->paintArrow(g, context, id, gtkState, shadowType, arrowType, detail, x, y, w, h);
+		GTKPainter::ENGINE->finishPainting();
 	}
 }
 
 void GTKPainter::paintArrowButtonBackground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, id, $nc(context)->getRegion());
 	$var($AbstractButton, button, $cast($AbstractButton, context->getComponent()));
 	$var($String, name, $nc(button)->getName());
@@ -629,24 +512,17 @@ void GTKPainter::paintArrowButtonBackground($SynthContext* context, $Graphics* g
 	int32_t direction = $SwingConstants::CENTER;
 	if ((name == "ScrollBar.button"_s) || (name == "TabbedPane.button"_s)) {
 		$var($Integer, prop, $cast($Integer, button->getClientProperty("__arrow_direction__"_s)));
-		direction = (prop != nullptr) ? $nc(prop)->intValue() : $SwingConstants::WEST;
+		direction = (prop != nullptr) ? prop->intValue() : $SwingConstants::WEST;
 		switch (direction) {
 		default:
-			{}
 		case $SwingConstants::EAST:
-			{}
 		case $SwingConstants::WEST:
-			{
-				$assign(detail, "hscrollbar"_s);
-				break;
-			}
+			$assign(detail, "hscrollbar"_s);
+			break;
 		case $SwingConstants::NORTH:
-			{}
 		case $SwingConstants::SOUTH:
-			{
-				$assign(detail, "vscrollbar"_s);
-				break;
-			}
+			$assign(detail, "vscrollbar"_s);
+			break;
 		}
 	} else if (name == "Spinner.previousButton"_s) {
 		$assign(detail, "spinbutton_down"_s);
@@ -654,41 +530,41 @@ void GTKPainter::paintArrowButtonBackground($SynthContext* context, $Graphics* g
 		$assign(detail, "spinbutton_up"_s);
 	} else if (name != "ComboBox.arrowButton"_s) {
 		if (!GTKPainter::$assertionsDisabled) {
-			$throwNew($AssertionError, $of($$str({"unexpected name: "_s, name})));
+			$throwNew($AssertionError, $$of($str({"unexpected name: "_s, name})));
 		}
 	}
 	int32_t state = context->getComponentState();
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
 		if ($nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {
-			$of(id),
-			$($of($Integer::valueOf(state))),
-			$of(detail),
-			$($of($Integer::valueOf(direction)))
+			id,
+			$($Integer::valueOf(state)),
+			detail,
+			$($Integer::valueOf(direction))
 		}))) {
 			return;
 		}
-		$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {
-			$of(id),
-			$($of($Integer::valueOf(state))),
-			$of(detail),
-			$($of($Integer::valueOf(direction)))
+		GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {
+			id,
+			$($Integer::valueOf(state)),
+			detail,
+			$($Integer::valueOf(direction))
 		}));
 		if (detail->startsWith("spin"_s)) {
-			int32_t spinState = $nc($(button->getParent()))->isEnabled() ? $SynthConstants::ENABLED : $SynthConstants::DISABLED;
+			int32_t spinState = $$nc(button->getParent())->isEnabled() ? $SynthConstants::ENABLED : $SynthConstants::DISABLED;
 			int32_t mody = (detail == "spinbutton_up"_s) ? y : y - h;
 			int32_t modh = h * 2;
 			$init($GTKConstants$ShadowType);
-			$nc(GTKPainter::ENGINE)->paintBox(g, context, id, spinState, $GTKConstants$ShadowType::IN, "spinbutton"_s, x, mody, w, modh);
+			GTKPainter::ENGINE->paintBox(g, context, id, spinState, $GTKConstants$ShadowType::IN, "spinbutton"_s, x, mody, w, modh);
 		}
 		int32_t gtkState = $GTKLookAndFeel::synthStateToGTKState(id, state);
 		$init($GTKConstants$ShadowType);
 		$GTKConstants$ShadowType* shadowType = $GTKConstants$ShadowType::OUT;
-		if (((int32_t)(gtkState & (uint32_t)($SynthConstants::PRESSED | $SynthConstants::SELECTED))) != 0) {
+		if ((gtkState & ($SynthConstants::PRESSED | $SynthConstants::SELECTED)) != 0) {
 			shadowType = $GTKConstants$ShadowType::IN;
 		}
-		$nc(GTKPainter::ENGINE)->paintBox(g, context, id, gtkState, shadowType, detail, x, y, w, h);
-		$nc(GTKPainter::ENGINE)->finishPainting();
+		GTKPainter::ENGINE->paintBox(g, context, id, gtkState, shadowType, detail, x, y, w, h);
+		GTKPainter::ENGINE->finishPainting();
 	}
 }
 
@@ -698,20 +574,20 @@ void GTKPainter::paintListBackground($SynthContext* context, $Graphics* g, int32
 }
 
 void GTKPainter::paintMenuBarBackground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, id, $nc(context)->getRegion());
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
-		if ($nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {$of(id)}))) {
+		if ($nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {id}))) {
 			return;
 		}
 		$var($GTKStyle, style, $cast($GTKStyle, context->getStyle()));
 		int32_t shadow = $nc(style)->getClassSpecificIntValue(context, "shadow-type"_s, 2);
-		$GTKConstants$ShadowType* shadowType = $nc(GTKPainter::SHADOWS)->get(shadow);
+		$GTKConstants$ShadowType* shadowType = GTKPainter::SHADOWS->get(shadow);
 		int32_t gtkState = $GTKLookAndFeel::synthStateToGTKState(id, context->getComponentState());
-		$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {$of(id)}));
-		$nc(GTKPainter::ENGINE)->paintBox(g, context, id, gtkState, shadowType, "menubar"_s, x, y, w, h);
-		$nc(GTKPainter::ENGINE)->finishPainting();
+		GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {id}));
+		GTKPainter::ENGINE->paintBox(g, context, id, gtkState, shadowType, "menubar"_s, x, y, w, h);
+		GTKPainter::ENGINE->finishPainting();
 	}
 }
 
@@ -720,7 +596,7 @@ void GTKPainter::paintMenuBackground($SynthContext* context, $Graphics* g, int32
 }
 
 void GTKPainter::paintMenuItemBackground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, var$0, $nc(context)->getRegion());
 	int32_t gtkState = $GTKLookAndFeel::synthStateToGTKState(var$0, context->getComponentState());
 	if (gtkState == $SynthConstants::MOUSE_OVER) {
@@ -732,42 +608,42 @@ void GTKPainter::paintMenuItemBackground($SynthContext* context, $Graphics* g, i
 		$var($Region, id, $Region::MENU_ITEM);
 		$init($UNIXToolkit);
 		$synchronized($UNIXToolkit::GTK_LOCK) {
-			if (!$nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {$of(id)}))) {
+			if (!$nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {id}))) {
 				$init($GTKConstants$ShadowType);
 				$GTKConstants$ShadowType* shadow = ($GTKLookAndFeel::is2_2() ? $GTKConstants$ShadowType::NONE : $GTKConstants$ShadowType::OUT);
-				$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {$of(id)}));
-				$nc(GTKPainter::ENGINE)->paintBox(g, context, id, gtkState, shadow, "menuitem"_s, x, y, w, h);
-				$nc(GTKPainter::ENGINE)->finishPainting();
+				GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {id}));
+				GTKPainter::ENGINE->paintBox(g, context, id, gtkState, shadow, "menuitem"_s, x, y, w, h);
+				GTKPainter::ENGINE->finishPainting();
 			}
 		}
 	}
 }
 
 void GTKPainter::paintPopupMenuBackground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, id, $nc(context)->getRegion());
 	int32_t gtkState = $GTKLookAndFeel::synthStateToGTKState(id, context->getComponentState());
 	bool isHW = $instanceOf($ModalExclude, $($SunToolkit::getHeavyweightComponent($(context->getComponent()))));
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
 		if ($nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {
-			$of(id),
-			$($of($Integer::valueOf(gtkState))),
-			$($of($Boolean::valueOf(isHW)))
+			id,
+			$($Integer::valueOf(gtkState)),
+			$($Boolean::valueOf(isHW))
 		}))) {
 			return;
 		}
-		$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {
-			$of(id),
-			$($of($Integer::valueOf(gtkState)))
+		GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {
+			id,
+			$($Integer::valueOf(gtkState))
 		}));
 		$init($GTKConstants$ShadowType);
-		$nc(GTKPainter::ENGINE)->paintBox(g, context, id, gtkState, $GTKConstants$ShadowType::OUT, "menu"_s, x, y, w, h);
+		GTKPainter::ENGINE->paintBox(g, context, id, gtkState, $GTKConstants$ShadowType::OUT, "menu"_s, x, y, w, h);
 		$var($GTKStyle, style, $cast($GTKStyle, context->getStyle()));
 		$var($Insets, insets, $nc(style)->getInsets(context, nullptr));
 		$init($GTKColorType);
-		$nc(GTKPainter::ENGINE)->paintBackground(g, context, id, gtkState, $(style->getGTKColor(context, gtkState, $GTKColorType::BACKGROUND)), x + $nc(insets)->left, y + insets->top, w - insets->left - insets->right, h - insets->top - insets->bottom);
-		$var($BufferedImage, img, $nc(GTKPainter::ENGINE)->finishPainting());
+		GTKPainter::ENGINE->paintBackground(g, context, id, gtkState, $(style->getGTKColor(context, gtkState, $GTKColorType::BACKGROUND)), x + $nc(insets)->left, y + $nc(insets)->top, w - $nc(insets)->left - $nc(insets)->right, h - $nc(insets)->top - $nc(insets)->bottom);
+		$var($BufferedImage, img, GTKPainter::ENGINE->finishPainting());
 		if (!isHW) {
 			int32_t border = $nc(img)->getRGB(0, h / 2);
 			if (img != nullptr && border == img->getRGB(w / 2, h / 2)) {
@@ -776,7 +652,7 @@ void GTKPainter::paintPopupMenuBackground($SynthContext* context, $Graphics* g, 
 				int32_t var$0 = $Math::max($cast(int32_t, (c->getRed() * 0.8)), 0);
 				int32_t var$1 = $Math::max($cast(int32_t, (c->getGreen() * 0.8)), 0);
 				$nc(g2)->setColor($$new($Color, var$0, var$1, $Math::max($cast(int32_t, (c->getBlue() * 0.8)), 0)));
-				g2->drawLine(0, 0, w - 1, 0);
+				$nc(g2)->drawLine(0, 0, w - 1, 0);
 				g2->drawLine(w - 1, 0, w - 1, h - 1);
 				g2->drawLine(0, h - 1, 0, 1);
 				g2->setColor($(c->darker()));
@@ -789,21 +665,21 @@ void GTKPainter::paintPopupMenuBackground($SynthContext* context, $Graphics* g, 
 }
 
 void GTKPainter::paintProgressBarBackground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, id, $nc(context)->getRegion());
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
-		if (!$nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {$of(id)}))) {
-			$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {$of(id)}));
+		if (!$nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {id}))) {
+			GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {id}));
 			$init($GTKConstants$ShadowType);
-			$nc(GTKPainter::ENGINE)->paintBox(g, context, id, $SynthConstants::ENABLED, $GTKConstants$ShadowType::IN, "trough"_s, x, y, w, h);
-			$nc(GTKPainter::ENGINE)->finishPainting();
+			GTKPainter::ENGINE->paintBox(g, context, id, $SynthConstants::ENABLED, $GTKConstants$ShadowType::IN, "trough"_s, x, y, w, h);
+			GTKPainter::ENGINE->finishPainting();
 		}
 	}
 }
 
 void GTKPainter::paintProgressBarForeground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h, int32_t orientation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, id, $nc(context)->getRegion());
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
@@ -811,31 +687,31 @@ void GTKPainter::paintProgressBarForeground($SynthContext* context, $Graphics* g
 			return;
 		}
 		$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {
-			$of(id),
-			$of("fg"_s)
+			id,
+			"fg"_s
 		}));
 		$init($GTKConstants$ShadowType);
-		$nc(GTKPainter::ENGINE)->paintBox(g, context, id, $SynthConstants::MOUSE_OVER, $GTKConstants$ShadowType::OUT, "bar"_s, x, y, w, h);
-		$nc(GTKPainter::ENGINE)->finishPainting(false);
+		GTKPainter::ENGINE->paintBox(g, context, id, $SynthConstants::MOUSE_OVER, $GTKConstants$ShadowType::OUT, "bar"_s, x, y, w, h);
+		GTKPainter::ENGINE->finishPainting(false);
 	}
 }
 
 void GTKPainter::paintViewportBorder($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, id, $nc(context)->getRegion());
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
-		if (!$nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {$of(id)}))) {
-			$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {$of(id)}));
+		if (!$nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {id}))) {
+			GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {id}));
 			$init($GTKConstants$ShadowType);
-			$nc(GTKPainter::ENGINE)->paintShadow(g, context, id, $SynthConstants::ENABLED, $GTKConstants$ShadowType::IN, "scrolled_window"_s, x, y, w, h);
-			$nc(GTKPainter::ENGINE)->finishPainting();
+			GTKPainter::ENGINE->paintShadow(g, context, id, $SynthConstants::ENABLED, $GTKConstants$ShadowType::IN, "scrolled_window"_s, x, y, w, h);
+			GTKPainter::ENGINE->finishPainting();
 		}
 	}
 }
 
 void GTKPainter::paintSeparatorBackground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h, int32_t orientation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, id, $nc(context)->getRegion());
 	int32_t state = context->getComponentState();
 	$var($JComponent, c, context->getComponent());
@@ -864,20 +740,20 @@ void GTKPainter::paintSeparatorBackground($SynthContext* context, $Graphics* g, 
 		$init($UNIXToolkit);
 		$synchronized($UNIXToolkit::GTK_LOCK) {
 			if (!$nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {
-				$of(id),
-				$($of($Integer::valueOf(state))),
-				$of(detail),
-				$($of($Integer::valueOf(orientation)))
+				id,
+				$($Integer::valueOf(state)),
+				detail,
+				$($Integer::valueOf(orientation))
 			}))) {
-				$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {
-					$of(id),
-					$($of($Integer::valueOf(state))),
-					$of(detail),
-					$($of($Integer::valueOf(orientation)))
+				GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {
+					id,
+					$($Integer::valueOf(state)),
+					detail,
+					$($Integer::valueOf(orientation))
 				}));
 				$init($GTKConstants$ShadowType);
-				$nc(GTKPainter::ENGINE)->paintBox(g, context, id, state, $GTKConstants$ShadowType::ETCHED_OUT, detail, x, y, w, h);
-				$nc(GTKPainter::ENGINE)->finishPainting();
+				GTKPainter::ENGINE->paintBox(g, context, id, state, $GTKConstants$ShadowType::ETCHED_OUT, detail, x, y, w, h);
+				GTKPainter::ENGINE->finishPainting();
 			}
 		}
 		return;
@@ -886,15 +762,15 @@ void GTKPainter::paintSeparatorBackground($SynthContext* context, $Graphics* g, 
 		$assign(detail, "toolbar"_s);
 		float pct = 0.2f;
 		$var($JToolBar$Separator, sep, $cast($JToolBar$Separator, c));
-		$var($Dimension, size, $nc(sep)->getSeparatorSize());
+		$var($Dimension, size, sep->getSeparatorSize());
 		if (orientation == $JSeparator::HORIZONTAL) {
 			x += $cast(int32_t, (w * pct));
 			w -= $cast(int32_t, (w * pct * 2));
-			y += ($nc(size)->height - $nc(style)->getYThickness()) / 2;
+			y += ($nc(size)->height - style->getYThickness()) / 2;
 		} else {
 			y += $cast(int32_t, (h * pct));
 			h -= $cast(int32_t, (h * pct * 2));
-			x += ($nc(size)->width - $nc(style)->getXThickness()) / 2;
+			x += ($nc(size)->width - style->getXThickness()) / 2;
 		}
 	} else {
 		$assign(detail, "separator"_s);
@@ -910,32 +786,32 @@ void GTKPainter::paintSeparatorBackground($SynthContext* context, $Graphics* g, 
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
 		if (!$nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {
-			$of(id),
-			$($of($Integer::valueOf(state))),
-			$of(detail),
-			$($of($Integer::valueOf(orientation)))
+			id,
+			$($Integer::valueOf(state)),
+			detail,
+			$($Integer::valueOf(orientation))
 		}))) {
-			$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {
-				$of(id),
-				$($of($Integer::valueOf(state))),
-				$of(detail),
-				$($of($Integer::valueOf(orientation)))
+			GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {
+				id,
+				$($Integer::valueOf(state)),
+				detail,
+				$($Integer::valueOf(orientation))
 			}));
 			if (orientation == $JSeparator::HORIZONTAL) {
-				$nc(GTKPainter::ENGINE)->paintHline(g, context, id, state, detail, x, y, w, h);
+				GTKPainter::ENGINE->paintHline(g, context, id, state, detail, x, y, w, h);
 			} else {
-				$nc(GTKPainter::ENGINE)->paintVline(g, context, id, state, detail, x, y, w, h);
+				GTKPainter::ENGINE->paintVline(g, context, id, state, detail, x, y, w, h);
 			}
-			$nc(GTKPainter::ENGINE)->finishPainting();
+			GTKPainter::ENGINE->finishPainting();
 		}
 	}
 }
 
 void GTKPainter::paintSliderTrackBackground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, id, $nc(context)->getRegion());
 	int32_t state = context->getComponentState();
-	bool focused = (((int32_t)(state & (uint32_t)$SynthConstants::FOCUSED)) != 0);
+	bool focused = ((state & $SynthConstants::FOCUSED) != 0);
 	int32_t focusSize = 0;
 	if (focused) {
 		$var($GTKStyle, style, $cast($GTKStyle, context->getStyle()));
@@ -959,53 +835,53 @@ void GTKPainter::paintSliderTrackBackground($SynthContext* context, $Graphics* g
 	double value = (double)$nc(slider)->getValue();
 	double min = (double)slider->getMinimum();
 	double max = (double)slider->getMaximum();
-	double visible = (double)20;
+	double visible = 20;
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
 		if (w <= 0 || h <= 0) {
 			return;
 		}
 		$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {
-			$of(id),
-			$($of($Integer::valueOf(state))),
-			$($of($Double::valueOf(value)))
+			id,
+			$($Integer::valueOf(state)),
+			$($Double::valueOf(value))
 		}));
 		int32_t gtkState = $GTKLookAndFeel::synthStateToGTKState(id, state);
-		$nc(GTKPainter::ENGINE)->setRangeValue(context, id, value, min, max, visible);
+		GTKPainter::ENGINE->setRangeValue(context, id, value, min, max, visible);
 		$init($GTKConstants$ShadowType);
-		$nc(GTKPainter::ENGINE)->paintBox(g, context, id, gtkState, $GTKConstants$ShadowType::IN, "trough"_s, x + focusSize, y + focusSize, w - 2 * focusSize, h - 2 * focusSize);
+		GTKPainter::ENGINE->paintBox(g, context, id, gtkState, $GTKConstants$ShadowType::IN, "trough"_s, x + focusSize, y + focusSize, w - 2 * focusSize, h - 2 * focusSize);
 		if (focused) {
-			$nc(GTKPainter::ENGINE)->paintFocus(g, context, id, $SynthConstants::ENABLED, "trough"_s, x, y, w, h);
+			GTKPainter::ENGINE->paintFocus(g, context, id, $SynthConstants::ENABLED, "trough"_s, x, y, w, h);
 		}
-		$nc(GTKPainter::ENGINE)->finishPainting(false);
+		GTKPainter::ENGINE->finishPainting(false);
 	}
 }
 
 void GTKPainter::paintSliderThumbBackground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h, int32_t dir) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, id, $nc(context)->getRegion());
 	int32_t gtkState = $GTKLookAndFeel::synthStateToGTKState(id, context->getComponentState());
 	bool var$0 = $GTKLookAndFeel::is3();
-	bool hasFocus = var$0 && (((int32_t)(context->getComponentState() & (uint32_t)$SynthConstants::FOCUSED)) != 0);
+	bool hasFocus = var$0 && ((context->getComponentState() & $SynthConstants::FOCUSED) != 0);
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
 		if (!$nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {
-			$of(id),
-			$($of($Integer::valueOf(gtkState))),
-			$($of($Integer::valueOf(dir))),
-			$($of($Boolean::valueOf(hasFocus)))
+			id,
+			$($Integer::valueOf(gtkState)),
+			$($Integer::valueOf(dir)),
+			$($Boolean::valueOf(hasFocus))
 		}))) {
 			$init($GTKConstants$Orientation);
 			$GTKConstants$Orientation* orientation = (dir == $JSlider::HORIZONTAL ? $GTKConstants$Orientation::HORIZONTAL : $GTKConstants$Orientation::VERTICAL);
 			$var($String, detail, dir == $JSlider::HORIZONTAL ? "hscale"_s : "vscale"_s);
-			$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {
-				$of(id),
-				$($of($Integer::valueOf(gtkState))),
-				$($of($Integer::valueOf(dir)))
+			GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {
+				id,
+				$($Integer::valueOf(gtkState)),
+				$($Integer::valueOf(dir))
 			}));
 			$init($GTKConstants$ShadowType);
-			$nc(GTKPainter::ENGINE)->paintSlider(g, context, id, gtkState, $GTKConstants$ShadowType::OUT, detail, x, y, w, h, orientation, hasFocus);
-			$nc(GTKPainter::ENGINE)->finishPainting();
+			GTKPainter::ENGINE->paintSlider(g, context, id, gtkState, $GTKConstants$ShadowType::OUT, detail, x, y, w, h, orientation, hasFocus);
+			GTKPainter::ENGINE->finishPainting();
 		}
 	}
 }
@@ -1014,7 +890,7 @@ void GTKPainter::paintSpinnerBackground($SynthContext* context, $Graphics* g, in
 }
 
 void GTKPainter::paintSplitPaneDividerBackground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, id, $nc(context)->getRegion());
 	int32_t gtkState = $GTKLookAndFeel::synthStateToGTKState(id, context->getComponentState());
 	$var($JSplitPane, splitPane, $cast($JSplitPane, context->getComponent()));
@@ -1023,18 +899,18 @@ void GTKPainter::paintSplitPaneDividerBackground($SynthContext* context, $Graphi
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
 		if (!$nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {
-			$of(id),
-			$($of($Integer::valueOf(gtkState))),
-			$of(orientation)
+			id,
+			$($Integer::valueOf(gtkState)),
+			orientation
 		}))) {
-			$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {
-				$of(id),
-				$($of($Integer::valueOf(gtkState))),
-				$of(orientation)
+			GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {
+				id,
+				$($Integer::valueOf(gtkState)),
+				orientation
 			}));
 			$init($GTKConstants$ShadowType);
-			$nc(GTKPainter::ENGINE)->paintHandle(g, context, id, gtkState, $GTKConstants$ShadowType::OUT, "paned"_s, x, y, w, h, orientation);
-			$nc(GTKPainter::ENGINE)->finishPainting();
+			GTKPainter::ENGINE->paintHandle(g, context, id, gtkState, $GTKConstants$ShadowType::OUT, "paned"_s, x, y, w, h, orientation);
+			GTKPainter::ENGINE->finishPainting();
 		}
 	}
 }
@@ -1044,7 +920,7 @@ void GTKPainter::paintSplitPaneDragDivider($SynthContext* context, $Graphics* g,
 }
 
 void GTKPainter::paintTabbedPaneContentBackground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTabbedPane, pane, $cast($JTabbedPane, $nc(context)->getComponent()));
 	int32_t selectedIndex = $nc(pane)->getSelectedIndex();
 	$GTKConstants$PositionType* placement = $GTKLookAndFeel::SwingOrientationConstantToGTK(pane->getTabPlacement());
@@ -1066,51 +942,51 @@ void GTKPainter::paintTabbedPaneContentBackground($SynthContext* context, $Graph
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
 		if (!$nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {
-			$of(id),
-			$($of($Integer::valueOf(gtkState))),
-			$of(placement),
-			$($of($Integer::valueOf(gapStart))),
-			$($of($Integer::valueOf(gapSize)))
+			id,
+			$($Integer::valueOf(gtkState)),
+			placement,
+			$($Integer::valueOf(gapStart)),
+			$($Integer::valueOf(gapSize))
 		}))) {
-			$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {
-				$of(id),
-				$($of($Integer::valueOf(gtkState))),
-				$of(placement),
-				$($of($Integer::valueOf(gapStart))),
-				$($of($Integer::valueOf(gapSize)))
+			GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {
+				id,
+				$($Integer::valueOf(gtkState)),
+				placement,
+				$($Integer::valueOf(gapStart)),
+				$($Integer::valueOf(gapSize))
 			}));
 			$init($GTKConstants$ShadowType);
-			$nc(GTKPainter::ENGINE)->paintBoxGap(g, context, id, gtkState, $GTKConstants$ShadowType::OUT, "notebook"_s, x, y, w, h, placement, gapStart, gapSize);
-			$nc(GTKPainter::ENGINE)->finishPainting();
+			GTKPainter::ENGINE->paintBoxGap(g, context, id, gtkState, $GTKConstants$ShadowType::OUT, "notebook"_s, x, y, w, h, placement, gapStart, gapSize);
+			GTKPainter::ENGINE->finishPainting();
 		}
 	}
 }
 
 void GTKPainter::paintTabbedPaneTabBackground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h, int32_t tabIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, id, $nc(context)->getRegion());
 	int32_t state = context->getComponentState();
-	int32_t gtkState = (((int32_t)(state & (uint32_t)$SynthConstants::SELECTED)) != 0 ? $SynthConstants::ENABLED : $SynthConstants::PRESSED);
+	int32_t gtkState = ((state & $SynthConstants::SELECTED) != 0 ? $SynthConstants::ENABLED : $SynthConstants::PRESSED);
 	$var($JTabbedPane, pane, $cast($JTabbedPane, context->getComponent()));
 	int32_t placement = $nc(pane)->getTabPlacement();
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
 		if (!$nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {
-			$of(id),
-			$($of($Integer::valueOf(gtkState))),
-			$($of($Integer::valueOf(placement))),
-			$($of($Integer::valueOf(tabIndex)))
+			id,
+			$($Integer::valueOf(gtkState)),
+			$($Integer::valueOf(placement)),
+			$($Integer::valueOf(tabIndex))
 		}))) {
-			$GTKConstants$PositionType* side = $nc(GTKPainter::POSITIONS)->get(placement - 1);
-			$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {
-				$of(id),
-				$($of($Integer::valueOf(gtkState))),
-				$($of($Integer::valueOf(placement))),
-				$($of($Integer::valueOf(tabIndex)))
+			$GTKConstants$PositionType* side = GTKPainter::POSITIONS->get(placement - 1);
+			GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {
+				id,
+				$($Integer::valueOf(gtkState)),
+				$($Integer::valueOf(placement)),
+				$($Integer::valueOf(tabIndex))
 			}));
 			$init($GTKConstants$ShadowType);
-			$nc(GTKPainter::ENGINE)->paintExtension(g, context, id, gtkState, $GTKConstants$ShadowType::OUT, "tab"_s, x, y, w, h, side, tabIndex);
-			$nc(GTKPainter::ENGINE)->finishPainting();
+			GTKPainter::ENGINE->paintExtension(g, context, id, gtkState, $GTKConstants$ShadowType::OUT, "tab"_s, x, y, w, h, side, tabIndex);
+			GTKPainter::ENGINE->finishPainting();
 		}
 	}
 }
@@ -1129,7 +1005,7 @@ void GTKPainter::paintTextAreaBackground($SynthContext* context, $Graphics* g, i
 }
 
 void GTKPainter::paintTextBackground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, c, $nc(context)->getComponent());
 	$var($Container, container, $nc(c)->getParent());
 	$var($Container, containerParent, nullptr);
@@ -1138,15 +1014,15 @@ void GTKPainter::paintTextBackground($SynthContext* context, $Graphics* g, int32
 	int32_t state = context->getComponentState();
 	if ($instanceOf($ListCellRenderer, c) && container != nullptr) {
 		$assign(containerParent, container->getParent());
-		if ($instanceOf($JComboBox, containerParent) && $nc(containerParent)->hasFocus()) {
+		if ($instanceOf($JComboBox, containerParent) && containerParent->hasFocus()) {
 			state |= $SynthConstants::FOCUSED;
 		}
 	}
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
 		if ($nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {
-			$of(id),
-			$($of($Integer::valueOf(state)))
+			id,
+			$($Integer::valueOf(state))
 		}))) {
 			return;
 		}
@@ -1154,7 +1030,7 @@ void GTKPainter::paintTextBackground($SynthContext* context, $Graphics* g, int32
 		int32_t focusSize = 0;
 		bool interiorFocus = $nc(style)->getClassSpecificBoolValue(context, "interior-focus"_s, true);
 		focusSize = style->getClassSpecificIntValue(context, "focus-line-width"_s, 1);
-		if (!interiorFocus && ((int32_t)(state & (uint32_t)$SynthConstants::FOCUSED)) != 0) {
+		if (!interiorFocus && (state & $SynthConstants::FOCUSED) != 0) {
 			x += focusSize;
 			y += focusSize;
 			w -= 2 * focusSize;
@@ -1162,20 +1038,20 @@ void GTKPainter::paintTextBackground($SynthContext* context, $Graphics* g, int32
 		}
 		int32_t xThickness = style->getXThickness();
 		int32_t yThickness = style->getYThickness();
-		$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {
-			$of(id),
-			$($of($Integer::valueOf(state)))
+		GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {
+			id,
+			$($Integer::valueOf(state))
 		}));
 		if ($GTKLookAndFeel::is3()) {
-			$nc(GTKPainter::ENGINE)->paintBackground(g, context, id, gtkState, nullptr, x, y, w, h);
+			GTKPainter::ENGINE->paintBackground(g, context, id, gtkState, nullptr, x, y, w, h);
 		}
 		$init($GTKConstants$ShadowType);
-		$nc(GTKPainter::ENGINE)->paintShadow(g, context, id, gtkState, $GTKConstants$ShadowType::IN, "entry"_s, x, y, w, h);
+		GTKPainter::ENGINE->paintShadow(g, context, id, gtkState, $GTKConstants$ShadowType::IN, "entry"_s, x, y, w, h);
 		if (!$GTKLookAndFeel::is3()) {
 			$init($ColorType);
-			$nc(GTKPainter::ENGINE)->paintFlatBox(g, context, id, gtkState, $GTKConstants$ShadowType::NONE, "entry_bg"_s, x + xThickness, y + yThickness, w - (2 * xThickness), h - (2 * yThickness), $ColorType::TEXT_BACKGROUND);
+			GTKPainter::ENGINE->paintFlatBox(g, context, id, gtkState, $GTKConstants$ShadowType::NONE, "entry_bg"_s, x + xThickness, y + yThickness, w - (2 * xThickness), h - (2 * yThickness), $ColorType::TEXT_BACKGROUND);
 		}
-		if (focusSize > 0 && ((int32_t)(state & (uint32_t)$SynthConstants::FOCUSED)) != 0) {
+		if (focusSize > 0 && (state & $SynthConstants::FOCUSED) != 0) {
 			if (!interiorFocus) {
 				x -= focusSize;
 				y -= focusSize;
@@ -1192,30 +1068,30 @@ void GTKPainter::paintTextBackground($SynthContext* context, $Graphics* g, int32
 				w -= 2 * focusSize + ($GTKLookAndFeel::is3() ? 4 : 0);
 				h -= 2 * focusSize + ($GTKLookAndFeel::is3() ? 4 : 0);
 			}
-			$nc(GTKPainter::ENGINE)->paintFocus(g, context, id, gtkState, "entry"_s, x, y, w, h);
+			GTKPainter::ENGINE->paintFocus(g, context, id, gtkState, "entry"_s, x, y, w, h);
 		}
-		$nc(GTKPainter::ENGINE)->finishPainting();
+		GTKPainter::ENGINE->finishPainting();
 	}
 }
 
 void GTKPainter::paintTreeCellEditorBackground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, id, $nc(context)->getRegion());
 	int32_t gtkState = $GTKLookAndFeel::synthStateToGTKState(id, context->getComponentState());
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
 		if (!$nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {
-			$of(id),
-			$($of($Integer::valueOf(gtkState)))
+			id,
+			$($Integer::valueOf(gtkState))
 		}))) {
-			$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {
-				$of(id),
-				$($of($Integer::valueOf(gtkState)))
+			GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {
+				id,
+				$($Integer::valueOf(gtkState))
 			}));
 			$init($GTKConstants$ShadowType);
 			$init($ColorType);
-			$nc(GTKPainter::ENGINE)->paintFlatBox(g, context, id, gtkState, $GTKConstants$ShadowType::NONE, "entry_bg"_s, x, y, w, h, $ColorType::TEXT_BACKGROUND);
-			$nc(GTKPainter::ENGINE)->finishPainting();
+			GTKPainter::ENGINE->paintFlatBox(g, context, id, gtkState, $GTKConstants$ShadowType::NONE, "entry_bg"_s, x, y, w, h, $ColorType::TEXT_BACKGROUND);
+			GTKPainter::ENGINE->finishPainting();
 		}
 	}
 }
@@ -1226,7 +1102,7 @@ void GTKPainter::paintRootPaneBackground($SynthContext* context, $Graphics* g, i
 }
 
 void GTKPainter::paintToggleButtonBackground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, id, $nc(context)->getRegion());
 	$var($JToggleButton, toggleButton, $cast($JToggleButton, context->getComponent()));
 	bool var$0 = $nc(toggleButton)->isContentAreaFilled();
@@ -1237,22 +1113,22 @@ void GTKPainter::paintToggleButtonBackground($SynthContext* context, $Graphics* 
 }
 
 void GTKPainter::paintScrollBarBackground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, id, $nc(context)->getRegion());
-	bool focused = ((int32_t)(context->getComponentState() & (uint32_t)$SynthConstants::FOCUSED)) != 0;
+	bool focused = (context->getComponentState() & $SynthConstants::FOCUSED) != 0;
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
 		if ($nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {
-			$of(id),
-			$($of($Boolean::valueOf(focused)))
+			id,
+			$($Boolean::valueOf(focused))
 		}))) {
 			return;
 		}
-		$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {
-			$of(id),
-			$($of($Boolean::valueOf(focused)))
+		GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {
+			id,
+			$($Boolean::valueOf(focused))
 		}));
-		$var($Insets, insets, $nc($(context->getComponent()))->getInsets());
+		$var($Insets, insets, $$nc(context->getComponent())->getInsets());
 		$var($GTKStyle, style, $cast($GTKStyle, context->getStyle()));
 		int32_t troughBorder = $nc(style)->getClassSpecificIntValue(context, "trough-border"_s, 1);
 		$nc(insets)->left -= troughBorder;
@@ -1260,107 +1136,107 @@ void GTKPainter::paintScrollBarBackground($SynthContext* context, $Graphics* g, 
 		insets->top -= troughBorder;
 		insets->bottom -= troughBorder;
 		$init($GTKConstants$ShadowType);
-		$nc(GTKPainter::ENGINE)->paintBox(g, context, id, $SynthConstants::PRESSED, $GTKConstants$ShadowType::IN, "trough"_s, x + insets->left, y + insets->top, w - insets->left - insets->right, h - insets->top - insets->bottom);
+		GTKPainter::ENGINE->paintBox(g, context, id, $SynthConstants::PRESSED, $GTKConstants$ShadowType::IN, "trough"_s, x + insets->left, y + insets->top, w - insets->left - insets->right, h - insets->top - insets->bottom);
 		if (focused) {
-			$nc(GTKPainter::ENGINE)->paintFocus(g, context, id, $SynthConstants::ENABLED, "trough"_s, x, y, w, h);
+			GTKPainter::ENGINE->paintFocus(g, context, id, $SynthConstants::ENABLED, "trough"_s, x, y, w, h);
 		}
-		$nc(GTKPainter::ENGINE)->finishPainting();
+		GTKPainter::ENGINE->finishPainting();
 	}
 }
 
 void GTKPainter::paintScrollBarThumbBackground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h, int32_t dir) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, id, $nc(context)->getRegion());
 	int32_t gtkState = $GTKLookAndFeel::synthStateToGTKState(id, context->getComponentState());
 	$var($JScrollBar, sb, $cast($JScrollBar, context->getComponent()));
 	bool var$0 = $nc(sb)->getOrientation() == $JScrollBar::HORIZONTAL;
-	bool rtl = var$0 && !$nc($(sb->getComponentOrientation()))->isLeftToRight();
-	double min = (double)0;
-	double max = (double)100;
-	double visible = (double)20;
+	bool rtl = var$0 && !$$nc(sb->getComponentOrientation())->isLeftToRight();
+	double min = 0;
+	double max = 100;
+	double visible = 20;
 	double value = 0.0;
 	int32_t var$2 = sb->getMaximum();
 	int32_t var$1 = var$2 - sb->getMinimum();
 	if (var$1 == sb->getVisibleAmount()) {
-		value = (double)0;
-		visible = (double)100;
+		value = 0;
+		visible = 100;
 	} else {
-		int32_t var$4 = sb->getValue();
-		if (var$4 == sb->getMinimum()) {
+		int32_t var$3 = sb->getValue();
+		if (var$3 == sb->getMinimum()) {
 			value = (double)(rtl ? 100 : 0);
 		} else {
-			int32_t var$8 = sb->getValue();
-			int32_t var$10 = sb->getMaximum();
-			int32_t var$9 = var$10 - sb->getVisibleAmount();
-			if (var$8 >= var$9) {
+			int32_t var$4 = sb->getValue();
+			int32_t var$6 = sb->getMaximum();
+			int32_t var$5 = var$6 - sb->getVisibleAmount();
+			if (var$4 >= var$5) {
 				value = (double)(rtl ? 0 : 100);
 			} else {
-				value = (double)50;
+				value = 50;
 			}
 		}
 	}
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
 		if (!$nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {
-			$of(id),
-			$($of($Integer::valueOf(gtkState))),
-			$($of($Integer::valueOf(dir))),
-			$($of($Double::valueOf(value))),
-			$($of($Double::valueOf(visible))),
-			$($of($Boolean::valueOf(rtl)))
+			id,
+			$($Integer::valueOf(gtkState)),
+			$($Integer::valueOf(dir)),
+			$($Double::valueOf(value)),
+			$($Double::valueOf(visible)),
+			$($Boolean::valueOf(rtl))
 		}))) {
-			$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {
-				$of(id),
-				$($of($Integer::valueOf(gtkState))),
-				$($of($Integer::valueOf(dir))),
-				$($of($Double::valueOf(value))),
-				$($of($Double::valueOf(visible))),
-				$($of($Boolean::valueOf(rtl)))
+			GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {
+				id,
+				$($Integer::valueOf(gtkState)),
+				$($Integer::valueOf(dir)),
+				$($Double::valueOf(value)),
+				$($Double::valueOf(visible)),
+				$($Boolean::valueOf(rtl))
 			}));
 			$init($GTKConstants$Orientation);
 			$GTKConstants$Orientation* orientation = (dir == $JScrollBar::HORIZONTAL ? $GTKConstants$Orientation::HORIZONTAL : $GTKConstants$Orientation::VERTICAL);
-			$nc(GTKPainter::ENGINE)->setRangeValue(context, id, value, min, max, visible);
+			GTKPainter::ENGINE->setRangeValue(context, id, value, min, max, visible);
 			$init($GTKConstants$ShadowType);
-			$nc(GTKPainter::ENGINE)->paintSlider(g, context, id, gtkState, $GTKConstants$ShadowType::OUT, "slider"_s, x, y, w, h, orientation, false);
-			$nc(GTKPainter::ENGINE)->finishPainting();
+			GTKPainter::ENGINE->paintSlider(g, context, id, gtkState, $GTKConstants$ShadowType::OUT, "slider"_s, x, y, w, h, orientation, false);
+			GTKPainter::ENGINE->finishPainting();
 		}
 	}
 }
 
 void GTKPainter::paintToolTipBackground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, id, $nc(context)->getRegion());
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
-		if (!$nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {$of(id)}))) {
-			$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {$of(id)}));
+		if (!$nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {id}))) {
+			GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {id}));
 			$init($GTKConstants$ShadowType);
 			$init($ColorType);
-			$nc(GTKPainter::ENGINE)->paintFlatBox(g, context, id, $SynthConstants::ENABLED, $GTKConstants$ShadowType::OUT, "tooltip"_s, x, y, w, h, $ColorType::BACKGROUND);
-			$nc(GTKPainter::ENGINE)->finishPainting();
+			GTKPainter::ENGINE->paintFlatBox(g, context, id, $SynthConstants::ENABLED, $GTKConstants$ShadowType::OUT, "tooltip"_s, x, y, w, h, $ColorType::BACKGROUND);
+			GTKPainter::ENGINE->finishPainting();
 		}
 	}
 }
 
 void GTKPainter::paintTreeCellBackground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, id, $nc(context)->getRegion());
 	int32_t state = context->getComponentState();
 	int32_t gtkState = $GTKLookAndFeel::synthStateToGTKState(id, state);
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
 		if (!$nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {
-			$of(id),
-			$($of($Integer::valueOf(state)))
+			id,
+			$($Integer::valueOf(state))
 		}))) {
-			$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {
-				$of(id),
-				$($of($Integer::valueOf(state)))
+			GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {
+				id,
+				$($Integer::valueOf(state))
 			}));
 			$init($GTKConstants$ShadowType);
 			$init($ColorType);
-			$nc(GTKPainter::ENGINE)->paintFlatBox(g, context, id, gtkState, $GTKConstants$ShadowType::NONE, "cell_odd"_s, x, y, w, h, $ColorType::TEXT_BACKGROUND);
-			$nc(GTKPainter::ENGINE)->finishPainting();
+			GTKPainter::ENGINE->paintFlatBox(g, context, id, gtkState, $GTKConstants$ShadowType::NONE, "cell_odd"_s, x, y, w, h, $ColorType::TEXT_BACKGROUND);
+			GTKPainter::ENGINE->finishPainting();
 		}
 	}
 }
@@ -1383,80 +1259,80 @@ void GTKPainter::paintViewportBackground($SynthContext* context, $Graphics* g, i
 }
 
 void GTKPainter::paintFocus($SynthContext* context, $Graphics* g, $Region* id, int32_t state, $String* detail, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t gtkState = $GTKLookAndFeel::synthStateToGTKState(id, state);
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
 		if (!$nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {
-			$of(id),
-			$($of($Integer::valueOf(gtkState))),
-			$of("focus"_s)
+			id,
+			$($Integer::valueOf(gtkState)),
+			"focus"_s
 		}))) {
-			$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {
-				$of(id),
-				$($of($Integer::valueOf(gtkState))),
-				$of("focus"_s)
+			GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {
+				id,
+				$($Integer::valueOf(gtkState)),
+				"focus"_s
 			}));
-			$nc(GTKPainter::ENGINE)->paintFocus(g, context, id, gtkState, detail, x, y, w, h);
-			$nc(GTKPainter::ENGINE)->finishPainting();
+			GTKPainter::ENGINE->paintFocus(g, context, id, gtkState, detail, x, y, w, h);
+			GTKPainter::ENGINE->finishPainting();
 		}
 	}
 }
 
 void GTKPainter::paintMetacityElement($SynthContext* context, $Graphics* g, int32_t gtkState, $String* detail, int32_t x, int32_t y, int32_t w, int32_t h, $GTKConstants$ShadowType* shadow, $GTKConstants$ArrowType* direction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
 		if (!$nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {
-			$($of($Integer::valueOf(gtkState))),
-			$of(detail),
-			$of(shadow),
-			$of(direction)
+			$($Integer::valueOf(gtkState)),
+			detail,
+			shadow,
+			direction
 		}))) {
-			$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {
-				$($of($Integer::valueOf(gtkState))),
-				$of(detail),
-				$of(shadow),
-				$of(direction)
+			GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {
+				$($Integer::valueOf(gtkState)),
+				detail,
+				shadow,
+				direction
 			}));
 			if (detail == "metacity-arrow"_s) {
 				$init($Region);
-				$nc(GTKPainter::ENGINE)->paintArrow(g, context, $Region::INTERNAL_FRAME_TITLE_PANE, gtkState, shadow, direction, ""_s, x, y, w, h);
+				GTKPainter::ENGINE->paintArrow(g, context, $Region::INTERNAL_FRAME_TITLE_PANE, gtkState, shadow, direction, ""_s, x, y, w, h);
 			} else if (detail == "metacity-box"_s) {
 				$init($Region);
-				$nc(GTKPainter::ENGINE)->paintBox(g, context, $Region::INTERNAL_FRAME_TITLE_PANE, gtkState, shadow, ""_s, x, y, w, h);
+				GTKPainter::ENGINE->paintBox(g, context, $Region::INTERNAL_FRAME_TITLE_PANE, gtkState, shadow, ""_s, x, y, w, h);
 			} else if (detail == "metacity-vline"_s) {
 				$init($Region);
-				$nc(GTKPainter::ENGINE)->paintVline(g, context, $Region::INTERNAL_FRAME_TITLE_PANE, gtkState, ""_s, x, y, w, h);
+				GTKPainter::ENGINE->paintVline(g, context, $Region::INTERNAL_FRAME_TITLE_PANE, gtkState, ""_s, x, y, w, h);
 			}
-			$nc(GTKPainter::ENGINE)->finishPainting();
+			GTKPainter::ENGINE->finishPainting();
 		}
 	}
 }
 
 void GTKPainter::paintIcon($SynthContext* context, $Graphics* g, $Method* paintMethod, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	int32_t state = $nc(context)->getComponentState();
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
 		if (!$nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {
-			$($of($Integer::valueOf(state))),
-			$of(paintMethod)
+			$($Integer::valueOf(state)),
+			paintMethod
 		}))) {
-			$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {
-				$($of($Integer::valueOf(state))),
-				$of(paintMethod)
+			GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {
+				$($Integer::valueOf(state)),
+				paintMethod
 			}));
 			try {
 				$nc(paintMethod)->invoke(this, $$new($ObjectArray, {
-					$of(context),
-					$of(g),
-					$($of($Integer::valueOf(state))),
-					$($of($Integer::valueOf(x))),
-					$($of($Integer::valueOf(y))),
-					$($of($Integer::valueOf(w))),
-					$($of($Integer::valueOf(h)))
+					context,
+					g,
+					$($Integer::valueOf(state)),
+					$($Integer::valueOf(x)),
+					$($Integer::valueOf(y)),
+					$($Integer::valueOf(w)),
+					$($Integer::valueOf(h))
 				}));
 			} catch ($IllegalAccessException& iae) {
 				if (!GTKPainter::$assertionsDisabled) {
@@ -1467,36 +1343,36 @@ void GTKPainter::paintIcon($SynthContext* context, $Graphics* g, $Method* paintM
 					$throwNew($AssertionError);
 				}
 			}
-			$nc(GTKPainter::ENGINE)->finishPainting();
+			GTKPainter::ENGINE->finishPainting();
 		}
 	}
 }
 
 void GTKPainter::paintIcon($SynthContext* context, $Graphics* g, $Method* paintMethod, int32_t x, int32_t y, int32_t w, int32_t h, Object$* direction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	int32_t state = $nc(context)->getComponentState();
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
 		if (!$nc(GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {
-			$($of($Integer::valueOf(state))),
-			$of(paintMethod),
+			$($Integer::valueOf(state)),
+			paintMethod,
 			direction
 		}))) {
-			$nc(GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {
-				$($of($Integer::valueOf(state))),
-				$of(paintMethod),
+			GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {
+				$($Integer::valueOf(state)),
+				paintMethod,
 				direction
 			}));
 			try {
 				$nc(paintMethod)->invoke(this, $$new($ObjectArray, {
-					$of(context),
-					$of(g),
-					$($of($Integer::valueOf(state))),
-					$($of($Integer::valueOf(x))),
-					$($of($Integer::valueOf(y))),
-					$($of($Integer::valueOf(w))),
-					$($of($Integer::valueOf(h))),
+					context,
+					g,
+					$($Integer::valueOf(state)),
+					$($Integer::valueOf(x)),
+					$($Integer::valueOf(y)),
+					$($Integer::valueOf(w)),
+					$($Integer::valueOf(h)),
 					direction
 				}));
 			} catch ($IllegalAccessException& iae) {
@@ -1508,7 +1384,7 @@ void GTKPainter::paintIcon($SynthContext* context, $Graphics* g, $Method* paintM
 					$throwNew($AssertionError);
 				}
 			}
-			$nc(GTKPainter::ENGINE)->finishPainting();
+			GTKPainter::ENGINE->finishPainting();
 		}
 	}
 }
@@ -1572,7 +1448,7 @@ void GTKPainter::paintRadioButtonMenuItemCheckIcon($SynthContext* context, $Grap
 }
 
 void GTKPainter::paintToolBarHandleIcon($SynthContext* context, $Graphics* g, int32_t state, int32_t x, int32_t y, int32_t w, int32_t h, $GTKConstants$Orientation* orientation$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GTKConstants$Orientation, orientation, orientation$renamed);
 	int32_t gtkState = $GTKLookAndFeel::synthStateToGTKState($($nc(context)->getRegion()), state);
 	$init($GTKConstants$Orientation);
@@ -1597,8 +1473,8 @@ void GTKPainter::paintDescendingSortIcon($SynthContext* context, $Graphics* g, i
 }
 
 void GTKPainter::fillArea($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h, $ColorType* colorType) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc($($nc(context)->getComponent()))->isOpaque()) {
+	$useLocalObjectStack();
+	if ($$nc($nc(context)->getComponent())->isOpaque()) {
 		$var($Region, id, context->getRegion());
 		int32_t gtkState = $GTKLookAndFeel::synthStateToGTKState(id, context->getComponentState());
 		$var($GTKStyle, style, $cast($GTKStyle, context->getStyle()));
@@ -1607,7 +1483,7 @@ void GTKPainter::fillArea($SynthContext* context, $Graphics* g, int32_t x, int32
 	}
 }
 
-void clinit$GTKPainter($Class* class$) {
+void GTKPainter::clinit$($Class* clazz) {
 	GTKPainter::$assertionsDisabled = !GTKPainter::class$->desiredAssertionStatus();
 	$init($GTKConstants$PositionType);
 	$assignStatic(GTKPainter::POSITIONS, $new($GTKConstants$PositionTypeArray, {
@@ -1633,7 +1509,105 @@ GTKPainter::GTKPainter() {
 }
 
 $Class* GTKPainter::load$($String* name, bool initialize) {
-	$loadClass(GTKPainter, name, initialize, &_GTKPainter_ClassInfo_, clinit$GTKPainter, allocate$GTKPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(GTKPainter, $assertionsDisabled)},
+		{"POSITIONS", "[Lcom/sun/java/swing/plaf/gtk/GTKConstants$PositionType;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKPainter, POSITIONS)},
+		{"SHADOWS", "[Lcom/sun/java/swing/plaf/gtk/GTKConstants$ShadowType;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKPainter, SHADOWS)},
+		{"ENGINE", "Lcom/sun/java/swing/plaf/gtk/GTKEngine;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKPainter, ENGINE)},
+		{"INSTANCE", "Lcom/sun/java/swing/plaf/gtk/GTKPainter;", nullptr, $STATIC | $FINAL, $staticField(GTKPainter, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(GTKPainter, init$, void)},
+		{"fillArea", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIILjavax/swing/plaf/synth/ColorType;)V", nullptr, $PRIVATE, $method(GTKPainter, fillArea, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, $ColorType*)},
+		{"getName", "(Ljavax/swing/plaf/synth/SynthContext;)Ljava/lang/String;", nullptr, $PRIVATE, $method(GTKPainter, getName, $String*, $SynthContext*)},
+		{"paintArrowButtonBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintArrowButtonBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintArrowButtonForeground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintArrowButtonForeground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"paintAscendingSortIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintAscendingSortIcon, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"paintButtonBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintButtonBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintButtonBackgroundImpl", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljavax/swing/plaf/synth/Region;Ljava/lang/String;IIIIZZZZ)V", nullptr, $PRIVATE, $method(GTKPainter, paintButtonBackgroundImpl, void, $SynthContext*, $Graphics*, $Region*, $String*, int32_t, int32_t, int32_t, int32_t, bool, bool, bool, bool)},
+		{"paintCheckBoxBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintCheckBoxBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintCheckBoxIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintCheckBoxIcon, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"paintCheckBoxMenuItemBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintCheckBoxMenuItemBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintCheckBoxMenuItemCheckIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintCheckBoxMenuItemCheckIcon, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"paintComponentBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PRIVATE, $method(GTKPainter, paintComponentBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintDescendingSortIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintDescendingSortIcon, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"paintDesktopIconBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintDesktopIconBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintDesktopPaneBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintDesktopPaneBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintEditorPaneBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintEditorPaneBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintFocus", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljavax/swing/plaf/synth/Region;ILjava/lang/String;IIII)V", nullptr, 0, $virtualMethod(GTKPainter, paintFocus, void, $SynthContext*, $Graphics*, $Region*, int32_t, $String*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintFormattedTextFieldBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintFormattedTextFieldBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljava/lang/reflect/Method;IIII)V", nullptr, 0, $virtualMethod(GTKPainter, paintIcon, void, $SynthContext*, $Graphics*, $Method*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljava/lang/reflect/Method;IIIILjava/lang/Object;)V", nullptr, 0, $virtualMethod(GTKPainter, paintIcon, void, $SynthContext*, $Graphics*, $Method*, int32_t, int32_t, int32_t, int32_t, Object$*)},
+		{"paintInternalFrameBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintInternalFrameBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintLabelBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintLabelBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintListBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintListBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintMenuArrowIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIIILcom/sun/java/swing/plaf/gtk/GTKConstants$ArrowType;)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintMenuArrowIcon, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, $GTKConstants$ArrowType*)},
+		{"paintMenuBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintMenuBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintMenuBarBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintMenuBarBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintMenuItemBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintMenuItemBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintMetacityElement", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;ILjava/lang/String;IIIILcom/sun/java/swing/plaf/gtk/GTKConstants$ShadowType;Lcom/sun/java/swing/plaf/gtk/GTKConstants$ArrowType;)V", nullptr, 0, $virtualMethod(GTKPainter, paintMetacityElement, void, $SynthContext*, $Graphics*, int32_t, $String*, int32_t, int32_t, int32_t, int32_t, $GTKConstants$ShadowType*, $GTKConstants$ArrowType*)},
+		{"paintPasswordFieldBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintPasswordFieldBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintPopupMenuBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintPopupMenuBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintProgressBarBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintProgressBarBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintProgressBarForeground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintProgressBarForeground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"paintRadioButtonBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintRadioButtonBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintRadioButtonIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintRadioButtonIcon, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"paintRadioButtonMenuItemBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintRadioButtonMenuItemBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintRadioButtonMenuItemCheckIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintRadioButtonMenuItemCheckIcon, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"paintRootPaneBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintRootPaneBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintScrollBarBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintScrollBarBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintScrollBarThumbBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintScrollBarThumbBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"paintSeparatorBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintSeparatorBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"paintSliderThumbBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintSliderThumbBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"paintSliderTrackBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintSliderTrackBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintSpinnerBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintSpinnerBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintSplitPaneDividerBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintSplitPaneDividerBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintSplitPaneDragDivider", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintSplitPaneDragDivider, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"paintTabbedPaneContentBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintTabbedPaneContentBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintTabbedPaneTabBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintTabbedPaneTabBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"paintTextAreaBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintTextAreaBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintTextBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PRIVATE, $method(GTKPainter, paintTextBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintTextFieldBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintTextFieldBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintTextPaneBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintTextPaneBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintToggleButtonBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintToggleButtonBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintToolBarBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintToolBarBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintToolBarContentBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintToolBarContentBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintToolBarDragWindowBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintToolBarDragWindowBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintToolBarHandleIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIIILcom/sun/java/swing/plaf/gtk/GTKConstants$Orientation;)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintToolBarHandleIcon, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, $GTKConstants$Orientation*)},
+		{"paintToolTipBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintToolTipBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintTreeBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintTreeBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintTreeCellBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintTreeCellBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintTreeCellEditorBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PRIVATE, $method(GTKPainter, paintTreeCellEditorBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintTreeCellFocus", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintTreeCellFocus, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintTreeCollapsedIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintTreeCollapsedIcon, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"paintTreeExpandedIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintTreeExpandedIcon, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"paintViewportBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintViewportBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintViewportBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter, paintViewportBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKPainter$TitledBorder", "com.sun.java.swing.plaf.gtk.GTKPainter", "TitledBorder", $STATIC},
+		{"com.sun.java.swing.plaf.gtk.GTKPainter$ListTableFocusBorder", "com.sun.java.swing.plaf.gtk.GTKPainter", "ListTableFocusBorder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.GTKPainter",
+		"javax.swing.plaf.synth.SynthPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKPainter$TitledBorder,com.sun.java.swing.plaf.gtk.GTKPainter$ListTableFocusBorder"
+	};
+	$loadClass(GTKPainter, name, initialize, &classInfo$$, GTKPainter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GTKPainter);
+	});
 	return class$;
 }
 

@@ -1,7 +1,4 @@
 #include <sun/awt/windows/WScrollbarPeer$2.h>
-
-#include <java/awt/AWTEvent.h>
-#include <java/awt/Adjustable.h>
 #include <java/awt/Scrollbar.h>
 #include <java/awt/event/AdjustmentEvent.h>
 #include <sun/awt/windows/WScrollbarPeer.h>
@@ -10,8 +7,6 @@
 #undef ADJUSTMENT_VALUE_CHANGED
 #undef TRACK
 
-using $AWTEvent = ::java::awt::AWTEvent;
-using $Adjustable = ::java::awt::Adjustable;
 using $Scrollbar = ::java::awt::Scrollbar;
 using $AdjustmentEvent = ::java::awt::event::AdjustmentEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -24,50 +19,6 @@ using $WScrollbarPeer = ::sun::awt::windows::WScrollbarPeer;
 namespace sun {
 	namespace awt {
 		namespace windows {
-
-$FieldInfo _WScrollbarPeer$2_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/windows/WScrollbarPeer;", nullptr, $FINAL | $SYNTHETIC, $field(WScrollbarPeer$2, this$0)},
-	{"val$value", "I", nullptr, $FINAL | $SYNTHETIC, $field(WScrollbarPeer$2, val$value)},
-	{"val$sb", "Ljava/awt/Scrollbar;", nullptr, $FINAL | $SYNTHETIC, $field(WScrollbarPeer$2, val$sb)},
-	{}
-};
-
-$MethodInfo _WScrollbarPeer$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/windows/WScrollbarPeer;Ljava/awt/Scrollbar;I)V", "()V", 0, $method(WScrollbarPeer$2, init$, void, $WScrollbarPeer*, $Scrollbar*, int32_t)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WScrollbarPeer$2, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _WScrollbarPeer$2_EnclosingMethodInfo_ = {
-	"sun.awt.windows.WScrollbarPeer",
-	"dragEnd",
-	"(I)V"
-};
-
-$InnerClassInfo _WScrollbarPeer$2_InnerClassesInfo_[] = {
-	{"sun.awt.windows.WScrollbarPeer$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WScrollbarPeer$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.windows.WScrollbarPeer$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_WScrollbarPeer$2_FieldInfo_,
-	_WScrollbarPeer$2_MethodInfo_,
-	nullptr,
-	&_WScrollbarPeer$2_EnclosingMethodInfo_,
-	_WScrollbarPeer$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.windows.WScrollbarPeer"
-};
-
-$Object* allocate$WScrollbarPeer$2($Class* clazz) {
-	return $of($alloc(WScrollbarPeer$2));
-}
 
 void WScrollbarPeer$2::init$($WScrollbarPeer* this$0, $Scrollbar* val$sb, int32_t val$value) {
 	$set(this, this$0, this$0);
@@ -84,7 +35,44 @@ WScrollbarPeer$2::WScrollbarPeer$2() {
 }
 
 $Class* WScrollbarPeer$2::load$($String* name, bool initialize) {
-	$loadClass(WScrollbarPeer$2, name, initialize, &_WScrollbarPeer$2_ClassInfo_, allocate$WScrollbarPeer$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/windows/WScrollbarPeer;", nullptr, $FINAL | $SYNTHETIC, $field(WScrollbarPeer$2, this$0)},
+		{"val$value", "I", nullptr, $FINAL | $SYNTHETIC, $field(WScrollbarPeer$2, val$value)},
+		{"val$sb", "Ljava/awt/Scrollbar;", nullptr, $FINAL | $SYNTHETIC, $field(WScrollbarPeer$2, val$sb)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/windows/WScrollbarPeer;Ljava/awt/Scrollbar;I)V", "()V", 0, $method(WScrollbarPeer$2, init$, void, $WScrollbarPeer*, $Scrollbar*, int32_t)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WScrollbarPeer$2, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.windows.WScrollbarPeer",
+		"dragEnd",
+		"(I)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.windows.WScrollbarPeer$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.windows.WScrollbarPeer$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.windows.WScrollbarPeer"
+	};
+	$loadClass(WScrollbarPeer$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WScrollbarPeer$2);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/java2d/metal/MTLSwToSurfaceScale.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/AffineTransformOp.h>
@@ -32,30 +31,6 @@ namespace sun {
 	namespace java2d {
 		namespace metal {
 
-$FieldInfo _MTLSwToSurfaceScale_FieldInfo_[] = {
-	{"typeval", "I", nullptr, $PRIVATE, $field(MTLSwToSurfaceScale, typeval)},
-	{}
-};
-
-$MethodInfo _MTLSwToSurfaceScale_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;I)V", nullptr, 0, $method(MTLSwToSurfaceScale, init$, void, $SurfaceType*, int32_t)},
-	{"Scale", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIDDDD)V", nullptr, $PUBLIC, $virtualMethod(MTLSwToSurfaceScale, Scale, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
-	{}
-};
-
-$ClassInfo _MTLSwToSurfaceScale_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.metal.MTLSwToSurfaceScale",
-	"sun.java2d.loops.ScaledBlit",
-	nullptr,
-	_MTLSwToSurfaceScale_FieldInfo_,
-	_MTLSwToSurfaceScale_MethodInfo_
-};
-
-$Object* allocate$MTLSwToSurfaceScale($Class* clazz) {
-	return $of($alloc(MTLSwToSurfaceScale));
-}
-
 void MTLSwToSurfaceScale::init$($SurfaceType* srcType, int32_t typeval) {
 	$init($CompositeType);
 	$init($MTLSurfaceData);
@@ -71,7 +46,26 @@ MTLSwToSurfaceScale::MTLSwToSurfaceScale() {
 }
 
 $Class* MTLSwToSurfaceScale::load$($String* name, bool initialize) {
-	$loadClass(MTLSwToSurfaceScale, name, initialize, &_MTLSwToSurfaceScale_ClassInfo_, allocate$MTLSwToSurfaceScale);
+	$FieldInfo fieldInfos$$[] = {
+		{"typeval", "I", nullptr, $PRIVATE, $field(MTLSwToSurfaceScale, typeval)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;I)V", nullptr, 0, $method(MTLSwToSurfaceScale, init$, void, $SurfaceType*, int32_t)},
+		{"Scale", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIDDDD)V", nullptr, $PUBLIC, $virtualMethod(MTLSwToSurfaceScale, Scale, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.metal.MTLSwToSurfaceScale",
+		"sun.java2d.loops.ScaledBlit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MTLSwToSurfaceScale, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MTLSwToSurfaceScale);
+	});
 	return class$;
 }
 

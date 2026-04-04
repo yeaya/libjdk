@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet$JPEGPointTransforms.h>
-
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,36 +15,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _BaselineTIFFTagSet$JPEGPointTransforms_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$JPEGPointTransforms, init$, void)},
-	{}
-};
-
-$InnerClassInfo _BaselineTIFFTagSet$JPEGPointTransforms_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$JPEGPointTransforms", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "JPEGPointTransforms", $STATIC},
-	{}
-};
-
-$ClassInfo _BaselineTIFFTagSet$JPEGPointTransforms_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet$JPEGPointTransforms",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$JPEGPointTransforms_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$JPEGPointTransforms_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
-};
-
-$Object* allocate$BaselineTIFFTagSet$JPEGPointTransforms($Class* clazz) {
-	return $of($alloc(BaselineTIFFTagSet$JPEGPointTransforms));
-}
-
 void BaselineTIFFTagSet$JPEGPointTransforms::init$() {
 	$TIFFTag::init$("JPEGPointTransforms"_s, 518, $sl(1, $TIFFTag::TIFF_SHORT));
 }
@@ -54,7 +23,32 @@ BaselineTIFFTagSet$JPEGPointTransforms::BaselineTIFFTagSet$JPEGPointTransforms()
 }
 
 $Class* BaselineTIFFTagSet$JPEGPointTransforms::load$($String* name, bool initialize) {
-	$loadClass(BaselineTIFFTagSet$JPEGPointTransforms, name, initialize, &_BaselineTIFFTagSet$JPEGPointTransforms_ClassInfo_, allocate$BaselineTIFFTagSet$JPEGPointTransforms);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$JPEGPointTransforms, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$JPEGPointTransforms", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "JPEGPointTransforms", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet$JPEGPointTransforms",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
+	};
+	$loadClass(BaselineTIFFTagSet$JPEGPointTransforms, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BaselineTIFFTagSet$JPEGPointTransforms);
+	});
 	return class$;
 }
 

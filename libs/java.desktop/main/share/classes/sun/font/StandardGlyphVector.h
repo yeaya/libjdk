@@ -79,6 +79,7 @@ class StandardGlyphVector : public ::java::awt::font::GlyphVector {
 	$class(StandardGlyphVector, 0, ::java::awt::font::GlyphVector)
 public:
 	StandardGlyphVector();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Font* font, $String* str, ::java::awt::font::FontRenderContext* frc);
 	void init$(::java::awt::Font* font, $chars* text, ::java::awt::font::FontRenderContext* frc);
 	void init$(::java::awt::Font* font, $chars* text, int32_t start, int32_t count, ::java::awt::font::FontRenderContext* frc);

@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/SocketTube$BufferSource.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/util/List.h>
 #include <jdk/internal/net/http/SocketTube.h>
@@ -16,43 +15,38 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$MethodInfo _SocketTube$BufferSource_MethodInfo_[] = {
-	{"append", "(Ljava/util/List;Ljava/nio/ByteBuffer;I)Ljava/util/List;", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Ljava/nio/ByteBuffer;I)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SocketTube$BufferSource, append, $List*, $List*, $ByteBuffer*, int32_t)},
-	{"getBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SocketTube$BufferSource, getBuffer, $ByteBuffer*)},
-	{"returnUnused", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SocketTube$BufferSource, returnUnused, void, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _SocketTube$BufferSource_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.SocketTube$BufferSource", "jdk.internal.net.http.SocketTube", "BufferSource", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SocketTube$BufferSource_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.net.http.SocketTube$BufferSource",
-	nullptr,
-	nullptr,
-	nullptr,
-	_SocketTube$BufferSource_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SocketTube$BufferSource_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.SocketTube"
-};
-
-$Object* allocate$SocketTube$BufferSource($Class* clazz) {
-	return $of($alloc(SocketTube$BufferSource));
-}
-
 void SocketTube$BufferSource::returnUnused($ByteBuffer* buffer) {
 }
 
 $Class* SocketTube$BufferSource::load$($String* name, bool initialize) {
-	$loadClass(SocketTube$BufferSource, name, initialize, &_SocketTube$BufferSource_ClassInfo_, allocate$SocketTube$BufferSource);
+	$MethodInfo methodInfos$$[] = {
+		{"append", "(Ljava/util/List;Ljava/nio/ByteBuffer;I)Ljava/util/List;", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Ljava/nio/ByteBuffer;I)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SocketTube$BufferSource, append, $List*, $List*, $ByteBuffer*, int32_t)},
+		{"getBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SocketTube$BufferSource, getBuffer, $ByteBuffer*)},
+		{"returnUnused", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SocketTube$BufferSource, returnUnused, void, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.SocketTube$BufferSource", "jdk.internal.net.http.SocketTube", "BufferSource", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.net.http.SocketTube$BufferSource",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.SocketTube"
+	};
+	$loadClass(SocketTube$BufferSource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketTube$BufferSource);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/SwingWorker$1.h>
-
 #include <javax/swing/SwingWorker$StateValue.h>
 #include <javax/swing/SwingWorker.h>
 #include <jcpp.h>
@@ -17,48 +16,6 @@ using $SwingWorker$StateValue = ::javax::swing::SwingWorker$StateValue;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _SwingWorker$1_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/SwingWorker;", nullptr, $FINAL | $SYNTHETIC, $field(SwingWorker$1, this$0)},
-	{}
-};
-
-$MethodInfo _SwingWorker$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/SwingWorker;)V", nullptr, 0, $method(SwingWorker$1, init$, void, $SwingWorker*)},
-	{"call", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(SwingWorker$1, call, $Object*), "java.lang.Exception"},
-	{}
-};
-
-$EnclosingMethodInfo _SwingWorker$1_EnclosingMethodInfo_ = {
-	"javax.swing.SwingWorker",
-	"<init>",
-	"()V"
-};
-
-$InnerClassInfo _SwingWorker$1_InnerClassesInfo_[] = {
-	{"javax.swing.SwingWorker$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SwingWorker$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.SwingWorker$1",
-	"java.lang.Object",
-	"java.util.concurrent.Callable",
-	_SwingWorker$1_FieldInfo_,
-	_SwingWorker$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Callable<TT;>;",
-	&_SwingWorker$1_EnclosingMethodInfo_,
-	_SwingWorker$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.SwingWorker"
-};
-
-$Object* allocate$SwingWorker$1($Class* clazz) {
-	return $of($alloc(SwingWorker$1));
-}
-
 void SwingWorker$1::init$($SwingWorker* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -66,14 +23,49 @@ void SwingWorker$1::init$($SwingWorker* this$0) {
 $Object* SwingWorker$1::call() {
 	$init($SwingWorker$StateValue);
 	this->this$0->setState($SwingWorker$StateValue::STARTED);
-	return $of(this->this$0->doInBackground());
+	return this->this$0->doInBackground();
 }
 
 SwingWorker$1::SwingWorker$1() {
 }
 
 $Class* SwingWorker$1::load$($String* name, bool initialize) {
-	$loadClass(SwingWorker$1, name, initialize, &_SwingWorker$1_ClassInfo_, allocate$SwingWorker$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/SwingWorker;", nullptr, $FINAL | $SYNTHETIC, $field(SwingWorker$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/SwingWorker;)V", nullptr, 0, $method(SwingWorker$1, init$, void, $SwingWorker*)},
+		{"call", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(SwingWorker$1, call, $Object*), "java.lang.Exception"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.SwingWorker",
+		"<init>",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.SwingWorker$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.SwingWorker$1",
+		"java.lang.Object",
+		"java.util.concurrent.Callable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Callable<TT;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.SwingWorker"
+	};
+	$loadClass(SwingWorker$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SwingWorker$1);
+	});
 	return class$;
 }
 

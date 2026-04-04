@@ -22,6 +22,7 @@ class $export XPathType$Filter : public ::java::lang::Object {
 	$class(XPathType$Filter, 0, ::java::lang::Object)
 public:
 	XPathType$Filter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* operation);
 	virtual $String* toString() override;
 	$String* operation = nullptr;

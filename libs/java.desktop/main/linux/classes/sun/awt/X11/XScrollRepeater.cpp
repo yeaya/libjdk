@@ -1,6 +1,4 @@
 #include <sun/awt/X11/XScrollRepeater.h>
-
-#include <java/lang/Runnable.h>
 #include <sun/awt/X11/XScrollbar.h>
 #include <sun/awt/X11/XToolkit.h>
 #include <jcpp.h>
@@ -8,44 +6,12 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $XScrollbar = ::sun::awt::X11::XScrollbar;
 using $XToolkit = ::sun::awt::X11::XToolkit;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XScrollRepeater_FieldInfo_[] = {
-	{"beginPause", "I", nullptr, $STATIC, $staticField(XScrollRepeater, beginPause)},
-	{"repeatPause", "I", nullptr, $STATIC, $staticField(XScrollRepeater, repeatPause)},
-	{"sb", "Lsun/awt/X11/XScrollbar;", nullptr, 0, $field(XScrollRepeater, sb)},
-	{"newScroll", "Z", nullptr, 0, $field(XScrollRepeater, newScroll)},
-	{"shouldSkip", "Z", nullptr, 0, $field(XScrollRepeater, shouldSkip)},
-	{}
-};
-
-$MethodInfo _XScrollRepeater_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/XScrollbar;)V", nullptr, 0, $method(XScrollRepeater, init$, void, $XScrollbar*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(XScrollRepeater, run, void)},
-	{"setScrollbar", "(Lsun/awt/X11/XScrollbar;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XScrollRepeater, setScrollbar, void, $XScrollbar*)},
-	{"start", "()V", nullptr, $PUBLIC, $virtualMethod(XScrollRepeater, start, void)},
-	{"stop", "()V", nullptr, $PUBLIC, $virtualMethod(XScrollRepeater, stop, void)},
-	{}
-};
-
-$ClassInfo _XScrollRepeater_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XScrollRepeater",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_XScrollRepeater_FieldInfo_,
-	_XScrollRepeater_MethodInfo_
-};
-
-$Object* allocate$XScrollRepeater($Class* clazz) {
-	return $of($alloc(XScrollRepeater));
-}
 
 int32_t XScrollRepeater::beginPause = 0;
 int32_t XScrollRepeater::repeatPause = 0;
@@ -86,7 +52,7 @@ void XScrollRepeater::run() {
 	$XToolkit::schedule(this, XScrollRepeater::repeatPause);
 }
 
-void clinit$XScrollRepeater($Class* class$) {
+void XScrollRepeater::clinit$($Class* clazz) {
 	XScrollRepeater::beginPause = 500;
 	XScrollRepeater::repeatPause = 100;
 }
@@ -95,7 +61,33 @@ XScrollRepeater::XScrollRepeater() {
 }
 
 $Class* XScrollRepeater::load$($String* name, bool initialize) {
-	$loadClass(XScrollRepeater, name, initialize, &_XScrollRepeater_ClassInfo_, clinit$XScrollRepeater, allocate$XScrollRepeater);
+	$FieldInfo fieldInfos$$[] = {
+		{"beginPause", "I", nullptr, $STATIC, $staticField(XScrollRepeater, beginPause)},
+		{"repeatPause", "I", nullptr, $STATIC, $staticField(XScrollRepeater, repeatPause)},
+		{"sb", "Lsun/awt/X11/XScrollbar;", nullptr, 0, $field(XScrollRepeater, sb)},
+		{"newScroll", "Z", nullptr, 0, $field(XScrollRepeater, newScroll)},
+		{"shouldSkip", "Z", nullptr, 0, $field(XScrollRepeater, shouldSkip)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XScrollbar;)V", nullptr, 0, $method(XScrollRepeater, init$, void, $XScrollbar*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(XScrollRepeater, run, void)},
+		{"setScrollbar", "(Lsun/awt/X11/XScrollbar;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XScrollRepeater, setScrollbar, void, $XScrollbar*)},
+		{"start", "()V", nullptr, $PUBLIC, $virtualMethod(XScrollRepeater, start, void)},
+		{"stop", "()V", nullptr, $PUBLIC, $virtualMethod(XScrollRepeater, stop, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XScrollRepeater",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XScrollRepeater, name, initialize, &classInfo$$, XScrollRepeater::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XScrollRepeater);
+	});
 	return class$;
 }
 

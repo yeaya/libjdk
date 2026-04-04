@@ -27,6 +27,7 @@ class $export bug4962534 : public ::java::lang::Object {
 	$class(bug4962534, 0, ::java::lang::Object)
 public:
 	bug4962534();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	bool checkFrameIsOutOfScreenEDT();
 	void createAndShowGUI();

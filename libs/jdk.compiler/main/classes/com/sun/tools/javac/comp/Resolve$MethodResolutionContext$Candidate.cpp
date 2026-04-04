@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$MethodResolutionContext$Candidate.h>
-
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/comp/Resolve$MethodResolutionContext.h>
@@ -23,47 +22,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Resolve$MethodResolutionContext$Candidate_FieldInfo_[] = {
-	{"this$1", "Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$MethodResolutionContext$Candidate, this$1)},
-	{"step", "Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;", nullptr, $FINAL, $field(Resolve$MethodResolutionContext$Candidate, step)},
-	{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $FINAL, $field(Resolve$MethodResolutionContext$Candidate, sym)},
-	{"details", "Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $FINAL, $field(Resolve$MethodResolutionContext$Candidate, details)},
-	{"mtype", "Lcom/sun/tools/javac/code/Type;", nullptr, $FINAL, $field(Resolve$MethodResolutionContext$Candidate, mtype)},
-	{}
-};
-
-$MethodInfo _Resolve$MethodResolutionContext$Candidate_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PRIVATE, $method(Resolve$MethodResolutionContext$Candidate, init$, void, $Resolve$MethodResolutionContext*, $Resolve$MethodResolutionPhase*, $Symbol*, $JCDiagnostic*, $Type*)},
-	{"isApplicable", "()Z", nullptr, 0, $virtualMethod(Resolve$MethodResolutionContext$Candidate, isApplicable, bool)},
-	{}
-};
-
-$InnerClassInfo _Resolve$MethodResolutionContext$Candidate_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$MethodResolutionContext", "com.sun.tools.javac.comp.Resolve", "MethodResolutionContext", 0},
-	{"com.sun.tools.javac.comp.Resolve$MethodResolutionContext$Candidate", "com.sun.tools.javac.comp.Resolve$MethodResolutionContext", "Candidate", 0},
-	{}
-};
-
-$ClassInfo _Resolve$MethodResolutionContext$Candidate_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Resolve$MethodResolutionContext$Candidate",
-	"java.lang.Object",
-	nullptr,
-	_Resolve$MethodResolutionContext$Candidate_FieldInfo_,
-	_Resolve$MethodResolutionContext$Candidate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Resolve$MethodResolutionContext$Candidate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$MethodResolutionContext$Candidate($Class* clazz) {
-	return $of($alloc(Resolve$MethodResolutionContext$Candidate));
-}
-
 void Resolve$MethodResolutionContext$Candidate::init$($Resolve$MethodResolutionContext* this$1, $Resolve$MethodResolutionPhase* step, $Symbol* sym, $JCDiagnostic* details, $Type* mtype) {
 	$set(this, this$1, this$1);
 	$set(this, step, step);
@@ -80,7 +38,42 @@ Resolve$MethodResolutionContext$Candidate::Resolve$MethodResolutionContext$Candi
 }
 
 $Class* Resolve$MethodResolutionContext$Candidate::load$($String* name, bool initialize) {
-	$loadClass(Resolve$MethodResolutionContext$Candidate, name, initialize, &_Resolve$MethodResolutionContext$Candidate_ClassInfo_, allocate$Resolve$MethodResolutionContext$Candidate);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$MethodResolutionContext$Candidate, this$1)},
+		{"step", "Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;", nullptr, $FINAL, $field(Resolve$MethodResolutionContext$Candidate, step)},
+		{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $FINAL, $field(Resolve$MethodResolutionContext$Candidate, sym)},
+		{"details", "Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $FINAL, $field(Resolve$MethodResolutionContext$Candidate, details)},
+		{"mtype", "Lcom/sun/tools/javac/code/Type;", nullptr, $FINAL, $field(Resolve$MethodResolutionContext$Candidate, mtype)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PRIVATE, $method(Resolve$MethodResolutionContext$Candidate, init$, void, $Resolve$MethodResolutionContext*, $Resolve$MethodResolutionPhase*, $Symbol*, $JCDiagnostic*, $Type*)},
+		{"isApplicable", "()Z", nullptr, 0, $virtualMethod(Resolve$MethodResolutionContext$Candidate, isApplicable, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$MethodResolutionContext", "com.sun.tools.javac.comp.Resolve", "MethodResolutionContext", 0},
+		{"com.sun.tools.javac.comp.Resolve$MethodResolutionContext$Candidate", "com.sun.tools.javac.comp.Resolve$MethodResolutionContext", "Candidate", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Resolve$MethodResolutionContext$Candidate",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$MethodResolutionContext$Candidate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$MethodResolutionContext$Candidate);
+	});
 	return class$;
 }
 

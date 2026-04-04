@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsCheckBoxUI.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsRadioButtonUI.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/Icon.h>
@@ -29,35 +28,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsCheckBoxUI_FieldInfo_[] = {
-	{"WINDOWS_CHECK_BOX_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsCheckBoxUI, WINDOWS_CHECK_BOX_UI_KEY)},
-	{"propertyPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsCheckBoxUI, propertyPrefix)},
-	{"defaults_initialized", "Z", nullptr, $PRIVATE, $field(WindowsCheckBoxUI, defaults_initialized)},
-	{}
-};
-
-$MethodInfo _WindowsCheckBoxUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsCheckBoxUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsCheckBoxUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsCheckBoxUI, getPropertyPrefix, $String*)},
-	{"installDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $virtualMethod(WindowsCheckBoxUI, installDefaults, void, $AbstractButton*)},
-	{"uninstallDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $virtualMethod(WindowsCheckBoxUI, uninstallDefaults, void, $AbstractButton*)},
-	{}
-};
-
-$ClassInfo _WindowsCheckBoxUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsCheckBoxUI",
-	"com.sun.java.swing.plaf.windows.WindowsRadioButtonUI",
-	nullptr,
-	_WindowsCheckBoxUI_FieldInfo_,
-	_WindowsCheckBoxUI_MethodInfo_
-};
-
-$Object* allocate$WindowsCheckBoxUI($Class* clazz) {
-	return $of($alloc(WindowsCheckBoxUI));
-}
-
 $Object* WindowsCheckBoxUI::WINDOWS_CHECK_BOX_UI_KEY = nullptr;
 $String* WindowsCheckBoxUI::propertyPrefix = nullptr;
 
@@ -68,7 +38,7 @@ void WindowsCheckBoxUI::init$() {
 
 $ComponentUI* WindowsCheckBoxUI::createUI($JComponent* c) {
 	$init(WindowsCheckBoxUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, appContext, $AppContext::getAppContext());
 	$var(WindowsCheckBoxUI, windowsCheckBoxUI, $cast(WindowsCheckBoxUI, $nc(appContext)->get(WindowsCheckBoxUI::WINDOWS_CHECK_BOX_UI_KEY)));
 	if (windowsCheckBoxUI == nullptr) {
@@ -83,7 +53,7 @@ $String* WindowsCheckBoxUI::getPropertyPrefix() {
 }
 
 void WindowsCheckBoxUI::installDefaults($AbstractButton* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$WindowsRadioButtonUI::installDefaults(b);
 	if (!this->defaults_initialized) {
 		$set(this, icon, $UIManager::getIcon($$str({$(getPropertyPrefix()), "icon"_s})));
@@ -96,7 +66,7 @@ void WindowsCheckBoxUI::uninstallDefaults($AbstractButton* b) {
 	this->defaults_initialized = false;
 }
 
-void clinit$WindowsCheckBoxUI($Class* class$) {
+void WindowsCheckBoxUI::clinit$($Class* clazz) {
 	$assignStatic(WindowsCheckBoxUI::propertyPrefix, "CheckBox."_s);
 	$assignStatic(WindowsCheckBoxUI::WINDOWS_CHECK_BOX_UI_KEY, $new($Object));
 }
@@ -105,7 +75,31 @@ WindowsCheckBoxUI::WindowsCheckBoxUI() {
 }
 
 $Class* WindowsCheckBoxUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsCheckBoxUI, name, initialize, &_WindowsCheckBoxUI_ClassInfo_, clinit$WindowsCheckBoxUI, allocate$WindowsCheckBoxUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"WINDOWS_CHECK_BOX_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsCheckBoxUI, WINDOWS_CHECK_BOX_UI_KEY)},
+		{"propertyPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsCheckBoxUI, propertyPrefix)},
+		{"defaults_initialized", "Z", nullptr, $PRIVATE, $field(WindowsCheckBoxUI, defaults_initialized)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsCheckBoxUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsCheckBoxUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsCheckBoxUI, getPropertyPrefix, $String*)},
+		{"installDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $virtualMethod(WindowsCheckBoxUI, installDefaults, void, $AbstractButton*)},
+		{"uninstallDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $virtualMethod(WindowsCheckBoxUI, uninstallDefaults, void, $AbstractButton*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsCheckBoxUI",
+		"com.sun.java.swing.plaf.windows.WindowsRadioButtonUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WindowsCheckBoxUI, name, initialize, &classInfo$$, WindowsCheckBoxUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsCheckBoxUI);
+	});
 	return class$;
 }
 

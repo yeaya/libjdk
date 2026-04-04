@@ -1,5 +1,4 @@
 #include <sun/awt/SunToolkit$IllegalThreadException.h>
-
 #include <sun/awt/SunToolkit.h>
 #include <jcpp.h>
 
@@ -10,37 +9,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 
 namespace sun {
 	namespace awt {
-
-$MethodInfo _SunToolkit$IllegalThreadException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SunToolkit$IllegalThreadException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SunToolkit$IllegalThreadException, init$, void)},
-	{}
-};
-
-$InnerClassInfo _SunToolkit$IllegalThreadException_InnerClassesInfo_[] = {
-	{"sun.awt.SunToolkit$IllegalThreadException", "sun.awt.SunToolkit", "IllegalThreadException", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _SunToolkit$IllegalThreadException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.SunToolkit$IllegalThreadException",
-	"java.lang.RuntimeException",
-	nullptr,
-	nullptr,
-	_SunToolkit$IllegalThreadException_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SunToolkit$IllegalThreadException_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.SunToolkit"
-};
-
-$Object* allocate$SunToolkit$IllegalThreadException($Class* clazz) {
-	return $of($alloc(SunToolkit$IllegalThreadException));
-}
 
 void SunToolkit$IllegalThreadException::init$($String* msg) {
 	$RuntimeException::init$(msg);
@@ -61,7 +29,33 @@ void SunToolkit$IllegalThreadException::throw$() {
 }
 
 $Class* SunToolkit$IllegalThreadException::load$($String* name, bool initialize) {
-	$loadClass(SunToolkit$IllegalThreadException, name, initialize, &_SunToolkit$IllegalThreadException_ClassInfo_, allocate$SunToolkit$IllegalThreadException);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SunToolkit$IllegalThreadException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SunToolkit$IllegalThreadException, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.SunToolkit$IllegalThreadException", "sun.awt.SunToolkit", "IllegalThreadException", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.SunToolkit$IllegalThreadException",
+		"java.lang.RuntimeException",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.SunToolkit"
+	};
+	$loadClass(SunToolkit$IllegalThreadException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SunToolkit$IllegalThreadException);
+	});
 	return class$;
 }
 

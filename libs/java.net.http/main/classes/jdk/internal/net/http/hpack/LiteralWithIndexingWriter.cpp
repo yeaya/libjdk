@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/hpack/LiteralWithIndexingWriter.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/nio/ByteBuffer.h>
 #include <jdk/internal/net/http/hpack/HeaderTable.h>
@@ -20,37 +19,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 				namespace hpack {
-
-$FieldInfo _LiteralWithIndexingWriter_FieldInfo_[] = {
-	{"tableUpdated", "Z", nullptr, $PRIVATE, $field(LiteralWithIndexingWriter, tableUpdated)},
-	{"name", "Ljava/lang/CharSequence;", nullptr, $PRIVATE, $field(LiteralWithIndexingWriter, name$)},
-	{"value", "Ljava/lang/CharSequence;", nullptr, $PRIVATE, $field(LiteralWithIndexingWriter, value$)},
-	{"index", "I", nullptr, $PRIVATE, $field(LiteralWithIndexingWriter, index$)},
-	{}
-};
-
-$MethodInfo _LiteralWithIndexingWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(LiteralWithIndexingWriter, init$, void)},
-	{"index", "(I)Ljdk/internal/net/http/hpack/LiteralWithIndexingWriter;", nullptr, 0, $virtualMethod(LiteralWithIndexingWriter, index, LiteralWithIndexingWriter*, int32_t)},
-	{"name", "(Ljava/lang/CharSequence;Z)Ljdk/internal/net/http/hpack/LiteralWithIndexingWriter;", nullptr, 0, $virtualMethod(LiteralWithIndexingWriter, name, LiteralWithIndexingWriter*, $CharSequence*, bool)},
-	{"reset", "()Ljdk/internal/net/http/hpack/IndexNameValueWriter;", nullptr, $PUBLIC, $virtualMethod(LiteralWithIndexingWriter, reset, $IndexNameValueWriter*)},
-	{"value", "(Ljava/lang/CharSequence;Z)Ljdk/internal/net/http/hpack/LiteralWithIndexingWriter;", nullptr, 0, $virtualMethod(LiteralWithIndexingWriter, value, LiteralWithIndexingWriter*, $CharSequence*, bool)},
-	{"write", "(Ljdk/internal/net/http/hpack/HeaderTable;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(LiteralWithIndexingWriter, write, bool, $HeaderTable*, $ByteBuffer*)},
-	{}
-};
-
-$ClassInfo _LiteralWithIndexingWriter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.hpack.LiteralWithIndexingWriter",
-	"jdk.internal.net.http.hpack.IndexNameValueWriter",
-	nullptr,
-	_LiteralWithIndexingWriter_FieldInfo_,
-	_LiteralWithIndexingWriter_MethodInfo_
-};
-
-$Object* allocate$LiteralWithIndexingWriter($Class* clazz) {
-	return $of($alloc(LiteralWithIndexingWriter));
-}
 
 void LiteralWithIndexingWriter::init$() {
 	$IndexNameValueWriter::init$(64, 6);
@@ -75,7 +43,7 @@ LiteralWithIndexingWriter* LiteralWithIndexingWriter::value($CharSequence* value
 }
 
 bool LiteralWithIndexingWriter::write($HeaderTable* table, $ByteBuffer* destination) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->tableUpdated) {
 		$var($CharSequence, n, nullptr);
 		if (this->indexedRepresentation) {
@@ -101,7 +69,33 @@ LiteralWithIndexingWriter::LiteralWithIndexingWriter() {
 }
 
 $Class* LiteralWithIndexingWriter::load$($String* name, bool initialize) {
-	$loadClass(LiteralWithIndexingWriter, name, initialize, &_LiteralWithIndexingWriter_ClassInfo_, allocate$LiteralWithIndexingWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"tableUpdated", "Z", nullptr, $PRIVATE, $field(LiteralWithIndexingWriter, tableUpdated)},
+		{"name", "Ljava/lang/CharSequence;", nullptr, $PRIVATE, $field(LiteralWithIndexingWriter, name$)},
+		{"value", "Ljava/lang/CharSequence;", nullptr, $PRIVATE, $field(LiteralWithIndexingWriter, value$)},
+		{"index", "I", nullptr, $PRIVATE, $field(LiteralWithIndexingWriter, index$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(LiteralWithIndexingWriter, init$, void)},
+		{"index", "(I)Ljdk/internal/net/http/hpack/LiteralWithIndexingWriter;", nullptr, 0, $virtualMethod(LiteralWithIndexingWriter, index, LiteralWithIndexingWriter*, int32_t)},
+		{"name", "(Ljava/lang/CharSequence;Z)Ljdk/internal/net/http/hpack/LiteralWithIndexingWriter;", nullptr, 0, $virtualMethod(LiteralWithIndexingWriter, name, LiteralWithIndexingWriter*, $CharSequence*, bool)},
+		{"reset", "()Ljdk/internal/net/http/hpack/IndexNameValueWriter;", nullptr, $PUBLIC, $virtualMethod(LiteralWithIndexingWriter, reset, $IndexNameValueWriter*)},
+		{"value", "(Ljava/lang/CharSequence;Z)Ljdk/internal/net/http/hpack/LiteralWithIndexingWriter;", nullptr, 0, $virtualMethod(LiteralWithIndexingWriter, value, LiteralWithIndexingWriter*, $CharSequence*, bool)},
+		{"write", "(Ljdk/internal/net/http/hpack/HeaderTable;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(LiteralWithIndexingWriter, write, bool, $HeaderTable*, $ByteBuffer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.hpack.LiteralWithIndexingWriter",
+		"jdk.internal.net.http.hpack.IndexNameValueWriter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LiteralWithIndexingWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LiteralWithIndexingWriter);
+	});
 	return class$;
 }
 

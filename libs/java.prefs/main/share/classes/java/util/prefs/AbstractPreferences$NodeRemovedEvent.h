@@ -24,7 +24,7 @@ public:
 	AbstractPreferences$NodeRemovedEvent();
 	void init$(::java::util::prefs::AbstractPreferences* this$0, ::java::util::prefs::Preferences* parent, ::java::util::prefs::Preferences* child);
 	::java::util::prefs::AbstractPreferences* this$0 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x793AB898A1470785;
+	static const int64_t serialVersionUID = (int64_t)0x793ab898a1470785;
 };
 
 		} // prefs

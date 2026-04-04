@@ -1,5 +1,4 @@
 #include <javax/lang/model/type/TypeKind$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <javax/lang/model/type/TypeKind.h>
 #include <jcpp.h>
@@ -25,77 +24,41 @@ namespace javax {
 		namespace model {
 			namespace type {
 
-$FieldInfo _TypeKind$1_FieldInfo_[] = {
-	{"$SwitchMap$javax$lang$model$type$TypeKind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TypeKind$1, $SwitchMap$javax$lang$model$type$TypeKind)},
-	{}
-};
-
-$EnclosingMethodInfo _TypeKind$1_EnclosingMethodInfo_ = {
-	"javax.lang.model.type.TypeKind",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _TypeKind$1_InnerClassesInfo_[] = {
-	{"javax.lang.model.type.TypeKind$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _TypeKind$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"javax.lang.model.type.TypeKind$1",
-	"java.lang.Object",
-	nullptr,
-	_TypeKind$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_TypeKind$1_EnclosingMethodInfo_,
-	_TypeKind$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.lang.model.type.TypeKind"
-};
-
-$Object* allocate$TypeKind$1($Class* clazz) {
-	return $of($alloc(TypeKind$1));
-}
-
 $ints* TypeKind$1::$SwitchMap$javax$lang$model$type$TypeKind = nullptr;
 
-void clinit$TypeKind$1($Class* class$) {
+void TypeKind$1::clinit$($Class* clazz) {
 	$assignStatic(TypeKind$1::$SwitchMap$javax$lang$model$type$TypeKind, $new($ints, $($TypeKind::values())->length));
 	{
 		try {
-			$nc(TypeKind$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::BOOLEAN->ordinal(), 1);
+			TypeKind$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::BOOLEAN->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TypeKind$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::BYTE->ordinal(), 2);
+			TypeKind$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::BYTE->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TypeKind$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::SHORT->ordinal(), 3);
+			TypeKind$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::SHORT->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TypeKind$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::INT->ordinal(), 4);
+			TypeKind$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::INT->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TypeKind$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::LONG->ordinal(), 5);
+			TypeKind$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::LONG->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TypeKind$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::CHAR->ordinal(), 6);
+			TypeKind$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::CHAR->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TypeKind$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::FLOAT->ordinal(), 7);
+			TypeKind$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::FLOAT->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TypeKind$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::DOUBLE->ordinal(), 8);
+			TypeKind$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::DOUBLE->ordinal(), 8);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -105,7 +68,37 @@ TypeKind$1::TypeKind$1() {
 }
 
 $Class* TypeKind$1::load$($String* name, bool initialize) {
-	$loadClass(TypeKind$1, name, initialize, &_TypeKind$1_ClassInfo_, clinit$TypeKind$1, allocate$TypeKind$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$javax$lang$model$type$TypeKind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TypeKind$1, $SwitchMap$javax$lang$model$type$TypeKind)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.lang.model.type.TypeKind",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.lang.model.type.TypeKind$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"javax.lang.model.type.TypeKind$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.lang.model.type.TypeKind"
+	};
+	$loadClass(TypeKind$1, name, initialize, &classInfo$$, TypeKind$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeKind$1);
+	});
 	return class$;
 }
 

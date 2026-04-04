@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalBorders$RolloverMarginBorder.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Insets.h>
 #include <javax/swing/AbstractButton.h>
@@ -22,37 +21,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$MethodInfo _MetalBorders$RolloverMarginBorder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalBorders$RolloverMarginBorder, init$, void)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MetalBorders$RolloverMarginBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{}
-};
-
-$InnerClassInfo _MetalBorders$RolloverMarginBorder_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalBorders$RolloverMarginBorder", "javax.swing.plaf.metal.MetalBorders", "RolloverMarginBorder", $STATIC},
-	{}
-};
-
-$ClassInfo _MetalBorders$RolloverMarginBorder_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalBorders$RolloverMarginBorder",
-	"javax.swing.border.EmptyBorder",
-	nullptr,
-	nullptr,
-	_MetalBorders$RolloverMarginBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalBorders$RolloverMarginBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalBorders"
-};
-
-$Object* allocate$MetalBorders$RolloverMarginBorder($Class* clazz) {
-	return $of($alloc(MetalBorders$RolloverMarginBorder));
-}
-
 void MetalBorders$RolloverMarginBorder::init$() {
 	$EmptyBorder::init$(3, 3, 3, 3);
 }
@@ -60,7 +28,7 @@ void MetalBorders$RolloverMarginBorder::init$() {
 $Insets* MetalBorders$RolloverMarginBorder::getBorderInsets($Component* c, $Insets* insets) {
 	$var($Insets, margin, nullptr);
 	if ($instanceOf($AbstractButton, c)) {
-		$assign(margin, $nc(($cast($AbstractButton, c)))->getMargin());
+		$assign(margin, $cast($AbstractButton, c)->getMargin());
 	}
 	if (margin == nullptr || $instanceOf($UIResource, margin)) {
 		$nc(insets)->left = this->left;
@@ -68,7 +36,7 @@ $Insets* MetalBorders$RolloverMarginBorder::getBorderInsets($Component* c, $Inse
 		insets->right = this->right;
 		insets->bottom = this->bottom;
 	} else {
-		$nc(insets)->left = $nc(margin)->left;
+		$nc(insets)->left = margin->left;
 		insets->top = margin->top;
 		insets->right = margin->right;
 		insets->bottom = margin->bottom;
@@ -80,7 +48,33 @@ MetalBorders$RolloverMarginBorder::MetalBorders$RolloverMarginBorder() {
 }
 
 $Class* MetalBorders$RolloverMarginBorder::load$($String* name, bool initialize) {
-	$loadClass(MetalBorders$RolloverMarginBorder, name, initialize, &_MetalBorders$RolloverMarginBorder_ClassInfo_, allocate$MetalBorders$RolloverMarginBorder);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalBorders$RolloverMarginBorder, init$, void)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MetalBorders$RolloverMarginBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalBorders$RolloverMarginBorder", "javax.swing.plaf.metal.MetalBorders", "RolloverMarginBorder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalBorders$RolloverMarginBorder",
+		"javax.swing.border.EmptyBorder",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalBorders"
+	};
+	$loadClass(MetalBorders$RolloverMarginBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalBorders$RolloverMarginBorder));
+	});
 	return class$;
 }
 

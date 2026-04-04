@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicLabelUI$Actions.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/event/ActionEvent.h>
@@ -46,47 +45,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicLabelUI$Actions_FieldInfo_[] = {
-	{"PRESS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicLabelUI$Actions, PRESS)},
-	{"RELEASE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicLabelUI$Actions, RELEASE)},
-	{}
-};
-
-$MethodInfo _BasicLabelUI$Actions_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicLabelUI$Actions, init$, void, $String*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicLabelUI$Actions, actionPerformed, void, $ActionEvent*)},
-	{"doPress", "(Ljavax/swing/JLabel;)V", nullptr, $PRIVATE, $method(BasicLabelUI$Actions, doPress, void, $JLabel*)},
-	{"doRelease", "(Ljavax/swing/JLabel;Z)V", nullptr, $PRIVATE, $method(BasicLabelUI$Actions, doRelease, void, $JLabel*, bool)},
-	{"putOnRelease", "(Ljavax/swing/InputMap;II)V", nullptr, $PRIVATE, $method(BasicLabelUI$Actions, putOnRelease, void, $InputMap*, int32_t, int32_t)},
-	{"removeOnRelease", "(Ljavax/swing/InputMap;II)V", nullptr, $PRIVATE, $method(BasicLabelUI$Actions, removeOnRelease, void, $InputMap*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _BasicLabelUI$Actions_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicLabelUI$Actions", "javax.swing.plaf.basic.BasicLabelUI", "Actions", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicLabelUI$Actions_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicLabelUI$Actions",
-	"sun.swing.UIAction",
-	nullptr,
-	_BasicLabelUI$Actions_FieldInfo_,
-	_BasicLabelUI$Actions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicLabelUI$Actions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicLabelUI"
-};
-
-$Object* allocate$BasicLabelUI$Actions($Class* clazz) {
-	return $of($alloc(BasicLabelUI$Actions));
-}
-
 $String* BasicLabelUI$Actions::PRESS = nullptr;
 $String* BasicLabelUI$Actions::RELEASE = nullptr;
 
@@ -95,7 +53,7 @@ void BasicLabelUI$Actions::init$($String* key) {
 }
 
 void BasicLabelUI$Actions::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JLabel, label, $cast($JLabel, $nc(e)->getSource()));
 	$var($String, key, getName());
 	if (key == BasicLabelUI$Actions::PRESS) {
@@ -106,7 +64,7 @@ void BasicLabelUI$Actions::actionPerformed($ActionEvent* e) {
 }
 
 void BasicLabelUI$Actions::doPress($JLabel* label) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, labelFor, $nc(label)->getLabelFor());
 	if (labelFor != nullptr && labelFor->isEnabled()) {
 		$var($InputMap, inputMap, $SwingUtilities::getUIInputMap(label, $JComponent::WHEN_FOCUSED));
@@ -124,7 +82,7 @@ void BasicLabelUI$Actions::doPress($JLabel* label) {
 }
 
 void BasicLabelUI$Actions::doRelease($JLabel* label, bool isCommand) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, labelFor, $nc(label)->getLabelFor());
 	if (labelFor != nullptr && labelFor->isEnabled()) {
 		if (label->hasFocus()) {
@@ -149,7 +107,7 @@ void BasicLabelUI$Actions::doRelease($JLabel* label, bool isCommand) {
 				putOnRelease(inputMap, dka, $SwingUtilities2::setAltGraphMask($BasicLookAndFeel::getFocusAcceleratorKeyMask()));
 				putOnRelease(inputMap, dka, 0);
 			}
-			if ($instanceOf($Container, labelFor) && $nc(($cast($Container, labelFor)))->isFocusCycleRoot()) {
+			if ($instanceOf($Container, labelFor) && $cast($Container, labelFor)->isFocusCycleRoot()) {
 				labelFor->requestFocus();
 			} else {
 				$SwingUtilities2::compositeRequestFocus(labelFor);
@@ -181,13 +139,48 @@ void BasicLabelUI$Actions::removeOnRelease($InputMap* inputMap, int32_t keyCode,
 BasicLabelUI$Actions::BasicLabelUI$Actions() {
 }
 
-void clinit$BasicLabelUI$Actions($Class* class$) {
+void BasicLabelUI$Actions::clinit$($Class* clazz) {
 	$assignStatic(BasicLabelUI$Actions::PRESS, "press"_s);
 	$assignStatic(BasicLabelUI$Actions::RELEASE, "release"_s);
 }
 
 $Class* BasicLabelUI$Actions::load$($String* name, bool initialize) {
-	$loadClass(BasicLabelUI$Actions, name, initialize, &_BasicLabelUI$Actions_ClassInfo_, clinit$BasicLabelUI$Actions, allocate$BasicLabelUI$Actions);
+	$FieldInfo fieldInfos$$[] = {
+		{"PRESS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicLabelUI$Actions, PRESS)},
+		{"RELEASE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicLabelUI$Actions, RELEASE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicLabelUI$Actions, init$, void, $String*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicLabelUI$Actions, actionPerformed, void, $ActionEvent*)},
+		{"doPress", "(Ljavax/swing/JLabel;)V", nullptr, $PRIVATE, $method(BasicLabelUI$Actions, doPress, void, $JLabel*)},
+		{"doRelease", "(Ljavax/swing/JLabel;Z)V", nullptr, $PRIVATE, $method(BasicLabelUI$Actions, doRelease, void, $JLabel*, bool)},
+		{"putOnRelease", "(Ljavax/swing/InputMap;II)V", nullptr, $PRIVATE, $method(BasicLabelUI$Actions, putOnRelease, void, $InputMap*, int32_t, int32_t)},
+		{"removeOnRelease", "(Ljavax/swing/InputMap;II)V", nullptr, $PRIVATE, $method(BasicLabelUI$Actions, removeOnRelease, void, $InputMap*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicLabelUI$Actions", "javax.swing.plaf.basic.BasicLabelUI", "Actions", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicLabelUI$Actions",
+		"sun.swing.UIAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicLabelUI"
+	};
+	$loadClass(BasicLabelUI$Actions, name, initialize, &classInfo$$, BasicLabelUI$Actions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicLabelUI$Actions);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/naming/event/NamingExceptionEvent.h>
-
 #include <java/util/EventObject.h>
 #include <javax/naming/NamingException.h>
 #include <javax/naming/event/EventContext.h>
@@ -17,33 +16,6 @@ using $NamingListener = ::javax::naming::event::NamingListener;
 namespace javax {
 	namespace naming {
 		namespace event {
-
-$FieldInfo _NamingExceptionEvent_FieldInfo_[] = {
-	{"exception", "Ljavax/naming/NamingException;", nullptr, $PRIVATE, $field(NamingExceptionEvent, exception)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NamingExceptionEvent, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NamingExceptionEvent_MethodInfo_[] = {
-	{"<init>", "(Ljavax/naming/event/EventContext;Ljavax/naming/NamingException;)V", nullptr, $PUBLIC, $method(NamingExceptionEvent, init$, void, $EventContext*, $NamingException*)},
-	{"dispatch", "(Ljavax/naming/event/NamingListener;)V", nullptr, $PUBLIC, $virtualMethod(NamingExceptionEvent, dispatch, void, $NamingListener*)},
-	{"getEventContext", "()Ljavax/naming/event/EventContext;", nullptr, $PUBLIC, $virtualMethod(NamingExceptionEvent, getEventContext, $EventContext*)},
-	{"getException", "()Ljavax/naming/NamingException;", nullptr, $PUBLIC, $virtualMethod(NamingExceptionEvent, getException, $NamingException*)},
-	{}
-};
-
-$ClassInfo _NamingExceptionEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.event.NamingExceptionEvent",
-	"java.util.EventObject",
-	nullptr,
-	_NamingExceptionEvent_FieldInfo_,
-	_NamingExceptionEvent_MethodInfo_
-};
-
-$Object* allocate$NamingExceptionEvent($Class* clazz) {
-	return $of($alloc(NamingExceptionEvent));
-}
 
 void NamingExceptionEvent::init$($EventContext* source, $NamingException* exc) {
 	$EventObject::init$(source);
@@ -66,7 +38,29 @@ NamingExceptionEvent::NamingExceptionEvent() {
 }
 
 $Class* NamingExceptionEvent::load$($String* name, bool initialize) {
-	$loadClass(NamingExceptionEvent, name, initialize, &_NamingExceptionEvent_ClassInfo_, allocate$NamingExceptionEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"exception", "Ljavax/naming/NamingException;", nullptr, $PRIVATE, $field(NamingExceptionEvent, exception)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NamingExceptionEvent, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/naming/event/EventContext;Ljavax/naming/NamingException;)V", nullptr, $PUBLIC, $method(NamingExceptionEvent, init$, void, $EventContext*, $NamingException*)},
+		{"dispatch", "(Ljavax/naming/event/NamingListener;)V", nullptr, $PUBLIC, $virtualMethod(NamingExceptionEvent, dispatch, void, $NamingListener*)},
+		{"getEventContext", "()Ljavax/naming/event/EventContext;", nullptr, $PUBLIC, $virtualMethod(NamingExceptionEvent, getEventContext, $EventContext*)},
+		{"getException", "()Ljavax/naming/NamingException;", nullptr, $PUBLIC, $virtualMethod(NamingExceptionEvent, getException, $NamingException*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.event.NamingExceptionEvent",
+		"java.util.EventObject",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NamingExceptionEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NamingExceptionEvent);
+	});
 	return class$;
 }
 

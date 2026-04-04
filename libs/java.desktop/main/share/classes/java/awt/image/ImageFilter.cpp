@@ -1,5 +1,4 @@
 #include <java/awt/image/ImageFilter.h>
-
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/ImageConsumer.h>
 #include <java/awt/image/ImageProducer.h>
@@ -21,43 +20,6 @@ using $Hashtable = ::java::util::Hashtable;
 namespace java {
 	namespace awt {
 		namespace image {
-
-$FieldInfo _ImageFilter_FieldInfo_[] = {
-	{"consumer", "Ljava/awt/image/ImageConsumer;", nullptr, $PROTECTED, $field(ImageFilter, consumer)},
-	{}
-};
-
-$MethodInfo _ImageFilter_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ImageFilter, init$, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ImageFilter, clone, $Object*)},
-	{"getFilterInstance", "(Ljava/awt/image/ImageConsumer;)Ljava/awt/image/ImageFilter;", nullptr, $PUBLIC, $virtualMethod(ImageFilter, getFilterInstance, ImageFilter*, $ImageConsumer*)},
-	{"imageComplete", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImageFilter, imageComplete, void, int32_t)},
-	{"resendTopDownLeftRight", "(Ljava/awt/image/ImageProducer;)V", nullptr, $PUBLIC, $virtualMethod(ImageFilter, resendTopDownLeftRight, void, $ImageProducer*)},
-	{"setColorModel", "(Ljava/awt/image/ColorModel;)V", nullptr, $PUBLIC, $virtualMethod(ImageFilter, setColorModel, void, $ColorModel*)},
-	{"setDimensions", "(II)V", nullptr, $PUBLIC, $virtualMethod(ImageFilter, setDimensions, void, int32_t, int32_t)},
-	{"setHints", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImageFilter, setHints, void, int32_t)},
-	{"setPixels", "(IIIILjava/awt/image/ColorModel;[BII)V", nullptr, $PUBLIC, $virtualMethod(ImageFilter, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $bytes*, int32_t, int32_t)},
-	{"setPixels", "(IIIILjava/awt/image/ColorModel;[III)V", nullptr, $PUBLIC, $virtualMethod(ImageFilter, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $ints*, int32_t, int32_t)},
-	{"setProperties", "(Ljava/util/Hashtable;)V", "(Ljava/util/Hashtable<**>;)V", $PUBLIC, $virtualMethod(ImageFilter, setProperties, void, $Hashtable*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ImageFilter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.image.ImageFilter",
-	"java.lang.Object",
-	"java.awt.image.ImageConsumer,java.lang.Cloneable",
-	_ImageFilter_FieldInfo_,
-	_ImageFilter_MethodInfo_
-};
-
-$Object* allocate$ImageFilter($Class* clazz) {
-	return $of($alloc(ImageFilter));
-}
 
 int32_t ImageFilter::hashCode() {
 	 return this->$ImageConsumer::hashCode();
@@ -89,13 +51,13 @@ void ImageFilter::setDimensions(int32_t width, int32_t height) {
 }
 
 void ImageFilter::setProperties($Hashtable* props) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Hashtable, p, $cast($Hashtable, $nc(props)->clone()));
 	$var($Object, o, $nc(p)->get("filters"_s));
 	if (o == nullptr) {
 		p->put("filters"_s, $(toString()));
 	} else if ($instanceOf($String, o)) {
-		p->put("filters"_s, $$str({($cast($String, o)), $(toString())}));
+		p->put("filters"_s, $$str({$cast($String, o), $(toString())}));
 	}
 	$nc(this->consumer)->setProperties(p);
 }
@@ -126,9 +88,9 @@ void ImageFilter::resendTopDownLeftRight($ImageProducer* ip) {
 
 $Object* ImageFilter::clone() {
 	try {
-		return $of($ImageConsumer::clone());
+		return $ImageConsumer::clone();
 	} catch ($CloneNotSupportedException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
 }
@@ -137,7 +99,39 @@ ImageFilter::ImageFilter() {
 }
 
 $Class* ImageFilter::load$($String* name, bool initialize) {
-	$loadClass(ImageFilter, name, initialize, &_ImageFilter_ClassInfo_, allocate$ImageFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"consumer", "Ljava/awt/image/ImageConsumer;", nullptr, $PROTECTED, $field(ImageFilter, consumer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ImageFilter, init$, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ImageFilter, clone, $Object*)},
+		{"getFilterInstance", "(Ljava/awt/image/ImageConsumer;)Ljava/awt/image/ImageFilter;", nullptr, $PUBLIC, $virtualMethod(ImageFilter, getFilterInstance, ImageFilter*, $ImageConsumer*)},
+		{"imageComplete", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImageFilter, imageComplete, void, int32_t)},
+		{"resendTopDownLeftRight", "(Ljava/awt/image/ImageProducer;)V", nullptr, $PUBLIC, $virtualMethod(ImageFilter, resendTopDownLeftRight, void, $ImageProducer*)},
+		{"setColorModel", "(Ljava/awt/image/ColorModel;)V", nullptr, $PUBLIC, $virtualMethod(ImageFilter, setColorModel, void, $ColorModel*)},
+		{"setDimensions", "(II)V", nullptr, $PUBLIC, $virtualMethod(ImageFilter, setDimensions, void, int32_t, int32_t)},
+		{"setHints", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImageFilter, setHints, void, int32_t)},
+		{"setPixels", "(IIIILjava/awt/image/ColorModel;[BII)V", nullptr, $PUBLIC, $virtualMethod(ImageFilter, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $bytes*, int32_t, int32_t)},
+		{"setPixels", "(IIIILjava/awt/image/ColorModel;[III)V", nullptr, $PUBLIC, $virtualMethod(ImageFilter, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $ints*, int32_t, int32_t)},
+		{"setProperties", "(Ljava/util/Hashtable;)V", "(Ljava/util/Hashtable<**>;)V", $PUBLIC, $virtualMethod(ImageFilter, setProperties, void, $Hashtable*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.image.ImageFilter",
+		"java.lang.Object",
+		"java.awt.image.ImageConsumer,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ImageFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ImageFilter));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/XMLStringFactoryDefault.h>
-
 #include <com/sun/org/apache/xml/internal/utils/FastStringBuffer.h>
 #include <com/sun/org/apache/xml/internal/utils/XMLString.h>
 #include <com/sun/org/apache/xml/internal/utils/XMLStringDefault.h>
@@ -24,33 +23,6 @@ namespace com {
 					namespace internal {
 						namespace utils {
 
-$FieldInfo _XMLStringFactoryDefault_FieldInfo_[] = {
-	{"EMPTY_STR", "Lcom/sun/org/apache/xml/internal/utils/XMLStringDefault;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLStringFactoryDefault, EMPTY_STR)},
-	{}
-};
-
-$MethodInfo _XMLStringFactoryDefault_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLStringFactoryDefault, init$, void)},
-	{"emptystr", "()Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringFactoryDefault, emptystr, $XMLString*)},
-	{"newstr", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringFactoryDefault, newstr, $XMLString*, $String*)},
-	{"newstr", "(Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;II)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringFactoryDefault, newstr, $XMLString*, $FastStringBuffer*, int32_t, int32_t)},
-	{"newstr", "([CII)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringFactoryDefault, newstr, $XMLString*, $chars*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _XMLStringFactoryDefault_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.XMLStringFactoryDefault",
-	"com.sun.org.apache.xml.internal.utils.XMLStringFactory",
-	nullptr,
-	_XMLStringFactoryDefault_FieldInfo_,
-	_XMLStringFactoryDefault_MethodInfo_
-};
-
-$Object* allocate$XMLStringFactoryDefault($Class* clazz) {
-	return $of($alloc(XMLStringFactoryDefault));
-}
-
 $XMLStringDefault* XMLStringFactoryDefault::EMPTY_STR = nullptr;
 
 void XMLStringFactoryDefault::init$() {
@@ -73,7 +45,7 @@ $XMLString* XMLStringFactoryDefault::emptystr() {
 	return XMLStringFactoryDefault::EMPTY_STR;
 }
 
-void clinit$XMLStringFactoryDefault($Class* class$) {
+void XMLStringFactoryDefault::clinit$($Class* clazz) {
 	$assignStatic(XMLStringFactoryDefault::EMPTY_STR, $new($XMLStringDefault, ""_s));
 }
 
@@ -81,7 +53,29 @@ XMLStringFactoryDefault::XMLStringFactoryDefault() {
 }
 
 $Class* XMLStringFactoryDefault::load$($String* name, bool initialize) {
-	$loadClass(XMLStringFactoryDefault, name, initialize, &_XMLStringFactoryDefault_ClassInfo_, clinit$XMLStringFactoryDefault, allocate$XMLStringFactoryDefault);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY_STR", "Lcom/sun/org/apache/xml/internal/utils/XMLStringDefault;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLStringFactoryDefault, EMPTY_STR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLStringFactoryDefault, init$, void)},
+		{"emptystr", "()Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringFactoryDefault, emptystr, $XMLString*)},
+		{"newstr", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringFactoryDefault, newstr, $XMLString*, $String*)},
+		{"newstr", "(Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;II)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringFactoryDefault, newstr, $XMLString*, $FastStringBuffer*, int32_t, int32_t)},
+		{"newstr", "([CII)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringFactoryDefault, newstr, $XMLString*, $chars*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.XMLStringFactoryDefault",
+		"com.sun.org.apache.xml.internal.utils.XMLStringFactory",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLStringFactoryDefault, name, initialize, &classInfo$$, XMLStringFactoryDefault::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLStringFactoryDefault);
+	});
 	return class$;
 }
 

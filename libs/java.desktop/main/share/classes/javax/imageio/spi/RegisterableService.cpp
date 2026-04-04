@@ -1,5 +1,4 @@
 #include <javax/imageio/spi/RegisterableService.h>
-
 #include <javax/imageio/spi/ServiceRegistry.h>
 #include <jcpp.h>
 
@@ -11,27 +10,23 @@ namespace javax {
 	namespace imageio {
 		namespace spi {
 
-$MethodInfo _RegisterableService_MethodInfo_[] = {
-	{"onDeregistration", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class;)V", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class<*>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(RegisterableService, onDeregistration, void, $ServiceRegistry*, $Class*)},
-	{"onRegistration", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class;)V", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class<*>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(RegisterableService, onRegistration, void, $ServiceRegistry*, $Class*)},
-	{}
-};
-
-$ClassInfo _RegisterableService_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.imageio.spi.RegisterableService",
-	nullptr,
-	nullptr,
-	nullptr,
-	_RegisterableService_MethodInfo_
-};
-
-$Object* allocate$RegisterableService($Class* clazz) {
-	return $of($alloc(RegisterableService));
-}
-
 $Class* RegisterableService::load$($String* name, bool initialize) {
-	$loadClass(RegisterableService, name, initialize, &_RegisterableService_ClassInfo_, allocate$RegisterableService);
+	$MethodInfo methodInfos$$[] = {
+		{"onDeregistration", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class;)V", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class<*>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(RegisterableService, onDeregistration, void, $ServiceRegistry*, $Class*)},
+		{"onRegistration", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class;)V", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class<*>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(RegisterableService, onRegistration, void, $ServiceRegistry*, $Class*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.imageio.spi.RegisterableService",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RegisterableService, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RegisterableService);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/krb5/KrbAsReqBuilder$State.h>
-
 #include <java/lang/Enum.h>
 #include <sun/security/krb5/KrbAsReqBuilder.h>
 #include <jcpp.h>
@@ -18,47 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace security {
 		namespace krb5 {
-
-$FieldInfo _KrbAsReqBuilder$State_FieldInfo_[] = {
-	{"INIT", "Lsun/security/krb5/KrbAsReqBuilder$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KrbAsReqBuilder$State, INIT)},
-	{"REQ_OK", "Lsun/security/krb5/KrbAsReqBuilder$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KrbAsReqBuilder$State, REQ_OK)},
-	{"DESTROYED", "Lsun/security/krb5/KrbAsReqBuilder$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KrbAsReqBuilder$State, DESTROYED)},
-	{"$VALUES", "[Lsun/security/krb5/KrbAsReqBuilder$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(KrbAsReqBuilder$State, $VALUES)},
-	{}
-};
-
-$MethodInfo _KrbAsReqBuilder$State_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/krb5/KrbAsReqBuilder$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(KrbAsReqBuilder$State, $values, $KrbAsReqBuilder$StateArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(KrbAsReqBuilder$State, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/krb5/KrbAsReqBuilder$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(KrbAsReqBuilder$State, valueOf, KrbAsReqBuilder$State*, $String*)},
-	{"values", "()[Lsun/security/krb5/KrbAsReqBuilder$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(KrbAsReqBuilder$State, values, $KrbAsReqBuilder$StateArray*)},
-	{}
-};
-
-$InnerClassInfo _KrbAsReqBuilder$State_InnerClassesInfo_[] = {
-	{"sun.security.krb5.KrbAsReqBuilder$State", "sun.security.krb5.KrbAsReqBuilder", "State", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _KrbAsReqBuilder$State_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.krb5.KrbAsReqBuilder$State",
-	"java.lang.Enum",
-	nullptr,
-	_KrbAsReqBuilder$State_FieldInfo_,
-	_KrbAsReqBuilder$State_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/krb5/KrbAsReqBuilder$State;>;",
-	nullptr,
-	_KrbAsReqBuilder$State_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.krb5.KrbAsReqBuilder"
-};
-
-$Object* allocate$KrbAsReqBuilder$State($Class* clazz) {
-	return $of($alloc(KrbAsReqBuilder$State));
-}
 
 KrbAsReqBuilder$State* KrbAsReqBuilder$State::INIT = nullptr;
 KrbAsReqBuilder$State* KrbAsReqBuilder$State::REQ_OK = nullptr;
@@ -88,7 +46,7 @@ void KrbAsReqBuilder$State::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$KrbAsReqBuilder$State($Class* class$) {
+void KrbAsReqBuilder$State::clinit$($Class* clazz) {
 	$assignStatic(KrbAsReqBuilder$State::INIT, $new(KrbAsReqBuilder$State, "INIT"_s, 0));
 	$assignStatic(KrbAsReqBuilder$State::REQ_OK, $new(KrbAsReqBuilder$State, "REQ_OK"_s, 1));
 	$assignStatic(KrbAsReqBuilder$State::DESTROYED, $new(KrbAsReqBuilder$State, "DESTROYED"_s, 2));
@@ -99,7 +57,42 @@ KrbAsReqBuilder$State::KrbAsReqBuilder$State() {
 }
 
 $Class* KrbAsReqBuilder$State::load$($String* name, bool initialize) {
-	$loadClass(KrbAsReqBuilder$State, name, initialize, &_KrbAsReqBuilder$State_ClassInfo_, clinit$KrbAsReqBuilder$State, allocate$KrbAsReqBuilder$State);
+	$FieldInfo fieldInfos$$[] = {
+		{"INIT", "Lsun/security/krb5/KrbAsReqBuilder$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KrbAsReqBuilder$State, INIT)},
+		{"REQ_OK", "Lsun/security/krb5/KrbAsReqBuilder$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KrbAsReqBuilder$State, REQ_OK)},
+		{"DESTROYED", "Lsun/security/krb5/KrbAsReqBuilder$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KrbAsReqBuilder$State, DESTROYED)},
+		{"$VALUES", "[Lsun/security/krb5/KrbAsReqBuilder$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(KrbAsReqBuilder$State, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/krb5/KrbAsReqBuilder$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(KrbAsReqBuilder$State, $values, $KrbAsReqBuilder$StateArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(KrbAsReqBuilder$State, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/krb5/KrbAsReqBuilder$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(KrbAsReqBuilder$State, valueOf, KrbAsReqBuilder$State*, $String*)},
+		{"values", "()[Lsun/security/krb5/KrbAsReqBuilder$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(KrbAsReqBuilder$State, values, $KrbAsReqBuilder$StateArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.krb5.KrbAsReqBuilder$State", "sun.security.krb5.KrbAsReqBuilder", "State", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.krb5.KrbAsReqBuilder$State",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/krb5/KrbAsReqBuilder$State;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.krb5.KrbAsReqBuilder"
+	};
+	$loadClass(KrbAsReqBuilder$State, name, initialize, &classInfo$$, KrbAsReqBuilder$State::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(KrbAsReqBuilder$State));
+	});
 	return class$;
 }
 

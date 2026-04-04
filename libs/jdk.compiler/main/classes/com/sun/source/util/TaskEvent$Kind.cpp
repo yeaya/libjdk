@@ -1,5 +1,4 @@
 #include <com/sun/source/util/TaskEvent$Kind.h>
-
 #include <com/sun/source/util/TaskEvent.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -23,51 +22,6 @@ namespace com {
 	namespace sun {
 		namespace source {
 			namespace util {
-
-$FieldInfo _TaskEvent$Kind_FieldInfo_[] = {
-	{"PARSE", "Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TaskEvent$Kind, PARSE)},
-	{"ENTER", "Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TaskEvent$Kind, ENTER)},
-	{"ANALYZE", "Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TaskEvent$Kind, ANALYZE)},
-	{"GENERATE", "Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TaskEvent$Kind, GENERATE)},
-	{"ANNOTATION_PROCESSING", "Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TaskEvent$Kind, ANNOTATION_PROCESSING)},
-	{"ANNOTATION_PROCESSING_ROUND", "Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TaskEvent$Kind, ANNOTATION_PROCESSING_ROUND)},
-	{"COMPILATION", "Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TaskEvent$Kind, COMPILATION)},
-	{"$VALUES", "[Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TaskEvent$Kind, $VALUES)},
-	{}
-};
-
-$MethodInfo _TaskEvent$Kind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TaskEvent$Kind, $values, $TaskEvent$KindArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TaskEvent$Kind, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(TaskEvent$Kind, valueOf, TaskEvent$Kind*, $String*)},
-	{"values", "()[Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(TaskEvent$Kind, values, $TaskEvent$KindArray*)},
-	{}
-};
-
-$InnerClassInfo _TaskEvent$Kind_InnerClassesInfo_[] = {
-	{"com.sun.source.util.TaskEvent$Kind", "com.sun.source.util.TaskEvent", "Kind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _TaskEvent$Kind_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.source.util.TaskEvent$Kind",
-	"java.lang.Enum",
-	nullptr,
-	_TaskEvent$Kind_FieldInfo_,
-	_TaskEvent$Kind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/source/util/TaskEvent$Kind;>;",
-	nullptr,
-	_TaskEvent$Kind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.source.util.TaskEvent"
-};
-
-$Object* allocate$TaskEvent$Kind($Class* clazz) {
-	return $of($alloc(TaskEvent$Kind));
-}
 
 TaskEvent$Kind* TaskEvent$Kind::PARSE = nullptr;
 TaskEvent$Kind* TaskEvent$Kind::ENTER = nullptr;
@@ -105,7 +59,7 @@ void TaskEvent$Kind::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$TaskEvent$Kind($Class* class$) {
+void TaskEvent$Kind::clinit$($Class* clazz) {
 	$assignStatic(TaskEvent$Kind::PARSE, $new(TaskEvent$Kind, "PARSE"_s, 0));
 	$assignStatic(TaskEvent$Kind::ENTER, $new(TaskEvent$Kind, "ENTER"_s, 1));
 	$assignStatic(TaskEvent$Kind::ANALYZE, $new(TaskEvent$Kind, "ANALYZE"_s, 2));
@@ -120,7 +74,46 @@ TaskEvent$Kind::TaskEvent$Kind() {
 }
 
 $Class* TaskEvent$Kind::load$($String* name, bool initialize) {
-	$loadClass(TaskEvent$Kind, name, initialize, &_TaskEvent$Kind_ClassInfo_, clinit$TaskEvent$Kind, allocate$TaskEvent$Kind);
+	$FieldInfo fieldInfos$$[] = {
+		{"PARSE", "Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TaskEvent$Kind, PARSE)},
+		{"ENTER", "Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TaskEvent$Kind, ENTER)},
+		{"ANALYZE", "Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TaskEvent$Kind, ANALYZE)},
+		{"GENERATE", "Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TaskEvent$Kind, GENERATE)},
+		{"ANNOTATION_PROCESSING", "Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TaskEvent$Kind, ANNOTATION_PROCESSING)},
+		{"ANNOTATION_PROCESSING_ROUND", "Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TaskEvent$Kind, ANNOTATION_PROCESSING_ROUND)},
+		{"COMPILATION", "Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TaskEvent$Kind, COMPILATION)},
+		{"$VALUES", "[Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TaskEvent$Kind, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TaskEvent$Kind, $values, $TaskEvent$KindArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TaskEvent$Kind, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(TaskEvent$Kind, valueOf, TaskEvent$Kind*, $String*)},
+		{"values", "()[Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(TaskEvent$Kind, values, $TaskEvent$KindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.source.util.TaskEvent$Kind", "com.sun.source.util.TaskEvent", "Kind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.source.util.TaskEvent$Kind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/source/util/TaskEvent$Kind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.source.util.TaskEvent"
+	};
+	$loadClass(TaskEvent$Kind, name, initialize, &classInfo$$, TaskEvent$Kind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TaskEvent$Kind));
+	});
 	return class$;
 }
 

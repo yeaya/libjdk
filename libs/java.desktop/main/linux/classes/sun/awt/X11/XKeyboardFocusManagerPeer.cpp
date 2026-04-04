@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XKeyboardFocusManagerPeer.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/FocusEvent$Cause.h>
@@ -21,7 +20,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $KeyboardFocusManagerPeerImpl = ::sun::awt::KeyboardFocusManagerPeerImpl;
 using $XWindowPeer = ::sun::awt::X11::XWindowPeer;
 using $PlatformLogger = ::sun::util::logging::PlatformLogger;
@@ -30,38 +28,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XKeyboardFocusManagerPeer_FieldInfo_[] = {
-	{"focusLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XKeyboardFocusManagerPeer, focusLog)},
-	{"inst", "Lsun/awt/X11/XKeyboardFocusManagerPeer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XKeyboardFocusManagerPeer, inst)},
-	{"currentFocusOwner", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(XKeyboardFocusManagerPeer, currentFocusOwner)},
-	{"currentFocusedWindow", "Ljava/awt/Window;", nullptr, $PRIVATE, $field(XKeyboardFocusManagerPeer, currentFocusedWindow)},
-	{}
-};
-
-$MethodInfo _XKeyboardFocusManagerPeer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(XKeyboardFocusManagerPeer, init$, void)},
-	{"deliverFocus", "(Ljava/awt/Component;Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XKeyboardFocusManagerPeer, deliverFocus, bool, $Component*, $Component*, bool, bool, int64_t, $FocusEvent$Cause*)},
-	{"getCurrentFocusOwner", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(XKeyboardFocusManagerPeer, getCurrentFocusOwner, $Component*)},
-	{"getCurrentFocusedWindow", "()Ljava/awt/Window;", nullptr, $PUBLIC, $virtualMethod(XKeyboardFocusManagerPeer, getCurrentFocusedWindow, $Window*)},
-	{"getInstance", "()Lsun/awt/X11/XKeyboardFocusManagerPeer;", nullptr, $PUBLIC | $STATIC, $staticMethod(XKeyboardFocusManagerPeer, getInstance, XKeyboardFocusManagerPeer*)},
-	{"setCurrentFocusOwner", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(XKeyboardFocusManagerPeer, setCurrentFocusOwner, void, $Component*)},
-	{"setCurrentFocusedWindow", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $virtualMethod(XKeyboardFocusManagerPeer, setCurrentFocusedWindow, void, $Window*)},
-	{}
-};
-
-$ClassInfo _XKeyboardFocusManagerPeer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XKeyboardFocusManagerPeer",
-	"sun.awt.KeyboardFocusManagerPeerImpl",
-	nullptr,
-	_XKeyboardFocusManagerPeer_FieldInfo_,
-	_XKeyboardFocusManagerPeer_MethodInfo_
-};
-
-$Object* allocate$XKeyboardFocusManagerPeer($Class* clazz) {
-	return $of($alloc(XKeyboardFocusManagerPeer));
-}
 
 $PlatformLogger* XKeyboardFocusManagerPeer::focusLog = nullptr;
 XKeyboardFocusManagerPeer* XKeyboardFocusManagerPeer::inst = nullptr;
@@ -88,20 +54,20 @@ $Component* XKeyboardFocusManagerPeer::getCurrentFocusOwner() {
 }
 
 void XKeyboardFocusManagerPeer::setCurrentFocusedWindow($Window* win) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XKeyboardFocusManagerPeer::focusLog)->isLoggable($PlatformLogger$Level::FINER)) {
-		$nc(XKeyboardFocusManagerPeer::focusLog)->finer($$str({"Setting current focused window "_s, win}));
+		XKeyboardFocusManagerPeer::focusLog->finer($$str({"Setting current focused window "_s, win}));
 	}
 	$var($XWindowPeer, from, nullptr);
 	$var($XWindowPeer, to, nullptr);
 	$synchronized(this) {
 		if (this->currentFocusedWindow != nullptr) {
-			$assign(from, $cast($XWindowPeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(this->currentFocusedWindow)));
+			$assign(from, $cast($XWindowPeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(this->currentFocusedWindow)));
 		}
 		$set(this, currentFocusedWindow, win);
 		if (this->currentFocusedWindow != nullptr) {
-			$assign(to, $cast($XWindowPeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(this->currentFocusedWindow)));
+			$assign(to, $cast($XWindowPeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(this->currentFocusedWindow)));
 		}
 	}
 	if (from != nullptr) {
@@ -120,11 +86,11 @@ $Window* XKeyboardFocusManagerPeer::getCurrentFocusedWindow() {
 
 bool XKeyboardFocusManagerPeer::deliverFocus($Component* lightweightChild, $Component* target, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
 	$init(XKeyboardFocusManagerPeer);
-	$useLocalCurrentObjectStackCache();
-	return $KeyboardFocusManagerPeerImpl::deliverFocus(lightweightChild, target, temporary, focusedWindowChangeAllowed, time, cause, $($nc($(getInstance()))->getCurrentFocusOwner()));
+	$useLocalObjectStack();
+	return $KeyboardFocusManagerPeerImpl::deliverFocus(lightweightChild, target, temporary, focusedWindowChangeAllowed, time, cause, $($$nc(getInstance())->getCurrentFocusOwner()));
 }
 
-void clinit$XKeyboardFocusManagerPeer($Class* class$) {
+void XKeyboardFocusManagerPeer::clinit$($Class* clazz) {
 	$assignStatic(XKeyboardFocusManagerPeer::focusLog, $PlatformLogger::getLogger("sun.awt.X11.focus.XKeyboardFocusManagerPeer"_s));
 	$assignStatic(XKeyboardFocusManagerPeer::inst, $new(XKeyboardFocusManagerPeer));
 }
@@ -133,7 +99,34 @@ XKeyboardFocusManagerPeer::XKeyboardFocusManagerPeer() {
 }
 
 $Class* XKeyboardFocusManagerPeer::load$($String* name, bool initialize) {
-	$loadClass(XKeyboardFocusManagerPeer, name, initialize, &_XKeyboardFocusManagerPeer_ClassInfo_, clinit$XKeyboardFocusManagerPeer, allocate$XKeyboardFocusManagerPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"focusLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XKeyboardFocusManagerPeer, focusLog)},
+		{"inst", "Lsun/awt/X11/XKeyboardFocusManagerPeer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XKeyboardFocusManagerPeer, inst)},
+		{"currentFocusOwner", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(XKeyboardFocusManagerPeer, currentFocusOwner)},
+		{"currentFocusedWindow", "Ljava/awt/Window;", nullptr, $PRIVATE, $field(XKeyboardFocusManagerPeer, currentFocusedWindow)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(XKeyboardFocusManagerPeer, init$, void)},
+		{"deliverFocus", "(Ljava/awt/Component;Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XKeyboardFocusManagerPeer, deliverFocus, bool, $Component*, $Component*, bool, bool, int64_t, $FocusEvent$Cause*)},
+		{"getCurrentFocusOwner", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(XKeyboardFocusManagerPeer, getCurrentFocusOwner, $Component*)},
+		{"getCurrentFocusedWindow", "()Ljava/awt/Window;", nullptr, $PUBLIC, $virtualMethod(XKeyboardFocusManagerPeer, getCurrentFocusedWindow, $Window*)},
+		{"getInstance", "()Lsun/awt/X11/XKeyboardFocusManagerPeer;", nullptr, $PUBLIC | $STATIC, $staticMethod(XKeyboardFocusManagerPeer, getInstance, XKeyboardFocusManagerPeer*)},
+		{"setCurrentFocusOwner", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(XKeyboardFocusManagerPeer, setCurrentFocusOwner, void, $Component*)},
+		{"setCurrentFocusedWindow", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $virtualMethod(XKeyboardFocusManagerPeer, setCurrentFocusedWindow, void, $Window*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XKeyboardFocusManagerPeer",
+		"sun.awt.KeyboardFocusManagerPeerImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XKeyboardFocusManagerPeer, name, initialize, &classInfo$$, XKeyboardFocusManagerPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XKeyboardFocusManagerPeer);
+	});
 	return class$;
 }
 

@@ -138,6 +138,7 @@ class XWM : public ::java::lang::Object {
 	$class(XWM, 0, ::java::lang::Object)
 public:
 	XWM();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t WMID);
 	void addProtocol($Class* protocolInterface, Object$* protocol);
 	static bool configureGravityBuggy();

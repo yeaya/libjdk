@@ -117,6 +117,7 @@ class $import NumericShaper : public ::java::io::Serializable {
 	$class(NumericShaper, 0, ::java::io::Serializable)
 public:
 	NumericShaper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t key, int32_t mask);
 	void init$(::java::awt::font::NumericShaper$Range* defaultContext, ::java::util::Set* ranges);
 	void checkParams($chars* text, int32_t start, int32_t count);
@@ -151,7 +152,7 @@ public:
 	::java::util::Set* rangeSet = nullptr;
 	$Array<::java::awt::font::NumericShaper$Range>* rangeArray = nullptr;
 	static const int32_t BSEARCH_THRESHOLD = 3;
-	static const int64_t serialVersionUID = (int64_t)0x90A96A01A2DFF47C;
+	static const int64_t serialVersionUID = (int64_t)0x90a96a01a2dff47c;
 	static const int32_t EUROPEAN = 1; // 1 << 0
 	static const int32_t ARABIC = 2; // 1 << 1
 	static const int32_t EASTERN_ARABIC = 4; // 1 << 2
@@ -171,7 +172,7 @@ public:
 	static const int32_t ETHIOPIC = 65536; // 1 << 16
 	static const int32_t KHMER = 131072; // 1 << 17
 	static const int32_t MONGOLIAN = 262144; // 1 << 18
-	static const int32_t ALL_RANGES = 0x0007FFFF;
+	static const int32_t ALL_RANGES = 0x0007ffff;
 	static const int32_t EUROPEAN_KEY = 0;
 	static const int32_t ARABIC_KEY = 1;
 	static const int32_t EASTERN_ARABIC_KEY = 2;

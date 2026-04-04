@@ -106,6 +106,7 @@ class KeyResolver : public ::java::lang::Object {
 	$class(KeyResolver, 0, ::java::lang::Object)
 public:
 	KeyResolver();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::security::PublicKey* getPublicKey(::org::w3c::dom::Element* element, $String* baseURI, ::com::sun::org::apache::xml::internal::security::keys::storage::StorageResolver* storage, bool secureValidation);
 	static ::java::security::cert::X509Certificate* getX509Certificate(::org::w3c::dom::Element* element, $String* baseURI, ::com::sun::org::apache::xml::internal::security::keys::storage::StorageResolver* storage, bool secureValidation);

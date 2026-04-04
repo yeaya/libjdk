@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsBorders$DashedBorder.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsBorders.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -23,43 +22,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$MethodInfo _WindowsBorders$DashedBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(WindowsBorders$DashedBorder, init$, void, $Color*)},
-	{"<init>", "(Ljava/awt/Color;I)V", nullptr, $PUBLIC, $method(WindowsBorders$DashedBorder, init$, void, $Color*, int32_t)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(WindowsBorders$DashedBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _WindowsBorders$DashedBorder_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsBorders$DashedBorder", "com.sun.java.swing.plaf.windows.WindowsBorders", "DashedBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsBorders$DashedBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsBorders$DashedBorder",
-	"javax.swing.border.LineBorder",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_WindowsBorders$DashedBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsBorders$DashedBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsBorders"
-};
-
-$Object* allocate$WindowsBorders$DashedBorder($Class* clazz) {
-	return $of($alloc(WindowsBorders$DashedBorder));
-}
 
 int32_t WindowsBorders$DashedBorder::hashCode() {
 	 return this->$LineBorder::hashCode();
@@ -103,7 +65,39 @@ WindowsBorders$DashedBorder::WindowsBorders$DashedBorder() {
 }
 
 $Class* WindowsBorders$DashedBorder::load$($String* name, bool initialize) {
-	$loadClass(WindowsBorders$DashedBorder, name, initialize, &_WindowsBorders$DashedBorder_ClassInfo_, allocate$WindowsBorders$DashedBorder);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(WindowsBorders$DashedBorder, init$, void, $Color*)},
+		{"<init>", "(Ljava/awt/Color;I)V", nullptr, $PUBLIC, $method(WindowsBorders$DashedBorder, init$, void, $Color*, int32_t)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(WindowsBorders$DashedBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsBorders$DashedBorder", "com.sun.java.swing.plaf.windows.WindowsBorders", "DashedBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsBorders$DashedBorder",
+		"javax.swing.border.LineBorder",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsBorders"
+	};
+	$loadClass(WindowsBorders$DashedBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsBorders$DashedBorder));
+	});
 	return class$;
 }
 

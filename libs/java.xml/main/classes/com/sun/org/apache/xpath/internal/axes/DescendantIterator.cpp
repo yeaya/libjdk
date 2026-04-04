@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/axes/DescendantIterator.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/Axis.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisTraverser.h>
@@ -62,42 +61,8 @@ namespace com {
 					namespace internal {
 						namespace axes {
 
-$FieldInfo _DescendantIterator_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(DescendantIterator, serialVersionUID)},
-	{"m_traverser", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisTraverser;", nullptr, $PROTECTED | $TRANSIENT, $field(DescendantIterator, m_traverser)},
-	{"m_axis", "I", nullptr, $PROTECTED, $field(DescendantIterator, m_axis)},
-	{"m_extendedTypeID", "I", nullptr, $PROTECTED, $field(DescendantIterator, m_extendedTypeID)},
-	{}
-};
-
-$MethodInfo _DescendantIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;II)V", nullptr, 0, $method(DescendantIterator, init$, void, $Compiler*, int32_t, int32_t), "javax.xml.transform.TransformerException"},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DescendantIterator, init$, void)},
-	{"asNode", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC, $virtualMethod(DescendantIterator, asNode, int32_t, $XPathContext*), "javax.xml.transform.TransformerException"},
-	{"cloneWithReset", "()Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(DescendantIterator, cloneWithReset, $DTMIterator*), "java.lang.CloneNotSupportedException"},
-	{"deepEquals", "(Lcom/sun/org/apache/xpath/internal/Expression;)Z", nullptr, $PUBLIC, $virtualMethod(DescendantIterator, deepEquals, bool, $Expression*)},
-	{"detach", "()V", nullptr, $PUBLIC, $virtualMethod(DescendantIterator, detach, void)},
-	{"getAxis", "()I", nullptr, $PUBLIC, $virtualMethod(DescendantIterator, getAxis, int32_t)},
-	{"nextNode", "()I", nullptr, $PUBLIC, $virtualMethod(DescendantIterator, nextNode, int32_t)},
-	{"setRoot", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DescendantIterator, setRoot, void, int32_t, Object$*)},
-	{}
-};
-
-$ClassInfo _DescendantIterator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.axes.DescendantIterator",
-	"com.sun.org.apache.xpath.internal.axes.LocPathIterator",
-	nullptr,
-	_DescendantIterator_FieldInfo_,
-	_DescendantIterator_MethodInfo_
-};
-
-$Object* allocate$DescendantIterator($Class* clazz) {
-	return $of($alloc(DescendantIterator));
-}
-
 void DescendantIterator::init$($Compiler* compiler, int32_t opPos, int32_t analysis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LocPathIterator::init$(compiler, opPos, analysis, false);
 	int32_t firstStepPos = $OpMap::getFirstChildPos(opPos);
 	int32_t stepType = $nc(compiler)->getOp(firstStepPos);
@@ -126,7 +91,7 @@ void DescendantIterator::init$($Compiler* compiler, int32_t opPos, int32_t analy
 			break;
 		}
 	}
-	if (((int32_t)(analysis & (uint32_t)$WalkerFactory::BIT_CHILD)) != 0) {
+	if ((analysis & $WalkerFactory::BIT_CHILD) != 0) {
 		orSelf = false;
 	}
 	if (fromRoot) {
@@ -141,12 +106,11 @@ void DescendantIterator::init$($Compiler* compiler, int32_t opPos, int32_t analy
 		this->m_axis = $Axis::DESCENDANT;
 	}
 	int32_t whatToShow = compiler->getWhatToShow(firstStepPos);
-	if ((0 == ((int32_t)(whatToShow & (uint32_t)(($DTMFilter::SHOW_ATTRIBUTE | $DTMFilter::SHOW_ELEMENT) | $DTMFilter::SHOW_PROCESSING_INSTRUCTION)))) || (whatToShow == $DTMFilter::SHOW_ALL)) {
+	if ((0 == (whatToShow & (($DTMFilter::SHOW_ATTRIBUTE | $DTMFilter::SHOW_ELEMENT) | $DTMFilter::SHOW_PROCESSING_INSTRUCTION))) || (whatToShow == $DTMFilter::SHOW_ALL)) {
 		initNodeTest(whatToShow);
 	} else {
-		int32_t var$0 = whatToShow;
-		$var($String, var$1, compiler->getStepNS(firstStepPos));
-		initNodeTest(var$0, var$1, $(compiler->getStepLocalName(firstStepPos)));
+		$var($String, var$0, compiler->getStepNS(firstStepPos));
+		initNodeTest(whatToShow, var$0, $(compiler->getStepLocalName(firstStepPos)));
 	}
 	initPredicateInfo(compiler, firstStepPos);
 }
@@ -166,7 +130,7 @@ $DTMIterator* DescendantIterator::cloneWithReset() {
 }
 
 int32_t DescendantIterator::nextNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->m_foundLast) {
 		return $DTM::NULL;
 	}
@@ -184,57 +148,55 @@ int32_t DescendantIterator::nextNode() {
 		$assign(vars, nullptr);
 		savedStart = 0;
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			do {
-				if (0 == this->m_extendedTypeID) {
-					next = (this->m_lastFetched = ($DTM::NULL == this->m_lastFetched) ? $nc(this->m_traverser)->first(this->m_context) : $nc(this->m_traverser)->next(this->m_context, this->m_lastFetched));
-				} else {
-					next = (this->m_lastFetched = ($DTM::NULL == this->m_lastFetched) ? $nc(this->m_traverser)->first(this->m_context, this->m_extendedTypeID) : $nc(this->m_traverser)->next(this->m_context, this->m_lastFetched, this->m_extendedTypeID));
-				}
-				if ($DTM::NULL != next) {
-					if ($DTMIterator::FILTER_ACCEPT == acceptNode(next)) {
-						break;
-					} else {
-						continue;
-					}
-				} else {
-					break;
-				}
-			} while (next != $DTM::NULL);
-			if ($DTM::NULL != next) {
-				++this->m_pos;
-				var$2 = next;
-				return$1 = true;
-				goto $finally;
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		do {
+			if (0 == this->m_extendedTypeID) {
+				next = (this->m_lastFetched = ($DTM::NULL == this->m_lastFetched) ? $nc(this->m_traverser)->first(this->m_context) : $nc(this->m_traverser)->next(this->m_context, this->m_lastFetched));
 			} else {
-				this->m_foundLast = true;
-				var$2 = $DTM::NULL;
-				return$1 = true;
-				goto $finally;
+				next = (this->m_lastFetched = ($DTM::NULL == this->m_lastFetched) ? $nc(this->m_traverser)->first(this->m_context, this->m_extendedTypeID) : $nc(this->m_traverser)->next(this->m_context, this->m_lastFetched, this->m_extendedTypeID));
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			if (-1 != this->m_stackFrame) {
-				$nc(vars)->setStackFrame(savedStart);
+			if ($DTM::NULL != next) {
+				if ($DTMIterator::FILTER_ACCEPT == acceptNode(next)) {
+					break;
+				} else {
+					continue;
+				}
+			} else {
+				break;
 			}
+		} while (next != $DTM::NULL);
+		if ($DTM::NULL != next) {
+			++this->m_pos;
+			var$2 = next;
+			return$1 = true;
+			goto $finally;
+		} else {
+			this->m_foundLast = true;
+			var$2 = $DTM::NULL;
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		if (-1 != this->m_stackFrame) {
+			$nc(vars)->setStackFrame(savedStart);
 		}
-		if (return$1) {
-			return var$2;
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void DescendantIterator::setRoot(int32_t context, Object$* environment) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LocPathIterator::setRoot(context, environment);
 	$set(this, m_traverser, $nc(this->m_cdtm)->getAxisTraverser(this->m_axis));
 	$var($String, localName, getLocalName());
@@ -251,7 +213,7 @@ void DescendantIterator::setRoot(int32_t context, Object$* environment) {
 }
 
 int32_t DescendantIterator::asNode($XPathContext* xctxt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getPredicateCount() > 0) {
 		return $LocPathIterator::asNode(xctxt);
 	}
@@ -287,7 +249,7 @@ bool DescendantIterator::deepEquals($Expression* expr) {
 	if (!$LocPathIterator::deepEquals(expr)) {
 		return false;
 	}
-	if (this->m_axis != $nc(($cast(DescendantIterator, expr)))->m_axis) {
+	if (this->m_axis != $nc($cast(DescendantIterator, expr))->m_axis) {
 		return false;
 	}
 	return true;
@@ -297,7 +259,36 @@ DescendantIterator::DescendantIterator() {
 }
 
 $Class* DescendantIterator::load$($String* name, bool initialize) {
-	$loadClass(DescendantIterator, name, initialize, &_DescendantIterator_ClassInfo_, allocate$DescendantIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(DescendantIterator, serialVersionUID)},
+		{"m_traverser", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisTraverser;", nullptr, $PROTECTED | $TRANSIENT, $field(DescendantIterator, m_traverser)},
+		{"m_axis", "I", nullptr, $PROTECTED, $field(DescendantIterator, m_axis)},
+		{"m_extendedTypeID", "I", nullptr, $PROTECTED, $field(DescendantIterator, m_extendedTypeID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;II)V", nullptr, 0, $method(DescendantIterator, init$, void, $Compiler*, int32_t, int32_t), "javax.xml.transform.TransformerException"},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DescendantIterator, init$, void)},
+		{"asNode", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC, $virtualMethod(DescendantIterator, asNode, int32_t, $XPathContext*), "javax.xml.transform.TransformerException"},
+		{"cloneWithReset", "()Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(DescendantIterator, cloneWithReset, $DTMIterator*), "java.lang.CloneNotSupportedException"},
+		{"deepEquals", "(Lcom/sun/org/apache/xpath/internal/Expression;)Z", nullptr, $PUBLIC, $virtualMethod(DescendantIterator, deepEquals, bool, $Expression*)},
+		{"detach", "()V", nullptr, $PUBLIC, $virtualMethod(DescendantIterator, detach, void)},
+		{"getAxis", "()I", nullptr, $PUBLIC, $virtualMethod(DescendantIterator, getAxis, int32_t)},
+		{"nextNode", "()I", nullptr, $PUBLIC, $virtualMethod(DescendantIterator, nextNode, int32_t)},
+		{"setRoot", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DescendantIterator, setRoot, void, int32_t, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.axes.DescendantIterator",
+		"com.sun.org.apache.xpath.internal.axes.LocPathIterator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DescendantIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DescendantIterator));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKLookAndFeel$4.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKLookAndFeel.h>
 #include <java/lang/NoSuchFieldError.h>
 #include <javax/swing/LayoutStyle$ComponentPlacement.h>
@@ -24,57 +23,21 @@ namespace com {
 				namespace plaf {
 					namespace gtk {
 
-$FieldInfo _GTKLookAndFeel$4_FieldInfo_[] = {
-	{"$SwitchMap$javax$swing$LayoutStyle$ComponentPlacement", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(GTKLookAndFeel$4, $SwitchMap$javax$swing$LayoutStyle$ComponentPlacement)},
-	{}
-};
-
-$EnclosingMethodInfo _GTKLookAndFeel$4_EnclosingMethodInfo_ = {
-	"com.sun.java.swing.plaf.gtk.GTKLookAndFeel",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _GTKLookAndFeel$4_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKLookAndFeel$4", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _GTKLookAndFeel$4_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.java.swing.plaf.gtk.GTKLookAndFeel$4",
-	"java.lang.Object",
-	nullptr,
-	_GTKLookAndFeel$4_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_GTKLookAndFeel$4_EnclosingMethodInfo_,
-	_GTKLookAndFeel$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
-};
-
-$Object* allocate$GTKLookAndFeel$4($Class* clazz) {
-	return $of($alloc(GTKLookAndFeel$4));
-}
-
 $ints* GTKLookAndFeel$4::$SwitchMap$javax$swing$LayoutStyle$ComponentPlacement = nullptr;
 
-void clinit$GTKLookAndFeel$4($Class* class$) {
+void GTKLookAndFeel$4::clinit$($Class* clazz) {
 	$assignStatic(GTKLookAndFeel$4::$SwitchMap$javax$swing$LayoutStyle$ComponentPlacement, $new($ints, $($LayoutStyle$ComponentPlacement::values())->length));
 	{
 		try {
-			$nc(GTKLookAndFeel$4::$SwitchMap$javax$swing$LayoutStyle$ComponentPlacement)->set($LayoutStyle$ComponentPlacement::INDENT->ordinal(), 1);
+			GTKLookAndFeel$4::$SwitchMap$javax$swing$LayoutStyle$ComponentPlacement->set($LayoutStyle$ComponentPlacement::INDENT->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(GTKLookAndFeel$4::$SwitchMap$javax$swing$LayoutStyle$ComponentPlacement)->set($LayoutStyle$ComponentPlacement::RELATED->ordinal(), 2);
+			GTKLookAndFeel$4::$SwitchMap$javax$swing$LayoutStyle$ComponentPlacement->set($LayoutStyle$ComponentPlacement::RELATED->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(GTKLookAndFeel$4::$SwitchMap$javax$swing$LayoutStyle$ComponentPlacement)->set($LayoutStyle$ComponentPlacement::UNRELATED->ordinal(), 3);
+			GTKLookAndFeel$4::$SwitchMap$javax$swing$LayoutStyle$ComponentPlacement->set($LayoutStyle$ComponentPlacement::UNRELATED->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -84,7 +47,37 @@ GTKLookAndFeel$4::GTKLookAndFeel$4() {
 }
 
 $Class* GTKLookAndFeel$4::load$($String* name, bool initialize) {
-	$loadClass(GTKLookAndFeel$4, name, initialize, &_GTKLookAndFeel$4_ClassInfo_, clinit$GTKLookAndFeel$4, allocate$GTKLookAndFeel$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$javax$swing$LayoutStyle$ComponentPlacement", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(GTKLookAndFeel$4, $SwitchMap$javax$swing$LayoutStyle$ComponentPlacement)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.java.swing.plaf.gtk.GTKLookAndFeel",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKLookAndFeel$4", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.java.swing.plaf.gtk.GTKLookAndFeel$4",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
+	};
+	$loadClass(GTKLookAndFeel$4, name, initialize, &classInfo$$, GTKLookAndFeel$4::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GTKLookAndFeel$4);
+	});
 	return class$;
 }
 

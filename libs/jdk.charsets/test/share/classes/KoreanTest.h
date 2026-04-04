@@ -15,6 +15,7 @@ class $export KoreanTest : public ::java::lang::Object {
 	$class(KoreanTest, 0, ::java::lang::Object)
 public:
 	KoreanTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void doCompare($Array<::java::lang::String, 2>* s);
 	virtual void doEquals($Array<::java::lang::String, 2>* s);

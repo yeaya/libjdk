@@ -1,5 +1,4 @@
 #include <CaretFloatingPointAPITest$CustomCaret$CaretMouseListener.h>
-
 #include <CaretFloatingPointAPITest$CustomCaret.h>
 #include <java/awt/Point.h>
 #include <java/awt/event/MouseAdapter.h>
@@ -20,45 +19,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $TextUI = ::javax::swing::plaf::TextUI;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $Position$Bias = ::javax::swing::text::Position$Bias;
-
-$FieldInfo _CaretFloatingPointAPITest$CustomCaret$CaretMouseListener_FieldInfo_[] = {
-	{"this$0", "LCaretFloatingPointAPITest$CustomCaret;", nullptr, $FINAL | $SYNTHETIC, $field(CaretFloatingPointAPITest$CustomCaret$CaretMouseListener, this$0)},
-	{}
-};
-
-$MethodInfo _CaretFloatingPointAPITest$CustomCaret$CaretMouseListener_MethodInfo_[] = {
-	{"<init>", "(LCaretFloatingPointAPITest$CustomCaret;)V", nullptr, $PRIVATE, $method(CaretFloatingPointAPITest$CustomCaret$CaretMouseListener, init$, void, $CaretFloatingPointAPITest$CustomCaret*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret$CaretMouseListener, mousePressed, void, $MouseEvent*)},
-	{}
-};
-
-$InnerClassInfo _CaretFloatingPointAPITest$CustomCaret$CaretMouseListener_InnerClassesInfo_[] = {
-	{"CaretFloatingPointAPITest$CustomCaret", "CaretFloatingPointAPITest", "CustomCaret", $STATIC},
-	{"CaretFloatingPointAPITest$CustomCaret$CaretMouseListener", "CaretFloatingPointAPITest$CustomCaret", "CaretMouseListener", $PRIVATE},
-	{}
-};
-
-$ClassInfo _CaretFloatingPointAPITest$CustomCaret$CaretMouseListener_ClassInfo_ = {
-	$ACC_SUPER,
-	"CaretFloatingPointAPITest$CustomCaret$CaretMouseListener",
-	"java.awt.event.MouseAdapter",
-	nullptr,
-	_CaretFloatingPointAPITest$CustomCaret$CaretMouseListener_FieldInfo_,
-	_CaretFloatingPointAPITest$CustomCaret$CaretMouseListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CaretFloatingPointAPITest$CustomCaret$CaretMouseListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"CaretFloatingPointAPITest"
-};
-
-$Object* allocate$CaretFloatingPointAPITest$CustomCaret$CaretMouseListener($Class* clazz) {
-	return $of($alloc(CaretFloatingPointAPITest$CustomCaret$CaretMouseListener));
-}
 
 void CaretFloatingPointAPITest$CustomCaret$CaretMouseListener::init$($CaretFloatingPointAPITest$CustomCaret* this$0) {
 	$set(this, this$0, this$0);
@@ -66,13 +27,12 @@ void CaretFloatingPointAPITest$CustomCaret$CaretMouseListener::init$($CaretFloat
 }
 
 void CaretFloatingPointAPITest$CustomCaret$CaretMouseListener::mousePressed($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(e)->getX();
 	$var($Point, pt, $new($Point, var$0, e->getY()));
 	$var($Position$BiasArray, biasRet, $new($Position$BiasArray, 1));
-	int32_t pos = $nc($($cast($TextUI, $nc(this->this$0->component)->getUI())))->viewToModel(this->this$0->component, pt, biasRet);
+	int32_t pos = $$sure($TextUI, $nc(this->this$0->component)->getUI())->viewToModel(this->this$0->component, pt, biasRet);
 	if (biasRet->get(0) == nullptr) {
-		$init($Position$Bias);
 		biasRet->set(0, $Position$Bias::Forward);
 	}
 	if (pos >= 0) {
@@ -84,7 +44,38 @@ CaretFloatingPointAPITest$CustomCaret$CaretMouseListener::CaretFloatingPointAPIT
 }
 
 $Class* CaretFloatingPointAPITest$CustomCaret$CaretMouseListener::load$($String* name, bool initialize) {
-	$loadClass(CaretFloatingPointAPITest$CustomCaret$CaretMouseListener, name, initialize, &_CaretFloatingPointAPITest$CustomCaret$CaretMouseListener_ClassInfo_, allocate$CaretFloatingPointAPITest$CustomCaret$CaretMouseListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LCaretFloatingPointAPITest$CustomCaret;", nullptr, $FINAL | $SYNTHETIC, $field(CaretFloatingPointAPITest$CustomCaret$CaretMouseListener, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LCaretFloatingPointAPITest$CustomCaret;)V", nullptr, $PRIVATE, $method(CaretFloatingPointAPITest$CustomCaret$CaretMouseListener, init$, void, $CaretFloatingPointAPITest$CustomCaret*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret$CaretMouseListener, mousePressed, void, $MouseEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"CaretFloatingPointAPITest$CustomCaret", "CaretFloatingPointAPITest", "CustomCaret", $STATIC},
+		{"CaretFloatingPointAPITest$CustomCaret$CaretMouseListener", "CaretFloatingPointAPITest$CustomCaret", "CaretMouseListener", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"CaretFloatingPointAPITest$CustomCaret$CaretMouseListener",
+		"java.awt.event.MouseAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"CaretFloatingPointAPITest"
+	};
+	$loadClass(CaretFloatingPointAPITest$CustomCaret$CaretMouseListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CaretFloatingPointAPITest$CustomCaret$CaretMouseListener));
+	});
 	return class$;
 }
 

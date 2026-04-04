@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthInternalFrameTitlePane$JPopupMenuUIResource.h>
-
 #include <javax/swing/JPopupMenu.h>
 #include <javax/swing/plaf/synth/SynthInternalFrameTitlePane.h>
 #include <jcpp.h>
@@ -13,41 +12,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$MethodInfo _SynthInternalFrameTitlePane$JPopupMenuUIResource_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SynthInternalFrameTitlePane$JPopupMenuUIResource, init$, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SynthInternalFrameTitlePane$JPopupMenuUIResource_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthInternalFrameTitlePane$JPopupMenuUIResource", "javax.swing.plaf.synth.SynthInternalFrameTitlePane", "JPopupMenuUIResource", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SynthInternalFrameTitlePane$JPopupMenuUIResource_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthInternalFrameTitlePane$JPopupMenuUIResource",
-	"javax.swing.JPopupMenu",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_SynthInternalFrameTitlePane$JPopupMenuUIResource_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthInternalFrameTitlePane$JPopupMenuUIResource_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthInternalFrameTitlePane"
-};
-
-$Object* allocate$SynthInternalFrameTitlePane$JPopupMenuUIResource($Class* clazz) {
-	return $of($alloc(SynthInternalFrameTitlePane$JPopupMenuUIResource));
-}
 
 $String* SynthInternalFrameTitlePane$JPopupMenuUIResource::toString() {
 	 return this->$JPopupMenu::toString();
@@ -77,7 +41,37 @@ SynthInternalFrameTitlePane$JPopupMenuUIResource::SynthInternalFrameTitlePane$JP
 }
 
 $Class* SynthInternalFrameTitlePane$JPopupMenuUIResource::load$($String* name, bool initialize) {
-	$loadClass(SynthInternalFrameTitlePane$JPopupMenuUIResource, name, initialize, &_SynthInternalFrameTitlePane$JPopupMenuUIResource_ClassInfo_, allocate$SynthInternalFrameTitlePane$JPopupMenuUIResource);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SynthInternalFrameTitlePane$JPopupMenuUIResource, init$, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthInternalFrameTitlePane$JPopupMenuUIResource", "javax.swing.plaf.synth.SynthInternalFrameTitlePane", "JPopupMenuUIResource", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthInternalFrameTitlePane$JPopupMenuUIResource",
+		"javax.swing.JPopupMenu",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthInternalFrameTitlePane"
+	};
+	$loadClass(SynthInternalFrameTitlePane$JPopupMenuUIResource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthInternalFrameTitlePane$JPopupMenuUIResource));
+	});
 	return class$;
 }
 

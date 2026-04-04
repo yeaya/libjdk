@@ -20,6 +20,7 @@ class Provider : public ::java::security::Provider {
 	$class(Provider, 0, ::java::security::Provider)
 public:
 	Provider();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::java::security::Provider::getProperty;
 	void init$();
 	static void access$000(::com::sun::security::sasl::Provider* x0, ::java::security::Provider$Service* x1);
@@ -31,7 +32,7 @@ public:
 	static void access$600(::com::sun::security::sasl::Provider* x0, ::java::security::Provider$Service* x1);
 	static void access$700(::com::sun::security::sasl::Provider* x0, ::java::security::Provider$Service* x1);
 	using ::java::security::Provider::load;
-	static const int64_t serialVersionUID = (int64_t)0x77A9A00C5A10DA41;
+	static const int64_t serialVersionUID = (int64_t)0x77a9a00c5a10da41;
 	static $String* info;
 };
 

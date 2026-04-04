@@ -34,7 +34,10 @@ public:
 	::com::sun::tools::javac::util::JCDiagnostic* diagnostic = nullptr;
 	Types$FunctionDescriptorLookupError(const Types$FunctionDescriptorLookupError& e);
 	virtual void throw$() override;
-	inline Types$FunctionDescriptorLookupError* operator ->() {
+	inline Types$FunctionDescriptorLookupError* operator ->() const {
+		return (Types$FunctionDescriptorLookupError*)throwing$;
+	}
+	inline operator Types$FunctionDescriptorLookupError*() const {
 		return (Types$FunctionDescriptorLookupError*)throwing$;
 	}
 };

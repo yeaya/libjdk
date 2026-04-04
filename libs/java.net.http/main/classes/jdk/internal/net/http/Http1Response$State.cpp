@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/Http1Response$State.h>
-
 #include <java/lang/Enum.h>
 #include <jdk/internal/net/http/Http1Response.h>
 #include <jcpp.h>
@@ -20,48 +19,6 @@ namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$FieldInfo _Http1Response$State_FieldInfo_[] = {
-	{"INITIAL", "Ljdk/internal/net/http/Http1Response$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1Response$State, INITIAL)},
-	{"READING_HEADERS", "Ljdk/internal/net/http/Http1Response$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1Response$State, READING_HEADERS)},
-	{"READING_BODY", "Ljdk/internal/net/http/Http1Response$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1Response$State, READING_BODY)},
-	{"DONE", "Ljdk/internal/net/http/Http1Response$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1Response$State, DONE)},
-	{"$VALUES", "[Ljdk/internal/net/http/Http1Response$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Http1Response$State, $VALUES)},
-	{}
-};
-
-$MethodInfo _Http1Response$State_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/net/http/Http1Response$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http1Response$State, $values, $Http1Response$StateArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Http1Response$State, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/Http1Response$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Http1Response$State, valueOf, Http1Response$State*, $String*)},
-	{"values", "()[Ljdk/internal/net/http/Http1Response$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Http1Response$State, values, $Http1Response$StateArray*)},
-	{}
-};
-
-$InnerClassInfo _Http1Response$State_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.Http1Response$State", "jdk.internal.net.http.Http1Response", "State", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Http1Response$State_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"jdk.internal.net.http.Http1Response$State",
-	"java.lang.Enum",
-	nullptr,
-	_Http1Response$State_FieldInfo_,
-	_Http1Response$State_MethodInfo_,
-	"Ljava/lang/Enum<Ljdk/internal/net/http/Http1Response$State;>;",
-	nullptr,
-	_Http1Response$State_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.Http1Response"
-};
-
-$Object* allocate$Http1Response$State($Class* clazz) {
-	return $of($alloc(Http1Response$State));
-}
 
 Http1Response$State* Http1Response$State::INITIAL = nullptr;
 Http1Response$State* Http1Response$State::READING_HEADERS = nullptr;
@@ -93,7 +50,7 @@ void Http1Response$State::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Http1Response$State($Class* class$) {
+void Http1Response$State::clinit$($Class* clazz) {
 	$assignStatic(Http1Response$State::INITIAL, $new(Http1Response$State, "INITIAL"_s, 0));
 	$assignStatic(Http1Response$State::READING_HEADERS, $new(Http1Response$State, "READING_HEADERS"_s, 1));
 	$assignStatic(Http1Response$State::READING_BODY, $new(Http1Response$State, "READING_BODY"_s, 2));
@@ -105,7 +62,43 @@ Http1Response$State::Http1Response$State() {
 }
 
 $Class* Http1Response$State::load$($String* name, bool initialize) {
-	$loadClass(Http1Response$State, name, initialize, &_Http1Response$State_ClassInfo_, clinit$Http1Response$State, allocate$Http1Response$State);
+	$FieldInfo fieldInfos$$[] = {
+		{"INITIAL", "Ljdk/internal/net/http/Http1Response$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1Response$State, INITIAL)},
+		{"READING_HEADERS", "Ljdk/internal/net/http/Http1Response$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1Response$State, READING_HEADERS)},
+		{"READING_BODY", "Ljdk/internal/net/http/Http1Response$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1Response$State, READING_BODY)},
+		{"DONE", "Ljdk/internal/net/http/Http1Response$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1Response$State, DONE)},
+		{"$VALUES", "[Ljdk/internal/net/http/Http1Response$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Http1Response$State, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljdk/internal/net/http/Http1Response$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http1Response$State, $values, $Http1Response$StateArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Http1Response$State, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/Http1Response$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Http1Response$State, valueOf, Http1Response$State*, $String*)},
+		{"values", "()[Ljdk/internal/net/http/Http1Response$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Http1Response$State, values, $Http1Response$StateArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.Http1Response$State", "jdk.internal.net.http.Http1Response", "State", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"jdk.internal.net.http.Http1Response$State",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljdk/internal/net/http/Http1Response$State;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.Http1Response"
+	};
+	$loadClass(Http1Response$State, name, initialize, &classInfo$$, Http1Response$State::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Http1Response$State));
+	});
 	return class$;
 }
 

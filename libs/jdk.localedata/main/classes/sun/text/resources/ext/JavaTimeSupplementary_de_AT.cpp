@@ -1,5 +1,4 @@
 #include <sun/text/resources/ext/JavaTimeSupplementary_de_AT.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -13,35 +12,16 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _JavaTimeSupplementary_de_AT_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavaTimeSupplementary_de_AT, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(JavaTimeSupplementary_de_AT, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _JavaTimeSupplementary_de_AT_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.ext.JavaTimeSupplementary_de_AT",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_JavaTimeSupplementary_de_AT_MethodInfo_
-};
-
-$Object* allocate$JavaTimeSupplementary_de_AT($Class* clazz) {
-	return $of($alloc(JavaTimeSupplementary_de_AT));
-}
-
 void JavaTimeSupplementary_de_AT::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* JavaTimeSupplementary_de_AT::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("roc.MonthAbbreviations"_s),
-			$of($$new($StringArray, {
+			"roc.MonthAbbreviations"_s,
+			$$new($StringArray, {
 				u"Jän."_s,
 				"Feb."_s,
 				u"März"_s,
@@ -55,11 +35,11 @@ $ObjectArray2* JavaTimeSupplementary_de_AT::getContents() {
 				"Nov."_s,
 				"Dez."_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("roc.MonthNames"_s),
-			$of($$new($StringArray, {
+			"roc.MonthNames"_s,
+			$$new($StringArray, {
 				u"Jänner"_s,
 				"Februar"_s,
 				u"März"_s,
@@ -73,7 +53,7 @@ $ObjectArray2* JavaTimeSupplementary_de_AT::getContents() {
 				"November"_s,
 				"Dezember"_s,
 				""_s
-			}))
+			})
 		})
 	});
 }
@@ -82,7 +62,22 @@ JavaTimeSupplementary_de_AT::JavaTimeSupplementary_de_AT() {
 }
 
 $Class* JavaTimeSupplementary_de_AT::load$($String* name, bool initialize) {
-	$loadClass(JavaTimeSupplementary_de_AT, name, initialize, &_JavaTimeSupplementary_de_AT_ClassInfo_, allocate$JavaTimeSupplementary_de_AT);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavaTimeSupplementary_de_AT, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(JavaTimeSupplementary_de_AT, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.ext.JavaTimeSupplementary_de_AT",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavaTimeSupplementary_de_AT, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavaTimeSupplementary_de_AT);
+	});
 	return class$;
 }
 

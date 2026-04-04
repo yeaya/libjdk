@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/transforms/implementations/TransformC14N11.h>
-
 #include <com/sun/org/apache/xml/internal/security/c14n/implementations/Canonicalizer11_OmitComments.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/implementations/Canonicalizer20010315.h>
 #include <com/sun/org/apache/xml/internal/security/transforms/Transforms.h>
@@ -23,26 +22,6 @@ namespace com {
 							namespace transforms {
 								namespace implementations {
 
-$MethodInfo _TransformC14N11_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TransformC14N11, init$, void)},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(TransformC14N11, engineGetURI, $String*)},
-	{"getCanonicalizer", "()Lcom/sun/org/apache/xml/internal/security/c14n/implementations/Canonicalizer20010315;", nullptr, $PROTECTED, $virtualMethod(TransformC14N11, getCanonicalizer, $Canonicalizer20010315*)},
-	{}
-};
-
-$ClassInfo _TransformC14N11_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformC14N11",
-	"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformC14N",
-	nullptr,
-	nullptr,
-	_TransformC14N11_MethodInfo_
-};
-
-$Object* allocate$TransformC14N11($Class* clazz) {
-	return $of($alloc(TransformC14N11));
-}
-
 void TransformC14N11::init$() {
 	$TransformC14N::init$();
 }
@@ -60,7 +39,23 @@ TransformC14N11::TransformC14N11() {
 }
 
 $Class* TransformC14N11::load$($String* name, bool initialize) {
-	$loadClass(TransformC14N11, name, initialize, &_TransformC14N11_ClassInfo_, allocate$TransformC14N11);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TransformC14N11, init$, void)},
+		{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(TransformC14N11, engineGetURI, $String*)},
+		{"getCanonicalizer", "()Lcom/sun/org/apache/xml/internal/security/c14n/implementations/Canonicalizer20010315;", nullptr, $PROTECTED, $virtualMethod(TransformC14N11, getCanonicalizer, $Canonicalizer20010315*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformC14N11",
+		"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformC14N",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TransformC14N11, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransformC14N11);
+	});
 	return class$;
 }
 

@@ -22,12 +22,13 @@ class $import SunProvider : public ::java::security::Provider {
 	$class(SunProvider, 0, ::java::security::Provider)
 public:
 	SunProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::java::security::Provider::getProperty;
 	void init$();
 	static void access$000(::sun::security::jgss::SunProvider* x0, ::java::security::Provider$Service* x1);
 	static void access$100(::sun::security::jgss::SunProvider* x0, ::java::security::Provider$Service* x1);
 	using ::java::security::Provider::load;
-	static const int64_t serialVersionUID = (int64_t)0xFCAF370D531F25CA;
+	static const int64_t serialVersionUID = (int64_t)0xfcaf370d531f25ca;
 	static $String* INFO;
 };
 

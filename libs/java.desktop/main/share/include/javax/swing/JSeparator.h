@@ -34,6 +34,7 @@ class $import JSeparator : public ::javax::swing::JComponent, public ::javax::sw
 	$class(JSeparator, 0, ::javax::swing::JComponent, ::javax::swing::SwingConstants, ::javax::accessibility::Accessible)
 public:
 	JSeparator();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::swing::JComponent::contains;
 	using ::javax::swing::JComponent::enable;
 	using ::javax::swing::JComponent::getBounds;

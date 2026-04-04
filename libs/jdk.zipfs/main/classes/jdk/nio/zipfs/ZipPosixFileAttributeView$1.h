@@ -13,6 +13,7 @@ class ZipPosixFileAttributeView$1 : public ::java::lang::Object {
 	$class(ZipPosixFileAttributeView$1, 0, ::java::lang::Object)
 public:
 	ZipPosixFileAttributeView$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$jdk$nio$zipfs$ZipFileAttributeView$AttrID;
 };
 

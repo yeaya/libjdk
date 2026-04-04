@@ -1,5 +1,4 @@
 #include <javax/lang/model/type/UnionType.h>
-
 #include <java/util/List.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace javax {
 		namespace model {
 			namespace type {
 
-$MethodInfo _UnionType_MethodInfo_[] = {
-	{"getAlternatives", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/type/TypeMirror;>;", $PUBLIC | $ABSTRACT, $virtualMethod(UnionType, getAlternatives, $List*)},
-	{}
-};
-
-$ClassInfo _UnionType_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.lang.model.type.UnionType",
-	nullptr,
-	"javax.lang.model.type.TypeMirror",
-	nullptr,
-	_UnionType_MethodInfo_
-};
-
-$Object* allocate$UnionType($Class* clazz) {
-	return $of($alloc(UnionType));
-}
-
 $Class* UnionType::load$($String* name, bool initialize) {
-	$loadClass(UnionType, name, initialize, &_UnionType_ClassInfo_, allocate$UnionType);
+	$MethodInfo methodInfos$$[] = {
+		{"getAlternatives", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/type/TypeMirror;>;", $PUBLIC | $ABSTRACT, $virtualMethod(UnionType, getAlternatives, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.lang.model.type.UnionType",
+		nullptr,
+		"javax.lang.model.type.TypeMirror",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UnionType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnionType);
+	});
 	return class$;
 }
 

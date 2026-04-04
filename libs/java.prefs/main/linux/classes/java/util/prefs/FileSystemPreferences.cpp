@@ -1,5 +1,4 @@
 #include <java/util/prefs/FileSystemPreferences.h>
-
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
@@ -16,14 +15,12 @@
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/security/PrivilegedActionException.h>
-#include <java/security/PrivilegedExceptionAction.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
 #include <java/util/Set.h>
 #include <java/util/Timer.h>
-#include <java/util/TimerTask.h>
 #include <java/util/TreeMap.h>
 #include <java/util/prefs/AbstractPreferences.h>
 #include <java/util/prefs/BackingStoreException.h>
@@ -81,14 +78,9 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
-using $List = ::java::util::List;
-using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $Timer = ::java::util::Timer;
-using $TimerTask = ::java::util::TimerTask;
 using $TreeMap = ::java::util::TreeMap;
 using $AbstractPreferences = ::java::util::prefs::AbstractPreferences;
 using $BackingStoreException = ::java::util::prefs::BackingStoreException;
@@ -124,27 +116,24 @@ public:
 	virtual $Object* run() override {
 		 return $of(FileSystemPreferences::lambda$static$1());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<FileSystemPreferences$$Lambda$lambda$static$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo FileSystemPreferences$$Lambda$lambda$static$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FileSystemPreferences$$Lambda$lambda$static$1, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferences$$Lambda$lambda$static$1, run, $Object*)},
-	{}
-};
-$ClassInfo FileSystemPreferences$$Lambda$lambda$static$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.prefs.FileSystemPreferences$$Lambda$lambda$static$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* FileSystemPreferences$$Lambda$lambda$static$1::load$($String* name, bool initialize) {
-	$loadClass(FileSystemPreferences$$Lambda$lambda$static$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FileSystemPreferences$$Lambda$lambda$static$1, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferences$$Lambda$lambda$static$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.prefs.FileSystemPreferences$$Lambda$lambda$static$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FileSystemPreferences$$Lambda$lambda$static$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileSystemPreferences$$Lambda$lambda$static$1);
+	});
 	return class$;
 }
 $Class* FileSystemPreferences$$Lambda$lambda$static$1::class$ = nullptr;
@@ -155,158 +144,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(FileSystemPreferences::lambda$static$0());
+		 return FileSystemPreferences::lambda$static$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<FileSystemPreferences$$Lambda$lambda$static$0$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo FileSystemPreferences$$Lambda$lambda$static$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FileSystemPreferences$$Lambda$lambda$static$0$1, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferences$$Lambda$lambda$static$0$1, run, $Object*)},
-	{}
-};
-$ClassInfo FileSystemPreferences$$Lambda$lambda$static$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.prefs.FileSystemPreferences$$Lambda$lambda$static$0$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* FileSystemPreferences$$Lambda$lambda$static$0$1::load$($String* name, bool initialize) {
-	$loadClass(FileSystemPreferences$$Lambda$lambda$static$0$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FileSystemPreferences$$Lambda$lambda$static$0$1, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferences$$Lambda$lambda$static$0$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.prefs.FileSystemPreferences$$Lambda$lambda$static$0$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FileSystemPreferences$$Lambda$lambda$static$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileSystemPreferences$$Lambda$lambda$static$0$1);
+	});
 	return class$;
 }
 $Class* FileSystemPreferences$$Lambda$lambda$static$0$1::class$ = nullptr;
-
-$FieldInfo _FileSystemPreferences_FieldInfo_[] = {
-	{"SYNC_INTERVAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FileSystemPreferences, SYNC_INTERVAL)},
-	{"systemRootDir", "Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, systemRootDir)},
-	{"isSystemRootWritable", "Z", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, isSystemRootWritable)},
-	{"userRootDir", "Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, userRootDir)},
-	{"isUserRootWritable", "Z", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, isUserRootWritable)},
-	{"userRoot", "Ljava/util/prefs/Preferences;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(FileSystemPreferences, userRoot)},
-	{"systemRoot", "Ljava/util/prefs/Preferences;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(FileSystemPreferences, systemRoot)},
-	{"USER_READ_WRITE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FileSystemPreferences, USER_READ_WRITE)},
-	{"USER_RW_ALL_READ", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FileSystemPreferences, USER_RW_ALL_READ)},
-	{"USER_RWX_ALL_RX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FileSystemPreferences, USER_RWX_ALL_RX)},
-	{"USER_RWX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FileSystemPreferences, USER_RWX)},
-	{"userLockFile", "Ljava/io/File;", nullptr, $STATIC, $staticField(FileSystemPreferences, userLockFile)},
-	{"systemLockFile", "Ljava/io/File;", nullptr, $STATIC, $staticField(FileSystemPreferences, systemLockFile)},
-	{"userRootLockHandle", "I", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, userRootLockHandle)},
-	{"systemRootLockHandle", "I", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, systemRootLockHandle)},
-	{"dir", "Ljava/io/File;", nullptr, $PRIVATE | $FINAL, $field(FileSystemPreferences, dir)},
-	{"prefsFile", "Ljava/io/File;", nullptr, $PRIVATE | $FINAL, $field(FileSystemPreferences, prefsFile)},
-	{"tmpFile", "Ljava/io/File;", nullptr, $PRIVATE | $FINAL, $field(FileSystemPreferences, tmpFile)},
-	{"userRootModFile", "Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, userRootModFile)},
-	{"isUserRootModified", "Z", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, isUserRootModified)},
-	{"userRootModTime", "J", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, userRootModTime)},
-	{"systemRootModFile", "Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, systemRootModFile)},
-	{"isSystemRootModified", "Z", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, isSystemRootModified)},
-	{"systemRootModTime", "J", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, systemRootModTime)},
-	{"prefsCache", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(FileSystemPreferences, prefsCache)},
-	{"lastSyncTime", "J", nullptr, $PRIVATE, $field(FileSystemPreferences, lastSyncTime)},
-	{"EAGAIN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FileSystemPreferences, EAGAIN)},
-	{"EACCES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FileSystemPreferences, EACCES)},
-	{"LOCK_HANDLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FileSystemPreferences, LOCK_HANDLE)},
-	{"ERROR_CODE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FileSystemPreferences, ERROR_CODE)},
-	{"changeLog", "Ljava/util/List;", "Ljava/util/List<Ljava/util/prefs/FileSystemPreferences$Change;>;", $FINAL, $field(FileSystemPreferences, changeLog)},
-	{"nodeCreate", "Ljava/util/prefs/FileSystemPreferences$NodeCreate;", nullptr, 0, $field(FileSystemPreferences, nodeCreate)},
-	{"syncTimer", "Ljava/util/Timer;", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, syncTimer)},
-	{"isUserNode", "Z", nullptr, $PRIVATE | $FINAL, $field(FileSystemPreferences, isUserNode$)},
-	{"EMPTY_STRING_ARRAY", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FileSystemPreferences, EMPTY_STRING_ARRAY)},
-	{"INIT_SLEEP_TIME", "I", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, INIT_SLEEP_TIME)},
-	{"MAX_ATTEMPTS", "I", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, MAX_ATTEMPTS)},
-	{}
-};
-
-$MethodInfo _FileSystemPreferences_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PRIVATE, $method(FileSystemPreferences, init$, void, bool)},
-	{"<init>", "(Ljava/util/prefs/FileSystemPreferences;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(FileSystemPreferences, init$, void, FileSystemPreferences*, $String*)},
-	{"byteArray", "(Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(FileSystemPreferences, byteArray, $bytes*, $String*)},
-	{"checkLockFile0ErrorCode", "(I)V", nullptr, $PRIVATE, $method(FileSystemPreferences, checkLockFile0ErrorCode, void, int32_t), "java.lang.SecurityException"},
-	{"childSpi", "(Ljava/lang/String;)Ljava/util/prefs/AbstractPreferences;", nullptr, $PROTECTED, $virtualMethod(FileSystemPreferences, childSpi, $AbstractPreferences*, $String*)},
-	{"childrenNamesSpi", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(FileSystemPreferences, childrenNamesSpi, $StringArray*)},
-	{"chmod", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FileSystemPreferences, chmod, int32_t, $String*, int32_t)},
-	{"dirName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FileSystemPreferences, dirName, $String*, $String*)},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferences, flush, void), "java.util.prefs.BackingStoreException"},
-	{"flushSpi", "()V", nullptr, $PROTECTED, $virtualMethod(FileSystemPreferences, flushSpi, void), "java.util.prefs.BackingStoreException"},
-	{"getLogger", "()Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticMethod(FileSystemPreferences, getLogger, $PlatformLogger*)},
-	{"getSpi", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(FileSystemPreferences, getSpi, $String*, $String*)},
-	{"getSystemRoot", "()Ljava/util/prefs/Preferences;", nullptr, $STATIC, $staticMethod(FileSystemPreferences, getSystemRoot, $Preferences*)},
-	{"getUserRoot", "()Ljava/util/prefs/Preferences;", nullptr, $STATIC, $staticMethod(FileSystemPreferences, getUserRoot, $Preferences*)},
-	{"initCacheIfNecessary", "()V", nullptr, $PRIVATE, $method(FileSystemPreferences, initCacheIfNecessary, void)},
-	{"isDirChar", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(FileSystemPreferences, isDirChar, bool, char16_t)},
-	{"isUserNode", "()Z", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferences, isUserNode, bool)},
-	{"keysSpi", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(FileSystemPreferences, keysSpi, $StringArray*)},
-	{"lambda$static$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileSystemPreferences, lambda$static$0, $Void*)},
-	{"lambda$static$1", "()Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileSystemPreferences, lambda$static$1, $Integer*)},
-	{"loadCache", "()V", nullptr, $PRIVATE, $method(FileSystemPreferences, loadCache, void), "java.util.prefs.BackingStoreException"},
-	{"lockFile", "(Z)Z", nullptr, $PRIVATE, $method(FileSystemPreferences, lockFile, bool, bool), "java.lang.SecurityException"},
-	{"lockFile0", "(Ljava/lang/String;IZ)[I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FileSystemPreferences, lockFile0, $ints*, $String*, int32_t, bool)},
-	{"nodeName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FileSystemPreferences, nodeName, $String*, $String*)},
-	{"putSpi", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(FileSystemPreferences, putSpi, void, $String*, $String*)},
-	{"removeNode", "()V", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferences, removeNode, void), "java.util.prefs.BackingStoreException"},
-	{"removeNodeSpi", "()V", nullptr, $PROTECTED, $virtualMethod(FileSystemPreferences, removeNodeSpi, void), "java.util.prefs.BackingStoreException"},
-	{"removeSpi", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(FileSystemPreferences, removeSpi, void, $String*)},
-	{"replayChanges", "()V", nullptr, $PRIVATE, $method(FileSystemPreferences, replayChanges, void)},
-	{"setupSystemRoot", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileSystemPreferences, setupSystemRoot, void)},
-	{"setupUserRoot", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileSystemPreferences, setupUserRoot, void)},
-	{"sync", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FileSystemPreferences, sync, void), "java.util.prefs.BackingStoreException"},
-	{"syncSpi", "()V", nullptr, $PROTECTED, $virtualMethod(FileSystemPreferences, syncSpi, void), "java.util.prefs.BackingStoreException"},
-	{"syncSpiPrivileged", "()V", nullptr, $PRIVATE, $method(FileSystemPreferences, syncSpiPrivileged, void), "java.util.prefs.BackingStoreException"},
-	{"syncWorld", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileSystemPreferences, syncWorld, void)},
-	{"unlockFile", "()V", nullptr, $PRIVATE, $method(FileSystemPreferences, unlockFile, void)},
-	{"unlockFile0", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FileSystemPreferences, unlockFile0, int32_t, int32_t)},
-	{"writeBackCache", "()V", nullptr, $PRIVATE, $method(FileSystemPreferences, writeBackCache, void), "java.util.prefs.BackingStoreException"},
-	{}
-};
-
-#define _METHOD_INDEX_chmod 6
-#define _METHOD_INDEX_lockFile0 22
-#define _METHOD_INDEX_unlockFile0 36
-
-$InnerClassInfo _FileSystemPreferences_InnerClassesInfo_[] = {
-	{"java.util.prefs.FileSystemPreferences$NodeCreate", "java.util.prefs.FileSystemPreferences", "NodeCreate", $PRIVATE},
-	{"java.util.prefs.FileSystemPreferences$Remove", "java.util.prefs.FileSystemPreferences", "Remove", $PRIVATE},
-	{"java.util.prefs.FileSystemPreferences$Put", "java.util.prefs.FileSystemPreferences", "Put", $PRIVATE},
-	{"java.util.prefs.FileSystemPreferences$Change", "java.util.prefs.FileSystemPreferences", "Change", $PRIVATE | $ABSTRACT},
-	{"java.util.prefs.FileSystemPreferences$12", nullptr, nullptr, 0},
-	{"java.util.prefs.FileSystemPreferences$11", nullptr, nullptr, 0},
-	{"java.util.prefs.FileSystemPreferences$10", nullptr, nullptr, 0},
-	{"java.util.prefs.FileSystemPreferences$9", nullptr, nullptr, 0},
-	{"java.util.prefs.FileSystemPreferences$8", nullptr, nullptr, 0},
-	{"java.util.prefs.FileSystemPreferences$7", nullptr, nullptr, 0},
-	{"java.util.prefs.FileSystemPreferences$6", nullptr, nullptr, 0},
-	{"java.util.prefs.FileSystemPreferences$5", nullptr, nullptr, 0},
-	{"java.util.prefs.FileSystemPreferences$4", nullptr, nullptr, 0},
-	{"java.util.prefs.FileSystemPreferences$3", nullptr, nullptr, 0},
-	{"java.util.prefs.FileSystemPreferences$2", nullptr, nullptr, 0},
-	{"java.util.prefs.FileSystemPreferences$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FileSystemPreferences_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.prefs.FileSystemPreferences",
-	"java.util.prefs.AbstractPreferences",
-	nullptr,
-	_FileSystemPreferences_FieldInfo_,
-	_FileSystemPreferences_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FileSystemPreferences_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.prefs.FileSystemPreferences$NodeCreate,java.util.prefs.FileSystemPreferences$Remove,java.util.prefs.FileSystemPreferences$Put,java.util.prefs.FileSystemPreferences$Change,java.util.prefs.FileSystemPreferences$12,java.util.prefs.FileSystemPreferences$11,java.util.prefs.FileSystemPreferences$10,java.util.prefs.FileSystemPreferences$9,java.util.prefs.FileSystemPreferences$8,java.util.prefs.FileSystemPreferences$7,java.util.prefs.FileSystemPreferences$6,java.util.prefs.FileSystemPreferences$5,java.util.prefs.FileSystemPreferences$4,java.util.prefs.FileSystemPreferences$4$1,java.util.prefs.FileSystemPreferences$3,java.util.prefs.FileSystemPreferences$2,java.util.prefs.FileSystemPreferences$1"
-};
-
-$Object* allocate$FileSystemPreferences($Class* clazz) {
-	return $of($alloc(FileSystemPreferences));
-}
 
 int32_t FileSystemPreferences::SYNC_INTERVAL = 0;
 $File* FileSystemPreferences::systemRootDir = nullptr;
@@ -343,7 +203,7 @@ $Preferences* FileSystemPreferences::getUserRoot() {
 			$assign(root, FileSystemPreferences::userRoot);
 			if (root == nullptr) {
 				setupUserRoot();
-				$assignStatic(FileSystemPreferences::userRoot, ($assign(root, $new(FileSystemPreferences, true))));
+				$assignStatic(FileSystemPreferences::userRoot, $assign(root, $new(FileSystemPreferences, true)));
 			}
 		}
 	}
@@ -353,7 +213,7 @@ $Preferences* FileSystemPreferences::getUserRoot() {
 void FileSystemPreferences::setupUserRoot() {
 	$init(FileSystemPreferences);
 	$beforeCallerSensitive();
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($FileSystemPreferences$1)));
+	$AccessController::doPrivileged($$new($FileSystemPreferences$1));
 }
 
 $Preferences* FileSystemPreferences::getSystemRoot() {
@@ -364,7 +224,7 @@ $Preferences* FileSystemPreferences::getSystemRoot() {
 			$assign(root, FileSystemPreferences::systemRoot);
 			if (root == nullptr) {
 				setupSystemRoot();
-				$assignStatic(FileSystemPreferences::systemRoot, ($assign(root, $new(FileSystemPreferences, false))));
+				$assignStatic(FileSystemPreferences::systemRoot, $assign(root, $new(FileSystemPreferences, false)));
 			}
 		}
 	}
@@ -374,23 +234,19 @@ $Preferences* FileSystemPreferences::getSystemRoot() {
 void FileSystemPreferences::setupSystemRoot() {
 	$init(FileSystemPreferences);
 	$beforeCallerSensitive();
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($FileSystemPreferences$2)));
+	$AccessController::doPrivileged($$new($FileSystemPreferences$2));
 }
 
 void FileSystemPreferences::replayChanges() {
-	$useLocalCurrentObjectStackCache();
-	{
-		int32_t i = 0;
-		int32_t n = $nc(this->changeLog)->size();
-		for (; i < n; ++i) {
-			$nc(($cast($FileSystemPreferences$Change, $($nc(this->changeLog)->get(i)))))->replay();
-		}
+	$useLocalObjectStack();
+	for (int32_t i = 0, n = $nc(this->changeLog)->size(); i < n; ++i) {
+		$$sure($FileSystemPreferences$Change, this->changeLog->get(i))->replay();
 	}
 }
 
 void FileSystemPreferences::syncWorld() {
 	$init(FileSystemPreferences);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Preferences, userRt, nullptr);
 	$var($Preferences, systemRt, nullptr);
 	$synchronized(FileSystemPreferences::class$) {
@@ -402,14 +258,14 @@ void FileSystemPreferences::syncWorld() {
 			userRt->flush();
 		}
 	} catch ($BackingStoreException& e) {
-		$nc($(getLogger()))->warning($$str({"Couldn\'t flush user prefs: "_s, e}));
+		$$nc(getLogger())->warning($$str({"Couldn\'t flush user prefs: "_s, e}));
 	}
 	try {
 		if (systemRt != nullptr) {
 			systemRt->flush();
 		}
 	} catch ($BackingStoreException& e) {
-		$nc($(getLogger()))->warning($$str({"Couldn\'t flush system prefs: "_s, e}));
+		$$nc(getLogger())->warning($$str({"Couldn\'t flush system prefs: "_s, e}));
 	}
 }
 
@@ -426,7 +282,7 @@ void FileSystemPreferences::init$(bool user) {
 }
 
 void FileSystemPreferences::init$(FileSystemPreferences* parent, $String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$AbstractPreferences::init$(parent, name);
 	$set(this, prefsCache, nullptr);
@@ -437,11 +293,11 @@ void FileSystemPreferences::init$(FileSystemPreferences* parent, $String* name) 
 	$set(this, dir, $new($File, parent->dir, $(dirName(name))));
 	$set(this, prefsFile, $new($File, this->dir, "prefs.xml"_s));
 	$set(this, tmpFile, $new($File, this->dir, "prefs.tmp"_s));
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($FileSystemPreferences$5, this)));
+	$AccessController::doPrivileged($$new($FileSystemPreferences$5, this));
 	if (this->newNode) {
-		$set(this, prefsCache, static_cast<$Map*>(static_cast<$AbstractMap*>($new($TreeMap))));
+		$set(this, prefsCache, $cast($AbstractMap, $new($TreeMap)));
 		$set(this, nodeCreate, $new($FileSystemPreferences$NodeCreate, this));
-		$nc(this->changeLog)->add(this->nodeCreate);
+		this->changeLog->add(this->nodeCreate);
 	}
 }
 
@@ -473,39 +329,39 @@ void FileSystemPreferences::initCacheIfNecessary() {
 	try {
 		loadCache();
 	} catch ($Exception& e) {
-		$set(this, prefsCache, static_cast<$Map*>(static_cast<$AbstractMap*>($new($TreeMap))));
+		$set(this, prefsCache, $cast($AbstractMap, $new($TreeMap)));
 	}
 }
 
 void FileSystemPreferences::loadCache() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
-		$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($FileSystemPreferences$6, this)));
+		$AccessController::doPrivileged($$new($FileSystemPreferences$6, this));
 	} catch ($PrivilegedActionException& e) {
-		$throw($cast($BackingStoreException, $(e->getException())));
+		$throw($$cast($BackingStoreException, e->getException()));
 	}
 }
 
 void FileSystemPreferences::writeBackCache() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
-		$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($FileSystemPreferences$7, this)));
+		$AccessController::doPrivileged($$new($FileSystemPreferences$7, this));
 	} catch ($PrivilegedActionException& e) {
-		$throw($cast($BackingStoreException, $(e->getException())));
+		$throw($$cast($BackingStoreException, e->getException()));
 	}
 }
 
 $StringArray* FileSystemPreferences::keysSpi() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	initCacheIfNecessary();
-	return $fcast($StringArray, $nc($($nc(this->prefsCache)->keySet()))->toArray($$new($StringArray, $nc(this->prefsCache)->size())));
+	return $cast($StringArray, $$nc($nc(this->prefsCache)->keySet())->toArray($$new($StringArray, $nc(this->prefsCache)->size())));
 }
 
 $StringArray* FileSystemPreferences::childrenNamesSpi() {
 	$beforeCallerSensitive();
-	return $cast($StringArray, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($FileSystemPreferences$8, this))));
+	return $cast($StringArray, $AccessController::doPrivileged($$new($FileSystemPreferences$8, this)));
 }
 
 $AbstractPreferences* FileSystemPreferences::childSpi($String* name) {
@@ -513,40 +369,38 @@ $AbstractPreferences* FileSystemPreferences::childSpi($String* name) {
 }
 
 void FileSystemPreferences::removeNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(isUserNode() ? FileSystemPreferences::userLockFile : FileSystemPreferences::systemLockFile) {
 		if (!lockFile(false)) {
 			$throw($$new($BackingStoreException, "Couldn\'t get file lock."_s));
 		}
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$AbstractPreferences::removeNode();
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				unlockFile();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			$AbstractPreferences::removeNode();
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			unlockFile();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void FileSystemPreferences::removeNodeSpi() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
-		$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($FileSystemPreferences$9, this)));
+		$AccessController::doPrivileged($$new($FileSystemPreferences$9, this));
 	} catch ($PrivilegedActionException& e) {
-		$throw($cast($BackingStoreException, $(e->getException())));
+		$throw($$cast($BackingStoreException, e->getException()));
 	}
 }
 
 void FileSystemPreferences::sync() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$beforeCallerSensitive();
 		bool userNode = isUserNode();
 		bool shared = false;
@@ -559,32 +413,30 @@ void FileSystemPreferences::sync() {
 			if (!lockFile(shared)) {
 				$throw($$new($BackingStoreException, "Couldn\'t get file lock."_s));
 			}
-			$var($Long, newModTime, $cast($Long, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($FileSystemPreferences$10, this)))));
-			{
-				$var($Throwable, var$0, nullptr);
-				try {
-					$AbstractPreferences::sync();
-					$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($FileSystemPreferences$11, this, newModTime)));
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					unlockFile();
-				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+			$var($Long, newModTime, $cast($Long, $AccessController::doPrivileged($$new($FileSystemPreferences$10, this))));
+			$var($Throwable, var$0, nullptr);
+			try {
+				$AbstractPreferences::sync();
+				$AccessController::doPrivileged($$new($FileSystemPreferences$11, this, newModTime));
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				unlockFile();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 	}
 }
 
 void FileSystemPreferences::syncSpi() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
-		$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($FileSystemPreferences$12, this)));
+		$AccessController::doPrivileged($$new($FileSystemPreferences$12, this));
 	} catch ($PrivilegedActionException& e) {
-		$throw($cast($BackingStoreException, $(e->getException())));
+		$throw($$cast($BackingStoreException, e->getException()));
 	}
 }
 
@@ -604,7 +456,7 @@ void FileSystemPreferences::syncSpiPrivileged() {
 			this->lastSyncTime = lastModifiedTime;
 		}
 	} else if (this->lastSyncTime != 0 && !$nc(this->dir)->exists()) {
-		$set(this, prefsCache, static_cast<$Map*>(static_cast<$AbstractMap*>($new($TreeMap))));
+		$set(this, prefsCache, $cast($AbstractMap, $new($TreeMap)));
 		replayChanges();
 	}
 	if (!$nc(this->changeLog)->isEmpty()) {
@@ -612,9 +464,9 @@ void FileSystemPreferences::syncSpiPrivileged() {
 		lastModifiedTime = $nc(this->prefsFile)->lastModified();
 		if (this->lastSyncTime <= lastModifiedTime) {
 			this->lastSyncTime = lastModifiedTime + 1000;
-			$nc(this->prefsFile)->setLastModified(this->lastSyncTime);
+			this->prefsFile->setLastModified(this->lastSyncTime);
 		}
-		$nc(this->changeLog)->clear();
+		this->changeLog->clear();
 	}
 }
 
@@ -635,14 +487,10 @@ bool FileSystemPreferences::isDirChar(char16_t ch) {
 
 $String* FileSystemPreferences::dirName($String* nodeName) {
 	$init(FileSystemPreferences);
-	$useLocalCurrentObjectStackCache();
-	{
-		int32_t i = 0;
-		int32_t n = $nc(nodeName)->length();
-		for (; i < n; ++i) {
-			if (!isDirChar(nodeName->charAt(i))) {
-				return $str({"_"_s, $($Base64::byteArrayToAltBase64($(byteArray(nodeName))))});
-			}
+	$useLocalObjectStack();
+	for (int32_t i = 0, n = $nc(nodeName)->length(); i < n; ++i) {
+		if (!isDirChar(nodeName->charAt(i))) {
+			return $str({"_"_s, $($Base64::byteArrayToAltBase64($(byteArray(nodeName))))});
 		}
 	}
 	return nodeName;
@@ -652,36 +500,32 @@ $bytes* FileSystemPreferences::byteArray($String* s) {
 	$init(FileSystemPreferences);
 	int32_t len = $nc(s)->length();
 	$var($bytes, result, $new($bytes, 2 * len));
-	{
-		int32_t i = 0;
-		int32_t j = 0;
-		for (; i < len; ++i) {
-			char16_t c = s->charAt(i);
-			result->set(j++, (int8_t)(c >> 8));
-			result->set(j++, (int8_t)c);
-		}
+	for (int32_t i = 0, j = 0; i < len; ++i) {
+		char16_t c = s->charAt(i);
+		result->set(j++, (int8_t)(c >> 8));
+		result->set(j++, (int8_t)c);
 	}
 	return result;
 }
 
 $String* FileSystemPreferences::nodeName($String* dirName) {
 	$init(FileSystemPreferences);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(dirName)->charAt(0) != u'_') {
 		return dirName;
 	}
-	$var($bytes, a, $Base64::altBase64ToByteArray($($nc(dirName)->substring(1))));
+	$var($bytes, a, $Base64::altBase64ToByteArray($(dirName->substring(1))));
 	$var($StringBuffer, result, $new($StringBuffer, $nc(a)->length / 2));
-	for (int32_t i = 0; i < $nc(a)->length;) {
-		int32_t highByte = (int32_t)(a->get(i++) & (uint32_t)255);
-		int32_t lowByte = (int32_t)(a->get(i++) & (uint32_t)255);
+	for (int32_t i = 0; i < a->length;) {
+		int32_t highByte = a->get(i++) & 0xff;
+		int32_t lowByte = a->get(i++) & 0xff;
 		result->append((char16_t)((highByte << 8) | lowByte));
 	}
 	return result->toString();
 }
 
 bool FileSystemPreferences::lockFile(bool shared) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool usernode = isUserNode();
 	$var($ints, result, nullptr);
 	int32_t errorCode = 0;
@@ -715,55 +559,52 @@ bool FileSystemPreferences::lockFile(bool shared) {
 }
 
 void FileSystemPreferences::checkLockFile0ErrorCode(int32_t errorCode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (errorCode == FileSystemPreferences::EACCES) {
 		$throwNew($SecurityException, $$str({"Could not lock "_s, (isUserNode() ? "User prefs."_s : "System prefs."_s), " Lock file access denied."_s}));
 	}
 	if (errorCode != FileSystemPreferences::EAGAIN) {
-		$nc($(getLogger()))->warning($$str({"Could not lock "_s, (isUserNode() ? "User prefs. "_s : "System prefs."_s), " Unix error code "_s, $$str(errorCode), "."_s}));
+		$$nc(getLogger())->warning($$str({"Could not lock "_s, (isUserNode() ? "User prefs. "_s : "System prefs."_s), " Unix error code "_s, $$str(errorCode), "."_s}));
 	}
 }
 
 $ints* FileSystemPreferences::lockFile0($String* fileName, int32_t permission, bool shared) {
 	$init(FileSystemPreferences);
-	$var($ints, $ret, nullptr);
-	$prepareNativeStatic(FileSystemPreferences, lockFile0, $ints*, $String* fileName, int32_t permission, bool shared);
-	$assign($ret, $invokeNativeStaticObject(fileName, permission, shared));
+	$prepareNativeStatic(lockFile0, $ints*, $String* fileName, int32_t permission, bool shared);
+	$var($ints, $ret, $invokeNativeStaticObject(fileName, permission, shared));
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t FileSystemPreferences::unlockFile0(int32_t lockHandle) {
 	$init(FileSystemPreferences);
-	int32_t $ret = 0;
-	$prepareNativeStatic(FileSystemPreferences, unlockFile0, int32_t, int32_t lockHandle);
-	$ret = $invokeNativeStatic(lockHandle);
+	$prepareNativeStatic(unlockFile0, int32_t, int32_t lockHandle);
+	int32_t $ret = $invokeNativeStatic(lockHandle);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t FileSystemPreferences::chmod($String* fileName, int32_t permission) {
 	$init(FileSystemPreferences);
-	int32_t $ret = 0;
-	$prepareNativeStatic(FileSystemPreferences, chmod, int32_t, $String* fileName, int32_t permission);
-	$ret = $invokeNativeStatic(fileName, permission);
+	$prepareNativeStatic(chmod, int32_t, $String* fileName, int32_t permission);
+	int32_t $ret = $invokeNativeStatic(fileName, permission);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void FileSystemPreferences::unlockFile() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t result = 0;
 	bool usernode = isUserNode();
 	$var($File, lockFile, usernode ? FileSystemPreferences::userLockFile : FileSystemPreferences::systemLockFile);
 	int32_t lockHandle = (usernode ? FileSystemPreferences::userRootLockHandle : FileSystemPreferences::systemRootLockHandle);
 	if (lockHandle == 0) {
-		$nc($(getLogger()))->warning($$str({"Unlock: zero lockHandle for "_s, (usernode ? "user"_s : "system"_s), " preferences.)"_s}));
+		$$nc(getLogger())->warning($$str({"Unlock: zero lockHandle for "_s, (usernode ? "user"_s : "system"_s), " preferences.)"_s}));
 		return;
 	}
 	result = unlockFile0(lockHandle);
 	if (result != 0) {
-		$nc($(getLogger()))->warning($$str({"Could not drop file-lock on "_s, (isUserNode() ? "user"_s : "system"_s), " preferences. Unix error code "_s, $$str(result), "."_s}));
+		$$nc(getLogger())->warning($$str({"Could not drop file-lock on "_s, (isUserNode() ? "user"_s : "system"_s), " preferences. Unix error code "_s, $$str(result), "."_s}));
 		if (result == FileSystemPreferences::EACCES) {
 			$throwNew($SecurityException, $$str({"Could not unlock"_s, (isUserNode() ? "User prefs."_s : "System prefs."_s), " Lock file access denied."_s}));
 		}
@@ -787,22 +628,22 @@ $Void* FileSystemPreferences::lambda$static$0() {
 	return nullptr;
 }
 
-void clinit$FileSystemPreferences($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void FileSystemPreferences::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	{
-		$var($PrivilegedAction, load, static_cast<$PrivilegedAction*>($new(FileSystemPreferences$$Lambda$lambda$static$0$1)));
+		$var($PrivilegedAction, load, $new(FileSystemPreferences$$Lambda$lambda$static$0$1));
 		$AccessController::doPrivileged(load);
 	}
-	FileSystemPreferences::SYNC_INTERVAL = $Math::max(1, $nc(($cast($Integer, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(FileSystemPreferences$$Lambda$lambda$static$1)))))))->intValue());
+	FileSystemPreferences::SYNC_INTERVAL = $Math::max(1, $$sure($Integer, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(FileSystemPreferences$$Lambda$lambda$static$1))))->intValue());
 	FileSystemPreferences::userRootLockHandle = 0;
 	FileSystemPreferences::systemRootLockHandle = 0;
 	FileSystemPreferences::isUserRootModified = false;
 	FileSystemPreferences::isSystemRootModified = false;
 	$assignStatic(FileSystemPreferences::syncTimer, $new($Timer, true));
 	{
-		$nc(FileSystemPreferences::syncTimer)->schedule(static_cast<$TimerTask*>($$new($FileSystemPreferences$3)), (int64_t)(FileSystemPreferences::SYNC_INTERVAL * 1000), (int64_t)(FileSystemPreferences::SYNC_INTERVAL * 1000));
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($FileSystemPreferences$4)));
+		FileSystemPreferences::syncTimer->schedule($$new($FileSystemPreferences$3), FileSystemPreferences::SYNC_INTERVAL * 1000, FileSystemPreferences::SYNC_INTERVAL * 1000);
+		$AccessController::doPrivileged($$new($FileSystemPreferences$4));
 	}
 	$assignStatic(FileSystemPreferences::EMPTY_STRING_ARRAY, $new($StringArray, 0));
 	FileSystemPreferences::INIT_SLEEP_TIME = 50;
@@ -814,14 +655,130 @@ FileSystemPreferences::FileSystemPreferences() {
 
 $Class* FileSystemPreferences::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(FileSystemPreferences$$Lambda$lambda$static$1::classInfo$.name)) {
+		if (name->equals("java.util.prefs.FileSystemPreferences$$Lambda$lambda$static$1")) {
 			return FileSystemPreferences$$Lambda$lambda$static$1::load$(name, initialize);
 		}
-		if (name->equals(FileSystemPreferences$$Lambda$lambda$static$0$1::classInfo$.name)) {
+		if (name->equals("java.util.prefs.FileSystemPreferences$$Lambda$lambda$static$0$1")) {
 			return FileSystemPreferences$$Lambda$lambda$static$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(FileSystemPreferences, name, initialize, &_FileSystemPreferences_ClassInfo_, clinit$FileSystemPreferences, allocate$FileSystemPreferences);
+	$FieldInfo fieldInfos$$[] = {
+		{"SYNC_INTERVAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FileSystemPreferences, SYNC_INTERVAL)},
+		{"systemRootDir", "Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, systemRootDir)},
+		{"isSystemRootWritable", "Z", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, isSystemRootWritable)},
+		{"userRootDir", "Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, userRootDir)},
+		{"isUserRootWritable", "Z", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, isUserRootWritable)},
+		{"userRoot", "Ljava/util/prefs/Preferences;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(FileSystemPreferences, userRoot)},
+		{"systemRoot", "Ljava/util/prefs/Preferences;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(FileSystemPreferences, systemRoot)},
+		{"USER_READ_WRITE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FileSystemPreferences, USER_READ_WRITE)},
+		{"USER_RW_ALL_READ", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FileSystemPreferences, USER_RW_ALL_READ)},
+		{"USER_RWX_ALL_RX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FileSystemPreferences, USER_RWX_ALL_RX)},
+		{"USER_RWX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FileSystemPreferences, USER_RWX)},
+		{"userLockFile", "Ljava/io/File;", nullptr, $STATIC, $staticField(FileSystemPreferences, userLockFile)},
+		{"systemLockFile", "Ljava/io/File;", nullptr, $STATIC, $staticField(FileSystemPreferences, systemLockFile)},
+		{"userRootLockHandle", "I", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, userRootLockHandle)},
+		{"systemRootLockHandle", "I", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, systemRootLockHandle)},
+		{"dir", "Ljava/io/File;", nullptr, $PRIVATE | $FINAL, $field(FileSystemPreferences, dir)},
+		{"prefsFile", "Ljava/io/File;", nullptr, $PRIVATE | $FINAL, $field(FileSystemPreferences, prefsFile)},
+		{"tmpFile", "Ljava/io/File;", nullptr, $PRIVATE | $FINAL, $field(FileSystemPreferences, tmpFile)},
+		{"userRootModFile", "Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, userRootModFile)},
+		{"isUserRootModified", "Z", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, isUserRootModified)},
+		{"userRootModTime", "J", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, userRootModTime)},
+		{"systemRootModFile", "Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, systemRootModFile)},
+		{"isSystemRootModified", "Z", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, isSystemRootModified)},
+		{"systemRootModTime", "J", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, systemRootModTime)},
+		{"prefsCache", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(FileSystemPreferences, prefsCache)},
+		{"lastSyncTime", "J", nullptr, $PRIVATE, $field(FileSystemPreferences, lastSyncTime)},
+		{"EAGAIN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FileSystemPreferences, EAGAIN)},
+		{"EACCES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FileSystemPreferences, EACCES)},
+		{"LOCK_HANDLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FileSystemPreferences, LOCK_HANDLE)},
+		{"ERROR_CODE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FileSystemPreferences, ERROR_CODE)},
+		{"changeLog", "Ljava/util/List;", "Ljava/util/List<Ljava/util/prefs/FileSystemPreferences$Change;>;", $FINAL, $field(FileSystemPreferences, changeLog)},
+		{"nodeCreate", "Ljava/util/prefs/FileSystemPreferences$NodeCreate;", nullptr, 0, $field(FileSystemPreferences, nodeCreate)},
+		{"syncTimer", "Ljava/util/Timer;", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, syncTimer)},
+		{"isUserNode", "Z", nullptr, $PRIVATE | $FINAL, $field(FileSystemPreferences, isUserNode$)},
+		{"EMPTY_STRING_ARRAY", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FileSystemPreferences, EMPTY_STRING_ARRAY)},
+		{"INIT_SLEEP_TIME", "I", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, INIT_SLEEP_TIME)},
+		{"MAX_ATTEMPTS", "I", nullptr, $PRIVATE | $STATIC, $staticField(FileSystemPreferences, MAX_ATTEMPTS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, $PRIVATE, $method(FileSystemPreferences, init$, void, bool)},
+		{"<init>", "(Ljava/util/prefs/FileSystemPreferences;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(FileSystemPreferences, init$, void, FileSystemPreferences*, $String*)},
+		{"byteArray", "(Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(FileSystemPreferences, byteArray, $bytes*, $String*)},
+		{"checkLockFile0ErrorCode", "(I)V", nullptr, $PRIVATE, $method(FileSystemPreferences, checkLockFile0ErrorCode, void, int32_t), "java.lang.SecurityException"},
+		{"childSpi", "(Ljava/lang/String;)Ljava/util/prefs/AbstractPreferences;", nullptr, $PROTECTED, $virtualMethod(FileSystemPreferences, childSpi, $AbstractPreferences*, $String*)},
+		{"childrenNamesSpi", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(FileSystemPreferences, childrenNamesSpi, $StringArray*)},
+		{"chmod", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FileSystemPreferences, chmod, int32_t, $String*, int32_t)},
+		{"dirName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FileSystemPreferences, dirName, $String*, $String*)},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferences, flush, void), "java.util.prefs.BackingStoreException"},
+		{"flushSpi", "()V", nullptr, $PROTECTED, $virtualMethod(FileSystemPreferences, flushSpi, void), "java.util.prefs.BackingStoreException"},
+		{"getLogger", "()Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticMethod(FileSystemPreferences, getLogger, $PlatformLogger*)},
+		{"getSpi", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(FileSystemPreferences, getSpi, $String*, $String*)},
+		{"getSystemRoot", "()Ljava/util/prefs/Preferences;", nullptr, $STATIC, $staticMethod(FileSystemPreferences, getSystemRoot, $Preferences*)},
+		{"getUserRoot", "()Ljava/util/prefs/Preferences;", nullptr, $STATIC, $staticMethod(FileSystemPreferences, getUserRoot, $Preferences*)},
+		{"initCacheIfNecessary", "()V", nullptr, $PRIVATE, $method(FileSystemPreferences, initCacheIfNecessary, void)},
+		{"isDirChar", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(FileSystemPreferences, isDirChar, bool, char16_t)},
+		{"isUserNode", "()Z", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferences, isUserNode, bool)},
+		{"keysSpi", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(FileSystemPreferences, keysSpi, $StringArray*)},
+		{"lambda$static$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileSystemPreferences, lambda$static$0, $Void*)},
+		{"lambda$static$1", "()Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileSystemPreferences, lambda$static$1, $Integer*)},
+		{"loadCache", "()V", nullptr, $PRIVATE, $method(FileSystemPreferences, loadCache, void), "java.util.prefs.BackingStoreException"},
+		{"lockFile", "(Z)Z", nullptr, $PRIVATE, $method(FileSystemPreferences, lockFile, bool, bool), "java.lang.SecurityException"},
+		{"lockFile0", "(Ljava/lang/String;IZ)[I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FileSystemPreferences, lockFile0, $ints*, $String*, int32_t, bool)},
+		{"nodeName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FileSystemPreferences, nodeName, $String*, $String*)},
+		{"putSpi", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(FileSystemPreferences, putSpi, void, $String*, $String*)},
+		{"removeNode", "()V", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferences, removeNode, void), "java.util.prefs.BackingStoreException"},
+		{"removeNodeSpi", "()V", nullptr, $PROTECTED, $virtualMethod(FileSystemPreferences, removeNodeSpi, void), "java.util.prefs.BackingStoreException"},
+		{"removeSpi", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(FileSystemPreferences, removeSpi, void, $String*)},
+		{"replayChanges", "()V", nullptr, $PRIVATE, $method(FileSystemPreferences, replayChanges, void)},
+		{"setupSystemRoot", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileSystemPreferences, setupSystemRoot, void)},
+		{"setupUserRoot", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileSystemPreferences, setupUserRoot, void)},
+		{"sync", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FileSystemPreferences, sync, void), "java.util.prefs.BackingStoreException"},
+		{"syncSpi", "()V", nullptr, $PROTECTED, $virtualMethod(FileSystemPreferences, syncSpi, void), "java.util.prefs.BackingStoreException"},
+		{"syncSpiPrivileged", "()V", nullptr, $PRIVATE, $method(FileSystemPreferences, syncSpiPrivileged, void), "java.util.prefs.BackingStoreException"},
+		{"syncWorld", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileSystemPreferences, syncWorld, void)},
+		{"unlockFile", "()V", nullptr, $PRIVATE, $method(FileSystemPreferences, unlockFile, void)},
+		{"unlockFile0", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FileSystemPreferences, unlockFile0, int32_t, int32_t)},
+		{"writeBackCache", "()V", nullptr, $PRIVATE, $method(FileSystemPreferences, writeBackCache, void), "java.util.prefs.BackingStoreException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.prefs.FileSystemPreferences$NodeCreate", "java.util.prefs.FileSystemPreferences", "NodeCreate", $PRIVATE},
+		{"java.util.prefs.FileSystemPreferences$Remove", "java.util.prefs.FileSystemPreferences", "Remove", $PRIVATE},
+		{"java.util.prefs.FileSystemPreferences$Put", "java.util.prefs.FileSystemPreferences", "Put", $PRIVATE},
+		{"java.util.prefs.FileSystemPreferences$Change", "java.util.prefs.FileSystemPreferences", "Change", $PRIVATE | $ABSTRACT},
+		{"java.util.prefs.FileSystemPreferences$12", nullptr, nullptr, 0},
+		{"java.util.prefs.FileSystemPreferences$11", nullptr, nullptr, 0},
+		{"java.util.prefs.FileSystemPreferences$10", nullptr, nullptr, 0},
+		{"java.util.prefs.FileSystemPreferences$9", nullptr, nullptr, 0},
+		{"java.util.prefs.FileSystemPreferences$8", nullptr, nullptr, 0},
+		{"java.util.prefs.FileSystemPreferences$7", nullptr, nullptr, 0},
+		{"java.util.prefs.FileSystemPreferences$6", nullptr, nullptr, 0},
+		{"java.util.prefs.FileSystemPreferences$5", nullptr, nullptr, 0},
+		{"java.util.prefs.FileSystemPreferences$4", nullptr, nullptr, 0},
+		{"java.util.prefs.FileSystemPreferences$3", nullptr, nullptr, 0},
+		{"java.util.prefs.FileSystemPreferences$2", nullptr, nullptr, 0},
+		{"java.util.prefs.FileSystemPreferences$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.prefs.FileSystemPreferences",
+		"java.util.prefs.AbstractPreferences",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.prefs.FileSystemPreferences$NodeCreate,java.util.prefs.FileSystemPreferences$Remove,java.util.prefs.FileSystemPreferences$Put,java.util.prefs.FileSystemPreferences$Change,java.util.prefs.FileSystemPreferences$12,java.util.prefs.FileSystemPreferences$11,java.util.prefs.FileSystemPreferences$10,java.util.prefs.FileSystemPreferences$9,java.util.prefs.FileSystemPreferences$8,java.util.prefs.FileSystemPreferences$7,java.util.prefs.FileSystemPreferences$6,java.util.prefs.FileSystemPreferences$5,java.util.prefs.FileSystemPreferences$4,java.util.prefs.FileSystemPreferences$4$1,java.util.prefs.FileSystemPreferences$3,java.util.prefs.FileSystemPreferences$2,java.util.prefs.FileSystemPreferences$1"
+	};
+	$loadClass(FileSystemPreferences, name, initialize, &classInfo$$, FileSystemPreferences::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FileSystemPreferences);
+	});
 	return class$;
 }
 

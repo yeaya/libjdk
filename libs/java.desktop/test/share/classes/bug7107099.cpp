@@ -1,10 +1,8 @@
 #include <bug7107099.h>
-
 #include <bug7107099$1.h>
 #include <bug7107099$2.h>
 #include <bug7107099$3.h>
 #include <java/awt/Robot.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JTextArea.h>
@@ -19,54 +17,10 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $JFrame = ::javax::swing::JFrame;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTextArea = ::javax::swing::JTextArea;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-
-$FieldInfo _bug7107099_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug7107099, frame)},
-	{"textarea", "Ljavax/swing/JTextArea;", nullptr, $PRIVATE | $STATIC, $staticField(bug7107099, textarea)},
-	{"scrollPane", "Ljavax/swing/JScrollPane;", nullptr, $PRIVATE | $STATIC, $staticField(bug7107099, scrollPane)},
-	{"value", "I", nullptr, $PRIVATE | $STATIC, $staticField(bug7107099, value)},
-	{"min", "I", nullptr, $PRIVATE | $STATIC, $staticField(bug7107099, min)},
-	{"max", "I", nullptr, $PRIVATE | $STATIC, $staticField(bug7107099, max)},
-	{"extent", "I", nullptr, $PRIVATE | $STATIC, $staticField(bug7107099, extent)},
-	{}
-};
-
-$MethodInfo _bug7107099_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug7107099, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug7107099, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug7107099_InnerClassesInfo_[] = {
-	{"bug7107099$3", nullptr, nullptr, 0},
-	{"bug7107099$2", nullptr, nullptr, 0},
-	{"bug7107099$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug7107099_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug7107099",
-	"java.lang.Object",
-	nullptr,
-	_bug7107099_FieldInfo_,
-	_bug7107099_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug7107099_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug7107099$3,bug7107099$2,bug7107099$1"
-};
-
-$Object* allocate$bug7107099($Class* clazz) {
-	return $of($alloc(bug7107099));
-}
 
 $JFrame* bug7107099::frame = nullptr;
 $JTextArea* bug7107099::textarea = nullptr;
@@ -80,7 +34,7 @@ void bug7107099::init$() {
 }
 
 void bug7107099::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Robot, robot, $new($Robot));
 	$SwingUtilities::invokeAndWait($$new($bug7107099$1));
 	robot->waitForIdle();
@@ -93,7 +47,44 @@ bug7107099::bug7107099() {
 }
 
 $Class* bug7107099::load$($String* name, bool initialize) {
-	$loadClass(bug7107099, name, initialize, &_bug7107099_ClassInfo_, allocate$bug7107099);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug7107099, frame)},
+		{"textarea", "Ljavax/swing/JTextArea;", nullptr, $PRIVATE | $STATIC, $staticField(bug7107099, textarea)},
+		{"scrollPane", "Ljavax/swing/JScrollPane;", nullptr, $PRIVATE | $STATIC, $staticField(bug7107099, scrollPane)},
+		{"value", "I", nullptr, $PRIVATE | $STATIC, $staticField(bug7107099, value)},
+		{"min", "I", nullptr, $PRIVATE | $STATIC, $staticField(bug7107099, min)},
+		{"max", "I", nullptr, $PRIVATE | $STATIC, $staticField(bug7107099, max)},
+		{"extent", "I", nullptr, $PRIVATE | $STATIC, $staticField(bug7107099, extent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug7107099, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug7107099, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug7107099$3", nullptr, nullptr, 0},
+		{"bug7107099$2", nullptr, nullptr, 0},
+		{"bug7107099$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug7107099",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug7107099$3,bug7107099$2,bug7107099$1"
+	};
+	$loadClass(bug7107099, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug7107099);
+	});
 	return class$;
 }
 

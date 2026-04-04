@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/MXBeanProxy$SetHandler.h>
-
 #include <com/sun/jmx/mbeanserver/ConvertingMethod.h>
 #include <com/sun/jmx/mbeanserver/MXBeanProxy$Handler.h>
 #include <com/sun/jmx/mbeanserver/MXBeanProxy.h>
@@ -26,43 +25,6 @@ namespace com {
 		namespace jmx {
 			namespace mbeanserver {
 
-$FieldInfo _MXBeanProxy$SetHandler_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MXBeanProxy$SetHandler, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _MXBeanProxy$SetHandler_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lcom/sun/jmx/mbeanserver/ConvertingMethod;)V", nullptr, 0, $method(MXBeanProxy$SetHandler, init$, void, $String*, $ConvertingMethod*)},
-	{"invoke", "(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(MXBeanProxy$SetHandler, invoke, $Object*, $MBeanServerConnection*, $ObjectName*, $ObjectArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _MXBeanProxy$SetHandler_InnerClassesInfo_[] = {
-	{"com.sun.jmx.mbeanserver.MXBeanProxy$SetHandler", "com.sun.jmx.mbeanserver.MXBeanProxy", "SetHandler", $PRIVATE | $STATIC},
-	{"com.sun.jmx.mbeanserver.MXBeanProxy$Handler", "com.sun.jmx.mbeanserver.MXBeanProxy", "Handler", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MXBeanProxy$SetHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jmx.mbeanserver.MXBeanProxy$SetHandler",
-	"com.sun.jmx.mbeanserver.MXBeanProxy$Handler",
-	nullptr,
-	_MXBeanProxy$SetHandler_FieldInfo_,
-	_MXBeanProxy$SetHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MXBeanProxy$SetHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.mbeanserver.MXBeanProxy"
-};
-
-$Object* allocate$MXBeanProxy$SetHandler($Class* clazz) {
-	return $of($alloc(MXBeanProxy$SetHandler));
-}
-
 bool MXBeanProxy$SetHandler::$assertionsDisabled = false;
 
 void MXBeanProxy$SetHandler::init$($String* attributeName, $ConvertingMethod* cm) {
@@ -70,16 +32,16 @@ void MXBeanProxy$SetHandler::init$($String* attributeName, $ConvertingMethod* cm
 }
 
 $Object* MXBeanProxy$SetHandler::invoke($MBeanServerConnection* mbsc, $ObjectName* name, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!MXBeanProxy$SetHandler::$assertionsDisabled && !($nc(args)->length == 1)) {
 		$throwNew($AssertionError);
 	}
 	$var($Attribute, attr, $new($Attribute, $(getName()), $nc(args)->get(0)));
 	$nc(mbsc)->setAttribute(name, attr);
-	return $of(nullptr);
+	return nullptr;
 }
 
-void clinit$MXBeanProxy$SetHandler($Class* class$) {
+void MXBeanProxy$SetHandler::clinit$($Class* clazz) {
 	$load($MXBeanProxy);
 	MXBeanProxy$SetHandler::$assertionsDisabled = !$MXBeanProxy::class$->desiredAssertionStatus();
 }
@@ -88,7 +50,38 @@ MXBeanProxy$SetHandler::MXBeanProxy$SetHandler() {
 }
 
 $Class* MXBeanProxy$SetHandler::load$($String* name, bool initialize) {
-	$loadClass(MXBeanProxy$SetHandler, name, initialize, &_MXBeanProxy$SetHandler_ClassInfo_, clinit$MXBeanProxy$SetHandler, allocate$MXBeanProxy$SetHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MXBeanProxy$SetHandler, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Lcom/sun/jmx/mbeanserver/ConvertingMethod;)V", nullptr, 0, $method(MXBeanProxy$SetHandler, init$, void, $String*, $ConvertingMethod*)},
+		{"invoke", "(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(MXBeanProxy$SetHandler, invoke, $Object*, $MBeanServerConnection*, $ObjectName*, $ObjectArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.mbeanserver.MXBeanProxy$SetHandler", "com.sun.jmx.mbeanserver.MXBeanProxy", "SetHandler", $PRIVATE | $STATIC},
+		{"com.sun.jmx.mbeanserver.MXBeanProxy$Handler", "com.sun.jmx.mbeanserver.MXBeanProxy", "Handler", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jmx.mbeanserver.MXBeanProxy$SetHandler",
+		"com.sun.jmx.mbeanserver.MXBeanProxy$Handler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.mbeanserver.MXBeanProxy"
+	};
+	$loadClass(MXBeanProxy$SetHandler, name, initialize, &classInfo$$, MXBeanProxy$SetHandler::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MXBeanProxy$SetHandler);
+	});
 	return class$;
 }
 

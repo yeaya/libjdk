@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifSliderUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -18,7 +17,6 @@
 #undef PREFERRED_HORIZONTAL_SIZE
 #undef PREFERRED_VERTICAL_SIZE
 
-using $Color = ::java::awt::Color;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;
@@ -37,41 +35,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace motif {
-
-$FieldInfo _MotifSliderUI_FieldInfo_[] = {
-	{"PREFERRED_HORIZONTAL_SIZE", "Ljava/awt/Dimension;", nullptr, $STATIC | $FINAL, $staticField(MotifSliderUI, PREFERRED_HORIZONTAL_SIZE)},
-	{"PREFERRED_VERTICAL_SIZE", "Ljava/awt/Dimension;", nullptr, $STATIC | $FINAL, $staticField(MotifSliderUI, PREFERRED_VERTICAL_SIZE)},
-	{"MINIMUM_HORIZONTAL_SIZE", "Ljava/awt/Dimension;", nullptr, $STATIC | $FINAL, $staticField(MotifSliderUI, MINIMUM_HORIZONTAL_SIZE)},
-	{"MINIMUM_VERTICAL_SIZE", "Ljava/awt/Dimension;", nullptr, $STATIC | $FINAL, $staticField(MotifSliderUI, MINIMUM_VERTICAL_SIZE)},
-	{}
-};
-
-$MethodInfo _MotifSliderUI_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JSlider;)V", nullptr, $PUBLIC, $method(MotifSliderUI, init$, void, $JSlider*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifSliderUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getMinimumHorizontalSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifSliderUI, getMinimumHorizontalSize, $Dimension*)},
-	{"getMinimumVerticalSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifSliderUI, getMinimumVerticalSize, $Dimension*)},
-	{"getPreferredHorizontalSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifSliderUI, getPreferredHorizontalSize, $Dimension*)},
-	{"getPreferredVerticalSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifSliderUI, getPreferredVerticalSize, $Dimension*)},
-	{"getThumbSize", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(MotifSliderUI, getThumbSize, $Dimension*)},
-	{"paintFocus", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MotifSliderUI, paintFocus, void, $Graphics*)},
-	{"paintThumb", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MotifSliderUI, paintThumb, void, $Graphics*)},
-	{"paintTrack", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MotifSliderUI, paintTrack, void, $Graphics*)},
-	{}
-};
-
-$ClassInfo _MotifSliderUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifSliderUI",
-	"javax.swing.plaf.basic.BasicSliderUI",
-	nullptr,
-	_MotifSliderUI_FieldInfo_,
-	_MotifSliderUI_MethodInfo_
-};
-
-$Object* allocate$MotifSliderUI($Class* clazz) {
-	return $of($alloc(MotifSliderUI));
-}
 
 $Dimension* MotifSliderUI::PREFERRED_HORIZONTAL_SIZE = nullptr;
 $Dimension* MotifSliderUI::PREFERRED_VERTICAL_SIZE = nullptr;
@@ -118,7 +81,7 @@ void MotifSliderUI::paintTrack($Graphics* g) {
 }
 
 void MotifSliderUI::paintThumb($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, knobBounds, this->thumbRect);
 	int32_t x = $nc(knobBounds)->x;
 	int32_t y = knobBounds->y;
@@ -127,7 +90,7 @@ void MotifSliderUI::paintThumb($Graphics* g) {
 	if ($nc(this->slider)->isEnabled()) {
 		$nc(g)->setColor($($nc(this->slider)->getForeground()));
 	} else {
-		$nc(g)->setColor($($nc($($nc(this->slider)->getForeground()))->darker()));
+		$nc(g)->setColor($($$nc($nc(this->slider)->getForeground())->darker()));
 	}
 	if ($nc(this->slider)->getOrientation() == $JSlider::HORIZONTAL) {
 		$nc(g)->translate(x, knobBounds->y - 1);
@@ -156,7 +119,7 @@ void MotifSliderUI::paintThumb($Graphics* g) {
 	}
 }
 
-void clinit$MotifSliderUI($Class* class$) {
+void MotifSliderUI::clinit$($Class* clazz) {
 	$assignStatic(MotifSliderUI::PREFERRED_HORIZONTAL_SIZE, $new($Dimension, 164, 15));
 	$assignStatic(MotifSliderUI::PREFERRED_VERTICAL_SIZE, $new($Dimension, 15, 164));
 	$assignStatic(MotifSliderUI::MINIMUM_HORIZONTAL_SIZE, $new($Dimension, 43, 15));
@@ -167,7 +130,37 @@ MotifSliderUI::MotifSliderUI() {
 }
 
 $Class* MotifSliderUI::load$($String* name, bool initialize) {
-	$loadClass(MotifSliderUI, name, initialize, &_MotifSliderUI_ClassInfo_, clinit$MotifSliderUI, allocate$MotifSliderUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"PREFERRED_HORIZONTAL_SIZE", "Ljava/awt/Dimension;", nullptr, $STATIC | $FINAL, $staticField(MotifSliderUI, PREFERRED_HORIZONTAL_SIZE)},
+		{"PREFERRED_VERTICAL_SIZE", "Ljava/awt/Dimension;", nullptr, $STATIC | $FINAL, $staticField(MotifSliderUI, PREFERRED_VERTICAL_SIZE)},
+		{"MINIMUM_HORIZONTAL_SIZE", "Ljava/awt/Dimension;", nullptr, $STATIC | $FINAL, $staticField(MotifSliderUI, MINIMUM_HORIZONTAL_SIZE)},
+		{"MINIMUM_VERTICAL_SIZE", "Ljava/awt/Dimension;", nullptr, $STATIC | $FINAL, $staticField(MotifSliderUI, MINIMUM_VERTICAL_SIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JSlider;)V", nullptr, $PUBLIC, $method(MotifSliderUI, init$, void, $JSlider*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifSliderUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getMinimumHorizontalSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifSliderUI, getMinimumHorizontalSize, $Dimension*)},
+		{"getMinimumVerticalSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifSliderUI, getMinimumVerticalSize, $Dimension*)},
+		{"getPreferredHorizontalSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifSliderUI, getPreferredHorizontalSize, $Dimension*)},
+		{"getPreferredVerticalSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifSliderUI, getPreferredVerticalSize, $Dimension*)},
+		{"getThumbSize", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(MotifSliderUI, getThumbSize, $Dimension*)},
+		{"paintFocus", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MotifSliderUI, paintFocus, void, $Graphics*)},
+		{"paintThumb", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MotifSliderUI, paintThumb, void, $Graphics*)},
+		{"paintTrack", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MotifSliderUI, paintTrack, void, $Graphics*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifSliderUI",
+		"javax.swing.plaf.basic.BasicSliderUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MotifSliderUI, name, initialize, &classInfo$$, MotifSliderUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MotifSliderUI);
+	});
 	return class$;
 }
 

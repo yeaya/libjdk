@@ -49,6 +49,7 @@ class Init : public ::java::lang::Object {
 	$class(Init, 0, ::java::lang::Object)
 public:
 	Init();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void dynamicInit();
 	static void fileInit(::java::io::InputStream* is);

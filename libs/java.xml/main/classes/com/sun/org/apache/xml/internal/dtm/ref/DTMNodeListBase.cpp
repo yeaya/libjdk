@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMNodeListBase.h>
-
 #include <org/w3c/dom/Node.h>
 #include <jcpp.h>
 
@@ -16,26 +15,6 @@ namespace com {
 						namespace dtm {
 							namespace ref {
 
-$MethodInfo _DTMNodeListBase_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DTMNodeListBase, init$, void)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(DTMNodeListBase, getLength, int32_t)},
-	{"item", "(I)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DTMNodeListBase, item, $Node*, int32_t)},
-	{}
-};
-
-$ClassInfo _DTMNodeListBase_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMNodeListBase",
-	"java.lang.Object",
-	"org.w3c.dom.NodeList",
-	nullptr,
-	_DTMNodeListBase_MethodInfo_
-};
-
-$Object* allocate$DTMNodeListBase($Class* clazz) {
-	return $of($alloc(DTMNodeListBase));
-}
-
 void DTMNodeListBase::init$() {
 }
 
@@ -51,7 +30,23 @@ DTMNodeListBase::DTMNodeListBase() {
 }
 
 $Class* DTMNodeListBase::load$($String* name, bool initialize) {
-	$loadClass(DTMNodeListBase, name, initialize, &_DTMNodeListBase_ClassInfo_, allocate$DTMNodeListBase);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DTMNodeListBase, init$, void)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(DTMNodeListBase, getLength, int32_t)},
+		{"item", "(I)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DTMNodeListBase, item, $Node*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMNodeListBase",
+		"java.lang.Object",
+		"org.w3c.dom.NodeList",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DTMNodeListBase, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DTMNodeListBase);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <TAB$2.h>
-
 #include <TAB.h>
 #include <java/awt/Color.h>
 #include <java/lang/Number.h>
@@ -15,59 +14,53 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Number = ::java::lang::Number;
 using $DefaultTableCellRenderer = ::javax::swing::table::DefaultTableCellRenderer;
 
-$MethodInfo _TAB$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TAB$2, init$, void)},
-	{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(TAB$2, setValue, void, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _TAB$2_EnclosingMethodInfo_ = {
-	"TAB",
-	"initTest",
-	"(Ljava/awt/Container;)V"
-};
-
-$InnerClassInfo _TAB$2_InnerClassesInfo_[] = {
-	{"TAB$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TAB$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"TAB$2",
-	"javax.swing.table.DefaultTableCellRenderer",
-	nullptr,
-	nullptr,
-	_TAB$2_MethodInfo_,
-	nullptr,
-	&_TAB$2_EnclosingMethodInfo_,
-	_TAB$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TAB"
-};
-
-$Object* allocate$TAB$2($Class* clazz) {
-	return $of($alloc(TAB$2));
-}
-
 void TAB$2::init$() {
 	$DefaultTableCellRenderer::init$();
 }
 
 void TAB$2::setValue(Object$* value) {
-	int32_t cellValue = ($instanceOf($Number, value)) ? $nc(($cast($Number, value)))->intValue() : 0;
+	int32_t cellValue = ($instanceOf($Number, value)) ? $cast($Number, value)->intValue() : 0;
 	$init($Color);
 	setForeground((cellValue > 30) ? $Color::black : $Color::red);
-	setText((value == nullptr) ? ""_s : $($nc($of(value))->toString()));
+	setText((value == nullptr) ? ""_s : $($of(value)->toString()));
 }
 
 TAB$2::TAB$2() {
 }
 
 $Class* TAB$2::load$($String* name, bool initialize) {
-	$loadClass(TAB$2, name, initialize, &_TAB$2_ClassInfo_, allocate$TAB$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TAB$2, init$, void)},
+		{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(TAB$2, setValue, void, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"TAB",
+		"initTest",
+		"(Ljava/awt/Container;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TAB$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TAB$2",
+		"javax.swing.table.DefaultTableCellRenderer",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TAB"
+	};
+	$loadClass(TAB$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TAB$2));
+	});
 	return class$;
 }
 

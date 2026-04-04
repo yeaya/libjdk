@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthConstants.h>
-
 #include <jcpp.h>
 
 #undef DEFAULT
@@ -18,31 +17,27 @@ namespace javax {
 		namespace plaf {
 			namespace synth {
 
-$FieldInfo _SynthConstants_FieldInfo_[] = {
-	{"ENABLED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SynthConstants, ENABLED)},
-	{"MOUSE_OVER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SynthConstants, MOUSE_OVER)},
-	{"PRESSED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SynthConstants, PRESSED)},
-	{"DISABLED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SynthConstants, DISABLED)},
-	{"FOCUSED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SynthConstants, FOCUSED)},
-	{"SELECTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SynthConstants, SELECTED)},
-	{"DEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SynthConstants, DEFAULT)},
-	{}
-};
-
-$ClassInfo _SynthConstants_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.plaf.synth.SynthConstants",
-	nullptr,
-	nullptr,
-	_SynthConstants_FieldInfo_
-};
-
-$Object* allocate$SynthConstants($Class* clazz) {
-	return $of($alloc(SynthConstants));
-}
-
 $Class* SynthConstants::load$($String* name, bool initialize) {
-	$loadClass(SynthConstants, name, initialize, &_SynthConstants_ClassInfo_, allocate$SynthConstants);
+	$FieldInfo fieldInfos$$[] = {
+		{"ENABLED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SynthConstants, ENABLED)},
+		{"MOUSE_OVER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SynthConstants, MOUSE_OVER)},
+		{"PRESSED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SynthConstants, PRESSED)},
+		{"DISABLED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SynthConstants, DISABLED)},
+		{"FOCUSED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SynthConstants, FOCUSED)},
+		{"SELECTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SynthConstants, SELECTED)},
+		{"DEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SynthConstants, DEFAULT)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.plaf.synth.SynthConstants",
+		nullptr,
+		nullptr,
+		fieldInfos$$
+	};
+	$loadClass(SynthConstants, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SynthConstants);
+	});
 	return class$;
 }
 

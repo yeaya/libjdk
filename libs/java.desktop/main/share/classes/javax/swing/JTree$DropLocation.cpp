@@ -1,5 +1,4 @@
 #include <javax/swing/JTree$DropLocation.h>
-
 #include <java/awt/Point.h>
 #include <javax/swing/JTree.h>
 #include <javax/swing/TransferHandler$DropLocation.h>
@@ -17,46 +16,6 @@ using $TreePath = ::javax::swing::tree::TreePath;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _JTree$DropLocation_FieldInfo_[] = {
-	{"path", "Ljavax/swing/tree/TreePath;", nullptr, $PRIVATE | $FINAL, $field(JTree$DropLocation, path)},
-	{"index", "I", nullptr, $PRIVATE | $FINAL, $field(JTree$DropLocation, index)},
-	{}
-};
-
-$MethodInfo _JTree$DropLocation_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Point;Ljavax/swing/tree/TreePath;I)V", nullptr, $PRIVATE, $method(JTree$DropLocation, init$, void, $Point*, $TreePath*, int32_t)},
-	{"getChildIndex", "()I", nullptr, $PUBLIC, $method(JTree$DropLocation, getChildIndex, int32_t)},
-	{"getPath", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $method(JTree$DropLocation, getPath, $TreePath*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTree$DropLocation, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _JTree$DropLocation_InnerClassesInfo_[] = {
-	{"javax.swing.JTree$DropLocation", "javax.swing.JTree", "DropLocation", $PUBLIC | $STATIC | $FINAL},
-	{"javax.swing.TransferHandler$DropLocation", "javax.swing.TransferHandler", "DropLocation", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JTree$DropLocation_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.swing.JTree$DropLocation",
-	"javax.swing.TransferHandler$DropLocation",
-	nullptr,
-	_JTree$DropLocation_FieldInfo_,
-	_JTree$DropLocation_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTree$DropLocation_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JTree"
-};
-
-$Object* allocate$JTree$DropLocation($Class* clazz) {
-	return $of($alloc(JTree$DropLocation));
-}
-
 void JTree$DropLocation::init$($Point* p, $TreePath* path, int32_t index) {
 	$TransferHandler$DropLocation::init$(p);
 	$set(this, path, path);
@@ -72,21 +31,58 @@ $TreePath* JTree$DropLocation::getPath() {
 }
 
 $String* JTree$DropLocation::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$5, $$str({$($of(this)->getClass()->getName()), "[dropPoint="_s}));
-	$var($String, var$4, $$concat(var$5, $(getDropPoint())));
-	$var($String, var$3, $$concat(var$4, ",path="_s));
-	$var($String, var$2, $$concat(var$3, this->path));
-	$var($String, var$1, $$concat(var$2, ",childIndex="_s));
-	$var($String, var$0, $$concat(var$1, $$str(this->index)));
-	return $concat(var$0, "]"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($of(this)->getClass()->getName()));
+	var$0->append("[dropPoint="_s);
+	var$0->append($(getDropPoint()));
+	var$0->append(",path="_s);
+	var$0->append(this->path);
+	var$0->append(",childIndex="_s);
+	var$0->append(this->index);
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 JTree$DropLocation::JTree$DropLocation() {
 }
 
 $Class* JTree$DropLocation::load$($String* name, bool initialize) {
-	$loadClass(JTree$DropLocation, name, initialize, &_JTree$DropLocation_ClassInfo_, allocate$JTree$DropLocation);
+	$FieldInfo fieldInfos$$[] = {
+		{"path", "Ljavax/swing/tree/TreePath;", nullptr, $PRIVATE | $FINAL, $field(JTree$DropLocation, path)},
+		{"index", "I", nullptr, $PRIVATE | $FINAL, $field(JTree$DropLocation, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Point;Ljavax/swing/tree/TreePath;I)V", nullptr, $PRIVATE, $method(JTree$DropLocation, init$, void, $Point*, $TreePath*, int32_t)},
+		{"getChildIndex", "()I", nullptr, $PUBLIC, $method(JTree$DropLocation, getChildIndex, int32_t)},
+		{"getPath", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $method(JTree$DropLocation, getPath, $TreePath*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTree$DropLocation, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JTree$DropLocation", "javax.swing.JTree", "DropLocation", $PUBLIC | $STATIC | $FINAL},
+		{"javax.swing.TransferHandler$DropLocation", "javax.swing.TransferHandler", "DropLocation", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.swing.JTree$DropLocation",
+		"javax.swing.TransferHandler$DropLocation",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JTree"
+	};
+	$loadClass(JTree$DropLocation, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JTree$DropLocation);
+	});
 	return class$;
 }
 

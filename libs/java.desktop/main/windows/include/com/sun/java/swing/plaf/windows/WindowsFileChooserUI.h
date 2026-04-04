@@ -138,6 +138,7 @@ class $import WindowsFileChooserUI : public ::javax::swing::plaf::basic::BasicFi
 	$class(WindowsFileChooserUI, 0, ::javax::swing::plaf::basic::BasicFileChooserUI)
 public:
 	WindowsFileChooserUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::JFileChooser* filechooser);
 	static bool access$000(::com::sun::java::swing::plaf::windows::WindowsFileChooserUI* x0);
 	static ::java::io::File* access$100(::com::sun::java::swing::plaf::windows::WindowsFileChooserUI* x0);

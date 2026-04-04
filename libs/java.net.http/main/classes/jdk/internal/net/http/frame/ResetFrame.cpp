@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/frame/ResetFrame.h>
-
 #include <jdk/internal/net/http/frame/ErrorFrame.h>
 #include <jcpp.h>
 
@@ -15,31 +14,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 				namespace frame {
-
-$FieldInfo _ResetFrame_FieldInfo_[] = {
-	{"TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ResetFrame, TYPE)},
-	{}
-};
-
-$MethodInfo _ResetFrame_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(ResetFrame, init$, void, int32_t, int32_t)},
-	{"length", "()I", nullptr, 0, $virtualMethod(ResetFrame, length, int32_t)},
-	{"type", "()I", nullptr, $PUBLIC, $virtualMethod(ResetFrame, type, int32_t)},
-	{}
-};
-
-$ClassInfo _ResetFrame_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.frame.ResetFrame",
-	"jdk.internal.net.http.frame.ErrorFrame",
-	nullptr,
-	_ResetFrame_FieldInfo_,
-	_ResetFrame_MethodInfo_
-};
-
-$Object* allocate$ResetFrame($Class* clazz) {
-	return $of($alloc(ResetFrame));
-}
 
 void ResetFrame::init$(int32_t streamid, int32_t errorCode) {
 	$ErrorFrame::init$(streamid, 0, errorCode);
@@ -57,7 +31,27 @@ ResetFrame::ResetFrame() {
 }
 
 $Class* ResetFrame::load$($String* name, bool initialize) {
-	$loadClass(ResetFrame, name, initialize, &_ResetFrame_ClassInfo_, allocate$ResetFrame);
+	$FieldInfo fieldInfos$$[] = {
+		{"TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ResetFrame, TYPE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(ResetFrame, init$, void, int32_t, int32_t)},
+		{"length", "()I", nullptr, 0, $virtualMethod(ResetFrame, length, int32_t)},
+		{"type", "()I", nullptr, $PUBLIC, $virtualMethod(ResetFrame, type, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.frame.ResetFrame",
+		"jdk.internal.net.http.frame.ErrorFrame",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResetFrame, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResetFrame);
+	});
 	return class$;
 }
 

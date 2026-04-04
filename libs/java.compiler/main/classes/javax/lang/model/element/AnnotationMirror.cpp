@@ -1,5 +1,4 @@
 #include <javax/lang/model/element/AnnotationMirror.h>
-
 #include <java/util/Map.h>
 #include <javax/lang/model/type/DeclaredType.h>
 #include <jcpp.h>
@@ -14,27 +13,23 @@ namespace javax {
 		namespace model {
 			namespace element {
 
-$MethodInfo _AnnotationMirror_MethodInfo_[] = {
-	{"getAnnotationType", "()Ljavax/lang/model/type/DeclaredType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AnnotationMirror, getAnnotationType, $DeclaredType*)},
-	{"getElementValues", "()Ljava/util/Map;", "()Ljava/util/Map<+Ljavax/lang/model/element/ExecutableElement;+Ljavax/lang/model/element/AnnotationValue;>;", $PUBLIC | $ABSTRACT, $virtualMethod(AnnotationMirror, getElementValues, $Map*)},
-	{}
-};
-
-$ClassInfo _AnnotationMirror_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.lang.model.element.AnnotationMirror",
-	nullptr,
-	nullptr,
-	nullptr,
-	_AnnotationMirror_MethodInfo_
-};
-
-$Object* allocate$AnnotationMirror($Class* clazz) {
-	return $of($alloc(AnnotationMirror));
-}
-
 $Class* AnnotationMirror::load$($String* name, bool initialize) {
-	$loadClass(AnnotationMirror, name, initialize, &_AnnotationMirror_ClassInfo_, allocate$AnnotationMirror);
+	$MethodInfo methodInfos$$[] = {
+		{"getAnnotationType", "()Ljavax/lang/model/type/DeclaredType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AnnotationMirror, getAnnotationType, $DeclaredType*)},
+		{"getElementValues", "()Ljava/util/Map;", "()Ljava/util/Map<+Ljavax/lang/model/element/ExecutableElement;+Ljavax/lang/model/element/AnnotationValue;>;", $PUBLIC | $ABSTRACT, $virtualMethod(AnnotationMirror, getElementValues, $Map*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.lang.model.element.AnnotationMirror",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AnnotationMirror, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AnnotationMirror);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaUtilControlSize$SizeDescriptor.h>
-
 #include <apple/laf/JRSUIConstants$Size.h>
 #include <com/apple/laf/AquaUtilControlSize$SizeVariant.h>
 #include <com/apple/laf/AquaUtilControlSize.h>
@@ -23,51 +22,8 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaUtilControlSize$SizeDescriptor_FieldInfo_[] = {
-	{"regular", "Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, 0, $field(AquaUtilControlSize$SizeDescriptor, regular)},
-	{"small", "Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, 0, $field(AquaUtilControlSize$SizeDescriptor, small)},
-	{"mini", "Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, 0, $field(AquaUtilControlSize$SizeDescriptor, mini)},
-	{}
-};
-
-$MethodInfo _AquaUtilControlSize$SizeDescriptor_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaUtilControlSize$SizeVariant;)V", nullptr, $PUBLIC, $method(AquaUtilControlSize$SizeDescriptor, init$, void, $AquaUtilControlSize$SizeVariant*)},
-	{"deriveMini", "(Lcom/apple/laf/AquaUtilControlSize$SizeVariant;)Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$SizeDescriptor, deriveMini, $AquaUtilControlSize$SizeVariant*, $AquaUtilControlSize$SizeVariant*)},
-	{"deriveRegular", "(Lcom/apple/laf/AquaUtilControlSize$SizeVariant;)Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$SizeDescriptor, deriveRegular, $AquaUtilControlSize$SizeVariant*, $AquaUtilControlSize$SizeVariant*)},
-	{"deriveSmall", "(Lcom/apple/laf/AquaUtilControlSize$SizeVariant;)Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$SizeDescriptor, deriveSmall, $AquaUtilControlSize$SizeVariant*, $AquaUtilControlSize$SizeVariant*)},
-	{"get", "(Ljavax/swing/JComponent;)Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$SizeDescriptor, get, $AquaUtilControlSize$SizeVariant*, $JComponent*)},
-	{"get", "(Lapple/laf/JRSUIConstants$Size;)Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$SizeDescriptor, get, $AquaUtilControlSize$SizeVariant*, $JRSUIConstants$Size*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$SizeDescriptor, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _AquaUtilControlSize$SizeDescriptor_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaUtilControlSize$SizeDescriptor", "com.apple.laf.AquaUtilControlSize", "SizeDescriptor", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _AquaUtilControlSize$SizeDescriptor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaUtilControlSize$SizeDescriptor",
-	"java.lang.Object",
-	nullptr,
-	_AquaUtilControlSize$SizeDescriptor_FieldInfo_,
-	_AquaUtilControlSize$SizeDescriptor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaUtilControlSize$SizeDescriptor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaUtilControlSize"
-};
-
-$Object* allocate$AquaUtilControlSize$SizeDescriptor($Class* clazz) {
-	return $of($alloc(AquaUtilControlSize$SizeDescriptor));
-}
-
 void AquaUtilControlSize$SizeDescriptor::init$($AquaUtilControlSize$SizeVariant* variant) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, regular, deriveRegular(variant));
 	$set(this, small, deriveSmall($$new($AquaUtilControlSize$SizeVariant, this->regular)));
 	$set(this, mini, deriveMini($$new($AquaUtilControlSize$SizeVariant, this->small)));
@@ -120,7 +76,44 @@ AquaUtilControlSize$SizeDescriptor::AquaUtilControlSize$SizeDescriptor() {
 }
 
 $Class* AquaUtilControlSize$SizeDescriptor::load$($String* name, bool initialize) {
-	$loadClass(AquaUtilControlSize$SizeDescriptor, name, initialize, &_AquaUtilControlSize$SizeDescriptor_ClassInfo_, allocate$AquaUtilControlSize$SizeDescriptor);
+	$FieldInfo fieldInfos$$[] = {
+		{"regular", "Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, 0, $field(AquaUtilControlSize$SizeDescriptor, regular)},
+		{"small", "Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, 0, $field(AquaUtilControlSize$SizeDescriptor, small)},
+		{"mini", "Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, 0, $field(AquaUtilControlSize$SizeDescriptor, mini)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaUtilControlSize$SizeVariant;)V", nullptr, $PUBLIC, $method(AquaUtilControlSize$SizeDescriptor, init$, void, $AquaUtilControlSize$SizeVariant*)},
+		{"deriveMini", "(Lcom/apple/laf/AquaUtilControlSize$SizeVariant;)Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$SizeDescriptor, deriveMini, $AquaUtilControlSize$SizeVariant*, $AquaUtilControlSize$SizeVariant*)},
+		{"deriveRegular", "(Lcom/apple/laf/AquaUtilControlSize$SizeVariant;)Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$SizeDescriptor, deriveRegular, $AquaUtilControlSize$SizeVariant*, $AquaUtilControlSize$SizeVariant*)},
+		{"deriveSmall", "(Lcom/apple/laf/AquaUtilControlSize$SizeVariant;)Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$SizeDescriptor, deriveSmall, $AquaUtilControlSize$SizeVariant*, $AquaUtilControlSize$SizeVariant*)},
+		{"get", "(Ljavax/swing/JComponent;)Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$SizeDescriptor, get, $AquaUtilControlSize$SizeVariant*, $JComponent*)},
+		{"get", "(Lapple/laf/JRSUIConstants$Size;)Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$SizeDescriptor, get, $AquaUtilControlSize$SizeVariant*, $JRSUIConstants$Size*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$SizeDescriptor, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaUtilControlSize$SizeDescriptor", "com.apple.laf.AquaUtilControlSize", "SizeDescriptor", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaUtilControlSize$SizeDescriptor",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaUtilControlSize"
+	};
+	$loadClass(AquaUtilControlSize$SizeDescriptor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaUtilControlSize$SizeDescriptor);
+	});
 	return class$;
 }
 

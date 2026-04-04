@@ -29,6 +29,7 @@ class $import TransformAttribute : public ::java::io::Serializable {
 	$class(TransformAttribute, 0, ::java::io::Serializable)
 public:
 	TransformAttribute();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::geom::AffineTransform* transform);
 	virtual bool equals(Object$* rhs) override;
 	::java::awt::geom::AffineTransform* getTransform();
@@ -38,7 +39,7 @@ public:
 	void writeObject(::java::io::ObjectOutputStream* s);
 	::java::awt::geom::AffineTransform* transform = nullptr;
 	static ::java::awt::font::TransformAttribute* IDENTITY;
-	static const int64_t serialVersionUID = (int64_t)0x2E93C93095A9FA5A;
+	static const int64_t serialVersionUID = (int64_t)0x2e93c93095a9fa5a;
 };
 
 		} // font

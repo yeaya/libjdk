@@ -37,7 +37,7 @@ public:
 	void incrementInDegree();
 	virtual bool removeEdge(::javax::imageio::spi::DigraphNode* node);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x49AABB997551F5B9;
+	static const int64_t serialVersionUID = (int64_t)0x49aabb997551f5b9;
 	$Object* data = nullptr;
 	::java::util::Set* outNodes = nullptr;
 	int32_t inDegree = 0;

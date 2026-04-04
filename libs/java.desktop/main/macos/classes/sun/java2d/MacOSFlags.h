@@ -18,6 +18,7 @@ class MacOSFlags : public ::java::lang::Object {
 	$class(MacOSFlags, 0, ::java::lang::Object)
 public:
 	MacOSFlags();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::java2d::MacOSFlags$PropertyState* getBooleanProp($String* p, ::sun::java2d::MacOSFlags$PropertyState* defaultVal);
 	static void initJavaFlags();

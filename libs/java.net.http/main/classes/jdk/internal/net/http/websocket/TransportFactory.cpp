@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/websocket/TransportFactory.h>
-
 #include <jdk/internal/net/http/websocket/MessageQueue.h>
 #include <jdk/internal/net/http/websocket/MessageStreamConsumer.h>
 #include <jdk/internal/net/http/websocket/Transport.h>
@@ -18,35 +17,30 @@ namespace jdk {
 			namespace http {
 				namespace websocket {
 
-$CompoundAttribute _TransportFactory_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _TransportFactory_MethodInfo_[] = {
-	{"createTransport", "(Ljdk/internal/net/http/websocket/MessageQueue;Ljdk/internal/net/http/websocket/MessageStreamConsumer;)Ljdk/internal/net/http/websocket/Transport;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransportFactory, createTransport, $Transport*, $MessageQueue*, $MessageStreamConsumer*)},
-	{}
-};
-
-$ClassInfo _TransportFactory_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.net.http.websocket.TransportFactory",
-	nullptr,
-	nullptr,
-	nullptr,
-	_TransportFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_TransportFactory_Annotations_
-};
-
-$Object* allocate$TransportFactory($Class* clazz) {
-	return $of($alloc(TransportFactory));
-}
-
 $Class* TransportFactory::load$($String* name, bool initialize) {
-	$loadClass(TransportFactory, name, initialize, &_TransportFactory_ClassInfo_, allocate$TransportFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"createTransport", "(Ljdk/internal/net/http/websocket/MessageQueue;Ljdk/internal/net/http/websocket/MessageStreamConsumer;)Ljdk/internal/net/http/websocket/Transport;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransportFactory, createTransport, $Transport*, $MessageQueue*, $MessageStreamConsumer*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.net.http.websocket.TransportFactory",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(TransportFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransportFactory);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/util/resources/ext/LocaleNames_ja.h>
-
 #include <sun/util/resources/LocaleNamesBundle.h>
 #include <jcpp.h>
 
@@ -13,4395 +12,4376 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _LocaleNames_ja_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_ja, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_ja, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _LocaleNames_ja_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.util.resources.ext.LocaleNames_ja",
-	"sun.util.resources.LocaleNamesBundle",
-	nullptr,
-	nullptr,
-	_LocaleNames_ja_MethodInfo_
-};
-
-$Object* allocate$LocaleNames_ja($Class* clazz) {
-	return $of($alloc(LocaleNames_ja));
-}
-
 void LocaleNames_ja::init$() {
 	$LocaleNamesBundle::init$();
 }
 
 $ObjectArray2* LocaleNames_ja::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("001"_s),
-			$of(u"世界"_s)
+			"001"_s,
+			u"世界"_s
 		}),
 		$$new($ObjectArray, {
-			$of("002"_s),
-			$of(u"アフリカ"_s)
+			"002"_s,
+			u"アフリカ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("003"_s),
-			$of(u"北米"_s)
+			"003"_s,
+			u"北米"_s
 		}),
 		$$new($ObjectArray, {
-			$of("005"_s),
-			$of(u"南アメリカ"_s)
+			"005"_s,
+			u"南アメリカ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("009"_s),
-			$of(u"オセアニア"_s)
+			"009"_s,
+			u"オセアニア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("011"_s),
-			$of(u"西アフリカ"_s)
+			"011"_s,
+			u"西アフリカ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("013"_s),
-			$of(u"中央アメリカ"_s)
+			"013"_s,
+			u"中央アメリカ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("014"_s),
-			$of(u"東アフリカ"_s)
+			"014"_s,
+			u"東アフリカ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("015"_s),
-			$of(u"北アフリカ"_s)
+			"015"_s,
+			u"北アフリカ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("017"_s),
-			$of(u"中部アフリカ"_s)
+			"017"_s,
+			u"中部アフリカ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("018"_s),
-			$of(u"南部アフリカ"_s)
+			"018"_s,
+			u"南部アフリカ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("019"_s),
-			$of(u"アメリカ大陸"_s)
+			"019"_s,
+			u"アメリカ大陸"_s
 		}),
 		$$new($ObjectArray, {
-			$of("021"_s),
-			$of(u"北アメリカ"_s)
+			"021"_s,
+			u"北アメリカ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("029"_s),
-			$of(u"カリブ海"_s)
+			"029"_s,
+			u"カリブ海"_s
 		}),
 		$$new($ObjectArray, {
-			$of("030"_s),
-			$of(u"東アジア"_s)
+			"030"_s,
+			u"東アジア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("034"_s),
-			$of(u"南アジア"_s)
+			"034"_s,
+			u"南アジア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("035"_s),
-			$of(u"東南アジア"_s)
+			"035"_s,
+			u"東南アジア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("039"_s),
-			$of(u"南ヨーロッパ"_s)
+			"039"_s,
+			u"南ヨーロッパ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("053"_s),
-			$of(u"オーストラリア・ニュージーランド"_s)
+			"053"_s,
+			u"オーストラリア・ニュージーランド"_s
 		}),
 		$$new($ObjectArray, {
-			$of("054"_s),
-			$of(u"メラネシア"_s)
+			"054"_s,
+			u"メラネシア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("057"_s),
-			$of(u"ミクロネシア地域"_s)
+			"057"_s,
+			u"ミクロネシア地域"_s
 		}),
 		$$new($ObjectArray, {
-			$of("061"_s),
-			$of(u"ポリネシア"_s)
+			"061"_s,
+			u"ポリネシア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("142"_s),
-			$of(u"アジア"_s)
+			"142"_s,
+			u"アジア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("143"_s),
-			$of(u"中央アジア"_s)
+			"143"_s,
+			u"中央アジア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("145"_s),
-			$of(u"西アジア"_s)
+			"145"_s,
+			u"西アジア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("150"_s),
-			$of(u"ヨーロッパ"_s)
+			"150"_s,
+			u"ヨーロッパ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("151"_s),
-			$of(u"東ヨーロッパ"_s)
+			"151"_s,
+			u"東ヨーロッパ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("154"_s),
-			$of(u"北ヨーロッパ"_s)
+			"154"_s,
+			u"北ヨーロッパ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("155"_s),
-			$of(u"西ヨーロッパ"_s)
+			"155"_s,
+			u"西ヨーロッパ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("419"_s),
-			$of(u"ラテンアメリカ・カリブ地域"_s)
+			"419"_s,
+			u"ラテンアメリカ・カリブ地域"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AD"_s),
-			$of(u"アンドラ"_s)
+			"AD"_s,
+			u"アンドラ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AE"_s),
-			$of(u"アラブ首長国連邦"_s)
+			"AE"_s,
+			u"アラブ首長国連邦"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AF"_s),
-			$of(u"アフガニスタン"_s)
+			"AF"_s,
+			u"アフガニスタン"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AG"_s),
-			$of(u"アンチグアバーブーダ"_s)
+			"AG"_s,
+			u"アンチグアバーブーダ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AI"_s),
-			$of(u"アンギラ"_s)
+			"AI"_s,
+			u"アンギラ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AL"_s),
-			$of(u"アルバニア"_s)
+			"AL"_s,
+			u"アルバニア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AM"_s),
-			$of(u"アルメニア"_s)
+			"AM"_s,
+			u"アルメニア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AN"_s),
-			$of(u"オランダ領アンティル諸島"_s)
+			"AN"_s,
+			u"オランダ領アンティル諸島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AO"_s),
-			$of(u"アンゴラ"_s)
+			"AO"_s,
+			u"アンゴラ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AQ"_s),
-			$of(u"南極"_s)
+			"AQ"_s,
+			u"南極"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AR"_s),
-			$of(u"アルゼンチン"_s)
+			"AR"_s,
+			u"アルゼンチン"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AS"_s),
-			$of(u"アメリカンサモア"_s)
+			"AS"_s,
+			u"アメリカンサモア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AT"_s),
-			$of(u"オーストリア"_s)
+			"AT"_s,
+			u"オーストリア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AU"_s),
-			$of(u"オーストラリア"_s)
+			"AU"_s,
+			u"オーストラリア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AW"_s),
-			$of(u"アルバ島"_s)
+			"AW"_s,
+			u"アルバ島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AX"_s),
-			$of(u"オーランド諸島"_s)
+			"AX"_s,
+			u"オーランド諸島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AZ"_s),
-			$of(u"アゼルバイジャン"_s)
+			"AZ"_s,
+			u"アゼルバイジャン"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Arab"_s),
-			$of(u"アラビア文字"_s)
+			"Arab"_s,
+			u"アラビア文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Armi"_s),
-			$of(u"帝国アラム語"_s)
+			"Armi"_s,
+			u"帝国アラム語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Armn"_s),
-			$of(u"アルメニア文字"_s)
+			"Armn"_s,
+			u"アルメニア文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Avst"_s),
-			$of(u"アヴェスタ語"_s)
+			"Avst"_s,
+			u"アヴェスタ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BA"_s),
-			$of(u"ボスニア・ヘルツェゴビナ"_s)
+			"BA"_s,
+			u"ボスニア・ヘルツェゴビナ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BB"_s),
-			$of(u"バルバドス"_s)
+			"BB"_s,
+			u"バルバドス"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BD"_s),
-			$of(u"バングラデシュ"_s)
+			"BD"_s,
+			u"バングラデシュ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BE"_s),
-			$of(u"ベルギー"_s)
+			"BE"_s,
+			u"ベルギー"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BF"_s),
-			$of(u"ブルキナファソ"_s)
+			"BF"_s,
+			u"ブルキナファソ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BG"_s),
-			$of(u"ブルガリア"_s)
+			"BG"_s,
+			u"ブルガリア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BH"_s),
-			$of(u"バーレーン"_s)
+			"BH"_s,
+			u"バーレーン"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BI"_s),
-			$of(u"ブルンジ"_s)
+			"BI"_s,
+			u"ブルンジ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BJ"_s),
-			$of(u"ベニン"_s)
+			"BJ"_s,
+			u"ベニン"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BM"_s),
-			$of(u"バーミューダ諸島"_s)
+			"BM"_s,
+			u"バーミューダ諸島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BN"_s),
-			$of(u"ブルネイ"_s)
+			"BN"_s,
+			u"ブルネイ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BO"_s),
-			$of(u"ボリビア"_s)
+			"BO"_s,
+			u"ボリビア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BR"_s),
-			$of(u"ブラジル"_s)
+			"BR"_s,
+			u"ブラジル"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BS"_s),
-			$of(u"バハマ"_s)
+			"BS"_s,
+			u"バハマ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BT"_s),
-			$of(u"ブータン"_s)
+			"BT"_s,
+			u"ブータン"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BV"_s),
-			$of(u"ブーベ島"_s)
+			"BV"_s,
+			u"ブーベ島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BW"_s),
-			$of(u"ボツワナ"_s)
+			"BW"_s,
+			u"ボツワナ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BY"_s),
-			$of(u"ベラルーシ"_s)
+			"BY"_s,
+			u"ベラルーシ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BZ"_s),
-			$of(u"ベリーズ"_s)
+			"BZ"_s,
+			u"ベリーズ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Bali"_s),
-			$of(u"バリ文字"_s)
+			"Bali"_s,
+			u"バリ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Bamu"_s),
-			$of(u"バムン語"_s)
+			"Bamu"_s,
+			u"バムン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Bass"_s),
-			$of(u"バサ語(バー)"_s)
+			"Bass"_s,
+			u"バサ語(バー)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Batk"_s),
-			$of(u"バタク文字"_s)
+			"Batk"_s,
+			u"バタク文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Beng"_s),
-			$of(u"ベンガル文字"_s)
+			"Beng"_s,
+			u"ベンガル文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Blis"_s),
-			$of(u"ブリスシンボル"_s)
+			"Blis"_s,
+			u"ブリスシンボル"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Bopo"_s),
-			$of(u"注音字母"_s)
+			"Bopo"_s,
+			u"注音字母"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Brah"_s),
-			$of(u"ブラーフミー文字"_s)
+			"Brah"_s,
+			u"ブラーフミー文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Brai"_s),
-			$of(u"ブライユ点字"_s)
+			"Brai"_s,
+			u"ブライユ点字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Bugi"_s),
-			$of(u"ブギス文字"_s)
+			"Bugi"_s,
+			u"ブギス文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Buhd"_s),
-			$of(u"ブヒッド文字"_s)
+			"Buhd"_s,
+			u"ブヒッド文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CA"_s),
-			$of(u"カナダ"_s)
+			"CA"_s,
+			u"カナダ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CC"_s),
-			$of(u"ココス諸島"_s)
+			"CC"_s,
+			u"ココス諸島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CD"_s),
-			$of(u"コンゴ民主共和国"_s)
+			"CD"_s,
+			u"コンゴ民主共和国"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CF"_s),
-			$of(u"中央アフリカ共和国"_s)
+			"CF"_s,
+			u"中央アフリカ共和国"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CG"_s),
-			$of(u"コンゴ"_s)
+			"CG"_s,
+			u"コンゴ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CH"_s),
-			$of(u"スイス"_s)
+			"CH"_s,
+			u"スイス"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CI"_s),
-			$of(u"コートジボアール"_s)
+			"CI"_s,
+			u"コートジボアール"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CK"_s),
-			$of(u"クック諸島"_s)
+			"CK"_s,
+			u"クック諸島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CL"_s),
-			$of(u"チリ"_s)
+			"CL"_s,
+			u"チリ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CM"_s),
-			$of(u"カメルーン"_s)
+			"CM"_s,
+			u"カメルーン"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CN"_s),
-			$of(u"中華人民共和国"_s)
+			"CN"_s,
+			u"中華人民共和国"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CO"_s),
-			$of(u"コロンビア"_s)
+			"CO"_s,
+			u"コロンビア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CR"_s),
-			$of(u"コスタリカ"_s)
+			"CR"_s,
+			u"コスタリカ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CS"_s),
-			$of(u"セルビア・モンテネグロ"_s)
+			"CS"_s,
+			u"セルビア・モンテネグロ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CU"_s),
-			$of(u"キューバ"_s)
+			"CU"_s,
+			u"キューバ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CV"_s),
-			$of(u"カーボベルデ"_s)
+			"CV"_s,
+			u"カーボベルデ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CX"_s),
-			$of(u"クリスマス島"_s)
+			"CX"_s,
+			u"クリスマス島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CY"_s),
-			$of(u"キプロス"_s)
+			"CY"_s,
+			u"キプロス"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CZ"_s),
-			$of(u"チェコ"_s)
+			"CZ"_s,
+			u"チェコ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cakm"_s),
-			$of(u"チャクマ語"_s)
+			"Cakm"_s,
+			u"チャクマ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cans"_s),
-			$of(u"統合カナダ先住民記号"_s)
+			"Cans"_s,
+			u"統合カナダ先住民記号"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cari"_s),
-			$of(u"カリ文字"_s)
+			"Cari"_s,
+			u"カリ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cham"_s),
-			$of(u"チャム文字"_s)
+			"Cham"_s,
+			u"チャム文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cher"_s),
-			$of(u"チェロキー文字"_s)
+			"Cher"_s,
+			u"チェロキー文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cirt"_s),
-			$of(u"キアス文字"_s)
+			"Cirt"_s,
+			u"キアス文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Copt"_s),
-			$of(u"コプト文字"_s)
+			"Copt"_s,
+			u"コプト文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cprt"_s),
-			$of(u"キプロス文字"_s)
+			"Cprt"_s,
+			u"キプロス文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cyrl"_s),
-			$of(u"キリル文字"_s)
+			"Cyrl"_s,
+			u"キリル文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cyrs"_s),
-			$of(u"キリル文字 (古代教会スラブ語の文字)"_s)
+			"Cyrs"_s,
+			u"キリル文字 (古代教会スラブ語の文字)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DE"_s),
-			$of(u"ドイツ"_s)
+			"DE"_s,
+			u"ドイツ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DJ"_s),
-			$of(u"ジブチ"_s)
+			"DJ"_s,
+			u"ジブチ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DK"_s),
-			$of(u"デンマーク"_s)
+			"DK"_s,
+			u"デンマーク"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DM"_s),
-			$of(u"ドミニカ国"_s)
+			"DM"_s,
+			u"ドミニカ国"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DO"_s),
-			$of(u"ドミニカ共和国"_s)
+			"DO"_s,
+			u"ドミニカ共和国"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DZ"_s),
-			$of(u"アルジェリア"_s)
+			"DZ"_s,
+			u"アルジェリア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Deva"_s),
-			$of(u"デーバナーガリー文字"_s)
+			"Deva"_s,
+			u"デーバナーガリー文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Dsrt"_s),
-			$of(u"デセレット文字"_s)
+			"Dsrt"_s,
+			u"デセレット文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Dupl"_s),
-			$of(u"デュプロワエ式速記"_s)
+			"Dupl"_s,
+			u"デュプロワエ式速記"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EC"_s),
-			$of(u"エクアドル"_s)
+			"EC"_s,
+			u"エクアドル"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EE"_s),
-			$of(u"エストニア"_s)
+			"EE"_s,
+			u"エストニア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EG"_s),
-			$of(u"エジプト"_s)
+			"EG"_s,
+			u"エジプト"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EH"_s),
-			$of(u"西サハラ"_s)
+			"EH"_s,
+			u"西サハラ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ER"_s),
-			$of(u"エリトリア"_s)
+			"ER"_s,
+			u"エリトリア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ES"_s),
-			$of(u"スペイン"_s)
+			"ES"_s,
+			u"スペイン"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ET"_s),
-			$of(u"エチオピア"_s)
+			"ET"_s,
+			u"エチオピア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Egyd"_s),
-			$of(u"エジプト民衆文字"_s)
+			"Egyd"_s,
+			u"エジプト民衆文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Egyh"_s),
-			$of(u"エジプト神官文字"_s)
+			"Egyh"_s,
+			u"エジプト神官文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Egyp"_s),
-			$of(u"エジプト聖刻文字"_s)
+			"Egyp"_s,
+			u"エジプト聖刻文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Elba"_s),
-			$of(u"エルバサン文字"_s)
+			"Elba"_s,
+			u"エルバサン文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Ethi"_s),
-			$of(u"エチオピア文字"_s)
+			"Ethi"_s,
+			u"エチオピア文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FI"_s),
-			$of(u"フィンランド"_s)
+			"FI"_s,
+			u"フィンランド"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FJ"_s),
-			$of(u"フィジー"_s)
+			"FJ"_s,
+			u"フィジー"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FK"_s),
-			$of(u"フォークランド諸島"_s)
+			"FK"_s,
+			u"フォークランド諸島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FM"_s),
-			$of(u"ミクロネシア"_s)
+			"FM"_s,
+			u"ミクロネシア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FO"_s),
-			$of(u"フェロー諸島"_s)
+			"FO"_s,
+			u"フェロー諸島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FR"_s),
-			$of(u"フランス"_s)
+			"FR"_s,
+			u"フランス"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GA"_s),
-			$of(u"ガボン"_s)
+			"GA"_s,
+			u"ガボン"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GB"_s),
-			$of(u"イギリス"_s)
+			"GB"_s,
+			u"イギリス"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GD"_s),
-			$of(u"グレナダ"_s)
+			"GD"_s,
+			u"グレナダ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GE"_s),
-			$of(u"グルジア"_s)
+			"GE"_s,
+			u"グルジア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GF"_s),
-			$of(u"仏領ギアナ"_s)
+			"GF"_s,
+			u"仏領ギアナ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GH"_s),
-			$of(u"ガーナ"_s)
+			"GH"_s,
+			u"ガーナ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GI"_s),
-			$of(u"ジブラルタル"_s)
+			"GI"_s,
+			u"ジブラルタル"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GL"_s),
-			$of(u"グリーンランド"_s)
+			"GL"_s,
+			u"グリーンランド"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GM"_s),
-			$of(u"ガンビア"_s)
+			"GM"_s,
+			u"ガンビア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GN"_s),
-			$of(u"ギニア"_s)
+			"GN"_s,
+			u"ギニア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GP"_s),
-			$of(u"グアドループ"_s)
+			"GP"_s,
+			u"グアドループ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GQ"_s),
-			$of(u"赤道ギニア"_s)
+			"GQ"_s,
+			u"赤道ギニア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GR"_s),
-			$of(u"ギリシア"_s)
+			"GR"_s,
+			u"ギリシア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GS"_s),
-			$of(u"サウスジョージア島・サウスサンドウィッチ島"_s)
+			"GS"_s,
+			u"サウスジョージア島・サウスサンドウィッチ島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GT"_s),
-			$of(u"グアテマラ"_s)
+			"GT"_s,
+			u"グアテマラ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GU"_s),
-			$of(u"グアム"_s)
+			"GU"_s,
+			u"グアム"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GW"_s),
-			$of(u"ギニアビサウ"_s)
+			"GW"_s,
+			u"ギニアビサウ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GY"_s),
-			$of(u"ガイアナ"_s)
+			"GY"_s,
+			u"ガイアナ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Geok"_s),
-			$of(u"グルジア文字（フツリ）"_s)
+			"Geok"_s,
+			u"グルジア文字（フツリ）"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Geor"_s),
-			$of(u"グルジア文字"_s)
+			"Geor"_s,
+			u"グルジア文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Glag"_s),
-			$of(u"グラゴール文字"_s)
+			"Glag"_s,
+			u"グラゴール文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Goth"_s),
-			$of(u"ゴート文字"_s)
+			"Goth"_s,
+			u"ゴート文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Gran"_s),
-			$of(u"グランタ文字"_s)
+			"Gran"_s,
+			u"グランタ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Grek"_s),
-			$of(u"ギリシャ文字"_s)
+			"Grek"_s,
+			u"ギリシャ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Gujr"_s),
-			$of(u"グジャラート文字"_s)
+			"Gujr"_s,
+			u"グジャラート文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Guru"_s),
-			$of(u"グルムキー文字"_s)
+			"Guru"_s,
+			u"グルムキー文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HK"_s),
-			$of(u"香港"_s)
+			"HK"_s,
+			u"香港"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HM"_s),
-			$of(u"ハード・マクドナルド諸島"_s)
+			"HM"_s,
+			u"ハード・マクドナルド諸島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HN"_s),
-			$of(u"ホンジュラス"_s)
+			"HN"_s,
+			u"ホンジュラス"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HR"_s),
-			$of(u"クロアチア"_s)
+			"HR"_s,
+			u"クロアチア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HT"_s),
-			$of(u"ハイチ"_s)
+			"HT"_s,
+			u"ハイチ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HU"_s),
-			$of(u"ハンガリー"_s)
+			"HU"_s,
+			u"ハンガリー"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hang"_s),
-			$of(u"ハングル"_s)
+			"Hang"_s,
+			u"ハングル"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hani"_s),
-			$of(u"漢字"_s)
+			"Hani"_s,
+			u"漢字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hano"_s),
-			$of(u"ハヌノオ文字"_s)
+			"Hano"_s,
+			u"ハヌノオ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hans"_s),
-			$of(u"簡体字"_s)
+			"Hans"_s,
+			u"簡体字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hant"_s),
-			$of(u"繁体字"_s)
+			"Hant"_s,
+			u"繁体字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hebr"_s),
-			$of(u"ヘブライ文字"_s)
+			"Hebr"_s,
+			u"ヘブライ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hira"_s),
-			$of(u"ひらがな"_s)
+			"Hira"_s,
+			u"ひらがな"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hmng"_s),
-			$of(u"パハウ・フモン文字"_s)
+			"Hmng"_s,
+			u"パハウ・フモン文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hrkt"_s),
-			$of(u"カタカナとひらがな"_s)
+			"Hrkt"_s,
+			u"カタカナとひらがな"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hung"_s),
-			$of(u"古代ハンガリー文字"_s)
+			"Hung"_s,
+			u"古代ハンガリー文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ID"_s),
-			$of(u"インドネシア"_s)
+			"ID"_s,
+			u"インドネシア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IE"_s),
-			$of(u"アイルランド"_s)
+			"IE"_s,
+			u"アイルランド"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IL"_s),
-			$of(u"イスラエル"_s)
+			"IL"_s,
+			u"イスラエル"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IN"_s),
-			$of(u"インド"_s)
+			"IN"_s,
+			u"インド"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IO"_s),
-			$of(u"英領インド洋地域"_s)
+			"IO"_s,
+			u"英領インド洋地域"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IQ"_s),
-			$of(u"イラク"_s)
+			"IQ"_s,
+			u"イラク"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IR"_s),
-			$of(u"イラン"_s)
+			"IR"_s,
+			u"イラン"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IS"_s),
-			$of(u"アイスランド"_s)
+			"IS"_s,
+			u"アイスランド"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IT"_s),
-			$of(u"イタリア"_s)
+			"IT"_s,
+			u"イタリア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Inds"_s),
-			$of(u"インダス文字 (ハラッパ文字)"_s)
+			"Inds"_s,
+			u"インダス文字 (ハラッパ文字)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Ital"_s),
-			$of(u"古代イタリアの文字"_s)
+			"Ital"_s,
+			u"古代イタリアの文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JM"_s),
-			$of(u"ジャマイカ"_s)
+			"JM"_s,
+			u"ジャマイカ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JO"_s),
-			$of(u"ヨルダン"_s)
+			"JO"_s,
+			u"ヨルダン"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JP"_s),
-			$of(u"日本"_s)
+			"JP"_s,
+			u"日本"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Java"_s),
-			$of(u"ジャワ文字"_s)
+			"Java"_s,
+			u"ジャワ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Jpan"_s),
-			$of(u"日本語の文字"_s)
+			"Jpan"_s,
+			u"日本語の文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KE"_s),
-			$of(u"ケニア"_s)
+			"KE"_s,
+			u"ケニア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KG"_s),
-			$of(u"キルギスタン"_s)
+			"KG"_s,
+			u"キルギスタン"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KH"_s),
-			$of(u"カンボジア"_s)
+			"KH"_s,
+			u"カンボジア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KI"_s),
-			$of(u"キリバス"_s)
+			"KI"_s,
+			u"キリバス"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KM"_s),
-			$of(u"コモロ"_s)
+			"KM"_s,
+			u"コモロ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KN"_s),
-			$of(u"セントクリストファー・ネイビス"_s)
+			"KN"_s,
+			u"セントクリストファー・ネイビス"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KP"_s),
-			$of(u"朝鮮民主主義人民共和国"_s)
+			"KP"_s,
+			u"朝鮮民主主義人民共和国"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KR"_s),
-			$of(u"大韓民国"_s)
+			"KR"_s,
+			u"大韓民国"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KW"_s),
-			$of(u"クウェート"_s)
+			"KW"_s,
+			u"クウェート"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KY"_s),
-			$of(u"ケイマン諸島"_s)
+			"KY"_s,
+			u"ケイマン諸島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KZ"_s),
-			$of(u"カザフスタン"_s)
+			"KZ"_s,
+			u"カザフスタン"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kali"_s),
-			$of(u"カヤー文字"_s)
+			"Kali"_s,
+			u"カヤー文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kana"_s),
-			$of(u"カタカナ"_s)
+			"Kana"_s,
+			u"カタカナ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Khar"_s),
-			$of(u"カローシュティー文字"_s)
+			"Khar"_s,
+			u"カローシュティー文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Khmr"_s),
-			$of(u"クメール文字"_s)
+			"Khmr"_s,
+			u"クメール文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Knda"_s),
-			$of(u"カンナダ文字"_s)
+			"Knda"_s,
+			u"カンナダ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kore"_s),
-			$of(u"韓国語の文字"_s)
+			"Kore"_s,
+			u"韓国語の文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kpel"_s),
-			$of(u"クペレ語"_s)
+			"Kpel"_s,
+			u"クペレ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kthi"_s),
-			$of(u"カイティー文字"_s)
+			"Kthi"_s,
+			u"カイティー文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LA"_s),
-			$of(u"ラオス"_s)
+			"LA"_s,
+			u"ラオス"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LB"_s),
-			$of(u"レバノン"_s)
+			"LB"_s,
+			u"レバノン"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LC"_s),
-			$of(u"セントルシア"_s)
+			"LC"_s,
+			u"セントルシア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LI"_s),
-			$of(u"リヒテンシュタイン"_s)
+			"LI"_s,
+			u"リヒテンシュタイン"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LK"_s),
-			$of(u"スリランカ"_s)
+			"LK"_s,
+			u"スリランカ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LR"_s),
-			$of(u"リベリア"_s)
+			"LR"_s,
+			u"リベリア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LS"_s),
-			$of(u"レソト"_s)
+			"LS"_s,
+			u"レソト"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LT"_s),
-			$of(u"リトアニア"_s)
+			"LT"_s,
+			u"リトアニア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LU"_s),
-			$of(u"ルクセンブルク"_s)
+			"LU"_s,
+			u"ルクセンブルク"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LV"_s),
-			$of(u"ラトビア"_s)
+			"LV"_s,
+			u"ラトビア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LY"_s),
-			$of(u"リビア"_s)
+			"LY"_s,
+			u"リビア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lana"_s),
-			$of(u"タイ・タム文字"_s)
+			"Lana"_s,
+			u"タイ・タム文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Laoo"_s),
-			$of(u"ラオ文字"_s)
+			"Laoo"_s,
+			u"ラオ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Latf"_s),
-			$of(u"ラテン文字 (ドイツ文字)"_s)
+			"Latf"_s,
+			u"ラテン文字 (ドイツ文字)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Latg"_s),
-			$of(u"ラテン文字(ゲール語)"_s)
+			"Latg"_s,
+			u"ラテン文字(ゲール語)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Latn"_s),
-			$of(u"ラテン文字"_s)
+			"Latn"_s,
+			u"ラテン文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lepc"_s),
-			$of(u"レプチャ文字 (ロン文字)"_s)
+			"Lepc"_s,
+			u"レプチャ文字 (ロン文字)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Limb"_s),
-			$of(u"リンブ文字"_s)
+			"Limb"_s,
+			u"リンブ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lina"_s),
-			$of(u"線文字A"_s)
+			"Lina"_s,
+			u"線文字A"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Linb"_s),
-			$of(u"線文字B"_s)
+			"Linb"_s,
+			u"線文字B"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lisu"_s),
-			$of(u"リス文字"_s)
+			"Lisu"_s,
+			u"リス文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Loma"_s),
-			$of(u"ロマ文字"_s)
+			"Loma"_s,
+			u"ロマ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lyci"_s),
-			$of(u"リュキア文字"_s)
+			"Lyci"_s,
+			u"リュキア文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lydi"_s),
-			$of(u"リディア文字"_s)
+			"Lydi"_s,
+			u"リディア文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MA"_s),
-			$of(u"モロッコ"_s)
+			"MA"_s,
+			u"モロッコ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MC"_s),
-			$of(u"モナコ"_s)
+			"MC"_s,
+			u"モナコ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MD"_s),
-			$of(u"モルドバ"_s)
+			"MD"_s,
+			u"モルドバ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ME"_s),
-			$of(u"モンテネグロ"_s)
+			"ME"_s,
+			u"モンテネグロ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MG"_s),
-			$of(u"マダガスカル"_s)
+			"MG"_s,
+			u"マダガスカル"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MH"_s),
-			$of(u"マーシャル諸島"_s)
+			"MH"_s,
+			u"マーシャル諸島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MK"_s),
-			$of(u"マケドニア"_s)
+			"MK"_s,
+			u"マケドニア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ML"_s),
-			$of(u"マリ"_s)
+			"ML"_s,
+			u"マリ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MM"_s),
-			$of(u"ミャンマー"_s)
+			"MM"_s,
+			u"ミャンマー"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MN"_s),
-			$of(u"モンゴル"_s)
+			"MN"_s,
+			u"モンゴル"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MO"_s),
-			$of(u"マカオ"_s)
+			"MO"_s,
+			u"マカオ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MP"_s),
-			$of(u"北マリアナ諸島"_s)
+			"MP"_s,
+			u"北マリアナ諸島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MQ"_s),
-			$of(u"マルティニーク島"_s)
+			"MQ"_s,
+			u"マルティニーク島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MR"_s),
-			$of(u"モーリタニア"_s)
+			"MR"_s,
+			u"モーリタニア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MS"_s),
-			$of(u"モントセラト島"_s)
+			"MS"_s,
+			u"モントセラト島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MT"_s),
-			$of(u"マルタ"_s)
+			"MT"_s,
+			u"マルタ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MU"_s),
-			$of(u"モーリシャス"_s)
+			"MU"_s,
+			u"モーリシャス"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MV"_s),
-			$of(u"モルディブ"_s)
+			"MV"_s,
+			u"モルディブ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MW"_s),
-			$of(u"マラウイ"_s)
+			"MW"_s,
+			u"マラウイ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MX"_s),
-			$of(u"メキシコ"_s)
+			"MX"_s,
+			u"メキシコ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MY"_s),
-			$of(u"マレーシア"_s)
+			"MY"_s,
+			u"マレーシア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MZ"_s),
-			$of(u"モザンビーク"_s)
+			"MZ"_s,
+			u"モザンビーク"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mand"_s),
-			$of(u"マンダ文字"_s)
+			"Mand"_s,
+			u"マンダ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mani"_s),
-			$of(u"マニ文字"_s)
+			"Mani"_s,
+			u"マニ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Maya"_s),
-			$of(u"マヤ象形文字"_s)
+			"Maya"_s,
+			u"マヤ象形文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mend"_s),
-			$of(u"メンデ語"_s)
+			"Mend"_s,
+			u"メンデ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Merc"_s),
-			$of(u"メロエ文字草書体"_s)
+			"Merc"_s,
+			u"メロエ文字草書体"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mero"_s),
-			$of(u"メロエ文字"_s)
+			"Mero"_s,
+			u"メロエ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mlym"_s),
-			$of(u"マラヤーラム文字"_s)
+			"Mlym"_s,
+			u"マラヤーラム文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mong"_s),
-			$of(u"モンゴル文字"_s)
+			"Mong"_s,
+			u"モンゴル文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Moon"_s),
-			$of(u"ムーン文字"_s)
+			"Moon"_s,
+			u"ムーン文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mtei"_s),
-			$of(u"メイテイ文字"_s)
+			"Mtei"_s,
+			u"メイテイ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mymr"_s),
-			$of(u"ミャンマー文字"_s)
+			"Mymr"_s,
+			u"ミャンマー文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NA"_s),
-			$of(u"ナミビア"_s)
+			"NA"_s,
+			u"ナミビア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NC"_s),
-			$of(u"ニューカレドニア"_s)
+			"NC"_s,
+			u"ニューカレドニア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NE"_s),
-			$of(u"ニジェール"_s)
+			"NE"_s,
+			u"ニジェール"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NF"_s),
-			$of(u"ノーフォーク島"_s)
+			"NF"_s,
+			u"ノーフォーク島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NG"_s),
-			$of(u"ナイジェリア"_s)
+			"NG"_s,
+			u"ナイジェリア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NI"_s),
-			$of(u"ニカラグア"_s)
+			"NI"_s,
+			u"ニカラグア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NL"_s),
-			$of(u"オランダ"_s)
+			"NL"_s,
+			u"オランダ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NO"_s),
-			$of(u"ノルウェー"_s)
+			"NO"_s,
+			u"ノルウェー"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NP"_s),
-			$of(u"ネパール"_s)
+			"NP"_s,
+			u"ネパール"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NR"_s),
-			$of(u"ナウル"_s)
+			"NR"_s,
+			u"ナウル"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NU"_s),
-			$of(u"ニウエ島"_s)
+			"NU"_s,
+			u"ニウエ島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NZ"_s),
-			$of(u"ニュージーランド"_s)
+			"NZ"_s,
+			u"ニュージーランド"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Narb"_s),
-			$of(u"古代北アラビア語"_s)
+			"Narb"_s,
+			u"古代北アラビア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Nbat"_s),
-			$of(u"ナバテア語"_s)
+			"Nbat"_s,
+			u"ナバテア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Nkgb"_s),
-			$of(u"Nakhi Geba文字"_s)
+			"Nkgb"_s,
+			u"Nakhi Geba文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Nkoo"_s),
-			$of(u"ンコ文字"_s)
+			"Nkoo"_s,
+			u"ンコ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OM"_s),
-			$of(u"オマーン"_s)
+			"OM"_s,
+			u"オマーン"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Ogam"_s),
-			$of(u"オガム文字"_s)
+			"Ogam"_s,
+			u"オガム文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Olck"_s),
-			$of(u"オルチキ文字"_s)
+			"Olck"_s,
+			u"オルチキ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Orkh"_s),
-			$of(u"オルホン文字"_s)
+			"Orkh"_s,
+			u"オルホン文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Orya"_s),
-			$of(u"オリヤー文字"_s)
+			"Orya"_s,
+			u"オリヤー文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Osma"_s),
-			$of(u"オスマニア文字"_s)
+			"Osma"_s,
+			u"オスマニア文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PA"_s),
-			$of(u"パナマ"_s)
+			"PA"_s,
+			u"パナマ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PE"_s),
-			$of(u"ペルー"_s)
+			"PE"_s,
+			u"ペルー"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PF"_s),
-			$of(u"仏領ポリネシア"_s)
+			"PF"_s,
+			u"仏領ポリネシア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PG"_s),
-			$of(u"パプアニューギニア"_s)
+			"PG"_s,
+			u"パプアニューギニア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PH"_s),
-			$of(u"フィリピン"_s)
+			"PH"_s,
+			u"フィリピン"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PK"_s),
-			$of(u"パキスタン"_s)
+			"PK"_s,
+			u"パキスタン"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PL"_s),
-			$of(u"ポーランド"_s)
+			"PL"_s,
+			u"ポーランド"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PM"_s),
-			$of(u"サンピエール島・ミクロン島"_s)
+			"PM"_s,
+			u"サンピエール島・ミクロン島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PN"_s),
-			$of(u"ピトケアン島"_s)
+			"PN"_s,
+			u"ピトケアン島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PR"_s),
-			$of(u"プエルトリコ"_s)
+			"PR"_s,
+			u"プエルトリコ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PS"_s),
-			$of(u"パレスチナ"_s)
+			"PS"_s,
+			u"パレスチナ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PT"_s),
-			$of(u"ポルトガル"_s)
+			"PT"_s,
+			u"ポルトガル"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PW"_s),
-			$of(u"パラオ"_s)
+			"PW"_s,
+			u"パラオ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PY"_s),
-			$of(u"パラグアイ"_s)
+			"PY"_s,
+			u"パラグアイ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Palm"_s),
-			$of(u"パルミラ文字"_s)
+			"Palm"_s,
+			u"パルミラ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Perm"_s),
-			$of(u"古ペルミック文字"_s)
+			"Perm"_s,
+			u"古ペルミック文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Phag"_s),
-			$of(u"パスパ文字"_s)
+			"Phag"_s,
+			u"パスパ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Phli"_s),
-			$of(u"碑文のパフラヴィー文字"_s)
+			"Phli"_s,
+			u"碑文のパフラヴィー文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Phlp"_s),
-			$of(u"詩篇のパフラヴィー文字"_s)
+			"Phlp"_s,
+			u"詩篇のパフラヴィー文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Phlv"_s),
-			$of(u"書籍のパフラヴィー文字"_s)
+			"Phlv"_s,
+			u"書籍のパフラヴィー文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Phnx"_s),
-			$of(u"フェニキア文字"_s)
+			"Phnx"_s,
+			u"フェニキア文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Plrd"_s),
-			$of(u"ポラード音声記号"_s)
+			"Plrd"_s,
+			u"ポラード音声記号"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Prti"_s),
-			$of(u"碑文のパルティア文字"_s)
+			"Prti"_s,
+			u"碑文のパルティア文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("QA"_s),
-			$of(u"カタール"_s)
+			"QA"_s,
+			u"カタール"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RE"_s),
-			$of(u"レユニオン"_s)
+			"RE"_s,
+			u"レユニオン"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RO"_s),
-			$of(u"ルーマニア"_s)
+			"RO"_s,
+			u"ルーマニア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RS"_s),
-			$of(u"セルビア"_s)
+			"RS"_s,
+			u"セルビア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RU"_s),
-			$of(u"ロシア"_s)
+			"RU"_s,
+			u"ロシア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RW"_s),
-			$of(u"ルワンダ"_s)
+			"RW"_s,
+			u"ルワンダ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Rjng"_s),
-			$of(u"レジャン語"_s)
+			"Rjng"_s,
+			u"レジャン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Roro"_s),
-			$of(u"ロンゴロンゴ文字"_s)
+			"Roro"_s,
+			u"ロンゴロンゴ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Runr"_s),
-			$of(u"ルーン文字"_s)
+			"Runr"_s,
+			u"ルーン文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SA"_s),
-			$of(u"サウジアラビア"_s)
+			"SA"_s,
+			u"サウジアラビア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SB"_s),
-			$of(u"ソロモン諸島"_s)
+			"SB"_s,
+			u"ソロモン諸島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SC"_s),
-			$of(u"セイシェル"_s)
+			"SC"_s,
+			u"セイシェル"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SD"_s),
-			$of(u"スーダン"_s)
+			"SD"_s,
+			u"スーダン"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SE"_s),
-			$of(u"スウェーデン"_s)
+			"SE"_s,
+			u"スウェーデン"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SG"_s),
-			$of(u"シンガポール"_s)
+			"SG"_s,
+			u"シンガポール"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SH"_s),
-			$of(u"セントヘレナ島"_s)
+			"SH"_s,
+			u"セントヘレナ島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SI"_s),
-			$of(u"スロベニア"_s)
+			"SI"_s,
+			u"スロベニア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SJ"_s),
-			$of(u"スバールバル諸島・ヤンマイエン島"_s)
+			"SJ"_s,
+			u"スバールバル諸島・ヤンマイエン島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SK"_s),
-			$of(u"スロバキア"_s)
+			"SK"_s,
+			u"スロバキア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SL"_s),
-			$of(u"シエラレオネ"_s)
+			"SL"_s,
+			u"シエラレオネ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SM"_s),
-			$of(u"サンマリノ"_s)
+			"SM"_s,
+			u"サンマリノ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SN"_s),
-			$of(u"セネガル"_s)
+			"SN"_s,
+			u"セネガル"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SO"_s),
-			$of(u"ソマリア"_s)
+			"SO"_s,
+			u"ソマリア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SR"_s),
-			$of(u"スリナム"_s)
+			"SR"_s,
+			u"スリナム"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ST"_s),
-			$of(u"サントメ・プリンシペ"_s)
+			"ST"_s,
+			u"サントメ・プリンシペ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SV"_s),
-			$of(u"エルサルバドル"_s)
+			"SV"_s,
+			u"エルサルバドル"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SY"_s),
-			$of(u"シリア"_s)
+			"SY"_s,
+			u"シリア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SZ"_s),
-			$of(u"スワジランド"_s)
+			"SZ"_s,
+			u"スワジランド"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Samr"_s),
-			$of(u"サマリア語"_s)
+			"Samr"_s,
+			u"サマリア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sara"_s),
-			$of(u"サラティ文字"_s)
+			"Sara"_s,
+			u"サラティ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sarb"_s),
-			$of(u"古代南アラビア語"_s)
+			"Sarb"_s,
+			u"古代南アラビア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Saur"_s),
-			$of(u"サイラシュトラ語"_s)
+			"Saur"_s,
+			u"サイラシュトラ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sgnw"_s),
-			$of(u"手話記述"_s)
+			"Sgnw"_s,
+			u"手話記述"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Shaw"_s),
-			$of(u"ショー文字"_s)
+			"Shaw"_s,
+			u"ショー文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sind"_s),
-			$of(u"シンド語"_s)
+			"Sind"_s,
+			u"シンド語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sinh"_s),
-			$of(u"シンハラ文字"_s)
+			"Sinh"_s,
+			u"シンハラ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sund"_s),
-			$of(u"スンダ語"_s)
+			"Sund"_s,
+			u"スンダ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sylo"_s),
-			$of(u"シロティ・ナグリ文字"_s)
+			"Sylo"_s,
+			u"シロティ・ナグリ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Syrc"_s),
-			$of(u"シリア文字"_s)
+			"Syrc"_s,
+			u"シリア文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Syre"_s),
-			$of(u"シリア文字 (エストランゲロ文字)"_s)
+			"Syre"_s,
+			u"シリア文字 (エストランゲロ文字)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Syrj"_s),
-			$of(u"シリア文字 (西方シリア文字)"_s)
+			"Syrj"_s,
+			u"シリア文字 (西方シリア文字)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Syrn"_s),
-			$of(u"シリア文字 (東方シリア文字)"_s)
+			"Syrn"_s,
+			u"シリア文字 (東方シリア文字)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TC"_s),
-			$of(u"タークス諸島・カイコス諸島"_s)
+			"TC"_s,
+			u"タークス諸島・カイコス諸島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TD"_s),
-			$of(u"チャド"_s)
+			"TD"_s,
+			u"チャド"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TF"_s),
-			$of(u"フランス領極南諸島"_s)
+			"TF"_s,
+			u"フランス領極南諸島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TG"_s),
-			$of(u"トーゴ"_s)
+			"TG"_s,
+			u"トーゴ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TH"_s),
-			$of(u"タイ"_s)
+			"TH"_s,
+			u"タイ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TJ"_s),
-			$of(u"タジキスタン"_s)
+			"TJ"_s,
+			u"タジキスタン"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TK"_s),
-			$of(u"トケラウ諸島"_s)
+			"TK"_s,
+			u"トケラウ諸島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TL"_s),
-			$of(u"東ティモール"_s)
+			"TL"_s,
+			u"東ティモール"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TM"_s),
-			$of(u"トルクメニスタン"_s)
+			"TM"_s,
+			u"トルクメニスタン"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TN"_s),
-			$of(u"チュニジア"_s)
+			"TN"_s,
+			u"チュニジア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TO"_s),
-			$of(u"トンガ"_s)
+			"TO"_s,
+			u"トンガ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TR"_s),
-			$of(u"トルコ"_s)
+			"TR"_s,
+			u"トルコ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TT"_s),
-			$of(u"トリニダード・トバゴ"_s)
+			"TT"_s,
+			u"トリニダード・トバゴ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TV"_s),
-			$of(u"ツバル"_s)
+			"TV"_s,
+			u"ツバル"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TW"_s),
-			$of(u"台湾"_s)
+			"TW"_s,
+			u"台湾"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TZ"_s),
-			$of(u"タンザニア"_s)
+			"TZ"_s,
+			u"タンザニア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tagb"_s),
-			$of(u"タグバンワ文字"_s)
+			"Tagb"_s,
+			u"タグバンワ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tale"_s),
-			$of(u"タイレ文字"_s)
+			"Tale"_s,
+			u"タイレ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Talu"_s),
-			$of(u"新タイ・ルー文字"_s)
+			"Talu"_s,
+			u"新タイ・ルー文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Taml"_s),
-			$of(u"タミール文字"_s)
+			"Taml"_s,
+			u"タミール文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tavt"_s),
-			$of(u"タイ・ヴェト文字"_s)
+			"Tavt"_s,
+			u"タイ・ヴェト文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Telu"_s),
-			$of(u"テルグ文字"_s)
+			"Telu"_s,
+			u"テルグ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Teng"_s),
-			$of(u"テングワール文字"_s)
+			"Teng"_s,
+			u"テングワール文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tfng"_s),
-			$of(u"クメール語"_s)
+			"Tfng"_s,
+			u"クメール語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tglg"_s),
-			$of(u"タガログ文字"_s)
+			"Tglg"_s,
+			u"タガログ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Thaa"_s),
-			$of(u"ターナ文字"_s)
+			"Thaa"_s,
+			u"ターナ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Thai"_s),
-			$of(u"タイ文字"_s)
+			"Thai"_s,
+			u"タイ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tibt"_s),
-			$of(u"チベット文字"_s)
+			"Tibt"_s,
+			u"チベット文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UA"_s),
-			$of(u"ウクライナ"_s)
+			"UA"_s,
+			u"ウクライナ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UG"_s),
-			$of(u"ウガンダ"_s)
+			"UG"_s,
+			u"ウガンダ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UM"_s),
-			$of(u"米領太平洋諸島"_s)
+			"UM"_s,
+			u"米領太平洋諸島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("US"_s),
-			$of(u"アメリカ合衆国"_s)
+			"US"_s,
+			u"アメリカ合衆国"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UY"_s),
-			$of(u"ウルグアイ"_s)
+			"UY"_s,
+			u"ウルグアイ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UZ"_s),
-			$of(u"ウズベキスタン"_s)
+			"UZ"_s,
+			u"ウズベキスタン"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Ugar"_s),
-			$of(u"ウガリト文字"_s)
+			"Ugar"_s,
+			u"ウガリト文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VA"_s),
-			$of(u"バチカン"_s)
+			"VA"_s,
+			u"バチカン"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VC"_s),
-			$of(u"セントビンセントおよびグレナディーン諸島"_s)
+			"VC"_s,
+			u"セントビンセントおよびグレナディーン諸島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VE"_s),
-			$of(u"ベネズエラ"_s)
+			"VE"_s,
+			u"ベネズエラ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VG"_s),
-			$of(u"英領バージン諸島"_s)
+			"VG"_s,
+			u"英領バージン諸島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VI"_s),
-			$of(u"米領バージン諸島"_s)
+			"VI"_s,
+			u"米領バージン諸島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VN"_s),
-			$of(u"ベトナム"_s)
+			"VN"_s,
+			u"ベトナム"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VU"_s),
-			$of(u"バヌアツ"_s)
+			"VU"_s,
+			u"バヌアツ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Vaii"_s),
-			$of(u"ヴァイ文字"_s)
+			"Vaii"_s,
+			u"ヴァイ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Visp"_s),
-			$of(u"視話法"_s)
+			"Visp"_s,
+			u"視話法"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WF"_s),
-			$of(u"ワリス・フテュナ諸島"_s)
+			"WF"_s,
+			u"ワリス・フテュナ諸島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WS"_s),
-			$of(u"西サモア"_s)
+			"WS"_s,
+			u"西サモア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Wara"_s),
-			$of(u"ワラング・クシティ文字"_s)
+			"Wara"_s,
+			u"ワラング・クシティ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Xpeo"_s),
-			$of(u"古代ペルシア文字"_s)
+			"Xpeo"_s,
+			u"古代ペルシア文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Xsux"_s),
-			$of(u"シュメール＝アッカド語楔形文字"_s)
+			"Xsux"_s,
+			u"シュメール＝アッカド語楔形文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("YE"_s),
-			$of(u"イエメン"_s)
+			"YE"_s,
+			u"イエメン"_s
 		}),
 		$$new($ObjectArray, {
-			$of("YT"_s),
-			$of(u"マヨット島"_s)
+			"YT"_s,
+			u"マヨット島"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Yiii"_s),
-			$of(u"イ文字"_s)
+			"Yiii"_s,
+			u"イ文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZA"_s),
-			$of(u"南アフリカ"_s)
+			"ZA"_s,
+			u"南アフリカ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZM"_s),
-			$of(u"ザンビア"_s)
+			"ZM"_s,
+			u"ザンビア"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZW"_s),
-			$of(u"ジンバブエ"_s)
+			"ZW"_s,
+			u"ジンバブエ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zinh"_s),
-			$of(u"継承用字"_s)
+			"Zinh"_s,
+			u"継承用字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zmth"_s),
-			$of(u"数学記号"_s)
+			"Zmth"_s,
+			u"数学記号"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zsym"_s),
-			$of(u"記号"_s)
+			"Zsym"_s,
+			u"記号"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zxxx"_s),
-			$of(u"口承言語のコード"_s)
+			"Zxxx"_s,
+			u"口承言語のコード"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zyyy"_s),
-			$of(u"共通コード"_s)
+			"Zyyy"_s,
+			u"共通コード"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zzzz"_s),
-			$of(u"用字未コード化"_s)
+			"Zzzz"_s,
+			u"用字未コード化"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aa"_s),
-			$of(u"アファール語"_s)
+			"aa"_s,
+			u"アファール語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aar"_s),
-			$of(u"アファル語"_s)
+			"aar"_s,
+			u"アファル語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ab"_s),
-			$of(u"アブハズ語"_s)
+			"ab"_s,
+			u"アブハズ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("abk"_s),
-			$of(u"アブハーズ語"_s)
+			"abk"_s,
+			u"アブハーズ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ace"_s),
-			$of(u"アチェー語"_s)
+			"ace"_s,
+			u"アチェー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ach"_s),
-			$of(u"アチョリ語"_s)
+			"ach"_s,
+			u"アチョリ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ada"_s),
-			$of(u"アダングメ語"_s)
+			"ada"_s,
+			u"アダングメ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ady"_s),
-			$of(u"アディゲ語"_s)
+			"ady"_s,
+			u"アディゲ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ae"_s),
-			$of(u"アヴェスタ語"_s)
+			"ae"_s,
+			u"アヴェスタ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("af"_s),
-			$of(u"アフリカーンス語"_s)
+			"af"_s,
+			u"アフリカーンス語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("afa"_s),
-			$of(u"アフガニー (1927-2002)"_s)
+			"afa"_s,
+			u"アフガニー (1927-2002)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("afh"_s),
-			$of(u"アフリヒリ語"_s)
+			"afh"_s,
+			u"アフリヒリ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("afr"_s),
-			$of(u"アフリカーンス語"_s)
+			"afr"_s,
+			u"アフリカーンス語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ain"_s),
-			$of(u"アイヌ語"_s)
+			"ain"_s,
+			u"アイヌ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ak"_s),
-			$of(u"アカン語"_s)
+			"ak"_s,
+			u"アカン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aka"_s),
-			$of(u"アカン語"_s)
+			"aka"_s,
+			u"アカン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("akk"_s),
-			$of(u"アッカド語"_s)
+			"akk"_s,
+			u"アッカド語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alb"_s),
-			$of(u"アルバニア語"_s)
+			"alb"_s,
+			u"アルバニア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ale"_s),
-			$of(u"アレウト語"_s)
+			"ale"_s,
+			u"アレウト語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alg"_s),
-			$of(u"アルゴンキアン語族"_s)
+			"alg"_s,
+			u"アルゴンキアン語族"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alt"_s),
-			$of(u"南アルタイ語"_s)
+			"alt"_s,
+			u"南アルタイ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("am"_s),
-			$of(u"アムハラ語"_s)
+			"am"_s,
+			u"アムハラ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("amh"_s),
-			$of(u"アムハラ語"_s)
+			"amh"_s,
+			u"アムハラ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("an"_s),
-			$of(u"アラゴン語"_s)
+			"an"_s,
+			u"アラゴン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ang"_s),
-			$of(u"オランダ領アンティル ギルダー"_s)
+			"ang"_s,
+			u"オランダ領アンティル ギルダー"_s
 		}),
 		$$new($ObjectArray, {
-			$of("anp"_s),
-			$of(u"アンギカ語"_s)
+			"anp"_s,
+			u"アンギカ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("apa"_s),
-			$of(u"アパッチ語族"_s)
+			"apa"_s,
+			u"アパッチ語族"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ar"_s),
-			$of(u"アラビア語"_s)
+			"ar"_s,
+			u"アラビア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ara"_s),
-			$of(u"アルゼンチン アゥストラール"_s)
+			"ara"_s,
+			u"アルゼンチン アゥストラール"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arc"_s),
-			$of(u"アラム語"_s)
+			"arc"_s,
+			u"アラム語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arg"_s),
-			$of(u"アラゴン語"_s)
+			"arg"_s,
+			u"アラゴン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arm"_s),
-			$of(u"アルメニア語"_s)
+			"arm"_s,
+			u"アルメニア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arn"_s),
-			$of(u"アラウカン語"_s)
+			"arn"_s,
+			u"アラウカン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arp"_s),
-			$of(u"アルゼンチン ペソ (1983-1985)"_s)
+			"arp"_s,
+			u"アルゼンチン ペソ (1983-1985)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("art"_s),
-			$of(u"人工諸語"_s)
+			"art"_s,
+			u"人工諸語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arw"_s),
-			$of(u"アラワク語"_s)
+			"arw"_s,
+			u"アラワク語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("as"_s),
-			$of(u"アッサム語"_s)
+			"as"_s,
+			u"アッサム語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("asm"_s),
-			$of(u"アッサム語"_s)
+			"asm"_s,
+			u"アッサム語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ast"_s),
-			$of(u"アストゥリアス語"_s)
+			"ast"_s,
+			u"アストゥリアス語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ath"_s),
-			$of(u"アサパスカン語族"_s)
+			"ath"_s,
+			u"アサパスカン語族"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aus"_s),
-			$of(u"オーストラリア語族"_s)
+			"aus"_s,
+			u"オーストラリア語族"_s
 		}),
 		$$new($ObjectArray, {
-			$of("av"_s),
-			$of(u"アヴァル語"_s)
+			"av"_s,
+			u"アヴァル語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ava"_s),
-			$of(u"アヴァル語"_s)
+			"ava"_s,
+			u"アヴァル語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ave"_s),
-			$of(u"アヴェスタ語"_s)
+			"ave"_s,
+			u"アヴェスタ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("awa"_s),
-			$of(u"アワディー語"_s)
+			"awa"_s,
+			u"アワディー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ay"_s),
-			$of(u"アイマラ語"_s)
+			"ay"_s,
+			u"アイマラ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aym"_s),
-			$of(u"アイマラ語"_s)
+			"aym"_s,
+			u"アイマラ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("az"_s),
-			$of(u"アゼルバイジャン語"_s)
+			"az"_s,
+			u"アゼルバイジャン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aze"_s),
-			$of(u"アゼルバイジャン語"_s)
+			"aze"_s,
+			u"アゼルバイジャン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ba"_s),
-			$of(u"バシキール語"_s)
+			"ba"_s,
+			u"バシキール語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bad"_s),
-			$of(u"ボスニア ディナール"_s)
+			"bad"_s,
+			u"ボスニア ディナール"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bai"_s),
-			$of(u"バミレケ語族"_s)
+			"bai"_s,
+			u"バミレケ語族"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bak"_s),
-			$of(u"バシキール語"_s)
+			"bak"_s,
+			u"バシキール語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bal"_s),
-			$of(u"バルーチー語"_s)
+			"bal"_s,
+			u"バルーチー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bam"_s),
-			$of(u"ボスニア マルク (BAM)"_s)
+			"bam"_s,
+			u"ボスニア マルク (BAM)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ban"_s),
-			$of(u"バリ語"_s)
+			"ban"_s,
+			u"バリ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("baq"_s),
-			$of(u"バスク語"_s)
+			"baq"_s,
+			u"バスク語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bas"_s),
-			$of(u"バサ語"_s)
+			"bas"_s,
+			u"バサ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bat"_s),
-			$of(u"バルト諸語"_s)
+			"bat"_s,
+			u"バルト諸語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("be"_s),
-			$of(u"白ロシア語"_s)
+			"be"_s,
+			u"白ロシア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bej"_s),
-			$of(u"ベジャ語"_s)
+			"bej"_s,
+			u"ベジャ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bel"_s),
-			$of(u"ベルギー フラン (BEL)"_s)
+			"bel"_s,
+			u"ベルギー フラン (BEL)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bem"_s),
-			$of(u"ベンバ語"_s)
+			"bem"_s,
+			u"ベンバ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ben"_s),
-			$of(u"ベンガル語"_s)
+			"ben"_s,
+			u"ベンガル語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ber"_s),
-			$of(u"ベルベル諸語"_s)
+			"ber"_s,
+			u"ベルベル諸語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bg"_s),
-			$of(u"ブルガリア語"_s)
+			"bg"_s,
+			u"ブルガリア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bh"_s),
-			$of(u"ビハール語"_s)
+			"bh"_s,
+			u"ビハール語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bho"_s),
-			$of(u"ボージプリー語"_s)
+			"bho"_s,
+			u"ボージプリー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bi"_s),
-			$of(u"ビスラマ語"_s)
+			"bi"_s,
+			u"ビスラマ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bih"_s),
-			$of(u"ビハール語"_s)
+			"bih"_s,
+			u"ビハール語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bik"_s),
-			$of(u"ビコル語"_s)
+			"bik"_s,
+			u"ビコル語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bin"_s),
-			$of(u"ビニ語"_s)
+			"bin"_s,
+			u"ビニ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bis"_s),
-			$of(u"ビスラマ語"_s)
+			"bis"_s,
+			u"ビスラマ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bla"_s),
-			$of(u"シクシカ語"_s)
+			"bla"_s,
+			u"シクシカ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bm"_s),
-			$of(u"バンバラ語"_s)
+			"bm"_s,
+			u"バンバラ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bn"_s),
-			$of(u"ベンガル語"_s)
+			"bn"_s,
+			u"ベンガル語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bnt"_s),
-			$of(u"バントゥ諸語"_s)
+			"bnt"_s,
+			u"バントゥ諸語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bo"_s),
-			$of(u"チベット語"_s)
+			"bo"_s,
+			u"チベット語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bos"_s),
-			$of(u"ボスニア語"_s)
+			"bos"_s,
+			u"ボスニア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("br"_s),
-			$of(u"ブルトン語"_s)
+			"br"_s,
+			u"ブルトン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bra"_s),
-			$of(u"ブラジ語"_s)
+			"bra"_s,
+			u"ブラジ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bre"_s),
-			$of(u"ブラジル クルゼイロ (1990-1993)"_s)
+			"bre"_s,
+			u"ブラジル クルゼイロ (1990-1993)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bs"_s),
-			$of(u"ボスニア語"_s)
+			"bs"_s,
+			u"ボスニア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("btk"_s),
-			$of(u"バタク語"_s)
+			"btk"_s,
+			u"バタク語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bua"_s),
-			$of(u"ブリヤート語"_s)
+			"bua"_s,
+			u"ブリヤート語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bug"_s),
-			$of(u"ブギ語"_s)
+			"bug"_s,
+			u"ブギ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bul"_s),
-			$of(u"ブルガリア語"_s)
+			"bul"_s,
+			u"ブルガリア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bur"_s),
-			$of(u"ビルマ語"_s)
+			"bur"_s,
+			u"ビルマ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("byn"_s),
-			$of(u"ビリン語"_s)
+			"byn"_s,
+			u"ビリン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ca"_s),
-			$of(u"カタロニア語"_s)
+			"ca"_s,
+			u"カタロニア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cad"_s),
-			$of(u"カナダ ドル"_s)
+			"cad"_s,
+			u"カナダ ドル"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cai"_s),
-			$of(u"中米インディアン諸語"_s)
+			"cai"_s,
+			u"中米インディアン諸語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("car"_s),
-			$of(u"カリブ語"_s)
+			"car"_s,
+			u"カリブ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cat"_s),
-			$of(u"カタロニア語"_s)
+			"cat"_s,
+			u"カタロニア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cau"_s),
-			$of(u"コーカサス諸語"_s)
+			"cau"_s,
+			u"コーカサス諸語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ce"_s),
-			$of(u"チェチェン語"_s)
+			"ce"_s,
+			u"チェチェン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ceb"_s),
-			$of(u"セブアノ語"_s)
+			"ceb"_s,
+			u"セブアノ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cel"_s),
-			$of(u"ケルト諸語"_s)
+			"cel"_s,
+			u"ケルト諸語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ch"_s),
-			$of(u"チャモロ語"_s)
+			"ch"_s,
+			u"チャモロ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cha"_s),
-			$of(u"チャモロ語"_s)
+			"cha"_s,
+			u"チャモロ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chb"_s),
-			$of(u"チブチャ語"_s)
+			"chb"_s,
+			u"チブチャ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("che"_s),
-			$of(u"チェチェン語"_s)
+			"che"_s,
+			u"チェチェン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chg"_s),
-			$of(u"チャガタイ語"_s)
+			"chg"_s,
+			u"チャガタイ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chi"_s),
-			$of(u"中国語"_s)
+			"chi"_s,
+			u"中国語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chk"_s),
-			$of(u"チューク語"_s)
+			"chk"_s,
+			u"チューク語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chm"_s),
-			$of(u"マリ語"_s)
+			"chm"_s,
+			u"マリ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chn"_s),
-			$of(u"ビーチ・ラ・マー 等"_s)
+			"chn"_s,
+			u"ビーチ・ラ・マー 等"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cho"_s),
-			$of(u"チョクトー語"_s)
+			"cho"_s,
+			u"チョクトー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chp"_s),
-			$of(u"チペワイアン語"_s)
+			"chp"_s,
+			u"チペワイアン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chr"_s),
-			$of(u"チェロキー語"_s)
+			"chr"_s,
+			u"チェロキー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chu"_s),
-			$of(u"教会スラブ語"_s)
+			"chu"_s,
+			u"教会スラブ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chv"_s),
-			$of(u"チュヴァシュ語"_s)
+			"chv"_s,
+			u"チュヴァシュ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chy"_s),
-			$of(u"シャイアン語"_s)
+			"chy"_s,
+			u"シャイアン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cmc"_s),
-			$of(u"チャム語族"_s)
+			"cmc"_s,
+			u"チャム語族"_s
 		}),
 		$$new($ObjectArray, {
-			$of("co"_s),
-			$of(u"コルシカ語"_s)
+			"co"_s,
+			u"コルシカ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cop"_s),
-			$of(u"コロンビア ペソ"_s)
+			"cop"_s,
+			u"コロンビア ペソ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cor"_s),
-			$of(u"コーンウォール語"_s)
+			"cor"_s,
+			u"コーンウォール語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cos"_s),
-			$of(u"コルシカ語"_s)
+			"cos"_s,
+			u"コルシカ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cpe"_s),
-			$of(u"英語が基盤の混成語・混合語"_s)
+			"cpe"_s,
+			u"英語が基盤の混成語・混合語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cpf"_s),
-			$of(u"フランス語が基盤の混成語・混合語"_s)
+			"cpf"_s,
+			u"フランス語が基盤の混成語・混合語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cpp"_s),
-			$of(u"ポルトガル語が基盤の混成語・混合語"_s)
+			"cpp"_s,
+			u"ポルトガル語が基盤の混成語・混合語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cr"_s),
-			$of(u"クリー語"_s)
+			"cr"_s,
+			u"クリー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cre"_s),
-			$of(u"クリー語"_s)
+			"cre"_s,
+			u"クリー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("crh"_s),
-			$of(u"クリミア・タタール語"_s)
+			"crh"_s,
+			u"クリミア・タタール語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("crp"_s),
-			$of(u"その他の混成語・混合語"_s)
+			"crp"_s,
+			u"その他の混成語・混合語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cs"_s),
-			$of(u"チェコ語"_s)
+			"cs"_s,
+			u"チェコ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("csb"_s),
-			$of(u"カシューブ語"_s)
+			"csb"_s,
+			u"カシューブ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cu"_s),
-			$of(u"教会スラブ語"_s)
+			"cu"_s,
+			u"教会スラブ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cus"_s),
-			$of(u"クシュ諸語"_s)
+			"cus"_s,
+			u"クシュ諸語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cv"_s),
-			$of(u"チュヴァシュ語"_s)
+			"cv"_s,
+			u"チュヴァシュ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cy"_s),
-			$of(u"ウェールズ語"_s)
+			"cy"_s,
+			u"ウェールズ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cze"_s),
-			$of(u"チェコ語"_s)
+			"cze"_s,
+			u"チェコ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("da"_s),
-			$of(u"デンマーク語"_s)
+			"da"_s,
+			u"デンマーク語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dak"_s),
-			$of(u"ダコタ語"_s)
+			"dak"_s,
+			u"ダコタ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dan"_s),
-			$of(u"デンマーク語"_s)
+			"dan"_s,
+			u"デンマーク語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dar"_s),
-			$of(u"ダルガン語"_s)
+			"dar"_s,
+			u"ダルガン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("day"_s),
-			$of(u"ダヤク語"_s)
+			"day"_s,
+			u"ダヤク語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de"_s),
-			$of(u"ドイツ語"_s)
+			"de"_s,
+			u"ドイツ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("del"_s),
-			$of(u"デラウェア語"_s)
+			"del"_s,
+			u"デラウェア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("den"_s),
-			$of(u"スレイビー語"_s)
+			"den"_s,
+			u"スレイビー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dgr"_s),
-			$of(u"ドグリブ語"_s)
+			"dgr"_s,
+			u"ドグリブ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("din"_s),
-			$of(u"ディンカ語"_s)
+			"din"_s,
+			u"ディンカ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("div"_s),
-			$of(u"ディベヒ語"_s)
+			"div"_s,
+			u"ディベヒ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("doi"_s),
-			$of(u"ドグリ語"_s)
+			"doi"_s,
+			u"ドグリ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dra"_s),
-			$of(u"ドラヴィダ諸語"_s)
+			"dra"_s,
+			u"ドラヴィダ諸語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dsb"_s),
-			$of(u"低ソルビア語"_s)
+			"dsb"_s,
+			u"低ソルビア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dua"_s),
-			$of(u"ドゥアラ語"_s)
+			"dua"_s,
+			u"ドゥアラ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dum"_s),
-			$of(u"中世オランダ語"_s)
+			"dum"_s,
+			u"中世オランダ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dut"_s),
-			$of(u"オランダ語"_s)
+			"dut"_s,
+			u"オランダ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dv"_s),
-			$of(u"ディベヒ語"_s)
+			"dv"_s,
+			u"ディベヒ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dyu"_s),
-			$of(u"デゥウラ語"_s)
+			"dyu"_s,
+			u"デゥウラ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dz"_s),
-			$of(u"ブータン語"_s)
+			"dz"_s,
+			u"ブータン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dzo"_s),
-			$of(u"ゾンカ語"_s)
+			"dzo"_s,
+			u"ゾンカ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ee"_s),
-			$of(u"エウェ語"_s)
+			"ee"_s,
+			u"エウェ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("efi"_s),
-			$of(u"エフィック語"_s)
+			"efi"_s,
+			u"エフィック語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("egy"_s),
-			$of(u"古代エジプト語"_s)
+			"egy"_s,
+			u"古代エジプト語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eka"_s),
-			$of(u"エカジュク語"_s)
+			"eka"_s,
+			u"エカジュク語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("el"_s),
-			$of(u"ギリシア語"_s)
+			"el"_s,
+			u"ギリシア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("elx"_s),
-			$of(u"エラム語"_s)
+			"elx"_s,
+			u"エラム語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en"_s),
-			$of(u"英語"_s)
+			"en"_s,
+			u"英語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eng"_s),
-			$of(u"英語"_s)
+			"eng"_s,
+			u"英語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("enm"_s),
-			$of(u"中世英語"_s)
+			"enm"_s,
+			u"中世英語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eo"_s),
-			$of(u"エスペラント語"_s)
+			"eo"_s,
+			u"エスペラント語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("epo"_s),
-			$of(u"エスペラント語"_s)
+			"epo"_s,
+			u"エスペラント語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es"_s),
-			$of(u"スペイン語"_s)
+			"es"_s,
+			u"スペイン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("est"_s),
-			$of(u"エストニア語"_s)
+			"est"_s,
+			u"エストニア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("et"_s),
-			$of(u"エストニア語"_s)
+			"et"_s,
+			u"エストニア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eu"_s),
-			$of(u"バスク語"_s)
+			"eu"_s,
+			u"バスク語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ewe"_s),
-			$of(u"エウェ語"_s)
+			"ewe"_s,
+			u"エウェ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ewo"_s),
-			$of(u"エウォンド語"_s)
+			"ewo"_s,
+			u"エウォンド語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fa"_s),
-			$of(u"ペルシア語"_s)
+			"fa"_s,
+			u"ペルシア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fan"_s),
-			$of(u"ファング語"_s)
+			"fan"_s,
+			u"ファング語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fao"_s),
-			$of(u"フェロー語"_s)
+			"fao"_s,
+			u"フェロー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fat"_s),
-			$of(u"ファンティー語"_s)
+			"fat"_s,
+			u"ファンティー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ff"_s),
-			$of(u"フラ語"_s)
+			"ff"_s,
+			u"フラ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fi"_s),
-			$of(u"フィンランド語"_s)
+			"fi"_s,
+			u"フィンランド語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fij"_s),
-			$of(u"フィジー語"_s)
+			"fij"_s,
+			u"フィジー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fil"_s),
-			$of(u"フィリピノ語"_s)
+			"fil"_s,
+			u"フィリピノ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fin"_s),
-			$of(u"フィンランド語"_s)
+			"fin"_s,
+			u"フィンランド語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fiu"_s),
-			$of(u"フィン・ウゴル諸語"_s)
+			"fiu"_s,
+			u"フィン・ウゴル諸語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fj"_s),
-			$of(u"フィジー語"_s)
+			"fj"_s,
+			u"フィジー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fo"_s),
-			$of(u"フェロー語"_s)
+			"fo"_s,
+			u"フェロー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fon"_s),
-			$of(u"フォン語"_s)
+			"fon"_s,
+			u"フォン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr"_s),
-			$of(u"フランス語"_s)
+			"fr"_s,
+			u"フランス語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fre"_s),
-			$of(u"フランス語"_s)
+			"fre"_s,
+			u"フランス語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frm"_s),
-			$of(u"中期フランス語"_s)
+			"frm"_s,
+			u"中期フランス語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fro"_s),
-			$of(u"古フランス語"_s)
+			"fro"_s,
+			u"古フランス語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frr"_s),
-			$of(u"北フリジア語"_s)
+			"frr"_s,
+			u"北フリジア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frs"_s),
-			$of(u"東フリジア語"_s)
+			"frs"_s,
+			u"東フリジア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fry"_s),
-			$of(u"西フリジア語"_s)
+			"fry"_s,
+			u"西フリジア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ful"_s),
-			$of(u"フラ語"_s)
+			"ful"_s,
+			u"フラ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fur"_s),
-			$of(u"フリウリ語"_s)
+			"fur"_s,
+			u"フリウリ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fy"_s),
-			$of(u"フリジア語"_s)
+			"fy"_s,
+			u"フリジア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ga"_s),
-			$of(u"アイルランド語"_s)
+			"ga"_s,
+			u"アイルランド語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gaa"_s),
-			$of(u"ガ語"_s)
+			"gaa"_s,
+			u"ガ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gay"_s),
-			$of(u"ガヨ語"_s)
+			"gay"_s,
+			u"ガヨ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gba"_s),
-			$of(u"バヤ語"_s)
+			"gba"_s,
+			u"バヤ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gd"_s),
-			$of(u"スコットランド・ゲール語"_s)
+			"gd"_s,
+			u"スコットランド・ゲール語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gem"_s),
-			$of(u"ゲルマン諸語"_s)
+			"gem"_s,
+			u"ゲルマン諸語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("geo"_s),
-			$of(u"グルジア語"_s)
+			"geo"_s,
+			u"グルジア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ger"_s),
-			$of(u"ドイツ語"_s)
+			"ger"_s,
+			u"ドイツ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gez"_s),
-			$of(u"ゲエズ語"_s)
+			"gez"_s,
+			u"ゲエズ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gil"_s),
-			$of(u"キリバス語"_s)
+			"gil"_s,
+			u"キリバス語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gl"_s),
-			$of(u"ガリシア語"_s)
+			"gl"_s,
+			u"ガリシア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gla"_s),
-			$of(u"ゲール語"_s)
+			"gla"_s,
+			u"ゲール語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gle"_s),
-			$of(u"アイルランド語"_s)
+			"gle"_s,
+			u"アイルランド語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("glg"_s),
-			$of(u"ガリシア語"_s)
+			"glg"_s,
+			u"ガリシア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("glv"_s),
-			$of(u"マン島語"_s)
+			"glv"_s,
+			u"マン島語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gmh"_s),
-			$of(u"中高ドイツ語"_s)
+			"gmh"_s,
+			u"中高ドイツ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gn"_s),
-			$of(u"グワラニ語"_s)
+			"gn"_s,
+			u"グワラニ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("goh"_s),
-			$of(u"古高ドイツ語"_s)
+			"goh"_s,
+			u"古高ドイツ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gon"_s),
-			$of(u"ゴーンディー語"_s)
+			"gon"_s,
+			u"ゴーンディー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gor"_s),
-			$of(u"ゴロンタロ語"_s)
+			"gor"_s,
+			u"ゴロンタロ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("got"_s),
-			$of(u"ゴート語"_s)
+			"got"_s,
+			u"ゴート語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("grb"_s),
-			$of(u"グレボ語"_s)
+			"grb"_s,
+			u"グレボ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("grc"_s),
-			$of(u"古代ギリシャ語"_s)
+			"grc"_s,
+			u"古代ギリシャ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gre"_s),
-			$of(u"現代ギリシャ語(1453-)"_s)
+			"gre"_s,
+			u"現代ギリシャ語(1453-)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("grn"_s),
-			$of(u"グアラニー語"_s)
+			"grn"_s,
+			u"グアラニー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gsw"_s),
-			$of(u"スイスドイツ語（スイス）"_s)
+			"gsw"_s,
+			u"スイスドイツ語（スイス）"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gu"_s),
-			$of(u"グジャラート語"_s)
+			"gu"_s,
+			u"グジャラート語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("guj"_s),
-			$of(u"グジャラト語"_s)
+			"guj"_s,
+			u"グジャラト語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gv"_s),
-			$of(u"マン島語"_s)
+			"gv"_s,
+			u"マン島語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gwi"_s),
-			$of(u"グウィッチン語"_s)
+			"gwi"_s,
+			u"グウィッチン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ha"_s),
-			$of(u"ハウサ語"_s)
+			"ha"_s,
+			u"ハウサ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hai"_s),
-			$of(u"ハイダ語"_s)
+			"hai"_s,
+			u"ハイダ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hat"_s),
-			$of(u"ハイチ語"_s)
+			"hat"_s,
+			u"ハイチ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hau"_s),
-			$of(u"ハウサ語"_s)
+			"hau"_s,
+			u"ハウサ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("haw"_s),
-			$of(u"ハワイ語"_s)
+			"haw"_s,
+			u"ハワイ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("he"_s),
-			$of(u"ヘブライ語"_s)
+			"he"_s,
+			u"ヘブライ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("heb"_s),
-			$of(u"ヘブライ語"_s)
+			"heb"_s,
+			u"ヘブライ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("her"_s),
-			$of(u"ヘレロ語"_s)
+			"her"_s,
+			u"ヘレロ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hi"_s),
-			$of(u"ヒンディー語"_s)
+			"hi"_s,
+			u"ヒンディー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hil"_s),
-			$of(u"ヒリガイノン語"_s)
+			"hil"_s,
+			u"ヒリガイノン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("him"_s),
-			$of(u"ヒマチャル語"_s)
+			"him"_s,
+			u"ヒマチャル語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hin"_s),
-			$of(u"ヒンディー語"_s)
+			"hin"_s,
+			u"ヒンディー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hit"_s),
-			$of(u"ヒッタイト語"_s)
+			"hit"_s,
+			u"ヒッタイト語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hmn"_s),
-			$of(u"フモン語"_s)
+			"hmn"_s,
+			u"フモン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hmo"_s),
-			$of(u"ヒリモトゥ語"_s)
+			"hmo"_s,
+			u"ヒリモトゥ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ho"_s),
-			$of(u"ヒリ・モツ語"_s)
+			"ho"_s,
+			u"ヒリ・モツ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hr"_s),
-			$of(u"クロアチア語"_s)
+			"hr"_s,
+			u"クロアチア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hrv"_s),
-			$of(u"クロアチア語"_s)
+			"hrv"_s,
+			u"クロアチア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hsb"_s),
-			$of(u"上ソルビア語"_s)
+			"hsb"_s,
+			u"上ソルビア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ht"_s),
-			$of(u"ハイチ語"_s)
+			"ht"_s,
+			u"ハイチ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hu"_s),
-			$of(u"ハンガリー語"_s)
+			"hu"_s,
+			u"ハンガリー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hun"_s),
-			$of(u"ハンガリー語"_s)
+			"hun"_s,
+			u"ハンガリー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hup"_s),
-			$of(u"アタパスカ語"_s)
+			"hup"_s,
+			u"アタパスカ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hy"_s),
-			$of(u"アルメニア語"_s)
+			"hy"_s,
+			u"アルメニア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hz"_s),
-			$of(u"ヘレロ語"_s)
+			"hz"_s,
+			u"ヘレロ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ia"_s),
-			$of(u"国際語"_s)
+			"ia"_s,
+			u"国際語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iba"_s),
-			$of(u"イバン語"_s)
+			"iba"_s,
+			u"イバン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ibo"_s),
-			$of(u"イボ語"_s)
+			"ibo"_s,
+			u"イボ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ice"_s),
-			$of(u"アイスランド語"_s)
+			"ice"_s,
+			u"アイスランド語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("id"_s),
-			$of(u"インドネシア語"_s)
+			"id"_s,
+			u"インドネシア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ido"_s),
-			$of(u"イド語"_s)
+			"ido"_s,
+			u"イド語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ie"_s),
-			$of(u"国際語"_s)
+			"ie"_s,
+			u"国際語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ig"_s),
-			$of(u"イボ語"_s)
+			"ig"_s,
+			u"イボ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ii"_s),
-			$of(u"四川語"_s)
+			"ii"_s,
+			u"四川語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iii"_s),
-			$of(u"四川イ(彝)語"_s)
+			"iii"_s,
+			u"四川イ(彝)語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ijo"_s),
-			$of(u"イジョー語"_s)
+			"ijo"_s,
+			u"イジョー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ik"_s),
-			$of(u"イヌピアック語"_s)
+			"ik"_s,
+			u"イヌピアック語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iku"_s),
-			$of(u"イヌクウティトット語"_s)
+			"iku"_s,
+			u"イヌクウティトット語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ile"_s),
-			$of(u"インターリング"_s)
+			"ile"_s,
+			u"インターリング"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ilo"_s),
-			$of(u"イロカノ語"_s)
+			"ilo"_s,
+			u"イロカノ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("in"_s),
-			$of(u"インドネシア語"_s)
+			"in"_s,
+			u"インドネシア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ina"_s),
-			$of(u"インターリングア語(国際補助語協会)"_s)
+			"ina"_s,
+			u"インターリングア語(国際補助語協会)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("inc"_s),
-			$of(u"インド諸語"_s)
+			"inc"_s,
+			u"インド諸語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ind"_s),
-			$of(u"インドネシア語"_s)
+			"ind"_s,
+			u"インドネシア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ine"_s),
-			$of(u"印欧諸語"_s)
+			"ine"_s,
+			u"印欧諸語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("inh"_s),
-			$of(u"イングシ語"_s)
+			"inh"_s,
+			u"イングシ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("io"_s),
-			$of(u"イド語"_s)
+			"io"_s,
+			u"イド語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ipk"_s),
-			$of(u"イヌピアック語"_s)
+			"ipk"_s,
+			u"イヌピアック語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ira"_s),
-			$of(u"イラン語"_s)
+			"ira"_s,
+			u"イラン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iro"_s),
-			$of(u"イロコイ語族"_s)
+			"iro"_s,
+			u"イロコイ語族"_s
 		}),
 		$$new($ObjectArray, {
-			$of("is"_s),
-			$of(u"アイスランド語"_s)
+			"is"_s,
+			u"アイスランド語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("it"_s),
-			$of(u"イタリア語"_s)
+			"it"_s,
+			u"イタリア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ita"_s),
-			$of(u"イタリア語"_s)
+			"ita"_s,
+			u"イタリア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iu"_s),
-			$of(u"イヌクウティトット語"_s)
+			"iu"_s,
+			u"イヌクウティトット語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iw"_s),
-			$of(u"ヘブライ語"_s)
+			"iw"_s,
+			u"ヘブライ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ja"_s),
-			$of(u"日本語"_s)
+			"ja"_s,
+			u"日本語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jav"_s),
-			$of(u"ジャワ語"_s)
+			"jav"_s,
+			u"ジャワ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jbo"_s),
-			$of(u"ロジバン語"_s)
+			"jbo"_s,
+			u"ロジバン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ji"_s),
-			$of(u"イディッシュ語"_s)
+			"ji"_s,
+			u"イディッシュ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jpn"_s),
-			$of(u"日本語"_s)
+			"jpn"_s,
+			u"日本語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jpr"_s),
-			$of(u"ユダヤ・ペルシア語"_s)
+			"jpr"_s,
+			u"ユダヤ・ペルシア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jrb"_s),
-			$of(u"ユダヤ・アラビア語"_s)
+			"jrb"_s,
+			u"ユダヤ・アラビア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jv"_s),
-			$of(u"ジャワ語"_s)
+			"jv"_s,
+			u"ジャワ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ka"_s),
-			$of(u"グルジア語"_s)
+			"ka"_s,
+			u"グルジア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kaa"_s),
-			$of(u"カラ・カルパク語"_s)
+			"kaa"_s,
+			u"カラ・カルパク語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kab"_s),
-			$of(u"カビル語"_s)
+			"kab"_s,
+			u"カビル語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kac"_s),
-			$of(u"カチン語"_s)
+			"kac"_s,
+			u"カチン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kal"_s),
-			$of(u"カラアリス語"_s)
+			"kal"_s,
+			u"カラアリス語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kam"_s),
-			$of(u"カンバ語"_s)
+			"kam"_s,
+			u"カンバ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kan"_s),
-			$of(u"カンナダ語"_s)
+			"kan"_s,
+			u"カンナダ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kar"_s),
-			$of(u"カレン語"_s)
+			"kar"_s,
+			u"カレン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kas"_s),
-			$of(u"カシミール語"_s)
+			"kas"_s,
+			u"カシミール語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kau"_s),
-			$of(u"カヌリ語"_s)
+			"kau"_s,
+			u"カヌリ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kaw"_s),
-			$of(u"カウィ語"_s)
+			"kaw"_s,
+			u"カウィ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kaz"_s),
-			$of(u"カザフ語"_s)
+			"kaz"_s,
+			u"カザフ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kbd"_s),
-			$of(u"カバルド語"_s)
+			"kbd"_s,
+			u"カバルド語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kg"_s),
-			$of(u"コンゴ語"_s)
+			"kg"_s,
+			u"コンゴ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kha"_s),
-			$of(u"カシ語"_s)
+			"kha"_s,
+			u"カシ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("khi"_s),
-			$of(u"コイサン諸語"_s)
+			"khi"_s,
+			u"コイサン諸語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("khm"_s),
-			$of(u"中央クメール語"_s)
+			"khm"_s,
+			u"中央クメール語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kho"_s),
-			$of(u"コータン語"_s)
+			"kho"_s,
+			u"コータン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ki"_s),
-			$of(u"キクユ語"_s)
+			"ki"_s,
+			u"キクユ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kik"_s),
-			$of(u"キクユ語"_s)
+			"kik"_s,
+			u"キクユ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kin"_s),
-			$of(u"キニヤルワンダ語"_s)
+			"kin"_s,
+			u"キニヤルワンダ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kir"_s),
-			$of(u"キルギス語"_s)
+			"kir"_s,
+			u"キルギス語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kj"_s),
-			$of(u"クゥニャマ語"_s)
+			"kj"_s,
+			u"クゥニャマ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kk"_s),
-			$of(u"カザフ語"_s)
+			"kk"_s,
+			u"カザフ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kl"_s),
-			$of(u"グリーンランド語"_s)
+			"kl"_s,
+			u"グリーンランド語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("km"_s),
-			$of(u"カンボジア語"_s)
+			"km"_s,
+			u"カンボジア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kmb"_s),
-			$of(u"キンブンドゥ語"_s)
+			"kmb"_s,
+			u"キンブンドゥ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kn"_s),
-			$of(u"カンナダ語"_s)
+			"kn"_s,
+			u"カンナダ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ko"_s),
-			$of(u"韓国語"_s)
+			"ko"_s,
+			u"韓国語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kok"_s),
-			$of(u"コンカニ語"_s)
+			"kok"_s,
+			u"コンカニ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kom"_s),
-			$of(u"コミ語"_s)
+			"kom"_s,
+			u"コミ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kon"_s),
-			$of(u"コンゴ語"_s)
+			"kon"_s,
+			u"コンゴ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kor"_s),
-			$of(u"韓国語"_s)
+			"kor"_s,
+			u"韓国語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kos"_s),
-			$of(u"コシャエ語"_s)
+			"kos"_s,
+			u"コシャエ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kpe"_s),
-			$of(u"クペレ語"_s)
+			"kpe"_s,
+			u"クペレ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kr"_s),
-			$of(u"カヌリ語"_s)
+			"kr"_s,
+			u"カヌリ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("krc"_s),
-			$of(u"カラチャイ語"_s)
+			"krc"_s,
+			u"カラチャイ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("krl"_s),
-			$of(u"カレリア語"_s)
+			"krl"_s,
+			u"カレリア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kro"_s),
-			$of(u"クルー語"_s)
+			"kro"_s,
+			u"クルー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kru"_s),
-			$of(u"クルク語"_s)
+			"kru"_s,
+			u"クルク語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ks"_s),
-			$of(u"カシミール語"_s)
+			"ks"_s,
+			u"カシミール語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ku"_s),
-			$of(u"クルド語"_s)
+			"ku"_s,
+			u"クルド語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kua"_s),
-			$of(u"クアニャマ語"_s)
+			"kua"_s,
+			u"クアニャマ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kum"_s),
-			$of(u"クムク語"_s)
+			"kum"_s,
+			u"クムク語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kur"_s),
-			$of(u"クルド語"_s)
+			"kur"_s,
+			u"クルド語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kut"_s),
-			$of(u"クテナイ語"_s)
+			"kut"_s,
+			u"クテナイ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kv"_s),
-			$of(u"コミ語"_s)
+			"kv"_s,
+			u"コミ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kw"_s),
-			$of(u"コーンウォール語"_s)
+			"kw"_s,
+			u"コーンウォール語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ky"_s),
-			$of(u"キルギス語"_s)
+			"ky"_s,
+			u"キルギス語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("la"_s),
-			$of(u"ラテン語"_s)
+			"la"_s,
+			u"ラテン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lad"_s),
-			$of(u"ラジノ語"_s)
+			"lad"_s,
+			u"ラジノ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lah"_s),
-			$of(u"ラフンダー語"_s)
+			"lah"_s,
+			u"ラフンダー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lam"_s),
-			$of(u"ランバ語"_s)
+			"lam"_s,
+			u"ランバ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lao"_s),
-			$of(u"ラオ語"_s)
+			"lao"_s,
+			u"ラオ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lat"_s),
-			$of(u"ラテン語"_s)
+			"lat"_s,
+			u"ラテン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lav"_s),
-			$of(u"ラトビア語"_s)
+			"lav"_s,
+			u"ラトビア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lb"_s),
-			$of(u"ルクセンブルク語"_s)
+			"lb"_s,
+			u"ルクセンブルク語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lez"_s),
-			$of(u"レズギ語"_s)
+			"lez"_s,
+			u"レズギ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lg"_s),
-			$of(u"ガンダ語"_s)
+			"lg"_s,
+			u"ガンダ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("li"_s),
-			$of(u"リンブルグ語"_s)
+			"li"_s,
+			u"リンブルグ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lim"_s),
-			$of(u"リンブルフ語"_s)
+			"lim"_s,
+			u"リンブルフ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lin"_s),
-			$of(u"リンガラ語"_s)
+			"lin"_s,
+			u"リンガラ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lit"_s),
-			$of(u"リトアニア語"_s)
+			"lit"_s,
+			u"リトアニア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ln"_s),
-			$of(u"リンガラ語"_s)
+			"ln"_s,
+			u"リンガラ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lo"_s),
-			$of(u"ラオ語"_s)
+			"lo"_s,
+			u"ラオ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lol"_s),
-			$of(u"モンゴ語"_s)
+			"lol"_s,
+			u"モンゴ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("loz"_s),
-			$of(u"ロズィ語"_s)
+			"loz"_s,
+			u"ロズィ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lt"_s),
-			$of(u"リトアニア語"_s)
+			"lt"_s,
+			u"リトアニア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ltz"_s),
-			$of(u"ルクセンブルグ語"_s)
+			"ltz"_s,
+			u"ルクセンブルグ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lu"_s),
-			$of(u"ルバ語"_s)
+			"lu"_s,
+			u"ルバ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lua"_s),
-			$of(u"ルバ・ルルア語"_s)
+			"lua"_s,
+			u"ルバ・ルルア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lub"_s),
-			$of(u"ルバ・カタンガ語"_s)
+			"lub"_s,
+			u"ルバ・カタンガ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lug"_s),
-			$of(u"ガンダ語"_s)
+			"lug"_s,
+			u"ガンダ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lui"_s),
-			$of(u"ルイセーニョ語"_s)
+			"lui"_s,
+			u"ルイセーニョ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lun"_s),
-			$of(u"ルンダ語"_s)
+			"lun"_s,
+			u"ルンダ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("luo"_s),
-			$of(u"ルオ語"_s)
+			"luo"_s,
+			u"ルオ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lus"_s),
-			$of(u"ルシャイ語"_s)
+			"lus"_s,
+			u"ルシャイ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lv"_s),
-			$of(u"ラトビア語 (レット語)"_s)
+			"lv"_s,
+			u"ラトビア語 (レット語)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mac"_s),
-			$of(u"マケドニア語"_s)
+			"mac"_s,
+			u"マケドニア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mad"_s),
-			$of(u"モロッコ ディルハム"_s)
+			"mad"_s,
+			u"モロッコ ディルハム"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mag"_s),
-			$of(u"マガヒー語"_s)
+			"mag"_s,
+			u"マガヒー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mah"_s),
-			$of(u"マーシャル語"_s)
+			"mah"_s,
+			u"マーシャル語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mai"_s),
-			$of(u"マイティリー語"_s)
+			"mai"_s,
+			u"マイティリー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mak"_s),
-			$of(u"マカッサル語"_s)
+			"mak"_s,
+			u"マカッサル語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mal"_s),
-			$of(u"マラヤーラム語"_s)
+			"mal"_s,
+			u"マラヤーラム語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("man"_s),
-			$of(u"マンディンゴ語"_s)
+			"man"_s,
+			u"マンディンゴ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mao"_s),
-			$of(u"マオリ語"_s)
+			"mao"_s,
+			u"マオリ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("map"_s),
-			$of(u"オーストロネシア諸語"_s)
+			"map"_s,
+			u"オーストロネシア諸語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mar"_s),
-			$of(u"マラティー語"_s)
+			"mar"_s,
+			u"マラティー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mas"_s),
-			$of(u"マサイ語"_s)
+			"mas"_s,
+			u"マサイ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("may"_s),
-			$of(u"マレー語"_s)
+			"may"_s,
+			u"マレー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mdf"_s),
-			$of(u"モクシャ語"_s)
+			"mdf"_s,
+			u"モクシャ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mdr"_s),
-			$of(u"マンダル語"_s)
+			"mdr"_s,
+			u"マンダル語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("men"_s),
-			$of(u"メンデ語"_s)
+			"men"_s,
+			u"メンデ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mg"_s),
-			$of(u"マラガシー語"_s)
+			"mg"_s,
+			u"マラガシー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mga"_s),
-			$of(u"マダガスカル アリアリ"_s)
+			"mga"_s,
+			u"マダガスカル アリアリ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mh"_s),
-			$of(u"マーシャル語"_s)
+			"mh"_s,
+			u"マーシャル語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mi"_s),
-			$of(u"マオリ語"_s)
+			"mi"_s,
+			u"マオリ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mic"_s),
-			$of(u"ミクマク語"_s)
+			"mic"_s,
+			u"ミクマク語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("min"_s),
-			$of(u"ミナンカバウ語"_s)
+			"min"_s,
+			u"ミナンカバウ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mis"_s),
-			$of(u"その他の言語"_s)
+			"mis"_s,
+			u"その他の言語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mk"_s),
-			$of(u"マケドニア語"_s)
+			"mk"_s,
+			u"マケドニア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mkh"_s),
-			$of(u"モン・クメール諸語"_s)
+			"mkh"_s,
+			u"モン・クメール諸語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ml"_s),
-			$of(u"マラヤーラム語"_s)
+			"ml"_s,
+			u"マラヤーラム語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mlg"_s),
-			$of(u"マダガスカル語"_s)
+			"mlg"_s,
+			u"マダガスカル語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mlt"_s),
-			$of(u"マルタ語"_s)
+			"mlt"_s,
+			u"マルタ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mn"_s),
-			$of(u"モンゴル語"_s)
+			"mn"_s,
+			u"モンゴル語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mnc"_s),
-			$of(u"満州語"_s)
+			"mnc"_s,
+			u"満州語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mni"_s),
-			$of(u"マニプル語"_s)
+			"mni"_s,
+			u"マニプル語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mno"_s),
-			$of(u"マノボ語族"_s)
+			"mno"_s,
+			u"マノボ語族"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mo"_s),
-			$of(u"モルダビア語"_s)
+			"mo"_s,
+			u"モルダビア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("moh"_s),
-			$of(u"モーホーク語"_s)
+			"moh"_s,
+			u"モーホーク語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mon"_s),
-			$of(u"モンゴル語"_s)
+			"mon"_s,
+			u"モンゴル語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mos"_s),
-			$of(u"モシ語"_s)
+			"mos"_s,
+			u"モシ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mr"_s),
-			$of(u"マラーティー語"_s)
+			"mr"_s,
+			u"マラーティー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ms"_s),
-			$of(u"マライ語"_s)
+			"ms"_s,
+			u"マライ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mt"_s),
-			$of(u"マルタ語"_s)
+			"mt"_s,
+			u"マルタ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mul"_s),
-			$of(u"複数言語"_s)
+			"mul"_s,
+			u"複数言語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mun"_s),
-			$of(u"ムンダ語族"_s)
+			"mun"_s,
+			u"ムンダ語族"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mus"_s),
-			$of(u"クリーク語"_s)
+			"mus"_s,
+			u"クリーク語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mwl"_s),
-			$of(u"ミランダ語"_s)
+			"mwl"_s,
+			u"ミランダ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mwr"_s),
-			$of(u"マールワーリー語"_s)
+			"mwr"_s,
+			u"マールワーリー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("my"_s),
-			$of(u"ビルマ語"_s)
+			"my"_s,
+			u"ビルマ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("myn"_s),
-			$of(u"マヤ語族"_s)
+			"myn"_s,
+			u"マヤ語族"_s
 		}),
 		$$new($ObjectArray, {
-			$of("myv"_s),
-			$of(u"エルジャ語"_s)
+			"myv"_s,
+			u"エルジャ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("na"_s),
-			$of(u"ナウル語"_s)
+			"na"_s,
+			u"ナウル語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nah"_s),
-			$of(u"ナワトル語"_s)
+			"nah"_s,
+			u"ナワトル語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nai"_s),
-			$of(u"北米インディアン諸語"_s)
+			"nai"_s,
+			u"北米インディアン諸語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nap"_s),
-			$of(u"ナポリ語"_s)
+			"nap"_s,
+			u"ナポリ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nau"_s),
-			$of(u"ナウル語"_s)
+			"nau"_s,
+			u"ナウル語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nav"_s),
-			$of(u"ナバホ語"_s)
+			"nav"_s,
+			u"ナバホ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nb"_s),
-			$of(u"ノルウェー語 (ボークモール)"_s)
+			"nb"_s,
+			u"ノルウェー語 (ボークモール)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nbl"_s),
-			$of(u"南ンデベレ語"_s)
+			"nbl"_s,
+			u"南ンデベレ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nd"_s),
-			$of(u"北ンデベレ語"_s)
+			"nd"_s,
+			u"北ンデベレ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nde"_s),
-			$of(u"北ンデベレ語"_s)
+			"nde"_s,
+			u"北ンデベレ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ndo"_s),
-			$of(u"ンドンガ語"_s)
+			"ndo"_s,
+			u"ンドンガ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nds"_s),
-			$of(u"低地ドイツ語、低地サクソン語"_s)
+			"nds"_s,
+			u"低地ドイツ語、低地サクソン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ne"_s),
-			$of(u"ネパール語"_s)
+			"ne"_s,
+			u"ネパール語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nep"_s),
-			$of(u"ネパール語"_s)
+			"nep"_s,
+			u"ネパール語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("new"_s),
-			$of(u"ネワール語"_s)
+			"new"_s,
+			u"ネワール語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ng"_s),
-			$of(u"ンドンガ語"_s)
+			"ng"_s,
+			u"ンドンガ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nia"_s),
-			$of(u"ニアス語"_s)
+			"nia"_s,
+			u"ニアス語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nic"_s),
-			$of(u"ニカラグア コルドバ"_s)
+			"nic"_s,
+			u"ニカラグア コルドバ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("niu"_s),
-			$of(u"ニウーエイ語"_s)
+			"niu"_s,
+			u"ニウーエイ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nl"_s),
-			$of(u"オランダ語"_s)
+			"nl"_s,
+			u"オランダ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nn"_s),
-			$of(u"ノルウェー語 (ニューノルスク)"_s)
+			"nn"_s,
+			u"ノルウェー語 (ニューノルスク)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nno"_s),
-			$of(u"ノルウェー語(ニーノシク)"_s)
+			"nno"_s,
+			u"ノルウェー語(ニーノシク)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("no"_s),
-			$of(u"ノルウェー語"_s)
+			"no"_s,
+			u"ノルウェー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nob"_s),
-			$of(u"ノルウェー語(ブークモール)"_s)
+			"nob"_s,
+			u"ノルウェー語(ブークモール)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nog"_s),
-			$of(u"ノガイ語"_s)
+			"nog"_s,
+			u"ノガイ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("non"_s),
-			$of(u"古ノルド語"_s)
+			"non"_s,
+			u"古ノルド語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nor"_s),
-			$of(u"ノルウェー語"_s)
+			"nor"_s,
+			u"ノルウェー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nqo"_s),
-			$of(u"ンコ語"_s)
+			"nqo"_s,
+			u"ンコ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nr"_s),
-			$of(u"南ンデベレ語"_s)
+			"nr"_s,
+			u"南ンデベレ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nso"_s),
-			$of(u"北部ソト語"_s)
+			"nso"_s,
+			u"北部ソト語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nub"_s),
-			$of(u"ヌビア語族"_s)
+			"nub"_s,
+			u"ヌビア語族"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nv"_s),
-			$of(u"ナバホ語"_s)
+			"nv"_s,
+			u"ナバホ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nwc"_s),
-			$of(u"古典ネワール語"_s)
+			"nwc"_s,
+			u"古典ネワール語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ny"_s),
-			$of(u"ニャンジャ語"_s)
+			"ny"_s,
+			u"ニャンジャ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nya"_s),
-			$of(u"チチェワ語"_s)
+			"nya"_s,
+			u"チチェワ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nym"_s),
-			$of(u"ニャムウェジ語"_s)
+			"nym"_s,
+			u"ニャムウェジ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nyn"_s),
-			$of(u"ニャンコレ語"_s)
+			"nyn"_s,
+			u"ニャンコレ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nyo"_s),
-			$of(u"ニョロ語"_s)
+			"nyo"_s,
+			u"ニョロ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nzi"_s),
-			$of(u"ンゼマ語"_s)
+			"nzi"_s,
+			u"ンゼマ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("oc"_s),
-			$of(u"プロバンス語"_s)
+			"oc"_s,
+			u"プロバンス語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("oci"_s),
-			$of(u"オック語(1500以後)"_s)
+			"oci"_s,
+			u"オック語(1500以後)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("oj"_s),
-			$of(u"オジブワ語"_s)
+			"oj"_s,
+			u"オジブワ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("oji"_s),
-			$of(u"オジブワ語"_s)
+			"oji"_s,
+			u"オジブワ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("om"_s),
-			$of(u"ガラ語"_s)
+			"om"_s,
+			u"ガラ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("or"_s),
-			$of(u"オリヤー語"_s)
+			"or"_s,
+			u"オリヤー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ori"_s),
-			$of(u"オリヤー語"_s)
+			"ori"_s,
+			u"オリヤー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("orm"_s),
-			$of(u"オロモ語"_s)
+			"orm"_s,
+			u"オロモ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("os"_s),
-			$of(u"オセチア語"_s)
+			"os"_s,
+			u"オセチア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("osa"_s),
-			$of(u"オセージ語"_s)
+			"osa"_s,
+			u"オセージ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("oss"_s),
-			$of(u"オセット語"_s)
+			"oss"_s,
+			u"オセット語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ota"_s),
-			$of(u"オスマントルコ語"_s)
+			"ota"_s,
+			u"オスマントルコ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("oto"_s),
-			$of(u"オトミ語族"_s)
+			"oto"_s,
+			u"オトミ語族"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pa"_s),
-			$of(u"パンジャブ語"_s)
+			"pa"_s,
+			u"パンジャブ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("paa"_s),
-			$of(u"パプア諸語"_s)
+			"paa"_s,
+			u"パプア諸語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pag"_s),
-			$of(u"パンガシナン語"_s)
+			"pag"_s,
+			u"パンガシナン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pal"_s),
-			$of(u"パフラヴィ語"_s)
+			"pal"_s,
+			u"パフラヴィ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pam"_s),
-			$of(u"パンパンガ語"_s)
+			"pam"_s,
+			u"パンパンガ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pan"_s),
-			$of(u"パンジャブ語"_s)
+			"pan"_s,
+			u"パンジャブ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pap"_s),
-			$of(u"パピアメント語"_s)
+			"pap"_s,
+			u"パピアメント語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pau"_s),
-			$of(u"パラオ語"_s)
+			"pau"_s,
+			u"パラオ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("peo"_s),
-			$of(u"古代ペルシア語"_s)
+			"peo"_s,
+			u"古代ペルシア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("per"_s),
-			$of(u"ペルシア語"_s)
+			"per"_s,
+			u"ペルシア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("phi"_s),
-			$of(u"フィリピン諸語"_s)
+			"phi"_s,
+			u"フィリピン諸語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("phn"_s),
-			$of(u"フェニキア語"_s)
+			"phn"_s,
+			u"フェニキア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pi"_s),
-			$of(u"パーリ語"_s)
+			"pi"_s,
+			u"パーリ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pl"_s),
-			$of(u"ポーランド語"_s)
+			"pl"_s,
+			u"ポーランド語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pli"_s),
-			$of(u"パーリ語"_s)
+			"pli"_s,
+			u"パーリ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pol"_s),
-			$of(u"ポーランド語"_s)
+			"pol"_s,
+			u"ポーランド語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pon"_s),
-			$of(u"ポンペイ語"_s)
+			"pon"_s,
+			u"ポンペイ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("por"_s),
-			$of(u"ポルトガル語"_s)
+			"por"_s,
+			u"ポルトガル語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pra"_s),
-			$of(u"プラークリット語族"_s)
+			"pra"_s,
+			u"プラークリット語族"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pro"_s),
-			$of(u"古期プロバンス語"_s)
+			"pro"_s,
+			u"古期プロバンス語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ps"_s),
-			$of(u"パシュトー語"_s)
+			"ps"_s,
+			u"パシュトー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt"_s),
-			$of(u"ポルトガル語"_s)
+			"pt"_s,
+			u"ポルトガル語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pus"_s),
-			$of(u"プシュトゥー語、パシュトゥー語"_s)
+			"pus"_s,
+			u"プシュトゥー語、パシュトゥー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("qu"_s),
-			$of(u"ケチュア語"_s)
+			"qu"_s,
+			u"ケチュア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("que"_s),
-			$of(u"ケチュア語"_s)
+			"que"_s,
+			u"ケチュア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("raj"_s),
-			$of(u"ラージャスターン語"_s)
+			"raj"_s,
+			u"ラージャスターン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rap"_s),
-			$of(u"ラパヌイ語"_s)
+			"rap"_s,
+			u"ラパヌイ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rar"_s),
-			$of(u"ラロトガ語"_s)
+			"rar"_s,
+			u"ラロトガ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rm"_s),
-			$of(u"レト＝ロマン語"_s)
+			"rm"_s,
+			u"レト＝ロマン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rn"_s),
-			$of(u"ルンジ語"_s)
+			"rn"_s,
+			u"ルンジ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ro"_s),
-			$of(u"ルーマニア語"_s)
+			"ro"_s,
+			u"ルーマニア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("roa"_s),
-			$of(u"ロマンス諸語"_s)
+			"roa"_s,
+			u"ロマンス諸語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("roh"_s),
-			$of(u"ロマンシュ語"_s)
+			"roh"_s,
+			u"ロマンシュ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rom"_s),
-			$of(u"ロマーニー語"_s)
+			"rom"_s,
+			u"ロマーニー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ru"_s),
-			$of(u"ロシア語"_s)
+			"ru"_s,
+			u"ロシア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rum"_s),
-			$of(u"ルーマニア語"_s)
+			"rum"_s,
+			u"ルーマニア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("run"_s),
-			$of(u"ルンディ語"_s)
+			"run"_s,
+			u"ルンディ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rup"_s),
-			$of(u"アルーマニア語"_s)
+			"rup"_s,
+			u"アルーマニア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rus"_s),
-			$of(u"ロシア語"_s)
+			"rus"_s,
+			u"ロシア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rw"_s),
-			$of(u"ルワンダ語"_s)
+			"rw"_s,
+			u"ルワンダ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sa"_s),
-			$of(u"サンスクリット語"_s)
+			"sa"_s,
+			u"サンスクリット語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sad"_s),
-			$of(u"サンダウェ語"_s)
+			"sad"_s,
+			u"サンダウェ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sag"_s),
-			$of(u"サンゴ語"_s)
+			"sag"_s,
+			u"サンゴ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sah"_s),
-			$of(u"ヤクート語"_s)
+			"sah"_s,
+			u"ヤクート語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sai"_s),
-			$of(u"南米インディアン諸語"_s)
+			"sai"_s,
+			u"南米インディアン諸語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sal"_s),
-			$of(u"セイリッシュ語族"_s)
+			"sal"_s,
+			u"セイリッシュ語族"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sam"_s),
-			$of(u"サマリア・アラム語"_s)
+			"sam"_s,
+			u"サマリア・アラム語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("san"_s),
-			$of(u"サンスクリット語"_s)
+			"san"_s,
+			u"サンスクリット語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sas"_s),
-			$of(u"ササク語"_s)
+			"sas"_s,
+			u"ササク語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sat"_s),
-			$of(u"サンターリー語"_s)
+			"sat"_s,
+			u"サンターリー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sc"_s),
-			$of(u"サルディニア語"_s)
+			"sc"_s,
+			u"サルディニア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("scn"_s),
-			$of(u"シチリア語"_s)
+			"scn"_s,
+			u"シチリア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sco"_s),
-			$of(u"スコットランド語"_s)
+			"sco"_s,
+			u"スコットランド語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sd"_s),
-			$of(u"シンド語"_s)
+			"sd"_s,
+			u"シンド語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("se"_s),
-			$of(u"北サミ語"_s)
+			"se"_s,
+			u"北サミ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sel"_s),
-			$of(u"セリクプ語"_s)
+			"sel"_s,
+			u"セリクプ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sem"_s),
-			$of(u"セム諸語"_s)
+			"sem"_s,
+			u"セム諸語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sg"_s),
-			$of(u"サンゴ語"_s)
+			"sg"_s,
+			u"サンゴ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sga"_s),
-			$of(u"古期アイルランド語"_s)
+			"sga"_s,
+			u"古期アイルランド語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sgn"_s),
-			$of(u"手まね言語"_s)
+			"sgn"_s,
+			u"手まね言語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shn"_s),
-			$of(u"シャン語"_s)
+			"shn"_s,
+			u"シャン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("si"_s),
-			$of(u"シンハラ語"_s)
+			"si"_s,
+			u"シンハラ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sid"_s),
-			$of(u"シダモ語"_s)
+			"sid"_s,
+			u"シダモ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sin"_s),
-			$of(u"シンハラ語"_s)
+			"sin"_s,
+			u"シンハラ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sio"_s),
-			$of(u"スー語族"_s)
+			"sio"_s,
+			u"スー語族"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sit"_s),
-			$of(u"スロベニア トラール"_s)
+			"sit"_s,
+			u"スロベニア トラール"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sk"_s),
-			$of(u"スロバキア語"_s)
+			"sk"_s,
+			u"スロバキア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sl"_s),
-			$of(u"スロベニア語"_s)
+			"sl"_s,
+			u"スロベニア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sla"_s),
-			$of(u"スラブ諸語"_s)
+			"sla"_s,
+			u"スラブ諸語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("slo"_s),
-			$of(u"スロバキア語"_s)
+			"slo"_s,
+			u"スロバキア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("slv"_s),
-			$of(u"スロベニア語"_s)
+			"slv"_s,
+			u"スロベニア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sm"_s),
-			$of(u"サモア語"_s)
+			"sm"_s,
+			u"サモア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sma"_s),
-			$of(u"南サーミ語"_s)
+			"sma"_s,
+			u"南サーミ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sme"_s),
-			$of(u"北サーミ語"_s)
+			"sme"_s,
+			u"北サーミ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("smi"_s),
-			$of(u"サーミ諸語"_s)
+			"smi"_s,
+			u"サーミ諸語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("smj"_s),
-			$of(u"ルレ・サーミ語"_s)
+			"smj"_s,
+			u"ルレ・サーミ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("smn"_s),
-			$of(u"イナリ・サーミ語"_s)
+			"smn"_s,
+			u"イナリ・サーミ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("smo"_s),
-			$of(u"サモア語"_s)
+			"smo"_s,
+			u"サモア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sms"_s),
-			$of(u"スコルト・サーミ語"_s)
+			"sms"_s,
+			u"スコルト・サーミ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sn"_s),
-			$of(u"ショナ語"_s)
+			"sn"_s,
+			u"ショナ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sna"_s),
-			$of(u"ショナ語"_s)
+			"sna"_s,
+			u"ショナ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("snd"_s),
-			$of(u"シンド語"_s)
+			"snd"_s,
+			u"シンド語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("snk"_s),
-			$of(u"ソニンケ語"_s)
+			"snk"_s,
+			u"ソニンケ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("so"_s),
-			$of(u"ソマリ語"_s)
+			"so"_s,
+			u"ソマリ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sog"_s),
-			$of(u"ソグド語"_s)
+			"sog"_s,
+			u"ソグド語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("som"_s),
-			$of(u"ソマリ語"_s)
+			"som"_s,
+			u"ソマリ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("son"_s),
-			$of(u"ソンガイ語"_s)
+			"son"_s,
+			u"ソンガイ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sot"_s),
-			$of(u"南部ソト語"_s)
+			"sot"_s,
+			u"南部ソト語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("spa"_s),
-			$of(u"スペイン語"_s)
+			"spa"_s,
+			u"スペイン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sq"_s),
-			$of(u"アルバニア語"_s)
+			"sq"_s,
+			u"アルバニア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sr"_s),
-			$of(u"セルビア語"_s)
+			"sr"_s,
+			u"セルビア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("srd"_s),
-			$of(u"スリナム ドル"_s)
+			"srd"_s,
+			u"スリナム ドル"_s
 		}),
 		$$new($ObjectArray, {
-			$of("srn"_s),
-			$of(u"スリナム語"_s)
+			"srn"_s,
+			u"スリナム語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("srp"_s),
-			$of(u"セルビア語"_s)
+			"srp"_s,
+			u"セルビア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("srr"_s),
-			$of(u"セレル語"_s)
+			"srr"_s,
+			u"セレル語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ss"_s),
-			$of(u"シスワティ語"_s)
+			"ss"_s,
+			u"シスワティ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ssa"_s),
-			$of(u"ナイル・サハラ諸語"_s)
+			"ssa"_s,
+			u"ナイル・サハラ諸語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ssw"_s),
-			$of(u"シスワティ語"_s)
+			"ssw"_s,
+			u"シスワティ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("st"_s),
-			$of(u"セソト語"_s)
+			"st"_s,
+			u"セソト語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("su"_s),
-			$of(u"スンダ語"_s)
+			"su"_s,
+			u"スンダ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("suk"_s),
-			$of(u"スクマ語"_s)
+			"suk"_s,
+			u"スクマ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sun"_s),
-			$of(u"スンダ語"_s)
+			"sun"_s,
+			u"スンダ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sus"_s),
-			$of(u"スス語"_s)
+			"sus"_s,
+			u"スス語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sux"_s),
-			$of(u"シュメール語"_s)
+			"sux"_s,
+			u"シュメール語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sv"_s),
-			$of(u"スウェーデン語"_s)
+			"sv"_s,
+			u"スウェーデン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sw"_s),
-			$of(u"スワヒリ語"_s)
+			"sw"_s,
+			u"スワヒリ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("swa"_s),
-			$of(u"スワヒリ語"_s)
+			"swa"_s,
+			u"スワヒリ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("swe"_s),
-			$of(u"スウェーデン語"_s)
+			"swe"_s,
+			u"スウェーデン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("syc"_s),
-			$of(u"古典シリア語"_s)
+			"syc"_s,
+			u"古典シリア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("syr"_s),
-			$of(u"シリア語"_s)
+			"syr"_s,
+			u"シリア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ta"_s),
-			$of(u"タミール語"_s)
+			"ta"_s,
+			u"タミール語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tah"_s),
-			$of(u"タヒチ語"_s)
+			"tah"_s,
+			u"タヒチ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tai"_s),
-			$of(u"タイ諸語"_s)
+			"tai"_s,
+			u"タイ諸語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tam"_s),
-			$of(u"タミル語"_s)
+			"tam"_s,
+			u"タミル語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tat"_s),
-			$of(u"タタール語"_s)
+			"tat"_s,
+			u"タタール語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("te"_s),
-			$of(u"テルグ語"_s)
+			"te"_s,
+			u"テルグ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tel"_s),
-			$of(u"テルグ語"_s)
+			"tel"_s,
+			u"テルグ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tem"_s),
-			$of(u"テムネ語"_s)
+			"tem"_s,
+			u"テムネ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ter"_s),
-			$of(u"テレーノ語"_s)
+			"ter"_s,
+			u"テレーノ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tet"_s),
-			$of(u"テトゥン語"_s)
+			"tet"_s,
+			u"テトゥン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tg"_s),
-			$of(u"タジク語"_s)
+			"tg"_s,
+			u"タジク語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tgk"_s),
-			$of(u"タジク語"_s)
+			"tgk"_s,
+			u"タジク語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tgl"_s),
-			$of(u"タガログ語"_s)
+			"tgl"_s,
+			u"タガログ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("th"_s),
-			$of(u"タイ語"_s)
+			"th"_s,
+			u"タイ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tha"_s),
-			$of(u"タイ語"_s)
+			"tha"_s,
+			u"タイ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ti"_s),
-			$of(u"ティグリニア語"_s)
+			"ti"_s,
+			u"ティグリニア語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tib"_s),
-			$of(u"チベット語"_s)
+			"tib"_s,
+			u"チベット語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tig"_s),
-			$of(u"ティグレ語"_s)
+			"tig"_s,
+			u"ティグレ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tir"_s),
-			$of(u"ティグリニャ語"_s)
+			"tir"_s,
+			u"ティグリニャ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tiv"_s),
-			$of(u"ティブ語"_s)
+			"tiv"_s,
+			u"ティブ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tk"_s),
-			$of(u"トルクメン語"_s)
+			"tk"_s,
+			u"トルクメン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tkl"_s),
-			$of(u"トケラウ語"_s)
+			"tkl"_s,
+			u"トケラウ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tl"_s),
-			$of(u"タガログ語"_s)
+			"tl"_s,
+			u"タガログ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tlh"_s),
-			$of(u"クリンゴン語"_s)
+			"tlh"_s,
+			u"クリンゴン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tli"_s),
-			$of(u"トリンギット語"_s)
+			"tli"_s,
+			u"トリンギット語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tmh"_s),
-			$of(u"タマシェク語"_s)
+			"tmh"_s,
+			u"タマシェク語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tn"_s),
-			$of(u"ツワナ語"_s)
+			"tn"_s,
+			u"ツワナ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("to"_s),
-			$of(u"トンガ語"_s)
+			"to"_s,
+			u"トンガ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tog"_s),
-			$of(u"トンガ語 (ニアサ)"_s)
+			"tog"_s,
+			u"トンガ語 (ニアサ)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ton"_s),
-			$of(u"トンガ語(トンガ諸島)"_s)
+			"ton"_s,
+			u"トンガ語(トンガ諸島)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tpi"_s),
-			$of(u"トク・ピシン語"_s)
+			"tpi"_s,
+			u"トク・ピシン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tr"_s),
-			$of(u"トルコ語"_s)
+			"tr"_s,
+			u"トルコ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ts"_s),
-			$of(u"ツォンガ語"_s)
+			"ts"_s,
+			u"ツォンガ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tsi"_s),
-			$of(u"チムシュ語"_s)
+			"tsi"_s,
+			u"チムシュ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tsn"_s),
-			$of(u"ツワナ語"_s)
+			"tsn"_s,
+			u"ツワナ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tso"_s),
-			$of(u"ツォンガ語"_s)
+			"tso"_s,
+			u"ツォンガ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tt"_s),
-			$of(u"タタール語"_s)
+			"tt"_s,
+			u"タタール語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tuk"_s),
-			$of(u"トルクメン語"_s)
+			"tuk"_s,
+			u"トルクメン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tum"_s),
-			$of(u"トゥンブカ語"_s)
+			"tum"_s,
+			u"トゥンブカ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tup"_s),
-			$of(u"トゥピ語族"_s)
+			"tup"_s,
+			u"トゥピ語族"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tur"_s),
-			$of(u"トルコ語"_s)
+			"tur"_s,
+			u"トルコ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tut"_s),
-			$of(u"アルタイ諸語"_s)
+			"tut"_s,
+			u"アルタイ諸語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tvl"_s),
-			$of(u"ツバル語"_s)
+			"tvl"_s,
+			u"ツバル語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tw"_s),
-			$of(u"トゥイ語"_s)
+			"tw"_s,
+			u"トゥイ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("twi"_s),
-			$of(u"トウィ語"_s)
+			"twi"_s,
+			u"トウィ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ty"_s),
-			$of(u"タヒチ語"_s)
+			"ty"_s,
+			u"タヒチ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tyv"_s),
-			$of(u"トゥヴァ語"_s)
+			"tyv"_s,
+			u"トゥヴァ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("udm"_s),
-			$of(u"ウドムルト語"_s)
+			"udm"_s,
+			u"ウドムルト語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ug"_s),
-			$of(u"ウイグル語"_s)
+			"ug"_s,
+			u"ウイグル語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uga"_s),
-			$of(u"ウガリト語"_s)
+			"uga"_s,
+			u"ウガリト語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uig"_s),
-			$of(u"ウイグル語"_s)
+			"uig"_s,
+			u"ウイグル語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uk"_s),
-			$of(u"ウクライナ語"_s)
+			"uk"_s,
+			u"ウクライナ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ukr"_s),
-			$of(u"ウクライナ語"_s)
+			"ukr"_s,
+			u"ウクライナ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("umb"_s),
-			$of(u"ウンブンドゥ語"_s)
+			"umb"_s,
+			u"ウンブンドゥ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("und"_s),
-			$of(u"非確定"_s)
+			"und"_s,
+			u"非確定"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ur"_s),
-			$of(u"ウルドゥー語"_s)
+			"ur"_s,
+			u"ウルドゥー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("urd"_s),
-			$of(u"ウルドゥー語"_s)
+			"urd"_s,
+			u"ウルドゥー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uz"_s),
-			$of(u"ウズベク語"_s)
+			"uz"_s,
+			u"ウズベク語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uzb"_s),
-			$of(u"ウズベク語"_s)
+			"uzb"_s,
+			u"ウズベク語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vai"_s),
-			$of(u"ヴァイ語"_s)
+			"vai"_s,
+			u"ヴァイ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ve"_s),
-			$of(u"ベンダ語"_s)
+			"ve"_s,
+			u"ベンダ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ven"_s),
-			$of(u"ベンダ語"_s)
+			"ven"_s,
+			u"ベンダ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vi"_s),
-			$of(u"ベトナム語"_s)
+			"vi"_s,
+			u"ベトナム語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vie"_s),
-			$of(u"ベトナム語"_s)
+			"vie"_s,
+			u"ベトナム語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vo"_s),
-			$of(u"ボラピュク語"_s)
+			"vo"_s,
+			u"ボラピュク語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vol"_s),
-			$of(u"ヴォラピューク語"_s)
+			"vol"_s,
+			u"ヴォラピューク語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vot"_s),
-			$of(u"ボート語"_s)
+			"vot"_s,
+			u"ボート語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wa"_s),
-			$of(u"ワロン語"_s)
+			"wa"_s,
+			u"ワロン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wak"_s),
-			$of(u"ワカシ語族"_s)
+			"wak"_s,
+			u"ワカシ語族"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wal"_s),
-			$of(u"ワッラモ語"_s)
+			"wal"_s,
+			u"ワッラモ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("war"_s),
-			$of(u"ワライ語"_s)
+			"war"_s,
+			u"ワライ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("was"_s),
-			$of(u"ワショ語"_s)
+			"was"_s,
+			u"ワショ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wel"_s),
-			$of(u"ウェールズ語"_s)
+			"wel"_s,
+			u"ウェールズ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wen"_s),
-			$of(u"ソルビア語族"_s)
+			"wen"_s,
+			u"ソルビア語族"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wln"_s),
-			$of(u"ワロン語"_s)
+			"wln"_s,
+			u"ワロン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wo"_s),
-			$of(u"ウォロフ語"_s)
+			"wo"_s,
+			u"ウォロフ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wol"_s),
-			$of(u"ウォロフ語"_s)
+			"wol"_s,
+			u"ウォロフ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xal"_s),
-			$of(u"カルムイク語"_s)
+			"xal"_s,
+			u"カルムイク語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xh"_s),
-			$of(u"コサ語"_s)
+			"xh"_s,
+			u"コサ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xho"_s),
-			$of(u"コーサ語"_s)
+			"xho"_s,
+			u"コーサ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yao"_s),
-			$of(u"ヤオ語"_s)
+			"yao"_s,
+			u"ヤオ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yap"_s),
-			$of(u"ヤップ語"_s)
+			"yap"_s,
+			u"ヤップ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yi"_s),
-			$of(u"イディッシュ語"_s)
+			"yi"_s,
+			u"イディッシュ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yid"_s),
-			$of(u"イディッシュ語"_s)
+			"yid"_s,
+			u"イディッシュ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yo"_s),
-			$of(u"ヨルバ語"_s)
+			"yo"_s,
+			u"ヨルバ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yor"_s),
-			$of(u"ヨルバ語"_s)
+			"yor"_s,
+			u"ヨルバ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ypk"_s),
-			$of(u"ユピック語族"_s)
+			"ypk"_s,
+			u"ユピック語族"_s
 		}),
 		$$new($ObjectArray, {
-			$of("za"_s),
-			$of(u"チワン語"_s)
+			"za"_s,
+			u"チワン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zap"_s),
-			$of(u"ザポテック語"_s)
+			"zap"_s,
+			u"ザポテック語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zbl"_s),
-			$of(u"ブリスシンボル"_s)
+			"zbl"_s,
+			u"ブリスシンボル"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zen"_s),
-			$of(u"ゼナガ語"_s)
+			"zen"_s,
+			u"ゼナガ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh"_s),
-			$of(u"中国語"_s)
+			"zh"_s,
+			u"中国語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zha"_s),
-			$of(u"チュワン語"_s)
+			"zha"_s,
+			u"チュワン語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("znd"_s),
-			$of(u"ザンデ語"_s)
+			"znd"_s,
+			u"ザンデ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zu"_s),
-			$of(u"ズールー語"_s)
+			"zu"_s,
+			u"ズールー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zul"_s),
-			$of(u"ズールー語"_s)
+			"zul"_s,
+			u"ズールー語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zun"_s),
-			$of(u"ズニ語"_s)
+			"zun"_s,
+			u"ズニ語"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zxx"_s),
-			$of(u"言語内容なし"_s)
+			"zxx"_s,
+			u"言語内容なし"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zza"_s),
-			$of(u"ザザ語"_s)
+			"zza"_s,
+			u"ザザ語"_s
 		})
 	});
 }
@@ -4410,7 +4390,22 @@ LocaleNames_ja::LocaleNames_ja() {
 }
 
 $Class* LocaleNames_ja::load$($String* name, bool initialize) {
-	$loadClass(LocaleNames_ja, name, initialize, &_LocaleNames_ja_ClassInfo_, allocate$LocaleNames_ja);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_ja, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_ja, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.util.resources.ext.LocaleNames_ja",
+		"sun.util.resources.LocaleNamesBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNames_ja, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNames_ja);
+	});
 	return class$;
 }
 

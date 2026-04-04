@@ -1,5 +1,4 @@
 #include <sun/java2d/metal/MTLSurfaceToSurfaceBlit.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/AffineTransformOp.h>
@@ -34,25 +33,6 @@ namespace sun {
 	namespace java2d {
 		namespace metal {
 
-$MethodInfo _MTLSurfaceToSurfaceBlit_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MTLSurfaceToSurfaceBlit, init$, void)},
-	{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceToSurfaceBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _MTLSurfaceToSurfaceBlit_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.metal.MTLSurfaceToSurfaceBlit",
-	"sun.java2d.loops.Blit",
-	nullptr,
-	nullptr,
-	_MTLSurfaceToSurfaceBlit_MethodInfo_
-};
-
-$Object* allocate$MTLSurfaceToSurfaceBlit($Class* clazz) {
-	return $of($alloc(MTLSurfaceToSurfaceBlit));
-}
-
 void MTLSurfaceToSurfaceBlit::init$() {
 	$init($MTLSurfaceData);
 	$init($CompositeType);
@@ -67,7 +47,22 @@ MTLSurfaceToSurfaceBlit::MTLSurfaceToSurfaceBlit() {
 }
 
 $Class* MTLSurfaceToSurfaceBlit::load$($String* name, bool initialize) {
-	$loadClass(MTLSurfaceToSurfaceBlit, name, initialize, &_MTLSurfaceToSurfaceBlit_ClassInfo_, allocate$MTLSurfaceToSurfaceBlit);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MTLSurfaceToSurfaceBlit, init$, void)},
+		{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceToSurfaceBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.metal.MTLSurfaceToSurfaceBlit",
+		"sun.java2d.loops.Blit",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MTLSurfaceToSurfaceBlit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MTLSurfaceToSurfaceBlit);
+	});
 	return class$;
 }
 

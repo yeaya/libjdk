@@ -1,5 +1,4 @@
 #include <sun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType.h>
-
 #include <java/lang/Enum.h>
 #include <sun/java2d/pipe/hw/ExtendedBufferCapabilities.h>
 #include <jcpp.h>
@@ -19,49 +18,6 @@ namespace sun {
 	namespace java2d {
 		namespace pipe {
 			namespace hw {
-
-$FieldInfo _ExtendedBufferCapabilities$VSyncType_FieldInfo_[] = {
-	{"VSYNC_DEFAULT", "Lsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ExtendedBufferCapabilities$VSyncType, VSYNC_DEFAULT)},
-	{"VSYNC_ON", "Lsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ExtendedBufferCapabilities$VSyncType, VSYNC_ON)},
-	{"VSYNC_OFF", "Lsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ExtendedBufferCapabilities$VSyncType, VSYNC_OFF)},
-	{"$VALUES", "[Lsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ExtendedBufferCapabilities$VSyncType, $VALUES)},
-	{"id", "I", nullptr, $PRIVATE, $field(ExtendedBufferCapabilities$VSyncType, id$)},
-	{}
-};
-
-$MethodInfo _ExtendedBufferCapabilities$VSyncType_MethodInfo_[] = {
-	{"$values", "()[Lsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ExtendedBufferCapabilities$VSyncType, $values, $ExtendedBufferCapabilities$VSyncTypeArray*)},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(ExtendedBufferCapabilities$VSyncType, init$, void, $String*, int32_t, int32_t)},
-	{"id", "()I", nullptr, $PUBLIC, $method(ExtendedBufferCapabilities$VSyncType, id, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExtendedBufferCapabilities$VSyncType, valueOf, ExtendedBufferCapabilities$VSyncType*, $String*)},
-	{"values", "()[Lsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExtendedBufferCapabilities$VSyncType, values, $ExtendedBufferCapabilities$VSyncTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _ExtendedBufferCapabilities$VSyncType_InnerClassesInfo_[] = {
-	{"sun.java2d.pipe.hw.ExtendedBufferCapabilities$VSyncType", "sun.java2d.pipe.hw.ExtendedBufferCapabilities", "VSyncType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _ExtendedBufferCapabilities$VSyncType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"sun.java2d.pipe.hw.ExtendedBufferCapabilities$VSyncType",
-	"java.lang.Enum",
-	nullptr,
-	_ExtendedBufferCapabilities$VSyncType_FieldInfo_,
-	_ExtendedBufferCapabilities$VSyncType_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;>;",
-	nullptr,
-	_ExtendedBufferCapabilities$VSyncType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.pipe.hw.ExtendedBufferCapabilities"
-};
-
-$Object* allocate$ExtendedBufferCapabilities$VSyncType($Class* clazz) {
-	return $of($alloc(ExtendedBufferCapabilities$VSyncType));
-}
 
 ExtendedBufferCapabilities$VSyncType* ExtendedBufferCapabilities$VSyncType::VSYNC_DEFAULT = nullptr;
 ExtendedBufferCapabilities$VSyncType* ExtendedBufferCapabilities$VSyncType::VSYNC_ON = nullptr;
@@ -96,7 +52,7 @@ void ExtendedBufferCapabilities$VSyncType::init$($String* $enum$name, int32_t $e
 	this->id$ = id;
 }
 
-void clinit$ExtendedBufferCapabilities$VSyncType($Class* class$) {
+void ExtendedBufferCapabilities$VSyncType::clinit$($Class* clazz) {
 	$assignStatic(ExtendedBufferCapabilities$VSyncType::VSYNC_DEFAULT, $new(ExtendedBufferCapabilities$VSyncType, "VSYNC_DEFAULT"_s, 0, 0));
 	$assignStatic(ExtendedBufferCapabilities$VSyncType::VSYNC_ON, $new(ExtendedBufferCapabilities$VSyncType, "VSYNC_ON"_s, 1, 1));
 	$assignStatic(ExtendedBufferCapabilities$VSyncType::VSYNC_OFF, $new(ExtendedBufferCapabilities$VSyncType, "VSYNC_OFF"_s, 2, 2));
@@ -107,7 +63,44 @@ ExtendedBufferCapabilities$VSyncType::ExtendedBufferCapabilities$VSyncType() {
 }
 
 $Class* ExtendedBufferCapabilities$VSyncType::load$($String* name, bool initialize) {
-	$loadClass(ExtendedBufferCapabilities$VSyncType, name, initialize, &_ExtendedBufferCapabilities$VSyncType_ClassInfo_, clinit$ExtendedBufferCapabilities$VSyncType, allocate$ExtendedBufferCapabilities$VSyncType);
+	$FieldInfo fieldInfos$$[] = {
+		{"VSYNC_DEFAULT", "Lsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ExtendedBufferCapabilities$VSyncType, VSYNC_DEFAULT)},
+		{"VSYNC_ON", "Lsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ExtendedBufferCapabilities$VSyncType, VSYNC_ON)},
+		{"VSYNC_OFF", "Lsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ExtendedBufferCapabilities$VSyncType, VSYNC_OFF)},
+		{"$VALUES", "[Lsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ExtendedBufferCapabilities$VSyncType, $VALUES)},
+		{"id", "I", nullptr, $PRIVATE, $field(ExtendedBufferCapabilities$VSyncType, id$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ExtendedBufferCapabilities$VSyncType, $values, $ExtendedBufferCapabilities$VSyncTypeArray*)},
+		{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(ExtendedBufferCapabilities$VSyncType, init$, void, $String*, int32_t, int32_t)},
+		{"id", "()I", nullptr, $PUBLIC, $method(ExtendedBufferCapabilities$VSyncType, id, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExtendedBufferCapabilities$VSyncType, valueOf, ExtendedBufferCapabilities$VSyncType*, $String*)},
+		{"values", "()[Lsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExtendedBufferCapabilities$VSyncType, values, $ExtendedBufferCapabilities$VSyncTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.pipe.hw.ExtendedBufferCapabilities$VSyncType", "sun.java2d.pipe.hw.ExtendedBufferCapabilities", "VSyncType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"sun.java2d.pipe.hw.ExtendedBufferCapabilities$VSyncType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.pipe.hw.ExtendedBufferCapabilities"
+	};
+	$loadClass(ExtendedBufferCapabilities$VSyncType, name, initialize, &classInfo$$, ExtendedBufferCapabilities$VSyncType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ExtendedBufferCapabilities$VSyncType));
+	});
 	return class$;
 }
 

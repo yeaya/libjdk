@@ -81,6 +81,7 @@ class SAXParser : public ::com::sun::org::apache::xerces::internal::parsers::Abs
 	$class(SAXParser, 0, ::com::sun::org::apache::xerces::internal::parsers::AbstractSAXParser)
 public:
 	SAXParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xerces::internal::xni::parser::XMLParserConfiguration* config);
 	void init$();
 	void init$(::com::sun::org::apache::xerces::internal::util::SymbolTable* symbolTable);

@@ -39,6 +39,7 @@ class $export MappedMXBeanType : public ::java::lang::Object {
 	$class(MappedMXBeanType, 0, ::java::lang::Object)
 public:
 	MappedMXBeanType();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* decapitalize($String* name);
 	virtual ::java::lang::reflect::Type* getJavaType() {return nullptr;}

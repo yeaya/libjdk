@@ -1,5 +1,4 @@
 #include <javax/swing/text/rtf/RTFAttributes$NumericAttribute.h>
-
 #include <java/lang/Math.h>
 #include <java/lang/Number.h>
 #include <javax/swing/text/AttributeSet.h>
@@ -26,61 +25,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace rtf {
-
-$FieldInfo _RTFAttributes$NumericAttribute_FieldInfo_[] = {
-	{"rtfDefault", "I", nullptr, 0, $field(RTFAttributes$NumericAttribute, rtfDefault)},
-	{"swingDefault", "Ljava/lang/Number;", nullptr, 0, $field(RTFAttributes$NumericAttribute, swingDefault)},
-	{"scale", "F", nullptr, 0, $field(RTFAttributes$NumericAttribute, scale)},
-	{}
-};
-
-$MethodInfo _RTFAttributes$NumericAttribute_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*domain", "()I", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(ILjava/lang/Object;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(RTFAttributes$NumericAttribute, init$, void, int32_t, Object$*, $String*)},
-	{"<init>", "(ILjava/lang/Object;Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(RTFAttributes$NumericAttribute, init$, void, int32_t, Object$*, $String*, int32_t, int32_t)},
-	{"<init>", "(ILjava/lang/Object;Ljava/lang/String;Ljava/lang/Number;IF)V", nullptr, $PUBLIC, $method(RTFAttributes$NumericAttribute, init$, void, int32_t, Object$*, $String*, $Number*, int32_t, float)},
-	{"NewTwips", "(ILjava/lang/Object;Ljava/lang/String;FI)Ljavax/swing/text/rtf/RTFAttributes$NumericAttribute;", nullptr, $PUBLIC | $STATIC, $staticMethod(RTFAttributes$NumericAttribute, NewTwips, RTFAttributes$NumericAttribute*, int32_t, Object$*, $String*, float, int32_t)},
-	{"NewTwips", "(ILjava/lang/Object;Ljava/lang/String;I)Ljavax/swing/text/rtf/RTFAttributes$NumericAttribute;", nullptr, $PUBLIC | $STATIC, $staticMethod(RTFAttributes$NumericAttribute, NewTwips, RTFAttributes$NumericAttribute*, int32_t, Object$*, $String*, int32_t)},
-	{"*rtfName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"set", "(Ljavax/swing/text/MutableAttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(RTFAttributes$NumericAttribute, set, bool, $MutableAttributeSet*)},
-	{"set", "(Ljavax/swing/text/MutableAttributeSet;I)Z", nullptr, $PUBLIC, $virtualMethod(RTFAttributes$NumericAttribute, set, bool, $MutableAttributeSet*, int32_t)},
-	{"setDefault", "(Ljavax/swing/text/MutableAttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(RTFAttributes$NumericAttribute, setDefault, bool, $MutableAttributeSet*)},
-	{"*swingName", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*write", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/rtf/RTFGenerator;Z)Z", nullptr, $PUBLIC},
-	{"writeValue", "(Ljava/lang/Object;Ljavax/swing/text/rtf/RTFGenerator;Z)Z", nullptr, $PUBLIC, $virtualMethod(RTFAttributes$NumericAttribute, writeValue, bool, Object$*, $RTFGenerator*, bool), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _RTFAttributes$NumericAttribute_InnerClassesInfo_[] = {
-	{"javax.swing.text.rtf.RTFAttributes$NumericAttribute", "javax.swing.text.rtf.RTFAttributes", "NumericAttribute", $STATIC},
-	{"javax.swing.text.rtf.RTFAttributes$GenericAttribute", "javax.swing.text.rtf.RTFAttributes", "GenericAttribute", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RTFAttributes$NumericAttribute_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.rtf.RTFAttributes$NumericAttribute",
-	"javax.swing.text.rtf.RTFAttributes$GenericAttribute",
-	"javax.swing.text.rtf.RTFAttribute",
-	_RTFAttributes$NumericAttribute_FieldInfo_,
-	_RTFAttributes$NumericAttribute_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RTFAttributes$NumericAttribute_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.rtf.RTFAttributes"
-};
-
-$Object* allocate$RTFAttributes$NumericAttribute($Class* clazz) {
-	return $of($alloc(RTFAttributes$NumericAttribute));
-}
 
 int32_t RTFAttributes$NumericAttribute::domain() {
 	 return this->$RTFAttributes$GenericAttribute::domain();
@@ -168,8 +112,8 @@ bool RTFAttributes$NumericAttribute::setDefault($MutableAttributeSet* target) {
 	}
 	bool var$0 = old != nullptr;
 	if (var$0) {
-		bool var$1 = (this->scale == 1.0f && old->intValue() == this->rtfDefault);
-		var$0 = (var$1 || ($Math::round(old->floatValue() * this->scale) == this->rtfDefault));
+		bool var$1 = this->scale == 1.0f && old->intValue() == this->rtfDefault;
+		var$0 = var$1 || ($Math::round(old->floatValue() * this->scale) == this->rtfDefault);
 	}
 	if (var$0) {
 		return true;
@@ -197,7 +141,56 @@ RTFAttributes$NumericAttribute::RTFAttributes$NumericAttribute() {
 }
 
 $Class* RTFAttributes$NumericAttribute::load$($String* name, bool initialize) {
-	$loadClass(RTFAttributes$NumericAttribute, name, initialize, &_RTFAttributes$NumericAttribute_ClassInfo_, allocate$RTFAttributes$NumericAttribute);
+	$FieldInfo fieldInfos$$[] = {
+		{"rtfDefault", "I", nullptr, 0, $field(RTFAttributes$NumericAttribute, rtfDefault)},
+		{"swingDefault", "Ljava/lang/Number;", nullptr, 0, $field(RTFAttributes$NumericAttribute, swingDefault)},
+		{"scale", "F", nullptr, 0, $field(RTFAttributes$NumericAttribute, scale)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*domain", "()I", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(ILjava/lang/Object;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(RTFAttributes$NumericAttribute, init$, void, int32_t, Object$*, $String*)},
+		{"<init>", "(ILjava/lang/Object;Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(RTFAttributes$NumericAttribute, init$, void, int32_t, Object$*, $String*, int32_t, int32_t)},
+		{"<init>", "(ILjava/lang/Object;Ljava/lang/String;Ljava/lang/Number;IF)V", nullptr, $PUBLIC, $method(RTFAttributes$NumericAttribute, init$, void, int32_t, Object$*, $String*, $Number*, int32_t, float)},
+		{"NewTwips", "(ILjava/lang/Object;Ljava/lang/String;FI)Ljavax/swing/text/rtf/RTFAttributes$NumericAttribute;", nullptr, $PUBLIC | $STATIC, $staticMethod(RTFAttributes$NumericAttribute, NewTwips, RTFAttributes$NumericAttribute*, int32_t, Object$*, $String*, float, int32_t)},
+		{"NewTwips", "(ILjava/lang/Object;Ljava/lang/String;I)Ljavax/swing/text/rtf/RTFAttributes$NumericAttribute;", nullptr, $PUBLIC | $STATIC, $staticMethod(RTFAttributes$NumericAttribute, NewTwips, RTFAttributes$NumericAttribute*, int32_t, Object$*, $String*, int32_t)},
+		{"*rtfName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"set", "(Ljavax/swing/text/MutableAttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(RTFAttributes$NumericAttribute, set, bool, $MutableAttributeSet*)},
+		{"set", "(Ljavax/swing/text/MutableAttributeSet;I)Z", nullptr, $PUBLIC, $virtualMethod(RTFAttributes$NumericAttribute, set, bool, $MutableAttributeSet*, int32_t)},
+		{"setDefault", "(Ljavax/swing/text/MutableAttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(RTFAttributes$NumericAttribute, setDefault, bool, $MutableAttributeSet*)},
+		{"*swingName", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*write", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/rtf/RTFGenerator;Z)Z", nullptr, $PUBLIC},
+		{"writeValue", "(Ljava/lang/Object;Ljavax/swing/text/rtf/RTFGenerator;Z)Z", nullptr, $PUBLIC, $virtualMethod(RTFAttributes$NumericAttribute, writeValue, bool, Object$*, $RTFGenerator*, bool), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.rtf.RTFAttributes$NumericAttribute", "javax.swing.text.rtf.RTFAttributes", "NumericAttribute", $STATIC},
+		{"javax.swing.text.rtf.RTFAttributes$GenericAttribute", "javax.swing.text.rtf.RTFAttributes", "GenericAttribute", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.rtf.RTFAttributes$NumericAttribute",
+		"javax.swing.text.rtf.RTFAttributes$GenericAttribute",
+		"javax.swing.text.rtf.RTFAttribute",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.rtf.RTFAttributes"
+	};
+	$loadClass(RTFAttributes$NumericAttribute, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RTFAttributes$NumericAttribute));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/HTMLDocument$HTMLReader$FormAction.h>
-
 #include <java/util/HashMap.h>
 #include <javax/swing/ButtonGroup.h>
 #include <javax/swing/DefaultButtonModel.h>
@@ -69,55 +68,13 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _HTMLDocument$HTMLReader$FormAction_FieldInfo_[] = {
-	{"this$1", "Ljavax/swing/text/html/HTMLDocument$HTMLReader;", nullptr, $FINAL | $SYNTHETIC, $field(HTMLDocument$HTMLReader$FormAction, this$1)},
-	{"selectModel", "Ljava/lang/Object;", nullptr, 0, $field(HTMLDocument$HTMLReader$FormAction, selectModel)},
-	{"optionCount", "I", nullptr, 0, $field(HTMLDocument$HTMLReader$FormAction, optionCount)},
-	{}
-};
-
-$MethodInfo _HTMLDocument$HTMLReader$FormAction_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/html/HTMLDocument$HTMLReader;)V", nullptr, $PUBLIC, $method(HTMLDocument$HTMLReader$FormAction, init$, void, $HTMLDocument$HTMLReader*)},
-	{"end", "(Ljavax/swing/text/html/HTML$Tag;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader$FormAction, end, void, $HTML$Tag*)},
-	{"setModel", "(Ljava/lang/String;Ljavax/swing/text/MutableAttributeSet;)V", nullptr, 0, $virtualMethod(HTMLDocument$HTMLReader$FormAction, setModel, void, $String*, $MutableAttributeSet*)},
-	{"start", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader$FormAction, start, void, $HTML$Tag*, $MutableAttributeSet*)},
-	{}
-};
-
-$InnerClassInfo _HTMLDocument$HTMLReader$FormAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.HTMLDocument$HTMLReader", "javax.swing.text.html.HTMLDocument", "HTMLReader", $PUBLIC},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$FormAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "FormAction", $PUBLIC},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$SpecialAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "SpecialAction", $PUBLIC},
-	{}
-};
-
-$ClassInfo _HTMLDocument$HTMLReader$FormAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.HTMLDocument$HTMLReader$FormAction",
-	"javax.swing.text.html.HTMLDocument$HTMLReader$SpecialAction",
-	nullptr,
-	_HTMLDocument$HTMLReader$FormAction_FieldInfo_,
-	_HTMLDocument$HTMLReader$FormAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HTMLDocument$HTMLReader$FormAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.HTMLDocument"
-};
-
-$Object* allocate$HTMLDocument$HTMLReader$FormAction($Class* clazz) {
-	return $of($alloc(HTMLDocument$HTMLReader$FormAction));
-}
-
 void HTMLDocument$HTMLReader$FormAction::init$($HTMLDocument$HTMLReader* this$1) {
 	$set(this, this$1, this$1);
 	$HTMLDocument$HTMLReader$SpecialAction::init$(this$1);
 }
 
 void HTMLDocument$HTMLReader$FormAction::start($HTML$Tag* t, $MutableAttributeSet* attr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($HTML$Tag);
 	if (t == $HTML$Tag::INPUT) {
 		$init($HTML$Attribute);
@@ -127,30 +84,26 @@ void HTMLDocument$HTMLReader$FormAction::start($HTML$Tag* t, $MutableAttributeSe
 			attr->addAttribute($HTML$Attribute::TYPE, "text"_s);
 		}
 		setModel(type, attr);
-	} else {
-		if (t == $HTML$Tag::TEXTAREA) {
-			this->this$1->inTextArea = true;
-			$set(this->this$1, textAreaDocument, $new($TextAreaDocument));
-			$init($StyleConstants);
-			$nc(attr)->addAttribute($StyleConstants::ModelAttribute, this->this$1->textAreaDocument);
-		} else {
-			if (t == $HTML$Tag::SELECT) {
-				$init($HTML$Attribute);
-				int32_t size = $HTML::getIntegerAttributeValue(attr, $HTML$Attribute::SIZE, 1);
-				bool multiple = $nc(attr)->getAttribute($HTML$Attribute::MULTIPLE) != nullptr;
-				if ((size > 1) || multiple) {
-					$var($OptionListModel, m, $new($OptionListModel));
-					if (multiple) {
-						m->setSelectionMode($ListSelectionModel::MULTIPLE_INTERVAL_SELECTION);
-					}
-					$set(this, selectModel, m);
-				} else {
-					$set(this, selectModel, $new($OptionComboBoxModel));
-				}
-				$init($StyleConstants);
-				attr->addAttribute($StyleConstants::ModelAttribute, this->selectModel);
+	} else if (t == $HTML$Tag::TEXTAREA) {
+		this->this$1->inTextArea = true;
+		$set(this->this$1, textAreaDocument, $new($TextAreaDocument));
+		$init($StyleConstants);
+		$nc(attr)->addAttribute($StyleConstants::ModelAttribute, this->this$1->textAreaDocument);
+	} else if (t == $HTML$Tag::SELECT) {
+		$init($HTML$Attribute);
+		int32_t size = $HTML::getIntegerAttributeValue(attr, $HTML$Attribute::SIZE, 1);
+		bool multiple = $nc(attr)->getAttribute($HTML$Attribute::MULTIPLE) != nullptr;
+		if ((size > 1) || multiple) {
+			$var($OptionListModel, m, $new($OptionListModel));
+			if (multiple) {
+				m->setSelectionMode($ListSelectionModel::MULTIPLE_INTERVAL_SELECTION);
 			}
+			$set(this, selectModel, m);
+		} else {
+			$set(this, selectModel, $new($OptionComboBoxModel));
 		}
+		$init($StyleConstants);
+		attr->addAttribute($StyleConstants::ModelAttribute, this->selectModel);
 	}
 	if (t == $HTML$Tag::OPTION) {
 		$set(this->this$1, option, $new($Option, attr));
@@ -183,26 +136,24 @@ void HTMLDocument$HTMLReader$FormAction::end($HTML$Tag* t) {
 		if (t == $HTML$Tag::SELECT) {
 			$set(this, selectModel, nullptr);
 			this->optionCount = 0;
-		} else {
-			if (t == $HTML$Tag::TEXTAREA) {
-				this->this$1->inTextArea = false;
-				$nc(this->this$1->textAreaDocument)->storeInitialText();
-			}
+		} else if (t == $HTML$Tag::TEXTAREA) {
+			this->this$1->inTextArea = false;
+			$nc(this->this$1->textAreaDocument)->storeInitialText();
 		}
 		$HTMLDocument$HTMLReader$SpecialAction::end(t);
 	}
 }
 
 void HTMLDocument$HTMLReader$FormAction::setModel($String* type, $MutableAttributeSet* attr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$1 = $nc(type)->equals("submit"_s);
-	bool var$0 = var$1 || $nc(type)->equals("reset"_s);
-	if (var$0 || $nc(type)->equals("image"_s)) {
+	bool var$0 = var$1 || type->equals("reset"_s);
+	if (var$0 || type->equals("image"_s)) {
 		$init($StyleConstants);
 		$nc(attr)->addAttribute($StyleConstants::ModelAttribute, $$new($DefaultButtonModel));
 	} else {
-		bool var$3 = type->equals("text"_s);
-		if (var$3 || type->equals("password"_s)) {
+		bool var$2 = type->equals("text"_s);
+		if (var$2 || type->equals("password"_s)) {
 			$init($HTML$Attribute);
 			int32_t maxLength = $HTML::getIntegerAttributeValue(attr, $HTML$Attribute::MAXLENGTH, -1);
 			$var($Document, doc, nullptr);
@@ -222,19 +173,19 @@ void HTMLDocument$HTMLReader$FormAction::setModel($String* type, $MutableAttribu
 			$init($StyleConstants);
 			$nc(attr)->addAttribute($StyleConstants::ModelAttribute, $$new($PlainDocument));
 		} else {
-			bool var$5 = type->equals("checkbox"_s);
-			if (var$5 || type->equals("radio"_s)) {
+			bool var$3 = type->equals("checkbox"_s);
+			if (var$3 || type->equals("radio"_s)) {
 				$var($JToggleButton$ToggleButtonModel, model, $new($JToggleButton$ToggleButtonModel));
 				if (type->equals("radio"_s)) {
 					$init($HTML$Attribute);
 					$var($String, name, $cast($String, $nc(attr)->getAttribute($HTML$Attribute::NAME)));
 					if ($nc(this->this$1->this$0)->radioButtonGroupsMap == nullptr) {
-						$set($nc(this->this$1->this$0), radioButtonGroupsMap, $new($HashMap));
+						$set(this->this$1->this$0, radioButtonGroupsMap, $new($HashMap));
 					}
-					$var($ButtonGroup, radioButtonGroup, $cast($ButtonGroup, $nc($nc(this->this$1->this$0)->radioButtonGroupsMap)->get(name)));
+					$var($ButtonGroup, radioButtonGroup, $cast($ButtonGroup, $nc(this->this$1->this$0->radioButtonGroupsMap)->get(name)));
 					if (radioButtonGroup == nullptr) {
 						$assign(radioButtonGroup, $new($ButtonGroup));
-						$nc($nc(this->this$1->this$0)->radioButtonGroupsMap)->put(name, radioButtonGroup);
+						this->this$1->this$0->radioButtonGroupsMap->put(name, radioButtonGroup);
 					}
 					model->setGroup(radioButtonGroup);
 				}
@@ -252,7 +203,43 @@ HTMLDocument$HTMLReader$FormAction::HTMLDocument$HTMLReader$FormAction() {
 }
 
 $Class* HTMLDocument$HTMLReader$FormAction::load$($String* name, bool initialize) {
-	$loadClass(HTMLDocument$HTMLReader$FormAction, name, initialize, &_HTMLDocument$HTMLReader$FormAction_ClassInfo_, allocate$HTMLDocument$HTMLReader$FormAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljavax/swing/text/html/HTMLDocument$HTMLReader;", nullptr, $FINAL | $SYNTHETIC, $field(HTMLDocument$HTMLReader$FormAction, this$1)},
+		{"selectModel", "Ljava/lang/Object;", nullptr, 0, $field(HTMLDocument$HTMLReader$FormAction, selectModel)},
+		{"optionCount", "I", nullptr, 0, $field(HTMLDocument$HTMLReader$FormAction, optionCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/html/HTMLDocument$HTMLReader;)V", nullptr, $PUBLIC, $method(HTMLDocument$HTMLReader$FormAction, init$, void, $HTMLDocument$HTMLReader*)},
+		{"end", "(Ljavax/swing/text/html/HTML$Tag;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader$FormAction, end, void, $HTML$Tag*)},
+		{"setModel", "(Ljava/lang/String;Ljavax/swing/text/MutableAttributeSet;)V", nullptr, 0, $virtualMethod(HTMLDocument$HTMLReader$FormAction, setModel, void, $String*, $MutableAttributeSet*)},
+		{"start", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader$FormAction, start, void, $HTML$Tag*, $MutableAttributeSet*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.HTMLDocument$HTMLReader", "javax.swing.text.html.HTMLDocument", "HTMLReader", $PUBLIC},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$FormAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "FormAction", $PUBLIC},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$SpecialAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "SpecialAction", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.HTMLDocument$HTMLReader$FormAction",
+		"javax.swing.text.html.HTMLDocument$HTMLReader$SpecialAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.HTMLDocument"
+	};
+	$loadClass(HTMLDocument$HTMLReader$FormAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HTMLDocument$HTMLReader$FormAction);
+	});
 	return class$;
 }
 

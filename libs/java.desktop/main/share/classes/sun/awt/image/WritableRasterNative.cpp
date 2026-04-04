@@ -1,5 +1,4 @@
 #include <sun/awt/image/WritableRasterNative.h>
-
 #include <java/awt/Point.h>
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/DataBuffer.h>
@@ -35,26 +34,6 @@ namespace sun {
 	namespace awt {
 		namespace image {
 
-$MethodInfo _WritableRasterNative_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBuffer;)V", nullptr, $PROTECTED, $method(WritableRasterNative, init$, void, $SampleModel*, $DataBuffer*)},
-	{"createNativeRaster", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBuffer;)Lsun/awt/image/WritableRasterNative;", nullptr, $PUBLIC | $STATIC, $staticMethod(WritableRasterNative, createNativeRaster, WritableRasterNative*, $SampleModel*, $DataBuffer*)},
-	{"createNativeRaster", "(Ljava/awt/image/ColorModel;Lsun/java2d/SurfaceData;II)Lsun/awt/image/WritableRasterNative;", nullptr, $PUBLIC | $STATIC, $staticMethod(WritableRasterNative, createNativeRaster, WritableRasterNative*, $ColorModel*, $SurfaceData*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _WritableRasterNative_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.image.WritableRasterNative",
-	"java.awt.image.WritableRaster",
-	nullptr,
-	nullptr,
-	_WritableRasterNative_MethodInfo_
-};
-
-$Object* allocate$WritableRasterNative($Class* clazz) {
-	return $of($alloc(WritableRasterNative));
-}
-
 WritableRasterNative* WritableRasterNative::createNativeRaster($SampleModel* sm, $DataBuffer* db) {
 	$init(WritableRasterNative);
 	return $new(WritableRasterNative, sm, db);
@@ -66,59 +45,48 @@ void WritableRasterNative::init$($SampleModel* sm, $DataBuffer* db) {
 
 WritableRasterNative* WritableRasterNative::createNativeRaster($ColorModel* cm, $SurfaceData* sd, int32_t width, int32_t height) {
 	$init(WritableRasterNative);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SampleModel, smHw, nullptr);
 	int32_t dataType = 0;
 	int32_t scanStride = width;
 	{
-		$var($ints, bandOffsets, nullptr)
-		$var($ints, bitMasks, nullptr)
-		$var($DirectColorModel, dcm, nullptr)
+		$var($ints, bandOffsets, nullptr);
+		$var($ints, bitMasks, nullptr);
+		$var($DirectColorModel, dcm, nullptr);
 		switch ($nc(cm)->getPixelSize()) {
 		case 8:
-			{}
 		case 12:
-			{
-				if (cm->getPixelSize() == 8) {
-					dataType = $DataBuffer::TYPE_BYTE;
-				} else {
-					dataType = $DataBuffer::TYPE_USHORT;
-				}
-				$assign(bandOffsets, $new($ints, 1));
-				$nc(bandOffsets)->set(0, 0);
-				$assign(smHw, $new($PixelInterleavedSampleModel, dataType, width, height, 1, scanStride, bandOffsets));
-				break;
-			}
-		case 15:
-			{}
-		case 16:
-			{
+			if (cm->getPixelSize() == 8) {
+				dataType = $DataBuffer::TYPE_BYTE;
+			} else {
 				dataType = $DataBuffer::TYPE_USHORT;
-				$assign(bitMasks, $new($ints, 3));
-				$assign(dcm, $cast($DirectColorModel, cm));
-				$nc(bitMasks)->set(0, $nc(dcm)->getRedMask());
-				$nc(bitMasks)->set(1, $nc(dcm)->getGreenMask());
-				$nc(bitMasks)->set(2, $nc(dcm)->getBlueMask());
-				$assign(smHw, $new($SinglePixelPackedSampleModel, dataType, width, height, scanStride, bitMasks));
-				break;
 			}
+			$assign(bandOffsets, $new($ints, 1));
+			$nc(bandOffsets)->set(0, 0);
+			$assign(smHw, $new($PixelInterleavedSampleModel, dataType, width, height, 1, scanStride, bandOffsets));
+			break;
+		case 15:
+		case 16:
+			dataType = $DataBuffer::TYPE_USHORT;
+			$assign(bitMasks, $new($ints, 3));
+			$assign(dcm, $cast($DirectColorModel, cm));
+			$nc(bitMasks)->set(0, $nc(dcm)->getRedMask());
+			bitMasks->set(1, dcm->getGreenMask());
+			bitMasks->set(2, dcm->getBlueMask());
+			$assign(smHw, $new($SinglePixelPackedSampleModel, dataType, width, height, scanStride, bitMasks));
+			break;
 		case 24:
-			{}
 		case 32:
-			{
-				dataType = $DataBuffer::TYPE_INT;
-				$assign(bitMasks, $new($ints, 3));
-				$assign(dcm, $cast($DirectColorModel, cm));
-				$nc(bitMasks)->set(0, $nc(dcm)->getRedMask());
-				$nc(bitMasks)->set(1, $nc(dcm)->getGreenMask());
-				$nc(bitMasks)->set(2, $nc(dcm)->getBlueMask());
-				$assign(smHw, $new($SinglePixelPackedSampleModel, dataType, width, height, scanStride, bitMasks));
-				break;
-			}
+			dataType = $DataBuffer::TYPE_INT;
+			$assign(bitMasks, $new($ints, 3));
+			$assign(dcm, $cast($DirectColorModel, cm));
+			bitMasks->set(0, dcm->getRedMask());
+			bitMasks->set(1, dcm->getGreenMask());
+			bitMasks->set(2, dcm->getBlueMask());
+			$assign(smHw, $new($SinglePixelPackedSampleModel, dataType, width, height, scanStride, bitMasks));
+			break;
 		default:
-			{
-				$throwNew($InternalError, $$str({"Unsupported depth "_s, $$str(cm->getPixelSize())}));
-			}
+			$throwNew($InternalError, $$str({"Unsupported depth "_s, $$str(cm->getPixelSize())}));
 		}
 	}
 	$var($DataBuffer, dbn, $new($DataBufferNative, sd, dataType, width, height));
@@ -129,7 +97,23 @@ WritableRasterNative::WritableRasterNative() {
 }
 
 $Class* WritableRasterNative::load$($String* name, bool initialize) {
-	$loadClass(WritableRasterNative, name, initialize, &_WritableRasterNative_ClassInfo_, allocate$WritableRasterNative);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBuffer;)V", nullptr, $PROTECTED, $method(WritableRasterNative, init$, void, $SampleModel*, $DataBuffer*)},
+		{"createNativeRaster", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBuffer;)Lsun/awt/image/WritableRasterNative;", nullptr, $PUBLIC | $STATIC, $staticMethod(WritableRasterNative, createNativeRaster, WritableRasterNative*, $SampleModel*, $DataBuffer*)},
+		{"createNativeRaster", "(Ljava/awt/image/ColorModel;Lsun/java2d/SurfaceData;II)Lsun/awt/image/WritableRasterNative;", nullptr, $PUBLIC | $STATIC, $staticMethod(WritableRasterNative, createNativeRaster, WritableRasterNative*, $ColorModel*, $SurfaceData*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.image.WritableRasterNative",
+		"java.awt.image.WritableRaster",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WritableRasterNative, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WritableRasterNative);
+	});
 	return class$;
 }
 

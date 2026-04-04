@@ -19,10 +19,13 @@ public:
 	DTMDOMException();
 	void init$(int16_t code, $String* message);
 	void init$(int16_t code);
-	static const int64_t serialVersionUID = (int64_t)0x1A4EB7830A6ED6DE;
+	static const int64_t serialVersionUID = (int64_t)0x1a4eb7830a6ed6de;
 	DTMDOMException(const DTMDOMException& e);
 	virtual void throw$() override;
-	inline DTMDOMException* operator ->() {
+	inline DTMDOMException* operator ->() const {
+		return (DTMDOMException*)throwing$;
+	}
+	inline operator DTMDOMException*() const {
 		return (DTMDOMException*)throwing$;
 	}
 };

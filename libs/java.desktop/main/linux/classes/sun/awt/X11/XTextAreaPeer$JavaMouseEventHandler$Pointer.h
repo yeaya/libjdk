@@ -27,6 +27,7 @@ class XTextAreaPeer$JavaMouseEventHandler$Pointer : public ::java::lang::Object 
 	$class(XTextAreaPeer$JavaMouseEventHandler$Pointer, 0, ::java::lang::Object)
 public:
 	XTextAreaPeer$JavaMouseEventHandler$Pointer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::javax::swing::JScrollBar* getBar();
 	::javax::swing::JButton* getButton();

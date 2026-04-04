@@ -43,6 +43,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(Object$* userObject);
 	void init$(Object$* userObject, bool allowsChildren);
@@ -99,7 +100,7 @@ public:
 	virtual void setUserObject(Object$* userObject) override;
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0xC458BFFCF2A871E0;
+	static const int64_t serialVersionUID = (int64_t)0xc458bffcf2a871e0;
 	static ::java::util::Enumeration* EMPTY_ENUMERATION;
 	::javax::swing::tree::MutableTreeNode* parent = nullptr;
 	::java::util::Vector* children$ = nullptr;

@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftProvider.h>
-
 #include <com/sun/media/sound/MidiUtils.h>
 #include <com/sun/media/sound/SoftSynthesizer.h>
 #include <java/util/Objects.h>
@@ -23,26 +22,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$MethodInfo _SoftProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SoftProvider, init$, void)},
-	{"getDevice", "(Ljavax/sound/midi/MidiDevice$Info;)Ljavax/sound/midi/MidiDevice;", nullptr, $PUBLIC, $virtualMethod(SoftProvider, getDevice, $MidiDevice*, $MidiDevice$Info*)},
-	{"getDeviceInfo", "()[Ljavax/sound/midi/MidiDevice$Info;", nullptr, $PUBLIC, $virtualMethod(SoftProvider, getDeviceInfo, $MidiDevice$InfoArray*)},
-	{}
-};
-
-$ClassInfo _SoftProvider_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SoftProvider",
-	"javax.sound.midi.spi.MidiDeviceProvider",
-	nullptr,
-	nullptr,
-	_SoftProvider_MethodInfo_
-};
-
-$Object* allocate$SoftProvider($Class* clazz) {
-	return $of($alloc(SoftProvider));
-}
-
 void SoftProvider::init$() {
 	$MidiDeviceProvider::init$();
 }
@@ -65,7 +44,23 @@ SoftProvider::SoftProvider() {
 }
 
 $Class* SoftProvider::load$($String* name, bool initialize) {
-	$loadClass(SoftProvider, name, initialize, &_SoftProvider_ClassInfo_, allocate$SoftProvider);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SoftProvider, init$, void)},
+		{"getDevice", "(Ljavax/sound/midi/MidiDevice$Info;)Ljavax/sound/midi/MidiDevice;", nullptr, $PUBLIC, $virtualMethod(SoftProvider, getDevice, $MidiDevice*, $MidiDevice$Info*)},
+		{"getDeviceInfo", "()[Ljavax/sound/midi/MidiDevice$Info;", nullptr, $PUBLIC, $virtualMethod(SoftProvider, getDeviceInfo, $MidiDevice$InfoArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SoftProvider",
+		"javax.sound.midi.spi.MidiDeviceProvider",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SoftProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftProvider);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/InferenceContext.h>
-
 #include <com/sun/tools/javac/code/Type$TypeVar.h>
 #include <com/sun/tools/javac/code/Type$UndetVar$InferenceBound.h>
 #include <com/sun/tools/javac/code/Type$UndetVar.h>
@@ -51,8 +50,6 @@ using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
 using $Type$UndetVar$InferenceBound = ::com::sun::tools::javac::code::Type$UndetVar$InferenceBound;
-using $Types = ::com::sun::tools::javac::code::Types;
-using $Types$TypeMapping = ::com::sun::tools::javac::code::Types$TypeMapping;
 using $Infer = ::com::sun::tools::javac::comp::Infer;
 using $Infer$FreeTypeListener = ::com::sun::tools::javac::comp::Infer$FreeTypeListener;
 using $Infer$GraphSolver = ::com::sun::tools::javac::comp::Infer$GraphSolver;
@@ -72,20 +69,15 @@ using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $ArrayDeque = ::java::util::ArrayDeque;
 using $EnumSet = ::java::util::EnumSet;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
-using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Set = ::java::util::Set;
-using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
-using $Stream = ::java::util::stream::Stream;
 
 namespace com {
 	namespace sun {
@@ -101,27 +93,24 @@ public:
 	virtual bool test(Object$* uv) override {
 		 return InferenceContext::lambda$restvars$0($cast($Type$UndetVar, uv));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<InferenceContext$$Lambda$lambda$restvars$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo InferenceContext$$Lambda$lambda$restvars$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InferenceContext$$Lambda$lambda$restvars$0, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(InferenceContext$$Lambda$lambda$restvars$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo InferenceContext$$Lambda$lambda$restvars$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.InferenceContext$$Lambda$lambda$restvars$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* InferenceContext$$Lambda$lambda$restvars$0::load$($String* name, bool initialize) {
-	$loadClass(InferenceContext$$Lambda$lambda$restvars$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InferenceContext$$Lambda$lambda$restvars$0, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(InferenceContext$$Lambda$lambda$restvars$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.InferenceContext$$Lambda$lambda$restvars$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InferenceContext$$Lambda$lambda$restvars$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InferenceContext$$Lambda$lambda$restvars$0);
+	});
 	return class$;
 }
 $Class* InferenceContext$$Lambda$lambda$restvars$0::class$ = nullptr;
@@ -134,27 +123,24 @@ public:
 	virtual bool test(Object$* uv) override {
 		 return InferenceContext::lambda$instvars$1($cast($Type$UndetVar, uv));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<InferenceContext$$Lambda$lambda$instvars$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo InferenceContext$$Lambda$lambda$instvars$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InferenceContext$$Lambda$lambda$instvars$1$1, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(InferenceContext$$Lambda$lambda$instvars$1$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo InferenceContext$$Lambda$lambda$instvars$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.InferenceContext$$Lambda$lambda$instvars$1$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* InferenceContext$$Lambda$lambda$instvars$1$1::load$($String* name, bool initialize) {
-	$loadClass(InferenceContext$$Lambda$lambda$instvars$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InferenceContext$$Lambda$lambda$instvars$1$1, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(InferenceContext$$Lambda$lambda$instvars$1$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.InferenceContext$$Lambda$lambda$instvars$1$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InferenceContext$$Lambda$lambda$instvars$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InferenceContext$$Lambda$lambda$instvars$1$1);
+	});
 	return class$;
 }
 $Class* InferenceContext$$Lambda$lambda$instvars$1$1::class$ = nullptr;
@@ -167,27 +153,24 @@ public:
 	virtual bool test(Object$* uv) override {
 		 return InferenceContext::lambda$boundedVars$2($cast($Type$UndetVar, uv));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<InferenceContext$$Lambda$lambda$boundedVars$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo InferenceContext$$Lambda$lambda$boundedVars$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InferenceContext$$Lambda$lambda$boundedVars$2$2, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(InferenceContext$$Lambda$lambda$boundedVars$2$2, test, bool, Object$*)},
-	{}
-};
-$ClassInfo InferenceContext$$Lambda$lambda$boundedVars$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.InferenceContext$$Lambda$lambda$boundedVars$2$2",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* InferenceContext$$Lambda$lambda$boundedVars$2$2::load$($String* name, bool initialize) {
-	$loadClass(InferenceContext$$Lambda$lambda$boundedVars$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InferenceContext$$Lambda$lambda$boundedVars$2$2, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(InferenceContext$$Lambda$lambda$boundedVars$2$2, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.InferenceContext$$Lambda$lambda$boundedVars$2$2",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InferenceContext$$Lambda$lambda$boundedVars$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InferenceContext$$Lambda$lambda$boundedVars$2$2);
+	});
 	return class$;
 }
 $Class* InferenceContext$$Lambda$lambda$boundedVars$2$2::class$ = nullptr;
@@ -201,33 +184,29 @@ public:
 	virtual void typesInferred(InferenceContext* inferenceContext) override {
 		$nc(inst$)->lambda$dupTo$3(inferenceContext);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<InferenceContext$$Lambda$lambda$dupTo$3$3>());
-	}
 	InferenceContext* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo InferenceContext$$Lambda$lambda$dupTo$3$3::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(InferenceContext$$Lambda$lambda$dupTo$3$3, inst$)},
-	{}
-};
-$MethodInfo InferenceContext$$Lambda$lambda$dupTo$3$3::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC, $method(InferenceContext$$Lambda$lambda$dupTo$3$3, init$, void, InferenceContext*)},
-	{"typesInferred", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC, $virtualMethod(InferenceContext$$Lambda$lambda$dupTo$3$3, typesInferred, void, InferenceContext*)},
-	{}
-};
-$ClassInfo InferenceContext$$Lambda$lambda$dupTo$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.InferenceContext$$Lambda$lambda$dupTo$3$3",
-	"java.lang.Object",
-	"com.sun.tools.javac.comp.Infer$FreeTypeListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* InferenceContext$$Lambda$lambda$dupTo$3$3::load$($String* name, bool initialize) {
-	$loadClass(InferenceContext$$Lambda$lambda$dupTo$3$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(InferenceContext$$Lambda$lambda$dupTo$3$3, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC, $method(InferenceContext$$Lambda$lambda$dupTo$3$3, init$, void, InferenceContext*)},
+		{"typesInferred", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC, $virtualMethod(InferenceContext$$Lambda$lambda$dupTo$3$3, typesInferred, void, InferenceContext*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.InferenceContext$$Lambda$lambda$dupTo$3$3",
+		"java.lang.Object",
+		"com.sun.tools.javac.comp.Infer$FreeTypeListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InferenceContext$$Lambda$lambda$dupTo$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InferenceContext$$Lambda$lambda$dupTo$3$3);
+	});
 	return class$;
 }
 $Class* InferenceContext$$Lambda$lambda$dupTo$3$3::class$ = nullptr;
@@ -241,33 +220,29 @@ public:
 	virtual bool test(Object$* b) override {
 		 return InferenceContext::lambda$min$4(redundantVars, $cast($Type, b));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<InferenceContext$$Lambda$lambda$min$4$4>());
-	}
 	$List* redundantVars = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo InferenceContext$$Lambda$lambda$min$4$4::fieldInfos[2] = {
-	{"redundantVars", "Lcom/sun/tools/javac/util/List;", nullptr, $PUBLIC, $field(InferenceContext$$Lambda$lambda$min$4$4, redundantVars)},
-	{}
-};
-$MethodInfo InferenceContext$$Lambda$lambda$min$4$4::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/List;)V", nullptr, $PUBLIC, $method(InferenceContext$$Lambda$lambda$min$4$4, init$, void, $List*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(InferenceContext$$Lambda$lambda$min$4$4, test, bool, Object$*)},
-	{}
-};
-$ClassInfo InferenceContext$$Lambda$lambda$min$4$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.InferenceContext$$Lambda$lambda$min$4$4",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* InferenceContext$$Lambda$lambda$min$4$4::load$($String* name, bool initialize) {
-	$loadClass(InferenceContext$$Lambda$lambda$min$4$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"redundantVars", "Lcom/sun/tools/javac/util/List;", nullptr, $PUBLIC, $field(InferenceContext$$Lambda$lambda$min$4$4, redundantVars)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/List;)V", nullptr, $PUBLIC, $method(InferenceContext$$Lambda$lambda$min$4$4, init$, void, $List*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(InferenceContext$$Lambda$lambda$min$4$4, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.InferenceContext$$Lambda$lambda$min$4$4",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InferenceContext$$Lambda$lambda$min$4$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InferenceContext$$Lambda$lambda$min$4$4);
+	});
 	return class$;
 }
 $Class* InferenceContext$$Lambda$lambda$min$4$4::class$ = nullptr;
@@ -284,39 +259,35 @@ public:
 	virtual void typesInferred(InferenceContext* inferenceContext) override {
 		$nc(inst$)->lambda$min$5(t, rv, warn, inferenceContext);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<InferenceContext$$Lambda$lambda$min$5$5>());
-	}
 	InferenceContext* inst$ = nullptr;
 	$Type* t = nullptr;
 	$InferenceContext$ReachabilityVisitor* rv = nullptr;
 	$Warner* warn = nullptr;
-	static $FieldInfo fieldInfos[5];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo InferenceContext$$Lambda$lambda$min$5$5::fieldInfos[5] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(InferenceContext$$Lambda$lambda$min$5$5, inst$)},
-	{"t", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(InferenceContext$$Lambda$lambda$min$5$5, t)},
-	{"rv", "Lcom/sun/tools/javac/comp/InferenceContext$ReachabilityVisitor;", nullptr, $PUBLIC, $field(InferenceContext$$Lambda$lambda$min$5$5, rv)},
-	{"warn", "Lcom/sun/tools/javac/util/Warner;", nullptr, $PUBLIC, $field(InferenceContext$$Lambda$lambda$min$5$5, warn)},
-	{}
-};
-$MethodInfo InferenceContext$$Lambda$lambda$min$5$5::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/InferenceContext$ReachabilityVisitor;Lcom/sun/tools/javac/util/Warner;)V", nullptr, $PUBLIC, $method(InferenceContext$$Lambda$lambda$min$5$5, init$, void, InferenceContext*, $Type*, $InferenceContext$ReachabilityVisitor*, $Warner*)},
-	{"typesInferred", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC, $virtualMethod(InferenceContext$$Lambda$lambda$min$5$5, typesInferred, void, InferenceContext*)},
-	{}
-};
-$ClassInfo InferenceContext$$Lambda$lambda$min$5$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.InferenceContext$$Lambda$lambda$min$5$5",
-	"java.lang.Object",
-	"com.sun.tools.javac.comp.Infer$FreeTypeListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* InferenceContext$$Lambda$lambda$min$5$5::load$($String* name, bool initialize) {
-	$loadClass(InferenceContext$$Lambda$lambda$min$5$5, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(InferenceContext$$Lambda$lambda$min$5$5, inst$)},
+		{"t", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(InferenceContext$$Lambda$lambda$min$5$5, t)},
+		{"rv", "Lcom/sun/tools/javac/comp/InferenceContext$ReachabilityVisitor;", nullptr, $PUBLIC, $field(InferenceContext$$Lambda$lambda$min$5$5, rv)},
+		{"warn", "Lcom/sun/tools/javac/util/Warner;", nullptr, $PUBLIC, $field(InferenceContext$$Lambda$lambda$min$5$5, warn)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/InferenceContext$ReachabilityVisitor;Lcom/sun/tools/javac/util/Warner;)V", nullptr, $PUBLIC, $method(InferenceContext$$Lambda$lambda$min$5$5, init$, void, InferenceContext*, $Type*, $InferenceContext$ReachabilityVisitor*, $Warner*)},
+		{"typesInferred", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC, $virtualMethod(InferenceContext$$Lambda$lambda$min$5$5, typesInferred, void, InferenceContext*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.InferenceContext$$Lambda$lambda$min$5$5",
+		"java.lang.Object",
+		"com.sun.tools.javac.comp.Infer$FreeTypeListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InferenceContext$$Lambda$lambda$min$5$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InferenceContext$$Lambda$lambda$min$5$5);
+	});
 	return class$;
 }
 $Class* InferenceContext$$Lambda$lambda$min$5$5::class$ = nullptr;
@@ -332,124 +303,36 @@ public:
 	virtual void typesInferred(InferenceContext* inferenceContext) override {
 		$nc(inst$)->lambda$min$6(unreachableVars, warn, inferenceContext);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<InferenceContext$$Lambda$lambda$min$6$6>());
-	}
 	InferenceContext* inst$ = nullptr;
 	$List* unreachableVars = nullptr;
 	$Warner* warn = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo InferenceContext$$Lambda$lambda$min$6$6::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(InferenceContext$$Lambda$lambda$min$6$6, inst$)},
-	{"unreachableVars", "Lcom/sun/tools/javac/util/List;", nullptr, $PUBLIC, $field(InferenceContext$$Lambda$lambda$min$6$6, unreachableVars)},
-	{"warn", "Lcom/sun/tools/javac/util/Warner;", nullptr, $PUBLIC, $field(InferenceContext$$Lambda$lambda$min$6$6, warn)},
-	{}
-};
-$MethodInfo InferenceContext$$Lambda$lambda$min$6$6::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Warner;)V", nullptr, $PUBLIC, $method(InferenceContext$$Lambda$lambda$min$6$6, init$, void, InferenceContext*, $List*, $Warner*)},
-	{"typesInferred", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC, $virtualMethod(InferenceContext$$Lambda$lambda$min$6$6, typesInferred, void, InferenceContext*)},
-	{}
-};
-$ClassInfo InferenceContext$$Lambda$lambda$min$6$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.InferenceContext$$Lambda$lambda$min$6$6",
-	"java.lang.Object",
-	"com.sun.tools.javac.comp.Infer$FreeTypeListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* InferenceContext$$Lambda$lambda$min$6$6::load$($String* name, bool initialize) {
-	$loadClass(InferenceContext$$Lambda$lambda$min$6$6, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(InferenceContext$$Lambda$lambda$min$6$6, inst$)},
+		{"unreachableVars", "Lcom/sun/tools/javac/util/List;", nullptr, $PUBLIC, $field(InferenceContext$$Lambda$lambda$min$6$6, unreachableVars)},
+		{"warn", "Lcom/sun/tools/javac/util/Warner;", nullptr, $PUBLIC, $field(InferenceContext$$Lambda$lambda$min$6$6, warn)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Warner;)V", nullptr, $PUBLIC, $method(InferenceContext$$Lambda$lambda$min$6$6, init$, void, InferenceContext*, $List*, $Warner*)},
+		{"typesInferred", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC, $virtualMethod(InferenceContext$$Lambda$lambda$min$6$6, typesInferred, void, InferenceContext*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.InferenceContext$$Lambda$lambda$min$6$6",
+		"java.lang.Object",
+		"com.sun.tools.javac.comp.Infer$FreeTypeListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InferenceContext$$Lambda$lambda$min$6$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InferenceContext$$Lambda$lambda$min$6$6);
+	});
 	return class$;
 }
 $Class* InferenceContext$$Lambda$lambda$min$6$6::class$ = nullptr;
-
-$FieldInfo _InferenceContext_FieldInfo_[] = {
-	{"undetvars", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $field(InferenceContext, undetvars)},
-	{"inferencevars", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $field(InferenceContext, inferencevars)},
-	{"freeTypeListeners", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/comp/Infer$FreeTypeListener;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;>;", 0, $field(InferenceContext, freeTypeListeners)},
-	{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, 0, $field(InferenceContext, types)},
-	{"infer", "Lcom/sun/tools/javac/comp/Infer;", nullptr, 0, $field(InferenceContext, infer)},
-	{"captureTypeCache", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;>;", 0, $field(InferenceContext, captureTypeCache)},
-	{}
-};
-
-$MethodInfo _InferenceContext_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC, $method(InferenceContext, init$, void, $Infer*, $List*)},
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC, $method(InferenceContext, init$, void, $Infer*, $List*, $List*)},
-	{"addFreeTypeListener", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Infer$FreeTypeListener;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/comp/Infer$FreeTypeListener;)V", 0, $virtualMethod(InferenceContext, addFreeTypeListener, void, $List*, $Infer$FreeTypeListener*)},
-	{"addVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;)V", nullptr, 0, $virtualMethod(InferenceContext, addVar, void, $Type$TypeVar*)},
-	{"asInstType", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(InferenceContext, asInstType, $Type*, $Type*)},
-	{"asInstTypes", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(InferenceContext, asInstTypes, $List*, $List*)},
-	{"asUndetVar", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $method(InferenceContext, asUndetVar, $Type*, $Type*)},
-	{"asUndetVars", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $FINAL, $method(InferenceContext, asUndetVars, $List*, $List*)},
-	{"boundedVars", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $FINAL, $method(InferenceContext, boundedVars, $List*)},
-	{"cachedCapture", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Z)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(InferenceContext, cachedCapture, $Type*, $JCTree*, $Type*, bool)},
-	{"dupTo", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, 0, $virtualMethod(InferenceContext, dupTo, void, InferenceContext*)},
-	{"dupTo", "(Lcom/sun/tools/javac/comp/InferenceContext;Z)V", nullptr, 0, $virtualMethod(InferenceContext, dupTo, void, InferenceContext*, bool)},
-	{"filterVars", "(Ljava/util/function/Predicate;)Lcom/sun/tools/javac/util/List;", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Type$UndetVar;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PRIVATE, $method(InferenceContext, filterVars, $List*, $Predicate*)},
-	{"free", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $FINAL, $method(InferenceContext, free, bool, $Type*)},
-	{"free", "(Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", $FINAL, $method(InferenceContext, free, bool, $List*)},
-	{"freeVarsIn", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $FINAL, $method(InferenceContext, freeVarsIn, $List*, $Type*)},
-	{"freeVarsIn", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $FINAL, $method(InferenceContext, freeVarsIn, $List*, $List*)},
-	{"inferenceVars", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(InferenceContext, inferenceVars, $List*)},
-	{"instTypes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(InferenceContext, instTypes, $List*)},
-	{"instvars", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(InferenceContext, instvars, $List*)},
-	{"lambda$boundedVars$2", "(Lcom/sun/tools/javac/code/Type$UndetVar;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InferenceContext, lambda$boundedVars$2, bool, $Type$UndetVar*)},
-	{"lambda$dupTo$3", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(InferenceContext, lambda$dupTo$3, void, InferenceContext*)},
-	{"lambda$instvars$1", "(Lcom/sun/tools/javac/code/Type$UndetVar;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InferenceContext, lambda$instvars$1, bool, $Type$UndetVar*)},
-	{"lambda$min$4", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InferenceContext, lambda$min$4, bool, $List*, $Type*)},
-	{"lambda$min$5", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/InferenceContext$ReachabilityVisitor;Lcom/sun/tools/javac/util/Warner;Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(InferenceContext, lambda$min$5, void, $Type*, $InferenceContext$ReachabilityVisitor*, $Warner*, InferenceContext*)},
-	{"lambda$min$6", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Warner;Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(InferenceContext, lambda$min$6, void, $List*, $Warner*, InferenceContext*)},
-	{"lambda$restvars$0", "(Lcom/sun/tools/javac/code/Type$UndetVar;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InferenceContext, lambda$restvars$0, bool, $Type$UndetVar*)},
-	{"min", "(Lcom/sun/tools/javac/util/List;ZLcom/sun/tools/javac/util/Warner;)Lcom/sun/tools/javac/comp/InferenceContext;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;ZLcom/sun/tools/javac/util/Warner;)Lcom/sun/tools/javac/comp/InferenceContext;", 0, $virtualMethod(InferenceContext, min, InferenceContext*, $List*, bool, $Warner*)},
-	{"notifyChange", "()V", nullptr, 0, $virtualMethod(InferenceContext, notifyChange, void)},
-	{"notifyChange", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", 0, $virtualMethod(InferenceContext, notifyChange, void, $List*)},
-	{"restvars", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(InferenceContext, restvars, $List*)},
-	{"rollback", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC, $virtualMethod(InferenceContext, rollback, void, $List*)},
-	{"save", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(InferenceContext, save, $List*)},
-	{"solve", "(Lcom/sun/tools/javac/comp/Infer$GraphStrategy;Lcom/sun/tools/javac/util/Warner;)V", nullptr, $PRIVATE, $method(InferenceContext, solve, void, $Infer$GraphStrategy*, $Warner*)},
-	{"solve", "(Lcom/sun/tools/javac/util/Warner;)V", nullptr, $PUBLIC, $virtualMethod(InferenceContext, solve, void, $Warner*)},
-	{"solve", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Warner;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/Warner;)V", $PUBLIC, $virtualMethod(InferenceContext, solve, void, $List*, $Warner*)},
-	{"solveAny", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Warner;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/Warner;)V", $PUBLIC, $virtualMethod(InferenceContext, solveAny, void, $List*, $Warner*)},
-	{"solveBasic", "(Ljava/util/EnumSet;)Lcom/sun/tools/javac/util/List;", "(Ljava/util/EnumSet<Lcom/sun/tools/javac/comp/Infer$InferenceStep;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PRIVATE, $method(InferenceContext, solveBasic, $List*, $EnumSet*)},
-	{"solveBasic", "(Lcom/sun/tools/javac/util/List;Ljava/util/EnumSet;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Ljava/util/EnumSet<Lcom/sun/tools/javac/comp/Infer$InferenceStep;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(InferenceContext, solveBasic, $List*, $List*, $EnumSet*)},
-	{"solveLegacy", "(ZLcom/sun/tools/javac/util/Warner;Ljava/util/EnumSet;)V", "(ZLcom/sun/tools/javac/util/Warner;Ljava/util/EnumSet<Lcom/sun/tools/javac/comp/Infer$InferenceStep;>;)V", $PUBLIC, $virtualMethod(InferenceContext, solveLegacy, void, bool, $Warner*, $EnumSet*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InferenceContext, toString, $String*)},
-	{"undetVars", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(InferenceContext, undetVars, $List*)},
-	{"update", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(InferenceContext, update, $Type*, $Type*)},
-	{}
-};
-
-$InnerClassInfo _InferenceContext_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.InferenceContext$ReachabilityVisitor", "com.sun.tools.javac.comp.InferenceContext", "ReachabilityVisitor", 0},
-	{"com.sun.tools.javac.comp.InferenceContext$3", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.InferenceContext$2", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.InferenceContext$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _InferenceContext_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.comp.InferenceContext",
-	"java.lang.Object",
-	nullptr,
-	_InferenceContext_FieldInfo_,
-	_InferenceContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InferenceContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.InferenceContext$ReachabilityVisitor,com.sun.tools.javac.comp.InferenceContext$3,com.sun.tools.javac.comp.InferenceContext$2,com.sun.tools.javac.comp.InferenceContext$1"
-};
-
-$Object* allocate$InferenceContext($Class* clazz) {
-	return $of($alloc(InferenceContext));
-}
 
 $Type* InferenceContext::update($Type* t) {
 	return t;
@@ -469,7 +352,7 @@ void InferenceContext::init$($Infer* infer, $List* inferencevars, $List* undetva
 }
 
 void InferenceContext::addVar($Type$TypeVar* t) {
-	$set(this, undetvars, $nc(this->undetvars)->prepend($($nc($nc(this->infer)->fromTypeVarFun)->apply(static_cast<$Type*>(t)))));
+	$set(this, undetvars, $nc(this->undetvars)->prepend($($nc($nc(this->infer)->fromTypeVarFun)->apply(t))));
 	$set(this, inferencevars, $nc(this->inferencevars)->prepend(t));
 }
 
@@ -482,19 +365,19 @@ $List* InferenceContext::undetVars() {
 }
 
 $List* InferenceContext::restvars() {
-	return filterVars(static_cast<$Predicate*>($$new(InferenceContext$$Lambda$lambda$restvars$0)));
+	return filterVars($$new(InferenceContext$$Lambda$lambda$restvars$0));
 }
 
 $List* InferenceContext::instvars() {
-	return filterVars(static_cast<$Predicate*>($$new(InferenceContext$$Lambda$lambda$instvars$1$1)));
+	return filterVars($$new(InferenceContext$$Lambda$lambda$instvars$1$1));
 }
 
 $List* InferenceContext::boundedVars() {
-	return filterVars(static_cast<$Predicate*>($$new(InferenceContext$$Lambda$lambda$boundedVars$2$2)));
+	return filterVars($$new(InferenceContext$$Lambda$lambda$boundedVars$2$2));
 }
 
 $List* InferenceContext::filterVars($Predicate* fu) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, res, $new($ListBuffer));
 	{
 		$var($Iterator, i$, $nc(this->undetvars)->iterator());
@@ -516,32 +399,26 @@ bool InferenceContext::free($Type* t) {
 }
 
 bool InferenceContext::free($List* ts) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(ts)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Type, t, $cast($Type, i$->next()));
-			{
-				if (free(t)) {
-					return true;
-				}
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(ts)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Type, t, $cast($Type, i$->next()));
+		if (free(t)) {
+			return true;
 		}
 	}
 	return false;
 }
 
 $List* InferenceContext::freeVarsIn($Type* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, buf, $new($ListBuffer));
 	{
-		$var($Iterator, i$, $nc($(inferenceVars()))->iterator());
+		$var($Iterator, i$, $$nc(inferenceVars())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Type, iv, $cast($Type, i$->next()));
-			{
-				if ($nc(t)->contains(iv)) {
-					buf->add(iv);
-				}
+			if ($nc(t)->contains(iv)) {
+				buf->add(iv);
 			}
 		}
 	}
@@ -549,7 +426,7 @@ $List* InferenceContext::freeVarsIn($Type* t) {
 }
 
 $List* InferenceContext::freeVarsIn($List* ts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, buf, $new($ListBuffer));
 	{
 		$var($Iterator, i$, $nc(ts)->iterator());
@@ -565,10 +442,8 @@ $List* InferenceContext::freeVarsIn($List* ts) {
 		$var($Iterator, i$, buf->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Type, t, $cast($Type, i$->next()));
-			{
-				if (!buf2->contains(t)) {
-					buf2->add(t);
-				}
+			if (!buf2->contains(t)) {
+				buf2->add(t);
 			}
 		}
 	}
@@ -580,7 +455,7 @@ $Type* InferenceContext::asUndetVar($Type* t) {
 }
 
 $List* InferenceContext::asUndetVars($List* ts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, buf, $new($ListBuffer));
 	{
 		$var($Iterator, i$, $nc(ts)->iterator());
@@ -595,7 +470,7 @@ $List* InferenceContext::asUndetVars($List* ts) {
 }
 
 $List* InferenceContext::instTypes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, buf, $new($ListBuffer));
 	{
 		$var($Iterator, i$, $nc(this->undetvars)->iterator());
@@ -603,7 +478,7 @@ $List* InferenceContext::instTypes() {
 			$var($Type, t, $cast($Type, i$->next()));
 			{
 				$var($Type$UndetVar, uv, $cast($Type$UndetVar, t));
-				buf->append($nc(uv)->getInst() != nullptr ? $($nc(uv)->getInst()) : uv->qtype);
+				buf->append($nc(uv)->getInst() != nullptr ? $(uv->getInst()) : uv->qtype);
 			}
 		}
 	}
@@ -615,7 +490,7 @@ $Type* InferenceContext::asInstType($Type* t) {
 }
 
 $List* InferenceContext::asInstTypes($List* ts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, buf, $new($ListBuffer));
 	{
 		$var($Iterator, i$, $nc(ts)->iterator());
@@ -634,22 +509,22 @@ void InferenceContext::addFreeTypeListener($List* types, $Infer$FreeTypeListener
 }
 
 void InferenceContext::notifyChange() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	notifyChange($($nc(this->inferencevars)->diff($(restvars()))));
 }
 
 void InferenceContext::notifyChange($List* inferredVars) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Infer$InferenceException, thrownEx, nullptr);
 	{
-		$var($Iterator, i$, $nc($($$new($LinkedHashMap, this->freeTypeListeners)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($$new($LinkedHashMap, this->freeTypeListeners)->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
 				$var($List, var$0, $cast($List, $nc(entry)->getValue()));
 				if (!$Type::containsAny(var$0, $($nc(this->inferencevars)->diff(inferredVars)))) {
 					try {
-						$nc(($cast($Infer$FreeTypeListener, $($nc(entry)->getKey()))))->typesInferred(this);
+						$$sure($Infer$FreeTypeListener, entry->getKey())->typesInferred(this);
 						$nc(this->freeTypeListeners)->remove($(entry->getKey()));
 					} catch ($Infer$InferenceException& ex) {
 						if (thrownEx == nullptr) {
@@ -666,14 +541,14 @@ void InferenceContext::notifyChange($List* inferredVars) {
 }
 
 $List* InferenceContext::save() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, buf, $new($ListBuffer));
 	{
 		$var($Iterator, i$, $nc(this->undetvars)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Type, t, $cast($Type, i$->next()));
 			{
-				buf->add($($nc(($cast($Type$UndetVar, t)))->dup($nc(this->infer)->types)));
+				buf->add($($nc($cast($Type$UndetVar, t))->dup($nc(this->infer)->types)));
 			}
 		}
 	}
@@ -681,7 +556,7 @@ $List* InferenceContext::save() {
 }
 
 void InferenceContext::rollback($List* saved_undet$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, saved_undet, saved_undet$renamed);
 	$Assert::check(saved_undet != nullptr);
 	$var($ListBuffer, newUndetVars, $new($ListBuffer));
@@ -714,8 +589,8 @@ void InferenceContext::dupTo(InferenceContext* that) {
 }
 
 void InferenceContext::dupTo(InferenceContext* that, bool clone) {
-	$useLocalCurrentObjectStackCache();
-	$set($nc(that), inferencevars, $nc(that->inferencevars)->appendList($($nc(this->inferencevars)->diff(that->inferencevars))));
+	$useLocalObjectStack();
+	$set($nc(that), inferencevars, $nc($nc(that)->inferencevars)->appendList($($nc(this->inferencevars)->diff($nc(that)->inferencevars))));
 	$var($List, undetsToPropagate, clone ? save() : this->undetvars);
 	$set(that, undetvars, $nc(that->undetvars)->appendList($($nc(undetsToPropagate)->diff(that->undetvars))));
 	{
@@ -723,7 +598,7 @@ void InferenceContext::dupTo(InferenceContext* that, bool clone) {
 		for (; $nc(i$)->hasNext();) {
 			$var($Type, t, $cast($Type, i$->next()));
 			{
-				$var($Object, var$0, static_cast<$Infer$FreeTypeListener*>($new(InferenceContext$$Lambda$lambda$dupTo$3$3, this)));
+				$var($Object, var$0, $new(InferenceContext$$Lambda$lambda$dupTo$3$3, this));
 				$nc(that->freeTypeListeners)->put(var$0, $($List::of(t)));
 			}
 		}
@@ -731,7 +606,7 @@ void InferenceContext::dupTo(InferenceContext* that, bool clone) {
 }
 
 InferenceContext* InferenceContext::min($List* roots, bool shouldSolve, $Warner* warn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(roots)->length();
 	if (var$0 == $nc(this->inferencevars)->length()) {
 		return this;
@@ -742,7 +617,7 @@ InferenceContext* InferenceContext::min($List* roots, bool shouldSolve, $Warner*
 	if (var$1 == $nc(this->inferencevars)->length()) {
 		return this;
 	}
-	$var($List, minVars, $List::from(static_cast<$Iterable*>(rv->min)));
+	$var($List, minVars, $List::from(rv->min));
 	$var($List, redundantVars, $nc(this->inferencevars)->diff(minVars));
 	$var($ListBuffer, minUndetVars, $new($ListBuffer));
 	{
@@ -752,15 +627,13 @@ InferenceContext* InferenceContext::min($List* roots, bool shouldSolve, $Warner*
 			{
 				$var($Type$UndetVar, uv, $cast($Type$UndetVar, asUndetVar(minVar)));
 				$Assert::check($nc($nc(uv)->incorporationActions)->isEmpty());
-				$var($Type$UndetVar, uv2, $nc(uv)->dup(this->types));
+				$var($Type$UndetVar, uv2, uv->dup(this->types));
 				{
 					$var($Type$UndetVar$InferenceBoundArray, arr$, $Type$UndetVar$InferenceBound::values());
-					int32_t len$ = $nc(arr$)->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
+					for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 						$Type$UndetVar$InferenceBound* ib = arr$->get(i$);
 						{
-							$var($List, newBounds, $cast($List, $nc($($nc($($nc($(uv->getBounds($$new($Type$UndetVar$InferenceBoundArray, {ib}))))->stream()))->filter(static_cast<$Predicate*>($$new(InferenceContext$$Lambda$lambda$min$4$4, redundantVars)))))->collect($($List::collector()))));
+							$var($List, newBounds, $cast($List, $$nc($$nc($$nc(uv->getBounds($$new($Type$UndetVar$InferenceBoundArray, {ib})))->stream())->filter($$new(InferenceContext$$Lambda$lambda$min$4$4, redundantVars)))->collect($($List::collector()))));
 							$nc(uv2)->setBounds(ib, newBounds);
 						}
 					}
@@ -776,33 +649,33 @@ InferenceContext* InferenceContext::min($List* roots, bool shouldSolve, $Warner*
 			$var($Type, t, $cast($Type, i$->next()));
 			{
 				$var($List, var$2, $List::of(t));
-				minContext->addFreeTypeListener(var$2, static_cast<$Infer$FreeTypeListener*>($$new(InferenceContext$$Lambda$lambda$min$5$5, this, t, rv, warn)));
+				minContext->addFreeTypeListener(var$2, $$new(InferenceContext$$Lambda$lambda$min$5$5, this, t, rv, warn));
 			}
 		}
 	}
 	if (shouldSolve) {
-		$var($List, unreachableVars, $nc(redundantVars)->diff($($List::from(static_cast<$Iterable*>(rv->equiv)))));
-		minContext->addFreeTypeListener(minVars, static_cast<$Infer$FreeTypeListener*>($$new(InferenceContext$$Lambda$lambda$min$6$6, this, unreachableVars, warn)));
+		$var($List, unreachableVars, $nc(redundantVars)->diff($($List::from(rv->equiv))));
+		minContext->addFreeTypeListener(minVars, $$new(InferenceContext$$Lambda$lambda$min$6$6, this, unreachableVars, warn));
 	}
 	return minContext;
 }
 
 void InferenceContext::solve($Infer$GraphStrategy* ss, $Warner* warn) {
-	$var($Infer$GraphSolver, s, $new($Infer$GraphSolver, static_cast<$Infer*>($nc(this->infer)), this, warn));
+	$var($Infer$GraphSolver, s, $new($Infer$GraphSolver, $nc(this->infer), this, warn));
 	s->solve(ss);
 }
 
 void InferenceContext::solve($Warner* warn) {
-	solve(static_cast<$Infer$GraphStrategy*>($$new($InferenceContext$1, this, static_cast<$Infer*>($nc(this->infer)))), warn);
+	solve($$new($InferenceContext$1, this, $nc(this->infer)), warn);
 }
 
 void InferenceContext::solve($List* vars, $Warner* warn) {
-	solve(static_cast<$Infer$GraphStrategy*>($$new($InferenceContext$2, this, static_cast<$Infer*>($nc(this->infer)), vars, vars)), warn);
+	solve($$new($InferenceContext$2, this, $nc(this->infer), vars, vars), warn);
 }
 
 void InferenceContext::solveAny($List* varsToSolve, $Warner* warn) {
-	$useLocalCurrentObjectStackCache();
-	solve(static_cast<$Infer$GraphStrategy*>($$new($InferenceContext$3, this, static_cast<$Infer*>($nc(this->infer)), $($nc(varsToSolve)->intersect($(restvars()))))), warn);
+	$useLocalObjectStack();
+	solve($$new($InferenceContext$3, this, $nc(this->infer), $($nc(varsToSolve)->intersect($(restvars())))), warn);
 }
 
 $List* InferenceContext::solveBasic($EnumSet* steps) {
@@ -810,10 +683,10 @@ $List* InferenceContext::solveBasic($EnumSet* steps) {
 }
 
 $List* InferenceContext::solveBasic($List* varsToSolve, $EnumSet* steps) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, solvedVars, $new($ListBuffer));
 	{
-		$var($Iterator, i$, $nc($($nc(varsToSolve)->intersect($(restvars()))))->iterator());
+		$var($Iterator, i$, $$nc($nc(varsToSolve)->intersect($(restvars())))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Type, t, $cast($Type, i$->next()));
 			{
@@ -822,12 +695,10 @@ $List* InferenceContext::solveBasic($List* varsToSolve, $EnumSet* steps) {
 					$var($Iterator, i$, $nc(steps)->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$Infer$InferenceStep* step = $cast($Infer$InferenceStep, i$->next());
-						{
-							if ($nc(step)->accepts(uv, this)) {
-								$nc(uv)->setInst($(step->solve(uv, this)));
-								solvedVars->add(uv->qtype);
-								break;
-							}
+						if ($nc(step)->accepts(uv, this)) {
+							$nc(uv)->setInst($(step->solve(uv, this)));
+							solvedVars->add(uv->qtype);
+							break;
 						}
 					}
 				}
@@ -838,23 +709,21 @@ $List* InferenceContext::solveBasic($List* varsToSolve, $EnumSet* steps) {
 }
 
 void InferenceContext::solveLegacy(bool partial, $Warner* warn, $EnumSet* steps) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (true) {
 		$var($List, solvedVars, solveBasic(steps));
-		if ($nc($(restvars()))->isEmpty() || partial) {
+		if ($$nc(restvars())->isEmpty() || partial) {
 			break;
 		} else if ($nc(solvedVars)->isEmpty()) {
 			$nc(this->infer)->instantiateAsUninferredVars($(restvars()), this);
 			break;
 		} else {
-			{
-				$var($Iterator, i$, $nc(this->undetvars)->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($Type, t, $cast($Type, i$->next()));
-					{
-						$var($Type$UndetVar, uv, $cast($Type$UndetVar, t));
-						$nc(uv)->substBounds(solvedVars, $(asInstTypes(solvedVars)), this->types);
-					}
+			$var($Iterator, i$, $nc(this->undetvars)->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($Type, t, $cast($Type, i$->next()));
+				{
+					$var($Type$UndetVar, uv, $cast($Type$UndetVar, t));
+					$nc(uv)->substBounds(solvedVars, $(asInstTypes(solvedVars)), this->types);
 				}
 			}
 		}
@@ -867,7 +736,7 @@ $String* InferenceContext::toString() {
 }
 
 $Type* InferenceContext::cachedCapture($JCTree* tree, $Type* t, bool readOnly) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, captured, $cast($Type, $nc(this->captureTypeCache)->get(tree)));
 	if (captured != nullptr) {
 		return captured;
@@ -885,14 +754,14 @@ void InferenceContext::lambda$min$6($List* unreachableVars, $Warner* warn, Infer
 }
 
 void InferenceContext::lambda$min$5($Type* t, $InferenceContext$ReachabilityVisitor* rv, $Warner* warn, InferenceContext* inferenceContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, instType, $nc(inferenceContext)->asInstType(t));
 	{
-		$var($Iterator, i$, $nc(($cast($Set, $($nc($nc(rv)->minMap)->get(t)))))->iterator());
+		$var($Iterator, i$, $$sure($Set, $nc($nc(rv)->minMap)->get(t))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Type, eq, $cast($Type, i$->next()));
 			{
-				$nc(($cast($Type$UndetVar, $(asUndetVar(eq)))))->setInst(instType);
+				$$sure($Type$UndetVar, asUndetVar(eq))->setInst(instType);
 			}
 		}
 	}
@@ -909,12 +778,12 @@ void InferenceContext::lambda$dupTo$3(InferenceContext* inferenceContext) {
 }
 
 bool InferenceContext::lambda$boundedVars$2($Type$UndetVar* uv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Type$UndetVar$InferenceBound);
-	return $nc($($nc($($nc($($nc(uv)->getBounds($$new($Type$UndetVar$InferenceBoundArray, {$Type$UndetVar$InferenceBound::UPPER}))))->diff($(uv->getDeclaredBounds()))))->appendList($(uv->getBounds($$new($Type$UndetVar$InferenceBoundArray, {
+	return $$nc($$nc($$nc($nc(uv)->getBounds($$new($Type$UndetVar$InferenceBoundArray, {$Type$UndetVar$InferenceBound::UPPER})))->diff($($nc(uv)->getDeclaredBounds())))->appendList($($nc(uv)->getBounds($$new($Type$UndetVar$InferenceBoundArray, {
 		$Type$UndetVar$InferenceBound::EQ,
 		$Type$UndetVar$InferenceBound::LOWER
-	}))))))->nonEmpty();
+	})))))->nonEmpty();
 }
 
 bool InferenceContext::lambda$instvars$1($Type$UndetVar* uv) {
@@ -930,29 +799,107 @@ InferenceContext::InferenceContext() {
 
 $Class* InferenceContext::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(InferenceContext$$Lambda$lambda$restvars$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.InferenceContext$$Lambda$lambda$restvars$0")) {
 			return InferenceContext$$Lambda$lambda$restvars$0::load$(name, initialize);
 		}
-		if (name->equals(InferenceContext$$Lambda$lambda$instvars$1$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.InferenceContext$$Lambda$lambda$instvars$1$1")) {
 			return InferenceContext$$Lambda$lambda$instvars$1$1::load$(name, initialize);
 		}
-		if (name->equals(InferenceContext$$Lambda$lambda$boundedVars$2$2::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.InferenceContext$$Lambda$lambda$boundedVars$2$2")) {
 			return InferenceContext$$Lambda$lambda$boundedVars$2$2::load$(name, initialize);
 		}
-		if (name->equals(InferenceContext$$Lambda$lambda$dupTo$3$3::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.InferenceContext$$Lambda$lambda$dupTo$3$3")) {
 			return InferenceContext$$Lambda$lambda$dupTo$3$3::load$(name, initialize);
 		}
-		if (name->equals(InferenceContext$$Lambda$lambda$min$4$4::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.InferenceContext$$Lambda$lambda$min$4$4")) {
 			return InferenceContext$$Lambda$lambda$min$4$4::load$(name, initialize);
 		}
-		if (name->equals(InferenceContext$$Lambda$lambda$min$5$5::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.InferenceContext$$Lambda$lambda$min$5$5")) {
 			return InferenceContext$$Lambda$lambda$min$5$5::load$(name, initialize);
 		}
-		if (name->equals(InferenceContext$$Lambda$lambda$min$6$6::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.InferenceContext$$Lambda$lambda$min$6$6")) {
 			return InferenceContext$$Lambda$lambda$min$6$6::load$(name, initialize);
 		}
 	}
-	$loadClass(InferenceContext, name, initialize, &_InferenceContext_ClassInfo_, allocate$InferenceContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"undetvars", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $field(InferenceContext, undetvars)},
+		{"inferencevars", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $field(InferenceContext, inferencevars)},
+		{"freeTypeListeners", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/comp/Infer$FreeTypeListener;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;>;", 0, $field(InferenceContext, freeTypeListeners)},
+		{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, 0, $field(InferenceContext, types)},
+		{"infer", "Lcom/sun/tools/javac/comp/Infer;", nullptr, 0, $field(InferenceContext, infer)},
+		{"captureTypeCache", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;>;", 0, $field(InferenceContext, captureTypeCache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC, $method(InferenceContext, init$, void, $Infer*, $List*)},
+		{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC, $method(InferenceContext, init$, void, $Infer*, $List*, $List*)},
+		{"addFreeTypeListener", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Infer$FreeTypeListener;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/comp/Infer$FreeTypeListener;)V", 0, $virtualMethod(InferenceContext, addFreeTypeListener, void, $List*, $Infer$FreeTypeListener*)},
+		{"addVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;)V", nullptr, 0, $virtualMethod(InferenceContext, addVar, void, $Type$TypeVar*)},
+		{"asInstType", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(InferenceContext, asInstType, $Type*, $Type*)},
+		{"asInstTypes", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(InferenceContext, asInstTypes, $List*, $List*)},
+		{"asUndetVar", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $method(InferenceContext, asUndetVar, $Type*, $Type*)},
+		{"asUndetVars", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $FINAL, $method(InferenceContext, asUndetVars, $List*, $List*)},
+		{"boundedVars", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $FINAL, $method(InferenceContext, boundedVars, $List*)},
+		{"cachedCapture", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Z)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(InferenceContext, cachedCapture, $Type*, $JCTree*, $Type*, bool)},
+		{"dupTo", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, 0, $virtualMethod(InferenceContext, dupTo, void, InferenceContext*)},
+		{"dupTo", "(Lcom/sun/tools/javac/comp/InferenceContext;Z)V", nullptr, 0, $virtualMethod(InferenceContext, dupTo, void, InferenceContext*, bool)},
+		{"filterVars", "(Ljava/util/function/Predicate;)Lcom/sun/tools/javac/util/List;", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Type$UndetVar;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PRIVATE, $method(InferenceContext, filterVars, $List*, $Predicate*)},
+		{"free", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $FINAL, $method(InferenceContext, free, bool, $Type*)},
+		{"free", "(Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", $FINAL, $method(InferenceContext, free, bool, $List*)},
+		{"freeVarsIn", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $FINAL, $method(InferenceContext, freeVarsIn, $List*, $Type*)},
+		{"freeVarsIn", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $FINAL, $method(InferenceContext, freeVarsIn, $List*, $List*)},
+		{"inferenceVars", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(InferenceContext, inferenceVars, $List*)},
+		{"instTypes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(InferenceContext, instTypes, $List*)},
+		{"instvars", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(InferenceContext, instvars, $List*)},
+		{"lambda$boundedVars$2", "(Lcom/sun/tools/javac/code/Type$UndetVar;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InferenceContext, lambda$boundedVars$2, bool, $Type$UndetVar*)},
+		{"lambda$dupTo$3", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(InferenceContext, lambda$dupTo$3, void, InferenceContext*)},
+		{"lambda$instvars$1", "(Lcom/sun/tools/javac/code/Type$UndetVar;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InferenceContext, lambda$instvars$1, bool, $Type$UndetVar*)},
+		{"lambda$min$4", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InferenceContext, lambda$min$4, bool, $List*, $Type*)},
+		{"lambda$min$5", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/InferenceContext$ReachabilityVisitor;Lcom/sun/tools/javac/util/Warner;Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(InferenceContext, lambda$min$5, void, $Type*, $InferenceContext$ReachabilityVisitor*, $Warner*, InferenceContext*)},
+		{"lambda$min$6", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Warner;Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(InferenceContext, lambda$min$6, void, $List*, $Warner*, InferenceContext*)},
+		{"lambda$restvars$0", "(Lcom/sun/tools/javac/code/Type$UndetVar;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InferenceContext, lambda$restvars$0, bool, $Type$UndetVar*)},
+		{"min", "(Lcom/sun/tools/javac/util/List;ZLcom/sun/tools/javac/util/Warner;)Lcom/sun/tools/javac/comp/InferenceContext;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;ZLcom/sun/tools/javac/util/Warner;)Lcom/sun/tools/javac/comp/InferenceContext;", 0, $virtualMethod(InferenceContext, min, InferenceContext*, $List*, bool, $Warner*)},
+		{"notifyChange", "()V", nullptr, 0, $virtualMethod(InferenceContext, notifyChange, void)},
+		{"notifyChange", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", 0, $virtualMethod(InferenceContext, notifyChange, void, $List*)},
+		{"restvars", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(InferenceContext, restvars, $List*)},
+		{"rollback", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC, $virtualMethod(InferenceContext, rollback, void, $List*)},
+		{"save", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(InferenceContext, save, $List*)},
+		{"solve", "(Lcom/sun/tools/javac/comp/Infer$GraphStrategy;Lcom/sun/tools/javac/util/Warner;)V", nullptr, $PRIVATE, $method(InferenceContext, solve, void, $Infer$GraphStrategy*, $Warner*)},
+		{"solve", "(Lcom/sun/tools/javac/util/Warner;)V", nullptr, $PUBLIC, $virtualMethod(InferenceContext, solve, void, $Warner*)},
+		{"solve", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Warner;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/Warner;)V", $PUBLIC, $virtualMethod(InferenceContext, solve, void, $List*, $Warner*)},
+		{"solveAny", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Warner;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/Warner;)V", $PUBLIC, $virtualMethod(InferenceContext, solveAny, void, $List*, $Warner*)},
+		{"solveBasic", "(Ljava/util/EnumSet;)Lcom/sun/tools/javac/util/List;", "(Ljava/util/EnumSet<Lcom/sun/tools/javac/comp/Infer$InferenceStep;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PRIVATE, $method(InferenceContext, solveBasic, $List*, $EnumSet*)},
+		{"solveBasic", "(Lcom/sun/tools/javac/util/List;Ljava/util/EnumSet;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Ljava/util/EnumSet<Lcom/sun/tools/javac/comp/Infer$InferenceStep;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(InferenceContext, solveBasic, $List*, $List*, $EnumSet*)},
+		{"solveLegacy", "(ZLcom/sun/tools/javac/util/Warner;Ljava/util/EnumSet;)V", "(ZLcom/sun/tools/javac/util/Warner;Ljava/util/EnumSet<Lcom/sun/tools/javac/comp/Infer$InferenceStep;>;)V", $PUBLIC, $virtualMethod(InferenceContext, solveLegacy, void, bool, $Warner*, $EnumSet*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InferenceContext, toString, $String*)},
+		{"undetVars", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(InferenceContext, undetVars, $List*)},
+		{"update", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(InferenceContext, update, $Type*, $Type*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.InferenceContext$ReachabilityVisitor", "com.sun.tools.javac.comp.InferenceContext", "ReachabilityVisitor", 0},
+		{"com.sun.tools.javac.comp.InferenceContext$3", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.InferenceContext$2", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.InferenceContext$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.comp.InferenceContext",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.InferenceContext$ReachabilityVisitor,com.sun.tools.javac.comp.InferenceContext$3,com.sun.tools.javac.comp.InferenceContext$2,com.sun.tools.javac.comp.InferenceContext$1"
+	};
+	$loadClass(InferenceContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InferenceContext);
+	});
 	return class$;
 }
 

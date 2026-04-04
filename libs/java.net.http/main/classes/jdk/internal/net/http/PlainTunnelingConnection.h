@@ -67,6 +67,7 @@ class $export PlainTunnelingConnection : public ::jdk::internal::net::http::Http
 	$class(PlainTunnelingConnection, 0, ::jdk::internal::net::http::HttpConnection)
 public:
 	PlainTunnelingConnection();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::InetSocketAddress* addr, ::java::net::InetSocketAddress* proxy, ::jdk::internal::net::http::HttpClientImpl* client, ::jdk::internal::net::http::common::Utils$ProxyHeaders* proxyHeaders);
 	virtual ::jdk::internal::net::http::ConnectionPool$CacheKey* cacheKey() override;
 	virtual ::java::nio::channels::SocketChannel* channel() override;

@@ -1,10 +1,8 @@
 #include <javax/swing/plaf/basic/BasicPopupMenuUI$BasicMenuKeyListener.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/InputEvent.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/List.h>
 #include <javax/swing/JMenu.h>
 #include <javax/swing/JMenuItem.h>
@@ -23,7 +21,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $JMenu = ::javax::swing::JMenu;
 using $JMenuItem = ::javax::swing::JMenuItem;
 using $JPopupMenu = ::javax::swing::JPopupMenu;
@@ -37,73 +34,32 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicPopupMenuUI$BasicMenuKeyListener_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicPopupMenuUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicPopupMenuUI$BasicMenuKeyListener, this$0)},
-	{"menuToOpen", "Ljavax/swing/MenuElement;", nullptr, 0, $field(BasicPopupMenuUI$BasicMenuKeyListener, menuToOpen)},
-	{}
-};
-
-$MethodInfo _BasicPopupMenuUI$BasicMenuKeyListener_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicPopupMenuUI;)V", nullptr, $PRIVATE, $method(BasicPopupMenuUI$BasicMenuKeyListener, init$, void, $BasicPopupMenuUI*)},
-	{"lower", "(C)C", nullptr, $PRIVATE, $method(BasicPopupMenuUI$BasicMenuKeyListener, lower, char16_t, char16_t)},
-	{"lower", "(I)C", nullptr, $PRIVATE, $method(BasicPopupMenuUI$BasicMenuKeyListener, lower, char16_t, int32_t)},
-	{"menuKeyPressed", "(Ljavax/swing/event/MenuKeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$BasicMenuKeyListener, menuKeyPressed, void, $MenuKeyEvent*)},
-	{"menuKeyReleased", "(Ljavax/swing/event/MenuKeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$BasicMenuKeyListener, menuKeyReleased, void, $MenuKeyEvent*)},
-	{"menuKeyTyped", "(Ljavax/swing/event/MenuKeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$BasicMenuKeyListener, menuKeyTyped, void, $MenuKeyEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicPopupMenuUI$BasicMenuKeyListener_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicPopupMenuUI$BasicMenuKeyListener", "javax.swing.plaf.basic.BasicPopupMenuUI", "BasicMenuKeyListener", $PRIVATE},
-	{}
-};
-
-$ClassInfo _BasicPopupMenuUI$BasicMenuKeyListener_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicPopupMenuUI$BasicMenuKeyListener",
-	"java.lang.Object",
-	"javax.swing.event.MenuKeyListener",
-	_BasicPopupMenuUI$BasicMenuKeyListener_FieldInfo_,
-	_BasicPopupMenuUI$BasicMenuKeyListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicPopupMenuUI$BasicMenuKeyListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicPopupMenuUI"
-};
-
-$Object* allocate$BasicPopupMenuUI$BasicMenuKeyListener($Class* clazz) {
-	return $of($alloc(BasicPopupMenuUI$BasicMenuKeyListener));
-}
-
 void BasicPopupMenuUI$BasicMenuKeyListener::init$($BasicPopupMenuUI* this$0) {
 	$set(this, this$0, this$0);
 	$set(this, menuToOpen, nullptr);
 }
 
 void BasicPopupMenuUI$BasicMenuKeyListener::menuKeyTyped($MenuKeyEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->menuToOpen != nullptr) {
-		$var($JPopupMenu, subpopup, $nc(($cast($JMenu, this->menuToOpen)))->getPopupMenu());
+		$var($JPopupMenu, subpopup, $cast($JMenu, this->menuToOpen)->getPopupMenu());
 		$var($MenuElement, subitem, $BasicPopupMenuUI::findEnabledChild($($nc(subpopup)->getSubElements()), -1, true));
-		$var($ArrayList, lst, $new($ArrayList, $(static_cast<$Collection*>($Arrays::asList($($nc(e)->getPath()))))));
+		$var($ArrayList, lst, $new($ArrayList, $($Arrays::asList($($nc(e)->getPath())))));
 		lst->add(this->menuToOpen);
 		lst->add(subpopup);
 		if (subitem != nullptr) {
 			lst->add(subitem);
 		}
 		$var($MenuElementArray, newPath, $new($MenuElementArray, 0));
-		$assign(newPath, $fcast($MenuElementArray, lst->toArray(newPath)));
-		$nc($($MenuSelectionManager::defaultManager()))->setSelectedPath(newPath);
-		$nc(e)->consume();
+		$assign(newPath, $cast($MenuElementArray, lst->toArray(newPath)));
+		$$nc($MenuSelectionManager::defaultManager())->setSelectedPath(newPath);
+		e->consume();
 	}
 	$set(this, menuToOpen, nullptr);
 }
 
 void BasicPopupMenuUI$BasicMenuKeyListener::menuKeyPressed($MenuKeyEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	char16_t keyChar = $nc(e)->getKeyChar();
 	if (!$Character::isLetterOrDigit(keyChar)) {
 		return;
@@ -146,7 +102,7 @@ void BasicPopupMenuUI$BasicMenuKeyListener::menuKeyPressed($MenuKeyEvent* e) {
 	}
 	if (matches == 0) {
 	} else if (matches == 1) {
-		$var($JMenuItem, item, $cast($JMenuItem, $nc(items)->get(firstMatch)));
+		$var($JMenuItem, item, $cast($JMenuItem, items->get(firstMatch)));
 		if ($instanceOf($JMenu, item)) {
 			$set(this, menuToOpen, item);
 		} else if ($nc(item)->isEnabled()) {
@@ -156,7 +112,7 @@ void BasicPopupMenuUI$BasicMenuKeyListener::menuKeyPressed($MenuKeyEvent* e) {
 		e->consume();
 	} else {
 		$var($MenuElement, newItem, nullptr);
-		$assign(newItem, $nc(items)->get($nc(indexes)->get($mod((currentIndex + 1), matches))));
+		$assign(newItem, items->get($nc(indexes)->get($mod((currentIndex + 1), matches))));
 		$var($MenuElementArray, newPath, $new($MenuElementArray, $nc(path)->length + 1));
 		$System::arraycopy(path, 0, newPath, 0, path->length);
 		newPath->set(path->length, newItem);
@@ -180,7 +136,42 @@ BasicPopupMenuUI$BasicMenuKeyListener::BasicPopupMenuUI$BasicMenuKeyListener() {
 }
 
 $Class* BasicPopupMenuUI$BasicMenuKeyListener::load$($String* name, bool initialize) {
-	$loadClass(BasicPopupMenuUI$BasicMenuKeyListener, name, initialize, &_BasicPopupMenuUI$BasicMenuKeyListener_ClassInfo_, allocate$BasicPopupMenuUI$BasicMenuKeyListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicPopupMenuUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicPopupMenuUI$BasicMenuKeyListener, this$0)},
+		{"menuToOpen", "Ljavax/swing/MenuElement;", nullptr, 0, $field(BasicPopupMenuUI$BasicMenuKeyListener, menuToOpen)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicPopupMenuUI;)V", nullptr, $PRIVATE, $method(BasicPopupMenuUI$BasicMenuKeyListener, init$, void, $BasicPopupMenuUI*)},
+		{"lower", "(C)C", nullptr, $PRIVATE, $method(BasicPopupMenuUI$BasicMenuKeyListener, lower, char16_t, char16_t)},
+		{"lower", "(I)C", nullptr, $PRIVATE, $method(BasicPopupMenuUI$BasicMenuKeyListener, lower, char16_t, int32_t)},
+		{"menuKeyPressed", "(Ljavax/swing/event/MenuKeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$BasicMenuKeyListener, menuKeyPressed, void, $MenuKeyEvent*)},
+		{"menuKeyReleased", "(Ljavax/swing/event/MenuKeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$BasicMenuKeyListener, menuKeyReleased, void, $MenuKeyEvent*)},
+		{"menuKeyTyped", "(Ljavax/swing/event/MenuKeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$BasicMenuKeyListener, menuKeyTyped, void, $MenuKeyEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicPopupMenuUI$BasicMenuKeyListener", "javax.swing.plaf.basic.BasicPopupMenuUI", "BasicMenuKeyListener", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicPopupMenuUI$BasicMenuKeyListener",
+		"java.lang.Object",
+		"javax.swing.event.MenuKeyListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicPopupMenuUI"
+	};
+	$loadClass(BasicPopupMenuUI$BasicMenuKeyListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicPopupMenuUI$BasicMenuKeyListener);
+	});
 	return class$;
 }
 

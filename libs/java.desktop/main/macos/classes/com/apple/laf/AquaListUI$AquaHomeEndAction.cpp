@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaListUI$AquaHomeEndAction.h>
-
 #include <com/apple/laf/AquaListUI.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/util/EventObject.h>
@@ -15,47 +14,10 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractAction = ::javax::swing::AbstractAction;
 using $JList = ::javax::swing::JList;
-using $ListModel = ::javax::swing::ListModel;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaListUI$AquaHomeEndAction_FieldInfo_[] = {
-	{"fHomeAction", "Z", nullptr, $PRIVATE, $field(AquaListUI$AquaHomeEndAction, fHomeAction)},
-	{}
-};
-
-$MethodInfo _AquaListUI$AquaHomeEndAction_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PROTECTED, $method(AquaListUI$AquaHomeEndAction, init$, void, bool)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaListUI$AquaHomeEndAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _AquaListUI$AquaHomeEndAction_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaListUI$AquaHomeEndAction", "com.apple.laf.AquaListUI", "AquaHomeEndAction", $STATIC},
-	{}
-};
-
-$ClassInfo _AquaListUI$AquaHomeEndAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaListUI$AquaHomeEndAction",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_AquaListUI$AquaHomeEndAction_FieldInfo_,
-	_AquaListUI$AquaHomeEndAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaListUI$AquaHomeEndAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaListUI"
-};
-
-$Object* allocate$AquaListUI$AquaHomeEndAction($Class* clazz) {
-	return $of($alloc(AquaListUI$AquaHomeEndAction));
-}
 
 void AquaListUI$AquaHomeEndAction::init$(bool isHomeAction) {
 	$AbstractAction::init$();
@@ -64,12 +26,12 @@ void AquaListUI$AquaHomeEndAction::init$(bool isHomeAction) {
 }
 
 void AquaListUI$AquaHomeEndAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JList, list, $cast($JList, $nc(e)->getSource()));
 	if (this->fHomeAction) {
 		$nc(list)->ensureIndexIsVisible(0);
 	} else {
-		int32_t size = $nc($($nc(list)->getModel()))->getSize();
+		int32_t size = $$nc($nc(list)->getModel())->getSize();
 		list->ensureIndexIsVisible(size - 1);
 	}
 }
@@ -78,7 +40,37 @@ AquaListUI$AquaHomeEndAction::AquaListUI$AquaHomeEndAction() {
 }
 
 $Class* AquaListUI$AquaHomeEndAction::load$($String* name, bool initialize) {
-	$loadClass(AquaListUI$AquaHomeEndAction, name, initialize, &_AquaListUI$AquaHomeEndAction_ClassInfo_, allocate$AquaListUI$AquaHomeEndAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"fHomeAction", "Z", nullptr, $PRIVATE, $field(AquaListUI$AquaHomeEndAction, fHomeAction)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, $PROTECTED, $method(AquaListUI$AquaHomeEndAction, init$, void, bool)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaListUI$AquaHomeEndAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaListUI$AquaHomeEndAction", "com.apple.laf.AquaListUI", "AquaHomeEndAction", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaListUI$AquaHomeEndAction",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaListUI"
+	};
+	$loadClass(AquaListUI$AquaHomeEndAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaListUI$AquaHomeEndAction));
+	});
 	return class$;
 }
 

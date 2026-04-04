@@ -1,5 +1,4 @@
 #include <sun/rmi/runtime/Log$LogStreamLog.h>
-
 #include <java/io/OutputStream.h>
 #include <java/lang/StackWalker$StackFrame.h>
 #include <java/rmi/server/LogStream.h>
@@ -25,48 +24,6 @@ namespace sun {
 	namespace rmi {
 		namespace runtime {
 
-$FieldInfo _Log$LogStreamLog_FieldInfo_[] = {
-	{"stream", "Ljava/rmi/server/LogStream;", nullptr, $PRIVATE | $FINAL, $field(Log$LogStreamLog, stream)},
-	{"levelValue", "I", nullptr, $PRIVATE, $field(Log$LogStreamLog, levelValue)},
-	{}
-};
-
-$MethodInfo _Log$LogStreamLog_MethodInfo_[] = {
-	{"<init>", "(Ljava/rmi/server/LogStream;Ljava/util/logging/Level;)V", nullptr, $PRIVATE, $method(Log$LogStreamLog, init$, void, $LogStream*, $Level*)},
-	{"getPrintStream", "()Ljava/io/PrintStream;", nullptr, $PUBLIC, $virtualMethod(Log$LogStreamLog, getPrintStream, $PrintStream*)},
-	{"isLoggable", "(Ljava/util/logging/Level;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Log$LogStreamLog, isLoggable, bool, $Level*)},
-	{"log", "(Ljava/util/logging/Level;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Log$LogStreamLog, log, void, $Level*, $String*)},
-	{"log", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Log$LogStreamLog, log, void, $Level*, $String*, $Throwable*)},
-	{"setOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Log$LogStreamLog, setOutputStream, void, $OutputStream*)},
-	{"unqualifiedName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Log$LogStreamLog, unqualifiedName, $String*, $String*)},
-	{}
-};
-
-$InnerClassInfo _Log$LogStreamLog_InnerClassesInfo_[] = {
-	{"sun.rmi.runtime.Log$LogStreamLog", "sun.rmi.runtime.Log", "LogStreamLog", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Log$LogStreamLog_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.rmi.runtime.Log$LogStreamLog",
-	"sun.rmi.runtime.Log",
-	nullptr,
-	_Log$LogStreamLog_FieldInfo_,
-	_Log$LogStreamLog_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Log$LogStreamLog_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.rmi.runtime.Log"
-};
-
-$Object* allocate$Log$LogStreamLog($Class* clazz) {
-	return $of($alloc(Log$LogStreamLog));
-}
-
 void Log$LogStreamLog::init$($LogStream* stream, $Level* level) {
 	$Log::init$();
 	$init($Level);
@@ -84,26 +41,32 @@ bool Log$LogStreamLog::isLoggable($Level* level) {
 }
 
 void Log$LogStreamLog::log($Level* messageLevel, $String* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isLoggable(messageLevel)) {
 		$var($StackWalker$StackFrame, sourceFrame, $Log::getSource());
-		$var($String, var$2, $$str({$(unqualifiedName($($nc(sourceFrame)->getClassName()))), "."_s}));
-		$var($String, var$1, $$concat(var$2, $($nc(sourceFrame)->getMethodName())));
-		$var($String, var$0, $$concat(var$1, ": "_s));
-		$nc(this->stream)->println($$concat(var$0, message));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(unqualifiedName($($nc(sourceFrame)->getClassName()))));
+		var$0->append("."_s);
+		var$0->append($(sourceFrame->getMethodName()));
+		var$0->append(": "_s);
+		var$0->append(message);
+		$nc(this->stream)->println($$str(var$0));
 	}
 }
 
 void Log$LogStreamLog::log($Level* level, $String* message, $Throwable* thrown) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isLoggable(level)) {
 		$synchronized(this->stream) {
 			$var($StackWalker$StackFrame, sourceFrame, $Log::getSource());
-			$var($String, var$2, $$str({$(unqualifiedName($($nc(sourceFrame)->getClassName()))), "."_s}));
-			$var($String, var$1, $$concat(var$2, $($nc(sourceFrame)->getMethodName())));
-			$var($String, var$0, $$concat(var$1, ": "_s));
-			$nc(this->stream)->println($$concat(var$0, message));
-			$nc(thrown)->printStackTrace(static_cast<$PrintStream*>(this->stream));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append($(unqualifiedName($($nc(sourceFrame)->getClassName()))));
+			var$0->append("."_s);
+			var$0->append($(sourceFrame->getMethodName()));
+			var$0->append(": "_s);
+			var$0->append(message);
+			this->stream->println($$str(var$0));
+			$nc(thrown)->printStackTrace(this->stream);
 		}
 	}
 }
@@ -117,7 +80,7 @@ void Log$LogStreamLog::setOutputStream($OutputStream* out) {
 		if (out != nullptr) {
 			$init($Log);
 			if ($nc($Log::VERBOSE)->intValue() < this->levelValue) {
-				this->levelValue = $nc($Log::VERBOSE)->intValue();
+				this->levelValue = $Log::VERBOSE->intValue();
 			}
 			$nc(this->stream)->setOutputStream(out);
 		} else {
@@ -130,7 +93,7 @@ void Log$LogStreamLog::setOutputStream($OutputStream* out) {
 $String* Log$LogStreamLog::unqualifiedName($String* name$renamed) {
 	$init(Log$LogStreamLog);
 	$var($String, name, name$renamed);
-	int32_t lastDot = $nc(name)->lastIndexOf((int32_t)u'.');
+	int32_t lastDot = $nc(name)->lastIndexOf(u'.');
 	if (lastDot >= 0) {
 		$assign(name, name->substring(lastDot + 1));
 	}
@@ -142,7 +105,43 @@ Log$LogStreamLog::Log$LogStreamLog() {
 }
 
 $Class* Log$LogStreamLog::load$($String* name, bool initialize) {
-	$loadClass(Log$LogStreamLog, name, initialize, &_Log$LogStreamLog_ClassInfo_, allocate$Log$LogStreamLog);
+	$FieldInfo fieldInfos$$[] = {
+		{"stream", "Ljava/rmi/server/LogStream;", nullptr, $PRIVATE | $FINAL, $field(Log$LogStreamLog, stream)},
+		{"levelValue", "I", nullptr, $PRIVATE, $field(Log$LogStreamLog, levelValue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/rmi/server/LogStream;Ljava/util/logging/Level;)V", nullptr, $PRIVATE, $method(Log$LogStreamLog, init$, void, $LogStream*, $Level*)},
+		{"getPrintStream", "()Ljava/io/PrintStream;", nullptr, $PUBLIC, $virtualMethod(Log$LogStreamLog, getPrintStream, $PrintStream*)},
+		{"isLoggable", "(Ljava/util/logging/Level;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Log$LogStreamLog, isLoggable, bool, $Level*)},
+		{"log", "(Ljava/util/logging/Level;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Log$LogStreamLog, log, void, $Level*, $String*)},
+		{"log", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Log$LogStreamLog, log, void, $Level*, $String*, $Throwable*)},
+		{"setOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Log$LogStreamLog, setOutputStream, void, $OutputStream*)},
+		{"unqualifiedName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Log$LogStreamLog, unqualifiedName, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.runtime.Log$LogStreamLog", "sun.rmi.runtime.Log", "LogStreamLog", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.rmi.runtime.Log$LogStreamLog",
+		"sun.rmi.runtime.Log",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.rmi.runtime.Log"
+	};
+	$loadClass(Log$LogStreamLog, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Log$LogStreamLog);
+	});
 	return class$;
 }
 

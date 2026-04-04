@@ -16,6 +16,7 @@ namespace com {
 class DefaultMBeanServerInterceptor$ResourceContext : public ::com::sun::jmx::mbeanserver::Repository$RegistrationContext {
 	$interface(DefaultMBeanServerInterceptor$ResourceContext, 0, ::com::sun::jmx::mbeanserver::Repository$RegistrationContext)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual void done() {}
 	static ::com::sun::jmx::interceptor::DefaultMBeanServerInterceptor$ResourceContext* NONE;
 };

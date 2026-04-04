@@ -57,6 +57,7 @@ class DOMDigestMethod : public ::org::jcp::xml::dsig::internal::dom::DOMStructur
 	$class(DOMDigestMethod, 0, ::org::jcp::xml::dsig::internal::dom::DOMStructure, ::javax::xml::crypto::dsig::DigestMethod)
 public:
 	DOMDigestMethod();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(::java::security::spec::AlgorithmParameterSpec* params);

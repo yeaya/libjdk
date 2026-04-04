@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbEntry.h>
-
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
 #include <org/w3c/dom/Attr.h>
@@ -21,34 +20,6 @@ namespace com {
 						namespace security {
 							namespace c14n {
 								namespace implementations {
-
-$FieldInfo _NameSpaceSymbEntry_FieldInfo_[] = {
-	{"prefix", "Ljava/lang/String;", nullptr, $FINAL, $field(NameSpaceSymbEntry, prefix)},
-	{"uri", "Ljava/lang/String;", nullptr, $FINAL, $field(NameSpaceSymbEntry, uri)},
-	{"n", "Lorg/w3c/dom/Attr;", nullptr, $FINAL, $field(NameSpaceSymbEntry, n)},
-	{"lastrendered", "Ljava/lang/String;", nullptr, 0, $field(NameSpaceSymbEntry, lastrendered)},
-	{"rendered", "Z", nullptr, 0, $field(NameSpaceSymbEntry, rendered)},
-	{}
-};
-
-$MethodInfo _NameSpaceSymbEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lorg/w3c/dom/Attr;ZLjava/lang/String;)V", nullptr, 0, $method(NameSpaceSymbEntry, init$, void, $String*, $Attr*, bool, $String*)},
-	{"clone", "()Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbEntry;", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbEntry, clone, NameSpaceSymbEntry*)},
-	{}
-};
-
-$ClassInfo _NameSpaceSymbEntry_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.c14n.implementations.NameSpaceSymbEntry",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_NameSpaceSymbEntry_FieldInfo_,
-	_NameSpaceSymbEntry_MethodInfo_
-};
-
-$Object* allocate$NameSpaceSymbEntry($Class* clazz) {
-	return $of($alloc(NameSpaceSymbEntry));
-}
 
 void NameSpaceSymbEntry::init$($String* name, $Attr* n, bool rendered, $String* prefix) {
 	$set(this, lastrendered, nullptr);
@@ -72,7 +43,30 @@ NameSpaceSymbEntry::NameSpaceSymbEntry() {
 }
 
 $Class* NameSpaceSymbEntry::load$($String* name, bool initialize) {
-	$loadClass(NameSpaceSymbEntry, name, initialize, &_NameSpaceSymbEntry_ClassInfo_, allocate$NameSpaceSymbEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"prefix", "Ljava/lang/String;", nullptr, $FINAL, $field(NameSpaceSymbEntry, prefix)},
+		{"uri", "Ljava/lang/String;", nullptr, $FINAL, $field(NameSpaceSymbEntry, uri)},
+		{"n", "Lorg/w3c/dom/Attr;", nullptr, $FINAL, $field(NameSpaceSymbEntry, n)},
+		{"lastrendered", "Ljava/lang/String;", nullptr, 0, $field(NameSpaceSymbEntry, lastrendered)},
+		{"rendered", "Z", nullptr, 0, $field(NameSpaceSymbEntry, rendered)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Lorg/w3c/dom/Attr;ZLjava/lang/String;)V", nullptr, 0, $method(NameSpaceSymbEntry, init$, void, $String*, $Attr*, bool, $String*)},
+		{"clone", "()Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbEntry;", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbEntry, clone, NameSpaceSymbEntry*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.c14n.implementations.NameSpaceSymbEntry",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NameSpaceSymbEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NameSpaceSymbEntry);
+	});
 	return class$;
 }
 

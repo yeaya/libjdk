@@ -55,6 +55,7 @@ class $export SocketTube$InternalWriteSubscriber : public ::java::util::concurre
 	$class(SocketTube$InternalWriteSubscriber, 0, ::java::util::concurrent::Flow$Subscriber)
 public:
 	SocketTube$InternalWriteSubscriber();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::SocketTube* this$0);
 	static $String* lambda$signalError$0($Throwable* error);
 	virtual void onComplete() override;

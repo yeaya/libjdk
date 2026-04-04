@@ -1,5 +1,4 @@
 #include <sun/awt/AWTPermissions.h>
-
 #include <java/awt/AWTPermission.h>
 #include <jcpp.h>
 
@@ -22,38 +21,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace awt {
 
-$FieldInfo _AWTPermissions_FieldInfo_[] = {
-	{"TOPLEVEL_WINDOW_PERMISSION", "Ljava/awt/AWTPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AWTPermissions, TOPLEVEL_WINDOW_PERMISSION)},
-	{"ACCESS_CLIPBOARD_PERMISSION", "Ljava/awt/AWTPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AWTPermissions, ACCESS_CLIPBOARD_PERMISSION)},
-	{"CHECK_AWT_EVENTQUEUE_PERMISSION", "Ljava/awt/AWTPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AWTPermissions, CHECK_AWT_EVENTQUEUE_PERMISSION)},
-	{"TOOLKIT_MODALITY_PERMISSION", "Ljava/awt/AWTPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AWTPermissions, TOOLKIT_MODALITY_PERMISSION)},
-	{"READ_DISPLAY_PIXELS_PERMISSION", "Ljava/awt/AWTPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AWTPermissions, READ_DISPLAY_PIXELS_PERMISSION)},
-	{"CREATE_ROBOT_PERMISSION", "Ljava/awt/AWTPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AWTPermissions, CREATE_ROBOT_PERMISSION)},
-	{"WATCH_MOUSE_PERMISSION", "Ljava/awt/AWTPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AWTPermissions, WATCH_MOUSE_PERMISSION)},
-	{"SET_WINDOW_ALWAYS_ON_TOP_PERMISSION", "Ljava/awt/AWTPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AWTPermissions, SET_WINDOW_ALWAYS_ON_TOP_PERMISSION)},
-	{"ALL_AWT_EVENTS_PERMISSION", "Ljava/awt/AWTPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AWTPermissions, ALL_AWT_EVENTS_PERMISSION)},
-	{"ACCESS_SYSTEM_TRAY_PERMISSION", "Ljava/awt/AWTPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AWTPermissions, ACCESS_SYSTEM_TRAY_PERMISSION)},
-	{}
-};
-
-$MethodInfo _AWTPermissions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(AWTPermissions, init$, void)},
-	{}
-};
-
-$ClassInfo _AWTPermissions_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.AWTPermissions",
-	"java.lang.Object",
-	nullptr,
-	_AWTPermissions_FieldInfo_,
-	_AWTPermissions_MethodInfo_
-};
-
-$Object* allocate$AWTPermissions($Class* clazz) {
-	return $of($alloc(AWTPermissions));
-}
-
 $AWTPermission* AWTPermissions::TOPLEVEL_WINDOW_PERMISSION = nullptr;
 $AWTPermission* AWTPermissions::ACCESS_CLIPBOARD_PERMISSION = nullptr;
 $AWTPermission* AWTPermissions::CHECK_AWT_EVENTQUEUE_PERMISSION = nullptr;
@@ -68,7 +35,7 @@ $AWTPermission* AWTPermissions::ACCESS_SYSTEM_TRAY_PERMISSION = nullptr;
 void AWTPermissions::init$() {
 }
 
-void clinit$AWTPermissions($Class* class$) {
+void AWTPermissions::clinit$($Class* clazz) {
 	$assignStatic(AWTPermissions::TOPLEVEL_WINDOW_PERMISSION, $new($AWTPermission, "showWindowWithoutWarningBanner"_s));
 	$assignStatic(AWTPermissions::ACCESS_CLIPBOARD_PERMISSION, $new($AWTPermission, "accessClipboard"_s));
 	$assignStatic(AWTPermissions::CHECK_AWT_EVENTQUEUE_PERMISSION, $new($AWTPermission, "accessEventQueue"_s));
@@ -85,7 +52,34 @@ AWTPermissions::AWTPermissions() {
 }
 
 $Class* AWTPermissions::load$($String* name, bool initialize) {
-	$loadClass(AWTPermissions, name, initialize, &_AWTPermissions_ClassInfo_, clinit$AWTPermissions, allocate$AWTPermissions);
+	$FieldInfo fieldInfos$$[] = {
+		{"TOPLEVEL_WINDOW_PERMISSION", "Ljava/awt/AWTPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AWTPermissions, TOPLEVEL_WINDOW_PERMISSION)},
+		{"ACCESS_CLIPBOARD_PERMISSION", "Ljava/awt/AWTPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AWTPermissions, ACCESS_CLIPBOARD_PERMISSION)},
+		{"CHECK_AWT_EVENTQUEUE_PERMISSION", "Ljava/awt/AWTPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AWTPermissions, CHECK_AWT_EVENTQUEUE_PERMISSION)},
+		{"TOOLKIT_MODALITY_PERMISSION", "Ljava/awt/AWTPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AWTPermissions, TOOLKIT_MODALITY_PERMISSION)},
+		{"READ_DISPLAY_PIXELS_PERMISSION", "Ljava/awt/AWTPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AWTPermissions, READ_DISPLAY_PIXELS_PERMISSION)},
+		{"CREATE_ROBOT_PERMISSION", "Ljava/awt/AWTPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AWTPermissions, CREATE_ROBOT_PERMISSION)},
+		{"WATCH_MOUSE_PERMISSION", "Ljava/awt/AWTPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AWTPermissions, WATCH_MOUSE_PERMISSION)},
+		{"SET_WINDOW_ALWAYS_ON_TOP_PERMISSION", "Ljava/awt/AWTPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AWTPermissions, SET_WINDOW_ALWAYS_ON_TOP_PERMISSION)},
+		{"ALL_AWT_EVENTS_PERMISSION", "Ljava/awt/AWTPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AWTPermissions, ALL_AWT_EVENTS_PERMISSION)},
+		{"ACCESS_SYSTEM_TRAY_PERMISSION", "Ljava/awt/AWTPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AWTPermissions, ACCESS_SYSTEM_TRAY_PERMISSION)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(AWTPermissions, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.AWTPermissions",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AWTPermissions, name, initialize, &classInfo$$, AWTPermissions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AWTPermissions);
+	});
 	return class$;
 }
 

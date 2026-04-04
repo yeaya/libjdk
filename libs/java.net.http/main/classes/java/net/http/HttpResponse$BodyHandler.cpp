@@ -1,5 +1,4 @@
 #include <java/net/http/HttpResponse$BodyHandler.h>
-
 #include <java/net/http/HttpResponse$BodySubscriber.h>
 #include <java/net/http/HttpResponse$ResponseInfo.h>
 #include <java/net/http/HttpResponse.h>
@@ -16,43 +15,37 @@ namespace java {
 	namespace net {
 		namespace http {
 
-$CompoundAttribute _HttpResponse$BodyHandler_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _HttpResponse$BodyHandler_MethodInfo_[] = {
-	{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse$BodyHandler, apply, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
-	{}
-};
-
-$InnerClassInfo _HttpResponse$BodyHandler_InnerClassesInfo_[] = {
-	{"java.net.http.HttpResponse$BodyHandler", "java.net.http.HttpResponse", "BodyHandler", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _HttpResponse$BodyHandler_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.net.http.HttpResponse$BodyHandler",
-	nullptr,
-	nullptr,
-	nullptr,
-	_HttpResponse$BodyHandler_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_HttpResponse$BodyHandler_InnerClassesInfo_,
-	_HttpResponse$BodyHandler_Annotations_,
-	nullptr,
-	nullptr,
-	"java.net.http.HttpResponse"
-};
-
-$Object* allocate$HttpResponse$BodyHandler($Class* clazz) {
-	return $of($alloc(HttpResponse$BodyHandler));
-}
-
 $Class* HttpResponse$BodyHandler::load$($String* name, bool initialize) {
-	$loadClass(HttpResponse$BodyHandler, name, initialize, &_HttpResponse$BodyHandler_ClassInfo_, allocate$HttpResponse$BodyHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse$BodyHandler, apply, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.http.HttpResponse$BodyHandler", "java.net.http.HttpResponse", "BodyHandler", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.net.http.HttpResponse$BodyHandler",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"java.net.http.HttpResponse"
+	};
+	$loadClass(HttpResponse$BodyHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpResponse$BodyHandler);
+	});
 	return class$;
 }
 

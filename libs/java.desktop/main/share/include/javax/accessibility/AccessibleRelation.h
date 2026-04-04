@@ -62,6 +62,7 @@ class $import AccessibleRelation : public ::javax::accessibility::AccessibleBund
 	$class(AccessibleRelation, 0, ::javax::accessibility::AccessibleBundle)
 public:
 	AccessibleRelation();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* key);
 	void init$($String* key, Object$* target);
 	void init$($String* key, $ObjectArray* target);

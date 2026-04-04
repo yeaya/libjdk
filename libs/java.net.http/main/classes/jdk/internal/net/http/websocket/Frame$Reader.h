@@ -46,6 +46,7 @@ class Frame$Reader : public ::java::lang::Object {
 	$class(Frame$Reader, 0, ::java::lang::Object)
 public:
 	Frame$Reader();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::jdk::internal::net::http::websocket::FailWebSocketException* negativePayload(int64_t payloadLength);
 	static ::jdk::internal::net::http::websocket::FailWebSocketException* notMinimalEncoding(int64_t payloadLength);

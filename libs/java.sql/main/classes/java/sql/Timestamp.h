@@ -45,7 +45,7 @@ public:
 	static ::java::sql::Timestamp* valueOf($String* s);
 	static ::java::sql::Timestamp* valueOf(::java::time::LocalDateTime* dateTime);
 	int32_t nanos = 0;
-	static const int64_t serialVersionUID = (int64_t)0x2618D5C80153BF65;
+	static const int64_t serialVersionUID = (int64_t)0x2618d5c80153bf65;
 	static const int32_t MILLIS_PER_SECOND = 1000;
 };
 

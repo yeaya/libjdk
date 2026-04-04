@@ -62,6 +62,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::krb5::internal::ccache::FileCredentialsCache* New(::sun::security::krb5::PrincipalName* principal, $String* name);
 	static ::sun::security::krb5::internal::ccache::FileCredentialsCache* New(::sun::security::krb5::PrincipalName* principal);

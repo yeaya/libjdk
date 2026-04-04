@@ -20,10 +20,13 @@ class InvalidDatatypeValueException : public ::com::sun::org::apache::xerces::in
 public:
 	InvalidDatatypeValueException();
 	void init$($String* key, $ObjectArray* args);
-	static const int64_t serialVersionUID = (int64_t)0xB357BC41D855A623;
+	static const int64_t serialVersionUID = (int64_t)0xb357bc41d855a623;
 	InvalidDatatypeValueException(const InvalidDatatypeValueException& e);
 	virtual void throw$() override;
-	inline InvalidDatatypeValueException* operator ->() {
+	inline InvalidDatatypeValueException* operator ->() const {
+		return (InvalidDatatypeValueException*)throwing$;
+	}
+	inline operator InvalidDatatypeValueException*() const {
 		return (InvalidDatatypeValueException*)throwing$;
 	}
 };

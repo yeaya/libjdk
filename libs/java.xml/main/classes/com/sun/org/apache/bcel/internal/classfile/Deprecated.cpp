@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/Deprecated.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Attribute.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
@@ -28,39 +27,8 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$FieldInfo _Deprecated_FieldInfo_[] = {
-	{"bytes", "[B", nullptr, $PRIVATE, $field(Deprecated, bytes)},
-	{}
-};
-
-$MethodInfo _Deprecated_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/Deprecated;)V", nullptr, $PUBLIC, $method(Deprecated, init$, void, Deprecated*)},
-	{"<init>", "(II[BLcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(Deprecated, init$, void, int32_t, int32_t, $bytes*, $ConstantPool*)},
-	{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(Deprecated, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Deprecated, accept, void, $Visitor*)},
-	{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(Deprecated, copy, $Attribute*, $ConstantPool*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Deprecated, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getBytes", "()[B", nullptr, $PUBLIC, $method(Deprecated, getBytes, $bytes*)},
-	{"setBytes", "([B)V", nullptr, $PUBLIC, $method(Deprecated, setBytes, void, $bytes*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Deprecated, toString, $String*)},
-	{}
-};
-
-$ClassInfo _Deprecated_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.Deprecated",
-	"com.sun.org.apache.bcel.internal.classfile.Attribute",
-	nullptr,
-	_Deprecated_FieldInfo_,
-	_Deprecated_MethodInfo_
-};
-
-$Object* allocate$Deprecated($Class* clazz) {
-	return $of($alloc(Deprecated));
-}
-
 void Deprecated::init$(Deprecated* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(c)->getNameIndex();
 	int32_t var$1 = c->getLength();
 	$var($bytes, var$2, c->getBytes());
@@ -107,8 +75,8 @@ $String* Deprecated::toString() {
 $Attribute* Deprecated::copy($ConstantPool* _constant_pool) {
 	$var(Deprecated, c, $cast(Deprecated, clone()));
 	if (this->bytes != nullptr) {
-		$set($nc(c), bytes, $new($bytes, $nc(this->bytes)->length));
-		$System::arraycopy(this->bytes, 0, c->bytes, 0, $nc(this->bytes)->length);
+		$set($nc(c), bytes, $new($bytes, this->bytes->length));
+		$System::arraycopy(this->bytes, 0, c->bytes, 0, this->bytes->length);
 	}
 	$nc(c)->setConstantPool(_constant_pool);
 	return c;
@@ -118,7 +86,33 @@ Deprecated::Deprecated() {
 }
 
 $Class* Deprecated::load$($String* name, bool initialize) {
-	$loadClass(Deprecated, name, initialize, &_Deprecated_ClassInfo_, allocate$Deprecated);
+	$FieldInfo fieldInfos$$[] = {
+		{"bytes", "[B", nullptr, $PRIVATE, $field(Deprecated, bytes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/Deprecated;)V", nullptr, $PUBLIC, $method(Deprecated, init$, void, Deprecated*)},
+		{"<init>", "(II[BLcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(Deprecated, init$, void, int32_t, int32_t, $bytes*, $ConstantPool*)},
+		{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(Deprecated, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Deprecated, accept, void, $Visitor*)},
+		{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(Deprecated, copy, $Attribute*, $ConstantPool*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Deprecated, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getBytes", "()[B", nullptr, $PUBLIC, $method(Deprecated, getBytes, $bytes*)},
+		{"setBytes", "([B)V", nullptr, $PUBLIC, $method(Deprecated, setBytes, void, $bytes*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Deprecated, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.Deprecated",
+		"com.sun.org.apache.bcel.internal.classfile.Attribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Deprecated, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Deprecated));
+	});
 	return class$;
 }
 

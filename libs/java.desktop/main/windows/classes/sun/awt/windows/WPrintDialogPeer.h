@@ -103,6 +103,7 @@ public:
 	virtual bool isObscured() override;
 	virtual bool isReparentSupported() override;
 	virtual void layout() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::windows::WPrintDialog* target);
 	bool _show();
 	virtual void addDropTarget(::java::awt::dnd::DropTarget* dt) override;

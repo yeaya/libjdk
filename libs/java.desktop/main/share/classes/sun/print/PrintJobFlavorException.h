@@ -31,7 +31,10 @@ public:
 	::javax::print::DocFlavor* flavor = nullptr;
 	PrintJobFlavorException(const PrintJobFlavorException& e);
 	virtual void throw$() override;
-	inline PrintJobFlavorException* operator ->() {
+	inline PrintJobFlavorException* operator ->() const {
+		return (PrintJobFlavorException*)throwing$;
+	}
+	inline operator PrintJobFlavorException*() const {
 		return (PrintJobFlavorException*)throwing$;
 	}
 };

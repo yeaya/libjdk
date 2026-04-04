@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSGrammarBucket.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar.h>
 #include <java/util/ArrayList.h>
 #include <java/util/HashMap.h>
@@ -19,9 +18,7 @@ using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 
 namespace com {
 	namespace sun {
@@ -31,36 +28,6 @@ namespace com {
 					namespace internal {
 						namespace impl {
 							namespace xs {
-
-$FieldInfo _XSGrammarBucket_FieldInfo_[] = {
-	{"fGrammarRegistry", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;>;", 0, $field(XSGrammarBucket, fGrammarRegistry)},
-	{"fNoNSGrammar", "Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;", nullptr, 0, $field(XSGrammarBucket, fNoNSGrammar)},
-	{}
-};
-
-$MethodInfo _XSGrammarBucket_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XSGrammarBucket, init$, void)},
-	{"getGrammar", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;", nullptr, $PUBLIC, $virtualMethod(XSGrammarBucket, getGrammar, $SchemaGrammar*, $String*)},
-	{"getGrammars", "()[Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;", nullptr, $PUBLIC, $virtualMethod(XSGrammarBucket, getGrammars, $SchemaGrammarArray*)},
-	{"putGrammar", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PUBLIC, $virtualMethod(XSGrammarBucket, putGrammar, void, $SchemaGrammar*)},
-	{"putGrammar", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Z)Z", nullptr, $PUBLIC, $virtualMethod(XSGrammarBucket, putGrammar, bool, $SchemaGrammar*, bool)},
-	{"putGrammar", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;ZZ)Z", nullptr, $PUBLIC, $virtualMethod(XSGrammarBucket, putGrammar, bool, $SchemaGrammar*, bool, bool)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(XSGrammarBucket, reset, void)},
-	{}
-};
-
-$ClassInfo _XSGrammarBucket_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.XSGrammarBucket",
-	"java.lang.Object",
-	nullptr,
-	_XSGrammarBucket_FieldInfo_,
-	_XSGrammarBucket_MethodInfo_
-};
-
-$Object* allocate$XSGrammarBucket($Class* clazz) {
-	return $of($alloc(XSGrammarBucket));
-}
 
 void XSGrammarBucket::init$() {
 	$set(this, fGrammarRegistry, $new($HashMap));
@@ -83,7 +50,7 @@ void XSGrammarBucket::putGrammar($SchemaGrammar* grammar) {
 }
 
 bool XSGrammarBucket::putGrammar($SchemaGrammar* grammar, bool deep) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SchemaGrammar, sg, getGrammar($nc(grammar)->fTargetNamespace));
 	if (sg != nullptr) {
 		return sg == grammar;
@@ -92,7 +59,7 @@ bool XSGrammarBucket::putGrammar($SchemaGrammar* grammar, bool deep) {
 		putGrammar(grammar);
 		return true;
 	}
-	$var($ArrayList, currGrammars, $cast($ArrayList, $nc(grammar)->getImportedGrammars()));
+	$var($ArrayList, currGrammars, $cast($ArrayList, grammar->getImportedGrammars()));
 	if (currGrammars == nullptr) {
 		putGrammar(grammar);
 		return true;
@@ -105,7 +72,7 @@ bool XSGrammarBucket::putGrammar($SchemaGrammar* grammar, bool deep) {
 		$assign(sg1, $cast($SchemaGrammar, grammars->get(i)));
 		$assign(sg2, getGrammar($nc(sg1)->fTargetNamespace));
 		if (sg2 == nullptr) {
-			$assign(gs, $nc(sg1)->getImportedGrammars());
+			$assign(gs, sg1->getImportedGrammars());
 			if (gs == nullptr) {
 				continue;
 			}
@@ -120,14 +87,14 @@ bool XSGrammarBucket::putGrammar($SchemaGrammar* grammar, bool deep) {
 		}
 	}
 	putGrammar(grammar);
-	for (int32_t i = $nc(grammars)->size() - 1; i >= 0; --i) {
-		putGrammar($cast($SchemaGrammar, $(grammars->get(i))));
+	for (int32_t i = grammars->size() - 1; i >= 0; --i) {
+		putGrammar($$cast($SchemaGrammar, grammars->get(i)));
 	}
 	return true;
 }
 
 bool XSGrammarBucket::putGrammar($SchemaGrammar* grammar, bool deep, bool ignoreConflict) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!ignoreConflict) {
 		return putGrammar(grammar, deep);
 	}
@@ -138,7 +105,7 @@ bool XSGrammarBucket::putGrammar($SchemaGrammar* grammar, bool deep, bool ignore
 	if (!deep) {
 		return true;
 	}
-	$var($ArrayList, currGrammars, $cast($ArrayList, $nc(grammar)->getImportedGrammars()));
+	$var($ArrayList, currGrammars, $cast($ArrayList, grammar->getImportedGrammars()));
 	if (currGrammars == nullptr) {
 		return true;
 	}
@@ -150,7 +117,7 @@ bool XSGrammarBucket::putGrammar($SchemaGrammar* grammar, bool deep, bool ignore
 		$assign(sg1, $cast($SchemaGrammar, grammars->get(i)));
 		$assign(sg2, getGrammar($nc(sg1)->fTargetNamespace));
 		if (sg2 == nullptr) {
-			$assign(gs, $nc(sg1)->getImportedGrammars());
+			$assign(gs, sg1->getImportedGrammars());
 			if (gs == nullptr) {
 				continue;
 			}
@@ -161,26 +128,26 @@ bool XSGrammarBucket::putGrammar($SchemaGrammar* grammar, bool deep, bool ignore
 				}
 			}
 		} else {
-			grammars->remove($of(sg1));
+			grammars->remove(sg1);
 		}
 	}
-	for (int32_t i = $nc(grammars)->size() - 1; i >= 0; --i) {
-		putGrammar($cast($SchemaGrammar, $(grammars->get(i))));
+	for (int32_t i = grammars->size() - 1; i >= 0; --i) {
+		putGrammar($$cast($SchemaGrammar, grammars->get(i)));
 	}
 	return true;
 }
 
 $SchemaGrammarArray* XSGrammarBucket::getGrammars() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = $nc(this->fGrammarRegistry)->size() + (this->fNoNSGrammar == nullptr ? 0 : 1);
 	$var($SchemaGrammarArray, grammars, $new($SchemaGrammarArray, count));
 	int32_t i = 0;
 	{
-		$var($Iterator, i$, $nc($($nc(this->fGrammarRegistry)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(this->fGrammarRegistry->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
-				grammars->set(i++, $cast($SchemaGrammar, $($nc(entry)->getValue())));
+				grammars->set(i++, $$cast($SchemaGrammar, $nc(entry)->getValue()));
 			}
 		}
 	}
@@ -199,7 +166,32 @@ XSGrammarBucket::XSGrammarBucket() {
 }
 
 $Class* XSGrammarBucket::load$($String* name, bool initialize) {
-	$loadClass(XSGrammarBucket, name, initialize, &_XSGrammarBucket_ClassInfo_, allocate$XSGrammarBucket);
+	$FieldInfo fieldInfos$$[] = {
+		{"fGrammarRegistry", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;>;", 0, $field(XSGrammarBucket, fGrammarRegistry)},
+		{"fNoNSGrammar", "Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;", nullptr, 0, $field(XSGrammarBucket, fNoNSGrammar)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XSGrammarBucket, init$, void)},
+		{"getGrammar", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;", nullptr, $PUBLIC, $virtualMethod(XSGrammarBucket, getGrammar, $SchemaGrammar*, $String*)},
+		{"getGrammars", "()[Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;", nullptr, $PUBLIC, $virtualMethod(XSGrammarBucket, getGrammars, $SchemaGrammarArray*)},
+		{"putGrammar", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PUBLIC, $virtualMethod(XSGrammarBucket, putGrammar, void, $SchemaGrammar*)},
+		{"putGrammar", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Z)Z", nullptr, $PUBLIC, $virtualMethod(XSGrammarBucket, putGrammar, bool, $SchemaGrammar*, bool)},
+		{"putGrammar", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;ZZ)Z", nullptr, $PUBLIC, $virtualMethod(XSGrammarBucket, putGrammar, bool, $SchemaGrammar*, bool, bool)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(XSGrammarBucket, reset, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.XSGrammarBucket",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XSGrammarBucket, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSGrammarBucket);
+	});
 	return class$;
 }
 

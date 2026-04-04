@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/CollatorFactoryBase.h>
-
 #include <java/text/Collator.h>
 #include <java/util/Locale.h>
 #include <jcpp.h>
@@ -22,32 +21,6 @@ namespace com {
 						namespace xsltc {
 							namespace dom {
 
-$FieldInfo _CollatorFactoryBase_FieldInfo_[] = {
-	{"DEFAULT_LOCALE", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CollatorFactoryBase, DEFAULT_LOCALE)},
-	{"DEFAULT_COLLATOR", "Ljava/text/Collator;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CollatorFactoryBase, DEFAULT_COLLATOR)},
-	{}
-};
-
-$MethodInfo _CollatorFactoryBase_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CollatorFactoryBase, init$, void)},
-	{"getCollator", "(Ljava/lang/String;Ljava/lang/String;)Ljava/text/Collator;", nullptr, $PUBLIC, $virtualMethod(CollatorFactoryBase, getCollator, $Collator*, $String*, $String*)},
-	{"getCollator", "(Ljava/util/Locale;)Ljava/text/Collator;", nullptr, $PUBLIC, $virtualMethod(CollatorFactoryBase, getCollator, $Collator*, $Locale*)},
-	{}
-};
-
-$ClassInfo _CollatorFactoryBase_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.CollatorFactoryBase",
-	"java.lang.Object",
-	"com.sun.org.apache.xalan.internal.xsltc.CollatorFactory",
-	_CollatorFactoryBase_FieldInfo_,
-	_CollatorFactoryBase_MethodInfo_
-};
-
-$Object* allocate$CollatorFactoryBase($Class* clazz) {
-	return $of($alloc(CollatorFactoryBase));
-}
-
 $Locale* CollatorFactoryBase::DEFAULT_LOCALE = nullptr;
 $Collator* CollatorFactoryBase::DEFAULT_COLLATOR = nullptr;
 
@@ -66,7 +39,7 @@ $Collator* CollatorFactoryBase::getCollator($Locale* locale) {
 	}
 }
 
-void clinit$CollatorFactoryBase($Class* class$) {
+void CollatorFactoryBase::clinit$($Class* clazz) {
 	$assignStatic(CollatorFactoryBase::DEFAULT_LOCALE, $Locale::getDefault());
 	$assignStatic(CollatorFactoryBase::DEFAULT_COLLATOR, $Collator::getInstance());
 }
@@ -75,7 +48,28 @@ CollatorFactoryBase::CollatorFactoryBase() {
 }
 
 $Class* CollatorFactoryBase::load$($String* name, bool initialize) {
-	$loadClass(CollatorFactoryBase, name, initialize, &_CollatorFactoryBase_ClassInfo_, clinit$CollatorFactoryBase, allocate$CollatorFactoryBase);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_LOCALE", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CollatorFactoryBase, DEFAULT_LOCALE)},
+		{"DEFAULT_COLLATOR", "Ljava/text/Collator;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CollatorFactoryBase, DEFAULT_COLLATOR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CollatorFactoryBase, init$, void)},
+		{"getCollator", "(Ljava/lang/String;Ljava/lang/String;)Ljava/text/Collator;", nullptr, $PUBLIC, $virtualMethod(CollatorFactoryBase, getCollator, $Collator*, $String*, $String*)},
+		{"getCollator", "(Ljava/util/Locale;)Ljava/text/Collator;", nullptr, $PUBLIC, $virtualMethod(CollatorFactoryBase, getCollator, $Collator*, $Locale*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.CollatorFactoryBase",
+		"java.lang.Object",
+		"com.sun.org.apache.xalan.internal.xsltc.CollatorFactory",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CollatorFactoryBase, name, initialize, &classInfo$$, CollatorFactoryBase::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CollatorFactoryBase);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WChoicePeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -22,7 +21,6 @@
 #include <java/awt/peer/ComponentPeer.h>
 #include <java/awt/peer/ContainerPeer.h>
 #include <java/lang/Math.h>
-#include <java/lang/Runnable.h>
 #include <sun/awt/AWTAccessor$ComponentAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <sun/awt/SunToolkit.h>
@@ -51,7 +49,6 @@ using $Point = ::java::awt::Point;
 using $Window = ::java::awt::Window;
 using $FocusEvent$Cause = ::java::awt::event::FocusEvent$Cause;
 using $PaintEvent = ::java::awt::event::PaintEvent;
-using $WindowListener = ::java::awt::event::WindowListener;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $VolatileImage = ::java::awt::image::VolatileImage;
 using $ComponentPeer = ::java::awt::peer::ComponentPeer;
@@ -61,9 +58,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $WChoicePeer$1 = ::sun::awt::windows::WChoicePeer$1;
 using $WChoicePeer$2 = ::sun::awt::windows::WChoicePeer$2;
@@ -75,102 +70,6 @@ using $Region = ::sun::java2d::pipe::Region;
 namespace sun {
 	namespace awt {
 		namespace windows {
-
-$FieldInfo _WChoicePeer_FieldInfo_[] = {
-	{"windowListener", "Ljava/awt/event/WindowListener;", nullptr, $PRIVATE, $field(WChoicePeer, windowListener)},
-	{}
-};
-
-$MethodInfo _WChoicePeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $NATIVE},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Choice;)V", nullptr, 0, $method(WChoicePeer, init$, void, $Choice*)},
-	{"add", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(WChoicePeer, add, void, $String*, int32_t)},
-	{"addItems", "([Ljava/lang/String;I)V", nullptr, $PUBLIC | $NATIVE, $method(WChoicePeer, addItems, void, $StringArray*, int32_t)},
-	{"closeList", "()V", nullptr, $NATIVE, $method(WChoicePeer, closeList, void)},
-	{"create", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, $NATIVE, $virtualMethod(WChoicePeer, create, void, $WComponentPeer*)},
-	{"disposeImpl", "()V", nullptr, $PROTECTED, $virtualMethod(WChoicePeer, disposeImpl, void)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WChoicePeer, getMinimumSize, $Dimension*)},
-	{"handleAction", "(I)V", nullptr, 0, $method(WChoicePeer, handleAction, void, int32_t)},
-	{"initialize", "()V", nullptr, 0, $virtualMethod(WChoicePeer, initialize, void)},
-	{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(WChoicePeer, isFocusable, bool)},
-	{"*isObscured", "()Z", nullptr, $PUBLIC | $NATIVE},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"remove", "(I)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WChoicePeer, remove, void, int32_t)},
-	{"removeAll", "()V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WChoicePeer, removeAll, void)},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
-	{"reshape", "(IIII)V", nullptr, $PUBLIC | $SYNCHRONIZED | $NATIVE, $virtualMethod(WChoicePeer, reshape, void, int32_t, int32_t, int32_t, int32_t)},
-	{"select", "(I)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WChoicePeer, select, void, int32_t)},
-	{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"shouldClearRectBeforePaint", "()Z", nullptr, $PUBLIC, $virtualMethod(WChoicePeer, shouldClearRectBeforePaint, bool)},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-#define _METHOD_INDEX_addItems 24
-#define _METHOD_INDEX_closeList 25
-#define _METHOD_INDEX_create 26
-#define _METHOD_INDEX_remove 37
-#define _METHOD_INDEX_removeAll 38
-#define _METHOD_INDEX_reshape 41
-#define _METHOD_INDEX_select 42
-
-$InnerClassInfo _WChoicePeer_InnerClassesInfo_[] = {
-	{"sun.awt.windows.WChoicePeer$2", nullptr, nullptr, 0},
-	{"sun.awt.windows.WChoicePeer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WChoicePeer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.windows.WChoicePeer",
-	"sun.awt.windows.WComponentPeer",
-	"java.awt.peer.ChoicePeer",
-	_WChoicePeer_FieldInfo_,
-	_WChoicePeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WChoicePeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.windows.WChoicePeer$2,sun.awt.windows.WChoicePeer$1"
-};
-
-$Object* allocate$WChoicePeer($Class* clazz) {
-	return $of($alloc(WChoicePeer));
-}
 
 bool WChoicePeer::isObscured() {
 	 return this->$WComponentPeer::isObscured();
@@ -329,8 +228,8 @@ void WChoicePeer::finalize() {
 }
 
 $Dimension* WChoicePeer::getMinimumSize() {
-	$useLocalCurrentObjectStackCache();
-	$var($FontMetrics, fm, getFontMetrics($($nc(($cast($Choice, this->target)))->getFont())));
+	$useLocalObjectStack();
+	$var($FontMetrics, fm, getFontMetrics($($nc($cast($Choice, this->target))->getFont())));
 	$var($Choice, c, $cast($Choice, this->target));
 	int32_t w = 0;
 	for (int32_t i = $nc(c)->getItemCount(); i-- > 0;) {
@@ -344,7 +243,7 @@ bool WChoicePeer::isFocusable() {
 }
 
 void WChoicePeer::select(int32_t index) {
-	$prepareNative(WChoicePeer, select, void, int32_t index);
+	$prepareNative(select, void, int32_t index);
 	$invokeNative(index);
 	$finishNative();
 }
@@ -358,25 +257,25 @@ bool WChoicePeer::shouldClearRectBeforePaint() {
 }
 
 void WChoicePeer::removeAll() {
-	$prepareNative(WChoicePeer, removeAll, void);
+	$prepareNative(removeAll, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void WChoicePeer::remove(int32_t index) {
-	$prepareNative(WChoicePeer, remove, void, int32_t index);
+	$prepareNative(remove, void, int32_t index);
 	$invokeNative(index);
 	$finishNative();
 }
 
 void WChoicePeer::addItems($StringArray* items, int32_t index) {
-	$prepareNative(WChoicePeer, addItems, void, $StringArray* items, int32_t index);
+	$prepareNative(addItems, void, $StringArray* items, int32_t index);
 	$invokeNative(items, index);
 	$finishNative();
 }
 
 void WChoicePeer::reshape(int32_t x, int32_t y, int32_t width, int32_t height) {
-	$prepareNative(WChoicePeer, reshape, void, int32_t x, int32_t y, int32_t width, int32_t height);
+	$prepareNative(reshape, void, int32_t x, int32_t y, int32_t width, int32_t height);
 	$invokeNative(x, y, width, height);
 	$finishNative();
 }
@@ -386,13 +285,13 @@ void WChoicePeer::init$($Choice* target) {
 }
 
 void WChoicePeer::create($WComponentPeer* parent) {
-	$prepareNative(WChoicePeer, create, void, $WComponentPeer* parent);
+	$prepareNative(create, void, $WComponentPeer* parent);
 	$invokeNative(parent);
 	$finishNative();
 }
 
 void WChoicePeer::initialize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Choice, opt, $cast($Choice, this->target));
 	int32_t itemCount = $nc(opt)->getItemCount();
 	if (itemCount > 0) {
@@ -407,7 +306,7 @@ void WChoicePeer::initialize() {
 	}
 	$var($Window, parentWindow, $SunToolkit::getContainingWindow($cast($Component, this->target)));
 	if (parentWindow != nullptr) {
-		$var($WWindowPeer, wpeer, $cast($WWindowPeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(parentWindow)));
+		$var($WWindowPeer, wpeer, $cast($WWindowPeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(parentWindow)));
 		if (wpeer != nullptr) {
 			$set(this, windowListener, $new($WChoicePeer$1, this));
 			wpeer->addWindowListener(this->windowListener);
@@ -417,10 +316,10 @@ void WChoicePeer::initialize() {
 }
 
 void WChoicePeer::disposeImpl() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Window, parentWindow, $SunToolkit::getContainingWindow($cast($Component, this->target)));
 	if (parentWindow != nullptr) {
-		$var($WWindowPeer, wpeer, $cast($WWindowPeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(parentWindow)));
+		$var($WWindowPeer, wpeer, $cast($WWindowPeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(parentWindow)));
 		if (wpeer != nullptr) {
 			wpeer->removeWindowListener(this->windowListener);
 		}
@@ -429,13 +328,13 @@ void WChoicePeer::disposeImpl() {
 }
 
 void WChoicePeer::handleAction(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Choice, c, $cast($Choice, this->target));
 	$WToolkit::executeOnEventHandlerThread(c, $$new($WChoicePeer$2, this, c, index));
 }
 
 void WChoicePeer::closeList() {
-	$prepareNative(WChoicePeer, closeList, void);
+	$prepareNative(closeList, void);
 	$invokeNative();
 	$finishNative();
 }
@@ -444,7 +343,89 @@ WChoicePeer::WChoicePeer() {
 }
 
 $Class* WChoicePeer::load$($String* name, bool initialize) {
-	$loadClass(WChoicePeer, name, initialize, &_WChoicePeer_ClassInfo_, allocate$WChoicePeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"windowListener", "Ljava/awt/event/WindowListener;", nullptr, $PRIVATE, $field(WChoicePeer, windowListener)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $NATIVE},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Choice;)V", nullptr, 0, $method(WChoicePeer, init$, void, $Choice*)},
+		{"add", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(WChoicePeer, add, void, $String*, int32_t)},
+		{"addItems", "([Ljava/lang/String;I)V", nullptr, $PUBLIC | $NATIVE, $method(WChoicePeer, addItems, void, $StringArray*, int32_t)},
+		{"closeList", "()V", nullptr, $NATIVE, $method(WChoicePeer, closeList, void)},
+		{"create", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, $NATIVE, $virtualMethod(WChoicePeer, create, void, $WComponentPeer*)},
+		{"disposeImpl", "()V", nullptr, $PROTECTED, $virtualMethod(WChoicePeer, disposeImpl, void)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WChoicePeer, getMinimumSize, $Dimension*)},
+		{"handleAction", "(I)V", nullptr, 0, $method(WChoicePeer, handleAction, void, int32_t)},
+		{"initialize", "()V", nullptr, 0, $virtualMethod(WChoicePeer, initialize, void)},
+		{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(WChoicePeer, isFocusable, bool)},
+		{"*isObscured", "()Z", nullptr, $PUBLIC | $NATIVE},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"remove", "(I)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WChoicePeer, remove, void, int32_t)},
+		{"removeAll", "()V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WChoicePeer, removeAll, void)},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
+		{"reshape", "(IIII)V", nullptr, $PUBLIC | $SYNCHRONIZED | $NATIVE, $virtualMethod(WChoicePeer, reshape, void, int32_t, int32_t, int32_t, int32_t)},
+		{"select", "(I)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WChoicePeer, select, void, int32_t)},
+		{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"shouldClearRectBeforePaint", "()Z", nullptr, $PUBLIC, $virtualMethod(WChoicePeer, shouldClearRectBeforePaint, bool)},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.windows.WChoicePeer$2", nullptr, nullptr, 0},
+		{"sun.awt.windows.WChoicePeer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.windows.WChoicePeer",
+		"sun.awt.windows.WComponentPeer",
+		"java.awt.peer.ChoicePeer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.windows.WChoicePeer$2,sun.awt.windows.WChoicePeer$1"
+	};
+	$loadClass(WChoicePeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WChoicePeer));
+	});
 	return class$;
 }
 

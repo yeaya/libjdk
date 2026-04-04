@@ -118,6 +118,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Component* target, ::sun::lwawt::PlatformComponent* platformComponent);
 	virtual void addDropTarget(::java::awt::dnd::DropTarget* dt) override;
 	void applyConstrain(::java::awt::Graphics* g);

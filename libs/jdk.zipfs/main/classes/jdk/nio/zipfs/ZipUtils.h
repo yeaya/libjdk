@@ -56,6 +56,7 @@ class ZipUtils : public ::java::lang::Object {
 	$class(ZipUtils, 0, ::java::lang::Object)
 public:
 	ZipUtils();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int64_t dosToJavaTime(int64_t dtime);
 	static bool isGlobMeta(char16_t c);
@@ -85,7 +86,7 @@ public:
 	static const int32_t POSIX_OTHER_READ = 4;
 	static const int32_t POSIX_OTHER_WRITE = 2;
 	static const int32_t POSIX_OTHER_EXECUTE = 1;
-	static const int64_t WINDOWS_EPOCH_IN_MICROSECONDS = (int64_t)0xFFD6A169B779C000;
+	static const int64_t WINDOWS_EPOCH_IN_MICROSECONDS = (int64_t)0xffd6a169b779c000;
 	static $String* regexMetaChars;
 	static $String* globMetaChars;
 	static char16_t EOL;

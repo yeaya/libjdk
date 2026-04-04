@@ -1,5 +1,4 @@
 #include <javax/sound/midi/Track$ImmutableEndOfTrack.h>
-
 #include <com/sun/media/sound/MidiUtils.h>
 #include <javax/sound/midi/InvalidMidiDataException.h>
 #include <javax/sound/midi/MetaMessage.h>
@@ -21,42 +20,11 @@ namespace javax {
 	namespace sound {
 		namespace midi {
 
-$MethodInfo _Track$ImmutableEndOfTrack_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Track$ImmutableEndOfTrack, init$, void)},
-	{"setMessage", "(I[BI)V", nullptr, $PUBLIC, $virtualMethod(Track$ImmutableEndOfTrack, setMessage, void, int32_t, $bytes*, int32_t), "javax.sound.midi.InvalidMidiDataException"},
-	{}
-};
-
-$InnerClassInfo _Track$ImmutableEndOfTrack_InnerClassesInfo_[] = {
-	{"javax.sound.midi.Track$ImmutableEndOfTrack", "javax.sound.midi.Track", "ImmutableEndOfTrack", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Track$ImmutableEndOfTrack_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.sound.midi.Track$ImmutableEndOfTrack",
-	"javax.sound.midi.MetaMessage",
-	nullptr,
-	nullptr,
-	_Track$ImmutableEndOfTrack_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Track$ImmutableEndOfTrack_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.sound.midi.Track"
-};
-
-$Object* allocate$Track$ImmutableEndOfTrack($Class* clazz) {
-	return $of($alloc(Track$ImmutableEndOfTrack));
-}
-
 void Track$ImmutableEndOfTrack::init$() {
 	$MetaMessage::init$($$new($bytes, 3));
 	$nc(this->data)->set(0, (int8_t)$MetaMessage::META);
-	$nc(this->data)->set(1, (int8_t)$MidiUtils::META_END_OF_TRACK_TYPE);
-	$nc(this->data)->set(2, (int8_t)0);
+	this->data->set(1, (int8_t)$MidiUtils::META_END_OF_TRACK_TYPE);
+	this->data->set(2, 0);
 }
 
 void Track$ImmutableEndOfTrack::setMessage(int32_t type, $bytes* data, int32_t length) {
@@ -67,7 +35,33 @@ Track$ImmutableEndOfTrack::Track$ImmutableEndOfTrack() {
 }
 
 $Class* Track$ImmutableEndOfTrack::load$($String* name, bool initialize) {
-	$loadClass(Track$ImmutableEndOfTrack, name, initialize, &_Track$ImmutableEndOfTrack_ClassInfo_, allocate$Track$ImmutableEndOfTrack);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Track$ImmutableEndOfTrack, init$, void)},
+		{"setMessage", "(I[BI)V", nullptr, $PUBLIC, $virtualMethod(Track$ImmutableEndOfTrack, setMessage, void, int32_t, $bytes*, int32_t), "javax.sound.midi.InvalidMidiDataException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.sound.midi.Track$ImmutableEndOfTrack", "javax.sound.midi.Track", "ImmutableEndOfTrack", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.sound.midi.Track$ImmutableEndOfTrack",
+		"javax.sound.midi.MetaMessage",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.sound.midi.Track"
+	};
+	$loadClass(Track$ImmutableEndOfTrack, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Track$ImmutableEndOfTrack);
+	});
 	return class$;
 }
 

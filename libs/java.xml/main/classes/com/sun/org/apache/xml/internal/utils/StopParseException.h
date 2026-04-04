@@ -18,10 +18,13 @@ class $export StopParseException : public ::org::xml::sax::SAXException {
 public:
 	StopParseException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x02EA6F17783BB411;
+	static const int64_t serialVersionUID = (int64_t)0x02ea6f17783bb411;
 	StopParseException(const StopParseException& e);
 	virtual void throw$() override;
-	inline StopParseException* operator ->() {
+	inline StopParseException* operator ->() const {
+		return (StopParseException*)throwing$;
+	}
+	inline operator StopParseException*() const {
 		return (StopParseException*)throwing$;
 	}
 };

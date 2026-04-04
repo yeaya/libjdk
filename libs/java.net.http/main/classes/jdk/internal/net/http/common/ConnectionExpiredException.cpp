@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/common/ConnectionExpiredException.h>
-
 #include <java/io/IOException.h>
 #include <jcpp.h>
 
@@ -13,29 +12,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 				namespace common {
-
-$FieldInfo _ConnectionExpiredException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ConnectionExpiredException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ConnectionExpiredException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ConnectionExpiredException, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _ConnectionExpiredException_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.common.ConnectionExpiredException",
-	"java.io.IOException",
-	nullptr,
-	_ConnectionExpiredException_FieldInfo_,
-	_ConnectionExpiredException_MethodInfo_
-};
-
-$Object* allocate$ConnectionExpiredException($Class* clazz) {
-	return $of($alloc(ConnectionExpiredException));
-}
 
 void ConnectionExpiredException::init$($Throwable* cause) {
 	$IOException::init$("subscription is finished"_s, cause);
@@ -52,7 +28,25 @@ void ConnectionExpiredException::throw$() {
 }
 
 $Class* ConnectionExpiredException::load$($String* name, bool initialize) {
-	$loadClass(ConnectionExpiredException, name, initialize, &_ConnectionExpiredException_ClassInfo_, allocate$ConnectionExpiredException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ConnectionExpiredException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ConnectionExpiredException, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.common.ConnectionExpiredException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ConnectionExpiredException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ConnectionExpiredException);
+	});
 	return class$;
 }
 

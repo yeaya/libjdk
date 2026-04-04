@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/ModuleMainClass.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Attribute.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
@@ -29,37 +28,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace classfile {
-
-$FieldInfo _ModuleMainClass_FieldInfo_[] = {
-	{"mainClassIndex", "I", nullptr, $PRIVATE, $field(ModuleMainClass, mainClassIndex)},
-	{}
-};
-
-$MethodInfo _ModuleMainClass_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/ModuleMainClass;)V", nullptr, $PUBLIC, $method(ModuleMainClass, init$, void, ModuleMainClass*)},
-	{"<init>", "(IIILcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(ModuleMainClass, init$, void, int32_t, int32_t, int32_t, $ConstantPool*)},
-	{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(ModuleMainClass, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ModuleMainClass, accept, void, $Visitor*)},
-	{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(ModuleMainClass, copy, $Attribute*, $ConstantPool*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ModuleMainClass, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getHostClassIndex", "()I", nullptr, $PUBLIC, $method(ModuleMainClass, getHostClassIndex, int32_t)},
-	{"setHostClassIndex", "(I)V", nullptr, $PUBLIC, $method(ModuleMainClass, setHostClassIndex, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleMainClass, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ModuleMainClass_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.ModuleMainClass",
-	"com.sun.org.apache.bcel.internal.classfile.Attribute",
-	nullptr,
-	_ModuleMainClass_FieldInfo_,
-	_ModuleMainClass_MethodInfo_
-};
-
-$Object* allocate$ModuleMainClass($Class* clazz) {
-	return $of($alloc(ModuleMainClass));
-}
 
 void ModuleMainClass::init$(ModuleMainClass* c) {
 	int32_t var$0 = $nc(c)->getNameIndex();
@@ -96,10 +64,10 @@ void ModuleMainClass::setHostClassIndex(int32_t mainClassIndex) {
 }
 
 $String* ModuleMainClass::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	buf->append("ModuleMainClass: "_s);
-	$var($String, class_name, $nc($($Attribute::getConstantPool()))->getConstantString(this->mainClassIndex, $Const::CONSTANT_Class));
+	$var($String, class_name, $$nc($Attribute::getConstantPool())->getConstantString(this->mainClassIndex, $Const::CONSTANT_Class));
 	buf->append($($Utility::compactClassName(class_name, false)));
 	return buf->toString();
 }
@@ -114,7 +82,33 @@ ModuleMainClass::ModuleMainClass() {
 }
 
 $Class* ModuleMainClass::load$($String* name, bool initialize) {
-	$loadClass(ModuleMainClass, name, initialize, &_ModuleMainClass_ClassInfo_, allocate$ModuleMainClass);
+	$FieldInfo fieldInfos$$[] = {
+		{"mainClassIndex", "I", nullptr, $PRIVATE, $field(ModuleMainClass, mainClassIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/ModuleMainClass;)V", nullptr, $PUBLIC, $method(ModuleMainClass, init$, void, ModuleMainClass*)},
+		{"<init>", "(IIILcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(ModuleMainClass, init$, void, int32_t, int32_t, int32_t, $ConstantPool*)},
+		{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(ModuleMainClass, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ModuleMainClass, accept, void, $Visitor*)},
+		{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(ModuleMainClass, copy, $Attribute*, $ConstantPool*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ModuleMainClass, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getHostClassIndex", "()I", nullptr, $PUBLIC, $method(ModuleMainClass, getHostClassIndex, int32_t)},
+		{"setHostClassIndex", "(I)V", nullptr, $PUBLIC, $method(ModuleMainClass, setHostClassIndex, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleMainClass, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.ModuleMainClass",
+		"com.sun.org.apache.bcel.internal.classfile.Attribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModuleMainClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ModuleMainClass));
+	});
 	return class$;
 }
 

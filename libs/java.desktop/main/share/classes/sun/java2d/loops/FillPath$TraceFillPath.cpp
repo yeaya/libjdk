@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/FillPath$TraceFillPath.h>
-
 #include <java/awt/geom/Path2D$Float.h>
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
@@ -25,45 +24,8 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _FillPath$TraceFillPath_FieldInfo_[] = {
-	{"target", "Lsun/java2d/loops/FillPath;", nullptr, 0, $field(FillPath$TraceFillPath, target)},
-	{}
-};
-
-$MethodInfo _FillPath$TraceFillPath_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/FillPath;)V", nullptr, $PUBLIC, $method(FillPath$TraceFillPath, init$, void, $FillPath*)},
-	{"FillPath", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;IILjava/awt/geom/Path2D$Float;)V", nullptr, $PUBLIC, $virtualMethod(FillPath$TraceFillPath, FillPath$, void, $SunGraphics2D*, $SurfaceData*, int32_t, int32_t, $Path2D$Float*)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(FillPath$TraceFillPath, traceWrap, $GraphicsPrimitive*)},
-	{}
-};
-
-$InnerClassInfo _FillPath$TraceFillPath_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.FillPath$TraceFillPath", "sun.java2d.loops.FillPath", "TraceFillPath", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _FillPath$TraceFillPath_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.FillPath$TraceFillPath",
-	"sun.java2d.loops.FillPath",
-	nullptr,
-	_FillPath$TraceFillPath_FieldInfo_,
-	_FillPath$TraceFillPath_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FillPath$TraceFillPath_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.FillPath"
-};
-
-$Object* allocate$FillPath$TraceFillPath($Class* clazz) {
-	return $of($alloc(FillPath$TraceFillPath));
-}
-
 void FillPath$TraceFillPath::init$($FillPath* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceType, var$0, $nc(target)->getSourceType());
 	$var($CompositeType, var$1, target->getCompositeType());
 	$FillPath::init$(var$0, var$1, $(target->getDestType()));
@@ -83,7 +45,38 @@ FillPath$TraceFillPath::FillPath$TraceFillPath() {
 }
 
 $Class* FillPath$TraceFillPath::load$($String* name, bool initialize) {
-	$loadClass(FillPath$TraceFillPath, name, initialize, &_FillPath$TraceFillPath_ClassInfo_, allocate$FillPath$TraceFillPath);
+	$FieldInfo fieldInfos$$[] = {
+		{"target", "Lsun/java2d/loops/FillPath;", nullptr, 0, $field(FillPath$TraceFillPath, target)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/FillPath;)V", nullptr, $PUBLIC, $method(FillPath$TraceFillPath, init$, void, $FillPath*)},
+		{"FillPath", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;IILjava/awt/geom/Path2D$Float;)V", nullptr, $PUBLIC, $virtualMethod(FillPath$TraceFillPath, FillPath$, void, $SunGraphics2D*, $SurfaceData*, int32_t, int32_t, $Path2D$Float*)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(FillPath$TraceFillPath, traceWrap, $GraphicsPrimitive*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.FillPath$TraceFillPath", "sun.java2d.loops.FillPath", "TraceFillPath", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.FillPath$TraceFillPath",
+		"sun.java2d.loops.FillPath",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.FillPath"
+	};
+	$loadClass(FillPath$TraceFillPath, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FillPath$TraceFillPath);
+	});
 	return class$;
 }
 

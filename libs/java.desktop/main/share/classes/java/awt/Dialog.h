@@ -63,6 +63,7 @@ public:
 	using ::java::awt::Window::add;
 	using ::java::awt::Window::getMousePosition;
 	using ::java::awt::Window::list;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Frame* owner);
 	void init$(::java::awt::Frame* owner, bool modal);
 	void init$(::java::awt::Frame* owner, $String* title);
@@ -134,7 +135,7 @@ public:
 	$volatile(bool) isInDispose = false;
 	static $String* base;
 	static int32_t nameCounter;
-	static const int64_t serialVersionUID = (int64_t)0x522B5BA60A3FB00D;
+	static const int64_t serialVersionUID = (int64_t)0x522b5ba60a3fb00d;
 };
 
 	} // awt

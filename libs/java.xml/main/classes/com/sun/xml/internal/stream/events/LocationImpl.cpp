@@ -1,5 +1,4 @@
 #include <com/sun/xml/internal/stream/events/LocationImpl.h>
-
 #include <java/lang/StringBuffer.h>
 #include <javax/xml/stream/Location.h>
 #include <jcpp.h>
@@ -16,39 +15,6 @@ namespace com {
 			namespace internal {
 				namespace stream {
 					namespace events {
-
-$FieldInfo _LocationImpl_FieldInfo_[] = {
-	{"systemId", "Ljava/lang/String;", nullptr, 0, $field(LocationImpl, systemId)},
-	{"publicId", "Ljava/lang/String;", nullptr, 0, $field(LocationImpl, publicId)},
-	{"colNo", "I", nullptr, 0, $field(LocationImpl, colNo)},
-	{"lineNo", "I", nullptr, 0, $field(LocationImpl, lineNo)},
-	{"charOffset", "I", nullptr, 0, $field(LocationImpl, charOffset)},
-	{}
-};
-
-$MethodInfo _LocationImpl_MethodInfo_[] = {
-	{"<init>", "(Ljavax/xml/stream/Location;)V", nullptr, 0, $method(LocationImpl, init$, void, $Location*)},
-	{"getCharacterOffset", "()I", nullptr, $PUBLIC, $virtualMethod(LocationImpl, getCharacterOffset, int32_t)},
-	{"getColumnNumber", "()I", nullptr, $PUBLIC, $virtualMethod(LocationImpl, getColumnNumber, int32_t)},
-	{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(LocationImpl, getLineNumber, int32_t)},
-	{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocationImpl, getPublicId, $String*)},
-	{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocationImpl, getSystemId, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocationImpl, toString, $String*)},
-	{}
-};
-
-$ClassInfo _LocationImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.xml.internal.stream.events.LocationImpl",
-	"java.lang.Object",
-	"javax.xml.stream.Location",
-	_LocationImpl_FieldInfo_,
-	_LocationImpl_MethodInfo_
-};
-
-$Object* allocate$LocationImpl($Class* clazz) {
-	return $of($alloc(LocationImpl));
-}
 
 void LocationImpl::init$($Location* loc) {
 	$set(this, systemId, $nc(loc)->getSystemId());
@@ -79,7 +45,7 @@ $String* LocationImpl::getSystemId() {
 }
 
 $String* LocationImpl::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, sbuffer, $new($StringBuffer));
 	sbuffer->append($$str({"Line number = "_s, $$str(getLineNumber())}));
 	sbuffer->append("\n"_s);
@@ -98,7 +64,35 @@ LocationImpl::LocationImpl() {
 }
 
 $Class* LocationImpl::load$($String* name, bool initialize) {
-	$loadClass(LocationImpl, name, initialize, &_LocationImpl_ClassInfo_, allocate$LocationImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"systemId", "Ljava/lang/String;", nullptr, 0, $field(LocationImpl, systemId)},
+		{"publicId", "Ljava/lang/String;", nullptr, 0, $field(LocationImpl, publicId)},
+		{"colNo", "I", nullptr, 0, $field(LocationImpl, colNo)},
+		{"lineNo", "I", nullptr, 0, $field(LocationImpl, lineNo)},
+		{"charOffset", "I", nullptr, 0, $field(LocationImpl, charOffset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/xml/stream/Location;)V", nullptr, 0, $method(LocationImpl, init$, void, $Location*)},
+		{"getCharacterOffset", "()I", nullptr, $PUBLIC, $virtualMethod(LocationImpl, getCharacterOffset, int32_t)},
+		{"getColumnNumber", "()I", nullptr, $PUBLIC, $virtualMethod(LocationImpl, getColumnNumber, int32_t)},
+		{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(LocationImpl, getLineNumber, int32_t)},
+		{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocationImpl, getPublicId, $String*)},
+		{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocationImpl, getSystemId, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocationImpl, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.xml.internal.stream.events.LocationImpl",
+		"java.lang.Object",
+		"javax.xml.stream.Location",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LocationImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocationImpl);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/print/PageFormat.h>
-
 #include <java/awt/print/Paper.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
@@ -23,45 +22,6 @@ namespace java {
 	namespace awt {
 		namespace print {
 
-$FieldInfo _PageFormat_FieldInfo_[] = {
-	{"LANDSCAPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PageFormat, LANDSCAPE)},
-	{"PORTRAIT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PageFormat, PORTRAIT)},
-	{"REVERSE_LANDSCAPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PageFormat, REVERSE_LANDSCAPE)},
-	{"mPaper", "Ljava/awt/print/Paper;", nullptr, $PRIVATE, $field(PageFormat, mPaper)},
-	{"mOrientation", "I", nullptr, $PRIVATE, $field(PageFormat, mOrientation)},
-	{}
-};
-
-$MethodInfo _PageFormat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PageFormat, init$, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PageFormat, clone, $Object*)},
-	{"getHeight", "()D", nullptr, $PUBLIC, $virtualMethod(PageFormat, getHeight, double)},
-	{"getImageableHeight", "()D", nullptr, $PUBLIC, $virtualMethod(PageFormat, getImageableHeight, double)},
-	{"getImageableWidth", "()D", nullptr, $PUBLIC, $virtualMethod(PageFormat, getImageableWidth, double)},
-	{"getImageableX", "()D", nullptr, $PUBLIC, $virtualMethod(PageFormat, getImageableX, double)},
-	{"getImageableY", "()D", nullptr, $PUBLIC, $virtualMethod(PageFormat, getImageableY, double)},
-	{"getMatrix", "()[D", nullptr, $PUBLIC, $virtualMethod(PageFormat, getMatrix, $doubles*)},
-	{"getOrientation", "()I", nullptr, $PUBLIC, $virtualMethod(PageFormat, getOrientation, int32_t)},
-	{"getPaper", "()Ljava/awt/print/Paper;", nullptr, $PUBLIC, $virtualMethod(PageFormat, getPaper, $Paper*)},
-	{"getWidth", "()D", nullptr, $PUBLIC, $virtualMethod(PageFormat, getWidth, double)},
-	{"setOrientation", "(I)V", nullptr, $PUBLIC, $virtualMethod(PageFormat, setOrientation, void, int32_t), "java.lang.IllegalArgumentException"},
-	{"setPaper", "(Ljava/awt/print/Paper;)V", nullptr, $PUBLIC, $virtualMethod(PageFormat, setPaper, void, $Paper*)},
-	{}
-};
-
-$ClassInfo _PageFormat_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.print.PageFormat",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_PageFormat_FieldInfo_,
-	_PageFormat_MethodInfo_
-};
-
-$Object* allocate$PageFormat($Class* clazz) {
-	return $of($alloc(PageFormat));
-}
-
 void PageFormat::init$() {
 	this->mOrientation = PageFormat::PORTRAIT;
 	$set(this, mPaper, $new($Paper));
@@ -76,7 +36,7 @@ $Object* PageFormat::clone() {
 		e->printStackTrace();
 		$assign(newPage, nullptr);
 	}
-	return $of(newPage);
+	return newPage;
 }
 
 double PageFormat::getWidth() {
@@ -107,25 +67,19 @@ double PageFormat::getImageableX() {
 	case PageFormat::LANDSCAPE:
 		{
 			double var$0 = $nc(this->mPaper)->getHeight();
-			double var$2 = $nc(this->mPaper)->getImageableY();
-			double var$1 = (var$2 + $nc(this->mPaper)->getImageableHeight());
+			double var$2 = this->mPaper->getImageableY();
+			double var$1 = (var$2 + this->mPaper->getImageableHeight());
 			x = var$0 - var$1;
 			break;
 		}
 	case PageFormat::PORTRAIT:
-		{
-			x = $nc(this->mPaper)->getImageableX();
-			break;
-		}
+		x = $nc(this->mPaper)->getImageableX();
+		break;
 	case PageFormat::REVERSE_LANDSCAPE:
-		{
-			x = $nc(this->mPaper)->getImageableY();
-			break;
-		}
+		x = $nc(this->mPaper)->getImageableY();
+		break;
 	default:
-		{
-			$throwNew($InternalError, "unrecognized orientation"_s);
-		}
+		$throwNew($InternalError, "unrecognized orientation"_s);
 	}
 	return x;
 }
@@ -134,27 +88,21 @@ double PageFormat::getImageableY() {
 	double y = 0.0;
 	switch (getOrientation()) {
 	case PageFormat::LANDSCAPE:
-		{
-			y = $nc(this->mPaper)->getImageableX();
-			break;
-		}
+		y = $nc(this->mPaper)->getImageableX();
+		break;
 	case PageFormat::PORTRAIT:
-		{
-			y = $nc(this->mPaper)->getImageableY();
-			break;
-		}
+		y = $nc(this->mPaper)->getImageableY();
+		break;
 	case PageFormat::REVERSE_LANDSCAPE:
 		{
 			double var$0 = $nc(this->mPaper)->getWidth();
-			double var$2 = $nc(this->mPaper)->getImageableX();
-			double var$1 = (var$2 + $nc(this->mPaper)->getImageableWidth());
+			double var$2 = this->mPaper->getImageableX();
+			double var$1 = (var$2 + this->mPaper->getImageableWidth());
 			y = var$0 - var$1;
 			break;
 		}
 	default:
-		{
-			$throwNew($InternalError, "unrecognized orientation"_s);
-		}
+		$throwNew($InternalError, "unrecognized orientation"_s);
 	}
 	return y;
 }
@@ -203,39 +151,31 @@ $doubles* PageFormat::getMatrix() {
 	$var($doubles, matrix, $new($doubles, 6));
 	switch (this->mOrientation) {
 	case PageFormat::LANDSCAPE:
-		{
-			matrix->set(0, (double)0);
-			matrix->set(1, (double)-1);
-			matrix->set(2, (double)1);
-			matrix->set(3, (double)0);
-			matrix->set(4, (double)0);
-			matrix->set(5, $nc(this->mPaper)->getHeight());
-			break;
-		}
+		matrix->set(0, 0);
+		matrix->set(1, -1);
+		matrix->set(2, 1);
+		matrix->set(3, 0);
+		matrix->set(4, 0);
+		matrix->set(5, $nc(this->mPaper)->getHeight());
+		break;
 	case PageFormat::PORTRAIT:
-		{
-			matrix->set(0, (double)1);
-			matrix->set(1, (double)0);
-			matrix->set(2, (double)0);
-			matrix->set(3, (double)1);
-			matrix->set(4, (double)0);
-			matrix->set(5, (double)0);
-			break;
-		}
+		matrix->set(0, 1);
+		matrix->set(1, 0);
+		matrix->set(2, 0);
+		matrix->set(3, 1);
+		matrix->set(4, 0);
+		matrix->set(5, 0);
+		break;
 	case PageFormat::REVERSE_LANDSCAPE:
-		{
-			matrix->set(0, (double)0);
-			matrix->set(1, (double)1);
-			matrix->set(2, (double)-1);
-			matrix->set(3, (double)0);
-			matrix->set(4, $nc(this->mPaper)->getWidth());
-			matrix->set(5, (double)0);
-			break;
-		}
+		matrix->set(0, 0);
+		matrix->set(1, 1);
+		matrix->set(2, -1);
+		matrix->set(3, 0);
+		matrix->set(4, $nc(this->mPaper)->getWidth());
+		matrix->set(5, 0);
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException);
-		}
+		$throwNew($IllegalArgumentException);
 	}
 	return matrix;
 }
@@ -244,7 +184,41 @@ PageFormat::PageFormat() {
 }
 
 $Class* PageFormat::load$($String* name, bool initialize) {
-	$loadClass(PageFormat, name, initialize, &_PageFormat_ClassInfo_, allocate$PageFormat);
+	$FieldInfo fieldInfos$$[] = {
+		{"LANDSCAPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PageFormat, LANDSCAPE)},
+		{"PORTRAIT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PageFormat, PORTRAIT)},
+		{"REVERSE_LANDSCAPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PageFormat, REVERSE_LANDSCAPE)},
+		{"mPaper", "Ljava/awt/print/Paper;", nullptr, $PRIVATE, $field(PageFormat, mPaper)},
+		{"mOrientation", "I", nullptr, $PRIVATE, $field(PageFormat, mOrientation)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PageFormat, init$, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PageFormat, clone, $Object*)},
+		{"getHeight", "()D", nullptr, $PUBLIC, $virtualMethod(PageFormat, getHeight, double)},
+		{"getImageableHeight", "()D", nullptr, $PUBLIC, $virtualMethod(PageFormat, getImageableHeight, double)},
+		{"getImageableWidth", "()D", nullptr, $PUBLIC, $virtualMethod(PageFormat, getImageableWidth, double)},
+		{"getImageableX", "()D", nullptr, $PUBLIC, $virtualMethod(PageFormat, getImageableX, double)},
+		{"getImageableY", "()D", nullptr, $PUBLIC, $virtualMethod(PageFormat, getImageableY, double)},
+		{"getMatrix", "()[D", nullptr, $PUBLIC, $virtualMethod(PageFormat, getMatrix, $doubles*)},
+		{"getOrientation", "()I", nullptr, $PUBLIC, $virtualMethod(PageFormat, getOrientation, int32_t)},
+		{"getPaper", "()Ljava/awt/print/Paper;", nullptr, $PUBLIC, $virtualMethod(PageFormat, getPaper, $Paper*)},
+		{"getWidth", "()D", nullptr, $PUBLIC, $virtualMethod(PageFormat, getWidth, double)},
+		{"setOrientation", "(I)V", nullptr, $PUBLIC, $virtualMethod(PageFormat, setOrientation, void, int32_t), "java.lang.IllegalArgumentException"},
+		{"setPaper", "(Ljava/awt/print/Paper;)V", nullptr, $PUBLIC, $virtualMethod(PageFormat, setPaper, void, $Paper*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.print.PageFormat",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PageFormat, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PageFormat);
+	});
 	return class$;
 }
 

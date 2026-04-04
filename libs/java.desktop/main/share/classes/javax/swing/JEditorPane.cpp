@@ -1,6 +1,4 @@
 #include <javax/swing/JEditorPane.h>
-
-#include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/FocusTraversalPolicy.h>
@@ -15,12 +13,10 @@
 #include <java/io/Reader.h>
 #include <java/io/StringReader.h>
 #include <java/io/StringWriter.h>
-#include <java/io/Writer.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Math.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/StringBuffer.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/net/HttpURLConnection.h>
@@ -58,7 +54,6 @@
 #include <javax/swing/text/BadLocationException.h>
 #include <javax/swing/text/Caret.h>
 #include <javax/swing/text/ChangedCharSetException.h>
-#include <javax/swing/text/DefaultStyledDocument.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/EditorKit.h>
 #include <javax/swing/text/JTextComponent.h>
@@ -80,10 +75,8 @@
 #undef W3C_LENGTH_UNITS
 
 using $HyperlinkListenerArray = $Array<::javax::swing::event::HyperlinkListener>;
-using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
-using $FocusTraversalPolicy = ::java::awt::FocusTraversalPolicy;
 using $Rectangle = ::java::awt::Rectangle;
 using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $DataOutputStream = ::java::io::DataOutputStream;
@@ -91,11 +84,9 @@ using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $Reader = ::java::io::Reader;
 using $StringReader = ::java::io::StringReader;
 using $StringWriter = ::java::io::StringWriter;
-using $Writer = ::java::io::Writer;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
@@ -109,7 +100,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
@@ -117,12 +107,10 @@ using $HttpURLConnection = ::java::net::HttpURLConnection;
 using $URL = ::java::net::URL;
 using $URLConnection = ::java::net::URLConnection;
 using $Enumeration = ::java::util::Enumeration;
-using $EventListener = ::java::util::EventListener;
 using $HashMap = ::java::util::HashMap;
 using $Hashtable = ::java::util::Hashtable;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane$1 = ::javax::swing::JEditorPane$1;
@@ -136,19 +124,15 @@ using $JEditorPane$PlainEditorKit = ::javax::swing::JEditorPane$PlainEditorKit;
 using $JViewport = ::javax::swing::JViewport;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $SwingWorker = ::javax::swing::SwingWorker;
 using $UIManager = ::javax::swing::UIManager;
-using $EventListenerList = ::javax::swing::event::EventListenerList;
 using $HyperlinkEvent = ::javax::swing::event::HyperlinkEvent;
 using $HyperlinkListener = ::javax::swing::event::HyperlinkListener;
-using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $TextUI = ::javax::swing::plaf::TextUI;
 using $AbstractDocument = ::javax::swing::text::AbstractDocument;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $Caret = ::javax::swing::text::Caret;
 using $ChangedCharSetException = ::javax::swing::text::ChangedCharSetException;
-using $DefaultStyledDocument = ::javax::swing::text::DefaultStyledDocument;
 using $Document = ::javax::swing::text::Document;
 using $EditorKit = ::javax::swing::text::EditorKit;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
@@ -162,217 +146,6 @@ using $ReflectUtil = ::sun::reflect::misc::ReflectUtil;
 
 namespace javax {
 	namespace swing {
-
-$NamedAttribute JEditorPane_Attribute_var$0[] = {
-	{"defaultProperty", 's', "UIClassID"},
-	{"description", 's', "A text component to edit various types of content."},
-	{}
-};
-
-$NamedAttribute JEditorPane_Attribute_var$1[] = {
-	{"value", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JEditorPane_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", JEditorPane_Attribute_var$0},
-	{"Ljavax/swing/SwingContainer;", JEditorPane_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JEditorPane_Attribute_var$2[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JEditorPane_MethodAnnotations_getAccessibleContext9[] = {
-	{"Ljava/beans/BeanProperty;", JEditorPane_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute JEditorPane_Attribute_var$3[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JEditorPane_MethodAnnotations_getHyperlinkListeners15[] = {
-	{"Ljava/beans/BeanProperty;", JEditorPane_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute JEditorPane_Attribute_var$4[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JEditorPane_MethodAnnotations_getScrollableTracksViewportHeight22[] = {
-	{"Ljava/beans/BeanProperty;", JEditorPane_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute JEditorPane_Attribute_var$5[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JEditorPane_MethodAnnotations_getScrollableTracksViewportWidth23[] = {
-	{"Ljava/beans/BeanProperty;", JEditorPane_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute JEditorPane_Attribute_var$6[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JEditorPane_MethodAnnotations_getUIClassID26[] = {
-	{"Ljava/beans/BeanProperty;", JEditorPane_Attribute_var$6},
-	{}
-};
-
-$NamedAttribute JEditorPane_Attribute_var$7[] = {
-	{"bound", 'Z', "false"},
-	{"description", 's', "the type of content"},
-	{}
-};
-
-$CompoundAttribute _JEditorPane_MethodAnnotations_setContentType40[] = {
-	{"Ljava/beans/BeanProperty;", JEditorPane_Attribute_var$7},
-	{}
-};
-
-$NamedAttribute JEditorPane_Attribute_var$8[] = {
-	{"expert", 'Z', "true"},
-	{"description", 's', "the currently installed kit for handling content"},
-	{}
-};
-
-$CompoundAttribute _JEditorPane_MethodAnnotations_setEditorKit41[] = {
-	{"Ljava/beans/BeanProperty;", JEditorPane_Attribute_var$8},
-	{}
-};
-
-$NamedAttribute JEditorPane_Attribute_var$9[] = {
-	{"expert", 'Z', "true"},
-	{"description", 's', "the URL used to set content"},
-	{}
-};
-
-$CompoundAttribute _JEditorPane_MethodAnnotations_setPage43[] = {
-	{"Ljava/beans/BeanProperty;", JEditorPane_Attribute_var$9},
-	{}
-};
-
-$NamedAttribute JEditorPane_Attribute_var$10[] = {
-	{"bound", 'Z', "false"},
-	{"description", 's', "the text of this component"},
-	{}
-};
-
-$CompoundAttribute _JEditorPane_MethodAnnotations_setText45[] = {
-	{"Ljava/beans/BeanProperty;", JEditorPane_Attribute_var$10},
-	{}
-};
-
-$FieldInfo _JEditorPane_FieldInfo_[] = {
-	{"pageLoader", "Ljavax/swing/SwingWorker;", "Ljavax/swing/SwingWorker<Ljava/net/URL;Ljava/lang/Object;>;", $PRIVATE, $field(JEditorPane, pageLoader)},
-	{"kit", "Ljavax/swing/text/EditorKit;", nullptr, $PRIVATE, $field(JEditorPane, kit)},
-	{"isUserSetEditorKit", "Z", nullptr, $PRIVATE, $field(JEditorPane, isUserSetEditorKit)},
-	{"pageProperties", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(JEditorPane, pageProperties)},
-	{"PostDataProperty", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JEditorPane, PostDataProperty)},
-	{"typeHandlers", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljavax/swing/text/EditorKit;>;", $PRIVATE, $field(JEditorPane, typeHandlers)},
-	{"kitRegistryKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JEditorPane, kitRegistryKey)},
-	{"kitTypeRegistryKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JEditorPane, kitTypeRegistryKey)},
-	{"kitLoaderRegistryKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JEditorPane, kitLoaderRegistryKey)},
-	{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JEditorPane, uiClassID)},
-	{"W3C_LENGTH_UNITS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JEditorPane, W3C_LENGTH_UNITS)},
-	{"HONOR_DISPLAY_PROPERTIES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JEditorPane, HONOR_DISPLAY_PROPERTIES)},
-	{"defaultEditorKitMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(JEditorPane, defaultEditorKitMap)},
-	{}
-};
-
-$MethodInfo _JEditorPane_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JEditorPane, init$, void)},
-	{"<init>", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $method(JEditorPane, init$, void, $URL*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JEditorPane, init$, void, $String*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JEditorPane, init$, void, $String*, $String*)},
-	{"access$000", "(Ljavax/swing/JEditorPane;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(JEditorPane, access$000, void, JEditorPane*, $String*, Object$*, Object$*)},
-	{"addHyperlinkListener", "(Ljavax/swing/event/HyperlinkListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JEditorPane, addHyperlinkListener, void, $HyperlinkListener*)},
-	{"createDefaultEditorKit", "()Ljavax/swing/text/EditorKit;", nullptr, $PROTECTED, $virtualMethod(JEditorPane, createDefaultEditorKit, $EditorKit*)},
-	{"createEditorKitForContentType", "(Ljava/lang/String;)Ljavax/swing/text/EditorKit;", nullptr, $PUBLIC | $STATIC, $staticMethod(JEditorPane, createEditorKitForContentType, $EditorKit*, $String*)},
-	{"fireHyperlinkUpdate", "(Ljavax/swing/event/HyperlinkEvent;)V", nullptr, $PUBLIC, $virtualMethod(JEditorPane, fireHyperlinkUpdate, void, $HyperlinkEvent*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JEditorPane, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, _JEditorPane_MethodAnnotations_getAccessibleContext9},
-	{"getAsynchronousLoadPriority", "(Ljavax/swing/text/Document;)I", nullptr, $PRIVATE, $method(JEditorPane, getAsynchronousLoadPriority, int32_t, $Document*)},
-	{"getContentType", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(JEditorPane, getContentType, $String*)},
-	{"getEditorKit", "()Ljavax/swing/text/EditorKit;", nullptr, $PUBLIC, $virtualMethod(JEditorPane, getEditorKit, $EditorKit*)},
-	{"getEditorKitClassNameForContentType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JEditorPane, getEditorKitClassNameForContentType, $String*, $String*)},
-	{"getEditorKitForContentType", "(Ljava/lang/String;)Ljavax/swing/text/EditorKit;", nullptr, $PUBLIC, $virtualMethod(JEditorPane, getEditorKitForContentType, $EditorKit*, $String*)},
-	{"getHyperlinkListeners", "()[Ljavax/swing/event/HyperlinkListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JEditorPane, getHyperlinkListeners, $HyperlinkListenerArray*), nullptr, nullptr, _JEditorPane_MethodAnnotations_getHyperlinkListeners15},
-	{"getKitLoaderRegistry", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/ClassLoader;>;", $PRIVATE | $STATIC, $staticMethod(JEditorPane, getKitLoaderRegistry, $Hashtable*)},
-	{"getKitRegisty", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<Ljava/lang/String;Ljavax/swing/text/EditorKit;>;", $PRIVATE | $STATIC, $staticMethod(JEditorPane, getKitRegisty, $Hashtable*)},
-	{"getKitTypeRegistry", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(JEditorPane, getKitTypeRegistry, $Hashtable*)},
-	{"getPage", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(JEditorPane, getPage, $URL*)},
-	{"getPostData", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(JEditorPane, getPostData, $Object*)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JEditorPane, getPreferredSize, $Dimension*)},
-	{"getScrollableTracksViewportHeight", "()Z", nullptr, $PUBLIC, $virtualMethod(JEditorPane, getScrollableTracksViewportHeight, bool), nullptr, nullptr, _JEditorPane_MethodAnnotations_getScrollableTracksViewportHeight22},
-	{"getScrollableTracksViewportWidth", "()Z", nullptr, $PUBLIC, $virtualMethod(JEditorPane, getScrollableTracksViewportWidth, bool), nullptr, nullptr, _JEditorPane_MethodAnnotations_getScrollableTracksViewportWidth23},
-	{"getStream", "(Ljava/net/URL;)Ljava/io/InputStream;", nullptr, $PROTECTED, $virtualMethod(JEditorPane, getStream, $InputStream*, $URL*), "java.io.IOException"},
-	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JEditorPane, getText, $String*)},
-	{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JEditorPane, getUIClassID, $String*), nullptr, nullptr, _JEditorPane_MethodAnnotations_getUIClassID26},
-	{"handleConnectionProperties", "(Ljava/net/URLConnection;)V", nullptr, $PRIVATE, $method(JEditorPane, handleConnectionProperties, void, $URLConnection*)},
-	{"handlePostData", "(Ljava/net/HttpURLConnection;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(JEditorPane, handlePostData, void, $HttpURLConnection*, Object$*), "java.io.IOException"},
-	{"initializeModel", "(Ljavax/swing/text/EditorKit;Ljava/net/URL;)Ljavax/swing/text/Document;", nullptr, $PRIVATE, $method(JEditorPane, initializeModel, $Document*, $EditorKit*, $URL*)},
-	{"loadDefaultKitsIfNecessary", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JEditorPane, loadDefaultKitsIfNecessary, void)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JEditorPane, paramString, $String*)},
-	{"read", "(Ljava/io/InputStream;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JEditorPane, read, void, $InputStream*, Object$*), "java.io.IOException"},
-	{"read", "(Ljava/io/InputStream;Ljavax/swing/text/Document;)V", nullptr, 0, $virtualMethod(JEditorPane, read, void, $InputStream*, $Document*), "java.io.IOException"},
-	{"registerEditorKitForContentType", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JEditorPane, registerEditorKitForContentType, void, $String*, $String*)},
-	{"registerEditorKitForContentType", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JEditorPane, registerEditorKitForContentType, void, $String*, $String*, $ClassLoader*)},
-	{"removeHyperlinkListener", "(Ljavax/swing/event/HyperlinkListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JEditorPane, removeHyperlinkListener, void, $HyperlinkListener*)},
-	{"replaceSelection", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JEditorPane, replaceSelection, void, $String*)},
-	{"scrollToReference", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JEditorPane, scrollToReference, void, $String*)},
-	{"setCharsetFromContentTypeParameters", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(JEditorPane, setCharsetFromContentTypeParameters, void, $String*)},
-	{"setContentType", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $method(JEditorPane, setContentType, void, $String*), nullptr, nullptr, _JEditorPane_MethodAnnotations_setContentType40},
-	{"setEditorKit", "(Ljavax/swing/text/EditorKit;)V", nullptr, $PUBLIC, $virtualMethod(JEditorPane, setEditorKit, void, $EditorKit*), nullptr, nullptr, _JEditorPane_MethodAnnotations_setEditorKit41},
-	{"setEditorKitForContentType", "(Ljava/lang/String;Ljavax/swing/text/EditorKit;)V", nullptr, $PUBLIC, $virtualMethod(JEditorPane, setEditorKitForContentType, void, $String*, $EditorKit*)},
-	{"setPage", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $virtualMethod(JEditorPane, setPage, void, $URL*), "java.io.IOException", nullptr, _JEditorPane_MethodAnnotations_setPage43},
-	{"setPage", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JEditorPane, setPage, void, $String*), "java.io.IOException"},
-	{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JEditorPane, setText, void, $String*), nullptr, nullptr, _JEditorPane_MethodAnnotations_setText45},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JEditorPane, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JEditorPane_InnerClassesInfo_[] = {
-	{"javax.swing.JEditorPane$HeaderParser", "javax.swing.JEditorPane", "HeaderParser", $STATIC},
-	{"javax.swing.JEditorPane$PlainEditorKit", "javax.swing.JEditorPane", "PlainEditorKit", $STATIC},
-	{"javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport", "javax.swing.JEditorPane", "JEditorPaneAccessibleHypertextSupport", $PROTECTED},
-	{"javax.swing.JEditorPane$AccessibleJEditorPaneHTML", "javax.swing.JEditorPane", "AccessibleJEditorPaneHTML", $PROTECTED},
-	{"javax.swing.JEditorPane$AccessibleJEditorPane", "javax.swing.JEditorPane", "AccessibleJEditorPane", $PROTECTED},
-	{"javax.swing.JEditorPane$PageLoader", "javax.swing.JEditorPane", "PageLoader", 0},
-	{"javax.swing.JEditorPane$3", nullptr, nullptr, 0},
-	{"javax.swing.JEditorPane$2", nullptr, nullptr, 0},
-	{"javax.swing.JEditorPane$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JEditorPane_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JEditorPane",
-	"javax.swing.text.JTextComponent",
-	nullptr,
-	_JEditorPane_FieldInfo_,
-	_JEditorPane_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JEditorPane_InnerClassesInfo_,
-	_JEditorPane_Annotations_,
-	nullptr,
-	"javax.swing.JEditorPane$HeaderParser,javax.swing.JEditorPane$PlainEditorKit,javax.swing.JEditorPane$PlainEditorKit$PlainParagraph,javax.swing.JEditorPane$PlainEditorKit$PlainParagraph$LogicalView,javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport,javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector,javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport$HTMLLink,javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport$1,javax.swing.JEditorPane$AccessibleJEditorPaneHTML,javax.swing.JEditorPane$AccessibleJEditorPane,javax.swing.JEditorPane$PageLoader,javax.swing.JEditorPane$PageLoader$3,javax.swing.JEditorPane$PageLoader$2,javax.swing.JEditorPane$PageLoader$1,javax.swing.JEditorPane$3,javax.swing.JEditorPane$2,javax.swing.JEditorPane$1"
-};
-
-$Object* allocate$JEditorPane($Class* clazz) {
-	return $of($alloc(JEditorPane));
-}
 
 $String* JEditorPane::PostDataProperty = nullptr;
 $Object* JEditorPane::kitRegistryKey = nullptr;
@@ -389,7 +162,7 @@ void JEditorPane::access$000(JEditorPane* x0, $String* x1, Object$* x2, Object$*
 }
 
 void JEditorPane::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JTextComponent::init$();
 	setFocusCycleRoot(true);
 	setFocusTraversalPolicy($$new($JEditorPane$1, this));
@@ -430,7 +203,7 @@ void JEditorPane::removeHyperlinkListener($HyperlinkListener* listener) {
 $HyperlinkListenerArray* JEditorPane::getHyperlinkListeners() {
 	$synchronized(this) {
 		$load($HyperlinkListener);
-		return $fcast($HyperlinkListenerArray, $nc(this->listenerList)->getListeners($HyperlinkListener::class$));
+		return $cast($HyperlinkListenerArray, $nc(this->listenerList)->getListeners($HyperlinkListener::class$));
 	}
 }
 
@@ -439,13 +212,13 @@ void JEditorPane::fireHyperlinkUpdate($HyperlinkEvent* e) {
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
 		$load($HyperlinkListener);
 		if ($equals(listeners->get(i), $HyperlinkListener::class$)) {
-			$nc(($cast($HyperlinkListener, listeners->get(i + 1))))->hyperlinkUpdate(e);
+			$nc($cast($HyperlinkListener, listeners->get(i + 1)))->hyperlinkUpdate(e);
 		}
 	}
 }
 
 void JEditorPane::setPage($URL* page) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (page == nullptr) {
 		$throwNew($IOException, "invalid url"_s);
 	}
@@ -456,7 +229,7 @@ void JEditorPane::setPage($URL* page) {
 	}
 	bool reloaded = false;
 	$var($Object, postData, getPostData());
-	if ((loaded == nullptr) || !$nc(loaded)->sameFile(page) || (postData != nullptr)) {
+	if ((loaded == nullptr) || !loaded->sameFile(page) || (postData != nullptr)) {
 		int32_t p = getAsynchronousLoadPriority($(getDocument()));
 		if (p < 0) {
 			$var($InputStream, in, getStream(page));
@@ -467,7 +240,7 @@ void JEditorPane::setPage($URL* page) {
 					setDocument(doc);
 					$synchronized(this) {
 						$set(this, pageLoader, $new($JEditorPane$PageLoader, this, doc, in, loaded, page));
-						$nc(this->pageLoader)->execute();
+						this->pageLoader->execute();
 					}
 					return;
 				}
@@ -477,14 +250,14 @@ void JEditorPane::setPage($URL* page) {
 			}
 		} else {
 			if (this->pageLoader != nullptr) {
-				$nc(this->pageLoader)->cancel(true);
+				this->pageLoader->cancel(true);
 			}
 			$set(this, pageLoader, $new($JEditorPane$PageLoader, this, nullptr, nullptr, loaded, page));
-			$nc(this->pageLoader)->execute();
+			this->pageLoader->execute();
 			return;
 		}
 	}
-	$var($String, reference, $nc(page)->getRef());
+	$var($String, reference, page->getRef());
 	if (reference != nullptr) {
 		if (!reloaded) {
 			scrollToReference(reference);
@@ -492,17 +265,17 @@ void JEditorPane::setPage($URL* page) {
 			$SwingUtilities::invokeLater($$new($JEditorPane$2, this, reference));
 		}
 		$init($Document);
-		$nc($(getDocument()))->putProperty($Document::StreamDescriptionProperty, page);
+		$$nc(getDocument())->putProperty($Document::StreamDescriptionProperty, page);
 	}
-	firePropertyChange("page"_s, $of(loaded), $of(page));
+	firePropertyChange("page"_s, loaded, page);
 }
 
 $Document* JEditorPane::initializeModel($EditorKit* kit, $URL* page) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, $nc(kit)->createDefaultDocument());
 	if (this->pageProperties != nullptr) {
 		{
-			$var($Enumeration, e, $nc(this->pageProperties)->keys());
+			$var($Enumeration, e, this->pageProperties->keys());
 			for (; $nc(e)->hasMoreElements();) {
 				$var($String, key, $cast($String, e->nextElement()));
 				$nc(doc)->putProperty(key, $($nc(this->pageProperties)->get(key)));
@@ -518,26 +291,25 @@ $Document* JEditorPane::initializeModel($EditorKit* kit, $URL* page) {
 }
 
 int32_t JEditorPane::getAsynchronousLoadPriority($Document* doc) {
-	return ($instanceOf($AbstractDocument, doc) ? $nc(($cast($AbstractDocument, doc)))->getAsynchronousLoadPriority() : -1);
+	return ($instanceOf($AbstractDocument, doc) ? $cast($AbstractDocument, doc)->getAsynchronousLoadPriority() : -1);
 }
 
 void JEditorPane::read($InputStream* in, Object$* desc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($HTMLDocument, desc) && $instanceOf($HTMLEditorKit, this->kit)) {
 		$var($HTMLDocument, hdoc, $cast($HTMLDocument, desc));
-		setDocument(static_cast<$Document*>(static_cast<$AbstractDocument*>(static_cast<$DefaultStyledDocument*>(hdoc))));
-		read(in, static_cast<$Document*>(static_cast<$AbstractDocument*>(static_cast<$DefaultStyledDocument*>(hdoc))));
+		setDocument($cast($AbstractDocument, hdoc));
+		read(in, $cast($AbstractDocument, hdoc));
 	} else {
 		$var($String, charset, $cast($String, getClientProperty("charset"_s)));
-		$var($Reader, r, (charset != nullptr) ? static_cast<$Reader*>($new($InputStreamReader, in, charset)) : static_cast<$Reader*>($new($InputStreamReader, in)));
+		$var($Reader, r, (charset != nullptr) ? $new($InputStreamReader, in, charset) : $new($InputStreamReader, in));
 		$JTextComponent::read(r, desc);
 	}
 }
 
 void JEditorPane::read($InputStream* in$renamed, $Document* doc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputStream, in, in$renamed);
-	$init($Boolean);
 	if (!$nc($Boolean::TRUE)->equals($($nc(doc)->getProperty("IgnoreCharsetDirective"_s)))) {
 		int32_t READ_LIMIT = 1024 * 10;
 		$assign(in, $new($BufferedInputStream, in, READ_LIMIT));
@@ -545,32 +317,30 @@ void JEditorPane::read($InputStream* in$renamed, $Document* doc) {
 	}
 	$var($String, charset, $cast($String, getClientProperty("charset"_s)));
 	try {
-		$var($Reader, r, (charset != nullptr) ? static_cast<$Reader*>($new($InputStreamReader, in, charset)) : static_cast<$Reader*>($new($InputStreamReader, in)));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Reader, r, (charset != nullptr) ? $new($InputStreamReader, in, charset) : $new($InputStreamReader, in));
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$nc(this->kit)->read(r, doc, 0);
-				} catch ($Throwable& t$) {
-					if (r != nullptr) {
-						try {
-							r->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
+				$nc(this->kit)->read(r, doc, 0);
+			} catch ($Throwable& t$) {
 				if (r != nullptr) {
-					r->close();
+					try {
+						r->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			if (r != nullptr) {
+				r->close();
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} catch ($BadLocationException& e) {
 		$throwNew($IOException, $(e->getMessage()));
@@ -585,7 +355,7 @@ void JEditorPane::read($InputStream* in$renamed, $Document* doc) {
 			$nc(in)->reset();
 		} catch ($IOException& exception) {
 			$nc(in)->close();
-			$var($URL, url, $cast($URL, $nc(doc)->getProperty($Document::StreamDescriptionProperty)));
+			$var($URL, url, $cast($URL, doc->getProperty($Document::StreamDescriptionProperty)));
 			if (url != nullptr) {
 				$var($URLConnection, conn, url->openConnection());
 				$assign(in, $nc(conn)->getInputStream());
@@ -594,21 +364,21 @@ void JEditorPane::read($InputStream* in$renamed, $Document* doc) {
 			}
 		}
 		try {
-			$nc(doc)->remove(0, doc->getLength());
+			doc->remove(0, doc->getLength());
 		} catch ($BadLocationException& e) {
 		}
-		$nc(doc)->putProperty("IgnoreCharsetDirective"_s, $($Boolean::valueOf(true)));
+		doc->putProperty("IgnoreCharsetDirective"_s, $($Boolean::valueOf(true)));
 		read(in, doc);
 	}
 }
 
 $InputStream* JEditorPane::getStream($URL* page$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URL, page, page$renamed);
 	$var($URLConnection, conn, $nc(page)->openConnection());
 	if ($instanceOf($HttpURLConnection, conn)) {
 		$var($HttpURLConnection, hconn, $cast($HttpURLConnection, conn));
-		$nc(hconn)->setInstanceFollowRedirects(false);
+		hconn->setInstanceFollowRedirects(false);
 		$var($Object, postData, getPostData());
 		if (postData != nullptr) {
 			handlePostData(hconn, postData);
@@ -616,7 +386,7 @@ $InputStream* JEditorPane::getStream($URL* page$renamed) {
 		int32_t response = hconn->getResponseCode();
 		bool redirect = (response >= 300 && response <= 399);
 		if (redirect) {
-			$var($String, loc, $nc(conn)->getHeaderField("Location"_s));
+			$var($String, loc, conn->getHeaderField("Location"_s));
 			if ($nc(loc)->startsWith("http"_s, 0)) {
 				$assign(page, $new($URL, loc));
 			} else {
@@ -631,16 +401,16 @@ $InputStream* JEditorPane::getStream($URL* page$renamed) {
 		try {
 			$SwingUtilities::invokeAndWait($$new($JEditorPane$3, this, conn));
 		} catch ($InterruptedException& e) {
-			$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+			$throwNew($RuntimeException, e);
 		} catch ($InvocationTargetException& e) {
-			$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+			$throwNew($RuntimeException, e);
 		}
 	}
 	return $nc(conn)->getInputStream();
 }
 
 void JEditorPane::handleConnectionProperties($URLConnection* conn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->pageProperties == nullptr) {
 		$set(this, pageProperties, $new($Hashtable));
 	}
@@ -653,45 +423,43 @@ void JEditorPane::handleConnectionProperties($URLConnection* conn) {
 	$nc(this->pageProperties)->put($Document::StreamDescriptionProperty, $(conn->getURL()));
 	$var($String, enc, conn->getContentEncoding());
 	if (enc != nullptr) {
-		$nc(this->pageProperties)->put("content-encoding"_s, enc);
+		this->pageProperties->put("content-encoding"_s, enc);
 	}
 }
 
 $Object* JEditorPane::getPostData() {
-	return $of($nc($(getDocument()))->getProperty(JEditorPane::PostDataProperty));
+	return $$nc(getDocument())->getProperty(JEditorPane::PostDataProperty);
 }
 
 void JEditorPane::handlePostData($HttpURLConnection* conn, Object$* postData) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(conn)->setDoOutput(true);
 	$var($DataOutputStream, os, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			conn->setRequestProperty("Content-Type"_s, "application/x-www-form-urlencoded"_s);
-			$assign(os, $new($DataOutputStream, $(conn->getOutputStream())));
-			os->writeBytes($cast($String, postData));
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (os != nullptr) {
-				os->close();
-			}
+	$var($Throwable, var$0, nullptr);
+	try {
+		conn->setRequestProperty("Content-Type"_s, "application/x-www-form-urlencoded"_s);
+		$assign(os, $new($DataOutputStream, $(conn->getOutputStream())));
+		os->writeBytes($cast($String, postData));
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (os != nullptr) {
+			os->close();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void JEditorPane::scrollToReference($String* reference) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, d, getDocument());
 	if ($instanceOf($HTMLDocument, d)) {
 		$var($HTMLDocument, doc, $cast($HTMLDocument, d));
 		$init($HTML$Tag);
-		$var($HTMLDocument$Iterator, iter, $nc(doc)->getIterator($HTML$Tag::A));
-		for (; $nc(iter)->isValid(); $nc(iter)->next()) {
+		$var($HTMLDocument$Iterator, iter, doc->getIterator($HTML$Tag::A));
+		for (; $nc(iter)->isValid(); iter->next()) {
 			$var($AttributeSet, a, iter->getAttributes());
 			$init($HTML$Attribute);
 			$var($String, nm, $cast($String, $nc(a)->getAttribute($HTML$Attribute::NAME)));
@@ -706,7 +474,7 @@ void JEditorPane::scrollToReference($String* reference) {
 						setCaretPosition(pos);
 					}
 				} catch ($BadLocationException& ble) {
-					$nc($($UIManager::getLookAndFeel()))->provideErrorFeedback(this);
+					$$nc($UIManager::getLookAndFeel())->provideErrorFeedback(this);
 				}
 			}
 		}
@@ -715,7 +483,7 @@ void JEditorPane::scrollToReference($String* reference) {
 
 $URL* JEditorPane::getPage() {
 	$init($Document);
-	return $cast($URL, $nc($(getDocument()))->getProperty($Document::StreamDescriptionProperty));
+	return $cast($URL, $$nc(getDocument())->getProperty($Document::StreamDescriptionProperty));
 }
 
 void JEditorPane::setPage($String* url) {
@@ -743,13 +511,13 @@ $EditorKit* JEditorPane::getEditorKit() {
 }
 
 $String* JEditorPane::getContentType() {
-	return (this->kit != nullptr) ? $nc(this->kit)->getContentType() : ($String*)nullptr;
+	return (this->kit != nullptr) ? this->kit->getContentType() : ($String*)nullptr;
 }
 
 void JEditorPane::setContentType($String* type$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, type, type$renamed);
-	int32_t parm = $nc(type)->indexOf((int32_t)u';');
+	int32_t parm = $nc(type)->indexOf(u';');
 	if (parm > -1) {
 		$var($String, paramList, type->substring(parm));
 		$assign(type, $(type->substring(0, parm))->trim());
@@ -757,7 +525,7 @@ void JEditorPane::setContentType($String* type$renamed) {
 			setCharsetFromContentTypeParameters(paramList);
 		}
 	}
-	if ((this->kit == nullptr) || (!type->equals($($nc(this->kit)->getContentType()))) || !this->isUserSetEditorKit) {
+	if ((this->kit == nullptr) || (!type->equals($(this->kit->getContentType()))) || !this->isUserSetEditorKit) {
 		$var($EditorKit, k, getEditorKitForContentType(type));
 		if (k != nullptr && k != this->kit) {
 			setEditorKit(k);
@@ -767,11 +535,11 @@ void JEditorPane::setContentType($String* type$renamed) {
 }
 
 void JEditorPane::setCharsetFromContentTypeParameters($String* paramlist$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, paramlist, paramlist$renamed);
 	$var($String, charset, nullptr);
 	try {
-		int32_t semi = $nc(paramlist)->indexOf((int32_t)u';');
+		int32_t semi = $nc(paramlist)->indexOf(u';');
 		if (semi > -1 && semi < paramlist->length() - 1) {
 			$assign(paramlist, paramlist->substring(semi + 1));
 		}
@@ -791,7 +559,7 @@ void JEditorPane::setCharsetFromContentTypeParameters($String* paramlist$renamed
 }
 
 void JEditorPane::setEditorKit($EditorKit* kit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($EditorKit, old, this->kit);
 	this->isUserSetEditorKit = true;
 	if (old != nullptr) {
@@ -799,10 +567,10 @@ void JEditorPane::setEditorKit($EditorKit* kit) {
 	}
 	$set(this, kit, kit);
 	if (this->kit != nullptr) {
-		$nc(this->kit)->install(this);
+		this->kit->install(this);
 		setDocument($($nc(this->kit)->createDefaultDocument()));
 	}
-	firePropertyChange("editorKit"_s, $of(old), $of(kit));
+	firePropertyChange("editorKit"_s, old, kit);
 }
 
 $EditorKit* JEditorPane::getEditorKitForContentType($String* type) {
@@ -830,9 +598,9 @@ void JEditorPane::setEditorKitForContentType($String* type, $EditorKit* k) {
 }
 
 void JEditorPane::replaceSelection($String* content) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isEditable()) {
-		$nc($($UIManager::getLookAndFeel()))->provideErrorFeedback(this);
+		$$nc($UIManager::getLookAndFeel())->provideErrorFeedback(this);
 		return;
 	}
 	$var($EditorKit, kit, getEditorKit());
@@ -841,25 +609,25 @@ void JEditorPane::replaceSelection($String* content) {
 			$var($Document, doc, getDocument());
 			$var($Caret, caret, getCaret());
 			bool composedTextSaved = saveComposedText($nc(caret)->getDot());
-			int32_t var$0 = $nc(caret)->getDot();
+			int32_t var$0 = caret->getDot();
 			int32_t p0 = $Math::min(var$0, caret->getMark());
-			int32_t var$1 = $nc(caret)->getDot();
+			int32_t var$1 = caret->getDot();
 			int32_t p1 = $Math::max(var$1, caret->getMark());
 			if ($instanceOf($AbstractDocument, doc)) {
-				$nc(($cast($AbstractDocument, doc)))->replace(p0, p1 - p0, content, $($nc(($cast($StyledEditorKit, kit)))->getInputAttributes()));
+				$cast($AbstractDocument, doc)->replace(p0, p1 - p0, content, $($cast($StyledEditorKit, kit)->getInputAttributes()));
 			} else {
 				if (p0 != p1) {
 					$nc(doc)->remove(p0, p1 - p0);
 				}
 				if (content != nullptr && content->length() > 0) {
-					$nc(doc)->insertString(p0, content, $($nc(($cast($StyledEditorKit, kit)))->getInputAttributes()));
+					$nc(doc)->insertString(p0, content, $($cast($StyledEditorKit, kit)->getInputAttributes()));
 				}
 			}
 			if (composedTextSaved) {
 				restoreComposedText();
 			}
 		} catch ($BadLocationException& e) {
-			$nc($($UIManager::getLookAndFeel()))->provideErrorFeedback(this);
+			$$nc($UIManager::getLookAndFeel())->provideErrorFeedback(this);
 		}
 	} else {
 		$JTextComponent::replaceSelection(content);
@@ -868,13 +636,13 @@ void JEditorPane::replaceSelection($String* content) {
 
 $EditorKit* JEditorPane::createEditorKitForContentType($String* type) {
 	$init(JEditorPane);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Hashtable, kitRegistry, getKitRegisty());
 	$var($EditorKit, k, $cast($EditorKit, $nc(kitRegistry)->get(type)));
 	if (k == nullptr) {
-		$var($String, classname, $cast($String, $nc($(getKitTypeRegistry()))->get(type)));
-		$var($ClassLoader, loader, $cast($ClassLoader, $nc($(getKitLoaderRegistry()))->get(type)));
+		$var($String, classname, $cast($String, $$nc(getKitTypeRegistry())->get(type)));
+		$var($ClassLoader, loader, $cast($ClassLoader, $$nc(getKitLoaderRegistry())->get(type)));
 		try {
 			$Class* c = nullptr;
 			if (loader != nullptr) {
@@ -897,26 +665,26 @@ $EditorKit* JEditorPane::createEditorKitForContentType($String* type) {
 
 void JEditorPane::registerEditorKitForContentType($String* type, $String* classname) {
 	$init(JEditorPane);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	registerEditorKitForContentType(type, classname, $($($Thread::currentThread())->getContextClassLoader()));
 }
 
 void JEditorPane::registerEditorKitForContentType($String* type, $String* classname, $ClassLoader* loader) {
 	$init(JEditorPane);
-	$useLocalCurrentObjectStackCache();
-	$nc($(getKitTypeRegistry()))->put(type, classname);
+	$useLocalObjectStack();
+	$$nc(getKitTypeRegistry())->put(type, classname);
 	if (loader != nullptr) {
-		$nc($(getKitLoaderRegistry()))->put(type, loader);
+		$$nc(getKitLoaderRegistry())->put(type, loader);
 	} else {
-		$nc($(getKitLoaderRegistry()))->remove(type);
+		$$nc(getKitLoaderRegistry())->remove(type);
 	}
-	$nc($(getKitRegisty()))->remove(type);
+	$$nc(getKitRegisty())->remove(type);
 }
 
 $String* JEditorPane::getEditorKitClassNameForContentType($String* type) {
 	$init(JEditorPane);
-	return $cast($String, $nc($(getKitTypeRegistry()))->get(type));
+	return $cast($String, $$nc(getKitTypeRegistry())->get(type));
 }
 
 $Hashtable* JEditorPane::getKitTypeRegistry() {
@@ -945,14 +713,14 @@ $Hashtable* JEditorPane::getKitRegisty() {
 
 void JEditorPane::loadDefaultKitsIfNecessary() {
 	$init(JEditorPane);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($SwingUtilities::appContextGet(JEditorPane::kitTypeRegistryKey) == nullptr) {
 		$synchronized(JEditorPane::defaultEditorKitMap) {
-			if ($nc(JEditorPane::defaultEditorKitMap)->size() == 0) {
-				$nc(JEditorPane::defaultEditorKitMap)->put("text/plain"_s, "javax.swing.JEditorPane$PlainEditorKit"_s);
-				$nc(JEditorPane::defaultEditorKitMap)->put("text/html"_s, "javax.swing.text.html.HTMLEditorKit"_s);
-				$nc(JEditorPane::defaultEditorKitMap)->put("text/rtf"_s, "javax.swing.text.rtf.RTFEditorKit"_s);
-				$nc(JEditorPane::defaultEditorKitMap)->put("application/rtf"_s, "javax.swing.text.rtf.RTFEditorKit"_s);
+			if (JEditorPane::defaultEditorKitMap->size() == 0) {
+				JEditorPane::defaultEditorKitMap->put("text/plain"_s, "javax.swing.JEditorPane$PlainEditorKit"_s);
+				JEditorPane::defaultEditorKitMap->put("text/html"_s, "javax.swing.text.html.HTMLEditorKit"_s);
+				JEditorPane::defaultEditorKitMap->put("text/rtf"_s, "javax.swing.text.rtf.RTFEditorKit"_s);
+				JEditorPane::defaultEditorKitMap->put("application/rtf"_s, "javax.swing.text.rtf.RTFEditorKit"_s);
 			}
 		}
 		$var($Hashtable, ht, $new($Hashtable));
@@ -960,11 +728,11 @@ void JEditorPane::loadDefaultKitsIfNecessary() {
 		$assign(ht, $new($Hashtable));
 		$SwingUtilities::appContextPut(JEditorPane::kitLoaderRegistryKey, ht);
 		{
-			$var($Iterator, i$, $nc($($nc(JEditorPane::defaultEditorKitMap)->keySet()))->iterator());
+			$var($Iterator, i$, $$nc(JEditorPane::defaultEditorKitMap->keySet())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($String, key, $cast($String, i$->next()));
 				{
-					registerEditorKitForContentType(key, $cast($String, $($nc(JEditorPane::defaultEditorKitMap)->get(key))));
+					registerEditorKitForContentType(key, $$cast($String, JEditorPane::defaultEditorKitMap->get(key)));
 				}
 			}
 		}
@@ -972,7 +740,7 @@ void JEditorPane::loadDefaultKitsIfNecessary() {
 }
 
 $Dimension* JEditorPane::getPreferredSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, d, $JTextComponent::getPreferredSize());
 	$var($Container, parent, $SwingUtilities::getUnwrappedParent(this));
 	if ($instanceOf($JViewport, parent)) {
@@ -981,14 +749,14 @@ $Dimension* JEditorPane::getPreferredSize() {
 		int32_t prefWidth = $nc(d)->width;
 		int32_t prefHeight = d->height;
 		if (!getScrollableTracksViewportWidth()) {
-			int32_t w = $nc(port)->getWidth();
+			int32_t w = port->getWidth();
 			$var($Dimension, min, $nc(ui)->getMinimumSize(this));
 			if (w != 0 && w < $nc(min)->width) {
 				prefWidth = min->width;
 			}
 		}
 		if (!getScrollableTracksViewportHeight()) {
-			int32_t h = $nc(port)->getHeight();
+			int32_t h = port->getHeight();
 			$var($Dimension, min, $nc(ui)->getMinimumSize(this));
 			if (h != 0 && h < $nc(min)->height) {
 				prefHeight = min->height;
@@ -1002,25 +770,25 @@ $Dimension* JEditorPane::getPreferredSize() {
 }
 
 void JEditorPane::setText($String* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($Document, doc, getDocument());
-		$nc(doc)->remove(0, doc->getLength());
-		if (t == nullptr || $nc(t)->isEmpty()) {
+		$nc(doc)->remove(0, $nc(doc)->getLength());
+		if (t == nullptr || t->isEmpty()) {
 			return;
 		}
 		$var($Reader, r, $new($StringReader, t));
 		$var($EditorKit, kit, getEditorKit());
 		$nc(kit)->read(r, doc, 0);
 	} catch ($IOException& ioe) {
-		$nc($($UIManager::getLookAndFeel()))->provideErrorFeedback(this);
+		$$nc($UIManager::getLookAndFeel())->provideErrorFeedback(this);
 	} catch ($BadLocationException& ble) {
-		$nc($($UIManager::getLookAndFeel()))->provideErrorFeedback(this);
+		$$nc($UIManager::getLookAndFeel())->provideErrorFeedback(this);
 	}
 }
 
 $String* JEditorPane::getText() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, txt, nullptr);
 	try {
 		$var($StringWriter, buf, $new($StringWriter));
@@ -1033,12 +801,12 @@ $String* JEditorPane::getText() {
 }
 
 bool JEditorPane::getScrollableTracksViewportWidth() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, parent, $SwingUtilities::getUnwrappedParent(this));
 	if ($instanceOf($JViewport, parent)) {
 		$var($JViewport, port, $cast($JViewport, parent));
 		$var($TextUI, ui, $cast($TextUI, getUI()));
-		int32_t w = $nc(port)->getWidth();
+		int32_t w = port->getWidth();
 		$var($Dimension, min, $nc(ui)->getMinimumSize(this));
 		$var($Dimension, max, ui->getMaximumSize(this));
 		if ((w >= $nc(min)->width) && (w <= $nc(max)->width)) {
@@ -1049,12 +817,12 @@ bool JEditorPane::getScrollableTracksViewportWidth() {
 }
 
 bool JEditorPane::getScrollableTracksViewportHeight() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, parent, $SwingUtilities::getUnwrappedParent(this));
 	if ($instanceOf($JViewport, parent)) {
 		$var($JViewport, port, $cast($JViewport, parent));
 		$var($TextUI, ui, $cast($TextUI, getUI()));
-		int32_t h = $nc(port)->getHeight();
+		int32_t h = port->getHeight();
 		$var($Dimension, min, $nc(ui)->getMinimumSize(this));
 		if (h >= $nc(min)->height) {
 			$var($Dimension, max, ui->getMaximumSize(this));
@@ -1068,38 +836,38 @@ bool JEditorPane::getScrollableTracksViewportHeight() {
 
 void JEditorPane::writeObject($ObjectOutputStream* s) {
 	$nc(s)->defaultWriteObject();
-	if ($nc($(getUIClassID()))->equals(JEditorPane::uiClassID)) {
+	if ($$nc(getUIClassID())->equals(JEditorPane::uiClassID)) {
 		int8_t count = $JComponent::getWriteObjCounter(this);
 		$JComponent::setWriteObjCounter(this, --count);
 		if (count == 0 && this->ui != nullptr) {
-			$nc(this->ui)->installUI(this);
+			this->ui->installUI(this);
 		}
 	}
 }
 
 $String* JEditorPane::paramString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, kitString, this->kit != nullptr ? $nc($of(this->kit))->toString() : ""_s);
-	$var($String, typeHandlersString, this->typeHandlers != nullptr ? $nc(this->typeHandlers)->toString() : ""_s);
+	$useLocalObjectStack();
+	$var($String, kitString, this->kit != nullptr ? this->kit->toString() : ""_s);
+	$var($String, typeHandlersString, this->typeHandlers != nullptr ? this->typeHandlers->toString() : ""_s);
 	return $str({$($JTextComponent::paramString()), ",kit="_s, kitString, ",typeHandlers="_s, typeHandlersString});
 }
 
 $AccessibleContext* JEditorPane::getAccessibleContext() {
 	if ($instanceOf($HTMLEditorKit, $(getEditorKit()))) {
 		$load($JEditorPane$AccessibleJEditorPaneHTML);
-		if (this->accessibleContext == nullptr || $nc($of(this->accessibleContext))->getClass() != $JEditorPane$AccessibleJEditorPaneHTML::class$) {
+		if (this->accessibleContext == nullptr || this->accessibleContext->getClass() != $JEditorPane$AccessibleJEditorPaneHTML::class$) {
 			$set(this, accessibleContext, $new($JEditorPane$AccessibleJEditorPaneHTML, this));
 		}
 	} else {
 		$load($JEditorPane$AccessibleJEditorPane);
-		if (this->accessibleContext == nullptr || $nc($of(this->accessibleContext))->getClass() != $JEditorPane$AccessibleJEditorPane::class$) {
+		if (this->accessibleContext == nullptr || this->accessibleContext->getClass() != $JEditorPane$AccessibleJEditorPane::class$) {
 			$set(this, accessibleContext, $new($JEditorPane$AccessibleJEditorPane, this));
 		}
 	}
 	return this->accessibleContext;
 }
 
-void clinit$JEditorPane($Class* class$) {
+void JEditorPane::clinit$($Class* clazz) {
 	$assignStatic(JEditorPane::PostDataProperty, "javax.swing.JEditorPane.postdata"_s);
 	$assignStatic(JEditorPane::uiClassID, "EditorPaneUI"_s);
 	$assignStatic(JEditorPane::W3C_LENGTH_UNITS, "JEditorPane.w3cLengthUnits"_s);
@@ -1114,7 +882,191 @@ JEditorPane::JEditorPane() {
 }
 
 $Class* JEditorPane::load$($String* name, bool initialize) {
-	$loadClass(JEditorPane, name, initialize, &_JEditorPane_ClassInfo_, clinit$JEditorPane, allocate$JEditorPane);
+	$FieldInfo fieldInfos$$[] = {
+		{"pageLoader", "Ljavax/swing/SwingWorker;", "Ljavax/swing/SwingWorker<Ljava/net/URL;Ljava/lang/Object;>;", $PRIVATE, $field(JEditorPane, pageLoader)},
+		{"kit", "Ljavax/swing/text/EditorKit;", nullptr, $PRIVATE, $field(JEditorPane, kit)},
+		{"isUserSetEditorKit", "Z", nullptr, $PRIVATE, $field(JEditorPane, isUserSetEditorKit)},
+		{"pageProperties", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(JEditorPane, pageProperties)},
+		{"PostDataProperty", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JEditorPane, PostDataProperty)},
+		{"typeHandlers", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljavax/swing/text/EditorKit;>;", $PRIVATE, $field(JEditorPane, typeHandlers)},
+		{"kitRegistryKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JEditorPane, kitRegistryKey)},
+		{"kitTypeRegistryKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JEditorPane, kitTypeRegistryKey)},
+		{"kitLoaderRegistryKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JEditorPane, kitLoaderRegistryKey)},
+		{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JEditorPane, uiClassID)},
+		{"W3C_LENGTH_UNITS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JEditorPane, W3C_LENGTH_UNITS)},
+		{"HONOR_DISPLAY_PROPERTIES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JEditorPane, HONOR_DISPLAY_PROPERTIES)},
+		{"defaultEditorKitMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(JEditorPane, defaultEditorKitMap)},
+		{}
+	};
+	$NamedAttribute getAccessibleContextmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getAccessibleContextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getAccessibleContextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getHyperlinkListenersmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getHyperlinkListenersmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getHyperlinkListenersmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getScrollableTracksViewportHeightmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getScrollableTracksViewportHeightmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getScrollableTracksViewportHeightmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getScrollableTracksViewportWidthmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getScrollableTracksViewportWidthmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getScrollableTracksViewportWidthmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getUIClassIDmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getUIClassIDmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getUIClassIDmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setContentTypemethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"description", 's', "the type of content"},
+		{}
+	};
+	$CompoundAttribute setContentTypemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setContentTypemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setEditorKitmethodAnnotations$$$namedAttribute[] = {
+		{"expert", 'Z', "true"},
+		{"description", 's', "the currently installed kit for handling content"},
+		{}
+	};
+	$CompoundAttribute setEditorKitmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setEditorKitmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setPagemethodAnnotations$$$namedAttribute[] = {
+		{"expert", 'Z', "true"},
+		{"description", 's', "the URL used to set content"},
+		{}
+	};
+	$CompoundAttribute setPagemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setPagemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setTextmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"description", 's', "the text of this component"},
+		{}
+	};
+	$CompoundAttribute setTextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setTextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JEditorPane, init$, void)},
+		{"<init>", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $method(JEditorPane, init$, void, $URL*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JEditorPane, init$, void, $String*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JEditorPane, init$, void, $String*, $String*)},
+		{"access$000", "(Ljavax/swing/JEditorPane;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(JEditorPane, access$000, void, JEditorPane*, $String*, Object$*, Object$*)},
+		{"addHyperlinkListener", "(Ljavax/swing/event/HyperlinkListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JEditorPane, addHyperlinkListener, void, $HyperlinkListener*)},
+		{"createDefaultEditorKit", "()Ljavax/swing/text/EditorKit;", nullptr, $PROTECTED, $virtualMethod(JEditorPane, createDefaultEditorKit, $EditorKit*)},
+		{"createEditorKitForContentType", "(Ljava/lang/String;)Ljavax/swing/text/EditorKit;", nullptr, $PUBLIC | $STATIC, $staticMethod(JEditorPane, createEditorKitForContentType, $EditorKit*, $String*)},
+		{"fireHyperlinkUpdate", "(Ljavax/swing/event/HyperlinkEvent;)V", nullptr, $PUBLIC, $virtualMethod(JEditorPane, fireHyperlinkUpdate, void, $HyperlinkEvent*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JEditorPane, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, getAccessibleContextmethodAnnotations$$},
+		{"getAsynchronousLoadPriority", "(Ljavax/swing/text/Document;)I", nullptr, $PRIVATE, $method(JEditorPane, getAsynchronousLoadPriority, int32_t, $Document*)},
+		{"getContentType", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(JEditorPane, getContentType, $String*)},
+		{"getEditorKit", "()Ljavax/swing/text/EditorKit;", nullptr, $PUBLIC, $virtualMethod(JEditorPane, getEditorKit, $EditorKit*)},
+		{"getEditorKitClassNameForContentType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JEditorPane, getEditorKitClassNameForContentType, $String*, $String*)},
+		{"getEditorKitForContentType", "(Ljava/lang/String;)Ljavax/swing/text/EditorKit;", nullptr, $PUBLIC, $virtualMethod(JEditorPane, getEditorKitForContentType, $EditorKit*, $String*)},
+		{"getHyperlinkListeners", "()[Ljavax/swing/event/HyperlinkListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JEditorPane, getHyperlinkListeners, $HyperlinkListenerArray*), nullptr, nullptr, getHyperlinkListenersmethodAnnotations$$},
+		{"getKitLoaderRegistry", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/ClassLoader;>;", $PRIVATE | $STATIC, $staticMethod(JEditorPane, getKitLoaderRegistry, $Hashtable*)},
+		{"getKitRegisty", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<Ljava/lang/String;Ljavax/swing/text/EditorKit;>;", $PRIVATE | $STATIC, $staticMethod(JEditorPane, getKitRegisty, $Hashtable*)},
+		{"getKitTypeRegistry", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(JEditorPane, getKitTypeRegistry, $Hashtable*)},
+		{"getPage", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(JEditorPane, getPage, $URL*)},
+		{"getPostData", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(JEditorPane, getPostData, $Object*)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JEditorPane, getPreferredSize, $Dimension*)},
+		{"getScrollableTracksViewportHeight", "()Z", nullptr, $PUBLIC, $virtualMethod(JEditorPane, getScrollableTracksViewportHeight, bool), nullptr, nullptr, getScrollableTracksViewportHeightmethodAnnotations$$},
+		{"getScrollableTracksViewportWidth", "()Z", nullptr, $PUBLIC, $virtualMethod(JEditorPane, getScrollableTracksViewportWidth, bool), nullptr, nullptr, getScrollableTracksViewportWidthmethodAnnotations$$},
+		{"getStream", "(Ljava/net/URL;)Ljava/io/InputStream;", nullptr, $PROTECTED, $virtualMethod(JEditorPane, getStream, $InputStream*, $URL*), "java.io.IOException"},
+		{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JEditorPane, getText, $String*)},
+		{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JEditorPane, getUIClassID, $String*), nullptr, nullptr, getUIClassIDmethodAnnotations$$},
+		{"handleConnectionProperties", "(Ljava/net/URLConnection;)V", nullptr, $PRIVATE, $method(JEditorPane, handleConnectionProperties, void, $URLConnection*)},
+		{"handlePostData", "(Ljava/net/HttpURLConnection;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(JEditorPane, handlePostData, void, $HttpURLConnection*, Object$*), "java.io.IOException"},
+		{"initializeModel", "(Ljavax/swing/text/EditorKit;Ljava/net/URL;)Ljavax/swing/text/Document;", nullptr, $PRIVATE, $method(JEditorPane, initializeModel, $Document*, $EditorKit*, $URL*)},
+		{"loadDefaultKitsIfNecessary", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JEditorPane, loadDefaultKitsIfNecessary, void)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JEditorPane, paramString, $String*)},
+		{"read", "(Ljava/io/InputStream;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JEditorPane, read, void, $InputStream*, Object$*), "java.io.IOException"},
+		{"read", "(Ljava/io/InputStream;Ljavax/swing/text/Document;)V", nullptr, 0, $virtualMethod(JEditorPane, read, void, $InputStream*, $Document*), "java.io.IOException"},
+		{"registerEditorKitForContentType", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JEditorPane, registerEditorKitForContentType, void, $String*, $String*)},
+		{"registerEditorKitForContentType", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JEditorPane, registerEditorKitForContentType, void, $String*, $String*, $ClassLoader*)},
+		{"removeHyperlinkListener", "(Ljavax/swing/event/HyperlinkListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JEditorPane, removeHyperlinkListener, void, $HyperlinkListener*)},
+		{"replaceSelection", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JEditorPane, replaceSelection, void, $String*)},
+		{"scrollToReference", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JEditorPane, scrollToReference, void, $String*)},
+		{"setCharsetFromContentTypeParameters", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(JEditorPane, setCharsetFromContentTypeParameters, void, $String*)},
+		{"setContentType", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $method(JEditorPane, setContentType, void, $String*), nullptr, nullptr, setContentTypemethodAnnotations$$},
+		{"setEditorKit", "(Ljavax/swing/text/EditorKit;)V", nullptr, $PUBLIC, $virtualMethod(JEditorPane, setEditorKit, void, $EditorKit*), nullptr, nullptr, setEditorKitmethodAnnotations$$},
+		{"setEditorKitForContentType", "(Ljava/lang/String;Ljavax/swing/text/EditorKit;)V", nullptr, $PUBLIC, $virtualMethod(JEditorPane, setEditorKitForContentType, void, $String*, $EditorKit*)},
+		{"setPage", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $virtualMethod(JEditorPane, setPage, void, $URL*), "java.io.IOException", nullptr, setPagemethodAnnotations$$},
+		{"setPage", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JEditorPane, setPage, void, $String*), "java.io.IOException"},
+		{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JEditorPane, setText, void, $String*), nullptr, nullptr, setTextmethodAnnotations$$},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JEditorPane, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JEditorPane$HeaderParser", "javax.swing.JEditorPane", "HeaderParser", $STATIC},
+		{"javax.swing.JEditorPane$PlainEditorKit", "javax.swing.JEditorPane", "PlainEditorKit", $STATIC},
+		{"javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport", "javax.swing.JEditorPane", "JEditorPaneAccessibleHypertextSupport", $PROTECTED},
+		{"javax.swing.JEditorPane$AccessibleJEditorPaneHTML", "javax.swing.JEditorPane", "AccessibleJEditorPaneHTML", $PROTECTED},
+		{"javax.swing.JEditorPane$AccessibleJEditorPane", "javax.swing.JEditorPane", "AccessibleJEditorPane", $PROTECTED},
+		{"javax.swing.JEditorPane$PageLoader", "javax.swing.JEditorPane", "PageLoader", 0},
+		{"javax.swing.JEditorPane$3", nullptr, nullptr, 0},
+		{"javax.swing.JEditorPane$2", nullptr, nullptr, 0},
+		{"javax.swing.JEditorPane$1", nullptr, nullptr, 0},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"defaultProperty", 's', "UIClassID"},
+		{"description", 's', "A text component to edit various types of content."},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{"Ljavax/swing/SwingContainer;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JEditorPane",
+		"javax.swing.text.JTextComponent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.JEditorPane$HeaderParser,javax.swing.JEditorPane$PlainEditorKit,javax.swing.JEditorPane$PlainEditorKit$PlainParagraph,javax.swing.JEditorPane$PlainEditorKit$PlainParagraph$LogicalView,javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport,javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector,javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport$HTMLLink,javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport$1,javax.swing.JEditorPane$AccessibleJEditorPaneHTML,javax.swing.JEditorPane$AccessibleJEditorPane,javax.swing.JEditorPane$PageLoader,javax.swing.JEditorPane$PageLoader$3,javax.swing.JEditorPane$PageLoader$2,javax.swing.JEditorPane$PageLoader$1,javax.swing.JEditorPane$3,javax.swing.JEditorPane$2,javax.swing.JEditorPane$1"
+	};
+	$loadClass(JEditorPane, name, initialize, &classInfo$$, JEditorPane::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JEditorPane));
+	});
 	return class$;
 }
 

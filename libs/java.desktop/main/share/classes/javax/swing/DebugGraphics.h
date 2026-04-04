@@ -60,6 +60,7 @@ public:
 	using ::java::awt::Graphics::drawPolygon;
 	using ::java::awt::Graphics::fillPolygon;
 	using ::java::awt::Graphics::getClipBounds;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::awt::Graphics* graphics, ::javax::swing::JComponent* component);
 	void init$(::java::awt::Graphics* graphics);

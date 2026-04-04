@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/Items$DynamicItem.h>
-
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Symbol$DynamicMethodSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$DynamicVarSymbol.h>
@@ -11,7 +10,6 @@
 #include <com/sun/tools/javac/jvm/Items$Item.h>
 #include <com/sun/tools/javac/jvm/Items$StaticItem.h>
 #include <com/sun/tools/javac/jvm/Items.h>
-#include <com/sun/tools/javac/jvm/PoolConstant$LoadableConstant.h>
 #include <com/sun/tools/javac/util/Assert.h>
 #include <jcpp.h>
 
@@ -28,7 +26,6 @@ using $Code = ::com::sun::tools::javac::jvm::Code;
 using $Items = ::com::sun::tools::javac::jvm::Items;
 using $Items$Item = ::com::sun::tools::javac::jvm::Items$Item;
 using $Items$StaticItem = ::com::sun::tools::javac::jvm::Items$StaticItem;
-using $PoolConstant$LoadableConstant = ::com::sun::tools::javac::jvm::PoolConstant$LoadableConstant;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -40,46 +37,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$FieldInfo _Items$DynamicItem_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/jvm/Items;", nullptr, $FINAL | $SYNTHETIC, $field(Items$DynamicItem, this$0)},
-	{}
-};
-
-$MethodInfo _Items$DynamicItem_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(Items$DynamicItem, init$, void, $Items*, $Symbol*)},
-	{"invoke", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$DynamicItem, invoke, $Items$Item*)},
-	{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$DynamicItem, load, $Items$Item*)},
-	{"store", "()V", nullptr, 0, $virtualMethod(Items$DynamicItem, store, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Items$DynamicItem, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Items$DynamicItem_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.Items$DynamicItem", "com.sun.tools.javac.jvm.Items", "DynamicItem", 0},
-	{"com.sun.tools.javac.jvm.Items$StaticItem", "com.sun.tools.javac.jvm.Items", "StaticItem", 0},
-	{}
-};
-
-$ClassInfo _Items$DynamicItem_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.Items$DynamicItem",
-	"com.sun.tools.javac.jvm.Items$StaticItem",
-	nullptr,
-	_Items$DynamicItem_FieldInfo_,
-	_Items$DynamicItem_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Items$DynamicItem_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.Items"
-};
-
-$Object* allocate$Items$DynamicItem($Class* clazz) {
-	return $of($alloc(Items$DynamicItem));
-}
 
 void Items$DynamicItem::init$($Items* this$0, $Symbol* member) {
 	$set(this, this$0, this$0);
@@ -116,7 +73,41 @@ Items$DynamicItem::Items$DynamicItem() {
 }
 
 $Class* Items$DynamicItem::load$($String* name, bool initialize) {
-	$loadClass(Items$DynamicItem, name, initialize, &_Items$DynamicItem_ClassInfo_, allocate$Items$DynamicItem);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/jvm/Items;", nullptr, $FINAL | $SYNTHETIC, $field(Items$DynamicItem, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/jvm/Items;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(Items$DynamicItem, init$, void, $Items*, $Symbol*)},
+		{"invoke", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$DynamicItem, invoke, $Items$Item*)},
+		{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$DynamicItem, load, $Items$Item*)},
+		{"store", "()V", nullptr, 0, $virtualMethod(Items$DynamicItem, store, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Items$DynamicItem, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.Items$DynamicItem", "com.sun.tools.javac.jvm.Items", "DynamicItem", 0},
+		{"com.sun.tools.javac.jvm.Items$StaticItem", "com.sun.tools.javac.jvm.Items", "StaticItem", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.Items$DynamicItem",
+		"com.sun.tools.javac.jvm.Items$StaticItem",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.Items"
+	};
+	$loadClass(Items$DynamicItem, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Items$DynamicItem);
+	});
 	return class$;
 }
 

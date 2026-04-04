@@ -28,6 +28,7 @@ class JPEGImageReaderSpi : public ::javax::imageio::spi::ImageReaderSpi {
 public:
 	JPEGImageReaderSpi();
 	using ::javax::imageio::spi::ImageReaderSpi::createReaderInstance;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool canDecodeInput(Object$* source) override;
 	virtual ::javax::imageio::ImageReader* createReaderInstance(Object$* extension) override;

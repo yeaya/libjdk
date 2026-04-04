@@ -1,12 +1,10 @@
 #include <bug6884066.h>
-
 #include <bug6884066$1.h>
 #include <bug6884066$2.h>
 #include <java/awt/Component.h>
 #include <java/awt/Point.h>
 #include <java/awt/Robot.h>
 #include <java/awt/event/InputEvent.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/table/JTableHeader.h>
@@ -25,50 +23,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $JTableHeader = ::javax::swing::table::JTableHeader;
-using $TableColumn = ::javax::swing::table::TableColumn;
 using $TableColumnModel = ::javax::swing::table::TableColumnModel;
-
-$FieldInfo _bug6884066_FieldInfo_[] = {
-	{"header", "Ljavax/swing/table/JTableHeader;", nullptr, $PRIVATE | $STATIC, $staticField(bug6884066, header)},
-	{}
-};
-
-$MethodInfo _bug6884066_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6884066, init$, void)},
-	{"checkColumn", "(ILjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6884066, checkColumn, void, int32_t, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6884066, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug6884066_InnerClassesInfo_[] = {
-	{"bug6884066$2", nullptr, nullptr, 0},
-	{"bug6884066$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6884066_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6884066",
-	"java.lang.Object",
-	nullptr,
-	_bug6884066_FieldInfo_,
-	_bug6884066_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6884066_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug6884066$2,bug6884066$1"
-};
-
-$Object* allocate$bug6884066($Class* clazz) {
-	return $of($alloc(bug6884066));
-}
 
 $JTableHeader* bug6884066::header = nullptr;
 
@@ -76,7 +35,7 @@ void bug6884066::init$() {
 }
 
 void bug6884066::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$UIManager::setLookAndFeel($($UIManager::getSystemLookAndFeelClassName()));
 	$var($Robot, robot, $new($Robot));
 	robot->setAutoDelay(20);
@@ -84,20 +43,20 @@ void bug6884066::main($StringArray* args) {
 	robot->waitForIdle();
 	$init(bug6884066);
 	$var($Point, point, $nc(bug6884066::header)->getLocationOnScreen());
-	robot->mouseMove($nc(point)->x + 3, point->y + 3);
+	robot->mouseMove($nc(point)->x + 3, $nc(point)->y + 3);
 	robot->mousePress($InputEvent::BUTTON1_MASK);
 	for (int32_t i = 0; i < $nc(bug6884066::header)->getWidth() - 3; ++i) {
-		robot->mouseMove($nc(point)->x + i, point->y + 3);
+		robot->mouseMove(point->x + i, point->y + 3);
 	}
 	robot->mouseRelease($InputEvent::BUTTON1_MASK);
 	$SwingUtilities::invokeAndWait($$new($bug6884066$2));
 }
 
 void bug6884066::checkColumn(int32_t index, $String* str) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(bug6884066);
 	$var($TableColumnModel, model, $nc(bug6884066::header)->getColumnModel());
-	$var($Object, value, $nc($($nc(model)->getColumn(index)))->getHeaderValue());
+	$var($Object, value, $$nc($nc(model)->getColumn(index))->getHeaderValue());
 	if (!$nc(str)->equals(value)) {
 		$throwNew($RuntimeException, $$str({"Unexpected header\'s value; index = "_s, $$str(index), " value = "_s, value}));
 	}
@@ -107,7 +66,38 @@ bug6884066::bug6884066() {
 }
 
 $Class* bug6884066::load$($String* name, bool initialize) {
-	$loadClass(bug6884066, name, initialize, &_bug6884066_ClassInfo_, allocate$bug6884066);
+	$FieldInfo fieldInfos$$[] = {
+		{"header", "Ljavax/swing/table/JTableHeader;", nullptr, $PRIVATE | $STATIC, $staticField(bug6884066, header)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6884066, init$, void)},
+		{"checkColumn", "(ILjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6884066, checkColumn, void, int32_t, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6884066, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6884066$2", nullptr, nullptr, 0},
+		{"bug6884066$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6884066",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug6884066$2,bug6884066$1"
+	};
+	$loadClass(bug6884066, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6884066);
+	});
 	return class$;
 }
 

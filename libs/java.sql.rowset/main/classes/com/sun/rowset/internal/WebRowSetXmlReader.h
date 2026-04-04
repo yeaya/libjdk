@@ -54,7 +54,7 @@ public:
 	virtual void readXML(::javax::sql::rowset::WebRowSet* caller, ::java::io::InputStream* iStream);
 	virtual $String* toString() override;
 	::com::sun::rowset::JdbcRowSetResourceBundle* resBundle = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x81562CBFBBC67DF2;
+	static const int64_t serialVersionUID = (int64_t)0x81562cbfbbc67df2;
 };
 
 			} // internal

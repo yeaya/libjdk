@@ -1,5 +1,4 @@
 #include <javax/rmi/ssl/SslRMIClientSocketFactory.h>
-
 #include <java/io/IOException.h>
 #include <java/net/Socket.h>
 #include <java/rmi/server/RMIClientSocketFactory.h>
@@ -25,37 +24,6 @@ namespace javax {
 	namespace rmi {
 		namespace ssl {
 
-$FieldInfo _SslRMIClientSocketFactory_FieldInfo_[] = {
-	{"defaultSocketFactory", "Ljavax/net/SocketFactory;", nullptr, $PRIVATE | $STATIC, $staticField(SslRMIClientSocketFactory, defaultSocketFactory)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SslRMIClientSocketFactory, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SslRMIClientSocketFactory_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SslRMIClientSocketFactory, init$, void)},
-	{"createSocket", "(Ljava/lang/String;I)Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(SslRMIClientSocketFactory, createSocket, $Socket*, $String*, int32_t), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SslRMIClientSocketFactory, equals, bool, Object$*)},
-	{"getDefaultClientSocketFactory", "()Ljavax/net/SocketFactory;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(SslRMIClientSocketFactory, getDefaultClientSocketFactory, $SocketFactory*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SslRMIClientSocketFactory, hashCode, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _SslRMIClientSocketFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.rmi.ssl.SslRMIClientSocketFactory",
-	"java.lang.Object",
-	"java.rmi.server.RMIClientSocketFactory,java.io.Serializable",
-	_SslRMIClientSocketFactory_FieldInfo_,
-	_SslRMIClientSocketFactory_MethodInfo_
-};
-
-$Object* allocate$SslRMIClientSocketFactory($Class* clazz) {
-	return $of($alloc(SslRMIClientSocketFactory));
-}
-
 $Object* SslRMIClientSocketFactory::clone() {
 	 return this->$RMIClientSocketFactory::clone();
 }
@@ -74,7 +42,7 @@ void SslRMIClientSocketFactory::init$() {
 }
 
 $Socket* SslRMIClientSocketFactory::createSocket($String* host, int32_t port) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SocketFactory, sslSocketFactory, getDefaultClientSocketFactory());
 	$var($SSLSocket, sslSocket, $cast($SSLSocket, $nc(sslSocketFactory)->createSocket(host, port)));
 	$var($String, enabledCipherSuites, $System::getProperty("javax.rmi.ssl.client.enabledCipherSuites"_s));
@@ -88,7 +56,7 @@ $Socket* SslRMIClientSocketFactory::createSocket($String* host, int32_t port) {
 		try {
 			$nc(sslSocket)->setEnabledCipherSuites(enabledCipherSuitesList);
 		} catch ($IllegalArgumentException& e) {
-			$throw($cast($IOException, $($$new($IOException, $(e->getMessage()))->initCause(e))));
+			$throw($$cast($IOException, $$new($IOException, $(e->getMessage()))->initCause(e)));
 		}
 	}
 	$var($String, enabledProtocols, $System::getProperty("javax.rmi.ssl.client.enabledProtocols"_s));
@@ -102,7 +70,7 @@ $Socket* SslRMIClientSocketFactory::createSocket($String* host, int32_t port) {
 		try {
 			$nc(sslSocket)->setEnabledProtocols(enabledProtocolsList);
 		} catch ($IllegalArgumentException& e) {
-			$throw($cast($IOException, $($$new($IOException, $(e->getMessage()))->initCause(e))));
+			$throw($$cast($IOException, $$new($IOException, $(e->getMessage()))->initCause(e)));
 		}
 	}
 	return sslSocket;
@@ -115,17 +83,16 @@ bool SslRMIClientSocketFactory::equals(Object$* obj) {
 	if ($equals(obj, this)) {
 		return true;
 	}
-	return $of($of(this)->getClass())->equals($nc($of(obj))->getClass());
+	return $of(this)->getClass()->equals($nc($of(obj))->getClass());
 }
 
 int32_t SslRMIClientSocketFactory::hashCode() {
-	return $of($of(this)->getClass())->hashCode();
+	return $of(this)->getClass()->hashCode();
 }
 
 $SocketFactory* SslRMIClientSocketFactory::getDefaultClientSocketFactory() {
-	$load(SslRMIClientSocketFactory);
+	$init(SslRMIClientSocketFactory);
 	$synchronized(class$) {
-		$init(SslRMIClientSocketFactory);
 		if (SslRMIClientSocketFactory::defaultSocketFactory == nullptr) {
 			$assignStatic(SslRMIClientSocketFactory::defaultSocketFactory, $SSLSocketFactory::getDefault());
 		}
@@ -133,7 +100,7 @@ $SocketFactory* SslRMIClientSocketFactory::getDefaultClientSocketFactory() {
 	}
 }
 
-void clinit$SslRMIClientSocketFactory($Class* class$) {
+void SslRMIClientSocketFactory::clinit$($Class* clazz) {
 	$assignStatic(SslRMIClientSocketFactory::defaultSocketFactory, nullptr);
 }
 
@@ -141,7 +108,33 @@ SslRMIClientSocketFactory::SslRMIClientSocketFactory() {
 }
 
 $Class* SslRMIClientSocketFactory::load$($String* name, bool initialize) {
-	$loadClass(SslRMIClientSocketFactory, name, initialize, &_SslRMIClientSocketFactory_ClassInfo_, clinit$SslRMIClientSocketFactory, allocate$SslRMIClientSocketFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultSocketFactory", "Ljavax/net/SocketFactory;", nullptr, $PRIVATE | $STATIC, $staticField(SslRMIClientSocketFactory, defaultSocketFactory)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SslRMIClientSocketFactory, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SslRMIClientSocketFactory, init$, void)},
+		{"createSocket", "(Ljava/lang/String;I)Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(SslRMIClientSocketFactory, createSocket, $Socket*, $String*, int32_t), "java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SslRMIClientSocketFactory, equals, bool, Object$*)},
+		{"getDefaultClientSocketFactory", "()Ljavax/net/SocketFactory;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(SslRMIClientSocketFactory, getDefaultClientSocketFactory, $SocketFactory*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SslRMIClientSocketFactory, hashCode, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.rmi.ssl.SslRMIClientSocketFactory",
+		"java.lang.Object",
+		"java.rmi.server.RMIClientSocketFactory,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SslRMIClientSocketFactory, name, initialize, &classInfo$$, SslRMIClientSocketFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SslRMIClientSocketFactory));
+	});
 	return class$;
 }
 

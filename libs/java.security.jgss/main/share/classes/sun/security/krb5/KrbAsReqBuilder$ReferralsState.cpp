@@ -1,5 +1,4 @@
 #include <sun/security/krb5/KrbAsReqBuilder$ReferralsState.h>
-
 #include <sun/security/krb5/Config.h>
 #include <sun/security/krb5/KrbAsReqBuilder.h>
 #include <sun/security/krb5/KrbException.h>
@@ -16,7 +15,6 @@
 #undef MAX_REFERRALS
 #undef TRUE
 
-using $PrintStream = ::java::io::PrintStream;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -27,77 +25,32 @@ using $KrbAsReqBuilder = ::sun::security::krb5::KrbAsReqBuilder;
 using $KrbException = ::sun::security::krb5::KrbException;
 using $PrincipalName = ::sun::security::krb5::PrincipalName;
 using $Realm = ::sun::security::krb5::Realm;
-using $KRBError = ::sun::security::krb5::internal::KRBError;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;
 
 namespace sun {
 	namespace security {
 		namespace krb5 {
 
-$FieldInfo _KrbAsReqBuilder$ReferralsState_FieldInfo_[] = {
-	{"canonicalizeConfig", "Z", nullptr, $PRIVATE | $STATIC, $staticField(KrbAsReqBuilder$ReferralsState, canonicalizeConfig)},
-	{"enabled", "Z", nullptr, $PRIVATE, $field(KrbAsReqBuilder$ReferralsState, enabled)},
-	{"sendCanonicalize", "Z", nullptr, $PRIVATE, $field(KrbAsReqBuilder$ReferralsState, sendCanonicalize$)},
-	{"isEnterpriseCname", "Z", nullptr, $PRIVATE, $field(KrbAsReqBuilder$ReferralsState, isEnterpriseCname)},
-	{"count", "I", nullptr, $PRIVATE, $field(KrbAsReqBuilder$ReferralsState, count)},
-	{"refreshComm", "Z", nullptr, $PRIVATE, $field(KrbAsReqBuilder$ReferralsState, refreshComm$)},
-	{"reqBuilder", "Lsun/security/krb5/KrbAsReqBuilder;", nullptr, $PRIVATE, $field(KrbAsReqBuilder$ReferralsState, reqBuilder)},
-	{}
-};
-
-$MethodInfo _KrbAsReqBuilder$ReferralsState_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/KrbAsReqBuilder;)V", nullptr, 0, $method(KrbAsReqBuilder$ReferralsState, init$, void, $KrbAsReqBuilder*), "sun.security.krb5.KrbException"},
-	{"handleError", "(Lsun/security/krb5/KrbException;)Z", nullptr, 0, $method(KrbAsReqBuilder$ReferralsState, handleError, bool, $KrbException*), "sun.security.krb5.RealmException"},
-	{"initStatic", "()V", nullptr, $STATIC, $staticMethod(KrbAsReqBuilder$ReferralsState, initStatic, void)},
-	{"isEnabled", "()Z", nullptr, 0, $method(KrbAsReqBuilder$ReferralsState, isEnabled, bool)},
-	{"refreshComm", "()Z", nullptr, 0, $method(KrbAsReqBuilder$ReferralsState, refreshComm, bool)},
-	{"sendCanonicalize", "()Z", nullptr, 0, $method(KrbAsReqBuilder$ReferralsState, sendCanonicalize, bool)},
-	{"updateStatus", "()V", nullptr, $PRIVATE, $method(KrbAsReqBuilder$ReferralsState, updateStatus, void)},
-	{}
-};
-
-$InnerClassInfo _KrbAsReqBuilder$ReferralsState_InnerClassesInfo_[] = {
-	{"sun.security.krb5.KrbAsReqBuilder$ReferralsState", "sun.security.krb5.KrbAsReqBuilder", "ReferralsState", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _KrbAsReqBuilder$ReferralsState_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.krb5.KrbAsReqBuilder$ReferralsState",
-	"java.lang.Object",
-	nullptr,
-	_KrbAsReqBuilder$ReferralsState_FieldInfo_,
-	_KrbAsReqBuilder$ReferralsState_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KrbAsReqBuilder$ReferralsState_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.krb5.KrbAsReqBuilder"
-};
-
-$Object* allocate$KrbAsReqBuilder$ReferralsState($Class* clazz) {
-	return $of($alloc(KrbAsReqBuilder$ReferralsState));
-}
-
 bool KrbAsReqBuilder$ReferralsState::canonicalizeConfig = false;
 
 void KrbAsReqBuilder$ReferralsState::initStatic() {
 	$init(KrbAsReqBuilder$ReferralsState);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	KrbAsReqBuilder$ReferralsState::canonicalizeConfig = false;
 	try {
-		$init($Boolean);
-		KrbAsReqBuilder$ReferralsState::canonicalizeConfig = $nc($($Config::getInstance()))->getBooleanObject($$new($StringArray, {
+		KrbAsReqBuilder$ReferralsState::canonicalizeConfig = $$nc($Config::getInstance())->getBooleanObject($$new($StringArray, {
 			"libdefaults"_s,
 			"canonicalize"_s
 		})) == $Boolean::TRUE;
 	} catch ($KrbException& e) {
 		$init($Krb5);
 		if ($Krb5::DEBUG) {
-			$var($String, var$0, $$str({"Exception in getting canonicalize, using default value "_s, $($Boolean::valueOf(KrbAsReqBuilder$ReferralsState::canonicalizeConfig)), ": "_s}));
-			$nc($System::out)->println($$concat(var$0, $(e->getMessage())));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("Exception in getting canonicalize, using default value "_s);
+			var$0->append($($Boolean::valueOf(KrbAsReqBuilder$ReferralsState::canonicalizeConfig)));
+			var$0->append(": "_s);
+			var$0->append($(e->getMessage()));
+			$nc($System::out)->println($$str(var$0));
 		}
 	}
 }
@@ -119,14 +72,14 @@ void KrbAsReqBuilder$ReferralsState::updateStatus() {
 }
 
 bool KrbAsReqBuilder$ReferralsState::handleError($KrbException* ke) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->enabled) {
 		if ($nc(ke)->returnCode() == $Krb5::KRB_ERR_WRONG_REALM) {
-			$var($Realm, referredRealm, $nc($(ke->getError()))->getClientRealm());
+			$var($Realm, referredRealm, $$nc(ke->getError())->getClientRealm());
 			$init($Config);
-			if (referredRealm != nullptr && !$nc($(referredRealm->toString()))->isEmpty() && this->count < $Config::MAX_REFERRALS) {
+			if (referredRealm != nullptr && !$$nc(referredRealm->toString())->isEmpty() && this->count < $Config::MAX_REFERRALS) {
 				int32_t var$0 = $nc($nc(this->reqBuilder)->refCname)->getNameType();
-				$set($nc(this->reqBuilder), refCname, $new($PrincipalName, var$0, $($nc($nc(this->reqBuilder)->refCname)->getNameStrings()), referredRealm));
+				$set($nc(this->reqBuilder), refCname, $new($PrincipalName, var$0, $(this->reqBuilder->refCname->getNameStrings()), referredRealm));
 				this->refreshComm$ = true;
 				++this->count;
 				return true;
@@ -160,7 +113,7 @@ bool KrbAsReqBuilder$ReferralsState::sendCanonicalize() {
 	return this->sendCanonicalize$;
 }
 
-void clinit$KrbAsReqBuilder$ReferralsState($Class* class$) {
+void KrbAsReqBuilder$ReferralsState::clinit$($Class* clazz) {
 	{
 		KrbAsReqBuilder$ReferralsState::initStatic();
 	}
@@ -170,7 +123,48 @@ KrbAsReqBuilder$ReferralsState::KrbAsReqBuilder$ReferralsState() {
 }
 
 $Class* KrbAsReqBuilder$ReferralsState::load$($String* name, bool initialize) {
-	$loadClass(KrbAsReqBuilder$ReferralsState, name, initialize, &_KrbAsReqBuilder$ReferralsState_ClassInfo_, clinit$KrbAsReqBuilder$ReferralsState, allocate$KrbAsReqBuilder$ReferralsState);
+	$FieldInfo fieldInfos$$[] = {
+		{"canonicalizeConfig", "Z", nullptr, $PRIVATE | $STATIC, $staticField(KrbAsReqBuilder$ReferralsState, canonicalizeConfig)},
+		{"enabled", "Z", nullptr, $PRIVATE, $field(KrbAsReqBuilder$ReferralsState, enabled)},
+		{"sendCanonicalize", "Z", nullptr, $PRIVATE, $field(KrbAsReqBuilder$ReferralsState, sendCanonicalize$)},
+		{"isEnterpriseCname", "Z", nullptr, $PRIVATE, $field(KrbAsReqBuilder$ReferralsState, isEnterpriseCname)},
+		{"count", "I", nullptr, $PRIVATE, $field(KrbAsReqBuilder$ReferralsState, count)},
+		{"refreshComm", "Z", nullptr, $PRIVATE, $field(KrbAsReqBuilder$ReferralsState, refreshComm$)},
+		{"reqBuilder", "Lsun/security/krb5/KrbAsReqBuilder;", nullptr, $PRIVATE, $field(KrbAsReqBuilder$ReferralsState, reqBuilder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/krb5/KrbAsReqBuilder;)V", nullptr, 0, $method(KrbAsReqBuilder$ReferralsState, init$, void, $KrbAsReqBuilder*), "sun.security.krb5.KrbException"},
+		{"handleError", "(Lsun/security/krb5/KrbException;)Z", nullptr, 0, $method(KrbAsReqBuilder$ReferralsState, handleError, bool, $KrbException*), "sun.security.krb5.RealmException"},
+		{"initStatic", "()V", nullptr, $STATIC, $staticMethod(KrbAsReqBuilder$ReferralsState, initStatic, void)},
+		{"isEnabled", "()Z", nullptr, 0, $method(KrbAsReqBuilder$ReferralsState, isEnabled, bool)},
+		{"refreshComm", "()Z", nullptr, 0, $method(KrbAsReqBuilder$ReferralsState, refreshComm, bool)},
+		{"sendCanonicalize", "()Z", nullptr, 0, $method(KrbAsReqBuilder$ReferralsState, sendCanonicalize, bool)},
+		{"updateStatus", "()V", nullptr, $PRIVATE, $method(KrbAsReqBuilder$ReferralsState, updateStatus, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.krb5.KrbAsReqBuilder$ReferralsState", "sun.security.krb5.KrbAsReqBuilder", "ReferralsState", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.krb5.KrbAsReqBuilder$ReferralsState",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.krb5.KrbAsReqBuilder"
+	};
+	$loadClass(KrbAsReqBuilder$ReferralsState, name, initialize, &classInfo$$, KrbAsReqBuilder$ReferralsState::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KrbAsReqBuilder$ReferralsState);
+	});
 	return class$;
 }
 

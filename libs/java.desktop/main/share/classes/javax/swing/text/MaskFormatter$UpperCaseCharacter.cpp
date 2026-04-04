@@ -1,5 +1,4 @@
 #include <javax/swing/text/MaskFormatter$UpperCaseCharacter.h>
-
 #include <javax/swing/text/MaskFormatter$MaskCharacter.h>
 #include <javax/swing/text/MaskFormatter.h>
 #include <jcpp.h>
@@ -15,44 +14,6 @@ using $MaskFormatter$MaskCharacter = ::javax::swing::text::MaskFormatter$MaskCha
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _MaskFormatter$UpperCaseCharacter_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/MaskFormatter;", nullptr, $FINAL | $SYNTHETIC, $field(MaskFormatter$UpperCaseCharacter, this$0)},
-	{}
-};
-
-$MethodInfo _MaskFormatter$UpperCaseCharacter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/MaskFormatter;)V", nullptr, $PRIVATE, $method(MaskFormatter$UpperCaseCharacter, init$, void, $MaskFormatter*)},
-	{"getChar", "(C)C", nullptr, $PUBLIC, $virtualMethod(MaskFormatter$UpperCaseCharacter, getChar, char16_t, char16_t)},
-	{"isValidCharacter", "(C)Z", nullptr, $PUBLIC, $virtualMethod(MaskFormatter$UpperCaseCharacter, isValidCharacter, bool, char16_t)},
-	{}
-};
-
-$InnerClassInfo _MaskFormatter$UpperCaseCharacter_InnerClassesInfo_[] = {
-	{"javax.swing.text.MaskFormatter$UpperCaseCharacter", "javax.swing.text.MaskFormatter", "UpperCaseCharacter", $PRIVATE},
-	{"javax.swing.text.MaskFormatter$MaskCharacter", "javax.swing.text.MaskFormatter", "MaskCharacter", $PRIVATE},
-	{}
-};
-
-$ClassInfo _MaskFormatter$UpperCaseCharacter_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.MaskFormatter$UpperCaseCharacter",
-	"javax.swing.text.MaskFormatter$MaskCharacter",
-	nullptr,
-	_MaskFormatter$UpperCaseCharacter_FieldInfo_,
-	_MaskFormatter$UpperCaseCharacter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MaskFormatter$UpperCaseCharacter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.MaskFormatter"
-};
-
-$Object* allocate$MaskFormatter$UpperCaseCharacter($Class* clazz) {
-	return $of($alloc(MaskFormatter$UpperCaseCharacter));
-}
 
 void MaskFormatter$UpperCaseCharacter::init$($MaskFormatter* this$0) {
 	$set(this, this$0, this$0);
@@ -72,7 +33,39 @@ MaskFormatter$UpperCaseCharacter::MaskFormatter$UpperCaseCharacter() {
 }
 
 $Class* MaskFormatter$UpperCaseCharacter::load$($String* name, bool initialize) {
-	$loadClass(MaskFormatter$UpperCaseCharacter, name, initialize, &_MaskFormatter$UpperCaseCharacter_ClassInfo_, allocate$MaskFormatter$UpperCaseCharacter);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/MaskFormatter;", nullptr, $FINAL | $SYNTHETIC, $field(MaskFormatter$UpperCaseCharacter, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/MaskFormatter;)V", nullptr, $PRIVATE, $method(MaskFormatter$UpperCaseCharacter, init$, void, $MaskFormatter*)},
+		{"getChar", "(C)C", nullptr, $PUBLIC, $virtualMethod(MaskFormatter$UpperCaseCharacter, getChar, char16_t, char16_t)},
+		{"isValidCharacter", "(C)Z", nullptr, $PUBLIC, $virtualMethod(MaskFormatter$UpperCaseCharacter, isValidCharacter, bool, char16_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.MaskFormatter$UpperCaseCharacter", "javax.swing.text.MaskFormatter", "UpperCaseCharacter", $PRIVATE},
+		{"javax.swing.text.MaskFormatter$MaskCharacter", "javax.swing.text.MaskFormatter", "MaskCharacter", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.MaskFormatter$UpperCaseCharacter",
+		"javax.swing.text.MaskFormatter$MaskCharacter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.MaskFormatter"
+	};
+	$loadClass(MaskFormatter$UpperCaseCharacter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MaskFormatter$UpperCaseCharacter);
+	});
 	return class$;
 }
 

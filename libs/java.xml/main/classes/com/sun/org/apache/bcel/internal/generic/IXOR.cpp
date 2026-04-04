@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/IXOR.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/ArithmeticInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackConsumer.h>
@@ -12,9 +11,6 @@
 
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
 using $ArithmeticInstruction = ::com::sun::org::apache::bcel::internal::generic::ArithmeticInstruction;
-using $StackConsumer = ::com::sun::org::apache::bcel::internal::generic::StackConsumer;
-using $StackProducer = ::com::sun::org::apache::bcel::internal::generic::StackProducer;
-using $TypedInstruction = ::com::sun::org::apache::bcel::internal::generic::TypedInstruction;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -26,25 +22,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$MethodInfo _IXOR_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IXOR, init$, void)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(IXOR, accept, void, $Visitor*)},
-	{}
-};
-
-$ClassInfo _IXOR_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.IXOR",
-	"com.sun.org.apache.bcel.internal.generic.ArithmeticInstruction",
-	nullptr,
-	nullptr,
-	_IXOR_MethodInfo_
-};
-
-$Object* allocate$IXOR($Class* clazz) {
-	return $of($alloc(IXOR));
-}
 
 void IXOR::init$() {
 	$ArithmeticInstruction::init$($Const::IXOR);
@@ -62,7 +39,22 @@ IXOR::IXOR() {
 }
 
 $Class* IXOR::load$($String* name, bool initialize) {
-	$loadClass(IXOR, name, initialize, &_IXOR_ClassInfo_, allocate$IXOR);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IXOR, init$, void)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(IXOR, accept, void, $Visitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.IXOR",
+		"com.sun.org.apache.bcel.internal.generic.ArithmeticInstruction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(IXOR, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(IXOR));
+	});
 	return class$;
 }
 

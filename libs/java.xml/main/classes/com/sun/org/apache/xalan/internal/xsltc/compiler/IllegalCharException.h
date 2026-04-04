@@ -19,10 +19,13 @@ class IllegalCharException : public ::java::lang::Exception {
 public:
 	IllegalCharException();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0xF6BD7FC717D02FA6;
+	static const int64_t serialVersionUID = (int64_t)0xf6bd7fc717d02fa6;
 	IllegalCharException(const IllegalCharException& e);
 	virtual void throw$() override;
-	inline IllegalCharException* operator ->() {
+	inline IllegalCharException* operator ->() const {
+		return (IllegalCharException*)throwing$;
+	}
+	inline operator IllegalCharException*() const {
 		return (IllegalCharException*)throwing$;
 	}
 };

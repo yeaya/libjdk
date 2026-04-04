@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/operations/Operation.h>
-
 #include <com/sun/org/apache/xpath/internal/Expression.h>
 #include <com/sun/org/apache/xpath/internal/ExpressionNode.h>
 #include <com/sun/org/apache/xpath/internal/ExpressionOwner.h>
@@ -12,7 +11,6 @@
 #include <jcpp.h>
 
 using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
-using $ExpressionNode = ::com::sun::org::apache::xpath::internal::ExpressionNode;
 using $ExpressionOwner = ::com::sun::org::apache::xpath::internal::ExpressionOwner;
 using $XPathContext = ::com::sun::org::apache::xpath::internal::XPathContext;
 using $XPathVisitor = ::com::sun::org::apache::xpath::internal::XPathVisitor;
@@ -31,58 +29,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 						namespace operations {
-
-$FieldInfo _Operation_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Operation, serialVersionUID)},
-	{"m_left", "Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $field(Operation, m_left)},
-	{"m_right", "Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $field(Operation, m_right)},
-	{}
-};
-
-$MethodInfo _Operation_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Operation, init$, void)},
-	{"callVisitors", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/XPathVisitor;)V", nullptr, $PUBLIC, $virtualMethod(Operation, callVisitors, void, $ExpressionOwner*, $XPathVisitor*)},
-	{"canTraverseOutsideSubtree", "()Z", nullptr, $PUBLIC, $virtualMethod(Operation, canTraverseOutsideSubtree, bool)},
-	{"deepEquals", "(Lcom/sun/org/apache/xpath/internal/Expression;)Z", nullptr, $PUBLIC, $virtualMethod(Operation, deepEquals, bool, $Expression*)},
-	{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(Operation, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
-	{"fixupVariables", "(Ljava/util/List;I)V", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/utils/QName;>;I)V", $PUBLIC, $virtualMethod(Operation, fixupVariables, void, $List*, int32_t)},
-	{"getExpression", "()Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(Operation, getExpression, $Expression*)},
-	{"getLeftOperand", "()Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(Operation, getLeftOperand, $Expression*)},
-	{"getRightOperand", "()Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(Operation, getRightOperand, $Expression*)},
-	{"operate", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;Lcom/sun/org/apache/xpath/internal/objects/XObject;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(Operation, operate, $XObject*, $XObject*, $XObject*), "javax.xml.transform.TransformerException"},
-	{"setExpression", "(Lcom/sun/org/apache/xpath/internal/Expression;)V", nullptr, $PUBLIC, $virtualMethod(Operation, setExpression, void, $Expression*)},
-	{"setLeftRight", "(Lcom/sun/org/apache/xpath/internal/Expression;Lcom/sun/org/apache/xpath/internal/Expression;)V", nullptr, $PUBLIC, $virtualMethod(Operation, setLeftRight, void, $Expression*, $Expression*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Operation_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xpath.internal.operations.Operation$LeftExprOwner", "com.sun.org.apache.xpath.internal.operations.Operation", "LeftExprOwner", 0},
-	{}
-};
-
-$ClassInfo _Operation_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.operations.Operation",
-	"com.sun.org.apache.xpath.internal.Expression",
-	"com.sun.org.apache.xpath.internal.ExpressionOwner",
-	_Operation_FieldInfo_,
-	_Operation_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Operation_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xpath.internal.operations.Operation$LeftExprOwner"
-};
-
-$Object* allocate$Operation($Class* clazz) {
-	return $of($alloc(Operation));
-}
 
 int32_t Operation::hashCode() {
 	 return this->$Expression::hashCode();
@@ -114,10 +60,10 @@ void Operation::fixupVariables($List* vars, int32_t globalsSize) {
 }
 
 bool Operation::canTraverseOutsideSubtree() {
-	if (nullptr != this->m_left && $nc(this->m_left)->canTraverseOutsideSubtree()) {
+	if (nullptr != this->m_left && this->m_left->canTraverseOutsideSubtree()) {
 		return true;
 	}
-	if (nullptr != this->m_right && $nc(this->m_right)->canTraverseOutsideSubtree()) {
+	if (nullptr != this->m_right && this->m_right->canTraverseOutsideSubtree()) {
 		return true;
 	}
 	return false;
@@ -131,7 +77,7 @@ void Operation::setLeftRight($Expression* l, $Expression* r) {
 }
 
 $XObject* Operation::execute($XPathContext* xctxt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XObject, left, $nc(this->m_left)->execute(xctxt, true));
 	$var($XObject, right, $nc(this->m_right)->execute(xctxt, true));
 	$var($XObject, result, operate(left, right));
@@ -172,10 +118,10 @@ bool Operation::deepEquals($Expression* expr) {
 	if (!isSameClass(expr)) {
 		return false;
 	}
-	if (!$nc(this->m_left)->deepEquals($nc(($cast(Operation, expr)))->m_left)) {
+	if (!$nc(this->m_left)->deepEquals($nc($cast(Operation, expr))->m_left)) {
 		return false;
 	}
-	if (!$nc(this->m_right)->deepEquals($nc(($cast(Operation, expr)))->m_right)) {
+	if (!$nc(this->m_right)->deepEquals($cast(Operation, expr)->m_right)) {
 		return false;
 	}
 	return true;
@@ -185,7 +131,53 @@ Operation::Operation() {
 }
 
 $Class* Operation::load$($String* name, bool initialize) {
-	$loadClass(Operation, name, initialize, &_Operation_ClassInfo_, allocate$Operation);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Operation, serialVersionUID)},
+		{"m_left", "Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $field(Operation, m_left)},
+		{"m_right", "Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $field(Operation, m_right)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Operation, init$, void)},
+		{"callVisitors", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/XPathVisitor;)V", nullptr, $PUBLIC, $virtualMethod(Operation, callVisitors, void, $ExpressionOwner*, $XPathVisitor*)},
+		{"canTraverseOutsideSubtree", "()Z", nullptr, $PUBLIC, $virtualMethod(Operation, canTraverseOutsideSubtree, bool)},
+		{"deepEquals", "(Lcom/sun/org/apache/xpath/internal/Expression;)Z", nullptr, $PUBLIC, $virtualMethod(Operation, deepEquals, bool, $Expression*)},
+		{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(Operation, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
+		{"fixupVariables", "(Ljava/util/List;I)V", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/utils/QName;>;I)V", $PUBLIC, $virtualMethod(Operation, fixupVariables, void, $List*, int32_t)},
+		{"getExpression", "()Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(Operation, getExpression, $Expression*)},
+		{"getLeftOperand", "()Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(Operation, getLeftOperand, $Expression*)},
+		{"getRightOperand", "()Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(Operation, getRightOperand, $Expression*)},
+		{"operate", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;Lcom/sun/org/apache/xpath/internal/objects/XObject;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(Operation, operate, $XObject*, $XObject*, $XObject*), "javax.xml.transform.TransformerException"},
+		{"setExpression", "(Lcom/sun/org/apache/xpath/internal/Expression;)V", nullptr, $PUBLIC, $virtualMethod(Operation, setExpression, void, $Expression*)},
+		{"setLeftRight", "(Lcom/sun/org/apache/xpath/internal/Expression;Lcom/sun/org/apache/xpath/internal/Expression;)V", nullptr, $PUBLIC, $virtualMethod(Operation, setLeftRight, void, $Expression*, $Expression*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xpath.internal.operations.Operation$LeftExprOwner", "com.sun.org.apache.xpath.internal.operations.Operation", "LeftExprOwner", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.operations.Operation",
+		"com.sun.org.apache.xpath.internal.Expression",
+		"com.sun.org.apache.xpath.internal.ExpressionOwner",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xpath.internal.operations.Operation$LeftExprOwner"
+	};
+	$loadClass(Operation, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Operation));
+	});
 	return class$;
 }
 

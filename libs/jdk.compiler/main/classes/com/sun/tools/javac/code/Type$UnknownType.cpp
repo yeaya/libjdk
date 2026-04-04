@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Type$UnknownType.h>
-
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/TypeMetadata.h>
@@ -23,7 +22,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $List = ::java::util::List;
-using $TypeMirror = ::javax::lang::model::type::TypeMirror;
 using $TypeVisitor = ::javax::lang::model::type::TypeVisitor;
 
 namespace com {
@@ -31,41 +29,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$MethodInfo _Type$UnknownType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Type$UnknownType, init$, void)},
-	{"accept", "(Ljavax/lang/model/type/TypeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/type/TypeVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Type$UnknownType, accept, $Object*, $TypeVisitor*, Object$*)},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$UnknownType;", nullptr, $PUBLIC, $virtualMethod(Type$UnknownType, cloneWithMetadata, Type$UnknownType*, $TypeMetadata*)},
-	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$UnknownType, getAnnotationMirrors, $List*)},
-	{"getTag", "()Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $virtualMethod(Type$UnknownType, getTag, $TypeTag*)},
-	{"isPartial", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$UnknownType, isPartial, bool)},
-	{}
-};
-
-$InnerClassInfo _Type$UnknownType_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Type$UnknownType", "com.sun.tools.javac.code.Type", "UnknownType", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Type$UnknownType_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Type$UnknownType",
-	"com.sun.tools.javac.code.Type",
-	nullptr,
-	nullptr,
-	_Type$UnknownType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Type$UnknownType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Type"
-};
-
-$Object* allocate$Type$UnknownType($Class* clazz) {
-	return $of($alloc(Type$UnknownType));
-}
 
 void Type$UnknownType::init$() {
 	$init($TypeMetadata);
@@ -83,7 +46,7 @@ $TypeTag* Type$UnknownType::getTag() {
 }
 
 $Object* Type$UnknownType::accept($TypeVisitor* v, Object$* p) {
-	return $of($nc(v)->visitUnknown(this, p));
+	return $nc(v)->visitUnknown(this, p);
 }
 
 bool Type$UnknownType::isPartial() {
@@ -98,7 +61,37 @@ Type$UnknownType::Type$UnknownType() {
 }
 
 $Class* Type$UnknownType::load$($String* name, bool initialize) {
-	$loadClass(Type$UnknownType, name, initialize, &_Type$UnknownType_ClassInfo_, allocate$Type$UnknownType);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Type$UnknownType, init$, void)},
+		{"accept", "(Ljavax/lang/model/type/TypeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/type/TypeVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Type$UnknownType, accept, $Object*, $TypeVisitor*, Object$*)},
+		{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$UnknownType;", nullptr, $PUBLIC, $virtualMethod(Type$UnknownType, cloneWithMetadata, Type$UnknownType*, $TypeMetadata*)},
+		{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$UnknownType, getAnnotationMirrors, $List*)},
+		{"getTag", "()Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $virtualMethod(Type$UnknownType, getTag, $TypeTag*)},
+		{"isPartial", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$UnknownType, isPartial, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Type$UnknownType", "com.sun.tools.javac.code.Type", "UnknownType", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Type$UnknownType",
+		"com.sun.tools.javac.code.Type",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Type"
+	};
+	$loadClass(Type$UnknownType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Type$UnknownType));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xs/XSTerm.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -12,19 +11,16 @@ namespace com {
 					namespace internal {
 						namespace xs {
 
-$ClassInfo _XSTerm_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.xs.XSTerm",
-	nullptr,
-	"com.sun.org.apache.xerces.internal.xs.XSObject"
-};
-
-$Object* allocate$XSTerm($Class* clazz) {
-	return $of($alloc(XSTerm));
-}
-
 $Class* XSTerm::load$($String* name, bool initialize) {
-	$loadClass(XSTerm, name, initialize, &_XSTerm_ClassInfo_, allocate$XSTerm);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.xs.XSTerm",
+		nullptr,
+		"com.sun.org.apache.xerces.internal.xs.XSObject"
+	};
+	$loadClass(XSTerm, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSTerm);
+	});
 	return class$;
 }
 

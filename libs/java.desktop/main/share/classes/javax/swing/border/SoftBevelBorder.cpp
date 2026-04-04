@@ -1,5 +1,4 @@
 #include <javax/swing/border/SoftBevelBorder.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -25,48 +24,6 @@ namespace javax {
 	namespace swing {
 		namespace border {
 
-$Attribute SoftBevelBorder_Attribute_var$1[] = {
-	{'s', "bevelType"},
-	{'s', "highlightOuterColor"},
-	{'s', "highlightInnerColor"},
-	{'s', "shadowOuterColor"},
-	{'s', "shadowInnerColor"},
-	{'-'}
-};
-
-$NamedAttribute SoftBevelBorder_Attribute_var$0[] = {
-	{"value", '[', SoftBevelBorder_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _SoftBevelBorder_MethodAnnotations_init$2[] = {
-	{"Ljava/beans/ConstructorProperties;", SoftBevelBorder_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _SoftBevelBorder_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(SoftBevelBorder, init$, void, int32_t)},
-	{"<init>", "(ILjava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(SoftBevelBorder, init$, void, int32_t, $Color*, $Color*)},
-	{"<init>", "(ILjava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(SoftBevelBorder, init$, void, int32_t, $Color*, $Color*, $Color*, $Color*), nullptr, nullptr, _SoftBevelBorder_MethodAnnotations_init$2},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(SoftBevelBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(SoftBevelBorder, isBorderOpaque, bool)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SoftBevelBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _SoftBevelBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.border.SoftBevelBorder",
-	"javax.swing.border.BevelBorder",
-	nullptr,
-	nullptr,
-	_SoftBevelBorder_MethodInfo_
-};
-
-$Object* allocate$SoftBevelBorder($Class* clazz) {
-	return $of($alloc(SoftBevelBorder));
-}
-
 void SoftBevelBorder::init$(int32_t bevelType) {
 	$BevelBorder::init$(bevelType);
 }
@@ -80,7 +37,7 @@ void SoftBevelBorder::init$(int32_t bevelType, $Color* highlightOuterColor, $Col
 }
 
 void SoftBevelBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, oldColor, $nc(g)->getColor());
 	g->translate(x, y);
 	if (this->bevelType == $BevelBorder::RAISED) {
@@ -133,7 +90,42 @@ SoftBevelBorder::SoftBevelBorder() {
 }
 
 $Class* SoftBevelBorder::load$($String* name, bool initialize) {
-	$loadClass(SoftBevelBorder, name, initialize, &_SoftBevelBorder_ClassInfo_, allocate$SoftBevelBorder);
+	$Attribute $attribute[] = {
+		{'s', "bevelType"},
+		{'s', "highlightOuterColor"},
+		{'s', "highlightInnerColor"},
+		{'s', "shadowOuterColor"},
+		{'s', "shadowInnerColor"},
+		{'-'}
+	};
+	$NamedAttribute init$methodAnnotations$$$2$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$2[] = {
+		{"Ljava/beans/ConstructorProperties;", init$methodAnnotations$$$2$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(SoftBevelBorder, init$, void, int32_t)},
+		{"<init>", "(ILjava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(SoftBevelBorder, init$, void, int32_t, $Color*, $Color*)},
+		{"<init>", "(ILjava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(SoftBevelBorder, init$, void, int32_t, $Color*, $Color*, $Color*, $Color*), nullptr, nullptr, init$methodAnnotations$$$2},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(SoftBevelBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(SoftBevelBorder, isBorderOpaque, bool)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SoftBevelBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.border.SoftBevelBorder",
+		"javax.swing.border.BevelBorder",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SoftBevelBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SoftBevelBorder));
+	});
 	return class$;
 }
 

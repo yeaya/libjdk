@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$ImplementationCache$Entry.h>
-
 #include <com/sun/tools/javac/code/Symbol$MethodSymbol.h>
 #include <com/sun/tools/javac/code/Types$ImplementationCache.h>
 #include <java/util/function/Predicate.h>
@@ -19,47 +18,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Types$ImplementationCache$Entry_FieldInfo_[] = {
-	{"this$1", "Lcom/sun/tools/javac/code/Types$ImplementationCache;", nullptr, $FINAL | $SYNTHETIC, $field(Types$ImplementationCache$Entry, this$1)},
-	{"cachedImpl", "Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $FINAL, $field(Types$ImplementationCache$Entry, cachedImpl)},
-	{"implFilter", "Ljava/util/function/Predicate;", "Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;", $FINAL, $field(Types$ImplementationCache$Entry, implFilter)},
-	{"checkResult", "Z", nullptr, $FINAL, $field(Types$ImplementationCache$Entry, checkResult)},
-	{"prevMark", "I", nullptr, $FINAL, $field(Types$ImplementationCache$Entry, prevMark)},
-	{}
-};
-
-$MethodInfo _Types$ImplementationCache$Entry_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types$ImplementationCache;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Ljava/util/function/Predicate;ZI)V", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;ZI)V", $PUBLIC, $method(Types$ImplementationCache$Entry, init$, void, $Types$ImplementationCache*, $Symbol$MethodSymbol*, $Predicate*, bool, int32_t)},
-	{"matches", "(Ljava/util/function/Predicate;ZI)Z", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;ZI)Z", 0, $virtualMethod(Types$ImplementationCache$Entry, matches, bool, $Predicate*, bool, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Types$ImplementationCache$Entry_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$ImplementationCache", "com.sun.tools.javac.code.Types", "ImplementationCache", 0},
-	{"com.sun.tools.javac.code.Types$ImplementationCache$Entry", "com.sun.tools.javac.code.Types$ImplementationCache", "Entry", 0},
-	{}
-};
-
-$ClassInfo _Types$ImplementationCache$Entry_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Types$ImplementationCache$Entry",
-	"java.lang.Object",
-	nullptr,
-	_Types$ImplementationCache$Entry_FieldInfo_,
-	_Types$ImplementationCache$Entry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Types$ImplementationCache$Entry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$ImplementationCache$Entry($Class* clazz) {
-	return $of($alloc(Types$ImplementationCache$Entry));
-}
-
 void Types$ImplementationCache$Entry::init$($Types$ImplementationCache* this$1, $Symbol$MethodSymbol* cachedImpl, $Predicate* scopeFilter, bool checkResult, int32_t prevMark) {
 	$set(this, this$1, this$1);
 	$set(this, cachedImpl, cachedImpl);
@@ -76,7 +34,42 @@ Types$ImplementationCache$Entry::Types$ImplementationCache$Entry() {
 }
 
 $Class* Types$ImplementationCache$Entry::load$($String* name, bool initialize) {
-	$loadClass(Types$ImplementationCache$Entry, name, initialize, &_Types$ImplementationCache$Entry_ClassInfo_, allocate$Types$ImplementationCache$Entry);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lcom/sun/tools/javac/code/Types$ImplementationCache;", nullptr, $FINAL | $SYNTHETIC, $field(Types$ImplementationCache$Entry, this$1)},
+		{"cachedImpl", "Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $FINAL, $field(Types$ImplementationCache$Entry, cachedImpl)},
+		{"implFilter", "Ljava/util/function/Predicate;", "Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;", $FINAL, $field(Types$ImplementationCache$Entry, implFilter)},
+		{"checkResult", "Z", nullptr, $FINAL, $field(Types$ImplementationCache$Entry, checkResult)},
+		{"prevMark", "I", nullptr, $FINAL, $field(Types$ImplementationCache$Entry, prevMark)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types$ImplementationCache;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Ljava/util/function/Predicate;ZI)V", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;ZI)V", $PUBLIC, $method(Types$ImplementationCache$Entry, init$, void, $Types$ImplementationCache*, $Symbol$MethodSymbol*, $Predicate*, bool, int32_t)},
+		{"matches", "(Ljava/util/function/Predicate;ZI)Z", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;ZI)Z", 0, $virtualMethod(Types$ImplementationCache$Entry, matches, bool, $Predicate*, bool, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$ImplementationCache", "com.sun.tools.javac.code.Types", "ImplementationCache", 0},
+		{"com.sun.tools.javac.code.Types$ImplementationCache$Entry", "com.sun.tools.javac.code.Types$ImplementationCache", "Entry", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Types$ImplementationCache$Entry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$ImplementationCache$Entry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$ImplementationCache$Entry);
+	});
 	return class$;
 }
 

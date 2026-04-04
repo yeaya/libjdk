@@ -1,5 +1,4 @@
 #include <javax/sql/rowset/serial/SerialBlob.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/InputStream.h>
 #include <java/io/InvalidObjectException.h>
@@ -41,53 +40,6 @@ namespace javax {
 		namespace rowset {
 			namespace serial {
 
-$FieldInfo _SerialBlob_FieldInfo_[] = {
-	{"buf", "[B", nullptr, $PRIVATE, $field(SerialBlob, buf)},
-	{"blob", "Ljava/sql/Blob;", nullptr, $PRIVATE, $field(SerialBlob, blob)},
-	{"len", "J", nullptr, $PRIVATE, $field(SerialBlob, len)},
-	{"origLen", "J", nullptr, $PRIVATE, $field(SerialBlob, origLen)},
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SerialBlob, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SerialBlob_MethodInfo_[] = {
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(SerialBlob, init$, void, $bytes*), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
-	{"<init>", "(Ljava/sql/Blob;)V", nullptr, $PUBLIC, $method(SerialBlob, init$, void, $Blob*), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SerialBlob, clone, $Object*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SerialBlob, equals, bool, Object$*)},
-	{"free", "()V", nullptr, $PUBLIC, $virtualMethod(SerialBlob, free, void), "java.sql.SQLException"},
-	{"getBinaryStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(SerialBlob, getBinaryStream, $InputStream*), "javax.sql.rowset.serial.SerialException"},
-	{"getBinaryStream", "(JJ)Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(SerialBlob, getBinaryStream, $InputStream*, int64_t, int64_t), "java.sql.SQLException"},
-	{"getBytes", "(JI)[B", nullptr, $PUBLIC, $virtualMethod(SerialBlob, getBytes, $bytes*, int64_t, int32_t), "javax.sql.rowset.serial.SerialException"},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SerialBlob, hashCode, int32_t)},
-	{"isValid", "()V", nullptr, $PRIVATE, $method(SerialBlob, isValid, void), "javax.sql.rowset.serial.SerialException"},
-	{"length", "()J", nullptr, $PUBLIC, $virtualMethod(SerialBlob, length, int64_t), "javax.sql.rowset.serial.SerialException"},
-	{"position", "([BJ)J", nullptr, $PUBLIC, $virtualMethod(SerialBlob, position, int64_t, $bytes*, int64_t), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
-	{"position", "(Ljava/sql/Blob;J)J", nullptr, $PUBLIC, $virtualMethod(SerialBlob, position, int64_t, $Blob*, int64_t), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(SerialBlob, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setBinaryStream", "(J)Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(SerialBlob, setBinaryStream, $OutputStream*, int64_t), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
-	{"setBytes", "(J[B)I", nullptr, $PUBLIC, $virtualMethod(SerialBlob, setBytes, int32_t, int64_t, $bytes*), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
-	{"setBytes", "(J[BII)I", nullptr, $PUBLIC, $virtualMethod(SerialBlob, setBytes, int32_t, int64_t, $bytes*, int32_t, int32_t), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"truncate", "(J)V", nullptr, $PUBLIC, $virtualMethod(SerialBlob, truncate, void, int64_t), "javax.sql.rowset.serial.SerialException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(SerialBlob, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _SerialBlob_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.sql.rowset.serial.SerialBlob",
-	"java.lang.Object",
-	"java.sql.Blob,java.io.Serializable,java.lang.Cloneable",
-	_SerialBlob_FieldInfo_,
-	_SerialBlob_MethodInfo_
-};
-
-$Object* allocate$SerialBlob($Class* clazz) {
-	return $of($alloc(SerialBlob));
-}
-
 $String* SerialBlob::toString() {
 	 return this->$Blob::toString();
 }
@@ -100,7 +52,7 @@ void SerialBlob::init$($bytes* b) {
 	this->len = $nc(b)->length;
 	$set(this, buf, $new($bytes, (int32_t)this->len));
 	for (int32_t i = 0; i < this->len; ++i) {
-		$nc(this->buf)->set(i, b->get(i));
+		this->buf->set(i, b->get(i));
 	}
 	this->origLen = this->len;
 }
@@ -158,7 +110,7 @@ int64_t SerialBlob::position($bytes* pattern, int64_t start) {
 			}
 			++i;
 			++pos;
-		} else if (pattern->get(i) != $nc(this->buf)->get(pos)) {
+		} else if (pattern->get(i) != this->buf->get(pos)) {
 			++pos;
 		}
 	}
@@ -167,7 +119,7 @@ int64_t SerialBlob::position($bytes* pattern, int64_t start) {
 
 int64_t SerialBlob::position($Blob* pattern, int64_t start) {
 	isValid();
-	return position($($nc(pattern)->getBytes(1, (int32_t)(pattern->length()))), start);
+	return position($($nc(pattern)->getBytes(1, (int32_t)($nc(pattern)->length()))), start);
 }
 
 int32_t SerialBlob::setBytes(int64_t pos, $bytes* bytes) {
@@ -190,7 +142,7 @@ int32_t SerialBlob::setBytes(int64_t pos, $bytes* bytes, int32_t offset, int32_t
 	}
 	int32_t i = 0;
 	--pos;
-	while (i < length || (offset + i + 1) < ($nc(bytes)->length - offset)) {
+	while (i < length || (offset + i + 1) < (bytes->length - offset)) {
 		$nc(this->buf)->set((int32_t)pos + i, bytes->get(offset + i));
 		++i;
 	}
@@ -200,7 +152,7 @@ int32_t SerialBlob::setBytes(int64_t pos, $bytes* bytes, int32_t offset, int32_t
 $OutputStream* SerialBlob::setBinaryStream(int64_t pos) {
 	isValid();
 	if (this->blob != nullptr) {
-		return $nc(this->blob)->setBinaryStream(pos);
+		return this->blob->setBinaryStream(pos);
 	} else {
 		$throwNew($SerialException, "Unsupported operation. SerialBlob cannot return a writable binary stream, unless instantiated with a Blob object that provides a setBinaryStream() implementation"_s);
 	}
@@ -234,7 +186,7 @@ void SerialBlob::free() {
 	if (this->buf != nullptr) {
 		$set(this, buf, nullptr);
 		if (this->blob != nullptr) {
-			$nc(this->blob)->free();
+			this->blob->free();
 		}
 		$set(this, blob, nullptr);
 	}
@@ -246,7 +198,7 @@ bool SerialBlob::equals(Object$* obj) {
 	}
 	if ($instanceOf(SerialBlob, obj)) {
 		$var(SerialBlob, sb, $cast(SerialBlob, obj));
-		if (this->len == $nc(sb)->len) {
+		if (this->len == sb->len) {
 			return $Arrays::equals(this->buf, sb->buf);
 		}
 	}
@@ -270,24 +222,24 @@ $Object* SerialBlob::clone() {
 }
 
 void SerialBlob::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, fields, $nc(s)->readFields());
-	$var($bytes, tmp, $cast($bytes, $nc(fields)->get("buf"_s, ($Object*)nullptr)));
+	$var($bytes, tmp, $cast($bytes, $nc(fields)->get("buf"_s, nullptr)));
 	if (tmp == nullptr) {
 		$throwNew($InvalidObjectException, "buf is null and should not be!"_s);
 	}
 	$set(this, buf, $cast($bytes, $nc(tmp)->clone()));
 	this->len = fields->get("len"_s, (int64_t)0);
-	if ($nc(this->buf)->length != this->len) {
+	if (this->buf->length != this->len) {
 		$throwNew($InvalidObjectException, "buf is not the expected size"_s);
 	}
 	this->origLen = fields->get("origLen"_s, (int64_t)0);
-	$set(this, blob, $cast($Blob, fields->get("blob"_s, ($Object*)nullptr)));
+	$set(this, blob, $cast($Blob, fields->get("blob"_s, nullptr)));
 }
 
 void SerialBlob::writeObject($ObjectOutputStream* s) {
 	$var($ObjectOutputStream$PutField, fields, $nc(s)->putFields());
-	$nc(fields)->put("buf"_s, $of(this->buf));
+	$nc(fields)->put("buf"_s, this->buf);
 	fields->put("len"_s, this->len);
 	fields->put("origLen"_s, this->origLen);
 	fields->put("blob"_s, $instanceOf($Serializable, this->blob) ? $of(this->blob) : ($Object*)nullptr);
@@ -304,7 +256,49 @@ SerialBlob::SerialBlob() {
 }
 
 $Class* SerialBlob::load$($String* name, bool initialize) {
-	$loadClass(SerialBlob, name, initialize, &_SerialBlob_ClassInfo_, allocate$SerialBlob);
+	$FieldInfo fieldInfos$$[] = {
+		{"buf", "[B", nullptr, $PRIVATE, $field(SerialBlob, buf)},
+		{"blob", "Ljava/sql/Blob;", nullptr, $PRIVATE, $field(SerialBlob, blob)},
+		{"len", "J", nullptr, $PRIVATE, $field(SerialBlob, len)},
+		{"origLen", "J", nullptr, $PRIVATE, $field(SerialBlob, origLen)},
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SerialBlob, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(SerialBlob, init$, void, $bytes*), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
+		{"<init>", "(Ljava/sql/Blob;)V", nullptr, $PUBLIC, $method(SerialBlob, init$, void, $Blob*), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SerialBlob, clone, $Object*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SerialBlob, equals, bool, Object$*)},
+		{"free", "()V", nullptr, $PUBLIC, $virtualMethod(SerialBlob, free, void), "java.sql.SQLException"},
+		{"getBinaryStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(SerialBlob, getBinaryStream, $InputStream*), "javax.sql.rowset.serial.SerialException"},
+		{"getBinaryStream", "(JJ)Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(SerialBlob, getBinaryStream, $InputStream*, int64_t, int64_t), "java.sql.SQLException"},
+		{"getBytes", "(JI)[B", nullptr, $PUBLIC, $virtualMethod(SerialBlob, getBytes, $bytes*, int64_t, int32_t), "javax.sql.rowset.serial.SerialException"},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SerialBlob, hashCode, int32_t)},
+		{"isValid", "()V", nullptr, $PRIVATE, $method(SerialBlob, isValid, void), "javax.sql.rowset.serial.SerialException"},
+		{"length", "()J", nullptr, $PUBLIC, $virtualMethod(SerialBlob, length, int64_t), "javax.sql.rowset.serial.SerialException"},
+		{"position", "([BJ)J", nullptr, $PUBLIC, $virtualMethod(SerialBlob, position, int64_t, $bytes*, int64_t), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
+		{"position", "(Ljava/sql/Blob;J)J", nullptr, $PUBLIC, $virtualMethod(SerialBlob, position, int64_t, $Blob*, int64_t), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(SerialBlob, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"setBinaryStream", "(J)Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(SerialBlob, setBinaryStream, $OutputStream*, int64_t), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
+		{"setBytes", "(J[B)I", nullptr, $PUBLIC, $virtualMethod(SerialBlob, setBytes, int32_t, int64_t, $bytes*), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
+		{"setBytes", "(J[BII)I", nullptr, $PUBLIC, $virtualMethod(SerialBlob, setBytes, int32_t, int64_t, $bytes*, int32_t, int32_t), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"truncate", "(J)V", nullptr, $PUBLIC, $virtualMethod(SerialBlob, truncate, void, int64_t), "javax.sql.rowset.serial.SerialException"},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(SerialBlob, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.sql.rowset.serial.SerialBlob",
+		"java.lang.Object",
+		"java.sql.Blob,java.io.Serializable,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SerialBlob, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SerialBlob));
+	});
 	return class$;
 }
 

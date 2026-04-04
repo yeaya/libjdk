@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/TypeCastTree.h>
-
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <com/sun/source/tree/Tree.h>
 #include <jcpp.h>
@@ -14,27 +13,23 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _TypeCastTree_MethodInfo_[] = {
-	{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeCastTree, getExpression, $ExpressionTree*)},
-	{"getType", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeCastTree, getType, $Tree*)},
-	{}
-};
-
-$ClassInfo _TypeCastTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.TypeCastTree",
-	nullptr,
-	"com.sun.source.tree.ExpressionTree",
-	nullptr,
-	_TypeCastTree_MethodInfo_
-};
-
-$Object* allocate$TypeCastTree($Class* clazz) {
-	return $of($alloc(TypeCastTree));
-}
-
 $Class* TypeCastTree::load$($String* name, bool initialize) {
-	$loadClass(TypeCastTree, name, initialize, &_TypeCastTree_ClassInfo_, allocate$TypeCastTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeCastTree, getExpression, $ExpressionTree*)},
+		{"getType", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeCastTree, getType, $Tree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.TypeCastTree",
+		nullptr,
+		"com.sun.source.tree.ExpressionTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TypeCastTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeCastTree);
+	});
 	return class$;
 }
 

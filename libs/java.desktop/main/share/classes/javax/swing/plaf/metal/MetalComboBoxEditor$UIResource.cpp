@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalComboBoxEditor$UIResource.h>
-
 #include <javax/swing/plaf/metal/MetalComboBoxEditor.h>
 #include <jcpp.h>
 
@@ -12,41 +11,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$MethodInfo _MetalComboBoxEditor$UIResource_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalComboBoxEditor$UIResource, init$, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MetalComboBoxEditor$UIResource_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalComboBoxEditor$UIResource", "javax.swing.plaf.metal.MetalComboBoxEditor", "UIResource", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalComboBoxEditor$UIResource_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalComboBoxEditor$UIResource",
-	"javax.swing.plaf.metal.MetalComboBoxEditor",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_MetalComboBoxEditor$UIResource_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalComboBoxEditor$UIResource_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalComboBoxEditor"
-};
-
-$Object* allocate$MetalComboBoxEditor$UIResource($Class* clazz) {
-	return $of($alloc(MetalComboBoxEditor$UIResource));
-}
 
 int32_t MetalComboBoxEditor$UIResource::hashCode() {
 	 return this->$MetalComboBoxEditor::hashCode();
@@ -76,7 +40,37 @@ MetalComboBoxEditor$UIResource::MetalComboBoxEditor$UIResource() {
 }
 
 $Class* MetalComboBoxEditor$UIResource::load$($String* name, bool initialize) {
-	$loadClass(MetalComboBoxEditor$UIResource, name, initialize, &_MetalComboBoxEditor$UIResource_ClassInfo_, allocate$MetalComboBoxEditor$UIResource);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalComboBoxEditor$UIResource, init$, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalComboBoxEditor$UIResource", "javax.swing.plaf.metal.MetalComboBoxEditor", "UIResource", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalComboBoxEditor$UIResource",
+		"javax.swing.plaf.metal.MetalComboBoxEditor",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalComboBoxEditor"
+	};
+	$loadClass(MetalComboBoxEditor$UIResource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalComboBoxEditor$UIResource));
+	});
 	return class$;
 }
 

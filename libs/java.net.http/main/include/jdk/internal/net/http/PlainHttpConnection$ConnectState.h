@@ -21,6 +21,7 @@ class $import PlainHttpConnection$ConnectState : public ::java::lang::Enum {
 public:
 	PlainHttpConnection$ConnectState();
 	static $Array<::jdk::internal::net::http::PlainHttpConnection$ConnectState>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::jdk::internal::net::http::PlainHttpConnection$ConnectState* valueOf($String* name);
 	static $Array<::jdk::internal::net::http::PlainHttpConnection$ConnectState>* values();

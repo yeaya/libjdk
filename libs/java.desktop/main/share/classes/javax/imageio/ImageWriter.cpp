@@ -1,5 +1,4 @@
 #include <javax/imageio/ImageWriter.h>
-
 #include <java/awt/Dimension.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/image/Raster.h>
@@ -50,97 +49,6 @@ using $ImageWriterSpi = ::javax::imageio::spi::ImageWriterSpi;
 namespace javax {
 	namespace imageio {
 
-$FieldInfo _ImageWriter_FieldInfo_[] = {
-	{"originatingProvider", "Ljavax/imageio/spi/ImageWriterSpi;", nullptr, $PROTECTED, $field(ImageWriter, originatingProvider)},
-	{"output", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(ImageWriter, output)},
-	{"availableLocales", "[Ljava/util/Locale;", nullptr, $PROTECTED, $field(ImageWriter, availableLocales)},
-	{"locale", "Ljava/util/Locale;", nullptr, $PROTECTED, $field(ImageWriter, locale)},
-	{"warningListeners", "Ljava/util/List;", "Ljava/util/List<Ljavax/imageio/event/IIOWriteWarningListener;>;", $PROTECTED, $field(ImageWriter, warningListeners)},
-	{"warningLocales", "Ljava/util/List;", "Ljava/util/List<Ljava/util/Locale;>;", $PROTECTED, $field(ImageWriter, warningLocales)},
-	{"progressListeners", "Ljava/util/List;", "Ljava/util/List<Ljavax/imageio/event/IIOWriteProgressListener;>;", $PROTECTED, $field(ImageWriter, progressListeners)},
-	{"abortFlag", "Z", nullptr, $PRIVATE, $field(ImageWriter, abortFlag)},
-	{}
-};
-
-$MethodInfo _ImageWriter_MethodInfo_[] = {
-	{"convertImageMetadata", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC | $ABSTRACT},
-	{"convertStreamMetadata", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "(Ljavax/imageio/spi/ImageWriterSpi;)V", nullptr, $PROTECTED, $method(ImageWriter, init$, void, $ImageWriterSpi*)},
-	{"abort", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ImageWriter, abort, void)},
-	{"abortRequested", "()Z", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(ImageWriter, abortRequested, bool)},
-	{"addIIOWriteProgressListener", "(Ljavax/imageio/event/IIOWriteProgressListener;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, addIIOWriteProgressListener, void, $IIOWriteProgressListener*)},
-	{"addIIOWriteWarningListener", "(Ljavax/imageio/event/IIOWriteWarningListener;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, addIIOWriteWarningListener, void, $IIOWriteWarningListener*)},
-	{"canInsertEmpty", "(I)Z", nullptr, $PUBLIC, $virtualMethod(ImageWriter, canInsertEmpty, bool, int32_t), "java.io.IOException"},
-	{"canInsertImage", "(I)Z", nullptr, $PUBLIC, $virtualMethod(ImageWriter, canInsertImage, bool, int32_t), "java.io.IOException"},
-	{"canRemoveImage", "(I)Z", nullptr, $PUBLIC, $virtualMethod(ImageWriter, canRemoveImage, bool, int32_t), "java.io.IOException"},
-	{"canReplaceImageMetadata", "(I)Z", nullptr, $PUBLIC, $virtualMethod(ImageWriter, canReplaceImageMetadata, bool, int32_t), "java.io.IOException"},
-	{"canReplacePixels", "(I)Z", nullptr, $PUBLIC, $virtualMethod(ImageWriter, canReplacePixels, bool, int32_t), "java.io.IOException"},
-	{"canReplaceStreamMetadata", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageWriter, canReplaceStreamMetadata, bool), "java.io.IOException"},
-	{"canWriteEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageWriter, canWriteEmpty, bool), "java.io.IOException"},
-	{"canWriteRasters", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageWriter, canWriteRasters, bool)},
-	{"canWriteSequence", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageWriter, canWriteSequence, bool)},
-	{"clearAbortRequest", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(ImageWriter, clearAbortRequest, void)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, dispose, void)},
-	{"endInsertEmpty", "()V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, endInsertEmpty, void), "java.io.IOException"},
-	{"endReplacePixels", "()V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, endReplacePixels, void), "java.io.IOException"},
-	{"endWriteEmpty", "()V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, endWriteEmpty, void), "java.io.IOException"},
-	{"endWriteSequence", "()V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, endWriteSequence, void), "java.io.IOException"},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(ImageWriter, getAvailableLocales, $LocaleArray*)},
-	{"getDefaultImageMetadata", "(Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageWriter, getDefaultImageMetadata, $IIOMetadata*, $ImageTypeSpecifier*, $ImageWriteParam*)},
-	{"getDefaultStreamMetadata", "(Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageWriter, getDefaultStreamMetadata, $IIOMetadata*, $ImageWriteParam*)},
-	{"getDefaultWriteParam", "()Ljavax/imageio/ImageWriteParam;", nullptr, $PUBLIC, $virtualMethod(ImageWriter, getDefaultWriteParam, $ImageWriteParam*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(ImageWriter, getLocale, $Locale*)},
-	{"getNumThumbnailsSupported", "(Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/metadata/IIOMetadata;)I", nullptr, $PUBLIC, $virtualMethod(ImageWriter, getNumThumbnailsSupported, int32_t, $ImageTypeSpecifier*, $ImageWriteParam*, $IIOMetadata*, $IIOMetadata*)},
-	{"getOriginatingProvider", "()Ljavax/imageio/spi/ImageWriterSpi;", nullptr, $PUBLIC, $virtualMethod(ImageWriter, getOriginatingProvider, $ImageWriterSpi*)},
-	{"getOutput", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ImageWriter, getOutput, $Object*)},
-	{"getPreferredThumbnailSizes", "(Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/metadata/IIOMetadata;)[Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(ImageWriter, getPreferredThumbnailSizes, $DimensionArray*, $ImageTypeSpecifier*, $ImageWriteParam*, $IIOMetadata*, $IIOMetadata*)},
-	{"prepareInsertEmpty", "(ILjavax/imageio/ImageTypeSpecifier;IILjavax/imageio/metadata/IIOMetadata;Ljava/util/List;Ljavax/imageio/ImageWriteParam;)V", "(ILjavax/imageio/ImageTypeSpecifier;IILjavax/imageio/metadata/IIOMetadata;Ljava/util/List<+Ljava/awt/image/BufferedImage;>;Ljavax/imageio/ImageWriteParam;)V", $PUBLIC, $virtualMethod(ImageWriter, prepareInsertEmpty, void, int32_t, $ImageTypeSpecifier*, int32_t, int32_t, $IIOMetadata*, $List*, $ImageWriteParam*), "java.io.IOException"},
-	{"prepareReplacePixels", "(ILjava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, prepareReplacePixels, void, int32_t, $Rectangle*), "java.io.IOException"},
-	{"prepareWriteEmpty", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageTypeSpecifier;IILjavax/imageio/metadata/IIOMetadata;Ljava/util/List;Ljavax/imageio/ImageWriteParam;)V", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageTypeSpecifier;IILjavax/imageio/metadata/IIOMetadata;Ljava/util/List<+Ljava/awt/image/BufferedImage;>;Ljavax/imageio/ImageWriteParam;)V", $PUBLIC, $virtualMethod(ImageWriter, prepareWriteEmpty, void, $IIOMetadata*, $ImageTypeSpecifier*, int32_t, int32_t, $IIOMetadata*, $List*, $ImageWriteParam*), "java.io.IOException"},
-	{"prepareWriteSequence", "(Ljavax/imageio/metadata/IIOMetadata;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, prepareWriteSequence, void, $IIOMetadata*), "java.io.IOException"},
-	{"processImageComplete", "()V", nullptr, $PROTECTED, $virtualMethod(ImageWriter, processImageComplete, void)},
-	{"processImageProgress", "(F)V", nullptr, $PROTECTED, $virtualMethod(ImageWriter, processImageProgress, void, float)},
-	{"processImageStarted", "(I)V", nullptr, $PROTECTED, $virtualMethod(ImageWriter, processImageStarted, void, int32_t)},
-	{"processThumbnailComplete", "()V", nullptr, $PROTECTED, $virtualMethod(ImageWriter, processThumbnailComplete, void)},
-	{"processThumbnailProgress", "(F)V", nullptr, $PROTECTED, $virtualMethod(ImageWriter, processThumbnailProgress, void, float)},
-	{"processThumbnailStarted", "(II)V", nullptr, $PROTECTED, $virtualMethod(ImageWriter, processThumbnailStarted, void, int32_t, int32_t)},
-	{"processWarningOccurred", "(ILjava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ImageWriter, processWarningOccurred, void, int32_t, $String*)},
-	{"processWarningOccurred", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ImageWriter, processWarningOccurred, void, int32_t, $String*, $String*)},
-	{"processWriteAborted", "()V", nullptr, $PROTECTED, $virtualMethod(ImageWriter, processWriteAborted, void)},
-	{"removeAllIIOWriteProgressListeners", "()V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, removeAllIIOWriteProgressListeners, void)},
-	{"removeAllIIOWriteWarningListeners", "()V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, removeAllIIOWriteWarningListeners, void)},
-	{"removeIIOWriteProgressListener", "(Ljavax/imageio/event/IIOWriteProgressListener;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, removeIIOWriteProgressListener, void, $IIOWriteProgressListener*)},
-	{"removeIIOWriteWarningListener", "(Ljavax/imageio/event/IIOWriteWarningListener;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, removeIIOWriteWarningListener, void, $IIOWriteWarningListener*)},
-	{"removeImage", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, removeImage, void, int32_t), "java.io.IOException"},
-	{"replaceImageMetadata", "(ILjavax/imageio/metadata/IIOMetadata;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, replaceImageMetadata, void, int32_t, $IIOMetadata*), "java.io.IOException"},
-	{"replacePixels", "(Ljava/awt/image/RenderedImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, replacePixels, void, $RenderedImage*, $ImageWriteParam*), "java.io.IOException"},
-	{"replacePixels", "(Ljava/awt/image/Raster;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, replacePixels, void, $Raster*, $ImageWriteParam*), "java.io.IOException"},
-	{"replaceStreamMetadata", "(Ljavax/imageio/metadata/IIOMetadata;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, replaceStreamMetadata, void, $IIOMetadata*), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, reset, void)},
-	{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, setLocale, void, $Locale*)},
-	{"setOutput", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, setOutput, void, Object$*)},
-	{"unsupported", "()V", nullptr, $PRIVATE, $method(ImageWriter, unsupported, void)},
-	{"write", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageWriter, write, void, $IIOMetadata*, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
-	{"write", "(Ljavax/imageio/IIOImage;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, write, void, $IIOImage*), "java.io.IOException"},
-	{"write", "(Ljava/awt/image/RenderedImage;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, write, void, $RenderedImage*), "java.io.IOException"},
-	{"writeInsert", "(ILjavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, writeInsert, void, int32_t, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
-	{"writeToSequence", "(Ljavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, writeToSequence, void, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ImageWriter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.imageio.ImageWriter",
-	"java.lang.Object",
-	"javax.imageio.ImageTranscoder",
-	_ImageWriter_FieldInfo_,
-	_ImageWriter_MethodInfo_
-};
-
-$Object* allocate$ImageWriter($Class* clazz) {
-	return $of($alloc(ImageWriter));
-}
-
 void ImageWriter::init$($ImageWriterSpi* originatingProvider) {
 	$set(this, originatingProvider, nullptr);
 	$set(this, output, nullptr);
@@ -158,7 +66,7 @@ $ImageWriterSpi* ImageWriter::getOriginatingProvider() {
 }
 
 void ImageWriter::setOutput(Object$* output) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (output != nullptr) {
 		$var($ImageWriterSpi, provider, getOriginatingProvider());
 		if (provider != nullptr) {
@@ -179,11 +87,11 @@ void ImageWriter::setOutput(Object$* output) {
 }
 
 $Object* ImageWriter::getOutput() {
-	return $of(this->output);
+	return this->output;
 }
 
 $LocaleArray* ImageWriter::getAvailableLocales() {
-	return (this->availableLocales == nullptr) ? ($LocaleArray*)nullptr : $cast($LocaleArray, $nc(this->availableLocales)->clone());
+	return (this->availableLocales == nullptr) ? ($LocaleArray*)nullptr : $cast($LocaleArray, this->availableLocales->clone());
 }
 
 void ImageWriter::setLocale($Locale* locale) {
@@ -230,7 +138,7 @@ void ImageWriter::write($IIOImage* image) {
 }
 
 void ImageWriter::write($RenderedImage* image) {
-	write(nullptr, $$new($IIOImage, image, ($List*)nullptr, ($IIOMetadata*)nullptr), nullptr);
+	write(nullptr, $$new($IIOImage, image, nullptr, nullptr), nullptr);
 }
 
 void ImageWriter::unsupported() {
@@ -388,9 +296,9 @@ void ImageWriter::removeIIOWriteWarningListener($IIOWriteWarningListener* listen
 	}
 	int32_t index = $nc(this->warningListeners)->indexOf(listener);
 	if (index != -1) {
-		$nc(this->warningListeners)->remove(index);
+		this->warningListeners->remove(index);
 		$nc(this->warningLocales)->remove(index);
-		if ($nc(this->warningListeners)->size() == 0) {
+		if (this->warningListeners->size() == 0) {
 			$set(this, warningListeners, nullptr);
 			$set(this, warningLocales, nullptr);
 		}
@@ -421,7 +329,7 @@ void ImageWriter::removeAllIIOWriteProgressListeners() {
 }
 
 void ImageWriter::processImageStarted(int32_t imageIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->progressListeners == nullptr) {
 		return;
 	}
@@ -433,7 +341,7 @@ void ImageWriter::processImageStarted(int32_t imageIndex) {
 }
 
 void ImageWriter::processImageProgress(float percentageDone) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->progressListeners == nullptr) {
 		return;
 	}
@@ -445,7 +353,7 @@ void ImageWriter::processImageProgress(float percentageDone) {
 }
 
 void ImageWriter::processImageComplete() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->progressListeners == nullptr) {
 		return;
 	}
@@ -457,7 +365,7 @@ void ImageWriter::processImageComplete() {
 }
 
 void ImageWriter::processThumbnailStarted(int32_t imageIndex, int32_t thumbnailIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->progressListeners == nullptr) {
 		return;
 	}
@@ -469,7 +377,7 @@ void ImageWriter::processThumbnailStarted(int32_t imageIndex, int32_t thumbnailI
 }
 
 void ImageWriter::processThumbnailProgress(float percentageDone) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->progressListeners == nullptr) {
 		return;
 	}
@@ -481,7 +389,7 @@ void ImageWriter::processThumbnailProgress(float percentageDone) {
 }
 
 void ImageWriter::processThumbnailComplete() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->progressListeners == nullptr) {
 		return;
 	}
@@ -493,7 +401,7 @@ void ImageWriter::processThumbnailComplete() {
 }
 
 void ImageWriter::processWriteAborted() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->progressListeners == nullptr) {
 		return;
 	}
@@ -505,7 +413,7 @@ void ImageWriter::processWriteAborted() {
 }
 
 void ImageWriter::processWarningOccurred(int32_t imageIndex, $String* warning) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->warningListeners == nullptr) {
 		return;
 	}
@@ -520,7 +428,7 @@ void ImageWriter::processWarningOccurred(int32_t imageIndex, $String* warning) {
 }
 
 void ImageWriter::processWarningOccurred(int32_t imageIndex, $String* baseName, $String* keyword) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (this->warningListeners == nullptr) {
 		return;
@@ -540,7 +448,7 @@ void ImageWriter::processWarningOccurred(int32_t imageIndex, $String* baseName, 
 		}
 		$var($ResourceBundle, bundle, nullptr);
 		try {
-			$assign(bundle, $ResourceBundle::getBundle(baseName, locale, $($of(this)->getClass()->getModule())));
+			$assign(bundle, $ResourceBundle::getBundle(baseName, locale, $(this->getClass()->getModule())));
 		} catch ($MissingResourceException& mre) {
 			$throwNew($IllegalArgumentException, "Bundle not found!"_s, mre);
 		}
@@ -571,7 +479,93 @@ ImageWriter::ImageWriter() {
 }
 
 $Class* ImageWriter::load$($String* name, bool initialize) {
-	$loadClass(ImageWriter, name, initialize, &_ImageWriter_ClassInfo_, allocate$ImageWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"originatingProvider", "Ljavax/imageio/spi/ImageWriterSpi;", nullptr, $PROTECTED, $field(ImageWriter, originatingProvider)},
+		{"output", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(ImageWriter, output)},
+		{"availableLocales", "[Ljava/util/Locale;", nullptr, $PROTECTED, $field(ImageWriter, availableLocales)},
+		{"locale", "Ljava/util/Locale;", nullptr, $PROTECTED, $field(ImageWriter, locale)},
+		{"warningListeners", "Ljava/util/List;", "Ljava/util/List<Ljavax/imageio/event/IIOWriteWarningListener;>;", $PROTECTED, $field(ImageWriter, warningListeners)},
+		{"warningLocales", "Ljava/util/List;", "Ljava/util/List<Ljava/util/Locale;>;", $PROTECTED, $field(ImageWriter, warningLocales)},
+		{"progressListeners", "Ljava/util/List;", "Ljava/util/List<Ljavax/imageio/event/IIOWriteProgressListener;>;", $PROTECTED, $field(ImageWriter, progressListeners)},
+		{"abortFlag", "Z", nullptr, $PRIVATE, $field(ImageWriter, abortFlag)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"convertImageMetadata", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC | $ABSTRACT},
+		{"convertStreamMetadata", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "(Ljavax/imageio/spi/ImageWriterSpi;)V", nullptr, $PROTECTED, $method(ImageWriter, init$, void, $ImageWriterSpi*)},
+		{"abort", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ImageWriter, abort, void)},
+		{"abortRequested", "()Z", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(ImageWriter, abortRequested, bool)},
+		{"addIIOWriteProgressListener", "(Ljavax/imageio/event/IIOWriteProgressListener;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, addIIOWriteProgressListener, void, $IIOWriteProgressListener*)},
+		{"addIIOWriteWarningListener", "(Ljavax/imageio/event/IIOWriteWarningListener;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, addIIOWriteWarningListener, void, $IIOWriteWarningListener*)},
+		{"canInsertEmpty", "(I)Z", nullptr, $PUBLIC, $virtualMethod(ImageWriter, canInsertEmpty, bool, int32_t), "java.io.IOException"},
+		{"canInsertImage", "(I)Z", nullptr, $PUBLIC, $virtualMethod(ImageWriter, canInsertImage, bool, int32_t), "java.io.IOException"},
+		{"canRemoveImage", "(I)Z", nullptr, $PUBLIC, $virtualMethod(ImageWriter, canRemoveImage, bool, int32_t), "java.io.IOException"},
+		{"canReplaceImageMetadata", "(I)Z", nullptr, $PUBLIC, $virtualMethod(ImageWriter, canReplaceImageMetadata, bool, int32_t), "java.io.IOException"},
+		{"canReplacePixels", "(I)Z", nullptr, $PUBLIC, $virtualMethod(ImageWriter, canReplacePixels, bool, int32_t), "java.io.IOException"},
+		{"canReplaceStreamMetadata", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageWriter, canReplaceStreamMetadata, bool), "java.io.IOException"},
+		{"canWriteEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageWriter, canWriteEmpty, bool), "java.io.IOException"},
+		{"canWriteRasters", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageWriter, canWriteRasters, bool)},
+		{"canWriteSequence", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageWriter, canWriteSequence, bool)},
+		{"clearAbortRequest", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(ImageWriter, clearAbortRequest, void)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, dispose, void)},
+		{"endInsertEmpty", "()V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, endInsertEmpty, void), "java.io.IOException"},
+		{"endReplacePixels", "()V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, endReplacePixels, void), "java.io.IOException"},
+		{"endWriteEmpty", "()V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, endWriteEmpty, void), "java.io.IOException"},
+		{"endWriteSequence", "()V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, endWriteSequence, void), "java.io.IOException"},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(ImageWriter, getAvailableLocales, $LocaleArray*)},
+		{"getDefaultImageMetadata", "(Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageWriter, getDefaultImageMetadata, $IIOMetadata*, $ImageTypeSpecifier*, $ImageWriteParam*)},
+		{"getDefaultStreamMetadata", "(Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageWriter, getDefaultStreamMetadata, $IIOMetadata*, $ImageWriteParam*)},
+		{"getDefaultWriteParam", "()Ljavax/imageio/ImageWriteParam;", nullptr, $PUBLIC, $virtualMethod(ImageWriter, getDefaultWriteParam, $ImageWriteParam*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(ImageWriter, getLocale, $Locale*)},
+		{"getNumThumbnailsSupported", "(Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/metadata/IIOMetadata;)I", nullptr, $PUBLIC, $virtualMethod(ImageWriter, getNumThumbnailsSupported, int32_t, $ImageTypeSpecifier*, $ImageWriteParam*, $IIOMetadata*, $IIOMetadata*)},
+		{"getOriginatingProvider", "()Ljavax/imageio/spi/ImageWriterSpi;", nullptr, $PUBLIC, $virtualMethod(ImageWriter, getOriginatingProvider, $ImageWriterSpi*)},
+		{"getOutput", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ImageWriter, getOutput, $Object*)},
+		{"getPreferredThumbnailSizes", "(Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/metadata/IIOMetadata;)[Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(ImageWriter, getPreferredThumbnailSizes, $DimensionArray*, $ImageTypeSpecifier*, $ImageWriteParam*, $IIOMetadata*, $IIOMetadata*)},
+		{"prepareInsertEmpty", "(ILjavax/imageio/ImageTypeSpecifier;IILjavax/imageio/metadata/IIOMetadata;Ljava/util/List;Ljavax/imageio/ImageWriteParam;)V", "(ILjavax/imageio/ImageTypeSpecifier;IILjavax/imageio/metadata/IIOMetadata;Ljava/util/List<+Ljava/awt/image/BufferedImage;>;Ljavax/imageio/ImageWriteParam;)V", $PUBLIC, $virtualMethod(ImageWriter, prepareInsertEmpty, void, int32_t, $ImageTypeSpecifier*, int32_t, int32_t, $IIOMetadata*, $List*, $ImageWriteParam*), "java.io.IOException"},
+		{"prepareReplacePixels", "(ILjava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, prepareReplacePixels, void, int32_t, $Rectangle*), "java.io.IOException"},
+		{"prepareWriteEmpty", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageTypeSpecifier;IILjavax/imageio/metadata/IIOMetadata;Ljava/util/List;Ljavax/imageio/ImageWriteParam;)V", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageTypeSpecifier;IILjavax/imageio/metadata/IIOMetadata;Ljava/util/List<+Ljava/awt/image/BufferedImage;>;Ljavax/imageio/ImageWriteParam;)V", $PUBLIC, $virtualMethod(ImageWriter, prepareWriteEmpty, void, $IIOMetadata*, $ImageTypeSpecifier*, int32_t, int32_t, $IIOMetadata*, $List*, $ImageWriteParam*), "java.io.IOException"},
+		{"prepareWriteSequence", "(Ljavax/imageio/metadata/IIOMetadata;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, prepareWriteSequence, void, $IIOMetadata*), "java.io.IOException"},
+		{"processImageComplete", "()V", nullptr, $PROTECTED, $virtualMethod(ImageWriter, processImageComplete, void)},
+		{"processImageProgress", "(F)V", nullptr, $PROTECTED, $virtualMethod(ImageWriter, processImageProgress, void, float)},
+		{"processImageStarted", "(I)V", nullptr, $PROTECTED, $virtualMethod(ImageWriter, processImageStarted, void, int32_t)},
+		{"processThumbnailComplete", "()V", nullptr, $PROTECTED, $virtualMethod(ImageWriter, processThumbnailComplete, void)},
+		{"processThumbnailProgress", "(F)V", nullptr, $PROTECTED, $virtualMethod(ImageWriter, processThumbnailProgress, void, float)},
+		{"processThumbnailStarted", "(II)V", nullptr, $PROTECTED, $virtualMethod(ImageWriter, processThumbnailStarted, void, int32_t, int32_t)},
+		{"processWarningOccurred", "(ILjava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ImageWriter, processWarningOccurred, void, int32_t, $String*)},
+		{"processWarningOccurred", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ImageWriter, processWarningOccurred, void, int32_t, $String*, $String*)},
+		{"processWriteAborted", "()V", nullptr, $PROTECTED, $virtualMethod(ImageWriter, processWriteAborted, void)},
+		{"removeAllIIOWriteProgressListeners", "()V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, removeAllIIOWriteProgressListeners, void)},
+		{"removeAllIIOWriteWarningListeners", "()V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, removeAllIIOWriteWarningListeners, void)},
+		{"removeIIOWriteProgressListener", "(Ljavax/imageio/event/IIOWriteProgressListener;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, removeIIOWriteProgressListener, void, $IIOWriteProgressListener*)},
+		{"removeIIOWriteWarningListener", "(Ljavax/imageio/event/IIOWriteWarningListener;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, removeIIOWriteWarningListener, void, $IIOWriteWarningListener*)},
+		{"removeImage", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, removeImage, void, int32_t), "java.io.IOException"},
+		{"replaceImageMetadata", "(ILjavax/imageio/metadata/IIOMetadata;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, replaceImageMetadata, void, int32_t, $IIOMetadata*), "java.io.IOException"},
+		{"replacePixels", "(Ljava/awt/image/RenderedImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, replacePixels, void, $RenderedImage*, $ImageWriteParam*), "java.io.IOException"},
+		{"replacePixels", "(Ljava/awt/image/Raster;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, replacePixels, void, $Raster*, $ImageWriteParam*), "java.io.IOException"},
+		{"replaceStreamMetadata", "(Ljavax/imageio/metadata/IIOMetadata;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, replaceStreamMetadata, void, $IIOMetadata*), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, reset, void)},
+		{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, setLocale, void, $Locale*)},
+		{"setOutput", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, setOutput, void, Object$*)},
+		{"unsupported", "()V", nullptr, $PRIVATE, $method(ImageWriter, unsupported, void)},
+		{"write", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageWriter, write, void, $IIOMetadata*, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
+		{"write", "(Ljavax/imageio/IIOImage;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, write, void, $IIOImage*), "java.io.IOException"},
+		{"write", "(Ljava/awt/image/RenderedImage;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, write, void, $RenderedImage*), "java.io.IOException"},
+		{"writeInsert", "(ILjavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, writeInsert, void, int32_t, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
+		{"writeToSequence", "(Ljavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriter, writeToSequence, void, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.imageio.ImageWriter",
+		"java.lang.Object",
+		"javax.imageio.ImageTranscoder",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ImageWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageWriter);
+	});
 	return class$;
 }
 

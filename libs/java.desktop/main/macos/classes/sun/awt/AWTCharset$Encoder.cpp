@@ -1,5 +1,4 @@
 #include <sun/awt/AWTCharset$Encoder.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
@@ -25,52 +24,6 @@ using $AWTCharset = ::sun::awt::AWTCharset;
 
 namespace sun {
 	namespace awt {
-
-$FieldInfo _AWTCharset$Encoder_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/AWTCharset;", nullptr, $FINAL | $SYNTHETIC, $field(AWTCharset$Encoder, this$0)},
-	{"enc", "Ljava/nio/charset/CharsetEncoder;", nullptr, $PROTECTED, $field(AWTCharset$Encoder, enc)},
-	{}
-};
-
-$MethodInfo _AWTCharset$Encoder_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/AWTCharset;)V", nullptr, $PROTECTED, $method(AWTCharset$Encoder, init$, void, $AWTCharset*)},
-	{"<init>", "(Lsun/awt/AWTCharset;Ljava/nio/charset/CharsetEncoder;)V", nullptr, $PROTECTED, $method(AWTCharset$Encoder, init$, void, $AWTCharset*, $CharsetEncoder*)},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(AWTCharset$Encoder, canEncode, bool, char16_t)},
-	{"canEncode", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC, $virtualMethod(AWTCharset$Encoder, canEncode, bool, $CharSequence*)},
-	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(AWTCharset$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"implFlush", "(Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(AWTCharset$Encoder, implFlush, $CoderResult*, $ByteBuffer*)},
-	{"implOnMalformedInput", "(Ljava/nio/charset/CodingErrorAction;)V", nullptr, $PROTECTED, $virtualMethod(AWTCharset$Encoder, implOnMalformedInput, void, $CodingErrorAction*)},
-	{"implOnUnmappableCharacter", "(Ljava/nio/charset/CodingErrorAction;)V", nullptr, $PROTECTED, $virtualMethod(AWTCharset$Encoder, implOnUnmappableCharacter, void, $CodingErrorAction*)},
-	{"implReplaceWith", "([B)V", nullptr, $PROTECTED, $virtualMethod(AWTCharset$Encoder, implReplaceWith, void, $bytes*)},
-	{"implReset", "()V", nullptr, $PROTECTED, $virtualMethod(AWTCharset$Encoder, implReset, void)},
-	{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC, $virtualMethod(AWTCharset$Encoder, isLegalReplacement, bool, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _AWTCharset$Encoder_InnerClassesInfo_[] = {
-	{"sun.awt.AWTCharset$Encoder", "sun.awt.AWTCharset", "Encoder", $PUBLIC},
-	{}
-};
-
-$ClassInfo _AWTCharset$Encoder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.AWTCharset$Encoder",
-	"java.nio.charset.CharsetEncoder",
-	nullptr,
-	_AWTCharset$Encoder_FieldInfo_,
-	_AWTCharset$Encoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AWTCharset$Encoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.AWTCharset"
-};
-
-$Object* allocate$AWTCharset$Encoder($Class* clazz) {
-	return $of($alloc(AWTCharset$Encoder));
-}
 
 void AWTCharset$Encoder::init$($AWTCharset* this$0) {
 	AWTCharset$Encoder::init$(this$0, $($nc(this$0->javaCs)->newEncoder()));
@@ -106,7 +59,7 @@ void AWTCharset$Encoder::implReset() {
 
 void AWTCharset$Encoder::implReplaceWith($bytes* newReplacement) {
 	if (this->enc != nullptr) {
-		$nc(this->enc)->replaceWith(newReplacement);
+		this->enc->replaceWith(newReplacement);
 	}
 }
 
@@ -126,7 +79,47 @@ AWTCharset$Encoder::AWTCharset$Encoder() {
 }
 
 $Class* AWTCharset$Encoder::load$($String* name, bool initialize) {
-	$loadClass(AWTCharset$Encoder, name, initialize, &_AWTCharset$Encoder_ClassInfo_, allocate$AWTCharset$Encoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/AWTCharset;", nullptr, $FINAL | $SYNTHETIC, $field(AWTCharset$Encoder, this$0)},
+		{"enc", "Ljava/nio/charset/CharsetEncoder;", nullptr, $PROTECTED, $field(AWTCharset$Encoder, enc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/AWTCharset;)V", nullptr, $PROTECTED, $method(AWTCharset$Encoder, init$, void, $AWTCharset*)},
+		{"<init>", "(Lsun/awt/AWTCharset;Ljava/nio/charset/CharsetEncoder;)V", nullptr, $PROTECTED, $method(AWTCharset$Encoder, init$, void, $AWTCharset*, $CharsetEncoder*)},
+		{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(AWTCharset$Encoder, canEncode, bool, char16_t)},
+		{"canEncode", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC, $virtualMethod(AWTCharset$Encoder, canEncode, bool, $CharSequence*)},
+		{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(AWTCharset$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"implFlush", "(Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(AWTCharset$Encoder, implFlush, $CoderResult*, $ByteBuffer*)},
+		{"implOnMalformedInput", "(Ljava/nio/charset/CodingErrorAction;)V", nullptr, $PROTECTED, $virtualMethod(AWTCharset$Encoder, implOnMalformedInput, void, $CodingErrorAction*)},
+		{"implOnUnmappableCharacter", "(Ljava/nio/charset/CodingErrorAction;)V", nullptr, $PROTECTED, $virtualMethod(AWTCharset$Encoder, implOnUnmappableCharacter, void, $CodingErrorAction*)},
+		{"implReplaceWith", "([B)V", nullptr, $PROTECTED, $virtualMethod(AWTCharset$Encoder, implReplaceWith, void, $bytes*)},
+		{"implReset", "()V", nullptr, $PROTECTED, $virtualMethod(AWTCharset$Encoder, implReset, void)},
+		{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC, $virtualMethod(AWTCharset$Encoder, isLegalReplacement, bool, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.AWTCharset$Encoder", "sun.awt.AWTCharset", "Encoder", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.AWTCharset$Encoder",
+		"java.nio.charset.CharsetEncoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.AWTCharset"
+	};
+	$loadClass(AWTCharset$Encoder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AWTCharset$Encoder);
+	});
 	return class$;
 }
 

@@ -36,7 +36,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)1;
 	Base64DecodingException(const Base64DecodingException& e);
 	virtual void throw$() override;
-	inline Base64DecodingException* operator ->() {
+	inline Base64DecodingException* operator ->() const {
+		return (Base64DecodingException*)throwing$;
+	}
+	inline operator Base64DecodingException*() const {
 		return (Base64DecodingException*)throwing$;
 	}
 };

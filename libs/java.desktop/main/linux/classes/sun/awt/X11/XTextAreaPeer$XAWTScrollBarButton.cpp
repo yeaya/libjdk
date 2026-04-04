@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XTextAreaPeer$XAWTScrollBarButton.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -31,9 +30,7 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ButtonModel = ::javax::swing::ButtonModel;
 using $SwingConstants = ::javax::swing::SwingConstants;
-using $UIDefaults = ::javax::swing::UIDefaults;
 using $BasicArrowButton = ::javax::swing::plaf::basic::BasicArrowButton;
 using $XTextAreaPeer = ::sun::awt::X11::XTextAreaPeer;
 using $XToolkit = ::sun::awt::X11::XToolkit;
@@ -42,52 +39,8 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XTextAreaPeer$XAWTScrollBarButton_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/X11/XTextAreaPeer;", nullptr, $FINAL | $SYNTHETIC, $field(XTextAreaPeer$XAWTScrollBarButton, this$0)},
-	{"uidefaults", "Ljavax/swing/UIDefaults;", nullptr, $PRIVATE, $field(XTextAreaPeer$XAWTScrollBarButton, uidefaults)},
-	{"darkShadow", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(XTextAreaPeer$XAWTScrollBarButton, darkShadow)},
-	{"lightShadow", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(XTextAreaPeer$XAWTScrollBarButton, lightShadow)},
-	{"buttonBack", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(XTextAreaPeer$XAWTScrollBarButton, buttonBack)},
-	{}
-};
-
-$MethodInfo _XTextAreaPeer$XAWTScrollBarButton_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/XTextAreaPeer;I)V", nullptr, 0, $method(XTextAreaPeer$XAWTScrollBarButton, init$, void, $XTextAreaPeer*, int32_t)},
-	{"getMaximumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$XAWTScrollBarButton, getMaximumSize, $Dimension*)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$XAWTScrollBarButton, getMinimumSize, $Dimension*)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$XAWTScrollBarButton, getPreferredSize, $Dimension*)},
-	{"isFocusTraversable", "()Z", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$XAWTScrollBarButton, isFocusTraversable, bool)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$XAWTScrollBarButton, paint, void, $Graphics*)},
-	{}
-};
-
-$InnerClassInfo _XTextAreaPeer$XAWTScrollBarButton_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XTextAreaPeer$XAWTScrollBarButton", "sun.awt.X11.XTextAreaPeer", "XAWTScrollBarButton", $FINAL},
-	{}
-};
-
-$ClassInfo _XTextAreaPeer$XAWTScrollBarButton_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.X11.XTextAreaPeer$XAWTScrollBarButton",
-	"javax.swing.plaf.basic.BasicArrowButton",
-	nullptr,
-	_XTextAreaPeer$XAWTScrollBarButton_FieldInfo_,
-	_XTextAreaPeer$XAWTScrollBarButton_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XTextAreaPeer$XAWTScrollBarButton_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XTextAreaPeer"
-};
-
-$Object* allocate$XTextAreaPeer$XAWTScrollBarButton($Class* clazz) {
-	return $of($alloc(XTextAreaPeer$XAWTScrollBarButton));
-}
-
 void XTextAreaPeer$XAWTScrollBarButton::init$($XTextAreaPeer* this$0, int32_t direction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$BasicArrowButton::init$(direction);
 	$set(this, uidefaults, $XToolkit::getUIDefaults());
@@ -97,20 +50,13 @@ void XTextAreaPeer$XAWTScrollBarButton::init$($XTextAreaPeer* this$0, int32_t di
 	$set(this, buttonBack, $nc(this->uidefaults)->getColor("ScrollBar.track"_s));
 	switch (direction) {
 	case $SwingConstants::NORTH:
-		{}
 	case $SwingConstants::SOUTH:
-		{}
 	case $SwingConstants::EAST:
-		{}
 	case $SwingConstants::WEST:
-		{
-			this->direction = direction;
-			break;
-		}
+		this->direction = direction;
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, "invalid direction"_s);
-		}
+		$throwNew($IllegalArgumentException, "invalid direction"_s);
 	}
 	setRequestFocusEnabled(false);
 	setOpaque(true);
@@ -121,19 +67,12 @@ void XTextAreaPeer$XAWTScrollBarButton::init$($XTextAreaPeer* this$0, int32_t di
 $Dimension* XTextAreaPeer$XAWTScrollBarButton::getPreferredSize() {
 	switch (this->direction) {
 	case $SwingConstants::NORTH:
-		{}
 	case $SwingConstants::SOUTH:
-		{
-			return $new($Dimension, 11, 12);
-		}
+		return $new($Dimension, 11, 12);
 	case $SwingConstants::EAST:
-		{}
 	case $SwingConstants::WEST:
-		{}
 	default:
-		{
-			return $new($Dimension, 12, 11);
-		}
+		return $new($Dimension, 12, 11);
 	}
 }
 
@@ -150,14 +89,14 @@ bool XTextAreaPeer$XAWTScrollBarButton::isFocusTraversable() {
 }
 
 void XTextAreaPeer$XAWTScrollBarButton::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t w = getWidth();
 	int32_t h = getHeight();
 	if (isOpaque()) {
 		$nc(g)->setColor(this->buttonBack);
 		g->fillRect(0, 0, w, h);
 	}
-	bool isPressed = $nc($(getModel()))->isPressed();
+	bool isPressed = $$nc(getModel())->isPressed();
 	$var($Color, lead, (isPressed) ? this->darkShadow : this->lightShadow);
 	$var($Color, trail, (isPressed) ? this->lightShadow : this->darkShadow);
 	$var($Color, fill, getBackground());
@@ -166,119 +105,91 @@ void XTextAreaPeer$XAWTScrollBarButton::paint($Graphics* g) {
 	int32_t s = $Math::min(w, h);
 	switch (this->direction) {
 	case $SwingConstants::NORTH:
-		{
-			$nc(g)->setColor(lead);
-			$nc(g)->drawLine(cx, 0, cx, 0);
-			{
-				int32_t x = cx - 1;
-				int32_t y = 1;
-				int32_t dx = 1;
-				for (; y <= s - 2; y += 2) {
-					$nc(g)->setColor(lead);
-					g->drawLine(x, y, x, y);
-					if (y >= (s - 2)) {
-						g->drawLine(x, y + 1, x, y + 1);
-					}
-					g->setColor(fill);
-					g->drawLine(x + 1, y, x + dx, y);
-					if (y < (s - 2)) {
-						g->drawLine(x, y + 1, x + dx + 1, y + 1);
-					}
-					g->setColor(trail);
-					g->drawLine(x + dx + 1, y, x + dx + 1, y);
-					if (y >= (s - 2)) {
-						g->drawLine(x + 1, y + 1, x + dx + 1, y + 1);
-					}
-					dx += 2;
-					x -= 1;
-				}
+		$nc(g)->setColor(lead);
+		g->drawLine(cx, 0, cx, 0);
+		for (int32_t x = cx - 1, y = 1, dx = 1; y <= s - 2; y += 2) {
+			g->setColor(lead);
+			g->drawLine(x, y, x, y);
+			if (y >= (s - 2)) {
+				g->drawLine(x, y + 1, x, y + 1);
 			}
-			break;
+			g->setColor(fill);
+			g->drawLine(x + 1, y, x + dx, y);
+			if (y < (s - 2)) {
+				g->drawLine(x, y + 1, x + dx + 1, y + 1);
+			}
+			g->setColor(trail);
+			g->drawLine(x + dx + 1, y, x + dx + 1, y);
+			if (y >= (s - 2)) {
+				g->drawLine(x + 1, y + 1, x + dx + 1, y + 1);
+			}
+			dx += 2;
+			x -= 1;
 		}
+		break;
 	case $SwingConstants::SOUTH:
-		{
-			$nc(g)->setColor(trail);
-			$nc(g)->drawLine(cx, s, cx, s);
-			{
-				int32_t x = cx - 1;
-				int32_t y = s - 1;
-				int32_t dx = 1;
-				for (; y >= 1; y -= 2) {
-					$nc(g)->setColor(lead);
-					g->drawLine(x, y, x, y);
-					if (y <= 2) {
-						g->drawLine(x, y - 1, x + dx + 1, y - 1);
-					}
-					g->setColor(fill);
-					g->drawLine(x + 1, y, x + dx, y);
-					if (y > 2) {
-						g->drawLine(x, y - 1, x + dx + 1, y - 1);
-					}
-					g->setColor(trail);
-					g->drawLine(x + dx + 1, y, x + dx + 1, y);
-					dx += 2;
-					x -= 1;
-				}
+		$nc(g)->setColor(trail);
+		g->drawLine(cx, s, cx, s);
+		for (int32_t x = cx - 1, y = s - 1, dx = 1; y >= 1; y -= 2) {
+			g->setColor(lead);
+			g->drawLine(x, y, x, y);
+			if (y <= 2) {
+				g->drawLine(x, y - 1, x + dx + 1, y - 1);
 			}
-			break;
+			g->setColor(fill);
+			g->drawLine(x + 1, y, x + dx, y);
+			if (y > 2) {
+				g->drawLine(x, y - 1, x + dx + 1, y - 1);
+			}
+			g->setColor(trail);
+			g->drawLine(x + dx + 1, y, x + dx + 1, y);
+			dx += 2;
+			x -= 1;
 		}
+		break;
 	case $SwingConstants::EAST:
-		{
-			$nc(g)->setColor(lead);
-			$nc(g)->drawLine(s, cy, s, cy);
-			{
-				int32_t y = cy - 1;
-				int32_t x = s - 1;
-				int32_t dy = 1;
-				for (; x >= 1; x -= 2) {
-					$nc(g)->setColor(lead);
-					g->drawLine(x, y, x, y);
-					if (x <= 2) {
-						g->drawLine(x - 1, y, x - 1, y + dy + 1);
-					}
-					g->setColor(fill);
-					g->drawLine(x, y + 1, x, y + dy);
-					if (x > 2) {
-						g->drawLine(x - 1, y, x - 1, y + dy + 1);
-					}
-					g->setColor(trail);
-					g->drawLine(x, y + dy + 1, x, y + dy + 1);
-					dy += 2;
-					y -= 1;
-				}
+		$nc(g)->setColor(lead);
+		g->drawLine(s, cy, s, cy);
+		for (int32_t y = cy - 1, x = s - 1, dy = 1; x >= 1; x -= 2) {
+			g->setColor(lead);
+			g->drawLine(x, y, x, y);
+			if (x <= 2) {
+				g->drawLine(x - 1, y, x - 1, y + dy + 1);
 			}
-			break;
+			g->setColor(fill);
+			g->drawLine(x, y + 1, x, y + dy);
+			if (x > 2) {
+				g->drawLine(x - 1, y, x - 1, y + dy + 1);
+			}
+			g->setColor(trail);
+			g->drawLine(x, y + dy + 1, x, y + dy + 1);
+			dy += 2;
+			y -= 1;
 		}
+		break;
 	case $SwingConstants::WEST:
-		{
-			$nc(g)->setColor(trail);
-			$nc(g)->drawLine(0, cy, 0, cy);
-			{
-				int32_t y = cy - 1;
-				int32_t x = 1;
-				int32_t dy = 1;
-				for (; x <= s - 2; x += 2) {
-					$nc(g)->setColor(lead);
-					g->drawLine(x, y, x, y);
-					if (x >= (s - 2)) {
-						g->drawLine(x + 1, y, x + 1, y);
-					}
-					g->setColor(fill);
-					g->drawLine(x, y + 1, x, y + dy);
-					if (x < (s - 2)) {
-						g->drawLine(x + 1, y, x + 1, y + dy + 1);
-					}
-					g->setColor(trail);
-					g->drawLine(x, y + dy + 1, x, y + dy + 1);
-					if (x >= (s - 2)) {
-						g->drawLine(x + 1, y + 1, x + 1, y + dy + 1);
-					}
-					dy += 2;
-					y -= 1;
-				}
+		$nc(g)->setColor(trail);
+		g->drawLine(0, cy, 0, cy);
+		for (int32_t y = cy - 1, x = 1, dy = 1; x <= s - 2; x += 2) {
+			g->setColor(lead);
+			g->drawLine(x, y, x, y);
+			if (x >= (s - 2)) {
+				g->drawLine(x + 1, y, x + 1, y);
 			}
-			break;
+			g->setColor(fill);
+			g->drawLine(x, y + 1, x, y + dy);
+			if (x < (s - 2)) {
+				g->drawLine(x + 1, y, x + 1, y + dy + 1);
+			}
+			g->setColor(trail);
+			g->drawLine(x, y + dy + 1, x, y + dy + 1);
+			if (x >= (s - 2)) {
+				g->drawLine(x + 1, y + 1, x + 1, y + dy + 1);
+			}
+			dy += 2;
+			y -= 1;
 		}
+		break;
 	}
 }
 
@@ -286,7 +197,45 @@ XTextAreaPeer$XAWTScrollBarButton::XTextAreaPeer$XAWTScrollBarButton() {
 }
 
 $Class* XTextAreaPeer$XAWTScrollBarButton::load$($String* name, bool initialize) {
-	$loadClass(XTextAreaPeer$XAWTScrollBarButton, name, initialize, &_XTextAreaPeer$XAWTScrollBarButton_ClassInfo_, allocate$XTextAreaPeer$XAWTScrollBarButton);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/X11/XTextAreaPeer;", nullptr, $FINAL | $SYNTHETIC, $field(XTextAreaPeer$XAWTScrollBarButton, this$0)},
+		{"uidefaults", "Ljavax/swing/UIDefaults;", nullptr, $PRIVATE, $field(XTextAreaPeer$XAWTScrollBarButton, uidefaults)},
+		{"darkShadow", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(XTextAreaPeer$XAWTScrollBarButton, darkShadow)},
+		{"lightShadow", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(XTextAreaPeer$XAWTScrollBarButton, lightShadow)},
+		{"buttonBack", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(XTextAreaPeer$XAWTScrollBarButton, buttonBack)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XTextAreaPeer;I)V", nullptr, 0, $method(XTextAreaPeer$XAWTScrollBarButton, init$, void, $XTextAreaPeer*, int32_t)},
+		{"getMaximumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$XAWTScrollBarButton, getMaximumSize, $Dimension*)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$XAWTScrollBarButton, getMinimumSize, $Dimension*)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$XAWTScrollBarButton, getPreferredSize, $Dimension*)},
+		{"isFocusTraversable", "()Z", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$XAWTScrollBarButton, isFocusTraversable, bool)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$XAWTScrollBarButton, paint, void, $Graphics*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XTextAreaPeer$XAWTScrollBarButton", "sun.awt.X11.XTextAreaPeer", "XAWTScrollBarButton", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.X11.XTextAreaPeer$XAWTScrollBarButton",
+		"javax.swing.plaf.basic.BasicArrowButton",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XTextAreaPeer"
+	};
+	$loadClass(XTextAreaPeer$XAWTScrollBarButton, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XTextAreaPeer$XAWTScrollBarButton));
+	});
 	return class$;
 }
 

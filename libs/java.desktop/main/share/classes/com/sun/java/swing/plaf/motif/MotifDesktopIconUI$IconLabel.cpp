@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifDesktopIconUI$IconLabel.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifDesktopIconUI$IconLabel$1.h>
 #include <com/sun/java/swing/plaf/motif/MotifDesktopIconUI$IconLabel$2.h>
 #include <com/sun/java/swing/plaf/motif/MotifDesktopIconUI.h>
@@ -12,10 +11,7 @@
 #include <java/awt/FontMetrics.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/event/MouseEvent.h>
-#include <java/awt/event/MouseListener.h>
-#include <java/awt/event/MouseMotionListener.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JInternalFrame.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/UIManager.h>
@@ -29,22 +25,16 @@
 using $MotifDesktopIconUI = ::com::sun::java::swing::plaf::motif::MotifDesktopIconUI;
 using $MotifDesktopIconUI$IconLabel$1 = ::com::sun::java::swing::plaf::motif::MotifDesktopIconUI$IconLabel$1;
 using $MotifDesktopIconUI$IconLabel$2 = ::com::sun::java::swing::plaf::motif::MotifDesktopIconUI$IconLabel$2;
-using $AWTEvent = ::java::awt::AWTEvent;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
 using $MouseEvent = ::java::awt::event::MouseEvent;
-using $MouseListener = ::java::awt::event::MouseListener;
-using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Icon = ::javax::swing::Icon;
-using $JComponent = ::javax::swing::JComponent;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $JPanel = ::javax::swing::JPanel;
 using $UIManager = ::javax::swing::UIManager;
@@ -59,51 +49,8 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$FieldInfo _MotifDesktopIconUI$IconLabel_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifDesktopIconUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifDesktopIconUI$IconLabel, this$0)},
-	{"frame", "Ljavax/swing/JInternalFrame;", nullptr, 0, $field(MotifDesktopIconUI$IconLabel, frame)},
-	{}
-};
-
-$MethodInfo _MotifDesktopIconUI$IconLabel_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifDesktopIconUI;Ljavax/swing/JInternalFrame;)V", nullptr, 0, $method(MotifDesktopIconUI$IconLabel, init$, void, $MotifDesktopIconUI*, $JInternalFrame*)},
-	{"forwardEventToParent", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(MotifDesktopIconUI$IconLabel, forwardEventToParent, void, $MouseEvent*)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifDesktopIconUI$IconLabel, getMinimumSize, $Dimension*)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifDesktopIconUI$IconLabel, getPreferredSize, $Dimension*)},
-	{"isFocusTraversable", "()Z", nullptr, $PUBLIC, $virtualMethod(MotifDesktopIconUI$IconLabel, isFocusTraversable, bool)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MotifDesktopIconUI$IconLabel, paint, void, $Graphics*)},
-	{}
-};
-
-$InnerClassInfo _MotifDesktopIconUI$IconLabel_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconLabel", "com.sun.java.swing.plaf.motif.MotifDesktopIconUI", "IconLabel", $PROTECTED},
-	{"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconLabel$2", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconLabel$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MotifDesktopIconUI$IconLabel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconLabel",
-	"javax.swing.JPanel",
-	nullptr,
-	_MotifDesktopIconUI$IconLabel_FieldInfo_,
-	_MotifDesktopIconUI$IconLabel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifDesktopIconUI$IconLabel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifDesktopIconUI"
-};
-
-$Object* allocate$MotifDesktopIconUI$IconLabel($Class* clazz) {
-	return $of($alloc(MotifDesktopIconUI$IconLabel));
-}
-
 void MotifDesktopIconUI$IconLabel::init$($MotifDesktopIconUI* this$0, $JInternalFrame* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$JPanel::init$();
 	$set(this, frame, f);
@@ -114,8 +61,8 @@ void MotifDesktopIconUI$IconLabel::init$($MotifDesktopIconUI* this$0, $JInternal
 }
 
 void MotifDesktopIconUI$IconLabel::forwardEventToParent($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
-	$var($Component, var$0, static_cast<$Component*>(getParent()));
+	$useLocalObjectStack();
+	$var($Component, var$0, getParent());
 	int32_t var$1 = $nc(e)->getID();
 	int64_t var$2 = e->getWhen();
 	int32_t var$3 = e->getModifiers();
@@ -126,8 +73,8 @@ void MotifDesktopIconUI$IconLabel::forwardEventToParent($MouseEvent* e) {
 	int32_t var$8 = e->getClickCount();
 	$var($MouseEvent, newEvent, $new($MouseEvent, var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, e->isPopupTrigger(), $MouseEvent::NOBUTTON));
 	$var($AWTAccessor$MouseEventAccessor, meAccessor, $AWTAccessor::getMouseEventAccessor());
-	$nc(meAccessor)->setCausedByTouchEvent(newEvent, meAccessor->isCausedByTouchEvent(e));
-	$nc($(getParent()))->dispatchEvent(newEvent);
+	$nc(meAccessor)->setCausedByTouchEvent(newEvent, $nc(meAccessor)->isCausedByTouchEvent(e));
+	$$nc(getParent())->dispatchEvent(newEvent);
 }
 
 bool MotifDesktopIconUI$IconLabel::isFocusTraversable() {
@@ -139,7 +86,7 @@ $Dimension* MotifDesktopIconUI$IconLabel::getMinimumSize() {
 }
 
 $Dimension* MotifDesktopIconUI$IconLabel::getPreferredSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, title, $nc(this->frame)->getTitle());
 	$init($MotifDesktopIconUI);
 	$var($FontMetrics, fm, $nc(this->frame)->getFontMetrics($MotifDesktopIconUI::defaultTitleFont));
@@ -151,10 +98,10 @@ $Dimension* MotifDesktopIconUI$IconLabel::getPreferredSize() {
 }
 
 void MotifDesktopIconUI$IconLabel::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JPanel::paint(g);
 	int32_t maxX = getWidth() - 1;
-	$var($Color, shadow, $nc($($nc($($UIManager::getColor("inactiveCaptionBorder"_s)))->darker()))->darker());
+	$var($Color, shadow, $$nc($$nc($UIManager::getColor("inactiveCaptionBorder"_s))->darker())->darker());
 	$nc(g)->setColor(shadow);
 	int32_t var$0 = getWidth();
 	g->setClip(0, 0, var$0, getHeight());
@@ -163,11 +110,11 @@ void MotifDesktopIconUI$IconLabel::paint($Graphics* g) {
 	g->setColor($($UIManager::getColor("inactiveCaption"_s)));
 	g->fillRect(2, 1, maxX - 3, 18 + 1);
 	g->setClip(2, 1, maxX - 4, 18);
-	int32_t y = 18 - $nc($($SwingUtilities2::getFontMetrics(static_cast<$JComponent*>(this->frame), g)))->getDescent();
+	int32_t y = 18 - $$nc($SwingUtilities2::getFontMetrics(this->frame, g))->getDescent();
 	g->setColor($($UIManager::getColor("inactiveCaptionText"_s)));
 	$var($String, title, $nc(this->frame)->getTitle());
 	if (title != nullptr) {
-		$SwingUtilities2::drawString(static_cast<$JComponent*>(this->frame), g, title, 4, y);
+		$SwingUtilities2::drawString(this->frame, g, title, 4, y);
 	}
 }
 
@@ -175,7 +122,44 @@ MotifDesktopIconUI$IconLabel::MotifDesktopIconUI$IconLabel() {
 }
 
 $Class* MotifDesktopIconUI$IconLabel::load$($String* name, bool initialize) {
-	$loadClass(MotifDesktopIconUI$IconLabel, name, initialize, &_MotifDesktopIconUI$IconLabel_ClassInfo_, allocate$MotifDesktopIconUI$IconLabel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifDesktopIconUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifDesktopIconUI$IconLabel, this$0)},
+		{"frame", "Ljavax/swing/JInternalFrame;", nullptr, 0, $field(MotifDesktopIconUI$IconLabel, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifDesktopIconUI;Ljavax/swing/JInternalFrame;)V", nullptr, 0, $method(MotifDesktopIconUI$IconLabel, init$, void, $MotifDesktopIconUI*, $JInternalFrame*)},
+		{"forwardEventToParent", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(MotifDesktopIconUI$IconLabel, forwardEventToParent, void, $MouseEvent*)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifDesktopIconUI$IconLabel, getMinimumSize, $Dimension*)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifDesktopIconUI$IconLabel, getPreferredSize, $Dimension*)},
+		{"isFocusTraversable", "()Z", nullptr, $PUBLIC, $virtualMethod(MotifDesktopIconUI$IconLabel, isFocusTraversable, bool)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MotifDesktopIconUI$IconLabel, paint, void, $Graphics*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconLabel", "com.sun.java.swing.plaf.motif.MotifDesktopIconUI", "IconLabel", $PROTECTED},
+		{"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconLabel$2", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconLabel$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconLabel",
+		"javax.swing.JPanel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifDesktopIconUI"
+	};
+	$loadClass(MotifDesktopIconUI$IconLabel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifDesktopIconUI$IconLabel));
+	});
 	return class$;
 }
 

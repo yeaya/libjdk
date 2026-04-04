@@ -73,7 +73,7 @@ public:
 	$StringArray* suites = nullptr;
 	::javax::net::ssl::HostnameVerifier* verifier = nullptr;
 	bool isClosed = false;
-	static const int64_t serialVersionUID = (int64_t)0xF05D6CE1B32A7180;
+	static const int64_t serialVersionUID = (int64_t)0xf05d6ce1b32a7180;
 };
 
 				} // ext

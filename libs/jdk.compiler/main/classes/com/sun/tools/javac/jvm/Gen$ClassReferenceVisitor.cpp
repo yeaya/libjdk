@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/Gen$ClassReferenceVisitor.h>
-
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -23,14 +22,11 @@
 
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
-using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Gen = ::com::sun::tools::javac::jvm::Gen;
-using $PoolWriter = ::com::sun::tools::javac::jvm::PoolWriter;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCBinary = ::com::sun::tools::javac::tree::JCTree$JCBinary;
 using $JCTree$JCConditional = ::com::sun::tools::javac::tree::JCTree$JCConditional;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAccess;
 using $JCTree$JCIdent = ::com::sun::tools::javac::tree::JCTree$JCIdent;
 using $JCTree$JCParens = ::com::sun::tools::javac::tree::JCTree$JCParens;
@@ -47,50 +43,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$FieldInfo _Gen$ClassReferenceVisitor_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/jvm/Gen;", nullptr, $FINAL | $SYNTHETIC, $field(Gen$ClassReferenceVisitor, this$0)},
-	{}
-};
-
-$MethodInfo _Gen$ClassReferenceVisitor_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Gen;)V", nullptr, 0, $method(Gen$ClassReferenceVisitor, init$, void, $Gen*)},
-	{"visitBinary", "(Lcom/sun/tools/javac/tree/JCTree$JCBinary;)V", nullptr, $PUBLIC, $virtualMethod(Gen$ClassReferenceVisitor, visitBinary, void, $JCTree$JCBinary*)},
-	{"visitConditional", "(Lcom/sun/tools/javac/tree/JCTree$JCConditional;)V", nullptr, $PUBLIC, $virtualMethod(Gen$ClassReferenceVisitor, visitConditional, void, $JCTree$JCConditional*)},
-	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(Gen$ClassReferenceVisitor, visitIdent, void, $JCTree$JCIdent*)},
-	{"visitParens", "(Lcom/sun/tools/javac/tree/JCTree$JCParens;)V", nullptr, $PUBLIC, $virtualMethod(Gen$ClassReferenceVisitor, visitParens, void, $JCTree$JCParens*)},
-	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(Gen$ClassReferenceVisitor, visitSelect, void, $JCTree$JCFieldAccess*)},
-	{"visitTree", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Gen$ClassReferenceVisitor, visitTree, void, $JCTree*)},
-	{"visitTypeCast", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", nullptr, $PUBLIC, $virtualMethod(Gen$ClassReferenceVisitor, visitTypeCast, void, $JCTree$JCTypeCast*)},
-	{"visitUnary", "(Lcom/sun/tools/javac/tree/JCTree$JCUnary;)V", nullptr, $PUBLIC, $virtualMethod(Gen$ClassReferenceVisitor, visitUnary, void, $JCTree$JCUnary*)},
-	{}
-};
-
-$InnerClassInfo _Gen$ClassReferenceVisitor_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.Gen$ClassReferenceVisitor", "com.sun.tools.javac.jvm.Gen", "ClassReferenceVisitor", 0},
-	{"com.sun.tools.javac.tree.JCTree$Visitor", "com.sun.tools.javac.tree.JCTree", "Visitor", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Gen$ClassReferenceVisitor_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.Gen$ClassReferenceVisitor",
-	"com.sun.tools.javac.tree.JCTree$Visitor",
-	nullptr,
-	_Gen$ClassReferenceVisitor_FieldInfo_,
-	_Gen$ClassReferenceVisitor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Gen$ClassReferenceVisitor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.Gen"
-};
-
-$Object* allocate$Gen$ClassReferenceVisitor($Class* clazz) {
-	return $of($alloc(Gen$ClassReferenceVisitor));
-}
 
 void Gen$ClassReferenceVisitor::init$($Gen* this$0) {
 	$set(this, this$0, this$0);
@@ -113,7 +65,7 @@ void Gen$ClassReferenceVisitor::visitSelect($JCTree$JCFieldAccess* tree) {
 }
 
 void Gen$ClassReferenceVisitor::visitIdent($JCTree$JCIdent* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Symbol$ClassSymbol, classSymbol, nullptr);
 		$var($Symbol, patt32126$temp, $nc($nc(tree)->sym)->owner);
@@ -150,7 +102,45 @@ Gen$ClassReferenceVisitor::Gen$ClassReferenceVisitor() {
 }
 
 $Class* Gen$ClassReferenceVisitor::load$($String* name, bool initialize) {
-	$loadClass(Gen$ClassReferenceVisitor, name, initialize, &_Gen$ClassReferenceVisitor_ClassInfo_, allocate$Gen$ClassReferenceVisitor);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/jvm/Gen;", nullptr, $FINAL | $SYNTHETIC, $field(Gen$ClassReferenceVisitor, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/jvm/Gen;)V", nullptr, 0, $method(Gen$ClassReferenceVisitor, init$, void, $Gen*)},
+		{"visitBinary", "(Lcom/sun/tools/javac/tree/JCTree$JCBinary;)V", nullptr, $PUBLIC, $virtualMethod(Gen$ClassReferenceVisitor, visitBinary, void, $JCTree$JCBinary*)},
+		{"visitConditional", "(Lcom/sun/tools/javac/tree/JCTree$JCConditional;)V", nullptr, $PUBLIC, $virtualMethod(Gen$ClassReferenceVisitor, visitConditional, void, $JCTree$JCConditional*)},
+		{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(Gen$ClassReferenceVisitor, visitIdent, void, $JCTree$JCIdent*)},
+		{"visitParens", "(Lcom/sun/tools/javac/tree/JCTree$JCParens;)V", nullptr, $PUBLIC, $virtualMethod(Gen$ClassReferenceVisitor, visitParens, void, $JCTree$JCParens*)},
+		{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(Gen$ClassReferenceVisitor, visitSelect, void, $JCTree$JCFieldAccess*)},
+		{"visitTree", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Gen$ClassReferenceVisitor, visitTree, void, $JCTree*)},
+		{"visitTypeCast", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", nullptr, $PUBLIC, $virtualMethod(Gen$ClassReferenceVisitor, visitTypeCast, void, $JCTree$JCTypeCast*)},
+		{"visitUnary", "(Lcom/sun/tools/javac/tree/JCTree$JCUnary;)V", nullptr, $PUBLIC, $virtualMethod(Gen$ClassReferenceVisitor, visitUnary, void, $JCTree$JCUnary*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.Gen$ClassReferenceVisitor", "com.sun.tools.javac.jvm.Gen", "ClassReferenceVisitor", 0},
+		{"com.sun.tools.javac.tree.JCTree$Visitor", "com.sun.tools.javac.tree.JCTree", "Visitor", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.Gen$ClassReferenceVisitor",
+		"com.sun.tools.javac.tree.JCTree$Visitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.Gen"
+	};
+	$loadClass(Gen$ClassReferenceVisitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Gen$ClassReferenceVisitor);
+	});
 	return class$;
 }
 

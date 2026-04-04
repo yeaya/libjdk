@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/CRTable$SourceComputer.h>
-
 #include <com/sun/tools/javac/jvm/CRTable$SourceRange.h>
 #include <com/sun/tools/javac/jvm/CRTable.h>
 #include <com/sun/tools/javac/tree/EndPosTable.h>
@@ -123,104 +122,12 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$FieldInfo _CRTable$SourceComputer_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/jvm/CRTable;", nullptr, $FINAL | $SYNTHETIC, $field(CRTable$SourceComputer, this$0)},
-	{"result", "Lcom/sun/tools/javac/jvm/CRTable$SourceRange;", nullptr, 0, $field(CRTable$SourceComputer, result)},
-	{}
-};
-
-$MethodInfo _CRTable$SourceComputer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/CRTable;)V", nullptr, 0, $method(CRTable$SourceComputer, init$, void, $CRTable*)},
-	{"csp", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/jvm/CRTable$SourceRange;", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, csp, $CRTable$SourceRange*, $JCTree*)},
-	{"csp", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/jvm/CRTable$SourceRange;", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/jvm/CRTable$SourceRange;", $PUBLIC, $virtualMethod(CRTable$SourceComputer, csp, $CRTable$SourceRange*, $List*)},
-	{"cspCases", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/jvm/CRTable$SourceRange;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;)Lcom/sun/tools/javac/jvm/CRTable$SourceRange;", $PUBLIC, $virtualMethod(CRTable$SourceComputer, cspCases, $CRTable$SourceRange*, $List*)},
-	{"cspCatchers", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/jvm/CRTable$SourceRange;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCatch;>;)Lcom/sun/tools/javac/jvm/CRTable$SourceRange;", $PUBLIC, $virtualMethod(CRTable$SourceComputer, cspCatchers, $CRTable$SourceRange*, $List*)},
-	{"endPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, endPos, int32_t, $JCTree*)},
-	{"startPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, startPos, int32_t, $JCTree*)},
-	{"visitApply", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitApply, void, $JCTree$JCMethodInvocation*)},
-	{"visitAssert", "(Lcom/sun/tools/javac/tree/JCTree$JCAssert;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitAssert, void, $JCTree$JCAssert*)},
-	{"visitAssign", "(Lcom/sun/tools/javac/tree/JCTree$JCAssign;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitAssign, void, $JCTree$JCAssign*)},
-	{"visitAssignop", "(Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitAssignop, void, $JCTree$JCAssignOp*)},
-	{"visitBinary", "(Lcom/sun/tools/javac/tree/JCTree$JCBinary;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitBinary, void, $JCTree$JCBinary*)},
-	{"visitBlock", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitBlock, void, $JCTree$JCBlock*)},
-	{"visitBreak", "(Lcom/sun/tools/javac/tree/JCTree$JCBreak;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitBreak, void, $JCTree$JCBreak*)},
-	{"visitCase", "(Lcom/sun/tools/javac/tree/JCTree$JCCase;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitCase, void, $JCTree$JCCase*)},
-	{"visitCatch", "(Lcom/sun/tools/javac/tree/JCTree$JCCatch;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitCatch, void, $JCTree$JCCatch*)},
-	{"visitConditional", "(Lcom/sun/tools/javac/tree/JCTree$JCConditional;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitConditional, void, $JCTree$JCConditional*)},
-	{"visitContinue", "(Lcom/sun/tools/javac/tree/JCTree$JCContinue;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitContinue, void, $JCTree$JCContinue*)},
-	{"visitDefaultCaseLabel", "(Lcom/sun/tools/javac/tree/JCTree$JCDefaultCaseLabel;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitDefaultCaseLabel, void, $JCTree$JCDefaultCaseLabel*)},
-	{"visitDoLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCDoWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitDoLoop, void, $JCTree$JCDoWhileLoop*)},
-	{"visitErroneous", "(Lcom/sun/tools/javac/tree/JCTree$JCErroneous;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitErroneous, void, $JCTree$JCErroneous*)},
-	{"visitExec", "(Lcom/sun/tools/javac/tree/JCTree$JCExpressionStatement;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitExec, void, $JCTree$JCExpressionStatement*)},
-	{"visitForLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCForLoop;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitForLoop, void, $JCTree$JCForLoop*)},
-	{"visitForeachLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitForeachLoop, void, $JCTree$JCEnhancedForLoop*)},
-	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitIdent, void, $JCTree$JCIdent*)},
-	{"visitIf", "(Lcom/sun/tools/javac/tree/JCTree$JCIf;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitIf, void, $JCTree$JCIf*)},
-	{"visitIndexed", "(Lcom/sun/tools/javac/tree/JCTree$JCArrayAccess;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitIndexed, void, $JCTree$JCArrayAccess*)},
-	{"visitLabelled", "(Lcom/sun/tools/javac/tree/JCTree$JCLabeledStatement;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitLabelled, void, $JCTree$JCLabeledStatement*)},
-	{"visitLetExpr", "(Lcom/sun/tools/javac/tree/JCTree$LetExpr;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitLetExpr, void, $JCTree$LetExpr*)},
-	{"visitLiteral", "(Lcom/sun/tools/javac/tree/JCTree$JCLiteral;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitLiteral, void, $JCTree$JCLiteral*)},
-	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitMethodDef, void, $JCTree$JCMethodDecl*)},
-	{"visitNewArray", "(Lcom/sun/tools/javac/tree/JCTree$JCNewArray;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitNewArray, void, $JCTree$JCNewArray*)},
-	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitNewClass, void, $JCTree$JCNewClass*)},
-	{"visitParens", "(Lcom/sun/tools/javac/tree/JCTree$JCParens;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitParens, void, $JCTree$JCParens*)},
-	{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitReturn, void, $JCTree$JCReturn*)},
-	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitSelect, void, $JCTree$JCFieldAccess*)},
-	{"visitSkip", "(Lcom/sun/tools/javac/tree/JCTree$JCSkip;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitSkip, void, $JCTree$JCSkip*)},
-	{"visitSwitch", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitch;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitSwitch, void, $JCTree$JCSwitch*)},
-	{"visitSwitchExpression", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitSwitchExpression, void, $JCTree$JCSwitchExpression*)},
-	{"visitSynchronized", "(Lcom/sun/tools/javac/tree/JCTree$JCSynchronized;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitSynchronized, void, $JCTree$JCSynchronized*)},
-	{"visitThrow", "(Lcom/sun/tools/javac/tree/JCTree$JCThrow;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitThrow, void, $JCTree$JCThrow*)},
-	{"visitTree", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitTree, void, $JCTree*)},
-	{"visitTry", "(Lcom/sun/tools/javac/tree/JCTree$JCTry;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitTry, void, $JCTree$JCTry*)},
-	{"visitTypeApply", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeApply;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitTypeApply, void, $JCTree$JCTypeApply*)},
-	{"visitTypeArray", "(Lcom/sun/tools/javac/tree/JCTree$JCArrayTypeTree;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitTypeArray, void, $JCTree$JCArrayTypeTree*)},
-	{"visitTypeCast", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitTypeCast, void, $JCTree$JCTypeCast*)},
-	{"visitTypeIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCPrimitiveTypeTree;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitTypeIdent, void, $JCTree$JCPrimitiveTypeTree*)},
-	{"visitTypeParameter", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitTypeParameter, void, $JCTree$JCTypeParameter*)},
-	{"visitTypeTest", "(Lcom/sun/tools/javac/tree/JCTree$JCInstanceOf;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitTypeTest, void, $JCTree$JCInstanceOf*)},
-	{"visitTypeUnion", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeUnion;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitTypeUnion, void, $JCTree$JCTypeUnion*)},
-	{"visitUnary", "(Lcom/sun/tools/javac/tree/JCTree$JCUnary;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitUnary, void, $JCTree$JCUnary*)},
-	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitVarDef, void, $JCTree$JCVariableDecl*)},
-	{"visitWhileLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitWhileLoop, void, $JCTree$JCWhileLoop*)},
-	{"visitWildcard", "(Lcom/sun/tools/javac/tree/JCTree$JCWildcard;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitWildcard, void, $JCTree$JCWildcard*)},
-	{"visitYield", "(Lcom/sun/tools/javac/tree/JCTree$JCYield;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitYield, void, $JCTree$JCYield*)},
-	{}
-};
-
-$InnerClassInfo _CRTable$SourceComputer_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.CRTable$SourceComputer", "com.sun.tools.javac.jvm.CRTable", "SourceComputer", 0},
-	{"com.sun.tools.javac.tree.JCTree$Visitor", "com.sun.tools.javac.tree.JCTree", "Visitor", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CRTable$SourceComputer_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.CRTable$SourceComputer",
-	"com.sun.tools.javac.tree.JCTree$Visitor",
-	nullptr,
-	_CRTable$SourceComputer_FieldInfo_,
-	_CRTable$SourceComputer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CRTable$SourceComputer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.CRTable"
-};
-
-$Object* allocate$CRTable$SourceComputer($Class* clazz) {
-	return $of($alloc(CRTable$SourceComputer));
-}
 
 void CRTable$SourceComputer::init$($CRTable* this$0) {
 	$set(this, this$0, this$0);
@@ -239,14 +146,14 @@ $CRTable$SourceRange* CRTable$SourceComputer::csp($JCTree* tree) {
 }
 
 $CRTable$SourceRange* CRTable$SourceComputer::csp($List* trees) {
-	$useLocalCurrentObjectStackCache();
-	if ((trees == nullptr) || !($nc(trees)->nonEmpty())) {
+	$useLocalObjectStack();
+	if ((trees == nullptr) || !(trees->nonEmpty())) {
 		return nullptr;
 	}
 	$var($CRTable$SourceRange, list_sr, $new($CRTable$SourceRange));
 	{
 		$var($List, l, trees);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 			list_sr->mergeWith($(csp($cast($JCTree, l->head))));
 		}
 	}
@@ -255,14 +162,14 @@ $CRTable$SourceRange* CRTable$SourceComputer::csp($List* trees) {
 }
 
 $CRTable$SourceRange* CRTable$SourceComputer::cspCases($List* trees) {
-	$useLocalCurrentObjectStackCache();
-	if ((trees == nullptr) || !($nc(trees)->nonEmpty())) {
+	$useLocalObjectStack();
+	if ((trees == nullptr) || !(trees->nonEmpty())) {
 		return nullptr;
 	}
 	$var($CRTable$SourceRange, list_sr, $new($CRTable$SourceRange));
 	{
 		$var($List, l, trees);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 			list_sr->mergeWith($(csp($cast($JCTree, l->head))));
 		}
 	}
@@ -271,14 +178,14 @@ $CRTable$SourceRange* CRTable$SourceComputer::cspCases($List* trees) {
 }
 
 $CRTable$SourceRange* CRTable$SourceComputer::cspCatchers($List* trees) {
-	$useLocalCurrentObjectStackCache();
-	if ((trees == nullptr) || !($nc(trees)->nonEmpty())) {
+	$useLocalObjectStack();
+	if ((trees == nullptr) || !(trees->nonEmpty())) {
 		return nullptr;
 	}
 	$var($CRTable$SourceRange, list_sr, $new($CRTable$SourceRange));
 	{
 		$var($List, l, trees);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 			list_sr->mergeWith($(csp($cast($JCTree, l->head))));
 		}
 	}
@@ -287,19 +194,19 @@ $CRTable$SourceRange* CRTable$SourceComputer::cspCatchers($List* trees) {
 }
 
 void CRTable$SourceComputer::visitMethodDef($JCTree$JCMethodDecl* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->body))));
+	sr->mergeWith($(csp($nc(tree)->body)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitVarDef($JCTree$JCVariableDecl* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	csp(static_cast<$JCTree*>($nc(tree)->vartype));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->init))));
+	csp($nc(tree)->vartype);
+	sr->mergeWith($(csp(tree->init)));
 	$set(this, result, sr);
 }
 
@@ -317,76 +224,76 @@ void CRTable$SourceComputer::visitBlock($JCTree$JCBlock* tree) {
 }
 
 void CRTable$SourceComputer::visitDoLoop($JCTree$JCDoWhileLoop* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->body))));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->cond))));
+	sr->mergeWith($(csp($nc(tree)->body)));
+	sr->mergeWith($(csp(tree->cond)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitWhileLoop($JCTree$JCWhileLoop* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->cond))));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->body))));
+	sr->mergeWith($(csp($nc(tree)->cond)));
+	sr->mergeWith($(csp(tree->body)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitForLoop($JCTree$JCForLoop* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
 	sr->mergeWith($(csp($nc(tree)->init)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->cond))));
-	sr->mergeWith($(csp($nc(tree)->step)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->body))));
+	sr->mergeWith($(csp(tree->cond)));
+	sr->mergeWith($(csp(tree->step)));
+	sr->mergeWith($(csp(tree->body)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitForeachLoop($JCTree$JCEnhancedForLoop* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->var))));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->expr))));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->body))));
+	sr->mergeWith($(csp($nc(tree)->var)));
+	sr->mergeWith($(csp(tree->expr)));
+	sr->mergeWith($(csp(tree->body)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitLabelled($JCTree$JCLabeledStatement* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->body))));
+	sr->mergeWith($(csp($nc(tree)->body)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitSwitch($JCTree$JCSwitch* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->selector))));
-	sr->mergeWith($(cspCases($nc(tree)->cases)));
+	sr->mergeWith($(csp($nc(tree)->selector)));
+	sr->mergeWith($(cspCases(tree->cases)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitSwitchExpression($JCTree$JCSwitchExpression* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->selector))));
-	sr->mergeWith($(cspCases($nc(tree)->cases)));
+	sr->mergeWith($(csp($nc(tree)->selector)));
+	sr->mergeWith($(cspCases(tree->cases)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitCase($JCTree$JCCase* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
 	sr->mergeWith($(csp($nc(tree)->labels)));
-	sr->mergeWith($(csp($nc(tree)->stats)));
+	sr->mergeWith($(csp(tree->stats)));
 	$set(this, result, sr);
 }
 
@@ -395,59 +302,59 @@ void CRTable$SourceComputer::visitDefaultCaseLabel($JCTree$JCDefaultCaseLabel* t
 }
 
 void CRTable$SourceComputer::visitSynchronized($JCTree$JCSynchronized* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->lock))));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->body))));
+	sr->mergeWith($(csp($nc(tree)->lock)));
+	sr->mergeWith($(csp(tree->body)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitTry($JCTree$JCTry* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
 	sr->mergeWith($(csp($nc(tree)->resources)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->body))));
-	sr->mergeWith($(cspCatchers($nc(tree)->catchers)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->finalizer))));
+	sr->mergeWith($(csp(tree->body)));
+	sr->mergeWith($(cspCatchers(tree->catchers)));
+	sr->mergeWith($(csp(tree->finalizer)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitCatch($JCTree$JCCatch* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->param))));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->body))));
+	sr->mergeWith($(csp($nc(tree)->param)));
+	sr->mergeWith($(csp(tree->body)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitConditional($JCTree$JCConditional* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->cond))));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->truepart))));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->falsepart))));
+	sr->mergeWith($(csp($nc(tree)->cond)));
+	sr->mergeWith($(csp(tree->truepart)));
+	sr->mergeWith($(csp(tree->falsepart)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitIf($JCTree$JCIf* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->cond))));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->thenpart))));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->elsepart))));
+	sr->mergeWith($(csp($nc(tree)->cond)));
+	sr->mergeWith($(csp(tree->thenpart)));
+	sr->mergeWith($(csp(tree->elsepart)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitExec($JCTree$JCExpressionStatement* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->expr))));
+	sr->mergeWith($(csp($nc(tree)->expr)));
 	$set(this, result, sr);
 }
 
@@ -458,10 +365,10 @@ void CRTable$SourceComputer::visitBreak($JCTree$JCBreak* tree) {
 }
 
 void CRTable$SourceComputer::visitYield($JCTree$JCYield* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->value))));
+	sr->mergeWith($(csp($nc(tree)->value)));
 	$set(this, result, sr);
 }
 
@@ -472,135 +379,135 @@ void CRTable$SourceComputer::visitContinue($JCTree$JCContinue* tree) {
 }
 
 void CRTable$SourceComputer::visitReturn($JCTree$JCReturn* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->expr))));
+	sr->mergeWith($(csp($nc(tree)->expr)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitThrow($JCTree$JCThrow* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->expr))));
+	sr->mergeWith($(csp($nc(tree)->expr)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitAssert($JCTree$JCAssert* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->cond))));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->detail))));
+	sr->mergeWith($(csp($nc(tree)->cond)));
+	sr->mergeWith($(csp(tree->detail)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitApply($JCTree$JCMethodInvocation* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->meth))));
-	sr->mergeWith($(csp($nc(tree)->args)));
+	sr->mergeWith($(csp($nc(tree)->meth)));
+	sr->mergeWith($(csp(tree->args)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitNewClass($JCTree$JCNewClass* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->encl))));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->clazz))));
-	sr->mergeWith($(csp($nc(tree)->args)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->def))));
+	sr->mergeWith($(csp($nc(tree)->encl)));
+	sr->mergeWith($(csp(tree->clazz)));
+	sr->mergeWith($(csp(tree->args)));
+	sr->mergeWith($(csp(tree->def)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitNewArray($JCTree$JCNewArray* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->elemtype))));
-	sr->mergeWith($(csp($nc(tree)->dims)));
-	sr->mergeWith($(csp($nc(tree)->elems)));
+	sr->mergeWith($(csp($nc(tree)->elemtype)));
+	sr->mergeWith($(csp(tree->dims)));
+	sr->mergeWith($(csp(tree->elems)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitParens($JCTree$JCParens* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->expr))));
+	sr->mergeWith($(csp($nc(tree)->expr)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitAssign($JCTree$JCAssign* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->lhs))));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->rhs))));
+	sr->mergeWith($(csp($nc(tree)->lhs)));
+	sr->mergeWith($(csp(tree->rhs)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitAssignop($JCTree$JCAssignOp* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->lhs))));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->rhs))));
+	sr->mergeWith($(csp($nc(tree)->lhs)));
+	sr->mergeWith($(csp(tree->rhs)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitUnary($JCTree$JCUnary* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->arg))));
+	sr->mergeWith($(csp($nc(tree)->arg)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitBinary($JCTree$JCBinary* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->lhs))));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->rhs))));
+	sr->mergeWith($(csp($nc(tree)->lhs)));
+	sr->mergeWith($(csp(tree->rhs)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitTypeCast($JCTree$JCTypeCast* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
 	sr->mergeWith($(csp($nc(tree)->clazz)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->expr))));
+	sr->mergeWith($(csp(tree->expr)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitTypeTest($JCTree$JCInstanceOf* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->expr))));
-	sr->mergeWith($(csp($nc(tree)->pattern)));
+	sr->mergeWith($(csp($nc(tree)->expr)));
+	sr->mergeWith($(csp(tree->pattern)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitIndexed($JCTree$JCArrayAccess* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->indexed))));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->index))));
+	sr->mergeWith($(csp($nc(tree)->indexed)));
+	sr->mergeWith($(csp(tree->index)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitSelect($JCTree$JCFieldAccess* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->selected))));
+	sr->mergeWith($(csp($nc(tree)->selected)));
 	$set(this, result, sr);
 }
 
@@ -623,33 +530,33 @@ void CRTable$SourceComputer::visitTypeIdent($JCTree$JCPrimitiveTypeTree* tree) {
 }
 
 void CRTable$SourceComputer::visitTypeArray($JCTree$JCArrayTypeTree* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->elemtype))));
+	sr->mergeWith($(csp($nc(tree)->elemtype)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitTypeApply($JCTree$JCTypeApply* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->clazz))));
-	sr->mergeWith($(csp($nc(tree)->arguments)));
+	sr->mergeWith($(csp($nc(tree)->clazz)));
+	sr->mergeWith($(csp(tree->arguments)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitLetExpr($JCTree$LetExpr* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
 	sr->mergeWith($(csp($nc(tree)->defs)));
-	sr->mergeWith($(csp(static_cast<$JCTree*>($nc(tree)->expr))));
+	sr->mergeWith($(csp(tree->expr)));
 	$set(this, result, sr);
 }
 
 void CRTable$SourceComputer::visitTypeParameter($JCTree$JCTypeParameter* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
 	sr->mergeWith($(csp($nc(tree)->bounds)));
@@ -657,7 +564,7 @@ void CRTable$SourceComputer::visitTypeParameter($JCTree$JCTypeParameter* tree) {
 }
 
 void CRTable$SourceComputer::visitTypeUnion($JCTree$JCTypeUnion* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = startPos(tree);
 	$var($CRTable$SourceRange, sr, $new($CRTable$SourceRange, var$0, endPos(tree)));
 	sr->mergeWith($(csp($nc(tree)->alternatives)));
@@ -694,7 +601,92 @@ CRTable$SourceComputer::CRTable$SourceComputer() {
 }
 
 $Class* CRTable$SourceComputer::load$($String* name, bool initialize) {
-	$loadClass(CRTable$SourceComputer, name, initialize, &_CRTable$SourceComputer_ClassInfo_, allocate$CRTable$SourceComputer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/jvm/CRTable;", nullptr, $FINAL | $SYNTHETIC, $field(CRTable$SourceComputer, this$0)},
+		{"result", "Lcom/sun/tools/javac/jvm/CRTable$SourceRange;", nullptr, 0, $field(CRTable$SourceComputer, result)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/jvm/CRTable;)V", nullptr, 0, $method(CRTable$SourceComputer, init$, void, $CRTable*)},
+		{"csp", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/jvm/CRTable$SourceRange;", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, csp, $CRTable$SourceRange*, $JCTree*)},
+		{"csp", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/jvm/CRTable$SourceRange;", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/jvm/CRTable$SourceRange;", $PUBLIC, $virtualMethod(CRTable$SourceComputer, csp, $CRTable$SourceRange*, $List*)},
+		{"cspCases", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/jvm/CRTable$SourceRange;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;)Lcom/sun/tools/javac/jvm/CRTable$SourceRange;", $PUBLIC, $virtualMethod(CRTable$SourceComputer, cspCases, $CRTable$SourceRange*, $List*)},
+		{"cspCatchers", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/jvm/CRTable$SourceRange;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCatch;>;)Lcom/sun/tools/javac/jvm/CRTable$SourceRange;", $PUBLIC, $virtualMethod(CRTable$SourceComputer, cspCatchers, $CRTable$SourceRange*, $List*)},
+		{"endPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, endPos, int32_t, $JCTree*)},
+		{"startPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, startPos, int32_t, $JCTree*)},
+		{"visitApply", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitApply, void, $JCTree$JCMethodInvocation*)},
+		{"visitAssert", "(Lcom/sun/tools/javac/tree/JCTree$JCAssert;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitAssert, void, $JCTree$JCAssert*)},
+		{"visitAssign", "(Lcom/sun/tools/javac/tree/JCTree$JCAssign;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitAssign, void, $JCTree$JCAssign*)},
+		{"visitAssignop", "(Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitAssignop, void, $JCTree$JCAssignOp*)},
+		{"visitBinary", "(Lcom/sun/tools/javac/tree/JCTree$JCBinary;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitBinary, void, $JCTree$JCBinary*)},
+		{"visitBlock", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitBlock, void, $JCTree$JCBlock*)},
+		{"visitBreak", "(Lcom/sun/tools/javac/tree/JCTree$JCBreak;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitBreak, void, $JCTree$JCBreak*)},
+		{"visitCase", "(Lcom/sun/tools/javac/tree/JCTree$JCCase;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitCase, void, $JCTree$JCCase*)},
+		{"visitCatch", "(Lcom/sun/tools/javac/tree/JCTree$JCCatch;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitCatch, void, $JCTree$JCCatch*)},
+		{"visitConditional", "(Lcom/sun/tools/javac/tree/JCTree$JCConditional;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitConditional, void, $JCTree$JCConditional*)},
+		{"visitContinue", "(Lcom/sun/tools/javac/tree/JCTree$JCContinue;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitContinue, void, $JCTree$JCContinue*)},
+		{"visitDefaultCaseLabel", "(Lcom/sun/tools/javac/tree/JCTree$JCDefaultCaseLabel;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitDefaultCaseLabel, void, $JCTree$JCDefaultCaseLabel*)},
+		{"visitDoLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCDoWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitDoLoop, void, $JCTree$JCDoWhileLoop*)},
+		{"visitErroneous", "(Lcom/sun/tools/javac/tree/JCTree$JCErroneous;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitErroneous, void, $JCTree$JCErroneous*)},
+		{"visitExec", "(Lcom/sun/tools/javac/tree/JCTree$JCExpressionStatement;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitExec, void, $JCTree$JCExpressionStatement*)},
+		{"visitForLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCForLoop;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitForLoop, void, $JCTree$JCForLoop*)},
+		{"visitForeachLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitForeachLoop, void, $JCTree$JCEnhancedForLoop*)},
+		{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitIdent, void, $JCTree$JCIdent*)},
+		{"visitIf", "(Lcom/sun/tools/javac/tree/JCTree$JCIf;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitIf, void, $JCTree$JCIf*)},
+		{"visitIndexed", "(Lcom/sun/tools/javac/tree/JCTree$JCArrayAccess;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitIndexed, void, $JCTree$JCArrayAccess*)},
+		{"visitLabelled", "(Lcom/sun/tools/javac/tree/JCTree$JCLabeledStatement;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitLabelled, void, $JCTree$JCLabeledStatement*)},
+		{"visitLetExpr", "(Lcom/sun/tools/javac/tree/JCTree$LetExpr;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitLetExpr, void, $JCTree$LetExpr*)},
+		{"visitLiteral", "(Lcom/sun/tools/javac/tree/JCTree$JCLiteral;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitLiteral, void, $JCTree$JCLiteral*)},
+		{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitMethodDef, void, $JCTree$JCMethodDecl*)},
+		{"visitNewArray", "(Lcom/sun/tools/javac/tree/JCTree$JCNewArray;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitNewArray, void, $JCTree$JCNewArray*)},
+		{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitNewClass, void, $JCTree$JCNewClass*)},
+		{"visitParens", "(Lcom/sun/tools/javac/tree/JCTree$JCParens;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitParens, void, $JCTree$JCParens*)},
+		{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitReturn, void, $JCTree$JCReturn*)},
+		{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitSelect, void, $JCTree$JCFieldAccess*)},
+		{"visitSkip", "(Lcom/sun/tools/javac/tree/JCTree$JCSkip;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitSkip, void, $JCTree$JCSkip*)},
+		{"visitSwitch", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitch;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitSwitch, void, $JCTree$JCSwitch*)},
+		{"visitSwitchExpression", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitSwitchExpression, void, $JCTree$JCSwitchExpression*)},
+		{"visitSynchronized", "(Lcom/sun/tools/javac/tree/JCTree$JCSynchronized;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitSynchronized, void, $JCTree$JCSynchronized*)},
+		{"visitThrow", "(Lcom/sun/tools/javac/tree/JCTree$JCThrow;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitThrow, void, $JCTree$JCThrow*)},
+		{"visitTree", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitTree, void, $JCTree*)},
+		{"visitTry", "(Lcom/sun/tools/javac/tree/JCTree$JCTry;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitTry, void, $JCTree$JCTry*)},
+		{"visitTypeApply", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeApply;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitTypeApply, void, $JCTree$JCTypeApply*)},
+		{"visitTypeArray", "(Lcom/sun/tools/javac/tree/JCTree$JCArrayTypeTree;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitTypeArray, void, $JCTree$JCArrayTypeTree*)},
+		{"visitTypeCast", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitTypeCast, void, $JCTree$JCTypeCast*)},
+		{"visitTypeIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCPrimitiveTypeTree;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitTypeIdent, void, $JCTree$JCPrimitiveTypeTree*)},
+		{"visitTypeParameter", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitTypeParameter, void, $JCTree$JCTypeParameter*)},
+		{"visitTypeTest", "(Lcom/sun/tools/javac/tree/JCTree$JCInstanceOf;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitTypeTest, void, $JCTree$JCInstanceOf*)},
+		{"visitTypeUnion", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeUnion;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitTypeUnion, void, $JCTree$JCTypeUnion*)},
+		{"visitUnary", "(Lcom/sun/tools/javac/tree/JCTree$JCUnary;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitUnary, void, $JCTree$JCUnary*)},
+		{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitVarDef, void, $JCTree$JCVariableDecl*)},
+		{"visitWhileLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitWhileLoop, void, $JCTree$JCWhileLoop*)},
+		{"visitWildcard", "(Lcom/sun/tools/javac/tree/JCTree$JCWildcard;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitWildcard, void, $JCTree$JCWildcard*)},
+		{"visitYield", "(Lcom/sun/tools/javac/tree/JCTree$JCYield;)V", nullptr, $PUBLIC, $virtualMethod(CRTable$SourceComputer, visitYield, void, $JCTree$JCYield*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.CRTable$SourceComputer", "com.sun.tools.javac.jvm.CRTable", "SourceComputer", 0},
+		{"com.sun.tools.javac.tree.JCTree$Visitor", "com.sun.tools.javac.tree.JCTree", "Visitor", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.CRTable$SourceComputer",
+		"com.sun.tools.javac.tree.JCTree$Visitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.CRTable"
+	};
+	$loadClass(CRTable$SourceComputer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CRTable$SourceComputer);
+	});
 	return class$;
 }
 

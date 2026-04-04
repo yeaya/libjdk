@@ -1,5 +1,4 @@
 #include <javax/swing/JOptionPane.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -13,7 +12,6 @@
 #include <java/awt/Window.h>
 #include <java/awt/event/ComponentListener.h>
 #include <java/awt/event/WindowAdapter.h>
-#include <java/awt/event/WindowFocusListener.h>
 #include <java/awt/event/WindowListener.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/beans/PropertyVetoException.h>
@@ -93,12 +91,9 @@ using $Dialog = ::java::awt::Dialog;
 using $Dimension = ::java::awt::Dimension;
 using $Frame = ::java::awt::Frame;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Window = ::java::awt::Window;
-using $ComponentListener = ::java::awt::event::ComponentListener;
 using $WindowAdapter = ::java::awt::event::WindowAdapter;
-using $WindowFocusListener = ::java::awt::event::WindowFocusListener;
 using $WindowListener = ::java::awt::event::WindowListener;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $PropertyVetoException = ::java::beans::PropertyVetoException;
@@ -133,350 +128,15 @@ using $JOptionPane$4 = ::javax::swing::JOptionPane$4;
 using $JOptionPane$5 = ::javax::swing::JOptionPane$5;
 using $JOptionPane$AccessibleJOptionPane = ::javax::swing::JOptionPane$AccessibleJOptionPane;
 using $JRootPane = ::javax::swing::JRootPane;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $SwingUtilities$SharedOwnerFrame = ::javax::swing::SwingUtilities$SharedOwnerFrame;
 using $UIManager = ::javax::swing::UIManager;
-using $InternalFrameListener = ::javax::swing::event::InternalFrameListener;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $OptionPaneUI = ::javax::swing::plaf::OptionPaneUI;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ContainerAccessor = ::sun::awt::AWTAccessor$ContainerAccessor;
 
 namespace javax {
 	namespace swing {
-
-$NamedAttribute JOptionPane_Attribute_var$0[] = {
-	{"defaultProperty", 's', "UI"},
-	{"description", 's', "A component which implements standard dialog box controls."},
-	{}
-};
-
-$CompoundAttribute _JOptionPane_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", JOptionPane_Attribute_var$0},
-	{"Ljavax/swing/SwingContainer;", nullptr},
-	{}
-};
-
-$NamedAttribute JOptionPane_Attribute_var$1[] = {
-	{"bound", 'Z', "false"},
-	{"expert", 'Z', "true"},
-	{"description", 's', "The AccessibleContext associated with this option pane"},
-	{}
-};
-
-$CompoundAttribute _JOptionPane_MethodAnnotations_getAccessibleContext14[] = {
-	{"Ljava/beans/BeanProperty;", JOptionPane_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JOptionPane_Attribute_var$2[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JOptionPane_MethodAnnotations_getMaxCharactersPerLineCount21[] = {
-	{"Ljava/beans/BeanProperty;", JOptionPane_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute JOptionPane_Attribute_var$3[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JOptionPane_MethodAnnotations_getUIClassID29[] = {
-	{"Ljava/beans/BeanProperty;", JOptionPane_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute JOptionPane_Attribute_var$4[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "The option pane\'s type icon."},
-	{}
-};
-
-$CompoundAttribute _JOptionPane_MethodAnnotations_setIcon37[] = {
-	{"Ljava/beans/BeanProperty;", JOptionPane_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute JOptionPane_Attribute_var$5[] = {
-	{"description", 's', "The option pane\'s initial selection value object."},
-	{}
-};
-
-$CompoundAttribute _JOptionPane_MethodAnnotations_setInitialSelectionValue38[] = {
-	{"Ljava/beans/BeanProperty;", JOptionPane_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute JOptionPane_Attribute_var$6[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "The option pane\'s initial value object."},
-	{}
-};
-
-$CompoundAttribute _JOptionPane_MethodAnnotations_setInitialValue39[] = {
-	{"Ljava/beans/BeanProperty;", JOptionPane_Attribute_var$6},
-	{}
-};
-
-$NamedAttribute JOptionPane_Attribute_var$7[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "The option pane\'s input value object."},
-	{}
-};
-
-$CompoundAttribute _JOptionPane_MethodAnnotations_setInputValue40[] = {
-	{"Ljava/beans/BeanProperty;", JOptionPane_Attribute_var$7},
-	{}
-};
-
-$NamedAttribute JOptionPane_Attribute_var$8[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "The optionpane\'s message object."},
-	{}
-};
-
-$CompoundAttribute _JOptionPane_MethodAnnotations_setMessage41[] = {
-	{"Ljava/beans/BeanProperty;", JOptionPane_Attribute_var$8},
-	{}
-};
-
-$NamedAttribute JOptionPane_Attribute_var$9[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "The option pane\'s message type."},
-	{}
-};
-
-$CompoundAttribute _JOptionPane_MethodAnnotations_setMessageType42[] = {
-	{"Ljava/beans/BeanProperty;", JOptionPane_Attribute_var$9},
-	{}
-};
-
-$NamedAttribute JOptionPane_Attribute_var$10[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "The option pane\'s option type."},
-	{}
-};
-
-$CompoundAttribute _JOptionPane_MethodAnnotations_setOptionType43[] = {
-	{"Ljava/beans/BeanProperty;", JOptionPane_Attribute_var$10},
-	{}
-};
-
-$NamedAttribute JOptionPane_Attribute_var$11[] = {
-	{"description", 's', "The option pane\'s options objects."},
-	{}
-};
-
-$CompoundAttribute _JOptionPane_MethodAnnotations_setOptions44[] = {
-	{"Ljava/beans/BeanProperty;", JOptionPane_Attribute_var$11},
-	{}
-};
-
-$NamedAttribute JOptionPane_Attribute_var$12[] = {
-	{"description", 's', "The option pane\'s selection values."},
-	{}
-};
-
-$CompoundAttribute _JOptionPane_MethodAnnotations_setSelectionValues46[] = {
-	{"Ljava/beans/BeanProperty;", JOptionPane_Attribute_var$12},
-	{}
-};
-
-$NamedAttribute JOptionPane_Attribute_var$13[] = {
-	{"hidden", 'Z', "true"},
-	{"description", 's', "The UI object that implements the optionpane\'s LookAndFeel"},
-	{}
-};
-
-$CompoundAttribute _JOptionPane_MethodAnnotations_setUI47[] = {
-	{"Ljava/beans/BeanProperty;", JOptionPane_Attribute_var$13},
-	{}
-};
-
-$NamedAttribute JOptionPane_Attribute_var$14[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "The option pane\'s value object."},
-	{}
-};
-
-$CompoundAttribute _JOptionPane_MethodAnnotations_setValue48[] = {
-	{"Ljava/beans/BeanProperty;", JOptionPane_Attribute_var$14},
-	{}
-};
-
-$NamedAttribute JOptionPane_Attribute_var$15[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "Flag which allows the user to input a value."},
-	{}
-};
-
-$CompoundAttribute _JOptionPane_MethodAnnotations_setWantsInput49[] = {
-	{"Ljava/beans/BeanProperty;", JOptionPane_Attribute_var$15},
-	{}
-};
-
-$FieldInfo _JOptionPane_FieldInfo_[] = {
-	{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JOptionPane, uiClassID)},
-	{"UNINITIALIZED_VALUE", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JOptionPane, UNINITIALIZED_VALUE)},
-	{"DEFAULT_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JOptionPane, DEFAULT_OPTION)},
-	{"YES_NO_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JOptionPane, YES_NO_OPTION)},
-	{"YES_NO_CANCEL_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JOptionPane, YES_NO_CANCEL_OPTION)},
-	{"OK_CANCEL_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JOptionPane, OK_CANCEL_OPTION)},
-	{"YES_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JOptionPane, YES_OPTION)},
-	{"NO_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JOptionPane, NO_OPTION)},
-	{"CANCEL_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JOptionPane, CANCEL_OPTION)},
-	{"OK_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JOptionPane, OK_OPTION)},
-	{"CLOSED_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JOptionPane, CLOSED_OPTION)},
-	{"ERROR_MESSAGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JOptionPane, ERROR_MESSAGE)},
-	{"INFORMATION_MESSAGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JOptionPane, INFORMATION_MESSAGE)},
-	{"WARNING_MESSAGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JOptionPane, WARNING_MESSAGE)},
-	{"QUESTION_MESSAGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JOptionPane, QUESTION_MESSAGE)},
-	{"PLAIN_MESSAGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JOptionPane, PLAIN_MESSAGE)},
-	{"ICON_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JOptionPane, ICON_PROPERTY)},
-	{"MESSAGE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JOptionPane, MESSAGE_PROPERTY)},
-	{"VALUE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JOptionPane, VALUE_PROPERTY)},
-	{"OPTIONS_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JOptionPane, OPTIONS_PROPERTY)},
-	{"INITIAL_VALUE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JOptionPane, INITIAL_VALUE_PROPERTY)},
-	{"MESSAGE_TYPE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JOptionPane, MESSAGE_TYPE_PROPERTY)},
-	{"OPTION_TYPE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JOptionPane, OPTION_TYPE_PROPERTY)},
-	{"SELECTION_VALUES_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JOptionPane, SELECTION_VALUES_PROPERTY)},
-	{"INITIAL_SELECTION_VALUE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JOptionPane, INITIAL_SELECTION_VALUE_PROPERTY)},
-	{"INPUT_VALUE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JOptionPane, INPUT_VALUE_PROPERTY)},
-	{"WANTS_INPUT_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JOptionPane, WANTS_INPUT_PROPERTY)},
-	{"icon", "Ljavax/swing/Icon;", nullptr, $PROTECTED | $TRANSIENT, $field(JOptionPane, icon)},
-	{"message", "Ljava/lang/Object;", nullptr, $PROTECTED | $TRANSIENT, $field(JOptionPane, message)},
-	{"options", "[Ljava/lang/Object;", nullptr, $PROTECTED | $TRANSIENT, $field(JOptionPane, options)},
-	{"initialValue", "Ljava/lang/Object;", nullptr, $PROTECTED | $TRANSIENT, $field(JOptionPane, initialValue)},
-	{"messageType", "I", nullptr, $PROTECTED, $field(JOptionPane, messageType)},
-	{"optionType", "I", nullptr, $PROTECTED, $field(JOptionPane, optionType)},
-	{"value", "Ljava/lang/Object;", nullptr, $PROTECTED | $TRANSIENT, $field(JOptionPane, value)},
-	{"selectionValues", "[Ljava/lang/Object;", nullptr, $PROTECTED | $TRANSIENT, $field(JOptionPane, selectionValues)},
-	{"inputValue", "Ljava/lang/Object;", nullptr, $PROTECTED | $TRANSIENT, $field(JOptionPane, inputValue)},
-	{"initialSelectionValue", "Ljava/lang/Object;", nullptr, $PROTECTED | $TRANSIENT, $field(JOptionPane, initialSelectionValue)},
-	{"wantsInput", "Z", nullptr, $PROTECTED, $field(JOptionPane, wantsInput)},
-	{"sharedFrameKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JOptionPane, sharedFrameKey)},
-	{}
-};
-
-$MethodInfo _JOptionPane_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JOptionPane, init$, void)},
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(JOptionPane, init$, void, Object$*)},
-	{"<init>", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC, $method(JOptionPane, init$, void, Object$*, int32_t)},
-	{"<init>", "(Ljava/lang/Object;II)V", nullptr, $PUBLIC, $method(JOptionPane, init$, void, Object$*, int32_t, int32_t)},
-	{"<init>", "(Ljava/lang/Object;IILjavax/swing/Icon;)V", nullptr, $PUBLIC, $method(JOptionPane, init$, void, Object$*, int32_t, int32_t, $Icon*)},
-	{"<init>", "(Ljava/lang/Object;IILjavax/swing/Icon;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(JOptionPane, init$, void, Object$*, int32_t, int32_t, $Icon*, $ObjectArray*)},
-	{"<init>", "(Ljava/lang/Object;IILjavax/swing/Icon;[Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(JOptionPane, init$, void, Object$*, int32_t, int32_t, $Icon*, $ObjectArray*, Object$*)},
-	{"checkFrameForComponent", "(Ljava/awt/Component;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JOptionPane, checkFrameForComponent, bool, $Component*)},
-	{"checkMessageType", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JOptionPane, checkMessageType, void, int32_t)},
-	{"checkOptionType", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JOptionPane, checkOptionType, void, int32_t)},
-	{"createDialog", "(Ljava/awt/Component;Ljava/lang/String;)Ljavax/swing/JDialog;", nullptr, $PUBLIC, $virtualMethod(JOptionPane, createDialog, $JDialog*, $Component*, $String*), "java.awt.HeadlessException"},
-	{"createDialog", "(Ljava/lang/String;)Ljavax/swing/JDialog;", nullptr, $PUBLIC, $virtualMethod(JOptionPane, createDialog, $JDialog*, $String*), "java.awt.HeadlessException"},
-	{"createDialog", "(Ljava/awt/Component;Ljava/lang/String;I)Ljavax/swing/JDialog;", nullptr, $PRIVATE, $method(JOptionPane, createDialog, $JDialog*, $Component*, $String*, int32_t), "java.awt.HeadlessException"},
-	{"createInternalFrame", "(Ljava/awt/Component;Ljava/lang/String;)Ljavax/swing/JInternalFrame;", nullptr, $PUBLIC, $virtualMethod(JOptionPane, createInternalFrame, $JInternalFrame*, $Component*, $String*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, _JOptionPane_MethodAnnotations_getAccessibleContext14},
-	{"getDesktopPaneForComponent", "(Ljava/awt/Component;)Ljavax/swing/JDesktopPane;", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, getDesktopPaneForComponent, $JDesktopPane*, $Component*)},
-	{"getFrameForComponent", "(Ljava/awt/Component;)Ljava/awt/Frame;", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, getFrameForComponent, $Frame*, $Component*), "java.awt.HeadlessException"},
-	{"getIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getIcon, $Icon*)},
-	{"getInitialSelectionValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getInitialSelectionValue, $Object*)},
-	{"getInitialValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getInitialValue, $Object*)},
-	{"getInputValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getInputValue, $Object*)},
-	{"getMaxCharactersPerLineCount", "()I", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getMaxCharactersPerLineCount, int32_t), nullptr, nullptr, _JOptionPane_MethodAnnotations_getMaxCharactersPerLineCount21},
-	{"getMessage", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getMessage, $Object*)},
-	{"getMessageType", "()I", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getMessageType, int32_t)},
-	{"getOptionType", "()I", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getOptionType, int32_t)},
-	{"getOptions", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getOptions, $ObjectArray*)},
-	{"getRootFrame", "()Ljava/awt/Frame;", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, getRootFrame, $Frame*), "java.awt.HeadlessException"},
-	{"getSelectionValues", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getSelectionValues, $ObjectArray*)},
-	{"getUI", "()Ljavax/swing/plaf/OptionPaneUI;", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getUI, $ComponentUI*)},
-	{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getUIClassID, $String*), nullptr, nullptr, _JOptionPane_MethodAnnotations_getUIClassID29},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getValue, $Object*)},
-	{"getWantsInput", "()Z", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getWantsInput, bool)},
-	{"getWindowForComponent", "(Ljava/awt/Component;)Ljava/awt/Window;", nullptr, $STATIC, $staticMethod(JOptionPane, getWindowForComponent, $Window*, $Component*), "java.awt.HeadlessException"},
-	{"initDialog", "(Ljavax/swing/JDialog;ILjava/awt/Component;)V", nullptr, $PRIVATE, $method(JOptionPane, initDialog, void, $JDialog*, int32_t, $Component*)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JOptionPane, paramString, $String*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(JOptionPane, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"selectInitialValue", "()V", nullptr, $PUBLIC, $virtualMethod(JOptionPane, selectInitialValue, void)},
-	{"setIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(JOptionPane, setIcon, void, $Icon*), nullptr, nullptr, _JOptionPane_MethodAnnotations_setIcon37},
-	{"setInitialSelectionValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JOptionPane, setInitialSelectionValue, void, Object$*), nullptr, nullptr, _JOptionPane_MethodAnnotations_setInitialSelectionValue38},
-	{"setInitialValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JOptionPane, setInitialValue, void, Object$*), nullptr, nullptr, _JOptionPane_MethodAnnotations_setInitialValue39},
-	{"setInputValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JOptionPane, setInputValue, void, Object$*), nullptr, nullptr, _JOptionPane_MethodAnnotations_setInputValue40},
-	{"setMessage", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JOptionPane, setMessage, void, Object$*), nullptr, nullptr, _JOptionPane_MethodAnnotations_setMessage41},
-	{"setMessageType", "(I)V", nullptr, $PUBLIC, $virtualMethod(JOptionPane, setMessageType, void, int32_t), nullptr, nullptr, _JOptionPane_MethodAnnotations_setMessageType42},
-	{"setOptionType", "(I)V", nullptr, $PUBLIC, $virtualMethod(JOptionPane, setOptionType, void, int32_t), nullptr, nullptr, _JOptionPane_MethodAnnotations_setOptionType43},
-	{"setOptions", "([Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JOptionPane, setOptions, void, $ObjectArray*), nullptr, nullptr, _JOptionPane_MethodAnnotations_setOptions44},
-	{"setRootFrame", "(Ljava/awt/Frame;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, setRootFrame, void, $Frame*)},
-	{"setSelectionValues", "([Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JOptionPane, setSelectionValues, void, $ObjectArray*), nullptr, nullptr, _JOptionPane_MethodAnnotations_setSelectionValues46},
-	{"setUI", "(Ljavax/swing/plaf/OptionPaneUI;)V", nullptr, $PUBLIC, $virtualMethod(JOptionPane, setUI, void, $OptionPaneUI*), nullptr, nullptr, _JOptionPane_MethodAnnotations_setUI47},
-	{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JOptionPane, setValue, void, Object$*), nullptr, nullptr, _JOptionPane_MethodAnnotations_setValue48},
-	{"setWantsInput", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JOptionPane, setWantsInput, void, bool), nullptr, nullptr, _JOptionPane_MethodAnnotations_setWantsInput49},
-	{"showConfirmDialog", "(Ljava/awt/Component;Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showConfirmDialog, int32_t, $Component*, Object$*), "java.awt.HeadlessException"},
-	{"showConfirmDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showConfirmDialog, int32_t, $Component*, Object$*, $String*, int32_t), "java.awt.HeadlessException"},
-	{"showConfirmDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showConfirmDialog, int32_t, $Component*, Object$*, $String*, int32_t, int32_t), "java.awt.HeadlessException"},
-	{"showConfirmDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;IILjavax/swing/Icon;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showConfirmDialog, int32_t, $Component*, Object$*, $String*, int32_t, int32_t, $Icon*), "java.awt.HeadlessException"},
-	{"showInputDialog", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInputDialog, $String*, Object$*), "java.awt.HeadlessException"},
-	{"showInputDialog", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInputDialog, $String*, Object$*, Object$*)},
-	{"showInputDialog", "(Ljava/awt/Component;Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInputDialog, $String*, $Component*, Object$*), "java.awt.HeadlessException"},
-	{"showInputDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInputDialog, $String*, $Component*, Object$*, Object$*)},
-	{"showInputDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInputDialog, $String*, $Component*, Object$*, $String*, int32_t), "java.awt.HeadlessException"},
-	{"showInputDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;ILjavax/swing/Icon;[Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInputDialog, $Object*, $Component*, Object$*, $String*, int32_t, $Icon*, $ObjectArray*, Object$*), "java.awt.HeadlessException"},
-	{"showInternalConfirmDialog", "(Ljava/awt/Component;Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInternalConfirmDialog, int32_t, $Component*, Object$*)},
-	{"showInternalConfirmDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInternalConfirmDialog, int32_t, $Component*, Object$*, $String*, int32_t)},
-	{"showInternalConfirmDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInternalConfirmDialog, int32_t, $Component*, Object$*, $String*, int32_t, int32_t)},
-	{"showInternalConfirmDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;IILjavax/swing/Icon;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInternalConfirmDialog, int32_t, $Component*, Object$*, $String*, int32_t, int32_t, $Icon*)},
-	{"showInternalInputDialog", "(Ljava/awt/Component;Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInternalInputDialog, $String*, $Component*, Object$*)},
-	{"showInternalInputDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInternalInputDialog, $String*, $Component*, Object$*, $String*, int32_t)},
-	{"showInternalInputDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;ILjavax/swing/Icon;[Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInternalInputDialog, $Object*, $Component*, Object$*, $String*, int32_t, $Icon*, $ObjectArray*, Object$*)},
-	{"showInternalMessageDialog", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInternalMessageDialog, void, $Component*, Object$*)},
-	{"showInternalMessageDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInternalMessageDialog, void, $Component*, Object$*, $String*, int32_t)},
-	{"showInternalMessageDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;ILjavax/swing/Icon;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInternalMessageDialog, void, $Component*, Object$*, $String*, int32_t, $Icon*)},
-	{"showInternalOptionDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;IILjavax/swing/Icon;[Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInternalOptionDialog, int32_t, $Component*, Object$*, $String*, int32_t, int32_t, $Icon*, $ObjectArray*, Object$*)},
-	{"showMessageDialog", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showMessageDialog, void, $Component*, Object$*), "java.awt.HeadlessException"},
-	{"showMessageDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showMessageDialog, void, $Component*, Object$*, $String*, int32_t), "java.awt.HeadlessException"},
-	{"showMessageDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;ILjavax/swing/Icon;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showMessageDialog, void, $Component*, Object$*, $String*, int32_t, $Icon*), "java.awt.HeadlessException"},
-	{"showOptionDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;IILjavax/swing/Icon;[Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showOptionDialog, int32_t, $Component*, Object$*, $String*, int32_t, int32_t, $Icon*, $ObjectArray*, Object$*), "java.awt.HeadlessException"},
-	{"styleFromMessageType", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(JOptionPane, styleFromMessageType, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JOptionPane, updateUI, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JOptionPane, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JOptionPane_InnerClassesInfo_[] = {
-	{"javax.swing.JOptionPane$AccessibleJOptionPane", "javax.swing.JOptionPane", "AccessibleJOptionPane", $PROTECTED},
-	{"javax.swing.JOptionPane$5", nullptr, nullptr, 0},
-	{"javax.swing.JOptionPane$4", nullptr, nullptr, 0},
-	{"javax.swing.JOptionPane$3", nullptr, nullptr, 0},
-	{"javax.swing.JOptionPane$2", nullptr, nullptr, 0},
-	{"javax.swing.JOptionPane$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JOptionPane_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JOptionPane",
-	"javax.swing.JComponent",
-	"javax.accessibility.Accessible",
-	_JOptionPane_FieldInfo_,
-	_JOptionPane_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JOptionPane_InnerClassesInfo_,
-	_JOptionPane_Annotations_,
-	nullptr,
-	"javax.swing.JOptionPane$AccessibleJOptionPane,javax.swing.JOptionPane$5,javax.swing.JOptionPane$4,javax.swing.JOptionPane$3,javax.swing.JOptionPane$2,javax.swing.JOptionPane$1"
-};
-
-$Object* allocate$JOptionPane($Class* clazz) {
-	return $of($alloc(JOptionPane));
-}
 
 $String* JOptionPane::toString() {
 	 return this->$JComponent::toString();
@@ -525,12 +185,12 @@ $String* JOptionPane::showInputDialog(Object$* message, Object$* initialSelectio
 
 $String* JOptionPane::showInputDialog($Component* parentComponent, Object$* message) {
 	$init(JOptionPane);
-	return showInputDialog(parentComponent, message, $($UIManager::getString($of("OptionPane.inputDialogTitle"_s), parentComponent)), JOptionPane::QUESTION_MESSAGE);
+	return showInputDialog(parentComponent, message, $($UIManager::getString("OptionPane.inputDialogTitle"_s, parentComponent)), JOptionPane::QUESTION_MESSAGE);
 }
 
 $String* JOptionPane::showInputDialog($Component* parentComponent, Object$* message, Object$* initialSelectionValue) {
 	$init(JOptionPane);
-	return $cast($String, showInputDialog(parentComponent, message, $($UIManager::getString($of("OptionPane.inputDialogTitle"_s), parentComponent)), JOptionPane::QUESTION_MESSAGE, nullptr, nullptr, initialSelectionValue));
+	return $cast($String, showInputDialog(parentComponent, message, $($UIManager::getString("OptionPane.inputDialogTitle"_s, parentComponent)), JOptionPane::QUESTION_MESSAGE, nullptr, nullptr, initialSelectionValue));
 }
 
 $String* JOptionPane::showInputDialog($Component* parentComponent, Object$* message, $String* title, int32_t messageType) {
@@ -540,12 +200,12 @@ $String* JOptionPane::showInputDialog($Component* parentComponent, Object$* mess
 
 $Object* JOptionPane::showInputDialog($Component* parentComponent, Object$* message, $String* title, int32_t messageType, $Icon* icon, $ObjectArray* selectionValues, Object$* initialSelectionValue) {
 	$init(JOptionPane);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(JOptionPane, pane, $new(JOptionPane, message, messageType, JOptionPane::OK_CANCEL_OPTION, icon, nullptr, nullptr));
 	pane->setWantsInput(true);
 	pane->setSelectionValues(selectionValues);
 	pane->setInitialSelectionValue(initialSelectionValue);
-	pane->setComponentOrientation($($nc(((parentComponent == nullptr) ? $(static_cast<$Component*>(getRootFrame())) : parentComponent))->getComponentOrientation()));
+	pane->setComponentOrientation($($nc(((parentComponent == nullptr) ? $$cast($Component, getRootFrame()) : parentComponent))->getComponentOrientation()));
 	int32_t style = styleFromMessageType(messageType);
 	$var($JDialog, dialog, pane->createDialog(parentComponent, title, style));
 	pane->selectInitialValue();
@@ -553,14 +213,14 @@ $Object* JOptionPane::showInputDialog($Component* parentComponent, Object$* mess
 	dialog->dispose();
 	$var($Object, value, pane->getInputValue());
 	if ($equals(value, JOptionPane::UNINITIALIZED_VALUE)) {
-		return $of(nullptr);
+		return nullptr;
 	}
-	return $of(value);
+	return value;
 }
 
 void JOptionPane::showMessageDialog($Component* parentComponent, Object$* message) {
 	$init(JOptionPane);
-	showMessageDialog(parentComponent, message, $($UIManager::getString($of("OptionPane.messageDialogTitle"_s), parentComponent)), JOptionPane::INFORMATION_MESSAGE);
+	showMessageDialog(parentComponent, message, $($UIManager::getString("OptionPane.messageDialogTitle"_s, parentComponent)), JOptionPane::INFORMATION_MESSAGE);
 }
 
 void JOptionPane::showMessageDialog($Component* parentComponent, Object$* message, $String* title, int32_t messageType) {
@@ -595,10 +255,10 @@ int32_t JOptionPane::showConfirmDialog($Component* parentComponent, Object$* mes
 
 int32_t JOptionPane::showOptionDialog($Component* parentComponent, Object$* message, $String* title, int32_t optionType, int32_t messageType, $Icon* icon, $ObjectArray* options, Object$* initialValue) {
 	$init(JOptionPane);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(JOptionPane, pane, $new(JOptionPane, message, messageType, optionType, icon, options, initialValue));
 	pane->setInitialValue(initialValue);
-	pane->setComponentOrientation($($nc(((parentComponent == nullptr) ? $(static_cast<$Component*>(getRootFrame())) : parentComponent))->getComponentOrientation()));
+	pane->setComponentOrientation($($nc(((parentComponent == nullptr) ? $$cast($Component, getRootFrame()) : parentComponent))->getComponentOrientation()));
 	int32_t style = styleFromMessageType(messageType);
 	$var($JDialog, dialog, pane->createDialog(parentComponent, title, style));
 	pane->selectInitialValue();
@@ -610,17 +270,13 @@ int32_t JOptionPane::showOptionDialog($Component* parentComponent, Object$* mess
 	}
 	if (options == nullptr) {
 		if ($instanceOf($Integer, selectedValue)) {
-			return $nc(($cast($Integer, selectedValue)))->intValue();
+			return $cast($Integer, selectedValue)->intValue();
 		}
 		return JOptionPane::CLOSED_OPTION;
 	}
-	{
-		int32_t counter = 0;
-		int32_t maxCounter = $nc(options)->length;
-		for (; counter < maxCounter; ++counter) {
-			if ($nc($of(options->get(counter)))->equals(selectedValue)) {
-				return counter;
-			}
+	for (int32_t counter = 0, maxCounter = $nc(options)->length; counter < maxCounter; ++counter) {
+		if ($nc(options->get(counter))->equals(selectedValue)) {
+			return counter;
 		}
 	}
 	return JOptionPane::CLOSED_OPTION;
@@ -639,7 +295,7 @@ $JDialog* JOptionPane::createDialog($String* title) {
 }
 
 $JDialog* JOptionPane::createDialog($Component* parentComponent, $String* title, int32_t style) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JDialog, dialog, nullptr);
 	$var($Window, window, JOptionPane::getWindowForComponent(parentComponent));
 	if ($instanceOf($Frame, window)) {
@@ -656,18 +312,17 @@ $JDialog* JOptionPane::createDialog($Component* parentComponent, $String* title,
 }
 
 void JOptionPane::initDialog($JDialog* dialog, int32_t style, $Component* parentComponent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(dialog)->setComponentOrientation($(this->getComponentOrientation()));
 	$var($Container, contentPane, dialog->getContentPane());
 	$nc(contentPane)->setLayout($$new($BorderLayout));
-	$init($BorderLayout);
-	contentPane->add(static_cast<$Component*>(this), $of($BorderLayout::CENTER));
+	contentPane->add(this, $BorderLayout::CENTER);
 	dialog->setResizable(false);
 	if ($JDialog::isDefaultLookAndFeelDecorated()) {
-		bool supportsWindowDecorations = $nc($($UIManager::getLookAndFeel()))->getSupportsWindowDecorations();
+		bool supportsWindowDecorations = $$nc($UIManager::getLookAndFeel())->getSupportsWindowDecorations();
 		if (supportsWindowDecorations) {
 			dialog->setUndecorated(true);
-			$nc($(getRootPane()))->setWindowDecorationStyle(style);
+			$$nc(getRootPane())->setWindowDecorationStyle(style);
 		}
 	}
 	dialog->pack();
@@ -682,7 +337,7 @@ void JOptionPane::initDialog($JDialog* dialog, int32_t style, $Component* parent
 
 void JOptionPane::showInternalMessageDialog($Component* parentComponent, Object$* message) {
 	$init(JOptionPane);
-	showInternalMessageDialog(parentComponent, message, $($UIManager::getString($of("OptionPane.messageDialogTitle"_s), parentComponent)), JOptionPane::INFORMATION_MESSAGE);
+	showInternalMessageDialog(parentComponent, message, $($UIManager::getString("OptionPane.messageDialogTitle"_s, parentComponent)), JOptionPane::INFORMATION_MESSAGE);
 }
 
 void JOptionPane::showInternalMessageDialog($Component* parentComponent, Object$* message, $String* title, int32_t messageType) {
@@ -728,12 +383,11 @@ bool JOptionPane::checkFrameForComponent($Component* parentComponent) {
 
 int32_t JOptionPane::showInternalOptionDialog($Component* parentComponent, Object$* message, $String* title, int32_t optionType, int32_t messageType, $Icon* icon, $ObjectArray* options, Object$* initialValue) {
 	$init(JOptionPane);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(JOptionPane, pane, $new(JOptionPane, message, messageType, optionType, icon, options, initialValue));
 	$init($ClientPropertyKey);
-	$init($Boolean);
 	pane->putClientProperty($ClientPropertyKey::PopupFactory_FORCE_HEAVYWEIGHT_POPUP, $Boolean::TRUE);
-	$var($Component, fo, $nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->getFocusOwner());
+	$var($Component, fo, $$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->getFocusOwner());
 	pane->setInitialValue(initialValue);
 	if (checkFrameForComponent(parentComponent)) {
 		$var($JInternalFrame, dialog, pane->createInternalFrame(parentComponent, title));
@@ -749,9 +403,9 @@ int32_t JOptionPane::showInternalOptionDialog($Component* parentComponent, Objec
 				$assign(parent, parent->getParent());
 			}
 		}
-		$nc($($AWTAccessor::getContainerAccessor()))->startLWModal(dialog);
+		$$nc($AWTAccessor::getContainerAccessor())->startLWModal(dialog);
 	} else {
-		pane->setComponentOrientation($($nc($(getRootFrame()))->getComponentOrientation()));
+		pane->setComponentOrientation($($$nc(getRootFrame())->getComponentOrientation()));
 		int32_t style = styleFromMessageType(messageType);
 		$var($JDialog, dialog, pane->createDialog(parentComponent, title, style));
 		pane->selectInitialValue();
@@ -759,7 +413,7 @@ int32_t JOptionPane::showInternalOptionDialog($Component* parentComponent, Objec
 	}
 	if ($instanceOf($JInternalFrame, parentComponent)) {
 		try {
-			$nc(($cast($JInternalFrame, parentComponent)))->setSelected(true);
+			$cast($JInternalFrame, parentComponent)->setSelected(true);
 		} catch ($PropertyVetoException& e) {
 		}
 	}
@@ -772,17 +426,13 @@ int32_t JOptionPane::showInternalOptionDialog($Component* parentComponent, Objec
 	}
 	if (options == nullptr) {
 		if ($instanceOf($Integer, selectedValue)) {
-			return $nc(($cast($Integer, selectedValue)))->intValue();
+			return $cast($Integer, selectedValue)->intValue();
 		}
 		return JOptionPane::CLOSED_OPTION;
 	}
-	{
-		int32_t counter = 0;
-		int32_t maxCounter = $nc(options)->length;
-		for (; counter < maxCounter; ++counter) {
-			if ($nc($of(options->get(counter)))->equals(selectedValue)) {
-				return counter;
-			}
+	for (int32_t counter = 0, maxCounter = $nc(options)->length; counter < maxCounter; ++counter) {
+		if ($nc(options->get(counter))->equals(selectedValue)) {
+			return counter;
 		}
 	}
 	return JOptionPane::CLOSED_OPTION;
@@ -790,7 +440,7 @@ int32_t JOptionPane::showInternalOptionDialog($Component* parentComponent, Objec
 
 $String* JOptionPane::showInternalInputDialog($Component* parentComponent, Object$* message) {
 	$init(JOptionPane);
-	return showInternalInputDialog(parentComponent, message, $($UIManager::getString($of("OptionPane.inputDialogTitle"_s), parentComponent)), JOptionPane::QUESTION_MESSAGE);
+	return showInternalInputDialog(parentComponent, message, $($UIManager::getString("OptionPane.inputDialogTitle"_s, parentComponent)), JOptionPane::QUESTION_MESSAGE);
 }
 
 $String* JOptionPane::showInternalInputDialog($Component* parentComponent, Object$* message, $String* title, int32_t messageType) {
@@ -800,12 +450,11 @@ $String* JOptionPane::showInternalInputDialog($Component* parentComponent, Objec
 
 $Object* JOptionPane::showInternalInputDialog($Component* parentComponent, Object$* message, $String* title, int32_t messageType, $Icon* icon, $ObjectArray* selectionValues, Object$* initialSelectionValue) {
 	$init(JOptionPane);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(JOptionPane, pane, $new(JOptionPane, message, messageType, JOptionPane::OK_CANCEL_OPTION, icon, nullptr, nullptr));
 	$init($ClientPropertyKey);
-	$init($Boolean);
 	pane->putClientProperty($ClientPropertyKey::PopupFactory_FORCE_HEAVYWEIGHT_POPUP, $Boolean::TRUE);
-	$var($Component, fo, $nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->getFocusOwner());
+	$var($Component, fo, $$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->getFocusOwner());
 	pane->setWantsInput(true);
 	pane->setSelectionValues(selectionValues);
 	pane->setInitialSelectionValue(initialSelectionValue);
@@ -822,10 +471,10 @@ $Object* JOptionPane::showInternalInputDialog($Component* parentComponent, Objec
 			$assign(parent, parent->getParent());
 		}
 	}
-	$nc($($AWTAccessor::getContainerAccessor()))->startLWModal(dialog);
+	$$nc($AWTAccessor::getContainerAccessor())->startLWModal(dialog);
 	if ($instanceOf($JInternalFrame, parentComponent)) {
 		try {
-			$nc(($cast($JInternalFrame, parentComponent)))->setSelected(true);
+			$cast($JInternalFrame, parentComponent)->setSelected(true);
 		} catch ($PropertyVetoException& e) {
 		}
 	}
@@ -834,15 +483,15 @@ $Object* JOptionPane::showInternalInputDialog($Component* parentComponent, Objec
 	}
 	$var($Object, value, pane->getInputValue());
 	if ($equals(value, JOptionPane::UNINITIALIZED_VALUE)) {
-		return $of(nullptr);
+		return nullptr;
 	}
-	return $of(value);
+	return value;
 }
 
 $JInternalFrame* JOptionPane::createInternalFrame($Component* parentComponent, $String* title) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, parent, JOptionPane::getDesktopPaneForComponent(parentComponent));
-	if (parent == nullptr && (parentComponent == nullptr || ($assign(parent, $nc(parentComponent)->getParent())) == nullptr)) {
+	if (parent == nullptr && (parentComponent == nullptr || ($assign(parent, parentComponent->getParent())) == nullptr)) {
 		$throwNew($RuntimeException, "JOptionPane: parentComponent does not have a valid parent"_s);
 	}
 	$var($JInternalFrame, iFrame, $new($JInternalFrame, title, false, true, false, false));
@@ -851,21 +500,21 @@ $JInternalFrame* JOptionPane::createInternalFrame($Component* parentComponent, $
 	iFrame->addInternalFrameListener($$new($JOptionPane$4, this));
 	addPropertyChangeListener($$new($JOptionPane$5, this, iFrame));
 	$init($BorderLayout);
-	$nc($(iFrame->getContentPane()))->add(static_cast<$Component*>(this), $of($BorderLayout::CENTER));
+	$$nc(iFrame->getContentPane())->add(this, $BorderLayout::CENTER);
 	if ($instanceOf($JDesktopPane, parent)) {
 		$init($JLayeredPane);
-		$nc(parent)->add(static_cast<$Component*>(iFrame), $of($JLayeredPane::MODAL_LAYER));
+		parent->add(iFrame, $JLayeredPane::MODAL_LAYER);
 	} else {
-		$nc(parent)->add(static_cast<$Component*>(iFrame), $of($BorderLayout::CENTER));
+		$nc(parent)->add(iFrame, $BorderLayout::CENTER);
 	}
 	$var($Dimension, iFrameSize, iFrame->getPreferredSize());
 	$var($Dimension, rootSize, $nc(parent)->getSize());
 	$var($Dimension, parentSize, $nc(parentComponent)->getSize());
-	iFrame->setBounds(($nc(rootSize)->width - $nc(iFrameSize)->width) / 2, (rootSize->height - iFrameSize->height) / 2, iFrameSize->width, iFrameSize->height);
+	iFrame->setBounds(($nc(rootSize)->width - $nc(iFrameSize)->width) / 2, ($nc(rootSize)->height - $nc(iFrameSize)->height) / 2, $nc(iFrameSize)->width, $nc(iFrameSize)->height);
 	$var($Point, iFrameCoord, $SwingUtilities::convertPoint(parentComponent, 0, 0, parent));
-	int32_t x = ($nc(parentSize)->width - $nc(iFrameSize)->width) / 2 + $nc(iFrameCoord)->x;
+	int32_t x = ($nc(parentSize)->width - iFrameSize->width) / 2 + $nc(iFrameCoord)->x;
 	int32_t y = (parentSize->height - iFrameSize->height) / 2 + iFrameCoord->y;
-	int32_t ovrx = x + iFrameSize->width - $nc(rootSize)->width;
+	int32_t ovrx = x + iFrameSize->width - rootSize->width;
 	int32_t ovry = y + iFrameSize->height - rootSize->height;
 	x = $Math::max((ovrx > 0 ? x - ovrx : x), 0);
 	y = $Math::max((ovry > 0 ? y - ovry : y), 0);
@@ -957,7 +606,7 @@ void JOptionPane::init$(Object$* message, int32_t messageType, int32_t optionTyp
 void JOptionPane::init$(Object$* message, int32_t messageType, int32_t optionType, $Icon* icon, $ObjectArray* options, Object$* initialValue) {
 	$JComponent::init$();
 	$set(this, message, message);
-	$set(this, options, options == nullptr ? ($ObjectArray*)nullptr : $Arrays::copyOf(options, $nc(options)->length));
+	$set(this, options, options == nullptr ? ($ObjectArray*)nullptr : $Arrays::copyOf(options, options->length));
 	$set(this, initialValue, initialValue);
 	$set(this, icon, icon);
 	setMessageType(messageType);
@@ -979,7 +628,7 @@ $ComponentUI* JOptionPane::getUI() {
 }
 
 void JOptionPane::updateUI() {
-	setUI($cast($OptionPaneUI, $($UIManager::getUI(this))));
+	setUI($$cast($OptionPaneUI, $UIManager::getUI(this)));
 }
 
 $String* JOptionPane::getUIClassID() {
@@ -993,13 +642,13 @@ void JOptionPane::setMessage(Object$* newMessage) {
 }
 
 $Object* JOptionPane::getMessage() {
-	return $of(this->message);
+	return this->message;
 }
 
 void JOptionPane::setIcon($Icon* newIcon) {
 	$var($Object, oldIcon, this->icon);
 	$set(this, icon, newIcon);
-	firePropertyChange(JOptionPane::ICON_PROPERTY, oldIcon, $of(this->icon));
+	firePropertyChange(JOptionPane::ICON_PROPERTY, oldIcon, this->icon);
 }
 
 $Icon* JOptionPane::getIcon() {
@@ -1013,17 +662,17 @@ void JOptionPane::setValue(Object$* newValue) {
 }
 
 $Object* JOptionPane::getValue() {
-	return $of(this->value);
+	return this->value;
 }
 
 void JOptionPane::setOptions($ObjectArray* newOptions) {
 	$var($ObjectArray, oldOptions, this->options);
-	$set(this, options, newOptions == nullptr ? ($ObjectArray*)nullptr : $Arrays::copyOf(newOptions, $nc(newOptions)->length));
-	firePropertyChange(JOptionPane::OPTIONS_PROPERTY, $of(oldOptions), $of(this->options));
+	$set(this, options, newOptions == nullptr ? ($ObjectArray*)nullptr : $Arrays::copyOf(newOptions, newOptions->length));
+	firePropertyChange(JOptionPane::OPTIONS_PROPERTY, oldOptions, this->options);
 }
 
 $ObjectArray* JOptionPane::getOptions() {
-	return this->options == nullptr ? ($ObjectArray*)nullptr : $Arrays::copyOf(this->options, $nc(this->options)->length);
+	return this->options == nullptr ? ($ObjectArray*)nullptr : $Arrays::copyOf(this->options, this->options->length);
 }
 
 void JOptionPane::setInitialValue(Object$* newInitialValue) {
@@ -1033,7 +682,7 @@ void JOptionPane::setInitialValue(Object$* newInitialValue) {
 }
 
 $Object* JOptionPane::getInitialValue() {
-	return $of(this->initialValue);
+	return this->initialValue;
 }
 
 void JOptionPane::setMessageType(int32_t newType) {
@@ -1074,15 +723,15 @@ int32_t JOptionPane::getOptionType() {
 
 void JOptionPane::setSelectionValues($ObjectArray* newValues) {
 	$var($ObjectArray, oldValues, this->selectionValues);
-	$set(this, selectionValues, newValues == nullptr ? ($ObjectArray*)nullptr : $Arrays::copyOf(newValues, $nc(newValues)->length));
-	firePropertyChange(JOptionPane::SELECTION_VALUES_PROPERTY, $of(oldValues), $of(newValues));
+	$set(this, selectionValues, newValues == nullptr ? ($ObjectArray*)nullptr : $Arrays::copyOf(newValues, newValues->length));
+	firePropertyChange(JOptionPane::SELECTION_VALUES_PROPERTY, oldValues, newValues);
 	if (this->selectionValues != nullptr) {
 		setWantsInput(true);
 	}
 }
 
 $ObjectArray* JOptionPane::getSelectionValues() {
-	return this->selectionValues == nullptr ? ($ObjectArray*)nullptr : $Arrays::copyOf(this->selectionValues, $nc(this->selectionValues)->length);
+	return this->selectionValues == nullptr ? ($ObjectArray*)nullptr : $Arrays::copyOf(this->selectionValues, this->selectionValues->length);
 }
 
 void JOptionPane::setInitialSelectionValue(Object$* newValue) {
@@ -1092,7 +741,7 @@ void JOptionPane::setInitialSelectionValue(Object$* newValue) {
 }
 
 $Object* JOptionPane::getInitialSelectionValue() {
-	return $of(this->initialSelectionValue);
+	return this->initialSelectionValue;
 }
 
 void JOptionPane::setInputValue(Object$* newValue) {
@@ -1102,7 +751,7 @@ void JOptionPane::setInputValue(Object$* newValue) {
 }
 
 $Object* JOptionPane::getInputValue() {
-	return $of(this->inputValue);
+	return this->inputValue;
 }
 
 int32_t JOptionPane::getMaxCharactersPerLineCount() {
@@ -1130,32 +779,21 @@ int32_t JOptionPane::styleFromMessageType(int32_t messageType) {
 	$init(JOptionPane);
 	switch (messageType) {
 	case JOptionPane::ERROR_MESSAGE:
-		{
-			return $JRootPane::ERROR_DIALOG;
-		}
+		return $JRootPane::ERROR_DIALOG;
 	case JOptionPane::QUESTION_MESSAGE:
-		{
-			return $JRootPane::QUESTION_DIALOG;
-		}
+		return $JRootPane::QUESTION_DIALOG;
 	case JOptionPane::WARNING_MESSAGE:
-		{
-			return $JRootPane::WARNING_DIALOG;
-		}
+		return $JRootPane::WARNING_DIALOG;
 	case JOptionPane::INFORMATION_MESSAGE:
-		{
-			return $JRootPane::INFORMATION_DIALOG;
-		}
+		return $JRootPane::INFORMATION_DIALOG;
 	case JOptionPane::PLAIN_MESSAGE:
-		{}
 	default:
-		{
-			return $JRootPane::PLAIN_DIALOG;
-		}
+		return $JRootPane::PLAIN_DIALOG;
 	}
 }
 
 void JOptionPane::writeObject($ObjectOutputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, values, $new($Vector));
 	$nc(s)->defaultWriteObject();
 	if (this->icon != nullptr && $instanceOf($Serializable, this->icon)) {
@@ -1168,13 +806,9 @@ void JOptionPane::writeObject($ObjectOutputStream* s) {
 	}
 	if (this->options != nullptr) {
 		$var($Vector, serOptions, $new($Vector));
-		{
-			int32_t counter = 0;
-			int32_t maxCounter = $nc(this->options)->length;
-			for (; counter < maxCounter; ++counter) {
-				if ($instanceOf($Serializable, $nc(this->options)->get(counter))) {
-					serOptions->addElement($nc(this->options)->get(counter));
-				}
+		for (int32_t counter = 0, maxCounter = this->options->length; counter < maxCounter; ++counter) {
+			if ($instanceOf($Serializable, this->options->get(counter))) {
+				serOptions->addElement(this->options->get(counter));
 			}
 		}
 		if (serOptions->size() > 0) {
@@ -1195,14 +829,10 @@ void JOptionPane::writeObject($ObjectOutputStream* s) {
 	}
 	if (this->selectionValues != nullptr) {
 		bool serialize = true;
-		{
-			int32_t counter = 0;
-			int32_t maxCounter = $nc(this->selectionValues)->length;
-			for (; counter < maxCounter; ++counter) {
-				if ($nc(this->selectionValues)->get(counter) != nullptr && !($instanceOf($Serializable, $nc(this->selectionValues)->get(counter)))) {
-					serialize = false;
-					break;
-				}
+		for (int32_t counter = 0, maxCounter = this->selectionValues->length; counter < maxCounter; ++counter) {
+			if (this->selectionValues->get(counter) != nullptr && !($instanceOf($Serializable, this->selectionValues->get(counter)))) {
+				serialize = false;
+				break;
 			}
 		}
 		if (serialize) {
@@ -1222,7 +852,7 @@ void JOptionPane::writeObject($ObjectOutputStream* s) {
 }
 
 void JOptionPane::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, f, $nc(s)->readFields());
 	int32_t newMessageType = $nc(f)->get("messageType"_s, 0);
 	checkMessageType(newMessageType);
@@ -1234,52 +864,52 @@ void JOptionPane::readObject($ObjectInputStream* s) {
 	$var($Vector, values, $cast($Vector, s->readObject()));
 	int32_t indexCounter = 0;
 	int32_t maxCounter = $nc(values)->size();
-	if (indexCounter < maxCounter && $nc($of($(values->elementAt(indexCounter))))->equals("icon"_s)) {
+	if (indexCounter < maxCounter && $$nc(values->elementAt(indexCounter))->equals("icon"_s)) {
 		$set(this, icon, $cast($Icon, values->elementAt(++indexCounter)));
 		++indexCounter;
 	}
-	if (indexCounter < maxCounter && $nc($of($(values->elementAt(indexCounter))))->equals("message"_s)) {
+	if (indexCounter < maxCounter && $$nc(values->elementAt(indexCounter))->equals("message"_s)) {
 		$set(this, message, values->elementAt(++indexCounter));
 		++indexCounter;
 	}
-	if (indexCounter < maxCounter && $nc($of($(values->elementAt(indexCounter))))->equals("options"_s)) {
+	if (indexCounter < maxCounter && $$nc(values->elementAt(indexCounter))->equals("options"_s)) {
 		$set(this, options, $cast($ObjectArray, values->elementAt(++indexCounter)));
 		++indexCounter;
 	}
-	if (indexCounter < maxCounter && $nc($of($(values->elementAt(indexCounter))))->equals("initialValue"_s)) {
+	if (indexCounter < maxCounter && $$nc(values->elementAt(indexCounter))->equals("initialValue"_s)) {
 		$set(this, initialValue, values->elementAt(++indexCounter));
 		++indexCounter;
 	}
-	if (indexCounter < maxCounter && $nc($of($(values->elementAt(indexCounter))))->equals("value"_s)) {
+	if (indexCounter < maxCounter && $$nc(values->elementAt(indexCounter))->equals("value"_s)) {
 		$set(this, value, values->elementAt(++indexCounter));
 		++indexCounter;
 	}
-	if (indexCounter < maxCounter && $nc($of($(values->elementAt(indexCounter))))->equals("selectionValues"_s)) {
+	if (indexCounter < maxCounter && $$nc(values->elementAt(indexCounter))->equals("selectionValues"_s)) {
 		$set(this, selectionValues, $cast($ObjectArray, values->elementAt(++indexCounter)));
 		++indexCounter;
 	}
-	if (indexCounter < maxCounter && $nc($of($(values->elementAt(indexCounter))))->equals("inputValue"_s)) {
+	if (indexCounter < maxCounter && $$nc(values->elementAt(indexCounter))->equals("inputValue"_s)) {
 		$set(this, inputValue, values->elementAt(++indexCounter));
 		++indexCounter;
 	}
-	if (indexCounter < maxCounter && $nc($of($(values->elementAt(indexCounter))))->equals("initialSelectionValue"_s)) {
+	if (indexCounter < maxCounter && $$nc(values->elementAt(indexCounter))->equals("initialSelectionValue"_s)) {
 		$set(this, initialSelectionValue, values->elementAt(++indexCounter));
 		++indexCounter;
 	}
-	if ($nc($(getUIClassID()))->equals(JOptionPane::uiClassID)) {
+	if ($$nc(getUIClassID())->equals(JOptionPane::uiClassID)) {
 		int8_t count = $JComponent::getWriteObjCounter(this);
 		$JComponent::setWriteObjCounter(this, --count);
 		if (count == 0 && this->ui != nullptr) {
-			$nc(this->ui)->installUI(this);
+			this->ui->installUI(this);
 		}
 	}
 }
 
 $String* JOptionPane::paramString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, iconString, this->icon != nullptr ? $nc($of(this->icon))->toString() : ""_s);
-	$var($String, initialValueString, this->initialValue != nullptr ? $nc($of(this->initialValue))->toString() : ""_s);
-	$var($String, messageString, this->message != nullptr ? $nc($of(this->message))->toString() : ""_s);
+	$useLocalObjectStack();
+	$var($String, iconString, this->icon != nullptr ? this->icon->toString() : ""_s);
+	$var($String, initialValueString, this->initialValue != nullptr ? this->initialValue->toString() : ""_s);
+	$var($String, messageString, this->message != nullptr ? this->message->toString() : ""_s);
 	$var($String, messageTypeString, nullptr);
 	if (this->messageType == JOptionPane::ERROR_MESSAGE) {
 		$assign(messageTypeString, "ERROR_MESSAGE"_s);
@@ -1317,7 +947,7 @@ $AccessibleContext* JOptionPane::getAccessibleContext() {
 	return this->accessibleContext;
 }
 
-void clinit$JOptionPane($Class* class$) {
+void JOptionPane::clinit$($Class* clazz) {
 	$assignStatic(JOptionPane::uiClassID, "OptionPaneUI"_s);
 	$assignStatic(JOptionPane::ICON_PROPERTY, "icon"_s);
 	$assignStatic(JOptionPane::MESSAGE_PROPERTY, "message"_s);
@@ -1338,7 +968,301 @@ JOptionPane::JOptionPane() {
 }
 
 $Class* JOptionPane::load$($String* name, bool initialize) {
-	$loadClass(JOptionPane, name, initialize, &_JOptionPane_ClassInfo_, clinit$JOptionPane, allocate$JOptionPane);
+	$FieldInfo fieldInfos$$[] = {
+		{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JOptionPane, uiClassID)},
+		{"UNINITIALIZED_VALUE", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JOptionPane, UNINITIALIZED_VALUE)},
+		{"DEFAULT_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JOptionPane, DEFAULT_OPTION)},
+		{"YES_NO_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JOptionPane, YES_NO_OPTION)},
+		{"YES_NO_CANCEL_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JOptionPane, YES_NO_CANCEL_OPTION)},
+		{"OK_CANCEL_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JOptionPane, OK_CANCEL_OPTION)},
+		{"YES_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JOptionPane, YES_OPTION)},
+		{"NO_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JOptionPane, NO_OPTION)},
+		{"CANCEL_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JOptionPane, CANCEL_OPTION)},
+		{"OK_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JOptionPane, OK_OPTION)},
+		{"CLOSED_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JOptionPane, CLOSED_OPTION)},
+		{"ERROR_MESSAGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JOptionPane, ERROR_MESSAGE)},
+		{"INFORMATION_MESSAGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JOptionPane, INFORMATION_MESSAGE)},
+		{"WARNING_MESSAGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JOptionPane, WARNING_MESSAGE)},
+		{"QUESTION_MESSAGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JOptionPane, QUESTION_MESSAGE)},
+		{"PLAIN_MESSAGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JOptionPane, PLAIN_MESSAGE)},
+		{"ICON_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JOptionPane, ICON_PROPERTY)},
+		{"MESSAGE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JOptionPane, MESSAGE_PROPERTY)},
+		{"VALUE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JOptionPane, VALUE_PROPERTY)},
+		{"OPTIONS_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JOptionPane, OPTIONS_PROPERTY)},
+		{"INITIAL_VALUE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JOptionPane, INITIAL_VALUE_PROPERTY)},
+		{"MESSAGE_TYPE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JOptionPane, MESSAGE_TYPE_PROPERTY)},
+		{"OPTION_TYPE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JOptionPane, OPTION_TYPE_PROPERTY)},
+		{"SELECTION_VALUES_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JOptionPane, SELECTION_VALUES_PROPERTY)},
+		{"INITIAL_SELECTION_VALUE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JOptionPane, INITIAL_SELECTION_VALUE_PROPERTY)},
+		{"INPUT_VALUE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JOptionPane, INPUT_VALUE_PROPERTY)},
+		{"WANTS_INPUT_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JOptionPane, WANTS_INPUT_PROPERTY)},
+		{"icon", "Ljavax/swing/Icon;", nullptr, $PROTECTED | $TRANSIENT, $field(JOptionPane, icon)},
+		{"message", "Ljava/lang/Object;", nullptr, $PROTECTED | $TRANSIENT, $field(JOptionPane, message)},
+		{"options", "[Ljava/lang/Object;", nullptr, $PROTECTED | $TRANSIENT, $field(JOptionPane, options)},
+		{"initialValue", "Ljava/lang/Object;", nullptr, $PROTECTED | $TRANSIENT, $field(JOptionPane, initialValue)},
+		{"messageType", "I", nullptr, $PROTECTED, $field(JOptionPane, messageType)},
+		{"optionType", "I", nullptr, $PROTECTED, $field(JOptionPane, optionType)},
+		{"value", "Ljava/lang/Object;", nullptr, $PROTECTED | $TRANSIENT, $field(JOptionPane, value)},
+		{"selectionValues", "[Ljava/lang/Object;", nullptr, $PROTECTED | $TRANSIENT, $field(JOptionPane, selectionValues)},
+		{"inputValue", "Ljava/lang/Object;", nullptr, $PROTECTED | $TRANSIENT, $field(JOptionPane, inputValue)},
+		{"initialSelectionValue", "Ljava/lang/Object;", nullptr, $PROTECTED | $TRANSIENT, $field(JOptionPane, initialSelectionValue)},
+		{"wantsInput", "Z", nullptr, $PROTECTED, $field(JOptionPane, wantsInput)},
+		{"sharedFrameKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JOptionPane, sharedFrameKey)},
+		{}
+	};
+	$NamedAttribute getAccessibleContextmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"expert", 'Z', "true"},
+		{"description", 's', "The AccessibleContext associated with this option pane"},
+		{}
+	};
+	$CompoundAttribute getAccessibleContextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getAccessibleContextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getMaxCharactersPerLineCountmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getMaxCharactersPerLineCountmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getMaxCharactersPerLineCountmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getUIClassIDmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getUIClassIDmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getUIClassIDmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setIconmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "The option pane\'s type icon."},
+		{}
+	};
+	$CompoundAttribute setIconmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setIconmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setInitialSelectionValuemethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The option pane\'s initial selection value object."},
+		{}
+	};
+	$CompoundAttribute setInitialSelectionValuemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setInitialSelectionValuemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setInitialValuemethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "The option pane\'s initial value object."},
+		{}
+	};
+	$CompoundAttribute setInitialValuemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setInitialValuemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setInputValuemethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "The option pane\'s input value object."},
+		{}
+	};
+	$CompoundAttribute setInputValuemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setInputValuemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setMessagemethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "The optionpane\'s message object."},
+		{}
+	};
+	$CompoundAttribute setMessagemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setMessagemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setMessageTypemethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "The option pane\'s message type."},
+		{}
+	};
+	$CompoundAttribute setMessageTypemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setMessageTypemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setOptionTypemethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "The option pane\'s option type."},
+		{}
+	};
+	$CompoundAttribute setOptionTypemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setOptionTypemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setOptionsmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The option pane\'s options objects."},
+		{}
+	};
+	$CompoundAttribute setOptionsmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setOptionsmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setSelectionValuesmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The option pane\'s selection values."},
+		{}
+	};
+	$CompoundAttribute setSelectionValuesmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setSelectionValuesmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setUImethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"description", 's', "The UI object that implements the optionpane\'s LookAndFeel"},
+		{}
+	};
+	$CompoundAttribute setUImethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setUImethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setValuemethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "The option pane\'s value object."},
+		{}
+	};
+	$CompoundAttribute setValuemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setValuemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setWantsInputmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "Flag which allows the user to input a value."},
+		{}
+	};
+	$CompoundAttribute setWantsInputmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setWantsInputmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JOptionPane, init$, void)},
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(JOptionPane, init$, void, Object$*)},
+		{"<init>", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC, $method(JOptionPane, init$, void, Object$*, int32_t)},
+		{"<init>", "(Ljava/lang/Object;II)V", nullptr, $PUBLIC, $method(JOptionPane, init$, void, Object$*, int32_t, int32_t)},
+		{"<init>", "(Ljava/lang/Object;IILjavax/swing/Icon;)V", nullptr, $PUBLIC, $method(JOptionPane, init$, void, Object$*, int32_t, int32_t, $Icon*)},
+		{"<init>", "(Ljava/lang/Object;IILjavax/swing/Icon;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(JOptionPane, init$, void, Object$*, int32_t, int32_t, $Icon*, $ObjectArray*)},
+		{"<init>", "(Ljava/lang/Object;IILjavax/swing/Icon;[Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(JOptionPane, init$, void, Object$*, int32_t, int32_t, $Icon*, $ObjectArray*, Object$*)},
+		{"checkFrameForComponent", "(Ljava/awt/Component;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JOptionPane, checkFrameForComponent, bool, $Component*)},
+		{"checkMessageType", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JOptionPane, checkMessageType, void, int32_t)},
+		{"checkOptionType", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JOptionPane, checkOptionType, void, int32_t)},
+		{"createDialog", "(Ljava/awt/Component;Ljava/lang/String;)Ljavax/swing/JDialog;", nullptr, $PUBLIC, $virtualMethod(JOptionPane, createDialog, $JDialog*, $Component*, $String*), "java.awt.HeadlessException"},
+		{"createDialog", "(Ljava/lang/String;)Ljavax/swing/JDialog;", nullptr, $PUBLIC, $virtualMethod(JOptionPane, createDialog, $JDialog*, $String*), "java.awt.HeadlessException"},
+		{"createDialog", "(Ljava/awt/Component;Ljava/lang/String;I)Ljavax/swing/JDialog;", nullptr, $PRIVATE, $method(JOptionPane, createDialog, $JDialog*, $Component*, $String*, int32_t), "java.awt.HeadlessException"},
+		{"createInternalFrame", "(Ljava/awt/Component;Ljava/lang/String;)Ljavax/swing/JInternalFrame;", nullptr, $PUBLIC, $virtualMethod(JOptionPane, createInternalFrame, $JInternalFrame*, $Component*, $String*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, getAccessibleContextmethodAnnotations$$},
+		{"getDesktopPaneForComponent", "(Ljava/awt/Component;)Ljavax/swing/JDesktopPane;", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, getDesktopPaneForComponent, $JDesktopPane*, $Component*)},
+		{"getFrameForComponent", "(Ljava/awt/Component;)Ljava/awt/Frame;", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, getFrameForComponent, $Frame*, $Component*), "java.awt.HeadlessException"},
+		{"getIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getIcon, $Icon*)},
+		{"getInitialSelectionValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getInitialSelectionValue, $Object*)},
+		{"getInitialValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getInitialValue, $Object*)},
+		{"getInputValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getInputValue, $Object*)},
+		{"getMaxCharactersPerLineCount", "()I", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getMaxCharactersPerLineCount, int32_t), nullptr, nullptr, getMaxCharactersPerLineCountmethodAnnotations$$},
+		{"getMessage", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getMessage, $Object*)},
+		{"getMessageType", "()I", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getMessageType, int32_t)},
+		{"getOptionType", "()I", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getOptionType, int32_t)},
+		{"getOptions", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getOptions, $ObjectArray*)},
+		{"getRootFrame", "()Ljava/awt/Frame;", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, getRootFrame, $Frame*), "java.awt.HeadlessException"},
+		{"getSelectionValues", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getSelectionValues, $ObjectArray*)},
+		{"getUI", "()Ljavax/swing/plaf/OptionPaneUI;", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getUI, $ComponentUI*)},
+		{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getUIClassID, $String*), nullptr, nullptr, getUIClassIDmethodAnnotations$$},
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getValue, $Object*)},
+		{"getWantsInput", "()Z", nullptr, $PUBLIC, $virtualMethod(JOptionPane, getWantsInput, bool)},
+		{"getWindowForComponent", "(Ljava/awt/Component;)Ljava/awt/Window;", nullptr, $STATIC, $staticMethod(JOptionPane, getWindowForComponent, $Window*, $Component*), "java.awt.HeadlessException"},
+		{"initDialog", "(Ljavax/swing/JDialog;ILjava/awt/Component;)V", nullptr, $PRIVATE, $method(JOptionPane, initDialog, void, $JDialog*, int32_t, $Component*)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JOptionPane, paramString, $String*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(JOptionPane, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"selectInitialValue", "()V", nullptr, $PUBLIC, $virtualMethod(JOptionPane, selectInitialValue, void)},
+		{"setIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(JOptionPane, setIcon, void, $Icon*), nullptr, nullptr, setIconmethodAnnotations$$},
+		{"setInitialSelectionValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JOptionPane, setInitialSelectionValue, void, Object$*), nullptr, nullptr, setInitialSelectionValuemethodAnnotations$$},
+		{"setInitialValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JOptionPane, setInitialValue, void, Object$*), nullptr, nullptr, setInitialValuemethodAnnotations$$},
+		{"setInputValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JOptionPane, setInputValue, void, Object$*), nullptr, nullptr, setInputValuemethodAnnotations$$},
+		{"setMessage", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JOptionPane, setMessage, void, Object$*), nullptr, nullptr, setMessagemethodAnnotations$$},
+		{"setMessageType", "(I)V", nullptr, $PUBLIC, $virtualMethod(JOptionPane, setMessageType, void, int32_t), nullptr, nullptr, setMessageTypemethodAnnotations$$},
+		{"setOptionType", "(I)V", nullptr, $PUBLIC, $virtualMethod(JOptionPane, setOptionType, void, int32_t), nullptr, nullptr, setOptionTypemethodAnnotations$$},
+		{"setOptions", "([Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JOptionPane, setOptions, void, $ObjectArray*), nullptr, nullptr, setOptionsmethodAnnotations$$},
+		{"setRootFrame", "(Ljava/awt/Frame;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, setRootFrame, void, $Frame*)},
+		{"setSelectionValues", "([Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JOptionPane, setSelectionValues, void, $ObjectArray*), nullptr, nullptr, setSelectionValuesmethodAnnotations$$},
+		{"setUI", "(Ljavax/swing/plaf/OptionPaneUI;)V", nullptr, $PUBLIC, $virtualMethod(JOptionPane, setUI, void, $OptionPaneUI*), nullptr, nullptr, setUImethodAnnotations$$},
+		{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JOptionPane, setValue, void, Object$*), nullptr, nullptr, setValuemethodAnnotations$$},
+		{"setWantsInput", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JOptionPane, setWantsInput, void, bool), nullptr, nullptr, setWantsInputmethodAnnotations$$},
+		{"showConfirmDialog", "(Ljava/awt/Component;Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showConfirmDialog, int32_t, $Component*, Object$*), "java.awt.HeadlessException"},
+		{"showConfirmDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showConfirmDialog, int32_t, $Component*, Object$*, $String*, int32_t), "java.awt.HeadlessException"},
+		{"showConfirmDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showConfirmDialog, int32_t, $Component*, Object$*, $String*, int32_t, int32_t), "java.awt.HeadlessException"},
+		{"showConfirmDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;IILjavax/swing/Icon;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showConfirmDialog, int32_t, $Component*, Object$*, $String*, int32_t, int32_t, $Icon*), "java.awt.HeadlessException"},
+		{"showInputDialog", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInputDialog, $String*, Object$*), "java.awt.HeadlessException"},
+		{"showInputDialog", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInputDialog, $String*, Object$*, Object$*)},
+		{"showInputDialog", "(Ljava/awt/Component;Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInputDialog, $String*, $Component*, Object$*), "java.awt.HeadlessException"},
+		{"showInputDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInputDialog, $String*, $Component*, Object$*, Object$*)},
+		{"showInputDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInputDialog, $String*, $Component*, Object$*, $String*, int32_t), "java.awt.HeadlessException"},
+		{"showInputDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;ILjavax/swing/Icon;[Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInputDialog, $Object*, $Component*, Object$*, $String*, int32_t, $Icon*, $ObjectArray*, Object$*), "java.awt.HeadlessException"},
+		{"showInternalConfirmDialog", "(Ljava/awt/Component;Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInternalConfirmDialog, int32_t, $Component*, Object$*)},
+		{"showInternalConfirmDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInternalConfirmDialog, int32_t, $Component*, Object$*, $String*, int32_t)},
+		{"showInternalConfirmDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInternalConfirmDialog, int32_t, $Component*, Object$*, $String*, int32_t, int32_t)},
+		{"showInternalConfirmDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;IILjavax/swing/Icon;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInternalConfirmDialog, int32_t, $Component*, Object$*, $String*, int32_t, int32_t, $Icon*)},
+		{"showInternalInputDialog", "(Ljava/awt/Component;Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInternalInputDialog, $String*, $Component*, Object$*)},
+		{"showInternalInputDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInternalInputDialog, $String*, $Component*, Object$*, $String*, int32_t)},
+		{"showInternalInputDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;ILjavax/swing/Icon;[Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInternalInputDialog, $Object*, $Component*, Object$*, $String*, int32_t, $Icon*, $ObjectArray*, Object$*)},
+		{"showInternalMessageDialog", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInternalMessageDialog, void, $Component*, Object$*)},
+		{"showInternalMessageDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInternalMessageDialog, void, $Component*, Object$*, $String*, int32_t)},
+		{"showInternalMessageDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;ILjavax/swing/Icon;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInternalMessageDialog, void, $Component*, Object$*, $String*, int32_t, $Icon*)},
+		{"showInternalOptionDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;IILjavax/swing/Icon;[Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showInternalOptionDialog, int32_t, $Component*, Object$*, $String*, int32_t, int32_t, $Icon*, $ObjectArray*, Object$*)},
+		{"showMessageDialog", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showMessageDialog, void, $Component*, Object$*), "java.awt.HeadlessException"},
+		{"showMessageDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showMessageDialog, void, $Component*, Object$*, $String*, int32_t), "java.awt.HeadlessException"},
+		{"showMessageDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;ILjavax/swing/Icon;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showMessageDialog, void, $Component*, Object$*, $String*, int32_t, $Icon*), "java.awt.HeadlessException"},
+		{"showOptionDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;IILjavax/swing/Icon;[Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JOptionPane, showOptionDialog, int32_t, $Component*, Object$*, $String*, int32_t, int32_t, $Icon*, $ObjectArray*, Object$*), "java.awt.HeadlessException"},
+		{"styleFromMessageType", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(JOptionPane, styleFromMessageType, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JOptionPane, updateUI, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JOptionPane, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JOptionPane$AccessibleJOptionPane", "javax.swing.JOptionPane", "AccessibleJOptionPane", $PROTECTED},
+		{"javax.swing.JOptionPane$5", nullptr, nullptr, 0},
+		{"javax.swing.JOptionPane$4", nullptr, nullptr, 0},
+		{"javax.swing.JOptionPane$3", nullptr, nullptr, 0},
+		{"javax.swing.JOptionPane$2", nullptr, nullptr, 0},
+		{"javax.swing.JOptionPane$1", nullptr, nullptr, 0},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"defaultProperty", 's', "UI"},
+		{"description", 's', "A component which implements standard dialog box controls."},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{"Ljavax/swing/SwingContainer;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JOptionPane",
+		"javax.swing.JComponent",
+		"javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.JOptionPane$AccessibleJOptionPane,javax.swing.JOptionPane$5,javax.swing.JOptionPane$4,javax.swing.JOptionPane$3,javax.swing.JOptionPane$2,javax.swing.JOptionPane$1"
+	};
+	$loadClass(JOptionPane, name, initialize, &classInfo$$, JOptionPane::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JOptionPane));
+	});
 	return class$;
 }
 

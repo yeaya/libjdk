@@ -38,6 +38,7 @@ class $import TransferHandler$TransferSupport : public ::java::lang::Object {
 	$class(TransferHandler$TransferSupport, 0, ::java::lang::Object)
 public:
 	TransferHandler$TransferSupport();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Component* component, ::java::awt::dnd::DropTargetEvent* event);
 	void init$(::java::awt::Component* component, ::java::awt::datatransfer::Transferable* transferable);
 	void assureIsDrop();

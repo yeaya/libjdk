@@ -1,5 +1,4 @@
 #include <javax/naming/ldap/Rfc2253Parser.h>
-
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <javax/naming/InvalidNameException.h>
@@ -19,44 +18,6 @@ namespace javax {
 	namespace naming {
 		namespace ldap {
 
-$FieldInfo _Rfc2253Parser_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Rfc2253Parser, name)},
-	{"chars", "[C", nullptr, $PRIVATE | $FINAL, $field(Rfc2253Parser, chars)},
-	{"len", "I", nullptr, $PRIVATE | $FINAL, $field(Rfc2253Parser, len)},
-	{"cur", "I", nullptr, $PRIVATE, $field(Rfc2253Parser, cur)},
-	{}
-};
-
-$MethodInfo _Rfc2253Parser_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(Rfc2253Parser, init$, void, $String*)},
-	{"atTerminator", "()Z", nullptr, $PRIVATE, $method(Rfc2253Parser, atTerminator, bool)},
-	{"consumeWhitespace", "()V", nullptr, $PRIVATE, $method(Rfc2253Parser, consumeWhitespace, void)},
-	{"doParse", "(Ljavax/naming/ldap/Rdn;)Ljavax/naming/ldap/Rdn;", nullptr, $PRIVATE, $method(Rfc2253Parser, doParse, $Rdn*, $Rdn*), "javax.naming.InvalidNameException"},
-	{"isWhitespace", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Rfc2253Parser, isWhitespace, bool, char16_t)},
-	{"parseAttrType", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Rfc2253Parser, parseAttrType, $String*), "javax.naming.InvalidNameException"},
-	{"parseAttrValue", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Rfc2253Parser, parseAttrValue, $String*), "javax.naming.InvalidNameException"},
-	{"parseBinaryAttrValue", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Rfc2253Parser, parseBinaryAttrValue, $String*), "javax.naming.InvalidNameException"},
-	{"parseDn", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/naming/ldap/Rdn;>;", 0, $method(Rfc2253Parser, parseDn, $List*), "javax.naming.InvalidNameException"},
-	{"parseQuotedAttrValue", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Rfc2253Parser, parseQuotedAttrValue, $String*), "javax.naming.InvalidNameException"},
-	{"parseRdn", "()Ljavax/naming/ldap/Rdn;", nullptr, 0, $method(Rfc2253Parser, parseRdn, $Rdn*), "javax.naming.InvalidNameException"},
-	{"parseRdn", "(Ljavax/naming/ldap/Rdn;)Ljavax/naming/ldap/Rdn;", nullptr, 0, $method(Rfc2253Parser, parseRdn, $Rdn*, $Rdn*), "javax.naming.InvalidNameException"},
-	{"parseStringAttrValue", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Rfc2253Parser, parseStringAttrValue, $String*), "javax.naming.InvalidNameException"},
-	{}
-};
-
-$ClassInfo _Rfc2253Parser_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.naming.ldap.Rfc2253Parser",
-	"java.lang.Object",
-	nullptr,
-	_Rfc2253Parser_FieldInfo_,
-	_Rfc2253Parser_MethodInfo_
-};
-
-$Object* allocate$Rfc2253Parser($Class* clazz) {
-	return $of($alloc(Rfc2253Parser));
-}
-
 void Rfc2253Parser::init$($String* name) {
 	this->cur = 0;
 	$set(this, name, name);
@@ -65,7 +26,7 @@ void Rfc2253Parser::init$($String* name) {
 }
 
 $List* Rfc2253Parser::parseDn() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->cur = 0;
 	$var($ArrayList, rdns, $new($ArrayList, this->len / 3 + 10));
 	if (this->len == 0) {
@@ -73,7 +34,7 @@ $List* Rfc2253Parser::parseDn() {
 	}
 	rdns->add($(doParse($$new($Rdn))));
 	while (this->cur < this->len) {
-		if ($nc(this->chars)->get(this->cur) == u',' || $nc(this->chars)->get(this->cur) == u';') {
+		if (this->chars->get(this->cur) == u',' || this->chars->get(this->cur) == u';') {
 			++this->cur;
 			rdns->add(0, $(doParse($$new($Rdn))));
 		} else {
@@ -88,7 +49,7 @@ $Rdn* Rfc2253Parser::parseRdn() {
 }
 
 $Rdn* Rfc2253Parser::parseRdn($Rdn* rdn$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rdn, rdn, rdn$renamed);
 	$assign(rdn, doParse(rdn));
 	if (this->cur < this->len) {
@@ -98,12 +59,12 @@ $Rdn* Rfc2253Parser::parseRdn($Rdn* rdn$renamed) {
 }
 
 $Rdn* Rfc2253Parser::doParse($Rdn* rdn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (this->cur < this->len) {
 		consumeWhitespace();
 		$var($String, attrType, parseAttrType());
 		consumeWhitespace();
-		if (this->cur >= this->len || $nc(this->chars)->get(this->cur) != u'=') {
+		if (this->cur >= this->len || this->chars->get(this->cur) != u'=') {
 			$throwNew($InvalidNameException, $$str({"Invalid name: "_s, this->name}));
 		}
 		++this->cur;
@@ -111,7 +72,7 @@ $Rdn* Rfc2253Parser::doParse($Rdn* rdn) {
 		$var($String, value, parseAttrValue());
 		consumeWhitespace();
 		$nc(rdn)->put(attrType, $($Rdn::unescapeValue(value)));
-		if (this->cur >= this->len || $nc(this->chars)->get(this->cur) != u'+') {
+		if (this->cur >= this->len || this->chars->get(this->cur) != u'+') {
 			break;
 		}
 		++this->cur;
@@ -123,14 +84,14 @@ $Rdn* Rfc2253Parser::doParse($Rdn* rdn) {
 $String* Rfc2253Parser::parseAttrType() {
 	int32_t beg = this->cur;
 	while (this->cur < this->len) {
-		char16_t c = $nc(this->chars)->get(this->cur);
+		char16_t c = this->chars->get(this->cur);
 		if ($Character::isLetterOrDigit(c) || c == u'.' || c == u'-' || c == u' ') {
 			++this->cur;
 		} else {
 			break;
 		}
 	}
-	while ((this->cur > beg) && ($nc(this->chars)->get(this->cur - 1) == u' ')) {
+	while ((this->cur > beg) && (this->chars->get(this->cur - 1) == u' ')) {
 		--this->cur;
 	}
 	if (beg == this->cur) {
@@ -140,9 +101,9 @@ $String* Rfc2253Parser::parseAttrType() {
 }
 
 $String* Rfc2253Parser::parseAttrValue() {
-	if (this->cur < this->len && $nc(this->chars)->get(this->cur) == u'#') {
+	if (this->cur < this->len && this->chars->get(this->cur) == u'#') {
 		return parseBinaryAttrValue();
-	} else if (this->cur < this->len && $nc(this->chars)->get(this->cur) == u'\"') {
+	} else if (this->cur < this->len && this->chars->get(this->cur) == u'\"') {
 		return parseQuotedAttrValue();
 	} else {
 		return parseStringAttrValue();
@@ -152,7 +113,7 @@ $String* Rfc2253Parser::parseAttrValue() {
 $String* Rfc2253Parser::parseBinaryAttrValue() {
 	int32_t beg = this->cur;
 	++this->cur;
-	while ((this->cur < this->len) && $Character::isLetterOrDigit($nc(this->chars)->get(this->cur))) {
+	while ((this->cur < this->len) && $Character::isLetterOrDigit(this->chars->get(this->cur))) {
 		++this->cur;
 	}
 	return $new($String, this->chars, beg, this->cur - beg);
@@ -161,8 +122,8 @@ $String* Rfc2253Parser::parseBinaryAttrValue() {
 $String* Rfc2253Parser::parseQuotedAttrValue() {
 	int32_t beg = this->cur;
 	++this->cur;
-	while ((this->cur < this->len) && $nc(this->chars)->get(this->cur) != u'\"') {
-		if ($nc(this->chars)->get(this->cur) == u'\\') {
+	while ((this->cur < this->len) && this->chars->get(this->cur) != u'\"') {
+		if (this->chars->get(this->cur) == u'\\') {
 			++this->cur;
 		}
 		++this->cur;
@@ -178,7 +139,7 @@ $String* Rfc2253Parser::parseStringAttrValue() {
 	int32_t beg = this->cur;
 	int32_t esc = -1;
 	while ((this->cur < this->len) && !atTerminator()) {
-		if ($nc(this->chars)->get(this->cur) == u'\\') {
+		if (this->chars->get(this->cur) == u'\\') {
 			++this->cur;
 			esc = this->cur;
 		}
@@ -189,7 +150,7 @@ $String* Rfc2253Parser::parseStringAttrValue() {
 	}
 	int32_t end = 0;
 	for (end = this->cur; end > beg; --end) {
-		if (!isWhitespace($nc(this->chars)->get(end - 1)) || (esc == end - 1)) {
+		if (!isWhitespace(this->chars->get(end - 1)) || (esc == end - 1)) {
 			break;
 		}
 	}
@@ -197,13 +158,13 @@ $String* Rfc2253Parser::parseStringAttrValue() {
 }
 
 void Rfc2253Parser::consumeWhitespace() {
-	while ((this->cur < this->len) && isWhitespace($nc(this->chars)->get(this->cur))) {
+	while ((this->cur < this->len) && isWhitespace(this->chars->get(this->cur))) {
 		++this->cur;
 	}
 }
 
 bool Rfc2253Parser::atTerminator() {
-	return (this->cur < this->len && ($nc(this->chars)->get(this->cur) == u',' || $nc(this->chars)->get(this->cur) == u';' || $nc(this->chars)->get(this->cur) == u'+'));
+	return (this->cur < this->len && (this->chars->get(this->cur) == u',' || this->chars->get(this->cur) == u';' || this->chars->get(this->cur) == u'+'));
 }
 
 bool Rfc2253Parser::isWhitespace(char16_t c) {
@@ -214,7 +175,40 @@ Rfc2253Parser::Rfc2253Parser() {
 }
 
 $Class* Rfc2253Parser::load$($String* name, bool initialize) {
-	$loadClass(Rfc2253Parser, name, initialize, &_Rfc2253Parser_ClassInfo_, allocate$Rfc2253Parser);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Rfc2253Parser, name)},
+		{"chars", "[C", nullptr, $PRIVATE | $FINAL, $field(Rfc2253Parser, chars)},
+		{"len", "I", nullptr, $PRIVATE | $FINAL, $field(Rfc2253Parser, len)},
+		{"cur", "I", nullptr, $PRIVATE, $field(Rfc2253Parser, cur)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(Rfc2253Parser, init$, void, $String*)},
+		{"atTerminator", "()Z", nullptr, $PRIVATE, $method(Rfc2253Parser, atTerminator, bool)},
+		{"consumeWhitespace", "()V", nullptr, $PRIVATE, $method(Rfc2253Parser, consumeWhitespace, void)},
+		{"doParse", "(Ljavax/naming/ldap/Rdn;)Ljavax/naming/ldap/Rdn;", nullptr, $PRIVATE, $method(Rfc2253Parser, doParse, $Rdn*, $Rdn*), "javax.naming.InvalidNameException"},
+		{"isWhitespace", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Rfc2253Parser, isWhitespace, bool, char16_t)},
+		{"parseAttrType", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Rfc2253Parser, parseAttrType, $String*), "javax.naming.InvalidNameException"},
+		{"parseAttrValue", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Rfc2253Parser, parseAttrValue, $String*), "javax.naming.InvalidNameException"},
+		{"parseBinaryAttrValue", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Rfc2253Parser, parseBinaryAttrValue, $String*), "javax.naming.InvalidNameException"},
+		{"parseDn", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/naming/ldap/Rdn;>;", 0, $method(Rfc2253Parser, parseDn, $List*), "javax.naming.InvalidNameException"},
+		{"parseQuotedAttrValue", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Rfc2253Parser, parseQuotedAttrValue, $String*), "javax.naming.InvalidNameException"},
+		{"parseRdn", "()Ljavax/naming/ldap/Rdn;", nullptr, 0, $method(Rfc2253Parser, parseRdn, $Rdn*), "javax.naming.InvalidNameException"},
+		{"parseRdn", "(Ljavax/naming/ldap/Rdn;)Ljavax/naming/ldap/Rdn;", nullptr, 0, $method(Rfc2253Parser, parseRdn, $Rdn*, $Rdn*), "javax.naming.InvalidNameException"},
+		{"parseStringAttrValue", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Rfc2253Parser, parseStringAttrValue, $String*), "javax.naming.InvalidNameException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.naming.ldap.Rfc2253Parser",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Rfc2253Parser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Rfc2253Parser);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/EmergencySoundbank.h>
-
 #include <com/sun/media/sound/AudioFloatConverter.h>
 #include <com/sun/media/sound/FFT.h>
 #include <com/sun/media/sound/ModelPatch.h>
@@ -16,8 +15,6 @@
 #include <java/util/Random.h>
 #include <javax/sound/midi/Instrument.h>
 #include <javax/sound/midi/Patch.h>
-#include <javax/sound/midi/Soundbank.h>
-#include <javax/sound/midi/SoundbankResource.h>
 #include <javax/sound/sampled/AudioFormat.h>
 #include <jcpp.h>
 
@@ -59,100 +56,14 @@ using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
 using $Random = ::java::util::Random;
 using $Patch = ::javax::sound::midi::Patch;
-using $Soundbank = ::javax::sound::midi::Soundbank;
-using $SoundbankResource = ::javax::sound::midi::SoundbankResource;
 using $AudioFormat = ::javax::sound::sampled::AudioFormat;
 
 namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _EmergencySoundbank_FieldInfo_[] = {
-	{"general_midi_instruments", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EmergencySoundbank, general_midi_instruments)},
-	{}
-};
-
-$MethodInfo _EmergencySoundbank_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(EmergencySoundbank, init$, void)},
-	{"complexGaussianDist", "([DDDD)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, complexGaussianDist, void, $doubles*, double, double, double)},
-	{"createSoundbank", "()Lcom/sun/media/sound/SF2Soundbank;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, createSoundbank, $SF2Soundbank*), "java.lang.Exception"},
-	{"fadeUp", "([DI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, fadeUp, void, $doubles*, int32_t)},
-	{"fadeUp", "([FI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, fadeUp, void, $floats*, int32_t)},
-	{"fft", "([D)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, fft, void, $doubles*)},
-	{"ifft", "([D)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, ifft, void, $doubles*)},
-	{"imgPart", "([D)[D", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, imgPart, $doubles*, $doubles*)},
-	{"loopExtend", "([DI)[D", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, loopExtend, $doubles*, $doubles*, int32_t)},
-	{"loopExtend", "([FI)[F", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, loopExtend, $floats*, $floats*, int32_t)},
-	{"newInstrument", "(Lcom/sun/media/sound/SF2Soundbank;Ljava/lang/String;Ljavax/sound/midi/Patch;[Lcom/sun/media/sound/SF2Layer;)Lcom/sun/media/sound/SF2Instrument;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(EmergencySoundbank, newInstrument, $SF2Instrument*, $SF2Soundbank*, $String*, $Patch*, $SF2LayerArray*)},
-	{"newLayer", "(Lcom/sun/media/sound/SF2Soundbank;Ljava/lang/String;Lcom/sun/media/sound/SF2Sample;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, newLayer, $SF2Layer*, $SF2Soundbank*, $String*, $SF2Sample*)},
-	{"newSimpleDrumSample", "(Lcom/sun/media/sound/SF2Soundbank;Ljava/lang/String;[D)Lcom/sun/media/sound/SF2Sample;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, newSimpleDrumSample, $SF2Sample*, $SF2Soundbank*, $String*, $doubles*)},
-	{"newSimpleFFTSample", "(Lcom/sun/media/sound/SF2Soundbank;Ljava/lang/String;[DD)Lcom/sun/media/sound/SF2Sample;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, newSimpleFFTSample, $SF2Sample*, $SF2Soundbank*, $String*, $doubles*, double)},
-	{"newSimpleFFTSample", "(Lcom/sun/media/sound/SF2Soundbank;Ljava/lang/String;[DDI)Lcom/sun/media/sound/SF2Sample;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, newSimpleFFTSample, $SF2Sample*, $SF2Soundbank*, $String*, $doubles*, double, int32_t)},
-	{"newSimpleFFTSample_dist", "(Lcom/sun/media/sound/SF2Soundbank;Ljava/lang/String;[DDD)Lcom/sun/media/sound/SF2Sample;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, newSimpleFFTSample_dist, $SF2Sample*, $SF2Soundbank*, $String*, $doubles*, double, double)},
-	{"new_bass1", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_bass1, $SF2Layer*, $SF2Soundbank*)},
-	{"new_bass2", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_bass2, $SF2Layer*, $SF2Soundbank*)},
-	{"new_bass_drum", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_bass_drum, $SF2Layer*, $SF2Soundbank*)},
-	{"new_bassoon", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_bassoon, $SF2Layer*, $SF2Soundbank*)},
-	{"new_bell", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_bell, $SF2Layer*, $SF2Soundbank*)},
-	{"new_brass_section", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_brass_section, $SF2Layer*, $SF2Soundbank*)},
-	{"new_ch_organ", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_ch_organ, $SF2Layer*, $SF2Soundbank*)},
-	{"new_choir", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_choir, $SF2Layer*, $SF2Soundbank*)},
-	{"new_clarinet", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_clarinet, $SF2Layer*, $SF2Soundbank*)},
-	{"new_closed_hihat", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_closed_hihat, $SF2Layer*, $SF2Soundbank*)},
-	{"new_crash_cymbal", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_crash_cymbal, $SF2Layer*, $SF2Soundbank*)},
-	{"new_epiano1", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_epiano1, $SF2Layer*, $SF2Soundbank*)},
-	{"new_epiano2", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_epiano2, $SF2Layer*, $SF2Soundbank*)},
-	{"new_flute", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_flute, $SF2Layer*, $SF2Soundbank*)},
-	{"new_gpiano", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_gpiano, $SF2Layer*, $SF2Soundbank*)},
-	{"new_gpiano2", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_gpiano2, $SF2Layer*, $SF2Soundbank*)},
-	{"new_guitar1", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_guitar1, $SF2Layer*, $SF2Soundbank*)},
-	{"new_guitar_dist", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_guitar_dist, $SF2Layer*, $SF2Soundbank*)},
-	{"new_guitar_pick", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_guitar_pick, $SF2Layer*, $SF2Soundbank*)},
-	{"new_horn", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_horn, $SF2Layer*, $SF2Soundbank*)},
-	{"new_melodic_toms", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_melodic_toms, $SF2Layer*, $SF2Soundbank*)},
-	{"new_oboe", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_oboe, $SF2Layer*, $SF2Soundbank*)},
-	{"new_open_hihat", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_open_hihat, $SF2Layer*, $SF2Soundbank*)},
-	{"new_orchhit", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_orchhit, $SF2Layer*, $SF2Soundbank*)},
-	{"new_organ", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_organ, $SF2Layer*, $SF2Soundbank*)},
-	{"new_piano1", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_piano1, $SF2Layer*, $SF2Soundbank*)},
-	{"new_piano_hammer", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_piano_hammer, $SF2Layer*, $SF2Soundbank*)},
-	{"new_reverse_cymbal", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_reverse_cymbal, $SF2Layer*, $SF2Soundbank*)},
-	{"new_sax", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_sax, $SF2Layer*, $SF2Soundbank*)},
-	{"new_side_stick", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_side_stick, $SF2Layer*, $SF2Soundbank*)},
-	{"new_snare_drum", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_snare_drum, $SF2Layer*, $SF2Soundbank*)},
-	{"new_solostring", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_solostring, $SF2Layer*, $SF2Soundbank*)},
-	{"new_string2", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_string2, $SF2Layer*, $SF2Soundbank*)},
-	{"new_synthbass", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_synthbass, $SF2Layer*, $SF2Soundbank*)},
-	{"new_timpani", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_timpani, $SF2Layer*, $SF2Soundbank*)},
-	{"new_tom", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_tom, $SF2Layer*, $SF2Soundbank*)},
-	{"new_trombone", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_trombone, $SF2Layer*, $SF2Soundbank*)},
-	{"new_trumpet", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_trumpet, $SF2Layer*, $SF2Soundbank*)},
-	{"normalize", "([DD)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, normalize, void, $doubles*, double)},
-	{"normalize", "([FD)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, normalize, void, $floats*, double)},
-	{"randomPhase", "([D)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, randomPhase, void, $doubles*)},
-	{"randomPhase", "([DLjava/util/Random;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, randomPhase, void, $doubles*, $Random*)},
-	{"realPart", "([D)[D", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, realPart, $doubles*, $doubles*)},
-	{"toBytes", "([FLjavax/sound/sampled/AudioFormat;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, toBytes, $bytes*, $floats*, $AudioFormat*)},
-	{"toFloat", "([D)[F", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, toFloat, $floats*, $doubles*)},
-	{}
-};
-
-$ClassInfo _EmergencySoundbank_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.EmergencySoundbank",
-	"java.lang.Object",
-	nullptr,
-	_EmergencySoundbank_FieldInfo_,
-	_EmergencySoundbank_MethodInfo_
-};
-
-$Object* allocate$EmergencySoundbank($Class* clazz) {
-	return $of($alloc(EmergencySoundbank));
-}
 
 $StringArray* EmergencySoundbank::general_midi_instruments = nullptr;
 
@@ -161,7 +72,7 @@ void EmergencySoundbank::init$() {
 
 $SF2Soundbank* EmergencySoundbank::createSoundbank() {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SF2Soundbank, sf2, $new($SF2Soundbank));
 	sf2->setName("Emergency GM sound set"_s);
 	sf2->setVendor("Generated"_s);
@@ -233,7 +144,7 @@ $SF2Soundbank* EmergencySoundbank::createSoundbank() {
 				(int8_t)i,
 				(int8_t)i
 			}));
-			$nc($(drum_instrument->getRegions()))->add(region);
+			$$nc(drum_instrument->getRegions())->add(region);
 		}
 	}
 	$var($SF2Layer, gpiano, new_gpiano(sf2));
@@ -282,11 +193,11 @@ $SF2Soundbank* EmergencySoundbank::createSoundbank() {
 			piano1,
 			piano1
 		})));
-		$var($SF2InstrumentRegion, region, $cast($SF2InstrumentRegion, $nc($($nc(ins)->getRegions()))->get(0)));
+		$var($SF2InstrumentRegion, region, $cast($SF2InstrumentRegion, $$nc($nc(ins)->getRegions())->get(0)));
 		$nc(region)->putInteger($SF2Region::GENERATOR_INITIALFILTERFC, 80);
 		region->putInteger($SF2Region::GENERATOR_FINETUNE, 30);
-		$assign(region, $cast($SF2InstrumentRegion, $nc($(ins->getRegions()))->get(1)));
-		region->putInteger($SF2Region::GENERATOR_INITIALFILTERFC, 30);
+		$assign(region, $cast($SF2InstrumentRegion, $$nc(ins->getRegions())->get(1)));
+		$nc(region)->putInteger($SF2Region::GENERATOR_INITIALFILTERFC, 30);
 	}
 	newInstrument(sf2, "Rhodes"_s, $$new($Patch, 0, 4), $$new($SF2LayerArray, {epiano2}));
 	newInstrument(sf2, "Rhodes"_s, $$new($Patch, 0, 5), $$new($SF2LayerArray, {epiano2}));
@@ -367,7 +278,7 @@ $SF2Soundbank* EmergencySoundbank::createSoundbank() {
 	newInstrument(sf2, "Timpani"_s, $$new($Patch, 0, 47), $$new($SF2LayerArray, {timpani}));
 	newInstrument(sf2, "Strings"_s, $$new($Patch, 0, 48), $$new($SF2LayerArray, {string2}));
 	$var($SF2Instrument, slow_strings, newInstrument(sf2, "Slow Strings"_s, $$new($Patch, 0, 49), $$new($SF2LayerArray, {string2})));
-	$var($SF2InstrumentRegion, region, $cast($SF2InstrumentRegion, $nc($($nc(slow_strings)->getRegions()))->get(0)));
+	$var($SF2InstrumentRegion, region, $cast($SF2InstrumentRegion, $$nc($nc(slow_strings)->getRegions())->get(0)));
 	$nc(region)->putInteger($SF2Region::GENERATOR_ATTACKVOLENV, 2500);
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, 2000);
 	newInstrument(sf2, "Synth Strings"_s, $$new($Patch, 0, 50), $$new($SF2LayerArray, {string2}));
@@ -381,7 +292,7 @@ $SF2Soundbank* EmergencySoundbank::createSoundbank() {
 			orchhit,
 			timpani
 		})));
-		$assign(region, $cast($SF2InstrumentRegion, $nc($($nc(ins)->getRegions()))->get(0)));
+		$assign(region, $cast($SF2InstrumentRegion, $$nc($nc(ins)->getRegions())->get(0)));
 		$nc(region)->putInteger($SF2Region::GENERATOR_COARSETUNE, -12);
 		region->putInteger($SF2Region::GENERATOR_INITIALATTENUATION, -100);
 	}
@@ -456,7 +367,7 @@ $SF2Soundbank* EmergencySoundbank::createSoundbank() {
 	newInstrument(sf2, "Def"_s, $$new($Patch, 0, 121), $$new($SF2LayerArray, {defaultsound}));
 	{
 		$var($SF2Instrument, ins, newInstrument(sf2, "Seashore/Reverse Cymbal"_s, $$new($Patch, 0, 122), $$new($SF2LayerArray, {reverse_cymbal})));
-		$assign(region, $cast($SF2InstrumentRegion, $nc($($nc(ins)->getRegions()))->get(0)));
+		$assign(region, $cast($SF2InstrumentRegion, $$nc($nc(ins)->getRegions())->get(0)));
 		$nc(region)->putInteger($SF2Region::GENERATOR_SUSTAINVOLENV, 1000);
 		region->putInteger($SF2Region::GENERATOR_DECAYVOLENV, 18500);
 		region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, 4500);
@@ -464,7 +375,7 @@ $SF2Soundbank* EmergencySoundbank::createSoundbank() {
 	}
 	{
 		$var($SF2Instrument, ins, newInstrument(sf2, "Bird/Flute"_s, $$new($Patch, 0, 123), $$new($SF2LayerArray, {flute})));
-		$assign(region, $cast($SF2InstrumentRegion, $nc($($nc(ins)->getRegions()))->get(0)));
+		$assign(region, $cast($SF2InstrumentRegion, $$nc($nc(ins)->getRegions())->get(0)));
 		$nc(region)->putInteger($SF2Region::GENERATOR_COARSETUNE, 24);
 		region->putInteger($SF2Region::GENERATOR_DECAYVOLENV, -3000);
 		region->putInteger($SF2Region::GENERATOR_SUSTAINVOLENV, 1000);
@@ -472,7 +383,7 @@ $SF2Soundbank* EmergencySoundbank::createSoundbank() {
 	newInstrument(sf2, "Def"_s, $$new($Patch, 0, 124), $$new($SF2LayerArray, {side_stick}));
 	{
 		$var($SF2Instrument, ins, newInstrument(sf2, "Seashore/Reverse Cymbal"_s, $$new($Patch, 0, 125), $$new($SF2LayerArray, {reverse_cymbal})));
-		$assign(region, $cast($SF2InstrumentRegion, $nc($($nc(ins)->getRegions()))->get(0)));
+		$assign(region, $cast($SF2InstrumentRegion, $$nc($nc(ins)->getRegions())->get(0)));
 		$nc(region)->putInteger($SF2Region::GENERATOR_SUSTAINVOLENV, 1000);
 		region->putInteger($SF2Region::GENERATOR_DECAYVOLENV, 18500);
 		region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, 4500);
@@ -481,19 +392,17 @@ $SF2Soundbank* EmergencySoundbank::createSoundbank() {
 	newInstrument(sf2, "Applause/crash_cymbal"_s, $$new($Patch, 0, 126), $$new($SF2LayerArray, {crash_cymbal}));
 	newInstrument(sf2, "Gunshot/side_stick"_s, $$new($Patch, 0, 127), $$new($SF2LayerArray, {side_stick}));
 	{
-		$var($SF2InstrumentArray, arr$, $fcast($SF2InstrumentArray, sf2->getInstruments()));
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($SF2InstrumentArray, arr$, $cast($SF2InstrumentArray, sf2->getInstruments()));
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($SF2Instrument, instrument, arr$->get(i$));
 			{
 				$var($Patch, patch, $nc(instrument)->getPatch());
 				if ($instanceOf($ModelPatch, patch)) {
-					if ($nc(($cast($ModelPatch, patch)))->isPercussion()) {
+					if ($cast($ModelPatch, patch)->isPercussion()) {
 						continue;
 					}
 				}
-				instrument->setName($nc(EmergencySoundbank::general_midi_instruments)->get($nc(patch)->getProgram()));
+				instrument->setName(EmergencySoundbank::general_midi_instruments->get($nc(patch)->getProgram()));
 			}
 		}
 	}
@@ -502,8 +411,8 @@ $SF2Soundbank* EmergencySoundbank::createSoundbank() {
 
 $SF2Layer* EmergencySoundbank::new_bell($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
-	$var($Random, random, $new($Random, 0x0614DB79));
+	$useLocalObjectStack();
+	$var($Random, random, $new($Random, 0x0614db79));
 	int32_t x = 8;
 	int32_t fftsize = 4096 * x;
 	$var($doubles, data, $new($doubles, fftsize * 2));
@@ -522,7 +431,7 @@ $SF2Layer* EmergencySoundbank::new_bell($SF2Soundbank* sf2) {
 	}
 	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "EPiano"_s, data, base));
 	$var($SF2Layer, layer, newLayer(sf2, "EPiano"_s, sample));
-	$var($SF2Region, region, $cast($SF2Region, $nc($($nc(layer)->getRegions()))->get(0)));
+	$var($SF2Region, region, $cast($SF2Region, $$nc($nc(layer)->getRegions())->get(0)));
 	$nc(region)->putInteger($SF2Region::GENERATOR_SAMPLEMODES, 1);
 	region->putInteger($SF2Region::GENERATOR_ATTACKVOLENV, -12000);
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, 0);
@@ -537,14 +446,14 @@ $SF2Layer* EmergencySoundbank::new_bell($SF2Soundbank* sf2) {
 
 $SF2Layer* EmergencySoundbank::new_guitar1($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t x = 8;
 	int32_t fftsize = 4096 * x;
 	$var($doubles, data, $new($doubles, fftsize * 2));
 	double base = (double)(x * 25);
 	double start_w = 0.01;
 	double end_w = 0.01;
-	double start_a = (double)2;
+	double start_a = 2;
 	double end_a = 0.01;
 	double a = start_a;
 	double a_step = $Math::pow(end_a / start_a, 1.0 / 40.0);
@@ -553,29 +462,29 @@ $SF2Layer* EmergencySoundbank::new_guitar1($SF2Soundbank* sf2) {
 		aa->set(i, a);
 		a *= a_step;
 	}
-	aa->set(0, (double)2);
+	aa->set(0, 2);
 	aa->set(1, 0.5);
 	aa->set(2, 0.45);
 	aa->set(3, 0.2);
-	aa->set(4, (double)1);
+	aa->set(4, 1);
 	aa->set(5, 0.5);
-	aa->set(6, (double)2);
-	aa->set(7, (double)1);
+	aa->set(6, 2);
+	aa->set(7, 1);
 	aa->set(8, 0.5);
-	aa->set(9, (double)1);
+	aa->set(9, 1);
 	aa->set(9, 0.5);
 	aa->set(10, 0.2);
-	aa->set(11, (double)1);
+	aa->set(11, 1);
 	aa->set(12, 0.7);
 	aa->set(13, 0.5);
-	aa->set(14, (double)1);
+	aa->set(14, 1);
 	for (int32_t i = 0; i < 40; ++i) {
 		double w = start_w + (end_w - start_w) * (i / 40.0);
 		complexGaussianDist(data, base * (i + 1), w, aa->get(i));
 	}
 	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "Guitar"_s, data, base));
 	$var($SF2Layer, layer, newLayer(sf2, "Guitar"_s, sample));
-	$var($SF2Region, region, $cast($SF2Region, $nc($($nc(layer)->getRegions()))->get(0)));
+	$var($SF2Region, region, $cast($SF2Region, $$nc($nc(layer)->getRegions())->get(0)));
 	$nc(region)->putInteger($SF2Region::GENERATOR_SAMPLEMODES, 1);
 	region->putInteger($SF2Region::GENERATOR_ATTACKVOLENV, -12000);
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, 0);
@@ -591,14 +500,14 @@ $SF2Layer* EmergencySoundbank::new_guitar1($SF2Soundbank* sf2) {
 
 $SF2Layer* EmergencySoundbank::new_guitar_dist($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t x = 8;
 	int32_t fftsize = 4096 * x;
 	$var($doubles, data, $new($doubles, fftsize * 2));
 	double base = (double)(x * 25);
 	double start_w = 0.01;
 	double end_w = 0.01;
-	double start_a = (double)2;
+	double start_a = 2;
 	double end_a = 0.01;
 	double a = start_a;
 	double a_step = $Math::pow(end_a / start_a, 1.0 / 40.0);
@@ -607,29 +516,29 @@ $SF2Layer* EmergencySoundbank::new_guitar_dist($SF2Soundbank* sf2) {
 		aa->set(i, a);
 		a *= a_step;
 	}
-	aa->set(0, (double)5);
-	aa->set(1, (double)2);
+	aa->set(0, 5);
+	aa->set(1, 2);
 	aa->set(2, 0.45);
 	aa->set(3, 0.2);
-	aa->set(4, (double)1);
+	aa->set(4, 1);
 	aa->set(5, 0.5);
-	aa->set(6, (double)2);
-	aa->set(7, (double)1);
+	aa->set(6, 2);
+	aa->set(7, 1);
 	aa->set(8, 0.5);
-	aa->set(9, (double)1);
+	aa->set(9, 1);
 	aa->set(9, 0.5);
 	aa->set(10, 0.2);
-	aa->set(11, (double)1);
+	aa->set(11, 1);
 	aa->set(12, 0.7);
 	aa->set(13, 0.5);
-	aa->set(14, (double)1);
+	aa->set(14, 1);
 	for (int32_t i = 0; i < 40; ++i) {
 		double w = start_w + (end_w - start_w) * (i / 40.0);
 		complexGaussianDist(data, base * (i + 1), w, aa->get(i));
 	}
 	$var($SF2Sample, sample, newSimpleFFTSample_dist(sf2, "Distorted Guitar"_s, data, base, 10000.0));
 	$var($SF2Layer, layer, newLayer(sf2, "Distorted Guitar"_s, sample));
-	$var($SF2Region, region, $cast($SF2Region, $nc($($nc(layer)->getRegions()))->get(0)));
+	$var($SF2Region, region, $cast($SF2Region, $$nc($nc(layer)->getRegions())->get(0)));
 	$nc(region)->putInteger($SF2Region::GENERATOR_SAMPLEMODES, 1);
 	region->putInteger($SF2Region::GENERATOR_ATTACKVOLENV, -12000);
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, 0);
@@ -639,25 +548,25 @@ $SF2Layer* EmergencySoundbank::new_guitar_dist($SF2Soundbank* sf2) {
 
 $SF2Layer* EmergencySoundbank::new_guitar_pick($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($doubles, datab, nullptr);
 	{
 		int32_t m = 2;
 		int32_t fftlen = 4096 * m;
 		$var($doubles, data, $new($doubles, 2 * fftlen));
-		$var($Random, random, $new($Random, 0x002E89B8));
+		$var($Random, random, $new($Random, 0x002e89b8));
 		for (int32_t i = 0; i < data->length; i += 2) {
 			data->set(i, (2.0 * (random->nextDouble() - 0.5)));
 		}
 		fft(data);
 		for (int32_t i = fftlen / 2; i < data->length; ++i) {
-			data->set(i, (double)0);
+			data->set(i, 0);
 		}
 		for (int32_t i = 0; i < 2048 * m; ++i) {
 			double var$0 = $Math::exp(-$Math::abs((i - 23) / ((double)m)) * 1.2);
 			(*data)[i] *= var$0 + $Math::exp(-$Math::abs((i - 40) / ((double)m)) * 0.9);
 		}
-		randomPhase(data, $$new($Random, 0x002E89B8));
+		randomPhase(data, $$new($Random, 0x002e89b8));
 		ifft(data);
 		normalize(data, 0.8);
 		$assign(data, realPart(data));
@@ -678,13 +587,13 @@ $SF2Layer* EmergencySoundbank::new_guitar_pick($SF2Soundbank* sf2) {
 	$var($SF2LayerRegion, region, $new($SF2LayerRegion));
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, 12000);
 	region->setSample(sample);
-	$nc($(layer->getRegions()))->add(region);
+	$$nc(layer->getRegions())->add(region);
 	return layer;
 }
 
 $SF2Layer* EmergencySoundbank::new_gpiano($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t x = 8;
 	int32_t fftsize = 4096 * x;
 	$var($doubles, data, $new($doubles, fftsize * 2));
@@ -709,7 +618,7 @@ $SF2Layer* EmergencySoundbank::new_gpiano($SF2Soundbank* sf2) {
 		double w = 0.2;
 		double ai = aa->get(i);
 		if (i > 10) {
-			w = (double)5;
+			w = 5;
 			ai *= 10;
 		}
 		int32_t adjust = 0;
@@ -720,7 +629,7 @@ $SF2Layer* EmergencySoundbank::new_gpiano($SF2Soundbank* sf2) {
 	}
 	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "Grand Piano"_s, data, base, 200));
 	$var($SF2Layer, layer, newLayer(sf2, "Grand Piano"_s, sample));
-	$var($SF2Region, region, $cast($SF2Region, $nc($($nc(layer)->getRegions()))->get(0)));
+	$var($SF2Region, region, $cast($SF2Region, $$nc($nc(layer)->getRegions())->get(0)));
 	$nc(region)->putInteger($SF2Region::GENERATOR_SAMPLEMODES, 1);
 	region->putInteger($SF2Region::GENERATOR_ATTACKVOLENV, -7000);
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, 0);
@@ -735,7 +644,7 @@ $SF2Layer* EmergencySoundbank::new_gpiano($SF2Soundbank* sf2) {
 
 $SF2Layer* EmergencySoundbank::new_gpiano2($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t x = 8;
 	int32_t fftsize = 4096 * x;
 	$var($doubles, data, $new($doubles, fftsize * 2));
@@ -760,7 +669,7 @@ $SF2Layer* EmergencySoundbank::new_gpiano2($SF2Soundbank* sf2) {
 		double w = 0.2;
 		double ai = aa->get(i);
 		if (i > 10) {
-			w = (double)5;
+			w = 5;
 			ai *= 10;
 		}
 		int32_t adjust = 0;
@@ -771,7 +680,7 @@ $SF2Layer* EmergencySoundbank::new_gpiano2($SF2Soundbank* sf2) {
 	}
 	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "Grand Piano"_s, data, base, 200));
 	$var($SF2Layer, layer, newLayer(sf2, "Grand Piano"_s, sample));
-	$var($SF2Region, region, $cast($SF2Region, $nc($($nc(layer)->getRegions()))->get(0)));
+	$var($SF2Region, region, $cast($SF2Region, $$nc($nc(layer)->getRegions())->get(0)));
 	$nc(region)->putInteger($SF2Region::GENERATOR_SAMPLEMODES, 1);
 	region->putInteger($SF2Region::GENERATOR_ATTACKVOLENV, -7000);
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, 0);
@@ -786,24 +695,24 @@ $SF2Layer* EmergencySoundbank::new_gpiano2($SF2Soundbank* sf2) {
 
 $SF2Layer* EmergencySoundbank::new_piano_hammer($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($doubles, datab, nullptr);
 	{
 		int32_t m = 2;
 		int32_t fftlen = 4096 * m;
 		$var($doubles, data, $new($doubles, 2 * fftlen));
-		$var($Random, random, $new($Random, 0x002E89B8));
+		$var($Random, random, $new($Random, 0x002e89b8));
 		for (int32_t i = 0; i < data->length; i += 2) {
 			data->set(i, (2.0 * (random->nextDouble() - 0.5)));
 		}
 		fft(data);
 		for (int32_t i = fftlen / 2; i < data->length; ++i) {
-			data->set(i, (double)0);
+			data->set(i, 0);
 		}
 		for (int32_t i = 0; i < 2048 * m; ++i) {
 			(*data)[i] *= $Math::exp(-$Math::abs((i - 37) / ((double)m)) * 0.05);
 		}
-		randomPhase(data, $$new($Random, 0x002E89B8));
+		randomPhase(data, $$new($Random, 0x002e89b8));
 		ifft(data);
 		normalize(data, 0.6);
 		$assign(data, realPart(data));
@@ -824,13 +733,13 @@ $SF2Layer* EmergencySoundbank::new_piano_hammer($SF2Soundbank* sf2) {
 	$var($SF2LayerRegion, region, $new($SF2LayerRegion));
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, 12000);
 	region->setSample(sample);
-	$nc($(layer->getRegions()))->add(region);
+	$$nc(layer->getRegions())->add(region);
 	return layer;
 }
 
 $SF2Layer* EmergencySoundbank::new_piano1($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t x = 8;
 	int32_t fftsize = 4096 * x;
 	$var($doubles, data, $new($doubles, fftsize * 2));
@@ -851,7 +760,7 @@ $SF2Layer* EmergencySoundbank::new_piano1($SF2Soundbank* sf2) {
 		double w = 0.2;
 		double ai = aa->get(i);
 		if (i > 12) {
-			w = (double)5;
+			w = 5;
 			ai *= 10;
 		}
 		int32_t adjust = 0;
@@ -860,11 +769,11 @@ $SF2Layer* EmergencySoundbank::new_piano1($SF2Soundbank* sf2) {
 		}
 		complexGaussianDist(data, base * (i + 1) + adjust, w, ai);
 	}
-	complexGaussianDist(data, base * (15.5), (double)1, 0.1);
-	complexGaussianDist(data, base * (17.5), (double)1, 0.01);
+	complexGaussianDist(data, base * (15.5), 1, 0.1);
+	complexGaussianDist(data, base * (17.5), 1, 0.01);
 	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "EPiano"_s, data, base, 200));
 	$var($SF2Layer, layer, newLayer(sf2, "EPiano"_s, sample));
-	$var($SF2Region, region, $cast($SF2Region, $nc($($nc(layer)->getRegions()))->get(0)));
+	$var($SF2Region, region, $cast($SF2Region, $$nc($nc(layer)->getRegions())->get(0)));
 	$nc(region)->putInteger($SF2Region::GENERATOR_SAMPLEMODES, 1);
 	region->putInteger($SF2Region::GENERATOR_ATTACKVOLENV, -12000);
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, 0);
@@ -879,8 +788,8 @@ $SF2Layer* EmergencySoundbank::new_piano1($SF2Soundbank* sf2) {
 
 $SF2Layer* EmergencySoundbank::new_epiano1($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
-	$var($Random, random, $new($Random, 0x12009D79));
+	$useLocalObjectStack();
+	$var($Random, random, $new($Random, 0x12009d79));
 	int32_t x = 8;
 	int32_t fftsize = 4096 * x;
 	$var($doubles, data, $new($doubles, fftsize * 2));
@@ -899,7 +808,7 @@ $SF2Layer* EmergencySoundbank::new_epiano1($SF2Soundbank* sf2) {
 	}
 	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "EPiano"_s, data, base));
 	$var($SF2Layer, layer, newLayer(sf2, "EPiano"_s, sample));
-	$var($SF2Region, region, $cast($SF2Region, $nc($($nc(layer)->getRegions()))->get(0)));
+	$var($SF2Region, region, $cast($SF2Region, $$nc($nc(layer)->getRegions())->get(0)));
 	$nc(region)->putInteger($SF2Region::GENERATOR_SAMPLEMODES, 1);
 	region->putInteger($SF2Region::GENERATOR_ATTACKVOLENV, -12000);
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, 0);
@@ -914,8 +823,8 @@ $SF2Layer* EmergencySoundbank::new_epiano1($SF2Soundbank* sf2) {
 
 $SF2Layer* EmergencySoundbank::new_epiano2($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
-	$var($Random, random, $new($Random, 0x12009D79));
+	$useLocalObjectStack();
+	$var($Random, random, $new($Random, 0x12009d79));
 	int32_t x = 8;
 	int32_t fftsize = 4096 * x;
 	$var($doubles, data, $new($doubles, fftsize * 2));
@@ -934,7 +843,7 @@ $SF2Layer* EmergencySoundbank::new_epiano2($SF2Soundbank* sf2) {
 	}
 	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "EPiano"_s, data, base));
 	$var($SF2Layer, layer, newLayer(sf2, "EPiano"_s, sample));
-	$var($SF2Region, region, $cast($SF2Region, $nc($($nc(layer)->getRegions()))->get(0)));
+	$var($SF2Region, region, $cast($SF2Region, $$nc($nc(layer)->getRegions())->get(0)));
 	$nc(region)->putInteger($SF2Region::GENERATOR_SAMPLEMODES, 1);
 	region->putInteger($SF2Region::GENERATOR_ATTACKVOLENV, -12000);
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, 0);
@@ -950,7 +859,7 @@ $SF2Layer* EmergencySoundbank::new_epiano2($SF2Soundbank* sf2) {
 
 $SF2Layer* EmergencySoundbank::new_bass1($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t x = 8;
 	int32_t fftsize = 4096 * x;
 	$var($doubles, data, $new($doubles, fftsize * 2));
@@ -976,7 +885,7 @@ $SF2Layer* EmergencySoundbank::new_bass1($SF2Soundbank* sf2) {
 	}
 	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "Bass"_s, data, base));
 	$var($SF2Layer, layer, newLayer(sf2, "Bass"_s, sample));
-	$var($SF2Region, region, $cast($SF2Region, $nc($($nc(layer)->getRegions()))->get(0)));
+	$var($SF2Region, region, $cast($SF2Region, $$nc($nc(layer)->getRegions())->get(0)));
 	$nc(region)->putInteger($SF2Region::GENERATOR_SAMPLEMODES, 1);
 	region->putInteger($SF2Region::GENERATOR_ATTACKVOLENV, -12000);
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, 0);
@@ -992,7 +901,7 @@ $SF2Layer* EmergencySoundbank::new_bass1($SF2Soundbank* sf2) {
 
 $SF2Layer* EmergencySoundbank::new_synthbass($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t x = 8;
 	int32_t fftsize = 4096 * x;
 	$var($doubles, data, $new($doubles, fftsize * 2));
@@ -1018,7 +927,7 @@ $SF2Layer* EmergencySoundbank::new_synthbass($SF2Soundbank* sf2) {
 	}
 	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "Bass"_s, data, base));
 	$var($SF2Layer, layer, newLayer(sf2, "Bass"_s, sample));
-	$var($SF2Region, region, $cast($SF2Region, $nc($($nc(layer)->getRegions()))->get(0)));
+	$var($SF2Region, region, $cast($SF2Region, $$nc($nc(layer)->getRegions())->get(0)));
 	$nc(region)->putInteger($SF2Region::GENERATOR_SAMPLEMODES, 1);
 	region->putInteger($SF2Region::GENERATOR_ATTACKVOLENV, -12000);
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, 0);
@@ -1035,7 +944,7 @@ $SF2Layer* EmergencySoundbank::new_synthbass($SF2Soundbank* sf2) {
 
 $SF2Layer* EmergencySoundbank::new_bass2($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t x = 8;
 	int32_t fftsize = 4096 * x;
 	$var($doubles, data, $new($doubles, fftsize * 2));
@@ -1061,7 +970,7 @@ $SF2Layer* EmergencySoundbank::new_bass2($SF2Soundbank* sf2) {
 	}
 	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "Bass2"_s, data, base));
 	$var($SF2Layer, layer, newLayer(sf2, "Bass2"_s, sample));
-	$var($SF2Region, region, $cast($SF2Region, $nc($($nc(layer)->getRegions()))->get(0)));
+	$var($SF2Region, region, $cast($SF2Region, $$nc($nc(layer)->getRegions())->get(0)));
 	$nc(region)->putInteger($SF2Region::GENERATOR_SAMPLEMODES, 1);
 	region->putInteger($SF2Region::GENERATOR_ATTACKVOLENV, -8000);
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, 0);
@@ -1076,13 +985,13 @@ $SF2Layer* EmergencySoundbank::new_bass2($SF2Soundbank* sf2) {
 
 $SF2Layer* EmergencySoundbank::new_solostring($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t x = 8;
 	int32_t fftsize = 4096 * x;
 	$var($doubles, data, $new($doubles, fftsize * 2));
 	double base = (double)(x * 25);
-	double start_w = (double)2;
-	double end_w = (double)2;
+	double start_w = 2;
+	double end_w = 2;
 	double start_a = 0.2;
 	double end_a = 0.01;
 	$var($doubles, aa, $new($doubles, 18));
@@ -1106,7 +1015,7 @@ $SF2Layer* EmergencySoundbank::new_solostring($SF2Soundbank* sf2) {
 	}
 	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "Strings"_s, data, base));
 	$var($SF2Layer, layer, newLayer(sf2, "Strings"_s, sample));
-	$var($SF2Region, region, $cast($SF2Region, $nc($($nc(layer)->getRegions()))->get(0)));
+	$var($SF2Region, region, $cast($SF2Region, $$nc($nc(layer)->getRegions())->get(0)));
 	$nc(region)->putInteger($SF2Region::GENERATOR_SAMPLEMODES, 1);
 	region->putInteger($SF2Region::GENERATOR_ATTACKVOLENV, -5000);
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, 1000);
@@ -1120,13 +1029,13 @@ $SF2Layer* EmergencySoundbank::new_solostring($SF2Soundbank* sf2) {
 
 $SF2Layer* EmergencySoundbank::new_orchhit($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t x = 8;
 	int32_t fftsize = 4096 * x;
 	$var($doubles, data, $new($doubles, fftsize * 2));
 	double base = (double)(x * 25);
-	double start_w = (double)2;
-	double end_w = (double)80;
+	double start_w = 2;
+	double end_w = 80;
 	double start_a = 0.2;
 	double end_a = 0.001;
 	double a = start_a;
@@ -1136,10 +1045,10 @@ $SF2Layer* EmergencySoundbank::new_orchhit($SF2Soundbank* sf2) {
 		complexGaussianDist(data, base * (i + 1), w, a);
 		a *= a_step;
 	}
-	complexGaussianDist(data, base * 4, (double)300, (double)1);
+	complexGaussianDist(data, base * 4, 300, 1);
 	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "Och Strings"_s, data, base));
 	$var($SF2Layer, layer, newLayer(sf2, "Och Strings"_s, sample));
-	$var($SF2Region, region, $cast($SF2Region, $nc($($nc(layer)->getRegions()))->get(0)));
+	$var($SF2Region, region, $cast($SF2Region, $$nc($nc(layer)->getRegions())->get(0)));
 	$nc(region)->putInteger($SF2Region::GENERATOR_SAMPLEMODES, 1);
 	region->putInteger($SF2Region::GENERATOR_ATTACKVOLENV, -5000);
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, 200);
@@ -1151,13 +1060,13 @@ $SF2Layer* EmergencySoundbank::new_orchhit($SF2Soundbank* sf2) {
 
 $SF2Layer* EmergencySoundbank::new_string2($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t x = 8;
 	int32_t fftsize = 4096 * x;
 	$var($doubles, data, $new($doubles, fftsize * 2));
 	double base = (double)(x * 25);
-	double start_w = (double)2;
-	double end_w = (double)80;
+	double start_w = 2;
+	double end_w = 80;
 	double start_a = 0.2;
 	double end_a = 0.001;
 	double a = start_a;
@@ -1169,7 +1078,7 @@ $SF2Layer* EmergencySoundbank::new_string2($SF2Soundbank* sf2) {
 	}
 	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "Strings"_s, data, base));
 	$var($SF2Layer, layer, newLayer(sf2, "Strings"_s, sample));
-	$var($SF2Region, region, $cast($SF2Region, $nc($($nc(layer)->getRegions()))->get(0)));
+	$var($SF2Region, region, $cast($SF2Region, $$nc($nc(layer)->getRegions())->get(0)));
 	$nc(region)->putInteger($SF2Region::GENERATOR_SAMPLEMODES, 1);
 	region->putInteger($SF2Region::GENERATOR_ATTACKVOLENV, -5000);
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, 1000);
@@ -1181,13 +1090,13 @@ $SF2Layer* EmergencySoundbank::new_string2($SF2Soundbank* sf2) {
 
 $SF2Layer* EmergencySoundbank::new_choir($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t x = 8;
 	int32_t fftsize = 4096 * x;
 	$var($doubles, data, $new($doubles, fftsize * 2));
 	double base = (double)(x * 25);
-	double start_w = (double)2;
-	double end_w = (double)80;
+	double start_w = 2;
+	double end_w = 80;
 	double start_a = 0.2;
 	double end_a = 0.001;
 	double a = start_a;
@@ -1207,7 +1116,7 @@ $SF2Layer* EmergencySoundbank::new_choir($SF2Soundbank* sf2) {
 	}
 	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "Strings"_s, data, base));
 	$var($SF2Layer, layer, newLayer(sf2, "Strings"_s, sample));
-	$var($SF2Region, region, $cast($SF2Region, $nc($($nc(layer)->getRegions()))->get(0)));
+	$var($SF2Region, region, $cast($SF2Region, $$nc($nc(layer)->getRegions())->get(0)));
 	$nc(region)->putInteger($SF2Region::GENERATOR_SAMPLEMODES, 1);
 	region->putInteger($SF2Region::GENERATOR_ATTACKVOLENV, -5000);
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, 1000);
@@ -1219,8 +1128,8 @@ $SF2Layer* EmergencySoundbank::new_choir($SF2Soundbank* sf2) {
 
 $SF2Layer* EmergencySoundbank::new_organ($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
-	$var($Random, random, $new($Random, 0x0614DB79));
+	$useLocalObjectStack();
+	$var($Random, random, $new($Random, 0x0614db79));
 	int32_t x = 1;
 	int32_t fftsize = 4096 * x;
 	$var($doubles, data, $new($doubles, fftsize * 2));
@@ -1238,7 +1147,7 @@ $SF2Layer* EmergencySoundbank::new_organ($SF2Soundbank* sf2) {
 	}
 	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "Organ"_s, data, base));
 	$var($SF2Layer, layer, newLayer(sf2, "Organ"_s, sample));
-	$var($SF2Region, region, $cast($SF2Region, $nc($($nc(layer)->getRegions()))->get(0)));
+	$var($SF2Region, region, $cast($SF2Region, $$nc($nc(layer)->getRegions())->get(0)));
 	$nc(region)->putInteger($SF2Region::GENERATOR_SAMPLEMODES, 1);
 	region->putInteger($SF2Region::GENERATOR_ATTACKVOLENV, -6000);
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, -1000);
@@ -1250,7 +1159,7 @@ $SF2Layer* EmergencySoundbank::new_organ($SF2Soundbank* sf2) {
 
 $SF2Layer* EmergencySoundbank::new_ch_organ($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t x = 1;
 	int32_t fftsize = 4096 * x;
 	$var($doubles, data, $new($doubles, fftsize * 2));
@@ -1268,31 +1177,31 @@ $SF2Layer* EmergencySoundbank::new_ch_organ($SF2Soundbank* sf2) {
 	}
 	(*aa)[0] *= 5;
 	(*aa)[1] *= 2;
-	aa->set(2, (double)0);
-	aa->set(4, (double)0);
-	aa->set(5, (double)0);
+	aa->set(2, 0);
+	aa->set(4, 0);
+	aa->set(5, 0);
 	(*aa)[7] *= 7;
-	aa->set(9, (double)0);
-	aa->set(10, (double)0);
-	aa->set(12, (double)0);
+	aa->set(9, 0);
+	aa->set(10, 0);
+	aa->set(12, 0);
 	(*aa)[15] *= 7;
-	aa->set(18, (double)0);
-	aa->set(20, (double)0);
-	aa->set(24, (double)0);
+	aa->set(18, 0);
+	aa->set(20, 0);
+	aa->set(24, 0);
 	(*aa)[27] *= 5;
-	aa->set(29, (double)0);
-	aa->set(30, (double)0);
-	aa->set(33, (double)0);
+	aa->set(29, 0);
+	aa->set(30, 0);
+	aa->set(33, 0);
 	(*aa)[36] *= 4;
-	aa->set(37, (double)0);
-	aa->set(39, (double)0);
-	aa->set(42, (double)0);
-	aa->set(43, (double)0);
-	aa->set(47, (double)0);
+	aa->set(37, 0);
+	aa->set(39, 0);
+	aa->set(42, 0);
+	aa->set(43, 0);
+	aa->set(47, 0);
 	(*aa)[50] *= 4;
-	aa->set(52, (double)0);
-	aa->set(55, (double)0);
-	aa->set(57, (double)0);
+	aa->set(52, 0);
+	aa->set(55, 0);
+	aa->set(57, 0);
 	(*aa)[10] *= 0.1;
 	(*aa)[11] *= 0.1;
 	(*aa)[12] *= 0.1;
@@ -1308,7 +1217,7 @@ $SF2Layer* EmergencySoundbank::new_ch_organ($SF2Soundbank* sf2) {
 	}
 	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "Organ"_s, data, base));
 	$var($SF2Layer, layer, newLayer(sf2, "Organ"_s, sample));
-	$var($SF2Region, region, $cast($SF2Region, $nc($($nc(layer)->getRegions()))->get(0)));
+	$var($SF2Region, region, $cast($SF2Region, $$nc($nc(layer)->getRegions())->get(0)));
 	$nc(region)->putInteger($SF2Region::GENERATOR_SAMPLEMODES, 1);
 	region->putInteger($SF2Region::GENERATOR_ATTACKVOLENV, -10000);
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, -1000);
@@ -1317,7 +1226,7 @@ $SF2Layer* EmergencySoundbank::new_ch_organ($SF2Soundbank* sf2) {
 
 $SF2Layer* EmergencySoundbank::new_flute($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t x = 8;
 	int32_t fftsize = 4096 * x;
 	$var($doubles, data, $new($doubles, fftsize * 2));
@@ -1326,9 +1235,9 @@ $SF2Layer* EmergencySoundbank::new_flute($SF2Soundbank* sf2) {
 	complexGaussianDist(data, base * 2, 0.001, 0.5);
 	complexGaussianDist(data, base * 3, 0.001, 0.5);
 	complexGaussianDist(data, base * 4, 0.01, 0.5);
-	complexGaussianDist(data, base * 4, (double)100, (double)120);
-	complexGaussianDist(data, base * 6, (double)100, (double)40);
-	complexGaussianDist(data, base * 8, (double)100, (double)80);
+	complexGaussianDist(data, base * 4, 100, 120);
+	complexGaussianDist(data, base * 6, 100, 40);
+	complexGaussianDist(data, base * 8, 100, 80);
 	complexGaussianDist(data, base * 5, 0.001, 0.05);
 	complexGaussianDist(data, base * 6, 0.001, 0.06);
 	complexGaussianDist(data, base * 7, 0.001, 0.04);
@@ -1342,26 +1251,26 @@ $SF2Layer* EmergencySoundbank::new_flute($SF2Soundbank* sf2) {
 	complexGaussianDist(data, base * 15, 0.08, 0.5);
 	complexGaussianDist(data, base * 16, 0.08, 0.5);
 	complexGaussianDist(data, base * 17, 0.08, 0.2);
-	complexGaussianDist(data, base * 1, (double)10, (double)8);
-	complexGaussianDist(data, base * 2, (double)10, (double)8);
-	complexGaussianDist(data, base * 3, (double)10, (double)8);
-	complexGaussianDist(data, base * 4, (double)10, (double)8);
-	complexGaussianDist(data, base * 5, (double)10, (double)8);
-	complexGaussianDist(data, base * 6, (double)20, (double)9);
-	complexGaussianDist(data, base * 7, (double)20, (double)9);
-	complexGaussianDist(data, base * 8, (double)20, (double)9);
-	complexGaussianDist(data, base * 9, (double)20, (double)8);
-	complexGaussianDist(data, base * 10, (double)30, (double)8);
-	complexGaussianDist(data, base * 11, (double)30, (double)9);
-	complexGaussianDist(data, base * 12, (double)30, (double)9);
-	complexGaussianDist(data, base * 13, (double)30, (double)8);
-	complexGaussianDist(data, base * 14, (double)30, (double)8);
-	complexGaussianDist(data, base * 15, (double)30, (double)7);
-	complexGaussianDist(data, base * 16, (double)30, (double)7);
-	complexGaussianDist(data, base * 17, (double)30, (double)6);
+	complexGaussianDist(data, base * 1, 10, 8);
+	complexGaussianDist(data, base * 2, 10, 8);
+	complexGaussianDist(data, base * 3, 10, 8);
+	complexGaussianDist(data, base * 4, 10, 8);
+	complexGaussianDist(data, base * 5, 10, 8);
+	complexGaussianDist(data, base * 6, 20, 9);
+	complexGaussianDist(data, base * 7, 20, 9);
+	complexGaussianDist(data, base * 8, 20, 9);
+	complexGaussianDist(data, base * 9, 20, 8);
+	complexGaussianDist(data, base * 10, 30, 8);
+	complexGaussianDist(data, base * 11, 30, 9);
+	complexGaussianDist(data, base * 12, 30, 9);
+	complexGaussianDist(data, base * 13, 30, 8);
+	complexGaussianDist(data, base * 14, 30, 8);
+	complexGaussianDist(data, base * 15, 30, 7);
+	complexGaussianDist(data, base * 16, 30, 7);
+	complexGaussianDist(data, base * 17, 30, 6);
 	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "Flute"_s, data, base));
 	$var($SF2Layer, layer, newLayer(sf2, "Flute"_s, sample));
-	$var($SF2Region, region, $cast($SF2Region, $nc($($nc(layer)->getRegions()))->get(0)));
+	$var($SF2Region, region, $cast($SF2Region, $$nc($nc(layer)->getRegions())->get(0)));
 	$nc(region)->putInteger($SF2Region::GENERATOR_SAMPLEMODES, 1);
 	region->putInteger($SF2Region::GENERATOR_ATTACKVOLENV, -6000);
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, -1000);
@@ -1373,7 +1282,7 @@ $SF2Layer* EmergencySoundbank::new_flute($SF2Soundbank* sf2) {
 
 $SF2Layer* EmergencySoundbank::new_horn($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t x = 8;
 	int32_t fftsize = 4096 * x;
 	$var($doubles, data, $new($doubles, fftsize * 2));
@@ -1390,10 +1299,10 @@ $SF2Layer* EmergencySoundbank::new_horn($SF2Soundbank* sf2) {
 		}
 		a *= a_step;
 	}
-	complexGaussianDist(data, base * 2, (double)100, (double)1);
+	complexGaussianDist(data, base * 2, 100, 1);
 	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "Horn"_s, data, base));
 	$var($SF2Layer, layer, newLayer(sf2, "Horn"_s, sample));
-	$var($SF2Region, region, $cast($SF2Region, $nc($($nc(layer)->getRegions()))->get(0)));
+	$var($SF2Region, region, $cast($SF2Region, $$nc($nc(layer)->getRegions())->get(0)));
 	$nc(region)->putInteger($SF2Region::GENERATOR_SAMPLEMODES, 1);
 	region->putInteger($SF2Region::GENERATOR_ATTACKVOLENV, -6000);
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, -1000);
@@ -1408,7 +1317,7 @@ $SF2Layer* EmergencySoundbank::new_horn($SF2Soundbank* sf2) {
 
 $SF2Layer* EmergencySoundbank::new_trumpet($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t x = 8;
 	int32_t fftsize = 4096 * x;
 	$var($doubles, data, $new($doubles, fftsize * 2));
@@ -1429,10 +1338,10 @@ $SF2Layer* EmergencySoundbank::new_trumpet($SF2Soundbank* sf2) {
 	for (int32_t i = 0; i < 80; ++i) {
 		complexGaussianDist(data, base * (i + 1), 0.1, aa->get(i));
 	}
-	complexGaussianDist(data, base * 5, (double)300, (double)3);
+	complexGaussianDist(data, base * 5, 300, 3);
 	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "Trumpet"_s, data, base));
 	$var($SF2Layer, layer, newLayer(sf2, "Trumpet"_s, sample));
-	$var($SF2Region, region, $cast($SF2Region, $nc($($nc(layer)->getRegions()))->get(0)));
+	$var($SF2Region, region, $cast($SF2Region, $$nc($nc(layer)->getRegions())->get(0)));
 	$nc(region)->putInteger($SF2Region::GENERATOR_SAMPLEMODES, 1);
 	region->putInteger($SF2Region::GENERATOR_ATTACKVOLENV, -10000);
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, 0);
@@ -1448,7 +1357,7 @@ $SF2Layer* EmergencySoundbank::new_trumpet($SF2Soundbank* sf2) {
 
 $SF2Layer* EmergencySoundbank::new_brass_section($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t x = 8;
 	int32_t fftsize = 4096 * x;
 	$var($doubles, data, $new($doubles, fftsize * 2));
@@ -1464,15 +1373,15 @@ $SF2Layer* EmergencySoundbank::new_brass_section($SF2Soundbank* sf2) {
 	}
 	(*aa)[0] *= 0.8;
 	(*aa)[1] *= 0.9;
-	double w = (double)5;
+	double w = 5;
 	for (int32_t i = 0; i < 30; ++i) {
 		complexGaussianDist(data, base * (i + 1), 0.1 * w, aa->get(i) * w);
 		w += 6;
 	}
-	complexGaussianDist(data, base * 6, (double)300, (double)2);
+	complexGaussianDist(data, base * 6, 300, 2);
 	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "Brass Section"_s, data, base));
 	$var($SF2Layer, layer, newLayer(sf2, "Brass Section"_s, sample));
-	$var($SF2Region, region, $cast($SF2Region, $nc($($nc(layer)->getRegions()))->get(0)));
+	$var($SF2Region, region, $cast($SF2Region, $$nc($nc(layer)->getRegions())->get(0)));
 	$nc(region)->putInteger($SF2Region::GENERATOR_SAMPLEMODES, 1);
 	region->putInteger($SF2Region::GENERATOR_ATTACKVOLENV, -9200);
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, -1000);
@@ -1487,7 +1396,7 @@ $SF2Layer* EmergencySoundbank::new_brass_section($SF2Soundbank* sf2) {
 
 $SF2Layer* EmergencySoundbank::new_trombone($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t x = 8;
 	int32_t fftsize = 4096 * x;
 	$var($doubles, data, $new($doubles, fftsize * 2));
@@ -1506,10 +1415,10 @@ $SF2Layer* EmergencySoundbank::new_trombone($SF2Soundbank* sf2) {
 	for (int32_t i = 0; i < 80; ++i) {
 		complexGaussianDist(data, base * (i + 1), 0.1, aa->get(i));
 	}
-	complexGaussianDist(data, base * 6, (double)300, (double)2);
+	complexGaussianDist(data, base * 6, 300, 2);
 	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "Trombone"_s, data, base));
 	$var($SF2Layer, layer, newLayer(sf2, "Trombone"_s, sample));
-	$var($SF2Region, region, $cast($SF2Region, $nc($($nc(layer)->getRegions()))->get(0)));
+	$var($SF2Region, region, $cast($SF2Region, $$nc($nc(layer)->getRegions())->get(0)));
 	$nc(region)->putInteger($SF2Region::GENERATOR_SAMPLEMODES, 1);
 	region->putInteger($SF2Region::GENERATOR_ATTACKVOLENV, -8000);
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, -1000);
@@ -1525,7 +1434,7 @@ $SF2Layer* EmergencySoundbank::new_trombone($SF2Soundbank* sf2) {
 
 $SF2Layer* EmergencySoundbank::new_sax($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t x = 8;
 	int32_t fftsize = 4096 * x;
 	$var($doubles, data, $new($doubles, fftsize * 2));
@@ -1542,10 +1451,10 @@ $SF2Layer* EmergencySoundbank::new_sax($SF2Soundbank* sf2) {
 		}
 		a *= a_step;
 	}
-	complexGaussianDist(data, base * 4, (double)200, (double)1);
+	complexGaussianDist(data, base * 4, 200, 1);
 	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "Sax"_s, data, base));
 	$var($SF2Layer, layer, newLayer(sf2, "Sax"_s, sample));
-	$var($SF2Region, region, $cast($SF2Region, $nc($($nc(layer)->getRegions()))->get(0)));
+	$var($SF2Region, region, $cast($SF2Region, $$nc($nc(layer)->getRegions())->get(0)));
 	$nc(region)->putInteger($SF2Region::GENERATOR_SAMPLEMODES, 1);
 	region->putInteger($SF2Region::GENERATOR_ATTACKVOLENV, -6000);
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, -1000);
@@ -1560,17 +1469,17 @@ $SF2Layer* EmergencySoundbank::new_sax($SF2Soundbank* sf2) {
 
 $SF2Layer* EmergencySoundbank::new_oboe($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t x = 8;
 	int32_t fftsize = 4096 * x;
 	$var($doubles, data, $new($doubles, fftsize * 2));
 	double base = (double)(x * 15);
-	complexGaussianDist(data, base * 5, (double)100, (double)80);
+	complexGaussianDist(data, base * 5, 100, 80);
 	complexGaussianDist(data, base * 1, 0.01, 0.53);
 	complexGaussianDist(data, base * 2, 0.01, 0.51);
 	complexGaussianDist(data, base * 3, 0.01, 0.48);
 	complexGaussianDist(data, base * 4, 0.01, 0.49);
-	complexGaussianDist(data, base * 5, 0.01, (double)5);
+	complexGaussianDist(data, base * 5, 0.01, 5);
 	complexGaussianDist(data, base * 6, 0.01, 0.51);
 	complexGaussianDist(data, base * 7, 0.01, 0.5);
 	complexGaussianDist(data, base * 8, 0.01, 0.59);
@@ -1588,7 +1497,7 @@ $SF2Layer* EmergencySoundbank::new_oboe($SF2Soundbank* sf2) {
 	complexGaussianDist(data, base * 20, 0.01, 0.1);
 	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "Oboe"_s, data, base));
 	$var($SF2Layer, layer, newLayer(sf2, "Oboe"_s, sample));
-	$var($SF2Region, region, $cast($SF2Region, $nc($($nc(layer)->getRegions()))->get(0)));
+	$var($SF2Region, region, $cast($SF2Region, $$nc($nc(layer)->getRegions())->get(0)));
 	$nc(region)->putInteger($SF2Region::GENERATOR_SAMPLEMODES, 1);
 	region->putInteger($SF2Region::GENERATOR_ATTACKVOLENV, -6000);
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, -1000);
@@ -1600,15 +1509,15 @@ $SF2Layer* EmergencySoundbank::new_oboe($SF2Soundbank* sf2) {
 
 $SF2Layer* EmergencySoundbank::new_bassoon($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t x = 8;
 	int32_t fftsize = 4096 * x;
 	$var($doubles, data, $new($doubles, fftsize * 2));
 	double base = (double)(x * 15);
-	complexGaussianDist(data, base * 2, (double)100, (double)40);
-	complexGaussianDist(data, base * 4, (double)100, (double)20);
+	complexGaussianDist(data, base * 2, 100, 40);
+	complexGaussianDist(data, base * 4, 100, 20);
 	complexGaussianDist(data, base * 1, 0.01, 0.53);
-	complexGaussianDist(data, base * 2, 0.01, (double)5);
+	complexGaussianDist(data, base * 2, 0.01, 5);
 	complexGaussianDist(data, base * 3, 0.01, 0.51);
 	complexGaussianDist(data, base * 4, 0.01, 0.48);
 	complexGaussianDist(data, base * 5, 0.01, 1.49);
@@ -1629,7 +1538,7 @@ $SF2Layer* EmergencySoundbank::new_bassoon($SF2Soundbank* sf2) {
 	complexGaussianDist(data, base * 20, 0.01, 0.1);
 	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "Flute"_s, data, base));
 	$var($SF2Layer, layer, newLayer(sf2, "Flute"_s, sample));
-	$var($SF2Region, region, $cast($SF2Region, $nc($($nc(layer)->getRegions()))->get(0)));
+	$var($SF2Region, region, $cast($SF2Region, $$nc($nc(layer)->getRegions())->get(0)));
 	$nc(region)->putInteger($SF2Region::GENERATOR_SAMPLEMODES, 1);
 	region->putInteger($SF2Region::GENERATOR_ATTACKVOLENV, -6000);
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, -1000);
@@ -1641,7 +1550,7 @@ $SF2Layer* EmergencySoundbank::new_bassoon($SF2Soundbank* sf2) {
 
 $SF2Layer* EmergencySoundbank::new_clarinet($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t x = 8;
 	int32_t fftsize = 4096 * x;
 	$var($doubles, data, $new($doubles, fftsize * 2));
@@ -1650,9 +1559,9 @@ $SF2Layer* EmergencySoundbank::new_clarinet($SF2Soundbank* sf2) {
 	complexGaussianDist(data, base * 2, 0.001, 0.02);
 	complexGaussianDist(data, base * 3, 0.001, 0.2);
 	complexGaussianDist(data, base * 4, 0.01, 0.1);
-	complexGaussianDist(data, base * 4, (double)100, (double)60);
-	complexGaussianDist(data, base * 6, (double)100, (double)20);
-	complexGaussianDist(data, base * 8, (double)100, (double)20);
+	complexGaussianDist(data, base * 4, 100, 60);
+	complexGaussianDist(data, base * 6, 100, 20);
+	complexGaussianDist(data, base * 8, 100, 20);
 	complexGaussianDist(data, base * 5, 0.001, 0.1);
 	complexGaussianDist(data, base * 6, 0.001, 0.09);
 	complexGaussianDist(data, base * 7, 0.001, 0.02);
@@ -1666,26 +1575,26 @@ $SF2Layer* EmergencySoundbank::new_clarinet($SF2Soundbank* sf2) {
 	complexGaussianDist(data, base * 15, 0.08, 0.9);
 	complexGaussianDist(data, base * 16, 0.08, 0.5);
 	complexGaussianDist(data, base * 17, 0.08, 0.2);
-	complexGaussianDist(data, base * 1, (double)10, (double)8);
-	complexGaussianDist(data, base * 2, (double)10, (double)8);
-	complexGaussianDist(data, base * 3, (double)10, (double)8);
-	complexGaussianDist(data, base * 4, (double)10, (double)8);
-	complexGaussianDist(data, base * 5, (double)10, (double)8);
-	complexGaussianDist(data, base * 6, (double)20, (double)9);
-	complexGaussianDist(data, base * 7, (double)20, (double)9);
-	complexGaussianDist(data, base * 8, (double)20, (double)9);
-	complexGaussianDist(data, base * 9, (double)20, (double)8);
-	complexGaussianDist(data, base * 10, (double)30, (double)8);
-	complexGaussianDist(data, base * 11, (double)30, (double)9);
-	complexGaussianDist(data, base * 12, (double)30, (double)9);
-	complexGaussianDist(data, base * 13, (double)30, (double)8);
-	complexGaussianDist(data, base * 14, (double)30, (double)8);
-	complexGaussianDist(data, base * 15, (double)30, (double)7);
-	complexGaussianDist(data, base * 16, (double)30, (double)7);
-	complexGaussianDist(data, base * 17, (double)30, (double)6);
+	complexGaussianDist(data, base * 1, 10, 8);
+	complexGaussianDist(data, base * 2, 10, 8);
+	complexGaussianDist(data, base * 3, 10, 8);
+	complexGaussianDist(data, base * 4, 10, 8);
+	complexGaussianDist(data, base * 5, 10, 8);
+	complexGaussianDist(data, base * 6, 20, 9);
+	complexGaussianDist(data, base * 7, 20, 9);
+	complexGaussianDist(data, base * 8, 20, 9);
+	complexGaussianDist(data, base * 9, 20, 8);
+	complexGaussianDist(data, base * 10, 30, 8);
+	complexGaussianDist(data, base * 11, 30, 9);
+	complexGaussianDist(data, base * 12, 30, 9);
+	complexGaussianDist(data, base * 13, 30, 8);
+	complexGaussianDist(data, base * 14, 30, 8);
+	complexGaussianDist(data, base * 15, 30, 7);
+	complexGaussianDist(data, base * 16, 30, 7);
+	complexGaussianDist(data, base * 17, 30, 6);
 	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "Clarinet"_s, data, base));
 	$var($SF2Layer, layer, newLayer(sf2, "Clarinet"_s, sample));
-	$var($SF2Region, region, $cast($SF2Region, $nc($($nc(layer)->getRegions()))->get(0)));
+	$var($SF2Region, region, $cast($SF2Region, $$nc($nc(layer)->getRegions())->get(0)));
 	$nc(region)->putInteger($SF2Region::GENERATOR_SAMPLEMODES, 1);
 	region->putInteger($SF2Region::GENERATOR_ATTACKVOLENV, -6000);
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, -1000);
@@ -1697,23 +1606,23 @@ $SF2Layer* EmergencySoundbank::new_clarinet($SF2Soundbank* sf2) {
 
 $SF2Layer* EmergencySoundbank::new_timpani($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($doubles, datab, nullptr);
 	$var($doubles, datah, nullptr);
 	{
 		int32_t fftlen = 4096 * 8;
 		$var($doubles, data, $new($doubles, 2 * fftlen));
-		double base = (double)48;
-		complexGaussianDist(data, base * 2, 0.2, (double)1);
+		double base = 48;
+		complexGaussianDist(data, base * 2, 0.2, 1);
 		complexGaussianDist(data, base * 3, 0.2, 0.7);
-		complexGaussianDist(data, base * 5, (double)10, (double)1);
-		complexGaussianDist(data, base * 6, (double)9, (double)1);
-		complexGaussianDist(data, base * 8, (double)15, (double)1);
-		complexGaussianDist(data, base * 9, (double)18, 0.8);
-		complexGaussianDist(data, base * 11, (double)21, 0.5);
-		complexGaussianDist(data, base * 13, (double)28, 0.3);
-		complexGaussianDist(data, base * 14, (double)22, 0.1);
-		randomPhase(data, $$new($Random, 0x002E89B8));
+		complexGaussianDist(data, base * 5, 10, 1);
+		complexGaussianDist(data, base * 6, 9, 1);
+		complexGaussianDist(data, base * 8, 15, 1);
+		complexGaussianDist(data, base * 9, 18, 0.8);
+		complexGaussianDist(data, base * 11, 21, 0.5);
+		complexGaussianDist(data, base * 13, 28, 0.3);
+		complexGaussianDist(data, base * 14, 22, 0.1);
+		randomPhase(data, $$new($Random, 0x002e89b8));
 		ifft(data);
 		normalize(data, 0.5);
 		$assign(data, realPart(data));
@@ -1728,13 +1637,13 @@ $SF2Layer* EmergencySoundbank::new_timpani($SF2Soundbank* sf2) {
 	{
 		int32_t fftlen = 4096 * 4;
 		$var($doubles, data, $new($doubles, 2 * fftlen));
-		$var($Random, random, $new($Random, 0x002E89B8));
+		$var($Random, random, $new($Random, 0x002e89b8));
 		for (int32_t i = 0; i < data->length; i += 2) {
 			data->set(i, (2.0 * (random->nextDouble() - 0.5)) * 0.1);
 		}
 		fft(data);
 		for (int32_t i = fftlen / 2; i < data->length; ++i) {
-			data->set(i, (double)0);
+			data->set(i, 0);
 		}
 		for (int32_t i = 1024 * 4; i < 2048 * 4; ++i) {
 			data->set(i, 1.0 - (i - 4096) / 4096.0);
@@ -1744,9 +1653,9 @@ $SF2Layer* EmergencySoundbank::new_timpani($SF2Soundbank* sf2) {
 			(*data)[i] *= 1.0 + 20 * g * g;
 		}
 		for (int32_t i = 0; i < 24; ++i) {
-			data->set(i, (double)0);
+			data->set(i, 0);
 		}
-		randomPhase(data, $$new($Random, 0x002E89B8));
+		randomPhase(data, $$new($Random, 0x002e89b8));
 		ifft(data);
 		normalize(data, 0.9);
 		$assign(data, realPart(data));
@@ -1757,8 +1666,8 @@ $SF2Layer* EmergencySoundbank::new_timpani($SF2Soundbank* sf2) {
 		}
 		$assign(datah, data);
 	}
-	for (int32_t i = 0; i < $nc(datah)->length; ++i) {
-		(*$nc(datab))[i] += datah->get(i) * 0.02;
+	for (int32_t i = 0; i < datah->length; ++i) {
+		(*datab)[i] += datah->get(i) * 0.02;
 	}
 	normalize(datab, 0.9);
 	$var($SF2Sample, sample, newSimpleDrumSample(sf2, "Timpani"_s, datab));
@@ -1771,20 +1680,20 @@ $SF2Layer* EmergencySoundbank::new_timpani($SF2Soundbank* sf2) {
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, 12000);
 	region->putInteger($SF2Region::GENERATOR_INITIALATTENUATION, -100);
 	region->setSample(sample);
-	$nc($(layer->getRegions()))->add(region);
+	$$nc(layer->getRegions())->add(region);
 	return layer;
 }
 
 $SF2Layer* EmergencySoundbank::new_melodic_toms($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($doubles, datab, nullptr);
 	$var($doubles, datah, nullptr);
 	{
 		int32_t fftlen = 4096 * 4;
 		$var($doubles, data, $new($doubles, 2 * fftlen));
-		complexGaussianDist(data, (double)30, 0.5, (double)1);
-		randomPhase(data, $$new($Random, 0x002E89B8));
+		complexGaussianDist(data, 30, 0.5, 1);
+		randomPhase(data, $$new($Random, 0x002e89b8));
 		ifft(data);
 		normalize(data, 0.8);
 		$assign(data, realPart(data));
@@ -1797,13 +1706,13 @@ $SF2Layer* EmergencySoundbank::new_melodic_toms($SF2Soundbank* sf2) {
 	{
 		int32_t fftlen = 4096 * 4;
 		$var($doubles, data, $new($doubles, 2 * fftlen));
-		$var($Random, random, $new($Random, 0x002E89B8));
+		$var($Random, random, $new($Random, 0x002e89b8));
 		for (int32_t i = 0; i < data->length; i += 2) {
 			data->set(i, (2.0 * (random->nextDouble() - 0.5)) * 0.1);
 		}
 		fft(data);
 		for (int32_t i = fftlen / 2; i < data->length; ++i) {
-			data->set(i, (double)0);
+			data->set(i, 0);
 		}
 		for (int32_t i = 1024 * 4; i < 2048 * 4; ++i) {
 			data->set(i, 1.0 - (i - 4096) / 4096.0);
@@ -1813,9 +1722,9 @@ $SF2Layer* EmergencySoundbank::new_melodic_toms($SF2Soundbank* sf2) {
 			(*data)[i] *= 1.0 + 20 * g * g;
 		}
 		for (int32_t i = 0; i < 30; ++i) {
-			data->set(i, (double)0);
+			data->set(i, 0);
 		}
-		randomPhase(data, $$new($Random, 0x002E89B8));
+		randomPhase(data, $$new($Random, 0x002e89b8));
 		ifft(data);
 		normalize(data, 0.9);
 		$assign(data, realPart(data));
@@ -1826,11 +1735,11 @@ $SF2Layer* EmergencySoundbank::new_melodic_toms($SF2Soundbank* sf2) {
 		}
 		$assign(datah, data);
 	}
-	for (int32_t i = 0; i < $nc(datah)->length; ++i) {
-		(*$nc(datab))[i] += datah->get(i) * 0.5;
+	for (int32_t i = 0; i < datah->length; ++i) {
+		(*datab)[i] += datah->get(i) * 0.5;
 	}
 	for (int32_t i = 0; i < 5; ++i) {
-		(*$nc(datab))[i] *= i / 5.0;
+		(*datab)[i] *= i / 5.0;
 	}
 	normalize(datab, 0.99);
 	$var($SF2Sample, sample, newSimpleDrumSample(sf2, "Melodic Toms"_s, datab));
@@ -1844,26 +1753,26 @@ $SF2Layer* EmergencySoundbank::new_melodic_toms($SF2Soundbank* sf2) {
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, 12000);
 	region->putInteger($SF2Region::GENERATOR_INITIALATTENUATION, -100);
 	region->setSample(sample);
-	$nc($(layer->getRegions()))->add(region);
+	$$nc(layer->getRegions())->add(region);
 	return layer;
 }
 
 $SF2Layer* EmergencySoundbank::new_reverse_cymbal($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($doubles, datah, nullptr);
 	{
 		int32_t fftlen = 4096 * 4;
 		$var($doubles, data, $new($doubles, 2 * fftlen));
-		$var($Random, random, $new($Random, 0x002E89B8));
+		$var($Random, random, $new($Random, 0x002e89b8));
 		for (int32_t i = 0; i < data->length; i += 2) {
 			data->set(i, (2.0 * (random->nextDouble() - 0.5)));
 		}
 		for (int32_t i = fftlen / 2; i < data->length; ++i) {
-			data->set(i, (double)0);
+			data->set(i, 0);
 		}
 		for (int32_t i = 0; i < 100; ++i) {
-			data->set(i, (double)0);
+			data->set(i, 0);
 		}
 		for (int32_t i = 0; i < 512 * 2; ++i) {
 			double gain = ($div(i, (512.0 * 2.0)));
@@ -1871,7 +1780,7 @@ $SF2Layer* EmergencySoundbank::new_reverse_cymbal($SF2Soundbank* sf2) {
 		}
 		$assign(datah, data);
 	}
-	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "Reverse Cymbal"_s, datah, (double)100, 20));
+	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "Reverse Cymbal"_s, datah, 100, 20));
 	$var($SF2Layer, layer, $new($SF2Layer, sf2));
 	layer->setName("Reverse Cymbal"_s);
 	$var($SF2GlobalRegion, global, $new($SF2GlobalRegion));
@@ -1884,20 +1793,20 @@ $SF2Layer* EmergencySoundbank::new_reverse_cymbal($SF2Soundbank* sf2) {
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, -1000);
 	region->putInteger($SF2Region::GENERATOR_SUSTAINVOLENV, 1000);
 	region->setSample(sample);
-	$nc($(layer->getRegions()))->add(region);
+	$$nc(layer->getRegions())->add(region);
 	return layer;
 }
 
 $SF2Layer* EmergencySoundbank::new_snare_drum($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($doubles, datab, nullptr);
 	$var($doubles, datah, nullptr);
 	{
 		int32_t fftlen = 4096 * 4;
 		$var($doubles, data, $new($doubles, 2 * fftlen));
-		complexGaussianDist(data, (double)24, 0.5, (double)1);
-		randomPhase(data, $$new($Random, 0x002E89B8));
+		complexGaussianDist(data, 24, 0.5, 1);
+		randomPhase(data, $$new($Random, 0x002e89b8));
 		ifft(data);
 		normalize(data, 0.5);
 		$assign(data, realPart(data));
@@ -1910,13 +1819,13 @@ $SF2Layer* EmergencySoundbank::new_snare_drum($SF2Soundbank* sf2) {
 	{
 		int32_t fftlen = 4096 * 4;
 		$var($doubles, data, $new($doubles, 2 * fftlen));
-		$var($Random, random, $new($Random, 0x002E89B8));
+		$var($Random, random, $new($Random, 0x002e89b8));
 		for (int32_t i = 0; i < data->length; i += 2) {
 			data->set(i, (2.0 * (random->nextDouble() - 0.5)) * 0.1);
 		}
 		fft(data);
 		for (int32_t i = fftlen / 2; i < data->length; ++i) {
-			data->set(i, (double)0);
+			data->set(i, 0);
 		}
 		for (int32_t i = 1024 * 4; i < 2048 * 4; ++i) {
 			data->set(i, 1.0 - (i - 4096) / 4096.0);
@@ -1926,9 +1835,9 @@ $SF2Layer* EmergencySoundbank::new_snare_drum($SF2Soundbank* sf2) {
 			(*data)[i] *= 1.0 + 20 * g * g;
 		}
 		for (int32_t i = 0; i < 24; ++i) {
-			data->set(i, (double)0);
+			data->set(i, 0);
 		}
-		randomPhase(data, $$new($Random, 0x002E89B8));
+		randomPhase(data, $$new($Random, 0x002e89b8));
 		ifft(data);
 		normalize(data, 0.9);
 		$assign(data, realPart(data));
@@ -1939,11 +1848,11 @@ $SF2Layer* EmergencySoundbank::new_snare_drum($SF2Soundbank* sf2) {
 		}
 		$assign(datah, data);
 	}
-	for (int32_t i = 0; i < $nc(datah)->length; ++i) {
-		(*$nc(datab))[i] += datah->get(i);
+	for (int32_t i = 0; i < datah->length; ++i) {
+		(*datab)[i] += datah->get(i);
 	}
 	for (int32_t i = 0; i < 5; ++i) {
-		(*$nc(datab))[i] *= i / 5.0;
+		(*datab)[i] *= i / 5.0;
 	}
 	$var($SF2Sample, sample, newSimpleDrumSample(sf2, "Snare Drum"_s, datab));
 	$var($SF2Layer, layer, $new($SF2Layer, sf2));
@@ -1956,21 +1865,21 @@ $SF2Layer* EmergencySoundbank::new_snare_drum($SF2Soundbank* sf2) {
 	region->putInteger($SF2Region::GENERATOR_SCALETUNING, 0);
 	region->putInteger($SF2Region::GENERATOR_INITIALATTENUATION, -100);
 	region->setSample(sample);
-	$nc($(layer->getRegions()))->add(region);
+	$$nc(layer->getRegions())->add(region);
 	return layer;
 }
 
 $SF2Layer* EmergencySoundbank::new_bass_drum($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($doubles, datab, nullptr);
 	$var($doubles, datah, nullptr);
 	{
 		int32_t fftlen = 4096 * 4;
 		$var($doubles, data, $new($doubles, 2 * fftlen));
-		complexGaussianDist(data, 1.8 * 5 + 1, (double)2, (double)1);
-		complexGaussianDist(data, 1.8 * 9 + 1, (double)2, (double)1);
-		randomPhase(data, $$new($Random, 0x002E89B8));
+		complexGaussianDist(data, 1.8 * 5 + 1, 2, 1);
+		complexGaussianDist(data, 1.8 * 9 + 1, 2, 1);
+		randomPhase(data, $$new($Random, 0x002e89b8));
 		ifft(data);
 		normalize(data, 0.9);
 		$assign(data, realPart(data));
@@ -1983,13 +1892,13 @@ $SF2Layer* EmergencySoundbank::new_bass_drum($SF2Soundbank* sf2) {
 	{
 		int32_t fftlen = 4096;
 		$var($doubles, data, $new($doubles, 2 * fftlen));
-		$var($Random, random, $new($Random, 0x002E89B8));
+		$var($Random, random, $new($Random, 0x002e89b8));
 		for (int32_t i = 0; i < data->length; i += 2) {
 			data->set(i, (2.0 * (random->nextDouble() - 0.5)) * 0.1);
 		}
 		fft(data);
 		for (int32_t i = fftlen / 2; i < data->length; ++i) {
-			data->set(i, (double)0);
+			data->set(i, 0);
 		}
 		for (int32_t i = 1024; i < 2048; ++i) {
 			data->set(i, 1.0 - (i - 1024) / 1024.0);
@@ -1998,9 +1907,9 @@ $SF2Layer* EmergencySoundbank::new_bass_drum($SF2Soundbank* sf2) {
 			data->set(i, 10 * i / 512.0);
 		}
 		for (int32_t i = 0; i < 10; ++i) {
-			data->set(i, (double)0);
+			data->set(i, 0);
 		}
-		randomPhase(data, $$new($Random, 0x002E89B8));
+		randomPhase(data, $$new($Random, 0x002e89b8));
 		ifft(data);
 		normalize(data, 0.9);
 		$assign(data, realPart(data));
@@ -2011,11 +1920,11 @@ $SF2Layer* EmergencySoundbank::new_bass_drum($SF2Soundbank* sf2) {
 		}
 		$assign(datah, data);
 	}
-	for (int32_t i = 0; i < $nc(datah)->length; ++i) {
-		(*$nc(datab))[i] += datah->get(i) * 0.5;
+	for (int32_t i = 0; i < datah->length; ++i) {
+		(*datab)[i] += datah->get(i) * 0.5;
 	}
 	for (int32_t i = 0; i < 5; ++i) {
-		(*$nc(datab))[i] *= i / 5.0;
+		(*datab)[i] *= i / 5.0;
 	}
 	$var($SF2Sample, sample, newSimpleDrumSample(sf2, "Bass Drum"_s, datab));
 	$var($SF2Layer, layer, $new($SF2Layer, sf2));
@@ -2028,20 +1937,20 @@ $SF2Layer* EmergencySoundbank::new_bass_drum($SF2Soundbank* sf2) {
 	region->putInteger($SF2Region::GENERATOR_SCALETUNING, 0);
 	region->putInteger($SF2Region::GENERATOR_INITIALATTENUATION, -100);
 	region->setSample(sample);
-	$nc($(layer->getRegions()))->add(region);
+	$$nc(layer->getRegions())->add(region);
 	return layer;
 }
 
 $SF2Layer* EmergencySoundbank::new_tom($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($doubles, datab, nullptr);
 	$var($doubles, datah, nullptr);
 	{
 		int32_t fftlen = 4096 * 4;
 		$var($doubles, data, $new($doubles, 2 * fftlen));
-		complexGaussianDist(data, (double)30, 0.5, (double)1);
-		randomPhase(data, $$new($Random, 0x002E89B8));
+		complexGaussianDist(data, 30, 0.5, 1);
+		randomPhase(data, $$new($Random, 0x002e89b8));
 		ifft(data);
 		normalize(data, 0.8);
 		$assign(data, realPart(data));
@@ -2054,13 +1963,13 @@ $SF2Layer* EmergencySoundbank::new_tom($SF2Soundbank* sf2) {
 	{
 		int32_t fftlen = 4096 * 4;
 		$var($doubles, data, $new($doubles, 2 * fftlen));
-		$var($Random, random, $new($Random, 0x002E89B8));
+		$var($Random, random, $new($Random, 0x002e89b8));
 		for (int32_t i = 0; i < data->length; i += 2) {
 			data->set(i, (2.0 * (random->nextDouble() - 0.5)) * 0.1);
 		}
 		fft(data);
 		for (int32_t i = fftlen / 2; i < data->length; ++i) {
-			data->set(i, (double)0);
+			data->set(i, 0);
 		}
 		for (int32_t i = 1024 * 4; i < 2048 * 4; ++i) {
 			data->set(i, 1.0 - (i - 4096) / 4096.0);
@@ -2070,9 +1979,9 @@ $SF2Layer* EmergencySoundbank::new_tom($SF2Soundbank* sf2) {
 			(*data)[i] *= 1.0 + 20 * g * g;
 		}
 		for (int32_t i = 0; i < 30; ++i) {
-			data->set(i, (double)0);
+			data->set(i, 0);
 		}
-		randomPhase(data, $$new($Random, 0x002E89B8));
+		randomPhase(data, $$new($Random, 0x002e89b8));
 		ifft(data);
 		normalize(data, 0.9);
 		$assign(data, realPart(data));
@@ -2083,11 +1992,11 @@ $SF2Layer* EmergencySoundbank::new_tom($SF2Soundbank* sf2) {
 		}
 		$assign(datah, data);
 	}
-	for (int32_t i = 0; i < $nc(datah)->length; ++i) {
-		(*$nc(datab))[i] += datah->get(i) * 0.5;
+	for (int32_t i = 0; i < datah->length; ++i) {
+		(*datab)[i] += datah->get(i) * 0.5;
 	}
 	for (int32_t i = 0; i < 5; ++i) {
-		(*$nc(datab))[i] *= i / 5.0;
+		(*datab)[i] *= i / 5.0;
 	}
 	normalize(datab, 0.99);
 	$var($SF2Sample, sample, newSimpleDrumSample(sf2, "Tom"_s, datab));
@@ -2101,24 +2010,24 @@ $SF2Layer* EmergencySoundbank::new_tom($SF2Soundbank* sf2) {
 	region->putInteger($SF2Region::GENERATOR_RELEASEVOLENV, 12000);
 	region->putInteger($SF2Region::GENERATOR_INITIALATTENUATION, -100);
 	region->setSample(sample);
-	$nc($(layer->getRegions()))->add(region);
+	$$nc(layer->getRegions())->add(region);
 	return layer;
 }
 
 $SF2Layer* EmergencySoundbank::new_closed_hihat($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($doubles, datah, nullptr);
 	{
 		int32_t fftlen = 4096 * 4;
 		$var($doubles, data, $new($doubles, 2 * fftlen));
-		$var($Random, random, $new($Random, 0x002E89B8));
+		$var($Random, random, $new($Random, 0x002e89b8));
 		for (int32_t i = 0; i < data->length; i += 2) {
 			data->set(i, (2.0 * (random->nextDouble() - 0.5)) * 0.1);
 		}
 		fft(data);
 		for (int32_t i = fftlen / 2; i < data->length; ++i) {
-			data->set(i, (double)0);
+			data->set(i, 0);
 		}
 		for (int32_t i = 1024 * 4; i < 2048 * 4; ++i) {
 			data->set(i, 1.0 - (i - 4096) / 4096.0);
@@ -2126,7 +2035,7 @@ $SF2Layer* EmergencySoundbank::new_closed_hihat($SF2Soundbank* sf2) {
 		for (int32_t i = 0; i < 2048; ++i) {
 			data->set(i, 0.2 + 0.8 * (i / 2048.0));
 		}
-		randomPhase(data, $$new($Random, 0x002E89B8));
+		randomPhase(data, $$new($Random, 0x002e89b8));
 		ifft(data);
 		normalize(data, 0.9);
 		$assign(data, realPart(data));
@@ -2138,7 +2047,7 @@ $SF2Layer* EmergencySoundbank::new_closed_hihat($SF2Soundbank* sf2) {
 		$assign(datah, data);
 	}
 	for (int32_t i = 0; i < 5; ++i) {
-		(*$nc(datah))[i] *= i / 5.0;
+		(*datah)[i] *= i / 5.0;
 	}
 	$var($SF2Sample, sample, newSimpleDrumSample(sf2, "Closed Hi-Hat"_s, datah));
 	$var($SF2Layer, layer, $new($SF2Layer, sf2));
@@ -2151,26 +2060,26 @@ $SF2Layer* EmergencySoundbank::new_closed_hihat($SF2Soundbank* sf2) {
 	region->putInteger($SF2Region::GENERATOR_SCALETUNING, 0);
 	region->putInteger($SF2Region::GENERATOR_EXCLUSIVECLASS, 1);
 	region->setSample(sample);
-	$nc($(layer->getRegions()))->add(region);
+	$$nc(layer->getRegions())->add(region);
 	return layer;
 }
 
 $SF2Layer* EmergencySoundbank::new_open_hihat($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($doubles, datah, nullptr);
 	{
 		int32_t fftlen = 4096 * 4;
 		$var($doubles, data, $new($doubles, 2 * fftlen));
-		$var($Random, random, $new($Random, 0x002E89B8));
+		$var($Random, random, $new($Random, 0x002e89b8));
 		for (int32_t i = 0; i < data->length; i += 2) {
 			data->set(i, (2.0 * (random->nextDouble() - 0.5)));
 		}
 		for (int32_t i = fftlen / 2; i < data->length; ++i) {
-			data->set(i, (double)0);
+			data->set(i, 0);
 		}
 		for (int32_t i = 0; i < 200; ++i) {
-			data->set(i, (double)0);
+			data->set(i, 0);
 		}
 		for (int32_t i = 0; i < 2048 * 4; ++i) {
 			double gain = ($div(i, (2048.0 * 4.0)));
@@ -2178,7 +2087,7 @@ $SF2Layer* EmergencySoundbank::new_open_hihat($SF2Soundbank* sf2) {
 		}
 		$assign(datah, data);
 	}
-	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "Open Hi-Hat"_s, datah, (double)1000, 5));
+	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "Open Hi-Hat"_s, datah, 1000, 5));
 	$var($SF2Layer, layer, $new($SF2Layer, sf2));
 	layer->setName("Open Hi-Hat"_s);
 	$var($SF2GlobalRegion, global, $new($SF2GlobalRegion));
@@ -2192,26 +2101,26 @@ $SF2Layer* EmergencySoundbank::new_open_hihat($SF2Soundbank* sf2) {
 	region->putInteger($SF2Region::GENERATOR_SCALETUNING, 0);
 	region->putInteger($SF2Region::GENERATOR_EXCLUSIVECLASS, 1);
 	region->setSample(sample);
-	$nc($(layer->getRegions()))->add(region);
+	$$nc(layer->getRegions())->add(region);
 	return layer;
 }
 
 $SF2Layer* EmergencySoundbank::new_crash_cymbal($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($doubles, datah, nullptr);
 	{
 		int32_t fftlen = 4096 * 4;
 		$var($doubles, data, $new($doubles, 2 * fftlen));
-		$var($Random, random, $new($Random, 0x002E89B8));
+		$var($Random, random, $new($Random, 0x002e89b8));
 		for (int32_t i = 0; i < data->length; i += 2) {
 			data->set(i, (2.0 * (random->nextDouble() - 0.5)));
 		}
 		for (int32_t i = fftlen / 2; i < data->length; ++i) {
-			data->set(i, (double)0);
+			data->set(i, 0);
 		}
 		for (int32_t i = 0; i < 100; ++i) {
-			data->set(i, (double)0);
+			data->set(i, 0);
 		}
 		for (int32_t i = 0; i < 512 * 2; ++i) {
 			double gain = ($div(i, (512.0 * 2.0)));
@@ -2219,7 +2128,7 @@ $SF2Layer* EmergencySoundbank::new_crash_cymbal($SF2Soundbank* sf2) {
 		}
 		$assign(datah, data);
 	}
-	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "Crash Cymbal"_s, datah, (double)1000, 5));
+	$var($SF2Sample, sample, newSimpleFFTSample(sf2, "Crash Cymbal"_s, datah, 1000, 5));
 	$var($SF2Layer, layer, $new($SF2Layer, sf2));
 	layer->setName("Crash Cymbal"_s);
 	$var($SF2GlobalRegion, global, $new($SF2GlobalRegion));
@@ -2232,24 +2141,24 @@ $SF2Layer* EmergencySoundbank::new_crash_cymbal($SF2Soundbank* sf2) {
 	region->putInteger($SF2Region::GENERATOR_SUSTAINVOLENV, 1000);
 	region->putInteger($SF2Region::GENERATOR_SCALETUNING, 0);
 	region->setSample(sample);
-	$nc($(layer->getRegions()))->add(region);
+	$$nc(layer->getRegions())->add(region);
 	return layer;
 }
 
 $SF2Layer* EmergencySoundbank::new_side_stick($SF2Soundbank* sf2) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($doubles, datab, nullptr);
 	{
 		int32_t fftlen = 4096 * 4;
 		$var($doubles, data, $new($doubles, 2 * fftlen));
-		$var($Random, random, $new($Random, 0x002E89B8));
+		$var($Random, random, $new($Random, 0x002e89b8));
 		for (int32_t i = 0; i < data->length; i += 2) {
 			data->set(i, (2.0 * (random->nextDouble() - 0.5)) * 0.1);
 		}
 		fft(data);
 		for (int32_t i = fftlen / 2; i < data->length; ++i) {
-			data->set(i, (double)0);
+			data->set(i, 0);
 		}
 		for (int32_t i = 1024 * 4; i < 2048 * 4; ++i) {
 			data->set(i, 1.0 - (i - 4096) / 4096.0);
@@ -2259,9 +2168,9 @@ $SF2Layer* EmergencySoundbank::new_side_stick($SF2Soundbank* sf2) {
 			(*data)[i] *= 1.0 + 20 * g * g;
 		}
 		for (int32_t i = 0; i < 30; ++i) {
-			data->set(i, (double)0);
+			data->set(i, 0);
 		}
-		randomPhase(data, $$new($Random, 0x002E89B8));
+		randomPhase(data, $$new($Random, 0x002e89b8));
 		ifft(data);
 		normalize(data, 0.9);
 		$assign(data, realPart(data));
@@ -2273,7 +2182,7 @@ $SF2Layer* EmergencySoundbank::new_side_stick($SF2Soundbank* sf2) {
 		$assign(datab, data);
 	}
 	for (int32_t i = 0; i < 10; ++i) {
-		(*$nc(datab))[i] *= i / 10.0;
+		(*datab)[i] *= i / 10.0;
 	}
 	$var($SF2Sample, sample, newSimpleDrumSample(sf2, "Side Stick"_s, datab));
 	$var($SF2Layer, layer, $new($SF2Layer, sf2));
@@ -2286,7 +2195,7 @@ $SF2Layer* EmergencySoundbank::new_side_stick($SF2Soundbank* sf2) {
 	region->putInteger($SF2Region::GENERATOR_SCALETUNING, 0);
 	region->putInteger($SF2Region::GENERATOR_INITIALATTENUATION, -50);
 	region->setSample(sample);
-	$nc($(layer->getRegions()))->add(region);
+	$$nc(layer->getRegions())->add(region);
 	return layer;
 }
 
@@ -2297,10 +2206,10 @@ $SF2Sample* EmergencySoundbank::newSimpleFFTSample($SF2Soundbank* sf2, $String* 
 
 $SF2Sample* EmergencySoundbank::newSimpleFFTSample($SF2Soundbank* sf2, $String* name, $doubles* data$renamed, double base, int32_t fadeuptime) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($doubles, data, data$renamed);
 	int32_t fftsize = $nc(data)->length / 2;
-	$var($AudioFormat, format, $new($AudioFormat, (float)0x0000AC44, 16, 1, true, false));
+	$var($AudioFormat, format, $new($AudioFormat, 0x0000ac44, 16, 1, true, false));
 	double basefreq = (base / fftsize) * format->getSampleRate() * 0.5;
 	randomPhase(data);
 	ifft(data);
@@ -2318,7 +2227,7 @@ $SF2Sample* EmergencySoundbank::newSimpleFFTSample($SF2Soundbank* sf2, $String* 
 	sample->setSampleRate($cast(int64_t, format->getSampleRate()));
 	int32_t var$0 = (69 + 12);
 	double var$2 = 12 * $Math::log(basefreq / 440.0);
-	double var$1 = (var$2 / $Math::log((double)2));
+	double var$1 = (var$2 / $Math::log(2));
 	double orgnote = var$0 + var$1;
 	sample->setOriginalPitch($cast(int32_t, orgnote));
 	sample->setPitchCorrection($cast(int8_t, (-(orgnote - $cast(int32_t, orgnote)) * 100.0)));
@@ -2328,16 +2237,16 @@ $SF2Sample* EmergencySoundbank::newSimpleFFTSample($SF2Soundbank* sf2, $String* 
 
 $SF2Sample* EmergencySoundbank::newSimpleFFTSample_dist($SF2Soundbank* sf2, $String* name, $doubles* data$renamed, double base, double preamp) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($doubles, data, data$renamed);
 	int32_t fftsize = $nc(data)->length / 2;
-	$var($AudioFormat, format, $new($AudioFormat, (float)0x0000AC44, 16, 1, true, false));
+	$var($AudioFormat, format, $new($AudioFormat, 0x0000ac44, 16, 1, true, false));
 	double basefreq = (base / fftsize) * format->getSampleRate() * 0.5;
 	randomPhase(data);
 	ifft(data);
 	$assign(data, realPart(data));
-	for (int32_t i = 0; i < data->length; ++i) {
-		double var$0 = (1 - $Math::exp(-$Math::abs(data->get(i) * preamp)));
+	for (int32_t i = 0; i < $nc(data)->length; ++i) {
+		double var$0 = 1 - $Math::exp(-$Math::abs(data->get(i) * preamp));
 		data->set(i, var$0 * $Math::signum(data->get(i)));
 	}
 	normalize(data, 0.9);
@@ -2353,7 +2262,7 @@ $SF2Sample* EmergencySoundbank::newSimpleFFTSample_dist($SF2Soundbank* sf2, $Str
 	sample->setSampleRate($cast(int64_t, format->getSampleRate()));
 	int32_t var$1 = (69 + 12);
 	double var$3 = 12 * $Math::log(basefreq / 440.0);
-	double var$2 = (var$3 / $Math::log((double)2));
+	double var$2 = (var$3 / $Math::log(2));
 	double orgnote = var$1 + var$2;
 	sample->setOriginalPitch($cast(int32_t, orgnote));
 	sample->setPitchCorrection($cast(int8_t, (-(orgnote - $cast(int32_t, orgnote)) * 100.0)));
@@ -2363,9 +2272,9 @@ $SF2Sample* EmergencySoundbank::newSimpleFFTSample_dist($SF2Soundbank* sf2, $Str
 
 $SF2Sample* EmergencySoundbank::newSimpleDrumSample($SF2Soundbank* sf2, $String* name, $doubles* data) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t fftsize = $nc(data)->length;
-	$var($AudioFormat, format, $new($AudioFormat, (float)0x0000AC44, 16, 1, true, false));
+	$var($AudioFormat, format, $new($AudioFormat, 0x0000ac44, 16, 1, true, false));
 	$var($bytes, bdata, toBytes($(toFloat($(realPart(data)))), format));
 	$var($SF2Sample, sample, $new($SF2Sample, sf2));
 	sample->setName(name);
@@ -2380,19 +2289,19 @@ $SF2Sample* EmergencySoundbank::newSimpleDrumSample($SF2Soundbank* sf2, $String*
 
 $SF2Layer* EmergencySoundbank::newLayer($SF2Soundbank* sf2, $String* name, $SF2Sample* sample) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SF2LayerRegion, region, $new($SF2LayerRegion));
 	region->setSample(sample);
 	$var($SF2Layer, layer, $new($SF2Layer, sf2));
 	layer->setName(name);
-	$nc($(layer->getRegions()))->add(region);
+	$$nc(layer->getRegions())->add(region);
 	$nc(sf2)->addResource(layer);
 	return layer;
 }
 
 $SF2Instrument* EmergencySoundbank::newInstrument($SF2Soundbank* sf2, $String* name, $Patch* patch, $SF2LayerArray* layers) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SF2Instrument, ins, $new($SF2Instrument, sf2));
 	ins->setPatch(patch);
 	ins->setName(name);
@@ -2400,7 +2309,7 @@ $SF2Instrument* EmergencySoundbank::newInstrument($SF2Soundbank* sf2, $String* n
 	for (int32_t i = 0; i < $nc(layers)->length; ++i) {
 		$var($SF2InstrumentRegion, insregion, $new($SF2InstrumentRegion));
 		insregion->setLayer(layers->get(i));
-		$nc($(ins->getRegions()))->add(insregion);
+		$$nc(ins->getRegions())->add(insregion);
 	}
 	return ins;
 }
@@ -2450,7 +2359,7 @@ void EmergencySoundbank::randomPhase($doubles* data, $Random* random) {
 
 void EmergencySoundbank::normalize($doubles* data, double target) {
 	$init(EmergencySoundbank);
-	double maxvalue = (double)0;
+	double maxvalue = 0;
 	for (int32_t i = 0; i < $nc(data)->length; ++i) {
 		if (data->get(i) > maxvalue) {
 			maxvalue = data->get(i);
@@ -2463,7 +2372,7 @@ void EmergencySoundbank::normalize($doubles* data, double target) {
 		return;
 	}
 	double gain = target / maxvalue;
-	for (int32_t i = 0; i < $nc(data)->length; ++i) {
+	for (int32_t i = 0; i < data->length; ++i) {
 		(*data)[i] *= gain;
 	}
 }
@@ -2480,7 +2389,7 @@ void EmergencySoundbank::normalize($floats* data, double target) {
 		}
 	}
 	double gain = target / maxvalue;
-	for (int32_t i = 0; i < $nc(data)->length; ++i) {
+	for (int32_t i = 0; i < data->length; ++i) {
 		(*data)[i * 2] *= gain;
 	}
 }
@@ -2514,9 +2423,9 @@ $floats* EmergencySoundbank::toFloat($doubles* in) {
 
 $bytes* EmergencySoundbank::toBytes($floats* in, $AudioFormat* format) {
 	$init(EmergencySoundbank);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, out, $new($bytes, $nc(in)->length * $nc(format)->getFrameSize()));
-	return $nc($($AudioFloatConverter::getConverter(format)))->toByteArray(in, out);
+	return $$nc($AudioFloatConverter::getConverter(format))->toByteArray(in, out);
 }
 
 void EmergencySoundbank::fadeUp($doubles* data, int32_t samples) {
@@ -2565,7 +2474,7 @@ $floats* EmergencySoundbank::loopExtend($floats* data, int32_t newsize) {
 	return outdata;
 }
 
-void clinit$EmergencySoundbank($Class* class$) {
+void EmergencySoundbank::clinit$($Class* clazz) {
 	$assignStatic(EmergencySoundbank::general_midi_instruments, $new($StringArray, {
 		"Acoustic Grand Piano"_s,
 		"Bright Acoustic Piano"_s,
@@ -2702,7 +2611,85 @@ EmergencySoundbank::EmergencySoundbank() {
 }
 
 $Class* EmergencySoundbank::load$($String* name, bool initialize) {
-	$loadClass(EmergencySoundbank, name, initialize, &_EmergencySoundbank_ClassInfo_, clinit$EmergencySoundbank, allocate$EmergencySoundbank);
+	$FieldInfo fieldInfos$$[] = {
+		{"general_midi_instruments", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EmergencySoundbank, general_midi_instruments)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(EmergencySoundbank, init$, void)},
+		{"complexGaussianDist", "([DDDD)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, complexGaussianDist, void, $doubles*, double, double, double)},
+		{"createSoundbank", "()Lcom/sun/media/sound/SF2Soundbank;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, createSoundbank, $SF2Soundbank*), "java.lang.Exception"},
+		{"fadeUp", "([DI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, fadeUp, void, $doubles*, int32_t)},
+		{"fadeUp", "([FI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, fadeUp, void, $floats*, int32_t)},
+		{"fft", "([D)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, fft, void, $doubles*)},
+		{"ifft", "([D)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, ifft, void, $doubles*)},
+		{"imgPart", "([D)[D", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, imgPart, $doubles*, $doubles*)},
+		{"loopExtend", "([DI)[D", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, loopExtend, $doubles*, $doubles*, int32_t)},
+		{"loopExtend", "([FI)[F", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, loopExtend, $floats*, $floats*, int32_t)},
+		{"newInstrument", "(Lcom/sun/media/sound/SF2Soundbank;Ljava/lang/String;Ljavax/sound/midi/Patch;[Lcom/sun/media/sound/SF2Layer;)Lcom/sun/media/sound/SF2Instrument;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(EmergencySoundbank, newInstrument, $SF2Instrument*, $SF2Soundbank*, $String*, $Patch*, $SF2LayerArray*)},
+		{"newLayer", "(Lcom/sun/media/sound/SF2Soundbank;Ljava/lang/String;Lcom/sun/media/sound/SF2Sample;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, newLayer, $SF2Layer*, $SF2Soundbank*, $String*, $SF2Sample*)},
+		{"newSimpleDrumSample", "(Lcom/sun/media/sound/SF2Soundbank;Ljava/lang/String;[D)Lcom/sun/media/sound/SF2Sample;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, newSimpleDrumSample, $SF2Sample*, $SF2Soundbank*, $String*, $doubles*)},
+		{"newSimpleFFTSample", "(Lcom/sun/media/sound/SF2Soundbank;Ljava/lang/String;[DD)Lcom/sun/media/sound/SF2Sample;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, newSimpleFFTSample, $SF2Sample*, $SF2Soundbank*, $String*, $doubles*, double)},
+		{"newSimpleFFTSample", "(Lcom/sun/media/sound/SF2Soundbank;Ljava/lang/String;[DDI)Lcom/sun/media/sound/SF2Sample;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, newSimpleFFTSample, $SF2Sample*, $SF2Soundbank*, $String*, $doubles*, double, int32_t)},
+		{"newSimpleFFTSample_dist", "(Lcom/sun/media/sound/SF2Soundbank;Ljava/lang/String;[DDD)Lcom/sun/media/sound/SF2Sample;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, newSimpleFFTSample_dist, $SF2Sample*, $SF2Soundbank*, $String*, $doubles*, double, double)},
+		{"new_bass1", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_bass1, $SF2Layer*, $SF2Soundbank*)},
+		{"new_bass2", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_bass2, $SF2Layer*, $SF2Soundbank*)},
+		{"new_bass_drum", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_bass_drum, $SF2Layer*, $SF2Soundbank*)},
+		{"new_bassoon", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_bassoon, $SF2Layer*, $SF2Soundbank*)},
+		{"new_bell", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_bell, $SF2Layer*, $SF2Soundbank*)},
+		{"new_brass_section", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_brass_section, $SF2Layer*, $SF2Soundbank*)},
+		{"new_ch_organ", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_ch_organ, $SF2Layer*, $SF2Soundbank*)},
+		{"new_choir", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_choir, $SF2Layer*, $SF2Soundbank*)},
+		{"new_clarinet", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_clarinet, $SF2Layer*, $SF2Soundbank*)},
+		{"new_closed_hihat", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_closed_hihat, $SF2Layer*, $SF2Soundbank*)},
+		{"new_crash_cymbal", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_crash_cymbal, $SF2Layer*, $SF2Soundbank*)},
+		{"new_epiano1", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_epiano1, $SF2Layer*, $SF2Soundbank*)},
+		{"new_epiano2", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_epiano2, $SF2Layer*, $SF2Soundbank*)},
+		{"new_flute", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_flute, $SF2Layer*, $SF2Soundbank*)},
+		{"new_gpiano", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_gpiano, $SF2Layer*, $SF2Soundbank*)},
+		{"new_gpiano2", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_gpiano2, $SF2Layer*, $SF2Soundbank*)},
+		{"new_guitar1", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_guitar1, $SF2Layer*, $SF2Soundbank*)},
+		{"new_guitar_dist", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_guitar_dist, $SF2Layer*, $SF2Soundbank*)},
+		{"new_guitar_pick", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_guitar_pick, $SF2Layer*, $SF2Soundbank*)},
+		{"new_horn", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_horn, $SF2Layer*, $SF2Soundbank*)},
+		{"new_melodic_toms", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_melodic_toms, $SF2Layer*, $SF2Soundbank*)},
+		{"new_oboe", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_oboe, $SF2Layer*, $SF2Soundbank*)},
+		{"new_open_hihat", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_open_hihat, $SF2Layer*, $SF2Soundbank*)},
+		{"new_orchhit", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_orchhit, $SF2Layer*, $SF2Soundbank*)},
+		{"new_organ", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_organ, $SF2Layer*, $SF2Soundbank*)},
+		{"new_piano1", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_piano1, $SF2Layer*, $SF2Soundbank*)},
+		{"new_piano_hammer", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_piano_hammer, $SF2Layer*, $SF2Soundbank*)},
+		{"new_reverse_cymbal", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_reverse_cymbal, $SF2Layer*, $SF2Soundbank*)},
+		{"new_sax", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_sax, $SF2Layer*, $SF2Soundbank*)},
+		{"new_side_stick", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_side_stick, $SF2Layer*, $SF2Soundbank*)},
+		{"new_snare_drum", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_snare_drum, $SF2Layer*, $SF2Soundbank*)},
+		{"new_solostring", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_solostring, $SF2Layer*, $SF2Soundbank*)},
+		{"new_string2", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_string2, $SF2Layer*, $SF2Soundbank*)},
+		{"new_synthbass", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_synthbass, $SF2Layer*, $SF2Soundbank*)},
+		{"new_timpani", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_timpani, $SF2Layer*, $SF2Soundbank*)},
+		{"new_tom", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_tom, $SF2Layer*, $SF2Soundbank*)},
+		{"new_trombone", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_trombone, $SF2Layer*, $SF2Soundbank*)},
+		{"new_trumpet", "(Lcom/sun/media/sound/SF2Soundbank;)Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, new_trumpet, $SF2Layer*, $SF2Soundbank*)},
+		{"normalize", "([DD)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, normalize, void, $doubles*, double)},
+		{"normalize", "([FD)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, normalize, void, $floats*, double)},
+		{"randomPhase", "([D)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, randomPhase, void, $doubles*)},
+		{"randomPhase", "([DLjava/util/Random;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, randomPhase, void, $doubles*, $Random*)},
+		{"realPart", "([D)[D", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, realPart, $doubles*, $doubles*)},
+		{"toBytes", "([FLjavax/sound/sampled/AudioFormat;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, toBytes, $bytes*, $floats*, $AudioFormat*)},
+		{"toFloat", "([D)[F", nullptr, $PUBLIC | $STATIC, $staticMethod(EmergencySoundbank, toFloat, $floats*, $doubles*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.EmergencySoundbank",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EmergencySoundbank, name, initialize, &classInfo$$, EmergencySoundbank::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(EmergencySoundbank);
+	});
 	return class$;
 }
 

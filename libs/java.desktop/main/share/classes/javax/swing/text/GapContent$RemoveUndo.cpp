@@ -1,5 +1,4 @@
 #include <javax/swing/text/GapContent$RemoveUndo.h>
-
 #include <java/util/Vector.h>
 #include <javax/swing/text/BadLocationException.h>
 #include <javax/swing/text/GapContent.h>
@@ -23,47 +22,6 @@ using $CannotUndoException = ::javax::swing::undo::CannotUndoException;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _GapContent$RemoveUndo_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/GapContent;", nullptr, $FINAL | $SYNTHETIC, $field(GapContent$RemoveUndo, this$0)},
-	{"offset", "I", nullptr, $PROTECTED, $field(GapContent$RemoveUndo, offset)},
-	{"length", "I", nullptr, $PROTECTED, $field(GapContent$RemoveUndo, length)},
-	{"string", "Ljava/lang/String;", nullptr, $PROTECTED, $field(GapContent$RemoveUndo, string)},
-	{"posRefs", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/GapContent$UndoPosRef;>;", $PROTECTED, $field(GapContent$RemoveUndo, posRefs)},
-	{}
-};
-
-$MethodInfo _GapContent$RemoveUndo_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/GapContent;ILjava/lang/String;)V", nullptr, $PROTECTED, $method(GapContent$RemoveUndo, init$, void, $GapContent*, int32_t, $String*)},
-	{"redo", "()V", nullptr, $PUBLIC, $virtualMethod(GapContent$RemoveUndo, redo, void), "javax.swing.undo.CannotRedoException"},
-	{"undo", "()V", nullptr, $PUBLIC, $virtualMethod(GapContent$RemoveUndo, undo, void), "javax.swing.undo.CannotUndoException"},
-	{}
-};
-
-$InnerClassInfo _GapContent$RemoveUndo_InnerClassesInfo_[] = {
-	{"javax.swing.text.GapContent$RemoveUndo", "javax.swing.text.GapContent", "RemoveUndo", 0},
-	{}
-};
-
-$ClassInfo _GapContent$RemoveUndo_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.GapContent$RemoveUndo",
-	"javax.swing.undo.AbstractUndoableEdit",
-	nullptr,
-	_GapContent$RemoveUndo_FieldInfo_,
-	_GapContent$RemoveUndo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GapContent$RemoveUndo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.GapContent"
-};
-
-$Object* allocate$GapContent$RemoveUndo($Class* clazz) {
-	return $of($alloc(GapContent$RemoveUndo));
-}
 
 void GapContent$RemoveUndo::init$($GapContent* this$0, int32_t offset, $String* string) {
 	$set(this, this$0, this$0);
@@ -103,7 +61,42 @@ GapContent$RemoveUndo::GapContent$RemoveUndo() {
 }
 
 $Class* GapContent$RemoveUndo::load$($String* name, bool initialize) {
-	$loadClass(GapContent$RemoveUndo, name, initialize, &_GapContent$RemoveUndo_ClassInfo_, allocate$GapContent$RemoveUndo);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/GapContent;", nullptr, $FINAL | $SYNTHETIC, $field(GapContent$RemoveUndo, this$0)},
+		{"offset", "I", nullptr, $PROTECTED, $field(GapContent$RemoveUndo, offset)},
+		{"length", "I", nullptr, $PROTECTED, $field(GapContent$RemoveUndo, length)},
+		{"string", "Ljava/lang/String;", nullptr, $PROTECTED, $field(GapContent$RemoveUndo, string)},
+		{"posRefs", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/GapContent$UndoPosRef;>;", $PROTECTED, $field(GapContent$RemoveUndo, posRefs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/GapContent;ILjava/lang/String;)V", nullptr, $PROTECTED, $method(GapContent$RemoveUndo, init$, void, $GapContent*, int32_t, $String*)},
+		{"redo", "()V", nullptr, $PUBLIC, $virtualMethod(GapContent$RemoveUndo, redo, void), "javax.swing.undo.CannotRedoException"},
+		{"undo", "()V", nullptr, $PUBLIC, $virtualMethod(GapContent$RemoveUndo, undo, void), "javax.swing.undo.CannotUndoException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.GapContent$RemoveUndo", "javax.swing.text.GapContent", "RemoveUndo", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.GapContent$RemoveUndo",
+		"javax.swing.undo.AbstractUndoableEdit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.GapContent"
+	};
+	$loadClass(GapContent$RemoveUndo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GapContent$RemoveUndo));
+	});
 	return class$;
 }
 

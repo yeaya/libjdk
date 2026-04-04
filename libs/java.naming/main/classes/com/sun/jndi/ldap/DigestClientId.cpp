@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/DigestClientId.h>
-
 #include <com/sun/jndi/ldap/SimpleClientId.h>
 #include <java/io/OutputStream.h>
 #include <java/util/Arrays.h>
@@ -23,45 +22,17 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$FieldInfo _DigestClientId_FieldInfo_[] = {
-	{"SASL_PROPS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigestClientId, SASL_PROPS)},
-	{"propvals", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DigestClientId, propvals)},
-	{"myHash", "I", nullptr, $PRIVATE | $FINAL, $field(DigestClientId, myHash)},
-	{}
-};
-
-$MethodInfo _DigestClientId_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/String;ILjava/lang/String;[Ljavax/naming/ldap/Control;Ljava/io/OutputStream;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/util/Hashtable;)V", "(ILjava/lang/String;ILjava/lang/String;[Ljavax/naming/ldap/Control;Ljava/io/OutputStream;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/util/Hashtable<**>;)V", 0, $method(DigestClientId, init$, void, int32_t, $String*, int32_t, $String*, $ControlArray*, $OutputStream*, $String*, $String*, Object$*, $Hashtable*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DigestClientId, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DigestClientId, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DigestClientId, toString, $String*)},
-	{}
-};
-
-$ClassInfo _DigestClientId_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jndi.ldap.DigestClientId",
-	"com.sun.jndi.ldap.SimpleClientId",
-	nullptr,
-	_DigestClientId_FieldInfo_,
-	_DigestClientId_MethodInfo_
-};
-
-$Object* allocate$DigestClientId($Class* clazz) {
-	return $of($alloc(DigestClientId));
-}
-
 $StringArray* DigestClientId::SASL_PROPS = nullptr;
 
 void DigestClientId::init$(int32_t version, $String* hostname, int32_t port, $String* protocol, $ControlArray* bindCtls, $OutputStream* trace, $String* socketFactory, $String* username, Object$* passwd, $Hashtable* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SimpleClientId::init$(version, hostname, port, protocol, bindCtls, trace, socketFactory, username, passwd);
 	if (env == nullptr) {
 		$set(this, propvals, nullptr);
 	} else {
-		$set(this, propvals, $new($StringArray, $nc(DigestClientId::SASL_PROPS)->length));
-		for (int32_t i = 0; i < $nc(DigestClientId::SASL_PROPS)->length; ++i) {
-			$nc(this->propvals)->set(i, $cast($String, $($nc(env)->get($nc(DigestClientId::SASL_PROPS)->get(i)))));
+		$set(this, propvals, $new($StringArray, DigestClientId::SASL_PROPS->length));
+		for (int32_t i = 0; i < DigestClientId::SASL_PROPS->length; ++i) {
+			this->propvals->set(i, $$cast($String, env->get(DigestClientId::SASL_PROPS->get(i))));
 		}
 	}
 	int32_t var$0 = $SimpleClientId::hashCode();
@@ -82,23 +53,25 @@ int32_t DigestClientId::hashCode() {
 }
 
 $String* DigestClientId::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->propvals != nullptr) {
 		$var($StringBuilder, sb, $new($StringBuilder));
-		for (int32_t i = 0; i < $nc(this->propvals)->length; ++i) {
+		for (int32_t i = 0; i < this->propvals->length; ++i) {
 			sb->append(u':');
-			if ($nc(this->propvals)->get(i) != nullptr) {
-				sb->append($nc(this->propvals)->get(i));
+			if (this->propvals->get(i) != nullptr) {
+				sb->append(this->propvals->get(i));
 			}
 		}
-		$var($String, var$0, $($SimpleClientId::toString()));
-		return $concat(var$0, $(sb->toString()));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($($SimpleClientId::toString()));
+		var$0->append($(sb->toString()));
+		return $str(var$0);
 	} else {
 		return $SimpleClientId::toString();
 	}
 }
 
-void clinit$DigestClientId($Class* class$) {
+void DigestClientId::clinit$($Class* clazz) {
 	$assignStatic(DigestClientId::SASL_PROPS, $new($StringArray, {
 		"java.naming.security.sasl.authorizationId"_s,
 		"java.naming.security.sasl.realm"_s,
@@ -120,7 +93,30 @@ DigestClientId::DigestClientId() {
 }
 
 $Class* DigestClientId::load$($String* name, bool initialize) {
-	$loadClass(DigestClientId, name, initialize, &_DigestClientId_ClassInfo_, clinit$DigestClientId, allocate$DigestClientId);
+	$FieldInfo fieldInfos$$[] = {
+		{"SASL_PROPS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigestClientId, SASL_PROPS)},
+		{"propvals", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DigestClientId, propvals)},
+		{"myHash", "I", nullptr, $PRIVATE | $FINAL, $field(DigestClientId, myHash)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/lang/String;ILjava/lang/String;[Ljavax/naming/ldap/Control;Ljava/io/OutputStream;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/util/Hashtable;)V", "(ILjava/lang/String;ILjava/lang/String;[Ljavax/naming/ldap/Control;Ljava/io/OutputStream;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/util/Hashtable<**>;)V", 0, $method(DigestClientId, init$, void, int32_t, $String*, int32_t, $String*, $ControlArray*, $OutputStream*, $String*, $String*, Object$*, $Hashtable*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DigestClientId, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DigestClientId, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DigestClientId, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jndi.ldap.DigestClientId",
+		"com.sun.jndi.ldap.SimpleClientId",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DigestClientId, name, initialize, &classInfo$$, DigestClientId::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DigestClientId);
+	});
 	return class$;
 }
 

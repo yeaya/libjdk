@@ -123,6 +123,7 @@ class $import ClassWriter : public ::com::sun::tools::javac::jvm::ClassFile {
 	$class(ClassWriter, 0, ::com::sun::tools::javac::jvm::ClassFile)
 public:
 	ClassWriter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual void addExtraAttributes(::java::util::function::ToIntFunction* addExtraAttributes);
 	virtual int32_t adjustFlags(int64_t flags);
@@ -184,8 +185,8 @@ public:
 	::com::sun::tools::javac::comp::Check* check = nullptr;
 	bool multiModuleMode = false;
 	::com::sun::tools::javac::util::List* extraAttributeHooks = nullptr;
-	static const int32_t DATA_BUF_SIZE = 0x0000FFF0;
-	static const int32_t CLASS_BUF_SIZE = 0x0001FFF0;
+	static const int32_t DATA_BUF_SIZE = 0x0000fff0;
+	static const int32_t CLASS_BUF_SIZE = 0x0001fff0;
 	::com::sun::tools::javac::util::ByteBuffer* databuf = nullptr;
 	::com::sun::tools::javac::util::ByteBuffer* poolbuf = nullptr;
 	::com::sun::tools::javac::jvm::PoolWriter* poolWriter = nullptr;

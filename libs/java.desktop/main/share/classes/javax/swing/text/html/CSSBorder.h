@@ -71,6 +71,7 @@ class CSSBorder : public ::javax::swing::border::AbstractBorder {
 public:
 	CSSBorder();
 	using ::javax::swing::border::AbstractBorder::getBorderInsets;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::text::AttributeSet* attrs);
 	static ::java::awt::Color* getAdjustedColor(::java::awt::Color* c, double factor);
 	::java::awt::Color* getBorderColor(int32_t side);

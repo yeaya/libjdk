@@ -1,5 +1,4 @@
 #include <com/sun/swing/internal/plaf/synth/resources/synth.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -16,131 +15,112 @@ namespace com {
 					namespace synth {
 						namespace resources {
 
-$MethodInfo _synth_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(synth, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(synth, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _synth_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.swing.internal.plaf.synth.resources.synth",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_synth_MethodInfo_
-};
-
-$Object* allocate$synth($Class* clazz) {
-	return $of($alloc(synth));
-}
-
 void synth::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* synth::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("FileChooser.detailsViewActionLabel.textAndMnemonic"_s),
-			$of("Details"_s)
+			"FileChooser.detailsViewActionLabel.textAndMnemonic"_s,
+			"Details"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.detailsViewButtonAccessibleName"_s),
-			$of("Details"_s)
+			"FileChooser.detailsViewButtonAccessibleName"_s,
+			"Details"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.detailsViewButtonToolTip.textAndMnemonic"_s),
-			$of("Details"_s)
+			"FileChooser.detailsViewButtonToolTip.textAndMnemonic"_s,
+			"Details"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileAttrHeader.textAndMnemonic"_s),
-			$of("Attributes"_s)
+			"FileChooser.fileAttrHeader.textAndMnemonic"_s,
+			"Attributes"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileDateHeader.textAndMnemonic"_s),
-			$of("Modified"_s)
+			"FileChooser.fileDateHeader.textAndMnemonic"_s,
+			"Modified"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileNameHeader.textAndMnemonic"_s),
-			$of("Name"_s)
+			"FileChooser.fileNameHeader.textAndMnemonic"_s,
+			"Name"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileNameLabel.textAndMnemonic"_s),
-			$of("File &Name:"_s)
+			"FileChooser.fileNameLabel.textAndMnemonic"_s,
+			"File &Name:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileSizeHeader.textAndMnemonic"_s),
-			$of("Size"_s)
+			"FileChooser.fileSizeHeader.textAndMnemonic"_s,
+			"Size"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileTypeHeader.textAndMnemonic"_s),
-			$of("Type"_s)
+			"FileChooser.fileTypeHeader.textAndMnemonic"_s,
+			"Type"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.filesOfTypeLabel.textAndMnemonic"_s),
-			$of("Files of &Type:"_s)
+			"FileChooser.filesOfTypeLabel.textAndMnemonic"_s,
+			"Files of &Type:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.folderNameLabel.textAndMnemonic"_s),
-			$of("Folder &Name:"_s)
+			"FileChooser.folderNameLabel.textAndMnemonic"_s,
+			"Folder &Name:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.homeFolderAccessibleName"_s),
-			$of("Home"_s)
+			"FileChooser.homeFolderAccessibleName"_s,
+			"Home"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.homeFolderToolTip.textAndMnemonic"_s),
-			$of("Home"_s)
+			"FileChooser.homeFolderToolTip.textAndMnemonic"_s,
+			"Home"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.listViewActionLabel.textAndMnemonic"_s),
-			$of("List"_s)
+			"FileChooser.listViewActionLabel.textAndMnemonic"_s,
+			"List"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.listViewButtonAccessibleName"_s),
-			$of("List"_s)
+			"FileChooser.listViewButtonAccessibleName"_s,
+			"List"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.listViewButtonToolTip.textAndMnemonic"_s),
-			$of("List"_s)
+			"FileChooser.listViewButtonToolTip.textAndMnemonic"_s,
+			"List"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.lookInLabel.textAndMnemonic"_s),
-			$of("Look &In:"_s)
+			"FileChooser.lookInLabel.textAndMnemonic"_s,
+			"Look &In:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderAccessibleName"_s),
-			$of("New Folder"_s)
+			"FileChooser.newFolderAccessibleName"_s,
+			"New Folder"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderActionLabel.textAndMnemonic"_s),
-			$of("New Folder"_s)
+			"FileChooser.newFolderActionLabel.textAndMnemonic"_s,
+			"New Folder"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderToolTip.textAndMnemonic"_s),
-			$of("Create New Folder"_s)
+			"FileChooser.newFolderToolTip.textAndMnemonic"_s,
+			"Create New Folder"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.refreshActionLabel.textAndMnemonic"_s),
-			$of("Refresh"_s)
+			"FileChooser.refreshActionLabel.textAndMnemonic"_s,
+			"Refresh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.saveInLabel.textAndMnemonic"_s),
-			$of("Save In:"_s)
+			"FileChooser.saveInLabel.textAndMnemonic"_s,
+			"Save In:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.upFolderAccessibleName"_s),
-			$of("Up"_s)
+			"FileChooser.upFolderAccessibleName"_s,
+			"Up"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.upFolderToolTip.textAndMnemonic"_s),
-			$of("Up One Level"_s)
+			"FileChooser.upFolderToolTip.textAndMnemonic"_s,
+			"Up One Level"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.viewMenuLabel.textAndMnemonic"_s),
-			$of("View"_s)
+			"FileChooser.viewMenuLabel.textAndMnemonic"_s,
+			"View"_s
 		})
 	});
 }
@@ -149,7 +129,22 @@ synth::synth() {
 }
 
 $Class* synth::load$($String* name, bool initialize) {
-	$loadClass(synth, name, initialize, &_synth_ClassInfo_, allocate$synth);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(synth, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(synth, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.swing.internal.plaf.synth.resources.synth",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(synth, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(synth);
+	});
 	return class$;
 }
 

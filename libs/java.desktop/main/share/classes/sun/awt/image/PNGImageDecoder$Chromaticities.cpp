@@ -1,5 +1,4 @@
 #include <sun/awt/image/PNGImageDecoder$Chromaticities.h>
-
 #include <sun/awt/image/PNGImageDecoder.h>
 #include <jcpp.h>
 
@@ -13,49 +12,6 @@ namespace sun {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _PNGImageDecoder$Chromaticities_FieldInfo_[] = {
-	{"whiteX", "F", nullptr, $PUBLIC, $field(PNGImageDecoder$Chromaticities, whiteX)},
-	{"whiteY", "F", nullptr, $PUBLIC, $field(PNGImageDecoder$Chromaticities, whiteY)},
-	{"redX", "F", nullptr, $PUBLIC, $field(PNGImageDecoder$Chromaticities, redX)},
-	{"redY", "F", nullptr, $PUBLIC, $field(PNGImageDecoder$Chromaticities, redY)},
-	{"greenX", "F", nullptr, $PUBLIC, $field(PNGImageDecoder$Chromaticities, greenX)},
-	{"greenY", "F", nullptr, $PUBLIC, $field(PNGImageDecoder$Chromaticities, greenY)},
-	{"blueX", "F", nullptr, $PUBLIC, $field(PNGImageDecoder$Chromaticities, blueX)},
-	{"blueY", "F", nullptr, $PUBLIC, $field(PNGImageDecoder$Chromaticities, blueY)},
-	{}
-};
-
-$MethodInfo _PNGImageDecoder$Chromaticities_MethodInfo_[] = {
-	{"<init>", "(IIIIIIII)V", nullptr, 0, $method(PNGImageDecoder$Chromaticities, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PNGImageDecoder$Chromaticities, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _PNGImageDecoder$Chromaticities_InnerClassesInfo_[] = {
-	{"sun.awt.image.PNGImageDecoder$Chromaticities", "sun.awt.image.PNGImageDecoder", "Chromaticities", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _PNGImageDecoder$Chromaticities_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.image.PNGImageDecoder$Chromaticities",
-	"java.lang.Object",
-	nullptr,
-	_PNGImageDecoder$Chromaticities_FieldInfo_,
-	_PNGImageDecoder$Chromaticities_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PNGImageDecoder$Chromaticities_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.image.PNGImageDecoder"
-};
-
-$Object* allocate$PNGImageDecoder$Chromaticities($Class* clazz) {
-	return $of($alloc(PNGImageDecoder$Chromaticities));
-}
-
 void PNGImageDecoder$Chromaticities::init$(int32_t wx, int32_t wy, int32_t rx, int32_t ry, int32_t gx, int32_t gy, int32_t bx, int32_t by) {
 	this->whiteX = wx / 100000.0f;
 	this->whiteY = wy / 100000.0f;
@@ -68,7 +24,7 @@ void PNGImageDecoder$Chromaticities::init$(int32_t wx, int32_t wy, int32_t rx, i
 }
 
 $String* PNGImageDecoder$Chromaticities::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"Chromaticities(white="_s, $$str(this->whiteX), ","_s, $$str(this->whiteY), ";red="_s, $$str(this->redX), ","_s, $$str(this->redY), ";green="_s, $$str(this->greenX), ","_s, $$str(this->greenY), ";blue="_s, $$str(this->blueX), ","_s, $$str(this->blueY), 
 	")"_s});
 }
@@ -77,7 +33,44 @@ PNGImageDecoder$Chromaticities::PNGImageDecoder$Chromaticities() {
 }
 
 $Class* PNGImageDecoder$Chromaticities::load$($String* name, bool initialize) {
-	$loadClass(PNGImageDecoder$Chromaticities, name, initialize, &_PNGImageDecoder$Chromaticities_ClassInfo_, allocate$PNGImageDecoder$Chromaticities);
+	$FieldInfo fieldInfos$$[] = {
+		{"whiteX", "F", nullptr, $PUBLIC, $field(PNGImageDecoder$Chromaticities, whiteX)},
+		{"whiteY", "F", nullptr, $PUBLIC, $field(PNGImageDecoder$Chromaticities, whiteY)},
+		{"redX", "F", nullptr, $PUBLIC, $field(PNGImageDecoder$Chromaticities, redX)},
+		{"redY", "F", nullptr, $PUBLIC, $field(PNGImageDecoder$Chromaticities, redY)},
+		{"greenX", "F", nullptr, $PUBLIC, $field(PNGImageDecoder$Chromaticities, greenX)},
+		{"greenY", "F", nullptr, $PUBLIC, $field(PNGImageDecoder$Chromaticities, greenY)},
+		{"blueX", "F", nullptr, $PUBLIC, $field(PNGImageDecoder$Chromaticities, blueX)},
+		{"blueY", "F", nullptr, $PUBLIC, $field(PNGImageDecoder$Chromaticities, blueY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IIIIIIII)V", nullptr, 0, $method(PNGImageDecoder$Chromaticities, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PNGImageDecoder$Chromaticities, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.image.PNGImageDecoder$Chromaticities", "sun.awt.image.PNGImageDecoder", "Chromaticities", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.image.PNGImageDecoder$Chromaticities",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.image.PNGImageDecoder"
+	};
+	$loadClass(PNGImageDecoder$Chromaticities, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PNGImageDecoder$Chromaticities);
+	});
 	return class$;
 }
 

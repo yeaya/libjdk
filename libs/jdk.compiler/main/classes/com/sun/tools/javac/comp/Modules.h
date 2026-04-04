@@ -124,6 +124,7 @@ class $export Modules : public ::com::sun::tools::javac::tree::JCTree$Visitor {
 	$class(Modules, 0, ::com::sun::tools::javac::tree::JCTree$Visitor)
 public:
 	Modules();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual void addExtraAddModules($StringArray* extras);
 	void addVisiblePackages(::com::sun::tools::javac::code::Symbol$ModuleSymbol* msym, ::java::util::Map* seenPackages, ::com::sun::tools::javac::code::Symbol$ModuleSymbol* exportsFrom, ::java::util::Collection* exports);

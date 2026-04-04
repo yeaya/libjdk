@@ -22,11 +22,14 @@ public:
 	void init$(::java::lang::Exception* e);
 	void init$($String* message);
 	virtual $String* getMessage() override;
-	static const int64_t serialVersionUID = (int64_t)0x180CA366CDA21987;
+	static const int64_t serialVersionUID = (int64_t)0x180ca366cda21987;
 	$String* _msg = nullptr;
 	CompilerException(const CompilerException& e);
 	virtual void throw$() override;
-	inline CompilerException* operator ->() {
+	inline CompilerException* operator ->() const {
+		return (CompilerException*)throwing$;
+	}
+	inline operator CompilerException*() const {
 		return (CompilerException*)throwing$;
 	}
 };

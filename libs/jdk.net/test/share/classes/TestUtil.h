@@ -25,6 +25,7 @@ class $export TestUtil : public ::java::lang::Object {
 	$class(TestUtil, 0, ::java::lang::Object)
 public:
 	TestUtil();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void compareContents(::java::nio::file::Path* path1, ::java::nio::file::Path* path2);
 	static ::java::lang::Void* compareFiles(::java::nio::file::Path* path1, ::java::nio::file::Path* path2);

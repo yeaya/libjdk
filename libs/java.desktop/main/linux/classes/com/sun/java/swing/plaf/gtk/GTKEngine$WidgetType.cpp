@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKEngine$WidgetType.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKEngine.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -92,118 +91,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace gtk {
-
-$FieldInfo _GTKEngine$WidgetType_FieldInfo_[] = {
-	{"BUTTON", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, BUTTON)},
-	{"CHECK_BOX", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, CHECK_BOX)},
-	{"CHECK_BOX_MENU_ITEM", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, CHECK_BOX_MENU_ITEM)},
-	{"COLOR_CHOOSER", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, COLOR_CHOOSER)},
-	{"COMBO_BOX", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, COMBO_BOX)},
-	{"COMBO_BOX_ARROW_BUTTON", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, COMBO_BOX_ARROW_BUTTON)},
-	{"COMBO_BOX_TEXT_FIELD", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, COMBO_BOX_TEXT_FIELD)},
-	{"DESKTOP_ICON", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, DESKTOP_ICON)},
-	{"DESKTOP_PANE", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, DESKTOP_PANE)},
-	{"EDITOR_PANE", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, EDITOR_PANE)},
-	{"FORMATTED_TEXT_FIELD", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, FORMATTED_TEXT_FIELD)},
-	{"HANDLE_BOX", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, HANDLE_BOX)},
-	{"HPROGRESS_BAR", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, HPROGRESS_BAR)},
-	{"HSCROLL_BAR", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, HSCROLL_BAR)},
-	{"HSCROLL_BAR_BUTTON_LEFT", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, HSCROLL_BAR_BUTTON_LEFT)},
-	{"HSCROLL_BAR_BUTTON_RIGHT", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, HSCROLL_BAR_BUTTON_RIGHT)},
-	{"HSCROLL_BAR_TRACK", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, HSCROLL_BAR_TRACK)},
-	{"HSCROLL_BAR_THUMB", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, HSCROLL_BAR_THUMB)},
-	{"HSEPARATOR", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, HSEPARATOR)},
-	{"HSLIDER", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, HSLIDER)},
-	{"HSLIDER_TRACK", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, HSLIDER_TRACK)},
-	{"HSLIDER_THUMB", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, HSLIDER_THUMB)},
-	{"HSPLIT_PANE_DIVIDER", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, HSPLIT_PANE_DIVIDER)},
-	{"INTERNAL_FRAME", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, INTERNAL_FRAME)},
-	{"INTERNAL_FRAME_TITLE_PANE", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, INTERNAL_FRAME_TITLE_PANE)},
-	{"IMAGE", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, IMAGE)},
-	{"LABEL", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, LABEL)},
-	{"LIST", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, LIST)},
-	{"MENU", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, MENU)},
-	{"MENU_BAR", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, MENU_BAR)},
-	{"MENU_ITEM", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, MENU_ITEM)},
-	{"MENU_ITEM_ACCELERATOR", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, MENU_ITEM_ACCELERATOR)},
-	{"OPTION_PANE", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, OPTION_PANE)},
-	{"PANEL", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, PANEL)},
-	{"PASSWORD_FIELD", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, PASSWORD_FIELD)},
-	{"POPUP_MENU", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, POPUP_MENU)},
-	{"POPUP_MENU_SEPARATOR", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, POPUP_MENU_SEPARATOR)},
-	{"RADIO_BUTTON", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, RADIO_BUTTON)},
-	{"RADIO_BUTTON_MENU_ITEM", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, RADIO_BUTTON_MENU_ITEM)},
-	{"ROOT_PANE", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, ROOT_PANE)},
-	{"SCROLL_PANE", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, SCROLL_PANE)},
-	{"SPINNER", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, SPINNER)},
-	{"SPINNER_ARROW_BUTTON", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, SPINNER_ARROW_BUTTON)},
-	{"SPINNER_TEXT_FIELD", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, SPINNER_TEXT_FIELD)},
-	{"SPLIT_PANE", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, SPLIT_PANE)},
-	{"TABBED_PANE", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TABBED_PANE)},
-	{"TABBED_PANE_TAB_AREA", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TABBED_PANE_TAB_AREA)},
-	{"TABBED_PANE_CONTENT", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TABBED_PANE_CONTENT)},
-	{"TABBED_PANE_TAB", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TABBED_PANE_TAB)},
-	{"TABLE", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TABLE)},
-	{"TABLE_HEADER", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TABLE_HEADER)},
-	{"TEXT_AREA", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TEXT_AREA)},
-	{"TEXT_FIELD", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TEXT_FIELD)},
-	{"TEXT_PANE", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TEXT_PANE)},
-	{"TITLED_BORDER", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TITLED_BORDER)},
-	{"TOGGLE_BUTTON", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TOGGLE_BUTTON)},
-	{"TOOL_BAR", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TOOL_BAR)},
-	{"TOOL_BAR_DRAG_WINDOW", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TOOL_BAR_DRAG_WINDOW)},
-	{"TOOL_BAR_SEPARATOR", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TOOL_BAR_SEPARATOR)},
-	{"TOOL_TIP", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TOOL_TIP)},
-	{"TREE", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TREE)},
-	{"TREE_CELL", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TREE_CELL)},
-	{"VIEWPORT", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, VIEWPORT)},
-	{"VPROGRESS_BAR", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, VPROGRESS_BAR)},
-	{"VSCROLL_BAR", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, VSCROLL_BAR)},
-	{"VSCROLL_BAR_BUTTON_UP", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, VSCROLL_BAR_BUTTON_UP)},
-	{"VSCROLL_BAR_BUTTON_DOWN", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, VSCROLL_BAR_BUTTON_DOWN)},
-	{"VSCROLL_BAR_TRACK", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, VSCROLL_BAR_TRACK)},
-	{"VSCROLL_BAR_THUMB", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, VSCROLL_BAR_THUMB)},
-	{"VSEPARATOR", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, VSEPARATOR)},
-	{"VSLIDER", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, VSLIDER)},
-	{"VSLIDER_TRACK", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, VSLIDER_TRACK)},
-	{"VSLIDER_THUMB", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, VSLIDER_THUMB)},
-	{"VSPLIT_PANE_DIVIDER", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, VSPLIT_PANE_DIVIDER)},
-	{"$VALUES", "[Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(GTKEngine$WidgetType, $VALUES)},
-	{}
-};
-
-$MethodInfo _GTKEngine$WidgetType_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GTKEngine$WidgetType, $values, $GTKEngine$WidgetTypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(GTKEngine$WidgetType, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKEngine$WidgetType, valueOf, GTKEngine$WidgetType*, $String*)},
-	{"values", "()[Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKEngine$WidgetType, values, $GTKEngine$WidgetTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _GTKEngine$WidgetType_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKEngine$WidgetType", "com.sun.java.swing.plaf.gtk.GTKEngine", "WidgetType", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _GTKEngine$WidgetType_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.java.swing.plaf.gtk.GTKEngine$WidgetType",
-	"java.lang.Enum",
-	nullptr,
-	_GTKEngine$WidgetType_FieldInfo_,
-	_GTKEngine$WidgetType_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;>;",
-	nullptr,
-	_GTKEngine$WidgetType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKEngine"
-};
-
-$Object* allocate$GTKEngine$WidgetType($Class* clazz) {
-	return $of($alloc(GTKEngine$WidgetType));
-}
 
 GTKEngine$WidgetType* GTKEngine$WidgetType::BUTTON = nullptr;
 GTKEngine$WidgetType* GTKEngine$WidgetType::CHECK_BOX = nullptr;
@@ -375,7 +262,7 @@ void GTKEngine$WidgetType::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$GTKEngine$WidgetType($Class* class$) {
+void GTKEngine$WidgetType::clinit$($Class* clazz) {
 	$assignStatic(GTKEngine$WidgetType::BUTTON, $new(GTKEngine$WidgetType, "BUTTON"_s, 0));
 	$assignStatic(GTKEngine$WidgetType::CHECK_BOX, $new(GTKEngine$WidgetType, "CHECK_BOX"_s, 1));
 	$assignStatic(GTKEngine$WidgetType::CHECK_BOX_MENU_ITEM, $new(GTKEngine$WidgetType, "CHECK_BOX_MENU_ITEM"_s, 2));
@@ -457,7 +344,113 @@ GTKEngine$WidgetType::GTKEngine$WidgetType() {
 }
 
 $Class* GTKEngine$WidgetType::load$($String* name, bool initialize) {
-	$loadClass(GTKEngine$WidgetType, name, initialize, &_GTKEngine$WidgetType_ClassInfo_, clinit$GTKEngine$WidgetType, allocate$GTKEngine$WidgetType);
+	$FieldInfo fieldInfos$$[] = {
+		{"BUTTON", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, BUTTON)},
+		{"CHECK_BOX", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, CHECK_BOX)},
+		{"CHECK_BOX_MENU_ITEM", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, CHECK_BOX_MENU_ITEM)},
+		{"COLOR_CHOOSER", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, COLOR_CHOOSER)},
+		{"COMBO_BOX", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, COMBO_BOX)},
+		{"COMBO_BOX_ARROW_BUTTON", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, COMBO_BOX_ARROW_BUTTON)},
+		{"COMBO_BOX_TEXT_FIELD", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, COMBO_BOX_TEXT_FIELD)},
+		{"DESKTOP_ICON", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, DESKTOP_ICON)},
+		{"DESKTOP_PANE", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, DESKTOP_PANE)},
+		{"EDITOR_PANE", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, EDITOR_PANE)},
+		{"FORMATTED_TEXT_FIELD", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, FORMATTED_TEXT_FIELD)},
+		{"HANDLE_BOX", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, HANDLE_BOX)},
+		{"HPROGRESS_BAR", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, HPROGRESS_BAR)},
+		{"HSCROLL_BAR", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, HSCROLL_BAR)},
+		{"HSCROLL_BAR_BUTTON_LEFT", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, HSCROLL_BAR_BUTTON_LEFT)},
+		{"HSCROLL_BAR_BUTTON_RIGHT", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, HSCROLL_BAR_BUTTON_RIGHT)},
+		{"HSCROLL_BAR_TRACK", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, HSCROLL_BAR_TRACK)},
+		{"HSCROLL_BAR_THUMB", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, HSCROLL_BAR_THUMB)},
+		{"HSEPARATOR", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, HSEPARATOR)},
+		{"HSLIDER", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, HSLIDER)},
+		{"HSLIDER_TRACK", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, HSLIDER_TRACK)},
+		{"HSLIDER_THUMB", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, HSLIDER_THUMB)},
+		{"HSPLIT_PANE_DIVIDER", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, HSPLIT_PANE_DIVIDER)},
+		{"INTERNAL_FRAME", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, INTERNAL_FRAME)},
+		{"INTERNAL_FRAME_TITLE_PANE", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, INTERNAL_FRAME_TITLE_PANE)},
+		{"IMAGE", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, IMAGE)},
+		{"LABEL", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, LABEL)},
+		{"LIST", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, LIST)},
+		{"MENU", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, MENU)},
+		{"MENU_BAR", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, MENU_BAR)},
+		{"MENU_ITEM", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, MENU_ITEM)},
+		{"MENU_ITEM_ACCELERATOR", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, MENU_ITEM_ACCELERATOR)},
+		{"OPTION_PANE", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, OPTION_PANE)},
+		{"PANEL", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, PANEL)},
+		{"PASSWORD_FIELD", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, PASSWORD_FIELD)},
+		{"POPUP_MENU", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, POPUP_MENU)},
+		{"POPUP_MENU_SEPARATOR", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, POPUP_MENU_SEPARATOR)},
+		{"RADIO_BUTTON", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, RADIO_BUTTON)},
+		{"RADIO_BUTTON_MENU_ITEM", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, RADIO_BUTTON_MENU_ITEM)},
+		{"ROOT_PANE", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, ROOT_PANE)},
+		{"SCROLL_PANE", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, SCROLL_PANE)},
+		{"SPINNER", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, SPINNER)},
+		{"SPINNER_ARROW_BUTTON", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, SPINNER_ARROW_BUTTON)},
+		{"SPINNER_TEXT_FIELD", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, SPINNER_TEXT_FIELD)},
+		{"SPLIT_PANE", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, SPLIT_PANE)},
+		{"TABBED_PANE", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TABBED_PANE)},
+		{"TABBED_PANE_TAB_AREA", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TABBED_PANE_TAB_AREA)},
+		{"TABBED_PANE_CONTENT", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TABBED_PANE_CONTENT)},
+		{"TABBED_PANE_TAB", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TABBED_PANE_TAB)},
+		{"TABLE", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TABLE)},
+		{"TABLE_HEADER", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TABLE_HEADER)},
+		{"TEXT_AREA", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TEXT_AREA)},
+		{"TEXT_FIELD", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TEXT_FIELD)},
+		{"TEXT_PANE", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TEXT_PANE)},
+		{"TITLED_BORDER", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TITLED_BORDER)},
+		{"TOGGLE_BUTTON", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TOGGLE_BUTTON)},
+		{"TOOL_BAR", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TOOL_BAR)},
+		{"TOOL_BAR_DRAG_WINDOW", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TOOL_BAR_DRAG_WINDOW)},
+		{"TOOL_BAR_SEPARATOR", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TOOL_BAR_SEPARATOR)},
+		{"TOOL_TIP", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TOOL_TIP)},
+		{"TREE", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TREE)},
+		{"TREE_CELL", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, TREE_CELL)},
+		{"VIEWPORT", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, VIEWPORT)},
+		{"VPROGRESS_BAR", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, VPROGRESS_BAR)},
+		{"VSCROLL_BAR", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, VSCROLL_BAR)},
+		{"VSCROLL_BAR_BUTTON_UP", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, VSCROLL_BAR_BUTTON_UP)},
+		{"VSCROLL_BAR_BUTTON_DOWN", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, VSCROLL_BAR_BUTTON_DOWN)},
+		{"VSCROLL_BAR_TRACK", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, VSCROLL_BAR_TRACK)},
+		{"VSCROLL_BAR_THUMB", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, VSCROLL_BAR_THUMB)},
+		{"VSEPARATOR", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, VSEPARATOR)},
+		{"VSLIDER", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, VSLIDER)},
+		{"VSLIDER_TRACK", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, VSLIDER_TRACK)},
+		{"VSLIDER_THUMB", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, VSLIDER_THUMB)},
+		{"VSPLIT_PANE_DIVIDER", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$WidgetType, VSPLIT_PANE_DIVIDER)},
+		{"$VALUES", "[Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(GTKEngine$WidgetType, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GTKEngine$WidgetType, $values, $GTKEngine$WidgetTypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(GTKEngine$WidgetType, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKEngine$WidgetType, valueOf, GTKEngine$WidgetType*, $String*)},
+		{"values", "()[Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKEngine$WidgetType, values, $GTKEngine$WidgetTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKEngine$WidgetType", "com.sun.java.swing.plaf.gtk.GTKEngine", "WidgetType", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.java.swing.plaf.gtk.GTKEngine$WidgetType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKEngine"
+	};
+	$loadClass(GTKEngine$WidgetType, name, initialize, &classInfo$$, GTKEngine$WidgetType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GTKEngine$WidgetType));
+	});
 	return class$;
 }
 

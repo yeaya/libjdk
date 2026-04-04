@@ -58,6 +58,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t rows);
 	void init$(int32_t rows, bool multipleMode);
@@ -130,7 +131,7 @@ public:
 	::java::awt::event::ItemListener* itemListener = nullptr;
 	static $String* base;
 	static int32_t nameCounter;
-	static const int64_t serialVersionUID = (int64_t)0xD224B95E612D798B;
+	static const int64_t serialVersionUID = (int64_t)0xd224b95e612d798b;
 	static const int32_t DEFAULT_VISIBLE_ROWS = 4;
 	int32_t listSerializedDataVersion = 0;
 };

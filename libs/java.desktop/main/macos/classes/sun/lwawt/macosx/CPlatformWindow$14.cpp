@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CPlatformWindow$14.h>
-
 #include <com/apple/laf/ClientPropertyApplicator$Property.h>
 #include <com/apple/laf/ClientPropertyApplicator.h>
 #include <java/awt/Component.h>
@@ -33,56 +32,18 @@ namespace sun {
 	namespace lwawt {
 		namespace macosx {
 
-$MethodInfo _CPlatformWindow$14_MethodInfo_[] = {
-	{"<init>", "([Lcom/apple/laf/ClientPropertyApplicator$Property;)V", nullptr, $TRANSIENT, $method(CPlatformWindow$14, init$, void, $ClientPropertyApplicator$PropertyArray*)},
-	{"convertJComponentToTarget", "(Ljavax/swing/JRootPane;)Lsun/lwawt/macosx/CPlatformWindow;", nullptr, $PUBLIC, $virtualMethod(CPlatformWindow$14, convertJComponentToTarget, $CPlatformWindow*, $JRootPane*)},
-	{"convertJComponentToTarget", "(Ljavax/swing/JComponent;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CPlatformWindow$14, convertJComponentToTarget, $Object*, $JComponent*)},
-	{}
-};
-
-$EnclosingMethodInfo _CPlatformWindow$14_EnclosingMethodInfo_ = {
-	"sun.lwawt.macosx.CPlatformWindow",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _CPlatformWindow$14_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.CPlatformWindow$14", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CPlatformWindow$14_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.lwawt.macosx.CPlatformWindow$14",
-	"com.apple.laf.ClientPropertyApplicator",
-	nullptr,
-	nullptr,
-	_CPlatformWindow$14_MethodInfo_,
-	"Lcom/apple/laf/ClientPropertyApplicator<Ljavax/swing/JRootPane;Lsun/lwawt/macosx/CPlatformWindow;>;",
-	&_CPlatformWindow$14_EnclosingMethodInfo_,
-	_CPlatformWindow$14_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.CPlatformWindow"
-};
-
-$Object* allocate$CPlatformWindow$14($Class* clazz) {
-	return $of($alloc(CPlatformWindow$14));
-}
-
 void CPlatformWindow$14::init$($ClientPropertyApplicator$PropertyArray* propertyList) {
 	$ClientPropertyApplicator::init$(propertyList);
 }
 
 $CPlatformWindow* CPlatformWindow$14::convertJComponentToTarget($JRootPane* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, root, $SwingUtilities::getRoot(p));
 	$var($AWTAccessor$ComponentAccessor, acc, $AWTAccessor::getComponentAccessor());
 	if (root == nullptr || $nc(acc)->getPeer(root) == nullptr) {
 		return nullptr;
 	}
-	return $cast($CPlatformWindow, $nc(($cast($LWWindowPeer, $($nc(acc)->getPeer(root)))))->getPlatformWindow());
+	return $cast($CPlatformWindow, $$sure($LWWindowPeer, $nc(acc)->getPeer(root))->getPlatformWindow());
 }
 
 $Object* CPlatformWindow$14::convertJComponentToTarget($JComponent* p) {
@@ -93,7 +54,39 @@ CPlatformWindow$14::CPlatformWindow$14() {
 }
 
 $Class* CPlatformWindow$14::load$($String* name, bool initialize) {
-	$loadClass(CPlatformWindow$14, name, initialize, &_CPlatformWindow$14_ClassInfo_, allocate$CPlatformWindow$14);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Lcom/apple/laf/ClientPropertyApplicator$Property;)V", nullptr, $TRANSIENT, $method(CPlatformWindow$14, init$, void, $ClientPropertyApplicator$PropertyArray*)},
+		{"convertJComponentToTarget", "(Ljavax/swing/JRootPane;)Lsun/lwawt/macosx/CPlatformWindow;", nullptr, $PUBLIC, $virtualMethod(CPlatformWindow$14, convertJComponentToTarget, $CPlatformWindow*, $JRootPane*)},
+		{"convertJComponentToTarget", "(Ljavax/swing/JComponent;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CPlatformWindow$14, convertJComponentToTarget, $Object*, $JComponent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.lwawt.macosx.CPlatformWindow",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.CPlatformWindow$14", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.lwawt.macosx.CPlatformWindow$14",
+		"com.apple.laf.ClientPropertyApplicator",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Lcom/apple/laf/ClientPropertyApplicator<Ljavax/swing/JRootPane;Lsun/lwawt/macosx/CPlatformWindow;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.CPlatformWindow"
+	};
+	$loadClass(CPlatformWindow$14, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CPlatformWindow$14);
+	});
 	return class$;
 }
 

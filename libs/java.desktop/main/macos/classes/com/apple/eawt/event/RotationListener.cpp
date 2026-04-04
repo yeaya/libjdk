@@ -1,5 +1,4 @@
 #include <com/apple/eawt/event/RotationListener.h>
-
 #include <com/apple/eawt/event/RotationEvent.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace com {
 		namespace eawt {
 			namespace event {
 
-$MethodInfo _RotationListener_MethodInfo_[] = {
-	{"rotate", "(Lcom/apple/eawt/event/RotationEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RotationListener, rotate, void, $RotationEvent*)},
-	{}
-};
-
-$ClassInfo _RotationListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.apple.eawt.event.RotationListener",
-	nullptr,
-	"com.apple.eawt.event.GestureListener",
-	nullptr,
-	_RotationListener_MethodInfo_
-};
-
-$Object* allocate$RotationListener($Class* clazz) {
-	return $of($alloc(RotationListener));
-}
-
 $Class* RotationListener::load$($String* name, bool initialize) {
-	$loadClass(RotationListener, name, initialize, &_RotationListener_ClassInfo_, allocate$RotationListener);
+	$MethodInfo methodInfos$$[] = {
+		{"rotate", "(Lcom/apple/eawt/event/RotationEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RotationListener, rotate, void, $RotationEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.apple.eawt.event.RotationListener",
+		nullptr,
+		"com.apple.eawt.event.GestureListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RotationListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RotationListener);
+	});
 	return class$;
 }
 

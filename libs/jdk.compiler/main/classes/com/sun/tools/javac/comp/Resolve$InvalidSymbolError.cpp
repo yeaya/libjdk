@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$InvalidSymbolError.h>
-
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Kinds$KindSelector.h>
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
@@ -17,7 +16,6 @@ using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Kinds$KindSelector = ::com::sun::tools::javac::code::Kinds$KindSelector;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Resolve$ResolveError = ::com::sun::tools::javac::comp::Resolve$ResolveError;
 using $Name = ::com::sun::tools::javac::util::Name;
@@ -31,46 +29,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Resolve$InvalidSymbolError_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$InvalidSymbolError, this$0)},
-	{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, 0, $field(Resolve$InvalidSymbolError, sym)},
-	{}
-};
-
-$MethodInfo _Resolve$InvalidSymbolError_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/code/Kinds$Kind;Lcom/sun/tools/javac/code/Symbol;Ljava/lang/String;)V", nullptr, 0, $method(Resolve$InvalidSymbolError, init$, void, $Resolve*, $Kinds$Kind*, $Symbol*, $String*)},
-	{"access", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Resolve$InvalidSymbolError, access, $Symbol*, $Name*, $Symbol$TypeSymbol*)},
-	{"exists", "()Z", nullptr, $PUBLIC, $virtualMethod(Resolve$InvalidSymbolError, exists, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Resolve$InvalidSymbolError, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Resolve$InvalidSymbolError_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$InvalidSymbolError", "com.sun.tools.javac.comp.Resolve", "InvalidSymbolError", $ABSTRACT},
-	{"com.sun.tools.javac.comp.Resolve$ResolveError", "com.sun.tools.javac.comp.Resolve", "ResolveError", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Resolve$InvalidSymbolError_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.comp.Resolve$InvalidSymbolError",
-	"com.sun.tools.javac.comp.Resolve$ResolveError",
-	nullptr,
-	_Resolve$InvalidSymbolError_FieldInfo_,
-	_Resolve$InvalidSymbolError_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Resolve$InvalidSymbolError_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$InvalidSymbolError($Class* clazz) {
-	return $of($alloc(Resolve$InvalidSymbolError));
-}
 
 void Resolve$InvalidSymbolError::init$($Resolve* this$0, $Kinds$Kind* kind, $Symbol* sym, $String* debugName) {
 	$set(this, this$0, this$0);
@@ -89,7 +47,7 @@ $String* Resolve$InvalidSymbolError::toString() {
 $Symbol* Resolve$InvalidSymbolError::access($Name* name, $Symbol$TypeSymbol* location) {
 	bool var$0 = !$nc($nc(this->sym)->kind)->isResolutionError();
 	$init($Kinds$KindSelector);
-	if (var$0 && $nc($nc(this->sym)->kind)->matches($Kinds$KindSelector::TYP)) {
+	if (var$0 && this->sym->kind->matches($Kinds$KindSelector::TYP)) {
 		return $nc($($nc(this->this$0->types)->createErrorType(name, location, $nc(this->sym)->type)))->tsym;
 	} else {
 		return this->sym;
@@ -100,7 +58,41 @@ Resolve$InvalidSymbolError::Resolve$InvalidSymbolError() {
 }
 
 $Class* Resolve$InvalidSymbolError::load$($String* name, bool initialize) {
-	$loadClass(Resolve$InvalidSymbolError, name, initialize, &_Resolve$InvalidSymbolError_ClassInfo_, allocate$Resolve$InvalidSymbolError);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$InvalidSymbolError, this$0)},
+		{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, 0, $field(Resolve$InvalidSymbolError, sym)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/code/Kinds$Kind;Lcom/sun/tools/javac/code/Symbol;Ljava/lang/String;)V", nullptr, 0, $method(Resolve$InvalidSymbolError, init$, void, $Resolve*, $Kinds$Kind*, $Symbol*, $String*)},
+		{"access", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Resolve$InvalidSymbolError, access, $Symbol*, $Name*, $Symbol$TypeSymbol*)},
+		{"exists", "()Z", nullptr, $PUBLIC, $virtualMethod(Resolve$InvalidSymbolError, exists, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Resolve$InvalidSymbolError, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$InvalidSymbolError", "com.sun.tools.javac.comp.Resolve", "InvalidSymbolError", $ABSTRACT},
+		{"com.sun.tools.javac.comp.Resolve$ResolveError", "com.sun.tools.javac.comp.Resolve", "ResolveError", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.comp.Resolve$InvalidSymbolError",
+		"com.sun.tools.javac.comp.Resolve$ResolveError",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$InvalidSymbolError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Resolve$InvalidSymbolError));
+	});
 	return class$;
 }
 

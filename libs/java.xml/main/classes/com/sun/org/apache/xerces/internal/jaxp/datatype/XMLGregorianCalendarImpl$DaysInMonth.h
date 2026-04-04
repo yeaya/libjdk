@@ -18,6 +18,7 @@ class XMLGregorianCalendarImpl$DaysInMonth : public ::java::lang::Object {
 	$class(XMLGregorianCalendarImpl$DaysInMonth, 0, ::java::lang::Object)
 public:
 	XMLGregorianCalendarImpl$DaysInMonth();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $ints* table;
 };

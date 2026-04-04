@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/c14n/implementations/CanonicalizerBase.h>
-
 #include <com/sun/org/apache/xml/internal/security/c14n/CanonicalizationException.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/CanonicalizerSpi.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/helper/AttrCompare.h>
@@ -105,73 +104,6 @@ namespace com {
 							namespace c14n {
 								namespace implementations {
 
-$FieldInfo _CanonicalizerBase_FieldInfo_[] = {
-	{"XML", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CanonicalizerBase, XML)},
-	{"XMLNS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CanonicalizerBase, XMLNS)},
-	{"XMLNS_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CanonicalizerBase, XMLNS_URI)},
-	{"XML_LANG_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CanonicalizerBase, XML_LANG_URI)},
-	{"COMPARE", "Lcom/sun/org/apache/xml/internal/security/c14n/helper/AttrCompare;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(CanonicalizerBase, COMPARE)},
-	{"NODE_BEFORE_DOCUMENT_ELEMENT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(CanonicalizerBase, NODE_BEFORE_DOCUMENT_ELEMENT)},
-	{"NODE_NOT_BEFORE_OR_AFTER_DOCUMENT_ELEMENT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(CanonicalizerBase, NODE_NOT_BEFORE_OR_AFTER_DOCUMENT_ELEMENT)},
-	{"NODE_AFTER_DOCUMENT_ELEMENT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(CanonicalizerBase, NODE_AFTER_DOCUMENT_ELEMENT)},
-	{"END_PI", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CanonicalizerBase, END_PI)},
-	{"BEGIN_PI", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CanonicalizerBase, BEGIN_PI)},
-	{"END_COMM", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CanonicalizerBase, END_COMM)},
-	{"BEGIN_COMM", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CanonicalizerBase, BEGIN_COMM)},
-	{"XA", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CanonicalizerBase, XA)},
-	{"X9", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CanonicalizerBase, X9)},
-	{"QUOT", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CanonicalizerBase, QUOT)},
-	{"XD", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CanonicalizerBase, XD)},
-	{"GT", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CanonicalizerBase, GT)},
-	{"LT", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CanonicalizerBase, LT)},
-	{"END_TAG", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CanonicalizerBase, END_TAG)},
-	{"AMP", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CanonicalizerBase, AMP)},
-	{"EQUALS_STR", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CanonicalizerBase, EQUALS_STR)},
-	{"includeComments", "Z", nullptr, $PRIVATE, $field(CanonicalizerBase, includeComments)},
-	{"nodeFilter", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/signature/NodeFilter;>;", $PRIVATE, $field(CanonicalizerBase, nodeFilter)},
-	{"xpathNodeSet", "Ljava/util/Set;", "Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PRIVATE, $field(CanonicalizerBase, xpathNodeSet)},
-	{"nullNode", "Lorg/w3c/dom/Attr;", nullptr, $PRIVATE, $field(CanonicalizerBase, nullNode)},
-	{}
-};
-
-$MethodInfo _CanonicalizerBase_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PROTECTED, $method(CanonicalizerBase, init$, void, bool)},
-	{"canonicalizeSubTree", "(Lorg/w3c/dom/Node;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;Lorg/w3c/dom/Node;ILorg/w3c/dom/Node;Ljava/io/OutputStream;)V", nullptr, $PRIVATE, $method(CanonicalizerBase, canonicalizeSubTree, void, $Node*, $NameSpaceSymbTable*, $Node*, int32_t, $Node*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,java.io.IOException"},
-	{"canonicalizeXPathNodeSet", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/io/OutputStream;)V", nullptr, $PRIVATE, $method(CanonicalizerBase, canonicalizeXPathNodeSet, void, $Node*, $Node*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,java.io.IOException"},
-	{"circumventBugIfNeeded", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;)V", nullptr, $ABSTRACT, $virtualMethod(CanonicalizerBase, circumventBugIfNeeded, void, $XMLSignatureInput*), "com.sun.org.apache.xml.internal.security.parser.XMLParserException,java.io.IOException"},
-	{"engineCanonicalize", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;Z)V", nullptr, $PUBLIC, $virtualMethod(CanonicalizerBase, engineCanonicalize, void, $XMLSignatureInput*, $OutputStream*, bool), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
-	{"engineCanonicalizeSubTree", "(Lorg/w3c/dom/Node;Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CanonicalizerBase, engineCanonicalizeSubTree, void, $Node*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
-	{"engineCanonicalizeSubTree", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/io/OutputStream;)V", nullptr, $PROTECTED, $virtualMethod(CanonicalizerBase, engineCanonicalizeSubTree, void, $Node*, $Node*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
-	{"engineCanonicalizeXPathNodeSet", "(Ljava/util/Set;Ljava/io/OutputStream;)V", "(Ljava/util/Set<Lorg/w3c/dom/Node;>;Ljava/io/OutputStream;)V", $PUBLIC, $virtualMethod(CanonicalizerBase, engineCanonicalizeXPathNodeSet, void, $Set*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
-	{"engineCanonicalizeXPathNodeSetInternal", "(Lorg/w3c/dom/Node;Ljava/io/OutputStream;)V", nullptr, $PRIVATE, $method(CanonicalizerBase, engineCanonicalizeXPathNodeSetInternal, void, $Node*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
-	{"getNullNode", "(Lorg/w3c/dom/Document;)Lorg/w3c/dom/Attr;", nullptr, $PROTECTED, $virtualMethod(CanonicalizerBase, getNullNode, $Attr*, $Document*)},
-	{"getParentNameSpaces", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;)V", nullptr, $PRIVATE, $method(CanonicalizerBase, getParentNameSpaces, void, $Element*, $NameSpaceSymbTable*)},
-	{"handleParent", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;)V", nullptr, $PROTECTED, $virtualMethod(CanonicalizerBase, handleParent, void, $Element*, $NameSpaceSymbTable*)},
-	{"isVisible", "(Lorg/w3c/dom/Node;)Z", nullptr, $PROTECTED, $virtualMethod(CanonicalizerBase, isVisible, bool, $Node*)},
-	{"isVisibleDO", "(Lorg/w3c/dom/Node;I)I", nullptr, $PROTECTED, $virtualMethod(CanonicalizerBase, isVisibleDO, int32_t, $Node*, int32_t)},
-	{"isVisibleInt", "(Lorg/w3c/dom/Node;)I", nullptr, $PROTECTED, $virtualMethod(CanonicalizerBase, isVisibleInt, int32_t, $Node*)},
-	{"outputAttrToWriter", "(Ljava/lang/String;Ljava/lang/String;Ljava/io/OutputStream;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/io/OutputStream;Ljava/util/Map<Ljava/lang/String;[B>;)V", $PROTECTED | $STATIC | $FINAL, $staticMethod(CanonicalizerBase, outputAttrToWriter, void, $String*, $String*, $OutputStream*, $Map*), "java.io.IOException"},
-	{"outputAttributes", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;Ljava/util/Map;Ljava/io/OutputStream;)V", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;Ljava/util/Map<Ljava/lang/String;[B>;Ljava/io/OutputStream;)V", $ABSTRACT, $virtualMethod(CanonicalizerBase, outputAttributes, void, $Element*, $NameSpaceSymbTable*, $Map*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,org.w3c.dom.DOMException,java.io.IOException"},
-	{"outputAttributesSubtree", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;Ljava/util/Map;Ljava/io/OutputStream;)V", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;Ljava/util/Map<Ljava/lang/String;[B>;Ljava/io/OutputStream;)V", $ABSTRACT, $virtualMethod(CanonicalizerBase, outputAttributesSubtree, void, $Element*, $NameSpaceSymbTable*, $Map*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,org.w3c.dom.DOMException,java.io.IOException"},
-	{"outputCommentToWriter", "(Lorg/w3c/dom/Comment;Ljava/io/OutputStream;I)V", nullptr, $PROTECTED, $virtualMethod(CanonicalizerBase, outputCommentToWriter, void, $Comment*, $OutputStream*, int32_t), "java.io.IOException"},
-	{"outputPItoWriter", "(Lorg/w3c/dom/ProcessingInstruction;Ljava/io/OutputStream;I)V", nullptr, $PROTECTED, $virtualMethod(CanonicalizerBase, outputPItoWriter, void, $ProcessingInstruction*, $OutputStream*, int32_t), "java.io.IOException"},
-	{"outputTextToWriter", "(Ljava/lang/String;Ljava/io/OutputStream;)V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(CanonicalizerBase, outputTextToWriter, void, $String*, $OutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _CanonicalizerBase_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.security.c14n.implementations.CanonicalizerBase",
-	"com.sun.org.apache.xml.internal.security.c14n.CanonicalizerSpi",
-	nullptr,
-	_CanonicalizerBase_FieldInfo_,
-	_CanonicalizerBase_MethodInfo_
-};
-
-$Object* allocate$CanonicalizerBase($Class* clazz) {
-	return $of($alloc(CanonicalizerBase));
-}
-
 $String* CanonicalizerBase::XML = nullptr;
 $String* CanonicalizerBase::XMLNS = nullptr;
 $String* CanonicalizerBase::XMLNS_URI = nullptr;
@@ -206,12 +138,12 @@ void CanonicalizerBase::engineCanonicalizeXPathNodeSet($Set* xpathNodeSet, $Outp
 }
 
 void CanonicalizerBase::engineCanonicalize($XMLSignatureInput* input, $OutputStream* writer, bool secureValidation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if ($nc(input)->isExcludeComments()) {
 			this->includeComments = false;
 		}
-		if ($nc(input)->isOctetStream()) {
+		if (input->isOctetStream()) {
 			engineCanonicalize($(input->getBytes()), writer, secureValidation);
 		} else if (input->isElement()) {
 			$var($Node, var$0, input->getSubNode());
@@ -226,9 +158,9 @@ void CanonicalizerBase::engineCanonicalize($XMLSignatureInput* input, $OutputStr
 			}
 		}
 	} catch ($XMLParserException& ex) {
-		$throwNew($CanonicalizationException, $cast($Exception, ex));
+		$throwNew($CanonicalizationException, ex);
 	} catch ($IOException& ex) {
-		$throwNew($CanonicalizationException, $cast($Exception, ex));
+		$throwNew($CanonicalizationException, ex);
 	}
 }
 
@@ -243,14 +175,14 @@ void CanonicalizerBase::engineCanonicalizeSubTree($Node* rootNode, $Node* exclud
 		this->canonicalizeSubTree(rootNode, ns, rootNode, nodeLevel, excludeNode, writer);
 		$nc(writer)->flush();
 	} catch ($UnsupportedEncodingException& ex) {
-		$throwNew($CanonicalizationException, static_cast<$Exception*>(ex));
+		$throwNew($CanonicalizationException, ex);
 	} catch ($IOException& ex) {
-		$throwNew($CanonicalizationException, static_cast<$Exception*>(ex));
+		$throwNew($CanonicalizationException, ex);
 	}
 }
 
 void CanonicalizerBase::canonicalizeSubTree($Node* currentNode$renamed, $NameSpaceSymbTable* ns, $Node* endnode, int32_t documentLevel, $Node* excludeNode, $OutputStream* writer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, currentNode, currentNode$renamed);
 	if (currentNode == nullptr || isVisibleInt(currentNode) == -1) {
 		return;
@@ -260,90 +192,71 @@ void CanonicalizerBase::canonicalizeSubTree($Node* currentNode$renamed, $NameSpa
 	$var($Map, cache, $new($HashMap));
 	do {
 		{
-			$var($Element, currentElement, nullptr)
-			$var($String, name, nullptr)
+			$var($Element, currentElement, nullptr);
+			$var($String, name, nullptr);
 			switch ($nc(currentNode)->getNodeType()) {
 			case $Node::ENTITY_NODE:
-				{}
 			case $Node::NOTATION_NODE:
-				{}
 			case $Node::ATTRIBUTE_NODE:
-				{
-					$throwNew($CanonicalizationException, "empty"_s, $$new($ObjectArray, {$of("illegal node type during traversal"_s)}));
-				}
+				$throwNew($CanonicalizationException, "empty"_s, $$new($ObjectArray, {"illegal node type during traversal"_s}));
 			case $Node::DOCUMENT_FRAGMENT_NODE:
-				{}
 			case $Node::DOCUMENT_NODE:
-				{
-					$nc(ns)->outputNodePush();
-					$assign(sibling, currentNode->getFirstChild());
-					break;
-				}
+				$nc(ns)->outputNodePush();
+				$assign(sibling, currentNode->getFirstChild());
+				break;
 			case $Node::COMMENT_NODE:
-				{
-					if (this->includeComments) {
-						outputCommentToWriter($cast($Comment, currentNode), writer, documentLevel);
-					}
-					break;
+				if (this->includeComments) {
+					outputCommentToWriter($cast($Comment, currentNode), writer, documentLevel);
 				}
+				break;
 			case $Node::PROCESSING_INSTRUCTION_NODE:
-				{
-					outputPItoWriter($cast($ProcessingInstruction, currentNode), writer, documentLevel);
-					break;
-				}
+				outputPItoWriter($cast($ProcessingInstruction, currentNode), writer, documentLevel);
+				break;
 			case $Node::TEXT_NODE:
-				{}
 			case $Node::CDATA_SECTION_NODE:
-				{
-					outputTextToWriter($(currentNode->getNodeValue()), writer);
-					break;
-				}
+				outputTextToWriter($(currentNode->getNodeValue()), writer);
+				break;
 			case $Node::ELEMENT_NODE:
-				{
-					documentLevel = CanonicalizerBase::NODE_NOT_BEFORE_OR_AFTER_DOCUMENT_ELEMENT;
-					if (currentNode == excludeNode) {
-						break;
-					}
-					$assign(currentElement, $cast($Element, currentNode));
-					$nc(ns)->outputNodePush();
-					$nc(writer)->write((int32_t)u'<');
-					$assign(name, $nc(currentElement)->getTagName());
-					$UtfHelpper::writeByte(name, writer, cache);
-					outputAttributesSubtree(currentElement, ns, cache, writer);
-					$nc(writer)->write((int32_t)u'>');
-					$assign(sibling, currentNode->getFirstChild());
-					if (sibling == nullptr) {
-						$nc(writer)->write($cast($bytes, $($nc(CanonicalizerBase::END_TAG)->clone())));
-						$UtfHelpper::writeStringToUtf8(name, writer);
-						writer->write((int32_t)u'>');
-						$nc(ns)->outputNodePop();
-						if (parentNode != nullptr) {
-							$assign(sibling, currentNode->getNextSibling());
-						}
-					} else {
-						$assign(parentNode, currentElement);
-					}
+				documentLevel = CanonicalizerBase::NODE_NOT_BEFORE_OR_AFTER_DOCUMENT_ELEMENT;
+				if (currentNode == excludeNode) {
 					break;
 				}
+				$assign(currentElement, $cast($Element, currentNode));
+				$nc(ns)->outputNodePush();
+				$nc(writer)->write(u'<');
+				$assign(name, $nc(currentElement)->getTagName());
+				$UtfHelpper::writeByte(name, writer, cache);
+				outputAttributesSubtree(currentElement, ns, cache, writer);
+				writer->write(u'>');
+				$assign(sibling, currentNode->getFirstChild());
+				if (sibling == nullptr) {
+					writer->write($$cast($bytes, CanonicalizerBase::END_TAG->clone()));
+					$UtfHelpper::writeStringToUtf8(name, writer);
+					writer->write(u'>');
+					ns->outputNodePop();
+					if (parentNode != nullptr) {
+						$assign(sibling, currentNode->getNextSibling());
+					}
+				} else {
+					$assign(parentNode, currentElement);
+				}
+				break;
 			case $Node::DOCUMENT_TYPE_NODE:
-				{}
 			default:
-				{
-					break;
-				}
+				break;
 			}
 		}
 		while (sibling == nullptr && parentNode != nullptr) {
-			$nc(writer)->write($cast($bytes, $($nc(CanonicalizerBase::END_TAG)->clone())));
-			$UtfHelpper::writeByte($($nc(($cast($Element, parentNode)))->getTagName()), writer, cache);
-			writer->write((int32_t)u'>');
+			$nc(writer)->write($$cast($bytes, CanonicalizerBase::END_TAG->clone()));
+			$UtfHelpper::writeByte($($cast($Element, parentNode)->getTagName()), writer, cache);
+			writer->write(u'>');
 			$nc(ns)->outputNodePop();
 			if (parentNode == endnode) {
 				return;
 			}
 			$assign(sibling, parentNode->getNextSibling());
 			$assign(parentNode, parentNode->getParentNode());
-			if (parentNode == nullptr || $Node::ELEMENT_NODE != $nc(parentNode)->getNodeType()) {
+			if (parentNode == nullptr || $Node::ELEMENT_NODE != parentNode->getNodeType()) {
 				documentLevel = CanonicalizerBase::NODE_AFTER_DOCUMENT_ELEMENT;
 				$assign(parentNode, nullptr);
 			}
@@ -352,7 +265,7 @@ void CanonicalizerBase::canonicalizeSubTree($Node* currentNode$renamed, $NameSpa
 			return;
 		}
 		$assign(currentNode, sibling);
-		$assign(sibling, currentNode->getNextSibling());
+		$assign(sibling, $nc(currentNode)->getNextSibling());
 	} while (true);
 }
 
@@ -361,12 +274,12 @@ void CanonicalizerBase::engineCanonicalizeXPathNodeSetInternal($Node* doc, $Outp
 		this->canonicalizeXPathNodeSet(doc, doc, writer);
 		$nc(writer)->flush();
 	} catch ($IOException& ex) {
-		$throwNew($CanonicalizationException, static_cast<$Exception*>(ex));
+		$throwNew($CanonicalizationException, ex);
 	}
 }
 
 void CanonicalizerBase::canonicalizeXPathNodeSet($Node* currentNode$renamed, $Node* endnode, $OutputStream* writer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, currentNode, currentNode$renamed);
 	if (isVisibleInt(currentNode) == -1) {
 		return;
@@ -385,121 +298,102 @@ void CanonicalizerBase::canonicalizeXPathNodeSet($Node* currentNode$renamed, $No
 	$var($Map, cache, $new($HashMap));
 	do {
 		{
-			$var($Element, currentElement, nullptr)
-			$var($String, name, nullptr)
+			$var($Element, currentElement, nullptr);
+			$var($String, name, nullptr);
 			int32_t i = 0;
 			switch ($nc(currentNode)->getNodeType()) {
 			case $Node::ENTITY_NODE:
-				{}
 			case $Node::NOTATION_NODE:
-				{}
 			case $Node::ATTRIBUTE_NODE:
-				{
-					$throwNew($CanonicalizationException, "empty"_s, $$new($ObjectArray, {$of("illegal node type during traversal"_s)}));
-				}
+				$throwNew($CanonicalizationException, "empty"_s, $$new($ObjectArray, {"illegal node type during traversal"_s}));
 			case $Node::DOCUMENT_FRAGMENT_NODE:
-				{}
 			case $Node::DOCUMENT_NODE:
-				{
-					ns->outputNodePush();
-					$assign(sibling, currentNode->getFirstChild());
-					break;
-				}
+				ns->outputNodePush();
+				$assign(sibling, currentNode->getFirstChild());
+				break;
 			case $Node::COMMENT_NODE:
-				{
-					if (this->includeComments && isVisibleDO(currentNode, ns->getLevel()) == 1) {
-						outputCommentToWriter($cast($Comment, currentNode), writer, documentLevel);
-					}
-					break;
+				if (this->includeComments && isVisibleDO(currentNode, ns->getLevel()) == 1) {
+					outputCommentToWriter($cast($Comment, currentNode), writer, documentLevel);
 				}
+				break;
 			case $Node::PROCESSING_INSTRUCTION_NODE:
-				{
-					if (isVisible(currentNode)) {
-						outputPItoWriter($cast($ProcessingInstruction, currentNode), writer, documentLevel);
-					}
-					break;
+				if (isVisible(currentNode)) {
+					outputPItoWriter($cast($ProcessingInstruction, currentNode), writer, documentLevel);
 				}
+				break;
 			case $Node::TEXT_NODE:
-				{}
 			case $Node::CDATA_SECTION_NODE:
-				{
-					if (isVisible(currentNode)) {
-						outputTextToWriter($(currentNode->getNodeValue()), writer);
-						{
-							$var($Node, nextSibling, currentNode->getNextSibling());
-							for (;; $assign(nextSibling, $nc(nextSibling)->getNextSibling())) {
-								bool var$0 = nextSibling != nullptr;
-								if (var$0) {
-									bool var$1 = nextSibling->getNodeType() == $Node::TEXT_NODE;
-									var$0 = (var$1 || nextSibling->getNodeType() == $Node::CDATA_SECTION_NODE);
-								}
-								if (!(var$0)) {
-									break;
-								}
-								{
-									outputTextToWriter($(nextSibling->getNodeValue()), writer);
-									$assign(currentNode, nextSibling);
-									$assign(sibling, currentNode->getNextSibling());
-								}
+				if (isVisible(currentNode)) {
+					outputTextToWriter($($nc(currentNode)->getNodeValue()), writer);
+					{
+						$var($Node, nextSibling, currentNode->getNextSibling());
+						for (;; $assign(nextSibling, $nc(nextSibling)->getNextSibling())) {
+							bool var$0 = nextSibling != nullptr;
+							if (var$0) {
+								bool var$1 = nextSibling->getNodeType() == $Node::TEXT_NODE;
+								var$0 = var$1 || nextSibling->getNodeType() == $Node::CDATA_SECTION_NODE;
+							}
+							if (!(var$0)) {
+								break;
+							}
+							{
+								outputTextToWriter($($nc(nextSibling)->getNodeValue()), writer);
+								$assign(currentNode, nextSibling);
+								$assign(sibling, currentNode->getNextSibling());
 							}
 						}
 					}
-					break;
 				}
+				break;
 			case $Node::ELEMENT_NODE:
-				{
-					documentLevel = CanonicalizerBase::NODE_NOT_BEFORE_OR_AFTER_DOCUMENT_ELEMENT;
-					$assign(currentElement, $cast($Element, currentNode));
-					$assign(name, nullptr);
-					i = isVisibleDO(currentNode, ns->getLevel());
-					if (i == -1) {
-						$assign(sibling, currentNode->getNextSibling());
-						break;
-					}
-					currentNodeIsVisible = i == 1;
+				documentLevel = CanonicalizerBase::NODE_NOT_BEFORE_OR_AFTER_DOCUMENT_ELEMENT;
+				$assign(currentElement, $cast($Element, currentNode));
+				$assign(name, nullptr);
+				i = isVisibleDO(currentNode, ns->getLevel());
+				if (i == -1) {
+					$assign(sibling, $nc(currentNode)->getNextSibling());
+					break;
+				}
+				currentNodeIsVisible = i == 1;
+				if (currentNodeIsVisible) {
+					ns->outputNodePush();
+					$nc(writer)->write(u'<');
+					$assign(name, $nc(currentElement)->getTagName());
+					$UtfHelpper::writeByte(name, writer, cache);
+				} else {
+					ns->push();
+				}
+				outputAttributes(currentElement, ns, cache, writer);
+				if (currentNodeIsVisible) {
+					$nc(writer)->write(u'>');
+				}
+				$assign(sibling, $nc(currentNode)->getFirstChild());
+				if (sibling == nullptr) {
 					if (currentNodeIsVisible) {
-						ns->outputNodePush();
-						$nc(writer)->write((int32_t)u'<');
-						$assign(name, $nc(currentElement)->getTagName());
+						$nc(writer)->write($$cast($bytes, CanonicalizerBase::END_TAG->clone()));
 						$UtfHelpper::writeByte(name, writer, cache);
+						writer->write(u'>');
+						ns->outputNodePop();
 					} else {
-						ns->push();
+						ns->pop();
 					}
-					outputAttributes(currentElement, ns, cache, writer);
-					if (currentNodeIsVisible) {
-						$nc(writer)->write((int32_t)u'>');
+					if (parentNode != nullptr) {
+						$assign(sibling, currentNode->getNextSibling());
 					}
-					$assign(sibling, currentNode->getFirstChild());
-					if (sibling == nullptr) {
-						if (currentNodeIsVisible) {
-							$nc(writer)->write($cast($bytes, $($nc(CanonicalizerBase::END_TAG)->clone())));
-							$UtfHelpper::writeByte(name, writer, cache);
-							writer->write((int32_t)u'>');
-							ns->outputNodePop();
-						} else {
-							ns->pop();
-						}
-						if (parentNode != nullptr) {
-							$assign(sibling, currentNode->getNextSibling());
-						}
-					} else {
-						$assign(parentNode, currentElement);
-					}
-					break;
+				} else {
+					$assign(parentNode, currentElement);
 				}
+				break;
 			case $Node::DOCUMENT_TYPE_NODE:
-				{}
 			default:
-				{
-					break;
-				}
+				break;
 			}
 		}
 		while (sibling == nullptr && parentNode != nullptr) {
 			if (isVisible(parentNode)) {
-				$nc(writer)->write($cast($bytes, $($nc(CanonicalizerBase::END_TAG)->clone())));
-				$UtfHelpper::writeByte($($nc(($cast($Element, parentNode)))->getTagName()), writer, cache);
-				writer->write((int32_t)u'>');
+				$nc(writer)->write($$cast($bytes, CanonicalizerBase::END_TAG->clone()));
+				$UtfHelpper::writeByte($($cast($Element, parentNode)->getTagName()), writer, cache);
+				writer->write(u'>');
 				ns->outputNodePop();
 			} else {
 				ns->pop();
@@ -509,7 +403,7 @@ void CanonicalizerBase::canonicalizeXPathNodeSet($Node* currentNode$renamed, $No
 			}
 			$assign(sibling, parentNode->getNextSibling());
 			$assign(parentNode, parentNode->getParentNode());
-			if (parentNode == nullptr || $Node::ELEMENT_NODE != $nc(parentNode)->getNodeType()) {
+			if (parentNode == nullptr || $Node::ELEMENT_NODE != parentNode->getNodeType()) {
 				$assign(parentNode, nullptr);
 				documentLevel = CanonicalizerBase::NODE_AFTER_DOCUMENT_ELEMENT;
 			}
@@ -518,64 +412,64 @@ void CanonicalizerBase::canonicalizeXPathNodeSet($Node* currentNode$renamed, $No
 			return;
 		}
 		$assign(currentNode, sibling);
-		$assign(sibling, currentNode->getNextSibling());
+		$assign(sibling, $nc(currentNode)->getNextSibling());
 	} while (true);
 }
 
 int32_t CanonicalizerBase::isVisibleDO($Node* currentNode, int32_t level) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->nodeFilter != nullptr) {
-		$var($Iterator, it, $nc(this->nodeFilter)->iterator());
+		$var($Iterator, it, this->nodeFilter->iterator());
 		while ($nc(it)->hasNext()) {
-			int32_t i = $nc(($cast($NodeFilter, $(it->next()))))->isNodeIncludeDO(currentNode, level);
+			int32_t i = $$sure($NodeFilter, it->next())->isNodeIncludeDO(currentNode, level);
 			if (i != 1) {
 				return i;
 			}
 		}
 	}
-	if (this->xpathNodeSet != nullptr && !$nc(this->xpathNodeSet)->contains(currentNode)) {
+	if (this->xpathNodeSet != nullptr && !this->xpathNodeSet->contains(currentNode)) {
 		return 0;
 	}
 	return 1;
 }
 
 int32_t CanonicalizerBase::isVisibleInt($Node* currentNode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->nodeFilter != nullptr) {
-		$var($Iterator, it, $nc(this->nodeFilter)->iterator());
+		$var($Iterator, it, this->nodeFilter->iterator());
 		while ($nc(it)->hasNext()) {
-			int32_t i = $nc(($cast($NodeFilter, $(it->next()))))->isNodeInclude(currentNode);
+			int32_t i = $$sure($NodeFilter, it->next())->isNodeInclude(currentNode);
 			if (i != 1) {
 				return i;
 			}
 		}
 	}
-	if (this->xpathNodeSet != nullptr && !$nc(this->xpathNodeSet)->contains(currentNode)) {
+	if (this->xpathNodeSet != nullptr && !this->xpathNodeSet->contains(currentNode)) {
 		return 0;
 	}
 	return 1;
 }
 
 bool CanonicalizerBase::isVisible($Node* currentNode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->nodeFilter != nullptr) {
-		$var($Iterator, it, $nc(this->nodeFilter)->iterator());
+		$var($Iterator, it, this->nodeFilter->iterator());
 		while ($nc(it)->hasNext()) {
-			if ($nc(($cast($NodeFilter, $(it->next()))))->isNodeInclude(currentNode) != 1) {
+			if ($$sure($NodeFilter, it->next())->isNodeInclude(currentNode) != 1) {
 				return false;
 			}
 		}
 	}
-	return this->xpathNodeSet == nullptr || $nc(this->xpathNodeSet)->contains(currentNode);
+	return this->xpathNodeSet == nullptr || this->xpathNodeSet->contains(currentNode);
 }
 
 void CanonicalizerBase::handleParent($Element* e, $NameSpaceSymbTable* ns) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !$nc(e)->hasAttributes();
 	if (var$0 && e->getNamespaceURI() == nullptr) {
 		return;
 	}
-	$var($NamedNodeMap, attrs, $nc(e)->getAttributes());
+	$var($NamedNodeMap, attrs, e->getAttributes());
 	int32_t attrsLength = $nc(attrs)->getLength();
 	for (int32_t i = 0; i < attrsLength; ++i) {
 		$var($Attr, attribute, $cast($Attr, attrs->item(i)));
@@ -584,8 +478,8 @@ void CanonicalizerBase::handleParent($Element* e, $NameSpaceSymbTable* ns) {
 		$init($Constants);
 		bool var$1 = $nc($Constants::NamespaceSpecNS)->equals($(attribute->getNamespaceURI()));
 		if (var$1) {
-			bool var$2 = !$nc(CanonicalizerBase::XML)->equals(NName);
-			var$1 = (var$2 || !$nc($Constants::XML_LANG_SPACE_SpecNS)->equals(NValue));
+			bool var$2 = !CanonicalizerBase::XML->equals(NName);
+			var$1 = var$2 || !$nc($Constants::XML_LANG_SPACE_SpecNS)->equals(NValue);
 		}
 		if (var$1) {
 			$nc(ns)->addMapping(NName, NValue, attribute);
@@ -595,22 +489,22 @@ void CanonicalizerBase::handleParent($Element* e, $NameSpaceSymbTable* ns) {
 		$var($String, NName, e->getPrefix());
 		$var($String, NValue, e->getNamespaceURI());
 		$var($String, Name, nullptr);
-		if (NName == nullptr || $nc(NName)->isEmpty()) {
+		if (NName == nullptr || NName->isEmpty()) {
 			$assign(NName, CanonicalizerBase::XMLNS);
 			$assign(Name, CanonicalizerBase::XMLNS);
 		} else {
 			$assign(Name, $str({CanonicalizerBase::XMLNS, ":"_s, NName}));
 		}
-		$var($Attr, n, $nc($(e->getOwnerDocument()))->createAttributeNS("http://www.w3.org/2000/xmlns/"_s, Name));
+		$var($Attr, n, $$nc(e->getOwnerDocument())->createAttributeNS("http://www.w3.org/2000/xmlns/"_s, Name));
 		$nc(n)->setValue(NValue);
 		$nc(ns)->addMapping(NName, NValue, n);
 	}
 }
 
 void CanonicalizerBase::getParentNameSpaces($Element* el, $NameSpaceSymbTable* ns) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, n1, $nc(el)->getParentNode());
-	if (n1 == nullptr || $Node::ELEMENT_NODE != $nc(n1)->getNodeType()) {
+	if (n1 == nullptr || $Node::ELEMENT_NODE != n1->getNodeType()) {
 		return;
 	}
 	$var($List, parents, $new($ArrayList));
@@ -633,10 +527,10 @@ void CanonicalizerBase::getParentNameSpaces($Element* el, $NameSpaceSymbTable* n
 
 void CanonicalizerBase::outputAttrToWriter($String* name, $String* value, $OutputStream* writer, $Map* cache) {
 	$init(CanonicalizerBase);
-	$useLocalCurrentObjectStackCache();
-	$nc(writer)->write((int32_t)u' ');
+	$useLocalObjectStack();
+	$nc(writer)->write(u' ');
 	$UtfHelpper::writeByte(name, writer, cache);
-	writer->write($cast($bytes, $($nc(CanonicalizerBase::EQUALS_STR)->clone())));
+	writer->write($$cast($bytes, CanonicalizerBase::EQUALS_STR->clone()));
 	$var($bytes, toWrite, nullptr);
 	int32_t length = $nc(value)->length();
 	int32_t i = 0;
@@ -645,63 +539,49 @@ void CanonicalizerBase::outputAttrToWriter($String* name, $String* value, $Outpu
 		i += $Character::charCount(c);
 		switch (c) {
 		case u'&':
-			{
-				$assign(toWrite, $cast($bytes, $nc(CanonicalizerBase::AMP)->clone()));
-				break;
-			}
+			$assign(toWrite, $cast($bytes, CanonicalizerBase::AMP->clone()));
+			break;
 		case u'<':
-			{
-				$assign(toWrite, $cast($bytes, $nc(CanonicalizerBase::LT)->clone()));
-				break;
-			}
+			$assign(toWrite, $cast($bytes, CanonicalizerBase::LT->clone()));
+			break;
 		case u'\"':
-			{
-				$assign(toWrite, $cast($bytes, $nc(CanonicalizerBase::QUOT)->clone()));
-				break;
-			}
+			$assign(toWrite, $cast($bytes, CanonicalizerBase::QUOT->clone()));
+			break;
 		case 9:
-			{
-				$assign(toWrite, $cast($bytes, $nc(CanonicalizerBase::X9)->clone()));
-				break;
-			}
+			$assign(toWrite, $cast($bytes, CanonicalizerBase::X9->clone()));
+			break;
 		case 10:
-			{
-				$assign(toWrite, $cast($bytes, $nc(CanonicalizerBase::XA)->clone()));
-				break;
-			}
+			$assign(toWrite, $cast($bytes, CanonicalizerBase::XA->clone()));
+			break;
 		case 13:
-			{
-				$assign(toWrite, $cast($bytes, $nc(CanonicalizerBase::XD)->clone()));
-				break;
-			}
+			$assign(toWrite, $cast($bytes, CanonicalizerBase::XD->clone()));
+			break;
 		default:
-			{
-				if (c < 128) {
-					writer->write(c);
-				} else {
-					$UtfHelpper::writeCodePointToUtf8(c, writer);
-				}
-				continue;
+			if (c < 128) {
+				writer->write(c);
+			} else {
+				$UtfHelpper::writeCodePointToUtf8(c, writer);
 			}
+			continue;
 		}
 		writer->write(toWrite);
 	}
-	writer->write((int32_t)u'\"');
+	writer->write(u'\"');
 }
 
 void CanonicalizerBase::outputPItoWriter($ProcessingInstruction* currentPI, $OutputStream* writer, int32_t position) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (position == CanonicalizerBase::NODE_AFTER_DOCUMENT_ELEMENT) {
-		$nc(writer)->write((int32_t)u'\n');
+		$nc(writer)->write(u'\n');
 	}
-	$nc(writer)->write($cast($bytes, $($nc(CanonicalizerBase::BEGIN_PI)->clone())));
+	$nc(writer)->write($$cast($bytes, CanonicalizerBase::BEGIN_PI->clone()));
 	$var($String, target, $nc(currentPI)->getTarget());
 	int32_t length = $nc(target)->length();
 	for (int32_t i = 0; i < length;) {
 		int32_t c = target->codePointAt(i);
 		i += $Character::charCount(c);
 		if (c == 13) {
-			writer->write($cast($bytes, $($nc(CanonicalizerBase::XD)->clone())));
+			writer->write($$cast($bytes, CanonicalizerBase::XD->clone()));
 		} else if (c < 128) {
 			writer->write(c);
 		} else {
@@ -711,45 +591,45 @@ void CanonicalizerBase::outputPItoWriter($ProcessingInstruction* currentPI, $Out
 	$var($String, data, currentPI->getData());
 	length = $nc(data)->length();
 	if (length > 0) {
-		writer->write((int32_t)u' ');
+		writer->write(u' ');
 		for (int32_t i = 0; i < length;) {
 			int32_t c = data->codePointAt(i);
 			i += $Character::charCount(c);
 			if (c == 13) {
-				writer->write($cast($bytes, $($nc(CanonicalizerBase::XD)->clone())));
+				writer->write($$cast($bytes, CanonicalizerBase::XD->clone()));
 			} else {
 				$UtfHelpper::writeCodePointToUtf8(c, writer);
 			}
 		}
 	}
-	writer->write($cast($bytes, $($nc(CanonicalizerBase::END_PI)->clone())));
+	writer->write($$cast($bytes, CanonicalizerBase::END_PI->clone()));
 	if (position == CanonicalizerBase::NODE_BEFORE_DOCUMENT_ELEMENT) {
-		writer->write((int32_t)u'\n');
+		writer->write(u'\n');
 	}
 }
 
 void CanonicalizerBase::outputCommentToWriter($Comment* currentComment, $OutputStream* writer, int32_t position) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (position == CanonicalizerBase::NODE_AFTER_DOCUMENT_ELEMENT) {
-		$nc(writer)->write((int32_t)u'\n');
+		$nc(writer)->write(u'\n');
 	}
-	$nc(writer)->write($cast($bytes, $($nc(CanonicalizerBase::BEGIN_COMM)->clone())));
+	$nc(writer)->write($$cast($bytes, CanonicalizerBase::BEGIN_COMM->clone()));
 	$var($String, data, $nc(currentComment)->getData());
 	int32_t length = $nc(data)->length();
 	for (int32_t i = 0; i < length;) {
 		int32_t c = data->codePointAt(i);
 		i += $Character::charCount(c);
 		if (c == 13) {
-			writer->write($cast($bytes, $($nc(CanonicalizerBase::XD)->clone())));
+			writer->write($$cast($bytes, CanonicalizerBase::XD->clone()));
 		} else if (c < 128) {
 			writer->write(c);
 		} else {
 			$UtfHelpper::writeCodePointToUtf8(c, writer);
 		}
 	}
-	writer->write($cast($bytes, $($nc(CanonicalizerBase::END_COMM)->clone())));
+	writer->write($$cast($bytes, CanonicalizerBase::END_COMM->clone()));
 	if (position == CanonicalizerBase::NODE_BEFORE_DOCUMENT_ELEMENT) {
-		writer->write((int32_t)u'\n');
+		writer->write(u'\n');
 	}
 }
 
@@ -762,34 +642,24 @@ void CanonicalizerBase::outputTextToWriter($String* text, $OutputStream* writer)
 		i += $Character::charCount(c);
 		switch (c) {
 		case u'&':
-			{
-				$assign(toWrite, $cast($bytes, $nc(CanonicalizerBase::AMP)->clone()));
-				break;
-			}
+			$assign(toWrite, $cast($bytes, CanonicalizerBase::AMP->clone()));
+			break;
 		case u'<':
-			{
-				$assign(toWrite, $cast($bytes, $nc(CanonicalizerBase::LT)->clone()));
-				break;
-			}
+			$assign(toWrite, $cast($bytes, CanonicalizerBase::LT->clone()));
+			break;
 		case u'>':
-			{
-				$assign(toWrite, $cast($bytes, $nc(CanonicalizerBase::GT)->clone()));
-				break;
-			}
+			$assign(toWrite, $cast($bytes, CanonicalizerBase::GT->clone()));
+			break;
 		case 13:
-			{
-				$assign(toWrite, $cast($bytes, $nc(CanonicalizerBase::XD)->clone()));
-				break;
-			}
+			$assign(toWrite, $cast($bytes, CanonicalizerBase::XD->clone()));
+			break;
 		default:
-			{
-				if (c < 128) {
-					$nc(writer)->write(c);
-				} else {
-					$UtfHelpper::writeCodePointToUtf8(c, writer);
-				}
-				continue;
+			if (c < 128) {
+				$nc(writer)->write(c);
+			} else {
+				$UtfHelpper::writeCodePointToUtf8(c, writer);
 			}
+			continue;
 		}
 		$nc(writer)->write(toWrite);
 	}
@@ -808,7 +678,7 @@ $Attr* CanonicalizerBase::getNullNode($Document* ownerDocument) {
 	return this->nullNode;
 }
 
-void clinit$CanonicalizerBase($Class* class$) {
+void CanonicalizerBase::clinit$($Class* clazz) {
 	$assignStatic(CanonicalizerBase::XML, "xml"_s);
 	$assignStatic(CanonicalizerBase::XMLNS, "xmlns"_s);
 	$init($Constants);
@@ -896,7 +766,69 @@ CanonicalizerBase::CanonicalizerBase() {
 }
 
 $Class* CanonicalizerBase::load$($String* name, bool initialize) {
-	$loadClass(CanonicalizerBase, name, initialize, &_CanonicalizerBase_ClassInfo_, clinit$CanonicalizerBase, allocate$CanonicalizerBase);
+	$FieldInfo fieldInfos$$[] = {
+		{"XML", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CanonicalizerBase, XML)},
+		{"XMLNS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CanonicalizerBase, XMLNS)},
+		{"XMLNS_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CanonicalizerBase, XMLNS_URI)},
+		{"XML_LANG_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CanonicalizerBase, XML_LANG_URI)},
+		{"COMPARE", "Lcom/sun/org/apache/xml/internal/security/c14n/helper/AttrCompare;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(CanonicalizerBase, COMPARE)},
+		{"NODE_BEFORE_DOCUMENT_ELEMENT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(CanonicalizerBase, NODE_BEFORE_DOCUMENT_ELEMENT)},
+		{"NODE_NOT_BEFORE_OR_AFTER_DOCUMENT_ELEMENT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(CanonicalizerBase, NODE_NOT_BEFORE_OR_AFTER_DOCUMENT_ELEMENT)},
+		{"NODE_AFTER_DOCUMENT_ELEMENT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(CanonicalizerBase, NODE_AFTER_DOCUMENT_ELEMENT)},
+		{"END_PI", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CanonicalizerBase, END_PI)},
+		{"BEGIN_PI", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CanonicalizerBase, BEGIN_PI)},
+		{"END_COMM", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CanonicalizerBase, END_COMM)},
+		{"BEGIN_COMM", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CanonicalizerBase, BEGIN_COMM)},
+		{"XA", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CanonicalizerBase, XA)},
+		{"X9", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CanonicalizerBase, X9)},
+		{"QUOT", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CanonicalizerBase, QUOT)},
+		{"XD", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CanonicalizerBase, XD)},
+		{"GT", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CanonicalizerBase, GT)},
+		{"LT", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CanonicalizerBase, LT)},
+		{"END_TAG", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CanonicalizerBase, END_TAG)},
+		{"AMP", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CanonicalizerBase, AMP)},
+		{"EQUALS_STR", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CanonicalizerBase, EQUALS_STR)},
+		{"includeComments", "Z", nullptr, $PRIVATE, $field(CanonicalizerBase, includeComments)},
+		{"nodeFilter", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/signature/NodeFilter;>;", $PRIVATE, $field(CanonicalizerBase, nodeFilter)},
+		{"xpathNodeSet", "Ljava/util/Set;", "Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PRIVATE, $field(CanonicalizerBase, xpathNodeSet)},
+		{"nullNode", "Lorg/w3c/dom/Attr;", nullptr, $PRIVATE, $field(CanonicalizerBase, nullNode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, $PROTECTED, $method(CanonicalizerBase, init$, void, bool)},
+		{"canonicalizeSubTree", "(Lorg/w3c/dom/Node;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;Lorg/w3c/dom/Node;ILorg/w3c/dom/Node;Ljava/io/OutputStream;)V", nullptr, $PRIVATE, $method(CanonicalizerBase, canonicalizeSubTree, void, $Node*, $NameSpaceSymbTable*, $Node*, int32_t, $Node*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,java.io.IOException"},
+		{"canonicalizeXPathNodeSet", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/io/OutputStream;)V", nullptr, $PRIVATE, $method(CanonicalizerBase, canonicalizeXPathNodeSet, void, $Node*, $Node*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,java.io.IOException"},
+		{"circumventBugIfNeeded", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;)V", nullptr, $ABSTRACT, $virtualMethod(CanonicalizerBase, circumventBugIfNeeded, void, $XMLSignatureInput*), "com.sun.org.apache.xml.internal.security.parser.XMLParserException,java.io.IOException"},
+		{"engineCanonicalize", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;Z)V", nullptr, $PUBLIC, $virtualMethod(CanonicalizerBase, engineCanonicalize, void, $XMLSignatureInput*, $OutputStream*, bool), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
+		{"engineCanonicalizeSubTree", "(Lorg/w3c/dom/Node;Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CanonicalizerBase, engineCanonicalizeSubTree, void, $Node*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
+		{"engineCanonicalizeSubTree", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/io/OutputStream;)V", nullptr, $PROTECTED, $virtualMethod(CanonicalizerBase, engineCanonicalizeSubTree, void, $Node*, $Node*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
+		{"engineCanonicalizeXPathNodeSet", "(Ljava/util/Set;Ljava/io/OutputStream;)V", "(Ljava/util/Set<Lorg/w3c/dom/Node;>;Ljava/io/OutputStream;)V", $PUBLIC, $virtualMethod(CanonicalizerBase, engineCanonicalizeXPathNodeSet, void, $Set*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
+		{"engineCanonicalizeXPathNodeSetInternal", "(Lorg/w3c/dom/Node;Ljava/io/OutputStream;)V", nullptr, $PRIVATE, $method(CanonicalizerBase, engineCanonicalizeXPathNodeSetInternal, void, $Node*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
+		{"getNullNode", "(Lorg/w3c/dom/Document;)Lorg/w3c/dom/Attr;", nullptr, $PROTECTED, $virtualMethod(CanonicalizerBase, getNullNode, $Attr*, $Document*)},
+		{"getParentNameSpaces", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;)V", nullptr, $PRIVATE, $method(CanonicalizerBase, getParentNameSpaces, void, $Element*, $NameSpaceSymbTable*)},
+		{"handleParent", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;)V", nullptr, $PROTECTED, $virtualMethod(CanonicalizerBase, handleParent, void, $Element*, $NameSpaceSymbTable*)},
+		{"isVisible", "(Lorg/w3c/dom/Node;)Z", nullptr, $PROTECTED, $virtualMethod(CanonicalizerBase, isVisible, bool, $Node*)},
+		{"isVisibleDO", "(Lorg/w3c/dom/Node;I)I", nullptr, $PROTECTED, $virtualMethod(CanonicalizerBase, isVisibleDO, int32_t, $Node*, int32_t)},
+		{"isVisibleInt", "(Lorg/w3c/dom/Node;)I", nullptr, $PROTECTED, $virtualMethod(CanonicalizerBase, isVisibleInt, int32_t, $Node*)},
+		{"outputAttrToWriter", "(Ljava/lang/String;Ljava/lang/String;Ljava/io/OutputStream;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/io/OutputStream;Ljava/util/Map<Ljava/lang/String;[B>;)V", $PROTECTED | $STATIC | $FINAL, $staticMethod(CanonicalizerBase, outputAttrToWriter, void, $String*, $String*, $OutputStream*, $Map*), "java.io.IOException"},
+		{"outputAttributes", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;Ljava/util/Map;Ljava/io/OutputStream;)V", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;Ljava/util/Map<Ljava/lang/String;[B>;Ljava/io/OutputStream;)V", $ABSTRACT, $virtualMethod(CanonicalizerBase, outputAttributes, void, $Element*, $NameSpaceSymbTable*, $Map*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,org.w3c.dom.DOMException,java.io.IOException"},
+		{"outputAttributesSubtree", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;Ljava/util/Map;Ljava/io/OutputStream;)V", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;Ljava/util/Map<Ljava/lang/String;[B>;Ljava/io/OutputStream;)V", $ABSTRACT, $virtualMethod(CanonicalizerBase, outputAttributesSubtree, void, $Element*, $NameSpaceSymbTable*, $Map*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,org.w3c.dom.DOMException,java.io.IOException"},
+		{"outputCommentToWriter", "(Lorg/w3c/dom/Comment;Ljava/io/OutputStream;I)V", nullptr, $PROTECTED, $virtualMethod(CanonicalizerBase, outputCommentToWriter, void, $Comment*, $OutputStream*, int32_t), "java.io.IOException"},
+		{"outputPItoWriter", "(Lorg/w3c/dom/ProcessingInstruction;Ljava/io/OutputStream;I)V", nullptr, $PROTECTED, $virtualMethod(CanonicalizerBase, outputPItoWriter, void, $ProcessingInstruction*, $OutputStream*, int32_t), "java.io.IOException"},
+		{"outputTextToWriter", "(Ljava/lang/String;Ljava/io/OutputStream;)V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(CanonicalizerBase, outputTextToWriter, void, $String*, $OutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.security.c14n.implementations.CanonicalizerBase",
+		"com.sun.org.apache.xml.internal.security.c14n.CanonicalizerSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CanonicalizerBase, name, initialize, &classInfo$$, CanonicalizerBase::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CanonicalizerBase);
+	});
 	return class$;
 }
 

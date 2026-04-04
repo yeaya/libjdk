@@ -60,6 +60,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addDisplayChangedListener(::sun::awt::DisplayChangedListener* client);
 	virtual ::java::awt::Graphics2D* createGraphics(::java::awt::image::BufferedImage* img) override;

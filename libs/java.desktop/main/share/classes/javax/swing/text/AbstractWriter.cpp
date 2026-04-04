@@ -1,5 +1,4 @@
 #include <javax/swing/text/AbstractWriter.h>
-
 #include <java/io/Writer.h>
 #include <java/lang/Math.h>
 #include <java/util/Enumeration.h>
@@ -31,86 +30,12 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _AbstractWriter_FieldInfo_[] = {
-	{"it", "Ljavax/swing/text/ElementIterator;", nullptr, $PRIVATE, $field(AbstractWriter, it)},
-	{"out", "Ljava/io/Writer;", nullptr, $PRIVATE, $field(AbstractWriter, out)},
-	{"indentLevel", "I", nullptr, $PRIVATE, $field(AbstractWriter, indentLevel)},
-	{"indentSpace", "I", nullptr, $PRIVATE, $field(AbstractWriter, indentSpace)},
-	{"doc", "Ljavax/swing/text/Document;", nullptr, $PRIVATE, $field(AbstractWriter, doc)},
-	{"maxLineLength", "I", nullptr, $PRIVATE, $field(AbstractWriter, maxLineLength)},
-	{"currLength", "I", nullptr, $PRIVATE, $field(AbstractWriter, currLength)},
-	{"startOffset", "I", nullptr, $PRIVATE, $field(AbstractWriter, startOffset)},
-	{"endOffset", "I", nullptr, $PRIVATE, $field(AbstractWriter, endOffset)},
-	{"offsetIndent", "I", nullptr, $PRIVATE, $field(AbstractWriter, offsetIndent)},
-	{"lineSeparator", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AbstractWriter, lineSeparator)},
-	{"canWrapLines", "Z", nullptr, $PRIVATE, $field(AbstractWriter, canWrapLines)},
-	{"isLineEmpty", "Z", nullptr, $PRIVATE, $field(AbstractWriter, isLineEmpty$)},
-	{"indentChars", "[C", nullptr, $PRIVATE, $field(AbstractWriter, indentChars)},
-	{"tempChars", "[C", nullptr, $PRIVATE, $field(AbstractWriter, tempChars)},
-	{"newlineChars", "[C", nullptr, $PRIVATE, $field(AbstractWriter, newlineChars)},
-	{"segment", "Ljavax/swing/text/Segment;", nullptr, $PRIVATE, $field(AbstractWriter, segment)},
-	{"NEWLINE", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AbstractWriter, NEWLINE)},
-	{}
-};
-
-$MethodInfo _AbstractWriter_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Writer;Ljavax/swing/text/Document;)V", nullptr, $PROTECTED, $method(AbstractWriter, init$, void, $Writer*, $Document*)},
-	{"<init>", "(Ljava/io/Writer;Ljavax/swing/text/Document;II)V", nullptr, $PROTECTED, $method(AbstractWriter, init$, void, $Writer*, $Document*, int32_t, int32_t)},
-	{"<init>", "(Ljava/io/Writer;Ljavax/swing/text/Element;)V", nullptr, $PROTECTED, $method(AbstractWriter, init$, void, $Writer*, $Element*)},
-	{"<init>", "(Ljava/io/Writer;Ljavax/swing/text/Element;II)V", nullptr, $PROTECTED, $method(AbstractWriter, init$, void, $Writer*, $Element*, int32_t, int32_t)},
-	{"decrIndent", "()V", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, decrIndent, void)},
-	{"getCanWrapLines", "()Z", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, getCanWrapLines, bool)},
-	{"getCurrentLineLength", "()I", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, getCurrentLineLength, int32_t)},
-	{"getDocument", "()Ljavax/swing/text/Document;", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, getDocument, $Document*)},
-	{"getElementIterator", "()Ljavax/swing/text/ElementIterator;", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, getElementIterator, $ElementIterator*)},
-	{"getEndOffset", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractWriter, getEndOffset, int32_t)},
-	{"getIndentLevel", "()I", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, getIndentLevel, int32_t)},
-	{"getIndentSpace", "()I", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, getIndentSpace, int32_t)},
-	{"getLineLength", "()I", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, getLineLength, int32_t)},
-	{"getLineSeparator", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractWriter, getLineSeparator, $String*)},
-	{"getStartOffset", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractWriter, getStartOffset, int32_t)},
-	{"getText", "(Ljavax/swing/text/Element;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, getText, $String*, $Element*), "javax.swing.text.BadLocationException"},
-	{"getWriter", "()Ljava/io/Writer;", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, getWriter, $Writer*)},
-	{"inRange", "(Ljavax/swing/text/Element;)Z", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, inRange, bool, $Element*)},
-	{"incrIndent", "()V", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, incrIndent, void)},
-	{"indent", "()V", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, indent, void), "java.io.IOException"},
-	{"indexOf", "([CCII)I", nullptr, $PRIVATE, $method(AbstractWriter, indexOf, int32_t, $chars*, char16_t, int32_t, int32_t)},
-	{"isLineEmpty", "()Z", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, isLineEmpty, bool)},
-	{"output", "([CII)V", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, output, void, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"setCanWrapLines", "(Z)V", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, setCanWrapLines, void, bool)},
-	{"setCurrentLineLength", "(I)V", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, setCurrentLineLength, void, int32_t)},
-	{"setIndentSpace", "(I)V", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, setIndentSpace, void, int32_t)},
-	{"setLineLength", "(I)V", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, setLineLength, void, int32_t)},
-	{"setLineSeparator", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AbstractWriter, setLineSeparator, void, $String*)},
-	{"text", "(Ljavax/swing/text/Element;)V", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, text, void, $Element*), "javax.swing.text.BadLocationException,java.io.IOException"},
-	{"write", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractWriter, write, void), "java.io.IOException,javax.swing.text.BadLocationException"},
-	{"write", "(C)V", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, write, void, char16_t), "java.io.IOException"},
-	{"write", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, write, void, $String*), "java.io.IOException"},
-	{"write", "([CII)V", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"writeAttributes", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, writeAttributes, void, $AttributeSet*), "java.io.IOException"},
-	{"writeLineSeparator", "()V", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, writeLineSeparator, void), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _AbstractWriter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.text.AbstractWriter",
-	"java.lang.Object",
-	nullptr,
-	_AbstractWriter_FieldInfo_,
-	_AbstractWriter_MethodInfo_
-};
-
-$Object* allocate$AbstractWriter($Class* clazz) {
-	return $of($alloc(AbstractWriter));
-}
-
 void AbstractWriter::init$($Writer* w, $Document* doc) {
 	AbstractWriter::init$(w, doc, 0, $nc(doc)->getLength());
 }
 
 void AbstractWriter::init$($Writer* w, $Document* doc, int32_t pos, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->indentLevel = 0;
 	this->indentSpace = 2;
 	$set(this, doc, nullptr);
@@ -125,7 +50,7 @@ void AbstractWriter::init$($Writer* w, $Document* doc, int32_t pos, int32_t len)
 	this->startOffset = pos;
 	this->endOffset = pos + len;
 	$init($DefaultEditorKit);
-	$var($Object, docNewline, $nc(doc)->getProperty($DefaultEditorKit::EndOfLineStringProperty));
+	$var($Object, docNewline, doc->getProperty($DefaultEditorKit::EndOfLineStringProperty));
 	if ($instanceOf($String, docNewline)) {
 		setLineSeparator($cast($String, docNewline));
 	} else {
@@ -183,10 +108,10 @@ bool AbstractWriter::inRange($Element* next) {
 	int32_t startOffset = getStartOffset();
 	int32_t endOffset = getEndOffset();
 	bool var$1 = $nc(next)->getStartOffset() >= startOffset;
-	bool var$0 = (var$1 && next->getStartOffset() < endOffset);
+	bool var$0 = var$1 && next->getStartOffset() < endOffset;
 	if (!var$0) {
-		bool var$2 = startOffset >= $nc(next)->getStartOffset();
-		var$0 = (var$2 && startOffset < next->getEndOffset());
+		bool var$2 = startOffset >= next->getStartOffset();
+		var$0 = var$2 && startOffset < next->getEndOffset();
 	}
 	if (var$0) {
 		return true;
@@ -204,14 +129,14 @@ void AbstractWriter::text($Element* elem) {
 	int32_t var$0 = getStartOffset();
 	int32_t start = $Math::max(var$0, $nc(elem)->getStartOffset());
 	int32_t var$1 = getEndOffset();
-	int32_t end = $Math::min(var$1, $nc(elem)->getEndOffset());
+	int32_t end = $Math::min(var$1, elem->getEndOffset());
 	if (start < end) {
 		if (this->segment == nullptr) {
 			$set(this, segment, $new($Segment));
 		}
-		$nc($(getDocument()))->getText(start, end - start, this->segment);
+		$$nc(getDocument())->getText(start, end - start, this->segment);
 		if ($nc(this->segment)->count > 0) {
-			write($nc(this->segment)->array, $nc(this->segment)->offset, $nc(this->segment)->count);
+			write(this->segment->array, this->segment->offset, this->segment->count);
 		}
 	}
 }
@@ -265,8 +190,8 @@ void AbstractWriter::incrIndent() {
 	if (this->offsetIndent > 0) {
 		++this->offsetIndent;
 	} else {
-		int32_t var$1 = ++this->indentLevel * getIndentSpace();
-		if (var$1 >= getLineLength()) {
+		int32_t var$0 = ++this->indentLevel * getIndentSpace();
+		if (var$0 >= getLineLength()) {
 			++this->offsetIndent;
 			--this->indentLevel;
 		}
@@ -288,10 +213,10 @@ int32_t AbstractWriter::getIndentLevel() {
 void AbstractWriter::indent() {
 	int32_t var$0 = getIndentLevel();
 	int32_t max = var$0 * getIndentSpace();
-	if (this->indentChars == nullptr || max > $nc(this->indentChars)->length) {
+	if (this->indentChars == nullptr || max > this->indentChars->length) {
 		$set(this, indentChars, $new($chars, max));
 		for (int32_t counter = 0; counter < max; ++counter) {
-			$nc(this->indentChars)->set(counter, u' ');
+			this->indentChars->set(counter, u' ');
 		}
 	}
 	int32_t length = getCurrentLineLength();
@@ -315,7 +240,7 @@ void AbstractWriter::write($String* content) {
 		return;
 	}
 	int32_t size = $nc(content)->length();
-	if (this->tempChars == nullptr || $nc(this->tempChars)->length < size) {
+	if (this->tempChars == nullptr || this->tempChars->length < size) {
 		$set(this, tempChars, $new($chars, size));
 	}
 	content->getChars(0, size, this->tempChars, 0);
@@ -325,7 +250,7 @@ void AbstractWriter::write($String* content) {
 void AbstractWriter::writeLineSeparator() {
 	$var($String, newline, getLineSeparator());
 	int32_t length = $nc(newline)->length();
-	if (this->newlineChars == nullptr || $nc(this->newlineChars)->length < length) {
+	if (this->newlineChars == nullptr || this->newlineChars->length < length) {
 		$set(this, newlineChars, $new($chars, length));
 	}
 	newline->getChars(0, length, this->newlineChars, 0);
@@ -422,17 +347,21 @@ void AbstractWriter::write($chars* chars, int32_t startIndex, int32_t length) {
 }
 
 void AbstractWriter::writeAttributes($AttributeSet* attr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Enumeration, names, $nc(attr)->getAttributeNames());
 	while ($nc(names)->hasMoreElements()) {
 		$var($Object, name, names->nextElement());
-		$var($String, var$0, $$str({" "_s, name, "="_s}));
-		write($$concat(var$0, $(attr->getAttribute(name))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append(" "_s);
+		var$0->append(name);
+		var$0->append("="_s);
+		var$0->append($(attr->getAttribute(name)));
+		write($$str(var$0));
 	}
 }
 
 void AbstractWriter::output($chars* content, int32_t start, int32_t length) {
-	$nc($(getWriter()))->write(content, start, length);
+	$$nc(getWriter())->write(content, start, length);
 	setCurrentLineLength(getCurrentLineLength() + length);
 }
 
@@ -450,7 +379,76 @@ AbstractWriter::AbstractWriter() {
 }
 
 $Class* AbstractWriter::load$($String* name, bool initialize) {
-	$loadClass(AbstractWriter, name, initialize, &_AbstractWriter_ClassInfo_, allocate$AbstractWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"it", "Ljavax/swing/text/ElementIterator;", nullptr, $PRIVATE, $field(AbstractWriter, it)},
+		{"out", "Ljava/io/Writer;", nullptr, $PRIVATE, $field(AbstractWriter, out)},
+		{"indentLevel", "I", nullptr, $PRIVATE, $field(AbstractWriter, indentLevel)},
+		{"indentSpace", "I", nullptr, $PRIVATE, $field(AbstractWriter, indentSpace)},
+		{"doc", "Ljavax/swing/text/Document;", nullptr, $PRIVATE, $field(AbstractWriter, doc)},
+		{"maxLineLength", "I", nullptr, $PRIVATE, $field(AbstractWriter, maxLineLength)},
+		{"currLength", "I", nullptr, $PRIVATE, $field(AbstractWriter, currLength)},
+		{"startOffset", "I", nullptr, $PRIVATE, $field(AbstractWriter, startOffset)},
+		{"endOffset", "I", nullptr, $PRIVATE, $field(AbstractWriter, endOffset)},
+		{"offsetIndent", "I", nullptr, $PRIVATE, $field(AbstractWriter, offsetIndent)},
+		{"lineSeparator", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AbstractWriter, lineSeparator)},
+		{"canWrapLines", "Z", nullptr, $PRIVATE, $field(AbstractWriter, canWrapLines)},
+		{"isLineEmpty", "Z", nullptr, $PRIVATE, $field(AbstractWriter, isLineEmpty$)},
+		{"indentChars", "[C", nullptr, $PRIVATE, $field(AbstractWriter, indentChars)},
+		{"tempChars", "[C", nullptr, $PRIVATE, $field(AbstractWriter, tempChars)},
+		{"newlineChars", "[C", nullptr, $PRIVATE, $field(AbstractWriter, newlineChars)},
+		{"segment", "Ljavax/swing/text/Segment;", nullptr, $PRIVATE, $field(AbstractWriter, segment)},
+		{"NEWLINE", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AbstractWriter, NEWLINE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/Writer;Ljavax/swing/text/Document;)V", nullptr, $PROTECTED, $method(AbstractWriter, init$, void, $Writer*, $Document*)},
+		{"<init>", "(Ljava/io/Writer;Ljavax/swing/text/Document;II)V", nullptr, $PROTECTED, $method(AbstractWriter, init$, void, $Writer*, $Document*, int32_t, int32_t)},
+		{"<init>", "(Ljava/io/Writer;Ljavax/swing/text/Element;)V", nullptr, $PROTECTED, $method(AbstractWriter, init$, void, $Writer*, $Element*)},
+		{"<init>", "(Ljava/io/Writer;Ljavax/swing/text/Element;II)V", nullptr, $PROTECTED, $method(AbstractWriter, init$, void, $Writer*, $Element*, int32_t, int32_t)},
+		{"decrIndent", "()V", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, decrIndent, void)},
+		{"getCanWrapLines", "()Z", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, getCanWrapLines, bool)},
+		{"getCurrentLineLength", "()I", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, getCurrentLineLength, int32_t)},
+		{"getDocument", "()Ljavax/swing/text/Document;", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, getDocument, $Document*)},
+		{"getElementIterator", "()Ljavax/swing/text/ElementIterator;", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, getElementIterator, $ElementIterator*)},
+		{"getEndOffset", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractWriter, getEndOffset, int32_t)},
+		{"getIndentLevel", "()I", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, getIndentLevel, int32_t)},
+		{"getIndentSpace", "()I", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, getIndentSpace, int32_t)},
+		{"getLineLength", "()I", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, getLineLength, int32_t)},
+		{"getLineSeparator", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractWriter, getLineSeparator, $String*)},
+		{"getStartOffset", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractWriter, getStartOffset, int32_t)},
+		{"getText", "(Ljavax/swing/text/Element;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, getText, $String*, $Element*), "javax.swing.text.BadLocationException"},
+		{"getWriter", "()Ljava/io/Writer;", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, getWriter, $Writer*)},
+		{"inRange", "(Ljavax/swing/text/Element;)Z", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, inRange, bool, $Element*)},
+		{"incrIndent", "()V", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, incrIndent, void)},
+		{"indent", "()V", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, indent, void), "java.io.IOException"},
+		{"indexOf", "([CCII)I", nullptr, $PRIVATE, $method(AbstractWriter, indexOf, int32_t, $chars*, char16_t, int32_t, int32_t)},
+		{"isLineEmpty", "()Z", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, isLineEmpty, bool)},
+		{"output", "([CII)V", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, output, void, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"setCanWrapLines", "(Z)V", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, setCanWrapLines, void, bool)},
+		{"setCurrentLineLength", "(I)V", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, setCurrentLineLength, void, int32_t)},
+		{"setIndentSpace", "(I)V", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, setIndentSpace, void, int32_t)},
+		{"setLineLength", "(I)V", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, setLineLength, void, int32_t)},
+		{"setLineSeparator", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AbstractWriter, setLineSeparator, void, $String*)},
+		{"text", "(Ljavax/swing/text/Element;)V", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, text, void, $Element*), "javax.swing.text.BadLocationException,java.io.IOException"},
+		{"write", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractWriter, write, void), "java.io.IOException,javax.swing.text.BadLocationException"},
+		{"write", "(C)V", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, write, void, char16_t), "java.io.IOException"},
+		{"write", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, write, void, $String*), "java.io.IOException"},
+		{"write", "([CII)V", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"writeAttributes", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, writeAttributes, void, $AttributeSet*), "java.io.IOException"},
+		{"writeLineSeparator", "()V", nullptr, $PROTECTED, $virtualMethod(AbstractWriter, writeLineSeparator, void), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.text.AbstractWriter",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractWriter);
+	});
 	return class$;
 }
 

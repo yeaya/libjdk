@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XKeyEvent.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,80 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XKeyEvent_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XKeyEvent, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XKeyEvent, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XKeyEvent, pData)},
-	{}
-};
-
-$MethodInfo _XKeyEvent_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XKeyEvent, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XKeyEvent, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XKeyEvent, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XKeyEvent, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XKeyEvent, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XKeyEvent, getSize, int32_t)},
-	{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_display, int64_t)},
-	{"get_keycode", "()I", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_keycode, int32_t)},
-	{"get_root", "()J", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_root, int64_t)},
-	{"get_same_screen", "()Z", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_same_screen, bool)},
-	{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_send_event, bool)},
-	{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_serial, int64_t)},
-	{"get_state", "()I", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_state, int32_t)},
-	{"get_subwindow", "()J", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_subwindow, int64_t)},
-	{"get_time", "()J", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_time, int64_t)},
-	{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_type, int32_t)},
-	{"get_window", "()J", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_window, int64_t)},
-	{"get_x", "()I", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_x, int32_t)},
-	{"get_x_root", "()I", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_x_root, int32_t)},
-	{"get_y", "()I", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_y, int32_t)},
-	{"get_y_root", "()I", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_y_root, int32_t)},
-	{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_display, void, int64_t)},
-	{"set_keycode", "(I)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_keycode, void, int32_t)},
-	{"set_root", "(J)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_root, void, int64_t)},
-	{"set_same_screen", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_same_screen, void, bool)},
-	{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_send_event, void, bool)},
-	{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_serial, void, int64_t)},
-	{"set_state", "(I)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_state, void, int32_t)},
-	{"set_subwindow", "(J)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_subwindow, void, int64_t)},
-	{"set_time", "(J)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_time, void, int64_t)},
-	{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_type, void, int32_t)},
-	{"set_window", "(J)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_window, void, int64_t)},
-	{"set_x", "(I)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_x, void, int32_t)},
-	{"set_x_root", "(I)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_x_root, void, int32_t)},
-	{"set_y", "(I)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_y, void, int32_t)},
-	{"set_y_root", "(I)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_y_root, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XKeyEvent, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XKeyEvent, zero, void)},
-	{}
-};
-
-$ClassInfo _XKeyEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XKeyEvent",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XKeyEvent_FieldInfo_,
-	_XKeyEvent_MethodInfo_
-};
-
-$Object* allocate$XKeyEvent($Class* clazz) {
-	return $of($alloc(XKeyEvent));
-}
 
 int32_t XKeyEvent::getSize() {
 	$init(XKeyEvent);
@@ -123,7 +55,7 @@ void XKeyEvent::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -313,7 +245,7 @@ $String* XKeyEvent::getName() {
 }
 
 $String* XKeyEvent::getFieldsAsString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, ret, $new($StringBuilder, 600));
 	$init($XlibWrapper);
 	ret->append("type = "_s)->append($nc($XlibWrapper::eventToString)->get(get_type()))->append(", "_s);
@@ -335,7 +267,7 @@ $String* XKeyEvent::getFieldsAsString() {
 }
 
 $Object* XKeyEvent::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XKeyEvent::zero() {
@@ -350,7 +282,67 @@ XKeyEvent::XKeyEvent() {
 }
 
 $Class* XKeyEvent::load$($String* name, bool initialize) {
-	$loadClass(XKeyEvent, name, initialize, &_XKeyEvent_ClassInfo_, allocate$XKeyEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XKeyEvent, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XKeyEvent, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XKeyEvent, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XKeyEvent, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XKeyEvent, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XKeyEvent, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XKeyEvent, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XKeyEvent, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XKeyEvent, getSize, int32_t)},
+		{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_display, int64_t)},
+		{"get_keycode", "()I", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_keycode, int32_t)},
+		{"get_root", "()J", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_root, int64_t)},
+		{"get_same_screen", "()Z", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_same_screen, bool)},
+		{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_send_event, bool)},
+		{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_serial, int64_t)},
+		{"get_state", "()I", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_state, int32_t)},
+		{"get_subwindow", "()J", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_subwindow, int64_t)},
+		{"get_time", "()J", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_time, int64_t)},
+		{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_type, int32_t)},
+		{"get_window", "()J", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_window, int64_t)},
+		{"get_x", "()I", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_x, int32_t)},
+		{"get_x_root", "()I", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_x_root, int32_t)},
+		{"get_y", "()I", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_y, int32_t)},
+		{"get_y_root", "()I", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, get_y_root, int32_t)},
+		{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_display, void, int64_t)},
+		{"set_keycode", "(I)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_keycode, void, int32_t)},
+		{"set_root", "(J)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_root, void, int64_t)},
+		{"set_same_screen", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_same_screen, void, bool)},
+		{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_send_event, void, bool)},
+		{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_serial, void, int64_t)},
+		{"set_state", "(I)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_state, void, int32_t)},
+		{"set_subwindow", "(J)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_subwindow, void, int64_t)},
+		{"set_time", "(J)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_time, void, int64_t)},
+		{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_type, void, int32_t)},
+		{"set_window", "(J)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_window, void, int64_t)},
+		{"set_x", "(I)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_x, void, int32_t)},
+		{"set_x_root", "(I)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_x_root, void, int32_t)},
+		{"set_y", "(I)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_y, void, int32_t)},
+		{"set_y_root", "(I)V", nullptr, $PUBLIC, $virtualMethod(XKeyEvent, set_y_root, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XKeyEvent, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XKeyEvent, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XKeyEvent",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XKeyEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XKeyEvent);
+	});
 	return class$;
 }
 

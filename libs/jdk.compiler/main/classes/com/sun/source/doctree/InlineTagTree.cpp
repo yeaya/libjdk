@@ -1,5 +1,4 @@
 #include <com/sun/source/doctree/InlineTagTree.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,26 +9,22 @@ namespace com {
 		namespace source {
 			namespace doctree {
 
-$MethodInfo _InlineTagTree_MethodInfo_[] = {
-	{"getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InlineTagTree, getTagName, $String*)},
-	{}
-};
-
-$ClassInfo _InlineTagTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.doctree.InlineTagTree",
-	nullptr,
-	"com.sun.source.doctree.DocTree",
-	nullptr,
-	_InlineTagTree_MethodInfo_
-};
-
-$Object* allocate$InlineTagTree($Class* clazz) {
-	return $of($alloc(InlineTagTree));
-}
-
 $Class* InlineTagTree::load$($String* name, bool initialize) {
-	$loadClass(InlineTagTree, name, initialize, &_InlineTagTree_ClassInfo_, allocate$InlineTagTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InlineTagTree, getTagName, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.doctree.InlineTagTree",
+		nullptr,
+		"com.sun.source.doctree.DocTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InlineTagTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InlineTagTree);
+	});
 	return class$;
 }
 

@@ -1,6 +1,4 @@
 #include <com/sun/tools/javac/tree/DCTree$DCDocRoot.h>
-
-#include <com/sun/source/doctree/DocRootTree.h>
 #include <com/sun/source/doctree/DocTree$Kind.h>
 #include <com/sun/source/doctree/DocTreeVisitor.h>
 #include <com/sun/tools/javac/tree/DCTree$DCInlineTag.h>
@@ -9,7 +7,6 @@
 
 #undef DOC_ROOT
 
-using $DocRootTree = ::com::sun::source::doctree::DocRootTree;
 using $DocTree$Kind = ::com::sun::source::doctree::DocTree$Kind;
 using $DocTreeVisitor = ::com::sun::source::doctree::DocTreeVisitor;
 using $DCTree$DCInlineTag = ::com::sun::tools::javac::tree::DCTree$DCInlineTag;
@@ -22,45 +19,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$MethodInfo _DCTree$DCDocRoot_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DCTree$DCDocRoot, init$, void)},
-	{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(DCTree$DCDocRoot, accept, $Object*, $DocTreeVisitor*, Object$*)},
-	{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCDocRoot, getKind, $DocTree$Kind*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DCTree$DCDocRoot_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.DCTree$DCDocRoot", "com.sun.tools.javac.tree.DCTree", "DCDocRoot", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.DCTree$DCInlineTag", "com.sun.tools.javac.tree.DCTree", "DCInlineTag", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DCTree$DCDocRoot_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.DCTree$DCDocRoot",
-	"com.sun.tools.javac.tree.DCTree$DCInlineTag",
-	"com.sun.source.doctree.DocRootTree",
-	nullptr,
-	_DCTree$DCDocRoot_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DCTree$DCDocRoot_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.DCTree"
-};
-
-$Object* allocate$DCTree$DCDocRoot($Class* clazz) {
-	return $of($alloc(DCTree$DCDocRoot));
-}
 
 $String* DCTree$DCDocRoot::getTagName() {
 	 return this->$DCTree$DCInlineTag::getTagName();
@@ -96,14 +54,48 @@ $DocTree$Kind* DCTree$DCDocRoot::getKind() {
 }
 
 $Object* DCTree$DCDocRoot::accept($DocTreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitDocRoot(this, d));
+	return $nc(v)->visitDocRoot(this, d);
 }
 
 DCTree$DCDocRoot::DCTree$DCDocRoot() {
 }
 
 $Class* DCTree$DCDocRoot::load$($String* name, bool initialize) {
-	$loadClass(DCTree$DCDocRoot, name, initialize, &_DCTree$DCDocRoot_ClassInfo_, allocate$DCTree$DCDocRoot);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DCTree$DCDocRoot, init$, void)},
+		{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(DCTree$DCDocRoot, accept, $Object*, $DocTreeVisitor*, Object$*)},
+		{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCDocRoot, getKind, $DocTree$Kind*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.DCTree$DCDocRoot", "com.sun.tools.javac.tree.DCTree", "DCDocRoot", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.DCTree$DCInlineTag", "com.sun.tools.javac.tree.DCTree", "DCInlineTag", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.DCTree$DCDocRoot",
+		"com.sun.tools.javac.tree.DCTree$DCInlineTag",
+		"com.sun.source.doctree.DocRootTree",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.DCTree"
+	};
+	$loadClass(DCTree$DCDocRoot, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DCTree$DCDocRoot));
+	});
 	return class$;
 }
 

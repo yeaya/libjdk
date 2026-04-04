@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/pubapi/TypeVarTypeDesc.h>
-
 #include <com/sun/tools/sjavac/pubapi/TypeDesc.h>
 #include <javax/lang/model/type/TypeKind.h>
 #include <jcpp.h>
@@ -18,33 +17,6 @@ namespace com {
 			namespace sjavac {
 				namespace pubapi {
 
-$FieldInfo _TypeVarTypeDesc_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TypeVarTypeDesc, serialVersionUID)},
-	{"identifier", "Ljava/lang/String;", nullptr, 0, $field(TypeVarTypeDesc, identifier)},
-	{}
-};
-
-$MethodInfo _TypeVarTypeDesc_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TypeVarTypeDesc, init$, void, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TypeVarTypeDesc, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TypeVarTypeDesc, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypeVarTypeDesc, toString, $String*)},
-	{}
-};
-
-$ClassInfo _TypeVarTypeDesc_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.pubapi.TypeVarTypeDesc",
-	"com.sun.tools.sjavac.pubapi.TypeDesc",
-	nullptr,
-	_TypeVarTypeDesc_FieldInfo_,
-	_TypeVarTypeDesc_MethodInfo_
-};
-
-$Object* allocate$TypeVarTypeDesc($Class* clazz) {
-	return $of($alloc(TypeVarTypeDesc));
-}
-
 void TypeVarTypeDesc::init$($String* identifier) {
 	$init($TypeKind);
 	$TypeDesc::init$($TypeKind::TYPEVAR);
@@ -55,7 +27,7 @@ bool TypeVarTypeDesc::equals(Object$* obj) {
 	if (!$TypeDesc::equals(obj)) {
 		return false;
 	}
-	return $nc(this->identifier)->equals($nc(($cast(TypeVarTypeDesc, obj)))->identifier);
+	return $nc(this->identifier)->equals($nc($cast(TypeVarTypeDesc, obj))->identifier);
 }
 
 int32_t TypeVarTypeDesc::hashCode() {
@@ -64,10 +36,10 @@ int32_t TypeVarTypeDesc::hashCode() {
 }
 
 $String* TypeVarTypeDesc::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("%s[identifier: %s]"_s, $$new($ObjectArray, {
-		$($of($of(this)->getClass()->getSimpleName())),
-		$of(this->identifier)
+		$($of(this)->getClass()->getSimpleName()),
+		this->identifier
 	}));
 }
 
@@ -75,7 +47,29 @@ TypeVarTypeDesc::TypeVarTypeDesc() {
 }
 
 $Class* TypeVarTypeDesc::load$($String* name, bool initialize) {
-	$loadClass(TypeVarTypeDesc, name, initialize, &_TypeVarTypeDesc_ClassInfo_, allocate$TypeVarTypeDesc);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TypeVarTypeDesc, serialVersionUID)},
+		{"identifier", "Ljava/lang/String;", nullptr, 0, $field(TypeVarTypeDesc, identifier)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TypeVarTypeDesc, init$, void, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TypeVarTypeDesc, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TypeVarTypeDesc, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypeVarTypeDesc, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.pubapi.TypeVarTypeDesc",
+		"com.sun.tools.sjavac.pubapi.TypeDesc",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TypeVarTypeDesc, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeVarTypeDesc);
+	});
 	return class$;
 }
 

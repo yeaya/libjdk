@@ -26,6 +26,7 @@ class EntryChangeResponseControl : public ::com::sun::jndi::ldap::BasicControl {
 	$class(EntryChangeResponseControl, 0, ::com::sun::jndi::ldap::BasicControl)
 public:
 	EntryChangeResponseControl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* id, bool criticality, $bytes* value);
 	int64_t getChangeNumber();
 	int32_t getChangeType();
@@ -38,7 +39,7 @@ public:
 	int32_t changeType = 0;
 	$String* previousDN = nullptr;
 	int64_t changeNumber = 0;
-	static const int64_t serialVersionUID = (int64_t)0xE3083A78CE903761;
+	static const int64_t serialVersionUID = (int64_t)0xe3083a78ce903761;
 };
 
 			} // ldap

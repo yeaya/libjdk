@@ -1,13 +1,10 @@
 #include <jdk.zipfs.h>
-
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>
 #include <java/lang/Library.h>
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 #include <jdk/nio/zipfs/ByteArrayChannel.h>
 #include <jdk/nio/zipfs/ZipCoder.h>
 #include <jdk/nio/zipfs/ZipCoder$UTF8.h>
@@ -148,6 +145,7 @@ $bytes* jdk$zipfs$GetResource($String* name) {
 
 void jdk$zipfs::init() {
 	::java$base::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"jdk.zipfs", "17.35", "",
 		&_jdk$zipfs_ModuleInfo_,

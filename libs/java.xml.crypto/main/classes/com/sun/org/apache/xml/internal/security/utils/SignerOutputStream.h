@@ -51,6 +51,7 @@ class SignerOutputStream : public ::java::io::ByteArrayOutputStream {
 	$class(SignerOutputStream, 0, ::java::io::ByteArrayOutputStream)
 public:
 	SignerOutputStream();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xml::internal::security::algorithms::SignatureAlgorithm* sa);
 	virtual void write($bytes* arg0) override;
 	virtual void write(int32_t arg0) override;

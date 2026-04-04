@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Iterators$1.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -13,44 +12,6 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$MethodInfo _Iterators$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Iterators$1, init$, void)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Iterators$1, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Iterators$1, next, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Iterators$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.util.Iterators",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Iterators$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.Iterators$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Iterators$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.util.Iterators$1",
-	"java.lang.Object",
-	"java.util.Iterator",
-	nullptr,
-	_Iterators$1_MethodInfo_,
-	nullptr,
-	&_Iterators$1_EnclosingMethodInfo_,
-	_Iterators$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.Iterators"
-};
-
-$Object* allocate$Iterators$1($Class* clazz) {
-	return $of($alloc(Iterators$1));
-}
-
 void Iterators$1::init$() {
 }
 
@@ -59,14 +20,46 @@ bool Iterators$1::hasNext() {
 }
 
 $Object* Iterators$1::next() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 Iterators$1::Iterators$1() {
 }
 
 $Class* Iterators$1::load$($String* name, bool initialize) {
-	$loadClass(Iterators$1, name, initialize, &_Iterators$1_ClassInfo_, allocate$Iterators$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Iterators$1, init$, void)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Iterators$1, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Iterators$1, next, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.util.Iterators",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.Iterators$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.util.Iterators$1",
+		"java.lang.Object",
+		"java.util.Iterator",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.Iterators"
+	};
+	$loadClass(Iterators$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Iterators$1);
+	});
 	return class$;
 }
 

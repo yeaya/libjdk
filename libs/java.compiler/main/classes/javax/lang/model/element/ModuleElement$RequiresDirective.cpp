@@ -1,5 +1,4 @@
 #include <javax/lang/model/element/ModuleElement$RequiresDirective.h>
-
 #include <javax/lang/model/element/ModuleElement.h>
 #include <jcpp.h>
 
@@ -13,41 +12,36 @@ namespace javax {
 		namespace model {
 			namespace element {
 
-$MethodInfo _ModuleElement$RequiresDirective_MethodInfo_[] = {
-	{"getDependency", "()Ljavax/lang/model/element/ModuleElement;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement$RequiresDirective, getDependency, $ModuleElement*)},
-	{"isStatic", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement$RequiresDirective, isStatic, bool)},
-	{"isTransitive", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement$RequiresDirective, isTransitive, bool)},
-	{}
-};
-
-$InnerClassInfo _ModuleElement$RequiresDirective_InnerClassesInfo_[] = {
-	{"javax.lang.model.element.ModuleElement$RequiresDirective", "javax.lang.model.element.ModuleElement", "RequiresDirective", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"javax.lang.model.element.ModuleElement$Directive", "javax.lang.model.element.ModuleElement", "Directive", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ModuleElement$RequiresDirective_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.lang.model.element.ModuleElement$RequiresDirective",
-	nullptr,
-	"javax.lang.model.element.ModuleElement$Directive",
-	nullptr,
-	_ModuleElement$RequiresDirective_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ModuleElement$RequiresDirective_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.lang.model.element.ModuleElement"
-};
-
-$Object* allocate$ModuleElement$RequiresDirective($Class* clazz) {
-	return $of($alloc(ModuleElement$RequiresDirective));
-}
-
 $Class* ModuleElement$RequiresDirective::load$($String* name, bool initialize) {
-	$loadClass(ModuleElement$RequiresDirective, name, initialize, &_ModuleElement$RequiresDirective_ClassInfo_, allocate$ModuleElement$RequiresDirective);
+	$MethodInfo methodInfos$$[] = {
+		{"getDependency", "()Ljavax/lang/model/element/ModuleElement;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement$RequiresDirective, getDependency, $ModuleElement*)},
+		{"isStatic", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement$RequiresDirective, isStatic, bool)},
+		{"isTransitive", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement$RequiresDirective, isTransitive, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.lang.model.element.ModuleElement$RequiresDirective", "javax.lang.model.element.ModuleElement", "RequiresDirective", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"javax.lang.model.element.ModuleElement$Directive", "javax.lang.model.element.ModuleElement", "Directive", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.lang.model.element.ModuleElement$RequiresDirective",
+		nullptr,
+		"javax.lang.model.element.ModuleElement$Directive",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.lang.model.element.ModuleElement"
+	};
+	$loadClass(ModuleElement$RequiresDirective, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleElement$RequiresDirective);
+	});
 	return class$;
 }
 

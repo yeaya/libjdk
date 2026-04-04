@@ -1,5 +1,4 @@
 #include <sun/security/krb5/KrbAsReq.h>
-
 #include <java/time/Instant.h>
 #include <java/util/Arrays.h>
 #include <sun/security/krb5/Config.h>
@@ -37,7 +36,6 @@
 
 using $PADataArray = $Array<::sun::security::krb5::internal::PAData>;
 using $TicketArray = $Array<::sun::security::krb5::internal::Ticket>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -64,34 +62,8 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 
-$FieldInfo _KrbAsReq_FieldInfo_[] = {
-	{"asReqMessg", "Lsun/security/krb5/internal/ASReq;", nullptr, $PRIVATE, $field(KrbAsReq, asReqMessg)},
-	{"DEBUG", "Z", nullptr, $PRIVATE, $field(KrbAsReq, DEBUG)},
-	{}
-};
-
-$MethodInfo _KrbAsReq_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/internal/KDCOptions;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;[ILsun/security/krb5/internal/HostAddresses;[Lsun/security/krb5/internal/PAData;)V", nullptr, $PUBLIC, $method(KrbAsReq, init$, void, $EncryptionKey*, $KDCOptions*, $PrincipalName*, $PrincipalName*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $ints*, $HostAddresses*, $PADataArray*), "sun.security.krb5.KrbException,java.io.IOException"},
-	{"encoding", "()[B", nullptr, 0, $virtualMethod(KrbAsReq, encoding, $bytes*), "java.io.IOException,sun.security.krb5.Asn1Exception"},
-	{"getMessage", "()Lsun/security/krb5/internal/ASReq;", nullptr, 0, $virtualMethod(KrbAsReq, getMessage, $ASReq*)},
-	{}
-};
-
-$ClassInfo _KrbAsReq_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.KrbAsReq",
-	"java.lang.Object",
-	nullptr,
-	_KrbAsReq_FieldInfo_,
-	_KrbAsReq_MethodInfo_
-};
-
-$Object* allocate$KrbAsReq($Class* clazz) {
-	return $of($alloc(KrbAsReq));
-}
-
 void KrbAsReq::init$($EncryptionKey* pakey, $KDCOptions* options$renamed, $PrincipalName* cname, $PrincipalName* sname$renamed, $KerberosTime* from$renamed, $KerberosTime* till$renamed, $KerberosTime* rtime$renamed, $ints* eTypes, $HostAddresses* addresses$renamed, $PADataArray* extraPAs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HostAddresses, addresses, addresses$renamed);
 	$var($KerberosTime, till, till$renamed);
 	$var($KerberosTime, rtime, rtime$renamed);
@@ -104,13 +76,13 @@ void KrbAsReq::init$($EncryptionKey* pakey, $KDCOptions* options$renamed, $Princ
 		$assign(options, $new($KDCOptions));
 	}
 	bool var$3 = $nc(options)->get($KDCOptions::FORWARDED);
-	bool var$2 = var$3 || $nc(options)->get($KDCOptions::PROXY);
-	bool var$1 = var$2 || $nc(options)->get($KDCOptions::ENC_TKT_IN_SKEY);
-	bool var$0 = var$1 || $nc(options)->get($KDCOptions::RENEW);
-	if (var$0 || $nc(options)->get($KDCOptions::VALIDATE)) {
+	bool var$2 = var$3 || options->get($KDCOptions::PROXY);
+	bool var$1 = var$2 || options->get($KDCOptions::ENC_TKT_IN_SKEY);
+	bool var$0 = var$1 || options->get($KDCOptions::RENEW);
+	if (var$0 || options->get($KDCOptions::VALIDATE)) {
 		$throwNew($KrbException, $Krb5::KRB_AP_ERR_REQ_OPTIONS);
 	}
-	if ($nc(options)->get($KDCOptions::POSTDATED)) {
+	if (options->get($KDCOptions::POSTDATED)) {
 	} else if (from != nullptr) {
 		$assign(from, nullptr);
 	}
@@ -126,7 +98,7 @@ void KrbAsReq::init$($EncryptionKey* pakey, $KDCOptions* options$renamed, $Princ
 		if (paData == nullptr) {
 			$assign(paData, $new($PADataArray, extraPAs->length));
 		} else {
-			$assign(paData, $fcast($PADataArray, $Arrays::copyOf(paData, $nc(paData)->length + extraPAs->length)));
+			$assign(paData, $cast($PADataArray, $Arrays::copyOf(paData, paData->length + extraPAs->length)));
 		}
 		$System::arraycopy(extraPAs, 0, paData, $nc(paData)->length - extraPAs->length, extraPAs->length);
 	}
@@ -141,7 +113,7 @@ void KrbAsReq::init$($EncryptionKey* pakey, $KDCOptions* options$renamed, $Princ
 		$assign(addresses, $HostAddresses::getLocalAddresses());
 	}
 	if (sname == nullptr) {
-		$var($String, realm, $nc(cname)->getRealmAsString());
+		$var($String, realm, cname->getRealmAsString());
 		$assign(sname, $PrincipalName::tgsService(realm, realm));
 	}
 	if (till == nullptr) {
@@ -150,7 +122,7 @@ void KrbAsReq::init$($EncryptionKey* pakey, $KDCOptions* options$renamed, $Princ
 			"ticket_lifetime"_s
 		})));
 		if (d != nullptr) {
-			$assign(till, $new($KerberosTime, $($nc($($Instant::now()))->plusSeconds($Config::duration(d)))));
+			$assign(till, $new($KerberosTime, $($$nc($Instant::now())->plusSeconds($Config::duration(d)))));
 		} else {
 			$assign(till, $new($KerberosTime, (int64_t)0));
 		}
@@ -161,11 +133,11 @@ void KrbAsReq::init$($EncryptionKey* pakey, $KDCOptions* options$renamed, $Princ
 			"renew_lifetime"_s
 		})));
 		if (d != nullptr) {
-			$assign(rtime, $new($KerberosTime, $($nc($($Instant::now()))->plusSeconds($Config::duration(d)))));
+			$assign(rtime, $new($KerberosTime, $($$nc($Instant::now())->plusSeconds($Config::duration(d)))));
 		}
 	}
 	if (rtime != nullptr) {
-		$nc(options)->set($KDCOptions::RENEWABLE, true);
+		options->set($KDCOptions::RENEWABLE, true);
 		if ($nc(till)->greaterThan(rtime)) {
 			$assign(rtime, till);
 		}
@@ -186,7 +158,28 @@ KrbAsReq::KrbAsReq() {
 }
 
 $Class* KrbAsReq::load$($String* name, bool initialize) {
-	$loadClass(KrbAsReq, name, initialize, &_KrbAsReq_ClassInfo_, allocate$KrbAsReq);
+	$FieldInfo fieldInfos$$[] = {
+		{"asReqMessg", "Lsun/security/krb5/internal/ASReq;", nullptr, $PRIVATE, $field(KrbAsReq, asReqMessg)},
+		{"DEBUG", "Z", nullptr, $PRIVATE, $field(KrbAsReq, DEBUG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/internal/KDCOptions;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;[ILsun/security/krb5/internal/HostAddresses;[Lsun/security/krb5/internal/PAData;)V", nullptr, $PUBLIC, $method(KrbAsReq, init$, void, $EncryptionKey*, $KDCOptions*, $PrincipalName*, $PrincipalName*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $ints*, $HostAddresses*, $PADataArray*), "sun.security.krb5.KrbException,java.io.IOException"},
+		{"encoding", "()[B", nullptr, 0, $virtualMethod(KrbAsReq, encoding, $bytes*), "java.io.IOException,sun.security.krb5.Asn1Exception"},
+		{"getMessage", "()Lsun/security/krb5/internal/ASReq;", nullptr, 0, $virtualMethod(KrbAsReq, getMessage, $ASReq*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.KrbAsReq",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KrbAsReq, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KrbAsReq);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/apple/laf/ScreenMenuBarProvider.h>
-
 #include <com/apple/laf/ScreenMenuBar.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _ScreenMenuBarProvider_MethodInfo_[] = {
-	{"getScreenMenuBar", "()Lcom/apple/laf/ScreenMenuBar;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ScreenMenuBarProvider, getScreenMenuBar, $ScreenMenuBar*)},
-	{}
-};
-
-$ClassInfo _ScreenMenuBarProvider_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.apple.laf.ScreenMenuBarProvider",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ScreenMenuBarProvider_MethodInfo_
-};
-
-$Object* allocate$ScreenMenuBarProvider($Class* clazz) {
-	return $of($alloc(ScreenMenuBarProvider));
-}
-
 $Class* ScreenMenuBarProvider::load$($String* name, bool initialize) {
-	$loadClass(ScreenMenuBarProvider, name, initialize, &_ScreenMenuBarProvider_ClassInfo_, allocate$ScreenMenuBarProvider);
+	$MethodInfo methodInfos$$[] = {
+		{"getScreenMenuBar", "()Lcom/apple/laf/ScreenMenuBar;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ScreenMenuBarProvider, getScreenMenuBar, $ScreenMenuBar*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.apple.laf.ScreenMenuBarProvider",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ScreenMenuBarProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ScreenMenuBarProvider);
+	});
 	return class$;
 }
 

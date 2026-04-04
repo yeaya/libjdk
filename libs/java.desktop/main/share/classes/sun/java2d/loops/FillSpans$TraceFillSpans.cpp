@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/FillSpans$TraceFillSpans.h>
-
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/loops/CompositeType.h>
@@ -25,45 +24,8 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _FillSpans$TraceFillSpans_FieldInfo_[] = {
-	{"target", "Lsun/java2d/loops/FillSpans;", nullptr, 0, $field(FillSpans$TraceFillSpans, target)},
-	{}
-};
-
-$MethodInfo _FillSpans$TraceFillSpans_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/FillSpans;)V", nullptr, $PUBLIC, $method(FillSpans$TraceFillSpans, init$, void, $FillSpans*)},
-	{"FillSpans", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Lsun/java2d/pipe/SpanIterator;)V", nullptr, $PUBLIC, $virtualMethod(FillSpans$TraceFillSpans, FillSpans$, void, $SunGraphics2D*, $SurfaceData*, $SpanIterator*)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(FillSpans$TraceFillSpans, traceWrap, $GraphicsPrimitive*)},
-	{}
-};
-
-$InnerClassInfo _FillSpans$TraceFillSpans_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.FillSpans$TraceFillSpans", "sun.java2d.loops.FillSpans", "TraceFillSpans", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _FillSpans$TraceFillSpans_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.FillSpans$TraceFillSpans",
-	"sun.java2d.loops.FillSpans",
-	nullptr,
-	_FillSpans$TraceFillSpans_FieldInfo_,
-	_FillSpans$TraceFillSpans_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FillSpans$TraceFillSpans_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.FillSpans"
-};
-
-$Object* allocate$FillSpans$TraceFillSpans($Class* clazz) {
-	return $of($alloc(FillSpans$TraceFillSpans));
-}
-
 void FillSpans$TraceFillSpans::init$($FillSpans* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceType, var$0, $nc(target)->getSourceType());
 	$var($CompositeType, var$1, target->getCompositeType());
 	$FillSpans::init$(var$0, var$1, $(target->getDestType()));
@@ -83,7 +45,38 @@ FillSpans$TraceFillSpans::FillSpans$TraceFillSpans() {
 }
 
 $Class* FillSpans$TraceFillSpans::load$($String* name, bool initialize) {
-	$loadClass(FillSpans$TraceFillSpans, name, initialize, &_FillSpans$TraceFillSpans_ClassInfo_, allocate$FillSpans$TraceFillSpans);
+	$FieldInfo fieldInfos$$[] = {
+		{"target", "Lsun/java2d/loops/FillSpans;", nullptr, 0, $field(FillSpans$TraceFillSpans, target)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/FillSpans;)V", nullptr, $PUBLIC, $method(FillSpans$TraceFillSpans, init$, void, $FillSpans*)},
+		{"FillSpans", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Lsun/java2d/pipe/SpanIterator;)V", nullptr, $PUBLIC, $virtualMethod(FillSpans$TraceFillSpans, FillSpans$, void, $SunGraphics2D*, $SurfaceData*, $SpanIterator*)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(FillSpans$TraceFillSpans, traceWrap, $GraphicsPrimitive*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.FillSpans$TraceFillSpans", "sun.java2d.loops.FillSpans", "TraceFillSpans", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.FillSpans$TraceFillSpans",
+		"sun.java2d.loops.FillSpans",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.FillSpans"
+	};
+	$loadClass(FillSpans$TraceFillSpans, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FillSpans$TraceFillSpans);
+	});
 	return class$;
 }
 

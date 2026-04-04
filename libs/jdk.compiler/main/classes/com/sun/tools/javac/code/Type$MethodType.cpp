@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Type$MethodType.h>
-
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type$Visitor.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -29,14 +28,14 @@ using $TypeMetadata = ::com::sun::tools::javac::code::TypeMetadata;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $ClassFile = ::com::sun::tools::javac::jvm::ClassFile;
-using $List = ::com::sun::tools::javac::util::List;
+using $1List = ::com::sun::tools::javac::util::List;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Annotation = ::java::lang::annotation::Annotation;
-using $1List = ::java::util::List;
+using $List = ::java::util::List;
 using $ExecutableType = ::javax::lang::model::type::ExecutableType;
 using $TypeKind = ::javax::lang::model::type::TypeKind;
 using $TypeMirror = ::javax::lang::model::type::TypeMirror;
@@ -47,70 +46,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Type$MethodType_FieldInfo_[] = {
-	{"argtypes", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $field(Type$MethodType, argtypes$)},
-	{"restype", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Type$MethodType, restype)},
-	{"thrown", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $field(Type$MethodType, thrown)},
-	{"recvtype", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Type$MethodType, recvtype)},
-	{}
-};
-
-$MethodInfo _Type$MethodType_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", $PUBLIC, $method(Type$MethodType, init$, void, $List*, $Type*, $List*, $Symbol$TypeSymbol*)},
-	{"accept", "(Lcom/sun/tools/javac/code/Type$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;S:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Type$Visitor<TR;TS;>;TS;)TR;", $PUBLIC, $virtualMethod(Type$MethodType, accept, $Object*, $Type$Visitor*, Object$*)},
-	{"accept", "(Ljavax/lang/model/type/TypeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/type/TypeVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Type$MethodType, accept, $Object*, $TypeVisitor*, Object$*)},
-	{"asElement", "()Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, $PUBLIC, $virtualMethod(Type$MethodType, asElement, $Symbol$TypeSymbol*)},
-	{"asMethodType", "()Lcom/sun/tools/javac/code/Type$MethodType;", nullptr, $PUBLIC, $virtualMethod(Type$MethodType, asMethodType, Type$MethodType*)},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$MethodType;", nullptr, $PUBLIC, $virtualMethod(Type$MethodType, cloneWithMetadata, Type$MethodType*, $TypeMetadata*)},
-	{"complete", "()V", nullptr, $PUBLIC, $virtualMethod(Type$MethodType, complete, void)},
-	{"contains", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Type$MethodType, contains, bool, $Type*)},
-	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$MethodType, getAnnotationMirrors, $1List*)},
-	{"getKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $virtualMethod(Type$MethodType, getKind, $TypeKind*)},
-	{"getParameterTypes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type$MethodType, getParameterTypes, $List*)},
-	{"getReceiverType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$MethodType, getReceiverType, $Type*)},
-	{"getReturnType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$MethodType, getReturnType, $Type*)},
-	{"getTag", "()Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $virtualMethod(Type$MethodType, getTag, $TypeTag*)},
-	{"getThrownTypes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type$MethodType, getThrownTypes, $List*)},
-	{"getTypeVariables", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type$TypeVar;>;", $PUBLIC, $virtualMethod(Type$MethodType, getTypeVariables, $List*)},
-	{"isErroneous", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$MethodType, isErroneous, bool)},
-	{"*poolKey", "(Lcom/sun/tools/javac/code/Types;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"poolTag", "()I", nullptr, $PUBLIC, $virtualMethod(Type$MethodType, poolTag, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type$MethodType, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Type$MethodType_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Type$MethodType", "com.sun.tools.javac.code.Type", "MethodType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.jvm.PoolConstant$LoadableConstant", "com.sun.tools.javac.jvm.PoolConstant", "LoadableConstant", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Type$MethodType_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Type$MethodType",
-	"com.sun.tools.javac.code.Type",
-	"com.sun.tools.javac.jvm.PoolConstant$LoadableConstant,javax.lang.model.type.ExecutableType",
-	_Type$MethodType_FieldInfo_,
-	_Type$MethodType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Type$MethodType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Type"
-};
-
-$Object* allocate$Type$MethodType($Class* clazz) {
-	return $of($alloc(Type$MethodType));
-}
 
 $Object* Type$MethodType::poolKey($Types* types) {
 	 return this->$Type::poolKey(types);
@@ -144,7 +79,7 @@ Type$MethodType::MemberClass0$::MemberClass0$() {
 	$patchMemberClass(Type$MethodType, $ExecutableType, memberClass0$);
 }
 
-$1List* Type$MethodType::MemberClass0$::getTypeVariables() {
+$List* Type$MethodType::MemberClass0$::getTypeVariables() {
 	return ((Type$MethodType*)(void*)((int8_t*)(void*)this - $offsetof(Type$MethodType, memberClass0$)))->getTypeVariables();
 }
 
@@ -152,7 +87,7 @@ $TypeMirror* Type$MethodType::MemberClass0$::getReturnType() {
 	return ((Type$MethodType*)(void*)((int8_t*)(void*)this - $offsetof(Type$MethodType, memberClass0$)))->getReturnType();
 }
 
-$1List* Type$MethodType::MemberClass0$::getParameterTypes() {
+$List* Type$MethodType::MemberClass0$::getParameterTypes() {
 	return ((Type$MethodType*)(void*)((int8_t*)(void*)this - $offsetof(Type$MethodType, memberClass0$)))->getParameterTypes();
 }
 
@@ -160,7 +95,7 @@ $TypeMirror* Type$MethodType::MemberClass0$::getReceiverType() {
 	return ((Type$MethodType*)(void*)((int8_t*)(void*)this - $offsetof(Type$MethodType, memberClass0$)))->getReceiverType();
 }
 
-$1List* Type$MethodType::MemberClass0$::getThrownTypes() {
+$List* Type$MethodType::MemberClass0$::getThrownTypes() {
 	return ((Type$MethodType*)(void*)((int8_t*)(void*)this - $offsetof(Type$MethodType, memberClass0$)))->getThrownTypes();
 }
 
@@ -180,7 +115,7 @@ $String* Type$MethodType::MemberClass0$::toString() {
 	return ((Type$MethodType*)(void*)((int8_t*)(void*)this - $offsetof(Type$MethodType, memberClass0$)))->toString();
 }
 
-$1List* Type$MethodType::MemberClass0$::getAnnotationMirrors() {
+$List* Type$MethodType::MemberClass0$::getAnnotationMirrors() {
 	return ((Type$MethodType*)(void*)((int8_t*)(void*)this - $offsetof(Type$MethodType, memberClass0$)))->getAnnotationMirrors();
 }
 
@@ -204,7 +139,7 @@ void Type$MethodType::MemberClass0$::finalize() {
 	return ((Type$MethodType*)(void*)((int8_t*)(void*)this - $offsetof(Type$MethodType, memberClass0$)))->finalize();
 }
 
-void Type$MethodType::init$($List* argtypes, $Type* restype, $List* thrown, $Symbol$TypeSymbol* methodClass) {
+void Type$MethodType::init$($1List* argtypes, $Type* restype, $1List* thrown, $Symbol$TypeSymbol* methodClass) {
 	$init($TypeMetadata);
 	$Type::init$(methodClass, $TypeMetadata::EMPTY);
 	$set(this, argtypes$, argtypes);
@@ -223,20 +158,20 @@ $TypeTag* Type$MethodType::getTag() {
 }
 
 $Object* Type$MethodType::accept($Type$Visitor* v, Object$* s) {
-	return $of($nc(v)->visitMethodType(this, s));
+	return $nc(v)->visitMethodType(this, s);
 }
 
 $String* Type$MethodType::toString() {
 	$var($StringBuilder, sb, $new($StringBuilder));
 	appendAnnotationsString(sb);
 	sb->append(u'(');
-	sb->append($of(this->argtypes$));
+	sb->append(this->argtypes$);
 	sb->append(u')');
-	sb->append($of(this->restype));
+	sb->append(this->restype);
 	return sb->toString();
 }
 
-$List* Type$MethodType::getParameterTypes() {
+$1List* Type$MethodType::getParameterTypes() {
 	return this->argtypes$;
 }
 
@@ -248,13 +183,13 @@ $Type* Type$MethodType::getReceiverType() {
 	return this->recvtype;
 }
 
-$List* Type$MethodType::getThrownTypes() {
+$1List* Type$MethodType::getThrownTypes() {
 	return this->thrown;
 }
 
 bool Type$MethodType::isErroneous() {
 	bool var$0 = $Type::isErroneous(this->argtypes$);
-	return var$0 || this->restype != nullptr && $nc(this->restype)->isErroneous();
+	return var$0 || this->restype != nullptr && this->restype->isErroneous();
 }
 
 int32_t Type$MethodType::poolTag() {
@@ -273,25 +208,25 @@ Type$MethodType* Type$MethodType::asMethodType() {
 }
 
 void Type$MethodType::complete() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
-		$var($List, l, this->argtypes$);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
-			$nc(($cast($Type, l->head)))->complete();
+		$var($1List, l, this->argtypes$);
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+			$nc($cast($Type, l->head))->complete();
 		}
 	}
 	$nc(this->restype)->complete();
 	$nc(this->recvtype)->complete();
 	{
-		$var($List, l, this->thrown);
-		for (; l->nonEmpty(); $assign(l, l->tail)) {
-			$nc(($cast($Type, l->head)))->complete();
+		$var($1List, l, this->thrown);
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+			$nc($cast($Type, l->head))->complete();
 		}
 	}
 }
 
-$List* Type$MethodType::getTypeVariables() {
-	return $List::nil();
+$1List* Type$MethodType::getTypeVariables() {
+	return $1List::nil();
 }
 
 $Symbol$TypeSymbol* Type$MethodType::asElement() {
@@ -304,10 +239,10 @@ $TypeKind* Type$MethodType::getKind() {
 }
 
 $Object* Type$MethodType::accept($TypeVisitor* v, Object$* p) {
-	return $of($nc(v)->visitExecutable($as($ExecutableType, this), p));
+	return $nc(v)->visitExecutable($as($ExecutableType, this), p);
 }
 
-$1List* Type$MethodType::getAnnotationMirrors() {
+$List* Type$MethodType::getAnnotationMirrors() {
 	return $Type::getAnnotationMirrors();
 }
 
@@ -315,7 +250,65 @@ Type$MethodType::Type$MethodType() {
 }
 
 $Class* Type$MethodType::load$($String* name, bool initialize) {
-	$loadClass(Type$MethodType, name, initialize, &_Type$MethodType_ClassInfo_, allocate$Type$MethodType);
+	$FieldInfo fieldInfos$$[] = {
+		{"argtypes", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $field(Type$MethodType, argtypes$)},
+		{"restype", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Type$MethodType, restype)},
+		{"thrown", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $field(Type$MethodType, thrown)},
+		{"recvtype", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Type$MethodType, recvtype)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
+		{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", $PUBLIC, $method(Type$MethodType, init$, void, $1List*, $Type*, $1List*, $Symbol$TypeSymbol*)},
+		{"accept", "(Lcom/sun/tools/javac/code/Type$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;S:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Type$Visitor<TR;TS;>;TS;)TR;", $PUBLIC, $virtualMethod(Type$MethodType, accept, $Object*, $Type$Visitor*, Object$*)},
+		{"accept", "(Ljavax/lang/model/type/TypeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/type/TypeVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Type$MethodType, accept, $Object*, $TypeVisitor*, Object$*)},
+		{"asElement", "()Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, $PUBLIC, $virtualMethod(Type$MethodType, asElement, $Symbol$TypeSymbol*)},
+		{"asMethodType", "()Lcom/sun/tools/javac/code/Type$MethodType;", nullptr, $PUBLIC, $virtualMethod(Type$MethodType, asMethodType, Type$MethodType*)},
+		{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$MethodType;", nullptr, $PUBLIC, $virtualMethod(Type$MethodType, cloneWithMetadata, Type$MethodType*, $TypeMetadata*)},
+		{"complete", "()V", nullptr, $PUBLIC, $virtualMethod(Type$MethodType, complete, void)},
+		{"contains", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Type$MethodType, contains, bool, $Type*)},
+		{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$MethodType, getAnnotationMirrors, $List*)},
+		{"getKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $virtualMethod(Type$MethodType, getKind, $TypeKind*)},
+		{"getParameterTypes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type$MethodType, getParameterTypes, $1List*)},
+		{"getReceiverType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$MethodType, getReceiverType, $Type*)},
+		{"getReturnType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$MethodType, getReturnType, $Type*)},
+		{"getTag", "()Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $virtualMethod(Type$MethodType, getTag, $TypeTag*)},
+		{"getThrownTypes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type$MethodType, getThrownTypes, $1List*)},
+		{"getTypeVariables", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type$TypeVar;>;", $PUBLIC, $virtualMethod(Type$MethodType, getTypeVariables, $1List*)},
+		{"isErroneous", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$MethodType, isErroneous, bool)},
+		{"*poolKey", "(Lcom/sun/tools/javac/code/Types;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"poolTag", "()I", nullptr, $PUBLIC, $virtualMethod(Type$MethodType, poolTag, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type$MethodType, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Type$MethodType", "com.sun.tools.javac.code.Type", "MethodType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.jvm.PoolConstant$LoadableConstant", "com.sun.tools.javac.jvm.PoolConstant", "LoadableConstant", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Type$MethodType",
+		"com.sun.tools.javac.code.Type",
+		"com.sun.tools.javac.jvm.PoolConstant$LoadableConstant,javax.lang.model.type.ExecutableType",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Type"
+	};
+	$loadClass(Type$MethodType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Type$MethodType));
+	});
 	return class$;
 }
 

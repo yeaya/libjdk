@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/websocket/MessageEncoder.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/lang/IllegalStateException.h>
@@ -56,8 +55,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $CharacterCodingException = ::java::nio::charset::CharacterCodingException;
-using $Charset = ::java::nio::charset::Charset;
-using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $CoderResult = ::java::nio::charset::CoderResult;
 using $CodingErrorAction = ::java::nio::charset::CodingErrorAction;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
@@ -85,95 +82,43 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->toString());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MessageEncoder$$Lambda$toString>());
-	}
 	$String* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo MessageEncoder$$Lambda$toString::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(MessageEncoder$$Lambda$toString, inst$)},
-	{}
-};
-$MethodInfo MessageEncoder$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MessageEncoder$$Lambda$toString, init$, void, $String*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MessageEncoder$$Lambda$toString, get, $Object*)},
-	{}
-};
-$ClassInfo MessageEncoder$$Lambda$toString::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.websocket.MessageEncoder$$Lambda$toString",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* MessageEncoder$$Lambda$toString::load$($String* name, bool initialize) {
-	$loadClass(MessageEncoder$$Lambda$toString, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(MessageEncoder$$Lambda$toString, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MessageEncoder$$Lambda$toString, init$, void, $String*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MessageEncoder$$Lambda$toString, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.websocket.MessageEncoder$$Lambda$toString",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MessageEncoder$$Lambda$toString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MessageEncoder$$Lambda$toString);
+	});
 	return class$;
 }
 $Class* MessageEncoder$$Lambda$toString::class$ = nullptr;
 
-$FieldInfo _MessageEncoder_FieldInfo_[] = {
-	{"debug", "Ljdk/internal/net/http/common/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MessageEncoder, debug)},
-	{"maskingKeySource", "Ljava/security/SecureRandom;", nullptr, $PRIVATE | $FINAL, $field(MessageEncoder, maskingKeySource)},
-	{"headerWriter", "Ljdk/internal/net/http/websocket/Frame$HeaderWriter;", nullptr, $PRIVATE | $FINAL, $field(MessageEncoder, headerWriter)},
-	{"payloadMasker", "Ljdk/internal/net/http/websocket/Frame$Masker;", nullptr, $PRIVATE | $FINAL, $field(MessageEncoder, payloadMasker)},
-	{"charsetEncoder", "Ljava/nio/charset/CharsetEncoder;", nullptr, $PRIVATE | $FINAL, $field(MessageEncoder, charsetEncoder)},
-	{"intermediateBuffer", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $FINAL, $field(MessageEncoder, intermediateBuffer)},
-	{"headerBuffer", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $FINAL, $field(MessageEncoder, headerBuffer)},
-	{"started", "Z", nullptr, $PRIVATE, $field(MessageEncoder, started)},
-	{"flushing", "Z", nullptr, $PRIVATE, $field(MessageEncoder, flushing)},
-	{"moreText", "Z", nullptr, $PRIVATE, $field(MessageEncoder, moreText)},
-	{"headerCount", "J", nullptr, $PRIVATE, $field(MessageEncoder, headerCount)},
-	{"previousFin", "Z", nullptr, $PRIVATE, $field(MessageEncoder, previousFin)},
-	{"previousText", "Z", nullptr, $PRIVATE, $field(MessageEncoder, previousText)},
-	{"closed", "Z", nullptr, $PRIVATE, $field(MessageEncoder, closed)},
-	{"actualLen", "I", nullptr, $PRIVATE, $field(MessageEncoder, actualLen)},
-	{"expectedLen", "I", nullptr, $PRIVATE, $field(MessageEncoder, expectedLen)},
-	{}
-};
-
-$MethodInfo _MessageEncoder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MessageEncoder, init$, void)},
-	{"createIntermediateBuffer", "(I)Ljava/nio/ByteBuffer;", nullptr, $PROTECTED, $virtualMethod(MessageEncoder, createIntermediateBuffer, $ByteBuffer*, int32_t)},
-	{"encodeBinary", "(Ljava/nio/ByteBuffer;ZLjava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(MessageEncoder, encodeBinary, bool, $ByteBuffer*, bool, $ByteBuffer*), "java.io.IOException"},
-	{"encodeClose", "(ILjava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(MessageEncoder, encodeClose, bool, int32_t, $CharBuffer*, $ByteBuffer*), "java.io.IOException"},
-	{"encodePing", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(MessageEncoder, encodePing, bool, $ByteBuffer*, $ByteBuffer*), "java.io.IOException"},
-	{"encodePong", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(MessageEncoder, encodePong, bool, $ByteBuffer*, $ByteBuffer*), "java.io.IOException"},
-	{"encodeText", "(Ljava/nio/CharBuffer;ZLjava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(MessageEncoder, encodeText, bool, $CharBuffer*, bool, $ByteBuffer*), "java.io.IOException"},
-	{"maskAvailable", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PRIVATE, $method(MessageEncoder, maskAvailable, int32_t, $ByteBuffer*, $ByteBuffer*)},
-	{"putAvailable", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)Z", nullptr, $PRIVATE, $method(MessageEncoder, putAvailable, bool, $ByteBuffer*, $ByteBuffer*)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(MessageEncoder, reset, void)},
-	{"setupHeader", "(Ljdk/internal/net/http/websocket/Frame$Opcode;ZJ)V", nullptr, $PRIVATE, $method(MessageEncoder, setupHeader, void, $Frame$Opcode*, bool, int64_t)},
-	{}
-};
-
-$ClassInfo _MessageEncoder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.websocket.MessageEncoder",
-	"java.lang.Object",
-	nullptr,
-	_MessageEncoder_FieldInfo_,
-	_MessageEncoder_MethodInfo_
-};
-
-$Object* allocate$MessageEncoder($Class* clazz) {
-	return $of($alloc(MessageEncoder));
-}
-
 $Logger* MessageEncoder::debug = nullptr;
 
 void MessageEncoder::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, maskingKeySource, $new($SecureRandom));
 	$set(this, headerWriter, $new($Frame$HeaderWriter));
 	$set(this, payloadMasker, $new($Frame$Masker));
 	$init($StandardCharsets);
 	$init($CodingErrorAction);
-	$set(this, charsetEncoder, $nc($($nc($($nc($StandardCharsets::UTF_8)->newEncoder()))->onMalformedInput($CodingErrorAction::REPORT)))->onUnmappableCharacter($CodingErrorAction::REPORT));
+	$set(this, charsetEncoder, $$nc($$nc($nc($StandardCharsets::UTF_8)->newEncoder())->onMalformedInput($CodingErrorAction::REPORT))->onUnmappableCharacter($CodingErrorAction::REPORT));
 	$set(this, intermediateBuffer, createIntermediateBuffer($Frame::MAX_CONTROL_FRAME_PAYLOAD_LENGTH));
 	$set(this, headerBuffer, $ByteBuffer::allocate($Frame::MAX_HEADER_SIZE_BYTES));
 	this->moreText = true;
@@ -194,14 +139,14 @@ void MessageEncoder::reset() {
 }
 
 bool MessageEncoder::encodeText($CharBuffer* src, bool last, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(MessageEncoder::debug)->on()) {
-		$nc(MessageEncoder::debug)->log("encode text src=[pos=%s lim=%s cap=%s] last=%s dst=%s"_s, $$new($ObjectArray, {
-			$($of($Integer::valueOf($nc(src)->position()))),
-			$($of($Integer::valueOf($nc(src)->limit()))),
-			$($of($Integer::valueOf($nc(src)->capacity()))),
-			$($of($Boolean::valueOf(last))),
-			$of(dst)
+		MessageEncoder::debug->log("encode text src=[pos=%s lim=%s cap=%s] last=%s dst=%s"_s, $$new($ObjectArray, {
+			$($Integer::valueOf($nc(src)->position())),
+			$($Integer::valueOf($nc(src)->limit())),
+			$($Integer::valueOf($nc(src)->capacity())),
+			$($Boolean::valueOf(last)),
+			dst
 		}));
 	}
 	if (this->closed) {
@@ -212,25 +157,25 @@ bool MessageEncoder::encodeText($CharBuffer* src, bool last, $ByteBuffer* dst) {
 			$throwNew($IllegalStateException, "Unexpected text message"_s);
 		}
 		this->started = true;
-		$nc($($nc(this->headerBuffer)->position(0)))->limit(0);
-		$nc($($nc(this->intermediateBuffer)->position(0)))->limit(0);
+		$$nc($nc(this->headerBuffer)->position(0))->limit(0);
+		$$nc($nc(this->intermediateBuffer)->position(0))->limit(0);
 		$nc(this->charsetEncoder)->reset();
 	}
 	while (true) {
-		if ($nc(MessageEncoder::debug)->on()) {
-			$nc(MessageEncoder::debug)->log("put"_s);
+		if (MessageEncoder::debug->on()) {
+			MessageEncoder::debug->log("put"_s);
 		}
 		if (!putAvailable(this->headerBuffer, dst)) {
 			return false;
 		}
-		if ($nc(MessageEncoder::debug)->on()) {
-			$nc(MessageEncoder::debug)->log("mask"_s);
+		if (MessageEncoder::debug->on()) {
+			MessageEncoder::debug->log("mask"_s);
 		}
 		if (maskAvailable(this->intermediateBuffer, dst) < 0) {
 			return false;
 		}
-		if ($nc(MessageEncoder::debug)->on()) {
-			$nc(MessageEncoder::debug)->log("moreText"_s);
+		if (MessageEncoder::debug->on()) {
+			MessageEncoder::debug->log("moreText"_s);
 		}
 		if (!this->moreText) {
 			this->previousFin = last;
@@ -258,14 +203,14 @@ bool MessageEncoder::encodeText($CharBuffer* src, bool last, $ByteBuffer* dst) {
 				$throwNew($IOException, "Malformed text message"_s, e);
 			}
 		}
-		if ($nc(MessageEncoder::debug)->on()) {
-			$nc(MessageEncoder::debug)->log("frame #%s"_s, $$new($ObjectArray, {$($of($Long::valueOf(this->headerCount)))}));
+		if (MessageEncoder::debug->on()) {
+			MessageEncoder::debug->log("frame #%s"_s, $$new($ObjectArray, {$($Long::valueOf(this->headerCount))}));
 		}
-		$nc(this->intermediateBuffer)->flip();
+		this->intermediateBuffer->flip();
 		$init($Frame$Opcode);
 		$Frame$Opcode* opcode = this->previousFin && this->headerCount == 0 ? $Frame$Opcode::TEXT : $Frame$Opcode::CONTINUATION;
 		bool fin = last && !this->moreText;
-		setupHeader(opcode, fin, $nc(this->intermediateBuffer)->remaining());
+		setupHeader(opcode, fin, this->intermediateBuffer->remaining());
 		++this->headerCount;
 	}
 	$shouldNotReachHere();
@@ -286,12 +231,12 @@ bool MessageEncoder::putAvailable($ByteBuffer* src, $ByteBuffer* dst) {
 }
 
 bool MessageEncoder::encodeBinary($ByteBuffer* src, bool last, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(MessageEncoder::debug)->on()) {
-		$nc(MessageEncoder::debug)->log("encode binary src=%s last=%s dst=%s"_s, $$new($ObjectArray, {
-			$of(src),
-			$($of($Boolean::valueOf(last))),
-			$of(dst)
+		MessageEncoder::debug->log("encode binary src=%s last=%s dst=%s"_s, $$new($ObjectArray, {
+			src,
+			$($Boolean::valueOf(last)),
+			dst
 		}));
 	}
 	if (this->closed) {
@@ -322,17 +267,17 @@ bool MessageEncoder::encodeBinary($ByteBuffer* src, bool last, $ByteBuffer* dst)
 
 int32_t MessageEncoder::maskAvailable($ByteBuffer* src, $ByteBuffer* dst) {
 	int32_t r0 = $nc(dst)->remaining();
-	$nc(this->payloadMasker)->transferMasking(src, dst);
+	this->payloadMasker->transferMasking(src, dst);
 	int32_t masked = r0 - dst->remaining();
 	return $nc(src)->hasRemaining() ? -masked : masked;
 }
 
 bool MessageEncoder::encodePing($ByteBuffer* src, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(MessageEncoder::debug)->on()) {
-		$nc(MessageEncoder::debug)->log("encode ping src=%s dst=%s"_s, $$new($ObjectArray, {
-			$of(src),
-			$of(dst)
+		MessageEncoder::debug->log("encode ping src=%s dst=%s"_s, $$new($ObjectArray, {
+			src,
+			dst
 		}));
 	}
 	if (this->closed) {
@@ -359,11 +304,11 @@ bool MessageEncoder::encodePing($ByteBuffer* src, $ByteBuffer* dst) {
 }
 
 bool MessageEncoder::encodePong($ByteBuffer* src, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(MessageEncoder::debug)->on()) {
-		$nc(MessageEncoder::debug)->log("encode pong src=%s dst=%s"_s, $$new($ObjectArray, {
-			$of(src),
-			$of(dst)
+		MessageEncoder::debug->log("encode pong src=%s dst=%s"_s, $$new($ObjectArray, {
+			src,
+			dst
 		}));
 	}
 	if (this->closed) {
@@ -390,38 +335,38 @@ bool MessageEncoder::encodePong($ByteBuffer* src, $ByteBuffer* dst) {
 }
 
 bool MessageEncoder::encodeClose(int32_t statusCode, $CharBuffer* reason, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(MessageEncoder::debug)->on()) {
-		$nc(MessageEncoder::debug)->log("encode close statusCode=%s reason=[pos=%s lim=%s cap=%s] dst=%s"_s, $$new($ObjectArray, {
-			$($of($Integer::valueOf(statusCode))),
-			$($of($Integer::valueOf($nc(reason)->position()))),
-			$($of($Integer::valueOf($nc(reason)->limit()))),
-			$($of($Integer::valueOf($nc(reason)->capacity()))),
-			$of(dst)
+		MessageEncoder::debug->log("encode close statusCode=%s reason=[pos=%s lim=%s cap=%s] dst=%s"_s, $$new($ObjectArray, {
+			$($Integer::valueOf(statusCode)),
+			$($Integer::valueOf($nc(reason)->position())),
+			$($Integer::valueOf($nc(reason)->limit())),
+			$($Integer::valueOf($nc(reason)->capacity())),
+			dst
 		}));
 	}
 	if (this->closed) {
 		$throwNew($IOException, "Output closed"_s);
 	}
 	if (!this->started) {
-		if ($nc(MessageEncoder::debug)->on()) {
-			$nc(MessageEncoder::debug)->log("reason [pos=%s lim=%s cap=%s]"_s, $$new($ObjectArray, {
-				$($of($Integer::valueOf($nc(reason)->position()))),
-				$($of($Integer::valueOf($nc(reason)->limit()))),
-				$($of($Integer::valueOf($nc(reason)->capacity())))
+		if (MessageEncoder::debug->on()) {
+			MessageEncoder::debug->log("reason [pos=%s lim=%s cap=%s]"_s, $$new($ObjectArray, {
+				$($Integer::valueOf($nc(reason)->position())),
+				$($Integer::valueOf($nc(reason)->limit())),
+				$($Integer::valueOf($nc(reason)->capacity()))
 			}));
 		}
-		$nc($($nc(this->intermediateBuffer)->position(0)))->limit($Frame::MAX_CONTROL_FRAME_PAYLOAD_LENGTH);
-		$nc(this->intermediateBuffer)->putChar((char16_t)statusCode);
-		$var($CoderResult, r, $nc($($nc(this->charsetEncoder)->reset()))->encode(reason, this->intermediateBuffer, true));
+		$$nc($nc(this->intermediateBuffer)->position(0))->limit($Frame::MAX_CONTROL_FRAME_PAYLOAD_LENGTH);
+		this->intermediateBuffer->putChar((char16_t)statusCode);
+		$var($CoderResult, r, $$nc($nc(this->charsetEncoder)->reset())->encode(reason, this->intermediateBuffer, true));
 		if ($nc(r)->isUnderflow()) {
-			if ($nc(MessageEncoder::debug)->on()) {
-				$nc(MessageEncoder::debug)->log("flushing"_s);
+			if (MessageEncoder::debug->on()) {
+				MessageEncoder::debug->log("flushing"_s);
 			}
-			$assign(r, $nc(this->charsetEncoder)->flush(this->intermediateBuffer));
+			$assign(r, this->charsetEncoder->flush(this->intermediateBuffer));
 		}
-		if ($nc(MessageEncoder::debug)->on()) {
-			$nc(MessageEncoder::debug)->log("encoding result: %s"_s, $$new($ObjectArray, {$of(r)}));
+		if (MessageEncoder::debug->on()) {
+			MessageEncoder::debug->log("encoding result: %s"_s, $$new($ObjectArray, {r}));
 		}
 		if ($nc(r)->isError()) {
 			try {
@@ -434,13 +379,13 @@ bool MessageEncoder::encodeClose(int32_t statusCode, $CharBuffer* reason, $ByteB
 		} else if (!r->isUnderflow()) {
 			$throwNew($InternalError);
 		}
-		$nc(this->intermediateBuffer)->flip();
+		this->intermediateBuffer->flip();
 		$init($Frame$Opcode);
-		setupHeader($Frame$Opcode::CLOSE, true, $nc(this->intermediateBuffer)->remaining());
+		setupHeader($Frame$Opcode::CLOSE, true, this->intermediateBuffer->remaining());
 		this->started = true;
 		this->closed = true;
-		if ($nc(MessageEncoder::debug)->on()) {
-			$nc(MessageEncoder::debug)->log("intermediateBuffer=%s"_s, $$new($ObjectArray, {$of(this->intermediateBuffer)}));
+		if (MessageEncoder::debug->on()) {
+			MessageEncoder::debug->log("intermediateBuffer=%s"_s, $$new($ObjectArray, {this->intermediateBuffer}));
 		}
 	}
 	if (!putAvailable(this->headerBuffer, dst)) {
@@ -450,24 +395,24 @@ bool MessageEncoder::encodeClose(int32_t statusCode, $CharBuffer* reason, $ByteB
 }
 
 void MessageEncoder::setupHeader($Frame$Opcode* opcode, bool fin, int64_t payloadLen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(MessageEncoder::debug)->on()) {
-		$nc(MessageEncoder::debug)->log("frame opcode=%s fin=%s len=%s"_s, $$new($ObjectArray, {
-			$of(opcode),
-			$($of($Boolean::valueOf(fin))),
-			$($of($Long::valueOf(payloadLen)))
+		MessageEncoder::debug->log("frame opcode=%s fin=%s len=%s"_s, $$new($ObjectArray, {
+			opcode,
+			$($Boolean::valueOf(fin)),
+			$($Long::valueOf(payloadLen))
 		}));
 	}
 	$nc(this->headerBuffer)->clear();
-	int32_t mask = $nc(this->maskingKeySource)->nextInt();
-	$nc($($nc($($nc($($nc($($nc(this->headerWriter)->fin(fin)))->opcode(opcode)))->payloadLen(payloadLen)))->mask(mask)))->write(this->headerBuffer);
-	$nc(this->headerBuffer)->flip();
-	$nc(this->payloadMasker)->mask(mask);
+	int32_t mask = this->maskingKeySource->nextInt();
+	$$nc($$nc($$nc($$nc(this->headerWriter->fin(fin))->opcode(opcode))->payloadLen(payloadLen))->mask(mask))->write(this->headerBuffer);
+	this->headerBuffer->flip();
+	this->payloadMasker->mask(mask);
 }
 
-void clinit$MessageEncoder($Class* class$) {
+void MessageEncoder::clinit$($Class* clazz) {
 	$init($Utils);
-	$assignStatic(MessageEncoder::debug, $Utils::getWebSocketLogger(static_cast<$Supplier*>($$new(MessageEncoder$$Lambda$toString, static_cast<$String*>("[Output]"_s))), $Utils::DEBUG_WS));
+	$assignStatic(MessageEncoder::debug, $Utils::getWebSocketLogger($$new(MessageEncoder$$Lambda$toString, "[Output]"_s), $Utils::DEBUG_WS));
 }
 
 MessageEncoder::MessageEncoder() {
@@ -475,11 +420,54 @@ MessageEncoder::MessageEncoder() {
 
 $Class* MessageEncoder::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(MessageEncoder$$Lambda$toString::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.websocket.MessageEncoder$$Lambda$toString")) {
 			return MessageEncoder$$Lambda$toString::load$(name, initialize);
 		}
 	}
-	$loadClass(MessageEncoder, name, initialize, &_MessageEncoder_ClassInfo_, clinit$MessageEncoder, allocate$MessageEncoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Ljdk/internal/net/http/common/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MessageEncoder, debug)},
+		{"maskingKeySource", "Ljava/security/SecureRandom;", nullptr, $PRIVATE | $FINAL, $field(MessageEncoder, maskingKeySource)},
+		{"headerWriter", "Ljdk/internal/net/http/websocket/Frame$HeaderWriter;", nullptr, $PRIVATE | $FINAL, $field(MessageEncoder, headerWriter)},
+		{"payloadMasker", "Ljdk/internal/net/http/websocket/Frame$Masker;", nullptr, $PRIVATE | $FINAL, $field(MessageEncoder, payloadMasker)},
+		{"charsetEncoder", "Ljava/nio/charset/CharsetEncoder;", nullptr, $PRIVATE | $FINAL, $field(MessageEncoder, charsetEncoder)},
+		{"intermediateBuffer", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $FINAL, $field(MessageEncoder, intermediateBuffer)},
+		{"headerBuffer", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $FINAL, $field(MessageEncoder, headerBuffer)},
+		{"started", "Z", nullptr, $PRIVATE, $field(MessageEncoder, started)},
+		{"flushing", "Z", nullptr, $PRIVATE, $field(MessageEncoder, flushing)},
+		{"moreText", "Z", nullptr, $PRIVATE, $field(MessageEncoder, moreText)},
+		{"headerCount", "J", nullptr, $PRIVATE, $field(MessageEncoder, headerCount)},
+		{"previousFin", "Z", nullptr, $PRIVATE, $field(MessageEncoder, previousFin)},
+		{"previousText", "Z", nullptr, $PRIVATE, $field(MessageEncoder, previousText)},
+		{"closed", "Z", nullptr, $PRIVATE, $field(MessageEncoder, closed)},
+		{"actualLen", "I", nullptr, $PRIVATE, $field(MessageEncoder, actualLen)},
+		{"expectedLen", "I", nullptr, $PRIVATE, $field(MessageEncoder, expectedLen)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MessageEncoder, init$, void)},
+		{"createIntermediateBuffer", "(I)Ljava/nio/ByteBuffer;", nullptr, $PROTECTED, $virtualMethod(MessageEncoder, createIntermediateBuffer, $ByteBuffer*, int32_t)},
+		{"encodeBinary", "(Ljava/nio/ByteBuffer;ZLjava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(MessageEncoder, encodeBinary, bool, $ByteBuffer*, bool, $ByteBuffer*), "java.io.IOException"},
+		{"encodeClose", "(ILjava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(MessageEncoder, encodeClose, bool, int32_t, $CharBuffer*, $ByteBuffer*), "java.io.IOException"},
+		{"encodePing", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(MessageEncoder, encodePing, bool, $ByteBuffer*, $ByteBuffer*), "java.io.IOException"},
+		{"encodePong", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(MessageEncoder, encodePong, bool, $ByteBuffer*, $ByteBuffer*), "java.io.IOException"},
+		{"encodeText", "(Ljava/nio/CharBuffer;ZLjava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(MessageEncoder, encodeText, bool, $CharBuffer*, bool, $ByteBuffer*), "java.io.IOException"},
+		{"maskAvailable", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PRIVATE, $method(MessageEncoder, maskAvailable, int32_t, $ByteBuffer*, $ByteBuffer*)},
+		{"putAvailable", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)Z", nullptr, $PRIVATE, $method(MessageEncoder, putAvailable, bool, $ByteBuffer*, $ByteBuffer*)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(MessageEncoder, reset, void)},
+		{"setupHeader", "(Ljdk/internal/net/http/websocket/Frame$Opcode;ZJ)V", nullptr, $PRIVATE, $method(MessageEncoder, setupHeader, void, $Frame$Opcode*, bool, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.websocket.MessageEncoder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MessageEncoder, name, initialize, &classInfo$$, MessageEncoder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MessageEncoder);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/undo/StateEdit.h>
-
 #include <java/util/Enumeration.h>
 #include <java/util/Hashtable.h>
 #include <java/util/Vector.h>
@@ -21,40 +20,6 @@ using $StateEditable = ::javax::swing::undo::StateEditable;
 namespace javax {
 	namespace swing {
 		namespace undo {
-
-$FieldInfo _StateEdit_FieldInfo_[] = {
-	{"RCSID", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StateEdit, RCSID)},
-	{"object", "Ljavax/swing/undo/StateEditable;", nullptr, $PROTECTED, $field(StateEdit, object)},
-	{"preState", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/Object;Ljava/lang/Object;>;", $PROTECTED, $field(StateEdit, preState)},
-	{"postState", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/Object;Ljava/lang/Object;>;", $PROTECTED, $field(StateEdit, postState)},
-	{"undoRedoName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(StateEdit, undoRedoName)},
-	{}
-};
-
-$MethodInfo _StateEdit_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/undo/StateEditable;)V", nullptr, $PUBLIC, $method(StateEdit, init$, void, $StateEditable*)},
-	{"<init>", "(Ljavax/swing/undo/StateEditable;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StateEdit, init$, void, $StateEditable*, $String*)},
-	{"end", "()V", nullptr, $PUBLIC, $virtualMethod(StateEdit, end, void)},
-	{"getPresentationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StateEdit, getPresentationName, $String*)},
-	{"init", "(Ljavax/swing/undo/StateEditable;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(StateEdit, init, void, $StateEditable*, $String*)},
-	{"redo", "()V", nullptr, $PUBLIC, $virtualMethod(StateEdit, redo, void)},
-	{"removeRedundantState", "()V", nullptr, $PROTECTED, $virtualMethod(StateEdit, removeRedundantState, void)},
-	{"undo", "()V", nullptr, $PUBLIC, $virtualMethod(StateEdit, undo, void)},
-	{}
-};
-
-$ClassInfo _StateEdit_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.undo.StateEdit",
-	"javax.swing.undo.AbstractUndoableEdit",
-	nullptr,
-	_StateEdit_FieldInfo_,
-	_StateEdit_MethodInfo_
-};
-
-$Object* allocate$StateEdit($Class* clazz) {
-	return $of($alloc(StateEdit));
-}
 
 $String* StateEdit::RCSID = nullptr;
 
@@ -97,19 +62,19 @@ $String* StateEdit::getPresentationName() {
 }
 
 void StateEdit::removeRedundantState() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, uselessKeys, $new($Vector));
 	$var($Enumeration, myKeys, $nc(this->preState)->keys());
 	while ($nc(myKeys)->hasMoreElements()) {
 		$var($Object, myKey, myKeys->nextElement());
 		bool var$0 = $nc(this->postState)->containsKey(myKey);
-		if (var$0 && $nc($of($($nc(this->postState)->get(myKey))))->equals($($nc(this->preState)->get(myKey)))) {
+		if (var$0 && $$nc(this->postState->get(myKey))->equals($(this->preState->get(myKey)))) {
 			uselessKeys->addElement(myKey);
 		}
 	}
 	for (int32_t i = uselessKeys->size() - 1; i >= 0; --i) {
 		$var($Object, myKey, uselessKeys->elementAt(i));
-		$nc(this->preState)->remove(myKey);
+		this->preState->remove(myKey);
 		$nc(this->postState)->remove(myKey);
 	}
 }
@@ -117,12 +82,41 @@ void StateEdit::removeRedundantState() {
 StateEdit::StateEdit() {
 }
 
-void clinit$StateEdit($Class* class$) {
+void StateEdit::clinit$($Class* clazz) {
 	$assignStatic(StateEdit::RCSID, "$Id: StateEdit.java,v 1.6 1997/10/01 20:05:51 sandipc Exp $"_s);
 }
 
 $Class* StateEdit::load$($String* name, bool initialize) {
-	$loadClass(StateEdit, name, initialize, &_StateEdit_ClassInfo_, clinit$StateEdit, allocate$StateEdit);
+	$FieldInfo fieldInfos$$[] = {
+		{"RCSID", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StateEdit, RCSID)},
+		{"object", "Ljavax/swing/undo/StateEditable;", nullptr, $PROTECTED, $field(StateEdit, object)},
+		{"preState", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/Object;Ljava/lang/Object;>;", $PROTECTED, $field(StateEdit, preState)},
+		{"postState", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/Object;Ljava/lang/Object;>;", $PROTECTED, $field(StateEdit, postState)},
+		{"undoRedoName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(StateEdit, undoRedoName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/undo/StateEditable;)V", nullptr, $PUBLIC, $method(StateEdit, init$, void, $StateEditable*)},
+		{"<init>", "(Ljavax/swing/undo/StateEditable;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StateEdit, init$, void, $StateEditable*, $String*)},
+		{"end", "()V", nullptr, $PUBLIC, $virtualMethod(StateEdit, end, void)},
+		{"getPresentationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StateEdit, getPresentationName, $String*)},
+		{"init", "(Ljavax/swing/undo/StateEditable;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(StateEdit, init, void, $StateEditable*, $String*)},
+		{"redo", "()V", nullptr, $PUBLIC, $virtualMethod(StateEdit, redo, void)},
+		{"removeRedundantState", "()V", nullptr, $PROTECTED, $virtualMethod(StateEdit, removeRedundantState, void)},
+		{"undo", "()V", nullptr, $PUBLIC, $virtualMethod(StateEdit, undo, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.undo.StateEdit",
+		"javax.swing.undo.AbstractUndoableEdit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StateEdit, name, initialize, &classInfo$$, StateEdit::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StateEdit));
+	});
 	return class$;
 }
 

@@ -50,7 +50,7 @@ public:
 	virtual ::java::awt::datatransfer::Transferable* getTransferable();
 	virtual bool isDataFlavorSupported(::java::awt::datatransfer::DataFlavor* df);
 	virtual void rejectDrag();
-	static const int64_t serialVersionUID = (int64_t)0x8B1E1A0AE401722E;
+	static const int64_t serialVersionUID = (int64_t)0x8b1e1a0ae401722e;
 	::java::awt::Point* location = nullptr;
 	int32_t actions = 0;
 	int32_t dropAction = 0;

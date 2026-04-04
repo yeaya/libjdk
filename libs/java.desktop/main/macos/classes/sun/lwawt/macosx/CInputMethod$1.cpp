@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CInputMethod$1.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/TextComponent.h>
 #include <java/awt/im/InputMethodRequests.h>
@@ -9,7 +8,6 @@
 #include <jcpp.h>
 
 using $TextComponent = ::java::awt::TextComponent;
-using $InputMethodContext = ::java::awt::im::spi::InputMethodContext;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -22,48 +20,6 @@ namespace sun {
 	namespace lwawt {
 		namespace macosx {
 
-$FieldInfo _CInputMethod$1_FieldInfo_[] = {
-	{"this$0", "Lsun/lwawt/macosx/CInputMethod;", nullptr, $FINAL | $SYNTHETIC, $field(CInputMethod$1, this$0)},
-	{}
-};
-
-$MethodInfo _CInputMethod$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/lwawt/macosx/CInputMethod;)V", nullptr, 0, $method(CInputMethod$1, init$, void, $CInputMethod*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CInputMethod$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _CInputMethod$1_EnclosingMethodInfo_ = {
-	"sun.lwawt.macosx.CInputMethod",
-	"selectPreviousGlyph",
-	"()V"
-};
-
-$InnerClassInfo _CInputMethod$1_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.CInputMethod$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CInputMethod$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.lwawt.macosx.CInputMethod$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_CInputMethod$1_FieldInfo_,
-	_CInputMethod$1_MethodInfo_,
-	nullptr,
-	&_CInputMethod$1_EnclosingMethodInfo_,
-	_CInputMethod$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.CInputMethod"
-};
-
-$Object* allocate$CInputMethod$1($Class* clazz) {
-	return $of($alloc(CInputMethod$1));
-}
-
 void CInputMethod$1::init$($CInputMethod* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -74,11 +30,11 @@ void CInputMethod$1::run() {
 		return;
 	}
 	if ($instanceOf($JTextComponent, this->this$0->fAwtFocussedComponent)) {
-		$nc(($cast($JTextComponent, this->this$0->fAwtFocussedComponent)))->select(offset - 1, offset);
+		$cast($JTextComponent, this->this$0->fAwtFocussedComponent)->select(offset - 1, offset);
 		return;
 	}
 	if ($instanceOf($TextComponent, this->this$0->fAwtFocussedComponent)) {
-		$nc(($cast($TextComponent, this->this$0->fAwtFocussedComponent)))->select(offset - 1, offset);
+		$cast($TextComponent, this->this$0->fAwtFocussedComponent)->select(offset - 1, offset);
 		return;
 	}
 }
@@ -87,7 +43,42 @@ CInputMethod$1::CInputMethod$1() {
 }
 
 $Class* CInputMethod$1::load$($String* name, bool initialize) {
-	$loadClass(CInputMethod$1, name, initialize, &_CInputMethod$1_ClassInfo_, allocate$CInputMethod$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/lwawt/macosx/CInputMethod;", nullptr, $FINAL | $SYNTHETIC, $field(CInputMethod$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/macosx/CInputMethod;)V", nullptr, 0, $method(CInputMethod$1, init$, void, $CInputMethod*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CInputMethod$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.lwawt.macosx.CInputMethod",
+		"selectPreviousGlyph",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.CInputMethod$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.lwawt.macosx.CInputMethod$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.CInputMethod"
+	};
+	$loadClass(CInputMethod$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CInputMethod$1);
+	});
 	return class$;
 }
 

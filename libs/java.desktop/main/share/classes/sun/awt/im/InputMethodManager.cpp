@@ -1,7 +1,5 @@
 #include <sun/awt/im/InputMethodManager.h>
-
 #include <java/awt/Component.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/ThreadGroup.h>
 #include <java/util/Locale.h>
 #include <sun/awt/im/ExecutableInputMethodManager.h>
@@ -16,7 +14,6 @@ using $Component = ::java::awt::Component;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $ThreadGroup = ::java::lang::ThreadGroup;
 using $Locale = ::java::util::Locale;
 using $ExecutableInputMethodManager = ::sun::awt::im::ExecutableInputMethodManager;
@@ -27,39 +24,6 @@ namespace sun {
 	namespace awt {
 		namespace im {
 
-$FieldInfo _InputMethodManager_FieldInfo_[] = {
-	{"threadName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InputMethodManager, threadName)},
-	{"LOCK", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InputMethodManager, LOCK)},
-	{"inputMethodManager", "Lsun/awt/im/InputMethodManager;", nullptr, $PRIVATE | $STATIC, $staticField(InputMethodManager, inputMethodManager)},
-	{}
-};
-
-$MethodInfo _InputMethodManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InputMethodManager, init$, void)},
-	{"findInputMethod", "(Ljava/util/Locale;)Lsun/awt/im/InputMethodLocator;", nullptr, $ABSTRACT, $virtualMethod(InputMethodManager, findInputMethod, $InputMethodLocator*, $Locale*)},
-	{"getDefaultKeyboardLocale", "()Ljava/util/Locale;", nullptr, $ABSTRACT, $virtualMethod(InputMethodManager, getDefaultKeyboardLocale, $Locale*)},
-	{"getInstance", "()Lsun/awt/im/InputMethodManager;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(InputMethodManager, getInstance, InputMethodManager*)},
-	{"getTriggerMenuString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InputMethodManager, getTriggerMenuString, $String*)},
-	{"hasMultipleInputMethods", "()Z", nullptr, $ABSTRACT, $virtualMethod(InputMethodManager, hasMultipleInputMethods, bool)},
-	{"notifyChangeRequest", "(Ljava/awt/Component;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InputMethodManager, notifyChangeRequest, void, $Component*)},
-	{"notifyChangeRequestByHotKey", "(Ljava/awt/Component;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InputMethodManager, notifyChangeRequestByHotKey, void, $Component*)},
-	{"setInputContext", "(Lsun/awt/im/InputContext;)V", nullptr, $ABSTRACT, $virtualMethod(InputMethodManager, setInputContext, void, $InputContext*)},
-	{}
-};
-
-$ClassInfo _InputMethodManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.awt.im.InputMethodManager",
-	"java.lang.Object",
-	nullptr,
-	_InputMethodManager_FieldInfo_,
-	_InputMethodManager_MethodInfo_
-};
-
-$Object* allocate$InputMethodManager($Class* clazz) {
-	return $of($alloc(InputMethodManager));
-}
-
 $String* InputMethodManager::threadName = nullptr;
 $Object* InputMethodManager::LOCK = nullptr;
 InputMethodManager* InputMethodManager::inputMethodManager = nullptr;
@@ -69,7 +33,7 @@ void InputMethodManager::init$() {
 
 InputMethodManager* InputMethodManager::getInstance() {
 	$init(InputMethodManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (InputMethodManager::inputMethodManager != nullptr) {
 		return InputMethodManager::inputMethodManager;
 	}
@@ -89,7 +53,7 @@ InputMethodManager* InputMethodManager::getInstance() {
 	return InputMethodManager::inputMethodManager;
 }
 
-void clinit$InputMethodManager($Class* class$) {
+void InputMethodManager::clinit$($Class* clazz) {
 	$assignStatic(InputMethodManager::threadName, "AWT-InputMethodManager"_s);
 	$assignStatic(InputMethodManager::LOCK, $new($Object));
 }
@@ -98,7 +62,35 @@ InputMethodManager::InputMethodManager() {
 }
 
 $Class* InputMethodManager::load$($String* name, bool initialize) {
-	$loadClass(InputMethodManager, name, initialize, &_InputMethodManager_ClassInfo_, clinit$InputMethodManager, allocate$InputMethodManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"threadName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InputMethodManager, threadName)},
+		{"LOCK", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InputMethodManager, LOCK)},
+		{"inputMethodManager", "Lsun/awt/im/InputMethodManager;", nullptr, $PRIVATE | $STATIC, $staticField(InputMethodManager, inputMethodManager)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InputMethodManager, init$, void)},
+		{"findInputMethod", "(Ljava/util/Locale;)Lsun/awt/im/InputMethodLocator;", nullptr, $ABSTRACT, $virtualMethod(InputMethodManager, findInputMethod, $InputMethodLocator*, $Locale*)},
+		{"getDefaultKeyboardLocale", "()Ljava/util/Locale;", nullptr, $ABSTRACT, $virtualMethod(InputMethodManager, getDefaultKeyboardLocale, $Locale*)},
+		{"getInstance", "()Lsun/awt/im/InputMethodManager;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(InputMethodManager, getInstance, InputMethodManager*)},
+		{"getTriggerMenuString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InputMethodManager, getTriggerMenuString, $String*)},
+		{"hasMultipleInputMethods", "()Z", nullptr, $ABSTRACT, $virtualMethod(InputMethodManager, hasMultipleInputMethods, bool)},
+		{"notifyChangeRequest", "(Ljava/awt/Component;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InputMethodManager, notifyChangeRequest, void, $Component*)},
+		{"notifyChangeRequestByHotKey", "(Ljava/awt/Component;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InputMethodManager, notifyChangeRequestByHotKey, void, $Component*)},
+		{"setInputContext", "(Lsun/awt/im/InputContext;)V", nullptr, $ABSTRACT, $virtualMethod(InputMethodManager, setInputContext, void, $InputContext*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.awt.im.InputMethodManager",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InputMethodManager, name, initialize, &classInfo$$, InputMethodManager::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(InputMethodManager);
+	});
 	return class$;
 }
 

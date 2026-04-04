@@ -1,5 +1,4 @@
 #include <bug4885629.h>
-
 #include <bug4885629$1.h>
 #include <bug4885629$2.h>
 #include <bug4885629$3.h>
@@ -36,7 +35,6 @@ using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $JFrame = ::javax::swing::JFrame;
 using $JSplitPane = ::javax::swing::JSplitPane;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 
@@ -48,73 +46,27 @@ public:
 	virtual void run() override {
 		bug4885629::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug4885629$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug4885629$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug4885629$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4885629$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo bug4885629$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug4885629$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug4885629$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(bug4885629$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug4885629$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4885629$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug4885629$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug4885629$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4885629$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* bug4885629$$Lambda$lambda$main$0::class$ = nullptr;
-
-$FieldInfo _bug4885629_FieldInfo_[] = {
-	{"darkShadow", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug4885629, darkShadow)},
-	{"darkHighlight", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug4885629, darkHighlight)},
-	{"lightHighlight", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug4885629, lightHighlight)},
-	{"BGCOLOR", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug4885629, BGCOLOR)},
-	{"sp", "Ljavax/swing/JSplitPane;", nullptr, $PRIVATE | $STATIC, $staticField(bug4885629, sp)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug4885629, frame)},
-	{}
-};
-
-$MethodInfo _bug4885629_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug4885629, init$, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug4885629, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug4885629, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug4885629_InnerClassesInfo_[] = {
-	{"bug4885629$3", nullptr, nullptr, 0},
-	{"bug4885629$2", nullptr, nullptr, 0},
-	{"bug4885629$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug4885629_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug4885629",
-	"java.lang.Object",
-	nullptr,
-	_bug4885629_FieldInfo_,
-	_bug4885629_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug4885629_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug4885629$3,bug4885629$2,bug4885629$1"
-};
-
-$Object* allocate$bug4885629($Class* clazz) {
-	return $of($alloc(bug4885629));
-}
 
 $Color* bug4885629::darkShadow = nullptr;
 $Color* bug4885629::darkHighlight = nullptr;
@@ -128,26 +80,24 @@ void bug4885629::init$() {
 
 void bug4885629::main($StringArray* args) {
 	$init(bug4885629);
-	$useLocalCurrentObjectStackCache();
-	$UIManager::setLookAndFeel(static_cast<$LookAndFeel*>($$new($bug4885629$1)));
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$SwingUtilities::invokeAndWait($$new($bug4885629$2));
-			$var($Robot, robot, $new($Robot));
-			robot->waitForIdle();
-			robot->delay(1000);
-			$SwingUtilities::invokeAndWait($$new($bug4885629$3, robot));
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (bug4885629::frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug4885629$$Lambda$lambda$main$0)));
-			}
+	$useLocalObjectStack();
+	$UIManager::setLookAndFeel($$new($bug4885629$1));
+	$var($Throwable, var$0, nullptr);
+	try {
+		$SwingUtilities::invokeAndWait($$new($bug4885629$2));
+		$var($Robot, robot, $new($Robot));
+		robot->waitForIdle();
+		robot->delay(1000);
+		$SwingUtilities::invokeAndWait($$new($bug4885629$3, robot));
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (bug4885629::frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(bug4885629$$Lambda$lambda$main$0));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -156,10 +106,10 @@ void bug4885629::lambda$main$0() {
 	$nc(bug4885629::frame)->dispose();
 }
 
-void clinit$bug4885629($Class* class$) {
+void bug4885629::clinit$($Class* clazz) {
 	$assignStatic(bug4885629::darkShadow, $new($Color, 100, 120, 200));
 	$assignStatic(bug4885629::darkHighlight, $new($Color, 200, 120, 50));
-	$assignStatic(bug4885629::lightHighlight, $nc(bug4885629::darkHighlight)->brighter());
+	$assignStatic(bug4885629::lightHighlight, bug4885629::darkHighlight->brighter());
 	$assignStatic(bug4885629::BGCOLOR, $Color::blue);
 }
 
@@ -168,11 +118,48 @@ bug4885629::bug4885629() {
 
 $Class* bug4885629::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug4885629$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("bug4885629$$Lambda$lambda$main$0")) {
 			return bug4885629$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(bug4885629, name, initialize, &_bug4885629_ClassInfo_, clinit$bug4885629, allocate$bug4885629);
+	$FieldInfo fieldInfos$$[] = {
+		{"darkShadow", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug4885629, darkShadow)},
+		{"darkHighlight", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug4885629, darkHighlight)},
+		{"lightHighlight", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug4885629, lightHighlight)},
+		{"BGCOLOR", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug4885629, BGCOLOR)},
+		{"sp", "Ljavax/swing/JSplitPane;", nullptr, $PRIVATE | $STATIC, $staticField(bug4885629, sp)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug4885629, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug4885629, init$, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug4885629, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug4885629, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug4885629$3", nullptr, nullptr, 0},
+		{"bug4885629$2", nullptr, nullptr, 0},
+		{"bug4885629$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug4885629",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug4885629$3,bug4885629$2,bug4885629$1"
+	};
+	$loadClass(bug4885629, name, initialize, &classInfo$$, bug4885629::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4885629);
+	});
 	return class$;
 }
 

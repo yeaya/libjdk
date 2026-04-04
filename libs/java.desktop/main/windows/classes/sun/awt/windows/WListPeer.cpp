@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WListPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -20,7 +19,6 @@
 #include <java/awt/peer/ComponentPeer.h>
 #include <java/awt/peer/ContainerPeer.h>
 #include <java/lang/Math.h>
-#include <java/lang/Runnable.h>
 #include <sun/awt/windows/WComponentPeer.h>
 #include <sun/awt/windows/WListPeer$1.h>
 #include <sun/awt/windows/WListPeer$2.h>
@@ -53,7 +51,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $WComponentPeer = ::sun::awt::windows::WComponentPeer;
 using $WListPeer$1 = ::sun::awt::windows::WListPeer$1;
 using $WListPeer$2 = ::sun::awt::windows::WListPeer$2;
@@ -63,116 +60,6 @@ using $Region = ::sun::java2d::pipe::Region;
 namespace sun {
 	namespace awt {
 		namespace windows {
-
-$FieldInfo _WListPeer_FieldInfo_[] = {
-	{"fm", "Ljava/awt/FontMetrics;", nullptr, $PRIVATE, $field(WListPeer, fm)},
-	{}
-};
-
-$MethodInfo _WListPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $NATIVE},
-	{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/List;)V", nullptr, 0, $method(WListPeer, init$, void, $List*)},
-	{"_setFont", "(Ljava/awt/Font;)V", nullptr, $SYNCHRONIZED, $virtualMethod(WListPeer, _setFont, void, $Font*)},
-	{"add", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(WListPeer, add, void, $String*, int32_t)},
-	{"addItem", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(WListPeer, addItem, void, $String*, int32_t)},
-	{"addItems", "([Ljava/lang/String;II)V", nullptr, $NATIVE, $method(WListPeer, addItems, void, $StringArray*, int32_t, int32_t)},
-	{"clear", "()V", nullptr, $PUBLIC, $method(WListPeer, clear, void)},
-	{"create", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, $NATIVE, $virtualMethod(WListPeer, create, void, $WComponentPeer*)},
-	{"delItems", "(II)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WListPeer, delItems, void, int32_t, int32_t)},
-	{"deselect", "(I)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WListPeer, deselect, void, int32_t)},
-	{"getMaxWidth", "()I", nullptr, $PUBLIC | $NATIVE, $method(WListPeer, getMaxWidth, int32_t)},
-	{"getMinimumSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WListPeer, getMinimumSize, $Dimension*, int32_t)},
-	{"getPreferredSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WListPeer, getPreferredSize, $Dimension*, int32_t)},
-	{"getSelectedIndexes", "()[I", nullptr, $PUBLIC, $virtualMethod(WListPeer, getSelectedIndexes, $ints*)},
-	{"handleAction", "(IJI)V", nullptr, 0, $method(WListPeer, handleAction, void, int32_t, int64_t, int32_t)},
-	{"handleListChanged", "(I)V", nullptr, 0, $method(WListPeer, handleListChanged, void, int32_t)},
-	{"initialize", "()V", nullptr, 0, $virtualMethod(WListPeer, initialize, void)},
-	{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(WListPeer, isFocusable, bool)},
-	{"*isObscured", "()Z", nullptr, $PUBLIC | $NATIVE},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"isSelected", "(I)Z", nullptr, $NATIVE, $method(WListPeer, isSelected, bool, int32_t)},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"makeVisible", "(I)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WListPeer, makeVisible, void, int32_t)},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(WListPeer, removeAll, void)},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
-	{"select", "(I)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WListPeer, select, void, int32_t)},
-	{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"setMultipleMode", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WListPeer, setMultipleMode, void, bool)},
-	{"setMultipleSelections", "(Z)V", nullptr, $PUBLIC | $NATIVE, $method(WListPeer, setMultipleSelections, void, bool)},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"shouldClearRectBeforePaint", "()Z", nullptr, $PUBLIC, $virtualMethod(WListPeer, shouldClearRectBeforePaint, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"updateMaxItemWidth", "()V", nullptr, $PRIVATE | $NATIVE, $method(WListPeer, updateMaxItemWidth, void)},
-	{}
-};
-
-#define _METHOD_INDEX_addItems 27
-#define _METHOD_INDEX_create 29
-#define _METHOD_INDEX_delItems 30
-#define _METHOD_INDEX_deselect 31
-#define _METHOD_INDEX_getMaxWidth 32
-#define _METHOD_INDEX_isSelected 42
-#define _METHOD_INDEX_makeVisible 44
-#define _METHOD_INDEX_select 50
-#define _METHOD_INDEX_setMultipleSelections 57
-#define _METHOD_INDEX_updateMaxItemWidth 64
-
-$InnerClassInfo _WListPeer_InnerClassesInfo_[] = {
-	{"sun.awt.windows.WListPeer$2", nullptr, nullptr, 0},
-	{"sun.awt.windows.WListPeer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WListPeer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.windows.WListPeer",
-	"sun.awt.windows.WComponentPeer",
-	"java.awt.peer.ListPeer",
-	_WListPeer_FieldInfo_,
-	_WListPeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WListPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.windows.WListPeer$2,sun.awt.windows.WListPeer$1"
-};
-
-$Object* allocate$WListPeer($Class* clazz) {
-	return $of($alloc(WListPeer));
-}
 
 bool WListPeer::isObscured() {
 	 return this->$WComponentPeer::isObscured();
@@ -339,7 +226,7 @@ bool WListPeer::isFocusable() {
 }
 
 $ints* WListPeer::getSelectedIndexes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, l, $cast($List, this->target));
 	int32_t len = $nc(l)->getItemCount();
 	$var($ints, sel, $new($ints, len));
@@ -367,19 +254,19 @@ void WListPeer::setMultipleMode(bool b) {
 }
 
 $Dimension* WListPeer::getPreferredSize(int32_t rows) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fm == nullptr) {
 		$var($List, li, $cast($List, this->target));
 		$set(this, fm, getFontMetrics($($nc(li)->getFont())));
 	}
 	$var($Dimension, d, getMinimumSize(rows));
-	$nc(d)->width = $Math::max(d->width, getMaxWidth() + 20);
+	$nc(d)->width = $Math::max($nc(d)->width, getMaxWidth() + 20);
 	return d;
 }
 
 $Dimension* WListPeer::getMinimumSize(int32_t rows) {
 	int32_t var$0 = 20 + $nc(this->fm)->stringWidth("0123456789abcde"_s);
-	return $new($Dimension, var$0, ($nc(this->fm)->getHeight() * rows) + 4);
+	return $new($Dimension, var$0, (this->fm->getHeight() * rows) + 4);
 }
 
 void WListPeer::addItem($String* item, int32_t index) {
@@ -387,13 +274,13 @@ void WListPeer::addItem($String* item, int32_t index) {
 }
 
 void WListPeer::addItems($StringArray* items, int32_t index, int32_t width) {
-	$prepareNative(WListPeer, addItems, void, $StringArray* items, int32_t index, int32_t width);
+	$prepareNative(addItems, void, $StringArray* items, int32_t index, int32_t width);
 	$invokeNative(items, index, width);
 	$finishNative();
 }
 
 void WListPeer::delItems(int32_t start, int32_t end) {
-	$prepareNative(WListPeer, delItems, void, int32_t start, int32_t end);
+	$prepareNative(delItems, void, int32_t start, int32_t end);
 	$invokeNative(start, end);
 	$finishNative();
 }
@@ -404,33 +291,32 @@ void WListPeer::clear() {
 }
 
 void WListPeer::select(int32_t index) {
-	$prepareNative(WListPeer, select, void, int32_t index);
+	$prepareNative(select, void, int32_t index);
 	$invokeNative(index);
 	$finishNative();
 }
 
 void WListPeer::deselect(int32_t index) {
-	$prepareNative(WListPeer, deselect, void, int32_t index);
+	$prepareNative(deselect, void, int32_t index);
 	$invokeNative(index);
 	$finishNative();
 }
 
 void WListPeer::makeVisible(int32_t index) {
-	$prepareNative(WListPeer, makeVisible, void, int32_t index);
+	$prepareNative(makeVisible, void, int32_t index);
 	$invokeNative(index);
 	$finishNative();
 }
 
 void WListPeer::setMultipleSelections(bool v) {
-	$prepareNative(WListPeer, setMultipleSelections, void, bool v);
+	$prepareNative(setMultipleSelections, void, bool v);
 	$invokeNative(v);
 	$finishNative();
 }
 
 int32_t WListPeer::getMaxWidth() {
-	int32_t $ret = 0;
-	$prepareNative(WListPeer, getMaxWidth, int32_t);
-	$ret = $invokeNative();
+	$prepareNative(getMaxWidth, int32_t);
+	int32_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -440,16 +326,16 @@ void WListPeer::init$($List* target) {
 }
 
 void WListPeer::create($WComponentPeer* parent) {
-	$prepareNative(WListPeer, create, void, $WComponentPeer* parent);
+	$prepareNative(create, void, $WComponentPeer* parent);
 	$invokeNative(parent);
 	$finishNative();
 }
 
 void WListPeer::initialize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, li, $cast($List, this->target));
 	$set(this, fm, getFontMetrics($($nc(li)->getFont())));
-	$var($Font, f, $nc(li)->getFont());
+	$var($Font, f, li->getFont());
 	if (f != nullptr) {
 		setFont(f);
 	}
@@ -473,7 +359,7 @@ void WListPeer::initialize() {
 		select(sel->get(i));
 	}
 	int32_t index = li->getVisibleIndex();
-	if (index < 0 && $nc(sel)->length > 0) {
+	if (index < 0 && sel->length > 0) {
 		index = sel->get(0);
 	}
 	if (index >= 0) {
@@ -487,15 +373,14 @@ bool WListPeer::shouldClearRectBeforePaint() {
 }
 
 void WListPeer::updateMaxItemWidth() {
-	$prepareNative(WListPeer, updateMaxItemWidth, void);
+	$prepareNative(updateMaxItemWidth, void);
 	$invokeNative();
 	$finishNative();
 }
 
 bool WListPeer::isSelected(int32_t index) {
-	bool $ret = false;
-	$prepareNative(WListPeer, isSelected, bool, int32_t index);
-	$ret = $invokeNative(index);
+	$prepareNative(isSelected, bool, int32_t index);
+	bool $ret = $invokeNative(index);
 	$finishNative();
 	return $ret;
 }
@@ -503,19 +388,19 @@ bool WListPeer::isSelected(int32_t index) {
 void WListPeer::_setFont($Font* f) {
 	$synchronized(this) {
 		$WComponentPeer::_setFont(f);
-		$set(this, fm, getFontMetrics($($nc(($cast($List, this->target)))->getFont())));
+		$set(this, fm, getFontMetrics($($nc($cast($List, this->target))->getFont())));
 		updateMaxItemWidth();
 	}
 }
 
 void WListPeer::handleAction(int32_t index, int64_t when, int32_t modifiers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, l, $cast($List, this->target));
 	$WToolkit::executeOnEventHandlerThread(l, $$new($WListPeer$1, this, l, index, when, modifiers));
 }
 
 void WListPeer::handleListChanged(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, l, $cast($List, this->target));
 	$WToolkit::executeOnEventHandlerThread(l, $$new($WListPeer$2, this, l, index));
 }
@@ -524,7 +409,100 @@ WListPeer::WListPeer() {
 }
 
 $Class* WListPeer::load$($String* name, bool initialize) {
-	$loadClass(WListPeer, name, initialize, &_WListPeer_ClassInfo_, allocate$WListPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"fm", "Ljava/awt/FontMetrics;", nullptr, $PRIVATE, $field(WListPeer, fm)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $NATIVE},
+		{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/List;)V", nullptr, 0, $method(WListPeer, init$, void, $List*)},
+		{"_setFont", "(Ljava/awt/Font;)V", nullptr, $SYNCHRONIZED, $virtualMethod(WListPeer, _setFont, void, $Font*)},
+		{"add", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(WListPeer, add, void, $String*, int32_t)},
+		{"addItem", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(WListPeer, addItem, void, $String*, int32_t)},
+		{"addItems", "([Ljava/lang/String;II)V", nullptr, $NATIVE, $method(WListPeer, addItems, void, $StringArray*, int32_t, int32_t)},
+		{"clear", "()V", nullptr, $PUBLIC, $method(WListPeer, clear, void)},
+		{"create", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, $NATIVE, $virtualMethod(WListPeer, create, void, $WComponentPeer*)},
+		{"delItems", "(II)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WListPeer, delItems, void, int32_t, int32_t)},
+		{"deselect", "(I)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WListPeer, deselect, void, int32_t)},
+		{"getMaxWidth", "()I", nullptr, $PUBLIC | $NATIVE, $method(WListPeer, getMaxWidth, int32_t)},
+		{"getMinimumSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WListPeer, getMinimumSize, $Dimension*, int32_t)},
+		{"getPreferredSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WListPeer, getPreferredSize, $Dimension*, int32_t)},
+		{"getSelectedIndexes", "()[I", nullptr, $PUBLIC, $virtualMethod(WListPeer, getSelectedIndexes, $ints*)},
+		{"handleAction", "(IJI)V", nullptr, 0, $method(WListPeer, handleAction, void, int32_t, int64_t, int32_t)},
+		{"handleListChanged", "(I)V", nullptr, 0, $method(WListPeer, handleListChanged, void, int32_t)},
+		{"initialize", "()V", nullptr, 0, $virtualMethod(WListPeer, initialize, void)},
+		{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(WListPeer, isFocusable, bool)},
+		{"*isObscured", "()Z", nullptr, $PUBLIC | $NATIVE},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"isSelected", "(I)Z", nullptr, $NATIVE, $method(WListPeer, isSelected, bool, int32_t)},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"makeVisible", "(I)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WListPeer, makeVisible, void, int32_t)},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(WListPeer, removeAll, void)},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
+		{"select", "(I)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WListPeer, select, void, int32_t)},
+		{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"setMultipleMode", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WListPeer, setMultipleMode, void, bool)},
+		{"setMultipleSelections", "(Z)V", nullptr, $PUBLIC | $NATIVE, $method(WListPeer, setMultipleSelections, void, bool)},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"shouldClearRectBeforePaint", "()Z", nullptr, $PUBLIC, $virtualMethod(WListPeer, shouldClearRectBeforePaint, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"updateMaxItemWidth", "()V", nullptr, $PRIVATE | $NATIVE, $method(WListPeer, updateMaxItemWidth, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.windows.WListPeer$2", nullptr, nullptr, 0},
+		{"sun.awt.windows.WListPeer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.windows.WListPeer",
+		"sun.awt.windows.WComponentPeer",
+		"java.awt.peer.ListPeer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.windows.WListPeer$2,sun.awt.windows.WListPeer$1"
+	};
+	$loadClass(WListPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WListPeer));
+	});
 	return class$;
 }
 

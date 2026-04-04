@@ -25,6 +25,7 @@ public:
 	using ::javax::swing::JFrame::add;
 	using ::javax::swing::JFrame::getMousePosition;
 	using ::javax::swing::JFrame::list;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void lambda$main$0();
 	static void lambda$main$1();

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalBorders$ButtonBorder.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -7,7 +6,6 @@
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/plaf/ColorUIResource.h>
@@ -18,7 +16,6 @@
 
 #undef NO_BUTTON_ROLLOVER
 
-using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
@@ -29,7 +26,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractButton = ::javax::swing::AbstractButton;
 using $ButtonModel = ::javax::swing::ButtonModel;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $UIManager = ::javax::swing::UIManager;
 using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $MetalBorders = ::javax::swing::plaf::metal::MetalBorders;
@@ -40,49 +36,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$FieldInfo _MetalBorders$ButtonBorder_FieldInfo_[] = {
-	{"borderInsets", "Ljava/awt/Insets;", nullptr, $PROTECTED | $STATIC, $staticField(MetalBorders$ButtonBorder, borderInsets)},
-	{}
-};
-
-$MethodInfo _MetalBorders$ButtonBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalBorders$ButtonBorder, init$, void)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MetalBorders$ButtonBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MetalBorders$ButtonBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintOceanBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PRIVATE, $method(MetalBorders$ButtonBorder, paintOceanBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MetalBorders$ButtonBorder_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalBorders$ButtonBorder", "javax.swing.plaf.metal.MetalBorders", "ButtonBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalBorders$ButtonBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalBorders$ButtonBorder",
-	"javax.swing.border.AbstractBorder",
-	"javax.swing.plaf.UIResource",
-	_MetalBorders$ButtonBorder_FieldInfo_,
-	_MetalBorders$ButtonBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalBorders$ButtonBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalBorders"
-};
-
-$Object* allocate$MetalBorders$ButtonBorder($Class* clazz) {
-	return $of($alloc(MetalBorders$ButtonBorder));
-}
 
 int32_t MetalBorders$ButtonBorder::hashCode() {
 	 return this->$AbstractBorder::hashCode();
@@ -111,7 +64,7 @@ void MetalBorders$ButtonBorder::init$() {
 }
 
 void MetalBorders$ButtonBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($AbstractButton, c))) {
 		return;
 	}
@@ -124,7 +77,7 @@ void MetalBorders$ButtonBorder::paintBorder($Component* c, $Graphics* g, int32_t
 	if ($nc(model)->isEnabled()) {
 		bool var$0 = model->isPressed();
 		bool isPressed = var$0 && model->isArmed();
-		bool isDefault = ($instanceOf($JButton, button) && $nc(($cast($JButton, button)))->isDefaultButton());
+		bool isDefault = ($instanceOf($JButton, button) && $cast($JButton, button)->isDefaultButton());
 		if (isPressed && isDefault) {
 			$MetalUtils::drawDefaultButtonPressedBorder(g, x, y, w, h);
 		} else if (isPressed) {
@@ -140,9 +93,9 @@ void MetalBorders$ButtonBorder::paintBorder($Component* c, $Graphics* g, int32_t
 }
 
 void MetalBorders$ButtonBorder::paintOceanBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, button, $cast($AbstractButton, c));
-	$var($ButtonModel, model, $nc(($cast($AbstractButton, c)))->getModel());
+	$var($ButtonModel, model, $nc($cast($AbstractButton, c))->getModel());
 	$nc(g)->translate(x, y);
 	if ($MetalUtils::isToolBarButton(button)) {
 		if ($nc(model)->isEnabled()) {
@@ -154,8 +107,8 @@ void MetalBorders$ButtonBorder::paintOceanBorder($Component* c, $Graphics* g, in
 				g->drawRect(0, 0, w - 2, h - 2);
 				g->fillRect(1, 1, w - 3, 1);
 			} else {
-				bool var$1 = model->isSelected();
-				if (var$1 || model->isRollover()) {
+				bool var$0 = model->isSelected();
+				if (var$0 || model->isRollover()) {
 					g->setColor($($MetalLookAndFeel::getWhite()));
 					g->fillRect(1, h - 1, w - 1, 1);
 					g->fillRect(w - 1, 1, 1, h - 1);
@@ -175,7 +128,7 @@ void MetalBorders$ButtonBorder::paintOceanBorder($Component* c, $Graphics* g, in
 	} else if ($nc(model)->isEnabled()) {
 		bool pressed = model->isPressed();
 		bool armed = model->isArmed();
-		if (($instanceOf($JButton, c)) && $nc(($cast($JButton, c)))->isDefaultButton()) {
+		if (($instanceOf($JButton, c)) && $cast($JButton, c)->isDefaultButton()) {
 			g->setColor($($MetalLookAndFeel::getControlDarkShadow()));
 			g->drawRect(0, 0, w - 1, h - 1);
 			g->drawRect(1, 1, w - 3, h - 3);
@@ -186,9 +139,9 @@ void MetalBorders$ButtonBorder::paintOceanBorder($Component* c, $Graphics* g, in
 			g->fillRect(w - 1, 1, 1, h - 1);
 			g->fillRect(1, h - 1, w - 2, 1);
 		} else {
-			bool var$3 = model->isRollover();
+			bool var$1 = model->isRollover();
 			$init($MetalBorders);
-			if (var$3 && $nc(button)->getClientProperty($MetalBorders::NO_BUTTON_ROLLOVER) == nullptr) {
+			if (var$1 && $nc(button)->getClientProperty($MetalBorders::NO_BUTTON_ROLLOVER) == nullptr) {
 				g->setColor($($MetalLookAndFeel::getPrimaryControl()));
 				g->drawRect(0, 0, w - 1, h - 1);
 				g->drawRect(2, 2, w - 5, h - 5);
@@ -202,7 +155,7 @@ void MetalBorders$ButtonBorder::paintOceanBorder($Component* c, $Graphics* g, in
 	} else {
 		g->setColor($($MetalLookAndFeel::getInactiveControlTextColor()));
 		g->drawRect(0, 0, w - 1, h - 1);
-		if (($instanceOf($JButton, c)) && $nc(($cast($JButton, c)))->isDefaultButton()) {
+		if (($instanceOf($JButton, c)) && $cast($JButton, c)->isDefaultButton()) {
 			g->drawRect(1, 1, w - 3, h - 3);
 		}
 	}
@@ -213,7 +166,7 @@ $Insets* MetalBorders$ButtonBorder::getBorderInsets($Component* c, $Insets* newI
 	return newInsets;
 }
 
-void clinit$MetalBorders$ButtonBorder($Class* class$) {
+void MetalBorders$ButtonBorder::clinit$($Class* clazz) {
 	$assignStatic(MetalBorders$ButtonBorder::borderInsets, $new($Insets, 3, 3, 3, 3));
 }
 
@@ -221,7 +174,44 @@ MetalBorders$ButtonBorder::MetalBorders$ButtonBorder() {
 }
 
 $Class* MetalBorders$ButtonBorder::load$($String* name, bool initialize) {
-	$loadClass(MetalBorders$ButtonBorder, name, initialize, &_MetalBorders$ButtonBorder_ClassInfo_, clinit$MetalBorders$ButtonBorder, allocate$MetalBorders$ButtonBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"borderInsets", "Ljava/awt/Insets;", nullptr, $PROTECTED | $STATIC, $staticField(MetalBorders$ButtonBorder, borderInsets)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalBorders$ButtonBorder, init$, void)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MetalBorders$ButtonBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MetalBorders$ButtonBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintOceanBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PRIVATE, $method(MetalBorders$ButtonBorder, paintOceanBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalBorders$ButtonBorder", "javax.swing.plaf.metal.MetalBorders", "ButtonBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalBorders$ButtonBorder",
+		"javax.swing.border.AbstractBorder",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalBorders"
+	};
+	$loadClass(MetalBorders$ButtonBorder, name, initialize, &classInfo$$, MetalBorders$ButtonBorder::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalBorders$ButtonBorder));
+	});
 	return class$;
 }
 

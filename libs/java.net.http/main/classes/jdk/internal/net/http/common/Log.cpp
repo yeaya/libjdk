@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/common/Log.h>
-
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$Logger.h>
 #include <java/net/http/HttpHeaders.h>
@@ -63,74 +62,6 @@ namespace jdk {
 			namespace http {
 				namespace common {
 
-$FieldInfo _Log_FieldInfo_[] = {
-	{"logProp", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Log, logProp)},
-	{"OFF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Log, OFF)},
-	{"ERRORS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Log, ERRORS)},
-	{"REQUESTS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Log, REQUESTS)},
-	{"HEADERS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Log, HEADERS)},
-	{"CONTENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Log, CONTENT)},
-	{"FRAMES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Log, FRAMES)},
-	{"SSL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Log, SSL)},
-	{"TRACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Log, TRACE)},
-	{"CHANNEL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Log, CHANNEL)},
-	{"logging", "I", nullptr, $STATIC, $staticField(Log, logging)},
-	{"CONTROL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Log, CONTROL)},
-	{"DATA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Log, DATA)},
-	{"WINDOW_UPDATES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Log, WINDOW_UPDATES)},
-	{"ALL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Log, ALL)},
-	{"frametypes", "I", nullptr, $STATIC, $staticField(Log, frametypes)},
-	{"logger", "Ljava/lang/System$Logger;", nullptr, $STATIC | $FINAL, $staticField(Log, logger)},
-	{}
-};
-
-$MethodInfo _Log_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Log, init$, void)},
-	{"channel", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, channel, bool)},
-	{"dumpHeaders", "(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/net/http/HttpHeaders;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, dumpHeaders, void, $StringBuilder*, $String*, $HttpHeaders*)},
-	{"errors", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, errors, bool)},
-	{"frames", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, frames, bool)},
-	{"headers", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, headers, bool)},
-	{"logChannel", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Log, logChannel, void, $String*, $ObjectArray*)},
-	{"logChannel", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC | $STATIC, $staticMethod(Log, logChannel, void, $Supplier*)},
-	{"logError", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Log, logError, void, $String*, $ObjectArray*)},
-	{"logError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, logError, void, $Throwable*)},
-	{"logFrames", "(Ljdk/internal/net/http/frame/Http2Frame;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, logFrames, void, $Http2Frame*, $String*)},
-	{"logHeaders", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Log, logHeaders, void, $String*, $ObjectArray*)},
-	{"logParams", "(Ljavax/net/ssl/SSLParameters;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, logParams, void, $SSLParameters*)},
-	{"logRequest", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Log, logRequest, void, $String*, $ObjectArray*)},
-	{"logResponse", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC | $STATIC, $staticMethod(Log, logResponse, void, $Supplier*)},
-	{"logSSL", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Log, logSSL, void, $String*, $ObjectArray*)},
-	{"logSSL", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC | $STATIC, $staticMethod(Log, logSSL, void, $Supplier*)},
-	{"logTrace", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Log, logTrace, void, $String*, $ObjectArray*)},
-	{"loggingFrame", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljdk/internal/net/http/frame/Http2Frame;>;)Z", $PUBLIC | $STATIC, $staticMethod(Log, loggingFrame, bool, $Class*)},
-	{"requests", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, requests, bool)},
-	{"ssl", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, ssl, bool)},
-	{"trace", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, trace, bool)},
-	{}
-};
-
-$InnerClassInfo _Log_InnerClassesInfo_[] = {
-	{"java.lang.System$Logger", "java.lang.System", "Logger", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Log_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"jdk.internal.net.http.common.Log",
-	"java.lang.Object",
-	"java.lang.System$Logger",
-	_Log_FieldInfo_,
-	_Log_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Log_InnerClassesInfo_
-};
-
-$Object* allocate$Log($Class* clazz) {
-	return $of($alloc(Log));
-}
-
 $String* Log::logProp = nullptr;
 int32_t Log::logging = 0;
 int32_t Log::frametypes = 0;
@@ -138,37 +69,37 @@ $System$Logger* Log::logger = nullptr;
 
 bool Log::errors() {
 	$init(Log);
-	return ((int32_t)(Log::logging & (uint32_t)Log::ERRORS)) != 0;
+	return (Log::logging & Log::ERRORS) != 0;
 }
 
 bool Log::requests() {
 	$init(Log);
-	return ((int32_t)(Log::logging & (uint32_t)Log::REQUESTS)) != 0;
+	return (Log::logging & Log::REQUESTS) != 0;
 }
 
 bool Log::headers() {
 	$init(Log);
-	return ((int32_t)(Log::logging & (uint32_t)Log::HEADERS)) != 0;
+	return (Log::logging & Log::HEADERS) != 0;
 }
 
 bool Log::trace() {
 	$init(Log);
-	return ((int32_t)(Log::logging & (uint32_t)Log::TRACE)) != 0;
+	return (Log::logging & Log::TRACE) != 0;
 }
 
 bool Log::ssl() {
 	$init(Log);
-	return ((int32_t)(Log::logging & (uint32_t)Log::SSL)) != 0;
+	return (Log::logging & Log::SSL) != 0;
 }
 
 bool Log::frames() {
 	$init(Log);
-	return ((int32_t)(Log::logging & (uint32_t)Log::FRAMES)) != 0;
+	return (Log::logging & Log::FRAMES) != 0;
 }
 
 bool Log::channel() {
 	$init(Log);
-	return ((int32_t)(Log::logging & (uint32_t)Log::CHANNEL)) != 0;
+	return (Log::logging & Log::CHANNEL) != 0;
 }
 
 void Log::logError($String* s, $ObjectArray* s1) {
@@ -181,7 +112,7 @@ void Log::logError($String* s, $ObjectArray* s1) {
 
 void Log::logError($Throwable* t) {
 	$init(Log);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (errors()) {
 		$var($String, s, $Utils::stackTrace(t));
 		$init($System$Logger$Level);
@@ -199,10 +130,10 @@ void Log::logSSL($String* s, $ObjectArray* s1) {
 
 void Log::logSSL($Supplier* msgSupplier) {
 	$init(Log);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (ssl()) {
 		$init($System$Logger$Level);
-		$nc(Log::logger)->log($System$Logger$Level::INFO, $$str({"SSL: "_s, $cast($String, $($nc(msgSupplier)->get()))}));
+		$nc(Log::logger)->log($System$Logger$Level::INFO, $$str({"SSL: "_s, $$cast($String, $nc(msgSupplier)->get())}));
 	}
 }
 
@@ -216,10 +147,10 @@ void Log::logChannel($String* s, $ObjectArray* s1) {
 
 void Log::logChannel($Supplier* msgSupplier) {
 	$init(Log);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (channel()) {
 		$init($System$Logger$Level);
-		$nc(Log::logger)->log($System$Logger$Level::INFO, $$str({"CHANNEL: "_s, $cast($String, $($nc(msgSupplier)->get()))}));
+		$nc(Log::logger)->log($System$Logger$Level::INFO, $$str({"CHANNEL: "_s, $$cast($String, $nc(msgSupplier)->get())}));
 	}
 }
 
@@ -242,10 +173,10 @@ void Log::logRequest($String* s, $ObjectArray* s1) {
 
 void Log::logResponse($Supplier* supplier) {
 	$init(Log);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (requests()) {
 		$init($System$Logger$Level);
-		$nc(Log::logger)->log($System$Logger$Level::INFO, $$str({"RESPONSE: "_s, $cast($String, $($nc(supplier)->get()))}));
+		$nc(Log::logger)->log($System$Logger$Level::INFO, $$str({"RESPONSE: "_s, $$cast($String, $nc(supplier)->get())}));
 	}
 }
 
@@ -264,30 +195,30 @@ bool Log::loggingFrame($Class* clazz) {
 	}
 	$load($DataFrame);
 	if (clazz == $DataFrame::class$) {
-		return ((int32_t)(Log::frametypes & (uint32_t)Log::DATA)) != 0;
+		return (Log::frametypes & Log::DATA) != 0;
 	} else {
 		$load($WindowUpdateFrame);
 		if (clazz == $WindowUpdateFrame::class$) {
-			return ((int32_t)(Log::frametypes & (uint32_t)Log::WINDOW_UPDATES)) != 0;
+			return (Log::frametypes & Log::WINDOW_UPDATES) != 0;
 		} else {
-			return ((int32_t)(Log::frametypes & (uint32_t)Log::CONTROL)) != 0;
+			return (Log::frametypes & Log::CONTROL) != 0;
 		}
 	}
 }
 
 void Log::logFrames($Http2Frame* f, $String* direction) {
 	$init(Log);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = frames();
 	if (var$0 && loggingFrame($nc($of(f))->getClass())) {
 		$init($System$Logger$Level);
-		$nc(Log::logger)->log($System$Logger$Level::INFO, $$str({"FRAME: "_s, direction, ": "_s, $($nc(f)->toString())}));
+		$nc(Log::logger)->log($System$Logger$Level::INFO, $$str({"FRAME: "_s, direction, ": "_s, $(f->toString())}));
 	}
 }
 
 void Log::logParams($SSLParameters* p) {
 	$init(Log);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!Log::ssl()) {
 		return;
 	}
@@ -298,24 +229,18 @@ void Log::logParams($SSLParameters* p) {
 	$var($StringBuilder, sb, $new($StringBuilder, "SSLParameters:"_s));
 	$var($List, params, $new($ArrayList));
 	if ($nc(p)->getCipherSuites() != nullptr) {
-		{
-			$var($StringArray, arr$, p->getCipherSuites());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($String, cipher, arr$->get(i$));
-				{
-					sb->append("\n    cipher: {"_s)->append(params->size())->append("}"_s);
-					params->add(cipher);
-				}
+		$var($StringArray, arr$, p->getCipherSuites());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($String, cipher, arr$->get(i$));
+			{
+				sb->append("\n    cipher: {"_s)->append(params->size())->append("}"_s);
+				params->add(cipher);
 			}
 		}
 	}
 	{
-		$var($StringArray, arr$, $nc(p)->getApplicationProtocols());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, p->getApplicationProtocols());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, approto, arr$->get(i$));
 			{
 				sb->append("\n    application protocol: {"_s)->append(params->size())->append("}"_s);
@@ -324,16 +249,12 @@ void Log::logParams($SSLParameters* p) {
 		}
 	}
 	if (p->getProtocols() != nullptr) {
-		{
-			$var($StringArray, arr$, p->getProtocols());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($String, protocol, arr$->get(i$));
-				{
-					sb->append("\n    protocol: {"_s)->append(params->size())->append("}"_s);
-					params->add(protocol);
-				}
+		$var($StringArray, arr$, p->getProtocols());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($String, protocol, arr$->get(i$));
+			{
+				sb->append("\n    protocol: {"_s)->append(params->size())->append("}"_s);
+				params->add(protocol);
 			}
 		}
 	}
@@ -342,14 +263,12 @@ void Log::logParams($SSLParameters* p) {
 		params->add($(p->getEndpointIdentificationAlgorithm()));
 	}
 	if (p->getServerNames() != nullptr) {
-		{
-			$var($Iterator, i$, $nc($(p->getServerNames()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($SNIServerName, sname, $cast($SNIServerName, i$->next()));
-				{
-					sb->append("\n    server name: {"_s)->append(params->size())->append("}"_s);
-					params->add($($nc(sname)->toString()));
-				}
+		$var($Iterator, i$, $$nc(p->getServerNames())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($SNIServerName, sname, $cast($SNIServerName, i$->next()));
+			{
+				sb->append("\n    server name: {"_s)->append(params->size())->append("}"_s);
+				params->add($($nc(sname)->toString()));
 			}
 		}
 	}
@@ -360,7 +279,7 @@ void Log::logParams($SSLParameters* p) {
 
 void Log::dumpHeaders($StringBuilder* sb, $String* prefix, $HttpHeaders* headers) {
 	$init(Log);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (headers != nullptr) {
 		$var($Map, h, headers->map());
 		$var($Set, entries, $nc(h)->entrySet());
@@ -372,7 +291,7 @@ void Log::dumpHeaders($StringBuilder* sb, $String* prefix, $HttpHeaders* headers
 				{
 					$var($String, key, $cast($String, $nc(entry)->getKey()));
 					$var($List, values, $cast($List, entry->getValue()));
-					if (values == nullptr || $nc(values)->isEmpty()) {
+					if (values == nullptr || values->isEmpty()) {
 						$nc(sb)->append(sep);
 						sb->append(prefix)->append(key)->append(u':');
 						$assign(sep, "\n"_s);
@@ -400,8 +319,8 @@ void Log::dumpHeaders($StringBuilder* sb, $String* prefix, $HttpHeaders* headers
 void Log::init$() {
 }
 
-void clinit$Log($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Log::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Log::logProp, "jdk.httpclient.HttpClient.log"_s);
 	$beforeCallerSensitive();
 	{
@@ -409,7 +328,7 @@ void clinit$Log($Class* class$) {
 		if (s == nullptr) {
 			Log::logging = Log::OFF;
 		} else {
-			$var($StringArray, vals, $nc(s)->split(","_s));
+			$var($StringArray, vals, s->split(","_s));
 			{
 				$var($StringArray, arr$, vals);
 				int32_t len$ = arr$->length;
@@ -422,181 +341,126 @@ void clinit$Log($Class* class$) {
 							$var($String, s3196$, $nc(val)->toLowerCase($Locale::US));
 							int32_t tmp3196$ = -1;
 							switch (s3196$->hashCode()) {
-							case (int32_t)0xB2D56F6B:
-								{
-									if (s3196$->equals("errors"_s)) {
-										tmp3196$ = 0;
-									}
-									break;
+							case (int32_t)0xb2d56f6b:
+								if (s3196$->equals("errors"_s)) {
+									tmp3196$ = 0;
 								}
-							case (int32_t)0xE88F5FC4:
-								{
-									if (s3196$->equals("requests"_s)) {
-										tmp3196$ = 1;
-									}
-									break;
+								break;
+							case (int32_t)0xe88f5fc4:
+								if (s3196$->equals("requests"_s)) {
+									tmp3196$ = 1;
 								}
-							case 0x2F676F86:
-								{
-									if (s3196$->equals("headers"_s)) {
-										tmp3196$ = 2;
-									}
-									break;
+								break;
+							case 0x2f676f86:
+								if (s3196$->equals("headers"_s)) {
+									tmp3196$ = 2;
 								}
-							case 0x38B73479:
-								{
-									if (s3196$->equals("content"_s)) {
-										tmp3196$ = 3;
-									}
-									break;
+								break;
+							case 0x38b73479:
+								if (s3196$->equals("content"_s)) {
+									tmp3196$ = 3;
 								}
-							case 0x0001BE0C:
-								{
-									if (s3196$->equals("ssl"_s)) {
-										tmp3196$ = 4;
-									}
-									break;
+								break;
+							case 0x0001be0c:
+								if (s3196$->equals("ssl"_s)) {
+									tmp3196$ = 4;
 								}
-							case 0x2C0B7D03:
-								{
-									if (s3196$->equals("channel"_s)) {
-										tmp3196$ = 5;
-									}
-									break;
+								break;
+							case 0x2c0b7d03:
+								if (s3196$->equals("channel"_s)) {
+									tmp3196$ = 5;
 								}
-							case 0x0697F145:
-								{
-									if (s3196$->equals("trace"_s)) {
-										tmp3196$ = 6;
-									}
-									break;
+								break;
+							case 0x0697f145:
+								if (s3196$->equals("trace"_s)) {
+									tmp3196$ = 6;
 								}
-							case 0x000179A1:
-								{
-									if (s3196$->equals("all"_s)) {
-										tmp3196$ = 7;
-									}
-									break;
+								break;
+							case 0x000179a1:
+								if (s3196$->equals("all"_s)) {
+									tmp3196$ = 7;
 								}
+								break;
 							}
 							switch (tmp3196$) {
 							case 0:
-								{
-									Log::logging |= Log::ERRORS;
-									break;
-								}
+								Log::logging |= Log::ERRORS;
+								break;
 							case 1:
-								{
-									Log::logging |= Log::REQUESTS;
-									break;
-								}
+								Log::logging |= Log::REQUESTS;
+								break;
 							case 2:
-								{
-									Log::logging |= Log::HEADERS;
-									break;
-								}
+								Log::logging |= Log::HEADERS;
+								break;
 							case 3:
-								{
-									Log::logging |= Log::CONTENT;
-									break;
-								}
+								Log::logging |= Log::CONTENT;
+								break;
 							case 4:
-								{
-									Log::logging |= Log::SSL;
-									break;
-								}
+								Log::logging |= Log::SSL;
+								break;
 							case 5:
-								{
-									Log::logging |= Log::CHANNEL;
-									break;
-								}
+								Log::logging |= Log::CHANNEL;
+								break;
 							case 6:
-								{
-									Log::logging |= Log::TRACE;
-									break;
-								}
+								Log::logging |= Log::TRACE;
+								break;
 							case 7:
-								{
-									Log::logging |= ((((((Log::CONTENT | Log::HEADERS) | Log::REQUESTS) | Log::FRAMES) | Log::ERRORS) | Log::TRACE) | Log::SSL) | Log::CHANNEL;
-									Log::frametypes |= Log::ALL;
-									break;
-								}
+								Log::logging |= ((((((Log::CONTENT | Log::HEADERS) | Log::REQUESTS) | Log::FRAMES) | Log::ERRORS) | Log::TRACE) | Log::SSL) | Log::CHANNEL;
+								Log::frametypes |= Log::ALL;
+								break;
 							default:
-								{}
+								break;
 							}
 						}
-						if ($nc(val)->startsWith("frames"_s)) {
+						if (val->startsWith("frames"_s)) {
 							Log::logging |= Log::FRAMES;
 							$var($StringArray, types, val->split(":"_s));
 							if (types->length == 1) {
 								Log::frametypes = (Log::CONTROL | Log::DATA) | Log::WINDOW_UPDATES;
 							} else {
-								{
-									$var($StringArray, arr$, types);
-									int32_t len$ = arr$->length;
-									int32_t i$ = 0;
-									for (; i$ < len$; ++i$) {
-										$var($String, type, arr$->get(i$));
-										{
-											{
-												$init($Locale);
-												$var($String, s4655$, $nc(type)->toLowerCase($Locale::US));
-												int32_t tmp4655$ = -1;
-												switch (s4655$->hashCode()) {
-												case 0x38B7655D:
-													{
-														if (s4655$->equals("control"_s)) {
-															tmp4655$ = 0;
-														}
-														break;
-													}
-												case 0x002EEFAA:
-													{
-														if (s4655$->equals("data"_s)) {
-															tmp4655$ = 1;
-														}
-														break;
-													}
-												case (int32_t)0xD10BDBF0:
-													{
-														if (s4655$->equals("window"_s)) {
-															tmp4655$ = 2;
-														}
-														break;
-													}
-												case 0x000179A1:
-													{
-														if (s4655$->equals("all"_s)) {
-															tmp4655$ = 3;
-														}
-														break;
-													}
-												}
-												switch (tmp4655$) {
-												case 0:
-													{
-														Log::frametypes |= Log::CONTROL;
-														break;
-													}
-												case 1:
-													{
-														Log::frametypes |= Log::DATA;
-														break;
-													}
-												case 2:
-													{
-														Log::frametypes |= Log::WINDOW_UPDATES;
-														break;
-													}
-												case 3:
-													{
-														Log::frametypes = Log::ALL;
-														break;
-													}
-												default:
-													{}
-												}
+								$var($StringArray, arr$, types);
+								for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+									$var($String, type, arr$->get(i$));
+									{
+										$var($String, s4655$, $nc(type)->toLowerCase($Locale::US));
+										int32_t tmp4655$ = -1;
+										switch (s4655$->hashCode()) {
+										case 0x38b7655d:
+											if (s4655$->equals("control"_s)) {
+												tmp4655$ = 0;
 											}
+											break;
+										case 0x002eefaa:
+											if (s4655$->equals("data"_s)) {
+												tmp4655$ = 1;
+											}
+											break;
+										case (int32_t)0xd10bdbf0:
+											if (s4655$->equals("window"_s)) {
+												tmp4655$ = 2;
+											}
+											break;
+										case 0x000179a1:
+											if (s4655$->equals("all"_s)) {
+												tmp4655$ = 3;
+											}
+											break;
+										}
+										switch (tmp4655$) {
+										case 0:
+											Log::frametypes |= Log::CONTROL;
+											break;
+										case 1:
+											Log::frametypes |= Log::DATA;
+											break;
+										case 2:
+											Log::frametypes |= Log::WINDOW_UPDATES;
+											break;
+										case 3:
+											Log::frametypes = Log::ALL;
+											break;
+										default:
+											break;
 										}
 									}
 								}
@@ -618,7 +482,69 @@ Log::Log() {
 }
 
 $Class* Log::load$($String* name, bool initialize) {
-	$loadClass(Log, name, initialize, &_Log_ClassInfo_, clinit$Log, allocate$Log);
+	$FieldInfo fieldInfos$$[] = {
+		{"logProp", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Log, logProp)},
+		{"OFF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Log, OFF)},
+		{"ERRORS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Log, ERRORS)},
+		{"REQUESTS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Log, REQUESTS)},
+		{"HEADERS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Log, HEADERS)},
+		{"CONTENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Log, CONTENT)},
+		{"FRAMES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Log, FRAMES)},
+		{"SSL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Log, SSL)},
+		{"TRACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Log, TRACE)},
+		{"CHANNEL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Log, CHANNEL)},
+		{"logging", "I", nullptr, $STATIC, $staticField(Log, logging)},
+		{"CONTROL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Log, CONTROL)},
+		{"DATA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Log, DATA)},
+		{"WINDOW_UPDATES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Log, WINDOW_UPDATES)},
+		{"ALL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Log, ALL)},
+		{"frametypes", "I", nullptr, $STATIC, $staticField(Log, frametypes)},
+		{"logger", "Ljava/lang/System$Logger;", nullptr, $STATIC | $FINAL, $staticField(Log, logger)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Log, init$, void)},
+		{"channel", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, channel, bool)},
+		{"dumpHeaders", "(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/net/http/HttpHeaders;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, dumpHeaders, void, $StringBuilder*, $String*, $HttpHeaders*)},
+		{"errors", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, errors, bool)},
+		{"frames", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, frames, bool)},
+		{"headers", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, headers, bool)},
+		{"logChannel", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Log, logChannel, void, $String*, $ObjectArray*)},
+		{"logChannel", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC | $STATIC, $staticMethod(Log, logChannel, void, $Supplier*)},
+		{"logError", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Log, logError, void, $String*, $ObjectArray*)},
+		{"logError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, logError, void, $Throwable*)},
+		{"logFrames", "(Ljdk/internal/net/http/frame/Http2Frame;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, logFrames, void, $Http2Frame*, $String*)},
+		{"logHeaders", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Log, logHeaders, void, $String*, $ObjectArray*)},
+		{"logParams", "(Ljavax/net/ssl/SSLParameters;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, logParams, void, $SSLParameters*)},
+		{"logRequest", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Log, logRequest, void, $String*, $ObjectArray*)},
+		{"logResponse", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC | $STATIC, $staticMethod(Log, logResponse, void, $Supplier*)},
+		{"logSSL", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Log, logSSL, void, $String*, $ObjectArray*)},
+		{"logSSL", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC | $STATIC, $staticMethod(Log, logSSL, void, $Supplier*)},
+		{"logTrace", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Log, logTrace, void, $String*, $ObjectArray*)},
+		{"loggingFrame", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljdk/internal/net/http/frame/Http2Frame;>;)Z", $PUBLIC | $STATIC, $staticMethod(Log, loggingFrame, bool, $Class*)},
+		{"requests", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, requests, bool)},
+		{"ssl", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, ssl, bool)},
+		{"trace", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, trace, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.System$Logger", "java.lang.System", "Logger", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"jdk.internal.net.http.common.Log",
+		"java.lang.Object",
+		"java.lang.System$Logger",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(Log, name, initialize, &classInfo$$, Log::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Log);
+	});
 	return class$;
 }
 

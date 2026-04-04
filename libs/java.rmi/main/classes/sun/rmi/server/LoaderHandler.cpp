@@ -1,5 +1,4 @@
 #include <sun/rmi/server/LoaderHandler.h>
-
 #include <java/io/File.h>
 #include <java/io/FilePermission.h>
 #include <java/io/IOException.h>
@@ -123,27 +122,24 @@ public:
 	virtual $Object* run() override {
 		 return $of(LoaderHandler::lambda$static$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LoaderHandler$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo LoaderHandler$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LoaderHandler$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LoaderHandler$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo LoaderHandler$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.server.LoaderHandler$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* LoaderHandler$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(LoaderHandler$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LoaderHandler$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LoaderHandler$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.server.LoaderHandler$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LoaderHandler$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LoaderHandler$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* LoaderHandler$$Lambda$lambda$static$0::class$ = nullptr;
@@ -156,95 +152,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(LoaderHandler::lambda$static$1());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LoaderHandler$$Lambda$lambda$static$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo LoaderHandler$$Lambda$lambda$static$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LoaderHandler$$Lambda$lambda$static$1$1, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LoaderHandler$$Lambda$lambda$static$1$1, run, $Object*)},
-	{}
-};
-$ClassInfo LoaderHandler$$Lambda$lambda$static$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.server.LoaderHandler$$Lambda$lambda$static$1$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* LoaderHandler$$Lambda$lambda$static$1$1::load$($String* name, bool initialize) {
-	$loadClass(LoaderHandler$$Lambda$lambda$static$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LoaderHandler$$Lambda$lambda$static$1$1, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LoaderHandler$$Lambda$lambda$static$1$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.server.LoaderHandler$$Lambda$lambda$static$1$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LoaderHandler$$Lambda$lambda$static$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LoaderHandler$$Lambda$lambda$static$1$1);
+	});
 	return class$;
 }
 $Class* LoaderHandler$$Lambda$lambda$static$1$1::class$ = nullptr;
-
-$FieldInfo _LoaderHandler_FieldInfo_[] = {
-	{"logLevel", "I", nullptr, $STATIC | $FINAL, $staticField(LoaderHandler, logLevel)},
-	{"loaderLog", "Lsun/rmi/runtime/Log;", nullptr, $STATIC | $FINAL, $staticField(LoaderHandler, loaderLog)},
-	{"codebaseProperty", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(LoaderHandler, codebaseProperty)},
-	{"codebaseURLs", "[Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticField(LoaderHandler, codebaseURLs)},
-	{"codebaseLoaders", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/ClassLoader;Ljava/lang/Void;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LoaderHandler, codebaseLoaders)},
-	{"loaderTable", "Ljava/util/HashMap;", "Ljava/util/HashMap<Lsun/rmi/server/LoaderHandler$LoaderKey;Lsun/rmi/server/LoaderHandler$LoaderEntry;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LoaderHandler, loaderTable)},
-	{"refQueue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Lsun/rmi/server/LoaderHandler$Loader;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LoaderHandler, refQueue)},
-	{"pathToURLsCache", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;[Ljava/lang/Object;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LoaderHandler, pathToURLsCache)},
-	{}
-};
-
-$MethodInfo _LoaderHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(LoaderHandler, init$, void)},
-	{"addPermissionsForURLs", "([Ljava/net/URL;Ljava/security/PermissionCollection;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LoaderHandler, addPermissionsForURLs, void, $URLArray*, $PermissionCollection*, bool)},
-	{"getClassAnnotation", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(LoaderHandler, getClassAnnotation, $String*, $Class*)},
-	{"getClassLoader", "(Ljava/lang/String;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $STATIC, $staticMethod(LoaderHandler, getClassLoader, $ClassLoader*, $String*), "java.net.MalformedURLException"},
-	{"getDefaultCodebaseURLs", "()[Ljava/net/URL;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(LoaderHandler, getDefaultCodebaseURLs, $URLArray*), "java.net.MalformedURLException"},
-	{"getLoaderAccessControlContext", "([Ljava/net/URL;)Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoaderHandler, getLoaderAccessControlContext, $AccessControlContext*, $URLArray*)},
-	{"getRMIContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoaderHandler, getRMIContextClassLoader, $ClassLoader*)},
-	{"getSecurityContext", "(Ljava/lang/ClassLoader;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(LoaderHandler, getSecurityContext, $Object*, $ClassLoader*)},
-	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LoaderHandler, lambda$static$0, $String*)},
-	{"lambda$static$1", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LoaderHandler, lambda$static$1, $String*)},
-	{"loadClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(LoaderHandler, loadClass, $Class*, $String*, $String*, $ClassLoader*), "java.net.MalformedURLException,java.lang.ClassNotFoundException"},
-	{"loadClass", "([Ljava/net/URL;Ljava/lang/String;)Ljava/lang/Class;", "([Ljava/net/URL;Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(LoaderHandler, loadClass, $Class*, $URLArray*, $String*), "java.lang.ClassNotFoundException"},
-	{"loadClassForName", "(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(LoaderHandler, loadClassForName, $Class*, $String*, bool, $ClassLoader*), "java.lang.ClassNotFoundException"},
-	{"loadProxyClass", "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(LoaderHandler, loadProxyClass, $Class*, $String*, $StringArray*, $ClassLoader*), "java.net.MalformedURLException,java.lang.ClassNotFoundException"},
-	{"loadProxyClass", "([Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;Z)Ljava/lang/Class;", "([Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;Z)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(LoaderHandler, loadProxyClass, $Class*, $StringArray*, $ClassLoader*, $ClassLoader*, bool), "java.lang.ClassNotFoundException"},
-	{"loadProxyClass", "(Ljava/lang/ClassLoader;[Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(LoaderHandler, loadProxyClass, $Class*, $ClassLoader*, $ClassArray*), "java.lang.ClassNotFoundException"},
-	{"loadProxyInterfaces", "([Ljava/lang/String;Ljava/lang/ClassLoader;[Ljava/lang/Class;[Z)Ljava/lang/ClassLoader;", "([Ljava/lang/String;Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;[Z)Ljava/lang/ClassLoader;", $PRIVATE | $STATIC, $staticMethod(LoaderHandler, loadProxyInterfaces, $ClassLoader*, $StringArray*, $ClassLoader*, $ClassArray*, $booleans*), "java.lang.ClassNotFoundException"},
-	{"lookupLoader", "([Ljava/net/URL;Ljava/lang/ClassLoader;)Lsun/rmi/server/LoaderHandler$Loader;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoaderHandler, lookupLoader, $LoaderHandler$Loader*, $URLArray*, $ClassLoader*)},
-	{"pathToURLs", "(Ljava/lang/String;)[Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoaderHandler, pathToURLs, $URLArray*, $String*), "java.net.MalformedURLException"},
-	{"registerCodebaseLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LoaderHandler, registerCodebaseLoader, void, $ClassLoader*)},
-	{"urlsToPath", "([Ljava/net/URL;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoaderHandler, urlsToPath, $String*, $URLArray*)},
-	{}
-};
-
-$InnerClassInfo _LoaderHandler_InnerClassesInfo_[] = {
-	{"sun.rmi.server.LoaderHandler$Loader", "sun.rmi.server.LoaderHandler", "Loader", $PRIVATE | $STATIC},
-	{"sun.rmi.server.LoaderHandler$LoaderEntry", "sun.rmi.server.LoaderHandler", "LoaderEntry", $PRIVATE | $STATIC},
-	{"sun.rmi.server.LoaderHandler$LoaderKey", "sun.rmi.server.LoaderHandler", "LoaderKey", $PRIVATE | $STATIC},
-	{"sun.rmi.server.LoaderHandler$2", nullptr, nullptr, 0},
-	{"sun.rmi.server.LoaderHandler$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LoaderHandler_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.rmi.server.LoaderHandler",
-	"java.lang.Object",
-	nullptr,
-	_LoaderHandler_FieldInfo_,
-	_LoaderHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LoaderHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.rmi.server.LoaderHandler$Loader,sun.rmi.server.LoaderHandler$LoaderEntry,sun.rmi.server.LoaderHandler$LoaderKey,sun.rmi.server.LoaderHandler$2,sun.rmi.server.LoaderHandler$1"
-};
-
-$Object* allocate$LoaderHandler($Class* clazz) {
-	return $of($alloc(LoaderHandler));
-}
 
 int32_t LoaderHandler::logLevel = 0;
 $Log* LoaderHandler::loaderLog = nullptr;
@@ -259,9 +187,8 @@ void LoaderHandler::init$() {
 }
 
 $URLArray* LoaderHandler::getDefaultCodebaseURLs() {
-	$load(LoaderHandler);
+	$init(LoaderHandler);
 	$synchronized(class$) {
-		$init(LoaderHandler);
 		if (LoaderHandler::codebaseURLs == nullptr) {
 			if (LoaderHandler::codebaseProperty != nullptr) {
 				$assignStatic(LoaderHandler::codebaseURLs, pathToURLs(LoaderHandler::codebaseProperty));
@@ -275,11 +202,11 @@ $URLArray* LoaderHandler::getDefaultCodebaseURLs() {
 
 $Class* LoaderHandler::loadClass($String* codebase, $String* name, $ClassLoader* defaultLoader) {
 	$init(LoaderHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$init($Log);
 	if ($nc(LoaderHandler::loaderLog)->isLoggable($Log::BRIEF)) {
-		$nc(LoaderHandler::loaderLog)->log($Log::BRIEF, $$str({"name = \""_s, name, "\", codebase = \""_s, (codebase != nullptr ? codebase : ""_s), "\""_s, (defaultLoader != nullptr ? $$str({", defaultLoader = "_s, defaultLoader}) : ""_s)}));
+		LoaderHandler::loaderLog->log($Log::BRIEF, $$str({"name = \""_s, name, "\", codebase = \""_s, (codebase != nullptr ? codebase : ""_s), "\""_s, (defaultLoader != nullptr ? $$str({", defaultLoader = "_s, defaultLoader}) : ""_s)}));
 	}
 	$var($URLArray, urls, nullptr);
 	if (codebase != nullptr) {
@@ -290,8 +217,8 @@ $Class* LoaderHandler::loadClass($String* codebase, $String* name, $ClassLoader*
 	if (defaultLoader != nullptr) {
 		try {
 			$Class* c = loadClassForName(name, false, defaultLoader);
-			if ($nc(LoaderHandler::loaderLog)->isLoggable($Log::VERBOSE)) {
-				$nc(LoaderHandler::loaderLog)->log($Log::VERBOSE, $$str({"class \""_s, name, "\" found via defaultLoader, defined by "_s, $($nc(c)->getClassLoader())}));
+			if (LoaderHandler::loaderLog->isLoggable($Log::VERBOSE)) {
+				LoaderHandler::loaderLog->log($Log::VERBOSE, $$str({"class \""_s, name, "\" found via defaultLoader, defined by "_s, $($nc(c)->getClassLoader())}));
 			}
 			return c;
 		} catch ($ClassNotFoundException& e) {
@@ -302,7 +229,7 @@ $Class* LoaderHandler::loadClass($String* codebase, $String* name, $ClassLoader*
 
 $String* LoaderHandler::getClassAnnotation($Class* cl) {
 	$init(LoaderHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, name, $nc(cl)->getName());
 	int32_t nameLength = $nc(name)->length();
@@ -321,16 +248,16 @@ $String* LoaderHandler::getClassAnnotation($Class* cl) {
 	}
 	$var($String, annotation, nullptr);
 	if ($instanceOf($LoaderHandler$Loader, loader)) {
-		$assign(annotation, $nc(($cast($LoaderHandler$Loader, loader)))->getClassAnnotation());
+		$assign(annotation, $cast($LoaderHandler$Loader, loader)->getClassAnnotation());
 	} else if ($instanceOf($URLClassLoader, loader)) {
 		try {
-			$var($URLArray, urls, $nc(($cast($URLClassLoader, loader)))->getURLs());
+			$var($URLArray, urls, $cast($URLClassLoader, loader)->getURLs());
 			if (urls != nullptr) {
 				$var($SecurityManager, sm, $System::getSecurityManager());
 				if (sm != nullptr) {
 					$var($Permissions, perms, $new($Permissions));
 					for (int32_t i = 0; i < urls->length; ++i) {
-						$var($Permission, p, $nc($($nc(urls->get(i))->openConnection()))->getPermission());
+						$var($Permission, p, $$nc($nc(urls->get(i))->openConnection())->getPermission());
 						if (p != nullptr) {
 							if (!perms->implies(p)) {
 								sm->checkPermission(p);
@@ -354,7 +281,7 @@ $String* LoaderHandler::getClassAnnotation($Class* cl) {
 
 $ClassLoader* LoaderHandler::getClassLoader($String* codebase) {
 	$init(LoaderHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClassLoader, parent, getRMIContextClassLoader());
 	$var($URLArray, urls, nullptr);
 	if (codebase != nullptr) {
@@ -378,12 +305,12 @@ $ClassLoader* LoaderHandler::getClassLoader($String* codebase) {
 $Object* LoaderHandler::getSecurityContext($ClassLoader* loader) {
 	$init(LoaderHandler);
 	if ($instanceOf($LoaderHandler$Loader, loader)) {
-		$var($URLArray, urls, $nc(($cast($LoaderHandler$Loader, loader)))->getURLs());
+		$var($URLArray, urls, $cast($LoaderHandler$Loader, loader)->getURLs());
 		if ($nc(urls)->length > 0) {
-			return $of(urls->get(0));
+			return urls->get(0);
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 void LoaderHandler::registerCodebaseLoader($ClassLoader* loader) {
@@ -393,24 +320,24 @@ void LoaderHandler::registerCodebaseLoader($ClassLoader* loader) {
 
 $Class* LoaderHandler::loadClass($URLArray* urls, $String* name) {
 	$init(LoaderHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ClassLoader, parent, getRMIContextClassLoader());
 	$init($Log);
 	if ($nc(LoaderHandler::loaderLog)->isLoggable($Log::VERBOSE)) {
-		$nc(LoaderHandler::loaderLog)->log($Log::VERBOSE, $$str({"(thread context class loader: "_s, parent, ")"_s}));
+		LoaderHandler::loaderLog->log($Log::VERBOSE, $$str({"(thread context class loader: "_s, parent, ")"_s}));
 	}
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm == nullptr) {
 		try {
 			$Class* c = $Class::forName(name, false, parent);
-			if ($nc(LoaderHandler::loaderLog)->isLoggable($Log::VERBOSE)) {
-				$nc(LoaderHandler::loaderLog)->log($Log::VERBOSE, $$str({"class \""_s, name, "\" found via thread context class loader (no security manager: codebase disabled), defined by "_s, $($nc(c)->getClassLoader())}));
+			if (LoaderHandler::loaderLog->isLoggable($Log::VERBOSE)) {
+				LoaderHandler::loaderLog->log($Log::VERBOSE, $$str({"class \""_s, name, "\" found via thread context class loader (no security manager: codebase disabled), defined by "_s, $(c->getClassLoader())}));
 			}
 			return c;
 		} catch ($ClassNotFoundException& e) {
-			if ($nc(LoaderHandler::loaderLog)->isLoggable($Log::BRIEF)) {
-				$nc(LoaderHandler::loaderLog)->log($Log::BRIEF, $$str({"class \""_s, name, "\" not found via thread context class loader (no security manager: codebase disabled)"_s}), e);
+			if (LoaderHandler::loaderLog->isLoggable($Log::BRIEF)) {
+				LoaderHandler::loaderLog->log($Log::BRIEF, $$str({"class \""_s, name, "\" not found via thread context class loader (no security manager: codebase disabled)"_s}), e);
 			}
 			$var($String, var$0, $str({$(e->getMessage()), " (no security manager: RMI class loader disabled)"_s}));
 			$throwNew($ClassNotFoundException, var$0, $(e->getException()));
@@ -424,26 +351,26 @@ $Class* LoaderHandler::loadClass($URLArray* urls, $String* name) {
 	} catch ($SecurityException& e) {
 		try {
 			$Class* c = loadClassForName(name, false, parent);
-			if ($nc(LoaderHandler::loaderLog)->isLoggable($Log::VERBOSE)) {
-				$nc(LoaderHandler::loaderLog)->log($Log::VERBOSE, $$str({"class \""_s, name, "\" found via thread context class loader (access to codebase denied), defined by "_s, $($nc(c)->getClassLoader())}));
+			if (LoaderHandler::loaderLog->isLoggable($Log::VERBOSE)) {
+				LoaderHandler::loaderLog->log($Log::VERBOSE, $$str({"class \""_s, name, "\" found via thread context class loader (access to codebase denied), defined by "_s, $($nc(c)->getClassLoader())}));
 			}
 			return c;
 		} catch ($ClassNotFoundException& unimportant) {
-			if ($nc(LoaderHandler::loaderLog)->isLoggable($Log::BRIEF)) {
-				$nc(LoaderHandler::loaderLog)->log($Log::BRIEF, $$str({"class \""_s, name, "\" not found via thread context class loader (access to codebase denied)"_s}), e);
+			if (LoaderHandler::loaderLog->isLoggable($Log::BRIEF)) {
+				LoaderHandler::loaderLog->log($Log::BRIEF, $$str({"class \""_s, name, "\" not found via thread context class loader (access to codebase denied)"_s}), e);
 			}
 			$throwNew($ClassNotFoundException, "access to class loader denied"_s, e);
 		}
 	}
 	try {
 		$Class* c = loadClassForName(name, false, loader);
-		if ($nc(LoaderHandler::loaderLog)->isLoggable($Log::VERBOSE)) {
-			$nc(LoaderHandler::loaderLog)->log($Log::VERBOSE, $$str({"class \""_s, name, "\" found via codebase, defined by "_s, $($nc(c)->getClassLoader())}));
+		if (LoaderHandler::loaderLog->isLoggable($Log::VERBOSE)) {
+			LoaderHandler::loaderLog->log($Log::VERBOSE, $$str({"class \""_s, name, "\" found via codebase, defined by "_s, $($nc(c)->getClassLoader())}));
 		}
 		return c;
 	} catch ($ClassNotFoundException& e) {
-		if ($nc(LoaderHandler::loaderLog)->isLoggable($Log::BRIEF)) {
-			$nc(LoaderHandler::loaderLog)->log($Log::BRIEF, $$str({"class \""_s, name, "\" not found via codebase"_s}), e);
+		if (LoaderHandler::loaderLog->isLoggable($Log::BRIEF)) {
+			LoaderHandler::loaderLog->log($Log::BRIEF, $$str({"class \""_s, name, "\" not found via codebase"_s}), e);
 		}
 		$throw(e);
 	}
@@ -452,16 +379,22 @@ $Class* LoaderHandler::loadClass($URLArray* urls, $String* name) {
 
 $Class* LoaderHandler::loadProxyClass($String* codebase, $StringArray* interfaces, $ClassLoader* defaultLoader) {
 	$init(LoaderHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$init($Log);
 	if ($nc(LoaderHandler::loaderLog)->isLoggable($Log::BRIEF)) {
-		$var($String, var$0, $$str({"interfaces = "_s, $($Arrays::asList(interfaces)), ", codebase = \""_s, (codebase != nullptr ? codebase : ""_s), "\""_s}));
-		$nc(LoaderHandler::loaderLog)->log($Log::BRIEF, $$concat(var$0, (defaultLoader != nullptr ? $$str({", defaultLoader = "_s, defaultLoader}) : ""_s)));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("interfaces = "_s);
+		var$0->append($($Arrays::asList(interfaces)));
+		var$0->append(", codebase = \""_s);
+		var$0->append(codebase != nullptr ? codebase : ""_s);
+		var$0->append("\""_s);
+		var$0->append(defaultLoader != nullptr ? $$str({", defaultLoader = "_s, defaultLoader}) : ""_s);
+		LoaderHandler::loaderLog->log($Log::BRIEF, $$str(var$0));
 	}
 	$var($ClassLoader, parent, getRMIContextClassLoader());
-	if ($nc(LoaderHandler::loaderLog)->isLoggable($Log::VERBOSE)) {
-		$nc(LoaderHandler::loaderLog)->log($Log::VERBOSE, $$str({"(thread context class loader: "_s, parent, ")"_s}));
+	if (LoaderHandler::loaderLog->isLoggable($Log::VERBOSE)) {
+		LoaderHandler::loaderLog->log($Log::VERBOSE, $$str({"(thread context class loader: "_s, parent, ")"_s}));
 	}
 	$var($URLArray, urls, nullptr);
 	if (codebase != nullptr) {
@@ -473,13 +406,13 @@ $Class* LoaderHandler::loadProxyClass($String* codebase, $StringArray* interface
 	if (sm == nullptr) {
 		try {
 			$Class* c = loadProxyClass(interfaces, defaultLoader, parent, false);
-			if ($nc(LoaderHandler::loaderLog)->isLoggable($Log::VERBOSE)) {
-				$nc(LoaderHandler::loaderLog)->log($Log::VERBOSE, $$str({"(no security manager: codebase disabled) proxy class defined by "_s, $($nc(c)->getClassLoader())}));
+			if (LoaderHandler::loaderLog->isLoggable($Log::VERBOSE)) {
+				LoaderHandler::loaderLog->log($Log::VERBOSE, $$str({"(no security manager: codebase disabled) proxy class defined by "_s, $($nc(c)->getClassLoader())}));
 			}
 			return c;
 		} catch ($ClassNotFoundException& e) {
-			if ($nc(LoaderHandler::loaderLog)->isLoggable($Log::BRIEF)) {
-				$nc(LoaderHandler::loaderLog)->log($Log::BRIEF, "(no security manager: codebase disabled) proxy class resolution failed"_s, e);
+			if (LoaderHandler::loaderLog->isLoggable($Log::BRIEF)) {
+				LoaderHandler::loaderLog->log($Log::BRIEF, "(no security manager: codebase disabled) proxy class resolution failed"_s, e);
 			}
 			$var($String, var$1, $str({$(e->getMessage()), " (no security manager: RMI class loader disabled)"_s}));
 			$throwNew($ClassNotFoundException, var$1, $(e->getException()));
@@ -493,26 +426,26 @@ $Class* LoaderHandler::loadProxyClass($String* codebase, $StringArray* interface
 	} catch ($SecurityException& e) {
 		try {
 			$Class* c = loadProxyClass(interfaces, defaultLoader, parent, false);
-			if ($nc(LoaderHandler::loaderLog)->isLoggable($Log::VERBOSE)) {
-				$nc(LoaderHandler::loaderLog)->log($Log::VERBOSE, $$str({"(access to codebase denied) proxy class defined by "_s, $($nc(c)->getClassLoader())}));
+			if (LoaderHandler::loaderLog->isLoggable($Log::VERBOSE)) {
+				LoaderHandler::loaderLog->log($Log::VERBOSE, $$str({"(access to codebase denied) proxy class defined by "_s, $($nc(c)->getClassLoader())}));
 			}
 			return c;
 		} catch ($ClassNotFoundException& unimportant) {
-			if ($nc(LoaderHandler::loaderLog)->isLoggable($Log::BRIEF)) {
-				$nc(LoaderHandler::loaderLog)->log($Log::BRIEF, "(access to codebase denied) proxy class resolution failed"_s, e);
+			if (LoaderHandler::loaderLog->isLoggable($Log::BRIEF)) {
+				LoaderHandler::loaderLog->log($Log::BRIEF, "(access to codebase denied) proxy class resolution failed"_s, e);
 			}
 			$throwNew($ClassNotFoundException, "access to class loader denied"_s, e);
 		}
 	}
 	try {
 		$Class* c = loadProxyClass(interfaces, defaultLoader, loader, true);
-		if ($nc(LoaderHandler::loaderLog)->isLoggable($Log::VERBOSE)) {
-			$nc(LoaderHandler::loaderLog)->log($Log::VERBOSE, $$str({"proxy class defined by "_s, $($nc(c)->getClassLoader())}));
+		if (LoaderHandler::loaderLog->isLoggable($Log::VERBOSE)) {
+			LoaderHandler::loaderLog->log($Log::VERBOSE, $$str({"proxy class defined by "_s, $($nc(c)->getClassLoader())}));
 		}
 		return c;
 	} catch ($ClassNotFoundException& e) {
-		if ($nc(LoaderHandler::loaderLog)->isLoggable($Log::BRIEF)) {
-			$nc(LoaderHandler::loaderLog)->log($Log::BRIEF, "proxy class resolution failed"_s, e);
+		if (LoaderHandler::loaderLog->isLoggable($Log::BRIEF)) {
+			LoaderHandler::loaderLog->log($Log::BRIEF, "proxy class resolution failed"_s, e);
 		}
 		$throw(e);
 	}
@@ -521,7 +454,7 @@ $Class* LoaderHandler::loadProxyClass($String* codebase, $StringArray* interface
 
 $Class* LoaderHandler::loadProxyClass($StringArray* interfaceNames, $ClassLoader* defaultLoader, $ClassLoader* codebaseLoader, bool preferCodebase) {
 	$init(LoaderHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ClassLoader, proxyLoader, nullptr);
 	$var($ClassArray, classObjs, $new($ClassArray, $nc(interfaceNames)->length));
@@ -537,7 +470,7 @@ $Class* LoaderHandler::loadProxyClass($StringArray* interfaceNames, $ClassLoader
 					for (int32_t i = 0; i < definingLoaders->length; ++i) {
 						definingLoaders->set(i, $($nc(classObjs->get(i))->getClassLoader()));
 					}
-					$nc(LoaderHandler::loaderLog)->log($Log::VERBOSE, $$str({"proxy interfaces found via defaultLoader, defined by "_s, $($Arrays::asList(definingLoaders))}));
+					LoaderHandler::loaderLog->log($Log::VERBOSE, $$str({"proxy interfaces found via defaultLoader, defined by "_s, $($Arrays::asList(definingLoaders))}));
 				}
 			} catch ($ClassNotFoundException& e) {
 				defaultLoaderCase$break = true;
@@ -564,7 +497,7 @@ $Class* LoaderHandler::loadProxyClass($StringArray* interfaceNames, $ClassLoader
 		for (int32_t i = 0; i < definingLoaders->length; ++i) {
 			definingLoaders->set(i, $($nc(classObjs->get(i))->getClassLoader()));
 		}
-		$nc(LoaderHandler::loaderLog)->log($Log::VERBOSE, $$str({"proxy interfaces found via codebase, defined by "_s, $($Arrays::asList(definingLoaders))}));
+		LoaderHandler::loaderLog->log($Log::VERBOSE, $$str({"proxy interfaces found via codebase, defined by "_s, $($Arrays::asList(definingLoaders))}));
 	}
 	if (!nonpublic->get(0)) {
 		$assign(proxyLoader, codebaseLoader);
@@ -585,16 +518,16 @@ $Class* LoaderHandler::loadProxyClass($ClassLoader* loader, $ClassArray* interfa
 
 $ClassLoader* LoaderHandler::loadProxyInterfaces($StringArray* interfaces, $ClassLoader* loader, $ClassArray* classObjs, $booleans* nonpublic) {
 	$init(LoaderHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ClassLoader, nonpublicLoader, nullptr);
 	for (int32_t i = 0; i < $nc(interfaces)->length; ++i) {
 		$Class* cl = ($nc(classObjs)->set(i, loadClassForName(interfaces->get(i), false, loader)));
 		if (!$Modifier::isPublic($nc(cl)->getModifiers())) {
-			$var($ClassLoader, current, $nc(cl)->getClassLoader());
+			$var($ClassLoader, current, cl->getClassLoader());
 			$init($Log);
 			if ($nc(LoaderHandler::loaderLog)->isLoggable($Log::VERBOSE)) {
-				$nc(LoaderHandler::loaderLog)->log($Log::VERBOSE, $$str({"non-public interface \""_s, interfaces->get(i), "\" defined by "_s, current}));
+				LoaderHandler::loaderLog->log($Log::VERBOSE, $$str({"non-public interface \""_s, interfaces->get(i), "\" defined by "_s, current}));
 			}
 			if (!$nc(nonpublic)->get(0)) {
 				$assign(nonpublicLoader, current);
@@ -609,11 +542,11 @@ $ClassLoader* LoaderHandler::loadProxyInterfaces($StringArray* interfaces, $Clas
 
 $URLArray* LoaderHandler::pathToURLs($String* path) {
 	$init(LoaderHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(LoaderHandler::pathToURLsCache) {
-		$var($ObjectArray, v, $cast($ObjectArray, $nc(LoaderHandler::pathToURLsCache)->get(path)));
+		$var($ObjectArray, v, $cast($ObjectArray, LoaderHandler::pathToURLsCache->get(path)));
 		if (v != nullptr) {
-			return ($cast($URLArray, v->get(0)));
+			return $cast($URLArray, v->get(0));
 		}
 	}
 	$var($StringTokenizer, st, $new($StringTokenizer, path));
@@ -622,9 +555,9 @@ $URLArray* LoaderHandler::pathToURLs($String* path) {
 		urls->set(i, $$new($URL, $(st->nextToken())));
 	}
 	$synchronized(LoaderHandler::pathToURLsCache) {
-		$nc(LoaderHandler::pathToURLsCache)->put(path, $$new($ObjectArray, {
-			$of(urls),
-			$of($$new($SoftReference, path))
+		LoaderHandler::pathToURLsCache->put(path, $$new($ObjectArray, {
+			urls,
+			$$new($SoftReference, path)
 		}));
 	}
 	return urls;
@@ -632,7 +565,7 @@ $URLArray* LoaderHandler::pathToURLs($String* path) {
 
 $String* LoaderHandler::urlsToPath($URLArray* urls) {
 	$init(LoaderHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(urls)->length == 0) {
 		return nullptr;
 	} else if (urls->length == 1) {
@@ -655,27 +588,27 @@ $ClassLoader* LoaderHandler::getRMIContextClassLoader() {
 
 $LoaderHandler$Loader* LoaderHandler::lookupLoader($URLArray* urls, $ClassLoader* parent) {
 	$init(LoaderHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($LoaderHandler$LoaderEntry, entry, nullptr);
 	$var($LoaderHandler$Loader, loader, nullptr);
 	$synchronized(LoaderHandler::class$) {
-		while (($assign(entry, $cast($LoaderHandler$LoaderEntry, $nc(LoaderHandler::refQueue)->poll()))) != nullptr) {
+		while (($assign(entry, $cast($LoaderHandler$LoaderEntry, LoaderHandler::refQueue->poll()))) != nullptr) {
 			if (!$nc(entry)->removed) {
-				$nc(LoaderHandler::loaderTable)->remove(entry->key);
+				LoaderHandler::loaderTable->remove(entry->key);
 			}
 		}
 		$var($LoaderHandler$LoaderKey, key, $new($LoaderHandler$LoaderKey, urls, parent));
-		$assign(entry, $cast($LoaderHandler$LoaderEntry, $nc(LoaderHandler::loaderTable)->get(key)));
-		if (entry == nullptr || ($assign(loader, $cast($LoaderHandler$Loader, $nc(entry)->get()))) == nullptr) {
+		$assign(entry, $cast($LoaderHandler$LoaderEntry, LoaderHandler::loaderTable->get(key)));
+		if (entry == nullptr || ($assign(loader, $cast($LoaderHandler$Loader, entry->get()))) == nullptr) {
 			if (entry != nullptr) {
-				$nc(LoaderHandler::loaderTable)->remove(key);
+				LoaderHandler::loaderTable->remove(key);
 				entry->removed = true;
 			}
 			$var($AccessControlContext, acc, getLoaderAccessControlContext(urls));
-			$assign(loader, $cast($LoaderHandler$Loader, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($LoaderHandler$1, urls, parent)), acc)));
+			$assign(loader, $cast($LoaderHandler$Loader, $AccessController::doPrivileged($$new($LoaderHandler$1, urls, parent), acc)));
 			$assign(entry, $new($LoaderHandler$LoaderEntry, key, loader));
-			$nc(LoaderHandler::loaderTable)->put(key, entry);
+			LoaderHandler::loaderTable->put(key, entry);
 		}
 	}
 	return loader;
@@ -683,19 +616,19 @@ $LoaderHandler$Loader* LoaderHandler::lookupLoader($URLArray* urls, $ClassLoader
 
 $AccessControlContext* LoaderHandler::getLoaderAccessControlContext($URLArray* urls) {
 	$init(LoaderHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($PermissionCollection, perms, $cast($PermissionCollection, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($LoaderHandler$2)))));
+	$var($PermissionCollection, perms, $cast($PermissionCollection, $AccessController::doPrivileged($$new($LoaderHandler$2))));
 	$nc(perms)->add($$new($RuntimePermission, "createClassLoader"_s));
 	perms->add($$new($PropertyPermission, "java.*"_s, "read"_s));
 	addPermissionsForURLs(urls, perms, true);
-	$var($ProtectionDomain, pd, $new($ProtectionDomain, $$new($CodeSource, ($nc(urls)->length > 0 ? $nc(urls)->get(0) : ($URL*)nullptr), ($CertificateArray*)nullptr), perms));
+	$var($ProtectionDomain, pd, $new($ProtectionDomain, $$new($CodeSource, ($nc(urls)->length > 0 ? urls->get(0) : ($URL*)nullptr), ($CertificateArray*)nullptr), perms));
 	return $new($AccessControlContext, $$new($ProtectionDomainArray, {pd}));
 }
 
 void LoaderHandler::addPermissionsForURLs($URLArray* urls, $PermissionCollection* perms, bool forLoader) {
 	$init(LoaderHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(urls)->length; ++i) {
 		$var($URL, url, urls->get(i));
 		try {
@@ -705,7 +638,7 @@ void LoaderHandler::addPermissionsForURLs($URLArray* urls, $PermissionCollection
 				if ($instanceOf($FilePermission, p)) {
 					$var($String, path, p->getName());
 					$init($File);
-					int32_t endIndex = $nc(path)->lastIndexOf((int32_t)$File::separatorChar);
+					int32_t endIndex = $nc(path)->lastIndexOf($File::separatorChar);
 					if (endIndex != -1) {
 						$assign(path, path->substring(0, endIndex + 1));
 						if (path->endsWith($File::separator)) {
@@ -715,7 +648,7 @@ void LoaderHandler::addPermissionsForURLs($URLArray* urls, $PermissionCollection
 						if (!$nc(perms)->implies(p2)) {
 							perms->add(p2);
 						}
-						$nc(perms)->add($$new($FilePermission, path, "read"_s));
+						perms->add($$new($FilePermission, path, "read"_s));
 					} else if (!$nc(perms)->implies(p)) {
 						perms->add(p);
 					}
@@ -728,14 +661,14 @@ void LoaderHandler::addPermissionsForURLs($URLArray* urls, $PermissionCollection
 						{
 							$var($URLConnection, conn, urlConnection);
 							for (; $instanceOf($JarURLConnection, conn);) {
-								$assign(hostURL, $nc(($cast($JarURLConnection, conn)))->getJarFileURL());
+								$assign(hostURL, $cast($JarURLConnection, conn)->getJarFileURL());
 								$assign(conn, $nc(hostURL)->openConnection());
 							}
 						}
 						$var($String, host, $nc(hostURL)->getHost());
 						if (host != nullptr && p->implies($$new($SocketPermission, host, "resolve"_s))) {
 							$var($Permission, p2, $new($SocketPermission, host, "connect,accept"_s));
-							if (!$nc(perms)->implies(p2)) {
+							if (!perms->implies(p2)) {
 								perms->add(p2);
 							}
 						}
@@ -766,14 +699,14 @@ $String* LoaderHandler::lambda$static$0() {
 	return $System::getProperty("sun.rmi.loader.logLevel"_s);
 }
 
-void clinit$LoaderHandler($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void LoaderHandler::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	LoaderHandler::logLevel = $LogStream::parseLevel($cast($String, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(LoaderHandler$$Lambda$lambda$static$0))))));
+	LoaderHandler::logLevel = $LogStream::parseLevel($$cast($String, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(LoaderHandler$$Lambda$lambda$static$0)))));
 	$assignStatic(LoaderHandler::loaderLog, $Log::getLog("sun.rmi.loader"_s, "loader"_s, LoaderHandler::logLevel));
 	$assignStatic(LoaderHandler::codebaseProperty, nullptr);
 	{
-		$var($String, prop, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(LoaderHandler$$Lambda$lambda$static$1$1)))));
+		$var($String, prop, $cast($String, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(LoaderHandler$$Lambda$lambda$static$1$1)))));
 		if (prop != nullptr && $(prop->trim())->length() > 0) {
 			$assignStatic(LoaderHandler::codebaseProperty, prop);
 		}
@@ -781,11 +714,9 @@ void clinit$LoaderHandler($Class* class$) {
 	$assignStatic(LoaderHandler::codebaseURLs, nullptr);
 	$assignStatic(LoaderHandler::codebaseLoaders, $Collections::synchronizedMap($$new($IdentityHashMap, 5)));
 	{
-		{
-			$var($ClassLoader, codebaseLoader, $ClassLoader::getSystemClassLoader());
-			for (; codebaseLoader != nullptr; $assign(codebaseLoader, $nc(codebaseLoader)->getParent())) {
-				$nc(LoaderHandler::codebaseLoaders)->put(codebaseLoader, nullptr);
-			}
+		$var($ClassLoader, codebaseLoader, $ClassLoader::getSystemClassLoader());
+		for (; codebaseLoader != nullptr; $assign(codebaseLoader, codebaseLoader->getParent())) {
+			$nc(LoaderHandler::codebaseLoaders)->put(codebaseLoader, nullptr);
 		}
 	}
 	$assignStatic(LoaderHandler::loaderTable, $new($HashMap, 5));
@@ -798,14 +729,73 @@ LoaderHandler::LoaderHandler() {
 
 $Class* LoaderHandler::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(LoaderHandler$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("sun.rmi.server.LoaderHandler$$Lambda$lambda$static$0")) {
 			return LoaderHandler$$Lambda$lambda$static$0::load$(name, initialize);
 		}
-		if (name->equals(LoaderHandler$$Lambda$lambda$static$1$1::classInfo$.name)) {
+		if (name->equals("sun.rmi.server.LoaderHandler$$Lambda$lambda$static$1$1")) {
 			return LoaderHandler$$Lambda$lambda$static$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(LoaderHandler, name, initialize, &_LoaderHandler_ClassInfo_, clinit$LoaderHandler, allocate$LoaderHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"logLevel", "I", nullptr, $STATIC | $FINAL, $staticField(LoaderHandler, logLevel)},
+		{"loaderLog", "Lsun/rmi/runtime/Log;", nullptr, $STATIC | $FINAL, $staticField(LoaderHandler, loaderLog)},
+		{"codebaseProperty", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(LoaderHandler, codebaseProperty)},
+		{"codebaseURLs", "[Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticField(LoaderHandler, codebaseURLs)},
+		{"codebaseLoaders", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/ClassLoader;Ljava/lang/Void;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LoaderHandler, codebaseLoaders)},
+		{"loaderTable", "Ljava/util/HashMap;", "Ljava/util/HashMap<Lsun/rmi/server/LoaderHandler$LoaderKey;Lsun/rmi/server/LoaderHandler$LoaderEntry;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LoaderHandler, loaderTable)},
+		{"refQueue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Lsun/rmi/server/LoaderHandler$Loader;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LoaderHandler, refQueue)},
+		{"pathToURLsCache", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;[Ljava/lang/Object;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LoaderHandler, pathToURLsCache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(LoaderHandler, init$, void)},
+		{"addPermissionsForURLs", "([Ljava/net/URL;Ljava/security/PermissionCollection;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LoaderHandler, addPermissionsForURLs, void, $URLArray*, $PermissionCollection*, bool)},
+		{"getClassAnnotation", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(LoaderHandler, getClassAnnotation, $String*, $Class*)},
+		{"getClassLoader", "(Ljava/lang/String;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $STATIC, $staticMethod(LoaderHandler, getClassLoader, $ClassLoader*, $String*), "java.net.MalformedURLException"},
+		{"getDefaultCodebaseURLs", "()[Ljava/net/URL;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(LoaderHandler, getDefaultCodebaseURLs, $URLArray*), "java.net.MalformedURLException"},
+		{"getLoaderAccessControlContext", "([Ljava/net/URL;)Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoaderHandler, getLoaderAccessControlContext, $AccessControlContext*, $URLArray*)},
+		{"getRMIContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoaderHandler, getRMIContextClassLoader, $ClassLoader*)},
+		{"getSecurityContext", "(Ljava/lang/ClassLoader;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(LoaderHandler, getSecurityContext, $Object*, $ClassLoader*)},
+		{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LoaderHandler, lambda$static$0, $String*)},
+		{"lambda$static$1", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LoaderHandler, lambda$static$1, $String*)},
+		{"loadClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(LoaderHandler, loadClass, $Class*, $String*, $String*, $ClassLoader*), "java.net.MalformedURLException,java.lang.ClassNotFoundException"},
+		{"loadClass", "([Ljava/net/URL;Ljava/lang/String;)Ljava/lang/Class;", "([Ljava/net/URL;Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(LoaderHandler, loadClass, $Class*, $URLArray*, $String*), "java.lang.ClassNotFoundException"},
+		{"loadClassForName", "(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(LoaderHandler, loadClassForName, $Class*, $String*, bool, $ClassLoader*), "java.lang.ClassNotFoundException"},
+		{"loadProxyClass", "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(LoaderHandler, loadProxyClass, $Class*, $String*, $StringArray*, $ClassLoader*), "java.net.MalformedURLException,java.lang.ClassNotFoundException"},
+		{"loadProxyClass", "([Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;Z)Ljava/lang/Class;", "([Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;Z)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(LoaderHandler, loadProxyClass, $Class*, $StringArray*, $ClassLoader*, $ClassLoader*, bool), "java.lang.ClassNotFoundException"},
+		{"loadProxyClass", "(Ljava/lang/ClassLoader;[Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(LoaderHandler, loadProxyClass, $Class*, $ClassLoader*, $ClassArray*), "java.lang.ClassNotFoundException"},
+		{"loadProxyInterfaces", "([Ljava/lang/String;Ljava/lang/ClassLoader;[Ljava/lang/Class;[Z)Ljava/lang/ClassLoader;", "([Ljava/lang/String;Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;[Z)Ljava/lang/ClassLoader;", $PRIVATE | $STATIC, $staticMethod(LoaderHandler, loadProxyInterfaces, $ClassLoader*, $StringArray*, $ClassLoader*, $ClassArray*, $booleans*), "java.lang.ClassNotFoundException"},
+		{"lookupLoader", "([Ljava/net/URL;Ljava/lang/ClassLoader;)Lsun/rmi/server/LoaderHandler$Loader;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoaderHandler, lookupLoader, $LoaderHandler$Loader*, $URLArray*, $ClassLoader*)},
+		{"pathToURLs", "(Ljava/lang/String;)[Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoaderHandler, pathToURLs, $URLArray*, $String*), "java.net.MalformedURLException"},
+		{"registerCodebaseLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LoaderHandler, registerCodebaseLoader, void, $ClassLoader*)},
+		{"urlsToPath", "([Ljava/net/URL;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoaderHandler, urlsToPath, $String*, $URLArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.server.LoaderHandler$Loader", "sun.rmi.server.LoaderHandler", "Loader", $PRIVATE | $STATIC},
+		{"sun.rmi.server.LoaderHandler$LoaderEntry", "sun.rmi.server.LoaderHandler", "LoaderEntry", $PRIVATE | $STATIC},
+		{"sun.rmi.server.LoaderHandler$LoaderKey", "sun.rmi.server.LoaderHandler", "LoaderKey", $PRIVATE | $STATIC},
+		{"sun.rmi.server.LoaderHandler$2", nullptr, nullptr, 0},
+		{"sun.rmi.server.LoaderHandler$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.rmi.server.LoaderHandler",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.rmi.server.LoaderHandler$Loader,sun.rmi.server.LoaderHandler$LoaderEntry,sun.rmi.server.LoaderHandler$LoaderKey,sun.rmi.server.LoaderHandler$2,sun.rmi.server.LoaderHandler$1"
+	};
+	$loadClass(LoaderHandler, name, initialize, &classInfo$$, LoaderHandler::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LoaderHandler);
+	});
 	return class$;
 }
 

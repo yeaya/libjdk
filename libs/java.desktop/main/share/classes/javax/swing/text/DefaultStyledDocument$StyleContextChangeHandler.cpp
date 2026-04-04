@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultStyledDocument$StyleContextChangeHandler.h>
-
 #include <javax/swing/event/ChangeEvent.h>
 #include <javax/swing/text/DefaultStyledDocument$AbstractChangeHandler.h>
 #include <javax/swing/text/DefaultStyledDocument.h>
@@ -16,38 +15,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _DefaultStyledDocument$StyleContextChangeHandler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/DefaultStyledDocument;)V", nullptr, 0, $method(DefaultStyledDocument$StyleContextChangeHandler, init$, void, $DefaultStyledDocument*)},
-	{"fireStateChanged", "(Ljavax/swing/text/DefaultStyledDocument;Ljavax/swing/event/ChangeEvent;)V", nullptr, 0, $virtualMethod(DefaultStyledDocument$StyleContextChangeHandler, fireStateChanged, void, $DefaultStyledDocument*, $ChangeEvent*)},
-	{}
-};
-
-$InnerClassInfo _DefaultStyledDocument$StyleContextChangeHandler_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultStyledDocument$StyleContextChangeHandler", "javax.swing.text.DefaultStyledDocument", "StyleContextChangeHandler", $STATIC},
-	{"javax.swing.text.DefaultStyledDocument$AbstractChangeHandler", "javax.swing.text.DefaultStyledDocument", "AbstractChangeHandler", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DefaultStyledDocument$StyleContextChangeHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.DefaultStyledDocument$StyleContextChangeHandler",
-	"javax.swing.text.DefaultStyledDocument$AbstractChangeHandler",
-	nullptr,
-	nullptr,
-	_DefaultStyledDocument$StyleContextChangeHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultStyledDocument$StyleContextChangeHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultStyledDocument"
-};
-
-$Object* allocate$DefaultStyledDocument$StyleContextChangeHandler($Class* clazz) {
-	return $of($alloc(DefaultStyledDocument$StyleContextChangeHandler));
-}
-
 void DefaultStyledDocument$StyleContextChangeHandler::init$($DefaultStyledDocument* d) {
 	$DefaultStyledDocument$AbstractChangeHandler::init$(d);
 }
@@ -60,7 +27,34 @@ DefaultStyledDocument$StyleContextChangeHandler::DefaultStyledDocument$StyleCont
 }
 
 $Class* DefaultStyledDocument$StyleContextChangeHandler::load$($String* name, bool initialize) {
-	$loadClass(DefaultStyledDocument$StyleContextChangeHandler, name, initialize, &_DefaultStyledDocument$StyleContextChangeHandler_ClassInfo_, allocate$DefaultStyledDocument$StyleContextChangeHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/DefaultStyledDocument;)V", nullptr, 0, $method(DefaultStyledDocument$StyleContextChangeHandler, init$, void, $DefaultStyledDocument*)},
+		{"fireStateChanged", "(Ljavax/swing/text/DefaultStyledDocument;Ljavax/swing/event/ChangeEvent;)V", nullptr, 0, $virtualMethod(DefaultStyledDocument$StyleContextChangeHandler, fireStateChanged, void, $DefaultStyledDocument*, $ChangeEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultStyledDocument$StyleContextChangeHandler", "javax.swing.text.DefaultStyledDocument", "StyleContextChangeHandler", $STATIC},
+		{"javax.swing.text.DefaultStyledDocument$AbstractChangeHandler", "javax.swing.text.DefaultStyledDocument", "AbstractChangeHandler", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.DefaultStyledDocument$StyleContextChangeHandler",
+		"javax.swing.text.DefaultStyledDocument$AbstractChangeHandler",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultStyledDocument"
+	};
+	$loadClass(DefaultStyledDocument$StyleContextChangeHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultStyledDocument$StyleContextChangeHandler);
+	});
 	return class$;
 }
 

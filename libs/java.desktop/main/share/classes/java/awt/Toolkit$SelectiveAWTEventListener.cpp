@@ -1,5 +1,4 @@
 #include <java/awt/Toolkit$SelectiveAWTEventListener.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/event/AWTEventListener.h>
@@ -105,49 +104,6 @@ using $UngrabEvent = ::sun::awt::UngrabEvent;
 namespace java {
 	namespace awt {
 
-$FieldInfo _Toolkit$SelectiveAWTEventListener_FieldInfo_[] = {
-	{"this$0", "Ljava/awt/Toolkit;", nullptr, $FINAL | $SYNTHETIC, $field(Toolkit$SelectiveAWTEventListener, this$0)},
-	{"listener", "Ljava/awt/event/AWTEventListener;", nullptr, 0, $field(Toolkit$SelectiveAWTEventListener, listener)},
-	{"eventMask", "J", nullptr, $PRIVATE, $field(Toolkit$SelectiveAWTEventListener, eventMask)},
-	{"calls", "[I", nullptr, 0, $field(Toolkit$SelectiveAWTEventListener, calls)},
-	{}
-};
-
-$MethodInfo _Toolkit$SelectiveAWTEventListener_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Toolkit;Ljava/awt/event/AWTEventListener;J)V", nullptr, 0, $method(Toolkit$SelectiveAWTEventListener, init$, void, $Toolkit*, $AWTEventListener*, int64_t)},
-	{"eventDispatched", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(Toolkit$SelectiveAWTEventListener, eventDispatched, void, $AWTEvent*)},
-	{"getCalls", "()[I", nullptr, $PUBLIC, $virtualMethod(Toolkit$SelectiveAWTEventListener, getCalls, $ints*)},
-	{"getEventMask", "()J", nullptr, $PUBLIC, $virtualMethod(Toolkit$SelectiveAWTEventListener, getEventMask, int64_t)},
-	{"getListener", "()Ljava/awt/event/AWTEventListener;", nullptr, $PUBLIC, $virtualMethod(Toolkit$SelectiveAWTEventListener, getListener, $AWTEventListener*)},
-	{"orEventMasks", "(J)V", nullptr, $PUBLIC, $virtualMethod(Toolkit$SelectiveAWTEventListener, orEventMasks, void, int64_t)},
-	{}
-};
-
-$InnerClassInfo _Toolkit$SelectiveAWTEventListener_InnerClassesInfo_[] = {
-	{"java.awt.Toolkit$SelectiveAWTEventListener", "java.awt.Toolkit", "SelectiveAWTEventListener", $PRIVATE},
-	{}
-};
-
-$ClassInfo _Toolkit$SelectiveAWTEventListener_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.Toolkit$SelectiveAWTEventListener",
-	"java.lang.Object",
-	"java.awt.event.AWTEventListener",
-	_Toolkit$SelectiveAWTEventListener_FieldInfo_,
-	_Toolkit$SelectiveAWTEventListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Toolkit$SelectiveAWTEventListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Toolkit"
-};
-
-$Object* allocate$Toolkit$SelectiveAWTEventListener($Class* clazz) {
-	return $of($alloc(Toolkit$SelectiveAWTEventListener));
-}
-
 $AWTEventListener* Toolkit$SelectiveAWTEventListener::getListener() {
 	return this->listener;
 }
@@ -166,7 +122,7 @@ void Toolkit$SelectiveAWTEventListener::orEventMasks(int64_t mask) {
 		if (mask == 0) {
 			break;
 		}
-		if (((int64_t)(mask & (uint64_t)(int64_t)1)) != 0) {
+		if ((mask & (int64_t)1) != 0) {
 			++(*$nc(this->calls))[i];
 		}
 		$usrAssign(mask, 1);
@@ -182,26 +138,26 @@ void Toolkit$SelectiveAWTEventListener::init$($Toolkit* this$0, $AWTEventListene
 
 void Toolkit$SelectiveAWTEventListener::eventDispatched($AWTEvent* event) {
 	int64_t eventBit = 0;
-	bool var$18 = ((eventBit = (int64_t)(this->eventMask & (uint64_t)$AWTEvent::COMPONENT_EVENT_MASK)) != 0 && $nc(event)->id >= $ComponentEvent::COMPONENT_FIRST && event->id <= $ComponentEvent::COMPONENT_LAST);
-	bool var$17 = var$18 || ((eventBit = (int64_t)(this->eventMask & (uint64_t)$AWTEvent::CONTAINER_EVENT_MASK)) != 0 && $nc(event)->id >= $ContainerEvent::CONTAINER_FIRST && event->id <= $ContainerEvent::CONTAINER_LAST);
-	bool var$16 = var$17 || ((eventBit = (int64_t)(this->eventMask & (uint64_t)$AWTEvent::FOCUS_EVENT_MASK)) != 0 && $nc(event)->id >= $FocusEvent::FOCUS_FIRST && event->id <= $FocusEvent::FOCUS_LAST);
-	bool var$15 = var$16 || ((eventBit = (int64_t)(this->eventMask & (uint64_t)$AWTEvent::KEY_EVENT_MASK)) != 0 && $nc(event)->id >= $KeyEvent::KEY_FIRST && event->id <= $KeyEvent::KEY_LAST);
-	bool var$14 = var$15 || ((eventBit = (int64_t)(this->eventMask & (uint64_t)$AWTEvent::MOUSE_WHEEL_EVENT_MASK)) != 0 && $nc(event)->id == $MouseEvent::MOUSE_WHEEL);
-	bool var$13 = var$14 || ((eventBit = (int64_t)(this->eventMask & (uint64_t)$AWTEvent::MOUSE_MOTION_EVENT_MASK)) != 0 && ($nc(event)->id == $MouseEvent::MOUSE_MOVED || $nc(event)->id == $MouseEvent::MOUSE_DRAGGED));
-	bool var$12 = var$13 || ((eventBit = (int64_t)(this->eventMask & (uint64_t)$AWTEvent::MOUSE_EVENT_MASK)) != 0 && $nc(event)->id != $MouseEvent::MOUSE_MOVED && event->id != $MouseEvent::MOUSE_DRAGGED && event->id != $MouseEvent::MOUSE_WHEEL && event->id >= $MouseEvent::MOUSE_FIRST && event->id <= $MouseEvent::MOUSE_LAST);
-	bool var$11 = var$12 || ((eventBit = (int64_t)(this->eventMask & (uint64_t)$AWTEvent::WINDOW_EVENT_MASK)) != 0 && ($nc(event)->id >= $WindowEvent::WINDOW_FIRST && event->id <= $WindowEvent::WINDOW_LAST));
-	bool var$10 = var$11 || ((eventBit = (int64_t)(this->eventMask & (uint64_t)$AWTEvent::ACTION_EVENT_MASK)) != 0 && $nc(event)->id >= $ActionEvent::ACTION_FIRST && event->id <= $ActionEvent::ACTION_LAST);
-	bool var$9 = var$10 || ((eventBit = (int64_t)(this->eventMask & (uint64_t)$AWTEvent::ADJUSTMENT_EVENT_MASK)) != 0 && $nc(event)->id >= $AdjustmentEvent::ADJUSTMENT_FIRST && event->id <= $AdjustmentEvent::ADJUSTMENT_LAST);
-	bool var$8 = var$9 || ((eventBit = (int64_t)(this->eventMask & (uint64_t)$AWTEvent::ITEM_EVENT_MASK)) != 0 && $nc(event)->id >= $ItemEvent::ITEM_FIRST && event->id <= $ItemEvent::ITEM_LAST);
-	bool var$7 = var$8 || ((eventBit = (int64_t)(this->eventMask & (uint64_t)$AWTEvent::TEXT_EVENT_MASK)) != 0 && $nc(event)->id >= $TextEvent::TEXT_FIRST && event->id <= $TextEvent::TEXT_LAST);
-	bool var$6 = var$7 || ((eventBit = (int64_t)(this->eventMask & (uint64_t)$AWTEvent::INPUT_METHOD_EVENT_MASK)) != 0 && $nc(event)->id >= $InputMethodEvent::INPUT_METHOD_FIRST && event->id <= $InputMethodEvent::INPUT_METHOD_LAST);
-	bool var$5 = var$6 || ((eventBit = (int64_t)(this->eventMask & (uint64_t)$AWTEvent::PAINT_EVENT_MASK)) != 0 && $nc(event)->id >= $PaintEvent::PAINT_FIRST && event->id <= $PaintEvent::PAINT_LAST);
-	bool var$4 = var$5 || ((eventBit = (int64_t)(this->eventMask & (uint64_t)$AWTEvent::INVOCATION_EVENT_MASK)) != 0 && $nc(event)->id >= $InvocationEvent::INVOCATION_FIRST && event->id <= $InvocationEvent::INVOCATION_LAST);
-	bool var$3 = var$4 || ((eventBit = (int64_t)(this->eventMask & (uint64_t)$AWTEvent::HIERARCHY_EVENT_MASK)) != 0 && $nc(event)->id == $HierarchyEvent::HIERARCHY_CHANGED);
-	bool var$2 = var$3 || ((eventBit = (int64_t)(this->eventMask & (uint64_t)$AWTEvent::HIERARCHY_BOUNDS_EVENT_MASK)) != 0 && ($nc(event)->id == $HierarchyEvent::ANCESTOR_MOVED || $nc(event)->id == $HierarchyEvent::ANCESTOR_RESIZED));
-	bool var$1 = var$2 || ((eventBit = (int64_t)(this->eventMask & (uint64_t)$AWTEvent::WINDOW_STATE_EVENT_MASK)) != 0 && $nc(event)->id == $WindowEvent::WINDOW_STATE_CHANGED);
-	bool var$0 = var$1 || ((eventBit = (int64_t)(this->eventMask & (uint64_t)$AWTEvent::WINDOW_FOCUS_EVENT_MASK)) != 0 && ($nc(event)->id == $WindowEvent::WINDOW_GAINED_FOCUS || $nc(event)->id == $WindowEvent::WINDOW_LOST_FOCUS));
-	if (var$0 || ((eventBit = (int64_t)(this->eventMask & (uint64_t)(int64_t)$SunToolkit::GRAB_EVENT_MASK)) != 0 && ($instanceOf($UngrabEvent, event)))) {
+	bool var$18 = (eventBit = this->eventMask & $AWTEvent::COMPONENT_EVENT_MASK) != 0 && $nc(event)->id >= $ComponentEvent::COMPONENT_FIRST && event->id <= $ComponentEvent::COMPONENT_LAST;
+	bool var$17 = var$18 || ((eventBit = this->eventMask & $AWTEvent::CONTAINER_EVENT_MASK) != 0 && $nc(event)->id >= $ContainerEvent::CONTAINER_FIRST && event->id <= $ContainerEvent::CONTAINER_LAST);
+	bool var$16 = var$17 || ((eventBit = this->eventMask & $AWTEvent::FOCUS_EVENT_MASK) != 0 && $nc(event)->id >= $FocusEvent::FOCUS_FIRST && event->id <= $FocusEvent::FOCUS_LAST);
+	bool var$15 = var$16 || ((eventBit = this->eventMask & $AWTEvent::KEY_EVENT_MASK) != 0 && $nc(event)->id >= $KeyEvent::KEY_FIRST && event->id <= $KeyEvent::KEY_LAST);
+	bool var$14 = var$15 || ((eventBit = this->eventMask & $AWTEvent::MOUSE_WHEEL_EVENT_MASK) != 0 && $nc(event)->id == $MouseEvent::MOUSE_WHEEL);
+	bool var$13 = var$14 || ((eventBit = this->eventMask & $AWTEvent::MOUSE_MOTION_EVENT_MASK) != 0 && ($nc(event)->id == $MouseEvent::MOUSE_MOVED || event->id == $MouseEvent::MOUSE_DRAGGED));
+	bool var$12 = var$13 || ((eventBit = this->eventMask & $AWTEvent::MOUSE_EVENT_MASK) != 0 && $nc(event)->id != $MouseEvent::MOUSE_MOVED && event->id != $MouseEvent::MOUSE_DRAGGED && event->id != $MouseEvent::MOUSE_WHEEL && event->id >= $MouseEvent::MOUSE_FIRST && event->id <= $MouseEvent::MOUSE_LAST);
+	bool var$11 = var$12 || ((eventBit = this->eventMask & $AWTEvent::WINDOW_EVENT_MASK) != 0 && ($nc(event)->id >= $WindowEvent::WINDOW_FIRST && event->id <= $WindowEvent::WINDOW_LAST));
+	bool var$10 = var$11 || ((eventBit = this->eventMask & $AWTEvent::ACTION_EVENT_MASK) != 0 && $nc(event)->id >= $ActionEvent::ACTION_FIRST && event->id <= $ActionEvent::ACTION_LAST);
+	bool var$9 = var$10 || ((eventBit = this->eventMask & $AWTEvent::ADJUSTMENT_EVENT_MASK) != 0 && $nc(event)->id >= $AdjustmentEvent::ADJUSTMENT_FIRST && event->id <= $AdjustmentEvent::ADJUSTMENT_LAST);
+	bool var$8 = var$9 || ((eventBit = this->eventMask & $AWTEvent::ITEM_EVENT_MASK) != 0 && $nc(event)->id >= $ItemEvent::ITEM_FIRST && event->id <= $ItemEvent::ITEM_LAST);
+	bool var$7 = var$8 || ((eventBit = this->eventMask & $AWTEvent::TEXT_EVENT_MASK) != 0 && $nc(event)->id >= $TextEvent::TEXT_FIRST && event->id <= $TextEvent::TEXT_LAST);
+	bool var$6 = var$7 || ((eventBit = this->eventMask & $AWTEvent::INPUT_METHOD_EVENT_MASK) != 0 && $nc(event)->id >= $InputMethodEvent::INPUT_METHOD_FIRST && event->id <= $InputMethodEvent::INPUT_METHOD_LAST);
+	bool var$5 = var$6 || ((eventBit = this->eventMask & $AWTEvent::PAINT_EVENT_MASK) != 0 && $nc(event)->id >= $PaintEvent::PAINT_FIRST && event->id <= $PaintEvent::PAINT_LAST);
+	bool var$4 = var$5 || ((eventBit = this->eventMask & $AWTEvent::INVOCATION_EVENT_MASK) != 0 && $nc(event)->id >= $InvocationEvent::INVOCATION_FIRST && event->id <= $InvocationEvent::INVOCATION_LAST);
+	bool var$3 = var$4 || ((eventBit = this->eventMask & $AWTEvent::HIERARCHY_EVENT_MASK) != 0 && $nc(event)->id == $HierarchyEvent::HIERARCHY_CHANGED);
+	bool var$2 = var$3 || ((eventBit = this->eventMask & $AWTEvent::HIERARCHY_BOUNDS_EVENT_MASK) != 0 && ($nc(event)->id == $HierarchyEvent::ANCESTOR_MOVED || event->id == $HierarchyEvent::ANCESTOR_RESIZED));
+	bool var$1 = var$2 || ((eventBit = this->eventMask & $AWTEvent::WINDOW_STATE_EVENT_MASK) != 0 && $nc(event)->id == $WindowEvent::WINDOW_STATE_CHANGED);
+	bool var$0 = var$1 || ((eventBit = this->eventMask & $AWTEvent::WINDOW_FOCUS_EVENT_MASK) != 0 && ($nc(event)->id == $WindowEvent::WINDOW_GAINED_FOCUS || event->id == $WindowEvent::WINDOW_LOST_FOCUS));
+	if (var$0 || ((eventBit = this->eventMask & $SunToolkit::GRAB_EVENT_MASK) != 0 && ($instanceOf($UngrabEvent, event)))) {
 		int32_t ci = 0;
 		for (int64_t eMask = eventBit; eMask != 0; $usrAssign(eMask, 1), ++ci) {
 		}
@@ -216,7 +172,44 @@ Toolkit$SelectiveAWTEventListener::Toolkit$SelectiveAWTEventListener() {
 }
 
 $Class* Toolkit$SelectiveAWTEventListener::load$($String* name, bool initialize) {
-	$loadClass(Toolkit$SelectiveAWTEventListener, name, initialize, &_Toolkit$SelectiveAWTEventListener_ClassInfo_, allocate$Toolkit$SelectiveAWTEventListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/awt/Toolkit;", nullptr, $FINAL | $SYNTHETIC, $field(Toolkit$SelectiveAWTEventListener, this$0)},
+		{"listener", "Ljava/awt/event/AWTEventListener;", nullptr, 0, $field(Toolkit$SelectiveAWTEventListener, listener)},
+		{"eventMask", "J", nullptr, $PRIVATE, $field(Toolkit$SelectiveAWTEventListener, eventMask)},
+		{"calls", "[I", nullptr, 0, $field(Toolkit$SelectiveAWTEventListener, calls)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Toolkit;Ljava/awt/event/AWTEventListener;J)V", nullptr, 0, $method(Toolkit$SelectiveAWTEventListener, init$, void, $Toolkit*, $AWTEventListener*, int64_t)},
+		{"eventDispatched", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(Toolkit$SelectiveAWTEventListener, eventDispatched, void, $AWTEvent*)},
+		{"getCalls", "()[I", nullptr, $PUBLIC, $virtualMethod(Toolkit$SelectiveAWTEventListener, getCalls, $ints*)},
+		{"getEventMask", "()J", nullptr, $PUBLIC, $virtualMethod(Toolkit$SelectiveAWTEventListener, getEventMask, int64_t)},
+		{"getListener", "()Ljava/awt/event/AWTEventListener;", nullptr, $PUBLIC, $virtualMethod(Toolkit$SelectiveAWTEventListener, getListener, $AWTEventListener*)},
+		{"orEventMasks", "(J)V", nullptr, $PUBLIC, $virtualMethod(Toolkit$SelectiveAWTEventListener, orEventMasks, void, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Toolkit$SelectiveAWTEventListener", "java.awt.Toolkit", "SelectiveAWTEventListener", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.Toolkit$SelectiveAWTEventListener",
+		"java.lang.Object",
+		"java.awt.event.AWTEventListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Toolkit"
+	};
+	$loadClass(Toolkit$SelectiveAWTEventListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Toolkit$SelectiveAWTEventListener);
+	});
 	return class$;
 }
 

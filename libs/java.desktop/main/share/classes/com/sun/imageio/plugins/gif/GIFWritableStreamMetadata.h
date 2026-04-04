@@ -26,6 +26,7 @@ class GIFWritableStreamMetadata : public ::com::sun::imageio::plugins::gif::GIFS
 	$class(GIFWritableStreamMetadata, 0, ::com::sun::imageio::plugins::gif::GIFStreamMetadata)
 public:
 	GIFWritableStreamMetadata();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool isReadOnly() override;
 	virtual void mergeNativeTree(::org::w3c::dom::Node* root) override;

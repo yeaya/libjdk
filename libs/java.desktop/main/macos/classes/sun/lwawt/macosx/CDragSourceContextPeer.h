@@ -77,6 +77,7 @@ class CDragSourceContextPeer : public ::sun::awt::dnd::SunDragSourceContextPeer 
 	$class(CDragSourceContextPeer, 0, ::sun::awt::dnd::SunDragSourceContextPeer)
 public:
 	CDragSourceContextPeer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::dnd::DragGestureEvent* dge);
 	static ::sun::lwawt::macosx::CDragSourceContextPeer* createDragSourceContextPeer(::java::awt::dnd::DragGestureEvent* dge);
 	int64_t createNativeDragSource(::java::awt::Component* component, int64_t nativePeer, ::java::awt::datatransfer::Transferable* transferable, ::java::awt::event::InputEvent* triggerEvent, int32_t dragPosX, int32_t dragPosY, int32_t extModifiers, int32_t clickCount, int64_t timestamp, int64_t nsDragImagePtr, int32_t dragImageOffsetX, int32_t dragImageOffsetY, int32_t sourceActions, $longs* formats, ::java::util::Map* formatMap);

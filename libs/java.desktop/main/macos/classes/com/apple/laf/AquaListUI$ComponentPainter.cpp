@@ -1,6 +1,4 @@
 #include <com/apple/laf/AquaListUI$ComponentPainter.h>
-
-#include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$State.h>
 #include <apple/laf/JRSUIState.h>
 #include <com/apple/laf/AquaBorder$Default.h>
@@ -16,9 +14,7 @@
 #undef ACTIVE
 #undef INACTIVE
 
-using $JRSUIConstants$Property = ::apple::laf::JRSUIConstants$Property;
 using $JRSUIConstants$State = ::apple::laf::JRSUIConstants$State;
-using $JRSUIState = ::apple::laf::JRSUIState;
 using $AquaBorder$Default = ::com::apple::laf::AquaBorder$Default;
 using $AquaFocusHandler = ::com::apple::laf::AquaFocusHandler;
 using $Component = ::java::awt::Component;
@@ -31,38 +27,6 @@ using $JComponent = ::javax::swing::JComponent;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$MethodInfo _AquaListUI$ComponentPainter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AquaListUI$ComponentPainter, init$, void)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaListUI$ComponentPainter, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AquaListUI$ComponentPainter_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaListUI$ComponentPainter", "com.apple.laf.AquaListUI", "ComponentPainter", $STATIC},
-	{"com.apple.laf.AquaBorder$Default", "com.apple.laf.AquaBorder", "Default", $STATIC},
-	{}
-};
-
-$ClassInfo _AquaListUI$ComponentPainter_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaListUI$ComponentPainter",
-	"com.apple.laf.AquaBorder$Default",
-	nullptr,
-	nullptr,
-	_AquaListUI$ComponentPainter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaListUI$ComponentPainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaListUI"
-};
-
-$Object* allocate$AquaListUI$ComponentPainter($Class* clazz) {
-	return $of($alloc(AquaListUI$ComponentPainter));
-}
 
 void AquaListUI$ComponentPainter::init$() {
 	$AquaBorder$Default::init$();
@@ -84,7 +48,34 @@ AquaListUI$ComponentPainter::AquaListUI$ComponentPainter() {
 }
 
 $Class* AquaListUI$ComponentPainter::load$($String* name, bool initialize) {
-	$loadClass(AquaListUI$ComponentPainter, name, initialize, &_AquaListUI$ComponentPainter_ClassInfo_, allocate$AquaListUI$ComponentPainter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AquaListUI$ComponentPainter, init$, void)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaListUI$ComponentPainter, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaListUI$ComponentPainter", "com.apple.laf.AquaListUI", "ComponentPainter", $STATIC},
+		{"com.apple.laf.AquaBorder$Default", "com.apple.laf.AquaBorder", "Default", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaListUI$ComponentPainter",
+		"com.apple.laf.AquaBorder$Default",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaListUI"
+	};
+	$loadClass(AquaListUI$ComponentPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaListUI$ComponentPainter));
+	});
 	return class$;
 }
 

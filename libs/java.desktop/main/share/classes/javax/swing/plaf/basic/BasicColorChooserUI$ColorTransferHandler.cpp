@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicColorChooserUI$ColorTransferHandler.h>
-
 #include <javax/swing/TransferHandler.h>
 #include <javax/swing/plaf/basic/BasicColorChooserUI.h>
 #include <jcpp.h>
@@ -13,41 +12,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$MethodInfo _BasicColorChooserUI$ColorTransferHandler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(BasicColorChooserUI$ColorTransferHandler, init$, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicColorChooserUI$ColorTransferHandler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicColorChooserUI$ColorTransferHandler", "javax.swing.plaf.basic.BasicColorChooserUI", "ColorTransferHandler", $STATIC},
-	{}
-};
-
-$ClassInfo _BasicColorChooserUI$ColorTransferHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicColorChooserUI$ColorTransferHandler",
-	"javax.swing.TransferHandler",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_BasicColorChooserUI$ColorTransferHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicColorChooserUI$ColorTransferHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicColorChooserUI"
-};
-
-$Object* allocate$BasicColorChooserUI$ColorTransferHandler($Class* clazz) {
-	return $of($alloc(BasicColorChooserUI$ColorTransferHandler));
-}
 
 int32_t BasicColorChooserUI$ColorTransferHandler::hashCode() {
 	 return this->$TransferHandler::hashCode();
@@ -77,7 +41,37 @@ BasicColorChooserUI$ColorTransferHandler::BasicColorChooserUI$ColorTransferHandl
 }
 
 $Class* BasicColorChooserUI$ColorTransferHandler::load$($String* name, bool initialize) {
-	$loadClass(BasicColorChooserUI$ColorTransferHandler, name, initialize, &_BasicColorChooserUI$ColorTransferHandler_ClassInfo_, allocate$BasicColorChooserUI$ColorTransferHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(BasicColorChooserUI$ColorTransferHandler, init$, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicColorChooserUI$ColorTransferHandler", "javax.swing.plaf.basic.BasicColorChooserUI", "ColorTransferHandler", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicColorChooserUI$ColorTransferHandler",
+		"javax.swing.TransferHandler",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicColorChooserUI"
+	};
+	$loadClass(BasicColorChooserUI$ColorTransferHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicColorChooserUI$ColorTransferHandler));
+	});
 	return class$;
 }
 

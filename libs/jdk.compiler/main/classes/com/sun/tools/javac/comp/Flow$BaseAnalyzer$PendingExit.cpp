@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Flow$BaseAnalyzer$PendingExit.h>
-
 #include <com/sun/tools/javac/comp/Flow$BaseAnalyzer.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <jcpp.h>
@@ -16,43 +15,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Flow$BaseAnalyzer$PendingExit_FieldInfo_[] = {
-	{"tree", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $field(Flow$BaseAnalyzer$PendingExit, tree)},
-	{}
-};
-
-$MethodInfo _Flow$BaseAnalyzer$PendingExit_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $method(Flow$BaseAnalyzer$PendingExit, init$, void, $JCTree*)},
-	{"resolveJump", "()V", nullptr, 0, $virtualMethod(Flow$BaseAnalyzer$PendingExit, resolveJump, void)},
-	{}
-};
-
-$InnerClassInfo _Flow$BaseAnalyzer$PendingExit_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Flow$BaseAnalyzer", "com.sun.tools.javac.comp.Flow", "BaseAnalyzer", $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.comp.Flow$BaseAnalyzer$PendingExit", "com.sun.tools.javac.comp.Flow$BaseAnalyzer", "PendingExit", $STATIC},
-	{}
-};
-
-$ClassInfo _Flow$BaseAnalyzer$PendingExit_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Flow$BaseAnalyzer$PendingExit",
-	"java.lang.Object",
-	nullptr,
-	_Flow$BaseAnalyzer$PendingExit_FieldInfo_,
-	_Flow$BaseAnalyzer$PendingExit_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Flow$BaseAnalyzer$PendingExit_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Flow"
-};
-
-$Object* allocate$Flow$BaseAnalyzer$PendingExit($Class* clazz) {
-	return $of($alloc(Flow$BaseAnalyzer$PendingExit));
-}
-
 void Flow$BaseAnalyzer$PendingExit::init$($JCTree* tree) {
 	$set(this, tree, tree);
 }
@@ -64,7 +26,38 @@ Flow$BaseAnalyzer$PendingExit::Flow$BaseAnalyzer$PendingExit() {
 }
 
 $Class* Flow$BaseAnalyzer$PendingExit::load$($String* name, bool initialize) {
-	$loadClass(Flow$BaseAnalyzer$PendingExit, name, initialize, &_Flow$BaseAnalyzer$PendingExit_ClassInfo_, allocate$Flow$BaseAnalyzer$PendingExit);
+	$FieldInfo fieldInfos$$[] = {
+		{"tree", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $field(Flow$BaseAnalyzer$PendingExit, tree)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $method(Flow$BaseAnalyzer$PendingExit, init$, void, $JCTree*)},
+		{"resolveJump", "()V", nullptr, 0, $virtualMethod(Flow$BaseAnalyzer$PendingExit, resolveJump, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Flow$BaseAnalyzer", "com.sun.tools.javac.comp.Flow", "BaseAnalyzer", $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.comp.Flow$BaseAnalyzer$PendingExit", "com.sun.tools.javac.comp.Flow$BaseAnalyzer", "PendingExit", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Flow$BaseAnalyzer$PendingExit",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Flow"
+	};
+	$loadClass(Flow$BaseAnalyzer$PendingExit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Flow$BaseAnalyzer$PendingExit);
+	});
 	return class$;
 }
 

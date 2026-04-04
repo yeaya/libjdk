@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XChoicePeer$UnfurledChoice.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Choice.h>
 #include <java/awt/Color.h>
@@ -45,71 +44,17 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ListHelper = ::sun::awt::X11::ListHelper;
 using $XBaseWindow = ::sun::awt::X11::XBaseWindow;
 using $XChoicePeer = ::sun::awt::X11::XChoicePeer;
-using $XChoicePeerListener = ::sun::awt::X11::XChoicePeerListener;
 using $XComponentPeer = ::sun::awt::X11::XComponentPeer;
 using $XCreateWindowParams = ::sun::awt::X11::XCreateWindowParams;
 using $XEvent = ::sun::awt::X11::XEvent;
 using $XWindow = ::sun::awt::X11::XWindow;
-using $X11GraphicsConfig = ::sun::awt::X11GraphicsConfig;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XChoicePeer$UnfurledChoice_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/X11/XChoicePeer;", nullptr, $FINAL | $SYNTHETIC, $field(XChoicePeer$UnfurledChoice, this$0)},
-	{}
-};
-
-$MethodInfo _XChoicePeer$UnfurledChoice_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/XChoicePeer;Ljava/awt/Component;)V", nullptr, $PUBLIC, $method(XChoicePeer$UnfurledChoice, init$, void, $XChoicePeer*, $Component*)},
-	{"handleConfigureNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer$UnfurledChoice, handleConfigureNotifyEvent, void, $XEvent*)},
-	{"handleMapNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer$UnfurledChoice, handleMapNotifyEvent, void, $XEvent*)},
-	{"handleUnmapNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer$UnfurledChoice, handleUnmapNotifyEvent, void, $XEvent*)},
-	{"isMouseEventInside", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PRIVATE, $method(XChoicePeer$UnfurledChoice, isMouseEventInside, bool, $MouseEvent*)},
-	{"isMouseInListArea", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PRIVATE, $method(XChoicePeer$UnfurledChoice, isMouseInListArea, bool, $MouseEvent*)},
-	{"paintBackground", "()V", nullptr, $PUBLIC, $method(XChoicePeer$UnfurledChoice, paintBackground, void)},
-	{"paintPeer", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer$UnfurledChoice, paintPeer, void, $Graphics*)},
-	{"placeOnScreen", "()Ljava/awt/Rectangle;", nullptr, 0, $method(XChoicePeer$UnfurledChoice, placeOnScreen, $Rectangle*)},
-	{"preInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer$UnfurledChoice, preInit, void, $XCreateWindowParams*)},
-	{"repaint", "()V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer$UnfurledChoice, repaint, void)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $method(XChoicePeer$UnfurledChoice, setVisible, void, bool)},
-	{"toFront", "()V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer$UnfurledChoice, toFront, void)},
-	{"toLocalCoords", "(Ljava/awt/event/MouseEvent;)Ljava/awt/Point;", nullptr, $PRIVATE, $method(XChoicePeer$UnfurledChoice, toLocalCoords, $Point*, $MouseEvent*)},
-	{"trackMouse", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $method(XChoicePeer$UnfurledChoice, trackMouse, void, $MouseEvent*)},
-	{"trackSelection", "(II)V", nullptr, $PRIVATE, $method(XChoicePeer$UnfurledChoice, trackSelection, void, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _XChoicePeer$UnfurledChoice_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XChoicePeer$UnfurledChoice", "sun.awt.X11.XChoicePeer", "UnfurledChoice", $FINAL},
-	{}
-};
-
-$ClassInfo _XChoicePeer$UnfurledChoice_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.X11.XChoicePeer$UnfurledChoice",
-	"sun.awt.X11.XWindow",
-	nullptr,
-	_XChoicePeer$UnfurledChoice_FieldInfo_,
-	_XChoicePeer$UnfurledChoice_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XChoicePeer$UnfurledChoice_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XChoicePeer"
-};
-
-$Object* allocate$XChoicePeer$UnfurledChoice($Class* clazz) {
-	return $of($alloc(XChoicePeer$UnfurledChoice));
-}
 
 void XChoicePeer$UnfurledChoice::init$($XChoicePeer* this$0, $Component* target) {
 	$set(this, this$0, this$0);
@@ -121,12 +66,11 @@ void XChoicePeer$UnfurledChoice::preInit($XCreateWindowParams* params) {
 	$nc(params)->delete$($XBaseWindow::PARENT_WINDOW);
 	$XWindow::preInit(params);
 	params->remove($XBaseWindow::BOUNDS);
-	$init($Boolean);
-	params->add($of($XBaseWindow::OVERRIDE_REDIRECT), $of($Boolean::TRUE));
+	params->add($XBaseWindow::OVERRIDE_REDIRECT, $Boolean::TRUE);
 }
 
 $Rectangle* XChoicePeer$UnfurledChoice::placeOnScreen() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t numItemsDisplayed = 0;
 	if ($nc(this->this$0->helper)->isEmpty()) {
 		numItemsDisplayed = 1;
@@ -141,8 +85,8 @@ $Rectangle* XChoicePeer$UnfurledChoice::placeOnScreen() {
 		$nc(choiceRec)->setLocation(0, 0);
 		$assign(choiceRec, this->this$0->toGlobal(choiceRec));
 		$var($Point, var$0, $nc(this->this$0->alignUnder)->getLocationOnScreen());
-		$var($Rectangle, alignUnderRec, $new($Rectangle, var$0, $($nc(this->this$0->alignUnder)->getSize())));
-		$var($Rectangle, result, choiceRec->union$(alignUnderRec));
+		$var($Rectangle, alignUnderRec, $new($Rectangle, var$0, $(this->this$0->alignUnder->getSize())));
+		$var($Rectangle, result, $nc(choiceRec)->union$(alignUnderRec));
 		this->width = $nc(result)->width;
 		this->x = result->x;
 		this->y = result->y + result->height;
@@ -151,7 +95,7 @@ $Rectangle* XChoicePeer$UnfurledChoice::placeOnScreen() {
 		this->x = $nc(global)->x;
 		this->y = global->y + this->this$0->height;
 		int32_t var$1 = $nc(this->this$0->helper)->getMaxItemWidth() + 2 * (1 + 1 + 1);
-		this->width = $Math::max(this->this$0->width, var$1 + ($nc(this->this$0->helper)->isVSBVisible() ? 15 : 0));
+		this->width = $Math::max(this->this$0->width, var$1 + (this->this$0->helper->isVSBVisible() ? 15 : 0));
 		this->height = 2 * 1 + numItemsDisplayed * ($nc(this->this$0->helper)->getItemHeight() + 2 * 1);
 	}
 	if (this->x < $nc(screenBounds)->x) {
@@ -159,10 +103,10 @@ $Rectangle* XChoicePeer$UnfurledChoice::placeOnScreen() {
 	} else if (this->x + this->width > screenBounds->x + screenBounds->width) {
 		this->x = screenBounds->x + screenBounds->width - this->width;
 	}
-	if (this->y + this->height > $nc(screenBounds)->y + screenBounds->height) {
+	if (this->y + this->height > screenBounds->y + screenBounds->height) {
 		this->y = $nc(global)->y - this->height;
 	}
-	if (this->y < $nc(screenBounds)->y) {
+	if (this->y < screenBounds->y) {
 		this->y = screenBounds->y;
 	}
 	return $new($Rectangle, this->x, this->y, this->width, this->height);
@@ -170,63 +114,56 @@ $Rectangle* XChoicePeer$UnfurledChoice::placeOnScreen() {
 
 void XChoicePeer$UnfurledChoice::toFront() {
 	if (this->this$0->choiceListener != nullptr) {
-		$nc(this->this$0->choiceListener)->unfurledChoiceOpening(this->this$0->helper);
+		this->this$0->choiceListener->unfurledChoiceOpening(this->this$0->helper);
 	}
 	$var($Rectangle, r, placeOnScreen());
-	reshape($nc(r)->x, r->y, r->width, r->height);
+	reshape($nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 	$XWindow::toFront();
 	setVisible(true);
 }
 
 void XChoicePeer$UnfurledChoice::trackMouse($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Point, local, toLocalCoords(e));
 	switch ($nc(e)->getID()) {
 	case $MouseEvent::MOUSE_PRESSED:
-		{
-			if ($nc(this->this$0->helper)->isInVertSB($(getBounds()), $nc(local)->x, local->y)) {
-				this->this$0->mouseInSB = true;
-				$nc(this->this$0->helper)->handleVSBEvent(e, $(getBounds()), $nc(local)->x, local->y);
-			} else {
-				trackSelection($nc(local)->x, local->y);
-			}
-			break;
+		if ($nc(this->this$0->helper)->isInVertSB($(getBounds()), $nc(local)->x, $nc(local)->y)) {
+			this->this$0->mouseInSB = true;
+			$nc(this->this$0->helper)->handleVSBEvent(e, $(getBounds()), local->x, local->y);
+		} else {
+			trackSelection(local->x, local->y);
 		}
+		break;
 	case $MouseEvent::MOUSE_RELEASED:
-		{
-			if (this->this$0->mouseInSB) {
-				this->this$0->mouseInSB = false;
-				$nc(this->this$0->helper)->handleVSBEvent(e, $(getBounds()), $nc(local)->x, local->y);
-			} else {
-				$nc(this->this$0->helper)->trackMouseReleasedScroll();
-			}
-			break;
+		if (this->this$0->mouseInSB) {
+			this->this$0->mouseInSB = false;
+			$nc(this->this$0->helper)->handleVSBEvent(e, $(getBounds()), $nc(local)->x, $nc(local)->y);
+		} else {
+			$nc(this->this$0->helper)->trackMouseReleasedScroll();
 		}
+		break;
 	case $MouseEvent::MOUSE_DRAGGED:
-		{
-			if (this->this$0->mouseInSB) {
-				$nc(this->this$0->helper)->handleVSBEvent(e, $(getBounds()), $nc(local)->x, local->y);
-			} else {
-				$nc(this->this$0->helper)->trackMouseDraggedScroll($nc(local)->x, local->y, this->width, this->height);
-				trackSelection($nc(local)->x, local->y);
-			}
-			break;
+		if (this->this$0->mouseInSB) {
+			$nc(this->this$0->helper)->handleVSBEvent(e, $(getBounds()), $nc(local)->x, $nc(local)->y);
+		} else {
+			$nc(this->this$0->helper)->trackMouseDraggedScroll($nc(local)->x, $nc(local)->y, this->width, this->height);
+			trackSelection(local->x, local->y);
 		}
+		break;
 	}
 }
 
 void XChoicePeer$UnfurledChoice::trackSelection(int32_t transX, int32_t transY) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(this->this$0->helper)->isEmpty()) {
 		if (transX > 0 && transX < this->width && transY > 0 && transY < this->height) {
 			int32_t newIdx = $nc(this->this$0->helper)->y2index(transY);
-			$init($XChoicePeer);
 			$init($PlatformLogger$Level);
 			if ($nc($XChoicePeer::log)->isLoggable($PlatformLogger$Level::FINE)) {
-				$nc($XChoicePeer::log)->fine($$str({"transX="_s, $$str(transX), ", transY="_s, $$str(transY), ",width="_s, $$str(this->width), ", height="_s, $$str(this->height), ", newIdx="_s, $$str(newIdx), " on "_s, this->target}));
+				$XChoicePeer::log->fine($$str({"transX="_s, $$str(transX), ", transY="_s, $$str(transY), ",width="_s, $$str(this->width), ", height="_s, $$str(this->height), ", newIdx="_s, $$str(newIdx), " on "_s, this->target}));
 			}
 			bool var$0 = (newIdx >= 0) && (newIdx < $nc(this->this$0->helper)->getItemCount());
-			if (var$0 && (newIdx != $nc(this->this$0->helper)->getSelectedIndex())) {
+			if (var$0 && (newIdx != this->this$0->helper->getSelectedIndex())) {
 				$nc(this->this$0->helper)->select(newIdx);
 				$nc(this->this$0->unfurledChoice)->repaint();
 			}
@@ -235,22 +172,20 @@ void XChoicePeer$UnfurledChoice::trackSelection(int32_t transX, int32_t transY) 
 }
 
 void XChoicePeer$UnfurledChoice::paintBackground() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Graphics, g, getGraphics());
 	if (g != nullptr) {
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				g->setColor($(this->this$0->getPeerBackground()));
-				g->fillRect(0, 0, this->width, this->height);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				g->dispose();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			g->setColor($(this->this$0->getPeerBackground()));
+			g->fillRect(0, 0, this->width, this->height);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			g->dispose();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -266,7 +201,7 @@ void XChoicePeer$UnfurledChoice::repaint() {
 }
 
 void XChoicePeer$UnfurledChoice::paintPeer($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Choice, choice, $cast($Choice, this->target));
 	$var($ColorArray, colors, this->this$0->getGUIcolors());
 	this->this$0->draw3DRect(g, $($XComponentPeer::getSystemColors()), 0, 0, this->width - 1, this->height - 1, true);
@@ -277,7 +212,7 @@ void XChoicePeer$UnfurledChoice::paintPeer($Graphics* g) {
 void XChoicePeer$UnfurledChoice::setVisible(bool vis) {
 	xSetVisible(vis);
 	if (!vis && this->this$0->alignUnder != nullptr) {
-		$nc(this->this$0->alignUnder)->requestFocusInWindow();
+		this->this$0->alignUnder->requestFocusInWindow();
 	}
 }
 
@@ -297,11 +232,11 @@ bool XChoicePeer$UnfurledChoice::isMouseEventInside($MouseEvent* e) {
 }
 
 bool XChoicePeer$UnfurledChoice::isMouseInListArea($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isMouseEventInside(e)) {
 		$var($Point, local, toLocalCoords(e));
 		$var($Rectangle, bounds, getBounds());
-		if (!$nc(this->this$0->helper)->isInVertSB(bounds, $nc(local)->x, local->y)) {
+		if (!$nc(this->this$0->helper)->isInVertSB(bounds, $nc(local)->x, $nc(local)->y)) {
 			return true;
 		}
 	}
@@ -321,7 +256,51 @@ XChoicePeer$UnfurledChoice::XChoicePeer$UnfurledChoice() {
 }
 
 $Class* XChoicePeer$UnfurledChoice::load$($String* name, bool initialize) {
-	$loadClass(XChoicePeer$UnfurledChoice, name, initialize, &_XChoicePeer$UnfurledChoice_ClassInfo_, allocate$XChoicePeer$UnfurledChoice);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/X11/XChoicePeer;", nullptr, $FINAL | $SYNTHETIC, $field(XChoicePeer$UnfurledChoice, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XChoicePeer;Ljava/awt/Component;)V", nullptr, $PUBLIC, $method(XChoicePeer$UnfurledChoice, init$, void, $XChoicePeer*, $Component*)},
+		{"handleConfigureNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer$UnfurledChoice, handleConfigureNotifyEvent, void, $XEvent*)},
+		{"handleMapNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer$UnfurledChoice, handleMapNotifyEvent, void, $XEvent*)},
+		{"handleUnmapNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer$UnfurledChoice, handleUnmapNotifyEvent, void, $XEvent*)},
+		{"isMouseEventInside", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PRIVATE, $method(XChoicePeer$UnfurledChoice, isMouseEventInside, bool, $MouseEvent*)},
+		{"isMouseInListArea", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PRIVATE, $method(XChoicePeer$UnfurledChoice, isMouseInListArea, bool, $MouseEvent*)},
+		{"paintBackground", "()V", nullptr, $PUBLIC, $method(XChoicePeer$UnfurledChoice, paintBackground, void)},
+		{"paintPeer", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer$UnfurledChoice, paintPeer, void, $Graphics*)},
+		{"placeOnScreen", "()Ljava/awt/Rectangle;", nullptr, 0, $method(XChoicePeer$UnfurledChoice, placeOnScreen, $Rectangle*)},
+		{"preInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer$UnfurledChoice, preInit, void, $XCreateWindowParams*)},
+		{"repaint", "()V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer$UnfurledChoice, repaint, void)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $method(XChoicePeer$UnfurledChoice, setVisible, void, bool)},
+		{"toFront", "()V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer$UnfurledChoice, toFront, void)},
+		{"toLocalCoords", "(Ljava/awt/event/MouseEvent;)Ljava/awt/Point;", nullptr, $PRIVATE, $method(XChoicePeer$UnfurledChoice, toLocalCoords, $Point*, $MouseEvent*)},
+		{"trackMouse", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $method(XChoicePeer$UnfurledChoice, trackMouse, void, $MouseEvent*)},
+		{"trackSelection", "(II)V", nullptr, $PRIVATE, $method(XChoicePeer$UnfurledChoice, trackSelection, void, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XChoicePeer$UnfurledChoice", "sun.awt.X11.XChoicePeer", "UnfurledChoice", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.X11.XChoicePeer$UnfurledChoice",
+		"sun.awt.X11.XWindow",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XChoicePeer"
+	};
+	$loadClass(XChoicePeer$UnfurledChoice, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XChoicePeer$UnfurledChoice));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/Popup$HeavyWeightWindow.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Window$Type.h>
@@ -19,48 +18,10 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
-using $JRootPane = ::javax::swing::JRootPane;
 using $JWindow = ::javax::swing::JWindow;
 
 namespace javax {
 	namespace swing {
-
-$MethodInfo _Popup$HeavyWeightWindow_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Window;)V", nullptr, 0, $method(Popup$HeavyWeightWindow, init$, void, $Window*)},
-	{"show", "()V", nullptr, $PUBLIC, $virtualMethod(Popup$HeavyWeightWindow, show, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"update", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(Popup$HeavyWeightWindow, update, void, $Graphics*)},
-	{}
-};
-
-$InnerClassInfo _Popup$HeavyWeightWindow_InnerClassesInfo_[] = {
-	{"javax.swing.Popup$HeavyWeightWindow", "javax.swing.Popup", "HeavyWeightWindow", $STATIC},
-	{}
-};
-
-$ClassInfo _Popup$HeavyWeightWindow_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.Popup$HeavyWeightWindow",
-	"javax.swing.JWindow",
-	"sun.awt.ModalExclude",
-	nullptr,
-	_Popup$HeavyWeightWindow_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Popup$HeavyWeightWindow_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.Popup"
-};
-
-$Object* allocate$Popup$HeavyWeightWindow($Class* clazz) {
-	return $of($alloc(Popup$HeavyWeightWindow));
-}
 
 $String* Popup$HeavyWeightWindow::toString() {
 	 return this->$JWindow::toString();
@@ -87,7 +48,7 @@ void Popup$HeavyWeightWindow::init$($Window* parent) {
 	setFocusableWindowState(false);
 	$init($Window$Type);
 	setType($Window$Type::POPUP);
-	$nc($(getRootPane()))->setUseTrueDoubleBuffering(false);
+	$$nc(getRootPane())->setUseTrueDoubleBuffering(false);
 	try {
 		setAlwaysOnTop(true);
 	} catch ($SecurityException& se) {
@@ -110,7 +71,39 @@ Popup$HeavyWeightWindow::Popup$HeavyWeightWindow() {
 }
 
 $Class* Popup$HeavyWeightWindow::load$($String* name, bool initialize) {
-	$loadClass(Popup$HeavyWeightWindow, name, initialize, &_Popup$HeavyWeightWindow_ClassInfo_, allocate$Popup$HeavyWeightWindow);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Window;)V", nullptr, 0, $method(Popup$HeavyWeightWindow, init$, void, $Window*)},
+		{"show", "()V", nullptr, $PUBLIC, $virtualMethod(Popup$HeavyWeightWindow, show, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"update", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(Popup$HeavyWeightWindow, update, void, $Graphics*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.Popup$HeavyWeightWindow", "javax.swing.Popup", "HeavyWeightWindow", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.Popup$HeavyWeightWindow",
+		"javax.swing.JWindow",
+		"sun.awt.ModalExclude",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.Popup"
+	};
+	$loadClass(Popup$HeavyWeightWindow, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Popup$HeavyWeightWindow));
+	});
 	return class$;
 }
 

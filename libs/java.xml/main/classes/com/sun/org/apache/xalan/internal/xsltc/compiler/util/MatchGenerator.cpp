@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/MatchGenerator.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ALOAD.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/ILOAD.h>
@@ -35,41 +34,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 								namespace util {
-
-$FieldInfo _MatchGenerator_FieldInfo_[] = {
-	{"CURRENT_INDEX", "I", nullptr, $PRIVATE | $STATIC, $staticField(MatchGenerator, CURRENT_INDEX)},
-	{"_iteratorIndex", "I", nullptr, $PRIVATE, $field(MatchGenerator, _iteratorIndex)},
-	{"_iloadCurrent", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MatchGenerator, _iloadCurrent)},
-	{"_istoreCurrent", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MatchGenerator, _istoreCurrent)},
-	{"_aloadDom", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE, $field(MatchGenerator, _aloadDom)},
-	{}
-};
-
-$MethodInfo _MatchGenerator_MethodInfo_[] = {
-	{"<init>", "(ILcom/sun/org/apache/bcel/internal/generic/Type;[Lcom/sun/org/apache/bcel/internal/generic/Type;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(MatchGenerator, init$, void, int32_t, $Type*, $TypeArray*, $StringArray*, $String*, $String*, $InstructionList*, $ConstantPoolGen*)},
-	{"getHandlerIndex", "()I", nullptr, $PUBLIC, $method(MatchGenerator, getHandlerIndex, int32_t)},
-	{"getIteratorIndex", "()I", nullptr, $PUBLIC, $method(MatchGenerator, getIteratorIndex, int32_t)},
-	{"getLocalIndex", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(MatchGenerator, getLocalIndex, int32_t, $String*)},
-	{"loadCurrentNode", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(MatchGenerator, loadCurrentNode, $Instruction*)},
-	{"loadDOM", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(MatchGenerator, loadDOM, $Instruction*)},
-	{"setDomIndex", "(I)V", nullptr, $PUBLIC, $method(MatchGenerator, setDomIndex, void, int32_t)},
-	{"setIteratorIndex", "(I)V", nullptr, $PUBLIC, $method(MatchGenerator, setIteratorIndex, void, int32_t)},
-	{"storeCurrentNode", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(MatchGenerator, storeCurrentNode, $Instruction*)},
-	{}
-};
-
-$ClassInfo _MatchGenerator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.MatchGenerator",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.MethodGenerator",
-	nullptr,
-	_MatchGenerator_FieldInfo_,
-	_MatchGenerator_MethodInfo_
-};
-
-$Object* allocate$MatchGenerator($Class* clazz) {
-	return $of($alloc(MatchGenerator));
-}
 
 int32_t MatchGenerator::CURRENT_INDEX = 0;
 
@@ -115,7 +79,7 @@ int32_t MatchGenerator::getLocalIndex($String* name) {
 	return $MethodGenerator::getLocalIndex(name);
 }
 
-void clinit$MatchGenerator($Class* class$) {
+void MatchGenerator::clinit$($Class* clazz) {
 	MatchGenerator::CURRENT_INDEX = 1;
 }
 
@@ -123,7 +87,37 @@ MatchGenerator::MatchGenerator() {
 }
 
 $Class* MatchGenerator::load$($String* name, bool initialize) {
-	$loadClass(MatchGenerator, name, initialize, &_MatchGenerator_ClassInfo_, clinit$MatchGenerator, allocate$MatchGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"CURRENT_INDEX", "I", nullptr, $PRIVATE | $STATIC, $staticField(MatchGenerator, CURRENT_INDEX)},
+		{"_iteratorIndex", "I", nullptr, $PRIVATE, $field(MatchGenerator, _iteratorIndex)},
+		{"_iloadCurrent", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MatchGenerator, _iloadCurrent)},
+		{"_istoreCurrent", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MatchGenerator, _istoreCurrent)},
+		{"_aloadDom", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE, $field(MatchGenerator, _aloadDom)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILcom/sun/org/apache/bcel/internal/generic/Type;[Lcom/sun/org/apache/bcel/internal/generic/Type;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(MatchGenerator, init$, void, int32_t, $Type*, $TypeArray*, $StringArray*, $String*, $String*, $InstructionList*, $ConstantPoolGen*)},
+		{"getHandlerIndex", "()I", nullptr, $PUBLIC, $method(MatchGenerator, getHandlerIndex, int32_t)},
+		{"getIteratorIndex", "()I", nullptr, $PUBLIC, $method(MatchGenerator, getIteratorIndex, int32_t)},
+		{"getLocalIndex", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(MatchGenerator, getLocalIndex, int32_t, $String*)},
+		{"loadCurrentNode", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(MatchGenerator, loadCurrentNode, $Instruction*)},
+		{"loadDOM", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(MatchGenerator, loadDOM, $Instruction*)},
+		{"setDomIndex", "(I)V", nullptr, $PUBLIC, $method(MatchGenerator, setDomIndex, void, int32_t)},
+		{"setIteratorIndex", "(I)V", nullptr, $PUBLIC, $method(MatchGenerator, setIteratorIndex, void, int32_t)},
+		{"storeCurrentNode", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(MatchGenerator, storeCurrentNode, $Instruction*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.MatchGenerator",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.MethodGenerator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MatchGenerator, name, initialize, &classInfo$$, MatchGenerator::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MatchGenerator));
+	});
 	return class$;
 }
 

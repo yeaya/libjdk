@@ -17,6 +17,7 @@ class TIFFLSBDecompressor : public ::com::sun::imageio::plugins::tiff::TIFFDecom
 public:
 	TIFFLSBDecompressor();
 	using ::com::sun::imageio::plugins::tiff::TIFFDecompressor::decodeRaw;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void decodeRaw($bytes* b, int32_t dstOffset, int32_t bitsPerPixel, int32_t scanlineStride) override;
 	static $bytes* flipTable;

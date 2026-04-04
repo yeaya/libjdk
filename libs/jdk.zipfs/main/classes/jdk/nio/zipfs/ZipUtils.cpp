@@ -1,5 +1,4 @@
 #include <jdk/nio/zipfs/ZipUtils.h>
-
 #include <java/io/OutputStream.h>
 #include <java/nio/file/attribute/PosixFilePermission.h>
 #include <java/time/DateTimeException.h>
@@ -42,7 +41,6 @@ using $DateTimeException = ::java::time::DateTimeException;
 using $Instant = ::java::time::Instant;
 using $LocalDateTime = ::java::time::LocalDateTime;
 using $ZoneId = ::java::time::ZoneId;
-using $ZoneRules = ::java::time::zone::ZoneRules;
 using $Arrays = ::java::util::Arrays;
 using $Date = ::java::util::Date;
 using $Iterator = ::java::util::Iterator;
@@ -54,71 +52,6 @@ using $ZipUtils$1 = ::jdk::nio::zipfs::ZipUtils$1;
 namespace jdk {
 	namespace nio {
 		namespace zipfs {
-
-$FieldInfo _ZipUtils_FieldInfo_[] = {
-	{"POSIX_USER_READ", "I", nullptr, $STATIC | $FINAL, $constField(ZipUtils, POSIX_USER_READ)},
-	{"POSIX_USER_WRITE", "I", nullptr, $STATIC | $FINAL, $constField(ZipUtils, POSIX_USER_WRITE)},
-	{"POSIX_USER_EXECUTE", "I", nullptr, $STATIC | $FINAL, $constField(ZipUtils, POSIX_USER_EXECUTE)},
-	{"POSIX_GROUP_READ", "I", nullptr, $STATIC | $FINAL, $constField(ZipUtils, POSIX_GROUP_READ)},
-	{"POSIX_GROUP_WRITE", "I", nullptr, $STATIC | $FINAL, $constField(ZipUtils, POSIX_GROUP_WRITE)},
-	{"POSIX_GROUP_EXECUTE", "I", nullptr, $STATIC | $FINAL, $constField(ZipUtils, POSIX_GROUP_EXECUTE)},
-	{"POSIX_OTHER_READ", "I", nullptr, $STATIC | $FINAL, $constField(ZipUtils, POSIX_OTHER_READ)},
-	{"POSIX_OTHER_WRITE", "I", nullptr, $STATIC | $FINAL, $constField(ZipUtils, POSIX_OTHER_WRITE)},
-	{"POSIX_OTHER_EXECUTE", "I", nullptr, $STATIC | $FINAL, $constField(ZipUtils, POSIX_OTHER_EXECUTE)},
-	{"WINDOWS_EPOCH_IN_MICROSECONDS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZipUtils, WINDOWS_EPOCH_IN_MICROSECONDS)},
-	{"regexMetaChars", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ZipUtils, regexMetaChars)},
-	{"globMetaChars", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ZipUtils, globMetaChars)},
-	{"EOL", "C", nullptr, $PRIVATE | $STATIC, $staticField(ZipUtils, EOL)},
-	{}
-};
-
-$MethodInfo _ZipUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ZipUtils, init$, void)},
-	{"dosToJavaTime", "(J)J", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipUtils, dosToJavaTime, int64_t, int64_t)},
-	{"isGlobMeta", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ZipUtils, isGlobMeta, bool, char16_t)},
-	{"isRegexMeta", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ZipUtils, isRegexMeta, bool, char16_t)},
-	{"javaToDosTime", "(J)J", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipUtils, javaToDosTime, int64_t, int64_t)},
-	{"javaToUnixTime", "(J)J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ZipUtils, javaToUnixTime, int64_t, int64_t)},
-	{"javaToWinTime", "(J)J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ZipUtils, javaToWinTime, int64_t, int64_t)},
-	{"next", "(Ljava/lang/String;I)C", nullptr, $PRIVATE | $STATIC, $staticMethod(ZipUtils, next, char16_t, $String*, int32_t)},
-	{"overflowDosToJavaTime", "(IIIIII)J", nullptr, $PRIVATE | $STATIC, $staticMethod(ZipUtils, overflowDosToJavaTime, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"permToFlag", "(Ljava/nio/file/attribute/PosixFilePermission;)I", nullptr, $STATIC, $staticMethod(ZipUtils, permToFlag, int32_t, $PosixFilePermission*)},
-	{"permsToFlags", "(Ljava/util/Set;)I", "(Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;)I", $STATIC, $staticMethod(ZipUtils, permsToFlags, int32_t, $Set*)},
-	{"toDirectoryPath", "([B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipUtils, toDirectoryPath, $bytes*, $bytes*)},
-	{"toRegexPattern", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipUtils, toRegexPattern, $String*, $String*)},
-	{"unixToJavaTime", "(J)J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ZipUtils, unixToJavaTime, int64_t, int64_t)},
-	{"winToJavaTime", "(J)J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ZipUtils, winToJavaTime, int64_t, int64_t)},
-	{"writeBytes", "(Ljava/io/OutputStream;[B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipUtils, writeBytes, void, $OutputStream*, $bytes*), "java.io.IOException"},
-	{"writeBytes", "(Ljava/io/OutputStream;[BII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipUtils, writeBytes, void, $OutputStream*, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"writeInt", "(Ljava/io/OutputStream;J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipUtils, writeInt, void, $OutputStream*, int64_t), "java.io.IOException"},
-	{"writeLong", "(Ljava/io/OutputStream;J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipUtils, writeLong, void, $OutputStream*, int64_t), "java.io.IOException"},
-	{"writeShort", "(Ljava/io/OutputStream;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipUtils, writeShort, void, $OutputStream*, int32_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ZipUtils_InnerClassesInfo_[] = {
-	{"jdk.nio.zipfs.ZipUtils$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _ZipUtils_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.nio.zipfs.ZipUtils",
-	"java.lang.Object",
-	nullptr,
-	_ZipUtils_FieldInfo_,
-	_ZipUtils_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ZipUtils_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.nio.zipfs.ZipUtils$1"
-};
-
-$Object* allocate$ZipUtils($Class* clazz) {
-	return $of($alloc(ZipUtils));
-}
 
 $String* ZipUtils::regexMetaChars = nullptr;
 $String* ZipUtils::globMetaChars = nullptr;
@@ -132,45 +65,25 @@ int32_t ZipUtils::permToFlag($PosixFilePermission* perm) {
 	$init($ZipUtils$1);
 	switch ($nc($ZipUtils$1::$SwitchMap$java$nio$file$attribute$PosixFilePermission)->get($nc((perm))->ordinal())) {
 	case 1:
-		{
-			return ZipUtils::POSIX_USER_READ;
-		}
+		return ZipUtils::POSIX_USER_READ;
 	case 2:
-		{
-			return ZipUtils::POSIX_USER_WRITE;
-		}
+		return ZipUtils::POSIX_USER_WRITE;
 	case 3:
-		{
-			return ZipUtils::POSIX_USER_EXECUTE;
-		}
+		return ZipUtils::POSIX_USER_EXECUTE;
 	case 4:
-		{
-			return ZipUtils::POSIX_GROUP_READ;
-		}
+		return ZipUtils::POSIX_GROUP_READ;
 	case 5:
-		{
-			return ZipUtils::POSIX_GROUP_WRITE;
-		}
+		return ZipUtils::POSIX_GROUP_WRITE;
 	case 6:
-		{
-			return ZipUtils::POSIX_GROUP_EXECUTE;
-		}
+		return ZipUtils::POSIX_GROUP_EXECUTE;
 	case 7:
-		{
-			return ZipUtils::POSIX_OTHER_READ;
-		}
+		return ZipUtils::POSIX_OTHER_READ;
 	case 8:
-		{
-			return ZipUtils::POSIX_OTHER_WRITE;
-		}
+		return ZipUtils::POSIX_OTHER_WRITE;
 	case 9:
-		{
-			return ZipUtils::POSIX_OTHER_EXECUTE;
-		}
+		return ZipUtils::POSIX_OTHER_EXECUTE;
 	default:
-		{
-			return 0;
-		}
+		return 0;
 	}
 }
 
@@ -194,28 +107,28 @@ int32_t ZipUtils::permsToFlags($Set* perms) {
 
 void ZipUtils::writeShort($OutputStream* os, int32_t v) {
 	$init(ZipUtils);
-	$nc(os)->write((int32_t)(v & (uint32_t)255));
-	os->write((int32_t)(((int32_t)((uint32_t)v >> 8)) & (uint32_t)255));
+	$nc(os)->write(v & 0xff);
+	os->write(((int32_t)((uint32_t)v >> 8)) & 0xff);
 }
 
 void ZipUtils::writeInt($OutputStream* os, int64_t v) {
 	$init(ZipUtils);
-	$nc(os)->write((int32_t)((int64_t)(v & (uint64_t)(int64_t)255)));
-	os->write((int32_t)((int64_t)(((int64_t)((uint64_t)v >> 8)) & (uint64_t)(int64_t)255)));
-	os->write((int32_t)((int64_t)(((int64_t)((uint64_t)v >> 16)) & (uint64_t)(int64_t)255)));
-	os->write((int32_t)((int64_t)(((int64_t)((uint64_t)v >> 24)) & (uint64_t)(int64_t)255)));
+	$nc(os)->write((int32_t)(v & 0xff));
+	os->write((int32_t)(((int64_t)((uint64_t)v >> 8)) & 0xff));
+	os->write((int32_t)(((int64_t)((uint64_t)v >> 16)) & 0xff));
+	os->write((int32_t)(((int64_t)((uint64_t)v >> 24)) & 0xff));
 }
 
 void ZipUtils::writeLong($OutputStream* os, int64_t v) {
 	$init(ZipUtils);
-	$nc(os)->write((int32_t)((int64_t)(v & (uint64_t)(int64_t)255)));
-	os->write((int32_t)((int64_t)(((int64_t)((uint64_t)v >> 8)) & (uint64_t)(int64_t)255)));
-	os->write((int32_t)((int64_t)(((int64_t)((uint64_t)v >> 16)) & (uint64_t)(int64_t)255)));
-	os->write((int32_t)((int64_t)(((int64_t)((uint64_t)v >> 24)) & (uint64_t)(int64_t)255)));
-	os->write((int32_t)((int64_t)(((int64_t)((uint64_t)v >> 32)) & (uint64_t)(int64_t)255)));
-	os->write((int32_t)((int64_t)(((int64_t)((uint64_t)v >> 40)) & (uint64_t)(int64_t)255)));
-	os->write((int32_t)((int64_t)(((int64_t)((uint64_t)v >> 48)) & (uint64_t)(int64_t)255)));
-	os->write((int32_t)((int64_t)(((int64_t)((uint64_t)v >> 56)) & (uint64_t)(int64_t)255)));
+	$nc(os)->write((int32_t)(v & 0xff));
+	os->write((int32_t)(((int64_t)((uint64_t)v >> 8)) & 0xff));
+	os->write((int32_t)(((int64_t)((uint64_t)v >> 16)) & 0xff));
+	os->write((int32_t)(((int64_t)((uint64_t)v >> 24)) & 0xff));
+	os->write((int32_t)(((int64_t)((uint64_t)v >> 32)) & 0xff));
+	os->write((int32_t)(((int64_t)((uint64_t)v >> 40)) & 0xff));
+	os->write((int32_t)(((int64_t)((uint64_t)v >> 48)) & 0xff));
+	os->write((int32_t)(((int64_t)((uint64_t)v >> 56)) & 0xff));
 }
 
 void ZipUtils::writeBytes($OutputStream* os, $bytes* b) {
@@ -240,18 +153,18 @@ $bytes* ZipUtils::toDirectoryPath($bytes* dir$renamed) {
 
 int64_t ZipUtils::dosToJavaTime(int64_t dtime) {
 	$init(ZipUtils);
-	$useLocalCurrentObjectStackCache();
-	int32_t year = (int32_t)(((int64_t)((dtime >> 25) & (uint64_t)(int64_t)127)) + 1980);
-	int32_t month = (int32_t)((int64_t)((dtime >> 21) & (uint64_t)(int64_t)15));
-	int32_t day = (int32_t)((int64_t)((dtime >> 16) & (uint64_t)(int64_t)31));
-	int32_t hour = (int32_t)((int64_t)((dtime >> 11) & (uint64_t)(int64_t)31));
-	int32_t minute = (int32_t)((int64_t)((dtime >> 5) & (uint64_t)(int64_t)63));
-	int32_t second = (int32_t)((int64_t)((dtime << 1) & (uint64_t)(int64_t)62));
+	$useLocalObjectStack();
+	int32_t year = (int32_t)(((dtime >> 25) & 0x7f) + 0x07bc);
+	int32_t month = (int32_t)((dtime >> 21) & 0x0f);
+	int32_t day = (int32_t)((dtime >> 16) & 0x1f);
+	int32_t hour = (int32_t)((dtime >> 11) & 0x1f);
+	int32_t minute = (int32_t)((dtime >> 5) & 0x3f);
+	int32_t second = (int32_t)((dtime << 1) & 0x3e);
 	if (month > 0 && month < 13 && day > 0 && hour < 24 && minute < 60 && second < 60) {
 		try {
 			$var($LocalDateTime, ldt, $LocalDateTime::of(year, month, day, hour, minute, second));
 			$init($TimeUnit);
-			return $TimeUnit::MILLISECONDS->convert($nc(ldt)->toEpochSecond($($nc($($nc($($ZoneId::systemDefault()))->getRules()))->getOffset(ldt))), $TimeUnit::SECONDS);
+			return $TimeUnit::MILLISECONDS->convert($nc(ldt)->toEpochSecond($($$nc($$nc($ZoneId::systemDefault())->getRules())->getOffset(ldt))), $TimeUnit::SECONDS);
 		} catch ($DateTimeException& dte) {
 		}
 	}
@@ -265,7 +178,7 @@ int64_t ZipUtils::overflowDosToJavaTime(int32_t year, int32_t month, int32_t day
 
 int64_t ZipUtils::javaToDosTime(int64_t time) {
 	$init(ZipUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Instant, instant, $Instant::ofEpochMilli(time));
 	$var($LocalDateTime, ldt, $LocalDateTime::ofInstant(instant, $($ZoneId::systemDefault())));
 	int32_t year = $nc(ldt)->getYear() - 1980;
@@ -276,7 +189,7 @@ int64_t ZipUtils::javaToDosTime(int64_t time) {
 	int32_t var$2 = var$3 | (ldt->getDayOfMonth() << 16);
 	int32_t var$1 = var$2 | (ldt->getHour() << 11);
 	int32_t var$0 = var$1 | (ldt->getMinute() << 5);
-	return (int64_t)((var$0 | (ldt->getSecond() >> 1)) & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+	return (var$0 | (ldt->getSecond() >> 1)) & (int64_t)0xffffffff;
 }
 
 int64_t ZipUtils::winToJavaTime(int64_t wtime) {
@@ -305,12 +218,12 @@ int64_t ZipUtils::javaToUnixTime(int64_t time) {
 
 bool ZipUtils::isRegexMeta(char16_t c) {
 	$init(ZipUtils);
-	return $nc(ZipUtils::regexMetaChars)->indexOf((int32_t)c) != -1;
+	return ZipUtils::regexMetaChars->indexOf(c) != -1;
 }
 
 bool ZipUtils::isGlobMeta(char16_t c) {
 	$init(ZipUtils);
-	return $nc(ZipUtils::globMetaChars)->indexOf((int32_t)c) != -1;
+	return ZipUtils::globMetaChars->indexOf(c) != -1;
 }
 
 char16_t ZipUtils::next($String* glob, int32_t i) {
@@ -347,113 +260,97 @@ $String* ZipUtils::toRegexPattern($String* globPattern) {
 					break;
 				}
 			case u'/':
-				{
-					regex->append(c);
-					break;
-				}
+				regex->append(c);
+				break;
 			case u'[':
-				{
-					regex->append("[[^/]&&["_s);
-					if (ZipUtils::next(globPattern, i) == u'^') {
-						regex->append("\\^"_s);
+				regex->append("[[^/]&&["_s);
+				if (ZipUtils::next(globPattern, i) == u'^') {
+					regex->append("\\^"_s);
+					++i;
+				} else {
+					if (ZipUtils::next(globPattern, i) == u'!') {
+						regex->append(u'^');
 						++i;
-					} else {
-						if (ZipUtils::next(globPattern, i) == u'!') {
-							regex->append(u'^');
-							++i;
-						}
-						if (ZipUtils::next(globPattern, i) == u'-') {
-							regex->append(u'-');
-							++i;
-						}
 					}
-					hasRangeStart = false;
-					last = (char16_t)0;
-					while (i < globPattern->length()) {
-						c = globPattern->charAt(i++);
-						if (c == u']') {
-							break;
-						}
-						if (c == u'/') {
-							$throwNew($PatternSyntaxException, "Explicit \'name separator\' in class"_s, globPattern, i - 1);
-						}
-						if (c == u'\\' || c == u'[' || c == u'&' && ZipUtils::next(globPattern, i) == u'&') {
-							regex->append(u'\\');
-						}
-						regex->append(c);
-						if (c == u'-') {
-							if (!hasRangeStart) {
-								$throwNew($PatternSyntaxException, "Invalid range"_s, globPattern, i - 1);
-							}
-							if ((c = ZipUtils::next(globPattern, i++)) == ZipUtils::EOL || c == u']') {
-								break;
-							}
-							if (c < last) {
-								$throwNew($PatternSyntaxException, "Invalid range"_s, globPattern, i - 3);
-							}
-							regex->append(c);
-							hasRangeStart = false;
-						} else {
-							hasRangeStart = true;
-							last = c;
-						}
-					}
-					if (c != u']') {
-						$throwNew($PatternSyntaxException, "Missing \']"_s, globPattern, i - 1);
-					}
-					regex->append("]]"_s);
-					break;
-				}
-			case u'{':
-				{
-					if (inGroup) {
-						$throwNew($PatternSyntaxException, "Cannot nest groups"_s, globPattern, i - 1);
-					}
-					regex->append("(?:(?:"_s);
-					inGroup = true;
-					break;
-				}
-			case u'}':
-				{
-					if (inGroup) {
-						regex->append("))"_s);
-						inGroup = false;
-					} else {
-						regex->append(u'}');
-					}
-					break;
-				}
-			case u',':
-				{
-					if (inGroup) {
-						regex->append(")|(?:"_s);
-					} else {
-						regex->append(u',');
-					}
-					break;
-				}
-			case u'*':
-				{
-					if (ZipUtils::next(globPattern, i) == u'*') {
-						regex->append(".*"_s);
+					if (ZipUtils::next(globPattern, i) == u'-') {
+						regex->append(u'-');
 						++i;
-					} else {
-						regex->append("[^/]*"_s);
 					}
-					break;
 				}
-			case u'?':
-				{
-					regex->append("[^/]"_s);
-					break;
-				}
-			default:
-				{
-					if (isRegexMeta(c)) {
+				hasRangeStart = false;
+				last = 0;
+				while (i < globPattern->length()) {
+					c = globPattern->charAt(i++);
+					if (c == u']') {
+						break;
+					}
+					if (c == u'/') {
+						$throwNew($PatternSyntaxException, "Explicit \'name separator\' in class"_s, globPattern, i - 1);
+					}
+					if (c == u'\\' || c == u'[' || c == u'&' && ZipUtils::next(globPattern, i) == u'&') {
 						regex->append(u'\\');
 					}
 					regex->append(c);
+					if (c == u'-') {
+						if (!hasRangeStart) {
+							$throwNew($PatternSyntaxException, "Invalid range"_s, globPattern, i - 1);
+						}
+						if ((c = ZipUtils::next(globPattern, i++)) == ZipUtils::EOL || c == u']') {
+							break;
+						}
+						if (c < last) {
+							$throwNew($PatternSyntaxException, "Invalid range"_s, globPattern, i - 3);
+						}
+						regex->append(c);
+						hasRangeStart = false;
+					} else {
+						hasRangeStart = true;
+						last = c;
+					}
 				}
+				if (c != u']') {
+					$throwNew($PatternSyntaxException, "Missing \']"_s, globPattern, i - 1);
+				}
+				regex->append("]]"_s);
+				break;
+			case u'{':
+				if (inGroup) {
+					$throwNew($PatternSyntaxException, "Cannot nest groups"_s, globPattern, i - 1);
+				}
+				regex->append("(?:(?:"_s);
+				inGroup = true;
+				break;
+			case u'}':
+				if (inGroup) {
+					regex->append("))"_s);
+					inGroup = false;
+				} else {
+					regex->append(u'}');
+				}
+				break;
+			case u',':
+				if (inGroup) {
+					regex->append(")|(?:"_s);
+				} else {
+					regex->append(u',');
+				}
+				break;
+			case u'*':
+				if (ZipUtils::next(globPattern, i) == u'*') {
+					regex->append(".*"_s);
+					++i;
+				} else {
+					regex->append("[^/]*"_s);
+				}
+				break;
+			case u'?':
+				regex->append("[^/]"_s);
+				break;
+			default:
+				if (isRegexMeta(c)) {
+					regex->append(u'\\');
+				}
+				regex->append(c);
 			}
 		}
 	}
@@ -463,17 +360,76 @@ $String* ZipUtils::toRegexPattern($String* globPattern) {
 	return regex->append(u'$')->toString();
 }
 
-void clinit$ZipUtils($Class* class$) {
+void ZipUtils::clinit$($Class* clazz) {
 	$assignStatic(ZipUtils::regexMetaChars, ".^$+{[]|()"_s);
 	$assignStatic(ZipUtils::globMetaChars, "\\*?[{"_s);
-	ZipUtils::EOL = (char16_t)0;
+	ZipUtils::EOL = 0;
 }
 
 ZipUtils::ZipUtils() {
 }
 
 $Class* ZipUtils::load$($String* name, bool initialize) {
-	$loadClass(ZipUtils, name, initialize, &_ZipUtils_ClassInfo_, clinit$ZipUtils, allocate$ZipUtils);
+	$FieldInfo fieldInfos$$[] = {
+		{"POSIX_USER_READ", "I", nullptr, $STATIC | $FINAL, $constField(ZipUtils, POSIX_USER_READ)},
+		{"POSIX_USER_WRITE", "I", nullptr, $STATIC | $FINAL, $constField(ZipUtils, POSIX_USER_WRITE)},
+		{"POSIX_USER_EXECUTE", "I", nullptr, $STATIC | $FINAL, $constField(ZipUtils, POSIX_USER_EXECUTE)},
+		{"POSIX_GROUP_READ", "I", nullptr, $STATIC | $FINAL, $constField(ZipUtils, POSIX_GROUP_READ)},
+		{"POSIX_GROUP_WRITE", "I", nullptr, $STATIC | $FINAL, $constField(ZipUtils, POSIX_GROUP_WRITE)},
+		{"POSIX_GROUP_EXECUTE", "I", nullptr, $STATIC | $FINAL, $constField(ZipUtils, POSIX_GROUP_EXECUTE)},
+		{"POSIX_OTHER_READ", "I", nullptr, $STATIC | $FINAL, $constField(ZipUtils, POSIX_OTHER_READ)},
+		{"POSIX_OTHER_WRITE", "I", nullptr, $STATIC | $FINAL, $constField(ZipUtils, POSIX_OTHER_WRITE)},
+		{"POSIX_OTHER_EXECUTE", "I", nullptr, $STATIC | $FINAL, $constField(ZipUtils, POSIX_OTHER_EXECUTE)},
+		{"WINDOWS_EPOCH_IN_MICROSECONDS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZipUtils, WINDOWS_EPOCH_IN_MICROSECONDS)},
+		{"regexMetaChars", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ZipUtils, regexMetaChars)},
+		{"globMetaChars", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ZipUtils, globMetaChars)},
+		{"EOL", "C", nullptr, $PRIVATE | $STATIC, $staticField(ZipUtils, EOL)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ZipUtils, init$, void)},
+		{"dosToJavaTime", "(J)J", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipUtils, dosToJavaTime, int64_t, int64_t)},
+		{"isGlobMeta", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ZipUtils, isGlobMeta, bool, char16_t)},
+		{"isRegexMeta", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ZipUtils, isRegexMeta, bool, char16_t)},
+		{"javaToDosTime", "(J)J", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipUtils, javaToDosTime, int64_t, int64_t)},
+		{"javaToUnixTime", "(J)J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ZipUtils, javaToUnixTime, int64_t, int64_t)},
+		{"javaToWinTime", "(J)J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ZipUtils, javaToWinTime, int64_t, int64_t)},
+		{"next", "(Ljava/lang/String;I)C", nullptr, $PRIVATE | $STATIC, $staticMethod(ZipUtils, next, char16_t, $String*, int32_t)},
+		{"overflowDosToJavaTime", "(IIIIII)J", nullptr, $PRIVATE | $STATIC, $staticMethod(ZipUtils, overflowDosToJavaTime, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"permToFlag", "(Ljava/nio/file/attribute/PosixFilePermission;)I", nullptr, $STATIC, $staticMethod(ZipUtils, permToFlag, int32_t, $PosixFilePermission*)},
+		{"permsToFlags", "(Ljava/util/Set;)I", "(Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;)I", $STATIC, $staticMethod(ZipUtils, permsToFlags, int32_t, $Set*)},
+		{"toDirectoryPath", "([B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipUtils, toDirectoryPath, $bytes*, $bytes*)},
+		{"toRegexPattern", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipUtils, toRegexPattern, $String*, $String*)},
+		{"unixToJavaTime", "(J)J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ZipUtils, unixToJavaTime, int64_t, int64_t)},
+		{"winToJavaTime", "(J)J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ZipUtils, winToJavaTime, int64_t, int64_t)},
+		{"writeBytes", "(Ljava/io/OutputStream;[B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipUtils, writeBytes, void, $OutputStream*, $bytes*), "java.io.IOException"},
+		{"writeBytes", "(Ljava/io/OutputStream;[BII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipUtils, writeBytes, void, $OutputStream*, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"writeInt", "(Ljava/io/OutputStream;J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipUtils, writeInt, void, $OutputStream*, int64_t), "java.io.IOException"},
+		{"writeLong", "(Ljava/io/OutputStream;J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipUtils, writeLong, void, $OutputStream*, int64_t), "java.io.IOException"},
+		{"writeShort", "(Ljava/io/OutputStream;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipUtils, writeShort, void, $OutputStream*, int32_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.nio.zipfs.ZipUtils$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.nio.zipfs.ZipUtils",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.nio.zipfs.ZipUtils$1"
+	};
+	$loadClass(ZipUtils, name, initialize, &classInfo$$, ZipUtils::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ZipUtils);
+	});
 	return class$;
 }
 

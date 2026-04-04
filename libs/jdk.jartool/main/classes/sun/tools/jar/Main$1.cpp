@@ -1,5 +1,4 @@
 #include <sun/tools/jar/Main$1.h>
-
 #include <java/util/HashSet.h>
 #include <java/util/zip/ZipEntry.h>
 #include <sun/tools/jar/Main.h>
@@ -17,49 +16,6 @@ using $Main = ::sun::tools::jar::Main;
 namespace sun {
 	namespace tools {
 		namespace jar {
-
-$FieldInfo _Main$1_FieldInfo_[] = {
-	{"this$0", "Lsun/tools/jar/Main;", nullptr, $FINAL | $SYNTHETIC, $field(Main$1, this$0)},
-	{}
-};
-
-$MethodInfo _Main$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/tools/jar/Main;)V", nullptr, 0, $method(Main$1, init$, void, $Main*)},
-	{"add", "(Ljava/util/zip/ZipEntry;)Z", nullptr, $PUBLIC, $virtualMethod(Main$1, add, bool, $ZipEntry*)},
-	{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Main$1, add, bool, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _Main$1_EnclosingMethodInfo_ = {
-	"sun.tools.jar.Main",
-	"newDirSet",
-	"()Ljava/util/Set;"
-};
-
-$InnerClassInfo _Main$1_InnerClassesInfo_[] = {
-	{"sun.tools.jar.Main$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Main$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.tools.jar.Main$1",
-	"java.util.HashSet",
-	nullptr,
-	_Main$1_FieldInfo_,
-	_Main$1_MethodInfo_,
-	"Ljava/util/HashSet<Ljava/util/zip/ZipEntry;>;",
-	&_Main$1_EnclosingMethodInfo_,
-	_Main$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.tools.jar.Main"
-};
-
-$Object* allocate$Main$1($Class* clazz) {
-	return $of($alloc(Main$1));
-}
 
 void Main$1::init$($Main* this$0) {
 	$set(this, this$0, this$0);
@@ -79,7 +35,43 @@ Main$1::Main$1() {
 }
 
 $Class* Main$1::load$($String* name, bool initialize) {
-	$loadClass(Main$1, name, initialize, &_Main$1_ClassInfo_, allocate$Main$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/tools/jar/Main;", nullptr, $FINAL | $SYNTHETIC, $field(Main$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/tools/jar/Main;)V", nullptr, 0, $method(Main$1, init$, void, $Main*)},
+		{"add", "(Ljava/util/zip/ZipEntry;)Z", nullptr, $PUBLIC, $virtualMethod(Main$1, add, bool, $ZipEntry*)},
+		{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Main$1, add, bool, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.tools.jar.Main",
+		"newDirSet",
+		"()Ljava/util/Set;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.tools.jar.Main$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.tools.jar.Main$1",
+		"java.util.HashSet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/HashSet<Ljava/util/zip/ZipEntry;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.tools.jar.Main"
+	};
+	$loadClass(Main$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Main$1));
+	});
 	return class$;
 }
 

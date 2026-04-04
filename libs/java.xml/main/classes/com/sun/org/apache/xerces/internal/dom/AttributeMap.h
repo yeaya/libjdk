@@ -60,7 +60,7 @@ public:
 	virtual ::org::w3c::dom::Node* safeRemoveNamedItemNS($String* namespaceURI, $String* name);
 	virtual ::org::w3c::dom::Node* setNamedItem(::org::w3c::dom::Node* arg) override;
 	virtual ::org::w3c::dom::Node* setNamedItemNS(::org::w3c::dom::Node* arg) override;
-	static const int64_t serialVersionUID = (int64_t)0x7B21D4678EC641A7;
+	static const int64_t serialVersionUID = (int64_t)0x7b21d4678ec641a7;
 };
 
 						} // dom

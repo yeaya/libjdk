@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/MarlinCache.h>
-
 #include <java/lang/Math.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/java2d/marlin/ArrayCacheConst.h>
@@ -53,77 +52,15 @@ using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $ArrayCacheConst = ::sun::java2d::marlin::ArrayCacheConst;
 using $FloatMath = ::sun::java2d::marlin::FloatMath;
 using $IntArrayCache = ::sun::java2d::marlin::IntArrayCache;
-using $IntArrayCache$Reference = ::sun::java2d::marlin::IntArrayCache$Reference;
 using $MarlinConst = ::sun::java2d::marlin::MarlinConst;
 using $MarlinProperties = ::sun::java2d::marlin::MarlinProperties;
 using $MarlinUtils = ::sun::java2d::marlin::MarlinUtils;
 using $OffHeapArray = ::sun::java2d::marlin::OffHeapArray;
 using $RendererContext = ::sun::java2d::marlin::RendererContext;
-using $Histogram = ::sun::java2d::marlin::stats::Histogram;
-using $StatLong = ::sun::java2d::marlin::stats::StatLong;
 
 namespace sun {
 	namespace java2d {
 		namespace marlin {
-
-$FieldInfo _MarlinCache_FieldInfo_[] = {
-	{"FORCE_RLE", "Z", nullptr, $STATIC | $FINAL, $staticField(MarlinCache, FORCE_RLE)},
-	{"FORCE_NO_RLE", "Z", nullptr, $STATIC | $FINAL, $staticField(MarlinCache, FORCE_NO_RLE)},
-	{"RLE_MIN_WIDTH", "I", nullptr, $STATIC | $FINAL, $staticField(MarlinCache, RLE_MIN_WIDTH)},
-	{"RLE_MAX_WIDTH", "I", nullptr, $STATIC | $FINAL, $constField(MarlinCache, RLE_MAX_WIDTH)},
-	{"INITIAL_CHUNK_ARRAY", "J", nullptr, $STATIC | $FINAL, $staticField(MarlinCache, INITIAL_CHUNK_ARRAY)},
-	{"ALPHA_MAP", "[B", nullptr, $STATIC | $FINAL, $staticField(MarlinCache, ALPHA_MAP)},
-	{"ALPHA_MAP_UNSAFE", "Lsun/java2d/marlin/OffHeapArray;", nullptr, $STATIC | $FINAL, $staticField(MarlinCache, ALPHA_MAP_UNSAFE)},
-	{"bboxX0", "I", nullptr, 0, $field(MarlinCache, bboxX0)},
-	{"bboxY0", "I", nullptr, 0, $field(MarlinCache, bboxY0)},
-	{"bboxX1", "I", nullptr, 0, $field(MarlinCache, bboxX1)},
-	{"bboxY1", "I", nullptr, 0, $field(MarlinCache, bboxY1)},
-	{"rowAAChunkIndex", "[J", nullptr, $FINAL, $field(MarlinCache, rowAAChunkIndex)},
-	{"rowAAx0", "[I", nullptr, $FINAL, $field(MarlinCache, rowAAx0)},
-	{"rowAAx1", "[I", nullptr, $FINAL, $field(MarlinCache, rowAAx1)},
-	{"rowAAEnc", "[I", nullptr, $FINAL, $field(MarlinCache, rowAAEnc)},
-	{"rowAALen", "[J", nullptr, $FINAL, $field(MarlinCache, rowAALen)},
-	{"rowAAPos", "[J", nullptr, $FINAL, $field(MarlinCache, rowAAPos)},
-	{"rowAAChunk", "Lsun/java2d/marlin/OffHeapArray;", nullptr, $FINAL, $field(MarlinCache, rowAAChunk)},
-	{"rowAAChunkPos", "J", nullptr, 0, $field(MarlinCache, rowAAChunkPos)},
-	{"touchedTile", "[I", nullptr, 0, $field(MarlinCache, touchedTile)},
-	{"rdrStats", "Lsun/java2d/marlin/RendererStats;", nullptr, $FINAL, $field(MarlinCache, rdrStats)},
-	{"touchedTile_ref", "Lsun/java2d/marlin/IntArrayCache$Reference;", nullptr, $PRIVATE | $FINAL, $field(MarlinCache, touchedTile_ref)},
-	{"tileMin", "I", nullptr, 0, $field(MarlinCache, tileMin)},
-	{"tileMax", "I", nullptr, 0, $field(MarlinCache, tileMax)},
-	{"useRLE", "Z", nullptr, 0, $field(MarlinCache, useRLE)},
-	{}
-};
-
-$MethodInfo _MarlinCache_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/marlin/RendererContext;)V", nullptr, 0, $method(MarlinCache, init$, void, $RendererContext*)},
-	{"alphaSumInTile", "(I)I", nullptr, 0, $method(MarlinCache, alphaSumInTile, int32_t, int32_t)},
-	{"buildAlphaMap", "(I)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(MarlinCache, buildAlphaMap, $bytes*, int32_t)},
-	{"clearAARow", "(I)V", nullptr, 0, $method(MarlinCache, clearAARow, void, int32_t)},
-	{"copyAARowNoRLE", "([IIII)V", nullptr, 0, $method(MarlinCache, copyAARowNoRLE, void, $ints*, int32_t, int32_t, int32_t)},
-	{"copyAARowRLE_WithBlockFlags", "([I[IIII)V", nullptr, 0, $method(MarlinCache, copyAARowRLE_WithBlockFlags, void, $ints*, $ints*, int32_t, int32_t, int32_t)},
-	{"dispose", "()V", nullptr, 0, $method(MarlinCache, dispose, void)},
-	{"expandRowAAChunk", "(J)V", nullptr, $PRIVATE, $method(MarlinCache, expandRowAAChunk, void, int64_t)},
-	{"init", "(IIII)V", nullptr, 0, $method(MarlinCache, init, void, int32_t, int32_t, int32_t, int32_t)},
-	{"resetTileLine", "(I)V", nullptr, 0, $method(MarlinCache, resetTileLine, void, int32_t)},
-	{"startRLERow", "(III)J", nullptr, 0, $method(MarlinCache, startRLERow, int64_t, int32_t, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MarlinCache, toString, $String*)},
-	{"touchTile", "(IIII[I)V", nullptr, $PRIVATE, $method(MarlinCache, touchTile, void, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{}
-};
-
-$ClassInfo _MarlinCache_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.MarlinCache",
-	"java.lang.Object",
-	"sun.java2d.marlin.MarlinConst",
-	_MarlinCache_FieldInfo_,
-	_MarlinCache_MethodInfo_
-};
-
-$Object* allocate$MarlinCache($Class* clazz) {
-	return $of($alloc(MarlinCache));
-}
 
 bool MarlinCache::FORCE_RLE = false;
 bool MarlinCache::FORCE_NO_RLE = false;
@@ -180,8 +117,9 @@ void MarlinCache::dispose() {
 	}
 	$set(this, touchedTile, $nc(this->touchedTile_ref)->putArray(this->touchedTile, 0, 0));
 	if ($nc(this->rowAAChunk)->length != MarlinCache::INITIAL_CHUNK_ARRAY) {
-		$nc(this->rowAAChunk)->resize(MarlinCache::INITIAL_CHUNK_ARRAY);
+		this->rowAAChunk->resize(MarlinCache::INITIAL_CHUNK_ARRAY);
 	}
+	;
 }
 
 void MarlinCache::resetTileLine(int32_t pminY) {
@@ -203,29 +141,30 @@ void MarlinCache::resetTileLine(int32_t pminY) {
 		this->tileMin = $Integer::MAX_VALUE;
 		this->tileMax = $Integer::MIN_VALUE;
 	}
+	;
 }
 
 void MarlinCache::clearAARow(int32_t y) {
 	int32_t row = y - this->bboxY0;
-	$nc(this->rowAAx0)->set(row, 0);
-	$nc(this->rowAAx1)->set(row, 0);
-	$nc(this->rowAAEnc)->set(row, 0);
+	this->rowAAx0->set(row, 0);
+	this->rowAAx1->set(row, 0);
+	this->rowAAEnc->set(row, 0);
 }
 
 void MarlinCache::copyAARowNoRLE($ints* alphaRow, int32_t y, int32_t px0, int32_t px1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t px_bbox1 = $FloatMath::min(px1, this->bboxX1);
 	$init($MarlinConst);
 	if ($MarlinConst::DO_LOG_BOUNDS) {
 		$MarlinUtils::logInfo($$str({"row = ["_s, $$str(px0), " ... "_s, $$str(px_bbox1), " ("_s, $$str(px1), ") [ for y="_s, $$str(y)}));
 	}
 	int32_t row = y - this->bboxY0;
-	$nc(this->rowAAx0)->set(row, px0);
-	$nc(this->rowAAx1)->set(row, px_bbox1);
-	$nc(this->rowAAEnc)->set(row, 0);
+	this->rowAAx0->set(row, px0);
+	this->rowAAx1->set(row, px_bbox1);
+	this->rowAAEnc->set(row, 0);
 	int64_t pos = this->rowAAChunkPos;
-	$nc(this->rowAAChunkIndex)->set(row, pos);
-	int64_t needSize = pos + ((int32_t)((px_bbox1 - px0 + 3) & (uint32_t)-4));
+	this->rowAAChunkIndex->set(row, pos);
+	int64_t needSize = pos + ((px_bbox1 - px0 + 3) & -4);
 	this->rowAAChunkPos = needSize;
 	$var($OffHeapArray, _rowAAChunk, this->rowAAChunk);
 	if ($nc(_rowAAChunk)->length < needSize) {
@@ -238,24 +177,20 @@ void MarlinCache::copyAARowNoRLE($ints* alphaRow, int32_t y, int32_t px0, int32_
 	int32_t _TILE_SIZE_LG = $MarlinConst::TILE_W_LG;
 	int32_t from = px0 - this->bboxX0;
 	int32_t to = px_bbox1 - this->bboxX0;
-	$init($OffHeapArray);
 	$var($Unsafe, _unsafe, $OffHeapArray::UNSAFE);
 	int64_t SIZE_BYTE = 1;
 	int64_t addr_alpha = $nc(MarlinCache::ALPHA_MAP_UNSAFE)->address;
-	int64_t addr_off = $nc(_rowAAChunk)->address + pos;
-	{
-		int32_t x = from;
-		int32_t val = 0;
-		for (; x < to; ++x) {
-			val += $nc(alphaRow)->get(x);
-			if (val == 0) {
-				$nc(_unsafe)->putByte(addr_off, (int8_t)0);
-			} else {
-				$nc(_unsafe)->putByte(addr_off, _unsafe->getByte(addr_alpha + val));
-				(*$nc(_touchedTile))[$sr(x, _TILE_SIZE_LG)] += val;
-			}
-			addr_off += SIZE_BYTE;
+	int64_t addr_off = _rowAAChunk->address + pos;
+	for (int32_t x = from, val = 0; x < to; ++x) {
+		val += $nc(alphaRow)->get(x);
+		;
+		if (val == 0) {
+			$nc(_unsafe)->putByte(addr_off, (int8_t)0);
+		} else {
+			$nc(_unsafe)->putByte(addr_off, $nc(_unsafe)->getByte(addr_alpha + val));
+			(*$nc(_touchedTile))[$sr(x, _TILE_SIZE_LG)] += val;
 		}
+		addr_off += SIZE_BYTE;
 	}
 	int32_t tx = $sr(from, _TILE_SIZE_LG);
 	if (tx < this->tileMin) {
@@ -272,7 +207,7 @@ void MarlinCache::copyAARowNoRLE($ints* alphaRow, int32_t y, int32_t px0, int32_
 }
 
 void MarlinCache::copyAARowRLE_WithBlockFlags($ints* blkFlags, $ints* alphaRow, int32_t y, int32_t px0, int32_t px1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t _bboxX0 = this->bboxX0;
 	int32_t row = y - this->bboxY0;
 	int32_t from = px0 - _bboxX0;
@@ -288,11 +223,10 @@ void MarlinCache::copyAARowRLE_WithBlockFlags($ints* blkFlags, $ints* alphaRow, 
 	if ($nc(_rowAAChunk)->length < needSize) {
 		expandRowAAChunk(needSize);
 	}
-	$init($OffHeapArray);
 	$var($Unsafe, _unsafe, $OffHeapArray::UNSAFE);
 	int64_t SIZE_INT = 4;
 	int64_t addr_alpha = $nc(MarlinCache::ALPHA_MAP_UNSAFE)->address;
-	int64_t addr_off = $nc(_rowAAChunk)->address + initialPos;
+	int64_t addr_off = _rowAAChunk->address + initialPos;
 	$var($ints, _touchedTile, this->touchedTile);
 	int32_t _TILE_SIZE_LG = $MarlinConst::TILE_W_LG;
 	int32_t _BLK_SIZE_LG = $MarlinConst::BLOCK_SIZE_LG;
@@ -305,60 +239,54 @@ void MarlinCache::copyAARowRLE_WithBlockFlags($ints* blkFlags, $ints* alphaRow, 
 	int32_t _MAX_VALUE = $Integer::MAX_VALUE;
 	int32_t last_t0 = _MAX_VALUE;
 	int32_t skip = 0;
-	{
-		int32_t t = blkW;
-		int32_t blk_x0 = 0;
-		int32_t blk_x1 = 0;
-		int32_t cx = 0;
-		int32_t delta = 0;
-		for (; t <= blkE; ++t) {
-			if (blkFlags->get(t) != 0) {
-				blkFlags->set(t, 0);
-				if (last_t0 == _MAX_VALUE) {
-					last_t0 = t;
-				}
-				continue;
+	for (int32_t t = blkW, blk_x0 = 0, blk_x1 = 0, cx = 0, delta = 0; t <= blkE; ++t) {
+		if (blkFlags->get(t) != 0) {
+			blkFlags->set(t, 0);
+			if (last_t0 == _MAX_VALUE) {
+				last_t0 = t;
 			}
-			if (last_t0 != _MAX_VALUE) {
-				blk_x0 = $FloatMath::max($sl(last_t0, _BLK_SIZE_LG), from);
-				last_t0 = _MAX_VALUE;
-				blk_x1 = $FloatMath::min(($sl(t, _BLK_SIZE_LG)) + 1, to);
-				for (cx = blk_x0; cx < blk_x1; ++cx) {
-					if ((delta = $nc(alphaRow)->get(cx)) != 0) {
-						alphaRow->set(cx, 0);
-						if (cx != cx0) {
-							runLen = cx - cx0;
-							if (val == 0) {
-								$nc(_unsafe)->putInt(addr_off, ((_bboxX0 + cx) << 8));
+			continue;
+		}
+		if (last_t0 != _MAX_VALUE) {
+			blk_x0 = $FloatMath::max($sl(last_t0, _BLK_SIZE_LG), from);
+			last_t0 = _MAX_VALUE;
+			blk_x1 = $FloatMath::min(($sl(t, _BLK_SIZE_LG)) + 1, to);
+			for (cx = blk_x0; cx < blk_x1; ++cx) {
+				if ((delta = $nc(alphaRow)->get(cx)) != 0) {
+					alphaRow->set(cx, 0);
+					if (cx != cx0) {
+						runLen = cx - cx0;
+						;
+						if (val == 0) {
+							$nc(_unsafe)->putInt(addr_off, ((_bboxX0 + cx) << 8));
+						} else {
+							$nc(_unsafe)->putInt(addr_off, ((_bboxX0 + cx) << 8) | (((int32_t)$nc(_unsafe)->getByte(addr_alpha + val)) & 0xff));
+							if (runLen == 1) {
+								(*$nc(_touchedTile))[$sr(cx0, _TILE_SIZE_LG)] += val;
 							} else {
-								$nc(_unsafe)->putInt(addr_off, ((_bboxX0 + cx) << 8) | ((int32_t)(((int32_t)_unsafe->getByte(addr_alpha + val)) & (uint32_t)255)));
-								if (runLen == 1) {
-									(*$nc(_touchedTile))[$sr(cx0, _TILE_SIZE_LG)] += val;
-								} else {
-									touchTile(cx0, val, cx, runLen, _touchedTile);
-								}
+								touchTile(cx0, val, cx, runLen, _touchedTile);
 							}
-							addr_off += SIZE_INT;
-							if ($MarlinConst::DO_STATS) {
-								$nc($nc(this->rdrStats)->hist_tile_generator_encoding_runLen)->add(runLen);
-							}
-							cx0 = cx;
 						}
-						val += delta;
+						addr_off += SIZE_INT;
+						if ($MarlinConst::DO_STATS) {
+							$nc($nc(this->rdrStats)->hist_tile_generator_encoding_runLen)->add(runLen);
+						}
+						cx0 = cx;
 					}
-				}
-			} else {
-				if ($MarlinConst::DO_STATS) {
-					++skip;
+					val += delta;
+					;
 				}
 			}
+		} else if ($MarlinConst::DO_STATS) {
+			++skip;
 		}
 	}
 	runLen = to - cx0;
+	;
 	if (val == 0) {
 		$nc(_unsafe)->putInt(addr_off, ((_bboxX0 + to) << 8));
 	} else {
-		$nc(_unsafe)->putInt(addr_off, ((_bboxX0 + to) << 8) | ((int32_t)(((int32_t)_unsafe->getByte(addr_alpha + val)) & (uint32_t)255)));
+		$nc(_unsafe)->putInt(addr_off, ((_bboxX0 + to) << 8) | (((int32_t)$nc(_unsafe)->getByte(addr_alpha + val)) & 0xff));
 		if (runLen == 1) {
 			(*$nc(_touchedTile))[$sr(cx0, _TILE_SIZE_LG)] += val;
 		} else {
@@ -370,11 +298,11 @@ void MarlinCache::copyAARowRLE_WithBlockFlags($ints* blkFlags, $ints* alphaRow, 
 		$nc($nc(this->rdrStats)->hist_tile_generator_encoding_runLen)->add(runLen);
 	}
 	int64_t len = (addr_off - _rowAAChunk->address);
-	$nc(this->rowAALen)->set(row, (len - initialPos));
+	this->rowAALen->set(row, (len - initialPos));
 	this->rowAAChunkPos = len;
 	if ($MarlinConst::DO_STATS) {
-		$nc($nc(this->rdrStats)->stat_cache_rowAA)->add($nc(this->rowAALen)->get(row));
-		$nc($nc(this->rdrStats)->hist_tile_generator_encoding_ratio)->add($div((100 * skip), (blkE - blkW)));
+		$nc($nc(this->rdrStats)->stat_cache_rowAA)->add(this->rowAALen->get(row));
+		$nc(this->rdrStats->hist_tile_generator_encoding_ratio)->add($div((100 * skip), (blkE - blkW)));
 	}
 	int32_t tx = $sr(from, _TILE_SIZE_LG);
 	if (tx < this->tileMin) {
@@ -392,11 +320,11 @@ void MarlinCache::copyAARowRLE_WithBlockFlags($ints* blkFlags, $ints* alphaRow, 
 }
 
 int64_t MarlinCache::startRLERow(int32_t row, int32_t x0, int32_t x1) {
-	$nc(this->rowAAx0)->set(row, x0);
-	$nc(this->rowAAx1)->set(row, x1);
-	$nc(this->rowAAEnc)->set(row, 1);
-	$nc(this->rowAAPos)->set(row, 0);
-	return ($nc(this->rowAAChunkIndex)->set(row, this->rowAAChunkPos));
+	this->rowAAx0->set(row, x0);
+	this->rowAAx1->set(row, x1);
+	this->rowAAEnc->set(row, 1);
+	this->rowAAPos->set(row, 0);
+	return (this->rowAAChunkIndex->set(row, this->rowAAChunkPos));
 }
 
 void MarlinCache::expandRowAAChunk(int64_t needSize) {
@@ -405,7 +333,7 @@ void MarlinCache::expandRowAAChunk(int64_t needSize) {
 		$nc($nc(this->rdrStats)->stat_array_marlincache_rowAAChunk)->add(needSize);
 	}
 	int64_t newSize = $ArrayCacheConst::getNewLargeSize($nc(this->rowAAChunk)->length, needSize);
-	$nc(this->rowAAChunk)->resize(newSize);
+	this->rowAAChunk->resize(newSize);
 }
 
 void MarlinCache::touchTile(int32_t x0, int32_t val, int32_t x1, int32_t runLen, $ints* _touchedTile) {
@@ -441,7 +369,7 @@ int32_t MarlinCache::alphaSumInTile(int32_t x) {
 }
 
 $String* MarlinCache::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"bbox = ["_s, $$str(this->bboxX0), ", "_s, $$str(this->bboxY0), " => "_s, $$str(this->bboxX1), ", "_s, $$str(this->bboxY1), "]\n"_s});
 }
 
@@ -455,8 +383,8 @@ $bytes* MarlinCache::buildAlphaMap(int32_t maxalpha) {
 	return alMap;
 }
 
-void clinit$MarlinCache($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void MarlinCache::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	MarlinCache::FORCE_RLE = $MarlinProperties::isForceRLE();
 	MarlinCache::FORCE_NO_RLE = $MarlinProperties::isForceNoRLE();
 	$init($MarlinConst);
@@ -466,10 +394,9 @@ void clinit$MarlinCache($Class* class$) {
 		$var($bytes, _ALPHA_MAP, MarlinCache::buildAlphaMap($MarlinConst::MAX_AA_ALPHA));
 		$assignStatic(MarlinCache::ALPHA_MAP_UNSAFE, $new($OffHeapArray, _ALPHA_MAP, $nc(_ALPHA_MAP)->length));
 		$assignStatic(MarlinCache::ALPHA_MAP, _ALPHA_MAP);
-		$init($OffHeapArray);
 		$var($Unsafe, _unsafe, $OffHeapArray::UNSAFE);
-		int64_t addr = $nc(MarlinCache::ALPHA_MAP_UNSAFE)->address;
-		for (int32_t i = 0; i < $nc(_ALPHA_MAP)->length; ++i) {
+		int64_t addr = MarlinCache::ALPHA_MAP_UNSAFE->address;
+		for (int32_t i = 0; i < _ALPHA_MAP->length; ++i) {
 			$nc(_unsafe)->putByte(addr + i, _ALPHA_MAP->get(i));
 		}
 	}
@@ -479,7 +406,61 @@ MarlinCache::MarlinCache() {
 }
 
 $Class* MarlinCache::load$($String* name, bool initialize) {
-	$loadClass(MarlinCache, name, initialize, &_MarlinCache_ClassInfo_, clinit$MarlinCache, allocate$MarlinCache);
+	$FieldInfo fieldInfos$$[] = {
+		{"FORCE_RLE", "Z", nullptr, $STATIC | $FINAL, $staticField(MarlinCache, FORCE_RLE)},
+		{"FORCE_NO_RLE", "Z", nullptr, $STATIC | $FINAL, $staticField(MarlinCache, FORCE_NO_RLE)},
+		{"RLE_MIN_WIDTH", "I", nullptr, $STATIC | $FINAL, $staticField(MarlinCache, RLE_MIN_WIDTH)},
+		{"RLE_MAX_WIDTH", "I", nullptr, $STATIC | $FINAL, $constField(MarlinCache, RLE_MAX_WIDTH)},
+		{"INITIAL_CHUNK_ARRAY", "J", nullptr, $STATIC | $FINAL, $staticField(MarlinCache, INITIAL_CHUNK_ARRAY)},
+		{"ALPHA_MAP", "[B", nullptr, $STATIC | $FINAL, $staticField(MarlinCache, ALPHA_MAP)},
+		{"ALPHA_MAP_UNSAFE", "Lsun/java2d/marlin/OffHeapArray;", nullptr, $STATIC | $FINAL, $staticField(MarlinCache, ALPHA_MAP_UNSAFE)},
+		{"bboxX0", "I", nullptr, 0, $field(MarlinCache, bboxX0)},
+		{"bboxY0", "I", nullptr, 0, $field(MarlinCache, bboxY0)},
+		{"bboxX1", "I", nullptr, 0, $field(MarlinCache, bboxX1)},
+		{"bboxY1", "I", nullptr, 0, $field(MarlinCache, bboxY1)},
+		{"rowAAChunkIndex", "[J", nullptr, $FINAL, $field(MarlinCache, rowAAChunkIndex)},
+		{"rowAAx0", "[I", nullptr, $FINAL, $field(MarlinCache, rowAAx0)},
+		{"rowAAx1", "[I", nullptr, $FINAL, $field(MarlinCache, rowAAx1)},
+		{"rowAAEnc", "[I", nullptr, $FINAL, $field(MarlinCache, rowAAEnc)},
+		{"rowAALen", "[J", nullptr, $FINAL, $field(MarlinCache, rowAALen)},
+		{"rowAAPos", "[J", nullptr, $FINAL, $field(MarlinCache, rowAAPos)},
+		{"rowAAChunk", "Lsun/java2d/marlin/OffHeapArray;", nullptr, $FINAL, $field(MarlinCache, rowAAChunk)},
+		{"rowAAChunkPos", "J", nullptr, 0, $field(MarlinCache, rowAAChunkPos)},
+		{"touchedTile", "[I", nullptr, 0, $field(MarlinCache, touchedTile)},
+		{"rdrStats", "Lsun/java2d/marlin/RendererStats;", nullptr, $FINAL, $field(MarlinCache, rdrStats)},
+		{"touchedTile_ref", "Lsun/java2d/marlin/IntArrayCache$Reference;", nullptr, $PRIVATE | $FINAL, $field(MarlinCache, touchedTile_ref)},
+		{"tileMin", "I", nullptr, 0, $field(MarlinCache, tileMin)},
+		{"tileMax", "I", nullptr, 0, $field(MarlinCache, tileMax)},
+		{"useRLE", "Z", nullptr, 0, $field(MarlinCache, useRLE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/marlin/RendererContext;)V", nullptr, 0, $method(MarlinCache, init$, void, $RendererContext*)},
+		{"alphaSumInTile", "(I)I", nullptr, 0, $method(MarlinCache, alphaSumInTile, int32_t, int32_t)},
+		{"buildAlphaMap", "(I)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(MarlinCache, buildAlphaMap, $bytes*, int32_t)},
+		{"clearAARow", "(I)V", nullptr, 0, $method(MarlinCache, clearAARow, void, int32_t)},
+		{"copyAARowNoRLE", "([IIII)V", nullptr, 0, $method(MarlinCache, copyAARowNoRLE, void, $ints*, int32_t, int32_t, int32_t)},
+		{"copyAARowRLE_WithBlockFlags", "([I[IIII)V", nullptr, 0, $method(MarlinCache, copyAARowRLE_WithBlockFlags, void, $ints*, $ints*, int32_t, int32_t, int32_t)},
+		{"dispose", "()V", nullptr, 0, $method(MarlinCache, dispose, void)},
+		{"expandRowAAChunk", "(J)V", nullptr, $PRIVATE, $method(MarlinCache, expandRowAAChunk, void, int64_t)},
+		{"init", "(IIII)V", nullptr, 0, $method(MarlinCache, init, void, int32_t, int32_t, int32_t, int32_t)},
+		{"resetTileLine", "(I)V", nullptr, 0, $method(MarlinCache, resetTileLine, void, int32_t)},
+		{"startRLERow", "(III)J", nullptr, 0, $method(MarlinCache, startRLERow, int64_t, int32_t, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MarlinCache, toString, $String*)},
+		{"touchTile", "(IIII[I)V", nullptr, $PRIVATE, $method(MarlinCache, touchTile, void, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.MarlinCache",
+		"java.lang.Object",
+		"sun.java2d.marlin.MarlinConst",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MarlinCache, name, initialize, &classInfo$$, MarlinCache::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MarlinCache);
+	});
 	return class$;
 }
 

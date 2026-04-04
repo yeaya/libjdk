@@ -1,5 +1,4 @@
 #include <java/awt/PageAttributes$OriginType.h>
-
 #include <java/awt/AttributeValue.h>
 #include <java/awt/PageAttributes.h>
 #include <jcpp.h>
@@ -19,47 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 
-$FieldInfo _PageAttributes$OriginType_FieldInfo_[] = {
-	{"I_PHYSICAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PageAttributes$OriginType, I_PHYSICAL)},
-	{"I_PRINTABLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PageAttributes$OriginType, I_PRINTABLE)},
-	{"NAMES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PageAttributes$OriginType, NAMES)},
-	{"PHYSICAL", "Ljava/awt/PageAttributes$OriginType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PageAttributes$OriginType, PHYSICAL)},
-	{"PRINTABLE", "Ljava/awt/PageAttributes$OriginType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PageAttributes$OriginType, PRINTABLE)},
-	{}
-};
-
-$MethodInfo _PageAttributes$OriginType_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(PageAttributes$OriginType, init$, void, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PageAttributes$OriginType, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PageAttributes$OriginType, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _PageAttributes$OriginType_InnerClassesInfo_[] = {
-	{"java.awt.PageAttributes$OriginType", "java.awt.PageAttributes", "OriginType", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PageAttributes$OriginType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.PageAttributes$OriginType",
-	"java.awt.AttributeValue",
-	nullptr,
-	_PageAttributes$OriginType_FieldInfo_,
-	_PageAttributes$OriginType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PageAttributes$OriginType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.PageAttributes"
-};
-
-$Object* allocate$PageAttributes$OriginType($Class* clazz) {
-	return $of($alloc(PageAttributes$OriginType));
-}
-
 $StringArray* PageAttributes$OriginType::NAMES = nullptr;
 PageAttributes$OriginType* PageAttributes$OriginType::PHYSICAL = nullptr;
 PageAttributes$OriginType* PageAttributes$OriginType::PRINTABLE = nullptr;
@@ -76,7 +34,7 @@ int32_t PageAttributes$OriginType::hashCode() {
 	return $AttributeValue::hashCode();
 }
 
-void clinit$PageAttributes$OriginType($Class* class$) {
+void PageAttributes$OriginType::clinit$($Class* clazz) {
 	$assignStatic(PageAttributes$OriginType::NAMES, $new($StringArray, {
 		"physical"_s,
 		"printable"_s
@@ -89,7 +47,42 @@ PageAttributes$OriginType::PageAttributes$OriginType() {
 }
 
 $Class* PageAttributes$OriginType::load$($String* name, bool initialize) {
-	$loadClass(PageAttributes$OriginType, name, initialize, &_PageAttributes$OriginType_ClassInfo_, clinit$PageAttributes$OriginType, allocate$PageAttributes$OriginType);
+	$FieldInfo fieldInfos$$[] = {
+		{"I_PHYSICAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PageAttributes$OriginType, I_PHYSICAL)},
+		{"I_PRINTABLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PageAttributes$OriginType, I_PRINTABLE)},
+		{"NAMES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PageAttributes$OriginType, NAMES)},
+		{"PHYSICAL", "Ljava/awt/PageAttributes$OriginType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PageAttributes$OriginType, PHYSICAL)},
+		{"PRINTABLE", "Ljava/awt/PageAttributes$OriginType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PageAttributes$OriginType, PRINTABLE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PRIVATE, $method(PageAttributes$OriginType, init$, void, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PageAttributes$OriginType, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PageAttributes$OriginType, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.PageAttributes$OriginType", "java.awt.PageAttributes", "OriginType", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.PageAttributes$OriginType",
+		"java.awt.AttributeValue",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.PageAttributes"
+	};
+	$loadClass(PageAttributes$OriginType, name, initialize, &classInfo$$, PageAttributes$OriginType::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PageAttributes$OriginType);
+	});
 	return class$;
 }
 

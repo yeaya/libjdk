@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/DocumentBuilderImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/dom/DOMImplementationImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DOMMessageFormatter.h>
 #include <com/sun/org/apache/xerces/internal/dom/DocumentImpl.h>
@@ -91,17 +90,13 @@ using $XMLSecurityManager = ::com::sun::org::apache::xerces::internal::utils::XM
 using $XMLSecurityPropertyManager = ::com::sun::org::apache::xerces::internal::utils::XMLSecurityPropertyManager;
 using $XMLSecurityPropertyManager$Property = ::com::sun::org::apache::xerces::internal::utils::XMLSecurityPropertyManager$Property;
 using $XMLSecurityPropertyManager$State = ::com::sun::org::apache::xerces::internal::utils::XMLSecurityPropertyManager$State;
-using $XMLDTDHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDTDHandler;
 using $XMLDocumentHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDocumentHandler;
 using $XMLComponent = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponent;
-using $XMLComponentManager = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager;
 using $XMLConfigurationException = ::com::sun::org::apache::xerces::internal::xni::parser::XMLConfigurationException;
-using $XMLDTDSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDTDSource;
 using $XMLDocumentSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDocumentSource;
 using $XMLParserConfiguration = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParserConfiguration;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $IllegalStateException = ::java::lang::IllegalStateException;
@@ -109,7 +104,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $XMLConstants = ::javax::xml::XMLConstants;
 using $DocumentBuilder = ::javax::xml::parsers::DocumentBuilder;
 using $Schema = ::javax::xml::validation::Schema;
@@ -129,70 +123,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace jaxp {
-
-$FieldInfo _DocumentBuilderImpl_FieldInfo_[] = {
-	{"NAMESPACES_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DocumentBuilderImpl, NAMESPACES_FEATURE)},
-	{"INCLUDE_IGNORABLE_WHITESPACE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DocumentBuilderImpl, INCLUDE_IGNORABLE_WHITESPACE)},
-	{"CREATE_ENTITY_REF_NODES_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DocumentBuilderImpl, CREATE_ENTITY_REF_NODES_FEATURE)},
-	{"INCLUDE_COMMENTS_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DocumentBuilderImpl, INCLUDE_COMMENTS_FEATURE)},
-	{"CREATE_CDATA_NODES_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DocumentBuilderImpl, CREATE_CDATA_NODES_FEATURE)},
-	{"XINCLUDE_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DocumentBuilderImpl, XINCLUDE_FEATURE)},
-	{"XMLSCHEMA_VALIDATION_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DocumentBuilderImpl, XMLSCHEMA_VALIDATION_FEATURE)},
-	{"VALIDATION_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DocumentBuilderImpl, VALIDATION_FEATURE)},
-	{"SECURITY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DocumentBuilderImpl, SECURITY_MANAGER)},
-	{"XML_SECURITY_PROPERTY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DocumentBuilderImpl, XML_SECURITY_PROPERTY_MANAGER)},
-	{"ACCESS_EXTERNAL_DTD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocumentBuilderImpl, ACCESS_EXTERNAL_DTD)},
-	{"ACCESS_EXTERNAL_SCHEMA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocumentBuilderImpl, ACCESS_EXTERNAL_SCHEMA)},
-	{"domParser", "Lcom/sun/org/apache/xerces/internal/parsers/DOMParser;", nullptr, $PRIVATE | $FINAL, $field(DocumentBuilderImpl, domParser)},
-	{"grammar", "Ljavax/xml/validation/Schema;", nullptr, $PRIVATE | $FINAL, $field(DocumentBuilderImpl, grammar)},
-	{"fSchemaValidator", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponent;", nullptr, $PRIVATE | $FINAL, $field(DocumentBuilderImpl, fSchemaValidator)},
-	{"fSchemaValidatorComponentManager", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;", nullptr, $PRIVATE | $FINAL, $field(DocumentBuilderImpl, fSchemaValidatorComponentManager)},
-	{"fSchemaValidationManager", "Lcom/sun/org/apache/xerces/internal/impl/validation/ValidationManager;", nullptr, $PRIVATE | $FINAL, $field(DocumentBuilderImpl, fSchemaValidationManager)},
-	{"fUnparsedEntityHandler", "Lcom/sun/org/apache/xerces/internal/jaxp/UnparsedEntityHandler;", nullptr, $PRIVATE | $FINAL, $field(DocumentBuilderImpl, fUnparsedEntityHandler)},
-	{"fInitErrorHandler", "Lorg/xml/sax/ErrorHandler;", nullptr, $PRIVATE | $FINAL, $field(DocumentBuilderImpl, fInitErrorHandler)},
-	{"fInitEntityResolver", "Lorg/xml/sax/EntityResolver;", nullptr, $PRIVATE | $FINAL, $field(DocumentBuilderImpl, fInitEntityResolver)},
-	{"fSecurityManager", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager;", nullptr, $PRIVATE, $field(DocumentBuilderImpl, fSecurityManager)},
-	{"fSecurityPropertyMgr", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityPropertyManager;", nullptr, $PRIVATE, $field(DocumentBuilderImpl, fSecurityPropertyMgr)},
-	{}
-};
-
-$MethodInfo _DocumentBuilderImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/jaxp/DocumentBuilderFactoryImpl;Ljava/util/Map;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/jaxp/DocumentBuilderFactoryImpl;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Boolean;>;)V", 0, $method(DocumentBuilderImpl, init$, void, $DocumentBuilderFactoryImpl*, $Map*, $Map*), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/jaxp/DocumentBuilderFactoryImpl;Ljava/util/Map;Ljava/util/Map;Z)V", "(Lcom/sun/org/apache/xerces/internal/jaxp/DocumentBuilderFactoryImpl;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Boolean;>;Z)V", 0, $method(DocumentBuilderImpl, init$, void, $DocumentBuilderFactoryImpl*, $Map*, $Map*, bool), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
-	{"getDOMImplementation", "()Lorg/w3c/dom/DOMImplementation;", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderImpl, getDOMImplementation, $DOMImplementation*)},
-	{"getDOMParser", "()Lcom/sun/org/apache/xerces/internal/parsers/DOMParser;", nullptr, 0, $virtualMethod(DocumentBuilderImpl, getDOMParser, $DOMParser*)},
-	{"getSchema", "()Ljavax/xml/validation/Schema;", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderImpl, getSchema, $Schema*)},
-	{"isNamespaceAware", "()Z", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderImpl, isNamespaceAware, bool)},
-	{"isValidating", "()Z", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderImpl, isValidating, bool)},
-	{"isXIncludeAware", "()Z", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderImpl, isXIncludeAware, bool)},
-	{"newDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderImpl, newDocument, $Document*)},
-	{"parse", "(Lorg/xml/sax/InputSource;)Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderImpl, parse, $Document*, $InputSource*), "org.xml.sax.SAXException,java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderImpl, reset, void)},
-	{"resetSchemaValidator", "()V", nullptr, $PRIVATE, $method(DocumentBuilderImpl, resetSchemaValidator, void), "org.xml.sax.SAXException"},
-	{"setDocumentBuilderFactoryAttributes", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", $PRIVATE, $method(DocumentBuilderImpl, setDocumentBuilderFactoryAttributes, void, $Map*), "org.xml.sax.SAXNotSupportedException,org.xml.sax.SAXNotRecognizedException"},
-	{"setEntityResolver", "(Lorg/xml/sax/EntityResolver;)V", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderImpl, setEntityResolver, void, $EntityResolver*)},
-	{"setErrorHandler", "(Lorg/xml/sax/ErrorHandler;)V", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderImpl, setErrorHandler, void, $ErrorHandler*)},
-	{"setFeatures", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Boolean;>;)V", $PRIVATE, $method(DocumentBuilderImpl, setFeatures, void, $Map*), "org.xml.sax.SAXNotSupportedException,org.xml.sax.SAXNotRecognizedException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DocumentBuilderImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl",
-	"javax.xml.parsers.DocumentBuilder",
-	"com.sun.org.apache.xerces.internal.jaxp.JAXPConstants",
-	_DocumentBuilderImpl_FieldInfo_,
-	_DocumentBuilderImpl_MethodInfo_
-};
-
-$Object* allocate$DocumentBuilderImpl($Class* clazz) {
-	return $of($alloc(DocumentBuilderImpl));
-}
 
 int32_t DocumentBuilderImpl::hashCode() {
 	 return this->$DocumentBuilder::hashCode();
@@ -232,28 +162,28 @@ void DocumentBuilderImpl::init$($DocumentBuilderFactoryImpl* dbf, $Map* dbfAttrs
 }
 
 void DocumentBuilderImpl::init$($DocumentBuilderFactoryImpl* dbf, $Map* dbfAttrs, $Map* features, bool secureProcessing) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DocumentBuilder::init$();
 	$set(this, domParser, $new($DOMParser));
 	if ($nc(dbf)->isValidating()) {
-		$set(this, fInitErrorHandler, $new($DefaultValidationErrorHandler, $($nc($($nc(this->domParser)->getXMLParserConfiguration()))->getLocale())));
+		$set(this, fInitErrorHandler, $new($DefaultValidationErrorHandler, $($$nc(this->domParser->getXMLParserConfiguration())->getLocale())));
 		setErrorHandler(this->fInitErrorHandler);
 	} else {
-		$set(this, fInitErrorHandler, $nc(this->domParser)->getErrorHandler());
+		$set(this, fInitErrorHandler, this->domParser->getErrorHandler());
 	}
-	$nc(this->domParser)->setFeature(DocumentBuilderImpl::VALIDATION_FEATURE, $nc(dbf)->isValidating());
-	$nc(this->domParser)->setFeature(DocumentBuilderImpl::NAMESPACES_FEATURE, $nc(dbf)->isNamespaceAware());
-	$nc(this->domParser)->setFeature(DocumentBuilderImpl::INCLUDE_IGNORABLE_WHITESPACE, !$nc(dbf)->isIgnoringElementContentWhitespace());
-	$nc(this->domParser)->setFeature(DocumentBuilderImpl::CREATE_ENTITY_REF_NODES_FEATURE, !$nc(dbf)->isExpandEntityReferences());
-	$nc(this->domParser)->setFeature(DocumentBuilderImpl::INCLUDE_COMMENTS_FEATURE, !$nc(dbf)->isIgnoringComments());
-	$nc(this->domParser)->setFeature(DocumentBuilderImpl::CREATE_CDATA_NODES_FEATURE, !$nc(dbf)->isCoalescing());
-	if ($nc(dbf)->isXIncludeAware()) {
-		$nc(this->domParser)->setFeature(DocumentBuilderImpl::XINCLUDE_FEATURE, true);
+	this->domParser->setFeature(DocumentBuilderImpl::VALIDATION_FEATURE, dbf->isValidating());
+	this->domParser->setFeature(DocumentBuilderImpl::NAMESPACES_FEATURE, dbf->isNamespaceAware());
+	this->domParser->setFeature(DocumentBuilderImpl::INCLUDE_IGNORABLE_WHITESPACE, !dbf->isIgnoringElementContentWhitespace());
+	this->domParser->setFeature(DocumentBuilderImpl::CREATE_ENTITY_REF_NODES_FEATURE, !dbf->isExpandEntityReferences());
+	this->domParser->setFeature(DocumentBuilderImpl::INCLUDE_COMMENTS_FEATURE, !dbf->isIgnoringComments());
+	this->domParser->setFeature(DocumentBuilderImpl::CREATE_CDATA_NODES_FEATURE, !dbf->isCoalescing());
+	if (dbf->isXIncludeAware()) {
+		this->domParser->setFeature(DocumentBuilderImpl::XINCLUDE_FEATURE, true);
 	}
 	$set(this, fSecurityPropertyMgr, $new($XMLSecurityPropertyManager));
-	$nc(this->domParser)->setProperty(DocumentBuilderImpl::XML_SECURITY_PROPERTY_MANAGER, this->fSecurityPropertyMgr);
+	this->domParser->setProperty(DocumentBuilderImpl::XML_SECURITY_PROPERTY_MANAGER, this->fSecurityPropertyMgr);
 	$set(this, fSecurityManager, $new($XMLSecurityManager, secureProcessing));
-	$nc(this->domParser)->setProperty(DocumentBuilderImpl::SECURITY_MANAGER, this->fSecurityManager);
+	this->domParser->setProperty(DocumentBuilderImpl::SECURITY_MANAGER, this->fSecurityManager);
 	if (secureProcessing) {
 		if (features != nullptr) {
 			$init($XMLConstants);
@@ -267,30 +197,30 @@ void DocumentBuilderImpl::init$($DocumentBuilderFactoryImpl* dbf, $Map* dbfAttrs
 			}
 		}
 	}
-	$set(this, grammar, $nc(dbf)->getSchema());
+	$set(this, grammar, dbf->getSchema());
 	if (this->grammar != nullptr) {
-		$var($XMLParserConfiguration, config, $nc(this->domParser)->getXMLParserConfiguration());
+		$var($XMLParserConfiguration, config, this->domParser->getXMLParserConfiguration());
 		$var($XMLComponent, validatorComponent, nullptr);
 		if ($instanceOf($XSGrammarPoolContainer, this->grammar)) {
 			$assign(validatorComponent, $new($XMLSchemaValidator));
 			$set(this, fSchemaValidationManager, $new($ValidationManager));
 			$set(this, fUnparsedEntityHandler, $new($UnparsedEntityHandler, this->fSchemaValidationManager));
 			$nc(config)->setDTDHandler(this->fUnparsedEntityHandler);
-			$nc(this->fUnparsedEntityHandler)->setDTDHandler(this->domParser);
-			$nc(this->domParser)->setDTDSource(this->fUnparsedEntityHandler);
+			this->fUnparsedEntityHandler->setDTDHandler(this->domParser);
+			this->domParser->setDTDSource(this->fUnparsedEntityHandler);
 			$set(this, fSchemaValidatorComponentManager, $new($SchemaValidatorConfiguration, config, $cast($XSGrammarPoolContainer, this->grammar), this->fSchemaValidationManager));
 		} else {
-			$assign(validatorComponent, $new($JAXPValidatorComponent, $($nc(this->grammar)->newValidatorHandler())));
+			$assign(validatorComponent, $new($JAXPValidatorComponent, $(this->grammar->newValidatorHandler())));
 			$set(this, fSchemaValidationManager, nullptr);
 			$set(this, fUnparsedEntityHandler, nullptr);
 			$set(this, fSchemaValidatorComponentManager, config);
 		}
 		$nc(config)->addRecognizedFeatures($($nc(validatorComponent)->getRecognizedFeatures()));
-		config->addRecognizedProperties($($nc(validatorComponent)->getRecognizedProperties()));
+		config->addRecognizedProperties($(validatorComponent->getRecognizedProperties()));
 		setFeatures(features);
 		config->setDocumentHandler($cast($XMLDocumentHandler, validatorComponent));
-		$nc(($cast($XMLDocumentSource, validatorComponent)))->setDocumentHandler(this->domParser);
-		$nc(this->domParser)->setDocumentSource($cast($XMLDocumentSource, validatorComponent));
+		$cast($XMLDocumentSource, validatorComponent)->setDocumentHandler(this->domParser);
+		this->domParser->setDocumentSource($cast($XMLDocumentSource, validatorComponent));
 		$set(this, fSchemaValidator, validatorComponent);
 	} else {
 		$set(this, fSchemaValidationManager, nullptr);
@@ -300,69 +230,65 @@ void DocumentBuilderImpl::init$($DocumentBuilderFactoryImpl* dbf, $Map* dbfAttrs
 		setFeatures(features);
 	}
 	setDocumentBuilderFactoryAttributes(dbfAttrs);
-	$set(this, fInitEntityResolver, $nc(this->domParser)->getEntityResolver());
+	$set(this, fInitEntityResolver, this->domParser->getEntityResolver());
 }
 
 void DocumentBuilderImpl::setFeatures($Map* features) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (features != nullptr) {
-		{
-			$var($Iterator, i$, $nc($(features->entrySet()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
-				{
-					$var($String, var$0, $cast($String, $nc(entry)->getKey()));
-					$nc(this->domParser)->setFeature(var$0, $nc(($cast($Boolean, $(entry->getValue()))))->booleanValue());
-				}
+		$var($Iterator, i$, $$nc(features->entrySet())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
+			{
+				$var($String, var$0, $cast($String, $nc(entry)->getKey()));
+				$nc(this->domParser)->setFeature(var$0, $$sure($Boolean, entry->getValue())->booleanValue());
 			}
 		}
 	}
 }
 
 void DocumentBuilderImpl::setDocumentBuilderFactoryAttributes($Map* dbfAttrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (dbfAttrs == nullptr) {
 		return;
 	}
 	{
-		$var($Iterator, i$, $nc($($nc(dbfAttrs)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(dbfAttrs)->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
 				$var($String, name, $cast($String, $nc(entry)->getKey()));
 				$var($Object, val, entry->getValue());
 				if ($instanceOf($Boolean, val)) {
-					$nc(this->domParser)->setFeature(name, $nc(($cast($Boolean, val)))->booleanValue());
+					$nc(this->domParser)->setFeature(name, $cast($Boolean, val)->booleanValue());
 				} else {
 					$init($JAXPConstants);
 					if ($nc($JAXPConstants::JAXP_SCHEMA_LANGUAGE)->equals(name)) {
 						if ($nc($JAXPConstants::W3C_XML_SCHEMA)->equals(val)) {
 							if (isValidating()) {
 								$nc(this->domParser)->setFeature(DocumentBuilderImpl::XMLSCHEMA_VALIDATION_FEATURE, true);
-								$nc(this->domParser)->setProperty($JAXPConstants::JAXP_SCHEMA_LANGUAGE, $JAXPConstants::W3C_XML_SCHEMA);
+								this->domParser->setProperty($JAXPConstants::JAXP_SCHEMA_LANGUAGE, $JAXPConstants::W3C_XML_SCHEMA);
+							}
+						}
+					} else if ($nc($JAXPConstants::JAXP_SCHEMA_SOURCE)->equals(name)) {
+						if (isValidating()) {
+							$var($String, value, $cast($String, dbfAttrs->get($JAXPConstants::JAXP_SCHEMA_LANGUAGE)));
+							if (value != nullptr && $nc($JAXPConstants::W3C_XML_SCHEMA)->equals(value)) {
+								$nc(this->domParser)->setProperty(name, val);
+							} else {
+								$init($DOMMessageFormatter);
+								$throwNew($IllegalArgumentException, $($DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "jaxp-order-not-supported"_s, $$new($ObjectArray, {
+									$JAXPConstants::JAXP_SCHEMA_LANGUAGE,
+									$JAXPConstants::JAXP_SCHEMA_SOURCE
+								}))));
 							}
 						}
 					} else {
-						if ($nc($JAXPConstants::JAXP_SCHEMA_SOURCE)->equals(name)) {
-							if (isValidating()) {
-								$var($String, value, $cast($String, dbfAttrs->get($JAXPConstants::JAXP_SCHEMA_LANGUAGE)));
-								if (value != nullptr && $nc($JAXPConstants::W3C_XML_SCHEMA)->equals(value)) {
-									$nc(this->domParser)->setProperty(name, val);
-								} else {
-									$init($DOMMessageFormatter);
-									$throwNew($IllegalArgumentException, $($DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "jaxp-order-not-supported"_s, $$new($ObjectArray, {
-										$of($JAXPConstants::JAXP_SCHEMA_LANGUAGE),
-										$of($JAXPConstants::JAXP_SCHEMA_SOURCE)
-									}))));
-								}
-							}
-						} else {
-							$init($JdkProperty$State);
-							if (this->fSecurityManager == nullptr || !$nc(this->fSecurityManager)->setLimit(name, $JdkProperty$State::APIPROPERTY, val)) {
-								$init($XMLSecurityPropertyManager$State);
-								if (this->fSecurityPropertyMgr == nullptr || !$nc(this->fSecurityPropertyMgr)->setValue(name, $XMLSecurityPropertyManager$State::APIPROPERTY, val)) {
-									$nc(this->domParser)->setProperty(name, val);
-								}
+						$init($JdkProperty$State);
+						if (this->fSecurityManager == nullptr || !this->fSecurityManager->setLimit(name, $JdkProperty$State::APIPROPERTY, val)) {
+							$init($XMLSecurityPropertyManager$State);
+							if (this->fSecurityPropertyMgr == nullptr || !this->fSecurityPropertyMgr->setValue(name, $XMLSecurityPropertyManager$State::APIPROPERTY, val)) {
+								$nc(this->domParser)->setProperty(name, val);
 							}
 						}
 					}
@@ -381,21 +307,21 @@ $DOMImplementation* DocumentBuilderImpl::getDOMImplementation() {
 }
 
 $Document* DocumentBuilderImpl::parse($InputSource* is) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (is == nullptr) {
 		$init($DOMMessageFormatter);
 		$throwNew($IllegalArgumentException, $($DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "jaxp-null-input-source"_s, nullptr)));
 	}
 	if (this->fSchemaValidator != nullptr) {
 		if (this->fSchemaValidationManager != nullptr) {
-			$nc(this->fSchemaValidationManager)->reset();
+			this->fSchemaValidationManager->reset();
 			$nc(this->fUnparsedEntityHandler)->reset();
 		}
 		resetSchemaValidator();
 	}
 	$nc(this->domParser)->parse(is);
-	$var($Document, doc, $nc(this->domParser)->getDocument());
-	$nc(this->domParser)->dropDocumentReferences();
+	$var($Document, doc, this->domParser->getDocument());
+	this->domParser->dropDocumentReferences();
 	return doc;
 }
 
@@ -440,10 +366,10 @@ $Schema* DocumentBuilderImpl::getSchema() {
 
 void DocumentBuilderImpl::reset() {
 	if ($nc(this->domParser)->getErrorHandler() != this->fInitErrorHandler) {
-		$nc(this->domParser)->setErrorHandler(this->fInitErrorHandler);
+		this->domParser->setErrorHandler(this->fInitErrorHandler);
 	}
-	if ($nc(this->domParser)->getEntityResolver() != this->fInitEntityResolver) {
-		$nc(this->domParser)->setEntityResolver(this->fInitEntityResolver);
+	if (this->domParser->getEntityResolver() != this->fInitEntityResolver) {
+		this->domParser->setEntityResolver(this->fInitEntityResolver);
 	}
 }
 
@@ -455,14 +381,14 @@ void DocumentBuilderImpl::resetSchemaValidator() {
 	try {
 		$nc(this->fSchemaValidator)->reset(this->fSchemaValidatorComponentManager);
 	} catch ($XMLConfigurationException& e) {
-		$throwNew($SAXException, static_cast<$Exception*>(e));
+		$throwNew($SAXException, e);
 	}
 }
 
 DocumentBuilderImpl::DocumentBuilderImpl() {
 }
 
-void clinit$DocumentBuilderImpl($Class* class$) {
+void DocumentBuilderImpl::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(DocumentBuilderImpl::NAMESPACES_FEATURE, $str({$Constants::SAX_FEATURE_PREFIX, $Constants::NAMESPACES_FEATURE}));
 	$assignStatic(DocumentBuilderImpl::INCLUDE_IGNORABLE_WHITESPACE, $str({$Constants::XERCES_FEATURE_PREFIX, $Constants::INCLUDE_IGNORABLE_WHITESPACE}));
@@ -481,7 +407,66 @@ void clinit$DocumentBuilderImpl($Class* class$) {
 }
 
 $Class* DocumentBuilderImpl::load$($String* name, bool initialize) {
-	$loadClass(DocumentBuilderImpl, name, initialize, &_DocumentBuilderImpl_ClassInfo_, clinit$DocumentBuilderImpl, allocate$DocumentBuilderImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"NAMESPACES_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DocumentBuilderImpl, NAMESPACES_FEATURE)},
+		{"INCLUDE_IGNORABLE_WHITESPACE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DocumentBuilderImpl, INCLUDE_IGNORABLE_WHITESPACE)},
+		{"CREATE_ENTITY_REF_NODES_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DocumentBuilderImpl, CREATE_ENTITY_REF_NODES_FEATURE)},
+		{"INCLUDE_COMMENTS_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DocumentBuilderImpl, INCLUDE_COMMENTS_FEATURE)},
+		{"CREATE_CDATA_NODES_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DocumentBuilderImpl, CREATE_CDATA_NODES_FEATURE)},
+		{"XINCLUDE_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DocumentBuilderImpl, XINCLUDE_FEATURE)},
+		{"XMLSCHEMA_VALIDATION_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DocumentBuilderImpl, XMLSCHEMA_VALIDATION_FEATURE)},
+		{"VALIDATION_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DocumentBuilderImpl, VALIDATION_FEATURE)},
+		{"SECURITY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DocumentBuilderImpl, SECURITY_MANAGER)},
+		{"XML_SECURITY_PROPERTY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DocumentBuilderImpl, XML_SECURITY_PROPERTY_MANAGER)},
+		{"ACCESS_EXTERNAL_DTD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocumentBuilderImpl, ACCESS_EXTERNAL_DTD)},
+		{"ACCESS_EXTERNAL_SCHEMA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocumentBuilderImpl, ACCESS_EXTERNAL_SCHEMA)},
+		{"domParser", "Lcom/sun/org/apache/xerces/internal/parsers/DOMParser;", nullptr, $PRIVATE | $FINAL, $field(DocumentBuilderImpl, domParser)},
+		{"grammar", "Ljavax/xml/validation/Schema;", nullptr, $PRIVATE | $FINAL, $field(DocumentBuilderImpl, grammar)},
+		{"fSchemaValidator", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponent;", nullptr, $PRIVATE | $FINAL, $field(DocumentBuilderImpl, fSchemaValidator)},
+		{"fSchemaValidatorComponentManager", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;", nullptr, $PRIVATE | $FINAL, $field(DocumentBuilderImpl, fSchemaValidatorComponentManager)},
+		{"fSchemaValidationManager", "Lcom/sun/org/apache/xerces/internal/impl/validation/ValidationManager;", nullptr, $PRIVATE | $FINAL, $field(DocumentBuilderImpl, fSchemaValidationManager)},
+		{"fUnparsedEntityHandler", "Lcom/sun/org/apache/xerces/internal/jaxp/UnparsedEntityHandler;", nullptr, $PRIVATE | $FINAL, $field(DocumentBuilderImpl, fUnparsedEntityHandler)},
+		{"fInitErrorHandler", "Lorg/xml/sax/ErrorHandler;", nullptr, $PRIVATE | $FINAL, $field(DocumentBuilderImpl, fInitErrorHandler)},
+		{"fInitEntityResolver", "Lorg/xml/sax/EntityResolver;", nullptr, $PRIVATE | $FINAL, $field(DocumentBuilderImpl, fInitEntityResolver)},
+		{"fSecurityManager", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager;", nullptr, $PRIVATE, $field(DocumentBuilderImpl, fSecurityManager)},
+		{"fSecurityPropertyMgr", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityPropertyManager;", nullptr, $PRIVATE, $field(DocumentBuilderImpl, fSecurityPropertyMgr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/jaxp/DocumentBuilderFactoryImpl;Ljava/util/Map;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/jaxp/DocumentBuilderFactoryImpl;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Boolean;>;)V", 0, $method(DocumentBuilderImpl, init$, void, $DocumentBuilderFactoryImpl*, $Map*, $Map*), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/jaxp/DocumentBuilderFactoryImpl;Ljava/util/Map;Ljava/util/Map;Z)V", "(Lcom/sun/org/apache/xerces/internal/jaxp/DocumentBuilderFactoryImpl;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Boolean;>;Z)V", 0, $method(DocumentBuilderImpl, init$, void, $DocumentBuilderFactoryImpl*, $Map*, $Map*, bool), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
+		{"getDOMImplementation", "()Lorg/w3c/dom/DOMImplementation;", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderImpl, getDOMImplementation, $DOMImplementation*)},
+		{"getDOMParser", "()Lcom/sun/org/apache/xerces/internal/parsers/DOMParser;", nullptr, 0, $virtualMethod(DocumentBuilderImpl, getDOMParser, $DOMParser*)},
+		{"getSchema", "()Ljavax/xml/validation/Schema;", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderImpl, getSchema, $Schema*)},
+		{"isNamespaceAware", "()Z", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderImpl, isNamespaceAware, bool)},
+		{"isValidating", "()Z", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderImpl, isValidating, bool)},
+		{"isXIncludeAware", "()Z", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderImpl, isXIncludeAware, bool)},
+		{"newDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderImpl, newDocument, $Document*)},
+		{"parse", "(Lorg/xml/sax/InputSource;)Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderImpl, parse, $Document*, $InputSource*), "org.xml.sax.SAXException,java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderImpl, reset, void)},
+		{"resetSchemaValidator", "()V", nullptr, $PRIVATE, $method(DocumentBuilderImpl, resetSchemaValidator, void), "org.xml.sax.SAXException"},
+		{"setDocumentBuilderFactoryAttributes", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", $PRIVATE, $method(DocumentBuilderImpl, setDocumentBuilderFactoryAttributes, void, $Map*), "org.xml.sax.SAXNotSupportedException,org.xml.sax.SAXNotRecognizedException"},
+		{"setEntityResolver", "(Lorg/xml/sax/EntityResolver;)V", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderImpl, setEntityResolver, void, $EntityResolver*)},
+		{"setErrorHandler", "(Lorg/xml/sax/ErrorHandler;)V", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderImpl, setErrorHandler, void, $ErrorHandler*)},
+		{"setFeatures", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Boolean;>;)V", $PRIVATE, $method(DocumentBuilderImpl, setFeatures, void, $Map*), "org.xml.sax.SAXNotSupportedException,org.xml.sax.SAXNotRecognizedException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl",
+		"javax.xml.parsers.DocumentBuilder",
+		"com.sun.org.apache.xerces.internal.jaxp.JAXPConstants",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DocumentBuilderImpl, name, initialize, &classInfo$$, DocumentBuilderImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DocumentBuilderImpl));
+	});
 	return class$;
 }
 

@@ -22,6 +22,7 @@ class $import Log$PrefixKind : public ::java::lang::Enum {
 public:
 	Log$PrefixKind();
 	static $Array<::com::sun::tools::javac::util::Log$PrefixKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* v);
 	virtual $String* key($String* k);
 	static ::com::sun::tools::javac::util::Log$PrefixKind* valueOf($String* name);

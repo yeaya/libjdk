@@ -40,6 +40,7 @@ class $import Dependencies : public ::java::lang::Object {
 	$class(Dependencies, 0, ::java::lang::Object)
 public:
 	Dependencies();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	static ::com::sun::tools::javac::util::Dependencies* instance(::com::sun::tools::javac::util::Context* context);
 	virtual void pop() {}

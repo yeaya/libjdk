@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/WeakIdentityHashMap.h>
-
 #include <com/sun/jmx/mbeanserver/Util.h>
 #include <com/sun/jmx/mbeanserver/WeakIdentityHashMap$IdentityWeakReference.h>
 #include <java/lang/ref/Reference.h>
@@ -18,54 +17,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Reference = ::java::lang::ref::Reference;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $WeakReference = ::java::lang::ref::WeakReference;
-using $Map = ::java::util::Map;
 
 namespace com {
 	namespace sun {
 		namespace jmx {
 			namespace mbeanserver {
-
-$FieldInfo _WeakIdentityHashMap_FieldInfo_[] = {
-	{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/ref/WeakReference<TK;>;TV;>;", $PRIVATE, $field(WeakIdentityHashMap, map)},
-	{"refQueue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<TK;>;", $PRIVATE, $field(WeakIdentityHashMap, refQueue)},
-	{}
-};
-
-$MethodInfo _WeakIdentityHashMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(WeakIdentityHashMap, init$, void)},
-	{"expunge", "()V", nullptr, $PRIVATE, $method(WeakIdentityHashMap, expunge, void)},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TV;", 0, $virtualMethod(WeakIdentityHashMap, get, $Object*, Object$*)},
-	{"make", "()Lcom/sun/jmx/mbeanserver/WeakIdentityHashMap;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>()Lcom/sun/jmx/mbeanserver/WeakIdentityHashMap<TK;TV;>;", $STATIC, $staticMethod(WeakIdentityHashMap, make, WeakIdentityHashMap*)},
-	{"makeReference", "(Ljava/lang/Object;)Ljava/lang/ref/WeakReference;", "(TK;)Ljava/lang/ref/WeakReference<TK;>;", $PRIVATE, $method(WeakIdentityHashMap, makeReference, $WeakReference*, Object$*)},
-	{"makeReference", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)Ljava/lang/ref/WeakReference;", "(TK;Ljava/lang/ref/ReferenceQueue<TK;>;)Ljava/lang/ref/WeakReference<TK;>;", $PRIVATE, $method(WeakIdentityHashMap, makeReference, $WeakReference*, Object$*, $ReferenceQueue*)},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(WeakIdentityHashMap, put, $Object*, Object$*, Object$*)},
-	{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TV;", $PUBLIC, $virtualMethod(WeakIdentityHashMap, remove, $Object*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _WeakIdentityHashMap_InnerClassesInfo_[] = {
-	{"com.sun.jmx.mbeanserver.WeakIdentityHashMap$IdentityWeakReference", "com.sun.jmx.mbeanserver.WeakIdentityHashMap", "IdentityWeakReference", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WeakIdentityHashMap_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jmx.mbeanserver.WeakIdentityHashMap",
-	"java.lang.Object",
-	nullptr,
-	_WeakIdentityHashMap_FieldInfo_,
-	_WeakIdentityHashMap_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_WeakIdentityHashMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.mbeanserver.WeakIdentityHashMap$IdentityWeakReference"
-};
-
-$Object* allocate$WeakIdentityHashMap($Class* clazz) {
-	return $of($alloc(WeakIdentityHashMap));
-}
 
 void WeakIdentityHashMap::init$() {
 	$set(this, map, $Util::newMap());
@@ -79,7 +35,7 @@ WeakIdentityHashMap* WeakIdentityHashMap::make() {
 $Object* WeakIdentityHashMap::get(Object$* key) {
 	expunge();
 	$var($WeakReference, keyref, makeReference(key));
-	return $of($nc(this->map)->get(keyref));
+	return $nc(this->map)->get(keyref);
 }
 
 $Object* WeakIdentityHashMap::put(Object$* key, Object$* value) {
@@ -88,13 +44,13 @@ $Object* WeakIdentityHashMap::put(Object$* key, Object$* value) {
 		$throwNew($IllegalArgumentException, "Null key"_s);
 	}
 	$var($WeakReference, keyref, makeReference(key, this->refQueue));
-	return $of($nc(this->map)->put(keyref, value));
+	return $nc(this->map)->put(keyref, value);
 }
 
 $Object* WeakIdentityHashMap::remove(Object$* key) {
 	expunge();
 	$var($WeakReference, keyref, makeReference(key));
-	return $of($nc(this->map)->remove(keyref));
+	return $nc(this->map)->remove(keyref);
 }
 
 void WeakIdentityHashMap::expunge() {
@@ -116,7 +72,43 @@ WeakIdentityHashMap::WeakIdentityHashMap() {
 }
 
 $Class* WeakIdentityHashMap::load$($String* name, bool initialize) {
-	$loadClass(WeakIdentityHashMap, name, initialize, &_WeakIdentityHashMap_ClassInfo_, allocate$WeakIdentityHashMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/ref/WeakReference<TK;>;TV;>;", $PRIVATE, $field(WeakIdentityHashMap, map)},
+		{"refQueue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<TK;>;", $PRIVATE, $field(WeakIdentityHashMap, refQueue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(WeakIdentityHashMap, init$, void)},
+		{"expunge", "()V", nullptr, $PRIVATE, $method(WeakIdentityHashMap, expunge, void)},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TV;", 0, $virtualMethod(WeakIdentityHashMap, get, $Object*, Object$*)},
+		{"make", "()Lcom/sun/jmx/mbeanserver/WeakIdentityHashMap;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>()Lcom/sun/jmx/mbeanserver/WeakIdentityHashMap<TK;TV;>;", $STATIC, $staticMethod(WeakIdentityHashMap, make, WeakIdentityHashMap*)},
+		{"makeReference", "(Ljava/lang/Object;)Ljava/lang/ref/WeakReference;", "(TK;)Ljava/lang/ref/WeakReference<TK;>;", $PRIVATE, $method(WeakIdentityHashMap, makeReference, $WeakReference*, Object$*)},
+		{"makeReference", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)Ljava/lang/ref/WeakReference;", "(TK;Ljava/lang/ref/ReferenceQueue<TK;>;)Ljava/lang/ref/WeakReference<TK;>;", $PRIVATE, $method(WeakIdentityHashMap, makeReference, $WeakReference*, Object$*, $ReferenceQueue*)},
+		{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(WeakIdentityHashMap, put, $Object*, Object$*, Object$*)},
+		{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TV;", $PUBLIC, $virtualMethod(WeakIdentityHashMap, remove, $Object*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.mbeanserver.WeakIdentityHashMap$IdentityWeakReference", "com.sun.jmx.mbeanserver.WeakIdentityHashMap", "IdentityWeakReference", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jmx.mbeanserver.WeakIdentityHashMap",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.mbeanserver.WeakIdentityHashMap$IdentityWeakReference"
+	};
+	$loadClass(WeakIdentityHashMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WeakIdentityHashMap);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/AccessibleHTML$TextElementInfo$TextAccessibleContext$IndexedSegment.h>
-
 #include <javax/swing/text/Segment.h>
 #include <javax/swing/text/html/AccessibleHTML$TextElementInfo$TextAccessibleContext.h>
 #include <jcpp.h>
@@ -16,44 +15,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _AccessibleHTML$TextElementInfo$TextAccessibleContext$IndexedSegment_FieldInfo_[] = {
-	{"this$2", "Ljavax/swing/text/html/AccessibleHTML$TextElementInfo$TextAccessibleContext;", nullptr, $FINAL | $SYNTHETIC, $field(AccessibleHTML$TextElementInfo$TextAccessibleContext$IndexedSegment, this$2)},
-	{"modelOffset", "I", nullptr, $PUBLIC, $field(AccessibleHTML$TextElementInfo$TextAccessibleContext$IndexedSegment, modelOffset)},
-	{}
-};
-
-$MethodInfo _AccessibleHTML$TextElementInfo$TextAccessibleContext$IndexedSegment_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/html/AccessibleHTML$TextElementInfo$TextAccessibleContext;)V", nullptr, $PRIVATE, $method(AccessibleHTML$TextElementInfo$TextAccessibleContext$IndexedSegment, init$, void, $AccessibleHTML$TextElementInfo$TextAccessibleContext*)},
-	{}
-};
-
-$InnerClassInfo _AccessibleHTML$TextElementInfo$TextAccessibleContext$IndexedSegment_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.AccessibleHTML$TextElementInfo", "javax.swing.text.html.AccessibleHTML", "TextElementInfo", 0},
-	{"javax.swing.text.html.AccessibleHTML$TextElementInfo$TextAccessibleContext", "javax.swing.text.html.AccessibleHTML$TextElementInfo", "TextAccessibleContext", $PUBLIC},
-	{"javax.swing.text.html.AccessibleHTML$TextElementInfo$TextAccessibleContext$IndexedSegment", "javax.swing.text.html.AccessibleHTML$TextElementInfo$TextAccessibleContext", "IndexedSegment", $PRIVATE},
-	{}
-};
-
-$ClassInfo _AccessibleHTML$TextElementInfo$TextAccessibleContext$IndexedSegment_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.AccessibleHTML$TextElementInfo$TextAccessibleContext$IndexedSegment",
-	"javax.swing.text.Segment",
-	nullptr,
-	_AccessibleHTML$TextElementInfo$TextAccessibleContext$IndexedSegment_FieldInfo_,
-	_AccessibleHTML$TextElementInfo$TextAccessibleContext$IndexedSegment_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AccessibleHTML$TextElementInfo$TextAccessibleContext$IndexedSegment_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.AccessibleHTML"
-};
-
-$Object* allocate$AccessibleHTML$TextElementInfo$TextAccessibleContext$IndexedSegment($Class* clazz) {
-	return $of($alloc(AccessibleHTML$TextElementInfo$TextAccessibleContext$IndexedSegment));
-}
-
 void AccessibleHTML$TextElementInfo$TextAccessibleContext$IndexedSegment::init$($AccessibleHTML$TextElementInfo$TextAccessibleContext* this$2) {
 	$set(this, this$2, this$2);
 	$Segment::init$();
@@ -63,7 +24,39 @@ AccessibleHTML$TextElementInfo$TextAccessibleContext$IndexedSegment::AccessibleH
 }
 
 $Class* AccessibleHTML$TextElementInfo$TextAccessibleContext$IndexedSegment::load$($String* name, bool initialize) {
-	$loadClass(AccessibleHTML$TextElementInfo$TextAccessibleContext$IndexedSegment, name, initialize, &_AccessibleHTML$TextElementInfo$TextAccessibleContext$IndexedSegment_ClassInfo_, allocate$AccessibleHTML$TextElementInfo$TextAccessibleContext$IndexedSegment);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$2", "Ljavax/swing/text/html/AccessibleHTML$TextElementInfo$TextAccessibleContext;", nullptr, $FINAL | $SYNTHETIC, $field(AccessibleHTML$TextElementInfo$TextAccessibleContext$IndexedSegment, this$2)},
+		{"modelOffset", "I", nullptr, $PUBLIC, $field(AccessibleHTML$TextElementInfo$TextAccessibleContext$IndexedSegment, modelOffset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/html/AccessibleHTML$TextElementInfo$TextAccessibleContext;)V", nullptr, $PRIVATE, $method(AccessibleHTML$TextElementInfo$TextAccessibleContext$IndexedSegment, init$, void, $AccessibleHTML$TextElementInfo$TextAccessibleContext*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.AccessibleHTML$TextElementInfo", "javax.swing.text.html.AccessibleHTML", "TextElementInfo", 0},
+		{"javax.swing.text.html.AccessibleHTML$TextElementInfo$TextAccessibleContext", "javax.swing.text.html.AccessibleHTML$TextElementInfo", "TextAccessibleContext", $PUBLIC},
+		{"javax.swing.text.html.AccessibleHTML$TextElementInfo$TextAccessibleContext$IndexedSegment", "javax.swing.text.html.AccessibleHTML$TextElementInfo$TextAccessibleContext", "IndexedSegment", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.AccessibleHTML$TextElementInfo$TextAccessibleContext$IndexedSegment",
+		"javax.swing.text.Segment",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.AccessibleHTML"
+	};
+	$loadClass(AccessibleHTML$TextElementInfo$TextAccessibleContext$IndexedSegment, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AccessibleHTML$TextElementInfo$TextAccessibleContext$IndexedSegment));
+	});
 	return class$;
 }
 

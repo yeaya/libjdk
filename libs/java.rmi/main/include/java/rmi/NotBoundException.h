@@ -14,10 +14,13 @@ public:
 	NotBoundException();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0xE637F9A72D7C3AFB;
+	static const int64_t serialVersionUID = (int64_t)0xe637f9a72d7c3afb;
 	NotBoundException(const NotBoundException& e);
 	virtual void throw$() override;
-	inline NotBoundException* operator ->() {
+	inline NotBoundException* operator ->() const {
+		return (NotBoundException*)throwing$;
+	}
+	inline operator NotBoundException*() const {
 		return (NotBoundException*)throwing$;
 	}
 };

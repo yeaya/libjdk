@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/AiffFileReader.h>
-
 #include <com/sun/media/sound/AiffFileFormat.h>
 #include <com/sun/media/sound/StandardFileFormat.h>
 #include <com/sun/media/sound/SunFileReader.h>
@@ -49,33 +48,12 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$MethodInfo _AiffFileReader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AiffFileReader, init$, void)},
-	{"getAudioFileFormatImpl", "(Ljava/io/InputStream;)Lcom/sun/media/sound/StandardFileFormat;", nullptr, 0, $virtualMethod(AiffFileReader, getAudioFileFormatImpl, $StandardFileFormat*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
-	{"getAudioInputStream", "(Ljava/io/InputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AiffFileReader, getAudioInputStream, $AudioInputStream*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
-	{"read_ieee_extended", "(Ljava/io/DataInputStream;)D", nullptr, $PRIVATE, $method(AiffFileReader, read_ieee_extended, double, $DataInputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _AiffFileReader_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.AiffFileReader",
-	"com.sun.media.sound.SunFileReader",
-	nullptr,
-	nullptr,
-	_AiffFileReader_MethodInfo_
-};
-
-$Object* allocate$AiffFileReader($Class* clazz) {
-	return $of($alloc(AiffFileReader));
-}
-
 void AiffFileReader::init$() {
 	$SunFileReader::init$();
 }
 
 $StandardFileFormat* AiffFileReader::getAudioFileFormatImpl($InputStream* stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DataInputStream, dis, $new($DataInputStream, stream));
 	$var($AudioFormat, format, nullptr);
 	int32_t magic = dis->readInt();
@@ -105,66 +83,54 @@ $StandardFileFormat* AiffFileReader::getAudioFileFormatImpl($InputStream* stream
 			int32_t channels = 0;
 			int32_t sampleSizeInBits = 0;
 			float sampleRate = 0;
-			$var($AudioFormat$Encoding, encoding, nullptr)
+			$var($AudioFormat$Encoding, encoding, nullptr);
 			int32_t frameSize = 0;
 			int32_t dataOffset = 0;
 			int32_t blocksize = 0;
 			switch (chunkName) {
 			case $AiffFileFormat::FVER_MAGIC:
-				{
-					break;
-				}
+				break;
 			case $AiffFileFormat::COMM_MAGIC:
-				{
-					if ((!aifc && chunkLen < 18) || (aifc && chunkLen < 22)) {
-						$throwNew($UnsupportedAudioFileException, "Invalid AIFF/COMM chunksize"_s);
-					}
-					channels = dis->readUnsignedShort();
-					if (channels <= 0) {
-						$throwNew($UnsupportedAudioFileException, "Invalid number of channels"_s);
-					}
-					frameLength = (int64_t)(dis->readInt() & (uint64_t)(int64_t)0x00000000FFFFFFFF);
-					sampleSizeInBits = dis->readUnsignedShort();
-					if (sampleSizeInBits < 1 || sampleSizeInBits > 32) {
-						$throwNew($UnsupportedAudioFileException, "Invalid AIFF/COMM sampleSize"_s);
-					}
-					sampleRate = (float)read_ieee_extended(dis);
-					chunkRead += (2 + 4 + 2 + 10);
-					$init($AudioFormat$Encoding);
-					$assign(encoding, $AudioFormat$Encoding::PCM_SIGNED);
-					if (aifc) {
-						int32_t enc = dis->readInt();
-						chunkRead += 4;
-						switch (enc) {
-						case $AiffFileFormat::AIFC_PCM:
-							{
-								$assign(encoding, $AudioFormat$Encoding::PCM_SIGNED);
-								break;
-							}
-						case $AiffFileFormat::AIFC_ULAW:
-							{
-								$assign(encoding, $AudioFormat$Encoding::ULAW);
-								sampleSizeInBits = 8;
-								break;
-							}
-						default:
-							{
-								$throwNew($UnsupportedAudioFileException, "Invalid AIFF encoding"_s);
-							}
-						}
-					}
-					frameSize = calculatePCMFrameSize(sampleSizeInBits, channels);
-					$assign(format, $new($AudioFormat, encoding, sampleRate, sampleSizeInBits, channels, frameSize, sampleRate, true));
-					break;
+				$init($AudioFormat$Encoding);
+				if ((!aifc && chunkLen < 18) || (aifc && chunkLen < 22)) {
+					$throwNew($UnsupportedAudioFileException, "Invalid AIFF/COMM chunksize"_s);
 				}
+				channels = dis->readUnsignedShort();
+				if (channels <= 0) {
+					$throwNew($UnsupportedAudioFileException, "Invalid number of channels"_s);
+				}
+				frameLength = dis->readInt() & (int64_t)0xffffffff;
+				sampleSizeInBits = dis->readUnsignedShort();
+				if (sampleSizeInBits < 1 || sampleSizeInBits > 32) {
+					$throwNew($UnsupportedAudioFileException, "Invalid AIFF/COMM sampleSize"_s);
+				}
+				sampleRate = (float)read_ieee_extended(dis);
+				chunkRead += (2 + 4 + 2 + 10);
+				$assign(encoding, $AudioFormat$Encoding::PCM_SIGNED);
+				if (aifc) {
+					int32_t enc = dis->readInt();
+					chunkRead += 4;
+					switch (enc) {
+					case $AiffFileFormat::AIFC_PCM:
+						$assign(encoding, $AudioFormat$Encoding::PCM_SIGNED);
+						break;
+					case $AiffFileFormat::AIFC_ULAW:
+						$assign(encoding, $AudioFormat$Encoding::ULAW);
+						sampleSizeInBits = 8;
+						break;
+					default:
+						$throwNew($UnsupportedAudioFileException, "Invalid AIFF encoding"_s);
+					}
+				}
+				frameSize = calculatePCMFrameSize(sampleSizeInBits, channels);
+				$assign(format, $new($AudioFormat, encoding, sampleRate, sampleSizeInBits, channels, frameSize, sampleRate, true));
+				break;
 			case $AiffFileFormat::SSND_MAGIC:
-				{
-					dataOffset = dis->readInt();
-					blocksize = dis->readInt();
-					chunkRead += 8;
-					ssndFound = true;
-					break;
-				}
+				dataOffset = dis->readInt();
+				blocksize = dis->readInt();
+				chunkRead += 8;
+				ssndFound = true;
+				break;
 			}
 		}
 		if (!ssndFound) {
@@ -183,7 +149,7 @@ $StandardFileFormat* AiffFileReader::getAudioFileFormatImpl($InputStream* stream
 }
 
 double AiffFileReader::read_ieee_extended($DataInputStream* dis) {
-	double f = (double)0;
+	double f = 0;
 	int32_t expon = 0;
 	int64_t hiMant = 0;
 	int64_t loMant = 0;
@@ -198,15 +164,15 @@ double AiffFileReader::read_ieee_extended($DataInputStream* dis) {
 	t2 = (int64_t)dis->readUnsignedShort();
 	loMant = (t1 << 16) | t2;
 	if (expon == 0 && hiMant == 0 && loMant == 0) {
-		f = (double)0;
+		f = 0;
 	} else if (expon == 32767) {
 		f = HUGE;
 	} else {
 		expon -= 16383;
 		expon -= 31;
-		f = (hiMant * $Math::pow((double)2, (double)expon));
+		f = (hiMant * $Math::pow(2, (double)expon));
 		expon -= 32;
-		f += (loMant * $Math::pow((double)2, (double)expon));
+		f += (loMant * $Math::pow(2, (double)expon));
 	}
 	return f;
 }
@@ -219,7 +185,24 @@ AiffFileReader::AiffFileReader() {
 }
 
 $Class* AiffFileReader::load$($String* name, bool initialize) {
-	$loadClass(AiffFileReader, name, initialize, &_AiffFileReader_ClassInfo_, allocate$AiffFileReader);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AiffFileReader, init$, void)},
+		{"getAudioFileFormatImpl", "(Ljava/io/InputStream;)Lcom/sun/media/sound/StandardFileFormat;", nullptr, 0, $virtualMethod(AiffFileReader, getAudioFileFormatImpl, $StandardFileFormat*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
+		{"getAudioInputStream", "(Ljava/io/InputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AiffFileReader, getAudioInputStream, $AudioInputStream*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
+		{"read_ieee_extended", "(Ljava/io/DataInputStream;)D", nullptr, $PRIVATE, $method(AiffFileReader, read_ieee_extended, double, $DataInputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.AiffFileReader",
+		"com.sun.media.sound.SunFileReader",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AiffFileReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AiffFileReader);
+	});
 	return class$;
 }
 

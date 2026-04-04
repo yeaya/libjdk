@@ -14,6 +14,7 @@ class ElementKindVisitor6$1 : public ::java::lang::Object {
 	$class(ElementKindVisitor6$1, 0, ::java::lang::Object)
 public:
 	ElementKindVisitor6$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$lang$model$element$ElementKind;
 };
 

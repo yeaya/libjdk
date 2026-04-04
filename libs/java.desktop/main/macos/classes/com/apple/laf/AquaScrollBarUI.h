@@ -63,6 +63,7 @@ class AquaScrollBarUI : public ::javax::swing::plaf::ScrollBarUI {
 	$class(AquaScrollBarUI, 0, ::javax::swing::plaf::ScrollBarUI)
 public:
 	AquaScrollBarUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void configureScrollBarColors();
 	virtual ::com::apple::laf::AquaScrollBarUI$ModelListener* createModelListener();

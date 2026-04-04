@@ -1,5 +1,4 @@
 #include <javax/naming/ldap/UnsolicitedNotificationListener.h>
-
 #include <javax/naming/ldap/UnsolicitedNotificationEvent.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace javax {
 	namespace naming {
 		namespace ldap {
 
-$MethodInfo _UnsolicitedNotificationListener_MethodInfo_[] = {
-	{"notificationReceived", "(Ljavax/naming/ldap/UnsolicitedNotificationEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UnsolicitedNotificationListener, notificationReceived, void, $UnsolicitedNotificationEvent*)},
-	{}
-};
-
-$ClassInfo _UnsolicitedNotificationListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.naming.ldap.UnsolicitedNotificationListener",
-	nullptr,
-	"javax.naming.event.NamingListener",
-	nullptr,
-	_UnsolicitedNotificationListener_MethodInfo_
-};
-
-$Object* allocate$UnsolicitedNotificationListener($Class* clazz) {
-	return $of($alloc(UnsolicitedNotificationListener));
-}
-
 $Class* UnsolicitedNotificationListener::load$($String* name, bool initialize) {
-	$loadClass(UnsolicitedNotificationListener, name, initialize, &_UnsolicitedNotificationListener_ClassInfo_, allocate$UnsolicitedNotificationListener);
+	$MethodInfo methodInfos$$[] = {
+		{"notificationReceived", "(Ljavax/naming/ldap/UnsolicitedNotificationEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UnsolicitedNotificationListener, notificationReceived, void, $UnsolicitedNotificationEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.naming.ldap.UnsolicitedNotificationListener",
+		nullptr,
+		"javax.naming.event.NamingListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UnsolicitedNotificationListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnsolicitedNotificationListener);
+	});
 	return class$;
 }
 

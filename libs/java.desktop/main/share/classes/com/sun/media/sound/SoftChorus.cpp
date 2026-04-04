@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftChorus.h>
-
 #include <com/sun/media/sound/SoftAudioBuffer.h>
 #include <com/sun/media/sound/SoftChorus$LFODelay.h>
 #include <java/lang/Math.h>
@@ -22,82 +21,22 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _SoftChorus_FieldInfo_[] = {
-	{"mix", "Z", nullptr, $PRIVATE, $field(SoftChorus, mix)},
-	{"inputA", "Lcom/sun/media/sound/SoftAudioBuffer;", nullptr, $PRIVATE, $field(SoftChorus, inputA)},
-	{"left", "Lcom/sun/media/sound/SoftAudioBuffer;", nullptr, $PRIVATE, $field(SoftChorus, left)},
-	{"right", "Lcom/sun/media/sound/SoftAudioBuffer;", nullptr, $PRIVATE, $field(SoftChorus, right)},
-	{"reverb", "Lcom/sun/media/sound/SoftAudioBuffer;", nullptr, $PRIVATE, $field(SoftChorus, reverb)},
-	{"vdelay1L", "Lcom/sun/media/sound/SoftChorus$LFODelay;", nullptr, $PRIVATE, $field(SoftChorus, vdelay1L)},
-	{"vdelay1R", "Lcom/sun/media/sound/SoftChorus$LFODelay;", nullptr, $PRIVATE, $field(SoftChorus, vdelay1R)},
-	{"rgain", "F", nullptr, $PRIVATE, $field(SoftChorus, rgain)},
-	{"dirty", "Z", nullptr, $PRIVATE, $field(SoftChorus, dirty)},
-	{"dirty_vdelay1L_rate", "D", nullptr, $PRIVATE, $field(SoftChorus, dirty_vdelay1L_rate)},
-	{"dirty_vdelay1R_rate", "D", nullptr, $PRIVATE, $field(SoftChorus, dirty_vdelay1R_rate)},
-	{"dirty_vdelay1L_depth", "D", nullptr, $PRIVATE, $field(SoftChorus, dirty_vdelay1L_depth)},
-	{"dirty_vdelay1R_depth", "D", nullptr, $PRIVATE, $field(SoftChorus, dirty_vdelay1R_depth)},
-	{"dirty_vdelay1L_feedback", "F", nullptr, $PRIVATE, $field(SoftChorus, dirty_vdelay1L_feedback)},
-	{"dirty_vdelay1R_feedback", "F", nullptr, $PRIVATE, $field(SoftChorus, dirty_vdelay1R_feedback)},
-	{"dirty_vdelay1L_reverbsendgain", "F", nullptr, $PRIVATE, $field(SoftChorus, dirty_vdelay1L_reverbsendgain)},
-	{"dirty_vdelay1R_reverbsendgain", "F", nullptr, $PRIVATE, $field(SoftChorus, dirty_vdelay1R_reverbsendgain)},
-	{"controlrate", "F", nullptr, $PRIVATE, $field(SoftChorus, controlrate)},
-	{"silentcounter", "D", nullptr, 0, $field(SoftChorus, silentcounter)},
-	{}
-};
-
-$MethodInfo _SoftChorus_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SoftChorus, init$, void)},
-	{"globalParameterControlChange", "([IJJ)V", nullptr, $PUBLIC, $virtualMethod(SoftChorus, globalParameterControlChange, void, $ints*, int64_t, int64_t)},
-	{"init", "(FF)V", nullptr, $PUBLIC, $virtualMethod(SoftChorus, init, void, float, float)},
-	{"processAudio", "()V", nullptr, $PUBLIC, $virtualMethod(SoftChorus, processAudio, void)},
-	{"processControlLogic", "()V", nullptr, $PUBLIC, $virtualMethod(SoftChorus, processControlLogic, void)},
-	{"setInput", "(ILcom/sun/media/sound/SoftAudioBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SoftChorus, setInput, void, int32_t, $SoftAudioBuffer*)},
-	{"setMixMode", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SoftChorus, setMixMode, void, bool)},
-	{"setOutput", "(ILcom/sun/media/sound/SoftAudioBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SoftChorus, setOutput, void, int32_t, $SoftAudioBuffer*)},
-	{}
-};
-
-$InnerClassInfo _SoftChorus_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.SoftChorus$LFODelay", "com.sun.media.sound.SoftChorus", "LFODelay", $PRIVATE | $STATIC},
-	{"com.sun.media.sound.SoftChorus$VariableDelay", "com.sun.media.sound.SoftChorus", "VariableDelay", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SoftChorus_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SoftChorus",
-	"java.lang.Object",
-	"com.sun.media.sound.SoftAudioProcessor",
-	_SoftChorus_FieldInfo_,
-	_SoftChorus_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SoftChorus_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.SoftChorus$LFODelay,com.sun.media.sound.SoftChorus$VariableDelay"
-};
-
-$Object* allocate$SoftChorus($Class* clazz) {
-	return $of($alloc(SoftChorus));
-}
-
 void SoftChorus::init$() {
 	this->mix = true;
-	this->rgain = (float)0;
+	this->rgain = 0;
 	this->dirty = true;
-	this->silentcounter = (double)1000;
+	this->silentcounter = 1000;
 }
 
 void SoftChorus::init(float samplerate, float controlrate) {
 	this->controlrate = controlrate;
 	$set(this, vdelay1L, $new($SoftChorus$LFODelay, samplerate, controlrate));
 	$set(this, vdelay1R, $new($SoftChorus$LFODelay, samplerate, controlrate));
-	$nc(this->vdelay1L)->setGain(1.0f);
+	this->vdelay1L->setGain(1.0f);
 	$nc(this->vdelay1R)->setGain(1.0f);
 	$init($Math);
 	$nc(this->vdelay1L)->setPhase(0.5 * $Math::PI);
-	$nc(this->vdelay1R)->setPhase((double)0);
+	$nc(this->vdelay1R)->setPhase(0);
 	globalParameterControlChange($$new($ints, {1 * 128 + 2}), 0, 2);
 }
 
@@ -107,57 +46,43 @@ void SoftChorus::globalParameterControlChange($ints* slothpath, int64_t param, i
 			if (param == 0) {
 				switch ((int32_t)value) {
 				case 0:
-					{
-						globalParameterControlChange(slothpath, 3, 0);
-						globalParameterControlChange(slothpath, 1, 3);
-						globalParameterControlChange(slothpath, 2, 5);
-						globalParameterControlChange(slothpath, 4, 0);
-						break;
-					}
+					globalParameterControlChange(slothpath, 3, 0);
+					globalParameterControlChange(slothpath, 1, 3);
+					globalParameterControlChange(slothpath, 2, 5);
+					globalParameterControlChange(slothpath, 4, 0);
+					break;
 				case 1:
-					{
-						globalParameterControlChange(slothpath, 3, 5);
-						globalParameterControlChange(slothpath, 1, 9);
-						globalParameterControlChange(slothpath, 2, 19);
-						globalParameterControlChange(slothpath, 4, 0);
-						break;
-					}
+					globalParameterControlChange(slothpath, 3, 5);
+					globalParameterControlChange(slothpath, 1, 9);
+					globalParameterControlChange(slothpath, 2, 19);
+					globalParameterControlChange(slothpath, 4, 0);
+					break;
 				case 2:
-					{
-						globalParameterControlChange(slothpath, 3, 8);
-						globalParameterControlChange(slothpath, 1, 3);
-						globalParameterControlChange(slothpath, 2, 19);
-						globalParameterControlChange(slothpath, 4, 0);
-						break;
-					}
+					globalParameterControlChange(slothpath, 3, 8);
+					globalParameterControlChange(slothpath, 1, 3);
+					globalParameterControlChange(slothpath, 2, 19);
+					globalParameterControlChange(slothpath, 4, 0);
+					break;
 				case 3:
-					{
-						globalParameterControlChange(slothpath, 3, 16);
-						globalParameterControlChange(slothpath, 1, 9);
-						globalParameterControlChange(slothpath, 2, 16);
-						globalParameterControlChange(slothpath, 4, 0);
-						break;
-					}
+					globalParameterControlChange(slothpath, 3, 16);
+					globalParameterControlChange(slothpath, 1, 9);
+					globalParameterControlChange(slothpath, 2, 16);
+					globalParameterControlChange(slothpath, 4, 0);
+					break;
 				case 4:
-					{
-						globalParameterControlChange(slothpath, 3, 64);
-						globalParameterControlChange(slothpath, 1, 2);
-						globalParameterControlChange(slothpath, 2, 24);
-						globalParameterControlChange(slothpath, 4, 0);
-						break;
-					}
+					globalParameterControlChange(slothpath, 3, 64);
+					globalParameterControlChange(slothpath, 1, 2);
+					globalParameterControlChange(slothpath, 2, 24);
+					globalParameterControlChange(slothpath, 4, 0);
+					break;
 				case 5:
-					{
-						globalParameterControlChange(slothpath, 3, 112);
-						globalParameterControlChange(slothpath, 1, 1);
-						globalParameterControlChange(slothpath, 2, 5);
-						globalParameterControlChange(slothpath, 4, 0);
-						break;
-					}
+					globalParameterControlChange(slothpath, 3, 112);
+					globalParameterControlChange(slothpath, 1, 1);
+					globalParameterControlChange(slothpath, 2, 5);
+					globalParameterControlChange(slothpath, 4, 0);
+					break;
 				default:
-					{
-						break;
-					}
+					break;
 				}
 			} else if (param == 1) {
 				this->dirty_vdelay1L_rate = (value * 0.122);
@@ -197,7 +122,7 @@ void SoftChorus::processControlLogic() {
 }
 
 void SoftChorus::processAudio() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->inputA)->isSilent()) {
 		this->silentcounter += 1 / this->controlrate;
 		if (this->silentcounter > 1) {
@@ -208,11 +133,11 @@ void SoftChorus::processAudio() {
 			return;
 		}
 	} else {
-		this->silentcounter = (double)0;
+		this->silentcounter = 0;
 	}
 	$var($floats, inputA, $nc(this->inputA)->array());
 	$var($floats, left, $nc(this->left)->array());
-	$var($floats, right, this->right == nullptr ? ($floats*)nullptr : $nc(this->right)->array());
+	$var($floats, right, this->right == nullptr ? ($floats*)nullptr : this->right->array());
 	$var($floats, reverb, this->rgain != 0 ? $nc(this->reverb)->array() : ($floats*)nullptr);
 	if (this->mix) {
 		$nc(this->vdelay1L)->processMix(inputA, left, reverb);
@@ -253,7 +178,61 @@ SoftChorus::SoftChorus() {
 }
 
 $Class* SoftChorus::load$($String* name, bool initialize) {
-	$loadClass(SoftChorus, name, initialize, &_SoftChorus_ClassInfo_, allocate$SoftChorus);
+	$FieldInfo fieldInfos$$[] = {
+		{"mix", "Z", nullptr, $PRIVATE, $field(SoftChorus, mix)},
+		{"inputA", "Lcom/sun/media/sound/SoftAudioBuffer;", nullptr, $PRIVATE, $field(SoftChorus, inputA)},
+		{"left", "Lcom/sun/media/sound/SoftAudioBuffer;", nullptr, $PRIVATE, $field(SoftChorus, left)},
+		{"right", "Lcom/sun/media/sound/SoftAudioBuffer;", nullptr, $PRIVATE, $field(SoftChorus, right)},
+		{"reverb", "Lcom/sun/media/sound/SoftAudioBuffer;", nullptr, $PRIVATE, $field(SoftChorus, reverb)},
+		{"vdelay1L", "Lcom/sun/media/sound/SoftChorus$LFODelay;", nullptr, $PRIVATE, $field(SoftChorus, vdelay1L)},
+		{"vdelay1R", "Lcom/sun/media/sound/SoftChorus$LFODelay;", nullptr, $PRIVATE, $field(SoftChorus, vdelay1R)},
+		{"rgain", "F", nullptr, $PRIVATE, $field(SoftChorus, rgain)},
+		{"dirty", "Z", nullptr, $PRIVATE, $field(SoftChorus, dirty)},
+		{"dirty_vdelay1L_rate", "D", nullptr, $PRIVATE, $field(SoftChorus, dirty_vdelay1L_rate)},
+		{"dirty_vdelay1R_rate", "D", nullptr, $PRIVATE, $field(SoftChorus, dirty_vdelay1R_rate)},
+		{"dirty_vdelay1L_depth", "D", nullptr, $PRIVATE, $field(SoftChorus, dirty_vdelay1L_depth)},
+		{"dirty_vdelay1R_depth", "D", nullptr, $PRIVATE, $field(SoftChorus, dirty_vdelay1R_depth)},
+		{"dirty_vdelay1L_feedback", "F", nullptr, $PRIVATE, $field(SoftChorus, dirty_vdelay1L_feedback)},
+		{"dirty_vdelay1R_feedback", "F", nullptr, $PRIVATE, $field(SoftChorus, dirty_vdelay1R_feedback)},
+		{"dirty_vdelay1L_reverbsendgain", "F", nullptr, $PRIVATE, $field(SoftChorus, dirty_vdelay1L_reverbsendgain)},
+		{"dirty_vdelay1R_reverbsendgain", "F", nullptr, $PRIVATE, $field(SoftChorus, dirty_vdelay1R_reverbsendgain)},
+		{"controlrate", "F", nullptr, $PRIVATE, $field(SoftChorus, controlrate)},
+		{"silentcounter", "D", nullptr, 0, $field(SoftChorus, silentcounter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SoftChorus, init$, void)},
+		{"globalParameterControlChange", "([IJJ)V", nullptr, $PUBLIC, $virtualMethod(SoftChorus, globalParameterControlChange, void, $ints*, int64_t, int64_t)},
+		{"init", "(FF)V", nullptr, $PUBLIC, $virtualMethod(SoftChorus, init, void, float, float)},
+		{"processAudio", "()V", nullptr, $PUBLIC, $virtualMethod(SoftChorus, processAudio, void)},
+		{"processControlLogic", "()V", nullptr, $PUBLIC, $virtualMethod(SoftChorus, processControlLogic, void)},
+		{"setInput", "(ILcom/sun/media/sound/SoftAudioBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SoftChorus, setInput, void, int32_t, $SoftAudioBuffer*)},
+		{"setMixMode", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SoftChorus, setMixMode, void, bool)},
+		{"setOutput", "(ILcom/sun/media/sound/SoftAudioBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SoftChorus, setOutput, void, int32_t, $SoftAudioBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.SoftChorus$LFODelay", "com.sun.media.sound.SoftChorus", "LFODelay", $PRIVATE | $STATIC},
+		{"com.sun.media.sound.SoftChorus$VariableDelay", "com.sun.media.sound.SoftChorus", "VariableDelay", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SoftChorus",
+		"java.lang.Object",
+		"com.sun.media.sound.SoftAudioProcessor",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.SoftChorus$LFODelay,com.sun.media.sound.SoftChorus$VariableDelay"
+	};
+	$loadClass(SoftChorus, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftChorus);
+	});
 	return class$;
 }
 

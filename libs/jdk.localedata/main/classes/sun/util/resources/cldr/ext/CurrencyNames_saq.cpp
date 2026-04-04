@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/CurrencyNames_saq.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,263 +13,244 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _CurrencyNames_saq_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_saq, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_saq, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_saq_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.CurrencyNames_saq",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_saq_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_saq($Class* clazz) {
-	return $of($alloc(CurrencyNames_saq));
-}
-
 void CurrencyNames_saq::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_saq::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("KES"_s),
-			$of("Ksh"_s)
+			"KES"_s,
+			"Ksh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aed"_s),
-			$of("Njilingi eel Falme za Kiarabu"_s)
+			"aed"_s,
+			"Njilingi eel Falme za Kiarabu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aoa"_s),
-			$of("Njilingi eel Angola"_s)
+			"aoa"_s,
+			"Njilingi eel Angola"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aud"_s),
-			$of("Njilingi eel Australia"_s)
+			"aud"_s,
+			"Njilingi eel Australia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bhd"_s),
-			$of("Njilingi eel Bahareni"_s)
+			"bhd"_s,
+			"Njilingi eel Bahareni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bif"_s),
-			$of("Njilingi eel Burundi"_s)
+			"bif"_s,
+			"Njilingi eel Burundi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bwp"_s),
-			$of("Njilingi eel Botswana"_s)
+			"bwp"_s,
+			"Njilingi eel Botswana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cad"_s),
-			$of("Njilingi eel Kanada"_s)
+			"cad"_s,
+			"Njilingi eel Kanada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cdf"_s),
-			$of("Njilingi eel Kongo"_s)
+			"cdf"_s,
+			"Njilingi eel Kongo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chf"_s),
-			$of("Njilingi eel Uswisi"_s)
+			"chf"_s,
+			"Njilingi eel Uswisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cny"_s),
-			$of("Njilingi eel China"_s)
+			"cny"_s,
+			"Njilingi eel China"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cve"_s),
-			$of("Njilingi eel Kepuvede"_s)
+			"cve"_s,
+			"Njilingi eel Kepuvede"_s
 		}),
 		$$new($ObjectArray, {
-			$of("djf"_s),
-			$of("Njilingi eel Jibuti"_s)
+			"djf"_s,
+			"Njilingi eel Jibuti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dzd"_s),
-			$of("Njilingi eel Aljeria"_s)
+			"dzd"_s,
+			"Njilingi eel Aljeria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("egp"_s),
-			$of("Njilingi eel Misri"_s)
+			"egp"_s,
+			"Njilingi eel Misri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ern"_s),
-			$of("Njilingi eel Eritrea"_s)
+			"ern"_s,
+			"Njilingi eel Eritrea"_s
 		}),
 		$$new($ObjectArray, {
-			$of("etb"_s),
-			$of("Njilingi eel Uhabeshi"_s)
+			"etb"_s,
+			"Njilingi eel Uhabeshi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eur"_s),
-			$of("Yuro"_s)
+			"eur"_s,
+			"Yuro"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gbp"_s),
-			$of("Njilingi eel Uingereza"_s)
+			"gbp"_s,
+			"Njilingi eel Uingereza"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ghc"_s),
-			$of("Njilingi eel Ghana"_s)
+			"ghc"_s,
+			"Njilingi eel Ghana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gmd"_s),
-			$of("Njilingi eel Gambia"_s)
+			"gmd"_s,
+			"Njilingi eel Gambia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gns"_s),
-			$of("Njilingi eel Gine"_s)
+			"gns"_s,
+			"Njilingi eel Gine"_s
 		}),
 		$$new($ObjectArray, {
-			$of("inr"_s),
-			$of("Njilingi eel India"_s)
+			"inr"_s,
+			"Njilingi eel India"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jpy"_s),
-			$of("Njilingi eel Kijapani"_s)
+			"jpy"_s,
+			"Njilingi eel Kijapani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kes"_s),
-			$of("Njilingi eel Kenya"_s)
+			"kes"_s,
+			"Njilingi eel Kenya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kmf"_s),
-			$of("Njilingi eel Komoro"_s)
+			"kmf"_s,
+			"Njilingi eel Komoro"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lrd"_s),
-			$of("Dola eel Liberia"_s)
+			"lrd"_s,
+			"Dola eel Liberia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lsl"_s),
-			$of("Njilingi eel Lesoto"_s)
+			"lsl"_s,
+			"Njilingi eel Lesoto"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lyd"_s),
-			$of("Njilingi eel Libya"_s)
+			"lyd"_s,
+			"Njilingi eel Libya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mad"_s),
-			$of("Njilingi eel Moroko"_s)
+			"mad"_s,
+			"Njilingi eel Moroko"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mga"_s),
-			$of("Njilingi eel Bukini"_s)
+			"mga"_s,
+			"Njilingi eel Bukini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mro"_s),
-			$of(u"Njilingi eel Moritania (1973–2017)"_s)
+			"mro"_s,
+			u"Njilingi eel Moritania (1973–2017)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mru"_s),
-			$of("Njilingi eel Moritania"_s)
+			"mru"_s,
+			"Njilingi eel Moritania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mur"_s),
-			$of("Njilingi eel Morisi"_s)
+			"mur"_s,
+			"Njilingi eel Morisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mwk"_s),
-			$of("Njilingi eel Malawi"_s)
+			"mwk"_s,
+			"Njilingi eel Malawi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mzm"_s),
-			$of("Njilingi eel Msumbiji"_s)
+			"mzm"_s,
+			"Njilingi eel Msumbiji"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nad"_s),
-			$of("Njilingi eel Namibia"_s)
+			"nad"_s,
+			"Njilingi eel Namibia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ngn"_s),
-			$of("Njilingi eel Nijeria"_s)
+			"ngn"_s,
+			"Njilingi eel Nijeria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rwf"_s),
-			$of("Njilingi eel Rwanda"_s)
+			"rwf"_s,
+			"Njilingi eel Rwanda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sar"_s),
-			$of("Njilingi eel Saudia"_s)
+			"sar"_s,
+			"Njilingi eel Saudia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("scr"_s),
-			$of("Njilingi eel Shelisheli"_s)
+			"scr"_s,
+			"Njilingi eel Shelisheli"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sdg"_s),
-			$of("Paunt eel Sudani"_s)
+			"sdg"_s,
+			"Paunt eel Sudani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shp"_s),
-			$of("Paunt eel Santahelena"_s)
+			"shp"_s,
+			"Paunt eel Santahelena"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sll"_s),
-			$of("Leoni"_s)
+			"sll"_s,
+			"Leoni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sos"_s),
-			$of("Njilingi eel Somalia"_s)
+			"sos"_s,
+			"Njilingi eel Somalia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("std"_s),
-			$of(u"Njilingi eel Sao Tome na Principe (1977–2017)"_s)
+			"std"_s,
+			u"Njilingi eel Sao Tome na Principe (1977–2017)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("stn"_s),
-			$of("Njilingi eel Sao Tome na Principe"_s)
+			"stn"_s,
+			"Njilingi eel Sao Tome na Principe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("szl"_s),
-			$of("Lilangeni"_s)
+			"szl"_s,
+			"Lilangeni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tnd"_s),
-			$of("Njilingi eel Tunisia"_s)
+			"tnd"_s,
+			"Njilingi eel Tunisia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tzs"_s),
-			$of("Njilingi eel Tanzania"_s)
+			"tzs"_s,
+			"Njilingi eel Tanzania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ugx"_s),
-			$of("Njilingi eel Uganda"_s)
+			"ugx"_s,
+			"Njilingi eel Uganda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("usd"_s),
-			$of("Dola eel Marekani"_s)
+			"usd"_s,
+			"Dola eel Marekani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xaf"_s),
-			$of("Njilingi eel CFA BEAC"_s)
+			"xaf"_s,
+			"Njilingi eel CFA BEAC"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xof"_s),
-			$of("Njilingi eel CFA BCEAO"_s)
+			"xof"_s,
+			"Njilingi eel CFA BCEAO"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zar"_s),
-			$of("Njilingi eel Afrika Kusini"_s)
+			"zar"_s,
+			"Njilingi eel Afrika Kusini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zmk"_s),
-			$of(u"Njilingi eel Zambia (1968–2012)"_s)
+			"zmk"_s,
+			u"Njilingi eel Zambia (1968–2012)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zmw"_s),
-			$of("Njilingi eel Zambia"_s)
+			"zmw"_s,
+			"Njilingi eel Zambia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zwd"_s),
-			$of("Dola eel Zimbabwe"_s)
+			"zwd"_s,
+			"Dola eel Zimbabwe"_s
 		})
 	}));
 	return data;
@@ -280,7 +260,22 @@ CurrencyNames_saq::CurrencyNames_saq() {
 }
 
 $Class* CurrencyNames_saq::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_saq, name, initialize, &_CurrencyNames_saq_ClassInfo_, allocate$CurrencyNames_saq);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_saq, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_saq, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.CurrencyNames_saq",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_saq, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_saq);
+	});
 	return class$;
 }
 

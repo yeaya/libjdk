@@ -26,6 +26,7 @@ class $import CatalogFeatures$State : public ::java::lang::Enum {
 public:
 	CatalogFeatures$State();
 	static $Array<::javax::xml::catalog::CatalogFeatures$State>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* literal);
 	virtual $String* literal();
 	static ::javax::xml::catalog::CatalogFeatures$State* valueOf($String* name);

@@ -1,5 +1,4 @@
 #include <java.scripting.test.h>
-
 #include <java.scripting.h>
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>

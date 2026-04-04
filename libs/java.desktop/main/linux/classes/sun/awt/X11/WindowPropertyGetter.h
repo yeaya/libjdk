@@ -35,6 +35,7 @@ class WindowPropertyGetter : public ::java::lang::Object {
 	$class(WindowPropertyGetter, 0, ::java::lang::Object)
 public:
 	WindowPropertyGetter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t window, ::sun::awt::X11::XAtom* property, int64_t offset, int64_t length, bool auto_delete, int64_t type);
 	void init$(int64_t window, ::sun::awt::X11::XAtom* property, int64_t offset, int64_t length, bool auto_delete, ::sun::awt::X11::XAtom* type);
 	virtual void cacheProperty();

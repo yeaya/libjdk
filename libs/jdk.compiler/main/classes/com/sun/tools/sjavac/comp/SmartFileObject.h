@@ -49,6 +49,7 @@ class SmartFileObject : public ::javax::tools::JavaFileObject {
 	$class(SmartFileObject, 0, ::javax::tools::JavaFileObject)
 public:
 	SmartFileObject();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::tools::JavaFileObject* r);
 	virtual bool delete$() override;
 	virtual bool equals(Object$* other) override;

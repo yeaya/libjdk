@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/client/PortFileInaccessibleException.h>
-
 #include <java/io/IOException.h>
 #include <jcpp.h>
 
@@ -13,29 +12,6 @@ namespace com {
 		namespace tools {
 			namespace sjavac {
 				namespace client {
-
-$FieldInfo _PortFileInaccessibleException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PortFileInaccessibleException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _PortFileInaccessibleException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(PortFileInaccessibleException, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _PortFileInaccessibleException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.client.PortFileInaccessibleException",
-	"java.io.IOException",
-	nullptr,
-	_PortFileInaccessibleException_FieldInfo_,
-	_PortFileInaccessibleException_MethodInfo_
-};
-
-$Object* allocate$PortFileInaccessibleException($Class* clazz) {
-	return $of($alloc(PortFileInaccessibleException));
-}
 
 void PortFileInaccessibleException::init$($Throwable* cause) {
 	$IOException::init$(cause);
@@ -52,7 +28,25 @@ void PortFileInaccessibleException::throw$() {
 }
 
 $Class* PortFileInaccessibleException::load$($String* name, bool initialize) {
-	$loadClass(PortFileInaccessibleException, name, initialize, &_PortFileInaccessibleException_ClassInfo_, allocate$PortFileInaccessibleException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PortFileInaccessibleException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(PortFileInaccessibleException, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.client.PortFileInaccessibleException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PortFileInaccessibleException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PortFileInaccessibleException);
+	});
 	return class$;
 }
 

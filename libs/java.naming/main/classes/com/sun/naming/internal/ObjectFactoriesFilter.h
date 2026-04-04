@@ -36,6 +36,7 @@ class ObjectFactoriesFilter : public ::java::lang::Object {
 	$class(ObjectFactoriesFilter, 0, ::java::lang::Object)
 public:
 	ObjectFactoriesFilter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool canInstantiateObjectsFactory($Class* factoryClass);
 	static bool checkInput(::com::sun::naming::internal::ObjectFactoriesFilter$FactoryInfo* factoryInfo);

@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet$PhotometricInterpretation.h>
-
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -15,36 +14,6 @@ namespace javax {
 	namespace imageio {
 		namespace plugins {
 			namespace tiff {
-
-$MethodInfo _BaselineTIFFTagSet$PhotometricInterpretation_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$PhotometricInterpretation, init$, void)},
-	{}
-};
-
-$InnerClassInfo _BaselineTIFFTagSet$PhotometricInterpretation_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$PhotometricInterpretation", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "PhotometricInterpretation", $STATIC},
-	{}
-};
-
-$ClassInfo _BaselineTIFFTagSet$PhotometricInterpretation_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet$PhotometricInterpretation",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$PhotometricInterpretation_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$PhotometricInterpretation_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
-};
-
-$Object* allocate$BaselineTIFFTagSet$PhotometricInterpretation($Class* clazz) {
-	return $of($alloc(BaselineTIFFTagSet$PhotometricInterpretation));
-}
 
 void BaselineTIFFTagSet$PhotometricInterpretation::init$() {
 	$TIFFTag::init$("PhotometricInterpretation"_s, 262, $sl(1, $TIFFTag::TIFF_SHORT), 1);
@@ -63,7 +32,32 @@ BaselineTIFFTagSet$PhotometricInterpretation::BaselineTIFFTagSet$PhotometricInte
 }
 
 $Class* BaselineTIFFTagSet$PhotometricInterpretation::load$($String* name, bool initialize) {
-	$loadClass(BaselineTIFFTagSet$PhotometricInterpretation, name, initialize, &_BaselineTIFFTagSet$PhotometricInterpretation_ClassInfo_, allocate$BaselineTIFFTagSet$PhotometricInterpretation);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$PhotometricInterpretation, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$PhotometricInterpretation", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "PhotometricInterpretation", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet$PhotometricInterpretation",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
+	};
+	$loadClass(BaselineTIFFTagSet$PhotometricInterpretation, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BaselineTIFFTagSet$PhotometricInterpretation);
+	});
 	return class$;
 }
 

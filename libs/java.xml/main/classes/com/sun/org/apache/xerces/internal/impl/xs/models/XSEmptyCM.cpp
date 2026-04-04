@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/models/XSEmptyCM.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/SubstitutionGroupHandler.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/models/XSCMValidator.h>
 #include <com/sun/org/apache/xerces/internal/xni/QName.h>
@@ -31,55 +30,22 @@ namespace com {
 							namespace xs {
 								namespace models {
 
-$FieldInfo _XSEmptyCM_FieldInfo_[] = {
-	{"STATE_START", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSEmptyCM, STATE_START)},
-	{"EMPTY", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Object;>;", $PRIVATE | $STATIC | $FINAL, $staticField(XSEmptyCM, EMPTY)},
-	{}
-};
-
-$MethodInfo _XSEmptyCM_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XSEmptyCM, init$, void)},
-	{"checkMinMaxBounds", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(XSEmptyCM, checkMinMaxBounds, $List*)},
-	{"checkUniqueParticleAttribution", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SubstitutionGroupHandler;)Z", nullptr, $PUBLIC, $virtualMethod(XSEmptyCM, checkUniqueParticleAttribution, bool, $SubstitutionGroupHandler*), "com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaException"},
-	{"endContentModel", "([I)Z", nullptr, $PUBLIC, $virtualMethod(XSEmptyCM, endContentModel, bool, $ints*)},
-	{"getTermName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSEmptyCM, getTermName, $String*, int32_t)},
-	{"isCompactedForUPA", "()Z", nullptr, $PUBLIC, $virtualMethod(XSEmptyCM, isCompactedForUPA, bool)},
-	{"occurenceInfo", "([I)[I", nullptr, $PUBLIC, $virtualMethod(XSEmptyCM, occurenceInfo, $ints*, $ints*)},
-	{"oneTransition", "(Lcom/sun/org/apache/xerces/internal/xni/QName;[ILcom/sun/org/apache/xerces/internal/impl/xs/SubstitutionGroupHandler;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSEmptyCM, oneTransition, $Object*, $QName*, $ints*, $SubstitutionGroupHandler*)},
-	{"startContentModel", "()[I", nullptr, $PUBLIC, $virtualMethod(XSEmptyCM, startContentModel, $ints*)},
-	{"whatCanGoHere", "([I)Ljava/util/List;", "([I)Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(XSEmptyCM, whatCanGoHere, $List*, $ints*)},
-	{}
-};
-
-$ClassInfo _XSEmptyCM_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.models.XSEmptyCM",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.impl.xs.models.XSCMValidator",
-	_XSEmptyCM_FieldInfo_,
-	_XSEmptyCM_MethodInfo_
-};
-
-$Object* allocate$XSEmptyCM($Class* clazz) {
-	return $of($alloc(XSEmptyCM));
-}
-
 $List* XSEmptyCM::EMPTY = nullptr;
 
 void XSEmptyCM::init$() {
 }
 
 $ints* XSEmptyCM::startContentModel() {
-	return ($new($ints, {(int32_t)XSEmptyCM::STATE_START}));
+	return ($new($ints, {XSEmptyCM::STATE_START}));
 }
 
 $Object* XSEmptyCM::oneTransition($QName* elementName, $ints* currentState, $SubstitutionGroupHandler* subGroupHandler) {
 	if ($nc(currentState)->get(0) < 0) {
 		currentState->set(0, $XSCMValidator::SUBSEQUENT_ERROR);
-		return $of(nullptr);
+		return nullptr;
 	}
-	$nc(currentState)->set(0, $XSCMValidator::FIRST_ERROR);
-	return $of(nullptr);
+	currentState->set(0, $XSCMValidator::FIRST_ERROR);
+	return nullptr;
 }
 
 bool XSEmptyCM::endContentModel($ints* currentState) {
@@ -115,7 +81,7 @@ bool XSEmptyCM::isCompactedForUPA() {
 	return false;
 }
 
-void clinit$XSEmptyCM($Class* class$) {
+void XSEmptyCM::clinit$($Class* clazz) {
 	$assignStatic(XSEmptyCM::EMPTY, $new($ArrayList, 0));
 }
 
@@ -123,7 +89,35 @@ XSEmptyCM::XSEmptyCM() {
 }
 
 $Class* XSEmptyCM::load$($String* name, bool initialize) {
-	$loadClass(XSEmptyCM, name, initialize, &_XSEmptyCM_ClassInfo_, clinit$XSEmptyCM, allocate$XSEmptyCM);
+	$FieldInfo fieldInfos$$[] = {
+		{"STATE_START", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSEmptyCM, STATE_START)},
+		{"EMPTY", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Object;>;", $PRIVATE | $STATIC | $FINAL, $staticField(XSEmptyCM, EMPTY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XSEmptyCM, init$, void)},
+		{"checkMinMaxBounds", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(XSEmptyCM, checkMinMaxBounds, $List*)},
+		{"checkUniqueParticleAttribution", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SubstitutionGroupHandler;)Z", nullptr, $PUBLIC, $virtualMethod(XSEmptyCM, checkUniqueParticleAttribution, bool, $SubstitutionGroupHandler*), "com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaException"},
+		{"endContentModel", "([I)Z", nullptr, $PUBLIC, $virtualMethod(XSEmptyCM, endContentModel, bool, $ints*)},
+		{"getTermName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSEmptyCM, getTermName, $String*, int32_t)},
+		{"isCompactedForUPA", "()Z", nullptr, $PUBLIC, $virtualMethod(XSEmptyCM, isCompactedForUPA, bool)},
+		{"occurenceInfo", "([I)[I", nullptr, $PUBLIC, $virtualMethod(XSEmptyCM, occurenceInfo, $ints*, $ints*)},
+		{"oneTransition", "(Lcom/sun/org/apache/xerces/internal/xni/QName;[ILcom/sun/org/apache/xerces/internal/impl/xs/SubstitutionGroupHandler;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSEmptyCM, oneTransition, $Object*, $QName*, $ints*, $SubstitutionGroupHandler*)},
+		{"startContentModel", "()[I", nullptr, $PUBLIC, $virtualMethod(XSEmptyCM, startContentModel, $ints*)},
+		{"whatCanGoHere", "([I)Ljava/util/List;", "([I)Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(XSEmptyCM, whatCanGoHere, $List*, $ints*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.models.XSEmptyCM",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.impl.xs.models.XSCMValidator",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XSEmptyCM, name, initialize, &classInfo$$, XSEmptyCM::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XSEmptyCM);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/api/ClientCodeWrapper$WrappedDiagnosticListener.h>
-
 #include <com/sun/tools/javac/api/ClientCodeWrapper.h>
 #include <com/sun/tools/javac/util/ClientCodeException.h>
 #include <java/lang/Error.h>
@@ -26,44 +25,6 @@ namespace com {
 			namespace javac {
 				namespace api {
 
-$FieldInfo _ClientCodeWrapper$WrappedDiagnosticListener_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/api/ClientCodeWrapper;", nullptr, $FINAL | $SYNTHETIC, $field(ClientCodeWrapper$WrappedDiagnosticListener, this$0)},
-	{"clientDiagnosticListener", "Ljavax/tools/DiagnosticListener;", "Ljavax/tools/DiagnosticListener<TT;>;", $PROTECTED, $field(ClientCodeWrapper$WrappedDiagnosticListener, clientDiagnosticListener)},
-	{}
-};
-
-$MethodInfo _ClientCodeWrapper$WrappedDiagnosticListener_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/ClientCodeWrapper;Ljavax/tools/DiagnosticListener;)V", "(Ljavax/tools/DiagnosticListener<TT;>;)V", 0, $method(ClientCodeWrapper$WrappedDiagnosticListener, init$, void, $ClientCodeWrapper*, $DiagnosticListener*)},
-	{"report", "(Ljavax/tools/Diagnostic;)V", "(Ljavax/tools/Diagnostic<+TT;>;)V", $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedDiagnosticListener, report, void, $Diagnostic*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedDiagnosticListener, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _ClientCodeWrapper$WrappedDiagnosticListener_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.api.ClientCodeWrapper$WrappedDiagnosticListener", "com.sun.tools.javac.api.ClientCodeWrapper", "WrappedDiagnosticListener", $PROTECTED},
-	{}
-};
-
-$ClassInfo _ClientCodeWrapper$WrappedDiagnosticListener_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.api.ClientCodeWrapper$WrappedDiagnosticListener",
-	"java.lang.Object",
-	"javax.tools.DiagnosticListener",
-	_ClientCodeWrapper$WrappedDiagnosticListener_FieldInfo_,
-	_ClientCodeWrapper$WrappedDiagnosticListener_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljavax/tools/DiagnosticListener<TT;>;",
-	nullptr,
-	_ClientCodeWrapper$WrappedDiagnosticListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.api.ClientCodeWrapper"
-};
-
-$Object* allocate$ClientCodeWrapper$WrappedDiagnosticListener($Class* clazz) {
-	return $of($alloc(ClientCodeWrapper$WrappedDiagnosticListener));
-}
-
 void ClientCodeWrapper$WrappedDiagnosticListener::init$($ClientCodeWrapper* this$0, $DiagnosticListener* clientDiagnosticListener) {
 	$set(this, this$0, this$0);
 	$set(this, clientDiagnosticListener, $cast($DiagnosticListener, $Objects::requireNonNull(clientDiagnosticListener)));
@@ -89,7 +50,39 @@ ClientCodeWrapper$WrappedDiagnosticListener::ClientCodeWrapper$WrappedDiagnostic
 }
 
 $Class* ClientCodeWrapper$WrappedDiagnosticListener::load$($String* name, bool initialize) {
-	$loadClass(ClientCodeWrapper$WrappedDiagnosticListener, name, initialize, &_ClientCodeWrapper$WrappedDiagnosticListener_ClassInfo_, allocate$ClientCodeWrapper$WrappedDiagnosticListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/api/ClientCodeWrapper;", nullptr, $FINAL | $SYNTHETIC, $field(ClientCodeWrapper$WrappedDiagnosticListener, this$0)},
+		{"clientDiagnosticListener", "Ljavax/tools/DiagnosticListener;", "Ljavax/tools/DiagnosticListener<TT;>;", $PROTECTED, $field(ClientCodeWrapper$WrappedDiagnosticListener, clientDiagnosticListener)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/api/ClientCodeWrapper;Ljavax/tools/DiagnosticListener;)V", "(Ljavax/tools/DiagnosticListener<TT;>;)V", 0, $method(ClientCodeWrapper$WrappedDiagnosticListener, init$, void, $ClientCodeWrapper*, $DiagnosticListener*)},
+		{"report", "(Ljavax/tools/Diagnostic;)V", "(Ljavax/tools/Diagnostic<+TT;>;)V", $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedDiagnosticListener, report, void, $Diagnostic*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedDiagnosticListener, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.api.ClientCodeWrapper$WrappedDiagnosticListener", "com.sun.tools.javac.api.ClientCodeWrapper", "WrappedDiagnosticListener", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.api.ClientCodeWrapper$WrappedDiagnosticListener",
+		"java.lang.Object",
+		"javax.tools.DiagnosticListener",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljavax/tools/DiagnosticListener<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.api.ClientCodeWrapper"
+	};
+	$loadClass(ClientCodeWrapper$WrappedDiagnosticListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClientCodeWrapper$WrappedDiagnosticListener);
+	});
 	return class$;
 }
 

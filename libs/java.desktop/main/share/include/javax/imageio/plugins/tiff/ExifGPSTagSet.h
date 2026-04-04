@@ -125,6 +125,7 @@ class $import ExifGPSTagSet : public ::javax::imageio::plugins::tiff::TIFFTagSet
 	$class(ExifGPSTagSet, 0, ::javax::imageio::plugins::tiff::TIFFTagSet)
 public:
 	ExifGPSTagSet();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::imageio::plugins::tiff::ExifGPSTagSet* getInstance();
 	static ::java::util::List* initTags();

@@ -1,5 +1,4 @@
 #include <sun/awt/X11InputMethod.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Window.h>
@@ -10,7 +9,6 @@
 #include <java/awt/peer/ComponentPeer.h>
 #include <java/lang/StringBuffer.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/text/AttributedCharacterIterator$Attribute.h>
 #include <java/text/AttributedCharacterIterator.h>
 #include <java/text/AttributedString.h>
 #include <sun/awt/X11InputMethodBase$IntBuffer.h>
@@ -25,7 +23,6 @@
 #undef INPUT_METHOD_HIGHLIGHT
 #undef INPUT_METHOD_TEXT_CHANGED
 
-using $Container = ::java::awt::Container;
 using $InputMethodEvent = ::java::awt::event::InputMethodEvent;
 using $TextAttribute = ::java::awt::font::TextAttribute;
 using $TextHitInfo = ::java::awt::font::TextHitInfo;
@@ -35,40 +32,13 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
-using $AttributedCharacterIterator$Attribute = ::java::text::AttributedCharacterIterator$Attribute;
 using $AttributedString = ::java::text::AttributedString;
 using $X11InputMethodBase = ::sun::awt::X11InputMethodBase;
 using $X11InputMethodBase$IntBuffer = ::sun::awt::X11InputMethodBase$IntBuffer;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 
 namespace sun {
 	namespace awt {
-
-$MethodInfo _X11InputMethod_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(X11InputMethod, init$, void), "java.awt.AWTException"},
-	{"activate", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X11InputMethod, activate, void)},
-	{"deactivate", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X11InputMethod, deactivate, void, bool)},
-	{"dispatchComposedText", "(Ljava/lang/String;[IIIIJ)V", nullptr, 0, $virtualMethod(X11InputMethod, dispatchComposedText, void, $String*, $ints*, int32_t, int32_t, int32_t, int64_t)},
-	{"disposeImpl", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(X11InputMethod, disposeImpl, void)},
-	{"hideWindows", "()V", nullptr, $PUBLIC, $virtualMethod(X11InputMethod, hideWindows, void)},
-	{"resetCompositionState", "()V", nullptr, $PROTECTED, $virtualMethod(X11InputMethod, resetCompositionState, void)},
-	{"setCompositionEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(X11InputMethod, setCompositionEnabled, void, bool)},
-	{}
-};
-
-$ClassInfo _X11InputMethod_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.awt.X11InputMethod",
-	"sun.awt.X11InputMethodBase",
-	nullptr,
-	nullptr,
-	_X11InputMethod_MethodInfo_
-};
-
-$Object* allocate$X11InputMethod($Class* clazz) {
-	return $of($alloc(X11InputMethod));
-}
 
 void X11InputMethod::init$() {
 	$X11InputMethodBase::init$();
@@ -86,7 +56,7 @@ void X11InputMethod::resetCompositionState() {
 
 void X11InputMethod::activate() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$set(this, clientComponentWindow, getClientComponentWindow());
 		if (this->clientComponentWindow == nullptr) {
 			return;
@@ -95,9 +65,9 @@ void X11InputMethod::activate() {
 			$init($X11InputMethodBase);
 			$init($PlatformLogger$Level);
 			if ($nc($X11InputMethodBase::log)->isLoggable($PlatformLogger$Level::FINE)) {
-				$nc($X11InputMethodBase::log)->fine("XICFocused {0}, AWTFocused {1}"_s, $$new($ObjectArray, {
-					$of(this->lastXICFocussedComponent),
-					$of(this->awtFocussedComponent)
+				$X11InputMethodBase::log->fine("XICFocused {0}, AWTFocused {1}"_s, $$new($ObjectArray, {
+					this->lastXICFocussedComponent,
+					this->awtFocussedComponent
 				}));
 			}
 		}
@@ -146,7 +116,7 @@ void X11InputMethod::hideWindows() {
 }
 
 void X11InputMethod::dispatchComposedText($String* chgText, $ints* chgStyles, int32_t chgOffset, int32_t chgLength, int32_t caretPosition, int64_t when) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->disposed) {
 		return;
 	}
@@ -163,14 +133,14 @@ void X11InputMethod::dispatchComposedText($String* chgText, $ints* chgStyles, in
 		} else if (chgLength == $nc(this->composedText)->length()) {
 			$set(this, composedText, $new($StringBuffer, $X11InputMethodBase::INITIAL_SIZE));
 			$set(this, rawFeedbacks, $new($X11InputMethodBase$IntBuffer, this, $X11InputMethodBase::INITIAL_SIZE));
-		} else if ($nc(this->composedText)->length() > 0) {
-			if (chgOffset + chgLength < $nc(this->composedText)->length()) {
+		} else if (this->composedText->length() > 0) {
+			if (chgOffset + chgLength < this->composedText->length()) {
 				$var($String, text, nullptr);
-				$assign(text, $nc($($nc(this->composedText)->toString()))->substring(chgOffset + chgLength, $nc(this->composedText)->length()));
-				$nc(this->composedText)->setLength(chgOffset);
-				$nc(this->composedText)->append(text);
+				$assign(text, $(this->composedText->toString())->substring(chgOffset + chgLength, this->composedText->length()));
+				this->composedText->setLength(chgOffset);
+				this->composedText->append(text);
 			} else {
-				$nc(this->composedText)->setLength(chgOffset);
+				this->composedText->setLength(chgOffset);
 			}
 			$nc(this->rawFeedbacks)->remove(chgOffset, chgLength);
 		}
@@ -195,7 +165,7 @@ void X11InputMethod::dispatchComposedText($String* chgText, $ints* chgStyles, in
 	int32_t composedOffset = 0;
 	$var($AttributedString, inputText, nullptr);
 	if (this->committedText != nullptr) {
-		composedOffset = $nc(this->committedText)->length();
+		composedOffset = this->committedText->length();
 		$assign(inputText, $new($AttributedString, $$str({this->committedText, this->composedText})));
 		$set(this, committedText, nullptr);
 	} else {
@@ -213,9 +183,9 @@ void X11InputMethod::dispatchComposedText($String* chgText, $ints* chgStyles, in
 	$nc(this->rawFeedbacks)->unget();
 	while ((nextFeedback = $nc(this->rawFeedbacks)->getNext()) != -1) {
 		if (visiblePosition == 0) {
-			visiblePosition = (int32_t)(nextFeedback & (uint32_t)$X11InputMethodBase::XIMVisibleMask);
+			visiblePosition = nextFeedback & $X11InputMethodBase::XIMVisibleMask;
 			if (visiblePosition != 0) {
-				int32_t index = $nc(this->rawFeedbacks)->getOffset() - 1;
+				int32_t index = this->rawFeedbacks->getOffset() - 1;
 				if (visiblePosition == $X11InputMethodBase::XIMVisibleToBackward) {
 					$assign(visiblePositionInfo, $TextHitInfo::leading(index));
 				} else {
@@ -239,8 +209,7 @@ void X11InputMethod::dispatchComposedText($String* chgText, $ints* chgStyles, in
 		$nc(inputText)->addAttribute($TextAttribute::INPUT_METHOD_HIGHLIGHT, $(convertVisualFeedbackToHighlight(currentFeedback)), composedOffset + startOffset, composedOffset + currentOffset);
 	}
 	$var($AttributedCharacterIterator, var$0, $nc(inputText)->getIterator());
-	int32_t var$1 = composedOffset;
-	postInputMethodEvent($InputMethodEvent::INPUT_METHOD_TEXT_CHANGED, var$0, var$1, $($TextHitInfo::leading(caretPosition)), visiblePositionInfo, when);
+	postInputMethodEvent($InputMethodEvent::INPUT_METHOD_TEXT_CHANGED, var$0, composedOffset, $($TextHitInfo::leading(caretPosition)), visiblePositionInfo, when);
 }
 
 void X11InputMethod::disposeImpl() {
@@ -266,7 +235,28 @@ X11InputMethod::X11InputMethod() {
 }
 
 $Class* X11InputMethod::load$($String* name, bool initialize) {
-	$loadClass(X11InputMethod, name, initialize, &_X11InputMethod_ClassInfo_, allocate$X11InputMethod);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(X11InputMethod, init$, void), "java.awt.AWTException"},
+		{"activate", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X11InputMethod, activate, void)},
+		{"deactivate", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X11InputMethod, deactivate, void, bool)},
+		{"dispatchComposedText", "(Ljava/lang/String;[IIIIJ)V", nullptr, 0, $virtualMethod(X11InputMethod, dispatchComposedText, void, $String*, $ints*, int32_t, int32_t, int32_t, int64_t)},
+		{"disposeImpl", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(X11InputMethod, disposeImpl, void)},
+		{"hideWindows", "()V", nullptr, $PUBLIC, $virtualMethod(X11InputMethod, hideWindows, void)},
+		{"resetCompositionState", "()V", nullptr, $PROTECTED, $virtualMethod(X11InputMethod, resetCompositionState, void)},
+		{"setCompositionEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(X11InputMethod, setCompositionEnabled, void, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.awt.X11InputMethod",
+		"sun.awt.X11InputMethodBase",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(X11InputMethod, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(X11InputMethod);
+	});
 	return class$;
 }
 

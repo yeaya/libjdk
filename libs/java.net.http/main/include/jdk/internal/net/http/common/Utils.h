@@ -179,6 +179,7 @@ class $import Utils : public ::java::lang::Object {
 	$class(Utils, 0, ::java::lang::Object)
 public:
 	Utils();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::function::BiPredicate* CONTEXT_RESTRICTED(::java::net::http::HttpClient* client);
 	static ::java::util::function::BiPredicate* PROXY_TUNNEL_RESTRICTED(::java::net::http::HttpClient* client);

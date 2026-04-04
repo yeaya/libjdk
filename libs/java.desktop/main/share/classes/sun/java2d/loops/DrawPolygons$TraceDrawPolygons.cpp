@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/DrawPolygons$TraceDrawPolygons.h>
-
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/loops/CompositeType.h>
@@ -23,45 +22,8 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _DrawPolygons$TraceDrawPolygons_FieldInfo_[] = {
-	{"target", "Lsun/java2d/loops/DrawPolygons;", nullptr, 0, $field(DrawPolygons$TraceDrawPolygons, target)},
-	{}
-};
-
-$MethodInfo _DrawPolygons$TraceDrawPolygons_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/DrawPolygons;)V", nullptr, $PUBLIC, $method(DrawPolygons$TraceDrawPolygons, init$, void, $DrawPolygons*)},
-	{"DrawPolygons", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;[I[I[IIIIZ)V", nullptr, $PUBLIC, $virtualMethod(DrawPolygons$TraceDrawPolygons, DrawPolygons$, void, $SunGraphics2D*, $SurfaceData*, $ints*, $ints*, $ints*, int32_t, int32_t, int32_t, bool)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(DrawPolygons$TraceDrawPolygons, traceWrap, $GraphicsPrimitive*)},
-	{}
-};
-
-$InnerClassInfo _DrawPolygons$TraceDrawPolygons_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.DrawPolygons$TraceDrawPolygons", "sun.java2d.loops.DrawPolygons", "TraceDrawPolygons", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DrawPolygons$TraceDrawPolygons_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.DrawPolygons$TraceDrawPolygons",
-	"sun.java2d.loops.DrawPolygons",
-	nullptr,
-	_DrawPolygons$TraceDrawPolygons_FieldInfo_,
-	_DrawPolygons$TraceDrawPolygons_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DrawPolygons$TraceDrawPolygons_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.DrawPolygons"
-};
-
-$Object* allocate$DrawPolygons$TraceDrawPolygons($Class* clazz) {
-	return $of($alloc(DrawPolygons$TraceDrawPolygons));
-}
-
 void DrawPolygons$TraceDrawPolygons::init$($DrawPolygons* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceType, var$0, $nc(target)->getSourceType());
 	$var($CompositeType, var$1, target->getCompositeType());
 	$DrawPolygons::init$(var$0, var$1, $(target->getDestType()));
@@ -81,7 +43,38 @@ DrawPolygons$TraceDrawPolygons::DrawPolygons$TraceDrawPolygons() {
 }
 
 $Class* DrawPolygons$TraceDrawPolygons::load$($String* name, bool initialize) {
-	$loadClass(DrawPolygons$TraceDrawPolygons, name, initialize, &_DrawPolygons$TraceDrawPolygons_ClassInfo_, allocate$DrawPolygons$TraceDrawPolygons);
+	$FieldInfo fieldInfos$$[] = {
+		{"target", "Lsun/java2d/loops/DrawPolygons;", nullptr, 0, $field(DrawPolygons$TraceDrawPolygons, target)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/DrawPolygons;)V", nullptr, $PUBLIC, $method(DrawPolygons$TraceDrawPolygons, init$, void, $DrawPolygons*)},
+		{"DrawPolygons", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;[I[I[IIIIZ)V", nullptr, $PUBLIC, $virtualMethod(DrawPolygons$TraceDrawPolygons, DrawPolygons$, void, $SunGraphics2D*, $SurfaceData*, $ints*, $ints*, $ints*, int32_t, int32_t, int32_t, bool)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(DrawPolygons$TraceDrawPolygons, traceWrap, $GraphicsPrimitive*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.DrawPolygons$TraceDrawPolygons", "sun.java2d.loops.DrawPolygons", "TraceDrawPolygons", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.DrawPolygons$TraceDrawPolygons",
+		"sun.java2d.loops.DrawPolygons",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.DrawPolygons"
+	};
+	$loadClass(DrawPolygons$TraceDrawPolygons, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DrawPolygons$TraceDrawPolygons);
+	});
 	return class$;
 }
 

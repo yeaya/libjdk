@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicBorders$FieldBorder.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -26,51 +25,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicBorders$FieldBorder_FieldInfo_[] = {
-	{"shadow", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicBorders$FieldBorder, shadow)},
-	{"darkShadow", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicBorders$FieldBorder, darkShadow)},
-	{"highlight", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicBorders$FieldBorder, highlight)},
-	{"lightHighlight", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicBorders$FieldBorder, lightHighlight)},
-	{}
-};
-
-$MethodInfo _BasicBorders$FieldBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(BasicBorders$FieldBorder, init$, void, $Color*, $Color*, $Color*, $Color*)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(BasicBorders$FieldBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(BasicBorders$FieldBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicBorders$FieldBorder_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicBorders$FieldBorder", "javax.swing.plaf.basic.BasicBorders", "FieldBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicBorders$FieldBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicBorders$FieldBorder",
-	"javax.swing.border.AbstractBorder",
-	"javax.swing.plaf.UIResource",
-	_BasicBorders$FieldBorder_FieldInfo_,
-	_BasicBorders$FieldBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicBorders$FieldBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicBorders"
-};
-
-$Object* allocate$BasicBorders$FieldBorder($Class* clazz) {
-	return $of($alloc(BasicBorders$FieldBorder));
-}
 
 int32_t BasicBorders$FieldBorder::hashCode() {
 	 return this->$AbstractBorder::hashCode();
@@ -107,9 +61,9 @@ void BasicBorders$FieldBorder::paintBorder($Component* c, $Graphics* g, int32_t 
 $Insets* BasicBorders$FieldBorder::getBorderInsets($Component* c, $Insets* insets) {
 	$var($Insets, margin, nullptr);
 	if ($instanceOf($JTextComponent, c)) {
-		$assign(margin, $nc(($cast($JTextComponent, c)))->getMargin());
+		$assign(margin, $cast($JTextComponent, c)->getMargin());
 	}
-	$nc(insets)->top = margin != nullptr ? 2 + $nc(margin)->top : 2;
+	$nc(insets)->top = margin != nullptr ? 2 + margin->top : 2;
 	insets->left = margin != nullptr ? 2 + margin->left : 2;
 	insets->bottom = margin != nullptr ? 2 + margin->bottom : 2;
 	insets->right = margin != nullptr ? 2 + margin->right : 2;
@@ -120,7 +74,46 @@ BasicBorders$FieldBorder::BasicBorders$FieldBorder() {
 }
 
 $Class* BasicBorders$FieldBorder::load$($String* name, bool initialize) {
-	$loadClass(BasicBorders$FieldBorder, name, initialize, &_BasicBorders$FieldBorder_ClassInfo_, allocate$BasicBorders$FieldBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"shadow", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicBorders$FieldBorder, shadow)},
+		{"darkShadow", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicBorders$FieldBorder, darkShadow)},
+		{"highlight", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicBorders$FieldBorder, highlight)},
+		{"lightHighlight", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicBorders$FieldBorder, lightHighlight)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(BasicBorders$FieldBorder, init$, void, $Color*, $Color*, $Color*, $Color*)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(BasicBorders$FieldBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(BasicBorders$FieldBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicBorders$FieldBorder", "javax.swing.plaf.basic.BasicBorders", "FieldBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicBorders$FieldBorder",
+		"javax.swing.border.AbstractBorder",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicBorders"
+	};
+	$loadClass(BasicBorders$FieldBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicBorders$FieldBorder));
+	});
 	return class$;
 }
 

@@ -1,12 +1,10 @@
 #include <javax/swing/ProgressMonitor$AccessibleProgressMonitor.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Window.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <java/util/Locale.h>
 #include <javax/accessibility/Accessible.h>
 #include <javax/accessibility/AccessibleComponent.h>
@@ -23,7 +21,6 @@
 #include <javax/swing/ProgressMonitor.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/event/ChangeEvent.h>
-#include <javax/swing/event/ChangeListener.h>
 #include <javax/swing/text/AttributeSet.h>
 #include <jcpp.h>
 
@@ -35,7 +32,6 @@ using $Component = ::java::awt::Component;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -49,89 +45,14 @@ using $AccessibleRole = ::javax::accessibility::AccessibleRole;
 using $AccessibleStateSet = ::javax::accessibility::AccessibleStateSet;
 using $AccessibleText = ::javax::accessibility::AccessibleText;
 using $AccessibleValue = ::javax::accessibility::AccessibleValue;
-using $JDialog = ::javax::swing::JDialog;
-using $JLabel = ::javax::swing::JLabel;
-using $JProgressBar = ::javax::swing::JProgressBar;
 using $ProgressMonitor = ::javax::swing::ProgressMonitor;
 using $ProgressMonitor$ProgressOptionPane = ::javax::swing::ProgressMonitor$ProgressOptionPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
-using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _ProgressMonitor$AccessibleProgressMonitor_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/ProgressMonitor;", nullptr, $FINAL | $SYNTHETIC, $field(ProgressMonitor$AccessibleProgressMonitor, this$0)},
-	{"oldModelValue", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(ProgressMonitor$AccessibleProgressMonitor, oldModelValue)},
-	{}
-};
-
-$MethodInfo _ProgressMonitor$AccessibleProgressMonitor_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/ProgressMonitor;)V", nullptr, $PROTECTED, $method(ProgressMonitor$AccessibleProgressMonitor, init$, void, $ProgressMonitor*)},
-	{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getAccessibleChild, $Accessible*, int32_t)},
-	{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getAccessibleChildrenCount, int32_t)},
-	{"getAccessibleComponent", "()Ljavax/accessibility/AccessibleComponent;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getAccessibleComponent, $AccessibleComponent*)},
-	{"getAccessibleDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getAccessibleDescription, $String*)},
-	{"getAccessibleIndexInParent", "()I", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getAccessibleIndexInParent, int32_t)},
-	{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getAccessibleName, $String*)},
-	{"getAccessibleParent", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getAccessibleParent, $Accessible*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getAccessibleRole, $AccessibleRole*)},
-	{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getAccessibleStateSet, $AccessibleStateSet*)},
-	{"getAccessibleText", "()Ljavax/accessibility/AccessibleText;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getAccessibleText, $AccessibleText*)},
-	{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getAccessibleValue, $AccessibleValue*)},
-	{"getAfterIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getAfterIndex, $String*, int32_t, int32_t)},
-	{"getAtIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getAtIndex, $String*, int32_t, int32_t)},
-	{"getBeforeIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getBeforeIndex, $String*, int32_t, int32_t)},
-	{"getCaretPosition", "()I", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getCaretPosition, int32_t)},
-	{"getCharCount", "()I", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getCharCount, int32_t)},
-	{"getCharacterAttribute", "(I)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getCharacterAttribute, $AttributeSet*, int32_t)},
-	{"getCharacterBounds", "(I)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getCharacterBounds, $Rectangle*, int32_t)},
-	{"getIndexAtPoint", "(Ljava/awt/Point;)I", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getIndexAtPoint, int32_t, $Point*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getLocale, $Locale*), "java.awt.IllegalComponentStateException"},
-	{"getNoteLabelAccessibleText", "()Ljavax/accessibility/AccessibleText;", nullptr, $PRIVATE, $method(ProgressMonitor$AccessibleProgressMonitor, getNoteLabelAccessibleText, $AccessibleText*)},
-	{"getPanelAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PRIVATE, $method(ProgressMonitor$AccessibleProgressMonitor, getPanelAccessibleContext, $AccessibleContext*)},
-	{"getParentAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PRIVATE, $method(ProgressMonitor$AccessibleProgressMonitor, getParentAccessibleContext, $AccessibleContext*)},
-	{"getSelectedText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getSelectedText, $String*)},
-	{"getSelectionEnd", "()I", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getSelectionEnd, int32_t)},
-	{"getSelectionStart", "()I", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getSelectionStart, int32_t)},
-	{"optionPaneCreated", "()V", nullptr, $PRIVATE, $method(ProgressMonitor$AccessibleProgressMonitor, optionPaneCreated, void)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, propertyChange, void, $PropertyChangeEvent*)},
-	{"sameWindowAncestor", "(Ljava/awt/Component;Ljava/awt/Component;)Z", nullptr, $PRIVATE, $method(ProgressMonitor$AccessibleProgressMonitor, sameWindowAncestor, bool, $Component*, $Component*)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, stateChanged, void, $ChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _ProgressMonitor$AccessibleProgressMonitor_InnerClassesInfo_[] = {
-	{"javax.swing.ProgressMonitor$AccessibleProgressMonitor", "javax.swing.ProgressMonitor", "AccessibleProgressMonitor", $PROTECTED},
-	{}
-};
-
-$ClassInfo _ProgressMonitor$AccessibleProgressMonitor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.ProgressMonitor$AccessibleProgressMonitor",
-	"javax.accessibility.AccessibleContext",
-	"javax.accessibility.AccessibleText,javax.swing.event.ChangeListener,java.beans.PropertyChangeListener",
-	_ProgressMonitor$AccessibleProgressMonitor_FieldInfo_,
-	_ProgressMonitor$AccessibleProgressMonitor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ProgressMonitor$AccessibleProgressMonitor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.ProgressMonitor"
-};
-
-$Object* allocate$ProgressMonitor$AccessibleProgressMonitor($Class* clazz) {
-	return $of($alloc(ProgressMonitor$AccessibleProgressMonitor));
-}
 
 int32_t ProgressMonitor$AccessibleProgressMonitor::hashCode() {
 	 return this->$AccessibleContext::hashCode();
@@ -159,12 +80,12 @@ void ProgressMonitor$AccessibleProgressMonitor::init$($ProgressMonitor* this$0) 
 }
 
 void ProgressMonitor$AccessibleProgressMonitor::optionPaneCreated() {
-	$set(this->this$0, accessibleJOptionPane, $nc(($cast($ProgressMonitor$ProgressOptionPane, this->this$0->pane)))->getAccessibleJOptionPane());
+	$set(this->this$0, accessibleJOptionPane, $nc($cast($ProgressMonitor$ProgressOptionPane, this->this$0->pane))->getAccessibleJOptionPane());
 	if (this->this$0->myBar != nullptr) {
-		$nc(this->this$0->myBar)->addChangeListener(this);
+		this->this$0->myBar->addChangeListener(this);
 	}
 	if (this->this$0->noteLabel != nullptr) {
-		$nc(this->this$0->noteLabel)->addPropertyChangeListener(this);
+		this->this$0->noteLabel->addPropertyChangeListener(this);
 	}
 }
 
@@ -173,7 +94,7 @@ void ProgressMonitor$AccessibleProgressMonitor::stateChanged($ChangeEvent* e) {
 		return;
 	}
 	if (this->this$0->myBar != nullptr) {
-		$var($Object, newModelValue, $Integer::valueOf($nc(this->this$0->myBar)->getValue()));
+		$var($Object, newModelValue, $Integer::valueOf(this->this$0->myBar->getValue()));
 		$init($AccessibleContext);
 		firePropertyChange($AccessibleContext::ACCESSIBLE_VALUE_PROPERTY, this->oldModelValue, newModelValue);
 		$set(this, oldModelValue, newModelValue);
@@ -192,7 +113,7 @@ $String* ProgressMonitor$AccessibleProgressMonitor::getAccessibleName() {
 	if (this->accessibleName != nullptr) {
 		return this->accessibleName;
 	} else if (this->this$0->accessibleJOptionPane != nullptr) {
-		return $nc(this->this$0->accessibleJOptionPane)->getAccessibleName();
+		return this->this$0->accessibleJOptionPane->getAccessibleName();
 	}
 	return nullptr;
 }
@@ -201,7 +122,7 @@ $String* ProgressMonitor$AccessibleProgressMonitor::getAccessibleDescription() {
 	if (this->accessibleDescription != nullptr) {
 		return this->accessibleDescription;
 	} else if (this->this$0->accessibleJOptionPane != nullptr) {
-		return $nc(this->this$0->accessibleJOptionPane)->getAccessibleDescription();
+		return this->this$0->accessibleJOptionPane->getAccessibleDescription();
 	}
 	return nullptr;
 }
@@ -213,7 +134,7 @@ $AccessibleRole* ProgressMonitor$AccessibleProgressMonitor::getAccessibleRole() 
 
 $AccessibleStateSet* ProgressMonitor$AccessibleProgressMonitor::getAccessibleStateSet() {
 	if (this->this$0->accessibleJOptionPane != nullptr) {
-		return $nc(this->this$0->accessibleJOptionPane)->getAccessibleStateSet();
+		return this->this$0->accessibleJOptionPane->getAccessibleStateSet();
 	}
 	return nullptr;
 }
@@ -224,14 +145,14 @@ $Accessible* ProgressMonitor$AccessibleProgressMonitor::getAccessibleParent() {
 
 $AccessibleContext* ProgressMonitor$AccessibleProgressMonitor::getParentAccessibleContext() {
 	if (this->this$0->dialog != nullptr) {
-		return $nc(this->this$0->dialog)->getAccessibleContext();
+		return this->this$0->dialog->getAccessibleContext();
 	}
 	return nullptr;
 }
 
 int32_t ProgressMonitor$AccessibleProgressMonitor::getAccessibleIndexInParent() {
 	if (this->this$0->accessibleJOptionPane != nullptr) {
-		return $nc(this->this$0->accessibleJOptionPane)->getAccessibleIndexInParent();
+		return this->this$0->accessibleJOptionPane->getAccessibleIndexInParent();
 	}
 	return -1;
 }
@@ -254,9 +175,9 @@ $Accessible* ProgressMonitor$AccessibleProgressMonitor::getAccessibleChild(int32
 
 $AccessibleContext* ProgressMonitor$AccessibleProgressMonitor::getPanelAccessibleContext() {
 	if (this->this$0->myBar != nullptr) {
-		$var($Component, c, $nc(this->this$0->myBar)->getParent());
+		$var($Component, c, this->this$0->myBar->getParent());
 		if ($instanceOf($Accessible, c)) {
-			return $nc(c)->getAccessibleContext();
+			return c->getAccessibleContext();
 		}
 	}
 	return nullptr;
@@ -264,21 +185,21 @@ $AccessibleContext* ProgressMonitor$AccessibleProgressMonitor::getPanelAccessibl
 
 $Locale* ProgressMonitor$AccessibleProgressMonitor::getLocale() {
 	if (this->this$0->accessibleJOptionPane != nullptr) {
-		return $nc(this->this$0->accessibleJOptionPane)->getLocale();
+		return this->this$0->accessibleJOptionPane->getLocale();
 	}
 	return nullptr;
 }
 
 $AccessibleComponent* ProgressMonitor$AccessibleProgressMonitor::getAccessibleComponent() {
 	if (this->this$0->accessibleJOptionPane != nullptr) {
-		return $nc(this->this$0->accessibleJOptionPane)->getAccessibleComponent();
+		return this->this$0->accessibleJOptionPane->getAccessibleComponent();
 	}
 	return nullptr;
 }
 
 $AccessibleValue* ProgressMonitor$AccessibleProgressMonitor::getAccessibleValue() {
 	if (this->this$0->myBar != nullptr) {
-		return $nc($($nc(this->this$0->myBar)->getAccessibleContext()))->getAccessibleValue();
+		return $$nc(this->this$0->myBar->getAccessibleContext())->getAccessibleValue();
 	}
 	return nullptr;
 }
@@ -292,13 +213,13 @@ $AccessibleText* ProgressMonitor$AccessibleProgressMonitor::getAccessibleText() 
 
 $AccessibleText* ProgressMonitor$AccessibleProgressMonitor::getNoteLabelAccessibleText() {
 	if (this->this$0->noteLabel != nullptr) {
-		return $nc($($nc(this->this$0->noteLabel)->getAccessibleContext()))->getAccessibleText();
+		return $$nc(this->this$0->noteLabel->getAccessibleContext())->getAccessibleText();
 	}
 	return nullptr;
 }
 
 int32_t ProgressMonitor$AccessibleProgressMonitor::getIndexAtPoint($Point* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleText, at, getNoteLabelAccessibleText());
 	if (at != nullptr && sameWindowAncestor(this->this$0->pane, this->this$0->noteLabel)) {
 		$var($Point, noteLabelPoint, $SwingUtilities::convertPoint(this->this$0->pane, p, this->this$0->noteLabel));
@@ -310,7 +231,7 @@ int32_t ProgressMonitor$AccessibleProgressMonitor::getIndexAtPoint($Point* p) {
 }
 
 $Rectangle* ProgressMonitor$AccessibleProgressMonitor::getCharacterBounds(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleText, at, getNoteLabelAccessibleText());
 	if (at != nullptr && sameWindowAncestor(this->this$0->pane, this->this$0->noteLabel)) {
 		$var($Rectangle, noteLabelRect, at->getCharacterBounds(i));
@@ -404,7 +325,72 @@ ProgressMonitor$AccessibleProgressMonitor::ProgressMonitor$AccessibleProgressMon
 }
 
 $Class* ProgressMonitor$AccessibleProgressMonitor::load$($String* name, bool initialize) {
-	$loadClass(ProgressMonitor$AccessibleProgressMonitor, name, initialize, &_ProgressMonitor$AccessibleProgressMonitor_ClassInfo_, allocate$ProgressMonitor$AccessibleProgressMonitor);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/ProgressMonitor;", nullptr, $FINAL | $SYNTHETIC, $field(ProgressMonitor$AccessibleProgressMonitor, this$0)},
+		{"oldModelValue", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(ProgressMonitor$AccessibleProgressMonitor, oldModelValue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/ProgressMonitor;)V", nullptr, $PROTECTED, $method(ProgressMonitor$AccessibleProgressMonitor, init$, void, $ProgressMonitor*)},
+		{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getAccessibleChild, $Accessible*, int32_t)},
+		{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getAccessibleChildrenCount, int32_t)},
+		{"getAccessibleComponent", "()Ljavax/accessibility/AccessibleComponent;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getAccessibleComponent, $AccessibleComponent*)},
+		{"getAccessibleDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getAccessibleDescription, $String*)},
+		{"getAccessibleIndexInParent", "()I", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getAccessibleIndexInParent, int32_t)},
+		{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getAccessibleName, $String*)},
+		{"getAccessibleParent", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getAccessibleParent, $Accessible*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getAccessibleRole, $AccessibleRole*)},
+		{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getAccessibleStateSet, $AccessibleStateSet*)},
+		{"getAccessibleText", "()Ljavax/accessibility/AccessibleText;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getAccessibleText, $AccessibleText*)},
+		{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getAccessibleValue, $AccessibleValue*)},
+		{"getAfterIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getAfterIndex, $String*, int32_t, int32_t)},
+		{"getAtIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getAtIndex, $String*, int32_t, int32_t)},
+		{"getBeforeIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getBeforeIndex, $String*, int32_t, int32_t)},
+		{"getCaretPosition", "()I", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getCaretPosition, int32_t)},
+		{"getCharCount", "()I", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getCharCount, int32_t)},
+		{"getCharacterAttribute", "(I)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getCharacterAttribute, $AttributeSet*, int32_t)},
+		{"getCharacterBounds", "(I)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getCharacterBounds, $Rectangle*, int32_t)},
+		{"getIndexAtPoint", "(Ljava/awt/Point;)I", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getIndexAtPoint, int32_t, $Point*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getLocale, $Locale*), "java.awt.IllegalComponentStateException"},
+		{"getNoteLabelAccessibleText", "()Ljavax/accessibility/AccessibleText;", nullptr, $PRIVATE, $method(ProgressMonitor$AccessibleProgressMonitor, getNoteLabelAccessibleText, $AccessibleText*)},
+		{"getPanelAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PRIVATE, $method(ProgressMonitor$AccessibleProgressMonitor, getPanelAccessibleContext, $AccessibleContext*)},
+		{"getParentAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PRIVATE, $method(ProgressMonitor$AccessibleProgressMonitor, getParentAccessibleContext, $AccessibleContext*)},
+		{"getSelectedText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getSelectedText, $String*)},
+		{"getSelectionEnd", "()I", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getSelectionEnd, int32_t)},
+		{"getSelectionStart", "()I", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, getSelectionStart, int32_t)},
+		{"optionPaneCreated", "()V", nullptr, $PRIVATE, $method(ProgressMonitor$AccessibleProgressMonitor, optionPaneCreated, void)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, propertyChange, void, $PropertyChangeEvent*)},
+		{"sameWindowAncestor", "(Ljava/awt/Component;Ljava/awt/Component;)Z", nullptr, $PRIVATE, $method(ProgressMonitor$AccessibleProgressMonitor, sameWindowAncestor, bool, $Component*, $Component*)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$AccessibleProgressMonitor, stateChanged, void, $ChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.ProgressMonitor$AccessibleProgressMonitor", "javax.swing.ProgressMonitor", "AccessibleProgressMonitor", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.ProgressMonitor$AccessibleProgressMonitor",
+		"javax.accessibility.AccessibleContext",
+		"javax.accessibility.AccessibleText,javax.swing.event.ChangeListener,java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.ProgressMonitor"
+	};
+	$loadClass(ProgressMonitor$AccessibleProgressMonitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ProgressMonitor$AccessibleProgressMonitor));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/RuntimeInvisibleAnnotations.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Annotations.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Attribute.h>
@@ -27,26 +26,6 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$MethodInfo _RuntimeInvisibleAnnotations_MethodInfo_[] = {
-	{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(RuntimeInvisibleAnnotations, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
-	{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(RuntimeInvisibleAnnotations, copy, $Attribute*, $ConstantPool*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(RuntimeInvisibleAnnotations, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _RuntimeInvisibleAnnotations_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.RuntimeInvisibleAnnotations",
-	"com.sun.org.apache.bcel.internal.classfile.Annotations",
-	nullptr,
-	nullptr,
-	_RuntimeInvisibleAnnotations_MethodInfo_
-};
-
-$Object* allocate$RuntimeInvisibleAnnotations($Class* clazz) {
-	return $of($alloc(RuntimeInvisibleAnnotations));
-}
-
 void RuntimeInvisibleAnnotations::init$(int32_t name_index, int32_t length, $DataInput* input, $ConstantPool* constant_pool) {
 	$Annotations::init$($Const::ATTR_RUNTIME_INVISIBLE_ANNOTATIONS, name_index, length, input, constant_pool, false);
 }
@@ -64,7 +43,23 @@ RuntimeInvisibleAnnotations::RuntimeInvisibleAnnotations() {
 }
 
 $Class* RuntimeInvisibleAnnotations::load$($String* name, bool initialize) {
-	$loadClass(RuntimeInvisibleAnnotations, name, initialize, &_RuntimeInvisibleAnnotations_ClassInfo_, allocate$RuntimeInvisibleAnnotations);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(RuntimeInvisibleAnnotations, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
+		{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(RuntimeInvisibleAnnotations, copy, $Attribute*, $ConstantPool*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(RuntimeInvisibleAnnotations, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.RuntimeInvisibleAnnotations",
+		"com.sun.org.apache.bcel.internal.classfile.Annotations",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RuntimeInvisibleAnnotations, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RuntimeInvisibleAnnotations));
+	});
 	return class$;
 }
 

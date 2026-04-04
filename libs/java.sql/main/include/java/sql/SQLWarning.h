@@ -28,10 +28,13 @@ public:
 	void init$($String* reason, $String* SQLState, int32_t vendorCode, $Throwable* cause);
 	virtual ::java::sql::SQLWarning* getNextWarning();
 	virtual void setNextWarning(::java::sql::SQLWarning* w);
-	static const int64_t serialVersionUID = (int64_t)0x365D2D0AA3E484D8;
+	static const int64_t serialVersionUID = (int64_t)0x365d2d0aa3e484d8;
 	SQLWarning(const SQLWarning& e);
 	virtual void throw$() override;
-	inline SQLWarning* operator ->() {
+	inline SQLWarning* operator ->() const {
+		return (SQLWarning*)throwing$;
+	}
+	inline operator SQLWarning*() const {
 		return (SQLWarning*)throwing$;
 	}
 };

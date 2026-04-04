@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSWildcardDecl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaSymbols.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/StringListImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl.h>
@@ -50,55 +49,6 @@ namespace com {
 						namespace impl {
 							namespace xs {
 
-$FieldInfo _XSWildcardDecl_FieldInfo_[] = {
-	{"ABSENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSWildcardDecl, ABSENT)},
-	{"fType", "S", nullptr, $PUBLIC, $field(XSWildcardDecl, fType)},
-	{"fProcessContents", "S", nullptr, $PUBLIC, $field(XSWildcardDecl, fProcessContents)},
-	{"fNamespaceList", "[Ljava/lang/String;", nullptr, $PUBLIC, $field(XSWildcardDecl, fNamespaceList)},
-	{"fAnnotations", "Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $field(XSWildcardDecl, fAnnotations)},
-	{"fDescription", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSWildcardDecl, fDescription)},
-	{}
-};
-
-$MethodInfo _XSWildcardDecl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XSWildcardDecl, init$, void)},
-	{"allowNamespace", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, allowNamespace, bool, $String*)},
-	{"areSame", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSWildcardDecl;)Z", nullptr, $PRIVATE, $method(XSWildcardDecl, areSame, bool, XSWildcardDecl*)},
-	{"elementInSet", "(Ljava/lang/String;[Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(XSWildcardDecl, elementInSet, bool, $String*, $StringArray*)},
-	{"getAnnotation", "()Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, getAnnotation, $XSAnnotation*)},
-	{"getAnnotations", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, getAnnotations, $XSObjectList*)},
-	{"getConstraintType", "()S", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, getConstraintType, int16_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, getName, $String*)},
-	{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, getNamespace, $String*)},
-	{"getNamespaceItem", "()Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, getNamespaceItem, $XSNamespaceItem*)},
-	{"getNsConstraintList", "()Lcom/sun/org/apache/xerces/internal/xs/StringList;", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, getNsConstraintList, $StringList*)},
-	{"getProcessContents", "()S", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, getProcessContents, int16_t)},
-	{"getProcessContentsAsString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, getProcessContentsAsString, $String*)},
-	{"getType", "()S", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, getType, int16_t)},
-	{"intersect2sets", "([Ljava/lang/String;[Ljava/lang/String;)[Ljava/lang/String;", nullptr, 0, $virtualMethod(XSWildcardDecl, intersect2sets, $StringArray*, $StringArray*, $StringArray*)},
-	{"isSubsetOf", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSWildcardDecl;)Z", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, isSubsetOf, bool, XSWildcardDecl*)},
-	{"performIntersectionWith", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSWildcardDecl;S)Lcom/sun/org/apache/xerces/internal/impl/xs/XSWildcardDecl;", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, performIntersectionWith, XSWildcardDecl*, XSWildcardDecl*, int16_t)},
-	{"performUnionWith", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSWildcardDecl;S)Lcom/sun/org/apache/xerces/internal/impl/xs/XSWildcardDecl;", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, performUnionWith, XSWildcardDecl*, XSWildcardDecl*, int16_t)},
-	{"subset2sets", "([Ljava/lang/String;[Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(XSWildcardDecl, subset2sets, bool, $StringArray*, $StringArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, toString, $String*)},
-	{"union2sets", "([Ljava/lang/String;[Ljava/lang/String;)[Ljava/lang/String;", nullptr, 0, $virtualMethod(XSWildcardDecl, union2sets, $StringArray*, $StringArray*, $StringArray*)},
-	{"weakerProcessContents", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSWildcardDecl;)Z", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, weakerProcessContents, bool, XSWildcardDecl*)},
-	{}
-};
-
-$ClassInfo _XSWildcardDecl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.XSWildcardDecl",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.xs.XSWildcard",
-	_XSWildcardDecl_FieldInfo_,
-	_XSWildcardDecl_MethodInfo_
-};
-
-$Object* allocate$XSWildcardDecl($Class* clazz) {
-	return $of($alloc(XSWildcardDecl));
-}
-
 $String* XSWildcardDecl::ABSENT = nullptr;
 
 void XSWildcardDecl::init$() {
@@ -116,7 +66,7 @@ bool XSWildcardDecl::allowNamespace($String* namespace$) {
 		bool found = false;
 		int32_t listNum = $nc(this->fNamespaceList)->length;
 		for (int32_t i = 0; i < listNum && !found; ++i) {
-			if (namespace$ == $nc(this->fNamespaceList)->get(i)) {
+			if (namespace$ == this->fNamespaceList->get(i)) {
 				found = true;
 			}
 		}
@@ -127,7 +77,7 @@ bool XSWildcardDecl::allowNamespace($String* namespace$) {
 	if (this->fType == $XSWildcard::NSCONSTRAINT_LIST) {
 		int32_t listNum = $nc(this->fNamespaceList)->length;
 		for (int32_t i = 0; i < listNum; ++i) {
-			if (namespace$ == $nc(this->fNamespaceList)->get(i)) {
+			if (namespace$ == this->fNamespaceList->get(i)) {
 				return true;
 			}
 		}
@@ -143,15 +93,15 @@ bool XSWildcardDecl::isSubsetOf(XSWildcardDecl* superWildcard) {
 		return true;
 	}
 	if (this->fType == $XSWildcard::NSCONSTRAINT_NOT) {
-		if ($nc(superWildcard)->fType == $XSWildcard::NSCONSTRAINT_NOT && $nc(this->fNamespaceList)->get(0) == $nc(superWildcard->fNamespaceList)->get(0)) {
+		if (superWildcard->fType == $XSWildcard::NSCONSTRAINT_NOT && $nc(this->fNamespaceList)->get(0) == $nc(superWildcard->fNamespaceList)->get(0)) {
 			return true;
 		}
 	}
 	if (this->fType == $XSWildcard::NSCONSTRAINT_LIST) {
-		if ($nc(superWildcard)->fType == $XSWildcard::NSCONSTRAINT_LIST && subset2sets(this->fNamespaceList, superWildcard->fNamespaceList)) {
+		if (superWildcard->fType == $XSWildcard::NSCONSTRAINT_LIST && subset2sets(this->fNamespaceList, superWildcard->fNamespaceList)) {
 			return true;
 		}
-		bool var$0 = $nc(superWildcard)->fType == $XSWildcard::NSCONSTRAINT_NOT && !elementInSet($nc(superWildcard->fNamespaceList)->get(0), this->fNamespaceList);
+		bool var$0 = superWildcard->fType == $XSWildcard::NSCONSTRAINT_NOT && !elementInSet($nc(superWildcard->fNamespaceList)->get(0), this->fNamespaceList);
 		if (var$0 && !elementInSet(XSWildcardDecl::ABSENT, this->fNamespaceList)) {
 			return true;
 		}
@@ -164,7 +114,7 @@ bool XSWildcardDecl::weakerProcessContents(XSWildcardDecl* superWildcard) {
 }
 
 XSWildcardDecl* XSWildcardDecl::performUnionWith(XSWildcardDecl* wildcard, int16_t processContents) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (wildcard == nullptr) {
 		return nullptr;
 	}
@@ -175,15 +125,15 @@ XSWildcardDecl* XSWildcardDecl::performUnionWith(XSWildcardDecl* wildcard, int16
 		$set(unionWildcard, fNamespaceList, this->fNamespaceList);
 	} else if ((this->fType == $XSWildcard::NSCONSTRAINT_ANY) || ($nc(wildcard)->fType == $XSWildcard::NSCONSTRAINT_ANY)) {
 		unionWildcard->fType = $XSWildcard::NSCONSTRAINT_ANY;
-	} else if ((this->fType == $XSWildcard::NSCONSTRAINT_LIST) && (wildcard->fType == $XSWildcard::NSCONSTRAINT_LIST)) {
+	} else if ((this->fType == $XSWildcard::NSCONSTRAINT_LIST) && ($nc(wildcard)->fType == $XSWildcard::NSCONSTRAINT_LIST)) {
 		unionWildcard->fType = $XSWildcard::NSCONSTRAINT_LIST;
 		$set(unionWildcard, fNamespaceList, union2sets(this->fNamespaceList, wildcard->fNamespaceList));
-	} else if (this->fType == $XSWildcard::NSCONSTRAINT_NOT && wildcard->fType == $XSWildcard::NSCONSTRAINT_NOT) {
+	} else if (this->fType == $XSWildcard::NSCONSTRAINT_NOT && $nc(wildcard)->fType == $XSWildcard::NSCONSTRAINT_NOT) {
 		unionWildcard->fType = $XSWildcard::NSCONSTRAINT_NOT;
 		$set(unionWildcard, fNamespaceList, $new($StringArray, 2));
-		$nc(unionWildcard->fNamespaceList)->set(0, XSWildcardDecl::ABSENT);
-		$nc(unionWildcard->fNamespaceList)->set(1, XSWildcardDecl::ABSENT);
-	} else if (((this->fType == $XSWildcard::NSCONSTRAINT_NOT) && (wildcard->fType == $XSWildcard::NSCONSTRAINT_LIST)) || ((this->fType == $XSWildcard::NSCONSTRAINT_LIST) && (wildcard->fType == $XSWildcard::NSCONSTRAINT_NOT))) {
+		unionWildcard->fNamespaceList->set(0, XSWildcardDecl::ABSENT);
+		unionWildcard->fNamespaceList->set(1, XSWildcardDecl::ABSENT);
+	} else if (((this->fType == $XSWildcard::NSCONSTRAINT_NOT) && ($nc(wildcard)->fType == $XSWildcard::NSCONSTRAINT_LIST)) || ((this->fType == $XSWildcard::NSCONSTRAINT_LIST) && ($nc(wildcard)->fType == $XSWildcard::NSCONSTRAINT_NOT))) {
 		$var($StringArray, other, nullptr);
 		$var($StringArray, list, nullptr);
 		if (this->fType == $XSWildcard::NSCONSTRAINT_NOT) {
@@ -201,8 +151,8 @@ XSWildcardDecl* XSWildcardDecl::performUnionWith(XSWildcardDecl* wildcard, int16
 			} else if (foundNS && !foundAbsent) {
 				unionWildcard->fType = $XSWildcard::NSCONSTRAINT_NOT;
 				$set(unionWildcard, fNamespaceList, $new($StringArray, 2));
-				$nc(unionWildcard->fNamespaceList)->set(0, XSWildcardDecl::ABSENT);
-				$nc(unionWildcard->fNamespaceList)->set(1, XSWildcardDecl::ABSENT);
+				unionWildcard->fNamespaceList->set(0, XSWildcardDecl::ABSENT);
+				unionWildcard->fNamespaceList->set(1, XSWildcardDecl::ABSENT);
 			} else if (!foundNS && foundAbsent) {
 				return nullptr;
 			} else {
@@ -220,7 +170,7 @@ XSWildcardDecl* XSWildcardDecl::performUnionWith(XSWildcardDecl* wildcard, int16
 }
 
 XSWildcardDecl* XSWildcardDecl::performIntersectionWith(XSWildcardDecl* wildcard, int16_t processContents) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (wildcard == nullptr) {
 		return nullptr;
 	}
@@ -234,9 +184,9 @@ XSWildcardDecl* XSWildcardDecl::performIntersectionWith(XSWildcardDecl* wildcard
 		if (this->fType == $XSWildcard::NSCONSTRAINT_ANY) {
 			$assign(other, wildcard);
 		}
-		intersectWildcard->fType = other->fType;
+		intersectWildcard->fType = $nc(other)->fType;
 		$set(intersectWildcard, fNamespaceList, other->fNamespaceList);
-	} else if (((this->fType == $XSWildcard::NSCONSTRAINT_NOT) && (wildcard->fType == $XSWildcard::NSCONSTRAINT_LIST)) || ((this->fType == $XSWildcard::NSCONSTRAINT_LIST) && (wildcard->fType == $XSWildcard::NSCONSTRAINT_NOT))) {
+	} else if (((this->fType == $XSWildcard::NSCONSTRAINT_NOT) && ($nc(wildcard)->fType == $XSWildcard::NSCONSTRAINT_LIST)) || ((this->fType == $XSWildcard::NSCONSTRAINT_LIST) && ($nc(wildcard)->fType == $XSWildcard::NSCONSTRAINT_NOT))) {
 		$var($StringArray, list, nullptr);
 		$var($StringArray, other, nullptr);
 		if (this->fType == $XSWildcard::NSCONSTRAINT_NOT) {
@@ -257,15 +207,15 @@ XSWildcardDecl* XSWildcardDecl::performIntersectionWith(XSWildcardDecl* wildcard
 		intersectWildcard->fType = $XSWildcard::NSCONSTRAINT_LIST;
 		$set(intersectWildcard, fNamespaceList, $new($StringArray, newSize));
 		$System::arraycopy(intersect, 0, intersectWildcard->fNamespaceList, 0, newSize);
-	} else if ((this->fType == $XSWildcard::NSCONSTRAINT_LIST) && (wildcard->fType == $XSWildcard::NSCONSTRAINT_LIST)) {
+	} else if ((this->fType == $XSWildcard::NSCONSTRAINT_LIST) && ($nc(wildcard)->fType == $XSWildcard::NSCONSTRAINT_LIST)) {
 		intersectWildcard->fType = $XSWildcard::NSCONSTRAINT_LIST;
 		$set(intersectWildcard, fNamespaceList, intersect2sets(this->fNamespaceList, wildcard->fNamespaceList));
-	} else if (this->fType == $XSWildcard::NSCONSTRAINT_NOT && wildcard->fType == $XSWildcard::NSCONSTRAINT_NOT) {
+	} else if (this->fType == $XSWildcard::NSCONSTRAINT_NOT && $nc(wildcard)->fType == $XSWildcard::NSCONSTRAINT_NOT) {
 		if ($nc(this->fNamespaceList)->get(0) != XSWildcardDecl::ABSENT && $nc(wildcard->fNamespaceList)->get(0) != XSWildcardDecl::ABSENT) {
 			return nullptr;
 		}
 		$var(XSWildcardDecl, other, this);
-		if ($nc(this->fNamespaceList)->get(0) == XSWildcardDecl::ABSENT) {
+		if (this->fNamespaceList->get(0) == XSWildcardDecl::ABSENT) {
 			$assign(other, wildcard);
 		}
 		intersectWildcard->fType = other->fType;
@@ -284,7 +234,7 @@ bool XSWildcardDecl::areSame(XSWildcardDecl* wildcard) {
 		}
 		if ($nc(this->fNamespaceList)->length == $nc(wildcard->fNamespaceList)->length) {
 			for (int32_t i = 0; i < $nc(this->fNamespaceList)->length; ++i) {
-				if (!elementInSet($nc(this->fNamespaceList)->get(i), wildcard->fNamespaceList)) {
+				if (!elementInSet(this->fNamespaceList->get(i), wildcard->fNamespaceList)) {
 					return false;
 				}
 			}
@@ -295,10 +245,10 @@ bool XSWildcardDecl::areSame(XSWildcardDecl* wildcard) {
 }
 
 $StringArray* XSWildcardDecl::intersect2sets($StringArray* one, $StringArray* theOther) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, result, $new($StringArray, $Math::min($nc(one)->length, $nc(theOther)->length)));
 	int32_t count = 0;
-	for (int32_t i = 0; i < $nc(one)->length; ++i) {
+	for (int32_t i = 0; i < one->length; ++i) {
 		if (elementInSet(one->get(i), theOther)) {
 			result->set(count++, one->get(i));
 		}
@@ -309,7 +259,7 @@ $StringArray* XSWildcardDecl::intersect2sets($StringArray* one, $StringArray* th
 }
 
 $StringArray* XSWildcardDecl::union2sets($StringArray* one, $StringArray* theOther) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, result1, $new($StringArray, $nc(one)->length));
 	int32_t count = 0;
 	for (int32_t i = 0; i < one->length; ++i) {
@@ -348,41 +298,35 @@ $String* XSWildcardDecl::toString() {
 		buffer->append("WC["_s);
 		switch (this->fType) {
 		case $XSWildcard::NSCONSTRAINT_ANY:
-			{
-				$init($SchemaSymbols);
-				buffer->append($SchemaSymbols::ATTVAL_TWOPOUNDANY);
-				break;
-			}
+			$init($SchemaSymbols);
+			buffer->append($SchemaSymbols::ATTVAL_TWOPOUNDANY);
+			break;
 		case $XSWildcard::NSCONSTRAINT_NOT:
-			{
-				$init($SchemaSymbols);
-				buffer->append($SchemaSymbols::ATTVAL_TWOPOUNDOTHER);
-				buffer->append(":\""_s);
-				if ($nc(this->fNamespaceList)->get(0) != nullptr) {
-					buffer->append($nc(this->fNamespaceList)->get(0));
-				}
-				buffer->append("\""_s);
-				break;
+			$init($SchemaSymbols);
+			buffer->append($SchemaSymbols::ATTVAL_TWOPOUNDOTHER);
+			buffer->append(":\""_s);
+			if ($nc(this->fNamespaceList)->get(0) != nullptr) {
+				buffer->append(this->fNamespaceList->get(0));
 			}
+			buffer->append("\""_s);
+			break;
 		case $XSWildcard::NSCONSTRAINT_LIST:
-			{
-				if ($nc(this->fNamespaceList)->length == 0) {
-					break;
-				}
-				buffer->append("\""_s);
-				if ($nc(this->fNamespaceList)->get(0) != nullptr) {
-					buffer->append($nc(this->fNamespaceList)->get(0));
-				}
-				buffer->append("\""_s);
-				for (int32_t i = 1; i < $nc(this->fNamespaceList)->length; ++i) {
-					buffer->append(",\""_s);
-					if ($nc(this->fNamespaceList)->get(i) != nullptr) {
-						buffer->append($nc(this->fNamespaceList)->get(i));
-					}
-					buffer->append("\""_s);
-				}
+			if ($nc(this->fNamespaceList)->length == 0) {
 				break;
 			}
+			buffer->append("\""_s);
+			if (this->fNamespaceList->get(0) != nullptr) {
+				buffer->append(this->fNamespaceList->get(0));
+			}
+			buffer->append("\""_s);
+			for (int32_t i = 1; i < this->fNamespaceList->length; ++i) {
+				buffer->append(",\""_s);
+				if (this->fNamespaceList->get(i) != nullptr) {
+					buffer->append(this->fNamespaceList->get(i));
+				}
+				buffer->append("\""_s);
+			}
+			break;
 		}
 		buffer->append(u']');
 		$set(this, fDescription, buffer->toString());
@@ -407,7 +351,7 @@ int16_t XSWildcardDecl::getConstraintType() {
 }
 
 $StringList* XSWildcardDecl::getNsConstraintList() {
-	return $new($StringListImpl, this->fNamespaceList, this->fNamespaceList == nullptr ? 0 : $nc(this->fNamespaceList)->length);
+	return $new($StringListImpl, this->fNamespaceList, this->fNamespaceList == nullptr ? 0 : this->fNamespaceList->length);
 }
 
 int16_t XSWildcardDecl::getProcessContents() {
@@ -417,38 +361,30 @@ int16_t XSWildcardDecl::getProcessContents() {
 $String* XSWildcardDecl::getProcessContentsAsString() {
 	switch (this->fProcessContents) {
 	case XSWildcardDecl::PC_SKIP:
-		{
-			return "skip"_s;
-		}
+		return "skip"_s;
 	case XSWildcardDecl::PC_LAX:
-		{
-			return "lax"_s;
-		}
+		return "lax"_s;
 	case XSWildcardDecl::PC_STRICT:
-		{
-			return "strict"_s;
-		}
+		return "strict"_s;
 	default:
-		{
-			return "invalid value"_s;
-		}
+		return "invalid value"_s;
 	}
 }
 
 $XSAnnotation* XSWildcardDecl::getAnnotation() {
-	return (this->fAnnotations != nullptr) ? $cast($XSAnnotation, $nc(this->fAnnotations)->item(0)) : ($XSAnnotation*)nullptr;
+	return (this->fAnnotations != nullptr) ? $cast($XSAnnotation, this->fAnnotations->item(0)) : ($XSAnnotation*)nullptr;
 }
 
 $XSObjectList* XSWildcardDecl::getAnnotations() {
 	$init($XSObjectListImpl);
-	return (this->fAnnotations != nullptr) ? this->fAnnotations : static_cast<$XSObjectList*>($XSObjectListImpl::EMPTY_LIST);
+	return (this->fAnnotations != nullptr) ? this->fAnnotations : $cast($XSObjectList, $XSObjectListImpl::EMPTY_LIST);
 }
 
 $XSNamespaceItem* XSWildcardDecl::getNamespaceItem() {
 	return nullptr;
 }
 
-void clinit$XSWildcardDecl($Class* class$) {
+void XSWildcardDecl::clinit$($Class* clazz) {
 	$assignStatic(XSWildcardDecl::ABSENT, nullptr);
 }
 
@@ -456,7 +392,51 @@ XSWildcardDecl::XSWildcardDecl() {
 }
 
 $Class* XSWildcardDecl::load$($String* name, bool initialize) {
-	$loadClass(XSWildcardDecl, name, initialize, &_XSWildcardDecl_ClassInfo_, clinit$XSWildcardDecl, allocate$XSWildcardDecl);
+	$FieldInfo fieldInfos$$[] = {
+		{"ABSENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSWildcardDecl, ABSENT)},
+		{"fType", "S", nullptr, $PUBLIC, $field(XSWildcardDecl, fType)},
+		{"fProcessContents", "S", nullptr, $PUBLIC, $field(XSWildcardDecl, fProcessContents)},
+		{"fNamespaceList", "[Ljava/lang/String;", nullptr, $PUBLIC, $field(XSWildcardDecl, fNamespaceList)},
+		{"fAnnotations", "Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $field(XSWildcardDecl, fAnnotations)},
+		{"fDescription", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSWildcardDecl, fDescription)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XSWildcardDecl, init$, void)},
+		{"allowNamespace", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, allowNamespace, bool, $String*)},
+		{"areSame", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSWildcardDecl;)Z", nullptr, $PRIVATE, $method(XSWildcardDecl, areSame, bool, XSWildcardDecl*)},
+		{"elementInSet", "(Ljava/lang/String;[Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(XSWildcardDecl, elementInSet, bool, $String*, $StringArray*)},
+		{"getAnnotation", "()Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, getAnnotation, $XSAnnotation*)},
+		{"getAnnotations", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, getAnnotations, $XSObjectList*)},
+		{"getConstraintType", "()S", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, getConstraintType, int16_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, getName, $String*)},
+		{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, getNamespace, $String*)},
+		{"getNamespaceItem", "()Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, getNamespaceItem, $XSNamespaceItem*)},
+		{"getNsConstraintList", "()Lcom/sun/org/apache/xerces/internal/xs/StringList;", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, getNsConstraintList, $StringList*)},
+		{"getProcessContents", "()S", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, getProcessContents, int16_t)},
+		{"getProcessContentsAsString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, getProcessContentsAsString, $String*)},
+		{"getType", "()S", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, getType, int16_t)},
+		{"intersect2sets", "([Ljava/lang/String;[Ljava/lang/String;)[Ljava/lang/String;", nullptr, 0, $virtualMethod(XSWildcardDecl, intersect2sets, $StringArray*, $StringArray*, $StringArray*)},
+		{"isSubsetOf", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSWildcardDecl;)Z", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, isSubsetOf, bool, XSWildcardDecl*)},
+		{"performIntersectionWith", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSWildcardDecl;S)Lcom/sun/org/apache/xerces/internal/impl/xs/XSWildcardDecl;", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, performIntersectionWith, XSWildcardDecl*, XSWildcardDecl*, int16_t)},
+		{"performUnionWith", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSWildcardDecl;S)Lcom/sun/org/apache/xerces/internal/impl/xs/XSWildcardDecl;", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, performUnionWith, XSWildcardDecl*, XSWildcardDecl*, int16_t)},
+		{"subset2sets", "([Ljava/lang/String;[Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(XSWildcardDecl, subset2sets, bool, $StringArray*, $StringArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, toString, $String*)},
+		{"union2sets", "([Ljava/lang/String;[Ljava/lang/String;)[Ljava/lang/String;", nullptr, 0, $virtualMethod(XSWildcardDecl, union2sets, $StringArray*, $StringArray*, $StringArray*)},
+		{"weakerProcessContents", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSWildcardDecl;)Z", nullptr, $PUBLIC, $virtualMethod(XSWildcardDecl, weakerProcessContents, bool, XSWildcardDecl*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.XSWildcardDecl",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.xs.XSWildcard",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XSWildcardDecl, name, initialize, &classInfo$$, XSWildcardDecl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XSWildcardDecl);
+	});
 	return class$;
 }
 

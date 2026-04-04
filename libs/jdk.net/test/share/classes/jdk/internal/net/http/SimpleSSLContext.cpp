@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/SimpleSSLContext.h>
-
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/InputStream.h>
@@ -24,13 +23,11 @@ using $KeyManagerArray = $Array<::javax::net::ssl::KeyManager>;
 using $File = ::java::io::File;
 using $FileInputStream = ::java::io::FileInputStream;
 using $InputStream = ::java::io::InputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityException = ::java::lang::SecurityException;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $KeyManagementException = ::java::security::KeyManagementException;
 using $KeyStore = ::java::security::KeyStore;
 using $KeyStoreException = ::java::security::KeyStoreException;
@@ -48,33 +45,8 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$FieldInfo _SimpleSSLContext_FieldInfo_[] = {
-	{"ssl", "Ljavax/net/ssl/SSLContext;", nullptr, $PRIVATE | $FINAL, $field(SimpleSSLContext, ssl)},
-	{}
-};
-
-$MethodInfo _SimpleSSLContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SimpleSSLContext, init$, void), "java.io.IOException"},
-	{"get", "()Ljavax/net/ssl/SSLContext;", nullptr, $PUBLIC, $virtualMethod(SimpleSSLContext, get, $SSLContext*)},
-	{"init", "(Ljava/io/InputStream;)Ljavax/net/ssl/SSLContext;", nullptr, $PRIVATE, $method(SimpleSSLContext, init, $SSLContext*, $InputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _SimpleSSLContext_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.SimpleSSLContext",
-	"java.lang.Object",
-	nullptr,
-	_SimpleSSLContext_FieldInfo_,
-	_SimpleSSLContext_MethodInfo_
-};
-
-$Object* allocate$SimpleSSLContext($Class* clazz) {
-	return $of($alloc(SimpleSSLContext));
-}
-
 void SimpleSSLContext::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, paths, $System::getProperty("test.src.path"_s));
 	$init($File);
 	$var($StringTokenizer, st, $new($StringTokenizer, paths, $File::pathSeparator));
@@ -85,37 +57,33 @@ void SimpleSSLContext::init$() {
 		try {
 			$var($File, f, $new($File, path, "../../../../../lib/jdk/test/lib/net/testkeys"_s));
 			if (f->exists()) {
-				{
-					$var($FileInputStream, fis, $new($FileInputStream, f));
-					{
-						$var($Throwable, var$0, nullptr);
-						bool break$1 = false;
+				$var($FileInputStream, fis, $new($FileInputStream, f));
+				$var($Throwable, var$0, nullptr);
+				bool break$1 = false;
+				try {
+					try {
+						$assign(sslContext, init(fis));
+						// break;
+						break$1 = true;
+						goto $finally;
+					} catch ($Throwable& t$) {
 						try {
-							try {
-								$assign(sslContext, init(fis));
-								// break;
-								break$1 = true;
-								goto $finally;
-							} catch ($Throwable& t$) {
-								try {
-									fis->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$2) {
-							$assign(var$0, var$2);
-						} $finally: {
 							fis->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
 						}
-						if (var$0 != nullptr) {
-							$throw(var$0);
-						}
-						if (break$1) {
-							break;
-						}
+						$throw(t$);
 					}
+				} catch ($Throwable& var$2) {
+					$assign(var$0, var$2);
+				} $finally: {
+					fis->close();
+				}
+				if (var$0 != nullptr) {
+					$throw(var$0);
+				}
+				if (break$1) {
+					break;
 				}
 			}
 		} catch ($SecurityException& e) {
@@ -129,7 +97,7 @@ void SimpleSSLContext::init$() {
 }
 
 $SSLContext* SimpleSSLContext::init($InputStream* i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($chars, passphrase, "passphrase"_s->toCharArray());
 		$var($KeyStore, ks, $KeyStore::getInstance("PKCS12"_s));
@@ -164,7 +132,27 @@ SimpleSSLContext::SimpleSSLContext() {
 }
 
 $Class* SimpleSSLContext::load$($String* name, bool initialize) {
-	$loadClass(SimpleSSLContext, name, initialize, &_SimpleSSLContext_ClassInfo_, allocate$SimpleSSLContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"ssl", "Ljavax/net/ssl/SSLContext;", nullptr, $PRIVATE | $FINAL, $field(SimpleSSLContext, ssl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SimpleSSLContext, init$, void), "java.io.IOException"},
+		{"get", "()Ljavax/net/ssl/SSLContext;", nullptr, $PUBLIC, $virtualMethod(SimpleSSLContext, get, $SSLContext*)},
+		{"init", "(Ljava/io/InputStream;)Ljavax/net/ssl/SSLContext;", nullptr, $PRIVATE, $method(SimpleSSLContext, init, $SSLContext*, $InputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.SimpleSSLContext",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SimpleSSLContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SimpleSSLContext);
+	});
 	return class$;
 }
 

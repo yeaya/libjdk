@@ -56,6 +56,7 @@ class XRBackendNative : public ::sun::java2d::xr::XRBackend {
 	$class(XRBackendNative, 0, ::sun::java2d::xr::XRBackend)
 public:
 	XRBackendNative();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void GCRectangles(int32_t drawable, int64_t gc, ::sun::java2d::xr::GrowableRectArray* rects) override;
 	static void GCRectanglesNative(int32_t drawable, int64_t gc, $ints* rectArray, int32_t rectCnt);

@@ -1,5 +1,4 @@
 #include <java/beans/MetaData$java_awt_Container_PersistenceDelegate.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -26,43 +25,12 @@ using $JScrollPane = ::javax::swing::JScrollPane;
 namespace java {
 	namespace beans {
 
-$MethodInfo _MetaData$java_awt_Container_PersistenceDelegate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MetaData$java_awt_Container_PersistenceDelegate, init$, void)},
-	{"initialize", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", $PROTECTED, $virtualMethod(MetaData$java_awt_Container_PersistenceDelegate, initialize, void, $Class*, Object$*, Object$*, $Encoder*)},
-	{}
-};
-
-$InnerClassInfo _MetaData$java_awt_Container_PersistenceDelegate_InnerClassesInfo_[] = {
-	{"java.beans.MetaData$java_awt_Container_PersistenceDelegate", "java.beans.MetaData", "java_awt_Container_PersistenceDelegate", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MetaData$java_awt_Container_PersistenceDelegate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.beans.MetaData$java_awt_Container_PersistenceDelegate",
-	"java.beans.DefaultPersistenceDelegate",
-	nullptr,
-	nullptr,
-	_MetaData$java_awt_Container_PersistenceDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetaData$java_awt_Container_PersistenceDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.beans.MetaData"
-};
-
-$Object* allocate$MetaData$java_awt_Container_PersistenceDelegate($Class* clazz) {
-	return $of($alloc(MetaData$java_awt_Container_PersistenceDelegate));
-}
-
 void MetaData$java_awt_Container_PersistenceDelegate::init$() {
 	$DefaultPersistenceDelegate::init$();
 }
 
 void MetaData$java_awt_Container_PersistenceDelegate::initialize($Class* type, Object$* oldInstance, Object$* newInstance, $Encoder* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DefaultPersistenceDelegate::initialize(type, oldInstance, newInstance, out);
 	if ($instanceOf($JScrollPane, oldInstance)) {
 		return;
@@ -70,18 +38,18 @@ void MetaData$java_awt_Container_PersistenceDelegate::initialize($Class* type, O
 	$var($Container, oldC, $cast($Container, oldInstance));
 	$var($ComponentArray, oldChildren, $nc(oldC)->getComponents());
 	$var($Container, newC, $cast($Container, newInstance));
-	$var($ComponentArray, newChildren, (newC == nullptr) ? $new($ComponentArray, 0) : $nc(newC)->getComponents());
+	$var($ComponentArray, newChildren, (newC == nullptr) ? $new($ComponentArray, 0) : newC->getComponents());
 	$var($BorderLayout, layout, ($instanceOf($BorderLayout, $(oldC->getLayout()))) ? $cast($BorderLayout, oldC->getLayout()) : ($BorderLayout*)nullptr);
 	$var($JLayeredPane, oldLayeredPane, ($instanceOf($JLayeredPane, oldInstance)) ? $cast($JLayeredPane, oldInstance) : ($JLayeredPane*)nullptr);
 	for (int32_t i = $nc(newChildren)->length; i < $nc(oldChildren)->length; ++i) {
 		$var($ObjectArray, args, (layout != nullptr) ? $new($ObjectArray, {
-			$of(oldChildren->get(i)),
-			$($nc(layout)->getConstraints(oldChildren->get(i)))
+			oldChildren->get(i),
+			$(layout->getConstraints(oldChildren->get(i)))
 		}) : (oldLayeredPane != nullptr) ? $new($ObjectArray, {
-			$of(oldChildren->get(i)),
-			$($of($Integer::valueOf($nc(oldLayeredPane)->getLayer(oldChildren->get(i))))),
-			$($of($Integer::valueOf(-1)))
-		}) : $new($ObjectArray, {$of(oldChildren->get(i))}));
+			oldChildren->get(i),
+			$($Integer::valueOf(oldLayeredPane->getLayer(oldChildren->get(i)))),
+			$($Integer::valueOf(-1))
+		}) : $new($ObjectArray, {oldChildren->get(i)}));
 		invokeStatement(oldInstance, "add"_s, args, out);
 	}
 }
@@ -90,7 +58,33 @@ MetaData$java_awt_Container_PersistenceDelegate::MetaData$java_awt_Container_Per
 }
 
 $Class* MetaData$java_awt_Container_PersistenceDelegate::load$($String* name, bool initialize) {
-	$loadClass(MetaData$java_awt_Container_PersistenceDelegate, name, initialize, &_MetaData$java_awt_Container_PersistenceDelegate_ClassInfo_, allocate$MetaData$java_awt_Container_PersistenceDelegate);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MetaData$java_awt_Container_PersistenceDelegate, init$, void)},
+		{"initialize", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", $PROTECTED, $virtualMethod(MetaData$java_awt_Container_PersistenceDelegate, initialize, void, $Class*, Object$*, Object$*, $Encoder*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.MetaData$java_awt_Container_PersistenceDelegate", "java.beans.MetaData", "java_awt_Container_PersistenceDelegate", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.beans.MetaData$java_awt_Container_PersistenceDelegate",
+		"java.beans.DefaultPersistenceDelegate",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.beans.MetaData"
+	};
+	$loadClass(MetaData$java_awt_Container_PersistenceDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetaData$java_awt_Container_PersistenceDelegate);
+	});
 	return class$;
 }
 

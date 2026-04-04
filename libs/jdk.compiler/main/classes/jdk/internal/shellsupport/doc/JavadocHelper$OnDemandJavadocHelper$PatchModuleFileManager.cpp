@@ -1,5 +1,4 @@
 #include <jdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager.h>
-
 #include <javax/tools/ForwardingJavaFileManager.h>
 #include <javax/tools/JavaFileManager$Location.h>
 #include <javax/tools/JavaFileManager.h>
@@ -28,48 +27,6 @@ namespace jdk {
 		namespace shellsupport {
 			namespace doc {
 
-$FieldInfo _JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager_FieldInfo_[] = {
-	{"file", "Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE | $FINAL, $field(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager, file)},
-	{"moduleName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager, moduleName)},
-	{"PATCH_LOCATION", "Ljavax/tools/JavaFileManager$Location;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager, PATCH_LOCATION)},
-	{}
-};
-
-$MethodInfo _JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager_MethodInfo_[] = {
-	{"<init>", "(Ljavax/tools/JavaFileManager;Ljavax/tools/JavaFileObject;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager, init$, void, $JavaFileManager*, $JavaFileObject*, $String*)},
-	{"getLocationForModule", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager, getLocationForModule, $JavaFileManager$Location*, $JavaFileManager$Location*, $JavaFileObject*), "java.io.IOException"},
-	{"hasLocation", "(Ljavax/tools/JavaFileManager$Location;)Z", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager, hasLocation, bool, $JavaFileManager$Location*)},
-	{"inferModuleName", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager, inferModuleName, $String*, $JavaFileManager$Location*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager_InnerClassesInfo_[] = {
-	{"jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper", "jdk.internal.shellsupport.doc.JavadocHelper", "OnDemandJavadocHelper", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager", "jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper", "PatchModuleFileManager", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager",
-	"javax.tools.ForwardingJavaFileManager",
-	nullptr,
-	_JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager_FieldInfo_,
-	_JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager_MethodInfo_,
-	"Ljavax/tools/ForwardingJavaFileManager<Ljavax/tools/JavaFileManager;>;",
-	nullptr,
-	_JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.shellsupport.doc.JavadocHelper"
-};
-
-$Object* allocate$JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager($Class* clazz) {
-	return $of($alloc(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager));
-}
-
 $JavaFileManager$Location* JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager::PATCH_LOCATION = nullptr;
 
 void JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager::init$($JavaFileManager* fileManager, $JavaFileObject* file, $String* moduleName) {
@@ -91,7 +48,7 @@ bool JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager::hasLocation($Ja
 	return $equals(location, $StandardLocation::PATCH_MODULE_PATH) || $ForwardingJavaFileManager::hasLocation(location);
 }
 
-void clinit$JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager($Class* class$) {
+void JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager::clinit$($Class* clazz) {
 	$assignStatic(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager::PATCH_LOCATION, $new($JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager$1));
 }
 
@@ -99,7 +56,43 @@ JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager::JavadocHelper$OnDema
 }
 
 $Class* JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager::load$($String* name, bool initialize) {
-	$loadClass(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager, name, initialize, &_JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager_ClassInfo_, clinit$JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager, allocate$JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"file", "Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE | $FINAL, $field(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager, file)},
+		{"moduleName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager, moduleName)},
+		{"PATCH_LOCATION", "Ljavax/tools/JavaFileManager$Location;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager, PATCH_LOCATION)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/tools/JavaFileManager;Ljavax/tools/JavaFileObject;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager, init$, void, $JavaFileManager*, $JavaFileObject*, $String*)},
+		{"getLocationForModule", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager, getLocationForModule, $JavaFileManager$Location*, $JavaFileManager$Location*, $JavaFileObject*), "java.io.IOException"},
+		{"hasLocation", "(Ljavax/tools/JavaFileManager$Location;)Z", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager, hasLocation, bool, $JavaFileManager$Location*)},
+		{"inferModuleName", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager, inferModuleName, $String*, $JavaFileManager$Location*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper", "jdk.internal.shellsupport.doc.JavadocHelper", "OnDemandJavadocHelper", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager", "jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper", "PatchModuleFileManager", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager",
+		"javax.tools.ForwardingJavaFileManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljavax/tools/ForwardingJavaFileManager<Ljavax/tools/JavaFileManager;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.shellsupport.doc.JavadocHelper"
+	};
+	$loadClass(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager, name, initialize, &classInfo$$, JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager));
+	});
 	return class$;
 }
 

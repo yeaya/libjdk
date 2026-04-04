@@ -1,5 +1,4 @@
 #include <javax/lang/model/element/TypeElement.h>
-
 #include <java/util/List.h>
 #include <javax/lang/model/element/NestingKind.h>
 #include <javax/lang/model/element/Parameterizable.h>
@@ -17,45 +16,6 @@ namespace javax {
 	namespace lang {
 		namespace model {
 			namespace element {
-
-$MethodInfo _TypeElement_MethodInfo_[] = {
-	{"*accept", "(Ljavax/lang/model/element/ElementVisitor;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"asType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getEnclosedElements", "()Ljava/util/List;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getInterfaces", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/type/TypeMirror;>;", $PUBLIC | $ABSTRACT, $virtualMethod(TypeElement, getInterfaces, $List*)},
-	{"*getKind", "()Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getModifiers", "()Ljava/util/Set;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getNestingKind", "()Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeElement, getNestingKind, $NestingKind*)},
-	{"getPermittedSubclasses", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/type/TypeMirror;>;", $PUBLIC, $virtualMethod(TypeElement, getPermittedSubclasses, $List*)},
-	{"getQualifiedName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getRecordComponents", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/element/RecordComponentElement;>;", $PUBLIC, $virtualMethod(TypeElement, getRecordComponents, $List*)},
-	{"getSimpleName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSuperclass", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeElement, getSuperclass, $TypeMirror*)},
-	{"getTypeParameters", "()Ljava/util/List;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _TypeElement_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.lang.model.element.TypeElement",
-	nullptr,
-	"javax.lang.model.element.Parameterizable,javax.lang.model.element.QualifiedNameable",
-	nullptr,
-	_TypeElement_MethodInfo_
-};
-
-$Object* allocate$TypeElement($Class* clazz) {
-	return $of($alloc(TypeElement));
-}
 
 bool TypeElement::equals(Object$* obj) {
 	 return this->$Parameterizable::equals(obj);
@@ -86,7 +46,42 @@ $List* TypeElement::getPermittedSubclasses() {
 }
 
 $Class* TypeElement::load$($String* name, bool initialize) {
-	$loadClass(TypeElement, name, initialize, &_TypeElement_ClassInfo_, allocate$TypeElement);
+	$MethodInfo methodInfos$$[] = {
+		{"*accept", "(Ljavax/lang/model/element/ElementVisitor;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"asType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $ABSTRACT},
+		{"getEnclosedElements", "()Ljava/util/List;", nullptr, $PUBLIC | $ABSTRACT},
+		{"getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $ABSTRACT},
+		{"getInterfaces", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/type/TypeMirror;>;", $PUBLIC | $ABSTRACT, $virtualMethod(TypeElement, getInterfaces, $List*)},
+		{"*getKind", "()Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getModifiers", "()Ljava/util/Set;", nullptr, $PUBLIC | $ABSTRACT},
+		{"getNestingKind", "()Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeElement, getNestingKind, $NestingKind*)},
+		{"getPermittedSubclasses", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/type/TypeMirror;>;", $PUBLIC, $virtualMethod(TypeElement, getPermittedSubclasses, $List*)},
+		{"getQualifiedName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT},
+		{"getRecordComponents", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/element/RecordComponentElement;>;", $PUBLIC, $virtualMethod(TypeElement, getRecordComponents, $List*)},
+		{"getSimpleName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT},
+		{"getSuperclass", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeElement, getSuperclass, $TypeMirror*)},
+		{"getTypeParameters", "()Ljava/util/List;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.lang.model.element.TypeElement",
+		nullptr,
+		"javax.lang.model.element.Parameterizable,javax.lang.model.element.QualifiedNameable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TypeElement, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TypeElement));
+	});
 	return class$;
 }
 

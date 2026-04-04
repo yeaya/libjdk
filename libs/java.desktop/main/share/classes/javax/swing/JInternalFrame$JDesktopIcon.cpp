@@ -1,5 +1,4 @@
 #include <javax/swing/JInternalFrame$JDesktopIcon.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -37,57 +36,6 @@ using $InternalFrameUI = ::javax::swing::plaf::InternalFrameUI;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JInternalFrame$JDesktopIcon_FieldInfo_[] = {
-	{"internalFrame", "Ljavax/swing/JInternalFrame;", nullptr, 0, $field(JInternalFrame$JDesktopIcon, internalFrame)},
-	{}
-};
-
-$MethodInfo _JInternalFrame$JDesktopIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $method(JInternalFrame$JDesktopIcon, init$, void, $JInternalFrame*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$JDesktopIcon, getAccessibleContext, $AccessibleContext*)},
-	{"getDesktopPane", "()Ljavax/swing/JDesktopPane;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$JDesktopIcon, getDesktopPane, $JDesktopPane*)},
-	{"getInternalFrame", "()Ljavax/swing/JInternalFrame;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$JDesktopIcon, getInternalFrame, $JInternalFrame*)},
-	{"getUI", "()Ljavax/swing/plaf/DesktopIconUI;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$JDesktopIcon, getUI, $ComponentUI*)},
-	{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$JDesktopIcon, getUIClassID, $String*)},
-	{"setInternalFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$JDesktopIcon, setInternalFrame, void, $JInternalFrame*)},
-	{"setUI", "(Ljavax/swing/plaf/DesktopIconUI;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$JDesktopIcon, setUI, void, $DesktopIconUI*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$JDesktopIcon, updateUI, void)},
-	{"updateUIWhenHidden", "()V", nullptr, 0, $virtualMethod(JInternalFrame$JDesktopIcon, updateUIWhenHidden, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JInternalFrame$JDesktopIcon, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JInternalFrame$JDesktopIcon_InnerClassesInfo_[] = {
-	{"javax.swing.JInternalFrame$JDesktopIcon", "javax.swing.JInternalFrame", "JDesktopIcon", $PUBLIC | $STATIC},
-	{"javax.swing.JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon", "javax.swing.JInternalFrame$JDesktopIcon", "AccessibleJDesktopIcon", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JInternalFrame$JDesktopIcon_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JInternalFrame$JDesktopIcon",
-	"javax.swing.JComponent",
-	"javax.accessibility.Accessible",
-	_JInternalFrame$JDesktopIcon_FieldInfo_,
-	_JInternalFrame$JDesktopIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JInternalFrame$JDesktopIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JInternalFrame"
-};
-
-$Object* allocate$JInternalFrame$JDesktopIcon($Class* clazz) {
-	return $of($alloc(JInternalFrame$JDesktopIcon));
-}
 
 $String* JInternalFrame$JDesktopIcon::toString() {
 	 return this->$JComponent::toString();
@@ -134,40 +82,36 @@ void JInternalFrame$JDesktopIcon::setInternalFrame($JInternalFrame* f) {
 
 $JDesktopPane* JInternalFrame$JDesktopIcon::getDesktopPane() {
 	if (getInternalFrame() != nullptr) {
-		return $nc($(getInternalFrame()))->getDesktopPane();
+		return $$nc(getInternalFrame())->getDesktopPane();
 	}
 	return nullptr;
 }
 
 void JInternalFrame$JDesktopIcon::updateUI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool hadUI = (this->ui != nullptr);
-	setUI($cast($DesktopIconUI, $($UIManager::getUI(this))));
+	setUI($$cast($DesktopIconUI, $UIManager::getUI(this)));
 	invalidate();
 	$var($Dimension, r, getPreferredSize());
-	setSize($nc(r)->width, r->height);
-	if (this->internalFrame != nullptr && $cast($InternalFrameUI, $nc(this->internalFrame)->getUI()) != nullptr) {
+	setSize($nc(r)->width, $nc(r)->height);
+	if (this->internalFrame != nullptr && $cast($InternalFrameUI, this->internalFrame->getUI()) != nullptr) {
 		$SwingUtilities::updateComponentTreeUI(this->internalFrame);
 	}
 }
 
 void JInternalFrame$JDesktopIcon::updateUIWhenHidden() {
-	$useLocalCurrentObjectStackCache();
-	setUI($cast($DesktopIconUI, $($UIManager::getUI(this))));
+	$useLocalObjectStack();
+	setUI($$cast($DesktopIconUI, $UIManager::getUI(this)));
 	$var($Dimension, r, getPreferredSize());
-	setSize($nc(r)->width, r->height);
+	setSize($nc(r)->width, $nc(r)->height);
 	invalidate();
 	$var($ComponentArray, children, getComponents());
 	if (children != nullptr) {
-		{
-			$var($ComponentArray, arr$, children);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Component, child, arr$->get(i$));
-				{
-					$SwingUtilities::updateComponentTreeUI(child);
-				}
+		$var($ComponentArray, arr$, children);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Component, child, arr$->get(i$));
+			{
+				$SwingUtilities::updateComponentTreeUI(child);
 			}
 		}
 	}
@@ -179,11 +123,11 @@ $String* JInternalFrame$JDesktopIcon::getUIClassID() {
 
 void JInternalFrame$JDesktopIcon::writeObject($ObjectOutputStream* s) {
 	$nc(s)->defaultWriteObject();
-	if ($nc($(getUIClassID()))->equals("DesktopIconUI"_s)) {
+	if ($$nc(getUIClassID())->equals("DesktopIconUI"_s)) {
 		int8_t count = $JComponent::getWriteObjCounter(this);
 		$JComponent::setWriteObjCounter(this, --count);
 		if (count == 0 && this->ui != nullptr) {
-			$nc(this->ui)->installUI(this);
+			this->ui->installUI(this);
 		}
 	}
 }
@@ -199,7 +143,52 @@ JInternalFrame$JDesktopIcon::JInternalFrame$JDesktopIcon() {
 }
 
 $Class* JInternalFrame$JDesktopIcon::load$($String* name, bool initialize) {
-	$loadClass(JInternalFrame$JDesktopIcon, name, initialize, &_JInternalFrame$JDesktopIcon_ClassInfo_, allocate$JInternalFrame$JDesktopIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"internalFrame", "Ljavax/swing/JInternalFrame;", nullptr, 0, $field(JInternalFrame$JDesktopIcon, internalFrame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $method(JInternalFrame$JDesktopIcon, init$, void, $JInternalFrame*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$JDesktopIcon, getAccessibleContext, $AccessibleContext*)},
+		{"getDesktopPane", "()Ljavax/swing/JDesktopPane;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$JDesktopIcon, getDesktopPane, $JDesktopPane*)},
+		{"getInternalFrame", "()Ljavax/swing/JInternalFrame;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$JDesktopIcon, getInternalFrame, $JInternalFrame*)},
+		{"getUI", "()Ljavax/swing/plaf/DesktopIconUI;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$JDesktopIcon, getUI, $ComponentUI*)},
+		{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$JDesktopIcon, getUIClassID, $String*)},
+		{"setInternalFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$JDesktopIcon, setInternalFrame, void, $JInternalFrame*)},
+		{"setUI", "(Ljavax/swing/plaf/DesktopIconUI;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$JDesktopIcon, setUI, void, $DesktopIconUI*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$JDesktopIcon, updateUI, void)},
+		{"updateUIWhenHidden", "()V", nullptr, 0, $virtualMethod(JInternalFrame$JDesktopIcon, updateUIWhenHidden, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JInternalFrame$JDesktopIcon, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JInternalFrame$JDesktopIcon", "javax.swing.JInternalFrame", "JDesktopIcon", $PUBLIC | $STATIC},
+		{"javax.swing.JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon", "javax.swing.JInternalFrame$JDesktopIcon", "AccessibleJDesktopIcon", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JInternalFrame$JDesktopIcon",
+		"javax.swing.JComponent",
+		"javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JInternalFrame"
+	};
+	$loadClass(JInternalFrame$JDesktopIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JInternalFrame$JDesktopIcon));
+	});
 	return class$;
 }
 

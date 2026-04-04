@@ -24,6 +24,7 @@ class $import Flow$Liveness : public ::java::lang::Enum {
 public:
 	Flow$Liveness();
 	static $Array<::com::sun::tools::javac::comp::Flow$Liveness>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual ::com::sun::tools::javac::comp::Flow$Liveness* and$(::com::sun::tools::javac::comp::Flow$Liveness* other) {return nullptr;}
 	virtual ::com::sun::tools::javac::comp::Flow$Liveness* and$(bool value);

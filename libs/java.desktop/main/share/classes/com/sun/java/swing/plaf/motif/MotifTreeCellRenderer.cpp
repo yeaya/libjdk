@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifTreeCellRenderer.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifTreeCellRenderer$TreeLeafIcon.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/plaf/IconUIResource.h>
@@ -25,42 +24,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$FieldInfo _MotifTreeCellRenderer_FieldInfo_[] = {
-	{"LEAF_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(MotifTreeCellRenderer, LEAF_SIZE)},
-	{"LEAF_ICON", "Ljavax/swing/Icon;", nullptr, $STATIC | $FINAL, $staticField(MotifTreeCellRenderer, LEAF_ICON)},
-	{}
-};
-
-$MethodInfo _MotifTreeCellRenderer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifTreeCellRenderer, init$, void)},
-	{"loadLeafIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifTreeCellRenderer, loadLeafIcon, $Icon*)},
-	{}
-};
-
-$InnerClassInfo _MotifTreeCellRenderer_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifTreeCellRenderer$TreeLeafIcon", "com.sun.java.swing.plaf.motif.MotifTreeCellRenderer", "TreeLeafIcon", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MotifTreeCellRenderer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifTreeCellRenderer",
-	"javax.swing.tree.DefaultTreeCellRenderer",
-	nullptr,
-	_MotifTreeCellRenderer_FieldInfo_,
-	_MotifTreeCellRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifTreeCellRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifTreeCellRenderer$TreeLeafIcon"
-};
-
-$Object* allocate$MotifTreeCellRenderer($Class* clazz) {
-	return $of($alloc(MotifTreeCellRenderer));
-}
-
 $Icon* MotifTreeCellRenderer::LEAF_ICON = nullptr;
 
 void MotifTreeCellRenderer::init$() {
@@ -72,7 +35,7 @@ $Icon* MotifTreeCellRenderer::loadLeafIcon() {
 	return MotifTreeCellRenderer::LEAF_ICON;
 }
 
-void clinit$MotifTreeCellRenderer($Class* class$) {
+void MotifTreeCellRenderer::clinit$($Class* clazz) {
 	$assignStatic(MotifTreeCellRenderer::LEAF_ICON, $new($IconUIResource, $$new($MotifTreeCellRenderer$TreeLeafIcon)));
 }
 
@@ -80,7 +43,37 @@ MotifTreeCellRenderer::MotifTreeCellRenderer() {
 }
 
 $Class* MotifTreeCellRenderer::load$($String* name, bool initialize) {
-	$loadClass(MotifTreeCellRenderer, name, initialize, &_MotifTreeCellRenderer_ClassInfo_, clinit$MotifTreeCellRenderer, allocate$MotifTreeCellRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"LEAF_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(MotifTreeCellRenderer, LEAF_SIZE)},
+		{"LEAF_ICON", "Ljavax/swing/Icon;", nullptr, $STATIC | $FINAL, $staticField(MotifTreeCellRenderer, LEAF_ICON)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifTreeCellRenderer, init$, void)},
+		{"loadLeafIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifTreeCellRenderer, loadLeafIcon, $Icon*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifTreeCellRenderer$TreeLeafIcon", "com.sun.java.swing.plaf.motif.MotifTreeCellRenderer", "TreeLeafIcon", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifTreeCellRenderer",
+		"javax.swing.tree.DefaultTreeCellRenderer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifTreeCellRenderer$TreeLeafIcon"
+	};
+	$loadClass(MotifTreeCellRenderer, name, initialize, &classInfo$$, MotifTreeCellRenderer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifTreeCellRenderer));
+	});
 	return class$;
 }
 

@@ -1,12 +1,9 @@
 #include <sun/print/ServiceDialog$ChromaticityPanel.h>
-
-#include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/GridBagConstraints.h>
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/util/EventObject.h>
 #include <javax/print/DocFlavor.h>
 #include <javax/print/PrintService.h>
@@ -32,80 +29,24 @@
 #undef REMAINDER
 
 using $ChromaticityArray = $Array<::javax::print::attribute::standard::Chromaticity>;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrintService = ::javax::print::PrintService;
-using $Attribute = ::javax::print::attribute::Attribute;
-using $AttributeSet = ::javax::print::attribute::AttributeSet;
 using $DocAttribute = ::javax::print::attribute::DocAttribute;
 using $HashAttributeSet = ::javax::print::attribute::HashAttributeSet;
-using $HashPrintRequestAttributeSet = ::javax::print::attribute::HashPrintRequestAttributeSet;
 using $Chromaticity = ::javax::print::attribute::standard::Chromaticity;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $BorderFactory = ::javax::swing::BorderFactory;
 using $ButtonGroup = ::javax::swing::ButtonGroup;
 using $JPanel = ::javax::swing::JPanel;
-using $JRadioButton = ::javax::swing::JRadioButton;
-using $Border = ::javax::swing::border::Border;
 using $ServiceDialog = ::sun::print::ServiceDialog;
 
 namespace sun {
 	namespace print {
-
-$FieldInfo _ServiceDialog$ChromaticityPanel_FieldInfo_[] = {
-	{"this$0", "Lsun/print/ServiceDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$ChromaticityPanel, this$0)},
-	{"strTitle", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ServiceDialog$ChromaticityPanel, strTitle)},
-	{"rbMonochrome", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE, $field(ServiceDialog$ChromaticityPanel, rbMonochrome)},
-	{"rbColor", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE, $field(ServiceDialog$ChromaticityPanel, rbColor)},
-	{}
-};
-
-$MethodInfo _ServiceDialog$ChromaticityPanel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/print/ServiceDialog;)V", nullptr, $PUBLIC, $method(ServiceDialog$ChromaticityPanel, init$, void, $ServiceDialog*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$ChromaticityPanel, actionPerformed, void, $ActionEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateInfo", "()V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$ChromaticityPanel, updateInfo, void)},
-	{}
-};
-
-$InnerClassInfo _ServiceDialog$ChromaticityPanel_InnerClassesInfo_[] = {
-	{"sun.print.ServiceDialog$ChromaticityPanel", "sun.print.ServiceDialog", "ChromaticityPanel", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ServiceDialog$ChromaticityPanel_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.print.ServiceDialog$ChromaticityPanel",
-	"javax.swing.JPanel",
-	"java.awt.event.ActionListener",
-	_ServiceDialog$ChromaticityPanel_FieldInfo_,
-	_ServiceDialog$ChromaticityPanel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServiceDialog$ChromaticityPanel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.print.ServiceDialog"
-};
-
-$Object* allocate$ServiceDialog$ChromaticityPanel($Class* clazz) {
-	return $of($alloc(ServiceDialog$ChromaticityPanel));
-}
 
 $String* ServiceDialog$ChromaticityPanel::toString() {
 	 return this->$JPanel::toString();
@@ -128,7 +69,7 @@ void ServiceDialog$ChromaticityPanel::finalize() {
 }
 
 void ServiceDialog$ChromaticityPanel::init$($ServiceDialog* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$JPanel::init$();
 	$set(this, strTitle, $ServiceDialog::getMsg("border.chromaticity"_s));
@@ -153,15 +94,15 @@ void ServiceDialog$ChromaticityPanel::actionPerformed($ActionEvent* e) {
 	$var($Object, source, $nc(e)->getSource());
 	if ($equals(source, this->rbMonochrome)) {
 		$init($Chromaticity);
-		$nc(this->this$0->asCurrent)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>($Chromaticity::MONOCHROME)));
+		$nc(this->this$0->asCurrent)->add($cast($DocAttribute, $Chromaticity::MONOCHROME));
 	} else if ($equals(source, this->rbColor)) {
 		$init($Chromaticity);
-		$nc(this->this$0->asCurrent)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>($Chromaticity::COLOR)));
+		$nc(this->this$0->asCurrent)->add($cast($DocAttribute, $Chromaticity::COLOR));
 	}
 }
 
 void ServiceDialog$ChromaticityPanel::updateInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($Chromaticity);
 	$Class* chCategory = $Chromaticity::class$;
 	bool monoSupported = false;
@@ -170,18 +111,15 @@ void ServiceDialog$ChromaticityPanel::updateInfo() {
 		monoSupported = true;
 		colorSupported = true;
 	} else if ($nc(this->this$0->psCurrent)->isAttributeCategorySupported(chCategory)) {
-		$var($Object, values, $nc(this->this$0->psCurrent)->getSupportedAttributeValues(chCategory, this->this$0->docFlavor, static_cast<$AttributeSet*>(static_cast<$HashAttributeSet*>(this->this$0->asCurrent))));
+		$var($Object, values, $nc(this->this$0->psCurrent)->getSupportedAttributeValues(chCategory, this->this$0->docFlavor, $cast($HashAttributeSet, this->this$0->asCurrent)));
 		if ($instanceOf($ChromaticityArray, values)) {
 			$var($ChromaticityArray, cvalues, $cast($ChromaticityArray, values));
-			for (int32_t i = 0; i < $nc(cvalues)->length; ++i) {
+			for (int32_t i = 0; i < cvalues->length; ++i) {
 				$var($Chromaticity, value, cvalues->get(i));
-				$init($Chromaticity);
 				if (value == $Chromaticity::MONOCHROME) {
 					monoSupported = true;
-				} else {
-					if (value == $Chromaticity::COLOR) {
-						colorSupported = true;
-					}
+				} else if (value == $Chromaticity::COLOR) {
+					colorSupported = true;
 				}
 			}
 		}
@@ -208,7 +146,46 @@ ServiceDialog$ChromaticityPanel::ServiceDialog$ChromaticityPanel() {
 }
 
 $Class* ServiceDialog$ChromaticityPanel::load$($String* name, bool initialize) {
-	$loadClass(ServiceDialog$ChromaticityPanel, name, initialize, &_ServiceDialog$ChromaticityPanel_ClassInfo_, allocate$ServiceDialog$ChromaticityPanel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/print/ServiceDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$ChromaticityPanel, this$0)},
+		{"strTitle", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ServiceDialog$ChromaticityPanel, strTitle)},
+		{"rbMonochrome", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE, $field(ServiceDialog$ChromaticityPanel, rbMonochrome)},
+		{"rbColor", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE, $field(ServiceDialog$ChromaticityPanel, rbColor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/print/ServiceDialog;)V", nullptr, $PUBLIC, $method(ServiceDialog$ChromaticityPanel, init$, void, $ServiceDialog*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$ChromaticityPanel, actionPerformed, void, $ActionEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateInfo", "()V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$ChromaticityPanel, updateInfo, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.ServiceDialog$ChromaticityPanel", "sun.print.ServiceDialog", "ChromaticityPanel", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.print.ServiceDialog$ChromaticityPanel",
+		"javax.swing.JPanel",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.print.ServiceDialog"
+	};
+	$loadClass(ServiceDialog$ChromaticityPanel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ServiceDialog$ChromaticityPanel));
+	});
 	return class$;
 }
 

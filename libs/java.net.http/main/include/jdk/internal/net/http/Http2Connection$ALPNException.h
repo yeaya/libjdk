@@ -30,7 +30,10 @@ public:
 	::jdk::internal::net::http::AbstractAsyncSSLConnection* connection = nullptr;
 	Http2Connection$ALPNException(const Http2Connection$ALPNException& e);
 	virtual void throw$() override;
-	inline Http2Connection$ALPNException* operator ->() {
+	inline Http2Connection$ALPNException* operator ->() const {
+		return (Http2Connection$ALPNException*)throwing$;
+	}
+	inline operator Http2Connection$ALPNException*() const {
 		return (Http2Connection$ALPNException*)throwing$;
 	}
 };

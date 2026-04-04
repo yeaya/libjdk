@@ -1,5 +1,4 @@
 #include <sun/font/FontResolver.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/util/ArrayList.h>
@@ -35,47 +34,6 @@ using $FontUtilities = ::sun::font::FontUtilities;
 namespace sun {
 	namespace font {
 
-$FieldInfo _FontResolver_FieldInfo_[] = {
-	{"allFonts", "[Ljava/awt/Font;", nullptr, $PRIVATE, $field(FontResolver, allFonts)},
-	{"supplementaryFonts", "[Ljava/awt/Font;", nullptr, $PRIVATE, $field(FontResolver, supplementaryFonts)},
-	{"supplementaryIndices", "[I", nullptr, $PRIVATE, $field(FontResolver, supplementaryIndices)},
-	{"DEFAULT_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontResolver, DEFAULT_SIZE)},
-	{"defaultFont", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(FontResolver, defaultFont)},
-	{"SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontResolver, SHIFT)},
-	{"BLOCKSIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontResolver, BLOCKSIZE)},
-	{"MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontResolver, MASK)},
-	{"blocks", "[[I", nullptr, $PRIVATE, $field(FontResolver, blocks)},
-	{"INSTANCE", "Lsun/font/FontResolver;", nullptr, $PRIVATE | $STATIC, $staticField(FontResolver, INSTANCE)},
-	{}
-};
-
-$MethodInfo _FontResolver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(FontResolver, init$, void)},
-	{"getAllFonts", "()[Ljava/awt/Font;", nullptr, $PRIVATE, $method(FontResolver, getAllFonts, $FontArray*)},
-	{"getAllSCFonts", "()[Ljava/awt/Font;", nullptr, $PRIVATE, $method(FontResolver, getAllSCFonts, $FontArray*)},
-	{"getFont", "(ILjava/util/Map;)Ljava/awt/Font;", "(ILjava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;)Ljava/awt/Font;", $PUBLIC, $method(FontResolver, getFont, $Font*, int32_t, $Map*)},
-	{"getFontIndex", "(C)I", nullptr, $PUBLIC, $method(FontResolver, getFontIndex, int32_t, char16_t)},
-	{"getFontIndex", "(I)I", nullptr, $PUBLIC, $method(FontResolver, getFontIndex, int32_t, int32_t)},
-	{"getIndexFor", "(C)I", nullptr, $PRIVATE, $method(FontResolver, getIndexFor, int32_t, char16_t)},
-	{"getIndexFor", "(I)I", nullptr, $PRIVATE, $method(FontResolver, getIndexFor, int32_t, int32_t)},
-	{"getInstance", "()Lsun/font/FontResolver;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontResolver, getInstance, FontResolver*)},
-	{"nextFontRunIndex", "(Lsun/font/CodePointIterator;)I", nullptr, $PUBLIC, $method(FontResolver, nextFontRunIndex, int32_t, $CodePointIterator*)},
-	{}
-};
-
-$ClassInfo _FontResolver_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.font.FontResolver",
-	"java.lang.Object",
-	nullptr,
-	_FontResolver_FieldInfo_,
-	_FontResolver_MethodInfo_
-};
-
-$Object* allocate$FontResolver($Class* clazz) {
-	return $of($alloc(FontResolver));
-}
-
 FontResolver* FontResolver::INSTANCE = nullptr;
 
 void FontResolver::init$() {
@@ -85,11 +43,11 @@ void FontResolver::init$() {
 }
 
 $FontArray* FontResolver::getAllFonts() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->allFonts == nullptr) {
-		$set(this, allFonts, $nc($($GraphicsEnvironment::getLocalGraphicsEnvironment()))->getAllFonts());
+		$set(this, allFonts, $$nc($GraphicsEnvironment::getLocalGraphicsEnvironment())->getAllFonts());
 		for (int32_t i = 0; i < $nc(this->allFonts)->length; ++i) {
-			$nc(this->allFonts)->set(i, $($nc($nc(this->allFonts)->get(i))->deriveFont((float)FontResolver::DEFAULT_SIZE)));
+			this->allFonts->set(i, $($nc(this->allFonts->get(i))->deriveFont((float)FontResolver::DEFAULT_SIZE)));
 		}
 	}
 	return this->allFonts;
@@ -108,7 +66,7 @@ int32_t FontResolver::getIndexFor(char16_t c) {
 }
 
 $FontArray* FontResolver::getAllSCFonts() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->supplementaryFonts == nullptr) {
 		$var($ArrayList, fonts, $new($ArrayList));
 		$var($ArrayList, indices, $new($ArrayList));
@@ -123,9 +81,9 @@ $FontArray* FontResolver::getAllSCFonts() {
 		int32_t len = fonts->size();
 		$set(this, supplementaryIndices, $new($ints, len));
 		for (int32_t i = 0; i < len; ++i) {
-			$nc(this->supplementaryIndices)->set(i, $nc(($cast($Integer, $(indices->get(i)))))->intValue());
+			this->supplementaryIndices->set(i, $$sure($Integer, indices->get(i))->intValue());
 		}
-		$set(this, supplementaryFonts, $fcast($FontArray, fonts->toArray($$new($FontArray, len))));
+		$set(this, supplementaryFonts, $cast($FontArray, fonts->toArray($$new($FontArray, len))));
 	}
 	return this->supplementaryFonts;
 }
@@ -143,17 +101,17 @@ int32_t FontResolver::getIndexFor(int32_t cp) {
 }
 
 int32_t FontResolver::getFontIndex(char16_t c) {
-	int32_t blockIndex = $sr((int32_t)c, FontResolver::SHIFT);
+	int32_t blockIndex = $sr(c, FontResolver::SHIFT);
 	$var($ints, block, $nc(this->blocks)->get(blockIndex));
 	if (block == nullptr) {
 		$assign(block, $new($ints, FontResolver::BLOCKSIZE));
-		$nc(this->blocks)->set(blockIndex, block);
+		this->blocks->set(blockIndex, block);
 	}
-	int32_t index = (int32_t)(c & (uint32_t)FontResolver::MASK);
+	int32_t index = c & FontResolver::MASK;
 	if ($nc(block)->get(index) == 0) {
 		block->set(index, getIndexFor(c));
 	}
-	return $nc(block)->get(index);
+	return block->get(index);
 }
 
 int32_t FontResolver::getFontIndex(int32_t cp) {
@@ -198,7 +156,43 @@ FontResolver::FontResolver() {
 }
 
 $Class* FontResolver::load$($String* name, bool initialize) {
-	$loadClass(FontResolver, name, initialize, &_FontResolver_ClassInfo_, allocate$FontResolver);
+	$FieldInfo fieldInfos$$[] = {
+		{"allFonts", "[Ljava/awt/Font;", nullptr, $PRIVATE, $field(FontResolver, allFonts)},
+		{"supplementaryFonts", "[Ljava/awt/Font;", nullptr, $PRIVATE, $field(FontResolver, supplementaryFonts)},
+		{"supplementaryIndices", "[I", nullptr, $PRIVATE, $field(FontResolver, supplementaryIndices)},
+		{"DEFAULT_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontResolver, DEFAULT_SIZE)},
+		{"defaultFont", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(FontResolver, defaultFont)},
+		{"SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontResolver, SHIFT)},
+		{"BLOCKSIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontResolver, BLOCKSIZE)},
+		{"MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontResolver, MASK)},
+		{"blocks", "[[I", nullptr, $PRIVATE, $field(FontResolver, blocks)},
+		{"INSTANCE", "Lsun/font/FontResolver;", nullptr, $PRIVATE | $STATIC, $staticField(FontResolver, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(FontResolver, init$, void)},
+		{"getAllFonts", "()[Ljava/awt/Font;", nullptr, $PRIVATE, $method(FontResolver, getAllFonts, $FontArray*)},
+		{"getAllSCFonts", "()[Ljava/awt/Font;", nullptr, $PRIVATE, $method(FontResolver, getAllSCFonts, $FontArray*)},
+		{"getFont", "(ILjava/util/Map;)Ljava/awt/Font;", "(ILjava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;)Ljava/awt/Font;", $PUBLIC, $method(FontResolver, getFont, $Font*, int32_t, $Map*)},
+		{"getFontIndex", "(C)I", nullptr, $PUBLIC, $method(FontResolver, getFontIndex, int32_t, char16_t)},
+		{"getFontIndex", "(I)I", nullptr, $PUBLIC, $method(FontResolver, getFontIndex, int32_t, int32_t)},
+		{"getIndexFor", "(C)I", nullptr, $PRIVATE, $method(FontResolver, getIndexFor, int32_t, char16_t)},
+		{"getIndexFor", "(I)I", nullptr, $PRIVATE, $method(FontResolver, getIndexFor, int32_t, int32_t)},
+		{"getInstance", "()Lsun/font/FontResolver;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontResolver, getInstance, FontResolver*)},
+		{"nextFontRunIndex", "(Lsun/font/CodePointIterator;)I", nullptr, $PUBLIC, $method(FontResolver, nextFontRunIndex, int32_t, $CodePointIterator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.font.FontResolver",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FontResolver, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FontResolver);
+	});
 	return class$;
 }
 

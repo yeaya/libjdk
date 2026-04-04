@@ -71,6 +71,7 @@ public:
 	virtual ::java::util::List* getTransmitters() override;
 	virtual int32_t hashCode() override;
 	virtual bool isOpen() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $ints* addControllerEventListener(::javax::sound::midi::ControllerEventListener* listener, $ints* controllers) override;
 	virtual bool addMetaEventListener(::javax::sound::midi::MetaEventListener* listener) override;

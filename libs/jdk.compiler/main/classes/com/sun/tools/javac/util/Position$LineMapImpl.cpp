@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Position$LineMapImpl.h>
-
 #include <com/sun/tools/javac/util/Position.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <jcpp.h>
@@ -19,55 +18,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$FieldInfo _Position$LineMapImpl_FieldInfo_[] = {
-	{"startPosition", "[I", nullptr, $PROTECTED, $field(Position$LineMapImpl, startPosition)},
-	{"lastPosition", "I", nullptr, $PRIVATE, $field(Position$LineMapImpl, lastPosition)},
-	{"lastLine", "I", nullptr, $PRIVATE, $field(Position$LineMapImpl, lastLine)},
-	{}
-};
-
-$MethodInfo _Position$LineMapImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(Position$LineMapImpl, init$, void)},
-	{"build", "([CI)V", nullptr, $PROTECTED, $virtualMethod(Position$LineMapImpl, build, void, $chars*, int32_t)},
-	{"getColumnNumber", "(I)I", nullptr, $PUBLIC, $virtualMethod(Position$LineMapImpl, getColumnNumber, int32_t, int32_t)},
-	{"getColumnNumber", "(J)J", nullptr, $PUBLIC, $virtualMethod(Position$LineMapImpl, getColumnNumber, int64_t, int64_t)},
-	{"getLineNumber", "(I)I", nullptr, $PUBLIC, $virtualMethod(Position$LineMapImpl, getLineNumber, int32_t, int32_t)},
-	{"getLineNumber", "(J)J", nullptr, $PUBLIC, $virtualMethod(Position$LineMapImpl, getLineNumber, int64_t, int64_t)},
-	{"getPosition", "(II)I", nullptr, $PUBLIC, $virtualMethod(Position$LineMapImpl, getPosition, int32_t, int32_t, int32_t)},
-	{"getPosition", "(JJ)J", nullptr, $PUBLIC, $virtualMethod(Position$LineMapImpl, getPosition, int64_t, int64_t, int64_t)},
-	{"getStartPosition", "(I)I", nullptr, $PUBLIC, $virtualMethod(Position$LineMapImpl, getStartPosition, int32_t, int32_t)},
-	{"getStartPosition", "(J)J", nullptr, $PUBLIC, $virtualMethod(Position$LineMapImpl, getStartPosition, int64_t, int64_t)},
-	{"longToInt", "(J)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Position$LineMapImpl, longToInt, int32_t, int64_t)},
-	{"setTabPosition", "(I)V", nullptr, $PROTECTED, $virtualMethod(Position$LineMapImpl, setTabPosition, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Position$LineMapImpl_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.Position$LineMapImpl", "com.sun.tools.javac.util.Position", "LineMapImpl", $STATIC},
-	{"com.sun.tools.javac.util.Position$LineMap", "com.sun.tools.javac.util.Position", "LineMap", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Position$LineMapImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.util.Position$LineMapImpl",
-	"java.lang.Object",
-	"com.sun.tools.javac.util.Position$LineMap",
-	_Position$LineMapImpl_FieldInfo_,
-	_Position$LineMapImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Position$LineMapImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.Position"
-};
-
-$Object* allocate$Position$LineMapImpl($Class* clazz) {
-	return $of($alloc(Position$LineMapImpl));
-}
 
 void Position$LineMapImpl::init$() {
 	this->lastPosition = $Position::FIRSTPOS;
@@ -124,7 +74,7 @@ int32_t Position$LineMapImpl::getLineNumber(int32_t pos) {
 	int32_t high = $nc(this->startPosition)->length - 1;
 	while (low <= high) {
 		int32_t mid = (low + high) >> 1;
-		int32_t midVal = $nc(this->startPosition)->get(mid);
+		int32_t midVal = this->startPosition->get(mid);
 		if (midVal < pos) {
 			low = mid + 1;
 		} else if (midVal > pos) {
@@ -166,7 +116,50 @@ Position$LineMapImpl::Position$LineMapImpl() {
 }
 
 $Class* Position$LineMapImpl::load$($String* name, bool initialize) {
-	$loadClass(Position$LineMapImpl, name, initialize, &_Position$LineMapImpl_ClassInfo_, allocate$Position$LineMapImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"startPosition", "[I", nullptr, $PROTECTED, $field(Position$LineMapImpl, startPosition)},
+		{"lastPosition", "I", nullptr, $PRIVATE, $field(Position$LineMapImpl, lastPosition)},
+		{"lastLine", "I", nullptr, $PRIVATE, $field(Position$LineMapImpl, lastLine)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(Position$LineMapImpl, init$, void)},
+		{"build", "([CI)V", nullptr, $PROTECTED, $virtualMethod(Position$LineMapImpl, build, void, $chars*, int32_t)},
+		{"getColumnNumber", "(I)I", nullptr, $PUBLIC, $virtualMethod(Position$LineMapImpl, getColumnNumber, int32_t, int32_t)},
+		{"getColumnNumber", "(J)J", nullptr, $PUBLIC, $virtualMethod(Position$LineMapImpl, getColumnNumber, int64_t, int64_t)},
+		{"getLineNumber", "(I)I", nullptr, $PUBLIC, $virtualMethod(Position$LineMapImpl, getLineNumber, int32_t, int32_t)},
+		{"getLineNumber", "(J)J", nullptr, $PUBLIC, $virtualMethod(Position$LineMapImpl, getLineNumber, int64_t, int64_t)},
+		{"getPosition", "(II)I", nullptr, $PUBLIC, $virtualMethod(Position$LineMapImpl, getPosition, int32_t, int32_t, int32_t)},
+		{"getPosition", "(JJ)J", nullptr, $PUBLIC, $virtualMethod(Position$LineMapImpl, getPosition, int64_t, int64_t, int64_t)},
+		{"getStartPosition", "(I)I", nullptr, $PUBLIC, $virtualMethod(Position$LineMapImpl, getStartPosition, int32_t, int32_t)},
+		{"getStartPosition", "(J)J", nullptr, $PUBLIC, $virtualMethod(Position$LineMapImpl, getStartPosition, int64_t, int64_t)},
+		{"longToInt", "(J)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Position$LineMapImpl, longToInt, int32_t, int64_t)},
+		{"setTabPosition", "(I)V", nullptr, $PROTECTED, $virtualMethod(Position$LineMapImpl, setTabPosition, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.Position$LineMapImpl", "com.sun.tools.javac.util.Position", "LineMapImpl", $STATIC},
+		{"com.sun.tools.javac.util.Position$LineMap", "com.sun.tools.javac.util.Position", "LineMap", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.util.Position$LineMapImpl",
+		"java.lang.Object",
+		"com.sun.tools.javac.util.Position$LineMap",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.Position"
+	};
+	$loadClass(Position$LineMapImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Position$LineMapImpl);
+	});
 	return class$;
 }
 

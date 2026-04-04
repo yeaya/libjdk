@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XWindowAttributes.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/Screen.h>
@@ -13,100 +12,15 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $Screen = ::sun::awt::X11::Screen;
 using $Visual = ::sun::awt::X11::Visual;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XWindowAttributes_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XWindowAttributes, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XWindowAttributes, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XWindowAttributes, pData)},
-	{}
-};
-
-$MethodInfo _XWindowAttributes_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XWindowAttributes, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XWindowAttributes, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XWindowAttributes, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XWindowAttributes, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XWindowAttributes, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XWindowAttributes, getSize, int32_t)},
-	{"get_all_event_masks", "()J", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_all_event_masks, int64_t)},
-	{"get_backing_pixel", "()J", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_backing_pixel, int64_t)},
-	{"get_backing_planes", "()J", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_backing_planes, int64_t)},
-	{"get_backing_store", "()I", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_backing_store, int32_t)},
-	{"get_bit_gravity", "()I", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_bit_gravity, int32_t)},
-	{"get_border_width", "()I", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_border_width, int32_t)},
-	{"get_class", "()I", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_class, int32_t)},
-	{"get_colormap", "()J", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_colormap, int64_t)},
-	{"get_depth", "()I", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_depth, int32_t)},
-	{"get_do_not_propagate_mask", "()J", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_do_not_propagate_mask, int64_t)},
-	{"get_height", "()I", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_height, int32_t)},
-	{"get_map_installed", "()Z", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_map_installed, bool)},
-	{"get_map_state", "()I", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_map_state, int32_t)},
-	{"get_override_redirect", "()Z", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_override_redirect, bool)},
-	{"get_root", "()J", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_root, int64_t)},
-	{"get_save_under", "()Z", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_save_under, bool)},
-	{"get_screen", "(I)Lsun/awt/X11/Screen;", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_screen, $Screen*, int32_t)},
-	{"get_screen", "()J", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_screen, int64_t)},
-	{"get_visual", "(I)Lsun/awt/X11/Visual;", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_visual, $Visual*, int32_t)},
-	{"get_visual", "()J", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_visual, int64_t)},
-	{"get_width", "()I", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_width, int32_t)},
-	{"get_win_gravity", "()I", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_win_gravity, int32_t)},
-	{"get_x", "()I", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_x, int32_t)},
-	{"get_y", "()I", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_y, int32_t)},
-	{"get_your_event_mask", "()J", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_your_event_mask, int64_t)},
-	{"set_all_event_masks", "(J)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_all_event_masks, void, int64_t)},
-	{"set_backing_pixel", "(J)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_backing_pixel, void, int64_t)},
-	{"set_backing_planes", "(J)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_backing_planes, void, int64_t)},
-	{"set_backing_store", "(I)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_backing_store, void, int32_t)},
-	{"set_bit_gravity", "(I)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_bit_gravity, void, int32_t)},
-	{"set_border_width", "(I)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_border_width, void, int32_t)},
-	{"set_class", "(I)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_class, void, int32_t)},
-	{"set_colormap", "(J)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_colormap, void, int64_t)},
-	{"set_depth", "(I)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_depth, void, int32_t)},
-	{"set_do_not_propagate_mask", "(J)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_do_not_propagate_mask, void, int64_t)},
-	{"set_height", "(I)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_height, void, int32_t)},
-	{"set_map_installed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_map_installed, void, bool)},
-	{"set_map_state", "(I)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_map_state, void, int32_t)},
-	{"set_override_redirect", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_override_redirect, void, bool)},
-	{"set_root", "(J)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_root, void, int64_t)},
-	{"set_save_under", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_save_under, void, bool)},
-	{"set_screen", "(J)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_screen, void, int64_t)},
-	{"set_visual", "(J)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_visual, void, int64_t)},
-	{"set_width", "(I)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_width, void, int32_t)},
-	{"set_win_gravity", "(I)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_win_gravity, void, int32_t)},
-	{"set_x", "(I)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_x, void, int32_t)},
-	{"set_y", "(I)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_y, void, int32_t)},
-	{"set_your_event_mask", "(J)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_your_event_mask, void, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XWindowAttributes, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XWindowAttributes, zero, void)},
-	{}
-};
-
-$ClassInfo _XWindowAttributes_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XWindowAttributes",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XWindowAttributes_FieldInfo_,
-	_XWindowAttributes_MethodInfo_
-};
-
-$Object* allocate$XWindowAttributes($Class* clazz) {
-	return $of($alloc(XWindowAttributes));
-}
 
 int32_t XWindowAttributes::getSize() {
 	$init(XWindowAttributes);
@@ -145,7 +59,7 @@ void XWindowAttributes::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -471,7 +385,7 @@ $String* XWindowAttributes::getFieldsAsString() {
 }
 
 $Object* XWindowAttributes::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XWindowAttributes::zero() {
@@ -486,7 +400,85 @@ XWindowAttributes::XWindowAttributes() {
 }
 
 $Class* XWindowAttributes::load$($String* name, bool initialize) {
-	$loadClass(XWindowAttributes, name, initialize, &_XWindowAttributes_ClassInfo_, allocate$XWindowAttributes);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XWindowAttributes, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XWindowAttributes, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XWindowAttributes, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XWindowAttributes, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XWindowAttributes, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XWindowAttributes, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XWindowAttributes, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XWindowAttributes, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XWindowAttributes, getSize, int32_t)},
+		{"get_all_event_masks", "()J", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_all_event_masks, int64_t)},
+		{"get_backing_pixel", "()J", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_backing_pixel, int64_t)},
+		{"get_backing_planes", "()J", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_backing_planes, int64_t)},
+		{"get_backing_store", "()I", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_backing_store, int32_t)},
+		{"get_bit_gravity", "()I", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_bit_gravity, int32_t)},
+		{"get_border_width", "()I", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_border_width, int32_t)},
+		{"get_class", "()I", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_class, int32_t)},
+		{"get_colormap", "()J", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_colormap, int64_t)},
+		{"get_depth", "()I", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_depth, int32_t)},
+		{"get_do_not_propagate_mask", "()J", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_do_not_propagate_mask, int64_t)},
+		{"get_height", "()I", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_height, int32_t)},
+		{"get_map_installed", "()Z", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_map_installed, bool)},
+		{"get_map_state", "()I", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_map_state, int32_t)},
+		{"get_override_redirect", "()Z", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_override_redirect, bool)},
+		{"get_root", "()J", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_root, int64_t)},
+		{"get_save_under", "()Z", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_save_under, bool)},
+		{"get_screen", "(I)Lsun/awt/X11/Screen;", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_screen, $Screen*, int32_t)},
+		{"get_screen", "()J", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_screen, int64_t)},
+		{"get_visual", "(I)Lsun/awt/X11/Visual;", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_visual, $Visual*, int32_t)},
+		{"get_visual", "()J", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_visual, int64_t)},
+		{"get_width", "()I", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_width, int32_t)},
+		{"get_win_gravity", "()I", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_win_gravity, int32_t)},
+		{"get_x", "()I", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_x, int32_t)},
+		{"get_y", "()I", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_y, int32_t)},
+		{"get_your_event_mask", "()J", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, get_your_event_mask, int64_t)},
+		{"set_all_event_masks", "(J)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_all_event_masks, void, int64_t)},
+		{"set_backing_pixel", "(J)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_backing_pixel, void, int64_t)},
+		{"set_backing_planes", "(J)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_backing_planes, void, int64_t)},
+		{"set_backing_store", "(I)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_backing_store, void, int32_t)},
+		{"set_bit_gravity", "(I)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_bit_gravity, void, int32_t)},
+		{"set_border_width", "(I)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_border_width, void, int32_t)},
+		{"set_class", "(I)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_class, void, int32_t)},
+		{"set_colormap", "(J)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_colormap, void, int64_t)},
+		{"set_depth", "(I)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_depth, void, int32_t)},
+		{"set_do_not_propagate_mask", "(J)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_do_not_propagate_mask, void, int64_t)},
+		{"set_height", "(I)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_height, void, int32_t)},
+		{"set_map_installed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_map_installed, void, bool)},
+		{"set_map_state", "(I)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_map_state, void, int32_t)},
+		{"set_override_redirect", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_override_redirect, void, bool)},
+		{"set_root", "(J)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_root, void, int64_t)},
+		{"set_save_under", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_save_under, void, bool)},
+		{"set_screen", "(J)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_screen, void, int64_t)},
+		{"set_visual", "(J)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_visual, void, int64_t)},
+		{"set_width", "(I)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_width, void, int32_t)},
+		{"set_win_gravity", "(I)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_win_gravity, void, int32_t)},
+		{"set_x", "(I)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_x, void, int32_t)},
+		{"set_y", "(I)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_y, void, int32_t)},
+		{"set_your_event_mask", "(J)V", nullptr, $PUBLIC, $virtualMethod(XWindowAttributes, set_your_event_mask, void, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XWindowAttributes, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XWindowAttributes, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XWindowAttributes",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XWindowAttributes, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XWindowAttributes);
+	});
 	return class$;
 }
 

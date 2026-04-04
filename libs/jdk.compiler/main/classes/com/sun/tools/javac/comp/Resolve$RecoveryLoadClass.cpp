@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$RecoveryLoadClass.h>
-
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/comp/Env.h>
 #include <com/sun/tools/javac/comp/Resolve.h>
@@ -19,38 +18,33 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$MethodInfo _Resolve$RecoveryLoadClass_MethodInfo_[] = {
-	{"loadClass", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol;", $PUBLIC | $ABSTRACT, $virtualMethod(Resolve$RecoveryLoadClass, loadClass, $Symbol*, $Env*, $Name*)},
-	{}
-};
-
-$InnerClassInfo _Resolve$RecoveryLoadClass_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$RecoveryLoadClass", "com.sun.tools.javac.comp.Resolve", "RecoveryLoadClass", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Resolve$RecoveryLoadClass_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.comp.Resolve$RecoveryLoadClass",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Resolve$RecoveryLoadClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Resolve$RecoveryLoadClass_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$RecoveryLoadClass($Class* clazz) {
-	return $of($alloc(Resolve$RecoveryLoadClass));
-}
-
 $Class* Resolve$RecoveryLoadClass::load$($String* name, bool initialize) {
-	$loadClass(Resolve$RecoveryLoadClass, name, initialize, &_Resolve$RecoveryLoadClass_ClassInfo_, allocate$Resolve$RecoveryLoadClass);
+	$MethodInfo methodInfos$$[] = {
+		{"loadClass", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol;", $PUBLIC | $ABSTRACT, $virtualMethod(Resolve$RecoveryLoadClass, loadClass, $Symbol*, $Env*, $Name*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$RecoveryLoadClass", "com.sun.tools.javac.comp.Resolve", "RecoveryLoadClass", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.comp.Resolve$RecoveryLoadClass",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$RecoveryLoadClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$RecoveryLoadClass);
+	});
 	return class$;
 }
 

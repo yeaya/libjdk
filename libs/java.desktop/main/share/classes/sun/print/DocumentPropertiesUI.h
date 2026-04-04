@@ -42,6 +42,7 @@ class DocumentPropertiesUI : public ::java::lang::Object {
 	$class(DocumentPropertiesUI, 0, ::java::lang::Object)
 public:
 	DocumentPropertiesUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::print::attribute::PrintRequestAttributeSet* showDocumentProperties(::java::awt::print::PrinterJob* job, ::java::awt::Window* owner, ::javax::print::PrintService* service, ::javax::print::attribute::PrintRequestAttributeSet* aset) {return nullptr;}
 	static const int32_t DOCUMENTPROPERTIES_ROLE = 199; // ServiceUIFactory.RESERVED_UIROLE + 100

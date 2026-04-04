@@ -1,5 +1,4 @@
 #include <jdk/nio/zipfs/ZipFileSystem$EntryInputStream.h>
-
 #include <java/io/InputStream.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/Set.h>
@@ -18,7 +17,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Set = ::java::util::Set;
 using $ZipException = ::java::util::zip::ZipException;
 using $ZipConstants = ::jdk::nio::zipfs::ZipConstants;
 using $ZipFileSystem = ::jdk::nio::zipfs::ZipFileSystem;
@@ -28,51 +26,8 @@ namespace jdk {
 	namespace nio {
 		namespace zipfs {
 
-$FieldInfo _ZipFileSystem$EntryInputStream_FieldInfo_[] = {
-	{"this$0", "Ljdk/nio/zipfs/ZipFileSystem;", nullptr, $FINAL | $SYNTHETIC, $field(ZipFileSystem$EntryInputStream, this$0)},
-	{"pos", "J", nullptr, $PRIVATE, $field(ZipFileSystem$EntryInputStream, pos)},
-	{"rem", "J", nullptr, $PRIVATE, $field(ZipFileSystem$EntryInputStream, rem)},
-	{}
-};
-
-$MethodInfo _ZipFileSystem$EntryInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;Ljdk/nio/zipfs/ZipFileSystem$Entry;)V", nullptr, 0, $method(ZipFileSystem$EntryInputStream, init$, void, $ZipFileSystem*, $ZipFileSystem$Entry*), "java.io.IOException"},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$EntryInputStream, available, int32_t)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$EntryInputStream, close, void)},
-	{"initDataPos", "()V", nullptr, $PRIVATE, $method(ZipFileSystem$EntryInputStream, initDataPos, void), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$EntryInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$EntryInputStream, read, int32_t), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$EntryInputStream, skip, int64_t, int64_t)},
-	{}
-};
-
-$InnerClassInfo _ZipFileSystem$EntryInputStream_InnerClassesInfo_[] = {
-	{"jdk.nio.zipfs.ZipFileSystem$EntryInputStream", "jdk.nio.zipfs.ZipFileSystem", "EntryInputStream", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ZipFileSystem$EntryInputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.nio.zipfs.ZipFileSystem$EntryInputStream",
-	"java.io.InputStream",
-	nullptr,
-	_ZipFileSystem$EntryInputStream_FieldInfo_,
-	_ZipFileSystem$EntryInputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ZipFileSystem$EntryInputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.nio.zipfs.ZipFileSystem"
-};
-
-$Object* allocate$ZipFileSystem$EntryInputStream($Class* clazz) {
-	return $of($alloc(ZipFileSystem$EntryInputStream));
-}
-
 void ZipFileSystem$EntryInputStream::init$($ZipFileSystem* this$0, $ZipFileSystem$Entry* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$InputStream::init$();
 	this->rem = $nc(e)->csize;
@@ -116,7 +71,7 @@ int32_t ZipFileSystem$EntryInputStream::read($bytes* b, int32_t off, int32_t len
 int32_t ZipFileSystem$EntryInputStream::read() {
 	$var($bytes, b, $new($bytes, 1));
 	if (read(b, 0, 1) == 1) {
-		return (int32_t)(b->get(0) & (uint32_t)255);
+		return b->get(0) & 0xff;
 	} else {
 		return -1;
 	}
@@ -145,7 +100,7 @@ void ZipFileSystem$EntryInputStream::close() {
 }
 
 void ZipFileSystem$EntryInputStream::initDataPos() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->pos <= 0) {
 		this->pos = -this->pos + this->this$0->locpos;
 		$var($bytes, buf, $new($bytes, 30));
@@ -161,7 +116,44 @@ ZipFileSystem$EntryInputStream::ZipFileSystem$EntryInputStream() {
 }
 
 $Class* ZipFileSystem$EntryInputStream::load$($String* name, bool initialize) {
-	$loadClass(ZipFileSystem$EntryInputStream, name, initialize, &_ZipFileSystem$EntryInputStream_ClassInfo_, allocate$ZipFileSystem$EntryInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/nio/zipfs/ZipFileSystem;", nullptr, $FINAL | $SYNTHETIC, $field(ZipFileSystem$EntryInputStream, this$0)},
+		{"pos", "J", nullptr, $PRIVATE, $field(ZipFileSystem$EntryInputStream, pos)},
+		{"rem", "J", nullptr, $PRIVATE, $field(ZipFileSystem$EntryInputStream, rem)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;Ljdk/nio/zipfs/ZipFileSystem$Entry;)V", nullptr, 0, $method(ZipFileSystem$EntryInputStream, init$, void, $ZipFileSystem*, $ZipFileSystem$Entry*), "java.io.IOException"},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$EntryInputStream, available, int32_t)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$EntryInputStream, close, void)},
+		{"initDataPos", "()V", nullptr, $PRIVATE, $method(ZipFileSystem$EntryInputStream, initDataPos, void), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$EntryInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$EntryInputStream, read, int32_t), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$EntryInputStream, skip, int64_t, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.nio.zipfs.ZipFileSystem$EntryInputStream", "jdk.nio.zipfs.ZipFileSystem", "EntryInputStream", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.nio.zipfs.ZipFileSystem$EntryInputStream",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.nio.zipfs.ZipFileSystem"
+	};
+	$loadClass(ZipFileSystem$EntryInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ZipFileSystem$EntryInputStream);
+	});
 	return class$;
 }
 

@@ -24,6 +24,7 @@ class XMLSymbols : public ::java::lang::Object {
 	$class(XMLSymbols, 0, ::java::lang::Object)
 public:
 	XMLSymbols();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* EMPTY_STRING;
 	static $String* PREFIX_XML;

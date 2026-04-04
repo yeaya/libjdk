@@ -15,6 +15,7 @@ class Code$Mneumonics : public ::java::lang::Object {
 	$class(Code$Mneumonics, 0, ::java::lang::Object)
 public:
 	Code$Mneumonics();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $StringArray* mnem;
 };

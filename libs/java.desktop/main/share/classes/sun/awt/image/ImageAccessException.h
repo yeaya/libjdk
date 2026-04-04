@@ -16,7 +16,10 @@ public:
 	void init$($String* s);
 	ImageAccessException(const ImageAccessException& e);
 	virtual void throw$() override;
-	inline ImageAccessException* operator ->() {
+	inline ImageAccessException* operator ->() const {
+		return (ImageAccessException*)throwing$;
+	}
+	inline operator ImageAccessException*() const {
 		return (ImageAccessException*)throwing$;
 	}
 };

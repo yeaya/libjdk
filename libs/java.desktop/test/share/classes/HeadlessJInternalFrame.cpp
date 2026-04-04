@@ -1,5 +1,4 @@
 #include <HeadlessJInternalFrame.h>
-
 #include <HeadlessJInternalFrame$1.h>
 #include <HeadlessJInternalFrame$2.h>
 #include <HeadlessJInternalFrame$3.h>
@@ -52,7 +51,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -64,46 +62,13 @@ using $Locale = ::java::util::Locale;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $InternalFrameUI = ::javax::swing::plaf::InternalFrameUI;
 
-$MethodInfo _HeadlessJInternalFrame_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJInternalFrame, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJInternalFrame, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _HeadlessJInternalFrame_InnerClassesInfo_[] = {
-	{"HeadlessJInternalFrame$4", nullptr, nullptr, 0},
-	{"HeadlessJInternalFrame$3", nullptr, nullptr, 0},
-	{"HeadlessJInternalFrame$2", nullptr, nullptr, 0},
-	{"HeadlessJInternalFrame$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJInternalFrame_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJInternalFrame",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJInternalFrame_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessJInternalFrame_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadlessJInternalFrame$4,HeadlessJInternalFrame$3,HeadlessJInternalFrame$2,HeadlessJInternalFrame$1,HeadlessJInternalFrame$1$1,HeadlessJInternalFrame$1$1$1"
-};
-
-$Object* allocate$HeadlessJInternalFrame($Class* clazz) {
-	return $of($alloc(HeadlessJInternalFrame));
-}
-
 void HeadlessJInternalFrame::init$() {
 }
 
 void HeadlessJInternalFrame::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JInternalFrame, intf, $new($JInternalFrame, "TEST"_s));
-	intf->setUI(static_cast<$InternalFrameUI*>($$new($HeadlessJInternalFrame$1, intf)));
+	intf->setUI($$new($HeadlessJInternalFrame$1, intf));
 	intf->setUI(($InternalFrameUI*)nullptr);
 	intf->getAccessibleContext();
 	intf->isFocusTraversable();
@@ -115,9 +80,9 @@ void HeadlessJInternalFrame::main($StringArray* args) {
 	intf->getMaximumSize();
 	intf->getMinimumSize();
 	intf->contains(1, 2);
-	$var($Component, c1, intf->add(static_cast<$Component*>($$new($HeadlessJInternalFrame$2))));
-	$var($Component, c2, intf->add(static_cast<$Component*>($$new($HeadlessJInternalFrame$3))));
-	$var($Component, c3, intf->add(static_cast<$Component*>($$new($HeadlessJInternalFrame$4))));
+	$var($Component, c1, intf->add($$new($HeadlessJInternalFrame$2)));
+	$var($Component, c2, intf->add($$new($HeadlessJInternalFrame$3)));
+	$var($Component, c3, intf->add($$new($HeadlessJInternalFrame$4)));
 	$var($Insets, ins, intf->getInsets());
 	intf->getAlignmentY();
 	intf->getAlignmentX();
@@ -128,26 +93,22 @@ void HeadlessJInternalFrame::main($StringArray* args) {
 	intf->setForeground($Color::red);
 	intf->setBackground($Color::red);
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					intf->setFont(f1);
-					intf->setFont(f2);
-					intf->setFont(f3);
-					intf->setFont(f4);
-					intf->getFontMetrics(f1);
-					intf->getFontMetrics(f2);
-					intf->getFontMetrics(f3);
-					intf->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				intf->setFont(f1);
+				intf->setFont(f2);
+				intf->setFont(f3);
+				intf->setFont(f4);
+				intf->getFontMetrics(f1);
+				intf->getFontMetrics(f2);
+				intf->getFontMetrics(f3);
+				intf->getFontMetrics(f4);
 			}
 		}
 	}
@@ -211,13 +172,11 @@ void HeadlessJInternalFrame::main($StringArray* args) {
 	intf->getFont();
 	intf->isFontSet();
 	$var($Container, c, $new($Container));
-	c->add(static_cast<$Component*>(intf));
+	c->add(intf);
 	intf->getLocale();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			intf->setLocale(locale);
 		}
@@ -274,7 +233,35 @@ HeadlessJInternalFrame::HeadlessJInternalFrame() {
 }
 
 $Class* HeadlessJInternalFrame::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJInternalFrame, name, initialize, &_HeadlessJInternalFrame_ClassInfo_, allocate$HeadlessJInternalFrame);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJInternalFrame, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJInternalFrame, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJInternalFrame$4", nullptr, nullptr, 0},
+		{"HeadlessJInternalFrame$3", nullptr, nullptr, 0},
+		{"HeadlessJInternalFrame$2", nullptr, nullptr, 0},
+		{"HeadlessJInternalFrame$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJInternalFrame",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadlessJInternalFrame$4,HeadlessJInternalFrame$3,HeadlessJInternalFrame$2,HeadlessJInternalFrame$1,HeadlessJInternalFrame$1$1,HeadlessJInternalFrame$1$1$1"
+	};
+	$loadClass(HeadlessJInternalFrame, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJInternalFrame);
+	});
 	return class$;
 }
 

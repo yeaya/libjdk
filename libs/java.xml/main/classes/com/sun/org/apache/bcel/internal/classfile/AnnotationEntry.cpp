@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/AnnotationEntry.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Annotations.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Attribute.h>
@@ -12,7 +11,6 @@
 #include <java/io/DataInput.h>
 #include <java/io/DataOutputStream.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -35,7 +33,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
@@ -48,51 +45,11 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$FieldInfo _AnnotationEntry_FieldInfo_[] = {
-	{"typeIndex", "I", nullptr, $PRIVATE | $FINAL, $field(AnnotationEntry, typeIndex)},
-	{"constantPool", "Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;", nullptr, $PRIVATE | $FINAL, $field(AnnotationEntry, constantPool)},
-	{"isRuntimeVisible", "Z", nullptr, $PRIVATE | $FINAL, $field(AnnotationEntry, isRuntimeVisible$)},
-	{"elementValuePairs", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/classfile/ElementValuePair;>;", $PRIVATE, $field(AnnotationEntry, elementValuePairs)},
-	{}
-};
-
-$MethodInfo _AnnotationEntry_MethodInfo_[] = {
-	{"<init>", "(ILcom/sun/org/apache/bcel/internal/classfile/ConstantPool;Z)V", nullptr, $PUBLIC, $method(AnnotationEntry, init$, void, int32_t, $ConstantPool*, bool)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationEntry, accept, void, $Visitor*)},
-	{"addElementNameValuePair", "(Lcom/sun/org/apache/bcel/internal/classfile/ElementValuePair;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationEntry, addElementNameValuePair, void, $ElementValuePair*)},
-	{"createAnnotationEntries", "([Lcom/sun/org/apache/bcel/internal/classfile/Attribute;)[Lcom/sun/org/apache/bcel/internal/classfile/AnnotationEntry;", nullptr, $PUBLIC | $STATIC, $staticMethod(AnnotationEntry, createAnnotationEntries, $AnnotationEntryArray*, $AttributeArray*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationEntry, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getAnnotationType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AnnotationEntry, getAnnotationType, $String*)},
-	{"getAnnotationTypeIndex", "()I", nullptr, $PUBLIC, $virtualMethod(AnnotationEntry, getAnnotationTypeIndex, int32_t)},
-	{"getConstantPool", "()Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;", nullptr, $PUBLIC, $virtualMethod(AnnotationEntry, getConstantPool, $ConstantPool*)},
-	{"getElementValuePairs", "()[Lcom/sun/org/apache/bcel/internal/classfile/ElementValuePair;", nullptr, $PUBLIC, $virtualMethod(AnnotationEntry, getElementValuePairs, $ElementValuePairArray*)},
-	{"getNumElementValuePairs", "()I", nullptr, $PUBLIC | $FINAL, $method(AnnotationEntry, getNumElementValuePairs, int32_t)},
-	{"getTypeIndex", "()I", nullptr, $PUBLIC, $virtualMethod(AnnotationEntry, getTypeIndex, int32_t)},
-	{"isRuntimeVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(AnnotationEntry, isRuntimeVisible, bool)},
-	{"read", "(Ljava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;Z)Lcom/sun/org/apache/bcel/internal/classfile/AnnotationEntry;", nullptr, $PUBLIC | $STATIC, $staticMethod(AnnotationEntry, read, AnnotationEntry*, $DataInput*, $ConstantPool*, bool), "java.io.IOException"},
-	{"toShortString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AnnotationEntry, toShortString, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AnnotationEntry, toString, $String*)},
-	{}
-};
-
-$ClassInfo _AnnotationEntry_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.AnnotationEntry",
-	"java.lang.Object",
-	"com.sun.org.apache.bcel.internal.classfile.Node",
-	_AnnotationEntry_FieldInfo_,
-	_AnnotationEntry_MethodInfo_
-};
-
-$Object* allocate$AnnotationEntry($Class* clazz) {
-	return $of($alloc(AnnotationEntry));
-}
-
 AnnotationEntry* AnnotationEntry::read($DataInput* input, $ConstantPool* constant_pool, bool isRuntimeVisible) {
 	$init(AnnotationEntry);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(AnnotationEntry, annotationEntry, $new(AnnotationEntry, $nc(input)->readUnsignedShort(), constant_pool, isRuntimeVisible));
-	int32_t num_element_value_pairs = $nc(input)->readUnsignedShort();
+	int32_t num_element_value_pairs = input->readUnsignedShort();
 	$set(annotationEntry, elementValuePairs, $new($ArrayList));
 	for (int32_t i = 0; i < num_element_value_pairs; ++i) {
 		int32_t var$0 = input->readUnsignedShort();
@@ -137,15 +94,15 @@ int32_t AnnotationEntry::getNumElementValuePairs() {
 }
 
 $ElementValuePairArray* AnnotationEntry::getElementValuePairs() {
-	return $fcast($ElementValuePairArray, $nc(this->elementValuePairs)->toArray($$new($ElementValuePairArray, $nc(this->elementValuePairs)->size())));
+	return $cast($ElementValuePairArray, $nc(this->elementValuePairs)->toArray($$new($ElementValuePairArray, $nc(this->elementValuePairs)->size())));
 }
 
 void AnnotationEntry::dump($DataOutputStream* dos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(dos)->writeShort(this->typeIndex);
 	dos->writeShort($nc(this->elementValuePairs)->size());
 	{
-		$var($Iterator, i$, $nc(this->elementValuePairs)->iterator());
+		$var($Iterator, i$, this->elementValuePairs->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($ElementValuePair, envp, $cast($ElementValuePair, i$->next()));
 			{
@@ -160,7 +117,7 @@ void AnnotationEntry::addElementNameValuePair($ElementValuePair* elementNameValu
 }
 
 $String* AnnotationEntry::toShortString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, result, $new($StringBuilder));
 	result->append("@"_s);
 	result->append($(getAnnotationType()));
@@ -169,9 +126,7 @@ $String* AnnotationEntry::toShortString() {
 		result->append("("_s);
 		{
 			$var($ElementValuePairArray, arr$, evPairs);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($ElementValuePair, element, arr$->get(i$));
 				{
 					result->append($($nc(element)->toShortString()));
@@ -189,30 +144,61 @@ $String* AnnotationEntry::toString() {
 
 $AnnotationEntryArray* AnnotationEntry::createAnnotationEntries($AttributeArray* attrs) {
 	$init(AnnotationEntry);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, accumulatedAnnotations, $new($ArrayList, $nc(attrs)->length));
 	{
 		$var($AttributeArray, arr$, attrs);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Attribute, attribute, arr$->get(i$));
-			{
-				if ($instanceOf($Annotations, attribute)) {
-					$var($Annotations, runtimeAnnotations, $cast($Annotations, attribute));
-					$Collections::addAll(accumulatedAnnotations, $($nc(runtimeAnnotations)->getAnnotationEntries()));
-				}
+			if ($instanceOf($Annotations, attribute)) {
+				$var($Annotations, runtimeAnnotations, $cast($Annotations, attribute));
+				$Collections::addAll(accumulatedAnnotations, $(runtimeAnnotations->getAnnotationEntries()));
 			}
 		}
 	}
-	return $fcast($AnnotationEntryArray, accumulatedAnnotations->toArray($$new($AnnotationEntryArray, accumulatedAnnotations->size())));
+	return $cast($AnnotationEntryArray, accumulatedAnnotations->toArray($$new($AnnotationEntryArray, accumulatedAnnotations->size())));
 }
 
 AnnotationEntry::AnnotationEntry() {
 }
 
 $Class* AnnotationEntry::load$($String* name, bool initialize) {
-	$loadClass(AnnotationEntry, name, initialize, &_AnnotationEntry_ClassInfo_, allocate$AnnotationEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"typeIndex", "I", nullptr, $PRIVATE | $FINAL, $field(AnnotationEntry, typeIndex)},
+		{"constantPool", "Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;", nullptr, $PRIVATE | $FINAL, $field(AnnotationEntry, constantPool)},
+		{"isRuntimeVisible", "Z", nullptr, $PRIVATE | $FINAL, $field(AnnotationEntry, isRuntimeVisible$)},
+		{"elementValuePairs", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/classfile/ElementValuePair;>;", $PRIVATE, $field(AnnotationEntry, elementValuePairs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILcom/sun/org/apache/bcel/internal/classfile/ConstantPool;Z)V", nullptr, $PUBLIC, $method(AnnotationEntry, init$, void, int32_t, $ConstantPool*, bool)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationEntry, accept, void, $Visitor*)},
+		{"addElementNameValuePair", "(Lcom/sun/org/apache/bcel/internal/classfile/ElementValuePair;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationEntry, addElementNameValuePair, void, $ElementValuePair*)},
+		{"createAnnotationEntries", "([Lcom/sun/org/apache/bcel/internal/classfile/Attribute;)[Lcom/sun/org/apache/bcel/internal/classfile/AnnotationEntry;", nullptr, $PUBLIC | $STATIC, $staticMethod(AnnotationEntry, createAnnotationEntries, $AnnotationEntryArray*, $AttributeArray*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationEntry, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getAnnotationType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AnnotationEntry, getAnnotationType, $String*)},
+		{"getAnnotationTypeIndex", "()I", nullptr, $PUBLIC, $virtualMethod(AnnotationEntry, getAnnotationTypeIndex, int32_t)},
+		{"getConstantPool", "()Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;", nullptr, $PUBLIC, $virtualMethod(AnnotationEntry, getConstantPool, $ConstantPool*)},
+		{"getElementValuePairs", "()[Lcom/sun/org/apache/bcel/internal/classfile/ElementValuePair;", nullptr, $PUBLIC, $virtualMethod(AnnotationEntry, getElementValuePairs, $ElementValuePairArray*)},
+		{"getNumElementValuePairs", "()I", nullptr, $PUBLIC | $FINAL, $method(AnnotationEntry, getNumElementValuePairs, int32_t)},
+		{"getTypeIndex", "()I", nullptr, $PUBLIC, $virtualMethod(AnnotationEntry, getTypeIndex, int32_t)},
+		{"isRuntimeVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(AnnotationEntry, isRuntimeVisible, bool)},
+		{"read", "(Ljava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;Z)Lcom/sun/org/apache/bcel/internal/classfile/AnnotationEntry;", nullptr, $PUBLIC | $STATIC, $staticMethod(AnnotationEntry, read, AnnotationEntry*, $DataInput*, $ConstantPool*, bool), "java.io.IOException"},
+		{"toShortString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AnnotationEntry, toShortString, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AnnotationEntry, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.AnnotationEntry",
+		"java.lang.Object",
+		"com.sun.org.apache.bcel.internal.classfile.Node",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AnnotationEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AnnotationEntry);
+	});
 	return class$;
 }
 

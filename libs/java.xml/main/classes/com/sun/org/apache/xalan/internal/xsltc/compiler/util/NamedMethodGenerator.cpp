@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/NamedMethodGenerator.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ALOAD.h>
 #include <com/sun/org/apache/bcel/internal/generic/ASTORE.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
@@ -34,33 +33,6 @@ namespace com {
 							namespace compiler {
 								namespace util {
 
-$FieldInfo _NamedMethodGenerator_FieldInfo_[] = {
-	{"CURRENT_INDEX", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(NamedMethodGenerator, CURRENT_INDEX)},
-	{"PARAM_START_INDEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NamedMethodGenerator, PARAM_START_INDEX)},
-	{}
-};
-
-$MethodInfo _NamedMethodGenerator_MethodInfo_[] = {
-	{"<init>", "(ILcom/sun/org/apache/bcel/internal/generic/Type;[Lcom/sun/org/apache/bcel/internal/generic/Type;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(NamedMethodGenerator, init$, void, int32_t, $Type*, $TypeArray*, $StringArray*, $String*, $String*, $InstructionList*, $ConstantPoolGen*)},
-	{"getLocalIndex", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(NamedMethodGenerator, getLocalIndex, int32_t, $String*)},
-	{"loadParameter", "(I)Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $method(NamedMethodGenerator, loadParameter, $Instruction*, int32_t)},
-	{"storeParameter", "(I)Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $method(NamedMethodGenerator, storeParameter, $Instruction*, int32_t)},
-	{}
-};
-
-$ClassInfo _NamedMethodGenerator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.NamedMethodGenerator",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.MethodGenerator",
-	nullptr,
-	_NamedMethodGenerator_FieldInfo_,
-	_NamedMethodGenerator_MethodInfo_
-};
-
-$Object* allocate$NamedMethodGenerator($Class* clazz) {
-	return $of($alloc(NamedMethodGenerator));
-}
-
 void NamedMethodGenerator::init$(int32_t access_flags, $Type* return_type, $TypeArray* arg_types, $StringArray* arg_names, $String* method_name, $String* class_name, $InstructionList* il, $ConstantPoolGen* cp) {
 	$MethodGenerator::init$(access_flags, return_type, arg_types, arg_names, method_name, class_name, il, cp);
 }
@@ -84,7 +56,29 @@ NamedMethodGenerator::NamedMethodGenerator() {
 }
 
 $Class* NamedMethodGenerator::load$($String* name, bool initialize) {
-	$loadClass(NamedMethodGenerator, name, initialize, &_NamedMethodGenerator_ClassInfo_, allocate$NamedMethodGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"CURRENT_INDEX", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(NamedMethodGenerator, CURRENT_INDEX)},
+		{"PARAM_START_INDEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NamedMethodGenerator, PARAM_START_INDEX)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILcom/sun/org/apache/bcel/internal/generic/Type;[Lcom/sun/org/apache/bcel/internal/generic/Type;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(NamedMethodGenerator, init$, void, int32_t, $Type*, $TypeArray*, $StringArray*, $String*, $String*, $InstructionList*, $ConstantPoolGen*)},
+		{"getLocalIndex", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(NamedMethodGenerator, getLocalIndex, int32_t, $String*)},
+		{"loadParameter", "(I)Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $method(NamedMethodGenerator, loadParameter, $Instruction*, int32_t)},
+		{"storeParameter", "(I)Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $method(NamedMethodGenerator, storeParameter, $Instruction*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.NamedMethodGenerator",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.MethodGenerator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NamedMethodGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NamedMethodGenerator));
+	});
 	return class$;
 }
 

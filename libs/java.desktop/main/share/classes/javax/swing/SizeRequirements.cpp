@@ -1,5 +1,4 @@
 #include <javax/swing/SizeRequirements.h>
-
 #include <java/lang/Math.h>
 #include <jcpp.h>
 
@@ -16,43 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _SizeRequirements_FieldInfo_[] = {
-	{"minimum", "I", nullptr, $PUBLIC, $field(SizeRequirements, minimum)},
-	{"preferred", "I", nullptr, $PUBLIC, $field(SizeRequirements, preferred)},
-	{"maximum", "I", nullptr, $PUBLIC, $field(SizeRequirements, maximum)},
-	{"alignment", "F", nullptr, $PUBLIC, $field(SizeRequirements, alignment)},
-	{}
-};
-
-$MethodInfo _SizeRequirements_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SizeRequirements, init$, void)},
-	{"<init>", "(IIIF)V", nullptr, $PUBLIC, $method(SizeRequirements, init$, void, int32_t, int32_t, int32_t, float)},
-	{"adjustSizes", "(I[Ljavax/swing/SizeRequirements;)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(SizeRequirements, adjustSizes, $ints*, int32_t, $SizeRequirementsArray*)},
-	{"calculateAlignedPositions", "(ILjavax/swing/SizeRequirements;[Ljavax/swing/SizeRequirements;[I[I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SizeRequirements, calculateAlignedPositions, void, int32_t, SizeRequirements*, $SizeRequirementsArray*, $ints*, $ints*)},
-	{"calculateAlignedPositions", "(ILjavax/swing/SizeRequirements;[Ljavax/swing/SizeRequirements;[I[IZ)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SizeRequirements, calculateAlignedPositions, void, int32_t, SizeRequirements*, $SizeRequirementsArray*, $ints*, $ints*, bool)},
-	{"calculateTiledPositions", "(ILjavax/swing/SizeRequirements;[Ljavax/swing/SizeRequirements;[I[I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SizeRequirements, calculateTiledPositions, void, int32_t, SizeRequirements*, $SizeRequirementsArray*, $ints*, $ints*)},
-	{"calculateTiledPositions", "(ILjavax/swing/SizeRequirements;[Ljavax/swing/SizeRequirements;[I[IZ)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SizeRequirements, calculateTiledPositions, void, int32_t, SizeRequirements*, $SizeRequirementsArray*, $ints*, $ints*, bool)},
-	{"compressedTile", "(IJJJ[Ljavax/swing/SizeRequirements;[I[IZ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SizeRequirements, compressedTile, void, int32_t, int64_t, int64_t, int64_t, $SizeRequirementsArray*, $ints*, $ints*, bool)},
-	{"expandedTile", "(IJJJ[Ljavax/swing/SizeRequirements;[I[IZ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SizeRequirements, expandedTile, void, int32_t, int64_t, int64_t, int64_t, $SizeRequirementsArray*, $ints*, $ints*, bool)},
-	{"getAlignedSizeRequirements", "([Ljavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PUBLIC | $STATIC, $staticMethod(SizeRequirements, getAlignedSizeRequirements, SizeRequirements*, $SizeRequirementsArray*)},
-	{"getTiledSizeRequirements", "([Ljavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PUBLIC | $STATIC, $staticMethod(SizeRequirements, getTiledSizeRequirements, SizeRequirements*, $SizeRequirementsArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SizeRequirements, toString, $String*)},
-	{}
-};
-
-$ClassInfo _SizeRequirements_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.SizeRequirements",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_SizeRequirements_FieldInfo_,
-	_SizeRequirements_MethodInfo_
-};
-
-$Object* allocate$SizeRequirements($Class* clazz) {
-	return $of($alloc(SizeRequirements));
-}
-
 void SizeRequirements::init$() {
 	this->minimum = 0;
 	this->preferred = 0;
@@ -68,31 +30,31 @@ void SizeRequirements::init$(int32_t min, int32_t pref, int32_t max, float a) {
 }
 
 $String* SizeRequirements::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"["_s, $$str(this->minimum), ","_s, $$str(this->preferred), ","_s, $$str(this->maximum), "]@"_s, $$str(this->alignment)});
 }
 
 SizeRequirements* SizeRequirements::getTiledSizeRequirements($SizeRequirementsArray* children) {
 	$init(SizeRequirements);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(SizeRequirements, total, $new(SizeRequirements));
 	for (int32_t i = 0; i < $nc(children)->length; ++i) {
 		$var(SizeRequirements, req, children->get(i));
 		total->minimum = (int32_t)$Math::min((int64_t)total->minimum + (int64_t)$nc(req)->minimum, (int64_t)$Integer::MAX_VALUE);
-		total->preferred = (int32_t)$Math::min((int64_t)total->preferred + (int64_t)$nc(req)->preferred, (int64_t)$Integer::MAX_VALUE);
-		total->maximum = (int32_t)$Math::min((int64_t)total->maximum + (int64_t)$nc(req)->maximum, (int64_t)$Integer::MAX_VALUE);
+		total->preferred = (int32_t)$Math::min((int64_t)total->preferred + (int64_t)req->preferred, (int64_t)$Integer::MAX_VALUE);
+		total->maximum = (int32_t)$Math::min((int64_t)total->maximum + (int64_t)req->maximum, (int64_t)$Integer::MAX_VALUE);
 	}
 	return total;
 }
 
 SizeRequirements* SizeRequirements::getAlignedSizeRequirements($SizeRequirementsArray* children) {
 	$init(SizeRequirements);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(SizeRequirements, totalAscent, $new(SizeRequirements));
 	$var(SizeRequirements, totalDescent, $new(SizeRequirements));
 	for (int32_t i = 0; i < $nc(children)->length; ++i) {
 		$var(SizeRequirements, req, children->get(i));
-		int32_t ascent = $cast(int32_t, ($nc(req)->alignment * req->minimum));
+		int32_t ascent = $cast(int32_t, ($nc(req)->alignment * $nc(req)->minimum));
 		int32_t descent = req->minimum - ascent;
 		totalAscent->minimum = $Math::max(ascent, totalAscent->minimum);
 		totalDescent->minimum = $Math::max(descent, totalDescent->minimum);
@@ -140,7 +102,7 @@ void SizeRequirements::calculateTiledPositions(int32_t allocated, SizeRequiremen
 
 void SizeRequirements::compressedTile(int32_t allocated, int64_t min, int64_t pref, int64_t max, $SizeRequirementsArray* request, $ints* offsets, $ints* spans, bool forward) {
 	$init(SizeRequirements);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	float totalPlay = (float)$Math::min(pref - allocated, pref - min);
 	float factor = (pref - min == 0) ? 0.0f : totalPlay / (pref - min);
 	int32_t totalOffset = 0;
@@ -149,7 +111,7 @@ void SizeRequirements::compressedTile(int32_t allocated, int64_t min, int64_t pr
 		for (int32_t i = 0; i < $nc(spans)->length; ++i) {
 			$nc(offsets)->set(i, totalOffset);
 			$var(SizeRequirements, req, $nc(request)->get(i));
-			float play = factor * ($nc(req)->preferred - req->minimum);
+			float play = factor * ($nc(req)->preferred - $nc(req)->minimum);
 			spans->set(i, $cast(int32_t, (req->preferred - play)));
 			totalOffset = (int32_t)$Math::min((int64_t)totalOffset + (int64_t)spans->get(i), (int64_t)$Integer::MAX_VALUE);
 		}
@@ -157,7 +119,7 @@ void SizeRequirements::compressedTile(int32_t allocated, int64_t min, int64_t pr
 		totalOffset = allocated;
 		for (int32_t i = 0; i < $nc(spans)->length; ++i) {
 			$var(SizeRequirements, req, $nc(request)->get(i));
-			float play = factor * ($nc(req)->preferred - req->minimum);
+			float play = factor * ($nc(req)->preferred - $nc(req)->minimum);
 			spans->set(i, $cast(int32_t, (req->preferred - play)));
 			$nc(offsets)->set(i, totalOffset - spans->get(i));
 			totalOffset = (int32_t)$Math::max((int64_t)totalOffset - (int64_t)spans->get(i), (int64_t)0);
@@ -167,7 +129,7 @@ void SizeRequirements::compressedTile(int32_t allocated, int64_t min, int64_t pr
 
 void SizeRequirements::expandedTile(int32_t allocated, int64_t min, int64_t pref, int64_t max, $SizeRequirementsArray* request, $ints* offsets, $ints* spans, bool forward) {
 	$init(SizeRequirements);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	float totalPlay = (float)$Math::min(allocated - pref, max - pref);
 	float factor = (max - pref == 0) ? 0.0f : totalPlay / (max - pref);
 	int32_t totalOffset = 0;
@@ -176,7 +138,7 @@ void SizeRequirements::expandedTile(int32_t allocated, int64_t min, int64_t pref
 		for (int32_t i = 0; i < $nc(spans)->length; ++i) {
 			$nc(offsets)->set(i, totalOffset);
 			$var(SizeRequirements, req, $nc(request)->get(i));
-			int32_t play = $cast(int32_t, (factor * ($nc(req)->maximum - req->preferred)));
+			int32_t play = $cast(int32_t, (factor * ($nc(req)->maximum - $nc(req)->preferred)));
 			spans->set(i, (int32_t)$Math::min((int64_t)req->preferred + (int64_t)play, (int64_t)$Integer::MAX_VALUE));
 			totalOffset = (int32_t)$Math::min((int64_t)totalOffset + (int64_t)spans->get(i), (int64_t)$Integer::MAX_VALUE);
 		}
@@ -184,7 +146,7 @@ void SizeRequirements::expandedTile(int32_t allocated, int64_t min, int64_t pref
 		totalOffset = allocated;
 		for (int32_t i = 0; i < $nc(spans)->length; ++i) {
 			$var(SizeRequirements, req, $nc(request)->get(i));
-			int32_t play = $cast(int32_t, (factor * ($nc(req)->maximum - req->preferred)));
+			int32_t play = $cast(int32_t, (factor * ($nc(req)->maximum - $nc(req)->preferred)));
 			spans->set(i, (int32_t)$Math::min((int64_t)req->preferred + (int64_t)play, (int64_t)$Integer::MAX_VALUE));
 			$nc(offsets)->set(i, totalOffset - spans->get(i));
 			totalOffset = (int32_t)$Math::max((int64_t)totalOffset - (int64_t)spans->get(i), (int64_t)0);
@@ -199,14 +161,14 @@ void SizeRequirements::calculateAlignedPositions(int32_t allocated, SizeRequirem
 
 void SizeRequirements::calculateAlignedPositions(int32_t allocated, SizeRequirements* total, $SizeRequirementsArray* children, $ints* offsets, $ints* spans, bool normal) {
 	$init(SizeRequirements);
-	$useLocalCurrentObjectStackCache();
-	float totalAlignment = normal ? $nc(total)->alignment : 1.0f - total->alignment;
+	$useLocalObjectStack();
+	float totalAlignment = normal ? $nc(total)->alignment : 1.0f - $nc(total)->alignment;
 	int32_t totalAscent = $cast(int32_t, (allocated * totalAlignment));
 	int32_t totalDescent = allocated - totalAscent;
 	for (int32_t i = 0; i < $nc(children)->length; ++i) {
 		$var(SizeRequirements, req, children->get(i));
-		float alignment = normal ? $nc(req)->alignment : 1.0f - req->alignment;
-		int32_t maxAscent = $cast(int32_t, (req->maximum * alignment));
+		float alignment = normal ? $nc(req)->alignment : 1.0f - $nc(req)->alignment;
+		int32_t maxAscent = $cast(int32_t, ($nc(req)->maximum * alignment));
 		int32_t maxDescent = req->maximum - maxAscent;
 		int32_t ascent = $Math::min(totalAscent, maxAscent);
 		int32_t descent = $Math::min(totalDescent, maxDescent);
@@ -224,7 +186,39 @@ SizeRequirements::SizeRequirements() {
 }
 
 $Class* SizeRequirements::load$($String* name, bool initialize) {
-	$loadClass(SizeRequirements, name, initialize, &_SizeRequirements_ClassInfo_, allocate$SizeRequirements);
+	$FieldInfo fieldInfos$$[] = {
+		{"minimum", "I", nullptr, $PUBLIC, $field(SizeRequirements, minimum)},
+		{"preferred", "I", nullptr, $PUBLIC, $field(SizeRequirements, preferred)},
+		{"maximum", "I", nullptr, $PUBLIC, $field(SizeRequirements, maximum)},
+		{"alignment", "F", nullptr, $PUBLIC, $field(SizeRequirements, alignment)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SizeRequirements, init$, void)},
+		{"<init>", "(IIIF)V", nullptr, $PUBLIC, $method(SizeRequirements, init$, void, int32_t, int32_t, int32_t, float)},
+		{"adjustSizes", "(I[Ljavax/swing/SizeRequirements;)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(SizeRequirements, adjustSizes, $ints*, int32_t, $SizeRequirementsArray*)},
+		{"calculateAlignedPositions", "(ILjavax/swing/SizeRequirements;[Ljavax/swing/SizeRequirements;[I[I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SizeRequirements, calculateAlignedPositions, void, int32_t, SizeRequirements*, $SizeRequirementsArray*, $ints*, $ints*)},
+		{"calculateAlignedPositions", "(ILjavax/swing/SizeRequirements;[Ljavax/swing/SizeRequirements;[I[IZ)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SizeRequirements, calculateAlignedPositions, void, int32_t, SizeRequirements*, $SizeRequirementsArray*, $ints*, $ints*, bool)},
+		{"calculateTiledPositions", "(ILjavax/swing/SizeRequirements;[Ljavax/swing/SizeRequirements;[I[I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SizeRequirements, calculateTiledPositions, void, int32_t, SizeRequirements*, $SizeRequirementsArray*, $ints*, $ints*)},
+		{"calculateTiledPositions", "(ILjavax/swing/SizeRequirements;[Ljavax/swing/SizeRequirements;[I[IZ)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SizeRequirements, calculateTiledPositions, void, int32_t, SizeRequirements*, $SizeRequirementsArray*, $ints*, $ints*, bool)},
+		{"compressedTile", "(IJJJ[Ljavax/swing/SizeRequirements;[I[IZ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SizeRequirements, compressedTile, void, int32_t, int64_t, int64_t, int64_t, $SizeRequirementsArray*, $ints*, $ints*, bool)},
+		{"expandedTile", "(IJJJ[Ljavax/swing/SizeRequirements;[I[IZ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SizeRequirements, expandedTile, void, int32_t, int64_t, int64_t, int64_t, $SizeRequirementsArray*, $ints*, $ints*, bool)},
+		{"getAlignedSizeRequirements", "([Ljavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PUBLIC | $STATIC, $staticMethod(SizeRequirements, getAlignedSizeRequirements, SizeRequirements*, $SizeRequirementsArray*)},
+		{"getTiledSizeRequirements", "([Ljavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PUBLIC | $STATIC, $staticMethod(SizeRequirements, getTiledSizeRequirements, SizeRequirements*, $SizeRequirementsArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SizeRequirements, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.SizeRequirements",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SizeRequirements, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SizeRequirements);
+	});
 	return class$;
 }
 

@@ -1,8 +1,5 @@
 #include <com/sun/tools/javac/comp/TypeEnter$HierarchyPhase.h>
-
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
-#include <com/sun/tools/javac/code/Symbol$Completer.h>
-#include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type$ClassType.h>
 #include <com/sun/tools/javac/code/Type$JCNoType.h>
@@ -35,23 +32,17 @@
 
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
-using $Symbol$Completer = ::com::sun::tools::javac::code::Symbol$Completer;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
-using $Check = ::com::sun::tools::javac::comp::Check;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $TypeEnter = ::com::sun::tools::javac::comp::TypeEnter;
 using $TypeEnter$1 = ::com::sun::tools::javac::comp::TypeEnter$1;
 using $TypeEnter$AbstractHeaderPhase = ::com::sun::tools::javac::comp::TypeEnter$AbstractHeaderPhase;
 using $TypeEnter$ImportsPhase = ::com::sun::tools::javac::comp::TypeEnter$ImportsPhase;
 using $TypeEnter$PermitsPhase = ::com::sun::tools::javac::comp::TypeEnter$PermitsPhase;
-using $TypeEnter$Phase = ::com::sun::tools::javac::comp::TypeEnter$Phase;
-using $TypeEnvs = ::com::sun::tools::javac::comp::TypeEnvs;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCTypeApply = ::com::sun::tools::javac::tree::JCTree$JCTypeApply;
-using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $Dependencies$CompletionCause = ::com::sun::tools::javac::util::Dependencies$CompletionCause;
 using $List = ::com::sun::tools::javac::util::List;
@@ -66,52 +57,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _TypeEnter$HierarchyPhase_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/TypeEnter;", nullptr, $FINAL | $SYNTHETIC, $field(TypeEnter$HierarchyPhase, this$0)},
-	{}
-};
-
-$MethodInfo _TypeEnter$HierarchyPhase_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter;)V", nullptr, $PUBLIC, $method(TypeEnter$HierarchyPhase, init$, void, $TypeEnter*)},
-	{"clearTypeParams", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PROTECTED, $virtualMethod(TypeEnter$HierarchyPhase, clearTypeParams, $JCTree$JCExpression*, $JCTree$JCExpression*)},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(TypeEnter$HierarchyPhase, complete, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{"doCompleteEnvs", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;)V", $PROTECTED, $virtualMethod(TypeEnter$HierarchyPhase, doCompleteEnvs, void, $List*)},
-	{"runPhase", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PROTECTED, $virtualMethod(TypeEnter$HierarchyPhase, runPhase, void, $Env*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _TypeEnter$HierarchyPhase_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.TypeEnter$HierarchyPhase", "com.sun.tools.javac.comp.TypeEnter", "HierarchyPhase", $PRIVATE | $FINAL},
-	{"com.sun.tools.javac.comp.TypeEnter$AbstractHeaderPhase", "com.sun.tools.javac.comp.TypeEnter", "AbstractHeaderPhase", $PRIVATE | $ABSTRACT},
-	{"com.sun.tools.javac.code.Symbol$Completer", "com.sun.tools.javac.code.Symbol", "Completer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TypeEnter$HierarchyPhase_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.tools.javac.comp.TypeEnter$HierarchyPhase",
-	"com.sun.tools.javac.comp.TypeEnter$AbstractHeaderPhase",
-	"com.sun.tools.javac.code.Symbol$Completer",
-	_TypeEnter$HierarchyPhase_FieldInfo_,
-	_TypeEnter$HierarchyPhase_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TypeEnter$HierarchyPhase_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.TypeEnter"
-};
-
-$Object* allocate$TypeEnter$HierarchyPhase($Class* clazz) {
-	return $of($alloc(TypeEnter$HierarchyPhase));
-}
 
 int32_t TypeEnter$HierarchyPhase::hashCode() {
 	 return this->$TypeEnter$AbstractHeaderPhase::hashCode();
@@ -140,7 +85,7 @@ void TypeEnter$HierarchyPhase::init$($TypeEnter* this$0) {
 }
 
 void TypeEnter$HierarchyPhase::doCompleteEnvs($List* envs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Iterator, i$, $nc(envs)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -162,7 +107,7 @@ void TypeEnter$HierarchyPhase::doCompleteEnvs($List* envs) {
 }
 
 void TypeEnter$HierarchyPhase::runPhase($Env* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCClassDecl, tree, $nc(env)->enclClass);
 	$var($Symbol$ClassSymbol, sym, $nc(tree)->sym);
 	$var($Type$ClassType, ct, $cast($Type$ClassType, $nc(sym)->type));
@@ -170,12 +115,12 @@ void TypeEnter$HierarchyPhase::runPhase($Env* env) {
 	attribSuperTypes(env, baseEnv);
 	if (sym->fullname == $nc(this->this$0->names)->java_lang_Object) {
 		if (tree->extending != nullptr) {
-			$nc(this->this$0->chk)->checkNonCyclic($($nc(tree->extending)->pos()), $nc(ct)->supertype_field);
+			$nc(this->this$0->chk)->checkNonCyclic($(tree->extending->pos()), $nc(ct)->supertype_field);
 			$init($Type);
-			$set($nc(ct), supertype_field, $Type::noType);
+			$set(ct, supertype_field, $Type::noType);
 		} else if ($nc(tree->implementing)->nonEmpty()) {
-			$nc(this->this$0->chk)->checkNonCyclic($($nc(($cast($JCTree$JCExpression, $nc(tree->implementing)->head)))->pos()), $cast($Type, $nc($nc(ct)->interfaces_field)->head));
-			$set($nc(ct), interfaces_field, $List::nil());
+			$nc(this->this$0->chk)->checkNonCyclic($($nc($cast($JCTree$JCExpression, $nc(tree->implementing)->head))->pos()), $cast($Type, $nc($nc(ct)->interfaces_field)->head));
+			$set(ct, interfaces_field, $List::nil());
 		}
 	}
 	this->this$0->markDeprecated(sym, $nc(tree->mods)->annotations, baseEnv);
@@ -184,17 +129,15 @@ void TypeEnter$HierarchyPhase::runPhase($Env* env) {
 
 $JCTree$JCExpression* TypeEnter$HierarchyPhase::clearTypeParams($JCTree$JCExpression* superType) {
 	$init($TypeEnter$1);
-	switch ($nc($TypeEnter$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(superType)->getTag())))->ordinal())) {
+	switch ($nc($TypeEnter$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(superType)->getTag()))->ordinal())) {
 	case 1:
-		{
-			return $nc(($cast($JCTree$JCTypeApply, superType)))->clazz;
-		}
+		return $cast($JCTree$JCTypeApply, superType)->clazz;
 	}
 	return superType;
 }
 
 void TypeEnter$HierarchyPhase::complete($Symbol* sym) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Assert::check(($instanceOf($TypeEnter$ImportsPhase, this->this$0->topLevelPhase)) || ($equals(this->this$0->topLevelPhase, this)));
 	if (!$equals(this->this$0->topLevelPhase, this)) {
 		$set($nc(sym), completer, this);
@@ -208,7 +151,47 @@ TypeEnter$HierarchyPhase::TypeEnter$HierarchyPhase() {
 }
 
 $Class* TypeEnter$HierarchyPhase::load$($String* name, bool initialize) {
-	$loadClass(TypeEnter$HierarchyPhase, name, initialize, &_TypeEnter$HierarchyPhase_ClassInfo_, allocate$TypeEnter$HierarchyPhase);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/TypeEnter;", nullptr, $FINAL | $SYNTHETIC, $field(TypeEnter$HierarchyPhase, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter;)V", nullptr, $PUBLIC, $method(TypeEnter$HierarchyPhase, init$, void, $TypeEnter*)},
+		{"clearTypeParams", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PROTECTED, $virtualMethod(TypeEnter$HierarchyPhase, clearTypeParams, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+		{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(TypeEnter$HierarchyPhase, complete, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+		{"doCompleteEnvs", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;)V", $PROTECTED, $virtualMethod(TypeEnter$HierarchyPhase, doCompleteEnvs, void, $List*)},
+		{"runPhase", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PROTECTED, $virtualMethod(TypeEnter$HierarchyPhase, runPhase, void, $Env*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.TypeEnter$HierarchyPhase", "com.sun.tools.javac.comp.TypeEnter", "HierarchyPhase", $PRIVATE | $FINAL},
+		{"com.sun.tools.javac.comp.TypeEnter$AbstractHeaderPhase", "com.sun.tools.javac.comp.TypeEnter", "AbstractHeaderPhase", $PRIVATE | $ABSTRACT},
+		{"com.sun.tools.javac.code.Symbol$Completer", "com.sun.tools.javac.code.Symbol", "Completer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.tools.javac.comp.TypeEnter$HierarchyPhase",
+		"com.sun.tools.javac.comp.TypeEnter$AbstractHeaderPhase",
+		"com.sun.tools.javac.code.Symbol$Completer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.TypeEnter"
+	};
+	$loadClass(TypeEnter$HierarchyPhase, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TypeEnter$HierarchyPhase));
+	});
 	return class$;
 }
 

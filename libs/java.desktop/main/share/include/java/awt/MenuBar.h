@@ -52,6 +52,7 @@ public:
 	virtual void finalize() override;
 	virtual ::java::awt::Font* getFont() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::awt::Menu* add(::java::awt::Menu* m);
 	virtual void addNotify();
@@ -81,7 +82,7 @@ public:
 	$volatile(::java::awt::Menu*) helpMenu = nullptr;
 	static $String* base;
 	static int32_t nameCounter;
-	static const int64_t serialVersionUID = (int64_t)0xBB93F4E11AA17D24;
+	static const int64_t serialVersionUID = (int64_t)0xbb93f4e11aa17d24;
 	int32_t menuBarSerializedDataVersion = 0;
 };
 

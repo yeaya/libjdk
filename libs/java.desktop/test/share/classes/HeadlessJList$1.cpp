@@ -1,5 +1,4 @@
 #include <HeadlessJList$1.h>
-
 #include <HeadlessJList.h>
 #include <java/awt/Component.h>
 #include <jcpp.h>
@@ -10,42 +9,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _HeadlessJList$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HeadlessJList$1, init$, void)},
-	{}
-};
-
-$EnclosingMethodInfo _HeadlessJList$1_EnclosingMethodInfo_ = {
-	"HeadlessJList",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _HeadlessJList$1_InnerClassesInfo_[] = {
-	{"HeadlessJList$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJList$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"HeadlessJList$1",
-	"java.awt.Component",
-	nullptr,
-	nullptr,
-	_HeadlessJList$1_MethodInfo_,
-	nullptr,
-	&_HeadlessJList$1_EnclosingMethodInfo_,
-	_HeadlessJList$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"HeadlessJList"
-};
-
-$Object* allocate$HeadlessJList$1($Class* clazz) {
-	return $of($alloc(HeadlessJList$1));
-}
-
 void HeadlessJList$1::init$() {
 	$Component::init$();
 }
@@ -54,7 +17,37 @@ HeadlessJList$1::HeadlessJList$1() {
 }
 
 $Class* HeadlessJList$1::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJList$1, name, initialize, &_HeadlessJList$1_ClassInfo_, allocate$HeadlessJList$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HeadlessJList$1, init$, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"HeadlessJList",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJList$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"HeadlessJList$1",
+		"java.awt.Component",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"HeadlessJList"
+	};
+	$loadClass(HeadlessJList$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HeadlessJList$1));
+	});
 	return class$;
 }
 

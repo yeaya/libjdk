@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/ResponseSubscribers$HttpResponseInputStream.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/Serializable.h>
@@ -50,7 +49,6 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
 using $ArrayBlockingQueue = ::java::util::concurrent::ArrayBlockingQueue;
-using $BlockingQueue = ::java::util::concurrent::BlockingQueue;
 using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $CompletionStage = ::java::util::concurrent::CompletionStage;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
@@ -74,100 +72,32 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->toString());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ResponseSubscribers$HttpResponseInputStream$$Lambda$toString>());
-	}
 	$String* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ResponseSubscribers$HttpResponseInputStream$$Lambda$toString::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ResponseSubscribers$HttpResponseInputStream$$Lambda$toString, inst$)},
-	{}
-};
-$MethodInfo ResponseSubscribers$HttpResponseInputStream$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$HttpResponseInputStream$$Lambda$toString, init$, void, $String*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream$$Lambda$toString, get, $Object*)},
-	{}
-};
-$ClassInfo ResponseSubscribers$HttpResponseInputStream$$Lambda$toString::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.ResponseSubscribers$HttpResponseInputStream$$Lambda$toString",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* ResponseSubscribers$HttpResponseInputStream$$Lambda$toString::load$($String* name, bool initialize) {
-	$loadClass(ResponseSubscribers$HttpResponseInputStream$$Lambda$toString, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ResponseSubscribers$HttpResponseInputStream$$Lambda$toString, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$HttpResponseInputStream$$Lambda$toString, init$, void, $String*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream$$Lambda$toString, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.ResponseSubscribers$HttpResponseInputStream$$Lambda$toString",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResponseSubscribers$HttpResponseInputStream$$Lambda$toString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseSubscribers$HttpResponseInputStream$$Lambda$toString);
+	});
 	return class$;
 }
 $Class* ResponseSubscribers$HttpResponseInputStream$$Lambda$toString::class$ = nullptr;
-
-$FieldInfo _ResponseSubscribers$HttpResponseInputStream_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ResponseSubscribers$HttpResponseInputStream, $assertionsDisabled)},
-	{"MAX_BUFFERS_IN_QUEUE", "I", nullptr, $STATIC | $FINAL, $constField(ResponseSubscribers$HttpResponseInputStream, MAX_BUFFERS_IN_QUEUE)},
-	{"LAST_BUFFER", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResponseSubscribers$HttpResponseInputStream, LAST_BUFFER)},
-	{"LAST_LIST", "Ljava/util/List;", "Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ResponseSubscribers$HttpResponseInputStream, LAST_LIST)},
-	{"debug", "Ljdk/internal/net/http/common/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResponseSubscribers$HttpResponseInputStream, debug)},
-	{"buffers", "Ljava/util/concurrent/BlockingQueue;", "Ljava/util/concurrent/BlockingQueue<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;", $PRIVATE | $FINAL, $field(ResponseSubscribers$HttpResponseInputStream, buffers)},
-	{"subscription", "Ljava/util/concurrent/Flow$Subscription;", nullptr, $PRIVATE | $VOLATILE, $field(ResponseSubscribers$HttpResponseInputStream, subscription)},
-	{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ResponseSubscribers$HttpResponseInputStream, closed)},
-	{"failed", "Ljava/lang/Throwable;", nullptr, $PRIVATE | $VOLATILE, $field(ResponseSubscribers$HttpResponseInputStream, failed)},
-	{"currentListItr", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/nio/ByteBuffer;>;", $PRIVATE | $VOLATILE, $field(ResponseSubscribers$HttpResponseInputStream, currentListItr)},
-	{"currentBuffer", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $VOLATILE, $field(ResponseSubscribers$HttpResponseInputStream, currentBuffer)},
-	{"subscribed", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $PRIVATE | $FINAL, $field(ResponseSubscribers$HttpResponseInputStream, subscribed)},
-	{}
-};
-
-$MethodInfo _ResponseSubscribers$HttpResponseInputStream_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ResponseSubscribers$HttpResponseInputStream, init$, void)},
-	{"<init>", "(I)V", nullptr, 0, $method(ResponseSubscribers$HttpResponseInputStream, init$, void, int32_t)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, available, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, close, void), "java.io.IOException"},
-	{"current", "()Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(ResponseSubscribers$HttpResponseInputStream, current, $ByteBuffer*), "java.io.IOException"},
-	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<Ljava/io/InputStream;>;", $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, getBody, $CompletionStage*)},
-	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, onComplete, void)},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, onError, void, $Throwable*)},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, onNext, void, $List*)},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, onNext, void, Object$*)},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, onSubscribe, void, $Flow$Subscription*)},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, read, int32_t), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _ResponseSubscribers$HttpResponseInputStream_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.ResponseSubscribers$HttpResponseInputStream", "jdk.internal.net.http.ResponseSubscribers", "HttpResponseInputStream", $PUBLIC | $STATIC},
-	{"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber", "jdk.internal.net.http.ResponseSubscribers", "TrustedSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ResponseSubscribers$HttpResponseInputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.ResponseSubscribers$HttpResponseInputStream",
-	"java.io.InputStream",
-	"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber",
-	_ResponseSubscribers$HttpResponseInputStream_FieldInfo_,
-	_ResponseSubscribers$HttpResponseInputStream_MethodInfo_,
-	"Ljava/io/InputStream;Ljdk/internal/net/http/ResponseSubscribers$TrustedSubscriber<Ljava/io/InputStream;>;",
-	nullptr,
-	_ResponseSubscribers$HttpResponseInputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.ResponseSubscribers"
-};
-
-$Object* allocate$ResponseSubscribers$HttpResponseInputStream($Class* clazz) {
-	return $of($alloc(ResponseSubscribers$HttpResponseInputStream));
-}
 
 int32_t ResponseSubscribers$HttpResponseInputStream::hashCode() {
 	 return this->$InputStream::hashCode();
@@ -210,7 +140,7 @@ $CompletionStage* ResponseSubscribers$HttpResponseInputStream::getBody() {
 }
 
 $ByteBuffer* ResponseSubscribers$HttpResponseInputStream::current() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (this->currentBuffer == nullptr || !$nc(this->currentBuffer)->hasRemaining()) {
 		if (this->closed || this->failed != nullptr) {
 			$throwNew($IOException, "closed"_s, this->failed);
@@ -221,12 +151,12 @@ $ByteBuffer* ResponseSubscribers$HttpResponseInputStream::current() {
 		try {
 			if (this->currentListItr == nullptr || !$nc(this->currentListItr)->hasNext()) {
 				if ($nc(ResponseSubscribers$HttpResponseInputStream::debug)->on()) {
-					$nc(ResponseSubscribers$HttpResponseInputStream::debug)->log("Taking list of Buffers"_s);
+					ResponseSubscribers$HttpResponseInputStream::debug->log("Taking list of Buffers"_s);
 				}
 				$var($List, lb, $cast($List, $nc(this->buffers)->take()));
 				$set(this, currentListItr, $nc(lb)->iterator());
-				if ($nc(ResponseSubscribers$HttpResponseInputStream::debug)->on()) {
-					$nc(ResponseSubscribers$HttpResponseInputStream::debug)->log("List of Buffers Taken"_s);
+				if (ResponseSubscribers$HttpResponseInputStream::debug->on()) {
+					ResponseSubscribers$HttpResponseInputStream::debug->log("List of Buffers Taken"_s);
 				}
 				if (this->closed || this->failed != nullptr) {
 					$throwNew($IOException, "closed"_s, this->failed);
@@ -238,8 +168,8 @@ $ByteBuffer* ResponseSubscribers$HttpResponseInputStream::current() {
 				}
 				$var($Flow$Subscription, s, this->subscription);
 				if (s != nullptr) {
-					if ($nc(ResponseSubscribers$HttpResponseInputStream::debug)->on()) {
-						$nc(ResponseSubscribers$HttpResponseInputStream::debug)->log("Increased demand by 1"_s);
+					if (ResponseSubscribers$HttpResponseInputStream::debug->on()) {
+						ResponseSubscribers$HttpResponseInputStream::debug->log("Increased demand by 1"_s);
 					}
 					s->request(1);
 				}
@@ -257,7 +187,7 @@ $ByteBuffer* ResponseSubscribers$HttpResponseInputStream::current() {
 				$throwNew($AssertionError);
 			}
 			if ($nc(ResponseSubscribers$HttpResponseInputStream::debug)->on()) {
-				$nc(ResponseSubscribers$HttpResponseInputStream::debug)->log("Next Buffer"_s);
+				ResponseSubscribers$HttpResponseInputStream::debug->log("Next Buffer"_s);
 			}
 			$set(this, currentBuffer, $cast($ByteBuffer, $nc(this->currentListItr)->next()));
 		} catch ($InterruptedException& ex) {
@@ -279,10 +209,10 @@ int32_t ResponseSubscribers$HttpResponseInputStream::read($bytes* bytes, int32_t
 		return -1;
 	}
 	int32_t read = $Math::min($nc(buffer)->remaining(), len);
-	if (!ResponseSubscribers$HttpResponseInputStream::$assertionsDisabled && !(read > 0 && read <= $nc(buffer)->remaining())) {
+	if (!ResponseSubscribers$HttpResponseInputStream::$assertionsDisabled && !(read > 0 && read <= buffer->remaining())) {
 		$throwNew($AssertionError);
 	}
-	$nc(buffer)->get(bytes, off, read);
+	buffer->get(bytes, off, read);
 	return read;
 }
 
@@ -291,11 +221,11 @@ int32_t ResponseSubscribers$HttpResponseInputStream::read() {
 	if (($assign(buffer, current())) == ResponseSubscribers$HttpResponseInputStream::LAST_BUFFER) {
 		return -1;
 	}
-	return (int32_t)($nc(buffer)->get() & (uint32_t)255);
+	return $nc(buffer)->get() & 0xff;
 }
 
 int32_t ResponseSubscribers$HttpResponseInputStream::available() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->closed) {
 		return 0;
 	}
@@ -321,7 +251,7 @@ int32_t ResponseSubscribers$HttpResponseInputStream::available() {
 }
 
 void ResponseSubscribers$HttpResponseInputStream::onSubscribe($Flow$Subscription* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(s);
 	try {
 		if (!$nc(this->subscribed)->compareAndSet(false, true)) {
@@ -342,27 +272,25 @@ void ResponseSubscribers$HttpResponseInputStream::onSubscribe($Flow$Subscription
 				$throwNew($AssertionError);
 			}
 			if ($nc(ResponseSubscribers$HttpResponseInputStream::debug)->on()) {
-				$nc(ResponseSubscribers$HttpResponseInputStream::debug)->log($$str({"onSubscribe: requesting "_s, $$str($Math::max(1, $nc(this->buffers)->remainingCapacity() - 1))}));
+				ResponseSubscribers$HttpResponseInputStream::debug->log($$str({"onSubscribe: requesting "_s, $$str($Math::max(1, $nc(this->buffers)->remainingCapacity() - 1))}));
 			}
 			s->request($Math::max(1, $nc(this->buffers)->remainingCapacity() - 1));
 		}
 	} catch ($Throwable& t) {
 		$set(this, failed, t);
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					close();
-				} catch ($IOException& x) {
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				onError(t);
+				close();
+			} catch ($IOException& x) {
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			onError(t);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -371,31 +299,29 @@ void ResponseSubscribers$HttpResponseInputStream::onNext($List* t) {
 	$Objects::requireNonNull(t);
 	try {
 		if ($nc(ResponseSubscribers$HttpResponseInputStream::debug)->on()) {
-			$nc(ResponseSubscribers$HttpResponseInputStream::debug)->log("next item received"_s);
+			ResponseSubscribers$HttpResponseInputStream::debug->log("next item received"_s);
 		}
 		if (!$nc(this->buffers)->offer(t)) {
 			$throwNew($IllegalStateException, "queue is full"_s);
 		}
-		if ($nc(ResponseSubscribers$HttpResponseInputStream::debug)->on()) {
-			$nc(ResponseSubscribers$HttpResponseInputStream::debug)->log("item offered"_s);
+		if (ResponseSubscribers$HttpResponseInputStream::debug->on()) {
+			ResponseSubscribers$HttpResponseInputStream::debug->log("item offered"_s);
 		}
 	} catch ($Throwable& ex) {
 		$set(this, failed, ex);
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					close();
-				} catch ($IOException& ex1) {
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				onError(ex);
+				close();
+			} catch ($IOException& ex1) {
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			onError(ex);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -412,7 +338,7 @@ void ResponseSubscribers$HttpResponseInputStream::onComplete() {
 }
 
 void ResponseSubscribers$HttpResponseInputStream::close() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Flow$Subscription, s, nullptr);
 	$synchronized(this) {
 		if (this->closed) {
@@ -422,21 +348,19 @@ void ResponseSubscribers$HttpResponseInputStream::close() {
 		$assign(s, this->subscription);
 		$set(this, subscription, nullptr);
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (s != nullptr) {
-				s->cancel();
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->buffers)->offer(ResponseSubscribers$HttpResponseInputStream::LAST_LIST);
-			$InputStream::close();
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (s != nullptr) {
+			s->cancel();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->buffers)->offer(ResponseSubscribers$HttpResponseInputStream::LAST_LIST);
+		$InputStream::close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -444,14 +368,14 @@ void ResponseSubscribers$HttpResponseInputStream::onNext(Object$* t) {
 	this->onNext($cast($List, t));
 }
 
-void clinit$ResponseSubscribers$HttpResponseInputStream($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ResponseSubscribers$HttpResponseInputStream::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$load($ResponseSubscribers);
 	ResponseSubscribers$HttpResponseInputStream::$assertionsDisabled = !$ResponseSubscribers::class$->desiredAssertionStatus();
 	$assignStatic(ResponseSubscribers$HttpResponseInputStream::LAST_BUFFER, $ByteBuffer::wrap($$new($bytes, 0)));
-	$assignStatic(ResponseSubscribers$HttpResponseInputStream::LAST_LIST, $List::of($of(ResponseSubscribers$HttpResponseInputStream::LAST_BUFFER)));
+	$assignStatic(ResponseSubscribers$HttpResponseInputStream::LAST_LIST, $List::of(ResponseSubscribers$HttpResponseInputStream::LAST_BUFFER));
 	$init($Utils);
-	$assignStatic(ResponseSubscribers$HttpResponseInputStream::debug, $Utils::getDebugLogger(static_cast<$Supplier*>($$new(ResponseSubscribers$HttpResponseInputStream$$Lambda$toString, static_cast<$String*>("HttpResponseInputStream"_s))), $Utils::DEBUG));
+	$assignStatic(ResponseSubscribers$HttpResponseInputStream::debug, $Utils::getDebugLogger($$new(ResponseSubscribers$HttpResponseInputStream$$Lambda$toString, "HttpResponseInputStream"_s), $Utils::DEBUG));
 }
 
 ResponseSubscribers$HttpResponseInputStream::ResponseSubscribers$HttpResponseInputStream() {
@@ -459,11 +383,69 @@ ResponseSubscribers$HttpResponseInputStream::ResponseSubscribers$HttpResponseInp
 
 $Class* ResponseSubscribers$HttpResponseInputStream::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ResponseSubscribers$HttpResponseInputStream$$Lambda$toString::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.ResponseSubscribers$HttpResponseInputStream$$Lambda$toString")) {
 			return ResponseSubscribers$HttpResponseInputStream$$Lambda$toString::load$(name, initialize);
 		}
 	}
-	$loadClass(ResponseSubscribers$HttpResponseInputStream, name, initialize, &_ResponseSubscribers$HttpResponseInputStream_ClassInfo_, clinit$ResponseSubscribers$HttpResponseInputStream, allocate$ResponseSubscribers$HttpResponseInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ResponseSubscribers$HttpResponseInputStream, $assertionsDisabled)},
+		{"MAX_BUFFERS_IN_QUEUE", "I", nullptr, $STATIC | $FINAL, $constField(ResponseSubscribers$HttpResponseInputStream, MAX_BUFFERS_IN_QUEUE)},
+		{"LAST_BUFFER", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResponseSubscribers$HttpResponseInputStream, LAST_BUFFER)},
+		{"LAST_LIST", "Ljava/util/List;", "Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ResponseSubscribers$HttpResponseInputStream, LAST_LIST)},
+		{"debug", "Ljdk/internal/net/http/common/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResponseSubscribers$HttpResponseInputStream, debug)},
+		{"buffers", "Ljava/util/concurrent/BlockingQueue;", "Ljava/util/concurrent/BlockingQueue<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;", $PRIVATE | $FINAL, $field(ResponseSubscribers$HttpResponseInputStream, buffers)},
+		{"subscription", "Ljava/util/concurrent/Flow$Subscription;", nullptr, $PRIVATE | $VOLATILE, $field(ResponseSubscribers$HttpResponseInputStream, subscription)},
+		{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ResponseSubscribers$HttpResponseInputStream, closed)},
+		{"failed", "Ljava/lang/Throwable;", nullptr, $PRIVATE | $VOLATILE, $field(ResponseSubscribers$HttpResponseInputStream, failed)},
+		{"currentListItr", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/nio/ByteBuffer;>;", $PRIVATE | $VOLATILE, $field(ResponseSubscribers$HttpResponseInputStream, currentListItr)},
+		{"currentBuffer", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $VOLATILE, $field(ResponseSubscribers$HttpResponseInputStream, currentBuffer)},
+		{"subscribed", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $PRIVATE | $FINAL, $field(ResponseSubscribers$HttpResponseInputStream, subscribed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ResponseSubscribers$HttpResponseInputStream, init$, void)},
+		{"<init>", "(I)V", nullptr, 0, $method(ResponseSubscribers$HttpResponseInputStream, init$, void, int32_t)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, available, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, close, void), "java.io.IOException"},
+		{"current", "()Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(ResponseSubscribers$HttpResponseInputStream, current, $ByteBuffer*), "java.io.IOException"},
+		{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<Ljava/io/InputStream;>;", $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, getBody, $CompletionStage*)},
+		{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, onComplete, void)},
+		{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, onError, void, $Throwable*)},
+		{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, onNext, void, $List*)},
+		{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, onNext, void, Object$*)},
+		{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, onSubscribe, void, $Flow$Subscription*)},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, read, int32_t), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.ResponseSubscribers$HttpResponseInputStream", "jdk.internal.net.http.ResponseSubscribers", "HttpResponseInputStream", $PUBLIC | $STATIC},
+		{"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber", "jdk.internal.net.http.ResponseSubscribers", "TrustedSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.ResponseSubscribers$HttpResponseInputStream",
+		"java.io.InputStream",
+		"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/io/InputStream;Ljdk/internal/net/http/ResponseSubscribers$TrustedSubscriber<Ljava/io/InputStream;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.ResponseSubscribers"
+	};
+	$loadClass(ResponseSubscribers$HttpResponseInputStream, name, initialize, &classInfo$$, ResponseSubscribers$HttpResponseInputStream::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ResponseSubscribers$HttpResponseInputStream));
+	});
 	return class$;
 }
 

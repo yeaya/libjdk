@@ -71,6 +71,7 @@ class $export AccessibleState : public ::javax::accessibility::AccessibleBundle 
 	$class(AccessibleState, 0, ::javax::accessibility::AccessibleBundle)
 public:
 	AccessibleState();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* key);
 	static ::javax::accessibility::AccessibleState* ACTIVE;
 	static ::javax::accessibility::AccessibleState* PRESSED;

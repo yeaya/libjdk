@@ -1,5 +1,4 @@
 #include <jdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag.h>
-
 #include <com/sun/tools/javac/util/StringUtils.h>
 #include <java/lang/Enum.h>
 #include <java/util/HashMap.h>
@@ -39,67 +38,6 @@ namespace jdk {
 	namespace internal {
 		namespace shellsupport {
 			namespace doc {
-
-$FieldInfo _JavadocFormatter$HtmlTag_FieldInfo_[] = {
-	{"HTML", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, HTML)},
-	{"H1", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, H1)},
-	{"H2", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, H2)},
-	{"H3", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, H3)},
-	{"H4", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, H4)},
-	{"H5", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, H5)},
-	{"H6", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, H6)},
-	{"BLOCKQUOTE", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, BLOCKQUOTE)},
-	{"P", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, P)},
-	{"PRE", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, PRE)},
-	{"IMG", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, IMG)},
-	{"OL", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, OL)},
-	{"UL", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, UL)},
-	{"LI", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, LI)},
-	{"DL", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, DL)},
-	{"DT", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, DT)},
-	{"DD", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, DD)},
-	{"TABLE", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, TABLE)},
-	{"TR", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, TR)},
-	{"TD", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, TD)},
-	{"TH", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, TH)},
-	{"$VALUES", "[Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JavadocFormatter$HtmlTag, $VALUES)},
-	{"index", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;>;", $PRIVATE | $STATIC | $FINAL, $staticField(JavadocFormatter$HtmlTag, index)},
-	{}
-};
-
-$MethodInfo _JavadocFormatter$HtmlTag_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocFormatter$HtmlTag, $values, $JavadocFormatter$HtmlTagArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JavadocFormatter$HtmlTag, init$, void, $String*, int32_t)},
-	{"get", "(Ljavax/lang/model/element/Name;)Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavadocFormatter$HtmlTag, get, JavadocFormatter$HtmlTag*, $Name*)},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavadocFormatter$HtmlTag, valueOf, JavadocFormatter$HtmlTag*, $String*)},
-	{"values", "()[Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavadocFormatter$HtmlTag, values, $JavadocFormatter$HtmlTagArray*)},
-	{}
-};
-
-$InnerClassInfo _JavadocFormatter$HtmlTag_InnerClassesInfo_[] = {
-	{"jdk.internal.shellsupport.doc.JavadocFormatter$HtmlTag", "jdk.internal.shellsupport.doc.JavadocFormatter", "HtmlTag", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _JavadocFormatter$HtmlTag_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"jdk.internal.shellsupport.doc.JavadocFormatter$HtmlTag",
-	"java.lang.Enum",
-	nullptr,
-	_JavadocFormatter$HtmlTag_FieldInfo_,
-	_JavadocFormatter$HtmlTag_MethodInfo_,
-	"Ljava/lang/Enum<Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;>;",
-	nullptr,
-	_JavadocFormatter$HtmlTag_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.shellsupport.doc.JavadocFormatter"
-};
-
-$Object* allocate$JavadocFormatter$HtmlTag($Class* clazz) {
-	return $of($alloc(JavadocFormatter$HtmlTag));
-}
 
 JavadocFormatter$HtmlTag* JavadocFormatter$HtmlTag::HTML = nullptr;
 JavadocFormatter$HtmlTag* JavadocFormatter$HtmlTag::H1 = nullptr;
@@ -168,12 +106,12 @@ void JavadocFormatter$HtmlTag::init$($String* $enum$name, int32_t $enum$ordinal)
 
 JavadocFormatter$HtmlTag* JavadocFormatter$HtmlTag::get($Name* tagName) {
 	$init(JavadocFormatter$HtmlTag);
-	$useLocalCurrentObjectStackCache();
-	return $cast(JavadocFormatter$HtmlTag, $nc(JavadocFormatter$HtmlTag::index)->get($($StringUtils::toLowerCase($($nc($of(tagName))->toString())))));
+	$useLocalObjectStack();
+	return $cast(JavadocFormatter$HtmlTag, JavadocFormatter$HtmlTag::index->get($($StringUtils::toLowerCase($($nc($of(tagName))->toString())))));
 }
 
-void clinit$JavadocFormatter$HtmlTag($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void JavadocFormatter$HtmlTag::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(JavadocFormatter$HtmlTag::HTML, $new(JavadocFormatter$HtmlTag, "HTML"_s, 0));
 	$assignStatic(JavadocFormatter$HtmlTag::H1, $new(JavadocFormatter$HtmlTag, "H1"_s, 1));
 	$assignStatic(JavadocFormatter$HtmlTag::H2, $new(JavadocFormatter$HtmlTag, "H2"_s, 2));
@@ -198,15 +136,11 @@ void clinit$JavadocFormatter$HtmlTag($Class* class$) {
 	$assignStatic(JavadocFormatter$HtmlTag::$VALUES, JavadocFormatter$HtmlTag::$values());
 	$assignStatic(JavadocFormatter$HtmlTag::index, $new($HashMap));
 	{
-		{
-			$var($JavadocFormatter$HtmlTagArray, arr$, JavadocFormatter$HtmlTag::values());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				JavadocFormatter$HtmlTag* t = arr$->get(i$);
-				{
-					$nc(JavadocFormatter$HtmlTag::index)->put($($StringUtils::toLowerCase($($nc(t)->name()))), t);
-				}
+		$var($JavadocFormatter$HtmlTagArray, arr$, JavadocFormatter$HtmlTag::values());
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			JavadocFormatter$HtmlTag* t = arr$->get(i$);
+			{
+				JavadocFormatter$HtmlTag::index->put($($StringUtils::toLowerCase($($nc(t)->name()))), t);
 			}
 		}
 	}
@@ -216,7 +150,62 @@ JavadocFormatter$HtmlTag::JavadocFormatter$HtmlTag() {
 }
 
 $Class* JavadocFormatter$HtmlTag::load$($String* name, bool initialize) {
-	$loadClass(JavadocFormatter$HtmlTag, name, initialize, &_JavadocFormatter$HtmlTag_ClassInfo_, clinit$JavadocFormatter$HtmlTag, allocate$JavadocFormatter$HtmlTag);
+	$FieldInfo fieldInfos$$[] = {
+		{"HTML", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, HTML)},
+		{"H1", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, H1)},
+		{"H2", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, H2)},
+		{"H3", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, H3)},
+		{"H4", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, H4)},
+		{"H5", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, H5)},
+		{"H6", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, H6)},
+		{"BLOCKQUOTE", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, BLOCKQUOTE)},
+		{"P", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, P)},
+		{"PRE", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, PRE)},
+		{"IMG", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, IMG)},
+		{"OL", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, OL)},
+		{"UL", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, UL)},
+		{"LI", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, LI)},
+		{"DL", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, DL)},
+		{"DT", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, DT)},
+		{"DD", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, DD)},
+		{"TABLE", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, TABLE)},
+		{"TR", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, TR)},
+		{"TD", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, TD)},
+		{"TH", "Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavadocFormatter$HtmlTag, TH)},
+		{"$VALUES", "[Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JavadocFormatter$HtmlTag, $VALUES)},
+		{"index", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;>;", $PRIVATE | $STATIC | $FINAL, $staticField(JavadocFormatter$HtmlTag, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocFormatter$HtmlTag, $values, $JavadocFormatter$HtmlTagArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JavadocFormatter$HtmlTag, init$, void, $String*, int32_t)},
+		{"get", "(Ljavax/lang/model/element/Name;)Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavadocFormatter$HtmlTag, get, JavadocFormatter$HtmlTag*, $Name*)},
+		{"valueOf", "(Ljava/lang/String;)Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavadocFormatter$HtmlTag, valueOf, JavadocFormatter$HtmlTag*, $String*)},
+		{"values", "()[Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavadocFormatter$HtmlTag, values, $JavadocFormatter$HtmlTagArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.shellsupport.doc.JavadocFormatter$HtmlTag", "jdk.internal.shellsupport.doc.JavadocFormatter", "HtmlTag", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"jdk.internal.shellsupport.doc.JavadocFormatter$HtmlTag",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.shellsupport.doc.JavadocFormatter"
+	};
+	$loadClass(JavadocFormatter$HtmlTag, name, initialize, &classInfo$$, JavadocFormatter$HtmlTag::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JavadocFormatter$HtmlTag));
+	});
 	return class$;
 }
 

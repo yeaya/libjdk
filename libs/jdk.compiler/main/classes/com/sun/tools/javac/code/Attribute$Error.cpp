@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Attribute$Error.h>
-
 #include <com/sun/tools/javac/code/Attribute$Visitor.h>
 #include <com/sun/tools/javac/code/Attribute.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -20,40 +19,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$MethodInfo _Attribute$Error_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Attribute$Error, init$, void, $Type*)},
-	{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Attribute$Error, accept, void, $Attribute$Visitor*)},
-	{"accept", "(Ljavax/lang/model/element/AnnotationValueVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/AnnotationValueVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Attribute$Error, accept, $Object*, $AnnotationValueVisitor*, Object$*)},
-	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attribute$Error, getValue, $Object*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attribute$Error, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Attribute$Error_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Attribute$Error", "com.sun.tools.javac.code.Attribute", "Error", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Attribute$Error_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Attribute$Error",
-	"com.sun.tools.javac.code.Attribute",
-	nullptr,
-	nullptr,
-	_Attribute$Error_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Attribute$Error_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Attribute"
-};
-
-$Object* allocate$Attribute$Error($Class* clazz) {
-	return $of($alloc(Attribute$Error));
-}
-
 void Attribute$Error::init$($Type* type) {
 	$Attribute::init$(type);
 }
@@ -71,14 +36,43 @@ $Object* Attribute$Error::getValue() {
 }
 
 $Object* Attribute$Error::accept($AnnotationValueVisitor* v, Object$* p) {
-	return $of($nc(v)->visitString($(toString()), p));
+	return $nc(v)->visitString($(toString()), p);
 }
 
 Attribute$Error::Attribute$Error() {
 }
 
 $Class* Attribute$Error::load$($String* name, bool initialize) {
-	$loadClass(Attribute$Error, name, initialize, &_Attribute$Error_ClassInfo_, allocate$Attribute$Error);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Attribute$Error, init$, void, $Type*)},
+		{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Attribute$Error, accept, void, $Attribute$Visitor*)},
+		{"accept", "(Ljavax/lang/model/element/AnnotationValueVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/AnnotationValueVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Attribute$Error, accept, $Object*, $AnnotationValueVisitor*, Object$*)},
+		{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attribute$Error, getValue, $Object*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attribute$Error, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Attribute$Error", "com.sun.tools.javac.code.Attribute", "Error", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Attribute$Error",
+		"com.sun.tools.javac.code.Attribute",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Attribute"
+	};
+	$loadClass(Attribute$Error, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Attribute$Error);
+	});
 	return class$;
 }
 

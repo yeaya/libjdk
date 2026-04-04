@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/MXBeanMapping.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/reflect/Type.h>
@@ -19,38 +18,6 @@ namespace com {
 	namespace sun {
 		namespace jmx {
 			namespace mbeanserver {
-
-$FieldInfo _MXBeanMapping_FieldInfo_[] = {
-	{"javaType", "Ljava/lang/reflect/Type;", nullptr, $PRIVATE | $FINAL, $field(MXBeanMapping, javaType)},
-	{"openType", "Ljavax/management/openmbean/OpenType;", "Ljavax/management/openmbean/OpenType<*>;", $PRIVATE | $FINAL, $field(MXBeanMapping, openType)},
-	{"openClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(MXBeanMapping, openClass)},
-	{}
-};
-
-$MethodInfo _MXBeanMapping_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/OpenType;)V", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/OpenType<*>;)V", $PROTECTED, $method(MXBeanMapping, init$, void, $Type*, $OpenType*)},
-	{"checkReconstructible", "()V", nullptr, $PUBLIC, $virtualMethod(MXBeanMapping, checkReconstructible, void), "java.io.InvalidObjectException"},
-	{"fromOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MXBeanMapping, fromOpenValue, $Object*, Object$*), "java.io.InvalidObjectException"},
-	{"getJavaType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $FINAL, $method(MXBeanMapping, getJavaType, $Type*)},
-	{"getOpenClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC | $FINAL, $method(MXBeanMapping, getOpenClass, $Class*)},
-	{"getOpenType", "()Ljavax/management/openmbean/OpenType;", "()Ljavax/management/openmbean/OpenType<*>;", $PUBLIC | $FINAL, $method(MXBeanMapping, getOpenType, $OpenType*)},
-	{"makeOpenClass", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/OpenType;)Ljava/lang/Class;", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/OpenType<*>;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(MXBeanMapping, makeOpenClass, $Class*, $Type*, $OpenType*)},
-	{"toOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MXBeanMapping, toOpenValue, $Object*, Object$*), "javax.management.openmbean.OpenDataException"},
-	{}
-};
-
-$ClassInfo _MXBeanMapping_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.jmx.mbeanserver.MXBeanMapping",
-	"java.lang.Object",
-	nullptr,
-	_MXBeanMapping_FieldInfo_,
-	_MXBeanMapping_MethodInfo_
-};
-
-$Object* allocate$MXBeanMapping($Class* clazz) {
-	return $of($alloc(MXBeanMapping));
-}
 
 void MXBeanMapping::init$($Type* javaType, $OpenType* openType) {
 	if (javaType == nullptr || openType == nullptr) {
@@ -74,17 +41,17 @@ $Class* MXBeanMapping::getOpenClass() {
 }
 
 $Class* MXBeanMapping::makeOpenClass($Type* javaType, $OpenType* openType) {
+	$useLocalObjectStack();
 	$load(MXBeanMapping);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	if ($instanceOf($Class, javaType) && $nc(($cast($Class, javaType)))->isPrimitive()) {
+	if ($instanceOf($Class, javaType) && $cast($Class, javaType)->isPrimitive()) {
 		return $cast($Class, javaType);
 	}
 	try {
 		$var($String, className, $nc(openType)->getClassName());
 		return $Class::forName(className, false, $(MXBeanMapping::class$->getClassLoader()));
 	} catch ($ClassNotFoundException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 	$shouldNotReachHere();
 }
@@ -96,7 +63,34 @@ MXBeanMapping::MXBeanMapping() {
 }
 
 $Class* MXBeanMapping::load$($String* name, bool initialize) {
-	$loadClass(MXBeanMapping, name, initialize, &_MXBeanMapping_ClassInfo_, allocate$MXBeanMapping);
+	$FieldInfo fieldInfos$$[] = {
+		{"javaType", "Ljava/lang/reflect/Type;", nullptr, $PRIVATE | $FINAL, $field(MXBeanMapping, javaType)},
+		{"openType", "Ljavax/management/openmbean/OpenType;", "Ljavax/management/openmbean/OpenType<*>;", $PRIVATE | $FINAL, $field(MXBeanMapping, openType)},
+		{"openClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(MXBeanMapping, openClass)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/OpenType;)V", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/OpenType<*>;)V", $PROTECTED, $method(MXBeanMapping, init$, void, $Type*, $OpenType*)},
+		{"checkReconstructible", "()V", nullptr, $PUBLIC, $virtualMethod(MXBeanMapping, checkReconstructible, void), "java.io.InvalidObjectException"},
+		{"fromOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MXBeanMapping, fromOpenValue, $Object*, Object$*), "java.io.InvalidObjectException"},
+		{"getJavaType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $FINAL, $method(MXBeanMapping, getJavaType, $Type*)},
+		{"getOpenClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC | $FINAL, $method(MXBeanMapping, getOpenClass, $Class*)},
+		{"getOpenType", "()Ljavax/management/openmbean/OpenType;", "()Ljavax/management/openmbean/OpenType<*>;", $PUBLIC | $FINAL, $method(MXBeanMapping, getOpenType, $OpenType*)},
+		{"makeOpenClass", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/OpenType;)Ljava/lang/Class;", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/OpenType<*>;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(MXBeanMapping, makeOpenClass, $Class*, $Type*, $OpenType*)},
+		{"toOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MXBeanMapping, toOpenValue, $Object*, Object$*), "javax.management.openmbean.OpenDataException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.jmx.mbeanserver.MXBeanMapping",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MXBeanMapping, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MXBeanMapping);
+	});
 	return class$;
 }
 

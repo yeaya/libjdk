@@ -1,5 +1,4 @@
 #include <java/awt/desktop/AboutEvent.h>
-
 #include <java/awt/desktop/AppEvent.h>
 #include <jcpp.h>
 
@@ -12,29 +11,6 @@ namespace java {
 	namespace awt {
 		namespace desktop {
 
-$FieldInfo _AboutEvent_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AboutEvent, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AboutEvent_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AboutEvent, init$, void)},
-	{}
-};
-
-$ClassInfo _AboutEvent_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.desktop.AboutEvent",
-	"java.awt.desktop.AppEvent",
-	nullptr,
-	_AboutEvent_FieldInfo_,
-	_AboutEvent_MethodInfo_
-};
-
-$Object* allocate$AboutEvent($Class* clazz) {
-	return $of($alloc(AboutEvent));
-}
-
 void AboutEvent::init$() {
 	$AppEvent::init$();
 }
@@ -43,7 +19,25 @@ AboutEvent::AboutEvent() {
 }
 
 $Class* AboutEvent::load$($String* name, bool initialize) {
-	$loadClass(AboutEvent, name, initialize, &_AboutEvent_ClassInfo_, allocate$AboutEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AboutEvent, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AboutEvent, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.desktop.AboutEvent",
+		"java.awt.desktop.AppEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AboutEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AboutEvent);
+	});
 	return class$;
 }
 

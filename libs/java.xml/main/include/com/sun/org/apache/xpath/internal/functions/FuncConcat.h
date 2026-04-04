@@ -51,7 +51,7 @@ public:
 	virtual void checkNumberArgs(int32_t argNum) override;
 	virtual ::com::sun::org::apache::xpath::internal::objects::XObject* execute(::com::sun::org::apache::xpath::internal::XPathContext* xctxt) override;
 	virtual void reportWrongNumberArgs() override;
-	static const int64_t serialVersionUID = (int64_t)0x181BE077840824AD;
+	static const int64_t serialVersionUID = (int64_t)0x181be077840824ad;
 };
 
 						} // functions

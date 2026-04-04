@@ -354,6 +354,7 @@ class $import Constants : public ::java::lang::Object {
 	$class(Constants, 0, ::java::lang::Object)
 public:
 	Constants();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Enumeration* getSAXFeatures();
 	static ::java::util::Enumeration* getSAXProperties();

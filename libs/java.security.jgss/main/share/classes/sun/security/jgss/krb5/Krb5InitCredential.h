@@ -102,7 +102,7 @@ public:
 	virtual bool isAcceptorCredential() override;
 	virtual bool isInitiatorCredential() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x6B2F15A8D51E17F8;
+	static const int64_t serialVersionUID = (int64_t)0x6b2f15a8d51e17f8;
 	::sun::security::jgss::krb5::Krb5NameElement* name = nullptr;
 	::sun::security::krb5::Credentials* krb5Credentials = nullptr;
 	::javax::security::auth::kerberos::KerberosTicket* proxyTicket = nullptr;

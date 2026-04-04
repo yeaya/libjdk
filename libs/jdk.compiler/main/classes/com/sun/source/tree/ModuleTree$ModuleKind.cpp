@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/ModuleTree$ModuleKind.h>
-
 #include <com/sun/source/tree/ModuleTree.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -18,46 +17,6 @@ namespace com {
 	namespace sun {
 		namespace source {
 			namespace tree {
-
-$FieldInfo _ModuleTree$ModuleKind_FieldInfo_[] = {
-	{"OPEN", "Lcom/sun/source/tree/ModuleTree$ModuleKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleTree$ModuleKind, OPEN)},
-	{"STRONG", "Lcom/sun/source/tree/ModuleTree$ModuleKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleTree$ModuleKind, STRONG)},
-	{"$VALUES", "[Lcom/sun/source/tree/ModuleTree$ModuleKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ModuleTree$ModuleKind, $VALUES)},
-	{}
-};
-
-$MethodInfo _ModuleTree$ModuleKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/source/tree/ModuleTree$ModuleKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleTree$ModuleKind, $values, $ModuleTree$ModuleKindArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ModuleTree$ModuleKind, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/tree/ModuleTree$ModuleKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleTree$ModuleKind, valueOf, ModuleTree$ModuleKind*, $String*)},
-	{"values", "()[Lcom/sun/source/tree/ModuleTree$ModuleKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleTree$ModuleKind, values, $ModuleTree$ModuleKindArray*)},
-	{}
-};
-
-$InnerClassInfo _ModuleTree$ModuleKind_InnerClassesInfo_[] = {
-	{"com.sun.source.tree.ModuleTree$ModuleKind", "com.sun.source.tree.ModuleTree", "ModuleKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _ModuleTree$ModuleKind_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.source.tree.ModuleTree$ModuleKind",
-	"java.lang.Enum",
-	nullptr,
-	_ModuleTree$ModuleKind_FieldInfo_,
-	_ModuleTree$ModuleKind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/source/tree/ModuleTree$ModuleKind;>;",
-	nullptr,
-	_ModuleTree$ModuleKind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.source.tree.ModuleTree"
-};
-
-$Object* allocate$ModuleTree$ModuleKind($Class* clazz) {
-	return $of($alloc(ModuleTree$ModuleKind));
-}
 
 ModuleTree$ModuleKind* ModuleTree$ModuleKind::OPEN = nullptr;
 ModuleTree$ModuleKind* ModuleTree$ModuleKind::STRONG = nullptr;
@@ -85,7 +44,7 @@ void ModuleTree$ModuleKind::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$ModuleTree$ModuleKind($Class* class$) {
+void ModuleTree$ModuleKind::clinit$($Class* clazz) {
 	$assignStatic(ModuleTree$ModuleKind::OPEN, $new(ModuleTree$ModuleKind, "OPEN"_s, 0));
 	$assignStatic(ModuleTree$ModuleKind::STRONG, $new(ModuleTree$ModuleKind, "STRONG"_s, 1));
 	$assignStatic(ModuleTree$ModuleKind::$VALUES, ModuleTree$ModuleKind::$values());
@@ -95,7 +54,41 @@ ModuleTree$ModuleKind::ModuleTree$ModuleKind() {
 }
 
 $Class* ModuleTree$ModuleKind::load$($String* name, bool initialize) {
-	$loadClass(ModuleTree$ModuleKind, name, initialize, &_ModuleTree$ModuleKind_ClassInfo_, clinit$ModuleTree$ModuleKind, allocate$ModuleTree$ModuleKind);
+	$FieldInfo fieldInfos$$[] = {
+		{"OPEN", "Lcom/sun/source/tree/ModuleTree$ModuleKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleTree$ModuleKind, OPEN)},
+		{"STRONG", "Lcom/sun/source/tree/ModuleTree$ModuleKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleTree$ModuleKind, STRONG)},
+		{"$VALUES", "[Lcom/sun/source/tree/ModuleTree$ModuleKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ModuleTree$ModuleKind, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/source/tree/ModuleTree$ModuleKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleTree$ModuleKind, $values, $ModuleTree$ModuleKindArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ModuleTree$ModuleKind, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/tree/ModuleTree$ModuleKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleTree$ModuleKind, valueOf, ModuleTree$ModuleKind*, $String*)},
+		{"values", "()[Lcom/sun/source/tree/ModuleTree$ModuleKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleTree$ModuleKind, values, $ModuleTree$ModuleKindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.source.tree.ModuleTree$ModuleKind", "com.sun.source.tree.ModuleTree", "ModuleKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.source.tree.ModuleTree$ModuleKind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/source/tree/ModuleTree$ModuleKind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.source.tree.ModuleTree"
+	};
+	$loadClass(ModuleTree$ModuleKind, name, initialize, &classInfo$$, ModuleTree$ModuleKind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ModuleTree$ModuleKind));
+	});
 	return class$;
 }
 

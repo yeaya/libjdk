@@ -16,6 +16,7 @@ class $export WindowsLookAndFeel$3 : public ::java::lang::Object {
 	$class(WindowsLookAndFeel$3, 0, ::java::lang::Object)
 public:
 	WindowsLookAndFeel$3();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$swing$LayoutStyle$ComponentPlacement;
 };
 

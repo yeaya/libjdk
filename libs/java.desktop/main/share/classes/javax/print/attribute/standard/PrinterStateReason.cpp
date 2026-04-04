@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/PrinterStateReason.h>
-
 #include <javax/print/attribute/EnumSyntax.h>
 #include <jcpp.h>
 
@@ -48,73 +47,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _PrinterStateReason_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrinterStateReason, serialVersionUID)},
-	{"OTHER", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, OTHER)},
-	{"MEDIA_NEEDED", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, MEDIA_NEEDED)},
-	{"MEDIA_JAM", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, MEDIA_JAM)},
-	{"MOVING_TO_PAUSED", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, MOVING_TO_PAUSED)},
-	{"PAUSED", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, PAUSED)},
-	{"SHUTDOWN", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, SHUTDOWN)},
-	{"CONNECTING_TO_DEVICE", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, CONNECTING_TO_DEVICE)},
-	{"TIMED_OUT", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, TIMED_OUT)},
-	{"STOPPING", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, STOPPING)},
-	{"STOPPED_PARTLY", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, STOPPED_PARTLY)},
-	{"TONER_LOW", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, TONER_LOW)},
-	{"TONER_EMPTY", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, TONER_EMPTY)},
-	{"SPOOL_AREA_FULL", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, SPOOL_AREA_FULL)},
-	{"COVER_OPEN", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, COVER_OPEN)},
-	{"INTERLOCK_OPEN", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, INTERLOCK_OPEN)},
-	{"DOOR_OPEN", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, DOOR_OPEN)},
-	{"INPUT_TRAY_MISSING", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, INPUT_TRAY_MISSING)},
-	{"MEDIA_LOW", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, MEDIA_LOW)},
-	{"MEDIA_EMPTY", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, MEDIA_EMPTY)},
-	{"OUTPUT_TRAY_MISSING", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, OUTPUT_TRAY_MISSING)},
-	{"OUTPUT_AREA_ALMOST_FULL", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, OUTPUT_AREA_ALMOST_FULL)},
-	{"OUTPUT_AREA_FULL", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, OUTPUT_AREA_FULL)},
-	{"MARKER_SUPPLY_LOW", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, MARKER_SUPPLY_LOW)},
-	{"MARKER_SUPPLY_EMPTY", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, MARKER_SUPPLY_EMPTY)},
-	{"MARKER_WASTE_ALMOST_FULL", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, MARKER_WASTE_ALMOST_FULL)},
-	{"MARKER_WASTE_FULL", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, MARKER_WASTE_FULL)},
-	{"FUSER_OVER_TEMP", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, FUSER_OVER_TEMP)},
-	{"FUSER_UNDER_TEMP", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, FUSER_UNDER_TEMP)},
-	{"OPC_NEAR_EOL", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, OPC_NEAR_EOL)},
-	{"OPC_LIFE_OVER", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, OPC_LIFE_OVER)},
-	{"DEVELOPER_LOW", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, DEVELOPER_LOW)},
-	{"DEVELOPER_EMPTY", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, DEVELOPER_EMPTY)},
-	{"INTERPRETER_RESOURCE_UNAVAILABLE", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, INTERPRETER_RESOURCE_UNAVAILABLE)},
-	{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrinterStateReason, myStringTable)},
-	{"myEnumValueTable", "[Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrinterStateReason, myEnumValueTable)},
-	{}
-};
-
-$MethodInfo _PrinterStateReason_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(PrinterStateReason, init$, void, int32_t)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(PrinterStateReason, getCategory, $Class*)},
-	{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(PrinterStateReason, getEnumValueTable, $EnumSyntaxArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(PrinterStateReason, getName, $String*)},
-	{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(PrinterStateReason, getStringTable, $StringArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _PrinterStateReason_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.print.attribute.standard.PrinterStateReason",
-	"javax.print.attribute.EnumSyntax",
-	"javax.print.attribute.Attribute",
-	_PrinterStateReason_FieldInfo_,
-	_PrinterStateReason_MethodInfo_
-};
-
-$Object* allocate$PrinterStateReason($Class* clazz) {
-	return $of($alloc(PrinterStateReason));
-}
 
 $Object* PrinterStateReason::clone() {
 	 return this->$EnumSyntax::clone();
@@ -177,11 +109,11 @@ void PrinterStateReason::init$(int32_t value) {
 }
 
 $StringArray* PrinterStateReason::getStringTable() {
-	return $cast($StringArray, $nc(PrinterStateReason::myStringTable)->clone());
+	return $cast($StringArray, PrinterStateReason::myStringTable->clone());
 }
 
 $EnumSyntaxArray* PrinterStateReason::getEnumValueTable() {
-	return $cast($EnumSyntaxArray, $nc(PrinterStateReason::myEnumValueTable)->clone());
+	return $cast($EnumSyntaxArray, PrinterStateReason::myEnumValueTable->clone());
 }
 
 $Class* PrinterStateReason::getCategory() {
@@ -192,7 +124,7 @@ $String* PrinterStateReason::getName() {
 	return "printer-state-reason"_s;
 }
 
-void clinit$PrinterStateReason($Class* class$) {
+void PrinterStateReason::clinit$($Class* clazz) {
 	$assignStatic(PrinterStateReason::OTHER, $new(PrinterStateReason, 0));
 	$assignStatic(PrinterStateReason::MEDIA_NEEDED, $new(PrinterStateReason, 1));
 	$assignStatic(PrinterStateReason::MEDIA_JAM, $new(PrinterStateReason, 2));
@@ -302,7 +234,69 @@ PrinterStateReason::PrinterStateReason() {
 }
 
 $Class* PrinterStateReason::load$($String* name, bool initialize) {
-	$loadClass(PrinterStateReason, name, initialize, &_PrinterStateReason_ClassInfo_, clinit$PrinterStateReason, allocate$PrinterStateReason);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrinterStateReason, serialVersionUID)},
+		{"OTHER", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, OTHER)},
+		{"MEDIA_NEEDED", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, MEDIA_NEEDED)},
+		{"MEDIA_JAM", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, MEDIA_JAM)},
+		{"MOVING_TO_PAUSED", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, MOVING_TO_PAUSED)},
+		{"PAUSED", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, PAUSED)},
+		{"SHUTDOWN", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, SHUTDOWN)},
+		{"CONNECTING_TO_DEVICE", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, CONNECTING_TO_DEVICE)},
+		{"TIMED_OUT", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, TIMED_OUT)},
+		{"STOPPING", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, STOPPING)},
+		{"STOPPED_PARTLY", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, STOPPED_PARTLY)},
+		{"TONER_LOW", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, TONER_LOW)},
+		{"TONER_EMPTY", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, TONER_EMPTY)},
+		{"SPOOL_AREA_FULL", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, SPOOL_AREA_FULL)},
+		{"COVER_OPEN", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, COVER_OPEN)},
+		{"INTERLOCK_OPEN", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, INTERLOCK_OPEN)},
+		{"DOOR_OPEN", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, DOOR_OPEN)},
+		{"INPUT_TRAY_MISSING", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, INPUT_TRAY_MISSING)},
+		{"MEDIA_LOW", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, MEDIA_LOW)},
+		{"MEDIA_EMPTY", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, MEDIA_EMPTY)},
+		{"OUTPUT_TRAY_MISSING", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, OUTPUT_TRAY_MISSING)},
+		{"OUTPUT_AREA_ALMOST_FULL", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, OUTPUT_AREA_ALMOST_FULL)},
+		{"OUTPUT_AREA_FULL", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, OUTPUT_AREA_FULL)},
+		{"MARKER_SUPPLY_LOW", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, MARKER_SUPPLY_LOW)},
+		{"MARKER_SUPPLY_EMPTY", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, MARKER_SUPPLY_EMPTY)},
+		{"MARKER_WASTE_ALMOST_FULL", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, MARKER_WASTE_ALMOST_FULL)},
+		{"MARKER_WASTE_FULL", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, MARKER_WASTE_FULL)},
+		{"FUSER_OVER_TEMP", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, FUSER_OVER_TEMP)},
+		{"FUSER_UNDER_TEMP", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, FUSER_UNDER_TEMP)},
+		{"OPC_NEAR_EOL", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, OPC_NEAR_EOL)},
+		{"OPC_LIFE_OVER", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, OPC_LIFE_OVER)},
+		{"DEVELOPER_LOW", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, DEVELOPER_LOW)},
+		{"DEVELOPER_EMPTY", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, DEVELOPER_EMPTY)},
+		{"INTERPRETER_RESOURCE_UNAVAILABLE", "Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterStateReason, INTERPRETER_RESOURCE_UNAVAILABLE)},
+		{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrinterStateReason, myStringTable)},
+		{"myEnumValueTable", "[Ljavax/print/attribute/standard/PrinterStateReason;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrinterStateReason, myEnumValueTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(PrinterStateReason, init$, void, int32_t)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(PrinterStateReason, getCategory, $Class*)},
+		{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(PrinterStateReason, getEnumValueTable, $EnumSyntaxArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(PrinterStateReason, getName, $String*)},
+		{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(PrinterStateReason, getStringTable, $StringArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.print.attribute.standard.PrinterStateReason",
+		"javax.print.attribute.EnumSyntax",
+		"javax.print.attribute.Attribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PrinterStateReason, name, initialize, &classInfo$$, PrinterStateReason::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PrinterStateReason));
+	});
 	return class$;
 }
 

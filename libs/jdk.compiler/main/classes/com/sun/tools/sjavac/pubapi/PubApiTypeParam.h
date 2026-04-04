@@ -26,7 +26,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual int32_t hashCode() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x7B805371D2A1CD4A;
+	static const int64_t serialVersionUID = (int64_t)0x7b805371d2a1cd4a;
 	$String* identifier = nullptr;
 	::java::util::List* bounds = nullptr;
 };

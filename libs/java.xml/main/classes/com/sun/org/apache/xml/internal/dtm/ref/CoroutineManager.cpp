@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/CoroutineManager.h>
-
 #include <com/sun/org/apache/xml/internal/res/XMLErrorResources.h>
 #include <com/sun/org/apache/xml/internal/res/XMLMessages.h>
 #include <java/lang/InterruptedException.h>
@@ -30,39 +29,6 @@ namespace com {
 					namespace internal {
 						namespace dtm {
 							namespace ref {
-
-$FieldInfo _CoroutineManager_FieldInfo_[] = {
-	{"m_activeIDs", "Ljava/util/BitSet;", nullptr, 0, $field(CoroutineManager, m_activeIDs)},
-	{"m_unreasonableId", "I", nullptr, $STATIC | $FINAL, $constField(CoroutineManager, m_unreasonableId)},
-	{"m_yield", "Ljava/lang/Object;", nullptr, 0, $field(CoroutineManager, m_yield)},
-	{"NOBODY", "I", nullptr, $STATIC | $FINAL, $constField(CoroutineManager, NOBODY)},
-	{"ANYBODY", "I", nullptr, $STATIC | $FINAL, $constField(CoroutineManager, ANYBODY)},
-	{"m_nextCoroutine", "I", nullptr, 0, $field(CoroutineManager, m_nextCoroutine)},
-	{}
-};
-
-$MethodInfo _CoroutineManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CoroutineManager, init$, void)},
-	{"co_entry_pause", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CoroutineManager, co_entry_pause, $Object*, int32_t), "java.lang.NoSuchMethodException"},
-	{"co_exit", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CoroutineManager, co_exit, void, int32_t)},
-	{"co_exit_to", "(Ljava/lang/Object;II)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CoroutineManager, co_exit_to, void, Object$*, int32_t, int32_t), "java.lang.NoSuchMethodException"},
-	{"co_joinCoroutineSet", "(I)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CoroutineManager, co_joinCoroutineSet, int32_t, int32_t)},
-	{"co_resume", "(Ljava/lang/Object;II)Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CoroutineManager, co_resume, $Object*, Object$*, int32_t, int32_t), "java.lang.NoSuchMethodException"},
-	{}
-};
-
-$ClassInfo _CoroutineManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.dtm.ref.CoroutineManager",
-	"java.lang.Object",
-	nullptr,
-	_CoroutineManager_FieldInfo_,
-	_CoroutineManager_MethodInfo_
-};
-
-$Object* allocate$CoroutineManager($Class* clazz) {
-	return $of($alloc(CoroutineManager));
-}
 
 void CoroutineManager::init$() {
 	$set(this, m_activeIDs, $new($BitSet));
@@ -105,16 +71,16 @@ $Object* CoroutineManager::co_entry_pause(int32_t thisCoroutine) {
 			} catch ($InterruptedException& e) {
 			}
 		}
-		return $of(this->m_yield);
+		return this->m_yield;
 	}
 }
 
 $Object* CoroutineManager::co_resume(Object$* arg_object, int32_t thisCoroutine, int32_t toCoroutine) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (!$nc(this->m_activeIDs)->get(toCoroutine)) {
 			$init($XMLErrorResources);
-			$throwNew($NoSuchMethodException, $($XMLMessages::createXMLMessage($XMLErrorResources::ER_COROUTINE_NOT_AVAIL, $$new($ObjectArray, {$($of($Integer::toString(toCoroutine)))}))));
+			$throwNew($NoSuchMethodException, $($XMLMessages::createXMLMessage($XMLErrorResources::ER_COROUTINE_NOT_AVAIL, $$new($ObjectArray, {$($Integer::toString(toCoroutine))}))));
 		}
 		$set(this, m_yield, arg_object);
 		this->m_nextCoroutine = toCoroutine;
@@ -130,7 +96,7 @@ $Object* CoroutineManager::co_resume(Object$* arg_object, int32_t thisCoroutine,
 			$init($XMLErrorResources);
 			$throwNew($NoSuchMethodException, $($XMLMessages::createXMLMessage($XMLErrorResources::ER_COROUTINE_CO_EXIT, nullptr)));
 		}
-		return $of(this->m_yield);
+		return this->m_yield;
 	}
 }
 
@@ -144,14 +110,14 @@ void CoroutineManager::co_exit(int32_t thisCoroutine) {
 
 void CoroutineManager::co_exit_to(Object$* arg_object, int32_t thisCoroutine, int32_t toCoroutine) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (!$nc(this->m_activeIDs)->get(toCoroutine)) {
 			$init($XMLErrorResources);
-			$throwNew($NoSuchMethodException, $($XMLMessages::createXMLMessage($XMLErrorResources::ER_COROUTINE_NOT_AVAIL, $$new($ObjectArray, {$($of($Integer::toString(toCoroutine)))}))));
+			$throwNew($NoSuchMethodException, $($XMLMessages::createXMLMessage($XMLErrorResources::ER_COROUTINE_NOT_AVAIL, $$new($ObjectArray, {$($Integer::toString(toCoroutine))}))));
 		}
 		$set(this, m_yield, arg_object);
 		this->m_nextCoroutine = toCoroutine;
-		$nc(this->m_activeIDs)->clear(thisCoroutine);
+		this->m_activeIDs->clear(thisCoroutine);
 		$of(this)->notify();
 	}
 }
@@ -160,7 +126,35 @@ CoroutineManager::CoroutineManager() {
 }
 
 $Class* CoroutineManager::load$($String* name, bool initialize) {
-	$loadClass(CoroutineManager, name, initialize, &_CoroutineManager_ClassInfo_, allocate$CoroutineManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_activeIDs", "Ljava/util/BitSet;", nullptr, 0, $field(CoroutineManager, m_activeIDs)},
+		{"m_unreasonableId", "I", nullptr, $STATIC | $FINAL, $constField(CoroutineManager, m_unreasonableId)},
+		{"m_yield", "Ljava/lang/Object;", nullptr, 0, $field(CoroutineManager, m_yield)},
+		{"NOBODY", "I", nullptr, $STATIC | $FINAL, $constField(CoroutineManager, NOBODY)},
+		{"ANYBODY", "I", nullptr, $STATIC | $FINAL, $constField(CoroutineManager, ANYBODY)},
+		{"m_nextCoroutine", "I", nullptr, 0, $field(CoroutineManager, m_nextCoroutine)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CoroutineManager, init$, void)},
+		{"co_entry_pause", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CoroutineManager, co_entry_pause, $Object*, int32_t), "java.lang.NoSuchMethodException"},
+		{"co_exit", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CoroutineManager, co_exit, void, int32_t)},
+		{"co_exit_to", "(Ljava/lang/Object;II)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CoroutineManager, co_exit_to, void, Object$*, int32_t, int32_t), "java.lang.NoSuchMethodException"},
+		{"co_joinCoroutineSet", "(I)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CoroutineManager, co_joinCoroutineSet, int32_t, int32_t)},
+		{"co_resume", "(Ljava/lang/Object;II)Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CoroutineManager, co_resume, $Object*, Object$*, int32_t, int32_t), "java.lang.NoSuchMethodException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.dtm.ref.CoroutineManager",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CoroutineManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CoroutineManager);
+	});
 	return class$;
 }
 

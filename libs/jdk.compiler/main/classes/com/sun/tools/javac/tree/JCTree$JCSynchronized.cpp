@@ -1,8 +1,6 @@
 #include <com/sun/tools/javac/tree/JCTree$JCSynchronized.h>
-
 #include <com/sun/source/tree/BlockTree.h>
 #include <com/sun/source/tree/ExpressionTree.h>
-#include <com/sun/source/tree/SynchronizedTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
 #include <com/sun/tools/javac/tree/JCTree$JCBlock.h>
@@ -17,7 +15,6 @@
 
 using $BlockTree = ::com::sun::source::tree::BlockTree;
 using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
-using $SynchronizedTree = ::com::sun::source::tree::SynchronizedTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
 using $JCTree$JCBlock = ::com::sun::tools::javac::tree::JCTree$JCBlock;
@@ -35,54 +32,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$JCSynchronized_FieldInfo_[] = {
-	{"lock", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(JCTree$JCSynchronized, lock)},
-	{"body", "Lcom/sun/tools/javac/tree/JCTree$JCBlock;", nullptr, $PUBLIC, $field(JCTree$JCSynchronized, body)},
-	{}
-};
-
-$MethodInfo _JCTree$JCSynchronized_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", nullptr, $PROTECTED, $method(JCTree$JCSynchronized, init$, void, $JCTree$JCExpression*, $JCTree$JCBlock*)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCSynchronized, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCSynchronized, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getBlock", "()Lcom/sun/tools/javac/tree/JCTree$JCBlock;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCSynchronized, getBlock, $BlockTree*)},
-	{"getExpression", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCSynchronized, getExpression, $ExpressionTree*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCSynchronized, getKind, $Tree$Kind*)},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCSynchronized, getTag, $JCTree$Tag*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCSynchronized_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCSynchronized", "com.sun.tools.javac.tree.JCTree", "JCSynchronized", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCStatement", "com.sun.tools.javac.tree.JCTree", "JCStatement", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCTree$JCSynchronized_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$JCSynchronized",
-	"com.sun.tools.javac.tree.JCTree$JCStatement",
-	"com.sun.source.tree.SynchronizedTree",
-	_JCTree$JCSynchronized_FieldInfo_,
-	_JCTree$JCSynchronized_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCSynchronized_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCSynchronized($Class* clazz) {
-	return $of($alloc(JCTree$JCSynchronized));
-}
 
 $String* JCTree$JCSynchronized::toString() {
 	 return this->$JCTree$JCStatement::toString();
@@ -128,7 +77,7 @@ $BlockTree* JCTree$JCSynchronized::getBlock() {
 }
 
 $Object* JCTree$JCSynchronized::accept($TreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitSynchronized(this, d));
+	return $nc(v)->visitSynchronized(this, d);
 }
 
 $JCTree$Tag* JCTree$JCSynchronized::getTag() {
@@ -140,7 +89,49 @@ JCTree$JCSynchronized::JCTree$JCSynchronized() {
 }
 
 $Class* JCTree$JCSynchronized::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCSynchronized, name, initialize, &_JCTree$JCSynchronized_ClassInfo_, allocate$JCTree$JCSynchronized);
+	$FieldInfo fieldInfos$$[] = {
+		{"lock", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(JCTree$JCSynchronized, lock)},
+		{"body", "Lcom/sun/tools/javac/tree/JCTree$JCBlock;", nullptr, $PUBLIC, $field(JCTree$JCSynchronized, body)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", nullptr, $PROTECTED, $method(JCTree$JCSynchronized, init$, void, $JCTree$JCExpression*, $JCTree$JCBlock*)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCSynchronized, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCSynchronized, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getBlock", "()Lcom/sun/tools/javac/tree/JCTree$JCBlock;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCSynchronized, getBlock, $BlockTree*)},
+		{"getExpression", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCSynchronized, getExpression, $ExpressionTree*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCSynchronized, getKind, $Tree$Kind*)},
+		{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCSynchronized, getTag, $JCTree$Tag*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCSynchronized", "com.sun.tools.javac.tree.JCTree", "JCSynchronized", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCStatement", "com.sun.tools.javac.tree.JCTree", "JCStatement", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$JCSynchronized",
+		"com.sun.tools.javac.tree.JCTree$JCStatement",
+		"com.sun.source.tree.SynchronizedTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCSynchronized, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCSynchronized));
+	});
 	return class$;
 }
 

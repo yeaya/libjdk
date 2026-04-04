@@ -1,5 +1,4 @@
 #include <sun/security/jgss/krb5/InitialToken$OverloadedChecksum.h>
-
 #include <java/lang/SecurityManager.h>
 #include <java/security/Permission.h>
 #include <java/util/Arrays.h>
@@ -30,7 +29,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $Permission = ::java::security::Permission;
 using $Arrays = ::java::util::Arrays;
 using $DelegationPermission = ::javax::security::auth::kerberos::DelegationPermission;
 using $ChannelBinding = ::org::ietf::jgss::ChannelBinding;
@@ -52,51 +50,8 @@ namespace sun {
 		namespace jgss {
 			namespace krb5 {
 
-$FieldInfo _InitialToken$OverloadedChecksum_FieldInfo_[] = {
-	{"this$0", "Lsun/security/jgss/krb5/InitialToken;", nullptr, $FINAL | $SYNTHETIC, $field(InitialToken$OverloadedChecksum, this$0)},
-	{"checksumBytes", "[B", nullptr, $PRIVATE, $field(InitialToken$OverloadedChecksum, checksumBytes)},
-	{"delegCreds", "Lsun/security/krb5/Credentials;", nullptr, $PRIVATE, $field(InitialToken$OverloadedChecksum, delegCreds)},
-	{"flags", "I", nullptr, $PRIVATE, $field(InitialToken$OverloadedChecksum, flags)},
-	{}
-};
-
-$MethodInfo _InitialToken$OverloadedChecksum_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/krb5/InitialToken;Lsun/security/jgss/krb5/Krb5Context;Lsun/security/krb5/Credentials;Lsun/security/krb5/Credentials;)V", nullptr, $PUBLIC, $method(InitialToken$OverloadedChecksum, init$, void, $InitialToken*, $Krb5Context*, $Credentials*, $Credentials*), "sun.security.krb5.KrbException,java.io.IOException,org.ietf.jgss.GSSException"},
-	{"<init>", "(Lsun/security/jgss/krb5/InitialToken;Lsun/security/jgss/krb5/Krb5Context;Lsun/security/krb5/Checksum;Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/EncryptionKey;)V", nullptr, $PUBLIC, $method(InitialToken$OverloadedChecksum, init$, void, $InitialToken*, $Krb5Context*, $Checksum*, $EncryptionKey*, $EncryptionKey*), "org.ietf.jgss.GSSException,sun.security.krb5.KrbException,java.io.IOException"},
-	{"getChecksum", "()Lsun/security/krb5/Checksum;", nullptr, $PUBLIC, $virtualMethod(InitialToken$OverloadedChecksum, getChecksum, $Checksum*), "sun.security.krb5.KrbException"},
-	{"getDelegatedCreds", "()Lsun/security/krb5/Credentials;", nullptr, $PUBLIC, $virtualMethod(InitialToken$OverloadedChecksum, getDelegatedCreds, $Credentials*)},
-	{"setContextFlags", "(Lsun/security/jgss/krb5/Krb5Context;)V", nullptr, $PUBLIC, $virtualMethod(InitialToken$OverloadedChecksum, setContextFlags, void, $Krb5Context*)},
-	{"useNullKey", "(Lsun/security/jgss/krb5/CipherHelper;)Z", nullptr, $PRIVATE, $method(InitialToken$OverloadedChecksum, useNullKey, bool, $CipherHelper*)},
-	{}
-};
-
-$InnerClassInfo _InitialToken$OverloadedChecksum_InnerClassesInfo_[] = {
-	{"sun.security.jgss.krb5.InitialToken$OverloadedChecksum", "sun.security.jgss.krb5.InitialToken", "OverloadedChecksum", $PROTECTED},
-	{}
-};
-
-$ClassInfo _InitialToken$OverloadedChecksum_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.jgss.krb5.InitialToken$OverloadedChecksum",
-	"java.lang.Object",
-	nullptr,
-	_InitialToken$OverloadedChecksum_FieldInfo_,
-	_InitialToken$OverloadedChecksum_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InitialToken$OverloadedChecksum_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.jgss.krb5.InitialToken"
-};
-
-$Object* allocate$InitialToken$OverloadedChecksum($Class* clazz) {
-	return $of($alloc(InitialToken$OverloadedChecksum));
-}
-
 void InitialToken$OverloadedChecksum::init$($InitialToken* this$0, $Krb5Context* context, $Credentials* tgt, $Credentials* serviceTicket) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$set(this, checksumBytes, nullptr);
 	$set(this, delegCreds, nullptr);
@@ -127,17 +82,17 @@ void InitialToken$OverloadedChecksum::init$($InitialToken* this$0, $Krb5Context*
 			$init($EncryptionKey);
 			$assign(krbCred, $new($KrbCred, tgt, serviceTicket, $EncryptionKey::NULL_KEY));
 		} else {
-			$assign(krbCred, $new($KrbCred, tgt, serviceTicket, $($nc(serviceTicket)->getSessionKey())));
+			$assign(krbCred, $new($KrbCred, tgt, serviceTicket, $(serviceTicket->getSessionKey())));
 		}
 		$assign(krbCredMessage, $nc(krbCred)->getMessage());
 		size += 2 + 2 + $nc(krbCredMessage)->length;
 	}
 	$set(this, checksumBytes, $new($bytes, size));
-	$nc(this->checksumBytes)->set(pos++, $nc(this$0->CHECKSUM_FIRST_BYTES)->get(0));
-	$nc(this->checksumBytes)->set(pos++, $nc(this$0->CHECKSUM_FIRST_BYTES)->get(1));
-	$nc(this->checksumBytes)->set(pos++, $nc(this$0->CHECKSUM_FIRST_BYTES)->get(2));
-	$nc(this->checksumBytes)->set(pos++, $nc(this$0->CHECKSUM_FIRST_BYTES)->get(3));
-	$var($ChannelBinding, localBindings, $nc(context)->getChannelBinding());
+	this->checksumBytes->set(pos++, $nc(this$0->CHECKSUM_FIRST_BYTES)->get(0));
+	this->checksumBytes->set(pos++, this$0->CHECKSUM_FIRST_BYTES->get(1));
+	this->checksumBytes->set(pos++, this$0->CHECKSUM_FIRST_BYTES->get(2));
+	this->checksumBytes->set(pos++, this$0->CHECKSUM_FIRST_BYTES->get(3));
+	$var($ChannelBinding, localBindings, context->getChannelBinding());
 	if (localBindings != nullptr) {
 		$var($bytes, localBindingsBytes, this$0->computeChannelBinding($(context->getChannelBinding())));
 		$System::arraycopy(localBindingsBytes, 0, this->checksumBytes, pos, $nc(localBindingsBytes)->length);
@@ -164,14 +119,14 @@ void InitialToken$OverloadedChecksum::init$($InitialToken* this$0, $Krb5Context*
 	$var($bytes, temp, $new($bytes, 4));
 	$GSSToken::writeLittleEndian(this->flags, temp);
 	$nc(this->checksumBytes)->set(pos++, temp->get(0));
-	$nc(this->checksumBytes)->set(pos++, temp->get(1));
-	$nc(this->checksumBytes)->set(pos++, temp->get(2));
-	$nc(this->checksumBytes)->set(pos++, temp->get(3));
+	this->checksumBytes->set(pos++, temp->get(1));
+	this->checksumBytes->set(pos++, temp->get(2));
+	this->checksumBytes->set(pos++, temp->get(3));
 	if (context->getCredDelegState()) {
 		$var($PrincipalName, delegateTo, $nc(serviceTicket)->getServer());
 		$var($StringBuilder, sb, $new($StringBuilder, "\""_s));
 		sb->append($($nc(delegateTo)->getName()))->append(u'\"');
-		$var($String, realm, $nc(delegateTo)->getRealmAsString());
+		$var($String, realm, delegateTo->getRealmAsString());
 		sb->append(" \"krbtgt/"_s)->append(realm)->append(u'@');
 		sb->append(realm)->append(u'\"');
 		$var($SecurityManager, sm, $System::getSecurityManager());
@@ -180,19 +135,19 @@ void InitialToken$OverloadedChecksum::init$($InitialToken* this$0, $Krb5Context*
 			sm->checkPermission(perm);
 		}
 		$nc(this->checksumBytes)->set(pos++, (int8_t)1);
-		$nc(this->checksumBytes)->set(pos++, (int8_t)0);
-		if ($nc(krbCredMessage)->length > 0x0000FFFF) {
+		this->checksumBytes->set(pos++, (int8_t)0);
+		if ($nc(krbCredMessage)->length > 0x0000ffff) {
 			$throwNew($GSSException, $GSSException::FAILURE, -1, "Incorrect message length"_s);
 		}
-		$GSSToken::writeLittleEndian($nc(krbCredMessage)->length, temp);
+		$GSSToken::writeLittleEndian(krbCredMessage->length, temp);
 		$nc(this->checksumBytes)->set(pos++, temp->get(0));
-		$nc(this->checksumBytes)->set(pos++, temp->get(1));
-		$System::arraycopy(krbCredMessage, 0, this->checksumBytes, pos, $nc(krbCredMessage)->length);
+		this->checksumBytes->set(pos++, temp->get(1));
+		$System::arraycopy(krbCredMessage, 0, this->checksumBytes, pos, krbCredMessage->length);
 	}
 }
 
 void InitialToken$OverloadedChecksum::init$($InitialToken* this$0, $Krb5Context* context, $Checksum* checksum, $EncryptionKey* key, $EncryptionKey* subKey) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$set(this, checksumBytes, nullptr);
 	$set(this, delegCreds, nullptr);
@@ -204,7 +159,7 @@ void InitialToken$OverloadedChecksum::init$($InitialToken* this$0, $Krb5Context*
 		$throw(ge);
 	}
 	$set(this, checksumBytes, $nc(checksum)->getBytes());
-	if (($nc(this->checksumBytes)->get(0) != $nc(this$0->CHECKSUM_FIRST_BYTES)->get(0)) || ($nc(this->checksumBytes)->get(1) != $nc(this$0->CHECKSUM_FIRST_BYTES)->get(1)) || ($nc(this->checksumBytes)->get(2) != $nc(this$0->CHECKSUM_FIRST_BYTES)->get(2)) || ($nc(this->checksumBytes)->get(3) != $nc(this$0->CHECKSUM_FIRST_BYTES)->get(3))) {
+	if (($nc(this->checksumBytes)->get(0) != $nc(this$0->CHECKSUM_FIRST_BYTES)->get(0)) || (this->checksumBytes->get(1) != this$0->CHECKSUM_FIRST_BYTES->get(1)) || (this->checksumBytes->get(2) != this$0->CHECKSUM_FIRST_BYTES->get(2)) || (this->checksumBytes->get(3) != this$0->CHECKSUM_FIRST_BYTES->get(3))) {
 		$throwNew($GSSException, $GSSException::FAILURE, -1, "Incorrect checksum"_s);
 	}
 	$var($ChannelBinding, localBindings, $nc(context)->getChannelBinding());
@@ -222,7 +177,7 @@ void InitialToken$OverloadedChecksum::init$($InitialToken* this$0, $Krb5Context*
 		}
 	}
 	this->flags = $GSSToken::readLittleEndian(this->checksumBytes, 20, 4);
-	if (((int32_t)(this->flags & (uint32_t)1)) > 0) {
+	if ((this->flags & 1) > 0) {
 		int32_t credLen = $GSSToken::readLittleEndian(this->checksumBytes, 26, 2);
 		$var($bytes, credBytes, $new($bytes, credLen));
 		$System::arraycopy(this->checksumBytes, 28, credBytes, 0, credLen);
@@ -242,8 +197,8 @@ void InitialToken$OverloadedChecksum::init$($InitialToken* this$0, $Krb5Context*
 
 bool InitialToken$OverloadedChecksum::useNullKey($CipherHelper* ch) {
 	bool flag = true;
-	bool var$0 = ($nc(ch)->getProto() == 1);
-	if (var$0 || $nc(ch)->isArcFour()) {
+	bool var$0 = $nc(ch)->getProto() == 1;
+	if (var$0 || ch->isArcFour()) {
 		flag = false;
 	}
 	return flag;
@@ -258,22 +213,22 @@ $Credentials* InitialToken$OverloadedChecksum::getDelegatedCreds() {
 }
 
 void InitialToken$OverloadedChecksum::setContextFlags($Krb5Context* context) {
-	if (((int32_t)(this->flags & (uint32_t)1)) > 0) {
+	if ((this->flags & 1) > 0) {
 		$nc(context)->setCredDelegState(true);
 	}
-	if (((int32_t)(this->flags & (uint32_t)2)) == 0) {
+	if ((this->flags & 2) == 0) {
 		$nc(context)->setMutualAuthState(false);
 	}
-	if (((int32_t)(this->flags & (uint32_t)4)) == 0) {
+	if ((this->flags & 4) == 0) {
 		$nc(context)->setReplayDetState(false);
 	}
-	if (((int32_t)(this->flags & (uint32_t)8)) == 0) {
+	if ((this->flags & 8) == 0) {
 		$nc(context)->setSequenceDetState(false);
 	}
-	if (((int32_t)(this->flags & (uint32_t)16)) == 0) {
+	if ((this->flags & 0x10) == 0) {
 		$nc(context)->setConfState(false);
 	}
-	if (((int32_t)(this->flags & (uint32_t)32)) == 0) {
+	if ((this->flags & 0x20) == 0) {
 		$nc(context)->setIntegState(false);
 	}
 }
@@ -282,7 +237,44 @@ InitialToken$OverloadedChecksum::InitialToken$OverloadedChecksum() {
 }
 
 $Class* InitialToken$OverloadedChecksum::load$($String* name, bool initialize) {
-	$loadClass(InitialToken$OverloadedChecksum, name, initialize, &_InitialToken$OverloadedChecksum_ClassInfo_, allocate$InitialToken$OverloadedChecksum);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/security/jgss/krb5/InitialToken;", nullptr, $FINAL | $SYNTHETIC, $field(InitialToken$OverloadedChecksum, this$0)},
+		{"checksumBytes", "[B", nullptr, $PRIVATE, $field(InitialToken$OverloadedChecksum, checksumBytes)},
+		{"delegCreds", "Lsun/security/krb5/Credentials;", nullptr, $PRIVATE, $field(InitialToken$OverloadedChecksum, delegCreds)},
+		{"flags", "I", nullptr, $PRIVATE, $field(InitialToken$OverloadedChecksum, flags)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/jgss/krb5/InitialToken;Lsun/security/jgss/krb5/Krb5Context;Lsun/security/krb5/Credentials;Lsun/security/krb5/Credentials;)V", nullptr, $PUBLIC, $method(InitialToken$OverloadedChecksum, init$, void, $InitialToken*, $Krb5Context*, $Credentials*, $Credentials*), "sun.security.krb5.KrbException,java.io.IOException,org.ietf.jgss.GSSException"},
+		{"<init>", "(Lsun/security/jgss/krb5/InitialToken;Lsun/security/jgss/krb5/Krb5Context;Lsun/security/krb5/Checksum;Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/EncryptionKey;)V", nullptr, $PUBLIC, $method(InitialToken$OverloadedChecksum, init$, void, $InitialToken*, $Krb5Context*, $Checksum*, $EncryptionKey*, $EncryptionKey*), "org.ietf.jgss.GSSException,sun.security.krb5.KrbException,java.io.IOException"},
+		{"getChecksum", "()Lsun/security/krb5/Checksum;", nullptr, $PUBLIC, $virtualMethod(InitialToken$OverloadedChecksum, getChecksum, $Checksum*), "sun.security.krb5.KrbException"},
+		{"getDelegatedCreds", "()Lsun/security/krb5/Credentials;", nullptr, $PUBLIC, $virtualMethod(InitialToken$OverloadedChecksum, getDelegatedCreds, $Credentials*)},
+		{"setContextFlags", "(Lsun/security/jgss/krb5/Krb5Context;)V", nullptr, $PUBLIC, $virtualMethod(InitialToken$OverloadedChecksum, setContextFlags, void, $Krb5Context*)},
+		{"useNullKey", "(Lsun/security/jgss/krb5/CipherHelper;)Z", nullptr, $PRIVATE, $method(InitialToken$OverloadedChecksum, useNullKey, bool, $CipherHelper*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jgss.krb5.InitialToken$OverloadedChecksum", "sun.security.jgss.krb5.InitialToken", "OverloadedChecksum", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.jgss.krb5.InitialToken$OverloadedChecksum",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.jgss.krb5.InitialToken"
+	};
+	$loadClass(InitialToken$OverloadedChecksum, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InitialToken$OverloadedChecksum);
+	});
 	return class$;
 }
 

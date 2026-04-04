@@ -1,5 +1,4 @@
 #include <HttpInputStreamTest.h>
-
 #include <HttpInputStreamTest$HttpInputStreamHandler.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
@@ -16,7 +15,6 @@
 #include <java/net/http/HttpHeaders.h>
 #include <java/net/http/HttpRequest$Builder.h>
 #include <java/net/http/HttpRequest.h>
-#include <java/net/http/HttpResponse$BodyHandler.h>
 #include <java/net/http/HttpResponse.h>
 #include <java/nio/charset/Charset.h>
 #include <java/util/Locale.h>
@@ -33,7 +31,6 @@
 using $HttpInputStreamTest$HttpInputStreamHandler = ::HttpInputStreamTest$HttpInputStreamHandler;
 using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
-using $PrintStream = ::java::io::PrintStream;
 using $Reader = ::java::io::Reader;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
@@ -47,9 +44,7 @@ using $URI = ::java::net::URI;
 using $HttpClient = ::java::net::http::HttpClient;
 using $HttpHeaders = ::java::net::http::HttpHeaders;
 using $HttpRequest = ::java::net::http::HttpRequest;
-using $HttpRequest$Builder = ::java::net::http::HttpRequest$Builder;
 using $HttpResponse = ::java::net::http::HttpResponse;
-using $HttpResponse$BodyHandler = ::java::net::http::HttpResponse$BodyHandler;
 using $Charset = ::java::nio::charset::Charset;
 using $Locale = ::java::util::Locale;
 using $Optional = ::java::util::Optional;
@@ -66,27 +61,24 @@ public:
 	virtual $Object* apply(Object$* x) override {
 		 return $of(HttpInputStreamTest::lambda$getCharset$0($cast($String, x)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpInputStreamTest$$Lambda$lambda$getCharset$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HttpInputStreamTest$$Lambda$lambda$getCharset$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpInputStreamTest$$Lambda$lambda$getCharset$0, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpInputStreamTest$$Lambda$lambda$getCharset$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo HttpInputStreamTest$$Lambda$lambda$getCharset$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"HttpInputStreamTest$$Lambda$lambda$getCharset$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* HttpInputStreamTest$$Lambda$lambda$getCharset$0::load$($String* name, bool initialize) {
-	$loadClass(HttpInputStreamTest$$Lambda$lambda$getCharset$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HttpInputStreamTest$$Lambda$lambda$getCharset$0, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpInputStreamTest$$Lambda$lambda$getCharset$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"HttpInputStreamTest$$Lambda$lambda$getCharset$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HttpInputStreamTest$$Lambda$lambda$getCharset$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpInputStreamTest$$Lambda$lambda$getCharset$0);
+	});
 	return class$;
 }
 $Class* HttpInputStreamTest$$Lambda$lambda$getCharset$0::class$ = nullptr;
@@ -99,27 +91,24 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $of($sure($String, inst$)->trim());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpInputStreamTest$$Lambda$trim$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HttpInputStreamTest$$Lambda$trim$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpInputStreamTest$$Lambda$trim$1, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpInputStreamTest$$Lambda$trim$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo HttpInputStreamTest$$Lambda$trim$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"HttpInputStreamTest$$Lambda$trim$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* HttpInputStreamTest$$Lambda$trim$1::load$($String* name, bool initialize) {
-	$loadClass(HttpInputStreamTest$$Lambda$trim$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HttpInputStreamTest$$Lambda$trim$1, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpInputStreamTest$$Lambda$trim$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"HttpInputStreamTest$$Lambda$trim$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HttpInputStreamTest$$Lambda$trim$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpInputStreamTest$$Lambda$trim$1);
+	});
 	return class$;
 }
 $Class* HttpInputStreamTest$$Lambda$trim$1::class$ = nullptr;
@@ -132,27 +121,24 @@ public:
 	virtual bool test(Object$* x) override {
 		 return HttpInputStreamTest::lambda$getCharset$1($cast($String, x));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpInputStreamTest$$Lambda$lambda$getCharset$1$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HttpInputStreamTest$$Lambda$lambda$getCharset$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpInputStreamTest$$Lambda$lambda$getCharset$1$2, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HttpInputStreamTest$$Lambda$lambda$getCharset$1$2, test, bool, Object$*)},
-	{}
-};
-$ClassInfo HttpInputStreamTest$$Lambda$lambda$getCharset$1$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"HttpInputStreamTest$$Lambda$lambda$getCharset$1$2",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* HttpInputStreamTest$$Lambda$lambda$getCharset$1$2::load$($String* name, bool initialize) {
-	$loadClass(HttpInputStreamTest$$Lambda$lambda$getCharset$1$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HttpInputStreamTest$$Lambda$lambda$getCharset$1$2, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HttpInputStreamTest$$Lambda$lambda$getCharset$1$2, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"HttpInputStreamTest$$Lambda$lambda$getCharset$1$2",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HttpInputStreamTest$$Lambda$lambda$getCharset$1$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpInputStreamTest$$Lambda$lambda$getCharset$1$2);
+	});
 	return class$;
 }
 $Class* HttpInputStreamTest$$Lambda$lambda$getCharset$1$2::class$ = nullptr;
@@ -165,27 +151,24 @@ public:
 	virtual $Object* apply(Object$* x) override {
 		 return $of(HttpInputStreamTest::lambda$getCharset$2($cast($String, x)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpInputStreamTest$$Lambda$lambda$getCharset$2$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HttpInputStreamTest$$Lambda$lambda$getCharset$2$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpInputStreamTest$$Lambda$lambda$getCharset$2$3, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpInputStreamTest$$Lambda$lambda$getCharset$2$3, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo HttpInputStreamTest$$Lambda$lambda$getCharset$2$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"HttpInputStreamTest$$Lambda$lambda$getCharset$2$3",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* HttpInputStreamTest$$Lambda$lambda$getCharset$2$3::load$($String* name, bool initialize) {
-	$loadClass(HttpInputStreamTest$$Lambda$lambda$getCharset$2$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HttpInputStreamTest$$Lambda$lambda$getCharset$2$3, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpInputStreamTest$$Lambda$lambda$getCharset$2$3, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"HttpInputStreamTest$$Lambda$lambda$getCharset$2$3",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HttpInputStreamTest$$Lambda$lambda$getCharset$2$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpInputStreamTest$$Lambda$lambda$getCharset$2$3);
+	});
 	return class$;
 }
 $Class* HttpInputStreamTest$$Lambda$lambda$getCharset$2$3::class$ = nullptr;
@@ -196,72 +179,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* arg0) override {
-		 return $of($Charset::forName($cast($String, arg0)));
+		 return $Charset::forName($cast($String, arg0));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpInputStreamTest$$Lambda$forName$4>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HttpInputStreamTest$$Lambda$forName$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpInputStreamTest$$Lambda$forName$4, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpInputStreamTest$$Lambda$forName$4, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo HttpInputStreamTest$$Lambda$forName$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"HttpInputStreamTest$$Lambda$forName$4",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* HttpInputStreamTest$$Lambda$forName$4::load$($String* name, bool initialize) {
-	$loadClass(HttpInputStreamTest$$Lambda$forName$4, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HttpInputStreamTest$$Lambda$forName$4, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpInputStreamTest$$Lambda$forName$4, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"HttpInputStreamTest$$Lambda$forName$4",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HttpInputStreamTest$$Lambda$forName$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpInputStreamTest$$Lambda$forName$4);
+	});
 	return class$;
 }
 $Class* HttpInputStreamTest$$Lambda$forName$4::class$ = nullptr;
-
-$FieldInfo _HttpInputStreamTest_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(HttpInputStreamTest, $assertionsDisabled)},
-	{"DEBUG", "Z", nullptr, $PUBLIC | $STATIC, $staticField(HttpInputStreamTest, DEBUG)},
-	{}
-};
-
-$MethodInfo _HttpInputStreamTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpInputStreamTest, init$, void)},
-	{"getCharset", "(Ljava/net/http/HttpHeaders;)Ljava/util/Optional;", "(Ljava/net/http/HttpHeaders;)Ljava/util/Optional<Ljava/nio/charset/Charset;>;", $PUBLIC | $STATIC, $staticMethod(HttpInputStreamTest, getCharset, $Optional*, $HttpHeaders*)},
-	{"lambda$getCharset$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpInputStreamTest, lambda$getCharset$0, $String*, $String*)},
-	{"lambda$getCharset$1", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpInputStreamTest, lambda$getCharset$1, bool, $String*)},
-	{"lambda$getCharset$2", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpInputStreamTest, lambda$getCharset$2, $String*, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpInputStreamTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _HttpInputStreamTest_InnerClassesInfo_[] = {
-	{"HttpInputStreamTest$HttpInputStreamHandler", "HttpInputStreamTest", "HttpInputStreamHandler", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _HttpInputStreamTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HttpInputStreamTest",
-	"java.lang.Object",
-	nullptr,
-	_HttpInputStreamTest_FieldInfo_,
-	_HttpInputStreamTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HttpInputStreamTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HttpInputStreamTest$HttpInputStreamHandler,HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream"
-};
-
-$Object* allocate$HttpInputStreamTest($Class* clazz) {
-	return $of($alloc(HttpInputStreamTest));
-}
 
 bool HttpInputStreamTest::$assertionsDisabled = false;
 bool HttpInputStreamTest::DEBUG = false;
@@ -271,13 +211,13 @@ void HttpInputStreamTest::init$() {
 
 $Optional* HttpInputStreamTest::getCharset($HttpHeaders* headers) {
 	$init(HttpInputStreamTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Optional, contentType, $nc(headers)->firstValue("Content-Type"_s));
 	$var($Optional, charset, $Optional::empty());
 	if ($nc(contentType)->isPresent()) {
-		$var($StringArray, values, $nc(($cast($String, $(contentType->get()))))->split(";"_s));
+		$var($StringArray, values, $$sure($String, contentType->get())->split(";"_s));
 		if ($nc(values->get(0))->startsWith("text/"_s)) {
-			$assign(charset, $nc($($Optional::of($cast($String, $($nc($($nc($($nc($($nc($($nc($($nc($($Stream::of(values)))->map(static_cast<$Function*>($$new(HttpInputStreamTest$$Lambda$lambda$getCharset$0)))))->map(static_cast<$Function*>($$new(HttpInputStreamTest$$Lambda$trim$1)))))->filter(static_cast<$Predicate*>($$new(HttpInputStreamTest$$Lambda$lambda$getCharset$1$2)))))->map(static_cast<$Function*>($$new(HttpInputStreamTest$$Lambda$lambda$getCharset$2$3)))))->findFirst()))->orElse("ISO-8859-1"_s))))))->map(static_cast<$Function*>($$new(HttpInputStreamTest$$Lambda$forName$4))));
+			$assign(charset, $$nc($Optional::of($$cast($String, $$nc($$nc($$nc($$nc($$nc($$nc($Stream::of(values))->map($$new(HttpInputStreamTest$$Lambda$lambda$getCharset$0)))->map($$new(HttpInputStreamTest$$Lambda$trim$1)))->filter($$new(HttpInputStreamTest$$Lambda$lambda$getCharset$1$2)))->map($$new(HttpInputStreamTest$$Lambda$lambda$getCharset$2$3)))->findFirst())->orElse("ISO-8859-1"_s))))->map($$new(HttpInputStreamTest$$Lambda$forName$4)));
 		}
 	}
 	return charset;
@@ -285,9 +225,9 @@ $Optional* HttpInputStreamTest::getCharset($HttpHeaders* headers) {
 
 void HttpInputStreamTest::main($StringArray* args) {
 	$init(HttpInputStreamTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpClient, client, $HttpClient::newHttpClient());
-	$var($HttpRequest, request, $nc($($nc($($HttpRequest::newBuilder($$new($URI, "http://hg.openjdk.java.net/jdk9/sandbox/jdk/shortlog/http-client-branch/"_s))))->GET()))->build());
+	$var($HttpRequest, request, $$nc($$nc($HttpRequest::newBuilder($$new($URI, "http://hg.openjdk.java.net/jdk9/sandbox/jdk/shortlog/http-client-branch/"_s)))->GET())->build());
 	$var($CompletableFuture, handle, $nc(client)->sendAsync(request, $$new($HttpInputStreamTest$HttpInputStreamHandler, 3)));
 	if (HttpInputStreamTest::DEBUG) {
 		$nc($System::err)->println("Request sent"_s);
@@ -297,85 +237,81 @@ void HttpInputStreamTest::main($StringArray* args) {
 	$var($Optional, charset, getCharset(responseHeaders));
 	{
 		$var($InputStream, is, $cast($InputStream, pending->body()));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				$var($Reader, r, $new($InputStreamReader, is, $$cast($Charset, $nc(charset)->get())));
+				$var($Throwable, var$1, nullptr);
 				try {
-					$var($Reader, r, $new($InputStreamReader, is, $cast($Charset, $($nc(charset)->get()))));
-					{
-						$var($Throwable, var$1, nullptr);
-						try {
-							try {
-								$var($chars, buff, $new($chars, 32));
-								int32_t off = 0;
-								int32_t n = 0;
-								if (HttpInputStreamTest::DEBUG) {
-									$nc($System::err)->println("Start receiving response body"_s);
-								}
-								if (HttpInputStreamTest::DEBUG) {
-									$nc($System::err)->println($$str({"Charset: "_s, $($nc(charset)->get())}));
-								}
-								while ((n = r->read(buff, off, buff->length - off)) > 0) {
-									if (!HttpInputStreamTest::$assertionsDisabled && !((buff->length - off) > 0)) {
-										$throwNew($AssertionError);
-									}
-									if (!HttpInputStreamTest::$assertionsDisabled && !(n <= (buff->length - off))) {
-										$throwNew($AssertionError);
-									}
-									if (n == (buff->length - off)) {
-										$nc($System::out)->print(buff);
-										off = 0;
-									} else {
-										off += n;
-									}
-									if (!HttpInputStreamTest::$assertionsDisabled && !(off < buff->length)) {
-										$throwNew($AssertionError);
-									}
-								}
-								if (!HttpInputStreamTest::$assertionsDisabled && !(off >= 0 && off < buff->length)) {
-									$throwNew($AssertionError);
-								}
-								for (int32_t i = 0; i < off; ++i) {
-									$nc($System::out)->print(buff->get(i));
-								}
-								$nc($System::out)->println("Done!"_s);
-							} catch ($Throwable& t$) {
-								try {
-									r->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-								$throw(t$);
+					try {
+						$var($chars, buff, $new($chars, 32));
+						int32_t off = 0;
+						int32_t n = 0;
+						if (HttpInputStreamTest::DEBUG) {
+							$nc($System::err)->println("Start receiving response body"_s);
+						}
+						if (HttpInputStreamTest::DEBUG) {
+							$nc($System::err)->println($$str({"Charset: "_s, $(charset->get())}));
+						}
+						while ((n = r->read(buff, off, buff->length - off)) > 0) {
+							if (!HttpInputStreamTest::$assertionsDisabled && !((buff->length - off) > 0)) {
+								$throwNew($AssertionError);
 							}
-						} catch ($Throwable& var$2) {
-							$assign(var$1, var$2);
-						} /*finally*/ {
-							r->close();
+							if (!HttpInputStreamTest::$assertionsDisabled && !(n <= (buff->length - off))) {
+								$throwNew($AssertionError);
+							}
+							if (n == (buff->length - off)) {
+								$nc($System::out)->print(buff);
+								off = 0;
+							} else {
+								off += n;
+							}
+							if (!HttpInputStreamTest::$assertionsDisabled && !(off < buff->length)) {
+								$throwNew($AssertionError);
+							}
 						}
-						if (var$1 != nullptr) {
-							$throw(var$1);
+						if (!HttpInputStreamTest::$assertionsDisabled && !(off >= 0 && off < buff->length)) {
+							$throwNew($AssertionError);
 						}
-					}
-				} catch ($Throwable& t$) {
-					if (is != nullptr) {
+						for (int32_t i = 0; i < off; ++i) {
+							$nc($System::out)->print(buff->get(i));
+						}
+						$nc($System::out)->println("Done!"_s);
+					} catch ($Throwable& t$) {
 						try {
-							is->close();
+							r->close();
 						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
+						$throw(t$);
 					}
-					$throw(t$);
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
+				} /*finally*/ {
+					r->close();
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
+				if (var$1 != nullptr) {
+					$throw(var$1);
+				}
+			} catch ($Throwable& t$) {
 				if (is != nullptr) {
-					is->close();
+					try {
+						is->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			if (is != nullptr) {
+				is->close();
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -396,7 +332,7 @@ $String* HttpInputStreamTest::lambda$getCharset$0($String* x) {
 	return $nc(x)->toLowerCase($Locale::ROOT);
 }
 
-void clinit$HttpInputStreamTest($Class* class$) {
+void HttpInputStreamTest::clinit$($Class* clazz) {
 	HttpInputStreamTest::$assertionsDisabled = !HttpInputStreamTest::class$->desiredAssertionStatus();
 	HttpInputStreamTest::DEBUG = $Boolean::getBoolean("test.debug"_s);
 }
@@ -406,23 +342,57 @@ HttpInputStreamTest::HttpInputStreamTest() {
 
 $Class* HttpInputStreamTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(HttpInputStreamTest$$Lambda$lambda$getCharset$0::classInfo$.name)) {
+		if (name->equals("HttpInputStreamTest$$Lambda$lambda$getCharset$0")) {
 			return HttpInputStreamTest$$Lambda$lambda$getCharset$0::load$(name, initialize);
 		}
-		if (name->equals(HttpInputStreamTest$$Lambda$trim$1::classInfo$.name)) {
+		if (name->equals("HttpInputStreamTest$$Lambda$trim$1")) {
 			return HttpInputStreamTest$$Lambda$trim$1::load$(name, initialize);
 		}
-		if (name->equals(HttpInputStreamTest$$Lambda$lambda$getCharset$1$2::classInfo$.name)) {
+		if (name->equals("HttpInputStreamTest$$Lambda$lambda$getCharset$1$2")) {
 			return HttpInputStreamTest$$Lambda$lambda$getCharset$1$2::load$(name, initialize);
 		}
-		if (name->equals(HttpInputStreamTest$$Lambda$lambda$getCharset$2$3::classInfo$.name)) {
+		if (name->equals("HttpInputStreamTest$$Lambda$lambda$getCharset$2$3")) {
 			return HttpInputStreamTest$$Lambda$lambda$getCharset$2$3::load$(name, initialize);
 		}
-		if (name->equals(HttpInputStreamTest$$Lambda$forName$4::classInfo$.name)) {
+		if (name->equals("HttpInputStreamTest$$Lambda$forName$4")) {
 			return HttpInputStreamTest$$Lambda$forName$4::load$(name, initialize);
 		}
 	}
-	$loadClass(HttpInputStreamTest, name, initialize, &_HttpInputStreamTest_ClassInfo_, clinit$HttpInputStreamTest, allocate$HttpInputStreamTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(HttpInputStreamTest, $assertionsDisabled)},
+		{"DEBUG", "Z", nullptr, $PUBLIC | $STATIC, $staticField(HttpInputStreamTest, DEBUG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HttpInputStreamTest, init$, void)},
+		{"getCharset", "(Ljava/net/http/HttpHeaders;)Ljava/util/Optional;", "(Ljava/net/http/HttpHeaders;)Ljava/util/Optional<Ljava/nio/charset/Charset;>;", $PUBLIC | $STATIC, $staticMethod(HttpInputStreamTest, getCharset, $Optional*, $HttpHeaders*)},
+		{"lambda$getCharset$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpInputStreamTest, lambda$getCharset$0, $String*, $String*)},
+		{"lambda$getCharset$1", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpInputStreamTest, lambda$getCharset$1, bool, $String*)},
+		{"lambda$getCharset$2", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpInputStreamTest, lambda$getCharset$2, $String*, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpInputStreamTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HttpInputStreamTest$HttpInputStreamHandler", "HttpInputStreamTest", "HttpInputStreamHandler", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HttpInputStreamTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HttpInputStreamTest$HttpInputStreamHandler,HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream"
+	};
+	$loadClass(HttpInputStreamTest, name, initialize, &classInfo$$, HttpInputStreamTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpInputStreamTest);
+	});
 	return class$;
 }
 

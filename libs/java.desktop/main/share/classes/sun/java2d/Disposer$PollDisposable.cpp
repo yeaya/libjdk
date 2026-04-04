@@ -1,5 +1,4 @@
 #include <sun/java2d/Disposer$PollDisposable.h>
-
 #include <sun/java2d/Disposer.h>
 #include <jcpp.h>
 
@@ -9,33 +8,29 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 namespace sun {
 	namespace java2d {
 
-$InnerClassInfo _Disposer$PollDisposable_InnerClassesInfo_[] = {
-	{"sun.java2d.Disposer$PollDisposable", "sun.java2d.Disposer", "PollDisposable", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Disposer$PollDisposable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.java2d.Disposer$PollDisposable",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Disposer$PollDisposable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.Disposer"
-};
-
-$Object* allocate$Disposer$PollDisposable($Class* clazz) {
-	return $of($alloc(Disposer$PollDisposable));
-}
-
 $Class* Disposer$PollDisposable::load$($String* name, bool initialize) {
-	$loadClass(Disposer$PollDisposable, name, initialize, &_Disposer$PollDisposable_ClassInfo_, allocate$Disposer$PollDisposable);
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.Disposer$PollDisposable", "sun.java2d.Disposer", "PollDisposable", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.java2d.Disposer$PollDisposable",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.Disposer"
+	};
+	$loadClass(Disposer$PollDisposable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Disposer$PollDisposable);
+	});
 	return class$;
 }
 

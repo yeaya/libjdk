@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicFileChooserUI$Handler.h>
-
 #include <java/awt/Point.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/awt/event/MouseListener.h>
@@ -32,7 +31,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $JFileChooser = ::javax::swing::JFileChooser;
 using $JList = ::javax::swing::JList;
-using $ListModel = ::javax::swing::ListModel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $TransferHandler = ::javax::swing::TransferHandler;
 using $ListSelectionEvent = ::javax::swing::event::ListSelectionEvent;
@@ -45,54 +43,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicFileChooserUI$Handler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicFileChooserUI$Handler, this$0)},
-	{"list", "Ljavax/swing/JList;", "Ljavax/swing/JList<*>;", 0, $field(BasicFileChooserUI$Handler, list)},
-	{}
-};
-
-$MethodInfo _BasicFileChooserUI$Handler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicFileChooserUI;)V", nullptr, 0, $method(BasicFileChooserUI$Handler, init$, void, $BasicFileChooserUI*)},
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicFileChooserUI;Ljavax/swing/JList;)V", "(Ljavax/swing/JList<*>;)V", 0, $method(BasicFileChooserUI$Handler, init$, void, $BasicFileChooserUI*, $JList*)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI$Handler, mouseClicked, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI$Handler, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI$Handler, mouseExited, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI$Handler, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI$Handler, mouseReleased, void, $MouseEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI$Handler, valueChanged, void, $ListSelectionEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicFileChooserUI$Handler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicFileChooserUI$Handler", "javax.swing.plaf.basic.BasicFileChooserUI", "Handler", $PRIVATE},
-	{}
-};
-
-$ClassInfo _BasicFileChooserUI$Handler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicFileChooserUI$Handler",
-	"java.lang.Object",
-	"java.awt.event.MouseListener,javax.swing.event.ListSelectionListener",
-	_BasicFileChooserUI$Handler_FieldInfo_,
-	_BasicFileChooserUI$Handler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicFileChooserUI$Handler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicFileChooserUI"
-};
-
-$Object* allocate$BasicFileChooserUI$Handler($Class* clazz) {
-	return $of($alloc(BasicFileChooserUI$Handler));
-}
 
 int32_t BasicFileChooserUI$Handler::hashCode() {
 	 return this->$MouseListener::hashCode();
@@ -124,37 +74,37 @@ void BasicFileChooserUI$Handler::init$($BasicFileChooserUI* this$0, $JList* list
 }
 
 void BasicFileChooserUI$Handler::mouseClicked($MouseEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = this->list != nullptr && $SwingUtilities::isLeftMouseButton(evt);
 	if (var$0 && ($nc(evt)->getClickCount() % 2 == 0)) {
 		int32_t index = $SwingUtilities2::loc2IndexFileList(this->list, $(evt->getPoint()));
 		if (index >= 0) {
-			$var($File, f, $cast($File, $nc($($nc(this->list)->getModel()))->getElementAt(index)));
+			$var($File, f, $cast($File, $$nc($nc(this->list)->getModel())->getElementAt(index)));
 			try {
 				$assign(f, $ShellFolder::getNormalizedFile(f));
 			} catch ($IOException& ex) {
 			}
-			if ($nc($(this->this$0->getFileChooser()))->isTraversable(f)) {
+			if ($$nc(this->this$0->getFileChooser())->isTraversable(f)) {
 				$nc(this->list)->clearSelection();
 				this->this$0->changeDirectory(f);
 			} else {
-				$nc($(this->this$0->getFileChooser()))->approveSelection();
+				$$nc(this->this$0->getFileChooser())->approveSelection();
 			}
 		}
 	}
 }
 
 void BasicFileChooserUI$Handler::mouseEntered($MouseEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->list != nullptr) {
-		$var($TransferHandler, th1, $nc($(this->this$0->getFileChooser()))->getTransferHandler());
+		$var($TransferHandler, th1, $$nc(this->this$0->getFileChooser())->getTransferHandler());
 		$var($TransferHandler, th2, $nc(this->list)->getTransferHandler());
 		if (th1 != th2) {
 			$nc(this->list)->setTransferHandler(th1);
 		}
-		bool var$0 = $nc($(this->this$0->getFileChooser()))->getDragEnabled();
+		bool var$0 = $$nc(this->this$0->getFileChooser())->getDragEnabled();
 		if (var$0 != $nc(this->list)->getDragEnabled()) {
-			$nc(this->list)->setDragEnabled($nc($(this->this$0->getFileChooser()))->getDragEnabled());
+			$nc(this->list)->setDragEnabled($$nc(this->this$0->getFileChooser())->getDragEnabled());
 		}
 	}
 }
@@ -169,7 +119,7 @@ void BasicFileChooserUI$Handler::mouseReleased($MouseEvent* evt) {
 }
 
 void BasicFileChooserUI$Handler::valueChanged($ListSelectionEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(evt)->getValueIsAdjusting()) {
 		$var($JFileChooser, chooser, this->this$0->getFileChooser());
 		$var($FileSystemView, fsv, $nc(chooser)->getFileSystemView());
@@ -180,26 +130,24 @@ void BasicFileChooserUI$Handler::valueChanged($ListSelectionEvent* evt) {
 			$var($FileArray, files, nullptr);
 			$var($ObjectArray, objects, $nc(list)->getSelectedValues());
 			if (objects != nullptr) {
-				bool var$1 = objects->length == 1 && $nc(($cast($File, objects->get(0))))->isDirectory();
-				bool var$0 = var$1 && chooser->isTraversable(($cast($File, objects->get(0))));
-				if (var$0 && (useSetDirectory || !$nc(fsv)->isFileSystem(($cast($File, objects->get(0)))))) {
+				bool var$1 = objects->length == 1 && $nc($cast($File, objects->get(0)))->isDirectory();
+				bool var$0 = var$1 && chooser->isTraversable($cast($File, objects->get(0)));
+				if (var$0 && (useSetDirectory || !$nc(fsv)->isFileSystem($cast($File, objects->get(0))))) {
 					this->this$0->setDirectorySelected(true);
-					this->this$0->setDirectory(($cast($File, objects->get(0))));
+					this->this$0->setDirectory($cast($File, objects->get(0)));
 				} else {
 					$var($ArrayList, fList, $new($ArrayList, objects->length));
 					{
 						$var($ObjectArray, arr$, objects);
-						int32_t len$ = arr$->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
+						for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 							$var($Object0, object, arr$->get(i$));
 							{
 								$var($File, f, $cast($File, object));
 								bool isDir = $nc(f)->isDirectory();
-								bool var$2 = (chooser->isFileSelectionEnabled() && !isDir);
+								bool var$2 = chooser->isFileSelectionEnabled() && !isDir;
 								if (!var$2) {
 									bool var$3 = chooser->isDirectorySelectionEnabled();
-									var$2 = (var$3 && fsv->isFileSystem(f) && isDir);
+									var$2 = var$3 && $nc(fsv)->isFileSystem(f) && isDir;
 								}
 								if (var$2) {
 									fList->add(f);
@@ -208,7 +156,7 @@ void BasicFileChooserUI$Handler::valueChanged($ListSelectionEvent* evt) {
 						}
 					}
 					if (fList->size() > 0) {
-						$assign(files, $fcast($FileArray, fList->toArray($$new($FileArray, fList->size()))));
+						$assign(files, $cast($FileArray, fList->toArray($$new($FileArray, fList->size()))));
 					}
 					this->this$0->setDirectorySelected(false);
 				}
@@ -238,7 +186,49 @@ BasicFileChooserUI$Handler::BasicFileChooserUI$Handler() {
 }
 
 $Class* BasicFileChooserUI$Handler::load$($String* name, bool initialize) {
-	$loadClass(BasicFileChooserUI$Handler, name, initialize, &_BasicFileChooserUI$Handler_ClassInfo_, allocate$BasicFileChooserUI$Handler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicFileChooserUI$Handler, this$0)},
+		{"list", "Ljavax/swing/JList;", "Ljavax/swing/JList<*>;", 0, $field(BasicFileChooserUI$Handler, list)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicFileChooserUI;)V", nullptr, 0, $method(BasicFileChooserUI$Handler, init$, void, $BasicFileChooserUI*)},
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicFileChooserUI;Ljavax/swing/JList;)V", "(Ljavax/swing/JList<*>;)V", 0, $method(BasicFileChooserUI$Handler, init$, void, $BasicFileChooserUI*, $JList*)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI$Handler, mouseClicked, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI$Handler, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI$Handler, mouseExited, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI$Handler, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI$Handler, mouseReleased, void, $MouseEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI$Handler, valueChanged, void, $ListSelectionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicFileChooserUI$Handler", "javax.swing.plaf.basic.BasicFileChooserUI", "Handler", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicFileChooserUI$Handler",
+		"java.lang.Object",
+		"java.awt.event.MouseListener,javax.swing.event.ListSelectionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicFileChooserUI"
+	};
+	$loadClass(BasicFileChooserUI$Handler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicFileChooserUI$Handler));
+	});
 	return class$;
 }
 

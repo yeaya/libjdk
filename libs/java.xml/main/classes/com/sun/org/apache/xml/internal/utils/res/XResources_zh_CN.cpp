@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/res/XResources_zh_CN.h>
-
 #include <com/sun/org/apache/xml/internal/utils/res/CharArrayWrapper.h>
 #include <com/sun/org/apache/xml/internal/utils/res/IntArrayWrapper.h>
 #include <com/sun/org/apache/xml/internal/utils/res/LongArrayWrapper.h>
@@ -26,30 +25,6 @@ namespace com {
 						namespace utils {
 							namespace res {
 
-$FieldInfo _XResources_zh_CN_FieldInfo_[] = {
-	{"_contents", "[[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XResources_zh_CN, _contents)},
-	{}
-};
-
-$MethodInfo _XResources_zh_CN_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XResources_zh_CN, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XResources_zh_CN, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _XResources_zh_CN_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.res.XResources_zh_CN",
-	"com.sun.org.apache.xml.internal.utils.res.XResourceBundle",
-	nullptr,
-	_XResources_zh_CN_FieldInfo_,
-	_XResources_zh_CN_MethodInfo_
-};
-
-$Object* allocate$XResources_zh_CN($Class* clazz) {
-	return $of($alloc(XResources_zh_CN));
-}
-
 $ObjectArray2* XResources_zh_CN::_contents = nullptr;
 
 void XResources_zh_CN::init$() {
@@ -60,55 +35,55 @@ $ObjectArray2* XResources_zh_CN::getContents() {
 	return XResources_zh_CN::_contents;
 }
 
-void clinit$XResources_zh_CN($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void XResources_zh_CN::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(XResources_zh_CN::_contents, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("ui_language"_s),
-			$of("zh"_s)
+			"ui_language"_s,
+			"zh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("help_language"_s),
-			$of("zh"_s)
+			"help_language"_s,
+			"zh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("language"_s),
-			$of("zh"_s)
+			"language"_s,
+			"zh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alphabet"_s),
-			$of($$new($CharArrayWrapper, $$new($chars, {
-				(char16_t)0x0000FF21,
-				(char16_t)0x0000FF22,
-				(char16_t)0x0000FF23,
-				(char16_t)0x0000FF24,
-				(char16_t)0x0000FF25,
-				(char16_t)0x0000FF26,
-				(char16_t)0x0000FF27,
-				(char16_t)0x0000FF28,
-				(char16_t)0x0000FF29,
-				(char16_t)0x0000FF2A,
-				(char16_t)0x0000FF2B,
-				(char16_t)0x0000FF2C,
-				(char16_t)0x0000FF2D,
-				(char16_t)0x0000FF2E,
-				(char16_t)0x0000FF2F,
-				(char16_t)0x0000FF30,
-				(char16_t)0x0000FF31,
-				(char16_t)0x0000FF32,
-				(char16_t)0x0000FF33,
-				(char16_t)0x0000FF34,
-				(char16_t)0x0000FF35,
-				(char16_t)0x0000FF36,
-				(char16_t)0x0000FF37,
-				(char16_t)0x0000FF38,
-				(char16_t)0x0000FF39,
-				(char16_t)0x0000FF3A
-			})))
+			"alphabet"_s,
+			$$new($CharArrayWrapper, $$new($chars, {
+				0x0000ff21,
+				0x0000ff22,
+				0x0000ff23,
+				0x0000ff24,
+				0x0000ff25,
+				0x0000ff26,
+				0x0000ff27,
+				0x0000ff28,
+				0x0000ff29,
+				0x0000ff2a,
+				0x0000ff2b,
+				0x0000ff2c,
+				0x0000ff2d,
+				0x0000ff2e,
+				0x0000ff2f,
+				0x0000ff30,
+				0x0000ff31,
+				0x0000ff32,
+				0x0000ff33,
+				0x0000ff34,
+				0x0000ff35,
+				0x0000ff36,
+				0x0000ff37,
+				0x0000ff38,
+				0x0000ff39,
+				0x0000ff3a
+			}))
 		}),
 		$$new($ObjectArray, {
-			$of("tradAlphabet"_s),
-			$of($$new($CharArrayWrapper, $$new($chars, {
+			"tradAlphabet"_s,
+			$$new($CharArrayWrapper, $$new($chars, {
 				u'A',
 				u'B',
 				u'C',
@@ -135,65 +110,65 @@ void clinit$XResources_zh_CN($Class* class$) {
 				u'X',
 				u'Y',
 				u'Z'
-			})))
+			}))
 		}),
 		$$new($ObjectArray, {
-			$of("orientation"_s),
-			$of("LeftToRight"_s)
+			"orientation"_s,
+			"LeftToRight"_s
 		}),
 		$$new($ObjectArray, {
-			$of("numbering"_s),
-			$of("multiplicative-additive"_s)
+			"numbering"_s,
+			"multiplicative-additive"_s
 		}),
 		$$new($ObjectArray, {
-			$of("multiplierOrder"_s),
-			$of("follows"_s)
+			"multiplierOrder"_s,
+			"follows"_s
 		}),
 		$$new($ObjectArray, {
-			$of("numberGroups"_s),
-			$of($$new($IntArrayWrapper, $$new($ints, {1})))
+			"numberGroups"_s,
+			$$new($IntArrayWrapper, $$new($ints, {1}))
 		}),
 		$$new($ObjectArray, {
-			$of("zero"_s),
-			$of($$new($CharArrayWrapper, $$new($chars, {(char16_t)0x000096F6})))
+			"zero"_s,
+			$$new($CharArrayWrapper, $$new($chars, {0x000096f6}))
 		}),
 		$$new($ObjectArray, {
-			$of("multiplier"_s),
-			$of($$new($LongArrayWrapper, $$new($longs, {
-				(int64_t)0x05F5E100,
-				(int64_t)10000,
-				(int64_t)1000,
-				(int64_t)100,
-				(int64_t)10
-			})))
+			"multiplier"_s,
+			$$new($LongArrayWrapper, $$new($longs, {
+				100000000,
+				10000,
+				1000,
+				100,
+				10
+			}))
 		}),
 		$$new($ObjectArray, {
-			$of("multiplierChar"_s),
-			$of($$new($CharArrayWrapper, $$new($chars, {
-				(char16_t)20159,
-				(char16_t)19975,
-				(char16_t)21315,
-				(char16_t)30334,
-				(char16_t)21313
-			})))
+			"multiplierChar"_s,
+			$$new($CharArrayWrapper, $$new($chars, {
+				20159,
+				19975,
+				21315,
+				30334,
+				21313
+			}))
 		}),
 		$$new($ObjectArray, {
-			$of("digits"_s),
-			$of($$new($CharArrayWrapper, $$new($chars, {
-				(char16_t)19968,
-				(char16_t)20108,
-				(char16_t)19977,
-				(char16_t)22235,
-				(char16_t)20116,
-				(char16_t)20845,
-				(char16_t)19971,
-				(char16_t)20843,
-				(char16_t)20061
-			})))
+			"digits"_s,
+			$$new($CharArrayWrapper, $$new($chars, {
+				19968,
+				20108,
+				19977,
+				22235,
+				20116,
+				20845,
+				19971,
+				20843,
+				20061
+			}))
 		}),
 		$$new($ObjectArray, {
-			$of("tables"_s),
-			$of($$new($StringArrayWrapper, $$new($StringArray, {"digits"_s})))
+			"tables"_s,
+			$$new($StringArrayWrapper, $$new($StringArray, {"digits"_s}))
 		})
 	}));
 }
@@ -202,7 +177,26 @@ XResources_zh_CN::XResources_zh_CN() {
 }
 
 $Class* XResources_zh_CN::load$($String* name, bool initialize) {
-	$loadClass(XResources_zh_CN, name, initialize, &_XResources_zh_CN_ClassInfo_, clinit$XResources_zh_CN, allocate$XResources_zh_CN);
+	$FieldInfo fieldInfos$$[] = {
+		{"_contents", "[[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XResources_zh_CN, _contents)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XResources_zh_CN, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XResources_zh_CN, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.res.XResources_zh_CN",
+		"com.sun.org.apache.xml.internal.utils.res.XResourceBundle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XResources_zh_CN, name, initialize, &classInfo$$, XResources_zh_CN::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XResources_zh_CN);
+	});
 	return class$;
 }
 

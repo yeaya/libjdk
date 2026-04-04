@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Infer$DependencyKind.h>
-
 #include <com/sun/tools/javac/comp/Infer.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -19,53 +18,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Infer$DependencyKind_FieldInfo_[] = {
-	{"BOUND", "Lcom/sun/tools/javac/comp/Infer$DependencyKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Infer$DependencyKind, BOUND)},
-	{"STUCK", "Lcom/sun/tools/javac/comp/Infer$DependencyKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Infer$DependencyKind, STUCK)},
-	{"$VALUES", "[Lcom/sun/tools/javac/comp/Infer$DependencyKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Infer$DependencyKind, $VALUES)},
-	{"dotStyle", "Ljava/lang/String;", nullptr, $FINAL, $field(Infer$DependencyKind, dotStyle)},
-	{}
-};
-
-$MethodInfo _Infer$DependencyKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/Infer$DependencyKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Infer$DependencyKind, $values, $Infer$DependencyKindArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(Infer$DependencyKind, init$, void, $String*, int32_t, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Infer$DependencyKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Infer$DependencyKind, valueOf, Infer$DependencyKind*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/comp/Infer$DependencyKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Infer$DependencyKind, values, $Infer$DependencyKindArray*)},
-	{}
-};
-
-$InnerClassInfo _Infer$DependencyKind_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Infer$DependencyKind", "com.sun.tools.javac.comp.Infer", "DependencyKind", $STATIC | $FINAL | $ENUM},
-	{"com.sun.tools.javac.util.GraphUtils$DependencyKind", "com.sun.tools.javac.util.GraphUtils", "DependencyKind", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Infer$DependencyKind_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.comp.Infer$DependencyKind",
-	"java.lang.Enum",
-	"com.sun.tools.javac.util.GraphUtils$DependencyKind",
-	_Infer$DependencyKind_FieldInfo_,
-	_Infer$DependencyKind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/comp/Infer$DependencyKind;>;Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;",
-	nullptr,
-	_Infer$DependencyKind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Infer"
-};
-
-$Object* allocate$Infer$DependencyKind($Class* clazz) {
-	return $of($alloc(Infer$DependencyKind));
-}
 
 $String* Infer$DependencyKind::toString() {
 	 return this->$Enum::toString();
@@ -114,7 +66,7 @@ void Infer$DependencyKind::init$($String* $enum$name, int32_t $enum$ordinal, $St
 	$set(this, dotStyle, dotStyle);
 }
 
-void clinit$Infer$DependencyKind($Class* class$) {
+void Infer$DependencyKind::clinit$($Class* clazz) {
 	$assignStatic(Infer$DependencyKind::BOUND, $new(Infer$DependencyKind, "BOUND"_s, 0, "dotted"_s));
 	$assignStatic(Infer$DependencyKind::STUCK, $new(Infer$DependencyKind, "STUCK"_s, 1, "dashed"_s));
 	$assignStatic(Infer$DependencyKind::$VALUES, Infer$DependencyKind::$values());
@@ -124,7 +76,48 @@ Infer$DependencyKind::Infer$DependencyKind() {
 }
 
 $Class* Infer$DependencyKind::load$($String* name, bool initialize) {
-	$loadClass(Infer$DependencyKind, name, initialize, &_Infer$DependencyKind_ClassInfo_, clinit$Infer$DependencyKind, allocate$Infer$DependencyKind);
+	$FieldInfo fieldInfos$$[] = {
+		{"BOUND", "Lcom/sun/tools/javac/comp/Infer$DependencyKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Infer$DependencyKind, BOUND)},
+		{"STUCK", "Lcom/sun/tools/javac/comp/Infer$DependencyKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Infer$DependencyKind, STUCK)},
+		{"$VALUES", "[Lcom/sun/tools/javac/comp/Infer$DependencyKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Infer$DependencyKind, $VALUES)},
+		{"dotStyle", "Ljava/lang/String;", nullptr, $FINAL, $field(Infer$DependencyKind, dotStyle)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/comp/Infer$DependencyKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Infer$DependencyKind, $values, $Infer$DependencyKindArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(Infer$DependencyKind, init$, void, $String*, int32_t, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Infer$DependencyKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Infer$DependencyKind, valueOf, Infer$DependencyKind*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/comp/Infer$DependencyKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Infer$DependencyKind, values, $Infer$DependencyKindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Infer$DependencyKind", "com.sun.tools.javac.comp.Infer", "DependencyKind", $STATIC | $FINAL | $ENUM},
+		{"com.sun.tools.javac.util.GraphUtils$DependencyKind", "com.sun.tools.javac.util.GraphUtils", "DependencyKind", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.comp.Infer$DependencyKind",
+		"java.lang.Enum",
+		"com.sun.tools.javac.util.GraphUtils$DependencyKind",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/comp/Infer$DependencyKind;>;Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Infer"
+	};
+	$loadClass(Infer$DependencyKind, name, initialize, &classInfo$$, Infer$DependencyKind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Infer$DependencyKind));
+	});
 	return class$;
 }
 

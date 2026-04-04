@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/GraphUtils$Tarjan.h>
-
 #include <com/sun/tools/javac/util/GraphUtils$TarjanNode.h>
 #include <com/sun/tools/javac/util/GraphUtils.h>
 #include <com/sun/tools/javac/util/List.h>
@@ -26,48 +25,6 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$FieldInfo _GraphUtils$Tarjan_FieldInfo_[] = {
-	{"index", "I", nullptr, 0, $field(GraphUtils$Tarjan, index)},
-	{"sccs", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/util/List<TN;>;>;", 0, $field(GraphUtils$Tarjan, sccs)},
-	{"stack", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<TN;>;", 0, $field(GraphUtils$Tarjan, stack)},
-	{}
-};
-
-$MethodInfo _GraphUtils$Tarjan_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(GraphUtils$Tarjan, init$, void)},
-	{"addSCC", "(Lcom/sun/tools/javac/util/GraphUtils$TarjanNode;)V", "(TN;)V", $PRIVATE, $method(GraphUtils$Tarjan, addSCC, void, $GraphUtils$TarjanNode*)},
-	{"findSCC", "(Ljava/lang/Iterable;)Lcom/sun/tools/javac/util/List;", "(Ljava/lang/Iterable<+TN;>;)Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/util/List<+TN;>;>;", $PRIVATE, $method(GraphUtils$Tarjan, findSCC, $List*, $Iterable*)},
-	{"findSCC", "(Lcom/sun/tools/javac/util/GraphUtils$TarjanNode;)V", "(TN;)V", $PRIVATE, $method(GraphUtils$Tarjan, findSCC, void, $GraphUtils$TarjanNode*)},
-	{"visitNode", "(Lcom/sun/tools/javac/util/GraphUtils$TarjanNode;)V", "(TN;)V", $PRIVATE, $method(GraphUtils$Tarjan, visitNode, void, $GraphUtils$TarjanNode*)},
-	{}
-};
-
-$InnerClassInfo _GraphUtils$Tarjan_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.GraphUtils$Tarjan", "com.sun.tools.javac.util.GraphUtils", "Tarjan", $PRIVATE | $STATIC},
-	{"com.sun.tools.javac.util.GraphUtils$TarjanNode", "com.sun.tools.javac.util.GraphUtils", "TarjanNode", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _GraphUtils$Tarjan_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.util.GraphUtils$Tarjan",
-	"java.lang.Object",
-	nullptr,
-	_GraphUtils$Tarjan_FieldInfo_,
-	_GraphUtils$Tarjan_MethodInfo_,
-	"<D:Ljava/lang/Object;N:Lcom/sun/tools/javac/util/GraphUtils$TarjanNode<TD;TN;>;>Ljava/lang/Object;",
-	nullptr,
-	_GraphUtils$Tarjan_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.GraphUtils"
-};
-
-$Object* allocate$GraphUtils$Tarjan($Class* clazz) {
-	return $of($alloc(GraphUtils$Tarjan));
-}
-
 void GraphUtils$Tarjan::init$() {
 	this->index = 0;
 	$set(this, sccs, $new($ListBuffer));
@@ -75,15 +32,13 @@ void GraphUtils$Tarjan::init$() {
 }
 
 $List* GraphUtils$Tarjan::findSCC($Iterable* nodes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Iterator, i$, $nc(nodes)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($GraphUtils$TarjanNode, node, $cast($GraphUtils$TarjanNode, i$->next()));
-			{
-				if ($nc(node)->index == -1) {
-					findSCC(node);
-				}
+			if ($nc(node)->index == -1) {
+				findSCC(node);
 			}
 		}
 	}
@@ -91,19 +46,17 @@ $List* GraphUtils$Tarjan::findSCC($Iterable* nodes) {
 }
 
 void GraphUtils$Tarjan::findSCC($GraphUtils$TarjanNode* v) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	visitNode(v);
 	{
-		$var($Iterator, i$, $nc($($nc(v)->getAllDependencies()))->iterator());
+		$var($Iterator, i$, $$nc($nc(v)->getAllDependencies())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($GraphUtils$TarjanNode, n, $cast($GraphUtils$TarjanNode, i$->next()));
-			{
-				if ($nc(n)->index == -1) {
-					findSCC(n);
-					v->lowlink = $Math::min(v->lowlink, n->lowlink);
-				} else if ($nc(this->stack)->contains(n)) {
-					v->lowlink = $Math::min(v->lowlink, n->index);
-				}
+			if ($nc(n)->index == -1) {
+				findSCC(n);
+				v->lowlink = $Math::min(v->lowlink, n->lowlink);
+			} else if ($nc(this->stack)->contains(n)) {
+				v->lowlink = $Math::min(v->lowlink, n->index);
 			}
 		}
 	}
@@ -121,7 +74,7 @@ void GraphUtils$Tarjan::visitNode($GraphUtils$TarjanNode* n) {
 }
 
 void GraphUtils$Tarjan::addSCC($GraphUtils$TarjanNode* v) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GraphUtils$TarjanNode, n, nullptr);
 	$var($ListBuffer, cycle, $new($ListBuffer));
 	do {
@@ -136,7 +89,43 @@ GraphUtils$Tarjan::GraphUtils$Tarjan() {
 }
 
 $Class* GraphUtils$Tarjan::load$($String* name, bool initialize) {
-	$loadClass(GraphUtils$Tarjan, name, initialize, &_GraphUtils$Tarjan_ClassInfo_, allocate$GraphUtils$Tarjan);
+	$FieldInfo fieldInfos$$[] = {
+		{"index", "I", nullptr, 0, $field(GraphUtils$Tarjan, index)},
+		{"sccs", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/util/List<TN;>;>;", 0, $field(GraphUtils$Tarjan, sccs)},
+		{"stack", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<TN;>;", 0, $field(GraphUtils$Tarjan, stack)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(GraphUtils$Tarjan, init$, void)},
+		{"addSCC", "(Lcom/sun/tools/javac/util/GraphUtils$TarjanNode;)V", "(TN;)V", $PRIVATE, $method(GraphUtils$Tarjan, addSCC, void, $GraphUtils$TarjanNode*)},
+		{"findSCC", "(Ljava/lang/Iterable;)Lcom/sun/tools/javac/util/List;", "(Ljava/lang/Iterable<+TN;>;)Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/util/List<+TN;>;>;", $PRIVATE, $method(GraphUtils$Tarjan, findSCC, $List*, $Iterable*)},
+		{"findSCC", "(Lcom/sun/tools/javac/util/GraphUtils$TarjanNode;)V", "(TN;)V", $PRIVATE, $method(GraphUtils$Tarjan, findSCC, void, $GraphUtils$TarjanNode*)},
+		{"visitNode", "(Lcom/sun/tools/javac/util/GraphUtils$TarjanNode;)V", "(TN;)V", $PRIVATE, $method(GraphUtils$Tarjan, visitNode, void, $GraphUtils$TarjanNode*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.GraphUtils$Tarjan", "com.sun.tools.javac.util.GraphUtils", "Tarjan", $PRIVATE | $STATIC},
+		{"com.sun.tools.javac.util.GraphUtils$TarjanNode", "com.sun.tools.javac.util.GraphUtils", "TarjanNode", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.util.GraphUtils$Tarjan",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<D:Ljava/lang/Object;N:Lcom/sun/tools/javac/util/GraphUtils$TarjanNode<TD;TN;>;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.GraphUtils"
+	};
+	$loadClass(GraphUtils$Tarjan, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GraphUtils$Tarjan);
+	});
 	return class$;
 }
 

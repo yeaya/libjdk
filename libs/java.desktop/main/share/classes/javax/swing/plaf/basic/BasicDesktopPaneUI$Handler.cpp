@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicDesktopPaneUI$Handler.h>
-
 #include <java/beans/PropertyChangeEvent.h>
 #include <javax/swing/plaf/basic/BasicDesktopPaneUI.h>
 #include <jcpp.h>
@@ -16,42 +15,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicDesktopPaneUI$Handler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicDesktopPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicDesktopPaneUI$Handler, this$0)},
-	{}
-};
-
-$MethodInfo _BasicDesktopPaneUI$Handler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicDesktopPaneUI;)V", nullptr, $PRIVATE, $method(BasicDesktopPaneUI$Handler, init$, void, $BasicDesktopPaneUI*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI$Handler, propertyChange, void, $PropertyChangeEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicDesktopPaneUI$Handler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicDesktopPaneUI$Handler", "javax.swing.plaf.basic.BasicDesktopPaneUI", "Handler", $PRIVATE},
-	{}
-};
-
-$ClassInfo _BasicDesktopPaneUI$Handler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicDesktopPaneUI$Handler",
-	"java.lang.Object",
-	"java.beans.PropertyChangeListener",
-	_BasicDesktopPaneUI$Handler_FieldInfo_,
-	_BasicDesktopPaneUI$Handler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicDesktopPaneUI$Handler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicDesktopPaneUI"
-};
-
-$Object* allocate$BasicDesktopPaneUI$Handler($Class* clazz) {
-	return $of($alloc(BasicDesktopPaneUI$Handler));
-}
-
 void BasicDesktopPaneUI$Handler::init$($BasicDesktopPaneUI* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -67,7 +30,37 @@ BasicDesktopPaneUI$Handler::BasicDesktopPaneUI$Handler() {
 }
 
 $Class* BasicDesktopPaneUI$Handler::load$($String* name, bool initialize) {
-	$loadClass(BasicDesktopPaneUI$Handler, name, initialize, &_BasicDesktopPaneUI$Handler_ClassInfo_, allocate$BasicDesktopPaneUI$Handler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicDesktopPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicDesktopPaneUI$Handler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicDesktopPaneUI;)V", nullptr, $PRIVATE, $method(BasicDesktopPaneUI$Handler, init$, void, $BasicDesktopPaneUI*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI$Handler, propertyChange, void, $PropertyChangeEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicDesktopPaneUI$Handler", "javax.swing.plaf.basic.BasicDesktopPaneUI", "Handler", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicDesktopPaneUI$Handler",
+		"java.lang.Object",
+		"java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicDesktopPaneUI"
+	};
+	$loadClass(BasicDesktopPaneUI$Handler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicDesktopPaneUI$Handler);
+	});
 	return class$;
 }
 

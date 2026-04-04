@@ -57,6 +57,7 @@ class RTFGenerator : public ::java::lang::Object {
 	$class(RTFGenerator, 0, ::java::lang::Object)
 public:
 	RTFGenerator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::OutputStream* to);
 	virtual $String* approximationForUnicode(char16_t ch);
 	static $Object* attrDiff(::javax::swing::text::MutableAttributeSet* oldAttrs, ::javax::swing::text::AttributeSet* newAttrs, Object$* key, Object$* dfl);

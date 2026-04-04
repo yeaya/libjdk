@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/TransformingPathConsumer2D$PathClipFilter.h>
-
 #include <java/lang/InternalError.h>
 #include <sun/java2d/marlin/DPathConsumer2D.h>
 #include <sun/java2d/marlin/Helpers$IndexStack.h>
@@ -31,73 +30,10 @@ using $Helpers = ::sun::java2d::marlin::Helpers;
 using $Helpers$IndexStack = ::sun::java2d::marlin::Helpers$IndexStack;
 using $MarlinConst = ::sun::java2d::marlin::MarlinConst;
 using $RendererContext = ::sun::java2d::marlin::RendererContext;
-using $TransformingPathConsumer2D$CurveClipSplitter = ::sun::java2d::marlin::TransformingPathConsumer2D$CurveClipSplitter;
 
 namespace sun {
 	namespace java2d {
 		namespace marlin {
-
-$FieldInfo _TransformingPathConsumer2D$PathClipFilter_FieldInfo_[] = {
-	{"out", "Lsun/java2d/marlin/DPathConsumer2D;", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$PathClipFilter, out)},
-	{"clipRect", "[D", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D$PathClipFilter, clipRect)},
-	{"corners", "[D", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D$PathClipFilter, corners)},
-	{"init_corners", "Z", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$PathClipFilter, init_corners)},
-	{"stack", "Lsun/java2d/marlin/Helpers$IndexStack;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D$PathClipFilter, stack)},
-	{"cOutCode", "I", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$PathClipFilter, cOutCode)},
-	{"gOutCode", "I", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$PathClipFilter, gOutCode)},
-	{"outside", "Z", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$PathClipFilter, outside)},
-	{"sx0", "D", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$PathClipFilter, sx0)},
-	{"sy0", "D", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$PathClipFilter, sy0)},
-	{"cx0", "D", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$PathClipFilter, cx0)},
-	{"cy0", "D", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$PathClipFilter, cy0)},
-	{"cox0", "D", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$PathClipFilter, cox0)},
-	{"coy0", "D", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$PathClipFilter, coy0)},
-	{"subdivide", "Z", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$PathClipFilter, subdivide)},
-	{"curveSplitter", "Lsun/java2d/marlin/TransformingPathConsumer2D$CurveClipSplitter;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D$PathClipFilter, curveSplitter)},
-	{}
-};
-
-$MethodInfo _TransformingPathConsumer2D$PathClipFilter_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/marlin/RendererContext;)V", nullptr, 0, $method(TransformingPathConsumer2D$PathClipFilter, init$, void, $RendererContext*)},
-	{"clip", "(III)V", nullptr, $PRIVATE, $method(TransformingPathConsumer2D$PathClipFilter, clip, void, int32_t, int32_t, int32_t)},
-	{"closePath", "()V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$PathClipFilter, closePath, void)},
-	{"curveTo", "(DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$PathClipFilter, curveTo, void, double, double, double, double, double, double)},
-	{"dispose", "()V", nullptr, 0, $method(TransformingPathConsumer2D$PathClipFilter, dispose, void)},
-	{"finish", "()V", nullptr, $PRIVATE, $method(TransformingPathConsumer2D$PathClipFilter, finish, void)},
-	{"finishPath", "()V", nullptr, $PRIVATE, $method(TransformingPathConsumer2D$PathClipFilter, finishPath, void)},
-	{"getNativeConsumer", "()J", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$PathClipFilter, getNativeConsumer, int64_t)},
-	{"init", "(Lsun/java2d/marlin/DPathConsumer2D;)Lsun/java2d/marlin/TransformingPathConsumer2D$PathClipFilter;", nullptr, 0, $method(TransformingPathConsumer2D$PathClipFilter, init, TransformingPathConsumer2D$PathClipFilter*, $DPathConsumer2D*)},
-	{"lineTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$PathClipFilter, lineTo, void, double, double)},
-	{"moveTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$PathClipFilter, moveTo, void, double, double)},
-	{"pathDone", "()V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$PathClipFilter, pathDone, void)},
-	{"quadTo", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$PathClipFilter, quadTo, void, double, double, double, double)},
-	{}
-};
-
-$InnerClassInfo _TransformingPathConsumer2D$PathClipFilter_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.TransformingPathConsumer2D$PathClipFilter", "sun.java2d.marlin.TransformingPathConsumer2D", "PathClipFilter", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _TransformingPathConsumer2D$PathClipFilter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.TransformingPathConsumer2D$PathClipFilter",
-	"java.lang.Object",
-	"sun.java2d.marlin.DPathConsumer2D",
-	_TransformingPathConsumer2D$PathClipFilter_FieldInfo_,
-	_TransformingPathConsumer2D$PathClipFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TransformingPathConsumer2D$PathClipFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.TransformingPathConsumer2D"
-};
-
-$Object* allocate$TransformingPathConsumer2D$PathClipFilter($Class* clazz) {
-	return $of($alloc(TransformingPathConsumer2D$PathClipFilter));
-}
 
 void TransformingPathConsumer2D$PathClipFilter::init$($RendererContext* rdrCtx) {
 	$set(this, corners, $new($doubles, 8));
@@ -109,7 +45,7 @@ void TransformingPathConsumer2D$PathClipFilter::init$($RendererContext* rdrCtx) 
 	this->subdivide = $MarlinConst::DO_CLIP_SUBDIVIDER;
 	$set(this, clipRect, $nc(rdrCtx)->clipRect);
 	$set(this, curveSplitter, rdrCtx->curveClipSplitter);
-	$set(this, stack, (rdrCtx->stats$ != nullptr) ? $new($Helpers$IndexStack, rdrCtx, $nc(rdrCtx->stats$)->stat_pcf_idxstack_indices, $nc(rdrCtx->stats$)->hist_pcf_idxstack_indices, $nc(rdrCtx->stats$)->stat_array_pcf_idxstack_indices) : $new($Helpers$IndexStack, rdrCtx));
+	$set(this, stack, (rdrCtx->stats$ != nullptr) ? $new($Helpers$IndexStack, rdrCtx, rdrCtx->stats$->stat_pcf_idxstack_indices, rdrCtx->stats$->hist_pcf_idxstack_indices, rdrCtx->stats$->stat_array_pcf_idxstack_indices) : $new($Helpers$IndexStack, rdrCtx));
 }
 
 TransformingPathConsumer2D$PathClipFilter* TransformingPathConsumer2D$PathClipFilter::init($DPathConsumer2D* out) {
@@ -139,7 +75,7 @@ void TransformingPathConsumer2D$PathClipFilter::finishPath() {
 }
 
 void TransformingPathConsumer2D$PathClipFilter::finish() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->outside = false;
 	if (!$nc(this->stack)->isEmpty()) {
 		if (this->init_corners) {
@@ -155,7 +91,7 @@ void TransformingPathConsumer2D$PathClipFilter::finish() {
 			_corners->set(6, _clipRect->get(3));
 			_corners->set(7, _clipRect->get(1));
 		}
-		$nc(this->stack)->pullAll(this->corners, this->out);
+		this->stack->pullAll(this->corners, this->out);
 	}
 	$nc(this->out)->lineTo(this->cox0, this->coy0);
 	this->cx0 = this->cox0;
@@ -191,7 +127,7 @@ void TransformingPathConsumer2D$PathClipFilter::lineTo(double xe, double ye) {
 	int32_t outcode1 = $Helpers::outcode(xe, ye, this->clipRect);
 	int32_t orCode = (outcode0 | outcode1);
 	if (orCode != 0) {
-		int32_t sideCode = ((int32_t)(outcode0 & (uint32_t)outcode1));
+		int32_t sideCode = (outcode0 & outcode1);
 		if (sideCode == 0) {
 			if (this->subdivide) {
 				this->subdivide = false;
@@ -227,31 +163,25 @@ void TransformingPathConsumer2D$PathClipFilter::lineTo(double xe, double ye) {
 }
 
 void TransformingPathConsumer2D$PathClipFilter::clip(int32_t sideCode, int32_t outcode0, int32_t outcode1) {
-	if ((outcode0 != outcode1) && (((int32_t)(sideCode & (uint32_t)$MarlinConst::OUTCODE_MASK_L_R)) != 0)) {
+	if ((outcode0 != outcode1) && ((sideCode & $MarlinConst::OUTCODE_MASK_L_R) != 0)) {
 		int32_t mergeCode = (outcode0 | outcode1);
-		int32_t tbCode = (int32_t)(mergeCode & (uint32_t)$MarlinConst::OUTCODE_MASK_T_B);
-		int32_t lrCode = (int32_t)(mergeCode & (uint32_t)$MarlinConst::OUTCODE_MASK_L_R);
+		int32_t tbCode = mergeCode & $MarlinConst::OUTCODE_MASK_T_B;
+		int32_t lrCode = mergeCode & $MarlinConst::OUTCODE_MASK_L_R;
 		int32_t off = (lrCode == $MarlinConst::OUTCODE_LEFT) ? 0 : 2;
 		switch (tbCode) {
 		case $MarlinConst::OUTCODE_TOP:
-			{
-				$nc(this->stack)->push(off);
-				return;
-			}
+			$nc(this->stack)->push(off);
+			return;
 		case $MarlinConst::OUTCODE_BOTTOM:
-			{
-				$nc(this->stack)->push(off + 1);
-				return;
-			}
+			$nc(this->stack)->push(off + 1);
+			return;
 		default:
-			{
-				if (((int32_t)(outcode0 & (uint32_t)$MarlinConst::OUTCODE_TOP)) != 0) {
-					$nc(this->stack)->push(off);
-					$nc(this->stack)->push(off + 1);
-				} else {
-					$nc(this->stack)->push(off + 1);
-					$nc(this->stack)->push(off);
-				}
+			if ((outcode0 & $MarlinConst::OUTCODE_TOP) != 0) {
+				$nc(this->stack)->push(off);
+				this->stack->push(off + 1);
+			} else {
+				$nc(this->stack)->push(off + 1);
+				this->stack->push(off);
 			}
 		}
 	}
@@ -264,7 +194,7 @@ void TransformingPathConsumer2D$PathClipFilter::curveTo(double x1, double y1, do
 	int32_t outcode3 = $Helpers::outcode(xe, ye, this->clipRect);
 	int32_t orCode = (((outcode0 | outcode1) | outcode2) | outcode3);
 	if (orCode != 0) {
-		int32_t sideCode = (int32_t)(((int32_t)(((int32_t)(outcode0 & (uint32_t)outcode1)) & (uint32_t)outcode2)) & (uint32_t)outcode3);
+		int32_t sideCode = ((outcode0 & outcode1) & outcode2) & outcode3;
 		if (sideCode == 0) {
 			if (this->subdivide) {
 				this->subdivide = false;
@@ -305,7 +235,7 @@ void TransformingPathConsumer2D$PathClipFilter::quadTo(double x1, double y1, dou
 	int32_t outcode2 = $Helpers::outcode(xe, ye, this->clipRect);
 	int32_t orCode = ((outcode0 | outcode1) | outcode2);
 	if (orCode != 0) {
-		int32_t sideCode = (int32_t)(((int32_t)(outcode0 & (uint32_t)outcode1)) & (uint32_t)outcode2);
+		int32_t sideCode = (outcode0 & outcode1) & outcode2;
 		if (sideCode == 0) {
 			if (this->subdivide) {
 				this->subdivide = false;
@@ -349,7 +279,63 @@ TransformingPathConsumer2D$PathClipFilter::TransformingPathConsumer2D$PathClipFi
 }
 
 $Class* TransformingPathConsumer2D$PathClipFilter::load$($String* name, bool initialize) {
-	$loadClass(TransformingPathConsumer2D$PathClipFilter, name, initialize, &_TransformingPathConsumer2D$PathClipFilter_ClassInfo_, allocate$TransformingPathConsumer2D$PathClipFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"out", "Lsun/java2d/marlin/DPathConsumer2D;", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$PathClipFilter, out)},
+		{"clipRect", "[D", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D$PathClipFilter, clipRect)},
+		{"corners", "[D", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D$PathClipFilter, corners)},
+		{"init_corners", "Z", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$PathClipFilter, init_corners)},
+		{"stack", "Lsun/java2d/marlin/Helpers$IndexStack;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D$PathClipFilter, stack)},
+		{"cOutCode", "I", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$PathClipFilter, cOutCode)},
+		{"gOutCode", "I", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$PathClipFilter, gOutCode)},
+		{"outside", "Z", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$PathClipFilter, outside)},
+		{"sx0", "D", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$PathClipFilter, sx0)},
+		{"sy0", "D", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$PathClipFilter, sy0)},
+		{"cx0", "D", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$PathClipFilter, cx0)},
+		{"cy0", "D", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$PathClipFilter, cy0)},
+		{"cox0", "D", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$PathClipFilter, cox0)},
+		{"coy0", "D", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$PathClipFilter, coy0)},
+		{"subdivide", "Z", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$PathClipFilter, subdivide)},
+		{"curveSplitter", "Lsun/java2d/marlin/TransformingPathConsumer2D$CurveClipSplitter;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D$PathClipFilter, curveSplitter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/marlin/RendererContext;)V", nullptr, 0, $method(TransformingPathConsumer2D$PathClipFilter, init$, void, $RendererContext*)},
+		{"clip", "(III)V", nullptr, $PRIVATE, $method(TransformingPathConsumer2D$PathClipFilter, clip, void, int32_t, int32_t, int32_t)},
+		{"closePath", "()V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$PathClipFilter, closePath, void)},
+		{"curveTo", "(DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$PathClipFilter, curveTo, void, double, double, double, double, double, double)},
+		{"dispose", "()V", nullptr, 0, $method(TransformingPathConsumer2D$PathClipFilter, dispose, void)},
+		{"finish", "()V", nullptr, $PRIVATE, $method(TransformingPathConsumer2D$PathClipFilter, finish, void)},
+		{"finishPath", "()V", nullptr, $PRIVATE, $method(TransformingPathConsumer2D$PathClipFilter, finishPath, void)},
+		{"getNativeConsumer", "()J", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$PathClipFilter, getNativeConsumer, int64_t)},
+		{"init", "(Lsun/java2d/marlin/DPathConsumer2D;)Lsun/java2d/marlin/TransformingPathConsumer2D$PathClipFilter;", nullptr, 0, $method(TransformingPathConsumer2D$PathClipFilter, init, TransformingPathConsumer2D$PathClipFilter*, $DPathConsumer2D*)},
+		{"lineTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$PathClipFilter, lineTo, void, double, double)},
+		{"moveTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$PathClipFilter, moveTo, void, double, double)},
+		{"pathDone", "()V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$PathClipFilter, pathDone, void)},
+		{"quadTo", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$PathClipFilter, quadTo, void, double, double, double, double)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.TransformingPathConsumer2D$PathClipFilter", "sun.java2d.marlin.TransformingPathConsumer2D", "PathClipFilter", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.TransformingPathConsumer2D$PathClipFilter",
+		"java.lang.Object",
+		"sun.java2d.marlin.DPathConsumer2D",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.TransformingPathConsumer2D"
+	};
+	$loadClass(TransformingPathConsumer2D$PathClipFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransformingPathConsumer2D$PathClipFilter);
+	});
 	return class$;
 }
 

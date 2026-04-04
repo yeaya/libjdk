@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/MediaPrintableArea.h>
-
 #include <javax/print/attribute/DocAttribute.h>
 #include <jcpp.h>
 
@@ -18,51 +17,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _MediaPrintableArea_FieldInfo_[] = {
-	{"x", "I", nullptr, $PRIVATE, $field(MediaPrintableArea, x)},
-	{"y", "I", nullptr, $PRIVATE, $field(MediaPrintableArea, y)},
-	{"w", "I", nullptr, $PRIVATE, $field(MediaPrintableArea, w)},
-	{"h", "I", nullptr, $PRIVATE, $field(MediaPrintableArea, h)},
-	{"units", "I", nullptr, $PRIVATE, $field(MediaPrintableArea, units)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MediaPrintableArea, serialVersionUID)},
-	{"INCH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MediaPrintableArea, INCH)},
-	{"MM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MediaPrintableArea, MM)},
-	{}
-};
-
-$MethodInfo _MediaPrintableArea_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(FFFFI)V", nullptr, $PUBLIC, $method(MediaPrintableArea, init$, void, float, float, float, float, int32_t)},
-	{"<init>", "(IIIII)V", nullptr, $PUBLIC, $method(MediaPrintableArea, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"convertFromMicrometers", "(II)F", nullptr, $PRIVATE | $STATIC, $staticMethod(MediaPrintableArea, convertFromMicrometers, float, int32_t, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MediaPrintableArea, equals, bool, Object$*)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(MediaPrintableArea, getCategory, $Class*)},
-	{"getHeight", "(I)F", nullptr, $PUBLIC, $method(MediaPrintableArea, getHeight, float, int32_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MediaPrintableArea, getName, $String*)},
-	{"getPrintableArea", "(I)[F", nullptr, $PUBLIC, $method(MediaPrintableArea, getPrintableArea, $floats*, int32_t)},
-	{"getWidth", "(I)F", nullptr, $PUBLIC, $method(MediaPrintableArea, getWidth, float, int32_t)},
-	{"getX", "(I)F", nullptr, $PUBLIC, $method(MediaPrintableArea, getX, float, int32_t)},
-	{"getY", "(I)F", nullptr, $PUBLIC, $method(MediaPrintableArea, getY, float, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MediaPrintableArea, hashCode, int32_t)},
-	{"toString", "(ILjava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $method(MediaPrintableArea, toString, $String*, int32_t, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MediaPrintableArea, toString, $String*)},
-	{}
-};
-
-$ClassInfo _MediaPrintableArea_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.MediaPrintableArea",
-	"java.lang.Object",
-	"javax.print.attribute.DocAttribute,javax.print.attribute.PrintRequestAttribute,javax.print.attribute.PrintJobAttribute",
-	_MediaPrintableArea_FieldInfo_,
-	_MediaPrintableArea_MethodInfo_
-};
-
-$Object* allocate$MediaPrintableArea($Class* clazz) {
-	return $of($alloc(MediaPrintableArea));
-}
 
 $Object* MediaPrintableArea::clone() {
 	 return this->$DocAttribute::clone();
@@ -121,7 +75,7 @@ bool MediaPrintableArea::equals(Object$* object) {
 	bool ret = false;
 	if ($instanceOf(MediaPrintableArea, object)) {
 		$var(MediaPrintableArea, mm, $cast(MediaPrintableArea, object));
-		if (this->x == $nc(mm)->x && this->y == mm->y && this->w == mm->w && this->h == mm->h) {
+		if (this->x == mm->x && this->y == mm->y && this->w == mm->w && this->h == mm->h) {
 			ret = true;
 		}
 	}
@@ -137,13 +91,13 @@ $String* MediaPrintableArea::getName() {
 }
 
 $String* MediaPrintableArea::toString(int32_t units, $String* unitsName$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, unitsName, unitsName$renamed);
 	if (unitsName == nullptr) {
 		$assign(unitsName, ""_s);
 	}
 	$var($floats, vals, getPrintableArea(units));
-	$var($String, str, $str({"("_s, $$str($nc(vals)->get(0)), ","_s, $$str(vals->get(1)), ")->("_s, $$str(vals->get(2)), ","_s, $$str(vals->get(3)), ")"_s}));
+	$var($String, str, $str({"("_s, $$str($nc(vals)->get(0)), ","_s, $$str($nc(vals)->get(1)), ")->("_s, $$str($nc(vals)->get(2)), ","_s, $$str($nc(vals)->get(3)), ")"_s}));
 	return $str({str, unitsName});
 }
 
@@ -167,7 +121,47 @@ MediaPrintableArea::MediaPrintableArea() {
 }
 
 $Class* MediaPrintableArea::load$($String* name, bool initialize) {
-	$loadClass(MediaPrintableArea, name, initialize, &_MediaPrintableArea_ClassInfo_, allocate$MediaPrintableArea);
+	$FieldInfo fieldInfos$$[] = {
+		{"x", "I", nullptr, $PRIVATE, $field(MediaPrintableArea, x)},
+		{"y", "I", nullptr, $PRIVATE, $field(MediaPrintableArea, y)},
+		{"w", "I", nullptr, $PRIVATE, $field(MediaPrintableArea, w)},
+		{"h", "I", nullptr, $PRIVATE, $field(MediaPrintableArea, h)},
+		{"units", "I", nullptr, $PRIVATE, $field(MediaPrintableArea, units)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MediaPrintableArea, serialVersionUID)},
+		{"INCH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MediaPrintableArea, INCH)},
+		{"MM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MediaPrintableArea, MM)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(FFFFI)V", nullptr, $PUBLIC, $method(MediaPrintableArea, init$, void, float, float, float, float, int32_t)},
+		{"<init>", "(IIIII)V", nullptr, $PUBLIC, $method(MediaPrintableArea, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"convertFromMicrometers", "(II)F", nullptr, $PRIVATE | $STATIC, $staticMethod(MediaPrintableArea, convertFromMicrometers, float, int32_t, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MediaPrintableArea, equals, bool, Object$*)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(MediaPrintableArea, getCategory, $Class*)},
+		{"getHeight", "(I)F", nullptr, $PUBLIC, $method(MediaPrintableArea, getHeight, float, int32_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MediaPrintableArea, getName, $String*)},
+		{"getPrintableArea", "(I)[F", nullptr, $PUBLIC, $method(MediaPrintableArea, getPrintableArea, $floats*, int32_t)},
+		{"getWidth", "(I)F", nullptr, $PUBLIC, $method(MediaPrintableArea, getWidth, float, int32_t)},
+		{"getX", "(I)F", nullptr, $PUBLIC, $method(MediaPrintableArea, getX, float, int32_t)},
+		{"getY", "(I)F", nullptr, $PUBLIC, $method(MediaPrintableArea, getY, float, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MediaPrintableArea, hashCode, int32_t)},
+		{"toString", "(ILjava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $method(MediaPrintableArea, toString, $String*, int32_t, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MediaPrintableArea, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.MediaPrintableArea",
+		"java.lang.Object",
+		"javax.print.attribute.DocAttribute,javax.print.attribute.PrintRequestAttribute,javax.print.attribute.PrintJobAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MediaPrintableArea, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MediaPrintableArea));
+	});
 	return class$;
 }
 

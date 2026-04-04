@@ -1,15 +1,12 @@
 #include <sun/awt/X11/MotifColorUtilities.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/SystemColor.h>
 #include <java/io/BufferedReader.h>
 #include <java/io/File.h>
 #include <java/io/FileNotFoundException.h>
 #include <java/io/FileReader.h>
-#include <java/io/Reader.h>
 #include <java/lang/Math.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <sun/awt/OSInfo$OSType.h>
 #include <sun/awt/OSInfo.h>
 #include <sun/awt/X11/XAtom.h>
@@ -53,7 +50,6 @@ using $BufferedReader = ::java::io::BufferedReader;
 using $File = ::java::io::File;
 using $FileNotFoundException = ::java::io::FileNotFoundException;
 using $FileReader = ::java::io::FileReader;
-using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -62,7 +58,6 @@ using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $OSInfo = ::sun::awt::OSInfo;
 using $OSInfo$OSType = ::sun::awt::OSInfo$OSType;
 using $XAtom = ::sun::awt::X11::XAtom;
@@ -72,68 +67,6 @@ using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _MotifColorUtilities_FieldInfo_[] = {
-	{"XmRED_LUMINOSITY", "F", nullptr, $STATIC | $FINAL, $staticField(MotifColorUtilities, XmRED_LUMINOSITY)},
-	{"XmGREEN_LUMINOSITY", "F", nullptr, $STATIC | $FINAL, $staticField(MotifColorUtilities, XmGREEN_LUMINOSITY)},
-	{"XmBLUE_LUMINOSITY", "F", nullptr, $STATIC | $FINAL, $staticField(MotifColorUtilities, XmBLUE_LUMINOSITY)},
-	{"XmINTENSITY_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmINTENSITY_FACTOR)},
-	{"XmLIGHT_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmLIGHT_FACTOR)},
-	{"XmLUMINOSITY_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmLUMINOSITY_FACTOR)},
-	{"XmMAX_SHORT", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmMAX_SHORT)},
-	{"XmCOLOR_PERCENTILE", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_PERCENTILE)},
-	{"XmDEFAULT_DARK_THRESHOLD", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmDEFAULT_DARK_THRESHOLD)},
-	{"XmDEFAULT_LIGHT_THRESHOLD", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmDEFAULT_LIGHT_THRESHOLD)},
-	{"XmDEFAULT_FOREGROUND_THRESHOLD", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmDEFAULT_FOREGROUND_THRESHOLD)},
-	{"BLACK", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, BLACK)},
-	{"WHITE", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, WHITE)},
-	{"MOTIF_WINDOW_COLOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, MOTIF_WINDOW_COLOR)},
-	{"DEFAULT_COLOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, DEFAULT_COLOR)},
-	{"XmCOLOR_LITE_THRESHOLD", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_LITE_THRESHOLD)},
-	{"XmCOLOR_DARK_THRESHOLD", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_DARK_THRESHOLD)},
-	{"XmFOREGROUND_THRESHOLD", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmFOREGROUND_THRESHOLD)},
-	{"XmCOLOR_LITE_SEL_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_LITE_SEL_FACTOR)},
-	{"XmCOLOR_LITE_BS_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_LITE_BS_FACTOR)},
-	{"XmCOLOR_LITE_TS_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_LITE_TS_FACTOR)},
-	{"XmCOLOR_DARK_SEL_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_DARK_SEL_FACTOR)},
-	{"XmCOLOR_DARK_BS_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_DARK_BS_FACTOR)},
-	{"XmCOLOR_DARK_TS_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_DARK_TS_FACTOR)},
-	{"XmCOLOR_HI_SEL_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_HI_SEL_FACTOR)},
-	{"XmCOLOR_HI_BS_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_HI_BS_FACTOR)},
-	{"XmCOLOR_HI_TS_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_HI_TS_FACTOR)},
-	{"XmCOLOR_LO_SEL_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_LO_SEL_FACTOR)},
-	{"XmCOLOR_LO_BS_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_LO_BS_FACTOR)},
-	{"XmCOLOR_LO_TS_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_LO_TS_FACTOR)},
-	{}
-};
-
-$MethodInfo _MotifColorUtilities_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MotifColorUtilities, init$, void)},
-	{"brightness", "(III)I", nullptr, $STATIC, $staticMethod(MotifColorUtilities, brightness, int32_t, int32_t, int32_t, int32_t)},
-	{"calculateBottomShadowFromBackground", "(III)I", nullptr, $STATIC, $staticMethod(MotifColorUtilities, calculateBottomShadowFromBackground, int32_t, int32_t, int32_t, int32_t)},
-	{"calculateForegroundFromBackground", "(III)I", nullptr, $STATIC, $staticMethod(MotifColorUtilities, calculateForegroundFromBackground, int32_t, int32_t, int32_t, int32_t)},
-	{"calculateSelectFromBackground", "(III)I", nullptr, $STATIC, $staticMethod(MotifColorUtilities, calculateSelectFromBackground, int32_t, int32_t, int32_t, int32_t)},
-	{"calculateTopShadowFromBackground", "(III)I", nullptr, $STATIC, $staticMethod(MotifColorUtilities, calculateTopShadowFromBackground, int32_t, int32_t, int32_t, int32_t)},
-	{"loadMotifDefaultColors", "([I)V", nullptr, $STATIC, $staticMethod(MotifColorUtilities, loadMotifDefaultColors, void, $ints*)},
-	{"loadSystemColors", "([I)V", nullptr, $STATIC, $staticMethod(MotifColorUtilities, loadSystemColors, void, $ints*)},
-	{"loadSystemColorsForCDE", "([I)V", nullptr, $STATIC, $staticMethod(MotifColorUtilities, loadSystemColorsForCDE, void, $ints*), "java.lang.Exception"},
-	{"loadSystemColorsForCDE4", "([I[I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MotifColorUtilities, loadSystemColorsForCDE4, void, $ints*, $ints*), "java.lang.Exception"},
-	{"loadSystemColorsForCDE8", "([I[I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MotifColorUtilities, loadSystemColorsForCDE8, void, $ints*, $ints*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _MotifColorUtilities_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.MotifColorUtilities",
-	"java.lang.Object",
-	nullptr,
-	_MotifColorUtilities_FieldInfo_,
-	_MotifColorUtilities_MethodInfo_
-};
-
-$Object* allocate$MotifColorUtilities($Class* clazz) {
-	return $of($alloc(MotifColorUtilities));
-}
 
 float MotifColorUtilities::XmRED_LUMINOSITY = 0.0;
 float MotifColorUtilities::XmGREEN_LUMINOSITY = 0.0;
@@ -220,7 +153,7 @@ int32_t MotifColorUtilities::calculateTopShadowFromBackground(int32_t r, int32_t
 	int32_t ired = ($cast(int32_t, red)) >> 8;
 	int32_t igreen = ($cast(int32_t, green)) >> 8;
 	int32_t iblue = ($cast(int32_t, blue)) >> 8;
-	int32_t ret = (((int32_t)0xFF000000 | (ired << 16)) | (igreen << 8)) | iblue;
+	int32_t ret = (((int32_t)0xff000000 | (ired << 16)) | (igreen << 8)) | iblue;
 	return ret;
 }
 
@@ -270,7 +203,7 @@ int32_t MotifColorUtilities::calculateBottomShadowFromBackground(int32_t r, int3
 	int32_t ired = ($cast(int32_t, red)) >> 8;
 	int32_t igreen = ($cast(int32_t, green)) >> 8;
 	int32_t iblue = ($cast(int32_t, blue)) >> 8;
-	int32_t ret = (((int32_t)0xFF000000 | (ired << 16)) | (igreen << 8)) | iblue;
+	int32_t ret = (((int32_t)0xff000000 | (ired << 16)) | (igreen << 8)) | iblue;
 	return ret;
 }
 
@@ -320,13 +253,13 @@ int32_t MotifColorUtilities::calculateSelectFromBackground(int32_t r, int32_t g,
 	int32_t ired = ($cast(int32_t, red)) >> 8;
 	int32_t igreen = ($cast(int32_t, green)) >> 8;
 	int32_t iblue = ($cast(int32_t, blue)) >> 8;
-	int32_t ret = (((int32_t)0xFF000000 | (ired << 16)) | (igreen << 8)) | iblue;
+	int32_t ret = (((int32_t)0xff000000 | (ired << 16)) | (igreen << 8)) | iblue;
 	return ret;
 }
 
 void MotifColorUtilities::loadSystemColorsForCDE($ints* systemColors) {
 	$init(MotifColorUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XAtom, resourceManager, $XAtom::get("RESOURCE_MANAGER"_s));
 	$var($String, resourceString, $nc(resourceManager)->getProperty($XToolkit::getDefaultRootWindow()));
 	int32_t index = $nc(resourceString)->indexOf("ColorPalette:"_s);
@@ -357,11 +290,11 @@ void MotifColorUtilities::loadSystemColorsForCDE($ints* systemColors) {
 	$var($String, color, nullptr);
 	for (int32_t i = 0; i < 8; ++i) {
 		$assign(temp, bfr->readLine());
-		$assign(color, $nc(temp)->substring(1, temp->length()));
-		r = $nc($($Integer::valueOf($(color->substring(0, 4)), 16)))->intValue() >> 8;
-		g = $nc($($Integer::valueOf($(color->substring(4, 8)), 16)))->intValue() >> 8;
-		b = $nc($($Integer::valueOf($(color->substring(8, 12)), 16)))->intValue() >> 8;
-		colors->set(i, (((int32_t)0xFF000000 | (r << 16)) | (g << 8)) | b);
+		$assign(color, $nc(temp)->substring(1, $nc(temp)->length()));
+		r = $($Integer::valueOf($(color->substring(0, 4)), 16))->intValue() >> 8;
+		g = $($Integer::valueOf($(color->substring(4, 8)), 16))->intValue() >> 8;
+		b = $($Integer::valueOf($(color->substring(8, 12)), 16))->intValue() >> 8;
+		colors->set(i, (((int32_t)0xff000000 | (r << 16)) | (g << 8)) | b);
 	}
 	$init($OSInfo$OSType);
 	int32_t numOfColor = $OSInfo::getOSType() == $OSInfo$OSType::AIX ? 8 : 4;
@@ -390,7 +323,7 @@ void MotifColorUtilities::loadSystemColorsForCDE($ints* systemColors) {
 
 void MotifColorUtilities::loadSystemColorsForCDE4($ints* systemColors, $ints* colors) {
 	$init(MotifColorUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t r = 0;
 	int32_t g = 0;
 	int32_t b = 0;
@@ -407,19 +340,19 @@ void MotifColorUtilities::loadSystemColorsForCDE4($ints* systemColors, $ints* co
 	int32_t activeFore = 0;
 	int32_t inactiveFore = 0;
 	int32_t textFore = 0;
-	r = ((int32_t)(colors->get(0) & (uint32_t)0x00FF0000)) >> 16;
-	g = ((int32_t)(colors->get(0) & (uint32_t)0x0000FF00)) >> 8;
-	b = ((int32_t)(colors->get(0) & (uint32_t)255));
+	r = (colors->get(0) & 0x00ff0000) >> 0x10;
+	g = (colors->get(0) & 0xff00) >> 8;
+	b = (colors->get(0) & 0xff);
 	activeFore = MotifColorUtilities::calculateForegroundFromBackground(r, g, b);
-	r = ((int32_t)(colors->get(1) & (uint32_t)0x00FF0000)) >> 16;
-	g = ((int32_t)(colors->get(1) & (uint32_t)0x0000FF00)) >> 8;
-	b = ((int32_t)(colors->get(1) & (uint32_t)255));
+	r = (colors->get(1) & 0x00ff0000) >> 0x10;
+	g = (colors->get(1) & 0xff00) >> 8;
+	b = (colors->get(1) & 0xff);
 	inactiveFore = MotifColorUtilities::calculateForegroundFromBackground(r, g, b);
 	int32_t top_shadow = MotifColorUtilities::calculateTopShadowFromBackground(r, g, b);
 	int32_t bottom_shadow = MotifColorUtilities::calculateBottomShadowFromBackground(r, g, b);
-	r = ((int32_t)(colors->get(3) & (uint32_t)0x00FF0000)) >> 16;
-	g = ((int32_t)(colors->get(3) & (uint32_t)0x0000FF00)) >> 8;
-	b = ((int32_t)(colors->get(3) & (uint32_t)255));
+	r = (colors->get(3) & 0x00ff0000) >> 0x10;
+	g = (colors->get(3) & 0xff00) >> 8;
+	b = (colors->get(3) & 0xff);
 	textFore = MotifColorUtilities::calculateForegroundFromBackground(r, g, b);
 	systemColors->set($SystemColor::ACTIVE_CAPTION_TEXT, activeFore);
 	systemColors->set($SystemColor::INACTIVE_CAPTION_TEXT, inactiveFore);
@@ -431,15 +364,15 @@ void MotifColorUtilities::loadSystemColorsForCDE4($ints* systemColors, $ints* co
 	systemColors->set($SystemColor::CONTROL_TEXT, inactiveFore);
 	$var($Color, tmp, $new($Color, top_shadow));
 	systemColors->set($SystemColor::CONTROL_HIGHLIGHT, top_shadow);
-	systemColors->set($SystemColor::CONTROL_LT_HIGHLIGHT, $nc($(tmp->brighter()))->getRGB());
+	systemColors->set($SystemColor::CONTROL_LT_HIGHLIGHT, $$nc(tmp->brighter())->getRGB());
 	$assign(tmp, $new($Color, bottom_shadow));
 	systemColors->set($SystemColor::CONTROL_SHADOW, bottom_shadow);
-	systemColors->set($SystemColor::CONTROL_DK_SHADOW, $nc($(tmp->darker()))->getRGB());
+	systemColors->set($SystemColor::CONTROL_DK_SHADOW, $$nc(tmp->darker())->getRGB());
 }
 
 void MotifColorUtilities::loadSystemColorsForCDE8($ints* systemColors, $ints* colors) {
 	$init(MotifColorUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t r = 0;
 	int32_t g = 0;
 	int32_t b = 0;
@@ -457,27 +390,27 @@ void MotifColorUtilities::loadSystemColorsForCDE8($ints* systemColors, $ints* co
 	int32_t activeFore = 0;
 	int32_t inactiveFore = 0;
 	int32_t textFore = 0;
-	r = ((int32_t)(colors->get(0) & (uint32_t)0x00FF0000)) >> 16;
-	g = ((int32_t)(colors->get(0) & (uint32_t)0x0000FF00)) >> 8;
-	b = ((int32_t)(colors->get(0) & (uint32_t)255));
+	r = (colors->get(0) & 0x00ff0000) >> 0x10;
+	g = (colors->get(0) & 0xff00) >> 8;
+	b = (colors->get(0) & 0xff);
 	activeFore = MotifColorUtilities::calculateForegroundFromBackground(r, g, b);
-	r = ((int32_t)(colors->get(1) & (uint32_t)0x00FF0000)) >> 16;
-	g = ((int32_t)(colors->get(1) & (uint32_t)0x0000FF00)) >> 8;
-	b = ((int32_t)(colors->get(1) & (uint32_t)255));
+	r = (colors->get(1) & 0x00ff0000) >> 0x10;
+	g = (colors->get(1) & 0xff00) >> 8;
+	b = (colors->get(1) & 0xff);
 	inactiveFore = MotifColorUtilities::calculateForegroundFromBackground(r, g, b);
-	r = ((int32_t)(colors->get(3) & (uint32_t)0x00FF0000)) >> 16;
-	g = ((int32_t)(colors->get(3) & (uint32_t)0x0000FF00)) >> 8;
-	b = ((int32_t)(colors->get(3) & (uint32_t)255));
+	r = (colors->get(3) & 0x00ff0000) >> 0x10;
+	g = (colors->get(3) & 0xff00) >> 8;
+	b = (colors->get(3) & 0xff);
 	textFore = MotifColorUtilities::calculateForegroundFromBackground(r, g, b);
-	r = ((int32_t)(colors->get(4) & (uint32_t)0x00FF0000)) >> 16;
-	g = ((int32_t)(colors->get(4) & (uint32_t)0x0000FF00)) >> 8;
-	b = ((int32_t)(colors->get(4) & (uint32_t)255));
+	r = (colors->get(4) & 0x00ff0000) >> 0x10;
+	g = (colors->get(4) & 0xff00) >> 8;
+	b = (colors->get(4) & 0xff);
 	int32_t windowFore = MotifColorUtilities::calculateForegroundFromBackground(r, g, b);
 	int32_t top_shadow = MotifColorUtilities::calculateTopShadowFromBackground(r, g, b);
 	int32_t bottom_shadow = MotifColorUtilities::calculateBottomShadowFromBackground(r, g, b);
-	r = ((int32_t)(colors->get(5) & (uint32_t)0x00FF0000)) >> 16;
-	g = ((int32_t)(colors->get(5) & (uint32_t)0x0000FF00)) >> 8;
-	b = ((int32_t)(colors->get(5) & (uint32_t)255));
+	r = (colors->get(5) & 0x00ff0000) >> 0x10;
+	g = (colors->get(5) & 0xff00) >> 8;
+	b = (colors->get(5) & 0xff);
 	int32_t menuFore = MotifColorUtilities::calculateForegroundFromBackground(r, g, b);
 	systemColors->set($SystemColor::ACTIVE_CAPTION_TEXT, activeFore);
 	systemColors->set($SystemColor::INACTIVE_CAPTION_TEXT, inactiveFore);
@@ -489,16 +422,16 @@ void MotifColorUtilities::loadSystemColorsForCDE8($ints* systemColors, $ints* co
 	systemColors->set($SystemColor::CONTROL_TEXT, windowFore);
 	$var($Color, tmp, $new($Color, top_shadow));
 	systemColors->set($SystemColor::CONTROL_HIGHLIGHT, top_shadow);
-	systemColors->set($SystemColor::CONTROL_LT_HIGHLIGHT, $nc($(tmp->brighter()))->getRGB());
+	systemColors->set($SystemColor::CONTROL_LT_HIGHLIGHT, $$nc(tmp->brighter())->getRGB());
 	$assign(tmp, $new($Color, bottom_shadow));
 	systemColors->set($SystemColor::CONTROL_SHADOW, bottom_shadow);
-	systemColors->set($SystemColor::CONTROL_DK_SHADOW, $nc($(tmp->darker()))->getRGB());
+	systemColors->set($SystemColor::CONTROL_DK_SHADOW, $$nc(tmp->darker())->getRGB());
 	systemColors->set($SystemColor::INFO_TEXT, windowFore);
 }
 
 void MotifColorUtilities::loadMotifDefaultColors($ints* systemColors) {
 	$init(MotifColorUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(systemColors)->set($SystemColor::WINDOW, MotifColorUtilities::MOTIF_WINDOW_COLOR);
 	systemColors->set($SystemColor::TEXT, MotifColorUtilities::WHITE);
 	systemColors->set($SystemColor::WINDOW_TEXT, MotifColorUtilities::BLACK);
@@ -513,24 +446,24 @@ void MotifColorUtilities::loadMotifDefaultColors($ints* systemColors) {
 	systemColors->set($SystemColor::MENU, MotifColorUtilities::DEFAULT_COLOR);
 	systemColors->set($SystemColor::SCROLLBAR, MotifColorUtilities::DEFAULT_COLOR);
 	systemColors->set($SystemColor::CONTROL, MotifColorUtilities::MOTIF_WINDOW_COLOR);
-	int32_t r = ((int32_t)(MotifColorUtilities::DEFAULT_COLOR & (uint32_t)0x00FF0000)) >> 16;
-	int32_t g = ((int32_t)(MotifColorUtilities::DEFAULT_COLOR & (uint32_t)0x0000FF00)) >> 8;
-	int32_t b = ((int32_t)(MotifColorUtilities::DEFAULT_COLOR & (uint32_t)255));
+	int32_t r = (MotifColorUtilities::DEFAULT_COLOR & 0x00ff0000) >> 0x10;
+	int32_t g = (MotifColorUtilities::DEFAULT_COLOR & 0xff00) >> 8;
+	int32_t b = (MotifColorUtilities::DEFAULT_COLOR & 0xff);
 	int32_t top_shadow = MotifColorUtilities::calculateTopShadowFromBackground(r, g, b);
 	int32_t bottom_shadow = MotifColorUtilities::calculateBottomShadowFromBackground(r, g, b);
 	$var($Color, tmp, $new($Color, top_shadow));
 	systemColors->set($SystemColor::CONTROL_HIGHLIGHT, top_shadow);
-	systemColors->set($SystemColor::CONTROL_LT_HIGHLIGHT, $nc($(tmp->brighter()))->getRGB());
+	systemColors->set($SystemColor::CONTROL_LT_HIGHLIGHT, $$nc(tmp->brighter())->getRGB());
 	$assign(tmp, $new($Color, bottom_shadow));
 	systemColors->set($SystemColor::CONTROL_SHADOW, bottom_shadow);
-	systemColors->set($SystemColor::CONTROL_DK_SHADOW, $nc($(tmp->darker()))->getRGB());
+	systemColors->set($SystemColor::CONTROL_DK_SHADOW, $$nc(tmp->darker())->getRGB());
 }
 
 void MotifColorUtilities::loadSystemColors($ints* systemColors) {
 	$init(MotifColorUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	if ("Linux"_s->equals($($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "os.name"_s)))))) {
+	if ("Linux"_s->equals($($AccessController::doPrivileged($$new($GetPropertyAction, "os.name"_s))))) {
 		loadMotifDefaultColors(systemColors);
 	} else {
 		try {
@@ -544,14 +477,71 @@ void MotifColorUtilities::loadSystemColors($ints* systemColors) {
 MotifColorUtilities::MotifColorUtilities() {
 }
 
-void clinit$MotifColorUtilities($Class* class$) {
+void MotifColorUtilities::clinit$($Class* clazz) {
 	MotifColorUtilities::XmRED_LUMINOSITY = 0.3f;
 	MotifColorUtilities::XmGREEN_LUMINOSITY = 0.59f;
 	MotifColorUtilities::XmBLUE_LUMINOSITY = 0.11f;
 }
 
 $Class* MotifColorUtilities::load$($String* name, bool initialize) {
-	$loadClass(MotifColorUtilities, name, initialize, &_MotifColorUtilities_ClassInfo_, clinit$MotifColorUtilities, allocate$MotifColorUtilities);
+	$FieldInfo fieldInfos$$[] = {
+		{"XmRED_LUMINOSITY", "F", nullptr, $STATIC | $FINAL, $staticField(MotifColorUtilities, XmRED_LUMINOSITY)},
+		{"XmGREEN_LUMINOSITY", "F", nullptr, $STATIC | $FINAL, $staticField(MotifColorUtilities, XmGREEN_LUMINOSITY)},
+		{"XmBLUE_LUMINOSITY", "F", nullptr, $STATIC | $FINAL, $staticField(MotifColorUtilities, XmBLUE_LUMINOSITY)},
+		{"XmINTENSITY_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmINTENSITY_FACTOR)},
+		{"XmLIGHT_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmLIGHT_FACTOR)},
+		{"XmLUMINOSITY_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmLUMINOSITY_FACTOR)},
+		{"XmMAX_SHORT", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmMAX_SHORT)},
+		{"XmCOLOR_PERCENTILE", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_PERCENTILE)},
+		{"XmDEFAULT_DARK_THRESHOLD", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmDEFAULT_DARK_THRESHOLD)},
+		{"XmDEFAULT_LIGHT_THRESHOLD", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmDEFAULT_LIGHT_THRESHOLD)},
+		{"XmDEFAULT_FOREGROUND_THRESHOLD", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmDEFAULT_FOREGROUND_THRESHOLD)},
+		{"BLACK", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, BLACK)},
+		{"WHITE", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, WHITE)},
+		{"MOTIF_WINDOW_COLOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, MOTIF_WINDOW_COLOR)},
+		{"DEFAULT_COLOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, DEFAULT_COLOR)},
+		{"XmCOLOR_LITE_THRESHOLD", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_LITE_THRESHOLD)},
+		{"XmCOLOR_DARK_THRESHOLD", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_DARK_THRESHOLD)},
+		{"XmFOREGROUND_THRESHOLD", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmFOREGROUND_THRESHOLD)},
+		{"XmCOLOR_LITE_SEL_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_LITE_SEL_FACTOR)},
+		{"XmCOLOR_LITE_BS_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_LITE_BS_FACTOR)},
+		{"XmCOLOR_LITE_TS_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_LITE_TS_FACTOR)},
+		{"XmCOLOR_DARK_SEL_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_DARK_SEL_FACTOR)},
+		{"XmCOLOR_DARK_BS_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_DARK_BS_FACTOR)},
+		{"XmCOLOR_DARK_TS_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_DARK_TS_FACTOR)},
+		{"XmCOLOR_HI_SEL_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_HI_SEL_FACTOR)},
+		{"XmCOLOR_HI_BS_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_HI_BS_FACTOR)},
+		{"XmCOLOR_HI_TS_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_HI_TS_FACTOR)},
+		{"XmCOLOR_LO_SEL_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_LO_SEL_FACTOR)},
+		{"XmCOLOR_LO_BS_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_LO_BS_FACTOR)},
+		{"XmCOLOR_LO_TS_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(MotifColorUtilities, XmCOLOR_LO_TS_FACTOR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MotifColorUtilities, init$, void)},
+		{"brightness", "(III)I", nullptr, $STATIC, $staticMethod(MotifColorUtilities, brightness, int32_t, int32_t, int32_t, int32_t)},
+		{"calculateBottomShadowFromBackground", "(III)I", nullptr, $STATIC, $staticMethod(MotifColorUtilities, calculateBottomShadowFromBackground, int32_t, int32_t, int32_t, int32_t)},
+		{"calculateForegroundFromBackground", "(III)I", nullptr, $STATIC, $staticMethod(MotifColorUtilities, calculateForegroundFromBackground, int32_t, int32_t, int32_t, int32_t)},
+		{"calculateSelectFromBackground", "(III)I", nullptr, $STATIC, $staticMethod(MotifColorUtilities, calculateSelectFromBackground, int32_t, int32_t, int32_t, int32_t)},
+		{"calculateTopShadowFromBackground", "(III)I", nullptr, $STATIC, $staticMethod(MotifColorUtilities, calculateTopShadowFromBackground, int32_t, int32_t, int32_t, int32_t)},
+		{"loadMotifDefaultColors", "([I)V", nullptr, $STATIC, $staticMethod(MotifColorUtilities, loadMotifDefaultColors, void, $ints*)},
+		{"loadSystemColors", "([I)V", nullptr, $STATIC, $staticMethod(MotifColorUtilities, loadSystemColors, void, $ints*)},
+		{"loadSystemColorsForCDE", "([I)V", nullptr, $STATIC, $staticMethod(MotifColorUtilities, loadSystemColorsForCDE, void, $ints*), "java.lang.Exception"},
+		{"loadSystemColorsForCDE4", "([I[I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MotifColorUtilities, loadSystemColorsForCDE4, void, $ints*, $ints*), "java.lang.Exception"},
+		{"loadSystemColorsForCDE8", "([I[I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MotifColorUtilities, loadSystemColorsForCDE8, void, $ints*, $ints*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.MotifColorUtilities",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MotifColorUtilities, name, initialize, &classInfo$$, MotifColorUtilities::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MotifColorUtilities);
+	});
 	return class$;
 }
 

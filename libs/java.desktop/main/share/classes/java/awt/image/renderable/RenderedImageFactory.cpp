@@ -1,5 +1,4 @@
 #include <java/awt/image/renderable/RenderedImageFactory.h>
-
 #include <java/awt/RenderingHints.h>
 #include <java/awt/image/RenderedImage.h>
 #include <java/awt/image/renderable/ParameterBlock.h>
@@ -16,26 +15,22 @@ namespace java {
 		namespace image {
 			namespace renderable {
 
-$MethodInfo _RenderedImageFactory_MethodInfo_[] = {
-	{"create", "(Ljava/awt/image/renderable/ParameterBlock;Ljava/awt/RenderingHints;)Ljava/awt/image/RenderedImage;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RenderedImageFactory, create, $RenderedImage*, $ParameterBlock*, $RenderingHints*)},
-	{}
-};
-
-$ClassInfo _RenderedImageFactory_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.image.renderable.RenderedImageFactory",
-	nullptr,
-	nullptr,
-	nullptr,
-	_RenderedImageFactory_MethodInfo_
-};
-
-$Object* allocate$RenderedImageFactory($Class* clazz) {
-	return $of($alloc(RenderedImageFactory));
-}
-
 $Class* RenderedImageFactory::load$($String* name, bool initialize) {
-	$loadClass(RenderedImageFactory, name, initialize, &_RenderedImageFactory_ClassInfo_, allocate$RenderedImageFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"create", "(Ljava/awt/image/renderable/ParameterBlock;Ljava/awt/RenderingHints;)Ljava/awt/image/RenderedImage;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RenderedImageFactory, create, $RenderedImage*, $ParameterBlock*, $RenderingHints*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.image.renderable.RenderedImageFactory",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RenderedImageFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RenderedImageFactory);
+	});
 	return class$;
 }
 

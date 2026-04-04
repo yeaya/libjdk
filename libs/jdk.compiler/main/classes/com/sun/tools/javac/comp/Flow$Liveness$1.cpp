@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Flow$Liveness$1.h>
-
 #include <com/sun/tools/javac/comp/Flow$Liveness.h>
 #include <jcpp.h>
 
@@ -14,45 +13,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$MethodInfo _Flow$Liveness$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Flow$Liveness$1, init$, void, $String*, int32_t)},
-	{"and", "(Lcom/sun/tools/javac/comp/Flow$Liveness;)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC, $virtualMethod(Flow$Liveness$1, and$, $Flow$Liveness*, $Flow$Liveness*)},
-	{"or", "(Lcom/sun/tools/javac/comp/Flow$Liveness;)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC, $virtualMethod(Flow$Liveness$1, or$, $Flow$Liveness*, $Flow$Liveness*)},
-	{}
-};
-
-$EnclosingMethodInfo _Flow$Liveness$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Flow$Liveness",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Flow$Liveness$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Flow$Liveness", "com.sun.tools.javac.comp.Flow", "Liveness", $STATIC | $ABSTRACT | $ENUM},
-	{"com.sun.tools.javac.comp.Flow$Liveness$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Flow$Liveness$1_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.comp.Flow$Liveness$1",
-	"com.sun.tools.javac.comp.Flow$Liveness",
-	nullptr,
-	nullptr,
-	_Flow$Liveness$1_MethodInfo_,
-	nullptr,
-	&_Flow$Liveness$1_EnclosingMethodInfo_,
-	_Flow$Liveness$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Flow"
-};
-
-$Object* allocate$Flow$Liveness$1($Class* clazz) {
-	return $of($alloc(Flow$Liveness$1));
-}
 
 void Flow$Liveness$1::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Flow$Liveness::init$($enum$name, $enum$ordinal);
@@ -70,7 +30,40 @@ Flow$Liveness$1::Flow$Liveness$1() {
 }
 
 $Class* Flow$Liveness$1::load$($String* name, bool initialize) {
-	$loadClass(Flow$Liveness$1, name, initialize, &_Flow$Liveness$1_ClassInfo_, allocate$Flow$Liveness$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Flow$Liveness$1, init$, void, $String*, int32_t)},
+		{"and", "(Lcom/sun/tools/javac/comp/Flow$Liveness;)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC, $virtualMethod(Flow$Liveness$1, and$, $Flow$Liveness*, $Flow$Liveness*)},
+		{"or", "(Lcom/sun/tools/javac/comp/Flow$Liveness;)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC, $virtualMethod(Flow$Liveness$1, or$, $Flow$Liveness*, $Flow$Liveness*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Flow$Liveness",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Flow$Liveness", "com.sun.tools.javac.comp.Flow", "Liveness", $STATIC | $ABSTRACT | $ENUM},
+		{"com.sun.tools.javac.comp.Flow$Liveness$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.comp.Flow$Liveness$1",
+		"com.sun.tools.javac.comp.Flow$Liveness",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Flow"
+	};
+	$loadClass(Flow$Liveness$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Flow$Liveness$1));
+	});
 	return class$;
 }
 

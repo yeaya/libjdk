@@ -14,10 +14,13 @@ public:
 	IllegalComponentStateException();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0xE5C7B7A7D4601A92;
+	static const int64_t serialVersionUID = (int64_t)0xe5c7b7a7d4601a92;
 	IllegalComponentStateException(const IllegalComponentStateException& e);
 	virtual void throw$() override;
-	inline IllegalComponentStateException* operator ->() {
+	inline IllegalComponentStateException* operator ->() const {
+		return (IllegalComponentStateException*)throwing$;
+	}
+	inline operator IllegalComponentStateException*() const {
 		return (IllegalComponentStateException*)throwing$;
 	}
 };

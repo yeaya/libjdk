@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaUtils$2.h>
-
 #include <com/apple/laf/AquaUtils$IconImageFilter.h>
 #include <com/apple/laf/AquaUtils.h>
 #include <jcpp.h>
@@ -14,44 +13,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaUtils$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AquaUtils$2, init$, void)},
-	{"getGreyFor", "(I)I", nullptr, 0, $virtualMethod(AquaUtils$2, getGreyFor, int32_t, int32_t)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaUtils$2_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaUtils",
-	"generateDisabledImage",
-	"(Ljava/awt/Image;)Ljava/awt/Image;"
-};
-
-$InnerClassInfo _AquaUtils$2_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaUtils$2", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaUtils$IconImageFilter", "com.apple.laf.AquaUtils", "IconImageFilter", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaUtils$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaUtils$2",
-	"com.apple.laf.AquaUtils$IconImageFilter",
-	nullptr,
-	nullptr,
-	_AquaUtils$2_MethodInfo_,
-	nullptr,
-	&_AquaUtils$2_EnclosingMethodInfo_,
-	_AquaUtils$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaUtils"
-};
-
-$Object* allocate$AquaUtils$2($Class* clazz) {
-	return $of($alloc(AquaUtils$2));
-}
-
 void AquaUtils$2::init$() {
 	$AquaUtils$IconImageFilter::init$();
 }
@@ -64,7 +25,39 @@ AquaUtils$2::AquaUtils$2() {
 }
 
 $Class* AquaUtils$2::load$($String* name, bool initialize) {
-	$loadClass(AquaUtils$2, name, initialize, &_AquaUtils$2_ClassInfo_, allocate$AquaUtils$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AquaUtils$2, init$, void)},
+		{"getGreyFor", "(I)I", nullptr, 0, $virtualMethod(AquaUtils$2, getGreyFor, int32_t, int32_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaUtils",
+		"generateDisabledImage",
+		"(Ljava/awt/Image;)Ljava/awt/Image;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaUtils$2", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaUtils$IconImageFilter", "com.apple.laf.AquaUtils", "IconImageFilter", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaUtils$2",
+		"com.apple.laf.AquaUtils$IconImageFilter",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaUtils"
+	};
+	$loadClass(AquaUtils$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaUtils$2));
+	});
 	return class$;
 }
 

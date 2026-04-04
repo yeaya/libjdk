@@ -28,6 +28,7 @@ class DrawParallelogram : public ::sun::java2d::loops::GraphicsPrimitive {
 	$class(DrawParallelogram, 0, ::sun::java2d::loops::GraphicsPrimitive)
 public:
 	DrawParallelogram();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::java2d::loops::SurfaceType* srctype, ::sun::java2d::loops::CompositeType* comptype, ::sun::java2d::loops::SurfaceType* dsttype);
 	void init$(int64_t pNativePrim, ::sun::java2d::loops::SurfaceType* srctype, ::sun::java2d::loops::CompositeType* comptype, ::sun::java2d::loops::SurfaceType* dsttype);
 	virtual void DrawParallelogram$(::sun::java2d::SunGraphics2D* sg, ::sun::java2d::SurfaceData* dest, double x, double y, double dx1, double dy1, double dx2, double dy2, double lw1, double lw2);

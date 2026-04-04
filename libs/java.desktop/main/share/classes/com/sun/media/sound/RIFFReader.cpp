@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/RIFFReader.h>
-
 #include <java/io/EOFException.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -26,67 +25,15 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _RIFFReader_FieldInfo_[] = {
-	{"root", "Lcom/sun/media/sound/RIFFReader;", nullptr, $PRIVATE | $FINAL, $field(RIFFReader, root)},
-	{"filepointer", "J", nullptr, $PRIVATE, $field(RIFFReader, filepointer)},
-	{"fourcc", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(RIFFReader, fourcc)},
-	{"riff_type", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RIFFReader, riff_type)},
-	{"ckSize", "J", nullptr, $PRIVATE | $FINAL, $field(RIFFReader, ckSize)},
-	{"stream", "Ljava/io/InputStream;", nullptr, $PRIVATE | $FINAL, $field(RIFFReader, stream)},
-	{"avail", "J", nullptr, $PRIVATE, $field(RIFFReader, avail)},
-	{"lastiterator", "Lcom/sun/media/sound/RIFFReader;", nullptr, $PRIVATE, $field(RIFFReader, lastiterator)},
-	{}
-};
-
-$MethodInfo _RIFFReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(RIFFReader, init$, void, $InputStream*), "java.io.IOException"},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(RIFFReader, available, int32_t)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(RIFFReader, close, void), "java.io.IOException"},
-	{"finish", "()V", nullptr, $PUBLIC, $method(RIFFReader, finish, void), "java.io.IOException"},
-	{"getFilePointer", "()J", nullptr, $PUBLIC, $method(RIFFReader, getFilePointer, int64_t), "java.io.IOException"},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(RIFFReader, getFormat, $String*)},
-	{"getSize", "()J", nullptr, $PUBLIC, $method(RIFFReader, getSize, int64_t)},
-	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(RIFFReader, getType, $String*)},
-	{"hasNextChunk", "()Z", nullptr, $PUBLIC, $method(RIFFReader, hasNextChunk, bool), "java.io.IOException"},
-	{"nextChunk", "()Lcom/sun/media/sound/RIFFReader;", nullptr, $PUBLIC, $method(RIFFReader, nextChunk, RIFFReader*), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(RIFFReader, read, int32_t), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(RIFFReader, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"readByte", "()B", nullptr, $PUBLIC, $method(RIFFReader, readByte, int8_t), "java.io.IOException"},
-	{"readFully", "([B)V", nullptr, $PUBLIC, $method(RIFFReader, readFully, void, $bytes*), "java.io.IOException"},
-	{"readFully", "([BII)V", nullptr, $PUBLIC, $method(RIFFReader, readFully, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"readInt", "()I", nullptr, $PUBLIC, $method(RIFFReader, readInt, int32_t), "java.io.IOException"},
-	{"readLong", "()J", nullptr, $PUBLIC, $method(RIFFReader, readLong, int64_t), "java.io.IOException"},
-	{"readShort", "()S", nullptr, $PUBLIC, $method(RIFFReader, readShort, int16_t), "java.io.IOException"},
-	{"readString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $method(RIFFReader, readString, $String*, int32_t), "java.io.IOException"},
-	{"readUnsignedByte", "()I", nullptr, $PUBLIC, $method(RIFFReader, readUnsignedByte, int32_t), "java.io.IOException"},
-	{"readUnsignedInt", "()J", nullptr, $PUBLIC, $method(RIFFReader, readUnsignedInt, int64_t), "java.io.IOException"},
-	{"readUnsignedShort", "()I", nullptr, $PUBLIC, $method(RIFFReader, readUnsignedShort, int32_t), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(RIFFReader, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _RIFFReader_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.RIFFReader",
-	"java.io.InputStream",
-	nullptr,
-	_RIFFReader_FieldInfo_,
-	_RIFFReader_MethodInfo_
-};
-
-$Object* allocate$RIFFReader($Class* clazz) {
-	return $of($alloc(RIFFReader));
-}
-
 void RIFFReader::init$($InputStream* stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$InputStream::init$();
 	this->filepointer = 0;
 	$set(this, riff_type, nullptr);
-	this->avail = 0x00000000FFFFFFFF;
+	this->avail = (int64_t)0x00000000ffffffff;
 	$set(this, lastiterator, nullptr);
 	if ($instanceOf(RIFFReader, stream)) {
-		$set(this, root, $nc(($cast(RIFFReader, stream)))->root);
+		$set(this, root, $cast(RIFFReader, stream)->root);
 	} else {
 		$set(this, root, this);
 	}
@@ -111,8 +58,8 @@ void RIFFReader::init$($InputStream* stream) {
 	$set(this, fourcc, $new($String, fourcc, "ascii"_s));
 	this->ckSize = readUnsignedInt();
 	this->avail = this->ckSize;
-	bool var$0 = $nc($(getFormat()))->equals("RIFF"_s);
-	if (var$0 || $nc($(getFormat()))->equals("LIST"_s)) {
+	bool var$0 = $$nc(getFormat())->equals("RIFF"_s);
+	if (var$0 || $$nc(getFormat())->equals("LIST"_s)) {
 		$var($bytes, format, $new($bytes, 4));
 		readFully(format);
 		$set(this, riff_type, $new($String, format, "ascii"_s));
@@ -125,14 +72,14 @@ int64_t RIFFReader::getFilePointer() {
 
 bool RIFFReader::hasNextChunk() {
 	if (this->lastiterator != nullptr) {
-		$nc(this->lastiterator)->finish();
+		this->lastiterator->finish();
 	}
 	return this->avail != 0;
 }
 
 RIFFReader* RIFFReader::nextChunk() {
 	if (this->lastiterator != nullptr) {
-		$nc(this->lastiterator)->finish();
+		this->lastiterator->finish();
 	}
 	if (this->avail == 0) {
 		return nullptr;
@@ -220,7 +167,7 @@ int64_t RIFFReader::skip(int64_t n) {
 		int64_t ret = $Math::min($nc(this->stream)->skip(remaining), remaining);
 		if (ret == 0) {
 			$Thread::yield();
-			if ($nc(this->stream)->read() == -1) {
+			if (this->stream->read() == -1) {
 				this->avail = 0;
 				break;
 			}
@@ -387,7 +334,54 @@ RIFFReader::RIFFReader() {
 }
 
 $Class* RIFFReader::load$($String* name, bool initialize) {
-	$loadClass(RIFFReader, name, initialize, &_RIFFReader_ClassInfo_, allocate$RIFFReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"root", "Lcom/sun/media/sound/RIFFReader;", nullptr, $PRIVATE | $FINAL, $field(RIFFReader, root)},
+		{"filepointer", "J", nullptr, $PRIVATE, $field(RIFFReader, filepointer)},
+		{"fourcc", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(RIFFReader, fourcc)},
+		{"riff_type", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RIFFReader, riff_type)},
+		{"ckSize", "J", nullptr, $PRIVATE | $FINAL, $field(RIFFReader, ckSize)},
+		{"stream", "Ljava/io/InputStream;", nullptr, $PRIVATE | $FINAL, $field(RIFFReader, stream)},
+		{"avail", "J", nullptr, $PRIVATE, $field(RIFFReader, avail)},
+		{"lastiterator", "Lcom/sun/media/sound/RIFFReader;", nullptr, $PRIVATE, $field(RIFFReader, lastiterator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(RIFFReader, init$, void, $InputStream*), "java.io.IOException"},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(RIFFReader, available, int32_t)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(RIFFReader, close, void), "java.io.IOException"},
+		{"finish", "()V", nullptr, $PUBLIC, $method(RIFFReader, finish, void), "java.io.IOException"},
+		{"getFilePointer", "()J", nullptr, $PUBLIC, $method(RIFFReader, getFilePointer, int64_t), "java.io.IOException"},
+		{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(RIFFReader, getFormat, $String*)},
+		{"getSize", "()J", nullptr, $PUBLIC, $method(RIFFReader, getSize, int64_t)},
+		{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(RIFFReader, getType, $String*)},
+		{"hasNextChunk", "()Z", nullptr, $PUBLIC, $method(RIFFReader, hasNextChunk, bool), "java.io.IOException"},
+		{"nextChunk", "()Lcom/sun/media/sound/RIFFReader;", nullptr, $PUBLIC, $method(RIFFReader, nextChunk, RIFFReader*), "java.io.IOException"},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(RIFFReader, read, int32_t), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(RIFFReader, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"readByte", "()B", nullptr, $PUBLIC, $method(RIFFReader, readByte, int8_t), "java.io.IOException"},
+		{"readFully", "([B)V", nullptr, $PUBLIC, $method(RIFFReader, readFully, void, $bytes*), "java.io.IOException"},
+		{"readFully", "([BII)V", nullptr, $PUBLIC, $method(RIFFReader, readFully, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"readInt", "()I", nullptr, $PUBLIC, $method(RIFFReader, readInt, int32_t), "java.io.IOException"},
+		{"readLong", "()J", nullptr, $PUBLIC, $method(RIFFReader, readLong, int64_t), "java.io.IOException"},
+		{"readShort", "()S", nullptr, $PUBLIC, $method(RIFFReader, readShort, int16_t), "java.io.IOException"},
+		{"readString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $method(RIFFReader, readString, $String*, int32_t), "java.io.IOException"},
+		{"readUnsignedByte", "()I", nullptr, $PUBLIC, $method(RIFFReader, readUnsignedByte, int32_t), "java.io.IOException"},
+		{"readUnsignedInt", "()J", nullptr, $PUBLIC, $method(RIFFReader, readUnsignedInt, int64_t), "java.io.IOException"},
+		{"readUnsignedShort", "()I", nullptr, $PUBLIC, $method(RIFFReader, readUnsignedShort, int32_t), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(RIFFReader, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.RIFFReader",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RIFFReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RIFFReader);
+	});
 	return class$;
 }
 

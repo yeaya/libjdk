@@ -1,5 +1,4 @@
 #include <sun/awt/dnd/SunDropTargetContextPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTPermission.h>
 #include <java/awt/Component.h>
@@ -53,7 +52,6 @@
 #undef STATUS_WAIT
 
 using $DataFlavorArray = $Array<::java::awt::datatransfer::DataFlavor>;
-using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
 using $Point = ::java::awt::Point;
 using $DataFlavor = ::java::awt::datatransfer::DataFlavor;
@@ -78,8 +76,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $Thread$UncaughtExceptionHandler = ::java::lang::Thread$UncaughtExceptionHandler;
-using $Permission = ::java::security::Permission;
 using $Map = ::java::util::Map;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
 using $AWTAccessor$DropTargetContextAccessor = ::sun::awt::AWTAccessor$DropTargetContextAccessor;
@@ -87,7 +83,6 @@ using $AWTPermissions = ::sun::awt::AWTPermissions;
 using $AppContext = ::sun::awt::AppContext;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $DataTransferer = ::sun::awt::datatransfer::DataTransferer;
-using $ToolkitThreadBlockedHandler = ::sun::awt::datatransfer::ToolkitThreadBlockedHandler;
 using $SunDropTargetContextPeer$EventDispatcher = ::sun::awt::dnd::SunDropTargetContextPeer$EventDispatcher;
 using $SunDropTargetEvent = ::sun::awt::dnd::SunDropTargetEvent;
 using $PlatformLogger = ::sun::util::logging::PlatformLogger;
@@ -95,95 +90,6 @@ using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 namespace sun {
 	namespace awt {
 		namespace dnd {
-
-$FieldInfo _SunDropTargetContextPeer_FieldInfo_[] = {
-	{"DISPATCH_SYNC", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunDropTargetContextPeer, DISPATCH_SYNC)},
-	{"currentDT", "Ljava/awt/dnd/DropTarget;", nullptr, $PRIVATE, $field(SunDropTargetContextPeer, currentDT)},
-	{"currentDTC", "Ljava/awt/dnd/DropTargetContext;", nullptr, $PRIVATE, $field(SunDropTargetContextPeer, currentDTC)},
-	{"currentT", "[J", nullptr, $PRIVATE, $field(SunDropTargetContextPeer, currentT)},
-	{"currentA", "I", nullptr, $PRIVATE, $field(SunDropTargetContextPeer, currentA)},
-	{"currentSA", "I", nullptr, $PRIVATE, $field(SunDropTargetContextPeer, currentSA)},
-	{"currentDA", "I", nullptr, $PRIVATE, $field(SunDropTargetContextPeer, currentDA)},
-	{"previousDA", "I", nullptr, $PRIVATE, $field(SunDropTargetContextPeer, previousDA)},
-	{"nativeDragContext", "J", nullptr, $PRIVATE, $field(SunDropTargetContextPeer, nativeDragContext)},
-	{"local", "Ljava/awt/datatransfer/Transferable;", nullptr, $PRIVATE, $field(SunDropTargetContextPeer, local)},
-	{"dragRejected", "Z", nullptr, $PRIVATE, $field(SunDropTargetContextPeer, dragRejected)},
-	{"dropStatus", "I", nullptr, $PROTECTED, $field(SunDropTargetContextPeer, dropStatus)},
-	{"dropComplete", "Z", nullptr, $PROTECTED, $field(SunDropTargetContextPeer, dropComplete$)},
-	{"dropInProcess", "Z", nullptr, 0, $field(SunDropTargetContextPeer, dropInProcess)},
-	{"_globalLock", "Ljava/lang/Object;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SunDropTargetContextPeer, _globalLock)},
-	{"dndLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunDropTargetContextPeer, dndLog)},
-	{"currentJVMLocalSourceTransferable", "Ljava/awt/datatransfer/Transferable;", nullptr, $PROTECTED | $STATIC, $staticField(SunDropTargetContextPeer, currentJVMLocalSourceTransferable)},
-	{"STATUS_NONE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SunDropTargetContextPeer, STATUS_NONE)},
-	{"STATUS_WAIT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SunDropTargetContextPeer, STATUS_WAIT)},
-	{"STATUS_ACCEPT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SunDropTargetContextPeer, STATUS_ACCEPT)},
-	{"STATUS_REJECT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SunDropTargetContextPeer, STATUS_REJECT)},
-	{}
-};
-
-$MethodInfo _SunDropTargetContextPeer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SunDropTargetContextPeer, init$, void)},
-	{"acceptDrag", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunDropTargetContextPeer, acceptDrag, void, int32_t)},
-	{"acceptDrop", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunDropTargetContextPeer, acceptDrop, void, int32_t)},
-	{"doDropDone", "(ZIZ)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SunDropTargetContextPeer, doDropDone, void, bool, int32_t, bool)},
-	{"dropComplete", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunDropTargetContextPeer, dropComplete, void, bool)},
-	{"eventPosted", "(Lsun/awt/dnd/SunDropTargetEvent;)V", nullptr, $PROTECTED, $virtualMethod(SunDropTargetContextPeer, eventPosted, void, $SunDropTargetEvent*)},
-	{"eventProcessed", "(Lsun/awt/dnd/SunDropTargetEvent;IZ)V", nullptr, $PROTECTED, $virtualMethod(SunDropTargetContextPeer, eventProcessed, void, $SunDropTargetEvent*, int32_t, bool)},
-	{"getDropTarget", "()Ljava/awt/dnd/DropTarget;", nullptr, $PUBLIC, $virtualMethod(SunDropTargetContextPeer, getDropTarget, $DropTarget*)},
-	{"getJVMLocalSourceTransferable", "()Ljava/awt/datatransfer/Transferable;", nullptr, $PRIVATE | $STATIC, $staticMethod(SunDropTargetContextPeer, getJVMLocalSourceTransferable, $Transferable*)},
-	{"getNativeData", "(J)Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SunDropTargetContextPeer, getNativeData, $Object*, int64_t), "java.io.IOException"},
-	{"getNativeDragContext", "()J", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(SunDropTargetContextPeer, getNativeDragContext, int64_t)},
-	{"getTargetActions", "()I", nullptr, $PUBLIC, $virtualMethod(SunDropTargetContextPeer, getTargetActions, int32_t)},
-	{"getTransferData", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SunDropTargetContextPeer, getTransferData, $Object*, $DataFlavor*), "java.awt.datatransfer.UnsupportedFlavorException,java.io.IOException,java.awt.dnd.InvalidDnDOperationException"},
-	{"getTransferDataFlavors", "()[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC, $virtualMethod(SunDropTargetContextPeer, getTransferDataFlavors, $DataFlavorArray*)},
-	{"getTransferable", "()Ljava/awt/datatransfer/Transferable;", nullptr, $PUBLIC, $virtualMethod(SunDropTargetContextPeer, getTransferable, $Transferable*)},
-	{"handleDropMessage", "(Ljava/awt/Component;IIII[JJ)V", nullptr, $PRIVATE, $method(SunDropTargetContextPeer, handleDropMessage, void, $Component*, int32_t, int32_t, int32_t, int32_t, $longs*, int64_t)},
-	{"handleEnterMessage", "(Ljava/awt/Component;IIII[JJ)I", nullptr, $PRIVATE, $method(SunDropTargetContextPeer, handleEnterMessage, int32_t, $Component*, int32_t, int32_t, int32_t, int32_t, $longs*, int64_t)},
-	{"handleExitMessage", "(Ljava/awt/Component;J)V", nullptr, $PRIVATE, $method(SunDropTargetContextPeer, handleExitMessage, void, $Component*, int64_t)},
-	{"handleMotionMessage", "(Ljava/awt/Component;IIII[JJ)I", nullptr, $PRIVATE, $method(SunDropTargetContextPeer, handleMotionMessage, int32_t, $Component*, int32_t, int32_t, int32_t, int32_t, $longs*, int64_t)},
-	{"isDataFlavorSupported", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(SunDropTargetContextPeer, isDataFlavorSupported, bool, $DataFlavor*)},
-	{"isTransferableJVMLocal", "()Z", nullptr, $PUBLIC, $virtualMethod(SunDropTargetContextPeer, isTransferableJVMLocal, bool)},
-	{"mapOperation", "(I)I", nullptr, $PRIVATE, $method(SunDropTargetContextPeer, mapOperation, int32_t, int32_t)},
-	{"postDropTargetEvent", "(Ljava/awt/Component;IIII[JJIZ)I", nullptr, $PROTECTED, $virtualMethod(SunDropTargetContextPeer, postDropTargetEvent, int32_t, $Component*, int32_t, int32_t, int32_t, int32_t, $longs*, int64_t, int32_t, bool)},
-	{"processDropMessage", "(Lsun/awt/dnd/SunDropTargetEvent;)V", nullptr, $PROTECTED, $virtualMethod(SunDropTargetContextPeer, processDropMessage, void, $SunDropTargetEvent*)},
-	{"processEnterMessage", "(Lsun/awt/dnd/SunDropTargetEvent;)V", nullptr, $PROTECTED, $virtualMethod(SunDropTargetContextPeer, processEnterMessage, void, $SunDropTargetEvent*)},
-	{"processExitMessage", "(Lsun/awt/dnd/SunDropTargetEvent;)V", nullptr, $PROTECTED, $virtualMethod(SunDropTargetContextPeer, processExitMessage, void, $SunDropTargetEvent*)},
-	{"processMotionMessage", "(Lsun/awt/dnd/SunDropTargetEvent;Z)V", nullptr, $PROTECTED, $virtualMethod(SunDropTargetContextPeer, processMotionMessage, void, $SunDropTargetEvent*, bool)},
-	{"rejectDrag", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunDropTargetContextPeer, rejectDrag, void)},
-	{"rejectDrop", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunDropTargetContextPeer, rejectDrop, void)},
-	{"setCurrentJVMLocalSourceTransferable", "(Ljava/awt/datatransfer/Transferable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunDropTargetContextPeer, setCurrentJVMLocalSourceTransferable, void, $Transferable*), "java.awt.dnd.InvalidDnDOperationException"},
-	{"setTargetActions", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunDropTargetContextPeer, setTargetActions, void, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SunDropTargetContextPeer_InnerClassesInfo_[] = {
-	{"sun.awt.dnd.SunDropTargetContextPeer$EventDispatcher", "sun.awt.dnd.SunDropTargetContextPeer", "EventDispatcher", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _SunDropTargetContextPeer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.awt.dnd.SunDropTargetContextPeer",
-	"java.lang.Object",
-	"java.awt.dnd.peer.DropTargetContextPeer,java.awt.datatransfer.Transferable",
-	_SunDropTargetContextPeer_FieldInfo_,
-	_SunDropTargetContextPeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SunDropTargetContextPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.dnd.SunDropTargetContextPeer$EventDispatcher"
-};
-
-$Object* allocate$SunDropTargetContextPeer($Class* clazz) {
-	return $of($alloc(SunDropTargetContextPeer));
-}
 
 int32_t SunDropTargetContextPeer::hashCode() {
 	 return this->$DropTargetContextPeer::hashCode();
@@ -238,7 +144,7 @@ $DropTarget* SunDropTargetContextPeer::getDropTarget() {
 
 void SunDropTargetContextPeer::setTargetActions(int32_t actions) {
 	$synchronized(this) {
-		this->currentA = (int32_t)(actions & (uint32_t)($DnDConstants::ACTION_COPY_OR_MOVE | $DnDConstants::ACTION_LINK));
+		this->currentA = actions & ($DnDConstants::ACTION_COPY_OR_MOVE | $DnDConstants::ACTION_LINK);
 	}
 }
 
@@ -251,27 +157,27 @@ $Transferable* SunDropTargetContextPeer::getTransferable() {
 }
 
 $DataFlavorArray* SunDropTargetContextPeer::getTransferDataFlavors() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Transferable, localTransferable, this->local);
 	if (localTransferable != nullptr) {
 		return localTransferable->getTransferDataFlavors();
 	} else {
-		return $nc($($DataTransferer::getInstance()))->getFlavorsForFormatsAsArray(this->currentT, $($DataTransferer::adaptFlavorMap($($nc(this->currentDT)->getFlavorMap()))));
+		return $$nc($DataTransferer::getInstance())->getFlavorsForFormatsAsArray(this->currentT, $($DataTransferer::adaptFlavorMap($($nc(this->currentDT)->getFlavorMap()))));
 	}
 }
 
 bool SunDropTargetContextPeer::isDataFlavorSupported($DataFlavor* df) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Transferable, localTransferable, this->local);
 	if (localTransferable != nullptr) {
 		return localTransferable->isDataFlavorSupported(df);
 	} else {
-		return $nc($($nc($($DataTransferer::getInstance()))->getFlavorsForFormats(this->currentT, $($DataTransferer::adaptFlavorMap($($nc(this->currentDT)->getFlavorMap()))))))->containsKey(df);
+		return $$nc($$nc($DataTransferer::getInstance())->getFlavorsForFormats(this->currentT, $($DataTransferer::adaptFlavorMap($($nc(this->currentDT)->getFlavorMap())))))->containsKey(df);
 	}
 }
 
 $Object* SunDropTargetContextPeer::getTransferData($DataFlavor* df) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	try {
 		if (!this->dropInProcess && sm != nullptr) {
@@ -280,18 +186,18 @@ $Object* SunDropTargetContextPeer::getTransferData($DataFlavor* df) {
 		}
 	} catch ($Exception& e) {
 		$var($Thread, currentThread, $Thread::currentThread());
-		$nc($(currentThread->getUncaughtExceptionHandler()))->uncaughtException(currentThread, e);
-		return $of(nullptr);
+		$$nc(currentThread->getUncaughtExceptionHandler())->uncaughtException(currentThread, e);
+		return nullptr;
 	}
 	$var($Long, lFormat, nullptr);
 	$var($Transferable, localTransferable, this->local);
 	if (localTransferable != nullptr) {
-		return $of(localTransferable->getTransferData(df));
+		return localTransferable->getTransferData(df);
 	}
 	if (this->dropStatus != SunDropTargetContextPeer::STATUS_ACCEPT || this->dropComplete$) {
 		$throwNew($InvalidDnDOperationException, "No drop current"_s);
 	}
-	$var($Map, flavorMap, $nc($($DataTransferer::getInstance()))->getFlavorsForFormats(this->currentT, $($DataTransferer::adaptFlavorMap($($nc(this->currentDT)->getFlavorMap())))));
+	$var($Map, flavorMap, $$nc($DataTransferer::getInstance())->getFlavorsForFormats(this->currentT, $($DataTransferer::adaptFlavorMap($($nc(this->currentDT)->getFlavorMap())))));
 	$assign(lFormat, $cast($Long, $nc(flavorMap)->get(df)));
 	if (lFormat == nullptr) {
 		$throwNew($UnsupportedFlavorException, df);
@@ -303,13 +209,13 @@ $Object* SunDropTargetContextPeer::getTransferData($DataFlavor* df) {
 	$var($Object, ret, getNativeData(format));
 	if ($instanceOf($bytes, ret)) {
 		try {
-			return $of($nc($($DataTransferer::getInstance()))->translateBytes($cast($bytes, ret), df, format, this));
+			return $$nc($DataTransferer::getInstance())->translateBytes($cast($bytes, ret), df, format, this);
 		} catch ($IOException& e) {
 			$throwNew($InvalidDnDOperationException, $(e->getMessage()));
 		}
 	} else if ($instanceOf($InputStream, ret)) {
 		try {
-			return $of($nc($($DataTransferer::getInstance()))->translateStream($cast($InputStream, ret), df, format, this));
+			return $$nc($DataTransferer::getInstance())->translateStream($cast($InputStream, ret), df, format, this);
 		} catch ($IOException& e) {
 			$throwNew($InvalidDnDOperationException, $(e->getMessage()));
 		}
@@ -328,7 +234,7 @@ int32_t SunDropTargetContextPeer::handleEnterMessage($Component* component, int3
 }
 
 void SunDropTargetContextPeer::processEnterMessage($SunDropTargetEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, c, $cast($Component, $nc(event)->getSource()));
 	$var($DropTarget, dt, $nc(c)->getDropTarget());
 	$var($Point, hots, event->getPoint());
@@ -341,11 +247,11 @@ void SunDropTargetContextPeer::processEnterMessage($SunDropTargetEvent* event) {
 	bool var$0 = c->isShowing() && dt != nullptr;
 	if (var$0 && dt->isActive()) {
 		$set(this, currentDT, dt);
-		$set(this, currentDTC, $nc(this->currentDT)->getDropTargetContext());
+		$set(this, currentDTC, this->currentDT->getDropTargetContext());
 		$nc(acc)->setDropTargetContextPeer(this->currentDTC, this);
 		this->currentA = dt->getDefaultActions();
 		try {
-			$nc((static_cast<$DropTargetListener*>(dt)))->dragEnter($$new($DropTargetDragEvent, this->currentDTC, hots, this->currentDA, this->currentSA));
+			$cast($DropTargetListener, dt)->dragEnter($$new($DropTargetDragEvent, this->currentDTC, hots, this->currentDA, this->currentSA));
 		} catch ($Exception& e) {
 			e->printStackTrace();
 			this->currentDA = $DnDConstants::ACTION_NONE;
@@ -364,7 +270,7 @@ void SunDropTargetContextPeer::handleExitMessage($Component* component, int64_t 
 }
 
 void SunDropTargetContextPeer::processExitMessage($SunDropTargetEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, c, $cast($Component, $nc(event)->getSource()));
 	$var($DropTarget, dt, $nc(c)->getDropTarget());
 	$var($DropTargetContext, dtc, nullptr);
@@ -388,30 +294,28 @@ void SunDropTargetContextPeer::processExitMessage($SunDropTargetEvent* event) {
 	}
 	$assign(dtc, this->currentDTC);
 	if ($nc(dt)->isActive()) {
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$nc((static_cast<$DropTargetListener*>(dt)))->dragExit($$new($DropTargetEvent, dtc));
-				} catch ($Exception& e) {
-					e->printStackTrace();
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				this->currentA = $DnDConstants::ACTION_NONE;
-				this->currentSA = $DnDConstants::ACTION_NONE;
-				this->currentDA = $DnDConstants::ACTION_NONE;
-				$set(this, currentDT, nullptr);
-				$set(this, currentT, nullptr);
-				$nc(acc)->reset(this->currentDTC);
-				$set(this, currentDTC, nullptr);
-				$set(this, local, nullptr);
-				this->dragRejected = false;
+				$cast($DropTargetListener, dt)->dragExit($$new($DropTargetEvent, dtc));
+			} catch ($Exception& e) {
+				e->printStackTrace();
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			this->currentA = $DnDConstants::ACTION_NONE;
+			this->currentSA = $DnDConstants::ACTION_NONE;
+			this->currentDA = $DnDConstants::ACTION_NONE;
+			$set(this, currentDT, nullptr);
+			$set(this, currentT, nullptr);
+			$nc(acc)->reset(this->currentDTC);
+			$set(this, currentDTC, nullptr);
+			$set(this, local, nullptr);
+			this->dragRejected = false;
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -421,7 +325,7 @@ int32_t SunDropTargetContextPeer::handleMotionMessage($Component* component, int
 }
 
 void SunDropTargetContextPeer::processMotionMessage($SunDropTargetEvent* event, bool operationChanged) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, c, $cast($Component, $nc(event)->getSource()));
 	$var($Point, hots, event->getPoint());
 	int32_t id = event->getID();
@@ -448,7 +352,7 @@ void SunDropTargetContextPeer::processMotionMessage($SunDropTargetEvent* event, 
 		this->currentA = $nc(this->currentDT)->getDefaultActions();
 		try {
 			$var($DropTargetDragEvent, dtde, $new($DropTargetDragEvent, dtc, hots, this->currentDA, this->currentSA));
-			$var($DropTargetListener, dtl, static_cast<$DropTargetListener*>(dt));
+			$var($DropTargetListener, dtl, $cast($DropTargetListener, dt));
 			if (operationChanged) {
 				dtl->dropActionChanged(dtde);
 			} else {
@@ -471,7 +375,7 @@ void SunDropTargetContextPeer::handleDropMessage($Component* component, int32_t 
 }
 
 void SunDropTargetContextPeer::processDropMessage($SunDropTargetEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, c, $cast($Component, $nc(event)->getSource()));
 	$var($Point, hots, event->getPoint());
 	$var($DropTarget, dt, $nc(c)->getDropTarget());
@@ -494,23 +398,21 @@ void SunDropTargetContextPeer::processDropMessage($SunDropTargetEvent* event) {
 			}
 		}
 		this->dropInProcess = true;
-		{
-			$var($Throwable, var$1, nullptr);
-			try {
-				$nc((static_cast<$DropTargetListener*>(dt)))->drop($$new($DropTargetDropEvent, dtc, hots, this->currentDA, this->currentSA, this->local != nullptr));
-			} catch ($Throwable& var$2) {
-				$assign(var$1, var$2);
-			} /*finally*/ {
-				if (this->dropStatus == SunDropTargetContextPeer::STATUS_WAIT) {
-					rejectDrop();
-				} else if (this->dropComplete$ == false) {
-					dropComplete(false);
-				}
-				this->dropInProcess = false;
+		$var($Throwable, var$1, nullptr);
+		try {
+			$cast($DropTargetListener, dt)->drop($$new($DropTargetDropEvent, dtc, hots, this->currentDA, this->currentSA, this->local != nullptr));
+		} catch ($Throwable& var$2) {
+			$assign(var$1, var$2);
+		} /*finally*/ {
+			if (this->dropStatus == SunDropTargetContextPeer::STATUS_WAIT) {
+				rejectDrop();
+			} else if (this->dropComplete$ == false) {
+				dropComplete(false);
 			}
-			if (var$1 != nullptr) {
-				$throw(var$1);
-			}
+			this->dropInProcess = false;
+		}
+		if (var$1 != nullptr) {
+			$throw(var$1);
 		}
 	} else {
 		rejectDrop();
@@ -518,20 +420,20 @@ void SunDropTargetContextPeer::processDropMessage($SunDropTargetEvent* event) {
 }
 
 int32_t SunDropTargetContextPeer::postDropTargetEvent($Component* component, int32_t x, int32_t y, int32_t dropAction, int32_t actions, $longs* formats, int64_t nativeCtxt, int32_t eventID, bool dispatchType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, appContext, $SunToolkit::targetToAppContext(component));
 	$var($SunDropTargetContextPeer$EventDispatcher, dispatcher, $new($SunDropTargetContextPeer$EventDispatcher, this, dropAction, actions, formats, nativeCtxt, dispatchType));
 	$var($SunDropTargetEvent, event, $new($SunDropTargetEvent, component, eventID, x, y, dispatcher));
 	if (dispatchType == SunDropTargetContextPeer::DISPATCH_SYNC) {
-		$nc($($nc($($DataTransferer::getInstance()))->getToolkitThreadBlockedHandler()))->lock();
+		$$nc($$nc($DataTransferer::getInstance())->getToolkitThreadBlockedHandler())->lock();
 	}
 	$SunToolkit::postEvent(appContext, event);
 	eventPosted(event);
 	if (dispatchType == SunDropTargetContextPeer::DISPATCH_SYNC) {
 		while (!dispatcher->isDone()) {
-			$nc($($nc($($DataTransferer::getInstance()))->getToolkitThreadBlockedHandler()))->enter();
+			$$nc($$nc($DataTransferer::getInstance())->getToolkitThreadBlockedHandler())->enter();
 		}
-		$nc($($nc($($DataTransferer::getInstance()))->getToolkitThreadBlockedHandler()))->unlock();
+		$$nc($$nc($DataTransferer::getInstance())->getToolkitThreadBlockedHandler())->unlock();
 		return dispatcher->getReturnValue();
 	} else {
 		return 0;
@@ -566,7 +468,7 @@ void SunDropTargetContextPeer::acceptDrop(int32_t dropOperation) {
 			$throwNew($IllegalArgumentException, "invalid acceptDrop() action"_s);
 		}
 		if (this->dropStatus == SunDropTargetContextPeer::STATUS_WAIT || this->dropStatus == SunDropTargetContextPeer::STATUS_ACCEPT) {
-			this->currentDA = (this->currentA = mapOperation((int32_t)(dropOperation & (uint32_t)this->currentSA)));
+			this->currentDA = (this->currentA = mapOperation(dropOperation & this->currentSA));
 			this->dropStatus = SunDropTargetContextPeer::STATUS_ACCEPT;
 			this->dropComplete$ = false;
 		} else {
@@ -594,7 +496,7 @@ int32_t SunDropTargetContextPeer::mapOperation(int32_t operation) {
 	}));
 	int32_t ret = $DnDConstants::ACTION_NONE;
 	for (int32_t i = 0; i < operations->length; ++i) {
-		if (((int32_t)(operation & (uint32_t)operations->get(i))) == operations->get(i)) {
+		if ((operation & operations->get(i)) == operations->get(i)) {
 			ret = operations->get(i);
 			break;
 		}
@@ -604,12 +506,12 @@ int32_t SunDropTargetContextPeer::mapOperation(int32_t operation) {
 
 void SunDropTargetContextPeer::dropComplete(bool success) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->dropStatus == SunDropTargetContextPeer::STATUS_NONE) {
 			$throwNew($InvalidDnDOperationException, "No Drop pending"_s);
 		}
 		if (this->currentDTC != nullptr) {
-			$nc($($AWTAccessor::getDropTargetContextAccessor()))->reset(this->currentDTC);
+			$$nc($AWTAccessor::getDropTargetContextAccessor())->reset(this->currentDTC);
 		}
 		$set(this, currentDT, nullptr);
 		$set(this, currentDTC, nullptr);
@@ -620,19 +522,17 @@ void SunDropTargetContextPeer::dropComplete(bool success) {
 		}
 		this->dropStatus = SunDropTargetContextPeer::STATUS_NONE;
 		this->dropComplete$ = true;
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				doDropDone(success, this->currentDA, this->local != nullptr);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				this->currentDA = $DnDConstants::ACTION_NONE;
-				this->nativeDragContext = 0;
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			doDropDone(success, this->currentDA, this->local != nullptr);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			this->currentDA = $DnDConstants::ACTION_NONE;
+			this->nativeDragContext = 0;
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -649,7 +549,7 @@ void SunDropTargetContextPeer::eventPosted($SunDropTargetEvent* e) {
 void SunDropTargetContextPeer::eventProcessed($SunDropTargetEvent* e, int32_t returnValue, bool dispatcherDone) {
 }
 
-void clinit$SunDropTargetContextPeer($Class* class$) {
+void SunDropTargetContextPeer::clinit$($Class* clazz) {
 	$assignStatic(SunDropTargetContextPeer::_globalLock, $new($Object));
 	$assignStatic(SunDropTargetContextPeer::dndLog, $PlatformLogger::getLogger("sun.awt.dnd.SunDropTargetContextPeer"_s));
 	$assignStatic(SunDropTargetContextPeer::currentJVMLocalSourceTransferable, nullptr);
@@ -659,7 +559,90 @@ SunDropTargetContextPeer::SunDropTargetContextPeer() {
 }
 
 $Class* SunDropTargetContextPeer::load$($String* name, bool initialize) {
-	$loadClass(SunDropTargetContextPeer, name, initialize, &_SunDropTargetContextPeer_ClassInfo_, clinit$SunDropTargetContextPeer, allocate$SunDropTargetContextPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"DISPATCH_SYNC", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunDropTargetContextPeer, DISPATCH_SYNC)},
+		{"currentDT", "Ljava/awt/dnd/DropTarget;", nullptr, $PRIVATE, $field(SunDropTargetContextPeer, currentDT)},
+		{"currentDTC", "Ljava/awt/dnd/DropTargetContext;", nullptr, $PRIVATE, $field(SunDropTargetContextPeer, currentDTC)},
+		{"currentT", "[J", nullptr, $PRIVATE, $field(SunDropTargetContextPeer, currentT)},
+		{"currentA", "I", nullptr, $PRIVATE, $field(SunDropTargetContextPeer, currentA)},
+		{"currentSA", "I", nullptr, $PRIVATE, $field(SunDropTargetContextPeer, currentSA)},
+		{"currentDA", "I", nullptr, $PRIVATE, $field(SunDropTargetContextPeer, currentDA)},
+		{"previousDA", "I", nullptr, $PRIVATE, $field(SunDropTargetContextPeer, previousDA)},
+		{"nativeDragContext", "J", nullptr, $PRIVATE, $field(SunDropTargetContextPeer, nativeDragContext)},
+		{"local", "Ljava/awt/datatransfer/Transferable;", nullptr, $PRIVATE, $field(SunDropTargetContextPeer, local)},
+		{"dragRejected", "Z", nullptr, $PRIVATE, $field(SunDropTargetContextPeer, dragRejected)},
+		{"dropStatus", "I", nullptr, $PROTECTED, $field(SunDropTargetContextPeer, dropStatus)},
+		{"dropComplete", "Z", nullptr, $PROTECTED, $field(SunDropTargetContextPeer, dropComplete$)},
+		{"dropInProcess", "Z", nullptr, 0, $field(SunDropTargetContextPeer, dropInProcess)},
+		{"_globalLock", "Ljava/lang/Object;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SunDropTargetContextPeer, _globalLock)},
+		{"dndLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunDropTargetContextPeer, dndLog)},
+		{"currentJVMLocalSourceTransferable", "Ljava/awt/datatransfer/Transferable;", nullptr, $PROTECTED | $STATIC, $staticField(SunDropTargetContextPeer, currentJVMLocalSourceTransferable)},
+		{"STATUS_NONE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SunDropTargetContextPeer, STATUS_NONE)},
+		{"STATUS_WAIT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SunDropTargetContextPeer, STATUS_WAIT)},
+		{"STATUS_ACCEPT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SunDropTargetContextPeer, STATUS_ACCEPT)},
+		{"STATUS_REJECT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SunDropTargetContextPeer, STATUS_REJECT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SunDropTargetContextPeer, init$, void)},
+		{"acceptDrag", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunDropTargetContextPeer, acceptDrag, void, int32_t)},
+		{"acceptDrop", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunDropTargetContextPeer, acceptDrop, void, int32_t)},
+		{"doDropDone", "(ZIZ)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SunDropTargetContextPeer, doDropDone, void, bool, int32_t, bool)},
+		{"dropComplete", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunDropTargetContextPeer, dropComplete, void, bool)},
+		{"eventPosted", "(Lsun/awt/dnd/SunDropTargetEvent;)V", nullptr, $PROTECTED, $virtualMethod(SunDropTargetContextPeer, eventPosted, void, $SunDropTargetEvent*)},
+		{"eventProcessed", "(Lsun/awt/dnd/SunDropTargetEvent;IZ)V", nullptr, $PROTECTED, $virtualMethod(SunDropTargetContextPeer, eventProcessed, void, $SunDropTargetEvent*, int32_t, bool)},
+		{"getDropTarget", "()Ljava/awt/dnd/DropTarget;", nullptr, $PUBLIC, $virtualMethod(SunDropTargetContextPeer, getDropTarget, $DropTarget*)},
+		{"getJVMLocalSourceTransferable", "()Ljava/awt/datatransfer/Transferable;", nullptr, $PRIVATE | $STATIC, $staticMethod(SunDropTargetContextPeer, getJVMLocalSourceTransferable, $Transferable*)},
+		{"getNativeData", "(J)Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SunDropTargetContextPeer, getNativeData, $Object*, int64_t), "java.io.IOException"},
+		{"getNativeDragContext", "()J", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(SunDropTargetContextPeer, getNativeDragContext, int64_t)},
+		{"getTargetActions", "()I", nullptr, $PUBLIC, $virtualMethod(SunDropTargetContextPeer, getTargetActions, int32_t)},
+		{"getTransferData", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SunDropTargetContextPeer, getTransferData, $Object*, $DataFlavor*), "java.awt.datatransfer.UnsupportedFlavorException,java.io.IOException,java.awt.dnd.InvalidDnDOperationException"},
+		{"getTransferDataFlavors", "()[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC, $virtualMethod(SunDropTargetContextPeer, getTransferDataFlavors, $DataFlavorArray*)},
+		{"getTransferable", "()Ljava/awt/datatransfer/Transferable;", nullptr, $PUBLIC, $virtualMethod(SunDropTargetContextPeer, getTransferable, $Transferable*)},
+		{"handleDropMessage", "(Ljava/awt/Component;IIII[JJ)V", nullptr, $PRIVATE, $method(SunDropTargetContextPeer, handleDropMessage, void, $Component*, int32_t, int32_t, int32_t, int32_t, $longs*, int64_t)},
+		{"handleEnterMessage", "(Ljava/awt/Component;IIII[JJ)I", nullptr, $PRIVATE, $method(SunDropTargetContextPeer, handleEnterMessage, int32_t, $Component*, int32_t, int32_t, int32_t, int32_t, $longs*, int64_t)},
+		{"handleExitMessage", "(Ljava/awt/Component;J)V", nullptr, $PRIVATE, $method(SunDropTargetContextPeer, handleExitMessage, void, $Component*, int64_t)},
+		{"handleMotionMessage", "(Ljava/awt/Component;IIII[JJ)I", nullptr, $PRIVATE, $method(SunDropTargetContextPeer, handleMotionMessage, int32_t, $Component*, int32_t, int32_t, int32_t, int32_t, $longs*, int64_t)},
+		{"isDataFlavorSupported", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(SunDropTargetContextPeer, isDataFlavorSupported, bool, $DataFlavor*)},
+		{"isTransferableJVMLocal", "()Z", nullptr, $PUBLIC, $virtualMethod(SunDropTargetContextPeer, isTransferableJVMLocal, bool)},
+		{"mapOperation", "(I)I", nullptr, $PRIVATE, $method(SunDropTargetContextPeer, mapOperation, int32_t, int32_t)},
+		{"postDropTargetEvent", "(Ljava/awt/Component;IIII[JJIZ)I", nullptr, $PROTECTED, $virtualMethod(SunDropTargetContextPeer, postDropTargetEvent, int32_t, $Component*, int32_t, int32_t, int32_t, int32_t, $longs*, int64_t, int32_t, bool)},
+		{"processDropMessage", "(Lsun/awt/dnd/SunDropTargetEvent;)V", nullptr, $PROTECTED, $virtualMethod(SunDropTargetContextPeer, processDropMessage, void, $SunDropTargetEvent*)},
+		{"processEnterMessage", "(Lsun/awt/dnd/SunDropTargetEvent;)V", nullptr, $PROTECTED, $virtualMethod(SunDropTargetContextPeer, processEnterMessage, void, $SunDropTargetEvent*)},
+		{"processExitMessage", "(Lsun/awt/dnd/SunDropTargetEvent;)V", nullptr, $PROTECTED, $virtualMethod(SunDropTargetContextPeer, processExitMessage, void, $SunDropTargetEvent*)},
+		{"processMotionMessage", "(Lsun/awt/dnd/SunDropTargetEvent;Z)V", nullptr, $PROTECTED, $virtualMethod(SunDropTargetContextPeer, processMotionMessage, void, $SunDropTargetEvent*, bool)},
+		{"rejectDrag", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunDropTargetContextPeer, rejectDrag, void)},
+		{"rejectDrop", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunDropTargetContextPeer, rejectDrop, void)},
+		{"setCurrentJVMLocalSourceTransferable", "(Ljava/awt/datatransfer/Transferable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunDropTargetContextPeer, setCurrentJVMLocalSourceTransferable, void, $Transferable*), "java.awt.dnd.InvalidDnDOperationException"},
+		{"setTargetActions", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunDropTargetContextPeer, setTargetActions, void, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.dnd.SunDropTargetContextPeer$EventDispatcher", "sun.awt.dnd.SunDropTargetContextPeer", "EventDispatcher", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.awt.dnd.SunDropTargetContextPeer",
+		"java.lang.Object",
+		"java.awt.dnd.peer.DropTargetContextPeer,java.awt.datatransfer.Transferable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.dnd.SunDropTargetContextPeer$EventDispatcher"
+	};
+	$loadClass(SunDropTargetContextPeer, name, initialize, &classInfo$$, SunDropTargetContextPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SunDropTargetContextPeer));
+	});
 	return class$;
 }
 

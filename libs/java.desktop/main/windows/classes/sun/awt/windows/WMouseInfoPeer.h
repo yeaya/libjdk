@@ -20,6 +20,7 @@ class WMouseInfoPeer : public ::java::awt::peer::MouseInfoPeer {
 	$class(WMouseInfoPeer, 0, ::java::awt::peer::MouseInfoPeer)
 public:
 	WMouseInfoPeer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int32_t fillPointWithCoords(::java::awt::Point* point) override;
 	virtual bool isWindowUnderMouse(::java::awt::Window* w) override;

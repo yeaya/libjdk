@@ -1,5 +1,4 @@
 #include <com/sun/jmx/remote/internal/NotificationBuffer.h>
-
 #include <com/sun/jmx/remote/internal/NotificationBufferFilter.h>
 #include <javax/management/remote/NotificationResult.h>
 #include <jcpp.h>
@@ -15,27 +14,23 @@ namespace com {
 			namespace remote {
 				namespace internal {
 
-$MethodInfo _NotificationBuffer_MethodInfo_[] = {
-	{"dispose", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NotificationBuffer, dispose, void)},
-	{"fetchNotifications", "(Lcom/sun/jmx/remote/internal/NotificationBufferFilter;JJI)Ljavax/management/remote/NotificationResult;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NotificationBuffer, fetchNotifications, $NotificationResult*, $NotificationBufferFilter*, int64_t, int64_t, int32_t), "java.lang.InterruptedException"},
-	{}
-};
-
-$ClassInfo _NotificationBuffer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.jmx.remote.internal.NotificationBuffer",
-	nullptr,
-	nullptr,
-	nullptr,
-	_NotificationBuffer_MethodInfo_
-};
-
-$Object* allocate$NotificationBuffer($Class* clazz) {
-	return $of($alloc(NotificationBuffer));
-}
-
 $Class* NotificationBuffer::load$($String* name, bool initialize) {
-	$loadClass(NotificationBuffer, name, initialize, &_NotificationBuffer_ClassInfo_, allocate$NotificationBuffer);
+	$MethodInfo methodInfos$$[] = {
+		{"dispose", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NotificationBuffer, dispose, void)},
+		{"fetchNotifications", "(Lcom/sun/jmx/remote/internal/NotificationBufferFilter;JJI)Ljavax/management/remote/NotificationResult;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NotificationBuffer, fetchNotifications, $NotificationResult*, $NotificationBufferFilter*, int64_t, int64_t, int32_t), "java.lang.InterruptedException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.jmx.remote.internal.NotificationBuffer",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NotificationBuffer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NotificationBuffer);
+	});
 	return class$;
 }
 

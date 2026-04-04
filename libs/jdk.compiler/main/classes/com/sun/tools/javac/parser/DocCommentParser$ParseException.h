@@ -19,7 +19,10 @@ public:
 	static const int64_t serialVersionUID = 0;
 	DocCommentParser$ParseException(const DocCommentParser$ParseException& e);
 	virtual void throw$() override;
-	inline DocCommentParser$ParseException* operator ->() {
+	inline DocCommentParser$ParseException* operator ->() const {
+		return (DocCommentParser$ParseException*)throwing$;
+	}
+	inline operator DocCommentParser$ParseException*() const {
 		return (DocCommentParser$ParseException*)throwing$;
 	}
 };

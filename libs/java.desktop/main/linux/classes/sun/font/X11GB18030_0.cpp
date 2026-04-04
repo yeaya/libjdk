@@ -1,5 +1,4 @@
 #include <sun/font/X11GB18030_0.h>
-
 #include <java/lang/Error.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
@@ -18,38 +17,6 @@ using $X11GB18030_0$Encoder = ::sun::font::X11GB18030_0$Encoder;
 
 namespace sun {
 	namespace font {
-
-$MethodInfo _X11GB18030_0_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(X11GB18030_0, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(X11GB18030_0, contains, bool, $Charset*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(X11GB18030_0, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(X11GB18030_0, newEncoder, $CharsetEncoder*)},
-	{}
-};
-
-$InnerClassInfo _X11GB18030_0_InnerClassesInfo_[] = {
-	{"sun.font.X11GB18030_0$Encoder", "sun.font.X11GB18030_0", "Encoder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _X11GB18030_0_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.font.X11GB18030_0",
-	"java.nio.charset.Charset",
-	nullptr,
-	nullptr,
-	_X11GB18030_0_MethodInfo_,
-	nullptr,
-	nullptr,
-	_X11GB18030_0_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.font.X11GB18030_0$Encoder"
-};
-
-$Object* allocate$X11GB18030_0($Class* clazz) {
-	return $of($alloc(X11GB18030_0));
-}
 
 void X11GB18030_0::init$() {
 	$Charset::init$("X11GB18030_0"_s, nullptr);
@@ -72,7 +39,34 @@ X11GB18030_0::X11GB18030_0() {
 }
 
 $Class* X11GB18030_0::load$($String* name, bool initialize) {
-	$loadClass(X11GB18030_0, name, initialize, &_X11GB18030_0_ClassInfo_, allocate$X11GB18030_0);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(X11GB18030_0, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(X11GB18030_0, contains, bool, $Charset*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(X11GB18030_0, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(X11GB18030_0, newEncoder, $CharsetEncoder*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.X11GB18030_0$Encoder", "sun.font.X11GB18030_0", "Encoder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.font.X11GB18030_0",
+		"java.nio.charset.Charset",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.font.X11GB18030_0$Encoder"
+	};
+	$loadClass(X11GB18030_0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(X11GB18030_0);
+	});
 	return class$;
 }
 

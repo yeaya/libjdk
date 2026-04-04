@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/processing/JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator.h>
-
 #include <com/sun/tools/javac/code/DeferredCompletionFailureHandler.h>
 #include <com/sun/tools/javac/code/Source$Feature.h>
 #include <com/sun/tools/javac/code/Source.h>
@@ -23,7 +22,6 @@
 using $DeferredCompletionFailureHandler = ::com::sun::tools::javac::code::DeferredCompletionFailureHandler;
 using $Source = ::com::sun::tools::javac::code::Source;
 using $Source$Feature = ::com::sun::tools::javac::code::Source$Feature;
-using $JavacProcessingEnvironment = ::com::sun::tools::javac::processing::JavacProcessingEnvironment;
 using $JavacProcessingEnvironment$DiscoveredProcessors = ::com::sun::tools::javac::processing::JavacProcessingEnvironment$DiscoveredProcessors;
 using $JavacProcessingEnvironment$ProcessorState = ::com::sun::tools::javac::processing::JavacProcessingEnvironment$ProcessorState;
 using $Log = ::com::sun::tools::javac::util::Log;
@@ -32,12 +30,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
-using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $Set = ::java::util::Set;
-using $ProcessingEnvironment = ::javax::annotation::processing::ProcessingEnvironment;
 using $Processor = ::javax::annotation::processing::Processor;
 using $RoundEnvironment = ::javax::annotation::processing::RoundEnvironment;
 
@@ -47,50 +42,6 @@ namespace com {
 			namespace javac {
 				namespace processing {
 
-$FieldInfo _JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator_FieldInfo_[] = {
-	{"this$1", "Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$DiscoveredProcessors;", nullptr, $FINAL | $SYNTHETIC, $field(JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator, this$1)},
-	{"psi", "Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$DiscoveredProcessors;", nullptr, 0, $field(JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator, psi)},
-	{"innerIter", "Ljava/util/Iterator;", "Ljava/util/Iterator<Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$ProcessorState;>;", 0, $field(JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator, innerIter)},
-	{"onProcIterator", "Z", nullptr, 0, $field(JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator, onProcIterator)},
-	{}
-};
-
-$MethodInfo _JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$DiscoveredProcessors;Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$DiscoveredProcessors;)V", nullptr, 0, $method(JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator, init$, void, $JavacProcessingEnvironment$DiscoveredProcessors*, $JavacProcessingEnvironment$DiscoveredProcessors*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator, hasNext, bool)},
-	{"next", "()Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$ProcessorState;", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator, remove, void)},
-	{"runContributingProcs", "(Ljavax/annotation/processing/RoundEnvironment;)V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator, runContributingProcs, void, $RoundEnvironment*)},
-	{}
-};
-
-$InnerClassInfo _JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.processing.JavacProcessingEnvironment$DiscoveredProcessors", "com.sun.tools.javac.processing.JavacProcessingEnvironment", "DiscoveredProcessors", 0},
-	{"com.sun.tools.javac.processing.JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator", "com.sun.tools.javac.processing.JavacProcessingEnvironment$DiscoveredProcessors", "ProcessorStateIterator", 0},
-	{"com.sun.tools.javac.processing.JavacProcessingEnvironment$ProcessorState", "com.sun.tools.javac.processing.JavacProcessingEnvironment", "ProcessorState", $STATIC},
-	{}
-};
-
-$ClassInfo _JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.processing.JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator_FieldInfo_,
-	_JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$ProcessorState;>;",
-	nullptr,
-	_JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.processing.JavacProcessingEnvironment"
-};
-
-$Object* allocate$JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator($Class* clazz) {
-	return $of($alloc(JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator));
-}
-
 void JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator::init$($JavacProcessingEnvironment$DiscoveredProcessors* this$1, $JavacProcessingEnvironment$DiscoveredProcessors* psi) {
 	$set(this, this$1, this$1);
 	$set(this, psi, psi);
@@ -99,23 +50,23 @@ void JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator::ini
 }
 
 $Object* JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator::next() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->onProcIterator) {
 		if ($nc(this->innerIter)->hasNext()) {
-			return $of($cast($JavacProcessingEnvironment$ProcessorState, $nc(this->innerIter)->next()));
+			return $cast($JavacProcessingEnvironment$ProcessorState, this->innerIter->next());
 		} else {
 			this->onProcIterator = true;
 		}
 	}
 	if ($nc($nc(this->psi)->processorIterator)->hasNext()) {
-		$var($Processor, var$0, $cast($Processor, $nc($nc(this->psi)->processorIterator)->next()));
+		$var($Processor, var$0, $cast($Processor, this->psi->processorIterator->next()));
 		$var($Log, var$1, $nc(this->this$1->this$0)->log);
-		$var($Source, var$2, $nc(this->this$1->this$0)->source);
-		$var($DeferredCompletionFailureHandler, var$3, $nc(this->this$1->this$0)->dcfh);
+		$var($Source, var$2, this->this$1->this$0->source);
+		$var($DeferredCompletionFailureHandler, var$3, this->this$1->this$0->dcfh);
 		$init($Source$Feature);
-		$var($JavacProcessingEnvironment$ProcessorState, ps, $new($JavacProcessingEnvironment$ProcessorState, var$0, var$1, var$2, var$3, $Source$Feature::MODULES->allowedInSource($nc(this->this$1->this$0)->source), this->this$1->this$0, $nc(this->this$1->this$0)->lint));
+		$var($JavacProcessingEnvironment$ProcessorState, ps, $new($JavacProcessingEnvironment$ProcessorState, var$0, var$1, var$2, var$3, $Source$Feature::MODULES->allowedInSource(this->this$1->this$0->source), this->this$1->this$0, this->this$1->this$0->lint));
 		$nc($nc(this->psi)->procStateList)->add(ps);
-		return $of(ps);
+		return ps;
 	} else {
 		$throwNew($NoSuchElementException);
 	}
@@ -135,11 +86,11 @@ void JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator::rem
 }
 
 void JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator::runContributingProcs($RoundEnvironment* re) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->onProcIterator) {
 		$var($Set, emptyTypeElements, $Collections::emptySet());
 		while ($nc(this->innerIter)->hasNext()) {
-			$var($JavacProcessingEnvironment$ProcessorState, ps, $cast($JavacProcessingEnvironment$ProcessorState, $nc(this->innerIter)->next()));
+			$var($JavacProcessingEnvironment$ProcessorState, ps, $cast($JavacProcessingEnvironment$ProcessorState, this->innerIter->next()));
 			if ($nc(ps)->contributed) {
 				$nc(this->this$1->this$0)->callProcessor(ps->processor, emptyTypeElements, re);
 			}
@@ -151,7 +102,45 @@ JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator::JavacPro
 }
 
 $Class* JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator::load$($String* name, bool initialize) {
-	$loadClass(JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator, name, initialize, &_JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator_ClassInfo_, allocate$JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$DiscoveredProcessors;", nullptr, $FINAL | $SYNTHETIC, $field(JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator, this$1)},
+		{"psi", "Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$DiscoveredProcessors;", nullptr, 0, $field(JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator, psi)},
+		{"innerIter", "Ljava/util/Iterator;", "Ljava/util/Iterator<Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$ProcessorState;>;", 0, $field(JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator, innerIter)},
+		{"onProcIterator", "Z", nullptr, 0, $field(JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator, onProcIterator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$DiscoveredProcessors;Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$DiscoveredProcessors;)V", nullptr, 0, $method(JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator, init$, void, $JavacProcessingEnvironment$DiscoveredProcessors*, $JavacProcessingEnvironment$DiscoveredProcessors*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator, hasNext, bool)},
+		{"next", "()Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$ProcessorState;", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator, remove, void)},
+		{"runContributingProcs", "(Ljavax/annotation/processing/RoundEnvironment;)V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator, runContributingProcs, void, $RoundEnvironment*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.processing.JavacProcessingEnvironment$DiscoveredProcessors", "com.sun.tools.javac.processing.JavacProcessingEnvironment", "DiscoveredProcessors", 0},
+		{"com.sun.tools.javac.processing.JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator", "com.sun.tools.javac.processing.JavacProcessingEnvironment$DiscoveredProcessors", "ProcessorStateIterator", 0},
+		{"com.sun.tools.javac.processing.JavacProcessingEnvironment$ProcessorState", "com.sun.tools.javac.processing.JavacProcessingEnvironment", "ProcessorState", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.processing.JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$ProcessorState;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.processing.JavacProcessingEnvironment"
+	};
+	$loadClass(JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator);
+	});
 	return class$;
 }
 

@@ -1,14 +1,11 @@
 #include <com/apple/laf/AquaSliderUI.h>
-
 #include <apple/laf/JRSUIConstants$Direction.h>
 #include <apple/laf/JRSUIConstants$Focused.h>
 #include <apple/laf/JRSUIConstants$Orientation.h>
-#include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$Size.h>
 #include <apple/laf/JRSUIConstants$State.h>
 #include <apple/laf/JRSUIState.h>
 #include <apple/laf/JRSUIStateFactory.h>
-#include <apple/laf/JRSUIUtils$NineSliceMetricsProvider.h>
 #include <com/apple/laf/AquaFocusHandler.h>
 #include <com/apple/laf/AquaPainter.h>
 #include <com/apple/laf/AquaSliderUI$1.h>
@@ -56,12 +53,10 @@
 using $JRSUIConstants$Direction = ::apple::laf::JRSUIConstants$Direction;
 using $JRSUIConstants$Focused = ::apple::laf::JRSUIConstants$Focused;
 using $JRSUIConstants$Orientation = ::apple::laf::JRSUIConstants$Orientation;
-using $JRSUIConstants$Property = ::apple::laf::JRSUIConstants$Property;
 using $JRSUIConstants$Size = ::apple::laf::JRSUIConstants$Size;
 using $JRSUIConstants$State = ::apple::laf::JRSUIConstants$State;
 using $JRSUIState = ::apple::laf::JRSUIState;
 using $JRSUIStateFactory = ::apple::laf::JRSUIStateFactory;
-using $JRSUIUtils$NineSliceMetricsProvider = ::apple::laf::JRSUIUtils$NineSliceMetricsProvider;
 using $AquaFocusHandler = ::com::apple::laf::AquaFocusHandler;
 using $AquaPainter = ::com::apple::laf::AquaPainter;
 using $AquaSliderUI$1 = ::com::apple::laf::AquaSliderUI$1;
@@ -74,7 +69,6 @@ using $AquaUtilControlSize$SizeDescriptor = ::com::apple::laf::AquaUtilControlSi
 using $AquaUtilControlSize$SizeVariant = ::com::apple::laf::AquaUtilControlSize$SizeVariant;
 using $AquaUtils$RecyclableSingleton = ::com::apple::laf::AquaUtils$RecyclableSingleton;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;
@@ -97,133 +91,6 @@ using $BasicSliderUI$TrackListener = ::javax::swing::plaf::basic::BasicSliderUI$
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaSliderUI_FieldInfo_[] = {
-	{"roundThumbDescriptor", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaUtilControlSize$SizeDescriptor;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaSliderUI, roundThumbDescriptor)},
-	{"pointingThumbDescriptor", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaUtilControlSize$SizeDescriptor;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaSliderUI, pointingThumbDescriptor)},
-	{"trackPainter", "Lcom/apple/laf/AquaPainter;", "Lcom/apple/laf/AquaPainter<Lapple/laf/JRSUIState;>;", $STATIC | $FINAL, $staticField(AquaSliderUI, trackPainter)},
-	{"thumbPainter", "Lcom/apple/laf/AquaPainter;", "Lcom/apple/laf/AquaPainter<Lapple/laf/JRSUIState;>;", $FINAL, $field(AquaSliderUI, thumbPainter)},
-	{"tickColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(AquaSliderUI, tickColor)},
-	{"disabledTickColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(AquaSliderUI, disabledTickColor)},
-	{"fIsDragging", "Z", nullptr, $PROTECTED | $TRANSIENT, $field(AquaSliderUI, fIsDragging)},
-	{"kTickWidth", "I", nullptr, $STATIC | $FINAL, $constField(AquaSliderUI, kTickWidth)},
-	{"kTickLength", "I", nullptr, $STATIC | $FINAL, $constField(AquaSliderUI, kTickLength)},
-	{}
-};
-
-$MethodInfo _AquaSliderUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JSlider;)V", nullptr, $PUBLIC, $method(AquaSliderUI, init$, void, $JSlider*)},
-	{"access$000", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$000, $JSlider*, AquaSliderUI*)},
-	{"access$100", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$100, $JSlider*, AquaSliderUI*)},
-	{"access$1000", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$1000, $JSlider*, AquaSliderUI*)},
-	{"access$1100", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$1100, $Rectangle*, AquaSliderUI*)},
-	{"access$1200", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$1200, $JSlider*, AquaSliderUI*)},
-	{"access$1300", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$1300, $JSlider*, AquaSliderUI*)},
-	{"access$1400", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$1400, $JSlider*, AquaSliderUI*)},
-	{"access$1500", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$1500, $JSlider*, AquaSliderUI*)},
-	{"access$1600", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$1600, $JSlider*, AquaSliderUI*)},
-	{"access$1700", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$1700, $JSlider*, AquaSliderUI*)},
-	{"access$1800", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$1800, $Rectangle*, AquaSliderUI*)},
-	{"access$1900", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$1900, $Rectangle*, AquaSliderUI*)},
-	{"access$200", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/Timer;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$200, $Timer*, AquaSliderUI*)},
-	{"access$2000", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$2000, $Rectangle*, AquaSliderUI*)},
-	{"access$2100", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$2100, $JSlider*, AquaSliderUI*)},
-	{"access$2200", "(Lcom/apple/laf/AquaSliderUI;)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$2200, bool, AquaSliderUI*)},
-	{"access$2300", "(Lcom/apple/laf/AquaSliderUI;)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$2300, bool, AquaSliderUI*)},
-	{"access$2400", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$2400, $JSlider*, AquaSliderUI*)},
-	{"access$2500", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$2500, $JSlider*, AquaSliderUI*)},
-	{"access$2600", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$2600, $JSlider*, AquaSliderUI*)},
-	{"access$2700", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$2700, $JSlider*, AquaSliderUI*)},
-	{"access$2800", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$2800, $JSlider*, AquaSliderUI*)},
-	{"access$2900", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$2900, $JSlider*, AquaSliderUI*)},
-	{"access$300", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$300, $JSlider*, AquaSliderUI*)},
-	{"access$3000", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$3000, $JSlider*, AquaSliderUI*)},
-	{"access$3100", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$3100, $JSlider*, AquaSliderUI*)},
-	{"access$3200", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$3200, $Rectangle*, AquaSliderUI*)},
-	{"access$3300", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$3300, $Rectangle*, AquaSliderUI*)},
-	{"access$3400", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$3400, $Rectangle*, AquaSliderUI*)},
-	{"access$3500", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$3500, $Rectangle*, AquaSliderUI*)},
-	{"access$3600", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$3600, $JSlider*, AquaSliderUI*)},
-	{"access$3700", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$3700, $JSlider*, AquaSliderUI*)},
-	{"access$3800", "(Lcom/apple/laf/AquaSliderUI;I)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$3800, int32_t, AquaSliderUI*, int32_t)},
-	{"access$3900", "(Lcom/apple/laf/AquaSliderUI;)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$3900, bool, AquaSliderUI*)},
-	{"access$400", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$400, $JSlider*, AquaSliderUI*)},
-	{"access$4000", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$4000, $Rectangle*, AquaSliderUI*)},
-	{"access$4100", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$4100, $JSlider*, AquaSliderUI*)},
-	{"access$4200", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$4200, $Rectangle*, AquaSliderUI*)},
-	{"access$4300", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$4300, $Rectangle*, AquaSliderUI*)},
-	{"access$4400", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$4400, $Rectangle*, AquaSliderUI*)},
-	{"access$4500", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$4500, $Rectangle*, AquaSliderUI*)},
-	{"access$4600", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$4600, $JSlider*, AquaSliderUI*)},
-	{"access$4700", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$4700, $JSlider*, AquaSliderUI*)},
-	{"access$4800", "(Lcom/apple/laf/AquaSliderUI;I)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$4800, int32_t, AquaSliderUI*, int32_t)},
-	{"access$4900", "(Lcom/apple/laf/AquaSliderUI;)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$4900, bool, AquaSliderUI*)},
-	{"access$500", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$500, $JSlider*, AquaSliderUI*)},
-	{"access$5000", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$5000, $Rectangle*, AquaSliderUI*)},
-	{"access$5100", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$5100, $JSlider*, AquaSliderUI*)},
-	{"access$5200", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$5200, $JSlider*, AquaSliderUI*)},
-	{"access$5300", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$5300, $Rectangle*, AquaSliderUI*)},
-	{"access$5400", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$5400, $Rectangle*, AquaSliderUI*)},
-	{"access$600", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$600, $JSlider*, AquaSliderUI*)},
-	{"access$700", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$700, $JSlider*, AquaSliderUI*)},
-	{"access$800", "(Lcom/apple/laf/AquaSliderUI;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$800, void, AquaSliderUI*)},
-	{"access$900", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$900, $JSlider*, AquaSliderUI*)},
-	{"applySizeFor", "(Ljavax/swing/JComponent;Lapple/laf/JRSUIConstants$Size;)V", nullptr, $PUBLIC, $virtualMethod(AquaSliderUI, applySizeFor, void, $JComponent*, $JRSUIConstants$Size*)},
-	{"calculateThumbLocation", "()V", nullptr, $PROTECTED, $virtualMethod(AquaSliderUI, calculateThumbLocation, void)},
-	{"calculateThumbSize", "()V", nullptr, $PROTECTED, $virtualMethod(AquaSliderUI, calculateThumbSize, void)},
-	{"calculateTickRect", "()V", nullptr, $PROTECTED, $virtualMethod(AquaSliderUI, calculateTickRect, void)},
-	{"createChangeListener", "(Ljavax/swing/JSlider;)Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $virtualMethod(AquaSliderUI, createChangeListener, $ChangeListener*, $JSlider*)},
-	{"createTrackListener", "(Ljavax/swing/JSlider;)Ljavax/swing/plaf/basic/BasicSliderUI$TrackListener;", nullptr, $PROTECTED, $virtualMethod(AquaSliderUI, createTrackListener, $BasicSliderUI$TrackListener*, $JSlider*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaSliderUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getDirection", "(Lapple/laf/JRSUIConstants$Orientation;)Lapple/laf/JRSUIConstants$Direction;", nullptr, 0, $virtualMethod(AquaSliderUI, getDirection, $JRSUIConstants$Direction*, $JRSUIConstants$Orientation*)},
-	{"getPreferredHorizontalSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaSliderUI, getPreferredHorizontalSize, $Dimension*)},
-	{"getPreferredVerticalSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaSliderUI, getPreferredVerticalSize, $Dimension*)},
-	{"getScale", "()I", nullptr, 0, $virtualMethod(AquaSliderUI, getScale, int32_t)},
-	{"getState", "()Lapple/laf/JRSUIConstants$State;", nullptr, 0, $virtualMethod(AquaSliderUI, getState, $JRSUIConstants$State*)},
-	{"installListeners", "(Ljavax/swing/JSlider;)V", nullptr, $PROTECTED, $virtualMethod(AquaSliderUI, installListeners, void, $JSlider*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSliderUI, installUI, void, $JComponent*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSliderUI, paint, void, $Graphics*, $JComponent*)},
-	{"paintThumb", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Lapple/laf/JRSUIConstants$Orientation;Lapple/laf/JRSUIConstants$State;)V", nullptr, $PUBLIC, $virtualMethod(AquaSliderUI, paintThumb, void, $Graphics*, $JComponent*, $JRSUIConstants$Orientation*, $JRSUIConstants$State*)},
-	{"paintTicks", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(AquaSliderUI, paintTicks, void, $Graphics*)},
-	{"paintTrack", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Lapple/laf/JRSUIConstants$Orientation;Lapple/laf/JRSUIConstants$State;)V", nullptr, $PUBLIC, $virtualMethod(AquaSliderUI, paintTrack, void, $Graphics*, $JComponent*, $JRSUIConstants$Orientation*, $JRSUIConstants$State*)},
-	{"shouldUseArrowThumb", "()Z", nullptr, $PROTECTED, $virtualMethod(AquaSliderUI, shouldUseArrowThumb, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallListeners", "(Ljavax/swing/JSlider;)V", nullptr, $PROTECTED, $virtualMethod(AquaSliderUI, uninstallListeners, void, $JSlider*)},
-	{}
-};
-
-$InnerClassInfo _AquaSliderUI_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaUtilControlSize$Sizeable", "com.apple.laf.AquaUtilControlSize", "Sizeable", $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.apple.laf.AquaSliderUI$TrackListener", "com.apple.laf.AquaSliderUI", "TrackListener", 0},
-	{"com.apple.laf.AquaSliderUI$4", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaSliderUI$3", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaSliderUI$2", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaSliderUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaSliderUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaSliderUI",
-	"javax.swing.plaf.basic.BasicSliderUI",
-	"com.apple.laf.AquaUtilControlSize$Sizeable",
-	_AquaSliderUI_FieldInfo_,
-	_AquaSliderUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaSliderUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaSliderUI$TrackListener,com.apple.laf.AquaSliderUI$4,com.apple.laf.AquaSliderUI$3,com.apple.laf.AquaSliderUI$2,com.apple.laf.AquaSliderUI$2$1,com.apple.laf.AquaSliderUI$1,com.apple.laf.AquaSliderUI$1$1"
-};
-
-$Object* allocate$AquaSliderUI($Class* clazz) {
-	return $of($alloc(AquaSliderUI));
-}
 
 int32_t AquaSliderUI::hashCode() {
 	 return this->$BasicSliderUI::hashCode();
@@ -537,7 +404,6 @@ void AquaSliderUI::init$($JSlider* b) {
 
 void AquaSliderUI::installUI($JComponent* c) {
 	$BasicSliderUI::installUI(c);
-	$init($Boolean);
 	$LookAndFeel::installProperty(this->slider, "opaque"_s, $Boolean::FALSE);
 	$set(this, tickColor, $UIManager::getColor("Slider.tickColor"_s));
 }
@@ -564,7 +430,7 @@ void AquaSliderUI::applySizeFor($JComponent* c, $JRSUIConstants$Size* size) {
 }
 
 void AquaSliderUI::paint($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	recalculateIfInsetsChanged();
 	$var($Rectangle, clip, $nc(g)->getClipBounds());
 	$init($JRSUIConstants$Orientation);
@@ -594,17 +460,17 @@ void AquaSliderUI::paint($Graphics* g, $JComponent* c) {
 
 void AquaSliderUI::paintTrack($Graphics* g, $JComponent* c, $JRSUIConstants$Orientation* orientation, $JRSUIConstants$State* state) {
 	$nc($nc(AquaSliderUI::trackPainter)->state)->set(orientation);
-	$nc($nc(AquaSliderUI::trackPainter)->state)->set(state);
-	$nc(AquaSliderUI::trackPainter)->paint(g, c, $nc(this->trackRect)->x, $nc(this->trackRect)->y, $nc(this->trackRect)->width, $nc(this->trackRect)->height);
+	$nc(AquaSliderUI::trackPainter->state)->set(state);
+	AquaSliderUI::trackPainter->paint(g, c, $nc(this->trackRect)->x, $nc(this->trackRect)->y, $nc(this->trackRect)->width, $nc(this->trackRect)->height);
 }
 
 void AquaSliderUI::paintThumb($Graphics* g, $JComponent* c, $JRSUIConstants$Orientation* orientation, $JRSUIConstants$State* state) {
 	$nc($nc(this->thumbPainter)->state)->set(orientation);
-	$nc($nc(this->thumbPainter)->state)->set(state);
+	$nc(this->thumbPainter->state)->set(state);
 	$init($JRSUIConstants$Focused);
-	$nc($nc(this->thumbPainter)->state)->set($nc(this->slider)->hasFocus() ? static_cast<$JRSUIConstants$Property*>($JRSUIConstants$Focused::YES) : static_cast<$JRSUIConstants$Property*>($JRSUIConstants$Focused::NO));
-	$nc($nc(this->thumbPainter)->state)->set($(getDirection(orientation)));
-	$nc(this->thumbPainter)->paint(g, c, $nc(this->thumbRect)->x, $nc(this->thumbRect)->y, $nc(this->thumbRect)->width, $nc(this->thumbRect)->height);
+	$nc(this->thumbPainter->state)->set($nc(this->slider)->hasFocus() ? $JRSUIConstants$Focused::YES : $JRSUIConstants$Focused::NO);
+	$nc(this->thumbPainter->state)->set($(getDirection(orientation)));
+	this->thumbPainter->paint(g, c, $nc(this->thumbRect)->x, $nc(this->thumbRect)->y, $nc(this->thumbRect)->width, $nc(this->thumbRect)->height);
 }
 
 $JRSUIConstants$Direction* AquaSliderUI::getDirection($JRSUIConstants$Orientation* orientation) {
@@ -640,9 +506,9 @@ void AquaSliderUI::paintTicks($Graphics* g) {
 	} else {
 		if (this->disabledTickColor == nullptr) {
 			int32_t var$0 = $nc(this->tickColor)->getRed();
-			int32_t var$1 = $nc(this->tickColor)->getGreen();
-			int32_t var$2 = $nc(this->tickColor)->getBlue();
-			$set(this, disabledTickColor, $new($Color, var$0, var$1, var$2, $nc(this->tickColor)->getAlpha() / 2));
+			int32_t var$1 = this->tickColor->getGreen();
+			int32_t var$2 = this->tickColor->getBlue();
+			$set(this, disabledTickColor, $new($Color, var$0, var$1, var$2, this->tickColor->getAlpha() / 2));
 		}
 		$nc(g)->setColor(this->disabledTickColor);
 	}
@@ -681,24 +547,24 @@ void AquaSliderUI::calculateThumbLocation() {
 }
 
 void AquaSliderUI::calculateThumbSize() {
-	$useLocalCurrentObjectStackCache();
-	$var($AquaUtilControlSize$SizeDescriptor, descriptor, shouldUseArrowThumb() ? $cast($AquaUtilControlSize$SizeDescriptor, $nc(AquaSliderUI::pointingThumbDescriptor)->get()) : $cast($AquaUtilControlSize$SizeDescriptor, $nc(AquaSliderUI::roundThumbDescriptor)->get()));
-	$var($AquaUtilControlSize$SizeVariant, variant, $nc(descriptor)->get(static_cast<$JComponent*>(this->slider)));
+	$useLocalObjectStack();
+	$var($AquaUtilControlSize$SizeDescriptor, descriptor, shouldUseArrowThumb() ? $cast($AquaUtilControlSize$SizeDescriptor, AquaSliderUI::pointingThumbDescriptor->get()) : $cast($AquaUtilControlSize$SizeDescriptor, AquaSliderUI::roundThumbDescriptor->get()));
+	$var($AquaUtilControlSize$SizeVariant, variant, $nc(descriptor)->get(this->slider));
 	if ($nc(this->slider)->getOrientation() == $SwingConstants::HORIZONTAL) {
-		$nc(this->thumbRect)->setSize($nc(variant)->w, variant->h);
+		$nc(this->thumbRect)->setSize($nc(variant)->w, $nc(variant)->h);
 	} else {
-		$nc(this->thumbRect)->setSize($nc(variant)->h, variant->w);
+		$nc(this->thumbRect)->setSize($nc(variant)->h, $nc(variant)->w);
 	}
 }
 
 bool AquaSliderUI::shouldUseArrowThumb() {
 	bool var$0 = $nc(this->slider)->getPaintTicks();
-	if (var$0 || $nc(this->slider)->getPaintLabels()) {
+	if (var$0 || this->slider->getPaintLabels()) {
 		return true;
 	}
 	$var($Object, shouldPaintArrowThumbProperty, $nc(this->slider)->getClientProperty("Slider.paintThumbArrowShape"_s));
 	if (shouldPaintArrowThumbProperty != nullptr && $instanceOf($Boolean, shouldPaintArrowThumbProperty)) {
-		return $nc(($cast($Boolean, shouldPaintArrowThumbProperty)))->booleanValue();
+		return $cast($Boolean, shouldPaintArrowThumbProperty)->booleanValue();
 	}
 	return false;
 }
@@ -707,14 +573,14 @@ void AquaSliderUI::calculateTickRect() {
 	int32_t tickLength = $nc(this->slider)->getPaintTicks() ? getTickLength() : 0;
 	if ($nc(this->slider)->getOrientation() == $SwingConstants::HORIZONTAL) {
 		$nc(this->tickRect)->height = tickLength;
-		$nc(this->tickRect)->x = $nc(this->trackRect)->x + this->trackBuffer;
-		$nc(this->tickRect)->y = $nc(this->trackRect)->y + $nc(this->trackRect)->height - ($nc(this->tickRect)->height / 2);
-		$nc(this->tickRect)->width = $nc(this->trackRect)->width - (this->trackBuffer * 2);
+		this->tickRect->x = $nc(this->trackRect)->x + this->trackBuffer;
+		this->tickRect->y = this->trackRect->y + this->trackRect->height - (this->tickRect->height / 2);
+		this->tickRect->width = this->trackRect->width - (this->trackBuffer * 2);
 	} else {
 		$nc(this->tickRect)->width = tickLength;
-		$nc(this->tickRect)->x = $nc(this->trackRect)->x + $nc(this->trackRect)->width - ($nc(this->tickRect)->width / 2);
-		$nc(this->tickRect)->y = $nc(this->trackRect)->y + this->trackBuffer;
-		$nc(this->tickRect)->height = $nc(this->trackRect)->height - (this->trackBuffer * 2);
+		this->tickRect->x = $nc(this->trackRect)->x + $nc(this->trackRect)->width - (this->tickRect->width / 2);
+		this->tickRect->y = this->trackRect->y + this->trackBuffer;
+		this->tickRect->height = this->trackRect->height - (this->trackBuffer * 2);
 	}
 }
 
@@ -744,8 +610,8 @@ int32_t AquaSliderUI::getScale() {
 	return scale;
 }
 
-void clinit$AquaSliderUI($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void AquaSliderUI::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(AquaSliderUI::roundThumbDescriptor, $new($AquaSliderUI$1));
 	$assignStatic(AquaSliderUI::pointingThumbDescriptor, $new($AquaSliderUI$2));
 	$var($JRSUIState, var$0, $JRSUIStateFactory::getSliderTrack());
@@ -756,7 +622,128 @@ AquaSliderUI::AquaSliderUI() {
 }
 
 $Class* AquaSliderUI::load$($String* name, bool initialize) {
-	$loadClass(AquaSliderUI, name, initialize, &_AquaSliderUI_ClassInfo_, clinit$AquaSliderUI, allocate$AquaSliderUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"roundThumbDescriptor", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaUtilControlSize$SizeDescriptor;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaSliderUI, roundThumbDescriptor)},
+		{"pointingThumbDescriptor", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaUtilControlSize$SizeDescriptor;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaSliderUI, pointingThumbDescriptor)},
+		{"trackPainter", "Lcom/apple/laf/AquaPainter;", "Lcom/apple/laf/AquaPainter<Lapple/laf/JRSUIState;>;", $STATIC | $FINAL, $staticField(AquaSliderUI, trackPainter)},
+		{"thumbPainter", "Lcom/apple/laf/AquaPainter;", "Lcom/apple/laf/AquaPainter<Lapple/laf/JRSUIState;>;", $FINAL, $field(AquaSliderUI, thumbPainter)},
+		{"tickColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(AquaSliderUI, tickColor)},
+		{"disabledTickColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(AquaSliderUI, disabledTickColor)},
+		{"fIsDragging", "Z", nullptr, $PROTECTED | $TRANSIENT, $field(AquaSliderUI, fIsDragging)},
+		{"kTickWidth", "I", nullptr, $STATIC | $FINAL, $constField(AquaSliderUI, kTickWidth)},
+		{"kTickLength", "I", nullptr, $STATIC | $FINAL, $constField(AquaSliderUI, kTickLength)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JSlider;)V", nullptr, $PUBLIC, $method(AquaSliderUI, init$, void, $JSlider*)},
+		{"access$000", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$000, $JSlider*, AquaSliderUI*)},
+		{"access$100", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$100, $JSlider*, AquaSliderUI*)},
+		{"access$1000", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$1000, $JSlider*, AquaSliderUI*)},
+		{"access$1100", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$1100, $Rectangle*, AquaSliderUI*)},
+		{"access$1200", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$1200, $JSlider*, AquaSliderUI*)},
+		{"access$1300", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$1300, $JSlider*, AquaSliderUI*)},
+		{"access$1400", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$1400, $JSlider*, AquaSliderUI*)},
+		{"access$1500", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$1500, $JSlider*, AquaSliderUI*)},
+		{"access$1600", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$1600, $JSlider*, AquaSliderUI*)},
+		{"access$1700", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$1700, $JSlider*, AquaSliderUI*)},
+		{"access$1800", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$1800, $Rectangle*, AquaSliderUI*)},
+		{"access$1900", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$1900, $Rectangle*, AquaSliderUI*)},
+		{"access$200", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/Timer;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$200, $Timer*, AquaSliderUI*)},
+		{"access$2000", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$2000, $Rectangle*, AquaSliderUI*)},
+		{"access$2100", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$2100, $JSlider*, AquaSliderUI*)},
+		{"access$2200", "(Lcom/apple/laf/AquaSliderUI;)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$2200, bool, AquaSliderUI*)},
+		{"access$2300", "(Lcom/apple/laf/AquaSliderUI;)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$2300, bool, AquaSliderUI*)},
+		{"access$2400", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$2400, $JSlider*, AquaSliderUI*)},
+		{"access$2500", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$2500, $JSlider*, AquaSliderUI*)},
+		{"access$2600", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$2600, $JSlider*, AquaSliderUI*)},
+		{"access$2700", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$2700, $JSlider*, AquaSliderUI*)},
+		{"access$2800", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$2800, $JSlider*, AquaSliderUI*)},
+		{"access$2900", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$2900, $JSlider*, AquaSliderUI*)},
+		{"access$300", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$300, $JSlider*, AquaSliderUI*)},
+		{"access$3000", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$3000, $JSlider*, AquaSliderUI*)},
+		{"access$3100", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$3100, $JSlider*, AquaSliderUI*)},
+		{"access$3200", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$3200, $Rectangle*, AquaSliderUI*)},
+		{"access$3300", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$3300, $Rectangle*, AquaSliderUI*)},
+		{"access$3400", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$3400, $Rectangle*, AquaSliderUI*)},
+		{"access$3500", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$3500, $Rectangle*, AquaSliderUI*)},
+		{"access$3600", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$3600, $JSlider*, AquaSliderUI*)},
+		{"access$3700", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$3700, $JSlider*, AquaSliderUI*)},
+		{"access$3800", "(Lcom/apple/laf/AquaSliderUI;I)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$3800, int32_t, AquaSliderUI*, int32_t)},
+		{"access$3900", "(Lcom/apple/laf/AquaSliderUI;)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$3900, bool, AquaSliderUI*)},
+		{"access$400", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$400, $JSlider*, AquaSliderUI*)},
+		{"access$4000", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$4000, $Rectangle*, AquaSliderUI*)},
+		{"access$4100", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$4100, $JSlider*, AquaSliderUI*)},
+		{"access$4200", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$4200, $Rectangle*, AquaSliderUI*)},
+		{"access$4300", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$4300, $Rectangle*, AquaSliderUI*)},
+		{"access$4400", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$4400, $Rectangle*, AquaSliderUI*)},
+		{"access$4500", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$4500, $Rectangle*, AquaSliderUI*)},
+		{"access$4600", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$4600, $JSlider*, AquaSliderUI*)},
+		{"access$4700", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$4700, $JSlider*, AquaSliderUI*)},
+		{"access$4800", "(Lcom/apple/laf/AquaSliderUI;I)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$4800, int32_t, AquaSliderUI*, int32_t)},
+		{"access$4900", "(Lcom/apple/laf/AquaSliderUI;)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$4900, bool, AquaSliderUI*)},
+		{"access$500", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$500, $JSlider*, AquaSliderUI*)},
+		{"access$5000", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$5000, $Rectangle*, AquaSliderUI*)},
+		{"access$5100", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$5100, $JSlider*, AquaSliderUI*)},
+		{"access$5200", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$5200, $JSlider*, AquaSliderUI*)},
+		{"access$5300", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$5300, $Rectangle*, AquaSliderUI*)},
+		{"access$5400", "(Lcom/apple/laf/AquaSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$5400, $Rectangle*, AquaSliderUI*)},
+		{"access$600", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$600, $JSlider*, AquaSliderUI*)},
+		{"access$700", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$700, $JSlider*, AquaSliderUI*)},
+		{"access$800", "(Lcom/apple/laf/AquaSliderUI;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$800, void, AquaSliderUI*)},
+		{"access$900", "(Lcom/apple/laf/AquaSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSliderUI, access$900, $JSlider*, AquaSliderUI*)},
+		{"applySizeFor", "(Ljavax/swing/JComponent;Lapple/laf/JRSUIConstants$Size;)V", nullptr, $PUBLIC, $virtualMethod(AquaSliderUI, applySizeFor, void, $JComponent*, $JRSUIConstants$Size*)},
+		{"calculateThumbLocation", "()V", nullptr, $PROTECTED, $virtualMethod(AquaSliderUI, calculateThumbLocation, void)},
+		{"calculateThumbSize", "()V", nullptr, $PROTECTED, $virtualMethod(AquaSliderUI, calculateThumbSize, void)},
+		{"calculateTickRect", "()V", nullptr, $PROTECTED, $virtualMethod(AquaSliderUI, calculateTickRect, void)},
+		{"createChangeListener", "(Ljavax/swing/JSlider;)Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $virtualMethod(AquaSliderUI, createChangeListener, $ChangeListener*, $JSlider*)},
+		{"createTrackListener", "(Ljavax/swing/JSlider;)Ljavax/swing/plaf/basic/BasicSliderUI$TrackListener;", nullptr, $PROTECTED, $virtualMethod(AquaSliderUI, createTrackListener, $BasicSliderUI$TrackListener*, $JSlider*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaSliderUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getDirection", "(Lapple/laf/JRSUIConstants$Orientation;)Lapple/laf/JRSUIConstants$Direction;", nullptr, 0, $virtualMethod(AquaSliderUI, getDirection, $JRSUIConstants$Direction*, $JRSUIConstants$Orientation*)},
+		{"getPreferredHorizontalSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaSliderUI, getPreferredHorizontalSize, $Dimension*)},
+		{"getPreferredVerticalSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaSliderUI, getPreferredVerticalSize, $Dimension*)},
+		{"getScale", "()I", nullptr, 0, $virtualMethod(AquaSliderUI, getScale, int32_t)},
+		{"getState", "()Lapple/laf/JRSUIConstants$State;", nullptr, 0, $virtualMethod(AquaSliderUI, getState, $JRSUIConstants$State*)},
+		{"installListeners", "(Ljavax/swing/JSlider;)V", nullptr, $PROTECTED, $virtualMethod(AquaSliderUI, installListeners, void, $JSlider*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSliderUI, installUI, void, $JComponent*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSliderUI, paint, void, $Graphics*, $JComponent*)},
+		{"paintThumb", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Lapple/laf/JRSUIConstants$Orientation;Lapple/laf/JRSUIConstants$State;)V", nullptr, $PUBLIC, $virtualMethod(AquaSliderUI, paintThumb, void, $Graphics*, $JComponent*, $JRSUIConstants$Orientation*, $JRSUIConstants$State*)},
+		{"paintTicks", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(AquaSliderUI, paintTicks, void, $Graphics*)},
+		{"paintTrack", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Lapple/laf/JRSUIConstants$Orientation;Lapple/laf/JRSUIConstants$State;)V", nullptr, $PUBLIC, $virtualMethod(AquaSliderUI, paintTrack, void, $Graphics*, $JComponent*, $JRSUIConstants$Orientation*, $JRSUIConstants$State*)},
+		{"shouldUseArrowThumb", "()Z", nullptr, $PROTECTED, $virtualMethod(AquaSliderUI, shouldUseArrowThumb, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallListeners", "(Ljavax/swing/JSlider;)V", nullptr, $PROTECTED, $virtualMethod(AquaSliderUI, uninstallListeners, void, $JSlider*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaUtilControlSize$Sizeable", "com.apple.laf.AquaUtilControlSize", "Sizeable", $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.apple.laf.AquaSliderUI$TrackListener", "com.apple.laf.AquaSliderUI", "TrackListener", 0},
+		{"com.apple.laf.AquaSliderUI$4", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaSliderUI$3", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaSliderUI$2", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaSliderUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaSliderUI",
+		"javax.swing.plaf.basic.BasicSliderUI",
+		"com.apple.laf.AquaUtilControlSize$Sizeable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaSliderUI$TrackListener,com.apple.laf.AquaSliderUI$4,com.apple.laf.AquaSliderUI$3,com.apple.laf.AquaSliderUI$2,com.apple.laf.AquaSliderUI$2$1,com.apple.laf.AquaSliderUI$1,com.apple.laf.AquaSliderUI$1$1"
+	};
+	$loadClass(AquaSliderUI, name, initialize, &classInfo$$, AquaSliderUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaSliderUI));
+	});
 	return class$;
 }
 

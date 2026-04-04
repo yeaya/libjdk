@@ -15,10 +15,13 @@ public:
 	InvalidMidiDataException();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0x2697492DFCE72023;
+	static const int64_t serialVersionUID = (int64_t)0x2697492dfce72023;
 	InvalidMidiDataException(const InvalidMidiDataException& e);
 	virtual void throw$() override;
-	inline InvalidMidiDataException* operator ->() {
+	inline InvalidMidiDataException* operator ->() const {
+		return (InvalidMidiDataException*)throwing$;
+	}
+	inline operator InvalidMidiDataException*() const {
 		return (InvalidMidiDataException*)throwing$;
 	}
 };

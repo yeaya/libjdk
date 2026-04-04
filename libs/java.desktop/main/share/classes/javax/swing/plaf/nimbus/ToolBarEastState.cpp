@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/ToolBarEastState.h>
-
 #include <java/awt/BorderLayout.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JToolBar.h>
@@ -22,26 +21,6 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$MethodInfo _ToolBarEastState_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ToolBarEastState, init$, void)},
-	{"isInState", "(Ljavax/swing/JComponent;)Z", nullptr, $PROTECTED, $virtualMethod(ToolBarEastState, isInState, bool, $JComponent*)},
-	{}
-};
-
-$ClassInfo _ToolBarEastState_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.nimbus.ToolBarEastState",
-	"javax.swing.plaf.nimbus.State",
-	nullptr,
-	nullptr,
-	_ToolBarEastState_MethodInfo_,
-	"Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;"
-};
-
-$Object* allocate$ToolBarEastState($Class* clazz) {
-	return $of($alloc(ToolBarEastState));
-}
-
 void ToolBarEastState::init$() {
 	$State::init$("East"_s);
 }
@@ -55,7 +34,23 @@ ToolBarEastState::ToolBarEastState() {
 }
 
 $Class* ToolBarEastState::load$($String* name, bool initialize) {
-	$loadClass(ToolBarEastState, name, initialize, &_ToolBarEastState_ClassInfo_, allocate$ToolBarEastState);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ToolBarEastState, init$, void)},
+		{"isInState", "(Ljavax/swing/JComponent;)Z", nullptr, $PROTECTED, $virtualMethod(ToolBarEastState, isInState, bool, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.nimbus.ToolBarEastState",
+		"javax.swing.plaf.nimbus.State",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;"
+	};
+	$loadClass(ToolBarEastState, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ToolBarEastState);
+	});
 	return class$;
 }
 

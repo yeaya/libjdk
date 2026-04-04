@@ -35,6 +35,7 @@ class XDragSourceProtocol : public ::java::lang::Object {
 	$class(XDragSourceProtocol, 0, ::java::lang::Object)
 public:
 	XDragSourceProtocol();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::X11::XDragSourceProtocolListener* listener);
 	bool attachTargetWindow(int64_t window, int64_t time);
 	virtual void cleanup();

@@ -1,5 +1,4 @@
 #include <sun/text/resources/ext/FormatData_th.h>
-
 #include <sun/util/resources/ParallelListResourceBundle.h>
 #include <jcpp.h>
 
@@ -13,31 +12,12 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _FormatData_th_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_th, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_th, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _FormatData_th_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.ext.FormatData_th",
-	"sun.util.resources.ParallelListResourceBundle",
-	nullptr,
-	nullptr,
-	_FormatData_th_MethodInfo_
-};
-
-$Object* allocate$FormatData_th($Class* clazz) {
-	return $of($alloc(FormatData_th));
-}
-
 void FormatData_th::init$() {
 	$ParallelListResourceBundle::init$();
 }
 
 $ObjectArray2* FormatData_th::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, timePatterns, $new($StringArray, {
 		u"H\' นาฬิกา \'m\' นาที \'ss\' วินาที\'"_s,
 		u"H\' นาฬิกา \'m\' นาที\'"_s,
@@ -53,8 +33,8 @@ $ObjectArray2* FormatData_th::getContents() {
 	$var($StringArray, dateTimePatterns, $new($StringArray, {"{1}, {0}"_s}));
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("MonthNames"_s),
-			$of($$new($StringArray, {
+			"MonthNames"_s,
+			$$new($StringArray, {
 				u"มกราคม"_s,
 				u"กุมภาพันธ์"_s,
 				u"มีนาคม"_s,
@@ -68,11 +48,11 @@ $ObjectArray2* FormatData_th::getContents() {
 				u"พฤศจิกายน"_s,
 				u"ธันวาคม"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("MonthAbbreviations"_s),
-			$of($$new($StringArray, {
+			"MonthAbbreviations"_s,
+			$$new($StringArray, {
 				u"ม.ค."_s,
 				u"ก.พ."_s,
 				u"มี.ค."_s,
@@ -86,11 +66,11 @@ $ObjectArray2* FormatData_th::getContents() {
 				u"พ.ย."_s,
 				u"ธ.ค."_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("MonthNarrows"_s),
-			$of($$new($StringArray, {
+			"MonthNarrows"_s,
+			$$new($StringArray, {
 				u"ม.ค."_s,
 				u"ก.พ."_s,
 				u"มี.ค."_s,
@@ -104,11 +84,11 @@ $ObjectArray2* FormatData_th::getContents() {
 				u"พ.ย."_s,
 				u"ธ.ค."_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.MonthNarrows"_s),
-			$of($$new($StringArray, {
+			"standalone.MonthNarrows"_s,
+			$$new($StringArray, {
 				u"ม.ค."_s,
 				u"ก.พ."_s,
 				u"มี.ค."_s,
@@ -122,11 +102,11 @@ $ObjectArray2* FormatData_th::getContents() {
 				u"พ.ย."_s,
 				u"ธ.ค."_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DayNames"_s),
-			$of($$new($StringArray, {
+			"DayNames"_s,
+			$$new($StringArray, {
 				u"วันอาทิตย์"_s,
 				u"วันจันทร์"_s,
 				u"วันอังคาร"_s,
@@ -134,11 +114,11 @@ $ObjectArray2* FormatData_th::getContents() {
 				u"วันพฤหัสบดี"_s,
 				u"วันศุกร์"_s,
 				u"วันเสาร์"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DayAbbreviations"_s),
-			$of($$new($StringArray, {
+			"DayAbbreviations"_s,
+			$$new($StringArray, {
 				u"อา."_s,
 				u"จ."_s,
 				u"อ."_s,
@@ -146,11 +126,11 @@ $ObjectArray2* FormatData_th::getContents() {
 				u"พฤ."_s,
 				u"ศ."_s,
 				u"ส."_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DayNarrows"_s),
-			$of($$new($StringArray, {
+			"DayNarrows"_s,
+			$$new($StringArray, {
 				u"อ"_s,
 				u"จ"_s,
 				u"อ"_s,
@@ -158,99 +138,99 @@ $ObjectArray2* FormatData_th::getContents() {
 				u"พ"_s,
 				u"ศ"_s,
 				u"ส"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("AmPmMarkers"_s),
-			$of($$new($StringArray, {
+			"AmPmMarkers"_s,
+			$$new($StringArray, {
 				u"ก่อนเที่ยง"_s,
 				u"หลังเที่ยง"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.Eras"_s),
-			$of($$new($StringArray, {
+			"buddhist.Eras"_s,
+			$$new($StringArray, {
 				u"ปีก่อนคริสต์กาลที่"_s,
 				u"พ.ศ."_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.short.Eras"_s),
-			$of($$new($StringArray, {
+			"buddhist.short.Eras"_s,
+			$$new($StringArray, {
 				u"ปีก่อนคริสต์กาลที่"_s,
 				u"พ.ศ."_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("Eras"_s),
-			$of($$new($StringArray, {
+			"Eras"_s,
+			$$new($StringArray, {
 				u"ปีก่อนคริสต์กาลที่"_s,
 				u"ค.ศ."_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("short.Eras"_s),
-			$of($$new($StringArray, {
+			"short.Eras"_s,
+			$$new($StringArray, {
 				u"ก่อน ค.ศ."_s,
 				u"ค.ศ."_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("narrow.Eras"_s),
-			$of($$new($StringArray, {
+			"narrow.Eras"_s,
+			$$new($StringArray, {
 				u"ก่อน ค.ศ."_s,
 				u"ค.ศ."_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.Eras"_s),
-			$of($$new($StringArray, {
+			"japanese.Eras"_s,
+			$$new($StringArray, {
 				u"ค.ศ."_s,
 				u"เมจิ"_s,
 				u"ทะอิโช"_s,
 				u"โชวะ"_s,
 				u"เฮเซ"_s,
 				u"เรวะ"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.short.Eras"_s),
-			$of($$new($StringArray, {
+			"japanese.short.Eras"_s,
+			$$new($StringArray, {
 				u"ค.ศ."_s,
 				u"ม"_s,
 				u"ท"_s,
 				u"ช"_s,
 				u"ฮ"_s,
 				"R"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.TimePatterns"_s),
-			$of(timePatterns)
+			"buddhist.TimePatterns"_s,
+			timePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.DatePatterns"_s),
-			$of(datePatterns)
+			"buddhist.DatePatterns"_s,
+			datePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.DateTimePatterns"_s),
-			$of(dateTimePatterns)
+			"buddhist.DateTimePatterns"_s,
+			dateTimePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("TimePatterns"_s),
-			$of(timePatterns)
+			"TimePatterns"_s,
+			timePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("DatePatterns"_s),
-			$of(datePatterns)
+			"DatePatterns"_s,
+			datePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("DateTimePatterns"_s),
-			$of(dateTimePatterns)
+			"DateTimePatterns"_s,
+			dateTimePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("DateTimePatternChars"_s),
-			$of("GanjkHmsSEDFwWxhKzZ"_s)
+			"DateTimePatternChars"_s,
+			"GanjkHmsSEDFwWxhKzZ"_s
 		})
 	});
 }
@@ -259,7 +239,22 @@ FormatData_th::FormatData_th() {
 }
 
 $Class* FormatData_th::load$($String* name, bool initialize) {
-	$loadClass(FormatData_th, name, initialize, &_FormatData_th_ClassInfo_, allocate$FormatData_th);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_th, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_th, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.ext.FormatData_th",
+		"sun.util.resources.ParallelListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FormatData_th, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatData_th);
+	});
 	return class$;
 }
 

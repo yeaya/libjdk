@@ -1,5 +1,4 @@
 #include <javax/swing/text/Highlighter$HighlightPainter.h>
-
 #include <java/awt/Graphics.h>
 #include <java/awt/Shape.h>
 #include <javax/swing/text/Highlighter.h>
@@ -17,38 +16,33 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _Highlighter$HighlightPainter_MethodInfo_[] = {
-	{"paint", "(Ljava/awt/Graphics;IILjava/awt/Shape;Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Highlighter$HighlightPainter, paint, void, $Graphics*, int32_t, int32_t, $Shape*, $JTextComponent*)},
-	{}
-};
-
-$InnerClassInfo _Highlighter$HighlightPainter_InnerClassesInfo_[] = {
-	{"javax.swing.text.Highlighter$HighlightPainter", "javax.swing.text.Highlighter", "HighlightPainter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Highlighter$HighlightPainter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.text.Highlighter$HighlightPainter",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Highlighter$HighlightPainter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Highlighter$HighlightPainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.Highlighter"
-};
-
-$Object* allocate$Highlighter$HighlightPainter($Class* clazz) {
-	return $of($alloc(Highlighter$HighlightPainter));
-}
-
 $Class* Highlighter$HighlightPainter::load$($String* name, bool initialize) {
-	$loadClass(Highlighter$HighlightPainter, name, initialize, &_Highlighter$HighlightPainter_ClassInfo_, allocate$Highlighter$HighlightPainter);
+	$MethodInfo methodInfos$$[] = {
+		{"paint", "(Ljava/awt/Graphics;IILjava/awt/Shape;Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Highlighter$HighlightPainter, paint, void, $Graphics*, int32_t, int32_t, $Shape*, $JTextComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.Highlighter$HighlightPainter", "javax.swing.text.Highlighter", "HighlightPainter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.text.Highlighter$HighlightPainter",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.Highlighter"
+	};
+	$loadClass(Highlighter$HighlightPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Highlighter$HighlightPainter);
+	});
 	return class$;
 }
 

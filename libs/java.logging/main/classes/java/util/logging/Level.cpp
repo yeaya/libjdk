@@ -1,5 +1,4 @@
 #include <java/util/logging/Level.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/Module.h>
 #include <java/lang/NumberFormatException.h>
@@ -50,7 +49,6 @@ using $ResourceBundle = ::java::util::ResourceBundle;
 using $Function = ::java::util::function::Function;
 using $Level$KnownLevel = ::java::util::logging::Level$KnownLevel;
 using $Level$RbAccess = ::java::util::logging::Level$RbAccess;
-using $JavaUtilResourceBundleAccess = ::jdk::internal::access::JavaUtilResourceBundleAccess;
 
 namespace java {
 	namespace util {
@@ -62,29 +60,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($Level$KnownLevel, inst$)->mirrored());
+		 return $sure($Level$KnownLevel, inst$)->mirrored();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Level$$Lambda$mirrored>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Level$$Lambda$mirrored::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Level$$Lambda$mirrored, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Level$$Lambda$mirrored, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Level$$Lambda$mirrored::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.logging.Level$$Lambda$mirrored",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Level$$Lambda$mirrored::load$($String* name, bool initialize) {
-	$loadClass(Level$$Lambda$mirrored, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Level$$Lambda$mirrored, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Level$$Lambda$mirrored, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.logging.Level$$Lambda$mirrored",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Level$$Lambda$mirrored, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Level$$Lambda$mirrored);
+	});
 	return class$;
 }
 $Class* Level$$Lambda$mirrored::class$ = nullptr;
@@ -95,99 +90,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($Level$KnownLevel, inst$)->referent());
+		 return $sure($Level$KnownLevel, inst$)->referent();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Level$$Lambda$referent$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Level$$Lambda$referent$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Level$$Lambda$referent$1, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Level$$Lambda$referent$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Level$$Lambda$referent$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.logging.Level$$Lambda$referent$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Level$$Lambda$referent$1::load$($String* name, bool initialize) {
-	$loadClass(Level$$Lambda$referent$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Level$$Lambda$referent$1, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Level$$Lambda$referent$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.logging.Level$$Lambda$referent$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Level$$Lambda$referent$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Level$$Lambda$referent$1);
+	});
 	return class$;
 }
 $Class* Level$$Lambda$referent$1::class$ = nullptr;
-
-$FieldInfo _Level_FieldInfo_[] = {
-	{"defaultBundle", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Level, defaultBundle)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Level, name)},
-	{"value", "I", nullptr, $PRIVATE | $FINAL, $field(Level, value)},
-	{"resourceBundleName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Level, resourceBundleName)},
-	{"localizedLevelName", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(Level, localizedLevelName)},
-	{"cachedLocale", "Ljava/util/Locale;", nullptr, $PRIVATE | $TRANSIENT, $field(Level, cachedLocale)},
-	{"OFF", "Ljava/util/logging/Level;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Level, OFF)},
-	{"SEVERE", "Ljava/util/logging/Level;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Level, SEVERE)},
-	{"WARNING", "Ljava/util/logging/Level;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Level, WARNING)},
-	{"INFO", "Ljava/util/logging/Level;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Level, INFO)},
-	{"CONFIG", "Ljava/util/logging/Level;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Level, CONFIG)},
-	{"FINE", "Ljava/util/logging/Level;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Level, FINE)},
-	{"FINER", "Ljava/util/logging/Level;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Level, FINER)},
-	{"FINEST", "Ljava/util/logging/Level;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Level, FINEST)},
-	{"ALL", "Ljava/util/logging/Level;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Level, ALL)},
-	{"standardLevels", "[Ljava/util/logging/Level;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Level, standardLevels)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Level, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Level_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PROTECTED, $method(Level, init$, void, $String*, int32_t)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PROTECTED, $method(Level, init$, void, $String*, int32_t, $String*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Z)V", nullptr, $PRIVATE, $method(Level, init$, void, $String*, int32_t, $String*, bool)},
-	{"computeLocalizedLevelName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Level, computeLocalizedLevelName, $String*, $Locale*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Level, equals, bool, Object$*)},
-	{"findLevel", "(Ljava/lang/String;)Ljava/util/logging/Level;", nullptr, $STATIC, $staticMethod(Level, findLevel, Level*, $String*)},
-	{"getCachedLocalizedLevelName", "()Ljava/lang/String;", nullptr, $FINAL, $method(Level, getCachedLocalizedLevelName, $String*)},
-	{"getLevelName", "()Ljava/lang/String;", nullptr, $FINAL, $method(Level, getLevelName, $String*)},
-	{"getLocalizedLevelName", "()Ljava/lang/String;", nullptr, $FINAL | $SYNCHRONIZED, $method(Level, getLocalizedLevelName, $String*)},
-	{"getLocalizedName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Level, getLocalizedName, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Level, getName, $String*)},
-	{"getResourceBundleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Level, getResourceBundleName, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Level, hashCode, int32_t)},
-	{"intValue", "()I", nullptr, $PUBLIC | $FINAL, $method(Level, intValue, int32_t)},
-	{"parse", "(Ljava/lang/String;)Ljava/util/logging/Level;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Level, parse, Level*, $String*), "java.lang.IllegalArgumentException"},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Level, readResolve, $Object*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Level, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Level_InnerClassesInfo_[] = {
-	{"java.util.logging.Level$KnownLevel", "java.util.logging.Level", "KnownLevel", $STATIC | $FINAL},
-	{"java.util.logging.Level$RbAccess", "java.util.logging.Level", "RbAccess", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Level_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.logging.Level",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_Level_FieldInfo_,
-	_Level_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Level_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.logging.Level$KnownLevel,java.util.logging.Level$RbAccess"
-};
-
-$Object* allocate$Level($Class* clazz) {
-	return $of($alloc(Level));
-}
 
 $String* Level::defaultBundle = nullptr;
 Level* Level::OFF = nullptr;
@@ -240,12 +165,12 @@ $String* Level::getLevelName() {
 }
 
 $String* Level::computeLocalizedLevelName($Locale* newLocale) {
-	$useLocalCurrentObjectStackCache();
-	$var($Module, module, $of(this)->getClass()->getModule());
+	$useLocalObjectStack();
+	$var($Module, module, this->getClass()->getModule());
 	$init($Level$RbAccess);
 	$var($ResourceBundle, rb, $nc($Level$RbAccess::RB_ACCESS)->getBundle(this->resourceBundleName, newLocale, module));
 	$var($String, localizedName, $nc(rb)->getString(this->name));
-	bool isDefaultBundle = $nc(Level::defaultBundle)->equals(this->resourceBundleName);
+	bool isDefaultBundle = Level::defaultBundle->equals(this->resourceBundleName);
 	if (!isDefaultBundle) {
 		return localizedName;
 	}
@@ -253,13 +178,13 @@ $String* Level::computeLocalizedLevelName($Locale* newLocale) {
 	$init($Locale);
 	bool var$0 = $nc($Locale::ROOT)->equals(rbLocale);
 	$var($Locale, locale, var$0 || $nc(this->name)->equals($($nc(localizedName)->toUpperCase($Locale::ROOT))) ? $Locale::ROOT : rbLocale);
-	return $nc($Locale::ROOT)->equals(locale) ? this->name : $nc(localizedName)->toUpperCase(locale);
+	return $Locale::ROOT->equals(locale) ? this->name : $nc(localizedName)->toUpperCase(locale);
 }
 
 $String* Level::getCachedLocalizedLevelName() {
 	if (this->localizedLevelName != nullptr) {
 		if (this->cachedLocale != nullptr) {
-			if ($nc(this->cachedLocale)->equals($($Locale::getDefault()))) {
+			if (this->cachedLocale->equals($($Locale::getDefault()))) {
 				return this->localizedLevelName;
 			}
 		}
@@ -272,7 +197,7 @@ $String* Level::getCachedLocalizedLevelName() {
 
 $String* Level::getLocalizedLevelName() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($String, cachedLocalizedName, getCachedLocalizedLevelName());
 		if (cachedLocalizedName != nullptr) {
 			return cachedLocalizedName;
@@ -290,26 +215,26 @@ $String* Level::getLocalizedLevelName() {
 
 Level* Level::findLevel($String* name) {
 	$init(Level);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == nullptr) {
 		$throwNew($NullPointerException);
 	}
 	$var($Optional, level, nullptr);
-	$assign(level, $Level$KnownLevel::findByName(name, static_cast<$Function*>($$new(Level$$Lambda$mirrored))));
+	$assign(level, $Level$KnownLevel::findByName(name, $$new(Level$$Lambda$mirrored)));
 	if ($nc(level)->isPresent()) {
 		return $cast(Level, level->get());
 	}
 	try {
 		int32_t x = $Integer::parseInt(name);
-		$assign(level, $Level$KnownLevel::findByValue(x, static_cast<$Function*>($$new(Level$$Lambda$mirrored))));
+		$assign(level, $Level$KnownLevel::findByValue(x, $$new(Level$$Lambda$mirrored)));
 		if ($nc(level)->isPresent()) {
 			return $cast(Level, level->get());
 		}
 		$var(Level, levelObject, $new(Level, name, x));
-		return $cast(Level, $nc($($Level$KnownLevel::findByValue(x, static_cast<$Function*>($$new(Level$$Lambda$mirrored)))))->get());
+		return $cast(Level, $$nc($Level$KnownLevel::findByValue(x, $$new(Level$$Lambda$mirrored)))->get());
 	} catch ($NumberFormatException& ex) {
 	}
-	$assign(level, $Level$KnownLevel::findByLocalizedLevelName(name, static_cast<$Function*>($$new(Level$$Lambda$mirrored))));
+	$assign(level, $Level$KnownLevel::findByLocalizedLevelName(name, $$new(Level$$Lambda$mirrored)));
 	if ($nc(level)->isPresent()) {
 		return $cast(Level, level->get());
 	}
@@ -327,33 +252,32 @@ int32_t Level::intValue() {
 $Object* Level::readResolve() {
 	$var($Optional, level, $Level$KnownLevel::matches(this));
 	if ($nc(level)->isPresent()) {
-		return $of(level->get());
+		return level->get();
 	}
-	return $of($new(Level, this->name, this->value, this->resourceBundleName));
+	return $new(Level, this->name, this->value, this->resourceBundleName);
 }
 
 Level* Level::parse($String* name) {
-	$load(Level);
+	$init(Level);
 	$synchronized(class$) {
-		$init(Level);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$nc(name)->length();
 		$var($Optional, level, nullptr);
-		$assign(level, $Level$KnownLevel::findByName(name, static_cast<$Function*>($$new(Level$$Lambda$referent$1))));
+		$assign(level, $Level$KnownLevel::findByName(name, $$new(Level$$Lambda$referent$1)));
 		if ($nc(level)->isPresent()) {
 			return $cast(Level, level->get());
 		}
 		try {
 			int32_t x = $Integer::parseInt(name);
-			$assign(level, $Level$KnownLevel::findByValue(x, static_cast<$Function*>($$new(Level$$Lambda$referent$1))));
+			$assign(level, $Level$KnownLevel::findByValue(x, $$new(Level$$Lambda$referent$1)));
 			if ($nc(level)->isPresent()) {
 				return $cast(Level, level->get());
 			}
 			$var(Level, levelObject, $new(Level, name, x));
-			return $cast(Level, $nc($($Level$KnownLevel::findByValue(x, static_cast<$Function*>($$new(Level$$Lambda$referent$1)))))->get());
+			return $cast(Level, $$nc($Level$KnownLevel::findByValue(x, $$new(Level$$Lambda$referent$1)))->get());
 		} catch ($NumberFormatException& ex) {
 		}
-		$assign(level, $Level$KnownLevel::findByLocalizedLevelName(name, static_cast<$Function*>($$new(Level$$Lambda$referent$1))));
+		$assign(level, $Level$KnownLevel::findByLocalizedLevelName(name, $$new(Level$$Lambda$referent$1)));
 		if ($nc(level)->isPresent()) {
 			return $cast(Level, level->get());
 		}
@@ -375,7 +299,7 @@ int32_t Level::hashCode() {
 	return this->value;
 }
 
-void clinit$Level($Class* class$) {
+void Level::clinit$($Class* clazz) {
 	$assignStatic(Level::defaultBundle, "sun.util.logging.resources.logging"_s);
 	$assignStatic(Level::OFF, $new(Level, "OFF"_s, $Integer::MAX_VALUE, Level::defaultBundle));
 	$assignStatic(Level::SEVERE, $new(Level, "SEVERE"_s, 1000, Level::defaultBundle));
@@ -404,14 +328,75 @@ Level::Level() {
 
 $Class* Level::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Level$$Lambda$mirrored::classInfo$.name)) {
+		if (name->equals("java.util.logging.Level$$Lambda$mirrored")) {
 			return Level$$Lambda$mirrored::load$(name, initialize);
 		}
-		if (name->equals(Level$$Lambda$referent$1::classInfo$.name)) {
+		if (name->equals("java.util.logging.Level$$Lambda$referent$1")) {
 			return Level$$Lambda$referent$1::load$(name, initialize);
 		}
 	}
-	$loadClass(Level, name, initialize, &_Level_ClassInfo_, clinit$Level, allocate$Level);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultBundle", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Level, defaultBundle)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Level, name)},
+		{"value", "I", nullptr, $PRIVATE | $FINAL, $field(Level, value)},
+		{"resourceBundleName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Level, resourceBundleName)},
+		{"localizedLevelName", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(Level, localizedLevelName)},
+		{"cachedLocale", "Ljava/util/Locale;", nullptr, $PRIVATE | $TRANSIENT, $field(Level, cachedLocale)},
+		{"OFF", "Ljava/util/logging/Level;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Level, OFF)},
+		{"SEVERE", "Ljava/util/logging/Level;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Level, SEVERE)},
+		{"WARNING", "Ljava/util/logging/Level;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Level, WARNING)},
+		{"INFO", "Ljava/util/logging/Level;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Level, INFO)},
+		{"CONFIG", "Ljava/util/logging/Level;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Level, CONFIG)},
+		{"FINE", "Ljava/util/logging/Level;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Level, FINE)},
+		{"FINER", "Ljava/util/logging/Level;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Level, FINER)},
+		{"FINEST", "Ljava/util/logging/Level;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Level, FINEST)},
+		{"ALL", "Ljava/util/logging/Level;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Level, ALL)},
+		{"standardLevels", "[Ljava/util/logging/Level;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Level, standardLevels)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Level, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PROTECTED, $method(Level, init$, void, $String*, int32_t)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PROTECTED, $method(Level, init$, void, $String*, int32_t, $String*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Z)V", nullptr, $PRIVATE, $method(Level, init$, void, $String*, int32_t, $String*, bool)},
+		{"computeLocalizedLevelName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Level, computeLocalizedLevelName, $String*, $Locale*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Level, equals, bool, Object$*)},
+		{"findLevel", "(Ljava/lang/String;)Ljava/util/logging/Level;", nullptr, $STATIC, $staticMethod(Level, findLevel, Level*, $String*)},
+		{"getCachedLocalizedLevelName", "()Ljava/lang/String;", nullptr, $FINAL, $method(Level, getCachedLocalizedLevelName, $String*)},
+		{"getLevelName", "()Ljava/lang/String;", nullptr, $FINAL, $method(Level, getLevelName, $String*)},
+		{"getLocalizedLevelName", "()Ljava/lang/String;", nullptr, $FINAL | $SYNCHRONIZED, $method(Level, getLocalizedLevelName, $String*)},
+		{"getLocalizedName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Level, getLocalizedName, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Level, getName, $String*)},
+		{"getResourceBundleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Level, getResourceBundleName, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Level, hashCode, int32_t)},
+		{"intValue", "()I", nullptr, $PUBLIC | $FINAL, $method(Level, intValue, int32_t)},
+		{"parse", "(Ljava/lang/String;)Ljava/util/logging/Level;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Level, parse, Level*, $String*), "java.lang.IllegalArgumentException"},
+		{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Level, readResolve, $Object*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Level, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.logging.Level$KnownLevel", "java.util.logging.Level", "KnownLevel", $STATIC | $FINAL},
+		{"java.util.logging.Level$RbAccess", "java.util.logging.Level", "RbAccess", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.logging.Level",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.logging.Level$KnownLevel,java.util.logging.Level$RbAccess"
+	};
+	$loadClass(Level, name, initialize, &classInfo$$, Level::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Level);
+	});
 	return class$;
 }
 

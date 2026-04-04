@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultEditorKit$WritableAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/text/DefaultEditorKit.h>
 #include <javax/swing/text/JTextComponent.h>
@@ -17,37 +16,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _DefaultEditorKit$WritableAction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DefaultEditorKit$WritableAction, init$, void)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$WritableAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _DefaultEditorKit$WritableAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultEditorKit$WritableAction", "javax.swing.text.DefaultEditorKit", "WritableAction", $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultEditorKit$WritableAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.DefaultEditorKit$WritableAction",
-	"javax.swing.text.TextAction",
-	nullptr,
-	nullptr,
-	_DefaultEditorKit$WritableAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultEditorKit$WritableAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultEditorKit"
-};
-
-$Object* allocate$DefaultEditorKit$WritableAction($Class* clazz) {
-	return $of($alloc(DefaultEditorKit$WritableAction));
-}
-
 void DefaultEditorKit$WritableAction::init$() {
 	$TextAction::init$("set-writable"_s);
 }
@@ -63,7 +31,33 @@ DefaultEditorKit$WritableAction::DefaultEditorKit$WritableAction() {
 }
 
 $Class* DefaultEditorKit$WritableAction::load$($String* name, bool initialize) {
-	$loadClass(DefaultEditorKit$WritableAction, name, initialize, &_DefaultEditorKit$WritableAction_ClassInfo_, allocate$DefaultEditorKit$WritableAction);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DefaultEditorKit$WritableAction, init$, void)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$WritableAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultEditorKit$WritableAction", "javax.swing.text.DefaultEditorKit", "WritableAction", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.DefaultEditorKit$WritableAction",
+		"javax.swing.text.TextAction",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultEditorKit"
+	};
+	$loadClass(DefaultEditorKit$WritableAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultEditorKit$WritableAction));
+	});
 	return class$;
 }
 

@@ -21,6 +21,7 @@ class MacOSFlags$PropertyState : public ::java::lang::Enum {
 public:
 	MacOSFlags$PropertyState();
 	static $Array<::sun::java2d::MacOSFlags$PropertyState>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::java2d::MacOSFlags$PropertyState* valueOf($String* name);
 	static $Array<::sun::java2d::MacOSFlags$PropertyState>* values();

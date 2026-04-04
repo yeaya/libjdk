@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifProgressBarUI.h>
-
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/basic/BasicProgressBarUI.h>
@@ -18,25 +17,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$MethodInfo _MotifProgressBarUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifProgressBarUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifProgressBarUI, createUI, $ComponentUI*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _MotifProgressBarUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifProgressBarUI",
-	"javax.swing.plaf.basic.BasicProgressBarUI",
-	nullptr,
-	nullptr,
-	_MotifProgressBarUI_MethodInfo_
-};
-
-$Object* allocate$MotifProgressBarUI($Class* clazz) {
-	return $of($alloc(MotifProgressBarUI));
-}
-
 void MotifProgressBarUI::init$() {
 	$BasicProgressBarUI::init$();
 }
@@ -50,7 +30,22 @@ MotifProgressBarUI::MotifProgressBarUI() {
 }
 
 $Class* MotifProgressBarUI::load$($String* name, bool initialize) {
-	$loadClass(MotifProgressBarUI, name, initialize, &_MotifProgressBarUI_ClassInfo_, allocate$MotifProgressBarUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifProgressBarUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifProgressBarUI, createUI, $ComponentUI*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifProgressBarUI",
+		"javax.swing.plaf.basic.BasicProgressBarUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MotifProgressBarUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MotifProgressBarUI);
+	});
 	return class$;
 }
 

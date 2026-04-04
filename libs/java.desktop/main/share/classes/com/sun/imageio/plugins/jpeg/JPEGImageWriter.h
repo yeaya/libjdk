@@ -145,6 +145,7 @@ class JPEGImageWriter : public ::javax::imageio::ImageWriter {
 	$class(JPEGImageWriter, 0, ::javax::imageio::ImageWriter)
 public:
 	JPEGImageWriter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::imageio::spi::ImageWriterSpi* originator);
 	virtual void abort() override;
 	void abortWrite(int64_t structPointer);

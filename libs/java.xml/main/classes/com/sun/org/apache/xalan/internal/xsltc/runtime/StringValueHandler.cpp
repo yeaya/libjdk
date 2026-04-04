@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/StringValueHandler.h>
-
 #include <com/sun/org/apache/xml/internal/serializer/EmptySerializer.h>
 #include <jcpp.h>
 
@@ -18,40 +17,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace runtime {
-
-$FieldInfo _StringValueHandler_FieldInfo_[] = {
-	{"_buffer", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE, $field(StringValueHandler, _buffer)},
-	{"_str", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StringValueHandler, _str)},
-	{"EMPTY_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StringValueHandler, EMPTY_STR)},
-	{"m_escaping", "Z", nullptr, $PRIVATE, $field(StringValueHandler, m_escaping)},
-	{"_nestedLevel", "I", nullptr, $PRIVATE, $field(StringValueHandler, _nestedLevel)},
-	{}
-};
-
-$MethodInfo _StringValueHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StringValueHandler, init$, void)},
-	{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(StringValueHandler, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"characters", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StringValueHandler, characters, void, $String*), "org.xml.sax.SAXException"},
-	{"endElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StringValueHandler, endElement, void, $String*), "org.xml.sax.SAXException"},
-	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(StringValueHandler, getValue, $String*)},
-	{"getValueOfPI", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(StringValueHandler, getValueOfPI, $String*)},
-	{"setEscaping", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(StringValueHandler, setEscaping, bool, bool)},
-	{"startElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StringValueHandler, startElement, void, $String*), "org.xml.sax.SAXException"},
-	{}
-};
-
-$ClassInfo _StringValueHandler_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.runtime.StringValueHandler",
-	"com.sun.org.apache.xml.internal.serializer.EmptySerializer",
-	nullptr,
-	_StringValueHandler_FieldInfo_,
-	_StringValueHandler_MethodInfo_
-};
-
-$Object* allocate$StringValueHandler($Class* clazz) {
-	return $of($alloc(StringValueHandler));
-}
 
 $String* StringValueHandler::EMPTY_STR = nullptr;
 
@@ -75,10 +40,10 @@ void StringValueHandler::characters($chars* ch, int32_t off, int32_t len) {
 }
 
 $String* StringValueHandler::getValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->_buffer)->length() != 0) {
-		$var($String, result, $nc(this->_buffer)->toString());
-		$nc(this->_buffer)->setLength(0);
+		$var($String, result, this->_buffer->toString());
+		this->_buffer->setLength(0);
 		return result;
 	} else {
 		$var($String, result, this->_str);
@@ -117,7 +82,7 @@ bool StringValueHandler::setEscaping(bool bool$) {
 }
 
 $String* StringValueHandler::getValueOfPI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, value, getValue());
 	if ($nc(value)->indexOf("?>"_s) > 0) {
 		int32_t n = value->length();
@@ -139,12 +104,41 @@ $String* StringValueHandler::getValueOfPI() {
 StringValueHandler::StringValueHandler() {
 }
 
-void clinit$StringValueHandler($Class* class$) {
+void StringValueHandler::clinit$($Class* clazz) {
 	$assignStatic(StringValueHandler::EMPTY_STR, ""_s);
 }
 
 $Class* StringValueHandler::load$($String* name, bool initialize) {
-	$loadClass(StringValueHandler, name, initialize, &_StringValueHandler_ClassInfo_, clinit$StringValueHandler, allocate$StringValueHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"_buffer", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE, $field(StringValueHandler, _buffer)},
+		{"_str", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StringValueHandler, _str)},
+		{"EMPTY_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StringValueHandler, EMPTY_STR)},
+		{"m_escaping", "Z", nullptr, $PRIVATE, $field(StringValueHandler, m_escaping)},
+		{"_nestedLevel", "I", nullptr, $PRIVATE, $field(StringValueHandler, _nestedLevel)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StringValueHandler, init$, void)},
+		{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(StringValueHandler, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"characters", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StringValueHandler, characters, void, $String*), "org.xml.sax.SAXException"},
+		{"endElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StringValueHandler, endElement, void, $String*), "org.xml.sax.SAXException"},
+		{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(StringValueHandler, getValue, $String*)},
+		{"getValueOfPI", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(StringValueHandler, getValueOfPI, $String*)},
+		{"setEscaping", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(StringValueHandler, setEscaping, bool, bool)},
+		{"startElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StringValueHandler, startElement, void, $String*), "org.xml.sax.SAXException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.runtime.StringValueHandler",
+		"com.sun.org.apache.xml.internal.serializer.EmptySerializer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StringValueHandler, name, initialize, &classInfo$$, StringValueHandler::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StringValueHandler));
+	});
 	return class$;
 }
 

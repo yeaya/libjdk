@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/utils/FeaturePropertyBase$State.h>
-
 #include <com/sun/org/apache/xalan/internal/utils/FeaturePropertyBase.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -24,49 +23,6 @@ namespace com {
 				namespace xalan {
 					namespace internal {
 						namespace utils {
-
-$FieldInfo _FeaturePropertyBase$State_FieldInfo_[] = {
-	{"DEFAULT", "Lcom/sun/org/apache/xalan/internal/utils/FeaturePropertyBase$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FeaturePropertyBase$State, DEFAULT)},
-	{"FSP", "Lcom/sun/org/apache/xalan/internal/utils/FeaturePropertyBase$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FeaturePropertyBase$State, FSP)},
-	{"JAXPDOTPROPERTIES", "Lcom/sun/org/apache/xalan/internal/utils/FeaturePropertyBase$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FeaturePropertyBase$State, JAXPDOTPROPERTIES)},
-	{"SYSTEMPROPERTY", "Lcom/sun/org/apache/xalan/internal/utils/FeaturePropertyBase$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FeaturePropertyBase$State, SYSTEMPROPERTY)},
-	{"APIPROPERTY", "Lcom/sun/org/apache/xalan/internal/utils/FeaturePropertyBase$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FeaturePropertyBase$State, APIPROPERTY)},
-	{"$VALUES", "[Lcom/sun/org/apache/xalan/internal/utils/FeaturePropertyBase$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(FeaturePropertyBase$State, $VALUES)},
-	{}
-};
-
-$MethodInfo _FeaturePropertyBase$State_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/org/apache/xalan/internal/utils/FeaturePropertyBase$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FeaturePropertyBase$State, $values, $FeaturePropertyBase$StateArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(FeaturePropertyBase$State, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/utils/FeaturePropertyBase$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(FeaturePropertyBase$State, valueOf, FeaturePropertyBase$State*, $String*)},
-	{"values", "()[Lcom/sun/org/apache/xalan/internal/utils/FeaturePropertyBase$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(FeaturePropertyBase$State, values, $FeaturePropertyBase$StateArray*)},
-	{}
-};
-
-$InnerClassInfo _FeaturePropertyBase$State_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xalan.internal.utils.FeaturePropertyBase$State", "com.sun.org.apache.xalan.internal.utils.FeaturePropertyBase", "State", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _FeaturePropertyBase$State_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.org.apache.xalan.internal.utils.FeaturePropertyBase$State",
-	"java.lang.Enum",
-	nullptr,
-	_FeaturePropertyBase$State_FieldInfo_,
-	_FeaturePropertyBase$State_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/org/apache/xalan/internal/utils/FeaturePropertyBase$State;>;",
-	nullptr,
-	_FeaturePropertyBase$State_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xalan.internal.utils.FeaturePropertyBase"
-};
-
-$Object* allocate$FeaturePropertyBase$State($Class* clazz) {
-	return $of($alloc(FeaturePropertyBase$State));
-}
 
 FeaturePropertyBase$State* FeaturePropertyBase$State::DEFAULT = nullptr;
 FeaturePropertyBase$State* FeaturePropertyBase$State::FSP = nullptr;
@@ -100,7 +56,7 @@ void FeaturePropertyBase$State::init$($String* $enum$name, int32_t $enum$ordinal
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$FeaturePropertyBase$State($Class* class$) {
+void FeaturePropertyBase$State::clinit$($Class* clazz) {
 	$assignStatic(FeaturePropertyBase$State::DEFAULT, $new(FeaturePropertyBase$State, "DEFAULT"_s, 0));
 	$assignStatic(FeaturePropertyBase$State::FSP, $new(FeaturePropertyBase$State, "FSP"_s, 1));
 	$assignStatic(FeaturePropertyBase$State::JAXPDOTPROPERTIES, $new(FeaturePropertyBase$State, "JAXPDOTPROPERTIES"_s, 2));
@@ -113,7 +69,44 @@ FeaturePropertyBase$State::FeaturePropertyBase$State() {
 }
 
 $Class* FeaturePropertyBase$State::load$($String* name, bool initialize) {
-	$loadClass(FeaturePropertyBase$State, name, initialize, &_FeaturePropertyBase$State_ClassInfo_, clinit$FeaturePropertyBase$State, allocate$FeaturePropertyBase$State);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT", "Lcom/sun/org/apache/xalan/internal/utils/FeaturePropertyBase$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FeaturePropertyBase$State, DEFAULT)},
+		{"FSP", "Lcom/sun/org/apache/xalan/internal/utils/FeaturePropertyBase$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FeaturePropertyBase$State, FSP)},
+		{"JAXPDOTPROPERTIES", "Lcom/sun/org/apache/xalan/internal/utils/FeaturePropertyBase$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FeaturePropertyBase$State, JAXPDOTPROPERTIES)},
+		{"SYSTEMPROPERTY", "Lcom/sun/org/apache/xalan/internal/utils/FeaturePropertyBase$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FeaturePropertyBase$State, SYSTEMPROPERTY)},
+		{"APIPROPERTY", "Lcom/sun/org/apache/xalan/internal/utils/FeaturePropertyBase$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FeaturePropertyBase$State, APIPROPERTY)},
+		{"$VALUES", "[Lcom/sun/org/apache/xalan/internal/utils/FeaturePropertyBase$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(FeaturePropertyBase$State, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/org/apache/xalan/internal/utils/FeaturePropertyBase$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FeaturePropertyBase$State, $values, $FeaturePropertyBase$StateArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(FeaturePropertyBase$State, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/utils/FeaturePropertyBase$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(FeaturePropertyBase$State, valueOf, FeaturePropertyBase$State*, $String*)},
+		{"values", "()[Lcom/sun/org/apache/xalan/internal/utils/FeaturePropertyBase$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(FeaturePropertyBase$State, values, $FeaturePropertyBase$StateArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xalan.internal.utils.FeaturePropertyBase$State", "com.sun.org.apache.xalan.internal.utils.FeaturePropertyBase", "State", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.org.apache.xalan.internal.utils.FeaturePropertyBase$State",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/org/apache/xalan/internal/utils/FeaturePropertyBase$State;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xalan.internal.utils.FeaturePropertyBase"
+	};
+	$loadClass(FeaturePropertyBase$State, name, initialize, &classInfo$$, FeaturePropertyBase$State::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FeaturePropertyBase$State));
+	});
 	return class$;
 }
 

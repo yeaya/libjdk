@@ -1,5 +1,4 @@
 #include <ActionListenerExceptionTest.h>
-
 #include <ActionListenerExceptionTest$1.h>
 #include <ActionListenerExceptionTest$2.h>
 #include <ActionListenerExceptionTest$3.h>
@@ -11,7 +10,6 @@
 #include <java/awt/Robot.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/event/InputEvent.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/JComboBox.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/SwingUtilities.h>
@@ -34,58 +32,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-
-$FieldInfo _ActionListenerExceptionTest_FieldInfo_[] = {
-	{"TOTAL_MENU_ITEMS", "I", nullptr, $STATIC | $FINAL, $constField(ActionListenerExceptionTest, TOTAL_MENU_ITEMS)},
-	{"count", "I", nullptr, $PRIVATE | $VOLATILE, $field(ActionListenerExceptionTest, count)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE, $field(ActionListenerExceptionTest, frame)},
-	{"combo", "Ljavax/swing/JComboBox;", nullptr, $PRIVATE, $field(ActionListenerExceptionTest, combo)},
-	{"menuItemHeight", "I", nullptr, $PRIVATE, $field(ActionListenerExceptionTest, menuItemHeight)},
-	{"yPos", "I", nullptr, $PRIVATE, $field(ActionListenerExceptionTest, yPos)},
-	{"cbPos", "Ljava/awt/Point;", nullptr, $PRIVATE, $field(ActionListenerExceptionTest, cbPos)},
-	{"cbSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE, $field(ActionListenerExceptionTest, cbSize)},
-	{}
-};
-
-$MethodInfo _ActionListenerExceptionTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ActionListenerExceptionTest, init$, void)},
-	{"createGUI", "()V", nullptr, $PRIVATE, $method(ActionListenerExceptionTest, createGUI, void), "java.lang.Exception"},
-	{"disposeGUI", "()V", nullptr, $PRIVATE, $method(ActionListenerExceptionTest, disposeGUI, void), "java.lang.Exception"},
-	{"getCount", "()I", nullptr, $PRIVATE, $method(ActionListenerExceptionTest, getCount, int32_t)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ActionListenerExceptionTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "()V", nullptr, $PRIVATE, $method(ActionListenerExceptionTest, test, void), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _ActionListenerExceptionTest_InnerClassesInfo_[] = {
-	{"ActionListenerExceptionTest$4", nullptr, nullptr, 0},
-	{"ActionListenerExceptionTest$3", nullptr, nullptr, 0},
-	{"ActionListenerExceptionTest$2", nullptr, nullptr, 0},
-	{"ActionListenerExceptionTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ActionListenerExceptionTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ActionListenerExceptionTest",
-	"java.lang.Object",
-	nullptr,
-	_ActionListenerExceptionTest_FieldInfo_,
-	_ActionListenerExceptionTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ActionListenerExceptionTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"ActionListenerExceptionTest$4,ActionListenerExceptionTest$3,ActionListenerExceptionTest$2,ActionListenerExceptionTest$1,ActionListenerExceptionTest$1$1"
-};
-
-$Object* allocate$ActionListenerExceptionTest($Class* clazz) {
-	return $of($alloc(ActionListenerExceptionTest));
-}
 
 void ActionListenerExceptionTest::init$() {
 	this->count = 0;
@@ -96,8 +44,8 @@ void ActionListenerExceptionTest::init$() {
 }
 
 void ActionListenerExceptionTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	$var($EventQueue, queue, $nc($($Toolkit::getDefaultToolkit()))->getSystemEventQueue());
+	$useLocalObjectStack();
+	$var($EventQueue, queue, $$nc($Toolkit::getDefaultToolkit())->getSystemEventQueue());
 	$nc(queue)->push($$new($EventQueueProxy));
 	$var(ActionListenerExceptionTest, testObject, $new(ActionListenerExceptionTest));
 	testObject->createGUI();
@@ -117,7 +65,7 @@ void ActionListenerExceptionTest::disposeGUI() {
 }
 
 void ActionListenerExceptionTest::test() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Robot, testRobot, $new($Robot));
 	testRobot->delay(200);
 	$SwingUtilities::invokeAndWait($$new($ActionListenerExceptionTest$3, this));
@@ -146,7 +94,50 @@ ActionListenerExceptionTest::ActionListenerExceptionTest() {
 }
 
 $Class* ActionListenerExceptionTest::load$($String* name, bool initialize) {
-	$loadClass(ActionListenerExceptionTest, name, initialize, &_ActionListenerExceptionTest_ClassInfo_, allocate$ActionListenerExceptionTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"TOTAL_MENU_ITEMS", "I", nullptr, $STATIC | $FINAL, $constField(ActionListenerExceptionTest, TOTAL_MENU_ITEMS)},
+		{"count", "I", nullptr, $PRIVATE | $VOLATILE, $field(ActionListenerExceptionTest, count)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE, $field(ActionListenerExceptionTest, frame)},
+		{"combo", "Ljavax/swing/JComboBox;", nullptr, $PRIVATE, $field(ActionListenerExceptionTest, combo)},
+		{"menuItemHeight", "I", nullptr, $PRIVATE, $field(ActionListenerExceptionTest, menuItemHeight)},
+		{"yPos", "I", nullptr, $PRIVATE, $field(ActionListenerExceptionTest, yPos)},
+		{"cbPos", "Ljava/awt/Point;", nullptr, $PRIVATE, $field(ActionListenerExceptionTest, cbPos)},
+		{"cbSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE, $field(ActionListenerExceptionTest, cbSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ActionListenerExceptionTest, init$, void)},
+		{"createGUI", "()V", nullptr, $PRIVATE, $method(ActionListenerExceptionTest, createGUI, void), "java.lang.Exception"},
+		{"disposeGUI", "()V", nullptr, $PRIVATE, $method(ActionListenerExceptionTest, disposeGUI, void), "java.lang.Exception"},
+		{"getCount", "()I", nullptr, $PRIVATE, $method(ActionListenerExceptionTest, getCount, int32_t)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ActionListenerExceptionTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "()V", nullptr, $PRIVATE, $method(ActionListenerExceptionTest, test, void), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ActionListenerExceptionTest$4", nullptr, nullptr, 0},
+		{"ActionListenerExceptionTest$3", nullptr, nullptr, 0},
+		{"ActionListenerExceptionTest$2", nullptr, nullptr, 0},
+		{"ActionListenerExceptionTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ActionListenerExceptionTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"ActionListenerExceptionTest$4,ActionListenerExceptionTest$3,ActionListenerExceptionTest$2,ActionListenerExceptionTest$1,ActionListenerExceptionTest$1$1"
+	};
+	$loadClass(ActionListenerExceptionTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ActionListenerExceptionTest);
+	});
 	return class$;
 }
 

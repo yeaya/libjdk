@@ -1,5 +1,4 @@
 #include <sun/java2d/pipe/SolidTextRenderer.h>
-
 #include <sun/awt/SunHints.h>
 #include <sun/font/GlyphList.h>
 #include <sun/java2d/SunGraphics2D.h>
@@ -19,25 +18,6 @@ namespace sun {
 	namespace java2d {
 		namespace pipe {
 
-$MethodInfo _SolidTextRenderer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SolidTextRenderer, init$, void)},
-	{"drawGlyphList", "(Lsun/java2d/SunGraphics2D;Lsun/font/GlyphList;)V", nullptr, $PROTECTED, $virtualMethod(SolidTextRenderer, drawGlyphList, void, $SunGraphics2D*, $GlyphList*)},
-	{}
-};
-
-$ClassInfo _SolidTextRenderer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.pipe.SolidTextRenderer",
-	"sun.java2d.pipe.GlyphListLoopPipe",
-	nullptr,
-	nullptr,
-	_SolidTextRenderer_MethodInfo_
-};
-
-$Object* allocate$SolidTextRenderer($Class* clazz) {
-	return $of($alloc(SolidTextRenderer));
-}
-
 void SolidTextRenderer::init$() {
 	$GlyphListLoopPipe::init$();
 }
@@ -50,7 +30,22 @@ SolidTextRenderer::SolidTextRenderer() {
 }
 
 $Class* SolidTextRenderer::load$($String* name, bool initialize) {
-	$loadClass(SolidTextRenderer, name, initialize, &_SolidTextRenderer_ClassInfo_, allocate$SolidTextRenderer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SolidTextRenderer, init$, void)},
+		{"drawGlyphList", "(Lsun/java2d/SunGraphics2D;Lsun/font/GlyphList;)V", nullptr, $PROTECTED, $virtualMethod(SolidTextRenderer, drawGlyphList, void, $SunGraphics2D*, $GlyphList*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.pipe.SolidTextRenderer",
+		"sun.java2d.pipe.GlyphListLoopPipe",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SolidTextRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SolidTextRenderer));
+	});
 	return class$;
 }
 

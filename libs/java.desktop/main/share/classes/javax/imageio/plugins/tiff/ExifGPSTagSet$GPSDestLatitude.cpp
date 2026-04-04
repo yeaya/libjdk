@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/ExifGPSTagSet$GPSDestLatitude.h>
-
 #include <javax/imageio/plugins/tiff/ExifGPSTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,36 +15,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _ExifGPSTagSet$GPSDestLatitude_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExifGPSTagSet$GPSDestLatitude, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ExifGPSTagSet$GPSDestLatitude_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestLatitude", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSDestLatitude", $STATIC},
-	{}
-};
-
-$ClassInfo _ExifGPSTagSet$GPSDestLatitude_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestLatitude",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_ExifGPSTagSet$GPSDestLatitude_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExifGPSTagSet$GPSDestLatitude_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.ExifGPSTagSet"
-};
-
-$Object* allocate$ExifGPSTagSet$GPSDestLatitude($Class* clazz) {
-	return $of($alloc(ExifGPSTagSet$GPSDestLatitude));
-}
-
 void ExifGPSTagSet$GPSDestLatitude::init$() {
 	$TIFFTag::init$("GPSDestLatitude"_s, 20, $sl(1, $TIFFTag::TIFF_RATIONAL));
 }
@@ -54,7 +23,32 @@ ExifGPSTagSet$GPSDestLatitude::ExifGPSTagSet$GPSDestLatitude() {
 }
 
 $Class* ExifGPSTagSet$GPSDestLatitude::load$($String* name, bool initialize) {
-	$loadClass(ExifGPSTagSet$GPSDestLatitude, name, initialize, &_ExifGPSTagSet$GPSDestLatitude_ClassInfo_, allocate$ExifGPSTagSet$GPSDestLatitude);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExifGPSTagSet$GPSDestLatitude, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestLatitude", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSDestLatitude", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestLatitude",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.ExifGPSTagSet"
+	};
+	$loadClass(ExifGPSTagSet$GPSDestLatitude, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExifGPSTagSet$GPSDestLatitude);
+	});
 	return class$;
 }
 

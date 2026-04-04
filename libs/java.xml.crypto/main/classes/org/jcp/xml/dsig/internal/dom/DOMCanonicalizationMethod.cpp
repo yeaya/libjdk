@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMCanonicalizationMethod.h>
-
 #include <java/io/OutputStream.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/Provider.h>
@@ -53,43 +52,6 @@ namespace org {
 			namespace dsig {
 				namespace internal {
 					namespace dom {
-
-$FieldInfo _DOMCanonicalizationMethod_FieldInfo_[] = {
-	{"C14N_ALGORITHMS", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DOMCanonicalizationMethod, C14N_ALGORITHMS)},
-	{}
-};
-
-$MethodInfo _DOMCanonicalizationMethod_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{"*getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljavax/xml/crypto/dsig/TransformService;)V", nullptr, $PUBLIC, $method(DOMCanonicalizationMethod, init$, void, $TransformService*), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljavax/xml/crypto/XMLCryptoContext;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(DOMCanonicalizationMethod, init$, void, $Element*, $XMLCryptoContext*, $Provider*), "javax.xml.crypto.MarshalException"},
-	{"canonicalize", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(DOMCanonicalizationMethod, canonicalize, $Data*, $Data*, $XMLCryptoContext*), "javax.xml.crypto.dsig.TransformException"},
-	{"canonicalize", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljava/io/OutputStream;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(DOMCanonicalizationMethod, canonicalize, $Data*, $Data*, $XMLCryptoContext*, $OutputStream*), "javax.xml.crypto.dsig.TransformException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMCanonicalizationMethod, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMCanonicalizationMethod, hashCode, int32_t)},
-	{"isC14Nalg", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMCanonicalizationMethod, isC14Nalg, bool, $String*)},
-	{"*transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC},
-	{"*transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljava/io/OutputStream;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC},
-	{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DOMCanonicalizationMethod_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMCanonicalizationMethod",
-	"org.jcp.xml.dsig.internal.dom.DOMTransform",
-	"javax.xml.crypto.dsig.CanonicalizationMethod",
-	_DOMCanonicalizationMethod_FieldInfo_,
-	_DOMCanonicalizationMethod_MethodInfo_
-};
-
-$Object* allocate$DOMCanonicalizationMethod($Class* clazz) {
-	return $of($alloc(DOMCanonicalizationMethod));
-}
 
 $AlgorithmParameterSpec* DOMCanonicalizationMethod::getParameterSpec() {
 	 return this->$DOMTransform::getParameterSpec();
@@ -148,7 +110,7 @@ $Data* DOMCanonicalizationMethod::canonicalize($Data* data, $XMLCryptoContext* x
 }
 
 bool DOMCanonicalizationMethod::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, o)) {
 		return true;
 	}
@@ -156,21 +118,21 @@ bool DOMCanonicalizationMethod::equals(Object$* o) {
 		return false;
 	}
 	$var($CanonicalizationMethod, ocm, $cast($CanonicalizationMethod, o));
-	bool var$0 = $nc($(getAlgorithm()))->equals($($nc(ocm)->getAlgorithm()));
+	bool var$0 = $$nc(getAlgorithm())->equals($($nc(ocm)->getAlgorithm()));
 	if (var$0) {
 		$var($AlgorithmParameterSpec, var$1, getParameterSpec());
-		var$0 = $DOMUtils::paramsEqual(var$1, $($nc(ocm)->getParameterSpec()));
+		var$0 = $DOMUtils::paramsEqual(var$1, $(ocm->getParameterSpec()));
 	}
 	return var$0;
 }
 
 int32_t DOMCanonicalizationMethod::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t result = 17;
-	result = 31 * result + $nc($(getAlgorithm()))->hashCode();
+	result = 31 * result + $$nc(getAlgorithm())->hashCode();
 	$var($AlgorithmParameterSpec, spec, getParameterSpec());
 	if (spec != nullptr) {
-		result = 31 * result + $of(spec)->hashCode();
+		result = 31 * result + spec->hashCode();
 	}
 	return result;
 }
@@ -180,7 +142,7 @@ bool DOMCanonicalizationMethod::isC14Nalg($String* alg) {
 	return alg != nullptr && $nc(DOMCanonicalizationMethod::C14N_ALGORITHMS)->contains(alg);
 }
 
-void clinit$DOMCanonicalizationMethod($Class* class$) {
+void DOMCanonicalizationMethod::clinit$($Class* clazz) {
 	{
 		$var($Set, algorithms, $new($HashSet));
 		$init($CanonicalizationMethod);
@@ -199,7 +161,39 @@ DOMCanonicalizationMethod::DOMCanonicalizationMethod() {
 }
 
 $Class* DOMCanonicalizationMethod::load$($String* name, bool initialize) {
-	$loadClass(DOMCanonicalizationMethod, name, initialize, &_DOMCanonicalizationMethod_ClassInfo_, clinit$DOMCanonicalizationMethod, allocate$DOMCanonicalizationMethod);
+	$FieldInfo fieldInfos$$[] = {
+		{"C14N_ALGORITHMS", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DOMCanonicalizationMethod, C14N_ALGORITHMS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{"*getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljavax/xml/crypto/dsig/TransformService;)V", nullptr, $PUBLIC, $method(DOMCanonicalizationMethod, init$, void, $TransformService*), "java.security.InvalidAlgorithmParameterException"},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljavax/xml/crypto/XMLCryptoContext;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(DOMCanonicalizationMethod, init$, void, $Element*, $XMLCryptoContext*, $Provider*), "javax.xml.crypto.MarshalException"},
+		{"canonicalize", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(DOMCanonicalizationMethod, canonicalize, $Data*, $Data*, $XMLCryptoContext*), "javax.xml.crypto.dsig.TransformException"},
+		{"canonicalize", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljava/io/OutputStream;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(DOMCanonicalizationMethod, canonicalize, $Data*, $Data*, $XMLCryptoContext*, $OutputStream*), "javax.xml.crypto.dsig.TransformException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMCanonicalizationMethod, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMCanonicalizationMethod, hashCode, int32_t)},
+		{"isC14Nalg", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMCanonicalizationMethod, isC14Nalg, bool, $String*)},
+		{"*transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC},
+		{"*transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljava/io/OutputStream;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC},
+		{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMCanonicalizationMethod",
+		"org.jcp.xml.dsig.internal.dom.DOMTransform",
+		"javax.xml.crypto.dsig.CanonicalizationMethod",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMCanonicalizationMethod, name, initialize, &classInfo$$, DOMCanonicalizationMethod::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMCanonicalizationMethod));
+	});
 	return class$;
 }
 

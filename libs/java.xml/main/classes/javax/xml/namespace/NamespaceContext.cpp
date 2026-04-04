@@ -1,5 +1,4 @@
 #include <javax/xml/namespace/NamespaceContext.h>
-
 #include <java/util/Iterator.h>
 #include <jcpp.h>
 
@@ -11,28 +10,24 @@ namespace javax {
 	namespace xml {
 		namespace namespace$ {
 
-$MethodInfo _NamespaceContext_MethodInfo_[] = {
-	{"getNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamespaceContext, getNamespaceURI, $String*, $String*)},
-	{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamespaceContext, getPrefix, $String*, $String*)},
-	{"getPrefixes", "(Ljava/lang/String;)Ljava/util/Iterator;", "(Ljava/lang/String;)Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NamespaceContext, getPrefixes, $Iterator*, $String*)},
-	{}
-};
-
-$ClassInfo _NamespaceContext_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.xml.namespace.NamespaceContext",
-	nullptr,
-	nullptr,
-	nullptr,
-	_NamespaceContext_MethodInfo_
-};
-
-$Object* allocate$NamespaceContext($Class* clazz) {
-	return $of($alloc(NamespaceContext));
-}
-
 $Class* NamespaceContext::load$($String* name, bool initialize) {
-	$loadClass(NamespaceContext, name, initialize, &_NamespaceContext_ClassInfo_, allocate$NamespaceContext);
+	$MethodInfo methodInfos$$[] = {
+		{"getNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamespaceContext, getNamespaceURI, $String*, $String*)},
+		{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamespaceContext, getPrefix, $String*, $String*)},
+		{"getPrefixes", "(Ljava/lang/String;)Ljava/util/Iterator;", "(Ljava/lang/String;)Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NamespaceContext, getPrefixes, $Iterator*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.xml.namespace.NamespaceContext",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NamespaceContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NamespaceContext);
+	});
 	return class$;
 }
 

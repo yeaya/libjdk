@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/Synthetic.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Attribute.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
@@ -30,39 +29,8 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$FieldInfo _Synthetic_FieldInfo_[] = {
-	{"bytes", "[B", nullptr, $PRIVATE, $field(Synthetic, bytes)},
-	{}
-};
-
-$MethodInfo _Synthetic_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/Synthetic;)V", nullptr, $PUBLIC, $method(Synthetic, init$, void, Synthetic*)},
-	{"<init>", "(II[BLcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(Synthetic, init$, void, int32_t, int32_t, $bytes*, $ConstantPool*)},
-	{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(Synthetic, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Synthetic, accept, void, $Visitor*)},
-	{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(Synthetic, copy, $Attribute*, $ConstantPool*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Synthetic, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getBytes", "()[B", nullptr, $PUBLIC, $method(Synthetic, getBytes, $bytes*)},
-	{"setBytes", "([B)V", nullptr, $PUBLIC, $method(Synthetic, setBytes, void, $bytes*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Synthetic, toString, $String*)},
-	{}
-};
-
-$ClassInfo _Synthetic_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.Synthetic",
-	"com.sun.org.apache.bcel.internal.classfile.Attribute",
-	nullptr,
-	_Synthetic_FieldInfo_,
-	_Synthetic_MethodInfo_
-};
-
-$Object* allocate$Synthetic($Class* clazz) {
-	return $of($alloc(Synthetic));
-}
-
 void Synthetic::init$(Synthetic* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(c)->getNameIndex();
 	int32_t var$1 = c->getLength();
 	$var($bytes, var$2, c->getBytes());
@@ -103,7 +71,7 @@ void Synthetic::setBytes($bytes* bytes) {
 }
 
 $String* Synthetic::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder, "Synthetic"_s));
 	if ($Attribute::getLength() > 0) {
 		buf->append(" "_s)->append($($Utility::toHexString(this->bytes)));
@@ -114,8 +82,8 @@ $String* Synthetic::toString() {
 $Attribute* Synthetic::copy($ConstantPool* _constant_pool) {
 	$var(Synthetic, c, $cast(Synthetic, clone()));
 	if (this->bytes != nullptr) {
-		$set($nc(c), bytes, $new($bytes, $nc(this->bytes)->length));
-		$System::arraycopy(this->bytes, 0, c->bytes, 0, $nc(this->bytes)->length);
+		$set($nc(c), bytes, $new($bytes, this->bytes->length));
+		$System::arraycopy(this->bytes, 0, c->bytes, 0, this->bytes->length);
 	}
 	$nc(c)->setConstantPool(_constant_pool);
 	return c;
@@ -125,7 +93,33 @@ Synthetic::Synthetic() {
 }
 
 $Class* Synthetic::load$($String* name, bool initialize) {
-	$loadClass(Synthetic, name, initialize, &_Synthetic_ClassInfo_, allocate$Synthetic);
+	$FieldInfo fieldInfos$$[] = {
+		{"bytes", "[B", nullptr, $PRIVATE, $field(Synthetic, bytes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/Synthetic;)V", nullptr, $PUBLIC, $method(Synthetic, init$, void, Synthetic*)},
+		{"<init>", "(II[BLcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(Synthetic, init$, void, int32_t, int32_t, $bytes*, $ConstantPool*)},
+		{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(Synthetic, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Synthetic, accept, void, $Visitor*)},
+		{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(Synthetic, copy, $Attribute*, $ConstantPool*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Synthetic, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getBytes", "()[B", nullptr, $PUBLIC, $method(Synthetic, getBytes, $bytes*)},
+		{"setBytes", "([B)V", nullptr, $PUBLIC, $method(Synthetic, setBytes, void, $bytes*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Synthetic, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.Synthetic",
+		"com.sun.org.apache.bcel.internal.classfile.Attribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Synthetic, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Synthetic));
+	});
 	return class$;
 }
 

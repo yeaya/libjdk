@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel$ActiveWindowsIcon.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsDesktopProperty.h>
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel$ActiveWindowsIcon$1.h>
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel.h>
@@ -19,7 +18,6 @@
 #undef WINDOWS
 #undef WINDOWS_XP
 
-using $WindowsDesktopProperty = ::com::sun::java::swing::plaf::windows::WindowsDesktopProperty;
 using $WindowsLookAndFeel = ::com::sun::java::swing::plaf::windows::WindowsLookAndFeel;
 using $WindowsLookAndFeel$ActiveWindowsIcon$1 = ::com::sun::java::swing::plaf::windows::WindowsLookAndFeel$ActiveWindowsIcon$1;
 using $Image = ::java::awt::Image;
@@ -33,7 +31,6 @@ using $UIDefaults$LazyValue = ::javax::swing::UIDefaults$LazyValue;
 using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 using $OSInfo = ::sun::awt::OSInfo;
 using $OSInfo$OSType = ::sun::awt::OSInfo$OSType;
-using $OSInfo$WindowsVersion = ::sun::awt::OSInfo$WindowsVersion;
 using $ShellFolder = ::sun::awt::shell::ShellFolder;
 using $ImageIconUIResource = ::sun::swing::ImageIconUIResource;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
@@ -45,61 +42,19 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsLookAndFeel$ActiveWindowsIcon_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsLookAndFeel$ActiveWindowsIcon, this$0)},
-	{"icon", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(WindowsLookAndFeel$ActiveWindowsIcon, icon)},
-	{"nativeImageName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsLookAndFeel$ActiveWindowsIcon, nativeImageName)},
-	{"fallbackName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsLookAndFeel$ActiveWindowsIcon, fallbackName)},
-	{"desktopProperty", "Lcom/sun/java/swing/plaf/windows/WindowsDesktopProperty;", nullptr, $PRIVATE, $field(WindowsLookAndFeel$ActiveWindowsIcon, desktopProperty)},
-	{}
-};
-
-$MethodInfo _WindowsLookAndFeel$ActiveWindowsIcon_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(WindowsLookAndFeel$ActiveWindowsIcon, init$, void, $WindowsLookAndFeel*, $String*, $String*, $String*)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$ActiveWindowsIcon, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-
-$InnerClassInfo _WindowsLookAndFeel$ActiveWindowsIcon_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$ActiveWindowsIcon", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "ActiveWindowsIcon", $PRIVATE},
-	{"javax.swing.UIDefaults$ActiveValue", "javax.swing.UIDefaults", "ActiveValue", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$ActiveWindowsIcon$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WindowsLookAndFeel$ActiveWindowsIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$ActiveWindowsIcon",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$ActiveValue",
-	_WindowsLookAndFeel$ActiveWindowsIcon_FieldInfo_,
-	_WindowsLookAndFeel$ActiveWindowsIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsLookAndFeel$ActiveWindowsIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
-};
-
-$Object* allocate$WindowsLookAndFeel$ActiveWindowsIcon($Class* clazz) {
-	return $of($alloc(WindowsLookAndFeel$ActiveWindowsIcon));
-}
-
 void WindowsLookAndFeel$ActiveWindowsIcon::init$($WindowsLookAndFeel* this$0, $String* desktopPropertyName, $String* nativeImageName, $String* fallbackName) {
 	$set(this, this$0, this$0);
 	$set(this, nativeImageName, nativeImageName);
 	$set(this, fallbackName, fallbackName);
 	$init($OSInfo$OSType);
 	bool var$0 = $OSInfo::getOSType() == $OSInfo$OSType::WINDOWS;
-	if (var$0 && $nc($($OSInfo::getWindowsVersion()))->compareTo($OSInfo::WINDOWS_XP) < 0) {
+	if (var$0 && $$nc($OSInfo::getWindowsVersion())->compareTo($OSInfo::WINDOWS_XP) < 0) {
 		$set(this, desktopProperty, $new($WindowsLookAndFeel$ActiveWindowsIcon$1, this, desktopPropertyName, this$0));
 	}
 }
 
 $Object* WindowsLookAndFeel$ActiveWindowsIcon::createValue($UIDefaults* table) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->icon == nullptr) {
 		$var($Image, image, $cast($Image, $ShellFolder::get(this->nativeImageName)));
 		if (image != nullptr) {
@@ -112,14 +67,50 @@ $Object* WindowsLookAndFeel$ActiveWindowsIcon::createValue($UIDefaults* table) {
 		$var($UIDefaults$LazyValue, fallback, $cast($UIDefaults$LazyValue, $SwingUtilities2::makeIcon($WindowsLookAndFeel::class$, $BasicLookAndFeel::class$, this->fallbackName)));
 		$set(this, icon, $cast($Icon, $nc(fallback)->createValue(table)));
 	}
-	return $of(this->icon);
+	return this->icon;
 }
 
 WindowsLookAndFeel$ActiveWindowsIcon::WindowsLookAndFeel$ActiveWindowsIcon() {
 }
 
 $Class* WindowsLookAndFeel$ActiveWindowsIcon::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$ActiveWindowsIcon, name, initialize, &_WindowsLookAndFeel$ActiveWindowsIcon_ClassInfo_, allocate$WindowsLookAndFeel$ActiveWindowsIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsLookAndFeel$ActiveWindowsIcon, this$0)},
+		{"icon", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(WindowsLookAndFeel$ActiveWindowsIcon, icon)},
+		{"nativeImageName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsLookAndFeel$ActiveWindowsIcon, nativeImageName)},
+		{"fallbackName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsLookAndFeel$ActiveWindowsIcon, fallbackName)},
+		{"desktopProperty", "Lcom/sun/java/swing/plaf/windows/WindowsDesktopProperty;", nullptr, $PRIVATE, $field(WindowsLookAndFeel$ActiveWindowsIcon, desktopProperty)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(WindowsLookAndFeel$ActiveWindowsIcon, init$, void, $WindowsLookAndFeel*, $String*, $String*, $String*)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$ActiveWindowsIcon, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$ActiveWindowsIcon", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "ActiveWindowsIcon", $PRIVATE},
+		{"javax.swing.UIDefaults$ActiveValue", "javax.swing.UIDefaults", "ActiveValue", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$ActiveWindowsIcon$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$ActiveWindowsIcon",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$ActiveValue",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
+	};
+	$loadClass(WindowsLookAndFeel$ActiveWindowsIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$ActiveWindowsIcon);
+	});
 	return class$;
 }
 

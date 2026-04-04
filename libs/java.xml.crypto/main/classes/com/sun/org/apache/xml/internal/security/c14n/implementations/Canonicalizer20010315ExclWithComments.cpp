@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/c14n/implementations/Canonicalizer20010315ExclWithComments.h>
-
 #include <com/sun/org/apache/xml/internal/security/c14n/Canonicalizer.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/implementations/Canonicalizer20010315Excl.h>
 #include <jcpp.h>
@@ -21,25 +20,6 @@ namespace com {
 							namespace c14n {
 								namespace implementations {
 
-$MethodInfo _Canonicalizer20010315ExclWithComments_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Canonicalizer20010315ExclWithComments, init$, void)},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Canonicalizer20010315ExclWithComments, engineGetURI, $String*)},
-	{}
-};
-
-$ClassInfo _Canonicalizer20010315ExclWithComments_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.c14n.implementations.Canonicalizer20010315ExclWithComments",
-	"com.sun.org.apache.xml.internal.security.c14n.implementations.Canonicalizer20010315Excl",
-	nullptr,
-	nullptr,
-	_Canonicalizer20010315ExclWithComments_MethodInfo_
-};
-
-$Object* allocate$Canonicalizer20010315ExclWithComments($Class* clazz) {
-	return $of($alloc(Canonicalizer20010315ExclWithComments));
-}
-
 void Canonicalizer20010315ExclWithComments::init$() {
 	$Canonicalizer20010315Excl::init$(true);
 }
@@ -53,7 +33,22 @@ Canonicalizer20010315ExclWithComments::Canonicalizer20010315ExclWithComments() {
 }
 
 $Class* Canonicalizer20010315ExclWithComments::load$($String* name, bool initialize) {
-	$loadClass(Canonicalizer20010315ExclWithComments, name, initialize, &_Canonicalizer20010315ExclWithComments_ClassInfo_, allocate$Canonicalizer20010315ExclWithComments);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Canonicalizer20010315ExclWithComments, init$, void)},
+		{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Canonicalizer20010315ExclWithComments, engineGetURI, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.c14n.implementations.Canonicalizer20010315ExclWithComments",
+		"com.sun.org.apache.xml.internal.security.c14n.implementations.Canonicalizer20010315Excl",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Canonicalizer20010315ExclWithComments, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Canonicalizer20010315ExclWithComments);
+	});
 	return class$;
 }
 

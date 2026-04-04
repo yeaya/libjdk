@@ -86,6 +86,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::java2d::loops::SurfaceType* surfaceType, ::java::awt::image::ColorModel* cm);
 	void init$(::sun::java2d::StateTrackable$State* state, ::sun::java2d::loops::SurfaceType* surfaceType, ::java::awt::image::ColorModel* cm);
 	void init$(::sun::java2d::StateTrackableDelegate* trackable, ::sun::java2d::loops::SurfaceType* surfaceType, ::java::awt::image::ColorModel* cm);

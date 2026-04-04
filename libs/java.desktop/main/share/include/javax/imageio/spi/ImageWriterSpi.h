@@ -31,6 +31,7 @@ class $import ImageWriterSpi : public ::javax::imageio::spi::ImageReaderWriterSp
 	$class(ImageWriterSpi, 0, ::javax::imageio::spi::ImageReaderWriterSpi)
 public:
 	ImageWriterSpi();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* vendorName, $String* version, $StringArray* names, $StringArray* suffixes, $StringArray* MIMETypes, $String* writerClassName, $ClassArray* outputTypes, $StringArray* readerSpiNames, bool supportsStandardStreamMetadataFormat, $String* nativeStreamMetadataFormatName, $String* nativeStreamMetadataFormatClassName, $StringArray* extraStreamMetadataFormatNames, $StringArray* extraStreamMetadataFormatClassNames, bool supportsStandardImageMetadataFormat, $String* nativeImageMetadataFormatName, $String* nativeImageMetadataFormatClassName, $StringArray* extraImageMetadataFormatNames, $StringArray* extraImageMetadataFormatClassNames);
 	virtual bool canEncodeImage(::javax::imageio::ImageTypeSpecifier* type) {return false;}

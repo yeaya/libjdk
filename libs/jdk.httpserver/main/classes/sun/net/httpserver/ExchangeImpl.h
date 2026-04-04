@@ -78,6 +78,7 @@ class ExchangeImpl : public ::java::lang::Object {
 	$class(ExchangeImpl, 0, ::java::lang::Object)
 public:
 	ExchangeImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* m, ::java::net::URI* u, ::sun::net::httpserver::Request* req, int64_t len, ::sun::net::httpserver::HttpConnection* connection);
 	$bytes* bytes($String* s, int32_t extra);
 	virtual void close();

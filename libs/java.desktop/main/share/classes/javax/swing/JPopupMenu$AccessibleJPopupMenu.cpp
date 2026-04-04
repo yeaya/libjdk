@@ -1,15 +1,12 @@
 #include <javax/swing/JPopupMenu$AccessibleJPopupMenu.h>
-
 #include <java/awt/Component.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <javax/accessibility/Accessible.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/accessibility/AccessibleRole.h>
 #include <javax/accessibility/AccessibleSelection.h>
 #include <javax/accessibility/AccessibleState.h>
 #include <javax/swing/JComponent$AccessibleJComponent.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JList.h>
 #include <javax/swing/JPopupMenu.h>
 #include <javax/swing/plaf/basic/BasicComboPopup.h>
@@ -22,9 +19,7 @@
 #undef TRUE
 #undef VISIBLE
 
-using $Component = ::java::awt::Component;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -35,7 +30,6 @@ using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AccessibleRole = ::javax::accessibility::AccessibleRole;
 using $AccessibleSelection = ::javax::accessibility::AccessibleSelection;
 using $AccessibleState = ::javax::accessibility::AccessibleState;
-using $JComponent = ::javax::swing::JComponent;
 using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JList = ::javax::swing::JList;
 using $JPopupMenu = ::javax::swing::JPopupMenu;
@@ -43,51 +37,6 @@ using $BasicComboPopup = ::javax::swing::plaf::basic::BasicComboPopup;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JPopupMenu$AccessibleJPopupMenu_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JPopupMenu;", nullptr, $FINAL | $SYNTHETIC, $field(JPopupMenu$AccessibleJPopupMenu, this$0)},
-	{}
-};
-
-$MethodInfo _JPopupMenu$AccessibleJPopupMenu_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JPopupMenu;)V", nullptr, $PROTECTED, $method(JPopupMenu$AccessibleJPopupMenu, init$, void, $JPopupMenu*)},
-	{"fireActiveDescendant", "()V", nullptr, $PRIVATE, $method(JPopupMenu$AccessibleJPopupMenu, fireActiveDescendant, void)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu$AccessibleJPopupMenu, getAccessibleRole, $AccessibleRole*)},
-	{"handlePopupIsVisibleEvent", "(Z)V", nullptr, $PRIVATE, $method(JPopupMenu$AccessibleJPopupMenu, handlePopupIsVisibleEvent, void, bool)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu$AccessibleJPopupMenu, propertyChange, void, $PropertyChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JPopupMenu$AccessibleJPopupMenu_InnerClassesInfo_[] = {
-	{"javax.swing.JPopupMenu$AccessibleJPopupMenu", "javax.swing.JPopupMenu", "AccessibleJPopupMenu", $PROTECTED},
-	{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JPopupMenu$AccessibleJPopupMenu_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JPopupMenu$AccessibleJPopupMenu",
-	"javax.swing.JComponent$AccessibleJComponent",
-	"java.beans.PropertyChangeListener",
-	_JPopupMenu$AccessibleJPopupMenu_FieldInfo_,
-	_JPopupMenu$AccessibleJPopupMenu_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JPopupMenu$AccessibleJPopupMenu_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JPopupMenu"
-};
-
-$Object* allocate$JPopupMenu$AccessibleJPopupMenu($Class* clazz) {
-	return $of($alloc(JPopupMenu$AccessibleJPopupMenu));
-}
 
 int32_t JPopupMenu$AccessibleJPopupMenu::hashCode() {
 	 return this->$JComponent$AccessibleJComponent::hashCode();
@@ -123,13 +72,12 @@ $AccessibleRole* JPopupMenu$AccessibleJPopupMenu::getAccessibleRole() {
 void JPopupMenu$AccessibleJPopupMenu::propertyChange($PropertyChangeEvent* e) {
 	$var($String, propertyName, $nc(e)->getPropertyName());
 	if (propertyName == "visible"_s) {
-		$init($Boolean);
 		bool var$0 = $equals(e->getOldValue(), $Boolean::FALSE);
 		if (var$0 && $equals(e->getNewValue(), $Boolean::TRUE)) {
 			handlePopupIsVisibleEvent(true);
 		} else {
-			bool var$2 = $equals(e->getOldValue(), $Boolean::TRUE);
-			if (var$2 && $equals(e->getNewValue(), $Boolean::FALSE)) {
+			bool var$1 = $equals(e->getOldValue(), $Boolean::TRUE);
+			if (var$1 && $equals(e->getNewValue(), $Boolean::FALSE)) {
 				handlePopupIsVisibleEvent(false);
 			}
 		}
@@ -150,9 +98,9 @@ void JPopupMenu$AccessibleJPopupMenu::handlePopupIsVisibleEvent(bool visible) {
 }
 
 void JPopupMenu$AccessibleJPopupMenu::fireActiveDescendant() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($BasicComboPopup, this->this$0)) {
-		$var($JList, popupList, $nc(($cast($BasicComboPopup, this->this$0)))->getList());
+		$var($JList, popupList, $cast($BasicComboPopup, this->this$0)->getList());
 		if (popupList == nullptr) {
 			return;
 		}
@@ -167,7 +115,7 @@ void JPopupMenu$AccessibleJPopupMenu::fireActiveDescendant() {
 		}
 		$var($AccessibleContext, selectedItem, $nc(a)->getAccessibleContext());
 		if (selectedItem != nullptr && this->this$0->invoker != nullptr) {
-			$var($AccessibleContext, invokerContext, $nc(this->this$0->invoker)->getAccessibleContext());
+			$var($AccessibleContext, invokerContext, this->this$0->invoker->getAccessibleContext());
 			if (invokerContext != nullptr) {
 				invokerContext->firePropertyChange($AccessibleContext::ACCESSIBLE_ACTIVE_DESCENDANT_PROPERTY, nullptr, selectedItem);
 			}
@@ -179,7 +127,46 @@ JPopupMenu$AccessibleJPopupMenu::JPopupMenu$AccessibleJPopupMenu() {
 }
 
 $Class* JPopupMenu$AccessibleJPopupMenu::load$($String* name, bool initialize) {
-	$loadClass(JPopupMenu$AccessibleJPopupMenu, name, initialize, &_JPopupMenu$AccessibleJPopupMenu_ClassInfo_, allocate$JPopupMenu$AccessibleJPopupMenu);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JPopupMenu;", nullptr, $FINAL | $SYNTHETIC, $field(JPopupMenu$AccessibleJPopupMenu, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JPopupMenu;)V", nullptr, $PROTECTED, $method(JPopupMenu$AccessibleJPopupMenu, init$, void, $JPopupMenu*)},
+		{"fireActiveDescendant", "()V", nullptr, $PRIVATE, $method(JPopupMenu$AccessibleJPopupMenu, fireActiveDescendant, void)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu$AccessibleJPopupMenu, getAccessibleRole, $AccessibleRole*)},
+		{"handlePopupIsVisibleEvent", "(Z)V", nullptr, $PRIVATE, $method(JPopupMenu$AccessibleJPopupMenu, handlePopupIsVisibleEvent, void, bool)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu$AccessibleJPopupMenu, propertyChange, void, $PropertyChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JPopupMenu$AccessibleJPopupMenu", "javax.swing.JPopupMenu", "AccessibleJPopupMenu", $PROTECTED},
+		{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JPopupMenu$AccessibleJPopupMenu",
+		"javax.swing.JComponent$AccessibleJComponent",
+		"java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JPopupMenu"
+	};
+	$loadClass(JPopupMenu$AccessibleJPopupMenu, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JPopupMenu$AccessibleJPopupMenu));
+	});
 	return class$;
 }
 

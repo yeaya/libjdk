@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKFileChooserUI.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKFileChooserUI$1.h>
 #include <com/sun/java/swing/plaf/gtk/GTKFileChooserUI$2.h>
 #include <com/sun/java/swing/plaf/gtk/GTKFileChooserUI$3.h>
@@ -22,7 +21,6 @@
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/FlowLayout.h>
 #include <java/awt/GridBagConstraints.h>
@@ -31,14 +29,12 @@
 #include <java/awt/Insets.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/io/File.h>
 #include <java/io/IOException.h>
-#include <java/util/Collection.h>
 #include <java/util/HashSet.h>
 #include <java/util/Locale.h>
 #include <java/util/Set.h>
@@ -48,7 +44,6 @@
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/Box.h>
 #include <javax/swing/BoxLayout.h>
-#include <javax/swing/ComboBoxModel.h>
 #include <javax/swing/DefaultListSelectionModel.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/InputMap.h>
@@ -66,7 +61,6 @@
 #include <javax/swing/JTextField.h>
 #include <javax/swing/KeyStroke.h>
 #include <javax/swing/ListCellRenderer.h>
-#include <javax/swing/ListModel.h>
 #include <javax/swing/ListSelectionModel.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
@@ -137,8 +131,6 @@ using $GTKFileChooserUI$RenameFileAction = ::com::sun::java::swing::plaf::gtk::G
 using $GTKFileChooserUI$SelectionListener = ::com::sun::java::swing::plaf::gtk::GTKFileChooserUI$SelectionListener;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $FlowLayout = ::java::awt::FlowLayout;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
@@ -146,12 +138,9 @@ using $GridBagLayout = ::java::awt::GridBagLayout;
 using $GridLayout = ::java::awt::GridLayout;
 using $Insets = ::java::awt::Insets;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
-using $LayoutManager = ::java::awt::LayoutManager;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
 using $Boolean = ::java::lang::Boolean;
@@ -161,7 +150,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Short = ::java::lang::Short;
-using $Collection = ::java::util::Collection;
 using $HashSet = ::java::util::HashSet;
 using $Locale = ::java::util::Locale;
 using $Set = ::java::util::Set;
@@ -171,10 +159,8 @@ using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $Box = ::javax::swing::Box;
 using $BoxLayout = ::javax::swing::BoxLayout;
-using $ComboBoxModel = ::javax::swing::ComboBoxModel;
 using $DefaultListSelectionModel = ::javax::swing::DefaultListSelectionModel;
 using $Icon = ::javax::swing::Icon;
-using $InputMap = ::javax::swing::InputMap;
 using $JButton = ::javax::swing::JButton;
 using $JComboBox = ::javax::swing::JComboBox;
 using $JComponent = ::javax::swing::JComponent;
@@ -188,12 +174,9 @@ using $JSplitPane = ::javax::swing::JSplitPane;
 using $JTable = ::javax::swing::JTable;
 using $JTextField = ::javax::swing::JTextField;
 using $KeyStroke = ::javax::swing::KeyStroke;
-using $ListCellRenderer = ::javax::swing::ListCellRenderer;
-using $ListModel = ::javax::swing::ListModel;
 using $ListSelectionModel = ::javax::swing::ListSelectionModel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $ListSelectionListener = ::javax::swing::event::ListSelectionListener;
 using $FileView = ::javax::swing::filechooser::FileView;
@@ -212,164 +195,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace gtk {
-
-$FieldInfo _GTKFileChooserUI_FieldInfo_[] = {
-	{"accessoryPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(GTKFileChooserUI, accessoryPanel)},
-	{"newFolderButtonText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, newFolderButtonText)},
-	{"newFolderErrorSeparator", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, newFolderErrorSeparator)},
-	{"newFolderErrorText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, newFolderErrorText)},
-	{"newFolderDialogText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, newFolderDialogText)},
-	{"newFolderNoDirectoryErrorTitleText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, newFolderNoDirectoryErrorTitleText)},
-	{"newFolderNoDirectoryErrorText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, newFolderNoDirectoryErrorText)},
-	{"deleteFileButtonText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, deleteFileButtonText)},
-	{"renameFileButtonText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, renameFileButtonText)},
-	{"newFolderButtonToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, newFolderButtonToolTipText)},
-	{"deleteFileButtonToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, deleteFileButtonToolTipText)},
-	{"renameFileButtonToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, renameFileButtonToolTipText)},
-	{"newFolderButtonMnemonic", "I", nullptr, $PRIVATE, $field(GTKFileChooserUI, newFolderButtonMnemonic)},
-	{"deleteFileButtonMnemonic", "I", nullptr, $PRIVATE, $field(GTKFileChooserUI, deleteFileButtonMnemonic)},
-	{"renameFileButtonMnemonic", "I", nullptr, $PRIVATE, $field(GTKFileChooserUI, renameFileButtonMnemonic)},
-	{"foldersLabelMnemonic", "I", nullptr, $PRIVATE, $field(GTKFileChooserUI, foldersLabelMnemonic)},
-	{"filesLabelMnemonic", "I", nullptr, $PRIVATE, $field(GTKFileChooserUI, filesLabelMnemonic)},
-	{"renameFileDialogText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, renameFileDialogText)},
-	{"renameFileErrorTitle", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, renameFileErrorTitle)},
-	{"renameFileErrorText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, renameFileErrorText)},
-	{"filterComboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljavax/swing/filechooser/FileFilter;>;", $PRIVATE, $field(GTKFileChooserUI, filterComboBox)},
-	{"filterComboBoxModel", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI$FilterComboBoxModel;", nullptr, $PRIVATE, $field(GTKFileChooserUI, filterComboBoxModel)},
-	{"rightPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(GTKFileChooserUI, rightPanel)},
-	{"directoryList", "Ljavax/swing/JList;", "Ljavax/swing/JList<Ljava/io/File;>;", $PRIVATE, $field(GTKFileChooserUI, directoryList)},
-	{"fileList", "Ljavax/swing/JList;", "Ljavax/swing/JList<Ljava/io/File;>;", $PRIVATE, $field(GTKFileChooserUI, fileList)},
-	{"pathField", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(GTKFileChooserUI, pathField)},
-	{"fileNameTextField", "Ljavax/swing/JTextField;", nullptr, $PRIVATE, $field(GTKFileChooserUI, fileNameTextField)},
-	{"hstrut3", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKFileChooserUI, hstrut3)},
-	{"vstrut10", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKFileChooserUI, vstrut10)},
-	{"prefListSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(GTKFileChooserUI, prefListSize)},
-	{"PREF_SIZE", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(GTKFileChooserUI, PREF_SIZE)},
-	{"MIN_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GTKFileChooserUI, MIN_WIDTH)},
-	{"MIN_HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GTKFileChooserUI, MIN_HEIGHT)},
-	{"ZERO_ACC_SIZE", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(GTKFileChooserUI, ZERO_ACC_SIZE)},
-	{"MAX_SIZE", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(GTKFileChooserUI, MAX_SIZE)},
-	{"buttonMargin", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKFileChooserUI, buttonMargin)},
-	{"filesLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, filesLabelText)},
-	{"foldersLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, foldersLabelText)},
-	{"pathLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, pathLabelText)},
-	{"filterLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, filterLabelText)},
-	{"pathLabelMnemonic", "I", nullptr, $PRIVATE, $field(GTKFileChooserUI, pathLabelMnemonic)},
-	{"filterLabelMnemonic", "I", nullptr, $PRIVATE, $field(GTKFileChooserUI, filterLabelMnemonic)},
-	{"directoryComboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljava/io/File;>;", $PRIVATE, $field(GTKFileChooserUI, directoryComboBox)},
-	{"directoryComboBoxModel", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI$DirectoryComboBoxModel;", nullptr, $PRIVATE, $field(GTKFileChooserUI, directoryComboBoxModel)},
-	{"directoryComboBoxAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(GTKFileChooserUI, directoryComboBoxAction)},
-	{"bottomButtonPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(GTKFileChooserUI, bottomButtonPanel)},
-	{"model", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI$GTKDirectoryModel;", nullptr, $PRIVATE, $field(GTKFileChooserUI, model)},
-	{"newFolderAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(GTKFileChooserUI, newFolderAction)},
-	{"readOnly", "Z", nullptr, $PRIVATE, $field(GTKFileChooserUI, readOnly)},
-	{"showDirectoryIcons", "Z", nullptr, $PRIVATE, $field(GTKFileChooserUI, showDirectoryIcons)},
-	{"showFileIcons", "Z", nullptr, $PRIVATE, $field(GTKFileChooserUI, showFileIcons)},
-	{"fileView", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI$GTKFileView;", nullptr, $PRIVATE, $field(GTKFileChooserUI, fileView)},
-	{"gtkFCPropertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(GTKFileChooserUI, gtkFCPropertyChangeListener)},
-	{"approveSelectionAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(GTKFileChooserUI, approveSelectionAction)},
-	{"directoryListModel", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI$GTKDirectoryListModel;", nullptr, $PRIVATE, $field(GTKFileChooserUI, directoryListModel)},
-	{}
-};
-
-$MethodInfo _GTKFileChooserUI_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $method(GTKFileChooserUI, init$, void, $JFileChooser*)},
-	{"access$000", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;)Ljavax/swing/Icon;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(GTKFileChooserUI, access$000, $Icon*, GTKFileChooserUI*)},
-	{"access$100", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;)Ljavax/swing/Icon;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(GTKFileChooserUI, access$100, $Icon*, GTKFileChooserUI*)},
-	{"access$200", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;Z)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(GTKFileChooserUI, access$200, void, GTKFileChooserUI*, bool)},
-	{"access$300", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;Ljava/io/File;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(GTKFileChooserUI, access$300, void, GTKFileChooserUI*, $File*)},
-	{"access$400", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;Z)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(GTKFileChooserUI, access$400, void, GTKFileChooserUI*, bool)},
-	{"access$500", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;Z)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(GTKFileChooserUI, access$500, void, GTKFileChooserUI*, bool)},
-	{"access$600", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;Ljava/io/File;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(GTKFileChooserUI, access$600, void, GTKFileChooserUI*, $File*)},
-	{"access$700", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;Z)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(GTKFileChooserUI, access$700, void, GTKFileChooserUI*, bool)},
-	{"access$800", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(GTKFileChooserUI, access$800, bool, GTKFileChooserUI*)},
-	{"access$900", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;)Ljava/io/File;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(GTKFileChooserUI, access$900, $File*, GTKFileChooserUI*)},
-	{"align", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, align, void, $JComponent*)},
-	{"createActionMap", "()Ljavax/swing/ActionMap;", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, createActionMap, $ActionMap*)},
-	{"createDirectoryComboBoxModel", "(Ljavax/swing/JFileChooser;)Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI$DirectoryComboBoxModel;", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, createDirectoryComboBoxModel, $GTKFileChooserUI$DirectoryComboBoxModel*, $JFileChooser*)},
-	{"createDirectoryList", "()Ljavax/swing/JScrollPane;", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, createDirectoryList, $JScrollPane*)},
-	{"createDoubleClickListener", "(Ljavax/swing/JFileChooser;Ljavax/swing/JList;)Ljava/awt/event/MouseListener;", "(Ljavax/swing/JFileChooser;Ljavax/swing/JList<*>;)Ljava/awt/event/MouseListener;", $PROTECTED, $virtualMethod(GTKFileChooserUI, createDoubleClickListener, $MouseListener*, $JFileChooser*, $JList*)},
-	{"createFilesList", "()Ljavax/swing/JScrollPane;", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, createFilesList, $JScrollPane*)},
-	{"createFilterComboBoxModel", "()Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI$FilterComboBoxModel;", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, createFilterComboBoxModel, $GTKFileChooserUI$FilterComboBoxModel*)},
-	{"createFilterComboBoxRenderer", "()Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI$FilterComboBoxRenderer;", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, createFilterComboBoxRenderer, $GTKFileChooserUI$FilterComboBoxRenderer*)},
-	{"createListSelectionListener", "(Ljavax/swing/JFileChooser;)Ljavax/swing/event/ListSelectionListener;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, createListSelectionListener, $ListSelectionListener*, $JFileChooser*)},
-	{"createModel", "()V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, createModel, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKFileChooserUI, createUI, $ComponentUI*, $JComponent*)},
-	{"doAccessoryChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, doAccessoryChanged, void, $PropertyChangeEvent*)},
-	{"doAncestorChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, doAncestorChanged, void, $PropertyChangeEvent*)},
-	{"doControlButtonsChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, doControlButtonsChanged, void, $PropertyChangeEvent*)},
-	{"doDirectoryChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, doDirectoryChanged, void, $PropertyChangeEvent*)},
-	{"doFileSelectionModeChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, doFileSelectionModeChanged, void, $PropertyChangeEvent*)},
-	{"doMultiSelectionChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, doMultiSelectionChanged, void, $PropertyChangeEvent*)},
-	{"doSelectedFileChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, doSelectedFileChanged, void, $PropertyChangeEvent*)},
-	{"ensureFileIsVisible", "(Ljavax/swing/JFileChooser;Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, ensureFileIsVisible, void, $JFileChooser*, $File*)},
-	{"getAccessoryPanel", "()Ljavax/swing/JPanel;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, getAccessoryPanel, $JPanel*)},
-	{"getApproveSelectionAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, getApproveSelectionAction, $Action*)},
-	{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, getFileName, $String*)},
-	{"getFileView", "(Ljavax/swing/JFileChooser;)Ljavax/swing/filechooser/FileView;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, getFileView, $FileView*, $JFileChooser*)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getMnemonic", "(Ljava/lang/String;Ljava/util/Locale;)I", nullptr, $PRIVATE, $method(GTKFileChooserUI, getMnemonic, int32_t, $String*, $Locale*)},
-	{"getModel", "()Ljavax/swing/plaf/basic/BasicDirectoryModel;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, getModel, $BasicDirectoryModel*)},
-	{"getNewFolderAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, getNewFolderAction, $Action*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"installComponents", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, installComponents, void, $JFileChooser*)},
-	{"installDefaults", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, installDefaults, void, $JFileChooser*)},
-	{"installIcons", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, installIcons, void, $JFileChooser*)},
-	{"installListeners", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, installListeners, void, $JFileChooser*)},
-	{"installStrings", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, installStrings, void, $JFileChooser*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, installUI, void, $JComponent*)},
-	{"rescanCurrentDirectory", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, rescanCurrentDirectory, void, $JFileChooser*)},
-	{"setDirectoryName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, setDirectoryName, void, $String*)},
-	{"setFileName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, setFileName, void, $String*)},
-	{"uninstallListeners", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, uninstallListeners, void, $JFileChooser*)},
-	{"uninstallStrings", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, uninstallStrings, void, $JFileChooser*)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, uninstallUI, void, $JComponent*)},
-	{"updateDefaultButton", "()V", nullptr, $PRIVATE, $method(GTKFileChooserUI, updateDefaultButton, void)},
-	{}
-};
-
-$InnerClassInfo _GTKFileChooserUI_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$FilterComboBoxModel", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "FilterComboBoxModel", $PROTECTED},
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$FilterComboBoxRenderer", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "FilterComboBoxRenderer", $PUBLIC},
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$RenameFileAction", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "RenameFileAction", $PRIVATE},
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKApproveSelectionAction", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "GTKApproveSelectionAction", $PRIVATE},
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$NewFolderAction", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "NewFolderAction", $PRIVATE},
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$DirectoryComboBoxAction", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "DirectoryComboBoxAction", $PROTECTED},
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$DirectoryComboBoxModel", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "DirectoryComboBoxModel", $PROTECTED},
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$DirectoryCellRenderer", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "DirectoryCellRenderer", $PROTECTED},
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$FileCellRenderer", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "FileCellRenderer", $PROTECTED},
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKFileListModel", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "GTKFileListModel", $PROTECTED},
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKDirectoryListModel", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "GTKDirectoryListModel", $PROTECTED},
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKDirectoryModel", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "GTKDirectoryModel", $PRIVATE | $FINAL},
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKFCPropertyChangeListener", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "GTKFCPropertyChangeListener", $PRIVATE},
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$SelectionListener", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "SelectionListener", $PROTECTED},
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$DoubleClickListener", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "DoubleClickListener", 0},
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKFileView", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "GTKFileView", $PRIVATE},
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$3", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$2", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _GTKFileChooserUI_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.GTKFileChooserUI",
-	"sun.swing.plaf.synth.SynthFileChooserUI",
-	nullptr,
-	_GTKFileChooserUI_FieldInfo_,
-	_GTKFileChooserUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GTKFileChooserUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$FilterComboBoxModel,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$FilterComboBoxRenderer,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$RenameFileAction,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKApproveSelectionAction,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$NewFolderAction,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$DirectoryComboBoxAction,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$DirectoryComboBoxModel,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$DirectoryCellRenderer,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$FileCellRenderer,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKFileListModel,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKDirectoryListModel,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKDirectoryModel,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKFCPropertyChangeListener,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$SelectionListener,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$DoubleClickListener,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKFileView,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$3,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$2,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$1"
-};
-
-$Object* allocate$GTKFileChooserUI($Class* clazz) {
-	return $of($alloc(GTKFileChooserUI));
-}
 
 $Dimension* GTKFileChooserUI::hstrut3 = nullptr;
 $Dimension* GTKFileChooserUI::vstrut10 = nullptr;
@@ -464,7 +289,7 @@ void GTKFileChooserUI::init$($JFileChooser* filechooser) {
 }
 
 $ActionMap* GTKFileChooserUI::createActionMap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ActionMap, map, $new($ActionMapUIResource));
 	map->put("approveSelection"_s, $(getApproveSelectionAction()));
 	map->put("cancelSelection"_s, $(getCancelSelectionAction()));
@@ -474,13 +299,13 @@ $ActionMap* GTKFileChooserUI::createActionMap() {
 }
 
 $String* GTKFileChooserUI::getFileName() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFileChooser, fc, getFileChooser());
-	$var($String, typedInName, this->fileNameTextField != nullptr ? $nc(this->fileNameTextField)->getText() : ($String*)nullptr);
+	$var($String, typedInName, this->fileNameTextField != nullptr ? this->fileNameTextField->getText() : ($String*)nullptr);
 	if (!$nc(fc)->isMultiSelectionEnabled()) {
 		return typedInName;
 	}
-	int32_t mode = $nc(fc)->getFileSelectionMode();
+	int32_t mode = fc->getFileSelectionMode();
 	$var($JList, list, mode == $JFileChooser::DIRECTORIES_ONLY ? this->directoryList : this->fileList);
 	$var($ObjectArray, files, $nc(list)->getSelectedValues());
 	int32_t len = $nc(files)->length;
@@ -501,7 +326,7 @@ $String* GTKFileChooserUI::getFileName() {
 		if (len > 1) {
 			sb->append("\""_s);
 		}
-		sb->append($cast($String, $(result->get(i))));
+		sb->append($$cast($String, result->get(i)));
 		if (len > 1) {
 			sb->append("\""_s);
 		}
@@ -511,7 +336,7 @@ $String* GTKFileChooserUI::getFileName() {
 
 void GTKFileChooserUI::setFileName($String* fileName) {
 	if (this->fileNameTextField != nullptr) {
-		$nc(this->fileNameTextField)->setText(fileName);
+		this->fileNameTextField->setText(fileName);
 	}
 }
 
@@ -523,7 +348,7 @@ void GTKFileChooserUI::ensureFileIsVisible($JFileChooser* fc, $File* f) {
 }
 
 void GTKFileChooserUI::rescanCurrentDirectory($JFileChooser* fc) {
-	$nc($(getModel()))->validateFileCache();
+	$$nc(getModel())->validateFileCache();
 }
 
 $JPanel* GTKFileChooserUI::getAccessoryPanel() {
@@ -535,7 +360,7 @@ $FileView* GTKFileChooserUI::getFileView($JFileChooser* fc) {
 }
 
 void GTKFileChooserUI::updateDefaultButton() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFileChooser, filechooser, getFileChooser());
 	$var($JRootPane, root, $SwingUtilities::getRootPane(filechooser));
 	if (root == nullptr) {
@@ -544,7 +369,7 @@ void GTKFileChooserUI::updateDefaultButton() {
 	if ($nc(filechooser)->getControlButtonsAreShown()) {
 		if ($nc(root)->getDefaultButton() == nullptr) {
 			root->setDefaultButton($(getApproveButton(filechooser)));
-			$nc($(getCancelButton(filechooser)))->setDefaultCapable(false);
+			$$nc(getCancelButton(filechooser))->setDefaultCapable(false);
 		}
 	} else if ($nc(root)->getDefaultButton() == getApproveButton(filechooser)) {
 		root->setDefaultButton(nullptr);
@@ -552,37 +377,37 @@ void GTKFileChooserUI::updateDefaultButton() {
 }
 
 void GTKFileChooserUI::doSelectedFileChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SynthFileChooserUI::doSelectedFileChanged(e);
 	$var($File, f, $cast($File, $nc(e)->getNewValue()));
 	if (f != nullptr) {
-		setFileName($($nc($(getFileChooser()))->getName(f)));
+		setFileName($($$nc(getFileChooser())->getName(f)));
 	}
 }
 
 void GTKFileChooserUI::doDirectoryChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->directoryList)->clearSelection();
 	$var($ListSelectionModel, sm, $nc(this->directoryList)->getSelectionModel());
 	if ($instanceOf($DefaultListSelectionModel, sm)) {
-		$nc(($cast($DefaultListSelectionModel, sm)))->moveLeadSelectionIndex(0);
-		$nc(sm)->setAnchorSelectionIndex(0);
+		$cast($DefaultListSelectionModel, sm)->moveLeadSelectionIndex(0);
+		sm->setAnchorSelectionIndex(0);
 	}
 	$nc(this->fileList)->clearSelection();
 	$assign(sm, $nc(this->fileList)->getSelectionModel());
 	if ($instanceOf($DefaultListSelectionModel, sm)) {
-		$nc(($cast($DefaultListSelectionModel, sm)))->moveLeadSelectionIndex(0);
-		$nc(sm)->setAnchorSelectionIndex(0);
+		$cast($DefaultListSelectionModel, sm)->moveLeadSelectionIndex(0);
+		sm->setAnchorSelectionIndex(0);
 	}
-	$var($File, currentDirectory, $nc($(getFileChooser()))->getCurrentDirectory());
+	$var($File, currentDirectory, $$nc(getFileChooser())->getCurrentDirectory());
 	if (currentDirectory != nullptr) {
 		try {
-			setDirectoryName($($nc($($ShellFolder::getNormalizedFile($cast($File, $($nc(e)->getNewValue())))))->getPath()));
+			setDirectoryName($($$nc($ShellFolder::getNormalizedFile($$cast($File, $nc(e)->getNewValue())))->getPath()));
 		} catch ($IOException& ioe) {
-			setDirectoryName($($nc(($cast($File, $($nc(e)->getNewValue()))))->getAbsolutePath()));
+			setDirectoryName($($$sure($File, $nc(e)->getNewValue())->getAbsolutePath()));
 		}
-		bool var$0 = ($nc($(getFileChooser()))->getFileSelectionMode() == $JFileChooser::DIRECTORIES_ONLY);
-		if (var$0 && !$nc($(getFileChooser()))->isMultiSelectionEnabled()) {
+		bool var$0 = $$nc(getFileChooser())->getFileSelectionMode() == $JFileChooser::DIRECTORIES_ONLY;
+		if (var$0 && !$$nc(getFileChooser())->isMultiSelectionEnabled()) {
 			setFileName($($nc(this->pathField)->getText()));
 		}
 		$nc(this->directoryComboBoxModel)->addItem(currentDirectory);
@@ -592,32 +417,32 @@ void GTKFileChooserUI::doDirectoryChanged($PropertyChangeEvent* e) {
 }
 
 void GTKFileChooserUI::doAccessoryChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getAccessoryPanel() != nullptr) {
 		if ($nc(e)->getOldValue() != nullptr) {
-			$nc($(getAccessoryPanel()))->remove($cast($JComponent, $(e->getOldValue())));
+			$$nc(getAccessoryPanel())->remove($$cast($JComponent, e->getOldValue()));
 		}
-		$var($JComponent, accessory, $cast($JComponent, $nc(e)->getNewValue()));
+		$var($JComponent, accessory, $cast($JComponent, e->getNewValue()));
 		if (accessory != nullptr) {
 			$init($BorderLayout);
-			$nc($(getAccessoryPanel()))->add(static_cast<$Component*>(accessory), $of($BorderLayout::CENTER));
-			$nc($(getAccessoryPanel()))->setPreferredSize($(accessory->getPreferredSize()));
-			$nc($(getAccessoryPanel()))->setMaximumSize(GTKFileChooserUI::MAX_SIZE);
+			$$nc(getAccessoryPanel())->add(accessory, $BorderLayout::CENTER);
+			$$nc(getAccessoryPanel())->setPreferredSize($(accessory->getPreferredSize()));
+			$$nc(getAccessoryPanel())->setMaximumSize(GTKFileChooserUI::MAX_SIZE);
 		} else {
-			$nc($(getAccessoryPanel()))->setPreferredSize(GTKFileChooserUI::ZERO_ACC_SIZE);
-			$nc($(getAccessoryPanel()))->setMaximumSize(GTKFileChooserUI::ZERO_ACC_SIZE);
+			$$nc(getAccessoryPanel())->setPreferredSize(GTKFileChooserUI::ZERO_ACC_SIZE);
+			$$nc(getAccessoryPanel())->setMaximumSize(GTKFileChooserUI::ZERO_ACC_SIZE);
 		}
 	}
 }
 
 void GTKFileChooserUI::doFileSelectionModeChanged($PropertyChangeEvent* e) {
 	$nc(this->directoryList)->clearSelection();
-	$nc(this->rightPanel)->setVisible($nc(($cast($Integer, $($nc(e)->getNewValue()))))->intValue() != $JFileChooser::DIRECTORIES_ONLY);
+	$nc(this->rightPanel)->setVisible($$sure($Integer, $nc(e)->getNewValue())->intValue() != $JFileChooser::DIRECTORIES_ONLY);
 	$SynthFileChooserUI::doFileSelectionModeChanged(e);
 }
 
 void GTKFileChooserUI::doMultiSelectionChanged($PropertyChangeEvent* e) {
-	if ($nc($(getFileChooser()))->isMultiSelectionEnabled()) {
+	if ($$nc(getFileChooser())->isMultiSelectionEnabled()) {
 		$nc(this->fileList)->setSelectionMode($ListSelectionModel::MULTIPLE_INTERVAL_SELECTION);
 	} else {
 		$nc(this->fileList)->setSelectionMode($ListSelectionModel::SINGLE_SELECTION);
@@ -631,9 +456,9 @@ void GTKFileChooserUI::doControlButtonsChanged($PropertyChangeEvent* e) {
 	$var($JFileChooser, filechooser, getFileChooser());
 	if ($nc(filechooser)->getControlButtonsAreShown()) {
 		$init($BorderLayout);
-		filechooser->add(static_cast<$Component*>(this->bottomButtonPanel), $of($BorderLayout::SOUTH));
+		filechooser->add(this->bottomButtonPanel, $BorderLayout::SOUTH);
 	} else {
-		filechooser->remove(static_cast<$Component*>(this->bottomButtonPanel));
+		filechooser->remove(this->bottomButtonPanel);
 	}
 	updateDefaultButton();
 }
@@ -662,8 +487,8 @@ $ComponentUI* GTKFileChooserUI::createUI($JComponent* c) {
 }
 
 void GTKFileChooserUI::installUI($JComponent* c) {
-	$set(this, accessoryPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout, 10, 10))));
-	$nc(this->accessoryPanel)->setName("GTKFileChooser.accessoryPanel"_s);
+	$set(this, accessoryPanel, $new($JPanel, $$new($BorderLayout, 10, 10)));
+	this->accessoryPanel->setName("GTKFileChooser.accessoryPanel"_s);
 	$SynthFileChooserUI::installUI(c);
 }
 
@@ -671,20 +496,20 @@ void GTKFileChooserUI::uninstallUI($JComponent* c) {
 	$nc(c)->removePropertyChangeListener(this->filterComboBoxModel);
 	$SynthFileChooserUI::uninstallUI(c);
 	if (this->accessoryPanel != nullptr) {
-		$nc(this->accessoryPanel)->removeAll();
+		this->accessoryPanel->removeAll();
 	}
 	$set(this, accessoryPanel, nullptr);
-	$nc($(getFileChooser()))->removeAll();
+	$$nc(getFileChooser())->removeAll();
 }
 
 void GTKFileChooserUI::installComponents($JFileChooser* fc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SynthFileChooserUI::installComponents(fc);
-	bool leftToRight = $nc($($nc(fc)->getComponentOrientation()))->isLeftToRight();
+	bool leftToRight = $$nc($nc(fc)->getComponentOrientation())->isLeftToRight();
 	fc->setLayout($$new($BorderLayout));
 	$init($JComponent);
 	fc->setAlignmentX($JComponent::CENTER_ALIGNMENT);
-	$var($JPanel, topButtonPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($FlowLayout, $FlowLayout::LEADING, 0, 0))));
+	$var($JPanel, topButtonPanel, $new($JPanel, $$new($FlowLayout, $FlowLayout::LEADING, 0, 0)));
 	topButtonPanel->setBorder($$new($EmptyBorder, 10, 10, 0, 10));
 	topButtonPanel->setName("GTKFileChooser.topButtonPanel"_s);
 	if (!$UIManager::getBoolean("FileChooser.readOnly"_s)) {
@@ -693,16 +518,16 @@ void GTKFileChooserUI::installComponents($JFileChooser* fc) {
 		newFolderButton->setMnemonic(this->newFolderButtonMnemonic);
 		newFolderButton->setToolTipText(this->newFolderButtonToolTipText);
 		newFolderButton->setText(this->newFolderButtonText);
-		topButtonPanel->add(static_cast<$Component*>(newFolderButton));
+		topButtonPanel->add(newFolderButton);
 	}
 	$var($JButton, deleteFileButton, $new($JButton, this->deleteFileButtonText));
 	deleteFileButton->setName("GTKFileChooser.deleteFileButton"_s);
 	deleteFileButton->setMnemonic(this->deleteFileButtonMnemonic);
 	deleteFileButton->setToolTipText(this->deleteFileButtonToolTipText);
 	deleteFileButton->setEnabled(false);
-	topButtonPanel->add(static_cast<$Component*>(deleteFileButton));
+	topButtonPanel->add(deleteFileButton);
 	$var($GTKFileChooserUI$RenameFileAction, rfa, $new($GTKFileChooserUI$RenameFileAction, this));
-	$var($JButton, renameFileButton, $new($JButton, static_cast<$Action*>(rfa)));
+	$var($JButton, renameFileButton, $new($JButton, rfa));
 	if (this->readOnly) {
 		rfa->setEnabled(false);
 	}
@@ -710,54 +535,53 @@ void GTKFileChooserUI::installComponents($JFileChooser* fc) {
 	renameFileButton->setName("GTKFileChooser.renameFileButton"_s);
 	renameFileButton->setMnemonic(this->renameFileButtonMnemonic);
 	renameFileButton->setToolTipText(this->renameFileButtonToolTipText);
-	topButtonPanel->add(static_cast<$Component*>(renameFileButton));
-	$init($BorderLayout);
-	fc->add(static_cast<$Component*>(topButtonPanel), $of($BorderLayout::NORTH));
+	topButtonPanel->add(renameFileButton);
+	fc->add(topButtonPanel, $BorderLayout::NORTH);
 	$var($JPanel, interior, $new($JPanel));
 	interior->setBorder($$new($EmptyBorder, 0, 10, 10, 10));
 	interior->setName("GTKFileChooser.interiorPanel"_s);
 	align(interior);
 	interior->setLayout($$new($BoxLayout, interior, $BoxLayout::PAGE_AXIS));
-	fc->add(static_cast<$Component*>(interior), $of($BorderLayout::CENTER));
-	$var($JPanel, comboBoxPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($GTKFileChooserUI$1, this, $FlowLayout::CENTER, 0, 0))));
+	fc->add(interior, $BorderLayout::CENTER);
+	$var($JPanel, comboBoxPanel, $new($JPanel, $$new($GTKFileChooserUI$1, this, $FlowLayout::CENTER, 0, 0)));
 	comboBoxPanel->setBorder($$new($EmptyBorder, 0, 0, 4, 0));
 	comboBoxPanel->setName("GTKFileChooser.directoryComboBoxPanel"_s);
 	$set(this, directoryComboBoxModel, createDirectoryComboBoxModel(fc));
-	$set(this, directoryComboBox, $new($JComboBox, static_cast<$ComboBoxModel*>(this->directoryComboBoxModel)));
-	$nc(this->directoryComboBox)->setName("GTKFileChooser.directoryComboBox"_s);
+	$set(this, directoryComboBox, $new($JComboBox, this->directoryComboBoxModel));
+	this->directoryComboBox->setName("GTKFileChooser.directoryComboBox"_s);
 	$nc(this->directoryComboBox)->putClientProperty("JComboBox.lightweightKeyboardNavigation"_s, "Lightweight"_s);
 	$nc(this->directoryComboBox)->addActionListener(this->directoryComboBoxAction);
 	$nc(this->directoryComboBox)->setMaximumRowCount(8);
-	comboBoxPanel->add(static_cast<$Component*>(this->directoryComboBox));
-	interior->add(static_cast<$Component*>(comboBoxPanel));
-	$var($JPanel, centerPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout))));
+	comboBoxPanel->add(this->directoryComboBox);
+	interior->add(comboBoxPanel);
+	$var($JPanel, centerPanel, $new($JPanel, $$new($BorderLayout)));
 	centerPanel->setName("GTKFileChooser.centerPanel"_s);
 	$var($JSplitPane, splitPanel, $new($JSplitPane));
 	splitPanel->setName("GTKFileChooser.splitPanel"_s);
 	splitPanel->setDividerLocation(($nc(GTKFileChooserUI::PREF_SIZE)->width - 8) / 2);
-	$var($JPanel, leftPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($GridBagLayout))));
+	$var($JPanel, leftPanel, $new($JPanel, $$new($GridBagLayout)));
 	leftPanel->setName("GTKFileChooser.directoryListPanel"_s);
 	$var($TableCellRenderer, headerRenderer, $$new($JTableHeader)->getDefaultRenderer());
 	$var($JLabel, directoryListLabel, $cast($JLabel, $nc(headerRenderer)->getTableCellRendererComponent(nullptr, this->foldersLabelText, false, false, 0, 0)));
 	$nc(directoryListLabel)->setName("GTKFileChooser.directoryListLabel"_s);
-	leftPanel->add(static_cast<$Component*>(directoryListLabel), $of($$new($GridBagConstraints, 0, 0, 1, 1, (double)1, (double)0, $GridBagConstraints::WEST, $GridBagConstraints::HORIZONTAL, $$new($Insets, 0, 0, 0, 0), 0, 0)));
-	$var($Component, var$0, static_cast<$Component*>(createDirectoryList()));
-	leftPanel->add(var$0, $of($$new($GridBagConstraints, 0, 1, 1, 1, (double)1, (double)1, $GridBagConstraints::EAST, $GridBagConstraints::BOTH, $$new($Insets, 0, 0, 0, 0), 0, 0)));
+	leftPanel->add(directoryListLabel, $$new($GridBagConstraints, 0, 0, 1, 1, 1, 0, $GridBagConstraints::WEST, $GridBagConstraints::HORIZONTAL, $$new($Insets, 0, 0, 0, 0), 0, 0));
+	$var($Component, var$0, createDirectoryList());
+	leftPanel->add(var$0, $$new($GridBagConstraints, 0, 1, 1, 1, 1, 1, $GridBagConstraints::EAST, $GridBagConstraints::BOTH, $$new($Insets, 0, 0, 0, 0), 0, 0));
 	directoryListLabel->setDisplayedMnemonic(this->foldersLabelMnemonic);
 	directoryListLabel->setLabelFor(this->directoryList);
-	$set(this, rightPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($GridBagLayout))));
-	$nc(this->rightPanel)->setName("GTKFileChooser.fileListPanel"_s);
+	$set(this, rightPanel, $new($JPanel, $$new($GridBagLayout)));
+	this->rightPanel->setName("GTKFileChooser.fileListPanel"_s);
 	$assign(headerRenderer, $$new($JTableHeader)->getDefaultRenderer());
-	$var($JLabel, fileListLabel, $cast($JLabel, headerRenderer->getTableCellRendererComponent(nullptr, this->filesLabelText, false, false, 0, 0)));
+	$var($JLabel, fileListLabel, $cast($JLabel, $nc(headerRenderer)->getTableCellRendererComponent(nullptr, this->filesLabelText, false, false, 0, 0)));
 	$nc(fileListLabel)->setName("GTKFileChooser.fileListLabel"_s);
-	$nc(this->rightPanel)->add(static_cast<$Component*>(fileListLabel), $of($$new($GridBagConstraints, 0, 0, 1, 1, (double)1, (double)0, $GridBagConstraints::WEST, $GridBagConstraints::HORIZONTAL, $$new($Insets, 0, 0, 0, 0), 0, 0)));
-	$var($Component, var$1, static_cast<$Component*>(createFilesList()));
-	$nc(this->rightPanel)->add(var$1, $of($$new($GridBagConstraints, 0, 1, 1, 1, (double)1, (double)1, $GridBagConstraints::EAST, $GridBagConstraints::BOTH, $$new($Insets, 0, 0, 0, 0), 0, 0)));
+	$nc(this->rightPanel)->add(fileListLabel, $$new($GridBagConstraints, 0, 0, 1, 1, 1, 0, $GridBagConstraints::WEST, $GridBagConstraints::HORIZONTAL, $$new($Insets, 0, 0, 0, 0), 0, 0));
+	$var($Component, var$1, createFilesList());
+	$nc(this->rightPanel)->add(var$1, $$new($GridBagConstraints, 0, 1, 1, 1, 1, 1, $GridBagConstraints::EAST, $GridBagConstraints::BOTH, $$new($Insets, 0, 0, 0, 0), 0, 0));
 	fileListLabel->setDisplayedMnemonic(this->filesLabelMnemonic);
 	fileListLabel->setLabelFor(this->fileList);
-	splitPanel->add(static_cast<$Component*>(leftPanel), leftToRight ? $of($JSplitPane::LEFT) : $of($JSplitPane::RIGHT));
-	splitPanel->add(static_cast<$Component*>(this->rightPanel), leftToRight ? $of($JSplitPane::RIGHT) : $of($JSplitPane::LEFT));
-	centerPanel->add(static_cast<$Component*>(splitPanel), $of($BorderLayout::CENTER));
+	splitPanel->add(leftPanel, leftToRight ? $JSplitPane::LEFT : $JSplitPane::RIGHT);
+	splitPanel->add(this->rightPanel, leftToRight ? $JSplitPane::RIGHT : $JSplitPane::LEFT);
+	centerPanel->add(splitPanel, $BorderLayout::CENTER);
 	$var($JComponent, accessoryPanel, getAccessoryPanel());
 	$var($JComponent, accessory, fc->getAccessory());
 	if (accessoryPanel != nullptr) {
@@ -765,22 +589,22 @@ void GTKFileChooserUI::installComponents($JFileChooser* fc) {
 			accessoryPanel->setPreferredSize(GTKFileChooserUI::ZERO_ACC_SIZE);
 			accessoryPanel->setMaximumSize(GTKFileChooserUI::ZERO_ACC_SIZE);
 		} else {
-			$nc($(getAccessoryPanel()))->add(static_cast<$Component*>(accessory), $of($BorderLayout::CENTER));
-			accessoryPanel->setPreferredSize($($nc(accessory)->getPreferredSize()));
+			$$nc(getAccessoryPanel())->add(accessory, $BorderLayout::CENTER);
+			accessoryPanel->setPreferredSize($(accessory->getPreferredSize()));
 			accessoryPanel->setMaximumSize(GTKFileChooserUI::MAX_SIZE);
 		}
 		align(accessoryPanel);
-		centerPanel->add(static_cast<$Component*>(accessoryPanel), $of($BorderLayout::AFTER_LINE_ENDS));
+		centerPanel->add(accessoryPanel, $BorderLayout::AFTER_LINE_ENDS);
 	}
-	interior->add(static_cast<$Component*>(centerPanel));
+	interior->add(centerPanel);
 	interior->add($($Box::createRigidArea(GTKFileChooserUI::vstrut10)));
-	$var($JPanel, pathFieldPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($FlowLayout, $FlowLayout::LEADING, 0, 0))));
+	$var($JPanel, pathFieldPanel, $new($JPanel, $$new($FlowLayout, $FlowLayout::LEADING, 0, 0)));
 	pathFieldPanel->setBorder($$new($EmptyBorder, 0, 0, 4, 0));
 	$var($JLabel, pathFieldLabel, $new($JLabel, this->pathLabelText));
 	pathFieldLabel->setName("GTKFileChooser.pathFieldLabel"_s);
 	pathFieldLabel->setDisplayedMnemonic(this->pathLabelMnemonic);
 	align(pathFieldLabel);
-	pathFieldPanel->add(static_cast<$Component*>(pathFieldLabel));
+	pathFieldPanel->add(pathFieldLabel);
 	pathFieldPanel->add($($Box::createRigidArea(GTKFileChooserUI::hstrut3)));
 	$var($File, currentDirectory, fc->getCurrentDirectory());
 	$var($String, curDirName, nullptr);
@@ -789,51 +613,51 @@ void GTKFileChooserUI::installComponents($JFileChooser* fc) {
 	}
 	$var($JLabel, tmp, $new($GTKFileChooserUI$2, this, curDirName));
 	$set(this, pathField, tmp);
-	$nc(this->pathField)->setName("GTKFileChooser.pathField"_s);
+	this->pathField->setName("GTKFileChooser.pathField"_s);
 	align(this->pathField);
-	pathFieldPanel->add(static_cast<$Component*>(this->pathField));
-	interior->add(static_cast<$Component*>(pathFieldPanel));
+	pathFieldPanel->add(this->pathField);
+	interior->add(pathFieldPanel);
 	$var($JTextField, tmp2, $new($GTKFileChooserUI$3, this));
 	$set(this, fileNameTextField, tmp2);
 	pathFieldLabel->setLabelFor(this->fileNameTextField);
 	$var($Set, forwardTraversalKeys, $nc(this->fileNameTextField)->getFocusTraversalKeys($KeyboardFocusManager::FORWARD_TRAVERSAL_KEYS));
-	$assign(forwardTraversalKeys, $new($HashSet, static_cast<$Collection*>(forwardTraversalKeys)));
+	$assign(forwardTraversalKeys, $new($HashSet, forwardTraversalKeys));
 	forwardTraversalKeys->remove($($KeyStroke::getKeyStroke($KeyEvent::VK_TAB, 0)));
 	$nc(this->fileNameTextField)->setFocusTraversalKeys($KeyboardFocusManager::FORWARD_TRAVERSAL_KEYS, forwardTraversalKeys);
 	$nc(this->fileNameTextField)->setName("GTKFileChooser.fileNameTextField"_s);
-	$nc($($nc(this->fileNameTextField)->getActionMap()))->put("fileNameCompletionAction"_s, $(getFileNameCompletionAction()));
-	$nc($($nc(this->fileNameTextField)->getInputMap()))->put($($KeyStroke::getKeyStroke($KeyEvent::VK_TAB, 0)), "fileNameCompletionAction"_s);
-	interior->add(static_cast<$Component*>(this->fileNameTextField));
+	$$nc($nc(this->fileNameTextField)->getActionMap())->put("fileNameCompletionAction"_s, $(getFileNameCompletionAction()));
+	$$nc($nc(this->fileNameTextField)->getInputMap())->put($($KeyStroke::getKeyStroke($KeyEvent::VK_TAB, 0)), "fileNameCompletionAction"_s);
+	interior->add(this->fileNameTextField);
 	$var($JPanel, panel, $new($JPanel));
 	panel->setLayout($$new($FlowLayout, $FlowLayout::LEADING, 0, 0));
 	panel->setBorder($$new($EmptyBorder, 0, 0, 4, 0));
 	$var($JLabel, filterLabel, $new($JLabel, this->filterLabelText));
 	filterLabel->setName("GTKFileChooser.filterLabel"_s);
 	filterLabel->setDisplayedMnemonic(this->filterLabelMnemonic);
-	panel->add(static_cast<$Component*>(filterLabel));
+	panel->add(filterLabel);
 	$set(this, filterComboBoxModel, createFilterComboBoxModel());
 	fc->addPropertyChangeListener(this->filterComboBoxModel);
-	$set(this, filterComboBox, $new($JComboBox, static_cast<$ComboBoxModel*>(this->filterComboBoxModel)));
-	$nc(this->filterComboBox)->setRenderer($(createFilterComboBoxRenderer()));
+	$set(this, filterComboBox, $new($JComboBox, this->filterComboBoxModel));
+	this->filterComboBox->setRenderer($(createFilterComboBoxRenderer()));
 	filterLabel->setLabelFor(this->filterComboBox);
 	interior->add($($Box::createRigidArea(GTKFileChooserUI::vstrut10)));
-	interior->add(static_cast<$Component*>(panel));
-	interior->add(static_cast<$Component*>(this->filterComboBox));
-	$set(this, bottomButtonPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($FlowLayout, $FlowLayout::TRAILING))));
-	$nc(this->bottomButtonPanel)->setName("GTKFileChooser.bottomButtonPanel"_s);
+	interior->add(panel);
+	interior->add(this->filterComboBox);
+	$set(this, bottomButtonPanel, $new($JPanel, $$new($FlowLayout, $FlowLayout::TRAILING)));
+	this->bottomButtonPanel->setName("GTKFileChooser.bottomButtonPanel"_s);
 	align(this->bottomButtonPanel);
-	$var($JPanel, pnButtons, $new($JPanel, static_cast<$LayoutManager*>($$new($GridLayout, 1, 2, 5, 0))));
+	$var($JPanel, pnButtons, $new($JPanel, $$new($GridLayout, 1, 2, 5, 0)));
 	$var($JButton, cancelButton, getCancelButton(fc));
 	align(cancelButton);
 	$nc(cancelButton)->setMargin(GTKFileChooserUI::buttonMargin);
-	pnButtons->add(static_cast<$Component*>(cancelButton));
+	pnButtons->add(cancelButton);
 	$var($JButton, approveButton, getApproveButton(fc));
 	align(approveButton);
 	$nc(approveButton)->setMargin(GTKFileChooserUI::buttonMargin);
-	pnButtons->add(static_cast<$Component*>(approveButton));
-	$nc(this->bottomButtonPanel)->add(static_cast<$Component*>(pnButtons));
+	pnButtons->add(approveButton);
+	$nc(this->bottomButtonPanel)->add(pnButtons);
 	if (fc->getControlButtonsAreShown()) {
-		fc->add(static_cast<$Component*>(this->bottomButtonPanel), $of($BorderLayout::SOUTH));
+		fc->add(this->bottomButtonPanel, $BorderLayout::SOUTH);
 	}
 }
 
@@ -844,7 +668,7 @@ void GTKFileChooserUI::installListeners($JFileChooser* fc) {
 }
 
 int32_t GTKFileChooserUI::getMnemonic($String* key, $Locale* l) {
-	return $SwingUtilities2::getUIDefaultsInt($of(key), l);
+	return $SwingUtilities2::getUIDefaultsInt(key, l);
 }
 
 void GTKFileChooserUI::uninstallListeners($JFileChooser* fc) {
@@ -855,12 +679,11 @@ void GTKFileChooserUI::uninstallListeners($JFileChooser* fc) {
 }
 
 void GTKFileChooserUI::installDefaults($JFileChooser* fc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SynthFileChooserUI::installDefaults(fc);
 	this->readOnly = $UIManager::getBoolean("FileChooser.readOnly"_s);
-	$init($Boolean);
 	this->showDirectoryIcons = $nc($Boolean::TRUE)->equals($($nc(fc)->getClientProperty("GTKFileChooser.showDirectoryIcons"_s)));
-	this->showFileIcons = $nc($Boolean::TRUE)->equals($($nc(fc)->getClientProperty("GTKFileChooser.showFileIcons"_s)));
+	this->showFileIcons = $Boolean::TRUE->equals($(fc->getClientProperty("GTKFileChooser.showFileIcons"_s)));
 }
 
 void GTKFileChooserUI::installIcons($JFileChooser* fc) {
@@ -871,30 +694,30 @@ void GTKFileChooserUI::installIcons($JFileChooser* fc) {
 void GTKFileChooserUI::installStrings($JFileChooser* fc) {
 	$SynthFileChooserUI::installStrings(fc);
 	$var($Locale, l, $nc(fc)->getLocale());
-	$set(this, newFolderDialogText, $UIManager::getString($of("FileChooser.newFolderDialogText"_s), l));
-	$set(this, newFolderErrorText, $UIManager::getString($of("FileChooser.newFolderErrorText"_s), l));
-	$set(this, newFolderErrorSeparator, $UIManager::getString($of("FileChooser.newFolderErrorSeparator"_s), l));
-	$set(this, newFolderButtonText, $UIManager::getString($of("FileChooser.newFolderButtonText"_s), l));
-	$set(this, newFolderNoDirectoryErrorTitleText, $UIManager::getString($of("FileChooser.newFolderNoDirectoryErrorTitleText"_s), l));
-	$set(this, newFolderNoDirectoryErrorText, $UIManager::getString($of("FileChooser.newFolderNoDirectoryErrorText"_s), l));
-	$set(this, deleteFileButtonText, $UIManager::getString($of("FileChooser.deleteFileButtonText"_s), l));
-	$set(this, renameFileButtonText, $UIManager::getString($of("FileChooser.renameFileButtonText"_s), l));
+	$set(this, newFolderDialogText, $UIManager::getString("FileChooser.newFolderDialogText"_s, l));
+	$set(this, newFolderErrorText, $UIManager::getString("FileChooser.newFolderErrorText"_s, l));
+	$set(this, newFolderErrorSeparator, $UIManager::getString("FileChooser.newFolderErrorSeparator"_s, l));
+	$set(this, newFolderButtonText, $UIManager::getString("FileChooser.newFolderButtonText"_s, l));
+	$set(this, newFolderNoDirectoryErrorTitleText, $UIManager::getString("FileChooser.newFolderNoDirectoryErrorTitleText"_s, l));
+	$set(this, newFolderNoDirectoryErrorText, $UIManager::getString("FileChooser.newFolderNoDirectoryErrorText"_s, l));
+	$set(this, deleteFileButtonText, $UIManager::getString("FileChooser.deleteFileButtonText"_s, l));
+	$set(this, renameFileButtonText, $UIManager::getString("FileChooser.renameFileButtonText"_s, l));
 	this->newFolderButtonMnemonic = getMnemonic("FileChooser.newFolderButtonMnemonic"_s, l);
 	this->deleteFileButtonMnemonic = getMnemonic("FileChooser.deleteFileButtonMnemonic"_s, l);
 	this->renameFileButtonMnemonic = getMnemonic("FileChooser.renameFileButtonMnemonic"_s, l);
-	$set(this, newFolderButtonToolTipText, $UIManager::getString($of("FileChooser.newFolderButtonToolTipText"_s), l));
-	$set(this, deleteFileButtonToolTipText, $UIManager::getString($of("FileChooser.deleteFileButtonToolTipText"_s), l));
-	$set(this, renameFileButtonToolTipText, $UIManager::getString($of("FileChooser.renameFileButtonToolTipText"_s), l));
-	$set(this, renameFileDialogText, $UIManager::getString($of("FileChooser.renameFileDialogText"_s), l));
-	$set(this, renameFileErrorTitle, $UIManager::getString($of("FileChooser.renameFileErrorTitle"_s), l));
-	$set(this, renameFileErrorText, $UIManager::getString($of("FileChooser.renameFileErrorText"_s), l));
-	$set(this, foldersLabelText, $UIManager::getString($of("FileChooser.foldersLabelText"_s), l));
+	$set(this, newFolderButtonToolTipText, $UIManager::getString("FileChooser.newFolderButtonToolTipText"_s, l));
+	$set(this, deleteFileButtonToolTipText, $UIManager::getString("FileChooser.deleteFileButtonToolTipText"_s, l));
+	$set(this, renameFileButtonToolTipText, $UIManager::getString("FileChooser.renameFileButtonToolTipText"_s, l));
+	$set(this, renameFileDialogText, $UIManager::getString("FileChooser.renameFileDialogText"_s, l));
+	$set(this, renameFileErrorTitle, $UIManager::getString("FileChooser.renameFileErrorTitle"_s, l));
+	$set(this, renameFileErrorText, $UIManager::getString("FileChooser.renameFileErrorText"_s, l));
+	$set(this, foldersLabelText, $UIManager::getString("FileChooser.foldersLabelText"_s, l));
 	this->foldersLabelMnemonic = getMnemonic("FileChooser.foldersLabelMnemonic"_s, l);
-	$set(this, filesLabelText, $UIManager::getString($of("FileChooser.filesLabelText"_s), l));
+	$set(this, filesLabelText, $UIManager::getString("FileChooser.filesLabelText"_s, l));
 	this->filesLabelMnemonic = getMnemonic("FileChooser.filesLabelMnemonic"_s, l);
-	$set(this, pathLabelText, $UIManager::getString($of("FileChooser.pathLabelText"_s), l));
+	$set(this, pathLabelText, $UIManager::getString("FileChooser.pathLabelText"_s, l));
 	this->pathLabelMnemonic = getMnemonic("FileChooser.pathLabelMnemonic"_s, l);
-	$set(this, filterLabelText, $UIManager::getString($of("FileChooser.filterLabelText"_s), l));
+	$set(this, filterLabelText, $UIManager::getString("FileChooser.filterLabelText"_s, l));
 	this->filterLabelMnemonic = $UIManager::getInt("FileChooser.filterLabelMnemonic"_s);
 }
 
@@ -918,18 +741,18 @@ void GTKFileChooserUI::uninstallStrings($JFileChooser* fc) {
 }
 
 $JScrollPane* GTKFileChooserUI::createFilesList() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, fileList, $new($JList));
-	$nc(this->fileList)->setName("GTKFileChooser.fileList"_s);
+	this->fileList->setName("GTKFileChooser.fileList"_s);
 	$init($AccessibleContext);
 	$nc(this->fileList)->putClientProperty($AccessibleContext::ACCESSIBLE_NAME_PROPERTY, this->filesLabelText);
-	if ($nc($(getFileChooser()))->isMultiSelectionEnabled()) {
+	if ($$nc(getFileChooser())->isMultiSelectionEnabled()) {
 		$nc(this->fileList)->setSelectionMode($ListSelectionModel::MULTIPLE_INTERVAL_SELECTION);
 	} else {
 		$nc(this->fileList)->setSelectionMode($ListSelectionModel::SINGLE_SELECTION);
 	}
 	$nc(this->fileList)->setModel($$new($GTKFileChooserUI$GTKFileListModel, this));
-	$nc($($nc(this->fileList)->getSelectionModel()))->removeSelectionInterval(0, 0);
+	$$nc($nc(this->fileList)->getSelectionModel())->removeSelectionInterval(0, 0);
 	$nc(this->fileList)->setCellRenderer($$new($GTKFileChooserUI$FileCellRenderer, this));
 	$nc(this->fileList)->addListSelectionListener($(createListSelectionListener($(getFileChooser()))));
 	$nc(this->fileList)->addMouseListener($(createDoubleClickListener($(getFileChooser()), this->fileList)));
@@ -944,15 +767,15 @@ $JScrollPane* GTKFileChooserUI::createFilesList() {
 }
 
 $JScrollPane* GTKFileChooserUI::createDirectoryList() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, directoryList, $new($JList));
-	$nc(this->directoryList)->setName("GTKFileChooser.directoryList"_s);
+	this->directoryList->setName("GTKFileChooser.directoryList"_s);
 	$init($AccessibleContext);
 	$nc(this->directoryList)->putClientProperty($AccessibleContext::ACCESSIBLE_NAME_PROPERTY, this->foldersLabelText);
 	align(this->directoryList);
 	$nc(this->directoryList)->setCellRenderer($$new($GTKFileChooserUI$DirectoryCellRenderer, this));
 	$set(this, directoryListModel, $new($GTKFileChooserUI$GTKDirectoryListModel, this));
-	$nc($($nc(this->directoryList)->getSelectionModel()))->removeSelectionInterval(0, 0);
+	$$nc($nc(this->directoryList)->getSelectionModel())->removeSelectionInterval(0, 0);
 	$nc(this->directoryList)->setModel(this->directoryListModel);
 	$nc(this->directoryList)->addMouseListener($(createDoubleClickListener($(getFileChooser()), this->directoryList)));
 	$nc(this->directoryList)->addListSelectionListener($(createListSelectionListener($(getFileChooser()))));
@@ -978,13 +801,13 @@ $Action* GTKFileChooserUI::getApproveSelectionAction() {
 }
 
 $Dimension* GTKFileChooserUI::getPreferredSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, prefSize, $new($Dimension, GTKFileChooserUI::PREF_SIZE));
-	$var($JComponent, accessory, $nc($(getFileChooser()))->getAccessory());
+	$var($JComponent, accessory, $$nc(getFileChooser())->getAccessory());
 	if (accessory != nullptr) {
 		prefSize->width += $nc($(accessory->getPreferredSize()))->width + 20;
 	}
-	$var($Dimension, d, $nc($($nc(c)->getLayout()))->preferredLayoutSize(c));
+	$var($Dimension, d, $$nc($nc(c)->getLayout())->preferredLayoutSize(c));
 	if (d != nullptr) {
 		return $new($Dimension, d->width < prefSize->width ? prefSize->width : d->width, d->height < prefSize->height ? prefSize->height : d->height);
 	} else {
@@ -1009,7 +832,7 @@ void GTKFileChooserUI::align($JComponent* c) {
 $Action* GTKFileChooserUI::getNewFolderAction() {
 	if (this->newFolderAction == nullptr) {
 		$set(this, newFolderAction, $new($GTKFileChooserUI$NewFolderAction, this));
-		$nc(this->newFolderAction)->setEnabled(!this->readOnly);
+		this->newFolderAction->setEnabled(!this->readOnly);
 	}
 	return this->newFolderAction;
 }
@@ -1026,7 +849,7 @@ $GTKFileChooserUI$FilterComboBoxModel* GTKFileChooserUI::createFilterComboBoxMod
 	return $new($GTKFileChooserUI$FilterComboBoxModel, this);
 }
 
-void clinit$GTKFileChooserUI($Class* class$) {
+void GTKFileChooserUI::clinit$($Class* clazz) {
 	$assignStatic(GTKFileChooserUI::hstrut3, $new($Dimension, 3, 1));
 	$assignStatic(GTKFileChooserUI::vstrut10, $new($Dimension, 1, 10));
 	$assignStatic(GTKFileChooserUI::prefListSize, $new($Dimension, 75, 150));
@@ -1040,7 +863,159 @@ GTKFileChooserUI::GTKFileChooserUI() {
 }
 
 $Class* GTKFileChooserUI::load$($String* name, bool initialize) {
-	$loadClass(GTKFileChooserUI, name, initialize, &_GTKFileChooserUI_ClassInfo_, clinit$GTKFileChooserUI, allocate$GTKFileChooserUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"accessoryPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(GTKFileChooserUI, accessoryPanel)},
+		{"newFolderButtonText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, newFolderButtonText)},
+		{"newFolderErrorSeparator", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, newFolderErrorSeparator)},
+		{"newFolderErrorText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, newFolderErrorText)},
+		{"newFolderDialogText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, newFolderDialogText)},
+		{"newFolderNoDirectoryErrorTitleText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, newFolderNoDirectoryErrorTitleText)},
+		{"newFolderNoDirectoryErrorText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, newFolderNoDirectoryErrorText)},
+		{"deleteFileButtonText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, deleteFileButtonText)},
+		{"renameFileButtonText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, renameFileButtonText)},
+		{"newFolderButtonToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, newFolderButtonToolTipText)},
+		{"deleteFileButtonToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, deleteFileButtonToolTipText)},
+		{"renameFileButtonToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, renameFileButtonToolTipText)},
+		{"newFolderButtonMnemonic", "I", nullptr, $PRIVATE, $field(GTKFileChooserUI, newFolderButtonMnemonic)},
+		{"deleteFileButtonMnemonic", "I", nullptr, $PRIVATE, $field(GTKFileChooserUI, deleteFileButtonMnemonic)},
+		{"renameFileButtonMnemonic", "I", nullptr, $PRIVATE, $field(GTKFileChooserUI, renameFileButtonMnemonic)},
+		{"foldersLabelMnemonic", "I", nullptr, $PRIVATE, $field(GTKFileChooserUI, foldersLabelMnemonic)},
+		{"filesLabelMnemonic", "I", nullptr, $PRIVATE, $field(GTKFileChooserUI, filesLabelMnemonic)},
+		{"renameFileDialogText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, renameFileDialogText)},
+		{"renameFileErrorTitle", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, renameFileErrorTitle)},
+		{"renameFileErrorText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, renameFileErrorText)},
+		{"filterComboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljavax/swing/filechooser/FileFilter;>;", $PRIVATE, $field(GTKFileChooserUI, filterComboBox)},
+		{"filterComboBoxModel", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI$FilterComboBoxModel;", nullptr, $PRIVATE, $field(GTKFileChooserUI, filterComboBoxModel)},
+		{"rightPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(GTKFileChooserUI, rightPanel)},
+		{"directoryList", "Ljavax/swing/JList;", "Ljavax/swing/JList<Ljava/io/File;>;", $PRIVATE, $field(GTKFileChooserUI, directoryList)},
+		{"fileList", "Ljavax/swing/JList;", "Ljavax/swing/JList<Ljava/io/File;>;", $PRIVATE, $field(GTKFileChooserUI, fileList)},
+		{"pathField", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(GTKFileChooserUI, pathField)},
+		{"fileNameTextField", "Ljavax/swing/JTextField;", nullptr, $PRIVATE, $field(GTKFileChooserUI, fileNameTextField)},
+		{"hstrut3", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKFileChooserUI, hstrut3)},
+		{"vstrut10", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKFileChooserUI, vstrut10)},
+		{"prefListSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(GTKFileChooserUI, prefListSize)},
+		{"PREF_SIZE", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(GTKFileChooserUI, PREF_SIZE)},
+		{"MIN_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GTKFileChooserUI, MIN_WIDTH)},
+		{"MIN_HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GTKFileChooserUI, MIN_HEIGHT)},
+		{"ZERO_ACC_SIZE", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(GTKFileChooserUI, ZERO_ACC_SIZE)},
+		{"MAX_SIZE", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(GTKFileChooserUI, MAX_SIZE)},
+		{"buttonMargin", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKFileChooserUI, buttonMargin)},
+		{"filesLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, filesLabelText)},
+		{"foldersLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, foldersLabelText)},
+		{"pathLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, pathLabelText)},
+		{"filterLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKFileChooserUI, filterLabelText)},
+		{"pathLabelMnemonic", "I", nullptr, $PRIVATE, $field(GTKFileChooserUI, pathLabelMnemonic)},
+		{"filterLabelMnemonic", "I", nullptr, $PRIVATE, $field(GTKFileChooserUI, filterLabelMnemonic)},
+		{"directoryComboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljava/io/File;>;", $PRIVATE, $field(GTKFileChooserUI, directoryComboBox)},
+		{"directoryComboBoxModel", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI$DirectoryComboBoxModel;", nullptr, $PRIVATE, $field(GTKFileChooserUI, directoryComboBoxModel)},
+		{"directoryComboBoxAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(GTKFileChooserUI, directoryComboBoxAction)},
+		{"bottomButtonPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(GTKFileChooserUI, bottomButtonPanel)},
+		{"model", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI$GTKDirectoryModel;", nullptr, $PRIVATE, $field(GTKFileChooserUI, model)},
+		{"newFolderAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(GTKFileChooserUI, newFolderAction)},
+		{"readOnly", "Z", nullptr, $PRIVATE, $field(GTKFileChooserUI, readOnly)},
+		{"showDirectoryIcons", "Z", nullptr, $PRIVATE, $field(GTKFileChooserUI, showDirectoryIcons)},
+		{"showFileIcons", "Z", nullptr, $PRIVATE, $field(GTKFileChooserUI, showFileIcons)},
+		{"fileView", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI$GTKFileView;", nullptr, $PRIVATE, $field(GTKFileChooserUI, fileView)},
+		{"gtkFCPropertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(GTKFileChooserUI, gtkFCPropertyChangeListener)},
+		{"approveSelectionAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(GTKFileChooserUI, approveSelectionAction)},
+		{"directoryListModel", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI$GTKDirectoryListModel;", nullptr, $PRIVATE, $field(GTKFileChooserUI, directoryListModel)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $method(GTKFileChooserUI, init$, void, $JFileChooser*)},
+		{"access$000", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;)Ljavax/swing/Icon;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(GTKFileChooserUI, access$000, $Icon*, GTKFileChooserUI*)},
+		{"access$100", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;)Ljavax/swing/Icon;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(GTKFileChooserUI, access$100, $Icon*, GTKFileChooserUI*)},
+		{"access$200", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;Z)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(GTKFileChooserUI, access$200, void, GTKFileChooserUI*, bool)},
+		{"access$300", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;Ljava/io/File;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(GTKFileChooserUI, access$300, void, GTKFileChooserUI*, $File*)},
+		{"access$400", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;Z)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(GTKFileChooserUI, access$400, void, GTKFileChooserUI*, bool)},
+		{"access$500", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;Z)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(GTKFileChooserUI, access$500, void, GTKFileChooserUI*, bool)},
+		{"access$600", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;Ljava/io/File;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(GTKFileChooserUI, access$600, void, GTKFileChooserUI*, $File*)},
+		{"access$700", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;Z)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(GTKFileChooserUI, access$700, void, GTKFileChooserUI*, bool)},
+		{"access$800", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(GTKFileChooserUI, access$800, bool, GTKFileChooserUI*)},
+		{"access$900", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;)Ljava/io/File;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(GTKFileChooserUI, access$900, $File*, GTKFileChooserUI*)},
+		{"align", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, align, void, $JComponent*)},
+		{"createActionMap", "()Ljavax/swing/ActionMap;", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, createActionMap, $ActionMap*)},
+		{"createDirectoryComboBoxModel", "(Ljavax/swing/JFileChooser;)Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI$DirectoryComboBoxModel;", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, createDirectoryComboBoxModel, $GTKFileChooserUI$DirectoryComboBoxModel*, $JFileChooser*)},
+		{"createDirectoryList", "()Ljavax/swing/JScrollPane;", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, createDirectoryList, $JScrollPane*)},
+		{"createDoubleClickListener", "(Ljavax/swing/JFileChooser;Ljavax/swing/JList;)Ljava/awt/event/MouseListener;", "(Ljavax/swing/JFileChooser;Ljavax/swing/JList<*>;)Ljava/awt/event/MouseListener;", $PROTECTED, $virtualMethod(GTKFileChooserUI, createDoubleClickListener, $MouseListener*, $JFileChooser*, $JList*)},
+		{"createFilesList", "()Ljavax/swing/JScrollPane;", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, createFilesList, $JScrollPane*)},
+		{"createFilterComboBoxModel", "()Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI$FilterComboBoxModel;", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, createFilterComboBoxModel, $GTKFileChooserUI$FilterComboBoxModel*)},
+		{"createFilterComboBoxRenderer", "()Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI$FilterComboBoxRenderer;", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, createFilterComboBoxRenderer, $GTKFileChooserUI$FilterComboBoxRenderer*)},
+		{"createListSelectionListener", "(Ljavax/swing/JFileChooser;)Ljavax/swing/event/ListSelectionListener;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, createListSelectionListener, $ListSelectionListener*, $JFileChooser*)},
+		{"createModel", "()V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, createModel, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKFileChooserUI, createUI, $ComponentUI*, $JComponent*)},
+		{"doAccessoryChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, doAccessoryChanged, void, $PropertyChangeEvent*)},
+		{"doAncestorChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, doAncestorChanged, void, $PropertyChangeEvent*)},
+		{"doControlButtonsChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, doControlButtonsChanged, void, $PropertyChangeEvent*)},
+		{"doDirectoryChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, doDirectoryChanged, void, $PropertyChangeEvent*)},
+		{"doFileSelectionModeChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, doFileSelectionModeChanged, void, $PropertyChangeEvent*)},
+		{"doMultiSelectionChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, doMultiSelectionChanged, void, $PropertyChangeEvent*)},
+		{"doSelectedFileChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, doSelectedFileChanged, void, $PropertyChangeEvent*)},
+		{"ensureFileIsVisible", "(Ljavax/swing/JFileChooser;Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, ensureFileIsVisible, void, $JFileChooser*, $File*)},
+		{"getAccessoryPanel", "()Ljavax/swing/JPanel;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, getAccessoryPanel, $JPanel*)},
+		{"getApproveSelectionAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, getApproveSelectionAction, $Action*)},
+		{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, getFileName, $String*)},
+		{"getFileView", "(Ljavax/swing/JFileChooser;)Ljavax/swing/filechooser/FileView;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, getFileView, $FileView*, $JFileChooser*)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getMnemonic", "(Ljava/lang/String;Ljava/util/Locale;)I", nullptr, $PRIVATE, $method(GTKFileChooserUI, getMnemonic, int32_t, $String*, $Locale*)},
+		{"getModel", "()Ljavax/swing/plaf/basic/BasicDirectoryModel;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, getModel, $BasicDirectoryModel*)},
+		{"getNewFolderAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, getNewFolderAction, $Action*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"installComponents", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, installComponents, void, $JFileChooser*)},
+		{"installDefaults", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, installDefaults, void, $JFileChooser*)},
+		{"installIcons", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, installIcons, void, $JFileChooser*)},
+		{"installListeners", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, installListeners, void, $JFileChooser*)},
+		{"installStrings", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, installStrings, void, $JFileChooser*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, installUI, void, $JComponent*)},
+		{"rescanCurrentDirectory", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, rescanCurrentDirectory, void, $JFileChooser*)},
+		{"setDirectoryName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, setDirectoryName, void, $String*)},
+		{"setFileName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, setFileName, void, $String*)},
+		{"uninstallListeners", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, uninstallListeners, void, $JFileChooser*)},
+		{"uninstallStrings", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(GTKFileChooserUI, uninstallStrings, void, $JFileChooser*)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI, uninstallUI, void, $JComponent*)},
+		{"updateDefaultButton", "()V", nullptr, $PRIVATE, $method(GTKFileChooserUI, updateDefaultButton, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$FilterComboBoxModel", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "FilterComboBoxModel", $PROTECTED},
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$FilterComboBoxRenderer", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "FilterComboBoxRenderer", $PUBLIC},
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$RenameFileAction", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "RenameFileAction", $PRIVATE},
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKApproveSelectionAction", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "GTKApproveSelectionAction", $PRIVATE},
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$NewFolderAction", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "NewFolderAction", $PRIVATE},
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$DirectoryComboBoxAction", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "DirectoryComboBoxAction", $PROTECTED},
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$DirectoryComboBoxModel", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "DirectoryComboBoxModel", $PROTECTED},
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$DirectoryCellRenderer", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "DirectoryCellRenderer", $PROTECTED},
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$FileCellRenderer", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "FileCellRenderer", $PROTECTED},
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKFileListModel", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "GTKFileListModel", $PROTECTED},
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKDirectoryListModel", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "GTKDirectoryListModel", $PROTECTED},
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKDirectoryModel", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "GTKDirectoryModel", $PRIVATE | $FINAL},
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKFCPropertyChangeListener", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "GTKFCPropertyChangeListener", $PRIVATE},
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$SelectionListener", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "SelectionListener", $PROTECTED},
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$DoubleClickListener", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "DoubleClickListener", 0},
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKFileView", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "GTKFileView", $PRIVATE},
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$3", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$2", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.GTKFileChooserUI",
+		"sun.swing.plaf.synth.SynthFileChooserUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$FilterComboBoxModel,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$FilterComboBoxRenderer,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$RenameFileAction,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKApproveSelectionAction,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$NewFolderAction,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$DirectoryComboBoxAction,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$DirectoryComboBoxModel,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$DirectoryCellRenderer,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$FileCellRenderer,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKFileListModel,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKDirectoryListModel,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKDirectoryModel,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKFCPropertyChangeListener,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$SelectionListener,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$DoubleClickListener,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKFileView,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$3,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$2,com.sun.java.swing.plaf.gtk.GTKFileChooserUI$1"
+	};
+	$loadClass(GTKFileChooserUI, name, initialize, &classInfo$$, GTKFileChooserUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GTKFileChooserUI));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/util/logging/resources/logging_es.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -13,67 +12,48 @@ namespace sun {
 		namespace logging {
 			namespace resources {
 
-$MethodInfo _logging_es_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(logging_es, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(logging_es, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _logging_es_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.util.logging.resources.logging_es",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_logging_es_MethodInfo_
-};
-
-$Object* allocate$logging_es($Class* clazz) {
-	return $of($alloc(logging_es));
-}
-
 void logging_es::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* logging_es::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("ALL"_s),
-			$of("Todo"_s)
+			"ALL"_s,
+			"Todo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CONFIG"_s),
-			$of("Configurar"_s)
+			"CONFIG"_s,
+			"Configurar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FINE"_s),
-			$of("Detallado"_s)
+			"FINE"_s,
+			"Detallado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FINER"_s),
-			$of("Muy Detallado"_s)
+			"FINER"_s,
+			"Muy Detallado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FINEST"_s),
-			$of(u"Más Detallado"_s)
+			"FINEST"_s,
+			u"Más Detallado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("INFO"_s),
-			$of(u"Información"_s)
+			"INFO"_s,
+			u"Información"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OFF"_s),
-			$of("Desactivado"_s)
+			"OFF"_s,
+			"Desactivado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SEVERE"_s),
-			$of("Grave"_s)
+			"SEVERE"_s,
+			"Grave"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WARNING"_s),
-			$of("Advertencia"_s)
+			"WARNING"_s,
+			"Advertencia"_s
 		})
 	});
 }
@@ -82,7 +62,22 @@ logging_es::logging_es() {
 }
 
 $Class* logging_es::load$($String* name, bool initialize) {
-	$loadClass(logging_es, name, initialize, &_logging_es_ClassInfo_, allocate$logging_es);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(logging_es, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(logging_es, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.util.logging.resources.logging_es",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(logging_es, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(logging_es);
+	});
 	return class$;
 }
 

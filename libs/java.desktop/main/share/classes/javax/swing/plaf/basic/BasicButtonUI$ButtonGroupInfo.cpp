@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicButtonUI$ButtonGroupInfo.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/util/Enumeration.h>
@@ -36,53 +35,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicButtonUI$ButtonGroupInfo_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicButtonUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicButtonUI$ButtonGroupInfo, this$0)},
-	{"activeBtn", "Ljavax/swing/JToggleButton;", nullptr, 0, $field(BasicButtonUI$ButtonGroupInfo, activeBtn)},
-	{"firstBtn", "Ljavax/swing/JToggleButton;", nullptr, 0, $field(BasicButtonUI$ButtonGroupInfo, firstBtn)},
-	{"lastBtn", "Ljavax/swing/JToggleButton;", nullptr, 0, $field(BasicButtonUI$ButtonGroupInfo, lastBtn)},
-	{"previousBtn", "Ljavax/swing/JToggleButton;", nullptr, 0, $field(BasicButtonUI$ButtonGroupInfo, previousBtn)},
-	{"nextBtn", "Ljavax/swing/JToggleButton;", nullptr, 0, $field(BasicButtonUI$ButtonGroupInfo, nextBtn)},
-	{"btnsInGroup", "Ljava/util/HashSet;", "Ljava/util/HashSet<Ljavax/swing/JToggleButton;>;", 0, $field(BasicButtonUI$ButtonGroupInfo, btnsInGroup)},
-	{"srcFound", "Z", nullptr, 0, $field(BasicButtonUI$ButtonGroupInfo, srcFound)},
-	{}
-};
-
-$MethodInfo _BasicButtonUI$ButtonGroupInfo_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicButtonUI;Ljavax/swing/JToggleButton;)V", nullptr, $PUBLIC, $method(BasicButtonUI$ButtonGroupInfo, init$, void, $BasicButtonUI*, $JToggleButton*)},
-	{"containsInGroup", "(Ljava/lang/Object;)Z", nullptr, 0, $virtualMethod(BasicButtonUI$ButtonGroupInfo, containsInGroup, bool, Object$*)},
-	{"getButtonGroupInfo", "()Z", nullptr, 0, $virtualMethod(BasicButtonUI$ButtonGroupInfo, getButtonGroupInfo, bool)},
-	{"getFocusTransferBaseComponent", "(Z)Ljava/awt/Component;", nullptr, 0, $virtualMethod(BasicButtonUI$ButtonGroupInfo, getFocusTransferBaseComponent, $Component*, bool)},
-	{"jumpToNextComponent", "(Z)V", nullptr, 0, $virtualMethod(BasicButtonUI$ButtonGroupInfo, jumpToNextComponent, void, bool)},
-	{"selectNewButton", "(Z)V", nullptr, 0, $virtualMethod(BasicButtonUI$ButtonGroupInfo, selectNewButton, void, bool)},
-	{}
-};
-
-$InnerClassInfo _BasicButtonUI$ButtonGroupInfo_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicButtonUI$ButtonGroupInfo", "javax.swing.plaf.basic.BasicButtonUI", "ButtonGroupInfo", $PRIVATE},
-	{}
-};
-
-$ClassInfo _BasicButtonUI$ButtonGroupInfo_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicButtonUI$ButtonGroupInfo",
-	"java.lang.Object",
-	nullptr,
-	_BasicButtonUI$ButtonGroupInfo_FieldInfo_,
-	_BasicButtonUI$ButtonGroupInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicButtonUI$ButtonGroupInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicButtonUI"
-};
-
-$Object* allocate$BasicButtonUI$ButtonGroupInfo($Class* clazz) {
-	return $of($alloc(BasicButtonUI$ButtonGroupInfo));
-}
-
 void BasicButtonUI$ButtonGroupInfo::init$($BasicButtonUI* this$0, $JToggleButton* btn) {
 	$set(this, this$0, this$0);
 	$set(this, activeBtn, nullptr);
@@ -105,7 +57,7 @@ $Component* BasicButtonUI$ButtonGroupInfo::getFocusTransferBaseComponent(bool ne
 }
 
 bool BasicButtonUI$ButtonGroupInfo::getButtonGroupInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->activeBtn == nullptr) {
 		return false;
 	}
@@ -145,7 +97,7 @@ bool BasicButtonUI$ButtonGroupInfo::getButtonGroupInfo() {
 }
 
 void BasicButtonUI$ButtonGroupInfo::selectNewButton(bool next) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!getButtonGroupInfo()) {
 		return;
 	}
@@ -173,7 +125,7 @@ void BasicButtonUI$ButtonGroupInfo::selectNewButton(bool next) {
 }
 
 void BasicButtonUI$ButtonGroupInfo::jumpToNextComponent(bool next) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!getButtonGroupInfo()) {
 		if (this->activeBtn != nullptr) {
 			$set(this, lastBtn, this->activeBtn);
@@ -186,9 +138,9 @@ void BasicButtonUI$ButtonGroupInfo::jumpToNextComponent(bool next) {
 	$var($Component, focusBase, getFocusTransferBaseComponent(next));
 	if (focusBase != nullptr) {
 		if (next) {
-			$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->focusNextComponent(focusBase);
+			$$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->focusNextComponent(focusBase);
 		} else {
-			$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->focusPreviousComponent(focusBase);
+			$$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->focusPreviousComponent(focusBase);
 		}
 	}
 }
@@ -197,7 +149,48 @@ BasicButtonUI$ButtonGroupInfo::BasicButtonUI$ButtonGroupInfo() {
 }
 
 $Class* BasicButtonUI$ButtonGroupInfo::load$($String* name, bool initialize) {
-	$loadClass(BasicButtonUI$ButtonGroupInfo, name, initialize, &_BasicButtonUI$ButtonGroupInfo_ClassInfo_, allocate$BasicButtonUI$ButtonGroupInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicButtonUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicButtonUI$ButtonGroupInfo, this$0)},
+		{"activeBtn", "Ljavax/swing/JToggleButton;", nullptr, 0, $field(BasicButtonUI$ButtonGroupInfo, activeBtn)},
+		{"firstBtn", "Ljavax/swing/JToggleButton;", nullptr, 0, $field(BasicButtonUI$ButtonGroupInfo, firstBtn)},
+		{"lastBtn", "Ljavax/swing/JToggleButton;", nullptr, 0, $field(BasicButtonUI$ButtonGroupInfo, lastBtn)},
+		{"previousBtn", "Ljavax/swing/JToggleButton;", nullptr, 0, $field(BasicButtonUI$ButtonGroupInfo, previousBtn)},
+		{"nextBtn", "Ljavax/swing/JToggleButton;", nullptr, 0, $field(BasicButtonUI$ButtonGroupInfo, nextBtn)},
+		{"btnsInGroup", "Ljava/util/HashSet;", "Ljava/util/HashSet<Ljavax/swing/JToggleButton;>;", 0, $field(BasicButtonUI$ButtonGroupInfo, btnsInGroup)},
+		{"srcFound", "Z", nullptr, 0, $field(BasicButtonUI$ButtonGroupInfo, srcFound)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicButtonUI;Ljavax/swing/JToggleButton;)V", nullptr, $PUBLIC, $method(BasicButtonUI$ButtonGroupInfo, init$, void, $BasicButtonUI*, $JToggleButton*)},
+		{"containsInGroup", "(Ljava/lang/Object;)Z", nullptr, 0, $virtualMethod(BasicButtonUI$ButtonGroupInfo, containsInGroup, bool, Object$*)},
+		{"getButtonGroupInfo", "()Z", nullptr, 0, $virtualMethod(BasicButtonUI$ButtonGroupInfo, getButtonGroupInfo, bool)},
+		{"getFocusTransferBaseComponent", "(Z)Ljava/awt/Component;", nullptr, 0, $virtualMethod(BasicButtonUI$ButtonGroupInfo, getFocusTransferBaseComponent, $Component*, bool)},
+		{"jumpToNextComponent", "(Z)V", nullptr, 0, $virtualMethod(BasicButtonUI$ButtonGroupInfo, jumpToNextComponent, void, bool)},
+		{"selectNewButton", "(Z)V", nullptr, 0, $virtualMethod(BasicButtonUI$ButtonGroupInfo, selectNewButton, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicButtonUI$ButtonGroupInfo", "javax.swing.plaf.basic.BasicButtonUI", "ButtonGroupInfo", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicButtonUI$ButtonGroupInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicButtonUI"
+	};
+	$loadClass(BasicButtonUI$ButtonGroupInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicButtonUI$ButtonGroupInfo);
+	});
 	return class$;
 }
 

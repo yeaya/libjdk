@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/RequestPublishers$EmptyPublisher.h>
-
 #include <java/lang/Iterable.h>
 #include <java/util/Collections.h>
 #include <java/util/List.h>
@@ -12,10 +11,8 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Collections = ::java::util::Collections;
-using $Flow$Publisher = ::java::util::concurrent::Flow$Publisher;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $PullPublisher = ::jdk::internal::net::http::PullPublisher;
 
@@ -23,44 +20,6 @@ namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$FieldInfo _RequestPublishers$EmptyPublisher_FieldInfo_[] = {
-	{"delegate", "Ljava/util/concurrent/Flow$Publisher;", "Ljava/util/concurrent/Flow$Publisher<Ljava/nio/ByteBuffer;>;", $PRIVATE | $FINAL, $field(RequestPublishers$EmptyPublisher, delegate)},
-	{}
-};
-
-$MethodInfo _RequestPublishers$EmptyPublisher_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RequestPublishers$EmptyPublisher, init$, void)},
-	{"contentLength", "()J", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$EmptyPublisher, contentLength, int64_t)},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(RequestPublishers$EmptyPublisher, subscribe, void, $Flow$Subscriber*)},
-	{}
-};
-
-$InnerClassInfo _RequestPublishers$EmptyPublisher_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.RequestPublishers$EmptyPublisher", "jdk.internal.net.http.RequestPublishers", "EmptyPublisher", $PUBLIC | $STATIC},
-	{"java.net.http.HttpRequest$BodyPublisher", "java.net.http.HttpRequest", "BodyPublisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RequestPublishers$EmptyPublisher_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.RequestPublishers$EmptyPublisher",
-	"java.lang.Object",
-	"java.net.http.HttpRequest$BodyPublisher",
-	_RequestPublishers$EmptyPublisher_FieldInfo_,
-	_RequestPublishers$EmptyPublisher_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RequestPublishers$EmptyPublisher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.RequestPublishers"
-};
-
-$Object* allocate$RequestPublishers$EmptyPublisher($Class* clazz) {
-	return $of($alloc(RequestPublishers$EmptyPublisher));
-}
 
 void RequestPublishers$EmptyPublisher::init$() {
 	$set(this, delegate, $new($PullPublisher, $($Collections::emptyList()), nullptr));
@@ -71,14 +30,46 @@ int64_t RequestPublishers$EmptyPublisher::contentLength() {
 }
 
 void RequestPublishers$EmptyPublisher::subscribe($Flow$Subscriber* subscriber) {
-	$nc(this->delegate)->subscribe(subscriber);
+	this->delegate->subscribe(subscriber);
 }
 
 RequestPublishers$EmptyPublisher::RequestPublishers$EmptyPublisher() {
 }
 
 $Class* RequestPublishers$EmptyPublisher::load$($String* name, bool initialize) {
-	$loadClass(RequestPublishers$EmptyPublisher, name, initialize, &_RequestPublishers$EmptyPublisher_ClassInfo_, allocate$RequestPublishers$EmptyPublisher);
+	$FieldInfo fieldInfos$$[] = {
+		{"delegate", "Ljava/util/concurrent/Flow$Publisher;", "Ljava/util/concurrent/Flow$Publisher<Ljava/nio/ByteBuffer;>;", $PRIVATE | $FINAL, $field(RequestPublishers$EmptyPublisher, delegate)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RequestPublishers$EmptyPublisher, init$, void)},
+		{"contentLength", "()J", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$EmptyPublisher, contentLength, int64_t)},
+		{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(RequestPublishers$EmptyPublisher, subscribe, void, $Flow$Subscriber*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.RequestPublishers$EmptyPublisher", "jdk.internal.net.http.RequestPublishers", "EmptyPublisher", $PUBLIC | $STATIC},
+		{"java.net.http.HttpRequest$BodyPublisher", "java.net.http.HttpRequest", "BodyPublisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.RequestPublishers$EmptyPublisher",
+		"java.lang.Object",
+		"java.net.http.HttpRequest$BodyPublisher",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.RequestPublishers"
+	};
+	$loadClass(RequestPublishers$EmptyPublisher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RequestPublishers$EmptyPublisher);
+	});
 	return class$;
 }
 

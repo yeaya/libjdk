@@ -162,10 +162,11 @@ class $export MediaSizeName : public ::javax::print::attribute::standard::Media 
 	$class(MediaSizeName, 0, ::javax::print::attribute::standard::Media)
 public:
 	MediaSizeName();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t value);
 	virtual $Array<::javax::print::attribute::EnumSyntax>* getEnumValueTable() override;
 	virtual $StringArray* getStringTable() override;
-	static const int64_t serialVersionUID = (int64_t)0x2690465BB39C819B;
+	static const int64_t serialVersionUID = (int64_t)0x2690465bb39c819b;
 	static ::javax::print::attribute::standard::MediaSizeName* ISO_A0;
 	static ::javax::print::attribute::standard::MediaSizeName* ISO_A1;
 	static ::javax::print::attribute::standard::MediaSizeName* ISO_A2;

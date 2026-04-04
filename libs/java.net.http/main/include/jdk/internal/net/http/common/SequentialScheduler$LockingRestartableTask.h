@@ -30,6 +30,7 @@ class $import SequentialScheduler$LockingRestartableTask : public ::jdk::interna
 	$class(SequentialScheduler$LockingRestartableTask, 0, ::jdk::internal::net::http::common::SequentialScheduler$CompleteRestartableTask)
 public:
 	SequentialScheduler$LockingRestartableTask();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::Runnable* mainLoop);
 	using ::jdk::internal::net::http::common::SequentialScheduler$CompleteRestartableTask::run;
 	virtual void run() override;

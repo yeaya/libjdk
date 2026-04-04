@@ -39,6 +39,7 @@ class $export CompositeDataInvocationHandler : public ::java::lang::reflect::Inv
 public:
 	CompositeDataInvocationHandler();
 	using ::java::lang::reflect::InvocationHandler::equals;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::management::openmbean::CompositeData* compositeData);
 	void init$(::javax::management::openmbean::CompositeData* compositeData, ::com::sun::jmx::mbeanserver::MXBeanLookup* lookup);
 	bool equals(Object$* proxy, Object$* other);

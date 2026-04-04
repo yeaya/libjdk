@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMSubTreeData.h>
-
 #include <java/util/Iterator.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMSubTreeData$DelayedNodeIterator.h>
 #include <org/w3c/dom/Node.h>
@@ -19,44 +18,6 @@ namespace org {
 			namespace dsig {
 				namespace internal {
 					namespace dom {
-
-$FieldInfo _DOMSubTreeData_FieldInfo_[] = {
-	{"excludeComments", "Z", nullptr, $PRIVATE, $field(DOMSubTreeData, excludeComments$)},
-	{"root", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(DOMSubTreeData, root)},
-	{}
-};
-
-$MethodInfo _DOMSubTreeData_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Node;Z)V", nullptr, $PUBLIC, $method(DOMSubTreeData, init$, void, $Node*, bool)},
-	{"excludeComments", "()Z", nullptr, $PUBLIC, $virtualMethod(DOMSubTreeData, excludeComments, bool)},
-	{"getRoot", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMSubTreeData, getRoot, $Node*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lorg/w3c/dom/Node;>;", $PUBLIC, $virtualMethod(DOMSubTreeData, iterator, $Iterator*)},
-	{}
-};
-
-$InnerClassInfo _DOMSubTreeData_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.DOMSubTreeData$DelayedNodeIterator", "org.jcp.xml.dsig.internal.dom.DOMSubTreeData", "DelayedNodeIterator", $STATIC},
-	{}
-};
-
-$ClassInfo _DOMSubTreeData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMSubTreeData",
-	"java.lang.Object",
-	"javax.xml.crypto.NodeSetData",
-	_DOMSubTreeData_FieldInfo_,
-	_DOMSubTreeData_MethodInfo_,
-	"Ljava/lang/Object;Ljavax/xml/crypto/NodeSetData<Lorg/w3c/dom/Node;>;",
-	nullptr,
-	_DOMSubTreeData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.DOMSubTreeData$DelayedNodeIterator"
-};
-
-$Object* allocate$DOMSubTreeData($Class* clazz) {
-	return $of($alloc(DOMSubTreeData));
-}
 
 void DOMSubTreeData::init$($Node* root, bool excludeComments) {
 	$set(this, root, root);
@@ -79,7 +40,39 @@ DOMSubTreeData::DOMSubTreeData() {
 }
 
 $Class* DOMSubTreeData::load$($String* name, bool initialize) {
-	$loadClass(DOMSubTreeData, name, initialize, &_DOMSubTreeData_ClassInfo_, allocate$DOMSubTreeData);
+	$FieldInfo fieldInfos$$[] = {
+		{"excludeComments", "Z", nullptr, $PRIVATE, $field(DOMSubTreeData, excludeComments$)},
+		{"root", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(DOMSubTreeData, root)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/w3c/dom/Node;Z)V", nullptr, $PUBLIC, $method(DOMSubTreeData, init$, void, $Node*, bool)},
+		{"excludeComments", "()Z", nullptr, $PUBLIC, $virtualMethod(DOMSubTreeData, excludeComments, bool)},
+		{"getRoot", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMSubTreeData, getRoot, $Node*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lorg/w3c/dom/Node;>;", $PUBLIC, $virtualMethod(DOMSubTreeData, iterator, $Iterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.DOMSubTreeData$DelayedNodeIterator", "org.jcp.xml.dsig.internal.dom.DOMSubTreeData", "DelayedNodeIterator", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMSubTreeData",
+		"java.lang.Object",
+		"javax.xml.crypto.NodeSetData",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljavax/xml/crypto/NodeSetData<Lorg/w3c/dom/Node;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.DOMSubTreeData$DelayedNodeIterator"
+	};
+	$loadClass(DOMSubTreeData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMSubTreeData));
+	});
 	return class$;
 }
 

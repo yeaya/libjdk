@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFStreamMetadataFormat.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFAttrInfo.h>
 #include <com/sun/imageio/plugins/tiff/TIFFElementInfo.h>
 #include <com/sun/imageio/plugins/tiff/TIFFMetadataFormat.h>
@@ -21,7 +20,6 @@ using $TIFFStreamMetadata = ::com::sun::imageio::plugins::tiff::TIFFStreamMetada
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
 using $ImageTypeSpecifier = ::javax::imageio::ImageTypeSpecifier;
 using $IIOMetadataFormat = ::javax::imageio::metadata::IIOMetadataFormat;
 
@@ -31,31 +29,6 @@ namespace com {
 			namespace plugins {
 				namespace tiff {
 
-$FieldInfo _TIFFStreamMetadataFormat_FieldInfo_[] = {
-	{"theInstance", "Lcom/sun/imageio/plugins/tiff/TIFFStreamMetadataFormat;", nullptr, $PRIVATE | $STATIC, $staticField(TIFFStreamMetadataFormat, theInstance)},
-	{}
-};
-
-$MethodInfo _TIFFStreamMetadataFormat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(TIFFStreamMetadataFormat, init$, void)},
-	{"canNodeAppear", "(Ljava/lang/String;Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC, $virtualMethod(TIFFStreamMetadataFormat, canNodeAppear, bool, $String*, $ImageTypeSpecifier*)},
-	{"getInstance", "()Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(TIFFStreamMetadataFormat, getInstance, $IIOMetadataFormat*)},
-	{}
-};
-
-$ClassInfo _TIFFStreamMetadataFormat_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFStreamMetadataFormat",
-	"com.sun.imageio.plugins.tiff.TIFFMetadataFormat",
-	nullptr,
-	_TIFFStreamMetadataFormat_FieldInfo_,
-	_TIFFStreamMetadataFormat_MethodInfo_
-};
-
-$Object* allocate$TIFFStreamMetadataFormat($Class* clazz) {
-	return $of($alloc(TIFFStreamMetadataFormat));
-}
-
 TIFFStreamMetadataFormat* TIFFStreamMetadataFormat::theInstance = nullptr;
 
 bool TIFFStreamMetadataFormat::canNodeAppear($String* elementName, $ImageTypeSpecifier* imageType) {
@@ -63,7 +36,7 @@ bool TIFFStreamMetadataFormat::canNodeAppear($String* elementName, $ImageTypeSpe
 }
 
 void TIFFStreamMetadataFormat::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$TIFFMetadataFormat::init$();
 	$set(this, resourceBaseName, "javax.imageio.plugins.tiff.TIFFStreamMetadataFormatResources"_s);
 	$init($TIFFStreamMetadata);
@@ -79,7 +52,7 @@ void TIFFStreamMetadataFormat::init$() {
 	$assign(childNames, empty);
 	$assign(attrNames, $new($StringArray, {"value"_s}));
 	$assign(einfo, $new($TIFFElementInfo, childNames, attrNames, $IIOMetadataFormat::CHILD_POLICY_EMPTY));
-	$nc(this->elementInfoMap)->put("ByteOrder"_s, einfo);
+	this->elementInfoMap->put("ByteOrder"_s, einfo);
 	$assign(ainfo, $new($TIFFAttrInfo));
 	ainfo->dataType = $IIOMetadataFormat::DATATYPE_STRING;
 	ainfo->isRequired = true;
@@ -87,9 +60,8 @@ void TIFFStreamMetadataFormat::init$() {
 }
 
 $IIOMetadataFormat* TIFFStreamMetadataFormat::getInstance() {
-	$load(TIFFStreamMetadataFormat);
+	$init(TIFFStreamMetadataFormat);
 	$synchronized(class$) {
-		$init(TIFFStreamMetadataFormat);
 		if (TIFFStreamMetadataFormat::theInstance == nullptr) {
 			$assignStatic(TIFFStreamMetadataFormat::theInstance, $new(TIFFStreamMetadataFormat));
 		}
@@ -97,7 +69,7 @@ $IIOMetadataFormat* TIFFStreamMetadataFormat::getInstance() {
 	}
 }
 
-void clinit$TIFFStreamMetadataFormat($Class* class$) {
+void TIFFStreamMetadataFormat::clinit$($Class* clazz) {
 	$assignStatic(TIFFStreamMetadataFormat::theInstance, nullptr);
 }
 
@@ -105,7 +77,27 @@ TIFFStreamMetadataFormat::TIFFStreamMetadataFormat() {
 }
 
 $Class* TIFFStreamMetadataFormat::load$($String* name, bool initialize) {
-	$loadClass(TIFFStreamMetadataFormat, name, initialize, &_TIFFStreamMetadataFormat_ClassInfo_, clinit$TIFFStreamMetadataFormat, allocate$TIFFStreamMetadataFormat);
+	$FieldInfo fieldInfos$$[] = {
+		{"theInstance", "Lcom/sun/imageio/plugins/tiff/TIFFStreamMetadataFormat;", nullptr, $PRIVATE | $STATIC, $staticField(TIFFStreamMetadataFormat, theInstance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(TIFFStreamMetadataFormat, init$, void)},
+		{"canNodeAppear", "(Ljava/lang/String;Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC, $virtualMethod(TIFFStreamMetadataFormat, canNodeAppear, bool, $String*, $ImageTypeSpecifier*)},
+		{"getInstance", "()Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(TIFFStreamMetadataFormat, getInstance, $IIOMetadataFormat*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFStreamMetadataFormat",
+		"com.sun.imageio.plugins.tiff.TIFFMetadataFormat",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFStreamMetadataFormat, name, initialize, &classInfo$$, TIFFStreamMetadataFormat::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFStreamMetadataFormat);
+	});
 	return class$;
 }
 

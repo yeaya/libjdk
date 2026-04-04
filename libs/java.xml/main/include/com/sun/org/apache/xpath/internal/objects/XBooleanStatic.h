@@ -41,7 +41,7 @@ public:
 	virtual bool equals(::com::sun::org::apache::xpath::internal::objects::XObject* obj2) override;
 	using ::com::sun::org::apache::xpath::internal::objects::XBoolean::num;
 	using ::com::sun::org::apache::xpath::internal::objects::XBoolean::xstr;
-	static const int64_t serialVersionUID = (int64_t)0x901664C743228BCF;
+	static const int64_t serialVersionUID = (int64_t)0x901664c743228bcf;
 	bool m_val = false;
 };
 

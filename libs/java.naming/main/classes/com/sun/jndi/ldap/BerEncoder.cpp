@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/BerEncoder.h>
-
 #include <com/sun/jndi/ldap/Ber$EncodeException.h>
 #include <com/sun/jndi/ldap/Ber.h>
 #include <java/io/UnsupportedEncodingException.h>
@@ -26,54 +25,6 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$FieldInfo _BerEncoder_FieldInfo_[] = {
-	{"curSeqIndex", "I", nullptr, $PRIVATE, $field(BerEncoder, curSeqIndex)},
-	{"seqOffset", "[I", nullptr, $PRIVATE, $field(BerEncoder, seqOffset)},
-	{"INITIAL_SEQUENCES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BerEncoder, INITIAL_SEQUENCES)},
-	{"DEFAULT_BUFSIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BerEncoder, DEFAULT_BUFSIZE)},
-	{"BUF_GROWTH_FACTOR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BerEncoder, BUF_GROWTH_FACTOR)},
-	{}
-};
-
-$MethodInfo _BerEncoder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BerEncoder, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(BerEncoder, init$, void, int32_t)},
-	{"beginSeq", "(I)V", nullptr, $PUBLIC, $method(BerEncoder, beginSeq, void, int32_t)},
-	{"encodeBoolean", "(Z)V", nullptr, $PUBLIC, $method(BerEncoder, encodeBoolean, void, bool)},
-	{"encodeBoolean", "(ZI)V", nullptr, $PUBLIC, $method(BerEncoder, encodeBoolean, void, bool, int32_t)},
-	{"encodeByte", "(I)V", nullptr, $PUBLIC, $method(BerEncoder, encodeByte, void, int32_t)},
-	{"encodeInt", "(I)V", nullptr, $PUBLIC, $method(BerEncoder, encodeInt, void, int32_t)},
-	{"encodeInt", "(II)V", nullptr, $PUBLIC, $method(BerEncoder, encodeInt, void, int32_t, int32_t)},
-	{"encodeInt", "(III)V", nullptr, $PRIVATE, $method(BerEncoder, encodeInt, void, int32_t, int32_t, int32_t)},
-	{"encodeLength", "(I)V", nullptr, $PRIVATE, $method(BerEncoder, encodeLength, void, int32_t), "com.sun.jndi.ldap.Ber$EncodeException"},
-	{"encodeOctetString", "([BIII)V", nullptr, $PUBLIC, $method(BerEncoder, encodeOctetString, void, $bytes*, int32_t, int32_t, int32_t), "com.sun.jndi.ldap.Ber$EncodeException"},
-	{"encodeOctetString", "([BI)V", nullptr, $PUBLIC, $method(BerEncoder, encodeOctetString, void, $bytes*, int32_t), "com.sun.jndi.ldap.Ber$EncodeException"},
-	{"encodeString", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(BerEncoder, encodeString, void, $String*, bool), "com.sun.jndi.ldap.Ber$EncodeException"},
-	{"encodeString", "(Ljava/lang/String;IZ)V", nullptr, $PUBLIC, $method(BerEncoder, encodeString, void, $String*, int32_t, bool), "com.sun.jndi.ldap.Ber$EncodeException"},
-	{"encodeStringArray", "([Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(BerEncoder, encodeStringArray, void, $StringArray*, bool), "com.sun.jndi.ldap.Ber$EncodeException"},
-	{"endSeq", "()V", nullptr, $PUBLIC, $method(BerEncoder, endSeq, void), "com.sun.jndi.ldap.Ber$EncodeException"},
-	{"ensureFreeBytes", "(I)V", nullptr, $PRIVATE, $method(BerEncoder, ensureFreeBytes, void, int32_t)},
-	{"getBuf", "()[B", nullptr, $PUBLIC, $method(BerEncoder, getBuf, $bytes*)},
-	{"getDataLen", "()I", nullptr, $PUBLIC, $method(BerEncoder, getDataLen, int32_t)},
-	{"getTrimmedBuf", "()[B", nullptr, $PUBLIC, $method(BerEncoder, getTrimmedBuf, $bytes*)},
-	{"reset", "()V", nullptr, $PUBLIC, $method(BerEncoder, reset, void)},
-	{"shiftSeqData", "(III)V", nullptr, $PRIVATE, $method(BerEncoder, shiftSeqData, void, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _BerEncoder_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.BerEncoder",
-	"com.sun.jndi.ldap.Ber",
-	nullptr,
-	_BerEncoder_FieldInfo_,
-	_BerEncoder_MethodInfo_
-};
-
-$Object* allocate$BerEncoder($Class* clazz) {
-	return $of($alloc(BerEncoder));
-}
-
 void BerEncoder::init$() {
 	BerEncoder::init$(BerEncoder::DEFAULT_BUFSIZE);
 }
@@ -89,7 +40,7 @@ void BerEncoder::init$(int32_t bufsize) {
 
 void BerEncoder::reset() {
 	while (this->offset > 0) {
-		$nc(this->buf)->set(--this->offset, (int8_t)0);
+		$nc(this->buf)->set(--this->offset, 0);
 	}
 	while (this->curSeqIndex > 0) {
 		$nc(this->seqOffset)->set(--this->curSeqIndex, 0);
@@ -108,7 +59,7 @@ $bytes* BerEncoder::getBuf() {
 }
 
 $bytes* BerEncoder::getTrimmedBuf() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = getDataLen();
 	$var($bytes, trimBuf, $new($bytes, len));
 	$System::arraycopy($(getBuf()), 0, trimBuf, 0, len);
@@ -117,9 +68,9 @@ $bytes* BerEncoder::getTrimmedBuf() {
 
 void BerEncoder::beginSeq(int32_t tag) {
 	if (this->curSeqIndex >= $nc(this->seqOffset)->length) {
-		$var($ints, seqOffsetTmp, $new($ints, $nc(this->seqOffset)->length * 2));
-		for (int32_t i = 0; i < $nc(this->seqOffset)->length; ++i) {
-			seqOffsetTmp->set(i, $nc(this->seqOffset)->get(i));
+		$var($ints, seqOffsetTmp, $new($ints, this->seqOffset->length * 2));
+		for (int32_t i = 0; i < this->seqOffset->length; ++i) {
+			seqOffsetTmp->set(i, this->seqOffset->get(i));
 		}
 		$set(this, seqOffset, seqOffsetTmp);
 	}
@@ -143,17 +94,17 @@ void BerEncoder::endSeq() {
 	} else if (len <= 255) {
 		shiftSeqData(start, len, -1);
 		$nc(this->buf)->set($nc(this->seqOffset)->get(this->curSeqIndex), (int8_t)129);
-		$nc(this->buf)->set($nc(this->seqOffset)->get(this->curSeqIndex) + 1, (int8_t)len);
-	} else if (len <= 0x0000FFFF) {
+		this->buf->set(this->seqOffset->get(this->curSeqIndex) + 1, (int8_t)len);
+	} else if (len <= 0x0000ffff) {
 		$nc(this->buf)->set($nc(this->seqOffset)->get(this->curSeqIndex), (int8_t)130);
-		$nc(this->buf)->set($nc(this->seqOffset)->get(this->curSeqIndex) + 1, (int8_t)(len >> 8));
-		$nc(this->buf)->set($nc(this->seqOffset)->get(this->curSeqIndex) + 2, (int8_t)len);
-	} else if (len <= 0x00FFFFFF) {
+		this->buf->set(this->seqOffset->get(this->curSeqIndex) + 1, (int8_t)(len >> 8));
+		this->buf->set(this->seqOffset->get(this->curSeqIndex) + 2, (int8_t)len);
+	} else if (len <= 0x00ffffff) {
 		shiftSeqData(start, len, 1);
 		$nc(this->buf)->set($nc(this->seqOffset)->get(this->curSeqIndex), (int8_t)131);
-		$nc(this->buf)->set($nc(this->seqOffset)->get(this->curSeqIndex) + 1, (int8_t)(len >> 16));
-		$nc(this->buf)->set($nc(this->seqOffset)->get(this->curSeqIndex) + 2, (int8_t)(len >> 8));
-		$nc(this->buf)->set($nc(this->seqOffset)->get(this->curSeqIndex) + 3, (int8_t)len);
+		this->buf->set(this->seqOffset->get(this->curSeqIndex) + 1, (int8_t)(len >> 16));
+		this->buf->set(this->seqOffset->get(this->curSeqIndex) + 2, (int8_t)(len >> 8));
+		this->buf->set(this->seqOffset->get(this->curSeqIndex) + 3, (int8_t)len);
 	} else {
 		$throwNew($Ber$EncodeException, "SEQUENCE too long"_s);
 	}
@@ -177,9 +128,9 @@ void BerEncoder::encodeInt(int32_t i) {
 }
 
 void BerEncoder::encodeInt(int32_t i, int32_t tag) {
-	int32_t mask = (int32_t)0xFF800000;
+	int32_t mask = (int32_t)0xff800000;
 	int32_t intsize = 4;
-	while (((((int32_t)(i & (uint32_t)mask)) == 0) || (((int32_t)(i & (uint32_t)mask)) == mask)) && (intsize > 1)) {
+	while ((((i & mask) == 0) || ((i & mask) == mask)) && (intsize > 1)) {
 		--intsize;
 		i <<= 8;
 	}
@@ -192,10 +143,10 @@ void BerEncoder::encodeInt(int32_t i, int32_t tag, int32_t intsize) {
 	}
 	ensureFreeBytes(2 + intsize);
 	$nc(this->buf)->set(this->offset++, (int8_t)tag);
-	$nc(this->buf)->set(this->offset++, (int8_t)intsize);
-	int32_t mask = (int32_t)0xFF000000;
+	this->buf->set(this->offset++, (int8_t)intsize);
+	int32_t mask = (int32_t)0xff000000;
 	while (intsize-- > 0) {
-		$nc(this->buf)->set(this->offset++, (int8_t)(((int32_t)(i & (uint32_t)mask)) >> 24));
+		this->buf->set(this->offset++, (int8_t)((i & mask) >> 0x18));
 		i <<= 8;
 	}
 }
@@ -207,8 +158,8 @@ void BerEncoder::encodeBoolean(bool b) {
 void BerEncoder::encodeBoolean(bool b, int32_t tag) {
 	ensureFreeBytes(3);
 	$nc(this->buf)->set(this->offset++, (int8_t)tag);
-	$nc(this->buf)->set(this->offset++, (int8_t)1);
-	$nc(this->buf)->set(this->offset++, b ? (int8_t)255 : (int8_t)0);
+	this->buf->set(this->offset++, 1);
+	this->buf->set(this->offset++, b ? (int8_t)255 : (int8_t)0);
 }
 
 void BerEncoder::encodeString($String* str, bool encodeUTF8) {
@@ -224,14 +175,14 @@ void BerEncoder::encodeString($String* str, int32_t tag, bool encodeUTF8) {
 		count = 0;
 	} else if (encodeUTF8) {
 		try {
-			$assign(bytes, $nc(str)->getBytes("UTF8"_s));
+			$assign(bytes, str->getBytes("UTF8"_s));
 			count = bytes->length;
 		} catch ($UnsupportedEncodingException& e) {
 			$throwNew($Ber$EncodeException, "UTF8 not available on platform"_s);
 		}
 	} else {
 		try {
-			$assign(bytes, $nc(str)->getBytes("8859_1"_s));
+			$assign(bytes, str->getBytes("8859_1"_s));
 			count = bytes->length;
 		} catch ($UnsupportedEncodingException& e) {
 			$throwNew($Ber$EncodeException, "8859_1 not available on platform"_s);
@@ -264,16 +215,16 @@ void BerEncoder::encodeLength(int32_t len) {
 		$nc(this->buf)->set(this->offset++, (int8_t)len);
 	} else if (len <= 255) {
 		$nc(this->buf)->set(this->offset++, (int8_t)129);
-		$nc(this->buf)->set(this->offset++, (int8_t)len);
-	} else if (len <= 0x0000FFFF) {
+		this->buf->set(this->offset++, (int8_t)len);
+	} else if (len <= 0x0000ffff) {
 		$nc(this->buf)->set(this->offset++, (int8_t)130);
-		$nc(this->buf)->set(this->offset++, (int8_t)(len >> 8));
-		$nc(this->buf)->set(this->offset++, (int8_t)((int32_t)(len & (uint32_t)255)));
-	} else if (len <= 0x00FFFFFF) {
+		this->buf->set(this->offset++, (int8_t)(len >> 8));
+		this->buf->set(this->offset++, (int8_t)(len & 0xff));
+	} else if (len <= 0x00ffffff) {
 		$nc(this->buf)->set(this->offset++, (int8_t)131);
-		$nc(this->buf)->set(this->offset++, (int8_t)(len >> 16));
-		$nc(this->buf)->set(this->offset++, (int8_t)(len >> 8));
-		$nc(this->buf)->set(this->offset++, (int8_t)((int32_t)(len & (uint32_t)255)));
+		this->buf->set(this->offset++, (int8_t)(len >> 16));
+		this->buf->set(this->offset++, (int8_t)(len >> 8));
+		this->buf->set(this->offset++, (int8_t)(len & 0xff));
 	} else {
 		$throwNew($Ber$EncodeException, "string too long"_s);
 	}
@@ -305,7 +256,50 @@ BerEncoder::BerEncoder() {
 }
 
 $Class* BerEncoder::load$($String* name, bool initialize) {
-	$loadClass(BerEncoder, name, initialize, &_BerEncoder_ClassInfo_, allocate$BerEncoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"curSeqIndex", "I", nullptr, $PRIVATE, $field(BerEncoder, curSeqIndex)},
+		{"seqOffset", "[I", nullptr, $PRIVATE, $field(BerEncoder, seqOffset)},
+		{"INITIAL_SEQUENCES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BerEncoder, INITIAL_SEQUENCES)},
+		{"DEFAULT_BUFSIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BerEncoder, DEFAULT_BUFSIZE)},
+		{"BUF_GROWTH_FACTOR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BerEncoder, BUF_GROWTH_FACTOR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BerEncoder, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(BerEncoder, init$, void, int32_t)},
+		{"beginSeq", "(I)V", nullptr, $PUBLIC, $method(BerEncoder, beginSeq, void, int32_t)},
+		{"encodeBoolean", "(Z)V", nullptr, $PUBLIC, $method(BerEncoder, encodeBoolean, void, bool)},
+		{"encodeBoolean", "(ZI)V", nullptr, $PUBLIC, $method(BerEncoder, encodeBoolean, void, bool, int32_t)},
+		{"encodeByte", "(I)V", nullptr, $PUBLIC, $method(BerEncoder, encodeByte, void, int32_t)},
+		{"encodeInt", "(I)V", nullptr, $PUBLIC, $method(BerEncoder, encodeInt, void, int32_t)},
+		{"encodeInt", "(II)V", nullptr, $PUBLIC, $method(BerEncoder, encodeInt, void, int32_t, int32_t)},
+		{"encodeInt", "(III)V", nullptr, $PRIVATE, $method(BerEncoder, encodeInt, void, int32_t, int32_t, int32_t)},
+		{"encodeLength", "(I)V", nullptr, $PRIVATE, $method(BerEncoder, encodeLength, void, int32_t), "com.sun.jndi.ldap.Ber$EncodeException"},
+		{"encodeOctetString", "([BIII)V", nullptr, $PUBLIC, $method(BerEncoder, encodeOctetString, void, $bytes*, int32_t, int32_t, int32_t), "com.sun.jndi.ldap.Ber$EncodeException"},
+		{"encodeOctetString", "([BI)V", nullptr, $PUBLIC, $method(BerEncoder, encodeOctetString, void, $bytes*, int32_t), "com.sun.jndi.ldap.Ber$EncodeException"},
+		{"encodeString", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(BerEncoder, encodeString, void, $String*, bool), "com.sun.jndi.ldap.Ber$EncodeException"},
+		{"encodeString", "(Ljava/lang/String;IZ)V", nullptr, $PUBLIC, $method(BerEncoder, encodeString, void, $String*, int32_t, bool), "com.sun.jndi.ldap.Ber$EncodeException"},
+		{"encodeStringArray", "([Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(BerEncoder, encodeStringArray, void, $StringArray*, bool), "com.sun.jndi.ldap.Ber$EncodeException"},
+		{"endSeq", "()V", nullptr, $PUBLIC, $method(BerEncoder, endSeq, void), "com.sun.jndi.ldap.Ber$EncodeException"},
+		{"ensureFreeBytes", "(I)V", nullptr, $PRIVATE, $method(BerEncoder, ensureFreeBytes, void, int32_t)},
+		{"getBuf", "()[B", nullptr, $PUBLIC, $method(BerEncoder, getBuf, $bytes*)},
+		{"getDataLen", "()I", nullptr, $PUBLIC, $method(BerEncoder, getDataLen, int32_t)},
+		{"getTrimmedBuf", "()[B", nullptr, $PUBLIC, $method(BerEncoder, getTrimmedBuf, $bytes*)},
+		{"reset", "()V", nullptr, $PUBLIC, $method(BerEncoder, reset, void)},
+		{"shiftSeqData", "(III)V", nullptr, $PRIVATE, $method(BerEncoder, shiftSeqData, void, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.BerEncoder",
+		"com.sun.jndi.ldap.Ber",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BerEncoder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BerEncoder);
+	});
 	return class$;
 }
 

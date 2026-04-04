@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/QueuedJobCount.h>
-
 #include <javax/print/attribute/IntegerSyntax.h>
 #include <jcpp.h>
 
@@ -15,36 +14,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _QueuedJobCount_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(QueuedJobCount, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _QueuedJobCount_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(QueuedJobCount, init$, void, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(QueuedJobCount, equals, bool, Object$*)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(QueuedJobCount, getCategory, $Class*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(QueuedJobCount, getName, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _QueuedJobCount_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.QueuedJobCount",
-	"javax.print.attribute.IntegerSyntax",
-	"javax.print.attribute.PrintServiceAttribute",
-	_QueuedJobCount_FieldInfo_,
-	_QueuedJobCount_MethodInfo_
-};
-
-$Object* allocate$QueuedJobCount($Class* clazz) {
-	return $of($alloc(QueuedJobCount));
-}
 
 int32_t QueuedJobCount::hashCode() {
 	 return this->$IntegerSyntax::hashCode();
@@ -82,7 +51,32 @@ QueuedJobCount::QueuedJobCount() {
 }
 
 $Class* QueuedJobCount::load$($String* name, bool initialize) {
-	$loadClass(QueuedJobCount, name, initialize, &_QueuedJobCount_ClassInfo_, allocate$QueuedJobCount);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(QueuedJobCount, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(QueuedJobCount, init$, void, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(QueuedJobCount, equals, bool, Object$*)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(QueuedJobCount, getCategory, $Class*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(QueuedJobCount, getName, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.QueuedJobCount",
+		"javax.print.attribute.IntegerSyntax",
+		"javax.print.attribute.PrintServiceAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(QueuedJobCount, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(QueuedJobCount));
+	});
 	return class$;
 }
 

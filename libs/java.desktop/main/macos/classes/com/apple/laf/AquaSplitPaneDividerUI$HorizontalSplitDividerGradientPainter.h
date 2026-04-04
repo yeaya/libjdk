@@ -29,6 +29,7 @@ class AquaSplitPaneDividerUI$HorizontalSplitDividerGradientPainter : public ::ja
 	$class(AquaSplitPaneDividerUI$HorizontalSplitDividerGradientPainter, 0, ::javax::swing::border::Border)
 public:
 	AquaSplitPaneDividerUI$HorizontalSplitDividerGradientPainter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::awt::Insets* getBorderInsets(::java::awt::Component* c) override;
 	static ::com::apple::laf::AquaSplitPaneDividerUI$HorizontalSplitDividerGradientPainter* instance();

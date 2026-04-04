@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/MidiDeviceReceiverEnvelope.h>
-
 #include <javax/sound/midi/MidiDevice.h>
 #include <javax/sound/midi/MidiMessage.h>
 #include <javax/sound/midi/Receiver.h>
@@ -17,34 +16,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _MidiDeviceReceiverEnvelope_FieldInfo_[] = {
-	{"device", "Ljavax/sound/midi/MidiDevice;", nullptr, $PRIVATE | $FINAL, $field(MidiDeviceReceiverEnvelope, device)},
-	{"receiver", "Ljavax/sound/midi/Receiver;", nullptr, $PRIVATE | $FINAL, $field(MidiDeviceReceiverEnvelope, receiver)},
-	{}
-};
-
-$MethodInfo _MidiDeviceReceiverEnvelope_MethodInfo_[] = {
-	{"<init>", "(Ljavax/sound/midi/MidiDevice;Ljavax/sound/midi/Receiver;)V", nullptr, $PUBLIC, $method(MidiDeviceReceiverEnvelope, init$, void, $MidiDevice*, $Receiver*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(MidiDeviceReceiverEnvelope, close, void)},
-	{"getMidiDevice", "()Ljavax/sound/midi/MidiDevice;", nullptr, $PUBLIC, $virtualMethod(MidiDeviceReceiverEnvelope, getMidiDevice, $MidiDevice*)},
-	{"getReceiver", "()Ljavax/sound/midi/Receiver;", nullptr, $PUBLIC, $method(MidiDeviceReceiverEnvelope, getReceiver, $Receiver*)},
-	{"send", "(Ljavax/sound/midi/MidiMessage;J)V", nullptr, $PUBLIC, $virtualMethod(MidiDeviceReceiverEnvelope, send, void, $MidiMessage*, int64_t)},
-	{}
-};
-
-$ClassInfo _MidiDeviceReceiverEnvelope_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.MidiDeviceReceiverEnvelope",
-	"java.lang.Object",
-	"javax.sound.midi.MidiDeviceReceiver",
-	_MidiDeviceReceiverEnvelope_FieldInfo_,
-	_MidiDeviceReceiverEnvelope_MethodInfo_
-};
-
-$Object* allocate$MidiDeviceReceiverEnvelope($Class* clazz) {
-	return $of($alloc(MidiDeviceReceiverEnvelope));
-}
 
 void MidiDeviceReceiverEnvelope::init$($MidiDevice* device, $Receiver* receiver) {
 	if (device == nullptr || receiver == nullptr) {
@@ -74,7 +45,30 @@ MidiDeviceReceiverEnvelope::MidiDeviceReceiverEnvelope() {
 }
 
 $Class* MidiDeviceReceiverEnvelope::load$($String* name, bool initialize) {
-	$loadClass(MidiDeviceReceiverEnvelope, name, initialize, &_MidiDeviceReceiverEnvelope_ClassInfo_, allocate$MidiDeviceReceiverEnvelope);
+	$FieldInfo fieldInfos$$[] = {
+		{"device", "Ljavax/sound/midi/MidiDevice;", nullptr, $PRIVATE | $FINAL, $field(MidiDeviceReceiverEnvelope, device)},
+		{"receiver", "Ljavax/sound/midi/Receiver;", nullptr, $PRIVATE | $FINAL, $field(MidiDeviceReceiverEnvelope, receiver)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/sound/midi/MidiDevice;Ljavax/sound/midi/Receiver;)V", nullptr, $PUBLIC, $method(MidiDeviceReceiverEnvelope, init$, void, $MidiDevice*, $Receiver*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(MidiDeviceReceiverEnvelope, close, void)},
+		{"getMidiDevice", "()Ljavax/sound/midi/MidiDevice;", nullptr, $PUBLIC, $virtualMethod(MidiDeviceReceiverEnvelope, getMidiDevice, $MidiDevice*)},
+		{"getReceiver", "()Ljavax/sound/midi/Receiver;", nullptr, $PUBLIC, $method(MidiDeviceReceiverEnvelope, getReceiver, $Receiver*)},
+		{"send", "(Ljavax/sound/midi/MidiMessage;J)V", nullptr, $PUBLIC, $virtualMethod(MidiDeviceReceiverEnvelope, send, void, $MidiMessage*, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.MidiDeviceReceiverEnvelope",
+		"java.lang.Object",
+		"javax.sound.midi.MidiDeviceReceiver",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MidiDeviceReceiverEnvelope, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MidiDeviceReceiverEnvelope);
+	});
 	return class$;
 }
 

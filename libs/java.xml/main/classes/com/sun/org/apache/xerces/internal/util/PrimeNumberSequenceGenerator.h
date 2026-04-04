@@ -26,6 +26,7 @@ class PrimeNumberSequenceGenerator : public ::java::lang::Object {
 	$class(PrimeNumberSequenceGenerator, 0, ::java::lang::Object)
 public:
 	PrimeNumberSequenceGenerator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void generateSequence($ints* arrayToFill);
 	static void lambda$generateSequence$0($ints* arrayToFill, ::java::util::Random* r, int32_t i);

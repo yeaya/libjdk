@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/hpack/StringWriter.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
@@ -28,7 +27,6 @@ using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Arrays = ::java::util::Arrays;
-using $Huffman$Writer = ::jdk::internal::net::http::hpack::Huffman$Writer;
 using $ISO_8859_1$Writer = ::jdk::internal::net::http::hpack::ISO_8859_1$Writer;
 using $IntegerWriter = ::jdk::internal::net::http::hpack::IntegerWriter;
 using $QuickHuffman$Writer = ::jdk::internal::net::http::hpack::QuickHuffman$Writer;
@@ -38,41 +36,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 				namespace hpack {
-
-$FieldInfo _StringWriter_FieldInfo_[] = {
-	{"NEW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringWriter, NEW)},
-	{"CONFIGURED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringWriter, CONFIGURED)},
-	{"LENGTH_WRITTEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringWriter, LENGTH_WRITTEN)},
-	{"DONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringWriter, DONE)},
-	{"intWriter", "Ljdk/internal/net/http/hpack/IntegerWriter;", nullptr, $PRIVATE | $FINAL, $field(StringWriter, intWriter)},
-	{"huffmanWriter", "Ljdk/internal/net/http/hpack/Huffman$Writer;", nullptr, $PRIVATE | $FINAL, $field(StringWriter, huffmanWriter)},
-	{"plainWriter", "Ljdk/internal/net/http/hpack/ISO_8859_1$Writer;", nullptr, $PRIVATE | $FINAL, $field(StringWriter, plainWriter)},
-	{"state", "I", nullptr, $PRIVATE, $field(StringWriter, state)},
-	{"huffman", "Z", nullptr, $PRIVATE, $field(StringWriter, huffman)},
-	{}
-};
-
-$MethodInfo _StringWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(StringWriter, init$, void)},
-	{"configure", "(Ljava/lang/CharSequence;Z)Ljdk/internal/net/http/hpack/StringWriter;", nullptr, 0, $method(StringWriter, configure, StringWriter*, $CharSequence*, bool)},
-	{"configure", "(Ljava/lang/CharSequence;IIZ)Ljdk/internal/net/http/hpack/StringWriter;", nullptr, 0, $method(StringWriter, configure, StringWriter*, $CharSequence*, int32_t, int32_t, bool)},
-	{"reset", "()V", nullptr, 0, $method(StringWriter, reset, void)},
-	{"write", "(Ljava/nio/ByteBuffer;)Z", nullptr, 0, $method(StringWriter, write, bool, $ByteBuffer*)},
-	{}
-};
-
-$ClassInfo _StringWriter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.hpack.StringWriter",
-	"java.lang.Object",
-	nullptr,
-	_StringWriter_FieldInfo_,
-	_StringWriter_MethodInfo_
-};
-
-$Object* allocate$StringWriter($Class* clazz) {
-	return $of($alloc(StringWriter));
-}
 
 void StringWriter::init$() {
 	$set(this, intWriter, $new($IntegerWriter));
@@ -86,20 +49,20 @@ StringWriter* StringWriter::configure($CharSequence* input, bool huffman) {
 }
 
 StringWriter* StringWriter::configure($CharSequence* input, int32_t start, int32_t end, bool huffman) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (start < 0 || end < 0 || end > $nc(input)->length() || start > end) {
 		$throwNew($IndexOutOfBoundsException, $($String::format("input.length()=%s, start=%s, end=%s"_s, $$new($ObjectArray, {
-			$($of($Integer::valueOf($nc(input)->length()))),
-			$($of($Integer::valueOf(start))),
-			$($of($Integer::valueOf(end)))
+			$($Integer::valueOf($nc(input)->length())),
+			$($Integer::valueOf(start)),
+			$($Integer::valueOf(end))
 		}))));
 	}
 	if (!huffman) {
-		$nc(this->plainWriter)->configure(input, start, end);
-		$nc(this->intWriter)->configure(end - start, 7, 0);
+		this->plainWriter->configure(input, start, end);
+		this->intWriter->configure(end - start, 7, 0);
 	} else {
-		$nc(this->huffmanWriter)->from(input, start, end);
-		$nc(this->intWriter)->configure($nc(this->huffmanWriter)->lengthOf(input, start, end), 7, 128);
+		this->huffmanWriter->from(input, start, end);
+		this->intWriter->configure(this->huffmanWriter->lengthOf(input, start, end), 7, 128);
 	}
 	this->huffman = huffman;
 	this->state = StringWriter::CONFIGURED;
@@ -107,7 +70,7 @@ StringWriter* StringWriter::configure($CharSequence* input, int32_t start, int32
 }
 
 bool StringWriter::write($ByteBuffer* output) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->state == StringWriter::DONE) {
 		return true;
 	}
@@ -118,14 +81,14 @@ bool StringWriter::write($ByteBuffer* output) {
 		return false;
 	}
 	if (this->state == StringWriter::CONFIGURED) {
-		if ($nc(this->intWriter)->write(output)) {
+		if (this->intWriter->write(output)) {
 			this->state = StringWriter::LENGTH_WRITTEN;
 		} else {
 			return false;
 		}
 	}
 	if (this->state == StringWriter::LENGTH_WRITTEN) {
-		bool written = this->huffman ? $nc(this->huffmanWriter)->write(output) : $nc(this->plainWriter)->write(output);
+		bool written = this->huffman ? this->huffmanWriter->write(output) : this->plainWriter->write(output);
 		if (written) {
 			this->state = StringWriter::DONE;
 			return true;
@@ -134,17 +97,17 @@ bool StringWriter::write($ByteBuffer* output) {
 		}
 	}
 	$throwNew($InternalError, $($Arrays::toString($$new($ObjectArray, {
-		$($of($Integer::valueOf(this->state))),
-		$($of($Boolean::valueOf(this->huffman)))
+		$($Integer::valueOf(this->state)),
+		$($Boolean::valueOf(this->huffman))
 	}))));
 }
 
 void StringWriter::reset() {
-	$nc(this->intWriter)->reset();
+	this->intWriter->reset();
 	if (this->huffman) {
-		$nc(this->huffmanWriter)->reset();
+		this->huffmanWriter->reset();
 	} else {
-		$nc(this->plainWriter)->reset();
+		this->plainWriter->reset();
 	}
 	this->state = StringWriter::NEW;
 }
@@ -153,7 +116,37 @@ StringWriter::StringWriter() {
 }
 
 $Class* StringWriter::load$($String* name, bool initialize) {
-	$loadClass(StringWriter, name, initialize, &_StringWriter_ClassInfo_, allocate$StringWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"NEW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringWriter, NEW)},
+		{"CONFIGURED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringWriter, CONFIGURED)},
+		{"LENGTH_WRITTEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringWriter, LENGTH_WRITTEN)},
+		{"DONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringWriter, DONE)},
+		{"intWriter", "Ljdk/internal/net/http/hpack/IntegerWriter;", nullptr, $PRIVATE | $FINAL, $field(StringWriter, intWriter)},
+		{"huffmanWriter", "Ljdk/internal/net/http/hpack/Huffman$Writer;", nullptr, $PRIVATE | $FINAL, $field(StringWriter, huffmanWriter)},
+		{"plainWriter", "Ljdk/internal/net/http/hpack/ISO_8859_1$Writer;", nullptr, $PRIVATE | $FINAL, $field(StringWriter, plainWriter)},
+		{"state", "I", nullptr, $PRIVATE, $field(StringWriter, state)},
+		{"huffman", "Z", nullptr, $PRIVATE, $field(StringWriter, huffman)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(StringWriter, init$, void)},
+		{"configure", "(Ljava/lang/CharSequence;Z)Ljdk/internal/net/http/hpack/StringWriter;", nullptr, 0, $method(StringWriter, configure, StringWriter*, $CharSequence*, bool)},
+		{"configure", "(Ljava/lang/CharSequence;IIZ)Ljdk/internal/net/http/hpack/StringWriter;", nullptr, 0, $method(StringWriter, configure, StringWriter*, $CharSequence*, int32_t, int32_t, bool)},
+		{"reset", "()V", nullptr, 0, $method(StringWriter, reset, void)},
+		{"write", "(Ljava/nio/ByteBuffer;)Z", nullptr, 0, $method(StringWriter, write, bool, $ByteBuffer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.hpack.StringWriter",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StringWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringWriter);
+	});
 	return class$;
 }
 

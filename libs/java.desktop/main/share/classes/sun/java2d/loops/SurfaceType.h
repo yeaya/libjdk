@@ -116,6 +116,7 @@ class SurfaceType : public ::java::lang::Object {
 	$class(SurfaceType, 0, ::java::lang::Object)
 public:
 	SurfaceType();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::java2d::loops::SurfaceType* parent, $String* desc, ::sun::awt::image::PixelConverter* pixelConverter);
 	void init$(::sun::java2d::loops::SurfaceType* parent, $String* desc);
 	::sun::java2d::loops::SurfaceType* deriveSubType($String* desc);

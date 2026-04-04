@@ -1,5 +1,4 @@
 #include <com/sun/net/httpserver/Authenticator$Result.h>
-
 #include <com/sun/net/httpserver/Authenticator.h>
 #include <jcpp.h>
 
@@ -12,36 +11,6 @@ namespace com {
 		namespace net {
 			namespace httpserver {
 
-$MethodInfo _Authenticator$Result_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(Authenticator$Result, init$, void)},
-	{}
-};
-
-$InnerClassInfo _Authenticator$Result_InnerClassesInfo_[] = {
-	{"com.sun.net.httpserver.Authenticator$Result", "com.sun.net.httpserver.Authenticator", "Result", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Authenticator$Result_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.net.httpserver.Authenticator$Result",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Authenticator$Result_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Authenticator$Result_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.net.httpserver.Authenticator"
-};
-
-$Object* allocate$Authenticator$Result($Class* clazz) {
-	return $of($alloc(Authenticator$Result));
-}
-
 void Authenticator$Result::init$() {
 }
 
@@ -49,7 +18,32 @@ Authenticator$Result::Authenticator$Result() {
 }
 
 $Class* Authenticator$Result::load$($String* name, bool initialize) {
-	$loadClass(Authenticator$Result, name, initialize, &_Authenticator$Result_ClassInfo_, allocate$Authenticator$Result);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(Authenticator$Result, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.net.httpserver.Authenticator$Result", "com.sun.net.httpserver.Authenticator", "Result", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.net.httpserver.Authenticator$Result",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.net.httpserver.Authenticator"
+	};
+	$loadClass(Authenticator$Result, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Authenticator$Result);
+	});
 	return class$;
 }
 

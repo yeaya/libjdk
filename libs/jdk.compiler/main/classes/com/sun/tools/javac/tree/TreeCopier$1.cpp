@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/TreeCopier$1.h>
-
 #include <com/sun/tools/javac/tree/JCTree$Tag.h>
 #include <com/sun/tools/javac/tree/TreeCopier.h>
 #include <java/lang/NoSuchFieldError.h>
@@ -20,49 +19,13 @@ namespace com {
 			namespace javac {
 				namespace tree {
 
-$FieldInfo _TreeCopier$1_FieldInfo_[] = {
-	{"$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TreeCopier$1, $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)},
-	{}
-};
-
-$EnclosingMethodInfo _TreeCopier$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.tree.TreeCopier",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _TreeCopier$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.TreeCopier$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _TreeCopier$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.tools.javac.tree.TreeCopier$1",
-	"java.lang.Object",
-	nullptr,
-	_TreeCopier$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_TreeCopier$1_EnclosingMethodInfo_,
-	_TreeCopier$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.TreeCopier"
-};
-
-$Object* allocate$TreeCopier$1($Class* clazz) {
-	return $of($alloc(TreeCopier$1));
-}
-
 $ints* TreeCopier$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag = nullptr;
 
-void clinit$TreeCopier$1($Class* class$) {
+void TreeCopier$1::clinit$($Class* clazz) {
 	$assignStatic(TreeCopier$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag, $new($ints, $($JCTree$Tag::values())->length));
 	{
 		try {
-			$nc(TreeCopier$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::LETEXPR->ordinal(), 1);
+			TreeCopier$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::LETEXPR->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -72,7 +35,37 @@ TreeCopier$1::TreeCopier$1() {
 }
 
 $Class* TreeCopier$1::load$($String* name, bool initialize) {
-	$loadClass(TreeCopier$1, name, initialize, &_TreeCopier$1_ClassInfo_, clinit$TreeCopier$1, allocate$TreeCopier$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TreeCopier$1, $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.tree.TreeCopier",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.TreeCopier$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.tools.javac.tree.TreeCopier$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.TreeCopier"
+	};
+	$loadClass(TreeCopier$1, name, initialize, &classInfo$$, TreeCopier$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeCopier$1);
+	});
 	return class$;
 }
 

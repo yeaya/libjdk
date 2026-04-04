@@ -105,7 +105,7 @@ public:
 	virtual double toDouble() override;
 	virtual ::com::sun::org::apache::xml::internal::utils::XMLString* trim() override;
 	using ::com::sun::org::apache::xpath::internal::objects::XString::xstr;
-	static const int64_t serialVersionUID = (int64_t)0xEAB98CFB72E4AB8C;
+	static const int64_t serialVersionUID = (int64_t)0xeab98cfb72e4ab8c;
 	int32_t m_start = 0;
 	int32_t m_length = 0;
 	$String* m_strCache = nullptr;

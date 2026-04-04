@@ -38,6 +38,7 @@ public:
 	using ::java::awt::Dialog::add;
 	using ::java::awt::Dialog::getMousePosition;
 	using ::java::awt::Dialog::list;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Frame* parent, ::java::awt::print::PrinterJob* control);
 	void init$(::java::awt::Dialog* parent, ::java::awt::print::PrinterJob* control);
 	virtual void addNotify() override;

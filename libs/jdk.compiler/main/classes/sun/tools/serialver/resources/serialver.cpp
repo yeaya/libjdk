@@ -1,5 +1,4 @@
 #include <sun/tools/serialver/resources/serialver.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -13,55 +12,36 @@ namespace sun {
 		namespace serialver {
 			namespace resources {
 
-$MethodInfo _serialver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(serialver, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(serialver, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _serialver_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.tools.serialver.resources.serialver",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_serialver_MethodInfo_
-};
-
-$Object* allocate$serialver($Class* clazz) {
-	return $of($alloc(serialver));
-}
-
 void serialver::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* serialver::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("ClassNotFound"_s),
-			$of("Class {0} not found."_s)
+			"ClassNotFound"_s,
+			"Class {0} not found."_s
 		}),
 		$$new($ObjectArray, {
-			$of("NotSerializable"_s),
-			$of("Class {0} is not Serializable."_s)
+			"NotSerializable"_s,
+			"Class {0} is not Serializable."_s
 		}),
 		$$new($ObjectArray, {
-			$of("error.missing.classpath"_s),
-			$of("Missing argument for -classpath option"_s)
+			"error.missing.classpath"_s,
+			"Missing argument for -classpath option"_s
 		}),
 		$$new($ObjectArray, {
-			$of("error.parsing.classpath"_s),
-			$of("Error parsing classpath {0}."_s)
+			"error.parsing.classpath"_s,
+			"Error parsing classpath {0}."_s
 		}),
 		$$new($ObjectArray, {
-			$of("invalid.flag"_s),
-			$of("Invalid flag {0}."_s)
+			"invalid.flag"_s,
+			"Invalid flag {0}."_s
 		}),
 		$$new($ObjectArray, {
-			$of("usage"_s),
-			$of("use: serialver [-classpath classpath] [classname...]"_s)
+			"usage"_s,
+			"use: serialver [-classpath classpath] [classname...]"_s
 		})
 	});
 }
@@ -70,7 +50,22 @@ serialver::serialver() {
 }
 
 $Class* serialver::load$($String* name, bool initialize) {
-	$loadClass(serialver, name, initialize, &_serialver_ClassInfo_, allocate$serialver);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(serialver, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(serialver, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.tools.serialver.resources.serialver",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(serialver, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(serialver);
+	});
 	return class$;
 }
 

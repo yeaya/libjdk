@@ -41,7 +41,7 @@ public:
 	static ::java::rmi::Remote* toStub(::java::rmi::Remote* obj);
 	void writeObject(::java::io::ObjectOutputStream* out);
 	::java::rmi::server::RemoteRef* ref = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xD361B4910C61331E;
+	static const int64_t serialVersionUID = (int64_t)0xd361b4910c61331e;
 };
 
 		} // server

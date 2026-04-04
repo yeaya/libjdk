@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/NewClassTree.h>
-
 #include <com/sun/source/tree/ClassTree.h>
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <java/util/List.h>
@@ -16,30 +15,26 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _NewClassTree_MethodInfo_[] = {
-	{"getArguments", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/ExpressionTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NewClassTree, getArguments, $List*)},
-	{"getClassBody", "()Lcom/sun/source/tree/ClassTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NewClassTree, getClassBody, $ClassTree*)},
-	{"getEnclosingExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NewClassTree, getEnclosingExpression, $ExpressionTree*)},
-	{"getIdentifier", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NewClassTree, getIdentifier, $ExpressionTree*)},
-	{"getTypeArguments", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/Tree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NewClassTree, getTypeArguments, $List*)},
-	{}
-};
-
-$ClassInfo _NewClassTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.NewClassTree",
-	nullptr,
-	"com.sun.source.tree.ExpressionTree",
-	nullptr,
-	_NewClassTree_MethodInfo_
-};
-
-$Object* allocate$NewClassTree($Class* clazz) {
-	return $of($alloc(NewClassTree));
-}
-
 $Class* NewClassTree::load$($String* name, bool initialize) {
-	$loadClass(NewClassTree, name, initialize, &_NewClassTree_ClassInfo_, allocate$NewClassTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getArguments", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/ExpressionTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NewClassTree, getArguments, $List*)},
+		{"getClassBody", "()Lcom/sun/source/tree/ClassTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NewClassTree, getClassBody, $ClassTree*)},
+		{"getEnclosingExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NewClassTree, getEnclosingExpression, $ExpressionTree*)},
+		{"getIdentifier", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NewClassTree, getIdentifier, $ExpressionTree*)},
+		{"getTypeArguments", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/Tree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NewClassTree, getTypeArguments, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.NewClassTree",
+		nullptr,
+		"com.sun.source.tree.ExpressionTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NewClassTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NewClassTree);
+	});
 	return class$;
 }
 

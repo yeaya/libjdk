@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/KrbCredInfo.h>
-
 #include <java/util/Vector.h>
 #include <sun/security/krb5/Asn1Exception.h>
 #include <sun/security/krb5/EncryptionKey.h>
@@ -30,7 +29,6 @@ using $HostAddresses = ::sun::security::krb5::internal::HostAddresses;
 using $KerberosTime = ::sun::security::krb5::internal::KerberosTime;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;
 using $TicketFlags = ::sun::security::krb5::internal::TicketFlags;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 
@@ -38,41 +36,6 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 			namespace internal {
-
-$FieldInfo _KrbCredInfo_FieldInfo_[] = {
-	{"key", "Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC, $field(KrbCredInfo, key)},
-	{"pname", "Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $field(KrbCredInfo, pname)},
-	{"flags", "Lsun/security/krb5/internal/TicketFlags;", nullptr, $PUBLIC, $field(KrbCredInfo, flags)},
-	{"authtime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(KrbCredInfo, authtime)},
-	{"starttime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(KrbCredInfo, starttime)},
-	{"endtime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(KrbCredInfo, endtime)},
-	{"renewTill", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(KrbCredInfo, renewTill)},
-	{"sname", "Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $field(KrbCredInfo, sname)},
-	{"caddr", "Lsun/security/krb5/internal/HostAddresses;", nullptr, $PUBLIC, $field(KrbCredInfo, caddr)},
-	{}
-};
-
-$MethodInfo _KrbCredInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(KrbCredInfo, init$, void)},
-	{"<init>", "(Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/TicketFlags;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/HostAddresses;)V", nullptr, $PUBLIC, $method(KrbCredInfo, init$, void, $EncryptionKey*, $PrincipalName*, $TicketFlags*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $PrincipalName*, $HostAddresses*)},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(KrbCredInfo, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(KrbCredInfo, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(KrbCredInfo, clone, $Object*)},
-	{}
-};
-
-$ClassInfo _KrbCredInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.KrbCredInfo",
-	"java.lang.Object",
-	nullptr,
-	_KrbCredInfo_FieldInfo_,
-	_KrbCredInfo_MethodInfo_
-};
-
-$Object* allocate$KrbCredInfo($Class* clazz) {
-	return $of($alloc(KrbCredInfo));
-}
 
 void KrbCredInfo::init$() {
 }
@@ -90,7 +53,7 @@ void KrbCredInfo::init$($EncryptionKey* new_key, $PrincipalName* new_pname, $Tic
 }
 
 void KrbCredInfo::init$($DerValue* encoding) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(encoding)->getTag() != $DerValue::tag_Sequence) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
@@ -102,84 +65,84 @@ void KrbCredInfo::init$($DerValue* encoding) {
 	$set(this, renewTill, nullptr);
 	$set(this, sname, nullptr);
 	$set(this, caddr, nullptr);
-	$set(this, key, $EncryptionKey::parse($($nc(encoding)->getData()), (int8_t)0, false));
+	$set(this, key, $EncryptionKey::parse($(encoding->getData()), (int8_t)0, false));
 	$var($Realm, prealm, nullptr);
 	$var($Realm, srealm, nullptr);
-	if ($nc($($nc(encoding)->getData()))->available() > 0) {
+	if ($$nc(encoding->getData())->available() > 0) {
 		$assign(prealm, $Realm::parse($(encoding->getData()), (int8_t)1, true));
 	}
-	if ($nc($($nc(encoding)->getData()))->available() > 0) {
+	if ($$nc(encoding->getData())->available() > 0) {
 		$set(this, pname, $PrincipalName::parse($(encoding->getData()), (int8_t)2, true, prealm));
 	}
-	if ($nc($($nc(encoding)->getData()))->available() > 0) {
+	if ($$nc(encoding->getData())->available() > 0) {
 		$set(this, flags, $TicketFlags::parse($(encoding->getData()), (int8_t)3, true));
 	}
-	if ($nc($($nc(encoding)->getData()))->available() > 0) {
+	if ($$nc(encoding->getData())->available() > 0) {
 		$set(this, authtime, $KerberosTime::parse($(encoding->getData()), (int8_t)4, true));
 	}
-	if ($nc($($nc(encoding)->getData()))->available() > 0) {
+	if ($$nc(encoding->getData())->available() > 0) {
 		$set(this, starttime, $KerberosTime::parse($(encoding->getData()), (int8_t)5, true));
 	}
-	if ($nc($($nc(encoding)->getData()))->available() > 0) {
+	if ($$nc(encoding->getData())->available() > 0) {
 		$set(this, endtime, $KerberosTime::parse($(encoding->getData()), (int8_t)6, true));
 	}
-	if ($nc($($nc(encoding)->getData()))->available() > 0) {
+	if ($$nc(encoding->getData())->available() > 0) {
 		$set(this, renewTill, $KerberosTime::parse($(encoding->getData()), (int8_t)7, true));
 	}
-	if ($nc($($nc(encoding)->getData()))->available() > 0) {
+	if ($$nc(encoding->getData())->available() > 0) {
 		$assign(srealm, $Realm::parse($(encoding->getData()), (int8_t)8, true));
 	}
-	if ($nc($($nc(encoding)->getData()))->available() > 0) {
+	if ($$nc(encoding->getData())->available() > 0) {
 		$set(this, sname, $PrincipalName::parse($(encoding->getData()), (int8_t)9, true, srealm));
 	}
-	if ($nc($($nc(encoding)->getData()))->available() > 0) {
+	if ($$nc(encoding->getData())->available() > 0) {
 		$set(this, caddr, $HostAddresses::parse($(encoding->getData()), (int8_t)10, true));
 	}
-	if ($nc($($nc(encoding)->getData()))->available() > 0) {
+	if ($$nc(encoding->getData())->available() > 0) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
 }
 
 $bytes* KrbCredInfo::asn1Encode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, v, $new($Vector));
 	int8_t var$0 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)0);
 	v->addElement($$new($DerValue, var$0, $($nc(this->key)->asn1Encode())));
 	if (this->pname != nullptr) {
 		int8_t var$1 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)1);
-		v->addElement($$new($DerValue, var$1, $($nc($($nc(this->pname)->getRealm()))->asn1Encode())));
+		v->addElement($$new($DerValue, var$1, $($$nc(this->pname->getRealm())->asn1Encode())));
 		int8_t var$2 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)2);
 		v->addElement($$new($DerValue, var$2, $($nc(this->pname)->asn1Encode())));
 	}
 	if (this->flags != nullptr) {
 		int8_t var$3 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)3);
-		v->addElement($$new($DerValue, var$3, $($nc(this->flags)->asn1Encode())));
+		v->addElement($$new($DerValue, var$3, $(this->flags->asn1Encode())));
 	}
 	if (this->authtime != nullptr) {
 		int8_t var$4 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)4);
-		v->addElement($$new($DerValue, var$4, $($nc(this->authtime)->asn1Encode())));
+		v->addElement($$new($DerValue, var$4, $(this->authtime->asn1Encode())));
 	}
 	if (this->starttime != nullptr) {
 		int8_t var$5 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)5);
-		v->addElement($$new($DerValue, var$5, $($nc(this->starttime)->asn1Encode())));
+		v->addElement($$new($DerValue, var$5, $(this->starttime->asn1Encode())));
 	}
 	if (this->endtime != nullptr) {
 		int8_t var$6 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)6);
-		v->addElement($$new($DerValue, var$6, $($nc(this->endtime)->asn1Encode())));
+		v->addElement($$new($DerValue, var$6, $(this->endtime->asn1Encode())));
 	}
 	if (this->renewTill != nullptr) {
 		int8_t var$7 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)7);
-		v->addElement($$new($DerValue, var$7, $($nc(this->renewTill)->asn1Encode())));
+		v->addElement($$new($DerValue, var$7, $(this->renewTill->asn1Encode())));
 	}
 	if (this->sname != nullptr) {
 		int8_t var$8 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)8);
-		v->addElement($$new($DerValue, var$8, $($nc($($nc(this->sname)->getRealm()))->asn1Encode())));
+		v->addElement($$new($DerValue, var$8, $($$nc(this->sname->getRealm())->asn1Encode())));
 		int8_t var$9 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)9);
 		v->addElement($$new($DerValue, var$9, $($nc(this->sname)->asn1Encode())));
 	}
 	if (this->caddr != nullptr) {
 		int8_t var$10 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)10);
-		v->addElement($$new($DerValue, var$10, $($nc(this->caddr)->asn1Encode())));
+		v->addElement($$new($DerValue, var$10, $(this->caddr->asn1Encode())));
 	}
 	$var($DerValueArray, der, $new($DerValueArray, v->size()));
 	v->copyInto(der);
@@ -192,29 +155,59 @@ $Object* KrbCredInfo::clone() {
 	$var(KrbCredInfo, kcred, $new(KrbCredInfo));
 	$set(kcred, key, $cast($EncryptionKey, $nc(this->key)->clone()));
 	if (this->pname != nullptr) {
-		$set(kcred, pname, $cast($PrincipalName, $nc(this->pname)->clone()));
+		$set(kcred, pname, $cast($PrincipalName, this->pname->clone()));
 	}
 	if (this->flags != nullptr) {
-		$set(kcred, flags, $cast($TicketFlags, $nc(this->flags)->clone()));
+		$set(kcred, flags, $cast($TicketFlags, this->flags->clone()));
 	}
 	$set(kcred, authtime, this->authtime);
 	$set(kcred, starttime, this->starttime);
 	$set(kcred, endtime, this->endtime);
 	$set(kcred, renewTill, this->renewTill);
 	if (this->sname != nullptr) {
-		$set(kcred, sname, $cast($PrincipalName, $nc(this->sname)->clone()));
+		$set(kcred, sname, $cast($PrincipalName, this->sname->clone()));
 	}
 	if (this->caddr != nullptr) {
-		$set(kcred, caddr, $cast($HostAddresses, $nc(this->caddr)->clone()));
+		$set(kcred, caddr, $cast($HostAddresses, this->caddr->clone()));
 	}
-	return $of(kcred);
+	return kcred;
 }
 
 KrbCredInfo::KrbCredInfo() {
 }
 
 $Class* KrbCredInfo::load$($String* name, bool initialize) {
-	$loadClass(KrbCredInfo, name, initialize, &_KrbCredInfo_ClassInfo_, allocate$KrbCredInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"key", "Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC, $field(KrbCredInfo, key)},
+		{"pname", "Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $field(KrbCredInfo, pname)},
+		{"flags", "Lsun/security/krb5/internal/TicketFlags;", nullptr, $PUBLIC, $field(KrbCredInfo, flags)},
+		{"authtime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(KrbCredInfo, authtime)},
+		{"starttime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(KrbCredInfo, starttime)},
+		{"endtime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(KrbCredInfo, endtime)},
+		{"renewTill", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(KrbCredInfo, renewTill)},
+		{"sname", "Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $field(KrbCredInfo, sname)},
+		{"caddr", "Lsun/security/krb5/internal/HostAddresses;", nullptr, $PUBLIC, $field(KrbCredInfo, caddr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(KrbCredInfo, init$, void)},
+		{"<init>", "(Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/TicketFlags;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/HostAddresses;)V", nullptr, $PUBLIC, $method(KrbCredInfo, init$, void, $EncryptionKey*, $PrincipalName*, $TicketFlags*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $PrincipalName*, $HostAddresses*)},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(KrbCredInfo, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException"},
+		{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(KrbCredInfo, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(KrbCredInfo, clone, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.KrbCredInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KrbCredInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KrbCredInfo);
+	});
 	return class$;
 }
 

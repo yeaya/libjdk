@@ -1,6 +1,4 @@
 #include <javax/sound/sampled/FloatControl.h>
-
-#include <javax/sound/sampled/Control$Type.h>
 #include <javax/sound/sampled/Control.h>
 #include <javax/sound/sampled/FloatControl$Type.h>
 #include <jcpp.h>
@@ -12,70 +10,14 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Control = ::javax::sound::sampled::Control;
-using $Control$Type = ::javax::sound::sampled::Control$Type;
 using $FloatControl$Type = ::javax::sound::sampled::FloatControl$Type;
 
 namespace javax {
 	namespace sound {
 		namespace sampled {
 
-$FieldInfo _FloatControl_FieldInfo_[] = {
-	{"minimum", "F", nullptr, $PRIVATE | $FINAL, $field(FloatControl, minimum)},
-	{"maximum", "F", nullptr, $PRIVATE | $FINAL, $field(FloatControl, maximum)},
-	{"precision", "F", nullptr, $PRIVATE | $FINAL, $field(FloatControl, precision)},
-	{"updatePeriod", "I", nullptr, $PRIVATE | $FINAL, $field(FloatControl, updatePeriod)},
-	{"units", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(FloatControl, units)},
-	{"minLabel", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(FloatControl, minLabel)},
-	{"maxLabel", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(FloatControl, maxLabel)},
-	{"midLabel", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(FloatControl, midLabel)},
-	{"value", "F", nullptr, $PRIVATE, $field(FloatControl, value)},
-	{}
-};
-
-$MethodInfo _FloatControl_MethodInfo_[] = {
-	{"<init>", "(Ljavax/sound/sampled/FloatControl$Type;FFFIFLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(FloatControl, init$, void, $FloatControl$Type*, float, float, float, int32_t, float, $String*, $String*, $String*, $String*)},
-	{"<init>", "(Ljavax/sound/sampled/FloatControl$Type;FFFIFLjava/lang/String;)V", nullptr, $PROTECTED, $method(FloatControl, init$, void, $FloatControl$Type*, float, float, float, int32_t, float, $String*)},
-	{"getMaxLabel", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FloatControl, getMaxLabel, $String*)},
-	{"getMaximum", "()F", nullptr, $PUBLIC, $virtualMethod(FloatControl, getMaximum, float)},
-	{"getMidLabel", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FloatControl, getMidLabel, $String*)},
-	{"getMinLabel", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FloatControl, getMinLabel, $String*)},
-	{"getMinimum", "()F", nullptr, $PUBLIC, $virtualMethod(FloatControl, getMinimum, float)},
-	{"getPrecision", "()F", nullptr, $PUBLIC, $virtualMethod(FloatControl, getPrecision, float)},
-	{"getUnits", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FloatControl, getUnits, $String*)},
-	{"getUpdatePeriod", "()I", nullptr, $PUBLIC, $virtualMethod(FloatControl, getUpdatePeriod, int32_t)},
-	{"getValue", "()F", nullptr, $PUBLIC, $virtualMethod(FloatControl, getValue, float)},
-	{"setValue", "(F)V", nullptr, $PUBLIC, $virtualMethod(FloatControl, setValue, void, float)},
-	{"shift", "(FFI)V", nullptr, $PUBLIC, $virtualMethod(FloatControl, shift, void, float, float, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FloatControl, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _FloatControl_InnerClassesInfo_[] = {
-	{"javax.sound.sampled.FloatControl$Type", "javax.sound.sampled.FloatControl", "Type", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _FloatControl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.sound.sampled.FloatControl",
-	"javax.sound.sampled.Control",
-	nullptr,
-	_FloatControl_FieldInfo_,
-	_FloatControl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FloatControl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.sound.sampled.FloatControl$Type"
-};
-
-$Object* allocate$FloatControl($Class* clazz) {
-	return $of($alloc(FloatControl));
-}
-
 void FloatControl::init$($FloatControl$Type* type, float minimum, float maximum, float precision, int32_t updatePeriod, float initialValue, $String* units, $String* minLabel, $String* midLabel, $String* maxLabel) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Control::init$(type);
 	if (minimum > maximum) {
 		$throwNew($IllegalArgumentException, $$str({"Minimum value "_s, $$str(minimum), " exceeds maximum value "_s, $$str(maximum), "."_s}));
@@ -102,7 +44,7 @@ void FloatControl::init$($FloatControl$Type* type, float minimum, float maximum,
 }
 
 void FloatControl::setValue(float newValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (newValue > this->maximum) {
 		$throwNew($IllegalArgumentException, $$str({"Requested value "_s, $$str(newValue), " exceeds allowable maximum value "_s, $$str(this->maximum), "."_s}));
 	}
@@ -149,7 +91,7 @@ int32_t FloatControl::getUpdatePeriod() {
 }
 
 void FloatControl::shift(float from, float to, int32_t microseconds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (from < this->minimum) {
 		$throwNew($IllegalArgumentException, $$str({"Requested value "_s, $$str(from), " smaller than allowable minimum value "_s, $$str(this->minimum), "."_s}));
 	}
@@ -160,13 +102,13 @@ void FloatControl::shift(float from, float to, int32_t microseconds) {
 }
 
 $String* FloatControl::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("%s with current value: %s %s (range: %s - %s)"_s, $$new($ObjectArray, {
-		$($of($Control::toString())),
-		$($of($Float::valueOf(getValue()))),
-		$($of(getUnits())),
-		$($of($Float::valueOf(getMinimum()))),
-		$($of($Float::valueOf(getMaximum())))
+		$($Control::toString()),
+		$($Float::valueOf(getValue())),
+		$(getUnits()),
+		$($Float::valueOf(getMinimum())),
+		$($Float::valueOf(getMaximum()))
 	}));
 }
 
@@ -174,7 +116,56 @@ FloatControl::FloatControl() {
 }
 
 $Class* FloatControl::load$($String* name, bool initialize) {
-	$loadClass(FloatControl, name, initialize, &_FloatControl_ClassInfo_, allocate$FloatControl);
+	$FieldInfo fieldInfos$$[] = {
+		{"minimum", "F", nullptr, $PRIVATE | $FINAL, $field(FloatControl, minimum)},
+		{"maximum", "F", nullptr, $PRIVATE | $FINAL, $field(FloatControl, maximum)},
+		{"precision", "F", nullptr, $PRIVATE | $FINAL, $field(FloatControl, precision)},
+		{"updatePeriod", "I", nullptr, $PRIVATE | $FINAL, $field(FloatControl, updatePeriod)},
+		{"units", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(FloatControl, units)},
+		{"minLabel", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(FloatControl, minLabel)},
+		{"maxLabel", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(FloatControl, maxLabel)},
+		{"midLabel", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(FloatControl, midLabel)},
+		{"value", "F", nullptr, $PRIVATE, $field(FloatControl, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/sound/sampled/FloatControl$Type;FFFIFLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(FloatControl, init$, void, $FloatControl$Type*, float, float, float, int32_t, float, $String*, $String*, $String*, $String*)},
+		{"<init>", "(Ljavax/sound/sampled/FloatControl$Type;FFFIFLjava/lang/String;)V", nullptr, $PROTECTED, $method(FloatControl, init$, void, $FloatControl$Type*, float, float, float, int32_t, float, $String*)},
+		{"getMaxLabel", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FloatControl, getMaxLabel, $String*)},
+		{"getMaximum", "()F", nullptr, $PUBLIC, $virtualMethod(FloatControl, getMaximum, float)},
+		{"getMidLabel", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FloatControl, getMidLabel, $String*)},
+		{"getMinLabel", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FloatControl, getMinLabel, $String*)},
+		{"getMinimum", "()F", nullptr, $PUBLIC, $virtualMethod(FloatControl, getMinimum, float)},
+		{"getPrecision", "()F", nullptr, $PUBLIC, $virtualMethod(FloatControl, getPrecision, float)},
+		{"getUnits", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FloatControl, getUnits, $String*)},
+		{"getUpdatePeriod", "()I", nullptr, $PUBLIC, $virtualMethod(FloatControl, getUpdatePeriod, int32_t)},
+		{"getValue", "()F", nullptr, $PUBLIC, $virtualMethod(FloatControl, getValue, float)},
+		{"setValue", "(F)V", nullptr, $PUBLIC, $virtualMethod(FloatControl, setValue, void, float)},
+		{"shift", "(FFI)V", nullptr, $PUBLIC, $virtualMethod(FloatControl, shift, void, float, float, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FloatControl, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.sound.sampled.FloatControl$Type", "javax.sound.sampled.FloatControl", "Type", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.sound.sampled.FloatControl",
+		"javax.sound.sampled.Control",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.sound.sampled.FloatControl$Type"
+	};
+	$loadClass(FloatControl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FloatControl);
+	});
 	return class$;
 }
 

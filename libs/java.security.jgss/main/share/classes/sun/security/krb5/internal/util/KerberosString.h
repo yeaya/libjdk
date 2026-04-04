@@ -26,6 +26,7 @@ class KerberosString : public ::java::lang::Object {
 	$class(KerberosString, 0, ::java::lang::Object)
 public:
 	KerberosString();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* s);
 	void init$(::sun::security::util::DerValue* der);
 	::sun::security::util::DerValue* toDerValue();

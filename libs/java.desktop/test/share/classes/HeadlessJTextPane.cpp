@@ -1,5 +1,4 @@
 #include <HeadlessJTextPane.h>
-
 #include <javax/swing/JTextPane.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/EditorKit.h>
@@ -9,25 +8,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JTextPane = ::javax::swing::JTextPane;
-
-$MethodInfo _HeadlessJTextPane_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJTextPane, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJTextPane, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _HeadlessJTextPane_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJTextPane",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJTextPane_MethodInfo_
-};
-
-$Object* allocate$HeadlessJTextPane($Class* clazz) {
-	return $of($alloc(HeadlessJTextPane));
-}
 
 void HeadlessJTextPane::init$() {
 }
@@ -47,7 +27,22 @@ HeadlessJTextPane::HeadlessJTextPane() {
 }
 
 $Class* HeadlessJTextPane::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJTextPane, name, initialize, &_HeadlessJTextPane_ClassInfo_, allocate$HeadlessJTextPane);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJTextPane, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJTextPane, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJTextPane",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HeadlessJTextPane, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJTextPane);
+	});
 	return class$;
 }
 

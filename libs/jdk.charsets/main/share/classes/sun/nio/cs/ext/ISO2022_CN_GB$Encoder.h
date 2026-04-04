@@ -27,6 +27,7 @@ class ISO2022_CN_GB$Encoder : public ::sun::nio::cs::ext::ISO2022$Encoder {
 public:
 	ISO2022_CN_GB$Encoder();
 	using ::sun::nio::cs::ext::ISO2022$Encoder::canEncode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	virtual bool isLegalReplacement($bytes* repl) override;
 	static ::java::nio::charset::Charset* gb2312;

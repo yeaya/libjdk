@@ -24,6 +24,7 @@ class $import SubscriberWrapper$SchedulingAction : public ::java::lang::Enum {
 public:
 	SubscriberWrapper$SchedulingAction();
 	static $Array<::jdk::internal::net::http::common::SubscriberWrapper$SchedulingAction>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::jdk::internal::net::http::common::SubscriberWrapper$SchedulingAction* valueOf($String* name);
 	static $Array<::jdk::internal::net::http::common::SubscriberWrapper$SchedulingAction>* values();

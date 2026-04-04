@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/LocaleUtility.h>
-
 #include <java/util/Locale.h>
 #include <jcpp.h>
 
@@ -19,31 +18,6 @@ namespace com {
 					namespace internal {
 						namespace utils {
 
-$FieldInfo _LocaleUtility_FieldInfo_[] = {
-	{"IETF_SEPARATOR", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LocaleUtility, IETF_SEPARATOR)},
-	{"EMPTY_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LocaleUtility, EMPTY_STRING)},
-	{}
-};
-
-$MethodInfo _LocaleUtility_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleUtility, init$, void)},
-	{"langToLocale", "(Ljava/lang/String;)Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocaleUtility, langToLocale, $Locale*, $String*)},
-	{}
-};
-
-$ClassInfo _LocaleUtility_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.LocaleUtility",
-	"java.lang.Object",
-	nullptr,
-	_LocaleUtility_FieldInfo_,
-	_LocaleUtility_MethodInfo_
-};
-
-$Object* allocate$LocaleUtility($Class* clazz) {
-	return $of($alloc(LocaleUtility));
-}
-
 $String* LocaleUtility::EMPTY_STRING = nullptr;
 
 void LocaleUtility::init$() {
@@ -51,20 +25,20 @@ void LocaleUtility::init$() {
 
 $Locale* LocaleUtility::langToLocale($String* lang) {
 	$init(LocaleUtility);
-	$useLocalCurrentObjectStackCache();
-	if ((lang == nullptr) || $nc(lang)->equals(LocaleUtility::EMPTY_STRING)) {
+	$useLocalObjectStack();
+	if ((lang == nullptr) || lang->equals(LocaleUtility::EMPTY_STRING)) {
 		return $Locale::getDefault();
 	}
 	$var($String, language, LocaleUtility::EMPTY_STRING);
 	$var($String, country, LocaleUtility::EMPTY_STRING);
 	$var($String, variant, LocaleUtility::EMPTY_STRING);
-	int32_t i1 = $nc(lang)->indexOf((int32_t)LocaleUtility::IETF_SEPARATOR);
+	int32_t i1 = $nc(lang)->indexOf(LocaleUtility::IETF_SEPARATOR);
 	if (i1 < 0) {
 		$assign(language, lang);
 	} else {
 		$assign(language, lang->substring(0, i1));
 		++i1;
-		int32_t i2 = lang->indexOf((int32_t)LocaleUtility::IETF_SEPARATOR, i1);
+		int32_t i2 = lang->indexOf(LocaleUtility::IETF_SEPARATOR, i1);
 		if (i2 < 0) {
 			$assign(country, lang->substring(i1));
 		} else {
@@ -82,13 +56,13 @@ $Locale* LocaleUtility::langToLocale($String* lang) {
 	} else {
 		$assign(country, LocaleUtility::EMPTY_STRING);
 	}
-	bool var$0 = ($nc(variant)->length() > 0);
+	bool var$0 = $nc(variant)->length() > 0;
 	if (var$0) {
-		bool var$1 = ($nc(language)->length() == 2);
-		var$0 = (var$1 || ($nc(country)->length() == 2));
+		bool var$1 = $nc(language)->length() == 2;
+		var$0 = var$1 || ($nc(country)->length() == 2);
 	}
 	if (var$0) {
-		$assign(variant, $nc(variant)->toUpperCase());
+		$assign(variant, variant->toUpperCase());
 	} else {
 		$assign(variant, LocaleUtility::EMPTY_STRING);
 	}
@@ -98,12 +72,32 @@ $Locale* LocaleUtility::langToLocale($String* lang) {
 LocaleUtility::LocaleUtility() {
 }
 
-void clinit$LocaleUtility($Class* class$) {
+void LocaleUtility::clinit$($Class* clazz) {
 	$assignStatic(LocaleUtility::EMPTY_STRING, ""_s);
 }
 
 $Class* LocaleUtility::load$($String* name, bool initialize) {
-	$loadClass(LocaleUtility, name, initialize, &_LocaleUtility_ClassInfo_, clinit$LocaleUtility, allocate$LocaleUtility);
+	$FieldInfo fieldInfos$$[] = {
+		{"IETF_SEPARATOR", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LocaleUtility, IETF_SEPARATOR)},
+		{"EMPTY_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LocaleUtility, EMPTY_STRING)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleUtility, init$, void)},
+		{"langToLocale", "(Ljava/lang/String;)Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocaleUtility, langToLocale, $Locale*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.LocaleUtility",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LocaleUtility, name, initialize, &classInfo$$, LocaleUtility::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleUtility);
+	});
 	return class$;
 }
 

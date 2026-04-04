@@ -15,10 +15,13 @@ public:
 	RoleInfoNotFoundException();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0x3CFAF39B59799183;
+	static const int64_t serialVersionUID = (int64_t)0x3cfaf39b59799183;
 	RoleInfoNotFoundException(const RoleInfoNotFoundException& e);
 	virtual void throw$() override;
-	inline RoleInfoNotFoundException* operator ->() {
+	inline RoleInfoNotFoundException* operator ->() const {
+		return (RoleInfoNotFoundException*)throwing$;
+	}
+	inline operator RoleInfoNotFoundException*() const {
 		return (RoleInfoNotFoundException*)throwing$;
 	}
 };

@@ -21,6 +21,7 @@ class $import SortOrder : public ::java::lang::Enum {
 public:
 	SortOrder();
 	static $Array<::javax::swing::SortOrder>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::javax::swing::SortOrder* valueOf($String* name);
 	static $Array<::javax::swing::SortOrder>* values();

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/Pretty$UncheckedIOException.h>
-
 #include <com/sun/tools/javac/tree/Pretty.h>
 #include <java/io/IOException.h>
 #include <java/lang/Error.h>
@@ -18,41 +17,6 @@ namespace com {
 			namespace javac {
 				namespace tree {
 
-$FieldInfo _Pretty$UncheckedIOException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Pretty$UncheckedIOException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Pretty$UncheckedIOException_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/IOException;)V", nullptr, 0, $method(Pretty$UncheckedIOException, init$, void, $IOException*)},
-	{}
-};
-
-$InnerClassInfo _Pretty$UncheckedIOException_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.Pretty$UncheckedIOException", "com.sun.tools.javac.tree.Pretty", "UncheckedIOException", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Pretty$UncheckedIOException_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.tree.Pretty$UncheckedIOException",
-	"java.lang.Error",
-	nullptr,
-	_Pretty$UncheckedIOException_FieldInfo_,
-	_Pretty$UncheckedIOException_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pretty$UncheckedIOException_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.Pretty"
-};
-
-$Object* allocate$Pretty$UncheckedIOException($Class* clazz) {
-	return $of($alloc(Pretty$UncheckedIOException));
-}
-
 void Pretty$UncheckedIOException::init$($IOException* e) {
 	$Error::init$($($nc(e)->getMessage()), e);
 }
@@ -68,7 +32,36 @@ void Pretty$UncheckedIOException::throw$() {
 }
 
 $Class* Pretty$UncheckedIOException::load$($String* name, bool initialize) {
-	$loadClass(Pretty$UncheckedIOException, name, initialize, &_Pretty$UncheckedIOException_ClassInfo_, allocate$Pretty$UncheckedIOException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Pretty$UncheckedIOException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/IOException;)V", nullptr, 0, $method(Pretty$UncheckedIOException, init$, void, $IOException*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.Pretty$UncheckedIOException", "com.sun.tools.javac.tree.Pretty", "UncheckedIOException", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.tree.Pretty$UncheckedIOException",
+		"java.lang.Error",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.Pretty"
+	};
+	$loadClass(Pretty$UncheckedIOException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pretty$UncheckedIOException);
+	});
 	return class$;
 }
 

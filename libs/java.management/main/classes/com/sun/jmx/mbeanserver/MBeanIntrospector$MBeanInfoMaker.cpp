@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/MBeanIntrospector$MBeanInfoMaker.h>
-
 #include <com/sun/jmx/mbeanserver/DescriptorCache.h>
 #include <com/sun/jmx/mbeanserver/Introspector.h>
 #include <com/sun/jmx/mbeanserver/MBeanIntrospector.h>
@@ -28,8 +27,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AnnotatedElement = ::java::lang::reflect::AnnotatedElement;
-using $List = ::java::util::List;
 using $Descriptor = ::javax::management::Descriptor;
 using $ImmutableDescriptor = ::javax::management::ImmutableDescriptor;
 using $MBeanAttributeInfo = ::javax::management::MBeanAttributeInfo;
@@ -40,47 +37,6 @@ namespace com {
 	namespace sun {
 		namespace jmx {
 			namespace mbeanserver {
-
-$FieldInfo _MBeanIntrospector$MBeanInfoMaker_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/jmx/mbeanserver/MBeanIntrospector;", nullptr, $FINAL | $SYNTHETIC, $field(MBeanIntrospector$MBeanInfoMaker, this$0)},
-	{"attrs", "Ljava/util/List;", "Ljava/util/List<Ljavax/management/MBeanAttributeInfo;>;", $PRIVATE | $FINAL, $field(MBeanIntrospector$MBeanInfoMaker, attrs)},
-	{"ops", "Ljava/util/List;", "Ljava/util/List<Ljavax/management/MBeanOperationInfo;>;", $PRIVATE | $FINAL, $field(MBeanIntrospector$MBeanInfoMaker, ops)},
-	{}
-};
-
-$MethodInfo _MBeanIntrospector$MBeanInfoMaker_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/mbeanserver/MBeanIntrospector;)V", nullptr, $PRIVATE, $method(MBeanIntrospector$MBeanInfoMaker, init$, void, $MBeanIntrospector*)},
-	{"makeMBeanInfo", "(Ljava/lang/Class;Ljava/lang/String;)Ljavax/management/MBeanInfo;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljavax/management/MBeanInfo;", 0, $virtualMethod(MBeanIntrospector$MBeanInfoMaker, makeMBeanInfo, $MBeanInfo*, $Class*, $String*)},
-	{"visitAttribute", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", "(Ljava/lang/String;TM;TM;)V", $PUBLIC, $virtualMethod(MBeanIntrospector$MBeanInfoMaker, visitAttribute, void, $String*, Object$*, Object$*)},
-	{"visitOperation", "(Ljava/lang/String;Ljava/lang/Object;)V", "(Ljava/lang/String;TM;)V", $PUBLIC, $virtualMethod(MBeanIntrospector$MBeanInfoMaker, visitOperation, void, $String*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _MBeanIntrospector$MBeanInfoMaker_InnerClassesInfo_[] = {
-	{"com.sun.jmx.mbeanserver.MBeanIntrospector$MBeanInfoMaker", "com.sun.jmx.mbeanserver.MBeanIntrospector", "MBeanInfoMaker", $PRIVATE},
-	{"com.sun.jmx.mbeanserver.MBeanAnalyzer$MBeanVisitor", "com.sun.jmx.mbeanserver.MBeanAnalyzer", "MBeanVisitor", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MBeanIntrospector$MBeanInfoMaker_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jmx.mbeanserver.MBeanIntrospector$MBeanInfoMaker",
-	"java.lang.Object",
-	"com.sun.jmx.mbeanserver.MBeanAnalyzer$MBeanVisitor",
-	_MBeanIntrospector$MBeanInfoMaker_FieldInfo_,
-	_MBeanIntrospector$MBeanInfoMaker_MethodInfo_,
-	"Ljava/lang/Object;Lcom/sun/jmx/mbeanserver/MBeanAnalyzer$MBeanVisitor<TM;>;",
-	nullptr,
-	_MBeanIntrospector$MBeanInfoMaker_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.mbeanserver.MBeanIntrospector"
-};
-
-$Object* allocate$MBeanIntrospector$MBeanInfoMaker($Class* clazz) {
-	return $of($alloc(MBeanIntrospector$MBeanInfoMaker));
-}
 
 void MBeanIntrospector$MBeanInfoMaker::init$($MBeanIntrospector* this$0) {
 	$set(this, this$0, this$0);
@@ -99,14 +55,14 @@ void MBeanIntrospector$MBeanInfoMaker::visitOperation($String* operationName, Ob
 }
 
 $MBeanInfo* MBeanIntrospector$MBeanInfoMaker::makeMBeanInfo($Class* mbeanInterface, $String* description) {
-	$useLocalCurrentObjectStackCache();
-	$var($MBeanAttributeInfoArray, attrArray, $fcast($MBeanAttributeInfoArray, $nc(this->attrs)->toArray($$new($MBeanAttributeInfoArray, 0))));
-	$var($MBeanOperationInfoArray, opArray, $fcast($MBeanOperationInfoArray, $nc(this->ops)->toArray($$new($MBeanOperationInfoArray, 0))));
+	$useLocalObjectStack();
+	$var($MBeanAttributeInfoArray, attrArray, $cast($MBeanAttributeInfoArray, $nc(this->attrs)->toArray($$new($MBeanAttributeInfoArray, 0))));
+	$var($MBeanOperationInfoArray, opArray, $cast($MBeanOperationInfoArray, $nc(this->ops)->toArray($$new($MBeanOperationInfoArray, 0))));
 	$var($String, interfaceClassName, $str({"interfaceClassName="_s, $($nc(mbeanInterface)->getName())}));
 	$var($Descriptor, classNameDescriptor, $new($ImmutableDescriptor, $$new($StringArray, {interfaceClassName})));
 	$var($Descriptor, mbeanDescriptor, this->this$0->getBasicMBeanDescriptor());
 	$var($Descriptor, annotatedDescriptor, $Introspector::descriptorForElement(mbeanInterface));
-	$var($Descriptor, descriptor, $nc($($DescriptorCache::getInstance()))->union$($$new($DescriptorArray, {
+	$var($Descriptor, descriptor, $$nc($DescriptorCache::getInstance())->union$($$new($DescriptorArray, {
 		classNameDescriptor,
 		mbeanDescriptor,
 		annotatedDescriptor
@@ -118,7 +74,42 @@ MBeanIntrospector$MBeanInfoMaker::MBeanIntrospector$MBeanInfoMaker() {
 }
 
 $Class* MBeanIntrospector$MBeanInfoMaker::load$($String* name, bool initialize) {
-	$loadClass(MBeanIntrospector$MBeanInfoMaker, name, initialize, &_MBeanIntrospector$MBeanInfoMaker_ClassInfo_, allocate$MBeanIntrospector$MBeanInfoMaker);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/jmx/mbeanserver/MBeanIntrospector;", nullptr, $FINAL | $SYNTHETIC, $field(MBeanIntrospector$MBeanInfoMaker, this$0)},
+		{"attrs", "Ljava/util/List;", "Ljava/util/List<Ljavax/management/MBeanAttributeInfo;>;", $PRIVATE | $FINAL, $field(MBeanIntrospector$MBeanInfoMaker, attrs)},
+		{"ops", "Ljava/util/List;", "Ljava/util/List<Ljavax/management/MBeanOperationInfo;>;", $PRIVATE | $FINAL, $field(MBeanIntrospector$MBeanInfoMaker, ops)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/jmx/mbeanserver/MBeanIntrospector;)V", nullptr, $PRIVATE, $method(MBeanIntrospector$MBeanInfoMaker, init$, void, $MBeanIntrospector*)},
+		{"makeMBeanInfo", "(Ljava/lang/Class;Ljava/lang/String;)Ljavax/management/MBeanInfo;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljavax/management/MBeanInfo;", 0, $virtualMethod(MBeanIntrospector$MBeanInfoMaker, makeMBeanInfo, $MBeanInfo*, $Class*, $String*)},
+		{"visitAttribute", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", "(Ljava/lang/String;TM;TM;)V", $PUBLIC, $virtualMethod(MBeanIntrospector$MBeanInfoMaker, visitAttribute, void, $String*, Object$*, Object$*)},
+		{"visitOperation", "(Ljava/lang/String;Ljava/lang/Object;)V", "(Ljava/lang/String;TM;)V", $PUBLIC, $virtualMethod(MBeanIntrospector$MBeanInfoMaker, visitOperation, void, $String*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.mbeanserver.MBeanIntrospector$MBeanInfoMaker", "com.sun.jmx.mbeanserver.MBeanIntrospector", "MBeanInfoMaker", $PRIVATE},
+		{"com.sun.jmx.mbeanserver.MBeanAnalyzer$MBeanVisitor", "com.sun.jmx.mbeanserver.MBeanAnalyzer", "MBeanVisitor", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jmx.mbeanserver.MBeanIntrospector$MBeanInfoMaker",
+		"java.lang.Object",
+		"com.sun.jmx.mbeanserver.MBeanAnalyzer$MBeanVisitor",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Lcom/sun/jmx/mbeanserver/MBeanAnalyzer$MBeanVisitor<TM;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.mbeanserver.MBeanIntrospector"
+	};
+	$loadClass(MBeanIntrospector$MBeanInfoMaker, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MBeanIntrospector$MBeanInfoMaker);
+	});
 	return class$;
 }
 

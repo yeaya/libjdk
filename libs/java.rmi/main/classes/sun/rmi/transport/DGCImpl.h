@@ -76,6 +76,7 @@ class DGCImpl : public ::java::rmi::dgc::DGC {
 	$class(DGCImpl, 0, ::java::rmi::dgc::DGC)
 public:
 	DGCImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::io::ObjectInputFilter$Status* checkInput(::java::io::ObjectInputFilter$FilterInfo* filterInfo);
 	void checkLeases();

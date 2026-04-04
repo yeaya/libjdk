@@ -82,6 +82,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addDropTarget(::java::awt::dnd::DropTarget* dt) override;
 	virtual void addNotify() override;

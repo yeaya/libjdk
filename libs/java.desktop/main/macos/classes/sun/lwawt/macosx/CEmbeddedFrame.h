@@ -30,6 +30,7 @@ public:
 	using ::sun::awt::EmbeddedFrame::add;
 	using ::sun::awt::EmbeddedFrame::getMousePosition;
 	using ::sun::awt::EmbeddedFrame::list;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addNotify() override;
 	virtual int64_t getLayerPtr();

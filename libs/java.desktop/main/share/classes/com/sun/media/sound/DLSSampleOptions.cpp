@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/DLSSampleOptions.h>
-
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -14,42 +13,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _DLSSampleOptions_FieldInfo_[] = {
-	{"unitynote", "I", nullptr, 0, $field(DLSSampleOptions, unitynote)},
-	{"finetune", "S", nullptr, 0, $field(DLSSampleOptions, finetune)},
-	{"attenuation", "I", nullptr, 0, $field(DLSSampleOptions, attenuation)},
-	{"options", "J", nullptr, 0, $field(DLSSampleOptions, options)},
-	{"loops", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/media/sound/DLSSampleLoop;>;", 0, $field(DLSSampleOptions, loops)},
-	{}
-};
-
-$MethodInfo _DLSSampleOptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DLSSampleOptions, init$, void)},
-	{"getAttenuation", "()I", nullptr, $PUBLIC, $method(DLSSampleOptions, getAttenuation, int32_t)},
-	{"getFinetune", "()S", nullptr, $PUBLIC, $method(DLSSampleOptions, getFinetune, int16_t)},
-	{"getLoops", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/media/sound/DLSSampleLoop;>;", $PUBLIC, $method(DLSSampleOptions, getLoops, $List*)},
-	{"getOptions", "()J", nullptr, $PUBLIC, $method(DLSSampleOptions, getOptions, int64_t)},
-	{"getUnitynote", "()I", nullptr, $PUBLIC, $method(DLSSampleOptions, getUnitynote, int32_t)},
-	{"setAttenuation", "(I)V", nullptr, $PUBLIC, $method(DLSSampleOptions, setAttenuation, void, int32_t)},
-	{"setFinetune", "(S)V", nullptr, $PUBLIC, $method(DLSSampleOptions, setFinetune, void, int16_t)},
-	{"setOptions", "(J)V", nullptr, $PUBLIC, $method(DLSSampleOptions, setOptions, void, int64_t)},
-	{"setUnitynote", "(I)V", nullptr, $PUBLIC, $method(DLSSampleOptions, setUnitynote, void, int32_t)},
-	{}
-};
-
-$ClassInfo _DLSSampleOptions_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.DLSSampleOptions",
-	"java.lang.Object",
-	nullptr,
-	_DLSSampleOptions_FieldInfo_,
-	_DLSSampleOptions_MethodInfo_
-};
-
-$Object* allocate$DLSSampleOptions($Class* clazz) {
-	return $of($alloc(DLSSampleOptions));
-}
 
 void DLSSampleOptions::init$() {
 	$set(this, loops, $new($ArrayList));
@@ -95,7 +58,38 @@ DLSSampleOptions::DLSSampleOptions() {
 }
 
 $Class* DLSSampleOptions::load$($String* name, bool initialize) {
-	$loadClass(DLSSampleOptions, name, initialize, &_DLSSampleOptions_ClassInfo_, allocate$DLSSampleOptions);
+	$FieldInfo fieldInfos$$[] = {
+		{"unitynote", "I", nullptr, 0, $field(DLSSampleOptions, unitynote)},
+		{"finetune", "S", nullptr, 0, $field(DLSSampleOptions, finetune)},
+		{"attenuation", "I", nullptr, 0, $field(DLSSampleOptions, attenuation)},
+		{"options", "J", nullptr, 0, $field(DLSSampleOptions, options)},
+		{"loops", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/media/sound/DLSSampleLoop;>;", 0, $field(DLSSampleOptions, loops)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DLSSampleOptions, init$, void)},
+		{"getAttenuation", "()I", nullptr, $PUBLIC, $method(DLSSampleOptions, getAttenuation, int32_t)},
+		{"getFinetune", "()S", nullptr, $PUBLIC, $method(DLSSampleOptions, getFinetune, int16_t)},
+		{"getLoops", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/media/sound/DLSSampleLoop;>;", $PUBLIC, $method(DLSSampleOptions, getLoops, $List*)},
+		{"getOptions", "()J", nullptr, $PUBLIC, $method(DLSSampleOptions, getOptions, int64_t)},
+		{"getUnitynote", "()I", nullptr, $PUBLIC, $method(DLSSampleOptions, getUnitynote, int32_t)},
+		{"setAttenuation", "(I)V", nullptr, $PUBLIC, $method(DLSSampleOptions, setAttenuation, void, int32_t)},
+		{"setFinetune", "(S)V", nullptr, $PUBLIC, $method(DLSSampleOptions, setFinetune, void, int16_t)},
+		{"setOptions", "(J)V", nullptr, $PUBLIC, $method(DLSSampleOptions, setOptions, void, int64_t)},
+		{"setUnitynote", "(I)V", nullptr, $PUBLIC, $method(DLSSampleOptions, setUnitynote, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.DLSSampleOptions",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DLSSampleOptions, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DLSSampleOptions);
+	});
 	return class$;
 }
 

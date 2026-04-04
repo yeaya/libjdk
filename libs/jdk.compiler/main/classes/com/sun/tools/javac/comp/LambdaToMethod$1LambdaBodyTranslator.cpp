@@ -1,8 +1,6 @@
 #include <com/sun/tools/javac/comp/LambdaToMethod$1LambdaBodyTranslator.h>
-
 #include <com/sun/tools/javac/code/Symbol$MethodSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$VarSymbol.h>
-#include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/comp/LambdaToMethod.h>
 #include <com/sun/tools/javac/tree/JCTree$JCBlock.h>
@@ -12,7 +10,6 @@
 #include <com/sun/tools/javac/tree/JCTree$JCMethodDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCReturn.h>
 #include <com/sun/tools/javac/tree/JCTree$JCVariableDecl.h>
-#include <com/sun/tools/javac/tree/JCTree.h>
 #include <com/sun/tools/javac/tree/TreeMaker.h>
 #include <com/sun/tools/javac/tree/TreeTranslator.h>
 #include <com/sun/tools/javac/util/List.h>
@@ -20,20 +17,16 @@
 #include <com/sun/tools/javac/util/Names.h>
 #include <jcpp.h>
 
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $LambdaToMethod = ::com::sun::tools::javac::comp::LambdaToMethod;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCLambda = ::com::sun::tools::javac::tree::JCTree$JCLambda;
 using $JCTree$JCMethodDecl = ::com::sun::tools::javac::tree::JCTree$JCMethodDecl;
 using $JCTree$JCReturn = ::com::sun::tools::javac::tree::JCTree$JCReturn;
 using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
-using $TreeMaker = ::com::sun::tools::javac::tree::TreeMaker;
 using $TreeTranslator = ::com::sun::tools::javac::tree::TreeTranslator;
 using $List = ::com::sun::tools::javac::util::List;
-using $Names = ::com::sun::tools::javac::util::Names;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -45,54 +38,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _LambdaToMethod$1LambdaBodyTranslator_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/LambdaToMethod;", nullptr, $FINAL | $SYNTHETIC, $field(LambdaToMethod$1LambdaBodyTranslator, this$0)},
-	{"val$lambdaMethodDecl", "Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", nullptr, $FINAL | $SYNTHETIC, $field(LambdaToMethod$1LambdaBodyTranslator, val$lambdaMethodDecl)},
-	{"val$isTarget_void", "Z", nullptr, $FINAL | $SYNTHETIC, $field(LambdaToMethod$1LambdaBodyTranslator, val$isTarget_void)},
-	{}
-};
-
-$MethodInfo _LambdaToMethod$1LambdaBodyTranslator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod;ZLcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", "()V", 0, $method(LambdaToMethod$1LambdaBodyTranslator, init$, void, $LambdaToMethod*, bool, $JCTree$JCMethodDecl*)},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$1LambdaBodyTranslator, visitClassDef, void, $JCTree$JCClassDecl*)},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$1LambdaBodyTranslator, visitLambda, void, $JCTree$JCLambda*)},
-	{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$1LambdaBodyTranslator, visitReturn, void, $JCTree$JCReturn*)},
-	{}
-};
-
-$EnclosingMethodInfo _LambdaToMethod$1LambdaBodyTranslator_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.LambdaToMethod",
-	"makeLambdaStatementBody",
-	"(Lcom/sun/tools/javac/tree/JCTree$JCBlock;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Z)Lcom/sun/tools/javac/tree/JCTree$JCBlock;"
-};
-
-$InnerClassInfo _LambdaToMethod$1LambdaBodyTranslator_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.LambdaToMethod$1LambdaBodyTranslator", nullptr, "LambdaBodyTranslator", 0},
-	{"com.sun.tools.javac.tree.JCTree$JCBlock", "com.sun.tools.javac.tree.JCTree", "JCBlock", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCMethodDecl", "com.sun.tools.javac.tree.JCTree", "JCMethodDecl", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _LambdaToMethod$1LambdaBodyTranslator_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.LambdaToMethod$1LambdaBodyTranslator",
-	"com.sun.tools.javac.tree.TreeTranslator",
-	nullptr,
-	_LambdaToMethod$1LambdaBodyTranslator_FieldInfo_,
-	_LambdaToMethod$1LambdaBodyTranslator_MethodInfo_,
-	nullptr,
-	&_LambdaToMethod$1LambdaBodyTranslator_EnclosingMethodInfo_,
-	_LambdaToMethod$1LambdaBodyTranslator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.LambdaToMethod"
-};
-
-$Object* allocate$LambdaToMethod$1LambdaBodyTranslator($Class* clazz) {
-	return $of($alloc(LambdaToMethod$1LambdaBodyTranslator));
-}
 
 void LambdaToMethod$1LambdaBodyTranslator::init$($LambdaToMethod* this$0, bool val$isTarget_void, $JCTree$JCMethodDecl* val$lambdaMethodDecl) {
 	$set(this, this$0, this$0);
@@ -110,7 +55,7 @@ void LambdaToMethod$1LambdaBodyTranslator::visitLambda($JCTree$JCLambda* tree) {
 }
 
 void LambdaToMethod$1LambdaBodyTranslator::visitReturn($JCTree$JCReturn* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool isLambda_void = $nc(tree)->expr == nullptr;
 	if (this->val$isTarget_void && !isLambda_void) {
 		$var($Symbol$VarSymbol, loc, this->this$0->makeSyntheticVar(0, $($nc(this->this$0->names)->fromString("$loc"_s)), $nc(tree->expr)->type, $nc(this->val$lambdaMethodDecl)->sym));
@@ -125,7 +70,48 @@ LambdaToMethod$1LambdaBodyTranslator::LambdaToMethod$1LambdaBodyTranslator() {
 }
 
 $Class* LambdaToMethod$1LambdaBodyTranslator::load$($String* name, bool initialize) {
-	$loadClass(LambdaToMethod$1LambdaBodyTranslator, name, initialize, &_LambdaToMethod$1LambdaBodyTranslator_ClassInfo_, allocate$LambdaToMethod$1LambdaBodyTranslator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/LambdaToMethod;", nullptr, $FINAL | $SYNTHETIC, $field(LambdaToMethod$1LambdaBodyTranslator, this$0)},
+		{"val$lambdaMethodDecl", "Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", nullptr, $FINAL | $SYNTHETIC, $field(LambdaToMethod$1LambdaBodyTranslator, val$lambdaMethodDecl)},
+		{"val$isTarget_void", "Z", nullptr, $FINAL | $SYNTHETIC, $field(LambdaToMethod$1LambdaBodyTranslator, val$isTarget_void)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod;ZLcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", "()V", 0, $method(LambdaToMethod$1LambdaBodyTranslator, init$, void, $LambdaToMethod*, bool, $JCTree$JCMethodDecl*)},
+		{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$1LambdaBodyTranslator, visitClassDef, void, $JCTree$JCClassDecl*)},
+		{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$1LambdaBodyTranslator, visitLambda, void, $JCTree$JCLambda*)},
+		{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$1LambdaBodyTranslator, visitReturn, void, $JCTree$JCReturn*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.LambdaToMethod",
+		"makeLambdaStatementBody",
+		"(Lcom/sun/tools/javac/tree/JCTree$JCBlock;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Z)Lcom/sun/tools/javac/tree/JCTree$JCBlock;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.LambdaToMethod$1LambdaBodyTranslator", nullptr, "LambdaBodyTranslator", 0},
+		{"com.sun.tools.javac.tree.JCTree$JCBlock", "com.sun.tools.javac.tree.JCTree", "JCBlock", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCMethodDecl", "com.sun.tools.javac.tree.JCTree", "JCMethodDecl", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.LambdaToMethod$1LambdaBodyTranslator",
+		"com.sun.tools.javac.tree.TreeTranslator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.LambdaToMethod"
+	};
+	$loadClass(LambdaToMethod$1LambdaBodyTranslator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaToMethod$1LambdaBodyTranslator);
+	});
 	return class$;
 }
 

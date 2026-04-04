@@ -1,5 +1,4 @@
 #include <java/awt/peer/SystemTrayPeer.h>
-
 #include <java/awt/Dimension.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace java {
 	namespace awt {
 		namespace peer {
 
-$MethodInfo _SystemTrayPeer_MethodInfo_[] = {
-	{"getTrayIconSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SystemTrayPeer, getTrayIconSize, $Dimension*)},
-	{}
-};
-
-$ClassInfo _SystemTrayPeer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.peer.SystemTrayPeer",
-	nullptr,
-	nullptr,
-	nullptr,
-	_SystemTrayPeer_MethodInfo_
-};
-
-$Object* allocate$SystemTrayPeer($Class* clazz) {
-	return $of($alloc(SystemTrayPeer));
-}
-
 $Class* SystemTrayPeer::load$($String* name, bool initialize) {
-	$loadClass(SystemTrayPeer, name, initialize, &_SystemTrayPeer_ClassInfo_, allocate$SystemTrayPeer);
+	$MethodInfo methodInfos$$[] = {
+		{"getTrayIconSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SystemTrayPeer, getTrayIconSize, $Dimension*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.peer.SystemTrayPeer",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SystemTrayPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SystemTrayPeer);
+	});
 	return class$;
 }
 

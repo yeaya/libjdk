@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/parsers/DOMParserImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/dom/DOMErrorImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DOMMessageFormatter.h>
 #include <com/sun/org/apache/xerces/internal/dom/DOMStringListImpl.h>
@@ -17,9 +16,6 @@
 #include <com/sun/org/apache/xerces/internal/xni/Augmentations.h>
 #include <com/sun/org/apache/xerces/internal/xni/QName.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLAttributes.h>
-#include <com/sun/org/apache/xerces/internal/xni/XMLDTDContentModelHandler.h>
-#include <com/sun/org/apache/xerces/internal/xni/XMLDTDHandler.h>
-#include <com/sun/org/apache/xerces/internal/xni/XMLDocumentHandler.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLConfigurationException.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLEntityResolver.h>
@@ -141,9 +137,6 @@ using $XMLSymbols = ::com::sun::org::apache::xerces::internal::util::XMLSymbols;
 using $Augmentations = ::com::sun::org::apache::xerces::internal::xni::Augmentations;
 using $QName = ::com::sun::org::apache::xerces::internal::xni::QName;
 using $XMLAttributes = ::com::sun::org::apache::xerces::internal::xni::XMLAttributes;
-using $XMLDTDContentModelHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDTDContentModelHandler;
-using $XMLDTDHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDTDHandler;
-using $XMLDocumentHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDocumentHandler;
 using $XMLGrammarPool = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLGrammarPool;
 using $XMLConfigurationException = ::com::sun::org::apache::xerces::internal::xni::parser::XMLConfigurationException;
 using $XMLEntityResolver = ::com::sun::org::apache::xerces::internal::xni::parser::XMLEntityResolver;
@@ -151,7 +144,6 @@ using $XMLInputSource = ::com::sun::org::apache::xerces::internal::xni::parser::
 using $XMLParseException = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParseException;
 using $XMLParserConfiguration = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParserConfiguration;
 using $InputStream = ::java::io::InputStream;
-using $Reader = ::java::io::Reader;
 using $StringReader = ::java::io::StringReader;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -183,86 +175,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace parsers {
-
-$FieldInfo _DOMParserImpl_FieldInfo_[] = {
-	{"NAMESPACES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParserImpl, NAMESPACES)},
-	{"VALIDATION_FEATURE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParserImpl, VALIDATION_FEATURE)},
-	{"XMLSCHEMA", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParserImpl, XMLSCHEMA)},
-	{"XMLSCHEMA_FULL_CHECKING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParserImpl, XMLSCHEMA_FULL_CHECKING)},
-	{"DYNAMIC_VALIDATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParserImpl, DYNAMIC_VALIDATION)},
-	{"NORMALIZE_DATA", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParserImpl, NORMALIZE_DATA)},
-	{"DISALLOW_DOCTYPE_DECL_FEATURE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParserImpl, DISALLOW_DOCTYPE_DECL_FEATURE)},
-	{"NAMESPACE_GROWTH", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParserImpl, NAMESPACE_GROWTH)},
-	{"TOLERATE_DUPLICATES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParserImpl, TOLERATE_DUPLICATES)},
-	{"SYMBOL_TABLE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParserImpl, SYMBOL_TABLE)},
-	{"PSVI_AUGMENT", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParserImpl, PSVI_AUGMENT)},
-	{"fNamespaceDeclarations", "Z", nullptr, $PROTECTED, $field(DOMParserImpl, fNamespaceDeclarations)},
-	{"fSchemaType", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DOMParserImpl, fSchemaType)},
-	{"fBusy", "Z", nullptr, $PROTECTED, $field(DOMParserImpl, fBusy)},
-	{"abortNow", "Z", nullptr, $PRIVATE, $field(DOMParserImpl, abortNow)},
-	{"currentThread", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(DOMParserImpl, currentThread)},
-	{"DEBUG", "Z", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DOMParserImpl, DEBUG)},
-	{"fSchemaLocation", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DOMParserImpl, fSchemaLocation)},
-	{"fRecognizedParameters", "Lorg/w3c/dom/DOMStringList;", nullptr, $PRIVATE, $field(DOMParserImpl, fRecognizedParameters)},
-	{"abortHandler", "Lcom/sun/org/apache/xerces/internal/parsers/DOMParserImpl$AbortHandler;", nullptr, $PRIVATE, $field(DOMParserImpl, abortHandler)},
-	{}
-};
-
-$MethodInfo _DOMParserImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DOMParserImpl, init$, void, $XMLParserConfiguration*, $String*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration;)V", nullptr, $PUBLIC, $method(DOMParserImpl, init$, void, $XMLParserConfiguration*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(DOMParserImpl, init$, void, $SymbolTable*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;)V", nullptr, $PUBLIC, $method(DOMParserImpl, init$, void, $SymbolTable*, $XMLGrammarPool*)},
-	{"abort", "()V", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, abort, void)},
-	{"canSetParameter", "(Ljava/lang/String;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, canSetParameter, bool, $String*, Object$*)},
-	{"dom2xmlInputSource", "(Lorg/w3c/dom/ls/LSInput;)Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;", nullptr, 0, $virtualMethod(DOMParserImpl, dom2xmlInputSource, $XMLInputSource*, $LSInput*)},
-	{"getAsync", "()Z", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, getAsync, bool)},
-	{"getBusy", "()Z", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, getBusy, bool)},
-	{"getDomConfig", "()Lorg/w3c/dom/DOMConfiguration;", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, getDomConfig, $DOMConfiguration*)},
-	{"getFilter", "()Lorg/w3c/dom/ls/LSParserFilter;", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, getFilter, $LSParserFilter*)},
-	{"getParameter", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, getParameter, $Object*, $String*), "org.w3c.dom.DOMException"},
-	{"getParameterNames", "()Lorg/w3c/dom/DOMStringList;", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, getParameterNames, $DOMStringList*)},
-	{"newFeatureNotFoundError", "(Ljava/lang/String;)Lorg/w3c/dom/DOMException;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMParserImpl, newFeatureNotFoundError, $DOMException*, $String*)},
-	{"newTypeMismatchError", "(Ljava/lang/String;)Lorg/w3c/dom/DOMException;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMParserImpl, newTypeMismatchError, $DOMException*, $String*)},
-	{"parse", "(Lorg/w3c/dom/ls/LSInput;)Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, parse, $Document*, $LSInput*), "org.w3c.dom.ls.LSException"},
-	{"parseURI", "(Ljava/lang/String;)Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, parseURI, $Document*, $String*), "org.w3c.dom.ls.LSException"},
-	{"parseWithContext", "(Lorg/w3c/dom/ls/LSInput;Lorg/w3c/dom/Node;S)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, parseWithContext, $Node*, $LSInput*, $Node*, int16_t), "org.w3c.dom.DOMException,org.w3c.dom.ls.LSException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, reset, void)},
-	{"restoreHandlers", "()V", nullptr, $PRIVATE, $method(DOMParserImpl, restoreHandlers, void)},
-	{"setFilter", "(Lorg/w3c/dom/ls/LSParserFilter;)V", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, setFilter, void, $LSParserFilter*)},
-	{"setParameter", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, setParameter, void, $String*, Object$*), "org.w3c.dom.DOMException"},
-	{"startElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, startElement, void, $QName*, $XMLAttributes*, $Augmentations*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DOMParserImpl_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.parsers.DOMParserImpl$AbortHandler", "com.sun.org.apache.xerces.internal.parsers.DOMParserImpl", "AbortHandler", $PRIVATE},
-	{}
-};
-
-$ClassInfo _DOMParserImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.parsers.DOMParserImpl",
-	"com.sun.org.apache.xerces.internal.parsers.AbstractDOMParser",
-	"org.w3c.dom.ls.LSParser,org.w3c.dom.DOMConfiguration",
-	_DOMParserImpl_FieldInfo_,
-	_DOMParserImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DOMParserImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.parsers.DOMParserImpl$AbortHandler"
-};
-
-$Object* allocate$DOMParserImpl($Class* clazz) {
-	return $of($alloc(DOMParserImpl));
-}
 
 int32_t DOMParserImpl::hashCode() {
 	 return this->$AbstractDOMParser::hashCode();
@@ -297,17 +209,15 @@ $String* DOMParserImpl::SYMBOL_TABLE = nullptr;
 $String* DOMParserImpl::PSVI_AUGMENT = nullptr;
 
 void DOMParserImpl::init$($XMLParserConfiguration* config, $String* schemaType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	DOMParserImpl::init$(config);
 	if (schemaType != nullptr) {
 		$init($Constants);
 		if (schemaType->equals($Constants::NS_DTD)) {
 			$nc(this->fConfiguration)->setProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_LANGUAGE}), $Constants::NS_DTD);
 			$set(this, fSchemaType, $Constants::NS_DTD);
-		} else {
-			if (schemaType->equals($Constants::NS_XMLSCHEMA)) {
-				$nc(this->fConfiguration)->setProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_LANGUAGE}), $Constants::NS_XMLSCHEMA);
-			}
+		} else if (schemaType->equals($Constants::NS_XMLSCHEMA)) {
+			$nc(this->fConfiguration)->setProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_LANGUAGE}), $Constants::NS_XMLSCHEMA);
 		}
 	}
 }
@@ -357,15 +267,15 @@ void DOMParserImpl::init$($XMLParserConfiguration* config) {
 }
 
 void DOMParserImpl::init$($SymbolTable* symbolTable) {
-	$useLocalCurrentObjectStackCache();
-	DOMParserImpl::init$(static_cast<$XMLParserConfiguration*>($$new($XIncludeAwareParserConfiguration)));
+	$useLocalObjectStack();
+	DOMParserImpl::init$($$new($XIncludeAwareParserConfiguration));
 	$init($Constants);
 	$nc(this->fConfiguration)->setProperty($$str({$Constants::XERCES_PROPERTY_PREFIX, $Constants::SYMBOL_TABLE_PROPERTY}), symbolTable);
 }
 
 void DOMParserImpl::init$($SymbolTable* symbolTable, $XMLGrammarPool* grammarPool) {
-	$useLocalCurrentObjectStackCache();
-	DOMParserImpl::init$(static_cast<$XMLParserConfiguration*>($$new($XIncludeAwareParserConfiguration)));
+	$useLocalObjectStack();
+	DOMParserImpl::init$($$new($XIncludeAwareParserConfiguration));
 	$init($Constants);
 	$nc(this->fConfiguration)->setProperty($$str({$Constants::XERCES_PROPERTY_PREFIX, $Constants::SYMBOL_TABLE_PROPERTY}), symbolTable);
 	$nc(this->fConfiguration)->setProperty($$str({$Constants::XERCES_PROPERTY_PREFIX, $Constants::XMLGRAMMAR_POOL_PROPERTY}), grammarPool);
@@ -376,7 +286,7 @@ void DOMParserImpl::reset() {
 	$init($Constants);
 	this->fNamespaceDeclarations = $nc(this->fConfiguration)->getFeature($Constants::DOM_NAMESPACE_DECLARATIONS);
 	if (this->fSkippedElemStack != nullptr) {
-		$nc(this->fSkippedElemStack)->removeAllElements();
+		this->fSkippedElemStack->removeAllElements();
 	}
 	this->fRejectedElementDepth = 0;
 	this->fFilterReject = false;
@@ -399,118 +309,96 @@ void DOMParserImpl::setFilter($LSParserFilter* filter) {
 }
 
 void DOMParserImpl::setParameter($String* name, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Boolean, value)) {
-		bool state = $nc(($cast($Boolean, value)))->booleanValue();
+		bool state = $cast($Boolean, value)->booleanValue();
 		try {
 			$init($Constants);
 			if ($nc(name)->equalsIgnoreCase($Constants::DOM_COMMENTS)) {
 				$init($AbstractDOMParser);
 				$nc(this->fConfiguration)->setFeature($AbstractDOMParser::INCLUDE_COMMENTS_FEATURE, state);
+			} else if (name->equalsIgnoreCase($Constants::DOM_DATATYPE_NORMALIZATION)) {
+				$nc(this->fConfiguration)->setFeature(DOMParserImpl::NORMALIZE_DATA, state);
+			} else if (name->equalsIgnoreCase($Constants::DOM_ENTITIES)) {
+				$init($AbstractDOMParser);
+				$nc(this->fConfiguration)->setFeature($AbstractDOMParser::CREATE_ENTITY_REF_NODES, state);
+			} else if (name->equalsIgnoreCase($Constants::DOM_DISALLOW_DOCTYPE)) {
+				$nc(this->fConfiguration)->setFeature(DOMParserImpl::DISALLOW_DOCTYPE_DECL_FEATURE, state);
 			} else {
-				if (name->equalsIgnoreCase($Constants::DOM_DATATYPE_NORMALIZATION)) {
-					$nc(this->fConfiguration)->setFeature(DOMParserImpl::NORMALIZE_DATA, state);
-				} else {
-					if (name->equalsIgnoreCase($Constants::DOM_ENTITIES)) {
+				bool var$2 = name->equalsIgnoreCase($Constants::DOM_SUPPORTED_MEDIATYPES_ONLY);
+				bool var$1 = var$2 || name->equalsIgnoreCase($Constants::DOM_NORMALIZE_CHARACTERS);
+				bool var$0 = var$1 || name->equalsIgnoreCase($Constants::DOM_CHECK_CHAR_NORMALIZATION);
+				if (var$0 || name->equalsIgnoreCase($Constants::DOM_CANONICAL_FORM)) {
+					if (state) {
+						$init($DOMMessageFormatter);
+						$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "FEATURE_NOT_SUPPORTED"_s, $$new($ObjectArray, {name})));
+						$throwNew($DOMException, $DOMException::NOT_SUPPORTED_ERR, msg);
+					}
+				} else if (name->equalsIgnoreCase($Constants::DOM_NAMESPACES)) {
+					$nc(this->fConfiguration)->setFeature(DOMParserImpl::NAMESPACES, state);
+				} else if (name->equalsIgnoreCase($Constants::DOM_INFOSET)) {
+					if (state) {
+						$nc(this->fConfiguration)->setFeature(DOMParserImpl::NAMESPACES, true);
+						$nc(this->fConfiguration)->setFeature($Constants::DOM_NAMESPACE_DECLARATIONS, true);
 						$init($AbstractDOMParser);
-						$nc(this->fConfiguration)->setFeature($AbstractDOMParser::CREATE_ENTITY_REF_NODES, state);
-					} else {
-						if (name->equalsIgnoreCase($Constants::DOM_DISALLOW_DOCTYPE)) {
-							$nc(this->fConfiguration)->setFeature(DOMParserImpl::DISALLOW_DOCTYPE_DECL_FEATURE, state);
-						} else {
-							bool var$5 = name->equalsIgnoreCase($Constants::DOM_SUPPORTED_MEDIATYPES_ONLY);
-							bool var$4 = var$5 || name->equalsIgnoreCase($Constants::DOM_NORMALIZE_CHARACTERS);
-							bool var$3 = var$4 || name->equalsIgnoreCase($Constants::DOM_CHECK_CHAR_NORMALIZATION);
-							if (var$3 || name->equalsIgnoreCase($Constants::DOM_CANONICAL_FORM)) {
-								if (state) {
-									$init($DOMMessageFormatter);
-									$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "FEATURE_NOT_SUPPORTED"_s, $$new($ObjectArray, {$of(name)})));
-									$throwNew($DOMException, $DOMException::NOT_SUPPORTED_ERR, msg);
-								}
-							} else {
-								if (name->equalsIgnoreCase($Constants::DOM_NAMESPACES)) {
-									$nc(this->fConfiguration)->setFeature(DOMParserImpl::NAMESPACES, state);
-								} else {
-									if (name->equalsIgnoreCase($Constants::DOM_INFOSET)) {
-										if (state) {
-											$nc(this->fConfiguration)->setFeature(DOMParserImpl::NAMESPACES, true);
-											$nc(this->fConfiguration)->setFeature($Constants::DOM_NAMESPACE_DECLARATIONS, true);
-											$init($AbstractDOMParser);
-											$nc(this->fConfiguration)->setFeature($AbstractDOMParser::INCLUDE_COMMENTS_FEATURE, true);
-											$nc(this->fConfiguration)->setFeature($AbstractDOMParser::INCLUDE_IGNORABLE_WHITESPACE, true);
-											$nc(this->fConfiguration)->setFeature(DOMParserImpl::DYNAMIC_VALIDATION, false);
-											$nc(this->fConfiguration)->setFeature($AbstractDOMParser::CREATE_ENTITY_REF_NODES, false);
-											$nc(this->fConfiguration)->setFeature(DOMParserImpl::NORMALIZE_DATA, false);
-											$nc(this->fConfiguration)->setFeature($AbstractDOMParser::CREATE_CDATA_NODES_FEATURE, false);
-										}
-									} else {
-										if (name->equalsIgnoreCase($Constants::DOM_CDATA_SECTIONS)) {
-											$init($AbstractDOMParser);
-											$nc(this->fConfiguration)->setFeature($AbstractDOMParser::CREATE_CDATA_NODES_FEATURE, state);
-										} else {
-											if (name->equalsIgnoreCase($Constants::DOM_NAMESPACE_DECLARATIONS)) {
-												$nc(this->fConfiguration)->setFeature($Constants::DOM_NAMESPACE_DECLARATIONS, state);
-											} else {
-												bool var$7 = name->equalsIgnoreCase($Constants::DOM_WELLFORMED);
-												if (var$7 || name->equalsIgnoreCase($Constants::DOM_IGNORE_UNKNOWN_CHARACTER_DENORMALIZATIONS)) {
-													if (!state) {
-														$init($DOMMessageFormatter);
-														$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "FEATURE_NOT_SUPPORTED"_s, $$new($ObjectArray, {$of(name)})));
-														$throwNew($DOMException, $DOMException::NOT_SUPPORTED_ERR, msg);
-													}
-												} else {
-													if (name->equalsIgnoreCase($Constants::DOM_VALIDATE)) {
-														$nc(this->fConfiguration)->setFeature(DOMParserImpl::VALIDATION_FEATURE, state);
-														if (this->fSchemaType != $Constants::NS_DTD) {
-															$nc(this->fConfiguration)->setFeature(DOMParserImpl::XMLSCHEMA, state);
-															$nc(this->fConfiguration)->setFeature(DOMParserImpl::XMLSCHEMA_FULL_CHECKING, state);
-														}
-														if (state) {
-															$nc(this->fConfiguration)->setFeature(DOMParserImpl::DYNAMIC_VALIDATION, false);
-														}
-													} else {
-														if (name->equalsIgnoreCase($Constants::DOM_VALIDATE_IF_SCHEMA)) {
-															$nc(this->fConfiguration)->setFeature(DOMParserImpl::DYNAMIC_VALIDATION, state);
-															if (state) {
-																$nc(this->fConfiguration)->setFeature(DOMParserImpl::VALIDATION_FEATURE, false);
-															}
-														} else {
-															if (name->equalsIgnoreCase($Constants::DOM_ELEMENT_CONTENT_WHITESPACE)) {
-																$init($AbstractDOMParser);
-																$nc(this->fConfiguration)->setFeature($AbstractDOMParser::INCLUDE_IGNORABLE_WHITESPACE, state);
-															} else {
-																if (name->equalsIgnoreCase($Constants::DOM_PSVI)) {
-																	$nc(this->fConfiguration)->setFeature(DOMParserImpl::PSVI_AUGMENT, true);
-																	$init($AbstractDOMParser);
-																	$nc(this->fConfiguration)->setProperty($AbstractDOMParser::DOCUMENT_CLASS_NAME, "com.sun.org.apache.xerces.internal.dom.PSVIDocumentImpl"_s);
-																} else {
-																	$var($String, normalizedName, nullptr);
-																	if (name->equals(DOMParserImpl::NAMESPACE_GROWTH)) {
-																		$assign(normalizedName, DOMParserImpl::NAMESPACE_GROWTH);
-																	} else if (name->equals(DOMParserImpl::TOLERATE_DUPLICATES)) {
-																		$assign(normalizedName, DOMParserImpl::TOLERATE_DUPLICATES);
-																	} else {
-																		$init($Locale);
-																		$assign(normalizedName, name->toLowerCase($Locale::ENGLISH));
-																	}
-																	$nc(this->fConfiguration)->setFeature(normalizedName, state);
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
+						$nc(this->fConfiguration)->setFeature($AbstractDOMParser::INCLUDE_COMMENTS_FEATURE, true);
+						$nc(this->fConfiguration)->setFeature($AbstractDOMParser::INCLUDE_IGNORABLE_WHITESPACE, true);
+						$nc(this->fConfiguration)->setFeature(DOMParserImpl::DYNAMIC_VALIDATION, false);
+						$nc(this->fConfiguration)->setFeature($AbstractDOMParser::CREATE_ENTITY_REF_NODES, false);
+						$nc(this->fConfiguration)->setFeature(DOMParserImpl::NORMALIZE_DATA, false);
+						$nc(this->fConfiguration)->setFeature($AbstractDOMParser::CREATE_CDATA_NODES_FEATURE, false);
+					}
+				} else if (name->equalsIgnoreCase($Constants::DOM_CDATA_SECTIONS)) {
+					$init($AbstractDOMParser);
+					$nc(this->fConfiguration)->setFeature($AbstractDOMParser::CREATE_CDATA_NODES_FEATURE, state);
+				} else if (name->equalsIgnoreCase($Constants::DOM_NAMESPACE_DECLARATIONS)) {
+					$nc(this->fConfiguration)->setFeature($Constants::DOM_NAMESPACE_DECLARATIONS, state);
+				} else {
+					bool var$3 = name->equalsIgnoreCase($Constants::DOM_WELLFORMED);
+					if (var$3 || name->equalsIgnoreCase($Constants::DOM_IGNORE_UNKNOWN_CHARACTER_DENORMALIZATIONS)) {
+						if (!state) {
+							$init($DOMMessageFormatter);
+							$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "FEATURE_NOT_SUPPORTED"_s, $$new($ObjectArray, {name})));
+							$throwNew($DOMException, $DOMException::NOT_SUPPORTED_ERR, msg);
 						}
+					} else if (name->equalsIgnoreCase($Constants::DOM_VALIDATE)) {
+						$nc(this->fConfiguration)->setFeature(DOMParserImpl::VALIDATION_FEATURE, state);
+						if (this->fSchemaType != $Constants::NS_DTD) {
+							$nc(this->fConfiguration)->setFeature(DOMParserImpl::XMLSCHEMA, state);
+							$nc(this->fConfiguration)->setFeature(DOMParserImpl::XMLSCHEMA_FULL_CHECKING, state);
+						}
+						if (state) {
+							$nc(this->fConfiguration)->setFeature(DOMParserImpl::DYNAMIC_VALIDATION, false);
+						}
+					} else if (name->equalsIgnoreCase($Constants::DOM_VALIDATE_IF_SCHEMA)) {
+						$nc(this->fConfiguration)->setFeature(DOMParserImpl::DYNAMIC_VALIDATION, state);
+						if (state) {
+							$nc(this->fConfiguration)->setFeature(DOMParserImpl::VALIDATION_FEATURE, false);
+						}
+					} else if (name->equalsIgnoreCase($Constants::DOM_ELEMENT_CONTENT_WHITESPACE)) {
+						$init($AbstractDOMParser);
+						$nc(this->fConfiguration)->setFeature($AbstractDOMParser::INCLUDE_IGNORABLE_WHITESPACE, state);
+					} else if (name->equalsIgnoreCase($Constants::DOM_PSVI)) {
+						$nc(this->fConfiguration)->setFeature(DOMParserImpl::PSVI_AUGMENT, true);
+						$init($AbstractDOMParser);
+						$nc(this->fConfiguration)->setProperty($AbstractDOMParser::DOCUMENT_CLASS_NAME, "com.sun.org.apache.xerces.internal.dom.PSVIDocumentImpl"_s);
+					} else {
+						$var($String, normalizedName, nullptr);
+						if (name->equals(DOMParserImpl::NAMESPACE_GROWTH)) {
+							$assign(normalizedName, DOMParserImpl::NAMESPACE_GROWTH);
+						} else if (name->equals(DOMParserImpl::TOLERATE_DUPLICATES)) {
+							$assign(normalizedName, DOMParserImpl::TOLERATE_DUPLICATES);
+						} else {
+							$init($Locale);
+							$assign(normalizedName, name->toLowerCase($Locale::ENGLISH));
+						}
+						$nc(this->fConfiguration)->setFeature(normalizedName, state);
 					}
 				}
 			}
 		} catch ($XMLConfigurationException& e) {
 			$init($DOMMessageFormatter);
-			$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "FEATURE_NOT_FOUND"_s, $$new($ObjectArray, {$of(name)})));
+			$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "FEATURE_NOT_FOUND"_s, $$new($ObjectArray, {name})));
 			$throwNew($DOMException, $DOMException::NOT_FOUND_ERR, msg);
 		}
 	} else {
@@ -525,250 +413,201 @@ void DOMParserImpl::setParameter($String* name, Object$* value) {
 				}
 			} else {
 				$init($DOMMessageFormatter);
-				$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "TYPE_MISMATCH_ERR"_s, $$new($ObjectArray, {$of(name)})));
+				$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "TYPE_MISMATCH_ERR"_s, $$new($ObjectArray, {name})));
+				$throwNew($DOMException, $DOMException::TYPE_MISMATCH_ERR, msg);
+			}
+		} else if (name->equalsIgnoreCase($Constants::DOM_RESOURCE_RESOLVER)) {
+			if ($instanceOf($LSResourceResolver, value) || value == nullptr) {
+				try {
+					$init($XMLParser);
+					$nc(this->fConfiguration)->setProperty($XMLParser::ENTITY_RESOLVER, $$new($DOMEntityResolverWrapper, $cast($LSResourceResolver, value)));
+				} catch ($XMLConfigurationException& e) {
+				}
+			} else {
+				$init($DOMMessageFormatter);
+				$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "TYPE_MISMATCH_ERR"_s, $$new($ObjectArray, {name})));
+				$throwNew($DOMException, $DOMException::TYPE_MISMATCH_ERR, msg);
+			}
+		} else if (name->equalsIgnoreCase($Constants::DOM_SCHEMA_LOCATION)) {
+			if ($instanceOf($String, value) || value == nullptr) {
+				try {
+					if (value == nullptr) {
+						$set(this, fSchemaLocation, nullptr);
+						$nc(this->fConfiguration)->setProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_SOURCE}), nullptr);
+					} else {
+						$set(this, fSchemaLocation, $cast($String, value));
+						$var($StringTokenizer, t, $new($StringTokenizer, this->fSchemaLocation, " \n\t\r"_s));
+						if (t->hasMoreTokens()) {
+							$var($List, locations, $new($ArrayList));
+							locations->add($(t->nextToken()));
+							while (t->hasMoreTokens()) {
+								locations->add($(t->nextToken()));
+							}
+							$nc(this->fConfiguration)->setProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_SOURCE}), $(locations->toArray()));
+						} else {
+							$nc(this->fConfiguration)->setProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_SOURCE}), value);
+						}
+					}
+				} catch ($XMLConfigurationException& e) {
+				}
+			} else {
+				$init($DOMMessageFormatter);
+				$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "TYPE_MISMATCH_ERR"_s, $$new($ObjectArray, {name})));
+				$throwNew($DOMException, $DOMException::TYPE_MISMATCH_ERR, msg);
+			}
+		} else if (name->equalsIgnoreCase($Constants::DOM_SCHEMA_TYPE)) {
+			if ($instanceOf($String, value) || value == nullptr) {
+				try {
+					if (value == nullptr) {
+						$nc(this->fConfiguration)->setFeature(DOMParserImpl::XMLSCHEMA, false);
+						$nc(this->fConfiguration)->setFeature(DOMParserImpl::XMLSCHEMA_FULL_CHECKING, false);
+						$nc(this->fConfiguration)->setProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_LANGUAGE}), nullptr);
+						$set(this, fSchemaType, nullptr);
+					} else if ($of(value)->equals($Constants::NS_XMLSCHEMA)) {
+						$nc(this->fConfiguration)->setFeature(DOMParserImpl::XMLSCHEMA, true);
+						$nc(this->fConfiguration)->setFeature(DOMParserImpl::XMLSCHEMA_FULL_CHECKING, true);
+						$nc(this->fConfiguration)->setProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_LANGUAGE}), $Constants::NS_XMLSCHEMA);
+						$set(this, fSchemaType, $Constants::NS_XMLSCHEMA);
+					} else if ($of(value)->equals($Constants::NS_DTD)) {
+						$nc(this->fConfiguration)->setFeature(DOMParserImpl::XMLSCHEMA, false);
+						$nc(this->fConfiguration)->setFeature(DOMParserImpl::XMLSCHEMA_FULL_CHECKING, false);
+						$nc(this->fConfiguration)->setProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_LANGUAGE}), $Constants::NS_DTD);
+						$set(this, fSchemaType, $Constants::NS_DTD);
+					}
+				} catch ($XMLConfigurationException& e) {
+				}
+			} else {
+				$init($DOMMessageFormatter);
+				$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "TYPE_MISMATCH_ERR"_s, $$new($ObjectArray, {name})));
 				$throwNew($DOMException, $DOMException::TYPE_MISMATCH_ERR, msg);
 			}
 		} else {
-			if (name->equalsIgnoreCase($Constants::DOM_RESOURCE_RESOLVER)) {
-				if ($instanceOf($LSResourceResolver, value) || value == nullptr) {
-					try {
-						$init($XMLParser);
-						$nc(this->fConfiguration)->setProperty($XMLParser::ENTITY_RESOLVER, $$new($DOMEntityResolverWrapper, $cast($LSResourceResolver, value)));
-					} catch ($XMLConfigurationException& e) {
-					}
-				} else {
-					$init($DOMMessageFormatter);
-					$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "TYPE_MISMATCH_ERR"_s, $$new($ObjectArray, {$of(name)})));
-					$throwNew($DOMException, $DOMException::TYPE_MISMATCH_ERR, msg);
-				}
+			$init($AbstractDOMParser);
+			if (name->equalsIgnoreCase($AbstractDOMParser::DOCUMENT_CLASS_NAME)) {
+				$nc(this->fConfiguration)->setProperty($AbstractDOMParser::DOCUMENT_CLASS_NAME, value);
 			} else {
-				if (name->equalsIgnoreCase($Constants::DOM_SCHEMA_LOCATION)) {
-					if ($instanceOf($String, value) || value == nullptr) {
-						try {
-							if (value == nullptr) {
-								$set(this, fSchemaLocation, nullptr);
-								$nc(this->fConfiguration)->setProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_SOURCE}), nullptr);
-							} else {
-								$set(this, fSchemaLocation, $cast($String, value));
-								$var($StringTokenizer, t, $new($StringTokenizer, this->fSchemaLocation, " \n\t\r"_s));
-								if (t->hasMoreTokens()) {
-									$var($List, locations, $new($ArrayList));
-									locations->add($(t->nextToken()));
-									while (t->hasMoreTokens()) {
-										locations->add($(t->nextToken()));
-									}
-									$nc(this->fConfiguration)->setProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_SOURCE}), $(locations->toArray()));
-								} else {
-									$nc(this->fConfiguration)->setProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_SOURCE}), value);
-								}
-							}
-						} catch ($XMLConfigurationException& e) {
-						}
-					} else {
-						$init($DOMMessageFormatter);
-						$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "TYPE_MISMATCH_ERR"_s, $$new($ObjectArray, {$of(name)})));
-						$throwNew($DOMException, $DOMException::TYPE_MISMATCH_ERR, msg);
-					}
-				} else {
-					if (name->equalsIgnoreCase($Constants::DOM_SCHEMA_TYPE)) {
-						if ($instanceOf($String, value) || value == nullptr) {
-							try {
-								if (value == nullptr) {
-									$nc(this->fConfiguration)->setFeature(DOMParserImpl::XMLSCHEMA, false);
-									$nc(this->fConfiguration)->setFeature(DOMParserImpl::XMLSCHEMA_FULL_CHECKING, false);
-									$nc(this->fConfiguration)->setProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_LANGUAGE}), nullptr);
-									$set(this, fSchemaType, nullptr);
-								} else {
-									if ($nc($of(value))->equals($Constants::NS_XMLSCHEMA)) {
-										$nc(this->fConfiguration)->setFeature(DOMParserImpl::XMLSCHEMA, true);
-										$nc(this->fConfiguration)->setFeature(DOMParserImpl::XMLSCHEMA_FULL_CHECKING, true);
-										$nc(this->fConfiguration)->setProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_LANGUAGE}), $Constants::NS_XMLSCHEMA);
-										$set(this, fSchemaType, $Constants::NS_XMLSCHEMA);
-									} else {
-										if ($of(value)->equals($Constants::NS_DTD)) {
-											$nc(this->fConfiguration)->setFeature(DOMParserImpl::XMLSCHEMA, false);
-											$nc(this->fConfiguration)->setFeature(DOMParserImpl::XMLSCHEMA_FULL_CHECKING, false);
-											$nc(this->fConfiguration)->setProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_LANGUAGE}), $Constants::NS_DTD);
-											$set(this, fSchemaType, $Constants::NS_DTD);
-										}
-									}
-								}
-							} catch ($XMLConfigurationException& e) {
-							}
-						} else {
-							$init($DOMMessageFormatter);
-							$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "TYPE_MISMATCH_ERR"_s, $$new($ObjectArray, {$of(name)})));
-							$throwNew($DOMException, $DOMException::TYPE_MISMATCH_ERR, msg);
-						}
-					} else {
-						$init($AbstractDOMParser);
-						if (name->equalsIgnoreCase($AbstractDOMParser::DOCUMENT_CLASS_NAME)) {
-							$nc(this->fConfiguration)->setProperty($AbstractDOMParser::DOCUMENT_CLASS_NAME, value);
-						} else {
-							$init($Locale);
-							$var($String, normalizedName, name->toLowerCase($Locale::ENGLISH));
-							try {
-								$nc(this->fConfiguration)->setProperty(normalizedName, value);
-								return;
-							} catch ($XMLConfigurationException& e) {
-							}
-							try {
-								if (name->equals(DOMParserImpl::NAMESPACE_GROWTH)) {
-									$assign(normalizedName, DOMParserImpl::NAMESPACE_GROWTH);
-								} else if (name->equals(DOMParserImpl::TOLERATE_DUPLICATES)) {
-									$assign(normalizedName, DOMParserImpl::TOLERATE_DUPLICATES);
-								}
-								$nc(this->fConfiguration)->getFeature(normalizedName);
-								$throw($(newTypeMismatchError(name)));
-							} catch ($XMLConfigurationException& e) {
-							}
-							$throw($(newFeatureNotFoundError(name)));
-						}
-					}
+				$init($Locale);
+				$var($String, normalizedName, name->toLowerCase($Locale::ENGLISH));
+				try {
+					$nc(this->fConfiguration)->setProperty(normalizedName, value);
+					return;
+				} catch ($XMLConfigurationException& e) {
 				}
+				try {
+					if (name->equals(DOMParserImpl::NAMESPACE_GROWTH)) {
+						$assign(normalizedName, DOMParserImpl::NAMESPACE_GROWTH);
+					} else if (name->equals(DOMParserImpl::TOLERATE_DUPLICATES)) {
+						$assign(normalizedName, DOMParserImpl::TOLERATE_DUPLICATES);
+					}
+					$nc(this->fConfiguration)->getFeature(normalizedName);
+					$throw($(newTypeMismatchError(name)));
+				} catch ($XMLConfigurationException& e) {
+				}
+				$throw($(newFeatureNotFoundError(name)));
 			}
 		}
 	}
 }
 
 $Object* DOMParserImpl::getParameter($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
 	if ($nc(name)->equalsIgnoreCase($Constants::DOM_COMMENTS)) {
 		$init($AbstractDOMParser);
-		$init($Boolean);
 		return $of(($nc(this->fConfiguration)->getFeature($AbstractDOMParser::INCLUDE_COMMENTS_FEATURE)) ? $Boolean::TRUE : $Boolean::FALSE);
+	} else if (name->equalsIgnoreCase($Constants::DOM_DATATYPE_NORMALIZATION)) {
+		return $of(($nc(this->fConfiguration)->getFeature(DOMParserImpl::NORMALIZE_DATA)) ? $Boolean::TRUE : $Boolean::FALSE);
+	} else if (name->equalsIgnoreCase($Constants::DOM_ENTITIES)) {
+		$init($AbstractDOMParser);
+		return $of(($nc(this->fConfiguration)->getFeature($AbstractDOMParser::CREATE_ENTITY_REF_NODES)) ? $Boolean::TRUE : $Boolean::FALSE);
+	} else if (name->equalsIgnoreCase($Constants::DOM_NAMESPACES)) {
+		return $of(($nc(this->fConfiguration)->getFeature(DOMParserImpl::NAMESPACES)) ? $Boolean::TRUE : $Boolean::FALSE);
+	} else if (name->equalsIgnoreCase($Constants::DOM_VALIDATE)) {
+		return $of(($nc(this->fConfiguration)->getFeature(DOMParserImpl::VALIDATION_FEATURE)) ? $Boolean::TRUE : $Boolean::FALSE);
+	} else if (name->equalsIgnoreCase($Constants::DOM_VALIDATE_IF_SCHEMA)) {
+		return $of(($nc(this->fConfiguration)->getFeature(DOMParserImpl::DYNAMIC_VALIDATION)) ? $Boolean::TRUE : $Boolean::FALSE);
+	} else if (name->equalsIgnoreCase($Constants::DOM_ELEMENT_CONTENT_WHITESPACE)) {
+		$init($AbstractDOMParser);
+		return $of(($nc(this->fConfiguration)->getFeature($AbstractDOMParser::INCLUDE_IGNORABLE_WHITESPACE)) ? $Boolean::TRUE : $Boolean::FALSE);
+	} else if (name->equalsIgnoreCase($Constants::DOM_DISALLOW_DOCTYPE)) {
+		return $of(($nc(this->fConfiguration)->getFeature(DOMParserImpl::DISALLOW_DOCTYPE_DECL_FEATURE)) ? $Boolean::TRUE : $Boolean::FALSE);
+	} else if (name->equalsIgnoreCase($Constants::DOM_INFOSET)) {
+		bool var$6 = $nc(this->fConfiguration)->getFeature(DOMParserImpl::NAMESPACES);
+		bool var$5 = var$6 && this->fConfiguration->getFeature($Constants::DOM_NAMESPACE_DECLARATIONS);
+		$init($AbstractDOMParser);
+		bool var$4 = var$5 && this->fConfiguration->getFeature($AbstractDOMParser::INCLUDE_COMMENTS_FEATURE);
+		bool var$3 = var$4 && this->fConfiguration->getFeature($AbstractDOMParser::INCLUDE_IGNORABLE_WHITESPACE);
+		bool var$2 = var$3 && !this->fConfiguration->getFeature(DOMParserImpl::DYNAMIC_VALIDATION);
+		bool var$1 = var$2 && !this->fConfiguration->getFeature($AbstractDOMParser::CREATE_ENTITY_REF_NODES);
+		bool var$0 = var$1 && !this->fConfiguration->getFeature(DOMParserImpl::NORMALIZE_DATA);
+		bool infoset = var$0 && !this->fConfiguration->getFeature($AbstractDOMParser::CREATE_CDATA_NODES_FEATURE);
+		return $of((infoset) ? $Boolean::TRUE : $Boolean::FALSE);
+	} else if (name->equalsIgnoreCase($Constants::DOM_CDATA_SECTIONS)) {
+		$init($AbstractDOMParser);
+		return $of(($nc(this->fConfiguration)->getFeature($AbstractDOMParser::CREATE_CDATA_NODES_FEATURE)) ? $Boolean::TRUE : $Boolean::FALSE);
 	} else {
-		if (name->equalsIgnoreCase($Constants::DOM_DATATYPE_NORMALIZATION)) {
-			$init($Boolean);
-			return $of(($nc(this->fConfiguration)->getFeature(DOMParserImpl::NORMALIZE_DATA)) ? $Boolean::TRUE : $Boolean::FALSE);
+		bool var$7 = name->equalsIgnoreCase($Constants::DOM_CHECK_CHAR_NORMALIZATION);
+		if (var$7 || name->equalsIgnoreCase($Constants::DOM_NORMALIZE_CHARACTERS)) {
+			return $of($Boolean::FALSE);
 		} else {
-			if (name->equalsIgnoreCase($Constants::DOM_ENTITIES)) {
-				$init($AbstractDOMParser);
-				$init($Boolean);
-				return $of(($nc(this->fConfiguration)->getFeature($AbstractDOMParser::CREATE_ENTITY_REF_NODES)) ? $Boolean::TRUE : $Boolean::FALSE);
-			} else {
-				if (name->equalsIgnoreCase($Constants::DOM_NAMESPACES)) {
-					$init($Boolean);
-					return $of(($nc(this->fConfiguration)->getFeature(DOMParserImpl::NAMESPACES)) ? $Boolean::TRUE : $Boolean::FALSE);
-				} else {
-					if (name->equalsIgnoreCase($Constants::DOM_VALIDATE)) {
-						$init($Boolean);
-						return $of(($nc(this->fConfiguration)->getFeature(DOMParserImpl::VALIDATION_FEATURE)) ? $Boolean::TRUE : $Boolean::FALSE);
-					} else {
-						if (name->equalsIgnoreCase($Constants::DOM_VALIDATE_IF_SCHEMA)) {
-							$init($Boolean);
-							return $of(($nc(this->fConfiguration)->getFeature(DOMParserImpl::DYNAMIC_VALIDATION)) ? $Boolean::TRUE : $Boolean::FALSE);
-						} else {
-							if (name->equalsIgnoreCase($Constants::DOM_ELEMENT_CONTENT_WHITESPACE)) {
-								$init($AbstractDOMParser);
-								$init($Boolean);
-								return $of(($nc(this->fConfiguration)->getFeature($AbstractDOMParser::INCLUDE_IGNORABLE_WHITESPACE)) ? $Boolean::TRUE : $Boolean::FALSE);
-							} else {
-								if (name->equalsIgnoreCase($Constants::DOM_DISALLOW_DOCTYPE)) {
-									$init($Boolean);
-									return $of(($nc(this->fConfiguration)->getFeature(DOMParserImpl::DISALLOW_DOCTYPE_DECL_FEATURE)) ? $Boolean::TRUE : $Boolean::FALSE);
-								} else {
-									if (name->equalsIgnoreCase($Constants::DOM_INFOSET)) {
-										bool var$6 = $nc(this->fConfiguration)->getFeature(DOMParserImpl::NAMESPACES);
-										bool var$5 = var$6 && $nc(this->fConfiguration)->getFeature($Constants::DOM_NAMESPACE_DECLARATIONS);
-										$init($AbstractDOMParser);
-										bool var$4 = var$5 && $nc(this->fConfiguration)->getFeature($AbstractDOMParser::INCLUDE_COMMENTS_FEATURE);
-										bool var$3 = var$4 && $nc(this->fConfiguration)->getFeature($AbstractDOMParser::INCLUDE_IGNORABLE_WHITESPACE);
-										bool var$2 = var$3 && !$nc(this->fConfiguration)->getFeature(DOMParserImpl::DYNAMIC_VALIDATION);
-										bool var$1 = var$2 && !$nc(this->fConfiguration)->getFeature($AbstractDOMParser::CREATE_ENTITY_REF_NODES);
-										bool var$0 = var$1 && !$nc(this->fConfiguration)->getFeature(DOMParserImpl::NORMALIZE_DATA);
-										bool infoset = var$0 && !$nc(this->fConfiguration)->getFeature($AbstractDOMParser::CREATE_CDATA_NODES_FEATURE);
-										$init($Boolean);
-										return $of((infoset) ? $Boolean::TRUE : $Boolean::FALSE);
-									} else {
-										if (name->equalsIgnoreCase($Constants::DOM_CDATA_SECTIONS)) {
-											$init($AbstractDOMParser);
-											$init($Boolean);
-											return $of(($nc(this->fConfiguration)->getFeature($AbstractDOMParser::CREATE_CDATA_NODES_FEATURE)) ? $Boolean::TRUE : $Boolean::FALSE);
-										} else {
-											bool var$8 = name->equalsIgnoreCase($Constants::DOM_CHECK_CHAR_NORMALIZATION);
-											if (var$8 || name->equalsIgnoreCase($Constants::DOM_NORMALIZE_CHARACTERS)) {
-												$init($Boolean);
-												return $of($Boolean::FALSE);
-											} else {
-												bool var$20 = name->equalsIgnoreCase($Constants::DOM_NAMESPACE_DECLARATIONS);
-												bool var$19 = var$20 || name->equalsIgnoreCase($Constants::DOM_WELLFORMED);
-												bool var$18 = var$19 || name->equalsIgnoreCase($Constants::DOM_IGNORE_UNKNOWN_CHARACTER_DENORMALIZATIONS);
-												bool var$17 = var$18 || name->equalsIgnoreCase($Constants::DOM_CANONICAL_FORM);
-												bool var$16 = var$17 || name->equalsIgnoreCase($Constants::DOM_SUPPORTED_MEDIATYPES_ONLY);
-												bool var$15 = var$16 || name->equalsIgnoreCase($Constants::DOM_SPLIT_CDATA);
-												if (var$15 || name->equalsIgnoreCase($Constants::DOM_CHARSET_OVERRIDES_XML_ENCODING)) {
-													$init($Locale);
-													$init($Boolean);
-													return $of(($nc(this->fConfiguration)->getFeature($(name->toLowerCase($Locale::ENGLISH)))) ? $Boolean::TRUE : $Boolean::FALSE);
-												} else {
-													if (name->equalsIgnoreCase($Constants::DOM_ERROR_HANDLER)) {
-														if (this->fErrorHandler != nullptr) {
-															return $of($nc(this->fErrorHandler)->getErrorHandler());
-														}
-														return $of(nullptr);
-													} else {
-														if (name->equalsIgnoreCase($Constants::DOM_RESOURCE_RESOLVER)) {
-															try {
-																$init($XMLParser);
-																$var($XMLEntityResolver, entityResolver, $cast($XMLEntityResolver, $nc(this->fConfiguration)->getProperty($XMLParser::ENTITY_RESOLVER)));
-																if (entityResolver != nullptr && $instanceOf($DOMEntityResolverWrapper, entityResolver)) {
-																	return $of($nc(($cast($DOMEntityResolverWrapper, entityResolver)))->getEntityResolver());
-																}
-																return $of(nullptr);
-															} catch ($XMLConfigurationException& e) {
-															}
-														} else {
-															if (name->equalsIgnoreCase($Constants::DOM_SCHEMA_TYPE)) {
-																return $of($nc(this->fConfiguration)->getProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_LANGUAGE})));
-															} else {
-																if (name->equalsIgnoreCase($Constants::DOM_SCHEMA_LOCATION)) {
-																	return $of(this->fSchemaLocation);
-																} else if (name->equalsIgnoreCase(DOMParserImpl::SYMBOL_TABLE)) {
-																	return $of($nc(this->fConfiguration)->getProperty(DOMParserImpl::SYMBOL_TABLE));
-																} else {
-																	$init($AbstractDOMParser);
-																	if (name->equalsIgnoreCase($AbstractDOMParser::DOCUMENT_CLASS_NAME)) {
-																		return $of($nc(this->fConfiguration)->getProperty($AbstractDOMParser::DOCUMENT_CLASS_NAME));
-																	} else {
-																		$var($String, normalizedName, nullptr);
-																		if (name->equals(DOMParserImpl::NAMESPACE_GROWTH)) {
-																			$assign(normalizedName, DOMParserImpl::NAMESPACE_GROWTH);
-																		} else if (name->equals(DOMParserImpl::TOLERATE_DUPLICATES)) {
-																			$assign(normalizedName, DOMParserImpl::TOLERATE_DUPLICATES);
-																		} else {
-																			$init($Locale);
-																			$assign(normalizedName, name->toLowerCase($Locale::ENGLISH));
-																		}
-																		try {
-																			$init($Boolean);
-																			return $of($nc(this->fConfiguration)->getFeature(normalizedName) ? $Boolean::TRUE : $Boolean::FALSE);
-																		} catch ($XMLConfigurationException& e) {
-																		}
-																		try {
-																			return $of($nc(this->fConfiguration)->getProperty(normalizedName));
-																		} catch ($XMLConfigurationException& e) {
-																		}
-																		$throw($(newFeatureNotFoundError(name)));
-																	}
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
+			bool var$13 = name->equalsIgnoreCase($Constants::DOM_NAMESPACE_DECLARATIONS);
+			bool var$12 = var$13 || name->equalsIgnoreCase($Constants::DOM_WELLFORMED);
+			bool var$11 = var$12 || name->equalsIgnoreCase($Constants::DOM_IGNORE_UNKNOWN_CHARACTER_DENORMALIZATIONS);
+			bool var$10 = var$11 || name->equalsIgnoreCase($Constants::DOM_CANONICAL_FORM);
+			bool var$9 = var$10 || name->equalsIgnoreCase($Constants::DOM_SUPPORTED_MEDIATYPES_ONLY);
+			bool var$8 = var$9 || name->equalsIgnoreCase($Constants::DOM_SPLIT_CDATA);
+			if (var$8 || name->equalsIgnoreCase($Constants::DOM_CHARSET_OVERRIDES_XML_ENCODING)) {
+				$init($Locale);
+				return $of(($nc(this->fConfiguration)->getFeature($(name->toLowerCase($Locale::ENGLISH)))) ? $Boolean::TRUE : $Boolean::FALSE);
+			} else if (name->equalsIgnoreCase($Constants::DOM_ERROR_HANDLER)) {
+				if (this->fErrorHandler != nullptr) {
+					return this->fErrorHandler->getErrorHandler();
+				}
+				return nullptr;
+			} else if (name->equalsIgnoreCase($Constants::DOM_RESOURCE_RESOLVER)) {
+				try {
+					$init($XMLParser);
+					$var($XMLEntityResolver, entityResolver, $cast($XMLEntityResolver, $nc(this->fConfiguration)->getProperty($XMLParser::ENTITY_RESOLVER)));
+					if (entityResolver != nullptr && $instanceOf($DOMEntityResolverWrapper, entityResolver)) {
+						return $cast($DOMEntityResolverWrapper, entityResolver)->getEntityResolver();
 					}
+					return nullptr;
+				} catch ($XMLConfigurationException& e) {
+				}
+			} else if (name->equalsIgnoreCase($Constants::DOM_SCHEMA_TYPE)) {
+				return $nc(this->fConfiguration)->getProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_LANGUAGE}));
+			} else if (name->equalsIgnoreCase($Constants::DOM_SCHEMA_LOCATION)) {
+				return $of(this->fSchemaLocation);
+			} else if (name->equalsIgnoreCase(DOMParserImpl::SYMBOL_TABLE)) {
+				return $nc(this->fConfiguration)->getProperty(DOMParserImpl::SYMBOL_TABLE);
+			} else {
+				$init($AbstractDOMParser);
+				if (name->equalsIgnoreCase($AbstractDOMParser::DOCUMENT_CLASS_NAME)) {
+					return $nc(this->fConfiguration)->getProperty($AbstractDOMParser::DOCUMENT_CLASS_NAME);
+				} else {
+					$var($String, normalizedName, nullptr);
+					if (name->equals(DOMParserImpl::NAMESPACE_GROWTH)) {
+						$assign(normalizedName, DOMParserImpl::NAMESPACE_GROWTH);
+					} else if (name->equals(DOMParserImpl::TOLERATE_DUPLICATES)) {
+						$assign(normalizedName, DOMParserImpl::TOLERATE_DUPLICATES);
+					} else {
+						$init($Locale);
+						$assign(normalizedName, name->toLowerCase($Locale::ENGLISH));
+					}
+					try {
+						return $of($nc(this->fConfiguration)->getFeature(normalizedName) ? $Boolean::TRUE : $Boolean::FALSE);
+					} catch ($XMLConfigurationException& e) {
+					}
+					try {
+						return $nc(this->fConfiguration)->getProperty(normalizedName);
+					} catch ($XMLConfigurationException& e) {
+					}
+					$throw($(newFeatureNotFoundError(name)));
 				}
 			}
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 bool DOMParserImpl::canSetParameter($String* name, Object$* value) {
@@ -776,38 +615,38 @@ bool DOMParserImpl::canSetParameter($String* name, Object$* value) {
 		return true;
 	}
 	if ($instanceOf($Boolean, value)) {
-		bool state = $nc(($cast($Boolean, value)))->booleanValue();
+		bool state = $cast($Boolean, value)->booleanValue();
 		$init($Constants);
 		bool var$2 = $nc(name)->equalsIgnoreCase($Constants::DOM_SUPPORTED_MEDIATYPES_ONLY);
-		bool var$1 = var$2 || $nc(name)->equalsIgnoreCase($Constants::DOM_NORMALIZE_CHARACTERS);
-		bool var$0 = var$1 || $nc(name)->equalsIgnoreCase($Constants::DOM_CHECK_CHAR_NORMALIZATION);
-		if (var$0 || $nc(name)->equalsIgnoreCase($Constants::DOM_CANONICAL_FORM)) {
+		bool var$1 = var$2 || name->equalsIgnoreCase($Constants::DOM_NORMALIZE_CHARACTERS);
+		bool var$0 = var$1 || name->equalsIgnoreCase($Constants::DOM_CHECK_CHAR_NORMALIZATION);
+		if (var$0 || name->equalsIgnoreCase($Constants::DOM_CANONICAL_FORM)) {
 			return (state) ? false : true;
 		} else {
-			bool var$4 = name->equalsIgnoreCase($Constants::DOM_WELLFORMED);
-			if (var$4 || name->equalsIgnoreCase($Constants::DOM_IGNORE_UNKNOWN_CHARACTER_DENORMALIZATIONS)) {
+			bool var$3 = name->equalsIgnoreCase($Constants::DOM_WELLFORMED);
+			if (var$3 || name->equalsIgnoreCase($Constants::DOM_IGNORE_UNKNOWN_CHARACTER_DENORMALIZATIONS)) {
 				return (state) ? true : false;
 			} else {
-				bool var$28 = name->equalsIgnoreCase($Constants::DOM_CDATA_SECTIONS);
-				bool var$27 = var$28 || name->equalsIgnoreCase($Constants::DOM_CHARSET_OVERRIDES_XML_ENCODING);
-				bool var$26 = var$27 || name->equalsIgnoreCase($Constants::DOM_COMMENTS);
-				bool var$25 = var$26 || name->equalsIgnoreCase($Constants::DOM_DATATYPE_NORMALIZATION);
-				bool var$24 = var$25 || name->equalsIgnoreCase($Constants::DOM_DISALLOW_DOCTYPE);
-				bool var$23 = var$24 || name->equalsIgnoreCase($Constants::DOM_ENTITIES);
-				bool var$22 = var$23 || name->equalsIgnoreCase($Constants::DOM_INFOSET);
-				bool var$21 = var$22 || name->equalsIgnoreCase($Constants::DOM_NAMESPACES);
-				bool var$20 = var$21 || name->equalsIgnoreCase($Constants::DOM_NAMESPACE_DECLARATIONS);
-				bool var$19 = var$20 || name->equalsIgnoreCase($Constants::DOM_VALIDATE);
-				bool var$18 = var$19 || name->equalsIgnoreCase($Constants::DOM_VALIDATE_IF_SCHEMA);
-				bool var$17 = var$18 || name->equalsIgnoreCase($Constants::DOM_ELEMENT_CONTENT_WHITESPACE);
-				if (var$17 || name->equalsIgnoreCase($Constants::DOM_XMLDECL)) {
+				bool var$15 = name->equalsIgnoreCase($Constants::DOM_CDATA_SECTIONS);
+				bool var$14 = var$15 || name->equalsIgnoreCase($Constants::DOM_CHARSET_OVERRIDES_XML_ENCODING);
+				bool var$13 = var$14 || name->equalsIgnoreCase($Constants::DOM_COMMENTS);
+				bool var$12 = var$13 || name->equalsIgnoreCase($Constants::DOM_DATATYPE_NORMALIZATION);
+				bool var$11 = var$12 || name->equalsIgnoreCase($Constants::DOM_DISALLOW_DOCTYPE);
+				bool var$10 = var$11 || name->equalsIgnoreCase($Constants::DOM_ENTITIES);
+				bool var$9 = var$10 || name->equalsIgnoreCase($Constants::DOM_INFOSET);
+				bool var$8 = var$9 || name->equalsIgnoreCase($Constants::DOM_NAMESPACES);
+				bool var$7 = var$8 || name->equalsIgnoreCase($Constants::DOM_NAMESPACE_DECLARATIONS);
+				bool var$6 = var$7 || name->equalsIgnoreCase($Constants::DOM_VALIDATE);
+				bool var$5 = var$6 || name->equalsIgnoreCase($Constants::DOM_VALIDATE_IF_SCHEMA);
+				bool var$4 = var$5 || name->equalsIgnoreCase($Constants::DOM_ELEMENT_CONTENT_WHITESPACE);
+				if (var$4 || name->equalsIgnoreCase($Constants::DOM_XMLDECL)) {
 					return true;
 				}
 			}
 		}
 		try {
 			$var($String, normalizedName, nullptr);
-			if ($nc(name)->equalsIgnoreCase(DOMParserImpl::NAMESPACE_GROWTH)) {
+			if (name->equalsIgnoreCase(DOMParserImpl::NAMESPACE_GROWTH)) {
 				$assign(normalizedName, DOMParserImpl::NAMESPACE_GROWTH);
 			} else if (name->equalsIgnoreCase(DOMParserImpl::TOLERATE_DUPLICATES)) {
 				$assign(normalizedName, DOMParserImpl::TOLERATE_DUPLICATES);
@@ -827,36 +666,30 @@ bool DOMParserImpl::canSetParameter($String* name, Object$* value) {
 				return true;
 			}
 			return false;
+		} else if (name->equalsIgnoreCase($Constants::DOM_RESOURCE_RESOLVER)) {
+			if ($instanceOf($LSResourceResolver, value) || value == nullptr) {
+				return true;
+			}
+			return false;
+		} else if (name->equalsIgnoreCase($Constants::DOM_SCHEMA_TYPE)) {
+			bool var$16 = $instanceOf($String, value);
+			if (var$16) {
+				bool var$17 = $of(value)->equals($Constants::NS_XMLSCHEMA);
+				var$16 = var$17 || $of(value)->equals($Constants::NS_DTD);
+			}
+			if ((var$16) || value == nullptr) {
+				return true;
+			}
+			return false;
+		} else if (name->equalsIgnoreCase($Constants::DOM_SCHEMA_LOCATION)) {
+			if ($instanceOf($String, value) || value == nullptr) {
+				return true;
+			}
+			return false;
 		} else {
-			if (name->equalsIgnoreCase($Constants::DOM_RESOURCE_RESOLVER)) {
-				if ($instanceOf($LSResourceResolver, value) || value == nullptr) {
-					return true;
-				}
-				return false;
-			} else {
-				if (name->equalsIgnoreCase($Constants::DOM_SCHEMA_TYPE)) {
-					bool var$29 = $instanceOf($String, value);
-					if (var$29) {
-						bool var$30 = $nc($of(value))->equals($Constants::NS_XMLSCHEMA);
-						var$29 = (var$30 || $nc($of(value))->equals($Constants::NS_DTD));
-					}
-					if ((var$29) || value == nullptr) {
-						return true;
-					}
-					return false;
-				} else {
-					if (name->equalsIgnoreCase($Constants::DOM_SCHEMA_LOCATION)) {
-						if ($instanceOf($String, value) || value == nullptr) {
-							return true;
-						}
-						return false;
-					} else {
-						$init($AbstractDOMParser);
-						if (name->equalsIgnoreCase($AbstractDOMParser::DOCUMENT_CLASS_NAME)) {
-							return true;
-						}
-					}
-				}
+			$init($AbstractDOMParser);
+			if (name->equalsIgnoreCase($AbstractDOMParser::DOCUMENT_CLASS_NAME)) {
+				return true;
 			}
 		}
 		return false;
@@ -896,7 +729,7 @@ $DOMStringList* DOMParserImpl::getParameterNames() {
 }
 
 $Document* DOMParserImpl::parseURI($String* uri) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fBusy) {
 		$init($DOMMessageFormatter);
 		$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "INVALID_STATE_ERR"_s, nullptr));
@@ -929,9 +762,10 @@ $Document* DOMParserImpl::parseURI($String* uri) {
 				$set(error, fException, e);
 				$set(error, fMessage, e->getMessage());
 				error->fSeverity = $DOMError::SEVERITY_FATAL_ERROR;
-				$nc($($nc(this->fErrorHandler)->getErrorHandler()))->handleError(error);
+				$$nc(this->fErrorHandler->getErrorHandler())->handleError(error);
 			}
-			$throw($cast($LSException, $($nc($($DOMUtil::createLSException($LSException::PARSE_ERR, e)))->fillInStackTrace())));
+			;
+			$throw($$cast($LSException, $$nc($DOMUtil::createLSException($LSException::PARSE_ERR, e))->fillInStackTrace()));
 		}
 	}
 	$var($Document, doc, getDocument());
@@ -940,7 +774,7 @@ $Document* DOMParserImpl::parseURI($String* uri) {
 }
 
 $Document* DOMParserImpl::parse($LSInput* is) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XMLInputSource, xmlInputSource, dom2xmlInputSource(is));
 	if (this->fBusy) {
 		$init($DOMMessageFormatter);
@@ -973,9 +807,10 @@ $Document* DOMParserImpl::parse($LSInput* is) {
 				$set(error, fException, e);
 				$set(error, fMessage, e->getMessage());
 				error->fSeverity = $DOMError::SEVERITY_FATAL_ERROR;
-				$nc($($nc(this->fErrorHandler)->getErrorHandler()))->handleError(error);
+				$$nc(this->fErrorHandler->getErrorHandler())->handleError(error);
 			}
-			$throw($cast($LSException, $($nc($($DOMUtil::createLSException($LSException::PARSE_ERR, e)))->fillInStackTrace())));
+			;
+			$throw($$cast($LSException, $$nc($DOMUtil::createLSException($LSException::PARSE_ERR, e))->fillInStackTrace()));
 		}
 	}
 	$var($Document, doc, getDocument());
@@ -995,7 +830,7 @@ $Node* DOMParserImpl::parseWithContext($LSInput* is, $Node* cnode, int16_t actio
 }
 
 $XMLInputSource* DOMParserImpl::dom2xmlInputSource($LSInput* is) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XMLInputSource, xis, nullptr);
 	if ($nc(is)->getCharacterStream() != nullptr) {
 		$var($String, var$0, is->getPublicId());
@@ -1009,30 +844,30 @@ $XMLInputSource* DOMParserImpl::dom2xmlInputSource($LSInput* is) {
 		$var($InputStream, var$6, is->getByteStream());
 		$assign(xis, $new($XMLInputSource, var$3, var$4, var$5, var$6, $(is->getEncoding())));
 	} else {
-		bool var$8 = is->getStringData() != nullptr;
-		if (var$8 && $nc($(is->getStringData()))->length() > 0) {
-			$var($String, var$9, is->getPublicId());
-			$var($String, var$10, is->getSystemId());
-			$var($String, var$11, is->getBaseURI());
-			$assign(xis, $new($XMLInputSource, var$9, var$10, var$11, static_cast<$Reader*>($$new($StringReader, $(is->getStringData()))), "UTF-16"_s));
+		bool var$7 = is->getStringData() != nullptr;
+		if (var$7 && $$nc(is->getStringData())->length() > 0) {
+			$var($String, var$8, is->getPublicId());
+			$var($String, var$9, is->getSystemId());
+			$var($String, var$10, is->getBaseURI());
+			$assign(xis, $new($XMLInputSource, var$8, var$9, var$10, $$new($StringReader, $(is->getStringData())), "UTF-16"_s));
 		} else {
-			bool var$16 = is->getSystemId() != nullptr;
-			bool var$15 = (var$16 && $nc($(is->getSystemId()))->length() > 0);
-			if (!var$15) {
-				bool var$17 = is->getPublicId() != nullptr;
-				var$15 = (var$17 && $nc($(is->getPublicId()))->length() > 0);
+			bool var$12 = is->getSystemId() != nullptr;
+			bool var$11 = var$12 && $$nc(is->getSystemId())->length() > 0;
+			if (!var$11) {
+				bool var$13 = is->getPublicId() != nullptr;
+				var$11 = var$13 && $$nc(is->getPublicId())->length() > 0;
 			}
-			if (var$15) {
-				$var($String, var$18, is->getPublicId());
-				$var($String, var$19, is->getSystemId());
-				$assign(xis, $new($XMLInputSource, var$18, var$19, $(is->getBaseURI()), false));
+			if (var$11) {
+				$var($String, var$14, is->getPublicId());
+				$var($String, var$15, is->getSystemId());
+				$assign(xis, $new($XMLInputSource, var$14, var$15, $(is->getBaseURI()), false));
 			} else {
 				if (this->fErrorHandler != nullptr) {
 					$var($DOMErrorImpl, error, $new($DOMErrorImpl));
 					$set(error, fType, "no-input-specified"_s);
 					$set(error, fMessage, "no-input-specified"_s);
 					error->fSeverity = $DOMError::SEVERITY_FATAL_ERROR;
-					$nc($($nc(this->fErrorHandler)->getErrorHandler()))->handleError(error);
+					$$nc(this->fErrorHandler->getErrorHandler())->handleError(error);
 				}
 				$throwNew($LSException, $LSException::PARSE_ERR, "no-input-specified"_s);
 			}
@@ -1086,24 +921,24 @@ void DOMParserImpl::startElement($QName* element, $XMLAttributes* attributes, $A
 
 $DOMException* DOMParserImpl::newFeatureNotFoundError($String* name) {
 	$init(DOMParserImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($DOMMessageFormatter);
-	$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "FEATURE_NOT_FOUND"_s, $$new($ObjectArray, {$of(name)})));
+	$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "FEATURE_NOT_FOUND"_s, $$new($ObjectArray, {name})));
 	return $new($DOMException, $DOMException::NOT_FOUND_ERR, msg);
 }
 
 $DOMException* DOMParserImpl::newTypeMismatchError($String* name) {
 	$init(DOMParserImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($DOMMessageFormatter);
-	$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "TYPE_MISMATCH_ERR"_s, $$new($ObjectArray, {$of(name)})));
+	$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "TYPE_MISMATCH_ERR"_s, $$new($ObjectArray, {name})));
 	return $new($DOMException, $DOMException::TYPE_MISMATCH_ERR, msg);
 }
 
 DOMParserImpl::DOMParserImpl() {
 }
 
-void clinit$DOMParserImpl($Class* class$) {
+void DOMParserImpl::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(DOMParserImpl::NAMESPACES, $str({$Constants::SAX_FEATURE_PREFIX, $Constants::NAMESPACES_FEATURE}));
 	$assignStatic(DOMParserImpl::VALIDATION_FEATURE, $str({$Constants::SAX_FEATURE_PREFIX, $Constants::VALIDATION_FEATURE}));
@@ -1119,7 +954,81 @@ void clinit$DOMParserImpl($Class* class$) {
 }
 
 $Class* DOMParserImpl::load$($String* name, bool initialize) {
-	$loadClass(DOMParserImpl, name, initialize, &_DOMParserImpl_ClassInfo_, clinit$DOMParserImpl, allocate$DOMParserImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"NAMESPACES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParserImpl, NAMESPACES)},
+		{"VALIDATION_FEATURE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParserImpl, VALIDATION_FEATURE)},
+		{"XMLSCHEMA", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParserImpl, XMLSCHEMA)},
+		{"XMLSCHEMA_FULL_CHECKING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParserImpl, XMLSCHEMA_FULL_CHECKING)},
+		{"DYNAMIC_VALIDATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParserImpl, DYNAMIC_VALIDATION)},
+		{"NORMALIZE_DATA", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParserImpl, NORMALIZE_DATA)},
+		{"DISALLOW_DOCTYPE_DECL_FEATURE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParserImpl, DISALLOW_DOCTYPE_DECL_FEATURE)},
+		{"NAMESPACE_GROWTH", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParserImpl, NAMESPACE_GROWTH)},
+		{"TOLERATE_DUPLICATES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParserImpl, TOLERATE_DUPLICATES)},
+		{"SYMBOL_TABLE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParserImpl, SYMBOL_TABLE)},
+		{"PSVI_AUGMENT", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParserImpl, PSVI_AUGMENT)},
+		{"fNamespaceDeclarations", "Z", nullptr, $PROTECTED, $field(DOMParserImpl, fNamespaceDeclarations)},
+		{"fSchemaType", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DOMParserImpl, fSchemaType)},
+		{"fBusy", "Z", nullptr, $PROTECTED, $field(DOMParserImpl, fBusy)},
+		{"abortNow", "Z", nullptr, $PRIVATE, $field(DOMParserImpl, abortNow)},
+		{"currentThread", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(DOMParserImpl, currentThread)},
+		{"DEBUG", "Z", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DOMParserImpl, DEBUG)},
+		{"fSchemaLocation", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DOMParserImpl, fSchemaLocation)},
+		{"fRecognizedParameters", "Lorg/w3c/dom/DOMStringList;", nullptr, $PRIVATE, $field(DOMParserImpl, fRecognizedParameters)},
+		{"abortHandler", "Lcom/sun/org/apache/xerces/internal/parsers/DOMParserImpl$AbortHandler;", nullptr, $PRIVATE, $field(DOMParserImpl, abortHandler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DOMParserImpl, init$, void, $XMLParserConfiguration*, $String*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration;)V", nullptr, $PUBLIC, $method(DOMParserImpl, init$, void, $XMLParserConfiguration*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(DOMParserImpl, init$, void, $SymbolTable*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;)V", nullptr, $PUBLIC, $method(DOMParserImpl, init$, void, $SymbolTable*, $XMLGrammarPool*)},
+		{"abort", "()V", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, abort, void)},
+		{"canSetParameter", "(Ljava/lang/String;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, canSetParameter, bool, $String*, Object$*)},
+		{"dom2xmlInputSource", "(Lorg/w3c/dom/ls/LSInput;)Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;", nullptr, 0, $virtualMethod(DOMParserImpl, dom2xmlInputSource, $XMLInputSource*, $LSInput*)},
+		{"getAsync", "()Z", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, getAsync, bool)},
+		{"getBusy", "()Z", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, getBusy, bool)},
+		{"getDomConfig", "()Lorg/w3c/dom/DOMConfiguration;", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, getDomConfig, $DOMConfiguration*)},
+		{"getFilter", "()Lorg/w3c/dom/ls/LSParserFilter;", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, getFilter, $LSParserFilter*)},
+		{"getParameter", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, getParameter, $Object*, $String*), "org.w3c.dom.DOMException"},
+		{"getParameterNames", "()Lorg/w3c/dom/DOMStringList;", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, getParameterNames, $DOMStringList*)},
+		{"newFeatureNotFoundError", "(Ljava/lang/String;)Lorg/w3c/dom/DOMException;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMParserImpl, newFeatureNotFoundError, $DOMException*, $String*)},
+		{"newTypeMismatchError", "(Ljava/lang/String;)Lorg/w3c/dom/DOMException;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMParserImpl, newTypeMismatchError, $DOMException*, $String*)},
+		{"parse", "(Lorg/w3c/dom/ls/LSInput;)Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, parse, $Document*, $LSInput*), "org.w3c.dom.ls.LSException"},
+		{"parseURI", "(Ljava/lang/String;)Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, parseURI, $Document*, $String*), "org.w3c.dom.ls.LSException"},
+		{"parseWithContext", "(Lorg/w3c/dom/ls/LSInput;Lorg/w3c/dom/Node;S)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, parseWithContext, $Node*, $LSInput*, $Node*, int16_t), "org.w3c.dom.DOMException,org.w3c.dom.ls.LSException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, reset, void)},
+		{"restoreHandlers", "()V", nullptr, $PRIVATE, $method(DOMParserImpl, restoreHandlers, void)},
+		{"setFilter", "(Lorg/w3c/dom/ls/LSParserFilter;)V", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, setFilter, void, $LSParserFilter*)},
+		{"setParameter", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, setParameter, void, $String*, Object$*), "org.w3c.dom.DOMException"},
+		{"startElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(DOMParserImpl, startElement, void, $QName*, $XMLAttributes*, $Augmentations*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.parsers.DOMParserImpl$AbortHandler", "com.sun.org.apache.xerces.internal.parsers.DOMParserImpl", "AbortHandler", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.parsers.DOMParserImpl",
+		"com.sun.org.apache.xerces.internal.parsers.AbstractDOMParser",
+		"org.w3c.dom.ls.LSParser,org.w3c.dom.DOMConfiguration",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.parsers.DOMParserImpl$AbortHandler"
+	};
+	$loadClass(DOMParserImpl, name, initialize, &classInfo$$, DOMParserImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMParserImpl));
+	});
 	return class$;
 }
 

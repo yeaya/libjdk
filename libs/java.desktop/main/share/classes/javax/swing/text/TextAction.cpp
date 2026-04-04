@@ -1,5 +1,4 @@
 #include <javax/swing/text/TextAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <java/util/Enumeration.h>
 #include <java/util/EventObject.h>
@@ -25,27 +24,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _TextAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TextAction, init$, void, $String*)},
-	{"augmentList", "([Ljavax/swing/Action;[Ljavax/swing/Action;)[Ljavax/swing/Action;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(TextAction, augmentList, $ActionArray*, $ActionArray*, $ActionArray*)},
-	{"getFocusedComponent", "()Ljavax/swing/text/JTextComponent;", nullptr, $PROTECTED | $FINAL, $method(TextAction, getFocusedComponent, $JTextComponent*)},
-	{"getTextComponent", "(Ljava/awt/event/ActionEvent;)Ljavax/swing/text/JTextComponent;", nullptr, $PROTECTED | $FINAL, $method(TextAction, getTextComponent, $JTextComponent*, $ActionEvent*)},
-	{}
-};
-
-$ClassInfo _TextAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.text.TextAction",
-	"javax.swing.AbstractAction",
-	nullptr,
-	nullptr,
-	_TextAction_MethodInfo_
-};
-
-$Object* allocate$TextAction($Class* clazz) {
-	return $of($alloc(TextAction));
-}
-
 void TextAction::init$($String* name) {
 	$AbstractAction::init$(name);
 }
@@ -62,16 +40,13 @@ $JTextComponent* TextAction::getTextComponent($ActionEvent* e) {
 
 $ActionArray* TextAction::augmentList($ActionArray* list1, $ActionArray* list2) {
 	$init(TextAction);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Hashtable, h, $new($Hashtable));
 	{
 		$var($ActionArray, arr$, list1);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Action, a, arr$->get(i$));
 			{
-				$init($Action);
 				$var($String, value, $cast($String, $nc(a)->getValue($Action::NAME)));
 				h->put((value != nullptr ? value : ""_s), a);
 			}
@@ -79,12 +54,9 @@ $ActionArray* TextAction::augmentList($ActionArray* list1, $ActionArray* list2) 
 	}
 	{
 		$var($ActionArray, arr$, list2);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Action, a, arr$->get(i$));
 			{
-				$init($Action);
 				$var($String, value, $cast($String, $nc(a)->getValue($Action::NAME)));
 				h->put((value != nullptr ? value : ""_s), a);
 			}
@@ -95,7 +67,7 @@ $ActionArray* TextAction::augmentList($ActionArray* list1, $ActionArray* list2) 
 	{
 		$var($Enumeration, e, h->elements());
 		for (; $nc(e)->hasMoreElements();) {
-			actions->set(index++, $cast($Action, $(e->nextElement())));
+			actions->set(index++, $$cast($Action, e->nextElement()));
 		}
 	}
 	return actions;
@@ -109,7 +81,24 @@ TextAction::TextAction() {
 }
 
 $Class* TextAction::load$($String* name, bool initialize) {
-	$loadClass(TextAction, name, initialize, &_TextAction_ClassInfo_, allocate$TextAction);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TextAction, init$, void, $String*)},
+		{"augmentList", "([Ljavax/swing/Action;[Ljavax/swing/Action;)[Ljavax/swing/Action;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(TextAction, augmentList, $ActionArray*, $ActionArray*, $ActionArray*)},
+		{"getFocusedComponent", "()Ljavax/swing/text/JTextComponent;", nullptr, $PROTECTED | $FINAL, $method(TextAction, getFocusedComponent, $JTextComponent*)},
+		{"getTextComponent", "(Ljava/awt/event/ActionEvent;)Ljavax/swing/text/JTextComponent;", nullptr, $PROTECTED | $FINAL, $method(TextAction, getTextComponent, $JTextComponent*, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.text.TextAction",
+		"javax.swing.AbstractAction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TextAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TextAction));
+	});
 	return class$;
 }
 

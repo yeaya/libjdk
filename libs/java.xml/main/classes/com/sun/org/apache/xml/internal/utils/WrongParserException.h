@@ -18,10 +18,13 @@ class $export WrongParserException : public ::java::lang::RuntimeException {
 public:
 	WrongParserException();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0x59F36BFBF08D7E86;
+	static const int64_t serialVersionUID = (int64_t)0x59f36bfbf08d7e86;
 	WrongParserException(const WrongParserException& e);
 	virtual void throw$() override;
-	inline WrongParserException* operator ->() {
+	inline WrongParserException* operator ->() const {
+		return (WrongParserException*)throwing$;
+	}
+	inline operator WrongParserException*() const {
 		return (WrongParserException*)throwing$;
 	}
 };

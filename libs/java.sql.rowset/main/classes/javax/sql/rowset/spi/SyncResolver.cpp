@@ -1,5 +1,4 @@
 #include <javax/sql/rowset/spi/SyncResolver.h>
-
 #include <jcpp.h>
 
 #undef DELETE_ROW_CONFLICT
@@ -16,40 +15,35 @@ namespace javax {
 		namespace rowset {
 			namespace spi {
 
-$FieldInfo _SyncResolver_FieldInfo_[] = {
-	{"UPDATE_ROW_CONFLICT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SyncResolver, UPDATE_ROW_CONFLICT)},
-	{"DELETE_ROW_CONFLICT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SyncResolver, DELETE_ROW_CONFLICT)},
-	{"INSERT_ROW_CONFLICT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SyncResolver, INSERT_ROW_CONFLICT)},
-	{"NO_ROW_CONFLICT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SyncResolver, NO_ROW_CONFLICT)},
-	{}
-};
-
-$MethodInfo _SyncResolver_MethodInfo_[] = {
-	{"getConflictValue", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncResolver, getConflictValue, $Object*, int32_t), "java.sql.SQLException"},
-	{"getConflictValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncResolver, getConflictValue, $Object*, $String*), "java.sql.SQLException"},
-	{"getStatus", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncResolver, getStatus, int32_t)},
-	{"nextConflict", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncResolver, nextConflict, bool), "java.sql.SQLException"},
-	{"previousConflict", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncResolver, previousConflict, bool), "java.sql.SQLException"},
-	{"setResolvedValue", "(ILjava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncResolver, setResolvedValue, void, int32_t, Object$*), "java.sql.SQLException"},
-	{"setResolvedValue", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncResolver, setResolvedValue, void, $String*, Object$*), "java.sql.SQLException"},
-	{}
-};
-
-$ClassInfo _SyncResolver_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.sql.rowset.spi.SyncResolver",
-	nullptr,
-	"javax.sql.RowSet",
-	_SyncResolver_FieldInfo_,
-	_SyncResolver_MethodInfo_
-};
-
-$Object* allocate$SyncResolver($Class* clazz) {
-	return $of($alloc(SyncResolver));
-}
-
 $Class* SyncResolver::load$($String* name, bool initialize) {
-	$loadClass(SyncResolver, name, initialize, &_SyncResolver_ClassInfo_, allocate$SyncResolver);
+	$FieldInfo fieldInfos$$[] = {
+		{"UPDATE_ROW_CONFLICT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SyncResolver, UPDATE_ROW_CONFLICT)},
+		{"DELETE_ROW_CONFLICT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SyncResolver, DELETE_ROW_CONFLICT)},
+		{"INSERT_ROW_CONFLICT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SyncResolver, INSERT_ROW_CONFLICT)},
+		{"NO_ROW_CONFLICT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SyncResolver, NO_ROW_CONFLICT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"getConflictValue", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncResolver, getConflictValue, $Object*, int32_t), "java.sql.SQLException"},
+		{"getConflictValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncResolver, getConflictValue, $Object*, $String*), "java.sql.SQLException"},
+		{"getStatus", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncResolver, getStatus, int32_t)},
+		{"nextConflict", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncResolver, nextConflict, bool), "java.sql.SQLException"},
+		{"previousConflict", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncResolver, previousConflict, bool), "java.sql.SQLException"},
+		{"setResolvedValue", "(ILjava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncResolver, setResolvedValue, void, int32_t, Object$*), "java.sql.SQLException"},
+		{"setResolvedValue", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncResolver, setResolvedValue, void, $String*, Object$*), "java.sql.SQLException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.sql.rowset.spi.SyncResolver",
+		nullptr,
+		"javax.sql.RowSet",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SyncResolver, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SyncResolver));
+	});
 	return class$;
 }
 

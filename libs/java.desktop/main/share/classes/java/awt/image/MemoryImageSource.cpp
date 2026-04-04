@@ -1,5 +1,4 @@
 #include <java/awt/image/MemoryImageSource.h>
-
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/ImageConsumer.h>
 #include <java/util/Enumeration.h>
@@ -29,58 +28,6 @@ using $Vector = ::java::util::Vector;
 namespace java {
 	namespace awt {
 		namespace image {
-
-$FieldInfo _MemoryImageSource_FieldInfo_[] = {
-	{"width", "I", nullptr, 0, $field(MemoryImageSource, width)},
-	{"height", "I", nullptr, 0, $field(MemoryImageSource, height)},
-	{"model", "Ljava/awt/image/ColorModel;", nullptr, 0, $field(MemoryImageSource, model)},
-	{"pixels", "Ljava/lang/Object;", nullptr, 0, $field(MemoryImageSource, pixels)},
-	{"pixeloffset", "I", nullptr, 0, $field(MemoryImageSource, pixeloffset)},
-	{"pixelscan", "I", nullptr, 0, $field(MemoryImageSource, pixelscan)},
-	{"properties", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<**>;", 0, $field(MemoryImageSource, properties)},
-	{"theConsumers", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/awt/image/ImageConsumer;>;", 0, $field(MemoryImageSource, theConsumers)},
-	{"animating", "Z", nullptr, 0, $field(MemoryImageSource, animating)},
-	{"fullbuffers", "Z", nullptr, 0, $field(MemoryImageSource, fullbuffers)},
-	{}
-};
-
-$MethodInfo _MemoryImageSource_MethodInfo_[] = {
-	{"<init>", "(IILjava/awt/image/ColorModel;[BII)V", nullptr, $PUBLIC, $method(MemoryImageSource, init$, void, int32_t, int32_t, $ColorModel*, $bytes*, int32_t, int32_t)},
-	{"<init>", "(IILjava/awt/image/ColorModel;[BIILjava/util/Hashtable;)V", "(IILjava/awt/image/ColorModel;[BIILjava/util/Hashtable<**>;)V", $PUBLIC, $method(MemoryImageSource, init$, void, int32_t, int32_t, $ColorModel*, $bytes*, int32_t, int32_t, $Hashtable*)},
-	{"<init>", "(IILjava/awt/image/ColorModel;[III)V", nullptr, $PUBLIC, $method(MemoryImageSource, init$, void, int32_t, int32_t, $ColorModel*, $ints*, int32_t, int32_t)},
-	{"<init>", "(IILjava/awt/image/ColorModel;[IIILjava/util/Hashtable;)V", "(IILjava/awt/image/ColorModel;[IIILjava/util/Hashtable<**>;)V", $PUBLIC, $method(MemoryImageSource, init$, void, int32_t, int32_t, $ColorModel*, $ints*, int32_t, int32_t, $Hashtable*)},
-	{"<init>", "(II[III)V", nullptr, $PUBLIC, $method(MemoryImageSource, init$, void, int32_t, int32_t, $ints*, int32_t, int32_t)},
-	{"<init>", "(II[IIILjava/util/Hashtable;)V", "(II[IIILjava/util/Hashtable<**>;)V", $PUBLIC, $method(MemoryImageSource, init$, void, int32_t, int32_t, $ints*, int32_t, int32_t, $Hashtable*)},
-	{"addConsumer", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryImageSource, addConsumer, void, $ImageConsumer*)},
-	{"initConsumer", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PRIVATE, $method(MemoryImageSource, initConsumer, void, $ImageConsumer*)},
-	{"initialize", "(IILjava/awt/image/ColorModel;Ljava/lang/Object;IILjava/util/Hashtable;)V", "(IILjava/awt/image/ColorModel;Ljava/lang/Object;IILjava/util/Hashtable<**>;)V", $PRIVATE, $method(MemoryImageSource, initialize, void, int32_t, int32_t, $ColorModel*, Object$*, int32_t, int32_t, $Hashtable*)},
-	{"isConsumer", "(Ljava/awt/image/ImageConsumer;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryImageSource, isConsumer, bool, $ImageConsumer*)},
-	{"newPixels", "()V", nullptr, $PUBLIC, $virtualMethod(MemoryImageSource, newPixels, void)},
-	{"newPixels", "(IIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryImageSource, newPixels, void, int32_t, int32_t, int32_t, int32_t)},
-	{"newPixels", "(IIIIZ)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryImageSource, newPixels, void, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"newPixels", "([BLjava/awt/image/ColorModel;II)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryImageSource, newPixels, void, $bytes*, $ColorModel*, int32_t, int32_t)},
-	{"newPixels", "([ILjava/awt/image/ColorModel;II)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryImageSource, newPixels, void, $ints*, $ColorModel*, int32_t, int32_t)},
-	{"removeConsumer", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryImageSource, removeConsumer, void, $ImageConsumer*)},
-	{"requestTopDownLeftRightResend", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC, $virtualMethod(MemoryImageSource, requestTopDownLeftRightResend, void, $ImageConsumer*)},
-	{"sendPixels", "(Ljava/awt/image/ImageConsumer;IIII)V", nullptr, $PRIVATE, $method(MemoryImageSource, sendPixels, void, $ImageConsumer*, int32_t, int32_t, int32_t, int32_t)},
-	{"setAnimated", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryImageSource, setAnimated, void, bool)},
-	{"setFullBufferUpdates", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryImageSource, setFullBufferUpdates, void, bool)},
-	{"startProduction", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC, $virtualMethod(MemoryImageSource, startProduction, void, $ImageConsumer*)},
-	{}
-};
-
-$ClassInfo _MemoryImageSource_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.image.MemoryImageSource",
-	"java.lang.Object",
-	"java.awt.image.ImageProducer",
-	_MemoryImageSource_FieldInfo_,
-	_MemoryImageSource_MethodInfo_
-};
-
-$Object* allocate$MemoryImageSource($Class* clazz) {
-	return $of($alloc(MemoryImageSource));
-}
 
 void MemoryImageSource::init$(int32_t w, int32_t h, $ColorModel* cm, $bytes* pix, int32_t off, int32_t scan) {
 	$set(this, theConsumers, $new($Vector));
@@ -131,7 +78,7 @@ void MemoryImageSource::addConsumer($ImageConsumer* ic) {
 		if ($nc(this->theConsumers)->contains(ic)) {
 			return;
 		}
-		$nc(this->theConsumers)->addElement(ic);
+		this->theConsumers->addElement(ic);
 		try {
 			initConsumer(ic);
 			sendPixels(ic, 0, 0, this->width, this->height);
@@ -171,7 +118,7 @@ void MemoryImageSource::requestTopDownLeftRightResend($ImageConsumer* ic) {
 
 void MemoryImageSource::setAnimated(bool animated) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		this->animating = animated;
 		if (!this->animating) {
 			$var($Enumeration, enum_, $nc(this->theConsumers)->elements());
@@ -189,7 +136,7 @@ void MemoryImageSource::setAnimated(bool animated) {
 
 void MemoryImageSource::setFullBufferUpdates(bool fullbuffers) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->fullbuffers == fullbuffers) {
 			return;
 		}
@@ -216,7 +163,7 @@ void MemoryImageSource::newPixels(int32_t x, int32_t y, int32_t w, int32_t h) {
 
 void MemoryImageSource::newPixels(int32_t x, int32_t y, int32_t w, int32_t h, bool framenotify) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->animating) {
 			if (this->fullbuffers) {
 				x = (y = 0);
@@ -294,9 +241,9 @@ void MemoryImageSource::sendPixels($ImageConsumer* ic, int32_t x, int32_t y, int
 	int32_t off = this->pixeloffset + this->pixelscan * y + x;
 	if (isConsumer(ic)) {
 		if ($instanceOf($bytes, this->pixels)) {
-			$nc(ic)->setPixels(x, y, w, h, this->model, ($cast($bytes, this->pixels)), off, this->pixelscan);
+			$nc(ic)->setPixels(x, y, w, h, this->model, $cast($bytes, this->pixels), off, this->pixelscan);
 		} else {
-			$nc(ic)->setPixels(x, y, w, h, this->model, ($cast($ints, this->pixels)), off, this->pixelscan);
+			$nc(ic)->setPixels(x, y, w, h, this->model, $cast($ints, this->pixels), off, this->pixelscan);
 		}
 	}
 }
@@ -305,7 +252,54 @@ MemoryImageSource::MemoryImageSource() {
 }
 
 $Class* MemoryImageSource::load$($String* name, bool initialize) {
-	$loadClass(MemoryImageSource, name, initialize, &_MemoryImageSource_ClassInfo_, allocate$MemoryImageSource);
+	$FieldInfo fieldInfos$$[] = {
+		{"width", "I", nullptr, 0, $field(MemoryImageSource, width)},
+		{"height", "I", nullptr, 0, $field(MemoryImageSource, height)},
+		{"model", "Ljava/awt/image/ColorModel;", nullptr, 0, $field(MemoryImageSource, model)},
+		{"pixels", "Ljava/lang/Object;", nullptr, 0, $field(MemoryImageSource, pixels)},
+		{"pixeloffset", "I", nullptr, 0, $field(MemoryImageSource, pixeloffset)},
+		{"pixelscan", "I", nullptr, 0, $field(MemoryImageSource, pixelscan)},
+		{"properties", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<**>;", 0, $field(MemoryImageSource, properties)},
+		{"theConsumers", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/awt/image/ImageConsumer;>;", 0, $field(MemoryImageSource, theConsumers)},
+		{"animating", "Z", nullptr, 0, $field(MemoryImageSource, animating)},
+		{"fullbuffers", "Z", nullptr, 0, $field(MemoryImageSource, fullbuffers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IILjava/awt/image/ColorModel;[BII)V", nullptr, $PUBLIC, $method(MemoryImageSource, init$, void, int32_t, int32_t, $ColorModel*, $bytes*, int32_t, int32_t)},
+		{"<init>", "(IILjava/awt/image/ColorModel;[BIILjava/util/Hashtable;)V", "(IILjava/awt/image/ColorModel;[BIILjava/util/Hashtable<**>;)V", $PUBLIC, $method(MemoryImageSource, init$, void, int32_t, int32_t, $ColorModel*, $bytes*, int32_t, int32_t, $Hashtable*)},
+		{"<init>", "(IILjava/awt/image/ColorModel;[III)V", nullptr, $PUBLIC, $method(MemoryImageSource, init$, void, int32_t, int32_t, $ColorModel*, $ints*, int32_t, int32_t)},
+		{"<init>", "(IILjava/awt/image/ColorModel;[IIILjava/util/Hashtable;)V", "(IILjava/awt/image/ColorModel;[IIILjava/util/Hashtable<**>;)V", $PUBLIC, $method(MemoryImageSource, init$, void, int32_t, int32_t, $ColorModel*, $ints*, int32_t, int32_t, $Hashtable*)},
+		{"<init>", "(II[III)V", nullptr, $PUBLIC, $method(MemoryImageSource, init$, void, int32_t, int32_t, $ints*, int32_t, int32_t)},
+		{"<init>", "(II[IIILjava/util/Hashtable;)V", "(II[IIILjava/util/Hashtable<**>;)V", $PUBLIC, $method(MemoryImageSource, init$, void, int32_t, int32_t, $ints*, int32_t, int32_t, $Hashtable*)},
+		{"addConsumer", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryImageSource, addConsumer, void, $ImageConsumer*)},
+		{"initConsumer", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PRIVATE, $method(MemoryImageSource, initConsumer, void, $ImageConsumer*)},
+		{"initialize", "(IILjava/awt/image/ColorModel;Ljava/lang/Object;IILjava/util/Hashtable;)V", "(IILjava/awt/image/ColorModel;Ljava/lang/Object;IILjava/util/Hashtable<**>;)V", $PRIVATE, $method(MemoryImageSource, initialize, void, int32_t, int32_t, $ColorModel*, Object$*, int32_t, int32_t, $Hashtable*)},
+		{"isConsumer", "(Ljava/awt/image/ImageConsumer;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryImageSource, isConsumer, bool, $ImageConsumer*)},
+		{"newPixels", "()V", nullptr, $PUBLIC, $virtualMethod(MemoryImageSource, newPixels, void)},
+		{"newPixels", "(IIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryImageSource, newPixels, void, int32_t, int32_t, int32_t, int32_t)},
+		{"newPixels", "(IIIIZ)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryImageSource, newPixels, void, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"newPixels", "([BLjava/awt/image/ColorModel;II)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryImageSource, newPixels, void, $bytes*, $ColorModel*, int32_t, int32_t)},
+		{"newPixels", "([ILjava/awt/image/ColorModel;II)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryImageSource, newPixels, void, $ints*, $ColorModel*, int32_t, int32_t)},
+		{"removeConsumer", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryImageSource, removeConsumer, void, $ImageConsumer*)},
+		{"requestTopDownLeftRightResend", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC, $virtualMethod(MemoryImageSource, requestTopDownLeftRightResend, void, $ImageConsumer*)},
+		{"sendPixels", "(Ljava/awt/image/ImageConsumer;IIII)V", nullptr, $PRIVATE, $method(MemoryImageSource, sendPixels, void, $ImageConsumer*, int32_t, int32_t, int32_t, int32_t)},
+		{"setAnimated", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryImageSource, setAnimated, void, bool)},
+		{"setFullBufferUpdates", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryImageSource, setFullBufferUpdates, void, bool)},
+		{"startProduction", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC, $virtualMethod(MemoryImageSource, startProduction, void, $ImageConsumer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.image.MemoryImageSource",
+		"java.lang.Object",
+		"java.awt.image.ImageProducer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MemoryImageSource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MemoryImageSource);
+	});
 	return class$;
 }
 

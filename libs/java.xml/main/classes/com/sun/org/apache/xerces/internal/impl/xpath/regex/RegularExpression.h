@@ -132,7 +132,7 @@ public:
 	virtual void setPattern($String* newPattern, $String* options);
 	virtual void setPattern($String* newPattern, $String* options, ::java::util::Locale* locale);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x56A1D011FD4E4BC1;
+	static const int64_t serialVersionUID = (int64_t)0x56a1d011fd4e4bc1;
 	static const bool DEBUG = false;
 	$String* regex = nullptr;
 	int32_t options = 0;

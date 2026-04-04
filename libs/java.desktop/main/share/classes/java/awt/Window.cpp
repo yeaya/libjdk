@@ -1,5 +1,4 @@
 #include <java/awt/Window.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTEventMulticaster.h>
 #include <java/awt/AWTPermission.h>
@@ -9,7 +8,6 @@
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Composite.h>
 #include <java/awt/Container.h>
 #include <java/awt/Cursor.h>
 #include <java/awt/Dialog$ModalExclusionType.h>
@@ -64,11 +62,9 @@
 #include <java/io/OptionalDataException.h>
 #include <java/io/Serializable.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/Enum.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Math.h>
 #include <java/lang/Module.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -76,12 +72,9 @@
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/security/AccessController.h>
 #include <java/security/Permission.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/EventListener.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -95,7 +88,6 @@
 #include <javax/swing/JLayeredPane.h>
 #include <javax/swing/JRootPane.h>
 #include <javax/swing/RootPaneContainer.h>
-#include <sun/awt/AWTAccessor$WindowAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <sun/awt/AWTPermissions.h>
 #include <sun/awt/AppContext.h>
@@ -104,7 +96,6 @@
 #include <sun/awt/SunToolkit.h>
 #include <sun/awt/util/IdentityArrayList.h>
 #include <sun/java2d/Disposer.h>
-#include <sun/java2d/DisposerRecord.h>
 #include <sun/java2d/pipe/Region.h>
 #include <sun/security/action/GetPropertyAction.h>
 #include <sun/util/logging/PlatformLogger$Level.h>
@@ -162,7 +153,6 @@ using $BufferCapabilities = ::java::awt::BufferCapabilities;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Composite = ::java::awt::Composite;
 using $Container = ::java::awt::Container;
 using $Cursor = ::java::awt::Cursor;
 using $Dialog = ::java::awt::Dialog;
@@ -171,7 +161,6 @@ using $Dimension = ::java::awt::Dimension;
 using $Event = ::java::awt::Event;
 using $EventQueue = ::java::awt::EventQueue;
 using $FocusManager = ::java::awt::FocusManager;
-using $FocusTraversalPolicy = ::java::awt::FocusTraversalPolicy;
 using $Frame = ::java::awt::Frame;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
@@ -183,7 +172,6 @@ using $IllegalComponentStateException = ::java::awt::IllegalComponentStateExcept
 using $Image = ::java::awt::Image;
 using $Insets = ::java::awt::Insets;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
@@ -215,13 +203,11 @@ using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectInputStream$GetField = ::java::io::ObjectInputStream$GetField;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $OptionalDataException = ::java::io::OptionalDataException;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $Double = ::java::lang::Double;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -229,20 +215,15 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $EventListener = ::java::util::EventListener;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
@@ -257,15 +238,12 @@ using $JLayeredPane = ::javax::swing::JLayeredPane;
 using $JRootPane = ::javax::swing::JRootPane;
 using $RootPaneContainer = ::javax::swing::RootPaneContainer;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$WindowAccessor = ::sun::awt::AWTAccessor$WindowAccessor;
 using $AWTPermissions = ::sun::awt::AWTPermissions;
 using $AppContext = ::sun::awt::AppContext;
-using $ComponentFactory = ::sun::awt::ComponentFactory;
 using $DebugSettings = ::sun::awt::DebugSettings;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $IdentityArrayList = ::sun::awt::util::IdentityArrayList;
 using $Disposer = ::sun::java2d::Disposer;
-using $DisposerRecord = ::sun::java2d::DisposerRecord;
 using $Region = ::sun::java2d::pipe::Region;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 using $PlatformLogger = ::sun::util::logging::PlatformLogger;
@@ -273,271 +251,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 
 namespace java {
 	namespace awt {
-
-$CompoundAttribute _Window_MethodAnnotations_applyResourceBundle17[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Window_MethodAnnotations_applyResourceBundle18[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Window_MethodAnnotations_hide70[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Window_MethodAnnotations_postEvent95[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Window_MethodAnnotations_reshape111[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Window_MethodAnnotations_show141[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _Window_FieldInfo_[] = {
-	{"warningString", "Ljava/lang/String;", nullptr, 0, $field(Window, warningString)},
-	{"icons", "Ljava/util/List;", "Ljava/util/List<Ljava/awt/Image;>;", $TRANSIENT, $field(Window, icons)},
-	{"temporaryLostComponent", "Ljava/awt/Component;", nullptr, $PRIVATE | $TRANSIENT, $field(Window, temporaryLostComponent)},
-	{"systemSyncLWRequests", "Z", nullptr, $STATIC, $staticField(Window, systemSyncLWRequests)},
-	{"syncLWRequests", "Z", nullptr, 0, $field(Window, syncLWRequests)},
-	{"beforeFirstShow", "Z", nullptr, $TRANSIENT, $field(Window, beforeFirstShow)},
-	{"disposing", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(Window, disposing)},
-	{"disposerRecord", "Ljava/awt/Window$WindowDisposerRecord;", nullptr, $TRANSIENT, $field(Window, disposerRecord)},
-	{"OPENED", "I", nullptr, $STATIC | $FINAL, $constField(Window, OPENED)},
-	{"state", "I", nullptr, 0, $field(Window, state)},
-	{"alwaysOnTop", "Z", nullptr, $PRIVATE, $field(Window, alwaysOnTop)},
-	{"allWindows", "Lsun/awt/util/IdentityArrayList;", "Lsun/awt/util/IdentityArrayList<Ljava/awt/Window;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Window, allWindows)},
-	{"ownedWindowList", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/ref/WeakReference<Ljava/awt/Window;>;>;", $TRANSIENT, $field(Window, ownedWindowList)},
-	{"weakThis", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/Window;>;", $PRIVATE | $TRANSIENT, $field(Window, weakThis)},
-	{"showWithParent", "Z", nullptr, $TRANSIENT, $field(Window, showWithParent)},
-	{"modalBlocker", "Ljava/awt/Dialog;", nullptr, $TRANSIENT, $field(Window, modalBlocker)},
-	{"modalExclusionType", "Ljava/awt/Dialog$ModalExclusionType;", nullptr, 0, $field(Window, modalExclusionType)},
-	{"windowListener", "Ljava/awt/event/WindowListener;", nullptr, $TRANSIENT, $field(Window, windowListener)},
-	{"windowStateListener", "Ljava/awt/event/WindowStateListener;", nullptr, $TRANSIENT, $field(Window, windowStateListener)},
-	{"windowFocusListener", "Ljava/awt/event/WindowFocusListener;", nullptr, $TRANSIENT, $field(Window, windowFocusListener)},
-	{"inputContext", "Ljava/awt/im/InputContext;", nullptr, $TRANSIENT, $field(Window, inputContext)},
-	{"inputContextLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $TRANSIENT, $field(Window, inputContextLock)},
-	{"focusMgr", "Ljava/awt/FocusManager;", nullptr, $PRIVATE, $field(Window, focusMgr)},
-	{"focusableWindowState", "Z", nullptr, $PRIVATE, $field(Window, focusableWindowState)},
-	{"autoRequestFocus", "Z", nullptr, $PRIVATE | $VOLATILE, $field(Window, autoRequestFocus)},
-	{"isInShow", "Z", nullptr, $TRANSIENT, $field(Window, isInShow)},
-	{"opacity", "F", nullptr, $PRIVATE | $VOLATILE, $field(Window, opacity)},
-	{"shape", "Ljava/awt/Shape;", nullptr, $PRIVATE, $field(Window, shape)},
-	{"base", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Window, base)},
-	{"nameCounter", "I", nullptr, $PRIVATE | $STATIC, $staticField(Window, nameCounter)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Window, serialVersionUID)},
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Window, log)},
-	{"locationByPlatformProp", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Window, locationByPlatformProp)},
-	{"isTrayIconWindow", "Z", nullptr, $TRANSIENT, $field(Window, isTrayIconWindow)},
-	{"securityWarningWidth", "I", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(Window, securityWarningWidth)},
-	{"securityWarningHeight", "I", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(Window, securityWarningHeight)},
-	{"anchor", "Ljava/lang/Object;", nullptr, $TRANSIENT, $field(Window, anchor)},
-	{"beforeFirstWindowShown", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Window, beforeFirstWindowShown)},
-	{"type", "Ljava/awt/Window$Type;", nullptr, $PRIVATE, $field(Window, type)},
-	{"windowSerializedDataVersion", "I", nullptr, $PRIVATE, $field(Window, windowSerializedDataVersion)},
-	{"locationByPlatform", "Z", nullptr, $PRIVATE | $VOLATILE, $field(Window, locationByPlatform)},
-	{}
-};
-
-$MethodInfo _Window_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/GraphicsConfiguration;)V", nullptr, 0, $method(Window, init$, void, $GraphicsConfiguration*)},
-	{"<init>", "()V", nullptr, 0, $method(Window, init$, void), "java.awt.HeadlessException"},
-	{"<init>", "(Ljava/awt/Frame;)V", nullptr, $PUBLIC, $method(Window, init$, void, $Frame*)},
-	{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(Window, init$, void, Window*)},
-	{"<init>", "(Ljava/awt/Window;Ljava/awt/GraphicsConfiguration;)V", nullptr, $PUBLIC, $method(Window, init$, void, Window*, $GraphicsConfiguration*)},
-	{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(Window, addNotify, void)},
-	{"addOwnedWindow", "(Ljava/lang/ref/WeakReference;)V", "(Ljava/lang/ref/WeakReference<Ljava/awt/Window;>;)V", 0, $virtualMethod(Window, addOwnedWindow, void, $WeakReference*)},
-	{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(Window, addPropertyChangeListener, void, $PropertyChangeListener*)},
-	{"addPropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(Window, addPropertyChangeListener, void, $String*, $PropertyChangeListener*)},
-	{"addToWindowList", "()V", nullptr, $PRIVATE, $method(Window, addToWindowList, void)},
-	{"addWindowFocusListener", "(Ljava/awt/event/WindowFocusListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Window, addWindowFocusListener, void, $WindowFocusListener*)},
-	{"addWindowListener", "(Ljava/awt/event/WindowListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Window, addWindowListener, void, $WindowListener*)},
-	{"addWindowStateListener", "(Ljava/awt/event/WindowStateListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Window, addWindowStateListener, void, $WindowStateListener*)},
-	{"adjustDescendantsOnParent", "(I)V", nullptr, 0, $virtualMethod(Window, adjustDescendantsOnParent, void, int32_t)},
-	{"adjustListeningChildrenOnParent", "(JI)V", nullptr, 0, $virtualMethod(Window, adjustListeningChildrenOnParent, void, int64_t, int32_t)},
-	{"applyCompoundShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $FINAL, $virtualMethod(Window, applyCompoundShape, void, $Region*)},
-	{"applyCurrentShape", "()V", nullptr, $FINAL, $virtualMethod(Window, applyCurrentShape, void)},
-	{"applyResourceBundle", "(Ljava/util/ResourceBundle;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Window, applyResourceBundle, void, $ResourceBundle*), nullptr, nullptr, _Window_MethodAnnotations_applyResourceBundle17},
-	{"applyResourceBundle", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Window, applyResourceBundle, void, $String*), nullptr, nullptr, _Window_MethodAnnotations_applyResourceBundle18},
-	{"calculateSecurityWarningPosition", "(DDDD)Ljava/awt/geom/Point2D;", nullptr, $PRIVATE, $method(Window, calculateSecurityWarningPosition, $Point2D*, double, double, double, double)},
-	{"canContainFocusOwner", "(Ljava/awt/Component;)Z", nullptr, 0, $virtualMethod(Window, canContainFocusOwner, bool, $Component*)},
-	{"clearMostRecentFocusOwnerOnHide", "()V", nullptr, $FINAL, $virtualMethod(Window, clearMostRecentFocusOwnerOnHide, void)},
-	{"closeSplashScreen", "()V", nullptr, $FINAL, $method(Window, closeSplashScreen, void)},
-	{"connectOwnedWindow", "(Ljava/awt/Window;)V", nullptr, 0, $virtualMethod(Window, connectOwnedWindow, void, Window*)},
-	{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Window, constructComponentName, $String*)},
-	{"createBufferStrategy", "(I)V", nullptr, $PUBLIC, $virtualMethod(Window, createBufferStrategy, void, int32_t)},
-	{"createBufferStrategy", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC, $virtualMethod(Window, createBufferStrategy, void, int32_t, $BufferCapabilities*), "java.awt.AWTException"},
-	{"deliverMouseWheelToAncestor", "(Ljava/awt/event/MouseWheelEvent;)V", nullptr, 0, $virtualMethod(Window, deliverMouseWheelToAncestor, void, $MouseWheelEvent*)},
-	{"deserializeResources", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Window, deserializeResources, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException,java.awt.HeadlessException"},
-	{"dispatchEventImpl", "(Ljava/awt/AWTEvent;)V", nullptr, 0, $virtualMethod(Window, dispatchEventImpl, void, $AWTEvent*)},
-	{"dispatchMouseWheelToAncestor", "(Ljava/awt/event/MouseWheelEvent;)Z", nullptr, 0, $virtualMethod(Window, dispatchMouseWheelToAncestor, bool, $MouseWheelEvent*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(Window, dispose, void)},
-	{"disposeImpl", "()V", nullptr, 0, $virtualMethod(Window, disposeImpl, void)},
-	{"doDispose", "()V", nullptr, 0, $virtualMethod(Window, doDispose, void)},
-	{"eventEnabled", "(Ljava/awt/AWTEvent;)Z", nullptr, 0, $virtualMethod(Window, eventEnabled, bool, $AWTEvent*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(Window, getAccessibleContext, $AccessibleContext*)},
-	{"getAllUnblockedWindows", "()Lsun/awt/util/IdentityArrayList;", "()Lsun/awt/util/IdentityArrayList<Ljava/awt/Window;>;", $STATIC, $staticMethod(Window, getAllUnblockedWindows, $IdentityArrayList*)},
-	{"getAllWindows", "()Lsun/awt/util/IdentityArrayList;", "()Lsun/awt/util/IdentityArrayList<Ljava/awt/Window;>;", $STATIC, $staticMethod(Window, getAllWindows, $IdentityArrayList*)},
-	{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(Window, getBackground, $Color*)},
-	{"getBufferStrategy", "()Ljava/awt/image/BufferStrategy;", nullptr, $PUBLIC, $virtualMethod(Window, getBufferStrategy, $BufferStrategy*)},
-	{"getContainer", "()Ljava/awt/Container;", nullptr, $FINAL, $virtualMethod(Window, getContainer, $Container*)},
-	{"getDocumentRoot", "()Ljava/awt/Window;", nullptr, 0, $virtualMethod(Window, getDocumentRoot, Window*)},
-	{"getFocusCycleRootAncestor", "()Ljava/awt/Container;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Window, getFocusCycleRootAncestor, $Container*)},
-	{"getFocusOwner", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(Window, getFocusOwner, $Component*)},
-	{"getFocusTraversalKeys", "(I)Ljava/util/Set;", "(I)Ljava/util/Set<Ljava/awt/AWTKeyStroke;>;", $PUBLIC, $virtualMethod(Window, getFocusTraversalKeys, $Set*, int32_t)},
-	{"getFocusableWindowState", "()Z", nullptr, $PUBLIC, $virtualMethod(Window, getFocusableWindowState, bool)},
-	{"getIconImages", "()Ljava/util/List;", "()Ljava/util/List<Ljava/awt/Image;>;", $PUBLIC, $virtualMethod(Window, getIconImages, $List*)},
-	{"getInputContext", "()Ljava/awt/im/InputContext;", nullptr, $PUBLIC, $virtualMethod(Window, getInputContext, $InputContext*)},
-	{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(Window, getListeners, $EventListenerArray*, $Class*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(Window, getLocale, $Locale*)},
-	{"getLocationOnWindow", "()Ljava/awt/Point;", nullptr, $FINAL, $virtualMethod(Window, getLocationOnWindow, $Point*)},
-	{"getModalBlocker", "()Ljava/awt/Dialog;", nullptr, 0, $virtualMethod(Window, getModalBlocker, $Dialog*)},
-	{"getModalExclusionType", "()Ljava/awt/Dialog$ModalExclusionType;", nullptr, $PUBLIC, $virtualMethod(Window, getModalExclusionType, $Dialog$ModalExclusionType*)},
-	{"getMostRecentFocusOwner", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(Window, getMostRecentFocusOwner, $Component*)},
-	{"getOpacity", "()F", nullptr, $PUBLIC, $virtualMethod(Window, getOpacity, float)},
-	{"getOwnedWindows", "()[Ljava/awt/Window;", nullptr, $PUBLIC, $virtualMethod(Window, getOwnedWindows, $WindowArray*)},
-	{"getOwnedWindows_NoClientCode", "()[Ljava/awt/Window;", nullptr, $FINAL, $method(Window, getOwnedWindows_NoClientCode, $WindowArray*)},
-	{"getOwner", "()Ljava/awt/Window;", nullptr, $PUBLIC, $virtualMethod(Window, getOwner, Window*)},
-	{"getOwner_NoClientCode", "()Ljava/awt/Window;", nullptr, $FINAL, $method(Window, getOwner_NoClientCode, Window*)},
-	{"getOwnerlessWindows", "()[Ljava/awt/Window;", nullptr, $PUBLIC | $STATIC, $staticMethod(Window, getOwnerlessWindows, $WindowArray*)},
-	{"getShape", "()Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(Window, getShape, $Shape*)},
-	{"getTemporaryLostComponent", "()Ljava/awt/Component;", nullptr, 0, $virtualMethod(Window, getTemporaryLostComponent, $Component*)},
-	{"getToolkit", "()Ljava/awt/Toolkit;", nullptr, $PUBLIC, $virtualMethod(Window, getToolkit, $Toolkit*)},
-	{"getType", "()Ljava/awt/Window$Type;", nullptr, $PUBLIC, $virtualMethod(Window, getType, $Window$Type*)},
-	{"getWarningString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Window, getWarningString, $String*)},
-	{"getWindowFocusListeners", "()[Ljava/awt/event/WindowFocusListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Window, getWindowFocusListeners, $WindowFocusListenerArray*)},
-	{"getWindowListeners", "()[Ljava/awt/event/WindowListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Window, getWindowListeners, $WindowListenerArray*)},
-	{"getWindowStateListeners", "()[Ljava/awt/event/WindowStateListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Window, getWindowStateListeners, $WindowStateListenerArray*)},
-	{"getWindows", "(Lsun/awt/AppContext;)[Ljava/awt/Window;", nullptr, $PRIVATE | $STATIC, $staticMethod(Window, getWindows, $WindowArray*, $AppContext*)},
-	{"getWindows", "()[Ljava/awt/Window;", nullptr, $PUBLIC | $STATIC, $staticMethod(Window, getWindows, $WindowArray*)},
-	{"hide", "()V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Window, hide, void), nullptr, nullptr, _Window_MethodAnnotations_hide70},
-	{"init", "(Ljava/awt/GraphicsConfiguration;)V", nullptr, $PRIVATE, $method(Window, init, void, $GraphicsConfiguration*)},
-	{"initDeserializedWindow", "()V", nullptr, $PRIVATE, $method(Window, initDeserializedWindow, void)},
-	{"initGC", "(Ljava/awt/GraphicsConfiguration;)Ljava/awt/GraphicsConfiguration;", nullptr, $PRIVATE, $method(Window, initGC, $GraphicsConfiguration*, $GraphicsConfiguration*)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Window, initIDs, void)},
-	{"isActive", "()Z", nullptr, $PUBLIC, $virtualMethod(Window, isActive, bool)},
-	{"isAlwaysOnTop", "()Z", nullptr, $PUBLIC | $FINAL, $method(Window, isAlwaysOnTop, bool)},
-	{"isAlwaysOnTopSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(Window, isAlwaysOnTopSupported, bool)},
-	{"isAutoRequestFocus", "()Z", nullptr, $PUBLIC, $virtualMethod(Window, isAutoRequestFocus, bool)},
-	{"isDisposing", "()Z", nullptr, 0, $virtualMethod(Window, isDisposing, bool)},
-	{"isFocusCycleRoot", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Window, isFocusCycleRoot, bool)},
-	{"isFocusableWindow", "()Z", nullptr, $PUBLIC | $FINAL, $method(Window, isFocusableWindow, bool)},
-	{"isFocused", "()Z", nullptr, $PUBLIC, $virtualMethod(Window, isFocused, bool)},
-	{"isLocationByPlatform", "()Z", nullptr, $PUBLIC, $virtualMethod(Window, isLocationByPlatform, bool)},
-	{"isModalBlocked", "()Z", nullptr, 0, $virtualMethod(Window, isModalBlocked, bool)},
-	{"isModalExcluded", "(Ljava/awt/Dialog$ModalExclusionType;)Z", nullptr, 0, $virtualMethod(Window, isModalExcluded, bool, $Dialog$ModalExclusionType*)},
-	{"isOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(Window, isOpaque, bool)},
-	{"isRecursivelyVisible", "()Z", nullptr, 0, $virtualMethod(Window, isRecursivelyVisible, bool)},
-	{"isShowing", "()Z", nullptr, $PUBLIC, $virtualMethod(Window, isShowing, bool)},
-	{"isValidateRoot", "()Z", nullptr, $PUBLIC, $virtualMethod(Window, isValidateRoot, bool)},
-	{"limit", "(DDD)D", nullptr, $PRIVATE | $STATIC, $staticMethod(Window, limit, double, double, double, double)},
-	{"mixOnReshaping", "()V", nullptr, $FINAL, $virtualMethod(Window, mixOnReshaping, void)},
-	{"ownedInit", "(Ljava/awt/Window;)V", nullptr, $PRIVATE, $method(Window, ownedInit, void, Window*)},
-	{"pack", "()V", nullptr, $PUBLIC, $virtualMethod(Window, pack, void)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(Window, paint, void, $Graphics*)},
-	{"postEvent", "(Ljava/awt/Event;)Z", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Window, postEvent, bool, $Event*), nullptr, nullptr, _Window_MethodAnnotations_postEvent95},
-	{"postProcessKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(Window, postProcessKeyEvent, void, $KeyEvent*)},
-	{"postWindowEvent", "(I)V", nullptr, $SYNCHRONIZED, $virtualMethod(Window, postWindowEvent, void, int32_t)},
-	{"preProcessKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(Window, preProcessKeyEvent, void, $KeyEvent*)},
-	{"processEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PROTECTED, $virtualMethod(Window, processEvent, void, $AWTEvent*)},
-	{"processWindowEvent", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PROTECTED, $virtualMethod(Window, processWindowEvent, void, $WindowEvent*)},
-	{"processWindowFocusEvent", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PROTECTED, $virtualMethod(Window, processWindowFocusEvent, void, $WindowEvent*)},
-	{"processWindowStateEvent", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PROTECTED, $virtualMethod(Window, processWindowStateEvent, void, $WindowEvent*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Window, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException,java.awt.HeadlessException"},
-	{"removeFromWindowList", "(Lsun/awt/AppContext;Ljava/lang/ref/WeakReference;)V", "(Lsun/awt/AppContext;Ljava/lang/ref/WeakReference<Ljava/awt/Window;>;)V", $PRIVATE | $STATIC, $staticMethod(Window, removeFromWindowList, void, $AppContext*, $WeakReference*)},
-	{"removeFromWindowList", "()V", nullptr, $PRIVATE, $method(Window, removeFromWindowList, void)},
-	{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(Window, removeNotify, void)},
-	{"removeOwnedWindow", "(Ljava/lang/ref/WeakReference;)V", "(Ljava/lang/ref/WeakReference<Ljava/awt/Window;>;)V", 0, $virtualMethod(Window, removeOwnedWindow, void, $WeakReference*)},
-	{"removeWindowFocusListener", "(Ljava/awt/event/WindowFocusListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Window, removeWindowFocusListener, void, $WindowFocusListener*)},
-	{"removeWindowListener", "(Ljava/awt/event/WindowListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Window, removeWindowListener, void, $WindowListener*)},
-	{"removeWindowStateListener", "(Ljava/awt/event/WindowStateListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Window, removeWindowStateListener, void, $WindowStateListener*)},
-	{"reshape", "(IIII)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Window, reshape, void, int32_t, int32_t, int32_t, int32_t), nullptr, nullptr, _Window_MethodAnnotations_reshape111},
-	{"setAlwaysOnTop", "(Z)V", nullptr, $PUBLIC | $FINAL, $method(Window, setAlwaysOnTop, void, bool), "java.lang.SecurityException"},
-	{"setAutoRequestFocus", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Window, setAutoRequestFocus, void, bool)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(Window, setBackground, void, $Color*)},
-	{"setBounds", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(Window, setBounds, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(Window, setBounds, void, $Rectangle*)},
-	{"setClientSize", "(II)V", nullptr, 0, $virtualMethod(Window, setClientSize, void, int32_t, int32_t)},
-	{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC, $virtualMethod(Window, setCursor, void, $Cursor*)},
-	{"setFocusCycleRoot", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Window, setFocusCycleRoot, void, bool)},
-	{"setFocusableWindowState", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Window, setFocusableWindowState, void, bool)},
-	{"setGraphicsConfiguration", "(Ljava/awt/GraphicsConfiguration;)V", nullptr, 0, $virtualMethod(Window, setGraphicsConfiguration, void, $GraphicsConfiguration*)},
-	{"setIconImage", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(Window, setIconImage, void, $Image*)},
-	{"setIconImages", "(Ljava/util/List;)V", "(Ljava/util/List<+Ljava/awt/Image;>;)V", $PUBLIC | $SYNCHRONIZED, $virtualMethod(Window, setIconImages, void, $List*)},
-	{"setLayersOpaque", "(Ljava/awt/Component;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Window, setLayersOpaque, void, $Component*, bool)},
-	{"setLocation", "(II)V", nullptr, $PUBLIC, $virtualMethod(Window, setLocation, void, int32_t, int32_t)},
-	{"setLocation", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(Window, setLocation, void, $Point*)},
-	{"setLocationByPlatform", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Window, setLocationByPlatform, void, bool)},
-	{"setLocationRelativeTo", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(Window, setLocationRelativeTo, void, $Component*)},
-	{"setMinimumSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(Window, setMinimumSize, void, $Dimension*)},
-	{"setModalBlocked", "(Ljava/awt/Dialog;ZZ)V", nullptr, 0, $virtualMethod(Window, setModalBlocked, void, $Dialog*, bool, bool)},
-	{"setModalExclusionType", "(Ljava/awt/Dialog$ModalExclusionType;)V", nullptr, $PUBLIC, $virtualMethod(Window, setModalExclusionType, void, $Dialog$ModalExclusionType*)},
-	{"setOpacity", "(F)V", nullptr, $PUBLIC, $virtualMethod(Window, setOpacity, void, float)},
-	{"setOwnedWindowsAlwaysOnTop", "(Z)V", nullptr, $PRIVATE, $method(Window, setOwnedWindowsAlwaysOnTop, void, bool)},
-	{"setShape", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(Window, setShape, void, $Shape*)},
-	{"setSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(Window, setSize, void, $Dimension*)},
-	{"setSize", "(II)V", nullptr, $PUBLIC, $virtualMethod(Window, setSize, void, int32_t, int32_t)},
-	{"setTemporaryLostComponent", "(Ljava/awt/Component;)Ljava/awt/Component;", nullptr, 0, $virtualMethod(Window, setTemporaryLostComponent, $Component*, $Component*)},
-	{"setType", "(Ljava/awt/Window$Type;)V", nullptr, $PUBLIC, $virtualMethod(Window, setType, void, $Window$Type*)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Window, setVisible, void, bool)},
-	{"setWarningString", "()V", nullptr, $PRIVATE, $method(Window, setWarningString, void)},
-	{"show", "()V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Window, show, void), nullptr, nullptr, _Window_MethodAnnotations_show141},
-	{"toBack", "()V", nullptr, $PUBLIC, $virtualMethod(Window, toBack, void)},
-	{"toBack_NoClientCode", "()V", nullptr, $FINAL, $method(Window, toBack_NoClientCode, void)},
-	{"toFront", "()V", nullptr, $PUBLIC, $virtualMethod(Window, toFront, void)},
-	{"toFront_NoClientCode", "()V", nullptr, $FINAL, $method(Window, toFront_NoClientCode, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateChildFocusableWindowState", "(Ljava/awt/Window;)V", nullptr, $STATIC, $staticMethod(Window, updateChildFocusableWindowState, void, Window*)},
-	{"updateChildrenBlocking", "()V", nullptr, 0, $virtualMethod(Window, updateChildrenBlocking, void)},
-	{"updateWindow", "()V", nullptr, $PRIVATE, $method(Window, updateWindow, void)},
-	{"updateZOrder", "()V", nullptr, 0, $virtualMethod(Window, updateZOrder, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Window, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 78
-
-$InnerClassInfo _Window_InnerClassesInfo_[] = {
-	{"java.awt.Window$AccessibleAWTWindow", "java.awt.Window", "AccessibleAWTWindow", $PROTECTED},
-	{"java.awt.Window$WindowDisposerRecord", "java.awt.Window", "WindowDisposerRecord", $STATIC},
-	{"java.awt.Window$Type", "java.awt.Window", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"java.awt.Window$1", nullptr, nullptr, 0},
-	{"java.awt.Window$1DisposeAction", nullptr, "DisposeAction", 0},
-	{}
-};
-
-$ClassInfo _Window_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Window",
-	"java.awt.Container",
-	"javax.accessibility.Accessible",
-	_Window_FieldInfo_,
-	_Window_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Window_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.Window$AccessibleAWTWindow,java.awt.Window$WindowDisposerRecord,java.awt.Window$Type,java.awt.Window$1,java.awt.Window$1DisposeAction"
-};
-
-$Object* allocate$Window($Class* clazz) {
-	return $of($alloc(Window));
-}
 
 $String* Window::toString() {
 	 return this->$Container::toString();
@@ -569,7 +282,7 @@ $AtomicBoolean* Window::beforeFirstWindowShown = nullptr;
 
 void Window::initIDs() {
 	$init(Window);
-	$prepareNativeStatic(Window, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -599,18 +312,18 @@ void Window::init$($GraphicsConfiguration* gc) {
 }
 
 $GraphicsConfiguration* Window::initGC($GraphicsConfiguration* gc$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GraphicsConfiguration, gc, gc$renamed);
 	$GraphicsEnvironment::checkHeadless();
 	if (gc == nullptr) {
-		$assign(gc, $nc($($nc($($GraphicsEnvironment::getLocalGraphicsEnvironment()))->getDefaultScreenDevice()))->getDefaultConfiguration());
+		$assign(gc, $$nc($$nc($GraphicsEnvironment::getLocalGraphicsEnvironment())->getDefaultScreenDevice())->getDefaultConfiguration());
 	}
 	setGraphicsConfiguration(gc);
 	return gc;
 }
 
 void Window::init($GraphicsConfiguration* gc$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GraphicsConfiguration, gc, gc$renamed);
 	$GraphicsEnvironment::checkHeadless();
 	this->syncLWRequests = Window::systemSyncLWRequests;
@@ -620,12 +333,12 @@ void Window::init($GraphicsConfiguration* gc$renamed) {
 	$set(this, cursor, $Cursor::getPredefinedCursor($Cursor::DEFAULT_CURSOR));
 	this->visible = false;
 	$assign(gc, initGC(gc));
-	if ($nc($($nc(gc)->getDevice()))->getType() != $GraphicsDevice::TYPE_RASTER_SCREEN) {
+	if ($$nc($nc(gc)->getDevice())->getType() != $GraphicsDevice::TYPE_RASTER_SCREEN) {
 		$throwNew($IllegalArgumentException, "not a screen device"_s);
 	}
 	setLayout($$new($BorderLayout));
-	$var($Rectangle, screenBounds, $nc(gc)->getBounds());
-	$var($Insets, screenInsets, $nc($(getToolkit()))->getScreenInsets(gc));
+	$var($Rectangle, screenBounds, gc->getBounds());
+	$var($Insets, screenInsets, $$nc(getToolkit())->getScreenInsets(gc));
 	int32_t x = getX() + $nc(screenBounds)->x + $nc(screenInsets)->left;
 	int32_t y = getY() + screenBounds->y + screenInsets->top;
 	if (x != this->x || y != this->y) {
@@ -665,12 +378,12 @@ void Window::init$() {
 }
 
 void Window::init$($Frame* owner) {
-	Window::init$(owner == nullptr ? ($GraphicsConfiguration*)nullptr : $($nc(owner)->getGraphicsConfiguration()));
+	Window::init$(owner == nullptr ? ($GraphicsConfiguration*)nullptr : $(owner->getGraphicsConfiguration()));
 	ownedInit(owner);
 }
 
 void Window::init$(Window* owner) {
-	Window::init$(owner == nullptr ? ($GraphicsConfiguration*)nullptr : $($nc(owner)->getGraphicsConfiguration()));
+	Window::init$(owner == nullptr ? ($GraphicsConfiguration*)nullptr : $(owner->getGraphicsConfiguration()));
 	ownedInit(owner);
 }
 
@@ -694,29 +407,30 @@ void Window::ownedInit(Window* owner) {
 }
 
 $String* Window::constructComponentName() {
-	$useLocalCurrentObjectStackCache();
 	$synchronized(Window::class$) {
-		$var($String, var$0, Window::base);
-		return $concat(var$0, $$str(Window::nameCounter++));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append(Window::base);
+		var$0->append(Window::nameCounter++);
+		return $str(var$0);
 	}
 }
 
 $List* Window::getIconImages() {
 	$var($List, icons, this->icons);
-	if (icons == nullptr || $nc(icons)->size() == 0) {
+	if (icons == nullptr || icons->size() == 0) {
 		return $new($ArrayList);
 	}
-	return $new($ArrayList, static_cast<$Collection*>(icons));
+	return $new($ArrayList, icons);
 }
 
 void Window::setIconImages($List* icons) {
 	$synchronized(this) {
-		$set(this, icons, (icons == nullptr) ? static_cast<$List*>($new($ArrayList)) : static_cast<$List*>($new($ArrayList, static_cast<$Collection*>(icons))));
+		$set(this, icons, (icons == nullptr) ? $new($ArrayList) : $new($ArrayList, icons));
 		$var($WindowPeer, peer, $cast($WindowPeer, this->peer));
 		if (peer != nullptr) {
 			peer->updateIconImages();
 		}
-		firePropertyChange("iconImage"_s, ($Object*)nullptr, ($Object*)nullptr);
+		firePropertyChange("iconImage"_s, nullptr, nullptr);
 	}
 }
 
@@ -729,17 +443,17 @@ void Window::setIconImage($Image* image) {
 }
 
 void Window::addNotify() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getTreeLock()) {
 		$var($Container, parent, this->parent);
 		if (parent != nullptr && parent->peer == nullptr) {
 			parent->addNotify();
 		}
 		if (this->peer == nullptr) {
-			$set(this, peer, $nc($(getComponentFactory()))->createWindow(this));
+			$set(this, peer, $$nc(getComponentFactory())->createWindow(this));
 		}
 		$synchronized(Window::allWindows) {
-			$nc(Window::allWindows)->add(this);
+			Window::allWindows->add(this);
 		}
 		$Container::addNotify();
 	}
@@ -748,14 +462,14 @@ void Window::addNotify() {
 void Window::removeNotify() {
 	$synchronized(getTreeLock()) {
 		$synchronized(Window::allWindows) {
-			$nc(Window::allWindows)->remove($of(this));
+			Window::allWindows->remove(this);
 		}
 		$Container::removeNotify();
 	}
 }
 
 void Window::pack() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, parent, this->parent);
 	if (parent != nullptr && parent->peer == nullptr) {
 		parent->addNotify();
@@ -765,7 +479,7 @@ void Window::pack() {
 	}
 	$var($Dimension, newSize, getPreferredSize());
 	if (this->peer != nullptr) {
-		setClientSize($nc(newSize)->width, newSize->height);
+		setClientSize($nc(newSize)->width, $nc(newSize)->height);
 	}
 	if (this->beforeFirstShow) {
 		this->isPacked = true;
@@ -778,14 +492,14 @@ void Window::setMinimumSize($Dimension* minimumSize) {
 		$Container::setMinimumSize(minimumSize);
 		$var($Dimension, size, getSize());
 		if (isMinimumSizeSet()) {
-			if ($nc(size)->width < $nc(minimumSize)->width || $nc(size)->height < $nc(minimumSize)->height) {
+			if ($nc(size)->width < $nc(minimumSize)->width || size->height < minimumSize->height) {
 				int32_t nw = $Math::max(this->width, minimumSize->width);
 				int32_t nh = $Math::max(this->height, minimumSize->height);
 				setSize(nw, nh);
 			}
 		}
 		if (this->peer != nullptr) {
-			$nc(($cast($WindowPeer, this->peer)))->updateMinimumSize();
+			$nc($cast($WindowPeer, this->peer))->updateMinimumSize();
 		}
 	}
 }
@@ -812,7 +526,7 @@ void Window::reshape(int32_t x, int32_t y, int32_t width, int32_t height) {
 		if (width < $nc(minSize)->width) {
 			width = minSize->width;
 		}
-		if (height < $nc(minSize)->height) {
+		if (height < minSize->height) {
 			height = minSize->height;
 		}
 	}
@@ -830,7 +544,7 @@ void Window::closeSplashScreen() {
 	if (this->isTrayIconWindow) {
 		return;
 	}
-	if ($nc(Window::beforeFirstWindowShown)->getAndSet(false)) {
+	if (Window::beforeFirstWindowShown->getAndSet(false)) {
 		$SunToolkit::closeSplashScreen();
 		$SplashScreen::markClosed();
 	}
@@ -841,7 +555,7 @@ void Window::setVisible(bool b) {
 }
 
 void Window::show() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->peer == nullptr) {
 		addNotify();
 	}
@@ -856,7 +570,7 @@ void Window::show() {
 		$Container::show();
 		this->locationByPlatform = false;
 		for (int32_t i = 0; i < $nc(this->ownedWindowList)->size(); ++i) {
-			$var(Window, child, $cast(Window, $nc(($cast($WeakReference, $($nc(this->ownedWindowList)->elementAt(i)))))->get()));
+			$var(Window, child, $cast(Window, $$sure($WeakReference, this->ownedWindowList->elementAt(i))->get()));
 			if ((child != nullptr) && child->showWithParent) {
 				child->show();
 				child->showWithParent = false;
@@ -872,7 +586,7 @@ void Window::show() {
 		}
 	}
 	this->isInShow = false;
-	if (((int32_t)(this->state & (uint32_t)Window::OPENED)) == 0) {
+	if ((this->state & Window::OPENED) == 0) {
 		postWindowEvent($WindowEvent::WINDOW_OPENED);
 		this->state |= Window::OPENED;
 	}
@@ -880,12 +594,12 @@ void Window::show() {
 
 void Window::updateChildFocusableWindowState(Window* w) {
 	$init(Window);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(w)->peer != nullptr && w->isShowing()) {
-		$nc(($cast($WindowPeer, w->peer)))->updateFocusableWindowState();
+		$nc($cast($WindowPeer, w->peer))->updateFocusableWindowState();
 	}
-	for (int32_t i = 0; i < $nc($nc(w)->ownedWindowList)->size(); ++i) {
-		$var(Window, child, $cast(Window, $nc(($cast($WeakReference, $($nc(w->ownedWindowList)->elementAt(i)))))->get()));
+	for (int32_t i = 0; i < $nc(w->ownedWindowList)->size(); ++i) {
+		$var(Window, child, $cast(Window, $$sure($WeakReference, w->ownedWindowList->elementAt(i))->get()));
 		if (child != nullptr) {
 			updateChildFocusableWindowState(child);
 		}
@@ -894,19 +608,19 @@ void Window::updateChildFocusableWindowState(Window* w) {
 
 void Window::postWindowEvent(int32_t id) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		if (this->windowListener != nullptr || ((int64_t)(this->eventMask & (uint64_t)$AWTEvent::WINDOW_EVENT_MASK)) != 0 || $Toolkit::enabledOnToolkit($AWTEvent::WINDOW_EVENT_MASK)) {
+		$useLocalObjectStack();
+		if (this->windowListener != nullptr || (this->eventMask & $AWTEvent::WINDOW_EVENT_MASK) != 0 || $Toolkit::enabledOnToolkit($AWTEvent::WINDOW_EVENT_MASK)) {
 			$var($WindowEvent, e, $new($WindowEvent, this, id));
-			$nc($($Toolkit::getEventQueue()))->postEvent(e);
+			$$nc($Toolkit::getEventQueue())->postEvent(e);
 		}
 	}
 }
 
 void Window::hide() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->ownedWindowList) {
 		for (int32_t i = 0; i < $nc(this->ownedWindowList)->size(); ++i) {
-			$var(Window, child, $cast(Window, $nc(($cast($WeakReference, $($nc(this->ownedWindowList)->elementAt(i)))))->get()));
+			$var(Window, child, $cast(Window, $$sure($WeakReference, this->ownedWindowList->elementAt(i))->get()));
 			if ((child != nullptr) && child->visible) {
 				child->hide();
 				child->showWithParent = true;
@@ -1007,7 +721,7 @@ $String* Window::getWarningString() {
 }
 
 void Window::setWarningString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$set(this, warningString, nullptr);
 	$var($SecurityManager, sm, $System::getSecurityManager());
@@ -1016,7 +730,7 @@ void Window::setWarningString() {
 			$init($AWTPermissions);
 			sm->checkPermission($AWTPermissions::TOPLEVEL_WINDOW_PERMISSION);
 		} catch ($SecurityException& se) {
-			$set(this, warningString, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "awt.appletWarning"_s, "Java Applet Window"_s)))));
+			$set(this, warningString, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "awt.appletWarning"_s, "Java Applet Window"_s))));
 		}
 	}
 }
@@ -1058,20 +772,20 @@ $WindowArray* Window::getOwnedWindows() {
 }
 
 $WindowArray* Window::getOwnedWindows_NoClientCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WindowArray, realCopy, nullptr);
 	$synchronized(this->ownedWindowList) {
-		int32_t fullSize = $nc(this->ownedWindowList)->size();
+		int32_t fullSize = this->ownedWindowList->size();
 		int32_t realSize = 0;
 		$var($WindowArray, fullCopy, $new($WindowArray, fullSize));
 		for (int32_t i = 0; i < fullSize; ++i) {
-			fullCopy->set(realSize, $cast(Window, $($nc(($cast($WeakReference, $($nc(this->ownedWindowList)->elementAt(i)))))->get())));
+			fullCopy->set(realSize, $$cast(Window, $$sure($WeakReference, $nc(this->ownedWindowList)->elementAt(i))->get()));
 			if (fullCopy->get(realSize) != nullptr) {
 				++realSize;
 			}
 		}
 		if (fullSize != realSize) {
-			$assign(realCopy, $fcast($WindowArray, $Arrays::copyOf(fullCopy, realSize)));
+			$assign(realCopy, $cast($WindowArray, $Arrays::copyOf(fullCopy, realSize)));
 		} else {
 			$assign(realCopy, fullCopy);
 		}
@@ -1101,18 +815,18 @@ $IdentityArrayList* Window::getAllWindows() {
 	$init(Window);
 	$synchronized(Window::allWindows) {
 		$var($IdentityArrayList, v, $new($IdentityArrayList));
-		v->addAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(Window::allWindows))));
+		v->addAll($cast($AbstractCollection, Window::allWindows));
 		return v;
 	}
 }
 
 $IdentityArrayList* Window::getAllUnblockedWindows() {
 	$init(Window);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(Window::allWindows) {
 		$var($IdentityArrayList, unblocked, $new($IdentityArrayList));
-		for (int32_t i = 0; i < $nc(Window::allWindows)->size(); ++i) {
-			$var(Window, w, $cast(Window, $nc(Window::allWindows)->get(i)));
+		for (int32_t i = 0; i < Window::allWindows->size(); ++i) {
+			$var(Window, w, $cast(Window, Window::allWindows->get(i)));
 			if (!$nc(w)->isModalBlocked()) {
 				unblocked->add(w);
 			}
@@ -1123,7 +837,7 @@ $IdentityArrayList* Window::getAllUnblockedWindows() {
 
 $WindowArray* Window::getWindows($AppContext* appContext) {
 	$init(Window);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(Window::class$) {
 		$var($WindowArray, realCopy, nullptr);
 		$var($Vector, windowList, $cast($Vector, $nc(appContext)->get(Window::class$)));
@@ -1132,13 +846,13 @@ $WindowArray* Window::getWindows($AppContext* appContext) {
 			int32_t realSize = 0;
 			$var($WindowArray, fullCopy, $new($WindowArray, fullSize));
 			for (int32_t i = 0; i < fullSize; ++i) {
-				$var(Window, w, $cast(Window, $nc(($cast($WeakReference, $(windowList->get(i)))))->get()));
+				$var(Window, w, $cast(Window, $$sure($WeakReference, windowList->get(i))->get()));
 				if (w != nullptr) {
 					fullCopy->set(realSize++, w);
 				}
 			}
 			if (fullSize != realSize) {
-				$assign(realCopy, $fcast($WindowArray, $Arrays::copyOf(fullCopy, realSize)));
+				$assign(realCopy, $cast($WindowArray, $Arrays::copyOf(fullCopy, realSize)));
 			} else {
 				$assign(realCopy, fullCopy);
 			}
@@ -1156,19 +870,15 @@ $WindowArray* Window::getWindows() {
 
 $WindowArray* Window::getOwnerlessWindows() {
 	$init(Window);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WindowArray, allWindows, Window::getWindows());
 	int32_t ownerlessCount = 0;
 	{
 		$var($WindowArray, arr$, allWindows);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var(Window, w, arr$->get(i$));
-			{
-				if ($nc(w)->getOwner() == nullptr) {
-					++ownerlessCount;
-				}
+			if ($nc(w)->getOwner() == nullptr) {
+				++ownerlessCount;
 			}
 		}
 	}
@@ -1176,14 +886,10 @@ $WindowArray* Window::getOwnerlessWindows() {
 	int32_t c = 0;
 	{
 		$var($WindowArray, arr$, allWindows);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var(Window, w, arr$->get(i$));
-			{
-				if ($nc(w)->getOwner() == nullptr) {
-					ownerless->set(c++, w);
-				}
+			if ($nc(w)->getOwner() == nullptr) {
+				ownerless->set(c++, w);
 			}
 		}
 	}
@@ -1201,13 +907,13 @@ Window* Window::getDocumentRoot() {
 }
 
 void Window::setModalExclusionType($Dialog$ModalExclusionType* exclusionType$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dialog$ModalExclusionType, exclusionType, exclusionType$renamed);
 	if (exclusionType == nullptr) {
 		$init($Dialog$ModalExclusionType);
 		exclusionType = $Dialog$ModalExclusionType::NO_EXCLUDE;
 	}
-	if (!$nc($($Toolkit::getDefaultToolkit()))->isModalExclusionTypeSupported(exclusionType)) {
+	if (!$$nc($Toolkit::getDefaultToolkit())->isModalExclusionTypeSupported(exclusionType)) {
 		$init($Dialog$ModalExclusionType);
 		exclusionType = $Dialog$ModalExclusionType::NO_EXCLUDE;
 	}
@@ -1230,7 +936,7 @@ $Dialog$ModalExclusionType* Window::getModalExclusionType() {
 }
 
 bool Window::isModalExcluded($Dialog$ModalExclusionType* exclusionType) {
-	if ((this->modalExclusionType != nullptr) && $nc(this->modalExclusionType)->compareTo(static_cast<$Enum*>(exclusionType)) >= 0) {
+	if ((this->modalExclusionType != nullptr) && this->modalExclusionType->compareTo(exclusionType) >= 0) {
 		return true;
 	}
 	$var(Window, owner, getOwner_NoClientCode());
@@ -1238,7 +944,7 @@ bool Window::isModalExcluded($Dialog$ModalExclusionType* exclusionType) {
 }
 
 void Window::updateChildrenBlocking() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, childHierarchy, $new($Vector));
 	$var($WindowArray, ownedWindows, getOwnedWindows());
 	for (int32_t i = 0; i < $nc(ownedWindows)->length; ++i) {
@@ -1322,21 +1028,21 @@ void Window::removeWindowFocusListener($WindowFocusListener* l) {
 $WindowListenerArray* Window::getWindowListeners() {
 	$synchronized(this) {
 		$load($WindowListener);
-		return $fcast($WindowListenerArray, getListeners($WindowListener::class$));
+		return $cast($WindowListenerArray, getListeners($WindowListener::class$));
 	}
 }
 
 $WindowFocusListenerArray* Window::getWindowFocusListeners() {
 	$synchronized(this) {
 		$load($WindowFocusListener);
-		return $fcast($WindowFocusListenerArray, getListeners($WindowFocusListener::class$));
+		return $cast($WindowFocusListenerArray, getListeners($WindowFocusListener::class$));
 	}
 }
 
 $WindowStateListenerArray* Window::getWindowStateListeners() {
 	$synchronized(this) {
 		$load($WindowStateListener);
-		return $fcast($WindowStateListenerArray, getListeners($WindowStateListener::class$));
+		return $cast($WindowStateListenerArray, getListeners($WindowStateListener::class$));
 	}
 }
 
@@ -1364,80 +1070,52 @@ $EventListenerArray* Window::getListeners($Class* listenerType) {
 bool Window::eventEnabled($AWTEvent* e) {
 	switch ($nc(e)->id) {
 	case $WindowEvent::WINDOW_OPENED:
-		{}
 	case $WindowEvent::WINDOW_CLOSING:
-		{}
 	case $WindowEvent::WINDOW_CLOSED:
-		{}
 	case $WindowEvent::WINDOW_ICONIFIED:
-		{}
 	case $WindowEvent::WINDOW_DEICONIFIED:
-		{}
 	case $WindowEvent::WINDOW_ACTIVATED:
-		{}
 	case $WindowEvent::WINDOW_DEACTIVATED:
-		{
-			if (((int64_t)(this->eventMask & (uint64_t)$AWTEvent::WINDOW_EVENT_MASK)) != 0 || this->windowListener != nullptr) {
-				return true;
-			}
-			return false;
+		if ((this->eventMask & $AWTEvent::WINDOW_EVENT_MASK) != 0 || this->windowListener != nullptr) {
+			return true;
 		}
+		return false;
 	case $WindowEvent::WINDOW_GAINED_FOCUS:
-		{}
 	case $WindowEvent::WINDOW_LOST_FOCUS:
-		{
-			if (((int64_t)(this->eventMask & (uint64_t)$AWTEvent::WINDOW_FOCUS_EVENT_MASK)) != 0 || this->windowFocusListener != nullptr) {
-				return true;
-			}
-			return false;
+		if ((this->eventMask & $AWTEvent::WINDOW_FOCUS_EVENT_MASK) != 0 || this->windowFocusListener != nullptr) {
+			return true;
 		}
+		return false;
 	case $WindowEvent::WINDOW_STATE_CHANGED:
-		{
-			if (((int64_t)(this->eventMask & (uint64_t)$AWTEvent::WINDOW_STATE_EVENT_MASK)) != 0 || this->windowStateListener != nullptr) {
-				return true;
-			}
-			return false;
+		if ((this->eventMask & $AWTEvent::WINDOW_STATE_EVENT_MASK) != 0 || this->windowStateListener != nullptr) {
+			return true;
 		}
+		return false;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 	return $Container::eventEnabled(e);
 }
 
 void Window::processEvent($AWTEvent* e) {
 	if ($instanceOf($WindowEvent, e)) {
-		switch ($nc(e)->getID()) {
+		switch (e->getID()) {
 		case $WindowEvent::WINDOW_OPENED:
-			{}
 		case $WindowEvent::WINDOW_CLOSING:
-			{}
 		case $WindowEvent::WINDOW_CLOSED:
-			{}
 		case $WindowEvent::WINDOW_ICONIFIED:
-			{}
 		case $WindowEvent::WINDOW_DEICONIFIED:
-			{}
 		case $WindowEvent::WINDOW_ACTIVATED:
-			{}
 		case $WindowEvent::WINDOW_DEACTIVATED:
-			{
-				processWindowEvent($cast($WindowEvent, e));
-				break;
-			}
+			processWindowEvent($cast($WindowEvent, e));
+			break;
 		case $WindowEvent::WINDOW_GAINED_FOCUS:
-			{}
 		case $WindowEvent::WINDOW_LOST_FOCUS:
-			{
-				processWindowFocusEvent($cast($WindowEvent, e));
-				break;
-			}
+			processWindowFocusEvent($cast($WindowEvent, e));
+			break;
 		case $WindowEvent::WINDOW_STATE_CHANGED:
-			{
-				processWindowStateEvent($cast($WindowEvent, e));
-				break;
-			}
+			processWindowStateEvent($cast($WindowEvent, e));
+			break;
 		}
 		return;
 	}
@@ -1449,44 +1127,28 @@ void Window::processWindowEvent($WindowEvent* e) {
 	if (listener != nullptr) {
 		switch ($nc(e)->getID()) {
 		case $WindowEvent::WINDOW_OPENED:
-			{
-				listener->windowOpened(e);
-				break;
-			}
+			listener->windowOpened(e);
+			break;
 		case $WindowEvent::WINDOW_CLOSING:
-			{
-				listener->windowClosing(e);
-				break;
-			}
+			listener->windowClosing(e);
+			break;
 		case $WindowEvent::WINDOW_CLOSED:
-			{
-				listener->windowClosed(e);
-				break;
-			}
+			listener->windowClosed(e);
+			break;
 		case $WindowEvent::WINDOW_ICONIFIED:
-			{
-				listener->windowIconified(e);
-				break;
-			}
+			listener->windowIconified(e);
+			break;
 		case $WindowEvent::WINDOW_DEICONIFIED:
-			{
-				listener->windowDeiconified(e);
-				break;
-			}
+			listener->windowDeiconified(e);
+			break;
 		case $WindowEvent::WINDOW_ACTIVATED:
-			{
-				listener->windowActivated(e);
-				break;
-			}
+			listener->windowActivated(e);
+			break;
 		case $WindowEvent::WINDOW_DEACTIVATED:
-			{
-				listener->windowDeactivated(e);
-				break;
-			}
+			listener->windowDeactivated(e);
+			break;
 		default:
-			{
-				break;
-			}
+			break;
 		}
 	}
 }
@@ -1496,19 +1158,13 @@ void Window::processWindowFocusEvent($WindowEvent* e) {
 	if (listener != nullptr) {
 		switch ($nc(e)->getID()) {
 		case $WindowEvent::WINDOW_GAINED_FOCUS:
-			{
-				listener->windowGainedFocus(e);
-				break;
-			}
+			listener->windowGainedFocus(e);
+			break;
 		case $WindowEvent::WINDOW_LOST_FOCUS:
-			{
-				listener->windowLostFocus(e);
-				break;
-			}
+			listener->windowLostFocus(e);
+			break;
 		default:
-			{
-				break;
-			}
+			break;
 		}
 	}
 }
@@ -1518,20 +1174,16 @@ void Window::processWindowStateEvent($WindowEvent* e) {
 	if (listener != nullptr) {
 		switch ($nc(e)->getID()) {
 		case $WindowEvent::WINDOW_STATE_CHANGED:
-			{
-				listener->windowStateChanged(e);
-				break;
-			}
+			listener->windowStateChanged(e);
+			break;
 		default:
-			{
-				break;
-			}
+			break;
 		}
 	}
 }
 
 void Window::preProcessKeyEvent($KeyEvent* e) {
-	if ($nc($($DebugSettings::getInstance()))->getBoolean("on"_s, false)) {
+	if ($$nc($DebugSettings::getInstance())->getBoolean("on"_s, false)) {
 		bool var$3 = $nc(e)->isActionKey();
 		bool var$2 = var$3 && e->getKeyCode() == $KeyEvent::VK_F1;
 		bool var$1 = var$2 && e->isControlDown();
@@ -1546,7 +1198,7 @@ void Window::postProcessKeyEvent($KeyEvent* e) {
 }
 
 void Window::setAlwaysOnTop(bool alwaysOnTop) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
 		$init($AWTPermissions);
@@ -1572,17 +1224,15 @@ void Window::setAlwaysOnTop(bool alwaysOnTop) {
 }
 
 void Window::setOwnedWindowsAlwaysOnTop(bool alwaysOnTop) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WeakReferenceArray, ownedWindowArray, nullptr);
 	$synchronized(this->ownedWindowList) {
-		$assign(ownedWindowArray, $new($WeakReferenceArray, $nc(this->ownedWindowList)->size()));
-		$nc(this->ownedWindowList)->copyInto(ownedWindowArray);
+		$assign(ownedWindowArray, $new($WeakReferenceArray, this->ownedWindowList->size()));
+		this->ownedWindowList->copyInto(ownedWindowArray);
 	}
 	{
 		$var($WeakReferenceArray, arr$, ownedWindowArray);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($WeakReference, ref, arr$->get(i$));
 			{
 				$var(Window, window, $cast(Window, $nc(ref)->get()));
@@ -1598,7 +1248,7 @@ void Window::setOwnedWindowsAlwaysOnTop(bool alwaysOnTop) {
 }
 
 bool Window::isAlwaysOnTopSupported() {
-	return $nc($($Toolkit::getDefaultToolkit()))->isAlwaysOnTopSupported();
+	return $$nc($Toolkit::getDefaultToolkit())->isAlwaysOnTopSupported();
 }
 
 bool Window::isAlwaysOnTop() {
@@ -1606,11 +1256,11 @@ bool Window::isAlwaysOnTop() {
 }
 
 $Component* Window::getFocusOwner() {
-	return (isFocused()) ? $nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->getFocusOwner() : ($Component*)nullptr;
+	return (isFocused()) ? $$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->getFocusOwner() : ($Component*)nullptr;
 }
 
 $Component* Window::getMostRecentFocusOwner() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isFocused()) {
 		return getFocusOwner();
 	} else {
@@ -1618,29 +1268,29 @@ $Component* Window::getMostRecentFocusOwner() {
 		if (mostRecent != nullptr) {
 			return mostRecent;
 		} else {
-			return (isFocusableWindow()) ? $nc($(getFocusTraversalPolicy()))->getInitialComponent(this) : ($Component*)nullptr;
+			return (isFocusableWindow()) ? $$nc(getFocusTraversalPolicy())->getInitialComponent(this) : ($Component*)nullptr;
 		}
 	}
 }
 
 bool Window::isActive() {
-	return ($nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->getActiveWindow() == this);
+	return ($$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->getActiveWindow() == this);
 }
 
 bool Window::isFocused() {
-	return ($nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->getGlobalFocusedWindow() == this);
+	return ($$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->getGlobalFocusedWindow() == this);
 }
 
 $Set* Window::getFocusTraversalKeys(int32_t id) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (id < 0 || id >= $KeyboardFocusManager::TRAVERSAL_KEY_LENGTH) {
 		$throwNew($IllegalArgumentException, "invalid focus traversal key identifier"_s);
 	}
-	$var($Set, keystrokes, (this->focusTraversalKeys != nullptr) ? $nc(this->focusTraversalKeys)->get(id) : ($Set*)nullptr);
+	$var($Set, keystrokes, (this->focusTraversalKeys != nullptr) ? this->focusTraversalKeys->get(id) : ($Set*)nullptr);
 	if (keystrokes != nullptr) {
 		return keystrokes;
 	} else {
-		return $nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->getDefaultFocusTraversalKeys(id);
+		return $$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->getDefaultFocusTraversalKeys(id);
 	}
 }
 
@@ -1656,19 +1306,19 @@ $Container* Window::getFocusCycleRootAncestor() {
 }
 
 bool Window::isFocusableWindow() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!getFocusableWindowState()) {
 		return false;
 	}
 	if ($instanceOf($Frame, this) || $instanceOf($Dialog, this)) {
 		return true;
 	}
-	if ($nc($(getFocusTraversalPolicy()))->getDefaultComponent(this) == nullptr) {
+	if ($$nc(getFocusTraversalPolicy())->getDefaultComponent(this) == nullptr) {
 		return false;
 	}
 	{
 		$var(Window, owner, getOwner());
-		for (; owner != nullptr; $assign(owner, $nc(owner)->getOwner())) {
+		for (; owner != nullptr; $assign(owner, owner->getOwner())) {
 			if ($instanceOf($Frame, owner) || $instanceOf($Dialog, owner)) {
 				return owner->isShowing();
 			}
@@ -1682,7 +1332,7 @@ bool Window::getFocusableWindowState() {
 }
 
 void Window::setFocusableWindowState(bool focusableWindowState) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool oldFocusableWindowState = false;
 	$synchronized(this) {
 		oldFocusableWindowState = this->focusableWindowState;
@@ -1696,7 +1346,7 @@ void Window::setFocusableWindowState(bool focusableWindowState) {
 	if (oldFocusableWindowState && !focusableWindowState && isFocused()) {
 		{
 			$var(Window, owner, getOwner());
-			for (; owner != nullptr; $assign(owner, $nc(owner)->getOwner())) {
+			for (; owner != nullptr; $assign(owner, owner->getOwner())) {
 				$var($Component, toFocus, $KeyboardFocusManager::getMostRecentFocusOwner(owner));
 				$init($FocusEvent$Cause);
 				if (toFocus != nullptr && toFocus->requestFocus(false, $FocusEvent$Cause::ACTIVATION)) {
@@ -1704,7 +1354,7 @@ void Window::setFocusableWindowState(bool focusableWindowState) {
 				}
 			}
 		}
-		$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->clearGlobalFocusOwnerPriv();
+		$$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->clearGlobalFocusOwnerPriv();
 	}
 }
 
@@ -1757,7 +1407,7 @@ void Window::applyResourceBundle($ResourceBundle* rb) {
 }
 
 void Window::applyResourceBundle($String* rbName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ClassLoader, cl, $($Thread::currentThread())->getContextClassLoader());
 	if (cl == nullptr) {
@@ -1769,8 +1419,8 @@ void Window::applyResourceBundle($String* rbName) {
 void Window::addOwnedWindow($WeakReference* weakWindow) {
 	if (weakWindow != nullptr) {
 		$synchronized(this->ownedWindowList) {
-			if (!$nc(this->ownedWindowList)->contains(weakWindow)) {
-				$nc(this->ownedWindowList)->addElement(weakWindow);
+			if (!this->ownedWindowList->contains(weakWindow)) {
+				this->ownedWindowList->addElement(weakWindow);
 			}
 		}
 	}
@@ -1804,7 +1454,7 @@ void Window::removeFromWindowList($AppContext* context, $WeakReference* weakThis
 	$synchronized(Window::class$) {
 		$var($Vector, windowList, $cast($Vector, $nc(context)->get(Window::class$)));
 		if (windowList != nullptr) {
-			windowList->remove($of(weakThis));
+			windowList->remove(weakThis);
 		}
 	}
 }
@@ -1834,11 +1484,11 @@ $Window$Type* Window::getType() {
 }
 
 void Window::writeObject($ObjectOutputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this) {
 		$set(this, focusMgr, $new($FocusManager));
-		$set($nc(this->focusMgr), focusRoot, this);
-		$set($nc(this->focusMgr), focusOwner, getMostRecentFocusOwner());
+		$set(this->focusMgr, focusRoot, this);
+		$set(this->focusMgr, focusOwner, getMostRecentFocusOwner());
 		$nc(s)->defaultWriteObject();
 		$set(this, focusMgr, nullptr);
 		$init($Component);
@@ -1846,12 +1496,11 @@ void Window::writeObject($ObjectOutputStream* s) {
 		$AWTEventMulticaster::save(s, $Component::windowFocusListenerK, this->windowFocusListener);
 		$AWTEventMulticaster::save(s, $Component::windowStateListenerK, this->windowStateListener);
 	}
-	$nc(s)->writeObject(nullptr);
+	s->writeObject(nullptr);
 	$synchronized(this->ownedWindowList) {
 		for (int32_t i = 0; i < $nc(this->ownedWindowList)->size(); ++i) {
-			$var(Window, child, $cast(Window, $nc(($cast($WeakReference, $($nc(this->ownedWindowList)->elementAt(i)))))->get()));
+			$var(Window, child, $cast(Window, $$sure($WeakReference, this->ownedWindowList->elementAt(i))->get()));
 			if (child != nullptr) {
-				$init($Component);
 				s->writeObject($Component::ownedWindowK);
 				s->writeObject(child);
 			}
@@ -1859,15 +1508,11 @@ void Window::writeObject($ObjectOutputStream* s) {
 	}
 	s->writeObject(nullptr);
 	if (this->icons != nullptr) {
-		{
-			$var($Iterator, i$, $nc(this->icons)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Image, i, $cast($Image, i$->next()));
-				{
-					if ($instanceOf($Serializable, i)) {
-						s->writeObject(i);
-					}
-				}
+		$var($Iterator, i$, this->icons->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Image, i, $cast($Image, i$->next()));
+			if ($instanceOf($Serializable, i)) {
+				s->writeObject(i);
 			}
 		}
 	}
@@ -1888,48 +1533,44 @@ void Window::initDeserializedWindow() {
 }
 
 void Window::deserializeResources($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->windowSerializedDataVersion < 2) {
 		if (this->focusMgr != nullptr) {
-			if ($nc(this->focusMgr)->focusOwner != nullptr) {
-				$KeyboardFocusManager::setMostRecentFocusOwner(this, $nc(this->focusMgr)->focusOwner);
+			if (this->focusMgr->focusOwner != nullptr) {
+				$KeyboardFocusManager::setMostRecentFocusOwner(this, this->focusMgr->focusOwner);
 			}
 		}
 		this->focusableWindowState = true;
 	}
 	$var($Object, keyOrNull, nullptr);
 	while (nullptr != ($assign(keyOrNull, $nc(s)->readObject()))) {
-		$var($String, key, $nc(($cast($String, keyOrNull)))->intern());
+		$var($String, key, $nc($cast($String, keyOrNull))->intern());
 		$init($Component);
 		if ($Component::windowListenerK == key) {
-			addWindowListener(($cast($WindowListener, $(s->readObject()))));
+			addWindowListener($$cast($WindowListener, s->readObject()));
+		} else if ($Component::windowFocusListenerK == key) {
+			addWindowFocusListener($$cast($WindowFocusListener, s->readObject()));
+		} else if ($Component::windowStateListenerK == key) {
+			addWindowStateListener($$cast($WindowStateListener, s->readObject()));
 		} else {
-			if ($Component::windowFocusListenerK == key) {
-				addWindowFocusListener(($cast($WindowFocusListener, $(s->readObject()))));
-			} else {
-				if ($Component::windowStateListenerK == key) {
-					addWindowStateListener(($cast($WindowStateListener, $(s->readObject()))));
-				} else {
-					s->readObject();
-				}
-			}
+			s->readObject();
 		}
 	}
 	try {
-		while (nullptr != ($assign(keyOrNull, $nc(s)->readObject()))) {
-			$var($String, key, $nc(($cast($String, keyOrNull)))->intern());
+		while (nullptr != ($assign(keyOrNull, s->readObject()))) {
+			$var($String, key, $nc($cast($String, keyOrNull))->intern());
 			$init($Component);
 			if ($Component::ownedWindowK == key) {
-				connectOwnedWindow($cast(Window, $(s->readObject())));
+				connectOwnedWindow($$cast(Window, s->readObject()));
 			} else {
 				s->readObject();
 			}
 		}
-		$var($Object, obj, $nc(s)->readObject());
+		$var($Object, obj, s->readObject());
 		$set(this, icons, $new($ArrayList));
 		while (obj != nullptr) {
 			if ($instanceOf($Image, obj)) {
-				$nc(this->icons)->add($cast($Image, obj));
+				this->icons->add($cast($Image, obj));
 			}
 			$assign(obj, s->readObject());
 		}
@@ -1938,7 +1579,7 @@ void Window::deserializeResources($ObjectInputStream* s) {
 }
 
 void Window::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$GraphicsEnvironment::checkHeadless();
 	initDeserializedWindow();
 	$var($ObjectInputStream$GetField, f, $nc(s)->readFields());
@@ -1947,16 +1588,16 @@ void Window::readObject($ObjectInputStream* s) {
 	this->focusableWindowState = f->get("focusableWindowState"_s, true);
 	this->windowSerializedDataVersion = f->get("windowSerializedDataVersion"_s, 1);
 	this->locationByPlatform = f->get("locationByPlatform"_s, Window::locationByPlatformProp);
-	$set(this, focusMgr, $cast($FocusManager, f->get("focusMgr"_s, ($Object*)nullptr)));
+	$set(this, focusMgr, $cast($FocusManager, f->get("focusMgr"_s, nullptr)));
 	$init($Dialog$ModalExclusionType);
-	$Dialog$ModalExclusionType* et = $cast($Dialog$ModalExclusionType, f->get("modalExclusionType"_s, $of($Dialog$ModalExclusionType::NO_EXCLUDE)));
+	$Dialog$ModalExclusionType* et = $cast($Dialog$ModalExclusionType, f->get("modalExclusionType"_s, $Dialog$ModalExclusionType::NO_EXCLUDE));
 	setModalExclusionType(et);
 	bool aot = f->get("alwaysOnTop"_s, false);
 	if (aot) {
 		setAlwaysOnTop(aot);
 	}
-	$set(this, shape, $cast($Shape, f->get("shape"_s, ($Object*)nullptr)));
-	this->opacity = $nc(($($Float::valueOf(f->get("opacity"_s, 1.0f)))))->floatValue();
+	$set(this, shape, $cast($Shape, f->get("shape"_s, nullptr)));
+	this->opacity = $($Float::valueOf(f->get("opacity"_s, 1.0f)))->floatValue();
 	this->securityWarningWidth = 0;
 	this->securityWarningHeight = 0;
 	deserializeResources(s);
@@ -1970,22 +1611,22 @@ $AccessibleContext* Window::getAccessibleContext() {
 }
 
 void Window::setGraphicsConfiguration($GraphicsConfiguration* gc$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GraphicsConfiguration, gc, gc$renamed);
 	if (gc == nullptr) {
-		$assign(gc, $nc($($nc($($GraphicsEnvironment::getLocalGraphicsEnvironment()))->getDefaultScreenDevice()))->getDefaultConfiguration());
+		$assign(gc, $$nc($$nc($GraphicsEnvironment::getLocalGraphicsEnvironment())->getDefaultScreenDevice())->getDefaultConfiguration());
 	}
 	$synchronized(getTreeLock()) {
 		$Container::setGraphicsConfiguration(gc);
 		$init($PlatformLogger$Level);
 		if ($nc(Window::log)->isLoggable($PlatformLogger$Level::FINER)) {
-			$nc(Window::log)->finer($$str({"+ Window.setGraphicsConfiguration(): new GC is \n+ "_s, $(getGraphicsConfiguration_NoClientCode()), "\n+ this is "_s, this}));
+			Window::log->finer($$str({"+ Window.setGraphicsConfiguration(): new GC is \n+ "_s, $(getGraphicsConfiguration_NoClientCode()), "\n+ this is "_s, this}));
 		}
 	}
 }
 
 void Window::setLocationRelativeTo($Component* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t dx = 0;
 	int32_t dy = 0;
 	$var($GraphicsConfiguration, gc, getGraphicsConfiguration_NoClientCode());
@@ -1994,24 +1635,24 @@ void Window::setLocationRelativeTo($Component* c) {
 	$var(Window, componentWindow, $SunToolkit::getContainingWindow(c));
 	if ((c == nullptr) || (componentWindow == nullptr)) {
 		$var($GraphicsEnvironment, ge, $GraphicsEnvironment::getLocalGraphicsEnvironment());
-		$assign(gc, $nc($($nc(ge)->getDefaultScreenDevice()))->getDefaultConfiguration());
+		$assign(gc, $$nc($nc(ge)->getDefaultScreenDevice())->getDefaultConfiguration());
 		$assign(gcBounds, $nc(gc)->getBounds());
 		$var($Point, centerPoint, ge->getCenterPoint());
 		dx = $nc(centerPoint)->x - $nc(windowSize)->width / 2;
 		dy = centerPoint->y - windowSize->height / 2;
-	} else if (!$nc(c)->isShowing()) {
-		$assign(gc, $nc(componentWindow)->getGraphicsConfiguration());
+	} else if (!c->isShowing()) {
+		$assign(gc, componentWindow->getGraphicsConfiguration());
 		$assign(gcBounds, $nc(gc)->getBounds());
-		dx = $nc(gcBounds)->x + (gcBounds->width - $nc(windowSize)->width) / 2;
+		dx = $nc(gcBounds)->x + ($nc(gcBounds)->width - $nc(windowSize)->width) / 2;
 		dy = gcBounds->y + (gcBounds->height - windowSize->height) / 2;
 	} else {
-		$assign(gc, $nc(componentWindow)->getGraphicsConfiguration());
+		$assign(gc, componentWindow->getGraphicsConfiguration());
 		$assign(gcBounds, $nc(gc)->getBounds());
 		$var($Dimension, compSize, c->getSize());
 		$var($Point, compLocation, c->getLocationOnScreen());
 		dx = $nc(compLocation)->x + (($nc(compSize)->width - $nc(windowSize)->width) / 2);
 		dy = compLocation->y + ((compSize->height - windowSize->height) / 2);
-		if (dy + windowSize->height > $nc(gcBounds)->y + gcBounds->height) {
+		if (dy + windowSize->height > $nc(gcBounds)->y + $nc(gcBounds)->height) {
 			dy = gcBounds->y + gcBounds->height - windowSize->height;
 			if (compLocation->x - gcBounds->x + compSize->width / 2 < gcBounds->width / 2) {
 				dx = compLocation->x + compSize->width;
@@ -2020,16 +1661,16 @@ void Window::setLocationRelativeTo($Component* c) {
 			}
 		}
 	}
-	if (dy + $nc(windowSize)->height > $nc(gcBounds)->y + gcBounds->height) {
+	if (dy + $nc(windowSize)->height > $nc(gcBounds)->y + $nc(gcBounds)->height) {
 		dy = gcBounds->y + gcBounds->height - windowSize->height;
 	}
-	if (dy < $nc(gcBounds)->y) {
+	if (dy < gcBounds->y) {
 		dy = gcBounds->y;
 	}
-	if (dx + $nc(windowSize)->width > $nc(gcBounds)->x + gcBounds->width) {
+	if (dx + windowSize->width > gcBounds->x + gcBounds->width) {
 		dx = gcBounds->x + gcBounds->width - windowSize->width;
 	}
-	if (dx < $nc(gcBounds)->x) {
+	if (dx < gcBounds->x) {
 		dx = gcBounds->x;
 	}
 	setLocation(dx, dy);
@@ -2060,7 +1701,7 @@ $Component* Window::getTemporaryLostComponent() {
 
 $Component* Window::setTemporaryLostComponent($Component* component) {
 	$var($Component, previousComp, this->temporaryLostComponent);
-	if (component == nullptr || $nc(component)->canBeFocusOwner()) {
+	if (component == nullptr || component->canBeFocusOwner()) {
 		$set(this, temporaryLostComponent, component);
 	} else {
 		$set(this, temporaryLostComponent, nullptr);
@@ -2097,7 +1738,7 @@ void Window::setBounds(int32_t x, int32_t y, int32_t width, int32_t height) {
 }
 
 void Window::setBounds($Rectangle* r) {
-	setBounds($nc(r)->x, r->y, r->width, r->height);
+	setBounds($nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 }
 
 bool Window::isRecursivelyVisible() {
@@ -2109,7 +1750,7 @@ float Window::getOpacity() {
 }
 
 void Window::setOpacity(float opacity) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getTreeLock()) {
 		if (opacity < 0.0f || opacity > 1.0f) {
 			$throwNew($IllegalArgumentException, "The value of opacity should be in the range [0.0f .. 1.0f]."_s);
@@ -2117,7 +1758,7 @@ void Window::setOpacity(float opacity) {
 		if (opacity < 1.0f) {
 			$var($GraphicsConfiguration, gc, getGraphicsConfiguration());
 			$var($GraphicsDevice, gd, $nc(gc)->getDevice());
-			if ($nc($(gc->getDevice()))->getFullScreenWindow() == this) {
+			if ($$nc(gc->getDevice())->getFullScreenWindow() == this) {
 				$throwNew($IllegalComponentStateException, "Setting opacity for full-screen window is not supported."_s);
 			}
 			$init($GraphicsDevice$WindowTranslucency);
@@ -2135,17 +1776,17 @@ void Window::setOpacity(float opacity) {
 
 $Shape* Window::getShape() {
 	$synchronized(getTreeLock()) {
-		return this->shape == nullptr ? ($Shape*)nullptr : static_cast<$Shape*>($new($Path2D$Float, this->shape));
+		return this->shape == nullptr ? ($Shape*)nullptr : $cast($Shape, $new($Path2D$Float, this->shape));
 	}
 }
 
 void Window::setShape($Shape* shape) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getTreeLock()) {
 		if (shape != nullptr) {
 			$var($GraphicsConfiguration, gc, getGraphicsConfiguration());
 			$var($GraphicsDevice, gd, $nc(gc)->getDevice());
-			if ($nc($(gc->getDevice()))->getFullScreenWindow() == this) {
+			if ($$nc(gc->getDevice())->getFullScreenWindow() == this) {
 				$throwNew($IllegalComponentStateException, "Setting shape for full-screen window is not supported."_s);
 			}
 			$init($GraphicsDevice$WindowTranslucency);
@@ -2153,10 +1794,10 @@ void Window::setShape($Shape* shape) {
 				$throwNew($UnsupportedOperationException, "PERPIXEL_TRANSPARENT translucency is not supported."_s);
 			}
 		}
-		$set(this, shape, (shape == nullptr) ? ($Shape*)nullptr : static_cast<$Shape*>($new($Path2D$Float, shape)));
+		$set(this, shape, (shape == nullptr) ? ($Shape*)nullptr : $cast($Shape, $new($Path2D$Float, shape)));
 		$var($WindowPeer, peer, $cast($WindowPeer, this->peer));
 		if (peer != nullptr) {
-			peer->applyShape(shape == nullptr ? ($Region*)nullptr : $($Region::getInstance(shape, ($AffineTransform*)nullptr)));
+			peer->applyShape(shape == nullptr ? ($Region*)nullptr : $($Region::getInstance(shape, nullptr)));
 		}
 	}
 }
@@ -2166,18 +1807,18 @@ $Color* Window::getBackground() {
 }
 
 void Window::setBackground($Color* bgColor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, oldBg, getBackground());
 	$Container::setBackground(bgColor);
 	if (oldBg != nullptr && oldBg->equals(bgColor)) {
 		return;
 	}
-	int32_t oldAlpha = oldBg != nullptr ? $nc(oldBg)->getAlpha() : 255;
-	int32_t alpha = bgColor != nullptr ? $nc(bgColor)->getAlpha() : 255;
+	int32_t oldAlpha = oldBg != nullptr ? oldBg->getAlpha() : 255;
+	int32_t alpha = bgColor != nullptr ? bgColor->getAlpha() : 255;
 	if ((oldAlpha == 255) && (alpha < 255)) {
 		$var($GraphicsConfiguration, gc, getGraphicsConfiguration());
 		$var($GraphicsDevice, gd, $nc(gc)->getDevice());
-		if ($nc($(gc->getDevice()))->getFullScreenWindow() == this) {
+		if ($$nc(gc->getDevice())->getFullScreenWindow() == this) {
 			$throwNew($IllegalComponentStateException, "Making full-screen window non opaque is not supported."_s);
 		}
 		if (!gc->isTranslucencyCapable()) {
@@ -2199,7 +1840,7 @@ void Window::setBackground($Color* bgColor) {
 
 bool Window::isOpaque() {
 	$var($Color, bg, getBackground());
-	return bg != nullptr ? $nc(bg)->getAlpha() == 255 : true;
+	return bg != nullptr ? bg->getAlpha() == 255 : true;
 }
 
 void Window::updateWindow() {
@@ -2212,26 +1853,24 @@ void Window::updateWindow() {
 }
 
 void Window::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isOpaque()) {
 		$var($Graphics, gg, $nc(g)->create());
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				if ($instanceOf($Graphics2D, gg)) {
-					$nc(gg)->setColor($(getBackground()));
-					$nc(($cast($Graphics2D, gg)))->setComposite($($AlphaComposite::getInstance($AlphaComposite::SRC)));
-					int32_t var$1 = getWidth();
-					gg->fillRect(0, 0, var$1, getHeight());
-				}
-			} catch ($Throwable& var$2) {
-				$assign(var$0, var$2);
-			} /*finally*/ {
-				$nc(gg)->dispose();
+		$var($Throwable, var$0, nullptr);
+		try {
+			if ($instanceOf($Graphics2D, gg)) {
+				gg->setColor($(getBackground()));
+				$cast($Graphics2D, gg)->setComposite($($AlphaComposite::getInstance($AlphaComposite::SRC)));
+				int32_t var$1 = getWidth();
+				gg->fillRect(0, 0, var$1, getHeight());
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
+		} /*finally*/ {
+			$nc(gg)->dispose();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	$Container::paint(g);
@@ -2239,8 +1878,8 @@ void Window::paint($Graphics* g) {
 
 void Window::setLayersOpaque($Component* component, bool isOpaque) {
 	$init(Window);
-	$useLocalCurrentObjectStackCache();
-	if ($SunToolkit::isInstanceOf($of(component), "javax.swing.RootPaneContainer"_s)) {
+	$useLocalObjectStack();
+	if ($SunToolkit::isInstanceOf(component, "javax.swing.RootPaneContainer"_s)) {
 		$var($RootPaneContainer, rpc, $cast($RootPaneContainer, component));
 		$var($JRootPane, root, $nc(rpc)->getRootPane());
 		$var($JLayeredPane, lp, $nc(root)->getLayeredPane());
@@ -2286,7 +1925,7 @@ double Window::limit(double value, double min, double max) {
 }
 
 $Point2D* Window::calculateSecurityWarningPosition(double x, double y, double w, double h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Component);
 	double wx = x + w * $Component::RIGHT_ALIGNMENT + 2.0;
 	double wy = y + h * $Component::TOP_ALIGNMENT + 0.0;
@@ -2294,17 +1933,17 @@ $Point2D* Window::calculateSecurityWarningPosition(double x, double y, double w,
 	wy = Window::limit(wy, y - this->securityWarningHeight - 2, y + h + 2);
 	$var($GraphicsConfiguration, graphicsConfig, getGraphicsConfiguration_NoClientCode());
 	$var($Rectangle, screenBounds, $nc(graphicsConfig)->getBounds());
-	$var($Insets, screenInsets, $nc($($Toolkit::getDefaultToolkit()))->getScreenInsets(graphicsConfig));
-	wx = Window::limit(wx, (double)($nc(screenBounds)->x + $nc(screenInsets)->left), (double)(screenBounds->x + screenBounds->width - screenInsets->right - this->securityWarningWidth));
-	wy = Window::limit(wy, (double)($nc(screenBounds)->y + $nc(screenInsets)->top), (double)(screenBounds->y + screenBounds->height - screenInsets->bottom - this->securityWarningHeight));
+	$var($Insets, screenInsets, $$nc($Toolkit::getDefaultToolkit())->getScreenInsets(graphicsConfig));
+	wx = Window::limit(wx, (double)($nc(screenBounds)->x + $nc(screenInsets)->left), (double)($nc(screenBounds)->x + $nc(screenBounds)->width - $nc(screenInsets)->right - this->securityWarningWidth));
+	wy = Window::limit(wy, (double)(screenBounds->y + screenInsets->top), (double)(screenBounds->y + screenBounds->height - screenInsets->bottom - this->securityWarningHeight));
 	return $new($Point2D$Double, wx, wy);
 }
 
 void Window::updateZOrder() {
 }
 
-void clinit$Window($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Window::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Window::base, "win"_s);
 	$beforeCallerSensitive();
 	Window::systemSyncLWRequests = false;
@@ -2316,9 +1955,9 @@ void clinit$Window($Class* class$) {
 		if (!$GraphicsEnvironment::isHeadless()) {
 			Window::initIDs();
 		}
-		$var($String, s, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "java.awt.syncLWRequests"_s)))));
+		$var($String, s, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "java.awt.syncLWRequests"_s))));
 		Window::systemSyncLWRequests = (s != nullptr && s->equals("true"_s));
-		$var($String, s2, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "java.awt.Window.locationByPlatform"_s)))));
+		$var($String, s2, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "java.awt.Window.locationByPlatform"_s))));
 		Window::locationByPlatformProp = (s2 != nullptr && s2->equals("true"_s));
 	}
 	$assignStatic(Window::beforeFirstWindowShown, $new($AtomicBoolean, true));
@@ -2331,7 +1970,258 @@ Window::Window() {
 }
 
 $Class* Window::load$($String* name, bool initialize) {
-	$loadClass(Window, name, initialize, &_Window_ClassInfo_, clinit$Window, allocate$Window);
+	$FieldInfo fieldInfos$$[] = {
+		{"warningString", "Ljava/lang/String;", nullptr, 0, $field(Window, warningString)},
+		{"icons", "Ljava/util/List;", "Ljava/util/List<Ljava/awt/Image;>;", $TRANSIENT, $field(Window, icons)},
+		{"temporaryLostComponent", "Ljava/awt/Component;", nullptr, $PRIVATE | $TRANSIENT, $field(Window, temporaryLostComponent)},
+		{"systemSyncLWRequests", "Z", nullptr, $STATIC, $staticField(Window, systemSyncLWRequests)},
+		{"syncLWRequests", "Z", nullptr, 0, $field(Window, syncLWRequests)},
+		{"beforeFirstShow", "Z", nullptr, $TRANSIENT, $field(Window, beforeFirstShow)},
+		{"disposing", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(Window, disposing)},
+		{"disposerRecord", "Ljava/awt/Window$WindowDisposerRecord;", nullptr, $TRANSIENT, $field(Window, disposerRecord)},
+		{"OPENED", "I", nullptr, $STATIC | $FINAL, $constField(Window, OPENED)},
+		{"state", "I", nullptr, 0, $field(Window, state)},
+		{"alwaysOnTop", "Z", nullptr, $PRIVATE, $field(Window, alwaysOnTop)},
+		{"allWindows", "Lsun/awt/util/IdentityArrayList;", "Lsun/awt/util/IdentityArrayList<Ljava/awt/Window;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Window, allWindows)},
+		{"ownedWindowList", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/ref/WeakReference<Ljava/awt/Window;>;>;", $TRANSIENT, $field(Window, ownedWindowList)},
+		{"weakThis", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/Window;>;", $PRIVATE | $TRANSIENT, $field(Window, weakThis)},
+		{"showWithParent", "Z", nullptr, $TRANSIENT, $field(Window, showWithParent)},
+		{"modalBlocker", "Ljava/awt/Dialog;", nullptr, $TRANSIENT, $field(Window, modalBlocker)},
+		{"modalExclusionType", "Ljava/awt/Dialog$ModalExclusionType;", nullptr, 0, $field(Window, modalExclusionType)},
+		{"windowListener", "Ljava/awt/event/WindowListener;", nullptr, $TRANSIENT, $field(Window, windowListener)},
+		{"windowStateListener", "Ljava/awt/event/WindowStateListener;", nullptr, $TRANSIENT, $field(Window, windowStateListener)},
+		{"windowFocusListener", "Ljava/awt/event/WindowFocusListener;", nullptr, $TRANSIENT, $field(Window, windowFocusListener)},
+		{"inputContext", "Ljava/awt/im/InputContext;", nullptr, $TRANSIENT, $field(Window, inputContext)},
+		{"inputContextLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $TRANSIENT, $field(Window, inputContextLock)},
+		{"focusMgr", "Ljava/awt/FocusManager;", nullptr, $PRIVATE, $field(Window, focusMgr)},
+		{"focusableWindowState", "Z", nullptr, $PRIVATE, $field(Window, focusableWindowState)},
+		{"autoRequestFocus", "Z", nullptr, $PRIVATE | $VOLATILE, $field(Window, autoRequestFocus)},
+		{"isInShow", "Z", nullptr, $TRANSIENT, $field(Window, isInShow)},
+		{"opacity", "F", nullptr, $PRIVATE | $VOLATILE, $field(Window, opacity)},
+		{"shape", "Ljava/awt/Shape;", nullptr, $PRIVATE, $field(Window, shape)},
+		{"base", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Window, base)},
+		{"nameCounter", "I", nullptr, $PRIVATE | $STATIC, $staticField(Window, nameCounter)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Window, serialVersionUID)},
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Window, log)},
+		{"locationByPlatformProp", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Window, locationByPlatformProp)},
+		{"isTrayIconWindow", "Z", nullptr, $TRANSIENT, $field(Window, isTrayIconWindow)},
+		{"securityWarningWidth", "I", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(Window, securityWarningWidth)},
+		{"securityWarningHeight", "I", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(Window, securityWarningHeight)},
+		{"anchor", "Ljava/lang/Object;", nullptr, $TRANSIENT, $field(Window, anchor)},
+		{"beforeFirstWindowShown", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Window, beforeFirstWindowShown)},
+		{"type", "Ljava/awt/Window$Type;", nullptr, $PRIVATE, $field(Window, type)},
+		{"windowSerializedDataVersion", "I", nullptr, $PRIVATE, $field(Window, windowSerializedDataVersion)},
+		{"locationByPlatform", "Z", nullptr, $PRIVATE | $VOLATILE, $field(Window, locationByPlatform)},
+		{}
+	};
+	$CompoundAttribute applyResourceBundlemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute applyResourceBundlemethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute hidemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute postEventmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute reshapemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute showmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/GraphicsConfiguration;)V", nullptr, 0, $method(Window, init$, void, $GraphicsConfiguration*)},
+		{"<init>", "()V", nullptr, 0, $method(Window, init$, void), "java.awt.HeadlessException"},
+		{"<init>", "(Ljava/awt/Frame;)V", nullptr, $PUBLIC, $method(Window, init$, void, $Frame*)},
+		{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(Window, init$, void, Window*)},
+		{"<init>", "(Ljava/awt/Window;Ljava/awt/GraphicsConfiguration;)V", nullptr, $PUBLIC, $method(Window, init$, void, Window*, $GraphicsConfiguration*)},
+		{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(Window, addNotify, void)},
+		{"addOwnedWindow", "(Ljava/lang/ref/WeakReference;)V", "(Ljava/lang/ref/WeakReference<Ljava/awt/Window;>;)V", 0, $virtualMethod(Window, addOwnedWindow, void, $WeakReference*)},
+		{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(Window, addPropertyChangeListener, void, $PropertyChangeListener*)},
+		{"addPropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(Window, addPropertyChangeListener, void, $String*, $PropertyChangeListener*)},
+		{"addToWindowList", "()V", nullptr, $PRIVATE, $method(Window, addToWindowList, void)},
+		{"addWindowFocusListener", "(Ljava/awt/event/WindowFocusListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Window, addWindowFocusListener, void, $WindowFocusListener*)},
+		{"addWindowListener", "(Ljava/awt/event/WindowListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Window, addWindowListener, void, $WindowListener*)},
+		{"addWindowStateListener", "(Ljava/awt/event/WindowStateListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Window, addWindowStateListener, void, $WindowStateListener*)},
+		{"adjustDescendantsOnParent", "(I)V", nullptr, 0, $virtualMethod(Window, adjustDescendantsOnParent, void, int32_t)},
+		{"adjustListeningChildrenOnParent", "(JI)V", nullptr, 0, $virtualMethod(Window, adjustListeningChildrenOnParent, void, int64_t, int32_t)},
+		{"applyCompoundShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $FINAL, $virtualMethod(Window, applyCompoundShape, void, $Region*)},
+		{"applyCurrentShape", "()V", nullptr, $FINAL, $virtualMethod(Window, applyCurrentShape, void)},
+		{"applyResourceBundle", "(Ljava/util/ResourceBundle;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Window, applyResourceBundle, void, $ResourceBundle*), nullptr, nullptr, applyResourceBundlemethodAnnotations$$},
+		{"applyResourceBundle", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Window, applyResourceBundle, void, $String*), nullptr, nullptr, applyResourceBundlemethodAnnotations$$$1},
+		{"calculateSecurityWarningPosition", "(DDDD)Ljava/awt/geom/Point2D;", nullptr, $PRIVATE, $method(Window, calculateSecurityWarningPosition, $Point2D*, double, double, double, double)},
+		{"canContainFocusOwner", "(Ljava/awt/Component;)Z", nullptr, 0, $virtualMethod(Window, canContainFocusOwner, bool, $Component*)},
+		{"clearMostRecentFocusOwnerOnHide", "()V", nullptr, $FINAL, $virtualMethod(Window, clearMostRecentFocusOwnerOnHide, void)},
+		{"closeSplashScreen", "()V", nullptr, $FINAL, $method(Window, closeSplashScreen, void)},
+		{"connectOwnedWindow", "(Ljava/awt/Window;)V", nullptr, 0, $virtualMethod(Window, connectOwnedWindow, void, Window*)},
+		{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Window, constructComponentName, $String*)},
+		{"createBufferStrategy", "(I)V", nullptr, $PUBLIC, $virtualMethod(Window, createBufferStrategy, void, int32_t)},
+		{"createBufferStrategy", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC, $virtualMethod(Window, createBufferStrategy, void, int32_t, $BufferCapabilities*), "java.awt.AWTException"},
+		{"deliverMouseWheelToAncestor", "(Ljava/awt/event/MouseWheelEvent;)V", nullptr, 0, $virtualMethod(Window, deliverMouseWheelToAncestor, void, $MouseWheelEvent*)},
+		{"deserializeResources", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Window, deserializeResources, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException,java.awt.HeadlessException"},
+		{"dispatchEventImpl", "(Ljava/awt/AWTEvent;)V", nullptr, 0, $virtualMethod(Window, dispatchEventImpl, void, $AWTEvent*)},
+		{"dispatchMouseWheelToAncestor", "(Ljava/awt/event/MouseWheelEvent;)Z", nullptr, 0, $virtualMethod(Window, dispatchMouseWheelToAncestor, bool, $MouseWheelEvent*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(Window, dispose, void)},
+		{"disposeImpl", "()V", nullptr, 0, $virtualMethod(Window, disposeImpl, void)},
+		{"doDispose", "()V", nullptr, 0, $virtualMethod(Window, doDispose, void)},
+		{"eventEnabled", "(Ljava/awt/AWTEvent;)Z", nullptr, 0, $virtualMethod(Window, eventEnabled, bool, $AWTEvent*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(Window, getAccessibleContext, $AccessibleContext*)},
+		{"getAllUnblockedWindows", "()Lsun/awt/util/IdentityArrayList;", "()Lsun/awt/util/IdentityArrayList<Ljava/awt/Window;>;", $STATIC, $staticMethod(Window, getAllUnblockedWindows, $IdentityArrayList*)},
+		{"getAllWindows", "()Lsun/awt/util/IdentityArrayList;", "()Lsun/awt/util/IdentityArrayList<Ljava/awt/Window;>;", $STATIC, $staticMethod(Window, getAllWindows, $IdentityArrayList*)},
+		{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(Window, getBackground, $Color*)},
+		{"getBufferStrategy", "()Ljava/awt/image/BufferStrategy;", nullptr, $PUBLIC, $virtualMethod(Window, getBufferStrategy, $BufferStrategy*)},
+		{"getContainer", "()Ljava/awt/Container;", nullptr, $FINAL, $virtualMethod(Window, getContainer, $Container*)},
+		{"getDocumentRoot", "()Ljava/awt/Window;", nullptr, 0, $virtualMethod(Window, getDocumentRoot, Window*)},
+		{"getFocusCycleRootAncestor", "()Ljava/awt/Container;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Window, getFocusCycleRootAncestor, $Container*)},
+		{"getFocusOwner", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(Window, getFocusOwner, $Component*)},
+		{"getFocusTraversalKeys", "(I)Ljava/util/Set;", "(I)Ljava/util/Set<Ljava/awt/AWTKeyStroke;>;", $PUBLIC, $virtualMethod(Window, getFocusTraversalKeys, $Set*, int32_t)},
+		{"getFocusableWindowState", "()Z", nullptr, $PUBLIC, $virtualMethod(Window, getFocusableWindowState, bool)},
+		{"getIconImages", "()Ljava/util/List;", "()Ljava/util/List<Ljava/awt/Image;>;", $PUBLIC, $virtualMethod(Window, getIconImages, $List*)},
+		{"getInputContext", "()Ljava/awt/im/InputContext;", nullptr, $PUBLIC, $virtualMethod(Window, getInputContext, $InputContext*)},
+		{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(Window, getListeners, $EventListenerArray*, $Class*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(Window, getLocale, $Locale*)},
+		{"getLocationOnWindow", "()Ljava/awt/Point;", nullptr, $FINAL, $virtualMethod(Window, getLocationOnWindow, $Point*)},
+		{"getModalBlocker", "()Ljava/awt/Dialog;", nullptr, 0, $virtualMethod(Window, getModalBlocker, $Dialog*)},
+		{"getModalExclusionType", "()Ljava/awt/Dialog$ModalExclusionType;", nullptr, $PUBLIC, $virtualMethod(Window, getModalExclusionType, $Dialog$ModalExclusionType*)},
+		{"getMostRecentFocusOwner", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(Window, getMostRecentFocusOwner, $Component*)},
+		{"getOpacity", "()F", nullptr, $PUBLIC, $virtualMethod(Window, getOpacity, float)},
+		{"getOwnedWindows", "()[Ljava/awt/Window;", nullptr, $PUBLIC, $virtualMethod(Window, getOwnedWindows, $WindowArray*)},
+		{"getOwnedWindows_NoClientCode", "()[Ljava/awt/Window;", nullptr, $FINAL, $method(Window, getOwnedWindows_NoClientCode, $WindowArray*)},
+		{"getOwner", "()Ljava/awt/Window;", nullptr, $PUBLIC, $virtualMethod(Window, getOwner, Window*)},
+		{"getOwner_NoClientCode", "()Ljava/awt/Window;", nullptr, $FINAL, $method(Window, getOwner_NoClientCode, Window*)},
+		{"getOwnerlessWindows", "()[Ljava/awt/Window;", nullptr, $PUBLIC | $STATIC, $staticMethod(Window, getOwnerlessWindows, $WindowArray*)},
+		{"getShape", "()Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(Window, getShape, $Shape*)},
+		{"getTemporaryLostComponent", "()Ljava/awt/Component;", nullptr, 0, $virtualMethod(Window, getTemporaryLostComponent, $Component*)},
+		{"getToolkit", "()Ljava/awt/Toolkit;", nullptr, $PUBLIC, $virtualMethod(Window, getToolkit, $Toolkit*)},
+		{"getType", "()Ljava/awt/Window$Type;", nullptr, $PUBLIC, $virtualMethod(Window, getType, $Window$Type*)},
+		{"getWarningString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Window, getWarningString, $String*)},
+		{"getWindowFocusListeners", "()[Ljava/awt/event/WindowFocusListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Window, getWindowFocusListeners, $WindowFocusListenerArray*)},
+		{"getWindowListeners", "()[Ljava/awt/event/WindowListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Window, getWindowListeners, $WindowListenerArray*)},
+		{"getWindowStateListeners", "()[Ljava/awt/event/WindowStateListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Window, getWindowStateListeners, $WindowStateListenerArray*)},
+		{"getWindows", "(Lsun/awt/AppContext;)[Ljava/awt/Window;", nullptr, $PRIVATE | $STATIC, $staticMethod(Window, getWindows, $WindowArray*, $AppContext*)},
+		{"getWindows", "()[Ljava/awt/Window;", nullptr, $PUBLIC | $STATIC, $staticMethod(Window, getWindows, $WindowArray*)},
+		{"hide", "()V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Window, hide, void), nullptr, nullptr, hidemethodAnnotations$$},
+		{"init", "(Ljava/awt/GraphicsConfiguration;)V", nullptr, $PRIVATE, $method(Window, init, void, $GraphicsConfiguration*)},
+		{"initDeserializedWindow", "()V", nullptr, $PRIVATE, $method(Window, initDeserializedWindow, void)},
+		{"initGC", "(Ljava/awt/GraphicsConfiguration;)Ljava/awt/GraphicsConfiguration;", nullptr, $PRIVATE, $method(Window, initGC, $GraphicsConfiguration*, $GraphicsConfiguration*)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Window, initIDs, void)},
+		{"isActive", "()Z", nullptr, $PUBLIC, $virtualMethod(Window, isActive, bool)},
+		{"isAlwaysOnTop", "()Z", nullptr, $PUBLIC | $FINAL, $method(Window, isAlwaysOnTop, bool)},
+		{"isAlwaysOnTopSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(Window, isAlwaysOnTopSupported, bool)},
+		{"isAutoRequestFocus", "()Z", nullptr, $PUBLIC, $virtualMethod(Window, isAutoRequestFocus, bool)},
+		{"isDisposing", "()Z", nullptr, 0, $virtualMethod(Window, isDisposing, bool)},
+		{"isFocusCycleRoot", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Window, isFocusCycleRoot, bool)},
+		{"isFocusableWindow", "()Z", nullptr, $PUBLIC | $FINAL, $method(Window, isFocusableWindow, bool)},
+		{"isFocused", "()Z", nullptr, $PUBLIC, $virtualMethod(Window, isFocused, bool)},
+		{"isLocationByPlatform", "()Z", nullptr, $PUBLIC, $virtualMethod(Window, isLocationByPlatform, bool)},
+		{"isModalBlocked", "()Z", nullptr, 0, $virtualMethod(Window, isModalBlocked, bool)},
+		{"isModalExcluded", "(Ljava/awt/Dialog$ModalExclusionType;)Z", nullptr, 0, $virtualMethod(Window, isModalExcluded, bool, $Dialog$ModalExclusionType*)},
+		{"isOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(Window, isOpaque, bool)},
+		{"isRecursivelyVisible", "()Z", nullptr, 0, $virtualMethod(Window, isRecursivelyVisible, bool)},
+		{"isShowing", "()Z", nullptr, $PUBLIC, $virtualMethod(Window, isShowing, bool)},
+		{"isValidateRoot", "()Z", nullptr, $PUBLIC, $virtualMethod(Window, isValidateRoot, bool)},
+		{"limit", "(DDD)D", nullptr, $PRIVATE | $STATIC, $staticMethod(Window, limit, double, double, double, double)},
+		{"mixOnReshaping", "()V", nullptr, $FINAL, $virtualMethod(Window, mixOnReshaping, void)},
+		{"ownedInit", "(Ljava/awt/Window;)V", nullptr, $PRIVATE, $method(Window, ownedInit, void, Window*)},
+		{"pack", "()V", nullptr, $PUBLIC, $virtualMethod(Window, pack, void)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(Window, paint, void, $Graphics*)},
+		{"postEvent", "(Ljava/awt/Event;)Z", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Window, postEvent, bool, $Event*), nullptr, nullptr, postEventmethodAnnotations$$},
+		{"postProcessKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(Window, postProcessKeyEvent, void, $KeyEvent*)},
+		{"postWindowEvent", "(I)V", nullptr, $SYNCHRONIZED, $virtualMethod(Window, postWindowEvent, void, int32_t)},
+		{"preProcessKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(Window, preProcessKeyEvent, void, $KeyEvent*)},
+		{"processEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PROTECTED, $virtualMethod(Window, processEvent, void, $AWTEvent*)},
+		{"processWindowEvent", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PROTECTED, $virtualMethod(Window, processWindowEvent, void, $WindowEvent*)},
+		{"processWindowFocusEvent", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PROTECTED, $virtualMethod(Window, processWindowFocusEvent, void, $WindowEvent*)},
+		{"processWindowStateEvent", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PROTECTED, $virtualMethod(Window, processWindowStateEvent, void, $WindowEvent*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Window, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException,java.awt.HeadlessException"},
+		{"removeFromWindowList", "(Lsun/awt/AppContext;Ljava/lang/ref/WeakReference;)V", "(Lsun/awt/AppContext;Ljava/lang/ref/WeakReference<Ljava/awt/Window;>;)V", $PRIVATE | $STATIC, $staticMethod(Window, removeFromWindowList, void, $AppContext*, $WeakReference*)},
+		{"removeFromWindowList", "()V", nullptr, $PRIVATE, $method(Window, removeFromWindowList, void)},
+		{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(Window, removeNotify, void)},
+		{"removeOwnedWindow", "(Ljava/lang/ref/WeakReference;)V", "(Ljava/lang/ref/WeakReference<Ljava/awt/Window;>;)V", 0, $virtualMethod(Window, removeOwnedWindow, void, $WeakReference*)},
+		{"removeWindowFocusListener", "(Ljava/awt/event/WindowFocusListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Window, removeWindowFocusListener, void, $WindowFocusListener*)},
+		{"removeWindowListener", "(Ljava/awt/event/WindowListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Window, removeWindowListener, void, $WindowListener*)},
+		{"removeWindowStateListener", "(Ljava/awt/event/WindowStateListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Window, removeWindowStateListener, void, $WindowStateListener*)},
+		{"reshape", "(IIII)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Window, reshape, void, int32_t, int32_t, int32_t, int32_t), nullptr, nullptr, reshapemethodAnnotations$$},
+		{"setAlwaysOnTop", "(Z)V", nullptr, $PUBLIC | $FINAL, $method(Window, setAlwaysOnTop, void, bool), "java.lang.SecurityException"},
+		{"setAutoRequestFocus", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Window, setAutoRequestFocus, void, bool)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(Window, setBackground, void, $Color*)},
+		{"setBounds", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(Window, setBounds, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(Window, setBounds, void, $Rectangle*)},
+		{"setClientSize", "(II)V", nullptr, 0, $virtualMethod(Window, setClientSize, void, int32_t, int32_t)},
+		{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC, $virtualMethod(Window, setCursor, void, $Cursor*)},
+		{"setFocusCycleRoot", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Window, setFocusCycleRoot, void, bool)},
+		{"setFocusableWindowState", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Window, setFocusableWindowState, void, bool)},
+		{"setGraphicsConfiguration", "(Ljava/awt/GraphicsConfiguration;)V", nullptr, 0, $virtualMethod(Window, setGraphicsConfiguration, void, $GraphicsConfiguration*)},
+		{"setIconImage", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(Window, setIconImage, void, $Image*)},
+		{"setIconImages", "(Ljava/util/List;)V", "(Ljava/util/List<+Ljava/awt/Image;>;)V", $PUBLIC | $SYNCHRONIZED, $virtualMethod(Window, setIconImages, void, $List*)},
+		{"setLayersOpaque", "(Ljava/awt/Component;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Window, setLayersOpaque, void, $Component*, bool)},
+		{"setLocation", "(II)V", nullptr, $PUBLIC, $virtualMethod(Window, setLocation, void, int32_t, int32_t)},
+		{"setLocation", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(Window, setLocation, void, $Point*)},
+		{"setLocationByPlatform", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Window, setLocationByPlatform, void, bool)},
+		{"setLocationRelativeTo", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(Window, setLocationRelativeTo, void, $Component*)},
+		{"setMinimumSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(Window, setMinimumSize, void, $Dimension*)},
+		{"setModalBlocked", "(Ljava/awt/Dialog;ZZ)V", nullptr, 0, $virtualMethod(Window, setModalBlocked, void, $Dialog*, bool, bool)},
+		{"setModalExclusionType", "(Ljava/awt/Dialog$ModalExclusionType;)V", nullptr, $PUBLIC, $virtualMethod(Window, setModalExclusionType, void, $Dialog$ModalExclusionType*)},
+		{"setOpacity", "(F)V", nullptr, $PUBLIC, $virtualMethod(Window, setOpacity, void, float)},
+		{"setOwnedWindowsAlwaysOnTop", "(Z)V", nullptr, $PRIVATE, $method(Window, setOwnedWindowsAlwaysOnTop, void, bool)},
+		{"setShape", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(Window, setShape, void, $Shape*)},
+		{"setSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(Window, setSize, void, $Dimension*)},
+		{"setSize", "(II)V", nullptr, $PUBLIC, $virtualMethod(Window, setSize, void, int32_t, int32_t)},
+		{"setTemporaryLostComponent", "(Ljava/awt/Component;)Ljava/awt/Component;", nullptr, 0, $virtualMethod(Window, setTemporaryLostComponent, $Component*, $Component*)},
+		{"setType", "(Ljava/awt/Window$Type;)V", nullptr, $PUBLIC, $virtualMethod(Window, setType, void, $Window$Type*)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Window, setVisible, void, bool)},
+		{"setWarningString", "()V", nullptr, $PRIVATE, $method(Window, setWarningString, void)},
+		{"show", "()V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Window, show, void), nullptr, nullptr, showmethodAnnotations$$},
+		{"toBack", "()V", nullptr, $PUBLIC, $virtualMethod(Window, toBack, void)},
+		{"toBack_NoClientCode", "()V", nullptr, $FINAL, $method(Window, toBack_NoClientCode, void)},
+		{"toFront", "()V", nullptr, $PUBLIC, $virtualMethod(Window, toFront, void)},
+		{"toFront_NoClientCode", "()V", nullptr, $FINAL, $method(Window, toFront_NoClientCode, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateChildFocusableWindowState", "(Ljava/awt/Window;)V", nullptr, $STATIC, $staticMethod(Window, updateChildFocusableWindowState, void, Window*)},
+		{"updateChildrenBlocking", "()V", nullptr, 0, $virtualMethod(Window, updateChildrenBlocking, void)},
+		{"updateWindow", "()V", nullptr, $PRIVATE, $method(Window, updateWindow, void)},
+		{"updateZOrder", "()V", nullptr, 0, $virtualMethod(Window, updateZOrder, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Window, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Window$AccessibleAWTWindow", "java.awt.Window", "AccessibleAWTWindow", $PROTECTED},
+		{"java.awt.Window$WindowDisposerRecord", "java.awt.Window", "WindowDisposerRecord", $STATIC},
+		{"java.awt.Window$Type", "java.awt.Window", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"java.awt.Window$1", nullptr, nullptr, 0},
+		{"java.awt.Window$1DisposeAction", nullptr, "DisposeAction", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Window",
+		"java.awt.Container",
+		"javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.Window$AccessibleAWTWindow,java.awt.Window$WindowDisposerRecord,java.awt.Window$Type,java.awt.Window$1,java.awt.Window$1DisposeAction"
+	};
+	$loadClass(Window, name, initialize, &classInfo$$, Window::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Window));
+	});
 	return class$;
 }
 

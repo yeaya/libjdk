@@ -58,6 +58,7 @@ class $import AbstractAsyncSSLConnection : public ::jdk::internal::net::http::Ht
 public:
 	AbstractAsyncSSLConnection();
 	virtual ::jdk::internal::net::http::common::FlowTube* getConnectionFlow() override {return nullptr;}
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::InetSocketAddress* addr, ::jdk::internal::net::http::HttpClientImpl* client, ::jdk::internal::net::http::common::Utils$ServerName* serverName, int32_t port, $StringArray* alpn);
 	static bool contains($StringArray* rr, $String* target);
 	static ::javax::net::ssl::SSLEngine* createEngine(::javax::net::ssl::SSLContext* context, $String* serverName, int32_t port, ::javax::net::ssl::SSLParameters* sslParameters);

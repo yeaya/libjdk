@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/dsig/spec/SignatureMethodParameterSpec.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,19 +9,16 @@ namespace javax {
 			namespace dsig {
 				namespace spec {
 
-$ClassInfo _SignatureMethodParameterSpec_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.xml.crypto.dsig.spec.SignatureMethodParameterSpec",
-	nullptr,
-	"java.security.spec.AlgorithmParameterSpec"
-};
-
-$Object* allocate$SignatureMethodParameterSpec($Class* clazz) {
-	return $of($alloc(SignatureMethodParameterSpec));
-}
-
 $Class* SignatureMethodParameterSpec::load$($String* name, bool initialize) {
-	$loadClass(SignatureMethodParameterSpec, name, initialize, &_SignatureMethodParameterSpec_ClassInfo_, allocate$SignatureMethodParameterSpec);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.xml.crypto.dsig.spec.SignatureMethodParameterSpec",
+		nullptr,
+		"java.security.spec.AlgorithmParameterSpec"
+	};
+	$loadClass(SignatureMethodParameterSpec, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SignatureMethodParameterSpec);
+	});
 	return class$;
 }
 

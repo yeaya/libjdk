@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/rcache/DflCache.h>
-
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <java/nio/file/Path.h>
@@ -40,48 +39,6 @@ namespace sun {
 			namespace internal {
 				namespace rcache {
 
-$FieldInfo _DflCache_FieldInfo_[] = {
-	{"KRB5_RV_VNO", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DflCache, KRB5_RV_VNO)},
-	{"EXCESSREPS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DflCache, EXCESSREPS)},
-	{"source", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DflCache, source)},
-	{"uid", "J", nullptr, $PRIVATE | $STATIC, $staticField(DflCache, uid)},
-	{}
-};
-
-$MethodInfo _DflCache_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DflCache, init$, void, $String*)},
-	{"checkAndStore", "(Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/rcache/AuthTimeWithHash;)V", nullptr, $PUBLIC, $virtualMethod(DflCache, checkAndStore, void, $KerberosTime*, $AuthTimeWithHash*), "sun.security.krb5.internal.KrbApErrException"},
-	{"checkAndStore0", "(Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/rcache/AuthTimeWithHash;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(DflCache, checkAndStore0, void, $KerberosTime*, $AuthTimeWithHash*), "java.io.IOException,sun.security.krb5.internal.KrbApErrException"},
-	{"defaultFile", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(DflCache, defaultFile, $String*, $String*)},
-	{"defaultPath", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(DflCache, defaultPath, $String*)},
-	{"getFileName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC, $staticMethod(DflCache, getFileName, $Path*, $String*, $String*)},
-	{}
-};
-
-$InnerClassInfo _DflCache_InnerClassesInfo_[] = {
-	{"sun.security.krb5.internal.rcache.DflCache$Storage", "sun.security.krb5.internal.rcache.DflCache", "Storage", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DflCache_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.rcache.DflCache",
-	"sun.security.krb5.internal.ReplayCache",
-	nullptr,
-	_DflCache_FieldInfo_,
-	_DflCache_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DflCache_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.krb5.internal.rcache.DflCache$Storage"
-};
-
-$Object* allocate$DflCache($Class* clazz) {
-	return $of($alloc(DflCache));
-}
-
 int64_t DflCache::uid = 0;
 
 void DflCache::init$($String* source) {
@@ -96,11 +53,11 @@ $String* DflCache::defaultPath() {
 
 $String* DflCache::defaultFile($String* server$renamed) {
 	$init(DflCache);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, server, server$renamed);
-	int32_t slash = $nc(server)->indexOf((int32_t)u'/');
+	int32_t slash = $nc(server)->indexOf(u'/');
 	if (slash == -1) {
-		slash = server->indexOf((int32_t)u'@');
+		slash = server->indexOf(u'@');
 	}
 	if (slash != -1) {
 		$assign(server, server->substring(0, slash));
@@ -113,7 +70,7 @@ $String* DflCache::defaultFile($String* server$renamed) {
 
 $Path* DflCache::getFileName($String* source$renamed, $String* server) {
 	$init(DflCache);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, source, source$renamed);
 	$var($String, path, nullptr);
 	$var($String, file, nullptr);
@@ -122,8 +79,8 @@ $Path* DflCache::getFileName($String* source$renamed, $String* server) {
 		$assign(file, defaultFile(server));
 	} else if (source->startsWith("dfl:"_s)) {
 		$assign(source, source->substring(4));
-		int32_t pos = source->lastIndexOf((int32_t)u'/');
-		int32_t pos1 = source->lastIndexOf((int32_t)u'\\');
+		int32_t pos = source->lastIndexOf(u'/');
+		int32_t pos1 = source->lastIndexOf(u'\\');
 		if (pos1 > pos) {
 			pos = pos1;
 		}
@@ -155,38 +112,36 @@ void DflCache::checkAndStore($KerberosTime* currTime, $AuthTimeWithHash* time) {
 
 void DflCache::checkAndStore0($KerberosTime* currTime, $AuthTimeWithHash* time) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($Path, p, getFileName(this->source, $nc(time)->server));
 		int32_t missed = 0;
 		{
 			$var($DflCache$Storage, s, $new($DflCache$Storage));
-			{
-				$var($Throwable, var$0, nullptr);
+			$var($Throwable, var$0, nullptr);
+			try {
 				try {
 					try {
-						try {
-							missed = s->loadAndCheck(p, time, currTime);
-						} catch ($IOException& ioe) {
-							$DflCache$Storage::create(p);
-							missed = s->loadAndCheck(p, time, currTime);
-						}
-						s->append(time);
-					} catch ($Throwable& t$) {
-						try {
-							s->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-						$throw(t$);
+						missed = s->loadAndCheck(p, time, currTime);
+					} catch ($IOException& ioe) {
+						$DflCache$Storage::create(p);
+						missed = s->loadAndCheck(p, time, currTime);
 					}
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					s->close();
+					s->append(time);
+				} catch ($Throwable& t$) {
+					try {
+						s->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
+					$throw(t$);
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				s->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 		if (missed > DflCache::EXCESSREPS) {
@@ -195,7 +150,7 @@ void DflCache::checkAndStore0($KerberosTime* currTime, $AuthTimeWithHash* time) 
 	}
 }
 
-void clinit$DflCache($Class* class$) {
+void DflCache::clinit$($Class* clazz) {
 	{
 		DflCache::uid = $VM::geteuid();
 	}
@@ -205,7 +160,43 @@ DflCache::DflCache() {
 }
 
 $Class* DflCache::load$($String* name, bool initialize) {
-	$loadClass(DflCache, name, initialize, &_DflCache_ClassInfo_, clinit$DflCache, allocate$DflCache);
+	$FieldInfo fieldInfos$$[] = {
+		{"KRB5_RV_VNO", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DflCache, KRB5_RV_VNO)},
+		{"EXCESSREPS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DflCache, EXCESSREPS)},
+		{"source", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DflCache, source)},
+		{"uid", "J", nullptr, $PRIVATE | $STATIC, $staticField(DflCache, uid)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DflCache, init$, void, $String*)},
+		{"checkAndStore", "(Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/rcache/AuthTimeWithHash;)V", nullptr, $PUBLIC, $virtualMethod(DflCache, checkAndStore, void, $KerberosTime*, $AuthTimeWithHash*), "sun.security.krb5.internal.KrbApErrException"},
+		{"checkAndStore0", "(Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/rcache/AuthTimeWithHash;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(DflCache, checkAndStore0, void, $KerberosTime*, $AuthTimeWithHash*), "java.io.IOException,sun.security.krb5.internal.KrbApErrException"},
+		{"defaultFile", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(DflCache, defaultFile, $String*, $String*)},
+		{"defaultPath", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(DflCache, defaultPath, $String*)},
+		{"getFileName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC, $staticMethod(DflCache, getFileName, $Path*, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.krb5.internal.rcache.DflCache$Storage", "sun.security.krb5.internal.rcache.DflCache", "Storage", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.rcache.DflCache",
+		"sun.security.krb5.internal.ReplayCache",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.krb5.internal.rcache.DflCache$Storage"
+	};
+	$loadClass(DflCache, name, initialize, &classInfo$$, DflCache::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DflCache);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/krb5/Asn1Exception.h>
-
 #include <sun/security/krb5/KrbException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $KrbException = ::sun::security::krb5::KrbException;
 namespace sun {
 	namespace security {
 		namespace krb5 {
-
-$FieldInfo _Asn1Exception_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Asn1Exception, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Asn1Exception_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Asn1Exception, init$, void, int32_t)},
-	{}
-};
-
-$ClassInfo _Asn1Exception_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.Asn1Exception",
-	"sun.security.krb5.KrbException",
-	nullptr,
-	_Asn1Exception_FieldInfo_,
-	_Asn1Exception_MethodInfo_
-};
-
-$Object* allocate$Asn1Exception($Class* clazz) {
-	return $of($alloc(Asn1Exception));
-}
 
 void Asn1Exception::init$(int32_t i) {
 	$KrbException::init$(i);
@@ -50,7 +26,25 @@ void Asn1Exception::throw$() {
 }
 
 $Class* Asn1Exception::load$($String* name, bool initialize) {
-	$loadClass(Asn1Exception, name, initialize, &_Asn1Exception_ClassInfo_, allocate$Asn1Exception);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Asn1Exception, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(Asn1Exception, init$, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.Asn1Exception",
+		"sun.security.krb5.KrbException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Asn1Exception, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Asn1Exception);
+	});
 	return class$;
 }
 

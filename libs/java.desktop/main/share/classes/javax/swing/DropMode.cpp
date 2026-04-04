@@ -1,5 +1,4 @@
 #include <javax/swing/DropMode.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -20,41 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _DropMode_FieldInfo_[] = {
-	{"USE_SELECTION", "Ljavax/swing/DropMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DropMode, USE_SELECTION)},
-	{"ON", "Ljavax/swing/DropMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DropMode, ON)},
-	{"INSERT", "Ljavax/swing/DropMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DropMode, INSERT)},
-	{"INSERT_ROWS", "Ljavax/swing/DropMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DropMode, INSERT_ROWS)},
-	{"INSERT_COLS", "Ljavax/swing/DropMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DropMode, INSERT_COLS)},
-	{"ON_OR_INSERT", "Ljavax/swing/DropMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DropMode, ON_OR_INSERT)},
-	{"ON_OR_INSERT_ROWS", "Ljavax/swing/DropMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DropMode, ON_OR_INSERT_ROWS)},
-	{"ON_OR_INSERT_COLS", "Ljavax/swing/DropMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DropMode, ON_OR_INSERT_COLS)},
-	{"$VALUES", "[Ljavax/swing/DropMode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(DropMode, $VALUES)},
-	{}
-};
-
-$MethodInfo _DropMode_MethodInfo_[] = {
-	{"$values", "()[Ljavax/swing/DropMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DropMode, $values, $DropModeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DropMode, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/swing/DropMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(DropMode, valueOf, DropMode*, $String*)},
-	{"values", "()[Ljavax/swing/DropMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(DropMode, values, $DropModeArray*)},
-	{}
-};
-
-$ClassInfo _DropMode_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"javax.swing.DropMode",
-	"java.lang.Enum",
-	nullptr,
-	_DropMode_FieldInfo_,
-	_DropMode_MethodInfo_,
-	"Ljava/lang/Enum<Ljavax/swing/DropMode;>;"
-};
-
-$Object* allocate$DropMode($Class* clazz) {
-	return $of($alloc(DropMode));
-}
 
 DropMode* DropMode::USE_SELECTION = nullptr;
 DropMode* DropMode::ON = nullptr;
@@ -94,7 +58,7 @@ void DropMode::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$DropMode($Class* class$) {
+void DropMode::clinit$($Class* clazz) {
 	$assignStatic(DropMode::USE_SELECTION, $new(DropMode, "USE_SELECTION"_s, 0));
 	$assignStatic(DropMode::ON, $new(DropMode, "ON"_s, 1));
 	$assignStatic(DropMode::INSERT, $new(DropMode, "INSERT"_s, 2));
@@ -110,7 +74,37 @@ DropMode::DropMode() {
 }
 
 $Class* DropMode::load$($String* name, bool initialize) {
-	$loadClass(DropMode, name, initialize, &_DropMode_ClassInfo_, clinit$DropMode, allocate$DropMode);
+	$FieldInfo fieldInfos$$[] = {
+		{"USE_SELECTION", "Ljavax/swing/DropMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DropMode, USE_SELECTION)},
+		{"ON", "Ljavax/swing/DropMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DropMode, ON)},
+		{"INSERT", "Ljavax/swing/DropMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DropMode, INSERT)},
+		{"INSERT_ROWS", "Ljavax/swing/DropMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DropMode, INSERT_ROWS)},
+		{"INSERT_COLS", "Ljavax/swing/DropMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DropMode, INSERT_COLS)},
+		{"ON_OR_INSERT", "Ljavax/swing/DropMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DropMode, ON_OR_INSERT)},
+		{"ON_OR_INSERT_ROWS", "Ljavax/swing/DropMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DropMode, ON_OR_INSERT_ROWS)},
+		{"ON_OR_INSERT_COLS", "Ljavax/swing/DropMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DropMode, ON_OR_INSERT_COLS)},
+		{"$VALUES", "[Ljavax/swing/DropMode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(DropMode, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljavax/swing/DropMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DropMode, $values, $DropModeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DropMode, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljavax/swing/DropMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(DropMode, valueOf, DropMode*, $String*)},
+		{"values", "()[Ljavax/swing/DropMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(DropMode, values, $DropModeArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"javax.swing.DropMode",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljavax/swing/DropMode;>;"
+	};
+	$loadClass(DropMode, name, initialize, &classInfo$$, DropMode::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DropMode));
+	});
 	return class$;
 }
 

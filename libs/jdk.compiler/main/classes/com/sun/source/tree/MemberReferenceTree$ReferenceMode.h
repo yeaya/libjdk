@@ -21,6 +21,7 @@ class $export MemberReferenceTree$ReferenceMode : public ::java::lang::Enum {
 public:
 	MemberReferenceTree$ReferenceMode();
 	static $Array<::com::sun::source::tree::MemberReferenceTree$ReferenceMode>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::source::tree::MemberReferenceTree$ReferenceMode* valueOf($String* name);
 	static $Array<::com::sun::source::tree::MemberReferenceTree$ReferenceMode>* values();

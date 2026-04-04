@@ -36,6 +36,7 @@ class $export HttpHeaders : public ::java::lang::Object {
 	$class(HttpHeaders, 0, ::java::lang::Object)
 public:
 	HttpHeaders();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::Map* headers);
 	::java::util::List* allValues($String* name);
 	static int32_t entryHash(::java::util::Map$Entry* e);

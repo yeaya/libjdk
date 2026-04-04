@@ -1,5 +1,4 @@
 #include <sun/font/CFontConfiguration.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/util/HashMap.h>
 #include <sun/awt/FontConfiguration.h>
@@ -18,41 +17,6 @@ using $SunFontManager = ::sun::font::SunFontManager;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _CFontConfiguration_FieldInfo_[] = {
-	{"emptyDescriptors", "[Lsun/font/CompositeFontDescriptor;", nullptr, $PRIVATE | $STATIC, $staticField(CFontConfiguration, emptyDescriptors)},
-	{"emptyStrings", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(CFontConfiguration, emptyStrings)},
-	{}
-};
-
-$MethodInfo _CFontConfiguration_MethodInfo_[] = {
-	{"<init>", "(Lsun/font/SunFontManager;)V", nullptr, $PUBLIC, $method(CFontConfiguration, init$, void, $SunFontManager*)},
-	{"<init>", "(Lsun/font/SunFontManager;ZZ)V", nullptr, $PUBLIC, $method(CFontConfiguration, init$, void, $SunFontManager*, bool, bool)},
-	{"get2DCompositeFontInfo", "()[Lsun/font/CompositeFontDescriptor;", nullptr, $PUBLIC, $virtualMethod(CFontConfiguration, get2DCompositeFontInfo, $CompositeFontDescriptorArray*)},
-	{"getDefaultFontCharset", "(Ljava/lang/String;)Ljava/nio/charset/Charset;", nullptr, $PROTECTED, $virtualMethod(CFontConfiguration, getDefaultFontCharset, $Charset*, $String*)},
-	{"getEncoding", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(CFontConfiguration, getEncoding, $String*, $String*, $String*)},
-	{"getFaceNameFromComponentFontName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(CFontConfiguration, getFaceNameFromComponentFontName, $String*, $String*)},
-	{"getFallbackFamilyName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CFontConfiguration, getFallbackFamilyName, $String*, $String*, $String*)},
-	{"getFileNameFromComponentFontName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(CFontConfiguration, getFileNameFromComponentFontName, $String*, $String*)},
-	{"getNumberCoreFonts", "()I", nullptr, $PUBLIC, $virtualMethod(CFontConfiguration, getNumberCoreFonts, int32_t)},
-	{"getPlatformFontNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CFontConfiguration, getPlatformFontNames, $StringArray*)},
-	{"initReorderMap", "()V", nullptr, $PROTECTED, $virtualMethod(CFontConfiguration, initReorderMap, void)},
-	{"mapFileName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(CFontConfiguration, mapFileName, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _CFontConfiguration_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.font.CFontConfiguration",
-	"sun.awt.FontConfiguration",
-	nullptr,
-	_CFontConfiguration_FieldInfo_,
-	_CFontConfiguration_MethodInfo_
-};
-
-$Object* allocate$CFontConfiguration($Class* clazz) {
-	return $of($alloc(CFontConfiguration));
-}
 
 $CompositeFontDescriptorArray* CFontConfiguration::emptyDescriptors = nullptr;
 $StringArray* CFontConfiguration::emptyStrings = nullptr;
@@ -105,7 +69,7 @@ void CFontConfiguration::initReorderMap() {
 	$set(this, reorderMap, $new($HashMap));
 }
 
-void clinit$CFontConfiguration($Class* class$) {
+void CFontConfiguration::clinit$($Class* clazz) {
 	$assignStatic(CFontConfiguration::emptyDescriptors, $new($CompositeFontDescriptorArray, 0));
 	$assignStatic(CFontConfiguration::emptyStrings, $new($StringArray, 0));
 }
@@ -114,7 +78,37 @@ CFontConfiguration::CFontConfiguration() {
 }
 
 $Class* CFontConfiguration::load$($String* name, bool initialize) {
-	$loadClass(CFontConfiguration, name, initialize, &_CFontConfiguration_ClassInfo_, clinit$CFontConfiguration, allocate$CFontConfiguration);
+	$FieldInfo fieldInfos$$[] = {
+		{"emptyDescriptors", "[Lsun/font/CompositeFontDescriptor;", nullptr, $PRIVATE | $STATIC, $staticField(CFontConfiguration, emptyDescriptors)},
+		{"emptyStrings", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(CFontConfiguration, emptyStrings)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/font/SunFontManager;)V", nullptr, $PUBLIC, $method(CFontConfiguration, init$, void, $SunFontManager*)},
+		{"<init>", "(Lsun/font/SunFontManager;ZZ)V", nullptr, $PUBLIC, $method(CFontConfiguration, init$, void, $SunFontManager*, bool, bool)},
+		{"get2DCompositeFontInfo", "()[Lsun/font/CompositeFontDescriptor;", nullptr, $PUBLIC, $virtualMethod(CFontConfiguration, get2DCompositeFontInfo, $CompositeFontDescriptorArray*)},
+		{"getDefaultFontCharset", "(Ljava/lang/String;)Ljava/nio/charset/Charset;", nullptr, $PROTECTED, $virtualMethod(CFontConfiguration, getDefaultFontCharset, $Charset*, $String*)},
+		{"getEncoding", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(CFontConfiguration, getEncoding, $String*, $String*, $String*)},
+		{"getFaceNameFromComponentFontName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(CFontConfiguration, getFaceNameFromComponentFontName, $String*, $String*)},
+		{"getFallbackFamilyName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CFontConfiguration, getFallbackFamilyName, $String*, $String*, $String*)},
+		{"getFileNameFromComponentFontName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(CFontConfiguration, getFileNameFromComponentFontName, $String*, $String*)},
+		{"getNumberCoreFonts", "()I", nullptr, $PUBLIC, $virtualMethod(CFontConfiguration, getNumberCoreFonts, int32_t)},
+		{"getPlatformFontNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CFontConfiguration, getPlatformFontNames, $StringArray*)},
+		{"initReorderMap", "()V", nullptr, $PROTECTED, $virtualMethod(CFontConfiguration, initReorderMap, void)},
+		{"mapFileName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(CFontConfiguration, mapFileName, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.font.CFontConfiguration",
+		"sun.awt.FontConfiguration",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CFontConfiguration, name, initialize, &classInfo$$, CFontConfiguration::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CFontConfiguration);
+	});
 	return class$;
 }
 

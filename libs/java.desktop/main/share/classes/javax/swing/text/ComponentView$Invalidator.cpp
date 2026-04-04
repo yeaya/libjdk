@@ -1,5 +1,4 @@
 #include <javax/swing/text/ComponentView$Invalidator.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -29,65 +28,6 @@ using $View = ::javax::swing::text::View;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _ComponentView$Invalidator_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/ComponentView;", nullptr, $FINAL | $SYNTHETIC, $field(ComponentView$Invalidator, this$0)},
-	{"min", "Ljava/awt/Dimension;", nullptr, 0, $field(ComponentView$Invalidator, min)},
-	{"pref", "Ljava/awt/Dimension;", nullptr, 0, $field(ComponentView$Invalidator, pref)},
-	{"max", "Ljava/awt/Dimension;", nullptr, 0, $field(ComponentView$Invalidator, max)},
-	{"yalign", "F", nullptr, 0, $field(ComponentView$Invalidator, yalign)},
-	{"xalign", "F", nullptr, 0, $field(ComponentView$Invalidator, xalign)},
-	{}
-};
-
-$MethodInfo _ComponentView$Invalidator_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/text/ComponentView;Ljava/awt/Component;)V", nullptr, 0, $method(ComponentView$Invalidator, init$, void, $ComponentView*, $Component*)},
-	{"cacheChildSizes", "()V", nullptr, $PRIVATE, $method(ComponentView$Invalidator, cacheChildSizes, void)},
-	{"doLayout", "()V", nullptr, $PUBLIC, $virtualMethod(ComponentView$Invalidator, doLayout, void)},
-	{"getAlignmentX", "()F", nullptr, $PUBLIC, $virtualMethod(ComponentView$Invalidator, getAlignmentX, float)},
-	{"getAlignmentY", "()F", nullptr, $PUBLIC, $virtualMethod(ComponentView$Invalidator, getAlignmentY, float)},
-	{"getFocusTraversalKeys", "(I)Ljava/util/Set;", "(I)Ljava/util/Set<Ljava/awt/AWTKeyStroke;>;", $PUBLIC, $virtualMethod(ComponentView$Invalidator, getFocusTraversalKeys, $Set*, int32_t)},
-	{"getMaximumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(ComponentView$Invalidator, getMaximumSize, $Dimension*)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(ComponentView$Invalidator, getMinimumSize, $Dimension*)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(ComponentView$Invalidator, getPreferredSize, $Dimension*)},
-	{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(ComponentView$Invalidator, invalidate, void)},
-	{"isShowing", "()Z", nullptr, $PUBLIC, $virtualMethod(ComponentView$Invalidator, isShowing, bool)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(ComponentView$Invalidator, propertyChange, void, $PropertyChangeEvent*)},
-	{"setBounds", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ComponentView$Invalidator, setBounds, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ComponentView$Invalidator, setVisible, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"validateIfNecessary", "()V", nullptr, $PUBLIC, $virtualMethod(ComponentView$Invalidator, validateIfNecessary, void)},
-	{}
-};
-
-$InnerClassInfo _ComponentView$Invalidator_InnerClassesInfo_[] = {
-	{"javax.swing.text.ComponentView$Invalidator", "javax.swing.text.ComponentView", "Invalidator", 0},
-	{}
-};
-
-$ClassInfo _ComponentView$Invalidator_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.ComponentView$Invalidator",
-	"java.awt.Container",
-	"java.beans.PropertyChangeListener",
-	_ComponentView$Invalidator_FieldInfo_,
-	_ComponentView$Invalidator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ComponentView$Invalidator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.ComponentView"
-};
-
-$Object* allocate$ComponentView$Invalidator($Class* clazz) {
-	return $of($alloc(ComponentView$Invalidator));
-}
 
 $String* ComponentView$Invalidator::toString() {
 	 return this->$Container::toString();
@@ -131,7 +71,7 @@ void ComponentView$Invalidator::doLayout() {
 void ComponentView$Invalidator::setBounds(int32_t x, int32_t y, int32_t w, int32_t h) {
 	$Container::setBounds(x, y, w, h);
 	if (getComponentCount() > 0) {
-		$nc($(getComponent(0)))->setSize(w, h);
+		$$nc(getComponent(0))->setSize(w, h);
 	}
 	cacheChildSizes();
 }
@@ -151,14 +91,14 @@ void ComponentView$Invalidator::cacheChildSizes() {
 		this->yalign = child->getAlignmentY();
 		this->xalign = child->getAlignmentX();
 	} else {
-		$set(this, min, ($set(this, pref, ($set(this, max, $new($Dimension, 0, 0))))));
+		$set(this, min, $set(this, pref, $set(this, max, $new($Dimension, 0, 0))));
 	}
 }
 
 void ComponentView$Invalidator::setVisible(bool b) {
 	$Container::setVisible(b);
 	if (getComponentCount() > 0) {
-		$nc($(getComponent(0)))->setVisible(b);
+		$$nc(getComponent(0))->setVisible(b);
 	}
 }
 
@@ -192,14 +132,14 @@ float ComponentView$Invalidator::getAlignmentY() {
 }
 
 $Set* ComponentView$Invalidator::getFocusTraversalKeys(int32_t id) {
-	return $nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->getDefaultFocusTraversalKeys(id);
+	return $$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->getDefaultFocusTraversalKeys(id);
 }
 
 void ComponentView$Invalidator::propertyChange($PropertyChangeEvent* ev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Boolean, enable, $cast($Boolean, $nc(ev)->getNewValue()));
 	if (getComponentCount() > 0) {
-		$nc($(getComponent(0)))->setEnabled($nc(enable)->booleanValue());
+		$$nc(getComponent(0))->setEnabled($nc(enable)->booleanValue());
 	}
 }
 
@@ -207,7 +147,60 @@ ComponentView$Invalidator::ComponentView$Invalidator() {
 }
 
 $Class* ComponentView$Invalidator::load$($String* name, bool initialize) {
-	$loadClass(ComponentView$Invalidator, name, initialize, &_ComponentView$Invalidator_ClassInfo_, allocate$ComponentView$Invalidator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/ComponentView;", nullptr, $FINAL | $SYNTHETIC, $field(ComponentView$Invalidator, this$0)},
+		{"min", "Ljava/awt/Dimension;", nullptr, 0, $field(ComponentView$Invalidator, min)},
+		{"pref", "Ljava/awt/Dimension;", nullptr, 0, $field(ComponentView$Invalidator, pref)},
+		{"max", "Ljava/awt/Dimension;", nullptr, 0, $field(ComponentView$Invalidator, max)},
+		{"yalign", "F", nullptr, 0, $field(ComponentView$Invalidator, yalign)},
+		{"xalign", "F", nullptr, 0, $field(ComponentView$Invalidator, xalign)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/text/ComponentView;Ljava/awt/Component;)V", nullptr, 0, $method(ComponentView$Invalidator, init$, void, $ComponentView*, $Component*)},
+		{"cacheChildSizes", "()V", nullptr, $PRIVATE, $method(ComponentView$Invalidator, cacheChildSizes, void)},
+		{"doLayout", "()V", nullptr, $PUBLIC, $virtualMethod(ComponentView$Invalidator, doLayout, void)},
+		{"getAlignmentX", "()F", nullptr, $PUBLIC, $virtualMethod(ComponentView$Invalidator, getAlignmentX, float)},
+		{"getAlignmentY", "()F", nullptr, $PUBLIC, $virtualMethod(ComponentView$Invalidator, getAlignmentY, float)},
+		{"getFocusTraversalKeys", "(I)Ljava/util/Set;", "(I)Ljava/util/Set<Ljava/awt/AWTKeyStroke;>;", $PUBLIC, $virtualMethod(ComponentView$Invalidator, getFocusTraversalKeys, $Set*, int32_t)},
+		{"getMaximumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(ComponentView$Invalidator, getMaximumSize, $Dimension*)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(ComponentView$Invalidator, getMinimumSize, $Dimension*)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(ComponentView$Invalidator, getPreferredSize, $Dimension*)},
+		{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(ComponentView$Invalidator, invalidate, void)},
+		{"isShowing", "()Z", nullptr, $PUBLIC, $virtualMethod(ComponentView$Invalidator, isShowing, bool)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(ComponentView$Invalidator, propertyChange, void, $PropertyChangeEvent*)},
+		{"setBounds", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ComponentView$Invalidator, setBounds, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ComponentView$Invalidator, setVisible, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"validateIfNecessary", "()V", nullptr, $PUBLIC, $virtualMethod(ComponentView$Invalidator, validateIfNecessary, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.ComponentView$Invalidator", "javax.swing.text.ComponentView", "Invalidator", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.ComponentView$Invalidator",
+		"java.awt.Container",
+		"java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.ComponentView"
+	};
+	$loadClass(ComponentView$Invalidator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ComponentView$Invalidator));
+	});
 	return class$;
 }
 

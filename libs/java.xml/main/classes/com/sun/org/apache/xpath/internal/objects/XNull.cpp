@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/objects/XNull.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
 #include <com/sun/org/apache/xpath/internal/objects/XNodeSet.h>
@@ -25,36 +24,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 						namespace objects {
-
-$FieldInfo _XNull_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(XNull, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _XNull_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XNull, init$, void)},
-	{"bool", "()Z", nullptr, $PUBLIC, $virtualMethod(XNull, bool$, bool)},
-	{"equals", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;)Z", nullptr, $PUBLIC, $virtualMethod(XNull, equals, bool, $XObject*)},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(XNull, getType, int32_t)},
-	{"getTypeString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XNull, getTypeString, $String*)},
-	{"num", "()D", nullptr, $PUBLIC, $virtualMethod(XNull, num, double)},
-	{"rtf", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC, $virtualMethod(XNull, rtf, int32_t, $XPathContext*)},
-	{"str", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XNull, str, $String*)},
-	{}
-};
-
-$ClassInfo _XNull_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.objects.XNull",
-	"com.sun.org.apache.xpath.internal.objects.XNodeSet",
-	nullptr,
-	_XNull_FieldInfo_,
-	_XNull_MethodInfo_
-};
-
-$Object* allocate$XNull($Class* clazz) {
-	return $of($alloc(XNull));
-}
 
 void XNull::init$() {
 	$XNodeSet::init$();
@@ -92,7 +61,32 @@ XNull::XNull() {
 }
 
 $Class* XNull::load$($String* name, bool initialize) {
-	$loadClass(XNull, name, initialize, &_XNull_ClassInfo_, allocate$XNull);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(XNull, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XNull, init$, void)},
+		{"bool", "()Z", nullptr, $PUBLIC, $virtualMethod(XNull, bool$, bool)},
+		{"equals", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;)Z", nullptr, $PUBLIC, $virtualMethod(XNull, equals, bool, $XObject*)},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(XNull, getType, int32_t)},
+		{"getTypeString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XNull, getTypeString, $String*)},
+		{"num", "()D", nullptr, $PUBLIC, $virtualMethod(XNull, num, double)},
+		{"rtf", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC, $virtualMethod(XNull, rtf, int32_t, $XPathContext*)},
+		{"str", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XNull, str, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.objects.XNull",
+		"com.sun.org.apache.xpath.internal.objects.XNodeSet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XNull, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XNull));
+	});
 	return class$;
 }
 

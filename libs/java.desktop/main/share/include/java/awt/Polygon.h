@@ -74,7 +74,7 @@ public:
 	$ints* xpoints = nullptr;
 	$ints* ypoints = nullptr;
 	::java::awt::Rectangle* bounds = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xA65940595EC463AF;
+	static const int64_t serialVersionUID = (int64_t)0xa65940595ec463af;
 	static const int32_t MIN_LENGTH = 4;
 };
 

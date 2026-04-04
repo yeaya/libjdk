@@ -136,6 +136,7 @@ class Reference : public ::com::sun::org::apache::xml::internal::security::utils
 	$class(Reference, 0, ::com::sun::org::apache::xml::internal::security::utils::SignatureElementProxy)
 public:
 	Reference();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::org::w3c::dom::Document* doc, $String* baseURI, $String* referenceURI, ::com::sun::org::apache::xml::internal::security::signature::Manifest* manifest, ::com::sun::org::apache::xml::internal::security::transforms::Transforms* transforms, $String* messageDigestAlgorithm);
 	void init$(::org::w3c::dom::Element* element, $String* baseURI, ::com::sun::org::apache::xml::internal::security::signature::Manifest* manifest);
 	void init$(::org::w3c::dom::Element* element, $String* baseURI, ::com::sun::org::apache::xml::internal::security::signature::Manifest* manifest, bool secureValidation);

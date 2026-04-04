@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
-
 #include <jcpp.h>
 
 #undef ALGO_ID_DIGEST_SHA1
@@ -80,103 +79,6 @@ namespace com {
 					namespace internal {
 						namespace security {
 							namespace utils {
-
-$FieldInfo _Constants_FieldInfo_[] = {
-	{"configurationFile", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, configurationFile)},
-	{"configurationFileNew", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, configurationFileNew)},
-	{"exceptionMessagesResourceBundleDir", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, exceptionMessagesResourceBundleDir)},
-	{"exceptionMessagesResourceBundleBase", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, exceptionMessagesResourceBundleBase)},
-	{"SIGNATURESPECIFICATION_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SIGNATURESPECIFICATION_URL)},
-	{"SignatureSpecNS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SignatureSpecNS)},
-	{"SignatureSpec11NS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SignatureSpec11NS)},
-	{"MoreAlgorithmsSpecNS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, MoreAlgorithmsSpecNS)},
-	{"XML_DSIG_NS_MORE_07_05", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XML_DSIG_NS_MORE_07_05)},
-	{"XML_LANG_SPACE_SpecNS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XML_LANG_SPACE_SpecNS)},
-	{"NamespaceSpecNS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, NamespaceSpecNS)},
-	{"_ATT_ALGORITHM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _ATT_ALGORITHM)},
-	{"_ATT_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _ATT_URI)},
-	{"_ATT_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _ATT_TYPE)},
-	{"_ATT_ID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _ATT_ID)},
-	{"_ATT_MIMETYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _ATT_MIMETYPE)},
-	{"_ATT_ENCODING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _ATT_ENCODING)},
-	{"_ATT_TARGET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _ATT_TARGET)},
-	{"_TAG_CANONICALIZATIONMETHOD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_CANONICALIZATIONMETHOD)},
-	{"_TAG_DIGESTMETHOD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_DIGESTMETHOD)},
-	{"_TAG_DIGESTVALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_DIGESTVALUE)},
-	{"_TAG_MANIFEST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_MANIFEST)},
-	{"_TAG_METHODS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_METHODS)},
-	{"_TAG_OBJECT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_OBJECT)},
-	{"_TAG_REFERENCE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_REFERENCE)},
-	{"_TAG_SIGNATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_SIGNATURE)},
-	{"_TAG_SIGNATUREMETHOD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_SIGNATUREMETHOD)},
-	{"_TAG_HMACOUTPUTLENGTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_HMACOUTPUTLENGTH)},
-	{"_TAG_RSAPSSPARAMS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_RSAPSSPARAMS)},
-	{"_TAG_MGF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_MGF)},
-	{"_TAG_SALTLENGTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_SALTLENGTH)},
-	{"_TAG_TRAILERFIELD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_TRAILERFIELD)},
-	{"_TAG_SIGNATUREPROPERTIES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_SIGNATUREPROPERTIES)},
-	{"_TAG_SIGNATUREPROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_SIGNATUREPROPERTY)},
-	{"_TAG_SIGNATUREVALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_SIGNATUREVALUE)},
-	{"_TAG_SIGNEDINFO", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_SIGNEDINFO)},
-	{"_TAG_TRANSFORM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_TRANSFORM)},
-	{"_TAG_TRANSFORMS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_TRANSFORMS)},
-	{"_TAG_XPATH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_XPATH)},
-	{"_TAG_KEYINFO", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_KEYINFO)},
-	{"_TAG_KEYNAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_KEYNAME)},
-	{"_TAG_KEYVALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_KEYVALUE)},
-	{"_TAG_RETRIEVALMETHOD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_RETRIEVALMETHOD)},
-	{"_TAG_X509DATA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_X509DATA)},
-	{"_TAG_PGPDATA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_PGPDATA)},
-	{"_TAG_SPKIDATA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_SPKIDATA)},
-	{"_TAG_MGMTDATA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_MGMTDATA)},
-	{"_TAG_RSAKEYVALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_RSAKEYVALUE)},
-	{"_TAG_EXPONENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_EXPONENT)},
-	{"_TAG_MODULUS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_MODULUS)},
-	{"_TAG_DSAKEYVALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_DSAKEYVALUE)},
-	{"_TAG_P", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_P)},
-	{"_TAG_Q", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_Q)},
-	{"_TAG_G", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_G)},
-	{"_TAG_Y", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_Y)},
-	{"_TAG_J", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_J)},
-	{"_TAG_ECKEYVALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_ECKEYVALUE)},
-	{"_TAG_SEED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_SEED)},
-	{"_TAG_PGENCOUNTER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_PGENCOUNTER)},
-	{"_TAG_RAWX509CERTIFICATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_RAWX509CERTIFICATE)},
-	{"_TAG_X509ISSUERSERIAL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_X509ISSUERSERIAL)},
-	{"_TAG_X509SKI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_X509SKI)},
-	{"_TAG_X509SUBJECTNAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_X509SUBJECTNAME)},
-	{"_TAG_X509CERTIFICATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_X509CERTIFICATE)},
-	{"_TAG_X509CRL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_X509CRL)},
-	{"_TAG_X509ISSUERNAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_X509ISSUERNAME)},
-	{"_TAG_X509SERIALNUMBER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_X509SERIALNUMBER)},
-	{"_TAG_PGPKEYID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_PGPKEYID)},
-	{"_TAG_PGPKEYPACKET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_PGPKEYPACKET)},
-	{"_TAG_DERENCODEDKEYVALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_DERENCODEDKEYVALUE)},
-	{"_TAG_KEYINFOREFERENCE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_KEYINFOREFERENCE)},
-	{"_TAG_X509DIGEST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_X509DIGEST)},
-	{"_TAG_SPKISEXP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_SPKISEXP)},
-	{"ALGO_ID_DIGEST_SHA1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ALGO_ID_DIGEST_SHA1)},
-	{"ALGO_ID_SIGNATURE_ECDSA_CERTICOM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ALGO_ID_SIGNATURE_ECDSA_CERTICOM)},
-	{}
-};
-
-$MethodInfo _Constants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Constants, init$, void)},
-	{}
-};
-
-$ClassInfo _Constants_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.utils.Constants",
-	"java.lang.Object",
-	nullptr,
-	_Constants_FieldInfo_,
-	_Constants_MethodInfo_
-};
-
-$Object* allocate$Constants($Class* clazz) {
-	return $of($alloc(Constants));
-}
 
 $String* Constants::configurationFile = nullptr;
 $String* Constants::configurationFileNew = nullptr;
@@ -260,7 +162,7 @@ void Constants::init$() {
 Constants::Constants() {
 }
 
-void clinit$Constants($Class* class$) {
+void Constants::clinit$($Class* clazz) {
 	$assignStatic(Constants::configurationFile, "data/websig.conf"_s);
 	$assignStatic(Constants::configurationFileNew, ".xmlsecurityconfig"_s);
 	$assignStatic(Constants::exceptionMessagesResourceBundleDir, "com.sun.org.apache.xml.internal.security/resource"_s);
@@ -339,7 +241,99 @@ void clinit$Constants($Class* class$) {
 }
 
 $Class* Constants::load$($String* name, bool initialize) {
-	$loadClass(Constants, name, initialize, &_Constants_ClassInfo_, clinit$Constants, allocate$Constants);
+	$FieldInfo fieldInfos$$[] = {
+		{"configurationFile", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, configurationFile)},
+		{"configurationFileNew", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, configurationFileNew)},
+		{"exceptionMessagesResourceBundleDir", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, exceptionMessagesResourceBundleDir)},
+		{"exceptionMessagesResourceBundleBase", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, exceptionMessagesResourceBundleBase)},
+		{"SIGNATURESPECIFICATION_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SIGNATURESPECIFICATION_URL)},
+		{"SignatureSpecNS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SignatureSpecNS)},
+		{"SignatureSpec11NS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SignatureSpec11NS)},
+		{"MoreAlgorithmsSpecNS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, MoreAlgorithmsSpecNS)},
+		{"XML_DSIG_NS_MORE_07_05", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XML_DSIG_NS_MORE_07_05)},
+		{"XML_LANG_SPACE_SpecNS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XML_LANG_SPACE_SpecNS)},
+		{"NamespaceSpecNS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, NamespaceSpecNS)},
+		{"_ATT_ALGORITHM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _ATT_ALGORITHM)},
+		{"_ATT_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _ATT_URI)},
+		{"_ATT_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _ATT_TYPE)},
+		{"_ATT_ID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _ATT_ID)},
+		{"_ATT_MIMETYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _ATT_MIMETYPE)},
+		{"_ATT_ENCODING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _ATT_ENCODING)},
+		{"_ATT_TARGET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _ATT_TARGET)},
+		{"_TAG_CANONICALIZATIONMETHOD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_CANONICALIZATIONMETHOD)},
+		{"_TAG_DIGESTMETHOD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_DIGESTMETHOD)},
+		{"_TAG_DIGESTVALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_DIGESTVALUE)},
+		{"_TAG_MANIFEST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_MANIFEST)},
+		{"_TAG_METHODS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_METHODS)},
+		{"_TAG_OBJECT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_OBJECT)},
+		{"_TAG_REFERENCE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_REFERENCE)},
+		{"_TAG_SIGNATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_SIGNATURE)},
+		{"_TAG_SIGNATUREMETHOD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_SIGNATUREMETHOD)},
+		{"_TAG_HMACOUTPUTLENGTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_HMACOUTPUTLENGTH)},
+		{"_TAG_RSAPSSPARAMS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_RSAPSSPARAMS)},
+		{"_TAG_MGF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_MGF)},
+		{"_TAG_SALTLENGTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_SALTLENGTH)},
+		{"_TAG_TRAILERFIELD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_TRAILERFIELD)},
+		{"_TAG_SIGNATUREPROPERTIES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_SIGNATUREPROPERTIES)},
+		{"_TAG_SIGNATUREPROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_SIGNATUREPROPERTY)},
+		{"_TAG_SIGNATUREVALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_SIGNATUREVALUE)},
+		{"_TAG_SIGNEDINFO", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_SIGNEDINFO)},
+		{"_TAG_TRANSFORM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_TRANSFORM)},
+		{"_TAG_TRANSFORMS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_TRANSFORMS)},
+		{"_TAG_XPATH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_XPATH)},
+		{"_TAG_KEYINFO", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_KEYINFO)},
+		{"_TAG_KEYNAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_KEYNAME)},
+		{"_TAG_KEYVALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_KEYVALUE)},
+		{"_TAG_RETRIEVALMETHOD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_RETRIEVALMETHOD)},
+		{"_TAG_X509DATA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_X509DATA)},
+		{"_TAG_PGPDATA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_PGPDATA)},
+		{"_TAG_SPKIDATA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_SPKIDATA)},
+		{"_TAG_MGMTDATA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_MGMTDATA)},
+		{"_TAG_RSAKEYVALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_RSAKEYVALUE)},
+		{"_TAG_EXPONENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_EXPONENT)},
+		{"_TAG_MODULUS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_MODULUS)},
+		{"_TAG_DSAKEYVALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_DSAKEYVALUE)},
+		{"_TAG_P", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_P)},
+		{"_TAG_Q", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_Q)},
+		{"_TAG_G", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_G)},
+		{"_TAG_Y", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_Y)},
+		{"_TAG_J", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_J)},
+		{"_TAG_ECKEYVALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_ECKEYVALUE)},
+		{"_TAG_SEED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_SEED)},
+		{"_TAG_PGENCOUNTER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_PGENCOUNTER)},
+		{"_TAG_RAWX509CERTIFICATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_RAWX509CERTIFICATE)},
+		{"_TAG_X509ISSUERSERIAL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_X509ISSUERSERIAL)},
+		{"_TAG_X509SKI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_X509SKI)},
+		{"_TAG_X509SUBJECTNAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_X509SUBJECTNAME)},
+		{"_TAG_X509CERTIFICATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_X509CERTIFICATE)},
+		{"_TAG_X509CRL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_X509CRL)},
+		{"_TAG_X509ISSUERNAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_X509ISSUERNAME)},
+		{"_TAG_X509SERIALNUMBER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_X509SERIALNUMBER)},
+		{"_TAG_PGPKEYID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_PGPKEYID)},
+		{"_TAG_PGPKEYPACKET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_PGPKEYPACKET)},
+		{"_TAG_DERENCODEDKEYVALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_DERENCODEDKEYVALUE)},
+		{"_TAG_KEYINFOREFERENCE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_KEYINFOREFERENCE)},
+		{"_TAG_X509DIGEST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_X509DIGEST)},
+		{"_TAG_SPKISEXP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, _TAG_SPKISEXP)},
+		{"ALGO_ID_DIGEST_SHA1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ALGO_ID_DIGEST_SHA1)},
+		{"ALGO_ID_SIGNATURE_ECDSA_CERTICOM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ALGO_ID_SIGNATURE_ECDSA_CERTICOM)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Constants, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.utils.Constants",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Constants, name, initialize, &classInfo$$, Constants::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Constants);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/websocket/MessageDecoder$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <jdk/internal/net/http/websocket/Frame$Opcode.h>
 #include <jdk/internal/net/http/websocket/MessageDecoder.h>
@@ -22,57 +21,21 @@ namespace jdk {
 			namespace http {
 				namespace websocket {
 
-$FieldInfo _MessageDecoder$1_FieldInfo_[] = {
-	{"$SwitchMap$jdk$internal$net$http$websocket$Frame$Opcode", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MessageDecoder$1, $SwitchMap$jdk$internal$net$http$websocket$Frame$Opcode)},
-	{}
-};
-
-$EnclosingMethodInfo _MessageDecoder$1_EnclosingMethodInfo_ = {
-	"jdk.internal.net.http.websocket.MessageDecoder",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _MessageDecoder$1_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.websocket.MessageDecoder$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _MessageDecoder$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"jdk.internal.net.http.websocket.MessageDecoder$1",
-	"java.lang.Object",
-	nullptr,
-	_MessageDecoder$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_MessageDecoder$1_EnclosingMethodInfo_,
-	_MessageDecoder$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.websocket.MessageDecoder"
-};
-
-$Object* allocate$MessageDecoder$1($Class* clazz) {
-	return $of($alloc(MessageDecoder$1));
-}
-
 $ints* MessageDecoder$1::$SwitchMap$jdk$internal$net$http$websocket$Frame$Opcode = nullptr;
 
-void clinit$MessageDecoder$1($Class* class$) {
+void MessageDecoder$1::clinit$($Class* clazz) {
 	$assignStatic(MessageDecoder$1::$SwitchMap$jdk$internal$net$http$websocket$Frame$Opcode, $new($ints, $($Frame$Opcode::values())->length));
 	{
 		try {
-			$nc(MessageDecoder$1::$SwitchMap$jdk$internal$net$http$websocket$Frame$Opcode)->set($Frame$Opcode::CLOSE->ordinal(), 1);
+			MessageDecoder$1::$SwitchMap$jdk$internal$net$http$websocket$Frame$Opcode->set($Frame$Opcode::CLOSE->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(MessageDecoder$1::$SwitchMap$jdk$internal$net$http$websocket$Frame$Opcode)->set($Frame$Opcode::PING->ordinal(), 2);
+			MessageDecoder$1::$SwitchMap$jdk$internal$net$http$websocket$Frame$Opcode->set($Frame$Opcode::PING->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(MessageDecoder$1::$SwitchMap$jdk$internal$net$http$websocket$Frame$Opcode)->set($Frame$Opcode::PONG->ordinal(), 3);
+			MessageDecoder$1::$SwitchMap$jdk$internal$net$http$websocket$Frame$Opcode->set($Frame$Opcode::PONG->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -82,7 +45,37 @@ MessageDecoder$1::MessageDecoder$1() {
 }
 
 $Class* MessageDecoder$1::load$($String* name, bool initialize) {
-	$loadClass(MessageDecoder$1, name, initialize, &_MessageDecoder$1_ClassInfo_, clinit$MessageDecoder$1, allocate$MessageDecoder$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$jdk$internal$net$http$websocket$Frame$Opcode", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MessageDecoder$1, $SwitchMap$jdk$internal$net$http$websocket$Frame$Opcode)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.net.http.websocket.MessageDecoder",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.websocket.MessageDecoder$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"jdk.internal.net.http.websocket.MessageDecoder$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.websocket.MessageDecoder"
+	};
+	$loadClass(MessageDecoder$1, name, initialize, &classInfo$$, MessageDecoder$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MessageDecoder$1);
+	});
 	return class$;
 }
 

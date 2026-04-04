@@ -1,5 +1,4 @@
 #include <java/awt/desktop/ScreenSleepEvent.h>
-
 #include <java/awt/desktop/AppEvent.h>
 #include <jcpp.h>
 
@@ -12,29 +11,6 @@ namespace java {
 	namespace awt {
 		namespace desktop {
 
-$FieldInfo _ScreenSleepEvent_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ScreenSleepEvent, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ScreenSleepEvent_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ScreenSleepEvent, init$, void)},
-	{}
-};
-
-$ClassInfo _ScreenSleepEvent_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.desktop.ScreenSleepEvent",
-	"java.awt.desktop.AppEvent",
-	nullptr,
-	_ScreenSleepEvent_FieldInfo_,
-	_ScreenSleepEvent_MethodInfo_
-};
-
-$Object* allocate$ScreenSleepEvent($Class* clazz) {
-	return $of($alloc(ScreenSleepEvent));
-}
-
 void ScreenSleepEvent::init$() {
 	$AppEvent::init$();
 }
@@ -43,7 +19,25 @@ ScreenSleepEvent::ScreenSleepEvent() {
 }
 
 $Class* ScreenSleepEvent::load$($String* name, bool initialize) {
-	$loadClass(ScreenSleepEvent, name, initialize, &_ScreenSleepEvent_ClassInfo_, allocate$ScreenSleepEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ScreenSleepEvent, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ScreenSleepEvent, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.desktop.ScreenSleepEvent",
+		"java.awt.desktop.AppEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ScreenSleepEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ScreenSleepEvent);
+	});
 	return class$;
 }
 

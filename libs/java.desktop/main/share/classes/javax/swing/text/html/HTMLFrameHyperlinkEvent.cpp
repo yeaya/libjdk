@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/HTMLFrameHyperlinkEvent.h>
-
 #include <java/awt/event/InputEvent.h>
 #include <java/net/URL.h>
 #include <javax/swing/event/HyperlinkEvent$EventType.h>
@@ -20,34 +19,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _HTMLFrameHyperlinkEvent_FieldInfo_[] = {
-	{"targetFrame", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HTMLFrameHyperlinkEvent, targetFrame)},
-	{}
-};
-
-$MethodInfo _HTMLFrameHyperlinkEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljavax/swing/event/HyperlinkEvent$EventType;Ljava/net/URL;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HTMLFrameHyperlinkEvent, init$, void, Object$*, $HyperlinkEvent$EventType*, $URL*, $String*)},
-	{"<init>", "(Ljava/lang/Object;Ljavax/swing/event/HyperlinkEvent$EventType;Ljava/net/URL;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HTMLFrameHyperlinkEvent, init$, void, Object$*, $HyperlinkEvent$EventType*, $URL*, $String*, $String*)},
-	{"<init>", "(Ljava/lang/Object;Ljavax/swing/event/HyperlinkEvent$EventType;Ljava/net/URL;Ljavax/swing/text/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HTMLFrameHyperlinkEvent, init$, void, Object$*, $HyperlinkEvent$EventType*, $URL*, $Element*, $String*)},
-	{"<init>", "(Ljava/lang/Object;Ljavax/swing/event/HyperlinkEvent$EventType;Ljava/net/URL;Ljava/lang/String;Ljavax/swing/text/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HTMLFrameHyperlinkEvent, init$, void, Object$*, $HyperlinkEvent$EventType*, $URL*, $String*, $Element*, $String*)},
-	{"<init>", "(Ljava/lang/Object;Ljavax/swing/event/HyperlinkEvent$EventType;Ljava/net/URL;Ljava/lang/String;Ljavax/swing/text/Element;Ljava/awt/event/InputEvent;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HTMLFrameHyperlinkEvent, init$, void, Object$*, $HyperlinkEvent$EventType*, $URL*, $String*, $Element*, $InputEvent*, $String*)},
-	{"getTarget", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HTMLFrameHyperlinkEvent, getTarget, $String*)},
-	{}
-};
-
-$ClassInfo _HTMLFrameHyperlinkEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.HTMLFrameHyperlinkEvent",
-	"javax.swing.event.HyperlinkEvent",
-	nullptr,
-	_HTMLFrameHyperlinkEvent_FieldInfo_,
-	_HTMLFrameHyperlinkEvent_MethodInfo_
-};
-
-$Object* allocate$HTMLFrameHyperlinkEvent($Class* clazz) {
-	return $of($alloc(HTMLFrameHyperlinkEvent));
-}
 
 void HTMLFrameHyperlinkEvent::init$(Object$* source, $HyperlinkEvent$EventType* type, $URL* targetURL, $String* targetFrame) {
 	$HyperlinkEvent::init$(source, type, targetURL);
@@ -82,7 +53,30 @@ HTMLFrameHyperlinkEvent::HTMLFrameHyperlinkEvent() {
 }
 
 $Class* HTMLFrameHyperlinkEvent::load$($String* name, bool initialize) {
-	$loadClass(HTMLFrameHyperlinkEvent, name, initialize, &_HTMLFrameHyperlinkEvent_ClassInfo_, allocate$HTMLFrameHyperlinkEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"targetFrame", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HTMLFrameHyperlinkEvent, targetFrame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;Ljavax/swing/event/HyperlinkEvent$EventType;Ljava/net/URL;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HTMLFrameHyperlinkEvent, init$, void, Object$*, $HyperlinkEvent$EventType*, $URL*, $String*)},
+		{"<init>", "(Ljava/lang/Object;Ljavax/swing/event/HyperlinkEvent$EventType;Ljava/net/URL;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HTMLFrameHyperlinkEvent, init$, void, Object$*, $HyperlinkEvent$EventType*, $URL*, $String*, $String*)},
+		{"<init>", "(Ljava/lang/Object;Ljavax/swing/event/HyperlinkEvent$EventType;Ljava/net/URL;Ljavax/swing/text/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HTMLFrameHyperlinkEvent, init$, void, Object$*, $HyperlinkEvent$EventType*, $URL*, $Element*, $String*)},
+		{"<init>", "(Ljava/lang/Object;Ljavax/swing/event/HyperlinkEvent$EventType;Ljava/net/URL;Ljava/lang/String;Ljavax/swing/text/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HTMLFrameHyperlinkEvent, init$, void, Object$*, $HyperlinkEvent$EventType*, $URL*, $String*, $Element*, $String*)},
+		{"<init>", "(Ljava/lang/Object;Ljavax/swing/event/HyperlinkEvent$EventType;Ljava/net/URL;Ljava/lang/String;Ljavax/swing/text/Element;Ljava/awt/event/InputEvent;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HTMLFrameHyperlinkEvent, init$, void, Object$*, $HyperlinkEvent$EventType*, $URL*, $String*, $Element*, $InputEvent*, $String*)},
+		{"getTarget", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HTMLFrameHyperlinkEvent, getTarget, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.HTMLFrameHyperlinkEvent",
+		"javax.swing.event.HyperlinkEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HTMLFrameHyperlinkEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HTMLFrameHyperlinkEvent);
+	});
 	return class$;
 }
 

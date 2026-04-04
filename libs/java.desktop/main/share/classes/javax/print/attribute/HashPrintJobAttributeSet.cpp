@@ -1,5 +1,4 @@
 #include <javax/print/attribute/HashPrintJobAttributeSet.h>
-
 #include <javax/print/attribute/Attribute.h>
 #include <javax/print/attribute/AttributeSet.h>
 #include <javax/print/attribute/HashAttributeSet.h>
@@ -21,48 +20,6 @@ using $PrintJobAttributeSet = ::javax::print::attribute::PrintJobAttributeSet;
 namespace javax {
 	namespace print {
 		namespace attribute {
-
-$FieldInfo _HashPrintJobAttributeSet_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HashPrintJobAttributeSet, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _HashPrintJobAttributeSet_MethodInfo_[] = {
-	{"*add", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
-	{"*addAll", "(Ljavax/print/attribute/AttributeSet;)Z", nullptr, $PUBLIC},
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*containsKey", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC},
-	{"*containsValue", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*get", "(Ljava/lang/Class;)Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HashPrintJobAttributeSet, init$, void)},
-	{"<init>", "(Ljavax/print/attribute/PrintJobAttribute;)V", nullptr, $PUBLIC, $method(HashPrintJobAttributeSet, init$, void, $PrintJobAttribute*)},
-	{"<init>", "([Ljavax/print/attribute/PrintJobAttribute;)V", nullptr, $PUBLIC, $method(HashPrintJobAttributeSet, init$, void, $PrintJobAttributeArray*)},
-	{"<init>", "(Ljavax/print/attribute/PrintJobAttributeSet;)V", nullptr, $PUBLIC, $method(HashPrintJobAttributeSet, init$, void, $PrintJobAttributeSet*)},
-	{"*remove", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC},
-	{"*remove", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
-	{"*size", "()I", nullptr, $PUBLIC},
-	{"*toArray", "()[Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _HashPrintJobAttributeSet_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.print.attribute.HashPrintJobAttributeSet",
-	"javax.print.attribute.HashAttributeSet",
-	"javax.print.attribute.PrintJobAttributeSet",
-	_HashPrintJobAttributeSet_FieldInfo_,
-	_HashPrintJobAttributeSet_MethodInfo_
-};
-
-$Object* allocate$HashPrintJobAttributeSet($Class* clazz) {
-	return $of($alloc(HashPrintJobAttributeSet));
-}
 
 $Attribute* HashPrintJobAttributeSet::get($Class* category) {
 	 return this->$HashAttributeSet::get(category);
@@ -135,24 +92,61 @@ void HashPrintJobAttributeSet::init$() {
 
 void HashPrintJobAttributeSet::init$($PrintJobAttribute* attribute) {
 	$load($PrintJobAttribute);
-	$HashAttributeSet::init$(static_cast<$Attribute*>(attribute), $PrintJobAttribute::class$);
+	$HashAttributeSet::init$(attribute, $PrintJobAttribute::class$);
 }
 
 void HashPrintJobAttributeSet::init$($PrintJobAttributeArray* attributes) {
 	$load($PrintJobAttribute);
-	$HashAttributeSet::init$($fcast($AttributeArray, attributes), $PrintJobAttribute::class$);
+	$HashAttributeSet::init$($cast($AttributeArray, attributes), $PrintJobAttribute::class$);
 }
 
 void HashPrintJobAttributeSet::init$($PrintJobAttributeSet* attributes) {
 	$load($PrintJobAttribute);
-	$HashAttributeSet::init$(static_cast<$AttributeSet*>(attributes), $PrintJobAttribute::class$);
+	$HashAttributeSet::init$(attributes, $PrintJobAttribute::class$);
 }
 
 HashPrintJobAttributeSet::HashPrintJobAttributeSet() {
 }
 
 $Class* HashPrintJobAttributeSet::load$($String* name, bool initialize) {
-	$loadClass(HashPrintJobAttributeSet, name, initialize, &_HashPrintJobAttributeSet_ClassInfo_, allocate$HashPrintJobAttributeSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HashPrintJobAttributeSet, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
+		{"*addAll", "(Ljavax/print/attribute/AttributeSet;)Z", nullptr, $PUBLIC},
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*containsKey", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC},
+		{"*containsValue", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*get", "(Ljava/lang/Class;)Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HashPrintJobAttributeSet, init$, void)},
+		{"<init>", "(Ljavax/print/attribute/PrintJobAttribute;)V", nullptr, $PUBLIC, $method(HashPrintJobAttributeSet, init$, void, $PrintJobAttribute*)},
+		{"<init>", "([Ljavax/print/attribute/PrintJobAttribute;)V", nullptr, $PUBLIC, $method(HashPrintJobAttributeSet, init$, void, $PrintJobAttributeArray*)},
+		{"<init>", "(Ljavax/print/attribute/PrintJobAttributeSet;)V", nullptr, $PUBLIC, $method(HashPrintJobAttributeSet, init$, void, $PrintJobAttributeSet*)},
+		{"*remove", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC},
+		{"*remove", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
+		{"*size", "()I", nullptr, $PUBLIC},
+		{"*toArray", "()[Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.print.attribute.HashPrintJobAttributeSet",
+		"javax.print.attribute.HashAttributeSet",
+		"javax.print.attribute.PrintJobAttributeSet",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HashPrintJobAttributeSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HashPrintJobAttributeSet));
+	});
 	return class$;
 }
 

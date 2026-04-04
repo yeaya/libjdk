@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xs/XSAttributeUse.h>
-
 #include <com/sun/org/apache/xerces/internal/xs/ShortList.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSAttributeDeclaration.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObjectList.h>
@@ -22,54 +21,46 @@ namespace com {
 					namespace internal {
 						namespace xs {
 
-$CompoundAttribute _XSAttributeUse_MethodAnnotations_getActualVC0[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _XSAttributeUse_MethodAnnotations_getActualVCType1[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _XSAttributeUse_MethodAnnotations_getConstraintValue5[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _XSAttributeUse_MethodAnnotations_getItemValueTypes6[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$MethodInfo _XSAttributeUse_MethodInfo_[] = {
-	{"getActualVC", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(XSAttributeUse, getActualVC, $Object*), "com.sun.org.apache.xerces.internal.xs.XSException", nullptr, _XSAttributeUse_MethodAnnotations_getActualVC0},
-	{"getActualVCType", "()S", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(XSAttributeUse, getActualVCType, int16_t), "com.sun.org.apache.xerces.internal.xs.XSException", nullptr, _XSAttributeUse_MethodAnnotations_getActualVCType1},
-	{"getAnnotations", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSAttributeUse, getAnnotations, $XSObjectList*)},
-	{"getAttrDeclaration", "()Lcom/sun/org/apache/xerces/internal/xs/XSAttributeDeclaration;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSAttributeUse, getAttrDeclaration, $XSAttributeDeclaration*)},
-	{"getConstraintType", "()S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSAttributeUse, getConstraintType, int16_t)},
-	{"getConstraintValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(XSAttributeUse, getConstraintValue, $String*), nullptr, nullptr, _XSAttributeUse_MethodAnnotations_getConstraintValue5},
-	{"getItemValueTypes", "()Lcom/sun/org/apache/xerces/internal/xs/ShortList;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(XSAttributeUse, getItemValueTypes, $ShortList*), "com.sun.org.apache.xerces.internal.xs.XSException", nullptr, _XSAttributeUse_MethodAnnotations_getItemValueTypes6},
-	{"getRequired", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSAttributeUse, getRequired, bool)},
-	{"getValueConstraintValue", "()Lcom/sun/org/apache/xerces/internal/xs/XSValue;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSAttributeUse, getValueConstraintValue, $XSValue*)},
-	{}
-};
-
-$ClassInfo _XSAttributeUse_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.xs.XSAttributeUse",
-	nullptr,
-	"com.sun.org.apache.xerces.internal.xs.XSObject",
-	nullptr,
-	_XSAttributeUse_MethodInfo_
-};
-
-$Object* allocate$XSAttributeUse($Class* clazz) {
-	return $of($alloc(XSAttributeUse));
-}
-
 $Class* XSAttributeUse::load$($String* name, bool initialize) {
-	$loadClass(XSAttributeUse, name, initialize, &_XSAttributeUse_ClassInfo_, allocate$XSAttributeUse);
+	$CompoundAttribute getActualVCmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getActualVCTypemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getConstraintValuemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getItemValueTypesmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"getActualVC", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(XSAttributeUse, getActualVC, $Object*), "com.sun.org.apache.xerces.internal.xs.XSException", nullptr, getActualVCmethodAnnotations$$},
+		{"getActualVCType", "()S", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(XSAttributeUse, getActualVCType, int16_t), "com.sun.org.apache.xerces.internal.xs.XSException", nullptr, getActualVCTypemethodAnnotations$$},
+		{"getAnnotations", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSAttributeUse, getAnnotations, $XSObjectList*)},
+		{"getAttrDeclaration", "()Lcom/sun/org/apache/xerces/internal/xs/XSAttributeDeclaration;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSAttributeUse, getAttrDeclaration, $XSAttributeDeclaration*)},
+		{"getConstraintType", "()S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSAttributeUse, getConstraintType, int16_t)},
+		{"getConstraintValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(XSAttributeUse, getConstraintValue, $String*), nullptr, nullptr, getConstraintValuemethodAnnotations$$},
+		{"getItemValueTypes", "()Lcom/sun/org/apache/xerces/internal/xs/ShortList;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(XSAttributeUse, getItemValueTypes, $ShortList*), "com.sun.org.apache.xerces.internal.xs.XSException", nullptr, getItemValueTypesmethodAnnotations$$},
+		{"getRequired", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSAttributeUse, getRequired, bool)},
+		{"getValueConstraintValue", "()Lcom/sun/org/apache/xerces/internal/xs/XSValue;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSAttributeUse, getValueConstraintValue, $XSValue*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.xs.XSAttributeUse",
+		nullptr,
+		"com.sun.org.apache.xerces.internal.xs.XSObject",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XSAttributeUse, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSAttributeUse);
+	});
 	return class$;
 }
 

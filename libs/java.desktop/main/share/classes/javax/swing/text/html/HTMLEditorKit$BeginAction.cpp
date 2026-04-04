@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/HTMLEditorKit$BeginAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/text/JTextComponent.h>
 #include <javax/swing/text/TextAction.h>
@@ -19,42 +18,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _HTMLEditorKit$BeginAction_FieldInfo_[] = {
-	{"select", "Z", nullptr, $PRIVATE, $field(HTMLEditorKit$BeginAction, select)},
-	{}
-};
-
-$MethodInfo _HTMLEditorKit$BeginAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(HTMLEditorKit$BeginAction, init$, void, $String*, bool)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$BeginAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _HTMLEditorKit$BeginAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.HTMLEditorKit$BeginAction", "javax.swing.text.html.HTMLEditorKit", "BeginAction", $STATIC},
-	{}
-};
-
-$ClassInfo _HTMLEditorKit$BeginAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.HTMLEditorKit$BeginAction",
-	"javax.swing.text.TextAction",
-	nullptr,
-	_HTMLEditorKit$BeginAction_FieldInfo_,
-	_HTMLEditorKit$BeginAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HTMLEditorKit$BeginAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.HTMLEditorKit"
-};
-
-$Object* allocate$HTMLEditorKit$BeginAction($Class* clazz) {
-	return $of($alloc(HTMLEditorKit$BeginAction));
-}
 
 void HTMLEditorKit$BeginAction::init$($String* nm, bool select) {
 	$TextAction::init$(nm);
@@ -77,7 +40,37 @@ HTMLEditorKit$BeginAction::HTMLEditorKit$BeginAction() {
 }
 
 $Class* HTMLEditorKit$BeginAction::load$($String* name, bool initialize) {
-	$loadClass(HTMLEditorKit$BeginAction, name, initialize, &_HTMLEditorKit$BeginAction_ClassInfo_, allocate$HTMLEditorKit$BeginAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"select", "Z", nullptr, $PRIVATE, $field(HTMLEditorKit$BeginAction, select)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(HTMLEditorKit$BeginAction, init$, void, $String*, bool)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$BeginAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.HTMLEditorKit$BeginAction", "javax.swing.text.html.HTMLEditorKit", "BeginAction", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.HTMLEditorKit$BeginAction",
+		"javax.swing.text.TextAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.HTMLEditorKit"
+	};
+	$loadClass(HTMLEditorKit$BeginAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HTMLEditorKit$BeginAction));
+	});
 	return class$;
 }
 

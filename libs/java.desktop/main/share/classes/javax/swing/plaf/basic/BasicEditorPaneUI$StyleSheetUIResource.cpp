@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicEditorPaneUI$StyleSheetUIResource.h>
-
 #include <javax/swing/plaf/basic/BasicEditorPaneUI.h>
 #include <javax/swing/text/html/StyleSheet.h>
 #include <jcpp.h>
@@ -13,41 +12,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$MethodInfo _BasicEditorPaneUI$StyleSheetUIResource_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(BasicEditorPaneUI$StyleSheetUIResource, init$, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicEditorPaneUI$StyleSheetUIResource_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicEditorPaneUI$StyleSheetUIResource", "javax.swing.plaf.basic.BasicEditorPaneUI", "StyleSheetUIResource", $STATIC},
-	{}
-};
-
-$ClassInfo _BasicEditorPaneUI$StyleSheetUIResource_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicEditorPaneUI$StyleSheetUIResource",
-	"javax.swing.text.html.StyleSheet",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_BasicEditorPaneUI$StyleSheetUIResource_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicEditorPaneUI$StyleSheetUIResource_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicEditorPaneUI"
-};
-
-$Object* allocate$BasicEditorPaneUI$StyleSheetUIResource($Class* clazz) {
-	return $of($alloc(BasicEditorPaneUI$StyleSheetUIResource));
-}
 
 $String* BasicEditorPaneUI$StyleSheetUIResource::toString() {
 	 return this->$StyleSheet::toString();
@@ -77,7 +41,37 @@ BasicEditorPaneUI$StyleSheetUIResource::BasicEditorPaneUI$StyleSheetUIResource()
 }
 
 $Class* BasicEditorPaneUI$StyleSheetUIResource::load$($String* name, bool initialize) {
-	$loadClass(BasicEditorPaneUI$StyleSheetUIResource, name, initialize, &_BasicEditorPaneUI$StyleSheetUIResource_ClassInfo_, allocate$BasicEditorPaneUI$StyleSheetUIResource);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(BasicEditorPaneUI$StyleSheetUIResource, init$, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicEditorPaneUI$StyleSheetUIResource", "javax.swing.plaf.basic.BasicEditorPaneUI", "StyleSheetUIResource", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicEditorPaneUI$StyleSheetUIResource",
+		"javax.swing.text.html.StyleSheet",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicEditorPaneUI"
+	};
+	$loadClass(BasicEditorPaneUI$StyleSheetUIResource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicEditorPaneUI$StyleSheetUIResource));
+	});
 	return class$;
 }
 

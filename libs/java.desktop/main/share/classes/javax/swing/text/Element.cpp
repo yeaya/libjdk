@@ -1,5 +1,4 @@
 #include <javax/swing/text/Element.h>
-
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/Document.h>
 #include <jcpp.h>
@@ -13,35 +12,31 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _Element_MethodInfo_[] = {
-	{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, getAttributes, $AttributeSet*)},
-	{"getDocument", "()Ljavax/swing/text/Document;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, getDocument, $Document*)},
-	{"getElement", "(I)Ljavax/swing/text/Element;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, getElement, Element*, int32_t)},
-	{"getElementCount", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, getElementCount, int32_t)},
-	{"getElementIndex", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, getElementIndex, int32_t, int32_t)},
-	{"getEndOffset", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, getEndOffset, int32_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, getName, $String*)},
-	{"getParentElement", "()Ljavax/swing/text/Element;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, getParentElement, Element*)},
-	{"getStartOffset", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, getStartOffset, int32_t)},
-	{"isLeaf", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, isLeaf, bool)},
-	{}
-};
-
-$ClassInfo _Element_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.text.Element",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Element_MethodInfo_
-};
-
-$Object* allocate$Element($Class* clazz) {
-	return $of($alloc(Element));
-}
-
 $Class* Element::load$($String* name, bool initialize) {
-	$loadClass(Element, name, initialize, &_Element_ClassInfo_, allocate$Element);
+	$MethodInfo methodInfos$$[] = {
+		{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, getAttributes, $AttributeSet*)},
+		{"getDocument", "()Ljavax/swing/text/Document;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, getDocument, $Document*)},
+		{"getElement", "(I)Ljavax/swing/text/Element;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, getElement, Element*, int32_t)},
+		{"getElementCount", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, getElementCount, int32_t)},
+		{"getElementIndex", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, getElementIndex, int32_t, int32_t)},
+		{"getEndOffset", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, getEndOffset, int32_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, getName, $String*)},
+		{"getParentElement", "()Ljavax/swing/text/Element;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, getParentElement, Element*)},
+		{"getStartOffset", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, getStartOffset, int32_t)},
+		{"isLeaf", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, isLeaf, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.text.Element",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Element, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Element);
+	});
 	return class$;
 }
 

@@ -26,7 +26,10 @@ public:
 	static const int64_t serialVersionUID = 0;
 	Abort(const Abort& e);
 	virtual void throw$() override;
-	inline Abort* operator ->() {
+	inline Abort* operator ->() const {
+		return (Abort*)throwing$;
+	}
+	inline operator Abort*() const {
 		return (Abort*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <sun/security/jgss/krb5/Krb5Context$3.h>
-
 #include <java/util/Set.h>
 #include <javax/security/auth/Subject.h>
 #include <javax/security/auth/kerberos/KerberosTicket.h>
@@ -11,7 +10,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Set = ::java::util::Set;
 using $Subject = ::javax::security::auth::Subject;
 using $KerberosTicket = ::javax::security::auth::kerberos::KerberosTicket;
 using $Krb5Context = ::sun::security::jgss::krb5::Krb5Context;
@@ -21,50 +19,6 @@ namespace sun {
 		namespace jgss {
 			namespace krb5 {
 
-$FieldInfo _Krb5Context$3_FieldInfo_[] = {
-	{"this$0", "Lsun/security/jgss/krb5/Krb5Context;", nullptr, $FINAL | $SYNTHETIC, $field(Krb5Context$3, this$0)},
-	{"val$kt", "Ljavax/security/auth/kerberos/KerberosTicket;", nullptr, $FINAL | $SYNTHETIC, $field(Krb5Context$3, val$kt)},
-	{"val$subject", "Ljavax/security/auth/Subject;", nullptr, $FINAL | $SYNTHETIC, $field(Krb5Context$3, val$subject)},
-	{}
-};
-
-$MethodInfo _Krb5Context$3_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Ljavax/security/auth/Subject;Ljavax/security/auth/kerberos/KerberosTicket;)V", "()V", 0, $method(Krb5Context$3, init$, void, $Krb5Context*, $Subject*, $KerberosTicket*)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Krb5Context$3, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Krb5Context$3_EnclosingMethodInfo_ = {
-	"sun.security.jgss.krb5.Krb5Context",
-	"initSecContext",
-	"(Ljava/io/InputStream;I)[B"
-};
-
-$InnerClassInfo _Krb5Context$3_InnerClassesInfo_[] = {
-	{"sun.security.jgss.krb5.Krb5Context$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Krb5Context$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.jgss.krb5.Krb5Context$3",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_Krb5Context$3_FieldInfo_,
-	_Krb5Context$3_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
-	&_Krb5Context$3_EnclosingMethodInfo_,
-	_Krb5Context$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.jgss.krb5.Krb5Context"
-};
-
-$Object* allocate$Krb5Context$3($Class* clazz) {
-	return $of($alloc(Krb5Context$3));
-}
-
 void Krb5Context$3::init$($Krb5Context* this$0, $Subject* val$subject, $KerberosTicket* val$kt) {
 	$set(this, this$0, this$0);
 	$set(this, val$subject, val$subject);
@@ -72,15 +26,52 @@ void Krb5Context$3::init$($Krb5Context* this$0, $Subject* val$subject, $Kerberos
 }
 
 $Object* Krb5Context$3::run() {
-	$nc($($nc(this->val$subject)->getPrivateCredentials()))->add(this->val$kt);
-	return $of(nullptr);
+	$$nc($nc(this->val$subject)->getPrivateCredentials())->add(this->val$kt);
+	return nullptr;
 }
 
 Krb5Context$3::Krb5Context$3() {
 }
 
 $Class* Krb5Context$3::load$($String* name, bool initialize) {
-	$loadClass(Krb5Context$3, name, initialize, &_Krb5Context$3_ClassInfo_, allocate$Krb5Context$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/security/jgss/krb5/Krb5Context;", nullptr, $FINAL | $SYNTHETIC, $field(Krb5Context$3, this$0)},
+		{"val$kt", "Ljavax/security/auth/kerberos/KerberosTicket;", nullptr, $FINAL | $SYNTHETIC, $field(Krb5Context$3, val$kt)},
+		{"val$subject", "Ljavax/security/auth/Subject;", nullptr, $FINAL | $SYNTHETIC, $field(Krb5Context$3, val$subject)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Ljavax/security/auth/Subject;Ljavax/security/auth/kerberos/KerberosTicket;)V", "()V", 0, $method(Krb5Context$3, init$, void, $Krb5Context*, $Subject*, $KerberosTicket*)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Krb5Context$3, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.jgss.krb5.Krb5Context",
+		"initSecContext",
+		"(Ljava/io/InputStream;I)[B"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jgss.krb5.Krb5Context$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.jgss.krb5.Krb5Context$3",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.jgss.krb5.Krb5Context"
+	};
+	$loadClass(Krb5Context$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Krb5Context$3);
+	});
 	return class$;
 }
 

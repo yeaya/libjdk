@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/FilterGenerator.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ALOAD.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet.h>
@@ -26,32 +25,6 @@ namespace com {
 							namespace compiler {
 								namespace util {
 
-$FieldInfo _FilterGenerator_FieldInfo_[] = {
-	{"TRANSLET_INDEX", "I", nullptr, $PRIVATE | $STATIC, $staticField(FilterGenerator, TRANSLET_INDEX)},
-	{"_aloadTranslet", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(FilterGenerator, _aloadTranslet)},
-	{}
-};
-
-$MethodInfo _FilterGenerator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;)V", nullptr, $PUBLIC, $method(FilterGenerator, init$, void, $String*, $String*, $String*, int32_t, $StringArray*, $Stylesheet*)},
-	{"isExternal", "()Z", nullptr, $PUBLIC, $virtualMethod(FilterGenerator, isExternal, bool)},
-	{"loadTranslet", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $FINAL, $virtualMethod(FilterGenerator, loadTranslet, $Instruction*)},
-	{}
-};
-
-$ClassInfo _FilterGenerator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.FilterGenerator",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.ClassGenerator",
-	nullptr,
-	_FilterGenerator_FieldInfo_,
-	_FilterGenerator_MethodInfo_
-};
-
-$Object* allocate$FilterGenerator($Class* clazz) {
-	return $of($alloc(FilterGenerator));
-}
-
 int32_t FilterGenerator::TRANSLET_INDEX = 0;
 
 void FilterGenerator::init$($String* className, $String* superClassName, $String* fileName, int32_t accessFlags, $StringArray* interfaces, $Stylesheet* stylesheet) {
@@ -67,7 +40,7 @@ bool FilterGenerator::isExternal() {
 	return true;
 }
 
-void clinit$FilterGenerator($Class* class$) {
+void FilterGenerator::clinit$($Class* clazz) {
 	FilterGenerator::TRANSLET_INDEX = 5;
 }
 
@@ -75,7 +48,28 @@ FilterGenerator::FilterGenerator() {
 }
 
 $Class* FilterGenerator::load$($String* name, bool initialize) {
-	$loadClass(FilterGenerator, name, initialize, &_FilterGenerator_ClassInfo_, clinit$FilterGenerator, allocate$FilterGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"TRANSLET_INDEX", "I", nullptr, $PRIVATE | $STATIC, $staticField(FilterGenerator, TRANSLET_INDEX)},
+		{"_aloadTranslet", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(FilterGenerator, _aloadTranslet)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;)V", nullptr, $PUBLIC, $method(FilterGenerator, init$, void, $String*, $String*, $String*, int32_t, $StringArray*, $Stylesheet*)},
+		{"isExternal", "()Z", nullptr, $PUBLIC, $virtualMethod(FilterGenerator, isExternal, bool)},
+		{"loadTranslet", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $FINAL, $virtualMethod(FilterGenerator, loadTranslet, $Instruction*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.FilterGenerator",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.ClassGenerator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FilterGenerator, name, initialize, &classInfo$$, FilterGenerator::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FilterGenerator));
+	});
 	return class$;
 }
 

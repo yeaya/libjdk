@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKFileChooserUI$DirectoryCellRenderer.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKFileChooserUI.h>
 #include <java/awt/Component.h>
 #include <java/io/File.h>
@@ -19,7 +18,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DefaultListCellRenderer = ::javax::swing::DefaultListCellRenderer;
-using $JFileChooser = ::javax::swing::JFileChooser;
 using $JList = ::javax::swing::JList;
 
 namespace com {
@@ -29,55 +27,19 @@ namespace com {
 				namespace plaf {
 					namespace gtk {
 
-$FieldInfo _GTKFileChooserUI$DirectoryCellRenderer_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(GTKFileChooserUI$DirectoryCellRenderer, this$0)},
-	{}
-};
-
-$MethodInfo _GTKFileChooserUI$DirectoryCellRenderer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;)V", nullptr, $PROTECTED, $method(GTKFileChooserUI$DirectoryCellRenderer, init$, void, $GTKFileChooserUI*)},
-	{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<*>;Ljava/lang/Object;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(GTKFileChooserUI$DirectoryCellRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
-	{}
-};
-
-$InnerClassInfo _GTKFileChooserUI$DirectoryCellRenderer_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$DirectoryCellRenderer", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "DirectoryCellRenderer", $PROTECTED},
-	{}
-};
-
-$ClassInfo _GTKFileChooserUI$DirectoryCellRenderer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$DirectoryCellRenderer",
-	"javax.swing.DefaultListCellRenderer",
-	nullptr,
-	_GTKFileChooserUI$DirectoryCellRenderer_FieldInfo_,
-	_GTKFileChooserUI$DirectoryCellRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GTKFileChooserUI$DirectoryCellRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKFileChooserUI"
-};
-
-$Object* allocate$GTKFileChooserUI$DirectoryCellRenderer($Class* clazz) {
-	return $of($alloc(GTKFileChooserUI$DirectoryCellRenderer));
-}
-
 void GTKFileChooserUI$DirectoryCellRenderer::init$($GTKFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
 	$DefaultListCellRenderer::init$();
 }
 
 $Component* GTKFileChooserUI$DirectoryCellRenderer::getListCellRendererComponent($JList* list, Object$* value, int32_t index, bool isSelected, bool cellHasFocus) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DefaultListCellRenderer::getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 	if (this->this$0->showDirectoryIcons) {
-		setIcon($($nc($(this->this$0->getFileChooser()))->getIcon($cast($File, value))));
-		setText($($nc($(this->this$0->getFileChooser()))->getName($cast($File, value))));
+		setIcon($($$nc(this->this$0->getFileChooser())->getIcon($cast($File, value))));
+		setText($($$nc(this->this$0->getFileChooser())->getName($cast($File, value))));
 	} else {
-		setText($$str({$($nc($(this->this$0->getFileChooser()))->getName($cast($File, value))), "/"_s}));
+		setText($$str({$($$nc(this->this$0->getFileChooser())->getName($cast($File, value))), "/"_s}));
 	}
 	return this;
 }
@@ -86,7 +48,37 @@ GTKFileChooserUI$DirectoryCellRenderer::GTKFileChooserUI$DirectoryCellRenderer()
 }
 
 $Class* GTKFileChooserUI$DirectoryCellRenderer::load$($String* name, bool initialize) {
-	$loadClass(GTKFileChooserUI$DirectoryCellRenderer, name, initialize, &_GTKFileChooserUI$DirectoryCellRenderer_ClassInfo_, allocate$GTKFileChooserUI$DirectoryCellRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(GTKFileChooserUI$DirectoryCellRenderer, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;)V", nullptr, $PROTECTED, $method(GTKFileChooserUI$DirectoryCellRenderer, init$, void, $GTKFileChooserUI*)},
+		{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<*>;Ljava/lang/Object;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(GTKFileChooserUI$DirectoryCellRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$DirectoryCellRenderer", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "DirectoryCellRenderer", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$DirectoryCellRenderer",
+		"javax.swing.DefaultListCellRenderer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKFileChooserUI"
+	};
+	$loadClass(GTKFileChooserUI$DirectoryCellRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GTKFileChooserUI$DirectoryCellRenderer));
+	});
 	return class$;
 }
 

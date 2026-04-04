@@ -117,6 +117,7 @@ class AquaFileChooserUI : public ::javax::swing::plaf::FileChooserUI {
 	$class(AquaFileChooserUI, 0, ::javax::swing::plaf::FileChooserUI)
 public:
 	AquaFileChooserUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::JFileChooser* filechooser);
 	bool containsFileFilter(Object$* fileFilter);
 	virtual ::javax::swing::JButton* createButton(int32_t which, $String* label);

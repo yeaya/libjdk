@@ -1,5 +1,4 @@
 #include <javax/naming/ldap/ExtendedRequest.h>
-
 #include <javax/naming/ldap/ExtendedResponse.h>
 #include <jcpp.h>
 
@@ -11,28 +10,24 @@ namespace javax {
 	namespace naming {
 		namespace ldap {
 
-$MethodInfo _ExtendedRequest_MethodInfo_[] = {
-	{"createExtendedResponse", "(Ljava/lang/String;[BII)Ljavax/naming/ldap/ExtendedResponse;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExtendedRequest, createExtendedResponse, $ExtendedResponse*, $String*, $bytes*, int32_t, int32_t), "javax.naming.NamingException"},
-	{"getEncodedValue", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExtendedRequest, getEncodedValue, $bytes*)},
-	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExtendedRequest, getID, $String*)},
-	{}
-};
-
-$ClassInfo _ExtendedRequest_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.naming.ldap.ExtendedRequest",
-	nullptr,
-	"java.io.Serializable",
-	nullptr,
-	_ExtendedRequest_MethodInfo_
-};
-
-$Object* allocate$ExtendedRequest($Class* clazz) {
-	return $of($alloc(ExtendedRequest));
-}
-
 $Class* ExtendedRequest::load$($String* name, bool initialize) {
-	$loadClass(ExtendedRequest, name, initialize, &_ExtendedRequest_ClassInfo_, allocate$ExtendedRequest);
+	$MethodInfo methodInfos$$[] = {
+		{"createExtendedResponse", "(Ljava/lang/String;[BII)Ljavax/naming/ldap/ExtendedResponse;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExtendedRequest, createExtendedResponse, $ExtendedResponse*, $String*, $bytes*, int32_t, int32_t), "javax.naming.NamingException"},
+		{"getEncodedValue", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExtendedRequest, getEncodedValue, $bytes*)},
+		{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExtendedRequest, getID, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.naming.ldap.ExtendedRequest",
+		nullptr,
+		"java.io.Serializable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ExtendedRequest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExtendedRequest);
+	});
 	return class$;
 }
 

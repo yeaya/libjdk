@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicOptionPaneUI$Actions.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <java/util/EventObject.h>
 #include <javax/swing/JOptionPane.h>
@@ -24,42 +23,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicOptionPaneUI$Actions_FieldInfo_[] = {
-	{"CLOSE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicOptionPaneUI$Actions, CLOSE)},
-	{}
-};
-
-$MethodInfo _BasicOptionPaneUI$Actions_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicOptionPaneUI$Actions, init$, void, $String*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicOptionPaneUI$Actions, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicOptionPaneUI$Actions_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicOptionPaneUI$Actions", "javax.swing.plaf.basic.BasicOptionPaneUI", "Actions", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicOptionPaneUI$Actions_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicOptionPaneUI$Actions",
-	"sun.swing.UIAction",
-	nullptr,
-	_BasicOptionPaneUI$Actions_FieldInfo_,
-	_BasicOptionPaneUI$Actions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicOptionPaneUI$Actions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicOptionPaneUI"
-};
-
-$Object* allocate$BasicOptionPaneUI$Actions($Class* clazz) {
-	return $of($alloc(BasicOptionPaneUI$Actions));
-}
-
 $String* BasicOptionPaneUI$Actions::CLOSE = nullptr;
 
 void BasicOptionPaneUI$Actions::init$($String* key) {
@@ -67,7 +30,7 @@ void BasicOptionPaneUI$Actions::init$($String* key) {
 }
 
 void BasicOptionPaneUI$Actions::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getName() == BasicOptionPaneUI$Actions::CLOSE) {
 		$var($JOptionPane, optionPane, $cast($JOptionPane, $nc(e)->getSource()));
 		$nc(optionPane)->setValue($($Integer::valueOf($JOptionPane::CLOSED_OPTION)));
@@ -77,12 +40,42 @@ void BasicOptionPaneUI$Actions::actionPerformed($ActionEvent* e) {
 BasicOptionPaneUI$Actions::BasicOptionPaneUI$Actions() {
 }
 
-void clinit$BasicOptionPaneUI$Actions($Class* class$) {
+void BasicOptionPaneUI$Actions::clinit$($Class* clazz) {
 	$assignStatic(BasicOptionPaneUI$Actions::CLOSE, "close"_s);
 }
 
 $Class* BasicOptionPaneUI$Actions::load$($String* name, bool initialize) {
-	$loadClass(BasicOptionPaneUI$Actions, name, initialize, &_BasicOptionPaneUI$Actions_ClassInfo_, clinit$BasicOptionPaneUI$Actions, allocate$BasicOptionPaneUI$Actions);
+	$FieldInfo fieldInfos$$[] = {
+		{"CLOSE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicOptionPaneUI$Actions, CLOSE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicOptionPaneUI$Actions, init$, void, $String*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicOptionPaneUI$Actions, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicOptionPaneUI$Actions", "javax.swing.plaf.basic.BasicOptionPaneUI", "Actions", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicOptionPaneUI$Actions",
+		"sun.swing.UIAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicOptionPaneUI"
+	};
+	$loadClass(BasicOptionPaneUI$Actions, name, initialize, &classInfo$$, BasicOptionPaneUI$Actions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicOptionPaneUI$Actions);
+	});
 	return class$;
 }
 

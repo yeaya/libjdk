@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/HiddenTagView$EndTagBorder.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -21,44 +20,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$MethodInfo _HiddenTagView$EndTagBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(HiddenTagView$EndTagBorder, init$, void)},
-	{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(HiddenTagView$EndTagBorder, getBorderInsets, $Insets*, $Component*)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(HiddenTagView$EndTagBorder, isBorderOpaque, bool)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(HiddenTagView$EndTagBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _HiddenTagView$EndTagBorder_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.HiddenTagView$EndTagBorder", "javax.swing.text.html.HiddenTagView", "EndTagBorder", $STATIC},
-	{}
-};
-
-$ClassInfo _HiddenTagView$EndTagBorder_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.HiddenTagView$EndTagBorder",
-	"java.lang.Object",
-	"javax.swing.border.Border,java.io.Serializable",
-	nullptr,
-	_HiddenTagView$EndTagBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HiddenTagView$EndTagBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.HiddenTagView"
-};
-
-$Object* allocate$HiddenTagView$EndTagBorder($Class* clazz) {
-	return $of($alloc(HiddenTagView$EndTagBorder));
-}
 
 int32_t HiddenTagView$EndTagBorder::hashCode() {
 	 return this->$Border::hashCode();
@@ -109,7 +70,40 @@ HiddenTagView$EndTagBorder::HiddenTagView$EndTagBorder() {
 }
 
 $Class* HiddenTagView$EndTagBorder::load$($String* name, bool initialize) {
-	$loadClass(HiddenTagView$EndTagBorder, name, initialize, &_HiddenTagView$EndTagBorder_ClassInfo_, allocate$HiddenTagView$EndTagBorder);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(HiddenTagView$EndTagBorder, init$, void)},
+		{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(HiddenTagView$EndTagBorder, getBorderInsets, $Insets*, $Component*)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(HiddenTagView$EndTagBorder, isBorderOpaque, bool)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(HiddenTagView$EndTagBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.HiddenTagView$EndTagBorder", "javax.swing.text.html.HiddenTagView", "EndTagBorder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.HiddenTagView$EndTagBorder",
+		"java.lang.Object",
+		"javax.swing.border.Border,java.io.Serializable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.HiddenTagView"
+	};
+	$loadClass(HiddenTagView$EndTagBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HiddenTagView$EndTagBorder));
+	});
 	return class$;
 }
 

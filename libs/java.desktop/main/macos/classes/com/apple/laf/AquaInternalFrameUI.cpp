@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaInternalFrameUI.h>
-
 #include <com/apple/laf/AquaFocusHandler.h>
 #include <com/apple/laf/AquaInternalFrameBorder.h>
 #include <com/apple/laf/AquaInternalFrameUI$1.h>
@@ -20,10 +19,7 @@
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
-#include <java/awt/event/ComponentListener.h>
 #include <java/awt/event/MouseAdapter.h>
-#include <java/awt/event/MouseListener.h>
-#include <java/awt/event/MouseMotionListener.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/DesktopManager.h>
@@ -73,16 +69,11 @@ using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
-using $ComponentListener = ::java::awt::event::ComponentListener;
 using $MouseAdapter = ::java::awt::event::MouseAdapter;
-using $MouseListener = ::java::awt::event::MouseListener;
-using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ActionMap = ::javax::swing::ActionMap;
 using $DesktopManager = ::javax::swing::DesktopManager;
@@ -102,181 +93,6 @@ using $BasicInternalFrameUI = ::javax::swing::plaf::basic::BasicInternalFrameUI;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaInternalFrameUI_FieldInfo_[] = {
-	{"IS_PALETTE_PROPERTY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AquaInternalFrameUI, IS_PALETTE_PROPERTY)},
-	{"FRAME_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaInternalFrameUI, FRAME_TYPE)},
-	{"NORMAL_FRAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaInternalFrameUI, NORMAL_FRAME)},
-	{"PALETTE_FRAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaInternalFrameUI, PALETTE_FRAME)},
-	{"OPTION_DIALOG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaInternalFrameUI, OPTION_DIALOG)},
-	{"fPropertyListener", "Ljava/beans/PropertyChangeListener;", nullptr, 0, $field(AquaInternalFrameUI, fPropertyListener)},
-	{"fSelectedTextColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(AquaInternalFrameUI, fSelectedTextColor)},
-	{"fNotSelectedTextColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(AquaInternalFrameUI, fNotSelectedTextColor)},
-	{"fAquaBorder", "Lcom/apple/laf/AquaInternalFrameBorder;", nullptr, 0, $field(AquaInternalFrameUI, fAquaBorder)},
-	{"resizeBox", "Lcom/apple/laf/AquaInternalFrameUI$ResizeBox;", nullptr, $PRIVATE, $field(AquaInternalFrameUI, resizeBox)},
-	{"fMouseOverPressedButton", "Z", nullptr, 0, $field(AquaInternalFrameUI, fMouseOverPressedButton)},
-	{"fWhichButtonPressed", "I", nullptr, 0, $field(AquaInternalFrameUI, fWhichButtonPressed)},
-	{"fRollover", "Z", nullptr, 0, $field(AquaInternalFrameUI, fRollover)},
-	{"fDocumentEdited", "Z", nullptr, 0, $field(AquaInternalFrameUI, fDocumentEdited)},
-	{"fIsPallet", "Z", nullptr, 0, $field(AquaInternalFrameUI, fIsPallet)},
-	{"closeIcon", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/Icon;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaInternalFrameUI, closeIcon)},
-	{"minimizeIcon", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/Icon;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaInternalFrameUI, minimizeIcon)},
-	{"zoomIcon", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/Icon;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaInternalFrameUI, zoomIcon)},
-	{"documentWindowShadow", "Lcom/apple/laf/AquaInternalFrameUI$InternalFrameShadow;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaInternalFrameUI, documentWindowShadow)},
-	{"paletteWindowShadow", "Lcom/apple/laf/AquaInternalFrameUI$InternalFrameShadow;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaInternalFrameUI, paletteWindowShadow)},
-	{"RESIZE_ICON", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/Icon;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaInternalFrameUI, RESIZE_ICON)},
-	{}
-};
-
-$MethodInfo _AquaInternalFrameUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $method(AquaInternalFrameUI, init$, void, $JInternalFrame*)},
-	{"access$000", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$000, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$100", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$100, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$1000", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$1000, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$1100", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$1100, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$1200", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/DesktopManager;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$1200, $DesktopManager*, AquaInternalFrameUI*)},
-	{"access$1300", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$1300, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$1400", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$1400, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$1500", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$1500, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$1600", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$1600, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$1700", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/DesktopManager;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$1700, $DesktopManager*, AquaInternalFrameUI*)},
-	{"access$1800", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$1800, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$1900", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$1900, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$200", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$200, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$2000", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$2000, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$2100", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$2100, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$2200", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/DesktopManager;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$2200, $DesktopManager*, AquaInternalFrameUI*)},
-	{"access$2300", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$2300, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$2400", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/DesktopManager;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$2400, $DesktopManager*, AquaInternalFrameUI*)},
-	{"access$2500", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$2500, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$2600", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$2600, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$2700", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$2700, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$2800", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$2800, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$2900", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$2900, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$300", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$300, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$3000", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$3000, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$3100", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$3100, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$3200", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$3200, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$3300", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$3300, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$3400", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$3400, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$3500", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/DesktopManager;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$3500, $DesktopManager*, AquaInternalFrameUI*)},
-	{"access$3600", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$3600, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$3700", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$3700, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$3800", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$3800, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$3900", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$3900, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$400", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$400, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$4000", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$4000, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$4100", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$4100, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$4200", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$4200, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$4300", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$4300, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$4400", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$4400, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$4500", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$4500, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$4600", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$4600, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$4700", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$4700, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$4800", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$4800, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$4900", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$4900, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$500", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$500, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$5000", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$5000, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$5100", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$5100, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$5200", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$5200, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$5300", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$5300, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$5400", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$5400, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$5500", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$5500, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$5600", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$5600, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$5700", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$5700, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$5800", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$5800, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$5900", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$5900, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$600", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$600, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$6000", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$6000, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$6100", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$6100, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$6200", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$6200, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$6300", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$6300, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$6400", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$6400, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$6500", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/DesktopManager;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$6500, $DesktopManager*, AquaInternalFrameUI*)},
-	{"access$6600", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$6600, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$6700", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$6700, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$6800", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$6800, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$6900", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$6900, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$700", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$700, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$7000", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$7000, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$7100", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$7100, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$7200", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$7200, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$7300", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$7300, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$7400", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/DesktopManager;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$7400, $DesktopManager*, AquaInternalFrameUI*)},
-	{"access$7500", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$7500, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$7600", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/DesktopManager;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$7600, $DesktopManager*, AquaInternalFrameUI*)},
-	{"access$800", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$800, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"access$900", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$900, $JInternalFrame*, AquaInternalFrameUI*)},
-	{"createActionMap", "()Ljavax/swing/ActionMap;", nullptr, 0, $virtualMethod(AquaInternalFrameUI, createActionMap, $ActionMap*)},
-	{"createBorderListener", "(Ljavax/swing/JInternalFrame;)Ljavax/swing/event/MouseInputAdapter;", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameUI, createBorderListener, $MouseInputAdapter*, $JInternalFrame*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaInternalFrameUI, createUI, $ComponentUI*, $JComponent*)},
-	{"deinstallMouseHandlers", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameUI, deinstallMouseHandlers, void, $JComponent*)},
-	{"exportCloseIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaInternalFrameUI, exportCloseIcon, $Icon*)},
-	{"exportMinimizeIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaInternalFrameUI, exportMinimizeIcon, $Icon*)},
-	{"exportZoomIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaInternalFrameUI, exportZoomIcon, $Icon*)},
-	{"getMouseOverPressedButton", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI, getMouseOverPressedButton, bool)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getRollover", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI, getRollover, bool)},
-	{"getWhichButtonPressed", "()I", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI, getWhichButtonPressed, int32_t)},
-	{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameUI, installComponents, void)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameUI, installDefaults, void)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameUI, installKeyboardActions, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameUI, installListeners, void)},
-	{"installMouseHandlers", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameUI, installMouseHandlers, void, $JComponent*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI, installUI, void, $JComponent*)},
-	{"isDocumentEdited", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI, isDocumentEdited, bool)},
-	{"replacePane", "(Ljavax/swing/JComponent;Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameUI, replacePane, void, $JComponent*, $JComponent*)},
-	{"setDocumentEdited", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI, setDocumentEdited, void, bool)},
-	{"setFrameType", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(AquaInternalFrameUI, setFrameType, void, $String*)},
-	{"setNorthPane", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI, setNorthPane, void, $JComponent*)},
-	{"setPalette", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI, setPalette, void, bool)},
-	{"setSouthPane", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI, setSouthPane, void, $JComponent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameUI, uninstallComponents, void)},
-	{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameUI, uninstallKeyboardActions, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameUI, uninstallListeners, void)},
-	{"updateComponentTreeUIActivation", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(AquaInternalFrameUI, updateComponentTreeUIActivation, void, $Component*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _AquaInternalFrameUI_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaInternalFrameUI$ResizeBox", "com.apple.laf.AquaInternalFrameUI", "ResizeBox", $PRIVATE | $FINAL},
-	{"com.apple.laf.AquaInternalFrameUI$InternalFrameShadow", "com.apple.laf.AquaInternalFrameUI", "InternalFrameShadow", $STATIC | $ABSTRACT},
-	{"com.apple.laf.AquaInternalFrameUI$CompoundUIBorder", "com.apple.laf.AquaInternalFrameUI", "CompoundUIBorder", $STATIC},
-	{"com.apple.laf.AquaInternalFrameUI$PropertyListener", "com.apple.laf.AquaInternalFrameUI", "PropertyListener", 0},
-	{"com.apple.laf.AquaInternalFrameUI$AquaBorderListener", "com.apple.laf.AquaInternalFrameUI", "AquaBorderListener", $PROTECTED},
-	{"com.apple.laf.AquaInternalFrameUI$AquaInternalFrameButtonIcon", "com.apple.laf.AquaInternalFrameUI", "AquaInternalFrameButtonIcon", $STATIC},
-	{"com.apple.laf.AquaInternalFrameUI$6", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaInternalFrameUI$5", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaInternalFrameUI$4", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaInternalFrameUI$3", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaInternalFrameUI$2", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaInternalFrameUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaInternalFrameUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaInternalFrameUI",
-	"javax.swing.plaf.basic.BasicInternalFrameUI",
-	"javax.swing.SwingConstants",
-	_AquaInternalFrameUI_FieldInfo_,
-	_AquaInternalFrameUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaInternalFrameUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaInternalFrameUI$ResizeBox,com.apple.laf.AquaInternalFrameUI$InternalFrameShadow,com.apple.laf.AquaInternalFrameUI$InternalFrameShadow$1,com.apple.laf.AquaInternalFrameUI$CompoundUIBorder,com.apple.laf.AquaInternalFrameUI$PropertyListener,com.apple.laf.AquaInternalFrameUI$AquaBorderListener,com.apple.laf.AquaInternalFrameUI$AquaInternalFrameButtonIcon,com.apple.laf.AquaInternalFrameUI$6,com.apple.laf.AquaInternalFrameUI$6$1,com.apple.laf.AquaInternalFrameUI$5,com.apple.laf.AquaInternalFrameUI$5$1,com.apple.laf.AquaInternalFrameUI$4,com.apple.laf.AquaInternalFrameUI$4$4,com.apple.laf.AquaInternalFrameUI$4$3,com.apple.laf.AquaInternalFrameUI$4$2,com.apple.laf.AquaInternalFrameUI$4$1,com.apple.laf.AquaInternalFrameUI$3,com.apple.laf.AquaInternalFrameUI$2,com.apple.laf.AquaInternalFrameUI$1"
-};
-
-$Object* allocate$AquaInternalFrameUI($Class* clazz) {
-	return $of($alloc(AquaInternalFrameUI));
-}
 
 int32_t AquaInternalFrameUI::hashCode() {
 	 return this->$BasicInternalFrameUI::hashCode();
@@ -720,16 +536,16 @@ void AquaInternalFrameUI::init$($JInternalFrame* b) {
 }
 
 void AquaInternalFrameUI::installUI($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, frame, $cast($JInternalFrame, c));
-	$nc(this->frame)->add($(static_cast<$Component*>($nc(this->frame)->getRootPane())), $of("Center"_s));
+	$nc(this->frame)->add($($nc(this->frame)->getRootPane()), "Center"_s);
 	installDefaults();
 	installListeners();
 	installComponents();
 	installKeyboardActions();
 	$var($Object, paletteProp, $nc(c)->getClientProperty(AquaInternalFrameUI::IS_PALETTE_PROPERTY));
 	if (paletteProp != nullptr) {
-		setPalette($nc(($cast($Boolean, paletteProp)))->booleanValue());
+		setPalette($cast($Boolean, paletteProp)->booleanValue());
 	} else {
 		$assign(paletteProp, c->getClientProperty(AquaInternalFrameUI::FRAME_TYPE));
 		if (paletteProp != nullptr) {
@@ -740,7 +556,7 @@ void AquaInternalFrameUI::installUI($JComponent* c) {
 	}
 	$nc(this->frame)->setMinimumSize($$new($Dimension, this->fIsPallet ? 120 : 150, this->fIsPallet ? 39 : 65));
 	$nc(this->frame)->setOpaque(false);
-	$var($Border, var$0, this->fIsPallet ? $cast($Border, $nc(AquaInternalFrameUI::paletteWindowShadow)->get()) : $cast($Border, $nc(AquaInternalFrameUI::documentWindowShadow)->get()));
+	$var($Border, var$0, this->fIsPallet ? $cast($Border, AquaInternalFrameUI::paletteWindowShadow->get()) : $cast($Border, AquaInternalFrameUI::documentWindowShadow->get()));
 	c->setBorder($$new($AquaInternalFrameUI$CompoundUIBorder, var$0, $(c->getBorder())));
 }
 
@@ -752,11 +568,11 @@ void AquaInternalFrameUI::installDefaults() {
 
 void AquaInternalFrameUI::setSouthPane($JComponent* c) {
 	if (this->southPane != nullptr) {
-		$nc(this->frame)->remove(static_cast<$Component*>(this->southPane));
+		$nc(this->frame)->remove(this->southPane);
 		deinstallMouseHandlers(this->southPane);
 	}
 	if (c != nullptr) {
-		$nc(this->frame)->add(static_cast<$Component*>(c));
+		$nc(this->frame)->add(c);
 		installMouseHandlers(c);
 	}
 	$set(this, southPane, c);
@@ -764,17 +580,17 @@ void AquaInternalFrameUI::setSouthPane($JComponent* c) {
 
 $Icon* AquaInternalFrameUI::exportCloseIcon() {
 	$init(AquaInternalFrameUI);
-	return $cast($Icon, $nc(AquaInternalFrameUI::closeIcon)->get());
+	return $cast($Icon, AquaInternalFrameUI::closeIcon->get());
 }
 
 $Icon* AquaInternalFrameUI::exportMinimizeIcon() {
 	$init(AquaInternalFrameUI);
-	return $cast($Icon, $nc(AquaInternalFrameUI::minimizeIcon)->get());
+	return $cast($Icon, AquaInternalFrameUI::minimizeIcon->get());
 }
 
 $Icon* AquaInternalFrameUI::exportZoomIcon() {
 	$init(AquaInternalFrameUI);
-	return $cast($Icon, $nc(AquaInternalFrameUI::zoomIcon)->get());
+	return $cast($Icon, AquaInternalFrameUI::zoomIcon->get());
 }
 
 void AquaInternalFrameUI::installKeyboardActions() {
@@ -783,8 +599,8 @@ void AquaInternalFrameUI::installKeyboardActions() {
 void AquaInternalFrameUI::installComponents() {
 	$var($JLayeredPane, layeredPane, $nc(this->frame)->getLayeredPane());
 	$set(this, resizeBox, $new($AquaInternalFrameUI$ResizeBox, this, layeredPane));
-	$nc(this->resizeBox)->repositionResizeBox();
-	$nc(layeredPane)->add(static_cast<$Component*>(this->resizeBox));
+	this->resizeBox->repositionResizeBox();
+	$nc(layeredPane)->add(this->resizeBox);
 	layeredPane->setLayer(this->resizeBox, $nc($JLayeredPane::DRAG_LAYER)->intValue());
 	layeredPane->addComponentListener(this->resizeBox);
 	$nc(this->resizeBox)->addListeners();
@@ -802,7 +618,7 @@ void AquaInternalFrameUI::uninstallComponents() {
 	$var($JLayeredPane, layeredPane, $nc(this->frame)->getLayeredPane());
 	$nc(this->resizeBox)->removeListeners();
 	$nc(layeredPane)->removeComponentListener(this->resizeBox);
-	layeredPane->remove(static_cast<$Component*>(this->resizeBox));
+	layeredPane->remove(this->resizeBox);
 	$set(this, resizeBox, nullptr);
 }
 
@@ -815,17 +631,17 @@ void AquaInternalFrameUI::uninstallKeyboardActions() {
 }
 
 void AquaInternalFrameUI::installMouseHandlers($JComponent* c) {
-	$nc(c)->addMouseListener(static_cast<$MouseListener*>(static_cast<$MouseAdapter*>(this->borderListener)));
-	c->addMouseMotionListener(static_cast<$MouseMotionListener*>(static_cast<$MouseAdapter*>(this->borderListener)));
+	$nc(c)->addMouseListener($cast($MouseAdapter, this->borderListener));
+	c->addMouseMotionListener($cast($MouseAdapter, this->borderListener));
 }
 
 void AquaInternalFrameUI::deinstallMouseHandlers($JComponent* c) {
-	$nc(c)->removeMouseListener(static_cast<$MouseListener*>(static_cast<$MouseAdapter*>(this->borderListener)));
-	c->removeMouseMotionListener(static_cast<$MouseMotionListener*>(static_cast<$MouseAdapter*>(this->borderListener)));
+	$nc(c)->removeMouseListener($cast($MouseAdapter, this->borderListener));
+	c->removeMouseMotionListener($cast($MouseAdapter, this->borderListener));
 }
 
 $ActionMap* AquaInternalFrameUI::createActionMap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ActionMap, map, $new($ActionMapUIResource));
 	$var($AquaLookAndFeel, lf, $cast($AquaLookAndFeel, $UIManager::getLookAndFeel()));
 	$var($ActionMap, audioMap, $nc(lf)->getAudioActionMap());
@@ -834,13 +650,13 @@ $ActionMap* AquaInternalFrameUI::createActionMap() {
 }
 
 $Dimension* AquaInternalFrameUI::getPreferredSize($JComponent* x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, preferredSize, $BasicInternalFrameUI::getPreferredSize(x));
 	$var($Dimension, minimumSize, $nc(this->frame)->getMinimumSize());
 	if ($nc(preferredSize)->width < $nc(minimumSize)->width) {
 		preferredSize->width = minimumSize->width;
 	}
-	if ($nc(preferredSize)->height < $nc(minimumSize)->height) {
+	if (preferredSize->height < minimumSize->height) {
 		preferredSize->height = minimumSize->height;
 	}
 	return preferredSize;
@@ -854,10 +670,10 @@ void AquaInternalFrameUI::setNorthPane($JComponent* c) {
 void AquaInternalFrameUI::replacePane($JComponent* currentPane, $JComponent* newPane) {
 	if (currentPane != nullptr) {
 		deinstallMouseHandlers(currentPane);
-		$nc(this->frame)->remove(static_cast<$Component*>(currentPane));
+		$nc(this->frame)->remove(currentPane);
 	}
 	if (newPane != nullptr) {
-		$nc(this->frame)->add(static_cast<$Component*>(newPane));
+		$nc(this->frame)->add(newPane);
 		installMouseHandlers(newPane);
 	}
 }
@@ -867,7 +683,7 @@ $MouseInputAdapter* AquaInternalFrameUI::createBorderListener($JInternalFrame* w
 }
 
 void AquaInternalFrameUI::setFrameType($String* frameType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, bg, $nc(this->frame)->getBackground());
 	bool replaceColor = (bg == nullptr || $instanceOf($UIResource, bg));
 	$var($Font, font, $nc(this->frame)->getFont());
@@ -918,33 +734,29 @@ void AquaInternalFrameUI::setDocumentEdited(bool flag) {
 
 void AquaInternalFrameUI::updateComponentTreeUIActivation($Component* c, Object$* active) {
 	$init(AquaInternalFrameUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JComponent, c)) {
 		$init($AquaFocusHandler);
-		$nc(($cast($JComponent, c)))->putClientProperty($AquaFocusHandler::FRAME_ACTIVE_PROPERTY, active);
+		$cast($JComponent, c)->putClientProperty($AquaFocusHandler::FRAME_ACTIVE_PROPERTY, active);
 	}
 	$var($ComponentArray, children, nullptr);
 	if ($instanceOf($JMenu, c)) {
-		$assign(children, $nc(($cast($JMenu, c)))->getMenuComponents());
+		$assign(children, $cast($JMenu, c)->getMenuComponents());
 	} else if ($instanceOf($Container, c)) {
-		$assign(children, $nc(($cast($Container, c)))->getComponents());
+		$assign(children, $cast($Container, c)->getComponents());
 	}
 	if (children != nullptr) {
-		{
-			$var($ComponentArray, arr$, children);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Component, element, arr$->get(i$));
-				{
-					updateComponentTreeUIActivation(element, active);
-				}
+		$var($ComponentArray, arr$, children);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Component, element, arr$->get(i$));
+			{
+				updateComponentTreeUIActivation(element, active);
 			}
 		}
 	}
 }
 
-void clinit$AquaInternalFrameUI($Class* class$) {
+void AquaInternalFrameUI::clinit$($Class* clazz) {
 	$assignStatic(AquaInternalFrameUI::IS_PALETTE_PROPERTY, "JInternalFrame.isPalette"_s);
 	$assignStatic(AquaInternalFrameUI::FRAME_TYPE, "JInternalFrame.frameType"_s);
 	$assignStatic(AquaInternalFrameUI::NORMAL_FRAME, "normal"_s);
@@ -962,7 +774,176 @@ AquaInternalFrameUI::AquaInternalFrameUI() {
 }
 
 $Class* AquaInternalFrameUI::load$($String* name, bool initialize) {
-	$loadClass(AquaInternalFrameUI, name, initialize, &_AquaInternalFrameUI_ClassInfo_, clinit$AquaInternalFrameUI, allocate$AquaInternalFrameUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"IS_PALETTE_PROPERTY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AquaInternalFrameUI, IS_PALETTE_PROPERTY)},
+		{"FRAME_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaInternalFrameUI, FRAME_TYPE)},
+		{"NORMAL_FRAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaInternalFrameUI, NORMAL_FRAME)},
+		{"PALETTE_FRAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaInternalFrameUI, PALETTE_FRAME)},
+		{"OPTION_DIALOG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaInternalFrameUI, OPTION_DIALOG)},
+		{"fPropertyListener", "Ljava/beans/PropertyChangeListener;", nullptr, 0, $field(AquaInternalFrameUI, fPropertyListener)},
+		{"fSelectedTextColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(AquaInternalFrameUI, fSelectedTextColor)},
+		{"fNotSelectedTextColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(AquaInternalFrameUI, fNotSelectedTextColor)},
+		{"fAquaBorder", "Lcom/apple/laf/AquaInternalFrameBorder;", nullptr, 0, $field(AquaInternalFrameUI, fAquaBorder)},
+		{"resizeBox", "Lcom/apple/laf/AquaInternalFrameUI$ResizeBox;", nullptr, $PRIVATE, $field(AquaInternalFrameUI, resizeBox)},
+		{"fMouseOverPressedButton", "Z", nullptr, 0, $field(AquaInternalFrameUI, fMouseOverPressedButton)},
+		{"fWhichButtonPressed", "I", nullptr, 0, $field(AquaInternalFrameUI, fWhichButtonPressed)},
+		{"fRollover", "Z", nullptr, 0, $field(AquaInternalFrameUI, fRollover)},
+		{"fDocumentEdited", "Z", nullptr, 0, $field(AquaInternalFrameUI, fDocumentEdited)},
+		{"fIsPallet", "Z", nullptr, 0, $field(AquaInternalFrameUI, fIsPallet)},
+		{"closeIcon", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/Icon;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaInternalFrameUI, closeIcon)},
+		{"minimizeIcon", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/Icon;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaInternalFrameUI, minimizeIcon)},
+		{"zoomIcon", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/Icon;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaInternalFrameUI, zoomIcon)},
+		{"documentWindowShadow", "Lcom/apple/laf/AquaInternalFrameUI$InternalFrameShadow;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaInternalFrameUI, documentWindowShadow)},
+		{"paletteWindowShadow", "Lcom/apple/laf/AquaInternalFrameUI$InternalFrameShadow;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaInternalFrameUI, paletteWindowShadow)},
+		{"RESIZE_ICON", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/Icon;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaInternalFrameUI, RESIZE_ICON)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $method(AquaInternalFrameUI, init$, void, $JInternalFrame*)},
+		{"access$000", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$000, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$100", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$100, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$1000", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$1000, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$1100", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$1100, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$1200", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/DesktopManager;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$1200, $DesktopManager*, AquaInternalFrameUI*)},
+		{"access$1300", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$1300, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$1400", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$1400, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$1500", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$1500, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$1600", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$1600, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$1700", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/DesktopManager;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$1700, $DesktopManager*, AquaInternalFrameUI*)},
+		{"access$1800", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$1800, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$1900", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$1900, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$200", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$200, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$2000", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$2000, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$2100", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$2100, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$2200", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/DesktopManager;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$2200, $DesktopManager*, AquaInternalFrameUI*)},
+		{"access$2300", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$2300, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$2400", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/DesktopManager;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$2400, $DesktopManager*, AquaInternalFrameUI*)},
+		{"access$2500", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$2500, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$2600", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$2600, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$2700", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$2700, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$2800", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$2800, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$2900", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$2900, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$300", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$300, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$3000", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$3000, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$3100", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$3100, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$3200", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$3200, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$3300", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$3300, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$3400", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$3400, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$3500", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/DesktopManager;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$3500, $DesktopManager*, AquaInternalFrameUI*)},
+		{"access$3600", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$3600, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$3700", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$3700, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$3800", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$3800, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$3900", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$3900, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$400", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$400, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$4000", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$4000, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$4100", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$4100, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$4200", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$4200, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$4300", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$4300, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$4400", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$4400, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$4500", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$4500, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$4600", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$4600, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$4700", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$4700, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$4800", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$4800, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$4900", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$4900, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$500", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$500, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$5000", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$5000, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$5100", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$5100, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$5200", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$5200, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$5300", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$5300, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$5400", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$5400, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$5500", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$5500, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$5600", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$5600, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$5700", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$5700, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$5800", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$5800, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$5900", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$5900, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$600", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$600, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$6000", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$6000, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$6100", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$6100, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$6200", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$6200, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$6300", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$6300, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$6400", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$6400, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$6500", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/DesktopManager;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$6500, $DesktopManager*, AquaInternalFrameUI*)},
+		{"access$6600", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$6600, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$6700", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$6700, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$6800", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$6800, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$6900", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$6900, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$700", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$700, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$7000", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$7000, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$7100", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$7100, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$7200", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$7200, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$7300", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$7300, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$7400", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/DesktopManager;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$7400, $DesktopManager*, AquaInternalFrameUI*)},
+		{"access$7500", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$7500, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$7600", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/DesktopManager;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$7600, $DesktopManager*, AquaInternalFrameUI*)},
+		{"access$800", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$800, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"access$900", "(Lcom/apple/laf/AquaInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaInternalFrameUI, access$900, $JInternalFrame*, AquaInternalFrameUI*)},
+		{"createActionMap", "()Ljavax/swing/ActionMap;", nullptr, 0, $virtualMethod(AquaInternalFrameUI, createActionMap, $ActionMap*)},
+		{"createBorderListener", "(Ljavax/swing/JInternalFrame;)Ljavax/swing/event/MouseInputAdapter;", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameUI, createBorderListener, $MouseInputAdapter*, $JInternalFrame*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaInternalFrameUI, createUI, $ComponentUI*, $JComponent*)},
+		{"deinstallMouseHandlers", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameUI, deinstallMouseHandlers, void, $JComponent*)},
+		{"exportCloseIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaInternalFrameUI, exportCloseIcon, $Icon*)},
+		{"exportMinimizeIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaInternalFrameUI, exportMinimizeIcon, $Icon*)},
+		{"exportZoomIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaInternalFrameUI, exportZoomIcon, $Icon*)},
+		{"getMouseOverPressedButton", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI, getMouseOverPressedButton, bool)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getRollover", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI, getRollover, bool)},
+		{"getWhichButtonPressed", "()I", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI, getWhichButtonPressed, int32_t)},
+		{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameUI, installComponents, void)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameUI, installDefaults, void)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameUI, installKeyboardActions, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameUI, installListeners, void)},
+		{"installMouseHandlers", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameUI, installMouseHandlers, void, $JComponent*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI, installUI, void, $JComponent*)},
+		{"isDocumentEdited", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI, isDocumentEdited, bool)},
+		{"replacePane", "(Ljavax/swing/JComponent;Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameUI, replacePane, void, $JComponent*, $JComponent*)},
+		{"setDocumentEdited", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI, setDocumentEdited, void, bool)},
+		{"setFrameType", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(AquaInternalFrameUI, setFrameType, void, $String*)},
+		{"setNorthPane", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI, setNorthPane, void, $JComponent*)},
+		{"setPalette", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI, setPalette, void, bool)},
+		{"setSouthPane", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI, setSouthPane, void, $JComponent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameUI, uninstallComponents, void)},
+		{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameUI, uninstallKeyboardActions, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameUI, uninstallListeners, void)},
+		{"updateComponentTreeUIActivation", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(AquaInternalFrameUI, updateComponentTreeUIActivation, void, $Component*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaInternalFrameUI$ResizeBox", "com.apple.laf.AquaInternalFrameUI", "ResizeBox", $PRIVATE | $FINAL},
+		{"com.apple.laf.AquaInternalFrameUI$InternalFrameShadow", "com.apple.laf.AquaInternalFrameUI", "InternalFrameShadow", $STATIC | $ABSTRACT},
+		{"com.apple.laf.AquaInternalFrameUI$CompoundUIBorder", "com.apple.laf.AquaInternalFrameUI", "CompoundUIBorder", $STATIC},
+		{"com.apple.laf.AquaInternalFrameUI$PropertyListener", "com.apple.laf.AquaInternalFrameUI", "PropertyListener", 0},
+		{"com.apple.laf.AquaInternalFrameUI$AquaBorderListener", "com.apple.laf.AquaInternalFrameUI", "AquaBorderListener", $PROTECTED},
+		{"com.apple.laf.AquaInternalFrameUI$AquaInternalFrameButtonIcon", "com.apple.laf.AquaInternalFrameUI", "AquaInternalFrameButtonIcon", $STATIC},
+		{"com.apple.laf.AquaInternalFrameUI$6", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaInternalFrameUI$5", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaInternalFrameUI$4", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaInternalFrameUI$3", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaInternalFrameUI$2", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaInternalFrameUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaInternalFrameUI",
+		"javax.swing.plaf.basic.BasicInternalFrameUI",
+		"javax.swing.SwingConstants",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaInternalFrameUI$ResizeBox,com.apple.laf.AquaInternalFrameUI$InternalFrameShadow,com.apple.laf.AquaInternalFrameUI$InternalFrameShadow$1,com.apple.laf.AquaInternalFrameUI$CompoundUIBorder,com.apple.laf.AquaInternalFrameUI$PropertyListener,com.apple.laf.AquaInternalFrameUI$AquaBorderListener,com.apple.laf.AquaInternalFrameUI$AquaInternalFrameButtonIcon,com.apple.laf.AquaInternalFrameUI$6,com.apple.laf.AquaInternalFrameUI$6$1,com.apple.laf.AquaInternalFrameUI$5,com.apple.laf.AquaInternalFrameUI$5$1,com.apple.laf.AquaInternalFrameUI$4,com.apple.laf.AquaInternalFrameUI$4$4,com.apple.laf.AquaInternalFrameUI$4$3,com.apple.laf.AquaInternalFrameUI$4$2,com.apple.laf.AquaInternalFrameUI$4$1,com.apple.laf.AquaInternalFrameUI$3,com.apple.laf.AquaInternalFrameUI$2,com.apple.laf.AquaInternalFrameUI$1"
+	};
+	$loadClass(AquaInternalFrameUI, name, initialize, &classInfo$$, AquaInternalFrameUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaInternalFrameUI));
+	});
 	return class$;
 }
 

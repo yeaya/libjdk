@@ -68,6 +68,7 @@ public:
 	using ::sun::print::PathGraphics::getFontMetrics;
 	using ::sun::print::PathGraphics::getClipBounds;
 	using ::sun::print::PathGraphics::create;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Graphics2D* graphics, ::java::awt::print::PrinterJob* printerJob, ::java::awt::print::Printable* painter, ::java::awt::print::PageFormat* pageFormat, int32_t pageIndex, bool canRedraw);
 	void convertToWPath(::java::awt::geom::PathIterator* pathIter);
 	virtual ::java::awt::Graphics* create() override;

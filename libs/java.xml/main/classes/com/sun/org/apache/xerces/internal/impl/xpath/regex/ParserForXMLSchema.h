@@ -58,6 +58,7 @@ class ParserForXMLSchema : public ::com::sun::org::apache::xerces::internal::imp
 	$class(ParserForXMLSchema, 0, ::com::sun::org::apache::xerces::internal::impl::xpath::regex::RegexParser)
 public:
 	ParserForXMLSchema();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::util::Locale* locale);
 	virtual bool checkQuestion(int32_t off) override;

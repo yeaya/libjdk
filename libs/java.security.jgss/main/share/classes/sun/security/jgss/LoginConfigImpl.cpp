@@ -1,8 +1,6 @@
 #include <sun/security/jgss/LoginConfigImpl.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <javax/security/auth/login/AppConfigurationEntry$LoginModuleControlFlag.h>
@@ -32,9 +30,7 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $HashMap = ::java::util::HashMap;
-using $Map = ::java::util::Map;
 using $AppConfigurationEntry = ::javax::security::auth::login::AppConfigurationEntry;
 using $AppConfigurationEntry$LoginModuleControlFlag = ::javax::security::auth::login::AppConfigurationEntry$LoginModuleControlFlag;
 using $Configuration = ::javax::security::auth::login::Configuration;
@@ -50,52 +46,11 @@ namespace sun {
 	namespace security {
 		namespace jgss {
 
-$FieldInfo _LoginConfigImpl_FieldInfo_[] = {
-	{"config", "Ljavax/security/auth/login/Configuration;", nullptr, $PRIVATE | $FINAL, $field(LoginConfigImpl, config)},
-	{"caller", "Lsun/security/jgss/GSSCaller;", nullptr, $PRIVATE | $FINAL, $field(LoginConfigImpl, caller)},
-	{"mechName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(LoginConfigImpl, mechName)},
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LoginConfigImpl, debug)},
-	{"HTTP_USE_GLOBAL_CREDS", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LoginConfigImpl, HTTP_USE_GLOBAL_CREDS)},
-	{}
-};
-
-$MethodInfo _LoginConfigImpl_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/GSSCaller;Lorg/ietf/jgss/Oid;)V", nullptr, $PUBLIC, $method(LoginConfigImpl, init$, void, $GSSCaller*, $Oid*)},
-	{"getAppConfigurationEntry", "(Ljava/lang/String;)[Ljavax/security/auth/login/AppConfigurationEntry;", nullptr, $PUBLIC, $virtualMethod(LoginConfigImpl, getAppConfigurationEntry, $AppConfigurationEntryArray*, $String*)},
-	{"getDefaultConfigurationEntry", "()[Ljavax/security/auth/login/AppConfigurationEntry;", nullptr, $PRIVATE, $method(LoginConfigImpl, getDefaultConfigurationEntry, $AppConfigurationEntryArray*)},
-	{"isServerSide", "(Lsun/security/jgss/GSSCaller;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(LoginConfigImpl, isServerSide, bool, $GSSCaller*)},
-	{}
-};
-
-$InnerClassInfo _LoginConfigImpl_InnerClassesInfo_[] = {
-	{"sun.security.jgss.LoginConfigImpl$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LoginConfigImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.jgss.LoginConfigImpl",
-	"javax.security.auth.login.Configuration",
-	nullptr,
-	_LoginConfigImpl_FieldInfo_,
-	_LoginConfigImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LoginConfigImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.jgss.LoginConfigImpl$1"
-};
-
-$Object* allocate$LoginConfigImpl($Class* clazz) {
-	return $of($alloc(LoginConfigImpl));
-}
-
 $Debug* LoginConfigImpl::debug = nullptr;
 bool LoginConfigImpl::HTTP_USE_GLOBAL_CREDS = false;
 
 void LoginConfigImpl::init$($GSSCaller* caller, $Oid* mech) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Configuration::init$();
 	$set(this, caller, caller);
@@ -105,11 +60,11 @@ void LoginConfigImpl::init$($GSSCaller* caller, $Oid* mech) {
 	} else {
 		$throwNew($IllegalArgumentException, $$str({$(mech->toString()), " not supported"_s}));
 	}
-	$set(this, config, $cast($Configuration, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($LoginConfigImpl$1, this)))));
+	$set(this, config, $cast($Configuration, $AccessController::doPrivileged($$new($LoginConfigImpl$1, this))));
 }
 
 $AppConfigurationEntryArray* LoginConfigImpl::getAppConfigurationEntry($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppConfigurationEntryArray, entries, nullptr);
 	if ("OTHER"_s->equalsIgnoreCase(name)) {
 		return nullptr;
@@ -122,33 +77,27 @@ $AppConfigurationEntryArray* LoginConfigImpl::getAppConfigurationEntry($String* 
 				"com.sun.security.jgss.krb5.initiate"_s,
 				"com.sun.security.jgss.initiate"_s
 			}));
-		} else {
-			if (this->caller == $GSSCaller::CALLER_ACCEPT) {
-				$assign(alts, $new($StringArray, {
-					"com.sun.security.jgss.krb5.accept"_s,
-					"com.sun.security.jgss.accept"_s
-				}));
-			} else if ($instanceOf($HttpCaller, this->caller)) {
-				$assign(alts, $new($StringArray, {"com.sun.security.jgss.krb5.initiate"_s}));
-			} else {
-				if (this->caller == $GSSCaller::CALLER_UNKNOWN) {
-					$throwNew($AssertionError, $of("caller not defined"_s));
-				}
-			}
+		} else if (this->caller == $GSSCaller::CALLER_ACCEPT) {
+			$assign(alts, $new($StringArray, {
+				"com.sun.security.jgss.krb5.accept"_s,
+				"com.sun.security.jgss.accept"_s
+			}));
+		} else if ($instanceOf($HttpCaller, this->caller)) {
+			$assign(alts, $new($StringArray, {"com.sun.security.jgss.krb5.initiate"_s}));
+		} else if (this->caller == $GSSCaller::CALLER_UNKNOWN) {
+			$throwNew($AssertionError, $of("caller not defined"_s));
 		}
 	} else {
 		$throwNew($IllegalArgumentException, $$str({this->mechName, " not supported"_s}));
 	}
 	{
 		$var($StringArray, arr$, alts);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, alt, arr$->get(i$));
 			{
 				$assign(entries, $nc(this->config)->getAppConfigurationEntry(alt));
 				if (LoginConfigImpl::debug != nullptr) {
-					$nc(LoginConfigImpl::debug)->println($$str({"Trying "_s, alt, ((entries == nullptr) ? ": does not exist."_s : ": Found!"_s)}));
+					LoginConfigImpl::debug->println($$str({"Trying "_s, alt, ((entries == nullptr) ? ": does not exist."_s : ": Found!"_s)}));
 				}
 				if (entries != nullptr) {
 					break;
@@ -158,7 +107,7 @@ $AppConfigurationEntryArray* LoginConfigImpl::getAppConfigurationEntry($String* 
 	}
 	if (entries == nullptr) {
 		if (LoginConfigImpl::debug != nullptr) {
-			$nc(LoginConfigImpl::debug)->println("Cannot read JGSS entry, use default values instead."_s);
+			LoginConfigImpl::debug->println("Cannot read JGSS entry, use default values instead."_s);
 		}
 		$assign(entries, getDefaultConfigurationEntry());
 	}
@@ -166,9 +115,9 @@ $AppConfigurationEntryArray* LoginConfigImpl::getAppConfigurationEntry($String* 
 }
 
 $AppConfigurationEntryArray* LoginConfigImpl::getDefaultConfigurationEntry() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashMap, options, $new($HashMap, 2));
-	if (this->mechName == nullptr || $nc(this->mechName)->equals("krb5"_s)) {
+	if (this->mechName == nullptr || this->mechName->equals("krb5"_s)) {
 		if (isServerSide(this->caller)) {
 			options->put("useKeyTab"_s, "true"_s);
 			options->put("storeKey"_s, "true"_s);
@@ -195,7 +144,7 @@ bool LoginConfigImpl::isServerSide($GSSCaller* caller) {
 	return $GSSCaller::CALLER_ACCEPT == caller;
 }
 
-void clinit$LoginConfigImpl($Class* class$) {
+void LoginConfigImpl::clinit$($Class* clazz) {
 	$assignStatic(LoginConfigImpl::debug, $Debug::getInstance("gssloginconfig"_s, "\t[GSS LoginConfigImpl]"_s));
 	{
 		$var($String, prop, $GetPropertyAction::privilegedGetProperty("http.use.global.creds"_s));
@@ -207,7 +156,42 @@ LoginConfigImpl::LoginConfigImpl() {
 }
 
 $Class* LoginConfigImpl::load$($String* name, bool initialize) {
-	$loadClass(LoginConfigImpl, name, initialize, &_LoginConfigImpl_ClassInfo_, clinit$LoginConfigImpl, allocate$LoginConfigImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"config", "Ljavax/security/auth/login/Configuration;", nullptr, $PRIVATE | $FINAL, $field(LoginConfigImpl, config)},
+		{"caller", "Lsun/security/jgss/GSSCaller;", nullptr, $PRIVATE | $FINAL, $field(LoginConfigImpl, caller)},
+		{"mechName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(LoginConfigImpl, mechName)},
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LoginConfigImpl, debug)},
+		{"HTTP_USE_GLOBAL_CREDS", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LoginConfigImpl, HTTP_USE_GLOBAL_CREDS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/jgss/GSSCaller;Lorg/ietf/jgss/Oid;)V", nullptr, $PUBLIC, $method(LoginConfigImpl, init$, void, $GSSCaller*, $Oid*)},
+		{"getAppConfigurationEntry", "(Ljava/lang/String;)[Ljavax/security/auth/login/AppConfigurationEntry;", nullptr, $PUBLIC, $virtualMethod(LoginConfigImpl, getAppConfigurationEntry, $AppConfigurationEntryArray*, $String*)},
+		{"getDefaultConfigurationEntry", "()[Ljavax/security/auth/login/AppConfigurationEntry;", nullptr, $PRIVATE, $method(LoginConfigImpl, getDefaultConfigurationEntry, $AppConfigurationEntryArray*)},
+		{"isServerSide", "(Lsun/security/jgss/GSSCaller;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(LoginConfigImpl, isServerSide, bool, $GSSCaller*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jgss.LoginConfigImpl$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.jgss.LoginConfigImpl",
+		"javax.security.auth.login.Configuration",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.jgss.LoginConfigImpl$1"
+	};
+	$loadClass(LoginConfigImpl, name, initialize, &classInfo$$, LoginConfigImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LoginConfigImpl);
+	});
 	return class$;
 }
 

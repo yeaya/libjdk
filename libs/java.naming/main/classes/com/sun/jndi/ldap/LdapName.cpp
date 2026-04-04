@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/LdapName.h>
-
 #include <com/sun/jndi/ldap/LdapName$1.h>
 #include <com/sun/jndi/ldap/LdapName$DnParser.h>
 #include <com/sun/jndi/ldap/LdapName$Rdn.h>
@@ -40,74 +39,6 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$FieldInfo _LdapName_FieldInfo_[] = {
-	{"unparsed", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(LdapName, unparsed)},
-	{"rdns", "Ljava/util/Vector;", "Ljava/util/Vector<Lcom/sun/jndi/ldap/LdapName$Rdn;>;", $PRIVATE | $TRANSIENT, $field(LdapName, rdns)},
-	{"valuesCaseSensitive", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(LdapName, valuesCaseSensitive)},
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(LdapName, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _LdapName_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LdapName, init$, void, $String*), "javax.naming.InvalidNameException"},
-	{"<init>", "(Ljava/lang/String;Ljava/util/Vector;)V", "(Ljava/lang/String;Ljava/util/Vector<Lcom/sun/jndi/ldap/LdapName$Rdn;>;)V", $PRIVATE, $method(LdapName, init$, void, $String*, $Vector*)},
-	{"<init>", "(Ljava/lang/String;Ljava/util/Vector;II)V", "(Ljava/lang/String;Ljava/util/Vector<Lcom/sun/jndi/ldap/LdapName$Rdn;>;II)V", $PRIVATE, $method(LdapName, init$, void, $String*, $Vector*, int32_t, int32_t)},
-	{"add", "(Ljava/lang/String;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapName, add, $Name*, $String*), "javax.naming.InvalidNameException"},
-	{"add", "(ILjava/lang/String;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapName, add, $Name*, int32_t, $String*), "javax.naming.InvalidNameException"},
-	{"addAll", "(Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapName, addAll, $Name*, $Name*), "javax.naming.InvalidNameException"},
-	{"addAll", "(ILjavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapName, addAll, $Name*, int32_t, $Name*), "javax.naming.InvalidNameException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapName, clone, $Object*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(LdapName, compareTo, int32_t, Object$*)},
-	{"endsWith", "(Ljavax/naming/Name;)Z", nullptr, $PUBLIC, $virtualMethod(LdapName, endsWith, bool, $Name*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LdapName, equals, bool, Object$*)},
-	{"escapeAttributeValue", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(LdapName, escapeAttributeValue, $String*, Object$*)},
-	{"get", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LdapName, get, $String*, int32_t)},
-	{"getAll", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(LdapName, getAll, $Enumeration*)},
-	{"getPrefix", "(I)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapName, getPrefix, $Name*, int32_t)},
-	{"getSuffix", "(I)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapName, getSuffix, $Name*, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LdapName, hashCode, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(LdapName, isEmpty, bool)},
-	{"isWhitespace", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapName, isWhitespace, bool, char16_t)},
-	{"matches", "(IILjavax/naming/Name;)Z", nullptr, $PRIVATE, $method(LdapName, matches, bool, int32_t, int32_t, $Name*)},
-	{"parse", "()V", nullptr, $PRIVATE, $method(LdapName, parse, void), "javax.naming.InvalidNameException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(LdapName, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"remove", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapName, remove, $Object*, int32_t), "javax.naming.InvalidNameException"},
-	{"setValuesCaseSensitive", "(Z)V", nullptr, $PUBLIC, $method(LdapName, setValuesCaseSensitive, void, bool)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(LdapName, size, int32_t)},
-	{"startsWith", "(Ljavax/naming/Name;)Z", nullptr, $PUBLIC, $virtualMethod(LdapName, startsWith, bool, $Name*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LdapName, toString, $String*)},
-	{"unescapeAttributeValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(LdapName, unescapeAttributeValue, $Object*, $String*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(LdapName, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _LdapName_InnerClassesInfo_[] = {
-	{"com.sun.jndi.ldap.LdapName$TypeAndValue", "com.sun.jndi.ldap.LdapName", "TypeAndValue", $STATIC},
-	{"com.sun.jndi.ldap.LdapName$Rdn", "com.sun.jndi.ldap.LdapName", "Rdn", $STATIC},
-	{"com.sun.jndi.ldap.LdapName$DnParser", "com.sun.jndi.ldap.LdapName", "DnParser", $STATIC},
-	{"com.sun.jndi.ldap.LdapName$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LdapName_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.LdapName",
-	"java.lang.Object",
-	"javax.naming.Name",
-	_LdapName_FieldInfo_,
-	_LdapName_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LdapName_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.jndi.ldap.LdapName$TypeAndValue,com.sun.jndi.ldap.LdapName$Rdn,com.sun.jndi.ldap.LdapName$DnParser,com.sun.jndi.ldap.LdapName$1"
-};
-
-$Object* allocate$LdapName($Class* clazz) {
-	return $of($alloc(LdapName));
-}
-
 void LdapName::init$($String* name) {
 	this->valuesCaseSensitive = false;
 	$set(this, unparsed, name);
@@ -121,12 +52,12 @@ void LdapName::init$($String* name, $Vector* rdns) {
 }
 
 void LdapName::init$($String* name, $Vector* rdns, int32_t beg, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->valuesCaseSensitive = false;
 	$set(this, unparsed, name);
 	$set(this, rdns, $new($Vector));
 	for (int32_t i = beg; i < end; ++i) {
-		$nc(this->rdns)->addElement($cast($LdapName$Rdn, $($nc(rdns)->elementAt(i))));
+		this->rdns->addElement($$cast($LdapName$Rdn, $nc(rdns)->elementAt(i)));
 	}
 }
 
@@ -135,17 +66,17 @@ $Object* LdapName::clone() {
 }
 
 $String* LdapName::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->unparsed != nullptr) {
 		return this->unparsed;
 	}
 	$var($StringBuffer, buf, $new($StringBuffer));
 	for (int32_t i = $nc(this->rdns)->size() - 1; i >= 0; --i) {
-		if (i < $nc(this->rdns)->size() - 1) {
+		if (i < this->rdns->size() - 1) {
 			buf->append(u',');
 		}
-		$var($LdapName$Rdn, rdn, $cast($LdapName$Rdn, $nc(this->rdns)->elementAt(i)));
-		buf->append($of(rdn));
+		$var($LdapName$Rdn, rdn, $cast($LdapName$Rdn, this->rdns->elementAt(i)));
+		buf->append(rdn);
 	}
 	$set(this, unparsed, $new($String, buf));
 	return this->unparsed;
@@ -156,30 +87,30 @@ bool LdapName::equals(Object$* obj) {
 }
 
 int32_t LdapName::compareTo(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(LdapName, that, $cast(LdapName, obj));
-	if (($equals(obj, this)) || (this->unparsed != nullptr && $nc(this->unparsed)->equals($nc(that)->unparsed))) {
+	if (($equals(obj, this)) || (this->unparsed != nullptr && this->unparsed->equals($nc(that)->unparsed))) {
 		return 0;
 	}
 	int32_t var$0 = $nc(this->rdns)->size();
 	int32_t minSize = $Math::min(var$0, $nc($nc(that)->rdns)->size());
 	for (int32_t i = 0; i < minSize; ++i) {
 		$var($LdapName$Rdn, rdn1, $cast($LdapName$Rdn, $nc(this->rdns)->elementAt(i)));
-		$var($LdapName$Rdn, rdn2, $cast($LdapName$Rdn, $nc($nc(that)->rdns)->elementAt(i)));
+		$var($LdapName$Rdn, rdn2, $cast($LdapName$Rdn, $nc(that->rdns)->elementAt(i)));
 		int32_t diff = $nc(rdn1)->compareTo(rdn2);
 		if (diff != 0) {
 			return diff;
 		}
 	}
 	int32_t var$1 = $nc(this->rdns)->size();
-	return (var$1 - $nc($nc(that)->rdns)->size());
+	return (var$1 - $nc(that->rdns)->size());
 }
 
 int32_t LdapName::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t hash = 0;
 	for (int32_t i = 0; i < $nc(this->rdns)->size(); ++i) {
-		$var($LdapName$Rdn, rdn, $cast($LdapName$Rdn, $nc(this->rdns)->elementAt(i)));
+		$var($LdapName$Rdn, rdn, $cast($LdapName$Rdn, this->rdns->elementAt(i)));
 		hash += $nc(rdn)->hashCode();
 	}
 	return hash;
@@ -199,7 +130,7 @@ $Enumeration* LdapName::getAll() {
 }
 
 $String* LdapName::get(int32_t pos) {
-	return $nc(($cast($LdapName$Rdn, $($nc(this->rdns)->elementAt(pos)))))->toString();
+	return $$sure($LdapName$Rdn, $nc(this->rdns)->elementAt(pos))->toString();
 }
 
 $Name* LdapName::getPrefix(int32_t pos) {
@@ -234,12 +165,12 @@ void LdapName::setValuesCaseSensitive(bool caseSensitive) {
 }
 
 bool LdapName::matches(int32_t beg, int32_t end, $Name* n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = beg; i < end; ++i) {
 		$var($LdapName$Rdn, rdn, nullptr);
 		if ($instanceOf(LdapName, n)) {
 			$var(LdapName, ln, $cast(LdapName, n));
-			$assign(rdn, $cast($LdapName$Rdn, $nc($nc(ln)->rdns)->elementAt(i - beg)));
+			$assign(rdn, $cast($LdapName$Rdn, $nc(ln->rdns)->elementAt(i - beg)));
 		} else {
 			$var($String, rdnString, $nc(n)->get(i - beg));
 			try {
@@ -260,16 +191,16 @@ $Name* LdapName::addAll($Name* suffix) {
 }
 
 $Name* LdapName::addAll(int32_t pos, $Name* suffix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf(LdapName, suffix)) {
 		$var(LdapName, s, $cast(LdapName, suffix));
-		for (int32_t i = 0; i < $nc($nc(s)->rdns)->size(); ++i) {
-			$nc(this->rdns)->insertElementAt($cast($LdapName$Rdn, $($nc(s->rdns)->elementAt(i))), pos++);
+		for (int32_t i = 0; i < $nc(s->rdns)->size(); ++i) {
+			$nc(this->rdns)->insertElementAt($$cast($LdapName$Rdn, s->rdns->elementAt(i)), pos++);
 		}
 	} else {
 		$var($Enumeration, comps, $nc(suffix)->getAll());
 		while ($nc(comps)->hasMoreElements()) {
-			$var($LdapName$DnParser, p, $new($LdapName$DnParser, $cast($String, $(comps->nextElement())), this->valuesCaseSensitive));
+			$var($LdapName$DnParser, p, $new($LdapName$DnParser, $$cast($String, comps->nextElement()), this->valuesCaseSensitive));
 			$nc(this->rdns)->insertElementAt($(p->getRdn()), pos++);
 		}
 	}
@@ -282,7 +213,7 @@ $Name* LdapName::add($String* comp) {
 }
 
 $Name* LdapName::add(int32_t pos, $String* comp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LdapName$Rdn, rdn, ($$new($LdapName$DnParser, comp, this->valuesCaseSensitive))->getRdn());
 	$nc(this->rdns)->insertElementAt(rdn, pos);
 	$set(this, unparsed, nullptr);
@@ -312,7 +243,7 @@ $String* LdapName::escapeAttributeValue(Object$* val) {
 
 $Object* LdapName::unescapeAttributeValue($String* val) {
 	$init(LdapName);
-	return $of($LdapName$TypeAndValue::unescapeValue(val));
+	return $LdapName$TypeAndValue::unescapeValue(val);
 }
 
 void LdapName::writeObject($ObjectOutputStream* s) {
@@ -334,7 +265,69 @@ LdapName::LdapName() {
 }
 
 $Class* LdapName::load$($String* name, bool initialize) {
-	$loadClass(LdapName, name, initialize, &_LdapName_ClassInfo_, allocate$LdapName);
+	$FieldInfo fieldInfos$$[] = {
+		{"unparsed", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(LdapName, unparsed)},
+		{"rdns", "Ljava/util/Vector;", "Ljava/util/Vector<Lcom/sun/jndi/ldap/LdapName$Rdn;>;", $PRIVATE | $TRANSIENT, $field(LdapName, rdns)},
+		{"valuesCaseSensitive", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(LdapName, valuesCaseSensitive)},
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(LdapName, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LdapName, init$, void, $String*), "javax.naming.InvalidNameException"},
+		{"<init>", "(Ljava/lang/String;Ljava/util/Vector;)V", "(Ljava/lang/String;Ljava/util/Vector<Lcom/sun/jndi/ldap/LdapName$Rdn;>;)V", $PRIVATE, $method(LdapName, init$, void, $String*, $Vector*)},
+		{"<init>", "(Ljava/lang/String;Ljava/util/Vector;II)V", "(Ljava/lang/String;Ljava/util/Vector<Lcom/sun/jndi/ldap/LdapName$Rdn;>;II)V", $PRIVATE, $method(LdapName, init$, void, $String*, $Vector*, int32_t, int32_t)},
+		{"add", "(Ljava/lang/String;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapName, add, $Name*, $String*), "javax.naming.InvalidNameException"},
+		{"add", "(ILjava/lang/String;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapName, add, $Name*, int32_t, $String*), "javax.naming.InvalidNameException"},
+		{"addAll", "(Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapName, addAll, $Name*, $Name*), "javax.naming.InvalidNameException"},
+		{"addAll", "(ILjavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapName, addAll, $Name*, int32_t, $Name*), "javax.naming.InvalidNameException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapName, clone, $Object*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(LdapName, compareTo, int32_t, Object$*)},
+		{"endsWith", "(Ljavax/naming/Name;)Z", nullptr, $PUBLIC, $virtualMethod(LdapName, endsWith, bool, $Name*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LdapName, equals, bool, Object$*)},
+		{"escapeAttributeValue", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(LdapName, escapeAttributeValue, $String*, Object$*)},
+		{"get", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LdapName, get, $String*, int32_t)},
+		{"getAll", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(LdapName, getAll, $Enumeration*)},
+		{"getPrefix", "(I)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapName, getPrefix, $Name*, int32_t)},
+		{"getSuffix", "(I)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapName, getSuffix, $Name*, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LdapName, hashCode, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(LdapName, isEmpty, bool)},
+		{"isWhitespace", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapName, isWhitespace, bool, char16_t)},
+		{"matches", "(IILjavax/naming/Name;)Z", nullptr, $PRIVATE, $method(LdapName, matches, bool, int32_t, int32_t, $Name*)},
+		{"parse", "()V", nullptr, $PRIVATE, $method(LdapName, parse, void), "javax.naming.InvalidNameException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(LdapName, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"remove", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapName, remove, $Object*, int32_t), "javax.naming.InvalidNameException"},
+		{"setValuesCaseSensitive", "(Z)V", nullptr, $PUBLIC, $method(LdapName, setValuesCaseSensitive, void, bool)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(LdapName, size, int32_t)},
+		{"startsWith", "(Ljavax/naming/Name;)Z", nullptr, $PUBLIC, $virtualMethod(LdapName, startsWith, bool, $Name*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LdapName, toString, $String*)},
+		{"unescapeAttributeValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(LdapName, unescapeAttributeValue, $Object*, $String*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(LdapName, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jndi.ldap.LdapName$TypeAndValue", "com.sun.jndi.ldap.LdapName", "TypeAndValue", $STATIC},
+		{"com.sun.jndi.ldap.LdapName$Rdn", "com.sun.jndi.ldap.LdapName", "Rdn", $STATIC},
+		{"com.sun.jndi.ldap.LdapName$DnParser", "com.sun.jndi.ldap.LdapName", "DnParser", $STATIC},
+		{"com.sun.jndi.ldap.LdapName$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.LdapName",
+		"java.lang.Object",
+		"javax.naming.Name",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.jndi.ldap.LdapName$TypeAndValue,com.sun.jndi.ldap.LdapName$Rdn,com.sun.jndi.ldap.LdapName$DnParser,com.sun.jndi.ldap.LdapName$1"
+	};
+	$loadClass(LdapName, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LdapName));
+	});
 	return class$;
 }
 

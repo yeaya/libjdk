@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/Gen$GenContext.h>
-
 #include <com/sun/tools/javac/jvm/Code$Chain.h>
 #include <com/sun/tools/javac/jvm/Code.h>
 #include <com/sun/tools/javac/jvm/Gen$GenFinalizer.h>
@@ -19,47 +18,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$FieldInfo _Gen$GenContext_FieldInfo_[] = {
-	{"exit", "Lcom/sun/tools/javac/jvm/Code$Chain;", nullptr, 0, $field(Gen$GenContext, exit)},
-	{"cont", "Lcom/sun/tools/javac/jvm/Code$Chain;", nullptr, 0, $field(Gen$GenContext, cont)},
-	{"finalize", "Lcom/sun/tools/javac/jvm/Gen$GenFinalizer;", nullptr, 0, $field(Gen$GenContext, finalize$)},
-	{"isSwitch", "Z", nullptr, 0, $field(Gen$GenContext, isSwitch)},
-	{"gaps", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Integer;>;", 0, $field(Gen$GenContext, gaps)},
-	{}
-};
-
-$MethodInfo _Gen$GenContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Gen$GenContext, init$, void)},
-	{"addCont", "(Lcom/sun/tools/javac/jvm/Code$Chain;)V", nullptr, 0, $virtualMethod(Gen$GenContext, addCont, void, $Code$Chain*)},
-	{"addExit", "(Lcom/sun/tools/javac/jvm/Code$Chain;)V", nullptr, 0, $virtualMethod(Gen$GenContext, addExit, void, $Code$Chain*)},
-	{}
-};
-
-$InnerClassInfo _Gen$GenContext_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.Gen$GenContext", "com.sun.tools.javac.jvm.Gen", "GenContext", $STATIC},
-	{}
-};
-
-$ClassInfo _Gen$GenContext_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.Gen$GenContext",
-	"java.lang.Object",
-	nullptr,
-	_Gen$GenContext_FieldInfo_,
-	_Gen$GenContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Gen$GenContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.Gen"
-};
-
-$Object* allocate$Gen$GenContext($Class* clazz) {
-	return $of($alloc(Gen$GenContext));
-}
 
 void Gen$GenContext::init$() {
 	$set(this, exit, nullptr);
@@ -81,7 +39,42 @@ Gen$GenContext::Gen$GenContext() {
 }
 
 $Class* Gen$GenContext::load$($String* name, bool initialize) {
-	$loadClass(Gen$GenContext, name, initialize, &_Gen$GenContext_ClassInfo_, allocate$Gen$GenContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"exit", "Lcom/sun/tools/javac/jvm/Code$Chain;", nullptr, 0, $field(Gen$GenContext, exit)},
+		{"cont", "Lcom/sun/tools/javac/jvm/Code$Chain;", nullptr, 0, $field(Gen$GenContext, cont)},
+		{"finalize", "Lcom/sun/tools/javac/jvm/Gen$GenFinalizer;", nullptr, 0, $field(Gen$GenContext, finalize$)},
+		{"isSwitch", "Z", nullptr, 0, $field(Gen$GenContext, isSwitch)},
+		{"gaps", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Integer;>;", 0, $field(Gen$GenContext, gaps)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Gen$GenContext, init$, void)},
+		{"addCont", "(Lcom/sun/tools/javac/jvm/Code$Chain;)V", nullptr, 0, $virtualMethod(Gen$GenContext, addCont, void, $Code$Chain*)},
+		{"addExit", "(Lcom/sun/tools/javac/jvm/Code$Chain;)V", nullptr, 0, $virtualMethod(Gen$GenContext, addExit, void, $Code$Chain*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.Gen$GenContext", "com.sun.tools.javac.jvm.Gen", "GenContext", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.Gen$GenContext",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.Gen"
+	};
+	$loadClass(Gen$GenContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Gen$GenContext);
+	});
 	return class$;
 }
 

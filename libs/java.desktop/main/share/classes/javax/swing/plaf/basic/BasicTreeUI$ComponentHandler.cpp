@@ -1,9 +1,7 @@
 #include <javax/swing/plaf/basic/BasicTreeUI$ComponentHandler.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/ComponentAdapter.h>
 #include <java/awt/event/ComponentEvent.h>
 #include <javax/swing/JScrollBar.h>
@@ -15,16 +13,13 @@
 
 using $Component = ::java::awt::Component;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $ComponentAdapter = ::java::awt::event::ComponentAdapter;
 using $ComponentEvent = ::java::awt::event::ComponentEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JScrollBar = ::javax::swing::JScrollBar;
 using $JScrollPane = ::javax::swing::JScrollPane;
-using $JTree = ::javax::swing::JTree;
 using $Timer = ::javax::swing::Timer;
 using $BasicTreeUI = ::javax::swing::plaf::basic::BasicTreeUI;
 
@@ -32,52 +27,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicTreeUI$ComponentHandler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicTreeUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicTreeUI$ComponentHandler, this$0)},
-	{"timer", "Ljavax/swing/Timer;", nullptr, $PROTECTED, $field(BasicTreeUI$ComponentHandler, timer)},
-	{"scrollBar", "Ljavax/swing/JScrollBar;", nullptr, $PROTECTED, $field(BasicTreeUI$ComponentHandler, scrollBar)},
-	{}
-};
-
-$MethodInfo _BasicTreeUI$ComponentHandler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicTreeUI;)V", nullptr, $PUBLIC, $method(BasicTreeUI$ComponentHandler, init$, void, $BasicTreeUI*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI$ComponentHandler, actionPerformed, void, $ActionEvent*)},
-	{"componentMoved", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI$ComponentHandler, componentMoved, void, $ComponentEvent*)},
-	{"getScrollPane", "()Ljavax/swing/JScrollPane;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI$ComponentHandler, getScrollPane, $JScrollPane*)},
-	{"startTimer", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI$ComponentHandler, startTimer, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicTreeUI$ComponentHandler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTreeUI$ComponentHandler", "javax.swing.plaf.basic.BasicTreeUI", "ComponentHandler", $PUBLIC},
-	{}
-};
-
-$ClassInfo _BasicTreeUI$ComponentHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTreeUI$ComponentHandler",
-	"java.awt.event.ComponentAdapter",
-	"java.awt.event.ActionListener",
-	_BasicTreeUI$ComponentHandler_FieldInfo_,
-	_BasicTreeUI$ComponentHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTreeUI$ComponentHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTreeUI"
-};
-
-$Object* allocate$BasicTreeUI$ComponentHandler($Class* clazz) {
-	return $of($alloc(BasicTreeUI$ComponentHandler));
-}
 
 int32_t BasicTreeUI$ComponentHandler::hashCode() {
 	 return this->$ComponentAdapter::hashCode();
@@ -110,8 +59,8 @@ void BasicTreeUI$ComponentHandler::componentMoved($ComponentEvent* e) {
 		if (scrollPane == nullptr) {
 			this->this$0->updateSize();
 		} else {
-			$set(this, scrollBar, $nc(scrollPane)->getVerticalScrollBar());
-			if (this->scrollBar == nullptr || !$nc(this->scrollBar)->getValueIsAdjusting()) {
+			$set(this, scrollBar, scrollPane->getVerticalScrollBar());
+			if (this->scrollBar == nullptr || !this->scrollBar->getValueIsAdjusting()) {
 				bool var$0 = ($set(this, scrollBar, scrollPane->getHorizontalScrollBar())) != nullptr;
 				if (var$0 && $nc(this->scrollBar)->getValueIsAdjusting()) {
 					startTimer();
@@ -128,7 +77,7 @@ void BasicTreeUI$ComponentHandler::componentMoved($ComponentEvent* e) {
 void BasicTreeUI$ComponentHandler::startTimer() {
 	if (this->timer == nullptr) {
 		$set(this, timer, $new($Timer, 200, this));
-		$nc(this->timer)->setRepeats(true);
+		this->timer->setRepeats(true);
 	}
 	$nc(this->timer)->start();
 }
@@ -145,9 +94,9 @@ $JScrollPane* BasicTreeUI$ComponentHandler::getScrollPane() {
 }
 
 void BasicTreeUI$ComponentHandler::actionPerformed($ActionEvent* ae) {
-	if (this->scrollBar == nullptr || !$nc(this->scrollBar)->getValueIsAdjusting()) {
+	if (this->scrollBar == nullptr || !this->scrollBar->getValueIsAdjusting()) {
 		if (this->timer != nullptr) {
-			$nc(this->timer)->stop();
+			this->timer->stop();
 		}
 		this->this$0->updateSize();
 		$set(this, timer, nullptr);
@@ -159,7 +108,47 @@ BasicTreeUI$ComponentHandler::BasicTreeUI$ComponentHandler() {
 }
 
 $Class* BasicTreeUI$ComponentHandler::load$($String* name, bool initialize) {
-	$loadClass(BasicTreeUI$ComponentHandler, name, initialize, &_BasicTreeUI$ComponentHandler_ClassInfo_, allocate$BasicTreeUI$ComponentHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicTreeUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicTreeUI$ComponentHandler, this$0)},
+		{"timer", "Ljavax/swing/Timer;", nullptr, $PROTECTED, $field(BasicTreeUI$ComponentHandler, timer)},
+		{"scrollBar", "Ljavax/swing/JScrollBar;", nullptr, $PROTECTED, $field(BasicTreeUI$ComponentHandler, scrollBar)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicTreeUI;)V", nullptr, $PUBLIC, $method(BasicTreeUI$ComponentHandler, init$, void, $BasicTreeUI*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI$ComponentHandler, actionPerformed, void, $ActionEvent*)},
+		{"componentMoved", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI$ComponentHandler, componentMoved, void, $ComponentEvent*)},
+		{"getScrollPane", "()Ljavax/swing/JScrollPane;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI$ComponentHandler, getScrollPane, $JScrollPane*)},
+		{"startTimer", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI$ComponentHandler, startTimer, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTreeUI$ComponentHandler", "javax.swing.plaf.basic.BasicTreeUI", "ComponentHandler", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTreeUI$ComponentHandler",
+		"java.awt.event.ComponentAdapter",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTreeUI"
+	};
+	$loadClass(BasicTreeUI$ComponentHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicTreeUI$ComponentHandler));
+	});
 	return class$;
 }
 

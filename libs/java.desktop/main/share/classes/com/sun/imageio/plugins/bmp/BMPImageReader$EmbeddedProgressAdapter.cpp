@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/bmp/BMPImageReader$EmbeddedProgressAdapter.h>
-
 #include <com/sun/imageio/plugins/bmp/BMPImageReader.h>
 #include <javax/imageio/ImageReader.h>
 #include <jcpp.h>
@@ -14,45 +13,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace bmp {
-
-$MethodInfo _BMPImageReader$EmbeddedProgressAdapter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(BMPImageReader$EmbeddedProgressAdapter, init$, void)},
-	{"imageComplete", "(Ljavax/imageio/ImageReader;)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$EmbeddedProgressAdapter, imageComplete, void, $ImageReader*)},
-	{"imageProgress", "(Ljavax/imageio/ImageReader;F)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$EmbeddedProgressAdapter, imageProgress, void, $ImageReader*, float)},
-	{"imageStarted", "(Ljavax/imageio/ImageReader;I)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$EmbeddedProgressAdapter, imageStarted, void, $ImageReader*, int32_t)},
-	{"readAborted", "(Ljavax/imageio/ImageReader;)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$EmbeddedProgressAdapter, readAborted, void, $ImageReader*)},
-	{"sequenceComplete", "(Ljavax/imageio/ImageReader;)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$EmbeddedProgressAdapter, sequenceComplete, void, $ImageReader*)},
-	{"sequenceStarted", "(Ljavax/imageio/ImageReader;I)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$EmbeddedProgressAdapter, sequenceStarted, void, $ImageReader*, int32_t)},
-	{"thumbnailComplete", "(Ljavax/imageio/ImageReader;)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$EmbeddedProgressAdapter, thumbnailComplete, void, $ImageReader*)},
-	{"thumbnailProgress", "(Ljavax/imageio/ImageReader;F)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$EmbeddedProgressAdapter, thumbnailProgress, void, $ImageReader*, float)},
-	{"thumbnailStarted", "(Ljavax/imageio/ImageReader;II)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$EmbeddedProgressAdapter, thumbnailStarted, void, $ImageReader*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _BMPImageReader$EmbeddedProgressAdapter_InnerClassesInfo_[] = {
-	{"com.sun.imageio.plugins.bmp.BMPImageReader$EmbeddedProgressAdapter", "com.sun.imageio.plugins.bmp.BMPImageReader", "EmbeddedProgressAdapter", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BMPImageReader$EmbeddedProgressAdapter_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.bmp.BMPImageReader$EmbeddedProgressAdapter",
-	"java.lang.Object",
-	"javax.imageio.event.IIOReadProgressListener",
-	nullptr,
-	_BMPImageReader$EmbeddedProgressAdapter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BMPImageReader$EmbeddedProgressAdapter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.imageio.plugins.bmp.BMPImageReader"
-};
-
-$Object* allocate$BMPImageReader$EmbeddedProgressAdapter($Class* clazz) {
-	return $of($alloc(BMPImageReader$EmbeddedProgressAdapter));
-}
 
 void BMPImageReader$EmbeddedProgressAdapter::init$() {
 }
@@ -88,7 +48,41 @@ BMPImageReader$EmbeddedProgressAdapter::BMPImageReader$EmbeddedProgressAdapter()
 }
 
 $Class* BMPImageReader$EmbeddedProgressAdapter::load$($String* name, bool initialize) {
-	$loadClass(BMPImageReader$EmbeddedProgressAdapter, name, initialize, &_BMPImageReader$EmbeddedProgressAdapter_ClassInfo_, allocate$BMPImageReader$EmbeddedProgressAdapter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(BMPImageReader$EmbeddedProgressAdapter, init$, void)},
+		{"imageComplete", "(Ljavax/imageio/ImageReader;)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$EmbeddedProgressAdapter, imageComplete, void, $ImageReader*)},
+		{"imageProgress", "(Ljavax/imageio/ImageReader;F)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$EmbeddedProgressAdapter, imageProgress, void, $ImageReader*, float)},
+		{"imageStarted", "(Ljavax/imageio/ImageReader;I)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$EmbeddedProgressAdapter, imageStarted, void, $ImageReader*, int32_t)},
+		{"readAborted", "(Ljavax/imageio/ImageReader;)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$EmbeddedProgressAdapter, readAborted, void, $ImageReader*)},
+		{"sequenceComplete", "(Ljavax/imageio/ImageReader;)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$EmbeddedProgressAdapter, sequenceComplete, void, $ImageReader*)},
+		{"sequenceStarted", "(Ljavax/imageio/ImageReader;I)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$EmbeddedProgressAdapter, sequenceStarted, void, $ImageReader*, int32_t)},
+		{"thumbnailComplete", "(Ljavax/imageio/ImageReader;)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$EmbeddedProgressAdapter, thumbnailComplete, void, $ImageReader*)},
+		{"thumbnailProgress", "(Ljavax/imageio/ImageReader;F)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$EmbeddedProgressAdapter, thumbnailProgress, void, $ImageReader*, float)},
+		{"thumbnailStarted", "(Ljavax/imageio/ImageReader;II)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$EmbeddedProgressAdapter, thumbnailStarted, void, $ImageReader*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.imageio.plugins.bmp.BMPImageReader$EmbeddedProgressAdapter", "com.sun.imageio.plugins.bmp.BMPImageReader", "EmbeddedProgressAdapter", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.bmp.BMPImageReader$EmbeddedProgressAdapter",
+		"java.lang.Object",
+		"javax.imageio.event.IIOReadProgressListener",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.imageio.plugins.bmp.BMPImageReader"
+	};
+	$loadClass(BMPImageReader$EmbeddedProgressAdapter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BMPImageReader$EmbeddedProgressAdapter);
+	});
 	return class$;
 }
 

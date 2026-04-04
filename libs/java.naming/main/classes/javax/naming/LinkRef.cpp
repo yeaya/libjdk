@@ -1,5 +1,4 @@
 #include <javax/naming/LinkRef.h>
-
 #include <javax/naming/MalformedLinkException.h>
 #include <javax/naming/Name.h>
 #include <javax/naming/RefAddr.h>
@@ -19,38 +18,11 @@ using $StringRefAddr = ::javax::naming::StringRefAddr;
 namespace javax {
 	namespace naming {
 
-$FieldInfo _LinkRef_FieldInfo_[] = {
-	{"linkClassName", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LinkRef, linkClassName)},
-	{"linkAddrType", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LinkRef, linkAddrType)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LinkRef, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _LinkRef_MethodInfo_[] = {
-	{"<init>", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $method(LinkRef, init$, void, $Name*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LinkRef, init$, void, $String*)},
-	{"getLinkName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LinkRef, getLinkName, $String*), "javax.naming.NamingException"},
-	{}
-};
-
-$ClassInfo _LinkRef_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.LinkRef",
-	"javax.naming.Reference",
-	nullptr,
-	_LinkRef_FieldInfo_,
-	_LinkRef_MethodInfo_
-};
-
-$Object* allocate$LinkRef($Class* clazz) {
-	return $of($alloc(LinkRef));
-}
-
 $String* LinkRef::linkClassName = nullptr;
 $String* LinkRef::linkAddrType = nullptr;
 
 void LinkRef::init$($Name* linkName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Reference::init$(LinkRef::linkClassName, $$new($StringRefAddr, LinkRef::linkAddrType, $($nc($of(linkName))->toString())));
 }
 
@@ -59,16 +31,16 @@ void LinkRef::init$($String* linkName) {
 }
 
 $String* LinkRef::getLinkName() {
-	if (this->className != nullptr && $nc(this->className)->equals(LinkRef::linkClassName)) {
+	if (this->className != nullptr && this->className->equals(LinkRef::linkClassName)) {
 		$var($RefAddr, addr, get(LinkRef::linkAddrType));
 		if (addr != nullptr && $instanceOf($StringRefAddr, addr)) {
-			return $cast($String, $nc(($cast($StringRefAddr, addr)))->getContent());
+			return $cast($String, $cast($StringRefAddr, addr)->getContent());
 		}
 	}
 	$throwNew($MalformedLinkException);
 }
 
-void clinit$LinkRef($Class* class$) {
+void LinkRef::clinit$($Class* clazz) {
 	$assignStatic(LinkRef::linkAddrType, "LinkAddress"_s);
 	$assignStatic(LinkRef::linkClassName, LinkRef::class$->getName());
 }
@@ -77,7 +49,29 @@ LinkRef::LinkRef() {
 }
 
 $Class* LinkRef::load$($String* name, bool initialize) {
-	$loadClass(LinkRef, name, initialize, &_LinkRef_ClassInfo_, clinit$LinkRef, allocate$LinkRef);
+	$FieldInfo fieldInfos$$[] = {
+		{"linkClassName", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LinkRef, linkClassName)},
+		{"linkAddrType", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LinkRef, linkAddrType)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LinkRef, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $method(LinkRef, init$, void, $Name*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LinkRef, init$, void, $String*)},
+		{"getLinkName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LinkRef, getLinkName, $String*), "javax.naming.NamingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.LinkRef",
+		"javax.naming.Reference",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LinkRef, name, initialize, &classInfo$$, LinkRef::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LinkRef));
+	});
 	return class$;
 }
 

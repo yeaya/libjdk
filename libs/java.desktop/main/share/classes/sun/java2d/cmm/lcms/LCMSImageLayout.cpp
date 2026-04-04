@@ -1,5 +1,4 @@
 #include <sun/java2d/cmm/lcms/LCMSImageLayout.h>
-
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/ComponentColorModel.h>
@@ -47,7 +46,6 @@ using $ColorModel = ::java::awt::image::ColorModel;
 using $ComponentColorModel = ::java::awt::image::ComponentColorModel;
 using $ComponentSampleModel = ::java::awt::image::ComponentSampleModel;
 using $Raster = ::java::awt::image::Raster;
-using $SampleModel = ::java::awt::image::SampleModel;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -64,81 +62,6 @@ namespace sun {
 	namespace java2d {
 		namespace cmm {
 			namespace lcms {
-
-$FieldInfo _LCMSImageLayout_FieldInfo_[] = {
-	{"SWAPFIRST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LCMSImageLayout, SWAPFIRST)},
-	{"DOSWAP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LCMSImageLayout, DOSWAP)},
-	{"PT_RGB_8", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LCMSImageLayout, PT_RGB_8)},
-	{"PT_GRAY_8", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LCMSImageLayout, PT_GRAY_8)},
-	{"PT_GRAY_16", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LCMSImageLayout, PT_GRAY_16)},
-	{"PT_RGBA_8", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LCMSImageLayout, PT_RGBA_8)},
-	{"PT_ARGB_8", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LCMSImageLayout, PT_ARGB_8)},
-	{"PT_BGR_8", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LCMSImageLayout, PT_BGR_8)},
-	{"PT_ABGR_8", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LCMSImageLayout, PT_ABGR_8)},
-	{"PT_BGRA_8", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LCMSImageLayout, PT_BGRA_8)},
-	{"DT_BYTE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LCMSImageLayout, DT_BYTE)},
-	{"DT_SHORT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LCMSImageLayout, DT_SHORT)},
-	{"DT_INT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LCMSImageLayout, DT_INT)},
-	{"DT_DOUBLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LCMSImageLayout, DT_DOUBLE)},
-	{"isIntPacked", "Z", nullptr, 0, $field(LCMSImageLayout, isIntPacked)},
-	{"pixelType", "I", nullptr, 0, $field(LCMSImageLayout, pixelType)},
-	{"dataType", "I", nullptr, 0, $field(LCMSImageLayout, dataType)},
-	{"width", "I", nullptr, 0, $field(LCMSImageLayout, width)},
-	{"height", "I", nullptr, 0, $field(LCMSImageLayout, height)},
-	{"nextRowOffset", "I", nullptr, 0, $field(LCMSImageLayout, nextRowOffset)},
-	{"nextPixelOffset", "I", nullptr, $PRIVATE, $field(LCMSImageLayout, nextPixelOffset)},
-	{"offset", "I", nullptr, 0, $field(LCMSImageLayout, offset)},
-	{"imageAtOnce", "Z", nullptr, $PRIVATE, $field(LCMSImageLayout, imageAtOnce)},
-	{"dataArray", "Ljava/lang/Object;", nullptr, 0, $field(LCMSImageLayout, dataArray)},
-	{"dataArrayLength", "I", nullptr, $PRIVATE, $field(LCMSImageLayout, dataArrayLength)},
-	{}
-};
-
-$MethodInfo _LCMSImageLayout_MethodInfo_[] = {
-	{"<init>", "(III)V", nullptr, $PRIVATE, $method(LCMSImageLayout, init$, void, int32_t, int32_t, int32_t), "sun.java2d.cmm.lcms.LCMSImageLayout$ImageLayoutException"},
-	{"<init>", "(IIII)V", nullptr, $PRIVATE, $method(LCMSImageLayout, init$, void, int32_t, int32_t, int32_t, int32_t), "sun.java2d.cmm.lcms.LCMSImageLayout$ImageLayoutException"},
-	{"<init>", "([BIII)V", nullptr, $PUBLIC, $method(LCMSImageLayout, init$, void, $bytes*, int32_t, int32_t, int32_t), "sun.java2d.cmm.lcms.LCMSImageLayout$ImageLayoutException"},
-	{"<init>", "([SIII)V", nullptr, $PUBLIC, $method(LCMSImageLayout, init$, void, $shorts*, int32_t, int32_t, int32_t), "sun.java2d.cmm.lcms.LCMSImageLayout$ImageLayoutException"},
-	{"<init>", "([IIII)V", nullptr, $PUBLIC, $method(LCMSImageLayout, init$, void, $ints*, int32_t, int32_t, int32_t), "sun.java2d.cmm.lcms.LCMSImageLayout$ImageLayoutException"},
-	{"<init>", "([DIII)V", nullptr, $PUBLIC, $method(LCMSImageLayout, init$, void, $doubles*, int32_t, int32_t, int32_t), "sun.java2d.cmm.lcms.LCMSImageLayout$ImageLayoutException"},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(LCMSImageLayout, init$, void)},
-	{"BYTES_SH", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(LCMSImageLayout, BYTES_SH, int32_t, int32_t)},
-	{"CHANNELS_SH", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(LCMSImageLayout, CHANNELS_SH, int32_t, int32_t)},
-	{"EXTRA_SH", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(LCMSImageLayout, EXTRA_SH, int32_t, int32_t)},
-	{"createImageLayout", "(Ljava/awt/image/BufferedImage;)Lsun/java2d/cmm/lcms/LCMSImageLayout;", nullptr, $PUBLIC | $STATIC, $staticMethod(LCMSImageLayout, createImageLayout, LCMSImageLayout*, $BufferedImage*), "sun.java2d.cmm.lcms.LCMSImageLayout$ImageLayoutException"},
-	{"createImageLayout", "(Ljava/awt/image/Raster;)Lsun/java2d/cmm/lcms/LCMSImageLayout;", nullptr, $PUBLIC | $STATIC, $staticMethod(LCMSImageLayout, createImageLayout, LCMSImageLayout*, $Raster*)},
-	{"getBytesPerPixel", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(LCMSImageLayout, getBytesPerPixel, int32_t, int32_t)},
-	{"safeAdd", "(II)I", nullptr, $STATIC, $staticMethod(LCMSImageLayout, safeAdd, int32_t, int32_t, int32_t), "sun.java2d.cmm.lcms.LCMSImageLayout$ImageLayoutException"},
-	{"safeMult", "(II)I", nullptr, $STATIC, $staticMethod(LCMSImageLayout, safeMult, int32_t, int32_t, int32_t), "sun.java2d.cmm.lcms.LCMSImageLayout$ImageLayoutException"},
-	{"verify", "()V", nullptr, $PRIVATE, $method(LCMSImageLayout, verify, void), "sun.java2d.cmm.lcms.LCMSImageLayout$ImageLayoutException"},
-	{}
-};
-
-$InnerClassInfo _LCMSImageLayout_InnerClassesInfo_[] = {
-	{"sun.java2d.cmm.lcms.LCMSImageLayout$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"sun.java2d.cmm.lcms.LCMSImageLayout$ImageLayoutException", "sun.java2d.cmm.lcms.LCMSImageLayout", "ImageLayoutException", $PUBLIC | $STATIC},
-	{"sun.java2d.cmm.lcms.LCMSImageLayout$BandOrder", "sun.java2d.cmm.lcms.LCMSImageLayout", "BandOrder", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _LCMSImageLayout_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.cmm.lcms.LCMSImageLayout",
-	"java.lang.Object",
-	nullptr,
-	_LCMSImageLayout_FieldInfo_,
-	_LCMSImageLayout_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LCMSImageLayout_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.cmm.lcms.LCMSImageLayout$1,sun.java2d.cmm.lcms.LCMSImageLayout$ImageLayoutException,sun.java2d.cmm.lcms.LCMSImageLayout$BandOrder"
-};
-
-$Object* allocate$LCMSImageLayout($Class* clazz) {
-	return $of($alloc(LCMSImageLayout));
-}
 
 int32_t LCMSImageLayout::PT_RGB_8 = 0;
 int32_t LCMSImageLayout::PT_GRAY_8 = 0;
@@ -225,152 +148,119 @@ void LCMSImageLayout::init$() {
 
 LCMSImageLayout* LCMSImageLayout::createImageLayout($BufferedImage* image) {
 	$init(LCMSImageLayout);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(LCMSImageLayout, l, $new(LCMSImageLayout));
 	{
-		$var($ColorModel, cm, nullptr)
+		$var($ColorModel, cm, nullptr);
 		switch ($nc(image)->getType()) {
 		case $BufferedImage::TYPE_INT_RGB:
-			{
-				l->pixelType = LCMSImageLayout::PT_ARGB_8;
-				l->isIntPacked = true;
-				break;
-			}
+			l->pixelType = LCMSImageLayout::PT_ARGB_8;
+			l->isIntPacked = true;
+			break;
 		case $BufferedImage::TYPE_INT_ARGB:
-			{
-				l->pixelType = LCMSImageLayout::PT_ARGB_8;
-				l->isIntPacked = true;
-				break;
-			}
+			l->pixelType = LCMSImageLayout::PT_ARGB_8;
+			l->isIntPacked = true;
+			break;
 		case $BufferedImage::TYPE_INT_BGR:
-			{
-				l->pixelType = LCMSImageLayout::PT_ABGR_8;
-				l->isIntPacked = true;
-				break;
-			}
+			l->pixelType = LCMSImageLayout::PT_ABGR_8;
+			l->isIntPacked = true;
+			break;
 		case $BufferedImage::TYPE_3BYTE_BGR:
-			{
-				l->pixelType = LCMSImageLayout::PT_BGR_8;
-				break;
-			}
+			l->pixelType = LCMSImageLayout::PT_BGR_8;
+			break;
 		case $BufferedImage::TYPE_4BYTE_ABGR:
-			{
-				l->pixelType = LCMSImageLayout::PT_ABGR_8;
-				break;
-			}
+			l->pixelType = LCMSImageLayout::PT_ABGR_8;
+			break;
 		case $BufferedImage::TYPE_BYTE_GRAY:
-			{
-				l->pixelType = LCMSImageLayout::PT_GRAY_8;
-				break;
-			}
+			l->pixelType = LCMSImageLayout::PT_GRAY_8;
+			break;
 		case $BufferedImage::TYPE_USHORT_GRAY:
-			{
-				l->pixelType = LCMSImageLayout::PT_GRAY_16;
-				break;
-			}
+			l->pixelType = LCMSImageLayout::PT_GRAY_16;
+			break;
 		default:
-			{
-				$assign(cm, image->getColorModel());
-				if (!$nc(cm)->hasAlpha() && $instanceOf($ComponentColorModel, cm)) {
-					$var($ComponentColorModel, ccm, $cast($ComponentColorModel, cm));
-					$var($ints, cs, ccm->getComponentSize());
-					{
-						$var($ints, arr$, cs);
-						int32_t len$ = $nc(arr$)->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
-							int32_t s = arr$->get(i$);
-							{
-								if (s != 8) {
-									return nullptr;
-								}
-							}
+			$assign(cm, image->getColorModel());
+			if (!$nc(cm)->hasAlpha() && $instanceOf($ComponentColorModel, cm)) {
+				$var($ComponentColorModel, ccm, $cast($ComponentColorModel, cm));
+				$var($ints, cs, ccm->getComponentSize());
+				{
+					$var($ints, arr$, cs);
+					for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+						int32_t s = arr$->get(i$);
+						if (s != 8) {
+							return nullptr;
 						}
 					}
-					return createImageLayout($(static_cast<$Raster*>(image->getRaster())));
 				}
-				return nullptr;
+				return createImageLayout($(image->getRaster()));
 			}
+			return nullptr;
 		}
 	}
 	l->width = image->getWidth();
 	l->height = image->getHeight();
 	switch (image->getType()) {
 	case $BufferedImage::TYPE_INT_RGB:
-		{}
 	case $BufferedImage::TYPE_INT_ARGB:
-		{}
 	case $BufferedImage::TYPE_INT_BGR:
-		{
-			do {
-				$var($IntegerComponentRaster, intRaster, $cast($IntegerComponentRaster, image->getRaster()));
-				l->nextRowOffset = safeMult(4, $nc(intRaster)->getScanlineStride());
-				l->nextPixelOffset = safeMult(4, $nc(intRaster)->getPixelStride());
-				l->offset = safeMult(4, $nc(intRaster)->getDataOffset(0));
-				$set(l, dataArray, $nc(intRaster)->getDataStorage());
-				l->dataArrayLength = 4 * $nc($(intRaster->getDataStorage()))->length;
-				l->dataType = LCMSImageLayout::DT_INT;
-				if (l->nextRowOffset == l->width * 4 * intRaster->getPixelStride()) {
-					l->imageAtOnce = true;
-				}
-			} while (false);
-			break;
-		}
+		do {
+			$var($IntegerComponentRaster, intRaster, $cast($IntegerComponentRaster, image->getRaster()));
+			l->nextRowOffset = safeMult(4, $nc(intRaster)->getScanlineStride());
+			l->nextPixelOffset = safeMult(4, intRaster->getPixelStride());
+			l->offset = safeMult(4, intRaster->getDataOffset(0));
+			$set(l, dataArray, intRaster->getDataStorage());
+			l->dataArrayLength = 4 * $nc($(intRaster->getDataStorage()))->length;
+			l->dataType = LCMSImageLayout::DT_INT;
+			if (l->nextRowOffset == l->width * 4 * intRaster->getPixelStride()) {
+				l->imageAtOnce = true;
+			}
+		} while (false);
+		break;
 	case $BufferedImage::TYPE_3BYTE_BGR:
-		{}
 	case $BufferedImage::TYPE_4BYTE_ABGR:
-		{
-			do {
-				$var($ByteComponentRaster, byteRaster, $cast($ByteComponentRaster, image->getRaster()));
-				l->nextRowOffset = $nc(byteRaster)->getScanlineStride();
-				l->nextPixelOffset = byteRaster->getPixelStride();
-				int32_t firstBand = $nc($(image->getSampleModel()))->getNumBands() - 1;
-				l->offset = byteRaster->getDataOffset(firstBand);
-				$set(l, dataArray, byteRaster->getDataStorage());
-				l->dataArrayLength = $nc($(byteRaster->getDataStorage()))->length;
-				l->dataType = LCMSImageLayout::DT_BYTE;
-				if (l->nextRowOffset == l->width * byteRaster->getPixelStride()) {
-					l->imageAtOnce = true;
-				}
-			} while (false);
-			break;
-		}
+		do {
+			$var($ByteComponentRaster, byteRaster, $cast($ByteComponentRaster, image->getRaster()));
+			l->nextRowOffset = $nc(byteRaster)->getScanlineStride();
+			l->nextPixelOffset = byteRaster->getPixelStride();
+			int32_t firstBand = $$nc(image->getSampleModel())->getNumBands() - 1;
+			l->offset = byteRaster->getDataOffset(firstBand);
+			$set(l, dataArray, byteRaster->getDataStorage());
+			l->dataArrayLength = $nc($(byteRaster->getDataStorage()))->length;
+			l->dataType = LCMSImageLayout::DT_BYTE;
+			if (l->nextRowOffset == l->width * byteRaster->getPixelStride()) {
+				l->imageAtOnce = true;
+			}
+		} while (false);
+		break;
 	case $BufferedImage::TYPE_BYTE_GRAY:
-		{
-			do {
-				$var($ByteComponentRaster, byteRaster, $cast($ByteComponentRaster, image->getRaster()));
-				l->nextRowOffset = $nc(byteRaster)->getScanlineStride();
-				l->nextPixelOffset = byteRaster->getPixelStride();
-				l->dataArrayLength = $nc($(byteRaster->getDataStorage()))->length;
-				l->offset = byteRaster->getDataOffset(0);
-				$set(l, dataArray, byteRaster->getDataStorage());
-				l->dataType = LCMSImageLayout::DT_BYTE;
-				if (l->nextRowOffset == l->width * byteRaster->getPixelStride()) {
-					l->imageAtOnce = true;
-				}
-			} while (false);
-			break;
-		}
+		do {
+			$var($ByteComponentRaster, byteRaster, $cast($ByteComponentRaster, image->getRaster()));
+			l->nextRowOffset = $nc(byteRaster)->getScanlineStride();
+			l->nextPixelOffset = byteRaster->getPixelStride();
+			l->dataArrayLength = $nc($(byteRaster->getDataStorage()))->length;
+			l->offset = byteRaster->getDataOffset(0);
+			$set(l, dataArray, byteRaster->getDataStorage());
+			l->dataType = LCMSImageLayout::DT_BYTE;
+			if (l->nextRowOffset == l->width * byteRaster->getPixelStride()) {
+				l->imageAtOnce = true;
+			}
+		} while (false);
+		break;
 	case $BufferedImage::TYPE_USHORT_GRAY:
-		{
-			do {
-				$var($ShortComponentRaster, shortRaster, $cast($ShortComponentRaster, image->getRaster()));
-				l->nextRowOffset = safeMult(2, $nc(shortRaster)->getScanlineStride());
-				l->nextPixelOffset = safeMult(2, $nc(shortRaster)->getPixelStride());
-				l->offset = safeMult(2, $nc(shortRaster)->getDataOffset(0));
-				$set(l, dataArray, $nc(shortRaster)->getDataStorage());
-				l->dataArrayLength = 2 * $nc($(shortRaster->getDataStorage()))->length;
-				l->dataType = LCMSImageLayout::DT_SHORT;
-				if (l->nextRowOffset == l->width * 2 * shortRaster->getPixelStride()) {
-					l->imageAtOnce = true;
-				}
-			} while (false);
-			break;
-		}
+		do {
+			$var($ShortComponentRaster, shortRaster, $cast($ShortComponentRaster, image->getRaster()));
+			l->nextRowOffset = safeMult(2, $nc(shortRaster)->getScanlineStride());
+			l->nextPixelOffset = safeMult(2, shortRaster->getPixelStride());
+			l->offset = safeMult(2, shortRaster->getDataOffset(0));
+			$set(l, dataArray, shortRaster->getDataStorage());
+			l->dataArrayLength = 2 * $nc($(shortRaster->getDataStorage()))->length;
+			l->dataType = LCMSImageLayout::DT_SHORT;
+			if (l->nextRowOffset == l->width * 2 * shortRaster->getPixelStride()) {
+				l->imageAtOnce = true;
+			}
+		} while (false);
+		break;
 	default:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	}
 	l->verify();
 	return l;
@@ -414,9 +304,9 @@ int32_t LCMSImageLayout::safeMult(int32_t a, int32_t b) {
 
 LCMSImageLayout* LCMSImageLayout::createImageLayout($Raster* r) {
 	$init(LCMSImageLayout);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(LCMSImageLayout, l, $new(LCMSImageLayout));
-	if ($instanceOf($ByteComponentRaster, r) && $instanceOf($ComponentSampleModel, $($nc(r)->getSampleModel()))) {
+	if ($instanceOf($ByteComponentRaster, r) && $instanceOf($ComponentSampleModel, $(r->getSampleModel()))) {
 		$var($ByteComponentRaster, br, $cast($ByteComponentRaster, r));
 		$var($ComponentSampleModel, csm, $cast($ComponentSampleModel, r->getSampleModel()));
 		int32_t var$0 = CHANNELS_SH(br->getNumBands());
@@ -427,19 +317,13 @@ LCMSImageLayout* LCMSImageLayout::createImageLayout($Raster* r) {
 		$init($LCMSImageLayout$1);
 		switch ($nc($LCMSImageLayout$1::$SwitchMap$sun$java2d$cmm$lcms$LCMSImageLayout$BandOrder)->get($nc((order))->ordinal())) {
 		case 3:
-			{
-				l->pixelType |= LCMSImageLayout::DOSWAP;
-				firstBand = csm->getNumBands() - 1;
-				break;
-			}
+			l->pixelType |= LCMSImageLayout::DOSWAP;
+			firstBand = csm->getNumBands() - 1;
+			break;
 		case 2:
-			{
-				break;
-			}
+			break;
 		default:
-			{
-				return nullptr;
-			}
+			return nullptr;
 		}
 		l->nextRowOffset = br->getScanlineStride();
 		l->nextPixelOffset = br->getPixelStride();
@@ -458,13 +342,13 @@ LCMSImageLayout* LCMSImageLayout::createImageLayout($Raster* r) {
 
 int32_t LCMSImageLayout::getBytesPerPixel(int32_t pixelType) {
 	$init(LCMSImageLayout);
-	int32_t bytesPerSample = ((int32_t)(7 & (uint32_t)pixelType));
-	int32_t colorSamplesPerPixel = (int32_t)(15 & (uint32_t)(pixelType >> 3));
-	int32_t extraSamplesPerPixel = (int32_t)(7 & (uint32_t)(pixelType >> 7));
+	int32_t bytesPerSample = (7 & pixelType);
+	int32_t colorSamplesPerPixel = 0x0f & (pixelType >> 3);
+	int32_t extraSamplesPerPixel = 7 & (pixelType >> 7);
 	return bytesPerSample * (colorSamplesPerPixel + extraSamplesPerPixel);
 }
 
-void clinit$LCMSImageLayout($Class* class$) {
+void LCMSImageLayout::clinit$($Class* clazz) {
 	int32_t var$0 = LCMSImageLayout::CHANNELS_SH(3);
 	LCMSImageLayout::PT_RGB_8 = var$0 | LCMSImageLayout::BYTES_SH(1);
 	int32_t var$1 = LCMSImageLayout::CHANNELS_SH(1);
@@ -491,7 +375,76 @@ LCMSImageLayout::LCMSImageLayout() {
 }
 
 $Class* LCMSImageLayout::load$($String* name, bool initialize) {
-	$loadClass(LCMSImageLayout, name, initialize, &_LCMSImageLayout_ClassInfo_, clinit$LCMSImageLayout, allocate$LCMSImageLayout);
+	$FieldInfo fieldInfos$$[] = {
+		{"SWAPFIRST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LCMSImageLayout, SWAPFIRST)},
+		{"DOSWAP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LCMSImageLayout, DOSWAP)},
+		{"PT_RGB_8", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LCMSImageLayout, PT_RGB_8)},
+		{"PT_GRAY_8", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LCMSImageLayout, PT_GRAY_8)},
+		{"PT_GRAY_16", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LCMSImageLayout, PT_GRAY_16)},
+		{"PT_RGBA_8", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LCMSImageLayout, PT_RGBA_8)},
+		{"PT_ARGB_8", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LCMSImageLayout, PT_ARGB_8)},
+		{"PT_BGR_8", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LCMSImageLayout, PT_BGR_8)},
+		{"PT_ABGR_8", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LCMSImageLayout, PT_ABGR_8)},
+		{"PT_BGRA_8", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LCMSImageLayout, PT_BGRA_8)},
+		{"DT_BYTE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LCMSImageLayout, DT_BYTE)},
+		{"DT_SHORT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LCMSImageLayout, DT_SHORT)},
+		{"DT_INT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LCMSImageLayout, DT_INT)},
+		{"DT_DOUBLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LCMSImageLayout, DT_DOUBLE)},
+		{"isIntPacked", "Z", nullptr, 0, $field(LCMSImageLayout, isIntPacked)},
+		{"pixelType", "I", nullptr, 0, $field(LCMSImageLayout, pixelType)},
+		{"dataType", "I", nullptr, 0, $field(LCMSImageLayout, dataType)},
+		{"width", "I", nullptr, 0, $field(LCMSImageLayout, width)},
+		{"height", "I", nullptr, 0, $field(LCMSImageLayout, height)},
+		{"nextRowOffset", "I", nullptr, 0, $field(LCMSImageLayout, nextRowOffset)},
+		{"nextPixelOffset", "I", nullptr, $PRIVATE, $field(LCMSImageLayout, nextPixelOffset)},
+		{"offset", "I", nullptr, 0, $field(LCMSImageLayout, offset)},
+		{"imageAtOnce", "Z", nullptr, $PRIVATE, $field(LCMSImageLayout, imageAtOnce)},
+		{"dataArray", "Ljava/lang/Object;", nullptr, 0, $field(LCMSImageLayout, dataArray)},
+		{"dataArrayLength", "I", nullptr, $PRIVATE, $field(LCMSImageLayout, dataArrayLength)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(III)V", nullptr, $PRIVATE, $method(LCMSImageLayout, init$, void, int32_t, int32_t, int32_t), "sun.java2d.cmm.lcms.LCMSImageLayout$ImageLayoutException"},
+		{"<init>", "(IIII)V", nullptr, $PRIVATE, $method(LCMSImageLayout, init$, void, int32_t, int32_t, int32_t, int32_t), "sun.java2d.cmm.lcms.LCMSImageLayout$ImageLayoutException"},
+		{"<init>", "([BIII)V", nullptr, $PUBLIC, $method(LCMSImageLayout, init$, void, $bytes*, int32_t, int32_t, int32_t), "sun.java2d.cmm.lcms.LCMSImageLayout$ImageLayoutException"},
+		{"<init>", "([SIII)V", nullptr, $PUBLIC, $method(LCMSImageLayout, init$, void, $shorts*, int32_t, int32_t, int32_t), "sun.java2d.cmm.lcms.LCMSImageLayout$ImageLayoutException"},
+		{"<init>", "([IIII)V", nullptr, $PUBLIC, $method(LCMSImageLayout, init$, void, $ints*, int32_t, int32_t, int32_t), "sun.java2d.cmm.lcms.LCMSImageLayout$ImageLayoutException"},
+		{"<init>", "([DIII)V", nullptr, $PUBLIC, $method(LCMSImageLayout, init$, void, $doubles*, int32_t, int32_t, int32_t), "sun.java2d.cmm.lcms.LCMSImageLayout$ImageLayoutException"},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(LCMSImageLayout, init$, void)},
+		{"BYTES_SH", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(LCMSImageLayout, BYTES_SH, int32_t, int32_t)},
+		{"CHANNELS_SH", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(LCMSImageLayout, CHANNELS_SH, int32_t, int32_t)},
+		{"EXTRA_SH", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(LCMSImageLayout, EXTRA_SH, int32_t, int32_t)},
+		{"createImageLayout", "(Ljava/awt/image/BufferedImage;)Lsun/java2d/cmm/lcms/LCMSImageLayout;", nullptr, $PUBLIC | $STATIC, $staticMethod(LCMSImageLayout, createImageLayout, LCMSImageLayout*, $BufferedImage*), "sun.java2d.cmm.lcms.LCMSImageLayout$ImageLayoutException"},
+		{"createImageLayout", "(Ljava/awt/image/Raster;)Lsun/java2d/cmm/lcms/LCMSImageLayout;", nullptr, $PUBLIC | $STATIC, $staticMethod(LCMSImageLayout, createImageLayout, LCMSImageLayout*, $Raster*)},
+		{"getBytesPerPixel", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(LCMSImageLayout, getBytesPerPixel, int32_t, int32_t)},
+		{"safeAdd", "(II)I", nullptr, $STATIC, $staticMethod(LCMSImageLayout, safeAdd, int32_t, int32_t, int32_t), "sun.java2d.cmm.lcms.LCMSImageLayout$ImageLayoutException"},
+		{"safeMult", "(II)I", nullptr, $STATIC, $staticMethod(LCMSImageLayout, safeMult, int32_t, int32_t, int32_t), "sun.java2d.cmm.lcms.LCMSImageLayout$ImageLayoutException"},
+		{"verify", "()V", nullptr, $PRIVATE, $method(LCMSImageLayout, verify, void), "sun.java2d.cmm.lcms.LCMSImageLayout$ImageLayoutException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.cmm.lcms.LCMSImageLayout$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"sun.java2d.cmm.lcms.LCMSImageLayout$ImageLayoutException", "sun.java2d.cmm.lcms.LCMSImageLayout", "ImageLayoutException", $PUBLIC | $STATIC},
+		{"sun.java2d.cmm.lcms.LCMSImageLayout$BandOrder", "sun.java2d.cmm.lcms.LCMSImageLayout", "BandOrder", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.cmm.lcms.LCMSImageLayout",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.cmm.lcms.LCMSImageLayout$1,sun.java2d.cmm.lcms.LCMSImageLayout$ImageLayoutException,sun.java2d.cmm.lcms.LCMSImageLayout$BandOrder"
+	};
+	$loadClass(LCMSImageLayout, name, initialize, &classInfo$$, LCMSImageLayout::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LCMSImageLayout);
+	});
 	return class$;
 }
 

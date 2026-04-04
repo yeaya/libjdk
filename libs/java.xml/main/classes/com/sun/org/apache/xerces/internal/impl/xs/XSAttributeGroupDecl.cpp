@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/XSSimpleType.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaSymbols.h>
@@ -33,19 +32,16 @@
 using $XSAttributeUseImplArray = $Array<::com::sun::org::apache::xerces::internal::impl::xs::XSAttributeUseImpl>;
 using $XSObjectArray = $Array<::com::sun::org::apache::xerces::internal::xs::XSObject>;
 using $ValidatedInfo = ::com::sun::org::apache::xerces::internal::impl::dv::ValidatedInfo;
-using $XSSimpleType = ::com::sun::org::apache::xerces::internal::impl::dv::XSSimpleType;
 using $SchemaSymbols = ::com::sun::org::apache::xerces::internal::impl::xs::SchemaSymbols;
 using $XSAttributeDecl = ::com::sun::org::apache::xerces::internal::impl::xs::XSAttributeDecl;
 using $XSAttributeUseImpl = ::com::sun::org::apache::xerces::internal::impl::xs::XSAttributeUseImpl;
 using $XSConstraints = ::com::sun::org::apache::xerces::internal::impl::xs::XSConstraints;
-using $XSWildcardDecl = ::com::sun::org::apache::xerces::internal::impl::xs::XSWildcardDecl;
 using $XSObjectListImpl = ::com::sun::org::apache::xerces::internal::impl::xs::util::XSObjectListImpl;
 using $XSAnnotation = ::com::sun::org::apache::xerces::internal::xs::XSAnnotation;
 using $XSAttributeUse = ::com::sun::org::apache::xerces::internal::xs::XSAttributeUse;
 using $XSConstants = ::com::sun::org::apache::xerces::internal::xs::XSConstants;
 using $XSNamespaceItem = ::com::sun::org::apache::xerces::internal::xs::XSNamespaceItem;
 using $XSObjectList = ::com::sun::org::apache::xerces::internal::xs::XSObjectList;
-using $XSTypeDefinition = ::com::sun::org::apache::xerces::internal::xs::XSTypeDefinition;
 using $XSWildcard = ::com::sun::org::apache::xerces::internal::xs::XSWildcard;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -60,55 +56,6 @@ namespace com {
 					namespace internal {
 						namespace impl {
 							namespace xs {
-
-$FieldInfo _XSAttributeGroupDecl_FieldInfo_[] = {
-	{"fName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XSAttributeGroupDecl, fName)},
-	{"fTargetNamespace", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XSAttributeGroupDecl, fTargetNamespace)},
-	{"fAttrUseNum", "I", nullptr, 0, $field(XSAttributeGroupDecl, fAttrUseNum)},
-	{"INITIAL_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSAttributeGroupDecl, INITIAL_SIZE)},
-	{"fAttributeUses", "[Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeUseImpl;", nullptr, 0, $field(XSAttributeGroupDecl, fAttributeUses)},
-	{"fAttributeWC", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSWildcardDecl;", nullptr, $PUBLIC, $field(XSAttributeGroupDecl, fAttributeWC)},
-	{"fIDAttrName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XSAttributeGroupDecl, fIDAttrName)},
-	{"fAnnotations", "Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $field(XSAttributeGroupDecl, fAnnotations)},
-	{"fAttrUses", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl;", nullptr, $PROTECTED, $field(XSAttributeGroupDecl, fAttrUses)},
-	{"fNamespaceItem", "Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PRIVATE, $field(XSAttributeGroupDecl, fNamespaceItem)},
-	{}
-};
-
-$MethodInfo _XSAttributeGroupDecl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XSAttributeGroupDecl, init$, void)},
-	{"addAttributeUse", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeUseImpl;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, addAttributeUse, $String*, $XSAttributeUseImpl*)},
-	{"getAnnotation", "()Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, getAnnotation, $XSAnnotation*)},
-	{"getAnnotations", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, getAnnotations, $XSObjectList*)},
-	{"getAttributeUse", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSAttributeUse;", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, getAttributeUse, $XSAttributeUse*, $String*, $String*)},
-	{"getAttributeUseNoProhibited", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSAttributeUse;", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, getAttributeUseNoProhibited, $XSAttributeUse*, $String*, $String*)},
-	{"getAttributeUses", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, getAttributeUses, $XSObjectList*)},
-	{"getAttributeWildcard", "()Lcom/sun/org/apache/xerces/internal/xs/XSWildcard;", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, getAttributeWildcard, $XSWildcard*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, getName, $String*)},
-	{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, getNamespace, $String*)},
-	{"getNamespaceItem", "()Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, getNamespaceItem, $XSNamespaceItem*)},
-	{"getType", "()S", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, getType, int16_t)},
-	{"removeProhibitedAttrs", "()V", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, removeProhibitedAttrs, void)},
-	{"replaceAttributeUse", "(Lcom/sun/org/apache/xerces/internal/xs/XSAttributeUse;Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeUseImpl;)V", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, replaceAttributeUse, void, $XSAttributeUse*, $XSAttributeUseImpl*)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, reset, void)},
-	{"resize", "([Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeUseImpl;I)[Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeUseImpl;", nullptr, $STATIC | $FINAL, $staticMethod(XSAttributeGroupDecl, resize, $XSAttributeUseImplArray*, $XSAttributeUseImplArray*, int32_t)},
-	{"setNamespaceItem", "(Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;)V", nullptr, 0, $virtualMethod(XSAttributeGroupDecl, setNamespaceItem, void, $XSNamespaceItem*)},
-	{"validRestrictionOf", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, validRestrictionOf, $ObjectArray*, $String*, XSAttributeGroupDecl*)},
-	{}
-};
-
-$ClassInfo _XSAttributeGroupDecl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.XSAttributeGroupDecl",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.xs.XSAttributeGroupDefinition",
-	_XSAttributeGroupDecl_FieldInfo_,
-	_XSAttributeGroupDecl_MethodInfo_
-};
-
-$Object* allocate$XSAttributeGroupDecl($Class* clazz) {
-	return $of($alloc(XSAttributeGroupDecl));
-}
 
 void XSAttributeGroupDecl::init$() {
 	$set(this, fName, nullptr);
@@ -141,15 +88,15 @@ $String* XSAttributeGroupDecl::addAttributeUse($XSAttributeUseImpl* attrUse) {
 void XSAttributeGroupDecl::replaceAttributeUse($XSAttributeUse* oldUse, $XSAttributeUseImpl* newUse) {
 	for (int32_t i = 0; i < this->fAttrUseNum; ++i) {
 		if ($equals($nc(this->fAttributeUses)->get(i), oldUse)) {
-			$nc(this->fAttributeUses)->set(i, newUse);
+			this->fAttributeUses->set(i, newUse);
 		}
 	}
 }
 
 $XSAttributeUse* XSAttributeGroupDecl::getAttributeUse($String* namespace$, $String* name) {
 	for (int32_t i = 0; i < this->fAttrUseNum; ++i) {
-		if (($nc($nc($nc(this->fAttributeUses)->get(i))->fAttrDecl)->fTargetNamespace == namespace$) && ($nc($nc($nc(this->fAttributeUses)->get(i))->fAttrDecl)->fName == name)) {
-			return $nc(this->fAttributeUses)->get(i);
+		if (($nc($nc($nc(this->fAttributeUses)->get(i))->fAttrDecl)->fTargetNamespace == namespace$) && ($nc(this->fAttributeUses->get(i))->fAttrDecl->fName == name)) {
+			return this->fAttributeUses->get(i);
 		}
 	}
 	return nullptr;
@@ -157,8 +104,8 @@ $XSAttributeUse* XSAttributeGroupDecl::getAttributeUse($String* namespace$, $Str
 
 $XSAttributeUse* XSAttributeGroupDecl::getAttributeUseNoProhibited($String* namespace$, $String* name) {
 	for (int32_t i = 0; i < this->fAttrUseNum; ++i) {
-		if (($nc($nc($nc(this->fAttributeUses)->get(i))->fAttrDecl)->fTargetNamespace == namespace$) && ($nc($nc($nc(this->fAttributeUses)->get(i))->fAttrDecl)->fName == name) && ($nc($nc(this->fAttributeUses)->get(i))->fUse != $SchemaSymbols::USE_PROHIBITED)) {
-			return $nc(this->fAttributeUses)->get(i);
+		if (($nc($nc($nc(this->fAttributeUses)->get(i))->fAttrDecl)->fTargetNamespace == namespace$) && ($nc(this->fAttributeUses->get(i))->fAttrDecl->fName == name) && ($nc(this->fAttributeUses->get(i))->fUse != $SchemaSymbols::USE_PROHIBITED)) {
+			return this->fAttributeUses->get(i);
 		}
 	}
 	return nullptr;
@@ -172,7 +119,7 @@ void XSAttributeGroupDecl::removeProhibitedAttrs() {
 	$var($XSAttributeUseImplArray, uses, $new($XSAttributeUseImplArray, this->fAttrUseNum));
 	for (int32_t i = 0; i < this->fAttrUseNum; ++i) {
 		if ($nc($nc(this->fAttributeUses)->get(i))->fUse != $SchemaSymbols::USE_PROHIBITED) {
-			uses->set(count++, $nc(this->fAttributeUses)->get(i));
+			uses->set(count++, this->fAttributeUses->get(i));
 		}
 	}
 	$set(this, fAttributeUses, uses);
@@ -180,7 +127,7 @@ void XSAttributeGroupDecl::removeProhibitedAttrs() {
 }
 
 $ObjectArray* XSAttributeGroupDecl::validRestrictionOf($String* typeName, XSAttributeGroupDecl* baseGroup) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, errorArgs, nullptr);
 	$var($XSAttributeUseImpl, attrUse, nullptr);
 	$var($XSAttributeDecl, attrDecl, nullptr);
@@ -189,16 +136,16 @@ $ObjectArray* XSAttributeGroupDecl::validRestrictionOf($String* typeName, XSAttr
 	for (int32_t i = 0; i < this->fAttrUseNum; ++i) {
 		$assign(attrUse, $nc(this->fAttributeUses)->get(i));
 		$assign(attrDecl, $nc(attrUse)->fAttrDecl);
-		$assign(baseAttrUse, $cast($XSAttributeUseImpl, $nc(baseGroup)->getAttributeUse($nc(attrDecl)->fTargetNamespace, attrDecl->fName)));
+		$assign(baseAttrUse, $cast($XSAttributeUseImpl, $nc(baseGroup)->getAttributeUse($nc(attrDecl)->fTargetNamespace, $nc(attrDecl)->fName)));
 		if (baseAttrUse != nullptr) {
 			bool var$0 = baseAttrUse->getRequired();
 			if (var$0 && !attrUse->getRequired()) {
 				$init($SchemaSymbols);
 				$assign(errorArgs, $new($ObjectArray, {
-					$of(typeName),
-					$of($nc(attrDecl)->fName),
-					attrUse->fUse == $SchemaSymbols::USE_OPTIONAL ? $of($SchemaSymbols::ATTVAL_OPTIONAL) : $of($SchemaSymbols::ATTVAL_PROHIBITED),
-					$of("derivation-ok-restriction.2.1.1"_s)
+					typeName,
+					attrDecl->fName,
+					attrUse->fUse == $SchemaSymbols::USE_OPTIONAL ? $SchemaSymbols::ATTVAL_OPTIONAL : $SchemaSymbols::ATTVAL_PROHIBITED,
+					"derivation-ok-restriction.2.1.1"_s
 				}));
 				return errorArgs;
 			}
@@ -206,36 +153,36 @@ $ObjectArray* XSAttributeGroupDecl::validRestrictionOf($String* typeName, XSAttr
 				continue;
 			}
 			$assign(baseAttrDecl, baseAttrUse->fAttrDecl);
-			if (!$XSConstraints::checkSimpleDerivationOk($nc(attrDecl)->fType, $nc(baseAttrDecl)->fType, $nc(baseAttrDecl->fType)->getFinal())) {
+			if (!$XSConstraints::checkSimpleDerivationOk(attrDecl->fType, $nc(baseAttrDecl)->fType, $nc($nc(baseAttrDecl)->fType)->getFinal())) {
 				$assign(errorArgs, $new($ObjectArray, {
-					$of(typeName),
-					$of($nc(attrDecl)->fName),
-					$($of($nc(attrDecl->fType)->getName())),
-					$($of($nc($nc(baseAttrDecl)->fType)->getName())),
-					$of("derivation-ok-restriction.2.1.2"_s)
+					typeName,
+					attrDecl->fName,
+					$($nc(attrDecl->fType)->getName()),
+					$($nc(baseAttrDecl->fType)->getName()),
+					"derivation-ok-restriction.2.1.2"_s
 				}));
 				return errorArgs;
 			}
-			int32_t baseConsType = baseAttrUse->fConstraintType != $XSConstants::VC_NONE ? baseAttrUse->fConstraintType : $nc(baseAttrDecl)->getConstraintType();
-			int32_t thisConstType = attrUse->fConstraintType != $XSConstants::VC_NONE ? attrUse->fConstraintType : $nc(attrDecl)->getConstraintType();
+			int32_t baseConsType = baseAttrUse->fConstraintType != $XSConstants::VC_NONE ? baseAttrUse->fConstraintType : baseAttrDecl->getConstraintType();
+			int32_t thisConstType = attrUse->fConstraintType != $XSConstants::VC_NONE ? attrUse->fConstraintType : attrDecl->getConstraintType();
 			if (baseConsType == $XSConstants::VC_FIXED) {
 				if (thisConstType != $XSConstants::VC_FIXED) {
 					$assign(errorArgs, $new($ObjectArray, {
-						$of(typeName),
-						$of(attrDecl->fName),
-						$of("derivation-ok-restriction.2.1.3.a"_s)
+						typeName,
+						attrDecl->fName,
+						"derivation-ok-restriction.2.1.3.a"_s
 					}));
 					return errorArgs;
 				} else {
 					$var($ValidatedInfo, baseFixedValue, baseAttrUse->fDefault != nullptr ? baseAttrUse->fDefault : baseAttrDecl->fDefault);
 					$var($ValidatedInfo, thisFixedValue, attrUse->fDefault != nullptr ? attrUse->fDefault : attrDecl->fDefault);
-					if (!$nc($of($nc(baseFixedValue)->actualValue))->equals($nc(thisFixedValue)->actualValue)) {
+					if (!$nc($nc(baseFixedValue)->actualValue)->equals($nc(thisFixedValue)->actualValue)) {
 						$assign(errorArgs, $new($ObjectArray, {
-							$of(typeName),
-							$of(attrDecl->fName),
-							$($of($nc(thisFixedValue)->stringValue())),
-							$($of(baseFixedValue->stringValue())),
-							$of("derivation-ok-restriction.2.1.3.b"_s)
+							typeName,
+							attrDecl->fName,
+							$(thisFixedValue->stringValue()),
+							$(baseFixedValue->stringValue()),
+							"derivation-ok-restriction.2.1.3.b"_s
 						}));
 						return errorArgs;
 					}
@@ -243,17 +190,17 @@ $ObjectArray* XSAttributeGroupDecl::validRestrictionOf($String* typeName, XSAttr
 			}
 		} else if (baseGroup->fAttributeWC == nullptr) {
 			$assign(errorArgs, $new($ObjectArray, {
-				$of(typeName),
-				$of($nc(attrDecl)->fName),
-				$of("derivation-ok-restriction.2.2.a"_s)
+				typeName,
+				attrDecl->fName,
+				"derivation-ok-restriction.2.2.a"_s
 			}));
 			return errorArgs;
-		} else if (!$nc(baseGroup->fAttributeWC)->allowNamespace($nc(attrDecl)->fTargetNamespace)) {
+		} else if (!baseGroup->fAttributeWC->allowNamespace(attrDecl->fTargetNamespace)) {
 			$assign(errorArgs, $new($ObjectArray, {
-				$of(typeName),
-				$of($nc(attrDecl)->fName),
-				attrDecl->fTargetNamespace == nullptr ? $of(""_s) : $of(attrDecl->fTargetNamespace),
-				$of("derivation-ok-restriction.2.2.b"_s)
+				typeName,
+				attrDecl->fName,
+				attrDecl->fTargetNamespace == nullptr ? ""_s : attrDecl->fTargetNamespace,
+				"derivation-ok-restriction.2.2.b"_s
 			}));
 			return errorArgs;
 		}
@@ -262,37 +209,37 @@ $ObjectArray* XSAttributeGroupDecl::validRestrictionOf($String* typeName, XSAttr
 		$assign(baseAttrUse, $nc(baseGroup->fAttributeUses)->get(i));
 		if ($nc(baseAttrUse)->fUse == $SchemaSymbols::USE_REQUIRED) {
 			$assign(baseAttrDecl, baseAttrUse->fAttrDecl);
-			if (getAttributeUse($nc(baseAttrDecl)->fTargetNamespace, baseAttrDecl->fName) == nullptr) {
+			if (getAttributeUse($nc(baseAttrDecl)->fTargetNamespace, $nc(baseAttrDecl)->fName) == nullptr) {
 				$assign(errorArgs, $new($ObjectArray, {
-					$of(typeName),
-					$of($nc(baseAttrUse->fAttrDecl)->fName),
-					$of("derivation-ok-restriction.3"_s)
+					typeName,
+					$nc(baseAttrUse->fAttrDecl)->fName,
+					"derivation-ok-restriction.3"_s
 				}));
 				return errorArgs;
 			}
 		}
 	}
 	if (this->fAttributeWC != nullptr) {
-		if ($nc(baseGroup)->fAttributeWC == nullptr) {
+		if (baseGroup->fAttributeWC == nullptr) {
 			$assign(errorArgs, $new($ObjectArray, {
-				$of(typeName),
-				$of("derivation-ok-restriction.4.1"_s)
+				typeName,
+				"derivation-ok-restriction.4.1"_s
 			}));
 			return errorArgs;
 		}
-		if (!$nc(this->fAttributeWC)->isSubsetOf($nc(baseGroup)->fAttributeWC)) {
+		if (!this->fAttributeWC->isSubsetOf(baseGroup->fAttributeWC)) {
 			$assign(errorArgs, $new($ObjectArray, {
-				$of(typeName),
-				$of("derivation-ok-restriction.4.2"_s)
+				typeName,
+				"derivation-ok-restriction.4.2"_s
 			}));
 			return errorArgs;
 		}
-		if ($nc(this->fAttributeWC)->weakerProcessContents($nc(baseGroup)->fAttributeWC)) {
+		if ($nc(this->fAttributeWC)->weakerProcessContents(baseGroup->fAttributeWC)) {
 			$assign(errorArgs, $new($ObjectArray, {
-				$of(typeName),
-				$($of($nc(this->fAttributeWC)->getProcessContentsAsString())),
-				$($of($nc($nc(baseGroup)->fAttributeWC)->getProcessContentsAsString())),
-				$of("derivation-ok-restriction.4.3"_s)
+				typeName,
+				$($nc(this->fAttributeWC)->getProcessContentsAsString()),
+				$($nc(baseGroup->fAttributeWC)->getProcessContentsAsString()),
+				"derivation-ok-restriction.4.3"_s
 			}));
 			return errorArgs;
 		}
@@ -333,7 +280,7 @@ $String* XSAttributeGroupDecl::getNamespace() {
 
 $XSObjectList* XSAttributeGroupDecl::getAttributeUses() {
 	if (this->fAttrUses == nullptr) {
-		$set(this, fAttrUses, $new($XSObjectListImpl, $fcast($XSObjectArray, this->fAttributeUses), this->fAttrUseNum));
+		$set(this, fAttrUses, $new($XSObjectListImpl, $cast($XSObjectArray, this->fAttributeUses), this->fAttrUseNum));
 	}
 	return this->fAttrUses;
 }
@@ -343,12 +290,12 @@ $XSWildcard* XSAttributeGroupDecl::getAttributeWildcard() {
 }
 
 $XSAnnotation* XSAttributeGroupDecl::getAnnotation() {
-	return (this->fAnnotations != nullptr) ? $cast($XSAnnotation, $nc(this->fAnnotations)->item(0)) : ($XSAnnotation*)nullptr;
+	return (this->fAnnotations != nullptr) ? $cast($XSAnnotation, this->fAnnotations->item(0)) : ($XSAnnotation*)nullptr;
 }
 
 $XSObjectList* XSAttributeGroupDecl::getAnnotations() {
 	$init($XSObjectListImpl);
-	return (this->fAnnotations != nullptr) ? this->fAnnotations : static_cast<$XSObjectList*>($XSObjectListImpl::EMPTY_LIST);
+	return (this->fAnnotations != nullptr) ? this->fAnnotations : $cast($XSObjectList, $XSObjectListImpl::EMPTY_LIST);
 }
 
 $XSNamespaceItem* XSAttributeGroupDecl::getNamespaceItem() {
@@ -363,7 +310,51 @@ XSAttributeGroupDecl::XSAttributeGroupDecl() {
 }
 
 $Class* XSAttributeGroupDecl::load$($String* name, bool initialize) {
-	$loadClass(XSAttributeGroupDecl, name, initialize, &_XSAttributeGroupDecl_ClassInfo_, allocate$XSAttributeGroupDecl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XSAttributeGroupDecl, fName)},
+		{"fTargetNamespace", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XSAttributeGroupDecl, fTargetNamespace)},
+		{"fAttrUseNum", "I", nullptr, 0, $field(XSAttributeGroupDecl, fAttrUseNum)},
+		{"INITIAL_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSAttributeGroupDecl, INITIAL_SIZE)},
+		{"fAttributeUses", "[Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeUseImpl;", nullptr, 0, $field(XSAttributeGroupDecl, fAttributeUses)},
+		{"fAttributeWC", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSWildcardDecl;", nullptr, $PUBLIC, $field(XSAttributeGroupDecl, fAttributeWC)},
+		{"fIDAttrName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XSAttributeGroupDecl, fIDAttrName)},
+		{"fAnnotations", "Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $field(XSAttributeGroupDecl, fAnnotations)},
+		{"fAttrUses", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl;", nullptr, $PROTECTED, $field(XSAttributeGroupDecl, fAttrUses)},
+		{"fNamespaceItem", "Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PRIVATE, $field(XSAttributeGroupDecl, fNamespaceItem)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XSAttributeGroupDecl, init$, void)},
+		{"addAttributeUse", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeUseImpl;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, addAttributeUse, $String*, $XSAttributeUseImpl*)},
+		{"getAnnotation", "()Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, getAnnotation, $XSAnnotation*)},
+		{"getAnnotations", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, getAnnotations, $XSObjectList*)},
+		{"getAttributeUse", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSAttributeUse;", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, getAttributeUse, $XSAttributeUse*, $String*, $String*)},
+		{"getAttributeUseNoProhibited", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSAttributeUse;", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, getAttributeUseNoProhibited, $XSAttributeUse*, $String*, $String*)},
+		{"getAttributeUses", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, getAttributeUses, $XSObjectList*)},
+		{"getAttributeWildcard", "()Lcom/sun/org/apache/xerces/internal/xs/XSWildcard;", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, getAttributeWildcard, $XSWildcard*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, getName, $String*)},
+		{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, getNamespace, $String*)},
+		{"getNamespaceItem", "()Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, getNamespaceItem, $XSNamespaceItem*)},
+		{"getType", "()S", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, getType, int16_t)},
+		{"removeProhibitedAttrs", "()V", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, removeProhibitedAttrs, void)},
+		{"replaceAttributeUse", "(Lcom/sun/org/apache/xerces/internal/xs/XSAttributeUse;Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeUseImpl;)V", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, replaceAttributeUse, void, $XSAttributeUse*, $XSAttributeUseImpl*)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, reset, void)},
+		{"resize", "([Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeUseImpl;I)[Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeUseImpl;", nullptr, $STATIC | $FINAL, $staticMethod(XSAttributeGroupDecl, resize, $XSAttributeUseImplArray*, $XSAttributeUseImplArray*, int32_t)},
+		{"setNamespaceItem", "(Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;)V", nullptr, 0, $virtualMethod(XSAttributeGroupDecl, setNamespaceItem, void, $XSNamespaceItem*)},
+		{"validRestrictionOf", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSAttributeGroupDecl, validRestrictionOf, $ObjectArray*, $String*, XSAttributeGroupDecl*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.XSAttributeGroupDecl",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.xs.XSAttributeGroupDefinition",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XSAttributeGroupDecl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSAttributeGroupDecl);
+	});
 	return class$;
 }
 

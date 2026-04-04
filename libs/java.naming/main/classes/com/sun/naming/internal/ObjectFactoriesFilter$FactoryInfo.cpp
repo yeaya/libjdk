@@ -1,5 +1,4 @@
 #include <com/sun/naming/internal/ObjectFactoriesFilter$FactoryInfo.h>
-
 #include <com/sun/naming/internal/ObjectFactoriesFilter.h>
 #include <jcpp.h>
 
@@ -12,45 +11,6 @@ namespace com {
 	namespace sun {
 		namespace naming {
 			namespace internal {
-
-$CompoundAttribute _ObjectFactoriesFilter$FactoryInfo_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _ObjectFactoriesFilter$FactoryInfo_MethodInfo_[] = {
-	{"arrayLength", "()J", nullptr, $PUBLIC, $virtualMethod(ObjectFactoriesFilter$FactoryInfo, arrayLength, int64_t)},
-	{"depth", "()J", nullptr, $PUBLIC, $virtualMethod(ObjectFactoriesFilter$FactoryInfo, depth, int64_t)},
-	{"references", "()J", nullptr, $PUBLIC, $virtualMethod(ObjectFactoriesFilter$FactoryInfo, references, int64_t)},
-	{"streamBytes", "()J", nullptr, $PUBLIC, $virtualMethod(ObjectFactoriesFilter$FactoryInfo, streamBytes, int64_t)},
-	{}
-};
-
-$InnerClassInfo _ObjectFactoriesFilter$FactoryInfo_InnerClassesInfo_[] = {
-	{"com.sun.naming.internal.ObjectFactoriesFilter$FactoryInfo", "com.sun.naming.internal.ObjectFactoriesFilter", "FactoryInfo", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.io.ObjectInputFilter$FilterInfo", "java.io.ObjectInputFilter", "FilterInfo", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ObjectFactoriesFilter$FactoryInfo_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"com.sun.naming.internal.ObjectFactoriesFilter$FactoryInfo",
-	nullptr,
-	"java.io.ObjectInputFilter$FilterInfo",
-	nullptr,
-	_ObjectFactoriesFilter$FactoryInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ObjectFactoriesFilter$FactoryInfo_InnerClassesInfo_,
-	_ObjectFactoriesFilter$FactoryInfo_Annotations_,
-	nullptr,
-	nullptr,
-	"com.sun.naming.internal.ObjectFactoriesFilter"
-};
-
-$Object* allocate$ObjectFactoriesFilter$FactoryInfo($Class* clazz) {
-	return $of($alloc(ObjectFactoriesFilter$FactoryInfo));
-}
 
 int64_t ObjectFactoriesFilter$FactoryInfo::arrayLength() {
 	return -1;
@@ -69,7 +29,40 @@ int64_t ObjectFactoriesFilter$FactoryInfo::streamBytes() {
 }
 
 $Class* ObjectFactoriesFilter$FactoryInfo::load$($String* name, bool initialize) {
-	$loadClass(ObjectFactoriesFilter$FactoryInfo, name, initialize, &_ObjectFactoriesFilter$FactoryInfo_ClassInfo_, allocate$ObjectFactoriesFilter$FactoryInfo);
+	$MethodInfo methodInfos$$[] = {
+		{"arrayLength", "()J", nullptr, $PUBLIC, $virtualMethod(ObjectFactoriesFilter$FactoryInfo, arrayLength, int64_t)},
+		{"depth", "()J", nullptr, $PUBLIC, $virtualMethod(ObjectFactoriesFilter$FactoryInfo, depth, int64_t)},
+		{"references", "()J", nullptr, $PUBLIC, $virtualMethod(ObjectFactoriesFilter$FactoryInfo, references, int64_t)},
+		{"streamBytes", "()J", nullptr, $PUBLIC, $virtualMethod(ObjectFactoriesFilter$FactoryInfo, streamBytes, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.naming.internal.ObjectFactoriesFilter$FactoryInfo", "com.sun.naming.internal.ObjectFactoriesFilter", "FactoryInfo", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.io.ObjectInputFilter$FilterInfo", "java.io.ObjectInputFilter", "FilterInfo", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"com.sun.naming.internal.ObjectFactoriesFilter$FactoryInfo",
+		nullptr,
+		"java.io.ObjectInputFilter$FilterInfo",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"com.sun.naming.internal.ObjectFactoriesFilter"
+	};
+	$loadClass(ObjectFactoriesFilter$FactoryInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectFactoriesFilter$FactoryInfo);
+	});
 	return class$;
 }
 

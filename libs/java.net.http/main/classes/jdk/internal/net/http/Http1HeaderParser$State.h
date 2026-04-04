@@ -43,6 +43,7 @@ class $export Http1HeaderParser$State : public ::java::lang::Enum {
 public:
 	Http1HeaderParser$State();
 	static $Array<::jdk::internal::net::http::Http1HeaderParser$State>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::jdk::internal::net::http::Http1HeaderParser$State* valueOf($String* name);
 	static $Array<::jdk::internal::net::http::Http1HeaderParser$State>* values();

@@ -72,6 +72,7 @@ class XMLEntityStorage : public ::java::lang::Object {
 	$class(XMLEntityStorage, 0, ::java::lang::Object)
 public:
 	XMLEntityStorage();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xerces::internal::impl::PropertyManager* propertyManager);
 	void init$(::com::sun::org::apache::xerces::internal::impl::XMLEntityManager* entityManager);
 	virtual void addExternalEntity($String* name, $String* publicId, $String* literalSystemId, $String* baseSystemId);

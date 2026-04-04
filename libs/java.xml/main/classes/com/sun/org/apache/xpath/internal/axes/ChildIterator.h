@@ -51,7 +51,7 @@ public:
 	virtual int32_t asNode(::com::sun::org::apache::xpath::internal::XPathContext* xctxt) override;
 	virtual int32_t getAxis() override;
 	virtual int32_t nextNode() override;
-	static const int64_t serialVersionUID = (int64_t)0x9FC068F7381C0151;
+	static const int64_t serialVersionUID = (int64_t)0x9fc068f7381c0151;
 };
 
 						} // axes

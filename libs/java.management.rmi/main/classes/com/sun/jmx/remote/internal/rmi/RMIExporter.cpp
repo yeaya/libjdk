@@ -1,5 +1,4 @@
 #include <com/sun/jmx/remote/internal/rmi/RMIExporter.h>
-
 #include <java/io/ObjectInputFilter.h>
 #include <java/rmi/Remote.h>
 #include <java/rmi/server/RMIClientSocketFactory.h>
@@ -23,38 +22,33 @@ namespace com {
 				namespace internal {
 					namespace rmi {
 
-$FieldInfo _RMIExporter_FieldInfo_[] = {
-	{"EXPORTER_ATTRIBUTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RMIExporter, EXPORTER_ATTRIBUTE)},
-	{}
-};
-
-$MethodInfo _RMIExporter_MethodInfo_[] = {
-	{"exportObject", "(Ljava/rmi/Remote;ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;Ljava/io/ObjectInputFilter;)Ljava/rmi/Remote;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RMIExporter, exportObject, $Remote*, $Remote*, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*, $ObjectInputFilter*), "java.rmi.RemoteException"},
-	{"unexportObject", "(Ljava/rmi/Remote;Z)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RMIExporter, unexportObject, bool, $Remote*, bool), "java.rmi.NoSuchObjectException"},
-	{}
-};
-
-$ClassInfo _RMIExporter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.jmx.remote.internal.rmi.RMIExporter",
-	nullptr,
-	nullptr,
-	_RMIExporter_FieldInfo_,
-	_RMIExporter_MethodInfo_
-};
-
-$Object* allocate$RMIExporter($Class* clazz) {
-	return $of($alloc(RMIExporter));
-}
-
 $String* RMIExporter::EXPORTER_ATTRIBUTE = nullptr;
 
-void clinit$RMIExporter($Class* class$) {
+void RMIExporter::clinit$($Class* clazz) {
 	$assignStatic(RMIExporter::EXPORTER_ATTRIBUTE, "com.sun.jmx.remote.rmi.exporter"_s);
 }
 
 $Class* RMIExporter::load$($String* name, bool initialize) {
-	$loadClass(RMIExporter, name, initialize, &_RMIExporter_ClassInfo_, clinit$RMIExporter, allocate$RMIExporter);
+	$FieldInfo fieldInfos$$[] = {
+		{"EXPORTER_ATTRIBUTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RMIExporter, EXPORTER_ATTRIBUTE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"exportObject", "(Ljava/rmi/Remote;ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;Ljava/io/ObjectInputFilter;)Ljava/rmi/Remote;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RMIExporter, exportObject, $Remote*, $Remote*, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*, $ObjectInputFilter*), "java.rmi.RemoteException"},
+		{"unexportObject", "(Ljava/rmi/Remote;Z)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RMIExporter, unexportObject, bool, $Remote*, bool), "java.rmi.NoSuchObjectException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.jmx.remote.internal.rmi.RMIExporter",
+		nullptr,
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RMIExporter, name, initialize, &classInfo$$, RMIExporter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RMIExporter);
+	});
 	return class$;
 }
 

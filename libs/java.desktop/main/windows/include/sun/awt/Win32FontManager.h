@@ -30,6 +30,7 @@ class $import Win32FontManager : public ::sun::font::SunFontManager {
 	$class(Win32FontManager, 0, ::sun::font::SunFontManager)
 public:
 	Win32FontManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::sun::awt::FontConfiguration* createFontConfiguration() override;
 	virtual ::sun::awt::FontConfiguration* createFontConfiguration(bool preferLocaleFonts, bool preferPropFonts) override;

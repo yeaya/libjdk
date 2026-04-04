@@ -1,5 +1,4 @@
 #include <java/lang/instrument/UnmodifiableModuleException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,30 +9,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 namespace java {
 	namespace lang {
 		namespace instrument {
-
-$FieldInfo _UnmodifiableModuleException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnmodifiableModuleException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _UnmodifiableModuleException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UnmodifiableModuleException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnmodifiableModuleException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _UnmodifiableModuleException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.instrument.UnmodifiableModuleException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_UnmodifiableModuleException_FieldInfo_,
-	_UnmodifiableModuleException_MethodInfo_
-};
-
-$Object* allocate$UnmodifiableModuleException($Class* clazz) {
-	return $of($alloc(UnmodifiableModuleException));
-}
 
 void UnmodifiableModuleException::init$() {
 	$RuntimeException::init$();
@@ -54,7 +29,26 @@ void UnmodifiableModuleException::throw$() {
 }
 
 $Class* UnmodifiableModuleException::load$($String* name, bool initialize) {
-	$loadClass(UnmodifiableModuleException, name, initialize, &_UnmodifiableModuleException_ClassInfo_, allocate$UnmodifiableModuleException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnmodifiableModuleException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UnmodifiableModuleException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnmodifiableModuleException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.instrument.UnmodifiableModuleException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnmodifiableModuleException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnmodifiableModuleException);
+	});
 	return class$;
 }
 

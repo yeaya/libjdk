@@ -76,6 +76,7 @@ class ToUnknownStream : public ::com::sun::org::apache::xml::internal::serialize
 	$class(ToUnknownStream, 0, ::com::sun::org::apache::xml::internal::serializer::SerializerBase)
 public:
 	ToUnknownStream();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::com::sun::org::apache::xml::internal::serializer::SerializerBase::characters;
 	void init$();
 	void init$(::javax::xml::transform::ErrorListener* l);

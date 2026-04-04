@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDTDContentModelFilter.h>
-
 #include <com/sun/org/apache/xerces/internal/xni/XMLDTDContentModelHandler.h>
 #include <jcpp.h>
 
@@ -15,28 +14,6 @@ namespace com {
 					namespace internal {
 						namespace xni {
 							namespace parser {
-
-$MethodInfo _XMLDTDContentModelFilter_MethodInfo_[] = {
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{}
-};
-
-$ClassInfo _XMLDTDContentModelFilter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.xni.parser.XMLDTDContentModelFilter",
-	nullptr,
-	"com.sun.org.apache.xerces.internal.xni.XMLDTDContentModelHandler,com.sun.org.apache.xerces.internal.xni.parser.XMLDTDContentModelSource",
-	nullptr,
-	_XMLDTDContentModelFilter_MethodInfo_
-};
-
-$Object* allocate$XMLDTDContentModelFilter($Class* clazz) {
-	return $of($alloc(XMLDTDContentModelFilter));
-}
 
 int32_t XMLDTDContentModelFilter::hashCode() {
 	 return this->$XMLDTDContentModelHandler::hashCode();
@@ -59,7 +36,25 @@ void XMLDTDContentModelFilter::finalize() {
 }
 
 $Class* XMLDTDContentModelFilter::load$($String* name, bool initialize) {
-	$loadClass(XMLDTDContentModelFilter, name, initialize, &_XMLDTDContentModelFilter_ClassInfo_, allocate$XMLDTDContentModelFilter);
+	$MethodInfo methodInfos$$[] = {
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.xni.parser.XMLDTDContentModelFilter",
+		nullptr,
+		"com.sun.org.apache.xerces.internal.xni.XMLDTDContentModelHandler,com.sun.org.apache.xerces.internal.xni.parser.XMLDTDContentModelSource",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XMLDTDContentModelFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XMLDTDContentModelFilter));
+	});
 	return class$;
 }
 

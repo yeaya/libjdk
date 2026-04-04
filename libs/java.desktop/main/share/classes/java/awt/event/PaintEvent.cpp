@@ -1,5 +1,4 @@
 #include <java/awt/event/PaintEvent.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Rectangle.h>
@@ -22,37 +21,6 @@ namespace java {
 	namespace awt {
 		namespace event {
 
-$FieldInfo _PaintEvent_FieldInfo_[] = {
-	{"PAINT_FIRST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PaintEvent, PAINT_FIRST)},
-	{"PAINT_LAST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PaintEvent, PAINT_LAST)},
-	{"PAINT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PaintEvent, PAINT)},
-	{"UPDATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PaintEvent, UPDATE)},
-	{"updateRect", "Ljava/awt/Rectangle;", nullptr, 0, $field(PaintEvent, updateRect)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PaintEvent, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _PaintEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Component;ILjava/awt/Rectangle;)V", nullptr, $PUBLIC, $method(PaintEvent, init$, void, $Component*, int32_t, $Rectangle*)},
-	{"getUpdateRect", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(PaintEvent, getUpdateRect, $Rectangle*)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PaintEvent, paramString, $String*)},
-	{"setUpdateRect", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(PaintEvent, setUpdateRect, void, $Rectangle*)},
-	{}
-};
-
-$ClassInfo _PaintEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.event.PaintEvent",
-	"java.awt.event.ComponentEvent",
-	nullptr,
-	_PaintEvent_FieldInfo_,
-	_PaintEvent_MethodInfo_
-};
-
-$Object* allocate$PaintEvent($Class* clazz) {
-	return $of($alloc(PaintEvent));
-}
-
 void PaintEvent::init$($Component* source, int32_t id, $Rectangle* updateRect) {
 	$ComponentEvent::init$(source, id);
 	$set(this, updateRect, updateRect);
@@ -67,32 +35,52 @@ void PaintEvent::setUpdateRect($Rectangle* updateRect) {
 }
 
 $String* PaintEvent::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, typeStr, nullptr);
 	switch (this->id) {
 	case PaintEvent::PAINT:
-		{
-			$assign(typeStr, "PAINT"_s);
-			break;
-		}
+		$assign(typeStr, "PAINT"_s);
+		break;
 	case PaintEvent::UPDATE:
-		{
-			$assign(typeStr, "UPDATE"_s);
-			break;
-		}
+		$assign(typeStr, "UPDATE"_s);
+		break;
 	default:
-		{
-			$assign(typeStr, "unknown type"_s);
-		}
+		$assign(typeStr, "unknown type"_s);
 	}
-	return $str({typeStr, ",updateRect="_s, (this->updateRect != nullptr ? $($nc(this->updateRect)->toString()) : "null"_s)});
+	return $str({typeStr, ",updateRect="_s, (this->updateRect != nullptr ? $(this->updateRect->toString()) : "null"_s)});
 }
 
 PaintEvent::PaintEvent() {
 }
 
 $Class* PaintEvent::load$($String* name, bool initialize) {
-	$loadClass(PaintEvent, name, initialize, &_PaintEvent_ClassInfo_, allocate$PaintEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"PAINT_FIRST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PaintEvent, PAINT_FIRST)},
+		{"PAINT_LAST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PaintEvent, PAINT_LAST)},
+		{"PAINT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PaintEvent, PAINT)},
+		{"UPDATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PaintEvent, UPDATE)},
+		{"updateRect", "Ljava/awt/Rectangle;", nullptr, 0, $field(PaintEvent, updateRect)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PaintEvent, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Component;ILjava/awt/Rectangle;)V", nullptr, $PUBLIC, $method(PaintEvent, init$, void, $Component*, int32_t, $Rectangle*)},
+		{"getUpdateRect", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(PaintEvent, getUpdateRect, $Rectangle*)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PaintEvent, paramString, $String*)},
+		{"setUpdateRect", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(PaintEvent, setUpdateRect, void, $Rectangle*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.event.PaintEvent",
+		"java.awt.event.ComponentEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PaintEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PaintEvent);
+	});
 	return class$;
 }
 

@@ -1,9 +1,7 @@
 #include <Test8007563$1.h>
-
 #include <Test8007563.h>
 #include <java/awt/SecondaryLoop.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/SwingUtilities.h>
 #include <jcpp.h>
 
@@ -15,51 +13,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-
-$FieldInfo _Test8007563$1_FieldInfo_[] = {
-	{"this$0", "LTest8007563;", nullptr, $FINAL | $SYNTHETIC, $field(Test8007563$1, this$0)},
-	{"val$secondaryLoop", "Ljava/awt/SecondaryLoop;", nullptr, $FINAL | $SYNTHETIC, $field(Test8007563$1, val$secondaryLoop)},
-	{}
-};
-
-$MethodInfo _Test8007563$1_MethodInfo_[] = {
-	{"<init>", "(LTest8007563;Ljava/awt/SecondaryLoop;)V", nullptr, 0, $method(Test8007563$1, init$, void, $Test8007563*, $SecondaryLoop*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test8007563$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _Test8007563$1_EnclosingMethodInfo_ = {
-	"Test8007563",
-	"run",
-	"()V"
-};
-
-$InnerClassInfo _Test8007563$1_InnerClassesInfo_[] = {
-	{"Test8007563$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Test8007563$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"Test8007563$1",
-	"java.lang.Thread",
-	nullptr,
-	_Test8007563$1_FieldInfo_,
-	_Test8007563$1_MethodInfo_,
-	nullptr,
-	&_Test8007563$1_EnclosingMethodInfo_,
-	_Test8007563$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Test8007563"
-};
-
-$Object* allocate$Test8007563$1($Class* clazz) {
-	return $of($alloc(Test8007563$1));
-}
 
 void Test8007563$1::init$($Test8007563* this$0, $SecondaryLoop* val$secondaryLoop) {
 	$set(this, this$0, this$0);
@@ -80,7 +34,43 @@ Test8007563$1::Test8007563$1() {
 }
 
 $Class* Test8007563$1::load$($String* name, bool initialize) {
-	$loadClass(Test8007563$1, name, initialize, &_Test8007563$1_ClassInfo_, allocate$Test8007563$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LTest8007563;", nullptr, $FINAL | $SYNTHETIC, $field(Test8007563$1, this$0)},
+		{"val$secondaryLoop", "Ljava/awt/SecondaryLoop;", nullptr, $FINAL | $SYNTHETIC, $field(Test8007563$1, val$secondaryLoop)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LTest8007563;Ljava/awt/SecondaryLoop;)V", nullptr, 0, $method(Test8007563$1, init$, void, $Test8007563*, $SecondaryLoop*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test8007563$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"Test8007563",
+		"run",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Test8007563$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Test8007563$1",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Test8007563"
+	};
+	$loadClass(Test8007563$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test8007563$1);
+	});
 	return class$;
 }
 

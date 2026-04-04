@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSModelImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaSymbols.h>
@@ -129,117 +128,6 @@ namespace com {
 						namespace impl {
 							namespace xs {
 
-$FieldInfo _XSModelImpl_FieldInfo_[] = {
-	{"MAX_COMP_IDX", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSModelImpl, MAX_COMP_IDX)},
-	{"GLOBAL_COMP", "[Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSModelImpl, GLOBAL_COMP)},
-	{"fGrammarCount", "I", nullptr, $PRIVATE | $FINAL, $field(XSModelImpl, fGrammarCount)},
-	{"fNamespaces", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(XSModelImpl, fNamespaces)},
-	{"fGrammarList", "[Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;", nullptr, $PRIVATE | $FINAL, $field(XSModelImpl, fGrammarList)},
-	{"fGrammarMap", "Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, $PRIVATE | $FINAL, $field(XSModelImpl, fGrammarMap)},
-	{"fSubGroupMap", "Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, $PRIVATE | $FINAL, $field(XSModelImpl, fSubGroupMap)},
-	{"fGlobalComponents", "[Lcom/sun/org/apache/xerces/internal/xs/XSNamedMap;", nullptr, $PRIVATE | $FINAL, $field(XSModelImpl, fGlobalComponents)},
-	{"fNSComponents", "[[Lcom/sun/org/apache/xerces/internal/xs/XSNamedMap;", nullptr, $PRIVATE | $FINAL, $field(XSModelImpl, fNSComponents)},
-	{"fNamespacesList", "Lcom/sun/org/apache/xerces/internal/xs/StringList;", nullptr, $PRIVATE | $FINAL, $field(XSModelImpl, fNamespacesList)},
-	{"fAnnotations", "Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PRIVATE, $field(XSModelImpl, fAnnotations)},
-	{"fHasIDC", "Z", nullptr, $PRIVATE | $FINAL, $field(XSModelImpl, fHasIDC)},
-	{}
-};
-
-$MethodInfo _XSModelImpl_MethodInfo_[] = {
-	{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*add", "(ILjava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*addAll", "(ILjava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"*indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
-	{"<init>", "([Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PUBLIC, $method(XSModelImpl, init$, void, $SchemaGrammarArray*)},
-	{"<init>", "([Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;S)V", nullptr, $PUBLIC, $method(XSModelImpl, init$, void, $SchemaGrammarArray*, int16_t)},
-	{"buildSubGroups", "()Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, $PRIVATE, $method(XSModelImpl, buildSubGroups, $SymbolHash*)},
-	{"buildSubGroups_Org", "()Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, $PRIVATE, $method(XSModelImpl, buildSubGroups_Org, $SymbolHash*)},
-	{"get", "(I)Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, get, $Object*, int32_t)},
-	{"getAnnotations", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XSModelImpl, getAnnotations, $XSObjectList*)},
-	{"getAttributeDeclaration", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSAttributeDeclaration;", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, getAttributeDeclaration, $XSAttributeDeclaration*, $String*, $String*)},
-	{"getAttributeDeclaration", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSAttributeDeclaration;", nullptr, $PUBLIC, $method(XSModelImpl, getAttributeDeclaration, $XSAttributeDeclaration*, $String*, $String*, $String*)},
-	{"getAttributeGroup", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSAttributeGroupDefinition;", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, getAttributeGroup, $XSAttributeGroupDefinition*, $String*, $String*)},
-	{"getAttributeGroup", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSAttributeGroupDefinition;", nullptr, $PUBLIC, $method(XSModelImpl, getAttributeGroup, $XSAttributeGroupDefinition*, $String*, $String*, $String*)},
-	{"getComponents", "(S)Lcom/sun/org/apache/xerces/internal/xs/XSNamedMap;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XSModelImpl, getComponents, $XSNamedMap*, int16_t)},
-	{"getComponentsByNamespace", "(SLjava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSNamedMap;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XSModelImpl, getComponentsByNamespace, $XSNamedMap*, int16_t, $String*)},
-	{"getElementDeclaration", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSElementDeclaration;", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, getElementDeclaration, $XSElementDeclaration*, $String*, $String*)},
-	{"getElementDeclaration", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSElementDeclaration;", nullptr, $PUBLIC, $method(XSModelImpl, getElementDeclaration, $XSElementDeclaration*, $String*, $String*, $String*)},
-	{"getGlobalElements", "()Lcom/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl;", nullptr, $PRIVATE, $method(XSModelImpl, getGlobalElements, $XSObjectListImpl*)},
-	{"getIDCDefinition", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSIDCDefinition;", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, getIDCDefinition, $XSIDCDefinition*, $String*, $String*)},
-	{"getIDCDefinition", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSIDCDefinition;", nullptr, $PUBLIC, $method(XSModelImpl, getIDCDefinition, $XSIDCDefinition*, $String*, $String*, $String*)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, getLength, int32_t)},
-	{"getModelGroupDefinition", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSModelGroupDefinition;", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, getModelGroupDefinition, $XSModelGroupDefinition*, $String*, $String*)},
-	{"getModelGroupDefinition", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSModelGroupDefinition;", nullptr, $PUBLIC, $method(XSModelImpl, getModelGroupDefinition, $XSModelGroupDefinition*, $String*, $String*, $String*)},
-	{"getNamespaceItems", "()Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItemList;", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, getNamespaceItems, $XSNamespaceItemList*)},
-	{"getNamespaces", "()Lcom/sun/org/apache/xerces/internal/xs/StringList;", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, getNamespaces, $StringList*)},
-	{"getNotationDeclaration", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSNotationDeclaration;", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, getNotationDeclaration, $XSNotationDeclaration*, $String*, $String*)},
-	{"getNotationDeclaration", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSNotationDeclaration;", nullptr, $PUBLIC, $method(XSModelImpl, getNotationDeclaration, $XSNotationDeclaration*, $String*, $String*, $String*)},
-	{"getSubstitutionGroup", "(Lcom/sun/org/apache/xerces/internal/xs/XSElementDeclaration;)Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, getSubstitutionGroup, $XSObjectList*, $XSElementDeclaration*)},
-	{"getTypeDefinition", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, getTypeDefinition, $XSTypeDefinition*, $String*, $String*)},
-	{"getTypeDefinition", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;", nullptr, $PUBLIC, $method(XSModelImpl, getTypeDefinition, $XSTypeDefinition*, $String*, $String*, $String*)},
-	{"hasIDConstraints", "()Z", nullptr, $PUBLIC, $method(XSModelImpl, hasIDConstraints, bool)},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"item", "(I)Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, item, $XSNamespaceItem*, int32_t)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;>;", $PUBLIC, $virtualMethod(XSModelImpl, iterator, $Iterator*)},
-	{"*lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
-	{"listIterator", "()Ljava/util/ListIterator;", "()Ljava/util/ListIterator<Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;>;", $PUBLIC, $virtualMethod(XSModelImpl, listIterator, $ListIterator*)},
-	{"listIterator", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;>;", $PUBLIC, $virtualMethod(XSModelImpl, listIterator, $ListIterator*, int32_t)},
-	{"listIterator0", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;>;", $PRIVATE, $method(XSModelImpl, listIterator0, $ListIterator*, int32_t)},
-	{"null2EmptyString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(XSModelImpl, null2EmptyString, $String*, $String*)},
-	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*remove", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*replaceAll", "(Ljava/util/function/UnaryOperator;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*set", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, size, int32_t)},
-	{"*sort", "(Ljava/util/Comparator;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*subList", "(II)Ljava/util/List;", nullptr, $PUBLIC},
-	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, toArray, $ObjectArray*, $ObjectArray*)},
-	{"toArray0", "([Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(XSModelImpl, toArray0, void, $ObjectArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _XSModelImpl_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xs.XSModelImpl$XSNamespaceItemListIterator", "com.sun.org.apache.xerces.internal.impl.xs.XSModelImpl", "XSNamespaceItemListIterator", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _XSModelImpl_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.XSModelImpl",
-	"java.util.AbstractList",
-	"com.sun.org.apache.xerces.internal.xs.XSModel,com.sun.org.apache.xerces.internal.xs.XSNamespaceItemList",
-	_XSModelImpl_FieldInfo_,
-	_XSModelImpl_MethodInfo_,
-	"Ljava/util/AbstractList<Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;>;Lcom/sun/org/apache/xerces/internal/xs/XSModel;Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItemList;",
-	nullptr,
-	_XSModelImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xs.XSModelImpl$XSNamespaceItemListIterator"
-};
-
-$Object* allocate$XSModelImpl($Class* clazz) {
-	return $of($alloc(XSModelImpl));
-}
-
 bool XSModelImpl::add(Object$* arg0) {
 	 return this->$AbstractList::add(arg0);
 }
@@ -363,7 +251,7 @@ void XSModelImpl::init$($SchemaGrammarArray* grammars) {
 }
 
 void XSModelImpl::init$($SchemaGrammarArray* grammars, int16_t s4sVersion) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AbstractList::init$();
 	$set(this, fAnnotations, nullptr);
 	int32_t len = $nc(grammars)->length;
@@ -395,15 +283,15 @@ void XSModelImpl::init$($SchemaGrammarArray* grammars, int16_t s4sVersion) {
 	for (i = 0; i < len; ++i) {
 		$assign(sg1, $nc(grammarList)->get(i));
 		$assign(gs, $nc(sg1)->getImportedGrammars());
-		for (j = gs == nullptr ? -1 : $nc(gs)->size() - 1; j >= 0; --j) {
-			$assign(sg2, $cast($SchemaGrammar, gs->get(j)));
+		for (j = gs == nullptr ? -1 : gs->size() - 1; j >= 0; --j) {
+			$assign(sg2, $cast($SchemaGrammar, $nc(gs)->get(j)));
 			for (k = 0; k < len; ++k) {
-				if (sg2 == grammarList->get(k)) {
+				if (sg2 == $nc(grammarList)->get(k)) {
 					break;
 				}
 			}
 			if (k == len) {
-				if (len == grammarList->length) {
+				if (len == $nc(grammarList)->length) {
 					$var($StringArray, newSA, $new($StringArray, len * 2));
 					$System::arraycopy(namespaces, 0, newSA, 0, len);
 					$assign(namespaces, newSA);
@@ -422,8 +310,8 @@ void XSModelImpl::init$($SchemaGrammarArray* grammars, int16_t s4sVersion) {
 	bool hasIDC = false;
 	$set(this, fGrammarMap, $new($SymbolHash, len * 2));
 	for (i = 0; i < len; ++i) {
-		$nc(this->fGrammarMap)->put($(null2EmptyString($nc(this->fNamespaces)->get(i))), $nc(this->fGrammarList)->get(i));
-		if ($nc($nc(this->fGrammarList)->get(i))->hasIDConstraints()) {
+		this->fGrammarMap->put($(null2EmptyString($nc(this->fNamespaces)->get(i))), $nc(this->fGrammarList)->get(i));
+		if ($nc(this->fGrammarList->get(i))->hasIDConstraints()) {
 			hasIDC = true;
 		}
 	}
@@ -436,7 +324,7 @@ void XSModelImpl::init$($SchemaGrammarArray* grammars, int16_t s4sVersion) {
 }
 
 $SymbolHash* XSModelImpl::buildSubGroups_Org() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SubstitutionGroupHandler, sgHandler, $new($SubstitutionGroupHandler, nullptr));
 	for (int32_t i = 0; i < this->fGrammarCount; ++i) {
 		sgHandler->addSubstitutionGroup($($nc($nc(this->fGrammarList)->get(i))->getSubstitutionGroups()));
@@ -448,15 +336,15 @@ $SymbolHash* XSModelImpl::buildSubGroups_Org() {
 	$var($XSElementDeclarationArray, subGroup, nullptr);
 	for (int32_t i = 0; i < len; ++i) {
 		$assign(head, $cast($XSElementDecl, elements->item(i)));
-		$assign(subGroup, $fcast($XSElementDeclarationArray, sgHandler->getSubstitutionGroup(head)));
+		$assign(subGroup, $cast($XSElementDeclarationArray, sgHandler->getSubstitutionGroup(head)));
 		$init($XSObjectListImpl);
-		subGroupMap->put(head, $nc(subGroup)->length > 0 ? $of($$new($XSObjectListImpl, $fcast($XSObjectArray, subGroup), $nc(subGroup)->length)) : $of($XSObjectListImpl::EMPTY_LIST));
+		subGroupMap->put(head, $nc(subGroup)->length > 0 ? $$new($XSObjectListImpl, $cast($XSObjectArray, subGroup), subGroup->length) : $XSObjectListImpl::EMPTY_LIST);
 	}
 	return subGroupMap;
 }
 
 $SymbolHash* XSModelImpl::buildSubGroups() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SubstitutionGroupHandler, sgHandler, $new($SubstitutionGroupHandler, nullptr));
 	for (int32_t i = 0; i < this->fGrammarCount; ++i) {
 		sgHandler->addSubstitutionGroup($($nc($nc(this->fGrammarList)->get(i))->getSubstitutionGroups()));
@@ -468,14 +356,14 @@ $SymbolHash* XSModelImpl::buildSubGroups() {
 	$var($XSElementDeclarationArray, subGroup, nullptr);
 	for (int32_t i = 0; i < len; ++i) {
 		$assign(head, $cast($XSElementDecl, elements->item(i)));
-		$assign(subGroup, $fcast($XSElementDeclarationArray, sgHandler->getSubstitutionGroup(head)));
-		subGroupMap->put(head, $nc(subGroup)->length > 0 ? $of($$new($XSObjectListImpl, $fcast($XSObjectArray, subGroup), $nc(subGroup)->length)) : $of($XSObjectListImpl::EMPTY_LIST));
+		$assign(subGroup, $cast($XSElementDeclarationArray, sgHandler->getSubstitutionGroup(head)));
+		subGroupMap->put(head, $nc(subGroup)->length > 0 ? $$new($XSObjectListImpl, $cast($XSObjectArray, subGroup), subGroup->length) : $XSObjectListImpl::EMPTY_LIST);
 	}
 	return subGroupMap;
 }
 
 $XSObjectListImpl* XSModelImpl::getGlobalElements() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SymbolHashArray, tables, $new($SymbolHashArray, this->fGrammarCount));
 	int32_t length = 0;
 	for (int32_t i = 0; i < this->fGrammarCount; ++i) {
@@ -505,8 +393,8 @@ $XSNamespaceItemList* XSModelImpl::getNamespaceItems() {
 
 $XSNamedMap* XSModelImpl::getComponents(int16_t objectType) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		if (objectType <= 0 || objectType > XSModelImpl::MAX_COMP_IDX || !$nc(XSModelImpl::GLOBAL_COMP)->get(objectType)) {
+		$useLocalObjectStack();
+		if (objectType <= 0 || objectType > XSModelImpl::MAX_COMP_IDX || !XSModelImpl::GLOBAL_COMP->get(objectType)) {
 			$init($XSNamedMapImpl);
 			return $XSNamedMapImpl::EMPTY_MAP;
 		}
@@ -515,60 +403,44 @@ $XSNamedMap* XSModelImpl::getComponents(int16_t objectType) {
 			for (int32_t i = 0; i < this->fGrammarCount; ++i) {
 				switch (objectType) {
 				case $XSConstants::TYPE_DEFINITION:
-					{}
 				case $XSTypeDefinition::COMPLEX_TYPE:
-					{}
 				case $XSTypeDefinition::SIMPLE_TYPE:
-					{
-						tables->set(i, $nc($nc(this->fGrammarList)->get(i))->fGlobalTypeDecls);
-						break;
-					}
+					tables->set(i, $nc($nc(this->fGrammarList)->get(i))->fGlobalTypeDecls);
+					break;
 				case $XSConstants::ATTRIBUTE_DECLARATION:
-					{
-						tables->set(i, $nc($nc(this->fGrammarList)->get(i))->fGlobalAttrDecls);
-						break;
-					}
+					tables->set(i, $nc($nc(this->fGrammarList)->get(i))->fGlobalAttrDecls);
+					break;
 				case $XSConstants::ELEMENT_DECLARATION:
-					{
-						tables->set(i, $nc($nc(this->fGrammarList)->get(i))->fGlobalElemDecls);
-						break;
-					}
+					tables->set(i, $nc($nc(this->fGrammarList)->get(i))->fGlobalElemDecls);
+					break;
 				case $XSConstants::ATTRIBUTE_GROUP:
-					{
-						tables->set(i, $nc($nc(this->fGrammarList)->get(i))->fGlobalAttrGrpDecls);
-						break;
-					}
+					tables->set(i, $nc($nc(this->fGrammarList)->get(i))->fGlobalAttrGrpDecls);
+					break;
 				case $XSConstants::MODEL_GROUP_DEFINITION:
-					{
-						tables->set(i, $nc($nc(this->fGrammarList)->get(i))->fGlobalGroupDecls);
-						break;
-					}
+					tables->set(i, $nc($nc(this->fGrammarList)->get(i))->fGlobalGroupDecls);
+					break;
 				case $XSConstants::NOTATION_DECLARATION:
-					{
-						tables->set(i, $nc($nc(this->fGrammarList)->get(i))->fGlobalNotationDecls);
-						break;
-					}
+					tables->set(i, $nc($nc(this->fGrammarList)->get(i))->fGlobalNotationDecls);
+					break;
 				case $XSConstants::IDENTITY_CONSTRAINT:
-					{
-						tables->set(i, $nc($nc(this->fGrammarList)->get(i))->fGlobalIDConstraintDecls);
-						break;
-					}
+					tables->set(i, $nc($nc(this->fGrammarList)->get(i))->fGlobalIDConstraintDecls);
+					break;
 				}
 			}
 			if (objectType == $XSTypeDefinition::COMPLEX_TYPE || objectType == $XSTypeDefinition::SIMPLE_TYPE) {
-				$nc(this->fGlobalComponents)->set(objectType, $$new($XSNamedMap4Types, this->fNamespaces, tables, this->fGrammarCount, objectType));
+				this->fGlobalComponents->set(objectType, $$new($XSNamedMap4Types, this->fNamespaces, tables, this->fGrammarCount, objectType));
 			} else {
-				$nc(this->fGlobalComponents)->set(objectType, $$new($XSNamedMapImpl, this->fNamespaces, tables, this->fGrammarCount));
+				this->fGlobalComponents->set(objectType, $$new($XSNamedMapImpl, this->fNamespaces, tables, this->fGrammarCount));
 			}
 		}
-		return $nc(this->fGlobalComponents)->get(objectType);
+		return this->fGlobalComponents->get(objectType);
 	}
 }
 
 $XSNamedMap* XSModelImpl::getComponentsByNamespace(int16_t objectType, $String* namespace$) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		if (objectType <= 0 || objectType > XSModelImpl::MAX_COMP_IDX || !$nc(XSModelImpl::GLOBAL_COMP)->get(objectType)) {
+		$useLocalObjectStack();
+		if (objectType <= 0 || objectType > XSModelImpl::MAX_COMP_IDX || !XSModelImpl::GLOBAL_COMP->get(objectType)) {
 			$init($XSNamedMapImpl);
 			return $XSNamedMapImpl::EMPTY_MAP;
 		}
@@ -594,57 +466,41 @@ $XSNamedMap* XSModelImpl::getComponentsByNamespace(int16_t objectType, $String* 
 			$var($SymbolHash, table, nullptr);
 			switch (objectType) {
 			case $XSConstants::TYPE_DEFINITION:
-				{}
 			case $XSTypeDefinition::COMPLEX_TYPE:
-				{}
 			case $XSTypeDefinition::SIMPLE_TYPE:
-				{
-					$assign(table, $nc($nc(this->fGrammarList)->get(i))->fGlobalTypeDecls);
-					break;
-				}
+				$assign(table, $nc($nc(this->fGrammarList)->get(i))->fGlobalTypeDecls);
+				break;
 			case $XSConstants::ATTRIBUTE_DECLARATION:
-				{
-					$assign(table, $nc($nc(this->fGrammarList)->get(i))->fGlobalAttrDecls);
-					break;
-				}
+				$assign(table, $nc($nc(this->fGrammarList)->get(i))->fGlobalAttrDecls);
+				break;
 			case $XSConstants::ELEMENT_DECLARATION:
-				{
-					$assign(table, $nc($nc(this->fGrammarList)->get(i))->fGlobalElemDecls);
-					break;
-				}
+				$assign(table, $nc($nc(this->fGrammarList)->get(i))->fGlobalElemDecls);
+				break;
 			case $XSConstants::ATTRIBUTE_GROUP:
-				{
-					$assign(table, $nc($nc(this->fGrammarList)->get(i))->fGlobalAttrGrpDecls);
-					break;
-				}
+				$assign(table, $nc($nc(this->fGrammarList)->get(i))->fGlobalAttrGrpDecls);
+				break;
 			case $XSConstants::MODEL_GROUP_DEFINITION:
-				{
-					$assign(table, $nc($nc(this->fGrammarList)->get(i))->fGlobalGroupDecls);
-					break;
-				}
+				$assign(table, $nc($nc(this->fGrammarList)->get(i))->fGlobalGroupDecls);
+				break;
 			case $XSConstants::NOTATION_DECLARATION:
-				{
-					$assign(table, $nc($nc(this->fGrammarList)->get(i))->fGlobalNotationDecls);
-					break;
-				}
+				$assign(table, $nc($nc(this->fGrammarList)->get(i))->fGlobalNotationDecls);
+				break;
 			case $XSConstants::IDENTITY_CONSTRAINT:
-				{
-					$assign(table, $nc($nc(this->fGrammarList)->get(i))->fGlobalIDConstraintDecls);
-					break;
-				}
+				$assign(table, $nc($nc(this->fGrammarList)->get(i))->fGlobalIDConstraintDecls);
+				break;
 			}
 			if (objectType == $XSTypeDefinition::COMPLEX_TYPE || objectType == $XSTypeDefinition::SIMPLE_TYPE) {
-				$nc($nc(this->fNSComponents)->get(i))->set(objectType, $$new($XSNamedMap4Types, namespace$, table, objectType));
+				$nc(this->fNSComponents->get(i))->set(objectType, $$new($XSNamedMap4Types, namespace$, table, objectType));
 			} else {
-				$nc($nc(this->fNSComponents)->get(i))->set(objectType, $$new($XSNamedMapImpl, namespace$, table));
+				$nc(this->fNSComponents->get(i))->set(objectType, $$new($XSNamedMapImpl, namespace$, table));
 			}
 		}
-		return $nc($nc(this->fNSComponents)->get(i))->get(objectType);
+		return $nc(this->fNSComponents->get(i))->get(objectType);
 	}
 }
 
 $XSTypeDefinition* XSModelImpl::getTypeDefinition($String* name, $String* namespace$) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SchemaGrammar, sg, $cast($SchemaGrammar, $nc(this->fGrammarMap)->get($(null2EmptyString(namespace$)))));
 	if (sg == nullptr) {
 		return nullptr;
@@ -653,7 +509,7 @@ $XSTypeDefinition* XSModelImpl::getTypeDefinition($String* name, $String* namesp
 }
 
 $XSTypeDefinition* XSModelImpl::getTypeDefinition($String* name, $String* namespace$, $String* loc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SchemaGrammar, sg, $cast($SchemaGrammar, $nc(this->fGrammarMap)->get($(null2EmptyString(namespace$)))));
 	if (sg == nullptr) {
 		return nullptr;
@@ -662,7 +518,7 @@ $XSTypeDefinition* XSModelImpl::getTypeDefinition($String* name, $String* namesp
 }
 
 $XSAttributeDeclaration* XSModelImpl::getAttributeDeclaration($String* name, $String* namespace$) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SchemaGrammar, sg, $cast($SchemaGrammar, $nc(this->fGrammarMap)->get($(null2EmptyString(namespace$)))));
 	if (sg == nullptr) {
 		return nullptr;
@@ -671,7 +527,7 @@ $XSAttributeDeclaration* XSModelImpl::getAttributeDeclaration($String* name, $St
 }
 
 $XSAttributeDeclaration* XSModelImpl::getAttributeDeclaration($String* name, $String* namespace$, $String* loc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SchemaGrammar, sg, $cast($SchemaGrammar, $nc(this->fGrammarMap)->get($(null2EmptyString(namespace$)))));
 	if (sg == nullptr) {
 		return nullptr;
@@ -680,7 +536,7 @@ $XSAttributeDeclaration* XSModelImpl::getAttributeDeclaration($String* name, $St
 }
 
 $XSElementDeclaration* XSModelImpl::getElementDeclaration($String* name, $String* namespace$) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SchemaGrammar, sg, $cast($SchemaGrammar, $nc(this->fGrammarMap)->get($(null2EmptyString(namespace$)))));
 	if (sg == nullptr) {
 		return nullptr;
@@ -689,7 +545,7 @@ $XSElementDeclaration* XSModelImpl::getElementDeclaration($String* name, $String
 }
 
 $XSElementDeclaration* XSModelImpl::getElementDeclaration($String* name, $String* namespace$, $String* loc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SchemaGrammar, sg, $cast($SchemaGrammar, $nc(this->fGrammarMap)->get($(null2EmptyString(namespace$)))));
 	if (sg == nullptr) {
 		return nullptr;
@@ -698,7 +554,7 @@ $XSElementDeclaration* XSModelImpl::getElementDeclaration($String* name, $String
 }
 
 $XSAttributeGroupDefinition* XSModelImpl::getAttributeGroup($String* name, $String* namespace$) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SchemaGrammar, sg, $cast($SchemaGrammar, $nc(this->fGrammarMap)->get($(null2EmptyString(namespace$)))));
 	if (sg == nullptr) {
 		return nullptr;
@@ -707,7 +563,7 @@ $XSAttributeGroupDefinition* XSModelImpl::getAttributeGroup($String* name, $Stri
 }
 
 $XSAttributeGroupDefinition* XSModelImpl::getAttributeGroup($String* name, $String* namespace$, $String* loc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SchemaGrammar, sg, $cast($SchemaGrammar, $nc(this->fGrammarMap)->get($(null2EmptyString(namespace$)))));
 	if (sg == nullptr) {
 		return nullptr;
@@ -716,7 +572,7 @@ $XSAttributeGroupDefinition* XSModelImpl::getAttributeGroup($String* name, $Stri
 }
 
 $XSModelGroupDefinition* XSModelImpl::getModelGroupDefinition($String* name, $String* namespace$) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SchemaGrammar, sg, $cast($SchemaGrammar, $nc(this->fGrammarMap)->get($(null2EmptyString(namespace$)))));
 	if (sg == nullptr) {
 		return nullptr;
@@ -725,7 +581,7 @@ $XSModelGroupDefinition* XSModelImpl::getModelGroupDefinition($String* name, $St
 }
 
 $XSModelGroupDefinition* XSModelImpl::getModelGroupDefinition($String* name, $String* namespace$, $String* loc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SchemaGrammar, sg, $cast($SchemaGrammar, $nc(this->fGrammarMap)->get($(null2EmptyString(namespace$)))));
 	if (sg == nullptr) {
 		return nullptr;
@@ -734,7 +590,7 @@ $XSModelGroupDefinition* XSModelImpl::getModelGroupDefinition($String* name, $St
 }
 
 $XSIDCDefinition* XSModelImpl::getIDCDefinition($String* name, $String* namespace$) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SchemaGrammar, sg, $cast($SchemaGrammar, $nc(this->fGrammarMap)->get($(null2EmptyString(namespace$)))));
 	if (sg == nullptr) {
 		return nullptr;
@@ -743,7 +599,7 @@ $XSIDCDefinition* XSModelImpl::getIDCDefinition($String* name, $String* namespac
 }
 
 $XSIDCDefinition* XSModelImpl::getIDCDefinition($String* name, $String* namespace$, $String* loc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SchemaGrammar, sg, $cast($SchemaGrammar, $nc(this->fGrammarMap)->get($(null2EmptyString(namespace$)))));
 	if (sg == nullptr) {
 		return nullptr;
@@ -752,7 +608,7 @@ $XSIDCDefinition* XSModelImpl::getIDCDefinition($String* name, $String* namespac
 }
 
 $XSNotationDeclaration* XSModelImpl::getNotationDeclaration($String* name, $String* namespace$) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SchemaGrammar, sg, $cast($SchemaGrammar, $nc(this->fGrammarMap)->get($(null2EmptyString(namespace$)))));
 	if (sg == nullptr) {
 		return nullptr;
@@ -761,7 +617,7 @@ $XSNotationDeclaration* XSModelImpl::getNotationDeclaration($String* name, $Stri
 }
 
 $XSNotationDeclaration* XSModelImpl::getNotationDeclaration($String* name, $String* namespace$, $String* loc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SchemaGrammar, sg, $cast($SchemaGrammar, $nc(this->fGrammarMap)->get($(null2EmptyString(namespace$)))));
 	if (sg == nullptr) {
 		return nullptr;
@@ -771,7 +627,7 @@ $XSNotationDeclaration* XSModelImpl::getNotationDeclaration($String* name, $Stri
 
 $XSObjectList* XSModelImpl::getAnnotations() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->fAnnotations != nullptr) {
 			return this->fAnnotations;
 		}
@@ -793,7 +649,7 @@ $XSObjectList* XSModelImpl::getAnnotations() {
 				currPos += currGrammar->fNumAnnotations;
 			}
 		}
-		$set(this, fAnnotations, $new($XSObjectListImpl, $fcast($XSObjectArray, annotations), annotations->length));
+		$set(this, fAnnotations, $new($XSObjectListImpl, $cast($XSObjectArray, annotations), annotations->length));
 		return this->fAnnotations;
 	}
 }
@@ -824,7 +680,7 @@ $XSNamespaceItem* XSModelImpl::item(int32_t index) {
 }
 
 $Object* XSModelImpl::get(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (index >= 0 && index < this->fGrammarCount) {
 		return $of($nc(this->fGrammarList)->get(index));
 	}
@@ -844,7 +700,7 @@ $ListIterator* XSModelImpl::listIterator() {
 }
 
 $ListIterator* XSModelImpl::listIterator(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (index >= 0 && index < this->fGrammarCount) {
 		return listIterator0(index);
 	}
@@ -865,11 +721,11 @@ $ObjectArray* XSModelImpl::toArray($ObjectArray* a$renamed) {
 	$var($ObjectArray, a, a$renamed);
 	if ($nc(a)->length < this->fGrammarCount) {
 		$Class* arrayClass = $of(a)->getClass();
-		$Class* componentType = $nc(arrayClass)->getComponentType();
+		$Class* componentType = arrayClass->getComponentType();
 		$assign(a, $cast($ObjectArray, $1Array::newInstance(componentType, this->fGrammarCount)));
 	}
 	toArray0(a);
-	if ($nc(a)->length > this->fGrammarCount) {
+	if (a->length > this->fGrammarCount) {
 		a->set(this->fGrammarCount, nullptr);
 	}
 	return a;
@@ -881,7 +737,7 @@ void XSModelImpl::toArray0($ObjectArray* a) {
 	}
 }
 
-void clinit$XSModelImpl($Class* class$) {
+void XSModelImpl::clinit$($Class* clazz) {
 	$assignStatic(XSModelImpl::GLOBAL_COMP, $new($booleans, {
 		false,
 		true,
@@ -907,7 +763,112 @@ XSModelImpl::XSModelImpl() {
 }
 
 $Class* XSModelImpl::load$($String* name, bool initialize) {
-	$loadClass(XSModelImpl, name, initialize, &_XSModelImpl_ClassInfo_, clinit$XSModelImpl, allocate$XSModelImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_COMP_IDX", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSModelImpl, MAX_COMP_IDX)},
+		{"GLOBAL_COMP", "[Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSModelImpl, GLOBAL_COMP)},
+		{"fGrammarCount", "I", nullptr, $PRIVATE | $FINAL, $field(XSModelImpl, fGrammarCount)},
+		{"fNamespaces", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(XSModelImpl, fNamespaces)},
+		{"fGrammarList", "[Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;", nullptr, $PRIVATE | $FINAL, $field(XSModelImpl, fGrammarList)},
+		{"fGrammarMap", "Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, $PRIVATE | $FINAL, $field(XSModelImpl, fGrammarMap)},
+		{"fSubGroupMap", "Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, $PRIVATE | $FINAL, $field(XSModelImpl, fSubGroupMap)},
+		{"fGlobalComponents", "[Lcom/sun/org/apache/xerces/internal/xs/XSNamedMap;", nullptr, $PRIVATE | $FINAL, $field(XSModelImpl, fGlobalComponents)},
+		{"fNSComponents", "[[Lcom/sun/org/apache/xerces/internal/xs/XSNamedMap;", nullptr, $PRIVATE | $FINAL, $field(XSModelImpl, fNSComponents)},
+		{"fNamespacesList", "Lcom/sun/org/apache/xerces/internal/xs/StringList;", nullptr, $PRIVATE | $FINAL, $field(XSModelImpl, fNamespacesList)},
+		{"fAnnotations", "Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PRIVATE, $field(XSModelImpl, fAnnotations)},
+		{"fHasIDC", "Z", nullptr, $PRIVATE | $FINAL, $field(XSModelImpl, fHasIDC)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*add", "(ILjava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*addAll", "(ILjava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"*indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
+		{"<init>", "([Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PUBLIC, $method(XSModelImpl, init$, void, $SchemaGrammarArray*)},
+		{"<init>", "([Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;S)V", nullptr, $PUBLIC, $method(XSModelImpl, init$, void, $SchemaGrammarArray*, int16_t)},
+		{"buildSubGroups", "()Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, $PRIVATE, $method(XSModelImpl, buildSubGroups, $SymbolHash*)},
+		{"buildSubGroups_Org", "()Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, $PRIVATE, $method(XSModelImpl, buildSubGroups_Org, $SymbolHash*)},
+		{"get", "(I)Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, get, $Object*, int32_t)},
+		{"getAnnotations", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XSModelImpl, getAnnotations, $XSObjectList*)},
+		{"getAttributeDeclaration", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSAttributeDeclaration;", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, getAttributeDeclaration, $XSAttributeDeclaration*, $String*, $String*)},
+		{"getAttributeDeclaration", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSAttributeDeclaration;", nullptr, $PUBLIC, $method(XSModelImpl, getAttributeDeclaration, $XSAttributeDeclaration*, $String*, $String*, $String*)},
+		{"getAttributeGroup", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSAttributeGroupDefinition;", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, getAttributeGroup, $XSAttributeGroupDefinition*, $String*, $String*)},
+		{"getAttributeGroup", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSAttributeGroupDefinition;", nullptr, $PUBLIC, $method(XSModelImpl, getAttributeGroup, $XSAttributeGroupDefinition*, $String*, $String*, $String*)},
+		{"getComponents", "(S)Lcom/sun/org/apache/xerces/internal/xs/XSNamedMap;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XSModelImpl, getComponents, $XSNamedMap*, int16_t)},
+		{"getComponentsByNamespace", "(SLjava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSNamedMap;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XSModelImpl, getComponentsByNamespace, $XSNamedMap*, int16_t, $String*)},
+		{"getElementDeclaration", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSElementDeclaration;", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, getElementDeclaration, $XSElementDeclaration*, $String*, $String*)},
+		{"getElementDeclaration", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSElementDeclaration;", nullptr, $PUBLIC, $method(XSModelImpl, getElementDeclaration, $XSElementDeclaration*, $String*, $String*, $String*)},
+		{"getGlobalElements", "()Lcom/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl;", nullptr, $PRIVATE, $method(XSModelImpl, getGlobalElements, $XSObjectListImpl*)},
+		{"getIDCDefinition", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSIDCDefinition;", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, getIDCDefinition, $XSIDCDefinition*, $String*, $String*)},
+		{"getIDCDefinition", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSIDCDefinition;", nullptr, $PUBLIC, $method(XSModelImpl, getIDCDefinition, $XSIDCDefinition*, $String*, $String*, $String*)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, getLength, int32_t)},
+		{"getModelGroupDefinition", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSModelGroupDefinition;", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, getModelGroupDefinition, $XSModelGroupDefinition*, $String*, $String*)},
+		{"getModelGroupDefinition", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSModelGroupDefinition;", nullptr, $PUBLIC, $method(XSModelImpl, getModelGroupDefinition, $XSModelGroupDefinition*, $String*, $String*, $String*)},
+		{"getNamespaceItems", "()Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItemList;", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, getNamespaceItems, $XSNamespaceItemList*)},
+		{"getNamespaces", "()Lcom/sun/org/apache/xerces/internal/xs/StringList;", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, getNamespaces, $StringList*)},
+		{"getNotationDeclaration", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSNotationDeclaration;", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, getNotationDeclaration, $XSNotationDeclaration*, $String*, $String*)},
+		{"getNotationDeclaration", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSNotationDeclaration;", nullptr, $PUBLIC, $method(XSModelImpl, getNotationDeclaration, $XSNotationDeclaration*, $String*, $String*, $String*)},
+		{"getSubstitutionGroup", "(Lcom/sun/org/apache/xerces/internal/xs/XSElementDeclaration;)Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, getSubstitutionGroup, $XSObjectList*, $XSElementDeclaration*)},
+		{"getTypeDefinition", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, getTypeDefinition, $XSTypeDefinition*, $String*, $String*)},
+		{"getTypeDefinition", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;", nullptr, $PUBLIC, $method(XSModelImpl, getTypeDefinition, $XSTypeDefinition*, $String*, $String*, $String*)},
+		{"hasIDConstraints", "()Z", nullptr, $PUBLIC, $method(XSModelImpl, hasIDConstraints, bool)},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"item", "(I)Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, item, $XSNamespaceItem*, int32_t)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;>;", $PUBLIC, $virtualMethod(XSModelImpl, iterator, $Iterator*)},
+		{"*lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
+		{"listIterator", "()Ljava/util/ListIterator;", "()Ljava/util/ListIterator<Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;>;", $PUBLIC, $virtualMethod(XSModelImpl, listIterator, $ListIterator*)},
+		{"listIterator", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;>;", $PUBLIC, $virtualMethod(XSModelImpl, listIterator, $ListIterator*, int32_t)},
+		{"listIterator0", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;>;", $PRIVATE, $method(XSModelImpl, listIterator0, $ListIterator*, int32_t)},
+		{"null2EmptyString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(XSModelImpl, null2EmptyString, $String*, $String*)},
+		{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*remove", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*replaceAll", "(Ljava/util/function/UnaryOperator;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*set", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, size, int32_t)},
+		{"*sort", "(Ljava/util/Comparator;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*subList", "(II)Ljava/util/List;", nullptr, $PUBLIC},
+		{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSModelImpl, toArray, $ObjectArray*, $ObjectArray*)},
+		{"toArray0", "([Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(XSModelImpl, toArray0, void, $ObjectArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xs.XSModelImpl$XSNamespaceItemListIterator", "com.sun.org.apache.xerces.internal.impl.xs.XSModelImpl", "XSNamespaceItemListIterator", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.XSModelImpl",
+		"java.util.AbstractList",
+		"com.sun.org.apache.xerces.internal.xs.XSModel,com.sun.org.apache.xerces.internal.xs.XSNamespaceItemList",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractList<Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;>;Lcom/sun/org/apache/xerces/internal/xs/XSModel;Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItemList;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xs.XSModelImpl$XSNamespaceItemListIterator"
+	};
+	$loadClass(XSModelImpl, name, initialize, &classInfo$$, XSModelImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XSModelImpl));
+	});
 	return class$;
 }
 

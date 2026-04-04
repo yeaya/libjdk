@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsComboBoxUI$XPComboBoxButton.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
 #include <com/sun/java/swing/plaf/windows/WindowsComboBoxUI.h>
@@ -28,7 +27,6 @@ using $TMSchema$State = ::com::sun::java::swing::plaf::windows::TMSchema$State;
 using $WindowsComboBoxUI = ::com::sun::java::swing::plaf::windows::WindowsComboBoxUI;
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $XPStyle$GlyphButton = ::com::sun::java::swing::plaf::windows::XPStyle$GlyphButton;
-using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $Component = ::java::awt::Component;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Dimension = ::java::awt::Dimension;
@@ -36,8 +34,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ButtonModel = ::javax::swing::ButtonModel;
-using $JComboBox = ::javax::swing::JComboBox;
 
 namespace com {
 	namespace sun {
@@ -46,67 +42,26 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsComboBoxUI$XPComboBoxButton_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsComboBoxUI$XPComboBoxButton, this$0)},
-	{"prevState", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PRIVATE, $field(WindowsComboBoxUI$XPComboBoxButton, prevState)},
-	{}
-};
-
-$MethodInfo _WindowsComboBoxUI$XPComboBoxButton_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;Lcom/sun/java/swing/plaf/windows/XPStyle;)V", nullptr, $PUBLIC, $method(WindowsComboBoxUI$XPComboBoxButton, init$, void, $WindowsComboBoxUI*, $XPStyle*)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsComboBoxUI$XPComboBoxButton, getPreferredSize, $Dimension*)},
-	{"getState", "()Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PROTECTED, $virtualMethod(WindowsComboBoxUI$XPComboBoxButton, getState, $TMSchema$State*)},
-	{"getWindowsComboBoxUI", "()Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;", nullptr, 0, $virtualMethod(WindowsComboBoxUI$XPComboBoxButton, getWindowsComboBoxUI, $WindowsComboBoxUI*)},
-	{"setPart", "(Lcom/sun/java/swing/plaf/windows/TMSchema$Part;)V", nullptr, 0, $virtualMethod(WindowsComboBoxUI$XPComboBoxButton, setPart, void, $TMSchema$Part*)},
-	{}
-};
-
-$InnerClassInfo _WindowsComboBoxUI$XPComboBoxButton_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$XPComboBoxButton", "com.sun.java.swing.plaf.windows.WindowsComboBoxUI", "XPComboBoxButton", $PRIVATE},
-	{"com.sun.java.swing.plaf.windows.XPStyle$GlyphButton", "com.sun.java.swing.plaf.windows.XPStyle", "GlyphButton", $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsComboBoxUI$XPComboBoxButton_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$XPComboBoxButton",
-	"com.sun.java.swing.plaf.windows.XPStyle$GlyphButton",
-	nullptr,
-	_WindowsComboBoxUI$XPComboBoxButton_FieldInfo_,
-	_WindowsComboBoxUI$XPComboBoxButton_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsComboBoxUI$XPComboBoxButton_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsComboBoxUI"
-};
-
-$Object* allocate$WindowsComboBoxUI$XPComboBoxButton($Class* clazz) {
-	return $of($alloc(WindowsComboBoxUI$XPComboBoxButton));
-}
-
 void WindowsComboBoxUI$XPComboBoxButton::init$($WindowsComboBoxUI* this$0, $XPStyle* xp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
-	$var($Component, var$0, static_cast<$Component*>($WindowsComboBoxUI::access$1000(this$0)));
+	$var($Component, var$0, $WindowsComboBoxUI::access$1000(this$0));
 	$init($TMSchema$Part);
 	$init($ComponentOrientation);
-	$XPStyle$GlyphButton::init$(var$0, (!$nc(xp)->isSkinDefined($($WindowsComboBoxUI::access$1100(this$0)), $TMSchema$Part::CP_DROPDOWNBUTTONRIGHT)) ? $TMSchema$Part::CP_DROPDOWNBUTTON : ($nc($($WindowsComboBoxUI::access$1200(this$0)))->getComponentOrientation() == $ComponentOrientation::RIGHT_TO_LEFT) ? $TMSchema$Part::CP_DROPDOWNBUTTONLEFT : $TMSchema$Part::CP_DROPDOWNBUTTONRIGHT);
+	$XPStyle$GlyphButton::init$(var$0, (!$nc(xp)->isSkinDefined($($WindowsComboBoxUI::access$1100(this$0)), $TMSchema$Part::CP_DROPDOWNBUTTONRIGHT)) ? $TMSchema$Part::CP_DROPDOWNBUTTON : ($$nc($WindowsComboBoxUI::access$1200(this$0))->getComponentOrientation() == $ComponentOrientation::RIGHT_TO_LEFT) ? $TMSchema$Part::CP_DROPDOWNBUTTONLEFT : $TMSchema$Part::CP_DROPDOWNBUTTONRIGHT);
 	$set(this, prevState, nullptr);
 	setRequestFocusEnabled(false);
 }
 
 $TMSchema$State* WindowsComboBoxUI$XPComboBoxButton::getState() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$TMSchema$State* rv = nullptr;
-	$nc($(getModel()))->setPressed($nc($($WindowsComboBoxUI::access$1300(this->this$0)))->isPopupVisible());
+	$$nc(getModel())->setPressed($$nc($WindowsComboBoxUI::access$1300(this->this$0))->isPopupVisible());
 	rv = $XPStyle$GlyphButton::getState();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	$init($TMSchema$State);
 	bool var$1 = rv != $TMSchema$State::DISABLED && $WindowsComboBoxUI::access$1400(this->this$0) != nullptr;
-	bool var$0 = var$1 && !$nc($($WindowsComboBoxUI::access$1500(this->this$0)))->isEditable() && xp != nullptr;
+	bool var$0 = var$1 && !$$nc($WindowsComboBoxUI::access$1500(this->this$0))->isEditable() && xp != nullptr;
 	$init($TMSchema$Part);
 	if (var$0 && xp->isSkinDefined($($WindowsComboBoxUI::access$1600(this->this$0)), $TMSchema$Part::CP_DROPDOWNBUTTONRIGHT)) {
 		rv = $TMSchema$State::NORMAL;
@@ -136,7 +91,42 @@ WindowsComboBoxUI$XPComboBoxButton::WindowsComboBoxUI$XPComboBoxButton() {
 }
 
 $Class* WindowsComboBoxUI$XPComboBoxButton::load$($String* name, bool initialize) {
-	$loadClass(WindowsComboBoxUI$XPComboBoxButton, name, initialize, &_WindowsComboBoxUI$XPComboBoxButton_ClassInfo_, allocate$WindowsComboBoxUI$XPComboBoxButton);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsComboBoxUI$XPComboBoxButton, this$0)},
+		{"prevState", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PRIVATE, $field(WindowsComboBoxUI$XPComboBoxButton, prevState)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;Lcom/sun/java/swing/plaf/windows/XPStyle;)V", nullptr, $PUBLIC, $method(WindowsComboBoxUI$XPComboBoxButton, init$, void, $WindowsComboBoxUI*, $XPStyle*)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsComboBoxUI$XPComboBoxButton, getPreferredSize, $Dimension*)},
+		{"getState", "()Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PROTECTED, $virtualMethod(WindowsComboBoxUI$XPComboBoxButton, getState, $TMSchema$State*)},
+		{"getWindowsComboBoxUI", "()Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;", nullptr, 0, $virtualMethod(WindowsComboBoxUI$XPComboBoxButton, getWindowsComboBoxUI, $WindowsComboBoxUI*)},
+		{"setPart", "(Lcom/sun/java/swing/plaf/windows/TMSchema$Part;)V", nullptr, 0, $virtualMethod(WindowsComboBoxUI$XPComboBoxButton, setPart, void, $TMSchema$Part*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$XPComboBoxButton", "com.sun.java.swing.plaf.windows.WindowsComboBoxUI", "XPComboBoxButton", $PRIVATE},
+		{"com.sun.java.swing.plaf.windows.XPStyle$GlyphButton", "com.sun.java.swing.plaf.windows.XPStyle", "GlyphButton", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$XPComboBoxButton",
+		"com.sun.java.swing.plaf.windows.XPStyle$GlyphButton",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsComboBoxUI"
+	};
+	$loadClass(WindowsComboBoxUI$XPComboBoxButton, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsComboBoxUI$XPComboBoxButton));
+	});
 	return class$;
 }
 

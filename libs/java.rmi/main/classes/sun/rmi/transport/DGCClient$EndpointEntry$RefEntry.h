@@ -28,6 +28,7 @@ class DGCClient$EndpointEntry$RefEntry : public ::java::lang::Object {
 	$class(DGCClient$EndpointEntry$RefEntry, 0, ::java::lang::Object)
 public:
 	DGCClient$EndpointEntry$RefEntry();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::rmi::transport::DGCClient$EndpointEntry* this$0, ::sun::rmi::transport::LiveRef* ref);
 	virtual void addInstanceToRefSet(::sun::rmi::transport::LiveRef* ref);
 	virtual ::sun::rmi::transport::LiveRef* getRef();

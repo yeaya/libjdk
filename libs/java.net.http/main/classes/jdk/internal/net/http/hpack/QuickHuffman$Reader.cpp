@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/hpack/QuickHuffman$Reader.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Appendable.h>
@@ -48,89 +47,41 @@ public:
 	virtual void accept(int64_t buf, int32_t bufLen) override {
 		$nc(inst$)->lambda$new$0(buf, bufLen);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<QuickHuffman$Reader$$Lambda$lambda$new$0>());
-	}
 	QuickHuffman$Reader* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo QuickHuffman$Reader$$Lambda$lambda$new$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(QuickHuffman$Reader$$Lambda$lambda$new$0, inst$)},
-	{}
-};
-$MethodInfo QuickHuffman$Reader$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/QuickHuffman$Reader;)V", nullptr, $PUBLIC, $method(QuickHuffman$Reader$$Lambda$lambda$new$0, init$, void, QuickHuffman$Reader*)},
-	{"accept", "(JI)V", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$Reader$$Lambda$lambda$new$0, accept, void, int64_t, int32_t)},
-	{}
-};
-$ClassInfo QuickHuffman$Reader$$Lambda$lambda$new$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.hpack.QuickHuffman$Reader$$Lambda$lambda$new$0",
-	"java.lang.Object",
-	"jdk.internal.net.http.hpack.HPACK$BufferUpdateConsumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* QuickHuffman$Reader$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
-	$loadClass(QuickHuffman$Reader$$Lambda$lambda$new$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(QuickHuffman$Reader$$Lambda$lambda$new$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/hpack/QuickHuffman$Reader;)V", nullptr, $PUBLIC, $method(QuickHuffman$Reader$$Lambda$lambda$new$0, init$, void, QuickHuffman$Reader*)},
+		{"accept", "(JI)V", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$Reader$$Lambda$lambda$new$0, accept, void, int64_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.hpack.QuickHuffman$Reader$$Lambda$lambda$new$0",
+		"java.lang.Object",
+		"jdk.internal.net.http.hpack.HPACK$BufferUpdateConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(QuickHuffman$Reader$$Lambda$lambda$new$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(QuickHuffman$Reader$$Lambda$lambda$new$0);
+	});
 	return class$;
 }
 $Class* QuickHuffman$Reader$$Lambda$lambda$new$0::class$ = nullptr;
 
-$FieldInfo _QuickHuffman$Reader_FieldInfo_[] = {
-	{"UPDATER", "Ljdk/internal/net/http/hpack/HPACK$BufferUpdateConsumer;", nullptr, $PRIVATE | $FINAL, $field(QuickHuffman$Reader, UPDATER)},
-	{"curr", "Ljdk/internal/net/http/hpack/QuickHuffman$Node;", nullptr, $PRIVATE, $field(QuickHuffman$Reader, curr)},
-	{"buffer", "J", nullptr, $PRIVATE, $field(QuickHuffman$Reader, buffer)},
-	{"bufferLen", "I", nullptr, $PRIVATE, $field(QuickHuffman$Reader, bufferLen)},
-	{"len", "I", nullptr, $PRIVATE, $field(QuickHuffman$Reader, len)},
-	{"done", "Z", nullptr, $PRIVATE, $field(QuickHuffman$Reader, done)},
-	{}
-};
-
-$MethodInfo _QuickHuffman$Reader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(QuickHuffman$Reader, init$, void)},
-	{"lambda$new$0", "(JI)V", nullptr, $PRIVATE | $SYNTHETIC, $method(QuickHuffman$Reader, lambda$new$0, void, int64_t, int32_t)},
-	{"read", "(Ljava/nio/ByteBuffer;Ljava/lang/Appendable;Z)V", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$Reader, read, void, $ByteBuffer*, $Appendable*, bool), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$Reader, reset, void)},
-	{}
-};
-
-$InnerClassInfo _QuickHuffman$Reader_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.hpack.QuickHuffman$Reader", "jdk.internal.net.http.hpack.QuickHuffman", "Reader", $STATIC | $FINAL},
-	{"jdk.internal.net.http.hpack.Huffman$Reader", "jdk.internal.net.http.hpack.Huffman", "Reader", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _QuickHuffman$Reader_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.hpack.QuickHuffman$Reader",
-	"java.lang.Object",
-	"jdk.internal.net.http.hpack.Huffman$Reader",
-	_QuickHuffman$Reader_FieldInfo_,
-	_QuickHuffman$Reader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_QuickHuffman$Reader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.hpack.QuickHuffman"
-};
-
-$Object* allocate$QuickHuffman$Reader($Class* clazz) {
-	return $of($alloc(QuickHuffman$Reader));
-}
-
 void QuickHuffman$Reader::init$() {
-	$set(this, UPDATER, static_cast<$HPACK$BufferUpdateConsumer*>($new(QuickHuffman$Reader$$Lambda$lambda$new$0, this)));
+	$set(this, UPDATER, $new(QuickHuffman$Reader$$Lambda$lambda$new$0, this));
 	$init($QuickHuffman);
 	$set(this, curr, $QuickHuffman::root);
 }
 
 void QuickHuffman$Reader::read($ByteBuffer* source, $Appendable* destination, bool isLast) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (!this->done) {
 		int32_t remaining = $nc(source)->remaining();
 		int32_t nBytes = $HPACK::read(source, this->buffer, this->bufferLen, this->UPDATER);
@@ -141,7 +92,7 @@ void QuickHuffman$Reader::read($ByteBuffer* source, $Appendable* destination, bo
 				} else if (!isLast) {
 					return;
 				} else if (this->bufferLen > 0) {
-					this->buffer |= ((int64_t)(($usr((int64_t)0xFF00000000000000, this->bufferLen)) & (uint64_t)(int64_t)0xFF00000000000000));
+					this->buffer |= (($usr((int64_t)0xff00000000000000, this->bufferLen)) & (int64_t)0xff00000000000000);
 				} else {
 					this->done = true;
 					break;
@@ -167,7 +118,7 @@ void QuickHuffman$Reader::read($ByteBuffer* source, $Appendable* destination, bo
 				$set(this, curr, node);
 				this->len += $Math::min(this->bufferLen, node->getLength());
 			}
-			this->buffer <<= $nc(node)->getLength();
+			this->buffer <<= node->getLength();
 			this->bufferLen -= node->getLength();
 		}
 		if (this->done && ($nc(this->curr)->isEOSPath() && this->len > 7)) {
@@ -195,11 +146,49 @@ QuickHuffman$Reader::QuickHuffman$Reader() {
 
 $Class* QuickHuffman$Reader::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(QuickHuffman$Reader$$Lambda$lambda$new$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.hpack.QuickHuffman$Reader$$Lambda$lambda$new$0")) {
 			return QuickHuffman$Reader$$Lambda$lambda$new$0::load$(name, initialize);
 		}
 	}
-	$loadClass(QuickHuffman$Reader, name, initialize, &_QuickHuffman$Reader_ClassInfo_, allocate$QuickHuffman$Reader);
+	$FieldInfo fieldInfos$$[] = {
+		{"UPDATER", "Ljdk/internal/net/http/hpack/HPACK$BufferUpdateConsumer;", nullptr, $PRIVATE | $FINAL, $field(QuickHuffman$Reader, UPDATER)},
+		{"curr", "Ljdk/internal/net/http/hpack/QuickHuffman$Node;", nullptr, $PRIVATE, $field(QuickHuffman$Reader, curr)},
+		{"buffer", "J", nullptr, $PRIVATE, $field(QuickHuffman$Reader, buffer)},
+		{"bufferLen", "I", nullptr, $PRIVATE, $field(QuickHuffman$Reader, bufferLen)},
+		{"len", "I", nullptr, $PRIVATE, $field(QuickHuffman$Reader, len)},
+		{"done", "Z", nullptr, $PRIVATE, $field(QuickHuffman$Reader, done)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(QuickHuffman$Reader, init$, void)},
+		{"lambda$new$0", "(JI)V", nullptr, $PRIVATE | $SYNTHETIC, $method(QuickHuffman$Reader, lambda$new$0, void, int64_t, int32_t)},
+		{"read", "(Ljava/nio/ByteBuffer;Ljava/lang/Appendable;Z)V", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$Reader, read, void, $ByteBuffer*, $Appendable*, bool), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$Reader, reset, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.hpack.QuickHuffman$Reader", "jdk.internal.net.http.hpack.QuickHuffman", "Reader", $STATIC | $FINAL},
+		{"jdk.internal.net.http.hpack.Huffman$Reader", "jdk.internal.net.http.hpack.Huffman", "Reader", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.hpack.QuickHuffman$Reader",
+		"java.lang.Object",
+		"jdk.internal.net.http.hpack.Huffman$Reader",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.hpack.QuickHuffman"
+	};
+	$loadClass(QuickHuffman$Reader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(QuickHuffman$Reader);
+	});
 	return class$;
 }
 

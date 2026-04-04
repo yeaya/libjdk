@@ -274,6 +274,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::com::sun::org::apache::xerces::internal::impl::dv::xs::XSSimpleTypeDecl* base, $String* name, int16_t validateDV, int16_t ordered, bool bounded, bool finite, bool numeric, bool isImmutable, int16_t builtInKind);
 	void init$(::com::sun::org::apache::xerces::internal::impl::dv::xs::XSSimpleTypeDecl* base, $String* name, $String* uri, int16_t finalSet, bool isImmutable, ::com::sun::org::apache::xerces::internal::xs::XSObjectList* annotations, int16_t builtInKind);

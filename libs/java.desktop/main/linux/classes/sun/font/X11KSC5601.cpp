@@ -1,5 +1,4 @@
 #include <sun/font/X11KSC5601.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -18,39 +17,6 @@ using $X11KSC5601$Encoder = ::sun::font::X11KSC5601$Encoder;
 
 namespace sun {
 	namespace font {
-
-$MethodInfo _X11KSC5601_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(X11KSC5601, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(X11KSC5601, contains, bool, $Charset*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(X11KSC5601, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(X11KSC5601, newEncoder, $CharsetEncoder*)},
-	{}
-};
-
-$InnerClassInfo _X11KSC5601_InnerClassesInfo_[] = {
-	{"sun.font.X11KSC5601$Decoder", "sun.font.X11KSC5601", "Decoder", $PRIVATE},
-	{"sun.font.X11KSC5601$Encoder", "sun.font.X11KSC5601", "Encoder", $PRIVATE},
-	{}
-};
-
-$ClassInfo _X11KSC5601_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.font.X11KSC5601",
-	"java.nio.charset.Charset",
-	nullptr,
-	nullptr,
-	_X11KSC5601_MethodInfo_,
-	nullptr,
-	nullptr,
-	_X11KSC5601_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.font.X11KSC5601$Decoder,sun.font.X11KSC5601$Encoder"
-};
-
-$Object* allocate$X11KSC5601($Class* clazz) {
-	return $of($alloc(X11KSC5601));
-}
 
 void X11KSC5601::init$() {
 	$Charset::init$("X11KSC5601"_s, nullptr);
@@ -72,7 +38,35 @@ X11KSC5601::X11KSC5601() {
 }
 
 $Class* X11KSC5601::load$($String* name, bool initialize) {
-	$loadClass(X11KSC5601, name, initialize, &_X11KSC5601_ClassInfo_, allocate$X11KSC5601);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(X11KSC5601, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(X11KSC5601, contains, bool, $Charset*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(X11KSC5601, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(X11KSC5601, newEncoder, $CharsetEncoder*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.X11KSC5601$Decoder", "sun.font.X11KSC5601", "Decoder", $PRIVATE},
+		{"sun.font.X11KSC5601$Encoder", "sun.font.X11KSC5601", "Encoder", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.font.X11KSC5601",
+		"java.nio.charset.Charset",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.font.X11KSC5601$Decoder,sun.font.X11KSC5601$Encoder"
+	};
+	$loadClass(X11KSC5601, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(X11KSC5601);
+	});
 	return class$;
 }
 

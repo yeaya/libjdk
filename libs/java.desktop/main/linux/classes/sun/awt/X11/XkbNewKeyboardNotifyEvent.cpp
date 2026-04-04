@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XkbNewKeyboardNotifyEvent.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,80 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XkbNewKeyboardNotifyEvent_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XkbNewKeyboardNotifyEvent, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XkbNewKeyboardNotifyEvent, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XkbNewKeyboardNotifyEvent, pData)},
-	{}
-};
-
-$MethodInfo _XkbNewKeyboardNotifyEvent_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XkbNewKeyboardNotifyEvent, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XkbNewKeyboardNotifyEvent, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbNewKeyboardNotifyEvent, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbNewKeyboardNotifyEvent, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbNewKeyboardNotifyEvent, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XkbNewKeyboardNotifyEvent, getSize, int32_t)},
-	{"get_changed", "()I", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_changed, int32_t)},
-	{"get_device", "()I", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_device, int32_t)},
-	{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_display, int64_t)},
-	{"get_max_key_code", "()I", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_max_key_code, int32_t)},
-	{"get_min_key_code", "()I", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_min_key_code, int32_t)},
-	{"get_old_device", "()I", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_old_device, int32_t)},
-	{"get_old_max_key_code", "()I", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_old_max_key_code, int32_t)},
-	{"get_old_min_key_code", "()I", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_old_min_key_code, int32_t)},
-	{"get_req_major", "()B", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_req_major, int8_t)},
-	{"get_req_minor", "()B", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_req_minor, int8_t)},
-	{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_send_event, bool)},
-	{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_serial, int64_t)},
-	{"get_time", "()J", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_time, int64_t)},
-	{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_type, int32_t)},
-	{"get_xkb_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_xkb_type, int32_t)},
-	{"set_changed", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_changed, void, int32_t)},
-	{"set_device", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_device, void, int32_t)},
-	{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_display, void, int64_t)},
-	{"set_max_key_code", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_max_key_code, void, int32_t)},
-	{"set_min_key_code", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_min_key_code, void, int32_t)},
-	{"set_old_device", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_old_device, void, int32_t)},
-	{"set_old_max_key_code", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_old_max_key_code, void, int32_t)},
-	{"set_old_min_key_code", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_old_min_key_code, void, int32_t)},
-	{"set_req_major", "(B)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_req_major, void, int8_t)},
-	{"set_req_minor", "(B)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_req_minor, void, int8_t)},
-	{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_send_event, void, bool)},
-	{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_serial, void, int64_t)},
-	{"set_time", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_time, void, int64_t)},
-	{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_type, void, int32_t)},
-	{"set_xkb_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_xkb_type, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbNewKeyboardNotifyEvent, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbNewKeyboardNotifyEvent, zero, void)},
-	{}
-};
-
-$ClassInfo _XkbNewKeyboardNotifyEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XkbNewKeyboardNotifyEvent",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XkbNewKeyboardNotifyEvent_FieldInfo_,
-	_XkbNewKeyboardNotifyEvent_MethodInfo_
-};
-
-$Object* allocate$XkbNewKeyboardNotifyEvent($Class* clazz) {
-	return $of($alloc(XkbNewKeyboardNotifyEvent));
-}
 
 int32_t XkbNewKeyboardNotifyEvent::getSize() {
 	$init(XkbNewKeyboardNotifyEvent);
@@ -123,7 +55,7 @@ void XkbNewKeyboardNotifyEvent::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -334,7 +266,7 @@ $String* XkbNewKeyboardNotifyEvent::getFieldsAsString() {
 }
 
 $Object* XkbNewKeyboardNotifyEvent::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XkbNewKeyboardNotifyEvent::zero() {
@@ -349,7 +281,67 @@ XkbNewKeyboardNotifyEvent::XkbNewKeyboardNotifyEvent() {
 }
 
 $Class* XkbNewKeyboardNotifyEvent::load$($String* name, bool initialize) {
-	$loadClass(XkbNewKeyboardNotifyEvent, name, initialize, &_XkbNewKeyboardNotifyEvent_ClassInfo_, allocate$XkbNewKeyboardNotifyEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XkbNewKeyboardNotifyEvent, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XkbNewKeyboardNotifyEvent, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XkbNewKeyboardNotifyEvent, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XkbNewKeyboardNotifyEvent, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XkbNewKeyboardNotifyEvent, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbNewKeyboardNotifyEvent, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbNewKeyboardNotifyEvent, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbNewKeyboardNotifyEvent, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XkbNewKeyboardNotifyEvent, getSize, int32_t)},
+		{"get_changed", "()I", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_changed, int32_t)},
+		{"get_device", "()I", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_device, int32_t)},
+		{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_display, int64_t)},
+		{"get_max_key_code", "()I", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_max_key_code, int32_t)},
+		{"get_min_key_code", "()I", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_min_key_code, int32_t)},
+		{"get_old_device", "()I", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_old_device, int32_t)},
+		{"get_old_max_key_code", "()I", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_old_max_key_code, int32_t)},
+		{"get_old_min_key_code", "()I", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_old_min_key_code, int32_t)},
+		{"get_req_major", "()B", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_req_major, int8_t)},
+		{"get_req_minor", "()B", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_req_minor, int8_t)},
+		{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_send_event, bool)},
+		{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_serial, int64_t)},
+		{"get_time", "()J", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_time, int64_t)},
+		{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_type, int32_t)},
+		{"get_xkb_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, get_xkb_type, int32_t)},
+		{"set_changed", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_changed, void, int32_t)},
+		{"set_device", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_device, void, int32_t)},
+		{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_display, void, int64_t)},
+		{"set_max_key_code", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_max_key_code, void, int32_t)},
+		{"set_min_key_code", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_min_key_code, void, int32_t)},
+		{"set_old_device", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_old_device, void, int32_t)},
+		{"set_old_max_key_code", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_old_max_key_code, void, int32_t)},
+		{"set_old_min_key_code", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_old_min_key_code, void, int32_t)},
+		{"set_req_major", "(B)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_req_major, void, int8_t)},
+		{"set_req_minor", "(B)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_req_minor, void, int8_t)},
+		{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_send_event, void, bool)},
+		{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_serial, void, int64_t)},
+		{"set_time", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_time, void, int64_t)},
+		{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_type, void, int32_t)},
+		{"set_xkb_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbNewKeyboardNotifyEvent, set_xkb_type, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbNewKeyboardNotifyEvent, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbNewKeyboardNotifyEvent, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XkbNewKeyboardNotifyEvent",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XkbNewKeyboardNotifyEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XkbNewKeyboardNotifyEvent);
+	});
 	return class$;
 }
 

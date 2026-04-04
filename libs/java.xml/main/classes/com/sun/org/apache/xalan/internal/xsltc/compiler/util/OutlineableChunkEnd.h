@@ -38,6 +38,7 @@ class OutlineableChunkEnd : public ::com::sun::org::apache::xalan::internal::xsl
 	$class(OutlineableChunkEnd, 0, ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::MarkerInstruction)
 public:
 	OutlineableChunkEnd();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* getName() override;
 	using ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::MarkerInstruction::toString;

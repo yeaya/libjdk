@@ -14,6 +14,7 @@ class ClientPropertyKey : public ::java::lang::Enum {
 public:
 	ClientPropertyKey();
 	static $Array<::javax::swing::ClientPropertyKey>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	void init$($String* $enum$name, int32_t $enum$ordinal, bool reportValueNotSerializable);
 	virtual bool getReportValueNotSerializable();

@@ -1,5 +1,4 @@
 #include <sun/lwawt/LWCheckboxPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -16,13 +15,11 @@
 #include <java/awt/Point.h>
 #include <java/awt/event/FocusEvent$Cause.h>
 #include <java/awt/event/ItemEvent.h>
-#include <java/awt/event/ItemListener.h>
 #include <java/awt/event/PaintEvent.h>
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/VolatileImage.h>
 #include <java/awt/peer/ComponentPeer.h>
 #include <java/awt/peer/ContainerPeer.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JToggleButton.h>
 #include <javax/swing/SwingUtilities.h>
@@ -49,7 +46,6 @@ using $Image = ::java::awt::Image;
 using $Point = ::java::awt::Point;
 using $FocusEvent$Cause = ::java::awt::event::FocusEvent$Cause;
 using $ItemEvent = ::java::awt::event::ItemEvent;
-using $ItemListener = ::java::awt::event::ItemListener;
 using $PaintEvent = ::java::awt::event::PaintEvent;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $VolatileImage = ::java::awt::image::VolatileImage;
@@ -58,9 +54,7 @@ using $ContainerPeer = ::java::awt::peer::ContainerPeer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $JComponent = ::javax::swing::JComponent;
-using $JToggleButton = ::javax::swing::JToggleButton;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $Region = ::sun::java2d::pipe::Region;
 using $LWCheckboxPeer$1 = ::sun::lwawt::LWCheckboxPeer$1;
@@ -70,84 +64,6 @@ using $PlatformComponent = ::sun::lwawt::PlatformComponent;
 
 namespace sun {
 	namespace lwawt {
-
-$MethodInfo _LWCheckboxPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC | $FINAL},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC | $FINAL},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC | $FINAL},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC | $FINAL},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
-	{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Checkbox;Lsun/lwawt/PlatformComponent;)V", nullptr, 0, $method(LWCheckboxPeer, init$, void, $Checkbox*, $PlatformComponent*)},
-	{"createDelegate", "()Lsun/lwawt/LWCheckboxPeer$CheckboxDelegate;", nullptr, 0, $virtualMethod(LWCheckboxPeer, createDelegate, $JComponent*)},
-	{"getDelegateFocusOwner", "()Ljava/awt/Component;", nullptr, 0, $virtualMethod(LWCheckboxPeer, getDelegateFocusOwner, $Component*)},
-	{"initializeImpl", "()V", nullptr, 0, $virtualMethod(LWCheckboxPeer, initializeImpl, void)},
-	{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(LWCheckboxPeer, isFocusable, bool)},
-	{"*isObscured", "()Z", nullptr, $PUBLIC},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(LWCheckboxPeer, itemStateChanged, void, $ItemEvent*)},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
-	{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"setCheckboxGroup", "(Ljava/awt/CheckboxGroup;)V", nullptr, $PUBLIC, $virtualMethod(LWCheckboxPeer, setCheckboxGroup, void, $CheckboxGroup*)},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LWCheckboxPeer, setLabel, void, $String*)},
-	{"setState", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LWCheckboxPeer, setState, void, bool)},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _LWCheckboxPeer_InnerClassesInfo_[] = {
-	{"sun.lwawt.LWCheckboxPeer$CheckboxDelegate", "sun.lwawt.LWCheckboxPeer", "CheckboxDelegate", $FINAL},
-	{"sun.lwawt.LWCheckboxPeer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LWCheckboxPeer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.lwawt.LWCheckboxPeer",
-	"sun.lwawt.LWComponentPeer",
-	"java.awt.peer.CheckboxPeer,java.awt.event.ItemListener",
-	nullptr,
-	_LWCheckboxPeer_MethodInfo_,
-	"Lsun/lwawt/LWComponentPeer<Ljava/awt/Checkbox;Lsun/lwawt/LWCheckboxPeer$CheckboxDelegate;>;Ljava/awt/peer/CheckboxPeer;Ljava/awt/event/ItemListener;",
-	nullptr,
-	_LWCheckboxPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.lwawt.LWCheckboxPeer$CheckboxDelegate,sun.lwawt.LWCheckboxPeer$CheckboxDelegate$2,sun.lwawt.LWCheckboxPeer$CheckboxDelegate$1,sun.lwawt.LWCheckboxPeer$1"
-};
-
-$Object* allocate$LWCheckboxPeer($Class* clazz) {
-	return $of($alloc(LWCheckboxPeer));
-}
 
 void LWCheckboxPeer::dispose() {
 	this->$LWComponentPeer::dispose();
@@ -318,15 +234,15 @@ $JComponent* LWCheckboxPeer::createDelegate() {
 }
 
 $Component* LWCheckboxPeer::getDelegateFocusOwner() {
-	return $nc(($cast($LWCheckboxPeer$CheckboxDelegate, $(getDelegate()))))->getCurrentButton();
+	return $$sure($LWCheckboxPeer$CheckboxDelegate, getDelegate())->getCurrentButton();
 }
 
 void LWCheckboxPeer::initializeImpl() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LWComponentPeer::initializeImpl();
-	setLabel($($nc(($cast($Checkbox, $(getTarget()))))->getLabel()));
-	setState($nc(($cast($Checkbox, $(getTarget()))))->getState());
-	setCheckboxGroup($($nc(($cast($Checkbox, $(getTarget()))))->getCheckboxGroup()));
+	setLabel($($$sure($Checkbox, getTarget())->getLabel()));
+	setState($$sure($Checkbox, getTarget())->getState());
+	setCheckboxGroup($($$sure($Checkbox, getTarget())->getCheckboxGroup()));
 }
 
 void LWCheckboxPeer::itemStateChanged($ItemEvent* e) {
@@ -334,27 +250,27 @@ void LWCheckboxPeer::itemStateChanged($ItemEvent* e) {
 }
 
 void LWCheckboxPeer::setCheckboxGroup($CheckboxGroup* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getDelegateLock()) {
-		$nc($($nc(($cast($LWCheckboxPeer$CheckboxDelegate, $(getDelegate()))))->getCurrentButton()))->removeItemListener(this);
-		$nc(($cast($LWCheckboxPeer$CheckboxDelegate, $(getDelegate()))))->setRadioButton(g != nullptr);
-		$nc($($nc(($cast($LWCheckboxPeer$CheckboxDelegate, $(getDelegate()))))->getCurrentButton()))->addItemListener(this);
+		$$nc($$sure($LWCheckboxPeer$CheckboxDelegate, getDelegate())->getCurrentButton())->removeItemListener(this);
+		$$sure($LWCheckboxPeer$CheckboxDelegate, getDelegate())->setRadioButton(g != nullptr);
+		$$nc($$sure($LWCheckboxPeer$CheckboxDelegate, getDelegate())->getCurrentButton())->addItemListener(this);
 	}
 	repaintPeer();
 }
 
 void LWCheckboxPeer::setLabel($String* label) {
 	$synchronized(getDelegateLock()) {
-		$nc(($cast($LWCheckboxPeer$CheckboxDelegate, $(getDelegate()))))->setText(label);
+		$$sure($LWCheckboxPeer$CheckboxDelegate, getDelegate())->setText(label);
 	}
 }
 
 void LWCheckboxPeer::setState(bool state) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getDelegateLock()) {
-		$nc($($nc(($cast($LWCheckboxPeer$CheckboxDelegate, $(getDelegate()))))->getCurrentButton()))->removeItemListener(this);
-		$nc(($cast($LWCheckboxPeer$CheckboxDelegate, $(getDelegate()))))->setSelected(state);
-		$nc($($nc(($cast($LWCheckboxPeer$CheckboxDelegate, $(getDelegate()))))->getCurrentButton()))->addItemListener(this);
+		$$nc($$sure($LWCheckboxPeer$CheckboxDelegate, getDelegate())->getCurrentButton())->removeItemListener(this);
+		$$sure($LWCheckboxPeer$CheckboxDelegate, getDelegate())->setSelected(state);
+		$$nc($$sure($LWCheckboxPeer$CheckboxDelegate, getDelegate())->getCurrentButton())->addItemListener(this);
 	}
 	repaintPeer();
 }
@@ -367,7 +283,80 @@ LWCheckboxPeer::LWCheckboxPeer() {
 }
 
 $Class* LWCheckboxPeer::load$($String* name, bool initialize) {
-	$loadClass(LWCheckboxPeer, name, initialize, &_LWCheckboxPeer_ClassInfo_, allocate$LWCheckboxPeer);
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC | $FINAL},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC | $FINAL},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC | $FINAL},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC | $FINAL},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
+		{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Checkbox;Lsun/lwawt/PlatformComponent;)V", nullptr, 0, $method(LWCheckboxPeer, init$, void, $Checkbox*, $PlatformComponent*)},
+		{"createDelegate", "()Lsun/lwawt/LWCheckboxPeer$CheckboxDelegate;", nullptr, 0, $virtualMethod(LWCheckboxPeer, createDelegate, $JComponent*)},
+		{"getDelegateFocusOwner", "()Ljava/awt/Component;", nullptr, 0, $virtualMethod(LWCheckboxPeer, getDelegateFocusOwner, $Component*)},
+		{"initializeImpl", "()V", nullptr, 0, $virtualMethod(LWCheckboxPeer, initializeImpl, void)},
+		{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(LWCheckboxPeer, isFocusable, bool)},
+		{"*isObscured", "()Z", nullptr, $PUBLIC},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(LWCheckboxPeer, itemStateChanged, void, $ItemEvent*)},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
+		{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"setCheckboxGroup", "(Ljava/awt/CheckboxGroup;)V", nullptr, $PUBLIC, $virtualMethod(LWCheckboxPeer, setCheckboxGroup, void, $CheckboxGroup*)},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LWCheckboxPeer, setLabel, void, $String*)},
+		{"setState", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LWCheckboxPeer, setState, void, bool)},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.LWCheckboxPeer$CheckboxDelegate", "sun.lwawt.LWCheckboxPeer", "CheckboxDelegate", $FINAL},
+		{"sun.lwawt.LWCheckboxPeer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.lwawt.LWCheckboxPeer",
+		"sun.lwawt.LWComponentPeer",
+		"java.awt.peer.CheckboxPeer,java.awt.event.ItemListener",
+		nullptr,
+		methodInfos$$,
+		"Lsun/lwawt/LWComponentPeer<Ljava/awt/Checkbox;Lsun/lwawt/LWCheckboxPeer$CheckboxDelegate;>;Ljava/awt/peer/CheckboxPeer;Ljava/awt/event/ItemListener;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.lwawt.LWCheckboxPeer$CheckboxDelegate,sun.lwawt.LWCheckboxPeer$CheckboxDelegate$2,sun.lwawt.LWCheckboxPeer$CheckboxDelegate$1,sun.lwawt.LWCheckboxPeer$1"
+	};
+	$loadClass(LWCheckboxPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LWCheckboxPeer));
+	});
 	return class$;
 }
 

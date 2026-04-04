@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$UniqueType.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/Types.h>
 #include <jcpp.h>
@@ -17,45 +16,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Types$UniqueType_FieldInfo_[] = {
-	{"type", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Types$UniqueType, type)},
-	{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL, $field(Types$UniqueType, types)},
-	{}
-};
-
-$MethodInfo _Types$UniqueType_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $method(Types$UniqueType, init$, void, $Type*, $Types*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Types$UniqueType, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Types$UniqueType, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Types$UniqueType, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Types$UniqueType_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$UniqueType", "com.sun.tools.javac.code.Types", "UniqueType", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Types$UniqueType_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Types$UniqueType",
-	"java.lang.Object",
-	nullptr,
-	_Types$UniqueType_FieldInfo_,
-	_Types$UniqueType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Types$UniqueType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$UniqueType($Class* clazz) {
-	return $of($alloc(Types$UniqueType));
-}
-
 void Types$UniqueType::init$($Type* type, $Types* types) {
 	$set(this, type, type);
 	$set(this, types, types);
@@ -72,7 +32,7 @@ bool Types$UniqueType::equals(Object$* obj) {
 		$assign(uniqueType, $cast(Types$UniqueType, obj));
 		var$1 = true;
 	}
-	bool var$0 = (var$1);
+	bool var$0 = var$1;
 	return var$0 && $nc(this->types)->isSameType(this->type, $nc(uniqueType)->type);
 }
 
@@ -84,7 +44,40 @@ Types$UniqueType::Types$UniqueType() {
 }
 
 $Class* Types$UniqueType::load$($String* name, bool initialize) {
-	$loadClass(Types$UniqueType, name, initialize, &_Types$UniqueType_ClassInfo_, allocate$Types$UniqueType);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Types$UniqueType, type)},
+		{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL, $field(Types$UniqueType, types)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $method(Types$UniqueType, init$, void, $Type*, $Types*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Types$UniqueType, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Types$UniqueType, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Types$UniqueType, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$UniqueType", "com.sun.tools.javac.code.Types", "UniqueType", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Types$UniqueType",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$UniqueType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$UniqueType);
+	});
 	return class$;
 }
 

@@ -44,6 +44,7 @@ class $export TestTranslucentLabelText : public ::java::lang::Object {
 	$class(TestTranslucentLabelText, 0, ::java::lang::Object)
 public:
 	TestTranslucentLabelText();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::JLabel* create($String* text);
 	static void doTest(::java::lang::Runnable* action);

@@ -16,6 +16,7 @@ class PropertyInfo$Name : public ::java::lang::Enum {
 public:
 	PropertyInfo$Name();
 	static $Array<::com::sun::beans::introspect::PropertyInfo$Name>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::beans::introspect::PropertyInfo$Name* valueOf($String* name);
 	static $Array<::com::sun::beans::introspect::PropertyInfo$Name>* values();

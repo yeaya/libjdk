@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/HTML$Tag.h>
-
 #include <javax/swing/text/html/HTML.h>
 #include <jcpp.h>
 
@@ -86,129 +85,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _HTML$Tag_FieldInfo_[] = {
-	{"blockTag", "Z", nullptr, 0, $field(HTML$Tag, blockTag)},
-	{"breakTag", "Z", nullptr, 0, $field(HTML$Tag, breakTag)},
-	{"name", "Ljava/lang/String;", nullptr, 0, $field(HTML$Tag, name)},
-	{"unknown", "Z", nullptr, 0, $field(HTML$Tag, unknown)},
-	{"A", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, A)},
-	{"ADDRESS", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, ADDRESS)},
-	{"APPLET", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, APPLET)},
-	{"AREA", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, AREA)},
-	{"B", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, B)},
-	{"BASE", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, BASE)},
-	{"BASEFONT", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, BASEFONT)},
-	{"BIG", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, BIG)},
-	{"BLOCKQUOTE", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, BLOCKQUOTE)},
-	{"BODY", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, BODY)},
-	{"BR", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, BR)},
-	{"CAPTION", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, CAPTION)},
-	{"CENTER", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, CENTER)},
-	{"CITE", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, CITE)},
-	{"CODE", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, CODE)},
-	{"DD", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, DD)},
-	{"DFN", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, DFN)},
-	{"DIR", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, DIR)},
-	{"DIV", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, DIV)},
-	{"DL", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, DL)},
-	{"DT", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, DT)},
-	{"EM", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, EM)},
-	{"FONT", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, FONT)},
-	{"FORM", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, FORM)},
-	{"FRAME", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, FRAME)},
-	{"FRAMESET", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, FRAMESET)},
-	{"H1", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, H1)},
-	{"H2", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, H2)},
-	{"H3", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, H3)},
-	{"H4", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, H4)},
-	{"H5", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, H5)},
-	{"H6", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, H6)},
-	{"HEAD", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, HEAD)},
-	{"HR", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, HR)},
-	{"HTML", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, HTML)},
-	{"I", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, I)},
-	{"IMG", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, IMG)},
-	{"INPUT", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, INPUT)},
-	{"ISINDEX", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, ISINDEX)},
-	{"KBD", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, KBD)},
-	{"LI", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, LI)},
-	{"LINK", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, LINK)},
-	{"MAP", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, MAP)},
-	{"MENU", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, MENU)},
-	{"META", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, META)},
-	{"NOBR", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $STATIC | $FINAL, $staticField(HTML$Tag, NOBR)},
-	{"NOFRAMES", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, NOFRAMES)},
-	{"OBJECT", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, OBJECT)},
-	{"OL", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, OL)},
-	{"OPTION", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, OPTION)},
-	{"P", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, P)},
-	{"PARAM", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, PARAM)},
-	{"PRE", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, PRE)},
-	{"SAMP", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, SAMP)},
-	{"SCRIPT", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, SCRIPT)},
-	{"SELECT", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, SELECT)},
-	{"SMALL", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, SMALL)},
-	{"SPAN", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, SPAN)},
-	{"STRIKE", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, STRIKE)},
-	{"S", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, S)},
-	{"STRONG", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, STRONG)},
-	{"STYLE", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, STYLE)},
-	{"SUB", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, SUB)},
-	{"SUP", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, SUP)},
-	{"TABLE", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, TABLE)},
-	{"TD", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, TD)},
-	{"TEXTAREA", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, TEXTAREA)},
-	{"TH", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, TH)},
-	{"TITLE", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, TITLE)},
-	{"TR", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, TR)},
-	{"TT", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, TT)},
-	{"U", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, U)},
-	{"UL", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, UL)},
-	{"VAR", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, VAR)},
-	{"IMPLIED", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, IMPLIED)},
-	{"CONTENT", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, CONTENT)},
-	{"COMMENT", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, COMMENT)},
-	{"allTags", "[Ljavax/swing/text/html/HTML$Tag;", nullptr, $STATIC | $FINAL, $staticField(HTML$Tag, allTags)},
-	{}
-};
-
-$MethodInfo _HTML$Tag_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HTML$Tag, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(HTML$Tag, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;ZZ)V", nullptr, $PROTECTED, $method(HTML$Tag, init$, void, $String*, bool, bool)},
-	{"breaksFlow", "()Z", nullptr, $PUBLIC, $virtualMethod(HTML$Tag, breaksFlow, bool)},
-	{"isBlock", "()Z", nullptr, $PUBLIC, $virtualMethod(HTML$Tag, isBlock, bool)},
-	{"isParagraph", "()Z", nullptr, 0, $virtualMethod(HTML$Tag, isParagraph, bool)},
-	{"isPreformatted", "()Z", nullptr, $PUBLIC, $virtualMethod(HTML$Tag, isPreformatted, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HTML$Tag, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _HTML$Tag_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.HTML$Tag", "javax.swing.text.html.HTML", "Tag", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _HTML$Tag_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.HTML$Tag",
-	"java.lang.Object",
-	nullptr,
-	_HTML$Tag_FieldInfo_,
-	_HTML$Tag_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HTML$Tag_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.HTML"
-};
-
-$Object* allocate$HTML$Tag($Class* clazz) {
-	return $of($alloc(HTML$Tag));
-}
 
 HTML$Tag* HTML$Tag::A = nullptr;
 HTML$Tag* HTML$Tag::ADDRESS = nullptr;
@@ -322,7 +198,7 @@ bool HTML$Tag::isParagraph() {
 	return (this == HTML$Tag::P || this == HTML$Tag::IMPLIED || this == HTML$Tag::DT || this == HTML$Tag::H1 || this == HTML$Tag::H2 || this == HTML$Tag::H3 || this == HTML$Tag::H4 || this == HTML$Tag::H5 || this == HTML$Tag::H6);
 }
 
-void clinit$HTML$Tag($Class* class$) {
+void HTML$Tag::clinit$($Class* clazz) {
 	$assignStatic(HTML$Tag::A, $new(HTML$Tag, "a"_s));
 	$assignStatic(HTML$Tag::ADDRESS, $new(HTML$Tag, "address"_s));
 	$assignStatic(HTML$Tag::APPLET, $new(HTML$Tag, "applet"_s));
@@ -485,7 +361,124 @@ HTML$Tag::HTML$Tag() {
 }
 
 $Class* HTML$Tag::load$($String* name, bool initialize) {
-	$loadClass(HTML$Tag, name, initialize, &_HTML$Tag_ClassInfo_, clinit$HTML$Tag, allocate$HTML$Tag);
+	$FieldInfo fieldInfos$$[] = {
+		{"blockTag", "Z", nullptr, 0, $field(HTML$Tag, blockTag)},
+		{"breakTag", "Z", nullptr, 0, $field(HTML$Tag, breakTag)},
+		{"name", "Ljava/lang/String;", nullptr, 0, $field(HTML$Tag, name)},
+		{"unknown", "Z", nullptr, 0, $field(HTML$Tag, unknown)},
+		{"A", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, A)},
+		{"ADDRESS", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, ADDRESS)},
+		{"APPLET", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, APPLET)},
+		{"AREA", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, AREA)},
+		{"B", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, B)},
+		{"BASE", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, BASE)},
+		{"BASEFONT", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, BASEFONT)},
+		{"BIG", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, BIG)},
+		{"BLOCKQUOTE", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, BLOCKQUOTE)},
+		{"BODY", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, BODY)},
+		{"BR", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, BR)},
+		{"CAPTION", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, CAPTION)},
+		{"CENTER", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, CENTER)},
+		{"CITE", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, CITE)},
+		{"CODE", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, CODE)},
+		{"DD", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, DD)},
+		{"DFN", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, DFN)},
+		{"DIR", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, DIR)},
+		{"DIV", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, DIV)},
+		{"DL", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, DL)},
+		{"DT", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, DT)},
+		{"EM", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, EM)},
+		{"FONT", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, FONT)},
+		{"FORM", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, FORM)},
+		{"FRAME", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, FRAME)},
+		{"FRAMESET", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, FRAMESET)},
+		{"H1", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, H1)},
+		{"H2", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, H2)},
+		{"H3", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, H3)},
+		{"H4", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, H4)},
+		{"H5", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, H5)},
+		{"H6", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, H6)},
+		{"HEAD", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, HEAD)},
+		{"HR", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, HR)},
+		{"HTML", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, HTML)},
+		{"I", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, I)},
+		{"IMG", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, IMG)},
+		{"INPUT", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, INPUT)},
+		{"ISINDEX", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, ISINDEX)},
+		{"KBD", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, KBD)},
+		{"LI", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, LI)},
+		{"LINK", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, LINK)},
+		{"MAP", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, MAP)},
+		{"MENU", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, MENU)},
+		{"META", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, META)},
+		{"NOBR", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $STATIC | $FINAL, $staticField(HTML$Tag, NOBR)},
+		{"NOFRAMES", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, NOFRAMES)},
+		{"OBJECT", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, OBJECT)},
+		{"OL", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, OL)},
+		{"OPTION", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, OPTION)},
+		{"P", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, P)},
+		{"PARAM", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, PARAM)},
+		{"PRE", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, PRE)},
+		{"SAMP", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, SAMP)},
+		{"SCRIPT", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, SCRIPT)},
+		{"SELECT", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, SELECT)},
+		{"SMALL", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, SMALL)},
+		{"SPAN", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, SPAN)},
+		{"STRIKE", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, STRIKE)},
+		{"S", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, S)},
+		{"STRONG", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, STRONG)},
+		{"STYLE", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, STYLE)},
+		{"SUB", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, SUB)},
+		{"SUP", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, SUP)},
+		{"TABLE", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, TABLE)},
+		{"TD", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, TD)},
+		{"TEXTAREA", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, TEXTAREA)},
+		{"TH", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, TH)},
+		{"TITLE", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, TITLE)},
+		{"TR", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, TR)},
+		{"TT", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, TT)},
+		{"U", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, U)},
+		{"UL", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, UL)},
+		{"VAR", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, VAR)},
+		{"IMPLIED", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, IMPLIED)},
+		{"CONTENT", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, CONTENT)},
+		{"COMMENT", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Tag, COMMENT)},
+		{"allTags", "[Ljavax/swing/text/html/HTML$Tag;", nullptr, $STATIC | $FINAL, $staticField(HTML$Tag, allTags)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HTML$Tag, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(HTML$Tag, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;ZZ)V", nullptr, $PROTECTED, $method(HTML$Tag, init$, void, $String*, bool, bool)},
+		{"breaksFlow", "()Z", nullptr, $PUBLIC, $virtualMethod(HTML$Tag, breaksFlow, bool)},
+		{"isBlock", "()Z", nullptr, $PUBLIC, $virtualMethod(HTML$Tag, isBlock, bool)},
+		{"isParagraph", "()Z", nullptr, 0, $virtualMethod(HTML$Tag, isParagraph, bool)},
+		{"isPreformatted", "()Z", nullptr, $PUBLIC, $virtualMethod(HTML$Tag, isPreformatted, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HTML$Tag, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.HTML$Tag", "javax.swing.text.html.HTML", "Tag", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.HTML$Tag",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.HTML"
+	};
+	$loadClass(HTML$Tag, name, initialize, &classInfo$$, HTML$Tag::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HTML$Tag);
+	});
 	return class$;
 }
 

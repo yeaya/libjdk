@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/UninitializedType.h>
-
 #include <com/sun/tools/javac/code/Type$DelegatedType.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/TypeMetadata.h>
@@ -23,41 +22,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$FieldInfo _UninitializedType_FieldInfo_[] = {
-	{"offset", "I", nullptr, $PUBLIC | $FINAL, $field(UninitializedType, offset)},
-	{}
-};
-
-$MethodInfo _UninitializedType_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/TypeTag;Lcom/sun/tools/javac/code/Type;ILcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, $PRIVATE, $method(UninitializedType, init$, void, $TypeTag*, $Type*, int32_t, $TypeMetadata*)},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/jvm/UninitializedType;", nullptr, $PUBLIC, $virtualMethod(UninitializedType, cloneWithMetadata, UninitializedType*, $TypeMetadata*)},
-	{"initializedType", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(UninitializedType, initializedType, $Type*)},
-	{"uninitializedObject", "(Lcom/sun/tools/javac/code/Type;I)Lcom/sun/tools/javac/jvm/UninitializedType;", nullptr, $PUBLIC | $STATIC, $staticMethod(UninitializedType, uninitializedObject, UninitializedType*, $Type*, int32_t)},
-	{"uninitializedThis", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/jvm/UninitializedType;", nullptr, $PUBLIC | $STATIC, $staticMethod(UninitializedType, uninitializedThis, UninitializedType*, $Type*)},
-	{}
-};
-
-$InnerClassInfo _UninitializedType_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Type$DelegatedType", "com.sun.tools.javac.code.Type", "DelegatedType", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _UninitializedType_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.UninitializedType",
-	"com.sun.tools.javac.code.Type$DelegatedType",
-	nullptr,
-	_UninitializedType_FieldInfo_,
-	_UninitializedType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UninitializedType_InnerClassesInfo_
-};
-
-$Object* allocate$UninitializedType($Class* clazz) {
-	return $of($alloc(UninitializedType));
-}
 
 UninitializedType* UninitializedType::uninitializedThis($Type* qtype) {
 	$init(UninitializedType);
@@ -88,7 +52,36 @@ UninitializedType::UninitializedType() {
 }
 
 $Class* UninitializedType::load$($String* name, bool initialize) {
-	$loadClass(UninitializedType, name, initialize, &_UninitializedType_ClassInfo_, allocate$UninitializedType);
+	$FieldInfo fieldInfos$$[] = {
+		{"offset", "I", nullptr, $PUBLIC | $FINAL, $field(UninitializedType, offset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/TypeTag;Lcom/sun/tools/javac/code/Type;ILcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, $PRIVATE, $method(UninitializedType, init$, void, $TypeTag*, $Type*, int32_t, $TypeMetadata*)},
+		{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/jvm/UninitializedType;", nullptr, $PUBLIC, $virtualMethod(UninitializedType, cloneWithMetadata, UninitializedType*, $TypeMetadata*)},
+		{"initializedType", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(UninitializedType, initializedType, $Type*)},
+		{"uninitializedObject", "(Lcom/sun/tools/javac/code/Type;I)Lcom/sun/tools/javac/jvm/UninitializedType;", nullptr, $PUBLIC | $STATIC, $staticMethod(UninitializedType, uninitializedObject, UninitializedType*, $Type*, int32_t)},
+		{"uninitializedThis", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/jvm/UninitializedType;", nullptr, $PUBLIC | $STATIC, $staticMethod(UninitializedType, uninitializedThis, UninitializedType*, $Type*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Type$DelegatedType", "com.sun.tools.javac.code.Type", "DelegatedType", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.UninitializedType",
+		"com.sun.tools.javac.code.Type$DelegatedType",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(UninitializedType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UninitializedType));
+	});
 	return class$;
 }
 

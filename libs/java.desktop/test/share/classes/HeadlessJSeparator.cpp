@@ -1,5 +1,4 @@
 #include <HeadlessJSeparator.h>
-
 #include <HeadlessJSeparator$1.h>
 #include <HeadlessJSeparator$2.h>
 #include <HeadlessJSeparator$3.h>
@@ -49,7 +48,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -60,43 +58,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 using $JSeparator = ::javax::swing::JSeparator;
 
-$MethodInfo _HeadlessJSeparator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJSeparator, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJSeparator, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _HeadlessJSeparator_InnerClassesInfo_[] = {
-	{"HeadlessJSeparator$3", nullptr, nullptr, 0},
-	{"HeadlessJSeparator$2", nullptr, nullptr, 0},
-	{"HeadlessJSeparator$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJSeparator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJSeparator",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJSeparator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessJSeparator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadlessJSeparator$3,HeadlessJSeparator$2,HeadlessJSeparator$1"
-};
-
-$Object* allocate$HeadlessJSeparator($Class* clazz) {
-	return $of($alloc(HeadlessJSeparator));
-}
-
 void HeadlessJSeparator::init$() {
 }
 
 void HeadlessJSeparator::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JSeparator, sp, $new($JSeparator));
 	sp->getAccessibleContext();
 	sp->isFocusTraversable();
@@ -108,9 +74,9 @@ void HeadlessJSeparator::main($StringArray* args) {
 	sp->getMaximumSize();
 	sp->getMinimumSize();
 	sp->contains(1, 2);
-	$var($Component, c1, sp->add(static_cast<$Component*>($$new($HeadlessJSeparator$1))));
-	$var($Component, c2, sp->add(static_cast<$Component*>($$new($HeadlessJSeparator$2))));
-	$var($Component, c3, sp->add(static_cast<$Component*>($$new($HeadlessJSeparator$3))));
+	$var($Component, c1, sp->add($$new($HeadlessJSeparator$1)));
+	$var($Component, c2, sp->add($$new($HeadlessJSeparator$2)));
+	$var($Component, c3, sp->add($$new($HeadlessJSeparator$3)));
 	$var($Insets, ins, sp->getInsets());
 	sp->getAlignmentY();
 	sp->getAlignmentX();
@@ -121,26 +87,22 @@ void HeadlessJSeparator::main($StringArray* args) {
 	sp->setForeground($Color::red);
 	sp->setBackground($Color::red);
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					sp->setFont(f1);
-					sp->setFont(f2);
-					sp->setFont(f3);
-					sp->setFont(f4);
-					sp->getFontMetrics(f1);
-					sp->getFontMetrics(f2);
-					sp->getFontMetrics(f3);
-					sp->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				sp->setFont(f1);
+				sp->setFont(f2);
+				sp->setFont(f3);
+				sp->setFont(f4);
+				sp->getFontMetrics(f1);
+				sp->getFontMetrics(f2);
+				sp->getFontMetrics(f3);
+				sp->getFontMetrics(f4);
 			}
 		}
 	}
@@ -205,13 +167,11 @@ void HeadlessJSeparator::main($StringArray* args) {
 	sp->getFont();
 	sp->isFontSet();
 	$var($Container, c, $new($Container));
-	c->add(static_cast<$Component*>(sp));
+	c->add(sp);
 	sp->getLocale();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			sp->setLocale(locale);
 		}
@@ -268,7 +228,34 @@ HeadlessJSeparator::HeadlessJSeparator() {
 }
 
 $Class* HeadlessJSeparator::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJSeparator, name, initialize, &_HeadlessJSeparator_ClassInfo_, allocate$HeadlessJSeparator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJSeparator, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJSeparator, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJSeparator$3", nullptr, nullptr, 0},
+		{"HeadlessJSeparator$2", nullptr, nullptr, 0},
+		{"HeadlessJSeparator$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJSeparator",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadlessJSeparator$3,HeadlessJSeparator$2,HeadlessJSeparator$1"
+	};
+	$loadClass(HeadlessJSeparator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJSeparator);
+	});
 	return class$;
 }
 

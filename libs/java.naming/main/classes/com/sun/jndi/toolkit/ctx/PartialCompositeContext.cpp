@@ -1,5 +1,4 @@
 #include <com/sun/jndi/toolkit/ctx/PartialCompositeContext.h>
-
 #include <com/sun/jndi/toolkit/ctx/Continuation.h>
 #include <java/util/Enumeration.h>
 #include <java/util/Hashtable.h>
@@ -35,7 +34,6 @@ using $InvalidNameException = ::javax::naming::InvalidNameException;
 using $Name = ::javax::naming::Name;
 using $NameParser = ::javax::naming::NameParser;
 using $NamingEnumeration = ::javax::naming::NamingEnumeration;
-using $NamingException = ::javax::naming::NamingException;
 using $NamingManager = ::javax::naming::spi::NamingManager;
 using $ResolveResult = ::javax::naming::spi::ResolveResult;
 using $Resolver = ::javax::naming::spi::Resolver;
@@ -45,80 +43,6 @@ namespace com {
 		namespace jndi {
 			namespace toolkit {
 				namespace ctx {
-
-$FieldInfo _PartialCompositeContext_FieldInfo_[] = {
-	{"_PARTIAL", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(PartialCompositeContext, _PARTIAL)},
-	{"_COMPONENT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(PartialCompositeContext, _COMPONENT)},
-	{"_ATOMIC", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(PartialCompositeContext, _ATOMIC)},
-	{"_contextType", "I", nullptr, $PROTECTED, $field(PartialCompositeContext, _contextType)},
-	{"_EMPTY_NAME", "Ljavax/naming/CompositeName;", nullptr, $STATIC | $FINAL, $staticField(PartialCompositeContext, _EMPTY_NAME)},
-	{"_NNS_NAME", "Ljavax/naming/CompositeName;", nullptr, $STATIC, $staticField(PartialCompositeContext, _NNS_NAME)},
-	{}
-};
-
-$MethodInfo _PartialCompositeContext_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(PartialCompositeContext, init$, void)},
-	{"allEmpty", "(Ljavax/naming/Name;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(PartialCompositeContext, allEmpty, bool, $Name*)},
-	{"bind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, bind, void, $String*, Object$*), "javax.naming.NamingException"},
-	{"bind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, bind, void, $Name*, Object$*), "javax.naming.NamingException"},
-	{"composeName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, composeName, $String*, $String*, $String*), "javax.naming.NamingException"},
-	{"composeName", "(Ljavax/naming/Name;Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, composeName, $Name*, $Name*, $Name*), "javax.naming.NamingException"},
-	{"createSubcontext", "(Ljava/lang/String;)Ljavax/naming/Context;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, createSubcontext, $Context*, $String*), "javax.naming.NamingException"},
-	{"createSubcontext", "(Ljavax/naming/Name;)Ljavax/naming/Context;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, createSubcontext, $Context*, $Name*), "javax.naming.NamingException"},
-	{"destroySubcontext", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, destroySubcontext, void, $String*), "javax.naming.NamingException"},
-	{"destroySubcontext", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, destroySubcontext, void, $Name*), "javax.naming.NamingException"},
-	{"getNameParser", "(Ljava/lang/String;)Ljavax/naming/NameParser;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, getNameParser, $NameParser*, $String*), "javax.naming.NamingException"},
-	{"getNameParser", "(Ljavax/naming/Name;)Ljavax/naming/NameParser;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, getNameParser, $NameParser*, $Name*), "javax.naming.NamingException"},
-	{"getPCContext", "(Lcom/sun/jndi/toolkit/ctx/Continuation;)Lcom/sun/jndi/toolkit/ctx/PartialCompositeContext;", nullptr, $PROTECTED | $STATIC, $staticMethod(PartialCompositeContext, getPCContext, PartialCompositeContext*, $Continuation*), "javax.naming.NamingException"},
-	{"list", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PUBLIC, $virtualMethod(PartialCompositeContext, list, $NamingEnumeration*, $String*), "javax.naming.NamingException"},
-	{"list", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PUBLIC, $virtualMethod(PartialCompositeContext, list, $NamingEnumeration*, $Name*), "javax.naming.NamingException"},
-	{"listBindings", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PUBLIC, $virtualMethod(PartialCompositeContext, listBindings, $NamingEnumeration*, $String*), "javax.naming.NamingException"},
-	{"listBindings", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PUBLIC, $virtualMethod(PartialCompositeContext, listBindings, $NamingEnumeration*, $Name*), "javax.naming.NamingException"},
-	{"lookup", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, lookup, $Object*, $String*), "javax.naming.NamingException"},
-	{"lookup", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, lookup, $Object*, $Name*), "javax.naming.NamingException"},
-	{"lookupLink", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, lookupLink, $Object*, $String*), "javax.naming.NamingException"},
-	{"lookupLink", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, lookupLink, $Object*, $Name*), "javax.naming.NamingException"},
-	{"p_bind", "(Ljavax/naming/Name;Ljava/lang/Object;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeContext, p_bind, void, $Name*, Object$*, $Continuation*), "javax.naming.NamingException"},
-	{"p_createSubcontext", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/Context;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeContext, p_createSubcontext, $Context*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"p_destroySubcontext", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeContext, p_destroySubcontext, void, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"p_getEnvironment", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<**>;", $PROTECTED, $virtualMethod(PartialCompositeContext, p_getEnvironment, $Hashtable*), "javax.naming.NamingException"},
-	{"p_getNameParser", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NameParser;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeContext, p_getNameParser, $NameParser*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"p_list", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeContext, p_list, $NamingEnumeration*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"p_listBindings", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeContext, p_listBindings, $NamingEnumeration*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"p_lookup", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeContext, p_lookup, $Object*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"p_lookupLink", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeContext, p_lookupLink, $Object*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"p_rebind", "(Ljavax/naming/Name;Ljava/lang/Object;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeContext, p_rebind, void, $Name*, Object$*, $Continuation*), "javax.naming.NamingException"},
-	{"p_rename", "(Ljavax/naming/Name;Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeContext, p_rename, void, $Name*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"p_resolveToClass", "(Ljavax/naming/Name;Ljava/lang/Class;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/spi/ResolveResult;", "(Ljavax/naming/Name;Ljava/lang/Class<*>;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/spi/ResolveResult;", $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeContext, p_resolveToClass, $ResolveResult*, $Name*, $Class*, $Continuation*), "javax.naming.NamingException"},
-	{"p_unbind", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeContext, p_unbind, void, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"rebind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, rebind, void, $String*, Object$*), "javax.naming.NamingException"},
-	{"rebind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, rebind, void, $Name*, Object$*), "javax.naming.NamingException"},
-	{"rename", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, rename, void, $String*, $String*), "javax.naming.NamingException"},
-	{"rename", "(Ljavax/naming/Name;Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, rename, void, $Name*, $Name*), "javax.naming.NamingException"},
-	{"resolveToClass", "(Ljava/lang/String;Ljava/lang/Class;)Ljavax/naming/spi/ResolveResult;", "(Ljava/lang/String;Ljava/lang/Class<+Ljavax/naming/Context;>;)Ljavax/naming/spi/ResolveResult;", $PUBLIC, $virtualMethod(PartialCompositeContext, resolveToClass, $ResolveResult*, $String*, $Class*), "javax.naming.NamingException"},
-	{"resolveToClass", "(Ljavax/naming/Name;Ljava/lang/Class;)Ljavax/naming/spi/ResolveResult;", "(Ljavax/naming/Name;Ljava/lang/Class<+Ljavax/naming/Context;>;)Ljavax/naming/spi/ResolveResult;", $PUBLIC, $virtualMethod(PartialCompositeContext, resolveToClass, $ResolveResult*, $Name*, $Class*), "javax.naming.NamingException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unbind", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, unbind, void, $String*), "javax.naming.NamingException"},
-	{"unbind", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, unbind, void, $Name*), "javax.naming.NamingException"},
-	{}
-};
-
-$ClassInfo _PartialCompositeContext_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.jndi.toolkit.ctx.PartialCompositeContext",
-	"java.lang.Object",
-	"javax.naming.Context,javax.naming.spi.Resolver",
-	_PartialCompositeContext_FieldInfo_,
-	_PartialCompositeContext_MethodInfo_
-};
-
-$Object* allocate$PartialCompositeContext($Class* clazz) {
-	return $of($alloc(PartialCompositeContext));
-}
 
 int32_t PartialCompositeContext::hashCode() {
 	 return this->$Context::hashCode();
@@ -152,11 +76,11 @@ $Hashtable* PartialCompositeContext::p_getEnvironment() {
 }
 
 $ResolveResult* PartialCompositeContext::resolveToClass($String* name, $Class* contextType) {
-	return resolveToClass(static_cast<$Name*>($$new($CompositeName, name)), contextType);
+	return resolveToClass($$new($CompositeName, name), contextType);
 }
 
 $ResolveResult* PartialCompositeContext::resolveToClass($Name* name, $Class* contextType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(PartialCompositeContext, ctx, this);
 	$var($Hashtable, env, p_getEnvironment());
 	$var($Continuation, cont, $new($Continuation, name, env));
@@ -174,17 +98,17 @@ $ResolveResult* PartialCompositeContext::resolveToClass($Name* name, $Class* con
 		if (!($instanceOf($Resolver, cctx))) {
 			$throw(e);
 		}
-		$assign(answer, $nc(($cast($Resolver, cctx)))->resolveToClass($(e->getRemainingName()), contextType));
+		$assign(answer, $nc($cast($Resolver, cctx))->resolveToClass($(e->getRemainingName()), contextType));
 	}
 	return answer;
 }
 
 $Object* PartialCompositeContext::lookup($String* name) {
-	return $of(lookup(static_cast<$Name*>($$new($CompositeName, name))));
+	return lookup($$new($CompositeName, name));
 }
 
 $Object* PartialCompositeContext::lookup($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(PartialCompositeContext, ctx, this);
 	$var($Hashtable, env, p_getEnvironment());
 	$var($Continuation, cont, $new($Continuation, name, env));
@@ -201,15 +125,15 @@ $Object* PartialCompositeContext::lookup($Name* name) {
 		$var($Context, cctx, $NamingManager::getContinuationContext(e));
 		$assign(answer, $nc(cctx)->lookup($(e->getRemainingName())));
 	}
-	return $of(answer);
+	return answer;
 }
 
 void PartialCompositeContext::bind($String* name, Object$* newObj) {
-	bind(static_cast<$Name*>($$new($CompositeName, name)), newObj);
+	bind($$new($CompositeName, name), newObj);
 }
 
 void PartialCompositeContext::bind($Name* name, Object$* newObj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(PartialCompositeContext, ctx, this);
 	$var($Name, nm, name);
 	$var($Hashtable, env, p_getEnvironment());
@@ -228,11 +152,11 @@ void PartialCompositeContext::bind($Name* name, Object$* newObj) {
 }
 
 void PartialCompositeContext::rebind($String* name, Object$* newObj) {
-	rebind(static_cast<$Name*>($$new($CompositeName, name)), newObj);
+	rebind($$new($CompositeName, name), newObj);
 }
 
 void PartialCompositeContext::rebind($Name* name, Object$* newObj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(PartialCompositeContext, ctx, this);
 	$var($Name, nm, name);
 	$var($Hashtable, env, p_getEnvironment());
@@ -251,11 +175,11 @@ void PartialCompositeContext::rebind($Name* name, Object$* newObj) {
 }
 
 void PartialCompositeContext::unbind($String* name) {
-	unbind(static_cast<$Name*>($$new($CompositeName, name)));
+	unbind($$new($CompositeName, name));
 }
 
 void PartialCompositeContext::unbind($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(PartialCompositeContext, ctx, this);
 	$var($Name, nm, name);
 	$var($Hashtable, env, p_getEnvironment());
@@ -274,13 +198,13 @@ void PartialCompositeContext::unbind($Name* name) {
 }
 
 void PartialCompositeContext::rename($String* oldName, $String* newName) {
-	$useLocalCurrentObjectStackCache();
-	$var($Name, var$0, static_cast<$Name*>($new($CompositeName, oldName)));
-	rename(var$0, static_cast<$Name*>($$new($CompositeName, newName)));
+	$useLocalObjectStack();
+	$var($Name, var$0, $new($CompositeName, oldName));
+	rename(var$0, $$new($CompositeName, newName));
 }
 
 void PartialCompositeContext::rename($Name* oldName, $Name* newName$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Name, newName, newName$renamed);
 	$var(PartialCompositeContext, ctx, this);
 	$var($Name, nm, oldName);
@@ -303,11 +227,11 @@ void PartialCompositeContext::rename($Name* oldName, $Name* newName$renamed) {
 }
 
 $NamingEnumeration* PartialCompositeContext::list($String* name) {
-	return list(static_cast<$Name*>($$new($CompositeName, name)));
+	return list($$new($CompositeName, name));
 }
 
 $NamingEnumeration* PartialCompositeContext::list($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(PartialCompositeContext, ctx, this);
 	$var($Name, nm, name);
 	$var($NamingEnumeration, answer, nullptr);
@@ -328,11 +252,11 @@ $NamingEnumeration* PartialCompositeContext::list($Name* name) {
 }
 
 $NamingEnumeration* PartialCompositeContext::listBindings($String* name) {
-	return listBindings(static_cast<$Name*>($$new($CompositeName, name)));
+	return listBindings($$new($CompositeName, name));
 }
 
 $NamingEnumeration* PartialCompositeContext::listBindings($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(PartialCompositeContext, ctx, this);
 	$var($Name, nm, name);
 	$var($NamingEnumeration, answer, nullptr);
@@ -353,11 +277,11 @@ $NamingEnumeration* PartialCompositeContext::listBindings($Name* name) {
 }
 
 void PartialCompositeContext::destroySubcontext($String* name) {
-	destroySubcontext(static_cast<$Name*>($$new($CompositeName, name)));
+	destroySubcontext($$new($CompositeName, name));
 }
 
 void PartialCompositeContext::destroySubcontext($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(PartialCompositeContext, ctx, this);
 	$var($Name, nm, name);
 	$var($Hashtable, env, p_getEnvironment());
@@ -376,11 +300,11 @@ void PartialCompositeContext::destroySubcontext($Name* name) {
 }
 
 $Context* PartialCompositeContext::createSubcontext($String* name) {
-	return createSubcontext(static_cast<$Name*>($$new($CompositeName, name)));
+	return createSubcontext($$new($CompositeName, name));
 }
 
 $Context* PartialCompositeContext::createSubcontext($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(PartialCompositeContext, ctx, this);
 	$var($Name, nm, name);
 	$var($Context, answer, nullptr);
@@ -401,11 +325,11 @@ $Context* PartialCompositeContext::createSubcontext($Name* name) {
 }
 
 $Object* PartialCompositeContext::lookupLink($String* name) {
-	return $of(lookupLink(static_cast<$Name*>($$new($CompositeName, name))));
+	return lookupLink($$new($CompositeName, name));
 }
 
 $Object* PartialCompositeContext::lookupLink($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(PartialCompositeContext, ctx, this);
 	$var($Hashtable, env, p_getEnvironment());
 	$var($Continuation, cont, $new($Continuation, name, env));
@@ -422,15 +346,15 @@ $Object* PartialCompositeContext::lookupLink($Name* name) {
 		$var($Context, cctx, $NamingManager::getContinuationContext(e));
 		$assign(answer, $nc(cctx)->lookupLink($(e->getRemainingName())));
 	}
-	return $of(answer);
+	return answer;
 }
 
 $NameParser* PartialCompositeContext::getNameParser($String* name) {
-	return getNameParser(static_cast<$Name*>($$new($CompositeName, name)));
+	return getNameParser($$new($CompositeName, name));
 }
 
 $NameParser* PartialCompositeContext::getNameParser($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(PartialCompositeContext, ctx, this);
 	$var($Name, nm, name);
 	$var($NameParser, answer, nullptr);
@@ -451,29 +375,29 @@ $NameParser* PartialCompositeContext::getNameParser($Name* name) {
 }
 
 $String* PartialCompositeContext::composeName($String* name, $String* prefix) {
-	$useLocalCurrentObjectStackCache();
-	$var($Name, var$0, static_cast<$Name*>($new($CompositeName, name)));
-	$var($Name, fullName, composeName(var$0, static_cast<$Name*>($$new($CompositeName, prefix))));
-	return $nc($of(fullName))->toString();
+	$useLocalObjectStack();
+	$var($Name, var$0, $new($CompositeName, name));
+	$var($Name, fullName, composeName(var$0, $$new($CompositeName, prefix)));
+	return $nc(fullName)->toString();
 }
 
 $Name* PartialCompositeContext::composeName($Name* name, $Name* prefix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Name, res, $cast($Name, $nc(prefix)->clone()));
 	if (name == nullptr) {
 		return res;
 	}
 	$nc(res)->addAll(name);
-	$var($String, elide, $cast($String, $nc($(p_getEnvironment()))->get("java.naming.provider.compose.elideEmpty"_s)));
-	if (elide == nullptr || !$nc(elide)->equalsIgnoreCase("true"_s)) {
+	$var($String, elide, $cast($String, $$nc(p_getEnvironment())->get("java.naming.provider.compose.elideEmpty"_s)));
+	if (elide == nullptr || !elide->equalsIgnoreCase("true"_s)) {
 		return res;
 	}
 	int32_t len = prefix->size();
 	bool var$0 = !allEmpty(prefix);
 	if (var$0 && !allEmpty(name)) {
-		if ($nc($(res->get(len - 1)))->isEmpty()) {
+		if ($$nc(res->get(len - 1))->isEmpty()) {
 			res->remove(len - 1);
-		} else if ($nc($(res->get(len)))->isEmpty()) {
+		} else if ($$nc(res->get(len))->isEmpty()) {
 			res->remove(len);
 		}
 	}
@@ -482,10 +406,10 @@ $Name* PartialCompositeContext::composeName($Name* name, $Name* prefix) {
 
 bool PartialCompositeContext::allEmpty($Name* name) {
 	$init(PartialCompositeContext);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Enumeration, enum_, $nc(name)->getAll());
 	while ($nc(enum_)->hasMoreElements()) {
-		if (!$nc(($cast($String, $(enum_->nextElement()))))->isEmpty()) {
+		if (!$$sure($String, enum_->nextElement())->isEmpty()) {
 			return false;
 		}
 	}
@@ -494,7 +418,7 @@ bool PartialCompositeContext::allEmpty($Name* name) {
 
 PartialCompositeContext* PartialCompositeContext::getPCContext($Continuation* cont) {
 	$init(PartialCompositeContext);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, obj, $nc(cont)->getResolvedObj());
 	$var(PartialCompositeContext, pctx, nullptr);
 	if ($instanceOf(PartialCompositeContext, obj)) {
@@ -504,7 +428,7 @@ PartialCompositeContext* PartialCompositeContext::getPCContext($Continuation* co
 	}
 }
 
-void clinit$PartialCompositeContext($Class* class$) {
+void PartialCompositeContext::clinit$($Class* clazz) {
 	$assignStatic(PartialCompositeContext::_EMPTY_NAME, $new($CompositeName));
 	{
 		try {
@@ -518,7 +442,76 @@ PartialCompositeContext::PartialCompositeContext() {
 }
 
 $Class* PartialCompositeContext::load$($String* name, bool initialize) {
-	$loadClass(PartialCompositeContext, name, initialize, &_PartialCompositeContext_ClassInfo_, clinit$PartialCompositeContext, allocate$PartialCompositeContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"_PARTIAL", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(PartialCompositeContext, _PARTIAL)},
+		{"_COMPONENT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(PartialCompositeContext, _COMPONENT)},
+		{"_ATOMIC", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(PartialCompositeContext, _ATOMIC)},
+		{"_contextType", "I", nullptr, $PROTECTED, $field(PartialCompositeContext, _contextType)},
+		{"_EMPTY_NAME", "Ljavax/naming/CompositeName;", nullptr, $STATIC | $FINAL, $staticField(PartialCompositeContext, _EMPTY_NAME)},
+		{"_NNS_NAME", "Ljavax/naming/CompositeName;", nullptr, $STATIC, $staticField(PartialCompositeContext, _NNS_NAME)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(PartialCompositeContext, init$, void)},
+		{"allEmpty", "(Ljavax/naming/Name;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(PartialCompositeContext, allEmpty, bool, $Name*)},
+		{"bind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, bind, void, $String*, Object$*), "javax.naming.NamingException"},
+		{"bind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, bind, void, $Name*, Object$*), "javax.naming.NamingException"},
+		{"composeName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, composeName, $String*, $String*, $String*), "javax.naming.NamingException"},
+		{"composeName", "(Ljavax/naming/Name;Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, composeName, $Name*, $Name*, $Name*), "javax.naming.NamingException"},
+		{"createSubcontext", "(Ljava/lang/String;)Ljavax/naming/Context;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, createSubcontext, $Context*, $String*), "javax.naming.NamingException"},
+		{"createSubcontext", "(Ljavax/naming/Name;)Ljavax/naming/Context;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, createSubcontext, $Context*, $Name*), "javax.naming.NamingException"},
+		{"destroySubcontext", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, destroySubcontext, void, $String*), "javax.naming.NamingException"},
+		{"destroySubcontext", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, destroySubcontext, void, $Name*), "javax.naming.NamingException"},
+		{"getNameParser", "(Ljava/lang/String;)Ljavax/naming/NameParser;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, getNameParser, $NameParser*, $String*), "javax.naming.NamingException"},
+		{"getNameParser", "(Ljavax/naming/Name;)Ljavax/naming/NameParser;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, getNameParser, $NameParser*, $Name*), "javax.naming.NamingException"},
+		{"getPCContext", "(Lcom/sun/jndi/toolkit/ctx/Continuation;)Lcom/sun/jndi/toolkit/ctx/PartialCompositeContext;", nullptr, $PROTECTED | $STATIC, $staticMethod(PartialCompositeContext, getPCContext, PartialCompositeContext*, $Continuation*), "javax.naming.NamingException"},
+		{"list", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PUBLIC, $virtualMethod(PartialCompositeContext, list, $NamingEnumeration*, $String*), "javax.naming.NamingException"},
+		{"list", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PUBLIC, $virtualMethod(PartialCompositeContext, list, $NamingEnumeration*, $Name*), "javax.naming.NamingException"},
+		{"listBindings", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PUBLIC, $virtualMethod(PartialCompositeContext, listBindings, $NamingEnumeration*, $String*), "javax.naming.NamingException"},
+		{"listBindings", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PUBLIC, $virtualMethod(PartialCompositeContext, listBindings, $NamingEnumeration*, $Name*), "javax.naming.NamingException"},
+		{"lookup", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, lookup, $Object*, $String*), "javax.naming.NamingException"},
+		{"lookup", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, lookup, $Object*, $Name*), "javax.naming.NamingException"},
+		{"lookupLink", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, lookupLink, $Object*, $String*), "javax.naming.NamingException"},
+		{"lookupLink", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, lookupLink, $Object*, $Name*), "javax.naming.NamingException"},
+		{"p_bind", "(Ljavax/naming/Name;Ljava/lang/Object;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeContext, p_bind, void, $Name*, Object$*, $Continuation*), "javax.naming.NamingException"},
+		{"p_createSubcontext", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/Context;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeContext, p_createSubcontext, $Context*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"p_destroySubcontext", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeContext, p_destroySubcontext, void, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"p_getEnvironment", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<**>;", $PROTECTED, $virtualMethod(PartialCompositeContext, p_getEnvironment, $Hashtable*), "javax.naming.NamingException"},
+		{"p_getNameParser", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NameParser;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeContext, p_getNameParser, $NameParser*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"p_list", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeContext, p_list, $NamingEnumeration*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"p_listBindings", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeContext, p_listBindings, $NamingEnumeration*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"p_lookup", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeContext, p_lookup, $Object*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"p_lookupLink", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeContext, p_lookupLink, $Object*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"p_rebind", "(Ljavax/naming/Name;Ljava/lang/Object;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeContext, p_rebind, void, $Name*, Object$*, $Continuation*), "javax.naming.NamingException"},
+		{"p_rename", "(Ljavax/naming/Name;Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeContext, p_rename, void, $Name*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"p_resolveToClass", "(Ljavax/naming/Name;Ljava/lang/Class;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/spi/ResolveResult;", "(Ljavax/naming/Name;Ljava/lang/Class<*>;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/spi/ResolveResult;", $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeContext, p_resolveToClass, $ResolveResult*, $Name*, $Class*, $Continuation*), "javax.naming.NamingException"},
+		{"p_unbind", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeContext, p_unbind, void, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"rebind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, rebind, void, $String*, Object$*), "javax.naming.NamingException"},
+		{"rebind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, rebind, void, $Name*, Object$*), "javax.naming.NamingException"},
+		{"rename", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, rename, void, $String*, $String*), "javax.naming.NamingException"},
+		{"rename", "(Ljavax/naming/Name;Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, rename, void, $Name*, $Name*), "javax.naming.NamingException"},
+		{"resolveToClass", "(Ljava/lang/String;Ljava/lang/Class;)Ljavax/naming/spi/ResolveResult;", "(Ljava/lang/String;Ljava/lang/Class<+Ljavax/naming/Context;>;)Ljavax/naming/spi/ResolveResult;", $PUBLIC, $virtualMethod(PartialCompositeContext, resolveToClass, $ResolveResult*, $String*, $Class*), "javax.naming.NamingException"},
+		{"resolveToClass", "(Ljavax/naming/Name;Ljava/lang/Class;)Ljavax/naming/spi/ResolveResult;", "(Ljavax/naming/Name;Ljava/lang/Class<+Ljavax/naming/Context;>;)Ljavax/naming/spi/ResolveResult;", $PUBLIC, $virtualMethod(PartialCompositeContext, resolveToClass, $ResolveResult*, $Name*, $Class*), "javax.naming.NamingException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unbind", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, unbind, void, $String*), "javax.naming.NamingException"},
+		{"unbind", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeContext, unbind, void, $Name*), "javax.naming.NamingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.jndi.toolkit.ctx.PartialCompositeContext",
+		"java.lang.Object",
+		"javax.naming.Context,javax.naming.spi.Resolver",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PartialCompositeContext, name, initialize, &classInfo$$, PartialCompositeContext::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PartialCompositeContext));
+	});
 	return class$;
 }
 

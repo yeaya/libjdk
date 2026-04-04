@@ -23,6 +23,7 @@ class $import GroupLayout$Alignment : public ::java::lang::Enum {
 public:
 	GroupLayout$Alignment();
 	static $Array<::javax::swing::GroupLayout$Alignment>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::javax::swing::GroupLayout$Alignment* valueOf($String* name);
 	static $Array<::javax::swing::GroupLayout$Alignment>* values();

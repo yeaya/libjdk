@@ -52,6 +52,7 @@ class AquaFileView : public ::javax::swing::filechooser::FileView {
 	$class(AquaFileView, 0, ::javax::swing::filechooser::FileView)
 public:
 	AquaFileView();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::apple::laf::AquaFileChooserUI* fileChooserUI);
 	virtual bool _applicationIsTraversable();
 	virtual $String* _directoryDescriptionText();

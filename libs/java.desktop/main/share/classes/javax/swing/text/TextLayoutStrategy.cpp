@@ -1,6 +1,4 @@
 #include <javax/swing/text/TextLayoutStrategy.h>
-
-#include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/font/FontRenderContext.h>
@@ -8,7 +6,6 @@
 #include <java/awt/font/TextAttribute.h>
 #include <java/awt/font/TextLayout.h>
 #include <java/lang/Math.h>
-#include <java/text/AttributedCharacterIterator.h>
 #include <java/text/BreakIterator.h>
 #include <java/util/Locale.h>
 #include <java/util/Vector.h>
@@ -22,7 +19,6 @@
 #include <javax/swing/text/FlowView$FlowStrategy.h>
 #include <javax/swing/text/FlowView.h>
 #include <javax/swing/text/GlyphPainter2.h>
-#include <javax/swing/text/GlyphView$GlyphPainter.h>
 #include <javax/swing/text/GlyphView.h>
 #include <javax/swing/text/Position$Bias.h>
 #include <javax/swing/text/Segment.h>
@@ -39,7 +35,6 @@
 #undef TRUE
 
 using $ViewArray = $Array<::javax::swing::text::View>;
-using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Rectangle = ::java::awt::Rectangle;
 using $FontRenderContext = ::java::awt::font::FontRenderContext;
@@ -53,9 +48,7 @@ using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
 using $BreakIterator = ::java::text::BreakIterator;
-using $Vector = ::java::util::Vector;
 using $JComponent = ::javax::swing::JComponent;
 using $DocumentEvent = ::javax::swing::event::DocumentEvent;
 using $AbstractDocument = ::javax::swing::text::AbstractDocument;
@@ -65,7 +58,6 @@ using $FlowView = ::javax::swing::text::FlowView;
 using $FlowView$FlowStrategy = ::javax::swing::text::FlowView$FlowStrategy;
 using $GlyphPainter2 = ::javax::swing::text::GlyphPainter2;
 using $GlyphView = ::javax::swing::text::GlyphView;
-using $GlyphView$GlyphPainter = ::javax::swing::text::GlyphView$GlyphPainter;
 using $Position$Bias = ::javax::swing::text::Position$Bias;
 using $Segment = ::javax::swing::text::Segment;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
@@ -77,51 +69,6 @@ using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _TextLayoutStrategy_FieldInfo_[] = {
-	{"measurer", "Ljava/awt/font/LineBreakMeasurer;", nullptr, $PRIVATE, $field(TextLayoutStrategy, measurer)},
-	{"text", "Ljavax/swing/text/TextLayoutStrategy$AttributedSegment;", nullptr, $PRIVATE, $field(TextLayoutStrategy, text)},
-	{}
-};
-
-$MethodInfo _TextLayoutStrategy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TextLayoutStrategy, init$, void)},
-	{"adjustRow", "(Ljavax/swing/text/FlowView;III)V", nullptr, $PROTECTED, $virtualMethod(TextLayoutStrategy, adjustRow, void, $FlowView*, int32_t, int32_t, int32_t)},
-	{"changedUpdate", "(Ljavax/swing/text/FlowView;Ljavax/swing/event/DocumentEvent;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(TextLayoutStrategy, changedUpdate, void, $FlowView*, $DocumentEvent*, $Rectangle*)},
-	{"createView", "(Ljavax/swing/text/FlowView;III)Ljavax/swing/text/View;", nullptr, $PROTECTED, $virtualMethod(TextLayoutStrategy, createView, $View*, $FlowView*, int32_t, int32_t, int32_t)},
-	{"getLimitingOffset", "(Ljavax/swing/text/View;IIZ)I", nullptr, 0, $virtualMethod(TextLayoutStrategy, getLimitingOffset, int32_t, $View*, int32_t, int32_t, bool)},
-	{"insertUpdate", "(Ljavax/swing/text/FlowView;Ljavax/swing/event/DocumentEvent;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(TextLayoutStrategy, insertUpdate, void, $FlowView*, $DocumentEvent*, $Rectangle*)},
-	{"layout", "(Ljavax/swing/text/FlowView;)V", nullptr, $PUBLIC, $virtualMethod(TextLayoutStrategy, layout, void, $FlowView*)},
-	{"layoutRow", "(Ljavax/swing/text/FlowView;II)I", nullptr, $PROTECTED, $virtualMethod(TextLayoutStrategy, layoutRow, int32_t, $FlowView*, int32_t, int32_t)},
-	{"removeUpdate", "(Ljavax/swing/text/FlowView;Ljavax/swing/event/DocumentEvent;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(TextLayoutStrategy, removeUpdate, void, $FlowView*, $DocumentEvent*, $Rectangle*)},
-	{"sync", "(Ljavax/swing/text/FlowView;)V", nullptr, 0, $virtualMethod(TextLayoutStrategy, sync, void, $FlowView*)},
-	{}
-};
-
-$InnerClassInfo _TextLayoutStrategy_InnerClassesInfo_[] = {
-	{"javax.swing.text.FlowView$FlowStrategy", "javax.swing.text.FlowView", "FlowStrategy", $PUBLIC | $STATIC},
-	{"javax.swing.text.TextLayoutStrategy$AttributedSegment", "javax.swing.text.TextLayoutStrategy", "AttributedSegment", $STATIC},
-	{}
-};
-
-$ClassInfo _TextLayoutStrategy_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.TextLayoutStrategy",
-	"javax.swing.text.FlowView$FlowStrategy",
-	nullptr,
-	_TextLayoutStrategy_FieldInfo_,
-	_TextLayoutStrategy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TextLayoutStrategy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.TextLayoutStrategy$AttributedSegment"
-};
-
-$Object* allocate$TextLayoutStrategy($Class* clazz) {
-	return $of($alloc(TextLayoutStrategy));
-}
 
 void TextLayoutStrategy::init$() {
 	$FlowView$FlowStrategy::init$();
@@ -148,14 +95,13 @@ void TextLayoutStrategy::layout($FlowView* fv) {
 }
 
 int32_t TextLayoutStrategy::layoutRow($FlowView* fv, int32_t rowIndex, int32_t p0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t p1 = $FlowView$FlowStrategy::layoutRow(fv, rowIndex, p0);
 	$var($View, row, $nc(fv)->getView(rowIndex));
 	$var($Document, doc, fv->getDocument());
 	$init($AbstractDocument);
 	$var($Object, i18nFlag, $nc(doc)->getProperty($AbstractDocument::I18NProperty));
-	$init($Boolean);
-	if ((i18nFlag != nullptr) && $of(i18nFlag)->equals($Boolean::TRUE)) {
+	if ((i18nFlag != nullptr) && i18nFlag->equals($Boolean::TRUE)) {
 		int32_t n = $nc(row)->getViewCount();
 		if (n > 1) {
 			$var($AbstractDocument, d, $cast($AbstractDocument, fv->getDocument()));
@@ -180,7 +126,7 @@ void TextLayoutStrategy::adjustRow($FlowView* fv, int32_t rowIndex, int32_t desi
 }
 
 $View* TextLayoutStrategy::createView($FlowView* fv, int32_t startOffset, int32_t spanLeft, int32_t rowIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($View, lv, getLogicalView(fv));
 	$var($View, row, $nc(fv)->getView(rowIndex));
 	bool requireNextWord = ($nc(this->viewBuffer)->size() == 0) ? false : true;
@@ -192,7 +138,7 @@ $View* TextLayoutStrategy::createView($FlowView* fv, int32_t startOffset, int32_
 		return nullptr;
 	}
 	$var($View, frag, nullptr);
-	bool var$0 = (startOffset == $nc(v)->getStartOffset());
+	bool var$0 = startOffset == $nc(v)->getStartOffset();
 	if (var$0 && (endOffset == v->getEndOffset())) {
 		$assign(frag, v);
 	} else {
@@ -200,10 +146,10 @@ $View* TextLayoutStrategy::createView($FlowView* fv, int32_t startOffset, int32_
 	}
 	if (($instanceOf($GlyphView, frag)) && (this->measurer != nullptr)) {
 		bool isTab = false;
-		int32_t p0 = $nc(frag)->getStartOffset();
+		int32_t p0 = frag->getStartOffset();
 		int32_t p1 = frag->getEndOffset();
 		if ((p1 - p0) == 1) {
-			$var($Segment, s, $nc(($cast($GlyphView, frag)))->getText(p0, p1));
+			$var($Segment, s, $cast($GlyphView, frag)->getText(p0, p1));
 			char16_t ch = $nc(s)->first();
 			if (ch == u'\t') {
 				isTab = true;
@@ -211,19 +157,19 @@ $View* TextLayoutStrategy::createView($FlowView* fv, int32_t startOffset, int32_
 		}
 		$var($TextLayout, tl, (isTab) ? ($TextLayout*)nullptr : $nc(this->measurer)->nextLayout((float)spanLeft, $nc(this->text)->toIteratorIndex(endOffset), requireNextWord));
 		if (tl != nullptr) {
-			$nc(($cast($GlyphView, frag)))->setGlyphPainter($$new($GlyphPainter2, tl));
+			$cast($GlyphView, frag)->setGlyphPainter($$new($GlyphPainter2, tl));
 		}
 	}
 	return frag;
 }
 
 int32_t TextLayoutStrategy::getLimitingOffset($View* v, int32_t startOffset, int32_t spanLeft, bool requireNextWord) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t endOffset = $nc(v)->getEndOffset();
 	$var($Document, doc, v->getDocument());
 	if ($instanceOf($AbstractDocument, doc)) {
 		$var($AbstractDocument, d, $cast($AbstractDocument, doc));
-		$var($Element, bidiRoot, $nc(d)->getBidiRootElement());
+		$var($Element, bidiRoot, d->getBidiRootElement());
 		if ($nc(bidiRoot)->getElementCount() > 1) {
 			int32_t bidiIndex = bidiRoot->getElementIndex(startOffset);
 			$var($Element, bidiElem, bidiRoot->getElement(bidiIndex));
@@ -231,7 +177,7 @@ int32_t TextLayoutStrategy::getLimitingOffset($View* v, int32_t startOffset, int
 		}
 	}
 	if ($instanceOf($GlyphView, v)) {
-		$var($Segment, s, $nc(($cast($GlyphView, v)))->getText(startOffset, endOffset));
+		$var($Segment, s, $cast($GlyphView, v)->getText(startOffset, endOffset));
 		char16_t ch = $nc(s)->first();
 		if (ch == u'\t') {
 			endOffset = startOffset + 1;
@@ -258,7 +204,7 @@ int32_t TextLayoutStrategy::getLimitingOffset($View* v, int32_t startOffset, int
 }
 
 void TextLayoutStrategy::sync($FlowView* fv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($View, lv, getLogicalView(fv));
 	$nc(this->text)->setView(lv);
 	$var($Container, container, $nc(fv)->getContainer());
@@ -273,7 +219,7 @@ void TextLayoutStrategy::sync($FlowView* fv) {
 	$var($Object, shaper, nullptr);
 	if ($instanceOf($JComponent, c)) {
 		$init($TextAttribute);
-		$assign(shaper, $nc(($cast($JComponent, c)))->getClientProperty($TextAttribute::NUMERIC_SHAPING));
+		$assign(shaper, $cast($JComponent, c)->getClientProperty($TextAttribute::NUMERIC_SHAPING));
 	}
 	$nc(this->text)->setShaper(shaper);
 	$set(this, measurer, $new($LineBreakMeasurer, this->text, iter, frc));
@@ -281,12 +227,11 @@ void TextLayoutStrategy::sync($FlowView* fv) {
 	for (int32_t i = 0; i < n; ++i) {
 		$var($View, child, lv->getView(i));
 		if ($instanceOf($GlyphView, child)) {
-			int32_t p0 = $nc(child)->getStartOffset();
+			int32_t p0 = child->getStartOffset();
 			int32_t p1 = child->getEndOffset();
 			$nc(this->measurer)->setPosition($nc(this->text)->toIteratorIndex(p0));
-			$init($Float);
 			$var($TextLayout, layout, $nc(this->measurer)->nextLayout($Float::MAX_VALUE, $nc(this->text)->toIteratorIndex(p1), false));
-			$nc(($cast($GlyphView, child)))->setGlyphPainter($$new($GlyphPainter2, layout));
+			$cast($GlyphView, child)->setGlyphPainter($$new($GlyphPainter2, layout));
 		}
 	}
 	$nc(this->measurer)->setPosition($nc(this->text)->getBeginIndex());
@@ -296,7 +241,46 @@ TextLayoutStrategy::TextLayoutStrategy() {
 }
 
 $Class* TextLayoutStrategy::load$($String* name, bool initialize) {
-	$loadClass(TextLayoutStrategy, name, initialize, &_TextLayoutStrategy_ClassInfo_, allocate$TextLayoutStrategy);
+	$FieldInfo fieldInfos$$[] = {
+		{"measurer", "Ljava/awt/font/LineBreakMeasurer;", nullptr, $PRIVATE, $field(TextLayoutStrategy, measurer)},
+		{"text", "Ljavax/swing/text/TextLayoutStrategy$AttributedSegment;", nullptr, $PRIVATE, $field(TextLayoutStrategy, text)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TextLayoutStrategy, init$, void)},
+		{"adjustRow", "(Ljavax/swing/text/FlowView;III)V", nullptr, $PROTECTED, $virtualMethod(TextLayoutStrategy, adjustRow, void, $FlowView*, int32_t, int32_t, int32_t)},
+		{"changedUpdate", "(Ljavax/swing/text/FlowView;Ljavax/swing/event/DocumentEvent;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(TextLayoutStrategy, changedUpdate, void, $FlowView*, $DocumentEvent*, $Rectangle*)},
+		{"createView", "(Ljavax/swing/text/FlowView;III)Ljavax/swing/text/View;", nullptr, $PROTECTED, $virtualMethod(TextLayoutStrategy, createView, $View*, $FlowView*, int32_t, int32_t, int32_t)},
+		{"getLimitingOffset", "(Ljavax/swing/text/View;IIZ)I", nullptr, 0, $virtualMethod(TextLayoutStrategy, getLimitingOffset, int32_t, $View*, int32_t, int32_t, bool)},
+		{"insertUpdate", "(Ljavax/swing/text/FlowView;Ljavax/swing/event/DocumentEvent;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(TextLayoutStrategy, insertUpdate, void, $FlowView*, $DocumentEvent*, $Rectangle*)},
+		{"layout", "(Ljavax/swing/text/FlowView;)V", nullptr, $PUBLIC, $virtualMethod(TextLayoutStrategy, layout, void, $FlowView*)},
+		{"layoutRow", "(Ljavax/swing/text/FlowView;II)I", nullptr, $PROTECTED, $virtualMethod(TextLayoutStrategy, layoutRow, int32_t, $FlowView*, int32_t, int32_t)},
+		{"removeUpdate", "(Ljavax/swing/text/FlowView;Ljavax/swing/event/DocumentEvent;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(TextLayoutStrategy, removeUpdate, void, $FlowView*, $DocumentEvent*, $Rectangle*)},
+		{"sync", "(Ljavax/swing/text/FlowView;)V", nullptr, 0, $virtualMethod(TextLayoutStrategy, sync, void, $FlowView*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.FlowView$FlowStrategy", "javax.swing.text.FlowView", "FlowStrategy", $PUBLIC | $STATIC},
+		{"javax.swing.text.TextLayoutStrategy$AttributedSegment", "javax.swing.text.TextLayoutStrategy", "AttributedSegment", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.TextLayoutStrategy",
+		"javax.swing.text.FlowView$FlowStrategy",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.TextLayoutStrategy$AttributedSegment"
+	};
+	$loadClass(TextLayoutStrategy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TextLayoutStrategy);
+	});
 	return class$;
 }
 

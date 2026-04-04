@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/ktab/KeyTabEntry.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
 #include <sun/security/krb5/EncryptionKey.h>
@@ -12,7 +11,6 @@
 
 #undef DEBUG
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
@@ -30,40 +28,6 @@ namespace sun {
 		namespace krb5 {
 			namespace internal {
 				namespace ktab {
-
-$FieldInfo _KeyTabEntry_FieldInfo_[] = {
-	{"service", "Lsun/security/krb5/PrincipalName;", nullptr, 0, $field(KeyTabEntry, service)},
-	{"realm", "Lsun/security/krb5/Realm;", nullptr, 0, $field(KeyTabEntry, realm)},
-	{"timestamp", "Lsun/security/krb5/internal/KerberosTime;", nullptr, 0, $field(KeyTabEntry, timestamp)},
-	{"keyVersion", "I", nullptr, 0, $field(KeyTabEntry, keyVersion)},
-	{"keyType", "I", nullptr, 0, $field(KeyTabEntry, keyType)},
-	{"keyblock", "[B", nullptr, 0, $field(KeyTabEntry, keyblock)},
-	{"DEBUG", "Z", nullptr, 0, $field(KeyTabEntry, DEBUG)},
-	{}
-};
-
-$MethodInfo _KeyTabEntry_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/PrincipalName;Lsun/security/krb5/Realm;Lsun/security/krb5/internal/KerberosTime;II[B)V", nullptr, $PUBLIC, $method(KeyTabEntry, init$, void, $PrincipalName*, $Realm*, $KerberosTime*, int32_t, int32_t, $bytes*)},
-	{"entryLength", "()I", nullptr, $PUBLIC, $virtualMethod(KeyTabEntry, entryLength, int32_t)},
-	{"getKey", "()Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC, $virtualMethod(KeyTabEntry, getKey, $EncryptionKey*)},
-	{"getKeyString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyTabEntry, getKeyString, $String*)},
-	{"getService", "()Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $virtualMethod(KeyTabEntry, getService, $PrincipalName*)},
-	{"getTimeStamp", "()Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $virtualMethod(KeyTabEntry, getTimeStamp, $KerberosTime*)},
-	{}
-};
-
-$ClassInfo _KeyTabEntry_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.ktab.KeyTabEntry",
-	"java.lang.Object",
-	"sun.security.krb5.internal.ktab.KeyTabConstants",
-	_KeyTabEntry_FieldInfo_,
-	_KeyTabEntry_MethodInfo_
-};
-
-$Object* allocate$KeyTabEntry($Class* clazz) {
-	return $of($alloc(KeyTabEntry));
-}
 
 void KeyTabEntry::init$($PrincipalName* new_service, $Realm* new_realm, $KerberosTime* new_time, int32_t new_keyVersion, int32_t new_keyType, $bytes* new_keyblock) {
 	$set(this, keyblock, nullptr);
@@ -84,22 +48,22 @@ $PrincipalName* KeyTabEntry::getService() {
 }
 
 $EncryptionKey* KeyTabEntry::getKey() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($EncryptionKey, key, $new($EncryptionKey, this->keyblock, this->keyType, $($Integer::valueOf(this->keyVersion))));
 	return key;
 }
 
 $String* KeyTabEntry::getKeyString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder, "0x"_s));
 	for (int32_t i = 0; i < $nc(this->keyblock)->length; ++i) {
-		sb->append($($String::format("%02x"_s, $$new($ObjectArray, {$($of($Integer::valueOf((int32_t)($nc(this->keyblock)->get(i) & (uint32_t)255))))}))));
+		sb->append($($String::format("%02x"_s, $$new($ObjectArray, {$($Integer::valueOf(this->keyblock->get(i) & 0xff))}))));
 	}
 	return sb->toString();
 }
 
 int32_t KeyTabEntry::entryLength() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t totalPrincipalLength = 0;
 	$var($StringArray, names, $nc(this->service)->getNameStrings());
 	for (int32_t i = 0; i < $nc(names)->length; ++i) {
@@ -107,7 +71,7 @@ int32_t KeyTabEntry::entryLength() {
 		totalPrincipalLength += $KeyTabConstants::principalSize + $($nc(names->get(i))->getBytes($StandardCharsets::ISO_8859_1))->length;
 	}
 	$init($StandardCharsets);
-	int32_t realmLen = $($nc($($nc(this->realm)->toString()))->getBytes($StandardCharsets::ISO_8859_1))->length;
+	int32_t realmLen = $($$nc($nc(this->realm)->toString())->getBytes($StandardCharsets::ISO_8859_1))->length;
 	int32_t size = $KeyTabConstants::principalComponentSize + $KeyTabConstants::realmSize + realmLen + totalPrincipalLength + $KeyTabConstants::principalTypeSize + $KeyTabConstants::timestampSize + $KeyTabConstants::keyVersionSize + $KeyTabConstants::keyTypeSize + $KeyTabConstants::keySize + $nc(this->keyblock)->length;
 	if (this->DEBUG) {
 		$nc($System::out)->println($$str({">>> KeyTabEntry: key tab entry size is "_s, $$str(size)}));
@@ -123,7 +87,36 @@ KeyTabEntry::KeyTabEntry() {
 }
 
 $Class* KeyTabEntry::load$($String* name, bool initialize) {
-	$loadClass(KeyTabEntry, name, initialize, &_KeyTabEntry_ClassInfo_, allocate$KeyTabEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"service", "Lsun/security/krb5/PrincipalName;", nullptr, 0, $field(KeyTabEntry, service)},
+		{"realm", "Lsun/security/krb5/Realm;", nullptr, 0, $field(KeyTabEntry, realm)},
+		{"timestamp", "Lsun/security/krb5/internal/KerberosTime;", nullptr, 0, $field(KeyTabEntry, timestamp)},
+		{"keyVersion", "I", nullptr, 0, $field(KeyTabEntry, keyVersion)},
+		{"keyType", "I", nullptr, 0, $field(KeyTabEntry, keyType)},
+		{"keyblock", "[B", nullptr, 0, $field(KeyTabEntry, keyblock)},
+		{"DEBUG", "Z", nullptr, 0, $field(KeyTabEntry, DEBUG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/krb5/PrincipalName;Lsun/security/krb5/Realm;Lsun/security/krb5/internal/KerberosTime;II[B)V", nullptr, $PUBLIC, $method(KeyTabEntry, init$, void, $PrincipalName*, $Realm*, $KerberosTime*, int32_t, int32_t, $bytes*)},
+		{"entryLength", "()I", nullptr, $PUBLIC, $virtualMethod(KeyTabEntry, entryLength, int32_t)},
+		{"getKey", "()Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC, $virtualMethod(KeyTabEntry, getKey, $EncryptionKey*)},
+		{"getKeyString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyTabEntry, getKeyString, $String*)},
+		{"getService", "()Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $virtualMethod(KeyTabEntry, getService, $PrincipalName*)},
+		{"getTimeStamp", "()Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $virtualMethod(KeyTabEntry, getTimeStamp, $KerberosTime*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.ktab.KeyTabEntry",
+		"java.lang.Object",
+		"sun.security.krb5.internal.ktab.KeyTabConstants",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KeyTabEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyTabEntry);
+	});
 	return class$;
 }
 

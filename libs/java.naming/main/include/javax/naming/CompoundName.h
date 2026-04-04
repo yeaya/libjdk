@@ -54,7 +54,7 @@ public:
 	void writeObject(::java::io::ObjectOutputStream* s);
 	::javax::naming::NameImpl* impl = nullptr;
 	::java::util::Properties* mySyntax = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x30C10A57ED3791C4;
+	static const int64_t serialVersionUID = (int64_t)0x30c10a57ed3791c4;
 };
 
 	} // naming

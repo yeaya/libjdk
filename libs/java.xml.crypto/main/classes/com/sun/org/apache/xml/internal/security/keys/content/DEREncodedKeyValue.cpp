@@ -1,11 +1,9 @@
 #include <com/sun/org/apache/xml/internal/security/keys/content/DEREncodedKeyValue.h>
-
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <com/sun/org/apache/xml/internal/security/utils/ElementProxy.h>
 #include <com/sun/org/apache/xml/internal/security/utils/Signature11ElementProxy.h>
 #include <java/security/GeneralSecurityException.h>
-#include <java/security/Key.h>
 #include <java/security/KeyFactory.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/PublicKey.h>
@@ -23,16 +21,12 @@ using $XMLSecurityException = ::com::sun::org::apache::xml::internal::security::
 using $Constants = ::com::sun::org::apache::xml::internal::security::utils::Constants;
 using $Signature11ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::Signature11ElementProxy;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
-using $Key = ::java::security::Key;
 using $KeyFactory = ::java::security::KeyFactory;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $PublicKey = ::java::security::PublicKey;
 using $InvalidKeySpecException = ::java::security::spec::InvalidKeySpecException;
-using $KeySpec = ::java::security::spec::KeySpec;
 using $X509EncodedKeySpec = ::java::security::spec::X509EncodedKeySpec;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
@@ -46,41 +40,6 @@ namespace com {
 						namespace security {
 							namespace keys {
 								namespace content {
-
-$FieldInfo _DEREncodedKeyValue_FieldInfo_[] = {
-	{"supportedKeyTypes", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DEREncodedKeyValue, supportedKeyTypes)},
-	{}
-};
-
-$MethodInfo _DEREncodedKeyValue_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DEREncodedKeyValue, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/security/PublicKey;)V", nullptr, $PUBLIC, $method(DEREncodedKeyValue, init$, void, $Document*, $PublicKey*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;[B)V", nullptr, $PUBLIC, $method(DEREncodedKeyValue, init$, void, $Document*, $bytes*)},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DEREncodedKeyValue, getBaseLocalName, $String*)},
-	{"getEncodedDER", "(Ljava/security/PublicKey;)[B", nullptr, $PROTECTED, $virtualMethod(DEREncodedKeyValue, getEncodedDER, $bytes*, $PublicKey*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DEREncodedKeyValue, getId, $String*)},
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $virtualMethod(DEREncodedKeyValue, getPublicKey, $PublicKey*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"setId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DEREncodedKeyValue, setId, void, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DEREncodedKeyValue_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.keys.content.DEREncodedKeyValue",
-	"com.sun.org.apache.xml.internal.security.utils.Signature11ElementProxy",
-	"com.sun.org.apache.xml.internal.security.keys.content.KeyInfoContent",
-	_DEREncodedKeyValue_FieldInfo_,
-	_DEREncodedKeyValue_MethodInfo_
-};
-
-$Object* allocate$DEREncodedKeyValue($Class* clazz) {
-	return $of($alloc(DEREncodedKeyValue));
-}
 
 int32_t DEREncodedKeyValue::hashCode() {
 	 return this->$Signature11ElementProxy::hashCode();
@@ -134,25 +93,21 @@ $String* DEREncodedKeyValue::getBaseLocalName() {
 }
 
 $PublicKey* DEREncodedKeyValue::getPublicKey() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, encodedKey, getBytesFromTextChild());
 	{
 		$var($StringArray, arr$, DEREncodedKeyValue::supportedKeyTypes);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, keyType, arr$->get(i$));
-			{
-				try {
-					$var($KeyFactory, keyFactory, $KeyFactory::getInstance(keyType));
-					$var($X509EncodedKeySpec, keySpec, $new($X509EncodedKeySpec, encodedKey));
-					$var($PublicKey, publicKey, $nc(keyFactory)->generatePublic(keySpec));
-					if (publicKey != nullptr) {
-						return publicKey;
-					}
-				} catch ($NoSuchAlgorithmException& e) {
-				} catch ($InvalidKeySpecException& e) {
+			try {
+				$var($KeyFactory, keyFactory, $KeyFactory::getInstance(keyType));
+				$var($X509EncodedKeySpec, keySpec, $new($X509EncodedKeySpec, encodedKey));
+				$var($PublicKey, publicKey, $nc(keyFactory)->generatePublic(keySpec));
+				if (publicKey != nullptr) {
+					return publicKey;
 				}
+			} catch ($NoSuchAlgorithmException& e) {
+			} catch ($InvalidKeySpecException& e) {
 			}
 		}
 	}
@@ -161,7 +116,7 @@ $PublicKey* DEREncodedKeyValue::getPublicKey() {
 }
 
 $bytes* DEREncodedKeyValue::getEncodedDER($PublicKey* publicKey) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($KeyFactory, keyFactory, $KeyFactory::getInstance($($nc(publicKey)->getAlgorithm())));
 		$load($X509EncodedKeySpec);
@@ -169,23 +124,23 @@ $bytes* DEREncodedKeyValue::getEncodedDER($PublicKey* publicKey) {
 		return $nc(keySpec)->getEncoded();
 	} catch ($NoSuchAlgorithmException& e) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$($of($nc(publicKey)->getAlgorithm())),
-			$($of(publicKey->getFormat())),
-			$($of($of(publicKey)->getClass()->getName()))
+			$($nc(publicKey)->getAlgorithm()),
+			$($nc(publicKey)->getFormat()),
+			$($nc($of(publicKey))->getClass()->getName())
 		}));
-		$throwNew($XMLSecurityException, static_cast<$Exception*>(e), "DEREncodedKeyValue.UnsupportedPublicKey"_s, exArgs);
+		$throwNew($XMLSecurityException, e, "DEREncodedKeyValue.UnsupportedPublicKey"_s, exArgs);
 	} catch ($InvalidKeySpecException& e) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$($of($nc(publicKey)->getAlgorithm())),
-			$($of(publicKey->getFormat())),
-			$($of($of(publicKey)->getClass()->getName()))
+			$($nc(publicKey)->getAlgorithm()),
+			$($nc(publicKey)->getFormat()),
+			$($nc($of(publicKey))->getClass()->getName())
 		}));
-		$throwNew($XMLSecurityException, static_cast<$Exception*>(e), "DEREncodedKeyValue.UnsupportedPublicKey"_s, exArgs);
+		$throwNew($XMLSecurityException, e, "DEREncodedKeyValue.UnsupportedPublicKey"_s, exArgs);
 	}
 	$shouldNotReachHere();
 }
 
-void clinit$DEREncodedKeyValue($Class* class$) {
+void DEREncodedKeyValue::clinit$($Class* clazz) {
 	$assignStatic(DEREncodedKeyValue::supportedKeyTypes, $new($StringArray, {
 		"RSA"_s,
 		"DSA"_s,
@@ -197,7 +152,37 @@ DEREncodedKeyValue::DEREncodedKeyValue() {
 }
 
 $Class* DEREncodedKeyValue::load$($String* name, bool initialize) {
-	$loadClass(DEREncodedKeyValue, name, initialize, &_DEREncodedKeyValue_ClassInfo_, clinit$DEREncodedKeyValue, allocate$DEREncodedKeyValue);
+	$FieldInfo fieldInfos$$[] = {
+		{"supportedKeyTypes", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DEREncodedKeyValue, supportedKeyTypes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DEREncodedKeyValue, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/security/PublicKey;)V", nullptr, $PUBLIC, $method(DEREncodedKeyValue, init$, void, $Document*, $PublicKey*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;[B)V", nullptr, $PUBLIC, $method(DEREncodedKeyValue, init$, void, $Document*, $bytes*)},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DEREncodedKeyValue, getBaseLocalName, $String*)},
+		{"getEncodedDER", "(Ljava/security/PublicKey;)[B", nullptr, $PROTECTED, $virtualMethod(DEREncodedKeyValue, getEncodedDER, $bytes*, $PublicKey*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DEREncodedKeyValue, getId, $String*)},
+		{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $virtualMethod(DEREncodedKeyValue, getPublicKey, $PublicKey*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"setId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DEREncodedKeyValue, setId, void, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.keys.content.DEREncodedKeyValue",
+		"com.sun.org.apache.xml.internal.security.utils.Signature11ElementProxy",
+		"com.sun.org.apache.xml.internal.security.keys.content.KeyInfoContent",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DEREncodedKeyValue, name, initialize, &classInfo$$, DEREncodedKeyValue::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DEREncodedKeyValue));
+	});
 	return class$;
 }
 

@@ -32,6 +32,7 @@ class $export bug8081411 : public ::java::lang::Object {
 	$class(bug8081411, 0, ::java::lang::Object)
 public:
 	bug8081411();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool checkAndSetNimbusLookAndFeel();
 	static void main($StringArray* args);

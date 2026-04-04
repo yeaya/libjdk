@@ -1,5 +1,4 @@
 #include <javax/print/StreamPrintServiceFactory$1.h>
-
 #include <java/lang/SecurityManager.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
@@ -21,55 +20,18 @@ using $StreamPrintServiceFactory = ::javax::print::StreamPrintServiceFactory;
 namespace javax {
 	namespace print {
 
-$MethodInfo _StreamPrintServiceFactory$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(StreamPrintServiceFactory$1, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StreamPrintServiceFactory$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _StreamPrintServiceFactory$1_EnclosingMethodInfo_ = {
-	"javax.print.StreamPrintServiceFactory",
-	"getAllFactories",
-	"()Ljava/util/ArrayList;"
-};
-
-$InnerClassInfo _StreamPrintServiceFactory$1_InnerClassesInfo_[] = {
-	{"javax.print.StreamPrintServiceFactory$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _StreamPrintServiceFactory$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.print.StreamPrintServiceFactory$1",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	nullptr,
-	_StreamPrintServiceFactory$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/Object;>;",
-	&_StreamPrintServiceFactory$1_EnclosingMethodInfo_,
-	_StreamPrintServiceFactory$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.print.StreamPrintServiceFactory"
-};
-
-$Object* allocate$StreamPrintServiceFactory$1($Class* clazz) {
-	return $of($alloc(StreamPrintServiceFactory$1));
-}
-
 void StreamPrintServiceFactory$1::init$() {
 }
 
 $Object* StreamPrintServiceFactory$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$load($StreamPrintServiceFactory);
-	$var($Iterator, iterator, $nc($($ServiceLoader::load($StreamPrintServiceFactory::class$)))->iterator());
+	$var($Iterator, iterator, $$nc($ServiceLoader::load($StreamPrintServiceFactory::class$))->iterator());
 	$var($ArrayList, lof, $StreamPrintServiceFactory::getListOfFactories());
 	while ($nc(iterator)->hasNext()) {
 		try {
-			$nc(lof)->add($cast($StreamPrintServiceFactory, $(iterator->next())));
+			$nc(lof)->add($$cast($StreamPrintServiceFactory, iterator->next()));
 		} catch ($ServiceConfigurationError& err) {
 			if ($System::getSecurityManager() != nullptr) {
 				err->printStackTrace();
@@ -78,14 +40,45 @@ $Object* StreamPrintServiceFactory$1::run() {
 			}
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 StreamPrintServiceFactory$1::StreamPrintServiceFactory$1() {
 }
 
 $Class* StreamPrintServiceFactory$1::load$($String* name, bool initialize) {
-	$loadClass(StreamPrintServiceFactory$1, name, initialize, &_StreamPrintServiceFactory$1_ClassInfo_, allocate$StreamPrintServiceFactory$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(StreamPrintServiceFactory$1, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StreamPrintServiceFactory$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.print.StreamPrintServiceFactory",
+		"getAllFactories",
+		"()Ljava/util/ArrayList;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.print.StreamPrintServiceFactory$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.print.StreamPrintServiceFactory$1",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.print.StreamPrintServiceFactory"
+	};
+	$loadClass(StreamPrintServiceFactory$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StreamPrintServiceFactory$1);
+	});
 	return class$;
 }
 

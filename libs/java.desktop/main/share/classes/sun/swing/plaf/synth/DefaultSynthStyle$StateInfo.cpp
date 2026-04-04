@@ -1,5 +1,4 @@
 #include <sun/swing/plaf/synth/DefaultSynthStyle$StateInfo.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Font.h>
 #include <java/util/Arrays.h>
@@ -28,58 +27,6 @@ namespace sun {
 		namespace plaf {
 			namespace synth {
 
-$FieldInfo _DefaultSynthStyle$StateInfo_FieldInfo_[] = {
-	{"data", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Object;Ljava/lang/Object;>;", $PRIVATE, $field(DefaultSynthStyle$StateInfo, data)},
-	{"font", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(DefaultSynthStyle$StateInfo, font)},
-	{"colors", "[Ljava/awt/Color;", nullptr, $PRIVATE, $field(DefaultSynthStyle$StateInfo, colors)},
-	{"state", "I", nullptr, $PRIVATE, $field(DefaultSynthStyle$StateInfo, state)},
-	{}
-};
-
-$MethodInfo _DefaultSynthStyle$StateInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultSynthStyle$StateInfo, init$, void)},
-	{"<init>", "(ILjava/awt/Font;[Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(DefaultSynthStyle$StateInfo, init$, void, int32_t, $Font*, $ColorArray*)},
-	{"<init>", "(Lsun/swing/plaf/synth/DefaultSynthStyle$StateInfo;)V", nullptr, $PUBLIC, $method(DefaultSynthStyle$StateInfo, init$, void, DefaultSynthStyle$StateInfo*)},
-	{"addTo", "(Lsun/swing/plaf/synth/DefaultSynthStyle$StateInfo;)Lsun/swing/plaf/synth/DefaultSynthStyle$StateInfo;", nullptr, $PUBLIC, $virtualMethod(DefaultSynthStyle$StateInfo, addTo, DefaultSynthStyle$StateInfo*, DefaultSynthStyle$StateInfo*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultSynthStyle$StateInfo, clone, $Object*)},
-	{"getColor", "(Ljavax/swing/plaf/synth/ColorType;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(DefaultSynthStyle$StateInfo, getColor, $Color*, $ColorType*)},
-	{"getColors", "()[Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(DefaultSynthStyle$StateInfo, getColors, $ColorArray*)},
-	{"getComponentState", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultSynthStyle$StateInfo, getComponentState, int32_t)},
-	{"getData", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/Object;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(DefaultSynthStyle$StateInfo, getData, $Map*)},
-	{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(DefaultSynthStyle$StateInfo, getFont, $Font*)},
-	{"setColors", "([Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(DefaultSynthStyle$StateInfo, setColors, void, $ColorArray*)},
-	{"setComponentState", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultSynthStyle$StateInfo, setComponentState, void, int32_t)},
-	{"setData", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/Object;Ljava/lang/Object;>;)V", $PUBLIC, $virtualMethod(DefaultSynthStyle$StateInfo, setData, void, $Map*)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(DefaultSynthStyle$StateInfo, setFont, void, $Font*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultSynthStyle$StateInfo, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _DefaultSynthStyle$StateInfo_InnerClassesInfo_[] = {
-	{"sun.swing.plaf.synth.DefaultSynthStyle$StateInfo", "sun.swing.plaf.synth.DefaultSynthStyle", "StateInfo", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultSynthStyle$StateInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.swing.plaf.synth.DefaultSynthStyle$StateInfo",
-	"java.lang.Object",
-	nullptr,
-	_DefaultSynthStyle$StateInfo_FieldInfo_,
-	_DefaultSynthStyle$StateInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultSynthStyle$StateInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.plaf.synth.DefaultSynthStyle"
-};
-
-$Object* allocate$DefaultSynthStyle$StateInfo($Class* clazz) {
-	return $of($alloc(DefaultSynthStyle$StateInfo));
-}
-
 void DefaultSynthStyle$StateInfo::init$() {
 }
 
@@ -99,8 +46,8 @@ void DefaultSynthStyle$StateInfo::init$(DefaultSynthStyle$StateInfo* info) {
 		$nc(this->data)->putAll(info->data);
 	}
 	if (info->colors != nullptr) {
-		$set(this, colors, $new($ColorArray, $nc(info->colors)->length));
-		$System::arraycopy(info->colors, 0, this->colors, 0, $nc(info->colors)->length);
+		$set(this, colors, $new($ColorArray, info->colors->length));
+		$System::arraycopy(info->colors, 0, this->colors, 0, info->colors->length);
 	}
 }
 
@@ -132,7 +79,7 @@ $Color* DefaultSynthStyle$StateInfo::getColor($ColorType* type) {
 	if (this->colors != nullptr) {
 		int32_t id = $nc(type)->getID();
 		if (id < $nc(this->colors)->length) {
-			return $nc(this->colors)->get(id);
+			return this->colors->get(id);
 		}
 	}
 	return nullptr;
@@ -146,21 +93,21 @@ DefaultSynthStyle$StateInfo* DefaultSynthStyle$StateInfo::addTo(DefaultSynthStyl
 		if ($nc(info)->data == nullptr) {
 			$set(info, data, $new($HashMap));
 		}
-		$nc($nc(info)->data)->putAll(this->data);
+		$nc(info->data)->putAll(this->data);
 	}
 	if (this->colors != nullptr) {
 		if ($nc(info)->colors == nullptr) {
-			$set(info, colors, $new($ColorArray, $nc(this->colors)->length));
-			$System::arraycopy(this->colors, 0, info->colors, 0, $nc(this->colors)->length);
+			$set(info, colors, $new($ColorArray, this->colors->length));
+			$System::arraycopy(this->colors, 0, info->colors, 0, this->colors->length);
 		} else {
-			if ($nc(info->colors)->length < $nc(this->colors)->length) {
+			if (info->colors->length < this->colors->length) {
 				$var($ColorArray, old, info->colors);
-				$set(info, colors, $new($ColorArray, $nc(this->colors)->length));
+				$set(info, colors, $new($ColorArray, this->colors->length));
 				$System::arraycopy(old, 0, info->colors, 0, $nc(old)->length);
 			}
-			for (int32_t counter = $nc(this->colors)->length - 1; counter >= 0; --counter) {
-				if ($nc(this->colors)->get(counter) != nullptr) {
-					$nc(info->colors)->set(counter, $nc(this->colors)->get(counter));
+			for (int32_t counter = this->colors->length - 1; counter >= 0; --counter) {
+				if (this->colors->get(counter) != nullptr) {
+					info->colors->set(counter, this->colors->get(counter));
 				}
 			}
 		}
@@ -177,17 +124,17 @@ int32_t DefaultSynthStyle$StateInfo::getComponentState() {
 }
 
 $Object* DefaultSynthStyle$StateInfo::clone() {
-	return $of($new(DefaultSynthStyle$StateInfo, this));
+	return $new(DefaultSynthStyle$StateInfo, this);
 }
 
 $String* DefaultSynthStyle$StateInfo::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($Object::toString()))->append(u',');
 	sb->append("state="_s)->append($($Integer::toString(this->state)))->append(u',');
-	sb->append("font="_s)->append($of(this->font))->append(u',');
+	sb->append("font="_s)->append(this->font)->append(u',');
 	if (this->colors != nullptr) {
-		sb->append("colors="_s)->append($($of($Arrays::asList(this->colors))))->append(u',');
+		sb->append("colors="_s)->append($($Arrays::asList(this->colors)))->append(u',');
 	}
 	return sb->toString();
 }
@@ -196,7 +143,53 @@ DefaultSynthStyle$StateInfo::DefaultSynthStyle$StateInfo() {
 }
 
 $Class* DefaultSynthStyle$StateInfo::load$($String* name, bool initialize) {
-	$loadClass(DefaultSynthStyle$StateInfo, name, initialize, &_DefaultSynthStyle$StateInfo_ClassInfo_, allocate$DefaultSynthStyle$StateInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"data", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Object;Ljava/lang/Object;>;", $PRIVATE, $field(DefaultSynthStyle$StateInfo, data)},
+		{"font", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(DefaultSynthStyle$StateInfo, font)},
+		{"colors", "[Ljava/awt/Color;", nullptr, $PRIVATE, $field(DefaultSynthStyle$StateInfo, colors)},
+		{"state", "I", nullptr, $PRIVATE, $field(DefaultSynthStyle$StateInfo, state)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultSynthStyle$StateInfo, init$, void)},
+		{"<init>", "(ILjava/awt/Font;[Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(DefaultSynthStyle$StateInfo, init$, void, int32_t, $Font*, $ColorArray*)},
+		{"<init>", "(Lsun/swing/plaf/synth/DefaultSynthStyle$StateInfo;)V", nullptr, $PUBLIC, $method(DefaultSynthStyle$StateInfo, init$, void, DefaultSynthStyle$StateInfo*)},
+		{"addTo", "(Lsun/swing/plaf/synth/DefaultSynthStyle$StateInfo;)Lsun/swing/plaf/synth/DefaultSynthStyle$StateInfo;", nullptr, $PUBLIC, $virtualMethod(DefaultSynthStyle$StateInfo, addTo, DefaultSynthStyle$StateInfo*, DefaultSynthStyle$StateInfo*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultSynthStyle$StateInfo, clone, $Object*)},
+		{"getColor", "(Ljavax/swing/plaf/synth/ColorType;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(DefaultSynthStyle$StateInfo, getColor, $Color*, $ColorType*)},
+		{"getColors", "()[Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(DefaultSynthStyle$StateInfo, getColors, $ColorArray*)},
+		{"getComponentState", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultSynthStyle$StateInfo, getComponentState, int32_t)},
+		{"getData", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/Object;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(DefaultSynthStyle$StateInfo, getData, $Map*)},
+		{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(DefaultSynthStyle$StateInfo, getFont, $Font*)},
+		{"setColors", "([Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(DefaultSynthStyle$StateInfo, setColors, void, $ColorArray*)},
+		{"setComponentState", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultSynthStyle$StateInfo, setComponentState, void, int32_t)},
+		{"setData", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/Object;Ljava/lang/Object;>;)V", $PUBLIC, $virtualMethod(DefaultSynthStyle$StateInfo, setData, void, $Map*)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(DefaultSynthStyle$StateInfo, setFont, void, $Font*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultSynthStyle$StateInfo, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.plaf.synth.DefaultSynthStyle$StateInfo", "sun.swing.plaf.synth.DefaultSynthStyle", "StateInfo", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.swing.plaf.synth.DefaultSynthStyle$StateInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.plaf.synth.DefaultSynthStyle"
+	};
+	$loadClass(DefaultSynthStyle$StateInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultSynthStyle$StateInfo);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifMenuUI$MouseInputHandler.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifMenuUI.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -37,48 +36,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$FieldInfo _MotifMenuUI$MouseInputHandler_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifMenuUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifMenuUI$MouseInputHandler, this$0)},
-	{}
-};
-
-$MethodInfo _MotifMenuUI$MouseInputHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifMenuUI;)V", nullptr, $PROTECTED, $method(MotifMenuUI$MouseInputHandler, init$, void, $MotifMenuUI*)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifMenuUI$MouseInputHandler, mouseClicked, void, $MouseEvent*)},
-	{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifMenuUI$MouseInputHandler, mouseDragged, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifMenuUI$MouseInputHandler, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifMenuUI$MouseInputHandler, mouseExited, void, $MouseEvent*)},
-	{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifMenuUI$MouseInputHandler, mouseMoved, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifMenuUI$MouseInputHandler, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifMenuUI$MouseInputHandler, mouseReleased, void, $MouseEvent*)},
-	{}
-};
-
-$InnerClassInfo _MotifMenuUI$MouseInputHandler_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifMenuUI$MouseInputHandler", "com.sun.java.swing.plaf.motif.MotifMenuUI", "MouseInputHandler", $PROTECTED},
-	{}
-};
-
-$ClassInfo _MotifMenuUI$MouseInputHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifMenuUI$MouseInputHandler",
-	"java.lang.Object",
-	"javax.swing.event.MouseInputListener",
-	_MotifMenuUI$MouseInputHandler_FieldInfo_,
-	_MotifMenuUI$MouseInputHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifMenuUI$MouseInputHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifMenuUI"
-};
-
-$Object* allocate$MotifMenuUI$MouseInputHandler($Class* clazz) {
-	return $of($alloc(MotifMenuUI$MouseInputHandler));
-}
-
 void MotifMenuUI$MouseInputHandler::init$($MotifMenuUI* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -87,7 +44,7 @@ void MotifMenuUI$MouseInputHandler::mouseClicked($MouseEvent* e) {
 }
 
 void MotifMenuUI$MouseInputHandler::mousePressed($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MenuSelectionManager, manager, $MenuSelectionManager::defaultManager());
 	$var($JMenu, menu, $cast($JMenu, $nc(e)->getComponent()));
 	if ($nc(menu)->isEnabled()) {
@@ -115,7 +72,7 @@ void MotifMenuUI$MouseInputHandler::mousePressed($MouseEvent* e) {
 }
 
 void MotifMenuUI$MouseInputHandler::mouseReleased($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MenuSelectionManager, manager, $MenuSelectionManager::defaultManager());
 	$var($JMenuItem, menuItem, $cast($JMenuItem, $nc(e)->getComponent()));
 	$var($Point, p, e->getPoint());
@@ -132,7 +89,7 @@ void MotifMenuUI$MouseInputHandler::mouseExited($MouseEvent* e) {
 }
 
 void MotifMenuUI$MouseInputHandler::mouseDragged($MouseEvent* e) {
-	$nc($($MenuSelectionManager::defaultManager()))->processMouseEvent(e);
+	$$nc($MenuSelectionManager::defaultManager())->processMouseEvent(e);
 }
 
 void MotifMenuUI$MouseInputHandler::mouseMoved($MouseEvent* e) {
@@ -142,7 +99,43 @@ MotifMenuUI$MouseInputHandler::MotifMenuUI$MouseInputHandler() {
 }
 
 $Class* MotifMenuUI$MouseInputHandler::load$($String* name, bool initialize) {
-	$loadClass(MotifMenuUI$MouseInputHandler, name, initialize, &_MotifMenuUI$MouseInputHandler_ClassInfo_, allocate$MotifMenuUI$MouseInputHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifMenuUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifMenuUI$MouseInputHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifMenuUI;)V", nullptr, $PROTECTED, $method(MotifMenuUI$MouseInputHandler, init$, void, $MotifMenuUI*)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifMenuUI$MouseInputHandler, mouseClicked, void, $MouseEvent*)},
+		{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifMenuUI$MouseInputHandler, mouseDragged, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifMenuUI$MouseInputHandler, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifMenuUI$MouseInputHandler, mouseExited, void, $MouseEvent*)},
+		{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifMenuUI$MouseInputHandler, mouseMoved, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifMenuUI$MouseInputHandler, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifMenuUI$MouseInputHandler, mouseReleased, void, $MouseEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifMenuUI$MouseInputHandler", "com.sun.java.swing.plaf.motif.MotifMenuUI", "MouseInputHandler", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifMenuUI$MouseInputHandler",
+		"java.lang.Object",
+		"javax.swing.event.MouseInputListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifMenuUI"
+	};
+	$loadClass(MotifMenuUI$MouseInputHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifMenuUI$MouseInputHandler));
+	});
 	return class$;
 }
 

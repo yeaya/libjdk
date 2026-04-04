@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/processing/JavacRoundEnvironment$AnnotationSetMultiScanner.h>
-
 #include <com/sun/tools/javac/processing/JavacRoundEnvironment.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedHashSet.h>
@@ -21,63 +20,18 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
-using $List = ::java::util::List;
 using $Set = ::java::util::Set;
 using $AnnotationMirror = ::javax::lang::model::element::AnnotationMirror;
 using $Element = ::javax::lang::model::element::Element;
-using $ElementVisitor = ::javax::lang::model::element::ElementVisitor;
 using $ModuleElement = ::javax::lang::model::element::ModuleElement;
 using $PackageElement = ::javax::lang::model::element::PackageElement;
 using $ElementScanner14 = ::javax::lang::model::util::ElementScanner14;
-using $Elements = ::javax::lang::model::util::Elements;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace processing {
-
-$FieldInfo _JavacRoundEnvironment$AnnotationSetMultiScanner_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/processing/JavacRoundEnvironment;", nullptr, $FINAL | $SYNTHETIC, $field(JavacRoundEnvironment$AnnotationSetMultiScanner, this$0)},
-	{"annotatedElements", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/lang/model/element/Element;>;", $PRIVATE, $field(JavacRoundEnvironment$AnnotationSetMultiScanner, annotatedElements)},
-	{}
-};
-
-$MethodInfo _JavacRoundEnvironment$AnnotationSetMultiScanner_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/processing/JavacRoundEnvironment;Ljava/util/Set;)V", "(Ljava/util/Set<Ljavax/lang/model/element/Element;>;)V", 0, $method(JavacRoundEnvironment$AnnotationSetMultiScanner, init$, void, $JavacRoundEnvironment*, $Set*)},
-	{"scan", "(Ljavax/lang/model/element/Element;Ljava/util/Set;)Ljava/util/Set;", "(Ljavax/lang/model/element/Element;Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;)Ljava/util/Set<Ljavax/lang/model/element/Element;>;", $PUBLIC, $virtualMethod(JavacRoundEnvironment$AnnotationSetMultiScanner, scan, $Set*, $Element*, $Set*)},
-	{"scan", "(Ljavax/lang/model/element/Element;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavacRoundEnvironment$AnnotationSetMultiScanner, scan, $Object*, $Element*, Object$*)},
-	{"visitModule", "(Ljavax/lang/model/element/ModuleElement;Ljava/util/Set;)Ljava/util/Set;", "(Ljavax/lang/model/element/ModuleElement;Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;)Ljava/util/Set<Ljavax/lang/model/element/Element;>;", $PUBLIC, $virtualMethod(JavacRoundEnvironment$AnnotationSetMultiScanner, visitModule, $Set*, $ModuleElement*, $Set*)},
-	{"visitModule", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavacRoundEnvironment$AnnotationSetMultiScanner, visitModule, $Object*, $ModuleElement*, Object$*)},
-	{"visitPackage", "(Ljavax/lang/model/element/PackageElement;Ljava/util/Set;)Ljava/util/Set;", "(Ljavax/lang/model/element/PackageElement;Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;)Ljava/util/Set<Ljavax/lang/model/element/Element;>;", $PUBLIC, $virtualMethod(JavacRoundEnvironment$AnnotationSetMultiScanner, visitPackage, $Set*, $PackageElement*, $Set*)},
-	{"visitPackage", "(Ljavax/lang/model/element/PackageElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavacRoundEnvironment$AnnotationSetMultiScanner, visitPackage, $Object*, $PackageElement*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _JavacRoundEnvironment$AnnotationSetMultiScanner_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.processing.JavacRoundEnvironment$AnnotationSetMultiScanner", "com.sun.tools.javac.processing.JavacRoundEnvironment", "AnnotationSetMultiScanner", $PRIVATE},
-	{}
-};
-
-$ClassInfo _JavacRoundEnvironment$AnnotationSetMultiScanner_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.processing.JavacRoundEnvironment$AnnotationSetMultiScanner",
-	"javax.lang.model.util.ElementScanner14",
-	nullptr,
-	_JavacRoundEnvironment$AnnotationSetMultiScanner_FieldInfo_,
-	_JavacRoundEnvironment$AnnotationSetMultiScanner_MethodInfo_,
-	"Ljavax/lang/model/util/ElementScanner14<Ljava/util/Set<Ljavax/lang/model/element/Element;>;Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;>;",
-	nullptr,
-	_JavacRoundEnvironment$AnnotationSetMultiScanner_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.processing.JavacRoundEnvironment"
-};
-
-$Object* allocate$JavacRoundEnvironment$AnnotationSetMultiScanner($Class* clazz) {
-	return $of($alloc(JavacRoundEnvironment$AnnotationSetMultiScanner));
-}
 
 void JavacRoundEnvironment$AnnotationSetMultiScanner::init$($JavacRoundEnvironment* this$0, $Set* defaultSet) {
 	$set(this, this$0, this$0);
@@ -86,16 +40,14 @@ void JavacRoundEnvironment$AnnotationSetMultiScanner::init$($JavacRoundEnvironme
 }
 
 $Set* JavacRoundEnvironment$AnnotationSetMultiScanner::scan($Element* e, $Set* annotations) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
-		$var($Iterator, i$, $nc($($nc(this->this$0->eltUtils)->getAllAnnotationMirrors(e)))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->this$0->eltUtils)->getAllAnnotationMirrors(e))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($AnnotationMirror, annotMirror, $cast($AnnotationMirror, i$->next()));
-			{
-				if ($nc(annotations)->contains($(this->this$0->mirrorAsElement(annotMirror)))) {
-					$nc(this->annotatedElements)->add(e);
-					break;
-				}
+			if ($nc(annotations)->contains($(this->this$0->mirrorAsElement(annotMirror)))) {
+				$nc(this->annotatedElements)->add(e);
+				break;
 			}
 		}
 	}
@@ -112,22 +64,58 @@ $Set* JavacRoundEnvironment$AnnotationSetMultiScanner::visitPackage($PackageElem
 }
 
 $Object* JavacRoundEnvironment$AnnotationSetMultiScanner::visitModule($ModuleElement* e, Object$* annotations) {
-	return $of(this->visitModule(e, $cast($Set, annotations)));
+	return this->visitModule(e, $cast($Set, annotations));
 }
 
 $Object* JavacRoundEnvironment$AnnotationSetMultiScanner::visitPackage($PackageElement* e, Object$* annotations) {
-	return $of(this->visitPackage(e, $cast($Set, annotations)));
+	return this->visitPackage(e, $cast($Set, annotations));
 }
 
 $Object* JavacRoundEnvironment$AnnotationSetMultiScanner::scan($Element* e, Object$* annotations) {
-	return $of(this->scan(e, $cast($Set, annotations)));
+	return this->scan(e, $cast($Set, annotations));
 }
 
 JavacRoundEnvironment$AnnotationSetMultiScanner::JavacRoundEnvironment$AnnotationSetMultiScanner() {
 }
 
 $Class* JavacRoundEnvironment$AnnotationSetMultiScanner::load$($String* name, bool initialize) {
-	$loadClass(JavacRoundEnvironment$AnnotationSetMultiScanner, name, initialize, &_JavacRoundEnvironment$AnnotationSetMultiScanner_ClassInfo_, allocate$JavacRoundEnvironment$AnnotationSetMultiScanner);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/processing/JavacRoundEnvironment;", nullptr, $FINAL | $SYNTHETIC, $field(JavacRoundEnvironment$AnnotationSetMultiScanner, this$0)},
+		{"annotatedElements", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/lang/model/element/Element;>;", $PRIVATE, $field(JavacRoundEnvironment$AnnotationSetMultiScanner, annotatedElements)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/processing/JavacRoundEnvironment;Ljava/util/Set;)V", "(Ljava/util/Set<Ljavax/lang/model/element/Element;>;)V", 0, $method(JavacRoundEnvironment$AnnotationSetMultiScanner, init$, void, $JavacRoundEnvironment*, $Set*)},
+		{"scan", "(Ljavax/lang/model/element/Element;Ljava/util/Set;)Ljava/util/Set;", "(Ljavax/lang/model/element/Element;Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;)Ljava/util/Set<Ljavax/lang/model/element/Element;>;", $PUBLIC, $virtualMethod(JavacRoundEnvironment$AnnotationSetMultiScanner, scan, $Set*, $Element*, $Set*)},
+		{"scan", "(Ljavax/lang/model/element/Element;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavacRoundEnvironment$AnnotationSetMultiScanner, scan, $Object*, $Element*, Object$*)},
+		{"visitModule", "(Ljavax/lang/model/element/ModuleElement;Ljava/util/Set;)Ljava/util/Set;", "(Ljavax/lang/model/element/ModuleElement;Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;)Ljava/util/Set<Ljavax/lang/model/element/Element;>;", $PUBLIC, $virtualMethod(JavacRoundEnvironment$AnnotationSetMultiScanner, visitModule, $Set*, $ModuleElement*, $Set*)},
+		{"visitModule", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavacRoundEnvironment$AnnotationSetMultiScanner, visitModule, $Object*, $ModuleElement*, Object$*)},
+		{"visitPackage", "(Ljavax/lang/model/element/PackageElement;Ljava/util/Set;)Ljava/util/Set;", "(Ljavax/lang/model/element/PackageElement;Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;)Ljava/util/Set<Ljavax/lang/model/element/Element;>;", $PUBLIC, $virtualMethod(JavacRoundEnvironment$AnnotationSetMultiScanner, visitPackage, $Set*, $PackageElement*, $Set*)},
+		{"visitPackage", "(Ljavax/lang/model/element/PackageElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavacRoundEnvironment$AnnotationSetMultiScanner, visitPackage, $Object*, $PackageElement*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.processing.JavacRoundEnvironment$AnnotationSetMultiScanner", "com.sun.tools.javac.processing.JavacRoundEnvironment", "AnnotationSetMultiScanner", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.processing.JavacRoundEnvironment$AnnotationSetMultiScanner",
+		"javax.lang.model.util.ElementScanner14",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljavax/lang/model/util/ElementScanner14<Ljava/util/Set<Ljavax/lang/model/element/Element;>;Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.processing.JavacRoundEnvironment"
+	};
+	$loadClass(JavacRoundEnvironment$AnnotationSetMultiScanner, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacRoundEnvironment$AnnotationSetMultiScanner);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <bug6608456.h>
-
 #include <bug6608456$1.h>
 #include <bug6608456$2.h>
 #include <bug6608456$TestFuture.h>
@@ -9,7 +8,6 @@
 #include <java/awt/Window.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/Callable.h>
 #include <java/util/concurrent/FutureTask.h>
@@ -35,7 +33,6 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Method = ::java::lang::reflect::Method;
 using $Callable = ::java::util::concurrent::Callable;
@@ -46,47 +43,6 @@ using $JFrame = ::javax::swing::JFrame;
 using $RepaintManager = ::javax::swing::RepaintManager;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 
-$FieldInfo _bug6608456_FieldInfo_[] = {
-	{"testFuture", "Lbug6608456$TestFuture;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug6608456, testFuture)},
-	{}
-};
-
-$MethodInfo _bug6608456_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6608456, init$, void)},
-	{"blockTillDisplayed", "(Ljava/awt/Component;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6608456, blockTillDisplayed, void, $Component*)},
-	{"invokeAndWait", "(Ljava/util/concurrent/Callable;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TT;>;)TT;", $STATIC, $staticMethod(bug6608456, invokeAndWait, $Object*, $Callable*), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6608456, main, void, $StringArray*), "java.lang.Exception"},
-	{"registerDelegate", "(Ljavax/swing/JComponent;Ljavax/swing/RepaintManager;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6608456, registerDelegate, bool, $JComponent*, $RepaintManager*)},
-	{}
-};
-
-$InnerClassInfo _bug6608456_InnerClassesInfo_[] = {
-	{"bug6608456$TestFuture", "bug6608456", "TestFuture", $STATIC},
-	{"bug6608456$TestRepaintManager", "bug6608456", "TestRepaintManager", $STATIC},
-	{"bug6608456$2", nullptr, nullptr, 0},
-	{"bug6608456$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6608456_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6608456",
-	"java.lang.Object",
-	nullptr,
-	_bug6608456_FieldInfo_,
-	_bug6608456_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6608456_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug6608456$TestFuture,bug6608456$TestFuture$1,bug6608456$TestRepaintManager,bug6608456$2,bug6608456$1"
-};
-
-$Object* allocate$bug6608456($Class* clazz) {
-	return $of($alloc(bug6608456));
-}
-
 $bug6608456$TestFuture* bug6608456::testFuture = nullptr;
 
 void bug6608456::init$() {
@@ -94,54 +50,52 @@ void bug6608456::init$() {
 
 void bug6608456::main($StringArray* args) {
 	$init(bug6608456);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, component, $cast($JComponent, invokeAndWait($$new($bug6608456$1))));
 	if (component == nullptr) {
 		$throwNew($RuntimeException, "failed. can not register delegate"_s);
 	}
 	blockTillDisplayed(component);
 	invokeAndWait($$new($bug6608456$2, component));
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$init($TimeUnit);
-				if ($nc(($cast($Boolean, $($nc(bug6608456::testFuture)->get(10, $TimeUnit::SECONDS)))))->booleanValue()) {
-				}
-			} catch ($Exception& e) {
-				$throwNew($RuntimeException, "failed"_s, e);
+			$init($TimeUnit);
+			if ($$sure($Boolean, bug6608456::testFuture->get(10, $TimeUnit::SECONDS))->booleanValue()) {
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$load($JFrame);
-			$var($JFrame, frame, $cast($JFrame, $SwingUtilities::getAncestorOfClass($JFrame::class$, component)));
-			if (frame != nullptr) {
-				frame->dispose();
-			}
+		} catch ($Exception& e) {
+			$throwNew($RuntimeException, "failed"_s, e);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$load($JFrame);
+		$var($JFrame, frame, $cast($JFrame, $SwingUtilities::getAncestorOfClass($JFrame::class$, component)));
+		if (frame != nullptr) {
+			frame->dispose();
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 bool bug6608456::registerDelegate($JComponent* c, $RepaintManager* repaintManager) {
 	$init(bug6608456);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	bool rv = false;
 	try {
 		$Class* clazz = $Class::forName("com.sun.java.swing.SwingUtilities3"_s);
 		$load($JComponent);
 		$load($RepaintManager);
-		$var($Method, method, $nc(clazz)->getMethod("setDelegateRepaintManager"_s, $$new($ClassArray, {
+		$var($Method, method, clazz->getMethod("setDelegateRepaintManager"_s, $$new($ClassArray, {
 			$JComponent::class$,
 			$RepaintManager::class$
 		})));
 		$nc(method)->invoke(clazz, $$new($ObjectArray, {
-			$of(c),
-			$of(repaintManager)
+			c,
+			repaintManager
 		}));
 		rv = true;
 	} catch ($Exception& ignore) {
@@ -153,7 +107,7 @@ $Object* bug6608456::invokeAndWait($Callable* callable) {
 	$init(bug6608456);
 	$var($FutureTask, future, $new($FutureTask, callable));
 	$SwingUtilities::invokeLater(future);
-	return $of(future->get());
+	return future->get();
 }
 
 void bug6608456::blockTillDisplayed($Component* comp) {
@@ -171,7 +125,7 @@ void bug6608456::blockTillDisplayed($Component* comp) {
 	}
 }
 
-void clinit$bug6608456($Class* class$) {
+void bug6608456::clinit$($Class* clazz) {
 	$assignStatic(bug6608456::testFuture, $new($bug6608456$TestFuture));
 }
 
@@ -179,7 +133,42 @@ bug6608456::bug6608456() {
 }
 
 $Class* bug6608456::load$($String* name, bool initialize) {
-	$loadClass(bug6608456, name, initialize, &_bug6608456_ClassInfo_, clinit$bug6608456, allocate$bug6608456);
+	$FieldInfo fieldInfos$$[] = {
+		{"testFuture", "Lbug6608456$TestFuture;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug6608456, testFuture)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6608456, init$, void)},
+		{"blockTillDisplayed", "(Ljava/awt/Component;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6608456, blockTillDisplayed, void, $Component*)},
+		{"invokeAndWait", "(Ljava/util/concurrent/Callable;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TT;>;)TT;", $STATIC, $staticMethod(bug6608456, invokeAndWait, $Object*, $Callable*), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6608456, main, void, $StringArray*), "java.lang.Exception"},
+		{"registerDelegate", "(Ljavax/swing/JComponent;Ljavax/swing/RepaintManager;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6608456, registerDelegate, bool, $JComponent*, $RepaintManager*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6608456$TestFuture", "bug6608456", "TestFuture", $STATIC},
+		{"bug6608456$TestRepaintManager", "bug6608456", "TestRepaintManager", $STATIC},
+		{"bug6608456$2", nullptr, nullptr, 0},
+		{"bug6608456$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6608456",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug6608456$TestFuture,bug6608456$TestFuture$1,bug6608456$TestRepaintManager,bug6608456$2,bug6608456$1"
+	};
+	$loadClass(bug6608456, name, initialize, &classInfo$$, bug6608456::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6608456);
+	});
 	return class$;
 }
 

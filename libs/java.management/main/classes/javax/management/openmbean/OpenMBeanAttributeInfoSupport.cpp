@@ -1,5 +1,4 @@
 #include <javax/management/openmbean/OpenMBeanAttributeInfoSupport.h>
-
 #include <com/sun/jmx/remote/util/EnvHelp.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/Comparable.h>
@@ -74,78 +73,6 @@ namespace javax {
 	namespace management {
 		namespace openmbean {
 
-$FieldInfo _OpenMBeanAttributeInfoSupport_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(OpenMBeanAttributeInfoSupport, serialVersionUID)},
-	{"openType", "Ljavax/management/openmbean/OpenType;", "Ljavax/management/openmbean/OpenType<*>;", $PRIVATE, $field(OpenMBeanAttributeInfoSupport, openType)},
-	{"defaultValue", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(OpenMBeanAttributeInfoSupport, defaultValue)},
-	{"legalValues", "Ljava/util/Set;", "Ljava/util/Set<*>;", $PRIVATE | $FINAL, $field(OpenMBeanAttributeInfoSupport, legalValues)},
-	{"minValue", "Ljava/lang/Comparable;", "Ljava/lang/Comparable<*>;", $PRIVATE | $FINAL, $field(OpenMBeanAttributeInfoSupport, minValue)},
-	{"maxValue", "Ljava/lang/Comparable;", "Ljava/lang/Comparable<*>;", $PRIVATE | $FINAL, $field(OpenMBeanAttributeInfoSupport, maxValue)},
-	{"myHashCode", "Ljava/lang/Integer;", nullptr, $PRIVATE | $TRANSIENT, $field(OpenMBeanAttributeInfoSupport, myHashCode)},
-	{"myToString", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(OpenMBeanAttributeInfoSupport, myToString)},
-	{}
-};
-
-$MethodInfo _OpenMBeanAttributeInfoSupport_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType;ZZZ)V", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType<*>;ZZZ)V", $PUBLIC, $method(OpenMBeanAttributeInfoSupport, init$, void, $String*, $String*, $OpenType*, bool, bool, bool)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType;ZZZLjavax/management/Descriptor;)V", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType<*>;ZZZLjavax/management/Descriptor;)V", $PUBLIC, $method(OpenMBeanAttributeInfoSupport, init$, void, $String*, $String*, $OpenType*, bool, bool, bool, $Descriptor*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType;ZZZLjava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType<TT;>;ZZZTT;)V", $PUBLIC, $method(OpenMBeanAttributeInfoSupport, init$, void, $String*, $String*, $OpenType*, bool, bool, bool, Object$*), "javax.management.openmbean.OpenDataException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType;ZZZLjava/lang/Object;[Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType<TT;>;ZZZTT;[TT;)V", $PUBLIC, $method(OpenMBeanAttributeInfoSupport, init$, void, $String*, $String*, $OpenType*, bool, bool, bool, Object$*, $ObjectArray*), "javax.management.openmbean.OpenDataException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType;ZZZLjava/lang/Object;Ljava/lang/Comparable;Ljava/lang/Comparable;)V", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType<TT;>;ZZZTT;Ljava/lang/Comparable<TT;>;Ljava/lang/Comparable<TT;>;)V", $PUBLIC, $method(OpenMBeanAttributeInfoSupport, init$, void, $String*, $String*, $OpenType*, bool, bool, bool, Object$*, $Comparable*, $Comparable*), "javax.management.openmbean.OpenDataException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType;ZZZLjava/lang/Object;[Ljava/lang/Object;Ljava/lang/Comparable;Ljava/lang/Comparable;)V", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType<TT;>;ZZZTT;[TT;Ljava/lang/Comparable<TT;>;Ljava/lang/Comparable<TT;>;)V", $PRIVATE, $method(OpenMBeanAttributeInfoSupport, init$, void, $String*, $String*, $OpenType*, bool, bool, bool, Object$*, $ObjectArray*, $Comparable*, $Comparable*), "javax.management.openmbean.OpenDataException"},
-	{"cast", "(Ljava/lang/Object;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;)TT;", $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, cast, $Object*, Object$*)},
-	{"check", "(Ljavax/management/openmbean/OpenMBeanParameterInfo;)V", nullptr, $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, check, void, $OpenMBeanParameterInfo*), "javax.management.openmbean.OpenDataException"},
-	{"comparableValueFrom", "(Ljavax/management/Descriptor;Ljava/lang/String;Ljavax/management/openmbean/OpenType;)Ljava/lang/Comparable;", "<T:Ljava/lang/Object;>(Ljavax/management/Descriptor;Ljava/lang/String;Ljavax/management/openmbean/OpenType<TT;>;)Ljava/lang/Comparable<*>;", $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, comparableValueFrom, $Comparable*, $Descriptor*, $String*, $OpenType*)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, compare, int32_t, Object$*, Object$*)},
-	{"convertFrom", "(Ljava/lang/Object;Ljavax/management/openmbean/OpenType;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;Ljavax/management/openmbean/OpenType<TT;>;)TT;", $PRIVATE | $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, convertFrom, $Object*, Object$*, $OpenType*)},
-	{"convertFromString", "(Ljava/lang/String;Ljavax/management/openmbean/OpenType;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljavax/management/openmbean/OpenType<TT;>;)TT;", $PRIVATE | $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, convertFromString, $Object*, $String*, $OpenType*)},
-	{"convertFromStringArray", "(Ljava/lang/Object;Ljavax/management/openmbean/OpenType;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;Ljavax/management/openmbean/OpenType<TT;>;)TT;", $PRIVATE | $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, convertFromStringArray, $Object*, Object$*, $OpenType*)},
-	{"convertFromStrings", "(Ljava/lang/Object;Ljavax/management/openmbean/OpenType;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;Ljavax/management/openmbean/OpenType<TT;>;)TT;", $PRIVATE | $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, convertFromStrings, $Object*, Object$*, $OpenType*)},
-	{"equal", "(Ljavax/management/openmbean/OpenMBeanParameterInfo;Ljavax/management/openmbean/OpenMBeanParameterInfo;)Z", nullptr, $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, equal, bool, $OpenMBeanParameterInfo*, $OpenMBeanParameterInfo*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanAttributeInfoSupport, equals, bool, Object$*)},
-	{"getDefaultValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(OpenMBeanAttributeInfoSupport, getDefaultValue, $Object*)},
-	{"getLegalValues", "()Ljava/util/Set;", "()Ljava/util/Set<*>;", $PUBLIC, $virtualMethod(OpenMBeanAttributeInfoSupport, getLegalValues, $Set*)},
-	{"getMaxValue", "()Ljava/lang/Comparable;", "()Ljava/lang/Comparable<*>;", $PUBLIC, $virtualMethod(OpenMBeanAttributeInfoSupport, getMaxValue, $Comparable*)},
-	{"getMinValue", "()Ljava/lang/Comparable;", "()Ljava/lang/Comparable<*>;", $PUBLIC, $virtualMethod(OpenMBeanAttributeInfoSupport, getMinValue, $Comparable*)},
-	{"getOpenType", "()Ljavax/management/openmbean/OpenType;", "()Ljavax/management/openmbean/OpenType<*>;", $PUBLIC, $virtualMethod(OpenMBeanAttributeInfoSupport, getOpenType, $OpenType*)},
-	{"hasDefaultValue", "()Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanAttributeInfoSupport, hasDefaultValue, bool)},
-	{"hasLegalValues", "()Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanAttributeInfoSupport, hasLegalValues, bool)},
-	{"hasMaxValue", "()Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanAttributeInfoSupport, hasMaxValue, bool)},
-	{"hasMinValue", "()Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanAttributeInfoSupport, hasMinValue, bool)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(OpenMBeanAttributeInfoSupport, hashCode, int32_t)},
-	{"hashCode", "(Ljavax/management/openmbean/OpenMBeanParameterInfo;)I", nullptr, $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, hashCode, int32_t, $OpenMBeanParameterInfo*)},
-	{"*isIs", "()Z", nullptr, $PUBLIC},
-	{"*isReadable", "()Z", nullptr, $PUBLIC},
-	{"isValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanAttributeInfoSupport, isValue, bool, Object$*)},
-	{"isValue", "(Ljavax/management/openmbean/OpenMBeanParameterInfo;Ljava/lang/Object;)Z", nullptr, $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, isValue, bool, $OpenMBeanParameterInfo*, Object$*)},
-	{"*isWritable", "()Z", nullptr, $PUBLIC},
-	{"makeDescriptor", "(Ljavax/management/openmbean/OpenType;Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Comparable;Ljava/lang/Comparable;)Ljavax/management/Descriptor;", "<T:Ljava/lang/Object;>(Ljavax/management/openmbean/OpenType<TT;>;TT;[TT;Ljava/lang/Comparable<TT;>;Ljava/lang/Comparable<TT;>;)Ljavax/management/Descriptor;", $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, makeDescriptor, $Descriptor*, $OpenType*, Object$*, $ObjectArray*, $Comparable*, $Comparable*)},
-	{"makeDescriptor", "(Ljavax/management/openmbean/OpenType;Ljava/lang/Object;Ljava/util/Set;Ljava/lang/Comparable;Ljava/lang/Comparable;)Ljavax/management/Descriptor;", "<T:Ljava/lang/Object;>(Ljavax/management/openmbean/OpenType<TT;>;TT;Ljava/util/Set<TT;>;Ljava/lang/Comparable<TT;>;Ljava/lang/Comparable<TT;>;)Ljavax/management/Descriptor;", $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, makeDescriptor, $Descriptor*, $OpenType*, Object$*, $Set*, $Comparable*, $Comparable*)},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(OpenMBeanAttributeInfoSupport, readResolve, $Object*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OpenMBeanAttributeInfoSupport, toString, $String*)},
-	{"toString", "(Ljavax/management/openmbean/OpenMBeanParameterInfo;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, toString, $String*, $OpenMBeanParameterInfo*)},
-	{"valueFrom", "(Ljavax/management/Descriptor;Ljava/lang/String;Ljavax/management/openmbean/OpenType;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljavax/management/Descriptor;Ljava/lang/String;Ljavax/management/openmbean/OpenType<TT;>;)TT;", $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, valueFrom, $Object*, $Descriptor*, $String*, $OpenType*)},
-	{"valuesFrom", "(Ljavax/management/Descriptor;Ljava/lang/String;Ljavax/management/openmbean/OpenType;)Ljava/util/Set;", "<T:Ljava/lang/Object;>(Ljavax/management/Descriptor;Ljava/lang/String;Ljavax/management/openmbean/OpenType<TT;>;)Ljava/util/Set<TT;>;", $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, valuesFrom, $Set*, $Descriptor*, $String*, $OpenType*)},
-	{}
-};
-
-$ClassInfo _OpenMBeanAttributeInfoSupport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.openmbean.OpenMBeanAttributeInfoSupport",
-	"javax.management.MBeanAttributeInfo",
-	"javax.management.openmbean.OpenMBeanAttributeInfo",
-	_OpenMBeanAttributeInfoSupport_FieldInfo_,
-	_OpenMBeanAttributeInfoSupport_MethodInfo_
-};
-
-$Object* allocate$OpenMBeanAttributeInfoSupport($Class* clazz) {
-	return $of($alloc(OpenMBeanAttributeInfoSupport));
-}
-
 $Object* OpenMBeanAttributeInfoSupport::clone() {
 	 return this->$MBeanAttributeInfo::clone();
 }
@@ -179,15 +106,10 @@ void OpenMBeanAttributeInfoSupport::init$($String* name, $String* description, $
 }
 
 void OpenMBeanAttributeInfoSupport::init$($String* name, $String* description, $OpenType* openType, bool isReadable, bool isWritable, bool isIs, $Descriptor* descriptor$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Descriptor, descriptor, descriptor$renamed);
-	$var($String, var$0, name);
-	$var($String, var$1, (openType == nullptr) ? ($String*)nullptr : $nc(openType)->getClassName());
-	$var($String, var$2, description);
-	bool var$3 = isReadable;
-	bool var$4 = isWritable;
-	bool var$5 = isIs;
-	$MBeanAttributeInfo::init$(var$0, var$1, var$2, var$3, var$4, var$5, $($ImmutableDescriptor::union$($$new($DescriptorArray, {
+	$var($String, var$0, (openType == nullptr) ? ($String*)nullptr : openType->getClassName());
+	$MBeanAttributeInfo::init$(name, var$0, description, isReadable, isWritable, isIs, $($ImmutableDescriptor::union$($$new($DescriptorArray, {
 		descriptor,
 		(openType == nullptr) ? ($Descriptor*)nullptr : $(openType->getDescriptor())
 	}))));
@@ -219,14 +141,9 @@ void OpenMBeanAttributeInfoSupport::init$($String* name, $String* description, $
 }
 
 void OpenMBeanAttributeInfoSupport::init$($String* name, $String* description, $OpenType* openType, bool isReadable, bool isWritable, bool isIs, Object$* defaultValue, $ObjectArray* legalValues, $Comparable* minValue, $Comparable* maxValue) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, name);
-	$var($String, var$1, (openType == nullptr) ? ($String*)nullptr : $nc(openType)->getClassName());
-	$var($String, var$2, description);
-	bool var$3 = isReadable;
-	bool var$4 = isWritable;
-	bool var$5 = isIs;
-	$MBeanAttributeInfo::init$(var$0, var$1, var$2, var$3, var$4, var$5, $(makeDescriptor(openType, defaultValue, legalValues, minValue, maxValue)));
+	$useLocalObjectStack();
+	$var($String, var$0, (openType == nullptr) ? ($String*)nullptr : openType->getClassName());
+	$MBeanAttributeInfo::init$(name, var$0, description, isReadable, isWritable, isIs, $(makeDescriptor(openType, defaultValue, legalValues, minValue, maxValue)));
 	$set(this, myHashCode, nullptr);
 	$set(this, myToString, nullptr);
 	$set(this, openType, openType);
@@ -239,8 +156,8 @@ void OpenMBeanAttributeInfoSupport::init$($String* name, $String* description, $
 }
 
 $Object* OpenMBeanAttributeInfoSupport::readResolve() {
-	$useLocalCurrentObjectStackCache();
-	if ($nc($($nc($(getDescriptor()))->getFieldNames()))->length == 0) {
+	$useLocalObjectStack();
+	if ($nc($($$nc(getDescriptor())->getFieldNames()))->length == 0) {
 		$var($OpenType, xopenType, $cast($OpenType, cast(this->openType)));
 		$var($Set, xlegalValues, $cast($Set, cast(this->legalValues)));
 		$var($Comparable, xminValue, $cast($Comparable, cast(this->minValue)));
@@ -259,56 +176,68 @@ $Object* OpenMBeanAttributeInfoSupport::readResolve() {
 
 void OpenMBeanAttributeInfoSupport::check($OpenMBeanParameterInfo* info) {
 	$init(OpenMBeanAttributeInfoSupport);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OpenType, openType, $nc(info)->getOpenType());
 	if (openType == nullptr) {
 		$throwNew($IllegalArgumentException, "OpenType cannot be null"_s);
 	}
 	bool var$0 = info->getName() == nullptr;
-	if (var$0 || $($nc($(info->getName()))->trim())->isEmpty()) {
+	if (var$0 || $($$nc(info->getName())->trim())->isEmpty()) {
 		$throwNew($IllegalArgumentException, "Name cannot be null or empty"_s);
 	}
 	bool var$1 = info->getDescription() == nullptr;
-	if (var$1 || $($nc($(info->getDescription()))->trim())->isEmpty()) {
+	if (var$1 || $($$nc(info->getDescription())->trim())->isEmpty()) {
 		$throwNew($IllegalArgumentException, "Description cannot be null or empty"_s);
 	}
 	if (info->hasDefaultValue()) {
 		if ($nc(openType)->isArray() || $instanceOf($TabularType, $of(openType))) {
 			$throwNew($OpenDataException, "Default value not supported for ArrayType and TabularType"_s);
 		}
-		if (!$nc(openType)->isValue($(info->getDefaultValue()))) {
-			$var($String, var$3, $$str({"Argument defaultValue\'s class [\""_s, $($nc($of($(info->getDefaultValue())))->getClass()->getName()), "\"] does not match the one defined in openType[\""_s}));
-			$var($String, var$2, $$concat(var$3, $(openType->getClassName())));
-			$var($String, msg, $concat(var$2, "\"]"_s));
+		if (!openType->isValue($(info->getDefaultValue()))) {
+			$var($StringBuilder, var$2, $new($StringBuilder));
+			var$2->append("Argument defaultValue\'s class [\""_s);
+			var$2->append($($$nc(info->getDefaultValue())->getClass()->getName()));
+			var$2->append("\"] does not match the one defined in openType[\""_s);
+			var$2->append($(openType->getClassName()));
+			var$2->append("\"]"_s);
+			$var($String, msg, $str(var$2));
 			$throwNew($OpenDataException, msg);
 		}
 	}
-	bool var$4 = info->hasLegalValues();
-	if (var$4) {
-		bool var$5 = info->hasMinValue();
-		var$4 = (var$5 || info->hasMaxValue());
+	bool var$3 = info->hasLegalValues();
+	if (var$3) {
+		bool var$4 = info->hasMinValue();
+		var$3 = var$4 || info->hasMaxValue();
 	}
-	if (var$4) {
+	if (var$3) {
 		$throwNew($OpenDataException, "cannot have both legalValue and minValue or maxValue"_s);
 	}
-	bool var$6 = info->hasMinValue();
-	if (var$6 && !$nc(openType)->isValue($(info->getMinValue()))) {
-		$var($String, var$8, $$str({"Type of minValue ["_s, $($nc($of($(info->getMinValue())))->getClass()->getName()), "] does not match OpenType ["_s}));
-		$var($String, var$7, $$concat(var$8, $(openType->getClassName())));
-		$var($String, msg, $concat(var$7, "]"_s));
+	bool var$5 = info->hasMinValue();
+	if (var$5 && !$nc(openType)->isValue($(info->getMinValue()))) {
+		$var($StringBuilder, var$6, $new($StringBuilder));
+		var$6->append("Type of minValue ["_s);
+		var$6->append($($$nc(info->getMinValue())->getClass()->getName()));
+		var$6->append("] does not match OpenType ["_s);
+		var$6->append($(openType->getClassName()));
+		var$6->append("]"_s);
+		$var($String, msg, $str(var$6));
 		$throwNew($OpenDataException, msg);
 	}
-	bool var$9 = info->hasMaxValue();
-	if (var$9 && !$nc(openType)->isValue($(info->getMaxValue()))) {
-		$var($String, var$11, $$str({"Type of maxValue ["_s, $($nc($of($(info->getMaxValue())))->getClass()->getName()), "] does not match OpenType ["_s}));
-		$var($String, var$10, $$concat(var$11, $(openType->getClassName())));
-		$var($String, msg, $concat(var$10, "]"_s));
+	bool var$7 = info->hasMaxValue();
+	if (var$7 && !$nc(openType)->isValue($(info->getMaxValue()))) {
+		$var($StringBuilder, var$8, $new($StringBuilder));
+		var$8->append("Type of maxValue ["_s);
+		var$8->append($($$nc(info->getMaxValue())->getClass()->getName()));
+		var$8->append("] does not match OpenType ["_s);
+		var$8->append($(openType->getClassName()));
+		var$8->append("]"_s);
+		$var($String, msg, $str(var$8));
 		$throwNew($OpenDataException, msg);
 	}
 	if (info->hasDefaultValue()) {
 		$var($Object, defaultValue, info->getDefaultValue());
-		bool var$12 = info->hasLegalValues();
-		if (var$12 && !$nc($(info->getLegalValues()))->contains(defaultValue)) {
+		bool var$9 = info->hasLegalValues();
+		if (var$9 && !$$nc(info->getLegalValues())->contains(defaultValue)) {
 			$throwNew($OpenDataException, "defaultValue is not contained in legalValues"_s);
 		}
 		if (info->hasMinValue()) {
@@ -327,24 +256,26 @@ void OpenMBeanAttributeInfoSupport::check($OpenMBeanParameterInfo* info) {
 			$throwNew($OpenDataException, "Legal values not supported for TabularType and arrays"_s);
 		}
 		{
-			$var($Iterator, i$, $nc($(info->getLegalValues()))->iterator());
+			$var($Iterator, i$, $$nc(info->getLegalValues())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Object, v, i$->next());
-				{
-					if (!$nc(openType)->isValue(v)) {
-						$var($String, var$14, $$str({"Element of legalValues ["_s, v, "] is not a valid value for the specified openType ["_s}));
-						$var($String, var$13, $$concat(var$14, $(openType->toString())));
-						$var($String, msg, $concat(var$13, "]"_s));
-						$throwNew($OpenDataException, msg);
-					}
+				if (!$nc(openType)->isValue(v)) {
+					$var($StringBuilder, var$10, $new($StringBuilder));
+					var$10->append("Element of legalValues ["_s);
+					var$10->append(v);
+					var$10->append("] is not a valid value for the specified openType ["_s);
+					var$10->append($(openType->toString()));
+					var$10->append("]"_s);
+					$var($String, msg, $str(var$10));
+					$throwNew($OpenDataException, msg);
 				}
 			}
 		}
 	}
-	bool var$15 = info->hasMinValue();
-	if (var$15 && info->hasMaxValue()) {
-		$var($Object, var$16, $of(info->getMinValue()));
-		if (compare(var$16, $(info->getMaxValue())) > 0) {
+	bool var$11 = info->hasMinValue();
+	if (var$11 && info->hasMaxValue()) {
+		$var($Object, var$12, info->getMinValue());
+		if (compare(var$12, $(info->getMaxValue())) > 0) {
 			$throwNew($OpenDataException, "minValue cannot be greater than maxValue"_s);
 		}
 	}
@@ -352,12 +283,12 @@ void OpenMBeanAttributeInfoSupport::check($OpenMBeanParameterInfo* info) {
 
 int32_t OpenMBeanAttributeInfoSupport::compare(Object$* x, Object$* y) {
 	$init(OpenMBeanAttributeInfoSupport);
-	return $nc(($cast($Comparable, x)))->compareTo(y);
+	return $nc($cast($Comparable, x))->compareTo(y);
 }
 
 $Descriptor* OpenMBeanAttributeInfoSupport::makeDescriptor($OpenType* openType, Object$* defaultValue, $ObjectArray* legalValues, $Comparable* minValue, $Comparable* maxValue) {
 	$init(OpenMBeanAttributeInfoSupport);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, map, $new($HashMap));
 	if (defaultValue != nullptr) {
 		map->put("defaultValue"_s, defaultValue);
@@ -366,9 +297,7 @@ $Descriptor* OpenMBeanAttributeInfoSupport::makeDescriptor($OpenType* openType, 
 		$var($Set, set, $new($HashSet));
 		{
 			$var($ObjectArray, arr$, legalValues);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Object0, v, arr$->get(i$));
 				set->add(v);
 			}
@@ -392,36 +321,36 @@ $Descriptor* OpenMBeanAttributeInfoSupport::makeDescriptor($OpenType* openType, 
 
 $Descriptor* OpenMBeanAttributeInfoSupport::makeDescriptor($OpenType* openType, Object$* defaultValue, $Set* legalValues, $Comparable* minValue, $Comparable* maxValue) {
 	$init(OpenMBeanAttributeInfoSupport);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, legals, nullptr);
 	if (legalValues == nullptr) {
 		$assign(legals, nullptr);
 	} else {
-		$assign(legals, $cast($ObjectArray, cast($$new($ObjectArray, $nc(legalValues)->size()))));
-		$nc(legalValues)->toArray(legals);
+		$assign(legals, $cast($ObjectArray, cast($$new($ObjectArray, legalValues->size()))));
+		legalValues->toArray(legals);
 	}
 	return makeDescriptor(openType, defaultValue, legals, minValue, maxValue);
 }
 
 $Object* OpenMBeanAttributeInfoSupport::valueFrom($Descriptor* d, $String* name, $OpenType* openType) {
 	$init(OpenMBeanAttributeInfoSupport);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, x, $nc(d)->getFieldValue(name));
 	if (x == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	try {
-		return $of(convertFrom(x, openType));
+		return convertFrom(x, openType);
 	} catch ($Exception& e) {
 		$var($String, msg, $str({"Cannot convert descriptor field "_s, name, "  to "_s, $($nc(openType)->getTypeName())}));
-		$throw($cast($IllegalArgumentException, $($EnvHelp::initCause($$new($IllegalArgumentException, msg), e))));
+		$throw($$cast($IllegalArgumentException, $EnvHelp::initCause($$new($IllegalArgumentException, msg), e)));
 	}
 	$shouldNotReachHere();
 }
 
 $Set* OpenMBeanAttributeInfoSupport::valuesFrom($Descriptor* d, $String* name, $OpenType* openType) {
 	$init(OpenMBeanAttributeInfoSupport);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, x, $nc(d)->getFieldValue(name));
 	if (x == nullptr) {
 		return nullptr;
@@ -431,14 +360,12 @@ $Set* OpenMBeanAttributeInfoSupport::valuesFrom($Descriptor* d, $String* name, $
 		$var($Set, set, $cast($Set, x));
 		bool asis = true;
 		{
-			$var($Iterator, i$, $nc(set)->iterator());
+			$var($Iterator, i$, set->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Object, element, i$->next());
-				{
-					if (!$nc(openType)->isValue(element)) {
-						asis = false;
-						break;
-					}
+				if (!$nc(openType)->isValue(element)) {
+					asis = false;
+					break;
 				}
 			}
 		}
@@ -449,7 +376,7 @@ $Set* OpenMBeanAttributeInfoSupport::valuesFrom($Descriptor* d, $String* name, $
 	} else if ($instanceOf($ObjectArray, x)) {
 		$assign(coll, $Arrays::asList($cast($ObjectArray, x)));
 	} else {
-		$var($String, msg, $str({"Descriptor value for "_s, name, " must be a Set or an array: "_s, $($nc($of(x))->getClass()->getName())}));
+		$var($String, msg, $str({"Descriptor value for "_s, name, " must be a Set or an array: "_s, $($nc(x)->getClass()->getName())}));
 		$throwNew($IllegalArgumentException, msg);
 	}
 	$var($Set, result, $new($HashSet));
@@ -465,7 +392,7 @@ $Set* OpenMBeanAttributeInfoSupport::valuesFrom($Descriptor* d, $String* name, $
 
 $Comparable* OpenMBeanAttributeInfoSupport::comparableValueFrom($Descriptor* d, $String* name, $OpenType* openType) {
 	$init(OpenMBeanAttributeInfoSupport);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, t, valueFrom(d, name, openType));
 	if (t == nullptr || $instanceOf($Comparable, t)) {
 		return $cast($Comparable, t);
@@ -478,29 +405,33 @@ $Object* OpenMBeanAttributeInfoSupport::convertFrom(Object$* x, $OpenType* openT
 	$init(OpenMBeanAttributeInfoSupport);
 	if ($nc(openType)->isValue(x)) {
 		$var($Object, t, OpenMBeanAttributeInfoSupport::cast(x));
-		return $of(t);
+		return t;
 	}
-	return $of(convertFromStrings(x, openType));
+	return convertFromStrings(x, openType);
 }
 
 $Object* OpenMBeanAttributeInfoSupport::convertFromStrings(Object$* x, $OpenType* openType) {
 	$init(OpenMBeanAttributeInfoSupport);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($ArrayType, openType)) {
-		return $of(convertFromStringArray(x, openType));
+		return convertFromStringArray(x, openType);
 	} else if ($instanceOf($String, x)) {
-		return $of(convertFromString($cast($String, x), openType));
+		return convertFromString($cast($String, x), openType);
 	}
-	$var($String, var$2, $$str({"Cannot convert value "_s, x, " of type "_s}));
-	$var($String, var$1, $$concat(var$2, $($nc($of(x))->getClass()->getName())));
-	$var($String, var$0, $$concat(var$1, " to type "_s));
-	$var($String, msg, $concat(var$0, $($nc(openType)->getTypeName())));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("Cannot convert value "_s);
+	var$0->append(x);
+	var$0->append(" of type "_s);
+	var$0->append($($nc($of(x))->getClass()->getName()));
+	var$0->append(" to type "_s);
+	var$0->append($($nc(openType)->getTypeName()));
+	$var($String, msg, $str(var$0));
 	$throwNew($IllegalArgumentException, msg);
 }
 
 $Object* OpenMBeanAttributeInfoSupport::convertFromString($String* s, $OpenType* openType) {
 	$init(OpenMBeanAttributeInfoSupport);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Class* c = nullptr;
 	try {
@@ -514,7 +445,7 @@ $Object* OpenMBeanAttributeInfoSupport::convertFromString($String* s, $OpenType*
 	try {
 		$assign(valueOf, $nc(c)->getMethod("valueOf"_s, $$new($ClassArray, {$String::class$})));
 		bool var$0 = !$Modifier::isStatic($nc(valueOf)->getModifiers());
-		if (var$0 || $nc(valueOf)->getReturnType() != c) {
+		if (var$0 || valueOf->getReturnType() != c) {
 			$assign(valueOf, nullptr);
 		}
 	} catch ($NoSuchMethodException& e) {
@@ -522,7 +453,7 @@ $Object* OpenMBeanAttributeInfoSupport::convertFromString($String* s, $OpenType*
 	}
 	if (valueOf != nullptr) {
 		try {
-			return $of($nc(c)->cast($($MethodUtil::invoke(valueOf, nullptr, $$new($ObjectArray, {$of(s)})))));
+			return $nc(c)->cast($($MethodUtil::invoke(valueOf, nullptr, $$new($ObjectArray, {s}))));
 		} catch ($Exception& e) {
 			$var($String, msg, $str({"Could not convert \""_s, s, "\" using method: "_s, valueOf}));
 			$throwNew($IllegalArgumentException, msg, e);
@@ -536,7 +467,7 @@ $Object* OpenMBeanAttributeInfoSupport::convertFromString($String* s, $OpenType*
 	}
 	if (con != nullptr) {
 		try {
-			return $of(con->newInstance($$new($ObjectArray, {$of(s)})));
+			return con->newInstance($$new($ObjectArray, {s}));
 		} catch ($Exception& e) {
 			$var($String, msg, $str({"Could not convert \""_s, s, "\" using constructor: "_s, con}));
 			$throwNew($IllegalArgumentException, msg, e);
@@ -548,7 +479,7 @@ $Object* OpenMBeanAttributeInfoSupport::convertFromString($String* s, $OpenType*
 
 $Object* OpenMBeanAttributeInfoSupport::convertFromStringArray(Object$* x, $OpenType* openType) {
 	$init(OpenMBeanAttributeInfoSupport);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ArrayType, arrayType, $cast($ArrayType, openType));
 	$var($OpenType, baseType, $nc(arrayType)->getElementOpenType());
@@ -588,7 +519,7 @@ $Object* OpenMBeanAttributeInfoSupport::convertFromStringArray(Object$* x, $Open
 		$var($Object, converted, convertFromStrings(stringish, componentOpenType));
 		$1Array::set(targetArray, i, converted);
 	}
-	return $of(OpenMBeanAttributeInfoSupport::cast(targetArray));
+	return OpenMBeanAttributeInfoSupport::cast(targetArray);
 }
 
 $Object* OpenMBeanAttributeInfoSupport::cast(Object$* x) {
@@ -601,7 +532,7 @@ $OpenType* OpenMBeanAttributeInfoSupport::getOpenType() {
 }
 
 $Object* OpenMBeanAttributeInfoSupport::getDefaultValue() {
-	return $of(this->defaultValue);
+	return this->defaultValue;
 }
 
 $Set* OpenMBeanAttributeInfoSupport::getLegalValues() {
@@ -638,24 +569,24 @@ bool OpenMBeanAttributeInfoSupport::isValue(Object$* obj) {
 
 bool OpenMBeanAttributeInfoSupport::isValue($OpenMBeanParameterInfo* info, Object$* obj) {
 	$init(OpenMBeanAttributeInfoSupport);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(info)->hasDefaultValue() && obj == nullptr) {
 		return true;
 	}
-	bool var$2 = $nc($($nc(info)->getOpenType()))->isValue(obj);
+	bool var$2 = $$nc(info->getOpenType())->isValue(obj);
 	if (var$2) {
 		bool var$3 = !info->hasLegalValues();
-		var$2 = (var$3 || $nc($(info->getLegalValues()))->contains(obj));
+		var$2 = var$3 || $$nc(info->getLegalValues())->contains(obj);
 	}
 	bool var$1 = var$2;
 	if (var$1) {
-		bool var$4 = !$nc(info)->hasMinValue();
-		var$1 = (var$4 || $nc(($($nc(info)->getMinValue())))->compareTo(obj) <= 0);
+		bool var$4 = !info->hasMinValue();
+		var$1 = var$4 || $(info->getMinValue())->compareTo(obj) <= 0;
 	}
 	bool var$0 = var$1;
 	if (var$0) {
 		bool var$5 = !info->hasMaxValue();
-		var$0 = (var$5 || $nc(($(info->getMaxValue())))->compareTo(obj) >= 0);
+		var$0 = var$5 || $(info->getMaxValue())->compareTo(obj) >= 0;
 	}
 	return var$0;
 }
@@ -682,25 +613,25 @@ bool OpenMBeanAttributeInfoSupport::equals(Object$* obj) {
 
 bool OpenMBeanAttributeInfoSupport::equal($OpenMBeanParameterInfo* x1, $OpenMBeanParameterInfo* x2) {
 	$init(OpenMBeanAttributeInfoSupport);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($DescriptorRead, x1)) {
 		if (!($instanceOf($DescriptorRead, x2))) {
 			return false;
 		}
-		$var($Descriptor, d1, $nc(($cast($DescriptorRead, x1)))->getDescriptor());
-		$var($Descriptor, d2, $nc(($cast($DescriptorRead, x2)))->getDescriptor());
+		$var($Descriptor, d1, $cast($DescriptorRead, x1)->getDescriptor());
+		$var($Descriptor, d2, $nc($cast($DescriptorRead, x2))->getDescriptor());
 		if (!$nc(d1)->equals(d2)) {
 			return false;
 		}
 	} else if ($instanceOf($DescriptorRead, x2)) {
 		return false;
 	}
-	bool var$4 = $nc($($nc(x1)->getName()))->equals($($nc(x2)->getName()));
-	bool var$3 = var$4 && $nc($(x1->getOpenType()))->equals($($nc(x2)->getOpenType()));
-	bool var$2 = var$3 && (x1->hasDefaultValue() ? $nc($of($(x1->getDefaultValue())))->equals($($nc(x2)->getDefaultValue())) : !$nc(x2)->hasDefaultValue());
-	bool var$1 = var$2 && (x1->hasMinValue() ? $nc($of($(x1->getMinValue())))->equals($(x2->getMinValue())) : !x2->hasMinValue());
-	bool var$0 = var$1 && (x1->hasMaxValue() ? $nc($of($(x1->getMaxValue())))->equals($(x2->getMaxValue())) : !x2->hasMaxValue());
-	return var$0 && (x1->hasLegalValues() ? $nc($(x1->getLegalValues()))->equals($(x2->getLegalValues())) : !x2->hasLegalValues());
+	bool var$4 = $$nc($nc(x1)->getName())->equals($($nc(x2)->getName()));
+	bool var$3 = var$4 && $$nc(x1->getOpenType())->equals($(x2->getOpenType()));
+	bool var$2 = var$3 && (x1->hasDefaultValue() ? $$nc(x1->getDefaultValue())->equals($(x2->getDefaultValue())) : !x2->hasDefaultValue());
+	bool var$1 = var$2 && (x1->hasMinValue() ? $$nc(x1->getMinValue())->equals($(x2->getMinValue())) : !x2->hasMinValue());
+	bool var$0 = var$1 && (x1->hasMaxValue() ? $$nc(x1->getMaxValue())->equals($(x2->getMaxValue())) : !x2->hasMaxValue());
+	return var$0 && (x1->hasLegalValues() ? $$nc(x1->getLegalValues())->equals($(x2->getLegalValues())) : !x2->hasLegalValues());
 }
 
 int32_t OpenMBeanAttributeInfoSupport::hashCode() {
@@ -712,24 +643,24 @@ int32_t OpenMBeanAttributeInfoSupport::hashCode() {
 
 int32_t OpenMBeanAttributeInfoSupport::hashCode($OpenMBeanParameterInfo* info) {
 	$init(OpenMBeanAttributeInfoSupport);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t value = 0;
-	value += $nc($($nc(info)->getName()))->hashCode();
-	value += $nc($(info->getOpenType()))->hashCode();
+	value += $$nc($nc(info)->getName())->hashCode();
+	value += $$nc(info->getOpenType())->hashCode();
 	if (info->hasDefaultValue()) {
-		value += $nc($of($(info->getDefaultValue())))->hashCode();
+		value += $$nc(info->getDefaultValue())->hashCode();
 	}
 	if (info->hasMinValue()) {
-		value += $nc($of($(info->getMinValue())))->hashCode();
+		value += $$nc(info->getMinValue())->hashCode();
 	}
 	if (info->hasMaxValue()) {
-		value += $nc($of($(info->getMaxValue())))->hashCode();
+		value += $$nc(info->getMaxValue())->hashCode();
 	}
 	if (info->hasLegalValues()) {
-		value += $nc($(info->getLegalValues()))->hashCode();
+		value += $$nc(info->getLegalValues())->hashCode();
 	}
 	if ($instanceOf($DescriptorRead, info)) {
-		value += $nc($($nc(($cast($DescriptorRead, info)))->getDescriptor()))->hashCode();
+		value += $$nc($cast($DescriptorRead, info)->getDescriptor())->hashCode();
 	}
 	return value;
 }
@@ -743,29 +674,99 @@ $String* OpenMBeanAttributeInfoSupport::toString() {
 
 $String* OpenMBeanAttributeInfoSupport::toString($OpenMBeanParameterInfo* info) {
 	$init(OpenMBeanAttributeInfoSupport);
-	$useLocalCurrentObjectStackCache();
-	$var($Descriptor, d, ($instanceOf($DescriptorRead, info)) ? $nc(($cast($DescriptorRead, info)))->getDescriptor() : ($Descriptor*)nullptr);
-	$var($String, var$12, $$str({$($nc($of(info))->getClass()->getName()), "(name="_s}));
-	$var($String, var$11, $$concat(var$12, $(info->getName())));
-	$var($String, var$10, $$concat(var$11, ",openType="_s));
-	$var($String, var$9, $$concat(var$10, $(info->getOpenType())));
-	$var($String, var$8, $$concat(var$9, ",default="_s));
-	$var($String, var$7, $$concat(var$8, $(info->getDefaultValue())));
-	$var($String, var$6, $$concat(var$7, ",minValue="_s));
-	$var($String, var$5, $$concat(var$6, $(info->getMinValue())));
-	$var($String, var$4, $$concat(var$5, ",maxValue="_s));
-	$var($String, var$3, $$concat(var$4, $(info->getMaxValue())));
-	$var($String, var$2, $$concat(var$3, ",legalValues="_s));
-	$var($String, var$1, $$concat(var$2, $(info->getLegalValues())));
-	$var($String, var$0, $$concat(var$1, ((d == nullptr) ? ""_s : $$str({",descriptor="_s, d}))));
-	return $concat(var$0, ")"_s);
+	$useLocalObjectStack();
+	$var($Descriptor, d, ($instanceOf($DescriptorRead, info)) ? $cast($DescriptorRead, info)->getDescriptor() : ($Descriptor*)nullptr);
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($nc($of(info))->getClass()->getName()));
+	var$0->append("(name="_s);
+	var$0->append($(info->getName()));
+	var$0->append(",openType="_s);
+	var$0->append($(info->getOpenType()));
+	var$0->append(",default="_s);
+	var$0->append($(info->getDefaultValue()));
+	var$0->append(",minValue="_s);
+	var$0->append($(info->getMinValue()));
+	var$0->append(",maxValue="_s);
+	var$0->append($(info->getMaxValue()));
+	var$0->append(",legalValues="_s);
+	var$0->append($(info->getLegalValues()));
+	var$0->append((d == nullptr) ? ""_s : $$str({",descriptor="_s, d}));
+	var$0->append(")"_s);
+	return $str(var$0);
 }
 
 OpenMBeanAttributeInfoSupport::OpenMBeanAttributeInfoSupport() {
 }
 
 $Class* OpenMBeanAttributeInfoSupport::load$($String* name, bool initialize) {
-	$loadClass(OpenMBeanAttributeInfoSupport, name, initialize, &_OpenMBeanAttributeInfoSupport_ClassInfo_, allocate$OpenMBeanAttributeInfoSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(OpenMBeanAttributeInfoSupport, serialVersionUID)},
+		{"openType", "Ljavax/management/openmbean/OpenType;", "Ljavax/management/openmbean/OpenType<*>;", $PRIVATE, $field(OpenMBeanAttributeInfoSupport, openType)},
+		{"defaultValue", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(OpenMBeanAttributeInfoSupport, defaultValue)},
+		{"legalValues", "Ljava/util/Set;", "Ljava/util/Set<*>;", $PRIVATE | $FINAL, $field(OpenMBeanAttributeInfoSupport, legalValues)},
+		{"minValue", "Ljava/lang/Comparable;", "Ljava/lang/Comparable<*>;", $PRIVATE | $FINAL, $field(OpenMBeanAttributeInfoSupport, minValue)},
+		{"maxValue", "Ljava/lang/Comparable;", "Ljava/lang/Comparable<*>;", $PRIVATE | $FINAL, $field(OpenMBeanAttributeInfoSupport, maxValue)},
+		{"myHashCode", "Ljava/lang/Integer;", nullptr, $PRIVATE | $TRANSIENT, $field(OpenMBeanAttributeInfoSupport, myHashCode)},
+		{"myToString", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(OpenMBeanAttributeInfoSupport, myToString)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType;ZZZ)V", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType<*>;ZZZ)V", $PUBLIC, $method(OpenMBeanAttributeInfoSupport, init$, void, $String*, $String*, $OpenType*, bool, bool, bool)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType;ZZZLjavax/management/Descriptor;)V", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType<*>;ZZZLjavax/management/Descriptor;)V", $PUBLIC, $method(OpenMBeanAttributeInfoSupport, init$, void, $String*, $String*, $OpenType*, bool, bool, bool, $Descriptor*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType;ZZZLjava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType<TT;>;ZZZTT;)V", $PUBLIC, $method(OpenMBeanAttributeInfoSupport, init$, void, $String*, $String*, $OpenType*, bool, bool, bool, Object$*), "javax.management.openmbean.OpenDataException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType;ZZZLjava/lang/Object;[Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType<TT;>;ZZZTT;[TT;)V", $PUBLIC, $method(OpenMBeanAttributeInfoSupport, init$, void, $String*, $String*, $OpenType*, bool, bool, bool, Object$*, $ObjectArray*), "javax.management.openmbean.OpenDataException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType;ZZZLjava/lang/Object;Ljava/lang/Comparable;Ljava/lang/Comparable;)V", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType<TT;>;ZZZTT;Ljava/lang/Comparable<TT;>;Ljava/lang/Comparable<TT;>;)V", $PUBLIC, $method(OpenMBeanAttributeInfoSupport, init$, void, $String*, $String*, $OpenType*, bool, bool, bool, Object$*, $Comparable*, $Comparable*), "javax.management.openmbean.OpenDataException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType;ZZZLjava/lang/Object;[Ljava/lang/Object;Ljava/lang/Comparable;Ljava/lang/Comparable;)V", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType<TT;>;ZZZTT;[TT;Ljava/lang/Comparable<TT;>;Ljava/lang/Comparable<TT;>;)V", $PRIVATE, $method(OpenMBeanAttributeInfoSupport, init$, void, $String*, $String*, $OpenType*, bool, bool, bool, Object$*, $ObjectArray*, $Comparable*, $Comparable*), "javax.management.openmbean.OpenDataException"},
+		{"cast", "(Ljava/lang/Object;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;)TT;", $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, cast, $Object*, Object$*)},
+		{"check", "(Ljavax/management/openmbean/OpenMBeanParameterInfo;)V", nullptr, $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, check, void, $OpenMBeanParameterInfo*), "javax.management.openmbean.OpenDataException"},
+		{"comparableValueFrom", "(Ljavax/management/Descriptor;Ljava/lang/String;Ljavax/management/openmbean/OpenType;)Ljava/lang/Comparable;", "<T:Ljava/lang/Object;>(Ljavax/management/Descriptor;Ljava/lang/String;Ljavax/management/openmbean/OpenType<TT;>;)Ljava/lang/Comparable<*>;", $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, comparableValueFrom, $Comparable*, $Descriptor*, $String*, $OpenType*)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, compare, int32_t, Object$*, Object$*)},
+		{"convertFrom", "(Ljava/lang/Object;Ljavax/management/openmbean/OpenType;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;Ljavax/management/openmbean/OpenType<TT;>;)TT;", $PRIVATE | $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, convertFrom, $Object*, Object$*, $OpenType*)},
+		{"convertFromString", "(Ljava/lang/String;Ljavax/management/openmbean/OpenType;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljavax/management/openmbean/OpenType<TT;>;)TT;", $PRIVATE | $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, convertFromString, $Object*, $String*, $OpenType*)},
+		{"convertFromStringArray", "(Ljava/lang/Object;Ljavax/management/openmbean/OpenType;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;Ljavax/management/openmbean/OpenType<TT;>;)TT;", $PRIVATE | $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, convertFromStringArray, $Object*, Object$*, $OpenType*)},
+		{"convertFromStrings", "(Ljava/lang/Object;Ljavax/management/openmbean/OpenType;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;Ljavax/management/openmbean/OpenType<TT;>;)TT;", $PRIVATE | $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, convertFromStrings, $Object*, Object$*, $OpenType*)},
+		{"equal", "(Ljavax/management/openmbean/OpenMBeanParameterInfo;Ljavax/management/openmbean/OpenMBeanParameterInfo;)Z", nullptr, $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, equal, bool, $OpenMBeanParameterInfo*, $OpenMBeanParameterInfo*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanAttributeInfoSupport, equals, bool, Object$*)},
+		{"getDefaultValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(OpenMBeanAttributeInfoSupport, getDefaultValue, $Object*)},
+		{"getLegalValues", "()Ljava/util/Set;", "()Ljava/util/Set<*>;", $PUBLIC, $virtualMethod(OpenMBeanAttributeInfoSupport, getLegalValues, $Set*)},
+		{"getMaxValue", "()Ljava/lang/Comparable;", "()Ljava/lang/Comparable<*>;", $PUBLIC, $virtualMethod(OpenMBeanAttributeInfoSupport, getMaxValue, $Comparable*)},
+		{"getMinValue", "()Ljava/lang/Comparable;", "()Ljava/lang/Comparable<*>;", $PUBLIC, $virtualMethod(OpenMBeanAttributeInfoSupport, getMinValue, $Comparable*)},
+		{"getOpenType", "()Ljavax/management/openmbean/OpenType;", "()Ljavax/management/openmbean/OpenType<*>;", $PUBLIC, $virtualMethod(OpenMBeanAttributeInfoSupport, getOpenType, $OpenType*)},
+		{"hasDefaultValue", "()Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanAttributeInfoSupport, hasDefaultValue, bool)},
+		{"hasLegalValues", "()Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanAttributeInfoSupport, hasLegalValues, bool)},
+		{"hasMaxValue", "()Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanAttributeInfoSupport, hasMaxValue, bool)},
+		{"hasMinValue", "()Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanAttributeInfoSupport, hasMinValue, bool)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(OpenMBeanAttributeInfoSupport, hashCode, int32_t)},
+		{"hashCode", "(Ljavax/management/openmbean/OpenMBeanParameterInfo;)I", nullptr, $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, hashCode, int32_t, $OpenMBeanParameterInfo*)},
+		{"*isIs", "()Z", nullptr, $PUBLIC},
+		{"*isReadable", "()Z", nullptr, $PUBLIC},
+		{"isValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanAttributeInfoSupport, isValue, bool, Object$*)},
+		{"isValue", "(Ljavax/management/openmbean/OpenMBeanParameterInfo;Ljava/lang/Object;)Z", nullptr, $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, isValue, bool, $OpenMBeanParameterInfo*, Object$*)},
+		{"*isWritable", "()Z", nullptr, $PUBLIC},
+		{"makeDescriptor", "(Ljavax/management/openmbean/OpenType;Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Comparable;Ljava/lang/Comparable;)Ljavax/management/Descriptor;", "<T:Ljava/lang/Object;>(Ljavax/management/openmbean/OpenType<TT;>;TT;[TT;Ljava/lang/Comparable<TT;>;Ljava/lang/Comparable<TT;>;)Ljavax/management/Descriptor;", $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, makeDescriptor, $Descriptor*, $OpenType*, Object$*, $ObjectArray*, $Comparable*, $Comparable*)},
+		{"makeDescriptor", "(Ljavax/management/openmbean/OpenType;Ljava/lang/Object;Ljava/util/Set;Ljava/lang/Comparable;Ljava/lang/Comparable;)Ljavax/management/Descriptor;", "<T:Ljava/lang/Object;>(Ljavax/management/openmbean/OpenType<TT;>;TT;Ljava/util/Set<TT;>;Ljava/lang/Comparable<TT;>;Ljava/lang/Comparable<TT;>;)Ljavax/management/Descriptor;", $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, makeDescriptor, $Descriptor*, $OpenType*, Object$*, $Set*, $Comparable*, $Comparable*)},
+		{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(OpenMBeanAttributeInfoSupport, readResolve, $Object*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OpenMBeanAttributeInfoSupport, toString, $String*)},
+		{"toString", "(Ljavax/management/openmbean/OpenMBeanParameterInfo;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, toString, $String*, $OpenMBeanParameterInfo*)},
+		{"valueFrom", "(Ljavax/management/Descriptor;Ljava/lang/String;Ljavax/management/openmbean/OpenType;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljavax/management/Descriptor;Ljava/lang/String;Ljavax/management/openmbean/OpenType<TT;>;)TT;", $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, valueFrom, $Object*, $Descriptor*, $String*, $OpenType*)},
+		{"valuesFrom", "(Ljavax/management/Descriptor;Ljava/lang/String;Ljavax/management/openmbean/OpenType;)Ljava/util/Set;", "<T:Ljava/lang/Object;>(Ljavax/management/Descriptor;Ljava/lang/String;Ljavax/management/openmbean/OpenType<TT;>;)Ljava/util/Set<TT;>;", $STATIC, $staticMethod(OpenMBeanAttributeInfoSupport, valuesFrom, $Set*, $Descriptor*, $String*, $OpenType*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.openmbean.OpenMBeanAttributeInfoSupport",
+		"javax.management.MBeanAttributeInfo",
+		"javax.management.openmbean.OpenMBeanAttributeInfo",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OpenMBeanAttributeInfoSupport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(OpenMBeanAttributeInfoSupport));
+	});
 	return class$;
 }
 

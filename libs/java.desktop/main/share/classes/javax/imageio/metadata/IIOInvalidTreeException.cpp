@@ -1,5 +1,4 @@
 #include <javax/imageio/metadata/IIOInvalidTreeException.h>
-
 #include <javax/imageio/IIOException.h>
 #include <org/w3c/dom/Node.h>
 #include <jcpp.h>
@@ -13,32 +12,6 @@ using $Node = ::org::w3c::dom::Node;
 namespace javax {
 	namespace imageio {
 		namespace metadata {
-
-$FieldInfo _IIOInvalidTreeException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IIOInvalidTreeException, serialVersionUID)},
-	{"offendingNode", "Lorg/w3c/dom/Node;", nullptr, $PROTECTED, $field(IIOInvalidTreeException, offendingNode)},
-	{}
-};
-
-$MethodInfo _IIOInvalidTreeException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(IIOInvalidTreeException, init$, void, $String*, $Node*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(IIOInvalidTreeException, init$, void, $String*, $Throwable*, $Node*)},
-	{"getOffendingNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIOInvalidTreeException, getOffendingNode, $Node*)},
-	{}
-};
-
-$ClassInfo _IIOInvalidTreeException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.imageio.metadata.IIOInvalidTreeException",
-	"javax.imageio.IIOException",
-	nullptr,
-	_IIOInvalidTreeException_FieldInfo_,
-	_IIOInvalidTreeException_MethodInfo_
-};
-
-$Object* allocate$IIOInvalidTreeException($Class* clazz) {
-	return $of($alloc(IIOInvalidTreeException));
-}
 
 void IIOInvalidTreeException::init$($String* message, $Node* offendingNode) {
 	$IIOException::init$(message);
@@ -67,7 +40,28 @@ void IIOInvalidTreeException::throw$() {
 }
 
 $Class* IIOInvalidTreeException::load$($String* name, bool initialize) {
-	$loadClass(IIOInvalidTreeException, name, initialize, &_IIOInvalidTreeException_ClassInfo_, allocate$IIOInvalidTreeException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IIOInvalidTreeException, serialVersionUID)},
+		{"offendingNode", "Lorg/w3c/dom/Node;", nullptr, $PROTECTED, $field(IIOInvalidTreeException, offendingNode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(IIOInvalidTreeException, init$, void, $String*, $Node*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(IIOInvalidTreeException, init$, void, $String*, $Throwable*, $Node*)},
+		{"getOffendingNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIOInvalidTreeException, getOffendingNode, $Node*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.imageio.metadata.IIOInvalidTreeException",
+		"javax.imageio.IIOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IIOInvalidTreeException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IIOInvalidTreeException);
+	});
 	return class$;
 }
 

@@ -1,8 +1,6 @@
 #include <sun/font/MFontConfiguration.h>
-
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
-#include <java/io/InputStream.h>
 #include <java/nio/charset/Charset.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
@@ -17,7 +15,6 @@
 
 using $File = ::java::io::File;
 using $FileInputStream = ::java::io::FileInputStream;
-using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -35,44 +32,6 @@ using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _MFontConfiguration_FieldInfo_[] = {
-	{"fontConfig", "Lsun/awt/FontConfiguration;", nullptr, $PRIVATE | $STATIC, $staticField(MFontConfiguration, fontConfig)},
-	{"logger", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(MFontConfiguration, logger)},
-	{"fontsDirPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MFontConfiguration, fontsDirPrefix)},
-	{"encodingMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(MFontConfiguration, encodingMap)},
-	{}
-};
-
-$MethodInfo _MFontConfiguration_MethodInfo_[] = {
-	{"<init>", "(Lsun/font/SunFontManager;)V", nullptr, $PUBLIC, $method(MFontConfiguration, init$, void, $SunFontManager*)},
-	{"<init>", "(Lsun/font/SunFontManager;ZZ)V", nullptr, $PUBLIC, $method(MFontConfiguration, init$, void, $SunFontManager*, bool, bool)},
-	{"getAWTFontPathSet", "()Ljava/util/HashSet;", "()Ljava/util/HashSet<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(MFontConfiguration, getAWTFontPathSet, $HashSet*)},
-	{"getDefaultFontCharset", "(Ljava/lang/String;)Ljava/nio/charset/Charset;", nullptr, $PROTECTED, $virtualMethod(MFontConfiguration, getDefaultFontCharset, $Charset*, $String*)},
-	{"getEncoding", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MFontConfiguration, getEncoding, $String*, $String*, $String*)},
-	{"getFaceNameFromComponentFontName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MFontConfiguration, getFaceNameFromComponentFontName, $String*, $String*)},
-	{"getFallbackFamilyName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MFontConfiguration, getFallbackFamilyName, $String*, $String*, $String*)},
-	{"getFileNameFromComponentFontName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MFontConfiguration, getFileNameFromComponentFontName, $String*, $String*)},
-	{"getVersionString", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PRIVATE, $method(MFontConfiguration, getVersionString, $String*, $File*)},
-	{"initReorderMap", "()V", nullptr, $PROTECTED, $virtualMethod(MFontConfiguration, initReorderMap, void)},
-	{"initTables", "()V", nullptr, $PRIVATE, $method(MFontConfiguration, initTables, void)},
-	{"mapFileName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MFontConfiguration, mapFileName, $String*, $String*)},
-	{"setOsNameAndVersion", "()V", nullptr, $PROTECTED, $virtualMethod(MFontConfiguration, setOsNameAndVersion, void)},
-	{}
-};
-
-$ClassInfo _MFontConfiguration_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.font.MFontConfiguration",
-	"sun.awt.FontConfiguration",
-	nullptr,
-	_MFontConfiguration_FieldInfo_,
-	_MFontConfiguration_MethodInfo_
-};
-
-$Object* allocate$MFontConfiguration($Class* clazz) {
-	return $of($alloc(MFontConfiguration));
-}
 
 $FontConfiguration* MFontConfiguration::fontConfig = nullptr;
 $PlatformLogger* MFontConfiguration::logger = nullptr;
@@ -97,20 +56,20 @@ void MFontConfiguration::init$($SunFontManager* fm, bool preferLocaleFonts, bool
 
 void MFontConfiguration::initReorderMap() {
 	$set(this, reorderMap, $new($HashMap));
-	$nc(this->reorderMap)->put("UTF-8.ja.JP"_s, "japanese-iso10646"_s);
-	$nc(this->reorderMap)->put("UTF-8.ko.KR"_s, "korean-iso10646"_s);
-	$nc(this->reorderMap)->put("UTF-8.zh.TW"_s, "chinese-tw-iso10646"_s);
-	$nc(this->reorderMap)->put("UTF-8.zh.HK"_s, "chinese-tw-iso10646"_s);
-	$nc(this->reorderMap)->put("UTF-8.zh.CN"_s, "chinese-cn-iso10646"_s);
-	$nc(this->reorderMap)->put("x-euc-jp-linux"_s, $(split("japanese-x0201,japanese-x0208"_s)));
+	this->reorderMap->put("UTF-8.ja.JP"_s, "japanese-iso10646"_s);
+	this->reorderMap->put("UTF-8.ko.KR"_s, "korean-iso10646"_s);
+	this->reorderMap->put("UTF-8.zh.TW"_s, "chinese-tw-iso10646"_s);
+	this->reorderMap->put("UTF-8.zh.HK"_s, "chinese-tw-iso10646"_s);
+	this->reorderMap->put("UTF-8.zh.CN"_s, "chinese-cn-iso10646"_s);
+	this->reorderMap->put("x-euc-jp-linux"_s, $(split("japanese-x0201,japanese-x0208"_s)));
 	$nc(this->reorderMap)->put("GB2312"_s, "chinese-gb18030"_s);
-	$nc(this->reorderMap)->put("Big5"_s, "chinese-big5"_s);
-	$nc(this->reorderMap)->put("EUC-KR"_s, "korean"_s);
-	$nc(this->reorderMap)->put("GB18030"_s, "chinese-gb18030"_s);
+	this->reorderMap->put("Big5"_s, "chinese-big5"_s);
+	this->reorderMap->put("EUC-KR"_s, "korean"_s);
+	this->reorderMap->put("GB18030"_s, "chinese-gb18030"_s);
 }
 
 void MFontConfiguration::setOsNameAndVersion() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$FontConfiguration::setOsNameAndVersion();
 	if ($nc($FontConfiguration::osName)->equals("Linux"_s)) {
 		try {
@@ -129,7 +88,7 @@ void MFontConfiguration::setOsNameAndVersion() {
 				$assignStatic($FontConfiguration::osVersion, getVersionString(f));
 			} else if ($nc(($assign(f, $new($File, "/etc/lsb-release"_s))))->canRead()) {
 				$var($Properties, props, $new($Properties));
-				props->load(static_cast<$InputStream*>($$new($FileInputStream, f)));
+				props->load($$new($FileInputStream, f));
 				$assignStatic($FontConfiguration::osName, props->getProperty("DISTRIB_ID"_s));
 				$assignStatic($FontConfiguration::osVersion, props->getProperty("DISTRIB_RELEASE"_s));
 			}
@@ -151,7 +110,7 @@ $String* MFontConfiguration::getVersionString($File* f) {
 $String* MFontConfiguration::mapFileName($String* fileName) {
 	if (fileName != nullptr && fileName->startsWith(MFontConfiguration::fontsDirPrefix)) {
 		$init($SunFontManager);
-		return $str({$SunFontManager::jreFontDirName, $(fileName->substring($nc(MFontConfiguration::fontsDirPrefix)->length()))});
+		return $str({$SunFontManager::jreFontDirName, $(fileName->substring(MFontConfiguration::fontsDirPrefix->length()))});
 	}
 	return fileName;
 }
@@ -165,7 +124,7 @@ $String* MFontConfiguration::getFallbackFamilyName($String* fontName, $String* d
 }
 
 $String* MFontConfiguration::getEncoding($String* awtFontName, $String* characterSubsetName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t beginIndex = 0;
 	int32_t fieldNum = 13;
 	while (fieldNum-- > 0 && beginIndex >= 0) {
@@ -203,11 +162,11 @@ $String* MFontConfiguration::getFileNameFromComponentFontName($String* component
 	if (var$0 && !needToSearchForFile(fileName)) {
 		return fileName;
 	}
-	return $nc(($cast($X11FontManager, this->fontManager)))->getFileNameFromXLFD(componentFontName);
+	return $nc($cast($X11FontManager, this->fontManager))->getFileNameFromXLFD(componentFontName);
 }
 
 $HashSet* MFontConfiguration::getAWTFontPathSet() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashSet, fontDirs, $new($HashSet));
 	$var($shorts, scripts, getCoreScripts(0));
 	for (int32_t i = 0; i < $nc(scripts)->length; ++i) {
@@ -215,11 +174,11 @@ $HashSet* MFontConfiguration::getAWTFontPathSet() {
 		$var($String, path, getString($nc($FontConfiguration::table_awtfontpaths)->get(scripts->get(i))));
 		if (path != nullptr) {
 			int32_t start = 0;
-			int32_t colon = path->indexOf((int32_t)u':');
+			int32_t colon = path->indexOf(u':');
 			while (colon >= 0) {
 				fontDirs->add($(path->substring(start, colon)));
 				start = colon + 1;
-				colon = path->indexOf((int32_t)u':', start);
+				colon = path->indexOf(u':', start);
 			}
 			fontDirs->add((start == 0) ? path : $(path->substring(start)));
 		}
@@ -229,42 +188,42 @@ $HashSet* MFontConfiguration::getAWTFontPathSet() {
 
 void MFontConfiguration::initTables() {
 	$nc(MFontConfiguration::encodingMap)->put("iso8859-1"_s, "ISO-8859-1"_s);
-	$nc(MFontConfiguration::encodingMap)->put("iso8859-2"_s, "ISO-8859-2"_s);
-	$nc(MFontConfiguration::encodingMap)->put("iso8859-4"_s, "ISO-8859-4"_s);
-	$nc(MFontConfiguration::encodingMap)->put("iso8859-5"_s, "ISO-8859-5"_s);
-	$nc(MFontConfiguration::encodingMap)->put("iso8859-6"_s, "ISO-8859-6"_s);
-	$nc(MFontConfiguration::encodingMap)->put("iso8859-7"_s, "ISO-8859-7"_s);
-	$nc(MFontConfiguration::encodingMap)->put("iso8859-8"_s, "ISO-8859-8"_s);
-	$nc(MFontConfiguration::encodingMap)->put("iso8859-9"_s, "ISO-8859-9"_s);
-	$nc(MFontConfiguration::encodingMap)->put("iso8859-13"_s, "ISO-8859-13"_s);
-	$nc(MFontConfiguration::encodingMap)->put("iso8859-15"_s, "ISO-8859-15"_s);
-	$nc(MFontConfiguration::encodingMap)->put("gb2312.1980-0"_s, "sun.font.X11GB2312"_s);
+	MFontConfiguration::encodingMap->put("iso8859-2"_s, "ISO-8859-2"_s);
+	MFontConfiguration::encodingMap->put("iso8859-4"_s, "ISO-8859-4"_s);
+	MFontConfiguration::encodingMap->put("iso8859-5"_s, "ISO-8859-5"_s);
+	MFontConfiguration::encodingMap->put("iso8859-6"_s, "ISO-8859-6"_s);
+	MFontConfiguration::encodingMap->put("iso8859-7"_s, "ISO-8859-7"_s);
+	MFontConfiguration::encodingMap->put("iso8859-8"_s, "ISO-8859-8"_s);
+	MFontConfiguration::encodingMap->put("iso8859-9"_s, "ISO-8859-9"_s);
+	MFontConfiguration::encodingMap->put("iso8859-13"_s, "ISO-8859-13"_s);
+	MFontConfiguration::encodingMap->put("iso8859-15"_s, "ISO-8859-15"_s);
+	MFontConfiguration::encodingMap->put("gb2312.1980-0"_s, "sun.font.X11GB2312"_s);
 	$init($FontConfiguration);
 	if ($FontConfiguration::osName == nullptr) {
-		$nc(MFontConfiguration::encodingMap)->put("gbk-0"_s, "GBK"_s);
+		MFontConfiguration::encodingMap->put("gbk-0"_s, "GBK"_s);
 	} else {
-		$nc(MFontConfiguration::encodingMap)->put("gbk-0"_s, "sun.font.X11GBK"_s);
+		MFontConfiguration::encodingMap->put("gbk-0"_s, "sun.font.X11GBK"_s);
 	}
-	$nc(MFontConfiguration::encodingMap)->put("gb18030.2000-0"_s, "sun.font.X11GB18030_0"_s);
-	$nc(MFontConfiguration::encodingMap)->put("gb18030.2000-1"_s, "sun.font.X11GB18030_1"_s);
-	$nc(MFontConfiguration::encodingMap)->put("cns11643-1"_s, "sun.font.X11CNS11643P1"_s);
-	$nc(MFontConfiguration::encodingMap)->put("cns11643-2"_s, "sun.font.X11CNS11643P2"_s);
-	$nc(MFontConfiguration::encodingMap)->put("cns11643-3"_s, "sun.font.X11CNS11643P3"_s);
-	$nc(MFontConfiguration::encodingMap)->put("big5-1"_s, "Big5"_s);
-	$nc(MFontConfiguration::encodingMap)->put("big5-0"_s, "Big5"_s);
-	$nc(MFontConfiguration::encodingMap)->put("hkscs-1"_s, "Big5-HKSCS"_s);
-	$nc(MFontConfiguration::encodingMap)->put("ansi-1251"_s, "windows-1251"_s);
-	$nc(MFontConfiguration::encodingMap)->put("koi8-r"_s, "KOI8-R"_s);
-	$nc(MFontConfiguration::encodingMap)->put("jisx0201.1976-0"_s, "JIS0201"_s);
-	$nc(MFontConfiguration::encodingMap)->put("jisx0208.1983-0"_s, "JIS0208"_s);
-	$nc(MFontConfiguration::encodingMap)->put("jisx0212.1990-0"_s, "JIS0212"_s);
-	$nc(MFontConfiguration::encodingMap)->put("ksc5601.1987-0"_s, "sun.font.X11KSC5601"_s);
-	$nc(MFontConfiguration::encodingMap)->put("ksc5601.1992-3"_s, "sun.font.X11Johab"_s);
-	$nc(MFontConfiguration::encodingMap)->put("tis620.2533-0"_s, "TIS-620"_s);
-	$nc(MFontConfiguration::encodingMap)->put("iso10646-1"_s, "UTF-16BE"_s);
+	MFontConfiguration::encodingMap->put("gb18030.2000-0"_s, "sun.font.X11GB18030_0"_s);
+	MFontConfiguration::encodingMap->put("gb18030.2000-1"_s, "sun.font.X11GB18030_1"_s);
+	MFontConfiguration::encodingMap->put("cns11643-1"_s, "sun.font.X11CNS11643P1"_s);
+	MFontConfiguration::encodingMap->put("cns11643-2"_s, "sun.font.X11CNS11643P2"_s);
+	MFontConfiguration::encodingMap->put("cns11643-3"_s, "sun.font.X11CNS11643P3"_s);
+	MFontConfiguration::encodingMap->put("big5-1"_s, "Big5"_s);
+	MFontConfiguration::encodingMap->put("big5-0"_s, "Big5"_s);
+	MFontConfiguration::encodingMap->put("hkscs-1"_s, "Big5-HKSCS"_s);
+	MFontConfiguration::encodingMap->put("ansi-1251"_s, "windows-1251"_s);
+	MFontConfiguration::encodingMap->put("koi8-r"_s, "KOI8-R"_s);
+	MFontConfiguration::encodingMap->put("jisx0201.1976-0"_s, "JIS0201"_s);
+	MFontConfiguration::encodingMap->put("jisx0208.1983-0"_s, "JIS0208"_s);
+	MFontConfiguration::encodingMap->put("jisx0212.1990-0"_s, "JIS0212"_s);
+	MFontConfiguration::encodingMap->put("ksc5601.1987-0"_s, "sun.font.X11KSC5601"_s);
+	MFontConfiguration::encodingMap->put("ksc5601.1992-3"_s, "sun.font.X11Johab"_s);
+	MFontConfiguration::encodingMap->put("tis620.2533-0"_s, "TIS-620"_s);
+	MFontConfiguration::encodingMap->put("iso10646-1"_s, "UTF-16BE"_s);
 }
 
-void clinit$MFontConfiguration($Class* class$) {
+void MFontConfiguration::clinit$($Class* clazz) {
 	$assignStatic(MFontConfiguration::fontsDirPrefix, "$JRE_LIB_FONTS"_s);
 	$assignStatic(MFontConfiguration::fontConfig, nullptr);
 	$assignStatic(MFontConfiguration::encodingMap, $new($HashMap));
@@ -274,7 +233,40 @@ MFontConfiguration::MFontConfiguration() {
 }
 
 $Class* MFontConfiguration::load$($String* name, bool initialize) {
-	$loadClass(MFontConfiguration, name, initialize, &_MFontConfiguration_ClassInfo_, clinit$MFontConfiguration, allocate$MFontConfiguration);
+	$FieldInfo fieldInfos$$[] = {
+		{"fontConfig", "Lsun/awt/FontConfiguration;", nullptr, $PRIVATE | $STATIC, $staticField(MFontConfiguration, fontConfig)},
+		{"logger", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(MFontConfiguration, logger)},
+		{"fontsDirPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MFontConfiguration, fontsDirPrefix)},
+		{"encodingMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(MFontConfiguration, encodingMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/font/SunFontManager;)V", nullptr, $PUBLIC, $method(MFontConfiguration, init$, void, $SunFontManager*)},
+		{"<init>", "(Lsun/font/SunFontManager;ZZ)V", nullptr, $PUBLIC, $method(MFontConfiguration, init$, void, $SunFontManager*, bool, bool)},
+		{"getAWTFontPathSet", "()Ljava/util/HashSet;", "()Ljava/util/HashSet<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(MFontConfiguration, getAWTFontPathSet, $HashSet*)},
+		{"getDefaultFontCharset", "(Ljava/lang/String;)Ljava/nio/charset/Charset;", nullptr, $PROTECTED, $virtualMethod(MFontConfiguration, getDefaultFontCharset, $Charset*, $String*)},
+		{"getEncoding", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MFontConfiguration, getEncoding, $String*, $String*, $String*)},
+		{"getFaceNameFromComponentFontName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MFontConfiguration, getFaceNameFromComponentFontName, $String*, $String*)},
+		{"getFallbackFamilyName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MFontConfiguration, getFallbackFamilyName, $String*, $String*, $String*)},
+		{"getFileNameFromComponentFontName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MFontConfiguration, getFileNameFromComponentFontName, $String*, $String*)},
+		{"getVersionString", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PRIVATE, $method(MFontConfiguration, getVersionString, $String*, $File*)},
+		{"initReorderMap", "()V", nullptr, $PROTECTED, $virtualMethod(MFontConfiguration, initReorderMap, void)},
+		{"initTables", "()V", nullptr, $PRIVATE, $method(MFontConfiguration, initTables, void)},
+		{"mapFileName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MFontConfiguration, mapFileName, $String*, $String*)},
+		{"setOsNameAndVersion", "()V", nullptr, $PROTECTED, $virtualMethod(MFontConfiguration, setOsNameAndVersion, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.font.MFontConfiguration",
+		"sun.awt.FontConfiguration",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MFontConfiguration, name, initialize, &classInfo$$, MFontConfiguration::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MFontConfiguration);
+	});
 	return class$;
 }
 

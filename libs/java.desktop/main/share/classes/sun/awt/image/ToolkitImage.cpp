@@ -1,5 +1,4 @@
 #include <sun/awt/image/ToolkitImage.h>
-
 #include <java/awt/Graphics.h>
 #include <java/awt/Image.h>
 #include <java/awt/image/BufferedImage.h>
@@ -45,58 +44,6 @@ namespace sun {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _ToolkitImage_FieldInfo_[] = {
-	{"source", "Ljava/awt/image/ImageProducer;", nullptr, 0, $field(ToolkitImage, source)},
-	{"src", "Lsun/awt/image/InputStreamImageSource;", nullptr, 0, $field(ToolkitImage, src)},
-	{"imagerep", "Lsun/awt/image/ImageRepresentation;", nullptr, 0, $field(ToolkitImage, imagerep)},
-	{"width", "I", nullptr, $PRIVATE, $field(ToolkitImage, width)},
-	{"height", "I", nullptr, $PRIVATE, $field(ToolkitImage, height)},
-	{"properties", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<**>;", $PRIVATE, $field(ToolkitImage, properties)},
-	{"availinfo", "I", nullptr, $PRIVATE, $field(ToolkitImage, availinfo)},
-	{}
-};
-
-$MethodInfo _ToolkitImage_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(ToolkitImage, init$, void)},
-	{"<init>", "(Ljava/awt/image/ImageProducer;)V", nullptr, $PUBLIC, $method(ToolkitImage, init$, void, $ImageProducer*)},
-	{"addInfo", "(I)V", nullptr, $SYNCHRONIZED, $virtualMethod(ToolkitImage, addInfo, void, int32_t)},
-	{"addWatcher", "(Ljava/awt/image/ImageObserver;Z)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(ToolkitImage, addWatcher, void, $ImageObserver*, bool)},
-	{"check", "(Ljava/awt/image/ImageObserver;)I", nullptr, $PUBLIC, $virtualMethod(ToolkitImage, check, int32_t, $ImageObserver*)},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(ToolkitImage, flush, void)},
-	{"getBufferedImage", "()Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(ToolkitImage, getBufferedImage, $BufferedImage*)},
-	{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(ToolkitImage, getColorModel, $ColorModel*)},
-	{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(ToolkitImage, getGraphics, $Graphics*)},
-	{"getHeight", "()I", nullptr, $PUBLIC, $virtualMethod(ToolkitImage, getHeight, int32_t)},
-	{"getHeight", "(Ljava/awt/image/ImageObserver;)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ToolkitImage, getHeight, int32_t, $ImageObserver*)},
-	{"getImageRep", "()Lsun/awt/image/ImageRepresentation;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ToolkitImage, getImageRep, $ImageRepresentation*)},
-	{"getProperty", "(Ljava/lang/String;Ljava/awt/image/ImageObserver;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ToolkitImage, getProperty, $Object*, $String*, $ImageObserver*)},
-	{"getSource", "()Ljava/awt/image/ImageProducer;", nullptr, $PUBLIC, $virtualMethod(ToolkitImage, getSource, $ImageProducer*)},
-	{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(ToolkitImage, getWidth, int32_t)},
-	{"getWidth", "(Ljava/awt/image/ImageObserver;)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ToolkitImage, getWidth, int32_t, $ImageObserver*)},
-	{"hasError", "()Z", nullptr, $PUBLIC, $virtualMethod(ToolkitImage, hasError, bool)},
-	{"infoDone", "(I)V", nullptr, $SYNCHRONIZED, $virtualMethod(ToolkitImage, infoDone, void, int32_t)},
-	{"makeImageRep", "()Lsun/awt/image/ImageRepresentation;", nullptr, $PROTECTED, $virtualMethod(ToolkitImage, makeImageRep, $ImageRepresentation*)},
-	{"preload", "(Ljava/awt/image/ImageObserver;)V", nullptr, $PUBLIC, $virtualMethod(ToolkitImage, preload, void, $ImageObserver*)},
-	{"reconstruct", "(I)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(ToolkitImage, reconstruct, void, int32_t)},
-	{"setAccelerationPriority", "(F)V", nullptr, $PUBLIC, $virtualMethod(ToolkitImage, setAccelerationPriority, void, float)},
-	{"setDimensions", "(II)V", nullptr, 0, $virtualMethod(ToolkitImage, setDimensions, void, int32_t, int32_t)},
-	{"setProperties", "(Ljava/util/Hashtable;)V", "(Ljava/util/Hashtable<**>;)V", 0, $virtualMethod(ToolkitImage, setProperties, void, $Hashtable*)},
-	{}
-};
-
-$ClassInfo _ToolkitImage_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.image.ToolkitImage",
-	"java.awt.Image",
-	nullptr,
-	_ToolkitImage_FieldInfo_,
-	_ToolkitImage_MethodInfo_
-};
-
-$Object* allocate$ToolkitImage($Class* clazz) {
-	return $of($alloc(ToolkitImage));
-}
-
 void ToolkitImage::init$() {
 	$Image::init$();
 	this->width = -1;
@@ -115,16 +62,16 @@ void ToolkitImage::init$($ImageProducer* is) {
 
 $ImageProducer* ToolkitImage::getSource() {
 	if (this->src != nullptr) {
-		$nc(this->src)->checkSecurity(nullptr, false);
+		this->src->checkSecurity(nullptr, false);
 	}
 	return this->source;
 }
 
 int32_t ToolkitImage::getWidth() {
 	if (this->src != nullptr) {
-		$nc(this->src)->checkSecurity(nullptr, false);
+		this->src->checkSecurity(nullptr, false);
 	}
-	if (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::WIDTH)) == 0) {
+	if ((this->availinfo & $ImageObserver::WIDTH) == 0) {
 		reconstruct($ImageObserver::WIDTH);
 	}
 	return this->width;
@@ -133,11 +80,11 @@ int32_t ToolkitImage::getWidth() {
 int32_t ToolkitImage::getWidth($ImageObserver* iw) {
 	$synchronized(this) {
 		if (this->src != nullptr) {
-			$nc(this->src)->checkSecurity(nullptr, false);
+			this->src->checkSecurity(nullptr, false);
 		}
-		if (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::WIDTH)) == 0) {
+		if ((this->availinfo & $ImageObserver::WIDTH) == 0) {
 			addWatcher(iw, true);
-			if (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::WIDTH)) == 0) {
+			if ((this->availinfo & $ImageObserver::WIDTH) == 0) {
 				return -1;
 			}
 		}
@@ -147,9 +94,9 @@ int32_t ToolkitImage::getWidth($ImageObserver* iw) {
 
 int32_t ToolkitImage::getHeight() {
 	if (this->src != nullptr) {
-		$nc(this->src)->checkSecurity(nullptr, false);
+		this->src->checkSecurity(nullptr, false);
 	}
-	if (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::HEIGHT)) == 0) {
+	if ((this->availinfo & $ImageObserver::HEIGHT) == 0) {
 		reconstruct($ImageObserver::HEIGHT);
 	}
 	return this->height;
@@ -158,11 +105,11 @@ int32_t ToolkitImage::getHeight() {
 int32_t ToolkitImage::getHeight($ImageObserver* iw) {
 	$synchronized(this) {
 		if (this->src != nullptr) {
-			$nc(this->src)->checkSecurity(nullptr, false);
+			this->src->checkSecurity(nullptr, false);
 		}
-		if (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::HEIGHT)) == 0) {
+		if ((this->availinfo & $ImageObserver::HEIGHT) == 0) {
 			addWatcher(iw, true);
-			if (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::HEIGHT)) == 0) {
+			if ((this->availinfo & $ImageObserver::HEIGHT) == 0) {
 				return -1;
 			}
 		}
@@ -175,12 +122,12 @@ $Object* ToolkitImage::getProperty($String* name, $ImageObserver* observer) {
 		$throwNew($NullPointerException, "null property name is not allowed"_s);
 	}
 	if (this->src != nullptr) {
-		$nc(this->src)->checkSecurity(nullptr, false);
+		this->src->checkSecurity(nullptr, false);
 	}
 	if (this->properties == nullptr) {
 		addWatcher(observer, true);
 		if (this->properties == nullptr) {
-			return $of(nullptr);
+			return nullptr;
 		}
 	}
 	$var($Object, o, $nc(this->properties)->get(name));
@@ -188,21 +135,21 @@ $Object* ToolkitImage::getProperty($String* name, $ImageObserver* observer) {
 		$init($Image);
 		$assign(o, $Image::UndefinedProperty);
 	}
-	return $of(o);
+	return o;
 }
 
 bool ToolkitImage::hasError() {
 	if (this->src != nullptr) {
-		$nc(this->src)->checkSecurity(nullptr, false);
+		this->src->checkSecurity(nullptr, false);
 	}
-	return ((int32_t)(this->availinfo & (uint32_t)$ImageObserver::ERROR)) != 0;
+	return (this->availinfo & $ImageObserver::ERROR) != 0;
 }
 
 int32_t ToolkitImage::check($ImageObserver* iw) {
 	if (this->src != nullptr) {
-		$nc(this->src)->checkSecurity(nullptr, false);
+		this->src->checkSecurity(nullptr, false);
 	}
-	if (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::ERROR)) == 0 && ((int32_t)((~this->availinfo) & (uint32_t)(($ImageObserver::WIDTH | $ImageObserver::HEIGHT) | $ImageObserver::PROPERTIES))) != 0) {
+	if ((this->availinfo & $ImageObserver::ERROR) == 0 && ((~this->availinfo) & (($ImageObserver::WIDTH | $ImageObserver::HEIGHT) | $ImageObserver::PROPERTIES)) != 0) {
 		addWatcher(iw, false);
 	}
 	return this->availinfo;
@@ -210,16 +157,16 @@ int32_t ToolkitImage::check($ImageObserver* iw) {
 
 void ToolkitImage::preload($ImageObserver* iw) {
 	if (this->src != nullptr) {
-		$nc(this->src)->checkSecurity(nullptr, false);
+		this->src->checkSecurity(nullptr, false);
 	}
-	if (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::ALLBITS)) == 0) {
+	if ((this->availinfo & $ImageObserver::ALLBITS) == 0) {
 		addWatcher(iw, true);
 	}
 }
 
 void ToolkitImage::addWatcher($ImageObserver* iw, bool load) {
 	$synchronized(this) {
-		if (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::ERROR)) != 0) {
+		if ((this->availinfo & $ImageObserver::ERROR) != 0) {
 			if (iw != nullptr) {
 				iw->imageUpdate(this, $ImageObserver::ERROR | $ImageObserver::ABORT, -1, -1, -1, -1);
 			}
@@ -235,21 +182,21 @@ void ToolkitImage::addWatcher($ImageObserver* iw, bool load) {
 
 void ToolkitImage::reconstruct(int32_t flags) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		if (((int32_t)(flags & (uint32_t)~this->availinfo)) != 0) {
-			if (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::ERROR)) != 0) {
+		$useLocalObjectStack();
+		if ((flags & ~this->availinfo) != 0) {
+			if ((this->availinfo & $ImageObserver::ERROR) != 0) {
 				return;
 			}
 			$var($ImageRepresentation, ir, getImageRep());
 			$nc(ir)->startProduction();
-			while (((int32_t)(flags & (uint32_t)~this->availinfo)) != 0) {
+			while ((flags & ~this->availinfo) != 0) {
 				try {
 					$of(this)->wait();
 				} catch ($InterruptedException& e) {
 					$($Thread::currentThread())->interrupt();
 					return;
 				}
-				if (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::ERROR)) != 0) {
+				if ((this->availinfo & $ImageObserver::ERROR) != 0) {
 					return;
 				}
 			}
@@ -281,9 +228,9 @@ void ToolkitImage::setProperties($Hashtable* props$renamed) {
 
 void ToolkitImage::infoDone(int32_t status) {
 	$synchronized(this) {
-		if (status == $ImageConsumer::IMAGEERROR || ((int32_t)((~this->availinfo) & (uint32_t)($ImageObserver::WIDTH | $ImageObserver::HEIGHT))) != 0) {
+		if (status == $ImageConsumer::IMAGEERROR || ((~this->availinfo) & ($ImageObserver::WIDTH | $ImageObserver::HEIGHT)) != 0) {
 			addInfo($ImageObserver::ERROR);
-		} else if (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::PROPERTIES)) == 0) {
+		} else if ((this->availinfo & $ImageObserver::PROPERTIES) == 0) {
 			setProperties(nullptr);
 		}
 	}
@@ -291,7 +238,7 @@ void ToolkitImage::infoDone(int32_t status) {
 
 void ToolkitImage::flush() {
 	if (this->src != nullptr) {
-		$nc(this->src)->checkSecurity(nullptr, false);
+		this->src->checkSecurity(nullptr, false);
 	}
 	$var($ImageRepresentation, ir, nullptr);
 	$synchronized(this) {
@@ -303,7 +250,7 @@ void ToolkitImage::flush() {
 		ir->abort();
 	}
 	if (this->src != nullptr) {
-		$nc(this->src)->flush();
+		this->src->flush();
 	}
 }
 
@@ -314,7 +261,7 @@ $ImageRepresentation* ToolkitImage::makeImageRep() {
 $ImageRepresentation* ToolkitImage::getImageRep() {
 	$synchronized(this) {
 		if (this->src != nullptr) {
-			$nc(this->src)->checkSecurity(nullptr, false);
+			this->src->checkSecurity(nullptr, false);
 		}
 		if (this->imagerep == nullptr) {
 			$set(this, imagerep, makeImageRep());
@@ -344,7 +291,7 @@ void ToolkitImage::setAccelerationPriority(float priority) {
 	$nc(imageRep)->setAccelerationPriority(this->accelerationPriority);
 }
 
-void clinit$ToolkitImage($Class* class$) {
+void ToolkitImage::clinit$($Class* clazz) {
 	{
 		$NativeLibLoader::loadLibraries();
 	}
@@ -354,7 +301,54 @@ ToolkitImage::ToolkitImage() {
 }
 
 $Class* ToolkitImage::load$($String* name, bool initialize) {
-	$loadClass(ToolkitImage, name, initialize, &_ToolkitImage_ClassInfo_, clinit$ToolkitImage, allocate$ToolkitImage);
+	$FieldInfo fieldInfos$$[] = {
+		{"source", "Ljava/awt/image/ImageProducer;", nullptr, 0, $field(ToolkitImage, source)},
+		{"src", "Lsun/awt/image/InputStreamImageSource;", nullptr, 0, $field(ToolkitImage, src)},
+		{"imagerep", "Lsun/awt/image/ImageRepresentation;", nullptr, 0, $field(ToolkitImage, imagerep)},
+		{"width", "I", nullptr, $PRIVATE, $field(ToolkitImage, width)},
+		{"height", "I", nullptr, $PRIVATE, $field(ToolkitImage, height)},
+		{"properties", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<**>;", $PRIVATE, $field(ToolkitImage, properties)},
+		{"availinfo", "I", nullptr, $PRIVATE, $field(ToolkitImage, availinfo)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(ToolkitImage, init$, void)},
+		{"<init>", "(Ljava/awt/image/ImageProducer;)V", nullptr, $PUBLIC, $method(ToolkitImage, init$, void, $ImageProducer*)},
+		{"addInfo", "(I)V", nullptr, $SYNCHRONIZED, $virtualMethod(ToolkitImage, addInfo, void, int32_t)},
+		{"addWatcher", "(Ljava/awt/image/ImageObserver;Z)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(ToolkitImage, addWatcher, void, $ImageObserver*, bool)},
+		{"check", "(Ljava/awt/image/ImageObserver;)I", nullptr, $PUBLIC, $virtualMethod(ToolkitImage, check, int32_t, $ImageObserver*)},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(ToolkitImage, flush, void)},
+		{"getBufferedImage", "()Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(ToolkitImage, getBufferedImage, $BufferedImage*)},
+		{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(ToolkitImage, getColorModel, $ColorModel*)},
+		{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(ToolkitImage, getGraphics, $Graphics*)},
+		{"getHeight", "()I", nullptr, $PUBLIC, $virtualMethod(ToolkitImage, getHeight, int32_t)},
+		{"getHeight", "(Ljava/awt/image/ImageObserver;)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ToolkitImage, getHeight, int32_t, $ImageObserver*)},
+		{"getImageRep", "()Lsun/awt/image/ImageRepresentation;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ToolkitImage, getImageRep, $ImageRepresentation*)},
+		{"getProperty", "(Ljava/lang/String;Ljava/awt/image/ImageObserver;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ToolkitImage, getProperty, $Object*, $String*, $ImageObserver*)},
+		{"getSource", "()Ljava/awt/image/ImageProducer;", nullptr, $PUBLIC, $virtualMethod(ToolkitImage, getSource, $ImageProducer*)},
+		{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(ToolkitImage, getWidth, int32_t)},
+		{"getWidth", "(Ljava/awt/image/ImageObserver;)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ToolkitImage, getWidth, int32_t, $ImageObserver*)},
+		{"hasError", "()Z", nullptr, $PUBLIC, $virtualMethod(ToolkitImage, hasError, bool)},
+		{"infoDone", "(I)V", nullptr, $SYNCHRONIZED, $virtualMethod(ToolkitImage, infoDone, void, int32_t)},
+		{"makeImageRep", "()Lsun/awt/image/ImageRepresentation;", nullptr, $PROTECTED, $virtualMethod(ToolkitImage, makeImageRep, $ImageRepresentation*)},
+		{"preload", "(Ljava/awt/image/ImageObserver;)V", nullptr, $PUBLIC, $virtualMethod(ToolkitImage, preload, void, $ImageObserver*)},
+		{"reconstruct", "(I)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(ToolkitImage, reconstruct, void, int32_t)},
+		{"setAccelerationPriority", "(F)V", nullptr, $PUBLIC, $virtualMethod(ToolkitImage, setAccelerationPriority, void, float)},
+		{"setDimensions", "(II)V", nullptr, 0, $virtualMethod(ToolkitImage, setDimensions, void, int32_t, int32_t)},
+		{"setProperties", "(Ljava/util/Hashtable;)V", "(Ljava/util/Hashtable<**>;)V", 0, $virtualMethod(ToolkitImage, setProperties, void, $Hashtable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.image.ToolkitImage",
+		"java.awt.Image",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ToolkitImage, name, initialize, &classInfo$$, ToolkitImage::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ToolkitImage);
+	});
 	return class$;
 }
 

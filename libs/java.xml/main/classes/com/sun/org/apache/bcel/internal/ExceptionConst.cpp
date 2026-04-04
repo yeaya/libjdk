@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/ExceptionConst.h>
-
 #include <com/sun/org/apache/bcel/internal/ExceptionConst$1.h>
 #include <com/sun/org/apache/bcel/internal/ExceptionConst$EXCS.h>
 #include <java/lang/AbstractMethodError.h>
@@ -84,68 +83,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 
-$FieldInfo _ExceptionConst_FieldInfo_[] = {
-	{"THROWABLE", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/Throwable;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, THROWABLE)},
-	{"RUNTIME_EXCEPTION", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/RuntimeException;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, RUNTIME_EXCEPTION)},
-	{"LINKING_EXCEPTION", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/LinkageError;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, LINKING_EXCEPTION)},
-	{"CLASS_CIRCULARITY_ERROR", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/ClassCircularityError;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, CLASS_CIRCULARITY_ERROR)},
-	{"CLASS_FORMAT_ERROR", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/ClassFormatError;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, CLASS_FORMAT_ERROR)},
-	{"EXCEPTION_IN_INITIALIZER_ERROR", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/ExceptionInInitializerError;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, EXCEPTION_IN_INITIALIZER_ERROR)},
-	{"INCOMPATIBLE_CLASS_CHANGE_ERROR", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/IncompatibleClassChangeError;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, INCOMPATIBLE_CLASS_CHANGE_ERROR)},
-	{"ABSTRACT_METHOD_ERROR", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/AbstractMethodError;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, ABSTRACT_METHOD_ERROR)},
-	{"ILLEGAL_ACCESS_ERROR", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/IllegalAccessError;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, ILLEGAL_ACCESS_ERROR)},
-	{"INSTANTIATION_ERROR", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/InstantiationError;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, INSTANTIATION_ERROR)},
-	{"NO_SUCH_FIELD_ERROR", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/NoSuchFieldError;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, NO_SUCH_FIELD_ERROR)},
-	{"NO_SUCH_METHOD_ERROR", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/NoSuchMethodError;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, NO_SUCH_METHOD_ERROR)},
-	{"NO_CLASS_DEF_FOUND_ERROR", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/NoClassDefFoundError;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, NO_CLASS_DEF_FOUND_ERROR)},
-	{"UNSATISFIED_LINK_ERROR", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/UnsatisfiedLinkError;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, UNSATISFIED_LINK_ERROR)},
-	{"VERIFY_ERROR", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/VerifyError;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, VERIFY_ERROR)},
-	{"NULL_POINTER_EXCEPTION", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/NullPointerException;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, NULL_POINTER_EXCEPTION)},
-	{"ARRAY_INDEX_OUT_OF_BOUNDS_EXCEPTION", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/ArrayIndexOutOfBoundsException;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, ARRAY_INDEX_OUT_OF_BOUNDS_EXCEPTION)},
-	{"ARITHMETIC_EXCEPTION", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/ArithmeticException;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, ARITHMETIC_EXCEPTION)},
-	{"NEGATIVE_ARRAY_SIZE_EXCEPTION", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/NegativeArraySizeException;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, NEGATIVE_ARRAY_SIZE_EXCEPTION)},
-	{"CLASS_CAST_EXCEPTION", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/ClassCastException;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, CLASS_CAST_EXCEPTION)},
-	{"ILLEGAL_MONITOR_STATE", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/IllegalMonitorStateException;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, ILLEGAL_MONITOR_STATE)},
-	{"EXCS_CLASS_AND_INTERFACE_RESOLUTION", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(ExceptionConst, EXCS_CLASS_AND_INTERFACE_RESOLUTION)},
-	{"EXCS_FIELD_AND_METHOD_RESOLUTION", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(ExceptionConst, EXCS_FIELD_AND_METHOD_RESOLUTION)},
-	{"EXCS_INTERFACE_METHOD_RESOLUTION", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(ExceptionConst, EXCS_INTERFACE_METHOD_RESOLUTION)},
-	{"EXCS_STRING_RESOLUTION", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(ExceptionConst, EXCS_STRING_RESOLUTION)},
-	{"EXCS_ARRAY_EXCEPTION", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(ExceptionConst, EXCS_ARRAY_EXCEPTION)},
-	{}
-};
-
-$MethodInfo _ExceptionConst_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExceptionConst, init$, void)},
-	{"createExceptions", "(Lcom/sun/org/apache/bcel/internal/ExceptionConst$EXCS;[Ljava/lang/Class;)[Ljava/lang/Class;", "(Lcom/sun/org/apache/bcel/internal/ExceptionConst$EXCS;[Ljava/lang/Class<*>;)[Ljava/lang/Class<*>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ExceptionConst, createExceptions, $ClassArray*, $ExceptionConst$EXCS*, $ClassArray*)},
-	{"mergeExceptions", "([Ljava/lang/Class;[Ljava/lang/Class;)[Ljava/lang/Class;", "([Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(ExceptionConst, mergeExceptions, $ClassArray*, $ClassArray*, $ClassArray*)},
-	{}
-};
-
-$InnerClassInfo _ExceptionConst_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.bcel.internal.ExceptionConst$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.org.apache.bcel.internal.ExceptionConst$EXCS", "com.sun.org.apache.bcel.internal.ExceptionConst", "EXCS", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _ExceptionConst_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.ExceptionConst",
-	"java.lang.Object",
-	nullptr,
-	_ExceptionConst_FieldInfo_,
-	_ExceptionConst_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExceptionConst_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.bcel.internal.ExceptionConst$1,com.sun.org.apache.bcel.internal.ExceptionConst$EXCS"
-};
-
-$Object* allocate$ExceptionConst($Class* clazz) {
-	return $of($alloc(ExceptionConst));
-}
-
 $Class* ExceptionConst::THROWABLE = nullptr;
 $Class* ExceptionConst::RUNTIME_EXCEPTION = nullptr;
 $Class* ExceptionConst::LINKING_EXCEPTION = nullptr;
@@ -178,7 +115,7 @@ void ExceptionConst::init$() {
 
 $ClassArray* ExceptionConst::mergeExceptions($ClassArray* input, $ClassArray* extraClasses) {
 	$init(ExceptionConst);
-	int32_t extraLen = extraClasses == nullptr ? 0 : $nc(extraClasses)->length;
+	int32_t extraLen = extraClasses == nullptr ? 0 : extraClasses->length;
 	$var($ClassArray, excs, $new($ClassArray, $nc(input)->length + extraLen));
 	$System::arraycopy(input, 0, excs, 0, input->length);
 	if (extraLen > 0) {
@@ -192,35 +129,22 @@ $ClassArray* ExceptionConst::createExceptions($ExceptionConst$EXCS* type, $Class
 	$init($ExceptionConst$1);
 	switch ($nc($ExceptionConst$1::$SwitchMap$com$sun$org$apache$bcel$internal$ExceptionConst$EXCS)->get((type)->ordinal())) {
 	case 1:
-		{
-			return mergeExceptions(ExceptionConst::EXCS_CLASS_AND_INTERFACE_RESOLUTION, extraClasses);
-		}
+		return mergeExceptions(ExceptionConst::EXCS_CLASS_AND_INTERFACE_RESOLUTION, extraClasses);
 	case 2:
-		{
-			return mergeExceptions(ExceptionConst::EXCS_ARRAY_EXCEPTION, extraClasses);
-		}
+		return mergeExceptions(ExceptionConst::EXCS_ARRAY_EXCEPTION, extraClasses);
 	case 3:
-		{
-			return mergeExceptions(ExceptionConst::EXCS_FIELD_AND_METHOD_RESOLUTION, extraClasses);
-		}
+		return mergeExceptions(ExceptionConst::EXCS_FIELD_AND_METHOD_RESOLUTION, extraClasses);
 	case 4:
-		{
-			return mergeExceptions(ExceptionConst::EXCS_INTERFACE_METHOD_RESOLUTION, extraClasses);
-		}
+		return mergeExceptions(ExceptionConst::EXCS_INTERFACE_METHOD_RESOLUTION, extraClasses);
 	case 5:
-		{
-			return mergeExceptions(ExceptionConst::EXCS_STRING_RESOLUTION, extraClasses);
-		}
+		return mergeExceptions(ExceptionConst::EXCS_STRING_RESOLUTION, extraClasses);
 	default:
-		{
-			$throwNew($AssertionError, $of($$str({"Cannot happen; unexpected enum value: "_s, type})));
-		}
+		$throwNew($AssertionError, $$of($str({"Cannot happen; unexpected enum value: "_s, type})));
 	}
 }
 
-void clinit$ExceptionConst($Class* class$) {
+void ExceptionConst::clinit$($Class* clazz) {
 	$assignStatic(ExceptionConst::THROWABLE, $Throwable::class$);
-	$load($RuntimeException);
 	$assignStatic(ExceptionConst::RUNTIME_EXCEPTION, $RuntimeException::class$);
 	$load($LinkageError);
 	$assignStatic(ExceptionConst::LINKING_EXCEPTION, $LinkageError::class$);
@@ -248,7 +172,6 @@ void clinit$ExceptionConst($Class* class$) {
 	$assignStatic(ExceptionConst::UNSATISFIED_LINK_ERROR, $UnsatisfiedLinkError::class$);
 	$load($VerifyError);
 	$assignStatic(ExceptionConst::VERIFY_ERROR, $VerifyError::class$);
-	$load($NullPointerException);
 	$assignStatic(ExceptionConst::NULL_POINTER_EXCEPTION, $NullPointerException::class$);
 	$load($ArrayIndexOutOfBoundsException);
 	$assignStatic(ExceptionConst::ARRAY_INDEX_OUT_OF_BOUNDS_EXCEPTION, $ArrayIndexOutOfBoundsException::class$);
@@ -285,7 +208,63 @@ ExceptionConst::ExceptionConst() {
 }
 
 $Class* ExceptionConst::load$($String* name, bool initialize) {
-	$loadClass(ExceptionConst, name, initialize, &_ExceptionConst_ClassInfo_, clinit$ExceptionConst, allocate$ExceptionConst);
+	$FieldInfo fieldInfos$$[] = {
+		{"THROWABLE", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/Throwable;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, THROWABLE)},
+		{"RUNTIME_EXCEPTION", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/RuntimeException;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, RUNTIME_EXCEPTION)},
+		{"LINKING_EXCEPTION", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/LinkageError;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, LINKING_EXCEPTION)},
+		{"CLASS_CIRCULARITY_ERROR", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/ClassCircularityError;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, CLASS_CIRCULARITY_ERROR)},
+		{"CLASS_FORMAT_ERROR", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/ClassFormatError;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, CLASS_FORMAT_ERROR)},
+		{"EXCEPTION_IN_INITIALIZER_ERROR", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/ExceptionInInitializerError;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, EXCEPTION_IN_INITIALIZER_ERROR)},
+		{"INCOMPATIBLE_CLASS_CHANGE_ERROR", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/IncompatibleClassChangeError;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, INCOMPATIBLE_CLASS_CHANGE_ERROR)},
+		{"ABSTRACT_METHOD_ERROR", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/AbstractMethodError;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, ABSTRACT_METHOD_ERROR)},
+		{"ILLEGAL_ACCESS_ERROR", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/IllegalAccessError;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, ILLEGAL_ACCESS_ERROR)},
+		{"INSTANTIATION_ERROR", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/InstantiationError;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, INSTANTIATION_ERROR)},
+		{"NO_SUCH_FIELD_ERROR", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/NoSuchFieldError;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, NO_SUCH_FIELD_ERROR)},
+		{"NO_SUCH_METHOD_ERROR", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/NoSuchMethodError;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, NO_SUCH_METHOD_ERROR)},
+		{"NO_CLASS_DEF_FOUND_ERROR", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/NoClassDefFoundError;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, NO_CLASS_DEF_FOUND_ERROR)},
+		{"UNSATISFIED_LINK_ERROR", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/UnsatisfiedLinkError;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, UNSATISFIED_LINK_ERROR)},
+		{"VERIFY_ERROR", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/VerifyError;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, VERIFY_ERROR)},
+		{"NULL_POINTER_EXCEPTION", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/NullPointerException;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, NULL_POINTER_EXCEPTION)},
+		{"ARRAY_INDEX_OUT_OF_BOUNDS_EXCEPTION", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/ArrayIndexOutOfBoundsException;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, ARRAY_INDEX_OUT_OF_BOUNDS_EXCEPTION)},
+		{"ARITHMETIC_EXCEPTION", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/ArithmeticException;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, ARITHMETIC_EXCEPTION)},
+		{"NEGATIVE_ARRAY_SIZE_EXCEPTION", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/NegativeArraySizeException;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, NEGATIVE_ARRAY_SIZE_EXCEPTION)},
+		{"CLASS_CAST_EXCEPTION", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/ClassCastException;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, CLASS_CAST_EXCEPTION)},
+		{"ILLEGAL_MONITOR_STATE", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/IllegalMonitorStateException;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExceptionConst, ILLEGAL_MONITOR_STATE)},
+		{"EXCS_CLASS_AND_INTERFACE_RESOLUTION", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(ExceptionConst, EXCS_CLASS_AND_INTERFACE_RESOLUTION)},
+		{"EXCS_FIELD_AND_METHOD_RESOLUTION", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(ExceptionConst, EXCS_FIELD_AND_METHOD_RESOLUTION)},
+		{"EXCS_INTERFACE_METHOD_RESOLUTION", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(ExceptionConst, EXCS_INTERFACE_METHOD_RESOLUTION)},
+		{"EXCS_STRING_RESOLUTION", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(ExceptionConst, EXCS_STRING_RESOLUTION)},
+		{"EXCS_ARRAY_EXCEPTION", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(ExceptionConst, EXCS_ARRAY_EXCEPTION)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExceptionConst, init$, void)},
+		{"createExceptions", "(Lcom/sun/org/apache/bcel/internal/ExceptionConst$EXCS;[Ljava/lang/Class;)[Ljava/lang/Class;", "(Lcom/sun/org/apache/bcel/internal/ExceptionConst$EXCS;[Ljava/lang/Class<*>;)[Ljava/lang/Class<*>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ExceptionConst, createExceptions, $ClassArray*, $ExceptionConst$EXCS*, $ClassArray*)},
+		{"mergeExceptions", "([Ljava/lang/Class;[Ljava/lang/Class;)[Ljava/lang/Class;", "([Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(ExceptionConst, mergeExceptions, $ClassArray*, $ClassArray*, $ClassArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.bcel.internal.ExceptionConst$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.org.apache.bcel.internal.ExceptionConst$EXCS", "com.sun.org.apache.bcel.internal.ExceptionConst", "EXCS", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.ExceptionConst",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.bcel.internal.ExceptionConst$1,com.sun.org.apache.bcel.internal.ExceptionConst$EXCS"
+	};
+	$loadClass(ExceptionConst, name, initialize, &classInfo$$, ExceptionConst::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ExceptionConst);
+	});
 	return class$;
 }
 

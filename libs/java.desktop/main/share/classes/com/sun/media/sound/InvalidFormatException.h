@@ -19,7 +19,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)1;
 	InvalidFormatException(const InvalidFormatException& e);
 	virtual void throw$() override;
-	inline InvalidFormatException* operator ->() {
+	inline InvalidFormatException* operator ->() const {
+		return (InvalidFormatException*)throwing$;
+	}
+	inline operator InvalidFormatException*() const {
 		return (InvalidFormatException*)throwing$;
 	}
 };

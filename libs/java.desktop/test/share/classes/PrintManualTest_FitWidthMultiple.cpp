@@ -1,10 +1,8 @@
 #include <PrintManualTest_FitWidthMultiple.h>
-
 #include <PrintManualTest_FitWidthMultiple$1.h>
 #include <java/awt/Component.h>
 #include <java/awt/Window.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Runnable.h>
 #include <java/text/MessageFormat.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <java/util/concurrent/TimeUnit.h>
@@ -18,14 +16,12 @@
 #undef SECONDS
 
 using $PrintManualTest_FitWidthMultiple$1 = ::PrintManualTest_FitWidthMultiple$1;
-using $Component = ::java::awt::Component;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MessageFormat = ::java::text::MessageFormat;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
@@ -35,53 +31,6 @@ using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTable = ::javax::swing::JTable;
 using $JTextArea = ::javax::swing::JTextArea;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-
-$FieldInfo _PrintManualTest_FitWidthMultiple_FieldInfo_[] = {
-	{"testPassed", "Z", nullptr, $STATIC, $staticField(PrintManualTest_FitWidthMultiple, testPassed)},
-	{"fr", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(PrintManualTest_FitWidthMultiple, fr)},
-	{"instructFrame", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(PrintManualTest_FitWidthMultiple, instructFrame)},
-	{"latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $FINAL, $field(PrintManualTest_FitWidthMultiple, latch)},
-	{}
-};
-
-$MethodInfo _PrintManualTest_FitWidthMultiple_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/concurrent/CountDownLatch;)V", nullptr, $PUBLIC, $method(PrintManualTest_FitWidthMultiple, init$, void, $CountDownLatch*)},
-	{"addInfo", "(Ljava/lang/String;)Ljavax/swing/JScrollPane;", nullptr, $PUBLIC, $virtualMethod(PrintManualTest_FitWidthMultiple, addInfo, $JScrollPane*, $String*)},
-	{"createUIandTest", "()V", nullptr, $PRIVATE, $method(PrintManualTest_FitWidthMultiple, createUIandTest, void), "java.lang.Exception"},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(PrintManualTest_FitWidthMultiple, dispose, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PrintManualTest_FitWidthMultiple, main, void, $StringArray*), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrintManualTest_FitWidthMultiple, run, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _PrintManualTest_FitWidthMultiple_InnerClassesInfo_[] = {
-	{"PrintManualTest_FitWidthMultiple$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PrintManualTest_FitWidthMultiple_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"PrintManualTest_FitWidthMultiple",
-	"javax.swing.JTable",
-	"java.lang.Runnable",
-	_PrintManualTest_FitWidthMultiple_FieldInfo_,
-	_PrintManualTest_FitWidthMultiple_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PrintManualTest_FitWidthMultiple_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"PrintManualTest_FitWidthMultiple$1,PrintManualTest_FitWidthMultiple$1$4,PrintManualTest_FitWidthMultiple$1$3,PrintManualTest_FitWidthMultiple$1$2,PrintManualTest_FitWidthMultiple$1$1"
-};
-
-$Object* allocate$PrintManualTest_FitWidthMultiple($Class* clazz) {
-	return $of($alloc(PrintManualTest_FitWidthMultiple));
-}
 
 $String* PrintManualTest_FitWidthMultiple::toString() {
 	 return this->$JTable::toString();
@@ -123,7 +72,7 @@ void PrintManualTest_FitWidthMultiple::run() {
 }
 
 void PrintManualTest_FitWidthMultiple::createUIandTest() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MessageFormat, header, $new($MessageFormat, "JTable Printing Header {0}"_s));
 	$var($MessageFormat, footer, $new($MessageFormat, "JTable Printing Footer {0}"_s));
 	$SwingUtilities::invokeAndWait($$new($PrintManualTest_FitWidthMultiple$1, this, header, footer));
@@ -135,7 +84,7 @@ void PrintManualTest_FitWidthMultiple::dispose() {
 }
 
 $JScrollPane* PrintManualTest_FitWidthMultiple::addInfo($String* info) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextArea, jta, $new($JTextArea, info, 8, 20));
 	jta->setEditable(false);
 	jta->setLineWrap(true);
@@ -145,10 +94,10 @@ $JScrollPane* PrintManualTest_FitWidthMultiple::addInfo($String* info) {
 
 void PrintManualTest_FitWidthMultiple::main($StringArray* argv) {
 	$init(PrintManualTest_FitWidthMultiple);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CountDownLatch, latch, $new($CountDownLatch, 1));
 	$var(PrintManualTest_FitWidthMultiple, test, $new(PrintManualTest_FitWidthMultiple, latch));
-	$var($Thread, T1, $new($Thread, static_cast<$Runnable*>(test)));
+	$var($Thread, T1, $new($Thread, test));
 	T1->start();
 	bool ret = false;
 	try {
@@ -166,7 +115,7 @@ void PrintManualTest_FitWidthMultiple::main($StringArray* argv) {
 	}
 }
 
-void clinit$PrintManualTest_FitWidthMultiple($Class* class$) {
+void PrintManualTest_FitWidthMultiple::clinit$($Class* clazz) {
 	$assignStatic(PrintManualTest_FitWidthMultiple::fr, nullptr);
 	$assignStatic(PrintManualTest_FitWidthMultiple::instructFrame, nullptr);
 }
@@ -175,7 +124,48 @@ PrintManualTest_FitWidthMultiple::PrintManualTest_FitWidthMultiple() {
 }
 
 $Class* PrintManualTest_FitWidthMultiple::load$($String* name, bool initialize) {
-	$loadClass(PrintManualTest_FitWidthMultiple, name, initialize, &_PrintManualTest_FitWidthMultiple_ClassInfo_, clinit$PrintManualTest_FitWidthMultiple, allocate$PrintManualTest_FitWidthMultiple);
+	$FieldInfo fieldInfos$$[] = {
+		{"testPassed", "Z", nullptr, $STATIC, $staticField(PrintManualTest_FitWidthMultiple, testPassed)},
+		{"fr", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(PrintManualTest_FitWidthMultiple, fr)},
+		{"instructFrame", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(PrintManualTest_FitWidthMultiple, instructFrame)},
+		{"latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $FINAL, $field(PrintManualTest_FitWidthMultiple, latch)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/concurrent/CountDownLatch;)V", nullptr, $PUBLIC, $method(PrintManualTest_FitWidthMultiple, init$, void, $CountDownLatch*)},
+		{"addInfo", "(Ljava/lang/String;)Ljavax/swing/JScrollPane;", nullptr, $PUBLIC, $virtualMethod(PrintManualTest_FitWidthMultiple, addInfo, $JScrollPane*, $String*)},
+		{"createUIandTest", "()V", nullptr, $PRIVATE, $method(PrintManualTest_FitWidthMultiple, createUIandTest, void), "java.lang.Exception"},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(PrintManualTest_FitWidthMultiple, dispose, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PrintManualTest_FitWidthMultiple, main, void, $StringArray*), "java.lang.Exception"},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrintManualTest_FitWidthMultiple, run, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"PrintManualTest_FitWidthMultiple$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"PrintManualTest_FitWidthMultiple",
+		"javax.swing.JTable",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"PrintManualTest_FitWidthMultiple$1,PrintManualTest_FitWidthMultiple$1$4,PrintManualTest_FitWidthMultiple$1$3,PrintManualTest_FitWidthMultiple$1$2,PrintManualTest_FitWidthMultiple$1$1"
+	};
+	$loadClass(PrintManualTest_FitWidthMultiple, name, initialize, &classInfo$$, PrintManualTest_FitWidthMultiple::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PrintManualTest_FitWidthMultiple));
+	});
 	return class$;
 }
 

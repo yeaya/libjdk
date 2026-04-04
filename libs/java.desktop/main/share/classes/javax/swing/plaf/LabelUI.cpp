@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/LabelUI.h>
-
 #include <javax/swing/plaf/ComponentUI.h>
 #include <jcpp.h>
 
@@ -11,24 +10,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 
-$MethodInfo _LabelUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(LabelUI, init$, void)},
-	{}
-};
-
-$ClassInfo _LabelUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.plaf.LabelUI",
-	"javax.swing.plaf.ComponentUI",
-	nullptr,
-	nullptr,
-	_LabelUI_MethodInfo_
-};
-
-$Object* allocate$LabelUI($Class* clazz) {
-	return $of($alloc(LabelUI));
-}
-
 void LabelUI::init$() {
 	$ComponentUI::init$();
 }
@@ -37,7 +18,21 @@ LabelUI::LabelUI() {
 }
 
 $Class* LabelUI::load$($String* name, bool initialize) {
-	$loadClass(LabelUI, name, initialize, &_LabelUI_ClassInfo_, allocate$LabelUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(LabelUI, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.plaf.LabelUI",
+		"javax.swing.plaf.ComponentUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LabelUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LabelUI);
+	});
 	return class$;
 }
 

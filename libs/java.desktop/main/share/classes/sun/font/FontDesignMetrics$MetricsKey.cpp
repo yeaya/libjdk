@@ -1,5 +1,4 @@
 #include <sun/font/FontDesignMetrics$MetricsKey.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/font/FontRenderContext.h>
 #include <sun/font/FontDesignMetrics.h>
@@ -14,48 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _FontDesignMetrics$MetricsKey_FieldInfo_[] = {
-	{"font", "Ljava/awt/Font;", nullptr, 0, $field(FontDesignMetrics$MetricsKey, font)},
-	{"frc", "Ljava/awt/font/FontRenderContext;", nullptr, 0, $field(FontDesignMetrics$MetricsKey, frc)},
-	{"hash", "I", nullptr, 0, $field(FontDesignMetrics$MetricsKey, hash)},
-	{"key", "Lsun/font/FontDesignMetrics$MetricsKey;", nullptr, $STATIC | $FINAL, $staticField(FontDesignMetrics$MetricsKey, key)},
-	{}
-};
-
-$MethodInfo _FontDesignMetrics$MetricsKey_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(FontDesignMetrics$MetricsKey, init$, void)},
-	{"<init>", "(Ljava/awt/Font;Ljava/awt/font/FontRenderContext;)V", nullptr, 0, $method(FontDesignMetrics$MetricsKey, init$, void, $Font*, $FontRenderContext*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FontDesignMetrics$MetricsKey, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(FontDesignMetrics$MetricsKey, hashCode, int32_t)},
-	{"init", "(Ljava/awt/Font;Ljava/awt/font/FontRenderContext;)V", nullptr, 0, $virtualMethod(FontDesignMetrics$MetricsKey, init, void, $Font*, $FontRenderContext*)},
-	{}
-};
-
-$InnerClassInfo _FontDesignMetrics$MetricsKey_InnerClassesInfo_[] = {
-	{"sun.font.FontDesignMetrics$MetricsKey", "sun.font.FontDesignMetrics", "MetricsKey", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _FontDesignMetrics$MetricsKey_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.font.FontDesignMetrics$MetricsKey",
-	"java.lang.Object",
-	nullptr,
-	_FontDesignMetrics$MetricsKey_FieldInfo_,
-	_FontDesignMetrics$MetricsKey_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FontDesignMetrics$MetricsKey_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.font.FontDesignMetrics"
-};
-
-$Object* allocate$FontDesignMetrics$MetricsKey($Class* clazz) {
-	return $of($alloc(FontDesignMetrics$MetricsKey));
-}
 
 FontDesignMetrics$MetricsKey* FontDesignMetrics$MetricsKey::key = nullptr;
 
@@ -77,15 +34,15 @@ bool FontDesignMetrics$MetricsKey::equals(Object$* key) {
 	if (!($instanceOf(FontDesignMetrics$MetricsKey, key))) {
 		return false;
 	}
-	bool var$0 = $nc(this->font)->equals($nc(($cast(FontDesignMetrics$MetricsKey, key)))->font);
-	return var$0 && $nc(this->frc)->equals($nc(($cast(FontDesignMetrics$MetricsKey, key)))->frc);
+	bool var$0 = $nc(this->font)->equals($nc($cast(FontDesignMetrics$MetricsKey, key))->font);
+	return var$0 && $nc(this->frc)->equals($cast(FontDesignMetrics$MetricsKey, key)->frc);
 }
 
 int32_t FontDesignMetrics$MetricsKey::hashCode() {
 	return this->hash;
 }
 
-void clinit$FontDesignMetrics$MetricsKey($Class* class$) {
+void FontDesignMetrics$MetricsKey::clinit$($Class* clazz) {
 	$assignStatic(FontDesignMetrics$MetricsKey::key, $new(FontDesignMetrics$MetricsKey));
 }
 
@@ -93,7 +50,43 @@ FontDesignMetrics$MetricsKey::FontDesignMetrics$MetricsKey() {
 }
 
 $Class* FontDesignMetrics$MetricsKey::load$($String* name, bool initialize) {
-	$loadClass(FontDesignMetrics$MetricsKey, name, initialize, &_FontDesignMetrics$MetricsKey_ClassInfo_, clinit$FontDesignMetrics$MetricsKey, allocate$FontDesignMetrics$MetricsKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"font", "Ljava/awt/Font;", nullptr, 0, $field(FontDesignMetrics$MetricsKey, font)},
+		{"frc", "Ljava/awt/font/FontRenderContext;", nullptr, 0, $field(FontDesignMetrics$MetricsKey, frc)},
+		{"hash", "I", nullptr, 0, $field(FontDesignMetrics$MetricsKey, hash)},
+		{"key", "Lsun/font/FontDesignMetrics$MetricsKey;", nullptr, $STATIC | $FINAL, $staticField(FontDesignMetrics$MetricsKey, key)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(FontDesignMetrics$MetricsKey, init$, void)},
+		{"<init>", "(Ljava/awt/Font;Ljava/awt/font/FontRenderContext;)V", nullptr, 0, $method(FontDesignMetrics$MetricsKey, init$, void, $Font*, $FontRenderContext*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FontDesignMetrics$MetricsKey, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(FontDesignMetrics$MetricsKey, hashCode, int32_t)},
+		{"init", "(Ljava/awt/Font;Ljava/awt/font/FontRenderContext;)V", nullptr, 0, $virtualMethod(FontDesignMetrics$MetricsKey, init, void, $Font*, $FontRenderContext*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.FontDesignMetrics$MetricsKey", "sun.font.FontDesignMetrics", "MetricsKey", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.font.FontDesignMetrics$MetricsKey",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.font.FontDesignMetrics"
+	};
+	$loadClass(FontDesignMetrics$MetricsKey, name, initialize, &classInfo$$, FontDesignMetrics$MetricsKey::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FontDesignMetrics$MetricsKey);
+	});
 	return class$;
 }
 

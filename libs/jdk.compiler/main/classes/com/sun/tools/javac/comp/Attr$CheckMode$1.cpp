@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Attr$CheckMode$1.h>
-
 #include <com/sun/tools/javac/comp/Attr$CheckMode.h>
 #include <jcpp.h>
 
@@ -15,44 +14,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$MethodInfo _Attr$CheckMode$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Attr$CheckMode$1, init$, void, $String*, int32_t)},
-	{"updateTreeType", "()Z", nullptr, $PUBLIC, $virtualMethod(Attr$CheckMode$1, updateTreeType, bool)},
-	{}
-};
-
-$EnclosingMethodInfo _Attr$CheckMode$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Attr$CheckMode",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Attr$CheckMode$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Attr$CheckMode", "com.sun.tools.javac.comp.Attr", "CheckMode", $STATIC | $ENUM},
-	{"com.sun.tools.javac.comp.Attr$CheckMode$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Attr$CheckMode$1_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.comp.Attr$CheckMode$1",
-	"com.sun.tools.javac.comp.Attr$CheckMode",
-	nullptr,
-	nullptr,
-	_Attr$CheckMode$1_MethodInfo_,
-	nullptr,
-	&_Attr$CheckMode$1_EnclosingMethodInfo_,
-	_Attr$CheckMode$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Attr"
-};
-
-$Object* allocate$Attr$CheckMode$1($Class* clazz) {
-	return $of($alloc(Attr$CheckMode$1));
-}
-
 void Attr$CheckMode$1::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Attr$CheckMode::init$($enum$name, $enum$ordinal);
 }
@@ -65,7 +26,39 @@ Attr$CheckMode$1::Attr$CheckMode$1() {
 }
 
 $Class* Attr$CheckMode$1::load$($String* name, bool initialize) {
-	$loadClass(Attr$CheckMode$1, name, initialize, &_Attr$CheckMode$1_ClassInfo_, allocate$Attr$CheckMode$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Attr$CheckMode$1, init$, void, $String*, int32_t)},
+		{"updateTreeType", "()Z", nullptr, $PUBLIC, $virtualMethod(Attr$CheckMode$1, updateTreeType, bool)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Attr$CheckMode",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Attr$CheckMode", "com.sun.tools.javac.comp.Attr", "CheckMode", $STATIC | $ENUM},
+		{"com.sun.tools.javac.comp.Attr$CheckMode$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.comp.Attr$CheckMode$1",
+		"com.sun.tools.javac.comp.Attr$CheckMode",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Attr"
+	};
+	$loadClass(Attr$CheckMode$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Attr$CheckMode$1));
+	});
 	return class$;
 }
 

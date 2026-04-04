@@ -1,5 +1,4 @@
 #include <com/sun/source/util/DocTreePath.h>
-
 #include <com/sun/source/doctree/DocCommentTree.h>
 #include <com/sun/source/doctree/DocTree$Kind.h>
 #include <com/sun/source/doctree/DocTree.h>
@@ -33,53 +32,6 @@ namespace com {
 		namespace source {
 			namespace util {
 
-$FieldInfo _DocTreePath_FieldInfo_[] = {
-	{"treePath", "Lcom/sun/source/util/TreePath;", nullptr, $PRIVATE | $FINAL, $field(DocTreePath, treePath)},
-	{"docComment", "Lcom/sun/source/doctree/DocCommentTree;", nullptr, $PRIVATE | $FINAL, $field(DocTreePath, docComment)},
-	{"leaf", "Lcom/sun/source/doctree/DocTree;", nullptr, $PRIVATE | $FINAL, $field(DocTreePath, leaf)},
-	{"parent", "Lcom/sun/source/util/DocTreePath;", nullptr, $PRIVATE | $FINAL, $field(DocTreePath, parent)},
-	{}
-};
-
-$MethodInfo _DocTreePath_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/source/util/TreePath;Lcom/sun/source/doctree/DocCommentTree;)V", nullptr, $PUBLIC, $method(DocTreePath, init$, void, $TreePath*, $DocCommentTree*)},
-	{"<init>", "(Lcom/sun/source/util/DocTreePath;Lcom/sun/source/doctree/DocTree;)V", nullptr, $PUBLIC, $method(DocTreePath, init$, void, DocTreePath*, $DocTree*)},
-	{"getDocComment", "()Lcom/sun/source/doctree/DocCommentTree;", nullptr, $PUBLIC, $virtualMethod(DocTreePath, getDocComment, $DocCommentTree*)},
-	{"getLeaf", "()Lcom/sun/source/doctree/DocTree;", nullptr, $PUBLIC, $virtualMethod(DocTreePath, getLeaf, $DocTree*)},
-	{"getParentPath", "()Lcom/sun/source/util/DocTreePath;", nullptr, $PUBLIC, $virtualMethod(DocTreePath, getParentPath, DocTreePath*)},
-	{"getPath", "(Lcom/sun/source/util/TreePath;Lcom/sun/source/doctree/DocCommentTree;Lcom/sun/source/doctree/DocTree;)Lcom/sun/source/util/DocTreePath;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocTreePath, getPath, DocTreePath*, $TreePath*, $DocCommentTree*, $DocTree*)},
-	{"getPath", "(Lcom/sun/source/util/DocTreePath;Lcom/sun/source/doctree/DocTree;)Lcom/sun/source/util/DocTreePath;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocTreePath, getPath, DocTreePath*, DocTreePath*, $DocTree*)},
-	{"getTreePath", "()Lcom/sun/source/util/TreePath;", nullptr, $PUBLIC, $virtualMethod(DocTreePath, getTreePath, $TreePath*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DocTreePath, iterator, $Iterator*)},
-	{}
-};
-
-$InnerClassInfo _DocTreePath_InnerClassesInfo_[] = {
-	{"com.sun.source.util.DocTreePath$1", nullptr, nullptr, 0},
-	{"com.sun.source.util.DocTreePath$1PathFinder", nullptr, "PathFinder", 0},
-	{"com.sun.source.util.DocTreePath$1Result", nullptr, "Result", 0},
-	{}
-};
-
-$ClassInfo _DocTreePath_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.source.util.DocTreePath",
-	"java.lang.Object",
-	"java.lang.Iterable",
-	_DocTreePath_FieldInfo_,
-	_DocTreePath_MethodInfo_,
-	"Ljava/lang/Object;Ljava/lang/Iterable<Lcom/sun/source/doctree/DocTree;>;",
-	nullptr,
-	_DocTreePath_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.source.util.DocTreePath$1,com.sun.source.util.DocTreePath$1PathFinder,com.sun.source.util.DocTreePath$1Result"
-};
-
-$Object* allocate$DocTreePath($Class* clazz) {
-	return $of($alloc(DocTreePath));
-}
-
 DocTreePath* DocTreePath::getPath($TreePath* treePath, $DocCommentTree* doc, $DocTree* target) {
 	$init(DocTreePath);
 	return getPath($$new(DocTreePath, treePath, doc), target);
@@ -97,7 +49,7 @@ DocTreePath* DocTreePath::getPath(DocTreePath* path, $DocTree* target) {
 		return path;
 	}
 	try {
-		$$new($DocTreePath$1PathFinder)->scan(path, $of(target));
+		$$new($DocTreePath$1PathFinder)->scan(path, target);
 	} catch ($DocTreePath$1Result& result) {
 		return result->path;
 	}
@@ -147,7 +99,48 @@ DocTreePath::DocTreePath() {
 }
 
 $Class* DocTreePath::load$($String* name, bool initialize) {
-	$loadClass(DocTreePath, name, initialize, &_DocTreePath_ClassInfo_, allocate$DocTreePath);
+	$FieldInfo fieldInfos$$[] = {
+		{"treePath", "Lcom/sun/source/util/TreePath;", nullptr, $PRIVATE | $FINAL, $field(DocTreePath, treePath)},
+		{"docComment", "Lcom/sun/source/doctree/DocCommentTree;", nullptr, $PRIVATE | $FINAL, $field(DocTreePath, docComment)},
+		{"leaf", "Lcom/sun/source/doctree/DocTree;", nullptr, $PRIVATE | $FINAL, $field(DocTreePath, leaf)},
+		{"parent", "Lcom/sun/source/util/DocTreePath;", nullptr, $PRIVATE | $FINAL, $field(DocTreePath, parent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/source/util/TreePath;Lcom/sun/source/doctree/DocCommentTree;)V", nullptr, $PUBLIC, $method(DocTreePath, init$, void, $TreePath*, $DocCommentTree*)},
+		{"<init>", "(Lcom/sun/source/util/DocTreePath;Lcom/sun/source/doctree/DocTree;)V", nullptr, $PUBLIC, $method(DocTreePath, init$, void, DocTreePath*, $DocTree*)},
+		{"getDocComment", "()Lcom/sun/source/doctree/DocCommentTree;", nullptr, $PUBLIC, $virtualMethod(DocTreePath, getDocComment, $DocCommentTree*)},
+		{"getLeaf", "()Lcom/sun/source/doctree/DocTree;", nullptr, $PUBLIC, $virtualMethod(DocTreePath, getLeaf, $DocTree*)},
+		{"getParentPath", "()Lcom/sun/source/util/DocTreePath;", nullptr, $PUBLIC, $virtualMethod(DocTreePath, getParentPath, DocTreePath*)},
+		{"getPath", "(Lcom/sun/source/util/TreePath;Lcom/sun/source/doctree/DocCommentTree;Lcom/sun/source/doctree/DocTree;)Lcom/sun/source/util/DocTreePath;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocTreePath, getPath, DocTreePath*, $TreePath*, $DocCommentTree*, $DocTree*)},
+		{"getPath", "(Lcom/sun/source/util/DocTreePath;Lcom/sun/source/doctree/DocTree;)Lcom/sun/source/util/DocTreePath;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocTreePath, getPath, DocTreePath*, DocTreePath*, $DocTree*)},
+		{"getTreePath", "()Lcom/sun/source/util/TreePath;", nullptr, $PUBLIC, $virtualMethod(DocTreePath, getTreePath, $TreePath*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DocTreePath, iterator, $Iterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.source.util.DocTreePath$1", nullptr, nullptr, 0},
+		{"com.sun.source.util.DocTreePath$1PathFinder", nullptr, "PathFinder", 0},
+		{"com.sun.source.util.DocTreePath$1Result", nullptr, "Result", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.source.util.DocTreePath",
+		"java.lang.Object",
+		"java.lang.Iterable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/lang/Iterable<Lcom/sun/source/doctree/DocTree;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.source.util.DocTreePath$1,com.sun.source.util.DocTreePath$1PathFinder,com.sun.source.util.DocTreePath$1Result"
+	};
+	$loadClass(DocTreePath, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DocTreePath);
+	});
 	return class$;
 }
 

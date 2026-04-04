@@ -1,5 +1,4 @@
 #include <HeadlessJList.h>
-
 #include <HeadlessJList$1.h>
 #include <HeadlessJList$2.h>
 #include <HeadlessJList$3.h>
@@ -49,7 +48,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -60,43 +58,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 using $JList = ::javax::swing::JList;
 
-$MethodInfo _HeadlessJList_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJList, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJList, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _HeadlessJList_InnerClassesInfo_[] = {
-	{"HeadlessJList$3", nullptr, nullptr, 0},
-	{"HeadlessJList$2", nullptr, nullptr, 0},
-	{"HeadlessJList$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJList_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJList",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJList_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessJList_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadlessJList$3,HeadlessJList$2,HeadlessJList$1"
-};
-
-$Object* allocate$HeadlessJList($Class* clazz) {
-	return $of($alloc(HeadlessJList));
-}
-
 void HeadlessJList::init$() {
 }
 
 void HeadlessJList::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JList, l, $new($JList));
 	l->getAccessibleContext();
 	l->isFocusTraversable();
@@ -108,9 +74,9 @@ void HeadlessJList::main($StringArray* args) {
 	l->getMaximumSize();
 	l->getMinimumSize();
 	l->contains(1, 2);
-	$var($Component, c1, l->add(static_cast<$Component*>($$new($HeadlessJList$1))));
-	$var($Component, c2, l->add(static_cast<$Component*>($$new($HeadlessJList$2))));
-	$var($Component, c3, l->add(static_cast<$Component*>($$new($HeadlessJList$3))));
+	$var($Component, c1, l->add($$new($HeadlessJList$1)));
+	$var($Component, c2, l->add($$new($HeadlessJList$2)));
+	$var($Component, c3, l->add($$new($HeadlessJList$3)));
 	$var($Insets, ins, l->getInsets());
 	l->getAlignmentY();
 	l->getAlignmentX();
@@ -121,26 +87,22 @@ void HeadlessJList::main($StringArray* args) {
 	l->setForeground($Color::red);
 	l->setBackground($Color::red);
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					l->setFont(f1);
-					l->setFont(f2);
-					l->setFont(f3);
-					l->setFont(f4);
-					l->getFontMetrics(f1);
-					l->getFontMetrics(f2);
-					l->getFontMetrics(f3);
-					l->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				l->setFont(f1);
+				l->setFont(f2);
+				l->setFont(f3);
+				l->setFont(f4);
+				l->getFontMetrics(f1);
+				l->getFontMetrics(f2);
+				l->getFontMetrics(f3);
+				l->getFontMetrics(f4);
 			}
 		}
 	}
@@ -205,13 +167,11 @@ void HeadlessJList::main($StringArray* args) {
 	l->getFont();
 	l->isFontSet();
 	$var($Container, c, $new($Container));
-	c->add(static_cast<$Component*>(l));
+	c->add(l);
 	l->getLocale();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			l->setLocale(locale);
 		}
@@ -268,7 +228,34 @@ HeadlessJList::HeadlessJList() {
 }
 
 $Class* HeadlessJList::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJList, name, initialize, &_HeadlessJList_ClassInfo_, allocate$HeadlessJList);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJList, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJList, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJList$3", nullptr, nullptr, 0},
+		{"HeadlessJList$2", nullptr, nullptr, 0},
+		{"HeadlessJList$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJList",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadlessJList$3,HeadlessJList$2,HeadlessJList$1"
+	};
+	$loadClass(HeadlessJList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJList);
+	});
 	return class$;
 }
 

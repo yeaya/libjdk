@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/Annotations.h>
-
 #include <com/sun/org/apache/bcel/internal/classfile/AnnotationEntry.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Attribute.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
@@ -27,39 +26,8 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$FieldInfo _Annotations_FieldInfo_[] = {
-	{"annotationTable", "[Lcom/sun/org/apache/bcel/internal/classfile/AnnotationEntry;", nullptr, $PRIVATE, $field(Annotations, annotationTable)},
-	{"isRuntimeVisible", "Z", nullptr, $PRIVATE | $FINAL, $field(Annotations, isRuntimeVisible$)},
-	{}
-};
-
-$MethodInfo _Annotations_MethodInfo_[] = {
-	{"<init>", "(BIILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;Z)V", nullptr, 0, $method(Annotations, init$, void, int8_t, int32_t, int32_t, $DataInput*, $ConstantPool*, bool), "java.io.IOException"},
-	{"<init>", "(BII[Lcom/sun/org/apache/bcel/internal/classfile/AnnotationEntry;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;Z)V", nullptr, $PUBLIC, $method(Annotations, init$, void, int8_t, int32_t, int32_t, $AnnotationEntryArray*, $ConstantPool*, bool)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Annotations, accept, void, $Visitor*)},
-	{"getAnnotationEntries", "()[Lcom/sun/org/apache/bcel/internal/classfile/AnnotationEntry;", nullptr, $PUBLIC, $virtualMethod(Annotations, getAnnotationEntries, $AnnotationEntryArray*)},
-	{"getNumAnnotations", "()I", nullptr, $PUBLIC | $FINAL, $method(Annotations, getNumAnnotations, int32_t)},
-	{"isRuntimeVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(Annotations, isRuntimeVisible, bool)},
-	{"setAnnotationTable", "([Lcom/sun/org/apache/bcel/internal/classfile/AnnotationEntry;)V", nullptr, $PUBLIC | $FINAL, $method(Annotations, setAnnotationTable, void, $AnnotationEntryArray*)},
-	{"writeAnnotations", "(Ljava/io/DataOutputStream;)V", nullptr, $PROTECTED, $virtualMethod(Annotations, writeAnnotations, void, $DataOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _Annotations_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.classfile.Annotations",
-	"com.sun.org.apache.bcel.internal.classfile.Attribute",
-	nullptr,
-	_Annotations_FieldInfo_,
-	_Annotations_MethodInfo_
-};
-
-$Object* allocate$Annotations($Class* clazz) {
-	return $of($alloc(Annotations));
-}
-
 void Annotations::init$(int8_t annotation_type, int32_t name_index, int32_t length, $DataInput* input, $ConstantPool* constant_pool, bool isRuntimeVisible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	Annotations::init$(annotation_type, name_index, length, ($AnnotationEntryArray*)nullptr, constant_pool, isRuntimeVisible);
 	int32_t annotation_table_length = $nc(input)->readUnsignedShort();
 	$set(this, annotationTable, $new($AnnotationEntryArray, annotation_table_length));
@@ -98,16 +66,14 @@ bool Annotations::isRuntimeVisible() {
 }
 
 void Annotations::writeAnnotations($DataOutputStream* dos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->annotationTable == nullptr) {
 		return;
 	}
 	$nc(dos)->writeShort($nc(this->annotationTable)->length);
 	{
 		$var($AnnotationEntryArray, arr$, this->annotationTable);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($AnnotationEntry, element, arr$->get(i$));
 			{
 				$nc(element)->dump(dos);
@@ -120,7 +86,33 @@ Annotations::Annotations() {
 }
 
 $Class* Annotations::load$($String* name, bool initialize) {
-	$loadClass(Annotations, name, initialize, &_Annotations_ClassInfo_, allocate$Annotations);
+	$FieldInfo fieldInfos$$[] = {
+		{"annotationTable", "[Lcom/sun/org/apache/bcel/internal/classfile/AnnotationEntry;", nullptr, $PRIVATE, $field(Annotations, annotationTable)},
+		{"isRuntimeVisible", "Z", nullptr, $PRIVATE | $FINAL, $field(Annotations, isRuntimeVisible$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(BIILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;Z)V", nullptr, 0, $method(Annotations, init$, void, int8_t, int32_t, int32_t, $DataInput*, $ConstantPool*, bool), "java.io.IOException"},
+		{"<init>", "(BII[Lcom/sun/org/apache/bcel/internal/classfile/AnnotationEntry;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;Z)V", nullptr, $PUBLIC, $method(Annotations, init$, void, int8_t, int32_t, int32_t, $AnnotationEntryArray*, $ConstantPool*, bool)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Annotations, accept, void, $Visitor*)},
+		{"getAnnotationEntries", "()[Lcom/sun/org/apache/bcel/internal/classfile/AnnotationEntry;", nullptr, $PUBLIC, $virtualMethod(Annotations, getAnnotationEntries, $AnnotationEntryArray*)},
+		{"getNumAnnotations", "()I", nullptr, $PUBLIC | $FINAL, $method(Annotations, getNumAnnotations, int32_t)},
+		{"isRuntimeVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(Annotations, isRuntimeVisible, bool)},
+		{"setAnnotationTable", "([Lcom/sun/org/apache/bcel/internal/classfile/AnnotationEntry;)V", nullptr, $PUBLIC | $FINAL, $method(Annotations, setAnnotationTable, void, $AnnotationEntryArray*)},
+		{"writeAnnotations", "(Ljava/io/DataOutputStream;)V", nullptr, $PROTECTED, $virtualMethod(Annotations, writeAnnotations, void, $DataOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.classfile.Annotations",
+		"com.sun.org.apache.bcel.internal.classfile.Attribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Annotations, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Annotations));
+	});
 	return class$;
 }
 

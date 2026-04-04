@@ -1,9 +1,7 @@
 #include <sun/awt/image/SunVolatileImage.h>
-
 #include <java/awt/AlphaComposite.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Composite.h>
 #include <java/awt/Font.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/GraphicsConfiguration.h>
@@ -33,7 +31,6 @@
 using $AlphaComposite = ::java::awt::AlphaComposite;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Composite = ::java::awt::Composite;
 using $Font = ::java::awt::Font;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
@@ -63,65 +60,6 @@ namespace sun {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _SunVolatileImage_FieldInfo_[] = {
-	{"volSurfaceManager", "Lsun/awt/image/VolatileSurfaceManager;", nullptr, $PROTECTED, $field(SunVolatileImage, volSurfaceManager)},
-	{"comp", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(SunVolatileImage, comp)},
-	{"graphicsConfig", "Ljava/awt/GraphicsConfiguration;", nullptr, $PRIVATE, $field(SunVolatileImage, graphicsConfig)},
-	{"defaultFont", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(SunVolatileImage, defaultFont)},
-	{"width", "I", nullptr, $PRIVATE, $field(SunVolatileImage, width)},
-	{"height", "I", nullptr, $PRIVATE, $field(SunVolatileImage, height)},
-	{"forcedAccelSurfaceType", "I", nullptr, $PRIVATE, $field(SunVolatileImage, forcedAccelSurfaceType)},
-	{}
-};
-
-$MethodInfo _SunVolatileImage_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Component;Ljava/awt/GraphicsConfiguration;IILjava/lang/Object;ILjava/awt/ImageCapabilities;I)V", nullptr, $PROTECTED, $method(SunVolatileImage, init$, void, $Component*, $GraphicsConfiguration*, int32_t, int32_t, Object$*, int32_t, $ImageCapabilities*, int32_t)},
-	{"<init>", "(Ljava/awt/Component;Ljava/awt/GraphicsConfiguration;IILjava/lang/Object;Ljava/awt/ImageCapabilities;)V", nullptr, $PRIVATE, $method(SunVolatileImage, init$, void, $Component*, $GraphicsConfiguration*, int32_t, int32_t, Object$*, $ImageCapabilities*)},
-	{"<init>", "(Ljava/awt/Component;II)V", nullptr, $PUBLIC, $method(SunVolatileImage, init$, void, $Component*, int32_t, int32_t)},
-	{"<init>", "(Ljava/awt/Component;IILjava/lang/Object;)V", nullptr, $PUBLIC, $method(SunVolatileImage, init$, void, $Component*, int32_t, int32_t, Object$*)},
-	{"<init>", "(Ljava/awt/GraphicsConfiguration;IIILjava/awt/ImageCapabilities;)V", nullptr, $PUBLIC, $method(SunVolatileImage, init$, void, $GraphicsConfiguration*, int32_t, int32_t, int32_t, $ImageCapabilities*)},
-	{"contentsLost", "()Z", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, contentsLost, bool)},
-	{"createGraphics", "()Ljava/awt/Graphics2D;", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, createGraphics, $Graphics2D*)},
-	{"createSurfaceManager", "(Ljava/lang/Object;Ljava/awt/ImageCapabilities;)Lsun/awt/image/VolatileSurfaceManager;", nullptr, $PROTECTED, $virtualMethod(SunVolatileImage, createSurfaceManager, $VolatileSurfaceManager*, Object$*, $ImageCapabilities*)},
-	{"getBackground", "()Ljava/awt/Color;", nullptr, $PRIVATE, $method(SunVolatileImage, getBackground, $Color*)},
-	{"getBackupImage", "()Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, getBackupImage, $BufferedImage*)},
-	{"getBackupImage", "(DD)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, getBackupImage, $BufferedImage*, double, double)},
-	{"getCapabilities", "()Ljava/awt/ImageCapabilities;", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, getCapabilities, $ImageCapabilities*)},
-	{"getComponent", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, getComponent, $Component*)},
-	{"getDestSurface", "()Lsun/java2d/Surface;", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, getDestSurface, $Surface*)},
-	{"getFont", "()Ljava/awt/Font;", nullptr, $PRIVATE, $method(SunVolatileImage, getFont, $Font*)},
-	{"getForcedAccelSurfaceType", "()I", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, getForcedAccelSurfaceType, int32_t)},
-	{"getForeground", "()Ljava/awt/Color;", nullptr, $PRIVATE, $method(SunVolatileImage, getForeground, $Color*)},
-	{"getGraphicsConfig", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, getGraphicsConfig, $GraphicsConfiguration*)},
-	{"getHeight", "()I", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, getHeight, int32_t)},
-	{"getHeight", "(Ljava/awt/image/ImageObserver;)I", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, getHeight, int32_t, $ImageObserver*)},
-	{"getProperty", "(Ljava/lang/String;Ljava/awt/image/ImageObserver;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, getProperty, $Object*, $String*, $ImageObserver*)},
-	{"getSnapshot", "()Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, getSnapshot, $BufferedImage*)},
-	{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, getWidth, int32_t)},
-	{"getWidth", "(Ljava/awt/image/ImageObserver;)I", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, getWidth, int32_t, $ImageObserver*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateGraphicsConfig", "()V", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, updateGraphicsConfig, void)},
-	{"validate", "(Ljava/awt/GraphicsConfiguration;)I", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, validate, int32_t, $GraphicsConfiguration*)},
-	{}
-};
-
-$ClassInfo _SunVolatileImage_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.image.SunVolatileImage",
-	"java.awt.image.VolatileImage",
-	"sun.java2d.DestSurfaceProvider",
-	_SunVolatileImage_FieldInfo_,
-	_SunVolatileImage_MethodInfo_
-};
-
-$Object* allocate$SunVolatileImage($Class* clazz) {
-	return $of($alloc(SunVolatileImage));
-}
-
 int32_t SunVolatileImage::hashCode() {
 	 return this->$VolatileImage::hashCode();
 }
@@ -143,7 +81,7 @@ void SunVolatileImage::finalize() {
 }
 
 void SunVolatileImage::init$($Component* comp, $GraphicsConfiguration* graphicsConfig, int32_t width, int32_t height, Object$* context, int32_t transparency, $ImageCapabilities* caps, int32_t accType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$VolatileImage::init$();
 	$set(this, comp, comp);
 	$set(this, graphicsConfig, graphicsConfig);
@@ -193,7 +131,7 @@ $GraphicsConfiguration* SunVolatileImage::getGraphicsConfig() {
 
 void SunVolatileImage::updateGraphicsConfig() {
 	if (this->comp != nullptr) {
-		$var($GraphicsConfiguration, gc, $nc(this->comp)->getGraphicsConfiguration());
+		$var($GraphicsConfiguration, gc, this->comp->getGraphicsConfiguration());
 		if (gc != nullptr) {
 			$set(this, graphicsConfig, gc);
 		}
@@ -218,7 +156,7 @@ $VolatileSurfaceManager* SunVolatileImage::createSurfaceManager(Object$* context
 
 $Color* SunVolatileImage::getForeground() {
 	if (this->comp != nullptr) {
-		return $nc(this->comp)->getForeground();
+		return this->comp->getForeground();
 	} else {
 		$init($Color);
 		return $Color::black;
@@ -227,7 +165,7 @@ $Color* SunVolatileImage::getForeground() {
 
 $Color* SunVolatileImage::getBackground() {
 	if (this->comp != nullptr) {
-		return $nc(this->comp)->getBackground();
+		return this->comp->getBackground();
 	} else {
 		$init($Color);
 		return $Color::white;
@@ -236,7 +174,7 @@ $Color* SunVolatileImage::getBackground() {
 
 $Font* SunVolatileImage::getFont() {
 	if (this->comp != nullptr) {
-		return $nc(this->comp)->getFont();
+		return this->comp->getFont();
 	} else {
 		if (this->defaultFont == nullptr) {
 			$set(this, defaultFont, $new($Font, "Dialog"_s, $Font::PLAIN, 12));
@@ -246,7 +184,7 @@ $Font* SunVolatileImage::getFont() {
 }
 
 $Graphics2D* SunVolatileImage::createGraphics() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceData, var$0, $nc(this->volSurfaceManager)->getPrimarySurfaceData());
 	$var($Color, var$1, getForeground());
 	$var($Color, var$2, getBackground());
@@ -258,7 +196,7 @@ $Object* SunVolatileImage::getProperty($String* name, $ImageObserver* observer) 
 		$throwNew($NullPointerException, "null property name is not allowed"_s);
 	}
 	$init($Image);
-	return $of($Image::UndefinedProperty);
+	return $Image::UndefinedProperty;
 }
 
 int32_t SunVolatileImage::getWidth($ImageObserver* observer) {
@@ -270,7 +208,7 @@ int32_t SunVolatileImage::getHeight($ImageObserver* observer) {
 }
 
 $BufferedImage* SunVolatileImage::getBackupImage() {
-	return getBackupImage((double)1, (double)1);
+	return getBackupImage(1, 1);
 }
 
 $BufferedImage* SunVolatileImage::getBackupImage(double scaleX, double scaleY) {
@@ -280,7 +218,7 @@ $BufferedImage* SunVolatileImage::getBackupImage(double scaleX, double scaleY) {
 }
 
 $BufferedImage* SunVolatileImage::getSnapshot() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, bi, getBackupImage());
 	$var($Graphics2D, g, $nc(bi)->createGraphics());
 	$init($AlphaComposite);
@@ -310,7 +248,61 @@ SunVolatileImage::SunVolatileImage() {
 }
 
 $Class* SunVolatileImage::load$($String* name, bool initialize) {
-	$loadClass(SunVolatileImage, name, initialize, &_SunVolatileImage_ClassInfo_, allocate$SunVolatileImage);
+	$FieldInfo fieldInfos$$[] = {
+		{"volSurfaceManager", "Lsun/awt/image/VolatileSurfaceManager;", nullptr, $PROTECTED, $field(SunVolatileImage, volSurfaceManager)},
+		{"comp", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(SunVolatileImage, comp)},
+		{"graphicsConfig", "Ljava/awt/GraphicsConfiguration;", nullptr, $PRIVATE, $field(SunVolatileImage, graphicsConfig)},
+		{"defaultFont", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(SunVolatileImage, defaultFont)},
+		{"width", "I", nullptr, $PRIVATE, $field(SunVolatileImage, width)},
+		{"height", "I", nullptr, $PRIVATE, $field(SunVolatileImage, height)},
+		{"forcedAccelSurfaceType", "I", nullptr, $PRIVATE, $field(SunVolatileImage, forcedAccelSurfaceType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Component;Ljava/awt/GraphicsConfiguration;IILjava/lang/Object;ILjava/awt/ImageCapabilities;I)V", nullptr, $PROTECTED, $method(SunVolatileImage, init$, void, $Component*, $GraphicsConfiguration*, int32_t, int32_t, Object$*, int32_t, $ImageCapabilities*, int32_t)},
+		{"<init>", "(Ljava/awt/Component;Ljava/awt/GraphicsConfiguration;IILjava/lang/Object;Ljava/awt/ImageCapabilities;)V", nullptr, $PRIVATE, $method(SunVolatileImage, init$, void, $Component*, $GraphicsConfiguration*, int32_t, int32_t, Object$*, $ImageCapabilities*)},
+		{"<init>", "(Ljava/awt/Component;II)V", nullptr, $PUBLIC, $method(SunVolatileImage, init$, void, $Component*, int32_t, int32_t)},
+		{"<init>", "(Ljava/awt/Component;IILjava/lang/Object;)V", nullptr, $PUBLIC, $method(SunVolatileImage, init$, void, $Component*, int32_t, int32_t, Object$*)},
+		{"<init>", "(Ljava/awt/GraphicsConfiguration;IIILjava/awt/ImageCapabilities;)V", nullptr, $PUBLIC, $method(SunVolatileImage, init$, void, $GraphicsConfiguration*, int32_t, int32_t, int32_t, $ImageCapabilities*)},
+		{"contentsLost", "()Z", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, contentsLost, bool)},
+		{"createGraphics", "()Ljava/awt/Graphics2D;", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, createGraphics, $Graphics2D*)},
+		{"createSurfaceManager", "(Ljava/lang/Object;Ljava/awt/ImageCapabilities;)Lsun/awt/image/VolatileSurfaceManager;", nullptr, $PROTECTED, $virtualMethod(SunVolatileImage, createSurfaceManager, $VolatileSurfaceManager*, Object$*, $ImageCapabilities*)},
+		{"getBackground", "()Ljava/awt/Color;", nullptr, $PRIVATE, $method(SunVolatileImage, getBackground, $Color*)},
+		{"getBackupImage", "()Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, getBackupImage, $BufferedImage*)},
+		{"getBackupImage", "(DD)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, getBackupImage, $BufferedImage*, double, double)},
+		{"getCapabilities", "()Ljava/awt/ImageCapabilities;", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, getCapabilities, $ImageCapabilities*)},
+		{"getComponent", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, getComponent, $Component*)},
+		{"getDestSurface", "()Lsun/java2d/Surface;", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, getDestSurface, $Surface*)},
+		{"getFont", "()Ljava/awt/Font;", nullptr, $PRIVATE, $method(SunVolatileImage, getFont, $Font*)},
+		{"getForcedAccelSurfaceType", "()I", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, getForcedAccelSurfaceType, int32_t)},
+		{"getForeground", "()Ljava/awt/Color;", nullptr, $PRIVATE, $method(SunVolatileImage, getForeground, $Color*)},
+		{"getGraphicsConfig", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, getGraphicsConfig, $GraphicsConfiguration*)},
+		{"getHeight", "()I", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, getHeight, int32_t)},
+		{"getHeight", "(Ljava/awt/image/ImageObserver;)I", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, getHeight, int32_t, $ImageObserver*)},
+		{"getProperty", "(Ljava/lang/String;Ljava/awt/image/ImageObserver;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, getProperty, $Object*, $String*, $ImageObserver*)},
+		{"getSnapshot", "()Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, getSnapshot, $BufferedImage*)},
+		{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, getWidth, int32_t)},
+		{"getWidth", "(Ljava/awt/image/ImageObserver;)I", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, getWidth, int32_t, $ImageObserver*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateGraphicsConfig", "()V", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, updateGraphicsConfig, void)},
+		{"validate", "(Ljava/awt/GraphicsConfiguration;)I", nullptr, $PUBLIC, $virtualMethod(SunVolatileImage, validate, int32_t, $GraphicsConfiguration*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.image.SunVolatileImage",
+		"java.awt.image.VolatileImage",
+		"sun.java2d.DestSurfaceProvider",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SunVolatileImage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SunVolatileImage));
+	});
 	return class$;
 }
 

@@ -1,12 +1,10 @@
 #include <javax/imageio/plugins/tiff/TIFFDirectory.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFIFD.h>
 #include <com/sun/imageio/plugins/tiff/TIFFImageMetadata.h>
 #include <java/lang/Cloneable.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
@@ -38,11 +36,7 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
-using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $TreeMap = ::java::util::TreeMap;
 using $IIOMetadata = ::javax::imageio::metadata::IIOMetadata;
 using $IIOMetadataFormatImpl = ::javax::imageio::metadata::IIOMetadataFormatImpl;
@@ -56,52 +50,9 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$FieldInfo _TIFFDirectory_FieldInfo_[] = {
-	{"MAX_LOW_FIELD_TAG_NUM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TIFFDirectory, MAX_LOW_FIELD_TAG_NUM)},
-	{"tagSets", "Ljava/util/List;", "Ljava/util/List<Ljavax/imageio/plugins/tiff/TIFFTagSet;>;", $PRIVATE, $field(TIFFDirectory, tagSets)},
-	{"parentTag", "Ljavax/imageio/plugins/tiff/TIFFTag;", nullptr, $PRIVATE, $field(TIFFDirectory, parentTag)},
-	{"lowFields", "[Ljavax/imageio/plugins/tiff/TIFFField;", nullptr, $PRIVATE, $field(TIFFDirectory, lowFields)},
-	{"numLowFields", "I", nullptr, $PRIVATE, $field(TIFFDirectory, numLowFields)},
-	{"highFields", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Ljavax/imageio/plugins/tiff/TIFFField;>;", $PRIVATE, $field(TIFFDirectory, highFields)},
-	{}
-};
-
-$MethodInfo _TIFFDirectory_MethodInfo_[] = {
-	{"<init>", "([Ljavax/imageio/plugins/tiff/TIFFTagSet;Ljavax/imageio/plugins/tiff/TIFFTag;)V", nullptr, $PUBLIC, $method(TIFFDirectory, init$, void, $TIFFTagSetArray*, $TIFFTag*)},
-	{"addTIFFField", "(Ljavax/imageio/plugins/tiff/TIFFField;)V", nullptr, $PUBLIC, $virtualMethod(TIFFDirectory, addTIFFField, void, $TIFFField*)},
-	{"addTagSet", "(Ljavax/imageio/plugins/tiff/TIFFTagSet;)V", nullptr, $PUBLIC, $virtualMethod(TIFFDirectory, addTagSet, void, $TIFFTagSet*)},
-	{"clone", "()Ljavax/imageio/plugins/tiff/TIFFDirectory;", nullptr, $PUBLIC, $virtualMethod(TIFFDirectory, clone, TIFFDirectory*), "java.lang.CloneNotSupportedException"},
-	{"containsTIFFField", "(I)Z", nullptr, $PUBLIC, $virtualMethod(TIFFDirectory, containsTIFFField, bool, int32_t)},
-	{"createFromMetadata", "(Ljavax/imageio/metadata/IIOMetadata;)Ljavax/imageio/plugins/tiff/TIFFDirectory;", nullptr, $PUBLIC | $STATIC, $staticMethod(TIFFDirectory, createFromMetadata, TIFFDirectory*, $IIOMetadata*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"getAsMetadata", "()Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(TIFFDirectory, getAsMetadata, $IIOMetadata*)},
-	{"getNumTIFFFields", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFDirectory, getNumTIFFFields, int32_t)},
-	{"getParentTag", "()Ljavax/imageio/plugins/tiff/TIFFTag;", nullptr, $PUBLIC, $virtualMethod(TIFFDirectory, getParentTag, $TIFFTag*)},
-	{"getTIFFField", "(I)Ljavax/imageio/plugins/tiff/TIFFField;", nullptr, $PUBLIC, $virtualMethod(TIFFDirectory, getTIFFField, $TIFFField*, int32_t)},
-	{"getTIFFFields", "()[Ljavax/imageio/plugins/tiff/TIFFField;", nullptr, $PUBLIC, $virtualMethod(TIFFDirectory, getTIFFFields, $TIFFFieldArray*)},
-	{"getTag", "(I)Ljavax/imageio/plugins/tiff/TIFFTag;", nullptr, $PUBLIC, $virtualMethod(TIFFDirectory, getTag, $TIFFTag*, int32_t)},
-	{"getTagSets", "()[Ljavax/imageio/plugins/tiff/TIFFTagSet;", nullptr, $PUBLIC, $virtualMethod(TIFFDirectory, getTagSets, $TIFFTagSetArray*)},
-	{"removeTIFFField", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDirectory, removeTIFFField, void, int32_t)},
-	{"removeTIFFFields", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFDirectory, removeTIFFFields, void)},
-	{"removeTagSet", "(Ljavax/imageio/plugins/tiff/TIFFTagSet;)V", nullptr, $PUBLIC, $virtualMethod(TIFFDirectory, removeTagSet, void, $TIFFTagSet*)},
-	{}
-};
-
-$ClassInfo _TIFFDirectory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.imageio.plugins.tiff.TIFFDirectory",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_TIFFDirectory_FieldInfo_,
-	_TIFFDirectory_MethodInfo_
-};
-
-$Object* allocate$TIFFDirectory($Class* clazz) {
-	return $of($alloc(TIFFDirectory));
-}
-
 TIFFDirectory* TIFFDirectory::createFromMetadata($IIOMetadata* tiffImageMetadata) {
 	$init(TIFFDirectory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (tiffImageMetadata == nullptr) {
 		$throwNew($NullPointerException, "tiffImageMetadata == null"_s);
 	}
@@ -111,16 +62,15 @@ TIFFDirectory* TIFFDirectory::createFromMetadata($IIOMetadata* tiffImageMetadata
 	} else {
 		$var($ArrayList, l, $new($ArrayList, 1));
 		l->add($($BaselineTIFFTagSet::getInstance()));
-		$assign(tim, $new($TIFFImageMetadata, static_cast<$List*>(l)));
+		$assign(tim, $new($TIFFImageMetadata, l));
 		$var($String, formatName, nullptr);
-		$init($TIFFImageMetadata);
 		if ($nc($TIFFImageMetadata::NATIVE_METADATA_FORMAT_NAME)->equals($($nc(tiffImageMetadata)->getNativeMetadataFormatName()))) {
 			$assign(formatName, $TIFFImageMetadata::NATIVE_METADATA_FORMAT_NAME);
 		} else {
-			$var($StringArray, extraNames, $nc(tiffImageMetadata)->getExtraMetadataFormatNames());
+			$var($StringArray, extraNames, tiffImageMetadata->getExtraMetadataFormatNames());
 			if (extraNames != nullptr) {
 				for (int32_t i = 0; i < extraNames->length; ++i) {
-					if ($nc($TIFFImageMetadata::NATIVE_METADATA_FORMAT_NAME)->equals(extraNames->get(i))) {
+					if ($TIFFImageMetadata::NATIVE_METADATA_FORMAT_NAME->equals(extraNames->get(i))) {
 						$assign(formatName, extraNames->get(i));
 						break;
 					}
@@ -135,7 +85,7 @@ TIFFDirectory* TIFFDirectory::createFromMetadata($IIOMetadata* tiffImageMetadata
 				}
 			}
 		}
-		tim->setFromTree(formatName, $($nc(tiffImageMetadata)->getAsTree(formatName)));
+		tim->setFromTree(formatName, $(tiffImageMetadata->getAsTree(formatName)));
 	}
 	return $nc(tim)->getRootIFD();
 }
@@ -143,20 +93,20 @@ TIFFDirectory* TIFFDirectory::createFromMetadata($IIOMetadata* tiffImageMetadata
 void TIFFDirectory::init$($TIFFTagSetArray* tagSets, $TIFFTag* parentTag) {
 	$set(this, lowFields, $new($TIFFFieldArray, TIFFDirectory::MAX_LOW_FIELD_TAG_NUM + 1));
 	this->numLowFields = 0;
-	$set(this, highFields, static_cast<$Map*>(static_cast<$AbstractMap*>($new($TreeMap))));
+	$set(this, highFields, $cast($AbstractMap, $new($TreeMap)));
 	if (tagSets == nullptr) {
 		$throwNew($NullPointerException, "tagSets == null!"_s);
 	}
 	$set(this, tagSets, $new($ArrayList, $nc(tagSets)->length));
-	int32_t numTagSets = $nc(tagSets)->length;
+	int32_t numTagSets = tagSets->length;
 	for (int32_t i = 0; i < numTagSets; ++i) {
-		$nc(this->tagSets)->add(tagSets->get(i));
+		this->tagSets->add(tagSets->get(i));
 	}
 	$set(this, parentTag, parentTag);
 }
 
 $TIFFTagSetArray* TIFFDirectory::getTagSets() {
-	return $fcast($TIFFTagSetArray, $nc(this->tagSets)->toArray($$new($TIFFTagSetArray, $nc(this->tagSets)->size())));
+	return $cast($TIFFTagSetArray, $nc(this->tagSets)->toArray($$new($TIFFTagSetArray, $nc(this->tagSets)->size())));
 }
 
 void TIFFDirectory::addTagSet($TIFFTagSet* tagSet) {
@@ -164,7 +114,7 @@ void TIFFDirectory::addTagSet($TIFFTagSet* tagSet) {
 		$throwNew($NullPointerException, "tagSet == null"_s);
 	}
 	if (!$nc(this->tagSets)->contains(tagSet)) {
-		$nc(this->tagSets)->add(tagSet);
+		this->tagSets->add(tagSet);
 	}
 }
 
@@ -173,7 +123,7 @@ void TIFFDirectory::removeTagSet($TIFFTagSet* tagSet) {
 		$throwNew($NullPointerException, "tagSet == null"_s);
 	}
 	if ($nc(this->tagSets)->contains(tagSet)) {
-		$nc(this->tagSets)->remove($of(tagSet));
+		this->tagSets->remove(tagSet);
 	}
 }
 
@@ -202,14 +152,14 @@ void TIFFDirectory::addTIFFField($TIFFField* f) {
 		if ($nc(this->lowFields)->get(tagNumber) == nullptr) {
 			++this->numLowFields;
 		}
-		$nc(this->lowFields)->set(tagNumber, f);
+		this->lowFields->set(tagNumber, f);
 	} else {
 		$nc(this->highFields)->put($($Integer::valueOf(tagNumber)), f);
 	}
 }
 
 $TIFFField* TIFFDirectory::getTIFFField(int32_t tagNumber) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TIFFField, f, nullptr);
 	if (tagNumber >= 0 && tagNumber <= TIFFDirectory::MAX_LOW_FIELD_TAG_NUM) {
 		$assign(f, $nc(this->lowFields)->get(tagNumber));
@@ -223,7 +173,7 @@ void TIFFDirectory::removeTIFFField(int32_t tagNumber) {
 	if (tagNumber >= 0 && tagNumber <= TIFFDirectory::MAX_LOW_FIELD_TAG_NUM) {
 		if ($nc(this->lowFields)->get(tagNumber) != nullptr) {
 			--this->numLowFields;
-			$nc(this->lowFields)->set(tagNumber, nullptr);
+			this->lowFields->set(tagNumber, nullptr);
 		}
 	} else {
 		$nc(this->highFields)->remove($($Integer::valueOf(tagNumber)));
@@ -231,25 +181,23 @@ void TIFFDirectory::removeTIFFField(int32_t tagNumber) {
 }
 
 $TIFFFieldArray* TIFFDirectory::getTIFFFields() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TIFFFieldArray, fields, $new($TIFFFieldArray, this->numLowFields + $nc(this->highFields)->size()));
 	int32_t nextIndex = 0;
 	for (int32_t i = 0; i <= TIFFDirectory::MAX_LOW_FIELD_TAG_NUM; ++i) {
 		if ($nc(this->lowFields)->get(i) != nullptr) {
-			fields->set(nextIndex++, $nc(this->lowFields)->get(i));
+			fields->set(nextIndex++, this->lowFields->get(i));
 			if (nextIndex == this->numLowFields) {
 				break;
 			}
 		}
 	}
-	if (!$nc(this->highFields)->isEmpty()) {
-		{
-			$var($Iterator, i$, $nc($($nc(this->highFields)->keySet()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Integer, tagNumber, $cast($Integer, i$->next()));
-				{
-					fields->set(nextIndex++, $cast($TIFFField, $($nc(this->highFields)->get(tagNumber))));
-				}
+	if (!this->highFields->isEmpty()) {
+		$var($Iterator, i$, $$nc(this->highFields->keySet())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Integer, tagNumber, $cast($Integer, i$->next()));
+			{
+				fields->set(nextIndex++, $$cast($TIFFField, this->highFields->get(tagNumber)));
 			}
 		}
 	}
@@ -267,16 +215,14 @@ $IIOMetadata* TIFFDirectory::getAsMetadata() {
 }
 
 TIFFDirectory* TIFFDirectory::clone() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(TIFFDirectory, dir, $cast(TIFFDirectory, $Cloneable::clone()));
-	$set($nc(dir), tagSets, $new($ArrayList, static_cast<$Collection*>(this->tagSets)));
+	$set($nc(dir), tagSets, $new($ArrayList, this->tagSets));
 	$set(dir, parentTag, getParentTag());
 	$var($TIFFFieldArray, fields, getTIFFFields());
 	{
 		$var($TIFFFieldArray, arr$, fields);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($TIFFField, field, arr$->get(i$));
 			{
 				dir->addTIFFField($($nc(field)->clone()));
@@ -290,7 +236,45 @@ TIFFDirectory::TIFFDirectory() {
 }
 
 $Class* TIFFDirectory::load$($String* name, bool initialize) {
-	$loadClass(TIFFDirectory, name, initialize, &_TIFFDirectory_ClassInfo_, allocate$TIFFDirectory);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_LOW_FIELD_TAG_NUM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TIFFDirectory, MAX_LOW_FIELD_TAG_NUM)},
+		{"tagSets", "Ljava/util/List;", "Ljava/util/List<Ljavax/imageio/plugins/tiff/TIFFTagSet;>;", $PRIVATE, $field(TIFFDirectory, tagSets)},
+		{"parentTag", "Ljavax/imageio/plugins/tiff/TIFFTag;", nullptr, $PRIVATE, $field(TIFFDirectory, parentTag)},
+		{"lowFields", "[Ljavax/imageio/plugins/tiff/TIFFField;", nullptr, $PRIVATE, $field(TIFFDirectory, lowFields)},
+		{"numLowFields", "I", nullptr, $PRIVATE, $field(TIFFDirectory, numLowFields)},
+		{"highFields", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Ljavax/imageio/plugins/tiff/TIFFField;>;", $PRIVATE, $field(TIFFDirectory, highFields)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljavax/imageio/plugins/tiff/TIFFTagSet;Ljavax/imageio/plugins/tiff/TIFFTag;)V", nullptr, $PUBLIC, $method(TIFFDirectory, init$, void, $TIFFTagSetArray*, $TIFFTag*)},
+		{"addTIFFField", "(Ljavax/imageio/plugins/tiff/TIFFField;)V", nullptr, $PUBLIC, $virtualMethod(TIFFDirectory, addTIFFField, void, $TIFFField*)},
+		{"addTagSet", "(Ljavax/imageio/plugins/tiff/TIFFTagSet;)V", nullptr, $PUBLIC, $virtualMethod(TIFFDirectory, addTagSet, void, $TIFFTagSet*)},
+		{"clone", "()Ljavax/imageio/plugins/tiff/TIFFDirectory;", nullptr, $PUBLIC, $virtualMethod(TIFFDirectory, clone, TIFFDirectory*), "java.lang.CloneNotSupportedException"},
+		{"containsTIFFField", "(I)Z", nullptr, $PUBLIC, $virtualMethod(TIFFDirectory, containsTIFFField, bool, int32_t)},
+		{"createFromMetadata", "(Ljavax/imageio/metadata/IIOMetadata;)Ljavax/imageio/plugins/tiff/TIFFDirectory;", nullptr, $PUBLIC | $STATIC, $staticMethod(TIFFDirectory, createFromMetadata, TIFFDirectory*, $IIOMetadata*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"getAsMetadata", "()Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(TIFFDirectory, getAsMetadata, $IIOMetadata*)},
+		{"getNumTIFFFields", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFDirectory, getNumTIFFFields, int32_t)},
+		{"getParentTag", "()Ljavax/imageio/plugins/tiff/TIFFTag;", nullptr, $PUBLIC, $virtualMethod(TIFFDirectory, getParentTag, $TIFFTag*)},
+		{"getTIFFField", "(I)Ljavax/imageio/plugins/tiff/TIFFField;", nullptr, $PUBLIC, $virtualMethod(TIFFDirectory, getTIFFField, $TIFFField*, int32_t)},
+		{"getTIFFFields", "()[Ljavax/imageio/plugins/tiff/TIFFField;", nullptr, $PUBLIC, $virtualMethod(TIFFDirectory, getTIFFFields, $TIFFFieldArray*)},
+		{"getTag", "(I)Ljavax/imageio/plugins/tiff/TIFFTag;", nullptr, $PUBLIC, $virtualMethod(TIFFDirectory, getTag, $TIFFTag*, int32_t)},
+		{"getTagSets", "()[Ljavax/imageio/plugins/tiff/TIFFTagSet;", nullptr, $PUBLIC, $virtualMethod(TIFFDirectory, getTagSets, $TIFFTagSetArray*)},
+		{"removeTIFFField", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDirectory, removeTIFFField, void, int32_t)},
+		{"removeTIFFFields", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFDirectory, removeTIFFFields, void)},
+		{"removeTagSet", "(Ljavax/imageio/plugins/tiff/TIFFTagSet;)V", nullptr, $PUBLIC, $virtualMethod(TIFFDirectory, removeTagSet, void, $TIFFTagSet*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.imageio.plugins.tiff.TIFFDirectory",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFDirectory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFDirectory);
+	});
 	return class$;
 }
 

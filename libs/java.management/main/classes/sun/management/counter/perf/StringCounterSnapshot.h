@@ -41,7 +41,7 @@ public:
 	virtual $String* stringValue() override;
 	virtual $String* toString() override;
 	$String* value = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x0FB8F223279597C2;
+	static const int64_t serialVersionUID = (int64_t)0x0fb8f223279597c2;
 };
 
 			} // perf

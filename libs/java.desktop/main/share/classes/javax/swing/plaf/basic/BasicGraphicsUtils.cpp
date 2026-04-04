@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicGraphicsUtils.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -25,7 +24,6 @@
 
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
@@ -50,46 +48,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicGraphicsUtils_FieldInfo_[] = {
-	{"GROOVE_INSETS", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicGraphicsUtils, GROOVE_INSETS)},
-	{"ETCHED_INSETS", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicGraphicsUtils, ETCHED_INSETS)},
-	{}
-};
-
-$MethodInfo _BasicGraphicsUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicGraphicsUtils, init$, void)},
-	{"drawBezel", "(Ljava/awt/Graphics;IIIIZZLjava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicGraphicsUtils, drawBezel, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, bool, bool, $Color*, $Color*, $Color*, $Color*)},
-	{"drawDashedRect", "(Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicGraphicsUtils, drawDashedRect, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawEtchedRect", "(Ljava/awt/Graphics;IIIILjava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicGraphicsUtils, drawEtchedRect, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, $Color*, $Color*, $Color*, $Color*)},
-	{"drawGroove", "(Ljava/awt/Graphics;IIIILjava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicGraphicsUtils, drawGroove, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, $Color*, $Color*)},
-	{"drawLoweredBezel", "(Ljava/awt/Graphics;IIIILjava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicGraphicsUtils, drawLoweredBezel, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, $Color*, $Color*, $Color*, $Color*)},
-	{"drawString", "(Ljava/awt/Graphics;Ljava/lang/String;III)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicGraphicsUtils, drawString, void, $Graphics*, $String*, int32_t, int32_t, int32_t)},
-	{"drawString", "(Ljavax/swing/JComponent;Ljava/awt/Graphics2D;Ljava/lang/String;FF)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicGraphicsUtils, drawString, void, $JComponent*, $Graphics2D*, $String*, float, float)},
-	{"drawStringUnderlineCharAt", "(Ljava/awt/Graphics;Ljava/lang/String;III)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicGraphicsUtils, drawStringUnderlineCharAt, void, $Graphics*, $String*, int32_t, int32_t, int32_t)},
-	{"drawStringUnderlineCharAt", "(Ljavax/swing/JComponent;Ljava/awt/Graphics2D;Ljava/lang/String;IFF)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicGraphicsUtils, drawStringUnderlineCharAt, void, $JComponent*, $Graphics2D*, $String*, int32_t, float, float)},
-	{"getClippedString", "(Ljavax/swing/JComponent;Ljava/awt/FontMetrics;Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicGraphicsUtils, getClippedString, $String*, $JComponent*, $FontMetrics*, $String*, int32_t)},
-	{"getEtchedInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicGraphicsUtils, getEtchedInsets, $Insets*)},
-	{"getGrooveInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicGraphicsUtils, getGrooveInsets, $Insets*)},
-	{"getPreferredButtonSize", "(Ljavax/swing/AbstractButton;I)Ljava/awt/Dimension;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicGraphicsUtils, getPreferredButtonSize, $Dimension*, $AbstractButton*, int32_t)},
-	{"getStringWidth", "(Ljavax/swing/JComponent;Ljava/awt/FontMetrics;Ljava/lang/String;)F", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicGraphicsUtils, getStringWidth, float, $JComponent*, $FontMetrics*, $String*)},
-	{"isLeftToRight", "(Ljava/awt/Component;)Z", nullptr, $STATIC, $staticMethod(BasicGraphicsUtils, isLeftToRight, bool, $Component*)},
-	{"isMenuShortcutKeyDown", "(Ljava/awt/event/InputEvent;)Z", nullptr, $STATIC, $staticMethod(BasicGraphicsUtils, isMenuShortcutKeyDown, bool, $InputEvent*)},
-	{}
-};
-
-$ClassInfo _BasicGraphicsUtils_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicGraphicsUtils",
-	"java.lang.Object",
-	nullptr,
-	_BasicGraphicsUtils_FieldInfo_,
-	_BasicGraphicsUtils_MethodInfo_
-};
-
-$Object* allocate$BasicGraphicsUtils($Class* clazz) {
-	return $of($alloc(BasicGraphicsUtils));
-}
 
 $Insets* BasicGraphicsUtils::GROOVE_INSETS = nullptr;
 $Insets* BasicGraphicsUtils::ETCHED_INSETS = nullptr;
@@ -208,8 +166,8 @@ void BasicGraphicsUtils::drawString($Graphics* g, $String* text, int32_t underli
 	if (underlinedChar != u'\0') {
 		char16_t uc = $Character::toUpperCase((char16_t)underlinedChar);
 		char16_t lc = $Character::toLowerCase((char16_t)underlinedChar);
-		int32_t uci = $nc(text)->indexOf((int32_t)uc);
-		int32_t lci = text->indexOf((int32_t)lc);
+		int32_t uci = $nc(text)->indexOf(uc);
+		int32_t lci = text->indexOf(lc);
 		if (uci == -1) {
 			index = lci;
 		} else if (lci == -1) {
@@ -242,41 +200,37 @@ void BasicGraphicsUtils::drawDashedRect($Graphics* g, int32_t x, int32_t y, int3
 
 $Dimension* BasicGraphicsUtils::getPreferredButtonSize($AbstractButton* b, int32_t textIconGap) {
 	$init(BasicGraphicsUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(b)->getComponentCount() > 0) {
 		return nullptr;
 	}
-	$var($Icon, icon, $nc(b)->getIcon());
+	$var($Icon, icon, b->getIcon());
 	$var($String, text, b->getText());
 	$var($Font, font, b->getFont());
 	$var($FontMetrics, fm, b->getFontMetrics(font));
 	$var($Rectangle, iconR, $new($Rectangle));
 	$var($Rectangle, textR, $new($Rectangle));
-	$var($Rectangle, viewR, $new($Rectangle, (int32_t)$Short::MAX_VALUE, (int32_t)$Short::MAX_VALUE));
-	$var($JComponent, var$0, static_cast<$JComponent*>(b));
-	$var($FontMetrics, var$1, fm);
-	$var($String, var$2, text);
-	$var($Icon, var$3, icon);
-	int32_t var$4 = b->getVerticalAlignment();
-	int32_t var$5 = b->getHorizontalAlignment();
-	int32_t var$6 = b->getVerticalTextPosition();
-	$SwingUtilities::layoutCompoundLabel(var$0, var$1, var$2, var$3, var$4, var$5, var$6, b->getHorizontalTextPosition(), viewR, iconR, textR, (text == nullptr ? 0 : textIconGap));
+	$var($Rectangle, viewR, $new($Rectangle, $Short::MAX_VALUE, $Short::MAX_VALUE));
+	int32_t var$0 = b->getVerticalAlignment();
+	int32_t var$1 = b->getHorizontalAlignment();
+	int32_t var$2 = b->getVerticalTextPosition();
+	$SwingUtilities::layoutCompoundLabel(b, fm, text, icon, var$0, var$1, var$2, b->getHorizontalTextPosition(), viewR, iconR, textR, (text == nullptr ? 0 : textIconGap));
 	$var($Rectangle, r, iconR->union$(textR));
 	$var($Insets, insets, b->getInsets());
-	$nc(r)->width += $nc(insets)->left + insets->right;
+	$nc(r)->width += $nc(insets)->left + $nc(insets)->right;
 	r->height += insets->top + insets->bottom;
 	return r->getSize();
 }
 
 bool BasicGraphicsUtils::isLeftToRight($Component* c) {
 	$init(BasicGraphicsUtils);
-	return $nc($($nc(c)->getComponentOrientation()))->isLeftToRight();
+	return $$nc($nc(c)->getComponentOrientation())->isLeftToRight();
 }
 
 bool BasicGraphicsUtils::isMenuShortcutKeyDown($InputEvent* event) {
 	$init(BasicGraphicsUtils);
 	int32_t var$0 = $nc(event)->getModifiersEx();
-	return ((int32_t)(var$0 & (uint32_t)$nc($($Toolkit::getDefaultToolkit()))->getMenuShortcutKeyMaskEx())) != 0;
+	return (var$0 & $$nc($Toolkit::getDefaultToolkit())->getMenuShortcutKeyMaskEx()) != 0;
 }
 
 void BasicGraphicsUtils::drawString($JComponent* c, $Graphics2D* g, $String* string, float x, float y) {
@@ -299,7 +253,7 @@ float BasicGraphicsUtils::getStringWidth($JComponent* c, $FontMetrics* fm, $Stri
 	return $SwingUtilities2::stringWidth(c, fm, string, true);
 }
 
-void clinit$BasicGraphicsUtils($Class* class$) {
+void BasicGraphicsUtils::clinit$($Class* clazz) {
 	$assignStatic(BasicGraphicsUtils::GROOVE_INSETS, $new($Insets, 2, 2, 2, 2));
 	$assignStatic(BasicGraphicsUtils::ETCHED_INSETS, $new($Insets, 2, 2, 2, 2));
 }
@@ -308,7 +262,42 @@ BasicGraphicsUtils::BasicGraphicsUtils() {
 }
 
 $Class* BasicGraphicsUtils::load$($String* name, bool initialize) {
-	$loadClass(BasicGraphicsUtils, name, initialize, &_BasicGraphicsUtils_ClassInfo_, clinit$BasicGraphicsUtils, allocate$BasicGraphicsUtils);
+	$FieldInfo fieldInfos$$[] = {
+		{"GROOVE_INSETS", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicGraphicsUtils, GROOVE_INSETS)},
+		{"ETCHED_INSETS", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicGraphicsUtils, ETCHED_INSETS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicGraphicsUtils, init$, void)},
+		{"drawBezel", "(Ljava/awt/Graphics;IIIIZZLjava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicGraphicsUtils, drawBezel, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, bool, bool, $Color*, $Color*, $Color*, $Color*)},
+		{"drawDashedRect", "(Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicGraphicsUtils, drawDashedRect, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawEtchedRect", "(Ljava/awt/Graphics;IIIILjava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicGraphicsUtils, drawEtchedRect, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, $Color*, $Color*, $Color*, $Color*)},
+		{"drawGroove", "(Ljava/awt/Graphics;IIIILjava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicGraphicsUtils, drawGroove, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, $Color*, $Color*)},
+		{"drawLoweredBezel", "(Ljava/awt/Graphics;IIIILjava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicGraphicsUtils, drawLoweredBezel, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, $Color*, $Color*, $Color*, $Color*)},
+		{"drawString", "(Ljava/awt/Graphics;Ljava/lang/String;III)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicGraphicsUtils, drawString, void, $Graphics*, $String*, int32_t, int32_t, int32_t)},
+		{"drawString", "(Ljavax/swing/JComponent;Ljava/awt/Graphics2D;Ljava/lang/String;FF)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicGraphicsUtils, drawString, void, $JComponent*, $Graphics2D*, $String*, float, float)},
+		{"drawStringUnderlineCharAt", "(Ljava/awt/Graphics;Ljava/lang/String;III)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicGraphicsUtils, drawStringUnderlineCharAt, void, $Graphics*, $String*, int32_t, int32_t, int32_t)},
+		{"drawStringUnderlineCharAt", "(Ljavax/swing/JComponent;Ljava/awt/Graphics2D;Ljava/lang/String;IFF)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicGraphicsUtils, drawStringUnderlineCharAt, void, $JComponent*, $Graphics2D*, $String*, int32_t, float, float)},
+		{"getClippedString", "(Ljavax/swing/JComponent;Ljava/awt/FontMetrics;Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicGraphicsUtils, getClippedString, $String*, $JComponent*, $FontMetrics*, $String*, int32_t)},
+		{"getEtchedInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicGraphicsUtils, getEtchedInsets, $Insets*)},
+		{"getGrooveInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicGraphicsUtils, getGrooveInsets, $Insets*)},
+		{"getPreferredButtonSize", "(Ljavax/swing/AbstractButton;I)Ljava/awt/Dimension;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicGraphicsUtils, getPreferredButtonSize, $Dimension*, $AbstractButton*, int32_t)},
+		{"getStringWidth", "(Ljavax/swing/JComponent;Ljava/awt/FontMetrics;Ljava/lang/String;)F", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicGraphicsUtils, getStringWidth, float, $JComponent*, $FontMetrics*, $String*)},
+		{"isLeftToRight", "(Ljava/awt/Component;)Z", nullptr, $STATIC, $staticMethod(BasicGraphicsUtils, isLeftToRight, bool, $Component*)},
+		{"isMenuShortcutKeyDown", "(Ljava/awt/event/InputEvent;)Z", nullptr, $STATIC, $staticMethod(BasicGraphicsUtils, isMenuShortcutKeyDown, bool, $InputEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicGraphicsUtils",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BasicGraphicsUtils, name, initialize, &classInfo$$, BasicGraphicsUtils::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicGraphicsUtils);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/JCEMapper.h>
 #include <com/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithmSpi.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureException.h>
@@ -25,11 +24,9 @@ using $XMLSignatureException = ::com::sun::org::apache::xml::internal::security:
 using $Logger = ::com::sun::org::slf4j::internal::Logger;
 using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
 using $Key = ::java::security::Key;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
@@ -50,71 +47,6 @@ namespace com {
 							namespace algorithms {
 								namespace implementations {
 
-$FieldInfo _SignatureBaseRSA_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SignatureBaseRSA, LOG)},
-	{"signatureAlgorithm", "Ljava/security/Signature;", nullptr, $PRIVATE | $FINAL, $field(SignatureBaseRSA, signatureAlgorithm)},
-	{}
-};
-
-$MethodInfo _SignatureBaseRSA_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureBaseRSA, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureBaseRSA, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineGetJCEAlgorithmString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineGetJCEAlgorithmString, $String*)},
-	{"engineGetJCEProviderName", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineGetJCEProviderName, $String*)},
-	{"engineInitSign", "(Ljava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineInitSign, void, $Key*, $SecureRandom*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineInitSign", "(Ljava/security/Key;)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineInitSign, void, $Key*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineInitSign", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineInitSign, void, $Key*, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineInitVerify", "(Ljava/security/Key;)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineInitVerify, void, $Key*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineSetHMACOutputLength", "(I)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineSetHMACOutputLength, void, int32_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineSetParameter", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineSetParameter, void, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineSign", "()[B", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineSign, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineUpdate", "([B)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineUpdate, void, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineUpdate", "(B)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineUpdate, void, int8_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineUpdate", "([BII)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineUpdate, void, $bytes*, int32_t, int32_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineVerify", "([B)Z", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineVerify, bool, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{}
-};
-
-$InnerClassInfo _SignatureBaseRSA_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASSAPSS", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASSAPSS", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA3_512MGF1", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA3_512MGF1", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA3_384MGF1", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA3_384MGF1", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA3_256MGF1", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA3_256MGF1", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA3_224MGF1", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA3_224MGF1", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA512MGF1", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA512MGF1", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA384MGF1", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA384MGF1", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA256MGF1", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA256MGF1", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA224MGF1", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA224MGF1", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA1MGF1", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA1MGF1", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSAMD5", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSAMD5", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSARIPEMD160", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSARIPEMD160", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA512", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA512", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA384", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA384", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA256", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA256", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA224", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA224", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA1", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA1", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _SignatureBaseRSA_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA",
-	"com.sun.org.apache.xml.internal.security.algorithms.SignatureAlgorithmSpi",
-	nullptr,
-	_SignatureBaseRSA_FieldInfo_,
-	_SignatureBaseRSA_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SignatureBaseRSA_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASSAPSS,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA3_512MGF1,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA3_384MGF1,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA3_256MGF1,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA3_224MGF1,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA512MGF1,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA384MGF1,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA256MGF1,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA224MGF1,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA1MGF1,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSAMD5,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSARIPEMD160,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA512,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA384,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA256,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA224,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA1"
-};
-
-$Object* allocate$SignatureBaseRSA($Class* clazz) {
-	return $of($alloc(SignatureBaseRSA));
-}
-
 $Logger* SignatureBaseRSA::LOG = nullptr;
 
 void SignatureBaseRSA::init$() {
@@ -122,10 +54,10 @@ void SignatureBaseRSA::init$() {
 }
 
 void SignatureBaseRSA::init$($Provider* provider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SignatureAlgorithmSpi::init$();
 	$var($String, algorithmID, $JCEMapper::translateURItoJCEID($(this->engineGetURI())));
-	$nc(SignatureBaseRSA::LOG)->debug("Created SignatureRSA using {}"_s, $$new($ObjectArray, {$of(algorithmID)}));
+	$nc(SignatureBaseRSA::LOG)->debug("Created SignatureRSA using {}"_s, $$new($ObjectArray, {algorithmID}));
 	try {
 		if (provider == nullptr) {
 			$var($String, providerId, $JCEMapper::getProviderId());
@@ -139,14 +71,14 @@ void SignatureBaseRSA::init$($Provider* provider) {
 		}
 	} catch ($NoSuchAlgorithmException& ex) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of(algorithmID),
-			$($of(ex->getLocalizedMessage()))
+			algorithmID,
+			$(ex->getLocalizedMessage())
 		}));
 		$throwNew($XMLSignatureException, "algorithms.NoSuchAlgorithm"_s, exArgs);
 	} catch ($NoSuchProviderException& ex) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of(algorithmID),
-			$($of(ex->getLocalizedMessage()))
+			algorithmID,
+			$(ex->getLocalizedMessage())
 		}));
 		$throwNew($XMLSignatureException, "algorithms.NoSuchAlgorithm"_s, exArgs);
 	}
@@ -156,7 +88,7 @@ void SignatureBaseRSA::engineSetParameter($AlgorithmParameterSpec* params) {
 	try {
 		$nc(this->signatureAlgorithm)->setParameter(params);
 	} catch ($InvalidAlgorithmParameterException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 }
 
@@ -164,7 +96,7 @@ bool SignatureBaseRSA::engineVerify($bytes* signature) {
 	try {
 		return $nc(this->signatureAlgorithm)->verify(signature);
 	} catch ($SignatureException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 	$shouldNotReachHere();
 }
@@ -177,7 +109,7 @@ $bytes* SignatureBaseRSA::engineSign() {
 	try {
 		return $nc(this->signatureAlgorithm)->sign();
 	} catch ($SignatureException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 	$shouldNotReachHere();
 }
@@ -194,7 +126,7 @@ void SignatureBaseRSA::engineUpdate($bytes* input) {
 	try {
 		$nc(this->signatureAlgorithm)->update(input);
 	} catch ($SignatureException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 }
 
@@ -202,7 +134,7 @@ void SignatureBaseRSA::engineUpdate(int8_t input) {
 	try {
 		$nc(this->signatureAlgorithm)->update(input);
 	} catch ($SignatureException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 }
 
@@ -210,7 +142,7 @@ void SignatureBaseRSA::engineUpdate($bytes* buf, int32_t offset, int32_t len) {
 	try {
 		$nc(this->signatureAlgorithm)->update(buf, offset, len);
 	} catch ($SignatureException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 }
 
@@ -219,7 +151,7 @@ $String* SignatureBaseRSA::engineGetJCEAlgorithmString() {
 }
 
 $String* SignatureBaseRSA::engineGetJCEProviderName() {
-	return $nc($($nc(this->signatureAlgorithm)->getProvider()))->getName();
+	return $$nc($nc(this->signatureAlgorithm)->getProvider())->getName();
 }
 
 void SignatureBaseRSA::engineSetHMACOutputLength(int32_t HMACOutputLength) {
@@ -230,7 +162,7 @@ void SignatureBaseRSA::engineInitSign($Key* signingKey, $AlgorithmParameterSpec*
 	$throwNew($XMLSignatureException, "algorithms.CannotUseAlgorithmParameterSpecOnRSA"_s);
 }
 
-void clinit$SignatureBaseRSA($Class* class$) {
+void SignatureBaseRSA::clinit$($Class* clazz) {
 	$assignStatic(SignatureBaseRSA::LOG, $LoggerFactory::getLogger(SignatureBaseRSA::class$));
 }
 
@@ -238,7 +170,66 @@ SignatureBaseRSA::SignatureBaseRSA() {
 }
 
 $Class* SignatureBaseRSA::load$($String* name, bool initialize) {
-	$loadClass(SignatureBaseRSA, name, initialize, &_SignatureBaseRSA_ClassInfo_, clinit$SignatureBaseRSA, allocate$SignatureBaseRSA);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SignatureBaseRSA, LOG)},
+		{"signatureAlgorithm", "Ljava/security/Signature;", nullptr, $PRIVATE | $FINAL, $field(SignatureBaseRSA, signatureAlgorithm)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureBaseRSA, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureBaseRSA, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineGetJCEAlgorithmString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineGetJCEAlgorithmString, $String*)},
+		{"engineGetJCEProviderName", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineGetJCEProviderName, $String*)},
+		{"engineInitSign", "(Ljava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineInitSign, void, $Key*, $SecureRandom*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineInitSign", "(Ljava/security/Key;)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineInitSign, void, $Key*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineInitSign", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineInitSign, void, $Key*, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineInitVerify", "(Ljava/security/Key;)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineInitVerify, void, $Key*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineSetHMACOutputLength", "(I)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineSetHMACOutputLength, void, int32_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineSetParameter", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineSetParameter, void, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineSign", "()[B", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineSign, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineUpdate", "([B)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineUpdate, void, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineUpdate", "(B)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineUpdate, void, int8_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineUpdate", "([BII)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineUpdate, void, $bytes*, int32_t, int32_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineVerify", "([B)Z", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineVerify, bool, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASSAPSS", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASSAPSS", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA3_512MGF1", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA3_512MGF1", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA3_384MGF1", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA3_384MGF1", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA3_256MGF1", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA3_256MGF1", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA3_224MGF1", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA3_224MGF1", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA512MGF1", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA512MGF1", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA384MGF1", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA384MGF1", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA256MGF1", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA256MGF1", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA224MGF1", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA224MGF1", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA1MGF1", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA1MGF1", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSAMD5", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSAMD5", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSARIPEMD160", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSARIPEMD160", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA512", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA512", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA384", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA384", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA256", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA256", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA224", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA224", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA1", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA1", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA",
+		"com.sun.org.apache.xml.internal.security.algorithms.SignatureAlgorithmSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASSAPSS,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA3_512MGF1,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA3_384MGF1,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA3_256MGF1,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA3_224MGF1,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA512MGF1,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA384MGF1,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA256MGF1,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA224MGF1,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA1MGF1,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSAMD5,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSARIPEMD160,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA512,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA384,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA256,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA224,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA1"
+	};
+	$loadClass(SignatureBaseRSA, name, initialize, &classInfo$$, SignatureBaseRSA::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SignatureBaseRSA);
+	});
 	return class$;
 }
 

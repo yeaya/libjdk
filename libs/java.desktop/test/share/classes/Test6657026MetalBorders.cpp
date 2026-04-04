@@ -1,5 +1,4 @@
 #include <Test6657026MetalBorders.h>
-
 #include <Test6657026MetalBorders$1.h>
 #include <Test6657026MetalBorders$2.h>
 #include <Test6657026MetalBorders$3.h>
@@ -28,46 +27,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Border = ::javax::swing::border::Border;
 
-$FieldInfo _Test6657026MetalBorders_FieldInfo_[] = {
-	{"NEGATIVE", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Test6657026MetalBorders, NEGATIVE)},
-	{}
-};
-
-$MethodInfo _Test6657026MetalBorders_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Test6657026MetalBorders, init$, void)},
-	{"create", "(Ljava/lang/String;)Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticMethod(Test6657026MetalBorders, create, $Border*, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6657026MetalBorders, main, void, $StringArray*)},
-	{"test", "(Ljavax/swing/border/Border;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Test6657026MetalBorders, test, void, $Border*)},
-	{}
-};
-
-$InnerClassInfo _Test6657026MetalBorders_InnerClassesInfo_[] = {
-	{"Test6657026MetalBorders$4", nullptr, nullptr, 0},
-	{"Test6657026MetalBorders$3", nullptr, nullptr, 0},
-	{"Test6657026MetalBorders$2", nullptr, nullptr, 0},
-	{"Test6657026MetalBorders$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Test6657026MetalBorders_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Test6657026MetalBorders",
-	"java.lang.Object",
-	nullptr,
-	_Test6657026MetalBorders_FieldInfo_,
-	_Test6657026MetalBorders_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Test6657026MetalBorders_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"Test6657026MetalBorders$4,Test6657026MetalBorders$3,Test6657026MetalBorders$2,Test6657026MetalBorders$1"
-};
-
-$Object* allocate$Test6657026MetalBorders($Class* clazz) {
-	return $of($alloc(Test6657026MetalBorders));
-}
-
 $Insets* Test6657026MetalBorders::NEGATIVE = nullptr;
 
 void Test6657026MetalBorders::init$() {
@@ -75,7 +34,7 @@ void Test6657026MetalBorders::init$() {
 
 void Test6657026MetalBorders::main($StringArray* args) {
 	$init(Test6657026MetalBorders);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$new($Test6657026MetalBorders$1);
 	$new($Test6657026MetalBorders$2);
 	$new($Test6657026MetalBorders$3);
@@ -106,9 +65,9 @@ $Border* Test6657026MetalBorders::create($String* name$renamed) {
 
 void Test6657026MetalBorders::test($Border* border) {
 	$init(Test6657026MetalBorders);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, actual, $nc(border)->getBorderInsets(nullptr));
-	if ($nc(Test6657026MetalBorders::NEGATIVE)->equals(actual)) {
+	if (Test6657026MetalBorders::NEGATIVE->equals(actual)) {
 		$throwNew($Error, $$str({"unexpected insets in "_s, $of(border)->getClass()}));
 	}
 	$var($Insets, expected, $cast($Insets, $nc(actual)->clone()));
@@ -121,7 +80,7 @@ void Test6657026MetalBorders::test($Border* border) {
 	}
 }
 
-void clinit$Test6657026MetalBorders($Class* class$) {
+void Test6657026MetalBorders::clinit$($Class* clazz) {
 	$assignStatic(Test6657026MetalBorders::NEGATIVE, $new($Insets, $Integer::MIN_VALUE, $Integer::MIN_VALUE, $Integer::MIN_VALUE, $Integer::MIN_VALUE));
 }
 
@@ -129,7 +88,41 @@ Test6657026MetalBorders::Test6657026MetalBorders() {
 }
 
 $Class* Test6657026MetalBorders::load$($String* name, bool initialize) {
-	$loadClass(Test6657026MetalBorders, name, initialize, &_Test6657026MetalBorders_ClassInfo_, clinit$Test6657026MetalBorders, allocate$Test6657026MetalBorders);
+	$FieldInfo fieldInfos$$[] = {
+		{"NEGATIVE", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Test6657026MetalBorders, NEGATIVE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Test6657026MetalBorders, init$, void)},
+		{"create", "(Ljava/lang/String;)Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticMethod(Test6657026MetalBorders, create, $Border*, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6657026MetalBorders, main, void, $StringArray*)},
+		{"test", "(Ljavax/swing/border/Border;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Test6657026MetalBorders, test, void, $Border*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Test6657026MetalBorders$4", nullptr, nullptr, 0},
+		{"Test6657026MetalBorders$3", nullptr, nullptr, 0},
+		{"Test6657026MetalBorders$2", nullptr, nullptr, 0},
+		{"Test6657026MetalBorders$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Test6657026MetalBorders",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"Test6657026MetalBorders$4,Test6657026MetalBorders$3,Test6657026MetalBorders$2,Test6657026MetalBorders$1"
+	};
+	$loadClass(Test6657026MetalBorders, name, initialize, &classInfo$$, Test6657026MetalBorders::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Test6657026MetalBorders);
+	});
 	return class$;
 }
 

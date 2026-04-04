@@ -1,5 +1,4 @@
 #include <java.sql.rowset.h>
-
 #include <java.logging.h>
 #include <java.naming.h>
 #include <java.sql.h>
@@ -10,8 +9,6 @@
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 #include <com/sun/rowset/CachedRowSetImpl.h>
 #include <com/sun/rowset/CachedRowSetImpl$1.h>
 #include <com/sun/rowset/FilteredRowSetImpl.h>
@@ -207,6 +204,7 @@ void java$sql$rowset::init() {
 	::java$sql::init();
 	::java$xml::init();
 	::java$base::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"java.sql.rowset", "17.35", "",
 		&_java$sql$rowset_ModuleInfo_,

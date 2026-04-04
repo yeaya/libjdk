@@ -100,6 +100,7 @@ class $import LogManager : public ::java::lang::Object {
 	$class(LogManager, 0, ::java::lang::Object)
 public:
 	LogManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::lang::Void* checked);
 	virtual ::java::util::logging::LogManager* addConfigurationListener(::java::lang::Runnable* listener);

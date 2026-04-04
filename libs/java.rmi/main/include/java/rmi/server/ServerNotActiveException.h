@@ -15,10 +15,13 @@ public:
 	ServerNotActiveException();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x410EE93F71039B37;
+	static const int64_t serialVersionUID = (int64_t)0x410ee93f71039b37;
 	ServerNotActiveException(const ServerNotActiveException& e);
 	virtual void throw$() override;
-	inline ServerNotActiveException* operator ->() {
+	inline ServerNotActiveException* operator ->() const {
+		return (ServerNotActiveException*)throwing$;
+	}
+	inline operator ServerNotActiveException*() const {
 		return (ServerNotActiveException*)throwing$;
 	}
 };

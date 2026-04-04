@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/Items.h>
-
 #include <com/sun/tools/javac/code/Symbol$VarSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Symtab.h>
@@ -54,74 +53,8 @@ namespace com {
 			namespace javac {
 				namespace jvm {
 
-$FieldInfo _Items_FieldInfo_[] = {
-	{"poolWriter", "Lcom/sun/tools/javac/jvm/PoolWriter;", nullptr, 0, $field(Items, poolWriter)},
-	{"code", "Lcom/sun/tools/javac/jvm/Code;", nullptr, 0, $field(Items, code)},
-	{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, 0, $field(Items, syms)},
-	{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, 0, $field(Items, types)},
-	{"voidItem", "Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, $PRIVATE | $FINAL, $field(Items, voidItem)},
-	{"thisItem", "Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, $PRIVATE | $FINAL, $field(Items, thisItem)},
-	{"superItem", "Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, $PRIVATE | $FINAL, $field(Items, superItem)},
-	{"stackItem", "[Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, $PRIVATE | $FINAL, $field(Items, stackItem)},
-	{}
-};
-
-$MethodInfo _Items_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/PoolWriter;Lcom/sun/tools/javac/jvm/Code;Lcom/sun/tools/javac/code/Symtab;Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $method(Items, init$, void, $PoolWriter*, $Code*, $Symtab*, $Types*)},
-	{"makeAssignItem", "(Lcom/sun/tools/javac/jvm/Items$Item;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeAssignItem, $Items$Item*, $Items$Item*)},
-	{"makeCondItem", "(ILcom/sun/tools/javac/jvm/Code$Chain;Lcom/sun/tools/javac/jvm/Code$Chain;)Lcom/sun/tools/javac/jvm/Items$CondItem;", nullptr, 0, $virtualMethod(Items, makeCondItem, $Items$CondItem*, int32_t, $Code$Chain*, $Code$Chain*)},
-	{"makeCondItem", "(I)Lcom/sun/tools/javac/jvm/Items$CondItem;", nullptr, 0, $virtualMethod(Items, makeCondItem, $Items$CondItem*, int32_t)},
-	{"makeDynamicItem", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeDynamicItem, $Items$Item*, $Symbol*)},
-	{"makeImmediateItem", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeImmediateItem, $Items$Item*, $Type*, Object$*)},
-	{"makeIndexedItem", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeIndexedItem, $Items$Item*, $Type*)},
-	{"makeLocalItem", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)Lcom/sun/tools/javac/jvm/Items$LocalItem;", nullptr, 0, $virtualMethod(Items, makeLocalItem, $Items$LocalItem*, $Symbol$VarSymbol*)},
-	{"makeLocalItem", "(Lcom/sun/tools/javac/code/Type;I)Lcom/sun/tools/javac/jvm/Items$LocalItem;", nullptr, $PRIVATE, $method(Items, makeLocalItem, $Items$LocalItem*, $Type*, int32_t)},
-	{"makeMemberItem", "(Lcom/sun/tools/javac/code/Symbol;Z)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeMemberItem, $Items$Item*, $Symbol*, bool)},
-	{"makeStackItem", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeStackItem, $Items$Item*, $Type*)},
-	{"makeStaticItem", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeStaticItem, $Items$Item*, $Symbol*)},
-	{"makeSuperItem", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeSuperItem, $Items$Item*)},
-	{"makeThisItem", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeThisItem, $Items$Item*)},
-	{"makeVoidItem", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeVoidItem, $Items$Item*)},
-	{}
-};
-
-$InnerClassInfo _Items_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.Items$CondItem", "com.sun.tools.javac.jvm.Items", "CondItem", 0},
-	{"com.sun.tools.javac.jvm.Items$AssignItem", "com.sun.tools.javac.jvm.Items", "AssignItem", 0},
-	{"com.sun.tools.javac.jvm.Items$ImmediateItem", "com.sun.tools.javac.jvm.Items", "ImmediateItem", 0},
-	{"com.sun.tools.javac.jvm.Items$MemberItem", "com.sun.tools.javac.jvm.Items", "MemberItem", 0},
-	{"com.sun.tools.javac.jvm.Items$DynamicItem", "com.sun.tools.javac.jvm.Items", "DynamicItem", 0},
-	{"com.sun.tools.javac.jvm.Items$StaticItem", "com.sun.tools.javac.jvm.Items", "StaticItem", 0},
-	{"com.sun.tools.javac.jvm.Items$LocalItem", "com.sun.tools.javac.jvm.Items", "LocalItem", 0},
-	{"com.sun.tools.javac.jvm.Items$SelfItem", "com.sun.tools.javac.jvm.Items", "SelfItem", 0},
-	{"com.sun.tools.javac.jvm.Items$IndexedItem", "com.sun.tools.javac.jvm.Items", "IndexedItem", 0},
-	{"com.sun.tools.javac.jvm.Items$StackItem", "com.sun.tools.javac.jvm.Items", "StackItem", 0},
-	{"com.sun.tools.javac.jvm.Items$Item", "com.sun.tools.javac.jvm.Items", "Item", $ABSTRACT},
-	{"com.sun.tools.javac.jvm.Items$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Items_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.jvm.Items",
-	"java.lang.Object",
-	nullptr,
-	_Items_FieldInfo_,
-	_Items_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Items_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.Items$CondItem,com.sun.tools.javac.jvm.Items$AssignItem,com.sun.tools.javac.jvm.Items$ImmediateItem,com.sun.tools.javac.jvm.Items$MemberItem,com.sun.tools.javac.jvm.Items$DynamicItem,com.sun.tools.javac.jvm.Items$StaticItem,com.sun.tools.javac.jvm.Items$LocalItem,com.sun.tools.javac.jvm.Items$SelfItem,com.sun.tools.javac.jvm.Items$IndexedItem,com.sun.tools.javac.jvm.Items$StackItem,com.sun.tools.javac.jvm.Items$Item,com.sun.tools.javac.jvm.Items$1"
-};
-
-$Object* allocate$Items($Class* clazz) {
-	return $of($alloc(Items));
-}
-
 void Items::init$($PoolWriter* poolWriter, $Code* code, $Symtab* syms, $Types* types) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, stackItem, $new($Items$ItemArray, 9));
 	$set(this, code, code);
 	$set(this, poolWriter, poolWriter);
@@ -130,9 +63,9 @@ void Items::init$($PoolWriter* poolWriter, $Code* code, $Symtab* syms, $Types* t
 	$set(this, thisItem, $new($Items$SelfItem, this, false));
 	$set(this, superItem, $new($Items$SelfItem, this, true));
 	for (int32_t i = 0; i < 8; ++i) {
-		$nc(this->stackItem)->set(i, $$new($Items$StackItem, this, i));
+		this->stackItem->set(i, $$new($Items$StackItem, this, i));
 	}
-	$nc(this->stackItem)->set(8, this->voidItem);
+	this->stackItem->set(8, this->voidItem);
 	$set(this, syms, syms);
 }
 
@@ -149,7 +82,7 @@ $Items$Item* Items::makeSuperItem() {
 }
 
 $Items$Item* Items::makeStackItem($Type* type) {
-	return $nc(this->stackItem)->get($Code::typecode(type));
+	return this->stackItem->get($Code::typecode(type));
 }
 
 $Items$Item* Items::makeDynamicItem($Symbol* member) {
@@ -161,7 +94,7 @@ $Items$Item* Items::makeIndexedItem($Type* type) {
 }
 
 $Items$LocalItem* Items::makeLocalItem($Symbol$VarSymbol* v) {
-	return $new($Items$LocalItem, this, $($nc(v)->erasure(this->types)), v->adr);
+	return $new($Items$LocalItem, this, $($nc(v)->erasure(this->types)), $nc(v)->adr);
 }
 
 $Items$LocalItem* Items::makeLocalItem($Type* type, int32_t reg) {
@@ -196,7 +129,67 @@ Items::Items() {
 }
 
 $Class* Items::load$($String* name, bool initialize) {
-	$loadClass(Items, name, initialize, &_Items_ClassInfo_, allocate$Items);
+	$FieldInfo fieldInfos$$[] = {
+		{"poolWriter", "Lcom/sun/tools/javac/jvm/PoolWriter;", nullptr, 0, $field(Items, poolWriter)},
+		{"code", "Lcom/sun/tools/javac/jvm/Code;", nullptr, 0, $field(Items, code)},
+		{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, 0, $field(Items, syms)},
+		{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, 0, $field(Items, types)},
+		{"voidItem", "Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, $PRIVATE | $FINAL, $field(Items, voidItem)},
+		{"thisItem", "Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, $PRIVATE | $FINAL, $field(Items, thisItem)},
+		{"superItem", "Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, $PRIVATE | $FINAL, $field(Items, superItem)},
+		{"stackItem", "[Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, $PRIVATE | $FINAL, $field(Items, stackItem)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/jvm/PoolWriter;Lcom/sun/tools/javac/jvm/Code;Lcom/sun/tools/javac/code/Symtab;Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $method(Items, init$, void, $PoolWriter*, $Code*, $Symtab*, $Types*)},
+		{"makeAssignItem", "(Lcom/sun/tools/javac/jvm/Items$Item;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeAssignItem, $Items$Item*, $Items$Item*)},
+		{"makeCondItem", "(ILcom/sun/tools/javac/jvm/Code$Chain;Lcom/sun/tools/javac/jvm/Code$Chain;)Lcom/sun/tools/javac/jvm/Items$CondItem;", nullptr, 0, $virtualMethod(Items, makeCondItem, $Items$CondItem*, int32_t, $Code$Chain*, $Code$Chain*)},
+		{"makeCondItem", "(I)Lcom/sun/tools/javac/jvm/Items$CondItem;", nullptr, 0, $virtualMethod(Items, makeCondItem, $Items$CondItem*, int32_t)},
+		{"makeDynamicItem", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeDynamicItem, $Items$Item*, $Symbol*)},
+		{"makeImmediateItem", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeImmediateItem, $Items$Item*, $Type*, Object$*)},
+		{"makeIndexedItem", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeIndexedItem, $Items$Item*, $Type*)},
+		{"makeLocalItem", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)Lcom/sun/tools/javac/jvm/Items$LocalItem;", nullptr, 0, $virtualMethod(Items, makeLocalItem, $Items$LocalItem*, $Symbol$VarSymbol*)},
+		{"makeLocalItem", "(Lcom/sun/tools/javac/code/Type;I)Lcom/sun/tools/javac/jvm/Items$LocalItem;", nullptr, $PRIVATE, $method(Items, makeLocalItem, $Items$LocalItem*, $Type*, int32_t)},
+		{"makeMemberItem", "(Lcom/sun/tools/javac/code/Symbol;Z)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeMemberItem, $Items$Item*, $Symbol*, bool)},
+		{"makeStackItem", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeStackItem, $Items$Item*, $Type*)},
+		{"makeStaticItem", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeStaticItem, $Items$Item*, $Symbol*)},
+		{"makeSuperItem", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeSuperItem, $Items$Item*)},
+		{"makeThisItem", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeThisItem, $Items$Item*)},
+		{"makeVoidItem", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeVoidItem, $Items$Item*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.Items$CondItem", "com.sun.tools.javac.jvm.Items", "CondItem", 0},
+		{"com.sun.tools.javac.jvm.Items$AssignItem", "com.sun.tools.javac.jvm.Items", "AssignItem", 0},
+		{"com.sun.tools.javac.jvm.Items$ImmediateItem", "com.sun.tools.javac.jvm.Items", "ImmediateItem", 0},
+		{"com.sun.tools.javac.jvm.Items$MemberItem", "com.sun.tools.javac.jvm.Items", "MemberItem", 0},
+		{"com.sun.tools.javac.jvm.Items$DynamicItem", "com.sun.tools.javac.jvm.Items", "DynamicItem", 0},
+		{"com.sun.tools.javac.jvm.Items$StaticItem", "com.sun.tools.javac.jvm.Items", "StaticItem", 0},
+		{"com.sun.tools.javac.jvm.Items$LocalItem", "com.sun.tools.javac.jvm.Items", "LocalItem", 0},
+		{"com.sun.tools.javac.jvm.Items$SelfItem", "com.sun.tools.javac.jvm.Items", "SelfItem", 0},
+		{"com.sun.tools.javac.jvm.Items$IndexedItem", "com.sun.tools.javac.jvm.Items", "IndexedItem", 0},
+		{"com.sun.tools.javac.jvm.Items$StackItem", "com.sun.tools.javac.jvm.Items", "StackItem", 0},
+		{"com.sun.tools.javac.jvm.Items$Item", "com.sun.tools.javac.jvm.Items", "Item", $ABSTRACT},
+		{"com.sun.tools.javac.jvm.Items$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.jvm.Items",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.Items$CondItem,com.sun.tools.javac.jvm.Items$AssignItem,com.sun.tools.javac.jvm.Items$ImmediateItem,com.sun.tools.javac.jvm.Items$MemberItem,com.sun.tools.javac.jvm.Items$DynamicItem,com.sun.tools.javac.jvm.Items$StaticItem,com.sun.tools.javac.jvm.Items$LocalItem,com.sun.tools.javac.jvm.Items$SelfItem,com.sun.tools.javac.jvm.Items$IndexedItem,com.sun.tools.javac.jvm.Items$StackItem,com.sun.tools.javac.jvm.Items$Item,com.sun.tools.javac.jvm.Items$1"
+	};
+	$loadClass(Items, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Items);
+	});
 	return class$;
 }
 

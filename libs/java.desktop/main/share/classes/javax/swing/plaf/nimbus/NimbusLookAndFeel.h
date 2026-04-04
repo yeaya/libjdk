@@ -62,6 +62,7 @@ class $export NimbusLookAndFeel : public ::javax::swing::plaf::synth::SynthLookA
 	$class(NimbusLookAndFeel, 0, ::javax::swing::plaf::synth::SynthLookAndFeel)
 public:
 	NimbusLookAndFeel();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void addDefault($String* key, Object$* value);
 	static int32_t deriveARGB(::java::awt::Color* color1, ::java::awt::Color* color2, float midPoint);

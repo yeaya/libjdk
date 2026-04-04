@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFileChooserUI$MacFCTableCellRenderer.h>
-
 #include <com/apple/laf/AquaFileChooserUI.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -9,7 +8,6 @@
 #include <java/awt/Insets.h>
 #include <java/awt/Rectangle.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFileChooser.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JTable.h>
@@ -31,7 +29,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Icon = ::javax::swing::Icon;
-using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $JTable = ::javax::swing::JTable;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
@@ -41,46 +38,6 @@ using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaFileChooserUI$MacFCTableCellRenderer_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$MacFCTableCellRenderer, this$0)},
-	{"fIsSelected", "Z", nullptr, 0, $field(AquaFileChooserUI$MacFCTableCellRenderer, fIsSelected)},
-	{}
-};
-
-$MethodInfo _AquaFileChooserUI$MacFCTableCellRenderer_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;Ljava/awt/Font;)V", nullptr, $PUBLIC, $method(AquaFileChooserUI$MacFCTableCellRenderer, init$, void, $AquaFileChooserUI*, $Font*)},
-	{"getTableCellRendererComponent", "(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$MacFCTableCellRenderer, getTableCellRendererComponent, $Component*, $JTable*, Object$*, bool, bool, int32_t, int32_t)},
-	{"isSelected", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$MacFCTableCellRenderer, isSelected, bool)},
-	{"layoutCL", "(Ljavax/swing/JLabel;Ljava/awt/FontMetrics;Ljava/lang/String;Ljavax/swing/Icon;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI$MacFCTableCellRenderer, layoutCL, $String*, $JLabel*, $FontMetrics*, $String*, $Icon*, $Rectangle*, $Rectangle*, $Rectangle*)},
-	{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI$MacFCTableCellRenderer, paintComponent, void, $Graphics*)},
-	{}
-};
-
-$InnerClassInfo _AquaFileChooserUI$MacFCTableCellRenderer_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFileChooserUI$MacFCTableCellRenderer", "com.apple.laf.AquaFileChooserUI", "MacFCTableCellRenderer", $PROTECTED},
-	{}
-};
-
-$ClassInfo _AquaFileChooserUI$MacFCTableCellRenderer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaFileChooserUI$MacFCTableCellRenderer",
-	"javax.swing.table.DefaultTableCellRenderer",
-	nullptr,
-	_AquaFileChooserUI$MacFCTableCellRenderer_FieldInfo_,
-	_AquaFileChooserUI$MacFCTableCellRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaFileChooserUI$MacFCTableCellRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFileChooserUI"
-};
-
-$Object* allocate$AquaFileChooserUI$MacFCTableCellRenderer($Class* clazz) {
-	return $of($alloc(AquaFileChooserUI$MacFCTableCellRenderer));
-}
 
 void AquaFileChooserUI$MacFCTableCellRenderer::init$($AquaFileChooserUI* this$0, $Font* f) {
 	$set(this, this$0, this$0);
@@ -101,23 +58,15 @@ bool AquaFileChooserUI$MacFCTableCellRenderer::isSelected() {
 }
 
 $String* AquaFileChooserUI$MacFCTableCellRenderer::layoutCL($JLabel* label, $FontMetrics* fontMetrics, $String* text, $Icon* icon, $Rectangle* viewR, $Rectangle* iconR, $Rectangle* textR) {
-	$useLocalCurrentObjectStackCache();
-	$var($JComponent, var$0, static_cast<$JComponent*>(label));
-	$var($FontMetrics, var$1, fontMetrics);
-	$var($String, var$2, text);
-	$var($Icon, var$3, icon);
-	int32_t var$4 = $nc(label)->getVerticalAlignment();
-	int32_t var$5 = label->getHorizontalAlignment();
-	int32_t var$6 = label->getVerticalTextPosition();
-	int32_t var$7 = label->getHorizontalTextPosition();
-	$var($Rectangle, var$8, viewR);
-	$var($Rectangle, var$9, iconR);
-	$var($Rectangle, var$10, textR);
-	return $SwingUtilities::layoutCompoundLabel(var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, var$10, label->getIconTextGap());
+	int32_t var$0 = $nc(label)->getVerticalAlignment();
+	int32_t var$1 = label->getHorizontalAlignment();
+	int32_t var$2 = label->getVerticalTextPosition();
+	int32_t var$3 = label->getHorizontalTextPosition();
+	return $SwingUtilities::layoutCompoundLabel(label, fontMetrics, text, icon, var$0, var$1, var$2, var$3, viewR, iconR, textR, label->getIconTextGap());
 }
 
 void AquaFileChooserUI$MacFCTableCellRenderer::paintComponent($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, text, getText());
 	$var($Icon, icon, getIcon());
 	if (icon != nullptr && !isEnabled()) {
@@ -153,15 +102,15 @@ void AquaFileChooserUI$MacFCTableCellRenderer::paintComponent($Graphics* g) {
 			g->setColor(background);
 			g->fillRect(textX - 1, paintTextR->y, paintTextR->width + 2, fm->getAscent() + 2);
 			g->setColor($(getForeground()));
-			$SwingUtilities2::drawString(static_cast<$JComponent*>(this->this$0->filechooser), g, clippedText, textX, textY);
+			$SwingUtilities2::drawString(this->this$0->filechooser, g, clippedText, textX, textY);
 		} else {
 			$var($Color, background, getBackground());
 			g->setColor(background);
 			g->fillRect(textX - 1, paintTextR->y, paintTextR->width + 2, fm->getAscent() + 2);
 			g->setColor($($nc(background)->brighter()));
-			$SwingUtilities2::drawString(static_cast<$JComponent*>(this->this$0->filechooser), g, clippedText, textX, textY);
-			g->setColor($($nc(background)->darker()));
-			$SwingUtilities2::drawString(static_cast<$JComponent*>(this->this$0->filechooser), g, clippedText, textX + 1, textY + 1);
+			$SwingUtilities2::drawString(this->this$0->filechooser, g, clippedText, textX, textY);
+			g->setColor($(background->darker()));
+			$SwingUtilities2::drawString(this->this$0->filechooser, g, clippedText, textX + 1, textY + 1);
 		}
 	}
 }
@@ -170,7 +119,41 @@ AquaFileChooserUI$MacFCTableCellRenderer::AquaFileChooserUI$MacFCTableCellRender
 }
 
 $Class* AquaFileChooserUI$MacFCTableCellRenderer::load$($String* name, bool initialize) {
-	$loadClass(AquaFileChooserUI$MacFCTableCellRenderer, name, initialize, &_AquaFileChooserUI$MacFCTableCellRenderer_ClassInfo_, allocate$AquaFileChooserUI$MacFCTableCellRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$MacFCTableCellRenderer, this$0)},
+		{"fIsSelected", "Z", nullptr, 0, $field(AquaFileChooserUI$MacFCTableCellRenderer, fIsSelected)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;Ljava/awt/Font;)V", nullptr, $PUBLIC, $method(AquaFileChooserUI$MacFCTableCellRenderer, init$, void, $AquaFileChooserUI*, $Font*)},
+		{"getTableCellRendererComponent", "(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$MacFCTableCellRenderer, getTableCellRendererComponent, $Component*, $JTable*, Object$*, bool, bool, int32_t, int32_t)},
+		{"isSelected", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$MacFCTableCellRenderer, isSelected, bool)},
+		{"layoutCL", "(Ljavax/swing/JLabel;Ljava/awt/FontMetrics;Ljava/lang/String;Ljavax/swing/Icon;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI$MacFCTableCellRenderer, layoutCL, $String*, $JLabel*, $FontMetrics*, $String*, $Icon*, $Rectangle*, $Rectangle*, $Rectangle*)},
+		{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI$MacFCTableCellRenderer, paintComponent, void, $Graphics*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFileChooserUI$MacFCTableCellRenderer", "com.apple.laf.AquaFileChooserUI", "MacFCTableCellRenderer", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaFileChooserUI$MacFCTableCellRenderer",
+		"javax.swing.table.DefaultTableCellRenderer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFileChooserUI"
+	};
+	$loadClass(AquaFileChooserUI$MacFCTableCellRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaFileChooserUI$MacFCTableCellRenderer));
+	});
 	return class$;
 }
 

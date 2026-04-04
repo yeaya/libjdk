@@ -1,5 +1,4 @@
 #include <sun/swing/BakedArrayList.h>
-
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -13,56 +12,24 @@ using $List = ::java::util::List;
 namespace sun {
 	namespace swing {
 
-$FieldInfo _BakedArrayList_FieldInfo_[] = {
-	{"_hashCode", "I", nullptr, $PRIVATE, $field(BakedArrayList, _hashCode)},
-	{}
-};
-
-$MethodInfo _BakedArrayList_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(BakedArrayList, init$, void, int32_t)},
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<+TE;>;)V", $PUBLIC, $method(BakedArrayList, init$, void, $List*)},
-	{"cacheHashCode", "()V", nullptr, $PUBLIC, $virtualMethod(BakedArrayList, cacheHashCode, void)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BakedArrayList, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(BakedArrayList, hashCode, int32_t)},
-	{}
-};
-
-$ClassInfo _BakedArrayList_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.swing.BakedArrayList",
-	"java.util.ArrayList",
-	nullptr,
-	_BakedArrayList_FieldInfo_,
-	_BakedArrayList_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/ArrayList<TE;>;"
-};
-
-$Object* allocate$BakedArrayList($Class* clazz) {
-	return $of($alloc(BakedArrayList));
-}
-
 void BakedArrayList::init$(int32_t size) {
 	$ArrayList::init$(size);
 }
 
 void BakedArrayList::init$($List* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	BakedArrayList::init$($nc(data)->size());
-	{
-		int32_t counter = 0;
-		int32_t max = $nc(data)->size();
-		for (; counter < max; ++counter) {
-			add($(data->get(counter)));
-		}
+	for (int32_t counter = 0, max = data->size(); counter < max; ++counter) {
+		add($(data->get(counter)));
 	}
 	cacheHashCode();
 }
 
 void BakedArrayList::cacheHashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->_hashCode = 1;
 	for (int32_t counter = size() - 1; counter >= 0; --counter) {
-		this->_hashCode = 31 * this->_hashCode + $nc($of($(get(counter))))->hashCode();
+		this->_hashCode = 31 * this->_hashCode + $$nc(get(counter))->hashCode();
 	}
 }
 
@@ -71,14 +38,14 @@ int32_t BakedArrayList::hashCode() {
 }
 
 bool BakedArrayList::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(BakedArrayList, list, $cast(BakedArrayList, o));
 	int32_t size = this->size();
 	if ($nc(list)->size() != size) {
 		return false;
 	}
 	while (size-- > 0) {
-		if (!$nc($of($(get(size))))->equals($($nc(list)->get(size)))) {
+		if (!$$nc(get(size))->equals($(list->get(size)))) {
 			return false;
 		}
 	}
@@ -89,7 +56,30 @@ BakedArrayList::BakedArrayList() {
 }
 
 $Class* BakedArrayList::load$($String* name, bool initialize) {
-	$loadClass(BakedArrayList, name, initialize, &_BakedArrayList_ClassInfo_, allocate$BakedArrayList);
+	$FieldInfo fieldInfos$$[] = {
+		{"_hashCode", "I", nullptr, $PRIVATE, $field(BakedArrayList, _hashCode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(BakedArrayList, init$, void, int32_t)},
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<+TE;>;)V", $PUBLIC, $method(BakedArrayList, init$, void, $List*)},
+		{"cacheHashCode", "()V", nullptr, $PUBLIC, $virtualMethod(BakedArrayList, cacheHashCode, void)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BakedArrayList, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(BakedArrayList, hashCode, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.swing.BakedArrayList",
+		"java.util.ArrayList",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/ArrayList<TE;>;"
+	};
+	$loadClass(BakedArrayList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BakedArrayList));
+	});
 	return class$;
 }
 

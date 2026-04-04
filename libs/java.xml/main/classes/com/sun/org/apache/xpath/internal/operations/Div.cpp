@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/operations/Div.h>
-
 #include <com/sun/org/apache/xpath/internal/Expression.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
 #include <com/sun/org/apache/xpath/internal/objects/XNumber.h>
@@ -7,7 +6,6 @@
 #include <com/sun/org/apache/xpath/internal/operations/Operation.h>
 #include <jcpp.h>
 
-using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
 using $XPathContext = ::com::sun::org::apache::xpath::internal::XPathContext;
 using $XNumber = ::com::sun::org::apache::xpath::internal::objects::XNumber;
 using $XObject = ::com::sun::org::apache::xpath::internal::objects::XObject;
@@ -23,31 +21,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 						namespace operations {
-
-$FieldInfo _Div_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Div, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Div_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Div, init$, void)},
-	{"num", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)D", nullptr, $PUBLIC, $virtualMethod(Div, num, double, $XPathContext*), "javax.xml.transform.TransformerException"},
-	{"operate", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;Lcom/sun/org/apache/xpath/internal/objects/XObject;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(Div, operate, $XObject*, $XObject*, $XObject*), "javax.xml.transform.TransformerException"},
-	{}
-};
-
-$ClassInfo _Div_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.operations.Div",
-	"com.sun.org.apache.xpath.internal.operations.Operation",
-	nullptr,
-	_Div_FieldInfo_,
-	_Div_MethodInfo_
-};
-
-$Object* allocate$Div($Class* clazz) {
-	return $of($alloc(Div));
-}
 
 void Div::init$() {
 	$Operation::init$();
@@ -67,7 +40,27 @@ Div::Div() {
 }
 
 $Class* Div::load$($String* name, bool initialize) {
-	$loadClass(Div, name, initialize, &_Div_ClassInfo_, allocate$Div);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Div, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Div, init$, void)},
+		{"num", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)D", nullptr, $PUBLIC, $virtualMethod(Div, num, double, $XPathContext*), "javax.xml.transform.TransformerException"},
+		{"operate", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;Lcom/sun/org/apache/xpath/internal/objects/XObject;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(Div, operate, $XObject*, $XObject*, $XObject*), "javax.xml.transform.TransformerException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.operations.Div",
+		"com.sun.org.apache.xpath.internal.operations.Operation",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Div, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Div));
+	});
 	return class$;
 }
 

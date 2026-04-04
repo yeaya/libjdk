@@ -1,12 +1,10 @@
 #include <javax/swing/plaf/nimbus/InternalFrameTitlePaneCloseButtonPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/LinearGradientPaint.h>
 #include <java/awt/Paint.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/Ellipse2D$Float.h>
-#include <java/awt/geom/Ellipse2D.h>
 #include <java/awt/geom/Path2D$Float.h>
 #include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
@@ -30,7 +28,6 @@ using $ColorArray = $Array<::java::awt::Color>;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Paint = ::java::awt::Paint;
 using $Shape = ::java::awt::Shape;
-using $Ellipse2D = ::java::awt::geom::Ellipse2D;
 using $Ellipse2D$Float = ::java::awt::geom::Ellipse2D$Float;
 using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
@@ -51,106 +48,12 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _InternalFrameTitlePaneCloseButtonPainter_FieldInfo_[] = {
-	{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneCloseButtonPainter, BACKGROUND_DISABLED)},
-	{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneCloseButtonPainter, BACKGROUND_ENABLED)},
-	{"BACKGROUND_MOUSEOVER", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneCloseButtonPainter, BACKGROUND_MOUSEOVER)},
-	{"BACKGROUND_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneCloseButtonPainter, BACKGROUND_PRESSED)},
-	{"BACKGROUND_ENABLED_WINDOWNOTFOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneCloseButtonPainter, BACKGROUND_ENABLED_WINDOWNOTFOCUSED)},
-	{"BACKGROUND_MOUSEOVER_WINDOWNOTFOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneCloseButtonPainter, BACKGROUND_MOUSEOVER_WINDOWNOTFOCUSED)},
-	{"BACKGROUND_PRESSED_WINDOWNOTFOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneCloseButtonPainter, BACKGROUND_PRESSED_WINDOWNOTFOCUSED)},
-	{"state", "I", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, state)},
-	{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, ctx)},
-	{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, path)},
-	{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, rect)},
-	{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, roundRect)},
-	{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, ellipse)},
-	{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color1)},
-	{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color2)},
-	{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color3)},
-	{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color4)},
-	{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color5)},
-	{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color6)},
-	{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color7)},
-	{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color8)},
-	{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color9)},
-	{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color10)},
-	{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color11)},
-	{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color12)},
-	{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color13)},
-	{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color14)},
-	{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color15)},
-	{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color16)},
-	{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color17)},
-	{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color18)},
-	{"color19", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color19)},
-	{"color20", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color20)},
-	{"color21", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color21)},
-	{"color22", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color22)},
-	{"color23", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color23)},
-	{"color24", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color24)},
-	{"color25", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color25)},
-	{"color26", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color26)},
-	{"color27", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color27)},
-	{"color28", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color28)},
-	{"color29", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color29)},
-	{"color30", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color30)},
-	{"color31", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color31)},
-	{"color32", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color32)},
-	{"color33", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color33)},
-	{"color34", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color34)},
-	{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, componentColors)},
-	{}
-};
-
-$MethodInfo _InternalFrameTitlePaneCloseButtonPainter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(InternalFrameTitlePaneCloseButtonPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
-	{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodeGradient1, $Paint*, $Shape*)},
-	{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodeGradient2, $Paint*, $Shape*)},
-	{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodeGradient3, $Paint*, $Shape*)},
-	{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodeGradient4, $Paint*, $Shape*)},
-	{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodeGradient5, $Paint*, $Shape*)},
-	{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodeGradient6, $Paint*, $Shape*)},
-	{"decodeGradient7", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodeGradient7, $Paint*, $Shape*)},
-	{"decodeGradient8", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodeGradient8, $Paint*, $Shape*)},
-	{"decodeGradient9", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodeGradient9, $Paint*, $Shape*)},
-	{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodePath1, $Path2D*)},
-	{"decodePath2", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodePath2, $Path2D*)},
-	{"decodeRoundRect1", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodeRoundRect1, $RoundRectangle2D*)},
-	{"decodeRoundRect2", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodeRoundRect2, $RoundRectangle2D*)},
-	{"decodeRoundRect3", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodeRoundRect3, $RoundRectangle2D*)},
-	{"decodeRoundRect4", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodeRoundRect4, $RoundRectangle2D*)},
-	{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(InternalFrameTitlePaneCloseButtonPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(InternalFrameTitlePaneCloseButtonPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
-	{"paintBackgroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, paintBackgroundDisabled, void, $Graphics2D*)},
-	{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, paintBackgroundEnabled, void, $Graphics2D*)},
-	{"paintBackgroundEnabledAndWindowNotFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, paintBackgroundEnabledAndWindowNotFocused, void, $Graphics2D*)},
-	{"paintBackgroundMouseOver", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, paintBackgroundMouseOver, void, $Graphics2D*)},
-	{"paintBackgroundMouseOverAndWindowNotFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, paintBackgroundMouseOverAndWindowNotFocused, void, $Graphics2D*)},
-	{"paintBackgroundPressed", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, paintBackgroundPressed, void, $Graphics2D*)},
-	{"paintBackgroundPressedAndWindowNotFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, paintBackgroundPressedAndWindowNotFocused, void, $Graphics2D*)},
-	{}
-};
-
-$ClassInfo _InternalFrameTitlePaneCloseButtonPainter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.InternalFrameTitlePaneCloseButtonPainter",
-	"javax.swing.plaf.nimbus.AbstractRegionPainter",
-	nullptr,
-	_InternalFrameTitlePaneCloseButtonPainter_FieldInfo_,
-	_InternalFrameTitlePaneCloseButtonPainter_MethodInfo_
-};
-
-$Object* allocate$InternalFrameTitlePaneCloseButtonPainter($Class* clazz) {
-	return $of($alloc(InternalFrameTitlePaneCloseButtonPainter));
-}
-
 void InternalFrameTitlePaneCloseButtonPainter::init$($AbstractRegionPainter$PaintContext* ctx, int32_t state) {
 	$AbstractRegionPainter::init$();
 	$set(this, path, $new($Path2D$Float));
-	$set(this, rect, $new($Rectangle2D$Float, (float)0, (float)0, (float)0, (float)0));
-	$set(this, roundRect, $new($RoundRectangle2D$Float, (float)0, (float)0, (float)0, (float)0, (float)0, (float)0));
-	$set(this, ellipse, $new($Ellipse2D$Float, (float)0, (float)0, (float)0, (float)0));
+	$set(this, rect, $new($Rectangle2D$Float, 0, 0, 0, 0));
+	$set(this, roundRect, $new($RoundRectangle2D$Float, 0, 0, 0, 0, 0, 0));
+	$set(this, ellipse, $new($Ellipse2D$Float, 0, 0, 0, 0));
 	$set(this, color1, decodeColor("nimbusRed"_s, 0.5893519f, -0.75736576f, 0.09411764f, 0));
 	$set(this, color2, decodeColor("nimbusRed"_s, 0.5962963f, -0.71005917f, 0.0f, 0));
 	$set(this, color3, decodeColor("nimbusRed"_s, 0.6005698f, -0.7200287f, -0.015686274f, -122));
@@ -193,40 +96,26 @@ void InternalFrameTitlePaneCloseButtonPainter::doPaint($Graphics2D* g, $JCompone
 	$set(this, componentColors, extendedCacheKeys);
 	switch (this->state) {
 	case InternalFrameTitlePaneCloseButtonPainter::BACKGROUND_DISABLED:
-		{
-			paintBackgroundDisabled(g);
-			break;
-		}
+		paintBackgroundDisabled(g);
+		break;
 	case InternalFrameTitlePaneCloseButtonPainter::BACKGROUND_ENABLED:
-		{
-			paintBackgroundEnabled(g);
-			break;
-		}
+		paintBackgroundEnabled(g);
+		break;
 	case InternalFrameTitlePaneCloseButtonPainter::BACKGROUND_MOUSEOVER:
-		{
-			paintBackgroundMouseOver(g);
-			break;
-		}
+		paintBackgroundMouseOver(g);
+		break;
 	case InternalFrameTitlePaneCloseButtonPainter::BACKGROUND_PRESSED:
-		{
-			paintBackgroundPressed(g);
-			break;
-		}
+		paintBackgroundPressed(g);
+		break;
 	case InternalFrameTitlePaneCloseButtonPainter::BACKGROUND_ENABLED_WINDOWNOTFOCUSED:
-		{
-			paintBackgroundEnabledAndWindowNotFocused(g);
-			break;
-		}
+		paintBackgroundEnabledAndWindowNotFocused(g);
+		break;
 	case InternalFrameTitlePaneCloseButtonPainter::BACKGROUND_MOUSEOVER_WINDOWNOTFOCUSED:
-		{
-			paintBackgroundMouseOverAndWindowNotFocused(g);
-			break;
-		}
+		paintBackgroundMouseOverAndWindowNotFocused(g);
+		break;
 	case InternalFrameTitlePaneCloseButtonPainter::BACKGROUND_PRESSED_WINDOWNOTFOCUSED:
-		{
-			paintBackgroundPressedAndWindowNotFocused(g);
-			break;
-		}
+		paintBackgroundPressedAndWindowNotFocused(g);
+		break;
 	}
 }
 
@@ -247,7 +136,7 @@ void InternalFrameTitlePaneCloseButtonPainter::paintBackgroundDisabled($Graphics
 }
 
 void InternalFrameTitlePaneCloseButtonPainter::paintBackgroundEnabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect2());
 	$nc(g)->setPaint(this->color5);
 	g->fill(this->roundRect);
@@ -266,7 +155,7 @@ void InternalFrameTitlePaneCloseButtonPainter::paintBackgroundEnabled($Graphics2
 }
 
 void InternalFrameTitlePaneCloseButtonPainter::paintBackgroundMouseOver($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect2());
 	$nc(g)->setPaint(this->color5);
 	g->fill(this->roundRect);
@@ -285,7 +174,7 @@ void InternalFrameTitlePaneCloseButtonPainter::paintBackgroundMouseOver($Graphic
 }
 
 void InternalFrameTitlePaneCloseButtonPainter::paintBackgroundPressed($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect2());
 	$nc(g)->setPaint(this->color21);
 	g->fill(this->roundRect);
@@ -304,7 +193,7 @@ void InternalFrameTitlePaneCloseButtonPainter::paintBackgroundPressed($Graphics2
 }
 
 void InternalFrameTitlePaneCloseButtonPainter::paintBackgroundEnabledAndWindowNotFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect1());
 	$nc(g)->setPaint($(decodeGradient8(this->roundRect)));
 	g->fill(this->roundRect);
@@ -317,7 +206,7 @@ void InternalFrameTitlePaneCloseButtonPainter::paintBackgroundEnabledAndWindowNo
 }
 
 void InternalFrameTitlePaneCloseButtonPainter::paintBackgroundMouseOverAndWindowNotFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect2());
 	$nc(g)->setPaint(this->color5);
 	g->fill(this->roundRect);
@@ -336,7 +225,7 @@ void InternalFrameTitlePaneCloseButtonPainter::paintBackgroundMouseOverAndWindow
 }
 
 void InternalFrameTitlePaneCloseButtonPainter::paintBackgroundPressedAndWindowNotFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect2());
 	$nc(g)->setPaint(this->color21);
 	g->fill(this->roundRect);
@@ -355,10 +244,10 @@ void InternalFrameTitlePaneCloseButtonPainter::paintBackgroundPressedAndWindowNo
 }
 
 $RoundRectangle2D* InternalFrameTitlePaneCloseButtonPainter::decodeRoundRect1() {
-	double var$0 = (double)decodeX(1.0f);
-	double var$1 = (double)decodeY(1.0f);
+	double var$0 = decodeX(1.0f);
+	double var$1 = decodeY(1.0f);
 	float var$3 = decodeX(2.0f);
-	double var$2 = (double)(var$3 - decodeX(1.0f));
+	double var$2 = var$3 - decodeX(1.0f);
 	float var$4 = decodeY(1.9444444f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(1.0f), 8.6f, 8.6f);
 	return this->roundRect;
@@ -366,31 +255,31 @@ $RoundRectangle2D* InternalFrameTitlePaneCloseButtonPainter::decodeRoundRect1() 
 
 $Path2D* InternalFrameTitlePaneCloseButtonPainter::decodePath1() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.25f);
+	double var$0 = decodeX(1.25f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.7373737f));
-	double var$1 = (double)decodeX(1.3002392f);
+	double var$1 = decodeX(1.3002392f);
 	$nc(this->path)->lineTo(var$1, decodeY(1.794192f));
-	double var$2 = (double)decodeX(1.5047847f);
+	double var$2 = decodeX(1.5047847f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.5909091f));
-	double var$3 = (double)decodeX(1.6842105f);
+	double var$3 = decodeX(1.6842105f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.7954545f));
-	double var$4 = (double)decodeX(1.7595694f);
+	double var$4 = decodeX(1.7595694f);
 	$nc(this->path)->lineTo(var$4, decodeY(1.719697f));
-	double var$5 = (double)decodeX(1.5956938f);
+	double var$5 = decodeX(1.5956938f);
 	$nc(this->path)->lineTo(var$5, decodeY(1.5239899f));
-	double var$6 = (double)decodeX(1.7535884f);
+	double var$6 = decodeX(1.7535884f);
 	$nc(this->path)->lineTo(var$6, decodeY(1.3409091f));
-	double var$7 = (double)decodeX(1.6830144f);
+	double var$7 = decodeX(1.6830144f);
 	$nc(this->path)->lineTo(var$7, decodeY(1.2537879f));
-	double var$8 = (double)decodeX(1.5083733f);
+	double var$8 = decodeX(1.5083733f);
 	$nc(this->path)->lineTo(var$8, decodeY(1.4406565f));
-	double var$9 = (double)decodeX(1.3301436f);
+	double var$9 = decodeX(1.3301436f);
 	$nc(this->path)->lineTo(var$9, decodeY(1.2563131f));
-	double var$10 = (double)decodeX(1.257177f);
+	double var$10 = decodeX(1.257177f);
 	$nc(this->path)->lineTo(var$10, decodeY(1.3320707f));
-	double var$11 = (double)decodeX(1.4270334f);
+	double var$11 = decodeX(1.4270334f);
 	$nc(this->path)->lineTo(var$11, decodeY(1.5252526f));
-	double var$12 = (double)decodeX(1.25f);
+	double var$12 = decodeX(1.25f);
 	$nc(this->path)->lineTo(var$12, decodeY(1.7373737f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -398,68 +287,68 @@ $Path2D* InternalFrameTitlePaneCloseButtonPainter::decodePath1() {
 
 $Path2D* InternalFrameTitlePaneCloseButtonPainter::decodePath2() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.257177f);
+	double var$0 = decodeX(1.257177f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.2828283f));
-	double var$1 = (double)decodeX(1.3217703f);
+	double var$1 = decodeX(1.3217703f);
 	$nc(this->path)->lineTo(var$1, decodeY(1.2133838f));
-	double var$2 = (double)decodeX(1.5f);
+	double var$2 = decodeX(1.5f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.4040405f));
-	double var$3 = (double)decodeX(1.673445f);
+	double var$3 = decodeX(1.673445f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.2108586f));
-	double var$4 = (double)decodeX(1.7440192f);
+	double var$4 = decodeX(1.7440192f);
 	$nc(this->path)->lineTo(var$4, decodeY(1.2853535f));
-	double var$5 = (double)decodeX(1.5669856f);
+	double var$5 = decodeX(1.5669856f);
 	$nc(this->path)->lineTo(var$5, decodeY(1.4709597f));
-	double var$6 = (double)decodeX(1.7488039f);
+	double var$6 = decodeX(1.7488039f);
 	$nc(this->path)->lineTo(var$6, decodeY(1.6527778f));
-	double var$7 = (double)decodeX(1.673445f);
+	double var$7 = decodeX(1.673445f);
 	$nc(this->path)->lineTo(var$7, decodeY(1.7398989f));
-	double var$8 = (double)decodeX(1.4988039f);
+	double var$8 = decodeX(1.4988039f);
 	$nc(this->path)->lineTo(var$8, decodeY(1.5416667f));
-	double var$9 = (double)decodeX(1.3313397f);
+	double var$9 = decodeX(1.3313397f);
 	$nc(this->path)->lineTo(var$9, decodeY(1.7424242f));
-	double var$10 = (double)decodeX(1.2523923f);
+	double var$10 = decodeX(1.2523923f);
 	$nc(this->path)->lineTo(var$10, decodeY(1.6565657f));
-	double var$11 = (double)decodeX(1.4366028f);
+	double var$11 = decodeX(1.4366028f);
 	$nc(this->path)->lineTo(var$11, decodeY(1.4722222f));
-	double var$12 = (double)decodeX(1.257177f);
+	double var$12 = decodeX(1.257177f);
 	$nc(this->path)->lineTo(var$12, decodeY(1.2828283f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $RoundRectangle2D* InternalFrameTitlePaneCloseButtonPainter::decodeRoundRect2() {
-	double var$0 = (double)decodeX(1.0f);
-	double var$1 = (double)decodeY(1.6111112f);
+	double var$0 = decodeX(1.0f);
+	double var$1 = decodeY(1.6111112f);
 	float var$3 = decodeX(2.0f);
-	double var$2 = (double)(var$3 - decodeX(1.0f));
+	double var$2 = var$3 - decodeX(1.0f);
 	float var$4 = decodeY(2.0f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(1.6111112f), 6.0f, 6.0f);
 	return this->roundRect;
 }
 
 $RoundRectangle2D* InternalFrameTitlePaneCloseButtonPainter::decodeRoundRect3() {
-	double var$0 = (double)decodeX(1.0526316f);
-	double var$1 = (double)decodeY(1.0530303f);
+	double var$0 = decodeX(1.0526316f);
+	double var$1 = decodeY(1.0530303f);
 	float var$3 = decodeX(1.9473684f);
-	double var$2 = (double)(var$3 - decodeX(1.0526316f));
+	double var$2 = var$3 - decodeX(1.0526316f);
 	float var$4 = decodeY(1.8863636f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(1.0530303f), 6.75f, 6.75f);
 	return this->roundRect;
 }
 
 $RoundRectangle2D* InternalFrameTitlePaneCloseButtonPainter::decodeRoundRect4() {
-	double var$0 = (double)decodeX(1.0526316f);
-	double var$1 = (double)decodeY(1.0517677f);
+	double var$0 = decodeX(1.0526316f);
+	double var$1 = decodeY(1.0517677f);
 	float var$3 = decodeX(1.9473684f);
-	double var$2 = (double)(var$3 - decodeX(1.0526316f));
+	double var$2 = var$3 - decodeX(1.0526316f);
 	float var$4 = decodeY(1.8851011f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(1.0517677f), 6.75f, 6.75f);
 	return this->roundRect;
 }
 
 $Paint* InternalFrameTitlePaneCloseButtonPainter::decodeGradient1($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -477,7 +366,7 @@ $Paint* InternalFrameTitlePaneCloseButtonPainter::decodeGradient1($Shape* s) {
 }
 
 $Paint* InternalFrameTitlePaneCloseButtonPainter::decodeGradient2($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -495,7 +384,7 @@ $Paint* InternalFrameTitlePaneCloseButtonPainter::decodeGradient2($Shape* s) {
 }
 
 $Paint* InternalFrameTitlePaneCloseButtonPainter::decodeGradient3($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -521,7 +410,7 @@ $Paint* InternalFrameTitlePaneCloseButtonPainter::decodeGradient3($Shape* s) {
 }
 
 $Paint* InternalFrameTitlePaneCloseButtonPainter::decodeGradient4($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -539,7 +428,7 @@ $Paint* InternalFrameTitlePaneCloseButtonPainter::decodeGradient4($Shape* s) {
 }
 
 $Paint* InternalFrameTitlePaneCloseButtonPainter::decodeGradient5($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -565,7 +454,7 @@ $Paint* InternalFrameTitlePaneCloseButtonPainter::decodeGradient5($Shape* s) {
 }
 
 $Paint* InternalFrameTitlePaneCloseButtonPainter::decodeGradient6($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -583,7 +472,7 @@ $Paint* InternalFrameTitlePaneCloseButtonPainter::decodeGradient6($Shape* s) {
 }
 
 $Paint* InternalFrameTitlePaneCloseButtonPainter::decodeGradient7($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -609,7 +498,7 @@ $Paint* InternalFrameTitlePaneCloseButtonPainter::decodeGradient7($Shape* s) {
 }
 
 $Paint* InternalFrameTitlePaneCloseButtonPainter::decodeGradient8($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -627,7 +516,7 @@ $Paint* InternalFrameTitlePaneCloseButtonPainter::decodeGradient8($Shape* s) {
 }
 
 $Paint* InternalFrameTitlePaneCloseButtonPainter::decodeGradient9($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -656,7 +545,96 @@ InternalFrameTitlePaneCloseButtonPainter::InternalFrameTitlePaneCloseButtonPaint
 }
 
 $Class* InternalFrameTitlePaneCloseButtonPainter::load$($String* name, bool initialize) {
-	$loadClass(InternalFrameTitlePaneCloseButtonPainter, name, initialize, &_InternalFrameTitlePaneCloseButtonPainter_ClassInfo_, allocate$InternalFrameTitlePaneCloseButtonPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneCloseButtonPainter, BACKGROUND_DISABLED)},
+		{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneCloseButtonPainter, BACKGROUND_ENABLED)},
+		{"BACKGROUND_MOUSEOVER", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneCloseButtonPainter, BACKGROUND_MOUSEOVER)},
+		{"BACKGROUND_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneCloseButtonPainter, BACKGROUND_PRESSED)},
+		{"BACKGROUND_ENABLED_WINDOWNOTFOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneCloseButtonPainter, BACKGROUND_ENABLED_WINDOWNOTFOCUSED)},
+		{"BACKGROUND_MOUSEOVER_WINDOWNOTFOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneCloseButtonPainter, BACKGROUND_MOUSEOVER_WINDOWNOTFOCUSED)},
+		{"BACKGROUND_PRESSED_WINDOWNOTFOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneCloseButtonPainter, BACKGROUND_PRESSED_WINDOWNOTFOCUSED)},
+		{"state", "I", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, state)},
+		{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, ctx)},
+		{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, path)},
+		{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, rect)},
+		{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, roundRect)},
+		{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, ellipse)},
+		{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color1)},
+		{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color2)},
+		{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color3)},
+		{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color4)},
+		{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color5)},
+		{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color6)},
+		{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color7)},
+		{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color8)},
+		{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color9)},
+		{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color10)},
+		{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color11)},
+		{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color12)},
+		{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color13)},
+		{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color14)},
+		{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color15)},
+		{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color16)},
+		{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color17)},
+		{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color18)},
+		{"color19", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color19)},
+		{"color20", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color20)},
+		{"color21", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color21)},
+		{"color22", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color22)},
+		{"color23", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color23)},
+		{"color24", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color24)},
+		{"color25", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color25)},
+		{"color26", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color26)},
+		{"color27", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color27)},
+		{"color28", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color28)},
+		{"color29", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color29)},
+		{"color30", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color30)},
+		{"color31", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color31)},
+		{"color32", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color32)},
+		{"color33", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color33)},
+		{"color34", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, color34)},
+		{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneCloseButtonPainter, componentColors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(InternalFrameTitlePaneCloseButtonPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
+		{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodeGradient1, $Paint*, $Shape*)},
+		{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodeGradient2, $Paint*, $Shape*)},
+		{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodeGradient3, $Paint*, $Shape*)},
+		{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodeGradient4, $Paint*, $Shape*)},
+		{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodeGradient5, $Paint*, $Shape*)},
+		{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodeGradient6, $Paint*, $Shape*)},
+		{"decodeGradient7", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodeGradient7, $Paint*, $Shape*)},
+		{"decodeGradient8", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodeGradient8, $Paint*, $Shape*)},
+		{"decodeGradient9", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodeGradient9, $Paint*, $Shape*)},
+		{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodePath1, $Path2D*)},
+		{"decodePath2", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodePath2, $Path2D*)},
+		{"decodeRoundRect1", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodeRoundRect1, $RoundRectangle2D*)},
+		{"decodeRoundRect2", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodeRoundRect2, $RoundRectangle2D*)},
+		{"decodeRoundRect3", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodeRoundRect3, $RoundRectangle2D*)},
+		{"decodeRoundRect4", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, decodeRoundRect4, $RoundRectangle2D*)},
+		{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(InternalFrameTitlePaneCloseButtonPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(InternalFrameTitlePaneCloseButtonPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
+		{"paintBackgroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, paintBackgroundDisabled, void, $Graphics2D*)},
+		{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, paintBackgroundEnabled, void, $Graphics2D*)},
+		{"paintBackgroundEnabledAndWindowNotFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, paintBackgroundEnabledAndWindowNotFocused, void, $Graphics2D*)},
+		{"paintBackgroundMouseOver", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, paintBackgroundMouseOver, void, $Graphics2D*)},
+		{"paintBackgroundMouseOverAndWindowNotFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, paintBackgroundMouseOverAndWindowNotFocused, void, $Graphics2D*)},
+		{"paintBackgroundPressed", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, paintBackgroundPressed, void, $Graphics2D*)},
+		{"paintBackgroundPressedAndWindowNotFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneCloseButtonPainter, paintBackgroundPressedAndWindowNotFocused, void, $Graphics2D*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.InternalFrameTitlePaneCloseButtonPainter",
+		"javax.swing.plaf.nimbus.AbstractRegionPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InternalFrameTitlePaneCloseButtonPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InternalFrameTitlePaneCloseButtonPainter);
+	});
 	return class$;
 }
 

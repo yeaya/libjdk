@@ -22,6 +22,7 @@ class XTaskbarPeer : public ::java::awt::peer::TaskbarPeer {
 	$class(XTaskbarPeer, 0, ::java::awt::peer::TaskbarPeer)
 public:
 	XTaskbarPeer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::awt::PopupMenu* getMenu() override;
 	static bool init($String* name, int32_t version, bool verbose);

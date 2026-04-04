@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel$WindowsFontProperty.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsDesktopProperty.h>
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel.h>
 #include <java/awt/Font.h>
@@ -36,38 +35,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$MethodInfo _WindowsLookAndFeel$WindowsFontProperty_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, 0, $method(WindowsLookAndFeel$WindowsFontProperty, init$, void, $String*, Object$*)},
-	{"configureValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(WindowsLookAndFeel$WindowsFontProperty, configureValue, $Object*, Object$*)},
-	{"invalidate", "(Ljavax/swing/LookAndFeel;)V", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$WindowsFontProperty, invalidate, void, $LookAndFeel*)},
-	{}
-};
-
-$InnerClassInfo _WindowsLookAndFeel$WindowsFontProperty_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$WindowsFontProperty", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "WindowsFontProperty", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsLookAndFeel$WindowsFontProperty_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$WindowsFontProperty",
-	"com.sun.java.swing.plaf.windows.WindowsDesktopProperty",
-	nullptr,
-	nullptr,
-	_WindowsLookAndFeel$WindowsFontProperty_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsLookAndFeel$WindowsFontProperty_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
-};
-
-$Object* allocate$WindowsLookAndFeel$WindowsFontProperty($Class* clazz) {
-	return $of($alloc(WindowsLookAndFeel$WindowsFontProperty));
-}
-
 void WindowsLookAndFeel$WindowsFontProperty::init$($String* key, Object$* backup) {
 	$WindowsDesktopProperty::init$(key, backup);
 }
@@ -80,14 +47,14 @@ void WindowsLookAndFeel$WindowsFontProperty::invalidate($LookAndFeel* laf) {
 }
 
 $Object* WindowsLookAndFeel$WindowsFontProperty::configureValue(Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Font, value)) {
 		$var($Font, font, $cast($Font, value));
-		if ("MS Sans Serif"_s->equals($($nc(font)->getName()))) {
-			int32_t size = $nc(font)->getSize();
+		if ("MS Sans Serif"_s->equals($(font->getName()))) {
+			int32_t size = font->getSize();
 			int32_t dpi = 0;
 			try {
-				dpi = $nc($($Toolkit::getDefaultToolkit()))->getScreenResolution();
+				dpi = $$nc($Toolkit::getDefaultToolkit())->getScreenResolution();
 			} catch ($HeadlessException& ex) {
 				dpi = 96;
 			}
@@ -96,7 +63,7 @@ $Object* WindowsLookAndFeel$WindowsFontProperty::configureValue(Object$* value) 
 			}
 			$var($Font, msFont, $new($FontUIResource, "Microsoft Sans Serif"_s, font->getStyle(), size));
 			bool var$0 = msFont->getName() != nullptr;
-			if (var$0 && $nc($(msFont->getName()))->equals($(msFont->getFamily()))) {
+			if (var$0 && $$nc(msFont->getName())->equals($(msFont->getFamily()))) {
 				$assign(font, msFont);
 			} else if (size != font->getSize()) {
 				$assign(font, $new($FontUIResource, "MS Sans Serif"_s, font->getStyle(), size));
@@ -109,16 +76,43 @@ $Object* WindowsLookAndFeel$WindowsFontProperty::configureValue(Object$* value) 
 		} else {
 			$assign(font, $FontUtilities::getCompositeFontUIResource(font));
 		}
-		return $of(font);
+		return font;
 	}
-	return $of($WindowsDesktopProperty::configureValue(value));
+	return $WindowsDesktopProperty::configureValue(value);
 }
 
 WindowsLookAndFeel$WindowsFontProperty::WindowsLookAndFeel$WindowsFontProperty() {
 }
 
 $Class* WindowsLookAndFeel$WindowsFontProperty::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$WindowsFontProperty, name, initialize, &_WindowsLookAndFeel$WindowsFontProperty_ClassInfo_, allocate$WindowsLookAndFeel$WindowsFontProperty);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, 0, $method(WindowsLookAndFeel$WindowsFontProperty, init$, void, $String*, Object$*)},
+		{"configureValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(WindowsLookAndFeel$WindowsFontProperty, configureValue, $Object*, Object$*)},
+		{"invalidate", "(Ljavax/swing/LookAndFeel;)V", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$WindowsFontProperty, invalidate, void, $LookAndFeel*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$WindowsFontProperty", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "WindowsFontProperty", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$WindowsFontProperty",
+		"com.sun.java.swing.plaf.windows.WindowsDesktopProperty",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
+	};
+	$loadClass(WindowsLookAndFeel$WindowsFontProperty, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$WindowsFontProperty);
+	});
 	return class$;
 }
 

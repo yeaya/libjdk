@@ -1,16 +1,13 @@
 #include <javax/swing/plaf/basic/BasicComboBoxUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component$BaselineResizeBehavior.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/Rectangle.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/FocusListener.h>
 #include <java/awt/event/ItemListener.h>
 #include <java/awt/event/KeyEvent.h>
@@ -88,13 +85,11 @@ using $ComponentArray = $Array<::java::awt::Component>;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Component$BaselineResizeBehavior = ::java::awt::Component$BaselineResizeBehavior;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Rectangle = ::java::awt::Rectangle;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $FocusListener = ::java::awt::event::FocusListener;
 using $ItemListener = ::java::awt::event::ItemListener;
 using $KeyEvent = ::java::awt::event::KeyEvent;
@@ -111,7 +106,6 @@ using $Short = ::java::lang::Short;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $Accessible = ::javax::accessibility::Accessible;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $CellRendererPane = ::javax::swing::CellRendererPane;
 using $ComboBoxEditor = ::javax::swing::ComboBoxEditor;
@@ -123,7 +117,6 @@ using $JComboBox = ::javax::swing::JComboBox;
 using $JComboBox$KeySelectionManager = ::javax::swing::JComboBox$KeySelectionManager;
 using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
-using $JList = ::javax::swing::JList;
 using $JPanel = ::javax::swing::JPanel;
 using $KeyStroke = ::javax::swing::KeyStroke;
 using $ListCellRenderer = ::javax::swing::ListCellRenderer;
@@ -152,135 +145,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicComboBoxUI_FieldInfo_[] = {
-	{"comboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljava/lang/Object;>;", $PROTECTED, $field(BasicComboBoxUI, comboBox)},
-	{"hasFocus", "Z", nullptr, $PROTECTED, $field(BasicComboBoxUI, hasFocus)},
-	{"isTableCellEditor", "Z", nullptr, $PRIVATE, $field(BasicComboBoxUI, isTableCellEditor$)},
-	{"IS_TABLE_CELL_EDITOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicComboBoxUI, IS_TABLE_CELL_EDITOR)},
-	{"listBox", "Ljavax/swing/JList;", "Ljavax/swing/JList<Ljava/lang/Object;>;", $PROTECTED, $field(BasicComboBoxUI, listBox)},
-	{"currentValuePane", "Ljavax/swing/CellRendererPane;", nullptr, $PROTECTED, $field(BasicComboBoxUI, currentValuePane)},
-	{"popup", "Ljavax/swing/plaf/basic/ComboPopup;", nullptr, $PROTECTED, $field(BasicComboBoxUI, popup)},
-	{"editor", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(BasicComboBoxUI, editor)},
-	{"arrowButton", "Ljavax/swing/JButton;", nullptr, $PROTECTED, $field(BasicComboBoxUI, arrowButton)},
-	{"keyListener", "Ljava/awt/event/KeyListener;", nullptr, $PROTECTED, $field(BasicComboBoxUI, keyListener)},
-	{"focusListener", "Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $field(BasicComboBoxUI, focusListener)},
-	{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $field(BasicComboBoxUI, propertyChangeListener)},
-	{"itemListener", "Ljava/awt/event/ItemListener;", nullptr, $PROTECTED, $field(BasicComboBoxUI, itemListener)},
-	{"popupMouseListener", "Ljava/awt/event/MouseListener;", nullptr, $PROTECTED, $field(BasicComboBoxUI, popupMouseListener)},
-	{"popupMouseMotionListener", "Ljava/awt/event/MouseMotionListener;", nullptr, $PROTECTED, $field(BasicComboBoxUI, popupMouseMotionListener)},
-	{"popupKeyListener", "Ljava/awt/event/KeyListener;", nullptr, $PROTECTED, $field(BasicComboBoxUI, popupKeyListener)},
-	{"listDataListener", "Ljavax/swing/event/ListDataListener;", nullptr, $PROTECTED, $field(BasicComboBoxUI, listDataListener)},
-	{"handler", "Ljavax/swing/plaf/basic/BasicComboBoxUI$Handler;", nullptr, $PRIVATE, $field(BasicComboBoxUI, handler)},
-	{"timeFactor", "J", nullptr, $PRIVATE, $field(BasicComboBoxUI, timeFactor)},
-	{"lastTime", "J", nullptr, $PRIVATE, $field(BasicComboBoxUI, lastTime)},
-	{"time", "J", nullptr, $PRIVATE, $field(BasicComboBoxUI, time)},
-	{"keySelectionManager", "Ljavax/swing/JComboBox$KeySelectionManager;", nullptr, 0, $field(BasicComboBoxUI, keySelectionManager)},
-	{"isMinimumSizeDirty", "Z", nullptr, $PROTECTED, $field(BasicComboBoxUI, isMinimumSizeDirty)},
-	{"cachedMinimumSize", "Ljava/awt/Dimension;", nullptr, $PROTECTED, $field(BasicComboBoxUI, cachedMinimumSize)},
-	{"isDisplaySizeDirty", "Z", nullptr, $PRIVATE, $field(BasicComboBoxUI, isDisplaySizeDirty)},
-	{"cachedDisplaySize", "Ljava/awt/Dimension;", nullptr, $PRIVATE, $field(BasicComboBoxUI, cachedDisplaySize)},
-	{"COMBO_UI_LIST_CELL_RENDERER_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicComboBoxUI, COMBO_UI_LIST_CELL_RENDERER_KEY)},
-	{"HIDE_POPUP_KEY", "Ljava/lang/StringBuffer;", nullptr, $STATIC | $FINAL, $staticField(BasicComboBoxUI, HIDE_POPUP_KEY)},
-	{"sameBaseline", "Z", nullptr, $PRIVATE, $field(BasicComboBoxUI, sameBaseline)},
-	{"squareButton", "Z", nullptr, $PROTECTED, $field(BasicComboBoxUI, squareButton)},
-	{"padding", "Ljava/awt/Insets;", nullptr, $PROTECTED, $field(BasicComboBoxUI, padding)},
-	{}
-};
-
-$MethodInfo _BasicComboBoxUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicComboBoxUI, init$, void)},
-	{"addEditor", "()V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, addEditor, void)},
-	{"configureArrowButton", "()V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, configureArrowButton, void)},
-	{"configureEditor", "()V", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, configureEditor, void)},
-	{"createArrowButton", "()Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, createArrowButton, $JButton*)},
-	{"createEditor", "()Ljavax/swing/ComboBoxEditor;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, createEditor, $ComboBoxEditor*)},
-	{"createFocusListener", "()Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, createFocusListener, $FocusListener*)},
-	{"createItemListener", "()Ljava/awt/event/ItemListener;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, createItemListener, $ItemListener*)},
-	{"createKeyListener", "()Ljava/awt/event/KeyListener;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, createKeyListener, $KeyListener*)},
-	{"createLayoutManager", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, createLayoutManager, $LayoutManager*)},
-	{"createListDataListener", "()Ljavax/swing/event/ListDataListener;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, createListDataListener, $ListDataListener*)},
-	{"createPopup", "()Ljavax/swing/plaf/basic/ComboPopup;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, createPopup, $ComboPopup*)},
-	{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, createPropertyChangeListener, $PropertyChangeListener*)},
-	{"createRenderer", "()Ljavax/swing/ListCellRenderer;", "()Ljavax/swing/ListCellRenderer<Ljava/lang/Object;>;", $PROTECTED, $virtualMethod(BasicComboBoxUI, createRenderer, $ListCellRenderer*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicComboBoxUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getAccessibleChild", "(Ljavax/swing/JComponent;I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, getAccessibleChild, $Accessible*, $JComponent*, int32_t)},
-	{"getAccessibleChildrenCount", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, getAccessibleChildrenCount, int32_t, $JComponent*)},
-	{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
-	{"getBaselineResizeBehavior", "(Ljavax/swing/JComponent;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*, $JComponent*)},
-	{"getDefaultListCellRenderer", "()Ljavax/swing/ListCellRenderer;", "()Ljavax/swing/ListCellRenderer<Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticMethod(BasicComboBoxUI, getDefaultListCellRenderer, $ListCellRenderer*)},
-	{"getDefaultSize", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, getDefaultSize, $Dimension*)},
-	{"getDisplaySize", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, getDisplaySize, $Dimension*)},
-	{"getHandler", "()Ljavax/swing/plaf/basic/BasicComboBoxUI$Handler;", nullptr, $PRIVATE, $method(BasicComboBoxUI, getHandler, $BasicComboBoxUI$Handler*)},
-	{"getInputMap", "(I)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicComboBoxUI, getInputMap, $InputMap*, int32_t)},
-	{"getInsets", "()Ljava/awt/Insets;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, getInsets, $Insets*)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getSizeForComponent", "(Ljava/awt/Component;)Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, getSizeForComponent, $Dimension*, $Component*)},
-	{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, installComponents, void)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, installDefaults, void)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, installKeyboardActions, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, installListeners, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, installUI, void, $JComponent*)},
-	{"isFocusTraversable", "(Ljavax/swing/JComboBox;)Z", "(Ljavax/swing/JComboBox<*>;)Z", $PUBLIC, $virtualMethod(BasicComboBoxUI, isFocusTraversable, bool, $JComboBox*)},
-	{"isNavigationKey", "(I)Z", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, isNavigationKey, bool, int32_t)},
-	{"isNavigationKey", "(II)Z", nullptr, $PRIVATE, $method(BasicComboBoxUI, isNavigationKey, bool, int32_t, int32_t)},
-	{"isPopupVisible", "(Ljavax/swing/JComboBox;)Z", "(Ljavax/swing/JComboBox<*>;)Z", $PUBLIC, $virtualMethod(BasicComboBoxUI, isPopupVisible, bool, $JComboBox*)},
-	{"isTableCellEditor", "()Z", nullptr, 0, $virtualMethod(BasicComboBoxUI, isTableCellEditor, bool)},
-	{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicComboBoxUI, loadActionMap, void, $LazyActionMap*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, paint, void, $Graphics*, $JComponent*)},
-	{"paintCurrentValue", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Z)V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, paintCurrentValue, void, $Graphics*, $Rectangle*, bool)},
-	{"paintCurrentValueBackground", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Z)V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, paintCurrentValueBackground, void, $Graphics*, $Rectangle*, bool)},
-	{"rectangleForCurrentValue", "()Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, rectangleForCurrentValue, $Rectangle*)},
-	{"removeEditor", "()V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, removeEditor, void)},
-	{"repaintCurrentValue", "()V", nullptr, 0, $virtualMethod(BasicComboBoxUI, repaintCurrentValue, void)},
-	{"selectNextPossibleValue", "()V", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, selectNextPossibleValue, void)},
-	{"selectPreviousPossibleValue", "()V", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, selectPreviousPossibleValue, void)},
-	{"setPopupVisible", "(Ljavax/swing/JComboBox;Z)V", "(Ljavax/swing/JComboBox<*>;Z)V", $PUBLIC, $virtualMethod(BasicComboBoxUI, setPopupVisible, void, $JComboBox*, bool)},
-	{"toggleOpenClose", "()V", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, toggleOpenClose, void)},
-	{"unconfigureArrowButton", "()V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, unconfigureArrowButton, void)},
-	{"unconfigureEditor", "()V", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, unconfigureEditor, void)},
-	{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, uninstallComponents, void)},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, uninstallDefaults, void)},
-	{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, uninstallKeyboardActions, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, uninstallListeners, void)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, uninstallUI, void, $JComponent*)},
-	{"updateToolTipTextForChildren", "()V", nullptr, $PRIVATE, $method(BasicComboBoxUI, updateToolTipTextForChildren, void)},
-	{}
-};
-
-$InnerClassInfo _BasicComboBoxUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicComboBoxUI$DefaultKeySelectionManager", "javax.swing.plaf.basic.BasicComboBoxUI", "DefaultKeySelectionManager", 0},
-	{"javax.swing.plaf.basic.BasicComboBoxUI$Handler", "javax.swing.plaf.basic.BasicComboBoxUI", "Handler", $PRIVATE},
-	{"javax.swing.plaf.basic.BasicComboBoxUI$Actions", "javax.swing.plaf.basic.BasicComboBoxUI", "Actions", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.basic.BasicComboBoxUI$ComboBoxLayoutManager", "javax.swing.plaf.basic.BasicComboBoxUI", "ComboBoxLayoutManager", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicComboBoxUI$PropertyChangeHandler", "javax.swing.plaf.basic.BasicComboBoxUI", "PropertyChangeHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicComboBoxUI$ItemHandler", "javax.swing.plaf.basic.BasicComboBoxUI", "ItemHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicComboBoxUI$ListDataHandler", "javax.swing.plaf.basic.BasicComboBoxUI", "ListDataHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicComboBoxUI$FocusHandler", "javax.swing.plaf.basic.BasicComboBoxUI", "FocusHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicComboBoxUI$KeyHandler", "javax.swing.plaf.basic.BasicComboBoxUI", "KeyHandler", $PUBLIC},
-	{}
-};
-
-$ClassInfo _BasicComboBoxUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicComboBoxUI",
-	"javax.swing.plaf.ComboBoxUI",
-	nullptr,
-	_BasicComboBoxUI_FieldInfo_,
-	_BasicComboBoxUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicComboBoxUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicComboBoxUI$DefaultKeySelectionManager,javax.swing.plaf.basic.BasicComboBoxUI$Handler,javax.swing.plaf.basic.BasicComboBoxUI$Actions,javax.swing.plaf.basic.BasicComboBoxUI$ComboBoxLayoutManager,javax.swing.plaf.basic.BasicComboBoxUI$PropertyChangeHandler,javax.swing.plaf.basic.BasicComboBoxUI$ItemHandler,javax.swing.plaf.basic.BasicComboBoxUI$ListDataHandler,javax.swing.plaf.basic.BasicComboBoxUI$FocusHandler,javax.swing.plaf.basic.BasicComboBoxUI$KeyHandler"
-};
-
-$Object* allocate$BasicComboBoxUI($Class* clazz) {
-	return $of($alloc(BasicComboBoxUI));
-}
-
 $String* BasicComboBoxUI::IS_TABLE_CELL_EDITOR = nullptr;
 $Object* BasicComboBoxUI::COMBO_UI_LIST_CELL_RENDERER_KEY = nullptr;
 $StringBuffer* BasicComboBoxUI::HIDE_POPUP_KEY = nullptr;
@@ -302,18 +166,18 @@ void BasicComboBoxUI::init$() {
 
 $ListCellRenderer* BasicComboBoxUI::getDefaultListCellRenderer() {
 	$init(BasicComboBoxUI);
-	$useLocalCurrentObjectStackCache();
-	$var($ListCellRenderer, renderer, $cast($ListCellRenderer, $nc($($AppContext::getAppContext()))->get(BasicComboBoxUI::COMBO_UI_LIST_CELL_RENDERER_KEY)));
+	$useLocalObjectStack();
+	$var($ListCellRenderer, renderer, $cast($ListCellRenderer, $$nc($AppContext::getAppContext())->get(BasicComboBoxUI::COMBO_UI_LIST_CELL_RENDERER_KEY)));
 	if (renderer == nullptr) {
 		$assign(renderer, $new($DefaultListCellRenderer));
-		$nc($($AppContext::getAppContext()))->put(BasicComboBoxUI::COMBO_UI_LIST_CELL_RENDERER_KEY, $$new($DefaultListCellRenderer));
+		$$nc($AppContext::getAppContext())->put(BasicComboBoxUI::COMBO_UI_LIST_CELL_RENDERER_KEY, $$new($DefaultListCellRenderer));
 	}
 	return renderer;
 }
 
 void BasicComboBoxUI::loadActionMap($LazyActionMap* map) {
 	$init(BasicComboBoxUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BasicComboBoxUI$Actions);
 	$nc(map)->put($$new($BasicComboBoxUI$Actions, $BasicComboBoxUI$Actions::HIDE));
 	map->put($$new($BasicComboBoxUI$Actions, $BasicComboBoxUI$Actions::PAGE_DOWN));
@@ -335,7 +199,7 @@ $ComponentUI* BasicComboBoxUI::createUI($JComponent* c) {
 }
 
 void BasicComboBoxUI::installUI($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->isMinimumSizeDirty = true;
 	$var($JComboBox, tmp, $cast($JComboBox, c));
 	$set(this, comboBox, tmp);
@@ -344,15 +208,14 @@ void BasicComboBoxUI::installUI($JComponent* c) {
 	$set(this, listBox, $nc(this->popup)->getList());
 	$var($Boolean, inTable, $cast($Boolean, $nc(c)->getClientProperty(BasicComboBoxUI::IS_TABLE_CELL_EDITOR)));
 	if (inTable != nullptr) {
-		$init($Boolean);
 		this->isTableCellEditor$ = inTable->equals($Boolean::TRUE) ? true : false;
 	}
 	bool var$0 = $nc(this->comboBox)->getRenderer() == nullptr;
-	if (var$0 || $instanceOf($UIResource, $($nc(this->comboBox)->getRenderer()))) {
+	if (var$0 || $instanceOf($UIResource, $(this->comboBox->getRenderer()))) {
 		$nc(this->comboBox)->setRenderer($(createRenderer()));
 	}
 	bool var$1 = $nc(this->comboBox)->getEditor() == nullptr;
-	if (var$1 || $instanceOf($UIResource, $($nc(this->comboBox)->getEditor()))) {
+	if (var$1 || $instanceOf($UIResource, $(this->comboBox->getEditor()))) {
 		$nc(this->comboBox)->setEditor($(createEditor()));
 	}
 	installListeners();
@@ -368,7 +231,7 @@ void BasicComboBoxUI::installUI($JComponent* c) {
 }
 
 void BasicComboBoxUI::uninstallUI($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setPopupVisible(this->comboBox, false);
 	$nc(this->popup)->uninstallingUI();
 	uninstallKeyboardActions();
@@ -377,12 +240,12 @@ void BasicComboBoxUI::uninstallUI($JComponent* c) {
 	uninstallListeners();
 	uninstallDefaults();
 	bool var$0 = $nc(this->comboBox)->getRenderer() == nullptr;
-	if (var$0 || $instanceOf($UIResource, $($nc(this->comboBox)->getRenderer()))) {
+	if (var$0 || $instanceOf($UIResource, $(this->comboBox->getRenderer()))) {
 		$nc(this->comboBox)->setRenderer(nullptr);
 	}
 	$var($ComboBoxEditor, comboBoxEditor, $nc(this->comboBox)->getEditor());
 	if ($instanceOf($UIResource, comboBoxEditor)) {
-		if ($nc($($nc(comboBoxEditor)->getEditorComponent()))->hasFocus()) {
+		if ($$nc(comboBoxEditor->getEditorComponent())->hasFocus()) {
 			$nc(this->comboBox)->requestFocusInWindow();
 		}
 		$nc(this->comboBox)->setEditor(nullptr);
@@ -401,15 +264,14 @@ void BasicComboBoxUI::uninstallUI($JComponent* c) {
 }
 
 void BasicComboBoxUI::installDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LookAndFeel::installColorsAndFont(this->comboBox, "ComboBox.background"_s, "ComboBox.foreground"_s, "ComboBox.font"_s);
 	$LookAndFeel::installBorder(this->comboBox, "ComboBox.border"_s);
-	$init($Boolean);
 	$LookAndFeel::installProperty(this->comboBox, "opaque"_s, $Boolean::TRUE);
 	$var($Long, l, $cast($Long, $UIManager::get("ComboBox.timeFactor"_s)));
-	this->timeFactor = l == nullptr ? (int64_t)1000 : $nc(l)->longValue();
+	this->timeFactor = l == nullptr ? 1000 : l->longValue();
 	$var($Boolean, b, $cast($Boolean, $UIManager::get("ComboBox.squareButton"_s)));
-	this->squareButton = b == nullptr ? true : $nc(b)->booleanValue();
+	this->squareButton = b == nullptr ? true : b->booleanValue();
 	$set(this, padding, $UIManager::getInsets("ComboBox.padding"_s));
 }
 
@@ -437,7 +299,7 @@ void BasicComboBoxUI::installListeners() {
 	}
 	if ($nc(this->comboBox)->getModel() != nullptr) {
 		if (($set(this, listDataListener, createListDataListener())) != nullptr) {
-			$nc($($nc(this->comboBox)->getModel()))->addListDataListener(this->listDataListener);
+			$$nc($nc(this->comboBox)->getModel())->addListDataListener(this->listDataListener);
 		}
 	}
 }
@@ -471,7 +333,7 @@ void BasicComboBoxUI::uninstallListeners() {
 	}
 	if ($nc(this->comboBox)->getModel() != nullptr) {
 		if (this->listDataListener != nullptr) {
-			$nc($($nc(this->comboBox)->getModel()))->removeListDataListener(this->listDataListener);
+			$$nc($nc(this->comboBox)->getModel())->removeListDataListener(this->listDataListener);
 		}
 	}
 }
@@ -520,11 +382,11 @@ $BasicComboBoxUI$Handler* BasicComboBoxUI::getHandler() {
 }
 
 void BasicComboBoxUI::updateToolTipTextForChildren() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ComponentArray, children, $nc(this->comboBox)->getComponents());
 	for (int32_t i = 0; i < $nc(children)->length; ++i) {
 		if ($instanceOf($JComponent, children->get(i))) {
-			$nc(($cast($JComponent, children->get(i))))->setToolTipText($($nc(this->comboBox)->getToolTipText()));
+			$nc($cast($JComponent, children->get(i)))->setToolTipText($($nc(this->comboBox)->getToolTipText()));
 		}
 	}
 }
@@ -532,13 +394,13 @@ void BasicComboBoxUI::updateToolTipTextForChildren() {
 void BasicComboBoxUI::installComponents() {
 	$set(this, arrowButton, createArrowButton());
 	if (this->arrowButton != nullptr) {
-		$nc(this->comboBox)->add(static_cast<$Component*>(this->arrowButton));
+		$nc(this->comboBox)->add(this->arrowButton);
 		configureArrowButton();
 	}
 	if ($nc(this->comboBox)->isEditable()) {
 		addEditor();
 	}
-	$nc(this->comboBox)->add(static_cast<$Component*>(this->currentValuePane));
+	$nc(this->comboBox)->add(this->currentValuePane);
 }
 
 void BasicComboBoxUI::uninstallComponents() {
@@ -554,7 +416,7 @@ void BasicComboBoxUI::uninstallComponents() {
 
 void BasicComboBoxUI::addEditor() {
 	removeEditor();
-	$set(this, editor, $nc($($nc(this->comboBox)->getEditor()))->getEditorComponent());
+	$set(this, editor, $$nc($nc(this->comboBox)->getEditor())->getEditorComponent());
 	if (this->editor != nullptr) {
 		configureEditor();
 		$nc(this->comboBox)->add(this->editor);
@@ -573,7 +435,7 @@ void BasicComboBoxUI::removeEditor() {
 }
 
 void BasicComboBoxUI::configureEditor() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->editor)->setEnabled($nc(this->comboBox)->isEnabled());
 	$nc(this->editor)->setFocusable($nc(this->comboBox)->isFocusable());
 	$nc(this->editor)->setFont($($nc(this->comboBox)->getFont()));
@@ -581,30 +443,30 @@ void BasicComboBoxUI::configureEditor() {
 		$nc(this->editor)->addFocusListener(this->focusListener);
 	}
 	$nc(this->editor)->addFocusListener($(getHandler()));
-	$nc($($nc(this->comboBox)->getEditor()))->addActionListener($(getHandler()));
+	$$nc($nc(this->comboBox)->getEditor())->addActionListener($(getHandler()));
 	if ($instanceOf($JComponent, this->editor)) {
-		$nc(($cast($JComponent, this->editor)))->putClientProperty("doNotCancelPopup"_s, BasicComboBoxUI::HIDE_POPUP_KEY);
-		$nc(($cast($JComponent, this->editor)))->setInheritsPopupMenu(true);
+		$cast($JComponent, this->editor)->putClientProperty("doNotCancelPopup"_s, BasicComboBoxUI::HIDE_POPUP_KEY);
+		$nc($cast($JComponent, this->editor))->setInheritsPopupMenu(true);
 	}
 	$var($ComboBoxEditor, var$0, $nc(this->comboBox)->getEditor());
-	$nc(this->comboBox)->configureEditor(var$0, $($nc(this->comboBox)->getSelectedItem()));
+	$nc(this->comboBox)->configureEditor(var$0, $(this->comboBox->getSelectedItem()));
 	$nc(this->editor)->addPropertyChangeListener(this->propertyChangeListener);
 }
 
 void BasicComboBoxUI::unconfigureEditor() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->focusListener != nullptr) {
 		$nc(this->editor)->removeFocusListener(this->focusListener);
 	}
 	$nc(this->editor)->removePropertyChangeListener(this->propertyChangeListener);
 	$nc(this->editor)->removeFocusListener($(getHandler()));
-	$nc($($nc(this->comboBox)->getEditor()))->removeActionListener($(getHandler()));
+	$$nc($nc(this->comboBox)->getEditor())->removeActionListener($(getHandler()));
 }
 
 void BasicComboBoxUI::configureArrowButton() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->arrowButton != nullptr) {
-		$nc(this->arrowButton)->setEnabled($nc(this->comboBox)->isEnabled());
+		this->arrowButton->setEnabled($nc(this->comboBox)->isEnabled());
 		$nc(this->arrowButton)->setFocusable($nc(this->comboBox)->isFocusable());
 		$nc(this->arrowButton)->setRequestFocusEnabled(false);
 		$nc(this->arrowButton)->addMouseListener($($nc(this->popup)->getMouseListener()));
@@ -616,15 +478,15 @@ void BasicComboBoxUI::configureArrowButton() {
 }
 
 void BasicComboBoxUI::unconfigureArrowButton() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->arrowButton != nullptr) {
-		$nc(this->arrowButton)->removeMouseListener($($nc(this->popup)->getMouseListener()));
+		this->arrowButton->removeMouseListener($($nc(this->popup)->getMouseListener()));
 		$nc(this->arrowButton)->removeMouseMotionListener($($nc(this->popup)->getMouseMotionListener()));
 	}
 }
 
 $JButton* BasicComboBoxUI::createArrowButton() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, var$0, $UIManager::getColor("ComboBox.buttonBackground"_s));
 	$var($Color, var$1, $UIManager::getColor("ComboBox.buttonShadow"_s));
 	$var($Color, var$2, $UIManager::getColor("ComboBox.buttonDarkShadow"_s));
@@ -634,13 +496,13 @@ $JButton* BasicComboBoxUI::createArrowButton() {
 }
 
 bool BasicComboBoxUI::isPopupVisible($JComboBox* c) {
-	return this->popup != nullptr && $nc(this->popup)->isVisible();
+	return this->popup != nullptr && this->popup->isVisible();
 }
 
 void BasicComboBoxUI::setPopupVisible($JComboBox* c, bool v) {
 	if (this->popup != nullptr) {
 		if (v) {
-			$nc(this->popup)->show();
+			this->popup->show();
 		} else {
 			$nc(this->popup)->hide();
 		}
@@ -666,7 +528,7 @@ $Dimension* BasicComboBoxUI::getPreferredSize($JComponent* c) {
 }
 
 $Dimension* BasicComboBoxUI::getMinimumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->isMinimumSizeDirty) {
 		return $new($Dimension, this->cachedMinimumSize);
 	}
@@ -674,7 +536,7 @@ $Dimension* BasicComboBoxUI::getMinimumSize($JComponent* c) {
 	$var($Insets, insets, getInsets());
 	int32_t buttonHeight = $nc(size)->height;
 	int32_t buttonWidth = this->squareButton ? buttonHeight : $nc($($nc(this->arrowButton)->getPreferredSize()))->width;
-	size->height += $nc(insets)->top + insets->bottom;
+	size->height += $nc(insets)->top + $nc(insets)->bottom;
 	size->width += insets->left + insets->right + buttonWidth;
 	$nc(this->cachedMinimumSize)->setSize(size->width, size->height);
 	this->isMinimumSizeDirty = false;
@@ -686,13 +548,13 @@ $Dimension* BasicComboBoxUI::getMaximumSize($JComponent* c) {
 }
 
 int32_t BasicComboBoxUI::getBaseline($JComponent* c, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ComboBoxUI::getBaseline(c, width, height);
 	int32_t baseline = -1;
 	getDisplaySize();
 	if (this->sameBaseline) {
 		$var($Insets, insets, $nc(c)->getInsets());
-		height = $Math::max(height - $nc(insets)->top - insets->bottom, 0);
+		height = $Math::max(height - $nc(insets)->top - $nc(insets)->bottom, 0);
 		if (!$nc(this->comboBox)->isEditable()) {
 			$var($ListCellRenderer, renderer, $nc(this->comboBox)->getRenderer());
 			if (renderer == nullptr) {
@@ -702,33 +564,33 @@ int32_t BasicComboBoxUI::getBaseline($JComponent* c, int32_t width, int32_t heig
 			$var($Object, prototypeValue, $nc(this->comboBox)->getPrototypeDisplayValue());
 			if (prototypeValue != nullptr) {
 				$assign(value, prototypeValue);
-			} else if ($nc($($nc(this->comboBox)->getModel()))->getSize() > 0) {
-				$assign(value, $nc($($nc(this->comboBox)->getModel()))->getElementAt(0));
+			} else if ($$nc($nc(this->comboBox)->getModel())->getSize() > 0) {
+				$assign(value, $$nc($nc(this->comboBox)->getModel())->getElementAt(0));
 			}
 			$var($Component, component, $nc(renderer)->getListCellRendererComponent(this->listBox, value, -1, false, false));
 			if ($instanceOf($JLabel, component)) {
 				$var($JLabel, label, $cast($JLabel, component));
-				$var($String, text, $nc(label)->getText());
-				if ((text == nullptr) || $nc(text)->isEmpty()) {
+				$var($String, text, label->getText());
+				if ((text == nullptr) || text->isEmpty()) {
 					label->setText(" "_s);
 				}
 			}
 			if ($instanceOf($JComponent, component)) {
-				$nc(component)->setFont($($nc(this->comboBox)->getFont()));
+				component->setFont($($nc(this->comboBox)->getFont()));
 			}
 			baseline = $nc(component)->getBaseline(width, height);
 		} else {
 			baseline = $nc(this->editor)->getBaseline(width, height);
 		}
 		if (baseline > 0) {
-			baseline += $nc(insets)->top;
+			baseline += insets->top;
 		}
 	}
 	return baseline;
 }
 
 $Component$BaselineResizeBehavior* BasicComboBoxUI::getBaselineResizeBehavior($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ComboBoxUI::getBaselineResizeBehavior(c);
 	getDisplaySize();
 	if ($nc(this->comboBox)->isEditable()) {
@@ -742,8 +604,8 @@ $Component$BaselineResizeBehavior* BasicComboBoxUI::getBaselineResizeBehavior($J
 		$var($Object, prototypeValue, $nc(this->comboBox)->getPrototypeDisplayValue());
 		if (prototypeValue != nullptr) {
 			$assign(value, prototypeValue);
-		} else if ($nc($($nc(this->comboBox)->getModel()))->getSize() > 0) {
-			$assign(value, $nc($($nc(this->comboBox)->getModel()))->getElementAt(0));
+		} else if ($$nc($nc(this->comboBox)->getModel())->getSize() > 0) {
+			$assign(value, $$nc($nc(this->comboBox)->getModel())->getElementAt(0));
 		}
 		if (value != nullptr) {
 			$var($Component, component, $nc(renderer)->getListCellRendererComponent(this->listBox, value, -1, false, false));
@@ -763,26 +625,22 @@ int32_t BasicComboBoxUI::getAccessibleChildrenCount($JComponent* c) {
 }
 
 $Accessible* BasicComboBoxUI::getAccessibleChild($JComponent* c, int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (i) {
 	case 0:
-		{
-			if ($instanceOf($Accessible, this->popup)) {
-				$var($AccessibleContext, ac, $nc(($cast($Accessible, this->popup)))->getAccessibleContext());
-				$nc(ac)->setAccessibleParent(this->comboBox);
-				return $cast($Accessible, this->popup);
-			}
-			break;
+		if ($instanceOf($Accessible, this->popup)) {
+			$var($AccessibleContext, ac, $cast($Accessible, this->popup)->getAccessibleContext());
+			$nc(ac)->setAccessibleParent(this->comboBox);
+			return $cast($Accessible, this->popup);
 		}
+		break;
 	case 1:
-		{
-			if ($nc(this->comboBox)->isEditable() && ($instanceOf($Accessible, this->editor))) {
-				$var($AccessibleContext, ac, $nc(($cast($Accessible, this->editor)))->getAccessibleContext());
-				$nc(ac)->setAccessibleParent(this->comboBox);
-				return $cast($Accessible, this->editor);
-			}
-			break;
+		if ($nc(this->comboBox)->isEditable() && ($instanceOf($Accessible, this->editor))) {
+			$var($AccessibleContext, ac, $cast($Accessible, this->editor)->getAccessibleContext());
+			$nc(ac)->setAccessibleParent(this->comboBox);
+			return $cast($Accessible, this->editor);
 		}
+		break;
 	}
 	return nullptr;
 }
@@ -792,7 +650,7 @@ bool BasicComboBoxUI::isNavigationKey(int32_t keyCode) {
 }
 
 bool BasicComboBoxUI::isNavigationKey(int32_t keyCode, int32_t modifiers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputMap, inputMap, $nc(this->comboBox)->getInputMap($JComponent::WHEN_ANCESTOR_OF_FOCUSED_COMPONENT));
 	$var($KeyStroke, key, $KeyStroke::getKeyStroke(keyCode, modifiers));
 	if (inputMap != nullptr && inputMap->get(key) != nullptr) {
@@ -808,7 +666,7 @@ void BasicComboBoxUI::selectNextPossibleValue() {
 	} else {
 		si = $nc(this->comboBox)->getSelectedIndex();
 	}
-	if (si < $nc($($nc(this->comboBox)->getModel()))->getSize() - 1) {
+	if (si < $$nc($nc(this->comboBox)->getModel())->getSize() - 1) {
 		$nc(this->listBox)->setSelectedIndex(si + 1);
 		$nc(this->listBox)->ensureIndexIsVisible(si + 1);
 		if (!this->isTableCellEditor$) {
@@ -849,9 +707,9 @@ $Rectangle* BasicComboBoxUI::rectangleForCurrentValue() {
 	int32_t width = $nc(this->comboBox)->getWidth();
 	int32_t height = $nc(this->comboBox)->getHeight();
 	$var($Insets, insets, getInsets());
-	int32_t buttonSize = height - ($nc(insets)->top + insets->bottom);
+	int32_t buttonSize = height - ($nc(insets)->top + $nc(insets)->bottom);
 	if (this->arrowButton != nullptr) {
-		buttonSize = $nc(this->arrowButton)->getWidth();
+		buttonSize = this->arrowButton->getWidth();
 	}
 	if ($BasicGraphicsUtils::isLeftToRight(this->comboBox)) {
 		return $new($Rectangle, insets->left, insets->top, width - (insets->left + insets->right + buttonSize), height - (insets->top + insets->bottom));
@@ -865,7 +723,7 @@ $Insets* BasicComboBoxUI::getInsets() {
 }
 
 void BasicComboBoxUI::paintCurrentValue($Graphics* g, $Rectangle* bounds, bool hasFocus) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListCellRenderer, renderer, $nc(this->comboBox)->getRenderer());
 	$var($Component, c, nullptr);
 	if (hasFocus && !isPopupVisible(this->comboBox)) {
@@ -894,39 +752,39 @@ void BasicComboBoxUI::paintCurrentValue($Graphics* g, $Rectangle* bounds, bool h
 	int32_t w = bounds->width;
 	int32_t h = bounds->height;
 	if (this->padding != nullptr) {
-		x = bounds->x + $nc(this->padding)->left;
-		y = bounds->y + $nc(this->padding)->top;
-		w = bounds->width - ($nc(this->padding)->left + $nc(this->padding)->right);
-		h = bounds->height - ($nc(this->padding)->top + $nc(this->padding)->bottom);
+		x = bounds->x + this->padding->left;
+		y = bounds->y + this->padding->top;
+		w = bounds->width - (this->padding->left + this->padding->right);
+		h = bounds->height - (this->padding->top + this->padding->bottom);
 	}
 	$nc(this->currentValuePane)->paintComponent(g, c, this->comboBox, x, y, w, h, shouldValidate);
 }
 
 void BasicComboBoxUI::paintCurrentValueBackground($Graphics* g, $Rectangle* bounds, bool hasFocus) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, t, $nc(g)->getColor());
 	if ($nc(this->comboBox)->isEnabled()) {
 		g->setColor($($DefaultLookup::getColor(this->comboBox, this, "ComboBox.background"_s, nullptr)));
 	} else {
 		g->setColor($($DefaultLookup::getColor(this->comboBox, this, "ComboBox.disabledBackground"_s, nullptr)));
 	}
-	g->fillRect($nc(bounds)->x, bounds->y, bounds->width, bounds->height);
+	g->fillRect($nc(bounds)->x, $nc(bounds)->y, $nc(bounds)->width, $nc(bounds)->height);
 	g->setColor(t);
 }
 
 void BasicComboBoxUI::repaintCurrentValue() {
 	$var($Rectangle, r, rectangleForCurrentValue());
-	$nc(this->comboBox)->repaint($nc(r)->x, r->y, r->width, r->height);
+	$nc(this->comboBox)->repaint($nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 }
 
 $Dimension* BasicComboBoxUI::getDefaultSize() {
-	$useLocalCurrentObjectStackCache();
-	$var($Dimension, d, getSizeForComponent($($nc($(getDefaultListCellRenderer()))->getListCellRendererComponent(this->listBox, " "_s, -1, false, false))));
-	return $new($Dimension, $nc(d)->width, d->height);
+	$useLocalObjectStack();
+	$var($Dimension, d, getSizeForComponent($($$nc(getDefaultListCellRenderer())->getListCellRendererComponent(this->listBox, " "_s, -1, false, false))));
+	return $new($Dimension, $nc(d)->width, $nc(d)->height);
 }
 
 $Dimension* BasicComboBoxUI::getDisplaySize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->isDisplaySizeDirty) {
 		return $new($Dimension, this->cachedDisplaySize);
 	}
@@ -951,7 +809,7 @@ $Dimension* BasicComboBoxUI::getDisplaySize() {
 				$var($Component, c, $nc(renderer)->getListCellRendererComponent(this->listBox, value, -1, false, false));
 				$assign(d, getSizeForComponent(c));
 				if (this->sameBaseline && value != nullptr && (!($instanceOf($String, value)) || !""_s->equals(value))) {
-					int32_t newBaseline = $nc(c)->getBaseline($nc(d)->width, d->height);
+					int32_t newBaseline = $nc(c)->getBaseline($nc(d)->width, $nc(d)->height);
 					if (newBaseline == -1) {
 						this->sameBaseline = false;
 					} else if (baseline == -1) {
@@ -961,7 +819,7 @@ $Dimension* BasicComboBoxUI::getDisplaySize() {
 					}
 				}
 				result->width = $Math::max(result->width, $nc(d)->width);
-				result->height = $Math::max(result->height, $nc(d)->height);
+				result->height = $Math::max(result->height, d->height);
 			}
 		} else {
 			$assign(result, getDefaultSize());
@@ -972,20 +830,20 @@ $Dimension* BasicComboBoxUI::getDisplaySize() {
 	}
 	if ($nc(this->comboBox)->isEditable()) {
 		$var($Dimension, d, $nc(this->editor)->getPreferredSize());
-		result->width = $Math::max(result->width, $nc(d)->width);
-		result->height = $Math::max(result->height, $nc(d)->height);
+		$nc(result)->width = $Math::max($nc(result)->width, $nc(d)->width);
+		result->height = $Math::max(result->height, d->height);
 	}
 	if (this->padding != nullptr) {
-		result->width += $nc(this->padding)->left + $nc(this->padding)->right;
-		result->height += $nc(this->padding)->top + $nc(this->padding)->bottom;
+		$nc(result)->width += this->padding->left + this->padding->right;
+		result->height += this->padding->top + this->padding->bottom;
 	}
-	$nc(this->cachedDisplaySize)->setSize(result->width, result->height);
+	$nc(this->cachedDisplaySize)->setSize($nc(result)->width, $nc(result)->height);
 	this->isDisplaySizeDirty = false;
 	return result;
 }
 
 $Dimension* BasicComboBoxUI::getSizeForComponent($Component* comp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->currentValuePane)->add(comp);
 	$nc(comp)->setFont($($nc(this->comboBox)->getFont()));
 	$var($Dimension, d, comp->getPreferredSize());
@@ -1015,7 +873,7 @@ void BasicComboBoxUI::uninstallKeyboardActions() {
 	$SwingUtilities::replaceUIActionMap(this->comboBox, nullptr);
 }
 
-void clinit$BasicComboBoxUI($Class* class$) {
+void BasicComboBoxUI::clinit$($Class* clazz) {
 	$assignStatic(BasicComboBoxUI::IS_TABLE_CELL_EDITOR, "JComboBox.isTableCellEditor"_s);
 	$assignStatic(BasicComboBoxUI::COMBO_UI_LIST_CELL_RENDERER_KEY, $new($StringBuffer, "DefaultListCellRendererKey"_s));
 	$assignStatic(BasicComboBoxUI::HIDE_POPUP_KEY, $new($StringBuffer, "HidePopupKey"_s));
@@ -1025,7 +883,130 @@ BasicComboBoxUI::BasicComboBoxUI() {
 }
 
 $Class* BasicComboBoxUI::load$($String* name, bool initialize) {
-	$loadClass(BasicComboBoxUI, name, initialize, &_BasicComboBoxUI_ClassInfo_, clinit$BasicComboBoxUI, allocate$BasicComboBoxUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"comboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljava/lang/Object;>;", $PROTECTED, $field(BasicComboBoxUI, comboBox)},
+		{"hasFocus", "Z", nullptr, $PROTECTED, $field(BasicComboBoxUI, hasFocus)},
+		{"isTableCellEditor", "Z", nullptr, $PRIVATE, $field(BasicComboBoxUI, isTableCellEditor$)},
+		{"IS_TABLE_CELL_EDITOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicComboBoxUI, IS_TABLE_CELL_EDITOR)},
+		{"listBox", "Ljavax/swing/JList;", "Ljavax/swing/JList<Ljava/lang/Object;>;", $PROTECTED, $field(BasicComboBoxUI, listBox)},
+		{"currentValuePane", "Ljavax/swing/CellRendererPane;", nullptr, $PROTECTED, $field(BasicComboBoxUI, currentValuePane)},
+		{"popup", "Ljavax/swing/plaf/basic/ComboPopup;", nullptr, $PROTECTED, $field(BasicComboBoxUI, popup)},
+		{"editor", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(BasicComboBoxUI, editor)},
+		{"arrowButton", "Ljavax/swing/JButton;", nullptr, $PROTECTED, $field(BasicComboBoxUI, arrowButton)},
+		{"keyListener", "Ljava/awt/event/KeyListener;", nullptr, $PROTECTED, $field(BasicComboBoxUI, keyListener)},
+		{"focusListener", "Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $field(BasicComboBoxUI, focusListener)},
+		{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $field(BasicComboBoxUI, propertyChangeListener)},
+		{"itemListener", "Ljava/awt/event/ItemListener;", nullptr, $PROTECTED, $field(BasicComboBoxUI, itemListener)},
+		{"popupMouseListener", "Ljava/awt/event/MouseListener;", nullptr, $PROTECTED, $field(BasicComboBoxUI, popupMouseListener)},
+		{"popupMouseMotionListener", "Ljava/awt/event/MouseMotionListener;", nullptr, $PROTECTED, $field(BasicComboBoxUI, popupMouseMotionListener)},
+		{"popupKeyListener", "Ljava/awt/event/KeyListener;", nullptr, $PROTECTED, $field(BasicComboBoxUI, popupKeyListener)},
+		{"listDataListener", "Ljavax/swing/event/ListDataListener;", nullptr, $PROTECTED, $field(BasicComboBoxUI, listDataListener)},
+		{"handler", "Ljavax/swing/plaf/basic/BasicComboBoxUI$Handler;", nullptr, $PRIVATE, $field(BasicComboBoxUI, handler)},
+		{"timeFactor", "J", nullptr, $PRIVATE, $field(BasicComboBoxUI, timeFactor)},
+		{"lastTime", "J", nullptr, $PRIVATE, $field(BasicComboBoxUI, lastTime)},
+		{"time", "J", nullptr, $PRIVATE, $field(BasicComboBoxUI, time)},
+		{"keySelectionManager", "Ljavax/swing/JComboBox$KeySelectionManager;", nullptr, 0, $field(BasicComboBoxUI, keySelectionManager)},
+		{"isMinimumSizeDirty", "Z", nullptr, $PROTECTED, $field(BasicComboBoxUI, isMinimumSizeDirty)},
+		{"cachedMinimumSize", "Ljava/awt/Dimension;", nullptr, $PROTECTED, $field(BasicComboBoxUI, cachedMinimumSize)},
+		{"isDisplaySizeDirty", "Z", nullptr, $PRIVATE, $field(BasicComboBoxUI, isDisplaySizeDirty)},
+		{"cachedDisplaySize", "Ljava/awt/Dimension;", nullptr, $PRIVATE, $field(BasicComboBoxUI, cachedDisplaySize)},
+		{"COMBO_UI_LIST_CELL_RENDERER_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicComboBoxUI, COMBO_UI_LIST_CELL_RENDERER_KEY)},
+		{"HIDE_POPUP_KEY", "Ljava/lang/StringBuffer;", nullptr, $STATIC | $FINAL, $staticField(BasicComboBoxUI, HIDE_POPUP_KEY)},
+		{"sameBaseline", "Z", nullptr, $PRIVATE, $field(BasicComboBoxUI, sameBaseline)},
+		{"squareButton", "Z", nullptr, $PROTECTED, $field(BasicComboBoxUI, squareButton)},
+		{"padding", "Ljava/awt/Insets;", nullptr, $PROTECTED, $field(BasicComboBoxUI, padding)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicComboBoxUI, init$, void)},
+		{"addEditor", "()V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, addEditor, void)},
+		{"configureArrowButton", "()V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, configureArrowButton, void)},
+		{"configureEditor", "()V", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, configureEditor, void)},
+		{"createArrowButton", "()Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, createArrowButton, $JButton*)},
+		{"createEditor", "()Ljavax/swing/ComboBoxEditor;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, createEditor, $ComboBoxEditor*)},
+		{"createFocusListener", "()Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, createFocusListener, $FocusListener*)},
+		{"createItemListener", "()Ljava/awt/event/ItemListener;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, createItemListener, $ItemListener*)},
+		{"createKeyListener", "()Ljava/awt/event/KeyListener;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, createKeyListener, $KeyListener*)},
+		{"createLayoutManager", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, createLayoutManager, $LayoutManager*)},
+		{"createListDataListener", "()Ljavax/swing/event/ListDataListener;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, createListDataListener, $ListDataListener*)},
+		{"createPopup", "()Ljavax/swing/plaf/basic/ComboPopup;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, createPopup, $ComboPopup*)},
+		{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, createPropertyChangeListener, $PropertyChangeListener*)},
+		{"createRenderer", "()Ljavax/swing/ListCellRenderer;", "()Ljavax/swing/ListCellRenderer<Ljava/lang/Object;>;", $PROTECTED, $virtualMethod(BasicComboBoxUI, createRenderer, $ListCellRenderer*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicComboBoxUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getAccessibleChild", "(Ljavax/swing/JComponent;I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, getAccessibleChild, $Accessible*, $JComponent*, int32_t)},
+		{"getAccessibleChildrenCount", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, getAccessibleChildrenCount, int32_t, $JComponent*)},
+		{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
+		{"getBaselineResizeBehavior", "(Ljavax/swing/JComponent;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*, $JComponent*)},
+		{"getDefaultListCellRenderer", "()Ljavax/swing/ListCellRenderer;", "()Ljavax/swing/ListCellRenderer<Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticMethod(BasicComboBoxUI, getDefaultListCellRenderer, $ListCellRenderer*)},
+		{"getDefaultSize", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, getDefaultSize, $Dimension*)},
+		{"getDisplaySize", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, getDisplaySize, $Dimension*)},
+		{"getHandler", "()Ljavax/swing/plaf/basic/BasicComboBoxUI$Handler;", nullptr, $PRIVATE, $method(BasicComboBoxUI, getHandler, $BasicComboBoxUI$Handler*)},
+		{"getInputMap", "(I)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicComboBoxUI, getInputMap, $InputMap*, int32_t)},
+		{"getInsets", "()Ljava/awt/Insets;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, getInsets, $Insets*)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getSizeForComponent", "(Ljava/awt/Component;)Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, getSizeForComponent, $Dimension*, $Component*)},
+		{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, installComponents, void)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, installDefaults, void)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, installKeyboardActions, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, installListeners, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, installUI, void, $JComponent*)},
+		{"isFocusTraversable", "(Ljavax/swing/JComboBox;)Z", "(Ljavax/swing/JComboBox<*>;)Z", $PUBLIC, $virtualMethod(BasicComboBoxUI, isFocusTraversable, bool, $JComboBox*)},
+		{"isNavigationKey", "(I)Z", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, isNavigationKey, bool, int32_t)},
+		{"isNavigationKey", "(II)Z", nullptr, $PRIVATE, $method(BasicComboBoxUI, isNavigationKey, bool, int32_t, int32_t)},
+		{"isPopupVisible", "(Ljavax/swing/JComboBox;)Z", "(Ljavax/swing/JComboBox<*>;)Z", $PUBLIC, $virtualMethod(BasicComboBoxUI, isPopupVisible, bool, $JComboBox*)},
+		{"isTableCellEditor", "()Z", nullptr, 0, $virtualMethod(BasicComboBoxUI, isTableCellEditor, bool)},
+		{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicComboBoxUI, loadActionMap, void, $LazyActionMap*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, paint, void, $Graphics*, $JComponent*)},
+		{"paintCurrentValue", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Z)V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, paintCurrentValue, void, $Graphics*, $Rectangle*, bool)},
+		{"paintCurrentValueBackground", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Z)V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, paintCurrentValueBackground, void, $Graphics*, $Rectangle*, bool)},
+		{"rectangleForCurrentValue", "()Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, rectangleForCurrentValue, $Rectangle*)},
+		{"removeEditor", "()V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, removeEditor, void)},
+		{"repaintCurrentValue", "()V", nullptr, 0, $virtualMethod(BasicComboBoxUI, repaintCurrentValue, void)},
+		{"selectNextPossibleValue", "()V", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, selectNextPossibleValue, void)},
+		{"selectPreviousPossibleValue", "()V", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, selectPreviousPossibleValue, void)},
+		{"setPopupVisible", "(Ljavax/swing/JComboBox;Z)V", "(Ljavax/swing/JComboBox<*>;Z)V", $PUBLIC, $virtualMethod(BasicComboBoxUI, setPopupVisible, void, $JComboBox*, bool)},
+		{"toggleOpenClose", "()V", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, toggleOpenClose, void)},
+		{"unconfigureArrowButton", "()V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, unconfigureArrowButton, void)},
+		{"unconfigureEditor", "()V", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, unconfigureEditor, void)},
+		{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, uninstallComponents, void)},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, uninstallDefaults, void)},
+		{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, uninstallKeyboardActions, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxUI, uninstallListeners, void)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI, uninstallUI, void, $JComponent*)},
+		{"updateToolTipTextForChildren", "()V", nullptr, $PRIVATE, $method(BasicComboBoxUI, updateToolTipTextForChildren, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicComboBoxUI$DefaultKeySelectionManager", "javax.swing.plaf.basic.BasicComboBoxUI", "DefaultKeySelectionManager", 0},
+		{"javax.swing.plaf.basic.BasicComboBoxUI$Handler", "javax.swing.plaf.basic.BasicComboBoxUI", "Handler", $PRIVATE},
+		{"javax.swing.plaf.basic.BasicComboBoxUI$Actions", "javax.swing.plaf.basic.BasicComboBoxUI", "Actions", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.basic.BasicComboBoxUI$ComboBoxLayoutManager", "javax.swing.plaf.basic.BasicComboBoxUI", "ComboBoxLayoutManager", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicComboBoxUI$PropertyChangeHandler", "javax.swing.plaf.basic.BasicComboBoxUI", "PropertyChangeHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicComboBoxUI$ItemHandler", "javax.swing.plaf.basic.BasicComboBoxUI", "ItemHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicComboBoxUI$ListDataHandler", "javax.swing.plaf.basic.BasicComboBoxUI", "ListDataHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicComboBoxUI$FocusHandler", "javax.swing.plaf.basic.BasicComboBoxUI", "FocusHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicComboBoxUI$KeyHandler", "javax.swing.plaf.basic.BasicComboBoxUI", "KeyHandler", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicComboBoxUI",
+		"javax.swing.plaf.ComboBoxUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicComboBoxUI$DefaultKeySelectionManager,javax.swing.plaf.basic.BasicComboBoxUI$Handler,javax.swing.plaf.basic.BasicComboBoxUI$Actions,javax.swing.plaf.basic.BasicComboBoxUI$ComboBoxLayoutManager,javax.swing.plaf.basic.BasicComboBoxUI$PropertyChangeHandler,javax.swing.plaf.basic.BasicComboBoxUI$ItemHandler,javax.swing.plaf.basic.BasicComboBoxUI$ListDataHandler,javax.swing.plaf.basic.BasicComboBoxUI$FocusHandler,javax.swing.plaf.basic.BasicComboBoxUI$KeyHandler"
+	};
+	$loadClass(BasicComboBoxUI, name, initialize, &classInfo$$, BasicComboBoxUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicComboBoxUI);
+	});
 	return class$;
 }
 

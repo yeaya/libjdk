@@ -1,5 +1,4 @@
 #include <java/awt/image/Raster.h>
-
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/image/BandedSampleModel.h>
@@ -64,100 +63,16 @@ namespace java {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _Raster_FieldInfo_[] = {
-	{"sampleModel", "Ljava/awt/image/SampleModel;", nullptr, $PROTECTED, $field(Raster, sampleModel)},
-	{"dataBuffer", "Ljava/awt/image/DataBuffer;", nullptr, $PROTECTED, $field(Raster, dataBuffer)},
-	{"minX", "I", nullptr, $PROTECTED, $field(Raster, minX)},
-	{"minY", "I", nullptr, $PROTECTED, $field(Raster, minY)},
-	{"width", "I", nullptr, $PROTECTED, $field(Raster, width)},
-	{"height", "I", nullptr, $PROTECTED, $field(Raster, height)},
-	{"sampleModelTranslateX", "I", nullptr, $PROTECTED, $field(Raster, sampleModelTranslateX)},
-	{"sampleModelTranslateY", "I", nullptr, $PROTECTED, $field(Raster, sampleModelTranslateY)},
-	{"numBands", "I", nullptr, $PROTECTED, $field(Raster, numBands)},
-	{"numDataElements", "I", nullptr, $PROTECTED, $field(Raster, numDataElements)},
-	{"parent", "Ljava/awt/image/Raster;", nullptr, $PROTECTED, $field(Raster, parent)},
-	{}
-};
-
-$MethodInfo _Raster_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/Point;)V", nullptr, $PROTECTED, $method(Raster, init$, void, $SampleModel*, $Point*)},
-	{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBuffer;Ljava/awt/Point;)V", nullptr, $PROTECTED, $method(Raster, init$, void, $SampleModel*, $DataBuffer*, $Point*)},
-	{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBuffer;Ljava/awt/Rectangle;Ljava/awt/Point;Ljava/awt/image/Raster;)V", nullptr, $PROTECTED, $method(Raster, init$, void, $SampleModel*, $DataBuffer*, $Rectangle*, $Point*, Raster*)},
-	{"createBandedRaster", "(IIIILjava/awt/Point;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $STATIC, $staticMethod(Raster, createBandedRaster, $WritableRaster*, int32_t, int32_t, int32_t, int32_t, $Point*)},
-	{"createBandedRaster", "(IIII[I[ILjava/awt/Point;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $STATIC, $staticMethod(Raster, createBandedRaster, $WritableRaster*, int32_t, int32_t, int32_t, int32_t, $ints*, $ints*, $Point*)},
-	{"createBandedRaster", "(Ljava/awt/image/DataBuffer;III[I[ILjava/awt/Point;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $STATIC, $staticMethod(Raster, createBandedRaster, $WritableRaster*, $DataBuffer*, int32_t, int32_t, int32_t, $ints*, $ints*, $Point*)},
-	{"createChild", "(IIIIII[I)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(Raster, createChild, Raster*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"createCompatibleWritableRaster", "()Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(Raster, createCompatibleWritableRaster, $WritableRaster*)},
-	{"createCompatibleWritableRaster", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(Raster, createCompatibleWritableRaster, $WritableRaster*, int32_t, int32_t)},
-	{"createCompatibleWritableRaster", "(Ljava/awt/Rectangle;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(Raster, createCompatibleWritableRaster, $WritableRaster*, $Rectangle*)},
-	{"createCompatibleWritableRaster", "(IIII)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(Raster, createCompatibleWritableRaster, $WritableRaster*, int32_t, int32_t, int32_t, int32_t)},
-	{"createInterleavedRaster", "(IIIILjava/awt/Point;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $STATIC, $staticMethod(Raster, createInterleavedRaster, $WritableRaster*, int32_t, int32_t, int32_t, int32_t, $Point*)},
-	{"createInterleavedRaster", "(IIIII[ILjava/awt/Point;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $STATIC, $staticMethod(Raster, createInterleavedRaster, $WritableRaster*, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*, $Point*)},
-	{"createInterleavedRaster", "(Ljava/awt/image/DataBuffer;IIII[ILjava/awt/Point;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $STATIC, $staticMethod(Raster, createInterleavedRaster, $WritableRaster*, $DataBuffer*, int32_t, int32_t, int32_t, int32_t, $ints*, $Point*)},
-	{"createPackedRaster", "(III[ILjava/awt/Point;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $STATIC, $staticMethod(Raster, createPackedRaster, $WritableRaster*, int32_t, int32_t, int32_t, $ints*, $Point*)},
-	{"createPackedRaster", "(IIIIILjava/awt/Point;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $STATIC, $staticMethod(Raster, createPackedRaster, $WritableRaster*, int32_t, int32_t, int32_t, int32_t, int32_t, $Point*)},
-	{"createPackedRaster", "(Ljava/awt/image/DataBuffer;III[ILjava/awt/Point;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $STATIC, $staticMethod(Raster, createPackedRaster, $WritableRaster*, $DataBuffer*, int32_t, int32_t, int32_t, $ints*, $Point*)},
-	{"createPackedRaster", "(Ljava/awt/image/DataBuffer;IIILjava/awt/Point;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $STATIC, $staticMethod(Raster, createPackedRaster, $WritableRaster*, $DataBuffer*, int32_t, int32_t, int32_t, $Point*)},
-	{"createRaster", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBuffer;Ljava/awt/Point;)Ljava/awt/image/Raster;", nullptr, $PUBLIC | $STATIC, $staticMethod(Raster, createRaster, Raster*, $SampleModel*, $DataBuffer*, $Point*)},
-	{"createTranslatedChild", "(II)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(Raster, createTranslatedChild, Raster*, int32_t, int32_t)},
-	{"createWritableRaster", "(Ljava/awt/image/SampleModel;Ljava/awt/Point;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $STATIC, $staticMethod(Raster, createWritableRaster, $WritableRaster*, $SampleModel*, $Point*)},
-	{"createWritableRaster", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBuffer;Ljava/awt/Point;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $STATIC, $staticMethod(Raster, createWritableRaster, $WritableRaster*, $SampleModel*, $DataBuffer*, $Point*)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(Raster, getBounds, $Rectangle*)},
-	{"getDataBuffer", "()Ljava/awt/image/DataBuffer;", nullptr, $PUBLIC, $virtualMethod(Raster, getDataBuffer, $DataBuffer*)},
-	{"getDataElements", "(IILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Raster, getDataElements, $Object*, int32_t, int32_t, Object$*)},
-	{"getDataElements", "(IIIILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Raster, getDataElements, $Object*, int32_t, int32_t, int32_t, int32_t, Object$*)},
-	{"getHeight", "()I", nullptr, $PUBLIC | $FINAL, $method(Raster, getHeight, int32_t)},
-	{"getMinX", "()I", nullptr, $PUBLIC | $FINAL, $method(Raster, getMinX, int32_t)},
-	{"getMinY", "()I", nullptr, $PUBLIC | $FINAL, $method(Raster, getMinY, int32_t)},
-	{"getNumBands", "()I", nullptr, $PUBLIC | $FINAL, $method(Raster, getNumBands, int32_t)},
-	{"getNumDataElements", "()I", nullptr, $PUBLIC | $FINAL, $method(Raster, getNumDataElements, int32_t)},
-	{"getParent", "()Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(Raster, getParent, Raster*)},
-	{"getPixel", "(II[I)[I", nullptr, $PUBLIC, $virtualMethod(Raster, getPixel, $ints*, int32_t, int32_t, $ints*)},
-	{"getPixel", "(II[F)[F", nullptr, $PUBLIC, $virtualMethod(Raster, getPixel, $floats*, int32_t, int32_t, $floats*)},
-	{"getPixel", "(II[D)[D", nullptr, $PUBLIC, $virtualMethod(Raster, getPixel, $doubles*, int32_t, int32_t, $doubles*)},
-	{"getPixels", "(IIII[I)[I", nullptr, $PUBLIC, $virtualMethod(Raster, getPixels, $ints*, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"getPixels", "(IIII[F)[F", nullptr, $PUBLIC, $virtualMethod(Raster, getPixels, $floats*, int32_t, int32_t, int32_t, int32_t, $floats*)},
-	{"getPixels", "(IIII[D)[D", nullptr, $PUBLIC, $virtualMethod(Raster, getPixels, $doubles*, int32_t, int32_t, int32_t, int32_t, $doubles*)},
-	{"getSample", "(III)I", nullptr, $PUBLIC, $virtualMethod(Raster, getSample, int32_t, int32_t, int32_t, int32_t)},
-	{"getSampleDouble", "(III)D", nullptr, $PUBLIC, $virtualMethod(Raster, getSampleDouble, double, int32_t, int32_t, int32_t)},
-	{"getSampleFloat", "(III)F", nullptr, $PUBLIC, $virtualMethod(Raster, getSampleFloat, float, int32_t, int32_t, int32_t)},
-	{"getSampleModel", "()Ljava/awt/image/SampleModel;", nullptr, $PUBLIC, $virtualMethod(Raster, getSampleModel, $SampleModel*)},
-	{"getSampleModelTranslateX", "()I", nullptr, $PUBLIC | $FINAL, $method(Raster, getSampleModelTranslateX, int32_t)},
-	{"getSampleModelTranslateY", "()I", nullptr, $PUBLIC | $FINAL, $method(Raster, getSampleModelTranslateY, int32_t)},
-	{"getSamples", "(IIIII[I)[I", nullptr, $PUBLIC, $virtualMethod(Raster, getSamples, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"getSamples", "(IIIII[F)[F", nullptr, $PUBLIC, $virtualMethod(Raster, getSamples, $floats*, int32_t, int32_t, int32_t, int32_t, int32_t, $floats*)},
-	{"getSamples", "(IIIII[D)[D", nullptr, $PUBLIC, $virtualMethod(Raster, getSamples, $doubles*, int32_t, int32_t, int32_t, int32_t, int32_t, $doubles*)},
-	{"getTransferType", "()I", nullptr, $PUBLIC | $FINAL, $method(Raster, getTransferType, int32_t)},
-	{"getWidth", "()I", nullptr, $PUBLIC | $FINAL, $method(Raster, getWidth, int32_t)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Raster, initIDs, void)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 49
-
-$ClassInfo _Raster_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.image.Raster",
-	"java.lang.Object",
-	nullptr,
-	_Raster_FieldInfo_,
-	_Raster_MethodInfo_
-};
-
-$Object* allocate$Raster($Class* clazz) {
-	return $of($alloc(Raster));
-}
-
 void Raster::initIDs() {
 	$init(Raster);
-	$prepareNativeStatic(Raster, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 $WritableRaster* Raster::createInterleavedRaster(int32_t dataType, int32_t w, int32_t h, int32_t bands, $Point* location) {
 	$init(Raster);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (w <= 0 || h <= 0) {
 		$throwNew($IllegalArgumentException, "w and h must be > 0"_s);
 	}
@@ -174,7 +89,7 @@ $WritableRaster* Raster::createInterleavedRaster(int32_t dataType, int32_t w, in
 
 $WritableRaster* Raster::createInterleavedRaster(int32_t dataType, int32_t w, int32_t h, int32_t scanlineStride, int32_t pixelStride, $ints* bandOffsets, $Point* location$renamed) {
 	$init(Raster);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Point, location, location$renamed);
 	$var($DataBuffer, d, nullptr);
 	if (w <= 0 || h <= 0) {
@@ -194,33 +109,27 @@ $WritableRaster* Raster::createInterleavedRaster(int32_t dataType, int32_t w, in
 	if (location == nullptr) {
 		$assign(location, $new($Point, 0, 0));
 	} else {
-		bool var$1 = (w + $nc(location)->getX() > $Integer::MAX_VALUE);
-		if (var$1 || (h + $nc(location)->getY() > $Integer::MAX_VALUE)) {
+		bool var$0 = w + location->getX() > $Integer::MAX_VALUE;
+		if (var$0 || (h + location->getY() > $Integer::MAX_VALUE)) {
 			$throwNew($RasterFormatException, "location.x + w and location.y + h  cannot exceed Integer.MAX_VALUE"_s);
 		}
 	}
 	switch (dataType) {
 	case $DataBuffer::TYPE_BYTE:
-		{
-			$assign(d, $new($DataBufferByte, size));
-			break;
-		}
+		$assign(d, $new($DataBufferByte, size));
+		break;
 	case $DataBuffer::TYPE_USHORT:
-		{
-			$assign(d, $new($DataBufferUShort, size));
-			break;
-		}
+		$assign(d, $new($DataBufferUShort, size));
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Unsupported data type "_s, $$str(dataType)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Unsupported data type "_s, $$str(dataType)}));
 	}
 	return createInterleavedRaster(d, w, h, scanlineStride, pixelStride, bandOffsets, location);
 }
 
 $WritableRaster* Raster::createBandedRaster(int32_t dataType, int32_t w, int32_t h, int32_t bands, $Point* location) {
 	$init(Raster);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (bands < 1) {
 		$throwNew($ArrayIndexOutOfBoundsException, $$str({"Number of bands ("_s, $$str(bands), ") must be greater than 0"_s}));
 	}
@@ -235,7 +144,7 @@ $WritableRaster* Raster::createBandedRaster(int32_t dataType, int32_t w, int32_t
 
 $WritableRaster* Raster::createBandedRaster(int32_t dataType, int32_t w, int32_t h, int32_t scanlineStride, $ints* bankIndices, $ints* bandOffsets, $Point* location) {
 	$init(Raster);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DataBuffer, d, nullptr);
 	int32_t bands = $nc(bandOffsets)->length;
 	if (w <= 0 || h <= 0) {
@@ -252,7 +161,7 @@ $WritableRaster* Raster::createBandedRaster(int32_t dataType, int32_t w, int32_t
 		$throwNew($ArrayIndexOutOfBoundsException, "Band offsets array is null"_s);
 	}
 	if (location != nullptr) {
-		bool var$0 = (w + location->getX() > $Integer::MAX_VALUE);
+		bool var$0 = w + location->getX() > $Integer::MAX_VALUE;
 		if (var$0 || (h + location->getY() > $Integer::MAX_VALUE)) {
 			$throwNew($IllegalArgumentException, "location.x + w and location.y + h  cannot exceed Integer.MAX_VALUE"_s);
 		}
@@ -271,59 +180,43 @@ $WritableRaster* Raster::createBandedRaster(int32_t dataType, int32_t w, int32_t
 	int32_t size = maxBandOff + scanlineStride * (h - 1) + w;
 	switch (dataType) {
 	case $DataBuffer::TYPE_BYTE:
-		{
-			$assign(d, $new($DataBufferByte, size, banks));
-			break;
-		}
+		$assign(d, $new($DataBufferByte, size, banks));
+		break;
 	case $DataBuffer::TYPE_USHORT:
-		{
-			$assign(d, $new($DataBufferUShort, size, banks));
-			break;
-		}
+		$assign(d, $new($DataBufferUShort, size, banks));
+		break;
 	case $DataBuffer::TYPE_INT:
-		{
-			$assign(d, $new($DataBufferInt, size, banks));
-			break;
-		}
+		$assign(d, $new($DataBufferInt, size, banks));
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Unsupported data type "_s, $$str(dataType)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Unsupported data type "_s, $$str(dataType)}));
 	}
 	return createBandedRaster(d, w, h, scanlineStride, bankIndices, bandOffsets, location);
 }
 
 $WritableRaster* Raster::createPackedRaster(int32_t dataType, int32_t w, int32_t h, $ints* bandMasks, $Point* location) {
 	$init(Raster);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DataBuffer, d, nullptr);
 	switch (dataType) {
 	case $DataBuffer::TYPE_BYTE:
-		{
-			$assign(d, $new($DataBufferByte, w * h));
-			break;
-		}
+		$assign(d, $new($DataBufferByte, w * h));
+		break;
 	case $DataBuffer::TYPE_USHORT:
-		{
-			$assign(d, $new($DataBufferUShort, w * h));
-			break;
-		}
+		$assign(d, $new($DataBufferUShort, w * h));
+		break;
 	case $DataBuffer::TYPE_INT:
-		{
-			$assign(d, $new($DataBufferInt, w * h));
-			break;
-		}
+		$assign(d, $new($DataBufferInt, w * h));
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Unsupported data type "_s, $$str(dataType)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Unsupported data type "_s, $$str(dataType)}));
 	}
 	return createPackedRaster(d, w, h, w, bandMasks, location);
 }
 
 $WritableRaster* Raster::createPackedRaster(int32_t dataType, int32_t w, int32_t h, int32_t bands, int32_t bitsPerBand, $Point* location) {
 	$init(Raster);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DataBuffer, d, nullptr);
 	if (bands <= 0) {
 		$throwNew($IllegalArgumentException, $$str({"Number of bands ("_s, $$str(bands), ") must be greater than 0"_s}));
@@ -340,17 +233,11 @@ $WritableRaster* Raster::createPackedRaster(int32_t dataType, int32_t w, int32_t
 		}
 		switch (dataType) {
 		case $DataBuffer::TYPE_BYTE:
-			{}
 		case $DataBuffer::TYPE_USHORT:
-			{}
 		case $DataBuffer::TYPE_INT:
-			{
-				break;
-			}
+			break;
 		default:
-			{
-				$throwNew($IllegalArgumentException, $$str({"Unsupported data type "_s, $$str(dataType)}));
-			}
+			$throwNew($IllegalArgumentException, $$str({"Unsupported data type "_s, $$str(dataType)}));
 		}
 		for (int32_t i = 0; i < bands; ++i) {
 			masks->set(i, $sl(mask, shift));
@@ -361,24 +248,16 @@ $WritableRaster* Raster::createPackedRaster(int32_t dataType, int32_t w, int32_t
 		double fw = (double)w;
 		switch (dataType) {
 		case $DataBuffer::TYPE_BYTE:
-			{
-				$assign(d, $new($DataBufferByte, $cast(int32_t, ($Math::ceil(fw / ($div(8, bitsPerBand))))) * h));
-				break;
-			}
+			$assign(d, $new($DataBufferByte, $cast(int32_t, ($Math::ceil(fw / ($div(8, bitsPerBand))))) * h));
+			break;
 		case $DataBuffer::TYPE_USHORT:
-			{
-				$assign(d, $new($DataBufferUShort, $cast(int32_t, ($Math::ceil(fw / ($div(16, bitsPerBand))))) * h));
-				break;
-			}
+			$assign(d, $new($DataBufferUShort, $cast(int32_t, ($Math::ceil(fw / ($div(16, bitsPerBand))))) * h));
+			break;
 		case $DataBuffer::TYPE_INT:
-			{
-				$assign(d, $new($DataBufferInt, $cast(int32_t, ($Math::ceil(fw / ($div(32, bitsPerBand))))) * h));
-				break;
-			}
+			$assign(d, $new($DataBufferInt, $cast(int32_t, ($Math::ceil(fw / ($div(32, bitsPerBand))))) * h));
+			break;
 		default:
-			{
-				$throwNew($IllegalArgumentException, $$str({"Unsupported data type "_s, $$str(dataType)}));
-			}
+			$throwNew($IllegalArgumentException, $$str({"Unsupported data type "_s, $$str(dataType)}));
 		}
 		return createPackedRaster(d, w, h, bitsPerBand, location);
 	}
@@ -386,7 +265,7 @@ $WritableRaster* Raster::createPackedRaster(int32_t dataType, int32_t w, int32_t
 
 $WritableRaster* Raster::createInterleavedRaster($DataBuffer* dataBuffer, int32_t w, int32_t h, int32_t scanlineStride, int32_t pixelStride, $ints* bandOffsets, $Point* location$renamed) {
 	$init(Raster);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Point, location, location$renamed);
 	if (dataBuffer == nullptr) {
 		$throwNew($NullPointerException, "DataBuffer cannot be null"_s);
@@ -394,8 +273,8 @@ $WritableRaster* Raster::createInterleavedRaster($DataBuffer* dataBuffer, int32_
 	if (location == nullptr) {
 		$assign(location, $new($Point, 0, 0));
 	} else {
-		bool var$1 = (w + $nc(location)->getX() > $Integer::MAX_VALUE);
-		if (var$1 || (h + $nc(location)->getY() > $Integer::MAX_VALUE)) {
+		bool var$0 = w + location->getX() > $Integer::MAX_VALUE;
+		if (var$0 || (h + location->getY() > $Integer::MAX_VALUE)) {
 			$throwNew($RasterFormatException, "location.x + w and location.y + h  cannot exceed Integer.MAX_VALUE"_s);
 		}
 	}
@@ -403,30 +282,24 @@ $WritableRaster* Raster::createInterleavedRaster($DataBuffer* dataBuffer, int32_
 	$var($PixelInterleavedSampleModel, csm, $new($PixelInterleavedSampleModel, dataType, w, h, pixelStride, scanlineStride, bandOffsets));
 	switch (dataType) {
 	case $DataBuffer::TYPE_BYTE:
-		{
-			if ($instanceOf($DataBufferByte, dataBuffer)) {
-				return $new($ByteInterleavedRaster, csm, $cast($DataBufferByte, dataBuffer), location);
-			}
-			break;
+		if ($instanceOf($DataBufferByte, dataBuffer)) {
+			return $new($ByteInterleavedRaster, csm, $cast($DataBufferByte, dataBuffer), location);
 		}
+		break;
 	case $DataBuffer::TYPE_USHORT:
-		{
-			if ($instanceOf($DataBufferUShort, dataBuffer)) {
-				return $new($ShortInterleavedRaster, csm, $cast($DataBufferUShort, dataBuffer), location);
-			}
-			break;
+		if ($instanceOf($DataBufferUShort, dataBuffer)) {
+			return $new($ShortInterleavedRaster, csm, $cast($DataBufferUShort, dataBuffer), location);
 		}
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Unsupported data type "_s, $$str(dataType)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Unsupported data type "_s, $$str(dataType)}));
 	}
 	return $new($SunWritableRaster, csm, dataBuffer, location);
 }
 
 $WritableRaster* Raster::createBandedRaster($DataBuffer* dataBuffer, int32_t w, int32_t h, int32_t scanlineStride, $ints* bankIndices, $ints* bandOffsets, $Point* location$renamed) {
 	$init(Raster);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Point, location, location$renamed);
 	if (dataBuffer == nullptr) {
 		$throwNew($NullPointerException, "DataBuffer cannot be null"_s);
@@ -450,8 +323,8 @@ $WritableRaster* Raster::createBandedRaster($DataBuffer* dataBuffer, int32_t w, 
 	if (location == nullptr) {
 		$assign(location, $new($Point, 0, 0));
 	} else {
-		bool var$1 = (w + $nc(location)->getX() > $Integer::MAX_VALUE);
-		if (var$1 || (h + $nc(location)->getY() > $Integer::MAX_VALUE)) {
+		bool var$0 = w + location->getX() > $Integer::MAX_VALUE;
+		if (var$0 || (h + location->getY() > $Integer::MAX_VALUE)) {
 			$throwNew($RasterFormatException, "location.x + w and location.y + h  cannot exceed Integer.MAX_VALUE"_s);
 		}
 	}
@@ -459,34 +332,26 @@ $WritableRaster* Raster::createBandedRaster($DataBuffer* dataBuffer, int32_t w, 
 	$var($BandedSampleModel, bsm, $new($BandedSampleModel, dataType, w, h, scanlineStride, bankIndices, bandOffsets));
 	switch (dataType) {
 	case $DataBuffer::TYPE_BYTE:
-		{
-			if ($instanceOf($DataBufferByte, dataBuffer)) {
-				return $new($ByteBandedRaster, bsm, $cast($DataBufferByte, dataBuffer), location);
-			}
-			break;
+		if ($instanceOf($DataBufferByte, dataBuffer)) {
+			return $new($ByteBandedRaster, bsm, $cast($DataBufferByte, dataBuffer), location);
 		}
+		break;
 	case $DataBuffer::TYPE_USHORT:
-		{
-			if ($instanceOf($DataBufferUShort, dataBuffer)) {
-				return $new($ShortBandedRaster, bsm, $cast($DataBufferUShort, dataBuffer), location);
-			}
-			break;
+		if ($instanceOf($DataBufferUShort, dataBuffer)) {
+			return $new($ShortBandedRaster, bsm, $cast($DataBufferUShort, dataBuffer), location);
 		}
+		break;
 	case $DataBuffer::TYPE_INT:
-		{
-			break;
-		}
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Unsupported data type "_s, $$str(dataType)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Unsupported data type "_s, $$str(dataType)}));
 	}
 	return $new($SunWritableRaster, bsm, dataBuffer, location);
 }
 
 $WritableRaster* Raster::createPackedRaster($DataBuffer* dataBuffer, int32_t w, int32_t h, int32_t scanlineStride, $ints* bandMasks, $Point* location$renamed) {
 	$init(Raster);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Point, location, location$renamed);
 	if (dataBuffer == nullptr) {
 		$throwNew($NullPointerException, "DataBuffer cannot be null"_s);
@@ -498,37 +363,29 @@ $WritableRaster* Raster::createPackedRaster($DataBuffer* dataBuffer, int32_t w, 
 	$var($SinglePixelPackedSampleModel, sppsm, $new($SinglePixelPackedSampleModel, dataType, w, h, scanlineStride, bandMasks));
 	switch (dataType) {
 	case $DataBuffer::TYPE_BYTE:
-		{
-			if ($instanceOf($DataBufferByte, dataBuffer)) {
-				return $new($ByteInterleavedRaster, sppsm, $cast($DataBufferByte, dataBuffer), location);
-			}
-			break;
+		if ($instanceOf($DataBufferByte, dataBuffer)) {
+			return $new($ByteInterleavedRaster, sppsm, $cast($DataBufferByte, dataBuffer), location);
 		}
+		break;
 	case $DataBuffer::TYPE_USHORT:
-		{
-			if ($instanceOf($DataBufferUShort, dataBuffer)) {
-				return $new($ShortInterleavedRaster, sppsm, $cast($DataBufferUShort, dataBuffer), location);
-			}
-			break;
+		if ($instanceOf($DataBufferUShort, dataBuffer)) {
+			return $new($ShortInterleavedRaster, sppsm, $cast($DataBufferUShort, dataBuffer), location);
 		}
+		break;
 	case $DataBuffer::TYPE_INT:
-		{
-			if ($instanceOf($DataBufferInt, dataBuffer)) {
-				return $new($IntegerInterleavedRaster, sppsm, $cast($DataBufferInt, dataBuffer), location);
-			}
-			break;
+		if ($instanceOf($DataBufferInt, dataBuffer)) {
+			return $new($IntegerInterleavedRaster, sppsm, $cast($DataBufferInt, dataBuffer), location);
 		}
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Unsupported data type "_s, $$str(dataType)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Unsupported data type "_s, $$str(dataType)}));
 	}
 	return $new($SunWritableRaster, sppsm, dataBuffer, location);
 }
 
 $WritableRaster* Raster::createPackedRaster($DataBuffer* dataBuffer, int32_t w, int32_t h, int32_t bitsPerPixel, $Point* location$renamed) {
 	$init(Raster);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Point, location, location$renamed);
 	if (dataBuffer == nullptr) {
 		$throwNew($NullPointerException, "DataBuffer cannot be null"_s);
@@ -564,43 +421,33 @@ Raster* Raster::createRaster($SampleModel* sm, $DataBuffer* db, $Point* location
 	if ($instanceOf($PixelInterleavedSampleModel, sm)) {
 		switch (dataType) {
 		case $DataBuffer::TYPE_BYTE:
-			{
-				if ($instanceOf($DataBufferByte, db)) {
-					return $new($ByteInterleavedRaster, sm, $cast($DataBufferByte, db), location);
-				}
-				break;
+			if ($instanceOf($DataBufferByte, db)) {
+				return $new($ByteInterleavedRaster, sm, $cast($DataBufferByte, db), location);
 			}
+			break;
 		case $DataBuffer::TYPE_USHORT:
-			{
-				if ($instanceOf($DataBufferUShort, db)) {
-					return $new($ShortInterleavedRaster, sm, $cast($DataBufferUShort, db), location);
-				}
-				break;
+			if ($instanceOf($DataBufferUShort, db)) {
+				return $new($ShortInterleavedRaster, sm, $cast($DataBufferUShort, db), location);
 			}
+			break;
 		}
 	} else if ($instanceOf($SinglePixelPackedSampleModel, sm)) {
 		switch (dataType) {
 		case $DataBuffer::TYPE_BYTE:
-			{
-				if ($instanceOf($DataBufferByte, db)) {
-					return $new($ByteInterleavedRaster, sm, $cast($DataBufferByte, db), location);
-				}
-				break;
+			if ($instanceOf($DataBufferByte, db)) {
+				return $new($ByteInterleavedRaster, sm, $cast($DataBufferByte, db), location);
 			}
+			break;
 		case $DataBuffer::TYPE_USHORT:
-			{
-				if ($instanceOf($DataBufferUShort, db)) {
-					return $new($ShortInterleavedRaster, sm, $cast($DataBufferUShort, db), location);
-				}
-				break;
+			if ($instanceOf($DataBufferUShort, db)) {
+				return $new($ShortInterleavedRaster, sm, $cast($DataBufferUShort, db), location);
 			}
+			break;
 		case $DataBuffer::TYPE_INT:
-			{
-				if ($instanceOf($DataBufferInt, db)) {
-					return $new($IntegerInterleavedRaster, sm, $cast($DataBufferInt, db), location);
-				}
-				break;
+			if ($instanceOf($DataBufferInt, db)) {
+				return $new($IntegerInterleavedRaster, sm, $cast($DataBufferInt, db), location);
 			}
+			break;
 		}
 	} else if ($instanceOf($MultiPixelPackedSampleModel, sm) && dataType == $DataBuffer::TYPE_BYTE && $instanceOf($DataBufferByte, db) && sm->getSampleSize(0) < 8) {
 		return $new($BytePackedRaster, sm, $cast($DataBufferByte, db), location);
@@ -610,7 +457,7 @@ Raster* Raster::createRaster($SampleModel* sm, $DataBuffer* db, $Point* location
 
 $WritableRaster* Raster::createWritableRaster($SampleModel* sm, $Point* location$renamed) {
 	$init(Raster);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Point, location, location$renamed);
 	if (location == nullptr) {
 		$assign(location, $new($Point, 0, 0));
@@ -631,43 +478,33 @@ $WritableRaster* Raster::createWritableRaster($SampleModel* sm, $DataBuffer* db,
 	if ($instanceOf($PixelInterleavedSampleModel, sm)) {
 		switch (dataType) {
 		case $DataBuffer::TYPE_BYTE:
-			{
-				if ($instanceOf($DataBufferByte, db)) {
-					return $new($ByteInterleavedRaster, sm, $cast($DataBufferByte, db), location);
-				}
-				break;
+			if ($instanceOf($DataBufferByte, db)) {
+				return $new($ByteInterleavedRaster, sm, $cast($DataBufferByte, db), location);
 			}
+			break;
 		case $DataBuffer::TYPE_USHORT:
-			{
-				if ($instanceOf($DataBufferUShort, db)) {
-					return $new($ShortInterleavedRaster, sm, $cast($DataBufferUShort, db), location);
-				}
-				break;
+			if ($instanceOf($DataBufferUShort, db)) {
+				return $new($ShortInterleavedRaster, sm, $cast($DataBufferUShort, db), location);
 			}
+			break;
 		}
 	} else if ($instanceOf($SinglePixelPackedSampleModel, sm)) {
 		switch (dataType) {
 		case $DataBuffer::TYPE_BYTE:
-			{
-				if ($instanceOf($DataBufferByte, db)) {
-					return $new($ByteInterleavedRaster, sm, $cast($DataBufferByte, db), location);
-				}
-				break;
+			if ($instanceOf($DataBufferByte, db)) {
+				return $new($ByteInterleavedRaster, sm, $cast($DataBufferByte, db), location);
 			}
+			break;
 		case $DataBuffer::TYPE_USHORT:
-			{
-				if ($instanceOf($DataBufferUShort, db)) {
-					return $new($ShortInterleavedRaster, sm, $cast($DataBufferUShort, db), location);
-				}
-				break;
+			if ($instanceOf($DataBufferUShort, db)) {
+				return $new($ShortInterleavedRaster, sm, $cast($DataBufferUShort, db), location);
 			}
+			break;
 		case $DataBuffer::TYPE_INT:
-			{
-				if ($instanceOf($DataBufferInt, db)) {
-					return $new($IntegerInterleavedRaster, sm, $cast($DataBufferInt, db), location);
-				}
-				break;
+			if ($instanceOf($DataBufferInt, db)) {
+				return $new($IntegerInterleavedRaster, sm, $cast($DataBufferInt, db), location);
 			}
+			break;
 		}
 	} else if ($instanceOf($MultiPixelPackedSampleModel, sm) && dataType == $DataBuffer::TYPE_BYTE && $instanceOf($DataBufferByte, db) && sm->getSampleSize(0) < 8) {
 		return $new($BytePackedRaster, sm, $cast($DataBufferByte, db), location);
@@ -676,13 +513,12 @@ $WritableRaster* Raster::createWritableRaster($SampleModel* sm, $DataBuffer* db,
 }
 
 void Raster::init$($SampleModel* sampleModel, $Point* origin) {
-	$useLocalCurrentObjectStackCache();
-	$var($SampleModel, var$0, sampleModel);
-	$var($DataBuffer, var$1, $nc(sampleModel)->createDataBuffer());
-	int32_t var$2 = $nc(origin)->x;
-	int32_t var$3 = origin->y;
-	int32_t var$4 = sampleModel->getWidth();
-	Raster::init$(var$0, var$1, $$new($Rectangle, var$2, var$3, var$4, sampleModel->getHeight()), origin, nullptr);
+	$useLocalObjectStack();
+	$var($DataBuffer, var$0, $nc(sampleModel)->createDataBuffer());
+	int32_t var$1 = $nc(origin)->x;
+	int32_t var$2 = origin->y;
+	int32_t var$3 = sampleModel->getWidth();
+	Raster::init$(sampleModel, var$0, $$new($Rectangle, var$1, var$2, var$3, sampleModel->getHeight()), origin, nullptr);
 }
 
 void Raster::init$($SampleModel* sampleModel, $DataBuffer* dataBuffer, $Point* origin) {
@@ -735,7 +571,7 @@ $WritableRaster* Raster::createCompatibleWritableRaster() {
 }
 
 $WritableRaster* Raster::createCompatibleWritableRaster(int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (w <= 0 || h <= 0) {
 		$throwNew($RasterFormatException, $$str({"negative "_s, ((w <= 0) ? "width"_s : "height"_s)}));
 	}
@@ -747,7 +583,7 @@ $WritableRaster* Raster::createCompatibleWritableRaster($Rectangle* rect) {
 	if (rect == nullptr) {
 		$throwNew($NullPointerException, "Rect cannot be null"_s);
 	}
-	return createCompatibleWritableRaster($nc(rect)->x, rect->y, rect->width, rect->height);
+	return createCompatibleWritableRaster($nc(rect)->x, $nc(rect)->y, $nc(rect)->width, $nc(rect)->height);
 }
 
 $WritableRaster* Raster::createCompatibleWritableRaster(int32_t x, int32_t y, int32_t w, int32_t h) {
@@ -760,7 +596,7 @@ Raster* Raster::createTranslatedChild(int32_t childMinX, int32_t childMinY) {
 }
 
 Raster* Raster::createChild(int32_t parentX, int32_t parentY, int32_t width, int32_t height, int32_t childMinX, int32_t childMinY, $ints* bandList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (parentX < this->minX) {
 		$throwNew($RasterFormatException, "parentX lies outside raster"_s);
 	}
@@ -781,10 +617,9 @@ Raster* Raster::createChild(int32_t parentX, int32_t parentY, int32_t width, int
 	}
 	int32_t deltaX = childMinX - parentX;
 	int32_t deltaY = childMinY - parentY;
-	$var($SampleModel, var$0, subSampleModel);
-	$var($DataBuffer, var$1, getDataBuffer());
-	$var($Rectangle, var$2, $new($Rectangle, childMinX, childMinY, width, height));
-	return $new(Raster, var$0, var$1, var$2, $$new($Point, this->sampleModelTranslateX + deltaX, this->sampleModelTranslateY + deltaY), this);
+	$var($DataBuffer, var$0, getDataBuffer());
+	$var($Rectangle, var$1, $new($Rectangle, childMinX, childMinY, width, height));
+	return $new(Raster, subSampleModel, var$0, var$1, $$new($Point, this->sampleModelTranslateX + deltaX, this->sampleModelTranslateY + deltaY), this);
 }
 
 $Rectangle* Raster::getBounds() {
@@ -828,11 +663,11 @@ $SampleModel* Raster::getSampleModel() {
 }
 
 $Object* Raster::getDataElements(int32_t x, int32_t y, Object$* outData) {
-	return $of($nc(this->sampleModel)->getDataElements(x - this->sampleModelTranslateX, y - this->sampleModelTranslateY, outData, this->dataBuffer));
+	return $nc(this->sampleModel)->getDataElements(x - this->sampleModelTranslateX, y - this->sampleModelTranslateY, outData, this->dataBuffer);
 }
 
 $Object* Raster::getDataElements(int32_t x, int32_t y, int32_t w, int32_t h, Object$* outData) {
-	return $of($nc(this->sampleModel)->getDataElements(x - this->sampleModelTranslateX, y - this->sampleModelTranslateY, w, h, outData, this->dataBuffer));
+	return $nc(this->sampleModel)->getDataElements(x - this->sampleModelTranslateX, y - this->sampleModelTranslateY, w, h, outData, this->dataBuffer);
 }
 
 $ints* Raster::getPixel(int32_t x, int32_t y, $ints* iArray) {
@@ -883,7 +718,7 @@ $doubles* Raster::getSamples(int32_t x, int32_t y, int32_t w, int32_t h, int32_t
 	return $nc(this->sampleModel)->getSamples(x - this->sampleModelTranslateX, y - this->sampleModelTranslateY, w, h, b, dArray, this->dataBuffer);
 }
 
-void clinit$Raster($Class* class$) {
+void Raster::clinit$($Class* clazz) {
 	{
 		$ColorModel::loadLibraries();
 		Raster::initIDs();
@@ -894,7 +729,84 @@ Raster::Raster() {
 }
 
 $Class* Raster::load$($String* name, bool initialize) {
-	$loadClass(Raster, name, initialize, &_Raster_ClassInfo_, clinit$Raster, allocate$Raster);
+	$FieldInfo fieldInfos$$[] = {
+		{"sampleModel", "Ljava/awt/image/SampleModel;", nullptr, $PROTECTED, $field(Raster, sampleModel)},
+		{"dataBuffer", "Ljava/awt/image/DataBuffer;", nullptr, $PROTECTED, $field(Raster, dataBuffer)},
+		{"minX", "I", nullptr, $PROTECTED, $field(Raster, minX)},
+		{"minY", "I", nullptr, $PROTECTED, $field(Raster, minY)},
+		{"width", "I", nullptr, $PROTECTED, $field(Raster, width)},
+		{"height", "I", nullptr, $PROTECTED, $field(Raster, height)},
+		{"sampleModelTranslateX", "I", nullptr, $PROTECTED, $field(Raster, sampleModelTranslateX)},
+		{"sampleModelTranslateY", "I", nullptr, $PROTECTED, $field(Raster, sampleModelTranslateY)},
+		{"numBands", "I", nullptr, $PROTECTED, $field(Raster, numBands)},
+		{"numDataElements", "I", nullptr, $PROTECTED, $field(Raster, numDataElements)},
+		{"parent", "Ljava/awt/image/Raster;", nullptr, $PROTECTED, $field(Raster, parent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/Point;)V", nullptr, $PROTECTED, $method(Raster, init$, void, $SampleModel*, $Point*)},
+		{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBuffer;Ljava/awt/Point;)V", nullptr, $PROTECTED, $method(Raster, init$, void, $SampleModel*, $DataBuffer*, $Point*)},
+		{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBuffer;Ljava/awt/Rectangle;Ljava/awt/Point;Ljava/awt/image/Raster;)V", nullptr, $PROTECTED, $method(Raster, init$, void, $SampleModel*, $DataBuffer*, $Rectangle*, $Point*, Raster*)},
+		{"createBandedRaster", "(IIIILjava/awt/Point;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $STATIC, $staticMethod(Raster, createBandedRaster, $WritableRaster*, int32_t, int32_t, int32_t, int32_t, $Point*)},
+		{"createBandedRaster", "(IIII[I[ILjava/awt/Point;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $STATIC, $staticMethod(Raster, createBandedRaster, $WritableRaster*, int32_t, int32_t, int32_t, int32_t, $ints*, $ints*, $Point*)},
+		{"createBandedRaster", "(Ljava/awt/image/DataBuffer;III[I[ILjava/awt/Point;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $STATIC, $staticMethod(Raster, createBandedRaster, $WritableRaster*, $DataBuffer*, int32_t, int32_t, int32_t, $ints*, $ints*, $Point*)},
+		{"createChild", "(IIIIII[I)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(Raster, createChild, Raster*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"createCompatibleWritableRaster", "()Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(Raster, createCompatibleWritableRaster, $WritableRaster*)},
+		{"createCompatibleWritableRaster", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(Raster, createCompatibleWritableRaster, $WritableRaster*, int32_t, int32_t)},
+		{"createCompatibleWritableRaster", "(Ljava/awt/Rectangle;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(Raster, createCompatibleWritableRaster, $WritableRaster*, $Rectangle*)},
+		{"createCompatibleWritableRaster", "(IIII)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(Raster, createCompatibleWritableRaster, $WritableRaster*, int32_t, int32_t, int32_t, int32_t)},
+		{"createInterleavedRaster", "(IIIILjava/awt/Point;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $STATIC, $staticMethod(Raster, createInterleavedRaster, $WritableRaster*, int32_t, int32_t, int32_t, int32_t, $Point*)},
+		{"createInterleavedRaster", "(IIIII[ILjava/awt/Point;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $STATIC, $staticMethod(Raster, createInterleavedRaster, $WritableRaster*, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*, $Point*)},
+		{"createInterleavedRaster", "(Ljava/awt/image/DataBuffer;IIII[ILjava/awt/Point;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $STATIC, $staticMethod(Raster, createInterleavedRaster, $WritableRaster*, $DataBuffer*, int32_t, int32_t, int32_t, int32_t, $ints*, $Point*)},
+		{"createPackedRaster", "(III[ILjava/awt/Point;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $STATIC, $staticMethod(Raster, createPackedRaster, $WritableRaster*, int32_t, int32_t, int32_t, $ints*, $Point*)},
+		{"createPackedRaster", "(IIIIILjava/awt/Point;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $STATIC, $staticMethod(Raster, createPackedRaster, $WritableRaster*, int32_t, int32_t, int32_t, int32_t, int32_t, $Point*)},
+		{"createPackedRaster", "(Ljava/awt/image/DataBuffer;III[ILjava/awt/Point;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $STATIC, $staticMethod(Raster, createPackedRaster, $WritableRaster*, $DataBuffer*, int32_t, int32_t, int32_t, $ints*, $Point*)},
+		{"createPackedRaster", "(Ljava/awt/image/DataBuffer;IIILjava/awt/Point;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $STATIC, $staticMethod(Raster, createPackedRaster, $WritableRaster*, $DataBuffer*, int32_t, int32_t, int32_t, $Point*)},
+		{"createRaster", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBuffer;Ljava/awt/Point;)Ljava/awt/image/Raster;", nullptr, $PUBLIC | $STATIC, $staticMethod(Raster, createRaster, Raster*, $SampleModel*, $DataBuffer*, $Point*)},
+		{"createTranslatedChild", "(II)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(Raster, createTranslatedChild, Raster*, int32_t, int32_t)},
+		{"createWritableRaster", "(Ljava/awt/image/SampleModel;Ljava/awt/Point;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $STATIC, $staticMethod(Raster, createWritableRaster, $WritableRaster*, $SampleModel*, $Point*)},
+		{"createWritableRaster", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBuffer;Ljava/awt/Point;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $STATIC, $staticMethod(Raster, createWritableRaster, $WritableRaster*, $SampleModel*, $DataBuffer*, $Point*)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(Raster, getBounds, $Rectangle*)},
+		{"getDataBuffer", "()Ljava/awt/image/DataBuffer;", nullptr, $PUBLIC, $virtualMethod(Raster, getDataBuffer, $DataBuffer*)},
+		{"getDataElements", "(IILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Raster, getDataElements, $Object*, int32_t, int32_t, Object$*)},
+		{"getDataElements", "(IIIILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Raster, getDataElements, $Object*, int32_t, int32_t, int32_t, int32_t, Object$*)},
+		{"getHeight", "()I", nullptr, $PUBLIC | $FINAL, $method(Raster, getHeight, int32_t)},
+		{"getMinX", "()I", nullptr, $PUBLIC | $FINAL, $method(Raster, getMinX, int32_t)},
+		{"getMinY", "()I", nullptr, $PUBLIC | $FINAL, $method(Raster, getMinY, int32_t)},
+		{"getNumBands", "()I", nullptr, $PUBLIC | $FINAL, $method(Raster, getNumBands, int32_t)},
+		{"getNumDataElements", "()I", nullptr, $PUBLIC | $FINAL, $method(Raster, getNumDataElements, int32_t)},
+		{"getParent", "()Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(Raster, getParent, Raster*)},
+		{"getPixel", "(II[I)[I", nullptr, $PUBLIC, $virtualMethod(Raster, getPixel, $ints*, int32_t, int32_t, $ints*)},
+		{"getPixel", "(II[F)[F", nullptr, $PUBLIC, $virtualMethod(Raster, getPixel, $floats*, int32_t, int32_t, $floats*)},
+		{"getPixel", "(II[D)[D", nullptr, $PUBLIC, $virtualMethod(Raster, getPixel, $doubles*, int32_t, int32_t, $doubles*)},
+		{"getPixels", "(IIII[I)[I", nullptr, $PUBLIC, $virtualMethod(Raster, getPixels, $ints*, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"getPixels", "(IIII[F)[F", nullptr, $PUBLIC, $virtualMethod(Raster, getPixels, $floats*, int32_t, int32_t, int32_t, int32_t, $floats*)},
+		{"getPixels", "(IIII[D)[D", nullptr, $PUBLIC, $virtualMethod(Raster, getPixels, $doubles*, int32_t, int32_t, int32_t, int32_t, $doubles*)},
+		{"getSample", "(III)I", nullptr, $PUBLIC, $virtualMethod(Raster, getSample, int32_t, int32_t, int32_t, int32_t)},
+		{"getSampleDouble", "(III)D", nullptr, $PUBLIC, $virtualMethod(Raster, getSampleDouble, double, int32_t, int32_t, int32_t)},
+		{"getSampleFloat", "(III)F", nullptr, $PUBLIC, $virtualMethod(Raster, getSampleFloat, float, int32_t, int32_t, int32_t)},
+		{"getSampleModel", "()Ljava/awt/image/SampleModel;", nullptr, $PUBLIC, $virtualMethod(Raster, getSampleModel, $SampleModel*)},
+		{"getSampleModelTranslateX", "()I", nullptr, $PUBLIC | $FINAL, $method(Raster, getSampleModelTranslateX, int32_t)},
+		{"getSampleModelTranslateY", "()I", nullptr, $PUBLIC | $FINAL, $method(Raster, getSampleModelTranslateY, int32_t)},
+		{"getSamples", "(IIIII[I)[I", nullptr, $PUBLIC, $virtualMethod(Raster, getSamples, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"getSamples", "(IIIII[F)[F", nullptr, $PUBLIC, $virtualMethod(Raster, getSamples, $floats*, int32_t, int32_t, int32_t, int32_t, int32_t, $floats*)},
+		{"getSamples", "(IIIII[D)[D", nullptr, $PUBLIC, $virtualMethod(Raster, getSamples, $doubles*, int32_t, int32_t, int32_t, int32_t, int32_t, $doubles*)},
+		{"getTransferType", "()I", nullptr, $PUBLIC | $FINAL, $method(Raster, getTransferType, int32_t)},
+		{"getWidth", "()I", nullptr, $PUBLIC | $FINAL, $method(Raster, getWidth, int32_t)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Raster, initIDs, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.image.Raster",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Raster, name, initialize, &classInfo$$, Raster::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Raster);
+	});
 	return class$;
 }
 

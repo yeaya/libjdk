@@ -39,6 +39,7 @@ class $import Kinit : public ::java::lang::Object {
 	$class(Kinit, 0, ::java::lang::Object)
 public:
 	Kinit();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($StringArray* args);
 	void acquire();
 	static void main($StringArray* args);

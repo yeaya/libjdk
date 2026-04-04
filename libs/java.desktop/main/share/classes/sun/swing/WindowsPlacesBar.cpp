@@ -1,15 +1,12 @@
 #include <sun/swing/WindowsPlacesBar.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Image.h>
 #include <java/awt/Insets.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/io/File.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Box.h>
 #include <javax/swing/ButtonGroup.h>
 #include <javax/swing/Icon.h>
@@ -41,19 +38,16 @@
 
 using $JToggleButtonArray = $Array<::javax::swing::JToggleButton>;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $Image = ::java::awt::Image;
 using $Insets = ::java::awt::Insets;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $File = ::java::io::File;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $Box = ::javax::swing::Box;
 using $ButtonGroup = ::javax::swing::ButtonGroup;
 using $Icon = ::javax::swing::Icon;
@@ -64,52 +58,14 @@ using $JToggleButton = ::javax::swing::JToggleButton;
 using $JToolBar = ::javax::swing::JToolBar;
 using $UIManager = ::javax::swing::UIManager;
 using $BevelBorder = ::javax::swing::border::BevelBorder;
-using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $FileSystemView = ::javax::swing::filechooser::FileSystemView;
 using $OSInfo = ::sun::awt::OSInfo;
 using $OSInfo$OSType = ::sun::awt::OSInfo$OSType;
-using $OSInfo$WindowsVersion = ::sun::awt::OSInfo$WindowsVersion;
 using $ShellFolder = ::sun::awt::shell::ShellFolder;
 
 namespace sun {
 	namespace swing {
-
-$FieldInfo _WindowsPlacesBar_FieldInfo_[] = {
-	{"fc", "Ljavax/swing/JFileChooser;", nullptr, 0, $field(WindowsPlacesBar, fc)},
-	{"buttons", "[Ljavax/swing/JToggleButton;", nullptr, 0, $field(WindowsPlacesBar, buttons)},
-	{"buttonGroup", "Ljavax/swing/ButtonGroup;", nullptr, 0, $field(WindowsPlacesBar, buttonGroup)},
-	{"files", "[Ljava/io/File;", nullptr, 0, $field(WindowsPlacesBar, files)},
-	{"buttonSize", "Ljava/awt/Dimension;", nullptr, $FINAL, $field(WindowsPlacesBar, buttonSize)},
-	{}
-};
-
-$MethodInfo _WindowsPlacesBar_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JFileChooser;Z)V", nullptr, $PUBLIC, $method(WindowsPlacesBar, init$, void, $JFileChooser*, bool)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsPlacesBar, actionPerformed, void, $ActionEvent*)},
-	{"doDirectoryChanged", "(Ljava/io/File;)V", nullptr, $PROTECTED, $virtualMethod(WindowsPlacesBar, doDirectoryChanged, void, $File*)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsPlacesBar, getPreferredSize, $Dimension*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsPlacesBar, propertyChange, void, $PropertyChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _WindowsPlacesBar_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.swing.WindowsPlacesBar",
-	"javax.swing.JToolBar",
-	"java.awt.event.ActionListener,java.beans.PropertyChangeListener",
-	_WindowsPlacesBar_FieldInfo_,
-	_WindowsPlacesBar_MethodInfo_
-};
-
-$Object* allocate$WindowsPlacesBar($Class* clazz) {
-	return $of($alloc(WindowsPlacesBar));
-}
 
 $String* WindowsPlacesBar::toString() {
 	 return this->$JToolBar::toString();
@@ -132,15 +88,14 @@ void WindowsPlacesBar::finalize() {
 }
 
 void WindowsPlacesBar::init$($JFileChooser* fc, bool isXPStyle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JToolBar::init$($JToolBar::VERTICAL);
 	$set(this, fc, fc);
 	setFloatable(false);
-	$init($Boolean);
 	putClientProperty("JToolBar.isRollover"_s, $Boolean::TRUE);
 	$init($OSInfo$OSType);
 	bool var$0 = $OSInfo::getOSType() == $OSInfo$OSType::WINDOWS;
-	bool isXPPlatform = (var$0 && $nc($($OSInfo::getWindowsVersion()))->compareTo($OSInfo::WINDOWS_XP) >= 0);
+	bool isXPPlatform = (var$0 && $$nc($OSInfo::getWindowsVersion())->compareTo($OSInfo::WINDOWS_XP) >= 0);
 	if (isXPStyle) {
 		$set(this, buttonSize, $new($Dimension, 83, 69));
 		putClientProperty("XPStyle.subAppName"_s, "placesbar"_s);
@@ -152,38 +107,37 @@ void WindowsPlacesBar::init$($JFileChooser* fc, bool isXPStyle) {
 		$var($Color, var$3, $UIManager::getColor("ToolBar.darkShadow"_s));
 		setBorder($$new($BevelBorder, $BevelBorder::LOWERED, var$1, var$2, var$3, $($UIManager::getColor("ToolBar.shadow"_s))));
 	}
-	$var($Color, bgColor, $new($Color, $nc($($UIManager::getColor("ToolBar.shadow"_s)))->getRGB()));
+	$var($Color, bgColor, $new($Color, $$nc($UIManager::getColor("ToolBar.shadow"_s))->getRGB()));
 	setBackground(bgColor);
 	$var($FileSystemView, fsv, $nc(fc)->getFileSystemView());
 	$set(this, files, $nc(fsv)->getChooserShortcutPanelFiles());
 	$set(this, buttons, $new($JToggleButtonArray, $nc(this->files)->length));
 	$set(this, buttonGroup, $new($ButtonGroup));
 	for (int32_t i = 0; i < $nc(this->files)->length; ++i) {
-		if (fsv->isFileSystemRoot($nc(this->files)->get(i))) {
+		if (fsv->isFileSystemRoot(this->files->get(i))) {
 			$nc(this->files)->set(i, $(fsv->createFileObject($($nc($nc(this->files)->get(i))->getAbsolutePath()))));
 		}
 		$var($String, folderName, fsv->getSystemDisplayName($nc(this->files)->get(i)));
-		$init($File);
-		int32_t index = $nc(folderName)->lastIndexOf((int32_t)$File::separatorChar);
+		int32_t index = $nc(folderName)->lastIndexOf($File::separatorChar);
 		if (index >= 0 && index < folderName->length() - 1) {
 			$assign(folderName, folderName->substring(index + 1));
 		}
 		$var($Icon, icon, nullptr);
 		if ($instanceOf($ShellFolder, $nc(this->files)->get(i))) {
-			$var($ShellFolder, sf, $cast($ShellFolder, $nc(this->files)->get(i)));
+			$var($ShellFolder, sf, $cast($ShellFolder, this->files->get(i)));
 			$var($Image, image, $nc(sf)->getIcon(true));
 			if (image == nullptr) {
 				$assign(image, $cast($Image, $ShellFolder::get("shell32LargeIcon 1"_s)));
 			}
-			$assign(icon, image == nullptr ? ($Icon*)nullptr : static_cast<$Icon*>($new($ImageIcon, image, $(sf->getFolderType()))));
+			$assign(icon, image == nullptr ? ($Icon*)nullptr : $cast($Icon, $new($ImageIcon, image, $(sf->getFolderType()))));
 		} else {
-			$assign(icon, fsv->getSystemIcon($nc(this->files)->get(i)));
+			$assign(icon, fsv->getSystemIcon(this->files->get(i)));
 		}
 		$nc(this->buttons)->set(i, $$new($JToggleButton, folderName, icon));
 		if (isXPStyle) {
-			$nc($nc(this->buttons)->get(i))->putClientProperty("XPStyle.subAppName"_s, "placesbar"_s);
+			$nc(this->buttons->get(i))->putClientProperty("XPStyle.subAppName"_s, "placesbar"_s);
 		} else {
-			$var($Color, fgColor, $new($Color, $nc($($UIManager::getColor("List.selectionForeground"_s)))->getRGB()));
+			$var($Color, fgColor, $new($Color, $$nc($UIManager::getColor("List.selectionForeground"_s))->getRGB()));
 			$nc($nc(this->buttons)->get(i))->setContentAreaFilled(false);
 			$nc($nc(this->buttons)->get(i))->setForeground(fgColor);
 		}
@@ -197,7 +151,7 @@ void WindowsPlacesBar::init$($JFileChooser* fc, bool isXPStyle) {
 		$nc($nc(this->buttons)->get(i))->setPreferredSize(this->buttonSize);
 		$nc($nc(this->buttons)->get(i))->setMaximumSize(this->buttonSize);
 		$nc($nc(this->buttons)->get(i))->addActionListener(this);
-		add(static_cast<$Component*>($nc(this->buttons)->get(i)));
+		add($nc(this->buttons)->get(i));
 		if (i < $nc(this->files)->length - 1 && isXPStyle) {
 			add($($Box::createRigidArea($$new($Dimension, 1, 1))));
 		}
@@ -207,9 +161,9 @@ void WindowsPlacesBar::init$($JFileChooser* fc, bool isXPStyle) {
 }
 
 void WindowsPlacesBar::doDirectoryChanged($File* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->buttons)->length; ++i) {
-		$var($JToggleButton, b, $nc(this->buttons)->get(i));
+		$var($JToggleButton, b, this->buttons->get(i));
 		if ($nc($nc(this->files)->get(i))->equals(f)) {
 			$nc(b)->setSelected(true);
 			break;
@@ -222,7 +176,7 @@ void WindowsPlacesBar::doDirectoryChanged($File* f) {
 }
 
 void WindowsPlacesBar::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prop, $nc(e)->getPropertyName());
 	$init($JFileChooser);
 	if (prop == $JFileChooser::DIRECTORY_CHANGED_PROPERTY) {
@@ -233,7 +187,7 @@ void WindowsPlacesBar::propertyChange($PropertyChangeEvent* e) {
 void WindowsPlacesBar::actionPerformed($ActionEvent* e) {
 	$var($JToggleButton, b, $cast($JToggleButton, $nc(e)->getSource()));
 	for (int32_t i = 0; i < $nc(this->buttons)->length; ++i) {
-		if (b == $nc(this->buttons)->get(i)) {
+		if (b == this->buttons->get(i)) {
 			$nc(this->fc)->setCurrentDirectory($nc(this->files)->get(i));
 			break;
 		}
@@ -241,12 +195,12 @@ void WindowsPlacesBar::actionPerformed($ActionEvent* e) {
 }
 
 $Dimension* WindowsPlacesBar::getPreferredSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, min, $JToolBar::getMinimumSize());
 	$var($Dimension, pref, $JToolBar::getPreferredSize());
 	int32_t h = $nc(min)->height;
-	if (this->buttons != nullptr && $nc(this->buttons)->length > 0 && $nc(this->buttons)->length < 5) {
-		$var($JToggleButton, b, $nc(this->buttons)->get(0));
+	if (this->buttons != nullptr && this->buttons->length > 0 && this->buttons->length < 5) {
+		$var($JToggleButton, b, this->buttons->get(0));
 		if (b != nullptr) {
 			int32_t bh = 5 * ($nc($(b->getPreferredSize()))->height + 1);
 			if (bh > h) {
@@ -264,7 +218,38 @@ WindowsPlacesBar::WindowsPlacesBar() {
 }
 
 $Class* WindowsPlacesBar::load$($String* name, bool initialize) {
-	$loadClass(WindowsPlacesBar, name, initialize, &_WindowsPlacesBar_ClassInfo_, allocate$WindowsPlacesBar);
+	$FieldInfo fieldInfos$$[] = {
+		{"fc", "Ljavax/swing/JFileChooser;", nullptr, 0, $field(WindowsPlacesBar, fc)},
+		{"buttons", "[Ljavax/swing/JToggleButton;", nullptr, 0, $field(WindowsPlacesBar, buttons)},
+		{"buttonGroup", "Ljavax/swing/ButtonGroup;", nullptr, 0, $field(WindowsPlacesBar, buttonGroup)},
+		{"files", "[Ljava/io/File;", nullptr, 0, $field(WindowsPlacesBar, files)},
+		{"buttonSize", "Ljava/awt/Dimension;", nullptr, $FINAL, $field(WindowsPlacesBar, buttonSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JFileChooser;Z)V", nullptr, $PUBLIC, $method(WindowsPlacesBar, init$, void, $JFileChooser*, bool)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsPlacesBar, actionPerformed, void, $ActionEvent*)},
+		{"doDirectoryChanged", "(Ljava/io/File;)V", nullptr, $PROTECTED, $virtualMethod(WindowsPlacesBar, doDirectoryChanged, void, $File*)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsPlacesBar, getPreferredSize, $Dimension*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsPlacesBar, propertyChange, void, $PropertyChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.swing.WindowsPlacesBar",
+		"javax.swing.JToolBar",
+		"java.awt.event.ActionListener,java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WindowsPlacesBar, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsPlacesBar));
+	});
 	return class$;
 }
 

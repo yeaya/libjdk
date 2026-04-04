@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XBaseMenuWindow$MappingData.h>
-
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
 #include <java/lang/InternalError.h>
@@ -20,44 +19,6 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XBaseMenuWindow$MappingData_FieldInfo_[] = {
-	{"items", "[Lsun/awt/X11/XMenuItemPeer;", nullptr, $PRIVATE, $field(XBaseMenuWindow$MappingData, items)},
-	{}
-};
-
-$MethodInfo _XBaseMenuWindow$MappingData_MethodInfo_[] = {
-	{"<init>", "([Lsun/awt/X11/XMenuItemPeer;)V", nullptr, 0, $method(XBaseMenuWindow$MappingData, init$, void, $XMenuItemPeerArray*)},
-	{"<init>", "()V", nullptr, 0, $method(XBaseMenuWindow$MappingData, init$, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XBaseMenuWindow$MappingData, clone, $Object*)},
-	{"getItems", "()[Lsun/awt/X11/XMenuItemPeer;", nullptr, $PUBLIC, $virtualMethod(XBaseMenuWindow$MappingData, getItems, $XMenuItemPeerArray*)},
-	{}
-};
-
-$InnerClassInfo _XBaseMenuWindow$MappingData_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XBaseMenuWindow$MappingData", "sun.awt.X11.XBaseMenuWindow", "MappingData", $STATIC},
-	{}
-};
-
-$ClassInfo _XBaseMenuWindow$MappingData_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XBaseMenuWindow$MappingData",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_XBaseMenuWindow$MappingData_FieldInfo_,
-	_XBaseMenuWindow$MappingData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XBaseMenuWindow$MappingData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XBaseMenuWindow"
-};
-
-$Object* allocate$XBaseMenuWindow$MappingData($Class* clazz) {
-	return $of($alloc(XBaseMenuWindow$MappingData));
-}
-
 void XBaseMenuWindow$MappingData::init$($XMenuItemPeerArray* items) {
 	$set(this, items, items);
 }
@@ -68,9 +29,9 @@ void XBaseMenuWindow$MappingData::init$() {
 
 $Object* XBaseMenuWindow$MappingData::clone() {
 	try {
-		return $of($Cloneable::clone());
+		return $Cloneable::clone();
 	} catch ($CloneNotSupportedException& ex) {
-		$throwNew($InternalError, static_cast<$Throwable*>(ex));
+		$throwNew($InternalError, ex);
 	}
 	$shouldNotReachHere();
 }
@@ -83,7 +44,39 @@ XBaseMenuWindow$MappingData::XBaseMenuWindow$MappingData() {
 }
 
 $Class* XBaseMenuWindow$MappingData::load$($String* name, bool initialize) {
-	$loadClass(XBaseMenuWindow$MappingData, name, initialize, &_XBaseMenuWindow$MappingData_ClassInfo_, allocate$XBaseMenuWindow$MappingData);
+	$FieldInfo fieldInfos$$[] = {
+		{"items", "[Lsun/awt/X11/XMenuItemPeer;", nullptr, $PRIVATE, $field(XBaseMenuWindow$MappingData, items)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Lsun/awt/X11/XMenuItemPeer;)V", nullptr, 0, $method(XBaseMenuWindow$MappingData, init$, void, $XMenuItemPeerArray*)},
+		{"<init>", "()V", nullptr, 0, $method(XBaseMenuWindow$MappingData, init$, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XBaseMenuWindow$MappingData, clone, $Object*)},
+		{"getItems", "()[Lsun/awt/X11/XMenuItemPeer;", nullptr, $PUBLIC, $virtualMethod(XBaseMenuWindow$MappingData, getItems, $XMenuItemPeerArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XBaseMenuWindow$MappingData", "sun.awt.X11.XBaseMenuWindow", "MappingData", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XBaseMenuWindow$MappingData",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XBaseMenuWindow"
+	};
+	$loadClass(XBaseMenuWindow$MappingData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XBaseMenuWindow$MappingData);
+	});
 	return class$;
 }
 

@@ -1,8 +1,6 @@
 #include <bug8078268.h>
-
 #include <bug8078268$1.h>
 #include <java/io/File.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/SwingUtilities.h>
 #include <jcpp.h>
 
@@ -13,46 +11,8 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-
-$FieldInfo _bug8078268_FieldInfo_[] = {
-	{"parsingDone", "Z", nullptr, $STATIC | $VOLATILE, $staticField(bug8078268, parsingDone)},
-	{"exception", "Ljava/lang/Exception;", nullptr, $STATIC | $VOLATILE, $staticField(bug8078268, exception)},
-	{}
-};
-
-$MethodInfo _bug8078268_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug8078268, init$, void)},
-	{"getDirURL", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(bug8078268, getDirURL, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug8078268, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug8078268_InnerClassesInfo_[] = {
-	{"bug8078268$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug8078268_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug8078268",
-	"java.lang.Object",
-	nullptr,
-	_bug8078268_FieldInfo_,
-	_bug8078268_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug8078268_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug8078268$1"
-};
-
-$Object* allocate$bug8078268($Class* clazz) {
-	return $of($alloc(bug8078268));
-}
 
 $volatile(bool) bug8078268::parsingDone = false;
 $volatile($Exception*) bug8078268::exception = nullptr;
@@ -79,12 +39,12 @@ void bug8078268::main($StringArray* args) {
 
 $String* bug8078268::getDirURL() {
 	$init(bug8078268);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($File);
 	return $str({$($$new($File, $($System::getProperty("test.src"_s, "."_s)))->getAbsolutePath()), $File::separator});
 }
 
-void clinit$bug8078268($Class* class$) {
+void bug8078268::clinit$($Class* clazz) {
 	bug8078268::parsingDone = false;
 }
 
@@ -92,7 +52,38 @@ bug8078268::bug8078268() {
 }
 
 $Class* bug8078268::load$($String* name, bool initialize) {
-	$loadClass(bug8078268, name, initialize, &_bug8078268_ClassInfo_, clinit$bug8078268, allocate$bug8078268);
+	$FieldInfo fieldInfos$$[] = {
+		{"parsingDone", "Z", nullptr, $STATIC | $VOLATILE, $staticField(bug8078268, parsingDone)},
+		{"exception", "Ljava/lang/Exception;", nullptr, $STATIC | $VOLATILE, $staticField(bug8078268, exception)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug8078268, init$, void)},
+		{"getDirURL", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(bug8078268, getDirURL, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug8078268, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug8078268$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug8078268",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug8078268$1"
+	};
+	$loadClass(bug8078268, name, initialize, &classInfo$$, bug8078268::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8078268);
+	});
 	return class$;
 }
 

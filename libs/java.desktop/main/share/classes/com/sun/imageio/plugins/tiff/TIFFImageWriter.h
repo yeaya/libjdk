@@ -92,6 +92,7 @@ class TIFFImageWriter : public ::javax::imageio::ImageWriter {
 public:
 	TIFFImageWriter();
 	using ::javax::imageio::ImageWriter::equals;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::imageio::spi::ImageWriterSpi* originatingProvider);
 	static int32_t XToTileX(int32_t x, int32_t tileGridXOffset, int32_t tileWidth);
 	static int32_t YToTileY(int32_t y, int32_t tileGridYOffset, int32_t tileHeight);

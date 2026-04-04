@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalBorders$DialogBorder.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dialog.h>
@@ -31,54 +30,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$FieldInfo _MetalBorders$DialogBorder_FieldInfo_[] = {
-	{"corner", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MetalBorders$DialogBorder, corner)},
-	{}
-};
-
-$MethodInfo _MetalBorders$DialogBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(MetalBorders$DialogBorder, init$, void)},
-	{"getActiveBackground", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalBorders$DialogBorder, getActiveBackground, $Color*)},
-	{"getActiveHighlight", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalBorders$DialogBorder, getActiveHighlight, $Color*)},
-	{"getActiveShadow", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalBorders$DialogBorder, getActiveShadow, $Color*)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MetalBorders$DialogBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"getInactiveBackground", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalBorders$DialogBorder, getInactiveBackground, $Color*)},
-	{"getInactiveHighlight", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalBorders$DialogBorder, getInactiveHighlight, $Color*)},
-	{"getInactiveShadow", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalBorders$DialogBorder, getInactiveShadow, $Color*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MetalBorders$DialogBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MetalBorders$DialogBorder_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalBorders$DialogBorder", "javax.swing.plaf.metal.MetalBorders", "DialogBorder", $STATIC},
-	{}
-};
-
-$ClassInfo _MetalBorders$DialogBorder_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalBorders$DialogBorder",
-	"javax.swing.border.AbstractBorder",
-	"javax.swing.plaf.UIResource",
-	_MetalBorders$DialogBorder_FieldInfo_,
-	_MetalBorders$DialogBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalBorders$DialogBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalBorders"
-};
-
-$Object* allocate$MetalBorders$DialogBorder($Class* clazz) {
-	return $of($alloc(MetalBorders$DialogBorder));
-}
 
 int32_t MetalBorders$DialogBorder::hashCode() {
 	 return this->$AbstractBorder::hashCode();
@@ -129,7 +80,7 @@ $Color* MetalBorders$DialogBorder::getInactiveShadow() {
 }
 
 void MetalBorders$DialogBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, background, nullptr);
 	$var($Color, highlight, nullptr);
 	$var($Color, shadow, nullptr);
@@ -151,7 +102,7 @@ void MetalBorders$DialogBorder::paintBorder($Component* c, $Graphics* g, int32_t
 	for (int32_t i = 1; i < 5; ++i) {
 		g->drawRect(x + i, y + i, w - (i * 2) - 1, h - (i * 2) - 1);
 	}
-	if (($instanceOf($Dialog, window)) && $nc(($cast($Dialog, window)))->isResizable()) {
+	if (($instanceOf($Dialog, window)) && $cast($Dialog, window)->isResizable()) {
 		g->setColor(highlight);
 		g->drawLine(MetalBorders$DialogBorder::corner + 1, 3, w - MetalBorders$DialogBorder::corner, 3);
 		g->drawLine(3, MetalBorders$DialogBorder::corner + 1, 3, h - MetalBorders$DialogBorder::corner);
@@ -174,7 +125,49 @@ MetalBorders$DialogBorder::MetalBorders$DialogBorder() {
 }
 
 $Class* MetalBorders$DialogBorder::load$($String* name, bool initialize) {
-	$loadClass(MetalBorders$DialogBorder, name, initialize, &_MetalBorders$DialogBorder_ClassInfo_, allocate$MetalBorders$DialogBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"corner", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MetalBorders$DialogBorder, corner)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(MetalBorders$DialogBorder, init$, void)},
+		{"getActiveBackground", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalBorders$DialogBorder, getActiveBackground, $Color*)},
+		{"getActiveHighlight", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalBorders$DialogBorder, getActiveHighlight, $Color*)},
+		{"getActiveShadow", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalBorders$DialogBorder, getActiveShadow, $Color*)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MetalBorders$DialogBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"getInactiveBackground", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalBorders$DialogBorder, getInactiveBackground, $Color*)},
+		{"getInactiveHighlight", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalBorders$DialogBorder, getInactiveHighlight, $Color*)},
+		{"getInactiveShadow", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalBorders$DialogBorder, getInactiveShadow, $Color*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MetalBorders$DialogBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalBorders$DialogBorder", "javax.swing.plaf.metal.MetalBorders", "DialogBorder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalBorders$DialogBorder",
+		"javax.swing.border.AbstractBorder",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalBorders"
+	};
+	$loadClass(MetalBorders$DialogBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalBorders$DialogBorder));
+	});
 	return class$;
 }
 

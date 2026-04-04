@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalSplitPaneUI.h>
-
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/basic/BasicSplitPaneDivider.h>
@@ -20,26 +19,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$MethodInfo _MetalSplitPaneUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalSplitPaneUI, init$, void)},
-	{"createDefaultDivider", "()Ljavax/swing/plaf/basic/BasicSplitPaneDivider;", nullptr, $PUBLIC, $virtualMethod(MetalSplitPaneUI, createDefaultDivider, $BasicSplitPaneDivider*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalSplitPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _MetalSplitPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalSplitPaneUI",
-	"javax.swing.plaf.basic.BasicSplitPaneUI",
-	nullptr,
-	nullptr,
-	_MetalSplitPaneUI_MethodInfo_
-};
-
-$Object* allocate$MetalSplitPaneUI($Class* clazz) {
-	return $of($alloc(MetalSplitPaneUI));
-}
-
 void MetalSplitPaneUI::init$() {
 	$BasicSplitPaneUI::init$();
 }
@@ -57,7 +36,23 @@ MetalSplitPaneUI::MetalSplitPaneUI() {
 }
 
 $Class* MetalSplitPaneUI::load$($String* name, bool initialize) {
-	$loadClass(MetalSplitPaneUI, name, initialize, &_MetalSplitPaneUI_ClassInfo_, allocate$MetalSplitPaneUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalSplitPaneUI, init$, void)},
+		{"createDefaultDivider", "()Ljavax/swing/plaf/basic/BasicSplitPaneDivider;", nullptr, $PUBLIC, $virtualMethod(MetalSplitPaneUI, createDefaultDivider, $BasicSplitPaneDivider*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalSplitPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalSplitPaneUI",
+		"javax.swing.plaf.basic.BasicSplitPaneUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalSplitPaneUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalSplitPaneUI);
+	});
 	return class$;
 }
 

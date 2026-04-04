@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet$FillOrder.h>
-
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,36 +15,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _BaselineTIFFTagSet$FillOrder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$FillOrder, init$, void)},
-	{}
-};
-
-$InnerClassInfo _BaselineTIFFTagSet$FillOrder_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$FillOrder", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "FillOrder", $STATIC},
-	{}
-};
-
-$ClassInfo _BaselineTIFFTagSet$FillOrder_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet$FillOrder",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$FillOrder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$FillOrder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
-};
-
-$Object* allocate$BaselineTIFFTagSet$FillOrder($Class* clazz) {
-	return $of($alloc(BaselineTIFFTagSet$FillOrder));
-}
-
 void BaselineTIFFTagSet$FillOrder::init$() {
 	$TIFFTag::init$("FillOrder"_s, 266, $sl(1, $TIFFTag::TIFF_SHORT), 1);
 	addValueName(1, "LeftToRight"_s);
@@ -56,7 +25,32 @@ BaselineTIFFTagSet$FillOrder::BaselineTIFFTagSet$FillOrder() {
 }
 
 $Class* BaselineTIFFTagSet$FillOrder::load$($String* name, bool initialize) {
-	$loadClass(BaselineTIFFTagSet$FillOrder, name, initialize, &_BaselineTIFFTagSet$FillOrder_ClassInfo_, allocate$BaselineTIFFTagSet$FillOrder);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$FillOrder, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$FillOrder", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "FillOrder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet$FillOrder",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
+	};
+	$loadClass(BaselineTIFFTagSet$FillOrder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BaselineTIFFTagSet$FillOrder);
+	});
 	return class$;
 }
 

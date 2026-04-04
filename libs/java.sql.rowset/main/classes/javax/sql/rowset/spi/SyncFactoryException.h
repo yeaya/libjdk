@@ -16,10 +16,13 @@ public:
 	SyncFactoryException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0xC3915E7C5EAD1B20;
+	static const int64_t serialVersionUID = (int64_t)0xc3915e7c5ead1b20;
 	SyncFactoryException(const SyncFactoryException& e);
 	virtual void throw$() override;
-	inline SyncFactoryException* operator ->() {
+	inline SyncFactoryException* operator ->() const {
+		return (SyncFactoryException*)throwing$;
+	}
+	inline operator SyncFactoryException*() const {
 		return (SyncFactoryException*)throwing$;
 	}
 };

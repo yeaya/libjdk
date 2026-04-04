@@ -15,6 +15,7 @@ class $import Sockets$KeepAliveOptions : public ::java::lang::Object {
 	$class(Sockets$KeepAliveOptions, 0, ::java::lang::Object)
 public:
 	Sockets$KeepAliveOptions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool AVAILABLE;
 };

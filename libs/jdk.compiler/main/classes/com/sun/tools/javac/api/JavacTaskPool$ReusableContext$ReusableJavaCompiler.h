@@ -28,6 +28,7 @@ class $export JavacTaskPool$ReusableContext$ReusableJavaCompiler : public ::com:
 	$class(JavacTaskPool$ReusableContext$ReusableJavaCompiler, 0, ::com::sun::tools::javac::main::JavaCompiler)
 public:
 	JavacTaskPool$ReusableContext$ReusableJavaCompiler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual void checkReusable() override;
 	virtual void clear();

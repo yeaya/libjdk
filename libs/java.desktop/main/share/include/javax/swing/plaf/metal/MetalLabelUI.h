@@ -36,6 +36,7 @@ class $import MetalLabelUI : public ::javax::swing::plaf::basic::BasicLabelUI {
 	$class(MetalLabelUI, 0, ::javax::swing::plaf::basic::BasicLabelUI)
 public:
 	MetalLabelUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* c);
 	virtual void paintDisabledText(::javax::swing::JLabel* l, ::java::awt::Graphics* g, $String* s, int32_t textX, int32_t textY) override;

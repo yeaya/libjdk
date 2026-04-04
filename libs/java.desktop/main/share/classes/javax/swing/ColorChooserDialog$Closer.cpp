@@ -1,5 +1,4 @@
 #include <javax/swing/ColorChooserDialog$Closer.h>
-
 #include <java/awt/Window.h>
 #include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowEvent.h>
@@ -16,51 +15,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ColorChooserDialog = ::javax::swing::ColorChooserDialog;
-using $JButton = ::javax::swing::JButton;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _ColorChooserDialog$Closer_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/ColorChooserDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ColorChooserDialog$Closer, this$0)},
-	{}
-};
-
-$MethodInfo _ColorChooserDialog$Closer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/ColorChooserDialog;)V", nullptr, 0, $method(ColorChooserDialog$Closer, init$, void, $ColorChooserDialog*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(ColorChooserDialog$Closer, windowClosing, void, $WindowEvent*)},
-	{}
-};
-
-$InnerClassInfo _ColorChooserDialog$Closer_InnerClassesInfo_[] = {
-	{"javax.swing.ColorChooserDialog$Closer", "javax.swing.ColorChooserDialog", "Closer", 0},
-	{}
-};
-
-$ClassInfo _ColorChooserDialog$Closer_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.ColorChooserDialog$Closer",
-	"java.awt.event.WindowAdapter",
-	"java.io.Serializable",
-	_ColorChooserDialog$Closer_FieldInfo_,
-	_ColorChooserDialog$Closer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ColorChooserDialog$Closer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.ColorChooserDialog"
-};
-
-$Object* allocate$ColorChooserDialog$Closer($Class* clazz) {
-	return $of($alloc(ColorChooserDialog$Closer));
-}
 
 int32_t ColorChooserDialog$Closer::hashCode() {
 	 return this->$WindowAdapter::hashCode();
@@ -97,7 +54,42 @@ ColorChooserDialog$Closer::ColorChooserDialog$Closer() {
 }
 
 $Class* ColorChooserDialog$Closer::load$($String* name, bool initialize) {
-	$loadClass(ColorChooserDialog$Closer, name, initialize, &_ColorChooserDialog$Closer_ClassInfo_, allocate$ColorChooserDialog$Closer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/ColorChooserDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ColorChooserDialog$Closer, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/ColorChooserDialog;)V", nullptr, 0, $method(ColorChooserDialog$Closer, init$, void, $ColorChooserDialog*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(ColorChooserDialog$Closer, windowClosing, void, $WindowEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.ColorChooserDialog$Closer", "javax.swing.ColorChooserDialog", "Closer", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.ColorChooserDialog$Closer",
+		"java.awt.event.WindowAdapter",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.ColorChooserDialog"
+	};
+	$loadClass(ColorChooserDialog$Closer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ColorChooserDialog$Closer));
+	});
 	return class$;
 }
 

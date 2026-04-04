@@ -16,6 +16,7 @@ class $export HandshakeFailureTest$ExpectedExceptionType : public ::java::lang::
 public:
 	HandshakeFailureTest$ExpectedExceptionType();
 	static $Array<HandshakeFailureTest$ExpectedExceptionType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::HandshakeFailureTest$ExpectedExceptionType* valueOf($String* name);
 	static $Array<HandshakeFailureTest$ExpectedExceptionType>* values();

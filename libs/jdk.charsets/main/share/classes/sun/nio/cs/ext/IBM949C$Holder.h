@@ -14,6 +14,7 @@ class IBM949C$Holder : public ::java::lang::Object {
 	$class(IBM949C$Holder, 0, ::java::lang::Object)
 public:
 	IBM949C$Holder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $chars* b2cSB;
 	static $chars* c2b;

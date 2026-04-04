@@ -29,7 +29,10 @@ public:
 	int32_t statusCode = 0;
 	FailWebSocketException(const FailWebSocketException& e);
 	virtual void throw$() override;
-	inline FailWebSocketException* operator ->() {
+	inline FailWebSocketException* operator ->() const {
+		return (FailWebSocketException*)throwing$;
+	}
+	inline operator FailWebSocketException*() const {
 		return (FailWebSocketException*)throwing$;
 	}
 };

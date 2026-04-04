@@ -24,6 +24,7 @@ class $export JRobot : public ::java::awt::Robot {
 public:
 	JRobot();
 	using ::java::awt::Robot::delay;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool enableDelays);
 	virtual ::java::awt::Point* centerOf(::java::awt::Rectangle* r);
 	virtual ::java::awt::Point* centerOf(::java::awt::Rectangle* r, ::java::awt::Point* p);

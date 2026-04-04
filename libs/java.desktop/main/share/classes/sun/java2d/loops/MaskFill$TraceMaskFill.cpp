@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/MaskFill$TraceMaskFill.h>
-
 #include <java/awt/Composite.h>
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
@@ -25,60 +24,18 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _MaskFill$TraceMaskFill_FieldInfo_[] = {
-	{"target", "Lsun/java2d/loops/MaskFill;", nullptr, 0, $field(MaskFill$TraceMaskFill, target)},
-	{"fillPgramTarget", "Lsun/java2d/loops/MaskFill;", nullptr, 0, $field(MaskFill$TraceMaskFill, fillPgramTarget)},
-	{"drawPgramTarget", "Lsun/java2d/loops/MaskFill;", nullptr, 0, $field(MaskFill$TraceMaskFill, drawPgramTarget)},
-	{}
-};
-
-$MethodInfo _MaskFill$TraceMaskFill_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/MaskFill;)V", nullptr, $PUBLIC, $method(MaskFill$TraceMaskFill, init$, void, $MaskFill*)},
-	{"DrawAAPgram", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Ljava/awt/Composite;DDDDDDDD)V", nullptr, $PUBLIC, $virtualMethod(MaskFill$TraceMaskFill, DrawAAPgram, void, $SunGraphics2D*, $SurfaceData*, $Composite*, double, double, double, double, double, double, double, double)},
-	{"FillAAPgram", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Ljava/awt/Composite;DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(MaskFill$TraceMaskFill, FillAAPgram, void, $SunGraphics2D*, $SurfaceData*, $Composite*, double, double, double, double, double, double)},
-	{"MaskFill", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Ljava/awt/Composite;IIII[BII)V", nullptr, $PUBLIC, $virtualMethod(MaskFill$TraceMaskFill, MaskFill$, void, $SunGraphics2D*, $SurfaceData*, $Composite*, int32_t, int32_t, int32_t, int32_t, $bytes*, int32_t, int32_t)},
-	{"canDoParallelograms", "()Z", nullptr, $PUBLIC, $virtualMethod(MaskFill$TraceMaskFill, canDoParallelograms, bool)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(MaskFill$TraceMaskFill, traceWrap, $GraphicsPrimitive*)},
-	{}
-};
-
-$InnerClassInfo _MaskFill$TraceMaskFill_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.MaskFill$TraceMaskFill", "sun.java2d.loops.MaskFill", "TraceMaskFill", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MaskFill$TraceMaskFill_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.MaskFill$TraceMaskFill",
-	"sun.java2d.loops.MaskFill",
-	nullptr,
-	_MaskFill$TraceMaskFill_FieldInfo_,
-	_MaskFill$TraceMaskFill_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MaskFill$TraceMaskFill_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.MaskFill"
-};
-
-$Object* allocate$MaskFill$TraceMaskFill($Class* clazz) {
-	return $of($alloc(MaskFill$TraceMaskFill));
-}
-
 void MaskFill$TraceMaskFill::init$($MaskFill* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceType, var$0, $nc(target)->getSourceType());
 	$var($CompositeType, var$1, target->getCompositeType());
 	$MaskFill::init$(var$0, var$1, $(target->getDestType()));
 	$set(this, target, target);
 	$var($String, var$2, $MaskFill::fillPgramSignature);
-	$var($SurfaceType, var$3, $nc(target)->getSourceType());
+	$var($SurfaceType, var$3, target->getSourceType());
 	$var($CompositeType, var$4, target->getCompositeType());
 	$set(this, fillPgramTarget, $new($MaskFill, var$2, var$3, var$4, $(target->getDestType())));
 	$var($String, var$5, $MaskFill::drawPgramSignature);
-	$var($SurfaceType, var$6, $nc(target)->getSourceType());
+	$var($SurfaceType, var$6, target->getSourceType());
 	$var($CompositeType, var$7, target->getCompositeType());
 	$set(this, drawPgramTarget, $new($MaskFill, var$5, var$6, var$7, $(target->getDestType())));
 }
@@ -110,7 +67,43 @@ MaskFill$TraceMaskFill::MaskFill$TraceMaskFill() {
 }
 
 $Class* MaskFill$TraceMaskFill::load$($String* name, bool initialize) {
-	$loadClass(MaskFill$TraceMaskFill, name, initialize, &_MaskFill$TraceMaskFill_ClassInfo_, allocate$MaskFill$TraceMaskFill);
+	$FieldInfo fieldInfos$$[] = {
+		{"target", "Lsun/java2d/loops/MaskFill;", nullptr, 0, $field(MaskFill$TraceMaskFill, target)},
+		{"fillPgramTarget", "Lsun/java2d/loops/MaskFill;", nullptr, 0, $field(MaskFill$TraceMaskFill, fillPgramTarget)},
+		{"drawPgramTarget", "Lsun/java2d/loops/MaskFill;", nullptr, 0, $field(MaskFill$TraceMaskFill, drawPgramTarget)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/MaskFill;)V", nullptr, $PUBLIC, $method(MaskFill$TraceMaskFill, init$, void, $MaskFill*)},
+		{"DrawAAPgram", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Ljava/awt/Composite;DDDDDDDD)V", nullptr, $PUBLIC, $virtualMethod(MaskFill$TraceMaskFill, DrawAAPgram, void, $SunGraphics2D*, $SurfaceData*, $Composite*, double, double, double, double, double, double, double, double)},
+		{"FillAAPgram", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Ljava/awt/Composite;DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(MaskFill$TraceMaskFill, FillAAPgram, void, $SunGraphics2D*, $SurfaceData*, $Composite*, double, double, double, double, double, double)},
+		{"MaskFill", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Ljava/awt/Composite;IIII[BII)V", nullptr, $PUBLIC, $virtualMethod(MaskFill$TraceMaskFill, MaskFill$, void, $SunGraphics2D*, $SurfaceData*, $Composite*, int32_t, int32_t, int32_t, int32_t, $bytes*, int32_t, int32_t)},
+		{"canDoParallelograms", "()Z", nullptr, $PUBLIC, $virtualMethod(MaskFill$TraceMaskFill, canDoParallelograms, bool)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(MaskFill$TraceMaskFill, traceWrap, $GraphicsPrimitive*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.MaskFill$TraceMaskFill", "sun.java2d.loops.MaskFill", "TraceMaskFill", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.MaskFill$TraceMaskFill",
+		"sun.java2d.loops.MaskFill",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.MaskFill"
+	};
+	$loadClass(MaskFill$TraceMaskFill, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MaskFill$TraceMaskFill);
+	});
 	return class$;
 }
 

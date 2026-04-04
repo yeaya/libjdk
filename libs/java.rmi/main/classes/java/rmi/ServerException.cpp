@@ -1,5 +1,4 @@
 #include <java/rmi/ServerException.h>
-
 #include <java/rmi/RemoteException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $RemoteException = ::java::rmi::RemoteException;
 
 namespace java {
 	namespace rmi {
-
-$FieldInfo _ServerException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServerException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ServerException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ServerException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(ServerException, init$, void, $String*, $Exception*)},
-	{}
-};
-
-$ClassInfo _ServerException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.rmi.ServerException",
-	"java.rmi.RemoteException",
-	nullptr,
-	_ServerException_FieldInfo_,
-	_ServerException_MethodInfo_
-};
-
-$Object* allocate$ServerException($Class* clazz) {
-	return $of($alloc(ServerException));
-}
 
 void ServerException::init$($String* s) {
 	$RemoteException::init$(s);
@@ -55,7 +30,26 @@ void ServerException::throw$() {
 }
 
 $Class* ServerException::load$($String* name, bool initialize) {
-	$loadClass(ServerException, name, initialize, &_ServerException_ClassInfo_, allocate$ServerException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServerException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ServerException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(ServerException, init$, void, $String*, $Exception*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.rmi.ServerException",
+		"java.rmi.RemoteException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ServerException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServerException);
+	});
 	return class$;
 }
 

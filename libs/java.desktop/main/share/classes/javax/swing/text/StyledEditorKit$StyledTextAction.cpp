@@ -1,5 +1,4 @@
 #include <javax/swing/text/StyledEditorKit$StyledTextAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/text/AttributeSet.h>
@@ -31,41 +30,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _StyledEditorKit$StyledTextAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StyledEditorKit$StyledTextAction, init$, void, $String*)},
-	{"getEditor", "(Ljava/awt/event/ActionEvent;)Ljavax/swing/JEditorPane;", nullptr, $PROTECTED | $FINAL, $method(StyledEditorKit$StyledTextAction, getEditor, $JEditorPane*, $ActionEvent*)},
-	{"getStyledDocument", "(Ljavax/swing/JEditorPane;)Ljavax/swing/text/StyledDocument;", nullptr, $PROTECTED | $FINAL, $method(StyledEditorKit$StyledTextAction, getStyledDocument, $StyledDocument*, $JEditorPane*)},
-	{"getStyledEditorKit", "(Ljavax/swing/JEditorPane;)Ljavax/swing/text/StyledEditorKit;", nullptr, $PROTECTED | $FINAL, $method(StyledEditorKit$StyledTextAction, getStyledEditorKit, $StyledEditorKit*, $JEditorPane*)},
-	{"setCharacterAttributes", "(Ljavax/swing/JEditorPane;Ljavax/swing/text/AttributeSet;Z)V", nullptr, $PROTECTED | $FINAL, $method(StyledEditorKit$StyledTextAction, setCharacterAttributes, void, $JEditorPane*, $AttributeSet*, bool)},
-	{"setParagraphAttributes", "(Ljavax/swing/JEditorPane;Ljavax/swing/text/AttributeSet;Z)V", nullptr, $PROTECTED | $FINAL, $method(StyledEditorKit$StyledTextAction, setParagraphAttributes, void, $JEditorPane*, $AttributeSet*, bool)},
-	{}
-};
-
-$InnerClassInfo _StyledEditorKit$StyledTextAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.StyledEditorKit$StyledTextAction", "javax.swing.text.StyledEditorKit", "StyledTextAction", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _StyledEditorKit$StyledTextAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.text.StyledEditorKit$StyledTextAction",
-	"javax.swing.text.TextAction",
-	nullptr,
-	nullptr,
-	_StyledEditorKit$StyledTextAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StyledEditorKit$StyledTextAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.StyledEditorKit"
-};
-
-$Object* allocate$StyledEditorKit$StyledTextAction($Class* clazz) {
-	return $of($alloc(StyledEditorKit$StyledTextAction));
-}
-
 void StyledEditorKit$StyledTextAction::init$($String* nm) {
 	$TextAction::init$(nm);
 }
@@ -95,7 +59,7 @@ $StyledEditorKit* StyledEditorKit$StyledTextAction::getStyledEditorKit($JEditorP
 }
 
 void StyledEditorKit$StyledTextAction::setCharacterAttributes($JEditorPane* editor, $AttributeSet* attr, bool replace) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t p0 = $nc(editor)->getSelectionStart();
 	int32_t p1 = editor->getSelectionEnd();
 	if (p0 != p1) {
@@ -105,7 +69,7 @@ void StyledEditorKit$StyledTextAction::setCharacterAttributes($JEditorPane* edit
 	$var($StyledEditorKit, k, getStyledEditorKit(editor));
 	$var($MutableAttributeSet, inputAttributes, $nc(k)->getInputAttributes());
 	if (replace) {
-		$nc(inputAttributes)->removeAttributes(static_cast<$AttributeSet*>(inputAttributes));
+		$nc(inputAttributes)->removeAttributes(inputAttributes);
 	}
 	$nc(inputAttributes)->addAttributes(attr);
 }
@@ -121,7 +85,37 @@ StyledEditorKit$StyledTextAction::StyledEditorKit$StyledTextAction() {
 }
 
 $Class* StyledEditorKit$StyledTextAction::load$($String* name, bool initialize) {
-	$loadClass(StyledEditorKit$StyledTextAction, name, initialize, &_StyledEditorKit$StyledTextAction_ClassInfo_, allocate$StyledEditorKit$StyledTextAction);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StyledEditorKit$StyledTextAction, init$, void, $String*)},
+		{"getEditor", "(Ljava/awt/event/ActionEvent;)Ljavax/swing/JEditorPane;", nullptr, $PROTECTED | $FINAL, $method(StyledEditorKit$StyledTextAction, getEditor, $JEditorPane*, $ActionEvent*)},
+		{"getStyledDocument", "(Ljavax/swing/JEditorPane;)Ljavax/swing/text/StyledDocument;", nullptr, $PROTECTED | $FINAL, $method(StyledEditorKit$StyledTextAction, getStyledDocument, $StyledDocument*, $JEditorPane*)},
+		{"getStyledEditorKit", "(Ljavax/swing/JEditorPane;)Ljavax/swing/text/StyledEditorKit;", nullptr, $PROTECTED | $FINAL, $method(StyledEditorKit$StyledTextAction, getStyledEditorKit, $StyledEditorKit*, $JEditorPane*)},
+		{"setCharacterAttributes", "(Ljavax/swing/JEditorPane;Ljavax/swing/text/AttributeSet;Z)V", nullptr, $PROTECTED | $FINAL, $method(StyledEditorKit$StyledTextAction, setCharacterAttributes, void, $JEditorPane*, $AttributeSet*, bool)},
+		{"setParagraphAttributes", "(Ljavax/swing/JEditorPane;Ljavax/swing/text/AttributeSet;Z)V", nullptr, $PROTECTED | $FINAL, $method(StyledEditorKit$StyledTextAction, setParagraphAttributes, void, $JEditorPane*, $AttributeSet*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.StyledEditorKit$StyledTextAction", "javax.swing.text.StyledEditorKit", "StyledTextAction", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.text.StyledEditorKit$StyledTextAction",
+		"javax.swing.text.TextAction",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.StyledEditorKit"
+	};
+	$loadClass(StyledEditorKit$StyledTextAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StyledEditorKit$StyledTextAction));
+	});
 	return class$;
 }
 

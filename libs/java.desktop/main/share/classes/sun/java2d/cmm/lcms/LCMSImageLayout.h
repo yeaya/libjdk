@@ -58,6 +58,7 @@ class LCMSImageLayout : public ::java::lang::Object {
 	$class(LCMSImageLayout, 0, ::java::lang::Object)
 public:
 	LCMSImageLayout();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t np, int32_t pixelType, int32_t pixelSize);
 	void init$(int32_t width, int32_t height, int32_t pixelType, int32_t pixelSize);
 	void init$($bytes* data, int32_t np, int32_t pixelType, int32_t pixelSize);

@@ -39,6 +39,7 @@ class $import DefaultHighlighter : public ::javax::swing::text::LayeredHighlight
 	$class(DefaultHighlighter, 0, ::javax::swing::text::LayeredHighlighter)
 public:
 	DefaultHighlighter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* addHighlight(int32_t p0, int32_t p1, ::javax::swing::text::Highlighter$HighlightPainter* p) override;
 	virtual void changeHighlight(Object$* tag, int32_t p0, int32_t p1) override;

@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifOptionPaneUI$1.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifOptionPaneUI.h>
 #include <java/awt/Color.h>
 #include <java/awt/Dimension.h>
@@ -26,49 +25,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$FieldInfo _MotifOptionPaneUI$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifOptionPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifOptionPaneUI$1, this$0)},
-	{}
-};
-
-$MethodInfo _MotifOptionPaneUI$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifOptionPaneUI;)V", nullptr, 0, $method(MotifOptionPaneUI$1, init$, void, $MotifOptionPaneUI*)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifOptionPaneUI$1, getPreferredSize, $Dimension*)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MotifOptionPaneUI$1, paint, void, $Graphics*)},
-	{}
-};
-
-$EnclosingMethodInfo _MotifOptionPaneUI$1_EnclosingMethodInfo_ = {
-	"com.sun.java.swing.plaf.motif.MotifOptionPaneUI",
-	"createSeparator",
-	"()Ljava/awt/Container;"
-};
-
-$InnerClassInfo _MotifOptionPaneUI$1_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifOptionPaneUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MotifOptionPaneUI$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifOptionPaneUI$1",
-	"javax.swing.JPanel",
-	nullptr,
-	_MotifOptionPaneUI$1_FieldInfo_,
-	_MotifOptionPaneUI$1_MethodInfo_,
-	nullptr,
-	&_MotifOptionPaneUI$1_EnclosingMethodInfo_,
-	_MotifOptionPaneUI$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifOptionPaneUI"
-};
-
-$Object* allocate$MotifOptionPaneUI$1($Class* clazz) {
-	return $of($alloc(MotifOptionPaneUI$1));
-}
-
 void MotifOptionPaneUI$1::init$($MotifOptionPaneUI* this$0) {
 	$set(this, this$0, this$0);
 	$JPanel::init$();
@@ -91,7 +47,43 @@ MotifOptionPaneUI$1::MotifOptionPaneUI$1() {
 }
 
 $Class* MotifOptionPaneUI$1::load$($String* name, bool initialize) {
-	$loadClass(MotifOptionPaneUI$1, name, initialize, &_MotifOptionPaneUI$1_ClassInfo_, allocate$MotifOptionPaneUI$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifOptionPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifOptionPaneUI$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifOptionPaneUI;)V", nullptr, 0, $method(MotifOptionPaneUI$1, init$, void, $MotifOptionPaneUI*)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifOptionPaneUI$1, getPreferredSize, $Dimension*)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MotifOptionPaneUI$1, paint, void, $Graphics*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.java.swing.plaf.motif.MotifOptionPaneUI",
+		"createSeparator",
+		"()Ljava/awt/Container;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifOptionPaneUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifOptionPaneUI$1",
+		"javax.swing.JPanel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifOptionPaneUI"
+	};
+	$loadClass(MotifOptionPaneUI$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifOptionPaneUI$1));
+	});
 	return class$;
 }
 

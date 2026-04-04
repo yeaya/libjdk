@@ -47,6 +47,7 @@ namespace com {
 class BMPConstants : public ::java::lang::Object {
 	$interface(BMPConstants, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	static $String* VERSION_2;
 	static $String* VERSION_3;
 	static $String* VERSION_3_NT;

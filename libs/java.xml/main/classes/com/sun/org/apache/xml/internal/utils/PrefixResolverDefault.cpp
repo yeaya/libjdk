@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/PrefixResolverDefault.h>
-
 #include <com/sun/org/apache/xml/internal/utils/Constants.h>
 #include <org/w3c/dom/NamedNodeMap.h>
 #include <org/w3c/dom/Node.h>
@@ -24,33 +23,6 @@ namespace com {
 					namespace internal {
 						namespace utils {
 
-$FieldInfo _PrefixResolverDefault_FieldInfo_[] = {
-	{"m_context", "Lorg/w3c/dom/Node;", nullptr, 0, $field(PrefixResolverDefault, m_context)},
-	{}
-};
-
-$MethodInfo _PrefixResolverDefault_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(PrefixResolverDefault, init$, void, $Node*)},
-	{"getBaseIdentifier", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrefixResolverDefault, getBaseIdentifier, $String*)},
-	{"getNamespaceForPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrefixResolverDefault, getNamespaceForPrefix, $String*, $String*)},
-	{"getNamespaceForPrefix", "(Ljava/lang/String;Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrefixResolverDefault, getNamespaceForPrefix, $String*, $String*, $Node*)},
-	{"handlesNullPrefixes", "()Z", nullptr, $PUBLIC, $virtualMethod(PrefixResolverDefault, handlesNullPrefixes, bool)},
-	{}
-};
-
-$ClassInfo _PrefixResolverDefault_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.PrefixResolverDefault",
-	"java.lang.Object",
-	"com.sun.org.apache.xml.internal.utils.PrefixResolver",
-	_PrefixResolverDefault_FieldInfo_,
-	_PrefixResolverDefault_MethodInfo_
-};
-
-$Object* allocate$PrefixResolverDefault($Class* clazz) {
-	return $of($alloc(PrefixResolverDefault));
-}
-
 void PrefixResolverDefault::init$($Node* xpathExpressionContext) {
 	$set(this, m_context, xpathExpressionContext);
 }
@@ -60,7 +32,7 @@ $String* PrefixResolverDefault::getNamespaceForPrefix($String* prefix) {
 }
 
 $String* PrefixResolverDefault::getNamespaceForPrefix($String* prefix, $Node* namespaceContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, parent, namespaceContext);
 	$var($String, namespace$, nullptr);
 	if ($nc(prefix)->equals("xml"_s)) {
@@ -71,24 +43,24 @@ $String* PrefixResolverDefault::getNamespaceForPrefix($String* prefix, $Node* na
 		while (true) {
 			bool var$0 = (nullptr != parent) && (nullptr == namespace$);
 			if (var$0) {
-				bool var$1 = ((type = parent->getNodeType()) == $Node::ELEMENT_NODE);
-				var$0 = (var$1 || (type == $Node::ENTITY_REFERENCE_NODE));
+				bool var$1 = (type = parent->getNodeType()) == $Node::ELEMENT_NODE;
+				var$0 = var$1 || (type == $Node::ENTITY_REFERENCE_NODE);
 			}
 			if (!(var$0)) {
 				break;
 			}
 			{
 				if (type == $Node::ELEMENT_NODE) {
-					if ($nc($($nc(parent)->getNodeName()))->indexOf($$str({prefix, ":"_s})) == 0) {
+					if ($$nc($nc(parent)->getNodeName())->indexOf($$str({prefix, ":"_s})) == 0) {
 						return parent->getNamespaceURI();
 					}
-					$var($NamedNodeMap, nnm, $nc(parent)->getAttributes());
+					$var($NamedNodeMap, nnm, parent->getAttributes());
 					for (int32_t i = 0; i < $nc(nnm)->getLength(); ++i) {
 						$var($Node, attr, nnm->item(i));
 						$var($String, aname, $nc(attr)->getNodeName());
 						bool isPrefix = $nc(aname)->startsWith("xmlns:"_s);
 						if (isPrefix || aname->equals("xmlns"_s)) {
-							int32_t index = aname->indexOf((int32_t)u':');
+							int32_t index = aname->indexOf(u':');
 							$var($String, p, isPrefix ? aname->substring(index + 1) : ""_s);
 							if ($nc(p)->equals(prefix)) {
 								$assign(namespace$, attr->getNodeValue());
@@ -116,7 +88,29 @@ PrefixResolverDefault::PrefixResolverDefault() {
 }
 
 $Class* PrefixResolverDefault::load$($String* name, bool initialize) {
-	$loadClass(PrefixResolverDefault, name, initialize, &_PrefixResolverDefault_ClassInfo_, allocate$PrefixResolverDefault);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_context", "Lorg/w3c/dom/Node;", nullptr, 0, $field(PrefixResolverDefault, m_context)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(PrefixResolverDefault, init$, void, $Node*)},
+		{"getBaseIdentifier", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrefixResolverDefault, getBaseIdentifier, $String*)},
+		{"getNamespaceForPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrefixResolverDefault, getNamespaceForPrefix, $String*, $String*)},
+		{"getNamespaceForPrefix", "(Ljava/lang/String;Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrefixResolverDefault, getNamespaceForPrefix, $String*, $String*, $Node*)},
+		{"handlesNullPrefixes", "()Z", nullptr, $PUBLIC, $virtualMethod(PrefixResolverDefault, handlesNullPrefixes, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.PrefixResolverDefault",
+		"java.lang.Object",
+		"com.sun.org.apache.xml.internal.utils.PrefixResolver",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PrefixResolverDefault, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrefixResolverDefault);
+	});
 	return class$;
 }
 

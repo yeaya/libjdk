@@ -1,5 +1,4 @@
 #include <javax/swing/tree/VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration.h>
-
 #include <java/util/NoSuchElementException.h>
 #include <javax/swing/tree/TreeNode.h>
 #include <javax/swing/tree/TreePath.h>
@@ -12,7 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
-using $TreeNode = ::javax::swing::tree::TreeNode;
 using $TreePath = ::javax::swing::tree::TreePath;
 using $VariableHeightLayoutCache = ::javax::swing::tree::VariableHeightLayoutCache;
 using $VariableHeightLayoutCache$TreeStateNode = ::javax::swing::tree::VariableHeightLayoutCache$TreeStateNode;
@@ -20,50 +18,6 @@ using $VariableHeightLayoutCache$TreeStateNode = ::javax::swing::tree::VariableH
 namespace javax {
 	namespace swing {
 		namespace tree {
-
-$FieldInfo _VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/tree/VariableHeightLayoutCache;", nullptr, $FINAL | $SYNTHETIC, $field(VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration, this$0)},
-	{"parent", "Ljavax/swing/tree/VariableHeightLayoutCache$TreeStateNode;", nullptr, $PROTECTED, $field(VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration, parent)},
-	{"nextIndex", "I", nullptr, $PROTECTED, $field(VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration, nextIndex)},
-	{"childCount", "I", nullptr, $PROTECTED, $field(VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration, childCount)},
-	{}
-};
-
-$MethodInfo _VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/tree/VariableHeightLayoutCache;Ljavax/swing/tree/VariableHeightLayoutCache$TreeStateNode;)V", nullptr, $PROTECTED, $method(VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration, init$, void, $VariableHeightLayoutCache*, $VariableHeightLayoutCache$TreeStateNode*)},
-	{"<init>", "(Ljavax/swing/tree/VariableHeightLayoutCache;Ljavax/swing/tree/VariableHeightLayoutCache$TreeStateNode;I)V", nullptr, $PROTECTED, $method(VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration, init$, void, $VariableHeightLayoutCache*, $VariableHeightLayoutCache$TreeStateNode*, int32_t)},
-	{"findNextValidParent", "()Z", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration, findNextValidParent, bool)},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration, hasMoreElements, bool)},
-	{"nextElement", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration, nextElement, $Object*)},
-	{"updateNextIndex", "()Z", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration, updateNextIndex, bool)},
-	{"updateNextObject", "()V", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration, updateNextObject, void)},
-	{}
-};
-
-$InnerClassInfo _VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration_InnerClassesInfo_[] = {
-	{"javax.swing.tree.VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration", "javax.swing.tree.VariableHeightLayoutCache", "VisibleTreeStateNodeEnumeration", $PRIVATE},
-	{}
-};
-
-$ClassInfo _VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.tree.VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration",
-	"java.lang.Object",
-	"java.util.Enumeration",
-	_VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration_FieldInfo_,
-	_VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Enumeration<Ljavax/swing/tree/TreePath;>;",
-	nullptr,
-	_VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.tree.VariableHeightLayoutCache"
-};
-
-$Object* allocate$VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration($Class* clazz) {
-	return $of($alloc(VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration));
-}
 
 void VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration::init$($VariableHeightLayoutCache* this$0, $VariableHeightLayoutCache$TreeStateNode* node) {
 	VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration::init$(this$0, node, -1);
@@ -81,7 +35,7 @@ bool VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration::hasMoreElements(
 }
 
 $Object* VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration::nextElement() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!hasMoreElements()) {
 		$throwNew($NoSuchElementException, "No more visible paths"_s);
 	}
@@ -93,7 +47,7 @@ $Object* VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration::nextElement(
 		$assign(retObject, $nc(node)->getTreePath());
 	}
 	updateNextObject();
-	return $of(retObject);
+	return retObject;
 }
 
 void VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration::updateNextObject() {
@@ -103,17 +57,17 @@ void VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration::updateNextObject
 }
 
 bool VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration::findNextValidParent() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->parent == this->this$0->root) {
 		$set(this, parent, nullptr);
 		return false;
 	}
 	while (this->parent != nullptr) {
-		$var($VariableHeightLayoutCache$TreeStateNode, newParent, $cast($VariableHeightLayoutCache$TreeStateNode, $nc(this->parent)->getParent()));
+		$var($VariableHeightLayoutCache$TreeStateNode, newParent, $cast($VariableHeightLayoutCache$TreeStateNode, this->parent->getParent()));
 		if (newParent != nullptr) {
 			this->nextIndex = newParent->getIndex(this->parent);
 			$set(this, parent, newParent);
-			this->childCount = $nc(this->parent)->getChildCount();
+			this->childCount = this->parent->getChildCount();
 			if (updateNextIndex()) {
 				return true;
 			}
@@ -142,7 +96,45 @@ VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration::VariableHeightLayoutC
 }
 
 $Class* VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration::load$($String* name, bool initialize) {
-	$loadClass(VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration, name, initialize, &_VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration_ClassInfo_, allocate$VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/tree/VariableHeightLayoutCache;", nullptr, $FINAL | $SYNTHETIC, $field(VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration, this$0)},
+		{"parent", "Ljavax/swing/tree/VariableHeightLayoutCache$TreeStateNode;", nullptr, $PROTECTED, $field(VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration, parent)},
+		{"nextIndex", "I", nullptr, $PROTECTED, $field(VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration, nextIndex)},
+		{"childCount", "I", nullptr, $PROTECTED, $field(VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration, childCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/tree/VariableHeightLayoutCache;Ljavax/swing/tree/VariableHeightLayoutCache$TreeStateNode;)V", nullptr, $PROTECTED, $method(VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration, init$, void, $VariableHeightLayoutCache*, $VariableHeightLayoutCache$TreeStateNode*)},
+		{"<init>", "(Ljavax/swing/tree/VariableHeightLayoutCache;Ljavax/swing/tree/VariableHeightLayoutCache$TreeStateNode;I)V", nullptr, $PROTECTED, $method(VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration, init$, void, $VariableHeightLayoutCache*, $VariableHeightLayoutCache$TreeStateNode*, int32_t)},
+		{"findNextValidParent", "()Z", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration, findNextValidParent, bool)},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration, hasMoreElements, bool)},
+		{"nextElement", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration, nextElement, $Object*)},
+		{"updateNextIndex", "()Z", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration, updateNextIndex, bool)},
+		{"updateNextObject", "()V", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration, updateNextObject, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.tree.VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration", "javax.swing.tree.VariableHeightLayoutCache", "VisibleTreeStateNodeEnumeration", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.tree.VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration",
+		"java.lang.Object",
+		"java.util.Enumeration",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Enumeration<Ljavax/swing/tree/TreePath;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.tree.VariableHeightLayoutCache"
+	};
+	$loadClass(VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration);
+	});
 	return class$;
 }
 

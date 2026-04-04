@@ -50,6 +50,7 @@ class CredentialsCache : public ::java::lang::Object {
 	$class(CredentialsCache, 0, ::java::lang::Object)
 public:
 	CredentialsCache();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addConfigEntry(::sun::security::krb5::internal::ccache::CredentialsCache$ConfigEntry* e) {}
 	static $String* cacheName();

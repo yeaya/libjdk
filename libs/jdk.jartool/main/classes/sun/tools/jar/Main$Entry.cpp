@@ -1,5 +1,4 @@
 #include <sun/tools/jar/Main$Entry.h>
-
 #include <java/io/File.h>
 #include <sun/tools/jar/Main.h>
 #include <jcpp.h>
@@ -14,45 +13,6 @@ namespace sun {
 	namespace tools {
 		namespace jar {
 
-$FieldInfo _Main$Entry_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(Main$Entry, name)},
-	{"file", "Ljava/io/File;", nullptr, $FINAL, $field(Main$Entry, file)},
-	{"isDir", "Z", nullptr, $FINAL, $field(Main$Entry, isDir)},
-	{}
-};
-
-$MethodInfo _Main$Entry_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/File;Ljava/lang/String;Z)V", nullptr, 0, $method(Main$Entry, init$, void, $File*, $String*, bool)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$Entry, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Main$Entry, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Main$Entry_InnerClassesInfo_[] = {
-	{"sun.tools.jar.Main$Entry", "sun.tools.jar.Main", "Entry", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Main$Entry_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.tools.jar.Main$Entry",
-	"java.lang.Object",
-	nullptr,
-	_Main$Entry_FieldInfo_,
-	_Main$Entry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Main$Entry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.tools.jar.Main"
-};
-
-$Object* allocate$Main$Entry($Class* clazz) {
-	return $of($alloc(Main$Entry));
-}
-
 void Main$Entry::init$($File* file, $String* name, bool isDir) {
 	$set(this, file, file);
 	this->isDir = isDir;
@@ -66,7 +26,7 @@ bool Main$Entry::equals(Object$* o) {
 	if (!($instanceOf(Main$Entry, o))) {
 		return false;
 	}
-	return $nc(this->file)->equals($nc(($cast(Main$Entry, o)))->file);
+	return $nc(this->file)->equals($nc($cast(Main$Entry, o))->file);
 }
 
 int32_t Main$Entry::hashCode() {
@@ -77,7 +37,40 @@ Main$Entry::Main$Entry() {
 }
 
 $Class* Main$Entry::load$($String* name, bool initialize) {
-	$loadClass(Main$Entry, name, initialize, &_Main$Entry_ClassInfo_, allocate$Main$Entry);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(Main$Entry, name)},
+		{"file", "Ljava/io/File;", nullptr, $FINAL, $field(Main$Entry, file)},
+		{"isDir", "Z", nullptr, $FINAL, $field(Main$Entry, isDir)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/File;Ljava/lang/String;Z)V", nullptr, 0, $method(Main$Entry, init$, void, $File*, $String*, bool)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$Entry, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Main$Entry, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.tools.jar.Main$Entry", "sun.tools.jar.Main", "Entry", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.tools.jar.Main$Entry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.tools.jar.Main"
+	};
+	$loadClass(Main$Entry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$Entry);
+	});
 	return class$;
 }
 

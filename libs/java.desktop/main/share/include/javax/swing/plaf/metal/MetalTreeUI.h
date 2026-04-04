@@ -62,6 +62,7 @@ class $import MetalTreeUI : public ::javax::swing::plaf::basic::BasicTreeUI {
 	$class(MetalTreeUI, 0, ::javax::swing::plaf::basic::BasicTreeUI)
 public:
 	MetalTreeUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* x);
 	virtual void decodeLineStyle(Object$* lineStyleFlag);

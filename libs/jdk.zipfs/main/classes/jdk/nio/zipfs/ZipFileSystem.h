@@ -166,6 +166,7 @@ class ZipFileSystem : public ::java::nio::file::FileSystem {
 	$class(ZipFileSystem, $HAS_FINALIZE, ::java::nio::file::FileSystem)
 public:
 	ZipFileSystem();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::nio::zipfs::ZipFileSystemProvider* provider, ::java::nio::file::Path* zfpath, ::java::util::Map* env);
 	void beginRead();
 	void beginWrite();

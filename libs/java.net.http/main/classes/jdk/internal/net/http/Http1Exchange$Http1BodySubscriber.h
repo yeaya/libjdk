@@ -42,6 +42,7 @@ class $export Http1Exchange$Http1BodySubscriber : public ::java::util::concurren
 	$class(Http1Exchange$Http1BodySubscriber, 0, ::java::util::concurrent::Flow$Subscriber)
 public:
 	Http1Exchange$Http1BodySubscriber();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::common::Logger* debug);
 	void cancelSubscription();
 	static ::jdk::internal::net::http::Http1Exchange$Http1BodySubscriber* completeSubscriber(::jdk::internal::net::http::common::Logger* debug);

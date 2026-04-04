@@ -1,7 +1,5 @@
 #include <com/sun/tools/javac/code/Types$TypeMapping.h>
-
 #include <com/sun/tools/javac/code/Type$CapturedType.h>
-#include <com/sun/tools/javac/code/Type$TypeVar.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/Types$DefaultTypeVisitor.h>
 #include <com/sun/tools/javac/code/Types$MapVisitor.h>
@@ -18,7 +16,6 @@
 
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$CapturedType = ::com::sun::tools::javac::code::Type$CapturedType;
-using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $Types$MapVisitor = ::com::sun::tools::javac::code::Types$MapVisitor;
 using $List = ::com::sun::tools::javac::util::List;
 using $Serializable = ::java::io::Serializable;
@@ -45,79 +42,34 @@ public:
 	virtual $Object* apply(Object$* t) override {
 		 return $of($nc(inst$)->lambda$visit$0(s, $cast($Type, t)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Types$TypeMapping$$Lambda$lambda$visit$0>());
-	}
 	Types$TypeMapping* inst$ = nullptr;
 	$Object* s = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Types$TypeMapping$$Lambda$lambda$visit$0::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Types$TypeMapping$$Lambda$lambda$visit$0, inst$)},
-	{"s", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Types$TypeMapping$$Lambda$lambda$visit$0, s)},
-	{}
-};
-$MethodInfo Types$TypeMapping$$Lambda$lambda$visit$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types$TypeMapping;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Types$TypeMapping$$Lambda$lambda$visit$0, init$, void, Types$TypeMapping*, Object$*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Types$TypeMapping$$Lambda$lambda$visit$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Types$TypeMapping$$Lambda$lambda$visit$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.code.Types$TypeMapping$$Lambda$lambda$visit$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* Types$TypeMapping$$Lambda$lambda$visit$0::load$($String* name, bool initialize) {
-	$loadClass(Types$TypeMapping$$Lambda$lambda$visit$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Types$TypeMapping$$Lambda$lambda$visit$0, inst$)},
+		{"s", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Types$TypeMapping$$Lambda$lambda$visit$0, s)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types$TypeMapping;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Types$TypeMapping$$Lambda$lambda$visit$0, init$, void, Types$TypeMapping*, Object$*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Types$TypeMapping$$Lambda$lambda$visit$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.code.Types$TypeMapping$$Lambda$lambda$visit$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Types$TypeMapping$$Lambda$lambda$visit$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$TypeMapping$$Lambda$lambda$visit$0);
+	});
 	return class$;
 }
 $Class* Types$TypeMapping$$Lambda$lambda$visit$0::class$ = nullptr;
-
-$MethodInfo _Types$TypeMapping_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Types$TypeMapping, init$, void)},
-	{"apply", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$TypeMapping, apply, $Type*, $Type*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$TypeMapping, apply, $Object*, Object$*)},
-	{"lambda$visit$0", "(Ljava/lang/Object;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $SYNTHETIC, $method(Types$TypeMapping, lambda$visit$0, $Type*, Object$*, $Type*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"visit", "(Lcom/sun/tools/javac/util/List;Ljava/lang/Object;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;TS;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Types$TypeMapping, visit, $List*, $List*, Object$*)},
-	{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$CapturedType;TS;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(Types$TypeMapping, visitCapturedType, $Object*, $Type$CapturedType*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _Types$TypeMapping_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$TypeMapping", "com.sun.tools.javac.code.Types", "TypeMapping", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Types$MapVisitor", "com.sun.tools.javac.code.Types", "MapVisitor", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Types$TypeMapping_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Types$TypeMapping",
-	"com.sun.tools.javac.code.Types$MapVisitor",
-	"java.util.function.Function",
-	nullptr,
-	_Types$TypeMapping_MethodInfo_,
-	"<S:Ljava/lang/Object;>Lcom/sun/tools/javac/code/Types$MapVisitor<TS;>;Ljava/util/function/Function<Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;>;",
-	nullptr,
-	_Types$TypeMapping_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$TypeMapping($Class* clazz) {
-	return $of($alloc(Types$TypeMapping));
-}
 
 int32_t Types$TypeMapping::hashCode() {
 	 return this->$Types$MapVisitor::hashCode();
@@ -148,7 +100,7 @@ $Type* Types$TypeMapping::apply($Type* type) {
 }
 
 $List* Types$TypeMapping::visit($List* ts, Object$* s) {
-	return $nc(ts)->map(static_cast<$Function*>($$new(Types$TypeMapping$$Lambda$lambda$visit$0, this, s)));
+	return $nc(ts)->map($$new(Types$TypeMapping$$Lambda$lambda$visit$0, this, s));
 }
 
 $Object* Types$TypeMapping::visitCapturedType($Type$CapturedType* t, Object$* s) {
@@ -168,11 +120,47 @@ Types$TypeMapping::Types$TypeMapping() {
 
 $Class* Types$TypeMapping::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Types$TypeMapping$$Lambda$lambda$visit$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.code.Types$TypeMapping$$Lambda$lambda$visit$0")) {
 			return Types$TypeMapping$$Lambda$lambda$visit$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Types$TypeMapping, name, initialize, &_Types$TypeMapping_ClassInfo_, allocate$Types$TypeMapping);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Types$TypeMapping, init$, void)},
+		{"apply", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$TypeMapping, apply, $Type*, $Type*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$TypeMapping, apply, $Object*, Object$*)},
+		{"lambda$visit$0", "(Ljava/lang/Object;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $SYNTHETIC, $method(Types$TypeMapping, lambda$visit$0, $Type*, Object$*, $Type*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"visit", "(Lcom/sun/tools/javac/util/List;Ljava/lang/Object;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;TS;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Types$TypeMapping, visit, $List*, $List*, Object$*)},
+		{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$CapturedType;TS;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(Types$TypeMapping, visitCapturedType, $Object*, $Type$CapturedType*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$TypeMapping", "com.sun.tools.javac.code.Types", "TypeMapping", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Types$MapVisitor", "com.sun.tools.javac.code.Types", "MapVisitor", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Types$TypeMapping",
+		"com.sun.tools.javac.code.Types$MapVisitor",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$,
+		"<S:Ljava/lang/Object;>Lcom/sun/tools/javac/code/Types$MapVisitor<TS;>;Ljava/util/function/Function<Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$TypeMapping, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Types$TypeMapping));
+	});
 	return class$;
 }
 

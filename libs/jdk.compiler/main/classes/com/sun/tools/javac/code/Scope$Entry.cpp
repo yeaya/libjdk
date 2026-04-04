@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Scope$Entry.h>
-
 #include <com/sun/tools/javac/code/Scope$ScopeImpl.h>
 #include <com/sun/tools/javac/code/Scope.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -20,47 +19,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Scope$Entry_FieldInfo_[] = {
-	{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(Scope$Entry, sym)},
-	{"shadowed", "Lcom/sun/tools/javac/code/Scope$Entry;", nullptr, $PRIVATE, $field(Scope$Entry, shadowed)},
-	{"nextSibling", "Lcom/sun/tools/javac/code/Scope$Entry;", nullptr, $PUBLIC, $field(Scope$Entry, nextSibling)},
-	{"prevSibling", "Lcom/sun/tools/javac/code/Scope$Entry;", nullptr, $PUBLIC, $field(Scope$Entry, prevSibling)},
-	{"scope", "Lcom/sun/tools/javac/code/Scope$ScopeImpl;", nullptr, $PUBLIC, $field(Scope$Entry, scope)},
-	{}
-};
-
-$MethodInfo _Scope$Entry_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope$Entry;Lcom/sun/tools/javac/code/Scope$Entry;Lcom/sun/tools/javac/code/Scope$ScopeImpl;)V", nullptr, $PUBLIC, $method(Scope$Entry, init$, void, $Symbol*, Scope$Entry*, Scope$Entry*, $Scope$ScopeImpl*)},
-	{"next", "()Lcom/sun/tools/javac/code/Scope$Entry;", nullptr, $PUBLIC, $virtualMethod(Scope$Entry, next, Scope$Entry*)},
-	{"next", "(Ljava/util/function/Predicate;)Lcom/sun/tools/javac/code/Scope$Entry;", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;)Lcom/sun/tools/javac/code/Scope$Entry;", $PUBLIC, $virtualMethod(Scope$Entry, next, Scope$Entry*, $Predicate*)},
-	{}
-};
-
-$InnerClassInfo _Scope$Entry_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Scope$Entry", "com.sun.tools.javac.code.Scope", "Entry", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Scope$Entry_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Scope$Entry",
-	"java.lang.Object",
-	nullptr,
-	_Scope$Entry_FieldInfo_,
-	_Scope$Entry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Scope$Entry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Scope"
-};
-
-$Object* allocate$Scope$Entry($Class* clazz) {
-	return $of($alloc(Scope$Entry));
-}
-
 void Scope$Entry::init$($Symbol* sym, Scope$Entry* shadowed, Scope$Entry* nextSibling, $Scope$ScopeImpl* scope) {
 	$set(this, sym, sym);
 	$set(this, shadowed, shadowed);
@@ -76,7 +34,7 @@ Scope$Entry* Scope$Entry::next() {
 }
 
 Scope$Entry* Scope$Entry::next($Predicate* sf) {
-	if ($nc(this->shadowed)->sym == nullptr || sf == nullptr || $nc(sf)->test($nc(this->shadowed)->sym)) {
+	if ($nc(this->shadowed)->sym == nullptr || sf == nullptr || sf->test(this->shadowed->sym)) {
 		return this->shadowed;
 	} else {
 		return $nc(this->shadowed)->next(sf);
@@ -87,7 +45,42 @@ Scope$Entry::Scope$Entry() {
 }
 
 $Class* Scope$Entry::load$($String* name, bool initialize) {
-	$loadClass(Scope$Entry, name, initialize, &_Scope$Entry_ClassInfo_, allocate$Scope$Entry);
+	$FieldInfo fieldInfos$$[] = {
+		{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(Scope$Entry, sym)},
+		{"shadowed", "Lcom/sun/tools/javac/code/Scope$Entry;", nullptr, $PRIVATE, $field(Scope$Entry, shadowed)},
+		{"nextSibling", "Lcom/sun/tools/javac/code/Scope$Entry;", nullptr, $PUBLIC, $field(Scope$Entry, nextSibling)},
+		{"prevSibling", "Lcom/sun/tools/javac/code/Scope$Entry;", nullptr, $PUBLIC, $field(Scope$Entry, prevSibling)},
+		{"scope", "Lcom/sun/tools/javac/code/Scope$ScopeImpl;", nullptr, $PUBLIC, $field(Scope$Entry, scope)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope$Entry;Lcom/sun/tools/javac/code/Scope$Entry;Lcom/sun/tools/javac/code/Scope$ScopeImpl;)V", nullptr, $PUBLIC, $method(Scope$Entry, init$, void, $Symbol*, Scope$Entry*, Scope$Entry*, $Scope$ScopeImpl*)},
+		{"next", "()Lcom/sun/tools/javac/code/Scope$Entry;", nullptr, $PUBLIC, $virtualMethod(Scope$Entry, next, Scope$Entry*)},
+		{"next", "(Ljava/util/function/Predicate;)Lcom/sun/tools/javac/code/Scope$Entry;", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;)Lcom/sun/tools/javac/code/Scope$Entry;", $PUBLIC, $virtualMethod(Scope$Entry, next, Scope$Entry*, $Predicate*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Scope$Entry", "com.sun.tools.javac.code.Scope", "Entry", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Scope$Entry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Scope"
+	};
+	$loadClass(Scope$Entry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Scope$Entry);
+	});
 	return class$;
 }
 

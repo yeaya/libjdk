@@ -1,5 +1,4 @@
 #include <java/lang/management/ThreadInfo.h>
-
 #include <java/lang/StackTraceElement.h>
 #include <java/lang/Thread$State.h>
 #include <java/lang/management/LockInfo.h>
@@ -36,84 +35,6 @@ namespace java {
 	namespace lang {
 		namespace management {
 
-$FieldInfo _ThreadInfo_FieldInfo_[] = {
-	{"threadName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ThreadInfo, threadName)},
-	{"threadId", "J", nullptr, $PRIVATE, $field(ThreadInfo, threadId)},
-	{"blockedTime", "J", nullptr, $PRIVATE, $field(ThreadInfo, blockedTime)},
-	{"blockedCount", "J", nullptr, $PRIVATE, $field(ThreadInfo, blockedCount)},
-	{"waitedTime", "J", nullptr, $PRIVATE, $field(ThreadInfo, waitedTime)},
-	{"waitedCount", "J", nullptr, $PRIVATE, $field(ThreadInfo, waitedCount)},
-	{"lock", "Ljava/lang/management/LockInfo;", nullptr, $PRIVATE, $field(ThreadInfo, lock)},
-	{"lockName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ThreadInfo, lockName)},
-	{"lockOwnerId", "J", nullptr, $PRIVATE, $field(ThreadInfo, lockOwnerId)},
-	{"lockOwnerName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ThreadInfo, lockOwnerName)},
-	{"daemon", "Z", nullptr, $PRIVATE, $field(ThreadInfo, daemon)},
-	{"inNative", "Z", nullptr, $PRIVATE, $field(ThreadInfo, inNative)},
-	{"suspended", "Z", nullptr, $PRIVATE, $field(ThreadInfo, suspended)},
-	{"threadState", "Ljava/lang/Thread$State;", nullptr, $PRIVATE, $field(ThreadInfo, threadState)},
-	{"priority", "I", nullptr, $PRIVATE, $field(ThreadInfo, priority)},
-	{"stackTrace", "[Ljava/lang/StackTraceElement;", nullptr, $PRIVATE, $field(ThreadInfo, stackTrace)},
-	{"lockedMonitors", "[Ljava/lang/management/MonitorInfo;", nullptr, $PRIVATE, $field(ThreadInfo, lockedMonitors)},
-	{"lockedSynchronizers", "[Ljava/lang/management/LockInfo;", nullptr, $PRIVATE, $field(ThreadInfo, lockedSynchronizers)},
-	{"EMPTY_MONITORS", "[Ljava/lang/management/MonitorInfo;", nullptr, $PRIVATE | $STATIC, $staticField(ThreadInfo, EMPTY_MONITORS)},
-	{"EMPTY_SYNCS", "[Ljava/lang/management/LockInfo;", nullptr, $PRIVATE | $STATIC, $staticField(ThreadInfo, EMPTY_SYNCS)},
-	{"MAX_FRAMES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ThreadInfo, MAX_FRAMES)},
-	{"NO_STACK_TRACE", "[Ljava/lang/StackTraceElement;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfo, NO_STACK_TRACE)},
-	{}
-};
-
-$MethodInfo _ThreadInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Thread;ILjava/lang/Object;Ljava/lang/Thread;JJJJ[Ljava/lang/StackTraceElement;)V", nullptr, $PRIVATE, $method(ThreadInfo, init$, void, $Thread*, int32_t, Object$*, $Thread*, int64_t, int64_t, int64_t, int64_t, $StackTraceElementArray*)},
-	{"<init>", "(Ljava/lang/Thread;ILjava/lang/Object;Ljava/lang/Thread;JJJJ[Ljava/lang/StackTraceElement;[Ljava/lang/Object;[I[Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(ThreadInfo, init$, void, $Thread*, int32_t, Object$*, $Thread*, int64_t, int64_t, int64_t, int64_t, $StackTraceElementArray*, $ObjectArray*, $ints*, $ObjectArray*)},
-	{"<init>", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, $PRIVATE, $method(ThreadInfo, init$, void, $CompositeData*)},
-	{"from", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/management/ThreadInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(ThreadInfo, from, ThreadInfo*, $CompositeData*)},
-	{"getBlockedCount", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getBlockedCount, int64_t)},
-	{"getBlockedTime", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getBlockedTime, int64_t)},
-	{"getLockInfo", "()Ljava/lang/management/LockInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getLockInfo, $LockInfo*)},
-	{"getLockName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getLockName, $String*)},
-	{"getLockOwnerId", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getLockOwnerId, int64_t)},
-	{"getLockOwnerName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getLockOwnerName, $String*)},
-	{"getLockedMonitors", "()[Ljava/lang/management/MonitorInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getLockedMonitors, $MonitorInfoArray*)},
-	{"getLockedSynchronizers", "()[Ljava/lang/management/LockInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getLockedSynchronizers, $LockInfoArray*)},
-	{"getPriority", "()I", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getPriority, int32_t)},
-	{"getStackTrace", "()[Ljava/lang/StackTraceElement;", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getStackTrace, $StackTraceElementArray*)},
-	{"getThreadId", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getThreadId, int64_t)},
-	{"getThreadName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getThreadName, $String*)},
-	{"getThreadState", "()Ljava/lang/Thread$State;", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getThreadState, $Thread$State*)},
-	{"getWaitedCount", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getWaitedCount, int64_t)},
-	{"getWaitedTime", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getWaitedTime, int64_t)},
-	{"initialize", "(Ljava/lang/Thread;ILjava/lang/Object;Ljava/lang/Thread;JJJJ[Ljava/lang/StackTraceElement;[Ljava/lang/management/MonitorInfo;[Ljava/lang/management/LockInfo;)V", nullptr, $PRIVATE, $method(ThreadInfo, initialize, void, $Thread*, int32_t, Object$*, $Thread*, int64_t, int64_t, int64_t, int64_t, $StackTraceElementArray*, $MonitorInfoArray*, $LockInfoArray*)},
-	{"isDaemon", "()Z", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, isDaemon, bool)},
-	{"isInNative", "()Z", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, isInNative, bool)},
-	{"isSuspended", "()Z", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, isSuspended, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _ThreadInfo_InnerClassesInfo_[] = {
-	{"java.lang.management.ThreadInfo$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _ThreadInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.management.ThreadInfo",
-	"java.lang.Object",
-	nullptr,
-	_ThreadInfo_FieldInfo_,
-	_ThreadInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ThreadInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.management.ThreadInfo$1"
-};
-
-$Object* allocate$ThreadInfo($Class* clazz) {
-	return $of($alloc(ThreadInfo));
-}
-
 $MonitorInfoArray* ThreadInfo::EMPTY_MONITORS = nullptr;
 $LockInfoArray* ThreadInfo::EMPTY_SYNCS = nullptr;
 $StackTraceElementArray* ThreadInfo::NO_STACK_TRACE = nullptr;
@@ -123,31 +44,31 @@ void ThreadInfo::init$($Thread* t, int32_t state, Object$* lockObj, $Thread* loc
 }
 
 void ThreadInfo::init$($Thread* t, int32_t state, Object$* lockObj, $Thread* lockOwner, int64_t blockedCount, int64_t blockedTime, int64_t waitedCount, int64_t waitedTime, $StackTraceElementArray* stackTrace, $ObjectArray* monitors, $ints* stackDepths, $ObjectArray* synchronizers) {
-	$useLocalCurrentObjectStackCache();
-	int32_t numMonitors = (monitors == nullptr ? 0 : $nc(monitors)->length);
+	$useLocalObjectStack();
+	int32_t numMonitors = (monitors == nullptr ? 0 : monitors->length);
 	$var($MonitorInfoArray, lockedMonitors, nullptr);
 	if (numMonitors == 0) {
 		$assign(lockedMonitors, ThreadInfo::EMPTY_MONITORS);
 	} else {
 		$assign(lockedMonitors, $new($MonitorInfoArray, numMonitors));
 		for (int32_t i = 0; i < numMonitors; ++i) {
-			$var($Object0, lock, monitors->get(i));
-			$var($String, className, $nc($of(lock))->getClass()->getName());
+			$var($Object0, lock, $nc(monitors)->get(i));
+			$var($String, className, $nc(lock)->getClass()->getName());
 			int32_t identityHashCode = $System::identityHashCode(lock);
 			int32_t depth = $nc(stackDepths)->get(i);
 			$var($StackTraceElement, ste, depth >= 0 ? $nc(stackTrace)->get(depth) : ($StackTraceElement*)nullptr);
 			lockedMonitors->set(i, $$new($MonitorInfo, className, identityHashCode, depth, ste));
 		}
 	}
-	int32_t numSyncs = (synchronizers == nullptr ? 0 : $nc(synchronizers)->length);
+	int32_t numSyncs = (synchronizers == nullptr ? 0 : synchronizers->length);
 	$var($LockInfoArray, lockedSynchronizers, nullptr);
 	if (numSyncs == 0) {
 		$assign(lockedSynchronizers, ThreadInfo::EMPTY_SYNCS);
 	} else {
 		$assign(lockedSynchronizers, $new($LockInfoArray, numSyncs));
 		for (int32_t i = 0; i < numSyncs; ++i) {
-			$var($Object0, lock, synchronizers->get(i));
-			$var($String, className, $nc($of(lock))->getClass()->getName());
+			$var($Object0, lock, $nc(synchronizers)->get(i));
+			$var($String, className, $nc(lock)->getClass()->getName());
 			int32_t identityHashCode = $System::identityHashCode(lock);
 			lockedSynchronizers->set(i, $$new($LockInfo, className, identityHashCode));
 		}
@@ -156,7 +77,7 @@ void ThreadInfo::init$($Thread* t, int32_t state, Object$* lockObj, $Thread* loc
 }
 
 void ThreadInfo::initialize($Thread* t, int32_t state, Object$* lockObj, $Thread* lockOwner, int64_t blockedCount, int64_t blockedTime, int64_t waitedCount, int64_t waitedTime, $StackTraceElementArray* stackTrace, $MonitorInfoArray* lockedMonitors, $LockInfoArray* lockedSynchronizers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->threadId = $nc(t)->getId();
 	$set(this, threadName, t->getName());
 	$set(this, threadState, $ManagementFactoryHelper::toThreadState(state));
@@ -173,14 +94,17 @@ void ThreadInfo::initialize($Thread* t, int32_t state, Object$* lockObj, $Thread
 		$set(this, lockName, nullptr);
 	} else {
 		$set(this, lock, $new($LockInfo, lockObj));
-		$var($String, var$0, $$str({$($nc(this->lock)->getClassName()), $$str(u'@')}));
-		$set(this, lockName, $concat(var$0, $($Integer::toHexString($nc(this->lock)->getIdentityHashCode()))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($($nc(this->lock)->getClassName()));
+		var$0->append(u'@');
+		var$0->append($($Integer::toHexString(this->lock->getIdentityHashCode())));
+		$set(this, lockName, $str(var$0));
 	}
 	if (lockOwner == nullptr) {
 		this->lockOwnerId = -1;
 		$set(this, lockOwnerName, nullptr);
 	} else {
-		this->lockOwnerId = $nc(lockOwner)->getId();
+		this->lockOwnerId = lockOwner->getId();
 		$set(this, lockOwnerName, lockOwner->getName());
 	}
 	if (stackTrace == nullptr) {
@@ -279,17 +203,29 @@ int32_t ThreadInfo::getPriority() {
 }
 
 $String* ThreadInfo::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$2, $$str({"\""_s, $(getThreadName()), "\""_s, (this->daemon ? " daemon"_s : ""_s), " prio="_s, $$str(this->priority), " Id="_s}));
-	$var($String, var$1, $$concat(var$2, $$str(getThreadId())));
-	$var($String, var$0, $$concat(var$1, " "_s));
-	$var($StringBuilder, sb, $new($StringBuilder, $$concat(var$0, $(getThreadState()))));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("\""_s);
+	var$0->append($(getThreadName()));
+	var$0->append("\""_s);
+	var$0->append(this->daemon ? " daemon"_s : ""_s);
+	var$0->append(" prio="_s);
+	var$0->append(this->priority);
+	var$0->append(" Id="_s);
+	var$0->append(getThreadId());
+	var$0->append(" "_s);
+	var$0->append($(getThreadState()));
+	$var($StringBuilder, sb, $new($StringBuilder, $$str(var$0)));
 	if (getLockName() != nullptr) {
 		sb->append($$str({" on "_s, $(getLockName())}));
 	}
 	if (getLockOwnerName() != nullptr) {
-		$var($String, var$3, $$str({" owned by \""_s, $(getLockOwnerName()), "\" Id="_s}));
-		sb->append($$concat(var$3, $$str(getLockOwnerId())));
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append(" owned by \""_s);
+		var$1->append($(getLockOwnerName()));
+		var$1->append("\" Id="_s);
+		var$1->append(getLockOwnerId());
+		sb->append($$str(var$1));
 	}
 	if (isSuspended()) {
 		sb->append(" (suspended)"_s);
@@ -300,7 +236,7 @@ $String* ThreadInfo::toString() {
 	sb->append(u'\n');
 	int32_t i = 0;
 	for (; i < $nc(this->stackTrace)->length && i < ThreadInfo::MAX_FRAMES; ++i) {
-		$var($StackTraceElement, ste, $nc(this->stackTrace)->get(i));
+		$var($StackTraceElement, ste, this->stackTrace->get(i));
 		sb->append($$str({"\tat "_s, $($nc(ste)->toString())}));
 		sb->append(u'\n');
 		if (i == 0 && getLockInfo() != nullptr) {
@@ -308,38 +244,28 @@ $String* ThreadInfo::toString() {
 			$init($ThreadInfo$1);
 			switch ($nc($ThreadInfo$1::$SwitchMap$java$lang$Thread$State)->get($nc((ts))->ordinal())) {
 			case 1:
-				{
-					sb->append($$str({"\t-  blocked on "_s, $(getLockInfo())}));
-					sb->append(u'\n');
-					break;
-				}
+				sb->append($$str({"\t-  blocked on "_s, $(getLockInfo())}));
+				sb->append(u'\n');
+				break;
 			case 2:
-				{
-					sb->append($$str({"\t-  waiting on "_s, $(getLockInfo())}));
-					sb->append(u'\n');
-					break;
-				}
+				sb->append($$str({"\t-  waiting on "_s, $(getLockInfo())}));
+				sb->append(u'\n');
+				break;
 			case 3:
-				{
-					sb->append($$str({"\t-  waiting on "_s, $(getLockInfo())}));
-					sb->append(u'\n');
-					break;
-				}
+				sb->append($$str({"\t-  waiting on "_s, $(getLockInfo())}));
+				sb->append(u'\n');
+				break;
 			default:
-				{}
+				break;
 			}
 		}
 		{
 			$var($MonitorInfoArray, arr$, this->lockedMonitors);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($MonitorInfo, mi, arr$->get(i$));
-				{
-					if ($nc(mi)->getLockedStackDepth() == i) {
-						sb->append($$str({"\t-  locked "_s, mi}));
-						sb->append(u'\n');
-					}
+				if ($nc(mi)->getLockedStackDepth() == i) {
+					sb->append($$str({"\t-  locked "_s, mi}));
+					sb->append(u'\n');
 				}
 			}
 		}
@@ -354,9 +280,7 @@ $String* ThreadInfo::toString() {
 		sb->append(u'\n');
 		{
 			$var($LockInfoArray, arr$, locks);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($LockInfo, li, arr$->get(i$));
 				{
 					sb->append($$str({"\t- "_s, li}));
@@ -375,7 +299,7 @@ ThreadInfo* ThreadInfo::from($CompositeData* cd) {
 		return nullptr;
 	}
 	if ($instanceOf($ThreadInfoCompositeData, cd)) {
-		return $nc(($cast($ThreadInfoCompositeData, cd)))->getThreadInfo();
+		return $cast($ThreadInfoCompositeData, cd)->getThreadInfo();
 	} else {
 		return $new(ThreadInfo, cd);
 	}
@@ -389,7 +313,7 @@ $LockInfoArray* ThreadInfo::getLockedSynchronizers() {
 	return $cast($LockInfoArray, $nc(this->lockedSynchronizers)->clone());
 }
 
-void clinit$ThreadInfo($Class* class$) {
+void ThreadInfo::clinit$($Class* clazz) {
 	$assignStatic(ThreadInfo::EMPTY_MONITORS, $new($MonitorInfoArray, 0));
 	$assignStatic(ThreadInfo::EMPTY_SYNCS, $new($LockInfoArray, 0));
 	$assignStatic(ThreadInfo::NO_STACK_TRACE, $new($StackTraceElementArray, 0));
@@ -399,7 +323,79 @@ ThreadInfo::ThreadInfo() {
 }
 
 $Class* ThreadInfo::load$($String* name, bool initialize) {
-	$loadClass(ThreadInfo, name, initialize, &_ThreadInfo_ClassInfo_, clinit$ThreadInfo, allocate$ThreadInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"threadName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ThreadInfo, threadName)},
+		{"threadId", "J", nullptr, $PRIVATE, $field(ThreadInfo, threadId)},
+		{"blockedTime", "J", nullptr, $PRIVATE, $field(ThreadInfo, blockedTime)},
+		{"blockedCount", "J", nullptr, $PRIVATE, $field(ThreadInfo, blockedCount)},
+		{"waitedTime", "J", nullptr, $PRIVATE, $field(ThreadInfo, waitedTime)},
+		{"waitedCount", "J", nullptr, $PRIVATE, $field(ThreadInfo, waitedCount)},
+		{"lock", "Ljava/lang/management/LockInfo;", nullptr, $PRIVATE, $field(ThreadInfo, lock)},
+		{"lockName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ThreadInfo, lockName)},
+		{"lockOwnerId", "J", nullptr, $PRIVATE, $field(ThreadInfo, lockOwnerId)},
+		{"lockOwnerName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ThreadInfo, lockOwnerName)},
+		{"daemon", "Z", nullptr, $PRIVATE, $field(ThreadInfo, daemon)},
+		{"inNative", "Z", nullptr, $PRIVATE, $field(ThreadInfo, inNative)},
+		{"suspended", "Z", nullptr, $PRIVATE, $field(ThreadInfo, suspended)},
+		{"threadState", "Ljava/lang/Thread$State;", nullptr, $PRIVATE, $field(ThreadInfo, threadState)},
+		{"priority", "I", nullptr, $PRIVATE, $field(ThreadInfo, priority)},
+		{"stackTrace", "[Ljava/lang/StackTraceElement;", nullptr, $PRIVATE, $field(ThreadInfo, stackTrace)},
+		{"lockedMonitors", "[Ljava/lang/management/MonitorInfo;", nullptr, $PRIVATE, $field(ThreadInfo, lockedMonitors)},
+		{"lockedSynchronizers", "[Ljava/lang/management/LockInfo;", nullptr, $PRIVATE, $field(ThreadInfo, lockedSynchronizers)},
+		{"EMPTY_MONITORS", "[Ljava/lang/management/MonitorInfo;", nullptr, $PRIVATE | $STATIC, $staticField(ThreadInfo, EMPTY_MONITORS)},
+		{"EMPTY_SYNCS", "[Ljava/lang/management/LockInfo;", nullptr, $PRIVATE | $STATIC, $staticField(ThreadInfo, EMPTY_SYNCS)},
+		{"MAX_FRAMES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ThreadInfo, MAX_FRAMES)},
+		{"NO_STACK_TRACE", "[Ljava/lang/StackTraceElement;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThreadInfo, NO_STACK_TRACE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Thread;ILjava/lang/Object;Ljava/lang/Thread;JJJJ[Ljava/lang/StackTraceElement;)V", nullptr, $PRIVATE, $method(ThreadInfo, init$, void, $Thread*, int32_t, Object$*, $Thread*, int64_t, int64_t, int64_t, int64_t, $StackTraceElementArray*)},
+		{"<init>", "(Ljava/lang/Thread;ILjava/lang/Object;Ljava/lang/Thread;JJJJ[Ljava/lang/StackTraceElement;[Ljava/lang/Object;[I[Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(ThreadInfo, init$, void, $Thread*, int32_t, Object$*, $Thread*, int64_t, int64_t, int64_t, int64_t, $StackTraceElementArray*, $ObjectArray*, $ints*, $ObjectArray*)},
+		{"<init>", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, $PRIVATE, $method(ThreadInfo, init$, void, $CompositeData*)},
+		{"from", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/management/ThreadInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(ThreadInfo, from, ThreadInfo*, $CompositeData*)},
+		{"getBlockedCount", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getBlockedCount, int64_t)},
+		{"getBlockedTime", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getBlockedTime, int64_t)},
+		{"getLockInfo", "()Ljava/lang/management/LockInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getLockInfo, $LockInfo*)},
+		{"getLockName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getLockName, $String*)},
+		{"getLockOwnerId", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getLockOwnerId, int64_t)},
+		{"getLockOwnerName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getLockOwnerName, $String*)},
+		{"getLockedMonitors", "()[Ljava/lang/management/MonitorInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getLockedMonitors, $MonitorInfoArray*)},
+		{"getLockedSynchronizers", "()[Ljava/lang/management/LockInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getLockedSynchronizers, $LockInfoArray*)},
+		{"getPriority", "()I", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getPriority, int32_t)},
+		{"getStackTrace", "()[Ljava/lang/StackTraceElement;", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getStackTrace, $StackTraceElementArray*)},
+		{"getThreadId", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getThreadId, int64_t)},
+		{"getThreadName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getThreadName, $String*)},
+		{"getThreadState", "()Ljava/lang/Thread$State;", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getThreadState, $Thread$State*)},
+		{"getWaitedCount", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getWaitedCount, int64_t)},
+		{"getWaitedTime", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, getWaitedTime, int64_t)},
+		{"initialize", "(Ljava/lang/Thread;ILjava/lang/Object;Ljava/lang/Thread;JJJJ[Ljava/lang/StackTraceElement;[Ljava/lang/management/MonitorInfo;[Ljava/lang/management/LockInfo;)V", nullptr, $PRIVATE, $method(ThreadInfo, initialize, void, $Thread*, int32_t, Object$*, $Thread*, int64_t, int64_t, int64_t, int64_t, $StackTraceElementArray*, $MonitorInfoArray*, $LockInfoArray*)},
+		{"isDaemon", "()Z", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, isDaemon, bool)},
+		{"isInNative", "()Z", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, isInNative, bool)},
+		{"isSuspended", "()Z", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, isSuspended, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ThreadInfo, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.management.ThreadInfo$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.management.ThreadInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.management.ThreadInfo$1"
+	};
+	$loadClass(ThreadInfo, name, initialize, &classInfo$$, ThreadInfo::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ThreadInfo);
+	});
 	return class$;
 }
 

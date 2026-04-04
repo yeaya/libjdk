@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicIconFactory$MenuItemCheckIcon.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <javax/swing/Icon.h>
@@ -17,44 +16,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$MethodInfo _BasicIconFactory$MenuItemCheckIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(BasicIconFactory$MenuItemCheckIcon, init$, void)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(BasicIconFactory$MenuItemCheckIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(BasicIconFactory$MenuItemCheckIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(BasicIconFactory$MenuItemCheckIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicIconFactory$MenuItemCheckIcon_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicIconFactory$MenuItemCheckIcon", "javax.swing.plaf.basic.BasicIconFactory", "MenuItemCheckIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicIconFactory$MenuItemCheckIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicIconFactory$MenuItemCheckIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
-	nullptr,
-	_BasicIconFactory$MenuItemCheckIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicIconFactory$MenuItemCheckIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicIconFactory"
-};
-
-$Object* allocate$BasicIconFactory$MenuItemCheckIcon($Class* clazz) {
-	return $of($alloc(BasicIconFactory$MenuItemCheckIcon));
-}
 
 int32_t BasicIconFactory$MenuItemCheckIcon::hashCode() {
 	 return this->$Icon::hashCode();
@@ -94,7 +55,40 @@ BasicIconFactory$MenuItemCheckIcon::BasicIconFactory$MenuItemCheckIcon() {
 }
 
 $Class* BasicIconFactory$MenuItemCheckIcon::load$($String* name, bool initialize) {
-	$loadClass(BasicIconFactory$MenuItemCheckIcon, name, initialize, &_BasicIconFactory$MenuItemCheckIcon_ClassInfo_, allocate$BasicIconFactory$MenuItemCheckIcon);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(BasicIconFactory$MenuItemCheckIcon, init$, void)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(BasicIconFactory$MenuItemCheckIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(BasicIconFactory$MenuItemCheckIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(BasicIconFactory$MenuItemCheckIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicIconFactory$MenuItemCheckIcon", "javax.swing.plaf.basic.BasicIconFactory", "MenuItemCheckIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicIconFactory$MenuItemCheckIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicIconFactory"
+	};
+	$loadClass(BasicIconFactory$MenuItemCheckIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicIconFactory$MenuItemCheckIcon));
+	});
 	return class$;
 }
 

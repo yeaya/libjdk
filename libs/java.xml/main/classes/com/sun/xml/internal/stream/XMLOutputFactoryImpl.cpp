@@ -1,5 +1,4 @@
 #include <com/sun/xml/internal/stream/XMLOutputFactoryImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/PropertyManager.h>
 #include <com/sun/xml/internal/stream/writers/XMLDOMWriterImpl.h>
@@ -52,46 +51,6 @@ namespace com {
 			namespace internal {
 				namespace stream {
 
-$FieldInfo _XMLOutputFactoryImpl_FieldInfo_[] = {
-	{"fPropertyManager", "Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;", nullptr, $PRIVATE, $field(XMLOutputFactoryImpl, fPropertyManager)},
-	{"fStreamWriter", "Lcom/sun/xml/internal/stream/writers/XMLStreamWriterImpl;", nullptr, $PRIVATE, $field(XMLOutputFactoryImpl, fStreamWriter)},
-	{"fReuseInstance", "Z", nullptr, 0, $field(XMLOutputFactoryImpl, fReuseInstance)},
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLOutputFactoryImpl, DEBUG)},
-	{"fPropertyChanged", "Z", nullptr, $PRIVATE, $field(XMLOutputFactoryImpl, fPropertyChanged)},
-	{}
-};
-
-$MethodInfo _XMLOutputFactoryImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLOutputFactoryImpl, init$, void)},
-	{"createXMLEventWriter", "(Ljava/io/OutputStream;)Ljavax/xml/stream/XMLEventWriter;", nullptr, $PUBLIC, $virtualMethod(XMLOutputFactoryImpl, createXMLEventWriter, $XMLEventWriter*, $OutputStream*), "javax.xml.stream.XMLStreamException"},
-	{"createXMLEventWriter", "(Ljava/io/OutputStream;Ljava/lang/String;)Ljavax/xml/stream/XMLEventWriter;", nullptr, $PUBLIC, $virtualMethod(XMLOutputFactoryImpl, createXMLEventWriter, $XMLEventWriter*, $OutputStream*, $String*), "javax.xml.stream.XMLStreamException"},
-	{"createXMLEventWriter", "(Ljavax/xml/transform/Result;)Ljavax/xml/stream/XMLEventWriter;", nullptr, $PUBLIC, $virtualMethod(XMLOutputFactoryImpl, createXMLEventWriter, $XMLEventWriter*, $Result*), "javax.xml.stream.XMLStreamException"},
-	{"createXMLEventWriter", "(Ljava/io/Writer;)Ljavax/xml/stream/XMLEventWriter;", nullptr, $PUBLIC, $virtualMethod(XMLOutputFactoryImpl, createXMLEventWriter, $XMLEventWriter*, $Writer*), "javax.xml.stream.XMLStreamException"},
-	{"createXMLStreamWriter", "(Ljavax/xml/transform/Result;)Ljavax/xml/stream/XMLStreamWriter;", nullptr, $PUBLIC, $virtualMethod(XMLOutputFactoryImpl, createXMLStreamWriter, $XMLStreamWriter*, $Result*), "javax.xml.stream.XMLStreamException"},
-	{"createXMLStreamWriter", "(Ljava/io/Writer;)Ljavax/xml/stream/XMLStreamWriter;", nullptr, $PUBLIC, $virtualMethod(XMLOutputFactoryImpl, createXMLStreamWriter, $XMLStreamWriter*, $Writer*), "javax.xml.stream.XMLStreamException"},
-	{"createXMLStreamWriter", "(Ljava/io/OutputStream;)Ljavax/xml/stream/XMLStreamWriter;", nullptr, $PUBLIC, $virtualMethod(XMLOutputFactoryImpl, createXMLStreamWriter, $XMLStreamWriter*, $OutputStream*), "javax.xml.stream.XMLStreamException"},
-	{"createXMLStreamWriter", "(Ljava/io/OutputStream;Ljava/lang/String;)Ljavax/xml/stream/XMLStreamWriter;", nullptr, $PUBLIC, $virtualMethod(XMLOutputFactoryImpl, createXMLStreamWriter, $XMLStreamWriter*, $OutputStream*, $String*), "javax.xml.stream.XMLStreamException"},
-	{"createXMLStreamWriter", "(Ljavax/xml/transform/stream/StreamResult;Ljava/lang/String;)Ljavax/xml/stream/XMLStreamWriter;", nullptr, 0, $virtualMethod(XMLOutputFactoryImpl, createXMLStreamWriter, $XMLStreamWriter*, $StreamResult*, $String*), "javax.xml.stream.XMLStreamException"},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLOutputFactoryImpl, getProperty, $Object*, $String*), "java.lang.IllegalArgumentException"},
-	{"isPropertySupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLOutputFactoryImpl, isPropertySupported, bool, $String*)},
-	{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(XMLOutputFactoryImpl, setProperty, void, $String*, Object$*), "java.lang.IllegalArgumentException"},
-	{"toStreamResult", "(Ljava/io/OutputStream;Ljava/io/Writer;Ljava/lang/String;)Ljavax/xml/transform/stream/StreamResult;", nullptr, 0, $virtualMethod(XMLOutputFactoryImpl, toStreamResult, $StreamResult*, $OutputStream*, $Writer*, $String*)},
-	{}
-};
-
-$ClassInfo _XMLOutputFactoryImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.xml.internal.stream.XMLOutputFactoryImpl",
-	"javax.xml.stream.XMLOutputFactory",
-	nullptr,
-	_XMLOutputFactoryImpl_FieldInfo_,
-	_XMLOutputFactoryImpl_MethodInfo_
-};
-
-$Object* allocate$XMLOutputFactoryImpl($Class* clazz) {
-	return $of($alloc(XMLOutputFactoryImpl));
-}
-
 void XMLOutputFactoryImpl::init$() {
 	$XMLOutputFactory::init$();
 	$set(this, fPropertyManager, $new($PropertyManager, $PropertyManager::CONTEXT_WRITER));
@@ -108,8 +67,8 @@ $XMLEventWriter* XMLOutputFactoryImpl::createXMLEventWriter($OutputStream* outpu
 }
 
 $XMLEventWriter* XMLOutputFactoryImpl::createXMLEventWriter($Result* result) {
-	if ($instanceOf($StAXResult, result) && $nc(($cast($StAXResult, result)))->getXMLEventWriter() != nullptr) {
-		return ($cast($StAXResult, result))->getXMLEventWriter();
+	if ($instanceOf($StAXResult, result) && $cast($StAXResult, result)->getXMLEventWriter() != nullptr) {
+		return $cast($StAXResult, result)->getXMLEventWriter();
 	}
 	return $new($XMLEventWriterImpl, $(createXMLStreamWriter(result)));
 }
@@ -119,30 +78,30 @@ $XMLEventWriter* XMLOutputFactoryImpl::createXMLEventWriter($Writer* writer) {
 }
 
 $XMLStreamWriter* XMLOutputFactoryImpl::createXMLStreamWriter($Result* result) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($StreamResult, result)) {
-		return createXMLStreamWriter($cast($StreamResult, result), ($String*)nullptr);
+		return createXMLStreamWriter($cast($StreamResult, result), nullptr);
 	} else if ($instanceOf($DOMResult, result)) {
 		return $new($XMLDOMWriterImpl, $cast($DOMResult, result));
 	} else if ($instanceOf($StAXResult, result)) {
-		if ($nc(($cast($StAXResult, result)))->getXMLStreamWriter() != nullptr) {
-			return ($cast($StAXResult, result))->getXMLStreamWriter();
+		if ($cast($StAXResult, result)->getXMLStreamWriter() != nullptr) {
+			return $cast($StAXResult, result)->getXMLStreamWriter();
 		} else {
 			$throwNew($UnsupportedOperationException, $$str({"Result of type "_s, result, " is not supported"_s}));
 		}
 	} else if ($nc(result)->getSystemId() != nullptr) {
-		return createXMLStreamWriter(static_cast<$Result*>($$new($StreamResult, $(result->getSystemId()))));
+		return createXMLStreamWriter($$new($StreamResult, $(result->getSystemId())));
 	} else {
 		$throwNew($UnsupportedOperationException, $$str({"Result of type "_s, result, " is not supported. Supported result types are: DOMResult, StAXResult and StreamResult."_s}));
 	}
 }
 
 $XMLStreamWriter* XMLOutputFactoryImpl::createXMLStreamWriter($Writer* writer) {
-	return createXMLStreamWriter($(toStreamResult(nullptr, writer, nullptr)), ($String*)nullptr);
+	return createXMLStreamWriter($(toStreamResult(nullptr, writer, nullptr)), nullptr);
 }
 
 $XMLStreamWriter* XMLOutputFactoryImpl::createXMLStreamWriter($OutputStream* outputStream) {
-	return createXMLStreamWriter(outputStream, ($String*)nullptr);
+	return createXMLStreamWriter(outputStream, nullptr);
 }
 
 $XMLStreamWriter* XMLOutputFactoryImpl::createXMLStreamWriter($OutputStream* outputStream, $String* encoding) {
@@ -154,7 +113,7 @@ $Object* XMLOutputFactoryImpl::getProperty($String* name) {
 		$throwNew($IllegalArgumentException, "Property not supported"_s);
 	}
 	if ($nc(this->fPropertyManager)->containsProperty(name)) {
-		return $of($nc(this->fPropertyManager)->getProperty(name));
+		return $nc(this->fPropertyManager)->getProperty(name);
 	}
 	$throwNew($IllegalArgumentException, "Property not supported"_s);
 }
@@ -168,13 +127,14 @@ bool XMLOutputFactoryImpl::isPropertySupported($String* name) {
 }
 
 void XMLOutputFactoryImpl::setProperty($String* name, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == nullptr || value == nullptr || !$nc(this->fPropertyManager)->containsProperty(name)) {
 		$throwNew($IllegalArgumentException, $$str({"Property "_s, name, "is not supported"_s}));
 	}
 	$init($Constants);
 	if (name == $Constants::REUSE_INSTANCE || $nc(name)->equals($Constants::REUSE_INSTANCE)) {
-		this->fReuseInstance = $nc(($cast($Boolean, value)))->booleanValue();
+		this->fReuseInstance = $nc($cast($Boolean, value))->booleanValue();
+		;
 		if (this->fReuseInstance) {
 			$throwNew($IllegalArgumentException, $$str({"Property "_s, name, " is not supported: XMLStreamWriters are not Thread safe"_s}));
 		}
@@ -194,14 +154,15 @@ $StreamResult* XMLOutputFactoryImpl::toStreamResult($OutputStream* os, $Writer* 
 
 $XMLStreamWriter* XMLOutputFactoryImpl::createXMLStreamWriter($StreamResult* sr, $String* encoding) {
 	try {
-		if (this->fReuseInstance && this->fStreamWriter != nullptr && $nc(this->fStreamWriter)->canReuse() && !this->fPropertyChanged) {
-			$nc(this->fStreamWriter)->reset();
+		if (this->fReuseInstance && this->fStreamWriter != nullptr && this->fStreamWriter->canReuse() && !this->fPropertyChanged) {
+			this->fStreamWriter->reset();
 			$nc(this->fStreamWriter)->setOutput(sr, encoding);
+			;
 			return this->fStreamWriter;
 		}
-		return ($set(this, fStreamWriter, $new($XMLStreamWriterImpl, sr, encoding, $$new($PropertyManager, this->fPropertyManager))));
+		return $set(this, fStreamWriter, $new($XMLStreamWriterImpl, sr, encoding, $$new($PropertyManager, this->fPropertyManager)));
 	} catch ($IOException& io) {
-		$throwNew($XMLStreamException, static_cast<$Throwable*>(io));
+		$throwNew($XMLStreamException, io);
 	}
 	$shouldNotReachHere();
 }
@@ -210,7 +171,42 @@ XMLOutputFactoryImpl::XMLOutputFactoryImpl() {
 }
 
 $Class* XMLOutputFactoryImpl::load$($String* name, bool initialize) {
-	$loadClass(XMLOutputFactoryImpl, name, initialize, &_XMLOutputFactoryImpl_ClassInfo_, allocate$XMLOutputFactoryImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fPropertyManager", "Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;", nullptr, $PRIVATE, $field(XMLOutputFactoryImpl, fPropertyManager)},
+		{"fStreamWriter", "Lcom/sun/xml/internal/stream/writers/XMLStreamWriterImpl;", nullptr, $PRIVATE, $field(XMLOutputFactoryImpl, fStreamWriter)},
+		{"fReuseInstance", "Z", nullptr, 0, $field(XMLOutputFactoryImpl, fReuseInstance)},
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLOutputFactoryImpl, DEBUG)},
+		{"fPropertyChanged", "Z", nullptr, $PRIVATE, $field(XMLOutputFactoryImpl, fPropertyChanged)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLOutputFactoryImpl, init$, void)},
+		{"createXMLEventWriter", "(Ljava/io/OutputStream;)Ljavax/xml/stream/XMLEventWriter;", nullptr, $PUBLIC, $virtualMethod(XMLOutputFactoryImpl, createXMLEventWriter, $XMLEventWriter*, $OutputStream*), "javax.xml.stream.XMLStreamException"},
+		{"createXMLEventWriter", "(Ljava/io/OutputStream;Ljava/lang/String;)Ljavax/xml/stream/XMLEventWriter;", nullptr, $PUBLIC, $virtualMethod(XMLOutputFactoryImpl, createXMLEventWriter, $XMLEventWriter*, $OutputStream*, $String*), "javax.xml.stream.XMLStreamException"},
+		{"createXMLEventWriter", "(Ljavax/xml/transform/Result;)Ljavax/xml/stream/XMLEventWriter;", nullptr, $PUBLIC, $virtualMethod(XMLOutputFactoryImpl, createXMLEventWriter, $XMLEventWriter*, $Result*), "javax.xml.stream.XMLStreamException"},
+		{"createXMLEventWriter", "(Ljava/io/Writer;)Ljavax/xml/stream/XMLEventWriter;", nullptr, $PUBLIC, $virtualMethod(XMLOutputFactoryImpl, createXMLEventWriter, $XMLEventWriter*, $Writer*), "javax.xml.stream.XMLStreamException"},
+		{"createXMLStreamWriter", "(Ljavax/xml/transform/Result;)Ljavax/xml/stream/XMLStreamWriter;", nullptr, $PUBLIC, $virtualMethod(XMLOutputFactoryImpl, createXMLStreamWriter, $XMLStreamWriter*, $Result*), "javax.xml.stream.XMLStreamException"},
+		{"createXMLStreamWriter", "(Ljava/io/Writer;)Ljavax/xml/stream/XMLStreamWriter;", nullptr, $PUBLIC, $virtualMethod(XMLOutputFactoryImpl, createXMLStreamWriter, $XMLStreamWriter*, $Writer*), "javax.xml.stream.XMLStreamException"},
+		{"createXMLStreamWriter", "(Ljava/io/OutputStream;)Ljavax/xml/stream/XMLStreamWriter;", nullptr, $PUBLIC, $virtualMethod(XMLOutputFactoryImpl, createXMLStreamWriter, $XMLStreamWriter*, $OutputStream*), "javax.xml.stream.XMLStreamException"},
+		{"createXMLStreamWriter", "(Ljava/io/OutputStream;Ljava/lang/String;)Ljavax/xml/stream/XMLStreamWriter;", nullptr, $PUBLIC, $virtualMethod(XMLOutputFactoryImpl, createXMLStreamWriter, $XMLStreamWriter*, $OutputStream*, $String*), "javax.xml.stream.XMLStreamException"},
+		{"createXMLStreamWriter", "(Ljavax/xml/transform/stream/StreamResult;Ljava/lang/String;)Ljavax/xml/stream/XMLStreamWriter;", nullptr, 0, $virtualMethod(XMLOutputFactoryImpl, createXMLStreamWriter, $XMLStreamWriter*, $StreamResult*, $String*), "javax.xml.stream.XMLStreamException"},
+		{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLOutputFactoryImpl, getProperty, $Object*, $String*), "java.lang.IllegalArgumentException"},
+		{"isPropertySupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLOutputFactoryImpl, isPropertySupported, bool, $String*)},
+		{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(XMLOutputFactoryImpl, setProperty, void, $String*, Object$*), "java.lang.IllegalArgumentException"},
+		{"toStreamResult", "(Ljava/io/OutputStream;Ljava/io/Writer;Ljava/lang/String;)Ljavax/xml/transform/stream/StreamResult;", nullptr, 0, $virtualMethod(XMLOutputFactoryImpl, toStreamResult, $StreamResult*, $OutputStream*, $Writer*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.xml.internal.stream.XMLOutputFactoryImpl",
+		"javax.xml.stream.XMLOutputFactory",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLOutputFactoryImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLOutputFactoryImpl);
+	});
 	return class$;
 }
 

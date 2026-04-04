@@ -1,5 +1,4 @@
 #include <sun/awt/OSInfo$1.h>
-
 #include <sun/awt/OSInfo$OSType.h>
 #include <sun/awt/OSInfo.h>
 #include <jcpp.h>
@@ -13,44 +12,6 @@ using $OSInfo = ::sun::awt::OSInfo;
 namespace sun {
 	namespace awt {
 
-$MethodInfo _OSInfo$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(OSInfo$1, init$, void)},
-	{"run", "()Lsun/awt/OSInfo$OSType;", nullptr, $PUBLIC, $virtualMethod(OSInfo$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _OSInfo$1_EnclosingMethodInfo_ = {
-	"sun.awt.OSInfo",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _OSInfo$1_InnerClassesInfo_[] = {
-	{"sun.awt.OSInfo$1", nullptr, nullptr, 0},
-	{"sun.awt.OSInfo$OSType", "sun.awt.OSInfo", "OSType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _OSInfo$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.OSInfo$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_OSInfo$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Lsun/awt/OSInfo$OSType;>;",
-	&_OSInfo$1_EnclosingMethodInfo_,
-	_OSInfo$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.OSInfo"
-};
-
-$Object* allocate$OSInfo$1($Class* clazz) {
-	return $of($alloc(OSInfo$1));
-}
-
 void OSInfo$1::init$() {
 }
 
@@ -62,7 +23,39 @@ OSInfo$1::OSInfo$1() {
 }
 
 $Class* OSInfo$1::load$($String* name, bool initialize) {
-	$loadClass(OSInfo$1, name, initialize, &_OSInfo$1_ClassInfo_, allocate$OSInfo$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(OSInfo$1, init$, void)},
+		{"run", "()Lsun/awt/OSInfo$OSType;", nullptr, $PUBLIC, $virtualMethod(OSInfo$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.OSInfo",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.OSInfo$1", nullptr, nullptr, 0},
+		{"sun.awt.OSInfo$OSType", "sun.awt.OSInfo", "OSType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.OSInfo$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Lsun/awt/OSInfo$OSType;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.OSInfo"
+	};
+	$loadClass(OSInfo$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OSInfo$1);
+	});
 	return class$;
 }
 

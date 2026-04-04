@@ -30,6 +30,7 @@ class $export JTreeFocusTest : public ::java::lang::Object {
 	$class(JTreeFocusTest, 0, ::java::lang::Object)
 public:
 	JTreeFocusTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void blockTillDisplayed(::javax::swing::JComponent* comp);
 	static ::javax::swing::JTree* createTree();

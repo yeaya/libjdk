@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/WGLVolatileSurfaceManager.h>
-
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
 #include <java/awt/Component.h>
@@ -34,7 +33,6 @@ using $BufferCapabilities = ::java::awt::BufferCapabilities;
 using $BufferCapabilities$FlipContents = ::java::awt::BufferCapabilities$FlipContents;
 using $Component = ::java::awt::Component;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
-using $Image = ::java::awt::Image;
 using $Transparency = ::java::awt::Transparency;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $Boolean = ::java::lang::Boolean;
@@ -59,33 +57,6 @@ namespace sun {
 	namespace java2d {
 		namespace opengl {
 
-$FieldInfo _WGLVolatileSurfaceManager_FieldInfo_[] = {
-	{"accelerationEnabled", "Z", nullptr, $PRIVATE | $FINAL, $field(WGLVolatileSurfaceManager, accelerationEnabled)},
-	{}
-};
-
-$MethodInfo _WGLVolatileSurfaceManager_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/image/SunVolatileImage;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(WGLVolatileSurfaceManager, init$, void, $SunVolatileImage*, Object$*)},
-	{"initAcceleratedSurface", "()Lsun/java2d/SurfaceData;", nullptr, $PROTECTED, $virtualMethod(WGLVolatileSurfaceManager, initAcceleratedSurface, $SurfaceData*)},
-	{"initContents", "()V", nullptr, $PUBLIC, $virtualMethod(WGLVolatileSurfaceManager, initContents, void)},
-	{"isAccelerationEnabled", "()Z", nullptr, $PROTECTED, $virtualMethod(WGLVolatileSurfaceManager, isAccelerationEnabled, bool)},
-	{"isConfigValid", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PROTECTED, $virtualMethod(WGLVolatileSurfaceManager, isConfigValid, bool, $GraphicsConfiguration*)},
-	{}
-};
-
-$ClassInfo _WGLVolatileSurfaceManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.opengl.WGLVolatileSurfaceManager",
-	"sun.awt.image.VolatileSurfaceManager",
-	nullptr,
-	_WGLVolatileSurfaceManager_FieldInfo_,
-	_WGLVolatileSurfaceManager_MethodInfo_
-};
-
-$Object* allocate$WGLVolatileSurfaceManager($Class* clazz) {
-	return $of($alloc(WGLVolatileSurfaceManager));
-}
-
 void WGLVolatileSurfaceManager::init$($SunVolatileImage* vImg, Object$* context) {
 	$VolatileSurfaceManager::init$(vImg, context);
 	int32_t transparency = $nc(vImg)->getTransparency();
@@ -98,7 +69,7 @@ bool WGLVolatileSurfaceManager::isAccelerationEnabled() {
 }
 
 $SurfaceData* WGLVolatileSurfaceManager::initAcceleratedSurface() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceData, sData, nullptr);
 	$var($Component, comp, $nc(this->vImg)->getComponent());
 	$var($AWTAccessor$ComponentAccessor, acc, $AWTAccessor::getComponentAccessor());
@@ -107,13 +78,13 @@ $SurfaceData* WGLVolatileSurfaceManager::initAcceleratedSurface() {
 		bool createVSynced = false;
 		bool forceback = false;
 		if ($instanceOf($Boolean, this->context)) {
-			forceback = $nc(($cast($Boolean, this->context)))->booleanValue();
+			forceback = $cast($Boolean, this->context)->booleanValue();
 			if (forceback) {
 				$var($BufferCapabilities, caps, $nc(peer)->getBackBufferCaps());
 				if ($instanceOf($ExtendedBufferCapabilities, caps)) {
 					$var($ExtendedBufferCapabilities, ebc, $cast($ExtendedBufferCapabilities, caps));
 					$init($ExtendedBufferCapabilities$VSyncType);
-					bool var$0 = $nc(ebc)->getVSync() == $ExtendedBufferCapabilities$VSyncType::VSYNC_ON;
+					bool var$0 = ebc->getVSync() == $ExtendedBufferCapabilities$VSyncType::VSYNC_ON;
 					$init($BufferCapabilities$FlipContents);
 					if (var$0 && ebc->getFlipContents() == $BufferCapabilities$FlipContents::COPIED) {
 						createVSynced = true;
@@ -134,9 +105,8 @@ $SurfaceData* WGLVolatileSurfaceManager::initAcceleratedSurface() {
 			if (createVSynced) {
 				$assign(sData, $WGLSurfaceData::createData(peer, this->vImg, type));
 			} else {
-				$var($WGLGraphicsConfig, var$1, gc);
-				int32_t var$2 = $nc(this->vImg)->getWidth();
-				$assign(sData, $WGLSurfaceData::createData(var$1, var$2, $nc(this->vImg)->getHeight(), cm, this->vImg, type));
+				int32_t var$1 = $nc(this->vImg)->getWidth();
+				$assign(sData, $WGLSurfaceData::createData(gc, var$1, this->vImg->getHeight(), cm, this->vImg, type));
 			}
 		}
 	} catch ($NullPointerException& ex) {
@@ -161,7 +131,29 @@ WGLVolatileSurfaceManager::WGLVolatileSurfaceManager() {
 }
 
 $Class* WGLVolatileSurfaceManager::load$($String* name, bool initialize) {
-	$loadClass(WGLVolatileSurfaceManager, name, initialize, &_WGLVolatileSurfaceManager_ClassInfo_, allocate$WGLVolatileSurfaceManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"accelerationEnabled", "Z", nullptr, $PRIVATE | $FINAL, $field(WGLVolatileSurfaceManager, accelerationEnabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/image/SunVolatileImage;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(WGLVolatileSurfaceManager, init$, void, $SunVolatileImage*, Object$*)},
+		{"initAcceleratedSurface", "()Lsun/java2d/SurfaceData;", nullptr, $PROTECTED, $virtualMethod(WGLVolatileSurfaceManager, initAcceleratedSurface, $SurfaceData*)},
+		{"initContents", "()V", nullptr, $PUBLIC, $virtualMethod(WGLVolatileSurfaceManager, initContents, void)},
+		{"isAccelerationEnabled", "()Z", nullptr, $PROTECTED, $virtualMethod(WGLVolatileSurfaceManager, isAccelerationEnabled, bool)},
+		{"isConfigValid", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PROTECTED, $virtualMethod(WGLVolatileSurfaceManager, isConfigValid, bool, $GraphicsConfiguration*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.opengl.WGLVolatileSurfaceManager",
+		"sun.awt.image.VolatileSurfaceManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WGLVolatileSurfaceManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WGLVolatileSurfaceManager));
+	});
 	return class$;
 }
 

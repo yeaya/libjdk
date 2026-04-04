@@ -1,5 +1,4 @@
 #include <com/apple/eawt/event/GestureEvent.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,31 +9,6 @@ namespace com {
 	namespace apple {
 		namespace eawt {
 			namespace event {
-
-$FieldInfo _GestureEvent_FieldInfo_[] = {
-	{"consumed", "Z", nullptr, 0, $field(GestureEvent, consumed)},
-	{}
-};
-
-$MethodInfo _GestureEvent_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(GestureEvent, init$, void)},
-	{"consume", "()V", nullptr, $PUBLIC, $virtualMethod(GestureEvent, consume, void)},
-	{"isConsumed", "()Z", nullptr, $PROTECTED, $virtualMethod(GestureEvent, isConsumed, bool)},
-	{}
-};
-
-$ClassInfo _GestureEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.apple.eawt.event.GestureEvent",
-	"java.lang.Object",
-	nullptr,
-	_GestureEvent_FieldInfo_,
-	_GestureEvent_MethodInfo_
-};
-
-$Object* allocate$GestureEvent($Class* clazz) {
-	return $of($alloc(GestureEvent));
-}
 
 void GestureEvent::init$() {
 }
@@ -51,7 +25,27 @@ GestureEvent::GestureEvent() {
 }
 
 $Class* GestureEvent::load$($String* name, bool initialize) {
-	$loadClass(GestureEvent, name, initialize, &_GestureEvent_ClassInfo_, allocate$GestureEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"consumed", "Z", nullptr, 0, $field(GestureEvent, consumed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(GestureEvent, init$, void)},
+		{"consume", "()V", nullptr, $PUBLIC, $virtualMethod(GestureEvent, consume, void)},
+		{"isConsumed", "()Z", nullptr, $PROTECTED, $virtualMethod(GestureEvent, isConsumed, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.apple.eawt.event.GestureEvent",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GestureEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GestureEvent);
+	});
 	return class$;
 }
 

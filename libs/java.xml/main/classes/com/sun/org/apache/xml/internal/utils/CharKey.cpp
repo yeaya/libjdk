@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/CharKey.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -13,33 +12,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace utils {
-
-$FieldInfo _CharKey_FieldInfo_[] = {
-	{"m_char", "C", nullptr, $PRIVATE, $field(CharKey, m_char)},
-	{}
-};
-
-$MethodInfo _CharKey_MethodInfo_[] = {
-	{"<init>", "(C)V", nullptr, $PUBLIC, $method(CharKey, init$, void, char16_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CharKey, init$, void)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(CharKey, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(CharKey, hashCode, int32_t)},
-	{"setChar", "(C)V", nullptr, $PUBLIC | $FINAL, $method(CharKey, setChar, void, char16_t)},
-	{}
-};
-
-$ClassInfo _CharKey_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.CharKey",
-	"java.lang.Object",
-	nullptr,
-	_CharKey_FieldInfo_,
-	_CharKey_MethodInfo_
-};
-
-$Object* allocate$CharKey($Class* clazz) {
-	return $of($alloc(CharKey));
-}
 
 void CharKey::init$(char16_t key) {
 	this->m_char = key;
@@ -57,14 +29,36 @@ int32_t CharKey::hashCode() {
 }
 
 bool CharKey::equals(Object$* obj) {
-	return $nc(($cast(CharKey, obj)))->m_char == this->m_char;
+	return $nc($cast(CharKey, obj))->m_char == this->m_char;
 }
 
 CharKey::CharKey() {
 }
 
 $Class* CharKey::load$($String* name, bool initialize) {
-	$loadClass(CharKey, name, initialize, &_CharKey_ClassInfo_, allocate$CharKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_char", "C", nullptr, $PRIVATE, $field(CharKey, m_char)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(C)V", nullptr, $PUBLIC, $method(CharKey, init$, void, char16_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CharKey, init$, void)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(CharKey, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(CharKey, hashCode, int32_t)},
+		{"setChar", "(C)V", nullptr, $PUBLIC | $FINAL, $method(CharKey, setChar, void, char16_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.CharKey",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CharKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CharKey);
+	});
 	return class$;
 }
 

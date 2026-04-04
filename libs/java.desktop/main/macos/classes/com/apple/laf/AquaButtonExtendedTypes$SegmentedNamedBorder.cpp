@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaButtonExtendedTypes$SegmentedNamedBorder.h>
-
 #include <apple/laf/JRSUIConstants$Widget.h>
 #include <com/apple/laf/AquaButtonBorder$Named.h>
 #include <com/apple/laf/AquaButtonExtendedTypes.h>
@@ -17,39 +16,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaButtonExtendedTypes$SegmentedNamedBorder_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaButtonExtendedTypes$SegmentedNamedBorder;)V", nullptr, $PUBLIC, $method(AquaButtonExtendedTypes$SegmentedNamedBorder, init$, void, AquaButtonExtendedTypes$SegmentedNamedBorder*)},
-	{"<init>", "(Lapple/laf/JRSUIConstants$Widget;Lcom/apple/laf/AquaUtilControlSize$SizeDescriptor;)V", nullptr, $PUBLIC, $method(AquaButtonExtendedTypes$SegmentedNamedBorder, init$, void, $JRSUIConstants$Widget*, $AquaUtilControlSize$SizeDescriptor*)},
-	{"isSelectionPressing", "()Z", nullptr, $PROTECTED, $virtualMethod(AquaButtonExtendedTypes$SegmentedNamedBorder, isSelectionPressing, bool)},
-	{}
-};
-
-$InnerClassInfo _AquaButtonExtendedTypes$SegmentedNamedBorder_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaButtonExtendedTypes$SegmentedNamedBorder", "com.apple.laf.AquaButtonExtendedTypes", "SegmentedNamedBorder", $PUBLIC | $STATIC},
-	{"com.apple.laf.AquaButtonBorder$Named", "com.apple.laf.AquaButtonBorder", "Named", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _AquaButtonExtendedTypes$SegmentedNamedBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaButtonExtendedTypes$SegmentedNamedBorder",
-	"com.apple.laf.AquaButtonBorder$Named",
-	nullptr,
-	nullptr,
-	_AquaButtonExtendedTypes$SegmentedNamedBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaButtonExtendedTypes$SegmentedNamedBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaButtonExtendedTypes"
-};
-
-$Object* allocate$AquaButtonExtendedTypes$SegmentedNamedBorder($Class* clazz) {
-	return $of($alloc(AquaButtonExtendedTypes$SegmentedNamedBorder));
-}
-
 void AquaButtonExtendedTypes$SegmentedNamedBorder::init$(AquaButtonExtendedTypes$SegmentedNamedBorder* sizeDescriptor) {
 	$AquaButtonBorder$Named::init$(sizeDescriptor);
 }
@@ -66,7 +32,35 @@ AquaButtonExtendedTypes$SegmentedNamedBorder::AquaButtonExtendedTypes$SegmentedN
 }
 
 $Class* AquaButtonExtendedTypes$SegmentedNamedBorder::load$($String* name, bool initialize) {
-	$loadClass(AquaButtonExtendedTypes$SegmentedNamedBorder, name, initialize, &_AquaButtonExtendedTypes$SegmentedNamedBorder_ClassInfo_, allocate$AquaButtonExtendedTypes$SegmentedNamedBorder);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaButtonExtendedTypes$SegmentedNamedBorder;)V", nullptr, $PUBLIC, $method(AquaButtonExtendedTypes$SegmentedNamedBorder, init$, void, AquaButtonExtendedTypes$SegmentedNamedBorder*)},
+		{"<init>", "(Lapple/laf/JRSUIConstants$Widget;Lcom/apple/laf/AquaUtilControlSize$SizeDescriptor;)V", nullptr, $PUBLIC, $method(AquaButtonExtendedTypes$SegmentedNamedBorder, init$, void, $JRSUIConstants$Widget*, $AquaUtilControlSize$SizeDescriptor*)},
+		{"isSelectionPressing", "()Z", nullptr, $PROTECTED, $virtualMethod(AquaButtonExtendedTypes$SegmentedNamedBorder, isSelectionPressing, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaButtonExtendedTypes$SegmentedNamedBorder", "com.apple.laf.AquaButtonExtendedTypes", "SegmentedNamedBorder", $PUBLIC | $STATIC},
+		{"com.apple.laf.AquaButtonBorder$Named", "com.apple.laf.AquaButtonBorder", "Named", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaButtonExtendedTypes$SegmentedNamedBorder",
+		"com.apple.laf.AquaButtonBorder$Named",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaButtonExtendedTypes"
+	};
+	$loadClass(AquaButtonExtendedTypes$SegmentedNamedBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaButtonExtendedTypes$SegmentedNamedBorder));
+	});
 	return class$;
 }
 

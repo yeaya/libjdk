@@ -42,6 +42,7 @@ class $export JapaneseReadingAttributes : public ::java::lang::Object {
 	$class(JapaneseReadingAttributes, 0, ::java::lang::Object)
 public:
 	JapaneseReadingAttributes();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void enterInput(::java::awt::Robot* robotKeyInput, ::java::util::ArrayList* keyInputs);
 	static void glyphTest();

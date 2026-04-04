@@ -1,5 +1,4 @@
 #include <javax/swing/text/TextLayoutStrategy$AttributedSegment.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/font/TextAttribute.h>
 #include <java/lang/Math.h>
@@ -44,73 +43,6 @@ using $View = ::javax::swing::text::View;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _TextLayoutStrategy$AttributedSegment_FieldInfo_[] = {
-	{"v", "Ljavax/swing/text/View;", nullptr, 0, $field(TextLayoutStrategy$AttributedSegment, v)},
-	{"keys", "Ljava/util/Set;", "Ljava/util/Set<Ljava/text/AttributedCharacterIterator$Attribute;>;", $STATIC, $staticField(TextLayoutStrategy$AttributedSegment, keys)},
-	{"shaper", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(TextLayoutStrategy$AttributedSegment, shaper)},
-	{}
-};
-
-$MethodInfo _TextLayoutStrategy$AttributedSegment_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*current", "()C", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*first", "()C", nullptr, $PUBLIC},
-	{"*getBeginIndex", "()I", nullptr, $PUBLIC},
-	{"*getEndIndex", "()I", nullptr, $PUBLIC},
-	{"*getIndex", "()I", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(TextLayoutStrategy$AttributedSegment, init$, void)},
-	{"getAllAttributeKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/text/AttributedCharacterIterator$Attribute;>;", $PUBLIC, $virtualMethod(TextLayoutStrategy$AttributedSegment, getAllAttributeKeys, $Set*)},
-	{"getAttribute", "(Ljava/text/AttributedCharacterIterator$Attribute;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TextLayoutStrategy$AttributedSegment, getAttribute, $Object*, $AttributedCharacterIterator$Attribute*)},
-	{"getAttributes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/text/AttributedCharacterIterator$Attribute;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(TextLayoutStrategy$AttributedSegment, getAttributes, $Map*)},
-	{"getFont", "(I)Ljava/awt/Font;", nullptr, 0, $virtualMethod(TextLayoutStrategy$AttributedSegment, getFont, $Font*, int32_t)},
-	{"getFontBoundary", "(II)I", nullptr, 0, $virtualMethod(TextLayoutStrategy$AttributedSegment, getFontBoundary, int32_t, int32_t, int32_t)},
-	{"getRunLimit", "()I", nullptr, $PUBLIC, $virtualMethod(TextLayoutStrategy$AttributedSegment, getRunLimit, int32_t)},
-	{"getRunLimit", "(Ljava/text/AttributedCharacterIterator$Attribute;)I", nullptr, $PUBLIC, $virtualMethod(TextLayoutStrategy$AttributedSegment, getRunLimit, int32_t, $AttributedCharacterIterator$Attribute*)},
-	{"getRunLimit", "(Ljava/util/Set;)I", "(Ljava/util/Set<+Ljava/text/AttributedCharacterIterator$Attribute;>;)I", $PUBLIC, $virtualMethod(TextLayoutStrategy$AttributedSegment, getRunLimit, int32_t, $Set*)},
-	{"getRunStart", "()I", nullptr, $PUBLIC, $virtualMethod(TextLayoutStrategy$AttributedSegment, getRunStart, int32_t)},
-	{"getRunStart", "(Ljava/text/AttributedCharacterIterator$Attribute;)I", nullptr, $PUBLIC, $virtualMethod(TextLayoutStrategy$AttributedSegment, getRunStart, int32_t, $AttributedCharacterIterator$Attribute*)},
-	{"getRunStart", "(Ljava/util/Set;)I", "(Ljava/util/Set<+Ljava/text/AttributedCharacterIterator$Attribute;>;)I", $PUBLIC, $virtualMethod(TextLayoutStrategy$AttributedSegment, getRunStart, int32_t, $Set*)},
-	{"getView", "()Ljavax/swing/text/View;", nullptr, 0, $virtualMethod(TextLayoutStrategy$AttributedSegment, getView, $View*)},
-	{"*last", "()C", nullptr, $PUBLIC},
-	{"*next", "()C", nullptr, $PUBLIC},
-	{"*previous", "()C", nullptr, $PUBLIC},
-	{"*setIndex", "(I)C", nullptr, $PUBLIC},
-	{"setShaper", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(TextLayoutStrategy$AttributedSegment, setShaper, void, Object$*)},
-	{"setView", "(Ljavax/swing/text/View;)V", nullptr, 0, $virtualMethod(TextLayoutStrategy$AttributedSegment, setView, void, $View*)},
-	{"toIteratorIndex", "(I)I", nullptr, 0, $virtualMethod(TextLayoutStrategy$AttributedSegment, toIteratorIndex, int32_t, int32_t)},
-	{"toModelPosition", "(I)I", nullptr, 0, $virtualMethod(TextLayoutStrategy$AttributedSegment, toModelPosition, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _TextLayoutStrategy$AttributedSegment_InnerClassesInfo_[] = {
-	{"javax.swing.text.TextLayoutStrategy$AttributedSegment", "javax.swing.text.TextLayoutStrategy", "AttributedSegment", $STATIC},
-	{}
-};
-
-$ClassInfo _TextLayoutStrategy$AttributedSegment_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.TextLayoutStrategy$AttributedSegment",
-	"javax.swing.text.Segment",
-	"java.text.AttributedCharacterIterator",
-	_TextLayoutStrategy$AttributedSegment_FieldInfo_,
-	_TextLayoutStrategy$AttributedSegment_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TextLayoutStrategy$AttributedSegment_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.TextLayoutStrategy"
-};
-
-$Object* allocate$TextLayoutStrategy$AttributedSegment($Class* clazz) {
-	return $of($alloc(TextLayoutStrategy$AttributedSegment));
-}
 
 $String* TextLayoutStrategy$AttributedSegment::toString() {
 	 return this->$Segment::toString();
@@ -193,7 +125,7 @@ void TextLayoutStrategy$AttributedSegment::setView($View* v) {
 }
 
 int32_t TextLayoutStrategy$AttributedSegment::getFontBoundary(int32_t childIndex, int32_t dir) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($View, child, $nc(this->v)->getView(childIndex));
 	$var($Font, f, getFont(childIndex));
 	for (childIndex += dir; (childIndex >= 0) && (childIndex < $nc(this->v)->getViewCount()); childIndex += dir) {
@@ -203,13 +135,13 @@ int32_t TextLayoutStrategy$AttributedSegment::getFontBoundary(int32_t childIndex
 		}
 		$assign(child, $nc(this->v)->getView(childIndex));
 	}
-	return (dir < 0) ? $nc(child)->getStartOffset() : child->getEndOffset();
+	return (dir < 0) ? $nc(child)->getStartOffset() : $nc(child)->getEndOffset();
 }
 
 $Font* TextLayoutStrategy$AttributedSegment::getFont(int32_t childIndex) {
 	$var($View, child, $nc(this->v)->getView(childIndex));
 	if ($instanceOf($GlyphView, child)) {
-		return $nc(($cast($GlyphView, child)))->getFont();
+		return $cast($GlyphView, child)->getFont();
 	}
 	return nullptr;
 }
@@ -250,12 +182,12 @@ int32_t TextLayoutStrategy$AttributedSegment::getRunStart($AttributedCharacterIt
 }
 
 int32_t TextLayoutStrategy$AttributedSegment::getRunStart($Set* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t index = getBeginIndex();
 	$var($ObjectArray, a, $nc(attributes)->toArray());
 	for (int32_t i = 0; i < $nc(a)->length; ++i) {
 		$var($TextAttribute, attr, $cast($TextAttribute, a->get(i)));
-		index = $Math::max(getRunStart(static_cast<$AttributedCharacterIterator$Attribute*>(attr)), index);
+		index = $Math::max(getRunStart(attr), index);
 	}
 	return $Math::min(getIndex(), index);
 }
@@ -282,18 +214,18 @@ int32_t TextLayoutStrategy$AttributedSegment::getRunLimit($AttributedCharacterIt
 }
 
 int32_t TextLayoutStrategy$AttributedSegment::getRunLimit($Set* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t index = getEndIndex();
 	$var($ObjectArray, a, $nc(attributes)->toArray());
 	for (int32_t i = 0; i < $nc(a)->length; ++i) {
 		$var($TextAttribute, attr, $cast($TextAttribute, a->get(i)));
-		index = $Math::min(getRunLimit(static_cast<$AttributedCharacterIterator$Attribute*>(attr)), index);
+		index = $Math::min(getRunLimit(attr), index);
 	}
 	return $Math::max(getIndex(), index);
 }
 
 $Map* TextLayoutStrategy$AttributedSegment::getAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, ka, $nc(TextLayoutStrategy$AttributedSegment::keys)->toArray());
 	$var($Hashtable, h, $new($Hashtable));
 	for (int32_t i = 0; i < $nc(ka)->length; ++i) {
@@ -312,30 +244,26 @@ $Object* TextLayoutStrategy$AttributedSegment::getAttribute($AttributedCharacter
 	int32_t childIndex = $nc(this->v)->getViewIndex(pos, $Position$Bias::Forward);
 	$init($TextAttribute);
 	if ($equals(attribute, $TextAttribute::FONT)) {
-		return $of(getFont(childIndex));
-	} else {
-		if ($equals(attribute, $TextAttribute::RUN_DIRECTION)) {
-			return $of($nc($($nc(this->v)->getDocument()))->getProperty($TextAttribute::RUN_DIRECTION));
-		} else {
-			if ($equals(attribute, $TextAttribute::NUMERIC_SHAPING)) {
-				return $of(this->shaper);
-			}
-		}
+		return getFont(childIndex);
+	} else if ($equals(attribute, $TextAttribute::RUN_DIRECTION)) {
+		return $$nc($nc(this->v)->getDocument())->getProperty($TextAttribute::RUN_DIRECTION);
+	} else if ($equals(attribute, $TextAttribute::NUMERIC_SHAPING)) {
+		return this->shaper;
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Set* TextLayoutStrategy$AttributedSegment::getAllAttributeKeys() {
 	return TextLayoutStrategy$AttributedSegment::keys;
 }
 
-void clinit$TextLayoutStrategy$AttributedSegment($Class* class$) {
+void TextLayoutStrategy$AttributedSegment::clinit$($Class* clazz) {
 	{
 		$assignStatic(TextLayoutStrategy$AttributedSegment::keys, $new($HashSet));
 		$init($TextAttribute);
-		$nc(TextLayoutStrategy$AttributedSegment::keys)->add($TextAttribute::FONT);
-		$nc(TextLayoutStrategy$AttributedSegment::keys)->add($TextAttribute::RUN_DIRECTION);
-		$nc(TextLayoutStrategy$AttributedSegment::keys)->add($TextAttribute::NUMERIC_SHAPING);
+		TextLayoutStrategy$AttributedSegment::keys->add($TextAttribute::FONT);
+		TextLayoutStrategy$AttributedSegment::keys->add($TextAttribute::RUN_DIRECTION);
+		TextLayoutStrategy$AttributedSegment::keys->add($TextAttribute::NUMERIC_SHAPING);
 	}
 }
 
@@ -343,7 +271,68 @@ TextLayoutStrategy$AttributedSegment::TextLayoutStrategy$AttributedSegment() {
 }
 
 $Class* TextLayoutStrategy$AttributedSegment::load$($String* name, bool initialize) {
-	$loadClass(TextLayoutStrategy$AttributedSegment, name, initialize, &_TextLayoutStrategy$AttributedSegment_ClassInfo_, clinit$TextLayoutStrategy$AttributedSegment, allocate$TextLayoutStrategy$AttributedSegment);
+	$FieldInfo fieldInfos$$[] = {
+		{"v", "Ljavax/swing/text/View;", nullptr, 0, $field(TextLayoutStrategy$AttributedSegment, v)},
+		{"keys", "Ljava/util/Set;", "Ljava/util/Set<Ljava/text/AttributedCharacterIterator$Attribute;>;", $STATIC, $staticField(TextLayoutStrategy$AttributedSegment, keys)},
+		{"shaper", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(TextLayoutStrategy$AttributedSegment, shaper)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*current", "()C", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*first", "()C", nullptr, $PUBLIC},
+		{"*getBeginIndex", "()I", nullptr, $PUBLIC},
+		{"*getEndIndex", "()I", nullptr, $PUBLIC},
+		{"*getIndex", "()I", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(TextLayoutStrategy$AttributedSegment, init$, void)},
+		{"getAllAttributeKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/text/AttributedCharacterIterator$Attribute;>;", $PUBLIC, $virtualMethod(TextLayoutStrategy$AttributedSegment, getAllAttributeKeys, $Set*)},
+		{"getAttribute", "(Ljava/text/AttributedCharacterIterator$Attribute;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TextLayoutStrategy$AttributedSegment, getAttribute, $Object*, $AttributedCharacterIterator$Attribute*)},
+		{"getAttributes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/text/AttributedCharacterIterator$Attribute;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(TextLayoutStrategy$AttributedSegment, getAttributes, $Map*)},
+		{"getFont", "(I)Ljava/awt/Font;", nullptr, 0, $virtualMethod(TextLayoutStrategy$AttributedSegment, getFont, $Font*, int32_t)},
+		{"getFontBoundary", "(II)I", nullptr, 0, $virtualMethod(TextLayoutStrategy$AttributedSegment, getFontBoundary, int32_t, int32_t, int32_t)},
+		{"getRunLimit", "()I", nullptr, $PUBLIC, $virtualMethod(TextLayoutStrategy$AttributedSegment, getRunLimit, int32_t)},
+		{"getRunLimit", "(Ljava/text/AttributedCharacterIterator$Attribute;)I", nullptr, $PUBLIC, $virtualMethod(TextLayoutStrategy$AttributedSegment, getRunLimit, int32_t, $AttributedCharacterIterator$Attribute*)},
+		{"getRunLimit", "(Ljava/util/Set;)I", "(Ljava/util/Set<+Ljava/text/AttributedCharacterIterator$Attribute;>;)I", $PUBLIC, $virtualMethod(TextLayoutStrategy$AttributedSegment, getRunLimit, int32_t, $Set*)},
+		{"getRunStart", "()I", nullptr, $PUBLIC, $virtualMethod(TextLayoutStrategy$AttributedSegment, getRunStart, int32_t)},
+		{"getRunStart", "(Ljava/text/AttributedCharacterIterator$Attribute;)I", nullptr, $PUBLIC, $virtualMethod(TextLayoutStrategy$AttributedSegment, getRunStart, int32_t, $AttributedCharacterIterator$Attribute*)},
+		{"getRunStart", "(Ljava/util/Set;)I", "(Ljava/util/Set<+Ljava/text/AttributedCharacterIterator$Attribute;>;)I", $PUBLIC, $virtualMethod(TextLayoutStrategy$AttributedSegment, getRunStart, int32_t, $Set*)},
+		{"getView", "()Ljavax/swing/text/View;", nullptr, 0, $virtualMethod(TextLayoutStrategy$AttributedSegment, getView, $View*)},
+		{"*last", "()C", nullptr, $PUBLIC},
+		{"*next", "()C", nullptr, $PUBLIC},
+		{"*previous", "()C", nullptr, $PUBLIC},
+		{"*setIndex", "(I)C", nullptr, $PUBLIC},
+		{"setShaper", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(TextLayoutStrategy$AttributedSegment, setShaper, void, Object$*)},
+		{"setView", "(Ljavax/swing/text/View;)V", nullptr, 0, $virtualMethod(TextLayoutStrategy$AttributedSegment, setView, void, $View*)},
+		{"toIteratorIndex", "(I)I", nullptr, 0, $virtualMethod(TextLayoutStrategy$AttributedSegment, toIteratorIndex, int32_t, int32_t)},
+		{"toModelPosition", "(I)I", nullptr, 0, $virtualMethod(TextLayoutStrategy$AttributedSegment, toModelPosition, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.TextLayoutStrategy$AttributedSegment", "javax.swing.text.TextLayoutStrategy", "AttributedSegment", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.TextLayoutStrategy$AttributedSegment",
+		"javax.swing.text.Segment",
+		"java.text.AttributedCharacterIterator",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.TextLayoutStrategy"
+	};
+	$loadClass(TextLayoutStrategy$AttributedSegment, name, initialize, &classInfo$$, TextLayoutStrategy$AttributedSegment::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TextLayoutStrategy$AttributedSegment));
+	});
 	return class$;
 }
 

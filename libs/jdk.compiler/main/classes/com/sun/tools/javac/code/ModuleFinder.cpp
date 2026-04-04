@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/ModuleFinder.h>
-
 #include <com/sun/tools/javac/code/ClassFinder$BadClassFile.h>
 #include <com/sun/tools/javac/code/ClassFinder.h>
 #include <com/sun/tools/javac/code/DeferredCompletionFailureHandler.h>
@@ -12,8 +11,6 @@
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$Completer.h>
 #include <com/sun/tools/javac/code/Symbol$ModuleSymbol.h>
-#include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
-#include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Symtab.h>
 #include <com/sun/tools/javac/jvm/ModuleNameReader$BadClassFile.h>
 #include <com/sun/tools/javac/jvm/ModuleNameReader.h>
@@ -66,12 +63,9 @@ using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $ModuleFinder$1 = ::com::sun::tools::javac::code::ModuleFinder$1;
 using $ModuleFinder$2 = ::com::sun::tools::javac::code::ModuleFinder$2;
 using $ModuleFinder$ModuleLocationIterator = ::com::sun::tools::javac::code::ModuleFinder$ModuleLocationIterator;
-using $ModuleFinder$ModuleNameFromSourceReader = ::com::sun::tools::javac::code::ModuleFinder$ModuleNameFromSourceReader;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$Completer = ::com::sun::tools::javac::code::Symbol$Completer;
 using $Symbol$ModuleSymbol = ::com::sun::tools::javac::code::Symbol$ModuleSymbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $ModuleNameReader = ::com::sun::tools::javac::jvm::ModuleNameReader;
 using $ModuleNameReader$BadClassFile = ::com::sun::tools::javac::jvm::ModuleNameReader$BadClassFile;
@@ -111,65 +105,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _ModuleFinder_FieldInfo_[] = {
-	{"moduleFinderKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/code/ModuleFinder;>;", $PROTECTED | $STATIC | $FINAL, $staticField(ModuleFinder, moduleFinderKey)},
-	{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE | $FINAL, $field(ModuleFinder, log)},
-	{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, $PRIVATE | $FINAL, $field(ModuleFinder, syms)},
-	{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PRIVATE | $FINAL, $field(ModuleFinder, names)},
-	{"classFinder", "Lcom/sun/tools/javac/code/ClassFinder;", nullptr, $PRIVATE | $FINAL, $field(ModuleFinder, classFinder)},
-	{"fileManager", "Ljavax/tools/JavaFileManager;", nullptr, $PRIVATE | $FINAL, $field(ModuleFinder, fileManager)},
-	{"diags", "Lcom/sun/tools/javac/util/JCDiagnostic$Factory;", nullptr, $PRIVATE | $FINAL, $field(ModuleFinder, diags)},
-	{"dcfh", "Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler;", nullptr, $PRIVATE | $FINAL, $field(ModuleFinder, dcfh)},
-	{"moduleNameReader", "Lcom/sun/tools/javac/jvm/ModuleNameReader;", nullptr, $PRIVATE, $field(ModuleFinder, moduleNameReader)},
-	{"moduleNameFromSourceReader", "Lcom/sun/tools/javac/code/ModuleFinder$ModuleNameFromSourceReader;", nullptr, $PUBLIC, $field(ModuleFinder, moduleNameFromSourceReader)},
-	{"moduleLocationIterator", "Lcom/sun/tools/javac/code/ModuleFinder$ModuleLocationIterator;", nullptr, 0, $field(ModuleFinder, moduleLocationIterator)},
-	{}
-};
-
-$MethodInfo _ModuleFinder_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(ModuleFinder, init$, void, $Context*)},
-	{"findAllModules", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PUBLIC, $virtualMethod(ModuleFinder, findAllModules, $List*)},
-	{"findModule", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC, $virtualMethod(ModuleFinder, findModule, $Symbol$ModuleSymbol*, $Name*)},
-	{"findModule", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC, $virtualMethod(ModuleFinder, findModule, $Symbol$ModuleSymbol*, $Symbol$ModuleSymbol*)},
-	{"findModuleInfo", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE, $method(ModuleFinder, findModuleInfo, void, $Symbol$ModuleSymbol*)},
-	{"findSingleModule", "()Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC, $virtualMethod(ModuleFinder, findSingleModule, $Symbol$ModuleSymbol*)},
-	{"getDescription", "(Ljavax/tools/StandardLocation;)Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, 0, $virtualMethod(ModuleFinder, getDescription, $JCDiagnostic$Fragment*, $StandardLocation*)},
-	{"getModuleInfoFromLocation", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject$Kind;)Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE, $method(ModuleFinder, getModuleInfoFromLocation, $JavaFileObject*, $JavaFileManager$Location*, $JavaFileObject$Kind*), "java.io.IOException"},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/code/ModuleFinder;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleFinder, instance, ModuleFinder*, $Context*)},
-	{"preferredFileObject", "(Ljavax/tools/JavaFileObject;Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE, $method(ModuleFinder, preferredFileObject, $JavaFileObject*, $JavaFileObject*, $JavaFileObject*)},
-	{"readModule", "(Ljavax/tools/JavaFileObject;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PRIVATE, $method(ModuleFinder, readModule, $Symbol$ModuleSymbol*, $JavaFileObject*), "java.io.IOException"},
-	{"readModuleName", "(Ljavax/tools/JavaFileObject;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ModuleFinder, readModuleName, $String*, $JavaFileObject*), "java.io.IOException,com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile"},
-	{"scanModulePath", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PRIVATE, $method(ModuleFinder, scanModulePath, $List*, $Symbol$ModuleSymbol*)},
-	{}
-};
-
-$InnerClassInfo _ModuleFinder_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.ModuleFinder$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.code.ModuleFinder$ModuleNameFromSourceReader", "com.sun.tools.javac.code.ModuleFinder", "ModuleNameFromSourceReader", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.code.ModuleFinder$ModuleLocationIterator", "com.sun.tools.javac.code.ModuleFinder", "ModuleLocationIterator", 0},
-	{"com.sun.tools.javac.code.ModuleFinder$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ModuleFinder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.ModuleFinder",
-	"java.lang.Object",
-	nullptr,
-	_ModuleFinder_FieldInfo_,
-	_ModuleFinder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ModuleFinder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.ModuleFinder$2,com.sun.tools.javac.code.ModuleFinder$ModuleNameFromSourceReader,com.sun.tools.javac.code.ModuleFinder$ModuleLocationIterator,com.sun.tools.javac.code.ModuleFinder$1"
-};
-
-$Object* allocate$ModuleFinder($Class* clazz) {
-	return $of($alloc(ModuleFinder));
-}
-
 $Context$Key* ModuleFinder::moduleFinderKey = nullptr;
 
 ModuleFinder* ModuleFinder::instance($Context* context) {
@@ -183,7 +118,7 @@ ModuleFinder* ModuleFinder::instance($Context* context) {
 
 void ModuleFinder::init$($Context* context) {
 	$set(this, moduleLocationIterator, $new($ModuleFinder$ModuleLocationIterator, this));
-	$nc(context)->put(ModuleFinder::moduleFinderKey, $of(this));
+	$nc(context)->put(ModuleFinder::moduleFinderKey, this);
 	$set(this, names, $Names::instance(context));
 	$set(this, syms, $Symtab::instance(context));
 	$load($JavaFileManager);
@@ -206,24 +141,22 @@ $Symbol$ModuleSymbol* ModuleFinder::findModule($Symbol$ModuleSymbol* msym) {
 			$set(msym, kind, $Kinds$Kind::ERR);
 		}
 	}
-	if ($nc(msym)->kind != $Kinds$Kind::ERR && $nc(msym->module_info)->sourcefile == nullptr && $nc(msym->module_info)->classfile == nullptr) {
+	if (msym->kind != $Kinds$Kind::ERR && $nc(msym->module_info)->sourcefile == nullptr && msym->module_info->classfile == nullptr) {
 		findModuleInfo(msym);
 	}
 	return msym;
 }
 
 $List* ModuleFinder::findAllModules() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, list, scanModulePath(nullptr));
 	{
 		$var($Iterator, i$, $nc(list)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Symbol$ModuleSymbol, msym, $cast($Symbol$ModuleSymbol, i$->next()));
-			{
-				$init($Kinds$Kind);
-				if ($nc(msym)->kind != $Kinds$Kind::ERR && $nc(msym->module_info)->sourcefile == nullptr && $nc(msym->module_info)->classfile == nullptr) {
-					findModuleInfo(msym);
-				}
+			$init($Kinds$Kind);
+			if ($nc(msym)->kind != $Kinds$Kind::ERR && $nc(msym->module_info)->sourcefile == nullptr && msym->module_info->classfile == nullptr) {
+				findModuleInfo(msym);
 			}
 		}
 	}
@@ -231,7 +164,7 @@ $List* ModuleFinder::findAllModules() {
 }
 
 $Symbol$ModuleSymbol* ModuleFinder::findSingleModule() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($StandardLocation);
 		$init($JavaFileObject$Kind);
@@ -251,51 +184,45 @@ $Symbol$ModuleSymbol* ModuleFinder::findSingleModule() {
 		}
 		return msym;
 	} catch ($IOException& e) {
-		$throwNew($Error, static_cast<$Throwable*>(e));
+		$throwNew($Error, e);
 	}
 	$shouldNotReachHere();
 }
 
 $Symbol$ModuleSymbol* ModuleFinder::readModule($JavaFileObject* fo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Name, name, nullptr);
 	$init($ModuleFinder$2);
-	switch ($nc($ModuleFinder$2::$SwitchMap$javax$tools$JavaFileObject$Kind)->get($nc(($($nc(fo)->getKind())))->ordinal())) {
+	switch ($nc($ModuleFinder$2::$SwitchMap$javax$tools$JavaFileObject$Kind)->get(($$nc($nc(fo)->getKind()))->ordinal())) {
 	case 1:
-		{
-			$assign(name, $nc(this->moduleNameFromSourceReader)->readModuleName(fo));
-			if (name == nullptr) {
-				$init($CompilerProperties$Fragments);
-				$var($JCDiagnostic, diag, $nc(this->diags)->fragment($CompilerProperties$Fragments::FileDoesNotContainModule));
-				$var($Symbol$ClassSymbol, errModuleInfo, $nc(this->syms)->defineClass($nc(this->names)->module_info, $nc(this->syms)->errModule));
-				$throwNew($ClassFinder$BadClassFile, errModuleInfo, fo, diag, this->diags, this->dcfh);
-			}
-			break;
+		$assign(name, $nc(this->moduleNameFromSourceReader)->readModuleName(fo));
+		if (name == nullptr) {
+			$init($CompilerProperties$Fragments);
+			$var($JCDiagnostic, diag, $nc(this->diags)->fragment($CompilerProperties$Fragments::FileDoesNotContainModule));
+			$var($Symbol$ClassSymbol, errModuleInfo, $nc(this->syms)->defineClass($nc(this->names)->module_info, $nc(this->syms)->errModule));
+			$throwNew($ClassFinder$BadClassFile, errModuleInfo, fo, diag, this->diags, this->dcfh);
 		}
+		break;
 	case 2:
-		{
-			try {
-				$assign(name, $nc(this->names)->fromString($(readModuleName(fo))));
-			} catch ($ModuleNameReader$BadClassFile& ex) {
-				$assign(name, $nc(this->names)->error);
-			} catch ($IOException& ex) {
-				$assign(name, $nc(this->names)->error);
-			}
-			break;
-		}
-	default:
-		{
-			$Assert::error();
+		try {
+			$assign(name, $nc(this->names)->fromString($(readModuleName(fo))));
+		} catch ($ModuleNameReader$BadClassFile& ex) {
 			$assign(name, $nc(this->names)->error);
-			break;
+		} catch ($IOException& ex) {
+			$assign(name, $nc(this->names)->error);
 		}
+		break;
+	default:
+		$Assert::error();
+		$assign(name, $nc(this->names)->error);
+		break;
 	}
 	$var($Symbol$ModuleSymbol, msym, $nc(this->syms)->enterModule(name));
 	if ($nc($nc(msym)->module_info)->classfile == nullptr) {
-		$set($nc(msym->module_info), classfile, fo);
+		$set(msym->module_info, classfile, fo);
 		$init($StandardLocation);
 		if ($nc(this->fileManager)->hasLocation($StandardLocation::PATCH_MODULE_PATH) && name != $nc(this->names)->error) {
-			$set(msym, patchLocation, $nc(this->fileManager)->getLocationForModule(static_cast<$JavaFileManager$Location*>($StandardLocation::PATCH_MODULE_PATH), $($nc(name)->toString())));
+			$set(msym, patchLocation, this->fileManager->getLocationForModule($StandardLocation::PATCH_MODULE_PATH, $($nc(name)->toString())));
 			if (msym->patchLocation != nullptr) {
 				$var($JavaFileObject, patchFO, getModuleInfoFromLocation($StandardLocation::CLASS_OUTPUT, $JavaFileObject$Kind::CLASS));
 				$assign(patchFO, preferredFileObject($(getModuleInfoFromLocation(msym->patchLocation, $JavaFileObject$Kind::CLASS)), patchFO));
@@ -327,51 +254,49 @@ $JavaFileObject* ModuleFinder::getModuleInfoFromLocation($JavaFileManager$Locati
 }
 
 $List* ModuleFinder::scanModulePath($Symbol$ModuleSymbol* toFind) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, results, $new($ListBuffer));
 	$var($Map, namesInSet, $new($HashMap));
 	$init($StandardLocation);
 	bool multiModuleMode = $nc(this->fileManager)->hasLocation($StandardLocation::MODULE_SOURCE_PATH);
 	while ($nc(this->moduleLocationIterator)->hasNext()) {
-		$var($Set, locns, $cast($Set, $nc(this->moduleLocationIterator)->next()));
+		$var($Set, locns, $cast($Set, this->moduleLocationIterator->next()));
 		namesInSet->clear();
 		{
 			$var($Iterator, i$, $nc(locns)->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($JavaFileManager$Location, l, $cast($JavaFileManager$Location, i$->next()));
-				{
-					try {
-						$var($Name, n, $nc(this->names)->fromString($($nc(this->fileManager)->inferModuleName(l))));
-						if (namesInSet->put(n, l) == nullptr) {
-							$var($Symbol$ModuleSymbol, msym, $nc(this->syms)->enterModule(n));
-							if ($nc(msym)->sourceLocation != nullptr || $nc(msym)->classLocation != nullptr) {
-								continue;
+				try {
+					$var($Name, n, $nc(this->names)->fromString($(this->fileManager->inferModuleName(l))));
+					if (namesInSet->put(n, l) == nullptr) {
+						$var($Symbol$ModuleSymbol, msym, $nc(this->syms)->enterModule(n));
+						if ($nc(msym)->sourceLocation != nullptr || msym->classLocation != nullptr) {
+							continue;
+						}
+						if (this->fileManager->hasLocation($StandardLocation::PATCH_MODULE_PATH) && msym->patchLocation == nullptr) {
+							$set(msym, patchLocation, this->fileManager->getLocationForModule($StandardLocation::PATCH_MODULE_PATH, $($nc(msym->name)->toString())));
+							if (msym->patchLocation != nullptr && multiModuleMode && this->fileManager->hasLocation($StandardLocation::CLASS_OUTPUT)) {
+								$set(msym, patchOutputLocation, this->fileManager->getLocationForModule($StandardLocation::CLASS_OUTPUT, $($nc(msym->name)->toString())));
 							}
-							if ($nc(this->fileManager)->hasLocation($StandardLocation::PATCH_MODULE_PATH) && $nc(msym)->patchLocation == nullptr) {
-								$set(msym, patchLocation, $nc(this->fileManager)->getLocationForModule(static_cast<$JavaFileManager$Location*>($StandardLocation::PATCH_MODULE_PATH), $($nc(msym->name)->toString())));
-								if (msym->patchLocation != nullptr && multiModuleMode && $nc(this->fileManager)->hasLocation($StandardLocation::CLASS_OUTPUT)) {
-									$set(msym, patchOutputLocation, $nc(this->fileManager)->getLocationForModule(static_cast<$JavaFileManager$Location*>($StandardLocation::CLASS_OUTPUT), $($nc(msym->name)->toString())));
-								}
-							}
-							if ($nc(this->moduleLocationIterator)->outer == $StandardLocation::MODULE_SOURCE_PATH) {
-								$set($nc(msym), sourceLocation, l);
-								if ($nc(this->fileManager)->hasLocation($StandardLocation::CLASS_OUTPUT)) {
-									$set(msym, classLocation, $nc(this->fileManager)->getLocationForModule(static_cast<$JavaFileManager$Location*>($StandardLocation::CLASS_OUTPUT), $($nc(msym->name)->toString())));
-								}
-							} else {
-								$set($nc(msym), classLocation, l);
-							}
-							if ($nc(this->moduleLocationIterator)->outer == $StandardLocation::SYSTEM_MODULES || $nc(this->moduleLocationIterator)->outer == $StandardLocation::UPGRADE_MODULE_PATH) {
-								$nc(msym)->flags_field |= $Flags::SYSTEM_MODULE;
-							}
-							if (toFind == nullptr || (toFind == msym && ($nc(msym)->sourceLocation != nullptr || $nc(msym)->classLocation != nullptr))) {
-								results->add(msym);
+						}
+						if ($nc(this->moduleLocationIterator)->outer == $StandardLocation::MODULE_SOURCE_PATH) {
+							$set(msym, sourceLocation, l);
+							if (this->fileManager->hasLocation($StandardLocation::CLASS_OUTPUT)) {
+								$set(msym, classLocation, this->fileManager->getLocationForModule($StandardLocation::CLASS_OUTPUT, $($nc(msym->name)->toString())));
 							}
 						} else {
-							$nc(this->log)->error($($CompilerProperties$Errors::DuplicateModuleOnPath($(getDescription($nc(this->moduleLocationIterator)->outer)), n)));
+							$set(msym, classLocation, l);
 						}
-					} catch ($IOException& e) {
+						if ($nc(this->moduleLocationIterator)->outer == $StandardLocation::SYSTEM_MODULES || this->moduleLocationIterator->outer == $StandardLocation::UPGRADE_MODULE_PATH) {
+							msym->flags_field |= $Flags::SYSTEM_MODULE;
+						}
+						if (toFind == nullptr || (toFind == msym && (msym->sourceLocation != nullptr || msym->classLocation != nullptr))) {
+							results->add(msym);
+						}
+					} else {
+						$nc(this->log)->error($($CompilerProperties$Errors::DuplicateModuleOnPath($(getDescription($nc(this->moduleLocationIterator)->outer)), n)));
 					}
+				} catch ($IOException& e) {
 				}
 			}
 		}
@@ -383,29 +308,29 @@ $List* ModuleFinder::scanModulePath($Symbol$ModuleSymbol* toFind) {
 }
 
 void ModuleFinder::findModuleInfo($Symbol$ModuleSymbol* msym) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($JavaFileObject, fo, nullptr);
 		$init($JavaFileObject$Kind);
 		$assign(fo, getModuleInfoFromLocation($nc(msym)->patchOutputLocation, $JavaFileObject$Kind::CLASS));
-		$assign(fo, preferredFileObject($(getModuleInfoFromLocation($nc(msym)->patchLocation, $JavaFileObject$Kind::CLASS)), fo));
-		$assign(fo, preferredFileObject($(getModuleInfoFromLocation($nc(msym)->patchLocation, $JavaFileObject$Kind::SOURCE)), fo));
+		$assign(fo, preferredFileObject($(getModuleInfoFromLocation(msym->patchLocation, $JavaFileObject$Kind::CLASS)), fo));
+		$assign(fo, preferredFileObject($(getModuleInfoFromLocation(msym->patchLocation, $JavaFileObject$Kind::SOURCE)), fo));
 		if (fo == nullptr) {
-			$assign(fo, getModuleInfoFromLocation($nc(msym)->classLocation, $JavaFileObject$Kind::CLASS));
-			$assign(fo, preferredFileObject($(getModuleInfoFromLocation($nc(msym)->sourceLocation, $JavaFileObject$Kind::SOURCE)), fo));
+			$assign(fo, getModuleInfoFromLocation(msym->classLocation, $JavaFileObject$Kind::CLASS));
+			$assign(fo, preferredFileObject($(getModuleInfoFromLocation(msym->sourceLocation, $JavaFileObject$Kind::SOURCE)), fo));
 		}
 		if (fo == nullptr) {
-			$var($String, moduleName, $nc(msym)->sourceLocation == nullptr && msym->classLocation != nullptr ? $nc(this->fileManager)->inferModuleName($nc(msym)->classLocation) : ($String*)nullptr);
+			$var($String, moduleName, msym->sourceLocation == nullptr && msym->classLocation != nullptr ? $nc(this->fileManager)->inferModuleName(msym->classLocation) : ($String*)nullptr);
 			if (moduleName != nullptr) {
-				$set($nc($nc(msym)->module_info), classfile, nullptr);
+				$set($nc(msym->module_info), classfile, nullptr);
 				msym->flags_field |= $Flags::AUTOMATIC_MODULE;
 			} else {
 				$init($Kinds$Kind);
-				$set($nc(msym), kind, $Kinds$Kind::ERR);
+				$set(msym, kind, $Kinds$Kind::ERR);
 			}
 		} else {
-			$set($nc($nc(msym)->module_info), classfile, fo);
-			$set($nc(msym->module_info), completer, $new($ModuleFinder$1, this, msym));
+			$set($nc(msym->module_info), classfile, fo);
+			$set(msym->module_info, completer, $new($ModuleFinder$1, this, msym));
 		}
 	} catch ($IOException& e) {
 		$init($Kinds$Kind);
@@ -427,33 +352,23 @@ $JCDiagnostic$Fragment* ModuleFinder::getDescription($StandardLocation* l) {
 	$init($ModuleFinder$2);
 	switch ($nc($ModuleFinder$2::$SwitchMap$javax$tools$StandardLocation)->get($nc((l))->ordinal())) {
 	case 1:
-		{
-			$init($CompilerProperties$Fragments);
-			return $CompilerProperties$Fragments::LocnModule_path;
-		}
+		$init($CompilerProperties$Fragments);
+		return $CompilerProperties$Fragments::LocnModule_path;
 	case 2:
-		{
-			$init($CompilerProperties$Fragments);
-			return $CompilerProperties$Fragments::LocnModule_source_path;
-		}
+		$init($CompilerProperties$Fragments);
+		return $CompilerProperties$Fragments::LocnModule_source_path;
 	case 3:
-		{
-			$init($CompilerProperties$Fragments);
-			return $CompilerProperties$Fragments::LocnSystem_modules;
-		}
+		$init($CompilerProperties$Fragments);
+		return $CompilerProperties$Fragments::LocnSystem_modules;
 	case 4:
-		{
-			$init($CompilerProperties$Fragments);
-			return $CompilerProperties$Fragments::LocnUpgrade_module_path;
-		}
+		$init($CompilerProperties$Fragments);
+		return $CompilerProperties$Fragments::LocnUpgrade_module_path;
 	default:
-		{
-			$throwNew($AssertionError);
-		}
+		$throwNew($AssertionError);
 	}
 }
 
-void clinit$ModuleFinder($Class* class$) {
+void ModuleFinder::clinit$($Class* clazz) {
 	$assignStatic(ModuleFinder::moduleFinderKey, $new($Context$Key));
 }
 
@@ -461,7 +376,60 @@ ModuleFinder::ModuleFinder() {
 }
 
 $Class* ModuleFinder::load$($String* name, bool initialize) {
-	$loadClass(ModuleFinder, name, initialize, &_ModuleFinder_ClassInfo_, clinit$ModuleFinder, allocate$ModuleFinder);
+	$FieldInfo fieldInfos$$[] = {
+		{"moduleFinderKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/code/ModuleFinder;>;", $PROTECTED | $STATIC | $FINAL, $staticField(ModuleFinder, moduleFinderKey)},
+		{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE | $FINAL, $field(ModuleFinder, log)},
+		{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, $PRIVATE | $FINAL, $field(ModuleFinder, syms)},
+		{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PRIVATE | $FINAL, $field(ModuleFinder, names)},
+		{"classFinder", "Lcom/sun/tools/javac/code/ClassFinder;", nullptr, $PRIVATE | $FINAL, $field(ModuleFinder, classFinder)},
+		{"fileManager", "Ljavax/tools/JavaFileManager;", nullptr, $PRIVATE | $FINAL, $field(ModuleFinder, fileManager)},
+		{"diags", "Lcom/sun/tools/javac/util/JCDiagnostic$Factory;", nullptr, $PRIVATE | $FINAL, $field(ModuleFinder, diags)},
+		{"dcfh", "Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler;", nullptr, $PRIVATE | $FINAL, $field(ModuleFinder, dcfh)},
+		{"moduleNameReader", "Lcom/sun/tools/javac/jvm/ModuleNameReader;", nullptr, $PRIVATE, $field(ModuleFinder, moduleNameReader)},
+		{"moduleNameFromSourceReader", "Lcom/sun/tools/javac/code/ModuleFinder$ModuleNameFromSourceReader;", nullptr, $PUBLIC, $field(ModuleFinder, moduleNameFromSourceReader)},
+		{"moduleLocationIterator", "Lcom/sun/tools/javac/code/ModuleFinder$ModuleLocationIterator;", nullptr, 0, $field(ModuleFinder, moduleLocationIterator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(ModuleFinder, init$, void, $Context*)},
+		{"findAllModules", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PUBLIC, $virtualMethod(ModuleFinder, findAllModules, $List*)},
+		{"findModule", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC, $virtualMethod(ModuleFinder, findModule, $Symbol$ModuleSymbol*, $Name*)},
+		{"findModule", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC, $virtualMethod(ModuleFinder, findModule, $Symbol$ModuleSymbol*, $Symbol$ModuleSymbol*)},
+		{"findModuleInfo", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE, $method(ModuleFinder, findModuleInfo, void, $Symbol$ModuleSymbol*)},
+		{"findSingleModule", "()Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC, $virtualMethod(ModuleFinder, findSingleModule, $Symbol$ModuleSymbol*)},
+		{"getDescription", "(Ljavax/tools/StandardLocation;)Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, 0, $virtualMethod(ModuleFinder, getDescription, $JCDiagnostic$Fragment*, $StandardLocation*)},
+		{"getModuleInfoFromLocation", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject$Kind;)Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE, $method(ModuleFinder, getModuleInfoFromLocation, $JavaFileObject*, $JavaFileManager$Location*, $JavaFileObject$Kind*), "java.io.IOException"},
+		{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/code/ModuleFinder;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleFinder, instance, ModuleFinder*, $Context*)},
+		{"preferredFileObject", "(Ljavax/tools/JavaFileObject;Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE, $method(ModuleFinder, preferredFileObject, $JavaFileObject*, $JavaFileObject*, $JavaFileObject*)},
+		{"readModule", "(Ljavax/tools/JavaFileObject;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PRIVATE, $method(ModuleFinder, readModule, $Symbol$ModuleSymbol*, $JavaFileObject*), "java.io.IOException"},
+		{"readModuleName", "(Ljavax/tools/JavaFileObject;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ModuleFinder, readModuleName, $String*, $JavaFileObject*), "java.io.IOException,com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile"},
+		{"scanModulePath", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PRIVATE, $method(ModuleFinder, scanModulePath, $List*, $Symbol$ModuleSymbol*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.ModuleFinder$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.code.ModuleFinder$ModuleNameFromSourceReader", "com.sun.tools.javac.code.ModuleFinder", "ModuleNameFromSourceReader", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.code.ModuleFinder$ModuleLocationIterator", "com.sun.tools.javac.code.ModuleFinder", "ModuleLocationIterator", 0},
+		{"com.sun.tools.javac.code.ModuleFinder$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.ModuleFinder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.ModuleFinder$2,com.sun.tools.javac.code.ModuleFinder$ModuleNameFromSourceReader,com.sun.tools.javac.code.ModuleFinder$ModuleLocationIterator,com.sun.tools.javac.code.ModuleFinder$1"
+	};
+	$loadClass(ModuleFinder, name, initialize, &classInfo$$, ModuleFinder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleFinder);
+	});
 	return class$;
 }
 

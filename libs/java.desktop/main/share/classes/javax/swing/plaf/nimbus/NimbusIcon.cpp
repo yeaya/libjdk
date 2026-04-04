@@ -1,11 +1,9 @@
 #include <javax/swing/plaf/nimbus/NimbusIcon.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
-#include <java/awt/Image.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/ImageObserver.h>
 #include <java/lang/Math.h>
@@ -37,10 +35,8 @@
 
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
-using $Image = ::java::awt::Image;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ImageObserver = ::java::awt::image::ImageObserver;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -58,49 +54,11 @@ using $NimbusLookAndFeel = ::javax::swing::plaf::nimbus::NimbusLookAndFeel;
 using $NimbusStyle = ::javax::swing::plaf::nimbus::NimbusStyle;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthIcon = ::javax::swing::plaf::synth::SynthIcon;
-using $SynthStyle = ::javax::swing::plaf::synth::SynthStyle;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace nimbus {
-
-$FieldInfo _NimbusIcon_FieldInfo_[] = {
-	{"width", "I", nullptr, $PRIVATE, $field(NimbusIcon, width)},
-	{"height", "I", nullptr, $PRIVATE, $field(NimbusIcon, height)},
-	{"prefix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NimbusIcon, prefix)},
-	{"key", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NimbusIcon, key)},
-	{}
-};
-
-$MethodInfo _NimbusIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;II)V", nullptr, 0, $method(NimbusIcon, init$, void, $String*, $String*, int32_t, int32_t)},
-	{"getIconHeight", "(Ljavax/swing/plaf/synth/SynthContext;)I", nullptr, $PUBLIC, $virtualMethod(NimbusIcon, getIconHeight, int32_t, $SynthContext*)},
-	{"getIconWidth", "(Ljavax/swing/plaf/synth/SynthContext;)I", nullptr, $PUBLIC, $virtualMethod(NimbusIcon, getIconWidth, int32_t, $SynthContext*)},
-	{"paintFilter", "(Ljavax/swing/Painter;)Ljavax/swing/Painter;", "(Ljavax/swing/Painter;)Ljavax/swing/Painter<Ljavax/swing/JComponent;>;", $PRIVATE | $STATIC, $staticMethod(NimbusIcon, paintFilter, $Painter*, $Painter*)},
-	{"paintIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(NimbusIcon, paintIcon, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(NimbusIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"scale", "(Ljavax/swing/plaf/synth/SynthContext;I)I", nullptr, $PRIVATE, $method(NimbusIcon, scale, int32_t, $SynthContext*, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _NimbusIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.nimbus.NimbusIcon",
-	"java.lang.Object",
-	"javax.swing.plaf.synth.SynthIcon,javax.swing.plaf.UIResource",
-	_NimbusIcon_FieldInfo_,
-	_NimbusIcon_MethodInfo_
-};
-
-$Object* allocate$NimbusIcon($Class* clazz) {
-	return $of($alloc(NimbusIcon));
-}
 
 int32_t NimbusIcon::hashCode() {
 	 return this->$SynthIcon::hashCode();
@@ -135,13 +93,13 @@ $Painter* NimbusIcon::paintFilter($Painter* painter) {
 }
 
 void NimbusIcon::paintIcon($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Painter, painter, nullptr);
 	if (context != nullptr) {
-		$assign(painter, paintFilter($cast($Painter, $($nc($(context->getStyle()))->get(context, this->key)))));
+		$assign(painter, paintFilter($$cast($Painter, $$nc(context->getStyle())->get(context, this->key))));
 	}
 	if (painter == nullptr) {
-		$assign(painter, paintFilter($cast($Painter, $($UIManager::get($$str({this->prefix, "[Enabled]."_s, this->key}))))));
+		$assign(painter, paintFilter($$cast($Painter, $UIManager::get($$str({this->prefix, "[Enabled]."_s, this->key})))));
 	}
 	if (painter != nullptr && context != nullptr) {
 		$var($JComponent, c, context->getComponent());
@@ -151,38 +109,36 @@ void NimbusIcon::paintIcon($SynthContext* context, $Graphics* g, int32_t x, int3
 		int32_t translatey = 0;
 		if ($instanceOf($JToolBar, c)) {
 			$var($JToolBar, toolbar, $cast($JToolBar, c));
-			rotate = $nc(toolbar)->getOrientation() == $JToolBar::VERTICAL;
-			flip = !$nc($(toolbar->getComponentOrientation()))->isLeftToRight();
+			rotate = toolbar->getOrientation() == $JToolBar::VERTICAL;
+			flip = !$$nc(toolbar->getComponentOrientation())->isLeftToRight();
 			$var($Object, o, $NimbusLookAndFeel::resolveToolbarConstraint(toolbar));
 			if ($instanceOf($UIResource, $(toolbar->getBorder()))) {
 				$init($BorderLayout);
 				if ($equals(o, $BorderLayout::SOUTH)) {
 					translatey = 1;
-				} else {
-					if ($equals(o, $BorderLayout::EAST)) {
-						translatex = 1;
-					}
+				} else if ($equals(o, $BorderLayout::EAST)) {
+					translatex = 1;
 				}
 			}
 		} else if ($instanceOf($JMenu, c)) {
-			flip = !$nc($($nc(c)->getComponentOrientation()))->isLeftToRight();
+			flip = !$$nc(c->getComponentOrientation())->isLeftToRight();
 		}
 		if ($instanceOf($Graphics2D, g)) {
 			$var($Graphics2D, gfx, $cast($Graphics2D, g));
-			$nc(gfx)->translate(x, y);
+			gfx->translate(x, y);
 			gfx->translate(translatex, translatey);
 			if (rotate) {
-				gfx->rotate($Math::toRadians((double)90));
+				gfx->rotate($Math::toRadians(90));
 				gfx->translate(0, -w);
 				painter->paint(gfx, $(context->getComponent()), h, w);
 				gfx->translate(0, w);
-				gfx->rotate($Math::toRadians((double)-90));
+				gfx->rotate($Math::toRadians(-90));
 			} else if (flip) {
-				gfx->scale((double)-1, (double)1);
+				gfx->scale(-1, 1);
 				gfx->translate(-w, 0);
 				painter->paint(gfx, $(context->getComponent()), w, h);
 				gfx->translate(w, 0);
-				gfx->scale((double)-1, (double)1);
+				gfx->scale(-1, 1);
 			} else {
 				painter->paint(gfx, $(context->getComponent()), w, h);
 			}
@@ -192,11 +148,11 @@ void NimbusIcon::paintIcon($SynthContext* context, $Graphics* g, int32_t x, int3
 			$var($BufferedImage, img, $new($BufferedImage, w, h, $BufferedImage::TYPE_INT_ARGB));
 			$var($Graphics2D, gfx, img->createGraphics());
 			if (rotate) {
-				$nc(gfx)->rotate($Math::toRadians((double)90));
+				$nc(gfx)->rotate($Math::toRadians(90));
 				gfx->translate(0, -w);
 				painter->paint(gfx, $(context->getComponent()), h, w);
 			} else if (flip) {
-				$nc(gfx)->scale((double)-1, (double)1);
+				$nc(gfx)->scale(-1, 1);
 				gfx->translate(-w, 0);
 				painter->paint(gfx, $(context->getComponent()), w, h);
 			} else {
@@ -210,8 +166,8 @@ void NimbusIcon::paintIcon($SynthContext* context, $Graphics* g, int32_t x, int3
 }
 
 void NimbusIcon::paintIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
-	$var($Painter, painter, paintFilter($cast($Painter, $($UIManager::get($$str({this->prefix, "[Enabled]."_s, this->key}))))));
+	$useLocalObjectStack();
+	$var($Painter, painter, paintFilter($$cast($Painter, $UIManager::get($$str({this->prefix, "[Enabled]."_s, this->key})))));
 	if (painter != nullptr) {
 		$var($JComponent, jc, ($instanceOf($JComponent, c)) ? $cast($JComponent, c) : ($JComponent*)nullptr);
 		$var($Graphics2D, gfx, $cast($Graphics2D, g));
@@ -222,13 +178,13 @@ void NimbusIcon::paintIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
 }
 
 int32_t NimbusIcon::getIconWidth($SynthContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (context == nullptr) {
 		return this->width;
 	}
 	$var($JComponent, c, $nc(context)->getComponent());
-	if ($instanceOf($JToolBar, c) && $nc(($cast($JToolBar, c)))->getOrientation() == $JToolBar::VERTICAL) {
-		if ($instanceOf($UIResource, $($nc(c)->getBorder()))) {
+	if ($instanceOf($JToolBar, c) && $cast($JToolBar, c)->getOrientation() == $JToolBar::VERTICAL) {
+		if ($instanceOf($UIResource, $(c->getBorder()))) {
 			return c->getWidth() - 1;
 		} else {
 			return c->getWidth();
@@ -239,18 +195,18 @@ int32_t NimbusIcon::getIconWidth($SynthContext* context) {
 }
 
 int32_t NimbusIcon::getIconHeight($SynthContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (context == nullptr) {
 		return this->height;
 	}
 	$var($JComponent, c, $nc(context)->getComponent());
 	if ($instanceOf($JToolBar, c)) {
 		$var($JToolBar, toolbar, $cast($JToolBar, c));
-		if ($nc(toolbar)->getOrientation() == $JToolBar::HORIZONTAL) {
+		if (toolbar->getOrientation() == $JToolBar::HORIZONTAL) {
 			if ($instanceOf($UIResource, $(toolbar->getBorder()))) {
-				return $nc(c)->getHeight() - 1;
+				return c->getHeight() - 1;
 			} else {
-				return $nc(c)->getHeight();
+				return c->getHeight();
 			}
 		} else {
 			return scale(context, this->width);
@@ -261,23 +217,19 @@ int32_t NimbusIcon::getIconHeight($SynthContext* context) {
 }
 
 int32_t NimbusIcon::scale($SynthContext* context, int32_t size) {
-	$useLocalCurrentObjectStackCache();
-	if (context == nullptr || $nc(context)->getComponent() == nullptr) {
+	$useLocalObjectStack();
+	if (context == nullptr || context->getComponent() == nullptr) {
 		return size;
 	}
-	$var($String, scaleKey, $cast($String, $nc($($nc(context)->getComponent()))->getClientProperty("JComponent.sizeVariant"_s)));
+	$var($String, scaleKey, $cast($String, $$nc($nc(context)->getComponent())->getClientProperty("JComponent.sizeVariant"_s)));
 	if (scaleKey != nullptr) {
 		$init($NimbusStyle);
 		if ($nc($NimbusStyle::LARGE_KEY)->equals(scaleKey)) {
 			size *= $NimbusStyle::LARGE_SCALE;
-		} else {
-			if ($nc($NimbusStyle::SMALL_KEY)->equals(scaleKey)) {
-				size *= $NimbusStyle::SMALL_SCALE;
-			} else {
-				if ($nc($NimbusStyle::MINI_KEY)->equals(scaleKey)) {
-					size *= $NimbusStyle::MINI_SCALE + 0.07;
-				}
-			}
+		} else if ($nc($NimbusStyle::SMALL_KEY)->equals(scaleKey)) {
+			size *= $NimbusStyle::SMALL_SCALE;
+		} else if ($nc($NimbusStyle::MINI_KEY)->equals(scaleKey)) {
+			size *= $NimbusStyle::MINI_SCALE + 0.07;
 		}
 	}
 	return size;
@@ -287,7 +239,39 @@ NimbusIcon::NimbusIcon() {
 }
 
 $Class* NimbusIcon::load$($String* name, bool initialize) {
-	$loadClass(NimbusIcon, name, initialize, &_NimbusIcon_ClassInfo_, allocate$NimbusIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"width", "I", nullptr, $PRIVATE, $field(NimbusIcon, width)},
+		{"height", "I", nullptr, $PRIVATE, $field(NimbusIcon, height)},
+		{"prefix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NimbusIcon, prefix)},
+		{"key", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NimbusIcon, key)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;II)V", nullptr, 0, $method(NimbusIcon, init$, void, $String*, $String*, int32_t, int32_t)},
+		{"getIconHeight", "(Ljavax/swing/plaf/synth/SynthContext;)I", nullptr, $PUBLIC, $virtualMethod(NimbusIcon, getIconHeight, int32_t, $SynthContext*)},
+		{"getIconWidth", "(Ljavax/swing/plaf/synth/SynthContext;)I", nullptr, $PUBLIC, $virtualMethod(NimbusIcon, getIconWidth, int32_t, $SynthContext*)},
+		{"paintFilter", "(Ljavax/swing/Painter;)Ljavax/swing/Painter;", "(Ljavax/swing/Painter;)Ljavax/swing/Painter<Ljavax/swing/JComponent;>;", $PRIVATE | $STATIC, $staticMethod(NimbusIcon, paintFilter, $Painter*, $Painter*)},
+		{"paintIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(NimbusIcon, paintIcon, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(NimbusIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"scale", "(Ljavax/swing/plaf/synth/SynthContext;I)I", nullptr, $PRIVATE, $method(NimbusIcon, scale, int32_t, $SynthContext*, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.nimbus.NimbusIcon",
+		"java.lang.Object",
+		"javax.swing.plaf.synth.SynthIcon,javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NimbusIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NimbusIcon));
+	});
 	return class$;
 }
 

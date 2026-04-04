@@ -22,6 +22,7 @@ class $export SystemIconTest : public ::java::lang::Object {
 	$class(SystemIconTest, 0, ::java::lang::Object)
 public:
 	SystemIconTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void negativeTests();

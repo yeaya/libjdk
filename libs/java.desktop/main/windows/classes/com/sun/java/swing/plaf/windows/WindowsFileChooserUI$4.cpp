@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsFileChooserUI$4.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsFileChooserUI.h>
 #include <java/awt/Component.h>
 #include <java/awt/event/KeyAdapter.h>
@@ -12,7 +11,6 @@
 #undef VK_SPACE
 
 using $WindowsFileChooserUI = ::com::sun::java::swing::plaf::windows::WindowsFileChooserUI;
-using $Component = ::java::awt::Component;
 using $KeyAdapter = ::java::awt::event::KeyAdapter;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -20,7 +18,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ButtonModel = ::javax::swing::ButtonModel;
 using $JButton = ::javax::swing::JButton;
 using $JPopupMenu = ::javax::swing::JPopupMenu;
 
@@ -31,50 +28,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsFileChooserUI$4_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileChooserUI$4, this$0)},
-	{"val$viewTypePopupMenu", "Ljavax/swing/JPopupMenu;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileChooserUI$4, val$viewTypePopupMenu)},
-	{"val$viewMenuButton", "Ljavax/swing/JButton;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileChooserUI$4, val$viewMenuButton)},
-	{}
-};
-
-$MethodInfo _WindowsFileChooserUI$4_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;Ljavax/swing/JButton;Ljavax/swing/JPopupMenu;)V", nullptr, 0, $method(WindowsFileChooserUI$4, init$, void, $WindowsFileChooserUI*, $JButton*, $JPopupMenu*)},
-	{"keyPressed", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI$4, keyPressed, void, $KeyEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _WindowsFileChooserUI$4_EnclosingMethodInfo_ = {
-	"com.sun.java.swing.plaf.windows.WindowsFileChooserUI",
-	"installComponents",
-	"(Ljavax/swing/JFileChooser;)V"
-};
-
-$InnerClassInfo _WindowsFileChooserUI$4_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WindowsFileChooserUI$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$4",
-	"java.awt.event.KeyAdapter",
-	nullptr,
-	_WindowsFileChooserUI$4_FieldInfo_,
-	_WindowsFileChooserUI$4_MethodInfo_,
-	nullptr,
-	&_WindowsFileChooserUI$4_EnclosingMethodInfo_,
-	_WindowsFileChooserUI$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsFileChooserUI"
-};
-
-$Object* allocate$WindowsFileChooserUI$4($Class* clazz) {
-	return $of($alloc(WindowsFileChooserUI$4));
-}
-
 void WindowsFileChooserUI$4::init$($WindowsFileChooserUI* this$0, $JButton* val$viewMenuButton, $JPopupMenu* val$viewTypePopupMenu) {
 	$set(this, this$0, this$0);
 	$set(this, val$viewMenuButton, val$viewMenuButton);
@@ -84,9 +37,9 @@ void WindowsFileChooserUI$4::init$($WindowsFileChooserUI* this$0, $JButton* val$
 
 void WindowsFileChooserUI$4::keyPressed($KeyEvent* e) {
 	bool var$0 = $nc(e)->getKeyCode() == $KeyEvent::VK_SPACE;
-	if (var$0 && $nc($($nc(this->val$viewMenuButton)->getModel()))->isRollover()) {
-		$nc(this->val$viewMenuButton)->setSelected(true);
-		$nc(this->val$viewTypePopupMenu)->show(this->val$viewMenuButton, 0, $nc(this->val$viewMenuButton)->getHeight());
+	if (var$0 && $$nc($nc(this->val$viewMenuButton)->getModel())->isRollover()) {
+		this->val$viewMenuButton->setSelected(true);
+		$nc(this->val$viewTypePopupMenu)->show(this->val$viewMenuButton, 0, this->val$viewMenuButton->getHeight());
 	}
 }
 
@@ -94,7 +47,44 @@ WindowsFileChooserUI$4::WindowsFileChooserUI$4() {
 }
 
 $Class* WindowsFileChooserUI$4::load$($String* name, bool initialize) {
-	$loadClass(WindowsFileChooserUI$4, name, initialize, &_WindowsFileChooserUI$4_ClassInfo_, allocate$WindowsFileChooserUI$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileChooserUI$4, this$0)},
+		{"val$viewTypePopupMenu", "Ljavax/swing/JPopupMenu;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileChooserUI$4, val$viewTypePopupMenu)},
+		{"val$viewMenuButton", "Ljavax/swing/JButton;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileChooserUI$4, val$viewMenuButton)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;Ljavax/swing/JButton;Ljavax/swing/JPopupMenu;)V", nullptr, 0, $method(WindowsFileChooserUI$4, init$, void, $WindowsFileChooserUI*, $JButton*, $JPopupMenu*)},
+		{"keyPressed", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI$4, keyPressed, void, $KeyEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.java.swing.plaf.windows.WindowsFileChooserUI",
+		"installComponents",
+		"(Ljavax/swing/JFileChooser;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$4",
+		"java.awt.event.KeyAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsFileChooserUI"
+	};
+	$loadClass(WindowsFileChooserUI$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsFileChooserUI$4);
+	});
 	return class$;
 }
 

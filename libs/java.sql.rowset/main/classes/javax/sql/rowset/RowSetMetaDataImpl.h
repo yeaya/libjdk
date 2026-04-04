@@ -74,7 +74,7 @@ public:
 	virtual $Object* unwrap($Class* iface) override;
 	int32_t colCount = 0;
 	$Array<::javax::sql::rowset::RowSetMetaDataImpl$ColInfo>* colInfo = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x5FABB86613F6F18B;
+	static const int64_t serialVersionUID = (int64_t)0x5fabb86613f6f18b;
 };
 
 		} // rowset

@@ -1,5 +1,4 @@
 #include <java/beans/MetaData$sun_swing_PrintColorUIResource_PersistenceDelegate.h>
-
 #include <java/awt/Color.h>
 #include <java/beans/Encoder.h>
 #include <java/beans/Expression.h>
@@ -21,38 +20,6 @@ using $ColorUIResource = ::javax::swing::plaf::ColorUIResource;
 namespace java {
 	namespace beans {
 
-$MethodInfo _MetaData$sun_swing_PrintColorUIResource_PersistenceDelegate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MetaData$sun_swing_PrintColorUIResource_PersistenceDelegate, init$, void)},
-	{"instantiate", "(Ljava/lang/Object;Ljava/beans/Encoder;)Ljava/beans/Expression;", nullptr, $PROTECTED, $virtualMethod(MetaData$sun_swing_PrintColorUIResource_PersistenceDelegate, instantiate, $Expression*, Object$*, $Encoder*)},
-	{"mutatesTo", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(MetaData$sun_swing_PrintColorUIResource_PersistenceDelegate, mutatesTo, bool, Object$*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _MetaData$sun_swing_PrintColorUIResource_PersistenceDelegate_InnerClassesInfo_[] = {
-	{"java.beans.MetaData$sun_swing_PrintColorUIResource_PersistenceDelegate", "java.beans.MetaData", "sun_swing_PrintColorUIResource_PersistenceDelegate", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MetaData$sun_swing_PrintColorUIResource_PersistenceDelegate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.beans.MetaData$sun_swing_PrintColorUIResource_PersistenceDelegate",
-	"java.beans.PersistenceDelegate",
-	nullptr,
-	nullptr,
-	_MetaData$sun_swing_PrintColorUIResource_PersistenceDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetaData$sun_swing_PrintColorUIResource_PersistenceDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.beans.MetaData"
-};
-
-$Object* allocate$MetaData$sun_swing_PrintColorUIResource_PersistenceDelegate($Class* clazz) {
-	return $of($alloc(MetaData$sun_swing_PrintColorUIResource_PersistenceDelegate));
-}
-
 void MetaData$sun_swing_PrintColorUIResource_PersistenceDelegate::init$() {
 	$PersistenceDelegate::init$();
 }
@@ -62,9 +29,9 @@ bool MetaData$sun_swing_PrintColorUIResource_PersistenceDelegate::mutatesTo(Obje
 }
 
 $Expression* MetaData$sun_swing_PrintColorUIResource_PersistenceDelegate::instantiate(Object$* oldInstance, $Encoder* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, color, $cast($Color, oldInstance));
-	$var($ObjectArray, args, $new($ObjectArray, {$($of($Integer::valueOf($nc(color)->getRGB())))}));
+	$var($ObjectArray, args, $new($ObjectArray, {$($Integer::valueOf($nc(color)->getRGB()))}));
 	$load($ColorUIResource);
 	return $new($Expression, color, $ColorUIResource::class$, "new"_s, args);
 }
@@ -73,7 +40,34 @@ MetaData$sun_swing_PrintColorUIResource_PersistenceDelegate::MetaData$sun_swing_
 }
 
 $Class* MetaData$sun_swing_PrintColorUIResource_PersistenceDelegate::load$($String* name, bool initialize) {
-	$loadClass(MetaData$sun_swing_PrintColorUIResource_PersistenceDelegate, name, initialize, &_MetaData$sun_swing_PrintColorUIResource_PersistenceDelegate_ClassInfo_, allocate$MetaData$sun_swing_PrintColorUIResource_PersistenceDelegate);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MetaData$sun_swing_PrintColorUIResource_PersistenceDelegate, init$, void)},
+		{"instantiate", "(Ljava/lang/Object;Ljava/beans/Encoder;)Ljava/beans/Expression;", nullptr, $PROTECTED, $virtualMethod(MetaData$sun_swing_PrintColorUIResource_PersistenceDelegate, instantiate, $Expression*, Object$*, $Encoder*)},
+		{"mutatesTo", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(MetaData$sun_swing_PrintColorUIResource_PersistenceDelegate, mutatesTo, bool, Object$*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.MetaData$sun_swing_PrintColorUIResource_PersistenceDelegate", "java.beans.MetaData", "sun_swing_PrintColorUIResource_PersistenceDelegate", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.beans.MetaData$sun_swing_PrintColorUIResource_PersistenceDelegate",
+		"java.beans.PersistenceDelegate",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.beans.MetaData"
+	};
+	$loadClass(MetaData$sun_swing_PrintColorUIResource_PersistenceDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetaData$sun_swing_PrintColorUIResource_PersistenceDelegate);
+	});
 	return class$;
 }
 

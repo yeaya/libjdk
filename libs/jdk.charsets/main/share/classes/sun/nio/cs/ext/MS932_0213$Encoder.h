@@ -30,6 +30,7 @@ class MS932_0213$Encoder : public ::sun::nio::cs::ext::SJIS_0213$Encoder {
 public:
 	MS932_0213$Encoder();
 	using ::sun::nio::cs::ext::SJIS_0213$Encoder::canEncode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	virtual int32_t encodeChar(char16_t ch) override;
 	static ::sun::nio::cs::DoubleByte$Encoder* encMS932;

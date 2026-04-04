@@ -57,6 +57,7 @@ class $export SSLTube$SSLTubeFlowDelegate : public ::jdk::internal::net::http::c
 	$class(SSLTube$SSLTubeFlowDelegate, 0, ::jdk::internal::net::http::common::SSLFlowDelegate)
 public:
 	SSLTube$SSLTubeFlowDelegate();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::common::SSLTube* this$0, ::javax::net::ssl::SSLEngine* engine, ::java::util::concurrent::Executor* executor, ::java::util::function::Consumer* recycler, ::jdk::internal::net::http::common::SSLTube$SSLSubscriberWrapper* readSubscriber, ::jdk::internal::net::http::common::FlowTube* tube);
 	virtual $Throwable* checkForHandshake($Throwable* t) override;
 	virtual void connect(::java::util::concurrent::Flow$Subscriber* downReader, ::java::util::concurrent::Flow$Subscriber* downWriter) override;

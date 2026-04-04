@@ -29,11 +29,14 @@ public:
 	void init$($String* message, ::org::w3c::dom::Node* offendingNode);
 	void init$($String* message, $Throwable* cause, ::org::w3c::dom::Node* offendingNode);
 	virtual ::org::w3c::dom::Node* getOffendingNode();
-	static const int64_t serialVersionUID = (int64_t)0xEDC370511F304957;
+	static const int64_t serialVersionUID = (int64_t)0xedc370511f304957;
 	::org::w3c::dom::Node* offendingNode = nullptr;
 	IIOInvalidTreeException(const IIOInvalidTreeException& e);
 	virtual void throw$() override;
-	inline IIOInvalidTreeException* operator ->() {
+	inline IIOInvalidTreeException* operator ->() const {
+		return (IIOInvalidTreeException*)throwing$;
+	}
+	inline operator IIOInvalidTreeException*() const {
 		return (IIOInvalidTreeException*)throwing$;
 	}
 };

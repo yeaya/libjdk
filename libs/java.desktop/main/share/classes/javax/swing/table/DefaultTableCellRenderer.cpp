@@ -1,12 +1,10 @@
 #include <javax/swing/table/DefaultTableCellRenderer.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Font.h>
 #include <java/awt/Rectangle.h>
 #include <java/lang/SecurityManager.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JTable$DropLocation.h>
 #include <javax/swing/JTable.h>
@@ -29,7 +27,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $JTable = ::javax::swing::JTable;
 using $JTable$DropLocation = ::javax::swing::JTable$DropLocation;
@@ -43,64 +40,6 @@ using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 namespace javax {
 	namespace swing {
 		namespace table {
-
-$FieldInfo _DefaultTableCellRenderer_FieldInfo_[] = {
-	{"SAFE_NO_FOCUS_BORDER", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultTableCellRenderer, SAFE_NO_FOCUS_BORDER)},
-	{"DEFAULT_NO_FOCUS_BORDER", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultTableCellRenderer, DEFAULT_NO_FOCUS_BORDER)},
-	{"noFocusBorder", "Ljavax/swing/border/Border;", nullptr, $PROTECTED | $STATIC, $staticField(DefaultTableCellRenderer, noFocusBorder)},
-	{"unselectedForeground", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(DefaultTableCellRenderer, unselectedForeground)},
-	{"unselectedBackground", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(DefaultTableCellRenderer, unselectedBackground)},
-	{}
-};
-
-$MethodInfo _DefaultTableCellRenderer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultTableCellRenderer, init$, void)},
-	{"firePropertyChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(DefaultTableCellRenderer, firePropertyChange, void, $String*, Object$*, Object$*)},
-	{"firePropertyChange", "(Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellRenderer, firePropertyChange, void, $String*, bool, bool)},
-	{"getNoFocusBorder", "()Ljavax/swing/border/Border;", nullptr, $PRIVATE, $method(DefaultTableCellRenderer, getNoFocusBorder, $Border*)},
-	{"getTableCellRendererComponent", "(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellRenderer, getTableCellRendererComponent, $Component*, $JTable*, Object$*, bool, bool, int32_t, int32_t)},
-	{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellRenderer, invalidate, void)},
-	{"isOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellRenderer, isOpaque, bool)},
-	{"repaint", "(JIIII)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellRenderer, repaint, void, int64_t, int32_t, int32_t, int32_t, int32_t)},
-	{"repaint", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellRenderer, repaint, void, $Rectangle*)},
-	{"repaint", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellRenderer, repaint, void)},
-	{"revalidate", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellRenderer, revalidate, void)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellRenderer, setBackground, void, $Color*)},
-	{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellRenderer, setForeground, void, $Color*)},
-	{"setValue", "(Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(DefaultTableCellRenderer, setValue, void, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellRenderer, updateUI, void)},
-	{"validate", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellRenderer, validate, void)},
-	{}
-};
-
-$InnerClassInfo _DefaultTableCellRenderer_InnerClassesInfo_[] = {
-	{"javax.swing.table.DefaultTableCellRenderer$UIResource", "javax.swing.table.DefaultTableCellRenderer", "UIResource", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultTableCellRenderer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.table.DefaultTableCellRenderer",
-	"javax.swing.JLabel",
-	"javax.swing.table.TableCellRenderer",
-	_DefaultTableCellRenderer_FieldInfo_,
-	_DefaultTableCellRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultTableCellRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.table.DefaultTableCellRenderer$UIResource"
-};
-
-$Object* allocate$DefaultTableCellRenderer($Class* clazz) {
-	return $of($alloc(DefaultTableCellRenderer));
-}
 
 $String* DefaultTableCellRenderer::toString() {
 	 return this->$JLabel::toString();
@@ -165,7 +104,7 @@ void DefaultTableCellRenderer::updateUI() {
 }
 
 $Component* DefaultTableCellRenderer::getTableCellRendererComponent($JTable* table, Object$* value, bool isSelected, bool hasFocus, int32_t row, int32_t column) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (table == nullptr) {
 		return this;
 	}
@@ -223,7 +162,7 @@ $Component* DefaultTableCellRenderer::getTableCellRendererComponent($JTable* tab
 }
 
 bool DefaultTableCellRenderer::isOpaque() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, back, getBackground());
 	$var($Component, p, getParent());
 	if (p != nullptr) {
@@ -257,7 +196,7 @@ void DefaultTableCellRenderer::firePropertyChange($String* propertyName, Object$
 	if (!var$0) {
 		bool var$1 = ($SwingUtilities2::isScaleChanged(propertyName, oldValue, newValue) || propertyName == "font"_s || propertyName == "foreground"_s) && !$equals(oldValue, newValue);
 		$init($BasicHTML);
-		var$0 = (var$1 && getClientProperty($BasicHTML::propertyKey) != nullptr);
+		var$0 = var$1 && getClientProperty($BasicHTML::propertyKey) != nullptr;
 	}
 	if (var$0) {
 		$JLabel::firePropertyChange(propertyName, oldValue, newValue);
@@ -268,10 +207,10 @@ void DefaultTableCellRenderer::firePropertyChange($String* propertyName, bool ol
 }
 
 void DefaultTableCellRenderer::setValue(Object$* value) {
-	setText((value == nullptr) ? ""_s : $($nc($of(value))->toString()));
+	setText((value == nullptr) ? ""_s : $($of(value)->toString()));
 }
 
-void clinit$DefaultTableCellRenderer($Class* class$) {
+void DefaultTableCellRenderer::clinit$($Class* clazz) {
 	$assignStatic(DefaultTableCellRenderer::SAFE_NO_FOCUS_BORDER, $new($EmptyBorder, 1, 1, 1, 1));
 	$assignStatic(DefaultTableCellRenderer::DEFAULT_NO_FOCUS_BORDER, $new($EmptyBorder, 1, 1, 1, 1));
 	$assignStatic(DefaultTableCellRenderer::noFocusBorder, DefaultTableCellRenderer::DEFAULT_NO_FOCUS_BORDER);
@@ -281,7 +220,59 @@ DefaultTableCellRenderer::DefaultTableCellRenderer() {
 }
 
 $Class* DefaultTableCellRenderer::load$($String* name, bool initialize) {
-	$loadClass(DefaultTableCellRenderer, name, initialize, &_DefaultTableCellRenderer_ClassInfo_, clinit$DefaultTableCellRenderer, allocate$DefaultTableCellRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"SAFE_NO_FOCUS_BORDER", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultTableCellRenderer, SAFE_NO_FOCUS_BORDER)},
+		{"DEFAULT_NO_FOCUS_BORDER", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultTableCellRenderer, DEFAULT_NO_FOCUS_BORDER)},
+		{"noFocusBorder", "Ljavax/swing/border/Border;", nullptr, $PROTECTED | $STATIC, $staticField(DefaultTableCellRenderer, noFocusBorder)},
+		{"unselectedForeground", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(DefaultTableCellRenderer, unselectedForeground)},
+		{"unselectedBackground", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(DefaultTableCellRenderer, unselectedBackground)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultTableCellRenderer, init$, void)},
+		{"firePropertyChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(DefaultTableCellRenderer, firePropertyChange, void, $String*, Object$*, Object$*)},
+		{"firePropertyChange", "(Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellRenderer, firePropertyChange, void, $String*, bool, bool)},
+		{"getNoFocusBorder", "()Ljavax/swing/border/Border;", nullptr, $PRIVATE, $method(DefaultTableCellRenderer, getNoFocusBorder, $Border*)},
+		{"getTableCellRendererComponent", "(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellRenderer, getTableCellRendererComponent, $Component*, $JTable*, Object$*, bool, bool, int32_t, int32_t)},
+		{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellRenderer, invalidate, void)},
+		{"isOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellRenderer, isOpaque, bool)},
+		{"repaint", "(JIIII)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellRenderer, repaint, void, int64_t, int32_t, int32_t, int32_t, int32_t)},
+		{"repaint", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellRenderer, repaint, void, $Rectangle*)},
+		{"repaint", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellRenderer, repaint, void)},
+		{"revalidate", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellRenderer, revalidate, void)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellRenderer, setBackground, void, $Color*)},
+		{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellRenderer, setForeground, void, $Color*)},
+		{"setValue", "(Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(DefaultTableCellRenderer, setValue, void, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellRenderer, updateUI, void)},
+		{"validate", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellRenderer, validate, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.table.DefaultTableCellRenderer$UIResource", "javax.swing.table.DefaultTableCellRenderer", "UIResource", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.table.DefaultTableCellRenderer",
+		"javax.swing.JLabel",
+		"javax.swing.table.TableCellRenderer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.table.DefaultTableCellRenderer$UIResource"
+	};
+	$loadClass(DefaultTableCellRenderer, name, initialize, &classInfo$$, DefaultTableCellRenderer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultTableCellRenderer));
+	});
 	return class$;
 }
 

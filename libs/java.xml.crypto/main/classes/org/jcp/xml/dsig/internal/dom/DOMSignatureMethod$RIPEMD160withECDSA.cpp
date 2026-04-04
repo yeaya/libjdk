@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod$RIPEMD160withECDSA.h>
-
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <org/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod$AbstractECDSASignatureMethod.h>
@@ -25,42 +24,6 @@ namespace org {
 			namespace dsig {
 				namespace internal {
 					namespace dom {
-
-$MethodInfo _DOMSignatureMethod$RIPEMD160withECDSA_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMSignatureMethod$RIPEMD160withECDSA, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMSignatureMethod$RIPEMD160withECDSA, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMSignatureMethod$RIPEMD160withECDSA, getAlgorithm, $String*)},
-	{"getAlgorithmType", "()Lorg/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type;", nullptr, 0, $virtualMethod(DOMSignatureMethod$RIPEMD160withECDSA, getAlgorithmType, $AbstractDOMSignatureMethod$Type*)},
-	{"getJCAAlgorithm", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DOMSignatureMethod$RIPEMD160withECDSA, getJCAAlgorithm, $String*)},
-	{"getJCAFallbackAlgorithm", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DOMSignatureMethod$RIPEMD160withECDSA, getJCAFallbackAlgorithm, $String*)},
-	{}
-};
-
-$InnerClassInfo _DOMSignatureMethod$RIPEMD160withECDSA_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$RIPEMD160withECDSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "RIPEMD160withECDSA", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractECDSASignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractECDSASignatureMethod", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DOMSignatureMethod$RIPEMD160withECDSA_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$RIPEMD160withECDSA",
-	"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractECDSASignatureMethod",
-	nullptr,
-	nullptr,
-	_DOMSignatureMethod$RIPEMD160withECDSA_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DOMSignatureMethod$RIPEMD160withECDSA_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod"
-};
-
-$Object* allocate$DOMSignatureMethod$RIPEMD160withECDSA($Class* clazz) {
-	return $of($alloc(DOMSignatureMethod$RIPEMD160withECDSA));
-}
 
 void DOMSignatureMethod$RIPEMD160withECDSA::init$($AlgorithmParameterSpec* params) {
 	$DOMSignatureMethod$AbstractECDSASignatureMethod::init$(params);
@@ -92,7 +55,38 @@ DOMSignatureMethod$RIPEMD160withECDSA::DOMSignatureMethod$RIPEMD160withECDSA() {
 }
 
 $Class* DOMSignatureMethod$RIPEMD160withECDSA::load$($String* name, bool initialize) {
-	$loadClass(DOMSignatureMethod$RIPEMD160withECDSA, name, initialize, &_DOMSignatureMethod$RIPEMD160withECDSA_ClassInfo_, allocate$DOMSignatureMethod$RIPEMD160withECDSA);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMSignatureMethod$RIPEMD160withECDSA, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMSignatureMethod$RIPEMD160withECDSA, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMSignatureMethod$RIPEMD160withECDSA, getAlgorithm, $String*)},
+		{"getAlgorithmType", "()Lorg/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type;", nullptr, 0, $virtualMethod(DOMSignatureMethod$RIPEMD160withECDSA, getAlgorithmType, $AbstractDOMSignatureMethod$Type*)},
+		{"getJCAAlgorithm", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DOMSignatureMethod$RIPEMD160withECDSA, getJCAAlgorithm, $String*)},
+		{"getJCAFallbackAlgorithm", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DOMSignatureMethod$RIPEMD160withECDSA, getJCAFallbackAlgorithm, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$RIPEMD160withECDSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "RIPEMD160withECDSA", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractECDSASignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractECDSASignatureMethod", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$RIPEMD160withECDSA",
+		"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractECDSASignatureMethod",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod"
+	};
+	$loadClass(DOMSignatureMethod$RIPEMD160withECDSA, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMSignatureMethod$RIPEMD160withECDSA));
+	});
 	return class$;
 }
 

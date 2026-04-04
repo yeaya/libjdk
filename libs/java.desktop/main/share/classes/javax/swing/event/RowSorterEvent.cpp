@@ -1,5 +1,4 @@
 #include <javax/swing/event/RowSorterEvent.h>
-
 #include <java/util/EventObject.h>
 #include <javax/swing/RowSorter.h>
 #include <javax/swing/event/RowSorterEvent$Type.h>
@@ -20,46 +19,6 @@ namespace javax {
 	namespace swing {
 		namespace event {
 
-$FieldInfo _RowSorterEvent_FieldInfo_[] = {
-	{"type", "Ljavax/swing/event/RowSorterEvent$Type;", nullptr, $PRIVATE, $field(RowSorterEvent, type)},
-	{"oldViewToModel", "[I", nullptr, $PRIVATE, $field(RowSorterEvent, oldViewToModel)},
-	{}
-};
-
-$MethodInfo _RowSorterEvent_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/RowSorter;)V", "(Ljavax/swing/RowSorter<*>;)V", $PUBLIC, $method(RowSorterEvent, init$, void, $RowSorter*)},
-	{"<init>", "(Ljavax/swing/RowSorter;Ljavax/swing/event/RowSorterEvent$Type;[I)V", "(Ljavax/swing/RowSorter<*>;Ljavax/swing/event/RowSorterEvent$Type;[I)V", $PUBLIC, $method(RowSorterEvent, init$, void, $RowSorter*, $RowSorterEvent$Type*, $ints*)},
-	{"convertPreviousRowIndexToModel", "(I)I", nullptr, $PUBLIC, $virtualMethod(RowSorterEvent, convertPreviousRowIndexToModel, int32_t, int32_t)},
-	{"getPreviousRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(RowSorterEvent, getPreviousRowCount, int32_t)},
-	{"getSource", "()Ljavax/swing/RowSorter;", "()Ljavax/swing/RowSorter<*>;", $PUBLIC, $virtualMethod(RowSorterEvent, getSource, $Object*)},
-	{"getType", "()Ljavax/swing/event/RowSorterEvent$Type;", nullptr, $PUBLIC, $virtualMethod(RowSorterEvent, getType, $RowSorterEvent$Type*)},
-	{}
-};
-
-$InnerClassInfo _RowSorterEvent_InnerClassesInfo_[] = {
-	{"javax.swing.event.RowSorterEvent$Type", "javax.swing.event.RowSorterEvent", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _RowSorterEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.event.RowSorterEvent",
-	"java.util.EventObject",
-	nullptr,
-	_RowSorterEvent_FieldInfo_,
-	_RowSorterEvent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RowSorterEvent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.event.RowSorterEvent$Type"
-};
-
-$Object* allocate$RowSorterEvent($Class* clazz) {
-	return $of($alloc(RowSorterEvent));
-}
-
 void RowSorterEvent::init$($RowSorter* source) {
 	$init($RowSorterEvent$Type);
 	RowSorterEvent::init$(source, $RowSorterEvent$Type::SORT_ORDER_CHANGED, nullptr);
@@ -75,7 +34,7 @@ void RowSorterEvent::init$($RowSorter* source, $RowSorterEvent$Type* type, $ints
 }
 
 $Object* RowSorterEvent::getSource() {
-	return $of($cast($RowSorter, $EventObject::getSource()));
+	return $cast($RowSorter, $EventObject::getSource());
 }
 
 $RowSorterEvent$Type* RowSorterEvent::getType() {
@@ -83,21 +42,55 @@ $RowSorterEvent$Type* RowSorterEvent::getType() {
 }
 
 int32_t RowSorterEvent::convertPreviousRowIndexToModel(int32_t index) {
-	if (this->oldViewToModel != nullptr && index >= 0 && index < $nc(this->oldViewToModel)->length) {
-		return $nc(this->oldViewToModel)->get(index);
+	if (this->oldViewToModel != nullptr && index >= 0 && index < this->oldViewToModel->length) {
+		return this->oldViewToModel->get(index);
 	}
 	return -1;
 }
 
 int32_t RowSorterEvent::getPreviousRowCount() {
-	return (this->oldViewToModel == nullptr) ? 0 : $nc(this->oldViewToModel)->length;
+	return (this->oldViewToModel == nullptr) ? 0 : this->oldViewToModel->length;
 }
 
 RowSorterEvent::RowSorterEvent() {
 }
 
 $Class* RowSorterEvent::load$($String* name, bool initialize) {
-	$loadClass(RowSorterEvent, name, initialize, &_RowSorterEvent_ClassInfo_, allocate$RowSorterEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "Ljavax/swing/event/RowSorterEvent$Type;", nullptr, $PRIVATE, $field(RowSorterEvent, type)},
+		{"oldViewToModel", "[I", nullptr, $PRIVATE, $field(RowSorterEvent, oldViewToModel)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/RowSorter;)V", "(Ljavax/swing/RowSorter<*>;)V", $PUBLIC, $method(RowSorterEvent, init$, void, $RowSorter*)},
+		{"<init>", "(Ljavax/swing/RowSorter;Ljavax/swing/event/RowSorterEvent$Type;[I)V", "(Ljavax/swing/RowSorter<*>;Ljavax/swing/event/RowSorterEvent$Type;[I)V", $PUBLIC, $method(RowSorterEvent, init$, void, $RowSorter*, $RowSorterEvent$Type*, $ints*)},
+		{"convertPreviousRowIndexToModel", "(I)I", nullptr, $PUBLIC, $virtualMethod(RowSorterEvent, convertPreviousRowIndexToModel, int32_t, int32_t)},
+		{"getPreviousRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(RowSorterEvent, getPreviousRowCount, int32_t)},
+		{"getSource", "()Ljavax/swing/RowSorter;", "()Ljavax/swing/RowSorter<*>;", $PUBLIC, $virtualMethod(RowSorterEvent, getSource, $Object*)},
+		{"getType", "()Ljavax/swing/event/RowSorterEvent$Type;", nullptr, $PUBLIC, $virtualMethod(RowSorterEvent, getType, $RowSorterEvent$Type*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.event.RowSorterEvent$Type", "javax.swing.event.RowSorterEvent", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.event.RowSorterEvent",
+		"java.util.EventObject",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.event.RowSorterEvent$Type"
+	};
+	$loadClass(RowSorterEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RowSorterEvent);
+	});
 	return class$;
 }
 

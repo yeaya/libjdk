@@ -1,5 +1,4 @@
 #include <java/util/logging/XMLFormatter.h>
-
 #include <java/lang/Appendable.h>
 #include <java/lang/StackTraceElement.h>
 #include <java/nio/charset/Charset.h>
@@ -25,7 +24,6 @@
 #undef YEAR
 
 using $StackTraceElementArray = $Array<::java::lang::StackTraceElement>;
-using $Appendable = ::java::lang::Appendable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -34,13 +32,11 @@ using $StackTraceElement = ::java::lang::StackTraceElement;
 using $Charset = ::java::nio::charset::Charset;
 using $Instant = ::java::time::Instant;
 using $DateTimeFormatter = ::java::time::format::DateTimeFormatter;
-using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
 using $Calendar = ::java::util::Calendar;
 using $GregorianCalendar = ::java::util::GregorianCalendar;
 using $ResourceBundle = ::java::util::ResourceBundle;
 using $Formatter = ::java::util::logging::Formatter;
 using $Handler = ::java::util::logging::Handler;
-using $Level = ::java::util::logging::Level;
 using $LogManager = ::java::util::logging::LogManager;
 using $LogRecord = ::java::util::logging::LogRecord;
 
@@ -48,41 +44,11 @@ namespace java {
 	namespace util {
 		namespace logging {
 
-$FieldInfo _XMLFormatter_FieldInfo_[] = {
-	{"manager", "Ljava/util/logging/LogManager;", nullptr, $PRIVATE | $FINAL, $field(XMLFormatter, manager)},
-	{"useInstant", "Z", nullptr, $PRIVATE | $FINAL, $field(XMLFormatter, useInstant)},
-	{}
-};
-
-$MethodInfo _XMLFormatter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLFormatter, init$, void)},
-	{"a2", "(Ljava/lang/StringBuilder;I)V", nullptr, $PRIVATE, $method(XMLFormatter, a2, void, $StringBuilder*, int32_t)},
-	{"appendISO8601", "(Ljava/lang/StringBuilder;J)V", nullptr, $PRIVATE, $method(XMLFormatter, appendISO8601, void, $StringBuilder*, int64_t)},
-	{"escape", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XMLFormatter, escape, void, $StringBuilder*, $String*)},
-	{"format", "(Ljava/util/logging/LogRecord;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLFormatter, format, $String*, $LogRecord*)},
-	{"getHead", "(Ljava/util/logging/Handler;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLFormatter, getHead, $String*, $Handler*)},
-	{"getTail", "(Ljava/util/logging/Handler;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLFormatter, getTail, $String*, $Handler*)},
-	{}
-};
-
-$ClassInfo _XMLFormatter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.logging.XMLFormatter",
-	"java.util.logging.Formatter",
-	nullptr,
-	_XMLFormatter_FieldInfo_,
-	_XMLFormatter_MethodInfo_
-};
-
-$Object* allocate$XMLFormatter($Class* clazz) {
-	return $of($alloc(XMLFormatter));
-}
-
 void XMLFormatter::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Formatter::init$();
 	$set(this, manager, $LogManager::getLogManager());
-	this->useInstant = (this->manager == nullptr) || $nc(this->manager)->getBooleanProperty($$str({$($of(this)->getClass()->getName()), ".useInstant"_s}), true);
+	this->useInstant = (this->manager == nullptr) || this->manager->getBooleanProperty($$str({$(this->getClass()->getName()), ".useInstant"_s}), true);
 }
 
 void XMLFormatter::a2($StringBuilder* sb, int32_t x) {
@@ -128,7 +94,7 @@ void XMLFormatter::escape($StringBuilder* sb, $String* text$renamed) {
 }
 
 $String* XMLFormatter::format($LogRecord* record) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder, 500));
 	sb->append("<record>\n"_s);
 	$var($Instant, instant, $nc(record)->getInstant());
@@ -143,7 +109,7 @@ $String* XMLFormatter::format($LogRecord* record) {
 	sb->append("  <millis>"_s);
 	sb->append($nc(instant)->toEpochMilli());
 	sb->append("</millis>\n"_s);
-	int32_t nanoAdjustment = $nc(instant)->getNano() % 0x000F4240;
+	int32_t nanoAdjustment = instant->getNano() % 1000000;
 	if (this->useInstant && nanoAdjustment != 0) {
 		sb->append("  <nanos>"_s);
 		sb->append(nanoAdjustment);
@@ -159,7 +125,7 @@ $String* XMLFormatter::format($LogRecord* record) {
 		sb->append("</logger>\n"_s);
 	}
 	sb->append("  <level>"_s);
-	escape(sb, $($nc($(record->getLevel()))->toString()));
+	escape(sb, $($$nc(record->getLevel())->toString()));
 	sb->append("</level>\n"_s);
 	if (record->getSourceClassName() != nullptr) {
 		sb->append("  <class>"_s);
@@ -194,22 +160,18 @@ $String* XMLFormatter::format($LogRecord* record) {
 	} catch ($Exception& ex) {
 	}
 	$var($ObjectArray, parameters, record->getParameters());
-	if (parameters != nullptr && parameters->length != 0 && $nc($(record->getMessage()))->indexOf((int32_t)u'{') == -1) {
-		{
-			$var($ObjectArray, arr$, parameters);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Object0, parameter, arr$->get(i$));
-				{
-					sb->append("  <param>"_s);
-					try {
-						escape(sb, $($nc($of(parameter))->toString()));
-					} catch ($Exception& ex) {
-						sb->append("???"_s);
-					}
-					sb->append("</param>\n"_s);
+	if (parameters != nullptr && parameters->length != 0 && $$nc(record->getMessage())->indexOf(u'{') == -1) {
+		$var($ObjectArray, arr$, parameters);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Object0, parameter, arr$->get(i$));
+			{
+				sb->append("  <param>"_s);
+				try {
+					escape(sb, $($nc(parameter)->toString()));
+				} catch ($Exception& ex) {
+					sb->append("???"_s);
 				}
+				sb->append("</param>\n"_s);
 			}
 		}
 	}
@@ -219,12 +181,10 @@ $String* XMLFormatter::format($LogRecord* record) {
 		sb->append("    <message>"_s);
 		escape(sb, $($nc(th)->toString()));
 		sb->append("</message>\n"_s);
-		$var($StackTraceElementArray, trace, $nc(th)->getStackTrace());
+		$var($StackTraceElementArray, trace, th->getStackTrace());
 		{
 			$var($StackTraceElementArray, arr$, trace);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($StackTraceElement, frame, arr$->get(i$));
 				{
 					sb->append("    <frame>\n"_s);
@@ -232,9 +192,9 @@ $String* XMLFormatter::format($LogRecord* record) {
 					escape(sb, $($nc(frame)->getClassName()));
 					sb->append("</class>\n"_s);
 					sb->append("      <method>"_s);
-					escape(sb, $($nc(frame)->getMethodName()));
+					escape(sb, $(frame->getMethodName()));
 					sb->append("</method>\n"_s);
-					if ($nc(frame)->getLineNumber() >= 0) {
+					if (frame->getLineNumber() >= 0) {
 						sb->append("      <line>"_s);
 						sb->append(frame->getLineNumber());
 						sb->append("</line>\n"_s);
@@ -250,7 +210,7 @@ $String* XMLFormatter::format($LogRecord* record) {
 }
 
 $String* XMLFormatter::getHead($Handler* h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	$var($String, encoding, nullptr);
 	sb->append("<?xml version=\"1.0\""_s);
@@ -260,7 +220,7 @@ $String* XMLFormatter::getHead($Handler* h) {
 		$assign(encoding, nullptr);
 	}
 	if (encoding == nullptr) {
-		$assign(encoding, $nc($($Charset::defaultCharset()))->name());
+		$assign(encoding, $$nc($Charset::defaultCharset())->name());
 	}
 	try {
 		$var($Charset, cs, $Charset::forName(encoding));
@@ -284,7 +244,32 @@ XMLFormatter::XMLFormatter() {
 }
 
 $Class* XMLFormatter::load$($String* name, bool initialize) {
-	$loadClass(XMLFormatter, name, initialize, &_XMLFormatter_ClassInfo_, allocate$XMLFormatter);
+	$FieldInfo fieldInfos$$[] = {
+		{"manager", "Ljava/util/logging/LogManager;", nullptr, $PRIVATE | $FINAL, $field(XMLFormatter, manager)},
+		{"useInstant", "Z", nullptr, $PRIVATE | $FINAL, $field(XMLFormatter, useInstant)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLFormatter, init$, void)},
+		{"a2", "(Ljava/lang/StringBuilder;I)V", nullptr, $PRIVATE, $method(XMLFormatter, a2, void, $StringBuilder*, int32_t)},
+		{"appendISO8601", "(Ljava/lang/StringBuilder;J)V", nullptr, $PRIVATE, $method(XMLFormatter, appendISO8601, void, $StringBuilder*, int64_t)},
+		{"escape", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XMLFormatter, escape, void, $StringBuilder*, $String*)},
+		{"format", "(Ljava/util/logging/LogRecord;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLFormatter, format, $String*, $LogRecord*)},
+		{"getHead", "(Ljava/util/logging/Handler;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLFormatter, getHead, $String*, $Handler*)},
+		{"getTail", "(Ljava/util/logging/Handler;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLFormatter, getTail, $String*, $Handler*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.logging.XMLFormatter",
+		"java.util.logging.Formatter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLFormatter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLFormatter);
+	});
 	return class$;
 }
 

@@ -1,10 +1,8 @@
 #include <com/sun/tools/javac/jvm/Gen.h>
-
 #include <com/sun/tools/javac/code/Attribute$TypeCompound.h>
 #include <com/sun/tools/javac/code/Flags.h>
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Scope$WriteableScope.h>
-#include <com/sun/tools/javac/code/Scope.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$CompletionFailure.h>
 #include <com/sun/tools/javac/code/Symbol$DynamicVarSymbol.h>
@@ -186,21 +184,17 @@
 using $Attribute$TypeCompound = ::com::sun::tools::javac::code::Attribute$TypeCompound;
 using $Flags = ::com::sun::tools::javac::code::Flags;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
-using $Scope = ::com::sun::tools::javac::code::Scope;
-using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$CompletionFailure = ::com::sun::tools::javac::code::Symbol$CompletionFailure;
 using $Symbol$DynamicVarSymbol = ::com::sun::tools::javac::code::Symbol$DynamicVarSymbol;
 using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
 using $Symbol$OperatorSymbol = ::com::sun::tools::javac::code::Symbol$OperatorSymbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $TargetType = ::com::sun::tools::javac::code::TargetType;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
-using $TypeAnnotationPosition = ::com::sun::tools::javac::code::TypeAnnotationPosition;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Annotate = ::com::sun::tools::javac::comp::Annotate;
@@ -221,7 +215,6 @@ using $Gen$4 = ::com::sun::tools::javac::jvm::Gen$4;
 using $Gen$ClassReferenceVisitor = ::com::sun::tools::javac::jvm::Gen$ClassReferenceVisitor;
 using $Gen$CodeSizeOverflow = ::com::sun::tools::javac::jvm::Gen$CodeSizeOverflow;
 using $Gen$GenContext = ::com::sun::tools::javac::jvm::Gen$GenContext;
-using $Gen$GenFinalizer = ::com::sun::tools::javac::jvm::Gen$GenFinalizer;
 using $Items = ::com::sun::tools::javac::jvm::Items;
 using $Items$CondItem = ::com::sun::tools::javac::jvm::Items$CondItem;
 using $Items$Item = ::com::sun::tools::javac::jvm::Items$Item;
@@ -235,7 +228,6 @@ using $UninitializedType = ::com::sun::tools::javac::jvm::UninitializedType;
 using $Option = ::com::sun::tools::javac::main::Option;
 using $FilteredMemberList = ::com::sun::tools::javac::model::FilteredMemberList;
 using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::CompilerProperties$Errors;
-using $EndPosTable = ::com::sun::tools::javac::tree::EndPosTable;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCAnnotatedType = ::com::sun::tools::javac::tree::JCTree$JCAnnotatedType;
 using $JCTree$JCArrayAccess = ::com::sun::tools::javac::tree::JCTree$JCArrayAccess;
@@ -288,7 +280,6 @@ using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
 using $TreeInfo$PosKind = ::com::sun::tools::javac::tree::TreeInfo$PosKind;
 using $TreeMaker = ::com::sun::tools::javac::tree::TreeMaker;
 using $Assert = ::com::sun::tools::javac::util::Assert;
-using $Bits = ::com::sun::tools::javac::util::Bits;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $Context$Key = ::com::sun::tools::javac::util::Context$Key;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
@@ -301,7 +292,6 @@ using $Options = ::com::sun::tools::javac::util::Options;
 using $Pair = ::com::sun::tools::javac::util::Pair;
 using $Position = ::com::sun::tools::javac::util::Position;
 using $Position$LineMap = ::com::sun::tools::javac::util::Position$LineMap;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -313,10 +303,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Number = ::java::lang::Number;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
-using $Map = ::java::util::Map;
 using $ToIntBiFunction = ::java::util::function::ToIntBiFunction;
 using $ElementKind = ::javax::lang::model::element::ElementKind;
 
@@ -334,202 +322,27 @@ public:
 	virtual int32_t applyAsInt(Object$* inst$, Object$* t) override {
 		 return $sure($PoolWriter, inst$)->putClass($cast($Type, t));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Gen$$Lambda$putClass>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Gen$$Lambda$putClass::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Gen$$Lambda$putClass, init$, void)},
-	{"applyAsInt", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Gen$$Lambda$putClass, applyAsInt, int32_t, Object$*, Object$*)},
-	{}
-};
-$ClassInfo Gen$$Lambda$putClass::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.jvm.Gen$$Lambda$putClass",
-	"java.lang.Object",
-	"java.util.function.ToIntBiFunction",
-	nullptr,
-	methodInfos
 };
 $Class* Gen$$Lambda$putClass::load$($String* name, bool initialize) {
-	$loadClass(Gen$$Lambda$putClass, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Gen$$Lambda$putClass, init$, void)},
+		{"applyAsInt", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Gen$$Lambda$putClass, applyAsInt, int32_t, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.jvm.Gen$$Lambda$putClass",
+		"java.lang.Object",
+		"java.util.function.ToIntBiFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Gen$$Lambda$putClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Gen$$Lambda$putClass);
+	});
 	return class$;
 }
 $Class* Gen$$Lambda$putClass::class$ = nullptr;
-
-$FieldInfo _Gen_FieldInfo_[] = {
-	{"genKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/jvm/Gen;>;", $PROTECTED | $STATIC | $FINAL, $staticField(Gen, genKey)},
-	{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE | $FINAL, $field(Gen, log)},
-	{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, $PRIVATE | $FINAL, $field(Gen, syms)},
-	{"chk", "Lcom/sun/tools/javac/comp/Check;", nullptr, $PRIVATE | $FINAL, $field(Gen, chk)},
-	{"rs", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $PRIVATE | $FINAL, $field(Gen, rs)},
-	{"make", "Lcom/sun/tools/javac/tree/TreeMaker;", nullptr, $PRIVATE | $FINAL, $field(Gen, make)},
-	{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PRIVATE | $FINAL, $field(Gen, names)},
-	{"target", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PRIVATE | $FINAL, $field(Gen, target)},
-	{"accessDollar", "Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE | $FINAL, $field(Gen, accessDollar)},
-	{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $PRIVATE | $FINAL, $field(Gen, types)},
-	{"lower", "Lcom/sun/tools/javac/comp/Lower;", nullptr, $PRIVATE | $FINAL, $field(Gen, lower)},
-	{"annotate", "Lcom/sun/tools/javac/comp/Annotate;", nullptr, $PRIVATE | $FINAL, $field(Gen, annotate)},
-	{"concat", "Lcom/sun/tools/javac/jvm/StringConcat;", nullptr, $PRIVATE | $FINAL, $field(Gen, concat)},
-	{"stackMap", "Lcom/sun/tools/javac/jvm/Code$StackMapFormat;", nullptr, $PRIVATE | $FINAL, $field(Gen, stackMap)},
-	{"methodType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $FINAL, $field(Gen, methodType)},
-	{"poolWriter", "Lcom/sun/tools/javac/jvm/PoolWriter;", nullptr, $FINAL, $field(Gen, poolWriter)},
-	{"lineDebugInfo", "Z", nullptr, $PRIVATE | $FINAL, $field(Gen, lineDebugInfo)},
-	{"varDebugInfo", "Z", nullptr, $PRIVATE | $FINAL, $field(Gen, varDebugInfo)},
-	{"genCrt", "Z", nullptr, $PRIVATE | $FINAL, $field(Gen, genCrt)},
-	{"debugCode", "Z", nullptr, $PRIVATE | $FINAL, $field(Gen, debugCode)},
-	{"disableVirtualizedPrivateInvoke", "Z", nullptr, $PRIVATE, $field(Gen, disableVirtualizedPrivateInvoke)},
-	{"code", "Lcom/sun/tools/javac/jvm/Code;", nullptr, $PRIVATE, $field(Gen, code)},
-	{"items", "Lcom/sun/tools/javac/jvm/Items;", nullptr, $PRIVATE, $field(Gen, items)},
-	{"attrEnv", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PRIVATE, $field(Gen, attrEnv)},
-	{"toplevel", "Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", nullptr, $PRIVATE, $field(Gen, toplevel)},
-	{"nerrs", "I", nullptr, $PRIVATE, $field(Gen, nerrs)},
-	{"endPosTable", "Lcom/sun/tools/javac/tree/EndPosTable;", nullptr, 0, $field(Gen, endPosTable)},
-	{"inCondSwitchExpression", "Z", nullptr, 0, $field(Gen, inCondSwitchExpression)},
-	{"switchExpressionTrueChain", "Lcom/sun/tools/javac/jvm/Code$Chain;", nullptr, 0, $field(Gen, switchExpressionTrueChain)},
-	{"switchExpressionFalseChain", "Lcom/sun/tools/javac/jvm/Code$Chain;", nullptr, 0, $field(Gen, switchExpressionFalseChain)},
-	{"stackBeforeSwitchExpression", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/Items$LocalItem;>;", 0, $field(Gen, stackBeforeSwitchExpression)},
-	{"switchResult", "Lcom/sun/tools/javac/jvm/Items$LocalItem;", nullptr, 0, $field(Gen, switchResult)},
-	{"qualifiedSymbolCache", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;>;", 0, $field(Gen, qualifiedSymbolCache)},
-	{"env", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;", 0, $field(Gen, env)},
-	{"pt", "Lcom/sun/tools/javac/code/Type;", nullptr, 0, $field(Gen, pt)},
-	{"result", "Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $field(Gen, result)},
-	{"classReferenceVisitor", "Lcom/sun/tools/javac/jvm/Gen$ClassReferenceVisitor;", nullptr, $PRIVATE, $field(Gen, classReferenceVisitor)},
-	{}
-};
-
-$MethodInfo _Gen_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(Gen, init$, void, $Context*)},
-	{"binaryQualifier", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol;", nullptr, 0, $virtualMethod(Gen, binaryQualifier, $Symbol*, $Symbol*, $Type*)},
-	{"callMethod", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Z)V", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Z)V", 0, $virtualMethod(Gen, callMethod, void, $JCDiagnostic$DiagnosticPosition*, $Type*, $Name*, $List*, bool)},
-	{"catchTypesWithAnnotations", "(Lcom/sun/tools/javac/tree/JCTree$JCCatch;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCCatch;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;>;", 0, $virtualMethod(Gen, catchTypesWithAnnotations, $List*, $JCTree$JCCatch*)},
-	{"catchTypesWithAnnotationsFromMulticatch", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeUnion;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeUnion;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;>;", 0, $virtualMethod(Gen, catchTypesWithAnnotationsFromMulticatch, $List*, $JCTree$JCTypeUnion*, $List*)},
-	{"checkDimension", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Gen, checkDimension, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*)},
-	{"checkDimensionInternal", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PRIVATE, $method(Gen, checkDimensionInternal, void, $JCDiagnostic$DiagnosticPosition*, $Type*)},
-	{"checkStringConstant", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(Gen, checkStringConstant, void, $JCDiagnostic$DiagnosticPosition*, Object$*)},
-	{"completeBinop", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Gen, completeBinop, $Items$Item*, $JCTree*, $JCTree*, $Symbol$OperatorSymbol*)},
-	{"doHandleSwitchExpression", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)V", nullptr, $PRIVATE, $method(Gen, doHandleSwitchExpression, void, $JCTree$JCSwitchExpression*)},
-	{"emitMinusOne", "(I)V", nullptr, 0, $virtualMethod(Gen, emitMinusOne, void, int32_t)},
-	{"endFinalizerGap", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;)V", 0, $virtualMethod(Gen, endFinalizerGap, void, $Env*)},
-	{"endFinalizerGaps", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;)V", 0, $virtualMethod(Gen, endFinalizerGaps, void, $Env*, $Env*)},
-	{"genArgs", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC, $virtualMethod(Gen, genArgs, void, $List*, $List*)},
-	{"genCatch", "(Lcom/sun/tools/javac/tree/JCTree$JCCatch;Lcom/sun/tools/javac/comp/Env;IILcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCCatch;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;IILcom/sun/tools/javac/util/List<Ljava/lang/Integer;>;)V", 0, $virtualMethod(Gen, genCatch, void, $JCTree$JCCatch*, $Env*, int32_t, int32_t, $List*)},
-	{"genClass", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Z", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Z", $PUBLIC, $virtualMethod(Gen, genClass, bool, $Env*, $JCTree$JCClassDecl*)},
-	{"genCond", "(Lcom/sun/tools/javac/tree/JCTree;I)Lcom/sun/tools/javac/jvm/Items$CondItem;", nullptr, $PUBLIC, $virtualMethod(Gen, genCond, $Items$CondItem*, $JCTree*, int32_t)},
-	{"genCond", "(Lcom/sun/tools/javac/tree/JCTree;Z)Lcom/sun/tools/javac/jvm/Items$CondItem;", nullptr, $PUBLIC, $virtualMethod(Gen, genCond, $Items$CondItem*, $JCTree*, bool)},
-	{"genDef", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;)V", $PUBLIC, $virtualMethod(Gen, genDef, void, $JCTree*, $Env*)},
-	{"genExpr", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, $PUBLIC, $virtualMethod(Gen, genExpr, $Items$Item*, $JCTree*, $Type*)},
-	{"genFinalizer", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;)V", 0, $virtualMethod(Gen, genFinalizer, void, $Env*)},
-	{"genLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCStatement;Lcom/sun/tools/javac/tree/JCTree$JCStatement;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Z)V", "(Lcom/sun/tools/javac/tree/JCTree$JCStatement;Lcom/sun/tools/javac/tree/JCTree$JCStatement;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpressionStatement;>;Z)V", $PRIVATE, $method(Gen, genLoop, void, $JCTree$JCStatement*, $JCTree$JCStatement*, $JCTree$JCExpression*, $List*, bool)},
-	{"genMethod", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Lcom/sun/tools/javac/comp/Env;Z)V", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;Z)V", 0, $virtualMethod(Gen, genMethod, void, $JCTree$JCMethodDecl*, $Env*, bool)},
-	{"genNullCheck", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PRIVATE, $method(Gen, genNullCheck, void, $JCTree*)},
-	{"genStat", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;I)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;I)V", $PUBLIC, $virtualMethod(Gen, genStat, void, $JCTree*, $Env*, int32_t)},
-	{"genStat", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;)V", $PUBLIC, $virtualMethod(Gen, genStat, void, $JCTree*, $Env*)},
-	{"genStats", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Env;I)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;I)V", $PUBLIC, $virtualMethod(Gen, genStats, void, $List*, $Env*, int32_t)},
-	{"genStats", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;)V", $PUBLIC, $virtualMethod(Gen, genStats, void, $List*, $Env*)},
-	{"genTry", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCatch;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;)V", 0, $virtualMethod(Gen, genTry, void, $JCTree*, $List*, $Env*)},
-	{"generateReferencesToPrunedTree", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PRIVATE, $method(Gen, generateReferencesToPrunedTree, void, $Symbol$ClassSymbol*)},
-	{"getAndRemoveNonFieldTAs", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;", $PRIVATE, $method(Gen, getAndRemoveNonFieldTAs, $List*, $Symbol$VarSymbol*)},
-	{"getAttrEnv", "()Lcom/sun/tools/javac/comp/Env;", "()Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC, $virtualMethod(Gen, getAttrEnv, $Env*)},
-	{"getCode", "()Lcom/sun/tools/javac/jvm/Code;", nullptr, $PUBLIC, $virtualMethod(Gen, getCode, $Code*)},
-	{"getItems", "()Lcom/sun/tools/javac/jvm/Items;", nullptr, $PUBLIC, $virtualMethod(Gen, getItems, $Items*)},
-	{"handleSwitch", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Z)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;Z)V", $PRIVATE, $method(Gen, handleSwitch, void, $JCTree*, $JCTree$JCExpression*, $List*, bool)},
-	{"hasFinally", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)Z", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;)Z", 0, $virtualMethod(Gen, hasFinally, bool, $JCTree*, $Env*)},
-	{"hasTry", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)Z", nullptr, $PRIVATE, $method(Gen, hasTry, bool, $JCTree$JCSwitchExpression*)},
-	{"initCode", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Lcom/sun/tools/javac/comp/Env;Z)I", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;Z)I", $PRIVATE, $method(Gen, initCode, int32_t, $JCTree$JCMethodDecl*, $Env*, bool)},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/jvm/Gen;", nullptr, $PUBLIC | $STATIC, $staticMethod(Gen, instance, Gen*, $Context*)},
-	{"isAccessSuper", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)Z", nullptr, $PRIVATE, $method(Gen, isAccessSuper, bool, $JCTree$JCMethodDecl*)},
-	{"isConstantDynamic", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC, $virtualMethod(Gen, isConstantDynamic, bool, $Symbol*)},
-	{"isInvokeDynamic", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC, $virtualMethod(Gen, isInvokeDynamic, bool, $Symbol*)},
-	{"isOddAccessName", "(Lcom/sun/tools/javac/util/Name;)Z", nullptr, $PRIVATE, $method(Gen, isOddAccessName, bool, $Name*)},
-	{"loadIntConst", "(I)V", nullptr, 0, $virtualMethod(Gen, loadIntConst, void, int32_t)},
-	{"makeNewArray", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;I)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Gen, makeNewArray, $Items$Item*, $JCDiagnostic$DiagnosticPosition*, $Type*, int32_t)},
-	{"makeRef", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)I", nullptr, 0, $virtualMethod(Gen, makeRef, int32_t, $JCDiagnostic$DiagnosticPosition*, $Type*)},
-	{"makeTemp", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/jvm/Items$LocalItem;", nullptr, 0, $virtualMethod(Gen, makeTemp, $Items$LocalItem*, $Type*)},
-	{"nonVirtualForPrivateAccess", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(Gen, nonVirtualForPrivateAccess, bool, $Symbol*)},
-	{"normalizeDefs", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", 0, $virtualMethod(Gen, normalizeDefs, $List*, $List*, $Symbol$ClassSymbol*)},
-	{"normalizeMethod", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)V", 0, $virtualMethod(Gen, normalizeMethod, void, $JCTree$JCMethodDecl*, $List*, $List*)},
-	{"one", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Gen, one, int32_t, int32_t)},
-	{"qsort2", "([I[III)V", nullptr, $STATIC, $staticMethod(Gen, qsort2, void, $ints*, $ints*, int32_t, int32_t)},
-	{"registerCatch", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;IIII)V", nullptr, 0, $virtualMethod(Gen, registerCatch, void, $JCDiagnostic$DiagnosticPosition*, int32_t, int32_t, int32_t, int32_t)},
-	{"reloadStackBeforeSwitchExpr", "()V", nullptr, $PRIVATE, $method(Gen, reloadStackBeforeSwitchExpr, void)},
-	{"setTypeAnnotationPositions", "(I)V", nullptr, $PRIVATE, $method(Gen, setTypeAnnotationPositions, void, int32_t)},
-	{"unwind", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;", 0, $virtualMethod(Gen, unwind, $Env*, $JCTree*, $Env*)},
-	{"unwindBreak", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;", $PRIVATE, $method(Gen, unwindBreak, $Env*, $JCTree*)},
-	{"visitApply", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitApply, void, $JCTree$JCMethodInvocation*)},
-	{"visitAssign", "(Lcom/sun/tools/javac/tree/JCTree$JCAssign;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitAssign, void, $JCTree$JCAssign*)},
-	{"visitAssignop", "(Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitAssignop, void, $JCTree$JCAssignOp*)},
-	{"visitBinary", "(Lcom/sun/tools/javac/tree/JCTree$JCBinary;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitBinary, void, $JCTree$JCBinary*)},
-	{"visitBlock", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitBlock, void, $JCTree$JCBlock*)},
-	{"visitBreak", "(Lcom/sun/tools/javac/tree/JCTree$JCBreak;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitBreak, void, $JCTree$JCBreak*)},
-	{"visitConditional", "(Lcom/sun/tools/javac/tree/JCTree$JCConditional;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitConditional, void, $JCTree$JCConditional*)},
-	{"visitContinue", "(Lcom/sun/tools/javac/tree/JCTree$JCContinue;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitContinue, void, $JCTree$JCContinue*)},
-	{"visitDoLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCDoWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitDoLoop, void, $JCTree$JCDoWhileLoop*)},
-	{"visitExec", "(Lcom/sun/tools/javac/tree/JCTree$JCExpressionStatement;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitExec, void, $JCTree$JCExpressionStatement*)},
-	{"visitForLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCForLoop;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitForLoop, void, $JCTree$JCForLoop*)},
-	{"visitForeachLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitForeachLoop, void, $JCTree$JCEnhancedForLoop*)},
-	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitIdent, void, $JCTree$JCIdent*)},
-	{"visitIf", "(Lcom/sun/tools/javac/tree/JCTree$JCIf;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitIf, void, $JCTree$JCIf*)},
-	{"visitIndexed", "(Lcom/sun/tools/javac/tree/JCTree$JCArrayAccess;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitIndexed, void, $JCTree$JCArrayAccess*)},
-	{"visitLabelled", "(Lcom/sun/tools/javac/tree/JCTree$JCLabeledStatement;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitLabelled, void, $JCTree$JCLabeledStatement*)},
-	{"visitLetExpr", "(Lcom/sun/tools/javac/tree/JCTree$LetExpr;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitLetExpr, void, $JCTree$LetExpr*)},
-	{"visitLiteral", "(Lcom/sun/tools/javac/tree/JCTree$JCLiteral;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitLiteral, void, $JCTree$JCLiteral*)},
-	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitMethodDef, void, $JCTree$JCMethodDecl*)},
-	{"visitNewArray", "(Lcom/sun/tools/javac/tree/JCTree$JCNewArray;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitNewArray, void, $JCTree$JCNewArray*)},
-	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitNewClass, void, $JCTree$JCNewClass*)},
-	{"visitParens", "(Lcom/sun/tools/javac/tree/JCTree$JCParens;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitParens, void, $JCTree$JCParens*)},
-	{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitReturn, void, $JCTree$JCReturn*)},
-	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitSelect, void, $JCTree$JCFieldAccess*)},
-	{"visitSkip", "(Lcom/sun/tools/javac/tree/JCTree$JCSkip;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitSkip, void, $JCTree$JCSkip*)},
-	{"visitSwitch", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitch;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitSwitch, void, $JCTree$JCSwitch*)},
-	{"visitSwitchExpression", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitSwitchExpression, void, $JCTree$JCSwitchExpression*)},
-	{"visitSynchronized", "(Lcom/sun/tools/javac/tree/JCTree$JCSynchronized;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitSynchronized, void, $JCTree$JCSynchronized*)},
-	{"visitThrow", "(Lcom/sun/tools/javac/tree/JCTree$JCThrow;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitThrow, void, $JCTree$JCThrow*)},
-	{"visitTry", "(Lcom/sun/tools/javac/tree/JCTree$JCTry;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitTry, void, $JCTree$JCTry*)},
-	{"visitTypeCast", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitTypeCast, void, $JCTree$JCTypeCast*)},
-	{"visitTypeTest", "(Lcom/sun/tools/javac/tree/JCTree$JCInstanceOf;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitTypeTest, void, $JCTree$JCInstanceOf*)},
-	{"visitUnary", "(Lcom/sun/tools/javac/tree/JCTree$JCUnary;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitUnary, void, $JCTree$JCUnary*)},
-	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitVarDef, void, $JCTree$JCVariableDecl*)},
-	{"visitWhileLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitWhileLoop, void, $JCTree$JCWhileLoop*)},
-	{"visitWildcard", "(Lcom/sun/tools/javac/tree/JCTree$JCWildcard;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitWildcard, void, $JCTree$JCWildcard*)},
-	{"visitYield", "(Lcom/sun/tools/javac/tree/JCTree$JCYield;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitYield, void, $JCTree$JCYield*)},
-	{"zero", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Gen, zero, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Gen_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$Visitor", "com.sun.tools.javac.tree.JCTree", "Visitor", $PUBLIC | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.jvm.Gen$4", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.jvm.Gen$GenContext", "com.sun.tools.javac.jvm.Gen", "GenContext", $STATIC},
-	{"com.sun.tools.javac.jvm.Gen$GenFinalizer", "com.sun.tools.javac.jvm.Gen", "GenFinalizer", $ABSTRACT},
-	{"com.sun.tools.javac.jvm.Gen$CodeSizeOverflow", "com.sun.tools.javac.jvm.Gen", "CodeSizeOverflow", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.jvm.Gen$ClassReferenceVisitor", "com.sun.tools.javac.jvm.Gen", "ClassReferenceVisitor", 0},
-	{"com.sun.tools.javac.jvm.Gen$3", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.jvm.Gen$2", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.jvm.Gen$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Gen_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.jvm.Gen",
-	"com.sun.tools.javac.tree.JCTree$Visitor",
-	nullptr,
-	_Gen_FieldInfo_,
-	_Gen_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Gen_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.Gen$4,com.sun.tools.javac.jvm.Gen$GenContext,com.sun.tools.javac.jvm.Gen$GenFinalizer,com.sun.tools.javac.jvm.Gen$CodeSizeOverflow,com.sun.tools.javac.jvm.Gen$ClassReferenceVisitor,com.sun.tools.javac.jvm.Gen$3,com.sun.tools.javac.jvm.Gen$2,com.sun.tools.javac.jvm.Gen$1"
-};
-
-$Object* allocate$Gen($Class* clazz) {
-	return $of($alloc(Gen));
-}
 
 $Context$Key* Gen::genKey = nullptr;
 
@@ -543,11 +356,11 @@ Gen* Gen::instance($Context* context) {
 }
 
 void Gen::init$($Context* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JCTree$Visitor::init$();
 	this->nerrs = 0;
 	$set(this, classReferenceVisitor, $new($Gen$ClassReferenceVisitor, this));
-	$nc(context)->put(Gen::genKey, $of(this));
+	$nc(context)->put(Gen::genKey, this);
 	$set(this, names, $Names::instance(context));
 	$set(this, log, $Log::instance(context));
 	$set(this, syms, $Symtab::instance(context));
@@ -563,7 +376,7 @@ void Gen::init$($Context* context) {
 	$var($Options, options, $Options::instance(context));
 	$init($Option);
 	bool var$0 = $nc(options)->isUnset($Option::G_CUSTOM);
-	this->lineDebugInfo = var$0 || $nc(options)->isSet($Option::G_CUSTOM, "lines"_s);
+	this->lineDebugInfo = var$0 || options->isSet($Option::G_CUSTOM, "lines"_s);
 	this->varDebugInfo = options->isUnset($Option::G_CUSTOM) ? options->isSet($Option::G) : options->isSet($Option::G_CUSTOM, "vars"_s);
 	this->genCrt = options->isSet($Option::XJCOV);
 	this->debugCode = options->isSet("debug.code"_s);
@@ -576,39 +389,26 @@ void Gen::init$($Context* context) {
 }
 
 void Gen::loadIntConst(int32_t n) {
-	$useLocalCurrentObjectStackCache();
-	$nc($($nc(this->items)->makeImmediateItem($nc(this->syms)->intType, $($Integer::valueOf(n)))))->load();
+	$useLocalObjectStack();
+	$$nc($nc(this->items)->makeImmediateItem($nc(this->syms)->intType, $($Integer::valueOf(n))))->load();
 }
 
 int32_t Gen::zero(int32_t tc) {
 	$init(Gen);
 	switch (tc) {
 	case 0:
-		{}
 	case 5:
-		{}
 	case 7:
-		{}
 	case 6:
-		{
-			return 3;
-		}
+		return 3;
 	case 1:
-		{
-			return 9;
-		}
+		return 9;
 	case 2:
-		{
-			return 11;
-		}
+		return 11;
 	case 3:
-		{
-			return 14;
-		}
+		return 14;
 	default:
-		{
-			$throwNew($AssertionError, $of("zero"_s));
-		}
+		$throwNew($AssertionError, $of("zero"_s));
 	}
 }
 
@@ -618,9 +418,9 @@ int32_t Gen::one(int32_t tc) {
 }
 
 void Gen::emitMinusOne(int32_t tc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (tc == 1) {
-		$nc($($nc(this->items)->makeImmediateItem($nc(this->syms)->longType, $($Long::valueOf((int64_t)-1)))))->load();
+		$$nc($nc(this->items)->makeImmediateItem($nc(this->syms)->longType, $($Long::valueOf(-1))))->load();
 	} else {
 		$nc(this->code)->emitop0(2);
 	}
@@ -629,27 +429,27 @@ void Gen::emitMinusOne(int32_t tc) {
 $Symbol* Gen::binaryQualifier($Symbol* sym, $Type* site) {
 	$init($TypeTag);
 	if ($nc(site)->hasTag($TypeTag::ARRAY)) {
-		if ($equals(sym, $nc(this->syms)->lengthVar) || !$equals($nc(sym)->owner, $nc(this->syms)->arrayClass)) {
+		if ($equals(sym, $nc(this->syms)->lengthVar) || !$equals($nc(sym)->owner, this->syms->arrayClass)) {
 			return sym;
 		}
 		$var($Symbol, qualifier, nullptr);
 		if (($assign(qualifier, $cast($Symbol, $nc(this->qualifiedSymbolCache)->get(site)))) == nullptr) {
-			$assign(qualifier, $new($Symbol$ClassSymbol, $Flags::PUBLIC, $nc(site->tsym)->name, site, $nc(this->syms)->noSymbol));
-			$nc(this->qualifiedSymbolCache)->put(site, qualifier);
+			$assign(qualifier, $new($Symbol$ClassSymbol, $Flags::PUBLIC, $nc(site->tsym)->name, site, this->syms->noSymbol));
+			this->qualifiedSymbolCache->put(site, qualifier);
 		}
 		return $nc(sym)->clone(qualifier);
 	}
-	if ($equals($nc(sym)->owner, $nc(site)->tsym) || ((int64_t)($nc(sym)->flags() & (uint64_t)(int64_t)(8 | 4096))) == (8 | 4096)) {
+	if ($equals($nc(sym)->owner, site->tsym) || (sym->flags() & (8 | 0x1000)) == (8 | 0x1000)) {
 		return sym;
 	}
-	if ($equals($nc(sym)->owner, $nc($nc(this->syms)->objectType)->tsym)) {
+	if ($equals(sym->owner, $nc($nc(this->syms)->objectType)->tsym)) {
 		return sym;
 	}
-	return $nc(sym)->clone($nc(site)->tsym);
+	return sym->clone(site->tsym);
 }
 
 int32_t Gen::makeRef($JCDiagnostic$DiagnosticPosition* pos, $Type* type) {
-	return $nc(this->poolWriter)->putClass($(checkDimension(pos, type)));
+	return this->poolWriter->putClass($(checkDimension(pos, type)));
 }
 
 $Type* Gen::checkDimension($JCDiagnostic$DiagnosticPosition* pos, $Type* t) {
@@ -658,33 +458,29 @@ $Type* Gen::checkDimension($JCDiagnostic$DiagnosticPosition* pos, $Type* t) {
 }
 
 void Gen::checkDimensionInternal($JCDiagnostic$DiagnosticPosition* pos, $Type* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Gen$4);
-	switch ($nc($Gen$4::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get($nc(($($nc(t)->getTag())))->ordinal())) {
+	switch ($nc($Gen$4::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get(($$nc($nc(t)->getTag()))->ordinal())) {
 	case 1:
 		{
 			checkDimension(pos, $(t->getReturnType()));
 			{
 				$var($List, args, t->getParameterTypes());
-				for (; $nc(args)->nonEmpty(); $assign(args, $nc(args)->tail)) {
+				for (; $nc(args)->nonEmpty(); $assign(args, args->tail)) {
 					checkDimension(pos, $cast($Type, args->head));
 				}
 			}
 			break;
 		}
 	case 2:
-		{
-			if ($nc(this->types)->dimensions(t) > $ClassFile::MAX_DIMENSIONS) {
-				$init($CompilerProperties$Errors);
-				$nc(this->log)->error(pos, $CompilerProperties$Errors::LimitDimensions);
-				++this->nerrs;
-			}
-			break;
+		if ($nc(this->types)->dimensions(t) > $ClassFile::MAX_DIMENSIONS) {
+			$init($CompilerProperties$Errors);
+			$nc(this->log)->error(pos, $CompilerProperties$Errors::LimitDimensions);
+			++this->nerrs;
 		}
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 }
 
@@ -695,27 +491,27 @@ $Items$LocalItem* Gen::makeTemp($Type* type) {
 }
 
 void Gen::callMethod($JCDiagnostic$DiagnosticPosition* pos, $Type* site, $Name* name, $List* argtypes, bool isStatic) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol, msym, $nc(this->rs)->resolveInternalMethod(pos, this->attrEnv, site, name, argtypes, nullptr));
 	if (isStatic) {
-		$nc($($nc(this->items)->makeStaticItem(msym)))->invoke();
+		$$nc($nc(this->items)->makeStaticItem(msym))->invoke();
 	} else {
-		$nc($($nc(this->items)->makeMemberItem(msym, name == $nc(this->names)->init)))->invoke();
+		$$nc($nc(this->items)->makeMemberItem(msym, name == $nc(this->names)->init))->invoke();
 	}
 }
 
 bool Gen::isAccessSuper($JCTree$JCMethodDecl* enclMethod) {
-	return ((int64_t)($nc($nc(enclMethod)->mods)->flags & (uint64_t)(int64_t)4096)) != 0 && isOddAccessName(enclMethod->name);
+	return ($nc($nc(enclMethod)->mods)->flags & 0x1000) != 0 && isOddAccessName(enclMethod->name);
 }
 
 bool Gen::isOddAccessName($Name* name) {
 	bool var$0 = $nc(name)->startsWith(this->accessDollar);
-	return var$0 && ((int32_t)(name->getByteAt(name->getByteLength() - 1) & (uint32_t)1)) == 1;
+	return var$0 && (name->getByteAt(name->getByteLength() - 1) & 1) == 1;
 }
 
 void Gen::genFinalizer($Env* env) {
 	if ($nc(this->code)->isAlive() && $nc(($cast($Gen$GenContext, $nc(env)->info)))->finalize$ != nullptr) {
-		$nc($nc(($cast($Gen$GenContext, env->info)))->finalize$)->gen();
+		$nc(($cast($Gen$GenContext, env->info)))->finalize$->gen();
 	}
 }
 
@@ -726,19 +522,19 @@ $Env* Gen::unwind($JCTree* target, $Env* env) {
 		if ($nc(env1)->tree == target) {
 			break;
 		}
-		$assign(env1, $nc(env1)->next);
+		$assign(env1, env1->next);
 	}
 	return env1;
 }
 
 void Gen::endFinalizerGap($Env* env) {
-	if ($nc(($cast($Gen$GenContext, $nc(env)->info)))->gaps != nullptr && $nc($nc(($cast($Gen$GenContext, env->info)))->gaps)->length() % 2 == 1) {
-		$nc($nc(($cast($Gen$GenContext, env->info)))->gaps)->append($($Integer::valueOf($nc(this->code)->curCP())));
+	if ($nc(($cast($Gen$GenContext, $nc(env)->info)))->gaps != nullptr && ($cast($Gen$GenContext, env->info))->gaps->length() % 2 == 1) {
+		$nc(($cast($Gen$GenContext, env->info)))->gaps->append($($Integer::valueOf($nc(this->code)->curCP())));
 	}
 }
 
 void Gen::endFinalizerGaps($Env* from$renamed, $Env* to) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Env, from, from$renamed);
 	$var($Env, last, nullptr);
 	while (last != to) {
@@ -762,7 +558,7 @@ bool Gen::hasFinally($JCTree* target, $Env* env$renamed) {
 }
 
 $List* Gen::normalizeDefs($List* defs, $Symbol$ClassSymbol* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, initCode, $new($ListBuffer));
 	$var($ListBuffer, initTAs, $new($ListBuffer));
 	$var($ListBuffer, clinitCode, $new($ListBuffer));
@@ -770,64 +566,56 @@ $List* Gen::normalizeDefs($List* defs, $Symbol$ClassSymbol* c) {
 	$var($ListBuffer, methodDefs, $new($ListBuffer));
 	{
 		$var($List, l, defs);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 			$var($JCTree, def, $cast($JCTree, l->head));
-			$init($Gen$4);
 			{
-				$var($JCTree$JCBlock, block, nullptr)
-				$var($JCTree$JCVariableDecl, vdef, nullptr)
-				$var($Symbol$VarSymbol, sym, nullptr)
-				switch ($nc($Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(def)->getTag())))->ordinal())) {
+				$init($Gen$4);
+				$var($JCTree$JCBlock, block, nullptr);
+				$var($JCTree$JCVariableDecl, vdef, nullptr);
+				$var($Symbol$VarSymbol, sym, nullptr);
+				switch ($nc($Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(def)->getTag()))->ordinal())) {
 				case 1:
-					{
-						$assign(block, $cast($JCTree$JCBlock, def));
-						if (((int64_t)($nc(block)->flags & (uint64_t)(int64_t)8)) != 0) {
-							clinitCode->append(block);
-						} else if (((int64_t)(block->flags & (uint64_t)(int64_t)4096)) == 0) {
-							initCode->append(block);
-						}
-						break;
+					$assign(block, $cast($JCTree$JCBlock, def));
+					if (($nc(block)->flags & 8) != 0) {
+						clinitCode->append(block);
+					} else if ((block->flags & 0x1000) == 0) {
+						initCode->append(block);
 					}
+					break;
 				case 2:
-					{
-						methodDefs->append(def);
-						break;
-					}
+					methodDefs->append(def);
+					break;
 				case 3:
-					{
-						$assign(vdef, $cast($JCTree$JCVariableDecl, def));
-						$assign(sym, $nc(vdef)->sym);
-						checkDimension($(vdef->pos()), $nc(sym)->type);
-						if (vdef->init != nullptr) {
-							if (((int64_t)($nc(sym)->flags() & (uint64_t)(int64_t)8)) == 0) {
-								$var($JCTree$JCStatement, init, $nc($($nc(this->make)->at($(vdef->pos()))))->Assignment(sym, vdef->init));
-								initCode->append(init);
-								$nc(this->endPosTable)->replaceTree(vdef, init);
-								initTAs->addAll($(static_cast<$Collection*>(static_cast<$AbstractCollection*>(getAndRemoveNonFieldTAs(sym)))));
-							} else if (sym->getConstValue() == nullptr) {
-								$var($JCTree$JCStatement, init, $nc($($nc(this->make)->at(vdef->pos$)))->Assignment(sym, vdef->init));
-								clinitCode->append(init);
-								$nc(this->endPosTable)->replaceTree(vdef, init);
-								clinitTAs->addAll($(static_cast<$Collection*>(static_cast<$AbstractCollection*>(getAndRemoveNonFieldTAs(sym)))));
-							} else {
-								$var($JCDiagnostic$DiagnosticPosition, var$0, $nc(vdef->init)->pos());
-								checkStringConstant(var$0, $(sym->getConstValue()));
-								$nc(vdef->init)->accept(this->classReferenceVisitor);
-							}
+					$assign(vdef, $cast($JCTree$JCVariableDecl, def));
+					$assign(sym, $nc(vdef)->sym);
+					checkDimension($(vdef->pos()), $nc(sym)->type);
+					if (vdef->init != nullptr) {
+						if ((sym->flags() & 8) == 0) {
+							$var($JCTree$JCStatement, init, $$nc($nc(this->make)->at($(vdef->pos())))->Assignment(sym, vdef->init));
+							initCode->append(init);
+							$nc(this->endPosTable)->replaceTree(vdef, init);
+							initTAs->addAll($$cast($AbstractCollection, getAndRemoveNonFieldTAs(sym)));
+						} else if (sym->getConstValue() == nullptr) {
+							$var($JCTree$JCStatement, init, $$nc($nc(this->make)->at(vdef->pos$))->Assignment(sym, vdef->init));
+							clinitCode->append(init);
+							$nc(this->endPosTable)->replaceTree(vdef, init);
+							clinitTAs->addAll($$cast($AbstractCollection, getAndRemoveNonFieldTAs(sym)));
+						} else {
+							$var($JCDiagnostic$DiagnosticPosition, var$0, $nc(vdef->init)->pos());
+							checkStringConstant(var$0, $(sym->getConstValue()));
+							$nc(vdef->init)->accept(this->classReferenceVisitor);
 						}
-						break;
 					}
+					break;
 				default:
-					{
-						$Assert::error();
-					}
+					$Assert::error();
 				}
 			}
 		}
 	}
 	if (initCode->length() != 0) {
 		$var($List, inits, initCode->toList());
-		initTAs->addAll($(static_cast<$Collection*>(static_cast<$AbstractCollection*>($nc(c)->getInitTypeAttributes()))));
+		initTAs->addAll($$cast($AbstractCollection, $nc(c)->getInitTypeAttributes()));
 		$var($List, initTAlist, initTAs->toList());
 		{
 			$var($Iterator, i$, methodDefs->iterator());
@@ -840,20 +628,20 @@ $List* Gen::normalizeDefs($List* defs, $Symbol$ClassSymbol* c) {
 		}
 	}
 	if (clinitCode->length() != 0) {
-		int64_t var$1 = 8 | ((int64_t)($nc(c)->flags() & (uint64_t)(int64_t)2048));
+		int64_t var$1 = 8 | ($nc(c)->flags() & 0x0800);
 		$var($Name, var$2, $nc(this->names)->clinit);
 		$var($List, var$3, $List::nil());
-		$var($Type, var$4, static_cast<$Type*>($nc(this->syms)->voidType));
-		$var($Symbol$MethodSymbol, clinit, $new($Symbol$MethodSymbol, var$1, var$2, $$new($Type$MethodType, var$3, var$4, $($List::nil()), $nc(this->syms)->methodClass), c));
-		$nc($($nc(c)->members()))->enter(clinit);
+		$var($Type, var$4, $nc(this->syms)->voidType);
+		$var($Symbol$MethodSymbol, clinit, $new($Symbol$MethodSymbol, var$1, var$2, $$new($Type$MethodType, var$3, var$4, $($List::nil()), this->syms->methodClass), c));
+		$$nc(c->members())->enter(clinit);
 		$var($List, clinitStats, clinitCode->toList());
-		$var($JCTree$JCBlock, block, $nc($($nc(this->make)->at($($nc(($cast($JCTree$JCStatement, $nc(clinitStats)->head)))->pos()))))->Block(0, clinitStats));
-		$nc(block)->endpos = $TreeInfo::endPos($cast($JCTree, $($nc(clinitStats)->last())));
-		methodDefs->append($($nc(this->make)->MethodDef(clinit, block)));
+		$var($JCTree$JCBlock, block, $$nc($nc(this->make)->at($($nc($cast($JCTree$JCStatement, $nc(clinitStats)->head))->pos())))->Block(0, clinitStats));
+		$nc(block)->endpos = $TreeInfo::endPos($$cast($JCTree, clinitStats->last()));
+		methodDefs->append($(this->make->MethodDef(clinit, block)));
 		if (!clinitTAs->isEmpty()) {
 			clinit->appendUniqueTypeAttributes($(clinitTAs->toList()));
 		}
-		if (!$nc($(c->getClassInitTypeAttributes()))->isEmpty()) {
+		if (!$$nc(c->getClassInitTypeAttributes())->isEmpty()) {
 			clinit->appendUniqueTypeAttributes($(c->getClassInitTypeAttributes()));
 		}
 	}
@@ -861,7 +649,7 @@ $List* Gen::normalizeDefs($List* defs, $Symbol$ClassSymbol* c) {
 }
 
 $List* Gen::getAndRemoveNonFieldTAs($Symbol$VarSymbol* sym) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, tas, $nc(sym)->getRawTypeAttributes());
 	$var($ListBuffer, fieldTAs, $new($ListBuffer));
 	$var($ListBuffer, nonfieldTAs, $new($ListBuffer));
@@ -872,7 +660,7 @@ $List* Gen::getAndRemoveNonFieldTAs($Symbol$VarSymbol* sym) {
 			{
 				$init($TargetType);
 				$Assert::check($nc($($nc(ta)->getPosition()))->type != $TargetType::UNKNOWN);
-				if ($nc($($nc(ta)->getPosition()))->type == $TargetType::FIELD) {
+				if ($nc($(ta->getPosition()))->type == $TargetType::FIELD) {
 					fieldTAs->add(ta);
 				} else {
 					nonfieldTAs->add(ta);
@@ -905,61 +693,59 @@ void Gen::checkStringConstant($JCDiagnostic$DiagnosticPosition* pos, Object$* co
 }
 
 void Gen::normalizeMethod($JCTree$JCMethodDecl* md, $List* initCode, $List* initTAs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(md)->name == $nc(this->names)->init && $TreeInfo::isInitialConstructor(md)) {
 		$var($List, stats, $nc(md->body)->stats);
 		$var($ListBuffer, newstats, $new($ListBuffer));
 		if ($nc(stats)->nonEmpty()) {
 			while ($TreeInfo::isSyntheticInit($cast($JCTree, $nc(stats)->head))) {
-				newstats->append($cast($JCTree$JCStatement, $nc(stats)->head));
-				$assign(stats, $nc(stats)->tail);
+				newstats->append($cast($JCTree$JCStatement, stats->head));
+				$assign(stats, stats->tail);
 			}
 			newstats->append($cast($JCTree$JCStatement, $nc(stats)->head));
-			$assign(stats, $nc(stats)->tail);
+			$assign(stats, stats->tail);
 			while (true) {
-				bool var$0 = stats->nonEmpty();
-				if (!(var$0 && $TreeInfo::isSyntheticInit($cast($JCTree, $nc(stats)->head)))) {
+				bool var$0 = $nc(stats)->nonEmpty();
+				if (!(var$0 && $TreeInfo::isSyntheticInit($cast($JCTree, stats->head)))) {
 					break;
 				}
 				{
-					newstats->append($cast($JCTree$JCStatement, $nc(stats)->head));
-					$assign(stats, $nc(stats)->tail);
+					newstats->append($cast($JCTree$JCStatement, stats->head));
+					$assign(stats, stats->tail);
 				}
 			}
 			newstats->appendList(initCode);
-			while (stats->nonEmpty()) {
+			while ($nc(stats)->nonEmpty()) {
 				newstats->append($cast($JCTree$JCStatement, stats->head));
 				$assign(stats, stats->tail);
 			}
 		}
 		$set($nc(md->body), stats, newstats->toList());
 		if ($nc(md->body)->endpos == $Position::NOPOS) {
-			$nc(md->body)->endpos = $TreeInfo::endPos($cast($JCTree, $($nc($nc(md->body)->stats)->last())));
+			md->body->endpos = $TreeInfo::endPos($$cast($JCTree, $nc(md->body->stats)->last()));
 		}
 		$nc(md->sym)->appendUniqueTypeAttributes(initTAs);
 	}
 }
 
 void Gen::genDef($JCTree* tree, $Env* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Env, prevEnv, this->env);
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$set(this, env, env);
-				$nc(tree)->accept(this);
-			} catch ($Symbol$CompletionFailure& ex) {
-				$nc(this->chk)->completionError($($nc(tree)->pos()), ex);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$set(this, env, prevEnv);
+			$set(this, env, env);
+			$nc(tree)->accept(this);
+		} catch ($Symbol$CompletionFailure& ex) {
+			$nc(this->chk)->completionError($($nc(tree)->pos()), ex);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$set(this, env, prevEnv);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -984,7 +770,7 @@ void Gen::genStat($JCTree* tree, $Env* env) {
 	} else {
 		$init($JCTree$Tag);
 		if ($nc(($cast($Gen$GenContext, $nc(env)->info)))->isSwitch && $nc(tree)->hasTag($JCTree$Tag::VARDEF)) {
-			$nc(this->code)->newLocal($nc(($cast($JCTree$JCVariableDecl, tree)))->sym);
+			$nc(this->code)->newLocal($cast($JCTree$JCVariableDecl, tree)->sym);
 		}
 	}
 }
@@ -1004,11 +790,9 @@ void Gen::genStats($List* trees, $Env* env, int32_t crtFlags) {
 }
 
 void Gen::genStats($List* trees, $Env* env) {
-	{
-		$var($List, l, trees);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
-			genStat($cast($JCTree, l->head), env, 1);
-		}
+	$var($List, l, trees);
+	for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+		genStat($cast($JCTree, l->head), env, 1);
 	}
 }
 
@@ -1017,37 +801,37 @@ $Items$CondItem* Gen::genCond($JCTree* tree, int32_t crtFlags) {
 		return genCond(tree, false);
 	}
 	int32_t startpc = $nc(this->code)->curCP();
-	$var($Items$CondItem, item, genCond(tree, ((int32_t)(crtFlags & (uint32_t)8)) != 0));
+	$var($Items$CondItem, item, genCond(tree, (crtFlags & 8) != 0));
 	$nc($nc(this->code)->crt)->put(tree, crtFlags, startpc, $nc(this->code)->curCP());
 	return item;
 }
 
 $Items$CondItem* Gen::genCond($JCTree* _tree, bool markBranches) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree, inner_tree, $TreeInfo::skipParens(_tree));
 	$init($JCTree$Tag);
 	if ($nc(inner_tree)->hasTag($JCTree$Tag::CONDEXPR)) {
 		$var($JCTree$JCConditional, tree, $cast($JCTree$JCConditional, inner_tree));
-		$var($Items$CondItem, cond, genCond(static_cast<$JCTree*>(tree->cond), 8));
+		$var($Items$CondItem, cond, genCond(tree->cond, 8));
 		if ($nc(cond)->isTrue()) {
 			$nc(this->code)->resolve(cond->trueJumps);
-			$var($Items$CondItem, result, genCond(static_cast<$JCTree*>(tree->truepart), 16));
+			$var($Items$CondItem, result, genCond(tree->truepart, 16));
 			if (markBranches) {
 				$set($nc(result), tree, tree->truepart);
 			}
 			return result;
 		}
-		if ($nc(cond)->isFalse()) {
+		if (cond->isFalse()) {
 			$nc(this->code)->resolve(cond->falseJumps);
-			$var($Items$CondItem, result, genCond(static_cast<$JCTree*>(tree->falsepart), 16));
+			$var($Items$CondItem, result, genCond(tree->falsepart, 16));
 			if (markBranches) {
 				$set($nc(result), tree, tree->falsepart);
 			}
 			return result;
 		}
-		$var($Code$Chain, secondJumps, $nc(cond)->jumpFalse());
+		$var($Code$Chain, secondJumps, cond->jumpFalse());
 		$nc(this->code)->resolve(cond->trueJumps);
-		$var($Items$CondItem, first, genCond(static_cast<$JCTree*>(tree->truepart), 16));
+		$var($Items$CondItem, first, genCond(tree->truepart, 16));
 		if (markBranches) {
 			$set($nc(first), tree, tree->truepart);
 		}
@@ -1055,7 +839,7 @@ $Items$CondItem* Gen::genCond($JCTree* _tree, bool markBranches) {
 		$nc(this->code)->resolve(first->trueJumps);
 		$var($Code$Chain, trueJumps, $nc(this->code)->branch(167));
 		$nc(this->code)->resolve(secondJumps);
-		$var($Items$CondItem, second, genCond(static_cast<$JCTree*>(tree->falsepart), 16));
+		$var($Items$CondItem, second, genCond(tree->falsepart, 16));
 		int32_t var$0 = $nc(second)->opcode;
 		$var($Code$Chain, var$1, $Code::mergeChains(trueJumps, second->trueJumps));
 		$var($Items$CondItem, result, $nc(this->items)->makeCondItem(var$0, var$1, $($Code::mergeChains(falseJumps, second->falseJumps))));
@@ -1063,77 +847,69 @@ $Items$CondItem* Gen::genCond($JCTree* _tree, bool markBranches) {
 			$set($nc(result), tree, tree->falsepart);
 		}
 		return result;
-	} else {
-		if (inner_tree->hasTag($JCTree$Tag::SWITCH_EXPRESSION)) {
-			$nc(this->code)->resolvePending();
-			bool prevInCondSwitchExpression = this->inCondSwitchExpression;
-			$var($Code$Chain, prevSwitchExpressionTrueChain, this->switchExpressionTrueChain);
-			$var($Code$Chain, prevSwitchExpressionFalseChain, this->switchExpressionFalseChain);
-			{
-				$var($Throwable, var$2, nullptr);
-				$var($Items$CondItem, var$4, nullptr);
-				bool return$3 = false;
-				try {
-					this->inCondSwitchExpression = true;
-					$set(this, switchExpressionTrueChain, nullptr);
-					$set(this, switchExpressionFalseChain, nullptr);
-					try {
-						doHandleSwitchExpression($cast($JCTree$JCSwitchExpression, inner_tree));
-					} catch ($Symbol$CompletionFailure& ex) {
-						$nc(this->chk)->completionError($($nc(_tree)->pos()), ex);
-						$nc($nc(this->code)->state)->stacksize = 1;
-					}
-					$var($Items$CondItem, result, $nc(this->items)->makeCondItem(167, this->switchExpressionTrueChain, this->switchExpressionFalseChain));
-					if (markBranches) {
-						$set($nc(result), tree, _tree);
-					}
-					$assign(var$4, result);
-					return$3 = true;
-					goto $finally;
-				} catch ($Throwable& var$5) {
-					$assign(var$2, var$5);
-				} $finally: {
-					this->inCondSwitchExpression = prevInCondSwitchExpression;
-					$set(this, switchExpressionTrueChain, prevSwitchExpressionTrueChain);
-					$set(this, switchExpressionFalseChain, prevSwitchExpressionFalseChain);
-				}
-				if (var$2 != nullptr) {
-					$throw(var$2);
-				}
-				if (return$3) {
-					return var$4;
-				}
+	} else if (inner_tree->hasTag($JCTree$Tag::SWITCH_EXPRESSION)) {
+		$nc(this->code)->resolvePending();
+		bool prevInCondSwitchExpression = this->inCondSwitchExpression;
+		$var($Code$Chain, prevSwitchExpressionTrueChain, this->switchExpressionTrueChain);
+		$var($Code$Chain, prevSwitchExpressionFalseChain, this->switchExpressionFalseChain);
+		$var($Throwable, var$2, nullptr);
+		$var($Items$CondItem, var$4, nullptr);
+		bool return$3 = false;
+		try {
+			this->inCondSwitchExpression = true;
+			$set(this, switchExpressionTrueChain, nullptr);
+			$set(this, switchExpressionFalseChain, nullptr);
+			try {
+				doHandleSwitchExpression($cast($JCTree$JCSwitchExpression, inner_tree));
+			} catch ($Symbol$CompletionFailure& ex) {
+				$nc(this->chk)->completionError($($nc(_tree)->pos()), ex);
+				$nc($nc(this->code)->state)->stacksize = 1;
 			}
-		} else {
-			if (inner_tree->hasTag($JCTree$Tag::LETEXPR) && $nc(($cast($JCTree$LetExpr, inner_tree)))->needsCond) {
-				$nc(this->code)->resolvePending();
-				$var($JCTree$LetExpr, tree, $cast($JCTree$LetExpr, inner_tree));
-				int32_t limit = $nc(this->code)->nextreg;
-				int32_t prevLetExprStart = $nc(this->code)->setLetExprStackPos($nc($nc(this->code)->state)->stacksize);
-				{
-					$var($Throwable, var$6, nullptr);
-					try {
-						genStats(tree->defs, this->env);
-					} catch ($Throwable& var$7) {
-						$assign(var$6, var$7);
-					} /*finally*/ {
-						$nc(this->code)->setLetExprStackPos(prevLetExprStart);
-					}
-					if (var$6 != nullptr) {
-						$throw(var$6);
-					}
-				}
-				$var($Items$CondItem, result, genCond(static_cast<$JCTree*>(tree->expr), markBranches));
-				$nc(this->code)->endScopes(limit);
-				return result;
-			} else {
-				$var($Items$CondItem, result, $nc($(genExpr(_tree, $nc(this->syms)->booleanType)))->mkCond());
-				if (markBranches) {
-					$set($nc(result), tree, _tree);
-				}
-				return result;
+			$var($Items$CondItem, result, $nc(this->items)->makeCondItem(167, this->switchExpressionTrueChain, this->switchExpressionFalseChain));
+			if (markBranches) {
+				$set($nc(result), tree, _tree);
 			}
+			$assign(var$4, result);
+			return$3 = true;
+			goto $finally;
+		} catch ($Throwable& var$5) {
+			$assign(var$2, var$5);
+		} $finally: {
+			this->inCondSwitchExpression = prevInCondSwitchExpression;
+			$set(this, switchExpressionTrueChain, prevSwitchExpressionTrueChain);
+			$set(this, switchExpressionFalseChain, prevSwitchExpressionFalseChain);
 		}
+		if (var$2 != nullptr) {
+			$throw(var$2);
+		}
+		if (return$3) {
+			return var$4;
+		}
+	} else if (inner_tree->hasTag($JCTree$Tag::LETEXPR) && $cast($JCTree$LetExpr, inner_tree)->needsCond) {
+		$nc(this->code)->resolvePending();
+		$var($JCTree$LetExpr, tree, $cast($JCTree$LetExpr, inner_tree));
+		int32_t limit = $nc(this->code)->nextreg;
+		int32_t prevLetExprStart = this->code->setLetExprStackPos($nc(this->code->state)->stacksize);
+		$var($Throwable, var$6, nullptr);
+		try {
+			genStats(tree->defs, this->env);
+		} catch ($Throwable& var$7) {
+			$assign(var$6, var$7);
+		} /*finally*/ {
+			$nc(this->code)->setLetExprStackPos(prevLetExprStart);
+		}
+		if (var$6 != nullptr) {
+			$throw(var$6);
+		}
+		$var($Items$CondItem, result, genCond(tree->expr, markBranches));
+		$nc(this->code)->endScopes(limit);
+		return result;
+	} else {
+		$var($Items$CondItem, result, $$nc(genExpr(_tree, $nc(this->syms)->booleanType))->mkCond());
+		if (markBranches) {
+			$set($nc(result), tree, _tree);
+		}
+		return result;
 	}
 }
 
@@ -1150,49 +926,47 @@ $Env* Gen::getAttrEnv() {
 }
 
 $Items$Item* Gen::genExpr($JCTree* tree, $Type* pt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, prevPt, this->pt);
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Items$Item, var$2, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	$var($Items$Item, var$2, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				if ($nc($nc(tree)->type)->constValue() != nullptr) {
-					tree->accept(this->classReferenceVisitor);
-					$var($JCDiagnostic$DiagnosticPosition, var$3, tree->pos());
-					checkStringConstant(var$3, $($nc(tree->type)->constValue()));
-					$var($Symbol, sym, $TreeInfo::symbol(tree));
-					if (sym != nullptr && isConstantDynamic(sym)) {
-						$set(this, result, $nc(this->items)->makeDynamicItem(sym));
-					} else {
-						$set(this, result, $nc(this->items)->makeImmediateItem(tree->type, $($nc(tree->type)->constValue())));
-					}
+			if ($nc($nc(tree)->type)->constValue() != nullptr) {
+				tree->accept(this->classReferenceVisitor);
+				$var($JCDiagnostic$DiagnosticPosition, var$3, tree->pos());
+				checkStringConstant(var$3, $($nc(tree->type)->constValue()));
+				$var($Symbol, sym, $TreeInfo::symbol(tree));
+				if (sym != nullptr && isConstantDynamic(sym)) {
+					$set(this, result, $nc(this->items)->makeDynamicItem(sym));
 				} else {
-					$set(this, pt, pt);
-					tree->accept(this);
+					$set(this, result, $nc(this->items)->makeImmediateItem(tree->type, $($nc(tree->type)->constValue())));
 				}
-				$assign(var$2, $nc(this->result)->coerce(pt));
-				return$1 = true;
-				goto $finally;
-			} catch ($Symbol$CompletionFailure& ex) {
-				$nc(this->chk)->completionError($($nc(tree)->pos()), ex);
-				$nc($nc(this->code)->state)->stacksize = 1;
-				$assign(var$2, $nc(this->items)->makeStackItem(pt));
-				return$1 = true;
-				goto $finally;
+			} else {
+				$set(this, pt, pt);
+				tree->accept(this);
 			}
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} $finally: {
-			$set(this, pt, prevPt);
+			$assign(var$2, $nc(this->result)->coerce(pt));
+			return$1 = true;
+			goto $finally;
+		} catch ($Symbol$CompletionFailure& ex) {
+			$nc(this->chk)->completionError($($nc(tree)->pos()), ex);
+			$nc($nc(this->code)->state)->stacksize = 1;
+			$assign(var$2, $nc(this->items)->makeStackItem(pt));
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		$set(this, pt, prevPt);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -1214,42 +988,42 @@ bool Gen::isConstantDynamic($Symbol* sym) {
 }
 
 void Gen::genArgs($List* trees, $List* pts$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, pts, pts$renamed);
 	{
 		$var($List, l, trees);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
-			$nc($(genExpr($cast($JCTree, l->head), $cast($Type, $nc(pts)->head))))->load();
-			$assign(pts, $nc(pts)->tail);
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+			$$nc(genExpr($cast($JCTree, l->head), $cast($Type, $nc(pts)->head)))->load();
+			$assign(pts, pts->tail);
 		}
 	}
 	$Assert::check($nc(pts)->isEmpty());
 }
 
 void Gen::visitMethodDef($JCTree$JCMethodDecl* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Env, localEnv, $nc(this->env)->dup(tree));
 	$set($nc(localEnv), enclMethod, tree);
-	$set(this, pt, $nc($($nc($nc(tree)->sym)->erasure(this->types)))->getReturnType());
+	$set(this, pt, $$nc($nc($nc(tree)->sym)->erasure(this->types))->getReturnType());
 	$var($JCDiagnostic$DiagnosticPosition, var$0, tree->pos());
 	checkDimension(var$0, $($nc(tree->sym)->erasure(this->types)));
 	genMethod(tree, localEnv, false);
 }
 
 void Gen::genMethod($JCTree$JCMethodDecl* tree, $Env* env, bool fatcode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol$MethodSymbol, meth, $nc(tree)->sym);
 	int32_t extras = 0;
 	if ($nc(meth)->isConstructor()) {
 		++extras;
-		bool var$0 = $nc($(meth->enclClass()))->isInner();
-		if (var$0 && !$nc($(meth->enclClass()))->isStatic()) {
+		bool var$0 = $$nc(meth->enclClass())->isInner();
+		if (var$0 && !$$nc(meth->enclClass())->isStatic()) {
 			++extras;
 		}
-	} else if (((int64_t)($nc(tree->mods)->flags & (uint64_t)(int64_t)8)) == 0) {
+	} else if (($nc(tree->mods)->flags & 8) == 0) {
 		++extras;
 	}
-	if ($Code::width($($nc($($nc(this->types)->erasure($nc($nc($nc(env)->enclMethod)->sym)->type)))->getParameterTypes())) + extras > $ClassFile::MAX_PARAMETERS) {
+	if ($Code::width($($$nc($nc(this->types)->erasure($nc($nc($nc(env)->enclMethod)->sym)->type))->getParameterTypes())) + extras > $ClassFile::MAX_PARAMETERS) {
 		$init($CompilerProperties$Errors);
 		$nc(this->log)->error($(tree->pos()), $CompilerProperties$Errors::LimitParameters);
 		++this->nerrs;
@@ -1269,7 +1043,7 @@ void Gen::genMethod($JCTree$JCMethodDecl* tree, $Env* env, bool fatcode) {
 		if ($nc(this->code)->isAlive()) {
 			$nc(this->code)->statBegin($TreeInfo::endPos(tree->body));
 			$init($TypeTag);
-			if ($nc(env)->enclMethod == nullptr || $nc($($nc($nc($nc($nc(env)->enclMethod)->sym)->type)->getReturnType()))->hasTag($TypeTag::VOID)) {
+			if (env->enclMethod == nullptr || $$nc($nc($nc(env->enclMethod->sym)->type)->getReturnType())->hasTag($TypeTag::VOID)) {
 				$nc(this->code)->emitop0(177);
 			} else {
 				int32_t startpc = $nc(this->code)->entryPoint();
@@ -1291,7 +1065,7 @@ void Gen::genMethod($JCTree$JCMethodDecl* tree, $Env* env, bool fatcode) {
 		$init($Code$StackMapFormat);
 		if (this->stackMap == $Code$StackMapFormat::JSR202) {
 			$set($nc(this->code), lastFrame, nullptr);
-			$set($nc(this->code), frameBeforeLast, nullptr);
+			$set(this->code, frameBeforeLast, nullptr);
 		}
 		$nc(this->code)->compressCatchTable();
 		$nc(this->code)->fillExceptionParameterPositions();
@@ -1299,14 +1073,14 @@ void Gen::genMethod($JCTree$JCMethodDecl* tree, $Env* env, bool fatcode) {
 }
 
 int32_t Gen::initCode($JCTree$JCMethodDecl* tree, $Env* env, bool fatcode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol$MethodSymbol, meth, $nc(tree)->sym);
-	$set($nc(meth), code, ($set(this, code, $new($Code, meth, fatcode, this->lineDebugInfo ? $nc(this->toplevel)->lineMap : ($Position$LineMap*)nullptr, this->varDebugInfo, this->stackMap, this->debugCode, this->genCrt ? $$new($CRTable, tree, $nc($nc(env)->toplevel)->endPositions) : ($CRTable*)nullptr, this->syms, this->types, this->poolWriter))));
+	$set($nc(meth), code, $set(this, code, $new($Code, meth, fatcode, this->lineDebugInfo ? $nc(this->toplevel)->lineMap : ($Position$LineMap*)nullptr, this->varDebugInfo, this->stackMap, this->debugCode, this->genCrt ? $$new($CRTable, tree, $nc($nc(env)->toplevel)->endPositions) : ($CRTable*)nullptr, this->syms, this->types, this->poolWriter)));
 	$set(this, items, $new($Items, this->poolWriter, this->code, this->syms, this->types));
-	if ($nc(this->code)->debugCode) {
+	if (this->code->debugCode) {
 		$nc($System::err)->println($$str({meth, " for body "_s, tree}));
 	}
-	if (((int64_t)($nc(tree->mods)->flags & (uint64_t)(int64_t)8)) == 0) {
+	if (($nc(tree->mods)->flags & 8) == 0) {
 		$var($Type, selfType, $nc(meth->owner)->type);
 		if (meth->isConstructor() && selfType != $nc(this->syms)->objectType) {
 			$assign(selfType, $UninitializedType::uninitializedThis(selfType));
@@ -1315,8 +1089,8 @@ int32_t Gen::initCode($JCTree$JCMethodDecl* tree, $Env* env, bool fatcode) {
 	}
 	{
 		$var($List, l, tree->params);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
-			checkDimension($($nc(($cast($JCTree$JCVariableDecl, l->head)))->pos()), $nc($nc(($cast($JCTree$JCVariableDecl, l->head)))->sym)->type);
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+			checkDimension($($nc($cast($JCTree$JCVariableDecl, l->head))->pos()), $nc($nc(($cast($JCTree$JCVariableDecl, l->head)))->sym)->type);
 			$nc(this->code)->setDefined($nc(this->code)->newLocal($nc(($cast($JCTree$JCVariableDecl, l->head)))->sym));
 		}
 	}
@@ -1327,16 +1101,16 @@ int32_t Gen::initCode($JCTree$JCMethodDecl* tree, $Env* env, bool fatcode) {
 }
 
 void Gen::visitVarDef($JCTree$JCVariableDecl* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol$VarSymbol, v, $nc(tree)->sym);
 	if (tree->init != nullptr) {
-		$var($JCDiagnostic$DiagnosticPosition, var$0, $nc(tree->init)->pos());
+		$var($JCDiagnostic$DiagnosticPosition, var$0, tree->init->pos());
 		checkStringConstant(var$0, $($nc(v)->getConstValue()));
-		if ($nc(v)->getConstValue() == nullptr || this->varDebugInfo) {
+		if (v->getConstValue() == nullptr || this->varDebugInfo) {
 			$Assert::check($nc(this->code)->isStatementStart());
 			$nc(this->code)->newLocal(v);
-			$nc($(genExpr(tree->init, $($nc(v)->erasure(this->types)))))->load();
-			$nc($($nc(this->items)->makeLocalItem(v)))->store();
+			$$nc(genExpr(tree->init, $(v->erasure(this->types))))->load();
+			$$nc($nc(this->items)->makeLocalItem(v))->store();
 			$Assert::check($nc(this->code)->isStatementStart());
 		}
 	} else {
@@ -1349,35 +1123,35 @@ void Gen::visitSkip($JCTree$JCSkip* tree) {
 }
 
 void Gen::visitBlock($JCTree$JCBlock* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t limit = $nc(this->code)->nextreg;
 	$var($Env, localEnv, $nc(this->env)->dup(tree, $$new($Gen$GenContext)));
 	genStats($nc(tree)->stats, localEnv);
 	$init($JCTree$Tag);
 	if (!$nc($nc(this->env)->tree)->hasTag($JCTree$Tag::METHODDEF)) {
-		$nc(this->code)->statBegin($nc(tree)->endpos);
+		$nc(this->code)->statBegin(tree->endpos);
 		$nc(this->code)->endScopes(limit);
 		$nc(this->code)->pendingStatPos = $Position::NOPOS;
 	}
 }
 
 void Gen::visitDoLoop($JCTree$JCDoWhileLoop* tree) {
-	genLoop(tree, $nc(tree)->body, tree->cond, $($List::nil()), false);
+	genLoop(tree, $nc(tree)->body, $nc(tree)->cond, $($List::nil()), false);
 }
 
 void Gen::visitWhileLoop($JCTree$JCWhileLoop* tree) {
-	genLoop(tree, $nc(tree)->body, tree->cond, $($List::nil()), true);
+	genLoop(tree, $nc(tree)->body, $nc(tree)->cond, $($List::nil()), true);
 }
 
 void Gen::visitForLoop($JCTree$JCForLoop* tree) {
 	int32_t limit = $nc(this->code)->nextreg;
 	genStats($nc(tree)->init, this->env);
-	genLoop(tree, $nc(tree)->body, tree->cond, tree->step, true);
+	genLoop(tree, tree->body, tree->cond, tree->step, true);
 	$nc(this->code)->endScopes(limit);
 }
 
 void Gen::genLoop($JCTree$JCStatement* loop, $JCTree$JCStatement* body, $JCTree$JCExpression* cond, $List* step, bool testFirst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Env, loopEnv, $nc(this->env)->dup(loop, $$new($Gen$GenContext)));
 	int32_t startpc = $nc(this->code)->entryPoint();
 	if (testFirst) {
@@ -1385,20 +1159,20 @@ void Gen::genLoop($JCTree$JCStatement* loop, $JCTree$JCStatement* body, $JCTree$
 		if (cond != nullptr) {
 			$nc(this->code)->statBegin(cond->pos$);
 			$Assert::check($nc(this->code)->isStatementStart());
-			$assign(c, genCond($(static_cast<$JCTree*>($TreeInfo::skipParens(cond))), 8));
+			$assign(c, genCond($($TreeInfo::skipParens(cond)), 8));
 		} else {
 			$assign(c, $nc(this->items)->makeCondItem(167));
 		}
 		$var($Code$Chain, loopDone, $nc(c)->jumpFalse());
 		$nc(this->code)->resolve(c->trueJumps);
 		$Assert::check($nc(this->code)->isStatementStart());
-		genStat(body, loopEnv, 1 | 16);
+		genStat(body, loopEnv, 1 | 0x10);
 		$nc(this->code)->resolve($nc(($cast($Gen$GenContext, $nc(loopEnv)->info)))->cont);
 		genStats(step, loopEnv);
 		$nc(this->code)->resolve($($nc(this->code)->branch(167)), startpc);
 		$nc(this->code)->resolve(loopDone);
 	} else {
-		genStat(body, loopEnv, 1 | 16);
+		genStat(body, loopEnv, 1 | 0x10);
 		$nc(this->code)->resolve($nc(($cast($Gen$GenContext, $nc(loopEnv)->info)))->cont);
 		genStats(step, loopEnv);
 		if ($nc(this->code)->isAlive()) {
@@ -1406,13 +1180,13 @@ void Gen::genLoop($JCTree$JCStatement* loop, $JCTree$JCStatement* body, $JCTree$
 			if (cond != nullptr) {
 				$nc(this->code)->statBegin(cond->pos$);
 				$Assert::check($nc(this->code)->isStatementStart());
-				$assign(c, genCond($(static_cast<$JCTree*>($TreeInfo::skipParens(cond))), 8));
+				$assign(c, genCond($($TreeInfo::skipParens(cond)), 8));
 			} else {
 				$assign(c, $nc(this->items)->makeCondItem(167));
 			}
 			$nc(this->code)->resolve($($nc(c)->jumpTrue()), startpc);
 			$Assert::check($nc(this->code)->isStatementStart());
-			$nc(this->code)->resolve($nc(c)->falseJumps);
+			$nc(this->code)->resolve(c->falseJumps);
 		}
 	}
 	$var($Code$Chain, exit, $nc(($cast($Gen$GenContext, $nc(loopEnv)->info)))->exit);
@@ -1427,7 +1201,7 @@ void Gen::visitForeachLoop($JCTree$JCEnhancedForLoop* tree) {
 }
 
 void Gen::visitLabelled($JCTree$JCLabeledStatement* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Env, localEnv, $nc(this->env)->dup(tree, $$new($Gen$GenContext)));
 	genStat($nc(tree)->body, localEnv, 1);
 	$var($Code$Chain, exit, $nc(($cast($Gen$GenContext, $nc(localEnv)->info)))->exit);
@@ -1438,90 +1212,87 @@ void Gen::visitLabelled($JCTree$JCLabeledStatement* tree) {
 }
 
 void Gen::visitSwitch($JCTree$JCSwitch* tree) {
-	handleSwitch(tree, $nc(tree)->selector, tree->cases, tree->patternSwitch);
+	handleSwitch(tree, $nc(tree)->selector, $nc(tree)->cases, $nc(tree)->patternSwitch);
 }
 
 void Gen::visitSwitchExpression($JCTree$JCSwitchExpression* tree) {
 	$nc(this->code)->resolvePending();
 	bool prevInCondSwitchExpression = this->inCondSwitchExpression;
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			this->inCondSwitchExpression = false;
-			doHandleSwitchExpression(tree);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			this->inCondSwitchExpression = prevInCondSwitchExpression;
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		this->inCondSwitchExpression = false;
+		doHandleSwitchExpression(tree);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->inCondSwitchExpression = prevInCondSwitchExpression;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	$set(this, result, $nc(this->items)->makeStackItem(this->pt));
 }
 
 void Gen::doHandleSwitchExpression($JCTree$JCSwitchExpression* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, prevStackBeforeSwitchExpression, this->stackBeforeSwitchExpression);
 	$var($Items$LocalItem, prevSwitchResult, this->switchResult);
 	int32_t limit = $nc(this->code)->nextreg;
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
+		$set(this, stackBeforeSwitchExpression, $List::nil());
+		$set(this, switchResult, nullptr);
+		if (hasTry(tree)) {
+			while ($nc($nc(this->code)->state)->stacksize > 0) {
+				$var($Type, type, this->code->state->peek());
+				$var($StringBuilder, var$1, $new($StringBuilder));
+				var$1->append(this->target->syntheticNameChar());
+				var$1->append("stack"_s);
+				var$1->append(this->target->syntheticNameChar());
+				var$1->append($nc(tree)->pos$);
+				var$1->append(this->target->syntheticNameChar());
+				var$1->append($nc($nc(this->code)->state)->stacksize);
+				$var($Name, varName, $nc(this->names)->fromString($$str(var$1)));
+				$var($Symbol$VarSymbol, var, $new($Symbol$VarSymbol, $Flags::SYNTHETIC, varName, type, $nc($nc(this->env)->enclMethod)->sym));
+				$var($Items$LocalItem, item, $new($Items$LocalItem, $nc(this->items), type, $nc(this->code)->newLocal(var)));
+				$set(this, stackBeforeSwitchExpression, $nc(this->stackBeforeSwitchExpression)->prepend(item));
+				item->store();
+			}
+			$set(this, switchResult, makeTemp($nc(tree)->type));
+		}
+		int32_t prevLetExprStart = $nc(this->code)->setLetExprStackPos($nc($nc(this->code)->state)->stacksize);
+		$var($Throwable, var$2, nullptr);
 		try {
-			$set(this, stackBeforeSwitchExpression, $List::nil());
-			$set(this, switchResult, nullptr);
-			if (hasTry(tree)) {
-				while ($nc($nc(this->code)->state)->stacksize > 0) {
-					$var($Type, type, $nc($nc(this->code)->state)->peek());
-					$var($String, var$4, $$str({$$str(this->target->syntheticNameChar()), "stack"_s}));
-					$var($String, var$3, $$concat(var$4, $$str(this->target->syntheticNameChar())));
-					$var($String, var$2, $$concat(var$3, $$str($nc(tree)->pos$)));
-					$var($String, var$1, $$concat(var$2, $$str(this->target->syntheticNameChar())));
-					$var($Name, varName, $nc(this->names)->fromString($$concat(var$1, $$str($nc($nc(this->code)->state)->stacksize))));
-					$var($Symbol$VarSymbol, var, $new($Symbol$VarSymbol, $Flags::SYNTHETIC, varName, type, $nc($nc(this->env)->enclMethod)->sym));
-					$var($Items$LocalItem, item, $new($Items$LocalItem, static_cast<$Items*>($nc(this->items)), type, $nc(this->code)->newLocal(var)));
-					$set(this, stackBeforeSwitchExpression, $nc(this->stackBeforeSwitchExpression)->prepend(item));
-					item->store();
-				}
-				$set(this, switchResult, makeTemp($nc(tree)->type));
-			}
-			int32_t prevLetExprStart = $nc(this->code)->setLetExprStackPos($nc($nc(this->code)->state)->stacksize);
-			{
-				$var($Throwable, var$5, nullptr);
-				try {
-					handleSwitch(tree, $nc(tree)->selector, tree->cases, tree->patternSwitch);
-				} catch ($Throwable& var$6) {
-					$assign(var$5, var$6);
-				} /*finally*/ {
-					$nc(this->code)->setLetExprStackPos(prevLetExprStart);
-				}
-				if (var$5 != nullptr) {
-					$throw(var$5);
-				}
-			}
-		} catch ($Throwable& var$7) {
-			$assign(var$0, var$7);
+			handleSwitch(tree, $nc(tree)->selector, $nc(tree)->cases, $nc(tree)->patternSwitch);
+		} catch ($Throwable& var$3) {
+			$assign(var$2, var$3);
 		} /*finally*/ {
-			$set(this, stackBeforeSwitchExpression, prevStackBeforeSwitchExpression);
-			$set(this, switchResult, prevSwitchResult);
-			$nc(this->code)->endScopes(limit);
+			$nc(this->code)->setLetExprStackPos(prevLetExprStart);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} /*finally*/ {
+		$set(this, stackBeforeSwitchExpression, prevStackBeforeSwitchExpression);
+		$set(this, switchResult, prevSwitchResult);
+		$nc(this->code)->endScopes(limit);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 bool Gen::hasTry($JCTree$JCSwitchExpression* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($booleans, hasTry, $new($booleans, 1));
-	$$new($Gen$1, this, hasTry)->scan(static_cast<$JCTree*>(tree));
+	$$new($Gen$1, this, hasTry)->scan(tree);
 	return hasTry->get(0);
 }
 
 void Gen::handleSwitch($JCTree* swtch, $JCTree$JCExpression* selector, $List* cases, bool patternSwitch) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t limit = $nc(this->code)->nextreg;
 	$init($TypeTag);
 	$Assert::check(!$nc($nc(selector)->type)->hasTag($TypeTag::CLASS));
@@ -1530,18 +1301,16 @@ void Gen::handleSwitch($JCTree* swtch, $JCTree$JCExpression* selector, $List* ca
 	$Assert::check($nc(this->code)->isStatementStart());
 	$var($Items$Item, sel, genExpr(selector, $nc(this->syms)->intType));
 	if ($nc(cases)->isEmpty()) {
-		$nc($($nc(sel)->load()))->drop();
+		$$nc($nc(sel)->load())->drop();
 		if (this->genCrt) {
-			$var($Object, var$0, $of($TreeInfo::skipParens(selector)));
-			int32_t var$1 = startpcCrt;
-			$nc($nc(this->code)->crt)->put(var$0, 8, var$1, $nc(this->code)->curCP());
+			$var($Object, var$0, $TreeInfo::skipParens(selector));
+			$nc($nc(this->code)->crt)->put(var$0, 8, startpcCrt, $nc(this->code)->curCP());
 		}
 	} else {
 		$nc(sel)->load();
 		if (this->genCrt) {
-			$var($Object, var$2, $of($TreeInfo::skipParens(selector)));
-			int32_t var$3 = startpcCrt;
-			$nc($nc(this->code)->crt)->put(var$2, 8, var$3, $nc(this->code)->curCP());
+			$var($Object, var$1, $TreeInfo::skipParens(selector));
+			$nc($nc(this->code)->crt)->put(var$1, 8, startpcCrt, $nc(this->code)->curCP());
 		}
 		$var($Env, switchEnv, $nc(this->env)->dup(swtch, $$new($Gen$GenContext)));
 		$nc(($cast($Gen$GenContext, $nc(switchEnv)->info)))->isSwitch = true;
@@ -1552,9 +1321,9 @@ void Gen::handleSwitch($JCTree* swtch, $JCTree$JCExpression* selector, $List* ca
 		int32_t defaultIndex = -1;
 		$var($List, l, cases);
 		for (int32_t i = 0; i < labels->length; ++i) {
-			if ($nc(($cast($JCTree$JCCaseLabel, $nc($nc(($cast($JCTree$JCCase, $nc(l)->head)))->labels)->head)))->isExpression()) {
+			if ($nc($cast($JCTree$JCCaseLabel, $nc($nc(($cast($JCTree$JCCase, $nc(l)->head)))->labels)->head))->isExpression()) {
 				$Assert::check($nc($nc(($cast($JCTree$JCCase, l->head)))->labels)->size() == 1);
-				int32_t val = $nc(($cast($Number, $($nc($nc(($cast($JCTree$JCExpression, $nc($nc(($cast($JCTree$JCCase, l->head)))->labels)->head)))->type)->constValue()))))->intValue();
+				int32_t val = $$sure($Number, $nc($nc($cast($JCTree$JCExpression, $nc($nc(($cast($JCTree$JCCase, l->head)))->labels)->head))->type)->constValue())->intValue();
 				labels->set(i, val);
 				if (val < lo) {
 					lo = val;
@@ -1567,7 +1336,7 @@ void Gen::handleSwitch($JCTree* swtch, $JCTree$JCExpression* selector, $List* ca
 				$Assert::check(defaultIndex == -1);
 				defaultIndex = i;
 			}
-			$assign(l, $nc(l)->tail);
+			$assign(l, l->tail);
 		}
 		int64_t table_space_cost = 4 + ((int64_t)hi - lo + 1);
 		int64_t table_time_cost = 3;
@@ -1636,7 +1405,7 @@ void Gen::handleSwitch($JCTree* swtch, $JCTree$JCExpression* selector, $List* ca
 			if (defaultIndex >= 0) {
 				for (int32_t i = defaultIndex; i < labels->length - 1; ++i) {
 					labels->set(i, labels->get(i + 1));
-					$nc(offsets)->set(i, offsets->get(i + 1));
+					$nc(offsets)->set(i, $nc(offsets)->get(i + 1));
 				}
 			}
 			if (nlabels > 0) {
@@ -1684,34 +1453,34 @@ void Gen::qsort2($ints* keys, $ints* values, int32_t lo, int32_t hi) {
 }
 
 void Gen::visitSynchronized($JCTree$JCSynchronized* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t limit = $nc(this->code)->nextreg;
 	$var($Items$LocalItem, lockVar, makeTemp($nc(this->syms)->objectType));
 	$Assert::check($nc(this->code)->isStatementStart());
-	$nc($($nc($(genExpr($nc(tree)->lock, $nc(tree->lock)->type)))->load()))->duplicate();
+	$$nc($$nc(genExpr($nc(tree)->lock, $nc($nc(tree)->lock)->type))->load())->duplicate();
 	$nc(lockVar)->store();
 	$nc(this->code)->emitop0(194);
 	$nc($nc(this->code)->state)->lock(lockVar->reg);
 	$var($Env, syncEnv, $nc(this->env)->dup(tree, $$new($Gen$GenContext)));
 	$set($nc($cast($Gen$GenContext, $nc(syncEnv)->info)), finalize$, $new($Gen$2, this, syncEnv, lockVar));
-	$set($nc($cast($Gen$GenContext, syncEnv->info)), gaps, $new($ListBuffer));
-	genTry($nc(tree)->body, $($List::nil()), syncEnv);
+	$set($cast($Gen$GenContext, syncEnv->info), gaps, $new($ListBuffer));
+	genTry(tree->body, $($List::nil()), syncEnv);
 	$nc(this->code)->endScopes(limit);
 }
 
 void Gen::visitTry($JCTree$JCTry* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Env, tryEnv, $nc(this->env)->dup(tree, $$new($Gen$GenContext)));
 	$var($Env, oldEnv, this->env);
 	$set($nc($cast($Gen$GenContext, $nc(tryEnv)->info)), finalize$, $new($Gen$3, this, tryEnv, tree, oldEnv));
-	$set($nc($cast($Gen$GenContext, tryEnv->info)), gaps, $new($ListBuffer));
-	genTry($nc(tree)->body, tree->catchers, tryEnv);
+	$set($cast($Gen$GenContext, tryEnv->info), gaps, $new($ListBuffer));
+	genTry($nc(tree)->body, $nc(tree)->catchers, tryEnv);
 }
 
 void Gen::genTry($JCTree* body, $List* catchers, $Env* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t limit = $nc(this->code)->nextreg;
-	int32_t startpc = $nc(this->code)->curCP();
+	int32_t startpc = this->code->curCP();
 	$var($Code$State, stateTry, $nc($nc(this->code)->state)->dup());
 	genStat(body, env, 2);
 	int32_t endpc = $nc(this->code)->curCP();
@@ -1722,20 +1491,18 @@ void Gen::genTry($JCTree* body, $List* catchers, $Env* env) {
 	$var($Code$Chain, exitChain, $nc(this->code)->branch(167));
 	endFinalizerGap(env);
 	$nc($nc(($cast($Gen$GenContext, env->info)))->finalize$)->afterBody();
-	bool hasFinalizer = $nc(($cast($Gen$GenContext, env->info)))->finalize$ != nullptr && $nc($nc(($cast($Gen$GenContext, env->info)))->finalize$)->hasFinalizer();
+	bool hasFinalizer = $nc(($cast($Gen$GenContext, env->info)))->finalize$ != nullptr && ($cast($Gen$GenContext, env->info))->finalize$->hasFinalizer();
 	if (startpc != endpc) {
-		{
-			$var($List, l, catchers);
-			for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
-				$nc(this->code)->entryPoint(stateTry, $nc($nc($nc(($cast($JCTree$JCCatch, l->head)))->param)->sym)->type);
-				genCatch($cast($JCTree$JCCatch, l->head), env, startpc, endpc, gaps);
-				genFinalizer(env);
-				if (hasFinalizer || $nc(l->tail)->nonEmpty()) {
-					$nc(this->code)->statBegin($TreeInfo::endPos(env->tree));
-					$assign(exitChain, $Code::mergeChains(exitChain, $($nc(this->code)->branch(167))));
-				}
-				endFinalizerGap(env);
+		$var($List, l, catchers);
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+			$nc(this->code)->entryPoint(stateTry, $nc($nc($nc(($cast($JCTree$JCCatch, l->head)))->param)->sym)->type);
+			genCatch($cast($JCTree$JCCatch, l->head), env, startpc, endpc, gaps);
+			genFinalizer(env);
+			if (hasFinalizer || $nc(l->tail)->nonEmpty()) {
+				$nc(this->code)->statBegin($TreeInfo::endPos(env->tree));
+				$assign(exitChain, $Code::mergeChains(exitChain, $($nc(this->code)->branch(167))));
 			}
+			endFinalizerGap(env);
 		}
 	}
 	if (hasFinalizer) {
@@ -1743,14 +1510,14 @@ void Gen::genTry($JCTree* body, $List* catchers, $Env* env) {
 		int32_t catchallpc = $nc(this->code)->entryPoint(stateTry, $nc(this->syms)->throwableType);
 		int32_t startseg = startpc;
 		while ($nc($nc(($cast($Gen$GenContext, env->info)))->gaps)->nonEmpty()) {
-			int32_t endseg = $nc(($cast($Integer, $($nc($nc(($cast($Gen$GenContext, env->info)))->gaps)->next()))))->intValue();
+			int32_t endseg = $$sure($Integer, ($cast($Gen$GenContext, env->info))->gaps->next())->intValue();
 			registerCatch($($nc(body)->pos()), startseg, endseg, catchallpc, 0);
-			startseg = $nc(($cast($Integer, $($nc($nc(($cast($Gen$GenContext, env->info)))->gaps)->next()))))->intValue();
+			startseg = $$sure($Integer, $nc($nc(($cast($Gen$GenContext, env->info)))->gaps)->next())->intValue();
 		}
 		$init($TreeInfo$PosKind);
 		$nc(this->code)->statBegin($TreeInfo::finalizerPos(env->tree, $TreeInfo$PosKind::FIRST_STAT_POS));
 		$nc(this->code)->markStatBegin();
-		$var($Items$Item, excVar, makeTemp($nc(this->syms)->throwableType));
+		$var($Items$Item, excVar, makeTemp(this->syms->throwableType));
 		$nc(excVar)->store();
 		genFinalizer(env);
 		$nc(this->code)->resolvePending();
@@ -1758,15 +1525,14 @@ void Gen::genTry($JCTree* body, $List* catchers, $Env* env) {
 		$nc(this->code)->markStatBegin();
 		excVar->load();
 		$var($JCDiagnostic$DiagnosticPosition, var$0, $nc(body)->pos());
-		int32_t var$1 = startseg;
-		registerCatch(var$0, var$1, $nc(($cast($Integer, $($nc($nc(($cast($Gen$GenContext, env->info)))->gaps)->next()))))->intValue(), catchallpc, 0);
+		registerCatch(var$0, startseg, $$sure($Integer, $nc($nc(($cast($Gen$GenContext, env->info)))->gaps)->next())->intValue(), catchallpc, 0);
 		$nc(this->code)->emitop0(191);
 		$nc(this->code)->markDead();
 		if ($nc(($cast($Gen$GenContext, env->info)))->cont != nullptr) {
-			$nc(this->code)->resolve($nc(($cast($Gen$GenContext, env->info)))->cont);
+			$nc(this->code)->resolve(($cast($Gen$GenContext, env->info))->cont);
 			$nc(this->code)->statBegin($TreeInfo::finalizerPos(env->tree, $TreeInfo$PosKind::FIRST_STAT_POS));
 			$nc(this->code)->markStatBegin();
-			$var($Items$LocalItem, retVar, makeTemp($nc(this->syms)->throwableType));
+			$var($Items$LocalItem, retVar, makeTemp(this->syms->throwableType));
 			$nc(retVar)->store();
 			$nc($nc(($cast($Gen$GenContext, env->info)))->finalize$)->genLast();
 			$nc(this->code)->emitop1w(169, retVar->reg);
@@ -1778,7 +1544,7 @@ void Gen::genTry($JCTree* body, $List* catchers, $Env* env) {
 }
 
 void Gen::genCatch($JCTree$JCCatch* tree, $Env* env, int32_t startpc, int32_t endpc, $List* gaps$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, gaps, gaps$renamed);
 	if (startpc != endpc) {
 		$var($List, catchTypeExprs, catchTypesWithAnnotations(tree));
@@ -1790,13 +1556,11 @@ void Gen::genCatch($JCTree$JCCatch* tree, $Env* env, int32_t startpc, int32_t en
 					{
 						$var($JCTree$JCExpression, subCatch, $cast($JCTree$JCExpression, $nc(subCatch1)->snd));
 						int32_t catchType = makeRef($($nc(tree)->pos()), $nc(subCatch)->type);
-						int32_t end = $nc(($cast($Integer, gaps->head)))->intValue();
-						$var($JCDiagnostic$DiagnosticPosition, var$0, $nc(tree)->pos());
-						int32_t var$1 = startpc;
-						int32_t var$2 = end;
-						registerCatch(var$0, var$1, var$2, $nc(this->code)->curCP(), catchType);
+						int32_t end = $nc($cast($Integer, gaps->head))->intValue();
+						$var($JCDiagnostic$DiagnosticPosition, var$0, tree->pos());
+						registerCatch(var$0, startpc, end, $nc(this->code)->curCP(), catchType);
 						{
-							$var($Iterator, i$, $nc(($cast($List, subCatch1->fst)))->iterator());
+							$var($Iterator, i$, $nc($cast($List, subCatch1->fst))->iterator());
 							for (; $nc(i$)->hasNext();) {
 								$var($Attribute$TypeCompound, tc, $cast($Attribute$TypeCompound, i$->next()));
 								{
@@ -1808,28 +1572,24 @@ void Gen::genCatch($JCTree$JCCatch* tree, $Env* env, int32_t startpc, int32_t en
 				}
 			}
 			$assign(gaps, gaps->tail);
-			startpc = $nc(($cast($Integer, $nc(gaps)->head)))->intValue();
+			startpc = $nc($cast($Integer, $nc(gaps)->head))->intValue();
 			$assign(gaps, gaps->tail);
 		}
 		if (startpc < endpc) {
-			{
-				$var($Iterator, i$, $nc(catchTypeExprs)->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($Pair, subCatch1, $cast($Pair, i$->next()));
+			$var($Iterator, i$, $nc(catchTypeExprs)->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($Pair, subCatch1, $cast($Pair, i$->next()));
+				{
+					$var($JCTree$JCExpression, subCatch, $cast($JCTree$JCExpression, $nc(subCatch1)->snd));
+					int32_t catchType = makeRef($($nc(tree)->pos()), $nc(subCatch)->type);
+					$var($JCDiagnostic$DiagnosticPosition, var$1, tree->pos());
+					registerCatch(var$1, startpc, endpc, $nc(this->code)->curCP(), catchType);
 					{
-						$var($JCTree$JCExpression, subCatch, $cast($JCTree$JCExpression, $nc(subCatch1)->snd));
-						int32_t catchType = makeRef($($nc(tree)->pos()), $nc(subCatch)->type);
-						$var($JCDiagnostic$DiagnosticPosition, var$3, $nc(tree)->pos());
-						int32_t var$4 = startpc;
-						int32_t var$5 = endpc;
-						registerCatch(var$3, var$4, var$5, $nc(this->code)->curCP(), catchType);
-						{
-							$var($Iterator, i$, $nc(($cast($List, subCatch1->fst)))->iterator());
-							for (; $nc(i$)->hasNext();) {
-								$var($Attribute$TypeCompound, tc, $cast($Attribute$TypeCompound, i$->next()));
-								{
-									$nc($nc(tc)->position)->setCatchInfo(catchType, startpc);
-								}
+						$var($Iterator, i$, $nc($cast($List, subCatch1->fst))->iterator());
+						for (; $nc(i$)->hasNext();) {
+							$var($Attribute$TypeCompound, tc, $cast($Attribute$TypeCompound, i$->next()));
+							{
+								$nc($nc(tc)->position)->setCatchInfo(catchType, startpc);
 							}
 						}
 					}
@@ -1840,8 +1600,8 @@ void Gen::genCatch($JCTree$JCCatch* tree, $Env* env, int32_t startpc, int32_t en
 		$nc(this->code)->statBegin(tree->pos$);
 		$nc(this->code)->markStatBegin();
 		int32_t limit = $nc(this->code)->nextreg;
-		$nc(this->code)->newLocal(exparam);
-		$nc($($nc(this->items)->makeLocalItem(exparam)))->store();
+		this->code->newLocal(exparam);
+		$$nc($nc(this->items)->makeLocalItem(exparam))->store();
 		$nc(this->code)->statBegin($TreeInfo::firstStatPos(tree->body));
 		genStat(tree->body, env, 2);
 		$nc(this->code)->endScopes(limit);
@@ -1850,15 +1610,15 @@ void Gen::genCatch($JCTree$JCCatch* tree, $Env* env, int32_t startpc, int32_t en
 }
 
 $List* Gen::catchTypesWithAnnotations($JCTree$JCCatch* tree) {
-	$useLocalCurrentObjectStackCache();
-	return $TreeInfo::isMultiCatch(tree) ? catchTypesWithAnnotationsFromMulticatch($cast($JCTree$JCTypeUnion, $nc($nc(tree)->param)->vartype), $($nc($nc(tree->param)->sym)->getRawTypeAttributes())) : $List::of($$new($Pair, $($nc($nc($nc(tree)->param)->sym)->getRawTypeAttributes()), $nc(tree->param)->vartype));
+	$useLocalObjectStack();
+	return $TreeInfo::isMultiCatch(tree) ? catchTypesWithAnnotationsFromMulticatch($cast($JCTree$JCTypeUnion, $nc($nc(tree)->param)->vartype), $($nc($nc($nc(tree)->param)->sym)->getRawTypeAttributes())) : $List::of($$new($Pair, $($nc($nc($nc(tree)->param)->sym)->getRawTypeAttributes()), $nc($nc(tree)->param)->vartype));
 }
 
 $List* Gen::catchTypesWithAnnotationsFromMulticatch($JCTree$JCTypeUnion* tree, $List* first) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, alts, $nc(tree)->alternatives);
 	$var($List, res, $List::of($$new($Pair, first, $cast($JCTree$JCExpression, $nc(alts)->head))));
-	$assign(alts, $nc(alts)->tail);
+	$assign(alts, alts->tail);
 	while (alts != nullptr && alts->head != nullptr) {
 		$var($JCTree$JCExpression, alt, $cast($JCTree$JCExpression, alts->head));
 		{
@@ -1893,22 +1653,22 @@ void Gen::registerCatch($JCDiagnostic$DiagnosticPosition* pos, int32_t startpc, 
 }
 
 void Gen::visitIf($JCTree$JCIf* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t limit = $nc(this->code)->nextreg;
 	$var($Code$Chain, thenExit, nullptr);
-	$Assert::check($nc(this->code)->isStatementStart());
-	$var($Items$CondItem, c, genCond($(static_cast<$JCTree*>($TreeInfo::skipParens($nc(tree)->cond))), 8));
+	$Assert::check(this->code->isStatementStart());
+	$var($Items$CondItem, c, genCond($($TreeInfo::skipParens($nc(tree)->cond)), 8));
 	$var($Code$Chain, elseChain, $nc(c)->jumpFalse());
 	$Assert::check($nc(this->code)->isStatementStart());
 	if (!c->isFalse()) {
 		$nc(this->code)->resolve(c->trueJumps);
-		genStat($nc(tree)->thenpart, this->env, 1 | 16);
+		genStat(tree->thenpart, this->env, 1 | 0x10);
 		$assign(thenExit, $nc(this->code)->branch(167));
 	}
 	if (elseChain != nullptr) {
 		$nc(this->code)->resolve(elseChain);
-		if ($nc(tree)->elsepart != nullptr) {
-			genStat(tree->elsepart, this->env, 1 | 16);
+		if (tree->elsepart != nullptr) {
+			genStat(tree->elsepart, this->env, 1 | 0x10);
 		}
 	}
 	$nc(this->code)->resolve(thenExit);
@@ -1917,50 +1677,44 @@ void Gen::visitIf($JCTree$JCIf* tree) {
 }
 
 void Gen::visitExec($JCTree$JCExpressionStatement* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCExpression, e, $nc(tree)->expr);
 	$init($Gen$4);
-	switch ($nc($Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(e)->getTag())))->ordinal())) {
+	switch ($nc($Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(e)->getTag()))->ordinal())) {
 	case 4:
-		{
-			$init($JCTree$Tag);
-			$nc(($cast($JCTree$JCUnary, e)))->setTag($JCTree$Tag::PREINC);
-			break;
-		}
+		$cast($JCTree$JCUnary, e)->setTag($JCTree$Tag::PREINC);
+		break;
 	case 5:
-		{
-			$init($JCTree$Tag);
-			$nc(($cast($JCTree$JCUnary, e)))->setTag($JCTree$Tag::PREDEC);
-			break;
-		}
+		$cast($JCTree$JCUnary, e)->setTag($JCTree$Tag::PREDEC);
+		break;
 	}
 	$Assert::check($nc(this->code)->isStatementStart());
-	$nc($(genExpr(tree->expr, $nc(tree->expr)->type)))->drop();
+	$$nc(genExpr(tree->expr, $nc(tree->expr)->type))->drop();
 	$Assert::check($nc(this->code)->isStatementStart());
 }
 
 void Gen::visitBreak($JCTree$JCBreak* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Assert::check($nc(this->code)->isStatementStart());
 	$var($Env, targetEnv, unwindBreak($nc(tree)->target));
-	$nc(($cast($Gen$GenContext, $nc(targetEnv)->info)))->addExit($($nc(this->code)->branch(167)));
+	$nc($cast($Gen$GenContext, $nc(targetEnv)->info))->addExit($($nc(this->code)->branch(167)));
 	endFinalizerGaps(this->env, targetEnv);
 }
 
 void Gen::visitYield($JCTree$JCYield* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Assert::check($nc(this->code)->isStatementStart());
 	$var($Env, targetEnv, nullptr);
 	if (this->inCondSwitchExpression) {
-		$var($Items$CondItem, value, genCond(static_cast<$JCTree*>($nc(tree)->value), 16));
+		$var($Items$CondItem, value, genCond($nc(tree)->value, 16));
 		$var($Code$Chain, falseJumps, $nc(value)->jumpFalse());
 		$nc(this->code)->resolve(value->trueJumps);
-		$var($Env, localEnv, unwindBreak($nc(tree)->target));
+		$var($Env, localEnv, unwindBreak(tree->target));
 		reloadStackBeforeSwitchExpr();
 		$var($Code$Chain, trueJumps, $nc(this->code)->branch(167));
 		endFinalizerGaps(this->env, localEnv);
 		$nc(this->code)->resolve(falseJumps);
-		$assign(targetEnv, unwindBreak($nc(tree)->target));
+		$assign(targetEnv, unwindBreak(tree->target));
 		reloadStackBeforeSwitchExpr();
 		$assign(falseJumps, $nc(this->code)->branch(167));
 		if (this->switchExpressionTrueChain == nullptr) {
@@ -1974,18 +1728,18 @@ void Gen::visitYield($JCTree$JCYield* tree) {
 			$set(this, switchExpressionFalseChain, $Code::mergeChains(this->switchExpressionFalseChain, falseJumps));
 		}
 	} else {
-		$nc($(genExpr($nc(tree)->value, this->pt)))->load();
+		$$nc(genExpr($nc(tree)->value, this->pt))->load();
 		if (this->switchResult != nullptr) {
-			$nc(this->switchResult)->store();
+			this->switchResult->store();
 		}
-		$assign(targetEnv, unwindBreak($nc(tree)->target));
+		$assign(targetEnv, unwindBreak(tree->target));
 		if ($nc(this->code)->isAlive()) {
 			reloadStackBeforeSwitchExpr();
 			if (this->switchResult != nullptr) {
-				$nc(this->switchResult)->load();
+				this->switchResult->load();
 			}
-			$nc($nc(this->code)->state)->forceStackTop($nc($nc(tree)->target)->type);
-			$nc(($cast($Gen$GenContext, $nc(targetEnv)->info)))->addExit($($nc(this->code)->branch(167)));
+			$nc($nc(this->code)->state)->forceStackTop($nc(tree->target)->type);
+			$nc($cast($Gen$GenContext, $nc(targetEnv)->info))->addExit($($nc(this->code)->branch(167)));
 			$nc(this->code)->markDead();
 		}
 	}
@@ -2000,34 +1754,32 @@ $Env* Gen::unwindBreak($JCTree* target) {
 }
 
 void Gen::reloadStackBeforeSwitchExpr() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(this->stackBeforeSwitchExpression)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Items$LocalItem, li, $cast($Items$LocalItem, i$->next()));
-			$nc(li)->load();
-		}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(this->stackBeforeSwitchExpression)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Items$LocalItem, li, $cast($Items$LocalItem, i$->next()));
+		$nc(li)->load();
 	}
 }
 
 void Gen::visitContinue($JCTree$JCContinue* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t tmpPos = $nc(this->code)->pendingStatPos;
 	$var($Env, targetEnv, unwind($nc(tree)->target, this->env));
 	$nc(this->code)->pendingStatPos = tmpPos;
-	$Assert::check($nc(this->code)->isStatementStart());
-	$nc(($cast($Gen$GenContext, $nc(targetEnv)->info)))->addCont($($nc(this->code)->branch(167)));
+	$Assert::check(this->code->isStatementStart());
+	$nc($cast($Gen$GenContext, $nc(targetEnv)->info))->addCont($($nc(this->code)->branch(167)));
 	endFinalizerGaps(this->env, targetEnv);
 }
 
 void Gen::visitReturn($JCTree$JCReturn* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t limit = $nc(this->code)->nextreg;
 	$var($Env, targetEnv, nullptr);
-	int32_t tmpPos = $nc(this->code)->pendingStatPos;
+	int32_t tmpPos = this->code->pendingStatPos;
 	if ($nc(tree)->expr != nullptr) {
-		$Assert::check($nc(this->code)->isStatementStart());
-		$var($Items$Item, r, $nc($(genExpr(tree->expr, this->pt)))->load());
+		$Assert::check(this->code->isStatementStart());
+		$var($Items$Item, r, $$nc(genExpr(tree->expr, this->pt))->load());
 		if (hasFinally($nc(this->env)->enclMethod, this->env)) {
 			$assign(r, makeTemp(this->pt));
 			$nc(r)->store();
@@ -2039,7 +1791,7 @@ void Gen::visitReturn($JCTree$JCReturn* tree) {
 	} else {
 		$assign(targetEnv, unwind($nc(this->env)->enclMethod, this->env));
 		$nc(this->code)->pendingStatPos = tmpPos;
-		$nc(this->code)->emitop0(177);
+		this->code->emitop0(177);
 	}
 	endFinalizerGaps(this->env, targetEnv);
 	$nc(this->code)->endScopes(limit);
@@ -2047,48 +1799,48 @@ void Gen::visitReturn($JCTree$JCReturn* tree) {
 
 void Gen::visitThrow($JCTree$JCThrow* tree) {
 	$Assert::check($nc(this->code)->isStatementStart());
-	$nc($(genExpr($nc(tree)->expr, $nc(tree->expr)->type)))->load();
+	$$nc(genExpr($nc(tree)->expr, $nc($nc(tree)->expr)->type))->load();
 	$nc(this->code)->emitop0(191);
 	$Assert::check($nc(this->code)->isStatementStart());
 }
 
 void Gen::visitApply($JCTree$JCMethodInvocation* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setTypeAnnotationPositions($nc(tree)->pos$);
-	$var($Items$Item, m, genExpr($nc(tree)->meth, this->methodType));
-	$var($Symbol$MethodSymbol, msym, $cast($Symbol$MethodSymbol, $TreeInfo::symbol($nc(tree)->meth)));
-	genArgs($nc(tree)->args, $($nc($($nc(msym)->externalType(this->types)))->getParameterTypes()));
-	if (!$nc(msym)->isDynamic()) {
-		$nc(this->code)->statBegin($nc(tree)->pos$);
+	$var($Items$Item, m, genExpr(tree->meth, this->methodType));
+	$var($Symbol$MethodSymbol, msym, $cast($Symbol$MethodSymbol, $TreeInfo::symbol(tree->meth)));
+	genArgs(tree->args, $($$nc($nc(msym)->externalType(this->types))->getParameterTypes()));
+	if (!msym->isDynamic()) {
+		$nc(this->code)->statBegin(tree->pos$);
 	}
 	$set(this, result, $nc(m)->invoke());
 }
 
 void Gen::visitConditional($JCTree$JCConditional* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Code$Chain, thenExit, nullptr);
 	$nc(this->code)->statBegin($nc($nc(tree)->cond)->pos$);
-	$var($Items$CondItem, c, genCond(static_cast<$JCTree*>($nc(tree)->cond), 8));
+	$var($Items$CondItem, c, genCond(tree->cond, 8));
 	$var($Code$Chain, elseChain, $nc(c)->jumpFalse());
 	if (!c->isFalse()) {
 		$nc(this->code)->resolve(c->trueJumps);
 		int32_t startpc = this->genCrt ? $nc(this->code)->curCP() : 0;
-		$nc(this->code)->statBegin($nc($nc(tree)->truepart)->pos$);
-		$nc($(genExpr($nc(tree)->truepart, this->pt)))->load();
-		$nc($nc(this->code)->state)->forceStackTop($nc(tree)->type);
+		$nc(this->code)->statBegin($nc(tree->truepart)->pos$);
+		$$nc(genExpr(tree->truepart, this->pt))->load();
+		$nc($nc(this->code)->state)->forceStackTop(tree->type);
 		if (this->genCrt) {
-			$nc($nc(this->code)->crt)->put($nc(tree)->truepart, 16, startpc, $nc(this->code)->curCP());
+			$nc($nc(this->code)->crt)->put(tree->truepart, 16, startpc, $nc(this->code)->curCP());
 		}
 		$assign(thenExit, $nc(this->code)->branch(167));
 	}
 	if (elseChain != nullptr) {
 		$nc(this->code)->resolve(elseChain);
 		int32_t startpc = this->genCrt ? $nc(this->code)->curCP() : 0;
-		$nc(this->code)->statBegin($nc($nc(tree)->falsepart)->pos$);
-		$nc($(genExpr($nc(tree)->falsepart, this->pt)))->load();
-		$nc($nc(this->code)->state)->forceStackTop($nc(tree)->type);
+		$nc(this->code)->statBegin($nc(tree->falsepart)->pos$);
+		$$nc(genExpr(tree->falsepart, this->pt))->load();
+		$nc($nc(this->code)->state)->forceStackTop(tree->type);
 		if (this->genCrt) {
-			$nc($nc(this->code)->crt)->put($nc(tree)->falsepart, 16, startpc, $nc(this->code)->curCP());
+			$nc($nc(this->code)->crt)->put(tree->falsepart, 16, startpc, $nc(this->code)->curCP());
 		}
 	}
 	$nc(this->code)->resolve(thenExit);
@@ -2096,20 +1848,20 @@ void Gen::visitConditional($JCTree$JCConditional* tree) {
 }
 
 void Gen::setTypeAnnotationPositions(int32_t treePos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol$MethodSymbol, meth, $nc(this->code)->meth);
 	$init($ElementKind);
-	bool var$0 = $nc($nc(this->code)->meth)->getKind() == $ElementKind::CONSTRUCTOR;
-	bool initOrClinit = var$0 || $nc($nc(this->code)->meth)->getKind() == $ElementKind::STATIC_INIT;
+	bool var$0 = $nc(this->code->meth)->getKind() == $ElementKind::CONSTRUCTOR;
+	bool initOrClinit = var$0 || this->code->meth->getKind() == $ElementKind::STATIC_INIT;
 	{
-		$var($Iterator, i$, $nc($($nc(meth)->getRawTypeAttributes()))->iterator());
+		$var($Iterator, i$, $$nc($nc(meth)->getRawTypeAttributes())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Attribute$TypeCompound, ta, $cast($Attribute$TypeCompound, i$->next()));
 			{
 				if ($nc(ta)->hasUnknownPosition()) {
 					ta->tryFixPosition();
 				}
-				if ($nc($nc(ta)->position)->matchesPos(treePos)) {
+				if ($nc(ta->position)->matchesPos(treePos)) {
 					$nc(ta->position)->updatePosOffset($nc(this->code)->cp);
 				}
 			}
@@ -2119,14 +1871,14 @@ void Gen::setTypeAnnotationPositions(int32_t treePos) {
 		return;
 	}
 	{
-		$var($Iterator, i$, $nc($($nc(meth->owner)->getRawTypeAttributes()))->iterator());
+		$var($Iterator, i$, $$nc($nc(meth->owner)->getRawTypeAttributes())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Attribute$TypeCompound, ta, $cast($Attribute$TypeCompound, i$->next()));
 			{
 				if ($nc(ta)->hasUnknownPosition()) {
 					ta->tryFixPosition();
 				}
-				if ($nc($nc(ta)->position)->matchesPos(treePos)) {
+				if ($nc(ta->position)->matchesPos(treePos)) {
 					$nc(ta->position)->updatePosOffset($nc(this->code)->cp);
 				}
 			}
@@ -2138,18 +1890,18 @@ void Gen::setTypeAnnotationPositions(int32_t treePos) {
 		for (; $nc(i$)->hasNext();) {
 			$var($Symbol, s, $cast($Symbol, i$->next()));
 			{
-				if (!$nc($($nc(s)->getKind()))->isField()) {
+				if (!$$nc($nc(s)->getKind())->isField()) {
 					continue;
 				}
 				{
-					$var($Iterator, i$, $nc($($nc(s)->getRawTypeAttributes()))->iterator());
+					$var($Iterator, i$, $$nc(s->getRawTypeAttributes())->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($Attribute$TypeCompound, ta, $cast($Attribute$TypeCompound, i$->next()));
 						{
 							if ($nc(ta)->hasUnknownPosition()) {
 								ta->tryFixPosition();
 							}
-							if ($nc($nc(ta)->position)->matchesPos(treePos)) {
+							if ($nc(ta->position)->matchesPos(treePos)) {
 								$nc(ta->position)->updatePosOffset($nc(this->code)->cp);
 							}
 						}
@@ -2161,41 +1913,41 @@ void Gen::setTypeAnnotationPositions(int32_t treePos) {
 }
 
 void Gen::visitNewClass($JCTree$JCNewClass* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Assert::check($nc(tree)->encl == nullptr && tree->def == nullptr);
-	setTypeAnnotationPositions($nc(tree)->pos$);
-	$var($PoolConstant, var$0, static_cast<$PoolConstant*>(checkDimension($($nc(tree)->pos()), tree->type)));
-	$nc(this->code)->emitop2(187, var$0, static_cast<$ToIntBiFunction*>($$new(Gen$$Lambda$putClass)));
+	setTypeAnnotationPositions(tree->pos$);
+	$var($PoolConstant, var$0, checkDimension($(tree->pos()), tree->type));
+	$nc(this->code)->emitop2(187, var$0, $$new(Gen$$Lambda$putClass));
 	$nc(this->code)->emitop0(89);
-	genArgs($nc(tree)->args, $($nc($($nc(tree->constructor)->externalType(this->types)))->getParameterTypes()));
-	$nc($($nc(this->items)->makeMemberItem($nc(tree)->constructor, true)))->invoke();
-	$set(this, result, $nc(this->items)->makeStackItem($nc(tree)->type));
+	genArgs(tree->args, $($$nc($nc(tree->constructor)->externalType(this->types))->getParameterTypes()));
+	$$nc($nc(this->items)->makeMemberItem(tree->constructor, true))->invoke();
+	$set(this, result, $nc(this->items)->makeStackItem(tree->type));
 }
 
 void Gen::visitNewArray($JCTree$JCNewArray* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setTypeAnnotationPositions($nc(tree)->pos$);
-	if ($nc(tree)->elems != nullptr) {
+	if (tree->elems != nullptr) {
 		$var($Type, elemtype, $nc(this->types)->elemtype(tree->type));
 		loadIntConst($nc(tree->elems)->length());
 		$var($Items$Item, arr, makeNewArray($(tree->pos()), tree->type, 1));
 		int32_t i = 0;
 		{
 			$var($List, l, tree->elems);
-			for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+			for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 				$nc(arr)->duplicate();
 				loadIntConst(i);
 				++i;
-				$nc($(genExpr($cast($JCTree, l->head), elemtype)))->load();
-				$nc($($nc(this->items)->makeIndexedItem(elemtype)))->store();
+				$$nc(genExpr($cast($JCTree, l->head), elemtype))->load();
+				$$nc($nc(this->items)->makeIndexedItem(elemtype))->store();
 			}
 		}
 		$set(this, result, arr);
 	} else {
 		{
 			$var($List, l, tree->dims);
-			for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
-				$nc($(genExpr($cast($JCTree, l->head), $nc(this->syms)->intType)))->load();
+			for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+				$$nc(genExpr($cast($JCTree, l->head), $nc(this->syms)->intType))->load();
 			}
 		}
 		$var($JCDiagnostic$DiagnosticPosition, var$0, tree->pos());
@@ -2206,7 +1958,7 @@ void Gen::visitNewArray($JCTree$JCNewArray* tree) {
 
 $Items$Item* Gen::makeNewArray($JCDiagnostic$DiagnosticPosition* pos, $Type* type, int32_t ndims) {
 	$var($Type, elemtype, $nc(this->types)->elemtype(type));
-	if ($nc(this->types)->dimensions(type) > $ClassFile::MAX_DIMENSIONS) {
+	if (this->types->dimensions(type) > $ClassFile::MAX_DIMENSIONS) {
 		$init($CompilerProperties$Errors);
 		$nc(this->log)->error(pos, $CompilerProperties$Errors::LimitDimensions);
 		++this->nerrs;
@@ -2223,22 +1975,22 @@ $Items$Item* Gen::makeNewArray($JCDiagnostic$DiagnosticPosition* pos, $Type* typ
 }
 
 void Gen::visitParens($JCTree$JCParens* tree) {
-	$set(this, result, genExpr($nc(tree)->expr, $nc(tree->expr)->type));
+	$set(this, result, genExpr($nc(tree)->expr, $nc($nc(tree)->expr)->type));
 }
 
 void Gen::visitAssign($JCTree$JCAssign* tree) {
-	$useLocalCurrentObjectStackCache();
-	$var($Items$Item, l, genExpr($nc(tree)->lhs, $nc(tree->lhs)->type));
-	$nc($(genExpr($nc(tree)->rhs, $nc(tree->lhs)->type)))->load();
+	$useLocalObjectStack();
+	$var($Items$Item, l, genExpr($nc(tree)->lhs, $nc($nc(tree)->lhs)->type));
+	$$nc(genExpr(tree->rhs, $nc(tree->lhs)->type))->load();
 	$init($TypeTag);
-	if ($nc($nc($nc(tree)->rhs)->type)->hasTag($TypeTag::BOT)) {
+	if ($nc($nc(tree->rhs)->type)->hasTag($TypeTag::BOT)) {
 		$nc($nc(this->code)->state)->forceStackTop($nc(tree->lhs)->type);
 	}
 	$set(this, result, $nc(this->items)->makeAssignItem(l));
 }
 
 void Gen::visitAssignop($JCTree$JCAssignOp* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol$OperatorSymbol, operator$, $nc(tree)->operator$);
 	$var($Items$Item, l, nullptr);
 	if ($nc(operator$)->opcode == 256) {
@@ -2249,7 +2001,7 @@ void Gen::visitAssignop($JCTree$JCAssignOp* tree) {
 			$var($Items$LocalItem, localItem, nullptr);
 			$init($JCTree$Tag);
 			bool var$4 = tree->hasTag($JCTree$Tag::PLUS_ASG);
-			bool var$3 = (var$4 || tree->hasTag($JCTree$Tag::MINUS_ASG));
+			bool var$3 = var$4 || tree->hasTag($JCTree$Tag::MINUS_ASG);
 			if (var$3) {
 				bool var$5 = $instanceOf($Items$LocalItem, l);
 				if (var$5) {
@@ -2260,10 +2012,10 @@ void Gen::visitAssignop($JCTree$JCAssignOp* tree) {
 			}
 			bool var$2 = var$3;
 			$init($TypeTag);
-			bool var$1 = var$2 && $nc($($nc($nc(tree->lhs)->type)->getTag()))->isSubRangeOf($TypeTag::INT);
-			bool var$0 = var$1 && $nc($($nc($nc(tree->rhs)->type)->getTag()))->isSubRangeOf($TypeTag::INT);
-			if (var$0 && $nc($nc(tree->rhs)->type)->constValue() != nullptr) {
-				int32_t ival = $nc(($cast($Number, $($nc($nc(tree->rhs)->type)->constValue()))))->intValue();
+			bool var$1 = var$2 && $$nc($nc($nc(tree->lhs)->type)->getTag())->isSubRangeOf($TypeTag::INT);
+			bool var$0 = var$1 && $$nc($nc($nc(tree->rhs)->type)->getTag())->isSubRangeOf($TypeTag::INT);
+			if (var$0 && tree->rhs->type->constValue() != nullptr) {
+				int32_t ival = $$sure($Number, $nc($nc(tree->rhs)->type)->constValue())->intValue();
 				if (tree->hasTag($JCTree$Tag::MINUS_ASG)) {
 					ival = -ival;
 				}
@@ -2273,162 +2025,144 @@ void Gen::visitAssignop($JCTree$JCAssignOp* tree) {
 			}
 		}
 		$nc(l)->duplicate();
-		$nc($(l->coerce($cast($Type, $nc($($nc(operator$->type)->getParameterTypes()))->head))))->load();
-		$nc($(completeBinop(tree->lhs, tree->rhs, operator$)))->coerce($nc(tree->lhs)->type);
+		$$nc(l->coerce($cast($Type, $nc($($nc(operator$->type)->getParameterTypes()))->head)))->load();
+		$$nc(completeBinop(tree->lhs, tree->rhs, operator$))->coerce($nc(tree->lhs)->type);
 	}
 	$set(this, result, $nc(this->items)->makeAssignItem(l));
 }
 
 void Gen::visitUnary($JCTree$JCUnary* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol$OperatorSymbol, operator$, $nc(tree)->operator$);
 	$init($JCTree$Tag);
 	if (tree->hasTag($JCTree$Tag::NOT)) {
-		$var($Items$CondItem, od, genCond(static_cast<$JCTree*>(tree->arg), false));
+		$var($Items$CondItem, od, genCond(tree->arg, false));
 		$set(this, result, $nc(od)->negate());
 	} else {
 		$var($Items$Item, od, genExpr(tree->arg, $cast($Type, $nc($($nc($nc(operator$)->type)->getParameterTypes()))->head)));
 		$init($Gen$4);
-		switch ($nc($Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($(tree->getTag())))->ordinal())) {
+		switch ($nc($Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc(tree->getTag()))->ordinal())) {
 		case 6:
-			{
-				$set(this, result, $nc(od)->load());
-				break;
-			}
+			$set(this, result, $nc(od)->load());
+			break;
 		case 7:
-			{
-				$set(this, result, $nc(od)->load());
-				$nc(this->code)->emitop0($nc(operator$)->opcode);
-				break;
-			}
+			$set(this, result, $nc(od)->load());
+			$nc(this->code)->emitop0(operator$->opcode);
+			break;
 		case 8:
-			{
-				$set(this, result, $nc(od)->load());
-				emitMinusOne($nc(od)->typecode);
-				$nc(this->code)->emitop0($nc(operator$)->opcode);
-				break;
-			}
+			$set(this, result, $nc(od)->load());
+			emitMinusOne(od->typecode);
+			$nc(this->code)->emitop0(operator$->opcode);
+			break;
 		case 9:
-			{}
 		case 10:
+			$nc(od)->duplicate();
 			{
-				$nc(od)->duplicate();
-				{
-					$var($Items$LocalItem, localItem, nullptr);
-					bool var$0 = $instanceOf($Items$LocalItem, od);
-					if (var$0) {
-						$assign(localItem, $cast($Items$LocalItem, od));
-						var$0 = true;
-					}
-					if (var$0 && ($nc(operator$)->opcode == 96 || $nc(operator$)->opcode == 100)) {
-						$nc(localItem)->incr(tree->hasTag($JCTree$Tag::PREINC) ? 1 : -1);
-						$set(this, result, od);
-					} else {
-						$nc(od)->load();
-						$nc(this->code)->emitop0(one(od->typecode));
-						$nc(this->code)->emitop0(operator$->opcode);
-						if (od->typecode != 0 && $Code::truncate(od->typecode) == 0) {
-							$nc(this->code)->emitop0(145 + od->typecode - 5);
-						}
-						$set(this, result, $nc(this->items)->makeAssignItem(od));
-					}
+				$var($Items$LocalItem, localItem, nullptr);
+				bool var$0 = $instanceOf($Items$LocalItem, od);
+				if (var$0) {
+					$assign(localItem, $cast($Items$LocalItem, od));
+					var$0 = true;
 				}
-				break;
+				if (var$0 && (operator$->opcode == 96 || operator$->opcode == 100)) {
+					$nc(localItem)->incr(tree->hasTag($JCTree$Tag::PREINC) ? 1 : -1);
+					$set(this, result, od);
+				} else {
+					od->load();
+					$nc(this->code)->emitop0(one(od->typecode));
+					$nc(this->code)->emitop0(operator$->opcode);
+					if (od->typecode != 0 && $Code::truncate(od->typecode) == 0) {
+						$nc(this->code)->emitop0(145 + od->typecode - 5);
+					}
+					$set(this, result, $nc(this->items)->makeAssignItem(od));
+				}
 			}
+			break;
 		case 4:
-			{}
 		case 5:
+			$nc(od)->duplicate();
 			{
-				$nc(od)->duplicate();
-				{
-					$var($Items$LocalItem, localItem, nullptr);
-					bool var$1 = $instanceOf($Items$LocalItem, od);
-					if (var$1) {
-						$assign(localItem, $cast($Items$LocalItem, od));
-						var$1 = true;
-					}
-					if (var$1 && ($nc(operator$)->opcode == 96 || $nc(operator$)->opcode == 100)) {
-						$var($Items$Item, res, $nc(od)->load());
-						$nc(localItem)->incr(tree->hasTag($JCTree$Tag::POSTINC) ? 1 : -1);
-						$set(this, result, res);
-					} else {
-						$var($Items$Item, res, $nc(od)->load());
-						od->stash(od->typecode);
-						$nc(this->code)->emitop0(one(od->typecode));
-						$nc(this->code)->emitop0(operator$->opcode);
-						if (od->typecode != 0 && $Code::truncate(od->typecode) == 0) {
-							$nc(this->code)->emitop0(145 + od->typecode - 5);
-						}
-						od->store();
-						$set(this, result, res);
-					}
+				$var($Items$LocalItem, localItem, nullptr);
+				bool var$1 = $instanceOf($Items$LocalItem, od);
+				if (var$1) {
+					$assign(localItem, $cast($Items$LocalItem, od));
+					var$1 = true;
 				}
-				break;
+				if (var$1 && (operator$->opcode == 96 || operator$->opcode == 100)) {
+					$var($Items$Item, res, od->load());
+					$nc(localItem)->incr(tree->hasTag($JCTree$Tag::POSTINC) ? 1 : -1);
+					$set(this, result, res);
+				} else {
+					$var($Items$Item, res, od->load());
+					od->stash(od->typecode);
+					$nc(this->code)->emitop0(one(od->typecode));
+					$nc(this->code)->emitop0(operator$->opcode);
+					if (od->typecode != 0 && $Code::truncate(od->typecode) == 0) {
+						$nc(this->code)->emitop0(145 + od->typecode - 5);
+					}
+					od->store();
+					$set(this, result, res);
+				}
 			}
+			break;
 		case 11:
-			{
-				$set(this, result, $nc(od)->load());
-				$nc(this->code)->emitop0(89);
-				genNullCheck(tree);
-				break;
-			}
+			$set(this, result, $nc(od)->load());
+			$nc(this->code)->emitop0(89);
+			genNullCheck(tree);
+			break;
 		default:
-			{
-				$Assert::error();
-			}
+			$Assert::error();
 		}
 	}
 }
 
 void Gen::genNullCheck($JCTree* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->code)->statBegin($nc(tree)->pos$);
-	$var($JCDiagnostic$DiagnosticPosition, var$0, $nc(tree)->pos());
+	$var($JCDiagnostic$DiagnosticPosition, var$0, tree->pos());
 	$var($Type, var$1, $nc(this->syms)->objectsType);
 	$var($Name, var$2, $nc(this->names)->requireNonNull);
-	callMethod(var$0, var$1, var$2, $($List::of($nc(this->syms)->objectType)), true);
+	callMethod(var$0, var$1, var$2, $($List::of(this->syms->objectType)), true);
 	$nc(this->code)->emitop0(87);
 }
 
 void Gen::visitBinary($JCTree$JCBinary* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol$OperatorSymbol, operator$, $nc(tree)->operator$);
 	if ($nc(operator$)->opcode == 256) {
 		$set(this, result, $nc(this->concat)->makeConcat(tree));
 	} else {
 		$init($JCTree$Tag);
 		if (tree->hasTag($JCTree$Tag::AND)) {
-			$var($Items$CondItem, lcond, genCond(static_cast<$JCTree*>(tree->lhs), 8));
+			$var($Items$CondItem, lcond, genCond(tree->lhs, 8));
 			if (!$nc(lcond)->isFalse()) {
 				$var($Code$Chain, falseJumps, lcond->jumpFalse());
 				$nc(this->code)->resolve(lcond->trueJumps);
-				$var($Items$CondItem, rcond, genCond(static_cast<$JCTree*>(tree->rhs), 16));
-				$set(this, result, $nc(this->items)->makeCondItem($nc(rcond)->opcode, rcond->trueJumps, $($Code::mergeChains(falseJumps, rcond->falseJumps))));
+				$var($Items$CondItem, rcond, genCond(tree->rhs, 16));
+				$set(this, result, $nc(this->items)->makeCondItem($nc(rcond)->opcode, $nc(rcond)->trueJumps, $($Code::mergeChains(falseJumps, $nc(rcond)->falseJumps))));
+			} else {
+				$set(this, result, lcond);
+			}
+		} else if (tree->hasTag($JCTree$Tag::OR)) {
+			$var($Items$CondItem, lcond, genCond(tree->lhs, 8));
+			if (!$nc(lcond)->isTrue()) {
+				$var($Code$Chain, trueJumps, lcond->jumpTrue());
+				$nc(this->code)->resolve(lcond->falseJumps);
+				$var($Items$CondItem, rcond, genCond(tree->rhs, 16));
+				$set(this, result, $nc(this->items)->makeCondItem($nc(rcond)->opcode, $($Code::mergeChains(trueJumps, $nc(rcond)->trueJumps)), $nc(rcond)->falseJumps));
 			} else {
 				$set(this, result, lcond);
 			}
 		} else {
-			if (tree->hasTag($JCTree$Tag::OR)) {
-				$var($Items$CondItem, lcond, genCond(static_cast<$JCTree*>(tree->lhs), 8));
-				if (!$nc(lcond)->isTrue()) {
-					$var($Code$Chain, trueJumps, lcond->jumpTrue());
-					$nc(this->code)->resolve(lcond->falseJumps);
-					$var($Items$CondItem, rcond, genCond(static_cast<$JCTree*>(tree->rhs), 16));
-					$set(this, result, $nc(this->items)->makeCondItem($nc(rcond)->opcode, $($Code::mergeChains(trueJumps, rcond->trueJumps)), rcond->falseJumps));
-				} else {
-					$set(this, result, lcond);
-				}
-			} else {
-				$var($Items$Item, od, genExpr(tree->lhs, $cast($Type, $nc($($nc(operator$->type)->getParameterTypes()))->head)));
-				$nc(od)->load();
-				$set(this, result, completeBinop(tree->lhs, tree->rhs, operator$));
-			}
+			$var($Items$Item, od, genExpr(tree->lhs, $cast($Type, $nc($($nc(operator$->type)->getParameterTypes()))->head)));
+			$nc(od)->load();
+			$set(this, result, completeBinop(tree->lhs, tree->rhs, operator$));
 		}
 	}
 }
 
 $Items$Item* Gen::completeBinop($JCTree* lhs, $JCTree* rhs, $Symbol$OperatorSymbol* operator$) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type$MethodType, optype, $cast($Type$MethodType, $nc(operator$)->type));
 	int32_t opcode = operator$->opcode;
 	{
@@ -2449,15 +2183,15 @@ $Items$Item* Gen::completeBinop($JCTree* lhs, $JCTree* rhs, $Symbol$OperatorSymb
 		} else if (opcode >= 165 && opcode <= 166 && $TreeInfo::isNull(rhs)) {
 			opcode = opcode + (198 - 165);
 		} else {
-			$var($Type, rtype, $cast($Type, $nc($nc($($nc($(operator$->erasure(this->types)))->getParameterTypes()))->tail)->head));
+			$var($Type, rtype, $cast($Type, $nc($nc($($$nc(operator$->erasure(this->types))->getParameterTypes()))->tail)->head));
 			if (opcode >= 270 && opcode <= 275) {
 				opcode = opcode + (120 - 270);
 				$assign(rtype, $nc(this->syms)->intType);
 			}
-			$nc($(genExpr(rhs, rtype)))->load();
+			$$nc(genExpr(rhs, rtype))->load();
 			if (opcode >= (1 << 9)) {
 				$nc(this->code)->emitop0(opcode >> 9);
-				opcode = (int32_t)(opcode & (uint32_t)255);
+				opcode = opcode & 0xff;
 			}
 		}
 	}
@@ -2470,41 +2204,41 @@ $Items$Item* Gen::completeBinop($JCTree* lhs, $JCTree* rhs, $Symbol$OperatorSymb
 }
 
 void Gen::visitTypeCast($JCTree$JCTypeCast* tree) {
-	$useLocalCurrentObjectStackCache();
-	$set(this, result, $nc($(genExpr($nc(tree)->expr, $nc(tree->clazz)->type)))->load());
-	setTypeAnnotationPositions($nc(tree)->pos$);
-	bool var$1 = !$nc($nc($nc(tree)->clazz)->type)->isPrimitive();
-	bool var$0 = var$1 && !$nc(this->types)->isSameType($nc(tree->expr)->type, $nc(tree->clazz)->type);
-	if (var$0 && $nc(this->types)->asSuper($nc(tree->expr)->type, $nc($nc(tree->clazz)->type)->tsym) == nullptr) {
-		$var($PoolConstant, var$2, static_cast<$PoolConstant*>(checkDimension($(tree->pos()), $nc(tree->clazz)->type)));
-		$nc(this->code)->emitop2(192, var$2, static_cast<$ToIntBiFunction*>($$new(Gen$$Lambda$putClass)));
+	$useLocalObjectStack();
+	$set(this, result, $$nc(genExpr($nc(tree)->expr, $nc($nc(tree)->clazz)->type))->load());
+	setTypeAnnotationPositions(tree->pos$);
+	bool var$1 = !$nc($nc(tree->clazz)->type)->isPrimitive();
+	bool var$0 = var$1 && !$nc(this->types)->isSameType($nc(tree->expr)->type, tree->clazz->type);
+	if (var$0 && this->types->asSuper(tree->expr->type, tree->clazz->type->tsym) == nullptr) {
+		$var($PoolConstant, var$2, checkDimension($(tree->pos()), $nc(tree->clazz)->type));
+		$nc(this->code)->emitop2(192, var$2, $$new(Gen$$Lambda$putClass));
 	}
 }
 
 void Gen::visitWildcard($JCTree$JCWildcard* tree) {
-	$throwNew($AssertionError, $($of($of(this)->getClass()->getName())));
+	$throwNew($AssertionError, $$of(this->getClass()->getName()));
 }
 
 void Gen::visitTypeTest($JCTree$JCInstanceOf* tree) {
-	$useLocalCurrentObjectStackCache();
-	$nc($(genExpr($nc(tree)->expr, $nc(tree->expr)->type)))->load();
-	setTypeAnnotationPositions($nc(tree)->pos$);
-	$nc(this->code)->emitop2(193, makeRef($($nc(tree)->pos()), $nc(tree->pattern)->type));
+	$useLocalObjectStack();
+	$$nc(genExpr($nc(tree)->expr, $nc($nc(tree)->expr)->type))->load();
+	setTypeAnnotationPositions(tree->pos$);
+	$nc(this->code)->emitop2(193, makeRef($(tree->pos()), $nc(tree->pattern)->type));
 	$set(this, result, $nc(this->items)->makeStackItem($nc(this->syms)->booleanType));
 }
 
 void Gen::visitIndexed($JCTree$JCArrayAccess* tree) {
-	$useLocalCurrentObjectStackCache();
-	$nc($(genExpr($nc(tree)->indexed, $nc(tree->indexed)->type)))->load();
-	$nc($(genExpr($nc(tree)->index, $nc(this->syms)->intType)))->load();
-	$set(this, result, $nc(this->items)->makeIndexedItem($nc(tree)->type));
+	$useLocalObjectStack();
+	$$nc(genExpr($nc(tree)->indexed, $nc($nc(tree)->indexed)->type))->load();
+	$$nc(genExpr(tree->index, $nc(this->syms)->intType))->load();
+	$set(this, result, $nc(this->items)->makeIndexedItem(tree->type));
 }
 
 void Gen::visitIdent($JCTree$JCIdent* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol, sym, $nc(tree)->sym);
-	if (tree->name == $nc(this->names)->_this || tree->name == $nc(this->names)->_super) {
-		$var($Items$Item, res, tree->name == $nc(this->names)->_this ? $nc(this->items)->makeThisItem() : $nc(this->items)->makeSuperItem());
+	if (tree->name == $nc(this->names)->_this || tree->name == this->names->_super) {
+		$var($Items$Item, res, tree->name == this->names->_this ? $nc(this->items)->makeThisItem() : $nc(this->items)->makeSuperItem());
 		$init($Kinds$Kind);
 		if ($nc(sym)->kind == $Kinds$Kind::MTH) {
 			$nc(res)->load();
@@ -2512,23 +2246,23 @@ void Gen::visitIdent($JCTree$JCIdent* tree) {
 		}
 		$set(this, result, res);
 	} else {
-		bool var$1 = isInvokeDynamic(sym);
-		if (var$1 || isConstantDynamic(sym)) {
+		bool var$0 = isInvokeDynamic(sym);
+		if (var$0 || isConstantDynamic(sym)) {
 			if (isConstantDynamic(sym)) {
 				setTypeAnnotationPositions(tree->pos$);
 			}
 			$set(this, result, $nc(this->items)->makeDynamicItem(sym));
 		} else {
 			$init($Kinds$Kind);
-			if ($nc(sym)->kind == $Kinds$Kind::VAR && ($nc(sym->owner)->kind == $Kinds$Kind::MTH || $nc($nc(sym)->owner)->kind == $Kinds$Kind::VAR)) {
+			if ($nc(sym)->kind == $Kinds$Kind::VAR && ($nc(sym->owner)->kind == $Kinds$Kind::MTH || sym->owner->kind == $Kinds$Kind::VAR)) {
 				$set(this, result, $nc(this->items)->makeLocalItem($cast($Symbol$VarSymbol, sym)));
-			} else if (((int64_t)(sym->flags() & (uint64_t)(int64_t)8)) != 0) {
+			} else if ((sym->flags() & 8) != 0) {
 				if (!isAccessSuper($nc(this->env)->enclMethod)) {
 					$assign(sym, binaryQualifier(sym, $nc($nc(this->env)->enclClass)->type));
 				}
 				$set(this, result, $nc(this->items)->makeStaticItem(sym));
 			} else {
-				$nc($($nc(this->items)->makeThisItem()))->load();
+				$$nc($nc(this->items)->makeThisItem())->load();
 				$assign(sym, binaryQualifier(sym, $nc($nc(this->env)->enclClass)->type));
 				$set(this, result, $nc(this->items)->makeMemberItem(sym, nonVirtualForPrivateAccess(sym)));
 			}
@@ -2538,24 +2272,24 @@ void Gen::visitIdent($JCTree$JCIdent* tree) {
 
 bool Gen::nonVirtualForPrivateAccess($Symbol* sym) {
 	bool useVirtual = this->target->hasVirtualPrivateInvoke() && !this->disableVirtualizedPrivateInvoke;
-	return !useVirtual && (((int64_t)($nc(sym)->flags() & (uint64_t)(int64_t)2)) != 0);
+	return !useVirtual && (($nc(sym)->flags() & 2) != 0);
 }
 
 void Gen::visitSelect($JCTree$JCFieldAccess* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol, sym, $nc(tree)->sym);
 	if (tree->name == $nc(this->names)->_class) {
-		$nc(this->code)->emitLdc($cast($PoolConstant$LoadableConstant, $(checkDimension($(tree->pos()), $nc(tree->selected)->type))));
+		$nc(this->code)->emitLdc($$cast($PoolConstant$LoadableConstant, checkDimension($(tree->pos()), $nc(tree->selected)->type)));
 		$set(this, result, $nc(this->items)->makeStackItem(this->pt));
 		return;
 	}
 	$var($Symbol, ssym, $TreeInfo::symbol(tree->selected));
 	$init($Kinds$Kind);
-	bool selectSuper = ssym != nullptr && (ssym->kind == $Kinds$Kind::TYP || $nc(ssym)->name == $nc(this->names)->_super);
+	bool selectSuper = ssym != nullptr && (ssym->kind == $Kinds$Kind::TYP || ssym->name == this->names->_super);
 	bool accessSuper = isAccessSuper($nc(this->env)->enclMethod);
 	$var($Items$Item, base, (selectSuper) ? $nc(this->items)->makeSuperItem() : genExpr(tree->selected, $nc(tree->selected)->type));
-	if ($nc(sym)->kind == $Kinds$Kind::VAR && $nc(($cast($Symbol$VarSymbol, sym)))->getConstValue() != nullptr) {
-		if (((int64_t)(sym->flags() & (uint64_t)(int64_t)8)) != 0) {
+	if ($nc(sym)->kind == $Kinds$Kind::VAR && $cast($Symbol$VarSymbol, sym)->getConstValue() != nullptr) {
+		if ((sym->flags() & 8) != 0) {
 			if (!selectSuper && (ssym == nullptr || ssym->kind != $Kinds$Kind::TYP)) {
 				$assign(base, $nc(base)->load());
 			}
@@ -2564,7 +2298,7 @@ void Gen::visitSelect($JCTree$JCFieldAccess* tree) {
 			$nc(base)->load();
 			genNullCheck(tree->selected);
 		}
-		$set(this, result, $nc(this->items)->makeImmediateItem(sym->type, $($nc(($cast($Symbol$VarSymbol, sym)))->getConstValue())));
+		$set(this, result, $nc(this->items)->makeImmediateItem(sym->type, $($cast($Symbol$VarSymbol, sym)->getConstValue())));
 	} else {
 		if (isInvokeDynamic(sym)) {
 			$set(this, result, $nc(this->items)->makeDynamicItem(sym));
@@ -2572,7 +2306,7 @@ void Gen::visitSelect($JCTree$JCFieldAccess* tree) {
 		} else {
 			$assign(sym, binaryQualifier(sym, $nc(tree->selected)->type));
 		}
-		if (((int64_t)(sym->flags() & (uint64_t)(int64_t)8)) != 0) {
+		if (($nc(sym)->flags() & 8) != 0) {
 			if (!selectSuper && (ssym == nullptr || ssym->kind != $Kinds$Kind::TYP)) {
 				$assign(base, $nc(base)->load());
 			}
@@ -2582,7 +2316,7 @@ void Gen::visitSelect($JCTree$JCFieldAccess* tree) {
 			$nc(base)->load();
 			if ($equals(sym, $nc(this->syms)->lengthVar)) {
 				$nc(this->code)->emitop0(190);
-				$set(this, result, $nc(this->items)->makeStackItem($nc(this->syms)->intType));
+				$set(this, result, $nc(this->items)->makeStackItem(this->syms->intType));
 			} else {
 				$set(this, result, $nc(this->items)->makeMemberItem(sym, nonVirtualForPrivateAccess(sym) || selectSuper || accessSuper));
 			}
@@ -2592,7 +2326,7 @@ void Gen::visitSelect($JCTree$JCFieldAccess* tree) {
 
 bool Gen::isInvokeDynamic($Symbol* sym) {
 	$init($Kinds$Kind);
-	return $nc(sym)->kind == $Kinds$Kind::MTH && $nc(($cast($Symbol$MethodSymbol, sym)))->isDynamic();
+	return $nc(sym)->kind == $Kinds$Kind::MTH && $cast($Symbol$MethodSymbol, sym)->isDynamic();
 }
 
 void Gen::visitLiteral($JCTree$JCLiteral* tree) {
@@ -2606,106 +2340,98 @@ void Gen::visitLiteral($JCTree$JCLiteral* tree) {
 }
 
 void Gen::visitLetExpr($JCTree$LetExpr* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->code)->resolvePending();
 	int32_t limit = $nc(this->code)->nextreg;
-	int32_t prevLetExprStart = $nc(this->code)->setLetExprStackPos($nc($nc(this->code)->state)->stacksize);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			genStats($nc(tree)->defs, this->env);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->code)->setLetExprStackPos(prevLetExprStart);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	int32_t prevLetExprStart = this->code->setLetExprStackPos($nc(this->code->state)->stacksize);
+	$var($Throwable, var$0, nullptr);
+	try {
+		genStats($nc(tree)->defs, this->env);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->code)->setLetExprStackPos(prevLetExprStart);
 	}
-	$set(this, result, $nc($(genExpr($nc(tree)->expr, $nc(tree->expr)->type)))->load());
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	$set(this, result, $$nc(genExpr($nc(tree)->expr, $nc($nc(tree)->expr)->type))->load());
 	$nc(this->code)->endScopes(limit);
 }
 
 void Gen::generateReferencesToPrunedTree($Symbol$ClassSymbol* classSymbol) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, prunedInfo, $cast($List, $nc($nc(this->lower)->prunedTree)->get(classSymbol)));
 	if (prunedInfo != nullptr) {
-		{
-			$var($Iterator, i$, prunedInfo->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($JCTree, prunedTree, $cast($JCTree, i$->next()));
-				{
-					$nc(prunedTree)->accept(this->classReferenceVisitor);
-				}
+		$var($Iterator, i$, prunedInfo->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($JCTree, prunedTree, $cast($JCTree, i$->next()));
+			{
+				$nc(prunedTree)->accept(this->classReferenceVisitor);
 			}
 		}
 	}
 }
 
 bool Gen::genClass($Env* env, $JCTree$JCClassDecl* cdef) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			$set(this, attrEnv, env);
-			$var($Symbol$ClassSymbol, c, $nc(cdef)->sym);
-			$set(this, toplevel, $nc(env)->toplevel);
-			$set(this, endPosTable, $nc(this->toplevel)->endPositions);
-			$set(cdef, defs, normalizeDefs(cdef->defs, c));
-			generateReferencesToPrunedTree(c);
-			$var($Env, localEnv, $new($Env, cdef, $$new($Gen$GenContext)));
-			$set(localEnv, toplevel, env->toplevel);
-			$set(localEnv, enclClass, cdef);
-			{
-				$var($List, l, cdef->defs);
-				for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
-					genDef($cast($JCTree, l->head), localEnv);
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		$set(this, attrEnv, env);
+		$var($Symbol$ClassSymbol, c, $nc(cdef)->sym);
+		$set(this, toplevel, $nc(env)->toplevel);
+		$set(this, endPosTable, $nc(this->toplevel)->endPositions);
+		$set(cdef, defs, normalizeDefs(cdef->defs, c));
+		generateReferencesToPrunedTree(c);
+		$var($Env, localEnv, $new($Env, cdef, $$new($Gen$GenContext)));
+		$set(localEnv, toplevel, env->toplevel);
+		$set(localEnv, enclClass, cdef);
+		{
+			$var($List, l, cdef->defs);
+			for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+				genDef($cast($JCTree, l->head), localEnv);
+			}
+		}
+		if (this->poolWriter->size() > $PoolWriter::MAX_ENTRIES) {
+			$init($CompilerProperties$Errors);
+			$nc(this->log)->error($(cdef->pos()), $CompilerProperties$Errors::LimitPool);
+			++this->nerrs;
+		}
+		if (this->nerrs != 0) {
+			$var($List, l, cdef->defs);
+			for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+				$init($JCTree$Tag);
+				if ($nc($cast($JCTree, l->head))->hasTag($JCTree$Tag::METHODDEF)) {
+					$set($nc($nc($cast($JCTree$JCMethodDecl, l->head))->sym), code, nullptr);
 				}
 			}
-			if ($nc(this->poolWriter)->size() > $PoolWriter::MAX_ENTRIES) {
-				$init($CompilerProperties$Errors);
-				$nc(this->log)->error($(cdef->pos()), $CompilerProperties$Errors::LimitPool);
-				++this->nerrs;
-			}
-			if (this->nerrs != 0) {
-				{
-					$var($List, l, cdef->defs);
-					for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
-						$init($JCTree$Tag);
-						if ($nc(($cast($JCTree, l->head)))->hasTag($JCTree$Tag::METHODDEF)) {
-							$set($nc($nc(($cast($JCTree$JCMethodDecl, l->head)))->sym), code, nullptr);
-						}
-					}
-				}
-			}
-			$set(cdef, defs, $List::nil());
-			var$2 = this->nerrs == 0;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$set(this, attrEnv, nullptr);
-			$set(this, env, nullptr);
-			$set(this, toplevel, nullptr);
-			$set(this, endPosTable, nullptr);
-			this->nerrs = 0;
-			$nc(this->qualifiedSymbolCache)->clear();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		$set(cdef, defs, $List::nil());
+		var$2 = this->nerrs == 0;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$set(this, attrEnv, nullptr);
+		$set(this, env, nullptr);
+		$set(this, toplevel, nullptr);
+		$set(this, endPosTable, nullptr);
+		this->nerrs = 0;
+		$nc(this->qualifiedSymbolCache)->clear();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
-void clinit$Gen($Class* class$) {
+void Gen::clinit$($Class* clazz) {
 	$assignStatic(Gen::genKey, $new($Context$Key));
 }
 
@@ -2714,11 +2440,177 @@ Gen::Gen() {
 
 $Class* Gen::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Gen$$Lambda$putClass::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.jvm.Gen$$Lambda$putClass")) {
 			return Gen$$Lambda$putClass::load$(name, initialize);
 		}
 	}
-	$loadClass(Gen, name, initialize, &_Gen_ClassInfo_, clinit$Gen, allocate$Gen);
+	$FieldInfo fieldInfos$$[] = {
+		{"genKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/jvm/Gen;>;", $PROTECTED | $STATIC | $FINAL, $staticField(Gen, genKey)},
+		{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE | $FINAL, $field(Gen, log)},
+		{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, $PRIVATE | $FINAL, $field(Gen, syms)},
+		{"chk", "Lcom/sun/tools/javac/comp/Check;", nullptr, $PRIVATE | $FINAL, $field(Gen, chk)},
+		{"rs", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $PRIVATE | $FINAL, $field(Gen, rs)},
+		{"make", "Lcom/sun/tools/javac/tree/TreeMaker;", nullptr, $PRIVATE | $FINAL, $field(Gen, make)},
+		{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PRIVATE | $FINAL, $field(Gen, names)},
+		{"target", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PRIVATE | $FINAL, $field(Gen, target)},
+		{"accessDollar", "Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE | $FINAL, $field(Gen, accessDollar)},
+		{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $PRIVATE | $FINAL, $field(Gen, types)},
+		{"lower", "Lcom/sun/tools/javac/comp/Lower;", nullptr, $PRIVATE | $FINAL, $field(Gen, lower)},
+		{"annotate", "Lcom/sun/tools/javac/comp/Annotate;", nullptr, $PRIVATE | $FINAL, $field(Gen, annotate)},
+		{"concat", "Lcom/sun/tools/javac/jvm/StringConcat;", nullptr, $PRIVATE | $FINAL, $field(Gen, concat)},
+		{"stackMap", "Lcom/sun/tools/javac/jvm/Code$StackMapFormat;", nullptr, $PRIVATE | $FINAL, $field(Gen, stackMap)},
+		{"methodType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $FINAL, $field(Gen, methodType)},
+		{"poolWriter", "Lcom/sun/tools/javac/jvm/PoolWriter;", nullptr, $FINAL, $field(Gen, poolWriter)},
+		{"lineDebugInfo", "Z", nullptr, $PRIVATE | $FINAL, $field(Gen, lineDebugInfo)},
+		{"varDebugInfo", "Z", nullptr, $PRIVATE | $FINAL, $field(Gen, varDebugInfo)},
+		{"genCrt", "Z", nullptr, $PRIVATE | $FINAL, $field(Gen, genCrt)},
+		{"debugCode", "Z", nullptr, $PRIVATE | $FINAL, $field(Gen, debugCode)},
+		{"disableVirtualizedPrivateInvoke", "Z", nullptr, $PRIVATE, $field(Gen, disableVirtualizedPrivateInvoke)},
+		{"code", "Lcom/sun/tools/javac/jvm/Code;", nullptr, $PRIVATE, $field(Gen, code)},
+		{"items", "Lcom/sun/tools/javac/jvm/Items;", nullptr, $PRIVATE, $field(Gen, items)},
+		{"attrEnv", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PRIVATE, $field(Gen, attrEnv)},
+		{"toplevel", "Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", nullptr, $PRIVATE, $field(Gen, toplevel)},
+		{"nerrs", "I", nullptr, $PRIVATE, $field(Gen, nerrs)},
+		{"endPosTable", "Lcom/sun/tools/javac/tree/EndPosTable;", nullptr, 0, $field(Gen, endPosTable)},
+		{"inCondSwitchExpression", "Z", nullptr, 0, $field(Gen, inCondSwitchExpression)},
+		{"switchExpressionTrueChain", "Lcom/sun/tools/javac/jvm/Code$Chain;", nullptr, 0, $field(Gen, switchExpressionTrueChain)},
+		{"switchExpressionFalseChain", "Lcom/sun/tools/javac/jvm/Code$Chain;", nullptr, 0, $field(Gen, switchExpressionFalseChain)},
+		{"stackBeforeSwitchExpression", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/Items$LocalItem;>;", 0, $field(Gen, stackBeforeSwitchExpression)},
+		{"switchResult", "Lcom/sun/tools/javac/jvm/Items$LocalItem;", nullptr, 0, $field(Gen, switchResult)},
+		{"qualifiedSymbolCache", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;>;", 0, $field(Gen, qualifiedSymbolCache)},
+		{"env", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;", 0, $field(Gen, env)},
+		{"pt", "Lcom/sun/tools/javac/code/Type;", nullptr, 0, $field(Gen, pt)},
+		{"result", "Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $field(Gen, result)},
+		{"classReferenceVisitor", "Lcom/sun/tools/javac/jvm/Gen$ClassReferenceVisitor;", nullptr, $PRIVATE, $field(Gen, classReferenceVisitor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(Gen, init$, void, $Context*)},
+		{"binaryQualifier", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol;", nullptr, 0, $virtualMethod(Gen, binaryQualifier, $Symbol*, $Symbol*, $Type*)},
+		{"callMethod", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Z)V", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Z)V", 0, $virtualMethod(Gen, callMethod, void, $JCDiagnostic$DiagnosticPosition*, $Type*, $Name*, $List*, bool)},
+		{"catchTypesWithAnnotations", "(Lcom/sun/tools/javac/tree/JCTree$JCCatch;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCCatch;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;>;", 0, $virtualMethod(Gen, catchTypesWithAnnotations, $List*, $JCTree$JCCatch*)},
+		{"catchTypesWithAnnotationsFromMulticatch", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeUnion;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeUnion;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;>;", 0, $virtualMethod(Gen, catchTypesWithAnnotationsFromMulticatch, $List*, $JCTree$JCTypeUnion*, $List*)},
+		{"checkDimension", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Gen, checkDimension, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+		{"checkDimensionInternal", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PRIVATE, $method(Gen, checkDimensionInternal, void, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+		{"checkStringConstant", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(Gen, checkStringConstant, void, $JCDiagnostic$DiagnosticPosition*, Object$*)},
+		{"completeBinop", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Gen, completeBinop, $Items$Item*, $JCTree*, $JCTree*, $Symbol$OperatorSymbol*)},
+		{"doHandleSwitchExpression", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)V", nullptr, $PRIVATE, $method(Gen, doHandleSwitchExpression, void, $JCTree$JCSwitchExpression*)},
+		{"emitMinusOne", "(I)V", nullptr, 0, $virtualMethod(Gen, emitMinusOne, void, int32_t)},
+		{"endFinalizerGap", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;)V", 0, $virtualMethod(Gen, endFinalizerGap, void, $Env*)},
+		{"endFinalizerGaps", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;)V", 0, $virtualMethod(Gen, endFinalizerGaps, void, $Env*, $Env*)},
+		{"genArgs", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC, $virtualMethod(Gen, genArgs, void, $List*, $List*)},
+		{"genCatch", "(Lcom/sun/tools/javac/tree/JCTree$JCCatch;Lcom/sun/tools/javac/comp/Env;IILcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCCatch;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;IILcom/sun/tools/javac/util/List<Ljava/lang/Integer;>;)V", 0, $virtualMethod(Gen, genCatch, void, $JCTree$JCCatch*, $Env*, int32_t, int32_t, $List*)},
+		{"genClass", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Z", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Z", $PUBLIC, $virtualMethod(Gen, genClass, bool, $Env*, $JCTree$JCClassDecl*)},
+		{"genCond", "(Lcom/sun/tools/javac/tree/JCTree;I)Lcom/sun/tools/javac/jvm/Items$CondItem;", nullptr, $PUBLIC, $virtualMethod(Gen, genCond, $Items$CondItem*, $JCTree*, int32_t)},
+		{"genCond", "(Lcom/sun/tools/javac/tree/JCTree;Z)Lcom/sun/tools/javac/jvm/Items$CondItem;", nullptr, $PUBLIC, $virtualMethod(Gen, genCond, $Items$CondItem*, $JCTree*, bool)},
+		{"genDef", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;)V", $PUBLIC, $virtualMethod(Gen, genDef, void, $JCTree*, $Env*)},
+		{"genExpr", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, $PUBLIC, $virtualMethod(Gen, genExpr, $Items$Item*, $JCTree*, $Type*)},
+		{"genFinalizer", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;)V", 0, $virtualMethod(Gen, genFinalizer, void, $Env*)},
+		{"genLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCStatement;Lcom/sun/tools/javac/tree/JCTree$JCStatement;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Z)V", "(Lcom/sun/tools/javac/tree/JCTree$JCStatement;Lcom/sun/tools/javac/tree/JCTree$JCStatement;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpressionStatement;>;Z)V", $PRIVATE, $method(Gen, genLoop, void, $JCTree$JCStatement*, $JCTree$JCStatement*, $JCTree$JCExpression*, $List*, bool)},
+		{"genMethod", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Lcom/sun/tools/javac/comp/Env;Z)V", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;Z)V", 0, $virtualMethod(Gen, genMethod, void, $JCTree$JCMethodDecl*, $Env*, bool)},
+		{"genNullCheck", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PRIVATE, $method(Gen, genNullCheck, void, $JCTree*)},
+		{"genStat", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;I)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;I)V", $PUBLIC, $virtualMethod(Gen, genStat, void, $JCTree*, $Env*, int32_t)},
+		{"genStat", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;)V", $PUBLIC, $virtualMethod(Gen, genStat, void, $JCTree*, $Env*)},
+		{"genStats", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Env;I)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;I)V", $PUBLIC, $virtualMethod(Gen, genStats, void, $List*, $Env*, int32_t)},
+		{"genStats", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;)V", $PUBLIC, $virtualMethod(Gen, genStats, void, $List*, $Env*)},
+		{"genTry", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCatch;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;)V", 0, $virtualMethod(Gen, genTry, void, $JCTree*, $List*, $Env*)},
+		{"generateReferencesToPrunedTree", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PRIVATE, $method(Gen, generateReferencesToPrunedTree, void, $Symbol$ClassSymbol*)},
+		{"getAndRemoveNonFieldTAs", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;", $PRIVATE, $method(Gen, getAndRemoveNonFieldTAs, $List*, $Symbol$VarSymbol*)},
+		{"getAttrEnv", "()Lcom/sun/tools/javac/comp/Env;", "()Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC, $virtualMethod(Gen, getAttrEnv, $Env*)},
+		{"getCode", "()Lcom/sun/tools/javac/jvm/Code;", nullptr, $PUBLIC, $virtualMethod(Gen, getCode, $Code*)},
+		{"getItems", "()Lcom/sun/tools/javac/jvm/Items;", nullptr, $PUBLIC, $virtualMethod(Gen, getItems, $Items*)},
+		{"handleSwitch", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Z)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;Z)V", $PRIVATE, $method(Gen, handleSwitch, void, $JCTree*, $JCTree$JCExpression*, $List*, bool)},
+		{"hasFinally", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)Z", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;)Z", 0, $virtualMethod(Gen, hasFinally, bool, $JCTree*, $Env*)},
+		{"hasTry", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)Z", nullptr, $PRIVATE, $method(Gen, hasTry, bool, $JCTree$JCSwitchExpression*)},
+		{"initCode", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Lcom/sun/tools/javac/comp/Env;Z)I", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;Z)I", $PRIVATE, $method(Gen, initCode, int32_t, $JCTree$JCMethodDecl*, $Env*, bool)},
+		{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/jvm/Gen;", nullptr, $PUBLIC | $STATIC, $staticMethod(Gen, instance, Gen*, $Context*)},
+		{"isAccessSuper", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)Z", nullptr, $PRIVATE, $method(Gen, isAccessSuper, bool, $JCTree$JCMethodDecl*)},
+		{"isConstantDynamic", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC, $virtualMethod(Gen, isConstantDynamic, bool, $Symbol*)},
+		{"isInvokeDynamic", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC, $virtualMethod(Gen, isInvokeDynamic, bool, $Symbol*)},
+		{"isOddAccessName", "(Lcom/sun/tools/javac/util/Name;)Z", nullptr, $PRIVATE, $method(Gen, isOddAccessName, bool, $Name*)},
+		{"loadIntConst", "(I)V", nullptr, 0, $virtualMethod(Gen, loadIntConst, void, int32_t)},
+		{"makeNewArray", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;I)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Gen, makeNewArray, $Items$Item*, $JCDiagnostic$DiagnosticPosition*, $Type*, int32_t)},
+		{"makeRef", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)I", nullptr, 0, $virtualMethod(Gen, makeRef, int32_t, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+		{"makeTemp", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/jvm/Items$LocalItem;", nullptr, 0, $virtualMethod(Gen, makeTemp, $Items$LocalItem*, $Type*)},
+		{"nonVirtualForPrivateAccess", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(Gen, nonVirtualForPrivateAccess, bool, $Symbol*)},
+		{"normalizeDefs", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", 0, $virtualMethod(Gen, normalizeDefs, $List*, $List*, $Symbol$ClassSymbol*)},
+		{"normalizeMethod", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)V", 0, $virtualMethod(Gen, normalizeMethod, void, $JCTree$JCMethodDecl*, $List*, $List*)},
+		{"one", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Gen, one, int32_t, int32_t)},
+		{"qsort2", "([I[III)V", nullptr, $STATIC, $staticMethod(Gen, qsort2, void, $ints*, $ints*, int32_t, int32_t)},
+		{"registerCatch", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;IIII)V", nullptr, 0, $virtualMethod(Gen, registerCatch, void, $JCDiagnostic$DiagnosticPosition*, int32_t, int32_t, int32_t, int32_t)},
+		{"reloadStackBeforeSwitchExpr", "()V", nullptr, $PRIVATE, $method(Gen, reloadStackBeforeSwitchExpr, void)},
+		{"setTypeAnnotationPositions", "(I)V", nullptr, $PRIVATE, $method(Gen, setTypeAnnotationPositions, void, int32_t)},
+		{"unwind", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;", 0, $virtualMethod(Gen, unwind, $Env*, $JCTree*, $Env*)},
+		{"unwindBreak", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/jvm/Gen$GenContext;>;", $PRIVATE, $method(Gen, unwindBreak, $Env*, $JCTree*)},
+		{"visitApply", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitApply, void, $JCTree$JCMethodInvocation*)},
+		{"visitAssign", "(Lcom/sun/tools/javac/tree/JCTree$JCAssign;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitAssign, void, $JCTree$JCAssign*)},
+		{"visitAssignop", "(Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitAssignop, void, $JCTree$JCAssignOp*)},
+		{"visitBinary", "(Lcom/sun/tools/javac/tree/JCTree$JCBinary;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitBinary, void, $JCTree$JCBinary*)},
+		{"visitBlock", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitBlock, void, $JCTree$JCBlock*)},
+		{"visitBreak", "(Lcom/sun/tools/javac/tree/JCTree$JCBreak;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitBreak, void, $JCTree$JCBreak*)},
+		{"visitConditional", "(Lcom/sun/tools/javac/tree/JCTree$JCConditional;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitConditional, void, $JCTree$JCConditional*)},
+		{"visitContinue", "(Lcom/sun/tools/javac/tree/JCTree$JCContinue;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitContinue, void, $JCTree$JCContinue*)},
+		{"visitDoLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCDoWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitDoLoop, void, $JCTree$JCDoWhileLoop*)},
+		{"visitExec", "(Lcom/sun/tools/javac/tree/JCTree$JCExpressionStatement;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitExec, void, $JCTree$JCExpressionStatement*)},
+		{"visitForLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCForLoop;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitForLoop, void, $JCTree$JCForLoop*)},
+		{"visitForeachLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitForeachLoop, void, $JCTree$JCEnhancedForLoop*)},
+		{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitIdent, void, $JCTree$JCIdent*)},
+		{"visitIf", "(Lcom/sun/tools/javac/tree/JCTree$JCIf;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitIf, void, $JCTree$JCIf*)},
+		{"visitIndexed", "(Lcom/sun/tools/javac/tree/JCTree$JCArrayAccess;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitIndexed, void, $JCTree$JCArrayAccess*)},
+		{"visitLabelled", "(Lcom/sun/tools/javac/tree/JCTree$JCLabeledStatement;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitLabelled, void, $JCTree$JCLabeledStatement*)},
+		{"visitLetExpr", "(Lcom/sun/tools/javac/tree/JCTree$LetExpr;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitLetExpr, void, $JCTree$LetExpr*)},
+		{"visitLiteral", "(Lcom/sun/tools/javac/tree/JCTree$JCLiteral;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitLiteral, void, $JCTree$JCLiteral*)},
+		{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitMethodDef, void, $JCTree$JCMethodDecl*)},
+		{"visitNewArray", "(Lcom/sun/tools/javac/tree/JCTree$JCNewArray;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitNewArray, void, $JCTree$JCNewArray*)},
+		{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitNewClass, void, $JCTree$JCNewClass*)},
+		{"visitParens", "(Lcom/sun/tools/javac/tree/JCTree$JCParens;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitParens, void, $JCTree$JCParens*)},
+		{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitReturn, void, $JCTree$JCReturn*)},
+		{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitSelect, void, $JCTree$JCFieldAccess*)},
+		{"visitSkip", "(Lcom/sun/tools/javac/tree/JCTree$JCSkip;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitSkip, void, $JCTree$JCSkip*)},
+		{"visitSwitch", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitch;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitSwitch, void, $JCTree$JCSwitch*)},
+		{"visitSwitchExpression", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitSwitchExpression, void, $JCTree$JCSwitchExpression*)},
+		{"visitSynchronized", "(Lcom/sun/tools/javac/tree/JCTree$JCSynchronized;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitSynchronized, void, $JCTree$JCSynchronized*)},
+		{"visitThrow", "(Lcom/sun/tools/javac/tree/JCTree$JCThrow;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitThrow, void, $JCTree$JCThrow*)},
+		{"visitTry", "(Lcom/sun/tools/javac/tree/JCTree$JCTry;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitTry, void, $JCTree$JCTry*)},
+		{"visitTypeCast", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitTypeCast, void, $JCTree$JCTypeCast*)},
+		{"visitTypeTest", "(Lcom/sun/tools/javac/tree/JCTree$JCInstanceOf;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitTypeTest, void, $JCTree$JCInstanceOf*)},
+		{"visitUnary", "(Lcom/sun/tools/javac/tree/JCTree$JCUnary;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitUnary, void, $JCTree$JCUnary*)},
+		{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitVarDef, void, $JCTree$JCVariableDecl*)},
+		{"visitWhileLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitWhileLoop, void, $JCTree$JCWhileLoop*)},
+		{"visitWildcard", "(Lcom/sun/tools/javac/tree/JCTree$JCWildcard;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitWildcard, void, $JCTree$JCWildcard*)},
+		{"visitYield", "(Lcom/sun/tools/javac/tree/JCTree$JCYield;)V", nullptr, $PUBLIC, $virtualMethod(Gen, visitYield, void, $JCTree$JCYield*)},
+		{"zero", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Gen, zero, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$Visitor", "com.sun.tools.javac.tree.JCTree", "Visitor", $PUBLIC | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.jvm.Gen$4", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.jvm.Gen$GenContext", "com.sun.tools.javac.jvm.Gen", "GenContext", $STATIC},
+		{"com.sun.tools.javac.jvm.Gen$GenFinalizer", "com.sun.tools.javac.jvm.Gen", "GenFinalizer", $ABSTRACT},
+		{"com.sun.tools.javac.jvm.Gen$CodeSizeOverflow", "com.sun.tools.javac.jvm.Gen", "CodeSizeOverflow", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.jvm.Gen$ClassReferenceVisitor", "com.sun.tools.javac.jvm.Gen", "ClassReferenceVisitor", 0},
+		{"com.sun.tools.javac.jvm.Gen$3", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.jvm.Gen$2", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.jvm.Gen$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.jvm.Gen",
+		"com.sun.tools.javac.tree.JCTree$Visitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.Gen$4,com.sun.tools.javac.jvm.Gen$GenContext,com.sun.tools.javac.jvm.Gen$GenFinalizer,com.sun.tools.javac.jvm.Gen$CodeSizeOverflow,com.sun.tools.javac.jvm.Gen$ClassReferenceVisitor,com.sun.tools.javac.jvm.Gen$3,com.sun.tools.javac.jvm.Gen$2,com.sun.tools.javac.jvm.Gen$1"
+	};
+	$loadClass(Gen, name, initialize, &classInfo$$, Gen::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Gen);
+	});
 	return class$;
 }
 

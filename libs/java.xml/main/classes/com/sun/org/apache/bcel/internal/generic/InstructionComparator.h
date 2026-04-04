@@ -36,6 +36,7 @@ class InstructionComparator : public ::java::lang::Object {
 	$interface(InstructionComparator, 0, ::java::lang::Object)
 public:
 	using ::java::lang::Object::equals;
+	static void clinit$(::java::lang::Class* clazz);
 	virtual bool equals(::com::sun::org::apache::bcel::internal::generic::Instruction* i1, ::com::sun::org::apache::bcel::internal::generic::Instruction* i2) {return false;}
 	static bool lambda$static$0(::com::sun::org::apache::bcel::internal::generic::Instruction* i1, ::com::sun::org::apache::bcel::internal::generic::Instruction* i2);
 	static ::com::sun::org::apache::bcel::internal::generic::InstructionComparator* DEFAULT;

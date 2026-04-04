@@ -278,6 +278,7 @@ class ErrorMsg : public ::java::lang::Object {
 	$class(ErrorMsg, 0, ::java::lang::Object)
 public:
 	ErrorMsg();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* code);
 	void init$($String* code, $Throwable* e);
 	void init$($String* message, int32_t line);

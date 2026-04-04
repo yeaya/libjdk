@@ -159,6 +159,7 @@ public:
 	using ::com::sun::org::apache::xalan::internal::xsltc::dom::SimpleResultTreeImpl::getPrefix;
 	using ::com::sun::org::apache::xalan::internal::xsltc::dom::SimpleResultTreeImpl::getNamespaceURI;
 	using ::com::sun::org::apache::xalan::internal::xsltc::dom::SimpleResultTreeImpl::characters;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xalan::internal::xsltc::dom::XSLTCDTMManager* dtmManager, int32_t documentID, ::com::sun::org::apache::xml::internal::dtm::DTMWSFilter* wsfilter, int32_t initSize, bool buildIdIndex);
 	virtual void addAttribute($String* qName, $String* value) override;
 	virtual void addAttribute($String* uri, $String* localName, $String* qname, $String* type, $String* value) override;

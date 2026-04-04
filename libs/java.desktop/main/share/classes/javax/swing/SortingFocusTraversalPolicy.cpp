@@ -1,11 +1,9 @@
 #include <javax/swing/SortingFocusTraversalPolicy.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/FocusTraversalPolicy.h>
 #include <java/lang/ClassCastException.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
 #include <java/util/Comparator.h>
@@ -34,7 +32,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
 using $Comparator = ::java::util::Comparator;
@@ -50,56 +47,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _SortingFocusTraversalPolicy_FieldInfo_[] = {
-	{"comparator", "Ljava/util/Comparator;", "Ljava/util/Comparator<-Ljava/awt/Component;>;", $PRIVATE, $field(SortingFocusTraversalPolicy, comparator)},
-	{"implicitDownCycleTraversal", "Z", nullptr, $PRIVATE, $field(SortingFocusTraversalPolicy, implicitDownCycleTraversal)},
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE, $field(SortingFocusTraversalPolicy, log)},
-	{"cachedRoot", "Ljava/awt/Container;", nullptr, $PRIVATE | $TRANSIENT, $field(SortingFocusTraversalPolicy, cachedRoot)},
-	{"cachedCycle", "Ljava/util/List;", "Ljava/util/List<Ljava/awt/Component;>;", $PRIVATE | $TRANSIENT, $field(SortingFocusTraversalPolicy, cachedCycle)},
-	{"fitnessTestPolicy", "Ljavax/swing/SwingContainerOrderFocusTraversalPolicy;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SortingFocusTraversalPolicy, fitnessTestPolicy)},
-	{"FORWARD_TRAVERSAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SortingFocusTraversalPolicy, FORWARD_TRAVERSAL)},
-	{"BACKWARD_TRAVERSAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SortingFocusTraversalPolicy, BACKWARD_TRAVERSAL)},
-	{"legacySortingFTPEnabled", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SortingFocusTraversalPolicy, legacySortingFTPEnabled)},
-	{}
-};
-
-$MethodInfo _SortingFocusTraversalPolicy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(SortingFocusTraversalPolicy, init$, void)},
-	{"<init>", "(Ljava/util/Comparator;)V", "(Ljava/util/Comparator<-Ljava/awt/Component;>;)V", $PUBLIC, $method(SortingFocusTraversalPolicy, init$, void, $Comparator*)},
-	{"accept", "(Ljava/awt/Component;)Z", nullptr, $PROTECTED, $virtualMethod(SortingFocusTraversalPolicy, accept, bool, $Component*)},
-	{"enumerateAndSortCycle", "(Ljava/awt/Container;Ljava/util/List;)V", "(Ljava/awt/Container;Ljava/util/List<Ljava/awt/Component;>;)V", $PRIVATE, $method(SortingFocusTraversalPolicy, enumerateAndSortCycle, void, $Container*, $List*)},
-	{"enumerateCycle", "(Ljava/awt/Container;Ljava/util/List;)V", "(Ljava/awt/Container;Ljava/util/List<Ljava/awt/Component;>;)V", $PRIVATE, $method(SortingFocusTraversalPolicy, enumerateCycle, void, $Container*, $List*)},
-	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-Ljava/awt/Component;>;", $PROTECTED, $virtualMethod(SortingFocusTraversalPolicy, getComparator, $Comparator*)},
-	{"getComponentAfter", "(Ljava/awt/Container;Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(SortingFocusTraversalPolicy, getComponentAfter, $Component*, $Container*, $Component*)},
-	{"getComponentBefore", "(Ljava/awt/Container;Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(SortingFocusTraversalPolicy, getComponentBefore, $Component*, $Container*, $Component*)},
-	{"getComponentDownCycle", "(Ljava/awt/Component;I)Ljava/awt/Component;", nullptr, $PRIVATE, $method(SortingFocusTraversalPolicy, getComponentDownCycle, $Component*, $Component*, int32_t)},
-	{"getComponentIndex", "(Ljava/util/List;Ljava/awt/Component;)I", "(Ljava/util/List<Ljava/awt/Component;>;Ljava/awt/Component;)I", $PRIVATE, $method(SortingFocusTraversalPolicy, getComponentIndex, int32_t, $List*, $Component*)},
-	{"getDefaultComponent", "(Ljava/awt/Container;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(SortingFocusTraversalPolicy, getDefaultComponent, $Component*, $Container*)},
-	{"getFirstComponent", "(Ljava/awt/Container;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(SortingFocusTraversalPolicy, getFirstComponent, $Component*, $Container*)},
-	{"getFocusTraversalCycle", "(Ljava/awt/Container;)Ljava/util/List;", "(Ljava/awt/Container;)Ljava/util/List<Ljava/awt/Component;>;", $PRIVATE, $method(SortingFocusTraversalPolicy, getFocusTraversalCycle, $List*, $Container*)},
-	{"getImplicitDownCycleTraversal", "()Z", nullptr, $PUBLIC, $virtualMethod(SortingFocusTraversalPolicy, getImplicitDownCycleTraversal, bool)},
-	{"getLastComponent", "(Ljava/awt/Container;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(SortingFocusTraversalPolicy, getLastComponent, $Component*, $Container*)},
-	{"getTopmostProvider", "(Ljava/awt/Container;Ljava/awt/Component;)Ljava/awt/Container;", nullptr, 0, $virtualMethod(SortingFocusTraversalPolicy, getTopmostProvider, $Container*, $Container*, $Component*)},
-	{"legacySort", "(Ljava/util/List;Ljava/util/Comparator;)V", "(Ljava/util/List<Ljava/awt/Component;>;Ljava/util/Comparator<-Ljava/awt/Component;>;)V", $PRIVATE, $method(SortingFocusTraversalPolicy, legacySort, void, $List*, $Comparator*)},
-	{"mergeSort", "([Ljava/lang/Object;[Ljava/lang/Object;IIILjava/util/Comparator;)V", "<T:Ljava/lang/Object;>([TT;[TT;IIILjava/util/Comparator<-TT;>;)V", $PRIVATE, $method(SortingFocusTraversalPolicy, mergeSort, void, $ObjectArray*, $ObjectArray*, int32_t, int32_t, int32_t, $Comparator*)},
-	{"setComparator", "(Ljava/util/Comparator;)V", "(Ljava/util/Comparator<-Ljava/awt/Component;>;)V", $PROTECTED, $virtualMethod(SortingFocusTraversalPolicy, setComparator, void, $Comparator*)},
-	{"setImplicitDownCycleTraversal", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SortingFocusTraversalPolicy, setImplicitDownCycleTraversal, void, bool)},
-	{}
-};
-
-$ClassInfo _SortingFocusTraversalPolicy_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.SortingFocusTraversalPolicy",
-	"javax.swing.InternalFrameFocusTraversalPolicy",
-	nullptr,
-	_SortingFocusTraversalPolicy_FieldInfo_,
-	_SortingFocusTraversalPolicy_MethodInfo_
-};
-
-$Object* allocate$SortingFocusTraversalPolicy($Class* clazz) {
-	return $of($alloc(SortingFocusTraversalPolicy));
-}
 
 $SwingContainerOrderFocusTraversalPolicy* SortingFocusTraversalPolicy::fitnessTestPolicy = nullptr;
 bool SortingFocusTraversalPolicy::legacySortingFTPEnabled = false;
@@ -130,7 +77,7 @@ int32_t SortingFocusTraversalPolicy::getComponentIndex($List* cycle, $Component*
 	} catch ($ClassCastException& e) {
 		$init($PlatformLogger$Level);
 		if ($nc(this->log)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(this->log)->fine($$str({"### During the binary search for "_s, aComponent, " the exception occurred: "_s}), static_cast<$Throwable*>(e));
+			$nc(this->log)->fine($$str({"### During the binary search for "_s, aComponent, " the exception occurred: "_s}), e);
 		}
 		return -1;
 	}
@@ -152,16 +99,14 @@ void SortingFocusTraversalPolicy::enumerateAndSortCycle($Container* focusCycleRo
 }
 
 void SortingFocusTraversalPolicy::legacySort($List* l, $Comparator* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (c != nullptr && $nc(l)->size() > 1) {
-		$var($ComponentArray, a, $fcast($ComponentArray, l->toArray($$new($ComponentArray, l->size()))));
-		mergeSort($cast($ComponentArray, $($nc(a)->clone())), a, 0, a->length, 0, c);
+		$var($ComponentArray, a, $cast($ComponentArray, l->toArray($$new($ComponentArray, l->size()))));
+		mergeSort($$cast($ComponentArray, $nc(a)->clone()), a, 0, $nc(a)->length, 0, c);
 		$var($ListIterator, i, l->listIterator());
 		{
 			$var($ComponentArray, arr$, a);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Component, e, arr$->get(i$));
 				{
 					$nc(i)->next();
@@ -173,25 +118,23 @@ void SortingFocusTraversalPolicy::legacySort($List* l, $Comparator* c) {
 }
 
 void SortingFocusTraversalPolicy::enumerateCycle($Container* container, $List* cycle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(container)->isVisible();
 	if (!(var$0 && container->isDisplayable())) {
 		return;
 	}
 	$nc(cycle)->add(container);
-	$var($ComponentArray, components, $nc(container)->getComponents());
+	$var($ComponentArray, components, container->getComponents());
 	{
 		$var($ComponentArray, arr$, components);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Component, comp, arr$->get(i$));
 			{
 				if ($instanceOf($Container, comp)) {
 					$var($Container, cont, $cast($Container, comp));
-					bool var$2 = !$nc(cont)->isFocusCycleRoot();
+					bool var$2 = !cont->isFocusCycleRoot();
 					bool var$1 = var$2 && !cont->isFocusTraversalPolicyProvider();
-					if (var$1 && !(($instanceOf($JComponent, cont)) && $nc(($cast($JComponent, cont)))->isManagingFocus())) {
+					if (var$1 && !(($instanceOf($JComponent, cont)) && $cast($JComponent, cont)->isManagingFocus())) {
 						enumerateCycle(cont, cycle);
 						continue;
 					}
@@ -203,7 +146,7 @@ void SortingFocusTraversalPolicy::enumerateCycle($Container* container, $List* c
 }
 
 $Container* SortingFocusTraversalPolicy::getTopmostProvider($Container* focusCycleRoot, $Component* aComponent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, aCont, $nc(aComponent)->getParent());
 	$var($Container, ftp, nullptr);
 	while (aCont != focusCycleRoot && aCont != nullptr) {
@@ -219,13 +162,13 @@ $Container* SortingFocusTraversalPolicy::getTopmostProvider($Container* focusCyc
 }
 
 $Component* SortingFocusTraversalPolicy::getComponentDownCycle($Component* comp, int32_t traversalDirection) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, retComp, nullptr);
 	if ($instanceOf($Container, comp)) {
 		$var($Container, cont, $cast($Container, comp));
-		if ($nc(cont)->isFocusCycleRoot()) {
+		if (cont->isFocusCycleRoot()) {
 			if (getImplicitDownCycleTraversal()) {
-				$assign(retComp, $nc($(cont->getFocusTraversalPolicy()))->getDefaultComponent(cont));
+				$assign(retComp, $$nc(cont->getFocusTraversalPolicy())->getDefaultComponent(cont));
 				$init($PlatformLogger$Level);
 				if (retComp != nullptr && $nc(this->log)->isLoggable($PlatformLogger$Level::FINE)) {
 					$nc(this->log)->fine($$str({"### Transfered focus down-cycle to "_s, retComp, " in the focus cycle root "_s, cont}));
@@ -234,7 +177,7 @@ $Component* SortingFocusTraversalPolicy::getComponentDownCycle($Component* comp,
 				return nullptr;
 			}
 		} else if (cont->isFocusTraversalPolicyProvider()) {
-			$assign(retComp, traversalDirection == SortingFocusTraversalPolicy::FORWARD_TRAVERSAL ? $nc($(cont->getFocusTraversalPolicy()))->getDefaultComponent(cont) : $nc($(cont->getFocusTraversalPolicy()))->getLastComponent(cont));
+			$assign(retComp, traversalDirection == SortingFocusTraversalPolicy::FORWARD_TRAVERSAL ? $$nc(cont->getFocusTraversalPolicy())->getDefaultComponent(cont) : $$nc(cont->getFocusTraversalPolicy())->getLastComponent(cont));
 			$init($PlatformLogger$Level);
 			if (retComp != nullptr && $nc(this->log)->isLoggable($PlatformLogger$Level::FINE)) {
 				$nc(this->log)->fine($$str({"### Transfered focus to "_s, retComp, " in the FTP provider "_s, cont}));
@@ -245,7 +188,7 @@ $Component* SortingFocusTraversalPolicy::getComponentDownCycle($Component* comp,
 }
 
 $Component* SortingFocusTraversalPolicy::getComponentAfter($Container* aContainer, $Component* aComponent$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, aComponent, aComponent$renamed);
 	$init($PlatformLogger$Level);
 	if ($nc(this->log)->isLoggable($PlatformLogger$Level::FINE)) {
@@ -258,8 +201,8 @@ $Component* SortingFocusTraversalPolicy::getComponentAfter($Container* aContaine
 	if (var$0 && !aContainer->isFocusCycleRoot()) {
 		$throwNew($IllegalArgumentException, "aContainer should be focus cycle root or focus traversal policy provider"_s);
 	} else {
-		bool var$2 = aContainer->isFocusCycleRoot();
-		if (var$2 && !$nc(aComponent)->isFocusCycleRoot(aContainer)) {
+		bool var$1 = aContainer->isFocusCycleRoot();
+		if (var$1 && !$nc(aComponent)->isFocusCycleRoot(aContainer)) {
 			$throwNew($IllegalArgumentException, "aContainer is not a focus cycle root of aComponent"_s);
 		}
 	}
@@ -301,7 +244,7 @@ $Component* SortingFocusTraversalPolicy::getComponentAfter($Container* aContaine
 			return comp;
 		}
 	}
-	if ($nc(aContainer)->isFocusCycleRoot()) {
+	if (aContainer->isFocusCycleRoot()) {
 		$set(this, cachedRoot, aContainer);
 		$set(this, cachedCycle, cycle);
 		$assign(comp, getFirstComponent(aContainer));
@@ -313,7 +256,7 @@ $Component* SortingFocusTraversalPolicy::getComponentAfter($Container* aContaine
 }
 
 $Component* SortingFocusTraversalPolicy::getComponentBefore($Container* aContainer, $Component* aComponent$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, aComponent, aComponent$renamed);
 	if (aContainer == nullptr || aComponent == nullptr) {
 		$throwNew($IllegalArgumentException, "aContainer and aComponent cannot be null"_s);
@@ -322,8 +265,8 @@ $Component* SortingFocusTraversalPolicy::getComponentBefore($Container* aContain
 	if (var$0 && !aContainer->isFocusCycleRoot()) {
 		$throwNew($IllegalArgumentException, "aContainer should be focus cycle root or focus traversal policy provider"_s);
 	} else {
-		bool var$2 = aContainer->isFocusCycleRoot();
-		if (var$2 && !$nc(aComponent)->isFocusCycleRoot(aContainer)) {
+		bool var$1 = aContainer->isFocusCycleRoot();
+		if (var$1 && !$nc(aComponent)->isFocusCycleRoot(aContainer)) {
 			$throwNew($IllegalArgumentException, "aContainer is not a focus cycle root of aComponent"_s);
 		}
 	}
@@ -368,7 +311,7 @@ $Component* SortingFocusTraversalPolicy::getComponentBefore($Container* aContain
 			return comp;
 		}
 	}
-	if ($nc(aContainer)->isFocusCycleRoot()) {
+	if (aContainer->isFocusCycleRoot()) {
 		$set(this, cachedRoot, aContainer);
 		$set(this, cachedCycle, cycle);
 		$assign(comp, getLastComponent(aContainer));
@@ -380,7 +323,7 @@ $Component* SortingFocusTraversalPolicy::getComponentBefore($Container* aContain
 }
 
 $Component* SortingFocusTraversalPolicy::getFirstComponent($Container* aContainer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, cycle, nullptr);
 	$init($PlatformLogger$Level);
 	if ($nc(this->log)->isLoggable($PlatformLogger$Level::FINE)) {
@@ -404,15 +347,13 @@ $Component* SortingFocusTraversalPolicy::getFirstComponent($Container* aContaine
 		$nc(this->log)->fine($$str({"### Cycle is "_s, cycle}));
 	}
 	{
-		$var($Iterator, i$, $nc(cycle)->iterator());
+		$var($Iterator, i$, cycle->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Component, comp, $cast($Component, i$->next()));
-			{
-				if (accept(comp)) {
-					return comp;
-				} else if (!$equals(comp, aContainer) && ($assign(comp, getComponentDownCycle(comp, SortingFocusTraversalPolicy::FORWARD_TRAVERSAL))) != nullptr) {
-					return comp;
-				}
+			if (accept(comp)) {
+				return comp;
+			} else if (!$equals(comp, aContainer) && ($assign(comp, getComponentDownCycle(comp, SortingFocusTraversalPolicy::FORWARD_TRAVERSAL))) != nullptr) {
+				return comp;
 			}
 		}
 	}
@@ -420,7 +361,7 @@ $Component* SortingFocusTraversalPolicy::getFirstComponent($Container* aContaine
 }
 
 $Component* SortingFocusTraversalPolicy::getLastComponent($Container* aContainer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, cycle, nullptr);
 	$init($PlatformLogger$Level);
 	if ($nc(this->log)->isLoggable($PlatformLogger$Level::FINE)) {
@@ -443,14 +384,14 @@ $Component* SortingFocusTraversalPolicy::getLastComponent($Container* aContainer
 	if ($nc(this->log)->isLoggable($PlatformLogger$Level::FINE)) {
 		$nc(this->log)->fine($$str({"### Cycle is "_s, cycle}));
 	}
-	for (int32_t i = $nc(cycle)->size() - 1; i >= 0; --i) {
+	for (int32_t i = cycle->size() - 1; i >= 0; --i) {
 		$var($Component, comp, $cast($Component, cycle->get(i)));
 		if (accept(comp)) {
 			return comp;
 		} else if ($instanceOf($Container, comp) && !$equals(comp, aContainer)) {
 			$var($Container, cont, $cast($Container, comp));
-			if ($nc(cont)->isFocusTraversalPolicyProvider()) {
-				$var($Component, retComp, $nc($(cont->getFocusTraversalPolicy()))->getLastComponent(cont));
+			if (cont->isFocusTraversalPolicyProvider()) {
+				$var($Component, retComp, $$nc(cont->getFocusTraversalPolicy())->getLastComponent(cont));
 				if (retComp != nullptr) {
 					return retComp;
 				}
@@ -481,16 +422,16 @@ $Comparator* SortingFocusTraversalPolicy::getComparator() {
 }
 
 bool SortingFocusTraversalPolicy::accept($Component* aComponent) {
-	return $nc(SortingFocusTraversalPolicy::fitnessTestPolicy)->accept(aComponent);
+	return SortingFocusTraversalPolicy::fitnessTestPolicy->accept(aComponent);
 }
 
 void SortingFocusTraversalPolicy::mergeSort($ObjectArray* src, $ObjectArray* dest, int32_t low, int32_t high, int32_t off, $Comparator* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = high - low;
 	if (length < 7) {
 		for (int32_t i = low; i < high; ++i) {
-			for (int32_t j = i; j > low && $nc(c)->compare($nc(dest)->get(j - 1), dest->get(j)) > 0; --j) {
-				$var($Object0, t, $nc(dest)->get(j));
+			for (int32_t j = i; j > low && $nc(c)->compare($nc(dest)->get(j - 1), $nc(dest)->get(j)) > 0; --j) {
+				$var($Object0, t, dest->get(j));
 				dest->set(j, dest->get(j - 1));
 				dest->set(j - 1, t);
 			}
@@ -504,30 +445,25 @@ void SortingFocusTraversalPolicy::mergeSort($ObjectArray* src, $ObjectArray* des
 	int32_t mid = (int32_t)((uint32_t)(low + high) >> 1);
 	mergeSort(dest, src, low, mid, -off, c);
 	mergeSort(dest, src, mid, high, -off, c);
-	if ($nc(c)->compare($nc(src)->get(mid - 1), src->get(mid)) <= 0) {
+	if ($nc(c)->compare($nc(src)->get(mid - 1), $nc(src)->get(mid)) <= 0) {
 		$System::arraycopy(src, low, dest, destLow, length);
 		return;
 	}
-	{
-		int32_t i = destLow;
-		int32_t p = low;
-		int32_t q = mid;
-		for (; i < destHigh; ++i) {
-			if (q >= high || p < mid && $nc(c)->compare($nc(src)->get(p), src->get(q)) <= 0) {
-				$nc(dest)->set(i, $nc(src)->get(p++));
-			} else {
-				$nc(dest)->set(i, $nc(src)->get(q++));
-			}
+	for (int32_t i = destLow, p = low, q = mid; i < destHigh; ++i) {
+		if (q >= high || p < mid && c->compare(src->get(p), src->get(q)) <= 0) {
+			$nc(dest)->set(i, src->get(p++));
+		} else {
+			$nc(dest)->set(i, src->get(q++));
 		}
 	}
 }
 
-void clinit$SortingFocusTraversalPolicy($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void SortingFocusTraversalPolicy::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$assignStatic(SortingFocusTraversalPolicy::fitnessTestPolicy, $new($SwingContainerOrderFocusTraversalPolicy));
 	{
-		SortingFocusTraversalPolicy::legacySortingFTPEnabled = "true"_s->equals($($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "swing.legacySortingFTPEnabled"_s, "true"_s)))));
+		SortingFocusTraversalPolicy::legacySortingFTPEnabled = "true"_s->equals($($AccessController::doPrivileged($$new($GetPropertyAction, "swing.legacySortingFTPEnabled"_s, "true"_s))));
 	}
 }
 
@@ -535,7 +471,52 @@ SortingFocusTraversalPolicy::SortingFocusTraversalPolicy() {
 }
 
 $Class* SortingFocusTraversalPolicy::load$($String* name, bool initialize) {
-	$loadClass(SortingFocusTraversalPolicy, name, initialize, &_SortingFocusTraversalPolicy_ClassInfo_, clinit$SortingFocusTraversalPolicy, allocate$SortingFocusTraversalPolicy);
+	$FieldInfo fieldInfos$$[] = {
+		{"comparator", "Ljava/util/Comparator;", "Ljava/util/Comparator<-Ljava/awt/Component;>;", $PRIVATE, $field(SortingFocusTraversalPolicy, comparator)},
+		{"implicitDownCycleTraversal", "Z", nullptr, $PRIVATE, $field(SortingFocusTraversalPolicy, implicitDownCycleTraversal)},
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE, $field(SortingFocusTraversalPolicy, log)},
+		{"cachedRoot", "Ljava/awt/Container;", nullptr, $PRIVATE | $TRANSIENT, $field(SortingFocusTraversalPolicy, cachedRoot)},
+		{"cachedCycle", "Ljava/util/List;", "Ljava/util/List<Ljava/awt/Component;>;", $PRIVATE | $TRANSIENT, $field(SortingFocusTraversalPolicy, cachedCycle)},
+		{"fitnessTestPolicy", "Ljavax/swing/SwingContainerOrderFocusTraversalPolicy;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SortingFocusTraversalPolicy, fitnessTestPolicy)},
+		{"FORWARD_TRAVERSAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SortingFocusTraversalPolicy, FORWARD_TRAVERSAL)},
+		{"BACKWARD_TRAVERSAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SortingFocusTraversalPolicy, BACKWARD_TRAVERSAL)},
+		{"legacySortingFTPEnabled", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SortingFocusTraversalPolicy, legacySortingFTPEnabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(SortingFocusTraversalPolicy, init$, void)},
+		{"<init>", "(Ljava/util/Comparator;)V", "(Ljava/util/Comparator<-Ljava/awt/Component;>;)V", $PUBLIC, $method(SortingFocusTraversalPolicy, init$, void, $Comparator*)},
+		{"accept", "(Ljava/awt/Component;)Z", nullptr, $PROTECTED, $virtualMethod(SortingFocusTraversalPolicy, accept, bool, $Component*)},
+		{"enumerateAndSortCycle", "(Ljava/awt/Container;Ljava/util/List;)V", "(Ljava/awt/Container;Ljava/util/List<Ljava/awt/Component;>;)V", $PRIVATE, $method(SortingFocusTraversalPolicy, enumerateAndSortCycle, void, $Container*, $List*)},
+		{"enumerateCycle", "(Ljava/awt/Container;Ljava/util/List;)V", "(Ljava/awt/Container;Ljava/util/List<Ljava/awt/Component;>;)V", $PRIVATE, $method(SortingFocusTraversalPolicy, enumerateCycle, void, $Container*, $List*)},
+		{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-Ljava/awt/Component;>;", $PROTECTED, $virtualMethod(SortingFocusTraversalPolicy, getComparator, $Comparator*)},
+		{"getComponentAfter", "(Ljava/awt/Container;Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(SortingFocusTraversalPolicy, getComponentAfter, $Component*, $Container*, $Component*)},
+		{"getComponentBefore", "(Ljava/awt/Container;Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(SortingFocusTraversalPolicy, getComponentBefore, $Component*, $Container*, $Component*)},
+		{"getComponentDownCycle", "(Ljava/awt/Component;I)Ljava/awt/Component;", nullptr, $PRIVATE, $method(SortingFocusTraversalPolicy, getComponentDownCycle, $Component*, $Component*, int32_t)},
+		{"getComponentIndex", "(Ljava/util/List;Ljava/awt/Component;)I", "(Ljava/util/List<Ljava/awt/Component;>;Ljava/awt/Component;)I", $PRIVATE, $method(SortingFocusTraversalPolicy, getComponentIndex, int32_t, $List*, $Component*)},
+		{"getDefaultComponent", "(Ljava/awt/Container;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(SortingFocusTraversalPolicy, getDefaultComponent, $Component*, $Container*)},
+		{"getFirstComponent", "(Ljava/awt/Container;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(SortingFocusTraversalPolicy, getFirstComponent, $Component*, $Container*)},
+		{"getFocusTraversalCycle", "(Ljava/awt/Container;)Ljava/util/List;", "(Ljava/awt/Container;)Ljava/util/List<Ljava/awt/Component;>;", $PRIVATE, $method(SortingFocusTraversalPolicy, getFocusTraversalCycle, $List*, $Container*)},
+		{"getImplicitDownCycleTraversal", "()Z", nullptr, $PUBLIC, $virtualMethod(SortingFocusTraversalPolicy, getImplicitDownCycleTraversal, bool)},
+		{"getLastComponent", "(Ljava/awt/Container;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(SortingFocusTraversalPolicy, getLastComponent, $Component*, $Container*)},
+		{"getTopmostProvider", "(Ljava/awt/Container;Ljava/awt/Component;)Ljava/awt/Container;", nullptr, 0, $virtualMethod(SortingFocusTraversalPolicy, getTopmostProvider, $Container*, $Container*, $Component*)},
+		{"legacySort", "(Ljava/util/List;Ljava/util/Comparator;)V", "(Ljava/util/List<Ljava/awt/Component;>;Ljava/util/Comparator<-Ljava/awt/Component;>;)V", $PRIVATE, $method(SortingFocusTraversalPolicy, legacySort, void, $List*, $Comparator*)},
+		{"mergeSort", "([Ljava/lang/Object;[Ljava/lang/Object;IIILjava/util/Comparator;)V", "<T:Ljava/lang/Object;>([TT;[TT;IIILjava/util/Comparator<-TT;>;)V", $PRIVATE, $method(SortingFocusTraversalPolicy, mergeSort, void, $ObjectArray*, $ObjectArray*, int32_t, int32_t, int32_t, $Comparator*)},
+		{"setComparator", "(Ljava/util/Comparator;)V", "(Ljava/util/Comparator<-Ljava/awt/Component;>;)V", $PROTECTED, $virtualMethod(SortingFocusTraversalPolicy, setComparator, void, $Comparator*)},
+		{"setImplicitDownCycleTraversal", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SortingFocusTraversalPolicy, setImplicitDownCycleTraversal, void, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.SortingFocusTraversalPolicy",
+		"javax.swing.InternalFrameFocusTraversalPolicy",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SortingFocusTraversalPolicy, name, initialize, &classInfo$$, SortingFocusTraversalPolicy::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SortingFocusTraversalPolicy);
+	});
 	return class$;
 }
 

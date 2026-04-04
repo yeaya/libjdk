@@ -1,5 +1,4 @@
 #include <javax/annotation/processing/Completion.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,27 +8,23 @@ namespace javax {
 	namespace annotation {
 		namespace processing {
 
-$MethodInfo _Completion_MethodInfo_[] = {
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Completion, getMessage, $String*)},
-	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Completion, getValue, $String*)},
-	{}
-};
-
-$ClassInfo _Completion_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.annotation.processing.Completion",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Completion_MethodInfo_
-};
-
-$Object* allocate$Completion($Class* clazz) {
-	return $of($alloc(Completion));
-}
-
 $Class* Completion::load$($String* name, bool initialize) {
-	$loadClass(Completion, name, initialize, &_Completion_ClassInfo_, allocate$Completion);
+	$MethodInfo methodInfos$$[] = {
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Completion, getMessage, $String*)},
+		{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Completion, getValue, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.annotation.processing.Completion",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Completion, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Completion);
+	});
 	return class$;
 }
 

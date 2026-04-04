@@ -14,6 +14,7 @@ class IBM935$EncodeHolder : public ::java::lang::Object {
 	$class(IBM935$EncodeHolder, 0, ::java::lang::Object)
 public:
 	IBM935$EncodeHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $chars* c2b;
 	static $chars* c2bIndex;

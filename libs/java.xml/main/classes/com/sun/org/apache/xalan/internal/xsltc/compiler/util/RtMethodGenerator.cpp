@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/RtMethodGenerator.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ALOAD.h>
 #include <com/sun/org/apache/bcel/internal/generic/ASTORE.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
@@ -34,35 +33,6 @@ namespace com {
 							namespace compiler {
 								namespace util {
 
-$FieldInfo _RtMethodGenerator_FieldInfo_[] = {
-	{"HANDLER_INDEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RtMethodGenerator, HANDLER_INDEX)},
-	{"_astoreHandler", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(RtMethodGenerator, _astoreHandler)},
-	{"_aloadHandler", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(RtMethodGenerator, _aloadHandler)},
-	{}
-};
-
-$MethodInfo _RtMethodGenerator_MethodInfo_[] = {
-	{"<init>", "(ILcom/sun/org/apache/bcel/internal/generic/Type;[Lcom/sun/org/apache/bcel/internal/generic/Type;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(RtMethodGenerator, init$, void, int32_t, $Type*, $TypeArray*, $StringArray*, $String*, $String*, $InstructionList*, $ConstantPoolGen*)},
-	{"getIteratorIndex", "()I", nullptr, $PUBLIC, $method(RtMethodGenerator, getIteratorIndex, int32_t)},
-	{"getLocalIndex", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(RtMethodGenerator, getLocalIndex, int32_t, $String*)},
-	{"loadHandler", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $FINAL, $virtualMethod(RtMethodGenerator, loadHandler, $Instruction*)},
-	{"storeHandler", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $FINAL, $virtualMethod(RtMethodGenerator, storeHandler, $Instruction*)},
-	{}
-};
-
-$ClassInfo _RtMethodGenerator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.RtMethodGenerator",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.MethodGenerator",
-	nullptr,
-	_RtMethodGenerator_FieldInfo_,
-	_RtMethodGenerator_MethodInfo_
-};
-
-$Object* allocate$RtMethodGenerator($Class* clazz) {
-	return $of($alloc(RtMethodGenerator));
-}
-
 void RtMethodGenerator::init$(int32_t access_flags, $Type* return_type, $TypeArray* arg_types, $StringArray* arg_names, $String* method_name, $String* class_name, $InstructionList* il, $ConstantPoolGen* cp) {
 	$MethodGenerator::init$(access_flags, return_type, arg_types, arg_names, method_name, class_name, il, cp);
 	$set(this, _astoreHandler, $new($ASTORE, RtMethodGenerator::HANDLER_INDEX));
@@ -89,7 +59,31 @@ RtMethodGenerator::RtMethodGenerator() {
 }
 
 $Class* RtMethodGenerator::load$($String* name, bool initialize) {
-	$loadClass(RtMethodGenerator, name, initialize, &_RtMethodGenerator_ClassInfo_, allocate$RtMethodGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"HANDLER_INDEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RtMethodGenerator, HANDLER_INDEX)},
+		{"_astoreHandler", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(RtMethodGenerator, _astoreHandler)},
+		{"_aloadHandler", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(RtMethodGenerator, _aloadHandler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILcom/sun/org/apache/bcel/internal/generic/Type;[Lcom/sun/org/apache/bcel/internal/generic/Type;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(RtMethodGenerator, init$, void, int32_t, $Type*, $TypeArray*, $StringArray*, $String*, $String*, $InstructionList*, $ConstantPoolGen*)},
+		{"getIteratorIndex", "()I", nullptr, $PUBLIC, $method(RtMethodGenerator, getIteratorIndex, int32_t)},
+		{"getLocalIndex", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(RtMethodGenerator, getLocalIndex, int32_t, $String*)},
+		{"loadHandler", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $FINAL, $virtualMethod(RtMethodGenerator, loadHandler, $Instruction*)},
+		{"storeHandler", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $FINAL, $virtualMethod(RtMethodGenerator, storeHandler, $Instruction*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.RtMethodGenerator",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.MethodGenerator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RtMethodGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RtMethodGenerator));
+	});
 	return class$;
 }
 

@@ -22,7 +22,7 @@ class $export FlavorEvent : public ::java::util::EventObject {
 public:
 	FlavorEvent();
 	void init$(::java::awt::datatransfer::Clipboard* source);
-	static const int64_t serialVersionUID = (int64_t)0xAEEAAFF2174595AC;
+	static const int64_t serialVersionUID = (int64_t)0xaeeaaff2174595ac;
 };
 
 		} // datatransfer

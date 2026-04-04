@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/SchemaDVFactoryImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/XSSimpleType.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/BaseSchemaDVFactory.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl.h>
@@ -24,32 +23,6 @@ namespace com {
 							namespace dv {
 								namespace xs {
 
-$FieldInfo _SchemaDVFactoryImpl_FieldInfo_[] = {
-	{"fBuiltInTypes", "Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, $STATIC | $FINAL, $staticField(SchemaDVFactoryImpl, fBuiltInTypes)},
-	{}
-};
-
-$MethodInfo _SchemaDVFactoryImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SchemaDVFactoryImpl, init$, void)},
-	{"createBuiltInTypes", "()V", nullptr, $STATIC, $staticMethod(SchemaDVFactoryImpl, createBuiltInTypes, void)},
-	{"getBuiltInType", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, $PUBLIC, $virtualMethod(SchemaDVFactoryImpl, getBuiltInType, $XSSimpleType*, $String*)},
-	{"getBuiltInTypes", "()Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, $PUBLIC, $virtualMethod(SchemaDVFactoryImpl, getBuiltInTypes, $SymbolHash*)},
-	{}
-};
-
-$ClassInfo _SchemaDVFactoryImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.SchemaDVFactoryImpl",
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.BaseSchemaDVFactory",
-	nullptr,
-	_SchemaDVFactoryImpl_FieldInfo_,
-	_SchemaDVFactoryImpl_MethodInfo_
-};
-
-$Object* allocate$SchemaDVFactoryImpl($Class* clazz) {
-	return $of($alloc(SchemaDVFactoryImpl));
-}
-
 $SymbolHash* SchemaDVFactoryImpl::fBuiltInTypes = nullptr;
 
 void SchemaDVFactoryImpl::init$() {
@@ -63,14 +36,14 @@ void SchemaDVFactoryImpl::createBuiltInTypes() {
 }
 
 $XSSimpleType* SchemaDVFactoryImpl::getBuiltInType($String* name) {
-	return $cast($XSSimpleType, $nc(SchemaDVFactoryImpl::fBuiltInTypes)->get(name));
+	return $cast($XSSimpleType, SchemaDVFactoryImpl::fBuiltInTypes->get(name));
 }
 
 $SymbolHash* SchemaDVFactoryImpl::getBuiltInTypes() {
-	return $nc(SchemaDVFactoryImpl::fBuiltInTypes)->makeClone();
+	return SchemaDVFactoryImpl::fBuiltInTypes->makeClone();
 }
 
-void clinit$SchemaDVFactoryImpl($Class* class$) {
+void SchemaDVFactoryImpl::clinit$($Class* clazz) {
 	$assignStatic(SchemaDVFactoryImpl::fBuiltInTypes, $new($SymbolHash));
 	{
 		SchemaDVFactoryImpl::createBuiltInTypes();
@@ -81,7 +54,28 @@ SchemaDVFactoryImpl::SchemaDVFactoryImpl() {
 }
 
 $Class* SchemaDVFactoryImpl::load$($String* name, bool initialize) {
-	$loadClass(SchemaDVFactoryImpl, name, initialize, &_SchemaDVFactoryImpl_ClassInfo_, clinit$SchemaDVFactoryImpl, allocate$SchemaDVFactoryImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fBuiltInTypes", "Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, $STATIC | $FINAL, $staticField(SchemaDVFactoryImpl, fBuiltInTypes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SchemaDVFactoryImpl, init$, void)},
+		{"createBuiltInTypes", "()V", nullptr, $STATIC, $staticMethod(SchemaDVFactoryImpl, createBuiltInTypes, void)},
+		{"getBuiltInType", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, $PUBLIC, $virtualMethod(SchemaDVFactoryImpl, getBuiltInType, $XSSimpleType*, $String*)},
+		{"getBuiltInTypes", "()Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, $PUBLIC, $virtualMethod(SchemaDVFactoryImpl, getBuiltInTypes, $SymbolHash*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.SchemaDVFactoryImpl",
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.BaseSchemaDVFactory",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SchemaDVFactoryImpl, name, initialize, &classInfo$$, SchemaDVFactoryImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SchemaDVFactoryImpl);
+	});
 	return class$;
 }
 

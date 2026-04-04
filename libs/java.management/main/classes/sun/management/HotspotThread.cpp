@@ -1,5 +1,4 @@
 #include <sun/management/HotspotThread.h>
-
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/List.h>
@@ -25,40 +24,6 @@ using $VMManagement = ::sun::management::VMManagement;
 namespace sun {
 	namespace management {
 
-$FieldInfo _HotspotThread_FieldInfo_[] = {
-	{"jvm", "Lsun/management/VMManagement;", nullptr, $PRIVATE, $field(HotspotThread, jvm)},
-	{"JAVA_THREADS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotThread, JAVA_THREADS)},
-	{"COM_SUN_THREADS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotThread, COM_SUN_THREADS)},
-	{"SUN_THREADS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotThread, SUN_THREADS)},
-	{"THREADS_COUNTER_NAME_PATTERN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotThread, THREADS_COUNTER_NAME_PATTERN)},
-	{}
-};
-
-$MethodInfo _HotspotThread_MethodInfo_[] = {
-	{"<init>", "(Lsun/management/VMManagement;)V", nullptr, 0, $method(HotspotThread, init$, void, $VMManagement*)},
-	{"getInternalThreadCount", "()I", nullptr, $PUBLIC | $NATIVE, $virtualMethod(HotspotThread, getInternalThreadCount, int32_t)},
-	{"getInternalThreadCpuTimes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Long;>;", $PUBLIC, $virtualMethod(HotspotThread, getInternalThreadCpuTimes, $Map*)},
-	{"getInternalThreadTimes0", "([Ljava/lang/String;[J)I", nullptr, $PUBLIC | $NATIVE, $virtualMethod(HotspotThread, getInternalThreadTimes0, int32_t, $StringArray*, $longs*)},
-	{"getInternalThreadingCounters", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC, $virtualMethod(HotspotThread, getInternalThreadingCounters, $List*)},
-	{}
-};
-
-#define _METHOD_INDEX_getInternalThreadCount 1
-#define _METHOD_INDEX_getInternalThreadTimes0 3
-
-$ClassInfo _HotspotThread_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.management.HotspotThread",
-	"java.lang.Object",
-	"sun.management.HotspotThreadMBean",
-	_HotspotThread_FieldInfo_,
-	_HotspotThread_MethodInfo_
-};
-
-$Object* allocate$HotspotThread($Class* clazz) {
-	return $of($alloc(HotspotThread));
-}
-
 $String* HotspotThread::JAVA_THREADS = nullptr;
 $String* HotspotThread::COM_SUN_THREADS = nullptr;
 $String* HotspotThread::SUN_THREADS = nullptr;
@@ -69,15 +34,14 @@ void HotspotThread::init$($VMManagement* vm) {
 }
 
 int32_t HotspotThread::getInternalThreadCount() {
-	int32_t $ret = 0;
-	$prepareNative(HotspotThread, getInternalThreadCount, int32_t);
-	$ret = $invokeNative();
+	$prepareNative(getInternalThreadCount, int32_t);
+	int32_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 $Map* HotspotThread::getInternalThreadCpuTimes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = getInternalThreadCount();
 	if (count == 0) {
 		return $Collections::emptyMap();
@@ -93,9 +57,8 @@ $Map* HotspotThread::getInternalThreadCpuTimes() {
 }
 
 int32_t HotspotThread::getInternalThreadTimes0($StringArray* names, $longs* times) {
-	int32_t $ret = 0;
-	$prepareNative(HotspotThread, getInternalThreadTimes0, int32_t, $StringArray* names, $longs* times);
-	$ret = $invokeNative(names, times);
+	$prepareNative(getInternalThreadTimes0, int32_t, $StringArray* names, $longs* times);
+	int32_t $ret = $invokeNative(names, times);
 	$finishNative();
 	return $ret;
 }
@@ -107,7 +70,7 @@ $List* HotspotThread::getInternalThreadingCounters() {
 HotspotThread::HotspotThread() {
 }
 
-void clinit$HotspotThread($Class* class$) {
+void HotspotThread::clinit$($Class* clazz) {
 	$assignStatic(HotspotThread::JAVA_THREADS, "java.threads."_s);
 	$assignStatic(HotspotThread::COM_SUN_THREADS, "com.sun.threads."_s);
 	$assignStatic(HotspotThread::SUN_THREADS, "sun.threads."_s);
@@ -115,7 +78,33 @@ void clinit$HotspotThread($Class* class$) {
 }
 
 $Class* HotspotThread::load$($String* name, bool initialize) {
-	$loadClass(HotspotThread, name, initialize, &_HotspotThread_ClassInfo_, clinit$HotspotThread, allocate$HotspotThread);
+	$FieldInfo fieldInfos$$[] = {
+		{"jvm", "Lsun/management/VMManagement;", nullptr, $PRIVATE, $field(HotspotThread, jvm)},
+		{"JAVA_THREADS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotThread, JAVA_THREADS)},
+		{"COM_SUN_THREADS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotThread, COM_SUN_THREADS)},
+		{"SUN_THREADS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotThread, SUN_THREADS)},
+		{"THREADS_COUNTER_NAME_PATTERN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotThread, THREADS_COUNTER_NAME_PATTERN)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/management/VMManagement;)V", nullptr, 0, $method(HotspotThread, init$, void, $VMManagement*)},
+		{"getInternalThreadCount", "()I", nullptr, $PUBLIC | $NATIVE, $virtualMethod(HotspotThread, getInternalThreadCount, int32_t)},
+		{"getInternalThreadCpuTimes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Long;>;", $PUBLIC, $virtualMethod(HotspotThread, getInternalThreadCpuTimes, $Map*)},
+		{"getInternalThreadTimes0", "([Ljava/lang/String;[J)I", nullptr, $PUBLIC | $NATIVE, $virtualMethod(HotspotThread, getInternalThreadTimes0, int32_t, $StringArray*, $longs*)},
+		{"getInternalThreadingCounters", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC, $virtualMethod(HotspotThread, getInternalThreadingCounters, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.management.HotspotThread",
+		"java.lang.Object",
+		"sun.management.HotspotThreadMBean",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HotspotThread, name, initialize, &classInfo$$, HotspotThread::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HotspotThread);
+	});
 	return class$;
 }
 

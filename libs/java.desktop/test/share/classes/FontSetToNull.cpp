@@ -1,5 +1,4 @@
 #include <FontSetToNull.h>
-
 #include <FontSetToNull$1.h>
 #include <java/awt/Component.h>
 #include <java/awt/Font.h>
@@ -29,13 +28,10 @@
 
 using $FontSetToNull$1 = ::FontSetToNull$1;
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
-using $Component = ::java::awt::Component;
 using $Font = ::java::awt::Font;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -44,7 +40,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $JFormattedTextField = ::javax::swing::JFormattedTextField;
 using $JSpinner = ::javax::swing::JSpinner;
 using $JSpinner$DefaultEditor = ::javax::swing::JSpinner$DefaultEditor;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
@@ -62,33 +57,29 @@ public:
 	virtual void run() override {
 		FontSetToNull::lambda$main$0(laf);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<FontSetToNull$$Lambda$lambda$main$0>());
-	}
 	$UIManager$LookAndFeelInfo* laf = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo FontSetToNull$$Lambda$lambda$main$0::fieldInfos[2] = {
-	{"laf", "Ljavax/swing/UIManager$LookAndFeelInfo;", nullptr, $PUBLIC, $field(FontSetToNull$$Lambda$lambda$main$0, laf)},
-	{}
-};
-$MethodInfo FontSetToNull$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PUBLIC, $method(FontSetToNull$$Lambda$lambda$main$0, init$, void, $UIManager$LookAndFeelInfo*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FontSetToNull$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo FontSetToNull$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"FontSetToNull$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* FontSetToNull$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(FontSetToNull$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"laf", "Ljavax/swing/UIManager$LookAndFeelInfo;", nullptr, $PUBLIC, $field(FontSetToNull$$Lambda$lambda$main$0, laf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PUBLIC, $method(FontSetToNull$$Lambda$lambda$main$0, init$, void, $UIManager$LookAndFeelInfo*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FontSetToNull$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"FontSetToNull$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FontSetToNull$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FontSetToNull$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* FontSetToNull$$Lambda$lambda$main$0::class$ = nullptr;
@@ -101,69 +92,27 @@ public:
 	virtual void run() override {
 		FontSetToNull::lambda$main$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<FontSetToNull$$Lambda$lambda$main$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo FontSetToNull$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FontSetToNull$$Lambda$lambda$main$1$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FontSetToNull$$Lambda$lambda$main$1$1, run, void)},
-	{}
-};
-$ClassInfo FontSetToNull$$Lambda$lambda$main$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"FontSetToNull$$Lambda$lambda$main$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* FontSetToNull$$Lambda$lambda$main$1$1::load$($String* name, bool initialize) {
-	$loadClass(FontSetToNull$$Lambda$lambda$main$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FontSetToNull$$Lambda$lambda$main$1$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FontSetToNull$$Lambda$lambda$main$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"FontSetToNull$$Lambda$lambda$main$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FontSetToNull$$Lambda$lambda$main$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FontSetToNull$$Lambda$lambda$main$1$1);
+	});
 	return class$;
 }
 $Class* FontSetToNull$$Lambda$lambda$main$1$1::class$ = nullptr;
-
-$FieldInfo _FontSetToNull_FieldInfo_[] = {
-	{"USERS_FONT", "Ljava/awt/Font;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FontSetToNull, USERS_FONT)},
-	{}
-};
-
-$MethodInfo _FontSetToNull_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FontSetToNull, init$, void)},
-	{"lambda$main$0", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FontSetToNull, lambda$main$0, void, $UIManager$LookAndFeelInfo*)},
-	{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FontSetToNull, lambda$main$1, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FontSetToNull, main, void, $StringArray*), "java.lang.Exception"},
-	{"setLookAndFeel", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FontSetToNull, setLookAndFeel, void, $UIManager$LookAndFeelInfo*)},
-	{"test", "(Ljavax/swing/JSpinner;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FontSetToNull, test, void, $JSpinner*)},
-	{}
-};
-
-$InnerClassInfo _FontSetToNull_InnerClassesInfo_[] = {
-	{"FontSetToNull$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FontSetToNull_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"FontSetToNull",
-	"java.lang.Object",
-	nullptr,
-	_FontSetToNull_FieldInfo_,
-	_FontSetToNull_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FontSetToNull_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"FontSetToNull$1"
-};
-
-$Object* allocate$FontSetToNull($Class* clazz) {
-	return $of($alloc(FontSetToNull));
-}
 
 $Font* FontSetToNull::USERS_FONT = nullptr;
 
@@ -172,31 +121,27 @@ void FontSetToNull::init$() {
 
 void FontSetToNull::main($StringArray* args) {
 	$init(FontSetToNull);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($UIManager$LookAndFeelInfo, laf, arr$->get(i$));
-			{
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(FontSetToNull$$Lambda$lambda$main$0, laf)));
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(FontSetToNull$$Lambda$lambda$main$1$1)));
-			}
+	$useLocalObjectStack();
+	$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($UIManager$LookAndFeelInfo, laf, arr$->get(i$));
+		{
+			$SwingUtilities::invokeAndWait($$new(FontSetToNull$$Lambda$lambda$main$0, laf));
+			$SwingUtilities::invokeAndWait($$new(FontSetToNull$$Lambda$lambda$main$1$1));
 		}
 	}
 }
 
 void FontSetToNull::test($JSpinner* spinner) {
 	$init(FontSetToNull);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JSpinner$DefaultEditor, de, $cast($JSpinner$DefaultEditor, $nc(spinner)->getEditor()));
 	spinner->setFont(nullptr);
 	$SwingUtilities::updateComponentTreeUI(de);
 	spinner->setFont(nullptr);
-	$nc($($nc(de)->getTextField()))->setFont(FontSetToNull::USERS_FONT);
+	$$nc($nc(de)->getTextField())->setFont(FontSetToNull::USERS_FONT);
 	spinner->setFont(nullptr);
-	$var($Font, tff, $nc($(de->getTextField()))->getFont());
+	$var($Font, tff, $$nc(de->getTextField())->getFont());
 	if ($instanceOf($UIResource, tff) || !$nc(tff)->equals(FontSetToNull::USERS_FONT)) {
 		$throwNew($RuntimeException, $$str({"Wrong font: "_s, tff}));
 	}
@@ -205,24 +150,24 @@ void FontSetToNull::test($JSpinner* spinner) {
 
 void FontSetToNull::setLookAndFeel($UIManager$LookAndFeelInfo* laf) {
 	$init(FontSetToNull);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$UIManager::setLookAndFeel($($nc(laf)->getClassName()));
-		$nc($System::out)->println($$str({"LookAndFeel: "_s, $($nc(laf)->getClassName())}));
+		$nc($System::out)->println($$str({"LookAndFeel: "_s, $(laf->getClassName())}));
 	} catch ($ClassNotFoundException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($InstantiationException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($UnsupportedLookAndFeelException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($IllegalAccessException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
 void FontSetToNull::lambda$main$1() {
 	$init(FontSetToNull);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	test($$new($JSpinner));
 	test($$new($FontSetToNull$1));
 }
@@ -232,7 +177,7 @@ void FontSetToNull::lambda$main$0($UIManager$LookAndFeelInfo* laf) {
 	setLookAndFeel(laf);
 }
 
-void clinit$FontSetToNull($Class* class$) {
+void FontSetToNull::clinit$($Class* clazz) {
 	$assignStatic(FontSetToNull::USERS_FONT, $new($Font, "dialog"_s, $Font::BOLD, 41));
 }
 
@@ -241,14 +186,47 @@ FontSetToNull::FontSetToNull() {
 
 $Class* FontSetToNull::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(FontSetToNull$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("FontSetToNull$$Lambda$lambda$main$0")) {
 			return FontSetToNull$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(FontSetToNull$$Lambda$lambda$main$1$1::classInfo$.name)) {
+		if (name->equals("FontSetToNull$$Lambda$lambda$main$1$1")) {
 			return FontSetToNull$$Lambda$lambda$main$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(FontSetToNull, name, initialize, &_FontSetToNull_ClassInfo_, clinit$FontSetToNull, allocate$FontSetToNull);
+	$FieldInfo fieldInfos$$[] = {
+		{"USERS_FONT", "Ljava/awt/Font;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FontSetToNull, USERS_FONT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FontSetToNull, init$, void)},
+		{"lambda$main$0", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FontSetToNull, lambda$main$0, void, $UIManager$LookAndFeelInfo*)},
+		{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FontSetToNull, lambda$main$1, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FontSetToNull, main, void, $StringArray*), "java.lang.Exception"},
+		{"setLookAndFeel", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FontSetToNull, setLookAndFeel, void, $UIManager$LookAndFeelInfo*)},
+		{"test", "(Ljavax/swing/JSpinner;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FontSetToNull, test, void, $JSpinner*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"FontSetToNull$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"FontSetToNull",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"FontSetToNull$1"
+	};
+	$loadClass(FontSetToNull, name, initialize, &classInfo$$, FontSetToNull::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FontSetToNull);
+	});
 	return class$;
 }
 

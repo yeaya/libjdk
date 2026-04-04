@@ -75,6 +75,7 @@ class SpNegoContext : public ::sun::security::jgss::spi::GSSContextSpi {
 	$class(SpNegoContext, 0, ::sun::security::jgss::spi::GSSContextSpi)
 public:
 	SpNegoContext();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::jgss::spnego::SpNegoMechFactory* factory, ::sun::security::jgss::spi::GSSNameSpi* peerName, ::sun::security::jgss::spi::GSSCredentialSpi* myCred, int32_t lifetime);
 	void init$(::sun::security::jgss::spnego::SpNegoMechFactory* factory, ::sun::security::jgss::spi::GSSCredentialSpi* myCred);
 	void init$(::sun::security::jgss::spnego::SpNegoMechFactory* factory, $bytes* interProcessToken);

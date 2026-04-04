@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/ElementPSVImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/PSVIErrorList.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar.h>
@@ -49,84 +48,6 @@ namespace com {
 						namespace impl {
 							namespace xs {
 
-$CompoundAttribute _ElementPSVImpl_MethodAnnotations_getActualNormalizedValue4[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ElementPSVImpl_MethodAnnotations_getActualNormalizedValueType5[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ElementPSVImpl_MethodAnnotations_getItemValueTypes10[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ElementPSVImpl_MethodAnnotations_getSchemaNormalizedValue16[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _ElementPSVImpl_FieldInfo_[] = {
-	{"fDeclaration", "Lcom/sun/org/apache/xerces/internal/xs/XSElementDeclaration;", nullptr, $PROTECTED, $field(ElementPSVImpl, fDeclaration)},
-	{"fTypeDecl", "Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;", nullptr, $PROTECTED, $field(ElementPSVImpl, fTypeDecl)},
-	{"fNil", "Z", nullptr, $PROTECTED, $field(ElementPSVImpl, fNil)},
-	{"fSpecified", "Z", nullptr, $PROTECTED, $field(ElementPSVImpl, fSpecified)},
-	{"fValue", "Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;", nullptr, $PROTECTED, $field(ElementPSVImpl, fValue)},
-	{"fNotation", "Lcom/sun/org/apache/xerces/internal/xs/XSNotationDeclaration;", nullptr, $PROTECTED, $field(ElementPSVImpl, fNotation)},
-	{"fValidationAttempted", "S", nullptr, $PROTECTED, $field(ElementPSVImpl, fValidationAttempted)},
-	{"fValidity", "S", nullptr, $PROTECTED, $field(ElementPSVImpl, fValidity)},
-	{"fErrors", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(ElementPSVImpl, fErrors)},
-	{"fValidationContext", "Ljava/lang/String;", nullptr, $PROTECTED, $field(ElementPSVImpl, fValidationContext)},
-	{"fGrammars", "[Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;", nullptr, $PROTECTED, $field(ElementPSVImpl, fGrammars)},
-	{"fSchemaInformation", "Lcom/sun/org/apache/xerces/internal/xs/XSModel;", nullptr, $PROTECTED, $field(ElementPSVImpl, fSchemaInformation)},
-	{"fIsConstant", "Z", nullptr, $PROTECTED, $field(ElementPSVImpl, fIsConstant)},
-	{}
-};
-
-$MethodInfo _ElementPSVImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ElementPSVImpl, init$, void)},
-	{"<init>", "(ZLcom/sun/org/apache/xerces/internal/xs/ElementPSVI;)V", nullptr, $PUBLIC, $method(ElementPSVImpl, init$, void, bool, $ElementPSVI*)},
-	{"constant", "()Lcom/sun/org/apache/xerces/internal/xs/ItemPSVI;", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, constant, $ItemPSVI*)},
-	{"copySchemaInformationTo", "(Lcom/sun/org/apache/xerces/internal/impl/xs/ElementPSVImpl;)V", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, copySchemaInformationTo, void, ElementPSVImpl*)},
-	{"getActualNormalizedValue", "()Ljava/lang/Object;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(ElementPSVImpl, getActualNormalizedValue, $Object*), nullptr, nullptr, _ElementPSVImpl_MethodAnnotations_getActualNormalizedValue4},
-	{"getActualNormalizedValueType", "()S", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(ElementPSVImpl, getActualNormalizedValueType, int16_t), nullptr, nullptr, _ElementPSVImpl_MethodAnnotations_getActualNormalizedValueType5},
-	{"getElementDeclaration", "()Lcom/sun/org/apache/xerces/internal/xs/XSElementDeclaration;", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, getElementDeclaration, $XSElementDeclaration*)},
-	{"getErrorCodes", "()Lcom/sun/org/apache/xerces/internal/xs/StringList;", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, getErrorCodes, $StringList*)},
-	{"getErrorMessages", "()Lcom/sun/org/apache/xerces/internal/xs/StringList;", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, getErrorMessages, $StringList*)},
-	{"getIsSchemaSpecified", "()Z", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, getIsSchemaSpecified, bool)},
-	{"getItemValueTypes", "()Lcom/sun/org/apache/xerces/internal/xs/ShortList;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(ElementPSVImpl, getItemValueTypes, $ShortList*), nullptr, nullptr, _ElementPSVImpl_MethodAnnotations_getItemValueTypes10},
-	{"getMemberTypeDefinition", "()Lcom/sun/org/apache/xerces/internal/xs/XSSimpleTypeDefinition;", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, getMemberTypeDefinition, $XSSimpleTypeDefinition*)},
-	{"getNil", "()Z", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, getNil, bool)},
-	{"getNotation", "()Lcom/sun/org/apache/xerces/internal/xs/XSNotationDeclaration;", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, getNotation, $XSNotationDeclaration*)},
-	{"getSchemaDefault", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, getSchemaDefault, $String*)},
-	{"getSchemaInformation", "()Lcom/sun/org/apache/xerces/internal/xs/XSModel;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ElementPSVImpl, getSchemaInformation, $XSModel*)},
-	{"getSchemaNormalizedValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(ElementPSVImpl, getSchemaNormalizedValue, $String*), nullptr, nullptr, _ElementPSVImpl_MethodAnnotations_getSchemaNormalizedValue16},
-	{"getSchemaValue", "()Lcom/sun/org/apache/xerces/internal/xs/XSValue;", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, getSchemaValue, $XSValue*)},
-	{"getTypeDefinition", "()Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, getTypeDefinition, $XSTypeDefinition*)},
-	{"getValidationAttempted", "()S", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, getValidationAttempted, int16_t)},
-	{"getValidationContext", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, getValidationContext, $String*)},
-	{"getValidity", "()S", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, getValidity, int16_t)},
-	{"isConstant", "()Z", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, isConstant, bool)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, reset, void)},
-	{}
-};
-
-$ClassInfo _ElementPSVImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.ElementPSVImpl",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.xs.ElementPSVI",
-	_ElementPSVImpl_FieldInfo_,
-	_ElementPSVImpl_MethodInfo_
-};
-
-$Object* allocate$ElementPSVImpl($Class* clazz) {
-	return $of($alloc(ElementPSVImpl));
-}
-
 void ElementPSVImpl::init$() {
 	$set(this, fDeclaration, nullptr);
 	$set(this, fTypeDecl, nullptr);
@@ -143,7 +64,7 @@ void ElementPSVImpl::init$() {
 }
 
 void ElementPSVImpl::init$(bool isConstant, $ElementPSVI* elementPSVI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, fDeclaration, nullptr);
 	$set(this, fTypeDecl, nullptr);
 	this->fNil = false;
@@ -167,7 +88,7 @@ void ElementPSVImpl::init$(bool isConstant, $ElementPSVI* elementPSVI) {
 	$set(this, fValidationContext, elementPSVI->getValidationContext());
 	if ($instanceOf(ElementPSVImpl, elementPSVI)) {
 		$var(ElementPSVImpl, elementPSVIImpl, $cast(ElementPSVImpl, elementPSVI));
-		$set(this, fErrors, (elementPSVIImpl->fErrors != nullptr) ? $cast($StringArray, $nc(elementPSVIImpl->fErrors)->clone()) : ($StringArray*)nullptr);
+		$set(this, fErrors, (elementPSVIImpl->fErrors != nullptr) ? $cast($StringArray, elementPSVIImpl->fErrors->clone()) : ($StringArray*)nullptr);
 		elementPSVIImpl->copySchemaInformationTo(this);
 	} else {
 		$var($StringList, errorCodes, elementPSVI->getErrorCodes());
@@ -175,13 +96,9 @@ void ElementPSVImpl::init$(bool isConstant, $ElementPSVI* elementPSVI) {
 		if (length > 0) {
 			$var($StringList, errorMessages, elementPSVI->getErrorMessages());
 			$var($StringArray, errors, $new($StringArray, length << 1));
-			{
-				int32_t i = 0;
-				int32_t j = 0;
-				for (; i < length; ++i) {
-					errors->set(j++, $(errorCodes->item(i)));
-					errors->set(j++, $($nc(errorMessages)->item(i)));
-				}
+			for (int32_t i = 0, j = 0; i < length; ++i) {
+				errors->set(j++, $(errorCodes->item(i)));
+				errors->set(j++, $($nc(errorMessages)->item(i)));
 			}
 			$set(this, fErrors, errors);
 		}
@@ -202,7 +119,7 @@ bool ElementPSVImpl::isConstant() {
 }
 
 $String* ElementPSVImpl::getSchemaDefault() {
-	return this->fDeclaration == nullptr ? ($String*)nullptr : $nc(this->fDeclaration)->getConstraintValue();
+	return this->fDeclaration == nullptr ? ($String*)nullptr : this->fDeclaration->getConstraintValue();
 }
 
 $String* ElementPSVImpl::getSchemaNormalizedValue() {
@@ -222,7 +139,7 @@ int16_t ElementPSVImpl::getValidity() {
 }
 
 $StringList* ElementPSVImpl::getErrorCodes() {
-	if (this->fErrors == nullptr || $nc(this->fErrors)->length == 0) {
+	if (this->fErrors == nullptr || this->fErrors->length == 0) {
 		$init($StringListImpl);
 		return $StringListImpl::EMPTY_LIST;
 	}
@@ -230,7 +147,7 @@ $StringList* ElementPSVImpl::getErrorCodes() {
 }
 
 $StringList* ElementPSVImpl::getErrorMessages() {
-	if (this->fErrors == nullptr || $nc(this->fErrors)->length == 0) {
+	if (this->fErrors == nullptr || this->fErrors->length == 0) {
 		$init($StringListImpl);
 		return $StringListImpl::EMPTY_LIST;
 	}
@@ -271,7 +188,7 @@ $XSModel* ElementPSVImpl::getSchemaInformation() {
 }
 
 $Object* ElementPSVImpl::getActualNormalizedValue() {
-	return $of($nc(this->fValue)->getActualValue());
+	return $nc(this->fValue)->getActualValue();
 }
 
 int16_t ElementPSVImpl::getActualNormalizedValueType() {
@@ -308,7 +225,76 @@ ElementPSVImpl::ElementPSVImpl() {
 }
 
 $Class* ElementPSVImpl::load$($String* name, bool initialize) {
-	$loadClass(ElementPSVImpl, name, initialize, &_ElementPSVImpl_ClassInfo_, allocate$ElementPSVImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fDeclaration", "Lcom/sun/org/apache/xerces/internal/xs/XSElementDeclaration;", nullptr, $PROTECTED, $field(ElementPSVImpl, fDeclaration)},
+		{"fTypeDecl", "Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;", nullptr, $PROTECTED, $field(ElementPSVImpl, fTypeDecl)},
+		{"fNil", "Z", nullptr, $PROTECTED, $field(ElementPSVImpl, fNil)},
+		{"fSpecified", "Z", nullptr, $PROTECTED, $field(ElementPSVImpl, fSpecified)},
+		{"fValue", "Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;", nullptr, $PROTECTED, $field(ElementPSVImpl, fValue)},
+		{"fNotation", "Lcom/sun/org/apache/xerces/internal/xs/XSNotationDeclaration;", nullptr, $PROTECTED, $field(ElementPSVImpl, fNotation)},
+		{"fValidationAttempted", "S", nullptr, $PROTECTED, $field(ElementPSVImpl, fValidationAttempted)},
+		{"fValidity", "S", nullptr, $PROTECTED, $field(ElementPSVImpl, fValidity)},
+		{"fErrors", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(ElementPSVImpl, fErrors)},
+		{"fValidationContext", "Ljava/lang/String;", nullptr, $PROTECTED, $field(ElementPSVImpl, fValidationContext)},
+		{"fGrammars", "[Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;", nullptr, $PROTECTED, $field(ElementPSVImpl, fGrammars)},
+		{"fSchemaInformation", "Lcom/sun/org/apache/xerces/internal/xs/XSModel;", nullptr, $PROTECTED, $field(ElementPSVImpl, fSchemaInformation)},
+		{"fIsConstant", "Z", nullptr, $PROTECTED, $field(ElementPSVImpl, fIsConstant)},
+		{}
+	};
+	$CompoundAttribute getActualNormalizedValuemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getActualNormalizedValueTypemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getItemValueTypesmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getSchemaNormalizedValuemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ElementPSVImpl, init$, void)},
+		{"<init>", "(ZLcom/sun/org/apache/xerces/internal/xs/ElementPSVI;)V", nullptr, $PUBLIC, $method(ElementPSVImpl, init$, void, bool, $ElementPSVI*)},
+		{"constant", "()Lcom/sun/org/apache/xerces/internal/xs/ItemPSVI;", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, constant, $ItemPSVI*)},
+		{"copySchemaInformationTo", "(Lcom/sun/org/apache/xerces/internal/impl/xs/ElementPSVImpl;)V", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, copySchemaInformationTo, void, ElementPSVImpl*)},
+		{"getActualNormalizedValue", "()Ljava/lang/Object;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(ElementPSVImpl, getActualNormalizedValue, $Object*), nullptr, nullptr, getActualNormalizedValuemethodAnnotations$$},
+		{"getActualNormalizedValueType", "()S", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(ElementPSVImpl, getActualNormalizedValueType, int16_t), nullptr, nullptr, getActualNormalizedValueTypemethodAnnotations$$},
+		{"getElementDeclaration", "()Lcom/sun/org/apache/xerces/internal/xs/XSElementDeclaration;", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, getElementDeclaration, $XSElementDeclaration*)},
+		{"getErrorCodes", "()Lcom/sun/org/apache/xerces/internal/xs/StringList;", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, getErrorCodes, $StringList*)},
+		{"getErrorMessages", "()Lcom/sun/org/apache/xerces/internal/xs/StringList;", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, getErrorMessages, $StringList*)},
+		{"getIsSchemaSpecified", "()Z", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, getIsSchemaSpecified, bool)},
+		{"getItemValueTypes", "()Lcom/sun/org/apache/xerces/internal/xs/ShortList;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(ElementPSVImpl, getItemValueTypes, $ShortList*), nullptr, nullptr, getItemValueTypesmethodAnnotations$$},
+		{"getMemberTypeDefinition", "()Lcom/sun/org/apache/xerces/internal/xs/XSSimpleTypeDefinition;", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, getMemberTypeDefinition, $XSSimpleTypeDefinition*)},
+		{"getNil", "()Z", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, getNil, bool)},
+		{"getNotation", "()Lcom/sun/org/apache/xerces/internal/xs/XSNotationDeclaration;", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, getNotation, $XSNotationDeclaration*)},
+		{"getSchemaDefault", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, getSchemaDefault, $String*)},
+		{"getSchemaInformation", "()Lcom/sun/org/apache/xerces/internal/xs/XSModel;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ElementPSVImpl, getSchemaInformation, $XSModel*)},
+		{"getSchemaNormalizedValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(ElementPSVImpl, getSchemaNormalizedValue, $String*), nullptr, nullptr, getSchemaNormalizedValuemethodAnnotations$$},
+		{"getSchemaValue", "()Lcom/sun/org/apache/xerces/internal/xs/XSValue;", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, getSchemaValue, $XSValue*)},
+		{"getTypeDefinition", "()Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, getTypeDefinition, $XSTypeDefinition*)},
+		{"getValidationAttempted", "()S", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, getValidationAttempted, int16_t)},
+		{"getValidationContext", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, getValidationContext, $String*)},
+		{"getValidity", "()S", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, getValidity, int16_t)},
+		{"isConstant", "()Z", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, isConstant, bool)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(ElementPSVImpl, reset, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.ElementPSVImpl",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.xs.ElementPSVI",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ElementPSVImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ElementPSVImpl);
+	});
 	return class$;
 }
 

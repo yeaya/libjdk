@@ -74,6 +74,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::text::Element* elem);
 	virtual void addFill(int32_t row, int32_t col);
 	virtual void calculateColumnRequirements(int32_t axis);

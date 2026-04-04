@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/StandardMidiFileWriter.h>
-
 #include <com/sun/media/sound/Printer.h>
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/ByteArrayOutputStream.h>
@@ -58,7 +57,6 @@ using $Objects = ::java::util::Objects;
 using $InvalidMidiDataException = ::javax::sound::midi::InvalidMidiDataException;
 using $MetaMessage = ::javax::sound::midi::MetaMessage;
 using $MidiEvent = ::javax::sound::midi::MidiEvent;
-using $MidiMessage = ::javax::sound::midi::MidiMessage;
 using $Sequence = ::javax::sound::midi::Sequence;
 using $ShortMessage = ::javax::sound::midi::ShortMessage;
 using $SysexMessage = ::javax::sound::midi::SysexMessage;
@@ -70,49 +68,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _StandardMidiFileWriter_FieldInfo_[] = {
-	{"MThd_MAGIC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StandardMidiFileWriter, MThd_MAGIC)},
-	{"MTrk_MAGIC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StandardMidiFileWriter, MTrk_MAGIC)},
-	{"ONE_BYTE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StandardMidiFileWriter, ONE_BYTE)},
-	{"TWO_BYTE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StandardMidiFileWriter, TWO_BYTE)},
-	{"SYSEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StandardMidiFileWriter, SYSEX)},
-	{"META", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StandardMidiFileWriter, META)},
-	{"ERROR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StandardMidiFileWriter, ERROR)},
-	{"IGNORE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StandardMidiFileWriter, IGNORE)},
-	{"MIDI_TYPE_0", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StandardMidiFileWriter, MIDI_TYPE_0)},
-	{"MIDI_TYPE_1", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StandardMidiFileWriter, MIDI_TYPE_1)},
-	{"tddos", "Ljava/io/DataOutputStream;", nullptr, $PRIVATE, $field(StandardMidiFileWriter, tddos)},
-	{"types", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StandardMidiFileWriter, types)},
-	{"mask", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StandardMidiFileWriter, mask)},
-	{}
-};
-
-$MethodInfo _StandardMidiFileWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StandardMidiFileWriter, init$, void)},
-	{"getFileStream", "(ILjavax/sound/midi/Sequence;)Ljava/io/InputStream;", nullptr, $PRIVATE, $method(StandardMidiFileWriter, getFileStream, $InputStream*, int32_t, $Sequence*), "java.io.IOException"},
-	{"getMidiFileTypes", "()[I", nullptr, $PUBLIC, $virtualMethod(StandardMidiFileWriter, getMidiFileTypes, $ints*)},
-	{"getMidiFileTypes", "(Ljavax/sound/midi/Sequence;)[I", nullptr, $PUBLIC, $virtualMethod(StandardMidiFileWriter, getMidiFileTypes, $ints*, $Sequence*)},
-	{"getType", "(I)I", nullptr, $PRIVATE, $method(StandardMidiFileWriter, getType, int32_t, int32_t)},
-	{"write", "(Ljavax/sound/midi/Sequence;ILjava/io/OutputStream;)I", nullptr, $PUBLIC, $virtualMethod(StandardMidiFileWriter, write, int32_t, $Sequence*, int32_t, $OutputStream*), "java.io.IOException"},
-	{"write", "(Ljavax/sound/midi/Sequence;ILjava/io/File;)I", nullptr, $PUBLIC, $virtualMethod(StandardMidiFileWriter, write, int32_t, $Sequence*, int32_t, $File*), "java.io.IOException"},
-	{"writeTrack", "(Ljavax/sound/midi/Track;I)Ljava/io/InputStream;", nullptr, $PRIVATE, $method(StandardMidiFileWriter, writeTrack, $InputStream*, $Track*, int32_t), "java.io.IOException,javax.sound.midi.InvalidMidiDataException"},
-	{"writeVarInt", "(J)I", nullptr, $PRIVATE, $method(StandardMidiFileWriter, writeVarInt, int32_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _StandardMidiFileWriter_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.StandardMidiFileWriter",
-	"javax.sound.midi.spi.MidiFileWriter",
-	nullptr,
-	_StandardMidiFileWriter_FieldInfo_,
-	_StandardMidiFileWriter_MethodInfo_
-};
-
-$Object* allocate$StandardMidiFileWriter($Class* clazz) {
-	return $of($alloc(StandardMidiFileWriter));
-}
-
 $ints* StandardMidiFileWriter::types = nullptr;
 
 void StandardMidiFileWriter::init$() {
@@ -120,13 +75,13 @@ void StandardMidiFileWriter::init$() {
 }
 
 $ints* StandardMidiFileWriter::getMidiFileTypes() {
-	$var($ints, localArray, $new($ints, $nc(StandardMidiFileWriter::types)->length));
-	$System::arraycopy(StandardMidiFileWriter::types, 0, localArray, 0, $nc(StandardMidiFileWriter::types)->length);
+	$var($ints, localArray, $new($ints, StandardMidiFileWriter::types->length));
+	$System::arraycopy(StandardMidiFileWriter::types, 0, localArray, 0, StandardMidiFileWriter::types->length);
 	return localArray;
 }
 
 $ints* StandardMidiFileWriter::getMidiFileTypes($Sequence* sequence) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, typesArray, nullptr);
 	$var($TrackArray, tracks, $nc(sequence)->getTracks());
 	if ($nc(tracks)->length == 1) {
@@ -156,13 +111,13 @@ int32_t StandardMidiFileWriter::write($Sequence* in, int32_t type, $OutputStream
 int32_t StandardMidiFileWriter::write($Sequence* in, int32_t type, $File* out) {
 	$Objects::requireNonNull(in);
 	$var($FileOutputStream, fos, $new($FileOutputStream, out));
-	int32_t bytesWritten = write(in, type, static_cast<$OutputStream*>(fos));
+	int32_t bytesWritten = write(in, type, fos);
 	fos->close();
 	return bytesWritten;
 }
 
 $InputStream* StandardMidiFileWriter::getFileStream(int32_t type, $Sequence* sequence) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TrackArray, tracks, $nc(sequence)->getTracks());
 	int32_t bytesBuilt = 0;
 	int32_t headerLength = 14;
@@ -229,28 +184,20 @@ $InputStream* StandardMidiFileWriter::getFileStream(int32_t type, $Sequence* seq
 	divtype = sequence->getDivisionType();
 	if (divtype == $Sequence::PPQ) {
 		timeFormat = sequence->getResolution();
+	} else if (divtype == $Sequence::SMPTE_24) {
+		timeFormat = (24 << 8) * -1;
+		timeFormat += (sequence->getResolution() & 0xff);
+	} else if (divtype == $Sequence::SMPTE_25) {
+		timeFormat = (25 << 8) * -1;
+		timeFormat += (sequence->getResolution() & 0xff);
+	} else if (divtype == $Sequence::SMPTE_30DROP) {
+		timeFormat = (29 << 8) * -1;
+		timeFormat += (sequence->getResolution() & 0xff);
+	} else if (divtype == $Sequence::SMPTE_30) {
+		timeFormat = (30 << 8) * -1;
+		timeFormat += (sequence->getResolution() & 0xff);
 	} else {
-		if (divtype == $Sequence::SMPTE_24) {
-			timeFormat = (24 << 8) * -1;
-			timeFormat += ((int32_t)(sequence->getResolution() & (uint32_t)255));
-		} else {
-			if (divtype == $Sequence::SMPTE_25) {
-				timeFormat = (25 << 8) * -1;
-				timeFormat += ((int32_t)(sequence->getResolution() & (uint32_t)255));
-			} else {
-				if (divtype == $Sequence::SMPTE_30DROP) {
-					timeFormat = (29 << 8) * -1;
-					timeFormat += ((int32_t)(sequence->getResolution() & (uint32_t)255));
-				} else {
-					if (divtype == $Sequence::SMPTE_30) {
-						timeFormat = (30 << 8) * -1;
-						timeFormat += ((int32_t)(sequence->getResolution() & (uint32_t)255));
-					} else {
-						return nullptr;
-					}
-				}
-			}
-		}
+		return nullptr;
 	}
 	hdos->writeShort(timeFormat);
 	$assign(fStream, $new($SequenceInputStream, headerStream, trackStream));
@@ -260,40 +207,26 @@ $InputStream* StandardMidiFileWriter::getFileStream(int32_t type, $Sequence* seq
 }
 
 int32_t StandardMidiFileWriter::getType(int32_t byteValue) {
-	if (((int32_t)(byteValue & (uint32_t)240)) == 240) {
+	if ((byteValue & 0xf0) == 0xf0) {
 		switch (byteValue) {
 		case 240:
-			{}
 		case 247:
-			{
-				return StandardMidiFileWriter::SYSEX;
-			}
+			return StandardMidiFileWriter::SYSEX;
 		case 255:
-			{
-				return StandardMidiFileWriter::META;
-			}
+			return StandardMidiFileWriter::META;
 		}
 		return StandardMidiFileWriter::IGNORE;
 	}
-	switch ((int32_t)(byteValue & (uint32_t)240)) {
+	switch (byteValue & 0xf0) {
 	case 128:
-		{}
 	case 144:
-		{}
 	case 160:
-		{}
 	case 176:
-		{}
 	case 224:
-		{
-			return StandardMidiFileWriter::TWO_BYTE;
-		}
+		return StandardMidiFileWriter::TWO_BYTE;
 	case 192:
-		{}
 	case 208:
-		{
-			return StandardMidiFileWriter::ONE_BYTE;
-		}
+		return StandardMidiFileWriter::ONE_BYTE;
 	}
 	return StandardMidiFileWriter::ERROR;
 }
@@ -301,20 +234,20 @@ int32_t StandardMidiFileWriter::getType(int32_t byteValue) {
 int32_t StandardMidiFileWriter::writeVarInt(int64_t value) {
 	int32_t len = 1;
 	int32_t shift = 63;
-	while ((shift > 0) && (((int64_t)(value & (uint64_t)($sl(StandardMidiFileWriter::mask, shift)))) == 0)) {
+	while ((shift > 0) && ((value & ($sl(StandardMidiFileWriter::mask, shift))) == 0)) {
 		shift -= 7;
 	}
 	while (shift > 0) {
-		$nc(this->tddos)->writeByte((int32_t)(($sr((int64_t)(value & (uint64_t)($sl(StandardMidiFileWriter::mask, shift))), shift)) | 128));
+		$nc(this->tddos)->writeByte((int32_t)(($sr(value & ($sl(StandardMidiFileWriter::mask, shift)), shift)) | 0x80));
 		shift -= 7;
 		++len;
 	}
-	$nc(this->tddos)->writeByte((int32_t)((int64_t)(value & (uint64_t)StandardMidiFileWriter::mask)));
+	$nc(this->tddos)->writeByte((int32_t)(value & StandardMidiFileWriter::mask));
 	return len;
 }
 
 $InputStream* StandardMidiFileWriter::writeTrack($Track* track, int32_t type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t bytesWritten = 0;
 	int32_t lastBytesWritten = 0;
 	int32_t size = $nc(track)->size();
@@ -344,77 +277,63 @@ $InputStream* StandardMidiFileWriter::writeTrack($Track* track, int32_t type) {
 		eventTick = $nc(event)->getTick();
 		deltaTick = event->getTick() - currentTick;
 		currentTick = event->getTick();
-		status = $nc($(event->getMessage()))->getStatus();
+		status = $$nc(event->getMessage())->getStatus();
 		eventtype = getType(status);
 		switch (eventtype) {
 		case StandardMidiFileWriter::ONE_BYTE:
-			{
-				$assign(shortMessage, $cast($ShortMessage, event->getMessage()));
-				data1 = $nc(shortMessage)->getData1();
-				bytesWritten += writeVarInt(deltaTick);
-				if (status != runningStatus) {
-					runningStatus = status;
-					$nc(this->tddos)->writeByte(status);
-					bytesWritten += 1;
-				}
-				$nc(this->tddos)->writeByte(data1);
+			$assign(shortMessage, $cast($ShortMessage, event->getMessage()));
+			data1 = $nc(shortMessage)->getData1();
+			bytesWritten += writeVarInt(deltaTick);
+			if (status != runningStatus) {
+				runningStatus = status;
+				$nc(this->tddos)->writeByte(status);
 				bytesWritten += 1;
-				break;
 			}
+			$nc(this->tddos)->writeByte(data1);
+			bytesWritten += 1;
+			break;
 		case StandardMidiFileWriter::TWO_BYTE:
-			{
-				$assign(shortMessage, $cast($ShortMessage, event->getMessage()));
-				data1 = $nc(shortMessage)->getData1();
-				data2 = $nc(shortMessage)->getData2();
-				bytesWritten += writeVarInt(deltaTick);
-				if (status != runningStatus) {
-					runningStatus = status;
-					$nc(this->tddos)->writeByte(status);
-					bytesWritten += 1;
-				}
-				$nc(this->tddos)->writeByte(data1);
+			$assign(shortMessage, $cast($ShortMessage, event->getMessage()));
+			data1 = $nc(shortMessage)->getData1();
+			data2 = shortMessage->getData2();
+			bytesWritten += writeVarInt(deltaTick);
+			if (status != runningStatus) {
+				runningStatus = status;
+				$nc(this->tddos)->writeByte(status);
 				bytesWritten += 1;
-				$nc(this->tddos)->writeByte(data2);
-				bytesWritten += 1;
-				break;
 			}
+			$nc(this->tddos)->writeByte(data1);
+			bytesWritten += 1;
+			this->tddos->writeByte(data2);
+			bytesWritten += 1;
+			break;
 		case StandardMidiFileWriter::SYSEX:
-			{
-				$assign(sysexMessage, $cast($SysexMessage, event->getMessage()));
-				length = $nc(sysexMessage)->getLength();
-				$assign(data, $nc(sysexMessage)->getMessage());
-				bytesWritten += writeVarInt(deltaTick);
-				runningStatus = status;
-				$nc(this->tddos)->writeByte($nc(data)->get(0));
-				bytesWritten += 1;
-				bytesWritten += writeVarInt(($nc(data)->length - 1));
-				$nc(this->tddos)->write(data, 1, ($nc(data)->length - 1));
-				bytesWritten += ($nc(data)->length - 1);
-				break;
-			}
+			$assign(sysexMessage, $cast($SysexMessage, event->getMessage()));
+			length = $nc(sysexMessage)->getLength();
+			$assign(data, sysexMessage->getMessage());
+			bytesWritten += writeVarInt(deltaTick);
+			runningStatus = status;
+			$nc(this->tddos)->writeByte($nc(data)->get(0));
+			bytesWritten += 1;
+			bytesWritten += writeVarInt((data->length - 1));
+			$nc(this->tddos)->write(data, 1, (data->length - 1));
+			bytesWritten += (data->length - 1);
+			break;
 		case StandardMidiFileWriter::META:
-			{
-				$assign(metaMessage, $cast($MetaMessage, event->getMessage()));
-				length = $nc(metaMessage)->getLength();
-				$assign(data, $nc(metaMessage)->getMessage());
-				bytesWritten += writeVarInt(deltaTick);
-				runningStatus = status;
-				$nc(this->tddos)->write(data, 0, $nc(data)->length);
-				bytesWritten += $nc(data)->length;
-				break;
-			}
+			$assign(metaMessage, $cast($MetaMessage, event->getMessage()));
+			length = $nc(metaMessage)->getLength();
+			$assign(data, metaMessage->getMessage());
+			bytesWritten += writeVarInt(deltaTick);
+			runningStatus = status;
+			$nc(this->tddos)->write(data, 0, $nc(data)->length);
+			bytesWritten += data->length;
+			break;
 		case StandardMidiFileWriter::IGNORE:
-			{
-				break;
-			}
+			break;
 		case StandardMidiFileWriter::ERROR:
-			{
-				break;
-			}
+			break;
 		default:
-			{
-				$throwNew($InvalidMidiDataException, "internal file writer error"_s);
-			}
+			$throwNew($InvalidMidiDataException, "internal file writer error"_s);
 		}
 	}
 	thdos->writeInt(StandardMidiFileWriter::MTrk_MAGIC);
@@ -427,7 +346,7 @@ $InputStream* StandardMidiFileWriter::writeTrack($Track* track, int32_t type) {
 	return fStream;
 }
 
-void clinit$StandardMidiFileWriter($Class* class$) {
+void StandardMidiFileWriter::clinit$($Class* clazz) {
 	$assignStatic(StandardMidiFileWriter::types, $new($ints, {
 		StandardMidiFileWriter::MIDI_TYPE_0,
 		StandardMidiFileWriter::MIDI_TYPE_1
@@ -438,7 +357,45 @@ StandardMidiFileWriter::StandardMidiFileWriter() {
 }
 
 $Class* StandardMidiFileWriter::load$($String* name, bool initialize) {
-	$loadClass(StandardMidiFileWriter, name, initialize, &_StandardMidiFileWriter_ClassInfo_, clinit$StandardMidiFileWriter, allocate$StandardMidiFileWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"MThd_MAGIC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StandardMidiFileWriter, MThd_MAGIC)},
+		{"MTrk_MAGIC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StandardMidiFileWriter, MTrk_MAGIC)},
+		{"ONE_BYTE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StandardMidiFileWriter, ONE_BYTE)},
+		{"TWO_BYTE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StandardMidiFileWriter, TWO_BYTE)},
+		{"SYSEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StandardMidiFileWriter, SYSEX)},
+		{"META", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StandardMidiFileWriter, META)},
+		{"ERROR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StandardMidiFileWriter, ERROR)},
+		{"IGNORE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StandardMidiFileWriter, IGNORE)},
+		{"MIDI_TYPE_0", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StandardMidiFileWriter, MIDI_TYPE_0)},
+		{"MIDI_TYPE_1", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StandardMidiFileWriter, MIDI_TYPE_1)},
+		{"tddos", "Ljava/io/DataOutputStream;", nullptr, $PRIVATE, $field(StandardMidiFileWriter, tddos)},
+		{"types", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StandardMidiFileWriter, types)},
+		{"mask", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StandardMidiFileWriter, mask)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StandardMidiFileWriter, init$, void)},
+		{"getFileStream", "(ILjavax/sound/midi/Sequence;)Ljava/io/InputStream;", nullptr, $PRIVATE, $method(StandardMidiFileWriter, getFileStream, $InputStream*, int32_t, $Sequence*), "java.io.IOException"},
+		{"getMidiFileTypes", "()[I", nullptr, $PUBLIC, $virtualMethod(StandardMidiFileWriter, getMidiFileTypes, $ints*)},
+		{"getMidiFileTypes", "(Ljavax/sound/midi/Sequence;)[I", nullptr, $PUBLIC, $virtualMethod(StandardMidiFileWriter, getMidiFileTypes, $ints*, $Sequence*)},
+		{"getType", "(I)I", nullptr, $PRIVATE, $method(StandardMidiFileWriter, getType, int32_t, int32_t)},
+		{"write", "(Ljavax/sound/midi/Sequence;ILjava/io/OutputStream;)I", nullptr, $PUBLIC, $virtualMethod(StandardMidiFileWriter, write, int32_t, $Sequence*, int32_t, $OutputStream*), "java.io.IOException"},
+		{"write", "(Ljavax/sound/midi/Sequence;ILjava/io/File;)I", nullptr, $PUBLIC, $virtualMethod(StandardMidiFileWriter, write, int32_t, $Sequence*, int32_t, $File*), "java.io.IOException"},
+		{"writeTrack", "(Ljavax/sound/midi/Track;I)Ljava/io/InputStream;", nullptr, $PRIVATE, $method(StandardMidiFileWriter, writeTrack, $InputStream*, $Track*, int32_t), "java.io.IOException,javax.sound.midi.InvalidMidiDataException"},
+		{"writeVarInt", "(J)I", nullptr, $PRIVATE, $method(StandardMidiFileWriter, writeVarInt, int32_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.StandardMidiFileWriter",
+		"javax.sound.midi.spi.MidiFileWriter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StandardMidiFileWriter, name, initialize, &classInfo$$, StandardMidiFileWriter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StandardMidiFileWriter);
+	});
 	return class$;
 }
 

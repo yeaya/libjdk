@@ -18,6 +18,7 @@ public:
 	using ::java::awt::DefaultKeyboardFocusManager::focusPreviousComponent;
 	using ::java::awt::DefaultKeyboardFocusManager::focusNextComponent;
 	using ::java::awt::DefaultKeyboardFocusManager::downFocusCycle;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void disableSwingFocusManager();
 	static ::javax::swing::FocusManager* getCurrentManager();

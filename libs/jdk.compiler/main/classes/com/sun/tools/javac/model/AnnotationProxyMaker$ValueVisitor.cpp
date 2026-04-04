@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/model/AnnotationProxyMaker$ValueVisitor.h>
-
 #include <com/sun/tools/javac/code/Attribute$Array.h>
 #include <com/sun/tools/javac/code/Attribute$Class.h>
 #include <com/sun/tools/javac/code/Attribute$Compound.h>
@@ -7,7 +6,6 @@
 #include <com/sun/tools/javac/code/Attribute$Enum.h>
 #include <com/sun/tools/javac/code/Attribute$Error.h>
 #include <com/sun/tools/javac/code/Attribute$UnresolvedClass.h>
-#include <com/sun/tools/javac/code/Attribute$Visitor.h>
 #include <com/sun/tools/javac/code/Attribute.h>
 #include <com/sun/tools/javac/code/Symbol$MethodSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
@@ -29,7 +27,6 @@
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/reflect/Array.h>
 #include <java/lang/reflect/Method.h>
-#include <javax/lang/model/type/TypeMirror.h>
 #include <sun/reflect/annotation/AnnotationType.h>
 #include <sun/reflect/annotation/EnumConstantNotPresentExceptionProxy.h>
 #include <sun/reflect/annotation/ExceptionProxy.h>
@@ -44,10 +41,7 @@ using $Attribute$Constant = ::com::sun::tools::javac::code::Attribute$Constant;
 using $Attribute$Enum = ::com::sun::tools::javac::code::Attribute$Enum;
 using $Attribute$Error = ::com::sun::tools::javac::code::Attribute$Error;
 using $Attribute$UnresolvedClass = ::com::sun::tools::javac::code::Attribute$UnresolvedClass;
-using $Attribute$Visitor = ::com::sun::tools::javac::code::Attribute$Visitor;
 using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
-using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
 using $AnnotationProxyMaker = ::com::sun::tools::javac::model::AnnotationProxyMaker;
@@ -67,7 +61,6 @@ using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $Annotation = ::java::lang::annotation::Annotation;
 using $1Array = ::java::lang::reflect::Array;
 using $Method = ::java::lang::reflect::Method;
-using $TypeMirror = ::javax::lang::model::type::TypeMirror;
 using $AnnotationType = ::sun::reflect::annotation::AnnotationType;
 using $EnumConstantNotPresentExceptionProxy = ::sun::reflect::annotation::EnumConstantNotPresentExceptionProxy;
 using $ExceptionProxy = ::sun::reflect::annotation::ExceptionProxy;
@@ -78,74 +71,26 @@ namespace com {
 			namespace javac {
 				namespace model {
 
-$FieldInfo _AnnotationProxyMaker$ValueVisitor_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/model/AnnotationProxyMaker;", nullptr, $FINAL | $SYNTHETIC, $field(AnnotationProxyMaker$ValueVisitor, this$0)},
-	{"meth", "Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PRIVATE, $field(AnnotationProxyMaker$ValueVisitor, meth)},
-	{"returnClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(AnnotationProxyMaker$ValueVisitor, returnClass)},
-	{"value", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(AnnotationProxyMaker$ValueVisitor, value)},
-	{}
-};
-
-$MethodInfo _AnnotationProxyMaker$ValueVisitor_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/model/AnnotationProxyMaker;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0, $method(AnnotationProxyMaker$ValueVisitor, init$, void, $AnnotationProxyMaker*, $Symbol$MethodSymbol*)},
-	{"getValue", "(Lcom/sun/tools/javac/code/Attribute;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(AnnotationProxyMaker$ValueVisitor, getValue, $Object*, $Attribute*)},
-	{"typeMismatch", "(Ljava/lang/reflect/Method;Lcom/sun/tools/javac/code/Attribute;)V", nullptr, $PRIVATE, $method(AnnotationProxyMaker$ValueVisitor, typeMismatch, void, $Method*, $Attribute*)},
-	{"visitArray", "(Lcom/sun/tools/javac/code/Attribute$Array;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$ValueVisitor, visitArray, void, $Attribute$Array*)},
-	{"visitClass", "(Lcom/sun/tools/javac/code/Attribute$Class;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$ValueVisitor, visitClass, void, $Attribute$Class*)},
-	{"visitCompound", "(Lcom/sun/tools/javac/code/Attribute$Compound;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$ValueVisitor, visitCompound, void, $Attribute$Compound*)},
-	{"visitConstant", "(Lcom/sun/tools/javac/code/Attribute$Constant;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$ValueVisitor, visitConstant, void, $Attribute$Constant*)},
-	{"visitEnum", "(Lcom/sun/tools/javac/code/Attribute$Enum;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$ValueVisitor, visitEnum, void, $Attribute$Enum*)},
-	{"visitError", "(Lcom/sun/tools/javac/code/Attribute$Error;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$ValueVisitor, visitError, void, $Attribute$Error*)},
-	{}
-};
-
-$InnerClassInfo _AnnotationProxyMaker$ValueVisitor_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.model.AnnotationProxyMaker$ValueVisitor", "com.sun.tools.javac.model.AnnotationProxyMaker", "ValueVisitor", $PRIVATE},
-	{"com.sun.tools.javac.code.Attribute$Visitor", "com.sun.tools.javac.code.Attribute", "Visitor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.model.AnnotationProxyMaker$ValueVisitor$1AnnotationTypeMismatchExceptionProxy", nullptr, "AnnotationTypeMismatchExceptionProxy", 0},
-	{}
-};
-
-$ClassInfo _AnnotationProxyMaker$ValueVisitor_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.model.AnnotationProxyMaker$ValueVisitor",
-	"java.lang.Object",
-	"com.sun.tools.javac.code.Attribute$Visitor",
-	_AnnotationProxyMaker$ValueVisitor_FieldInfo_,
-	_AnnotationProxyMaker$ValueVisitor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AnnotationProxyMaker$ValueVisitor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.model.AnnotationProxyMaker"
-};
-
-$Object* allocate$AnnotationProxyMaker$ValueVisitor($Class* clazz) {
-	return $of($alloc(AnnotationProxyMaker$ValueVisitor));
-}
-
 void AnnotationProxyMaker$ValueVisitor::init$($AnnotationProxyMaker* this$0, $Symbol$MethodSymbol* meth) {
 	$set(this, this$0, this$0);
 	$set(this, meth, meth);
 }
 
 $Object* AnnotationProxyMaker$ValueVisitor::getValue($Attribute* attr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Method, method, nullptr);
 	try {
 		$assign(method, $nc(this->this$0->annoType)->getMethod($($nc($nc(this->meth)->name)->toString()), $$new($ClassArray, 0)));
 	} catch ($NoSuchMethodException& e) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$set(this, returnClass, $nc(method)->getReturnType());
 	$nc(attr)->accept(this);
 	if (!($instanceOf($ExceptionProxy, this->value)) && !$nc($AnnotationType::invocationHandlerReturnType(this->returnClass))->isInstance(this->value)) {
 		typeMismatch(method, attr);
 	}
-	return $of(this->value);
+	return this->value;
 }
 
 void AnnotationProxyMaker$ValueVisitor::visitConstant($Attribute$Constant* c) {
@@ -157,18 +102,16 @@ void AnnotationProxyMaker$ValueVisitor::visitClass($Attribute$Class* c) {
 }
 
 void AnnotationProxyMaker$ValueVisitor::visitArray($Attribute$Array* a) {
-	$useLocalCurrentObjectStackCache();
-	$var($Name, elemName, $nc($nc($nc(($cast($Type$ArrayType, $nc(a)->type)))->elemtype)->tsym)->getQualifiedName());
-	if ($nc($of(elemName))->equals($nc($nc(elemName->table)->names)->java_lang_Class)) {
+	$useLocalObjectStack();
+	$var($Name, elemName, $nc($nc($nc($cast($Type$ArrayType, $nc(a)->type))->elemtype)->tsym)->getQualifiedName());
+	if ($nc(elemName)->equals($nc($nc($nc(elemName)->table)->names)->java_lang_Class)) {
 		$var($ListBuffer, elems, $new($ListBuffer));
 		{
 			$var($AttributeArray, arr$, a->values);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Attribute, value, arr$->get(i$));
 				{
-					$var($Type, elem, $nc(($cast($Attribute$Class, value)))->classType);
+					$var($Type, elem, $nc($cast($Attribute$Class, value))->classType);
 					elems->append(elem);
 				}
 			}
@@ -178,37 +121,35 @@ void AnnotationProxyMaker$ValueVisitor::visitArray($Attribute$Array* a) {
 		int32_t len = $nc(a->values)->length;
 		$Class* returnClassSaved = this->returnClass;
 		$set(this, returnClass, $nc(this->returnClass)->getComponentType());
-		{
-			$var($Throwable, var$0, nullptr);
-			bool return$1 = false;
-			try {
-				$var($Object, res, $1Array::newInstance(this->returnClass, len));
-				for (int32_t i = 0; i < len; ++i) {
-					$nc($nc(a->values)->get(i))->accept(this);
-					if (this->value == nullptr || $instanceOf($ExceptionProxy, this->value)) {
-						return$1 = true;
-						goto $finally;
-					}
-					try {
-						$1Array::set(res, i, this->value);
-					} catch ($IllegalArgumentException& e) {
-						$set(this, value, nullptr);
-						return$1 = true;
-						goto $finally;
-					}
+		$var($Throwable, var$0, nullptr);
+		bool return$1 = false;
+		try {
+			$var($Object, res, $1Array::newInstance(this->returnClass, len));
+			for (int32_t i = 0; i < len; ++i) {
+				$nc(a->values->get(i))->accept(this);
+				if (this->value == nullptr || $instanceOf($ExceptionProxy, this->value)) {
+					return$1 = true;
+					goto $finally;
 				}
-				$set(this, value, res);
-			} catch ($Throwable& var$2) {
-				$assign(var$0, var$2);
-			} $finally: {
-				$set(this, returnClass, returnClassSaved);
+				try {
+					$1Array::set(res, i, this->value);
+				} catch ($IllegalArgumentException& e) {
+					$set(this, value, nullptr);
+					return$1 = true;
+					goto $finally;
+				}
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return;
-			}
+			$set(this, value, res);
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
+		} $finally: {
+			$set(this, returnClass, returnClassSaved);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return;
 		}
 	}
 }
@@ -262,7 +203,49 @@ AnnotationProxyMaker$ValueVisitor::AnnotationProxyMaker$ValueVisitor() {
 }
 
 $Class* AnnotationProxyMaker$ValueVisitor::load$($String* name, bool initialize) {
-	$loadClass(AnnotationProxyMaker$ValueVisitor, name, initialize, &_AnnotationProxyMaker$ValueVisitor_ClassInfo_, allocate$AnnotationProxyMaker$ValueVisitor);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/model/AnnotationProxyMaker;", nullptr, $FINAL | $SYNTHETIC, $field(AnnotationProxyMaker$ValueVisitor, this$0)},
+		{"meth", "Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PRIVATE, $field(AnnotationProxyMaker$ValueVisitor, meth)},
+		{"returnClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(AnnotationProxyMaker$ValueVisitor, returnClass)},
+		{"value", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(AnnotationProxyMaker$ValueVisitor, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/model/AnnotationProxyMaker;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0, $method(AnnotationProxyMaker$ValueVisitor, init$, void, $AnnotationProxyMaker*, $Symbol$MethodSymbol*)},
+		{"getValue", "(Lcom/sun/tools/javac/code/Attribute;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(AnnotationProxyMaker$ValueVisitor, getValue, $Object*, $Attribute*)},
+		{"typeMismatch", "(Ljava/lang/reflect/Method;Lcom/sun/tools/javac/code/Attribute;)V", nullptr, $PRIVATE, $method(AnnotationProxyMaker$ValueVisitor, typeMismatch, void, $Method*, $Attribute*)},
+		{"visitArray", "(Lcom/sun/tools/javac/code/Attribute$Array;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$ValueVisitor, visitArray, void, $Attribute$Array*)},
+		{"visitClass", "(Lcom/sun/tools/javac/code/Attribute$Class;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$ValueVisitor, visitClass, void, $Attribute$Class*)},
+		{"visitCompound", "(Lcom/sun/tools/javac/code/Attribute$Compound;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$ValueVisitor, visitCompound, void, $Attribute$Compound*)},
+		{"visitConstant", "(Lcom/sun/tools/javac/code/Attribute$Constant;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$ValueVisitor, visitConstant, void, $Attribute$Constant*)},
+		{"visitEnum", "(Lcom/sun/tools/javac/code/Attribute$Enum;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$ValueVisitor, visitEnum, void, $Attribute$Enum*)},
+		{"visitError", "(Lcom/sun/tools/javac/code/Attribute$Error;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$ValueVisitor, visitError, void, $Attribute$Error*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.model.AnnotationProxyMaker$ValueVisitor", "com.sun.tools.javac.model.AnnotationProxyMaker", "ValueVisitor", $PRIVATE},
+		{"com.sun.tools.javac.code.Attribute$Visitor", "com.sun.tools.javac.code.Attribute", "Visitor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.model.AnnotationProxyMaker$ValueVisitor$1AnnotationTypeMismatchExceptionProxy", nullptr, "AnnotationTypeMismatchExceptionProxy", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.model.AnnotationProxyMaker$ValueVisitor",
+		"java.lang.Object",
+		"com.sun.tools.javac.code.Attribute$Visitor",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.model.AnnotationProxyMaker"
+	};
+	$loadClass(AnnotationProxyMaker$ValueVisitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AnnotationProxyMaker$ValueVisitor);
+	});
 	return class$;
 }
 

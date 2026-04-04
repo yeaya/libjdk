@@ -1,5 +1,4 @@
 #include <javax/sql/rowset/RowSetProvider.h>
-
 #include <com/sun/rowset/RowSetFactoryImpl.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
@@ -26,7 +25,6 @@
 
 using $PermissionArray = $Array<::java::security::Permission>;
 using $RowSetFactoryImpl = ::com::sun::rowset::RowSetFactoryImpl;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
@@ -38,7 +36,6 @@ using $SecurityException = ::java::lang::SecurityException;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessControlException = ::java::security::AccessControlException;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $SQLException = ::java::sql::SQLException;
 using $Iterator = ::java::util::Iterator;
@@ -54,52 +51,6 @@ namespace javax {
 	namespace sql {
 		namespace rowset {
 
-$FieldInfo _RowSetProvider_FieldInfo_[] = {
-	{"ROWSET_DEBUG_PROPERTY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RowSetProvider, ROWSET_DEBUG_PROPERTY)},
-	{"ROWSET_FACTORY_IMPL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RowSetProvider, ROWSET_FACTORY_IMPL)},
-	{"ROWSET_FACTORY_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RowSetProvider, ROWSET_FACTORY_NAME)},
-	{"debug", "Z", nullptr, $PRIVATE | $STATIC, $staticField(RowSetProvider, debug)},
-	{}
-};
-
-$MethodInfo _RowSetProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(RowSetProvider, init$, void)},
-	{"defaultRowSetFactory", "()Ljavax/sql/rowset/RowSetFactory;", nullptr, $PRIVATE | $STATIC, $staticMethod(RowSetProvider, defaultRowSetFactory, $RowSetFactory*)},
-	{"getContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $staticMethod(RowSetProvider, getContextClassLoader, $ClassLoader*), "java.lang.SecurityException"},
-	{"getFactoryClass", "(Ljava/lang/String;Ljava/lang/ClassLoader;Z)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/ClassLoader;Z)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(RowSetProvider, getFactoryClass, $Class*, $String*, $ClassLoader*, bool), "java.lang.ClassNotFoundException"},
-	{"getSystemProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(RowSetProvider, getSystemProperty, $String*, $String*)},
-	{"loadViaServiceLoader", "()Ljavax/sql/rowset/RowSetFactory;", nullptr, $PRIVATE | $STATIC, $staticMethod(RowSetProvider, loadViaServiceLoader, $RowSetFactory*), "java.sql.SQLException"},
-	{"newFactory", "()Ljavax/sql/rowset/RowSetFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(RowSetProvider, newFactory, $RowSetFactory*), "java.sql.SQLException"},
-	{"newFactory", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljavax/sql/rowset/RowSetFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(RowSetProvider, newFactory, $RowSetFactory*, $String*, $ClassLoader*), "java.sql.SQLException"},
-	{"trace", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(RowSetProvider, trace, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _RowSetProvider_InnerClassesInfo_[] = {
-	{"javax.sql.rowset.RowSetProvider$2", nullptr, nullptr, 0},
-	{"javax.sql.rowset.RowSetProvider$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _RowSetProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.sql.rowset.RowSetProvider",
-	"java.lang.Object",
-	nullptr,
-	_RowSetProvider_FieldInfo_,
-	_RowSetProvider_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RowSetProvider_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.sql.rowset.RowSetProvider$2,javax.sql.rowset.RowSetProvider$1"
-};
-
-$Object* allocate$RowSetProvider($Class* clazz) {
-	return $of($alloc(RowSetProvider));
-}
-
 $String* RowSetProvider::ROWSET_DEBUG_PROPERTY = nullptr;
 $String* RowSetProvider::ROWSET_FACTORY_IMPL = nullptr;
 $String* RowSetProvider::ROWSET_FACTORY_NAME = nullptr;
@@ -110,7 +61,7 @@ void RowSetProvider::init$() {
 
 $RowSetFactory* RowSetProvider::newFactory() {
 	$init(RowSetProvider);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($RowSetFactory, factory, nullptr);
 	$var($String, factoryClassName, nullptr);
@@ -126,7 +77,7 @@ $RowSetFactory* RowSetProvider::newFactory() {
 			$assign(factory, $cast($RowSetFactory, o));
 		}
 	} catch ($Exception& e) {
-		$throwNew($SQLException, $$str({"RowSetFactory: "_s, factoryClassName, " could not be instantiated: "_s}), static_cast<$Throwable*>(e));
+		$throwNew($SQLException, $$str({"RowSetFactory: "_s, factoryClassName, " could not be instantiated: "_s}), e);
 	}
 	if (factory == nullptr) {
 		$assign(factory, loadViaServiceLoader());
@@ -141,7 +92,7 @@ $RowSetFactory* RowSetProvider::defaultRowSetFactory() {
 
 $RowSetFactory* RowSetProvider::newFactory($String* factoryClassName, $ClassLoader* cl) {
 	$init(RowSetProvider);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	trace("***In newInstance()"_s);
 	if (factoryClassName == nullptr) {
@@ -150,7 +101,7 @@ $RowSetFactory* RowSetProvider::newFactory($String* factoryClassName, $ClassLoad
 	try {
 		$ReflectUtil::checkPackageAccess(factoryClassName);
 	} catch ($AccessControlException& e) {
-		$throwNew($SQLException, "Access Exception"_s, static_cast<$Throwable*>(e));
+		$throwNew($SQLException, "Access Exception"_s, e);
 	}
 	try {
 		$Class* providerClass = getFactoryClass(factoryClassName, cl, false);
@@ -160,9 +111,9 @@ $RowSetFactory* RowSetProvider::newFactory($String* factoryClassName, $ClassLoad
 		}
 		return instance;
 	} catch ($ClassNotFoundException& x) {
-		$throwNew($SQLException, $$str({"Provider "_s, factoryClassName, " not found"_s}), static_cast<$Throwable*>(x));
+		$throwNew($SQLException, $$str({"Provider "_s, factoryClassName, " not found"_s}), x);
 	} catch ($Exception& x) {
-		$throwNew($SQLException, $$str({"Provider "_s, factoryClassName, " could not be instantiated: "_s, x}), static_cast<$Throwable*>(x));
+		$throwNew($SQLException, $$str({"Provider "_s, factoryClassName, " could not be instantiated: "_s, x}), x);
 	}
 	$shouldNotReachHere();
 }
@@ -170,12 +121,12 @@ $RowSetFactory* RowSetProvider::newFactory($String* factoryClassName, $ClassLoad
 $ClassLoader* RowSetProvider::getContextClassLoader() {
 	$init(RowSetProvider);
 	$beforeCallerSensitive();
-	return $cast($ClassLoader, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($RowSetProvider$1))));
+	return $cast($ClassLoader, $AccessController::doPrivileged($$new($RowSetProvider$1)));
 }
 
 $Class* RowSetProvider::getFactoryClass($String* factoryClassName, $ClassLoader* cl$renamed, bool doFallback) {
 	$init(RowSetProvider);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClassLoader, cl, cl$renamed);
 	$beforeCallerSensitive();
 	$Class* factoryClass = nullptr;
@@ -185,10 +136,10 @@ $Class* RowSetProvider::getFactoryClass($String* factoryClassName, $ClassLoader*
 			if (cl == nullptr) {
 				$throwNew($ClassNotFoundException);
 			} else {
-				factoryClass = $nc(cl)->loadClass(factoryClassName);
+				factoryClass = cl->loadClass(factoryClassName);
 			}
 		} else {
-			factoryClass = $nc(cl)->loadClass(factoryClassName);
+			factoryClass = cl->loadClass(factoryClassName);
 		}
 	} catch ($ClassNotFoundException& e) {
 		if (doFallback) {
@@ -204,37 +155,37 @@ $Class* RowSetProvider::getFactoryClass($String* factoryClassName, $ClassLoader*
 
 $RowSetFactory* RowSetProvider::loadViaServiceLoader() {
 	$init(RowSetProvider);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($RowSetFactory, theFactory, nullptr);
 	try {
 		trace("***in loadViaServiceLoader():"_s);
 		{
 			$load($RowSetFactory);
-			$var($Iterator, i$, $nc($($ServiceLoader::load($RowSetFactory::class$)))->iterator());
+			$var($Iterator, i$, $$nc($ServiceLoader::load($RowSetFactory::class$))->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($RowSetFactory, factory, $cast($RowSetFactory, i$->next()));
 				{
-					trace($$str({" Loading done by the java.util.ServiceLoader :"_s, $($nc($of(factory))->getClass()->getName())}));
+					trace($$str({" Loading done by the java.util.ServiceLoader :"_s, $($nc(factory)->getClass()->getName())}));
 					$assign(theFactory, factory);
 					break;
 				}
 			}
 		}
 	} catch ($ServiceConfigurationError& e) {
-		$throwNew($SQLException, $$str({"RowSetFactory: Error locating RowSetFactory using Service Loader API: "_s, e}), static_cast<$Throwable*>(e));
+		$throwNew($SQLException, $$str({"RowSetFactory: Error locating RowSetFactory using Service Loader API: "_s, e}), e);
 	}
 	return theFactory;
 }
 
 $String* RowSetProvider::getSystemProperty($String* propName) {
 	$init(RowSetProvider);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, property, nullptr);
 	try {
-		$var($PrivilegedAction, var$0, static_cast<$PrivilegedAction*>($new($RowSetProvider$2, propName)));
-		$assign(property, $cast($String, $AccessController::doPrivileged(var$0, ($AccessControlContext*)nullptr, $$new($PermissionArray, {static_cast<$Permission*>($$new($PropertyPermission, propName, "read"_s))}))));
+		$var($PrivilegedAction, var$0, $new($RowSetProvider$2, propName));
+		$assign(property, $cast($String, $AccessController::doPrivileged(var$0, nullptr, $$new($PermissionArray, {$$new($PropertyPermission, propName, "read"_s)}))));
 	} catch ($SecurityException& se) {
 		trace($$str({"error getting "_s, propName, ":  "_s, se}));
 		if (RowSetProvider::debug) {
@@ -251,7 +202,7 @@ void RowSetProvider::trace($String* msg) {
 	}
 }
 
-void clinit$RowSetProvider($Class* class$) {
+void RowSetProvider::clinit$($Class* clazz) {
 	$assignStatic(RowSetProvider::ROWSET_DEBUG_PROPERTY, "javax.sql.rowset.RowSetProvider.debug"_s);
 	$assignStatic(RowSetProvider::ROWSET_FACTORY_IMPL, "com.sun.rowset.RowSetFactoryImpl"_s);
 	$assignStatic(RowSetProvider::ROWSET_FACTORY_NAME, "javax.sql.rowset.RowSetFactory"_s);
@@ -266,7 +217,47 @@ RowSetProvider::RowSetProvider() {
 }
 
 $Class* RowSetProvider::load$($String* name, bool initialize) {
-	$loadClass(RowSetProvider, name, initialize, &_RowSetProvider_ClassInfo_, clinit$RowSetProvider, allocate$RowSetProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"ROWSET_DEBUG_PROPERTY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RowSetProvider, ROWSET_DEBUG_PROPERTY)},
+		{"ROWSET_FACTORY_IMPL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RowSetProvider, ROWSET_FACTORY_IMPL)},
+		{"ROWSET_FACTORY_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RowSetProvider, ROWSET_FACTORY_NAME)},
+		{"debug", "Z", nullptr, $PRIVATE | $STATIC, $staticField(RowSetProvider, debug)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(RowSetProvider, init$, void)},
+		{"defaultRowSetFactory", "()Ljavax/sql/rowset/RowSetFactory;", nullptr, $PRIVATE | $STATIC, $staticMethod(RowSetProvider, defaultRowSetFactory, $RowSetFactory*)},
+		{"getContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $staticMethod(RowSetProvider, getContextClassLoader, $ClassLoader*), "java.lang.SecurityException"},
+		{"getFactoryClass", "(Ljava/lang/String;Ljava/lang/ClassLoader;Z)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/ClassLoader;Z)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(RowSetProvider, getFactoryClass, $Class*, $String*, $ClassLoader*, bool), "java.lang.ClassNotFoundException"},
+		{"getSystemProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(RowSetProvider, getSystemProperty, $String*, $String*)},
+		{"loadViaServiceLoader", "()Ljavax/sql/rowset/RowSetFactory;", nullptr, $PRIVATE | $STATIC, $staticMethod(RowSetProvider, loadViaServiceLoader, $RowSetFactory*), "java.sql.SQLException"},
+		{"newFactory", "()Ljavax/sql/rowset/RowSetFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(RowSetProvider, newFactory, $RowSetFactory*), "java.sql.SQLException"},
+		{"newFactory", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljavax/sql/rowset/RowSetFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(RowSetProvider, newFactory, $RowSetFactory*, $String*, $ClassLoader*), "java.sql.SQLException"},
+		{"trace", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(RowSetProvider, trace, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.sql.rowset.RowSetProvider$2", nullptr, nullptr, 0},
+		{"javax.sql.rowset.RowSetProvider$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.sql.rowset.RowSetProvider",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.sql.rowset.RowSetProvider$2,javax.sql.rowset.RowSetProvider$1"
+	};
+	$loadClass(RowSetProvider, name, initialize, &classInfo$$, RowSetProvider::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RowSetProvider);
+	});
 	return class$;
 }
 

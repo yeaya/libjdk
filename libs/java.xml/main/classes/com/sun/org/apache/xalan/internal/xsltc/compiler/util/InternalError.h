@@ -20,10 +20,13 @@ class InternalError : public ::java::lang::Error {
 public:
 	InternalError();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0xA3254DF0BDD69EDE;
+	static const int64_t serialVersionUID = (int64_t)0xa3254df0bdd69ede;
 	InternalError(const InternalError& e);
 	virtual void throw$() override;
-	inline InternalError* operator ->() {
+	inline InternalError* operator ->() const {
+		return (InternalError*)throwing$;
+	}
+	inline operator InternalError*() const {
 		return (InternalError*)throwing$;
 	}
 };

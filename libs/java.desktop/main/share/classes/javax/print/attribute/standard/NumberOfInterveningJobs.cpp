@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/NumberOfInterveningJobs.h>
-
 #include <javax/print/attribute/IntegerSyntax.h>
 #include <jcpp.h>
 
@@ -15,36 +14,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _NumberOfInterveningJobs_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumberOfInterveningJobs, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NumberOfInterveningJobs_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(NumberOfInterveningJobs, init$, void, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NumberOfInterveningJobs, equals, bool, Object$*)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(NumberOfInterveningJobs, getCategory, $Class*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(NumberOfInterveningJobs, getName, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _NumberOfInterveningJobs_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.NumberOfInterveningJobs",
-	"javax.print.attribute.IntegerSyntax",
-	"javax.print.attribute.PrintJobAttribute",
-	_NumberOfInterveningJobs_FieldInfo_,
-	_NumberOfInterveningJobs_MethodInfo_
-};
-
-$Object* allocate$NumberOfInterveningJobs($Class* clazz) {
-	return $of($alloc(NumberOfInterveningJobs));
-}
 
 int32_t NumberOfInterveningJobs::hashCode() {
 	 return this->$IntegerSyntax::hashCode();
@@ -82,7 +51,32 @@ NumberOfInterveningJobs::NumberOfInterveningJobs() {
 }
 
 $Class* NumberOfInterveningJobs::load$($String* name, bool initialize) {
-	$loadClass(NumberOfInterveningJobs, name, initialize, &_NumberOfInterveningJobs_ClassInfo_, allocate$NumberOfInterveningJobs);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumberOfInterveningJobs, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(NumberOfInterveningJobs, init$, void, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NumberOfInterveningJobs, equals, bool, Object$*)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(NumberOfInterveningJobs, getCategory, $Class*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(NumberOfInterveningJobs, getName, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.NumberOfInterveningJobs",
+		"javax.print.attribute.IntegerSyntax",
+		"javax.print.attribute.PrintJobAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NumberOfInterveningJobs, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NumberOfInterveningJobs));
+	});
 	return class$;
 }
 

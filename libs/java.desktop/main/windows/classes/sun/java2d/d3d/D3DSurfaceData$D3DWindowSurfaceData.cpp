@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DSurfaceData$D3DWindowSurfaceData.h>
-
 #include <java/awt/GraphicsDevice.h>
 #include <java/awt/Image.h>
 #include <java/awt/Rectangle.h>
@@ -33,11 +32,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $WComponentPeer = ::sun::awt::windows::WComponentPeer;
 using $InvalidPipeException = ::sun::java2d::InvalidPipeException;
 using $ScreenUpdateManager = ::sun::java2d::ScreenUpdateManager;
-using $StateTracker = ::sun::java2d::StateTracker;
 using $SurfaceData = ::sun::java2d::SurfaceData;
 using $D3DContext = ::sun::java2d::d3d::D3DContext;
 using $D3DGraphicsConfig = ::sun::java2d::d3d::D3DGraphicsConfig;
-using $D3DGraphicsDevice = ::sun::java2d::d3d::D3DGraphicsDevice;
 using $D3DRenderQueue = ::sun::java2d::d3d::D3DRenderQueue;
 using $D3DSurfaceData = ::sun::java2d::d3d::D3DSurfaceData;
 using $BufferedContext = ::sun::java2d::pipe::BufferedContext;
@@ -48,56 +45,12 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$FieldInfo _D3DSurfaceData$D3DWindowSurfaceData_FieldInfo_[] = {
-	{"dirtyTracker", "Lsun/java2d/StateTracker;", nullptr, 0, $field(D3DSurfaceData$D3DWindowSurfaceData, dirtyTracker)},
-	{}
-};
-
-$MethodInfo _D3DSurfaceData$D3DWindowSurfaceData_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/windows/WComponentPeer;Lsun/java2d/d3d/D3DGraphicsConfig;)V", nullptr, $PUBLIC, $method(D3DSurfaceData$D3DWindowSurfaceData, init$, void, $WComponentPeer*, $D3DGraphicsConfig*)},
-	{"disableAccelerationForSurface", "()V", nullptr, 0, $virtualMethod(D3DSurfaceData$D3DWindowSurfaceData, disableAccelerationForSurface, void)},
-	{"getContext", "()Lsun/java2d/pipe/BufferedContext;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(D3DSurfaceData$D3DWindowSurfaceData, getContext, $BufferedContext*)},
-	{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData$D3DWindowSurfaceData, getDestination, $Object*)},
-	{"getReplacement", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData$D3DWindowSurfaceData, getReplacement, $SurfaceData*)},
-	{"isDirty", "()Z", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData$D3DWindowSurfaceData, isDirty, bool)},
-	{"markClean", "()V", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData$D3DWindowSurfaceData, markClean, void)},
-	{"restoreSurface", "()V", nullptr, 0, $virtualMethod(D3DSurfaceData$D3DWindowSurfaceData, restoreSurface, void)},
-	{}
-};
-
-$InnerClassInfo _D3DSurfaceData$D3DWindowSurfaceData_InnerClassesInfo_[] = {
-	{"sun.java2d.d3d.D3DSurfaceData$D3DWindowSurfaceData", "sun.java2d.d3d.D3DSurfaceData", "D3DWindowSurfaceData", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _D3DSurfaceData$D3DWindowSurfaceData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.d3d.D3DSurfaceData$D3DWindowSurfaceData",
-	"sun.java2d.d3d.D3DSurfaceData",
-	nullptr,
-	_D3DSurfaceData$D3DWindowSurfaceData_FieldInfo_,
-	_D3DSurfaceData$D3DWindowSurfaceData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_D3DSurfaceData$D3DWindowSurfaceData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.d3d.D3DSurfaceData"
-};
-
-$Object* allocate$D3DSurfaceData$D3DWindowSurfaceData($Class* clazz) {
-	return $of($alloc(D3DSurfaceData$D3DWindowSurfaceData));
-}
-
 void D3DSurfaceData$D3DWindowSurfaceData::init$($WComponentPeer* peer, $D3DGraphicsConfig* gc) {
-	$useLocalCurrentObjectStackCache();
-	$var($WComponentPeer, var$0, peer);
-	$var($D3DGraphicsConfig, var$1, gc);
-	int32_t var$2 = $nc($($nc(peer)->getBounds()))->width;
-	int32_t var$3 = $nc($(peer->getBounds()))->height;
+	$useLocalObjectStack();
+	int32_t var$0 = $nc($($nc(peer)->getBounds()))->width;
+	int32_t var$1 = $nc($(peer->getBounds()))->height;
 	$init($ExtendedBufferCapabilities$VSyncType);
-	$D3DSurfaceData::init$(var$0, var$1, var$2, var$3, nullptr, $(peer->getColorModel()), 1, $D3DSurfaceData::SWAP_COPY, $ExtendedBufferCapabilities$VSyncType::VSYNC_DEFAULT, $AccelSurface::WINDOW);
+	$D3DSurfaceData::init$(peer, gc, var$0, var$1, nullptr, $(peer->getColorModel()), 1, $D3DSurfaceData::SWAP_COPY, $ExtendedBufferCapabilities$VSyncType::VSYNC_DEFAULT, $AccelSurface::WINDOW);
 	$set(this, dirtyTracker, getStateTracker());
 }
 
@@ -107,7 +60,7 @@ $SurfaceData* D3DSurfaceData$D3DWindowSurfaceData::getReplacement() {
 }
 
 $Object* D3DSurfaceData$D3DWindowSurfaceData::getDestination() {
-	return $of($nc(this->peer)->getTarget());
+	return $nc(this->peer)->getTarget();
 }
 
 void D3DSurfaceData$D3DWindowSurfaceData::disableAccelerationForSurface() {
@@ -115,11 +68,11 @@ void D3DSurfaceData$D3DWindowSurfaceData::disableAccelerationForSurface() {
 	invalidate();
 	flush();
 	$nc(this->peer)->disableAcceleration();
-	$nc($($ScreenUpdateManager::getInstance()))->dropScreenSurface(this);
+	$$nc($ScreenUpdateManager::getInstance())->dropScreenSurface(this);
 }
 
 void D3DSurfaceData$D3DWindowSurfaceData::restoreSurface() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(this->peer)->isAccelCapable()) {
 		$throwNew($InvalidPipeException, "Onscreen acceleration disabled for this surface"_s);
 	}
@@ -131,18 +84,16 @@ void D3DSurfaceData$D3DWindowSurfaceData::restoreSurface() {
 	setSurfaceLost(false);
 	$var($D3DRenderQueue, rq, $D3DRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc($($cast($D3DContext, getContext())))->invalidateContext();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			rq->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$$sure($D3DContext, getContext())->invalidateContext();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -162,7 +113,43 @@ D3DSurfaceData$D3DWindowSurfaceData::D3DSurfaceData$D3DWindowSurfaceData() {
 }
 
 $Class* D3DSurfaceData$D3DWindowSurfaceData::load$($String* name, bool initialize) {
-	$loadClass(D3DSurfaceData$D3DWindowSurfaceData, name, initialize, &_D3DSurfaceData$D3DWindowSurfaceData_ClassInfo_, allocate$D3DSurfaceData$D3DWindowSurfaceData);
+	$FieldInfo fieldInfos$$[] = {
+		{"dirtyTracker", "Lsun/java2d/StateTracker;", nullptr, 0, $field(D3DSurfaceData$D3DWindowSurfaceData, dirtyTracker)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/windows/WComponentPeer;Lsun/java2d/d3d/D3DGraphicsConfig;)V", nullptr, $PUBLIC, $method(D3DSurfaceData$D3DWindowSurfaceData, init$, void, $WComponentPeer*, $D3DGraphicsConfig*)},
+		{"disableAccelerationForSurface", "()V", nullptr, 0, $virtualMethod(D3DSurfaceData$D3DWindowSurfaceData, disableAccelerationForSurface, void)},
+		{"getContext", "()Lsun/java2d/pipe/BufferedContext;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(D3DSurfaceData$D3DWindowSurfaceData, getContext, $BufferedContext*)},
+		{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData$D3DWindowSurfaceData, getDestination, $Object*)},
+		{"getReplacement", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData$D3DWindowSurfaceData, getReplacement, $SurfaceData*)},
+		{"isDirty", "()Z", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData$D3DWindowSurfaceData, isDirty, bool)},
+		{"markClean", "()V", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData$D3DWindowSurfaceData, markClean, void)},
+		{"restoreSurface", "()V", nullptr, 0, $virtualMethod(D3DSurfaceData$D3DWindowSurfaceData, restoreSurface, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.d3d.D3DSurfaceData$D3DWindowSurfaceData", "sun.java2d.d3d.D3DSurfaceData", "D3DWindowSurfaceData", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.d3d.D3DSurfaceData$D3DWindowSurfaceData",
+		"sun.java2d.d3d.D3DSurfaceData",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.d3d.D3DSurfaceData"
+	};
+	$loadClass(D3DSurfaceData$D3DWindowSurfaceData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(D3DSurfaceData$D3DWindowSurfaceData));
+	});
 	return class$;
 }
 

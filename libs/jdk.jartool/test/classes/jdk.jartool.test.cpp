@@ -1,5 +1,4 @@
 #include <jdk.jartool.test.h>
-
 #include <jdk.jartool.h>
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>

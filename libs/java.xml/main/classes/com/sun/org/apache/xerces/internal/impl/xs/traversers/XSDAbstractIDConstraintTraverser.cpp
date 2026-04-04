@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/traversers/XSDAbstractIDConstraintTraverser.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xpath/XPathException.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaNamespaceSupport.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaSymbols.h>
@@ -18,7 +17,6 @@
 #include <com/sun/org/apache/xerces/internal/util/XMLChar.h>
 #include <com/sun/org/apache/xerces/internal/xni/NamespaceContext.h>
 #include <org/w3c/dom/Element.h>
-#include <org/w3c/dom/Node.h>
 #include <jcpp.h>
 
 #undef ATTIDX_XPATH
@@ -40,11 +38,9 @@ using $XSDHandler = ::com::sun::org::apache::xerces::internal::impl::xs::travers
 using $XSDocumentInfo = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDocumentInfo;
 using $DOMUtil = ::com::sun::org::apache::xerces::internal::util::DOMUtil;
 using $XMLChar = ::com::sun::org::apache::xerces::internal::util::XMLChar;
-using $NamespaceContext = ::com::sun::org::apache::xerces::internal::xni::NamespaceContext;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Element = ::org::w3c::dom::Element;
-using $Node = ::org::w3c::dom::Node;
 
 namespace com {
 	namespace sun {
@@ -56,47 +52,28 @@ namespace com {
 							namespace xs {
 								namespace traversers {
 
-$MethodInfo _XSDAbstractIDConstraintTraverser_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDHandler;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSAttributeChecker;)V", nullptr, $PUBLIC, $method(XSDAbstractIDConstraintTraverser, init$, void, $XSDHandler*, $XSAttributeChecker*)},
-	{"traverseIdentityConstraint", "(Lcom/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint;Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;[Ljava/lang/Object;)Z", nullptr, 0, $virtualMethod(XSDAbstractIDConstraintTraverser, traverseIdentityConstraint, bool, $IdentityConstraint*, $Element*, $XSDocumentInfo*, $ObjectArray*)},
-	{}
-};
-
-$ClassInfo _XSDAbstractIDConstraintTraverser_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractIDConstraintTraverser",
-	"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractTraverser",
-	nullptr,
-	nullptr,
-	_XSDAbstractIDConstraintTraverser_MethodInfo_
-};
-
-$Object* allocate$XSDAbstractIDConstraintTraverser($Class* clazz) {
-	return $of($alloc(XSDAbstractIDConstraintTraverser));
-}
-
 void XSDAbstractIDConstraintTraverser::init$($XSDHandler* handler, $XSAttributeChecker* gAttrCheck) {
 	$XSDAbstractTraverser::init$(handler, gAttrCheck);
 }
 
 bool XSDAbstractIDConstraintTraverser::traverseIdentityConstraint($IdentityConstraint* ic, $Element* icElem, $XSDocumentInfo* schemaDoc, $ObjectArray* icElemAttrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, sElem, $DOMUtil::getFirstChildElement(icElem));
 	if (sElem == nullptr) {
 		reportSchemaError("s4s-elt-must-match.2"_s, $$new($ObjectArray, {
-			$of("identity constraint"_s),
-			$of("(annotation?, selector, field+)"_s)
+			"identity constraint"_s,
+			"(annotation?, selector, field+)"_s
 		}), icElem);
 		return false;
 	}
 	$init($SchemaSymbols);
-	if ($nc($($DOMUtil::getLocalName(sElem)))->equals($SchemaSymbols::ELT_ANNOTATION)) {
+	if ($$nc($DOMUtil::getLocalName(sElem))->equals($SchemaSymbols::ELT_ANNOTATION)) {
 		$nc(ic)->addAnnotation($(traverseAnnotationDecl(sElem, icElemAttrs, false, schemaDoc)));
 		$assign(sElem, $DOMUtil::getNextSiblingElement(sElem));
 		if (sElem == nullptr) {
 			reportSchemaError("s4s-elt-must-match.2"_s, $$new($ObjectArray, {
-				$of("identity constraint"_s),
-				$of("(annotation?, selector, field+)"_s)
+				"identity constraint"_s,
+				"(annotation?, selector, field+)"_s
 			}), icElem);
 			return false;
 		}
@@ -106,32 +83,32 @@ bool XSDAbstractIDConstraintTraverser::traverseIdentityConstraint($IdentityConst
 			$nc(ic)->addAnnotation($(traverseSyntheticAnnotation(icElem, text, icElemAttrs, false, schemaDoc)));
 		}
 	}
-	if (!$nc($($DOMUtil::getLocalName(sElem)))->equals($SchemaSymbols::ELT_SELECTOR)) {
+	if (!$$nc($DOMUtil::getLocalName(sElem))->equals($SchemaSymbols::ELT_SELECTOR)) {
 		reportSchemaError("s4s-elt-must-match.1"_s, $$new($ObjectArray, {
-			$of("identity constraint"_s),
-			$of("(annotation?, selector, field+)"_s),
-			$of($SchemaSymbols::ELT_SELECTOR)
+			"identity constraint"_s,
+			"(annotation?, selector, field+)"_s,
+			$SchemaSymbols::ELT_SELECTOR
 		}), sElem);
 		return false;
 	}
 	$var($ObjectArray, attrValues, $nc(this->fAttrChecker)->checkAttributes(sElem, false, schemaDoc));
 	$var($Element, selChild, $DOMUtil::getFirstChildElement(sElem));
 	if (selChild != nullptr) {
-		if ($nc($($DOMUtil::getLocalName(selChild)))->equals($SchemaSymbols::ELT_ANNOTATION)) {
+		if ($$nc($DOMUtil::getLocalName(selChild))->equals($SchemaSymbols::ELT_ANNOTATION)) {
 			$nc(ic)->addAnnotation($(traverseAnnotationDecl(selChild, attrValues, false, schemaDoc)));
 			$assign(selChild, $DOMUtil::getNextSiblingElement(selChild));
 		} else {
 			reportSchemaError("s4s-elt-must-match.1"_s, $$new($ObjectArray, {
-				$of($SchemaSymbols::ELT_SELECTOR),
-				$of("(annotation?)"_s),
-				$($of($DOMUtil::getLocalName(selChild)))
+				$SchemaSymbols::ELT_SELECTOR,
+				"(annotation?)"_s,
+				$($DOMUtil::getLocalName(selChild))
 			}), selChild);
 		}
 		if (selChild != nullptr) {
 			reportSchemaError("s4s-elt-must-match.1"_s, $$new($ObjectArray, {
-				$of($SchemaSymbols::ELT_SELECTOR),
-				$of("(annotation?)"_s),
-				$($of($DOMUtil::getLocalName(selChild)))
+				$SchemaSymbols::ELT_SELECTOR,
+				"(annotation?)"_s,
+				$($DOMUtil::getLocalName(selChild))
 			}), selChild);
 		}
 	} else {
@@ -143,8 +120,8 @@ bool XSDAbstractIDConstraintTraverser::traverseIdentityConstraint($IdentityConst
 	$var($String, sText, $cast($String, $nc(attrValues)->get($XSAttributeChecker::ATTIDX_XPATH)));
 	if (sText == nullptr) {
 		reportSchemaError("s4s-att-must-appear"_s, $$new($ObjectArray, {
-			$of($SchemaSymbols::ELT_SELECTOR),
-			$of($SchemaSymbols::ATT_XPATH)
+			$SchemaSymbols::ELT_SELECTOR,
+			$SchemaSymbols::ATT_XPATH
 		}), sElem);
 		return false;
 	}
@@ -155,7 +132,7 @@ bool XSDAbstractIDConstraintTraverser::traverseIdentityConstraint($IdentityConst
 		$var($Selector, selector, $new($Selector, sXpath, ic));
 		$nc(ic)->setSelector(selector);
 	} catch ($XPathException& e) {
-		reportSchemaError($(e->getKey()), $$new($ObjectArray, {$of(sText)}), sElem);
+		reportSchemaError($(e->getKey()), $$new($ObjectArray, {sText}), sElem);
 		$nc(this->fAttrChecker)->returnAttrArray(attrValues, schemaDoc);
 		return false;
 	}
@@ -163,17 +140,17 @@ bool XSDAbstractIDConstraintTraverser::traverseIdentityConstraint($IdentityConst
 	$var($Element, fElem, $DOMUtil::getNextSiblingElement(sElem));
 	if (fElem == nullptr) {
 		reportSchemaError("s4s-elt-must-match.2"_s, $$new($ObjectArray, {
-			$of("identity constraint"_s),
-			$of("(annotation?, selector, field+)"_s)
+			"identity constraint"_s,
+			"(annotation?, selector, field+)"_s
 		}), sElem);
 		return false;
 	}
 	while (fElem != nullptr) {
-		if (!$nc($($DOMUtil::getLocalName(fElem)))->equals($SchemaSymbols::ELT_FIELD)) {
+		if (!$$nc($DOMUtil::getLocalName(fElem))->equals($SchemaSymbols::ELT_FIELD)) {
 			reportSchemaError("s4s-elt-must-match.1"_s, $$new($ObjectArray, {
-				$of("identity constraint"_s),
-				$of("(annotation?, selector, field+)"_s),
-				$of($SchemaSymbols::ELT_FIELD)
+				"identity constraint"_s,
+				"(annotation?, selector, field+)"_s,
+				$SchemaSymbols::ELT_FIELD
 			}), fElem);
 			$assign(fElem, $DOMUtil::getNextSiblingElement(fElem));
 			continue;
@@ -181,16 +158,16 @@ bool XSDAbstractIDConstraintTraverser::traverseIdentityConstraint($IdentityConst
 		$assign(attrValues, $nc(this->fAttrChecker)->checkAttributes(fElem, false, schemaDoc));
 		$var($Element, fieldChild, $DOMUtil::getFirstChildElement(fElem));
 		if (fieldChild != nullptr) {
-			if ($nc($($DOMUtil::getLocalName(fieldChild)))->equals($SchemaSymbols::ELT_ANNOTATION)) {
+			if ($$nc($DOMUtil::getLocalName(fieldChild))->equals($SchemaSymbols::ELT_ANNOTATION)) {
 				$nc(ic)->addAnnotation($(traverseAnnotationDecl(fieldChild, attrValues, false, schemaDoc)));
 				$assign(fieldChild, $DOMUtil::getNextSiblingElement(fieldChild));
 			}
 		}
 		if (fieldChild != nullptr) {
 			reportSchemaError("s4s-elt-must-match.1"_s, $$new($ObjectArray, {
-				$of($SchemaSymbols::ELT_FIELD),
-				$of("(annotation?)"_s),
-				$($of($DOMUtil::getLocalName(fieldChild)))
+				$SchemaSymbols::ELT_FIELD,
+				"(annotation?)"_s,
+				$($DOMUtil::getLocalName(fieldChild))
 			}), fieldChild);
 		} else {
 			$var($String, text, $DOMUtil::getSyntheticAnnotation(fElem));
@@ -201,8 +178,8 @@ bool XSDAbstractIDConstraintTraverser::traverseIdentityConstraint($IdentityConst
 		$var($String, fText, $cast($String, $nc(attrValues)->get($XSAttributeChecker::ATTIDX_XPATH)));
 		if (fText == nullptr) {
 			reportSchemaError("s4s-att-must-appear"_s, $$new($ObjectArray, {
-				$of($SchemaSymbols::ELT_FIELD),
-				$of($SchemaSymbols::ATT_XPATH)
+				$SchemaSymbols::ELT_FIELD,
+				$SchemaSymbols::ATT_XPATH
 			}), fElem);
 			$nc(this->fAttrChecker)->returnAttrArray(attrValues, schemaDoc);
 			return false;
@@ -213,7 +190,7 @@ bool XSDAbstractIDConstraintTraverser::traverseIdentityConstraint($IdentityConst
 			$var($Field, field, $new($Field, fXpath, ic));
 			$nc(ic)->addField(field);
 		} catch ($XPathException& e) {
-			reportSchemaError($(e->getKey()), $$new($ObjectArray, {$of(fText)}), fElem);
+			reportSchemaError($(e->getKey()), $$new($ObjectArray, {fText}), fElem);
 			$nc(this->fAttrChecker)->returnAttrArray(attrValues, schemaDoc);
 			return false;
 		}
@@ -227,7 +204,22 @@ XSDAbstractIDConstraintTraverser::XSDAbstractIDConstraintTraverser() {
 }
 
 $Class* XSDAbstractIDConstraintTraverser::load$($String* name, bool initialize) {
-	$loadClass(XSDAbstractIDConstraintTraverser, name, initialize, &_XSDAbstractIDConstraintTraverser_ClassInfo_, allocate$XSDAbstractIDConstraintTraverser);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDHandler;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSAttributeChecker;)V", nullptr, $PUBLIC, $method(XSDAbstractIDConstraintTraverser, init$, void, $XSDHandler*, $XSAttributeChecker*)},
+		{"traverseIdentityConstraint", "(Lcom/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint;Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;[Ljava/lang/Object;)Z", nullptr, 0, $virtualMethod(XSDAbstractIDConstraintTraverser, traverseIdentityConstraint, bool, $IdentityConstraint*, $Element*, $XSDocumentInfo*, $ObjectArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractIDConstraintTraverser",
+		"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractTraverser",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XSDAbstractIDConstraintTraverser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSDAbstractIDConstraintTraverser);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/logging/LogRecord.h>
-
 #include <java/io/IOException.h>
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
@@ -81,144 +80,32 @@ public:
 	virtual void accept(Object$* f) override {
 		$nc(inst$)->lambda$inferCaller$0($cast($StackWalker$StackFrame, f));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LogRecord$$Lambda$lambda$inferCaller$0>());
-	}
 	LogRecord* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LogRecord$$Lambda$lambda$inferCaller$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LogRecord$$Lambda$lambda$inferCaller$0, inst$)},
-	{}
-};
-$MethodInfo LogRecord$$Lambda$lambda$inferCaller$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC, $method(LogRecord$$Lambda$lambda$inferCaller$0, init$, void, LogRecord*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LogRecord$$Lambda$lambda$inferCaller$0, accept, void, Object$*)},
-	{}
-};
-$ClassInfo LogRecord$$Lambda$lambda$inferCaller$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.logging.LogRecord$$Lambda$lambda$inferCaller$0",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* LogRecord$$Lambda$lambda$inferCaller$0::load$($String* name, bool initialize) {
-	$loadClass(LogRecord$$Lambda$lambda$inferCaller$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LogRecord$$Lambda$lambda$inferCaller$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC, $method(LogRecord$$Lambda$lambda$inferCaller$0, init$, void, LogRecord*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LogRecord$$Lambda$lambda$inferCaller$0, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.logging.LogRecord$$Lambda$lambda$inferCaller$0",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LogRecord$$Lambda$lambda$inferCaller$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LogRecord$$Lambda$lambda$inferCaller$0);
+	});
 	return class$;
 }
 $Class* LogRecord$$Lambda$lambda$inferCaller$0::class$ = nullptr;
-
-$NamedAttribute LogRecord_Attribute_var$0[] = {
-	{"since", 's', "16"},
-	{}
-};
-
-$CompoundAttribute _LogRecord_MethodAnnotations_getThreadID13[] = {
-	{"Ljava/lang/Deprecated;", LogRecord_Attribute_var$0},
-	{}
-};
-
-$CompoundAttribute _LogRecord_MethodAnnotations_setMillis23[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$NamedAttribute LogRecord_Attribute_var$1[] = {
-	{"since", 's', "16"},
-	{}
-};
-
-$CompoundAttribute _LogRecord_MethodAnnotations_setThreadID30[] = {
-	{"Ljava/lang/Deprecated;", LogRecord_Attribute_var$1},
-	{}
-};
-
-$FieldInfo _LogRecord_FieldInfo_[] = {
-	{"globalSequenceNumber", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LogRecord, globalSequenceNumber)},
-	{"level", "Ljava/util/logging/Level;", nullptr, $PRIVATE, $field(LogRecord, level)},
-	{"sequenceNumber", "J", nullptr, $PRIVATE, $field(LogRecord, sequenceNumber)},
-	{"sourceClassName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LogRecord, sourceClassName)},
-	{"sourceMethodName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LogRecord, sourceMethodName)},
-	{"message", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LogRecord, message)},
-	{"threadID", "I", nullptr, $PRIVATE, $field(LogRecord, threadID)},
-	{"longThreadID", "J", nullptr, $PRIVATE, $field(LogRecord, longThreadID)},
-	{"thrown", "Ljava/lang/Throwable;", nullptr, $PRIVATE, $field(LogRecord, thrown)},
-	{"loggerName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LogRecord, loggerName)},
-	{"resourceBundleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LogRecord, resourceBundleName)},
-	{"instant", "Ljava/time/Instant;", nullptr, $PRIVATE, $field(LogRecord, instant)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LogRecord, serialPersistentFields)},
-	{"needToInferCaller", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(LogRecord, needToInferCaller)},
-	{"parameters", "[Ljava/lang/Object;", nullptr, $PRIVATE | $TRANSIENT, $field(LogRecord, parameters)},
-	{"resourceBundle", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $TRANSIENT, $field(LogRecord, resourceBundle)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LogRecord, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _LogRecord_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/logging/Level;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LogRecord, init$, void, $Level*, $String*)},
-	{"getInstant", "()Ljava/time/Instant;", nullptr, $PUBLIC, $virtualMethod(LogRecord, getInstant, $Instant*)},
-	{"getLevel", "()Ljava/util/logging/Level;", nullptr, $PUBLIC, $virtualMethod(LogRecord, getLevel, $Level*)},
-	{"getLoggerName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LogRecord, getLoggerName, $String*)},
-	{"getLongThreadID", "()J", nullptr, $PUBLIC, $virtualMethod(LogRecord, getLongThreadID, int64_t)},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LogRecord, getMessage, $String*)},
-	{"getMillis", "()J", nullptr, $PUBLIC, $virtualMethod(LogRecord, getMillis, int64_t)},
-	{"getParameters", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LogRecord, getParameters, $ObjectArray*)},
-	{"getResourceBundle", "()Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $virtualMethod(LogRecord, getResourceBundle, $ResourceBundle*)},
-	{"getResourceBundleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LogRecord, getResourceBundleName, $String*)},
-	{"getSequenceNumber", "()J", nullptr, $PUBLIC, $virtualMethod(LogRecord, getSequenceNumber, int64_t)},
-	{"getSourceClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LogRecord, getSourceClassName, $String*)},
-	{"getSourceMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LogRecord, getSourceMethodName, $String*)},
-	{"getThreadID", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(LogRecord, getThreadID, int32_t), nullptr, nullptr, _LogRecord_MethodAnnotations_getThreadID13},
-	{"getThrown", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(LogRecord, getThrown, $Throwable*)},
-	{"inferCaller", "()V", nullptr, $PRIVATE, $method(LogRecord, inferCaller, void)},
-	{"lambda$inferCaller$0", "(Ljava/lang/StackWalker$StackFrame;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(LogRecord, lambda$inferCaller$0, void, $StackWalker$StackFrame*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(LogRecord, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setInstant", "(Ljava/time/Instant;)V", nullptr, $PUBLIC, $virtualMethod(LogRecord, setInstant, void, $Instant*)},
-	{"setLevel", "(Ljava/util/logging/Level;)V", nullptr, $PUBLIC, $virtualMethod(LogRecord, setLevel, void, $Level*)},
-	{"setLoggerName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LogRecord, setLoggerName, void, $String*)},
-	{"setLongThreadID", "(J)Ljava/util/logging/LogRecord;", nullptr, $PUBLIC, $virtualMethod(LogRecord, setLongThreadID, LogRecord*, int64_t)},
-	{"setMessage", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LogRecord, setMessage, void, $String*)},
-	{"setMillis", "(J)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(LogRecord, setMillis, void, int64_t), nullptr, nullptr, _LogRecord_MethodAnnotations_setMillis23},
-	{"setParameters", "([Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LogRecord, setParameters, void, $ObjectArray*)},
-	{"setResourceBundle", "(Ljava/util/ResourceBundle;)V", nullptr, $PUBLIC, $virtualMethod(LogRecord, setResourceBundle, void, $ResourceBundle*)},
-	{"setResourceBundleName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LogRecord, setResourceBundleName, void, $String*)},
-	{"setSequenceNumber", "(J)V", nullptr, $PUBLIC, $virtualMethod(LogRecord, setSequenceNumber, void, int64_t)},
-	{"setSourceClassName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LogRecord, setSourceClassName, void, $String*)},
-	{"setSourceMethodName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LogRecord, setSourceMethodName, void, $String*)},
-	{"setThreadID", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(LogRecord, setThreadID, void, int32_t), nullptr, nullptr, _LogRecord_MethodAnnotations_setThreadID30},
-	{"setThrown", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(LogRecord, setThrown, void, $Throwable*)},
-	{"shortThreadID", "(J)I", nullptr, $PRIVATE, $method(LogRecord, shortThreadID, int32_t, int64_t)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(LogRecord, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _LogRecord_InnerClassesInfo_[] = {
-	{"java.util.logging.LogRecord$CallerFinder", "java.util.logging.LogRecord", "CallerFinder", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _LogRecord_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.logging.LogRecord",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_LogRecord_FieldInfo_,
-	_LogRecord_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LogRecord_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.logging.LogRecord$CallerFinder"
-};
-
-$Object* allocate$LogRecord($Class* clazz) {
-	return $of($alloc(LogRecord));
-}
 
 $AtomicLong* LogRecord::globalSequenceNumber = nullptr;
 $ObjectStreamFieldArray* LogRecord::serialPersistentFields = nullptr;
@@ -234,7 +121,7 @@ int32_t LogRecord::shortThreadID(int64_t id) {
 void LogRecord::init$($Level* level, $String* msg) {
 	$set(this, level, $cast($Level, $Objects::requireNonNull(level)));
 	$set(this, message, msg);
-	this->sequenceNumber = $nc(LogRecord::globalSequenceNumber)->getAndIncrement();
+	this->sequenceNumber = LogRecord::globalSequenceNumber->getAndIncrement();
 	int64_t id = $($Thread::currentThread())->getId();
 	this->threadID = shortThreadID(id);
 	this->longThreadID = id;
@@ -370,20 +257,20 @@ void LogRecord::setThrown($Throwable* thrown) {
 }
 
 void LogRecord::writeObject($ObjectOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectOutputStream$PutField, pf, $nc(out)->putFields());
-	$nc(pf)->put("level"_s, $of(this->level));
+	$nc(pf)->put("level"_s, this->level);
 	pf->put("sequenceNumber"_s, this->sequenceNumber);
-	pf->put("sourceClassName"_s, $of(this->sourceClassName));
-	pf->put("sourceMethodName"_s, $of(this->sourceMethodName));
-	pf->put("message"_s, $of(this->message));
+	pf->put("sourceClassName"_s, this->sourceClassName);
+	pf->put("sourceMethodName"_s, this->sourceMethodName);
+	pf->put("message"_s, this->message);
 	pf->put("threadID"_s, this->threadID);
 	pf->put("longThreadID"_s, this->longThreadID);
 	pf->put("millis"_s, $nc(this->instant)->toEpochMilli());
-	pf->put("nanoAdjustment"_s, $nc(this->instant)->getNano() % 0x000F4240);
-	pf->put("thrown"_s, $of(this->thrown));
-	pf->put("loggerName"_s, $of(this->loggerName));
-	pf->put("resourceBundleName"_s, $of(this->resourceBundleName));
+	pf->put("nanoAdjustment"_s, this->instant->getNano() % 1000000);
+	pf->put("thrown"_s, this->thrown);
+	pf->put("loggerName"_s, this->loggerName);
+	pf->put("resourceBundleName"_s, this->resourceBundleName);
 	out->writeFields();
 	out->writeByte(1);
 	out->writeByte(0);
@@ -394,9 +281,7 @@ void LogRecord::writeObject($ObjectOutputStream* out) {
 	out->writeInt($nc(this->parameters)->length);
 	{
 		$var($ObjectArray, arr$, this->parameters);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Object0, parameter, arr$->get(i$));
 			{
 				out->writeObject($($Objects::toString(parameter, nullptr)));
@@ -406,14 +291,14 @@ void LogRecord::writeObject($ObjectOutputStream* out) {
 }
 
 void LogRecord::readObject($ObjectInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ObjectInputStream$GetField, gf, $nc(in)->readFields());
-	$set(this, level, $cast($Level, $nc(gf)->get("level"_s, ($Object*)nullptr)));
+	$set(this, level, $cast($Level, $nc(gf)->get("level"_s, nullptr)));
 	this->sequenceNumber = gf->get("sequenceNumber"_s, (int64_t)0);
-	$set(this, sourceClassName, $cast($String, gf->get("sourceClassName"_s, ($Object*)nullptr)));
-	$set(this, sourceMethodName, $cast($String, gf->get("sourceMethodName"_s, ($Object*)nullptr)));
-	$set(this, message, $cast($String, gf->get("message"_s, ($Object*)nullptr)));
+	$set(this, sourceClassName, $cast($String, gf->get("sourceClassName"_s, nullptr)));
+	$set(this, sourceMethodName, $cast($String, gf->get("sourceMethodName"_s, nullptr)));
+	$set(this, message, $cast($String, gf->get("message"_s, nullptr)));
 	int32_t threadID = gf->get("threadID"_s, 0);
 	int64_t longThreadID = gf->get("longThreadID"_s, (int64_t)threadID);
 	if (threadID != longThreadID) {
@@ -424,9 +309,9 @@ void LogRecord::readObject($ObjectInputStream* in) {
 	int64_t millis = gf->get("millis"_s, (int64_t)0);
 	int32_t nanoOfMilli = gf->get("nanoAdjustment"_s, 0);
 	$set(this, instant, $Instant::ofEpochSecond($div(millis, (int64_t)1000), ($mod(millis, (int64_t)1000)) * (int64_t)1000000 + nanoOfMilli));
-	$set(this, thrown, $cast($Throwable, gf->get("thrown"_s, ($Object*)nullptr)));
-	$set(this, loggerName, $cast($String, gf->get("loggerName"_s, ($Object*)nullptr)));
-	$set(this, resourceBundleName, $cast($String, gf->get("resourceBundleName"_s, ($Object*)nullptr)));
+	$set(this, thrown, $cast($Throwable, gf->get("thrown"_s, nullptr)));
+	$set(this, loggerName, $cast($String, gf->get("loggerName"_s, nullptr)));
+	$set(this, resourceBundleName, $cast($String, gf->get("resourceBundleName"_s, nullptr)));
 	int8_t major = in->readByte();
 	int8_t minor = in->readByte();
 	if (major != 1) {
@@ -439,8 +324,8 @@ void LogRecord::readObject($ObjectInputStream* in) {
 		$set(this, parameters, nullptr);
 	} else if (len < 255) {
 		$set(this, parameters, $new($ObjectArray, len));
-		for (int32_t i = 0; i < $nc(this->parameters)->length; ++i) {
-			$nc(this->parameters)->set(i, $(in->readObject()));
+		for (int32_t i = 0; i < this->parameters->length; ++i) {
+			this->parameters->set(i, $(in->readObject()));
 		}
 	} else {
 		$var($List, params, $new($ArrayList, $Math::min(len, 1024)));
@@ -463,24 +348,22 @@ void LogRecord::readObject($ObjectInputStream* in) {
 }
 
 void LogRecord::inferCaller() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->needToInferCaller = false;
 	$var($Optional, frame, $$new($LogRecord$CallerFinder)->get());
-	$nc(frame)->ifPresent(static_cast<$Consumer*>($$new(LogRecord$$Lambda$lambda$inferCaller$0, this)));
+	$nc(frame)->ifPresent($$new(LogRecord$$Lambda$lambda$inferCaller$0, this));
 }
 
 void LogRecord::lambda$inferCaller$0($StackWalker$StackFrame* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setSourceClassName($($nc(f)->getClassName()));
-	setSourceMethodName($($nc(f)->getMethodName()));
+	setSourceMethodName($(f->getMethodName()));
 }
 
-void clinit$LogRecord($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void LogRecord::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(LogRecord::globalSequenceNumber, $new($AtomicLong));
 	$load($Level);
-	$init($Long);
-	$init($Integer);
 	$assignStatic(LogRecord::serialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "level"_s, $Level::class$),
 		$$new($ObjectStreamField, "sequenceNumber"_s, $Long::TYPE),
@@ -502,11 +385,108 @@ LogRecord::LogRecord() {
 
 $Class* LogRecord::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(LogRecord$$Lambda$lambda$inferCaller$0::classInfo$.name)) {
+		if (name->equals("java.util.logging.LogRecord$$Lambda$lambda$inferCaller$0")) {
 			return LogRecord$$Lambda$lambda$inferCaller$0::load$(name, initialize);
 		}
 	}
-	$loadClass(LogRecord, name, initialize, &_LogRecord_ClassInfo_, clinit$LogRecord, allocate$LogRecord);
+	$FieldInfo fieldInfos$$[] = {
+		{"globalSequenceNumber", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LogRecord, globalSequenceNumber)},
+		{"level", "Ljava/util/logging/Level;", nullptr, $PRIVATE, $field(LogRecord, level)},
+		{"sequenceNumber", "J", nullptr, $PRIVATE, $field(LogRecord, sequenceNumber)},
+		{"sourceClassName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LogRecord, sourceClassName)},
+		{"sourceMethodName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LogRecord, sourceMethodName)},
+		{"message", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LogRecord, message)},
+		{"threadID", "I", nullptr, $PRIVATE, $field(LogRecord, threadID)},
+		{"longThreadID", "J", nullptr, $PRIVATE, $field(LogRecord, longThreadID)},
+		{"thrown", "Ljava/lang/Throwable;", nullptr, $PRIVATE, $field(LogRecord, thrown)},
+		{"loggerName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LogRecord, loggerName)},
+		{"resourceBundleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LogRecord, resourceBundleName)},
+		{"instant", "Ljava/time/Instant;", nullptr, $PRIVATE, $field(LogRecord, instant)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LogRecord, serialPersistentFields)},
+		{"needToInferCaller", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(LogRecord, needToInferCaller)},
+		{"parameters", "[Ljava/lang/Object;", nullptr, $PRIVATE | $TRANSIENT, $field(LogRecord, parameters)},
+		{"resourceBundle", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $TRANSIENT, $field(LogRecord, resourceBundle)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LogRecord, serialVersionUID)},
+		{}
+	};
+	$NamedAttribute getThreadIDmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "16"},
+		{}
+	};
+	$CompoundAttribute getThreadIDmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", getThreadIDmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$CompoundAttribute setMillismethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$NamedAttribute setThreadIDmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "16"},
+		{}
+	};
+	$CompoundAttribute setThreadIDmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", setThreadIDmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/logging/Level;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LogRecord, init$, void, $Level*, $String*)},
+		{"getInstant", "()Ljava/time/Instant;", nullptr, $PUBLIC, $virtualMethod(LogRecord, getInstant, $Instant*)},
+		{"getLevel", "()Ljava/util/logging/Level;", nullptr, $PUBLIC, $virtualMethod(LogRecord, getLevel, $Level*)},
+		{"getLoggerName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LogRecord, getLoggerName, $String*)},
+		{"getLongThreadID", "()J", nullptr, $PUBLIC, $virtualMethod(LogRecord, getLongThreadID, int64_t)},
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LogRecord, getMessage, $String*)},
+		{"getMillis", "()J", nullptr, $PUBLIC, $virtualMethod(LogRecord, getMillis, int64_t)},
+		{"getParameters", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LogRecord, getParameters, $ObjectArray*)},
+		{"getResourceBundle", "()Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $virtualMethod(LogRecord, getResourceBundle, $ResourceBundle*)},
+		{"getResourceBundleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LogRecord, getResourceBundleName, $String*)},
+		{"getSequenceNumber", "()J", nullptr, $PUBLIC, $virtualMethod(LogRecord, getSequenceNumber, int64_t)},
+		{"getSourceClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LogRecord, getSourceClassName, $String*)},
+		{"getSourceMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LogRecord, getSourceMethodName, $String*)},
+		{"getThreadID", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(LogRecord, getThreadID, int32_t), nullptr, nullptr, getThreadIDmethodAnnotations$$},
+		{"getThrown", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(LogRecord, getThrown, $Throwable*)},
+		{"inferCaller", "()V", nullptr, $PRIVATE, $method(LogRecord, inferCaller, void)},
+		{"lambda$inferCaller$0", "(Ljava/lang/StackWalker$StackFrame;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(LogRecord, lambda$inferCaller$0, void, $StackWalker$StackFrame*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(LogRecord, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"setInstant", "(Ljava/time/Instant;)V", nullptr, $PUBLIC, $virtualMethod(LogRecord, setInstant, void, $Instant*)},
+		{"setLevel", "(Ljava/util/logging/Level;)V", nullptr, $PUBLIC, $virtualMethod(LogRecord, setLevel, void, $Level*)},
+		{"setLoggerName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LogRecord, setLoggerName, void, $String*)},
+		{"setLongThreadID", "(J)Ljava/util/logging/LogRecord;", nullptr, $PUBLIC, $virtualMethod(LogRecord, setLongThreadID, LogRecord*, int64_t)},
+		{"setMessage", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LogRecord, setMessage, void, $String*)},
+		{"setMillis", "(J)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(LogRecord, setMillis, void, int64_t), nullptr, nullptr, setMillismethodAnnotations$$},
+		{"setParameters", "([Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LogRecord, setParameters, void, $ObjectArray*)},
+		{"setResourceBundle", "(Ljava/util/ResourceBundle;)V", nullptr, $PUBLIC, $virtualMethod(LogRecord, setResourceBundle, void, $ResourceBundle*)},
+		{"setResourceBundleName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LogRecord, setResourceBundleName, void, $String*)},
+		{"setSequenceNumber", "(J)V", nullptr, $PUBLIC, $virtualMethod(LogRecord, setSequenceNumber, void, int64_t)},
+		{"setSourceClassName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LogRecord, setSourceClassName, void, $String*)},
+		{"setSourceMethodName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LogRecord, setSourceMethodName, void, $String*)},
+		{"setThreadID", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(LogRecord, setThreadID, void, int32_t), nullptr, nullptr, setThreadIDmethodAnnotations$$},
+		{"setThrown", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(LogRecord, setThrown, void, $Throwable*)},
+		{"shortThreadID", "(J)I", nullptr, $PRIVATE, $method(LogRecord, shortThreadID, int32_t, int64_t)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(LogRecord, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.logging.LogRecord$CallerFinder", "java.util.logging.LogRecord", "CallerFinder", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.logging.LogRecord",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.logging.LogRecord$CallerFinder"
+	};
+	$loadClass(LogRecord, name, initialize, &classInfo$$, LogRecord::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LogRecord);
+	});
 	return class$;
 }
 

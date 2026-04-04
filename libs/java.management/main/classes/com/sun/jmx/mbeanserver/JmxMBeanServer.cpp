@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/JmxMBeanServer.h>
-
 #include <com/sun/jmx/defaults/JmxProperties.h>
 #include <com/sun/jmx/interceptor/DefaultMBeanServerInterceptor.h>
 #include <com/sun/jmx/mbeanserver/ClassLoaderRepositorySupport.h>
@@ -22,8 +21,6 @@
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/security/AccessController.h>
 #include <java/security/Permission.h>
-#include <java/security/PrivilegedAction.h>
-#include <java/security/PrivilegedExceptionAction.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <java/util/Set.h>
@@ -71,16 +68,12 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $AccessController = ::java::security::AccessController;
 using $Permission = ::java::security::Permission;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Set = ::java::util::Set;
@@ -105,115 +98,6 @@ namespace com {
 		namespace jmx {
 			namespace mbeanserver {
 
-$CompoundAttribute _JmxMBeanServer_MethodAnnotations_deserialize15[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _JmxMBeanServer_MethodAnnotations_deserialize16[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _JmxMBeanServer_MethodAnnotations_deserialize17[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _JmxMBeanServer_FieldInfo_[] = {
-	{"DEFAULT_FAIR_LOCK_POLICY", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JmxMBeanServer, DEFAULT_FAIR_LOCK_POLICY)},
-	{"instantiator", "Lcom/sun/jmx/mbeanserver/MBeanInstantiator;", nullptr, $PRIVATE | $FINAL, $field(JmxMBeanServer, instantiator)},
-	{"secureClr", "Lcom/sun/jmx/mbeanserver/SecureClassLoaderRepository;", nullptr, $PRIVATE | $FINAL, $field(JmxMBeanServer, secureClr)},
-	{"interceptorsEnabled", "Z", nullptr, $PRIVATE | $FINAL, $field(JmxMBeanServer, interceptorsEnabled$)},
-	{"outerShell", "Ljavax/management/MBeanServer;", nullptr, $PRIVATE | $FINAL, $field(JmxMBeanServer, outerShell)},
-	{"mbsInterceptor", "Ljavax/management/MBeanServer;", nullptr, $PRIVATE | $VOLATILE, $field(JmxMBeanServer, mbsInterceptor)},
-	{"mBeanServerDelegateObject", "Ljavax/management/MBeanServerDelegate;", nullptr, $PRIVATE | $FINAL, $field(JmxMBeanServer, mBeanServerDelegateObject)},
-	{}
-};
-
-$MethodInfo _JmxMBeanServer_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljavax/management/MBeanServer;Ljavax/management/MBeanServerDelegate;)V", nullptr, 0, $method(JmxMBeanServer, init$, void, $String*, $MBeanServer*, $MBeanServerDelegate*)},
-	{"<init>", "(Ljava/lang/String;Ljavax/management/MBeanServer;Ljavax/management/MBeanServerDelegate;Z)V", nullptr, 0, $method(JmxMBeanServer, init$, void, $String*, $MBeanServer*, $MBeanServerDelegate*, bool)},
-	{"<init>", "(Ljava/lang/String;Ljavax/management/MBeanServer;Ljavax/management/MBeanServerDelegate;Lcom/sun/jmx/mbeanserver/MBeanInstantiator;Z)V", nullptr, 0, $method(JmxMBeanServer, init$, void, $String*, $MBeanServer*, $MBeanServerDelegate*, $MBeanInstantiator*, bool)},
-	{"<init>", "(Ljava/lang/String;Ljavax/management/MBeanServer;Ljavax/management/MBeanServerDelegate;Lcom/sun/jmx/mbeanserver/MBeanInstantiator;ZZ)V", nullptr, 0, $method(JmxMBeanServer, init$, void, $String*, $MBeanServer*, $MBeanServerDelegate*, $MBeanInstantiator*, bool, bool)},
-	{"addNotificationListener", "(Ljavax/management/ObjectName;Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, addNotificationListener, void, $ObjectName*, $NotificationListener*, $NotificationFilter*, Object$*), "javax.management.InstanceNotFoundException"},
-	{"addNotificationListener", "(Ljavax/management/ObjectName;Ljavax/management/ObjectName;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, addNotificationListener, void, $ObjectName*, $ObjectName*, $NotificationFilter*, Object$*), "javax.management.InstanceNotFoundException"},
-	{"checkMBeanPermission", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/ObjectName;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JmxMBeanServer, checkMBeanPermission, void, $String*, $String*, $ObjectName*, $String*), "java.lang.SecurityException"},
-	{"checkNewMBeanServerPermission", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JmxMBeanServer, checkNewMBeanServerPermission, void)},
-	{"cloneAttribute", "(Ljavax/management/Attribute;)Ljavax/management/Attribute;", nullptr, $PRIVATE, $method(JmxMBeanServer, cloneAttribute, $Attribute*, $Attribute*)},
-	{"cloneAttributeList", "(Ljavax/management/AttributeList;)Ljavax/management/AttributeList;", nullptr, $PRIVATE, $method(JmxMBeanServer, cloneAttributeList, $AttributeList*, $AttributeList*)},
-	{"cloneObjectName", "(Ljavax/management/ObjectName;)Ljavax/management/ObjectName;", nullptr, $PRIVATE, $method(JmxMBeanServer, cloneObjectName, $ObjectName*, $ObjectName*)},
-	{"createMBean", "(Ljava/lang/String;Ljavax/management/ObjectName;)Ljavax/management/ObjectInstance;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, createMBean, $ObjectInstance*, $String*, $ObjectName*), "javax.management.ReflectionException,javax.management.InstanceAlreadyExistsException,javax.management.MBeanRegistrationException,javax.management.MBeanException,javax.management.NotCompliantMBeanException"},
-	{"createMBean", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljavax/management/ObjectName;)Ljavax/management/ObjectInstance;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, createMBean, $ObjectInstance*, $String*, $ObjectName*, $ObjectName*), "javax.management.ReflectionException,javax.management.InstanceAlreadyExistsException,javax.management.MBeanRegistrationException,javax.management.MBeanException,javax.management.NotCompliantMBeanException,javax.management.InstanceNotFoundException"},
-	{"createMBean", "(Ljava/lang/String;Ljavax/management/ObjectName;[Ljava/lang/Object;[Ljava/lang/String;)Ljavax/management/ObjectInstance;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, createMBean, $ObjectInstance*, $String*, $ObjectName*, $ObjectArray*, $StringArray*), "javax.management.ReflectionException,javax.management.InstanceAlreadyExistsException,javax.management.MBeanRegistrationException,javax.management.MBeanException,javax.management.NotCompliantMBeanException"},
-	{"createMBean", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljavax/management/ObjectName;[Ljava/lang/Object;[Ljava/lang/String;)Ljavax/management/ObjectInstance;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, createMBean, $ObjectInstance*, $String*, $ObjectName*, $ObjectName*, $ObjectArray*, $StringArray*), "javax.management.ReflectionException,javax.management.InstanceAlreadyExistsException,javax.management.MBeanRegistrationException,javax.management.MBeanException,javax.management.NotCompliantMBeanException,javax.management.InstanceNotFoundException"},
-	{"deserialize", "(Ljavax/management/ObjectName;[B)Ljava/io/ObjectInputStream;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(JmxMBeanServer, deserialize, $ObjectInputStream*, $ObjectName*, $bytes*), "javax.management.InstanceNotFoundException,javax.management.OperationsException", nullptr, _JmxMBeanServer_MethodAnnotations_deserialize15},
-	{"deserialize", "(Ljava/lang/String;[B)Ljava/io/ObjectInputStream;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(JmxMBeanServer, deserialize, $ObjectInputStream*, $String*, $bytes*), "javax.management.OperationsException,javax.management.ReflectionException", nullptr, _JmxMBeanServer_MethodAnnotations_deserialize16},
-	{"deserialize", "(Ljava/lang/String;Ljavax/management/ObjectName;[B)Ljava/io/ObjectInputStream;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(JmxMBeanServer, deserialize, $ObjectInputStream*, $String*, $ObjectName*, $bytes*), "javax.management.InstanceNotFoundException,javax.management.OperationsException,javax.management.ReflectionException", nullptr, _JmxMBeanServer_MethodAnnotations_deserialize17},
-	{"getAttribute", "(Ljavax/management/ObjectName;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, getAttribute, $Object*, $ObjectName*, $String*), "javax.management.MBeanException,javax.management.AttributeNotFoundException,javax.management.InstanceNotFoundException,javax.management.ReflectionException"},
-	{"getAttributes", "(Ljavax/management/ObjectName;[Ljava/lang/String;)Ljavax/management/AttributeList;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, getAttributes, $AttributeList*, $ObjectName*, $StringArray*), "javax.management.InstanceNotFoundException,javax.management.ReflectionException"},
-	{"getClassLoader", "(Ljavax/management/ObjectName;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, getClassLoader, $ClassLoader*, $ObjectName*), "javax.management.InstanceNotFoundException"},
-	{"getClassLoaderFor", "(Ljavax/management/ObjectName;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, getClassLoaderFor, $ClassLoader*, $ObjectName*), "javax.management.InstanceNotFoundException"},
-	{"getClassLoaderRepository", "()Ljavax/management/loading/ClassLoaderRepository;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, getClassLoaderRepository, $ClassLoaderRepository*)},
-	{"getDefaultDomain", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, getDefaultDomain, $String*)},
-	{"getDomains", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, getDomains, $StringArray*)},
-	{"getMBeanCount", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, getMBeanCount, $Integer*)},
-	{"getMBeanInfo", "(Ljavax/management/ObjectName;)Ljavax/management/MBeanInfo;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, getMBeanInfo, $MBeanInfo*, $ObjectName*), "javax.management.InstanceNotFoundException,javax.management.IntrospectionException,javax.management.ReflectionException"},
-	{"getMBeanInstantiator", "()Lcom/sun/jmx/mbeanserver/MBeanInstantiator;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, getMBeanInstantiator, $MBeanInstantiator*)},
-	{"getMBeanServerDelegate", "()Ljavax/management/MBeanServerDelegate;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, getMBeanServerDelegate, $MBeanServerDelegate*)},
-	{"getMBeanServerInterceptor", "()Ljavax/management/MBeanServer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JmxMBeanServer, getMBeanServerInterceptor, $MBeanServer*)},
-	{"getObjectInstance", "(Ljavax/management/ObjectName;)Ljavax/management/ObjectInstance;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, getObjectInstance, $ObjectInstance*, $ObjectName*), "javax.management.InstanceNotFoundException"},
-	{"initialize", "()V", nullptr, $PRIVATE, $method(JmxMBeanServer, initialize, void)},
-	{"instantiate", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, instantiate, $Object*, $String*), "javax.management.ReflectionException,javax.management.MBeanException"},
-	{"instantiate", "(Ljava/lang/String;Ljavax/management/ObjectName;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, instantiate, $Object*, $String*, $ObjectName*), "javax.management.ReflectionException,javax.management.MBeanException,javax.management.InstanceNotFoundException"},
-	{"instantiate", "(Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, instantiate, $Object*, $String*, $ObjectArray*, $StringArray*), "javax.management.ReflectionException,javax.management.MBeanException"},
-	{"instantiate", "(Ljava/lang/String;Ljavax/management/ObjectName;[Ljava/lang/Object;[Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, instantiate, $Object*, $String*, $ObjectName*, $ObjectArray*, $StringArray*), "javax.management.ReflectionException,javax.management.MBeanException,javax.management.InstanceNotFoundException"},
-	{"interceptorsEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, interceptorsEnabled, bool)},
-	{"invoke", "(Ljavax/management/ObjectName;Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, invoke, $Object*, $ObjectName*, $String*, $ObjectArray*, $StringArray*), "javax.management.InstanceNotFoundException,javax.management.MBeanException,javax.management.ReflectionException"},
-	{"isInstanceOf", "(Ljavax/management/ObjectName;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, isInstanceOf, bool, $ObjectName*, $String*), "javax.management.InstanceNotFoundException"},
-	{"isRegistered", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, isRegistered, bool, $ObjectName*)},
-	{"newMBeanServer", "(Ljava/lang/String;Ljavax/management/MBeanServer;Ljavax/management/MBeanServerDelegate;Z)Ljavax/management/MBeanServer;", nullptr, $PUBLIC | $STATIC, $staticMethod(JmxMBeanServer, newMBeanServer, $MBeanServer*, $String*, $MBeanServer*, $MBeanServerDelegate*, bool)},
-	{"newMBeanServerDelegate", "()Ljavax/management/MBeanServerDelegate;", nullptr, $PUBLIC | $STATIC, $staticMethod(JmxMBeanServer, newMBeanServerDelegate, $MBeanServerDelegate*)},
-	{"queryMBeans", "(Ljavax/management/ObjectName;Ljavax/management/QueryExp;)Ljava/util/Set;", "(Ljavax/management/ObjectName;Ljavax/management/QueryExp;)Ljava/util/Set<Ljavax/management/ObjectInstance;>;", $PUBLIC, $virtualMethod(JmxMBeanServer, queryMBeans, $Set*, $ObjectName*, $QueryExp*)},
-	{"queryNames", "(Ljavax/management/ObjectName;Ljavax/management/QueryExp;)Ljava/util/Set;", "(Ljavax/management/ObjectName;Ljavax/management/QueryExp;)Ljava/util/Set<Ljavax/management/ObjectName;>;", $PUBLIC, $virtualMethod(JmxMBeanServer, queryNames, $Set*, $ObjectName*, $QueryExp*)},
-	{"registerMBean", "(Ljava/lang/Object;Ljavax/management/ObjectName;)Ljavax/management/ObjectInstance;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, registerMBean, $ObjectInstance*, Object$*, $ObjectName*), "javax.management.InstanceAlreadyExistsException,javax.management.MBeanRegistrationException,javax.management.NotCompliantMBeanException"},
-	{"removeNotificationListener", "(Ljavax/management/ObjectName;Ljavax/management/NotificationListener;)V", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, removeNotificationListener, void, $ObjectName*, $NotificationListener*), "javax.management.InstanceNotFoundException,javax.management.ListenerNotFoundException"},
-	{"removeNotificationListener", "(Ljavax/management/ObjectName;Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, removeNotificationListener, void, $ObjectName*, $NotificationListener*, $NotificationFilter*, Object$*), "javax.management.InstanceNotFoundException,javax.management.ListenerNotFoundException"},
-	{"removeNotificationListener", "(Ljavax/management/ObjectName;Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, removeNotificationListener, void, $ObjectName*, $ObjectName*), "javax.management.InstanceNotFoundException,javax.management.ListenerNotFoundException"},
-	{"removeNotificationListener", "(Ljavax/management/ObjectName;Ljavax/management/ObjectName;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, removeNotificationListener, void, $ObjectName*, $ObjectName*, $NotificationFilter*, Object$*), "javax.management.InstanceNotFoundException,javax.management.ListenerNotFoundException"},
-	{"setAttribute", "(Ljavax/management/ObjectName;Ljavax/management/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, setAttribute, void, $ObjectName*, $Attribute*), "javax.management.InstanceNotFoundException,javax.management.AttributeNotFoundException,javax.management.InvalidAttributeValueException,javax.management.MBeanException,javax.management.ReflectionException"},
-	{"setAttributes", "(Ljavax/management/ObjectName;Ljavax/management/AttributeList;)Ljavax/management/AttributeList;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, setAttributes, $AttributeList*, $ObjectName*, $AttributeList*), "javax.management.InstanceNotFoundException,javax.management.ReflectionException"},
-	{"setMBeanServerInterceptor", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JmxMBeanServer, setMBeanServerInterceptor, void, $MBeanServer*)},
-	{"unregisterMBean", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, unregisterMBean, void, $ObjectName*), "javax.management.InstanceNotFoundException,javax.management.MBeanRegistrationException"},
-	{}
-};
-
-$InnerClassInfo _JmxMBeanServer_InnerClassesInfo_[] = {
-	{"com.sun.jmx.mbeanserver.JmxMBeanServer$3", nullptr, nullptr, 0},
-	{"com.sun.jmx.mbeanserver.JmxMBeanServer$2", nullptr, nullptr, 0},
-	{"com.sun.jmx.mbeanserver.JmxMBeanServer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JmxMBeanServer_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.jmx.mbeanserver.JmxMBeanServer",
-	"java.lang.Object",
-	"com.sun.jmx.mbeanserver.SunJmxMBeanServer",
-	_JmxMBeanServer_FieldInfo_,
-	_JmxMBeanServer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JmxMBeanServer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.mbeanserver.JmxMBeanServer$3,com.sun.jmx.mbeanserver.JmxMBeanServer$2,com.sun.jmx.mbeanserver.JmxMBeanServer$1"
-};
-
-$Object* allocate$JmxMBeanServer($Class* clazz) {
-	return $of($alloc(JmxMBeanServer));
-}
-
 void JmxMBeanServer::init$($String* domain, $MBeanServer* outer, $MBeanServerDelegate* delegate) {
 	JmxMBeanServer::init$(domain, outer, delegate, nullptr, false);
 }
@@ -227,7 +111,7 @@ void JmxMBeanServer::init$($String* domain, $MBeanServer* outer, $MBeanServerDel
 }
 
 void JmxMBeanServer::init$($String* domain, $MBeanServer* outer$renamed, $MBeanServerDelegate* delegate$renamed, $MBeanInstantiator* instantiator$renamed, bool interceptors, bool fairLock) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MBeanServerDelegate, delegate, delegate$renamed);
 	$var($MBeanInstantiator, instantiator, instantiator$renamed);
 	$var($MBeanServer, outer, outer$renamed);
@@ -238,7 +122,7 @@ void JmxMBeanServer::init$($String* domain, $MBeanServer* outer$renamed, $MBeanS
 		$assign(instantiator, $new($MBeanInstantiator, clr));
 	}
 	$var($MBeanInstantiator, fInstantiator, instantiator);
-	$set(this, secureClr, $new($SecureClassLoaderRepository, $cast($ClassLoaderRepository, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($JmxMBeanServer$1, this, fInstantiator)))))));
+	$set(this, secureClr, $new($SecureClassLoaderRepository, $$cast($ClassLoaderRepository, $AccessController::doPrivileged($$new($JmxMBeanServer$1, this, fInstantiator)))));
 	if (delegate == nullptr) {
 		$assign(delegate, $new($MBeanServerDelegateImpl));
 	}
@@ -311,7 +195,7 @@ $Integer* JmxMBeanServer::getMBeanCount() {
 }
 
 $Object* JmxMBeanServer::getAttribute($ObjectName* name, $String* attribute) {
-	return $of($nc(this->mbsInterceptor)->getAttribute($(cloneObjectName(name)), attribute));
+	return $nc(this->mbsInterceptor)->getAttribute($(cloneObjectName(name)), attribute);
 }
 
 $AttributeList* JmxMBeanServer::getAttributes($ObjectName* name, $StringArray* attributes) {
@@ -319,19 +203,19 @@ $AttributeList* JmxMBeanServer::getAttributes($ObjectName* name, $StringArray* a
 }
 
 void JmxMBeanServer::setAttribute($ObjectName* name, $Attribute* attribute) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectName, var$0, cloneObjectName(name));
 	$nc(this->mbsInterceptor)->setAttribute(var$0, $(cloneAttribute(attribute)));
 }
 
 $AttributeList* JmxMBeanServer::setAttributes($ObjectName* name, $AttributeList* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectName, var$0, cloneObjectName(name));
 	return $nc(this->mbsInterceptor)->setAttributes(var$0, $(cloneAttributeList(attributes)));
 }
 
 $Object* JmxMBeanServer::invoke($ObjectName* name, $String* operationName, $ObjectArray* params, $StringArray* signature) {
-	return $of($nc(this->mbsInterceptor)->invoke($(cloneObjectName(name)), operationName, params, signature));
+	return $nc(this->mbsInterceptor)->invoke($(cloneObjectName(name)), operationName, params, signature);
 }
 
 $String* JmxMBeanServer::getDefaultDomain() {
@@ -372,28 +256,28 @@ $MBeanInfo* JmxMBeanServer::getMBeanInfo($ObjectName* name) {
 
 $Object* JmxMBeanServer::instantiate($String* className) {
 	checkMBeanPermission(className, nullptr, nullptr, "instantiate"_s);
-	return $of($nc(this->instantiator)->instantiate(className));
+	return $nc(this->instantiator)->instantiate(className);
 }
 
 $Object* JmxMBeanServer::instantiate($String* className, $ObjectName* loaderName) {
 	$beforeCallerSensitive();
 	checkMBeanPermission(className, nullptr, nullptr, "instantiate"_s);
-	$var($ClassLoader, myLoader, $nc($of(this->outerShell))->getClass()->getClassLoader());
-	return $of($nc(this->instantiator)->instantiate(className, loaderName, myLoader));
+	$var($ClassLoader, myLoader, $nc(this->outerShell)->getClass()->getClassLoader());
+	return $nc(this->instantiator)->instantiate(className, loaderName, myLoader);
 }
 
 $Object* JmxMBeanServer::instantiate($String* className, $ObjectArray* params, $StringArray* signature) {
 	$beforeCallerSensitive();
 	checkMBeanPermission(className, nullptr, nullptr, "instantiate"_s);
-	$var($ClassLoader, myLoader, $nc($of(this->outerShell))->getClass()->getClassLoader());
-	return $of($nc(this->instantiator)->instantiate(className, params, signature, myLoader));
+	$var($ClassLoader, myLoader, $nc(this->outerShell)->getClass()->getClassLoader());
+	return $nc(this->instantiator)->instantiate(className, params, signature, myLoader);
 }
 
 $Object* JmxMBeanServer::instantiate($String* className, $ObjectName* loaderName, $ObjectArray* params, $StringArray* signature) {
 	$beforeCallerSensitive();
 	checkMBeanPermission(className, nullptr, nullptr, "instantiate"_s);
-	$var($ClassLoader, myLoader, $nc($of(this->outerShell))->getClass()->getClassLoader());
-	return $of($nc(this->instantiator)->instantiate(className, loaderName, params, signature, myLoader));
+	$var($ClassLoader, myLoader, $nc(this->outerShell)->getClass()->getClassLoader());
+	return $nc(this->instantiator)->instantiate(className, loaderName, params, signature, myLoader);
 }
 
 bool JmxMBeanServer::isInstanceOf($ObjectName* name, $String* className) {
@@ -406,7 +290,7 @@ $ObjectInputStream* JmxMBeanServer::deserialize($ObjectName* name, $bytes* data)
 }
 
 $ObjectInputStream* JmxMBeanServer::deserialize($String* className, $bytes* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (className == nullptr) {
 		$throwNew($RuntimeOperationsException, $$new($IllegalArgumentException), "Null className passed in parameter"_s);
@@ -425,7 +309,7 @@ $ObjectInputStream* JmxMBeanServer::deserialize($String* className, $bytes* data
 }
 
 $ObjectInputStream* JmxMBeanServer::deserialize($String* className, $ObjectName* loaderName$renamed, $bytes* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectName, loaderName, loaderName$renamed);
 	$beforeCallerSensitive();
 	$assign(loaderName, cloneObjectName(loaderName));
@@ -435,35 +319,35 @@ $ObjectInputStream* JmxMBeanServer::deserialize($String* className, $ObjectName*
 		$throw(e);
 	} catch ($Exception& e) {
 	}
-	$var($ClassLoader, myLoader, $nc($of(this->outerShell))->getClass()->getClassLoader());
+	$var($ClassLoader, myLoader, $nc(this->outerShell)->getClass()->getClassLoader());
 	return $nc(this->instantiator)->deserialize(className, loaderName, data, myLoader);
 }
 
 void JmxMBeanServer::initialize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (this->instantiator == nullptr) {
 		$throwNew($IllegalStateException, "instantiator must not be null."_s);
 	}
 	try {
-		$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($JmxMBeanServer$2, this)));
+		$AccessController::doPrivileged($$new($JmxMBeanServer$2, this));
 	} catch ($SecurityException& e) {
 		$init($JmxProperties);
 		$init($System$Logger$Level);
 		if ($nc($JmxProperties::MBEANSERVER_LOGGER)->isLoggable($System$Logger$Level::DEBUG)) {
-			$nc($JmxProperties::MBEANSERVER_LOGGER)->log($System$Logger$Level::DEBUG, "Unexpected security exception occurred"_s, static_cast<$Throwable*>(e));
+			$JmxProperties::MBEANSERVER_LOGGER->log($System$Logger$Level::DEBUG, "Unexpected security exception occurred"_s, e);
 		}
 		$throw(e);
 	} catch ($Exception& e) {
 		$init($JmxProperties);
 		$init($System$Logger$Level);
 		if ($nc($JmxProperties::MBEANSERVER_LOGGER)->isLoggable($System$Logger$Level::DEBUG)) {
-			$nc($JmxProperties::MBEANSERVER_LOGGER)->log($System$Logger$Level::DEBUG, "Unexpected exception occurred"_s, static_cast<$Throwable*>(e));
+			$JmxProperties::MBEANSERVER_LOGGER->log($System$Logger$Level::DEBUG, "Unexpected exception occurred"_s, e);
 		}
 		$throwNew($IllegalStateException, "Can\'t register delegate."_s, e);
 	}
-	$var($ClassLoader, myLoader, $nc($of(this->outerShell))->getClass()->getClassLoader());
-	$var($ModifiableClassLoaderRepository, loaders, $cast($ModifiableClassLoaderRepository, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($JmxMBeanServer$3, this)))));
+	$var($ClassLoader, myLoader, $nc(this->outerShell)->getClass()->getClassLoader());
+	$var($ModifiableClassLoaderRepository, loaders, $cast($ModifiableClassLoaderRepository, $AccessController::doPrivileged($$new($JmxMBeanServer$3, this))));
 	if (loaders != nullptr) {
 		loaders->addClassLoader(myLoader);
 		$var($ClassLoader, systemLoader, $ClassLoader::getSystemClassLoader());
@@ -535,10 +419,10 @@ $ObjectName* JmxMBeanServer::cloneObjectName($ObjectName* name) {
 }
 
 $Attribute* JmxMBeanServer::cloneAttribute($Attribute* attribute) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (attribute != nullptr) {
 		$load($Attribute);
-		if (!$of($of(attribute)->getClass())->equals($Attribute::class$)) {
+		if (!$of(attribute)->getClass()->equals($Attribute::class$)) {
 			$var($String, var$0, attribute->getName());
 			return $new($Attribute, var$0, $(attribute->getValue()));
 		}
@@ -547,13 +431,13 @@ $Attribute* JmxMBeanServer::cloneAttribute($Attribute* attribute) {
 }
 
 $AttributeList* JmxMBeanServer::cloneAttributeList($AttributeList* list) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (list != nullptr) {
 		$var($List, alist, list->asList());
-		if (!$of($of(list)->getClass())->equals($AttributeList::class$)) {
+		if (!$of(list)->getClass()->equals($AttributeList::class$)) {
 			$var($AttributeList, newList, $new($AttributeList, $nc(alist)->size()));
 			{
-				$var($Iterator, i$, $nc(alist)->iterator());
+				$var($Iterator, i$, alist->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($Attribute, attribute, $cast($Attribute, i$->next()));
 					newList->add($(cloneAttribute(attribute)));
@@ -564,7 +448,7 @@ $AttributeList* JmxMBeanServer::cloneAttributeList($AttributeList* list) {
 			for (int32_t i = 0; i < $nc(alist)->size(); ++i) {
 				$var($Attribute, attribute, $cast($Attribute, alist->get(i)));
 				$load($Attribute);
-				if (!$of($nc($of(attribute))->getClass())->equals($Attribute::class$)) {
+				if (!$nc(attribute)->getClass()->equals($Attribute::class$)) {
 					list->set(i, $(cloneAttribute(attribute)));
 				}
 			}
@@ -576,7 +460,7 @@ $AttributeList* JmxMBeanServer::cloneAttributeList($AttributeList* list) {
 
 void JmxMBeanServer::checkMBeanPermission($String* classname, $String* member, $ObjectName* objectName, $String* actions) {
 	$init(JmxMBeanServer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		$var($Permission, perm, $new($MBeanPermission, classname, member, objectName, actions));
@@ -586,7 +470,7 @@ void JmxMBeanServer::checkMBeanPermission($String* classname, $String* member, $
 
 void JmxMBeanServer::checkNewMBeanServerPermission() {
 	$init(JmxMBeanServer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		$var($Permission, perm, $new($MBeanServerPermission, "newMBeanServer"_s));
@@ -598,7 +482,107 @@ JmxMBeanServer::JmxMBeanServer() {
 }
 
 $Class* JmxMBeanServer::load$($String* name, bool initialize) {
-	$loadClass(JmxMBeanServer, name, initialize, &_JmxMBeanServer_ClassInfo_, allocate$JmxMBeanServer);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_FAIR_LOCK_POLICY", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JmxMBeanServer, DEFAULT_FAIR_LOCK_POLICY)},
+		{"instantiator", "Lcom/sun/jmx/mbeanserver/MBeanInstantiator;", nullptr, $PRIVATE | $FINAL, $field(JmxMBeanServer, instantiator)},
+		{"secureClr", "Lcom/sun/jmx/mbeanserver/SecureClassLoaderRepository;", nullptr, $PRIVATE | $FINAL, $field(JmxMBeanServer, secureClr)},
+		{"interceptorsEnabled", "Z", nullptr, $PRIVATE | $FINAL, $field(JmxMBeanServer, interceptorsEnabled$)},
+		{"outerShell", "Ljavax/management/MBeanServer;", nullptr, $PRIVATE | $FINAL, $field(JmxMBeanServer, outerShell)},
+		{"mbsInterceptor", "Ljavax/management/MBeanServer;", nullptr, $PRIVATE | $VOLATILE, $field(JmxMBeanServer, mbsInterceptor)},
+		{"mBeanServerDelegateObject", "Ljavax/management/MBeanServerDelegate;", nullptr, $PRIVATE | $FINAL, $field(JmxMBeanServer, mBeanServerDelegateObject)},
+		{}
+	};
+	$CompoundAttribute deserializemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute deserializemethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute deserializemethodAnnotations$$$2[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljavax/management/MBeanServer;Ljavax/management/MBeanServerDelegate;)V", nullptr, 0, $method(JmxMBeanServer, init$, void, $String*, $MBeanServer*, $MBeanServerDelegate*)},
+		{"<init>", "(Ljava/lang/String;Ljavax/management/MBeanServer;Ljavax/management/MBeanServerDelegate;Z)V", nullptr, 0, $method(JmxMBeanServer, init$, void, $String*, $MBeanServer*, $MBeanServerDelegate*, bool)},
+		{"<init>", "(Ljava/lang/String;Ljavax/management/MBeanServer;Ljavax/management/MBeanServerDelegate;Lcom/sun/jmx/mbeanserver/MBeanInstantiator;Z)V", nullptr, 0, $method(JmxMBeanServer, init$, void, $String*, $MBeanServer*, $MBeanServerDelegate*, $MBeanInstantiator*, bool)},
+		{"<init>", "(Ljava/lang/String;Ljavax/management/MBeanServer;Ljavax/management/MBeanServerDelegate;Lcom/sun/jmx/mbeanserver/MBeanInstantiator;ZZ)V", nullptr, 0, $method(JmxMBeanServer, init$, void, $String*, $MBeanServer*, $MBeanServerDelegate*, $MBeanInstantiator*, bool, bool)},
+		{"addNotificationListener", "(Ljavax/management/ObjectName;Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, addNotificationListener, void, $ObjectName*, $NotificationListener*, $NotificationFilter*, Object$*), "javax.management.InstanceNotFoundException"},
+		{"addNotificationListener", "(Ljavax/management/ObjectName;Ljavax/management/ObjectName;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, addNotificationListener, void, $ObjectName*, $ObjectName*, $NotificationFilter*, Object$*), "javax.management.InstanceNotFoundException"},
+		{"checkMBeanPermission", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/ObjectName;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JmxMBeanServer, checkMBeanPermission, void, $String*, $String*, $ObjectName*, $String*), "java.lang.SecurityException"},
+		{"checkNewMBeanServerPermission", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JmxMBeanServer, checkNewMBeanServerPermission, void)},
+		{"cloneAttribute", "(Ljavax/management/Attribute;)Ljavax/management/Attribute;", nullptr, $PRIVATE, $method(JmxMBeanServer, cloneAttribute, $Attribute*, $Attribute*)},
+		{"cloneAttributeList", "(Ljavax/management/AttributeList;)Ljavax/management/AttributeList;", nullptr, $PRIVATE, $method(JmxMBeanServer, cloneAttributeList, $AttributeList*, $AttributeList*)},
+		{"cloneObjectName", "(Ljavax/management/ObjectName;)Ljavax/management/ObjectName;", nullptr, $PRIVATE, $method(JmxMBeanServer, cloneObjectName, $ObjectName*, $ObjectName*)},
+		{"createMBean", "(Ljava/lang/String;Ljavax/management/ObjectName;)Ljavax/management/ObjectInstance;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, createMBean, $ObjectInstance*, $String*, $ObjectName*), "javax.management.ReflectionException,javax.management.InstanceAlreadyExistsException,javax.management.MBeanRegistrationException,javax.management.MBeanException,javax.management.NotCompliantMBeanException"},
+		{"createMBean", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljavax/management/ObjectName;)Ljavax/management/ObjectInstance;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, createMBean, $ObjectInstance*, $String*, $ObjectName*, $ObjectName*), "javax.management.ReflectionException,javax.management.InstanceAlreadyExistsException,javax.management.MBeanRegistrationException,javax.management.MBeanException,javax.management.NotCompliantMBeanException,javax.management.InstanceNotFoundException"},
+		{"createMBean", "(Ljava/lang/String;Ljavax/management/ObjectName;[Ljava/lang/Object;[Ljava/lang/String;)Ljavax/management/ObjectInstance;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, createMBean, $ObjectInstance*, $String*, $ObjectName*, $ObjectArray*, $StringArray*), "javax.management.ReflectionException,javax.management.InstanceAlreadyExistsException,javax.management.MBeanRegistrationException,javax.management.MBeanException,javax.management.NotCompliantMBeanException"},
+		{"createMBean", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljavax/management/ObjectName;[Ljava/lang/Object;[Ljava/lang/String;)Ljavax/management/ObjectInstance;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, createMBean, $ObjectInstance*, $String*, $ObjectName*, $ObjectName*, $ObjectArray*, $StringArray*), "javax.management.ReflectionException,javax.management.InstanceAlreadyExistsException,javax.management.MBeanRegistrationException,javax.management.MBeanException,javax.management.NotCompliantMBeanException,javax.management.InstanceNotFoundException"},
+		{"deserialize", "(Ljavax/management/ObjectName;[B)Ljava/io/ObjectInputStream;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(JmxMBeanServer, deserialize, $ObjectInputStream*, $ObjectName*, $bytes*), "javax.management.InstanceNotFoundException,javax.management.OperationsException", nullptr, deserializemethodAnnotations$$},
+		{"deserialize", "(Ljava/lang/String;[B)Ljava/io/ObjectInputStream;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(JmxMBeanServer, deserialize, $ObjectInputStream*, $String*, $bytes*), "javax.management.OperationsException,javax.management.ReflectionException", nullptr, deserializemethodAnnotations$$$1},
+		{"deserialize", "(Ljava/lang/String;Ljavax/management/ObjectName;[B)Ljava/io/ObjectInputStream;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(JmxMBeanServer, deserialize, $ObjectInputStream*, $String*, $ObjectName*, $bytes*), "javax.management.InstanceNotFoundException,javax.management.OperationsException,javax.management.ReflectionException", nullptr, deserializemethodAnnotations$$$2},
+		{"getAttribute", "(Ljavax/management/ObjectName;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, getAttribute, $Object*, $ObjectName*, $String*), "javax.management.MBeanException,javax.management.AttributeNotFoundException,javax.management.InstanceNotFoundException,javax.management.ReflectionException"},
+		{"getAttributes", "(Ljavax/management/ObjectName;[Ljava/lang/String;)Ljavax/management/AttributeList;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, getAttributes, $AttributeList*, $ObjectName*, $StringArray*), "javax.management.InstanceNotFoundException,javax.management.ReflectionException"},
+		{"getClassLoader", "(Ljavax/management/ObjectName;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, getClassLoader, $ClassLoader*, $ObjectName*), "javax.management.InstanceNotFoundException"},
+		{"getClassLoaderFor", "(Ljavax/management/ObjectName;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, getClassLoaderFor, $ClassLoader*, $ObjectName*), "javax.management.InstanceNotFoundException"},
+		{"getClassLoaderRepository", "()Ljavax/management/loading/ClassLoaderRepository;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, getClassLoaderRepository, $ClassLoaderRepository*)},
+		{"getDefaultDomain", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, getDefaultDomain, $String*)},
+		{"getDomains", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, getDomains, $StringArray*)},
+		{"getMBeanCount", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, getMBeanCount, $Integer*)},
+		{"getMBeanInfo", "(Ljavax/management/ObjectName;)Ljavax/management/MBeanInfo;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, getMBeanInfo, $MBeanInfo*, $ObjectName*), "javax.management.InstanceNotFoundException,javax.management.IntrospectionException,javax.management.ReflectionException"},
+		{"getMBeanInstantiator", "()Lcom/sun/jmx/mbeanserver/MBeanInstantiator;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, getMBeanInstantiator, $MBeanInstantiator*)},
+		{"getMBeanServerDelegate", "()Ljavax/management/MBeanServerDelegate;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, getMBeanServerDelegate, $MBeanServerDelegate*)},
+		{"getMBeanServerInterceptor", "()Ljavax/management/MBeanServer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JmxMBeanServer, getMBeanServerInterceptor, $MBeanServer*)},
+		{"getObjectInstance", "(Ljavax/management/ObjectName;)Ljavax/management/ObjectInstance;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, getObjectInstance, $ObjectInstance*, $ObjectName*), "javax.management.InstanceNotFoundException"},
+		{"initialize", "()V", nullptr, $PRIVATE, $method(JmxMBeanServer, initialize, void)},
+		{"instantiate", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, instantiate, $Object*, $String*), "javax.management.ReflectionException,javax.management.MBeanException"},
+		{"instantiate", "(Ljava/lang/String;Ljavax/management/ObjectName;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, instantiate, $Object*, $String*, $ObjectName*), "javax.management.ReflectionException,javax.management.MBeanException,javax.management.InstanceNotFoundException"},
+		{"instantiate", "(Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, instantiate, $Object*, $String*, $ObjectArray*, $StringArray*), "javax.management.ReflectionException,javax.management.MBeanException"},
+		{"instantiate", "(Ljava/lang/String;Ljavax/management/ObjectName;[Ljava/lang/Object;[Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, instantiate, $Object*, $String*, $ObjectName*, $ObjectArray*, $StringArray*), "javax.management.ReflectionException,javax.management.MBeanException,javax.management.InstanceNotFoundException"},
+		{"interceptorsEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, interceptorsEnabled, bool)},
+		{"invoke", "(Ljavax/management/ObjectName;Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, invoke, $Object*, $ObjectName*, $String*, $ObjectArray*, $StringArray*), "javax.management.InstanceNotFoundException,javax.management.MBeanException,javax.management.ReflectionException"},
+		{"isInstanceOf", "(Ljavax/management/ObjectName;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, isInstanceOf, bool, $ObjectName*, $String*), "javax.management.InstanceNotFoundException"},
+		{"isRegistered", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, isRegistered, bool, $ObjectName*)},
+		{"newMBeanServer", "(Ljava/lang/String;Ljavax/management/MBeanServer;Ljavax/management/MBeanServerDelegate;Z)Ljavax/management/MBeanServer;", nullptr, $PUBLIC | $STATIC, $staticMethod(JmxMBeanServer, newMBeanServer, $MBeanServer*, $String*, $MBeanServer*, $MBeanServerDelegate*, bool)},
+		{"newMBeanServerDelegate", "()Ljavax/management/MBeanServerDelegate;", nullptr, $PUBLIC | $STATIC, $staticMethod(JmxMBeanServer, newMBeanServerDelegate, $MBeanServerDelegate*)},
+		{"queryMBeans", "(Ljavax/management/ObjectName;Ljavax/management/QueryExp;)Ljava/util/Set;", "(Ljavax/management/ObjectName;Ljavax/management/QueryExp;)Ljava/util/Set<Ljavax/management/ObjectInstance;>;", $PUBLIC, $virtualMethod(JmxMBeanServer, queryMBeans, $Set*, $ObjectName*, $QueryExp*)},
+		{"queryNames", "(Ljavax/management/ObjectName;Ljavax/management/QueryExp;)Ljava/util/Set;", "(Ljavax/management/ObjectName;Ljavax/management/QueryExp;)Ljava/util/Set<Ljavax/management/ObjectName;>;", $PUBLIC, $virtualMethod(JmxMBeanServer, queryNames, $Set*, $ObjectName*, $QueryExp*)},
+		{"registerMBean", "(Ljava/lang/Object;Ljavax/management/ObjectName;)Ljavax/management/ObjectInstance;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, registerMBean, $ObjectInstance*, Object$*, $ObjectName*), "javax.management.InstanceAlreadyExistsException,javax.management.MBeanRegistrationException,javax.management.NotCompliantMBeanException"},
+		{"removeNotificationListener", "(Ljavax/management/ObjectName;Ljavax/management/NotificationListener;)V", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, removeNotificationListener, void, $ObjectName*, $NotificationListener*), "javax.management.InstanceNotFoundException,javax.management.ListenerNotFoundException"},
+		{"removeNotificationListener", "(Ljavax/management/ObjectName;Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, removeNotificationListener, void, $ObjectName*, $NotificationListener*, $NotificationFilter*, Object$*), "javax.management.InstanceNotFoundException,javax.management.ListenerNotFoundException"},
+		{"removeNotificationListener", "(Ljavax/management/ObjectName;Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, removeNotificationListener, void, $ObjectName*, $ObjectName*), "javax.management.InstanceNotFoundException,javax.management.ListenerNotFoundException"},
+		{"removeNotificationListener", "(Ljavax/management/ObjectName;Ljavax/management/ObjectName;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, removeNotificationListener, void, $ObjectName*, $ObjectName*, $NotificationFilter*, Object$*), "javax.management.InstanceNotFoundException,javax.management.ListenerNotFoundException"},
+		{"setAttribute", "(Ljavax/management/ObjectName;Ljavax/management/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, setAttribute, void, $ObjectName*, $Attribute*), "javax.management.InstanceNotFoundException,javax.management.AttributeNotFoundException,javax.management.InvalidAttributeValueException,javax.management.MBeanException,javax.management.ReflectionException"},
+		{"setAttributes", "(Ljavax/management/ObjectName;Ljavax/management/AttributeList;)Ljavax/management/AttributeList;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, setAttributes, $AttributeList*, $ObjectName*, $AttributeList*), "javax.management.InstanceNotFoundException,javax.management.ReflectionException"},
+		{"setMBeanServerInterceptor", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JmxMBeanServer, setMBeanServerInterceptor, void, $MBeanServer*)},
+		{"unregisterMBean", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer, unregisterMBean, void, $ObjectName*), "javax.management.InstanceNotFoundException,javax.management.MBeanRegistrationException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.mbeanserver.JmxMBeanServer$3", nullptr, nullptr, 0},
+		{"com.sun.jmx.mbeanserver.JmxMBeanServer$2", nullptr, nullptr, 0},
+		{"com.sun.jmx.mbeanserver.JmxMBeanServer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.jmx.mbeanserver.JmxMBeanServer",
+		"java.lang.Object",
+		"com.sun.jmx.mbeanserver.SunJmxMBeanServer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.mbeanserver.JmxMBeanServer$3,com.sun.jmx.mbeanserver.JmxMBeanServer$2,com.sun.jmx.mbeanserver.JmxMBeanServer$1"
+	};
+	$loadClass(JmxMBeanServer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JmxMBeanServer);
+	});
 	return class$;
 }
 

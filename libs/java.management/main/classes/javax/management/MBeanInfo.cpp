@@ -1,12 +1,10 @@
 #include <javax/management/MBeanInfo.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/StreamCorruptedException.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
@@ -43,7 +41,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Arrays = ::java::util::Arrays;
 using $Map = ::java::util::Map;
 using $Objects = ::java::util::Objects;
@@ -59,75 +56,6 @@ using $MBeanOperationInfo = ::javax::management::MBeanOperationInfo;
 namespace javax {
 	namespace management {
 
-$FieldInfo _MBeanInfo_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(MBeanInfo, serialVersionUID)},
-	{"descriptor", "Ljavax/management/Descriptor;", nullptr, $PRIVATE | $TRANSIENT, $field(MBeanInfo, descriptor)},
-	{"description", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MBeanInfo, description)},
-	{"className", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MBeanInfo, className)},
-	{"attributes", "[Ljavax/management/MBeanAttributeInfo;", nullptr, $PRIVATE | $FINAL, $field(MBeanInfo, attributes)},
-	{"operations", "[Ljavax/management/MBeanOperationInfo;", nullptr, $PRIVATE | $FINAL, $field(MBeanInfo, operations)},
-	{"constructors", "[Ljavax/management/MBeanConstructorInfo;", nullptr, $PRIVATE | $FINAL, $field(MBeanInfo, constructors)},
-	{"notifications", "[Ljavax/management/MBeanNotificationInfo;", nullptr, $PRIVATE | $FINAL, $field(MBeanInfo, notifications)},
-	{"hashCode", "I", nullptr, $PRIVATE | $TRANSIENT, $field(MBeanInfo, hashCode$)},
-	{"arrayGettersSafe", "Z", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(MBeanInfo, arrayGettersSafe$)},
-	{"arrayGettersSafeMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/lang/Boolean;>;", $PRIVATE | $STATIC | $FINAL, $staticField(MBeanInfo, arrayGettersSafeMap)},
-	{}
-};
-
-$MethodInfo _MBeanInfo_MethodInfo_[] = {
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/MBeanAttributeInfo;[Ljavax/management/MBeanConstructorInfo;[Ljavax/management/MBeanOperationInfo;[Ljavax/management/MBeanNotificationInfo;)V", nullptr, $PUBLIC, $method(MBeanInfo, init$, void, $String*, $String*, $MBeanAttributeInfoArray*, $MBeanConstructorInfoArray*, $MBeanOperationInfoArray*, $MBeanNotificationInfoArray*), "java.lang.IllegalArgumentException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/MBeanAttributeInfo;[Ljavax/management/MBeanConstructorInfo;[Ljavax/management/MBeanOperationInfo;[Ljavax/management/MBeanNotificationInfo;Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(MBeanInfo, init$, void, $String*, $String*, $MBeanAttributeInfoArray*, $MBeanConstructorInfoArray*, $MBeanOperationInfoArray*, $MBeanNotificationInfoArray*, $Descriptor*), "java.lang.IllegalArgumentException"},
-	{"arrayGettersSafe", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $STATIC, $staticMethod(MBeanInfo, arrayGettersSafe, bool, $Class*, $Class*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MBeanInfo, clone, $Object*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MBeanInfo, equals, bool, Object$*)},
-	{"fastGetAttributes", "()[Ljavax/management/MBeanAttributeInfo;", nullptr, $PRIVATE, $method(MBeanInfo, fastGetAttributes, $MBeanAttributeInfoArray*)},
-	{"fastGetConstructors", "()[Ljavax/management/MBeanConstructorInfo;", nullptr, $PRIVATE, $method(MBeanInfo, fastGetConstructors, $MBeanConstructorInfoArray*)},
-	{"fastGetNotifications", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PRIVATE, $method(MBeanInfo, fastGetNotifications, $MBeanNotificationInfoArray*)},
-	{"fastGetOperations", "()[Ljavax/management/MBeanOperationInfo;", nullptr, $PRIVATE, $method(MBeanInfo, fastGetOperations, $MBeanOperationInfoArray*)},
-	{"getAttributes", "()[Ljavax/management/MBeanAttributeInfo;", nullptr, $PUBLIC, $virtualMethod(MBeanInfo, getAttributes, $MBeanAttributeInfoArray*)},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanInfo, getClassName, $String*)},
-	{"getConstructors", "()[Ljavax/management/MBeanConstructorInfo;", nullptr, $PUBLIC, $virtualMethod(MBeanInfo, getConstructors, $MBeanConstructorInfoArray*)},
-	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanInfo, getDescription, $String*)},
-	{"getDescriptor", "()Ljavax/management/Descriptor;", nullptr, $PUBLIC, $virtualMethod(MBeanInfo, getDescriptor, $Descriptor*)},
-	{"getNotifications", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC, $virtualMethod(MBeanInfo, getNotifications, $MBeanNotificationInfoArray*)},
-	{"getOperations", "()[Ljavax/management/MBeanOperationInfo;", nullptr, $PUBLIC, $virtualMethod(MBeanInfo, getOperations, $MBeanOperationInfoArray*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MBeanInfo, hashCode, int32_t)},
-	{"isEqual", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanInfo, isEqual, bool, $String*, $String*)},
-	{"nonNullAttributes", "()[Ljavax/management/MBeanAttributeInfo;", nullptr, $PRIVATE, $method(MBeanInfo, nonNullAttributes, $MBeanAttributeInfoArray*)},
-	{"nonNullConstructors", "()[Ljavax/management/MBeanConstructorInfo;", nullptr, $PRIVATE, $method(MBeanInfo, nonNullConstructors, $MBeanConstructorInfoArray*)},
-	{"nonNullNotifications", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PRIVATE, $method(MBeanInfo, nonNullNotifications, $MBeanNotificationInfoArray*)},
-	{"nonNullOperations", "()[Ljavax/management/MBeanOperationInfo;", nullptr, $PRIVATE, $method(MBeanInfo, nonNullOperations, $MBeanOperationInfoArray*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MBeanInfo, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanInfo, toString, $String*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(MBeanInfo, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _MBeanInfo_InnerClassesInfo_[] = {
-	{"javax.management.MBeanInfo$ArrayGettersSafeAction", "javax.management.MBeanInfo", "ArrayGettersSafeAction", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MBeanInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.MBeanInfo",
-	"java.lang.Object",
-	"java.lang.Cloneable,java.io.Serializable,javax.management.DescriptorRead",
-	_MBeanInfo_FieldInfo_,
-	_MBeanInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MBeanInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.management.MBeanInfo$ArrayGettersSafeAction"
-};
-
-$Object* allocate$MBeanInfo($Class* clazz) {
-	return $of($alloc(MBeanInfo));
-}
-
 void MBeanInfo::finalize() {
 	this->$Cloneable::finalize();
 }
@@ -139,7 +67,7 @@ void MBeanInfo::init$($String* className, $String* description, $MBeanAttributeI
 }
 
 void MBeanInfo::init$($String* className, $String* description, $MBeanAttributeInfoArray* attributes$renamed, $MBeanConstructorInfoArray* constructors$renamed, $MBeanOperationInfoArray* operations$renamed, $MBeanNotificationInfoArray* notifications$renamed, $Descriptor* descriptor$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MBeanConstructorInfoArray, constructors, constructors$renamed);
 	$var($MBeanOperationInfoArray, operations, operations$renamed);
 	$var($MBeanAttributeInfoArray, attributes, attributes$renamed);
@@ -177,9 +105,9 @@ void MBeanInfo::init$($String* className, $String* description, $MBeanAttributeI
 
 $Object* MBeanInfo::clone() {
 	try {
-		return $of($Cloneable::clone());
+		return $Cloneable::clone();
 	} catch ($CloneNotSupportedException& e) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$shouldNotReachHere();
 }
@@ -281,28 +209,31 @@ $MBeanNotificationInfoArray* MBeanInfo::nonNullNotifications() {
 }
 
 $Descriptor* MBeanInfo::getDescriptor() {
-	return $cast($Descriptor, $nc($($ImmutableDescriptor::nonNullDescriptor(this->descriptor)))->clone());
+	return $cast($Descriptor, $$nc($ImmutableDescriptor::nonNullDescriptor(this->descriptor))->clone());
 }
 
 $String* MBeanInfo::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$11, $$str({$($of(this)->getClass()->getName()), "[description="_s}));
-	$var($String, var$10, $$concat(var$11, $(getDescription())));
-	$var($String, var$9, $$concat(var$10, ", attributes="_s));
-	$var($String, var$8, $$concat(var$9, $($Arrays::asList($(fastGetAttributes())))));
-	$var($String, var$7, $$concat(var$8, ", constructors="_s));
-	$var($String, var$6, $$concat(var$7, $($Arrays::asList($(fastGetConstructors())))));
-	$var($String, var$5, $$concat(var$6, ", operations="_s));
-	$var($String, var$4, $$concat(var$5, $($Arrays::asList($(fastGetOperations())))));
-	$var($String, var$3, $$concat(var$4, ", notifications="_s));
-	$var($String, var$2, $$concat(var$3, $($Arrays::asList($(fastGetNotifications())))));
-	$var($String, var$1, $$concat(var$2, ", descriptor="_s));
-	$var($String, var$0, $$concat(var$1, $(getDescriptor())));
-	return $concat(var$0, "]"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($of(this)->getClass()->getName()));
+	var$0->append("[description="_s);
+	var$0->append($(getDescription()));
+	var$0->append(", attributes="_s);
+	var$0->append($($Arrays::asList($(fastGetAttributes()))));
+	var$0->append(", constructors="_s);
+	var$0->append($($Arrays::asList($(fastGetConstructors()))));
+	var$0->append(", operations="_s);
+	var$0->append($($Arrays::asList($(fastGetOperations()))));
+	var$0->append(", notifications="_s);
+	var$0->append($($Arrays::asList($(fastGetNotifications()))));
+	var$0->append(", descriptor="_s);
+	var$0->append($(getDescriptor()));
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 bool MBeanInfo::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(o, this)) {
 		return true;
 	}
@@ -314,39 +245,39 @@ bool MBeanInfo::equals(Object$* o) {
 	bool var$1 = !isEqual(var$2, $($nc(p)->getClassName()));
 	if (!var$1) {
 		$var($String, var$3, getDescription());
-		var$1 = !isEqual(var$3, $($nc(p)->getDescription()));
+		var$1 = !isEqual(var$3, $(p->getDescription()));
 	}
 	bool var$0 = var$1;
-	if (var$0 || !$nc($(getDescriptor()))->equals($($nc(p)->getDescriptor()))) {
+	if (var$0 || !$$nc(getDescriptor())->equals($(p->getDescriptor()))) {
 		return false;
 	}
-	$var($ObjectArray, var$7, $nc(p)->fastGetAttributes());
+	$var($ObjectArray, var$7, p->fastGetAttributes());
 	bool var$6 = $Arrays::equals(var$7, $(fastGetAttributes()));
 	if (var$6) {
-		$var($ObjectArray, var$8, $nc(p)->fastGetOperations());
+		$var($ObjectArray, var$8, p->fastGetOperations());
 		var$6 = $Arrays::equals(var$8, $(fastGetOperations()));
 	}
 	bool var$5 = var$6;
 	if (var$5) {
-		$var($ObjectArray, var$9, $nc(p)->fastGetConstructors());
+		$var($ObjectArray, var$9, p->fastGetConstructors());
 		var$5 = $Arrays::equals(var$9, $(fastGetConstructors()));
 	}
 	bool var$4 = var$5;
 	if (var$4) {
-		$var($ObjectArray, var$10, $nc(p)->fastGetNotifications());
+		$var($ObjectArray, var$10, p->fastGetNotifications());
 		var$4 = $Arrays::equals(var$10, $(fastGetNotifications()));
 	}
 	return (var$4);
 }
 
 int32_t MBeanInfo::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->hashCode$ != 0) {
 		return this->hashCode$;
 	}
 	int32_t var$3 = $Objects::hash($$new($ObjectArray, {
-		$($of(getClassName())),
-		$($of(getDescriptor()))
+		$(getClassName()),
+		$(getDescriptor())
 	}));
 	int32_t var$2 = var$3 ^ $Arrays::hashCode($(fastGetAttributes()));
 	int32_t var$1 = var$2 ^ $Arrays::hashCode($(fastGetOperations()));
@@ -357,21 +288,21 @@ int32_t MBeanInfo::hashCode() {
 
 bool MBeanInfo::arrayGettersSafe($Class* subclass, $Class* immutableClass) {
 	$init(MBeanInfo);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (subclass == immutableClass) {
 		return true;
 	}
 	$synchronized(MBeanInfo::arrayGettersSafeMap) {
-		$var($Boolean, safe, $cast($Boolean, $nc(MBeanInfo::arrayGettersSafeMap)->get(subclass)));
+		$var($Boolean, safe, $cast($Boolean, MBeanInfo::arrayGettersSafeMap->get(subclass)));
 		if (safe == nullptr) {
 			try {
 				$var($MBeanInfo$ArrayGettersSafeAction, action, $new($MBeanInfo$ArrayGettersSafeAction, subclass, immutableClass));
-				$assign(safe, $cast($Boolean, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>(action))));
+				$assign(safe, $cast($Boolean, $AccessController::doPrivileged(action)));
 			} catch ($Exception& e) {
 				$assign(safe, $Boolean::valueOf(false));
 			}
-			$nc(MBeanInfo::arrayGettersSafeMap)->put(subclass, safe);
+			MBeanInfo::arrayGettersSafeMap->put(subclass, safe);
 		}
 		return $nc(safe)->booleanValue();
 	}
@@ -383,18 +314,18 @@ bool MBeanInfo::isEqual($String* s1, $String* s2) {
 	if (s1 == nullptr) {
 		ret = (s2 == nullptr);
 	} else {
-		ret = $nc(s1)->equals(s2);
+		ret = s1->equals(s2);
 	}
 	return ret;
 }
 
 void MBeanInfo::writeObject($ObjectOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(out)->defaultWriteObject();
 	$load($ImmutableDescriptor);
 	if ($nc($of(this->descriptor))->getClass() == $ImmutableDescriptor::class$) {
 		out->write(1);
-		$var($StringArray, names, $nc(this->descriptor)->getFieldNames());
+		$var($StringArray, names, this->descriptor->getFieldNames());
 		out->writeObject(names);
 		out->writeObject($($nc(this->descriptor)->getFieldValues(names)));
 	} else {
@@ -404,44 +335,36 @@ void MBeanInfo::writeObject($ObjectOutputStream* out) {
 }
 
 void MBeanInfo::readObject($ObjectInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(in)->defaultReadObject();
 	{
-		$var($StringArray, names, nullptr)
-		$var($ObjectArray, values, nullptr)
+		$var($StringArray, names, nullptr);
+		$var($ObjectArray, values, nullptr);
 		switch (in->read()) {
 		case 1:
-			{
-				$assign(names, $cast($StringArray, in->readObject()));
-				$assign(values, $cast($ObjectArray, in->readObject()));
-				$init($ImmutableDescriptor);
-				$set(this, descriptor, ($nc(names)->length == 0) ? static_cast<$Descriptor*>($ImmutableDescriptor::EMPTY_DESCRIPTOR) : static_cast<$Descriptor*>($new($ImmutableDescriptor, names, values)));
-				break;
-			}
+			$assign(names, $cast($StringArray, in->readObject()));
+			$assign(values, $cast($ObjectArray, in->readObject()));
+			$init($ImmutableDescriptor);
+			$set(this, descriptor, ($nc(names)->length == 0) ? $ImmutableDescriptor::EMPTY_DESCRIPTOR : $new($ImmutableDescriptor, names, values));
+			break;
 		case 0:
-			{
-				$set(this, descriptor, $cast($Descriptor, in->readObject()));
-				if (this->descriptor == nullptr) {
-					$init($ImmutableDescriptor);
-					$set(this, descriptor, $ImmutableDescriptor::EMPTY_DESCRIPTOR);
-				}
-				break;
-			}
-		case -1:
-			{
+			$set(this, descriptor, $cast($Descriptor, in->readObject()));
+			if (this->descriptor == nullptr) {
 				$init($ImmutableDescriptor);
 				$set(this, descriptor, $ImmutableDescriptor::EMPTY_DESCRIPTOR);
-				break;
 			}
+			break;
+		case -1:
+			$init($ImmutableDescriptor);
+			$set(this, descriptor, $ImmutableDescriptor::EMPTY_DESCRIPTOR);
+			break;
 		default:
-			{
-				$throwNew($StreamCorruptedException, "Got unexpected byte."_s);
-			}
+			$throwNew($StreamCorruptedException, "Got unexpected byte."_s);
 		}
 	}
 }
 
-void clinit$MBeanInfo($Class* class$) {
+void MBeanInfo::clinit$($Class* clazz) {
 	$assignStatic(MBeanInfo::arrayGettersSafeMap, $new($WeakHashMap));
 }
 
@@ -449,7 +372,70 @@ MBeanInfo::MBeanInfo() {
 }
 
 $Class* MBeanInfo::load$($String* name, bool initialize) {
-	$loadClass(MBeanInfo, name, initialize, &_MBeanInfo_ClassInfo_, clinit$MBeanInfo, allocate$MBeanInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(MBeanInfo, serialVersionUID)},
+		{"descriptor", "Ljavax/management/Descriptor;", nullptr, $PRIVATE | $TRANSIENT, $field(MBeanInfo, descriptor)},
+		{"description", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MBeanInfo, description)},
+		{"className", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MBeanInfo, className)},
+		{"attributes", "[Ljavax/management/MBeanAttributeInfo;", nullptr, $PRIVATE | $FINAL, $field(MBeanInfo, attributes)},
+		{"operations", "[Ljavax/management/MBeanOperationInfo;", nullptr, $PRIVATE | $FINAL, $field(MBeanInfo, operations)},
+		{"constructors", "[Ljavax/management/MBeanConstructorInfo;", nullptr, $PRIVATE | $FINAL, $field(MBeanInfo, constructors)},
+		{"notifications", "[Ljavax/management/MBeanNotificationInfo;", nullptr, $PRIVATE | $FINAL, $field(MBeanInfo, notifications)},
+		{"hashCode", "I", nullptr, $PRIVATE | $TRANSIENT, $field(MBeanInfo, hashCode$)},
+		{"arrayGettersSafe", "Z", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(MBeanInfo, arrayGettersSafe$)},
+		{"arrayGettersSafeMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/lang/Boolean;>;", $PRIVATE | $STATIC | $FINAL, $staticField(MBeanInfo, arrayGettersSafeMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/MBeanAttributeInfo;[Ljavax/management/MBeanConstructorInfo;[Ljavax/management/MBeanOperationInfo;[Ljavax/management/MBeanNotificationInfo;)V", nullptr, $PUBLIC, $method(MBeanInfo, init$, void, $String*, $String*, $MBeanAttributeInfoArray*, $MBeanConstructorInfoArray*, $MBeanOperationInfoArray*, $MBeanNotificationInfoArray*), "java.lang.IllegalArgumentException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/MBeanAttributeInfo;[Ljavax/management/MBeanConstructorInfo;[Ljavax/management/MBeanOperationInfo;[Ljavax/management/MBeanNotificationInfo;Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(MBeanInfo, init$, void, $String*, $String*, $MBeanAttributeInfoArray*, $MBeanConstructorInfoArray*, $MBeanOperationInfoArray*, $MBeanNotificationInfoArray*, $Descriptor*), "java.lang.IllegalArgumentException"},
+		{"arrayGettersSafe", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $STATIC, $staticMethod(MBeanInfo, arrayGettersSafe, bool, $Class*, $Class*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MBeanInfo, clone, $Object*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MBeanInfo, equals, bool, Object$*)},
+		{"fastGetAttributes", "()[Ljavax/management/MBeanAttributeInfo;", nullptr, $PRIVATE, $method(MBeanInfo, fastGetAttributes, $MBeanAttributeInfoArray*)},
+		{"fastGetConstructors", "()[Ljavax/management/MBeanConstructorInfo;", nullptr, $PRIVATE, $method(MBeanInfo, fastGetConstructors, $MBeanConstructorInfoArray*)},
+		{"fastGetNotifications", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PRIVATE, $method(MBeanInfo, fastGetNotifications, $MBeanNotificationInfoArray*)},
+		{"fastGetOperations", "()[Ljavax/management/MBeanOperationInfo;", nullptr, $PRIVATE, $method(MBeanInfo, fastGetOperations, $MBeanOperationInfoArray*)},
+		{"getAttributes", "()[Ljavax/management/MBeanAttributeInfo;", nullptr, $PUBLIC, $virtualMethod(MBeanInfo, getAttributes, $MBeanAttributeInfoArray*)},
+		{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanInfo, getClassName, $String*)},
+		{"getConstructors", "()[Ljavax/management/MBeanConstructorInfo;", nullptr, $PUBLIC, $virtualMethod(MBeanInfo, getConstructors, $MBeanConstructorInfoArray*)},
+		{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanInfo, getDescription, $String*)},
+		{"getDescriptor", "()Ljavax/management/Descriptor;", nullptr, $PUBLIC, $virtualMethod(MBeanInfo, getDescriptor, $Descriptor*)},
+		{"getNotifications", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC, $virtualMethod(MBeanInfo, getNotifications, $MBeanNotificationInfoArray*)},
+		{"getOperations", "()[Ljavax/management/MBeanOperationInfo;", nullptr, $PUBLIC, $virtualMethod(MBeanInfo, getOperations, $MBeanOperationInfoArray*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MBeanInfo, hashCode, int32_t)},
+		{"isEqual", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanInfo, isEqual, bool, $String*, $String*)},
+		{"nonNullAttributes", "()[Ljavax/management/MBeanAttributeInfo;", nullptr, $PRIVATE, $method(MBeanInfo, nonNullAttributes, $MBeanAttributeInfoArray*)},
+		{"nonNullConstructors", "()[Ljavax/management/MBeanConstructorInfo;", nullptr, $PRIVATE, $method(MBeanInfo, nonNullConstructors, $MBeanConstructorInfoArray*)},
+		{"nonNullNotifications", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PRIVATE, $method(MBeanInfo, nonNullNotifications, $MBeanNotificationInfoArray*)},
+		{"nonNullOperations", "()[Ljavax/management/MBeanOperationInfo;", nullptr, $PRIVATE, $method(MBeanInfo, nonNullOperations, $MBeanOperationInfoArray*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MBeanInfo, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanInfo, toString, $String*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(MBeanInfo, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.MBeanInfo$ArrayGettersSafeAction", "javax.management.MBeanInfo", "ArrayGettersSafeAction", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.MBeanInfo",
+		"java.lang.Object",
+		"java.lang.Cloneable,java.io.Serializable,javax.management.DescriptorRead",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.management.MBeanInfo$ArrayGettersSafeAction"
+	};
+	$loadClass(MBeanInfo, name, initialize, &classInfo$$, MBeanInfo::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MBeanInfo));
+	});
 	return class$;
 }
 

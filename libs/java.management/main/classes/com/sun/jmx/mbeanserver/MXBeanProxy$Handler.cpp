@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/MXBeanProxy$Handler.h>
-
 #include <com/sun/jmx/mbeanserver/ConvertingMethod.h>
 #include <com/sun/jmx/mbeanserver/MXBeanProxy.h>
 #include <javax/management/MBeanServerConnection.h>
@@ -19,45 +18,6 @@ namespace com {
 		namespace jmx {
 			namespace mbeanserver {
 
-$FieldInfo _MXBeanProxy$Handler_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MXBeanProxy$Handler, name)},
-	{"convertingMethod", "Lcom/sun/jmx/mbeanserver/ConvertingMethod;", nullptr, $PRIVATE | $FINAL, $field(MXBeanProxy$Handler, convertingMethod)},
-	{}
-};
-
-$MethodInfo _MXBeanProxy$Handler_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lcom/sun/jmx/mbeanserver/ConvertingMethod;)V", nullptr, 0, $method(MXBeanProxy$Handler, init$, void, $String*, $ConvertingMethod*)},
-	{"getConvertingMethod", "()Lcom/sun/jmx/mbeanserver/ConvertingMethod;", nullptr, 0, $virtualMethod(MXBeanProxy$Handler, getConvertingMethod, $ConvertingMethod*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MXBeanProxy$Handler, getName, $String*)},
-	{"invoke", "(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $ABSTRACT, $virtualMethod(MXBeanProxy$Handler, invoke, $Object*, $MBeanServerConnection*, $ObjectName*, $ObjectArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _MXBeanProxy$Handler_InnerClassesInfo_[] = {
-	{"com.sun.jmx.mbeanserver.MXBeanProxy$Handler", "com.sun.jmx.mbeanserver.MXBeanProxy", "Handler", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MXBeanProxy$Handler_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.jmx.mbeanserver.MXBeanProxy$Handler",
-	"java.lang.Object",
-	nullptr,
-	_MXBeanProxy$Handler_FieldInfo_,
-	_MXBeanProxy$Handler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MXBeanProxy$Handler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.mbeanserver.MXBeanProxy"
-};
-
-$Object* allocate$MXBeanProxy$Handler($Class* clazz) {
-	return $of($alloc(MXBeanProxy$Handler));
-}
-
 void MXBeanProxy$Handler::init$($String* name, $ConvertingMethod* cm) {
 	$set(this, name, name);
 	$set(this, convertingMethod, cm);
@@ -75,7 +35,40 @@ MXBeanProxy$Handler::MXBeanProxy$Handler() {
 }
 
 $Class* MXBeanProxy$Handler::load$($String* name, bool initialize) {
-	$loadClass(MXBeanProxy$Handler, name, initialize, &_MXBeanProxy$Handler_ClassInfo_, allocate$MXBeanProxy$Handler);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MXBeanProxy$Handler, name)},
+		{"convertingMethod", "Lcom/sun/jmx/mbeanserver/ConvertingMethod;", nullptr, $PRIVATE | $FINAL, $field(MXBeanProxy$Handler, convertingMethod)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Lcom/sun/jmx/mbeanserver/ConvertingMethod;)V", nullptr, 0, $method(MXBeanProxy$Handler, init$, void, $String*, $ConvertingMethod*)},
+		{"getConvertingMethod", "()Lcom/sun/jmx/mbeanserver/ConvertingMethod;", nullptr, 0, $virtualMethod(MXBeanProxy$Handler, getConvertingMethod, $ConvertingMethod*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MXBeanProxy$Handler, getName, $String*)},
+		{"invoke", "(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $ABSTRACT, $virtualMethod(MXBeanProxy$Handler, invoke, $Object*, $MBeanServerConnection*, $ObjectName*, $ObjectArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.mbeanserver.MXBeanProxy$Handler", "com.sun.jmx.mbeanserver.MXBeanProxy", "Handler", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.jmx.mbeanserver.MXBeanProxy$Handler",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.mbeanserver.MXBeanProxy"
+	};
+	$loadClass(MXBeanProxy$Handler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MXBeanProxy$Handler);
+	});
 	return class$;
 }
 

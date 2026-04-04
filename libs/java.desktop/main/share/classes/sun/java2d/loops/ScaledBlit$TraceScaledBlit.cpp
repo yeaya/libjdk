@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/ScaledBlit$TraceScaledBlit.h>
-
 #include <java/awt/Composite.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/loops/CompositeType.h>
@@ -25,45 +24,8 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _ScaledBlit$TraceScaledBlit_FieldInfo_[] = {
-	{"target", "Lsun/java2d/loops/ScaledBlit;", nullptr, 0, $field(ScaledBlit$TraceScaledBlit, target)},
-	{}
-};
-
-$MethodInfo _ScaledBlit$TraceScaledBlit_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/ScaledBlit;)V", nullptr, $PUBLIC, $method(ScaledBlit$TraceScaledBlit, init$, void, $ScaledBlit*)},
-	{"Scale", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIDDDD)V", nullptr, $PUBLIC, $virtualMethod(ScaledBlit$TraceScaledBlit, Scale, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(ScaledBlit$TraceScaledBlit, traceWrap, $GraphicsPrimitive*)},
-	{}
-};
-
-$InnerClassInfo _ScaledBlit$TraceScaledBlit_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.ScaledBlit$TraceScaledBlit", "sun.java2d.loops.ScaledBlit", "TraceScaledBlit", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ScaledBlit$TraceScaledBlit_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.ScaledBlit$TraceScaledBlit",
-	"sun.java2d.loops.ScaledBlit",
-	nullptr,
-	_ScaledBlit$TraceScaledBlit_FieldInfo_,
-	_ScaledBlit$TraceScaledBlit_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ScaledBlit$TraceScaledBlit_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.ScaledBlit"
-};
-
-$Object* allocate$ScaledBlit$TraceScaledBlit($Class* clazz) {
-	return $of($alloc(ScaledBlit$TraceScaledBlit));
-}
-
 void ScaledBlit$TraceScaledBlit::init$($ScaledBlit* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceType, var$0, $nc(target)->getSourceType());
 	$var($CompositeType, var$1, target->getCompositeType());
 	$ScaledBlit::init$(var$0, var$1, $(target->getDestType()));
@@ -83,7 +45,38 @@ ScaledBlit$TraceScaledBlit::ScaledBlit$TraceScaledBlit() {
 }
 
 $Class* ScaledBlit$TraceScaledBlit::load$($String* name, bool initialize) {
-	$loadClass(ScaledBlit$TraceScaledBlit, name, initialize, &_ScaledBlit$TraceScaledBlit_ClassInfo_, allocate$ScaledBlit$TraceScaledBlit);
+	$FieldInfo fieldInfos$$[] = {
+		{"target", "Lsun/java2d/loops/ScaledBlit;", nullptr, 0, $field(ScaledBlit$TraceScaledBlit, target)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/ScaledBlit;)V", nullptr, $PUBLIC, $method(ScaledBlit$TraceScaledBlit, init$, void, $ScaledBlit*)},
+		{"Scale", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIDDDD)V", nullptr, $PUBLIC, $virtualMethod(ScaledBlit$TraceScaledBlit, Scale, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(ScaledBlit$TraceScaledBlit, traceWrap, $GraphicsPrimitive*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.ScaledBlit$TraceScaledBlit", "sun.java2d.loops.ScaledBlit", "TraceScaledBlit", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.ScaledBlit$TraceScaledBlit",
+		"sun.java2d.loops.ScaledBlit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.ScaledBlit"
+	};
+	$loadClass(ScaledBlit$TraceScaledBlit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ScaledBlit$TraceScaledBlit);
+	});
 	return class$;
 }
 

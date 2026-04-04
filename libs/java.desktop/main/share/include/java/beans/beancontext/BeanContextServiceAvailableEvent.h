@@ -30,7 +30,7 @@ public:
 	virtual ::java::util::Iterator* getCurrentServiceSelectors();
 	virtual $Class* getServiceClass();
 	virtual ::java::beans::beancontext::BeanContextServices* getSourceAsBeanContextServices();
-	static const int64_t serialVersionUID = (int64_t)0xB5F9E0329D038876;
+	static const int64_t serialVersionUID = (int64_t)0xb5f9e0329d038876;
 	$Class* serviceClass = nullptr;
 };
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/websocket/TestSupport$F5.h>
-
 #include <jdk/internal/net/http/websocket/TestSupport.h>
 #include <jcpp.h>
 
@@ -14,43 +13,37 @@ namespace jdk {
 			namespace http {
 				namespace websocket {
 
-$CompoundAttribute _TestSupport$F5_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _TestSupport$F5_MethodInfo_[] = {
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TA;TB;TC;TD;TE;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(TestSupport$F5, apply, $Object*, Object$*, Object$*, Object$*, Object$*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _TestSupport$F5_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.websocket.TestSupport$F5", "jdk.internal.net.http.websocket.TestSupport", "F5", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TestSupport$F5_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.net.http.websocket.TestSupport$F5",
-	nullptr,
-	nullptr,
-	nullptr,
-	_TestSupport$F5_MethodInfo_,
-	"<A:Ljava/lang/Object;B:Ljava/lang/Object;C:Ljava/lang/Object;D:Ljava/lang/Object;E:Ljava/lang/Object;R:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_TestSupport$F5_InnerClassesInfo_,
-	_TestSupport$F5_Annotations_,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.websocket.TestSupport"
-};
-
-$Object* allocate$TestSupport$F5($Class* clazz) {
-	return $of($alloc(TestSupport$F5));
-}
-
 $Class* TestSupport$F5::load$($String* name, bool initialize) {
-	$loadClass(TestSupport$F5, name, initialize, &_TestSupport$F5_ClassInfo_, allocate$TestSupport$F5);
+	$MethodInfo methodInfos$$[] = {
+		{"apply", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TA;TB;TC;TD;TE;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(TestSupport$F5, apply, $Object*, Object$*, Object$*, Object$*, Object$*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.websocket.TestSupport$F5", "jdk.internal.net.http.websocket.TestSupport", "F5", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.net.http.websocket.TestSupport$F5",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<A:Ljava/lang/Object;B:Ljava/lang/Object;C:Ljava/lang/Object;D:Ljava/lang/Object;E:Ljava/lang/Object;R:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.websocket.TestSupport"
+	};
+	$loadClass(TestSupport$F5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestSupport$F5);
+	});
 	return class$;
 }
 

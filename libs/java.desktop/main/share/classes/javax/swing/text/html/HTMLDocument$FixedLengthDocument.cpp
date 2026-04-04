@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/HTMLDocument$FixedLengthDocument.h>
-
 #include <javax/swing/text/AbstractDocument.h>
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/PlainDocument.h>
@@ -17,42 +16,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _HTMLDocument$FixedLengthDocument_FieldInfo_[] = {
-	{"maxLength", "I", nullptr, $PRIVATE, $field(HTMLDocument$FixedLengthDocument, maxLength)},
-	{}
-};
-
-$MethodInfo _HTMLDocument$FixedLengthDocument_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(HTMLDocument$FixedLengthDocument, init$, void, int32_t)},
-	{"insertString", "(ILjava/lang/String;Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$FixedLengthDocument, insertString, void, int32_t, $String*, $AttributeSet*), "javax.swing.text.BadLocationException"},
-	{}
-};
-
-$InnerClassInfo _HTMLDocument$FixedLengthDocument_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.HTMLDocument$FixedLengthDocument", "javax.swing.text.html.HTMLDocument", "FixedLengthDocument", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _HTMLDocument$FixedLengthDocument_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.HTMLDocument$FixedLengthDocument",
-	"javax.swing.text.PlainDocument",
-	nullptr,
-	_HTMLDocument$FixedLengthDocument_FieldInfo_,
-	_HTMLDocument$FixedLengthDocument_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HTMLDocument$FixedLengthDocument_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.HTMLDocument"
-};
-
-$Object* allocate$HTMLDocument$FixedLengthDocument($Class* clazz) {
-	return $of($alloc(HTMLDocument$FixedLengthDocument));
-}
 
 void HTMLDocument$FixedLengthDocument::init$(int32_t maxLength) {
 	$PlainDocument::init$();
@@ -74,7 +37,37 @@ HTMLDocument$FixedLengthDocument::HTMLDocument$FixedLengthDocument() {
 }
 
 $Class* HTMLDocument$FixedLengthDocument::load$($String* name, bool initialize) {
-	$loadClass(HTMLDocument$FixedLengthDocument, name, initialize, &_HTMLDocument$FixedLengthDocument_ClassInfo_, allocate$HTMLDocument$FixedLengthDocument);
+	$FieldInfo fieldInfos$$[] = {
+		{"maxLength", "I", nullptr, $PRIVATE, $field(HTMLDocument$FixedLengthDocument, maxLength)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(HTMLDocument$FixedLengthDocument, init$, void, int32_t)},
+		{"insertString", "(ILjava/lang/String;Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$FixedLengthDocument, insertString, void, int32_t, $String*, $AttributeSet*), "javax.swing.text.BadLocationException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.HTMLDocument$FixedLengthDocument", "javax.swing.text.html.HTMLDocument", "FixedLengthDocument", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.HTMLDocument$FixedLengthDocument",
+		"javax.swing.text.PlainDocument",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.HTMLDocument"
+	};
+	$loadClass(HTMLDocument$FixedLengthDocument, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HTMLDocument$FixedLengthDocument));
+	});
 	return class$;
 }
 

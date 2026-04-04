@@ -31,7 +31,7 @@ public:
 	$String* authorizationID = nullptr;
 	$String* authorizedID = nullptr;
 	bool authorized = false;
-	static const int64_t serialVersionUID = (int64_t)0xDF573DEE52013E6B;
+	static const int64_t serialVersionUID = (int64_t)0xdf573dee52013e6b;
 };
 
 		} // sasl

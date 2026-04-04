@@ -1,5 +1,4 @@
 #include <javax/print/MimeType$LexicalAnalyzer.h>
-
 #include <javax/print/MimeType.h>
 #include <jcpp.h>
 
@@ -11,50 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace javax {
 	namespace print {
-
-$FieldInfo _MimeType$LexicalAnalyzer_FieldInfo_[] = {
-	{"mySource", "Ljava/lang/String;", nullptr, $PROTECTED, $field(MimeType$LexicalAnalyzer, mySource)},
-	{"mySourceLength", "I", nullptr, $PROTECTED, $field(MimeType$LexicalAnalyzer, mySourceLength)},
-	{"myCurrentIndex", "I", nullptr, $PROTECTED, $field(MimeType$LexicalAnalyzer, myCurrentIndex)},
-	{"myLexemeType", "I", nullptr, $PROTECTED, $field(MimeType$LexicalAnalyzer, myLexemeType)},
-	{"myLexemeBeginIndex", "I", nullptr, $PROTECTED, $field(MimeType$LexicalAnalyzer, myLexemeBeginIndex)},
-	{"myLexemeEndIndex", "I", nullptr, $PROTECTED, $field(MimeType$LexicalAnalyzer, myLexemeEndIndex)},
-	{}
-};
-
-$MethodInfo _MimeType$LexicalAnalyzer_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MimeType$LexicalAnalyzer, init$, void, $String*)},
-	{"getLexeme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MimeType$LexicalAnalyzer, getLexeme, $String*)},
-	{"getLexemeFirstCharacter", "()C", nullptr, $PUBLIC, $virtualMethod(MimeType$LexicalAnalyzer, getLexemeFirstCharacter, char16_t)},
-	{"getLexemeType", "()I", nullptr, $PUBLIC, $virtualMethod(MimeType$LexicalAnalyzer, getLexemeType, int32_t)},
-	{"nextLexeme", "()V", nullptr, $PUBLIC, $virtualMethod(MimeType$LexicalAnalyzer, nextLexeme, void)},
-	{}
-};
-
-$InnerClassInfo _MimeType$LexicalAnalyzer_InnerClassesInfo_[] = {
-	{"javax.print.MimeType$LexicalAnalyzer", "javax.print.MimeType", "LexicalAnalyzer", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MimeType$LexicalAnalyzer_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.print.MimeType$LexicalAnalyzer",
-	"java.lang.Object",
-	nullptr,
-	_MimeType$LexicalAnalyzer_FieldInfo_,
-	_MimeType$LexicalAnalyzer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MimeType$LexicalAnalyzer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.print.MimeType"
-};
-
-$Object* allocate$MimeType$LexicalAnalyzer($Class* clazz) {
-	return $of($alloc(MimeType$LexicalAnalyzer));
-}
 
 void MimeType$LexicalAnalyzer::init$($String* theSource) {
 	$set(this, mySource, theSource);
@@ -82,113 +37,101 @@ void MimeType$LexicalAnalyzer::nextLexeme() {
 	while (state >= 0) {
 		switch (state) {
 		case 0:
-			{
-				if (this->myCurrentIndex >= this->mySourceLength) {
-					this->myLexemeType = 3;
-					this->myLexemeBeginIndex = this->mySourceLength;
-					this->myLexemeEndIndex = this->mySourceLength;
-					state = -1;
-				} else if ($Character::isWhitespace(c = $nc(this->mySource)->charAt(this->myCurrentIndex++))) {
-					state = 0;
-				} else if (c == u'\"') {
-					this->myLexemeType = 1;
-					this->myLexemeBeginIndex = this->myCurrentIndex;
-					state = 1;
-				} else if (c == u'(') {
-					++commentLevel;
-					state = 3;
-				} else if (c == u'/' || c == u';' || c == u'=' || c == u')' || c == u'<' || c == u'>' || c == u'@' || c == u',' || c == u':' || c == u'\\' || c == u'[' || c == u']' || c == u'?') {
-					this->myLexemeType = 2;
-					this->myLexemeBeginIndex = this->myCurrentIndex - 1;
-					this->myLexemeEndIndex = this->myCurrentIndex;
-					state = -1;
-				} else {
-					this->myLexemeType = 0;
-					this->myLexemeBeginIndex = this->myCurrentIndex - 1;
-					state = 5;
-				}
-				break;
+			if (this->myCurrentIndex >= this->mySourceLength) {
+				this->myLexemeType = 3;
+				this->myLexemeBeginIndex = this->mySourceLength;
+				this->myLexemeEndIndex = this->mySourceLength;
+				state = -1;
+			} else if ($Character::isWhitespace(c = $nc(this->mySource)->charAt(this->myCurrentIndex++))) {
+				state = 0;
+			} else if (c == u'\"') {
+				this->myLexemeType = 1;
+				this->myLexemeBeginIndex = this->myCurrentIndex;
+				state = 1;
+			} else if (c == u'(') {
+				++commentLevel;
+				state = 3;
+			} else if (c == u'/' || c == u';' || c == u'=' || c == u')' || c == u'<' || c == u'>' || c == u'@' || c == u',' || c == u':' || c == u'\\' || c == u'[' || c == u']' || c == u'?') {
+				this->myLexemeType = 2;
+				this->myLexemeBeginIndex = this->myCurrentIndex - 1;
+				this->myLexemeEndIndex = this->myCurrentIndex;
+				state = -1;
+			} else {
+				this->myLexemeType = 0;
+				this->myLexemeBeginIndex = this->myCurrentIndex - 1;
+				state = 5;
 			}
+			break;
 		case 1:
-			{
-				if (this->myCurrentIndex >= this->mySourceLength) {
-					this->myLexemeType = 4;
-					this->myLexemeBeginIndex = this->mySourceLength;
-					this->myLexemeEndIndex = this->mySourceLength;
-					state = -1;
-				} else if ((c = $nc(this->mySource)->charAt(this->myCurrentIndex++)) == u'\"') {
-					this->myLexemeEndIndex = this->myCurrentIndex - 1;
-					state = -1;
-				} else if (c == u'\\') {
-					state = 2;
-				} else {
-					state = 1;
-				}
-				break;
+			if (this->myCurrentIndex >= this->mySourceLength) {
+				this->myLexemeType = 4;
+				this->myLexemeBeginIndex = this->mySourceLength;
+				this->myLexemeEndIndex = this->mySourceLength;
+				state = -1;
+			} else if ((c = $nc(this->mySource)->charAt(this->myCurrentIndex++)) == u'\"') {
+				this->myLexemeEndIndex = this->myCurrentIndex - 1;
+				state = -1;
+			} else if (c == u'\\') {
+				state = 2;
+			} else {
+				state = 1;
 			}
+			break;
 		case 2:
-			{
-				if (this->myCurrentIndex >= this->mySourceLength) {
-					this->myLexemeType = 4;
-					this->myLexemeBeginIndex = this->mySourceLength;
-					this->myLexemeEndIndex = this->mySourceLength;
-					state = -1;
-				} else {
-					++this->myCurrentIndex;
-					state = 1;
-				}
-				break;
+			if (this->myCurrentIndex >= this->mySourceLength) {
+				this->myLexemeType = 4;
+				this->myLexemeBeginIndex = this->mySourceLength;
+				this->myLexemeEndIndex = this->mySourceLength;
+				state = -1;
+			} else {
+				++this->myCurrentIndex;
+				state = 1;
 			}
+			break;
 		case 3:
-			{
-				if (this->myCurrentIndex >= this->mySourceLength) {
-					this->myLexemeType = 4;
-					this->myLexemeBeginIndex = this->mySourceLength;
-					this->myLexemeEndIndex = this->mySourceLength;
-					state = -1;
-				} else if ((c = $nc(this->mySource)->charAt(this->myCurrentIndex++)) == u'(') {
-					++commentLevel;
-					state = 3;
-				} else if (c == u')') {
-					--commentLevel;
-					state = commentLevel == 0 ? 0 : 3;
-				} else if (c == u'\\') {
-					state = 4;
-				} else {
-					state = 3;
-				}
-				break;
+			if (this->myCurrentIndex >= this->mySourceLength) {
+				this->myLexemeType = 4;
+				this->myLexemeBeginIndex = this->mySourceLength;
+				this->myLexemeEndIndex = this->mySourceLength;
+				state = -1;
+			} else if ((c = $nc(this->mySource)->charAt(this->myCurrentIndex++)) == u'(') {
+				++commentLevel;
+				state = 3;
+			} else if (c == u')') {
+				--commentLevel;
+				state = commentLevel == 0 ? 0 : 3;
+			} else if (c == u'\\') {
+				state = 4;
+			} else {
+				state = 3;
 			}
+			break;
 		case 4:
-			{
-				if (this->myCurrentIndex >= this->mySourceLength) {
-					this->myLexemeType = 4;
-					this->myLexemeBeginIndex = this->mySourceLength;
-					this->myLexemeEndIndex = this->mySourceLength;
-					state = -1;
-				} else {
-					++this->myCurrentIndex;
-					state = 3;
-				}
-				break;
+			if (this->myCurrentIndex >= this->mySourceLength) {
+				this->myLexemeType = 4;
+				this->myLexemeBeginIndex = this->mySourceLength;
+				this->myLexemeEndIndex = this->mySourceLength;
+				state = -1;
+			} else {
+				++this->myCurrentIndex;
+				state = 3;
 			}
+			break;
 		case 5:
-			{
-				if (this->myCurrentIndex >= this->mySourceLength) {
-					this->myLexemeEndIndex = this->myCurrentIndex;
-					state = -1;
-				} else if ($Character::isWhitespace(c = $nc(this->mySource)->charAt(this->myCurrentIndex++))) {
-					this->myLexemeEndIndex = this->myCurrentIndex - 1;
-					state = -1;
-				} else if (c == u'\"' || c == u'(' || c == u'/' || c == u';' || c == u'=' || c == u')' || c == u'<' || c == u'>' || c == u'@' || c == u',' || c == u':' || c == u'\\' || c == u'[' || c == u']' || c == u'?') {
-					--this->myCurrentIndex;
-					this->myLexemeEndIndex = this->myCurrentIndex;
-					state = -1;
-				} else {
-					state = 5;
-				}
-				break;
+			if (this->myCurrentIndex >= this->mySourceLength) {
+				this->myLexemeEndIndex = this->myCurrentIndex;
+				state = -1;
+			} else if ($Character::isWhitespace(c = $nc(this->mySource)->charAt(this->myCurrentIndex++))) {
+				this->myLexemeEndIndex = this->myCurrentIndex - 1;
+				state = -1;
+			} else if (c == u'\"' || c == u'(' || c == u'/' || c == u';' || c == u'=' || c == u')' || c == u'<' || c == u'>' || c == u'@' || c == u',' || c == u':' || c == u'\\' || c == u'[' || c == u']' || c == u'?') {
+				--this->myCurrentIndex;
+				this->myLexemeEndIndex = this->myCurrentIndex;
+				state = -1;
+			} else {
+				state = 5;
 			}
+			break;
 		}
 	}
 }
@@ -197,7 +140,45 @@ MimeType$LexicalAnalyzer::MimeType$LexicalAnalyzer() {
 }
 
 $Class* MimeType$LexicalAnalyzer::load$($String* name, bool initialize) {
-	$loadClass(MimeType$LexicalAnalyzer, name, initialize, &_MimeType$LexicalAnalyzer_ClassInfo_, allocate$MimeType$LexicalAnalyzer);
+	$FieldInfo fieldInfos$$[] = {
+		{"mySource", "Ljava/lang/String;", nullptr, $PROTECTED, $field(MimeType$LexicalAnalyzer, mySource)},
+		{"mySourceLength", "I", nullptr, $PROTECTED, $field(MimeType$LexicalAnalyzer, mySourceLength)},
+		{"myCurrentIndex", "I", nullptr, $PROTECTED, $field(MimeType$LexicalAnalyzer, myCurrentIndex)},
+		{"myLexemeType", "I", nullptr, $PROTECTED, $field(MimeType$LexicalAnalyzer, myLexemeType)},
+		{"myLexemeBeginIndex", "I", nullptr, $PROTECTED, $field(MimeType$LexicalAnalyzer, myLexemeBeginIndex)},
+		{"myLexemeEndIndex", "I", nullptr, $PROTECTED, $field(MimeType$LexicalAnalyzer, myLexemeEndIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MimeType$LexicalAnalyzer, init$, void, $String*)},
+		{"getLexeme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MimeType$LexicalAnalyzer, getLexeme, $String*)},
+		{"getLexemeFirstCharacter", "()C", nullptr, $PUBLIC, $virtualMethod(MimeType$LexicalAnalyzer, getLexemeFirstCharacter, char16_t)},
+		{"getLexemeType", "()I", nullptr, $PUBLIC, $virtualMethod(MimeType$LexicalAnalyzer, getLexemeType, int32_t)},
+		{"nextLexeme", "()V", nullptr, $PUBLIC, $virtualMethod(MimeType$LexicalAnalyzer, nextLexeme, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.print.MimeType$LexicalAnalyzer", "javax.print.MimeType", "LexicalAnalyzer", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.print.MimeType$LexicalAnalyzer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.print.MimeType"
+	};
+	$loadClass(MimeType$LexicalAnalyzer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MimeType$LexicalAnalyzer);
+	});
 	return class$;
 }
 

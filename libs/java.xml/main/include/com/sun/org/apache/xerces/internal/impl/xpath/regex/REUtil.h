@@ -47,6 +47,7 @@ class $import REUtil : public ::java::lang::Object {
 	$class(REUtil, 0, ::java::lang::Object)
 public:
 	REUtil();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t composeFromSurrogates(int32_t high, int32_t low);
 	static $String* createOptionString(int32_t options);

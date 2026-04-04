@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/TreeWalker.h>
-
 #include <com/sun/org/apache/xml/internal/serializer/SerializationHandler.h>
 #include <com/sun/org/apache/xml/internal/utils/AttList.h>
 #include <com/sun/org/apache/xml/internal/utils/DOM2Helper.h>
@@ -11,7 +10,6 @@
 #include <org/w3c/dom/Node.h>
 #include <org/w3c/dom/ProcessingInstruction.h>
 #include <org/w3c/dom/Text.h>
-#include <org/xml/sax/Attributes.h>
 #include <org/xml/sax/ContentHandler.h>
 #include <org/xml/sax/Locator.h>
 #include <org/xml/sax/ext/LexicalHandler.h>
@@ -43,7 +41,6 @@ using $NamedNodeMap = ::org::w3c::dom::NamedNodeMap;
 using $Node = ::org::w3c::dom::Node;
 using $ProcessingInstruction = ::org::w3c::dom::ProcessingInstruction;
 using $Text = ::org::w3c::dom::Text;
-using $Attributes = ::org::xml::sax::Attributes;
 using $ContentHandler = ::org::xml::sax::ContentHandler;
 using $Locator = ::org::xml::sax::Locator;
 using $LexicalHandler = ::org::xml::sax::ext::LexicalHandler;
@@ -56,39 +53,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace serializer {
-
-$FieldInfo _TreeWalker_FieldInfo_[] = {
-	{"m_contentHandler", "Lorg/xml/sax/ContentHandler;", nullptr, $PRIVATE | $FINAL, $field(TreeWalker, m_contentHandler)},
-	{"m_Serializer", "Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;", nullptr, $PRIVATE | $FINAL, $field(TreeWalker, m_Serializer)},
-	{"m_locator", "Lorg/xml/sax/helpers/LocatorImpl;", nullptr, $PRIVATE | $FINAL, $field(TreeWalker, m_locator)},
-	{"nextIsRaw", "Z", nullptr, 0, $field(TreeWalker, nextIsRaw)},
-	{}
-};
-
-$MethodInfo _TreeWalker_MethodInfo_[] = {
-	{"<init>", "(Lorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $method(TreeWalker, init$, void, $ContentHandler*)},
-	{"<init>", "(Lorg/xml/sax/ContentHandler;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TreeWalker, init$, void, $ContentHandler*, $String*)},
-	{"dispatachChars", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE | $FINAL, $method(TreeWalker, dispatachChars, void, $Node*), "org.xml.sax.SAXException"},
-	{"endNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED, $method(TreeWalker, endNode, void, $Node*), "org.xml.sax.SAXException"},
-	{"getContentHandler", "()Lorg/xml/sax/ContentHandler;", nullptr, $PUBLIC, $method(TreeWalker, getContentHandler, $ContentHandler*)},
-	{"startNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED, $method(TreeWalker, startNode, void, $Node*), "org.xml.sax.SAXException"},
-	{"traverse", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(TreeWalker, traverse, void, $Node*), "org.xml.sax.SAXException"},
-	{"traverse", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(TreeWalker, traverse, void, $Node*, $Node*), "org.xml.sax.SAXException"},
-	{}
-};
-
-$ClassInfo _TreeWalker_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serializer.TreeWalker",
-	"java.lang.Object",
-	nullptr,
-	_TreeWalker_FieldInfo_,
-	_TreeWalker_MethodInfo_
-};
-
-$Object* allocate$TreeWalker($Class* clazz) {
-	return $of($alloc(TreeWalker));
-}
 
 $ContentHandler* TreeWalker::getContentHandler() {
 	return this->m_contentHandler;
@@ -109,12 +73,12 @@ void TreeWalker::init$($ContentHandler* contentHandler, $String* systemId) {
 	}
 	$nc(this->m_contentHandler)->setDocumentLocator(this->m_locator);
 	if (systemId != nullptr) {
-		$nc(this->m_locator)->setSystemId(systemId);
+		this->m_locator->setSystemId(systemId);
 	}
 }
 
 void TreeWalker::traverse($Node* pos$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, pos, pos$renamed);
 	$nc(this->m_contentHandler)->startDocument();
 	$var($Node, top, pos);
@@ -123,13 +87,13 @@ void TreeWalker::traverse($Node* pos$renamed) {
 		$var($Node, nextNode, pos->getFirstChild());
 		while (nullptr == nextNode) {
 			endNode(pos);
-			if ($nc($of(top))->equals(pos)) {
+			if ($nc(top)->equals(pos)) {
 				break;
 			}
 			$assign(nextNode, $nc(pos)->getNextSibling());
 			if (nullptr == nextNode) {
 				$assign(pos, pos->getParentNode());
-				if ((nullptr == pos) || ($nc($of(top))->equals(pos))) {
+				if ((nullptr == pos) || (top->equals(pos))) {
 					if (nullptr != pos) {
 						endNode(pos);
 					}
@@ -140,11 +104,11 @@ void TreeWalker::traverse($Node* pos$renamed) {
 		}
 		$assign(pos, nextNode);
 	}
-	$nc(this->m_contentHandler)->endDocument();
+	this->m_contentHandler->endDocument();
 }
 
 void TreeWalker::traverse($Node* pos$renamed, $Node* top) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, pos, pos$renamed);
 	$nc(this->m_contentHandler)->startDocument();
 	while (nullptr != pos) {
@@ -166,58 +130,52 @@ void TreeWalker::traverse($Node* pos$renamed, $Node* top) {
 		}
 		$assign(pos, nextNode);
 	}
-	$nc(this->m_contentHandler)->endDocument();
+	this->m_contentHandler->endDocument();
 }
 
 void TreeWalker::dispatachChars($Node* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->m_Serializer != nullptr) {
 		$nc(this->m_Serializer)->characters(node);
 	} else {
-		$var($String, data, $nc(($cast($Text, node)))->getData());
+		$var($String, data, $nc($cast($Text, node))->getData());
 		$var($chars, var$0, $nc(data)->toCharArray());
 		$nc(this->m_contentHandler)->characters(var$0, 0, data->length());
 	}
 }
 
 void TreeWalker::startNode($Node* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Locator, node)) {
 		$var($Locator, loc, $cast($Locator, node));
-		$nc(this->m_locator)->setColumnNumber($nc(loc)->getColumnNumber());
-		$nc(this->m_locator)->setLineNumber($nc(loc)->getLineNumber());
-		$nc(this->m_locator)->setPublicId($($nc(loc)->getPublicId()));
-		$nc(this->m_locator)->setSystemId($($nc(loc)->getSystemId()));
+		$nc(this->m_locator)->setColumnNumber(loc->getColumnNumber());
+		this->m_locator->setLineNumber(loc->getLineNumber());
+		this->m_locator->setPublicId($(loc->getPublicId()));
+		this->m_locator->setSystemId($(loc->getSystemId()));
 	} else {
 		$nc(this->m_locator)->setColumnNumber(0);
-		$nc(this->m_locator)->setLineNumber(0);
+		this->m_locator->setLineNumber(0);
 	}
 	{
-		$var($Element, elem_node, nullptr)
-		$var($NamedNodeMap, atts, nullptr)
+		$var($Element, elem_node, nullptr);
+		$var($NamedNodeMap, atts, nullptr);
 		int32_t nAttrs = 0;
-		$var($String, ns, nullptr)
+		$var($String, ns, nullptr);
 		switch ($nc(node)->getNodeType()) {
 		case $Node::COMMENT_NODE:
 			{
-				{
-					$var($String, data, $nc(($cast($Comment, node)))->getData());
-					if ($instanceOf($LexicalHandler, this->m_contentHandler)) {
-						$var($LexicalHandler, lh, $cast($LexicalHandler, this->m_contentHandler));
-						$var($chars, var$0, $nc(data)->toCharArray());
-						$nc(lh)->comment(var$0, 0, data->length());
-					}
+				$var($String, data, $cast($Comment, node)->getData());
+				if ($instanceOf($LexicalHandler, this->m_contentHandler)) {
+					$var($LexicalHandler, lh, $cast($LexicalHandler, this->m_contentHandler));
+					$var($chars, var$0, $nc(data)->toCharArray());
+					$nc(lh)->comment(var$0, 0, data->length());
 				}
-				break;
 			}
+			break;
 		case $Node::DOCUMENT_FRAGMENT_NODE:
-			{
-				break;
-			}
+			break;
 		case $Node::DOCUMENT_NODE:
-			{
-				break;
-			}
+			break;
 		case $Node::ELEMENT_NODE:
 			{
 				$assign(elem_node, $cast($Element, node));
@@ -231,12 +189,12 @@ void TreeWalker::startNode($Node* node) {
 						$nc(this->m_contentHandler)->startPrefixMapping(prefix, uri);
 					}
 				}
-				$assign(atts, $nc(elem_node)->getAttributes());
+				$assign(atts, elem_node->getAttributes());
 				nAttrs = $nc(atts)->getLength();
 				for (int32_t i = 0; i < nAttrs; ++i) {
 					$var($Node, attr, atts->item(i));
 					$var($String, attrName, $nc(attr)->getNodeName());
-					int32_t colon = $nc(attrName)->indexOf((int32_t)u':');
+					int32_t colon = $nc(attrName)->indexOf(u':');
 					$var($String, prefix, nullptr);
 					bool var$1 = attrName->equals("xmlns"_s);
 					if (var$1 || attrName->startsWith("xmlns:"_s)) {
@@ -258,146 +216,126 @@ void TreeWalker::startNode($Node* node) {
 				if (nullptr == ns) {
 					$assign(ns, ""_s);
 				}
-				$var($String, var$2, ns);
-				$var($String, var$3, $DOM2Helper::getLocalNameOfNode(node));
-				$var($String, var$4, node->getNodeName());
-				$nc(this->m_contentHandler)->startElement(var$2, var$3, var$4, $$new($AttList, atts));
+				$var($String, var$2, $DOM2Helper::getLocalNameOfNode(node));
+				$var($String, var$3, node->getNodeName());
+				$nc(this->m_contentHandler)->startElement(ns, var$2, var$3, $$new($AttList, atts));
 				break;
 			}
 		case $Node::PROCESSING_INSTRUCTION_NODE:
 			{
-				{
-					$var($ProcessingInstruction, pi, $cast($ProcessingInstruction, node));
-					$var($String, name, pi->getNodeName());
-					if ($nc(name)->equals("xslt-next-is-raw"_s)) {
-						this->nextIsRaw = true;
-					} else {
-						$var($String, var$5, pi->getNodeName());
-						$nc(this->m_contentHandler)->processingInstruction(var$5, $(pi->getData()));
-					}
+				$var($ProcessingInstruction, pi, $cast($ProcessingInstruction, node));
+				$var($String, name, pi->getNodeName());
+				if ($nc(name)->equals("xslt-next-is-raw"_s)) {
+					this->nextIsRaw = true;
+				} else {
+					$var($String, var$4, pi->getNodeName());
+					$nc(this->m_contentHandler)->processingInstruction(var$4, $(pi->getData()));
 				}
-				break;
 			}
+			break;
 		case $Node::CDATA_SECTION_NODE:
 			{
-				{
-					bool isLexH = ($instanceOf($LexicalHandler, this->m_contentHandler));
-					$var($LexicalHandler, lh, isLexH ? ($cast($LexicalHandler, this->m_contentHandler)) : ($LexicalHandler*)nullptr);
-					if (isLexH) {
-						$nc(lh)->startCDATA();
-					}
-					dispatachChars(node);
-					{
-						if (isLexH) {
-							$nc(lh)->endCDATA();
-						}
-					}
+				bool isLexH = ($instanceOf($LexicalHandler, this->m_contentHandler));
+				$var($LexicalHandler, lh, isLexH ? $cast($LexicalHandler, this->m_contentHandler) : ($LexicalHandler*)nullptr);
+				if (isLexH) {
+					$nc(lh)->startCDATA();
 				}
-				break;
+				dispatachChars(node);
+				if (isLexH) {
+					$nc(lh)->endCDATA();
+				}
 			}
+			break;
 		case $Node::TEXT_NODE:
 			{
-				{
-					if (this->nextIsRaw) {
-						this->nextIsRaw = false;
-						$init($Result);
-						$nc(this->m_contentHandler)->processingInstruction($Result::PI_DISABLE_OUTPUT_ESCAPING, ""_s);
-						dispatachChars(node);
-						$nc(this->m_contentHandler)->processingInstruction($Result::PI_ENABLE_OUTPUT_ESCAPING, ""_s);
-					} else {
-						dispatachChars(node);
-					}
+				if (this->nextIsRaw) {
+					this->nextIsRaw = false;
+					$init($Result);
+					$nc(this->m_contentHandler)->processingInstruction($Result::PI_DISABLE_OUTPUT_ESCAPING, ""_s);
+					dispatachChars(node);
+					this->m_contentHandler->processingInstruction($Result::PI_ENABLE_OUTPUT_ESCAPING, ""_s);
+				} else {
+					dispatachChars(node);
 				}
-				break;
 			}
+			break;
 		case $Node::ENTITY_REFERENCE_NODE:
 			{
-				{
-					$var($EntityReference, eref, $cast($EntityReference, node));
-					if ($instanceOf($LexicalHandler, this->m_contentHandler)) {
-						$nc(($cast($LexicalHandler, this->m_contentHandler)))->startEntity($(eref->getNodeName()));
-					} else {
-					}
+				$var($EntityReference, eref, $cast($EntityReference, node));
+				if ($instanceOf($LexicalHandler, this->m_contentHandler)) {
+					$nc($cast($LexicalHandler, this->m_contentHandler))->startEntity($(eref->getNodeName()));
+				} else {
 				}
-				break;
 			}
+			break;
 		default:
-			{}
+			break;
 		}
 	}
 }
 
 void TreeWalker::endNode($Node* node) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($String, ns, nullptr)
-		switch ($nc(node)->getNodeType()) {
-		case $Node::DOCUMENT_NODE:
-			{
-				break;
+	$useLocalObjectStack();
+	$var($String, ns, nullptr);
+	switch ($nc(node)->getNodeType()) {
+	case $Node::DOCUMENT_NODE:
+		break;
+	case $Node::ELEMENT_NODE:
+		{
+			$assign(ns, $DOM2Helper::getNamespaceOfNode(node));
+			if (nullptr == ns) {
+				$assign(ns, ""_s);
 			}
-		case $Node::ELEMENT_NODE:
-			{
-				$assign(ns, $DOM2Helper::getNamespaceOfNode(node));
-				if (nullptr == ns) {
-					$assign(ns, ""_s);
-				}
-				$var($String, var$0, ns);
-				$var($String, var$1, $DOM2Helper::getLocalNameOfNode(node));
-				$nc(this->m_contentHandler)->endElement(var$0, var$1, $(node->getNodeName()));
-				if (this->m_Serializer == nullptr) {
-					$var($Element, elem_node, $cast($Element, node));
-					$var($NamedNodeMap, atts, elem_node->getAttributes());
-					int32_t nAttrs = $nc(atts)->getLength();
-					for (int32_t i = (nAttrs - 1); 0 <= i; --i) {
-						$var($Node, attr, atts->item(i));
-						$var($String, attrName, $nc(attr)->getNodeName());
-						int32_t colon = $nc(attrName)->indexOf((int32_t)u':');
-						$var($String, prefix, nullptr);
-						bool var$2 = attrName->equals("xmlns"_s);
-						if (var$2 || attrName->startsWith("xmlns:"_s)) {
-							if (colon < 0) {
-								$assign(prefix, ""_s);
-							} else {
-								$assign(prefix, attrName->substring(colon + 1));
-							}
-							$nc(this->m_contentHandler)->endPrefixMapping(prefix);
-						} else if (colon > 0) {
-							$assign(prefix, attrName->substring(0, colon));
-							$nc(this->m_contentHandler)->endPrefixMapping(prefix);
+			$var($String, var$0, $DOM2Helper::getLocalNameOfNode(node));
+			$nc(this->m_contentHandler)->endElement(ns, var$0, $(node->getNodeName()));
+			if (this->m_Serializer == nullptr) {
+				$var($Element, elem_node, $cast($Element, node));
+				$var($NamedNodeMap, atts, elem_node->getAttributes());
+				int32_t nAttrs = $nc(atts)->getLength();
+				for (int32_t i = (nAttrs - 1); 0 <= i; --i) {
+					$var($Node, attr, atts->item(i));
+					$var($String, attrName, $nc(attr)->getNodeName());
+					int32_t colon = $nc(attrName)->indexOf(u':');
+					$var($String, prefix, nullptr);
+					bool var$1 = attrName->equals("xmlns"_s);
+					if (var$1 || attrName->startsWith("xmlns:"_s)) {
+						if (colon < 0) {
+							$assign(prefix, ""_s);
+						} else {
+							$assign(prefix, attrName->substring(colon + 1));
 						}
-					}
-					{
-						$var($String, uri, elem_node->getNamespaceURI());
-						if (uri != nullptr) {
-							$var($String, prefix, elem_node->getPrefix());
-							if (prefix == nullptr) {
-								$assign(prefix, ""_s);
-							}
-							$nc(this->m_contentHandler)->endPrefixMapping(prefix);
-						}
+						$nc(this->m_contentHandler)->endPrefixMapping(prefix);
+					} else if (colon > 0) {
+						$assign(prefix, attrName->substring(0, colon));
+						$nc(this->m_contentHandler)->endPrefixMapping(prefix);
 					}
 				}
-				break;
-			}
-		case $Node::CDATA_SECTION_NODE:
-			{
-				break;
-			}
-		case $Node::ENTITY_REFERENCE_NODE:
-			{
 				{
-					$var($EntityReference, eref, $cast($EntityReference, node));
-					if ($instanceOf($LexicalHandler, this->m_contentHandler)) {
-						$var($LexicalHandler, lh, $cast($LexicalHandler, this->m_contentHandler));
-						$nc(lh)->endEntity($(eref->getNodeName()));
+					$var($String, uri, elem_node->getNamespaceURI());
+					if (uri != nullptr) {
+						$var($String, prefix, elem_node->getPrefix());
+						if (prefix == nullptr) {
+							$assign(prefix, ""_s);
+						}
+						$nc(this->m_contentHandler)->endPrefixMapping(prefix);
 					}
 				}
-				break;
 			}
-		default:
-			{}
+			break;
 		}
+	case $Node::CDATA_SECTION_NODE:
+		break;
+	case $Node::ENTITY_REFERENCE_NODE:
+		{
+			$var($EntityReference, eref, $cast($EntityReference, node));
+			if ($instanceOf($LexicalHandler, this->m_contentHandler)) {
+				$var($LexicalHandler, lh, $cast($LexicalHandler, this->m_contentHandler));
+				$nc(lh)->endEntity($(eref->getNodeName()));
+			}
+		}
+		break;
+	default:
+		break;
 	}
 }
 
@@ -405,7 +343,35 @@ TreeWalker::TreeWalker() {
 }
 
 $Class* TreeWalker::load$($String* name, bool initialize) {
-	$loadClass(TreeWalker, name, initialize, &_TreeWalker_ClassInfo_, allocate$TreeWalker);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_contentHandler", "Lorg/xml/sax/ContentHandler;", nullptr, $PRIVATE | $FINAL, $field(TreeWalker, m_contentHandler)},
+		{"m_Serializer", "Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;", nullptr, $PRIVATE | $FINAL, $field(TreeWalker, m_Serializer)},
+		{"m_locator", "Lorg/xml/sax/helpers/LocatorImpl;", nullptr, $PRIVATE | $FINAL, $field(TreeWalker, m_locator)},
+		{"nextIsRaw", "Z", nullptr, 0, $field(TreeWalker, nextIsRaw)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $method(TreeWalker, init$, void, $ContentHandler*)},
+		{"<init>", "(Lorg/xml/sax/ContentHandler;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TreeWalker, init$, void, $ContentHandler*, $String*)},
+		{"dispatachChars", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE | $FINAL, $method(TreeWalker, dispatachChars, void, $Node*), "org.xml.sax.SAXException"},
+		{"endNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED, $method(TreeWalker, endNode, void, $Node*), "org.xml.sax.SAXException"},
+		{"getContentHandler", "()Lorg/xml/sax/ContentHandler;", nullptr, $PUBLIC, $method(TreeWalker, getContentHandler, $ContentHandler*)},
+		{"startNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED, $method(TreeWalker, startNode, void, $Node*), "org.xml.sax.SAXException"},
+		{"traverse", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(TreeWalker, traverse, void, $Node*), "org.xml.sax.SAXException"},
+		{"traverse", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(TreeWalker, traverse, void, $Node*, $Node*), "org.xml.sax.SAXException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serializer.TreeWalker",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TreeWalker, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeWalker);
+	});
 	return class$;
 }
 

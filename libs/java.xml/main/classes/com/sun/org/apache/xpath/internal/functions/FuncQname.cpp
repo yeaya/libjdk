@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/functions/FuncQname.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
 #include <com/sun/org/apache/xpath/internal/functions/FunctionDef1Arg.h>
@@ -27,43 +26,19 @@ namespace com {
 					namespace internal {
 						namespace functions {
 
-$FieldInfo _FuncQname_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FuncQname, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _FuncQname_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FuncQname, init$, void)},
-	{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(FuncQname, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
-	{}
-};
-
-$ClassInfo _FuncQname_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.functions.FuncQname",
-	"com.sun.org.apache.xpath.internal.functions.FunctionDef1Arg",
-	nullptr,
-	_FuncQname_FieldInfo_,
-	_FuncQname_MethodInfo_
-};
-
-$Object* allocate$FuncQname($Class* clazz) {
-	return $of($alloc(FuncQname));
-}
-
 void FuncQname::init$() {
 	$FunctionDef1Arg::init$();
 }
 
 $XObject* FuncQname::execute($XPathContext* xctxt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t context = getArg0AsNode(xctxt);
 	$var($XObject, val, nullptr);
 	if ($DTM::NULL != context) {
 		$var($DTM, dtm, $nc(xctxt)->getDTM(context));
 		$var($String, qname, $nc(dtm)->getNodeNameX(context));
 		$init($XString);
-		$assign(val, (nullptr == qname) ? static_cast<$XObject*>($XString::EMPTYSTRING) : static_cast<$XObject*>($new($XString, qname)));
+		$assign(val, (nullptr == qname) ? $XString::EMPTYSTRING : $new($XString, qname));
 	} else {
 		$init($XString);
 		$assign(val, $XString::EMPTYSTRING);
@@ -75,7 +50,26 @@ FuncQname::FuncQname() {
 }
 
 $Class* FuncQname::load$($String* name, bool initialize) {
-	$loadClass(FuncQname, name, initialize, &_FuncQname_ClassInfo_, allocate$FuncQname);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FuncQname, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FuncQname, init$, void)},
+		{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(FuncQname, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.functions.FuncQname",
+		"com.sun.org.apache.xpath.internal.functions.FunctionDef1Arg",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FuncQname, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FuncQname));
+	});
 	return class$;
 }
 

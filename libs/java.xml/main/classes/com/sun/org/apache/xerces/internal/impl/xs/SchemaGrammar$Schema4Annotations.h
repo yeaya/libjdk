@@ -135,6 +135,7 @@ class SchemaGrammar$Schema4Annotations : public ::com::sun::org::apache::xerces:
 public:
 	SchemaGrammar$Schema4Annotations();
 	using ::com::sun::org::apache::xerces::internal::impl::xs::SchemaGrammar::addGlobalAttributeDecl;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addComplexTypeDecl(::com::sun::org::apache::xerces::internal::impl::xs::XSComplexTypeDecl* decl, ::com::sun::org::apache::xerces::internal::impl::xs::util::SimpleLocator* locator) override;
 	virtual void addDocument(Object$* document, $String* location) override;

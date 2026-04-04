@@ -31,6 +31,7 @@ class XMLMessageFormatter_ko : public ::com::sun::org::apache::xerces::internal:
 	$class(XMLMessageFormatter_ko, 0, ::com::sun::org::apache::xerces::internal::util::MessageFormatter)
 public:
 	XMLMessageFormatter_ko();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* formatMessage(::java::util::Locale* locale, $String* key, $ObjectArray* arguments) override;
 	static $String* XML_DOMAIN;

@@ -31,6 +31,7 @@ class $import RMIClassLoader : public ::java::lang::Object {
 	$class(RMIClassLoader, 0, ::java::lang::Object)
 public:
 	RMIClassLoader();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* getClassAnnotation($Class* cl);
 	static ::java::lang::ClassLoader* getClassLoader($String* codebase);

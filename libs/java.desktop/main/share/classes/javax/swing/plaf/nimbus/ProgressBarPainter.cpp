@@ -1,18 +1,15 @@
 #include <javax/swing/plaf/nimbus/ProgressBarPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/LinearGradientPaint.h>
 #include <java/awt/Paint.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/Ellipse2D$Float.h>
-#include <java/awt/geom/Ellipse2D.h>
 #include <java/awt/geom/Path2D$Float.h>
 #include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
 #include <java/awt/geom/RoundRectangle2D$Float.h>
-#include <java/awt/geom/RoundRectangle2D.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter.h>
@@ -31,13 +28,11 @@ using $ColorArray = $Array<::java::awt::Color>;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Paint = ::java::awt::Paint;
 using $Shape = ::java::awt::Shape;
-using $Ellipse2D = ::java::awt::geom::Ellipse2D;
 using $Ellipse2D$Float = ::java::awt::geom::Ellipse2D$Float;
 using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RoundRectangle2D = ::java::awt::geom::RoundRectangle2D;
 using $RoundRectangle2D$Float = ::java::awt::geom::RoundRectangle2D$Float;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -52,135 +47,12 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _ProgressBarPainter_FieldInfo_[] = {
-	{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(ProgressBarPainter, BACKGROUND_ENABLED)},
-	{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(ProgressBarPainter, BACKGROUND_DISABLED)},
-	{"FOREGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(ProgressBarPainter, FOREGROUND_ENABLED)},
-	{"FOREGROUND_ENABLED_FINISHED", "I", nullptr, $STATIC | $FINAL, $constField(ProgressBarPainter, FOREGROUND_ENABLED_FINISHED)},
-	{"FOREGROUND_ENABLED_INDETERMINATE", "I", nullptr, $STATIC | $FINAL, $constField(ProgressBarPainter, FOREGROUND_ENABLED_INDETERMINATE)},
-	{"FOREGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(ProgressBarPainter, FOREGROUND_DISABLED)},
-	{"FOREGROUND_DISABLED_FINISHED", "I", nullptr, $STATIC | $FINAL, $constField(ProgressBarPainter, FOREGROUND_DISABLED_FINISHED)},
-	{"FOREGROUND_DISABLED_INDETERMINATE", "I", nullptr, $STATIC | $FINAL, $constField(ProgressBarPainter, FOREGROUND_DISABLED_INDETERMINATE)},
-	{"state", "I", nullptr, $PRIVATE, $field(ProgressBarPainter, state)},
-	{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(ProgressBarPainter, ctx)},
-	{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(ProgressBarPainter, path)},
-	{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(ProgressBarPainter, rect)},
-	{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(ProgressBarPainter, roundRect)},
-	{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(ProgressBarPainter, ellipse)},
-	{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color1)},
-	{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color2)},
-	{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color3)},
-	{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color4)},
-	{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color5)},
-	{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color6)},
-	{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color7)},
-	{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color8)},
-	{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color9)},
-	{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color10)},
-	{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color11)},
-	{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color12)},
-	{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color13)},
-	{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color14)},
-	{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color15)},
-	{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color16)},
-	{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color17)},
-	{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color18)},
-	{"color19", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color19)},
-	{"color20", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color20)},
-	{"color21", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color21)},
-	{"color22", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color22)},
-	{"color23", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color23)},
-	{"color24", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color24)},
-	{"color25", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color25)},
-	{"color26", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color26)},
-	{"color27", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color27)},
-	{"color28", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color28)},
-	{"color29", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color29)},
-	{"color30", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color30)},
-	{"color31", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color31)},
-	{"color32", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color32)},
-	{"color33", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color33)},
-	{"color34", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color34)},
-	{"color35", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color35)},
-	{"color36", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color36)},
-	{"color37", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color37)},
-	{"color38", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color38)},
-	{"color39", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color39)},
-	{"color40", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color40)},
-	{"color41", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color41)},
-	{"color42", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color42)},
-	{"color43", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color43)},
-	{"color44", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color44)},
-	{"color45", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color45)},
-	{"color46", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color46)},
-	{"color47", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color47)},
-	{"color48", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color48)},
-	{"color49", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color49)},
-	{"color50", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color50)},
-	{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(ProgressBarPainter, componentColors)},
-	{}
-};
-
-$MethodInfo _ProgressBarPainter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(ProgressBarPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
-	{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeGradient1, $Paint*, $Shape*)},
-	{"decodeGradient10", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeGradient10, $Paint*, $Shape*)},
-	{"decodeGradient11", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeGradient11, $Paint*, $Shape*)},
-	{"decodeGradient12", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeGradient12, $Paint*, $Shape*)},
-	{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeGradient2, $Paint*, $Shape*)},
-	{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeGradient3, $Paint*, $Shape*)},
-	{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeGradient4, $Paint*, $Shape*)},
-	{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeGradient5, $Paint*, $Shape*)},
-	{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeGradient6, $Paint*, $Shape*)},
-	{"decodeGradient7", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeGradient7, $Paint*, $Shape*)},
-	{"decodeGradient8", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeGradient8, $Paint*, $Shape*)},
-	{"decodeGradient9", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeGradient9, $Paint*, $Shape*)},
-	{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodePath1, $Path2D*)},
-	{"decodePath2", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodePath2, $Path2D*)},
-	{"decodePath3", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodePath3, $Path2D*)},
-	{"decodePath4", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodePath4, $Path2D*)},
-	{"decodePath5", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodePath5, $Path2D*)},
-	{"decodeRect1", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeRect1, $Rectangle2D*)},
-	{"decodeRect2", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeRect2, $Rectangle2D*)},
-	{"decodeRect3", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeRect3, $Rectangle2D*)},
-	{"decodeRect4", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeRect4, $Rectangle2D*)},
-	{"decodeRect5", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeRect5, $Rectangle2D*)},
-	{"decodeRect6", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeRect6, $Rectangle2D*)},
-	{"decodeRect7", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeRect7, $Rectangle2D*)},
-	{"decodeRect8", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeRect8, $Rectangle2D*)},
-	{"decodeRect9", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeRect9, $Rectangle2D*)},
-	{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(ProgressBarPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(ProgressBarPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
-	{"paintBackgroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ProgressBarPainter, paintBackgroundDisabled, void, $Graphics2D*)},
-	{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ProgressBarPainter, paintBackgroundEnabled, void, $Graphics2D*)},
-	{"paintForegroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ProgressBarPainter, paintForegroundDisabled, void, $Graphics2D*)},
-	{"paintForegroundDisabledAndFinished", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ProgressBarPainter, paintForegroundDisabledAndFinished, void, $Graphics2D*)},
-	{"paintForegroundDisabledAndIndeterminate", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ProgressBarPainter, paintForegroundDisabledAndIndeterminate, void, $Graphics2D*)},
-	{"paintForegroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ProgressBarPainter, paintForegroundEnabled, void, $Graphics2D*)},
-	{"paintForegroundEnabledAndFinished", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ProgressBarPainter, paintForegroundEnabledAndFinished, void, $Graphics2D*)},
-	{"paintForegroundEnabledAndIndeterminate", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ProgressBarPainter, paintForegroundEnabledAndIndeterminate, void, $Graphics2D*)},
-	{}
-};
-
-$ClassInfo _ProgressBarPainter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.ProgressBarPainter",
-	"javax.swing.plaf.nimbus.AbstractRegionPainter",
-	nullptr,
-	_ProgressBarPainter_FieldInfo_,
-	_ProgressBarPainter_MethodInfo_
-};
-
-$Object* allocate$ProgressBarPainter($Class* clazz) {
-	return $of($alloc(ProgressBarPainter));
-}
-
 void ProgressBarPainter::init$($AbstractRegionPainter$PaintContext* ctx, int32_t state) {
 	$AbstractRegionPainter::init$();
 	$set(this, path, $new($Path2D$Float));
-	$set(this, rect, $new($Rectangle2D$Float, (float)0, (float)0, (float)0, (float)0));
-	$set(this, roundRect, $new($RoundRectangle2D$Float, (float)0, (float)0, (float)0, (float)0, (float)0, (float)0));
-	$set(this, ellipse, $new($Ellipse2D$Float, (float)0, (float)0, (float)0, (float)0));
+	$set(this, rect, $new($Rectangle2D$Float, 0, 0, 0, 0));
+	$set(this, roundRect, $new($RoundRectangle2D$Float, 0, 0, 0, 0, 0, 0));
+	$set(this, ellipse, $new($Ellipse2D$Float, 0, 0, 0, 0));
 	$set(this, color1, decodeColor("nimbusBlueGrey"_s, 0.0f, -0.04845735f, -0.17647058f, 0));
 	$set(this, color2, decodeColor("nimbusBlueGrey"_s, 0.0f, -0.061345987f, -0.027450979f, 0));
 	$set(this, color3, decodeColor("nimbusBlueGrey"_s, 0.0f, -0.110526316f, 0.25490195f, 0));
@@ -239,45 +111,29 @@ void ProgressBarPainter::doPaint($Graphics2D* g, $JComponent* c, int32_t width, 
 	$set(this, componentColors, extendedCacheKeys);
 	switch (this->state) {
 	case ProgressBarPainter::BACKGROUND_ENABLED:
-		{
-			paintBackgroundEnabled(g);
-			break;
-		}
+		paintBackgroundEnabled(g);
+		break;
 	case ProgressBarPainter::BACKGROUND_DISABLED:
-		{
-			paintBackgroundDisabled(g);
-			break;
-		}
+		paintBackgroundDisabled(g);
+		break;
 	case ProgressBarPainter::FOREGROUND_ENABLED:
-		{
-			paintForegroundEnabled(g);
-			break;
-		}
+		paintForegroundEnabled(g);
+		break;
 	case ProgressBarPainter::FOREGROUND_ENABLED_FINISHED:
-		{
-			paintForegroundEnabledAndFinished(g);
-			break;
-		}
+		paintForegroundEnabledAndFinished(g);
+		break;
 	case ProgressBarPainter::FOREGROUND_ENABLED_INDETERMINATE:
-		{
-			paintForegroundEnabledAndIndeterminate(g);
-			break;
-		}
+		paintForegroundEnabledAndIndeterminate(g);
+		break;
 	case ProgressBarPainter::FOREGROUND_DISABLED:
-		{
-			paintForegroundDisabled(g);
-			break;
-		}
+		paintForegroundDisabled(g);
+		break;
 	case ProgressBarPainter::FOREGROUND_DISABLED_FINISHED:
-		{
-			paintForegroundDisabledAndFinished(g);
-			break;
-		}
+		paintForegroundDisabledAndFinished(g);
+		break;
 	case ProgressBarPainter::FOREGROUND_DISABLED_INDETERMINATE:
-		{
-			paintForegroundDisabledAndIndeterminate(g);
-			break;
-		}
+		paintForegroundDisabledAndIndeterminate(g);
+		break;
 	}
 }
 
@@ -286,7 +142,7 @@ $AbstractRegionPainter$PaintContext* ProgressBarPainter::getPaintContext() {
 }
 
 void ProgressBarPainter::paintBackgroundEnabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, rect, decodeRect1());
 	$nc(g)->setPaint($(decodeGradient1(this->rect)));
 	g->fill(this->rect);
@@ -296,7 +152,7 @@ void ProgressBarPainter::paintBackgroundEnabled($Graphics2D* g) {
 }
 
 void ProgressBarPainter::paintBackgroundDisabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, rect, decodeRect1());
 	$nc(g)->setPaint($(decodeGradient3(this->rect)));
 	g->fill(this->rect);
@@ -306,7 +162,7 @@ void ProgressBarPainter::paintBackgroundDisabled($Graphics2D* g) {
 }
 
 void ProgressBarPainter::paintForegroundEnabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath1());
 	$nc(g)->setPaint(this->color17);
 	g->fill(this->path);
@@ -319,7 +175,7 @@ void ProgressBarPainter::paintForegroundEnabled($Graphics2D* g) {
 }
 
 void ProgressBarPainter::paintForegroundEnabledAndFinished($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath2());
 	$nc(g)->setPaint(this->color17);
 	g->fill(this->path);
@@ -332,7 +188,7 @@ void ProgressBarPainter::paintForegroundEnabledAndFinished($Graphics2D* g) {
 }
 
 void ProgressBarPainter::paintForegroundEnabledAndIndeterminate($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, rect, decodeRect7());
 	$nc(g)->setPaint($(decodeGradient7(this->rect)));
 	g->fill(this->rect);
@@ -348,7 +204,7 @@ void ProgressBarPainter::paintForegroundEnabledAndIndeterminate($Graphics2D* g) 
 }
 
 void ProgressBarPainter::paintForegroundDisabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath1());
 	$nc(g)->setPaint(this->color33);
 	g->fill(this->path);
@@ -361,7 +217,7 @@ void ProgressBarPainter::paintForegroundDisabled($Graphics2D* g) {
 }
 
 void ProgressBarPainter::paintForegroundDisabledAndFinished($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath4());
 	$nc(g)->setPaint(this->color33);
 	g->fill(this->path);
@@ -374,7 +230,7 @@ void ProgressBarPainter::paintForegroundDisabledAndFinished($Graphics2D* g) {
 }
 
 void ProgressBarPainter::paintForegroundDisabledAndIndeterminate($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, rect, decodeRect7());
 	$nc(g)->setPaint($(decodeGradient11(this->rect)));
 	g->fill(this->rect);
@@ -384,20 +240,20 @@ void ProgressBarPainter::paintForegroundDisabledAndIndeterminate($Graphics2D* g)
 }
 
 $Rectangle2D* ProgressBarPainter::decodeRect1() {
-	double var$0 = (double)decodeX(0.4f);
-	double var$1 = (double)decodeY(0.4f);
+	double var$0 = decodeX(0.4f);
+	double var$1 = decodeY(0.4f);
 	float var$3 = decodeX(2.6f);
-	double var$2 = (double)(var$3 - decodeX(0.4f));
+	double var$2 = var$3 - decodeX(0.4f);
 	float var$4 = decodeY(2.6f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.4f));
 	return this->rect;
 }
 
 $Rectangle2D* ProgressBarPainter::decodeRect2() {
-	double var$0 = (double)decodeX(0.6f);
-	double var$1 = (double)decodeY(0.6f);
+	double var$0 = decodeX(0.6f);
+	double var$1 = decodeY(0.6f);
 	float var$3 = decodeX(2.4f);
-	double var$2 = (double)(var$3 - decodeX(0.6f));
+	double var$2 = var$3 - decodeX(0.6f);
 	float var$4 = decodeY(2.4f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.6f));
 	return this->rect;
@@ -405,67 +261,67 @@ $Rectangle2D* ProgressBarPainter::decodeRect2() {
 
 $Path2D* ProgressBarPainter::decodePath1() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.0f);
+	double var$0 = decodeX(1.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.21111111f));
-	double var$1 = (double)decodeAnchorX(1.0f, -2.0f);
-	double var$2 = (double)decodeAnchorY(0.21111111f, 0.0f);
-	double var$3 = (double)decodeAnchorX(0.21111111f, 0.0f);
-	double var$4 = (double)decodeAnchorY(1.0f, -2.0f);
-	double var$5 = (double)decodeX(0.21111111f);
+	double var$1 = decodeAnchorX(1.0f, -2.0f);
+	double var$2 = decodeAnchorY(0.21111111f, 0.0f);
+	double var$3 = decodeAnchorX(0.21111111f, 0.0f);
+	double var$4 = decodeAnchorY(1.0f, -2.0f);
+	double var$5 = decodeX(0.21111111f);
 	$nc(this->path)->curveTo(var$1, var$2, var$3, var$4, var$5, decodeY(1.0f));
-	double var$6 = (double)decodeAnchorX(0.21111111f, 0.0f);
-	double var$7 = (double)decodeAnchorY(1.0f, 2.0f);
-	double var$8 = (double)decodeAnchorX(0.21111111f, 0.0f);
-	double var$9 = (double)decodeAnchorY(2.0f, -2.0f);
-	double var$10 = (double)decodeX(0.21111111f);
+	double var$6 = decodeAnchorX(0.21111111f, 0.0f);
+	double var$7 = decodeAnchorY(1.0f, 2.0f);
+	double var$8 = decodeAnchorX(0.21111111f, 0.0f);
+	double var$9 = decodeAnchorY(2.0f, -2.0f);
+	double var$10 = decodeX(0.21111111f);
 	$nc(this->path)->curveTo(var$6, var$7, var$8, var$9, var$10, decodeY(2.0f));
-	double var$11 = (double)decodeAnchorX(0.21111111f, 0.0f);
-	double var$12 = (double)decodeAnchorY(2.0f, 2.0f);
-	double var$13 = (double)decodeAnchorX(1.0f, -2.0f);
-	double var$14 = (double)decodeAnchorY(2.8222225f, 0.0f);
-	double var$15 = (double)decodeX(1.0f);
+	double var$11 = decodeAnchorX(0.21111111f, 0.0f);
+	double var$12 = decodeAnchorY(2.0f, 2.0f);
+	double var$13 = decodeAnchorX(1.0f, -2.0f);
+	double var$14 = decodeAnchorY(2.8222225f, 0.0f);
+	double var$15 = decodeX(1.0f);
 	$nc(this->path)->curveTo(var$11, var$12, var$13, var$14, var$15, decodeY(2.8222225f));
-	double var$16 = (double)decodeAnchorX(1.0f, 2.0f);
-	double var$17 = (double)decodeAnchorY(2.8222225f, 0.0f);
-	double var$18 = (double)decodeAnchorX(3.0f, 0.0f);
-	double var$19 = (double)decodeAnchorY(2.8222225f, 0.0f);
-	double var$20 = (double)decodeX(3.0f);
+	double var$16 = decodeAnchorX(1.0f, 2.0f);
+	double var$17 = decodeAnchorY(2.8222225f, 0.0f);
+	double var$18 = decodeAnchorX(3.0f, 0.0f);
+	double var$19 = decodeAnchorY(2.8222225f, 0.0f);
+	double var$20 = decodeX(3.0f);
 	$nc(this->path)->curveTo(var$16, var$17, var$18, var$19, var$20, decodeY(2.8222225f));
-	double var$21 = (double)decodeX(3.0f);
+	double var$21 = decodeX(3.0f);
 	$nc(this->path)->lineTo(var$21, decodeY(2.3333333f));
-	double var$22 = (double)decodeX(0.6666667f);
+	double var$22 = decodeX(0.6666667f);
 	$nc(this->path)->lineTo(var$22, decodeY(2.3333333f));
-	double var$23 = (double)decodeX(0.6666667f);
+	double var$23 = decodeX(0.6666667f);
 	$nc(this->path)->lineTo(var$23, decodeY(0.6666667f));
-	double var$24 = (double)decodeX(3.0f);
+	double var$24 = decodeX(3.0f);
 	$nc(this->path)->lineTo(var$24, decodeY(0.6666667f));
-	double var$25 = (double)decodeX(3.0f);
+	double var$25 = decodeX(3.0f);
 	$nc(this->path)->lineTo(var$25, decodeY(0.2f));
-	double var$26 = (double)decodeAnchorX(3.0f, 0.0f);
-	double var$27 = (double)decodeAnchorY(0.2f, 0.0f);
-	double var$28 = (double)decodeAnchorX(1.0f, 2.0f);
-	double var$29 = (double)decodeAnchorY(0.21111111f, 0.0f);
-	double var$30 = (double)decodeX(1.0f);
+	double var$26 = decodeAnchorX(3.0f, 0.0f);
+	double var$27 = decodeAnchorY(0.2f, 0.0f);
+	double var$28 = decodeAnchorX(1.0f, 2.0f);
+	double var$29 = decodeAnchorY(0.21111111f, 0.0f);
+	double var$30 = decodeX(1.0f);
 	$nc(this->path)->curveTo(var$26, var$27, var$28, var$29, var$30, decodeY(0.21111111f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Rectangle2D* ProgressBarPainter::decodeRect3() {
-	double var$0 = (double)decodeX(0.6666667f);
-	double var$1 = (double)decodeY(0.6666667f);
+	double var$0 = decodeX(0.6666667f);
+	double var$1 = decodeY(0.6666667f);
 	float var$3 = decodeX(3.0f);
-	double var$2 = (double)(var$3 - decodeX(0.6666667f));
+	double var$2 = var$3 - decodeX(0.6666667f);
 	float var$4 = decodeY(2.3333333f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.6666667f));
 	return this->rect;
 }
 
 $Rectangle2D* ProgressBarPainter::decodeRect4() {
-	double var$0 = (double)decodeX(1.0f);
-	double var$1 = (double)decodeY(1.0f);
+	double var$0 = decodeX(1.0f);
+	double var$1 = decodeY(1.0f);
 	float var$3 = decodeX(2.6666667f);
-	double var$2 = (double)(var$3 - decodeX(1.0f));
+	double var$2 = var$3 - decodeX(1.0f);
 	float var$4 = decodeY(2.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.0f));
 	return this->rect;
@@ -473,73 +329,73 @@ $Rectangle2D* ProgressBarPainter::decodeRect4() {
 
 $Path2D* ProgressBarPainter::decodePath2() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.9111111f);
+	double var$0 = decodeX(0.9111111f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.21111111f));
-	double var$1 = (double)decodeAnchorX(0.9111111f, -2.0f);
-	double var$2 = (double)decodeAnchorY(0.21111111f, 0.0f);
-	double var$3 = (double)decodeAnchorX(0.2f, 0.0f);
-	double var$4 = (double)decodeAnchorY(1.0025641f, -2.0f);
-	double var$5 = (double)decodeX(0.2f);
+	double var$1 = decodeAnchorX(0.9111111f, -2.0f);
+	double var$2 = decodeAnchorY(0.21111111f, 0.0f);
+	double var$3 = decodeAnchorX(0.2f, 0.0f);
+	double var$4 = decodeAnchorY(1.0025641f, -2.0f);
+	double var$5 = decodeX(0.2f);
 	$nc(this->path)->curveTo(var$1, var$2, var$3, var$4, var$5, decodeY(1.0025641f));
-	double var$6 = (double)decodeX(0.2f);
+	double var$6 = decodeX(0.2f);
 	$nc(this->path)->lineTo(var$6, decodeY(2.0444443f));
-	double var$7 = (double)decodeAnchorX(0.2f, 0.0f);
-	double var$8 = (double)decodeAnchorY(2.0444443f, 2.0f);
-	double var$9 = (double)decodeAnchorX(0.9666667f, -2.0f);
-	double var$10 = (double)decodeAnchorY(2.8f, 0.0f);
-	double var$11 = (double)decodeX(0.9666667f);
+	double var$7 = decodeAnchorX(0.2f, 0.0f);
+	double var$8 = decodeAnchorY(2.0444443f, 2.0f);
+	double var$9 = decodeAnchorX(0.9666667f, -2.0f);
+	double var$10 = decodeAnchorY(2.8f, 0.0f);
+	double var$11 = decodeX(0.9666667f);
 	$nc(this->path)->curveTo(var$7, var$8, var$9, var$10, var$11, decodeY(2.8f));
-	double var$12 = (double)decodeX(2.0f);
+	double var$12 = decodeX(2.0f);
 	$nc(this->path)->lineTo(var$12, decodeY(2.788889f));
-	double var$13 = (double)decodeAnchorX(2.0f, 1.9709293f);
-	double var$14 = (double)decodeAnchorY(2.788889f, 0.01985704f);
-	double var$15 = (double)decodeAnchorX(2.777778f, -0.033333335f);
-	double var$16 = (double)decodeAnchorY(2.0555553f, 1.9333333f);
-	double var$17 = (double)decodeX(2.777778f);
+	double var$13 = decodeAnchorX(2.0f, 1.9709293f);
+	double var$14 = decodeAnchorY(2.788889f, 0.01985704f);
+	double var$15 = decodeAnchorX(2.777778f, -0.033333335f);
+	double var$16 = decodeAnchorY(2.0555553f, 1.9333333f);
+	double var$17 = decodeX(2.777778f);
 	$nc(this->path)->curveTo(var$13, var$14, var$15, var$16, var$17, decodeY(2.0555553f));
-	double var$18 = (double)decodeX(2.788889f);
+	double var$18 = decodeX(2.788889f);
 	$nc(this->path)->lineTo(var$18, decodeY(1.8051281f));
-	double var$19 = (double)decodeX(2.777778f);
+	double var$19 = decodeX(2.777778f);
 	$nc(this->path)->lineTo(var$19, decodeY(1.2794871f));
-	double var$20 = (double)decodeX(2.777778f);
+	double var$20 = decodeX(2.777778f);
 	$nc(this->path)->lineTo(var$20, decodeY(1.0025641f));
-	double var$21 = (double)decodeAnchorX(2.777778f, 0.0042173304f);
-	double var$22 = (double)decodeAnchorY(1.0025641f, -1.9503378f);
-	double var$23 = (double)decodeAnchorX(2.0999997f, 1.9659461f);
-	double var$24 = (double)decodeAnchorY(0.22222222f, 0.017122267f);
-	double var$25 = (double)decodeX(2.0999997f);
+	double var$21 = decodeAnchorX(2.777778f, 0.0042173304f);
+	double var$22 = decodeAnchorY(1.0025641f, -1.9503378f);
+	double var$23 = decodeAnchorX(2.0999997f, 1.9659461f);
+	double var$24 = decodeAnchorY(0.22222222f, 0.017122267f);
+	double var$25 = decodeX(2.0999997f);
 	$nc(this->path)->curveTo(var$21, var$22, var$23, var$24, var$25, decodeY(0.22222222f));
-	double var$26 = (double)decodeX(0.9111111f);
+	double var$26 = decodeX(0.9111111f);
 	$nc(this->path)->lineTo(var$26, decodeY(0.21111111f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Rectangle2D* ProgressBarPainter::decodeRect5() {
-	double var$0 = (double)decodeX(0.6666667f);
-	double var$1 = (double)decodeY(0.6666667f);
+	double var$0 = decodeX(0.6666667f);
+	double var$1 = decodeY(0.6666667f);
 	float var$3 = decodeX(2.3333333f);
-	double var$2 = (double)(var$3 - decodeX(0.6666667f));
+	double var$2 = var$3 - decodeX(0.6666667f);
 	float var$4 = decodeY(2.3333333f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.6666667f));
 	return this->rect;
 }
 
 $Rectangle2D* ProgressBarPainter::decodeRect6() {
-	double var$0 = (double)decodeX(1.0f);
-	double var$1 = (double)decodeY(1.0f);
+	double var$0 = decodeX(1.0f);
+	double var$1 = decodeY(1.0f);
 	float var$3 = decodeX(2.0f);
-	double var$2 = (double)(var$3 - decodeX(1.0f));
+	double var$2 = var$3 - decodeX(1.0f);
 	float var$4 = decodeY(2.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.0f));
 	return this->rect;
 }
 
 $Rectangle2D* ProgressBarPainter::decodeRect7() {
-	double var$0 = (double)decodeX(0.0f);
-	double var$1 = (double)decodeY(0.0f);
+	double var$0 = decodeX(0.0f);
+	double var$1 = decodeY(0.0f);
 	float var$3 = decodeX(3.0f);
-	double var$2 = (double)(var$3 - decodeX(0.0f));
+	double var$2 = var$3 - decodeX(0.0f);
 	float var$4 = decodeY(3.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.0f));
 	return this->rect;
@@ -547,63 +403,63 @@ $Rectangle2D* ProgressBarPainter::decodeRect7() {
 
 $Path2D* ProgressBarPainter::decodePath3() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.0f);
+	double var$0 = decodeX(0.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.4285715f));
-	double var$1 = (double)decodeAnchorX(0.0f, 2.6785715f);
-	double var$2 = (double)decodeAnchorY(1.4285715f, 8.881784E-16f);
-	double var$3 = (double)decodeAnchorX(1.3898809f, -6.214286f);
-	double var$4 = (double)decodeAnchorY(0.3452381f, -0.035714287f);
-	double var$5 = (double)decodeX(1.3898809f);
+	double var$1 = decodeAnchorX(0.0f, 2.6785715f);
+	double var$2 = decodeAnchorY(1.4285715f, 8.881784E-16f);
+	double var$3 = decodeAnchorX(1.3898809f, -6.214286f);
+	double var$4 = decodeAnchorY(0.3452381f, -0.035714287f);
+	double var$5 = decodeX(1.3898809f);
 	$nc(this->path)->curveTo(var$1, var$2, var$3, var$4, var$5, decodeY(0.3452381f));
-	double var$6 = (double)decodeX(1.5535715f);
+	double var$6 = decodeX(1.5535715f);
 	$nc(this->path)->lineTo(var$6, decodeY(0.3452381f));
-	double var$7 = (double)decodeAnchorX(1.5535715f, 8.32967f);
-	double var$8 = (double)decodeAnchorY(0.3452381f, 0.0027472528f);
-	double var$9 = (double)decodeAnchorX(2.3333333f, -5.285714f);
-	double var$10 = (double)decodeAnchorY(1.4285715f, 0.035714287f);
-	double var$11 = (double)decodeX(2.3333333f);
+	double var$7 = decodeAnchorX(1.5535715f, 8.32967f);
+	double var$8 = decodeAnchorY(0.3452381f, 0.0027472528f);
+	double var$9 = decodeAnchorX(2.3333333f, -5.285714f);
+	double var$10 = decodeAnchorY(1.4285715f, 0.035714287f);
+	double var$11 = decodeX(2.3333333f);
 	$nc(this->path)->curveTo(var$7, var$8, var$9, var$10, var$11, decodeY(1.4285715f));
-	double var$12 = (double)decodeX(3.0f);
+	double var$12 = decodeX(3.0f);
 	$nc(this->path)->lineTo(var$12, decodeY(1.4285715f));
-	double var$13 = (double)decodeX(3.0f);
+	double var$13 = decodeX(3.0f);
 	$nc(this->path)->lineTo(var$13, decodeY(1.5714285f));
-	double var$14 = (double)decodeX(2.3333333f);
+	double var$14 = decodeX(2.3333333f);
 	$nc(this->path)->lineTo(var$14, decodeY(1.5714285f));
-	double var$15 = (double)decodeAnchorX(2.3333333f, -5.321429f);
-	double var$16 = (double)decodeAnchorY(1.5714285f, 0.035714287f);
-	double var$17 = (double)decodeAnchorX(1.5535715f, 8.983517f);
-	double var$18 = (double)decodeAnchorY(2.6666667f, 0.03846154f);
-	double var$19 = (double)decodeX(1.5535715f);
+	double var$15 = decodeAnchorX(2.3333333f, -5.321429f);
+	double var$16 = decodeAnchorY(1.5714285f, 0.035714287f);
+	double var$17 = decodeAnchorX(1.5535715f, 8.983517f);
+	double var$18 = decodeAnchorY(2.6666667f, 0.03846154f);
+	double var$19 = decodeX(1.5535715f);
 	$nc(this->path)->curveTo(var$15, var$16, var$17, var$18, var$19, decodeY(2.6666667f));
-	double var$20 = (double)decodeX(1.4077381f);
+	double var$20 = decodeX(1.4077381f);
 	$nc(this->path)->lineTo(var$20, decodeY(2.6666667f));
-	double var$21 = (double)decodeAnchorX(1.4077381f, -6.714286f);
-	double var$22 = (double)decodeAnchorY(2.6666667f, 0.0f);
-	double var$23 = (double)decodeAnchorX(0.0f, 2.607143f);
-	double var$24 = (double)decodeAnchorY(1.5714285f, 0.035714287f);
-	double var$25 = (double)decodeX(0.0f);
+	double var$21 = decodeAnchorX(1.4077381f, -6.714286f);
+	double var$22 = decodeAnchorY(2.6666667f, 0.0f);
+	double var$23 = decodeAnchorX(0.0f, 2.607143f);
+	double var$24 = decodeAnchorY(1.5714285f, 0.035714287f);
+	double var$25 = decodeX(0.0f);
 	$nc(this->path)->curveTo(var$21, var$22, var$23, var$24, var$25, decodeY(1.5714285f));
-	double var$26 = (double)decodeX(0.0f);
+	double var$26 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$26, decodeY(1.4285715f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Rectangle2D* ProgressBarPainter::decodeRect8() {
-	double var$0 = (double)decodeX(1.2916666f);
-	double var$1 = (double)decodeY(0.0f);
+	double var$0 = decodeX(1.2916666f);
+	double var$1 = decodeY(0.0f);
 	float var$3 = decodeX(1.3333334f);
-	double var$2 = (double)(var$3 - decodeX(1.2916666f));
+	double var$2 = var$3 - decodeX(1.2916666f);
 	float var$4 = decodeY(3.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.0f));
 	return this->rect;
 }
 
 $Rectangle2D* ProgressBarPainter::decodeRect9() {
-	double var$0 = (double)decodeX(1.7083333f);
-	double var$1 = (double)decodeY(0.0f);
+	double var$0 = decodeX(1.7083333f);
+	double var$1 = decodeY(0.0f);
 	float var$3 = decodeX(1.75f);
-	double var$2 = (double)(var$3 - decodeX(1.7083333f));
+	double var$2 = var$3 - decodeX(1.7083333f);
 	float var$4 = decodeY(3.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.0f));
 	return this->rect;
@@ -611,47 +467,47 @@ $Rectangle2D* ProgressBarPainter::decodeRect9() {
 
 $Path2D* ProgressBarPainter::decodePath4() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.9888889f);
+	double var$0 = decodeX(0.9888889f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.2f));
-	double var$1 = (double)decodeAnchorX(0.9888889f, -2.0f);
-	double var$2 = (double)decodeAnchorY(0.2f, 0.0f);
-	double var$3 = (double)decodeAnchorX(0.2f, 0.0f);
-	double var$4 = (double)decodeAnchorY(0.9888889f, -2.0f);
-	double var$5 = (double)decodeX(0.2f);
+	double var$1 = decodeAnchorX(0.9888889f, -2.0f);
+	double var$2 = decodeAnchorY(0.2f, 0.0f);
+	double var$3 = decodeAnchorX(0.2f, 0.0f);
+	double var$4 = decodeAnchorY(0.9888889f, -2.0f);
+	double var$5 = decodeX(0.2f);
 	$nc(this->path)->curveTo(var$1, var$2, var$3, var$4, var$5, decodeY(0.9888889f));
-	double var$6 = (double)decodeAnchorX(0.2f, 0.0f);
-	double var$7 = (double)decodeAnchorY(0.9888889f, 2.0f);
-	double var$8 = (double)decodeAnchorX(0.2f, 0.0f);
-	double var$9 = (double)decodeAnchorY(1.9974358f, -2.0f);
-	double var$10 = (double)decodeX(0.2f);
+	double var$6 = decodeAnchorX(0.2f, 0.0f);
+	double var$7 = decodeAnchorY(0.9888889f, 2.0f);
+	double var$8 = decodeAnchorX(0.2f, 0.0f);
+	double var$9 = decodeAnchorY(1.9974358f, -2.0f);
+	double var$10 = decodeX(0.2f);
 	$nc(this->path)->curveTo(var$6, var$7, var$8, var$9, var$10, decodeY(1.9974358f));
-	double var$11 = (double)decodeAnchorX(0.2f, 0.0f);
-	double var$12 = (double)decodeAnchorY(1.9974358f, 2.0f);
-	double var$13 = (double)decodeAnchorX(0.9888889f, -2.0f);
-	double var$14 = (double)decodeAnchorY(2.8111107f, 0.0f);
-	double var$15 = (double)decodeX(0.9888889f);
+	double var$11 = decodeAnchorX(0.2f, 0.0f);
+	double var$12 = decodeAnchorY(1.9974358f, 2.0f);
+	double var$13 = decodeAnchorX(0.9888889f, -2.0f);
+	double var$14 = decodeAnchorY(2.8111107f, 0.0f);
+	double var$15 = decodeX(0.9888889f);
 	$nc(this->path)->curveTo(var$11, var$12, var$13, var$14, var$15, decodeY(2.8111107f));
-	double var$16 = (double)decodeAnchorX(0.9888889f, 2.0f);
-	double var$17 = (double)decodeAnchorY(2.8111107f, 0.0f);
-	double var$18 = (double)decodeAnchorX(2.5f, 0.0f);
-	double var$19 = (double)decodeAnchorY(2.8f, 0.0f);
-	double var$20 = (double)decodeX(2.5f);
+	double var$16 = decodeAnchorX(0.9888889f, 2.0f);
+	double var$17 = decodeAnchorY(2.8111107f, 0.0f);
+	double var$18 = decodeAnchorX(2.5f, 0.0f);
+	double var$19 = decodeAnchorY(2.8f, 0.0f);
+	double var$20 = decodeX(2.5f);
 	$nc(this->path)->curveTo(var$16, var$17, var$18, var$19, var$20, decodeY(2.8f));
-	double var$21 = (double)decodeX(2.7444446f);
+	double var$21 = decodeX(2.7444446f);
 	$nc(this->path)->lineTo(var$21, decodeY(2.488889f));
-	double var$22 = (double)decodeX(2.7555554f);
+	double var$22 = decodeX(2.7555554f);
 	$nc(this->path)->lineTo(var$22, decodeY(1.5794872f));
-	double var$23 = (double)decodeX(2.7666664f);
+	double var$23 = decodeX(2.7666664f);
 	$nc(this->path)->lineTo(var$23, decodeY(1.4358975f));
-	double var$24 = (double)decodeX(2.7666664f);
+	double var$24 = decodeX(2.7666664f);
 	$nc(this->path)->lineTo(var$24, decodeY(0.62222224f));
-	double var$25 = (double)decodeX(2.5999997f);
+	double var$25 = decodeX(2.5999997f);
 	$nc(this->path)->lineTo(var$25, decodeY(0.22222222f));
-	double var$26 = (double)decodeAnchorX(2.5999997f, 0.0f);
-	double var$27 = (double)decodeAnchorY(0.22222222f, 0.0f);
-	double var$28 = (double)decodeAnchorX(0.9888889f, 2.0f);
-	double var$29 = (double)decodeAnchorY(0.2f, 0.0f);
-	double var$30 = (double)decodeX(0.9888889f);
+	double var$26 = decodeAnchorX(2.5999997f, 0.0f);
+	double var$27 = decodeAnchorY(0.22222222f, 0.0f);
+	double var$28 = decodeAnchorX(0.9888889f, 2.0f);
+	double var$29 = decodeAnchorY(0.2f, 0.0f);
+	double var$30 = decodeX(0.9888889f);
 	$nc(this->path)->curveTo(var$26, var$27, var$28, var$29, var$30, decodeY(0.2f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -659,50 +515,50 @@ $Path2D* ProgressBarPainter::decodePath4() {
 
 $Path2D* ProgressBarPainter::decodePath5() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.0f);
+	double var$0 = decodeX(0.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.4285715f));
-	double var$1 = (double)decodeAnchorX(0.0f, 2.6785715f);
-	double var$2 = (double)decodeAnchorY(1.4285715f, 8.881784E-16f);
-	double var$3 = (double)decodeAnchorX(1.3898809f, -6.357143f);
-	double var$4 = (double)decodeAnchorY(0.3452381f, -0.035714287f);
-	double var$5 = (double)decodeX(1.3898809f);
+	double var$1 = decodeAnchorX(0.0f, 2.6785715f);
+	double var$2 = decodeAnchorY(1.4285715f, 8.881784E-16f);
+	double var$3 = decodeAnchorX(1.3898809f, -6.357143f);
+	double var$4 = decodeAnchorY(0.3452381f, -0.035714287f);
+	double var$5 = decodeX(1.3898809f);
 	$nc(this->path)->curveTo(var$1, var$2, var$3, var$4, var$5, decodeY(0.3452381f));
-	double var$6 = (double)decodeX(1.5535715f);
+	double var$6 = decodeX(1.5535715f);
 	$nc(this->path)->lineTo(var$6, decodeY(0.3452381f));
-	double var$7 = (double)decodeAnchorX(1.5535715f, 4.0f);
-	double var$8 = (double)decodeAnchorY(0.3452381f, 0.0f);
-	double var$9 = (double)decodeAnchorX(2.3333333f, -5.285714f);
-	double var$10 = (double)decodeAnchorY(1.4285715f, 0.035714287f);
-	double var$11 = (double)decodeX(2.3333333f);
+	double var$7 = decodeAnchorX(1.5535715f, 4.0f);
+	double var$8 = decodeAnchorY(0.3452381f, 0.0f);
+	double var$9 = decodeAnchorX(2.3333333f, -5.285714f);
+	double var$10 = decodeAnchorY(1.4285715f, 0.035714287f);
+	double var$11 = decodeX(2.3333333f);
 	$nc(this->path)->curveTo(var$7, var$8, var$9, var$10, var$11, decodeY(1.4285715f));
-	double var$12 = (double)decodeX(3.0f);
+	double var$12 = decodeX(3.0f);
 	$nc(this->path)->lineTo(var$12, decodeY(1.4285715f));
-	double var$13 = (double)decodeX(3.0f);
+	double var$13 = decodeX(3.0f);
 	$nc(this->path)->lineTo(var$13, decodeY(1.5714285f));
-	double var$14 = (double)decodeX(2.3333333f);
+	double var$14 = decodeX(2.3333333f);
 	$nc(this->path)->lineTo(var$14, decodeY(1.5714285f));
-	double var$15 = (double)decodeAnchorX(2.3333333f, -5.321429f);
-	double var$16 = (double)decodeAnchorY(1.5714285f, 0.035714287f);
-	double var$17 = (double)decodeAnchorX(1.5535715f, 4.0f);
-	double var$18 = (double)decodeAnchorY(2.6666667f, 0.0f);
-	double var$19 = (double)decodeX(1.5535715f);
+	double var$15 = decodeAnchorX(2.3333333f, -5.321429f);
+	double var$16 = decodeAnchorY(1.5714285f, 0.035714287f);
+	double var$17 = decodeAnchorX(1.5535715f, 4.0f);
+	double var$18 = decodeAnchorY(2.6666667f, 0.0f);
+	double var$19 = decodeX(1.5535715f);
 	$nc(this->path)->curveTo(var$15, var$16, var$17, var$18, var$19, decodeY(2.6666667f));
-	double var$20 = (double)decodeX(1.4077381f);
+	double var$20 = decodeX(1.4077381f);
 	$nc(this->path)->lineTo(var$20, decodeY(2.6666667f));
-	double var$21 = (double)decodeAnchorX(1.4077381f, -6.571429f);
-	double var$22 = (double)decodeAnchorY(2.6666667f, -0.035714287f);
-	double var$23 = (double)decodeAnchorX(0.0f, 2.607143f);
-	double var$24 = (double)decodeAnchorY(1.5714285f, 0.035714287f);
-	double var$25 = (double)decodeX(0.0f);
+	double var$21 = decodeAnchorX(1.4077381f, -6.571429f);
+	double var$22 = decodeAnchorY(2.6666667f, -0.035714287f);
+	double var$23 = decodeAnchorX(0.0f, 2.607143f);
+	double var$24 = decodeAnchorY(1.5714285f, 0.035714287f);
+	double var$25 = decodeX(0.0f);
 	$nc(this->path)->curveTo(var$21, var$22, var$23, var$24, var$25, decodeY(1.5714285f));
-	double var$26 = (double)decodeX(0.0f);
+	double var$26 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$26, decodeY(1.4285715f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Paint* ProgressBarPainter::decodeGradient1($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -720,7 +576,7 @@ $Paint* ProgressBarPainter::decodeGradient1($Shape* s) {
 }
 
 $Paint* ProgressBarPainter::decodeGradient2($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -754,7 +610,7 @@ $Paint* ProgressBarPainter::decodeGradient2($Shape* s) {
 }
 
 $Paint* ProgressBarPainter::decodeGradient3($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -772,7 +628,7 @@ $Paint* ProgressBarPainter::decodeGradient3($Shape* s) {
 }
 
 $Paint* ProgressBarPainter::decodeGradient4($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -806,7 +662,7 @@ $Paint* ProgressBarPainter::decodeGradient4($Shape* s) {
 }
 
 $Paint* ProgressBarPainter::decodeGradient5($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -836,7 +692,7 @@ $Paint* ProgressBarPainter::decodeGradient5($Shape* s) {
 }
 
 $Paint* ProgressBarPainter::decodeGradient6($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -870,7 +726,7 @@ $Paint* ProgressBarPainter::decodeGradient6($Shape* s) {
 }
 
 $Paint* ProgressBarPainter::decodeGradient7($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -900,7 +756,7 @@ $Paint* ProgressBarPainter::decodeGradient7($Shape* s) {
 }
 
 $Paint* ProgressBarPainter::decodeGradient8($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -926,7 +782,7 @@ $Paint* ProgressBarPainter::decodeGradient8($Shape* s) {
 }
 
 $Paint* ProgressBarPainter::decodeGradient9($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -956,7 +812,7 @@ $Paint* ProgressBarPainter::decodeGradient9($Shape* s) {
 }
 
 $Paint* ProgressBarPainter::decodeGradient10($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -990,7 +846,7 @@ $Paint* ProgressBarPainter::decodeGradient10($Shape* s) {
 }
 
 $Paint* ProgressBarPainter::decodeGradient11($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1020,7 +876,7 @@ $Paint* ProgressBarPainter::decodeGradient11($Shape* s) {
 }
 
 $Paint* ProgressBarPainter::decodeGradient12($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1049,7 +905,125 @@ ProgressBarPainter::ProgressBarPainter() {
 }
 
 $Class* ProgressBarPainter::load$($String* name, bool initialize) {
-	$loadClass(ProgressBarPainter, name, initialize, &_ProgressBarPainter_ClassInfo_, allocate$ProgressBarPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(ProgressBarPainter, BACKGROUND_ENABLED)},
+		{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(ProgressBarPainter, BACKGROUND_DISABLED)},
+		{"FOREGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(ProgressBarPainter, FOREGROUND_ENABLED)},
+		{"FOREGROUND_ENABLED_FINISHED", "I", nullptr, $STATIC | $FINAL, $constField(ProgressBarPainter, FOREGROUND_ENABLED_FINISHED)},
+		{"FOREGROUND_ENABLED_INDETERMINATE", "I", nullptr, $STATIC | $FINAL, $constField(ProgressBarPainter, FOREGROUND_ENABLED_INDETERMINATE)},
+		{"FOREGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(ProgressBarPainter, FOREGROUND_DISABLED)},
+		{"FOREGROUND_DISABLED_FINISHED", "I", nullptr, $STATIC | $FINAL, $constField(ProgressBarPainter, FOREGROUND_DISABLED_FINISHED)},
+		{"FOREGROUND_DISABLED_INDETERMINATE", "I", nullptr, $STATIC | $FINAL, $constField(ProgressBarPainter, FOREGROUND_DISABLED_INDETERMINATE)},
+		{"state", "I", nullptr, $PRIVATE, $field(ProgressBarPainter, state)},
+		{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(ProgressBarPainter, ctx)},
+		{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(ProgressBarPainter, path)},
+		{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(ProgressBarPainter, rect)},
+		{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(ProgressBarPainter, roundRect)},
+		{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(ProgressBarPainter, ellipse)},
+		{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color1)},
+		{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color2)},
+		{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color3)},
+		{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color4)},
+		{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color5)},
+		{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color6)},
+		{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color7)},
+		{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color8)},
+		{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color9)},
+		{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color10)},
+		{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color11)},
+		{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color12)},
+		{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color13)},
+		{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color14)},
+		{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color15)},
+		{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color16)},
+		{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color17)},
+		{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color18)},
+		{"color19", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color19)},
+		{"color20", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color20)},
+		{"color21", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color21)},
+		{"color22", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color22)},
+		{"color23", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color23)},
+		{"color24", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color24)},
+		{"color25", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color25)},
+		{"color26", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color26)},
+		{"color27", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color27)},
+		{"color28", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color28)},
+		{"color29", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color29)},
+		{"color30", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color30)},
+		{"color31", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color31)},
+		{"color32", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color32)},
+		{"color33", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color33)},
+		{"color34", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color34)},
+		{"color35", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color35)},
+		{"color36", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color36)},
+		{"color37", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color37)},
+		{"color38", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color38)},
+		{"color39", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color39)},
+		{"color40", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color40)},
+		{"color41", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color41)},
+		{"color42", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color42)},
+		{"color43", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color43)},
+		{"color44", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color44)},
+		{"color45", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color45)},
+		{"color46", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color46)},
+		{"color47", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color47)},
+		{"color48", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color48)},
+		{"color49", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color49)},
+		{"color50", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ProgressBarPainter, color50)},
+		{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(ProgressBarPainter, componentColors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(ProgressBarPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
+		{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeGradient1, $Paint*, $Shape*)},
+		{"decodeGradient10", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeGradient10, $Paint*, $Shape*)},
+		{"decodeGradient11", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeGradient11, $Paint*, $Shape*)},
+		{"decodeGradient12", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeGradient12, $Paint*, $Shape*)},
+		{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeGradient2, $Paint*, $Shape*)},
+		{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeGradient3, $Paint*, $Shape*)},
+		{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeGradient4, $Paint*, $Shape*)},
+		{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeGradient5, $Paint*, $Shape*)},
+		{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeGradient6, $Paint*, $Shape*)},
+		{"decodeGradient7", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeGradient7, $Paint*, $Shape*)},
+		{"decodeGradient8", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeGradient8, $Paint*, $Shape*)},
+		{"decodeGradient9", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeGradient9, $Paint*, $Shape*)},
+		{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodePath1, $Path2D*)},
+		{"decodePath2", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodePath2, $Path2D*)},
+		{"decodePath3", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodePath3, $Path2D*)},
+		{"decodePath4", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodePath4, $Path2D*)},
+		{"decodePath5", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodePath5, $Path2D*)},
+		{"decodeRect1", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeRect1, $Rectangle2D*)},
+		{"decodeRect2", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeRect2, $Rectangle2D*)},
+		{"decodeRect3", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeRect3, $Rectangle2D*)},
+		{"decodeRect4", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeRect4, $Rectangle2D*)},
+		{"decodeRect5", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeRect5, $Rectangle2D*)},
+		{"decodeRect6", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeRect6, $Rectangle2D*)},
+		{"decodeRect7", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeRect7, $Rectangle2D*)},
+		{"decodeRect8", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeRect8, $Rectangle2D*)},
+		{"decodeRect9", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(ProgressBarPainter, decodeRect9, $Rectangle2D*)},
+		{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(ProgressBarPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(ProgressBarPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
+		{"paintBackgroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ProgressBarPainter, paintBackgroundDisabled, void, $Graphics2D*)},
+		{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ProgressBarPainter, paintBackgroundEnabled, void, $Graphics2D*)},
+		{"paintForegroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ProgressBarPainter, paintForegroundDisabled, void, $Graphics2D*)},
+		{"paintForegroundDisabledAndFinished", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ProgressBarPainter, paintForegroundDisabledAndFinished, void, $Graphics2D*)},
+		{"paintForegroundDisabledAndIndeterminate", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ProgressBarPainter, paintForegroundDisabledAndIndeterminate, void, $Graphics2D*)},
+		{"paintForegroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ProgressBarPainter, paintForegroundEnabled, void, $Graphics2D*)},
+		{"paintForegroundEnabledAndFinished", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ProgressBarPainter, paintForegroundEnabledAndFinished, void, $Graphics2D*)},
+		{"paintForegroundEnabledAndIndeterminate", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ProgressBarPainter, paintForegroundEnabledAndIndeterminate, void, $Graphics2D*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.ProgressBarPainter",
+		"javax.swing.plaf.nimbus.AbstractRegionPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ProgressBarPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProgressBarPainter);
+	});
 	return class$;
 }
 

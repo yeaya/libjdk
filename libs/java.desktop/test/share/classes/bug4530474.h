@@ -23,6 +23,7 @@ class $export bug4530474 : public ::java::lang::Object {
 	$class(bug4530474, 0, ::java::lang::Object)
 public:
 	bug4530474();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createAndShowGUI();
 	static void main($StringArray* args);

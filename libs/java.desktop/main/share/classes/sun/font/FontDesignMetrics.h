@@ -61,6 +61,7 @@ class FontDesignMetrics : public ::java::awt::FontMetrics {
 	$class(FontDesignMetrics, 0, ::java::awt::FontMetrics)
 public:
 	FontDesignMetrics();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Font* font);
 	void init$(::java::awt::Font* font, ::java::awt::font::FontRenderContext* frc);
 	virtual int32_t charWidth(char16_t ch) override;
@@ -84,7 +85,7 @@ public:
 	void readObject(::java::io::ObjectInputStream* in);
 	virtual int32_t stringWidth($String* str) override;
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t serialVersionUID = (int64_t)0x3E2C678B9727DBDD;
+	static const int64_t serialVersionUID = (int64_t)0x3e2c678b9727dbdd;
 	static float UNKNOWN_WIDTH;
 	static const int32_t CURRENT_VERSION = 1;
 	static float roundingUpValue;

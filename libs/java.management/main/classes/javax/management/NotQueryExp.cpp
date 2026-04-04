@@ -1,5 +1,4 @@
 #include <javax/management/NotQueryExp.h>
-
 #include <javax/management/MBeanServer.h>
 #include <javax/management/ObjectName.h>
 #include <javax/management/QueryEval.h>
@@ -16,39 +15,6 @@ using $QueryExp = ::javax::management::QueryExp;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _NotQueryExp_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NotQueryExp, serialVersionUID)},
-	{"exp", "Ljavax/management/QueryExp;", nullptr, $PRIVATE, $field(NotQueryExp, exp)},
-	{}
-};
-
-$MethodInfo _NotQueryExp_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NotQueryExp, init$, void)},
-	{"<init>", "(Ljavax/management/QueryExp;)V", nullptr, $PUBLIC, $method(NotQueryExp, init$, void, $QueryExp*)},
-	{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $virtualMethod(NotQueryExp, apply, bool, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
-	{"getNegatedExp", "()Ljavax/management/QueryExp;", nullptr, $PUBLIC, $virtualMethod(NotQueryExp, getNegatedExp, $QueryExp*)},
-	{"*setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NotQueryExp, toString, $String*)},
-	{}
-};
-
-$ClassInfo _NotQueryExp_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.NotQueryExp",
-	"javax.management.QueryEval",
-	"javax.management.QueryExp",
-	_NotQueryExp_FieldInfo_,
-	_NotQueryExp_MethodInfo_
-};
-
-$Object* allocate$NotQueryExp($Class* clazz) {
-	return $of($alloc(NotQueryExp));
-}
 
 void NotQueryExp::setMBeanServer($MBeanServer* s) {
 	this->$QueryEval::setMBeanServer(s);
@@ -95,7 +61,35 @@ NotQueryExp::NotQueryExp() {
 }
 
 $Class* NotQueryExp::load$($String* name, bool initialize) {
-	$loadClass(NotQueryExp, name, initialize, &_NotQueryExp_ClassInfo_, allocate$NotQueryExp);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NotQueryExp, serialVersionUID)},
+		{"exp", "Ljavax/management/QueryExp;", nullptr, $PRIVATE, $field(NotQueryExp, exp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NotQueryExp, init$, void)},
+		{"<init>", "(Ljavax/management/QueryExp;)V", nullptr, $PUBLIC, $method(NotQueryExp, init$, void, $QueryExp*)},
+		{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $virtualMethod(NotQueryExp, apply, bool, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
+		{"getNegatedExp", "()Ljavax/management/QueryExp;", nullptr, $PUBLIC, $virtualMethod(NotQueryExp, getNegatedExp, $QueryExp*)},
+		{"*setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NotQueryExp, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.NotQueryExp",
+		"javax.management.QueryEval",
+		"javax.management.QueryExp",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NotQueryExp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NotQueryExp));
+	});
 	return class$;
 }
 

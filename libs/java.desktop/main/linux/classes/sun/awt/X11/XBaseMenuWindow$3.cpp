@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XBaseMenuWindow$3.h>
-
 #include <java/awt/AWTEvent.h>
 #include <sun/awt/X11/XBaseMenuWindow.h>
 #include <jcpp.h>
@@ -16,49 +15,6 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XBaseMenuWindow$3_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/X11/XBaseMenuWindow;", nullptr, $FINAL | $SYNTHETIC, $field(XBaseMenuWindow$3, this$0)},
-	{"val$event", "Ljava/awt/AWTEvent;", nullptr, $FINAL | $SYNTHETIC, $field(XBaseMenuWindow$3, val$event)},
-	{}
-};
-
-$MethodInfo _XBaseMenuWindow$3_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/XBaseMenuWindow;Ljava/awt/AWTEvent;)V", "()V", 0, $method(XBaseMenuWindow$3, init$, void, $XBaseMenuWindow*, $AWTEvent*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(XBaseMenuWindow$3, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _XBaseMenuWindow$3_EnclosingMethodInfo_ = {
-	"sun.awt.X11.XBaseMenuWindow",
-	"postEvent",
-	"(Ljava/awt/AWTEvent;)V"
-};
-
-$InnerClassInfo _XBaseMenuWindow$3_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XBaseMenuWindow$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XBaseMenuWindow$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XBaseMenuWindow$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_XBaseMenuWindow$3_FieldInfo_,
-	_XBaseMenuWindow$3_MethodInfo_,
-	nullptr,
-	&_XBaseMenuWindow$3_EnclosingMethodInfo_,
-	_XBaseMenuWindow$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XBaseMenuWindow"
-};
-
-$Object* allocate$XBaseMenuWindow$3($Class* clazz) {
-	return $of($alloc(XBaseMenuWindow$3));
-}
-
 void XBaseMenuWindow$3::init$($XBaseMenuWindow* this$0, $AWTEvent* val$event) {
 	$set(this, this$0, this$0);
 	$set(this, val$event, val$event);
@@ -72,7 +28,43 @@ XBaseMenuWindow$3::XBaseMenuWindow$3() {
 }
 
 $Class* XBaseMenuWindow$3::load$($String* name, bool initialize) {
-	$loadClass(XBaseMenuWindow$3, name, initialize, &_XBaseMenuWindow$3_ClassInfo_, allocate$XBaseMenuWindow$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/X11/XBaseMenuWindow;", nullptr, $FINAL | $SYNTHETIC, $field(XBaseMenuWindow$3, this$0)},
+		{"val$event", "Ljava/awt/AWTEvent;", nullptr, $FINAL | $SYNTHETIC, $field(XBaseMenuWindow$3, val$event)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XBaseMenuWindow;Ljava/awt/AWTEvent;)V", "()V", 0, $method(XBaseMenuWindow$3, init$, void, $XBaseMenuWindow*, $AWTEvent*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(XBaseMenuWindow$3, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.X11.XBaseMenuWindow",
+		"postEvent",
+		"(Ljava/awt/AWTEvent;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XBaseMenuWindow$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XBaseMenuWindow$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XBaseMenuWindow"
+	};
+	$loadClass(XBaseMenuWindow$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XBaseMenuWindow$3);
+	});
 	return class$;
 }
 

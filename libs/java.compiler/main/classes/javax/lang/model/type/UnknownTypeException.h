@@ -32,7 +32,10 @@ public:
 	$Object* parameter = nullptr;
 	UnknownTypeException(const UnknownTypeException& e);
 	virtual void throw$() override;
-	inline UnknownTypeException* operator ->() {
+	inline UnknownTypeException* operator ->() const {
+		return (UnknownTypeException*)throwing$;
+	}
+	inline operator UnknownTypeException*() const {
 		return (UnknownTypeException*)throwing$;
 	}
 };

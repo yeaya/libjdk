@@ -20,6 +20,7 @@ class $export FPMethodCalledTest : public ::java::lang::Object {
 	$class(FPMethodCalledTest, 0, ::java::lang::Object)
 public:
 	FPMethodCalledTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createAndShowGUI(::FPMethodCalledTest$Test* test);
 	static void lambda$test$0(::FPMethodCalledTest$Test* test);

@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/CSSBorder$NullPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Polygon.h>
@@ -18,38 +17,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$MethodInfo _CSSBorder$NullPainter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CSSBorder$NullPainter, init$, void)},
-	{"paint", "(Ljava/awt/Polygon;Ljava/awt/Graphics;Ljava/awt/Color;I)V", nullptr, $PUBLIC, $virtualMethod(CSSBorder$NullPainter, paint, void, $Polygon*, $Graphics*, $Color*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CSSBorder$NullPainter_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.CSSBorder$NullPainter", "javax.swing.text.html.CSSBorder", "NullPainter", $STATIC},
-	{"javax.swing.text.html.CSSBorder$BorderPainter", "javax.swing.text.html.CSSBorder", "BorderPainter", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CSSBorder$NullPainter_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.CSSBorder$NullPainter",
-	"java.lang.Object",
-	"javax.swing.text.html.CSSBorder$BorderPainter",
-	nullptr,
-	_CSSBorder$NullPainter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CSSBorder$NullPainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.CSSBorder"
-};
-
-$Object* allocate$CSSBorder$NullPainter($Class* clazz) {
-	return $of($alloc(CSSBorder$NullPainter));
-}
-
 void CSSBorder$NullPainter::init$() {
 }
 
@@ -60,7 +27,34 @@ CSSBorder$NullPainter::CSSBorder$NullPainter() {
 }
 
 $Class* CSSBorder$NullPainter::load$($String* name, bool initialize) {
-	$loadClass(CSSBorder$NullPainter, name, initialize, &_CSSBorder$NullPainter_ClassInfo_, allocate$CSSBorder$NullPainter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CSSBorder$NullPainter, init$, void)},
+		{"paint", "(Ljava/awt/Polygon;Ljava/awt/Graphics;Ljava/awt/Color;I)V", nullptr, $PUBLIC, $virtualMethod(CSSBorder$NullPainter, paint, void, $Polygon*, $Graphics*, $Color*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.CSSBorder$NullPainter", "javax.swing.text.html.CSSBorder", "NullPainter", $STATIC},
+		{"javax.swing.text.html.CSSBorder$BorderPainter", "javax.swing.text.html.CSSBorder", "BorderPainter", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.CSSBorder$NullPainter",
+		"java.lang.Object",
+		"javax.swing.text.html.CSSBorder$BorderPainter",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.CSSBorder"
+	};
+	$loadClass(CSSBorder$NullPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CSSBorder$NullPainter);
+	});
 	return class$;
 }
 

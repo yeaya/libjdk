@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/RequestPublishers$InputStreamPublisher.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/Serializable.h>
@@ -48,83 +47,39 @@ public:
 	virtual $Iterator* iterator() override {
 		 return RequestPublishers$InputStreamPublisher::lambda$iterableOf$0(is);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RequestPublishers$InputStreamPublisher$$Lambda$lambda$iterableOf$0>());
-	}
 	$InputStream* is = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo RequestPublishers$InputStreamPublisher$$Lambda$lambda$iterableOf$0::fieldInfos[2] = {
-	{"is", "Ljava/io/InputStream;", nullptr, $PUBLIC, $field(RequestPublishers$InputStreamPublisher$$Lambda$lambda$iterableOf$0, is)},
-	{}
-};
-$MethodInfo RequestPublishers$InputStreamPublisher$$Lambda$lambda$iterableOf$0::methodInfos[3] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(RequestPublishers$InputStreamPublisher$$Lambda$lambda$iterableOf$0, init$, void, $InputStream*)},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$InputStreamPublisher$$Lambda$lambda$iterableOf$0, iterator, $Iterator*)},
-	{}
-};
-$ClassInfo RequestPublishers$InputStreamPublisher$$Lambda$lambda$iterableOf$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.RequestPublishers$InputStreamPublisher$$Lambda$lambda$iterableOf$0",
-	"java.lang.Object",
-	"java.lang.Iterable",
-	fieldInfos,
-	methodInfos
 };
 $Class* RequestPublishers$InputStreamPublisher$$Lambda$lambda$iterableOf$0::load$($String* name, bool initialize) {
-	$loadClass(RequestPublishers$InputStreamPublisher$$Lambda$lambda$iterableOf$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"is", "Ljava/io/InputStream;", nullptr, $PUBLIC, $field(RequestPublishers$InputStreamPublisher$$Lambda$lambda$iterableOf$0, is)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(RequestPublishers$InputStreamPublisher$$Lambda$lambda$iterableOf$0, init$, void, $InputStream*)},
+		{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$InputStreamPublisher$$Lambda$lambda$iterableOf$0, iterator, $Iterator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.RequestPublishers$InputStreamPublisher$$Lambda$lambda$iterableOf$0",
+		"java.lang.Object",
+		"java.lang.Iterable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RequestPublishers$InputStreamPublisher$$Lambda$lambda$iterableOf$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RequestPublishers$InputStreamPublisher$$Lambda$lambda$iterableOf$0);
+	});
 	return class$;
 }
 $Class* RequestPublishers$InputStreamPublisher$$Lambda$lambda$iterableOf$0::class$ = nullptr;
-
-$FieldInfo _RequestPublishers$InputStreamPublisher_FieldInfo_[] = {
-	{"streamSupplier", "Ljava/util/function/Supplier;", "Ljava/util/function/Supplier<+Ljava/io/InputStream;>;", $PRIVATE | $FINAL, $field(RequestPublishers$InputStreamPublisher, streamSupplier)},
-	{}
-};
-
-$MethodInfo _RequestPublishers$InputStreamPublisher_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<+Ljava/io/InputStream;>;)V", $PUBLIC, $method(RequestPublishers$InputStreamPublisher, init$, void, $Supplier*)},
-	{"contentLength", "()J", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$InputStreamPublisher, contentLength, int64_t)},
-	{"iterableOf", "(Ljava/io/InputStream;)Ljava/lang/Iterable;", "(Ljava/io/InputStream;)Ljava/lang/Iterable<Ljava/nio/ByteBuffer;>;", $PROTECTED, $virtualMethod(RequestPublishers$InputStreamPublisher, iterableOf, $Iterable*, $InputStream*)},
-	{"lambda$iterableOf$0", "(Ljava/io/InputStream;)Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RequestPublishers$InputStreamPublisher, lambda$iterableOf$0, $Iterator*, $InputStream*)},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(RequestPublishers$InputStreamPublisher, subscribe, void, $Flow$Subscriber*)},
-	{}
-};
-
-$InnerClassInfo _RequestPublishers$InputStreamPublisher_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.RequestPublishers$InputStreamPublisher", "jdk.internal.net.http.RequestPublishers", "InputStreamPublisher", $PUBLIC | $STATIC},
-	{"java.net.http.HttpRequest$BodyPublisher", "java.net.http.HttpRequest", "BodyPublisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RequestPublishers$InputStreamPublisher_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.RequestPublishers$InputStreamPublisher",
-	"java.lang.Object",
-	"java.net.http.HttpRequest$BodyPublisher",
-	_RequestPublishers$InputStreamPublisher_FieldInfo_,
-	_RequestPublishers$InputStreamPublisher_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RequestPublishers$InputStreamPublisher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.RequestPublishers"
-};
-
-$Object* allocate$RequestPublishers$InputStreamPublisher($Class* clazz) {
-	return $of($alloc(RequestPublishers$InputStreamPublisher));
-}
 
 void RequestPublishers$InputStreamPublisher::init$($Supplier* streamSupplier) {
 	$set(this, streamSupplier, $cast($Supplier, $Objects::requireNonNull(streamSupplier)));
 }
 
 void RequestPublishers$InputStreamPublisher::subscribe($Flow$Subscriber* subscriber) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PullPublisher, publisher, nullptr);
 	$var($InputStream, is, $cast($InputStream, $nc(this->streamSupplier)->get()));
 	if (is == nullptr) {
@@ -137,7 +92,7 @@ void RequestPublishers$InputStreamPublisher::subscribe($Flow$Subscriber* subscri
 }
 
 $Iterable* RequestPublishers$InputStreamPublisher::iterableOf($InputStream* is) {
-	return static_cast<$Iterable*>($new(RequestPublishers$InputStreamPublisher$$Lambda$lambda$iterableOf$0, is));
+	return $new(RequestPublishers$InputStreamPublisher$$Lambda$lambda$iterableOf$0, is);
 }
 
 int64_t RequestPublishers$InputStreamPublisher::contentLength() {
@@ -154,11 +109,45 @@ RequestPublishers$InputStreamPublisher::RequestPublishers$InputStreamPublisher()
 
 $Class* RequestPublishers$InputStreamPublisher::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(RequestPublishers$InputStreamPublisher$$Lambda$lambda$iterableOf$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.RequestPublishers$InputStreamPublisher$$Lambda$lambda$iterableOf$0")) {
 			return RequestPublishers$InputStreamPublisher$$Lambda$lambda$iterableOf$0::load$(name, initialize);
 		}
 	}
-	$loadClass(RequestPublishers$InputStreamPublisher, name, initialize, &_RequestPublishers$InputStreamPublisher_ClassInfo_, allocate$RequestPublishers$InputStreamPublisher);
+	$FieldInfo fieldInfos$$[] = {
+		{"streamSupplier", "Ljava/util/function/Supplier;", "Ljava/util/function/Supplier<+Ljava/io/InputStream;>;", $PRIVATE | $FINAL, $field(RequestPublishers$InputStreamPublisher, streamSupplier)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<+Ljava/io/InputStream;>;)V", $PUBLIC, $method(RequestPublishers$InputStreamPublisher, init$, void, $Supplier*)},
+		{"contentLength", "()J", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$InputStreamPublisher, contentLength, int64_t)},
+		{"iterableOf", "(Ljava/io/InputStream;)Ljava/lang/Iterable;", "(Ljava/io/InputStream;)Ljava/lang/Iterable<Ljava/nio/ByteBuffer;>;", $PROTECTED, $virtualMethod(RequestPublishers$InputStreamPublisher, iterableOf, $Iterable*, $InputStream*)},
+		{"lambda$iterableOf$0", "(Ljava/io/InputStream;)Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RequestPublishers$InputStreamPublisher, lambda$iterableOf$0, $Iterator*, $InputStream*)},
+		{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(RequestPublishers$InputStreamPublisher, subscribe, void, $Flow$Subscriber*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.RequestPublishers$InputStreamPublisher", "jdk.internal.net.http.RequestPublishers", "InputStreamPublisher", $PUBLIC | $STATIC},
+		{"java.net.http.HttpRequest$BodyPublisher", "java.net.http.HttpRequest", "BodyPublisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.RequestPublishers$InputStreamPublisher",
+		"java.lang.Object",
+		"java.net.http.HttpRequest$BodyPublisher",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.RequestPublishers"
+	};
+	$loadClass(RequestPublishers$InputStreamPublisher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RequestPublishers$InputStreamPublisher);
+	});
 	return class$;
 }
 

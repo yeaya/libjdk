@@ -53,6 +53,7 @@ class $export Transport : public ::java::lang::Object {
 	$class(Transport, 0, ::java::lang::Object)
 public:
 	Transport();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void checkAcceptPermission(::java::security::AccessControlContext* acc) {}
 	static ::sun::rmi::transport::Transport* currentTransport();

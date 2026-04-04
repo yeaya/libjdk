@@ -1,5 +1,4 @@
 #include <sun/java2d/metal/MTLMaskBlit.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/Paint.h>
 #include <java/awt/geom/AffineTransform.h>
@@ -14,8 +13,6 @@
 #include <sun/java2d/metal/MTLSurfaceData.h>
 #include <sun/java2d/pipe/BufferedMaskBlit.h>
 #include <sun/java2d/pipe/Region.h>
-#include <sun/java2d/pipe/RenderQueue.h>
-#include <sun/java2d/pipe/hw/AccelSurface.h>
 #include <jcpp.h>
 
 #undef NO_CONTEXT_FLAGS
@@ -29,7 +26,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SunGraphics2D = ::sun::java2d::SunGraphics2D;
 using $SurfaceData = ::sun::java2d::SurfaceData;
 using $CompositeType = ::sun::java2d::loops::CompositeType;
-using $GraphicsPrimitive = ::sun::java2d::loops::GraphicsPrimitive;
 using $GraphicsPrimitiveMgr = ::sun::java2d::loops::GraphicsPrimitiveMgr;
 using $SurfaceType = ::sun::java2d::loops::SurfaceType;
 using $MTLContext = ::sun::java2d::metal::MTLContext;
@@ -37,45 +33,23 @@ using $MTLRenderQueue = ::sun::java2d::metal::MTLRenderQueue;
 using $MTLSurfaceData = ::sun::java2d::metal::MTLSurfaceData;
 using $BufferedMaskBlit = ::sun::java2d::pipe::BufferedMaskBlit;
 using $Region = ::sun::java2d::pipe::Region;
-using $RenderQueue = ::sun::java2d::pipe::RenderQueue;
-using $AccelSurface = ::sun::java2d::pipe::hw::AccelSurface;
 
 namespace sun {
 	namespace java2d {
 		namespace metal {
 
-$MethodInfo _MTLMaskBlit_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;)V", nullptr, $PRIVATE, $method(MTLMaskBlit, init$, void, $SurfaceType*, $CompositeType*)},
-	{"register", "()V", nullptr, $STATIC, $staticMethod(MTLMaskBlit, register$, void)},
-	{"validateContext", "(Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;)V", nullptr, $PROTECTED, $virtualMethod(MTLMaskBlit, validateContext, void, $SurfaceData*, $Composite*, $Region*)},
-	{}
-};
-
-$ClassInfo _MTLMaskBlit_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.metal.MTLMaskBlit",
-	"sun.java2d.pipe.BufferedMaskBlit",
-	nullptr,
-	nullptr,
-	_MTLMaskBlit_MethodInfo_
-};
-
-$Object* allocate$MTLMaskBlit($Class* clazz) {
-	return $of($alloc(MTLMaskBlit));
-}
-
 void MTLMaskBlit::register$() {
 	$init(MTLMaskBlit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($SurfaceType);
 	$init($CompositeType);
 	$var($GraphicsPrimitiveArray, primitives, $new($GraphicsPrimitiveArray, {
-		static_cast<$GraphicsPrimitive*>($$new(MTLMaskBlit, $SurfaceType::IntArgb, $CompositeType::SrcOver)),
-		static_cast<$GraphicsPrimitive*>($$new(MTLMaskBlit, $SurfaceType::IntArgbPre, $CompositeType::SrcOver)),
-		static_cast<$GraphicsPrimitive*>($$new(MTLMaskBlit, $SurfaceType::IntRgb, $CompositeType::SrcOver)),
-		static_cast<$GraphicsPrimitive*>($$new(MTLMaskBlit, $SurfaceType::IntRgb, $CompositeType::SrcNoEa)),
-		static_cast<$GraphicsPrimitive*>($$new(MTLMaskBlit, $SurfaceType::IntBgr, $CompositeType::SrcOver)),
-		static_cast<$GraphicsPrimitive*>($$new(MTLMaskBlit, $SurfaceType::IntBgr, $CompositeType::SrcNoEa))
+		$$new(MTLMaskBlit, $SurfaceType::IntArgb, $CompositeType::SrcOver),
+		$$new(MTLMaskBlit, $SurfaceType::IntArgbPre, $CompositeType::SrcOver),
+		$$new(MTLMaskBlit, $SurfaceType::IntRgb, $CompositeType::SrcOver),
+		$$new(MTLMaskBlit, $SurfaceType::IntRgb, $CompositeType::SrcNoEa),
+		$$new(MTLMaskBlit, $SurfaceType::IntBgr, $CompositeType::SrcOver),
+		$$new(MTLMaskBlit, $SurfaceType::IntBgr, $CompositeType::SrcNoEa)
 	}));
 	$GraphicsPrimitiveMgr::register$(primitives);
 }
@@ -94,7 +68,23 @@ MTLMaskBlit::MTLMaskBlit() {
 }
 
 $Class* MTLMaskBlit::load$($String* name, bool initialize) {
-	$loadClass(MTLMaskBlit, name, initialize, &_MTLMaskBlit_ClassInfo_, allocate$MTLMaskBlit);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;)V", nullptr, $PRIVATE, $method(MTLMaskBlit, init$, void, $SurfaceType*, $CompositeType*)},
+		{"register", "()V", nullptr, $STATIC, $staticMethod(MTLMaskBlit, register$, void)},
+		{"validateContext", "(Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;)V", nullptr, $PROTECTED, $virtualMethod(MTLMaskBlit, validateContext, void, $SurfaceData*, $Composite*, $Region*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.metal.MTLMaskBlit",
+		"sun.java2d.pipe.BufferedMaskBlit",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MTLMaskBlit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MTLMaskBlit);
+	});
 	return class$;
 }
 

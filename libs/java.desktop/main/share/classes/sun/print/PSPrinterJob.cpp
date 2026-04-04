@@ -1,5 +1,4 @@
 #include <sun/print/PSPrinterJob.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
@@ -40,7 +39,6 @@
 #include <java/nio/charset/CoderMalfunctionError.h>
 #include <java/nio/charset/CoderResult.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Locale.h>
 #include <java/util/Properties.h>
@@ -154,7 +152,6 @@ using $PathIterator = ::java::awt::geom::PathIterator;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $PageFormat = ::java::awt::print::PageFormat;
-using $Pageable = ::java::awt::print::Pageable;
 using $Paper = ::java::awt::print::Paper;
 using $Printable = ::java::awt::print::Printable;
 using $PrinterException = ::java::awt::print::PrinterException;
@@ -188,7 +185,6 @@ using $CharBuffer = ::java::nio::CharBuffer;
 using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $CoderMalfunctionError = ::java::nio::charset::CoderMalfunctionError;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
 using $Locale = ::java::util::Locale;
 using $Properties = ::java::util::Properties;
@@ -209,10 +205,8 @@ using $PrinterName = ::javax::print::attribute::standard::PrinterName;
 using $Sides = ::javax::print::attribute::standard::Sides;
 using $CharsetString = ::sun::awt::CharsetString;
 using $FontConfiguration = ::sun::awt::FontConfiguration;
-using $FontDescriptor = ::sun::awt::FontDescriptor;
 using $PlatformFont = ::sun::awt::PlatformFont;
 using $SunToolkit = ::sun::awt::SunToolkit;
-using $Font2D = ::sun::font::Font2D;
 using $FontAccess = ::sun::font::FontAccess;
 using $FontUtilities = ::sun::font::FontUtilities;
 using $CustomMediaTray = ::sun::print::CustomMediaTray;
@@ -231,166 +225,6 @@ using $RasterPrinterJob = ::sun::print::RasterPrinterJob;
 
 namespace sun {
 	namespace print {
-
-$FieldInfo _PSPrinterJob_FieldInfo_[] = {
-	{"FILL_EVEN_ODD", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(PSPrinterJob, FILL_EVEN_ODD)},
-	{"FILL_WINDING", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(PSPrinterJob, FILL_WINDING)},
-	{"MAX_PSSTR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PSPrinterJob, MAX_PSSTR)},
-	{"RED_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PSPrinterJob, RED_MASK)},
-	{"GREEN_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PSPrinterJob, GREEN_MASK)},
-	{"BLUE_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PSPrinterJob, BLUE_MASK)},
-	{"RED_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PSPrinterJob, RED_SHIFT)},
-	{"GREEN_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PSPrinterJob, GREEN_SHIFT)},
-	{"BLUE_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PSPrinterJob, BLUE_SHIFT)},
-	{"LOWNIBBLE_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PSPrinterJob, LOWNIBBLE_MASK)},
-	{"HINIBBLE_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PSPrinterJob, HINIBBLE_MASK)},
-	{"HINIBBLE_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PSPrinterJob, HINIBBLE_SHIFT)},
-	{"hexDigits", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, hexDigits)},
-	{"PS_XRES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PSPrinterJob, PS_XRES)},
-	{"PS_YRES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PSPrinterJob, PS_YRES)},
-	{"ADOBE_PS_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, ADOBE_PS_STR)},
-	{"EOF_COMMENT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, EOF_COMMENT)},
-	{"PAGE_COMMENT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, PAGE_COMMENT)},
-	{"READIMAGEPROC", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, READIMAGEPROC)},
-	{"COPIES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, COPIES)},
-	{"PAGE_SAVE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, PAGE_SAVE)},
-	{"PAGE_RESTORE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, PAGE_RESTORE)},
-	{"SHOWPAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, SHOWPAGE)},
-	{"IMAGE_SAVE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, IMAGE_SAVE)},
-	{"IMAGE_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, IMAGE_STR)},
-	{"IMAGE_RESTORE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, IMAGE_RESTORE)},
-	{"SetFontName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, SetFontName)},
-	{"DrawStringName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, DrawStringName)},
-	{"EVEN_ODD_FILL_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, EVEN_ODD_FILL_STR)},
-	{"WINDING_FILL_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, WINDING_FILL_STR)},
-	{"EVEN_ODD_CLIP_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, EVEN_ODD_CLIP_STR)},
-	{"WINDING_CLIP_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, WINDING_CLIP_STR)},
-	{"MOVETO_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, MOVETO_STR)},
-	{"LINETO_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, LINETO_STR)},
-	{"CURVETO_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, CURVETO_STR)},
-	{"GRESTORE_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, GRESTORE_STR)},
-	{"GSAVE_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, GSAVE_STR)},
-	{"NEWPATH_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, NEWPATH_STR)},
-	{"CLOSEPATH_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, CLOSEPATH_STR)},
-	{"SETRGBCOLOR_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, SETRGBCOLOR_STR)},
-	{"SETGRAY_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, SETGRAY_STR)},
-	{"mDestType", "I", nullptr, $PRIVATE, $field(PSPrinterJob, mDestType)},
-	{"mDestination", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PSPrinterJob, mDestination)},
-	{"mNoJobSheet", "Z", nullptr, $PRIVATE, $field(PSPrinterJob, mNoJobSheet)},
-	{"mOptions", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PSPrinterJob, mOptions)},
-	{"mLastFont", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(PSPrinterJob, mLastFont)},
-	{"mLastColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(PSPrinterJob, mLastColor)},
-	{"mLastClip", "Ljava/awt/Shape;", nullptr, $PRIVATE, $field(PSPrinterJob, mLastClip)},
-	{"mLastTransform", "Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE, $field(PSPrinterJob, mLastTransform)},
-	{"xres", "D", nullptr, $PRIVATE, $field(PSPrinterJob, xres)},
-	{"yres", "D", nullptr, $PRIVATE, $field(PSPrinterJob, yres)},
-	{"epsPrinter", "Lsun/print/PSPrinterJob$EPSPrinter;", nullptr, $PRIVATE, $field(PSPrinterJob, epsPrinter)},
-	{"mCurMetrics", "Ljava/awt/FontMetrics;", nullptr, 0, $field(PSPrinterJob, mCurMetrics)},
-	{"mPSStream", "Ljava/io/PrintStream;", nullptr, 0, $field(PSPrinterJob, mPSStream)},
-	{"spoolFile", "Ljava/io/File;", nullptr, 0, $field(PSPrinterJob, spoolFile)},
-	{"mFillOpStr", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PSPrinterJob, mFillOpStr)},
-	{"mClipOpStr", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PSPrinterJob, mClipOpStr)},
-	{"mGStateStack", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lsun/print/PSPrinterJob$GState;>;", 0, $field(PSPrinterJob, mGStateStack)},
-	{"mPenX", "F", nullptr, $PRIVATE, $field(PSPrinterJob, mPenX)},
-	{"mPenY", "F", nullptr, $PRIVATE, $field(PSPrinterJob, mPenY)},
-	{"mStartPathX", "F", nullptr, $PRIVATE, $field(PSPrinterJob, mStartPathX)},
-	{"mStartPathY", "F", nullptr, $PRIVATE, $field(PSPrinterJob, mStartPathY)},
-	{"mFontProps", "Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC, $staticField(PSPrinterJob, mFontProps)},
-	{"isMac", "Z", nullptr, $PRIVATE | $STATIC, $staticField(PSPrinterJob, isMac)},
-	{}
-};
-
-$MethodInfo _PSPrinterJob_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PSPrinterJob, init$, void)},
-	{"abortDoc", "()V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, abortDoc, void)},
-	{"ascii85Encode", "([B)[B", nullptr, $PRIVATE, $method(PSPrinterJob, ascii85Encode, $bytes*, $bytes*)},
-	{"beginPath", "()V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, beginPath, void)},
-	{"bezierTo", "(FFFFFF)V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, bezierTo, void, float, float, float, float, float, float)},
-	{"closeSubpath", "()V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, closeSubpath, void)},
-	{"convertToPSPath", "(Ljava/awt/geom/PathIterator;)V", nullptr, 0, $virtualMethod(PSPrinterJob, convertToPSPath, void, $PathIterator*)},
-	{"createPathGraphics", "(Lsun/print/PeekGraphics;Ljava/awt/print/PrinterJob;Ljava/awt/print/Printable;Ljava/awt/print/PageFormat;I)Ljava/awt/Graphics2D;", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, createPathGraphics, $Graphics2D*, $PeekGraphics*, $PrinterJob*, $Printable*, $PageFormat*, int32_t)},
-	{"deviceFill", "(Ljava/awt/geom/PathIterator;Ljava/awt/Color;Ljava/awt/geom/AffineTransform;Ljava/awt/Shape;)V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, deviceFill, void, $PathIterator*, $Color*, $AffineTransform*, $Shape*)},
-	{"drawImageBGR", "([BFFFFFFFFII)V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, drawImageBGR, void, $bytes*, float, float, float, float, float, float, float, float, int32_t, int32_t)},
-	{"endDoc", "()V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, endDoc, void), "java.awt.print.PrinterException"},
-	{"endPage", "(Ljava/awt/print/PageFormat;Ljava/awt/print/Printable;I)V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, endPage, void, $PageFormat*, $Printable*, int32_t), "java.awt.print.PrinterException"},
-	{"escapeParens", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(PSPrinterJob, escapeParens, $String*, $String*)},
-	{"fillPath", "()V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, fillPath, void)},
-	{"getCollatedCopies", "()I", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, getCollatedCopies, int32_t)},
-	{"getCoordPrep", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(PSPrinterJob, getCoordPrep, $String*)},
-	{"getGState", "()Lsun/print/PSPrinterJob$GState;", nullptr, $PRIVATE, $method(PSPrinterJob, getGState, $PSPrinterJob$GState*)},
-	{"getNoncollatedCopies", "()I", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, getNoncollatedCopies, int32_t)},
-	{"getPSFontIndexArray", "(Ljava/awt/Font;[Lsun/awt/CharsetString;)[I", nullptr, $PRIVATE, $method(PSPrinterJob, getPSFontIndexArray, $ints*, $Font*, $CharsetStringArray*)},
-	{"getPenX", "()F", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, getPenX, float)},
-	{"getPenY", "()F", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, getPenY, float)},
-	{"getPhysicalPageHeight", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, getPhysicalPageHeight, double, $Paper*)},
-	{"getPhysicalPageWidth", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, getPhysicalPageWidth, double, $Paper*)},
-	{"getPhysicalPrintableHeight", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, getPhysicalPrintableHeight, double, $Paper*)},
-	{"getPhysicalPrintableWidth", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, getPhysicalPrintableWidth, double, $Paper*)},
-	{"getPhysicalPrintableX", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, getPhysicalPrintableX, double, $Paper*)},
-	{"getPhysicalPrintableY", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, getPhysicalPrintableY, double, $Paper*)},
-	{"getXRes", "()D", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, getXRes, double)},
-	{"getYRes", "()D", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, getYRes, double)},
-	{"grestore", "()V", nullptr, $PRIVATE, $method(PSPrinterJob, grestore, void)},
-	{"gsave", "()V", nullptr, $PRIVATE, $method(PSPrinterJob, gsave, void)},
-	{"initProps", "()Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC, $staticMethod(PSPrinterJob, initProps, $Properties*)},
-	{"initStatic", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(PSPrinterJob, initStatic, void)},
-	{"isOuterGState", "()Z", nullptr, $PRIVATE, $method(PSPrinterJob, isOuterGState, bool)},
-	{"lineTo", "(FF)V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, lineTo, void, float, float)},
-	{"makeCharsetName", "(Ljava/lang/String;[C)Ljava/lang/String;", nullptr, $PRIVATE, $method(PSPrinterJob, makeCharsetName, $String*, $String*, $chars*)},
-	{"moveTo", "(FF)V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, moveTo, void, float, float)},
-	{"platformFontCount", "(Ljava/awt/Font;Ljava/lang/String;)I", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, platformFontCount, int32_t, $Font*, $String*)},
-	{"prepDrawing", "()V", nullptr, $PRIVATE, $method(PSPrinterJob, prepDrawing, void)},
-	{"printBand", "([BIIII)V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, printBand, void, $bytes*, int32_t, int32_t, int32_t, int32_t), "java.awt.print.PrinterException"},
-	{"printDialog", "()Z", nullptr, $PUBLIC, $virtualMethod(PSPrinterJob, printDialog, bool), "java.awt.HeadlessException"},
-	{"printExecCmd", "(Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;ILjava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE, $method(PSPrinterJob, printExecCmd, $StringArray*, $String*, $String*, bool, $String*, int32_t, $String*)},
-	{"rlEncode", "([B)[B", nullptr, $PRIVATE, $method(PSPrinterJob, rlEncode, $bytes*, $bytes*)},
-	{"selectClipPath", "()V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, selectClipPath, void)},
-	{"setAttributes", "(Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, setAttributes, void, $PrintRequestAttributeSet*), "java.awt.print.PrinterException"},
-	{"setClip", "(Ljava/awt/Shape;)V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, setClip, void, $Shape*)},
-	{"setColor", "(Ljava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, setColor, void, $Color*)},
-	{"setFillMode", "(I)V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, setFillMode, void, int32_t)},
-	{"setFont", "(Ljava/awt/Font;)Z", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, setFont, bool, $Font*)},
-	{"setTransform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, setTransform, void, $AffineTransform*)},
-	{"setXYRes", "(DD)V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, setXYRes, void, double, double)},
-	{"startDoc", "()V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, startDoc, void), "java.awt.print.PrinterException"},
-	{"startPage", "(Ljava/awt/print/PageFormat;Ljava/awt/print/Printable;IZ)V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, startPage, void, $PageFormat*, $Printable*, int32_t, bool), "java.awt.print.PrinterException"},
-	{"swapBGRtoRGB", "([BI[B)I", nullptr, $PRIVATE | $STATIC, $staticMethod(PSPrinterJob, swapBGRtoRGB, int32_t, $bytes*, int32_t, $bytes*)},
-	{"textOut", "(Ljava/awt/Graphics;Ljava/lang/String;FFLjava/awt/Font;Ljava/awt/font/FontRenderContext;F)Z", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, textOut, bool, $Graphics*, $String*, float, float, $Font*, $FontRenderContext*, float)},
-	{"trunc", "(F)Ljava/lang/String;", nullptr, 0, $virtualMethod(PSPrinterJob, trunc, $String*, float)},
-	{}
-};
-
-$InnerClassInfo _PSPrinterJob_InnerClassesInfo_[] = {
-	{"sun.print.PSPrinterJob$EPSPrinter", "sun.print.PSPrinterJob", "EPSPrinter", $PUBLIC | $STATIC},
-	{"sun.print.PSPrinterJob$PluginPrinter", "sun.print.PSPrinterJob", "PluginPrinter", $PUBLIC | $STATIC},
-	{"sun.print.PSPrinterJob$GState", "sun.print.PSPrinterJob", "GState", $PRIVATE},
-	{"sun.print.PSPrinterJob$PrinterSpooler", "sun.print.PSPrinterJob", "PrinterSpooler", $PRIVATE},
-	{"sun.print.PSPrinterJob$PrinterOpener", "sun.print.PSPrinterJob", "PrinterOpener", $PRIVATE},
-	{"sun.print.PSPrinterJob$4", nullptr, nullptr, 0},
-	{"sun.print.PSPrinterJob$3", nullptr, nullptr, 0},
-	{"sun.print.PSPrinterJob$2", nullptr, nullptr, 0},
-	{"sun.print.PSPrinterJob$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PSPrinterJob_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.print.PSPrinterJob",
-	"sun.print.RasterPrinterJob",
-	nullptr,
-	_PSPrinterJob_FieldInfo_,
-	_PSPrinterJob_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PSPrinterJob_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.print.PSPrinterJob$EPSPrinter,sun.print.PSPrinterJob$PluginPrinter,sun.print.PSPrinterJob$GState,sun.print.PSPrinterJob$PrinterSpooler,sun.print.PSPrinterJob$PrinterOpener,sun.print.PSPrinterJob$4,sun.print.PSPrinterJob$3,sun.print.PSPrinterJob$2,sun.print.PSPrinterJob$1"
-};
-
-$Object* allocate$PSPrinterJob($Class* clazz) {
-	return $of($alloc(PSPrinterJob));
-}
 
 $bytes* PSPrinterJob::hexDigits = nullptr;
 $String* PSPrinterJob::ADOBE_PS_STR = nullptr;
@@ -425,15 +259,15 @@ bool PSPrinterJob::isMac = false;
 void PSPrinterJob::initStatic() {
 	$init(PSPrinterJob);
 	$beforeCallerSensitive();
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($PSPrinterJob$1)));
+	$AccessController::doPrivileged($$new($PSPrinterJob$1));
 }
 
 $Properties* PSPrinterJob::initProps() {
 	$init(PSPrinterJob);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, jhome, $System::getProperty("java.home"_s));
 	if (jhome != nullptr) {
-		$var($String, ulocale, $nc($($SunToolkit::getStartupLocale()))->getLanguage());
+		$var($String, ulocale, $$nc($SunToolkit::getStartupLocale())->getLanguage());
 		try {
 			$init($File);
 			$var($File, f, $new($File, $$str({jhome, $File::separator, "lib"_s, $File::separator, "psfontj2d.properties."_s, ulocale})));
@@ -474,15 +308,15 @@ void PSPrinterJob::init$() {
 }
 
 bool PSPrinterJob::printDialog() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($GraphicsEnvironment::isHeadless()) {
 		$throwNew($HeadlessException);
 	}
 	if (this->attributes == nullptr) {
 		$set(this, attributes, $new($HashPrintRequestAttributeSet));
 	}
-	$nc(this->attributes)->add(static_cast<$Attribute*>(static_cast<$PrintRequestAttribute*>($$new($Copies, getCopies()))));
-	$nc(this->attributes)->add(static_cast<$Attribute*>(static_cast<$PrintRequestAttribute*>($$new($JobName, $(getJobName()), nullptr))));
+	$nc(this->attributes)->add($$cast($PrintRequestAttribute, $new($Copies, getCopies())));
+	$nc(this->attributes)->add($$cast($PrintRequestAttribute, $new($JobName, $(getJobName()), nullptr)));
 	bool doPrint = false;
 	$load($DialogTypeSelection);
 	$var($DialogTypeSelection, dts, $cast($DialogTypeSelection, $nc(this->attributes)->get($DialogTypeSelection::class$)));
@@ -495,12 +329,10 @@ bool PSPrinterJob::printDialog() {
 		doPrint = printDialog(this->attributes);
 	}
 	if (doPrint) {
-		$load($JobName);
 		$var($JobName, jobName, $cast($JobName, $nc(this->attributes)->get($JobName::class$)));
 		if (jobName != nullptr) {
 			setJobName($(jobName->getValue()));
 		}
-		$load($Copies);
 		$var($Copies, copies, $cast($Copies, $nc(this->attributes)->get($Copies::class$)));
 		if (copies != nullptr) {
 			setCopies(copies->getValue());
@@ -523,7 +355,7 @@ bool PSPrinterJob::printDialog() {
 					$var($PrintServiceAttributeSet, psaSet, pServ->getAttributes());
 					if (psaSet != nullptr) {
 						$load($PrinterName);
-						$set(this, mDestination, $nc($of($(psaSet->get($PrinterName::class$))))->toString());
+						$set(this, mDestination, $$nc(psaSet->get($PrinterName::class$))->toString());
 					}
 				}
 			}
@@ -533,7 +365,7 @@ bool PSPrinterJob::printDialog() {
 }
 
 void PSPrinterJob::setAttributes($PrintRequestAttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$RasterPrinterJob::setAttributes(attributes);
 	if (attributes == nullptr) {
 		return;
@@ -542,7 +374,7 @@ void PSPrinterJob::setAttributes($PrintRequestAttributeSet* attributes) {
 	$var($Attribute, attr, $nc(attributes)->get($Media::class$));
 	if ($instanceOf($CustomMediaTray, attr)) {
 		$var($CustomMediaTray, customTray, $cast($CustomMediaTray, attr));
-		$var($String, choice, $nc(customTray)->getChoiceName());
+		$var($String, choice, customTray->getChoiceName());
 		if (choice != nullptr) {
 			$set(this, mOptions, $str({" InputSlot="_s, choice}));
 		}
@@ -550,7 +382,7 @@ void PSPrinterJob::setAttributes($PrintRequestAttributeSet* attributes) {
 }
 
 void PSPrinterJob::startDoc() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($OutputStream, output, nullptr);
 	if (this->epsPrinter == nullptr) {
@@ -560,7 +392,7 @@ void PSPrinterJob::startDoc() {
 			if ($nc(sps)->isDisposed()) {
 				$throwNew($PrinterException, "service is disposed"_s);
 			}
-			$assign(output, $nc(sps)->getOutputStream());
+			$assign(output, sps->getOutputStream());
 			if (output == nullptr) {
 				$throwNew($PrinterException, "Null output stream"_s);
 			}
@@ -580,91 +412,89 @@ void PSPrinterJob::startDoc() {
 				}
 			} else {
 				$var($PSPrinterJob$PrinterOpener, po, $new($PSPrinterJob$PrinterOpener, this));
-				$AccessController::doPrivileged(static_cast<$PrivilegedAction*>(po));
+				$AccessController::doPrivileged(po);
 				if (po->pex != nullptr) {
 					$throw(po->pex);
 				}
 				$assign(output, po->result);
 			}
 		}
-		$set(this, mPSStream, $new($PrintStream, static_cast<$OutputStream*>($$new($BufferedOutputStream, output))));
-		$nc(this->mPSStream)->println(PSPrinterJob::ADOBE_PS_STR);
+		$set(this, mPSStream, $new($PrintStream, $$new($BufferedOutputStream, output)));
+		this->mPSStream->println(PSPrinterJob::ADOBE_PS_STR);
 	}
 	$nc(this->mPSStream)->println("%%BeginProlog"_s);
-	$nc(this->mPSStream)->println(PSPrinterJob::READIMAGEPROC);
-	$nc(this->mPSStream)->println("/BD {bind def} bind def"_s);
-	$nc(this->mPSStream)->println("/D {def} BD"_s);
-	$nc(this->mPSStream)->println("/C {curveto} BD"_s);
-	$nc(this->mPSStream)->println("/L {lineto} BD"_s);
-	$nc(this->mPSStream)->println("/M {moveto} BD"_s);
-	$nc(this->mPSStream)->println("/R {grestore} BD"_s);
-	$nc(this->mPSStream)->println("/G {gsave} BD"_s);
-	$nc(this->mPSStream)->println("/N {newpath} BD"_s);
-	$nc(this->mPSStream)->println("/P {closepath} BD"_s);
-	$nc(this->mPSStream)->println("/EC {eoclip} BD"_s);
-	$nc(this->mPSStream)->println("/WC {clip} BD"_s);
-	$nc(this->mPSStream)->println("/EF {eofill} BD"_s);
-	$nc(this->mPSStream)->println("/WF {fill} BD"_s);
-	$nc(this->mPSStream)->println("/SG {setgray} BD"_s);
-	$nc(this->mPSStream)->println("/SC {setrgbcolor} BD"_s);
-	$nc(this->mPSStream)->println("/ISOF {"_s);
-	$nc(this->mPSStream)->println("     dup findfont dup length 1 add dict begin {"_s);
-	$nc(this->mPSStream)->println("             1 index /FID eq {pop pop} {D} ifelse"_s);
-	$nc(this->mPSStream)->println("     } forall /Encoding ISOLatin1Encoding D"_s);
-	$nc(this->mPSStream)->println("     currentdict end definefont"_s);
-	$nc(this->mPSStream)->println("} BD"_s);
-	$nc(this->mPSStream)->println("/NZ {dup 1 lt {pop 1} if} BD"_s);
-	$nc(this->mPSStream)->println($$str({"/"_s, PSPrinterJob::DrawStringName, " {"_s}));
-	$nc(this->mPSStream)->println("     moveto 1 index stringwidth pop NZ sub"_s);
-	$nc(this->mPSStream)->println("     1 index length 1 sub NZ div 0"_s);
-	$nc(this->mPSStream)->println("     3 2 roll ashow newpath} BD"_s);
-	$nc(this->mPSStream)->println("/FL ["_s);
+	this->mPSStream->println(PSPrinterJob::READIMAGEPROC);
+	this->mPSStream->println("/BD {bind def} bind def"_s);
+	this->mPSStream->println("/D {def} BD"_s);
+	this->mPSStream->println("/C {curveto} BD"_s);
+	this->mPSStream->println("/L {lineto} BD"_s);
+	this->mPSStream->println("/M {moveto} BD"_s);
+	this->mPSStream->println("/R {grestore} BD"_s);
+	this->mPSStream->println("/G {gsave} BD"_s);
+	this->mPSStream->println("/N {newpath} BD"_s);
+	this->mPSStream->println("/P {closepath} BD"_s);
+	this->mPSStream->println("/EC {eoclip} BD"_s);
+	this->mPSStream->println("/WC {clip} BD"_s);
+	this->mPSStream->println("/EF {eofill} BD"_s);
+	this->mPSStream->println("/WF {fill} BD"_s);
+	this->mPSStream->println("/SG {setgray} BD"_s);
+	this->mPSStream->println("/SC {setrgbcolor} BD"_s);
+	this->mPSStream->println("/ISOF {"_s);
+	this->mPSStream->println("     dup findfont dup length 1 add dict begin {"_s);
+	this->mPSStream->println("             1 index /FID eq {pop pop} {D} ifelse"_s);
+	this->mPSStream->println("     } forall /Encoding ISOLatin1Encoding D"_s);
+	this->mPSStream->println("     currentdict end definefont"_s);
+	this->mPSStream->println("} BD"_s);
+	this->mPSStream->println("/NZ {dup 1 lt {pop 1} if} BD"_s);
+	this->mPSStream->println($$str({"/"_s, PSPrinterJob::DrawStringName, " {"_s}));
+	this->mPSStream->println("     moveto 1 index stringwidth pop NZ sub"_s);
+	this->mPSStream->println("     1 index length 1 sub NZ div 0"_s);
+	this->mPSStream->println("     3 2 roll ashow newpath} BD"_s);
+	this->mPSStream->println("/FL ["_s);
 	if (PSPrinterJob::mFontProps == nullptr) {
-		$nc(this->mPSStream)->println(" /Helvetica ISOF"_s);
-		$nc(this->mPSStream)->println(" /Helvetica-Bold ISOF"_s);
-		$nc(this->mPSStream)->println(" /Helvetica-Oblique ISOF"_s);
-		$nc(this->mPSStream)->println(" /Helvetica-BoldOblique ISOF"_s);
-		$nc(this->mPSStream)->println(" /Times-Roman ISOF"_s);
-		$nc(this->mPSStream)->println(" /Times-Bold ISOF"_s);
-		$nc(this->mPSStream)->println(" /Times-Italic ISOF"_s);
-		$nc(this->mPSStream)->println(" /Times-BoldItalic ISOF"_s);
-		$nc(this->mPSStream)->println(" /Courier ISOF"_s);
-		$nc(this->mPSStream)->println(" /Courier-Bold ISOF"_s);
-		$nc(this->mPSStream)->println(" /Courier-Oblique ISOF"_s);
-		$nc(this->mPSStream)->println(" /Courier-BoldOblique ISOF"_s);
+		this->mPSStream->println(" /Helvetica ISOF"_s);
+		this->mPSStream->println(" /Helvetica-Bold ISOF"_s);
+		this->mPSStream->println(" /Helvetica-Oblique ISOF"_s);
+		this->mPSStream->println(" /Helvetica-BoldOblique ISOF"_s);
+		this->mPSStream->println(" /Times-Roman ISOF"_s);
+		this->mPSStream->println(" /Times-Bold ISOF"_s);
+		this->mPSStream->println(" /Times-Italic ISOF"_s);
+		this->mPSStream->println(" /Times-BoldItalic ISOF"_s);
+		this->mPSStream->println(" /Courier ISOF"_s);
+		this->mPSStream->println(" /Courier-Bold ISOF"_s);
+		this->mPSStream->println(" /Courier-Oblique ISOF"_s);
+		this->mPSStream->println(" /Courier-BoldOblique ISOF"_s);
 	} else {
-		int32_t cnt = $Integer::parseInt($($nc(PSPrinterJob::mFontProps)->getProperty("font.num"_s, "9"_s)));
+		int32_t cnt = $Integer::parseInt($(PSPrinterJob::mFontProps->getProperty("font.num"_s, "9"_s)));
 		for (int32_t i = 0; i < cnt; ++i) {
-			$nc(this->mPSStream)->println($$str({"    /"_s, $($nc(PSPrinterJob::mFontProps)->getProperty($$str({"font."_s, $($String::valueOf(i))}), "Courier ISOF"_s))}));
+			this->mPSStream->println($$str({"    /"_s, $(PSPrinterJob::mFontProps->getProperty($$str({"font."_s, $($String::valueOf(i))}), "Courier ISOF"_s))}));
 		}
 	}
-	$nc(this->mPSStream)->println("] D"_s);
-	$nc(this->mPSStream)->println($$str({"/"_s, PSPrinterJob::SetFontName, " {"_s}));
-	$nc(this->mPSStream)->println("     FL exch get exch scalefont"_s);
-	$nc(this->mPSStream)->println("     [1 0 0 -1 0 0] makefont setfont} BD"_s);
-	$nc(this->mPSStream)->println("%%EndProlog"_s);
-	$nc(this->mPSStream)->println("%%BeginSetup"_s);
+	this->mPSStream->println("] D"_s);
+	this->mPSStream->println($$str({"/"_s, PSPrinterJob::SetFontName, " {"_s}));
+	this->mPSStream->println("     FL exch get exch scalefont"_s);
+	this->mPSStream->println("     [1 0 0 -1 0 0] makefont setfont} BD"_s);
+	this->mPSStream->println("%%EndProlog"_s);
+	this->mPSStream->println("%%BeginSetup"_s);
 	if (this->epsPrinter == nullptr) {
-		$var($PageFormat, pageFormat, $nc($(getPageable()))->getPageFormat(0));
-		double paperHeight = $nc($($nc(pageFormat)->getPaper()))->getHeight();
-		double paperWidth = $nc($(pageFormat->getPaper()))->getWidth();
+		$var($PageFormat, pageFormat, $$nc(getPageable())->getPageFormat(0));
+		double paperHeight = $$nc($nc(pageFormat)->getPaper())->getHeight();
+		double paperWidth = $$nc(pageFormat->getPaper())->getWidth();
 		$nc(this->mPSStream)->print($$str({"<< /PageSize ["_s, $$str(paperWidth), " "_s, $$str(paperHeight), "]"_s}));
 		$var($PrintService, pservice, getPrintService());
-		$var($Boolean, isPS, $cast($Boolean, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($PSPrinterJob$2, this, pservice)))));
+		$var($Boolean, isPS, $cast($Boolean, $AccessController::doPrivileged($$new($PSPrinterJob$2, this, pservice))));
 		if ($nc((isPS))->booleanValue()) {
 			$nc(this->mPSStream)->print(" /DeferredMediaSelection true"_s);
 		}
 		$nc(this->mPSStream)->print(" /ImagingBBox null /ManualFeed false"_s);
-		$nc(this->mPSStream)->print(isCollated() ? " /Collate true"_s : ""_s);
+		this->mPSStream->print(isCollated() ? " /Collate true"_s : ""_s);
 		$nc(this->mPSStream)->print($$str({" /NumCopies "_s, $$str(getCopiesInt())}));
 		$init($Sides);
 		if (this->sidesAttr != $Sides::ONE_SIDED) {
 			if (this->sidesAttr == $Sides::TWO_SIDED_LONG_EDGE) {
 				$nc(this->mPSStream)->print(" /Duplex true "_s);
-			} else {
-				if (this->sidesAttr == $Sides::TWO_SIDED_SHORT_EDGE) {
-					$nc(this->mPSStream)->print(" /Duplex true /Tumble true "_s);
-				}
+			} else if (this->sidesAttr == $Sides::TWO_SIDED_SHORT_EDGE) {
+				$nc(this->mPSStream)->print(" /Duplex true /Tumble true "_s);
 			}
 		}
 		$nc(this->mPSStream)->println(" >> setpagedevice "_s);
@@ -675,18 +505,18 @@ void PSPrinterJob::startDoc() {
 void PSPrinterJob::abortDoc() {
 	$beforeCallerSensitive();
 	if (this->mPSStream != nullptr && this->mDestType != $RasterPrinterJob::STREAM) {
-		$nc(this->mPSStream)->close();
+		this->mPSStream->close();
 	}
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($PSPrinterJob$3, this)));
+	$AccessController::doPrivileged($$new($PSPrinterJob$3, this));
 }
 
 void PSPrinterJob::endDoc() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (this->mPSStream != nullptr) {
-		$nc(this->mPSStream)->println(PSPrinterJob::EOF_COMMENT);
-		$nc(this->mPSStream)->flush();
-		if ($nc(this->mPSStream)->checkError()) {
+		this->mPSStream->println(PSPrinterJob::EOF_COMMENT);
+		this->mPSStream->flush();
+		if (this->mPSStream->checkError()) {
 			abortDoc();
 			$throwNew($PrinterException, "Error while writing to file"_s);
 		}
@@ -702,12 +532,12 @@ void PSPrinterJob::endDoc() {
 				$var($PrintServiceAttributeSet, psaSet, pServ->getAttributes());
 				if (psaSet != nullptr) {
 					$load($PrinterName);
-					$set(this, mDestination, $nc($of($(psaSet->get($PrinterName::class$))))->toString());
+					$set(this, mDestination, $$nc(psaSet->get($PrinterName::class$))->toString());
 				}
 			}
 		}
 		$var($PSPrinterJob$PrinterSpooler, spooler, $new($PSPrinterJob$PrinterSpooler, this));
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>(spooler));
+		$AccessController::doPrivileged(spooler);
 		if (spooler->pex != nullptr) {
 			$throw(spooler->pex);
 		}
@@ -715,41 +545,44 @@ void PSPrinterJob::endDoc() {
 }
 
 $String* PSPrinterJob::getCoordPrep() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({" 0 exch translate 1 -1 scale[72 "_s, $$str(getXRes()), " div 0 0 72 "_s}));
-	$var($String, var$0, $$concat(var$1, $$str(getYRes())));
-	return $concat(var$0, " div 0 0]concat"_s);
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append(" 0 exch translate 1 -1 scale[72 "_s);
+	var$0->append(getXRes());
+	var$0->append(" div 0 0 72 "_s);
+	var$0->append(getYRes());
+	var$0->append(" div 0 0]concat"_s);
+	return $str(var$0);
 }
 
 void PSPrinterJob::startPage($PageFormat* pageFormat, $Printable* painter, int32_t index, bool paperChanged) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	double paperHeight = $nc($($nc(pageFormat)->getPaper()))->getHeight();
-	double paperWidth = $nc($(pageFormat->getPaper()))->getWidth();
+	double paperHeight = $$nc($nc(pageFormat)->getPaper())->getHeight();
+	double paperWidth = $$nc(pageFormat->getPaper())->getWidth();
 	int32_t pageNumber = index + 1;
 	$set(this, mGStateStack, $new($ArrayList));
-	$nc(this->mGStateStack)->add($$new($PSPrinterJob$GState, this));
+	this->mGStateStack->add($$new($PSPrinterJob$GState, this));
 	$nc(this->mPSStream)->println($$str({PSPrinterJob::PAGE_COMMENT, $$str(pageNumber), " "_s, $$str(pageNumber)}));
 	if (index > 0 && paperChanged) {
-		$nc(this->mPSStream)->print($$str({"<< /PageSize ["_s, $$str(paperWidth), " "_s, $$str(paperHeight), "]"_s}));
+		this->mPSStream->print($$str({"<< /PageSize ["_s, $$str(paperWidth), " "_s, $$str(paperHeight), "]"_s}));
 		$var($PrintService, pservice, getPrintService());
-		$var($Boolean, isPS, $cast($Boolean, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($PSPrinterJob$4, this, pservice)))));
+		$var($Boolean, isPS, $cast($Boolean, $AccessController::doPrivileged($$new($PSPrinterJob$4, this, pservice))));
 		if ($nc((isPS))->booleanValue()) {
 			$nc(this->mPSStream)->print(" /DeferredMediaSelection true"_s);
 		}
 		$nc(this->mPSStream)->println(" >> setpagedevice"_s);
 	}
 	$nc(this->mPSStream)->println(PSPrinterJob::PAGE_SAVE);
-	$nc(this->mPSStream)->println($$str({$$str(paperHeight), $(getCoordPrep())}));
+	this->mPSStream->println($$str({$$str(paperHeight), $(getCoordPrep())}));
 }
 
 void PSPrinterJob::endPage($PageFormat* format, $Printable* painter, int32_t index) {
 	$nc(this->mPSStream)->println(PSPrinterJob::PAGE_RESTORE);
-	$nc(this->mPSStream)->println(PSPrinterJob::SHOWPAGE);
+	this->mPSStream->println(PSPrinterJob::SHOWPAGE);
 }
 
 void PSPrinterJob::drawImageBGR($bytes* bgrData, float destX, float destY, float destWidth, float destHeight, float srcX, float srcY, float srcWidth, float srcHeight, int32_t srcBitMapWidth, int32_t srcBitMapHeight) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setTransform($$new($AffineTransform));
 	prepDrawing();
 	int32_t intSrcWidth = $cast(int32_t, srcWidth);
@@ -759,9 +592,9 @@ void PSPrinterJob::drawImageBGR($bytes* bgrData, float destX, float destY, float
 	while (psBytesPerRow > PSPrinterJob::MAX_PSSTR) {
 		psBytesPerRow /= 2;
 	}
-	$nc(this->mPSStream)->println($$str({$$str(psBytesPerRow), PSPrinterJob::IMAGE_STR}));
-	$nc(this->mPSStream)->println($$str({"["_s, $$str(destWidth), " 0 0 "_s, $$str(destHeight), " "_s, $$str(destX), " "_s, $$str(destY), "]concat"_s}));
-	$nc(this->mPSStream)->println($$str({$$str(intSrcWidth), " "_s, $$str(intSrcHeight), " "_s, $$str(8), "["_s, $$str(intSrcWidth), " 0 0 "_s, $$str(intSrcHeight), " 0 "_s, $$str(0), "]/imageSrc load false 3 colorimage"_s}));
+	this->mPSStream->println($$str({$$str(psBytesPerRow), PSPrinterJob::IMAGE_STR}));
+	this->mPSStream->println($$str({"["_s, $$str(destWidth), " 0 0 "_s, $$str(destHeight), " "_s, $$str(destX), " "_s, $$str(destY), "]concat"_s}));
+	this->mPSStream->println($$str({$$str(intSrcWidth), " "_s, $$str(intSrcHeight), " "_s, $$str(8), "["_s, $$str(intSrcWidth), " 0 0 "_s, $$str(intSrcHeight), " 0 "_s, $$str(0), "]/imageSrc load false 3 colorimage"_s}));
 	int32_t index = 0;
 	$var($bytes, rgbData, $new($bytes, intSrcWidth * 3));
 	try {
@@ -772,7 +605,7 @@ void PSPrinterJob::drawImageBGR($bytes* bgrData, float destX, float destY, float
 			$var($bytes, encodedData, rlEncode(rgbData));
 			$var($bytes, asciiData, ascii85Encode(encodedData));
 			$nc(this->mPSStream)->write(asciiData);
-			$nc(this->mPSStream)->println(""_s);
+			this->mPSStream->println(""_s);
 		}
 	} catch ($IOException& e) {
 	}
@@ -780,15 +613,15 @@ void PSPrinterJob::drawImageBGR($bytes* bgrData, float destX, float destY, float
 }
 
 void PSPrinterJob::printBand($bytes* bgrData, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->mPSStream)->println(PSPrinterJob::IMAGE_SAVE);
 	int32_t psBytesPerRow = 3 * width;
 	while (psBytesPerRow > PSPrinterJob::MAX_PSSTR) {
 		psBytesPerRow /= 2;
 	}
-	$nc(this->mPSStream)->println($$str({$$str(psBytesPerRow), PSPrinterJob::IMAGE_STR}));
-	$nc(this->mPSStream)->println($$str({"["_s, $$str(width), " 0 0 "_s, $$str(height), " "_s, $$str(x), " "_s, $$str(y), "]concat"_s}));
-	$nc(this->mPSStream)->println($$str({$$str(width), " "_s, $$str(height), " "_s, $$str(8), "["_s, $$str(width), " 0 0 "_s, $$str(-height), " 0 "_s, $$str(height), "]/imageSrc load false 3 colorimage"_s}));
+	this->mPSStream->println($$str({$$str(psBytesPerRow), PSPrinterJob::IMAGE_STR}));
+	this->mPSStream->println($$str({"["_s, $$str(width), " 0 0 "_s, $$str(height), " "_s, $$str(x), " "_s, $$str(y), "]concat"_s}));
+	this->mPSStream->println($$str({$$str(width), " "_s, $$str(height), " "_s, $$str(8), "["_s, $$str(width), " 0 0 "_s, $$str(-height), " 0 "_s, $$str(height), "]/imageSrc load false 3 colorimage"_s}));
 	int32_t index = 0;
 	$var($bytes, rgbData, $new($bytes, width * 3));
 	try {
@@ -797,7 +630,7 @@ void PSPrinterJob::printBand($bytes* bgrData, int32_t x, int32_t y, int32_t widt
 			$var($bytes, encodedData, rlEncode(rgbData));
 			$var($bytes, asciiData, ascii85Encode(encodedData));
 			$nc(this->mPSStream)->write(asciiData);
-			$nc(this->mPSStream)->println(""_s);
+			this->mPSStream->println(""_s);
 		}
 	} catch ($IOException& e) {
 		$throwNew($PrinterIOException, e);
@@ -806,14 +639,14 @@ void PSPrinterJob::printBand($bytes* bgrData, int32_t x, int32_t y, int32_t widt
 }
 
 $Graphics2D* PSPrinterJob::createPathGraphics($PeekGraphics* peekGraphics, $PrinterJob* printerJob, $Printable* painter, $PageFormat* pageFormat, int32_t pageIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PSPathGraphics, pathGraphics, nullptr);
 	$var($PeekMetrics, metrics, $nc(peekGraphics)->getMetrics());
 	$init($RasterPrinterJob);
 	bool var$0 = $RasterPrinterJob::forcePDL == false;
 	if (var$0) {
 		bool var$1 = $RasterPrinterJob::forceRaster == true || $nc(metrics)->hasNonSolidColors();
-		var$0 = (var$1 || $nc(metrics)->hasCompositing());
+		var$0 = var$1 || $nc(metrics)->hasCompositing();
 	}
 	if (var$0) {
 		$assign(pathGraphics, nullptr);
@@ -844,7 +677,7 @@ bool PSPrinterJob::setFont($Font* font) {
 }
 
 $ints* PSPrinterJob::getPSFontIndexArray($Font* font, $CharsetStringArray* charSet) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, psFont, nullptr);
 	if (PSPrinterJob::mFontProps != nullptr) {
 		$assign(psFont, $new($ints, $nc(charSet)->length));
@@ -852,28 +685,28 @@ $ints* PSPrinterJob::getPSFontIndexArray($Font* font, $CharsetStringArray* charS
 	for (int32_t i = 0; i < $nc(charSet)->length && psFont != nullptr; ++i) {
 		$var($CharsetString, cs, charSet->get(i));
 		$var($CharsetEncoder, fontCS, $nc($nc(cs)->fontDescriptor)->encoder);
-		$var($String, charsetName, $nc(cs->fontDescriptor)->getFontCharsetName());
+		$var($String, charsetName, cs->fontDescriptor->getFontCharsetName());
 		if ("Symbol"_s->equals(charsetName)) {
 			$assign(charsetName, "symbol"_s);
 		} else {
-			bool var$1 = "WingDings"_s->equals(charsetName);
-			if (var$1 || "X11Dingbats"_s->equals(charsetName)) {
+			bool var$0 = "WingDings"_s->equals(charsetName);
+			if (var$0 || "X11Dingbats"_s->equals(charsetName)) {
 				$assign(charsetName, "dingbats"_s);
 			} else {
 				$assign(charsetName, makeCharsetName(charsetName, cs->charsetChars));
 			}
 		}
-		int32_t var$2 = $nc(font)->getStyle();
-		int32_t styleMask = var$2 | $nc($($FontUtilities::getFont2D(font)))->getStyle();
+		int32_t var$1 = $nc(font)->getStyle();
+		int32_t styleMask = var$1 | $$nc($FontUtilities::getFont2D(font))->getStyle();
 		$var($String, style, $FontConfiguration::getStyleString(styleMask));
 		$init($Locale);
-		$var($String, fontName, $nc($(font->getFamily()))->toLowerCase($Locale::ENGLISH));
+		$var($String, fontName, $$nc(font->getFamily())->toLowerCase($Locale::ENGLISH));
 		$assign(fontName, fontName->replace(u' ', u'_'));
 		$var($String, name, $nc(PSPrinterJob::mFontProps)->getProperty(fontName, ""_s));
-		$var($String, psName, $nc(PSPrinterJob::mFontProps)->getProperty($$str({name, "."_s, charsetName, "."_s, style}), nullptr));
+		$var($String, psName, PSPrinterJob::mFontProps->getProperty($$str({name, "."_s, charsetName, "."_s, style}), nullptr));
 		if (psName != nullptr) {
 			try {
-				psFont->set(i, $Integer::parseInt($($nc(PSPrinterJob::mFontProps)->getProperty(psName))));
+				psFont->set(i, $Integer::parseInt($(PSPrinterJob::mFontProps->getProperty(psName))));
 			} catch ($NumberFormatException& e) {
 				$assign(psFont, nullptr);
 			}
@@ -886,19 +719,19 @@ $ints* PSPrinterJob::getPSFontIndexArray($Font* font, $CharsetStringArray* charS
 
 $String* PSPrinterJob::escapeParens($String* str) {
 	$init(PSPrinterJob);
-	$useLocalCurrentObjectStackCache();
-	bool var$0 = $nc(str)->indexOf((int32_t)u'(') == -1;
-	if (var$0 && str->indexOf((int32_t)u')') == -1) {
+	$useLocalObjectStack();
+	bool var$0 = $nc(str)->indexOf(u'(') == -1;
+	if (var$0 && str->indexOf(u')') == -1) {
 		return str;
 	} else {
 		int32_t count = 0;
 		int32_t pos = 0;
-		while ((pos = str->indexOf((int32_t)u'(', pos)) != -1) {
+		while ((pos = str->indexOf(u'(', pos)) != -1) {
 			++count;
 			++pos;
 		}
 		pos = 0;
-		while ((pos = str->indexOf((int32_t)u')', pos)) != -1) {
+		while ((pos = str->indexOf(u')', pos)) != -1) {
 			++count;
 			++pos;
 		}
@@ -916,21 +749,21 @@ $String* PSPrinterJob::escapeParens($String* str) {
 }
 
 int32_t PSPrinterJob::platformFontCount($Font* font, $String* str) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (PSPrinterJob::mFontProps == nullptr) {
 		return 0;
 	}
-	$var($PlatformFont, peer, $cast($PlatformFont, $nc($($FontAccess::getFontAccess()))->getFontPeer(font)));
+	$var($PlatformFont, peer, $cast($PlatformFont, $$nc($FontAccess::getFontAccess())->getFontPeer(font)));
 	$var($CharsetStringArray, acs, $nc(peer)->makeMultiCharsetString(str, false));
 	if (acs == nullptr) {
 		return 0;
 	}
 	$var($ints, psFonts, getPSFontIndexArray(font, acs));
-	return (psFonts == nullptr) ? 0 : $nc(psFonts)->length;
+	return (psFonts == nullptr) ? 0 : psFonts->length;
 }
 
 bool PSPrinterJob::textOut($Graphics* g, $String* str$renamed, float x, float y, $Font* mLastFont, $FontRenderContext* frc, float width) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, str$renamed);
 	bool didText = true;
 	if (PSPrinterJob::mFontProps == nullptr) {
@@ -941,7 +774,7 @@ bool PSPrinterJob::textOut($Graphics* g, $String* str$renamed, float x, float y,
 		if ($nc(str)->length() == 0) {
 			return true;
 		}
-		$var($PlatformFont, peer, $cast($PlatformFont, $nc($($FontAccess::getFontAccess()))->getFontPeer(mLastFont)));
+		$var($PlatformFont, peer, $cast($PlatformFont, $$nc($FontAccess::getFontAccess())->getFontPeer(mLastFont)));
 		$var($CharsetStringArray, acs, $nc(peer)->makeMultiCharsetString(str, false));
 		if (acs == nullptr) {
 			return false;
@@ -989,7 +822,7 @@ bool PSPrinterJob::textOut($Graphics* g, $String* str$renamed, float x, float y,
 					nativeStr->append(hexS);
 				}
 				nativeStr->append(u'>');
-				$nc($(getGState()))->emitPSFont(psFonts->get(i), $nc(mLastFont)->getSize2D());
+				$$nc(getGState())->emitPSFont(psFonts->get(i), $nc(mLastFont)->getSize2D());
 				$nc(this->mPSStream)->println($$str({$(nativeStr->toString()), " "_s, $$str(desiredWidth), " "_s, $$str(x), " "_s, $$str(y), " "_s, PSPrinterJob::DrawStringName}));
 				x += desiredWidth;
 			}
@@ -1003,21 +836,15 @@ bool PSPrinterJob::textOut($Graphics* g, $String* str$renamed, float x, float y,
 void PSPrinterJob::setFillMode(int32_t fillRule) {
 	switch (fillRule) {
 	case PSPrinterJob::FILL_EVEN_ODD:
-		{
-			$set(this, mFillOpStr, PSPrinterJob::EVEN_ODD_FILL_STR);
-			$set(this, mClipOpStr, PSPrinterJob::EVEN_ODD_CLIP_STR);
-			break;
-		}
+		$set(this, mFillOpStr, PSPrinterJob::EVEN_ODD_FILL_STR);
+		$set(this, mClipOpStr, PSPrinterJob::EVEN_ODD_CLIP_STR);
+		break;
 	case PSPrinterJob::FILL_WINDING:
-		{
-			$set(this, mFillOpStr, PSPrinterJob::WINDING_FILL_STR);
-			$set(this, mClipOpStr, PSPrinterJob::WINDING_CLIP_STR);
-			break;
-		}
+		$set(this, mFillOpStr, PSPrinterJob::WINDING_FILL_STR);
+		$set(this, mClipOpStr, PSPrinterJob::WINDING_CLIP_STR);
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException);
-		}
+		$throwNew($IllegalArgumentException);
 	}
 }
 
@@ -1032,8 +859,8 @@ void PSPrinterJob::fillPath() {
 void PSPrinterJob::beginPath() {
 	prepDrawing();
 	$nc(this->mPSStream)->println(PSPrinterJob::NEWPATH_STR);
-	this->mPenX = (float)0;
-	this->mPenY = (float)0;
+	this->mPenX = 0;
+	this->mPenY = 0;
 }
 
 void PSPrinterJob::closeSubpath() {
@@ -1043,10 +870,13 @@ void PSPrinterJob::closeSubpath() {
 }
 
 void PSPrinterJob::moveTo(float x, float y) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({$(trunc(x)), " "_s}));
-	$var($String, var$0, $$concat(var$1, $(trunc(y))));
-	$nc(this->mPSStream)->println($$concat(var$0, PSPrinterJob::MOVETO_STR));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($(trunc(x)));
+	var$0->append(" "_s);
+	var$0->append($(trunc(y)));
+	var$0->append(PSPrinterJob::MOVETO_STR);
+	$nc(this->mPSStream)->println($$str(var$0));
 	this->mStartPathX = x;
 	this->mStartPathY = y;
 	this->mPenX = x;
@@ -1054,27 +884,33 @@ void PSPrinterJob::moveTo(float x, float y) {
 }
 
 void PSPrinterJob::lineTo(float x, float y) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({$(trunc(x)), " "_s}));
-	$var($String, var$0, $$concat(var$1, $(trunc(y))));
-	$nc(this->mPSStream)->println($$concat(var$0, PSPrinterJob::LINETO_STR));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($(trunc(x)));
+	var$0->append(" "_s);
+	var$0->append($(trunc(y)));
+	var$0->append(PSPrinterJob::LINETO_STR);
+	$nc(this->mPSStream)->println($$str(var$0));
 	this->mPenX = x;
 	this->mPenY = y;
 }
 
 void PSPrinterJob::bezierTo(float control1x, float control1y, float control2x, float control2y, float endX, float endY) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$9, $$str({$(trunc(control1x)), " "_s}));
-	$var($String, var$8, $$concat(var$9, $(trunc(control1y))));
-	$var($String, var$7, $$concat(var$8, " "_s));
-	$var($String, var$6, $$concat(var$7, $(trunc(control2x))));
-	$var($String, var$5, $$concat(var$6, " "_s));
-	$var($String, var$4, $$concat(var$5, $(trunc(control2y))));
-	$var($String, var$3, $$concat(var$4, " "_s));
-	$var($String, var$2, $$concat(var$3, $(trunc(endX))));
-	$var($String, var$1, $$concat(var$2, " "_s));
-	$var($String, var$0, $$concat(var$1, $(trunc(endY))));
-	$nc(this->mPSStream)->println($$concat(var$0, PSPrinterJob::CURVETO_STR));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($(trunc(control1x)));
+	var$0->append(" "_s);
+	var$0->append($(trunc(control1y)));
+	var$0->append(" "_s);
+	var$0->append($(trunc(control2x)));
+	var$0->append(" "_s);
+	var$0->append($(trunc(control2y)));
+	var$0->append(" "_s);
+	var$0->append($(trunc(endX)));
+	var$0->append(" "_s);
+	var$0->append($(trunc(endY)));
+	var$0->append(PSPrinterJob::CURVETO_STR);
+	$nc(this->mPSStream)->println($$str(var$0));
 	this->mPenX = endX;
 	this->mPenY = endY;
 }
@@ -1109,11 +945,11 @@ void PSPrinterJob::setXYRes(double x, double y) {
 }
 
 double PSPrinterJob::getPhysicalPrintableX($Paper* p) {
-	return (double)0;
+	return 0;
 }
 
 double PSPrinterJob::getPhysicalPrintableY($Paper* p) {
-	return (double)0;
+	return 0;
 }
 
 double PSPrinterJob::getPhysicalPrintableWidth($Paper* p) {
@@ -1141,7 +977,7 @@ int32_t PSPrinterJob::getCollatedCopies() {
 }
 
 $StringArray* PSPrinterJob::printExecCmd($String* printer, $String* options, bool noJobSheet, $String* jobTitle, int32_t copies, $String* spoolFile) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t PRINTER = 1;
 	int32_t OPTIONS = 2;
 	int32_t JOBTITLE = 4;
@@ -1173,33 +1009,33 @@ $StringArray* PSPrinterJob::printExecCmd($String* printer, $String* options, boo
 		ncomps += 1;
 	} else {
 		$load($JobSheets);
-		if ($nc($(getPrintService()))->isAttributeCategorySupported($JobSheets::class$)) {
+		if ($$nc(getPrintService())->isAttributeCategorySupported($JobSheets::class$)) {
 			ncomps += 1;
 		}
 	}
 	$var($String, osname, $System::getProperty("os.name"_s));
 	bool var$1 = $nc(osname)->equals("Linux"_s);
-	if (var$1 || $nc(osname)->contains("OS X"_s)) {
+	if (var$1 || osname->contains("OS X"_s)) {
 		$assign(execCmd, $new($StringArray, ncomps));
 		execCmd->set(n++, "/usr/bin/lpr"_s);
-		if (((int32_t)(pFlags & (uint32_t)PRINTER)) != 0) {
+		if ((pFlags & PRINTER) != 0) {
 			execCmd->set(n++, $$str({"-P"_s, printer}));
 		}
-		if (((int32_t)(pFlags & (uint32_t)JOBTITLE)) != 0) {
+		if ((pFlags & JOBTITLE) != 0) {
 			execCmd->set(n++, $$str({"-J"_s, jobTitle}));
 		}
-		if (((int32_t)(pFlags & (uint32_t)COPIES)) != 0) {
+		if ((pFlags & COPIES) != 0) {
 			execCmd->set(n++, $$str({"-#"_s, $$str(copies)}));
 		}
-		if (((int32_t)(pFlags & (uint32_t)NOSHEET)) != 0) {
+		if ((pFlags & NOSHEET) != 0) {
 			execCmd->set(n++, "-h"_s);
 		} else {
 			$load($JobSheets);
-			if ($nc($(getPrintService()))->isAttributeCategorySupported($JobSheets::class$)) {
+			if ($$nc(getPrintService())->isAttributeCategorySupported($JobSheets::class$)) {
 				execCmd->set(n++, "-o job-sheets=standard"_s);
 			}
 		}
-		if (((int32_t)(pFlags & (uint32_t)OPTIONS)) != 0) {
+		if ((pFlags & OPTIONS) != 0) {
 			execCmd->set(n++, $$str({"-o"_s, options}));
 		}
 	} else {
@@ -1207,24 +1043,24 @@ $StringArray* PSPrinterJob::printExecCmd($String* printer, $String* options, boo
 		$assign(execCmd, $new($StringArray, ncomps));
 		execCmd->set(n++, "/usr/bin/lp"_s);
 		execCmd->set(n++, "-c"_s);
-		if (((int32_t)(pFlags & (uint32_t)PRINTER)) != 0) {
+		if ((pFlags & PRINTER) != 0) {
 			execCmd->set(n++, $$str({"-d"_s, printer}));
 		}
-		if (((int32_t)(pFlags & (uint32_t)JOBTITLE)) != 0) {
+		if ((pFlags & JOBTITLE) != 0) {
 			execCmd->set(n++, $$str({"-t"_s, jobTitle}));
 		}
-		if (((int32_t)(pFlags & (uint32_t)COPIES)) != 0) {
+		if ((pFlags & COPIES) != 0) {
 			execCmd->set(n++, $$str({"-n"_s, $$str(copies)}));
 		}
-		if (((int32_t)(pFlags & (uint32_t)NOSHEET)) != 0) {
+		if ((pFlags & NOSHEET) != 0) {
 			execCmd->set(n++, "-o nobanner"_s);
 		} else {
 			$load($JobSheets);
-			if ($nc($(getPrintService()))->isAttributeCategorySupported($JobSheets::class$)) {
+			if ($$nc(getPrintService())->isAttributeCategorySupported($JobSheets::class$)) {
 				execCmd->set(n++, "-o job-sheets=standard"_s);
 			}
 		}
-		if (((int32_t)(pFlags & (uint32_t)OPTIONS)) != 0) {
+		if ((pFlags & OPTIONS) != 0) {
 			execCmd->set(n++, $$str({"-o"_s, options}));
 		}
 	}
@@ -1246,7 +1082,7 @@ int32_t PSPrinterJob::swapBGRtoRGB($bytes* image, int32_t index, $bytes* dest) {
 
 $String* PSPrinterJob::makeCharsetName($String* name, $chars* chs) {
 	bool var$0 = $nc(name)->equals("Cp1252"_s);
-	if (var$0 || $nc(name)->equals("ISO8859_1"_s)) {
+	if (var$0 || name->equals("ISO8859_1"_s)) {
 		return "latin1"_s;
 	} else if (name->equals("UTF8"_s)) {
 		for (int32_t i = 0; i < $nc(chs)->length; ++i) {
@@ -1268,12 +1104,12 @@ $String* PSPrinterJob::makeCharsetName($String* name, $chars* chs) {
 }
 
 void PSPrinterJob::prepDrawing() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (true) {
 		bool var$0 = isOuterGState() == false;
 		if (var$0) {
-			bool var$1 = $nc($(getGState()))->canSetClip(this->mLastClip) == false;
-			var$0 = (var$1 || $nc($nc($(getGState()))->mTransform)->equals(this->mLastTransform) == false);
+			bool var$1 = $$nc(getGState())->canSetClip(this->mLastClip) == false;
+			var$0 = var$1 || $nc($nc($(getGState()))->mTransform)->equals(this->mLastTransform) == false;
 		}
 		if (!(var$0)) {
 			break;
@@ -1282,21 +1118,21 @@ void PSPrinterJob::prepDrawing() {
 			grestore();
 		}
 	}
-	$nc($(getGState()))->emitPSColor(this->mLastColor);
+	$$nc(getGState())->emitPSColor(this->mLastColor);
 	if (isOuterGState()) {
 		gsave();
-		$nc($(getGState()))->emitTransform(this->mLastTransform);
-		$nc($(getGState()))->emitPSClip(this->mLastClip);
+		$$nc(getGState())->emitTransform(this->mLastTransform);
+		$$nc(getGState())->emitPSClip(this->mLastClip);
 	}
 }
 
 $PSPrinterJob$GState* PSPrinterJob::getGState() {
 	int32_t count = $nc(this->mGStateStack)->size();
-	return $cast($PSPrinterJob$GState, $nc(this->mGStateStack)->get(count - 1));
+	return $cast($PSPrinterJob$GState, this->mGStateStack->get(count - 1));
 }
 
 void PSPrinterJob::gsave() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PSPrinterJob$GState, oldGState, getGState());
 	$nc(this->mGStateStack)->add($$new($PSPrinterJob$GState, this, oldGState));
 	$nc(this->mPSStream)->println(PSPrinterJob::GSAVE_STR);
@@ -1304,7 +1140,7 @@ void PSPrinterJob::gsave() {
 
 void PSPrinterJob::grestore() {
 	int32_t count = $nc(this->mGStateStack)->size();
-	$nc(this->mGStateStack)->remove(count - 1);
+	this->mGStateStack->remove(count - 1);
 	$nc(this->mPSStream)->println(PSPrinterJob::GRESTORE_STR);
 }
 
@@ -1323,7 +1159,7 @@ void PSPrinterJob::convertToPSPath($PathIterator* pathIter) {
 	}
 	beginPath();
 	setFillMode(fillRule);
-	while ($nc(pathIter)->isDone() == false) {
+	while (pathIter->isDone() == false) {
 		segmentType = pathIter->currentSegment(segment);
 		{
 			float lastX = 0;
@@ -1334,36 +1170,26 @@ void PSPrinterJob::convertToPSPath($PathIterator* pathIter) {
 			float c2y = 0;
 			switch (segmentType) {
 			case $PathIterator::SEG_MOVETO:
-				{
-					moveTo(segment->get(0), segment->get(1));
-					break;
-				}
+				moveTo(segment->get(0), segment->get(1));
+				break;
 			case $PathIterator::SEG_LINETO:
-				{
-					lineTo(segment->get(0), segment->get(1));
-					break;
-				}
+				lineTo(segment->get(0), segment->get(1));
+				break;
 			case $PathIterator::SEG_QUADTO:
-				{
-					lastX = getPenX();
-					lastY = getPenY();
-					c1x = lastX + (segment->get(0) - lastX) * 2 / 3;
-					c1y = lastY + (segment->get(1) - lastY) * 2 / 3;
-					c2x = segment->get(2) - (segment->get(2) - segment->get(0)) * 2 / 3;
-					c2y = segment->get(3) - (segment->get(3) - segment->get(1)) * 2 / 3;
-					bezierTo(c1x, c1y, c2x, c2y, segment->get(2), segment->get(3));
-					break;
-				}
+				lastX = getPenX();
+				lastY = getPenY();
+				c1x = lastX + (segment->get(0) - lastX) * 2 / 3;
+				c1y = lastY + (segment->get(1) - lastY) * 2 / 3;
+				c2x = segment->get(2) - (segment->get(2) - segment->get(0)) * 2 / 3;
+				c2y = segment->get(3) - (segment->get(3) - segment->get(1)) * 2 / 3;
+				bezierTo(c1x, c1y, c2x, c2y, segment->get(2), segment->get(3));
+				break;
 			case $PathIterator::SEG_CUBICTO:
-				{
-					bezierTo(segment->get(0), segment->get(1), segment->get(2), segment->get(3), segment->get(4), segment->get(5));
-					break;
-				}
+				bezierTo(segment->get(0), segment->get(1), segment->get(2), segment->get(3), segment->get(4), segment->get(5));
+				break;
 			case $PathIterator::SEG_CLOSE:
-				{
-					closeSubpath();
-					break;
-				}
+				closeSubpath();
+				break;
 			}
 		}
 		pathIter->next();
@@ -1372,11 +1198,11 @@ void PSPrinterJob::convertToPSPath($PathIterator* pathIter) {
 
 void PSPrinterJob::deviceFill($PathIterator* pathIter, $Color* color, $AffineTransform* tx, $Shape* clip) {
 	bool var$4 = $Double::isNaN($nc(tx)->getScaleX());
-	bool var$3 = var$4 || $Double::isNaN($nc(tx)->getScaleY());
-	bool var$2 = var$3 || $Double::isNaN($nc(tx)->getShearX());
-	bool var$1 = var$2 || $Double::isNaN($nc(tx)->getShearY());
-	bool var$0 = var$1 || $Double::isNaN($nc(tx)->getTranslateX());
-	if (var$0 || $Double::isNaN($nc(tx)->getTranslateY())) {
+	bool var$3 = var$4 || $Double::isNaN(tx->getScaleY());
+	bool var$2 = var$3 || $Double::isNaN(tx->getShearX());
+	bool var$1 = var$2 || $Double::isNaN(tx->getShearY());
+	bool var$0 = var$1 || $Double::isNaN(tx->getTranslateX());
+	if (var$0 || $Double::isNaN(tx->getTranslateY())) {
 		return;
 	}
 	setTransform(tx);
@@ -1390,7 +1216,7 @@ void PSPrinterJob::deviceFill($PathIterator* pathIter, $Color* color, $AffineTra
 }
 
 $bytes* PSPrinterJob::rlEncode($bytes* inArr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t inIndex = 0;
 	int32_t outIndex = 0;
 	int32_t startIndex = 0;
@@ -1428,7 +1254,7 @@ $bytes* PSPrinterJob::rlEncode($bytes* inArr) {
 }
 
 $bytes* PSPrinterJob::ascii85Encode($bytes* inArr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, outArr, $new($bytes, (($nc(inArr)->length + 4) * 5 / 4) + 2));
 	int64_t p1 = 85;
 	int64_t p2 = p1 * p1;
@@ -1440,10 +1266,10 @@ $bytes* PSPrinterJob::ascii85Encode($bytes* inArr) {
 	int64_t val = 0;
 	int64_t rem = 0;
 	while (i + 3 < inArr->length) {
-		int64_t var$2 = ((int64_t)((int32_t)(inArr->get(i++) & (uint32_t)255)) << 24);
-		int64_t var$1 = var$2 + ((int64_t)((int32_t)(inArr->get(i++) & (uint32_t)255)) << 16);
-		int64_t var$0 = var$1 + ((int64_t)((int32_t)(inArr->get(i++) & (uint32_t)255)) << 8);
-		val = var$0 + ((int64_t)((int32_t)(inArr->get(i++) & (uint32_t)255)));
+		int64_t var$2 = (int64_t)(inArr->get(i++) & 0xff) << 24;
+		int64_t var$1 = var$2 + ((int64_t)(inArr->get(i++) & 0xff) << 16);
+		int64_t var$0 = var$1 + ((int64_t)(inArr->get(i++) & 0xff) << 8);
+		val = var$0 + ((int64_t)(inArr->get(i++) & 0xff));
 		if (val == 0) {
 			outArr->set(olen++, (int8_t)u'z');
 		} else {
@@ -1463,7 +1289,7 @@ $bytes* PSPrinterJob::ascii85Encode($bytes* inArr) {
 		int32_t n = inArr->length - i;
 		val = 0;
 		while (i < inArr->length) {
-			val = (val << 8) + ((int32_t)(inArr->get(i++) & (uint32_t)255));
+			val = (val << 8) + (inArr->get(i++) & 0xff);
 		}
 		int32_t append = 4 - n;
 		while (append-- > 0) {
@@ -1491,7 +1317,7 @@ $bytes* PSPrinterJob::ascii85Encode($bytes* inArr) {
 	return retArr;
 }
 
-void clinit$PSPrinterJob($Class* class$) {
+void PSPrinterJob::clinit$($Class* clazz) {
 	$assignStatic(PSPrinterJob::ADOBE_PS_STR, "%!PS-Adobe-3.0"_s);
 	$assignStatic(PSPrinterJob::EOF_COMMENT, "%%EOF"_s);
 	$assignStatic(PSPrinterJob::PAGE_COMMENT, "%%Page: "_s);
@@ -1546,7 +1372,161 @@ PSPrinterJob::PSPrinterJob() {
 }
 
 $Class* PSPrinterJob::load$($String* name, bool initialize) {
-	$loadClass(PSPrinterJob, name, initialize, &_PSPrinterJob_ClassInfo_, clinit$PSPrinterJob, allocate$PSPrinterJob);
+	$FieldInfo fieldInfos$$[] = {
+		{"FILL_EVEN_ODD", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(PSPrinterJob, FILL_EVEN_ODD)},
+		{"FILL_WINDING", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(PSPrinterJob, FILL_WINDING)},
+		{"MAX_PSSTR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PSPrinterJob, MAX_PSSTR)},
+		{"RED_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PSPrinterJob, RED_MASK)},
+		{"GREEN_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PSPrinterJob, GREEN_MASK)},
+		{"BLUE_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PSPrinterJob, BLUE_MASK)},
+		{"RED_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PSPrinterJob, RED_SHIFT)},
+		{"GREEN_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PSPrinterJob, GREEN_SHIFT)},
+		{"BLUE_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PSPrinterJob, BLUE_SHIFT)},
+		{"LOWNIBBLE_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PSPrinterJob, LOWNIBBLE_MASK)},
+		{"HINIBBLE_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PSPrinterJob, HINIBBLE_MASK)},
+		{"HINIBBLE_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PSPrinterJob, HINIBBLE_SHIFT)},
+		{"hexDigits", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, hexDigits)},
+		{"PS_XRES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PSPrinterJob, PS_XRES)},
+		{"PS_YRES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PSPrinterJob, PS_YRES)},
+		{"ADOBE_PS_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, ADOBE_PS_STR)},
+		{"EOF_COMMENT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, EOF_COMMENT)},
+		{"PAGE_COMMENT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, PAGE_COMMENT)},
+		{"READIMAGEPROC", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, READIMAGEPROC)},
+		{"COPIES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, COPIES)},
+		{"PAGE_SAVE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, PAGE_SAVE)},
+		{"PAGE_RESTORE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, PAGE_RESTORE)},
+		{"SHOWPAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, SHOWPAGE)},
+		{"IMAGE_SAVE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, IMAGE_SAVE)},
+		{"IMAGE_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, IMAGE_STR)},
+		{"IMAGE_RESTORE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, IMAGE_RESTORE)},
+		{"SetFontName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, SetFontName)},
+		{"DrawStringName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, DrawStringName)},
+		{"EVEN_ODD_FILL_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, EVEN_ODD_FILL_STR)},
+		{"WINDING_FILL_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, WINDING_FILL_STR)},
+		{"EVEN_ODD_CLIP_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, EVEN_ODD_CLIP_STR)},
+		{"WINDING_CLIP_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, WINDING_CLIP_STR)},
+		{"MOVETO_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, MOVETO_STR)},
+		{"LINETO_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, LINETO_STR)},
+		{"CURVETO_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, CURVETO_STR)},
+		{"GRESTORE_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, GRESTORE_STR)},
+		{"GSAVE_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, GSAVE_STR)},
+		{"NEWPATH_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, NEWPATH_STR)},
+		{"CLOSEPATH_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, CLOSEPATH_STR)},
+		{"SETRGBCOLOR_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, SETRGBCOLOR_STR)},
+		{"SETGRAY_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSPrinterJob, SETGRAY_STR)},
+		{"mDestType", "I", nullptr, $PRIVATE, $field(PSPrinterJob, mDestType)},
+		{"mDestination", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PSPrinterJob, mDestination)},
+		{"mNoJobSheet", "Z", nullptr, $PRIVATE, $field(PSPrinterJob, mNoJobSheet)},
+		{"mOptions", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PSPrinterJob, mOptions)},
+		{"mLastFont", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(PSPrinterJob, mLastFont)},
+		{"mLastColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(PSPrinterJob, mLastColor)},
+		{"mLastClip", "Ljava/awt/Shape;", nullptr, $PRIVATE, $field(PSPrinterJob, mLastClip)},
+		{"mLastTransform", "Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE, $field(PSPrinterJob, mLastTransform)},
+		{"xres", "D", nullptr, $PRIVATE, $field(PSPrinterJob, xres)},
+		{"yres", "D", nullptr, $PRIVATE, $field(PSPrinterJob, yres)},
+		{"epsPrinter", "Lsun/print/PSPrinterJob$EPSPrinter;", nullptr, $PRIVATE, $field(PSPrinterJob, epsPrinter)},
+		{"mCurMetrics", "Ljava/awt/FontMetrics;", nullptr, 0, $field(PSPrinterJob, mCurMetrics)},
+		{"mPSStream", "Ljava/io/PrintStream;", nullptr, 0, $field(PSPrinterJob, mPSStream)},
+		{"spoolFile", "Ljava/io/File;", nullptr, 0, $field(PSPrinterJob, spoolFile)},
+		{"mFillOpStr", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PSPrinterJob, mFillOpStr)},
+		{"mClipOpStr", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PSPrinterJob, mClipOpStr)},
+		{"mGStateStack", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lsun/print/PSPrinterJob$GState;>;", 0, $field(PSPrinterJob, mGStateStack)},
+		{"mPenX", "F", nullptr, $PRIVATE, $field(PSPrinterJob, mPenX)},
+		{"mPenY", "F", nullptr, $PRIVATE, $field(PSPrinterJob, mPenY)},
+		{"mStartPathX", "F", nullptr, $PRIVATE, $field(PSPrinterJob, mStartPathX)},
+		{"mStartPathY", "F", nullptr, $PRIVATE, $field(PSPrinterJob, mStartPathY)},
+		{"mFontProps", "Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC, $staticField(PSPrinterJob, mFontProps)},
+		{"isMac", "Z", nullptr, $PRIVATE | $STATIC, $staticField(PSPrinterJob, isMac)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PSPrinterJob, init$, void)},
+		{"abortDoc", "()V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, abortDoc, void)},
+		{"ascii85Encode", "([B)[B", nullptr, $PRIVATE, $method(PSPrinterJob, ascii85Encode, $bytes*, $bytes*)},
+		{"beginPath", "()V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, beginPath, void)},
+		{"bezierTo", "(FFFFFF)V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, bezierTo, void, float, float, float, float, float, float)},
+		{"closeSubpath", "()V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, closeSubpath, void)},
+		{"convertToPSPath", "(Ljava/awt/geom/PathIterator;)V", nullptr, 0, $virtualMethod(PSPrinterJob, convertToPSPath, void, $PathIterator*)},
+		{"createPathGraphics", "(Lsun/print/PeekGraphics;Ljava/awt/print/PrinterJob;Ljava/awt/print/Printable;Ljava/awt/print/PageFormat;I)Ljava/awt/Graphics2D;", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, createPathGraphics, $Graphics2D*, $PeekGraphics*, $PrinterJob*, $Printable*, $PageFormat*, int32_t)},
+		{"deviceFill", "(Ljava/awt/geom/PathIterator;Ljava/awt/Color;Ljava/awt/geom/AffineTransform;Ljava/awt/Shape;)V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, deviceFill, void, $PathIterator*, $Color*, $AffineTransform*, $Shape*)},
+		{"drawImageBGR", "([BFFFFFFFFII)V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, drawImageBGR, void, $bytes*, float, float, float, float, float, float, float, float, int32_t, int32_t)},
+		{"endDoc", "()V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, endDoc, void), "java.awt.print.PrinterException"},
+		{"endPage", "(Ljava/awt/print/PageFormat;Ljava/awt/print/Printable;I)V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, endPage, void, $PageFormat*, $Printable*, int32_t), "java.awt.print.PrinterException"},
+		{"escapeParens", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(PSPrinterJob, escapeParens, $String*, $String*)},
+		{"fillPath", "()V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, fillPath, void)},
+		{"getCollatedCopies", "()I", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, getCollatedCopies, int32_t)},
+		{"getCoordPrep", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(PSPrinterJob, getCoordPrep, $String*)},
+		{"getGState", "()Lsun/print/PSPrinterJob$GState;", nullptr, $PRIVATE, $method(PSPrinterJob, getGState, $PSPrinterJob$GState*)},
+		{"getNoncollatedCopies", "()I", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, getNoncollatedCopies, int32_t)},
+		{"getPSFontIndexArray", "(Ljava/awt/Font;[Lsun/awt/CharsetString;)[I", nullptr, $PRIVATE, $method(PSPrinterJob, getPSFontIndexArray, $ints*, $Font*, $CharsetStringArray*)},
+		{"getPenX", "()F", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, getPenX, float)},
+		{"getPenY", "()F", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, getPenY, float)},
+		{"getPhysicalPageHeight", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, getPhysicalPageHeight, double, $Paper*)},
+		{"getPhysicalPageWidth", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, getPhysicalPageWidth, double, $Paper*)},
+		{"getPhysicalPrintableHeight", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, getPhysicalPrintableHeight, double, $Paper*)},
+		{"getPhysicalPrintableWidth", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, getPhysicalPrintableWidth, double, $Paper*)},
+		{"getPhysicalPrintableX", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, getPhysicalPrintableX, double, $Paper*)},
+		{"getPhysicalPrintableY", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, getPhysicalPrintableY, double, $Paper*)},
+		{"getXRes", "()D", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, getXRes, double)},
+		{"getYRes", "()D", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, getYRes, double)},
+		{"grestore", "()V", nullptr, $PRIVATE, $method(PSPrinterJob, grestore, void)},
+		{"gsave", "()V", nullptr, $PRIVATE, $method(PSPrinterJob, gsave, void)},
+		{"initProps", "()Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC, $staticMethod(PSPrinterJob, initProps, $Properties*)},
+		{"initStatic", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(PSPrinterJob, initStatic, void)},
+		{"isOuterGState", "()Z", nullptr, $PRIVATE, $method(PSPrinterJob, isOuterGState, bool)},
+		{"lineTo", "(FF)V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, lineTo, void, float, float)},
+		{"makeCharsetName", "(Ljava/lang/String;[C)Ljava/lang/String;", nullptr, $PRIVATE, $method(PSPrinterJob, makeCharsetName, $String*, $String*, $chars*)},
+		{"moveTo", "(FF)V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, moveTo, void, float, float)},
+		{"platformFontCount", "(Ljava/awt/Font;Ljava/lang/String;)I", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, platformFontCount, int32_t, $Font*, $String*)},
+		{"prepDrawing", "()V", nullptr, $PRIVATE, $method(PSPrinterJob, prepDrawing, void)},
+		{"printBand", "([BIIII)V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, printBand, void, $bytes*, int32_t, int32_t, int32_t, int32_t), "java.awt.print.PrinterException"},
+		{"printDialog", "()Z", nullptr, $PUBLIC, $virtualMethod(PSPrinterJob, printDialog, bool), "java.awt.HeadlessException"},
+		{"printExecCmd", "(Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;ILjava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE, $method(PSPrinterJob, printExecCmd, $StringArray*, $String*, $String*, bool, $String*, int32_t, $String*)},
+		{"rlEncode", "([B)[B", nullptr, $PRIVATE, $method(PSPrinterJob, rlEncode, $bytes*, $bytes*)},
+		{"selectClipPath", "()V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, selectClipPath, void)},
+		{"setAttributes", "(Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, setAttributes, void, $PrintRequestAttributeSet*), "java.awt.print.PrinterException"},
+		{"setClip", "(Ljava/awt/Shape;)V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, setClip, void, $Shape*)},
+		{"setColor", "(Ljava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, setColor, void, $Color*)},
+		{"setFillMode", "(I)V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, setFillMode, void, int32_t)},
+		{"setFont", "(Ljava/awt/Font;)Z", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, setFont, bool, $Font*)},
+		{"setTransform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, setTransform, void, $AffineTransform*)},
+		{"setXYRes", "(DD)V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, setXYRes, void, double, double)},
+		{"startDoc", "()V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, startDoc, void), "java.awt.print.PrinterException"},
+		{"startPage", "(Ljava/awt/print/PageFormat;Ljava/awt/print/Printable;IZ)V", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, startPage, void, $PageFormat*, $Printable*, int32_t, bool), "java.awt.print.PrinterException"},
+		{"swapBGRtoRGB", "([BI[B)I", nullptr, $PRIVATE | $STATIC, $staticMethod(PSPrinterJob, swapBGRtoRGB, int32_t, $bytes*, int32_t, $bytes*)},
+		{"textOut", "(Ljava/awt/Graphics;Ljava/lang/String;FFLjava/awt/Font;Ljava/awt/font/FontRenderContext;F)Z", nullptr, $PROTECTED, $virtualMethod(PSPrinterJob, textOut, bool, $Graphics*, $String*, float, float, $Font*, $FontRenderContext*, float)},
+		{"trunc", "(F)Ljava/lang/String;", nullptr, 0, $virtualMethod(PSPrinterJob, trunc, $String*, float)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.PSPrinterJob$EPSPrinter", "sun.print.PSPrinterJob", "EPSPrinter", $PUBLIC | $STATIC},
+		{"sun.print.PSPrinterJob$PluginPrinter", "sun.print.PSPrinterJob", "PluginPrinter", $PUBLIC | $STATIC},
+		{"sun.print.PSPrinterJob$GState", "sun.print.PSPrinterJob", "GState", $PRIVATE},
+		{"sun.print.PSPrinterJob$PrinterSpooler", "sun.print.PSPrinterJob", "PrinterSpooler", $PRIVATE},
+		{"sun.print.PSPrinterJob$PrinterOpener", "sun.print.PSPrinterJob", "PrinterOpener", $PRIVATE},
+		{"sun.print.PSPrinterJob$4", nullptr, nullptr, 0},
+		{"sun.print.PSPrinterJob$3", nullptr, nullptr, 0},
+		{"sun.print.PSPrinterJob$2", nullptr, nullptr, 0},
+		{"sun.print.PSPrinterJob$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.print.PSPrinterJob",
+		"sun.print.RasterPrinterJob",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.print.PSPrinterJob$EPSPrinter,sun.print.PSPrinterJob$PluginPrinter,sun.print.PSPrinterJob$GState,sun.print.PSPrinterJob$PrinterSpooler,sun.print.PSPrinterJob$PrinterOpener,sun.print.PSPrinterJob$4,sun.print.PSPrinterJob$3,sun.print.PSPrinterJob$2,sun.print.PSPrinterJob$1"
+	};
+	$loadClass(PSPrinterJob, name, initialize, &classInfo$$, PSPrinterJob::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PSPrinterJob);
+	});
 	return class$;
 }
 

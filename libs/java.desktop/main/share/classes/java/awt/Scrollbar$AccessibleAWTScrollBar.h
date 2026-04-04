@@ -45,7 +45,7 @@ public:
 	virtual bool setCurrentAccessibleValue(::java::lang::Number* n) override;
 	virtual $String* toString() override;
 	::java::awt::Scrollbar* this$0 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xFB38AB1422B77971;
+	static const int64_t serialVersionUID = (int64_t)0xfb38ab1422b77971;
 };
 
 	} // awt

@@ -1,5 +1,4 @@
 #include <jdk/xml/internal/JdkXmlUtils.h>
-
 #include <com/sun/org/apache/xalan/internal/utils/XMLSecurityManager.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/trax/TransformerFactoryImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
@@ -70,10 +69,8 @@ using $XMLConstants = ::javax::xml::XMLConstants;
 using $CatalogFeatures = ::javax::xml::catalog::CatalogFeatures;
 using $CatalogFeatures$Builder = ::javax::xml::catalog::CatalogFeatures$Builder;
 using $CatalogFeatures$Feature = ::javax::xml::catalog::CatalogFeatures$Feature;
-using $DocumentBuilder = ::javax::xml::parsers::DocumentBuilder;
 using $DocumentBuilderFactory = ::javax::xml::parsers::DocumentBuilderFactory;
 using $ParserConfigurationException = ::javax::xml::parsers::ParserConfigurationException;
-using $SAXParser = ::javax::xml::parsers::SAXParser;
 using $SAXParserFactory = ::javax::xml::parsers::SAXParserFactory;
 using $TransformerConfigurationException = ::javax::xml::transform::TransformerConfigurationException;
 using $SAXTransformerFactory = ::javax::xml::transform::sax::SAXTransformerFactory;
@@ -88,55 +85,6 @@ using $XMLReaderFactory = ::org::xml::sax::helpers::XMLReaderFactory;
 namespace jdk {
 	namespace xml {
 		namespace internal {
-
-$FieldInfo _JdkXmlUtils_FieldInfo_[] = {
-	{"DOM_FACTORY_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JdkXmlUtils, DOM_FACTORY_ID)},
-	{"SAX_FACTORY_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JdkXmlUtils, SAX_FACTORY_ID)},
-	{"SAX_DRIVER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JdkXmlUtils, SAX_DRIVER)},
-	{"NAMESPACES_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkXmlUtils, NAMESPACES_FEATURE)},
-	{"NAMESPACE_PREFIXES_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkXmlUtils, NAMESPACE_PREFIXES_FEATURE)},
-	{"USE_CATALOG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkXmlUtils, USE_CATALOG)},
-	{"SP_USE_CATALOG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkXmlUtils, SP_USE_CATALOG)},
-	{"CATALOG_FILES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkXmlUtils, CATALOG_FILES)},
-	{"CATALOG_DEFER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkXmlUtils, CATALOG_DEFER)},
-	{"CATALOG_PREFER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkXmlUtils, CATALOG_PREFER)},
-	{"CATALOG_RESOLVE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkXmlUtils, CATALOG_RESOLVE)},
-	{"USE_CATALOG_DEFAULT", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkXmlUtils, USE_CATALOG_DEFAULT)},
-	{"defaultSAXFactory", "Ljavax/xml/parsers/SAXParserFactory;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JdkXmlUtils, defaultSAXFactory)},
-	{}
-};
-
-$MethodInfo _JdkXmlUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JdkXmlUtils, init$, void)},
-	{"catalogFeaturesConfig2Config", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;Lcom/sun/org/apache/xerces/internal/util/ParserConfigurationSettings;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkXmlUtils, catalogFeaturesConfig2Config, void, $XMLComponentManager*, $ParserConfigurationSettings*)},
-	{"catalogFeaturesConfig2Reader", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;Lorg/xml/sax/XMLReader;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkXmlUtils, catalogFeaturesConfig2Reader, void, $XMLComponentManager*, $XMLReader*)},
-	{"getCatalogFeature", "(Ljavax/xml/catalog/CatalogFeatures;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkXmlUtils, getCatalogFeature, $String*, $CatalogFeatures*, $String*)},
-	{"getCatalogFeatures", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/catalog/CatalogFeatures;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkXmlUtils, getCatalogFeatures, $CatalogFeatures*, $String*, $String*, $String*, $String*)},
-	{"getDOMDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkXmlUtils, getDOMDocument, $Document*)},
-	{"getDOMFactory", "(Z)Ljavax/xml/parsers/DocumentBuilderFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkXmlUtils, getDOMFactory, $DocumentBuilderFactory*, bool)},
-	{"getQuoteChar", "(Ljava/lang/String;)C", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkXmlUtils, getQuoteChar, char16_t, $String*)},
-	{"getSAXFactory", "(Z)Ljavax/xml/parsers/SAXParserFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkXmlUtils, getSAXFactory, $SAXParserFactory*, bool)},
-	{"getSAXTransformFactory", "(Z)Ljavax/xml/transform/sax/SAXTransformerFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkXmlUtils, getSAXTransformFactory, $SAXTransformerFactory*, bool)},
-	{"getValue", "(Ljava/lang/Object;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkXmlUtils, getValue, int32_t, Object$*, int32_t)},
-	{"getXMLReader", "(ZZ)Lorg/xml/sax/XMLReader;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkXmlUtils, getXMLReader, $XMLReader*, bool, bool)},
-	{"getXMLReaderWSAXFactory", "(Z)Lorg/xml/sax/XMLReader;", nullptr, $PRIVATE | $STATIC, $staticMethod(JdkXmlUtils, getXMLReaderWSAXFactory, $XMLReader*, bool)},
-	{"getXMLReaderWXMLReaderFactory", "()Lorg/xml/sax/XMLReader;", nullptr, $PRIVATE | $STATIC, $staticMethod(JdkXmlUtils, getXMLReaderWXMLReaderFactory, $XMLReader*)},
-	{"setXMLReaderPropertyIfSupport", "(Lorg/xml/sax/XMLReader;Ljava/lang/String;Ljava/lang/Object;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkXmlUtils, setXMLReaderPropertyIfSupport, void, $XMLReader*, $String*, Object$*, bool)},
-	{}
-};
-
-$ClassInfo _JdkXmlUtils_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.xml.internal.JdkXmlUtils",
-	"java.lang.Object",
-	nullptr,
-	_JdkXmlUtils_FieldInfo_,
-	_JdkXmlUtils_MethodInfo_
-};
-
-$Object* allocate$JdkXmlUtils($Class* clazz) {
-	return $of($alloc(JdkXmlUtils));
-}
 
 $String* JdkXmlUtils::DOM_FACTORY_ID = nullptr;
 $String* JdkXmlUtils::SAX_FACTORY_ID = nullptr;
@@ -157,12 +105,12 @@ void JdkXmlUtils::init$() {
 
 int32_t JdkXmlUtils::getValue(Object$* value, int32_t defValue) {
 	$init(JdkXmlUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (value == nullptr) {
 		return defValue;
 	}
 	if ($instanceOf($Number, value)) {
-		return $nc(($cast($Number, value)))->intValue();
+		return $cast($Number, value)->intValue();
 	} else if ($instanceOf($String, value)) {
 		return $Integer::parseInt($($String::valueOf(value)));
 	} else {
@@ -172,7 +120,7 @@ int32_t JdkXmlUtils::getValue(Object$* value, int32_t defValue) {
 
 void JdkXmlUtils::setXMLReaderPropertyIfSupport($XMLReader* reader, $String* property, Object$* value, bool warn) {
 	$init(JdkXmlUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$nc(reader)->setProperty(property, value);
 	} catch ($SAXNotRecognizedException& e) {
@@ -188,18 +136,12 @@ void JdkXmlUtils::setXMLReaderPropertyIfSupport($XMLReader* reader, $String* pro
 
 $String* JdkXmlUtils::getCatalogFeature($CatalogFeatures* features, $String* name) {
 	$init(JdkXmlUtils);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($CatalogFeatures$FeatureArray, arr$, $CatalogFeatures$Feature::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$CatalogFeatures$Feature* feature = arr$->get(i$);
-			{
-				if ($nc($($nc(feature)->getPropertyName()))->equals(name)) {
-					return $nc(features)->get(feature);
-				}
-			}
+	$useLocalObjectStack();
+	$var($CatalogFeatures$FeatureArray, arr$, $CatalogFeatures$Feature::values());
+	for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+		$CatalogFeatures$Feature* feature = arr$->get(i$);
+		if ($$nc($nc(feature)->getPropertyName())->equals(name)) {
+			return $nc(features)->get(feature);
 		}
 	}
 	return nullptr;
@@ -229,7 +171,7 @@ $CatalogFeatures* JdkXmlUtils::getCatalogFeatures($String* defer, $String* file,
 
 void JdkXmlUtils::catalogFeaturesConfig2Config($XMLComponentManager* config1, $ParserConfigurationSettings* config2) {
 	$init(JdkXmlUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool supportCatalog = true;
 	$init($XMLConstants);
 	bool useCatalog = $nc(config1)->getFeature($XMLConstants::USE_CATALOG);
@@ -240,16 +182,12 @@ void JdkXmlUtils::catalogFeaturesConfig2Config($XMLComponentManager* config1, $P
 	}
 	if (supportCatalog && useCatalog) {
 		try {
-			{
-				$var($CatalogFeatures$FeatureArray, arr$, $CatalogFeatures$Feature::values());
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					$CatalogFeatures$Feature* f = arr$->get(i$);
-					{
-						$var($String, var$0, $nc(f)->getPropertyName());
-						$nc(config2)->setProperty(var$0, $(config1->getProperty($(f->getPropertyName()))));
-					}
+			$var($CatalogFeatures$FeatureArray, arr$, $CatalogFeatures$Feature::values());
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+				$CatalogFeatures$Feature* f = arr$->get(i$);
+				{
+					$var($String, var$0, $nc(f)->getPropertyName());
+					$nc(config2)->setProperty(var$0, $(config1->getProperty($(f->getPropertyName()))));
 				}
 			}
 		} catch ($XMLConfigurationException& e) {
@@ -259,7 +197,7 @@ void JdkXmlUtils::catalogFeaturesConfig2Config($XMLComponentManager* config1, $P
 
 void JdkXmlUtils::catalogFeaturesConfig2Reader($XMLComponentManager* config, $XMLReader* reader) {
 	$init(JdkXmlUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool supportCatalog = true;
 	$init($XMLConstants);
 	bool useCatalog = $nc(config)->getFeature($XMLConstants::USE_CATALOG);
@@ -272,16 +210,12 @@ void JdkXmlUtils::catalogFeaturesConfig2Reader($XMLComponentManager* config, $XM
 	}
 	if (supportCatalog && useCatalog) {
 		try {
-			{
-				$var($CatalogFeatures$FeatureArray, arr$, $CatalogFeatures$Feature::values());
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					$CatalogFeatures$Feature* f = arr$->get(i$);
-					{
-						$var($String, var$0, $nc(f)->getPropertyName());
-						$nc(reader)->setProperty(var$0, $(config->getProperty($(f->getPropertyName()))));
-					}
+			$var($CatalogFeatures$FeatureArray, arr$, $CatalogFeatures$Feature::values());
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+				$CatalogFeatures$Feature* f = arr$->get(i$);
+				{
+					$var($String, var$0, $nc(f)->getPropertyName());
+					$nc(reader)->setProperty(var$0, $(config->getProperty($(f->getPropertyName()))));
 				}
 			}
 		} catch ($SAXNotRecognizedException& e) {
@@ -292,7 +226,7 @@ void JdkXmlUtils::catalogFeaturesConfig2Reader($XMLComponentManager* config, $XM
 
 $XMLReader* JdkXmlUtils::getXMLReader(bool overrideDefaultParser, bool secureProcessing) {
 	$init(JdkXmlUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SAXParserFactory, saxFactory, nullptr);
 	$var($XMLReader, reader, nullptr);
 	$var($String, spSAXDriver, $SecuritySupport::getSystemProperty(JdkXmlUtils::SAX_DRIVER));
@@ -308,7 +242,7 @@ $XMLReader* JdkXmlUtils::getXMLReader(bool overrideDefaultParser, bool securePro
 				reader->setFeature($XMLConstants::FEATURE_SECURE_PROCESSING, secureProcessing);
 			} catch ($SAXException& e) {
 				$init($XMLConstants);
-				$XMLSecurityManager::printWarning($($of(reader)->getClass()->getName()), $XMLConstants::FEATURE_SECURE_PROCESSING, e);
+				$XMLSecurityManager::printWarning($(reader->getClass()->getName()), $XMLConstants::FEATURE_SECURE_PROCESSING, e);
 			}
 		}
 		try {
@@ -320,7 +254,7 @@ $XMLReader* JdkXmlUtils::getXMLReader(bool overrideDefaultParser, bool securePro
 	}
 	$assign(saxFactory, JdkXmlUtils::defaultSAXFactory);
 	try {
-		$assign(reader, $nc($($nc(saxFactory)->newSAXParser()))->getXMLReader());
+		$assign(reader, $$nc($nc(saxFactory)->newSAXParser())->getXMLReader());
 	} catch ($ParserConfigurationException& ex) {
 	} catch ($SAXException& ex) {
 	}
@@ -329,10 +263,10 @@ $XMLReader* JdkXmlUtils::getXMLReader(bool overrideDefaultParser, bool securePro
 
 $Document* JdkXmlUtils::getDOMDocument() {
 	$init(JdkXmlUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($DocumentBuilderFactory, dbf, JdkXmlUtils::getDOMFactory(false));
-		return $nc($($nc(dbf)->newDocumentBuilder()))->newDocument();
+		return $$nc($nc(dbf)->newDocumentBuilder())->newDocument();
 	} catch ($ParserConfigurationException& pce) {
 	}
 	return nullptr;
@@ -340,13 +274,13 @@ $Document* JdkXmlUtils::getDOMDocument() {
 
 $DocumentBuilderFactory* JdkXmlUtils::getDOMFactory(bool overrideDefaultParser) {
 	$init(JdkXmlUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool override$ = overrideDefaultParser;
 	$var($String, spDOMFactory, $SecuritySupport::getJAXPSystemProperty(JdkXmlUtils::DOM_FACTORY_ID));
 	if (spDOMFactory != nullptr && $System::getSecurityManager() == nullptr) {
 		override$ = true;
 	}
-	$var($DocumentBuilderFactory, dbf, !override$ ? static_cast<$DocumentBuilderFactory*>($new($DocumentBuilderFactoryImpl)) : $DocumentBuilderFactory::newInstance());
+	$var($DocumentBuilderFactory, dbf, !override$ ? $cast($DocumentBuilderFactory, $new($DocumentBuilderFactoryImpl)) : $DocumentBuilderFactory::newInstance());
 	$nc(dbf)->setNamespaceAware(true);
 	dbf->setValidating(false);
 	return dbf;
@@ -354,20 +288,20 @@ $DocumentBuilderFactory* JdkXmlUtils::getDOMFactory(bool overrideDefaultParser) 
 
 $SAXParserFactory* JdkXmlUtils::getSAXFactory(bool overrideDefaultParser) {
 	$init(JdkXmlUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool override$ = overrideDefaultParser;
 	$var($String, spSAXFactory, $SecuritySupport::getJAXPSystemProperty(JdkXmlUtils::SAX_FACTORY_ID));
 	if (spSAXFactory != nullptr && $System::getSecurityManager() == nullptr) {
 		override$ = true;
 	}
-	$var($SAXParserFactory, factory, !override$ ? static_cast<$SAXParserFactory*>($new($SAXParserFactoryImpl)) : $SAXParserFactory::newInstance());
+	$var($SAXParserFactory, factory, !override$ ? $cast($SAXParserFactory, $new($SAXParserFactoryImpl)) : $SAXParserFactory::newInstance());
 	$nc(factory)->setNamespaceAware(true);
 	return factory;
 }
 
 $SAXTransformerFactory* JdkXmlUtils::getSAXTransformFactory(bool overrideDefaultParser) {
 	$init(JdkXmlUtils);
-	$var($SAXTransformerFactory, tf, overrideDefaultParser ? $cast($SAXTransformerFactory, $SAXTransformerFactory::newInstance()) : static_cast<$SAXTransformerFactory*>($new($TransformerFactoryImpl)));
+	$var($SAXTransformerFactory, tf, overrideDefaultParser ? $cast($SAXTransformerFactory, $SAXTransformerFactory::newInstance()) : $cast($SAXTransformerFactory, $new($TransformerFactoryImpl)));
 	try {
 		$nc(tf)->setFeature("jdk.xml.overrideDefaultParser"_s, overrideDefaultParser);
 	} catch ($TransformerConfigurationException& ex) {
@@ -377,7 +311,7 @@ $SAXTransformerFactory* JdkXmlUtils::getSAXTransformFactory(bool overrideDefault
 
 char16_t JdkXmlUtils::getQuoteChar($String* s) {
 	$init(JdkXmlUtils);
-	if (s != nullptr && s->indexOf((int32_t)u'\"') > -1) {
+	if (s != nullptr && s->indexOf(u'\"') > -1) {
 		return u'\'';
 	} else {
 		return u'\"';
@@ -386,10 +320,10 @@ char16_t JdkXmlUtils::getQuoteChar($String* s) {
 
 $XMLReader* JdkXmlUtils::getXMLReaderWSAXFactory(bool overrideDefaultParser) {
 	$init(JdkXmlUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SAXParserFactory, saxFactory, getSAXFactory(overrideDefaultParser));
 	try {
-		return $nc($($nc(saxFactory)->newSAXParser()))->getXMLReader();
+		return $$nc($nc(saxFactory)->newSAXParser())->getXMLReader();
 	} catch ($ParserConfigurationException& ex) {
 		return getXMLReaderWXMLReaderFactory();
 	} catch ($SAXException& ex) {
@@ -407,7 +341,7 @@ $XMLReader* JdkXmlUtils::getXMLReaderWXMLReaderFactory() {
 	return nullptr;
 }
 
-void clinit$JdkXmlUtils($Class* class$) {
+void JdkXmlUtils::clinit$($Class* clazz) {
 	$assignStatic(JdkXmlUtils::DOM_FACTORY_ID, "javax.xml.parsers.DocumentBuilderFactory"_s);
 	$assignStatic(JdkXmlUtils::SAX_FACTORY_ID, "javax.xml.parsers.SAXParserFactory"_s);
 	$assignStatic(JdkXmlUtils::SAX_DRIVER, "org.xml.sax.driver"_s);
@@ -422,8 +356,7 @@ void clinit$JdkXmlUtils($Class* class$) {
 	$assignStatic(JdkXmlUtils::CATALOG_DEFER, $CatalogFeatures$Feature::DEFER->getPropertyName());
 	$assignStatic(JdkXmlUtils::CATALOG_PREFER, $CatalogFeatures$Feature::PREFER->getPropertyName());
 	$assignStatic(JdkXmlUtils::CATALOG_RESOLVE, $CatalogFeatures$Feature::RESOLVE->getPropertyName());
-	$load($Boolean);
-	JdkXmlUtils::USE_CATALOG_DEFAULT = $nc(($cast($Boolean, $($SecuritySupport::getJAXPSystemProperty($Boolean::class$, JdkXmlUtils::SP_USE_CATALOG, "true"_s)))))->booleanValue();
+	JdkXmlUtils::USE_CATALOG_DEFAULT = $$sure($Boolean, $SecuritySupport::getJAXPSystemProperty($Boolean::class$, JdkXmlUtils::SP_USE_CATALOG, "true"_s))->booleanValue();
 	$assignStatic(JdkXmlUtils::defaultSAXFactory, JdkXmlUtils::getSAXFactory(false));
 }
 
@@ -431,7 +364,51 @@ JdkXmlUtils::JdkXmlUtils() {
 }
 
 $Class* JdkXmlUtils::load$($String* name, bool initialize) {
-	$loadClass(JdkXmlUtils, name, initialize, &_JdkXmlUtils_ClassInfo_, clinit$JdkXmlUtils, allocate$JdkXmlUtils);
+	$FieldInfo fieldInfos$$[] = {
+		{"DOM_FACTORY_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JdkXmlUtils, DOM_FACTORY_ID)},
+		{"SAX_FACTORY_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JdkXmlUtils, SAX_FACTORY_ID)},
+		{"SAX_DRIVER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JdkXmlUtils, SAX_DRIVER)},
+		{"NAMESPACES_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkXmlUtils, NAMESPACES_FEATURE)},
+		{"NAMESPACE_PREFIXES_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkXmlUtils, NAMESPACE_PREFIXES_FEATURE)},
+		{"USE_CATALOG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkXmlUtils, USE_CATALOG)},
+		{"SP_USE_CATALOG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkXmlUtils, SP_USE_CATALOG)},
+		{"CATALOG_FILES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkXmlUtils, CATALOG_FILES)},
+		{"CATALOG_DEFER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkXmlUtils, CATALOG_DEFER)},
+		{"CATALOG_PREFER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkXmlUtils, CATALOG_PREFER)},
+		{"CATALOG_RESOLVE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkXmlUtils, CATALOG_RESOLVE)},
+		{"USE_CATALOG_DEFAULT", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkXmlUtils, USE_CATALOG_DEFAULT)},
+		{"defaultSAXFactory", "Ljavax/xml/parsers/SAXParserFactory;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JdkXmlUtils, defaultSAXFactory)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JdkXmlUtils, init$, void)},
+		{"catalogFeaturesConfig2Config", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;Lcom/sun/org/apache/xerces/internal/util/ParserConfigurationSettings;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkXmlUtils, catalogFeaturesConfig2Config, void, $XMLComponentManager*, $ParserConfigurationSettings*)},
+		{"catalogFeaturesConfig2Reader", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;Lorg/xml/sax/XMLReader;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkXmlUtils, catalogFeaturesConfig2Reader, void, $XMLComponentManager*, $XMLReader*)},
+		{"getCatalogFeature", "(Ljavax/xml/catalog/CatalogFeatures;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkXmlUtils, getCatalogFeature, $String*, $CatalogFeatures*, $String*)},
+		{"getCatalogFeatures", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/catalog/CatalogFeatures;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkXmlUtils, getCatalogFeatures, $CatalogFeatures*, $String*, $String*, $String*, $String*)},
+		{"getDOMDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkXmlUtils, getDOMDocument, $Document*)},
+		{"getDOMFactory", "(Z)Ljavax/xml/parsers/DocumentBuilderFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkXmlUtils, getDOMFactory, $DocumentBuilderFactory*, bool)},
+		{"getQuoteChar", "(Ljava/lang/String;)C", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkXmlUtils, getQuoteChar, char16_t, $String*)},
+		{"getSAXFactory", "(Z)Ljavax/xml/parsers/SAXParserFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkXmlUtils, getSAXFactory, $SAXParserFactory*, bool)},
+		{"getSAXTransformFactory", "(Z)Ljavax/xml/transform/sax/SAXTransformerFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkXmlUtils, getSAXTransformFactory, $SAXTransformerFactory*, bool)},
+		{"getValue", "(Ljava/lang/Object;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkXmlUtils, getValue, int32_t, Object$*, int32_t)},
+		{"getXMLReader", "(ZZ)Lorg/xml/sax/XMLReader;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkXmlUtils, getXMLReader, $XMLReader*, bool, bool)},
+		{"getXMLReaderWSAXFactory", "(Z)Lorg/xml/sax/XMLReader;", nullptr, $PRIVATE | $STATIC, $staticMethod(JdkXmlUtils, getXMLReaderWSAXFactory, $XMLReader*, bool)},
+		{"getXMLReaderWXMLReaderFactory", "()Lorg/xml/sax/XMLReader;", nullptr, $PRIVATE | $STATIC, $staticMethod(JdkXmlUtils, getXMLReaderWXMLReaderFactory, $XMLReader*)},
+		{"setXMLReaderPropertyIfSupport", "(Lorg/xml/sax/XMLReader;Ljava/lang/String;Ljava/lang/Object;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkXmlUtils, setXMLReaderPropertyIfSupport, void, $XMLReader*, $String*, Object$*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.xml.internal.JdkXmlUtils",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JdkXmlUtils, name, initialize, &classInfo$$, JdkXmlUtils::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JdkXmlUtils);
+	});
 	return class$;
 }
 

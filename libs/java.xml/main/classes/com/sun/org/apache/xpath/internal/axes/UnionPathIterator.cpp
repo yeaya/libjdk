@@ -1,12 +1,10 @@
 #include <com/sun/org/apache/xpath/internal/axes/UnionPathIterator.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/Axis.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMIterator.h>
 #include <com/sun/org/apache/xml/internal/utils/PrefixResolver.h>
 #include <com/sun/org/apache/xml/internal/utils/WrappedRuntimeException.h>
 #include <com/sun/org/apache/xpath/internal/Expression.h>
-#include <com/sun/org/apache/xpath/internal/ExpressionNode.h>
 #include <com/sun/org/apache/xpath/internal/ExpressionOwner.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
 #include <com/sun/org/apache/xpath/internal/XPathVisitor.h>
@@ -42,10 +40,8 @@ using $DTM = ::com::sun::org::apache::xml::internal::dtm::DTM;
 using $DTMIterator = ::com::sun::org::apache::xml::internal::dtm::DTMIterator;
 using $WrappedRuntimeException = ::com::sun::org::apache::xml::internal::utils::WrappedRuntimeException;
 using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
-using $ExpressionNode = ::com::sun::org::apache::xpath::internal::ExpressionNode;
 using $ExpressionOwner = ::com::sun::org::apache::xpath::internal::ExpressionOwner;
 using $XPathVisitor = ::com::sun::org::apache::xpath::internal::XPathVisitor;
-using $AxesWalker = ::com::sun::org::apache::xpath::internal::axes::AxesWalker;
 using $FilterExprWalker = ::com::sun::org::apache::xpath::internal::axes::FilterExprWalker;
 using $HasPositionalPredChecker = ::com::sun::org::apache::xpath::internal::axes::HasPositionalPredChecker;
 using $IteratorPool = ::com::sun::org::apache::xpath::internal::axes::IteratorPool;
@@ -74,57 +70,6 @@ namespace com {
 					namespace internal {
 						namespace axes {
 
-$FieldInfo _UnionPathIterator_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(UnionPathIterator, serialVersionUID)},
-	{"m_exprs", "[Lcom/sun/org/apache/xpath/internal/axes/LocPathIterator;", nullptr, $PROTECTED, $field(UnionPathIterator, m_exprs)},
-	{"m_iterators", "[Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PROTECTED, $field(UnionPathIterator, m_iterators)},
-	{}
-};
-
-$MethodInfo _UnionPathIterator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UnionPathIterator, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;I)V", nullptr, $PUBLIC, $method(UnionPathIterator, init$, void, $Compiler*, int32_t), "javax.xml.transform.TransformerException"},
-	{"addIterator", "(Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;)V", nullptr, $PUBLIC, $virtualMethod(UnionPathIterator, addIterator, void, $DTMIterator*)},
-	{"callVisitors", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/XPathVisitor;)V", nullptr, $PUBLIC, $virtualMethod(UnionPathIterator, callVisitors, void, $ExpressionOwner*, $XPathVisitor*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnionPathIterator, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"createDTMIterator", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;I)Lcom/sun/org/apache/xpath/internal/axes/LocPathIterator;", nullptr, $PROTECTED, $virtualMethod(UnionPathIterator, createDTMIterator, $LocPathIterator*, $Compiler*, int32_t), "javax.xml.transform.TransformerException"},
-	{"createUnionIterator", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;I)Lcom/sun/org/apache/xpath/internal/axes/LocPathIterator;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnionPathIterator, createUnionIterator, $LocPathIterator*, $Compiler*, int32_t), "javax.xml.transform.TransformerException"},
-	{"deepEquals", "(Lcom/sun/org/apache/xpath/internal/Expression;)Z", nullptr, $PUBLIC, $virtualMethod(UnionPathIterator, deepEquals, bool, $Expression*)},
-	{"detach", "()V", nullptr, $PUBLIC, $virtualMethod(UnionPathIterator, detach, void)},
-	{"fixupVariables", "(Ljava/util/List;I)V", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/utils/QName;>;I)V", $PUBLIC, $virtualMethod(UnionPathIterator, fixupVariables, void, $List*, int32_t)},
-	{"getAnalysisBits", "()I", nullptr, $PUBLIC, $virtualMethod(UnionPathIterator, getAnalysisBits, int32_t)},
-	{"getAxis", "()I", nullptr, $PUBLIC, $virtualMethod(UnionPathIterator, getAxis, int32_t)},
-	{"loadLocationPaths", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;II)V", nullptr, $PROTECTED, $virtualMethod(UnionPathIterator, loadLocationPaths, void, $Compiler*, int32_t, int32_t), "javax.xml.transform.TransformerException"},
-	{"nextNode", "()I", nullptr, $PUBLIC, $virtualMethod(UnionPathIterator, nextNode, int32_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(UnionPathIterator, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setRoot", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(UnionPathIterator, setRoot, void, int32_t, Object$*)},
-	{}
-};
-
-$InnerClassInfo _UnionPathIterator_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xpath.internal.axes.UnionPathIterator$iterOwner", "com.sun.org.apache.xpath.internal.axes.UnionPathIterator", "iterOwner", 0},
-	{}
-};
-
-$ClassInfo _UnionPathIterator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.axes.UnionPathIterator",
-	"com.sun.org.apache.xpath.internal.axes.LocPathIterator",
-	nullptr,
-	_UnionPathIterator_FieldInfo_,
-	_UnionPathIterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UnionPathIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xpath.internal.axes.UnionPathIterator$iterOwner"
-};
-
-$Object* allocate$UnionPathIterator($Class* clazz) {
-	return $of($alloc(UnionPathIterator));
-}
-
 void UnionPathIterator::init$() {
 	$LocPathIterator::init$();
 	$set(this, m_iterators, nullptr);
@@ -132,11 +77,11 @@ void UnionPathIterator::init$() {
 }
 
 void UnionPathIterator::setRoot(int32_t context, Object$* environment) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LocPathIterator::setRoot(context, environment);
 	try {
 		if (nullptr != this->m_exprs) {
-			int32_t n = $nc(this->m_exprs)->length;
+			int32_t n = this->m_exprs->length;
 			$var($DTMIteratorArray, newIters, $new($DTMIteratorArray, n));
 			for (int32_t i = 0; i < n; ++i) {
 				$var($DTMIterator, iter, $nc($nc(this->m_exprs)->get(i))->asIterator(this->m_execContext, context));
@@ -153,23 +98,23 @@ void UnionPathIterator::setRoot(int32_t context, Object$* environment) {
 void UnionPathIterator::addIterator($DTMIterator* expr) {
 	if (nullptr == this->m_iterators) {
 		$set(this, m_iterators, $new($DTMIteratorArray, 1));
-		$nc(this->m_iterators)->set(0, expr);
+		this->m_iterators->set(0, expr);
 	} else {
 		$var($DTMIteratorArray, exprs, this->m_iterators);
-		int32_t len = $nc(this->m_iterators)->length;
+		int32_t len = this->m_iterators->length;
 		$set(this, m_iterators, $new($DTMIteratorArray, len + 1));
 		$System::arraycopy(exprs, 0, this->m_iterators, 0, len);
-		$nc(this->m_iterators)->set(len, expr);
+		this->m_iterators->set(len, expr);
 	}
 	$nc(expr)->nextNode();
 	if ($instanceOf($Expression, expr)) {
-		$nc(($cast($Expression, expr)))->exprSetParent(this);
+		$cast($Expression, expr)->exprSetParent(this);
 	}
 }
 
 void UnionPathIterator::detach() {
 	if (this->m_allowDetach && nullptr != this->m_iterators) {
-		int32_t n = $nc(this->m_iterators)->length;
+		int32_t n = this->m_iterators->length;
 		for (int32_t i = 0; i < n; ++i) {
 			$nc($nc(this->m_iterators)->get(i))->detach();
 		}
@@ -185,7 +130,7 @@ void UnionPathIterator::init$($Compiler* compiler, int32_t opPos) {
 
 $LocPathIterator* UnionPathIterator::createUnionIterator($Compiler* compiler, int32_t opPos) {
 	$init(UnionPathIterator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(UnionPathIterator, upi, $new(UnionPathIterator, compiler, opPos));
 	int32_t nPaths = $nc(upi->m_exprs)->length;
 	bool isAllChildIterators = true;
@@ -214,7 +159,7 @@ $LocPathIterator* UnionPathIterator::createUnionIterator($Compiler* compiler, in
 int32_t UnionPathIterator::getAnalysisBits() {
 	int32_t bits = 0;
 	if (this->m_exprs != nullptr) {
-		int32_t n = $nc(this->m_exprs)->length;
+		int32_t n = this->m_exprs->length;
 		for (int32_t i = 0; i < n; ++i) {
 			int32_t bit = $nc($nc(this->m_exprs)->get(i))->getAnalysisBits();
 			bits |= bit;
@@ -229,13 +174,13 @@ void UnionPathIterator::readObject($ObjectInputStream* stream) {
 }
 
 $Object* UnionPathIterator::clone() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(UnionPathIterator, clone, $cast(UnionPathIterator, $LocPathIterator::clone()));
 	if (this->m_iterators != nullptr) {
-		int32_t n = $nc(this->m_iterators)->length;
+		int32_t n = this->m_iterators->length;
 		$set($nc(clone), m_iterators, $new($DTMIteratorArray, n));
 		for (int32_t i = 0; i < n; ++i) {
-			$nc(clone->m_iterators)->set(i, $cast($DTMIterator, $($nc($nc(this->m_iterators)->get(i))->clone())));
+			$nc(clone->m_iterators)->set(i, $$cast($DTMIterator, $nc($nc(this->m_iterators)->get(i))->clone()));
 		}
 	}
 	return $of(clone);
@@ -247,52 +192,43 @@ $LocPathIterator* UnionPathIterator::createDTMIterator($Compiler* compiler, int3
 }
 
 void UnionPathIterator::loadLocationPaths($Compiler* compiler, int32_t opPos, int32_t count) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t steptype = $nc(compiler)->getOp(opPos);
 	if (steptype == $OpCodes::OP_LOCATIONPATH) {
 		loadLocationPaths(compiler, compiler->getNextOpPos(opPos), count + 1);
 		$nc(this->m_exprs)->set(count, $(createDTMIterator(compiler, opPos)));
 		$nc($nc(this->m_exprs)->get(count))->exprSetParent(this);
 	} else {
-		{
-			$var($WalkingIterator, iter, nullptr)
-			switch (steptype) {
-			case $OpCodes::OP_VARIABLE:
-				{}
-			case $OpCodes::OP_EXTFUNCTION:
-				{}
-			case $OpCodes::OP_FUNCTION:
-				{}
-			case $OpCodes::OP_GROUP:
-				{
-					loadLocationPaths(compiler, compiler->getNextOpPos(opPos), count + 1);
-					$assign(iter, $new($WalkingIterator, $(compiler->getNamespaceContext())));
-					$nc(iter)->exprSetParent(this);
-					if (compiler->getLocationPathDepth() <= 0) {
-						$nc(iter)->setIsTopLevel(true);
-					}
-					$set($nc(iter), m_firstWalker, $new($FilterExprWalker, iter));
-					$nc($nc(iter)->m_firstWalker)->init(compiler, opPos, steptype);
-					$nc(this->m_exprs)->set(count, iter);
-					break;
-				}
-			default:
-				{
-					$set(this, m_exprs, $new($LocPathIteratorArray, count));
-				}
+		$var($WalkingIterator, iter, nullptr);
+		switch (steptype) {
+		case $OpCodes::OP_VARIABLE:
+		case $OpCodes::OP_EXTFUNCTION:
+		case $OpCodes::OP_FUNCTION:
+		case $OpCodes::OP_GROUP:
+			loadLocationPaths(compiler, compiler->getNextOpPos(opPos), count + 1);
+			$assign(iter, $new($WalkingIterator, $(compiler->getNamespaceContext())));
+			$nc(iter)->exprSetParent(this);
+			if (compiler->getLocationPathDepth() <= 0) {
+				iter->setIsTopLevel(true);
 			}
+			$set(iter, m_firstWalker, $new($FilterExprWalker, iter));
+			iter->m_firstWalker->init(compiler, opPos, steptype);
+			$nc(this->m_exprs)->set(count, iter);
+			break;
+		default:
+			$set(this, m_exprs, $new($LocPathIteratorArray, count));
 		}
 	}
 }
 
 int32_t UnionPathIterator::nextNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->m_foundLast) {
 		return $DTM::NULL;
 	}
 	int32_t earliestNode = $DTM::NULL;
 	if (nullptr != this->m_iterators) {
-		int32_t n = $nc(this->m_iterators)->length;
+		int32_t n = this->m_iterators->length;
 		int32_t iteratorUsed = -1;
 		for (int32_t i = 0; i < n; ++i) {
 			int32_t node = $nc($nc(this->m_iterators)->get(i))->getCurrentNode();
@@ -324,7 +260,7 @@ int32_t UnionPathIterator::nextNode() {
 
 void UnionPathIterator::fixupVariables($List* vars, int32_t globalsSize) {
 	for (int32_t i = 0; i < $nc(this->m_exprs)->length; ++i) {
-		$nc($nc(this->m_exprs)->get(i))->fixupVariables(vars, globalsSize);
+		$nc(this->m_exprs->get(i))->fixupVariables(vars, globalsSize);
 	}
 }
 
@@ -333,10 +269,10 @@ int32_t UnionPathIterator::getAxis() {
 }
 
 void UnionPathIterator::callVisitors($ExpressionOwner* owner, $XPathVisitor* visitor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(visitor)->visitUnionPath(owner, this)) {
 		if (nullptr != this->m_exprs) {
-			int32_t n = $nc(this->m_exprs)->length;
+			int32_t n = this->m_exprs->length;
 			for (int32_t i = 0; i < n; ++i) {
 				$nc($nc(this->m_exprs)->get(i))->callVisitors($$new($UnionPathIterator$iterOwner, this, i), visitor);
 			}
@@ -350,12 +286,12 @@ bool UnionPathIterator::deepEquals($Expression* expr) {
 	}
 	$var(UnionPathIterator, upi, $cast(UnionPathIterator, expr));
 	if (nullptr != this->m_exprs) {
-		int32_t n = $nc(this->m_exprs)->length;
-		if ((nullptr == $nc(upi)->m_exprs) || ($nc($nc(upi)->m_exprs)->length != n)) {
+		int32_t n = this->m_exprs->length;
+		if ((nullptr == $nc(upi)->m_exprs) || (upi->m_exprs->length != n)) {
 			return false;
 		}
 		for (int32_t i = 0; i < n; ++i) {
-			if (!$nc($nc(this->m_exprs)->get(i))->deepEquals($nc($nc(upi)->m_exprs)->get(i))) {
+			if (!$nc($nc(this->m_exprs)->get(i))->deepEquals($nc(upi->m_exprs)->get(i))) {
 				return false;
 			}
 		}
@@ -369,7 +305,52 @@ UnionPathIterator::UnionPathIterator() {
 }
 
 $Class* UnionPathIterator::load$($String* name, bool initialize) {
-	$loadClass(UnionPathIterator, name, initialize, &_UnionPathIterator_ClassInfo_, allocate$UnionPathIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(UnionPathIterator, serialVersionUID)},
+		{"m_exprs", "[Lcom/sun/org/apache/xpath/internal/axes/LocPathIterator;", nullptr, $PROTECTED, $field(UnionPathIterator, m_exprs)},
+		{"m_iterators", "[Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PROTECTED, $field(UnionPathIterator, m_iterators)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UnionPathIterator, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;I)V", nullptr, $PUBLIC, $method(UnionPathIterator, init$, void, $Compiler*, int32_t), "javax.xml.transform.TransformerException"},
+		{"addIterator", "(Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;)V", nullptr, $PUBLIC, $virtualMethod(UnionPathIterator, addIterator, void, $DTMIterator*)},
+		{"callVisitors", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/XPathVisitor;)V", nullptr, $PUBLIC, $virtualMethod(UnionPathIterator, callVisitors, void, $ExpressionOwner*, $XPathVisitor*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnionPathIterator, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"createDTMIterator", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;I)Lcom/sun/org/apache/xpath/internal/axes/LocPathIterator;", nullptr, $PROTECTED, $virtualMethod(UnionPathIterator, createDTMIterator, $LocPathIterator*, $Compiler*, int32_t), "javax.xml.transform.TransformerException"},
+		{"createUnionIterator", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;I)Lcom/sun/org/apache/xpath/internal/axes/LocPathIterator;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnionPathIterator, createUnionIterator, $LocPathIterator*, $Compiler*, int32_t), "javax.xml.transform.TransformerException"},
+		{"deepEquals", "(Lcom/sun/org/apache/xpath/internal/Expression;)Z", nullptr, $PUBLIC, $virtualMethod(UnionPathIterator, deepEquals, bool, $Expression*)},
+		{"detach", "()V", nullptr, $PUBLIC, $virtualMethod(UnionPathIterator, detach, void)},
+		{"fixupVariables", "(Ljava/util/List;I)V", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/utils/QName;>;I)V", $PUBLIC, $virtualMethod(UnionPathIterator, fixupVariables, void, $List*, int32_t)},
+		{"getAnalysisBits", "()I", nullptr, $PUBLIC, $virtualMethod(UnionPathIterator, getAnalysisBits, int32_t)},
+		{"getAxis", "()I", nullptr, $PUBLIC, $virtualMethod(UnionPathIterator, getAxis, int32_t)},
+		{"loadLocationPaths", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;II)V", nullptr, $PROTECTED, $virtualMethod(UnionPathIterator, loadLocationPaths, void, $Compiler*, int32_t, int32_t), "javax.xml.transform.TransformerException"},
+		{"nextNode", "()I", nullptr, $PUBLIC, $virtualMethod(UnionPathIterator, nextNode, int32_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(UnionPathIterator, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"setRoot", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(UnionPathIterator, setRoot, void, int32_t, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xpath.internal.axes.UnionPathIterator$iterOwner", "com.sun.org.apache.xpath.internal.axes.UnionPathIterator", "iterOwner", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.axes.UnionPathIterator",
+		"com.sun.org.apache.xpath.internal.axes.LocPathIterator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xpath.internal.axes.UnionPathIterator$iterOwner"
+	};
+	$loadClass(UnionPathIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UnionPathIterator));
+	});
 	return class$;
 }
 

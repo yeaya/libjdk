@@ -113,6 +113,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Toolkit* tk);
 	virtual void addAWTEventListener(::java::awt::event::AWTEventListener* listener, int64_t eventMask) override;
 	virtual void addPropertyChangeListener($String* name, ::java::beans::PropertyChangeListener* pcl) override;

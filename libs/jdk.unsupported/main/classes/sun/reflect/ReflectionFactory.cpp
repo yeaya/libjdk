@@ -1,5 +1,4 @@
 #include <sun/reflect/ReflectionFactory.h>
-
 #include <java/io/OptionalDataException.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/InstantiationException.h>
@@ -12,7 +11,6 @@
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/security/AccessController.h>
 #include <java/security/Permission.h>
-#include <java/security/PrivilegedAction.h>
 #include <jdk/internal/reflect/ReflectionFactory.h>
 #include <sun/reflect/ReflectionFactory$1.h>
 #include <jcpp.h>
@@ -35,59 +33,11 @@ using $Constructor = ::java::lang::reflect::Constructor;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $AccessController = ::java::security::AccessController;
 using $Permission = ::java::security::Permission;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ReflectionFactory = ::jdk::internal::reflect::ReflectionFactory;
 using $ReflectionFactory$1 = ::sun::reflect::ReflectionFactory$1;
 
 namespace sun {
 	namespace reflect {
-
-$FieldInfo _ReflectionFactory_FieldInfo_[] = {
-	{"soleInstance", "Lsun/reflect/ReflectionFactory;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ReflectionFactory, soleInstance)},
-	{"delegate", "Ljdk/internal/reflect/ReflectionFactory;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ReflectionFactory, delegate)},
-	{"REFLECTION_FACTORY_ACCESS_PERM", "Ljava/security/Permission;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ReflectionFactory, REFLECTION_FACTORY_ACCESS_PERM)},
-	{}
-};
-
-$MethodInfo _ReflectionFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ReflectionFactory, init$, void)},
-	{"getReflectionFactory", "()Lsun/reflect/ReflectionFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(ReflectionFactory, getReflectionFactory, ReflectionFactory*)},
-	{"hasStaticInitializerForSerialization", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $FINAL, $method(ReflectionFactory, hasStaticInitializerForSerialization, bool, $Class*)},
-	{"newConstructorForExternalization", "(Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $PUBLIC | $FINAL, $method(ReflectionFactory, newConstructorForExternalization, $Constructor*, $Class*)},
-	{"newConstructorForSerialization", "(Ljava/lang/Class;Ljava/lang/reflect/Constructor;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Constructor<*>;)Ljava/lang/reflect/Constructor<*>;", $PUBLIC, $virtualMethod(ReflectionFactory, newConstructorForSerialization, $Constructor*, $Class*, $Constructor*)},
-	{"newConstructorForSerialization", "(Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $PUBLIC | $FINAL, $method(ReflectionFactory, newConstructorForSerialization, $Constructor*, $Class*)},
-	{"newOptionalDataExceptionForSerialization", "(Z)Ljava/io/OptionalDataException;", nullptr, $PUBLIC | $FINAL, $method(ReflectionFactory, newOptionalDataExceptionForSerialization, $OptionalDataException*, bool)},
-	{"readObjectForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(ReflectionFactory, readObjectForSerialization, $MethodHandle*, $Class*)},
-	{"readObjectNoDataForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(ReflectionFactory, readObjectNoDataForSerialization, $MethodHandle*, $Class*)},
-	{"readResolveForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(ReflectionFactory, readResolveForSerialization, $MethodHandle*, $Class*)},
-	{"writeObjectForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(ReflectionFactory, writeObjectForSerialization, $MethodHandle*, $Class*)},
-	{"writeReplaceForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(ReflectionFactory, writeReplaceForSerialization, $MethodHandle*, $Class*)},
-	{}
-};
-
-$InnerClassInfo _ReflectionFactory_InnerClassesInfo_[] = {
-	{"sun.reflect.ReflectionFactory$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ReflectionFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.reflect.ReflectionFactory",
-	"java.lang.Object",
-	nullptr,
-	_ReflectionFactory_FieldInfo_,
-	_ReflectionFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ReflectionFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.reflect.ReflectionFactory$1"
-};
-
-$Object* allocate$ReflectionFactory($Class* clazz) {
-	return $of($alloc(ReflectionFactory));
-}
 
 ReflectionFactory* ReflectionFactory::soleInstance = nullptr;
 $ReflectionFactory* ReflectionFactory::delegate = nullptr;
@@ -142,11 +92,11 @@ bool ReflectionFactory::hasStaticInitializerForSerialization($Class* cl) {
 }
 
 $OptionalDataException* ReflectionFactory::newOptionalDataExceptionForSerialization(bool bool$) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Constructor, cons, $nc(ReflectionFactory::delegate)->newOptionalDataExceptionForSerialization());
 	try {
-		return $cast($OptionalDataException, $nc(cons)->newInstance($$new($ObjectArray, {$($of($Boolean::valueOf(bool$)))})));
+		return $cast($OptionalDataException, $nc(cons)->newInstance($$new($ObjectArray, {$($Boolean::valueOf(bool$))})));
 	} catch ($InstantiationException& ex) {
 		$throwNew($InternalError, "unable to create OptionalDataException"_s, ex);
 	} catch ($IllegalAccessException& ex) {
@@ -157,10 +107,10 @@ $OptionalDataException* ReflectionFactory::newOptionalDataExceptionForSerializat
 	$shouldNotReachHere();
 }
 
-void clinit$ReflectionFactory($Class* class$) {
+void ReflectionFactory::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	$assignStatic(ReflectionFactory::soleInstance, $new(ReflectionFactory));
-	$assignStatic(ReflectionFactory::delegate, $cast($ReflectionFactory, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ReflectionFactory$1)))));
+	$assignStatic(ReflectionFactory::delegate, $cast($ReflectionFactory, $AccessController::doPrivileged($$new($ReflectionFactory$1))));
 	$assignStatic(ReflectionFactory::REFLECTION_FACTORY_ACCESS_PERM, $new($RuntimePermission, "reflectionFactoryAccess"_s));
 }
 
@@ -168,7 +118,48 @@ ReflectionFactory::ReflectionFactory() {
 }
 
 $Class* ReflectionFactory::load$($String* name, bool initialize) {
-	$loadClass(ReflectionFactory, name, initialize, &_ReflectionFactory_ClassInfo_, clinit$ReflectionFactory, allocate$ReflectionFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"soleInstance", "Lsun/reflect/ReflectionFactory;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ReflectionFactory, soleInstance)},
+		{"delegate", "Ljdk/internal/reflect/ReflectionFactory;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ReflectionFactory, delegate)},
+		{"REFLECTION_FACTORY_ACCESS_PERM", "Ljava/security/Permission;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ReflectionFactory, REFLECTION_FACTORY_ACCESS_PERM)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ReflectionFactory, init$, void)},
+		{"getReflectionFactory", "()Lsun/reflect/ReflectionFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(ReflectionFactory, getReflectionFactory, ReflectionFactory*)},
+		{"hasStaticInitializerForSerialization", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $FINAL, $method(ReflectionFactory, hasStaticInitializerForSerialization, bool, $Class*)},
+		{"newConstructorForExternalization", "(Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $PUBLIC | $FINAL, $method(ReflectionFactory, newConstructorForExternalization, $Constructor*, $Class*)},
+		{"newConstructorForSerialization", "(Ljava/lang/Class;Ljava/lang/reflect/Constructor;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Constructor<*>;)Ljava/lang/reflect/Constructor<*>;", $PUBLIC, $virtualMethod(ReflectionFactory, newConstructorForSerialization, $Constructor*, $Class*, $Constructor*)},
+		{"newConstructorForSerialization", "(Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $PUBLIC | $FINAL, $method(ReflectionFactory, newConstructorForSerialization, $Constructor*, $Class*)},
+		{"newOptionalDataExceptionForSerialization", "(Z)Ljava/io/OptionalDataException;", nullptr, $PUBLIC | $FINAL, $method(ReflectionFactory, newOptionalDataExceptionForSerialization, $OptionalDataException*, bool)},
+		{"readObjectForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(ReflectionFactory, readObjectForSerialization, $MethodHandle*, $Class*)},
+		{"readObjectNoDataForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(ReflectionFactory, readObjectNoDataForSerialization, $MethodHandle*, $Class*)},
+		{"readResolveForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(ReflectionFactory, readResolveForSerialization, $MethodHandle*, $Class*)},
+		{"writeObjectForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(ReflectionFactory, writeObjectForSerialization, $MethodHandle*, $Class*)},
+		{"writeReplaceForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(ReflectionFactory, writeReplaceForSerialization, $MethodHandle*, $Class*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.reflect.ReflectionFactory$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.reflect.ReflectionFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.reflect.ReflectionFactory$1"
+	};
+	$loadClass(ReflectionFactory, name, initialize, &classInfo$$, ReflectionFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ReflectionFactory);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/traversers/SmallContainer.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/traversers/Container.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/traversers/OneAttr.h>
 #include <jcpp.h>
@@ -20,31 +19,6 @@ namespace com {
 						namespace impl {
 							namespace xs {
 								namespace traversers {
-
-$FieldInfo _SmallContainer_FieldInfo_[] = {
-	{"keys", "[Ljava/lang/String;", nullptr, 0, $field(SmallContainer, keys)},
-	{}
-};
-
-$MethodInfo _SmallContainer_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(SmallContainer, init$, void, int32_t)},
-	{"get", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/OneAttr;", nullptr, 0, $virtualMethod(SmallContainer, get, $OneAttr*, $String*)},
-	{"put", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/OneAttr;)V", nullptr, 0, $virtualMethod(SmallContainer, put, void, $String*, $OneAttr*)},
-	{}
-};
-
-$ClassInfo _SmallContainer_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.traversers.SmallContainer",
-	"com.sun.org.apache.xerces.internal.impl.xs.traversers.Container",
-	nullptr,
-	_SmallContainer_FieldInfo_,
-	_SmallContainer_MethodInfo_
-};
-
-$Object* allocate$SmallContainer($Class* clazz) {
-	return $of($alloc(SmallContainer));
-}
 
 void SmallContainer::init$(int32_t size) {
 	$Container::init$();
@@ -70,7 +44,27 @@ SmallContainer::SmallContainer() {
 }
 
 $Class* SmallContainer::load$($String* name, bool initialize) {
-	$loadClass(SmallContainer, name, initialize, &_SmallContainer_ClassInfo_, allocate$SmallContainer);
+	$FieldInfo fieldInfos$$[] = {
+		{"keys", "[Ljava/lang/String;", nullptr, 0, $field(SmallContainer, keys)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(SmallContainer, init$, void, int32_t)},
+		{"get", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/OneAttr;", nullptr, 0, $virtualMethod(SmallContainer, get, $OneAttr*, $String*)},
+		{"put", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/OneAttr;)V", nullptr, 0, $virtualMethod(SmallContainer, put, void, $String*, $OneAttr*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.traversers.SmallContainer",
+		"com.sun.org.apache.xerces.internal.impl.xs.traversers.Container",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SmallContainer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SmallContainer);
+	});
 	return class$;
 }
 

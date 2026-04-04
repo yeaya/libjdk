@@ -15,6 +15,7 @@ class TreeMaker$2 : public ::java::lang::Object {
 	$class(TreeMaker$2, 0, ::java::lang::Object)
 public:
 	TreeMaker$2();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$code$TypeTag;
 	static $ints* $SwitchMap$javax$lang$model$type$TypeKind;
 };

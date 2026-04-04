@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/XPStyle$GlyphButton.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
 #include <com/sun/java/swing/plaf/windows/XPStyle$Skin.h>
@@ -32,7 +31,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ButtonModel = ::javax::swing::ButtonModel;
 using $JButton = ::javax::swing::JButton;
 using $Border = ::javax::swing::border::Border;
 
@@ -43,51 +41,11 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _XPStyle$GlyphButton_FieldInfo_[] = {
-	{"skin", "Lcom/sun/java/swing/plaf/windows/XPStyle$Skin;", nullptr, $PROTECTED, $field(XPStyle$GlyphButton, skin)},
-	{}
-};
-
-$MethodInfo _XPStyle$GlyphButton_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;)V", nullptr, $PUBLIC, $method(XPStyle$GlyphButton, init$, void, $Component*, $TMSchema$Part*)},
-	{"getState", "()Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PROTECTED, $virtualMethod(XPStyle$GlyphButton, getState, $TMSchema$State*)},
-	{"isFocusTraversable", "()Z", nullptr, $PUBLIC, $virtualMethod(XPStyle$GlyphButton, isFocusTraversable, bool)},
-	{"paintBorder", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(XPStyle$GlyphButton, paintBorder, void, $Graphics*)},
-	{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(XPStyle$GlyphButton, paintComponent, void, $Graphics*)},
-	{"setPart", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;)V", nullptr, $PUBLIC, $virtualMethod(XPStyle$GlyphButton, setPart, void, $Component*, $TMSchema$Part*)},
-	{}
-};
-
-$InnerClassInfo _XPStyle$GlyphButton_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.XPStyle$GlyphButton", "com.sun.java.swing.plaf.windows.XPStyle", "GlyphButton", $STATIC},
-	{}
-};
-
-$ClassInfo _XPStyle$GlyphButton_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.XPStyle$GlyphButton",
-	"javax.swing.JButton",
-	nullptr,
-	_XPStyle$GlyphButton_FieldInfo_,
-	_XPStyle$GlyphButton_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XPStyle$GlyphButton_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.XPStyle"
-};
-
-$Object* allocate$XPStyle$GlyphButton($Class* clazz) {
-	return $of($alloc(XPStyle$GlyphButton));
-}
-
 void XPStyle$GlyphButton::init$($Component* parent, $TMSchema$Part* part) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JButton::init$();
 	$var($XPStyle, xp, $XPStyle::getXP());
-	$set(this, skin, xp != nullptr ? $nc(xp)->getSkin(parent, part) : ($XPStyle$Skin*)nullptr);
+	$set(this, skin, xp != nullptr ? xp->getSkin(parent, part) : ($XPStyle$Skin*)nullptr);
 	setBorder(nullptr);
 	setContentAreaFilled(false);
 	setMinimumSize($$new($Dimension, 5, 5));
@@ -100,31 +58,31 @@ bool XPStyle$GlyphButton::isFocusTraversable() {
 }
 
 $TMSchema$State* XPStyle$GlyphButton::getState() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TMSchema$State);
 	$TMSchema$State* state = $TMSchema$State::NORMAL;
 	if (!isEnabled()) {
 		state = $TMSchema$State::DISABLED;
-	} else if ($nc($(getModel()))->isPressed()) {
+	} else if ($$nc(getModel())->isPressed()) {
 		state = $TMSchema$State::PRESSED;
-	} else if ($nc($(getModel()))->isRollover()) {
+	} else if ($$nc(getModel())->isRollover()) {
 		state = $TMSchema$State::HOT;
 	}
 	return state;
 }
 
 void XPStyle$GlyphButton::paintComponent($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($XPStyle::getXP() == nullptr || this->skin == nullptr) {
 		return;
 	}
 	$var($Dimension, d, getSize());
-	$nc(this->skin)->paintSkin(g, 0, 0, $nc(d)->width, d->height, $(getState()));
+	$nc(this->skin)->paintSkin(g, 0, 0, $nc(d)->width, $nc(d)->height, $(getState()));
 }
 
 void XPStyle$GlyphButton::setPart($Component* parent, $TMSchema$Part* part) {
 	$var($XPStyle, xp, $XPStyle::getXP());
-	$set(this, skin, xp != nullptr ? $nc(xp)->getSkin(parent, part) : ($XPStyle$Skin*)nullptr);
+	$set(this, skin, xp != nullptr ? xp->getSkin(parent, part) : ($XPStyle$Skin*)nullptr);
 	revalidate();
 	repaint();
 }
@@ -136,7 +94,41 @@ XPStyle$GlyphButton::XPStyle$GlyphButton() {
 }
 
 $Class* XPStyle$GlyphButton::load$($String* name, bool initialize) {
-	$loadClass(XPStyle$GlyphButton, name, initialize, &_XPStyle$GlyphButton_ClassInfo_, allocate$XPStyle$GlyphButton);
+	$FieldInfo fieldInfos$$[] = {
+		{"skin", "Lcom/sun/java/swing/plaf/windows/XPStyle$Skin;", nullptr, $PROTECTED, $field(XPStyle$GlyphButton, skin)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;)V", nullptr, $PUBLIC, $method(XPStyle$GlyphButton, init$, void, $Component*, $TMSchema$Part*)},
+		{"getState", "()Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PROTECTED, $virtualMethod(XPStyle$GlyphButton, getState, $TMSchema$State*)},
+		{"isFocusTraversable", "()Z", nullptr, $PUBLIC, $virtualMethod(XPStyle$GlyphButton, isFocusTraversable, bool)},
+		{"paintBorder", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(XPStyle$GlyphButton, paintBorder, void, $Graphics*)},
+		{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(XPStyle$GlyphButton, paintComponent, void, $Graphics*)},
+		{"setPart", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;)V", nullptr, $PUBLIC, $virtualMethod(XPStyle$GlyphButton, setPart, void, $Component*, $TMSchema$Part*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.XPStyle$GlyphButton", "com.sun.java.swing.plaf.windows.XPStyle", "GlyphButton", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.XPStyle$GlyphButton",
+		"javax.swing.JButton",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.XPStyle"
+	};
+	$loadClass(XPStyle$GlyphButton, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XPStyle$GlyphButton));
+	});
 	return class$;
 }
 

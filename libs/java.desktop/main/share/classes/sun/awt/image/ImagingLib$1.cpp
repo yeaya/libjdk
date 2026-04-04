@@ -1,5 +1,4 @@
 #include <sun/awt/image/ImagingLib$1.h>
-
 #include <java/lang/UnsatisfiedLinkError.h>
 #include <sun/awt/image/ImagingLib.h>
 #include <jcpp.h>
@@ -18,43 +17,6 @@ namespace sun {
 	namespace awt {
 		namespace image {
 
-$MethodInfo _ImagingLib$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ImagingLib$1, init$, void)},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(ImagingLib$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _ImagingLib$1_EnclosingMethodInfo_ = {
-	"sun.awt.image.ImagingLib",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ImagingLib$1_InnerClassesInfo_[] = {
-	{"sun.awt.image.ImagingLib$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ImagingLib$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.image.ImagingLib$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_ImagingLib$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
-	&_ImagingLib$1_EnclosingMethodInfo_,
-	_ImagingLib$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.image.ImagingLib"
-};
-
-$Object* allocate$ImagingLib$1($Class* clazz) {
-	return $of($alloc(ImagingLib$1));
-}
-
 void ImagingLib$1::init$() {
 }
 
@@ -64,7 +26,6 @@ $Object* ImagingLib$1::run() {
 	try {
 		$System::loadLibrary("mlib_image"_s);
 	} catch ($UnsatisfiedLinkError& e) {
-		$init($Boolean);
 		return $of($Boolean::FALSE);
 	}
 	bool success = $ImagingLib::init();
@@ -75,7 +36,38 @@ ImagingLib$1::ImagingLib$1() {
 }
 
 $Class* ImagingLib$1::load$($String* name, bool initialize) {
-	$loadClass(ImagingLib$1, name, initialize, &_ImagingLib$1_ClassInfo_, allocate$ImagingLib$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ImagingLib$1, init$, void)},
+		{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(ImagingLib$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.image.ImagingLib",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.image.ImagingLib$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.image.ImagingLib$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.image.ImagingLib"
+	};
+	$loadClass(ImagingLib$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImagingLib$1);
+	});
 	return class$;
 }
 

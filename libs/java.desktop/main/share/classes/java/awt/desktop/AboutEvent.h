@@ -14,7 +14,7 @@ class $export AboutEvent : public ::java::awt::desktop::AppEvent {
 public:
 	AboutEvent();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xACE942D7D804FC83;
+	static const int64_t serialVersionUID = (int64_t)0xace942d7d804fc83;
 };
 
 		} // desktop

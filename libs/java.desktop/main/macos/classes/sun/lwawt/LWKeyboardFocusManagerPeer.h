@@ -19,6 +19,7 @@ class LWKeyboardFocusManagerPeer : public ::sun::awt::KeyboardFocusManagerPeerIm
 	$class(LWKeyboardFocusManagerPeer, 0, ::sun::awt::KeyboardFocusManagerPeerImpl)
 public:
 	LWKeyboardFocusManagerPeer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::awt::Component* getCurrentFocusOwner() override;
 	virtual ::java::awt::Window* getCurrentFocusedWindow() override;

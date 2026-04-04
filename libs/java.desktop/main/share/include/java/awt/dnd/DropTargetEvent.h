@@ -23,7 +23,7 @@ public:
 	DropTargetEvent();
 	void init$(::java::awt::dnd::DropTargetContext* dtc);
 	virtual ::java::awt::dnd::DropTargetContext* getDropTargetContext();
-	static const int64_t serialVersionUID = (int64_t)0x272704E3740BCDB1;
+	static const int64_t serialVersionUID = (int64_t)0x272704e3740bcdb1;
 	::java::awt::dnd::DropTargetContext* context = nullptr;
 };
 

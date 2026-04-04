@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XkbBellNotifyEvent.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XAtom.h>
@@ -12,81 +11,14 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XAtom = ::sun::awt::X11::XAtom;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XkbBellNotifyEvent_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XkbBellNotifyEvent, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XkbBellNotifyEvent, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XkbBellNotifyEvent, pData)},
-	{}
-};
-
-$MethodInfo _XkbBellNotifyEvent_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XkbBellNotifyEvent, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XkbBellNotifyEvent, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbBellNotifyEvent, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbBellNotifyEvent, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbBellNotifyEvent, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XkbBellNotifyEvent, getSize, int32_t)},
-	{"get_bell_class", "()I", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_bell_class, int32_t)},
-	{"get_bell_id", "()I", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_bell_id, int32_t)},
-	{"get_device", "()I", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_device, int32_t)},
-	{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_display, int64_t)},
-	{"get_duration", "()I", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_duration, int32_t)},
-	{"get_event_only", "()Z", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_event_only, bool)},
-	{"get_name", "()J", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_name, int64_t)},
-	{"get_percent", "()I", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_percent, int32_t)},
-	{"get_pitch", "()I", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_pitch, int32_t)},
-	{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_send_event, bool)},
-	{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_serial, int64_t)},
-	{"get_time", "()J", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_time, int64_t)},
-	{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_type, int32_t)},
-	{"get_window", "()J", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_window, int64_t)},
-	{"get_xkb_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_xkb_type, int32_t)},
-	{"set_bell_class", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_bell_class, void, int32_t)},
-	{"set_bell_id", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_bell_id, void, int32_t)},
-	{"set_device", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_device, void, int32_t)},
-	{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_display, void, int64_t)},
-	{"set_duration", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_duration, void, int32_t)},
-	{"set_event_only", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_event_only, void, bool)},
-	{"set_name", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_name, void, int64_t)},
-	{"set_percent", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_percent, void, int32_t)},
-	{"set_pitch", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_pitch, void, int32_t)},
-	{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_send_event, void, bool)},
-	{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_serial, void, int64_t)},
-	{"set_time", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_time, void, int64_t)},
-	{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_type, void, int32_t)},
-	{"set_window", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_window, void, int64_t)},
-	{"set_xkb_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_xkb_type, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbBellNotifyEvent, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbBellNotifyEvent, zero, void)},
-	{}
-};
-
-$ClassInfo _XkbBellNotifyEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XkbBellNotifyEvent",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XkbBellNotifyEvent_FieldInfo_,
-	_XkbBellNotifyEvent_MethodInfo_
-};
-
-$Object* allocate$XkbBellNotifyEvent($Class* clazz) {
-	return $of($alloc(XkbBellNotifyEvent));
-}
 
 int32_t XkbBellNotifyEvent::getSize() {
 	$init(XkbBellNotifyEvent);
@@ -125,7 +57,7 @@ void XkbBellNotifyEvent::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -315,7 +247,7 @@ $String* XkbBellNotifyEvent::getName() {
 }
 
 $String* XkbBellNotifyEvent::getFieldsAsString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, ret, $new($StringBuilder, 600));
 	$init($XlibWrapper);
 	ret->append("type = "_s)->append($nc($XlibWrapper::eventToString)->get(get_type()))->append(", "_s);
@@ -330,14 +262,14 @@ $String* XkbBellNotifyEvent::getFieldsAsString() {
 	ret->append("duration = "_s)->append(get_duration())->append(", "_s);
 	ret->append("bell_class = "_s)->append(get_bell_class())->append(", "_s);
 	ret->append("bell_id = "_s)->append(get_bell_id())->append(", "_s);
-	ret->append("name = "_s)->append($($of($XAtom::get(get_name()))))->append(", "_s);
+	ret->append("name = "_s)->append($($XAtom::get(get_name())))->append(", "_s);
 	ret->append("window = "_s)->append($(getWindow(get_window())))->append(", "_s);
 	ret->append("event_only = "_s)->append(get_event_only())->append(", "_s);
 	return ret->toString();
 }
 
 $Object* XkbBellNotifyEvent::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XkbBellNotifyEvent::zero() {
@@ -352,7 +284,67 @@ XkbBellNotifyEvent::XkbBellNotifyEvent() {
 }
 
 $Class* XkbBellNotifyEvent::load$($String* name, bool initialize) {
-	$loadClass(XkbBellNotifyEvent, name, initialize, &_XkbBellNotifyEvent_ClassInfo_, allocate$XkbBellNotifyEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XkbBellNotifyEvent, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XkbBellNotifyEvent, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XkbBellNotifyEvent, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XkbBellNotifyEvent, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XkbBellNotifyEvent, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbBellNotifyEvent, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbBellNotifyEvent, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbBellNotifyEvent, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XkbBellNotifyEvent, getSize, int32_t)},
+		{"get_bell_class", "()I", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_bell_class, int32_t)},
+		{"get_bell_id", "()I", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_bell_id, int32_t)},
+		{"get_device", "()I", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_device, int32_t)},
+		{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_display, int64_t)},
+		{"get_duration", "()I", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_duration, int32_t)},
+		{"get_event_only", "()Z", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_event_only, bool)},
+		{"get_name", "()J", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_name, int64_t)},
+		{"get_percent", "()I", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_percent, int32_t)},
+		{"get_pitch", "()I", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_pitch, int32_t)},
+		{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_send_event, bool)},
+		{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_serial, int64_t)},
+		{"get_time", "()J", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_time, int64_t)},
+		{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_type, int32_t)},
+		{"get_window", "()J", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_window, int64_t)},
+		{"get_xkb_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, get_xkb_type, int32_t)},
+		{"set_bell_class", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_bell_class, void, int32_t)},
+		{"set_bell_id", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_bell_id, void, int32_t)},
+		{"set_device", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_device, void, int32_t)},
+		{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_display, void, int64_t)},
+		{"set_duration", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_duration, void, int32_t)},
+		{"set_event_only", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_event_only, void, bool)},
+		{"set_name", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_name, void, int64_t)},
+		{"set_percent", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_percent, void, int32_t)},
+		{"set_pitch", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_pitch, void, int32_t)},
+		{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_send_event, void, bool)},
+		{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_serial, void, int64_t)},
+		{"set_time", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_time, void, int64_t)},
+		{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_type, void, int32_t)},
+		{"set_window", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_window, void, int64_t)},
+		{"set_xkb_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbBellNotifyEvent, set_xkb_type, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbBellNotifyEvent, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbBellNotifyEvent, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XkbBellNotifyEvent",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XkbBellNotifyEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XkbBellNotifyEvent);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java.management.test.h>
-
 #include <java.management.h>
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>

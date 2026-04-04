@@ -58,6 +58,7 @@ class $export UIManager : public ::java::io::Serializable {
 	$class(UIManager, 0, ::java::io::Serializable)
 public:
 	UIManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addAuxiliaryLookAndFeel(::javax::swing::LookAndFeel* laf);
 	static void addPropertyChangeListener(::java::beans::PropertyChangeListener* listener);

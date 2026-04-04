@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalFontDesktopProperty.h>
-
 #include <java/awt/Font.h>
 #include <javax/swing/plaf/metal/DefaultMetalTheme.h>
 #include <sun/swing/plaf/DesktopProperty.h>
@@ -18,37 +17,10 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalFontDesktopProperty_FieldInfo_[] = {
-	{"propertyMapping", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalFontDesktopProperty, propertyMapping)},
-	{"type", "I", nullptr, $PRIVATE, $field(MetalFontDesktopProperty, type)},
-	{}
-};
-
-$MethodInfo _MetalFontDesktopProperty_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(MetalFontDesktopProperty, init$, void, int32_t)},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(MetalFontDesktopProperty, init$, void, $String*, int32_t)},
-	{"configureValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(MetalFontDesktopProperty, configureValue, $Object*, Object$*)},
-	{"getDefaultValue", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(MetalFontDesktopProperty, getDefaultValue, $Object*)},
-	{}
-};
-
-$ClassInfo _MetalFontDesktopProperty_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalFontDesktopProperty",
-	"sun.swing.plaf.DesktopProperty",
-	nullptr,
-	_MetalFontDesktopProperty_FieldInfo_,
-	_MetalFontDesktopProperty_MethodInfo_
-};
-
-$Object* allocate$MetalFontDesktopProperty($Class* clazz) {
-	return $of($alloc(MetalFontDesktopProperty));
-}
-
 $StringArray* MetalFontDesktopProperty::propertyMapping = nullptr;
 
 void MetalFontDesktopProperty::init$(int32_t type) {
-	MetalFontDesktopProperty::init$($nc(MetalFontDesktopProperty::propertyMapping)->get(type), type);
+	MetalFontDesktopProperty::init$(MetalFontDesktopProperty::propertyMapping->get(type), type);
 }
 
 void MetalFontDesktopProperty::init$($String* key, int32_t type) {
@@ -57,23 +29,23 @@ void MetalFontDesktopProperty::init$($String* key, int32_t type) {
 }
 
 $Object* MetalFontDesktopProperty::configureValue(Object$* value$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, value$renamed);
 	if ($instanceOf($Integer, value)) {
 		$var($String, var$0, $DefaultMetalTheme::getDefaultFontName(this->type));
 		int32_t var$1 = $DefaultMetalTheme::getDefaultFontStyle(this->type);
-		$assign(value, $new($Font, var$0, var$1, $nc(($cast($Integer, value)))->intValue()));
+		$assign(value, $new($Font, var$0, var$1, $cast($Integer, value)->intValue()));
 	}
-	return $of($DesktopProperty::configureValue(value));
+	return $DesktopProperty::configureValue(value);
 }
 
 $Object* MetalFontDesktopProperty::getDefaultValue() {
 	$var($String, var$0, $DefaultMetalTheme::getDefaultFontName(this->type));
 	int32_t var$1 = $DefaultMetalTheme::getDefaultFontStyle(this->type);
-	return $of($new($Font, var$0, var$1, $DefaultMetalTheme::getDefaultFontSize(this->type)));
+	return $new($Font, var$0, var$1, $DefaultMetalTheme::getDefaultFontSize(this->type));
 }
 
-void clinit$MetalFontDesktopProperty($Class* class$) {
+void MetalFontDesktopProperty::clinit$($Class* clazz) {
 	$assignStatic(MetalFontDesktopProperty::propertyMapping, $new($StringArray, {
 		"win.ansiVar.font.height"_s,
 		"win.tooltip.font.height"_s,
@@ -88,7 +60,29 @@ MetalFontDesktopProperty::MetalFontDesktopProperty() {
 }
 
 $Class* MetalFontDesktopProperty::load$($String* name, bool initialize) {
-	$loadClass(MetalFontDesktopProperty, name, initialize, &_MetalFontDesktopProperty_ClassInfo_, clinit$MetalFontDesktopProperty, allocate$MetalFontDesktopProperty);
+	$FieldInfo fieldInfos$$[] = {
+		{"propertyMapping", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalFontDesktopProperty, propertyMapping)},
+		{"type", "I", nullptr, $PRIVATE, $field(MetalFontDesktopProperty, type)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(MetalFontDesktopProperty, init$, void, int32_t)},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(MetalFontDesktopProperty, init$, void, $String*, int32_t)},
+		{"configureValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(MetalFontDesktopProperty, configureValue, $Object*, Object$*)},
+		{"getDefaultValue", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(MetalFontDesktopProperty, getDefaultValue, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalFontDesktopProperty",
+		"sun.swing.plaf.DesktopProperty",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MetalFontDesktopProperty, name, initialize, &classInfo$$, MetalFontDesktopProperty::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalFontDesktopProperty);
+	});
 	return class$;
 }
 

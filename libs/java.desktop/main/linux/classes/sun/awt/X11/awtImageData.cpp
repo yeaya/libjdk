@@ -1,5 +1,4 @@
 #include <sun/awt/X11/awtImageData.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -12,60 +11,14 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XPixmapFormatValues = ::sun::awt::X11::XPixmapFormatValues;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _awtImageData_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(awtImageData, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(awtImageData, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(awtImageData, pData)},
-	{}
-};
-
-$MethodInfo _awtImageData_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(awtImageData, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(awtImageData, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(awtImageData, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(awtImageData, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(awtImageData, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(awtImageData, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(awtImageData, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(awtImageData, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(awtImageData, getSize, int32_t)},
-	{"get_Depth", "()I", nullptr, $PUBLIC, $virtualMethod(awtImageData, get_Depth, int32_t)},
-	{"get_clrdata", "(I)J", nullptr, $PUBLIC, $virtualMethod(awtImageData, get_clrdata, int64_t, int32_t)},
-	{"get_clrdata", "()J", nullptr, $PUBLIC, $virtualMethod(awtImageData, get_clrdata, int64_t)},
-	{"get_convert", "(I)J", nullptr, $PUBLIC, $virtualMethod(awtImageData, get_convert, int64_t, int32_t)},
-	{"get_convert", "()J", nullptr, $PUBLIC, $virtualMethod(awtImageData, get_convert, int64_t)},
-	{"get_wsImageFormat", "()Lsun/awt/X11/XPixmapFormatValues;", nullptr, $PUBLIC, $virtualMethod(awtImageData, get_wsImageFormat, $XPixmapFormatValues*)},
-	{"set_Depth", "(I)V", nullptr, $PUBLIC, $virtualMethod(awtImageData, set_Depth, void, int32_t)},
-	{"set_clrdata", "(J)V", nullptr, $PUBLIC, $virtualMethod(awtImageData, set_clrdata, void, int64_t)},
-	{"set_convert", "(IJ)V", nullptr, $PUBLIC, $virtualMethod(awtImageData, set_convert, void, int32_t, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(awtImageData, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(awtImageData, zero, void)},
-	{}
-};
-
-$ClassInfo _awtImageData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.awtImageData",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_awtImageData_FieldInfo_,
-	_awtImageData_MethodInfo_
-};
-
-$Object* allocate$awtImageData($Class* clazz) {
-	return $of($alloc(awtImageData));
-}
 
 int32_t awtImageData::getSize() {
 	$init(awtImageData);
@@ -104,7 +57,7 @@ void awtImageData::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -169,17 +122,17 @@ $String* awtImageData::getName() {
 }
 
 $String* awtImageData::getFieldsAsString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, ret, $new($StringBuilder, 160));
 	ret->append("Depth = "_s)->append(get_Depth())->append(", "_s);
-	ret->append("wsImageFormat = "_s)->append($($of(get_wsImageFormat())))->append(", "_s);
+	ret->append("wsImageFormat = "_s)->append($(get_wsImageFormat()))->append(", "_s);
 	ret->append("clrdata = "_s)->append(get_clrdata())->append(", "_s);
 	ret->append("{"_s)->append(get_convert(0))->append(" "_s)->append(get_convert(1))->append(" "_s)->append(get_convert(2))->append(" "_s)->append(get_convert(3))->append(" "_s)->append(get_convert(4))->append(" "_s)->append(get_convert(5))->append(" "_s)->append(get_convert(6))->append(" "_s)->append(get_convert(7))->append(" "_s)->append(get_convert(8))->append(" "_s)->append(get_convert(9))->append(" "_s)->append(get_convert(10))->append(" "_s)->append(get_convert(11))->append(" "_s)->append(get_convert(12))->append(" "_s)->append(get_convert(13))->append(" "_s)->append(get_convert(14))->append(" "_s)->append(get_convert(15))->append(" "_s)->append(get_convert(16))->append(" "_s)->append(get_convert(17))->append(" "_s)->append(get_convert(18))->append(" "_s)->append(get_convert(19))->append(" "_s)->append(get_convert(20))->append(" "_s)->append(get_convert(21))->append(" "_s)->append(get_convert(22))->append(" "_s)->append(get_convert(23))->append(" "_s)->append(get_convert(24))->append(" "_s)->append(get_convert(25))->append(" "_s)->append(get_convert(26))->append(" "_s)->append(get_convert(27))->append(" "_s)->append(get_convert(28))->append(" "_s)->append(get_convert(29))->append(" "_s)->append(get_convert(30))->append(" "_s)->append(get_convert(31))->append(" "_s)->append("}"_s);
 	return ret->toString();
 }
 
 $Object* awtImageData::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void awtImageData::zero() {
@@ -194,7 +147,46 @@ awtImageData::awtImageData() {
 }
 
 $Class* awtImageData::load$($String* name, bool initialize) {
-	$loadClass(awtImageData, name, initialize, &_awtImageData_ClassInfo_, allocate$awtImageData);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(awtImageData, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(awtImageData, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(awtImageData, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(awtImageData, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(awtImageData, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(awtImageData, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(awtImageData, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(awtImageData, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(awtImageData, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(awtImageData, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(awtImageData, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(awtImageData, getSize, int32_t)},
+		{"get_Depth", "()I", nullptr, $PUBLIC, $virtualMethod(awtImageData, get_Depth, int32_t)},
+		{"get_clrdata", "(I)J", nullptr, $PUBLIC, $virtualMethod(awtImageData, get_clrdata, int64_t, int32_t)},
+		{"get_clrdata", "()J", nullptr, $PUBLIC, $virtualMethod(awtImageData, get_clrdata, int64_t)},
+		{"get_convert", "(I)J", nullptr, $PUBLIC, $virtualMethod(awtImageData, get_convert, int64_t, int32_t)},
+		{"get_convert", "()J", nullptr, $PUBLIC, $virtualMethod(awtImageData, get_convert, int64_t)},
+		{"get_wsImageFormat", "()Lsun/awt/X11/XPixmapFormatValues;", nullptr, $PUBLIC, $virtualMethod(awtImageData, get_wsImageFormat, $XPixmapFormatValues*)},
+		{"set_Depth", "(I)V", nullptr, $PUBLIC, $virtualMethod(awtImageData, set_Depth, void, int32_t)},
+		{"set_clrdata", "(J)V", nullptr, $PUBLIC, $virtualMethod(awtImageData, set_clrdata, void, int64_t)},
+		{"set_convert", "(IJ)V", nullptr, $PUBLIC, $virtualMethod(awtImageData, set_convert, void, int32_t, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(awtImageData, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(awtImageData, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.awtImageData",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(awtImageData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(awtImageData);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/swing/internal/plaf/basic/resources/basic_de.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -16,451 +15,432 @@ namespace com {
 					namespace basic {
 						namespace resources {
 
-$MethodInfo _basic_de_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(basic_de, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(basic_de, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _basic_de_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.swing.internal.plaf.basic.resources.basic_de",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_basic_de_MethodInfo_
-};
-
-$Object* allocate$basic_de($Class* clazz) {
-	return $of($alloc(basic_de));
-}
-
 void basic_de::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* basic_de::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("AbstractButton.click.textAndMnemonic"_s),
-			$of("Klicken"_s)
+			"AbstractButton.click.textAndMnemonic"_s,
+			"Klicken"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AbstractDocument.addition.textAndMnemonic"_s),
-			$of(u"Hinzufügen"_s)
+			"AbstractDocument.addition.textAndMnemonic"_s,
+			u"Hinzufügen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AbstractDocument.deletion.textAndMnemonic"_s),
-			$of(u"Löschen"_s)
+			"AbstractDocument.deletion.textAndMnemonic"_s,
+			u"Löschen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AbstractDocument.redo.textAndMnemonic"_s),
-			$of("Wiederherstellen"_s)
+			"AbstractDocument.redo.textAndMnemonic"_s,
+			"Wiederherstellen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AbstractDocument.styleChange.textAndMnemonic"_s),
-			$of(u"Formatvorlagenänderung"_s)
+			"AbstractDocument.styleChange.textAndMnemonic"_s,
+			u"Formatvorlagenänderung"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AbstractDocument.undo.textAndMnemonic"_s),
-			$of(u"Rückgängig"_s)
+			"AbstractDocument.undo.textAndMnemonic"_s,
+			u"Rückgängig"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AbstractUndoableEdit.redo.textAndMnemonic"_s),
-			$of("Wiederherstellen"_s)
+			"AbstractUndoableEdit.redo.textAndMnemonic"_s,
+			"Wiederherstellen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AbstractUndoableEdit.undo.textAndMnemonic"_s),
-			$of(u"Rückgängig"_s)
+			"AbstractUndoableEdit.undo.textAndMnemonic"_s,
+			u"Rückgängig"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.cancel.textAndMnemonic"_s),
-			$of("Abbrechen"_s)
+			"ColorChooser.cancel.textAndMnemonic"_s,
+			"Abbrechen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.cmyk.textAndMnemonic"_s),
-			$of("C&MYK"_s)
+			"ColorChooser.cmyk.textAndMnemonic"_s,
+			"C&MYK"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.cmykAlpha.textAndMnemonic"_s),
-			$of("Alpha"_s)
+			"ColorChooser.cmykAlpha.textAndMnemonic"_s,
+			"Alpha"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.cmykBlack.textAndMnemonic"_s),
-			$of("Schwarz"_s)
+			"ColorChooser.cmykBlack.textAndMnemonic"_s,
+			"Schwarz"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.cmykCyan.textAndMnemonic"_s),
-			$of("Zyan"_s)
+			"ColorChooser.cmykCyan.textAndMnemonic"_s,
+			"Zyan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.cmykMagenta.textAndMnemonic"_s),
-			$of("Magenta"_s)
+			"ColorChooser.cmykMagenta.textAndMnemonic"_s,
+			"Magenta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.cmykYellow.textAndMnemonic"_s),
-			$of("Gelb"_s)
+			"ColorChooser.cmykYellow.textAndMnemonic"_s,
+			"Gelb"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.hsl.textAndMnemonic"_s),
-			$of("HS&L"_s)
+			"ColorChooser.hsl.textAndMnemonic"_s,
+			"HS&L"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.hslHue.textAndMnemonic"_s),
-			$of("Farbton"_s)
+			"ColorChooser.hslHue.textAndMnemonic"_s,
+			"Farbton"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.hslLightness.textAndMnemonic"_s),
-			$of("Helligkeit"_s)
+			"ColorChooser.hslLightness.textAndMnemonic"_s,
+			"Helligkeit"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.hslSaturation.textAndMnemonic"_s),
-			$of(u"Sättigung"_s)
+			"ColorChooser.hslSaturation.textAndMnemonic"_s,
+			u"Sättigung"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.hslTransparency.textAndMnemonic"_s),
-			$of("Transparenz"_s)
+			"ColorChooser.hslTransparency.textAndMnemonic"_s,
+			"Transparenz"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.hsv.textAndMnemonic"_s),
-			$of("&HSV"_s)
+			"ColorChooser.hsv.textAndMnemonic"_s,
+			"&HSV"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.hsvHue.textAndMnemonic"_s),
-			$of("Farbton"_s)
+			"ColorChooser.hsvHue.textAndMnemonic"_s,
+			"Farbton"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.hsvSaturation.textAndMnemonic"_s),
-			$of(u"Sättigung"_s)
+			"ColorChooser.hsvSaturation.textAndMnemonic"_s,
+			u"Sättigung"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.hsvTransparency.textAndMnemonic"_s),
-			$of("Transparenz"_s)
+			"ColorChooser.hsvTransparency.textAndMnemonic"_s,
+			"Transparenz"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.hsvValue.textAndMnemonic"_s),
-			$of("Wert"_s)
+			"ColorChooser.hsvValue.textAndMnemonic"_s,
+			"Wert"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.ok.textAndMnemonic"_s),
-			$of("OK"_s)
+			"ColorChooser.ok.textAndMnemonic"_s,
+			"OK"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.preview.textAndMnemonic"_s),
-			$of("Vorschau"_s)
+			"ColorChooser.preview.textAndMnemonic"_s,
+			"Vorschau"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.reset.textAndMnemonic"_s),
-			$of(u"&Zurücksetzen"_s)
+			"ColorChooser.reset.textAndMnemonic"_s,
+			u"&Zurücksetzen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.rgb.textAndMnemonic"_s),
-			$of("R&GB"_s)
+			"ColorChooser.rgb.textAndMnemonic"_s,
+			"R&GB"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.rgbAlpha.textAndMnemonic"_s),
-			$of("Alpha"_s)
+			"ColorChooser.rgbAlpha.textAndMnemonic"_s,
+			"Alpha"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.rgbBlue.textAndMnemonic"_s),
-			$of("&Blau"_s)
+			"ColorChooser.rgbBlue.textAndMnemonic"_s,
+			"&Blau"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.rgbGreen.textAndMnemonic"_s),
-			$of(u"Grü&n"_s)
+			"ColorChooser.rgbGreen.textAndMnemonic"_s,
+			u"Grü&n"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.rgbHexCode.textAndMnemonic"_s),
-			$of("&Farbcode"_s)
+			"ColorChooser.rgbHexCode.textAndMnemonic"_s,
+			"&Farbcode"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.rgbRed.textAndMnemonic"_s),
-			$of("Ro&t"_s)
+			"ColorChooser.rgbRed.textAndMnemonic"_s,
+			"Ro&t"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.sample.textAndMnemonic"_s),
-			$of("Beispieltext  Beispieltext"_s)
+			"ColorChooser.sample.textAndMnemonic"_s,
+			"Beispieltext  Beispieltext"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.swatches.textAndMnemonic"_s),
-			$of("&Swatches"_s)
+			"ColorChooser.swatches.textAndMnemonic"_s,
+			"&Swatches"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.swatchesRecent.textAndMnemonic"_s),
-			$of("Aktuell:"_s)
+			"ColorChooser.swatchesRecent.textAndMnemonic"_s,
+			"Aktuell:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ComboBox.togglePopup.textAndMnemonic"_s),
-			$of("togglePopup"_s)
+			"ComboBox.togglePopup.textAndMnemonic"_s,
+			"togglePopup"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.acceptAllFileFilter.textAndMnemonic"_s),
-			$of("Alle Dateien"_s)
+			"FileChooser.acceptAllFileFilter.textAndMnemonic"_s,
+			"Alle Dateien"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.cancelButton.textAndMnemonic"_s),
-			$of("Abbrechen"_s)
+			"FileChooser.cancelButton.textAndMnemonic"_s,
+			"Abbrechen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.cancelButtonToolTip.textAndMnemonic"_s),
-			$of(u"Dialogfeld für Dateiauswahl schließen"_s)
+			"FileChooser.cancelButtonToolTip.textAndMnemonic"_s,
+			u"Dialogfeld für Dateiauswahl schließen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.directoryDescription.textAndMnemonic"_s),
-			$of("Verzeichnis"_s)
+			"FileChooser.directoryDescription.textAndMnemonic"_s,
+			"Verzeichnis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.directoryOpenButton.textAndMnemonic"_s),
-			$of(u"Öffnen"_s)
+			"FileChooser.directoryOpenButton.textAndMnemonic"_s,
+			u"Öffnen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.directoryOpenButtonToolTip.textAndMnemonic"_s),
-			$of(u"Ausgewähltes Verzeichnis öffnen"_s)
+			"FileChooser.directoryOpenButtonToolTip.textAndMnemonic"_s,
+			u"Ausgewähltes Verzeichnis öffnen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileDescription.textAndMnemonic"_s),
-			$of("Allgemeine Datei"_s)
+			"FileChooser.fileDescription.textAndMnemonic"_s,
+			"Allgemeine Datei"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileSizeGigaBytes"_s),
-			$of("{0} GB"_s)
+			"FileChooser.fileSizeGigaBytes"_s,
+			"{0} GB"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileSizeKiloBytes"_s),
-			$of("{0} KB"_s)
+			"FileChooser.fileSizeKiloBytes"_s,
+			"{0} KB"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileSizeMegaBytes"_s),
-			$of("{0} MB"_s)
+			"FileChooser.fileSizeMegaBytes"_s,
+			"{0} MB"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.filesDetailsAccessibleName"_s),
-			$of("Dateidetails"_s)
+			"FileChooser.filesDetailsAccessibleName"_s,
+			"Dateidetails"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.filesListAccessibleName"_s),
-			$of("Dateiliste"_s)
+			"FileChooser.filesListAccessibleName"_s,
+			"Dateiliste"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.helpButton.textAndMnemonic"_s),
-			$of("&Hilfe"_s)
+			"FileChooser.helpButton.textAndMnemonic"_s,
+			"&Hilfe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.helpButtonToolTip.textAndMnemonic"_s),
-			$of("FileChooser-Hilfe"_s)
+			"FileChooser.helpButtonToolTip.textAndMnemonic"_s,
+			"FileChooser-Hilfe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderError.textAndMnemonic"_s),
-			$of("Fehler beim Erstellen eines neuen Ordners"_s)
+			"FileChooser.newFolderError.textAndMnemonic"_s,
+			"Fehler beim Erstellen eines neuen Ordners"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderErrorSeparator"_s),
-			$of(":"_s)
+			"FileChooser.newFolderErrorSeparator"_s,
+			":"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderParentDoesntExist.textAndMnemonic"_s),
-			$of("Ordner kann nicht erstellt werden.\n\nSystem kann den angegebenen Pfad nicht finden."_s)
+			"FileChooser.newFolderParentDoesntExist.textAndMnemonic"_s,
+			"Ordner kann nicht erstellt werden.\n\nSystem kann den angegebenen Pfad nicht finden."_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderParentDoesntExistTitle.textAndMnemonic"_s),
-			$of("Ordner kann nicht erstellt werden"_s)
+			"FileChooser.newFolderParentDoesntExistTitle.textAndMnemonic"_s,
+			"Ordner kann nicht erstellt werden"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.openButton.textAndMnemonic"_s),
-			$of(u"Öffnen"_s)
+			"FileChooser.openButton.textAndMnemonic"_s,
+			u"Öffnen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.openButtonToolTip.textAndMnemonic"_s),
-			$of(u"Ausgewählte Datei öffnen"_s)
+			"FileChooser.openButtonToolTip.textAndMnemonic"_s,
+			u"Ausgewählte Datei öffnen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.openDialogTitle.textAndMnemonic"_s),
-			$of(u"Öffnen"_s)
+			"FileChooser.openDialogTitle.textAndMnemonic"_s,
+			u"Öffnen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.other.newFolder"_s),
-			$of("NewFolder"_s)
+			"FileChooser.other.newFolder"_s,
+			"NewFolder"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.other.newFolder.subsequent"_s),
-			$of("NewFolder.{0}"_s)
+			"FileChooser.other.newFolder.subsequent"_s,
+			"NewFolder.{0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.renameError.textAndMnemonic"_s),
-			$of("{0} kann nicht umbenannt werden"_s)
+			"FileChooser.renameError.textAndMnemonic"_s,
+			"{0} kann nicht umbenannt werden"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.renameErrorFileExists.textAndMnemonic"_s),
-			$of("{0} kann nicht umbenannt werden: Es ist bereits eine Datei mit dem angegebenen Namen vorhanden. Geben Sie einen anderen Dateinamen an. "_s)
+			"FileChooser.renameErrorFileExists.textAndMnemonic"_s,
+			"{0} kann nicht umbenannt werden: Es ist bereits eine Datei mit dem angegebenen Namen vorhanden. Geben Sie einen anderen Dateinamen an. "_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.renameErrorTitle.textAndMnemonic"_s),
-			$of("Fehler beim Umbenennen von Datei oder Ordner"_s)
+			"FileChooser.renameErrorTitle.textAndMnemonic"_s,
+			"Fehler beim Umbenennen von Datei oder Ordner"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.saveButton.textAndMnemonic"_s),
-			$of("Speichern"_s)
+			"FileChooser.saveButton.textAndMnemonic"_s,
+			"Speichern"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.saveButtonToolTip.textAndMnemonic"_s),
-			$of(u"Ausgewählte Datei speichern"_s)
+			"FileChooser.saveButtonToolTip.textAndMnemonic"_s,
+			u"Ausgewählte Datei speichern"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.saveDialogTitle.textAndMnemonic"_s),
-			$of("Speichern"_s)
+			"FileChooser.saveDialogTitle.textAndMnemonic"_s,
+			"Speichern"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.updateButton.textAndMnemonic"_s),
-			$of("A&ktualisieren"_s)
+			"FileChooser.updateButton.textAndMnemonic"_s,
+			"A&ktualisieren"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.updateButtonToolTip.textAndMnemonic"_s),
-			$of("Verzeichnisliste aktualisieren"_s)
+			"FileChooser.updateButtonToolTip.textAndMnemonic"_s,
+			"Verzeichnisliste aktualisieren"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.win32.newFolder"_s),
-			$of("Neuer Ordner"_s)
+			"FileChooser.win32.newFolder"_s,
+			"Neuer Ordner"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.win32.newFolder.subsequent"_s),
-			$of("Neuer Ordner ({0})"_s)
+			"FileChooser.win32.newFolder.subsequent"_s,
+			"Neuer Ordner ({0})"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FormView.browseFileButton.textAndMnemonic"_s),
-			$of("Durchsuchen..."_s)
+			"FormView.browseFileButton.textAndMnemonic"_s,
+			"Durchsuchen..."_s
 		}),
 		$$new($ObjectArray, {
-			$of("FormView.resetButton.textAndMnemonic"_s),
-			$of(u"Zurücksetzen"_s)
+			"FormView.resetButton.textAndMnemonic"_s,
+			u"Zurücksetzen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FormView.submitButton.textAndMnemonic"_s),
-			$of("Abfrage weiterleiten"_s)
+			"FormView.submitButton.textAndMnemonic"_s,
+			"Abfrage weiterleiten"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrame.closeButtonToolTip"_s),
-			$of(u"Schließen"_s)
+			"InternalFrame.closeButtonToolTip"_s,
+			u"Schließen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrame.iconButtonToolTip"_s),
-			$of("Minimieren"_s)
+			"InternalFrame.iconButtonToolTip"_s,
+			"Minimieren"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrame.maxButtonToolTip"_s),
-			$of("Maximieren"_s)
+			"InternalFrame.maxButtonToolTip"_s,
+			"Maximieren"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrame.restoreButtonToolTip"_s),
-			$of("Wiederherstellen"_s)
+			"InternalFrame.restoreButtonToolTip"_s,
+			"Wiederherstellen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrameTitlePane.closeButton.textAndMnemonic"_s),
-			$of(u"&Schließen"_s)
+			"InternalFrameTitlePane.closeButton.textAndMnemonic"_s,
+			u"&Schließen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrameTitlePane.closeButtonAccessibleName"_s),
-			$of(u"Schließen"_s)
+			"InternalFrameTitlePane.closeButtonAccessibleName"_s,
+			u"Schließen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrameTitlePane.iconifyButtonAccessibleName"_s),
-			$of("Als Symbol darstellen"_s)
+			"InternalFrameTitlePane.iconifyButtonAccessibleName"_s,
+			"Als Symbol darstellen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrameTitlePane.maximizeButton.textAndMnemonic"_s),
-			$of("Ma&ximieren"_s)
+			"InternalFrameTitlePane.maximizeButton.textAndMnemonic"_s,
+			"Ma&ximieren"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrameTitlePane.maximizeButtonAccessibleName"_s),
-			$of("Maximieren"_s)
+			"InternalFrameTitlePane.maximizeButtonAccessibleName"_s,
+			"Maximieren"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrameTitlePane.minimizeButton.textAndMnemonic"_s),
-			$of("Mi&nimieren"_s)
+			"InternalFrameTitlePane.minimizeButton.textAndMnemonic"_s,
+			"Mi&nimieren"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrameTitlePane.moveButton.textAndMnemonic"_s),
-			$of("&Verschieben"_s)
+			"InternalFrameTitlePane.moveButton.textAndMnemonic"_s,
+			"&Verschieben"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrameTitlePane.restoreButton.textAndMnemonic"_s),
-			$of("&Wiederherstellen"_s)
+			"InternalFrameTitlePane.restoreButton.textAndMnemonic"_s,
+			"&Wiederherstellen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrameTitlePane.sizeButton.textAndMnemonic"_s),
-			$of(u"&Größe"_s)
+			"InternalFrameTitlePane.sizeButton.textAndMnemonic"_s,
+			u"&Größe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IsindexView.prompt"_s),
-			$of(u"Dieser Index kann durchsucht werden. Geben Sie Schlüsselwörter für die Suche ein:"_s)
+			"IsindexView.prompt"_s,
+			u"Dieser Index kann durchsucht werden. Geben Sie Schlüsselwörter für die Suche ein:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OptionPane.cancelButton.textAndMnemonic"_s),
-			$of("Abbrechen"_s)
+			"OptionPane.cancelButton.textAndMnemonic"_s,
+			"Abbrechen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OptionPane.inputDialog.titleAndMnemonic"_s),
-			$of("Eingabe"_s)
+			"OptionPane.inputDialog.titleAndMnemonic"_s,
+			"Eingabe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OptionPane.messageDialog.titleAndMnemonic"_s),
-			$of("Meldung"_s)
+			"OptionPane.messageDialog.titleAndMnemonic"_s,
+			"Meldung"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OptionPane.noButton.textAndMnemonic"_s),
-			$of("&Nein"_s)
+			"OptionPane.noButton.textAndMnemonic"_s,
+			"&Nein"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OptionPane.okButton.textAndMnemonic"_s),
-			$of("OK"_s)
+			"OptionPane.okButton.textAndMnemonic"_s,
+			"OK"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OptionPane.title.textAndMnemonic"_s),
-			$of(u"Option auswählen"_s)
+			"OptionPane.title.textAndMnemonic"_s,
+			u"Option auswählen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OptionPane.yesButton.textAndMnemonic"_s),
-			$of("&Ja"_s)
+			"OptionPane.yesButton.textAndMnemonic"_s,
+			"&Ja"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PrintingDialog.abortButton.textAndMnemonic"_s),
-			$of("&Abbruch"_s)
+			"PrintingDialog.abortButton.textAndMnemonic"_s,
+			"&Abbruch"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PrintingDialog.abortButtonToolTip.textAndMnemonic"_s),
-			$of("Druckvorgang abbrechen"_s)
+			"PrintingDialog.abortButtonToolTip.textAndMnemonic"_s,
+			"Druckvorgang abbrechen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PrintingDialog.contentAborting.textAndMnemonic"_s),
-			$of("Druckvorgang wird abgebrochen..."_s)
+			"PrintingDialog.contentAborting.textAndMnemonic"_s,
+			"Druckvorgang wird abgebrochen..."_s
 		}),
 		$$new($ObjectArray, {
-			$of("PrintingDialog.contentInitial.textAndMnemonic"_s),
-			$of(u"Druckvorgang läuft..."_s)
+			"PrintingDialog.contentInitial.textAndMnemonic"_s,
+			u"Druckvorgang läuft..."_s
 		}),
 		$$new($ObjectArray, {
-			$of("PrintingDialog.contentProgress.textAndMnemonic"_s),
-			$of("Seite {0} wurde gedruckt..."_s)
+			"PrintingDialog.contentProgress.textAndMnemonic"_s,
+			"Seite {0} wurde gedruckt..."_s
 		}),
 		$$new($ObjectArray, {
-			$of("PrintingDialog.titleAborting.textAndMnemonic"_s),
-			$of("Drucken (Abbruch)"_s)
+			"PrintingDialog.titleAborting.textAndMnemonic"_s,
+			"Drucken (Abbruch)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PrintingDialog.titleProgress.textAndMnemonic"_s),
-			$of("Drucken"_s)
+			"PrintingDialog.titleProgress.textAndMnemonic"_s,
+			"Drucken"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ProgressMonitor.progress.textAndMnemonic"_s),
-			$of("Fortschritt..."_s)
+			"ProgressMonitor.progress.textAndMnemonic"_s,
+			"Fortschritt..."_s
 		}),
 		$$new($ObjectArray, {
-			$of("SplitPane.leftButton.textAndMnemonic"_s),
-			$of(u"linke Schaltfläche"_s)
+			"SplitPane.leftButton.textAndMnemonic"_s,
+			u"linke Schaltfläche"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SplitPane.rightButton.textAndMnemonic"_s),
-			$of(u"rechte Schaltfläche"_s)
+			"SplitPane.rightButton.textAndMnemonic"_s,
+			u"rechte Schaltfläche"_s
 		})
 	});
 }
@@ -469,7 +449,22 @@ basic_de::basic_de() {
 }
 
 $Class* basic_de::load$($String* name, bool initialize) {
-	$loadClass(basic_de, name, initialize, &_basic_de_ClassInfo_, allocate$basic_de);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(basic_de, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(basic_de, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.swing.internal.plaf.basic.resources.basic_de",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(basic_de, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(basic_de);
+	});
 	return class$;
 }
 

@@ -13,6 +13,7 @@ class CatalogReader$1 : public ::java::lang::Object {
 	$class(CatalogReader$1, 0, ::java::lang::Object)
 public:
 	CatalogReader$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType;
 };
 

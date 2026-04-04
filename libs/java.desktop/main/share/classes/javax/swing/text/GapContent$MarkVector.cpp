@@ -1,5 +1,4 @@
 #include <javax/swing/text/GapContent$MarkVector.h>
-
 #include <javax/swing/text/GapContent$MarkData.h>
 #include <javax/swing/text/GapContent.h>
 #include <javax/swing/text/GapVector.h>
@@ -17,49 +16,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _GapContent$MarkVector_FieldInfo_[] = {
-	{"oneMark", "[Ljavax/swing/text/GapContent$MarkData;", nullptr, 0, $field(GapContent$MarkVector, oneMark)},
-	{}
-};
-
-$MethodInfo _GapContent$MarkVector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(GapContent$MarkVector, init$, void)},
-	{"<init>", "(I)V", nullptr, 0, $method(GapContent$MarkVector, init$, void, int32_t)},
-	{"addElement", "(Ljavax/swing/text/GapContent$MarkData;)V", nullptr, $PUBLIC, $virtualMethod(GapContent$MarkVector, addElement, void, $GapContent$MarkData*)},
-	{"allocateArray", "(I)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(GapContent$MarkVector, allocateArray, $Object*, int32_t)},
-	{"elementAt", "(I)Ljavax/swing/text/GapContent$MarkData;", nullptr, $PUBLIC, $virtualMethod(GapContent$MarkVector, elementAt, $GapContent$MarkData*, int32_t)},
-	{"getArrayLength", "()I", nullptr, $PROTECTED, $virtualMethod(GapContent$MarkVector, getArrayLength, int32_t)},
-	{"insertElementAt", "(Ljavax/swing/text/GapContent$MarkData;I)V", nullptr, $PUBLIC, $virtualMethod(GapContent$MarkVector, insertElementAt, void, $GapContent$MarkData*, int32_t)},
-	{"replaceRange", "(II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(GapContent$MarkVector, replaceRange, void, int32_t, int32_t, $ObjectArray*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(GapContent$MarkVector, size, int32_t)},
-	{}
-};
-
-$InnerClassInfo _GapContent$MarkVector_InnerClassesInfo_[] = {
-	{"javax.swing.text.GapContent$MarkVector", "javax.swing.text.GapContent", "MarkVector", $STATIC},
-	{}
-};
-
-$ClassInfo _GapContent$MarkVector_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.GapContent$MarkVector",
-	"javax.swing.text.GapVector",
-	nullptr,
-	_GapContent$MarkVector_FieldInfo_,
-	_GapContent$MarkVector_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GapContent$MarkVector_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.GapContent"
-};
-
-$Object* allocate$GapContent$MarkVector($Class* clazz) {
-	return $of($alloc(GapContent$MarkVector));
-}
-
 void GapContent$MarkVector::init$() {
 	$GapVector::init$();
 	$set(this, oneMark, $new($GapContent$MarkDataArray, 1));
@@ -71,7 +27,7 @@ void GapContent$MarkVector::init$(int32_t size) {
 }
 
 $Object* GapContent$MarkVector::allocateArray(int32_t len) {
-	return $of($new($GapContent$MarkDataArray, len));
+	return $new($GapContent$MarkDataArray, len);
 }
 
 int32_t GapContent$MarkVector::getArrayLength() {
@@ -137,7 +93,44 @@ GapContent$MarkVector::GapContent$MarkVector() {
 }
 
 $Class* GapContent$MarkVector::load$($String* name, bool initialize) {
-	$loadClass(GapContent$MarkVector, name, initialize, &_GapContent$MarkVector_ClassInfo_, allocate$GapContent$MarkVector);
+	$FieldInfo fieldInfos$$[] = {
+		{"oneMark", "[Ljavax/swing/text/GapContent$MarkData;", nullptr, 0, $field(GapContent$MarkVector, oneMark)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(GapContent$MarkVector, init$, void)},
+		{"<init>", "(I)V", nullptr, 0, $method(GapContent$MarkVector, init$, void, int32_t)},
+		{"addElement", "(Ljavax/swing/text/GapContent$MarkData;)V", nullptr, $PUBLIC, $virtualMethod(GapContent$MarkVector, addElement, void, $GapContent$MarkData*)},
+		{"allocateArray", "(I)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(GapContent$MarkVector, allocateArray, $Object*, int32_t)},
+		{"elementAt", "(I)Ljavax/swing/text/GapContent$MarkData;", nullptr, $PUBLIC, $virtualMethod(GapContent$MarkVector, elementAt, $GapContent$MarkData*, int32_t)},
+		{"getArrayLength", "()I", nullptr, $PROTECTED, $virtualMethod(GapContent$MarkVector, getArrayLength, int32_t)},
+		{"insertElementAt", "(Ljavax/swing/text/GapContent$MarkData;I)V", nullptr, $PUBLIC, $virtualMethod(GapContent$MarkVector, insertElementAt, void, $GapContent$MarkData*, int32_t)},
+		{"replaceRange", "(II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(GapContent$MarkVector, replaceRange, void, int32_t, int32_t, $ObjectArray*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(GapContent$MarkVector, size, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.GapContent$MarkVector", "javax.swing.text.GapContent", "MarkVector", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.GapContent$MarkVector",
+		"javax.swing.text.GapVector",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.GapContent"
+	};
+	$loadClass(GapContent$MarkVector, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GapContent$MarkVector);
+	});
 	return class$;
 }
 

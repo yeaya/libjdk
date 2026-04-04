@@ -38,6 +38,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* reason, $String* SQLState, int32_t vendorCode);
 	void init$($String* reason, $String* SQLState);
 	void init$($String* reason);
@@ -56,10 +57,13 @@ public:
 	int32_t vendorCode = 0;
 	$volatile(::java::sql::SQLException*) next = nullptr;
 	static ::java::util::concurrent::atomic::AtomicReferenceFieldUpdater* nextUpdater;
-	static const int64_t serialVersionUID = (int64_t)0x1DA1E930DB3E75DC;
+	static const int64_t serialVersionUID = (int64_t)0x1da1e930db3e75dc;
 	SQLException(const SQLException& e);
 	virtual void throw$() override;
-	inline SQLException* operator ->() {
+	inline SQLException* operator ->() const {
+		return (SQLException*)throwing$;
+	}
+	inline operator SQLException*() const {
 		return (SQLException*)throwing$;
 	}
 };

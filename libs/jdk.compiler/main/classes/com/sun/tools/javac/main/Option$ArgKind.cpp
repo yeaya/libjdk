@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/main/Option$ArgKind.h>
-
 #include <com/sun/tools/javac/main/Option.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -20,47 +19,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace main {
-
-$FieldInfo _Option$ArgKind_FieldInfo_[] = {
-	{"NONE", "Lcom/sun/tools/javac/main/Option$ArgKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option$ArgKind, NONE)},
-	{"REQUIRED", "Lcom/sun/tools/javac/main/Option$ArgKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option$ArgKind, REQUIRED)},
-	{"ADJACENT", "Lcom/sun/tools/javac/main/Option$ArgKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option$ArgKind, ADJACENT)},
-	{"$VALUES", "[Lcom/sun/tools/javac/main/Option$ArgKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Option$ArgKind, $VALUES)},
-	{}
-};
-
-$MethodInfo _Option$ArgKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/main/Option$ArgKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option$ArgKind, $values, $Option$ArgKindArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Option$ArgKind, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/Option$ArgKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Option$ArgKind, valueOf, Option$ArgKind*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/main/Option$ArgKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Option$ArgKind, values, $Option$ArgKindArray*)},
-	{}
-};
-
-$InnerClassInfo _Option$ArgKind_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.main.Option$ArgKind", "com.sun.tools.javac.main.Option", "ArgKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Option$ArgKind_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.main.Option$ArgKind",
-	"java.lang.Enum",
-	nullptr,
-	_Option$ArgKind_FieldInfo_,
-	_Option$ArgKind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/main/Option$ArgKind;>;",
-	nullptr,
-	_Option$ArgKind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.main.Option"
-};
-
-$Object* allocate$Option$ArgKind($Class* clazz) {
-	return $of($alloc(Option$ArgKind));
-}
 
 Option$ArgKind* Option$ArgKind::NONE = nullptr;
 Option$ArgKind* Option$ArgKind::REQUIRED = nullptr;
@@ -90,7 +48,7 @@ void Option$ArgKind::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Option$ArgKind($Class* class$) {
+void Option$ArgKind::clinit$($Class* clazz) {
 	$assignStatic(Option$ArgKind::NONE, $new(Option$ArgKind, "NONE"_s, 0));
 	$assignStatic(Option$ArgKind::REQUIRED, $new(Option$ArgKind, "REQUIRED"_s, 1));
 	$assignStatic(Option$ArgKind::ADJACENT, $new(Option$ArgKind, "ADJACENT"_s, 2));
@@ -101,7 +59,42 @@ Option$ArgKind::Option$ArgKind() {
 }
 
 $Class* Option$ArgKind::load$($String* name, bool initialize) {
-	$loadClass(Option$ArgKind, name, initialize, &_Option$ArgKind_ClassInfo_, clinit$Option$ArgKind, allocate$Option$ArgKind);
+	$FieldInfo fieldInfos$$[] = {
+		{"NONE", "Lcom/sun/tools/javac/main/Option$ArgKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option$ArgKind, NONE)},
+		{"REQUIRED", "Lcom/sun/tools/javac/main/Option$ArgKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option$ArgKind, REQUIRED)},
+		{"ADJACENT", "Lcom/sun/tools/javac/main/Option$ArgKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option$ArgKind, ADJACENT)},
+		{"$VALUES", "[Lcom/sun/tools/javac/main/Option$ArgKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Option$ArgKind, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/main/Option$ArgKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option$ArgKind, $values, $Option$ArgKindArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Option$ArgKind, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/Option$ArgKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Option$ArgKind, valueOf, Option$ArgKind*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/main/Option$ArgKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Option$ArgKind, values, $Option$ArgKindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.main.Option$ArgKind", "com.sun.tools.javac.main.Option", "ArgKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.main.Option$ArgKind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/main/Option$ArgKind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.main.Option"
+	};
+	$loadClass(Option$ArgKind, name, initialize, &classInfo$$, Option$ArgKind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Option$ArgKind));
+	});
 	return class$;
 }
 

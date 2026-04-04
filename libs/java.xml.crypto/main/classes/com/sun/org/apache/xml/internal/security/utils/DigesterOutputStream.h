@@ -51,6 +51,7 @@ class DigesterOutputStream : public ::java::io::ByteArrayOutputStream {
 	$class(DigesterOutputStream, 0, ::java::io::ByteArrayOutputStream)
 public:
 	DigesterOutputStream();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xml::internal::security::algorithms::MessageDigestAlgorithm* mda);
 	virtual $bytes* getDigestValue();
 	virtual void write($bytes* arg0) override;

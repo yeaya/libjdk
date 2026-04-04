@@ -1,18 +1,14 @@
 #include <javax/swing/plaf/nimbus/MenuBarPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/LinearGradientPaint.h>
 #include <java/awt/Paint.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/Ellipse2D$Float.h>
-#include <java/awt/geom/Ellipse2D.h>
 #include <java/awt/geom/Path2D$Float.h>
-#include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
 #include <java/awt/geom/RoundRectangle2D$Float.h>
-#include <java/awt/geom/RoundRectangle2D.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter.h>
@@ -25,13 +21,10 @@ using $ColorArray = $Array<::java::awt::Color>;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Paint = ::java::awt::Paint;
 using $Shape = ::java::awt::Shape;
-using $Ellipse2D = ::java::awt::geom::Ellipse2D;
 using $Ellipse2D$Float = ::java::awt::geom::Ellipse2D$Float;
-using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RoundRectangle2D = ::java::awt::geom::RoundRectangle2D;
 using $RoundRectangle2D$Float = ::java::awt::geom::RoundRectangle2D$Float;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -46,56 +39,12 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _MenuBarPainter_FieldInfo_[] = {
-	{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(MenuBarPainter, BACKGROUND_ENABLED)},
-	{"BORDER_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(MenuBarPainter, BORDER_ENABLED)},
-	{"state", "I", nullptr, $PRIVATE, $field(MenuBarPainter, state)},
-	{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(MenuBarPainter, ctx)},
-	{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(MenuBarPainter, path)},
-	{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(MenuBarPainter, rect)},
-	{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(MenuBarPainter, roundRect)},
-	{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(MenuBarPainter, ellipse)},
-	{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MenuBarPainter, color1)},
-	{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MenuBarPainter, color2)},
-	{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MenuBarPainter, color3)},
-	{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MenuBarPainter, color4)},
-	{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MenuBarPainter, color5)},
-	{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(MenuBarPainter, componentColors)},
-	{}
-};
-
-$MethodInfo _MenuBarPainter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(MenuBarPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
-	{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(MenuBarPainter, decodeGradient1, $Paint*, $Shape*)},
-	{"decodeRect1", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(MenuBarPainter, decodeRect1, $Rectangle2D*)},
-	{"decodeRect2", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(MenuBarPainter, decodeRect2, $Rectangle2D*)},
-	{"decodeRect3", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(MenuBarPainter, decodeRect3, $Rectangle2D*)},
-	{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(MenuBarPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(MenuBarPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
-	{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(MenuBarPainter, paintBackgroundEnabled, void, $Graphics2D*)},
-	{"paintBorderEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(MenuBarPainter, paintBorderEnabled, void, $Graphics2D*)},
-	{}
-};
-
-$ClassInfo _MenuBarPainter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.MenuBarPainter",
-	"javax.swing.plaf.nimbus.AbstractRegionPainter",
-	nullptr,
-	_MenuBarPainter_FieldInfo_,
-	_MenuBarPainter_MethodInfo_
-};
-
-$Object* allocate$MenuBarPainter($Class* clazz) {
-	return $of($alloc(MenuBarPainter));
-}
-
 void MenuBarPainter::init$($AbstractRegionPainter$PaintContext* ctx, int32_t state) {
 	$AbstractRegionPainter::init$();
 	$set(this, path, $new($Path2D$Float));
-	$set(this, rect, $new($Rectangle2D$Float, (float)0, (float)0, (float)0, (float)0));
-	$set(this, roundRect, $new($RoundRectangle2D$Float, (float)0, (float)0, (float)0, (float)0, (float)0, (float)0));
-	$set(this, ellipse, $new($Ellipse2D$Float, (float)0, (float)0, (float)0, (float)0));
+	$set(this, rect, $new($Rectangle2D$Float, 0, 0, 0, 0));
+	$set(this, roundRect, $new($RoundRectangle2D$Float, 0, 0, 0, 0, 0, 0));
+	$set(this, ellipse, $new($Ellipse2D$Float, 0, 0, 0, 0));
 	$set(this, color1, decodeColor("nimbusBlueGrey"_s, 0.0f, -0.07016757f, 0.12941176f, 0));
 	$set(this, color2, decodeColor("nimbusBlueGrey"_s, -0.027777791f, -0.10255819f, 0.23921567f, 0));
 	$set(this, color3, decodeColor("nimbusBlueGrey"_s, -0.111111104f, -0.10654225f, 0.23921567f, -29));
@@ -109,15 +58,11 @@ void MenuBarPainter::doPaint($Graphics2D* g, $JComponent* c, int32_t width, int3
 	$set(this, componentColors, extendedCacheKeys);
 	switch (this->state) {
 	case MenuBarPainter::BACKGROUND_ENABLED:
-		{
-			paintBackgroundEnabled(g);
-			break;
-		}
+		paintBackgroundEnabled(g);
+		break;
 	case MenuBarPainter::BORDER_ENABLED:
-		{
-			paintBorderEnabled(g);
-			break;
-		}
+		paintBorderEnabled(g);
+		break;
 	}
 }
 
@@ -141,37 +86,37 @@ void MenuBarPainter::paintBorderEnabled($Graphics2D* g) {
 }
 
 $Rectangle2D* MenuBarPainter::decodeRect1() {
-	double var$0 = (double)decodeX(1.0f);
-	double var$1 = (double)decodeY(0.0f);
+	double var$0 = decodeX(1.0f);
+	double var$1 = decodeY(0.0f);
 	float var$3 = decodeX(2.0f);
-	double var$2 = (double)(var$3 - decodeX(1.0f));
+	double var$2 = var$3 - decodeX(1.0f);
 	float var$4 = decodeY(1.9523809f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.0f));
 	return this->rect;
 }
 
 $Rectangle2D* MenuBarPainter::decodeRect2() {
-	double var$0 = (double)decodeX(1.0f);
-	double var$1 = (double)decodeY(0.0f);
+	double var$0 = decodeX(1.0f);
+	double var$1 = decodeY(0.0f);
 	float var$3 = decodeX(2.0f);
-	double var$2 = (double)(var$3 - decodeX(1.0f));
+	double var$2 = var$3 - decodeX(1.0f);
 	float var$4 = decodeY(2.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.0f));
 	return this->rect;
 }
 
 $Rectangle2D* MenuBarPainter::decodeRect3() {
-	double var$0 = (double)decodeX(1.0f);
-	double var$1 = (double)decodeY(2.0f);
+	double var$0 = decodeX(1.0f);
+	double var$1 = decodeY(2.0f);
 	float var$3 = decodeX(2.0f);
-	double var$2 = (double)(var$3 - decodeX(1.0f));
+	double var$2 = var$3 - decodeX(1.0f);
 	float var$4 = decodeY(3.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(2.0f));
 	return this->rect;
 }
 
 $Paint* MenuBarPainter::decodeGradient1($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -196,7 +141,46 @@ MenuBarPainter::MenuBarPainter() {
 }
 
 $Class* MenuBarPainter::load$($String* name, bool initialize) {
-	$loadClass(MenuBarPainter, name, initialize, &_MenuBarPainter_ClassInfo_, allocate$MenuBarPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(MenuBarPainter, BACKGROUND_ENABLED)},
+		{"BORDER_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(MenuBarPainter, BORDER_ENABLED)},
+		{"state", "I", nullptr, $PRIVATE, $field(MenuBarPainter, state)},
+		{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(MenuBarPainter, ctx)},
+		{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(MenuBarPainter, path)},
+		{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(MenuBarPainter, rect)},
+		{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(MenuBarPainter, roundRect)},
+		{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(MenuBarPainter, ellipse)},
+		{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MenuBarPainter, color1)},
+		{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MenuBarPainter, color2)},
+		{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MenuBarPainter, color3)},
+		{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MenuBarPainter, color4)},
+		{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MenuBarPainter, color5)},
+		{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(MenuBarPainter, componentColors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(MenuBarPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
+		{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(MenuBarPainter, decodeGradient1, $Paint*, $Shape*)},
+		{"decodeRect1", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(MenuBarPainter, decodeRect1, $Rectangle2D*)},
+		{"decodeRect2", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(MenuBarPainter, decodeRect2, $Rectangle2D*)},
+		{"decodeRect3", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(MenuBarPainter, decodeRect3, $Rectangle2D*)},
+		{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(MenuBarPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(MenuBarPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
+		{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(MenuBarPainter, paintBackgroundEnabled, void, $Graphics2D*)},
+		{"paintBorderEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(MenuBarPainter, paintBorderEnabled, void, $Graphics2D*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.MenuBarPainter",
+		"javax.swing.plaf.nimbus.AbstractRegionPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MenuBarPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MenuBarPainter);
+	});
 	return class$;
 }
 

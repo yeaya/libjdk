@@ -23,7 +23,7 @@ public:
 	virtual bool usesShiftModifier();
 	int32_t key = 0;
 	bool usesShift = false;
-	static const int64_t serialVersionUID = (int64_t)0x01FDA185A2682441;
+	static const int64_t serialVersionUID = (int64_t)0x01fda185a2682441;
 };
 
 	} // awt

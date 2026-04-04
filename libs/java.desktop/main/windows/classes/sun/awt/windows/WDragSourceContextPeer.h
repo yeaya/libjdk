@@ -47,6 +47,7 @@ class WDragSourceContextPeer : public ::sun::awt::dnd::SunDragSourceContextPeer 
 	$class(WDragSourceContextPeer, 0, ::sun::awt::dnd::SunDragSourceContextPeer)
 public:
 	WDragSourceContextPeer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::dnd::DragGestureEvent* dge);
 	int64_t createDragSource(::java::awt::Component* component, ::java::awt::datatransfer::Transferable* transferable, ::java::awt::event::InputEvent* nativeTrigger, int32_t actions, $longs* formats, ::java::util::Map* formatMap);
 	static ::sun::awt::windows::WDragSourceContextPeer* createDragSourceContextPeer(::java::awt::dnd::DragGestureEvent* dge);

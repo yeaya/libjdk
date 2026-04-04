@@ -9,6 +9,7 @@ class $export NullUriCookieTest : public ::java::lang::Object {
 	$class(NullUriCookieTest, 0, ::java::lang::Object)
 public:
 	NullUriCookieTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkCookieNullUri();
 	static void checkFail($String* exp);

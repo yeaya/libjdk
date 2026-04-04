@@ -1,5 +1,4 @@
 #include <java/awt/image/PixelInterleavedSampleModel.h>
-
 #include <java/awt/image/ComponentSampleModel.h>
 #include <java/awt/image/SampleModel.h>
 #include <java/lang/Math.h>
@@ -16,34 +15,13 @@ namespace java {
 	namespace awt {
 		namespace image {
 
-$MethodInfo _PixelInterleavedSampleModel_MethodInfo_[] = {
-	{"<init>", "(IIIII[I)V", nullptr, $PUBLIC, $method(PixelInterleavedSampleModel, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"createCompatibleSampleModel", "(II)Ljava/awt/image/SampleModel;", nullptr, $PUBLIC, $virtualMethod(PixelInterleavedSampleModel, createCompatibleSampleModel, $SampleModel*, int32_t, int32_t)},
-	{"createSubsetSampleModel", "([I)Ljava/awt/image/SampleModel;", nullptr, $PUBLIC, $virtualMethod(PixelInterleavedSampleModel, createSubsetSampleModel, $SampleModel*, $ints*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PixelInterleavedSampleModel, hashCode, int32_t)},
-	{}
-};
-
-$ClassInfo _PixelInterleavedSampleModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.image.PixelInterleavedSampleModel",
-	"java.awt.image.ComponentSampleModel",
-	nullptr,
-	nullptr,
-	_PixelInterleavedSampleModel_MethodInfo_
-};
-
-$Object* allocate$PixelInterleavedSampleModel($Class* clazz) {
-	return $of($alloc(PixelInterleavedSampleModel));
-}
-
 void PixelInterleavedSampleModel::init$(int32_t dataType, int32_t w, int32_t h, int32_t pixelStride, int32_t scanlineStride, $ints* bandOffsets) {
 	$ComponentSampleModel::init$(dataType, w, h, pixelStride, scanlineStride, bandOffsets);
 	int32_t minBandOff = $nc(this->bandOffsets)->get(0);
-	int32_t maxBandOff = $nc(this->bandOffsets)->get(0);
-	for (int32_t i = 1; i < $nc(this->bandOffsets)->length; ++i) {
-		minBandOff = $Math::min(minBandOff, $nc(this->bandOffsets)->get(i));
-		maxBandOff = $Math::max(maxBandOff, $nc(this->bandOffsets)->get(i));
+	int32_t maxBandOff = this->bandOffsets->get(0);
+	for (int32_t i = 1; i < this->bandOffsets->length; ++i) {
+		minBandOff = $Math::min(minBandOff, this->bandOffsets->get(i));
+		maxBandOff = $Math::max(maxBandOff, this->bandOffsets->get(i));
 	}
 	maxBandOff -= minBandOff;
 	if (maxBandOff > scanlineStride) {
@@ -59,17 +37,17 @@ void PixelInterleavedSampleModel::init$(int32_t dataType, int32_t w, int32_t h, 
 
 $SampleModel* PixelInterleavedSampleModel::createCompatibleSampleModel(int32_t w, int32_t h) {
 	int32_t minBandoff = $nc(this->bandOffsets)->get(0);
-	int32_t numBands = $nc(this->bandOffsets)->length;
+	int32_t numBands = this->bandOffsets->length;
 	for (int32_t i = 1; i < numBands; ++i) {
-		if ($nc(this->bandOffsets)->get(i) < minBandoff) {
-			minBandoff = $nc(this->bandOffsets)->get(i);
+		if (this->bandOffsets->get(i) < minBandoff) {
+			minBandoff = this->bandOffsets->get(i);
 		}
 	}
 	$var($ints, bandOff, nullptr);
 	if (minBandoff > 0) {
 		$assign(bandOff, $new($ints, numBands));
 		for (int32_t i = 0; i < numBands; ++i) {
-			bandOff->set(i, $nc(this->bandOffsets)->get(i) - minBandoff);
+			bandOff->set(i, this->bandOffsets->get(i) - minBandoff);
 		}
 	} else {
 		$assign(bandOff, this->bandOffsets);
@@ -93,7 +71,24 @@ PixelInterleavedSampleModel::PixelInterleavedSampleModel() {
 }
 
 $Class* PixelInterleavedSampleModel::load$($String* name, bool initialize) {
-	$loadClass(PixelInterleavedSampleModel, name, initialize, &_PixelInterleavedSampleModel_ClassInfo_, allocate$PixelInterleavedSampleModel);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IIIII[I)V", nullptr, $PUBLIC, $method(PixelInterleavedSampleModel, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"createCompatibleSampleModel", "(II)Ljava/awt/image/SampleModel;", nullptr, $PUBLIC, $virtualMethod(PixelInterleavedSampleModel, createCompatibleSampleModel, $SampleModel*, int32_t, int32_t)},
+		{"createSubsetSampleModel", "([I)Ljava/awt/image/SampleModel;", nullptr, $PUBLIC, $virtualMethod(PixelInterleavedSampleModel, createSubsetSampleModel, $SampleModel*, $ints*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PixelInterleavedSampleModel, hashCode, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.image.PixelInterleavedSampleModel",
+		"java.awt.image.ComponentSampleModel",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PixelInterleavedSampleModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PixelInterleavedSampleModel);
+	});
 	return class$;
 }
 

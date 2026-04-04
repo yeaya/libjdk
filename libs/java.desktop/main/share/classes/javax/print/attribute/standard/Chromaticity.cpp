@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/Chromaticity.h>
-
 #include <javax/print/attribute/EnumSyntax.h>
 #include <jcpp.h>
 
@@ -17,42 +16,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _Chromaticity_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Chromaticity, serialVersionUID)},
-	{"MONOCHROME", "Ljavax/print/attribute/standard/Chromaticity;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Chromaticity, MONOCHROME)},
-	{"COLOR", "Ljavax/print/attribute/standard/Chromaticity;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Chromaticity, COLOR)},
-	{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Chromaticity, myStringTable)},
-	{"myEnumValueTable", "[Ljavax/print/attribute/standard/Chromaticity;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Chromaticity, myEnumValueTable)},
-	{}
-};
-
-$MethodInfo _Chromaticity_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(Chromaticity, init$, void, int32_t)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(Chromaticity, getCategory, $Class*)},
-	{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(Chromaticity, getEnumValueTable, $EnumSyntaxArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Chromaticity, getName, $String*)},
-	{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Chromaticity, getStringTable, $StringArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _Chromaticity_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.Chromaticity",
-	"javax.print.attribute.EnumSyntax",
-	"javax.print.attribute.DocAttribute,javax.print.attribute.PrintRequestAttribute,javax.print.attribute.PrintJobAttribute",
-	_Chromaticity_FieldInfo_,
-	_Chromaticity_MethodInfo_
-};
-
-$Object* allocate$Chromaticity($Class* clazz) {
-	return $of($alloc(Chromaticity));
-}
 
 $Object* Chromaticity::clone() {
 	 return this->$EnumSyntax::clone();
@@ -88,7 +51,7 @@ $StringArray* Chromaticity::getStringTable() {
 }
 
 $EnumSyntaxArray* Chromaticity::getEnumValueTable() {
-	return $fcast($EnumSyntaxArray, Chromaticity::myEnumValueTable);
+	return $cast($EnumSyntaxArray, Chromaticity::myEnumValueTable);
 }
 
 $Class* Chromaticity::getCategory() {
@@ -99,7 +62,7 @@ $String* Chromaticity::getName() {
 	return "chromaticity"_s;
 }
 
-void clinit$Chromaticity($Class* class$) {
+void Chromaticity::clinit$($Class* clazz) {
 	$assignStatic(Chromaticity::MONOCHROME, $new(Chromaticity, 0));
 	$assignStatic(Chromaticity::COLOR, $new(Chromaticity, 1));
 	$assignStatic(Chromaticity::myStringTable, $new($StringArray, {
@@ -116,7 +79,38 @@ Chromaticity::Chromaticity() {
 }
 
 $Class* Chromaticity::load$($String* name, bool initialize) {
-	$loadClass(Chromaticity, name, initialize, &_Chromaticity_ClassInfo_, clinit$Chromaticity, allocate$Chromaticity);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Chromaticity, serialVersionUID)},
+		{"MONOCHROME", "Ljavax/print/attribute/standard/Chromaticity;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Chromaticity, MONOCHROME)},
+		{"COLOR", "Ljavax/print/attribute/standard/Chromaticity;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Chromaticity, COLOR)},
+		{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Chromaticity, myStringTable)},
+		{"myEnumValueTable", "[Ljavax/print/attribute/standard/Chromaticity;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Chromaticity, myEnumValueTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(Chromaticity, init$, void, int32_t)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(Chromaticity, getCategory, $Class*)},
+		{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(Chromaticity, getEnumValueTable, $EnumSyntaxArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Chromaticity, getName, $String*)},
+		{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Chromaticity, getStringTable, $StringArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.Chromaticity",
+		"javax.print.attribute.EnumSyntax",
+		"javax.print.attribute.DocAttribute,javax.print.attribute.PrintRequestAttribute,javax.print.attribute.PrintJobAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Chromaticity, name, initialize, &classInfo$$, Chromaticity::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Chromaticity));
+	});
 	return class$;
 }
 

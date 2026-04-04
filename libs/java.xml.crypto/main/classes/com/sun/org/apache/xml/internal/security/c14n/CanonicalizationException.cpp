@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/c14n/CanonicalizationException.h>
-
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
 #include <jcpp.h>
 
@@ -18,46 +17,6 @@ namespace com {
 					namespace internal {
 						namespace security {
 							namespace c14n {
-
-$CompoundAttribute _CanonicalizationException_MethodAnnotations_init$5[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _CanonicalizationException_MethodAnnotations_init$7[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _CanonicalizationException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CanonicalizationException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CanonicalizationException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CanonicalizationException, init$, void)},
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(CanonicalizationException, init$, void, $Exception*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CanonicalizationException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(CanonicalizationException, init$, void, $String*, $ObjectArray*)},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CanonicalizationException, init$, void, $Exception*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(CanonicalizationException, init$, void, $String*, $Exception*), nullptr, nullptr, _CanonicalizationException_MethodAnnotations_init$5},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(CanonicalizationException, init$, void, $Exception*, $String*, $ObjectArray*)},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(CanonicalizationException, init$, void, $String*, $ObjectArray*, $Exception*), nullptr, nullptr, _CanonicalizationException_MethodAnnotations_init$7},
-	{}
-};
-
-$ClassInfo _CanonicalizationException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException",
-	"com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException",
-	nullptr,
-	_CanonicalizationException_FieldInfo_,
-	_CanonicalizationException_MethodInfo_
-};
-
-$Object* allocate$CanonicalizationException($Class* clazz) {
-	return $of($alloc(CanonicalizationException));
-}
 
 void CanonicalizationException::init$() {
 	$XMLSecurityException::init$();
@@ -102,7 +61,40 @@ void CanonicalizationException::throw$() {
 }
 
 $Class* CanonicalizationException::load$($String* name, bool initialize) {
-	$loadClass(CanonicalizationException, name, initialize, &_CanonicalizationException_ClassInfo_, allocate$CanonicalizationException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CanonicalizationException, serialVersionUID)},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$5[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$7[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CanonicalizationException, init$, void)},
+		{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(CanonicalizationException, init$, void, $Exception*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CanonicalizationException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(CanonicalizationException, init$, void, $String*, $ObjectArray*)},
+		{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CanonicalizationException, init$, void, $Exception*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(CanonicalizationException, init$, void, $String*, $Exception*), nullptr, nullptr, init$methodAnnotations$$$5},
+		{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(CanonicalizationException, init$, void, $Exception*, $String*, $ObjectArray*)},
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(CanonicalizationException, init$, void, $String*, $ObjectArray*, $Exception*), nullptr, nullptr, init$methodAnnotations$$$7},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException",
+		"com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CanonicalizationException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CanonicalizationException);
+	});
 	return class$;
 }
 

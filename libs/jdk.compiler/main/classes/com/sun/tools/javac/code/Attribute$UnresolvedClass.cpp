@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Attribute$UnresolvedClass.h>
-
 #include <com/sun/tools/javac/code/Attribute$Error.h>
 #include <com/sun/tools/javac/code/Attribute.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -18,42 +17,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Attribute$UnresolvedClass_FieldInfo_[] = {
-	{"classType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Attribute$UnresolvedClass, classType)},
-	{}
-};
-
-$MethodInfo _Attribute$UnresolvedClass_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Attribute$UnresolvedClass, init$, void, $Type*, $Type*)},
-	{}
-};
-
-$InnerClassInfo _Attribute$UnresolvedClass_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Attribute$UnresolvedClass", "com.sun.tools.javac.code.Attribute", "UnresolvedClass", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Attribute$Error", "com.sun.tools.javac.code.Attribute", "Error", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Attribute$UnresolvedClass_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Attribute$UnresolvedClass",
-	"com.sun.tools.javac.code.Attribute$Error",
-	nullptr,
-	_Attribute$UnresolvedClass_FieldInfo_,
-	_Attribute$UnresolvedClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Attribute$UnresolvedClass_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Attribute"
-};
-
-$Object* allocate$Attribute$UnresolvedClass($Class* clazz) {
-	return $of($alloc(Attribute$UnresolvedClass));
-}
-
 void Attribute$UnresolvedClass::init$($Type* type, $Type* classType) {
 	$Attribute$Error::init$(type);
 	$set(this, classType, classType);
@@ -63,7 +26,37 @@ Attribute$UnresolvedClass::Attribute$UnresolvedClass() {
 }
 
 $Class* Attribute$UnresolvedClass::load$($String* name, bool initialize) {
-	$loadClass(Attribute$UnresolvedClass, name, initialize, &_Attribute$UnresolvedClass_ClassInfo_, allocate$Attribute$UnresolvedClass);
+	$FieldInfo fieldInfos$$[] = {
+		{"classType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Attribute$UnresolvedClass, classType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Attribute$UnresolvedClass, init$, void, $Type*, $Type*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Attribute$UnresolvedClass", "com.sun.tools.javac.code.Attribute", "UnresolvedClass", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Attribute$Error", "com.sun.tools.javac.code.Attribute", "Error", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Attribute$UnresolvedClass",
+		"com.sun.tools.javac.code.Attribute$Error",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Attribute"
+	};
+	$loadClass(Attribute$UnresolvedClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Attribute$UnresolvedClass);
+	});
 	return class$;
 }
 

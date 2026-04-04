@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/LocalVariableInstruction.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/BasicType.h>
 #include <com/sun/org/apache/bcel/internal/generic/ClassGenException.h>
@@ -53,47 +52,6 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$FieldInfo _LocalVariableInstruction_FieldInfo_[] = {
-	{"n", "I", nullptr, $PRIVATE, $field(LocalVariableInstruction, n)},
-	{"cTag", "S", nullptr, $PRIVATE, $field(LocalVariableInstruction, cTag)},
-	{"canonTag", "S", nullptr, $PRIVATE, $field(LocalVariableInstruction, canonTag)},
-	{}
-};
-
-$MethodInfo _LocalVariableInstruction_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(SS)V", nullptr, 0, $method(LocalVariableInstruction, init$, void, int16_t, int16_t)},
-	{"<init>", "()V", nullptr, 0, $method(LocalVariableInstruction, init$, void)},
-	{"<init>", "(SSI)V", nullptr, $PROTECTED, $method(LocalVariableInstruction, init$, void, int16_t, int16_t, int32_t)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(LocalVariableInstruction, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getCanonicalTag", "()S", nullptr, $PUBLIC, $virtualMethod(LocalVariableInstruction, getCanonicalTag, int16_t)},
-	{"getIndex", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(LocalVariableInstruction, getIndex, int32_t)},
-	{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(LocalVariableInstruction, getType, $Type*, $ConstantPoolGen*)},
-	{"initFromFile", "(Lcom/sun/org/apache/bcel/internal/util/ByteSequence;Z)V", nullptr, $PROTECTED, $virtualMethod(LocalVariableInstruction, initFromFile, void, $ByteSequence*, bool), "java.io.IOException"},
-	{"setIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(LocalVariableInstruction, setIndex, void, int32_t)},
-	{"setIndexOnly", "(I)V", nullptr, $FINAL, $method(LocalVariableInstruction, setIndexOnly, void, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocalVariableInstruction, toString, $String*, bool)},
-	{"wide", "()Z", nullptr, $PRIVATE, $method(LocalVariableInstruction, wide, bool)},
-	{}
-};
-
-$ClassInfo _LocalVariableInstruction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.generic.LocalVariableInstruction",
-	"com.sun.org.apache.bcel.internal.generic.Instruction",
-	"com.sun.org.apache.bcel.internal.generic.TypedInstruction,com.sun.org.apache.bcel.internal.generic.IndexedInstruction",
-	_LocalVariableInstruction_FieldInfo_,
-	_LocalVariableInstruction_MethodInfo_
-};
-
-$Object* allocate$LocalVariableInstruction($Class* clazz) {
-	return $of($alloc(LocalVariableInstruction));
-}
-
 $String* LocalVariableInstruction::toString() {
 	 return this->$Instruction::toString();
 }
@@ -121,8 +79,8 @@ bool LocalVariableInstruction::wide() {
 void LocalVariableInstruction::init$(int16_t canon_tag, int16_t c_tag) {
 	$Instruction::init$();
 	this->n = -1;
-	this->cTag = (int16_t)-1;
-	this->canonTag = (int16_t)-1;
+	this->cTag = -1;
+	this->canonTag = -1;
 	this->canonTag = canon_tag;
 	this->cTag = c_tag;
 }
@@ -130,15 +88,15 @@ void LocalVariableInstruction::init$(int16_t canon_tag, int16_t c_tag) {
 void LocalVariableInstruction::init$() {
 	$Instruction::init$();
 	this->n = -1;
-	this->cTag = (int16_t)-1;
-	this->canonTag = (int16_t)-1;
+	this->cTag = -1;
+	this->canonTag = -1;
 }
 
 void LocalVariableInstruction::init$(int16_t opcode, int16_t cTag, int32_t n) {
 	$Instruction::init$(opcode, (int16_t)2);
 	this->n = -1;
-	this->cTag = (int16_t)-1;
-	this->canonTag = (int16_t)-1;
+	this->cTag = -1;
+	this->canonTag = -1;
 	this->cTag = cTag;
 	this->canonTag = opcode;
 	setIndex(n);
@@ -159,7 +117,7 @@ void LocalVariableInstruction::dump($DataOutputStream* out) {
 }
 
 $String* LocalVariableInstruction::toString(bool verbose) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int16_t _opcode = $Instruction::getOpcode();
 	if (((_opcode >= $Const::ILOAD_0) && (_opcode <= $Const::ALOAD_3)) || ((_opcode >= $Const::ISTORE_0) && (_opcode <= $Const::ASTORE_3))) {
 		return $Instruction::toString(verbose);
@@ -191,7 +149,7 @@ int32_t LocalVariableInstruction::getIndex() {
 }
 
 void LocalVariableInstruction::setIndex(int32_t n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((n < 0) || (n > $Const::MAX_SHORT)) {
 		$throwNew($ClassGenException, $$str({"Illegal value: "_s, $$str(n)}));
 	}
@@ -214,47 +172,30 @@ int16_t LocalVariableInstruction::getCanonicalTag() {
 }
 
 $Type* LocalVariableInstruction::getType($ConstantPoolGen* cp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (this->canonTag) {
 	case $Const::ILOAD:
-		{}
 	case $Const::ISTORE:
-		{
-			$init($Type);
-			return $Type::INT;
-		}
+		$init($Type);
+		return $Type::INT;
 	case $Const::LLOAD:
-		{}
 	case $Const::LSTORE:
-		{
-			$init($Type);
-			return $Type::LONG;
-		}
+		$init($Type);
+		return $Type::LONG;
 	case $Const::DLOAD:
-		{}
 	case $Const::DSTORE:
-		{
-			$init($Type);
-			return $Type::DOUBLE;
-		}
+		$init($Type);
+		return $Type::DOUBLE;
 	case $Const::FLOAD:
-		{}
 	case $Const::FSTORE:
-		{
-			$init($Type);
-			return $Type::FLOAT;
-		}
+		$init($Type);
+		return $Type::FLOAT;
 	case $Const::ALOAD:
-		{}
 	case $Const::ASTORE:
-		{
-			$init($Type);
-			return $Type::OBJECT;
-		}
+		$init($Type);
+		return $Type::OBJECT;
 	default:
-		{
-			$throwNew($ClassGenException, $$str({"Unknown case in switch"_s, $$str(this->canonTag)}));
-		}
+		$throwNew($ClassGenException, $$str({"Unknown case in switch"_s, $$str(this->canonTag)}));
 	}
 }
 
@@ -266,7 +207,43 @@ LocalVariableInstruction::LocalVariableInstruction() {
 }
 
 $Class* LocalVariableInstruction::load$($String* name, bool initialize) {
-	$loadClass(LocalVariableInstruction, name, initialize, &_LocalVariableInstruction_ClassInfo_, allocate$LocalVariableInstruction);
+	$FieldInfo fieldInfos$$[] = {
+		{"n", "I", nullptr, $PRIVATE, $field(LocalVariableInstruction, n)},
+		{"cTag", "S", nullptr, $PRIVATE, $field(LocalVariableInstruction, cTag)},
+		{"canonTag", "S", nullptr, $PRIVATE, $field(LocalVariableInstruction, canonTag)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(SS)V", nullptr, 0, $method(LocalVariableInstruction, init$, void, int16_t, int16_t)},
+		{"<init>", "()V", nullptr, 0, $method(LocalVariableInstruction, init$, void)},
+		{"<init>", "(SSI)V", nullptr, $PROTECTED, $method(LocalVariableInstruction, init$, void, int16_t, int16_t, int32_t)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(LocalVariableInstruction, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getCanonicalTag", "()S", nullptr, $PUBLIC, $virtualMethod(LocalVariableInstruction, getCanonicalTag, int16_t)},
+		{"getIndex", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(LocalVariableInstruction, getIndex, int32_t)},
+		{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(LocalVariableInstruction, getType, $Type*, $ConstantPoolGen*)},
+		{"initFromFile", "(Lcom/sun/org/apache/bcel/internal/util/ByteSequence;Z)V", nullptr, $PROTECTED, $virtualMethod(LocalVariableInstruction, initFromFile, void, $ByteSequence*, bool), "java.io.IOException"},
+		{"setIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(LocalVariableInstruction, setIndex, void, int32_t)},
+		{"setIndexOnly", "(I)V", nullptr, $FINAL, $method(LocalVariableInstruction, setIndexOnly, void, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocalVariableInstruction, toString, $String*, bool)},
+		{"wide", "()Z", nullptr, $PRIVATE, $method(LocalVariableInstruction, wide, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.generic.LocalVariableInstruction",
+		"com.sun.org.apache.bcel.internal.generic.Instruction",
+		"com.sun.org.apache.bcel.internal.generic.TypedInstruction,com.sun.org.apache.bcel.internal.generic.IndexedInstruction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LocalVariableInstruction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LocalVariableInstruction));
+	});
 	return class$;
 }
 

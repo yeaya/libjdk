@@ -46,6 +46,7 @@ class WDesktopProperties : public ::java::lang::Object {
 	$class(WDesktopProperties, 0, ::java::lang::Object)
 public:
 	WDesktopProperties();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::windows::WToolkit* wToolkit);
 	::java::awt::RenderingHints* getDesktopAAHints();
 	$StringArray* getKeyNames();

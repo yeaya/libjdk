@@ -26,6 +26,7 @@ class Des3DkCrypto : public ::sun::security::krb5::internal::crypto::dk::DkCrypt
 	$class(Des3DkCrypto, 0, ::sun::security::krb5::internal::crypto::dk::DkCrypto)
 public:
 	Des3DkCrypto();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $bytes* des3Expand($bytes* input, int32_t start, int32_t end);
 	virtual int32_t getChecksumLength() override;

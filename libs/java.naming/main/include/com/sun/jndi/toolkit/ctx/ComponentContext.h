@@ -50,6 +50,7 @@ class $import ComponentContext : public ::com::sun::jndi::toolkit::ctx::PartialC
 	$class(ComponentContext, 0, ::com::sun::jndi::toolkit::ctx::PartialCompositeContext)
 public:
 	ComponentContext();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void c_bind(::javax::naming::Name* name, Object$* obj, ::com::sun::jndi::toolkit::ctx::Continuation* cont) {}
 	virtual void c_bind_nns(::javax::naming::Name* name, Object$* obj, ::com::sun::jndi::toolkit::ctx::Continuation* cont);

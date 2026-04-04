@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Symbol$ModuleSymbol.h>
-
 #include <com/sun/tools/javac/code/Flags.h>
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Scope$WriteableScope.h>
@@ -62,7 +61,7 @@ using $ClassFile = ::com::sun::tools::javac::jvm::ClassFile;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $Convert = ::com::sun::tools::javac::util::Convert;
 using $1List = ::com::sun::tools::javac::util::List;
-using $Name = ::com::sun::tools::javac::util::Name;
+using $1Name = ::com::sun::tools::javac::util::Name;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -80,7 +79,7 @@ using $Element = ::javax::lang::model::element::Element;
 using $ElementKind = ::javax::lang::model::element::ElementKind;
 using $ElementVisitor = ::javax::lang::model::element::ElementVisitor;
 using $ModuleElement = ::javax::lang::model::element::ModuleElement;
-using $1Name = ::javax::lang::model::element::Name;
+using $Name = ::javax::lang::model::element::Name;
 using $TypeMirror = ::javax::lang::model::type::TypeMirror;
 
 namespace com {
@@ -97,111 +96,27 @@ public:
 	virtual bool test(Object$* m) override {
 		 return Symbol$ModuleSymbol::lambda$getEnclosedElements$0($cast($Symbol, m));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Symbol$ModuleSymbol$$Lambda$lambda$getEnclosedElements$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Symbol$ModuleSymbol$$Lambda$lambda$getEnclosedElements$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Symbol$ModuleSymbol$$Lambda$lambda$getEnclosedElements$0, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol$$Lambda$lambda$getEnclosedElements$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Symbol$ModuleSymbol$$Lambda$lambda$getEnclosedElements$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.code.Symbol$ModuleSymbol$$Lambda$lambda$getEnclosedElements$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* Symbol$ModuleSymbol$$Lambda$lambda$getEnclosedElements$0::load$($String* name, bool initialize) {
-	$loadClass(Symbol$ModuleSymbol$$Lambda$lambda$getEnclosedElements$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Symbol$ModuleSymbol$$Lambda$lambda$getEnclosedElements$0, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol$$Lambda$lambda$getEnclosedElements$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.code.Symbol$ModuleSymbol$$Lambda$lambda$getEnclosedElements$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Symbol$ModuleSymbol$$Lambda$lambda$getEnclosedElements$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Symbol$ModuleSymbol$$Lambda$lambda$getEnclosedElements$0);
+	});
 	return class$;
 }
 $Class* Symbol$ModuleSymbol$$Lambda$lambda$getEnclosedElements$0::class$ = nullptr;
-
-$FieldInfo _Symbol$ModuleSymbol_FieldInfo_[] = {
-	{"version", "Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $field(Symbol$ModuleSymbol, version)},
-	{"sourceLocation", "Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $field(Symbol$ModuleSymbol, sourceLocation)},
-	{"classLocation", "Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $field(Symbol$ModuleSymbol, classLocation)},
-	{"patchLocation", "Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $field(Symbol$ModuleSymbol, patchLocation)},
-	{"patchOutputLocation", "Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $field(Symbol$ModuleSymbol, patchOutputLocation)},
-	{"directives", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Directive;>;", $PUBLIC, $field(Symbol$ModuleSymbol, directives)},
-	{"requires", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Directive$RequiresDirective;>;", $PUBLIC, $field(Symbol$ModuleSymbol, requires)},
-	{"exports", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Directive$ExportsDirective;>;", $PUBLIC, $field(Symbol$ModuleSymbol, exports)},
-	{"opens", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Directive$OpensDirective;>;", $PUBLIC, $field(Symbol$ModuleSymbol, opens)},
-	{"provides", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Directive$ProvidesDirective;>;", $PUBLIC, $field(Symbol$ModuleSymbol, provides)},
-	{"uses", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Directive$UsesDirective;>;", $PUBLIC, $field(Symbol$ModuleSymbol, uses)},
-	{"module_info", "Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $field(Symbol$ModuleSymbol, module_info)},
-	{"unnamedPackage", "Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PUBLIC, $field(Symbol$ModuleSymbol, unnamedPackage)},
-	{"visiblePackages", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;>;", $PUBLIC, $field(Symbol$ModuleSymbol, visiblePackages)},
-	{"readModules", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PUBLIC, $field(Symbol$ModuleSymbol, readModules)},
-	{"enclosedPackages", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC, $field(Symbol$ModuleSymbol, enclosedPackages)},
-	{"usesProvidesCompleter", "Lcom/sun/tools/javac/code/Symbol$Completer;", nullptr, $PUBLIC, $field(Symbol$ModuleSymbol, usesProvidesCompleter)},
-	{"flags", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleFlags;>;", $PUBLIC | $FINAL, $field(Symbol$ModuleSymbol, flags$)},
-	{"resolutionFlags", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;>;", $PUBLIC | $FINAL, $field(Symbol$ModuleSymbol, resolutionFlags)},
-	{}
-};
-
-$MethodInfo _Symbol$ModuleSymbol_MethodInfo_[] = {
-	{"*asType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"*getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"*getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getModifiers", "()Ljava/util/Set;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Symbol$ModuleSymbol, init$, void, $Name*, $Symbol*)},
-	{"accept", "(Ljavax/lang/model/element/ElementVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ElementVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, accept, $Object*, $ElementVisitor*, Object$*)},
-	{"completeUsesProvides", "()V", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, completeUsesProvides, void)},
-	{"create", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC | $STATIC, $staticMethod(Symbol$ModuleSymbol, create, Symbol$ModuleSymbol*, $Name*, $Name*)},
-	{"getDirectives", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/lang/model/element/ModuleElement$Directive;>;", $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, getDirectives, $List*)},
-	{"getEnclosedElements", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, getEnclosedElements, $List*)},
-	{"getKind", "()Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, getKind, $ElementKind*)},
-	{"getQualifiedName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$ModuleSymbol, getQualifiedName, $Name*)},
-	{"getSimpleName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, getSimpleName, $1Name*)},
-	{"isDeprecated", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, isDeprecated, bool)},
-	{"isNoModule", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, isNoModule, bool)},
-	{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, isOpen, bool)},
-	{"isUnnamed", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, isUnnamed, bool)},
-	{"lambda$getEnclosedElements$0", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Symbol$ModuleSymbol, lambda$getEnclosedElements$0, bool, $Symbol*)},
-	{"outermostClass", "()Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, outermostClass, $Symbol$ClassSymbol*)},
-	{"poolTag", "()I", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, poolTag, int32_t)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, reset, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Symbol$ModuleSymbol_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Symbol$ModuleSymbol", "com.sun.tools.javac.code.Symbol", "ModuleSymbol", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Symbol$TypeSymbol", "com.sun.tools.javac.code.Symbol", "TypeSymbol", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Symbol$ModuleSymbol_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Symbol$ModuleSymbol",
-	"com.sun.tools.javac.code.Symbol$TypeSymbol",
-	"javax.lang.model.element.ModuleElement",
-	_Symbol$ModuleSymbol_FieldInfo_,
-	_Symbol$ModuleSymbol_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Symbol$ModuleSymbol_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Symbol"
-};
-
-$Object* allocate$Symbol$ModuleSymbol($Class* clazz) {
-	return $of($alloc(Symbol$ModuleSymbol));
-}
 
 $List* Symbol$ModuleSymbol::getAnnotationMirrors() {
 	 return this->$Symbol$TypeSymbol::getAnnotationMirrors();
@@ -251,11 +166,11 @@ $TypeMirror* Symbol$ModuleSymbol::MemberClass0$::asType() {
 	return ((Symbol$ModuleSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$ModuleSymbol, memberClass0$)))->asType();
 }
 
-$1Name* Symbol$ModuleSymbol::MemberClass0$::getQualifiedName() {
+$Name* Symbol$ModuleSymbol::MemberClass0$::getQualifiedName() {
 	return ((Symbol$ModuleSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$ModuleSymbol, memberClass0$)))->getQualifiedName();
 }
 
-$1Name* Symbol$ModuleSymbol::MemberClass0$::getSimpleName() {
+$Name* Symbol$ModuleSymbol::MemberClass0$::getSimpleName() {
 	return ((Symbol$ModuleSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$ModuleSymbol, memberClass0$)))->getSimpleName();
 }
 
@@ -323,9 +238,9 @@ void Symbol$ModuleSymbol::MemberClass0$::finalize() {
 	return ((Symbol$ModuleSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$ModuleSymbol, memberClass0$)))->finalize();
 }
 
-Symbol$ModuleSymbol* Symbol$ModuleSymbol::create($Name* name, $Name* module_info) {
+Symbol$ModuleSymbol* Symbol$ModuleSymbol::create($1Name* name, $1Name* module_info) {
 	$init(Symbol$ModuleSymbol);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(Symbol$ModuleSymbol, msym, $new(Symbol$ModuleSymbol, name, nullptr));
 	$var($Symbol$ClassSymbol, info, $new($Symbol$ClassSymbol, $Flags::MODULE, module_info, msym));
 	$set(info, fullname, formFullName(module_info, msym));
@@ -335,7 +250,7 @@ Symbol$ModuleSymbol* Symbol$ModuleSymbol::create($Name* name, $Name* module_info
 	return msym;
 }
 
-void Symbol$ModuleSymbol::init$($Name* name, $Symbol* owner) {
+void Symbol$ModuleSymbol::init$($1Name* name, $Symbol* owner) {
 	$init($Kinds$Kind);
 	$Symbol$TypeSymbol::init$($Kinds$Kind::MDL, 0, name, nullptr, owner);
 	$set(this, enclosedPackages, $1List::nil());
@@ -353,7 +268,7 @@ int32_t Symbol$ModuleSymbol::poolTag() {
 	return $ClassFile::CONSTANT_Module;
 }
 
-$1Name* Symbol$ModuleSymbol::getSimpleName() {
+$Name* Symbol$ModuleSymbol::getSimpleName() {
 	return $Convert::shortName(this->name);
 }
 
@@ -399,25 +314,23 @@ $Symbol$ClassSymbol* Symbol$ModuleSymbol::outermostClass() {
 }
 
 $String* Symbol$ModuleSymbol::toString() {
-	$var($String, n, (this->name == nullptr) ? "<unknown>"_s : ($nc(this->name)->isEmpty()) ? "<unnamed>"_s : $String::valueOf($of(this->name)));
+	$var($String, n, (this->name == nullptr) ? "<unknown>"_s : (this->name->isEmpty()) ? "<unnamed>"_s : $String::valueOf(this->name));
 	return n;
 }
 
 $Object* Symbol$ModuleSymbol::accept($ElementVisitor* v, Object$* p) {
-	return $of($nc(v)->visitModule($as($ModuleElement, this), p));
+	return $nc(v)->visitModule($as($ModuleElement, this), p);
 }
 
 $List* Symbol$ModuleSymbol::getEnclosedElements() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($1List, list, $1List::nil());
 	{
 		$var($Iterator, i$, $nc(this->enclosedPackages)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Symbol, sym, $cast($Symbol, i$->next()));
-			{
-				if ($nc($($nc(sym)->members()))->anyMatch(static_cast<$Predicate*>($$new(Symbol$ModuleSymbol$$Lambda$lambda$getEnclosedElements$0)))) {
-					$assign(list, $nc(list)->prepend(sym));
-				}
+			if ($$nc($nc(sym)->members())->anyMatch($$new(Symbol$ModuleSymbol$$Lambda$lambda$getEnclosedElements$0))) {
+				$assign(list, $nc(list)->prepend(sym));
 			}
 		}
 	}
@@ -433,7 +346,7 @@ void Symbol$ModuleSymbol::reset() {
 	$set(this, visiblePackages, nullptr);
 }
 
-$Name* Symbol$ModuleSymbol::getQualifiedName() {
+$1Name* Symbol$ModuleSymbol::getQualifiedName() {
 	return $Symbol$TypeSymbol::getQualifiedName();
 }
 
@@ -448,11 +361,86 @@ Symbol$ModuleSymbol::Symbol$ModuleSymbol() {
 
 $Class* Symbol$ModuleSymbol::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Symbol$ModuleSymbol$$Lambda$lambda$getEnclosedElements$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.code.Symbol$ModuleSymbol$$Lambda$lambda$getEnclosedElements$0")) {
 			return Symbol$ModuleSymbol$$Lambda$lambda$getEnclosedElements$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Symbol$ModuleSymbol, name, initialize, &_Symbol$ModuleSymbol_ClassInfo_, allocate$Symbol$ModuleSymbol);
+	$FieldInfo fieldInfos$$[] = {
+		{"version", "Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $field(Symbol$ModuleSymbol, version)},
+		{"sourceLocation", "Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $field(Symbol$ModuleSymbol, sourceLocation)},
+		{"classLocation", "Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $field(Symbol$ModuleSymbol, classLocation)},
+		{"patchLocation", "Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $field(Symbol$ModuleSymbol, patchLocation)},
+		{"patchOutputLocation", "Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $field(Symbol$ModuleSymbol, patchOutputLocation)},
+		{"directives", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Directive;>;", $PUBLIC, $field(Symbol$ModuleSymbol, directives)},
+		{"requires", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Directive$RequiresDirective;>;", $PUBLIC, $field(Symbol$ModuleSymbol, requires)},
+		{"exports", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Directive$ExportsDirective;>;", $PUBLIC, $field(Symbol$ModuleSymbol, exports)},
+		{"opens", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Directive$OpensDirective;>;", $PUBLIC, $field(Symbol$ModuleSymbol, opens)},
+		{"provides", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Directive$ProvidesDirective;>;", $PUBLIC, $field(Symbol$ModuleSymbol, provides)},
+		{"uses", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Directive$UsesDirective;>;", $PUBLIC, $field(Symbol$ModuleSymbol, uses)},
+		{"module_info", "Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $field(Symbol$ModuleSymbol, module_info)},
+		{"unnamedPackage", "Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PUBLIC, $field(Symbol$ModuleSymbol, unnamedPackage)},
+		{"visiblePackages", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;>;", $PUBLIC, $field(Symbol$ModuleSymbol, visiblePackages)},
+		{"readModules", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PUBLIC, $field(Symbol$ModuleSymbol, readModules)},
+		{"enclosedPackages", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC, $field(Symbol$ModuleSymbol, enclosedPackages)},
+		{"usesProvidesCompleter", "Lcom/sun/tools/javac/code/Symbol$Completer;", nullptr, $PUBLIC, $field(Symbol$ModuleSymbol, usesProvidesCompleter)},
+		{"flags", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleFlags;>;", $PUBLIC | $FINAL, $field(Symbol$ModuleSymbol, flags$)},
+		{"resolutionFlags", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;>;", $PUBLIC | $FINAL, $field(Symbol$ModuleSymbol, resolutionFlags)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*asType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
+		{"*getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
+		{"*getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getModifiers", "()Ljava/util/Set;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Symbol$ModuleSymbol, init$, void, $1Name*, $Symbol*)},
+		{"accept", "(Ljavax/lang/model/element/ElementVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ElementVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, accept, $Object*, $ElementVisitor*, Object$*)},
+		{"completeUsesProvides", "()V", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, completeUsesProvides, void)},
+		{"create", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC | $STATIC, $staticMethod(Symbol$ModuleSymbol, create, Symbol$ModuleSymbol*, $1Name*, $1Name*)},
+		{"getDirectives", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/lang/model/element/ModuleElement$Directive;>;", $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, getDirectives, $List*)},
+		{"getEnclosedElements", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, getEnclosedElements, $List*)},
+		{"getKind", "()Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, getKind, $ElementKind*)},
+		{"getQualifiedName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$ModuleSymbol, getQualifiedName, $1Name*)},
+		{"getSimpleName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, getSimpleName, $Name*)},
+		{"isDeprecated", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, isDeprecated, bool)},
+		{"isNoModule", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, isNoModule, bool)},
+		{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, isOpen, bool)},
+		{"isUnnamed", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, isUnnamed, bool)},
+		{"lambda$getEnclosedElements$0", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Symbol$ModuleSymbol, lambda$getEnclosedElements$0, bool, $Symbol*)},
+		{"outermostClass", "()Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, outermostClass, $Symbol$ClassSymbol*)},
+		{"poolTag", "()I", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, poolTag, int32_t)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, reset, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Symbol$ModuleSymbol", "com.sun.tools.javac.code.Symbol", "ModuleSymbol", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Symbol$TypeSymbol", "com.sun.tools.javac.code.Symbol", "TypeSymbol", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Symbol$ModuleSymbol",
+		"com.sun.tools.javac.code.Symbol$TypeSymbol",
+		"javax.lang.model.element.ModuleElement",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Symbol"
+	};
+	$loadClass(Symbol$ModuleSymbol, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Symbol$ModuleSymbol));
+	});
 	return class$;
 }
 

@@ -1,10 +1,8 @@
 #include <sun/awt/datatransfer/ClassLoaderObjectOutputStream.h>
-
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/lang/ClassLoader.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
 #include <java/util/Map.h>
@@ -21,7 +19,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
 using $Map = ::java::util::Map;
@@ -33,68 +30,30 @@ namespace sun {
 	namespace awt {
 		namespace datatransfer {
 
-$FieldInfo _ClassLoaderObjectOutputStream_FieldInfo_[] = {
-	{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/util/Set<Ljava/lang/String;>;Ljava/lang/ClassLoader;>;", $PRIVATE | $FINAL, $field(ClassLoaderObjectOutputStream, map)},
-	{}
-};
-
-$MethodInfo _ClassLoaderObjectOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, 0, $method(ClassLoaderObjectOutputStream, init$, void, $OutputStream*), "java.io.IOException"},
-	{"annotateClass", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PROTECTED, $virtualMethod(ClassLoaderObjectOutputStream, annotateClass, void, $Class*), "java.io.IOException"},
-	{"annotateProxyClass", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PROTECTED, $virtualMethod(ClassLoaderObjectOutputStream, annotateProxyClass, void, $Class*), "java.io.IOException"},
-	{"getClassLoaderMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Set<Ljava/lang/String;>;Ljava/lang/ClassLoader;>;", 0, $method(ClassLoaderObjectOutputStream, getClassLoaderMap, $Map*)},
-	{}
-};
-
-$InnerClassInfo _ClassLoaderObjectOutputStream_InnerClassesInfo_[] = {
-	{"sun.awt.datatransfer.ClassLoaderObjectOutputStream$2", nullptr, nullptr, 0},
-	{"sun.awt.datatransfer.ClassLoaderObjectOutputStream$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ClassLoaderObjectOutputStream_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.datatransfer.ClassLoaderObjectOutputStream",
-	"java.io.ObjectOutputStream",
-	nullptr,
-	_ClassLoaderObjectOutputStream_FieldInfo_,
-	_ClassLoaderObjectOutputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClassLoaderObjectOutputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.datatransfer.ClassLoaderObjectOutputStream$2,sun.awt.datatransfer.ClassLoaderObjectOutputStream$1"
-};
-
-$Object* allocate$ClassLoaderObjectOutputStream($Class* clazz) {
-	return $of($alloc(ClassLoaderObjectOutputStream));
-}
-
 void ClassLoaderObjectOutputStream::init$($OutputStream* os) {
 	$ObjectOutputStream::init$(os);
 	$set(this, map, $new($HashMap));
 }
 
 void ClassLoaderObjectOutputStream::annotateClass($Class* cl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($ClassLoader, classLoader, $cast($ClassLoader, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ClassLoaderObjectOutputStream$1, this, cl)))));
+	$var($ClassLoader, classLoader, $cast($ClassLoader, $AccessController::doPrivileged($$new($ClassLoaderObjectOutputStream$1, this, cl))));
 	$var($Set, s, $new($HashSet, 1));
 	s->add($($nc(cl)->getName()));
-	$nc(this->map)->put(s, classLoader);
+	this->map->put(s, classLoader);
 }
 
 void ClassLoaderObjectOutputStream::annotateProxyClass($Class* cl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($ClassLoader, classLoader, $cast($ClassLoader, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ClassLoaderObjectOutputStream$2, this, cl)))));
+	$var($ClassLoader, classLoader, $cast($ClassLoader, $AccessController::doPrivileged($$new($ClassLoaderObjectOutputStream$2, this, cl))));
 	$var($ClassArray, interfaces, $nc(cl)->getInterfaces());
 	$var($Set, s, $new($HashSet, interfaces->length));
 	for (int32_t i = 0; i < interfaces->length; ++i) {
 		s->add($($nc(interfaces->get(i))->getName()));
 	}
-	$nc(this->map)->put(s, classLoader);
+	this->map->put(s, classLoader);
 }
 
 $Map* ClassLoaderObjectOutputStream::getClassLoaderMap() {
@@ -105,7 +64,39 @@ ClassLoaderObjectOutputStream::ClassLoaderObjectOutputStream() {
 }
 
 $Class* ClassLoaderObjectOutputStream::load$($String* name, bool initialize) {
-	$loadClass(ClassLoaderObjectOutputStream, name, initialize, &_ClassLoaderObjectOutputStream_ClassInfo_, allocate$ClassLoaderObjectOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/util/Set<Ljava/lang/String;>;Ljava/lang/ClassLoader;>;", $PRIVATE | $FINAL, $field(ClassLoaderObjectOutputStream, map)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/OutputStream;)V", nullptr, 0, $method(ClassLoaderObjectOutputStream, init$, void, $OutputStream*), "java.io.IOException"},
+		{"annotateClass", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PROTECTED, $virtualMethod(ClassLoaderObjectOutputStream, annotateClass, void, $Class*), "java.io.IOException"},
+		{"annotateProxyClass", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PROTECTED, $virtualMethod(ClassLoaderObjectOutputStream, annotateProxyClass, void, $Class*), "java.io.IOException"},
+		{"getClassLoaderMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Set<Ljava/lang/String;>;Ljava/lang/ClassLoader;>;", 0, $method(ClassLoaderObjectOutputStream, getClassLoaderMap, $Map*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.datatransfer.ClassLoaderObjectOutputStream$2", nullptr, nullptr, 0},
+		{"sun.awt.datatransfer.ClassLoaderObjectOutputStream$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.datatransfer.ClassLoaderObjectOutputStream",
+		"java.io.ObjectOutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.datatransfer.ClassLoaderObjectOutputStream$2,sun.awt.datatransfer.ClassLoaderObjectOutputStream$1"
+	};
+	$loadClass(ClassLoaderObjectOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ClassLoaderObjectOutputStream));
+	});
 	return class$;
 }
 

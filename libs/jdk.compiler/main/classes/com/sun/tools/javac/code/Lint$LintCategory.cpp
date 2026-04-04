@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Lint$LintCategory.h>
-
 #include <com/sun/tools/javac/code/Lint.h>
 #include <java/lang/Enum.h>
 #include <java/util/Map.h>
@@ -44,86 +43,12 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Lint$LintCategory_FieldInfo_[] = {
-	{"AUXILIARYCLASS", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, AUXILIARYCLASS)},
-	{"CAST", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, CAST)},
-	{"CLASSFILE", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, CLASSFILE)},
-	{"DEPRECATION", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, DEPRECATION)},
-	{"DEP_ANN", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, DEP_ANN)},
-	{"DIVZERO", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, DIVZERO)},
-	{"EMPTY", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, EMPTY)},
-	{"EXPORTS", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, EXPORTS)},
-	{"FALLTHROUGH", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, FALLTHROUGH)},
-	{"FINALLY", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, FINALLY)},
-	{"MISSING_EXPLICIT_CTOR", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, MISSING_EXPLICIT_CTOR)},
-	{"MODULE", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, MODULE)},
-	{"OPENS", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, OPENS)},
-	{"OPTIONS", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, OPTIONS)},
-	{"OVERLOADS", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, OVERLOADS)},
-	{"OVERRIDES", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, OVERRIDES)},
-	{"PATH", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, PATH)},
-	{"PROCESSING", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, PROCESSING)},
-	{"RAW", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, RAW)},
-	{"REMOVAL", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, REMOVAL)},
-	{"REQUIRES_AUTOMATIC", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, REQUIRES_AUTOMATIC)},
-	{"REQUIRES_TRANSITIVE_AUTOMATIC", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, REQUIRES_TRANSITIVE_AUTOMATIC)},
-	{"SERIAL", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, SERIAL)},
-	{"STATIC", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, STATIC)},
-	{"STRICTFP", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, STRICTFP)},
-	{"SYNCHRONIZATION", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, SYNCHRONIZATION)},
-	{"TEXT_BLOCKS", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, TEXT_BLOCKS)},
-	{"TRY", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, TRY)},
-	{"UNCHECKED", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, UNCHECKED)},
-	{"VARARGS", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, VARARGS)},
-	{"PREVIEW", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, PREVIEW)},
-	{"$VALUES", "[Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Lint$LintCategory, $VALUES)},
-	{"option", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(Lint$LintCategory, option)},
-	{"hidden", "Z", nullptr, $PUBLIC | $FINAL, $field(Lint$LintCategory, hidden)},
-	{}
-};
-
-$MethodInfo _Lint$LintCategory_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Lint$LintCategory, $values, $Lint$LintCategoryArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(Lint$LintCategory, init$, void, $String*, int32_t, $String*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Z)V", "(Ljava/lang/String;Z)V", $PRIVATE, $method(Lint$LintCategory, init$, void, $String*, int32_t, $String*, bool)},
-	{"get", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $STATIC, $staticMethod(Lint$LintCategory, get, Lint$LintCategory*, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC, $staticMethod(Lint$LintCategory, valueOf, Lint$LintCategory*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC, $staticMethod(Lint$LintCategory, values, $Lint$LintCategoryArray*)},
-	{}
-};
-
-$InnerClassInfo _Lint$LintCategory_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Lint$LintCategory", "com.sun.tools.javac.code.Lint", "LintCategory", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Lint$LintCategory_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.code.Lint$LintCategory",
-	"java.lang.Enum",
-	nullptr,
-	_Lint$LintCategory_FieldInfo_,
-	_Lint$LintCategory_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/code/Lint$LintCategory;>;",
-	nullptr,
-	_Lint$LintCategory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Lint"
-};
-
-$Object* allocate$Lint$LintCategory($Class* clazz) {
-	return $of($alloc(Lint$LintCategory));
-}
 
 Lint$LintCategory* Lint$LintCategory::AUXILIARYCLASS = nullptr;
 Lint$LintCategory* Lint$LintCategory::CAST = nullptr;
@@ -223,7 +148,7 @@ Lint$LintCategory* Lint$LintCategory::get($String* option) {
 	return $cast(Lint$LintCategory, $nc($Lint::map)->get(option));
 }
 
-void clinit$Lint$LintCategory($Class* class$) {
+void Lint$LintCategory::clinit$($Class* clazz) {
 	$assignStatic(Lint$LintCategory::AUXILIARYCLASS, $new(Lint$LintCategory, "AUXILIARYCLASS"_s, 0, "auxiliaryclass"_s));
 	$assignStatic(Lint$LintCategory::CAST, $new(Lint$LintCategory, "CAST"_s, 1, "cast"_s));
 	$assignStatic(Lint$LintCategory::CLASSFILE, $new(Lint$LintCategory, "CLASSFILE"_s, 2, "classfile"_s));
@@ -262,7 +187,74 @@ Lint$LintCategory::Lint$LintCategory() {
 }
 
 $Class* Lint$LintCategory::load$($String* name, bool initialize) {
-	$loadClass(Lint$LintCategory, name, initialize, &_Lint$LintCategory_ClassInfo_, clinit$Lint$LintCategory, allocate$Lint$LintCategory);
+	$FieldInfo fieldInfos$$[] = {
+		{"AUXILIARYCLASS", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, AUXILIARYCLASS)},
+		{"CAST", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, CAST)},
+		{"CLASSFILE", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, CLASSFILE)},
+		{"DEPRECATION", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, DEPRECATION)},
+		{"DEP_ANN", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, DEP_ANN)},
+		{"DIVZERO", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, DIVZERO)},
+		{"EMPTY", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, EMPTY)},
+		{"EXPORTS", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, EXPORTS)},
+		{"FALLTHROUGH", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, FALLTHROUGH)},
+		{"FINALLY", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, FINALLY)},
+		{"MISSING_EXPLICIT_CTOR", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, MISSING_EXPLICIT_CTOR)},
+		{"MODULE", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, MODULE)},
+		{"OPENS", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, OPENS)},
+		{"OPTIONS", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, OPTIONS)},
+		{"OVERLOADS", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, OVERLOADS)},
+		{"OVERRIDES", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, OVERRIDES)},
+		{"PATH", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, PATH)},
+		{"PROCESSING", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, PROCESSING)},
+		{"RAW", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, RAW)},
+		{"REMOVAL", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, REMOVAL)},
+		{"REQUIRES_AUTOMATIC", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, REQUIRES_AUTOMATIC)},
+		{"REQUIRES_TRANSITIVE_AUTOMATIC", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, REQUIRES_TRANSITIVE_AUTOMATIC)},
+		{"SERIAL", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, SERIAL)},
+		{"STATIC", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, STATIC)},
+		{"STRICTFP", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, STRICTFP)},
+		{"SYNCHRONIZATION", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, SYNCHRONIZATION)},
+		{"TEXT_BLOCKS", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, TEXT_BLOCKS)},
+		{"TRY", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, TRY)},
+		{"UNCHECKED", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, UNCHECKED)},
+		{"VARARGS", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, VARARGS)},
+		{"PREVIEW", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Lint$LintCategory, PREVIEW)},
+		{"$VALUES", "[Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Lint$LintCategory, $VALUES)},
+		{"option", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(Lint$LintCategory, option)},
+		{"hidden", "Z", nullptr, $PUBLIC | $FINAL, $field(Lint$LintCategory, hidden)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Lint$LintCategory, $values, $Lint$LintCategoryArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(Lint$LintCategory, init$, void, $String*, int32_t, $String*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Z)V", "(Ljava/lang/String;Z)V", $PRIVATE, $method(Lint$LintCategory, init$, void, $String*, int32_t, $String*, bool)},
+		{"get", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $STATIC, $staticMethod(Lint$LintCategory, get, Lint$LintCategory*, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC, $staticMethod(Lint$LintCategory, valueOf, Lint$LintCategory*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC, $staticMethod(Lint$LintCategory, values, $Lint$LintCategoryArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Lint$LintCategory", "com.sun.tools.javac.code.Lint", "LintCategory", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.code.Lint$LintCategory",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/code/Lint$LintCategory;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Lint"
+	};
+	$loadClass(Lint$LintCategory, name, initialize, &classInfo$$, Lint$LintCategory::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Lint$LintCategory));
+	});
 	return class$;
 }
 

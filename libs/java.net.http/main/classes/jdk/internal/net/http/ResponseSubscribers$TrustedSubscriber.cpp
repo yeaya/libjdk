@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/ResponseSubscribers$TrustedSubscriber.h>
-
 #include <java/net/http/HttpResponse$BodySubscriber.h>
 #include <jdk/internal/net/http/ResponseSubscribers.h>
 #include <jcpp.h>
@@ -14,38 +13,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$MethodInfo _ResponseSubscribers$TrustedSubscriber_MethodInfo_[] = {
-	{"needsExecutor", "()Z", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$TrustedSubscriber, needsExecutor, bool)},
-	{"needsExecutor", "(Ljava/net/http/HttpResponse$BodySubscriber;)Z", "(Ljava/net/http/HttpResponse$BodySubscriber<*>;)Z", $PUBLIC | $STATIC, $staticMethod(ResponseSubscribers$TrustedSubscriber, needsExecutor, bool, $HttpResponse$BodySubscriber*)},
-	{}
-};
-
-$InnerClassInfo _ResponseSubscribers$TrustedSubscriber_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber", "jdk.internal.net.http.ResponseSubscribers", "TrustedSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.net.http.HttpResponse$BodySubscriber", "java.net.http.HttpResponse", "BodySubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ResponseSubscribers$TrustedSubscriber_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber",
-	nullptr,
-	"java.net.http.HttpResponse$BodySubscriber",
-	nullptr,
-	_ResponseSubscribers$TrustedSubscriber_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/net/http/HttpResponse$BodySubscriber<TT;>;",
-	nullptr,
-	_ResponseSubscribers$TrustedSubscriber_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.ResponseSubscribers"
-};
-
-$Object* allocate$ResponseSubscribers$TrustedSubscriber($Class* clazz) {
-	return $of($alloc(ResponseSubscribers$TrustedSubscriber));
-}
-
 bool ResponseSubscribers$TrustedSubscriber::needsExecutor() {
 	return false;
 }
@@ -53,14 +20,41 @@ bool ResponseSubscribers$TrustedSubscriber::needsExecutor() {
 bool ResponseSubscribers$TrustedSubscriber::needsExecutor($HttpResponse$BodySubscriber* bs) {
 	$init(ResponseSubscribers$TrustedSubscriber);
 	if ($instanceOf(ResponseSubscribers$TrustedSubscriber, bs)) {
-		return $nc(($cast(ResponseSubscribers$TrustedSubscriber, bs)))->needsExecutor();
+		return $cast(ResponseSubscribers$TrustedSubscriber, bs)->needsExecutor();
 	} else {
 		return true;
 	}
 }
 
 $Class* ResponseSubscribers$TrustedSubscriber::load$($String* name, bool initialize) {
-	$loadClass(ResponseSubscribers$TrustedSubscriber, name, initialize, &_ResponseSubscribers$TrustedSubscriber_ClassInfo_, allocate$ResponseSubscribers$TrustedSubscriber);
+	$MethodInfo methodInfos$$[] = {
+		{"needsExecutor", "()Z", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$TrustedSubscriber, needsExecutor, bool)},
+		{"needsExecutor", "(Ljava/net/http/HttpResponse$BodySubscriber;)Z", "(Ljava/net/http/HttpResponse$BodySubscriber<*>;)Z", $PUBLIC | $STATIC, $staticMethod(ResponseSubscribers$TrustedSubscriber, needsExecutor, bool, $HttpResponse$BodySubscriber*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber", "jdk.internal.net.http.ResponseSubscribers", "TrustedSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.net.http.HttpResponse$BodySubscriber", "java.net.http.HttpResponse", "BodySubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber",
+		nullptr,
+		"java.net.http.HttpResponse$BodySubscriber",
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/net/http/HttpResponse$BodySubscriber<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.ResponseSubscribers"
+	};
+	$loadClass(ResponseSubscribers$TrustedSubscriber, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseSubscribers$TrustedSubscriber);
+	});
 	return class$;
 }
 

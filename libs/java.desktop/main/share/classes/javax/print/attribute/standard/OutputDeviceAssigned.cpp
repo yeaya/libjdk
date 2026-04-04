@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/OutputDeviceAssigned.h>
-
 #include <java/util/Locale.h>
 #include <javax/print/attribute/TextSyntax.h>
 #include <jcpp.h>
@@ -14,36 +13,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _OutputDeviceAssigned_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(OutputDeviceAssigned, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _OutputDeviceAssigned_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/lang/String;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(OutputDeviceAssigned, init$, void, $String*, $Locale*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OutputDeviceAssigned, equals, bool, Object$*)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(OutputDeviceAssigned, getCategory, $Class*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(OutputDeviceAssigned, getName, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _OutputDeviceAssigned_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.OutputDeviceAssigned",
-	"javax.print.attribute.TextSyntax",
-	"javax.print.attribute.PrintJobAttribute",
-	_OutputDeviceAssigned_FieldInfo_,
-	_OutputDeviceAssigned_MethodInfo_
-};
-
-$Object* allocate$OutputDeviceAssigned($Class* clazz) {
-	return $of($alloc(OutputDeviceAssigned));
-}
 
 int32_t OutputDeviceAssigned::hashCode() {
 	 return this->$TextSyntax::hashCode();
@@ -81,7 +50,32 @@ OutputDeviceAssigned::OutputDeviceAssigned() {
 }
 
 $Class* OutputDeviceAssigned::load$($String* name, bool initialize) {
-	$loadClass(OutputDeviceAssigned, name, initialize, &_OutputDeviceAssigned_ClassInfo_, allocate$OutputDeviceAssigned);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(OutputDeviceAssigned, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/lang/String;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(OutputDeviceAssigned, init$, void, $String*, $Locale*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OutputDeviceAssigned, equals, bool, Object$*)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(OutputDeviceAssigned, getCategory, $Class*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(OutputDeviceAssigned, getName, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.OutputDeviceAssigned",
+		"javax.print.attribute.TextSyntax",
+		"javax.print.attribute.PrintJobAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OutputDeviceAssigned, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(OutputDeviceAssigned));
+	});
 	return class$;
 }
 

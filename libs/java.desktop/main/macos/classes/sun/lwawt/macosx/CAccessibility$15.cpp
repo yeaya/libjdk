@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CAccessibility$15.h>
-
 #include <javax/accessibility/Accessible.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <sun/lwawt/macosx/CAccessibility.h>
@@ -17,48 +16,6 @@ namespace sun {
 	namespace lwawt {
 		namespace macosx {
 
-$FieldInfo _CAccessibility$15_FieldInfo_[] = {
-	{"val$a", "Ljavax/accessibility/Accessible;", nullptr, $FINAL | $SYNTHETIC, $field(CAccessibility$15, val$a)},
-	{}
-};
-
-$MethodInfo _CAccessibility$15_MethodInfo_[] = {
-	{"<init>", "(Ljavax/accessibility/Accessible;)V", "()V", 0, $method(CAccessibility$15, init$, void, $Accessible*)},
-	{"call", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(CAccessibility$15, call, $Object*), "java.lang.Exception"},
-	{}
-};
-
-$EnclosingMethodInfo _CAccessibility$15_EnclosingMethodInfo_ = {
-	"sun.lwawt.macosx.CAccessibility",
-	"getAccessibleParent",
-	"(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljavax/accessibility/Accessible;"
-};
-
-$InnerClassInfo _CAccessibility$15_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.CAccessibility$15", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CAccessibility$15_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.lwawt.macosx.CAccessibility$15",
-	"java.lang.Object",
-	"java.util.concurrent.Callable",
-	_CAccessibility$15_FieldInfo_,
-	_CAccessibility$15_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljavax/accessibility/Accessible;>;",
-	&_CAccessibility$15_EnclosingMethodInfo_,
-	_CAccessibility$15_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.CAccessibility"
-};
-
-$Object* allocate$CAccessibility$15($Class* clazz) {
-	return $of($alloc(CAccessibility$15));
-}
-
 void CAccessibility$15::init$($Accessible* val$a) {
 	$set(this, val$a, val$a);
 }
@@ -66,16 +23,51 @@ void CAccessibility$15::init$($Accessible* val$a) {
 $Object* CAccessibility$15::call() {
 	$var($AccessibleContext, ac, $nc(this->val$a)->getAccessibleContext());
 	if (ac == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
-	return $of($nc(ac)->getAccessibleParent());
+	return $nc(ac)->getAccessibleParent();
 }
 
 CAccessibility$15::CAccessibility$15() {
 }
 
 $Class* CAccessibility$15::load$($String* name, bool initialize) {
-	$loadClass(CAccessibility$15, name, initialize, &_CAccessibility$15_ClassInfo_, allocate$CAccessibility$15);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$a", "Ljavax/accessibility/Accessible;", nullptr, $FINAL | $SYNTHETIC, $field(CAccessibility$15, val$a)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/accessibility/Accessible;)V", "()V", 0, $method(CAccessibility$15, init$, void, $Accessible*)},
+		{"call", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(CAccessibility$15, call, $Object*), "java.lang.Exception"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.lwawt.macosx.CAccessibility",
+		"getAccessibleParent",
+		"(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljavax/accessibility/Accessible;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.CAccessibility$15", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.lwawt.macosx.CAccessibility$15",
+		"java.lang.Object",
+		"java.util.concurrent.Callable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljavax/accessibility/Accessible;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.CAccessibility"
+	};
+	$loadClass(CAccessibility$15, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CAccessibility$15);
+	});
 	return class$;
 }
 

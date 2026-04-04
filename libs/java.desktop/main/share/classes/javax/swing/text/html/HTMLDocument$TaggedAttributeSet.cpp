@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/HTMLDocument$TaggedAttributeSet.h>
-
 #include <javax/swing/text/SimpleAttributeSet.h>
 #include <javax/swing/text/html/HTMLDocument.h>
 #include <jcpp.h>
@@ -14,36 +13,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$MethodInfo _HTMLDocument$TaggedAttributeSet_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HTMLDocument$TaggedAttributeSet, init$, void)},
-	{}
-};
-
-$InnerClassInfo _HTMLDocument$TaggedAttributeSet_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.HTMLDocument$TaggedAttributeSet", "javax.swing.text.html.HTMLDocument", "TaggedAttributeSet", $STATIC},
-	{}
-};
-
-$ClassInfo _HTMLDocument$TaggedAttributeSet_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.HTMLDocument$TaggedAttributeSet",
-	"javax.swing.text.SimpleAttributeSet",
-	nullptr,
-	nullptr,
-	_HTMLDocument$TaggedAttributeSet_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HTMLDocument$TaggedAttributeSet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.HTMLDocument"
-};
-
-$Object* allocate$HTMLDocument$TaggedAttributeSet($Class* clazz) {
-	return $of($alloc(HTMLDocument$TaggedAttributeSet));
-}
-
 void HTMLDocument$TaggedAttributeSet::init$() {
 	$SimpleAttributeSet::init$();
 }
@@ -52,7 +21,32 @@ HTMLDocument$TaggedAttributeSet::HTMLDocument$TaggedAttributeSet() {
 }
 
 $Class* HTMLDocument$TaggedAttributeSet::load$($String* name, bool initialize) {
-	$loadClass(HTMLDocument$TaggedAttributeSet, name, initialize, &_HTMLDocument$TaggedAttributeSet_ClassInfo_, allocate$HTMLDocument$TaggedAttributeSet);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HTMLDocument$TaggedAttributeSet, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.HTMLDocument$TaggedAttributeSet", "javax.swing.text.html.HTMLDocument", "TaggedAttributeSet", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.HTMLDocument$TaggedAttributeSet",
+		"javax.swing.text.SimpleAttributeSet",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.HTMLDocument"
+	};
+	$loadClass(HTMLDocument$TaggedAttributeSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HTMLDocument$TaggedAttributeSet));
+	});
 	return class$;
 }
 

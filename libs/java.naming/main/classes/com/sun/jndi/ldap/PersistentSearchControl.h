@@ -28,6 +28,7 @@ class PersistentSearchControl : public ::com::sun::jndi::ldap::BasicControl {
 	$class(PersistentSearchControl, 0, ::com::sun::jndi::ldap::BasicControl)
 public:
 	PersistentSearchControl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t changeTypes, bool changesOnly, bool returnControls, bool criticality);
 	$bytes* setEncodedValue();
@@ -40,7 +41,7 @@ public:
 	int32_t changeTypes = 0;
 	bool changesOnly = false;
 	bool returnControls = false;
-	static const int64_t serialVersionUID = (int64_t)0x57EAF0B6317A90E4;
+	static const int64_t serialVersionUID = (int64_t)0x57eaf0b6317a90e4;
 };
 
 			} // ldap

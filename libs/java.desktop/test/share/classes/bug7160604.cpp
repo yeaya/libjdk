@@ -1,5 +1,4 @@
 #include <bug7160604.h>
-
 #include <bug7160604$1.h>
 #include <bug7160604$2.h>
 #include <java/awt/BorderLayout.h>
@@ -40,13 +39,8 @@ using $bug7160604$1 = ::bug7160604$1;
 using $bug7160604$2 = ::bug7160604$2;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
-using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $GraphicsDevice$WindowTranslucency = ::java::awt::GraphicsDevice$WindowTranslucency;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
-using $LayoutManager = ::java::awt::LayoutManager;
-using $MouseListener = ::java::awt::event::MouseListener;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -54,7 +48,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $Action = ::javax::swing::Action;
 using $BorderFactory = ::javax::swing::BorderFactory;
 using $JApplet = ::javax::swing::JApplet;
 using $JComboBox = ::javax::swing::JComboBox;
@@ -74,81 +67,45 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$init$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug7160604$$Lambda$lambda$init$0>());
-	}
 	bug7160604* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo bug7160604$$Lambda$lambda$init$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug7160604$$Lambda$lambda$init$0, inst$)},
-	{}
-};
-$MethodInfo bug7160604$$Lambda$lambda$init$0::methodInfos[3] = {
-	{"<init>", "(Lbug7160604;)V", nullptr, $PUBLIC, $method(bug7160604$$Lambda$lambda$init$0, init$, void, bug7160604*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug7160604$$Lambda$lambda$init$0, run, void)},
-	{}
-};
-$ClassInfo bug7160604$$Lambda$lambda$init$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug7160604$$Lambda$lambda$init$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* bug7160604$$Lambda$lambda$init$0::load$($String* name, bool initialize) {
-	$loadClass(bug7160604$$Lambda$lambda$init$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug7160604$$Lambda$lambda$init$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug7160604;)V", nullptr, $PUBLIC, $method(bug7160604$$Lambda$lambda$init$0, init$, void, bug7160604*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug7160604$$Lambda$lambda$init$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug7160604$$Lambda$lambda$init$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug7160604$$Lambda$lambda$init$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug7160604$$Lambda$lambda$init$0);
+	});
 	return class$;
 }
 $Class* bug7160604$$Lambda$lambda$init$0::class$ = nullptr;
-
-$MethodInfo _bug7160604_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug7160604, init$, void)},
-	{"init", "()V", nullptr, $PUBLIC, $virtualMethod(bug7160604, init, void)},
-	{"lambda$init$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(bug7160604, lambda$init$0, void)},
-	{}
-};
-
-$InnerClassInfo _bug7160604_InnerClassesInfo_[] = {
-	{"bug7160604$2", nullptr, nullptr, 0},
-	{"bug7160604$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug7160604_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug7160604",
-	"javax.swing.JApplet",
-	nullptr,
-	nullptr,
-	_bug7160604_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug7160604_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug7160604$2,bug7160604$1"
-};
-
-$Object* allocate$bug7160604($Class* clazz) {
-	return $of($alloc(bug7160604));
-}
 
 void bug7160604::init$() {
 	$JApplet::init$();
 }
 
 void bug7160604::init() {
-	$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(bug7160604$$Lambda$lambda$init$0, this)));
+	$SwingUtilities::invokeLater($$new(bug7160604$$Lambda$lambda$init$0, this));
 }
 
 void bug7160604::lambda$init$0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($GraphicsDevice$WindowTranslucency);
-	if (!$nc($($nc($($GraphicsEnvironment::getLocalGraphicsEnvironment()))->getDefaultScreenDevice()))->isWindowTranslucencySupported($GraphicsDevice$WindowTranslucency::PERPIXEL_TRANSLUCENT)) {
+	if (!$$nc($$nc($GraphicsEnvironment::getLocalGraphicsEnvironment())->getDefaultScreenDevice())->isWindowTranslucencySupported($GraphicsDevice$WindowTranslucency::PERPIXEL_TRANSLUCENT)) {
 		return;
 	}
 	$var($JWindow, window, $new($JWindow));
@@ -156,23 +113,22 @@ void bug7160604::lambda$init$0() {
 	window->setSize(300, 300);
 	$var($JLabel, label, $new($JLabel, "...click to invoke JPopupMenu"_s));
 	label->setOpaque(true);
-	$var($JPanel, contentPane, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout))));
+	$var($JPanel, contentPane, $new($JPanel, $$new($BorderLayout)));
 	$init($Color);
 	contentPane->setBorder($($BorderFactory::createLineBorder($Color::RED)));
 	window->setContentPane(contentPane);
-	$init($BorderLayout);
-	contentPane->add(static_cast<$Component*>(label), $of($BorderLayout::NORTH));
+	contentPane->add(label, $BorderLayout::NORTH);
 	$var($JComboBox, comboBox, $new($JComboBox, $$new($ObjectArray, {
-		$of("1"_s),
-		$of("2"_s),
-		$of("3"_s),
-		$of("4"_s)
+		"1"_s,
+		"2"_s,
+		"3"_s,
+		"4"_s
 	})));
-	contentPane->add(static_cast<$Component*>(comboBox), $of($BorderLayout::SOUTH));
+	contentPane->add(comboBox, $BorderLayout::SOUTH);
 	$var($JPopupMenu, jPopupMenu, $new($JPopupMenu));
 	jPopupMenu->add("string"_s);
-	jPopupMenu->add(static_cast<$Action*>($$new($bug7160604$1, this, "action"_s)));
-	jPopupMenu->add(static_cast<$Component*>($$new($JLabel, "label"_s)));
+	jPopupMenu->add($$new($bug7160604$1, this, "action"_s));
+	jPopupMenu->add($$new($JLabel, "label"_s));
 	jPopupMenu->add($$new($JMenuItem, "MenuItem"_s));
 	label->addMouseListener($$new($bug7160604$2, this, jPopupMenu, label));
 	window->setBackground($$new($Color, 0, 0, 0, 0));
@@ -184,11 +140,38 @@ bug7160604::bug7160604() {
 
 $Class* bug7160604::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug7160604$$Lambda$lambda$init$0::classInfo$.name)) {
+		if (name->equals("bug7160604$$Lambda$lambda$init$0")) {
 			return bug7160604$$Lambda$lambda$init$0::load$(name, initialize);
 		}
 	}
-	$loadClass(bug7160604, name, initialize, &_bug7160604_ClassInfo_, allocate$bug7160604);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug7160604, init$, void)},
+		{"init", "()V", nullptr, $PUBLIC, $virtualMethod(bug7160604, init, void)},
+		{"lambda$init$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(bug7160604, lambda$init$0, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug7160604$2", nullptr, nullptr, 0},
+		{"bug7160604$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug7160604",
+		"javax.swing.JApplet",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug7160604$2,bug7160604$1"
+	};
+	$loadClass(bug7160604, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug7160604));
+	});
 	return class$;
 }
 

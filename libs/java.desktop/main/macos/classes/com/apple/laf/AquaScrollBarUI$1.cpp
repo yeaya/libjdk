@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaScrollBarUI$1.h>
-
 #include <apple/laf/JRSUIConstants$ScrollBarHit.h>
 #include <apple/laf/JRSUIConstants$ScrollBarPart.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
@@ -29,46 +28,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaScrollBarUI$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AquaScrollBarUI$1, init$, void)},
-	{"getInstance", "()Ljava/util/Map;", "()Ljava/util/Map<Lapple/laf/JRSUIConstants$Hit;Lapple/laf/JRSUIConstants$ScrollBarPart;>;", $PROTECTED, $virtualMethod(AquaScrollBarUI$1, getInstance, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaScrollBarUI$1_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaScrollBarUI",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _AquaScrollBarUI$1_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaScrollBarUI$1", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaUtils$RecyclableSingleton", "com.apple.laf.AquaUtils", "RecyclableSingleton", $STATIC | $ABSTRACT},
-	{"apple.laf.JRSUIConstants$Hit", "apple.laf.JRSUIConstants", "Hit", $PUBLIC | $STATIC},
-	{"apple.laf.JRSUIConstants$ScrollBarPart", "apple.laf.JRSUIConstants", "ScrollBarPart", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _AquaScrollBarUI$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaScrollBarUI$1",
-	"com.apple.laf.AquaUtils$RecyclableSingleton",
-	nullptr,
-	nullptr,
-	_AquaScrollBarUI$1_MethodInfo_,
-	"Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljava/util/Map<Lapple/laf/JRSUIConstants$Hit;Lapple/laf/JRSUIConstants$ScrollBarPart;>;>;",
-	&_AquaScrollBarUI$1_EnclosingMethodInfo_,
-	_AquaScrollBarUI$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaScrollBarUI"
-};
-
-$Object* allocate$AquaScrollBarUI$1($Class* clazz) {
-	return $of($alloc(AquaScrollBarUI$1));
-}
-
 void AquaScrollBarUI$1::init$() {
 	$AquaUtils$RecyclableSingleton::init$();
 }
@@ -84,14 +43,48 @@ $Object* AquaScrollBarUI$1::getInstance() {
 	map->put($JRSUIConstants$ScrollBarHit::TRACK_MAX, $JRSUIConstants$ScrollBarPart::TRACK_MAX);
 	map->put($JRSUIConstants$ScrollBarHit::TRACK_MIN, $JRSUIConstants$ScrollBarPart::TRACK_MIN);
 	map->put($JRSUIConstants$ScrollBarHit::THUMB, $JRSUIConstants$ScrollBarPart::THUMB);
-	return $of(map);
+	return map;
 }
 
 AquaScrollBarUI$1::AquaScrollBarUI$1() {
 }
 
 $Class* AquaScrollBarUI$1::load$($String* name, bool initialize) {
-	$loadClass(AquaScrollBarUI$1, name, initialize, &_AquaScrollBarUI$1_ClassInfo_, allocate$AquaScrollBarUI$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AquaScrollBarUI$1, init$, void)},
+		{"getInstance", "()Ljava/util/Map;", "()Ljava/util/Map<Lapple/laf/JRSUIConstants$Hit;Lapple/laf/JRSUIConstants$ScrollBarPart;>;", $PROTECTED, $virtualMethod(AquaScrollBarUI$1, getInstance, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaScrollBarUI",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaScrollBarUI$1", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaUtils$RecyclableSingleton", "com.apple.laf.AquaUtils", "RecyclableSingleton", $STATIC | $ABSTRACT},
+		{"apple.laf.JRSUIConstants$Hit", "apple.laf.JRSUIConstants", "Hit", $PUBLIC | $STATIC},
+		{"apple.laf.JRSUIConstants$ScrollBarPart", "apple.laf.JRSUIConstants", "ScrollBarPart", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaScrollBarUI$1",
+		"com.apple.laf.AquaUtils$RecyclableSingleton",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljava/util/Map<Lapple/laf/JRSUIConstants$Hit;Lapple/laf/JRSUIConstants$ScrollBarPart;>;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaScrollBarUI"
+	};
+	$loadClass(AquaScrollBarUI$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaScrollBarUI$1);
+	});
 	return class$;
 }
 

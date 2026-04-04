@@ -41,6 +41,7 @@ class ExsltDatetime : public ::java::lang::Object {
 	$class(ExsltDatetime, 0, ::java::lang::Object)
 public:
 	ExsltDatetime();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* date($String* datetimeIn);
 	static $String* date();

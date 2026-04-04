@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XFontPeer.h>
-
 #include <sun/awt/PlatformFont.h>
 #include <jcpp.h>
 
@@ -11,38 +10,34 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$MethodInfo _XFontPeer_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(XFontPeer, init$, void, $String*, int32_t)},
-	{"getMissingGlyphCharacter", "()C", nullptr, $PROTECTED, $virtualMethod(XFontPeer, getMissingGlyphCharacter, char16_t)},
-	{}
-};
-
-$ClassInfo _XFontPeer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.X11.XFontPeer",
-	"sun.awt.PlatformFont",
-	nullptr,
-	nullptr,
-	_XFontPeer_MethodInfo_
-};
-
-$Object* allocate$XFontPeer($Class* clazz) {
-	return $of($alloc(XFontPeer));
-}
-
 void XFontPeer::init$($String* name, int32_t style) {
 	$PlatformFont::init$(name, style);
 }
 
 char16_t XFontPeer::getMissingGlyphCharacter() {
-	return (char16_t)0x274F;
+	return (char16_t)0x274f;
 }
 
 XFontPeer::XFontPeer() {
 }
 
 $Class* XFontPeer::load$($String* name, bool initialize) {
-	$loadClass(XFontPeer, name, initialize, &_XFontPeer_ClassInfo_, allocate$XFontPeer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(XFontPeer, init$, void, $String*, int32_t)},
+		{"getMissingGlyphCharacter", "()C", nullptr, $PROTECTED, $virtualMethod(XFontPeer, getMissingGlyphCharacter, char16_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.X11.XFontPeer",
+		"sun.awt.PlatformFont",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XFontPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XFontPeer);
+	});
 	return class$;
 }
 

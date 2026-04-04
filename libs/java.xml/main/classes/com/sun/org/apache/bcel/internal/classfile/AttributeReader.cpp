@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/AttributeReader.h>
-
 #include <com/sun/org/apache/bcel/internal/classfile/Attribute.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
 #include <java/io/DataInputStream.h>
@@ -20,35 +19,30 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$CompoundAttribute _AttributeReader_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$MethodInfo _AttributeReader_MethodInfo_[] = {
-	{"createAttribute", "(IILjava/io/DataInputStream;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AttributeReader, createAttribute, $Attribute*, int32_t, int32_t, $DataInputStream*, $ConstantPool*)},
-	{}
-};
-
-$ClassInfo _AttributeReader_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.classfile.AttributeReader",
-	nullptr,
-	nullptr,
-	nullptr,
-	_AttributeReader_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_AttributeReader_Annotations_
-};
-
-$Object* allocate$AttributeReader($Class* clazz) {
-	return $of($alloc(AttributeReader));
-}
-
 $Class* AttributeReader::load$($String* name, bool initialize) {
-	$loadClass(AttributeReader, name, initialize, &_AttributeReader_ClassInfo_, allocate$AttributeReader);
+	$MethodInfo methodInfos$$[] = {
+		{"createAttribute", "(IILjava/io/DataInputStream;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AttributeReader, createAttribute, $Attribute*, int32_t, int32_t, $DataInputStream*, $ConstantPool*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.classfile.AttributeReader",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(AttributeReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AttributeReader);
+	});
 	return class$;
 }
 

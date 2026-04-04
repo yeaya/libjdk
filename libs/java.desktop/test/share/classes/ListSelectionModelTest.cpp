@@ -1,7 +1,5 @@
 #include <ListSelectionModelTest.h>
-
 #include <ListSelectionModelTest$1.h>
-#include <java/lang/Runnable.h>
 #include <java/util/Arrays.h>
 #include <javax/swing/DefaultListModel.h>
 #include <javax/swing/JList.h>
@@ -18,64 +16,27 @@
 
 using $ListSelectionModelTest$1 = ::ListSelectionModelTest$1;
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Arrays = ::java::util::Arrays;
 using $DefaultListModel = ::javax::swing::DefaultListModel;
 using $JList = ::javax::swing::JList;
-using $ListModel = ::javax::swing::ListModel;
 using $ListSelectionModel = ::javax::swing::ListSelectionModel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
 
-$MethodInfo _ListSelectionModelTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ListSelectionModelTest, init$, void)},
-	{"CreateGUIAndTest", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ListSelectionModelTest, CreateGUIAndTest, void, $String*), "java.lang.Exception"},
-	{"checkSelection", "(Ljavax/swing/JList;[ILjava/lang/String;)V", nullptr, $STATIC, $staticMethod(ListSelectionModelTest, checkSelection, void, $JList*, $ints*, $String*), "java.lang.RuntimeException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ListSelectionModelTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _ListSelectionModelTest_InnerClassesInfo_[] = {
-	{"ListSelectionModelTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ListSelectionModelTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ListSelectionModelTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ListSelectionModelTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ListSelectionModelTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"ListSelectionModelTest$1"
-};
-
-$Object* allocate$ListSelectionModelTest($Class* clazz) {
-	return $of($alloc(ListSelectionModelTest));
-}
-
 void ListSelectionModelTest::init$() {
 }
 
 void ListSelectionModelTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UIManager$LookAndFeelInfoArray, lookAndFeelInfoArray, $UIManager::getInstalledLookAndFeels());
 	{
 		$var($UIManager$LookAndFeelInfoArray, arr$, lookAndFeelInfoArray);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($UIManager$LookAndFeelInfo, lookAndFeelInfo, arr$->get(i$));
 			{
 				$SwingUtilities::invokeAndWait($$new($ListSelectionModelTest$1, lookAndFeelInfo));
@@ -85,13 +46,13 @@ void ListSelectionModelTest::main($StringArray* args) {
 }
 
 void ListSelectionModelTest::CreateGUIAndTest($String* lookAndFeel) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$UIManager::setLookAndFeel(lookAndFeel);
 	$var($DefaultListModel, listModel, $new($DefaultListModel));
 	for (int32_t j = 0; j < 10; ++j) {
 		listModel->add(j, $$str({"Item: "_s, $$str(j)}));
 	}
-	$var($JList, list, $new($JList, static_cast<$ListModel*>(listModel)));
+	$var($JList, list, $new($JList, listModel));
 	$var($ListSelectionModel, selectionModel, list->getSelectionModel());
 	$nc(selectionModel)->setSelectionMode($ListSelectionModel::SINGLE_INTERVAL_SELECTION);
 	selectionModel->setSelectionInterval(0, 1);
@@ -148,18 +109,18 @@ void ListSelectionModelTest::CreateGUIAndTest($String* lookAndFeel) {
 }
 
 void ListSelectionModelTest::checkSelection($JList* list, $ints* selectionArray, $String* lookAndFeel) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, listSelection, $nc(list)->getSelectedIndices());
 	if ($nc(listSelection)->length != $nc(selectionArray)->length) {
 		$nc($System::out)->println($$str({"Expected: "_s, $($Arrays::toString(selectionArray))}));
-		$nc($System::out)->println($$str({"Actual: "_s, $($Arrays::toString(listSelection))}));
+		$System::out->println($$str({"Actual: "_s, $($Arrays::toString(listSelection))}));
 		$throwNew($RuntimeException, $$str({"Wrong selection for "_s, lookAndFeel}));
 	}
 	$Arrays::sort(listSelection);
 	$Arrays::sort(selectionArray);
 	if (!$Arrays::equals(listSelection, selectionArray)) {
 		$nc($System::out)->println($$str({"Expected: "_s, $($Arrays::toString(selectionArray))}));
-		$nc($System::out)->println($$str({"Actual: "_s, $($Arrays::toString(listSelection))}));
+		$System::out->println($$str({"Actual: "_s, $($Arrays::toString(listSelection))}));
 		$throwNew($RuntimeException, $$str({"Wrong selection for "_s, lookAndFeel}));
 	}
 }
@@ -168,7 +129,34 @@ ListSelectionModelTest::ListSelectionModelTest() {
 }
 
 $Class* ListSelectionModelTest::load$($String* name, bool initialize) {
-	$loadClass(ListSelectionModelTest, name, initialize, &_ListSelectionModelTest_ClassInfo_, allocate$ListSelectionModelTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ListSelectionModelTest, init$, void)},
+		{"CreateGUIAndTest", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ListSelectionModelTest, CreateGUIAndTest, void, $String*), "java.lang.Exception"},
+		{"checkSelection", "(Ljavax/swing/JList;[ILjava/lang/String;)V", nullptr, $STATIC, $staticMethod(ListSelectionModelTest, checkSelection, void, $JList*, $ints*, $String*), "java.lang.RuntimeException"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ListSelectionModelTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ListSelectionModelTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ListSelectionModelTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"ListSelectionModelTest$1"
+	};
+	$loadClass(ListSelectionModelTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ListSelectionModelTest);
+	});
 	return class$;
 }
 

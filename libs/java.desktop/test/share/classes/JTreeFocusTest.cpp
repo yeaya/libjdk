@@ -1,5 +1,4 @@
 #include <JTreeFocusTest.h>
-
 #include <JTreeFocusTest$1.h>
 #include <JTreeFocusTest$2.h>
 #include <JTreeFocusTest$3.h>
@@ -9,7 +8,6 @@
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/GridLayout.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/Point.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
@@ -36,16 +34,10 @@
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/CompoundBorder.h>
 #include <javax/swing/border/LineBorder.h>
-#include <javax/swing/event/TreeSelectionListener.h>
 #include <javax/swing/tree/DefaultMutableTreeNode.h>
 #include <javax/swing/tree/DefaultTreeCellEditor.h>
 #include <javax/swing/tree/DefaultTreeCellRenderer.h>
 #include <javax/swing/tree/DefaultTreeModel.h>
-#include <javax/swing/tree/MutableTreeNode.h>
-#include <javax/swing/tree/TreeCellEditor.h>
-#include <javax/swing/tree/TreeCellRenderer.h>
-#include <javax/swing/tree/TreeModel.h>
-#include <javax/swing/tree/TreeNode.h>
 #include <jcpp.h>
 
 #undef RAISED
@@ -58,12 +50,8 @@ using $JTreeFocusTest$2 = ::JTreeFocusTest$2;
 using $JTreeFocusTest$3 = ::JTreeFocusTest$3;
 using $JTreeFocusTest$FormEditor = ::JTreeFocusTest$FormEditor;
 using $JTreeFocusTest$FormRenderer = ::JTreeFocusTest$FormRenderer;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $GridLayout = ::java::awt::GridLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Robot = ::java::awt::Robot;
-using $FocusListener = ::java::awt::event::FocusListener;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -87,16 +75,10 @@ using $BevelBorder = ::javax::swing::border::BevelBorder;
 using $Border = ::javax::swing::border::Border;
 using $CompoundBorder = ::javax::swing::border::CompoundBorder;
 using $LineBorder = ::javax::swing::border::LineBorder;
-using $TreeSelectionListener = ::javax::swing::event::TreeSelectionListener;
 using $DefaultMutableTreeNode = ::javax::swing::tree::DefaultMutableTreeNode;
 using $DefaultTreeCellEditor = ::javax::swing::tree::DefaultTreeCellEditor;
 using $DefaultTreeCellRenderer = ::javax::swing::tree::DefaultTreeCellRenderer;
 using $DefaultTreeModel = ::javax::swing::tree::DefaultTreeModel;
-using $MutableTreeNode = ::javax::swing::tree::MutableTreeNode;
-using $TreeCellEditor = ::javax::swing::tree::TreeCellEditor;
-using $TreeCellRenderer = ::javax::swing::tree::TreeCellRenderer;
-using $TreeModel = ::javax::swing::tree::TreeModel;
-using $TreeNode = ::javax::swing::tree::TreeNode;
 
 class JTreeFocusTest$$Lambda$lambda$blockTillDisplayed$0 : public $Runnable {
 	$class(JTreeFocusTest$$Lambda$lambda$blockTillDisplayed$0, $NO_CLASS_INIT, $Runnable)
@@ -108,35 +90,31 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$blockTillDisplayed$0(comp);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JTreeFocusTest$$Lambda$lambda$blockTillDisplayed$0>());
-	}
 	JTreeFocusTest* inst$ = nullptr;
 	$JComponent* comp = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JTreeFocusTest$$Lambda$lambda$blockTillDisplayed$0::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JTreeFocusTest$$Lambda$lambda$blockTillDisplayed$0, inst$)},
-	{"comp", "Ljavax/swing/JComponent;", nullptr, $PUBLIC, $field(JTreeFocusTest$$Lambda$lambda$blockTillDisplayed$0, comp)},
-	{}
-};
-$MethodInfo JTreeFocusTest$$Lambda$lambda$blockTillDisplayed$0::methodInfos[3] = {
-	{"<init>", "(LJTreeFocusTest;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $method(JTreeFocusTest$$Lambda$lambda$blockTillDisplayed$0, init$, void, JTreeFocusTest*, $JComponent*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JTreeFocusTest$$Lambda$lambda$blockTillDisplayed$0, run, void)},
-	{}
-};
-$ClassInfo JTreeFocusTest$$Lambda$lambda$blockTillDisplayed$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JTreeFocusTest$$Lambda$lambda$blockTillDisplayed$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* JTreeFocusTest$$Lambda$lambda$blockTillDisplayed$0::load$($String* name, bool initialize) {
-	$loadClass(JTreeFocusTest$$Lambda$lambda$blockTillDisplayed$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JTreeFocusTest$$Lambda$lambda$blockTillDisplayed$0, inst$)},
+		{"comp", "Ljavax/swing/JComponent;", nullptr, $PUBLIC, $field(JTreeFocusTest$$Lambda$lambda$blockTillDisplayed$0, comp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LJTreeFocusTest;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $method(JTreeFocusTest$$Lambda$lambda$blockTillDisplayed$0, init$, void, JTreeFocusTest*, $JComponent*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JTreeFocusTest$$Lambda$lambda$blockTillDisplayed$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JTreeFocusTest$$Lambda$lambda$blockTillDisplayed$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JTreeFocusTest$$Lambda$lambda$blockTillDisplayed$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JTreeFocusTest$$Lambda$lambda$blockTillDisplayed$0);
+	});
 	return class$;
 }
 $Class* JTreeFocusTest$$Lambda$lambda$blockTillDisplayed$0::class$ = nullptr;
@@ -150,33 +128,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$new$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JTreeFocusTest$$Lambda$lambda$new$1$1>());
-	}
 	JTreeFocusTest* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JTreeFocusTest$$Lambda$lambda$new$1$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JTreeFocusTest$$Lambda$lambda$new$1$1, inst$)},
-	{}
-};
-$MethodInfo JTreeFocusTest$$Lambda$lambda$new$1$1::methodInfos[3] = {
-	{"<init>", "(LJTreeFocusTest;)V", nullptr, $PUBLIC, $method(JTreeFocusTest$$Lambda$lambda$new$1$1, init$, void, JTreeFocusTest*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JTreeFocusTest$$Lambda$lambda$new$1$1, run, void)},
-	{}
-};
-$ClassInfo JTreeFocusTest$$Lambda$lambda$new$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JTreeFocusTest$$Lambda$lambda$new$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* JTreeFocusTest$$Lambda$lambda$new$1$1::load$($String* name, bool initialize) {
-	$loadClass(JTreeFocusTest$$Lambda$lambda$new$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JTreeFocusTest$$Lambda$lambda$new$1$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LJTreeFocusTest;)V", nullptr, $PUBLIC, $method(JTreeFocusTest$$Lambda$lambda$new$1$1, init$, void, JTreeFocusTest*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JTreeFocusTest$$Lambda$lambda$new$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JTreeFocusTest$$Lambda$lambda$new$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JTreeFocusTest$$Lambda$lambda$new$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JTreeFocusTest$$Lambda$lambda$new$1$1);
+	});
 	return class$;
 }
 $Class* JTreeFocusTest$$Lambda$lambda$new$1$1::class$ = nullptr;
@@ -189,27 +163,24 @@ public:
 	virtual void run() override {
 		JTreeFocusTest::lambda$new$2();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JTreeFocusTest$$Lambda$lambda$new$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JTreeFocusTest$$Lambda$lambda$new$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JTreeFocusTest$$Lambda$lambda$new$2$2, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JTreeFocusTest$$Lambda$lambda$new$2$2, run, void)},
-	{}
-};
-$ClassInfo JTreeFocusTest$$Lambda$lambda$new$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JTreeFocusTest$$Lambda$lambda$new$2$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* JTreeFocusTest$$Lambda$lambda$new$2$2::load$($String* name, bool initialize) {
-	$loadClass(JTreeFocusTest$$Lambda$lambda$new$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JTreeFocusTest$$Lambda$lambda$new$2$2, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JTreeFocusTest$$Lambda$lambda$new$2$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JTreeFocusTest$$Lambda$lambda$new$2$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JTreeFocusTest$$Lambda$lambda$new$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JTreeFocusTest$$Lambda$lambda$new$2$2);
+	});
 	return class$;
 }
 $Class* JTreeFocusTest$$Lambda$lambda$new$2$2::class$ = nullptr;
@@ -222,85 +193,27 @@ public:
 	virtual void run() override {
 		JTreeFocusTest::lambda$destroy$3();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JTreeFocusTest$$Lambda$lambda$destroy$3$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JTreeFocusTest$$Lambda$lambda$destroy$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JTreeFocusTest$$Lambda$lambda$destroy$3$3, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JTreeFocusTest$$Lambda$lambda$destroy$3$3, run, void)},
-	{}
-};
-$ClassInfo JTreeFocusTest$$Lambda$lambda$destroy$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JTreeFocusTest$$Lambda$lambda$destroy$3$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* JTreeFocusTest$$Lambda$lambda$destroy$3$3::load$($String* name, bool initialize) {
-	$loadClass(JTreeFocusTest$$Lambda$lambda$destroy$3$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JTreeFocusTest$$Lambda$lambda$destroy$3$3, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JTreeFocusTest$$Lambda$lambda$destroy$3$3, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JTreeFocusTest$$Lambda$lambda$destroy$3$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JTreeFocusTest$$Lambda$lambda$destroy$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JTreeFocusTest$$Lambda$lambda$destroy$3$3);
+	});
 	return class$;
 }
 $Class* JTreeFocusTest$$Lambda$lambda$destroy$3$3::class$ = nullptr;
-
-$FieldInfo _JTreeFocusTest_FieldInfo_[] = {
-	{"root", "Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PRIVATE | $STATIC, $staticField(JTreeFocusTest, root)},
-	{"robot", "Ljava/awt/Robot;", nullptr, 0, $field(JTreeFocusTest, robot)},
-	{"passed", "Z", nullptr, $STATIC, $staticField(JTreeFocusTest, passed)},
-	{"rootSelected", "Z", nullptr, 0, $field(JTreeFocusTest, rootSelected)},
-	{"keysTyped", "Z", nullptr, 0, $field(JTreeFocusTest, keysTyped)},
-	{"p", "Ljava/awt/Point;", nullptr, $PRIVATE | $VOLATILE, $field(JTreeFocusTest, p)},
-	{"fr", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(JTreeFocusTest, fr)},
-	{"tree", "Ljavax/swing/JTree;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(JTreeFocusTest, tree)},
-	{}
-};
-
-$MethodInfo _JTreeFocusTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JTreeFocusTest, init$, void), "java.lang.Exception"},
-	{"blockTillDisplayed", "(Ljavax/swing/JComponent;)V", nullptr, 0, $virtualMethod(JTreeFocusTest, blockTillDisplayed, void, $JComponent*), "java.lang.Exception"},
-	{"createTree", "()Ljavax/swing/JTree;", nullptr, $STATIC, $staticMethod(JTreeFocusTest, createTree, $JTree*)},
-	{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(JTreeFocusTest, destroy, void), "java.lang.Exception"},
-	{"isPassed", "()Z", nullptr, $SYNCHRONIZED, $virtualMethod(JTreeFocusTest, isPassed, bool)},
-	{"lambda$blockTillDisplayed$0", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(JTreeFocusTest, lambda$blockTillDisplayed$0, void, $JComponent*)},
-	{"lambda$destroy$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JTreeFocusTest, lambda$destroy$3, void)},
-	{"lambda$new$1", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(JTreeFocusTest, lambda$new$1, void)},
-	{"lambda$new$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JTreeFocusTest, lambda$new$2, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JTreeFocusTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"setPassed", "(Z)V", nullptr, $SYNCHRONIZED, $virtualMethod(JTreeFocusTest, setPassed, void, bool)},
-	{}
-};
-
-$InnerClassInfo _JTreeFocusTest_InnerClassesInfo_[] = {
-	{"JTreeFocusTest$FormEditor", "JTreeFocusTest", "FormEditor", 0},
-	{"JTreeFocusTest$FormRenderer", "JTreeFocusTest", "FormRenderer", 0},
-	{"JTreeFocusTest$3", nullptr, nullptr, 0},
-	{"JTreeFocusTest$2", nullptr, nullptr, 0},
-	{"JTreeFocusTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JTreeFocusTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"JTreeFocusTest",
-	"java.lang.Object",
-	nullptr,
-	_JTreeFocusTest_FieldInfo_,
-	_JTreeFocusTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTreeFocusTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"JTreeFocusTest$FormEditor,JTreeFocusTest$FormRenderer,JTreeFocusTest$3,JTreeFocusTest$2,JTreeFocusTest$1"
-};
-
-$Object* allocate$JTreeFocusTest($Class* clazz) {
-	return $of($alloc(JTreeFocusTest));
-}
 
 $DefaultMutableTreeNode* JTreeFocusTest::root = nullptr;
 bool JTreeFocusTest::passed = false;
@@ -313,10 +226,10 @@ void JTreeFocusTest::main($StringArray* args) {
 }
 
 void JTreeFocusTest::blockTillDisplayed($JComponent* comp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (this->p == nullptr) {
 		try {
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(JTreeFocusTest$$Lambda$lambda$blockTillDisplayed$0, this, comp)));
+			$SwingUtilities::invokeAndWait($$new(JTreeFocusTest$$Lambda$lambda$blockTillDisplayed$0, this, comp));
 		} catch ($IllegalStateException& e) {
 			try {
 				$Thread::sleep(1000);
@@ -327,21 +240,21 @@ void JTreeFocusTest::blockTillDisplayed($JComponent* comp) {
 }
 
 void JTreeFocusTest::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->rootSelected = false;
 	this->keysTyped = false;
 	$set(this, p, nullptr);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(JTreeFocusTest$$Lambda$lambda$new$1$1, this)));
+	$SwingUtilities::invokeAndWait($$new(JTreeFocusTest$$Lambda$lambda$new$1$1, this));
 	blockTillDisplayed(JTreeFocusTest::tree);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(JTreeFocusTest$$Lambda$lambda$new$2$2)));
+	$SwingUtilities::invokeAndWait($$new(JTreeFocusTest$$Lambda$lambda$new$2$2));
 	try {
 		$synchronized(this) {
 			while (!this->rootSelected) {
-				$of(this)->wait();
+				this->wait();
 			}
 		}
 		$set(this, robot, $new($Robot));
-		$nc(this->robot)->setAutoDelay(50);
+		this->robot->setAutoDelay(50);
 		$nc(this->robot)->delay(150);
 		$nc(this->robot)->keyPress($KeyEvent::VK_DOWN);
 		$nc(this->robot)->keyRelease($KeyEvent::VK_DOWN);
@@ -351,7 +264,7 @@ void JTreeFocusTest::init$() {
 		$nc(this->robot)->keyRelease($KeyEvent::VK_F2);
 		$synchronized(this) {
 			while (!this->keysTyped) {
-				$of(this)->wait();
+				this->wait();
 			}
 		}
 		$Thread::sleep(3000);
@@ -362,7 +275,7 @@ void JTreeFocusTest::init$() {
 }
 
 void JTreeFocusTest::destroy() {
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(JTreeFocusTest$$Lambda$lambda$destroy$3$3)));
+	$SwingUtilities::invokeAndWait($$new(JTreeFocusTest$$Lambda$lambda$destroy$3$3));
 	if (!isPassed()) {
 		$throwNew($RuntimeException, "Focus wasn\'t transferred to the proper component"_s);
 	}
@@ -397,18 +310,18 @@ void JTreeFocusTest::lambda$new$2() {
 }
 
 void JTreeFocusTest::lambda$new$1() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(JTreeFocusTest::fr, $new($JFrame, "Test"_s));
 	$assignStatic(JTreeFocusTest::root, $new($DefaultMutableTreeNode, "root"_s));
 	$var($JPanel, p, $new($JPanel));
-	$var($Border, var$0, static_cast<$Border*>($new($BevelBorder, $BevelBorder::RAISED)));
+	$var($Border, var$0, $new($BevelBorder, $BevelBorder::RAISED));
 	p->setBorder($$new($CompoundBorder, var$0, $$new($LineBorder, $($UIManager::getColor("control"_s)), 7)));
 	p->setLayout($$new($GridLayout, 2, 2));
-	p->add(static_cast<$Component*>($$new($JLabel, "one"_s)));
+	p->add($$new($JLabel, "one"_s));
 	$var($JTextField, tf1, $new($JTextField, 10));
-	p->add(static_cast<$Component*>(tf1));
-	p->add(static_cast<$Component*>($$new($JLabel, "two"_s)));
-	p->add(static_cast<$Component*>($$new($JTextField, 10)));
+	p->add(tf1);
+	p->add($$new($JLabel, "two"_s));
+	p->add($$new($JTextField, 10));
 	$nc(JTreeFocusTest::root)->add($$new($DefaultMutableTreeNode, p));
 	tf1->addFocusListener($$new($JTreeFocusTest$1, this));
 	$var($DefaultTreeModel, model, $new($DefaultTreeModel, JTreeFocusTest::root));
@@ -419,7 +332,7 @@ void JTreeFocusTest::lambda$new$1() {
 	$nc(JTreeFocusTest::tree)->setCellRenderer(renderer);
 	$var($DefaultTreeCellEditor, editor, $new($JTreeFocusTest$FormEditor, this, JTreeFocusTest::tree, renderer));
 	$nc(JTreeFocusTest::tree)->setCellEditor(editor);
-	$nc($($nc(JTreeFocusTest::fr)->getContentPane()))->add(static_cast<$Component*>(JTreeFocusTest::tree));
+	$$nc($nc(JTreeFocusTest::fr)->getContentPane())->add(JTreeFocusTest::tree);
 	$nc(JTreeFocusTest::fr)->setSize(300, 400);
 	$nc(JTreeFocusTest::fr)->setVisible(true);
 }
@@ -428,7 +341,7 @@ void JTreeFocusTest::lambda$blockTillDisplayed$0($JComponent* comp) {
 	$set(this, p, $nc(comp)->getLocationOnScreen());
 }
 
-void clinit$JTreeFocusTest($Class* class$) {
+void JTreeFocusTest::clinit$($Class* clazz) {
 	JTreeFocusTest::passed = false;
 	$assignStatic(JTreeFocusTest::tree, nullptr);
 }
@@ -438,20 +351,69 @@ JTreeFocusTest::JTreeFocusTest() {
 
 $Class* JTreeFocusTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JTreeFocusTest$$Lambda$lambda$blockTillDisplayed$0::classInfo$.name)) {
+		if (name->equals("JTreeFocusTest$$Lambda$lambda$blockTillDisplayed$0")) {
 			return JTreeFocusTest$$Lambda$lambda$blockTillDisplayed$0::load$(name, initialize);
 		}
-		if (name->equals(JTreeFocusTest$$Lambda$lambda$new$1$1::classInfo$.name)) {
+		if (name->equals("JTreeFocusTest$$Lambda$lambda$new$1$1")) {
 			return JTreeFocusTest$$Lambda$lambda$new$1$1::load$(name, initialize);
 		}
-		if (name->equals(JTreeFocusTest$$Lambda$lambda$new$2$2::classInfo$.name)) {
+		if (name->equals("JTreeFocusTest$$Lambda$lambda$new$2$2")) {
 			return JTreeFocusTest$$Lambda$lambda$new$2$2::load$(name, initialize);
 		}
-		if (name->equals(JTreeFocusTest$$Lambda$lambda$destroy$3$3::classInfo$.name)) {
+		if (name->equals("JTreeFocusTest$$Lambda$lambda$destroy$3$3")) {
 			return JTreeFocusTest$$Lambda$lambda$destroy$3$3::load$(name, initialize);
 		}
 	}
-	$loadClass(JTreeFocusTest, name, initialize, &_JTreeFocusTest_ClassInfo_, clinit$JTreeFocusTest, allocate$JTreeFocusTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"root", "Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PRIVATE | $STATIC, $staticField(JTreeFocusTest, root)},
+		{"robot", "Ljava/awt/Robot;", nullptr, 0, $field(JTreeFocusTest, robot)},
+		{"passed", "Z", nullptr, $STATIC, $staticField(JTreeFocusTest, passed)},
+		{"rootSelected", "Z", nullptr, 0, $field(JTreeFocusTest, rootSelected)},
+		{"keysTyped", "Z", nullptr, 0, $field(JTreeFocusTest, keysTyped)},
+		{"p", "Ljava/awt/Point;", nullptr, $PRIVATE | $VOLATILE, $field(JTreeFocusTest, p)},
+		{"fr", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(JTreeFocusTest, fr)},
+		{"tree", "Ljavax/swing/JTree;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(JTreeFocusTest, tree)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JTreeFocusTest, init$, void), "java.lang.Exception"},
+		{"blockTillDisplayed", "(Ljavax/swing/JComponent;)V", nullptr, 0, $virtualMethod(JTreeFocusTest, blockTillDisplayed, void, $JComponent*), "java.lang.Exception"},
+		{"createTree", "()Ljavax/swing/JTree;", nullptr, $STATIC, $staticMethod(JTreeFocusTest, createTree, $JTree*)},
+		{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(JTreeFocusTest, destroy, void), "java.lang.Exception"},
+		{"isPassed", "()Z", nullptr, $SYNCHRONIZED, $virtualMethod(JTreeFocusTest, isPassed, bool)},
+		{"lambda$blockTillDisplayed$0", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(JTreeFocusTest, lambda$blockTillDisplayed$0, void, $JComponent*)},
+		{"lambda$destroy$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JTreeFocusTest, lambda$destroy$3, void)},
+		{"lambda$new$1", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(JTreeFocusTest, lambda$new$1, void)},
+		{"lambda$new$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JTreeFocusTest, lambda$new$2, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JTreeFocusTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"setPassed", "(Z)V", nullptr, $SYNCHRONIZED, $virtualMethod(JTreeFocusTest, setPassed, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"JTreeFocusTest$FormEditor", "JTreeFocusTest", "FormEditor", 0},
+		{"JTreeFocusTest$FormRenderer", "JTreeFocusTest", "FormRenderer", 0},
+		{"JTreeFocusTest$3", nullptr, nullptr, 0},
+		{"JTreeFocusTest$2", nullptr, nullptr, 0},
+		{"JTreeFocusTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"JTreeFocusTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"JTreeFocusTest$FormEditor,JTreeFocusTest$FormRenderer,JTreeFocusTest$3,JTreeFocusTest$2,JTreeFocusTest$1"
+	};
+	$loadClass(JTreeFocusTest, name, initialize, &classInfo$$, JTreeFocusTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JTreeFocusTest);
+	});
 	return class$;
 }
 

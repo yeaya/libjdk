@@ -1,13 +1,10 @@
 #include <java.xml.h>
-
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>
 #include <java/lang/Library.h>
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 #include <com/sun/java_cup/internal/runtime/Scanner.h>
 #include <com/sun/java_cup/internal/runtime/Symbol.h>
 #include <com/sun/java_cup/internal/runtime/lr_parser.h>
@@ -4781,6 +4778,7 @@ $bytes* java$xml$GetResource($String* name) {
 
 void java$xml::init() {
 	::java$base::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"java.xml", "17.35", "",
 		&_java$xml_ModuleInfo_,

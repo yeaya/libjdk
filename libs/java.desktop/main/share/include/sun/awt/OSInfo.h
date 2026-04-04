@@ -48,6 +48,7 @@ class $import OSInfo : public ::java::lang::Object {
 	$class(OSInfo, 0, ::java::lang::Object)
 public:
 	OSInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::awt::OSInfo$OSType* getOSType();
 	static ::java::security::PrivilegedAction* getOSTypeAction();

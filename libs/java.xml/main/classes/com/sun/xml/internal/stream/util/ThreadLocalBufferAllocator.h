@@ -38,6 +38,7 @@ class ThreadLocalBufferAllocator : public ::java::lang::Object {
 	$class(ThreadLocalBufferAllocator, 0, ::java::lang::Object)
 public:
 	ThreadLocalBufferAllocator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::com::sun::xml::internal::stream::util::BufferAllocator* getBufferAllocator();
 	static ::java::lang::ThreadLocal* TL;

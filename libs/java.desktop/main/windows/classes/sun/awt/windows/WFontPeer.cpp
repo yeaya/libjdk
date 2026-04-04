@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WFontPeer.h>
-
 #include <sun/awt/FontConfiguration.h>
 #include <sun/awt/PlatformFont.h>
 #include <sun/awt/windows/WFontConfiguration.h>
@@ -15,37 +14,10 @@ namespace sun {
 	namespace awt {
 		namespace windows {
 
-$FieldInfo _WFontPeer_FieldInfo_[] = {
-	{"textComponentFontName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WFontPeer, textComponentFontName)},
-	{}
-};
-
-$MethodInfo _WFontPeer_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(WFontPeer, init$, void, $String*, int32_t)},
-	{"getMissingGlyphCharacter", "()C", nullptr, $PROTECTED, $virtualMethod(WFontPeer, getMissingGlyphCharacter, char16_t)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WFontPeer, initIDs, void)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 2
-
-$ClassInfo _WFontPeer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.windows.WFontPeer",
-	"sun.awt.PlatformFont",
-	nullptr,
-	_WFontPeer_FieldInfo_,
-	_WFontPeer_MethodInfo_
-};
-
-$Object* allocate$WFontPeer($Class* clazz) {
-	return $of($alloc(WFontPeer));
-}
-
 void WFontPeer::init$($String* name, int32_t style) {
 	$PlatformFont::init$(name, style);
 	if (this->fontConfig != nullptr) {
-		$set(this, textComponentFontName, $nc(($cast($WFontConfiguration, this->fontConfig)))->getTextComponentFontName(this->familyName, style));
+		$set(this, textComponentFontName, $cast($WFontConfiguration, this->fontConfig)->getTextComponentFontName(this->familyName, style));
 	}
 }
 
@@ -55,12 +27,12 @@ char16_t WFontPeer::getMissingGlyphCharacter() {
 
 void WFontPeer::initIDs() {
 	$init(WFontPeer);
-	$prepareNativeStatic(WFontPeer, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
-void clinit$WFontPeer($Class* class$) {
+void WFontPeer::clinit$($Class* clazz) {
 	{
 		WFontPeer::initIDs();
 	}
@@ -70,7 +42,27 @@ WFontPeer::WFontPeer() {
 }
 
 $Class* WFontPeer::load$($String* name, bool initialize) {
-	$loadClass(WFontPeer, name, initialize, &_WFontPeer_ClassInfo_, clinit$WFontPeer, allocate$WFontPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"textComponentFontName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WFontPeer, textComponentFontName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(WFontPeer, init$, void, $String*, int32_t)},
+		{"getMissingGlyphCharacter", "()C", nullptr, $PROTECTED, $virtualMethod(WFontPeer, getMissingGlyphCharacter, char16_t)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WFontPeer, initIDs, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.windows.WFontPeer",
+		"sun.awt.PlatformFont",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WFontPeer, name, initialize, &classInfo$$, WFontPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WFontPeer);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/management/remote/JMXConnectorServerFactory.h>
-
 #include <com/sun/jmx/remote/util/ClassLogger.h>
 #include <com/sun/jmx/remote/util/EnvHelp.h>
 #include <java/io/IOException.h>
@@ -69,37 +68,33 @@ public:
 	virtual $Object* apply(Object$* p) override {
 		 return $of(JMXConnectorServerFactory::lambda$getConnectorServerAsService$0(url, map, mbs, $cast($JMXConnectorServerProvider, p)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JMXConnectorServerFactory$$Lambda$lambda$getConnectorServerAsService$0>());
-	}
 	$JMXServiceURL* url = nullptr;
 	$Map* map = nullptr;
 	$MBeanServer* mbs = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JMXConnectorServerFactory$$Lambda$lambda$getConnectorServerAsService$0::fieldInfos[4] = {
-	{"url", "Ljavax/management/remote/JMXServiceURL;", nullptr, $PUBLIC, $field(JMXConnectorServerFactory$$Lambda$lambda$getConnectorServerAsService$0, url)},
-	{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(JMXConnectorServerFactory$$Lambda$lambda$getConnectorServerAsService$0, map)},
-	{"mbs", "Ljavax/management/MBeanServer;", nullptr, $PUBLIC, $field(JMXConnectorServerFactory$$Lambda$lambda$getConnectorServerAsService$0, mbs)},
-	{}
-};
-$MethodInfo JMXConnectorServerFactory$$Lambda$lambda$getConnectorServerAsService$0::methodInfos[3] = {
-	{"<init>", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC, $method(JMXConnectorServerFactory$$Lambda$lambda$getConnectorServerAsService$0, init$, void, $JMXServiceURL*, $Map*, $MBeanServer*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JMXConnectorServerFactory$$Lambda$lambda$getConnectorServerAsService$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo JMXConnectorServerFactory$$Lambda$lambda$getConnectorServerAsService$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.management.remote.JMXConnectorServerFactory$$Lambda$lambda$getConnectorServerAsService$0",
-	"java.lang.Object",
-	"javax.management.remote.JMXConnectorFactory$ConnectorFactory",
-	fieldInfos,
-	methodInfos
 };
 $Class* JMXConnectorServerFactory$$Lambda$lambda$getConnectorServerAsService$0::load$($String* name, bool initialize) {
-	$loadClass(JMXConnectorServerFactory$$Lambda$lambda$getConnectorServerAsService$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"url", "Ljavax/management/remote/JMXServiceURL;", nullptr, $PUBLIC, $field(JMXConnectorServerFactory$$Lambda$lambda$getConnectorServerAsService$0, url)},
+		{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(JMXConnectorServerFactory$$Lambda$lambda$getConnectorServerAsService$0, map)},
+		{"mbs", "Ljavax/management/MBeanServer;", nullptr, $PUBLIC, $field(JMXConnectorServerFactory$$Lambda$lambda$getConnectorServerAsService$0, mbs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC, $method(JMXConnectorServerFactory$$Lambda$lambda$getConnectorServerAsService$0, init$, void, $JMXServiceURL*, $Map*, $MBeanServer*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JMXConnectorServerFactory$$Lambda$lambda$getConnectorServerAsService$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.management.remote.JMXConnectorServerFactory$$Lambda$lambda$getConnectorServerAsService$0",
+		"java.lang.Object",
+		"javax.management.remote.JMXConnectorFactory$ConnectorFactory",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JMXConnectorServerFactory$$Lambda$lambda$getConnectorServerAsService$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JMXConnectorServerFactory$$Lambda$lambda$getConnectorServerAsService$0);
+	});
 	return class$;
 }
 $Class* JMXConnectorServerFactory$$Lambda$lambda$getConnectorServerAsService$0::class$ = nullptr;
@@ -112,61 +107,27 @@ public:
 	virtual bool test(Object$* provider) override {
 		 return $JMXConnectorFactory::isSystemProvider($cast($ServiceLoader$Provider, provider));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JMXConnectorServerFactory$$Lambda$isSystemProvider$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JMXConnectorServerFactory$$Lambda$isSystemProvider$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JMXConnectorServerFactory$$Lambda$isSystemProvider$1, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JMXConnectorServerFactory$$Lambda$isSystemProvider$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo JMXConnectorServerFactory$$Lambda$isSystemProvider$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.management.remote.JMXConnectorServerFactory$$Lambda$isSystemProvider$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* JMXConnectorServerFactory$$Lambda$isSystemProvider$1::load$($String* name, bool initialize) {
-	$loadClass(JMXConnectorServerFactory$$Lambda$isSystemProvider$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JMXConnectorServerFactory$$Lambda$isSystemProvider$1, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JMXConnectorServerFactory$$Lambda$isSystemProvider$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.management.remote.JMXConnectorServerFactory$$Lambda$isSystemProvider$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JMXConnectorServerFactory$$Lambda$isSystemProvider$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JMXConnectorServerFactory$$Lambda$isSystemProvider$1);
+	});
 	return class$;
 }
 $Class* JMXConnectorServerFactory$$Lambda$isSystemProvider$1::class$ = nullptr;
-
-$FieldInfo _JMXConnectorServerFactory_FieldInfo_[] = {
-	{"DEFAULT_CLASS_LOADER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JMXConnectorServerFactory, DEFAULT_CLASS_LOADER)},
-	{"DEFAULT_CLASS_LOADER_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JMXConnectorServerFactory, DEFAULT_CLASS_LOADER_NAME)},
-	{"PROTOCOL_PROVIDER_PACKAGES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JMXConnectorServerFactory, PROTOCOL_PROVIDER_PACKAGES)},
-	{"PROTOCOL_PROVIDER_CLASS_LOADER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JMXConnectorServerFactory, PROTOCOL_PROVIDER_CLASS_LOADER)},
-	{"PROTOCOL_PROVIDER_DEFAULT_PACKAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXConnectorServerFactory, PROTOCOL_PROVIDER_DEFAULT_PACKAGE)},
-	{"logger", "Lcom/sun/jmx/remote/util/ClassLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXConnectorServerFactory, logger)},
-	{}
-};
-
-$MethodInfo _JMXConnectorServerFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(JMXConnectorServerFactory, init$, void)},
-	{"getConnectorServerAsService", "(Ljava/lang/ClassLoader;Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;Ljavax/management/MBeanServer;Ljava/util/function/Predicate;)Ljavax/management/remote/JMXConnectorServer;", "(Ljava/lang/ClassLoader;Ljavax/management/remote/JMXServiceURL;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/management/MBeanServer;Ljava/util/function/Predicate<Ljava/util/ServiceLoader$Provider<*>;>;)Ljavax/management/remote/JMXConnectorServer;", $PRIVATE | $STATIC, $staticMethod(JMXConnectorServerFactory, getConnectorServerAsService, $JMXConnectorServer*, $ClassLoader*, $JMXServiceURL*, $Map*, $MBeanServer*, $Predicate*), "java.io.IOException"},
-	{"lambda$getConnectorServerAsService$0", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;Ljavax/management/MBeanServer;Ljavax/management/remote/JMXConnectorServerProvider;)Ljavax/management/remote/JMXConnectorServer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JMXConnectorServerFactory, lambda$getConnectorServerAsService$0, $JMXConnectorServer*, $JMXServiceURL*, $Map*, $MBeanServer*, $JMXConnectorServerProvider*), "java.lang.Exception"},
-	{"newJMXConnectorServer", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;Ljavax/management/MBeanServer;)Ljavax/management/remote/JMXConnectorServer;", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/management/MBeanServer;)Ljavax/management/remote/JMXConnectorServer;", $PUBLIC | $STATIC, $staticMethod(JMXConnectorServerFactory, newJMXConnectorServer, $JMXConnectorServer*, $JMXServiceURL*, $Map*, $MBeanServer*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _JMXConnectorServerFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.remote.JMXConnectorServerFactory",
-	"java.lang.Object",
-	nullptr,
-	_JMXConnectorServerFactory_FieldInfo_,
-	_JMXConnectorServerFactory_MethodInfo_
-};
-
-$Object* allocate$JMXConnectorServerFactory($Class* clazz) {
-	return $of($alloc(JMXConnectorServerFactory));
-}
 
 $String* JMXConnectorServerFactory::DEFAULT_CLASS_LOADER = nullptr;
 $String* JMXConnectorServerFactory::DEFAULT_CLASS_LOADER_NAME = nullptr;
@@ -180,14 +141,14 @@ void JMXConnectorServerFactory::init$() {
 
 $JMXConnectorServer* JMXConnectorServerFactory::getConnectorServerAsService($ClassLoader* loader, $JMXServiceURL* url, $Map* map, $MBeanServer* mbs, $Predicate* filter) {
 	$init(JMXConnectorServerFactory);
-	$var($JMXConnectorFactory$ConnectorFactory, factory, static_cast<$JMXConnectorFactory$ConnectorFactory*>($new(JMXConnectorServerFactory$$Lambda$lambda$getConnectorServerAsService$0, url, map, mbs)));
+	$var($JMXConnectorFactory$ConnectorFactory, factory, $new(JMXConnectorServerFactory$$Lambda$lambda$getConnectorServerAsService$0, url, map, mbs));
 	$load($JMXConnectorServerProvider);
 	return $cast($JMXConnectorServer, $JMXConnectorFactory::getConnectorAsService($JMXConnectorServerProvider::class$, loader, url, filter, factory));
 }
 
 $JMXConnectorServer* JMXConnectorServerFactory::newJMXConnectorServer($JMXServiceURL* serviceURL, $Map* environment, $MBeanServer* mbeanServer) {
 	$init(JMXConnectorServerFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Map, envcopy, nullptr);
 	if (environment == nullptr) {
@@ -205,7 +166,7 @@ $JMXConnectorServer* JMXConnectorServerFactory::newJMXConnectorServer($JMXServic
 	$var($IOException, exception, nullptr);
 	$var($JMXConnectorServer, connection, nullptr);
 	if (provider == nullptr) {
-		$var($Predicate, systemProvider, static_cast<$Predicate*>($new(JMXConnectorServerFactory$$Lambda$isSystemProvider$1)));
+		$var($Predicate, systemProvider, $new(JMXConnectorServerFactory$$Lambda$isSystemProvider$1));
 		if (loader != nullptr) {
 			try {
 				$assign(connection, getConnectorServerAsService(loader, serviceURL, envcopy, mbeanServer, $($nc(systemProvider)->negate())));
@@ -219,8 +180,7 @@ $JMXConnectorServer* JMXConnectorServerFactory::newJMXConnectorServer($JMXServic
 			}
 		}
 		$var($ClassLoader, var$0, $JMXConnectorFactory::class$->getClassLoader());
-		$var($JMXServiceURL, var$1, serviceURL);
-		$assign(connection, getConnectorServerAsService(var$0, var$1, $($Collections::unmodifiableMap(envcopy)), mbeanServer, systemProvider));
+		$assign(connection, getConnectorServerAsService(var$0, serviceURL, $($Collections::unmodifiableMap(envcopy)), mbeanServer, systemProvider));
 		if (connection != nullptr) {
 			return connection;
 		}
@@ -230,7 +190,7 @@ $JMXConnectorServer* JMXConnectorServerFactory::newJMXConnectorServer($JMXServic
 		if (exception == nullptr) {
 			$throw(e);
 		} else {
-			$throw($cast($MalformedURLException, $($EnvHelp::initCause(e, exception))));
+			$throw($$cast($MalformedURLException, $EnvHelp::initCause(e, exception)));
 		}
 	}
 	$assign(envcopy, $Collections::unmodifiableMap(envcopy));
@@ -242,7 +202,7 @@ $JMXConnectorServer* JMXConnectorServerFactory::lambda$getConnectorServerAsServi
 	return $nc(p)->newJMXConnectorServer(url, map, mbs);
 }
 
-void clinit$JMXConnectorServerFactory($Class* class$) {
+void JMXConnectorServerFactory::clinit$($Class* clazz) {
 	$init($JMXConnectorFactory);
 	$assignStatic(JMXConnectorServerFactory::DEFAULT_CLASS_LOADER, $JMXConnectorFactory::DEFAULT_CLASS_LOADER);
 	$assignStatic(JMXConnectorServerFactory::DEFAULT_CLASS_LOADER_NAME, "jmx.remote.default.class.loader.name"_s);
@@ -257,14 +217,40 @@ JMXConnectorServerFactory::JMXConnectorServerFactory() {
 
 $Class* JMXConnectorServerFactory::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JMXConnectorServerFactory$$Lambda$lambda$getConnectorServerAsService$0::classInfo$.name)) {
+		if (name->equals("javax.management.remote.JMXConnectorServerFactory$$Lambda$lambda$getConnectorServerAsService$0")) {
 			return JMXConnectorServerFactory$$Lambda$lambda$getConnectorServerAsService$0::load$(name, initialize);
 		}
-		if (name->equals(JMXConnectorServerFactory$$Lambda$isSystemProvider$1::classInfo$.name)) {
+		if (name->equals("javax.management.remote.JMXConnectorServerFactory$$Lambda$isSystemProvider$1")) {
 			return JMXConnectorServerFactory$$Lambda$isSystemProvider$1::load$(name, initialize);
 		}
 	}
-	$loadClass(JMXConnectorServerFactory, name, initialize, &_JMXConnectorServerFactory_ClassInfo_, clinit$JMXConnectorServerFactory, allocate$JMXConnectorServerFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_CLASS_LOADER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JMXConnectorServerFactory, DEFAULT_CLASS_LOADER)},
+		{"DEFAULT_CLASS_LOADER_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JMXConnectorServerFactory, DEFAULT_CLASS_LOADER_NAME)},
+		{"PROTOCOL_PROVIDER_PACKAGES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JMXConnectorServerFactory, PROTOCOL_PROVIDER_PACKAGES)},
+		{"PROTOCOL_PROVIDER_CLASS_LOADER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JMXConnectorServerFactory, PROTOCOL_PROVIDER_CLASS_LOADER)},
+		{"PROTOCOL_PROVIDER_DEFAULT_PACKAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXConnectorServerFactory, PROTOCOL_PROVIDER_DEFAULT_PACKAGE)},
+		{"logger", "Lcom/sun/jmx/remote/util/ClassLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXConnectorServerFactory, logger)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(JMXConnectorServerFactory, init$, void)},
+		{"getConnectorServerAsService", "(Ljava/lang/ClassLoader;Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;Ljavax/management/MBeanServer;Ljava/util/function/Predicate;)Ljavax/management/remote/JMXConnectorServer;", "(Ljava/lang/ClassLoader;Ljavax/management/remote/JMXServiceURL;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/management/MBeanServer;Ljava/util/function/Predicate<Ljava/util/ServiceLoader$Provider<*>;>;)Ljavax/management/remote/JMXConnectorServer;", $PRIVATE | $STATIC, $staticMethod(JMXConnectorServerFactory, getConnectorServerAsService, $JMXConnectorServer*, $ClassLoader*, $JMXServiceURL*, $Map*, $MBeanServer*, $Predicate*), "java.io.IOException"},
+		{"lambda$getConnectorServerAsService$0", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;Ljavax/management/MBeanServer;Ljavax/management/remote/JMXConnectorServerProvider;)Ljavax/management/remote/JMXConnectorServer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JMXConnectorServerFactory, lambda$getConnectorServerAsService$0, $JMXConnectorServer*, $JMXServiceURL*, $Map*, $MBeanServer*, $JMXConnectorServerProvider*), "java.lang.Exception"},
+		{"newJMXConnectorServer", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;Ljavax/management/MBeanServer;)Ljavax/management/remote/JMXConnectorServer;", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/management/MBeanServer;)Ljavax/management/remote/JMXConnectorServer;", $PUBLIC | $STATIC, $staticMethod(JMXConnectorServerFactory, newJMXConnectorServer, $JMXConnectorServer*, $JMXServiceURL*, $Map*, $MBeanServer*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.remote.JMXConnectorServerFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JMXConnectorServerFactory, name, initialize, &classInfo$$, JMXConnectorServerFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JMXConnectorServerFactory);
+	});
 	return class$;
 }
 

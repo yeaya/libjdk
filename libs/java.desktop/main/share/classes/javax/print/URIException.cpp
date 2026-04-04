@@ -1,5 +1,4 @@
 #include <javax/print/URIException.h>
-
 #include <java/net/URI.h>
 #include <jcpp.h>
 
@@ -11,34 +10,29 @@ using $URI = ::java::net::URI;
 namespace javax {
 	namespace print {
 
-$FieldInfo _URIException_FieldInfo_[] = {
-	{"URIInaccessible", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(URIException, URIInaccessible)},
-	{"URISchemeNotSupported", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(URIException, URISchemeNotSupported)},
-	{"URIOtherProblem", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(URIException, URIOtherProblem)},
-	{}
-};
-
-$MethodInfo _URIException_MethodInfo_[] = {
-	{"getReason", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(URIException, getReason, int32_t)},
-	{"getUnsupportedURI", "()Ljava/net/URI;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(URIException, getUnsupportedURI, $URI*)},
-	{}
-};
-
-$ClassInfo _URIException_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.print.URIException",
-	nullptr,
-	nullptr,
-	_URIException_FieldInfo_,
-	_URIException_MethodInfo_
-};
-
-$Object* allocate$URIException($Class* clazz) {
-	return $of($alloc(URIException));
-}
-
 $Class* URIException::load$($String* name, bool initialize) {
-	$loadClass(URIException, name, initialize, &_URIException_ClassInfo_, allocate$URIException);
+	$FieldInfo fieldInfos$$[] = {
+		{"URIInaccessible", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(URIException, URIInaccessible)},
+		{"URISchemeNotSupported", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(URIException, URISchemeNotSupported)},
+		{"URIOtherProblem", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(URIException, URIOtherProblem)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"getReason", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(URIException, getReason, int32_t)},
+		{"getUnsupportedURI", "()Ljava/net/URI;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(URIException, getUnsupportedURI, $URI*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.print.URIException",
+		nullptr,
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(URIException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(URIException);
+	});
 	return class$;
 }
 

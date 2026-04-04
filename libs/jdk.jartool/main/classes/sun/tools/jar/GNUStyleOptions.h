@@ -27,6 +27,7 @@ class GNUStyleOptions : public ::java::lang::Object {
 	$class(GNUStyleOptions, 0, ::java::lang::Object)
 public:
 	GNUStyleOptions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::tools::jar::GNUStyleOptions$Option* getOption($String* name);
 	static int32_t parseOptions(::sun::tools::jar::Main* jartool, $StringArray* args);

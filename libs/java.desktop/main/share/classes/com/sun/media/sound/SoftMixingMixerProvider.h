@@ -38,6 +38,7 @@ class SoftMixingMixerProvider : public ::javax::sound::sampled::spi::MixerProvid
 	$class(SoftMixingMixerProvider, 0, ::javax::sound::sampled::spi::MixerProvider)
 public:
 	SoftMixingMixerProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::sound::sampled::Mixer* getMixer(::javax::sound::sampled::Mixer$Info* info) override;
 	virtual $Array<::javax::sound::sampled::Mixer$Info>* getMixerInfo() override;

@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet$RelatedSoundFile.h>
-
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,45 +15,40 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _ExifTIFFTagSet$RelatedSoundFile_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$RelatedSoundFile, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ExifTIFFTagSet$RelatedSoundFile_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.ExifTIFFTagSet$RelatedSoundFile", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "RelatedSoundFile", $STATIC},
-	{}
-};
-
-$ClassInfo _ExifTIFFTagSet$RelatedSoundFile_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet$RelatedSoundFile",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$RelatedSoundFile_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$RelatedSoundFile_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet"
-};
-
-$Object* allocate$ExifTIFFTagSet$RelatedSoundFile($Class* clazz) {
-	return $of($alloc(ExifTIFFTagSet$RelatedSoundFile));
-}
-
 void ExifTIFFTagSet$RelatedSoundFile::init$() {
-	$TIFFTag::init$("RelatedSoundFile"_s, 0x0000A004, $sl(1, $TIFFTag::TIFF_ASCII), 13);
+	$TIFFTag::init$("RelatedSoundFile"_s, 0x0000a004, $sl(1, $TIFFTag::TIFF_ASCII), 13);
 }
 
 ExifTIFFTagSet$RelatedSoundFile::ExifTIFFTagSet$RelatedSoundFile() {
 }
 
 $Class* ExifTIFFTagSet$RelatedSoundFile::load$($String* name, bool initialize) {
-	$loadClass(ExifTIFFTagSet$RelatedSoundFile, name, initialize, &_ExifTIFFTagSet$RelatedSoundFile_ClassInfo_, allocate$ExifTIFFTagSet$RelatedSoundFile);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$RelatedSoundFile, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.ExifTIFFTagSet$RelatedSoundFile", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "RelatedSoundFile", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet$RelatedSoundFile",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet"
+	};
+	$loadClass(ExifTIFFTagSet$RelatedSoundFile, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExifTIFFTagSet$RelatedSoundFile);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/GraphicsDevice.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/DisplayMode.h>
@@ -46,65 +45,6 @@ using $SunToolkit = ::sun::awt::SunToolkit;
 namespace java {
 	namespace awt {
 
-$FieldInfo _GraphicsDevice_FieldInfo_[] = {
-	{"fullScreenWindow", "Ljava/awt/Window;", nullptr, $PRIVATE, $field(GraphicsDevice, fullScreenWindow)},
-	{"fullScreenAppContext", "Lsun/awt/AppContext;", nullptr, $PRIVATE, $field(GraphicsDevice, fullScreenAppContext)},
-	{"fsAppContextLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(GraphicsDevice, fsAppContextLock)},
-	{"windowedModeBounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(GraphicsDevice, windowedModeBounds)},
-	{"TYPE_RASTER_SCREEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GraphicsDevice, TYPE_RASTER_SCREEN)},
-	{"TYPE_PRINTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GraphicsDevice, TYPE_PRINTER)},
-	{"TYPE_IMAGE_BUFFER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GraphicsDevice, TYPE_IMAGE_BUFFER)},
-	{}
-};
-
-$MethodInfo _GraphicsDevice_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(GraphicsDevice, init$, void)},
-	{"getAvailableAcceleratedMemory", "()I", nullptr, $PUBLIC, $virtualMethod(GraphicsDevice, getAvailableAcceleratedMemory, int32_t)},
-	{"getBestConfiguration", "(Ljava/awt/GraphicsConfigTemplate;)Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(GraphicsDevice, getBestConfiguration, $GraphicsConfiguration*, $GraphicsConfigTemplate*)},
-	{"getConfigurations", "()[Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsDevice, getConfigurations, $GraphicsConfigurationArray*)},
-	{"getDefaultConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsDevice, getDefaultConfiguration, $GraphicsConfiguration*)},
-	{"getDisplayMode", "()Ljava/awt/DisplayMode;", nullptr, $PUBLIC, $virtualMethod(GraphicsDevice, getDisplayMode, $DisplayMode*)},
-	{"getDisplayModes", "()[Ljava/awt/DisplayMode;", nullptr, $PUBLIC, $virtualMethod(GraphicsDevice, getDisplayModes, $DisplayModeArray*)},
-	{"getFullScreenWindow", "()Ljava/awt/Window;", nullptr, $PUBLIC, $virtualMethod(GraphicsDevice, getFullScreenWindow, $Window*)},
-	{"getIDstring", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsDevice, getIDstring, $String*)},
-	{"getTranslucencyCapableGC", "()Ljava/awt/GraphicsConfiguration;", nullptr, 0, $virtualMethod(GraphicsDevice, getTranslucencyCapableGC, $GraphicsConfiguration*)},
-	{"getType", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsDevice, getType, int32_t)},
-	{"isDisplayChangeSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(GraphicsDevice, isDisplayChangeSupported, bool)},
-	{"isFullScreenSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(GraphicsDevice, isFullScreenSupported, bool)},
-	{"isWindowOpacitySupported", "()Z", nullptr, $STATIC, $staticMethod(GraphicsDevice, isWindowOpacitySupported, bool)},
-	{"isWindowPerpixelTranslucencySupported", "()Z", nullptr, 0, $virtualMethod(GraphicsDevice, isWindowPerpixelTranslucencySupported, bool)},
-	{"isWindowShapingSupported", "()Z", nullptr, $STATIC, $staticMethod(GraphicsDevice, isWindowShapingSupported, bool)},
-	{"isWindowTranslucencySupported", "(Ljava/awt/GraphicsDevice$WindowTranslucency;)Z", nullptr, $PUBLIC, $virtualMethod(GraphicsDevice, isWindowTranslucencySupported, bool, $GraphicsDevice$WindowTranslucency*)},
-	{"setDisplayMode", "(Ljava/awt/DisplayMode;)V", nullptr, $PUBLIC, $virtualMethod(GraphicsDevice, setDisplayMode, void, $DisplayMode*)},
-	{"setFullScreenWindow", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $virtualMethod(GraphicsDevice, setFullScreenWindow, void, $Window*)},
-	{}
-};
-
-$InnerClassInfo _GraphicsDevice_InnerClassesInfo_[] = {
-	{"java.awt.GraphicsDevice$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"java.awt.GraphicsDevice$WindowTranslucency", "java.awt.GraphicsDevice", "WindowTranslucency", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _GraphicsDevice_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.GraphicsDevice",
-	"java.lang.Object",
-	nullptr,
-	_GraphicsDevice_FieldInfo_,
-	_GraphicsDevice_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GraphicsDevice_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.GraphicsDevice$1,java.awt.GraphicsDevice$WindowTranslucency"
-};
-
-$Object* allocate$GraphicsDevice($Class* clazz) {
-	return $of($alloc(GraphicsDevice));
-}
-
 void GraphicsDevice::init$() {
 	$set(this, fsAppContextLock, $new($Object));
 }
@@ -119,7 +59,7 @@ bool GraphicsDevice::isFullScreenSupported() {
 }
 
 void GraphicsDevice::setFullScreenWindow($Window* w) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (w != nullptr) {
 		if (w->getShape() != nullptr) {
 			w->setShape(nullptr);
@@ -136,18 +76,18 @@ void GraphicsDevice::setFullScreenWindow($Window* w) {
 		}
 		$var($GraphicsConfiguration, gc, w->getGraphicsConfiguration());
 		bool var$2 = gc != nullptr && gc->getDevice() != this;
-		if (var$2 && $nc($(gc->getDevice()))->getFullScreenWindow() == w) {
-			$nc($(gc->getDevice()))->setFullScreenWindow(nullptr);
+		if (var$2 && $$nc(gc->getDevice())->getFullScreenWindow() == w) {
+			$$nc(gc->getDevice())->setFullScreenWindow(nullptr);
 		}
 	}
 	if (this->fullScreenWindow != nullptr && this->windowedModeBounds != nullptr) {
-		if ($nc(this->windowedModeBounds)->width == 0) {
-			$nc(this->windowedModeBounds)->width = 1;
+		if (this->windowedModeBounds->width == 0) {
+			this->windowedModeBounds->width = 1;
 		}
-		if ($nc(this->windowedModeBounds)->height == 0) {
-			$nc(this->windowedModeBounds)->height = 1;
+		if (this->windowedModeBounds->height == 0) {
+			this->windowedModeBounds->height = 1;
 		}
-		$nc(this->fullScreenWindow)->setBounds(this->windowedModeBounds);
+		this->fullScreenWindow->setBounds(this->windowedModeBounds);
 	}
 	$synchronized(this->fsAppContextLock) {
 		if (w == nullptr) {
@@ -158,13 +98,13 @@ void GraphicsDevice::setFullScreenWindow($Window* w) {
 		$set(this, fullScreenWindow, w);
 	}
 	if (this->fullScreenWindow != nullptr) {
-		$set(this, windowedModeBounds, $nc(this->fullScreenWindow)->getBounds());
+		$set(this, windowedModeBounds, this->fullScreenWindow->getBounds());
 		$var($GraphicsConfiguration, gc, getDefaultConfiguration());
 		$var($Rectangle, screenBounds, $nc(gc)->getBounds());
 		if ($SunToolkit::isDispatchThreadForAppContext(this->fullScreenWindow)) {
 			$nc(this->fullScreenWindow)->setGraphicsConfiguration(gc);
 		}
-		$nc(this->fullScreenWindow)->setBounds($nc(screenBounds)->x, screenBounds->y, screenBounds->width, screenBounds->height);
+		$nc(this->fullScreenWindow)->setBounds($nc(screenBounds)->x, $nc(screenBounds)->y, $nc(screenBounds)->width, $nc(screenBounds)->height);
 		$nc(this->fullScreenWindow)->setVisible(true);
 		$nc(this->fullScreenWindow)->toFront();
 	}
@@ -189,11 +129,11 @@ void GraphicsDevice::setDisplayMode($DisplayMode* dm) {
 }
 
 $DisplayMode* GraphicsDevice::getDisplayMode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GraphicsConfiguration, gc, getDefaultConfiguration());
 	$var($Rectangle, r, $nc(gc)->getBounds());
 	$var($ColorModel, cm, gc->getColorModel());
-	return $new($DisplayMode, $nc(r)->width, r->height, $nc(cm)->getPixelSize(), 0);
+	return $new($DisplayMode, $nc(r)->width, $nc(r)->height, $nc(cm)->getPixelSize(), 0);
 }
 
 $DisplayModeArray* GraphicsDevice::getDisplayModes() {
@@ -208,17 +148,11 @@ bool GraphicsDevice::isWindowTranslucencySupported($GraphicsDevice$WindowTranslu
 	$init($GraphicsDevice$1);
 	switch ($nc($GraphicsDevice$1::$SwitchMap$java$awt$GraphicsDevice$WindowTranslucency)->get($nc((translucencyKind))->ordinal())) {
 	case 1:
-		{
-			return isWindowShapingSupported();
-		}
+		return isWindowShapingSupported();
 	case 2:
-		{
-			return isWindowOpacitySupported();
-		}
+		return isWindowOpacitySupported();
 	case 3:
-		{
-			return isWindowPerpixelTranslucencySupported();
-		}
+		return isWindowPerpixelTranslucencySupported();
 	}
 	return false;
 }
@@ -228,7 +162,7 @@ bool GraphicsDevice::isWindowShapingSupported() {
 	if (!($instanceOf($SunToolkit, curToolkit))) {
 		return false;
 	}
-	return $nc(($cast($SunToolkit, curToolkit)))->isWindowShapingSupported();
+	return $nc($cast($SunToolkit, curToolkit))->isWindowShapingSupported();
 }
 
 bool GraphicsDevice::isWindowOpacitySupported() {
@@ -236,7 +170,7 @@ bool GraphicsDevice::isWindowOpacitySupported() {
 	if (!($instanceOf($SunToolkit, curToolkit))) {
 		return false;
 	}
-	return $nc(($cast($SunToolkit, curToolkit)))->isWindowOpacitySupported();
+	return $nc($cast($SunToolkit, curToolkit))->isWindowOpacitySupported();
 }
 
 bool GraphicsDevice::isWindowPerpixelTranslucencySupported() {
@@ -244,14 +178,14 @@ bool GraphicsDevice::isWindowPerpixelTranslucencySupported() {
 	if (!($instanceOf($SunToolkit, curToolkit))) {
 		return false;
 	}
-	if (!$nc(($cast($SunToolkit, curToolkit)))->isWindowTranslucencySupported()) {
+	if (!$nc($cast($SunToolkit, curToolkit))->isWindowTranslucencySupported()) {
 		return false;
 	}
 	return getTranslucencyCapableGC() != nullptr;
 }
 
 $GraphicsConfiguration* GraphicsDevice::getTranslucencyCapableGC() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GraphicsConfiguration, defaultGC, getDefaultConfiguration());
 	if ($nc(defaultGC)->isTranslucencyCapable()) {
 		return defaultGC;
@@ -269,7 +203,60 @@ GraphicsDevice::GraphicsDevice() {
 }
 
 $Class* GraphicsDevice::load$($String* name, bool initialize) {
-	$loadClass(GraphicsDevice, name, initialize, &_GraphicsDevice_ClassInfo_, allocate$GraphicsDevice);
+	$FieldInfo fieldInfos$$[] = {
+		{"fullScreenWindow", "Ljava/awt/Window;", nullptr, $PRIVATE, $field(GraphicsDevice, fullScreenWindow)},
+		{"fullScreenAppContext", "Lsun/awt/AppContext;", nullptr, $PRIVATE, $field(GraphicsDevice, fullScreenAppContext)},
+		{"fsAppContextLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(GraphicsDevice, fsAppContextLock)},
+		{"windowedModeBounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(GraphicsDevice, windowedModeBounds)},
+		{"TYPE_RASTER_SCREEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GraphicsDevice, TYPE_RASTER_SCREEN)},
+		{"TYPE_PRINTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GraphicsDevice, TYPE_PRINTER)},
+		{"TYPE_IMAGE_BUFFER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GraphicsDevice, TYPE_IMAGE_BUFFER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(GraphicsDevice, init$, void)},
+		{"getAvailableAcceleratedMemory", "()I", nullptr, $PUBLIC, $virtualMethod(GraphicsDevice, getAvailableAcceleratedMemory, int32_t)},
+		{"getBestConfiguration", "(Ljava/awt/GraphicsConfigTemplate;)Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(GraphicsDevice, getBestConfiguration, $GraphicsConfiguration*, $GraphicsConfigTemplate*)},
+		{"getConfigurations", "()[Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsDevice, getConfigurations, $GraphicsConfigurationArray*)},
+		{"getDefaultConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsDevice, getDefaultConfiguration, $GraphicsConfiguration*)},
+		{"getDisplayMode", "()Ljava/awt/DisplayMode;", nullptr, $PUBLIC, $virtualMethod(GraphicsDevice, getDisplayMode, $DisplayMode*)},
+		{"getDisplayModes", "()[Ljava/awt/DisplayMode;", nullptr, $PUBLIC, $virtualMethod(GraphicsDevice, getDisplayModes, $DisplayModeArray*)},
+		{"getFullScreenWindow", "()Ljava/awt/Window;", nullptr, $PUBLIC, $virtualMethod(GraphicsDevice, getFullScreenWindow, $Window*)},
+		{"getIDstring", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsDevice, getIDstring, $String*)},
+		{"getTranslucencyCapableGC", "()Ljava/awt/GraphicsConfiguration;", nullptr, 0, $virtualMethod(GraphicsDevice, getTranslucencyCapableGC, $GraphicsConfiguration*)},
+		{"getType", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsDevice, getType, int32_t)},
+		{"isDisplayChangeSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(GraphicsDevice, isDisplayChangeSupported, bool)},
+		{"isFullScreenSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(GraphicsDevice, isFullScreenSupported, bool)},
+		{"isWindowOpacitySupported", "()Z", nullptr, $STATIC, $staticMethod(GraphicsDevice, isWindowOpacitySupported, bool)},
+		{"isWindowPerpixelTranslucencySupported", "()Z", nullptr, 0, $virtualMethod(GraphicsDevice, isWindowPerpixelTranslucencySupported, bool)},
+		{"isWindowShapingSupported", "()Z", nullptr, $STATIC, $staticMethod(GraphicsDevice, isWindowShapingSupported, bool)},
+		{"isWindowTranslucencySupported", "(Ljava/awt/GraphicsDevice$WindowTranslucency;)Z", nullptr, $PUBLIC, $virtualMethod(GraphicsDevice, isWindowTranslucencySupported, bool, $GraphicsDevice$WindowTranslucency*)},
+		{"setDisplayMode", "(Ljava/awt/DisplayMode;)V", nullptr, $PUBLIC, $virtualMethod(GraphicsDevice, setDisplayMode, void, $DisplayMode*)},
+		{"setFullScreenWindow", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $virtualMethod(GraphicsDevice, setFullScreenWindow, void, $Window*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.GraphicsDevice$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"java.awt.GraphicsDevice$WindowTranslucency", "java.awt.GraphicsDevice", "WindowTranslucency", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.GraphicsDevice",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.GraphicsDevice$1,java.awt.GraphicsDevice$WindowTranslucency"
+	};
+	$loadClass(GraphicsDevice, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GraphicsDevice);
+	});
 	return class$;
 }
 

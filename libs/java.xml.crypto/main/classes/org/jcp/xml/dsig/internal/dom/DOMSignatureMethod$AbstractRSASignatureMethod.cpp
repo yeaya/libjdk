@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod$AbstractRSASignatureMethod.h>
-
 #include <java/security/Key.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod.h>
@@ -21,39 +20,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$MethodInfo _DOMSignatureMethod$AbstractRSASignatureMethod_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMSignatureMethod$AbstractRSASignatureMethod, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMSignatureMethod$AbstractRSASignatureMethod, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
-	{"postSignFormat", "(Ljava/security/Key;[B)[B", nullptr, 0, $virtualMethod(DOMSignatureMethod$AbstractRSASignatureMethod, postSignFormat, $bytes*, $Key*, $bytes*)},
-	{"preVerifyFormat", "(Ljava/security/Key;[B)[B", nullptr, 0, $virtualMethod(DOMSignatureMethod$AbstractRSASignatureMethod, preVerifyFormat, $bytes*, $Key*, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _DOMSignatureMethod$AbstractRSASignatureMethod_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractRSASignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractRSASignatureMethod", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DOMSignatureMethod$AbstractRSASignatureMethod_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractRSASignatureMethod",
-	"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod",
-	nullptr,
-	nullptr,
-	_DOMSignatureMethod$AbstractRSASignatureMethod_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DOMSignatureMethod$AbstractRSASignatureMethod_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod"
-};
-
-$Object* allocate$DOMSignatureMethod$AbstractRSASignatureMethod($Class* clazz) {
-	return $of($alloc(DOMSignatureMethod$AbstractRSASignatureMethod));
-}
-
 void DOMSignatureMethod$AbstractRSASignatureMethod::init$($AlgorithmParameterSpec* params) {
 	$DOMSignatureMethod::init$(params);
 }
@@ -74,7 +40,35 @@ DOMSignatureMethod$AbstractRSASignatureMethod::DOMSignatureMethod$AbstractRSASig
 }
 
 $Class* DOMSignatureMethod$AbstractRSASignatureMethod::load$($String* name, bool initialize) {
-	$loadClass(DOMSignatureMethod$AbstractRSASignatureMethod, name, initialize, &_DOMSignatureMethod$AbstractRSASignatureMethod_ClassInfo_, allocate$DOMSignatureMethod$AbstractRSASignatureMethod);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMSignatureMethod$AbstractRSASignatureMethod, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMSignatureMethod$AbstractRSASignatureMethod, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+		{"postSignFormat", "(Ljava/security/Key;[B)[B", nullptr, 0, $virtualMethod(DOMSignatureMethod$AbstractRSASignatureMethod, postSignFormat, $bytes*, $Key*, $bytes*)},
+		{"preVerifyFormat", "(Ljava/security/Key;[B)[B", nullptr, 0, $virtualMethod(DOMSignatureMethod$AbstractRSASignatureMethod, preVerifyFormat, $bytes*, $Key*, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractRSASignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractRSASignatureMethod", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractRSASignatureMethod",
+		"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod"
+	};
+	$loadClass(DOMSignatureMethod$AbstractRSASignatureMethod, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMSignatureMethod$AbstractRSASignatureMethod));
+	});
 	return class$;
 }
 

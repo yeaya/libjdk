@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalFileChooserUI$1.h>
-
 #include <java/awt/Dimension.h>
 #include <javax/swing/JComboBox.h>
 #include <javax/swing/JComponent.h>
@@ -20,48 +19,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalFileChooserUI$1_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/metal/MetalFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalFileChooserUI$1, this$0)},
-	{}
-};
-
-$MethodInfo _MetalFileChooserUI$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;)V", nullptr, 0, $method(MetalFileChooserUI$1, init$, void, $MetalFileChooserUI*)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$1, getPreferredSize, $Dimension*)},
-	{}
-};
-
-$EnclosingMethodInfo _MetalFileChooserUI$1_EnclosingMethodInfo_ = {
-	"javax.swing.plaf.metal.MetalFileChooserUI",
-	"installComponents",
-	"(Ljavax/swing/JFileChooser;)V"
-};
-
-$InnerClassInfo _MetalFileChooserUI$1_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalFileChooserUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MetalFileChooserUI$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalFileChooserUI$1",
-	"javax.swing.JComboBox",
-	nullptr,
-	_MetalFileChooserUI$1_FieldInfo_,
-	_MetalFileChooserUI$1_MethodInfo_,
-	"Ljavax/swing/JComboBox<Ljava/lang/Object;>;",
-	&_MetalFileChooserUI$1_EnclosingMethodInfo_,
-	_MetalFileChooserUI$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalFileChooserUI"
-};
-
-$Object* allocate$MetalFileChooserUI$1($Class* clazz) {
-	return $of($alloc(MetalFileChooserUI$1));
-}
-
 void MetalFileChooserUI$1::init$($MetalFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
 	$JComboBox::init$();
@@ -77,7 +34,42 @@ MetalFileChooserUI$1::MetalFileChooserUI$1() {
 }
 
 $Class* MetalFileChooserUI$1::load$($String* name, bool initialize) {
-	$loadClass(MetalFileChooserUI$1, name, initialize, &_MetalFileChooserUI$1_ClassInfo_, allocate$MetalFileChooserUI$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/metal/MetalFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalFileChooserUI$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;)V", nullptr, 0, $method(MetalFileChooserUI$1, init$, void, $MetalFileChooserUI*)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$1, getPreferredSize, $Dimension*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.plaf.metal.MetalFileChooserUI",
+		"installComponents",
+		"(Ljavax/swing/JFileChooser;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalFileChooserUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalFileChooserUI$1",
+		"javax.swing.JComboBox",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljavax/swing/JComboBox<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalFileChooserUI"
+	};
+	$loadClass(MetalFileChooserUI$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalFileChooserUI$1));
+	});
 	return class$;
 }
 

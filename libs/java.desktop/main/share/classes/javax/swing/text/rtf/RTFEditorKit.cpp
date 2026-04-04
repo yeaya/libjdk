@@ -1,5 +1,4 @@
 #include <javax/swing/text/rtf/RTFEditorKit.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -31,29 +30,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace rtf {
-
-$MethodInfo _RTFEditorKit_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RTFEditorKit, init$, void)},
-	{"getContentType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RTFEditorKit, getContentType, $String*)},
-	{"read", "(Ljava/io/InputStream;Ljavax/swing/text/Document;I)V", nullptr, $PUBLIC, $virtualMethod(RTFEditorKit, read, void, $InputStream*, $Document*, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
-	{"read", "(Ljava/io/Reader;Ljavax/swing/text/Document;I)V", nullptr, $PUBLIC, $virtualMethod(RTFEditorKit, read, void, $Reader*, $Document*, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
-	{"write", "(Ljava/io/OutputStream;Ljavax/swing/text/Document;II)V", nullptr, $PUBLIC, $virtualMethod(RTFEditorKit, write, void, $OutputStream*, $Document*, int32_t, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
-	{"write", "(Ljava/io/Writer;Ljavax/swing/text/Document;II)V", nullptr, $PUBLIC, $virtualMethod(RTFEditorKit, write, void, $Writer*, $Document*, int32_t, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
-	{}
-};
-
-$ClassInfo _RTFEditorKit_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.rtf.RTFEditorKit",
-	"javax.swing.text.StyledEditorKit",
-	nullptr,
-	nullptr,
-	_RTFEditorKit_MethodInfo_
-};
-
-$Object* allocate$RTFEditorKit($Class* clazz) {
-	return $of($alloc(RTFEditorKit));
-}
 
 void RTFEditorKit::init$() {
 	$StyledEditorKit::init$();
@@ -95,7 +71,26 @@ RTFEditorKit::RTFEditorKit() {
 }
 
 $Class* RTFEditorKit::load$($String* name, bool initialize) {
-	$loadClass(RTFEditorKit, name, initialize, &_RTFEditorKit_ClassInfo_, allocate$RTFEditorKit);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RTFEditorKit, init$, void)},
+		{"getContentType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RTFEditorKit, getContentType, $String*)},
+		{"read", "(Ljava/io/InputStream;Ljavax/swing/text/Document;I)V", nullptr, $PUBLIC, $virtualMethod(RTFEditorKit, read, void, $InputStream*, $Document*, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
+		{"read", "(Ljava/io/Reader;Ljavax/swing/text/Document;I)V", nullptr, $PUBLIC, $virtualMethod(RTFEditorKit, read, void, $Reader*, $Document*, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
+		{"write", "(Ljava/io/OutputStream;Ljavax/swing/text/Document;II)V", nullptr, $PUBLIC, $virtualMethod(RTFEditorKit, write, void, $OutputStream*, $Document*, int32_t, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
+		{"write", "(Ljava/io/Writer;Ljavax/swing/text/Document;II)V", nullptr, $PUBLIC, $virtualMethod(RTFEditorKit, write, void, $Writer*, $Document*, int32_t, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.rtf.RTFEditorKit",
+		"javax.swing.text.StyledEditorKit",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RTFEditorKit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RTFEditorKit));
+	});
 	return class$;
 }
 

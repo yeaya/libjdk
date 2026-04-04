@@ -110,6 +110,7 @@ public:
 	virtual bool isEqualNode(::org::w3c::dom::Node* arg) override;
 	virtual bool isSameNode(::org::w3c::dom::Node* other) override;
 	virtual bool isSupported($String* feature, $String* version) override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(bool namespacesEnabled);
 	void init$(bool namespaces, bool grammarAccess);
@@ -203,7 +204,7 @@ public:
 	void synchronizeChildren(::com::sun::org::apache::xerces::internal::dom::ParentNode* p, int32_t nodeIndex);
 	virtual void synchronizeData() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x47F985D180D03DE9;
+	static const int64_t serialVersionUID = (int64_t)0x47f985d180d03de9;
 	static const bool DEBUG_PRINT_REF_COUNTS = false;
 	static const bool DEBUG_PRINT_TABLES = false;
 	static const bool DEBUG_IDS = false;

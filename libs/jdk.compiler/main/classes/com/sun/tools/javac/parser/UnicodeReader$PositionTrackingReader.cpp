@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/UnicodeReader$PositionTrackingReader.h>
-
 #include <com/sun/tools/javac/parser/ScannerFactory.h>
 #include <com/sun/tools/javac/parser/UnicodeReader.h>
 #include <com/sun/tools/javac/util/LayoutCharacters.h>
@@ -18,45 +17,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace parser {
-
-$FieldInfo _UnicodeReader$PositionTrackingReader_FieldInfo_[] = {
-	{"offset", "I", nullptr, $PRIVATE | $FINAL, $field(UnicodeReader$PositionTrackingReader, offset)},
-	{"column", "I", nullptr, $PRIVATE, $field(UnicodeReader$PositionTrackingReader, column$)},
-	{}
-};
-
-$MethodInfo _UnicodeReader$PositionTrackingReader_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;[CI)V", nullptr, $PROTECTED, $method(UnicodeReader$PositionTrackingReader, init$, void, $ScannerFactory*, $chars*, int32_t)},
-	{"column", "()I", nullptr, $PROTECTED, $virtualMethod(UnicodeReader$PositionTrackingReader, column, int32_t)},
-	{"next", "()C", nullptr, $PROTECTED, $virtualMethod(UnicodeReader$PositionTrackingReader, next, char16_t)},
-	{"offsetPosition", "()I", nullptr, $PROTECTED, $virtualMethod(UnicodeReader$PositionTrackingReader, offsetPosition, int32_t)},
-	{}
-};
-
-$InnerClassInfo _UnicodeReader$PositionTrackingReader_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.UnicodeReader$PositionTrackingReader", "com.sun.tools.javac.parser.UnicodeReader", "PositionTrackingReader", $STATIC},
-	{}
-};
-
-$ClassInfo _UnicodeReader$PositionTrackingReader_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.parser.UnicodeReader$PositionTrackingReader",
-	"com.sun.tools.javac.parser.UnicodeReader",
-	nullptr,
-	_UnicodeReader$PositionTrackingReader_FieldInfo_,
-	_UnicodeReader$PositionTrackingReader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UnicodeReader$PositionTrackingReader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.UnicodeReader"
-};
-
-$Object* allocate$UnicodeReader$PositionTrackingReader($Class* clazz) {
-	return $of($alloc(UnicodeReader$PositionTrackingReader));
-}
 
 void UnicodeReader$PositionTrackingReader::init$($ScannerFactory* sf, $chars* array, int32_t offset) {
 	$UnicodeReader::init$(sf, array, $nc(array)->length);
@@ -88,7 +48,40 @@ UnicodeReader$PositionTrackingReader::UnicodeReader$PositionTrackingReader() {
 }
 
 $Class* UnicodeReader$PositionTrackingReader::load$($String* name, bool initialize) {
-	$loadClass(UnicodeReader$PositionTrackingReader, name, initialize, &_UnicodeReader$PositionTrackingReader_ClassInfo_, allocate$UnicodeReader$PositionTrackingReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"offset", "I", nullptr, $PRIVATE | $FINAL, $field(UnicodeReader$PositionTrackingReader, offset)},
+		{"column", "I", nullptr, $PRIVATE, $field(UnicodeReader$PositionTrackingReader, column$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;[CI)V", nullptr, $PROTECTED, $method(UnicodeReader$PositionTrackingReader, init$, void, $ScannerFactory*, $chars*, int32_t)},
+		{"column", "()I", nullptr, $PROTECTED, $virtualMethod(UnicodeReader$PositionTrackingReader, column, int32_t)},
+		{"next", "()C", nullptr, $PROTECTED, $virtualMethod(UnicodeReader$PositionTrackingReader, next, char16_t)},
+		{"offsetPosition", "()I", nullptr, $PROTECTED, $virtualMethod(UnicodeReader$PositionTrackingReader, offsetPosition, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.UnicodeReader$PositionTrackingReader", "com.sun.tools.javac.parser.UnicodeReader", "PositionTrackingReader", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.parser.UnicodeReader$PositionTrackingReader",
+		"com.sun.tools.javac.parser.UnicodeReader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.UnicodeReader"
+	};
+	$loadClass(UnicodeReader$PositionTrackingReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnicodeReader$PositionTrackingReader);
+	});
 	return class$;
 }
 

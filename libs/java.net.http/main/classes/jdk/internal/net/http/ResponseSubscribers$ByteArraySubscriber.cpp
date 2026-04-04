@@ -1,9 +1,7 @@
 #include <jdk/internal/net/http/ResponseSubscribers$ByteArraySubscriber.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <java/util/concurrent/CompletableFuture.h>
@@ -27,10 +25,8 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $CompletionStage = ::java::util::concurrent::CompletionStage;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $Function = ::java::util::function::Function;
@@ -42,53 +38,6 @@ namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$FieldInfo _ResponseSubscribers$ByteArraySubscriber_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ResponseSubscribers$ByteArraySubscriber, $assertionsDisabled)},
-	{"finisher", "Ljava/util/function/Function;", "Ljava/util/function/Function<[BTT;>;", $PRIVATE | $FINAL, $field(ResponseSubscribers$ByteArraySubscriber, finisher)},
-	{"result", "Ljava/util/concurrent/CompletableFuture;", "Ljava/util/concurrent/CompletableFuture<TT;>;", $PRIVATE | $FINAL, $field(ResponseSubscribers$ByteArraySubscriber, result)},
-	{"received", "Ljava/util/List;", "Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE | $FINAL, $field(ResponseSubscribers$ByteArraySubscriber, received)},
-	{"subscription", "Ljava/util/concurrent/Flow$Subscription;", nullptr, $PRIVATE | $VOLATILE, $field(ResponseSubscribers$ByteArraySubscriber, subscription)},
-	{}
-};
-
-$MethodInfo _ResponseSubscribers$ByteArraySubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/Function;)V", "(Ljava/util/function/Function<[BTT;>;)V", $PUBLIC, $method(ResponseSubscribers$ByteArraySubscriber, init$, void, $Function*)},
-	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<TT;>;", $PUBLIC, $virtualMethod(ResponseSubscribers$ByteArraySubscriber, getBody, $CompletionStage*)},
-	{"join", "(Ljava/util/List;)[B", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)[B", $PRIVATE | $STATIC, $staticMethod(ResponseSubscribers$ByteArraySubscriber, join, $bytes*, $List*)},
-	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$ByteArraySubscriber, onComplete, void)},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$ByteArraySubscriber, onError, void, $Throwable*)},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(ResponseSubscribers$ByteArraySubscriber, onNext, void, $List*)},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseSubscribers$ByteArraySubscriber, onNext, void, Object$*)},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$ByteArraySubscriber, onSubscribe, void, $Flow$Subscription*)},
-	{}
-};
-
-$InnerClassInfo _ResponseSubscribers$ByteArraySubscriber_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.ResponseSubscribers$ByteArraySubscriber", "jdk.internal.net.http.ResponseSubscribers", "ByteArraySubscriber", $PUBLIC | $STATIC},
-	{"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber", "jdk.internal.net.http.ResponseSubscribers", "TrustedSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ResponseSubscribers$ByteArraySubscriber_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.ResponseSubscribers$ByteArraySubscriber",
-	"java.lang.Object",
-	"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber",
-	_ResponseSubscribers$ByteArraySubscriber_FieldInfo_,
-	_ResponseSubscribers$ByteArraySubscriber_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljdk/internal/net/http/ResponseSubscribers$TrustedSubscriber<TT;>;",
-	nullptr,
-	_ResponseSubscribers$ByteArraySubscriber_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.ResponseSubscribers"
-};
-
-$Object* allocate$ResponseSubscribers$ByteArraySubscriber($Class* clazz) {
-	return $of($alloc(ResponseSubscribers$ByteArraySubscriber));
-}
 
 bool ResponseSubscribers$ByteArraySubscriber::$assertionsDisabled = false;
 
@@ -111,17 +60,17 @@ void ResponseSubscribers$ByteArraySubscriber::onNext($List* items) {
 	if (!ResponseSubscribers$ByteArraySubscriber::$assertionsDisabled && !$Utils::hasRemaining(items)) {
 		$throwNew($AssertionError);
 	}
-	$nc(this->received)->addAll(items);
+	this->received->addAll(items);
 }
 
 void ResponseSubscribers$ByteArraySubscriber::onError($Throwable* throwable) {
-	$nc(this->received)->clear();
-	$nc(this->result)->completeExceptionally(throwable);
+	this->received->clear();
+	this->result->completeExceptionally(throwable);
 }
 
 $bytes* ResponseSubscribers$ByteArraySubscriber::join($List* bytes) {
 	$init(ResponseSubscribers$ByteArraySubscriber);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = $Utils::remaining(bytes, $Integer::MAX_VALUE);
 	$var($bytes, res, $new($bytes, size));
 	int32_t from = 0;
@@ -140,12 +89,12 @@ $bytes* ResponseSubscribers$ByteArraySubscriber::join($List* bytes) {
 }
 
 void ResponseSubscribers$ByteArraySubscriber::onComplete() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$nc(this->result)->complete($($nc(this->finisher)->apply($(join(this->received)))));
-		$nc(this->received)->clear();
+		this->result->complete($($nc(this->finisher)->apply($(join(this->received)))));
+		this->received->clear();
 	} catch ($IllegalArgumentException& e) {
-		$nc(this->result)->completeExceptionally(e);
+		this->result->completeExceptionally(e);
 	}
 }
 
@@ -157,7 +106,7 @@ void ResponseSubscribers$ByteArraySubscriber::onNext(Object$* items) {
 	this->onNext($cast($List, items));
 }
 
-void clinit$ResponseSubscribers$ByteArraySubscriber($Class* class$) {
+void ResponseSubscribers$ByteArraySubscriber::clinit$($Class* clazz) {
 	$load($ResponseSubscribers);
 	ResponseSubscribers$ByteArraySubscriber::$assertionsDisabled = !$ResponseSubscribers::class$->desiredAssertionStatus();
 }
@@ -166,7 +115,48 @@ ResponseSubscribers$ByteArraySubscriber::ResponseSubscribers$ByteArraySubscriber
 }
 
 $Class* ResponseSubscribers$ByteArraySubscriber::load$($String* name, bool initialize) {
-	$loadClass(ResponseSubscribers$ByteArraySubscriber, name, initialize, &_ResponseSubscribers$ByteArraySubscriber_ClassInfo_, clinit$ResponseSubscribers$ByteArraySubscriber, allocate$ResponseSubscribers$ByteArraySubscriber);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ResponseSubscribers$ByteArraySubscriber, $assertionsDisabled)},
+		{"finisher", "Ljava/util/function/Function;", "Ljava/util/function/Function<[BTT;>;", $PRIVATE | $FINAL, $field(ResponseSubscribers$ByteArraySubscriber, finisher)},
+		{"result", "Ljava/util/concurrent/CompletableFuture;", "Ljava/util/concurrent/CompletableFuture<TT;>;", $PRIVATE | $FINAL, $field(ResponseSubscribers$ByteArraySubscriber, result)},
+		{"received", "Ljava/util/List;", "Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE | $FINAL, $field(ResponseSubscribers$ByteArraySubscriber, received)},
+		{"subscription", "Ljava/util/concurrent/Flow$Subscription;", nullptr, $PRIVATE | $VOLATILE, $field(ResponseSubscribers$ByteArraySubscriber, subscription)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/Function;)V", "(Ljava/util/function/Function<[BTT;>;)V", $PUBLIC, $method(ResponseSubscribers$ByteArraySubscriber, init$, void, $Function*)},
+		{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<TT;>;", $PUBLIC, $virtualMethod(ResponseSubscribers$ByteArraySubscriber, getBody, $CompletionStage*)},
+		{"join", "(Ljava/util/List;)[B", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)[B", $PRIVATE | $STATIC, $staticMethod(ResponseSubscribers$ByteArraySubscriber, join, $bytes*, $List*)},
+		{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$ByteArraySubscriber, onComplete, void)},
+		{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$ByteArraySubscriber, onError, void, $Throwable*)},
+		{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(ResponseSubscribers$ByteArraySubscriber, onNext, void, $List*)},
+		{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseSubscribers$ByteArraySubscriber, onNext, void, Object$*)},
+		{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$ByteArraySubscriber, onSubscribe, void, $Flow$Subscription*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.ResponseSubscribers$ByteArraySubscriber", "jdk.internal.net.http.ResponseSubscribers", "ByteArraySubscriber", $PUBLIC | $STATIC},
+		{"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber", "jdk.internal.net.http.ResponseSubscribers", "TrustedSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.ResponseSubscribers$ByteArraySubscriber",
+		"java.lang.Object",
+		"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljdk/internal/net/http/ResponseSubscribers$TrustedSubscriber<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.ResponseSubscribers"
+	};
+	$loadClass(ResponseSubscribers$ByteArraySubscriber, name, initialize, &classInfo$$, ResponseSubscribers$ByteArraySubscriber::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseSubscribers$ByteArraySubscriber);
+	});
 	return class$;
 }
 

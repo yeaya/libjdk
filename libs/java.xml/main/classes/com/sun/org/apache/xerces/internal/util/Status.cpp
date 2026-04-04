@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/Status.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -23,43 +22,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace util {
-
-$FieldInfo _Status_FieldInfo_[] = {
-	{"SET", "Lcom/sun/org/apache/xerces/internal/util/Status;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Status, SET)},
-	{"UNKNOWN", "Lcom/sun/org/apache/xerces/internal/util/Status;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Status, UNKNOWN)},
-	{"RECOGNIZED", "Lcom/sun/org/apache/xerces/internal/util/Status;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Status, RECOGNIZED)},
-	{"NOT_SUPPORTED", "Lcom/sun/org/apache/xerces/internal/util/Status;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Status, NOT_SUPPORTED)},
-	{"NOT_RECOGNIZED", "Lcom/sun/org/apache/xerces/internal/util/Status;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Status, NOT_RECOGNIZED)},
-	{"NOT_ALLOWED", "Lcom/sun/org/apache/xerces/internal/util/Status;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Status, NOT_ALLOWED)},
-	{"$VALUES", "[Lcom/sun/org/apache/xerces/internal/util/Status;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Status, $VALUES)},
-	{"type", "S", nullptr, $PRIVATE | $FINAL, $field(Status, type)},
-	{"isExceptional", "Z", nullptr, $PRIVATE, $field(Status, isExceptional$)},
-	{}
-};
-
-$MethodInfo _Status_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/org/apache/xerces/internal/util/Status;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Status, $values, $StatusArray*)},
-	{"<init>", "(Ljava/lang/String;ISZ)V", "(SZ)V", $PRIVATE, $method(Status, init$, void, $String*, int32_t, int16_t, bool)},
-	{"getType", "()S", nullptr, $PUBLIC, $method(Status, getType, int16_t)},
-	{"isExceptional", "()Z", nullptr, $PUBLIC, $method(Status, isExceptional, bool)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/Status;", nullptr, $PUBLIC | $STATIC, $staticMethod(Status, valueOf, Status*, $String*)},
-	{"values", "()[Lcom/sun/org/apache/xerces/internal/util/Status;", nullptr, $PUBLIC | $STATIC, $staticMethod(Status, values, $StatusArray*)},
-	{}
-};
-
-$ClassInfo _Status_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.org.apache.xerces.internal.util.Status",
-	"java.lang.Enum",
-	nullptr,
-	_Status_FieldInfo_,
-	_Status_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/org/apache/xerces/internal/util/Status;>;"
-};
-
-$Object* allocate$Status($Class* clazz) {
-	return $of($alloc(Status));
-}
 
 Status* Status::SET = nullptr;
 Status* Status::UNKNOWN = nullptr;
@@ -105,7 +67,7 @@ bool Status::isExceptional() {
 	return this->isExceptional$;
 }
 
-void clinit$Status($Class* class$) {
+void Status::clinit$($Class* clazz) {
 	$assignStatic(Status::SET, $new(Status, "SET"_s, 0, (int16_t)-3, false));
 	$assignStatic(Status::UNKNOWN, $new(Status, "UNKNOWN"_s, 1, (int16_t)-2, false));
 	$assignStatic(Status::RECOGNIZED, $new(Status, "RECOGNIZED"_s, 2, (int16_t)-1, false));
@@ -119,7 +81,39 @@ Status::Status() {
 }
 
 $Class* Status::load$($String* name, bool initialize) {
-	$loadClass(Status, name, initialize, &_Status_ClassInfo_, clinit$Status, allocate$Status);
+	$FieldInfo fieldInfos$$[] = {
+		{"SET", "Lcom/sun/org/apache/xerces/internal/util/Status;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Status, SET)},
+		{"UNKNOWN", "Lcom/sun/org/apache/xerces/internal/util/Status;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Status, UNKNOWN)},
+		{"RECOGNIZED", "Lcom/sun/org/apache/xerces/internal/util/Status;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Status, RECOGNIZED)},
+		{"NOT_SUPPORTED", "Lcom/sun/org/apache/xerces/internal/util/Status;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Status, NOT_SUPPORTED)},
+		{"NOT_RECOGNIZED", "Lcom/sun/org/apache/xerces/internal/util/Status;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Status, NOT_RECOGNIZED)},
+		{"NOT_ALLOWED", "Lcom/sun/org/apache/xerces/internal/util/Status;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Status, NOT_ALLOWED)},
+		{"$VALUES", "[Lcom/sun/org/apache/xerces/internal/util/Status;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Status, $VALUES)},
+		{"type", "S", nullptr, $PRIVATE | $FINAL, $field(Status, type)},
+		{"isExceptional", "Z", nullptr, $PRIVATE, $field(Status, isExceptional$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/org/apache/xerces/internal/util/Status;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Status, $values, $StatusArray*)},
+		{"<init>", "(Ljava/lang/String;ISZ)V", "(SZ)V", $PRIVATE, $method(Status, init$, void, $String*, int32_t, int16_t, bool)},
+		{"getType", "()S", nullptr, $PUBLIC, $method(Status, getType, int16_t)},
+		{"isExceptional", "()Z", nullptr, $PUBLIC, $method(Status, isExceptional, bool)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/Status;", nullptr, $PUBLIC | $STATIC, $staticMethod(Status, valueOf, Status*, $String*)},
+		{"values", "()[Lcom/sun/org/apache/xerces/internal/util/Status;", nullptr, $PUBLIC | $STATIC, $staticMethod(Status, values, $StatusArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.org.apache.xerces.internal.util.Status",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/org/apache/xerces/internal/util/Status;>;"
+	};
+	$loadClass(Status, name, initialize, &classInfo$$, Status::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Status));
+	});
 	return class$;
 }
 

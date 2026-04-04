@@ -1,6 +1,4 @@
 #include <javax/swing/plaf/metal/MetalIconFactory$FolderIcon16.h>
-
-#include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
@@ -19,7 +17,6 @@
 #undef BITMASK
 #undef TYPE_INT_ARGB
 
-using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
@@ -40,52 +37,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$FieldInfo _MetalIconFactory$FolderIcon16_FieldInfo_[] = {
-	{"imageCacher", "Ljavax/swing/plaf/metal/MetalIconFactory$ImageCacher;", nullptr, 0, $field(MetalIconFactory$FolderIcon16, imageCacher)},
-	{}
-};
-
-$MethodInfo _MetalIconFactory$FolderIcon16_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalIconFactory$FolderIcon16, init$, void)},
-	{"getAdditionalHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$FolderIcon16, getAdditionalHeight, int32_t)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$FolderIcon16, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$FolderIcon16, getIconWidth, int32_t)},
-	{"getShift", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$FolderIcon16, getShift, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$FolderIcon16, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"paintMe", "(Ljava/awt/Component;Ljava/awt/Graphics;)V", nullptr, $PRIVATE, $method(MetalIconFactory$FolderIcon16, paintMe, void, $Component*, $Graphics*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MetalIconFactory$FolderIcon16_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalIconFactory$FolderIcon16", "javax.swing.plaf.metal.MetalIconFactory", "FolderIcon16", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalIconFactory$FolderIcon16_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalIconFactory$FolderIcon16",
-	"java.lang.Object",
-	"javax.swing.Icon,java.io.Serializable",
-	_MetalIconFactory$FolderIcon16_FieldInfo_,
-	_MetalIconFactory$FolderIcon16_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalIconFactory$FolderIcon16_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalIconFactory"
-};
-
-$Object* allocate$MetalIconFactory$FolderIcon16($Class* clazz) {
-	return $of($alloc(MetalIconFactory$FolderIcon16));
-}
 
 int32_t MetalIconFactory$FolderIcon16::hashCode() {
 	 return this->$Icon::hashCode();
@@ -111,7 +62,7 @@ void MetalIconFactory$FolderIcon16::init$() {
 }
 
 void MetalIconFactory$FolderIcon16::paintIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GraphicsConfiguration, gc, $nc(c)->getGraphicsConfiguration());
 	if (this->imageCacher == nullptr) {
 		$set(this, imageCacher, $new($MetalIconFactory$ImageCacher));
@@ -134,10 +85,10 @@ void MetalIconFactory$FolderIcon16::paintIcon($Component* c, $Graphics* g, int32
 }
 
 void MetalIconFactory$FolderIcon16::paintMe($Component* c, $Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($MetalIconFactory);
 	int32_t right = $nc($MetalIconFactory::folderIcon16Size)->width - 1;
-	int32_t bottom = $nc($MetalIconFactory::folderIcon16Size)->height - 1;
+	int32_t bottom = $MetalIconFactory::folderIcon16Size->height - 1;
 	$nc(g)->setColor($($MetalLookAndFeel::getPrimaryControlDarkShadow()));
 	g->drawLine(right - 5, 3, right, 3);
 	g->drawLine(right - 6, 4, right, 4);
@@ -179,7 +130,47 @@ MetalIconFactory$FolderIcon16::MetalIconFactory$FolderIcon16() {
 }
 
 $Class* MetalIconFactory$FolderIcon16::load$($String* name, bool initialize) {
-	$loadClass(MetalIconFactory$FolderIcon16, name, initialize, &_MetalIconFactory$FolderIcon16_ClassInfo_, allocate$MetalIconFactory$FolderIcon16);
+	$FieldInfo fieldInfos$$[] = {
+		{"imageCacher", "Ljavax/swing/plaf/metal/MetalIconFactory$ImageCacher;", nullptr, 0, $field(MetalIconFactory$FolderIcon16, imageCacher)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalIconFactory$FolderIcon16, init$, void)},
+		{"getAdditionalHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$FolderIcon16, getAdditionalHeight, int32_t)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$FolderIcon16, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$FolderIcon16, getIconWidth, int32_t)},
+		{"getShift", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$FolderIcon16, getShift, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$FolderIcon16, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"paintMe", "(Ljava/awt/Component;Ljava/awt/Graphics;)V", nullptr, $PRIVATE, $method(MetalIconFactory$FolderIcon16, paintMe, void, $Component*, $Graphics*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalIconFactory$FolderIcon16", "javax.swing.plaf.metal.MetalIconFactory", "FolderIcon16", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalIconFactory$FolderIcon16",
+		"java.lang.Object",
+		"javax.swing.Icon,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalIconFactory"
+	};
+	$loadClass(MetalIconFactory$FolderIcon16, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalIconFactory$FolderIcon16));
+	});
 	return class$;
 }
 

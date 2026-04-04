@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/dom/TreeWalkerImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/dom/DOMMessageFormatter.h>
 #include <org/w3c/dom/DOMException.h>
 #include <org/w3c/dom/Node.h>
@@ -28,55 +27,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace dom {
-
-$FieldInfo _TreeWalkerImpl_FieldInfo_[] = {
-	{"fEntityReferenceExpansion", "Z", nullptr, $PRIVATE, $field(TreeWalkerImpl, fEntityReferenceExpansion)},
-	{"fWhatToShow", "I", nullptr, 0, $field(TreeWalkerImpl, fWhatToShow)},
-	{"fNodeFilter", "Lorg/w3c/dom/traversal/NodeFilter;", nullptr, 0, $field(TreeWalkerImpl, fNodeFilter)},
-	{"fCurrentNode", "Lorg/w3c/dom/Node;", nullptr, 0, $field(TreeWalkerImpl, fCurrentNode)},
-	{"fRoot", "Lorg/w3c/dom/Node;", nullptr, 0, $field(TreeWalkerImpl, fRoot)},
-	{}
-};
-
-$MethodInfo _TreeWalkerImpl_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Node;ILorg/w3c/dom/traversal/NodeFilter;Z)V", nullptr, $PUBLIC, $method(TreeWalkerImpl, init$, void, $Node*, int32_t, $NodeFilter*, bool)},
-	{"acceptNode", "(Lorg/w3c/dom/Node;)S", nullptr, 0, $virtualMethod(TreeWalkerImpl, acceptNode, int16_t, $Node*)},
-	{"firstChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TreeWalkerImpl, firstChild, $Node*)},
-	{"getCurrentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TreeWalkerImpl, getCurrentNode, $Node*)},
-	{"getExpandEntityReferences", "()Z", nullptr, $PUBLIC, $virtualMethod(TreeWalkerImpl, getExpandEntityReferences, bool)},
-	{"getFilter", "()Lorg/w3c/dom/traversal/NodeFilter;", nullptr, $PUBLIC, $virtualMethod(TreeWalkerImpl, getFilter, $NodeFilter*)},
-	{"getFirstChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, 0, $virtualMethod(TreeWalkerImpl, getFirstChild, $Node*, $Node*)},
-	{"getLastChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, 0, $virtualMethod(TreeWalkerImpl, getLastChild, $Node*, $Node*)},
-	{"getNextSibling", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, 0, $virtualMethod(TreeWalkerImpl, getNextSibling, $Node*, $Node*)},
-	{"getNextSibling", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, 0, $virtualMethod(TreeWalkerImpl, getNextSibling, $Node*, $Node*, $Node*)},
-	{"getParentNode", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, 0, $virtualMethod(TreeWalkerImpl, getParentNode, $Node*, $Node*)},
-	{"getPreviousSibling", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, 0, $virtualMethod(TreeWalkerImpl, getPreviousSibling, $Node*, $Node*)},
-	{"getPreviousSibling", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, 0, $virtualMethod(TreeWalkerImpl, getPreviousSibling, $Node*, $Node*, $Node*)},
-	{"getRoot", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TreeWalkerImpl, getRoot, $Node*)},
-	{"getWhatToShow", "()I", nullptr, $PUBLIC, $virtualMethod(TreeWalkerImpl, getWhatToShow, int32_t)},
-	{"lastChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TreeWalkerImpl, lastChild, $Node*)},
-	{"nextNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TreeWalkerImpl, nextNode, $Node*)},
-	{"nextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TreeWalkerImpl, nextSibling, $Node*)},
-	{"parentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TreeWalkerImpl, parentNode, $Node*)},
-	{"previousNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TreeWalkerImpl, previousNode, $Node*)},
-	{"previousSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TreeWalkerImpl, previousSibling, $Node*)},
-	{"setCurrentNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(TreeWalkerImpl, setCurrentNode, void, $Node*)},
-	{"setWhatShow", "(I)V", nullptr, $PUBLIC, $virtualMethod(TreeWalkerImpl, setWhatShow, void, int32_t)},
-	{}
-};
-
-$ClassInfo _TreeWalkerImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.dom.TreeWalkerImpl",
-	"java.lang.Object",
-	"org.w3c.dom.traversal.TreeWalker",
-	_TreeWalkerImpl_FieldInfo_,
-	_TreeWalkerImpl_MethodInfo_
-};
-
-$Object* allocate$TreeWalkerImpl($Class* clazz) {
-	return $of($alloc(TreeWalkerImpl));
-}
 
 void TreeWalkerImpl::init$($Node* root, int32_t whatToShow, $NodeFilter* nodeFilter, bool entityReferenceExpansion) {
 	this->fEntityReferenceExpansion = false;
@@ -177,7 +127,7 @@ $Node* TreeWalkerImpl::nextSibling() {
 }
 
 $Node* TreeWalkerImpl::previousNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, result, nullptr);
 	if (this->fCurrentNode == nullptr) {
 		return nullptr;
@@ -210,7 +160,7 @@ $Node* TreeWalkerImpl::previousNode() {
 }
 
 $Node* TreeWalkerImpl::nextNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fCurrentNode == nullptr) {
 		return nullptr;
 	}
@@ -258,7 +208,7 @@ $Node* TreeWalkerImpl::getNextSibling($Node* node) {
 }
 
 $Node* TreeWalkerImpl::getNextSibling($Node* node, $Node* root) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (node == nullptr || node == root) {
 		return nullptr;
 	}
@@ -293,7 +243,7 @@ $Node* TreeWalkerImpl::getPreviousSibling($Node* node) {
 }
 
 $Node* TreeWalkerImpl::getPreviousSibling($Node* node, $Node* root) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (node == nullptr || node == root) {
 		return nullptr;
 	}
@@ -324,7 +274,7 @@ $Node* TreeWalkerImpl::getPreviousSibling($Node* node, $Node* root) {
 }
 
 $Node* TreeWalkerImpl::getFirstChild($Node* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (node == nullptr) {
 		return nullptr;
 	}
@@ -350,7 +300,7 @@ $Node* TreeWalkerImpl::getFirstChild($Node* node) {
 }
 
 $Node* TreeWalkerImpl::getLastChild($Node* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (node == nullptr) {
 		return nullptr;
 	}
@@ -377,12 +327,12 @@ $Node* TreeWalkerImpl::getLastChild($Node* node) {
 
 int16_t TreeWalkerImpl::acceptNode($Node* node) {
 	if (this->fNodeFilter == nullptr) {
-		if (((int32_t)(this->fWhatToShow & (uint32_t)($sl(1, $nc(node)->getNodeType() - 1)))) != 0) {
+		if ((this->fWhatToShow & ($sl(1, $nc(node)->getNodeType() - 1))) != 0) {
 			return $NodeFilter::FILTER_ACCEPT;
 		} else {
 			return $NodeFilter::FILTER_SKIP;
 		}
-	} else if (((int32_t)(this->fWhatToShow & (uint32_t)($sl(1, $nc(node)->getNodeType() - 1)))) != 0) {
+	} else if ((this->fWhatToShow & ($sl(1, $nc(node)->getNodeType() - 1))) != 0) {
 		return $nc(this->fNodeFilter)->acceptNode(node);
 	} else {
 		return $NodeFilter::FILTER_SKIP;
@@ -393,7 +343,51 @@ TreeWalkerImpl::TreeWalkerImpl() {
 }
 
 $Class* TreeWalkerImpl::load$($String* name, bool initialize) {
-	$loadClass(TreeWalkerImpl, name, initialize, &_TreeWalkerImpl_ClassInfo_, allocate$TreeWalkerImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fEntityReferenceExpansion", "Z", nullptr, $PRIVATE, $field(TreeWalkerImpl, fEntityReferenceExpansion)},
+		{"fWhatToShow", "I", nullptr, 0, $field(TreeWalkerImpl, fWhatToShow)},
+		{"fNodeFilter", "Lorg/w3c/dom/traversal/NodeFilter;", nullptr, 0, $field(TreeWalkerImpl, fNodeFilter)},
+		{"fCurrentNode", "Lorg/w3c/dom/Node;", nullptr, 0, $field(TreeWalkerImpl, fCurrentNode)},
+		{"fRoot", "Lorg/w3c/dom/Node;", nullptr, 0, $field(TreeWalkerImpl, fRoot)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/w3c/dom/Node;ILorg/w3c/dom/traversal/NodeFilter;Z)V", nullptr, $PUBLIC, $method(TreeWalkerImpl, init$, void, $Node*, int32_t, $NodeFilter*, bool)},
+		{"acceptNode", "(Lorg/w3c/dom/Node;)S", nullptr, 0, $virtualMethod(TreeWalkerImpl, acceptNode, int16_t, $Node*)},
+		{"firstChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TreeWalkerImpl, firstChild, $Node*)},
+		{"getCurrentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TreeWalkerImpl, getCurrentNode, $Node*)},
+		{"getExpandEntityReferences", "()Z", nullptr, $PUBLIC, $virtualMethod(TreeWalkerImpl, getExpandEntityReferences, bool)},
+		{"getFilter", "()Lorg/w3c/dom/traversal/NodeFilter;", nullptr, $PUBLIC, $virtualMethod(TreeWalkerImpl, getFilter, $NodeFilter*)},
+		{"getFirstChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, 0, $virtualMethod(TreeWalkerImpl, getFirstChild, $Node*, $Node*)},
+		{"getLastChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, 0, $virtualMethod(TreeWalkerImpl, getLastChild, $Node*, $Node*)},
+		{"getNextSibling", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, 0, $virtualMethod(TreeWalkerImpl, getNextSibling, $Node*, $Node*)},
+		{"getNextSibling", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, 0, $virtualMethod(TreeWalkerImpl, getNextSibling, $Node*, $Node*, $Node*)},
+		{"getParentNode", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, 0, $virtualMethod(TreeWalkerImpl, getParentNode, $Node*, $Node*)},
+		{"getPreviousSibling", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, 0, $virtualMethod(TreeWalkerImpl, getPreviousSibling, $Node*, $Node*)},
+		{"getPreviousSibling", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, 0, $virtualMethod(TreeWalkerImpl, getPreviousSibling, $Node*, $Node*, $Node*)},
+		{"getRoot", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TreeWalkerImpl, getRoot, $Node*)},
+		{"getWhatToShow", "()I", nullptr, $PUBLIC, $virtualMethod(TreeWalkerImpl, getWhatToShow, int32_t)},
+		{"lastChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TreeWalkerImpl, lastChild, $Node*)},
+		{"nextNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TreeWalkerImpl, nextNode, $Node*)},
+		{"nextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TreeWalkerImpl, nextSibling, $Node*)},
+		{"parentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TreeWalkerImpl, parentNode, $Node*)},
+		{"previousNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TreeWalkerImpl, previousNode, $Node*)},
+		{"previousSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TreeWalkerImpl, previousSibling, $Node*)},
+		{"setCurrentNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(TreeWalkerImpl, setCurrentNode, void, $Node*)},
+		{"setWhatShow", "(I)V", nullptr, $PUBLIC, $virtualMethod(TreeWalkerImpl, setWhatShow, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.dom.TreeWalkerImpl",
+		"java.lang.Object",
+		"org.w3c.dom.traversal.TreeWalker",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TreeWalkerImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeWalkerImpl);
+	});
 	return class$;
 }
 

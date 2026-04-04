@@ -14,10 +14,13 @@ public:
 	MalformedObjectNameException();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0xF80D65BD2C1C3010;
+	static const int64_t serialVersionUID = (int64_t)0xf80d65bd2c1c3010;
 	MalformedObjectNameException(const MalformedObjectNameException& e);
 	virtual void throw$() override;
-	inline MalformedObjectNameException* operator ->() {
+	inline MalformedObjectNameException* operator ->() const {
+		return (MalformedObjectNameException*)throwing$;
+	}
+	inline operator MalformedObjectNameException*() const {
 		return (MalformedObjectNameException*)throwing$;
 	}
 };

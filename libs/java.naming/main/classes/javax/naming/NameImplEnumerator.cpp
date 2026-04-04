@@ -1,5 +1,4 @@
 #include <javax/naming/NameImplEnumerator.h>
-
 #include <java/util/NoSuchElementException.h>
 #include <java/util/Vector.h>
 #include <jcpp.h>
@@ -12,34 +11,6 @@ using $Vector = ::java::util::Vector;
 
 namespace javax {
 	namespace naming {
-
-$FieldInfo _NameImplEnumerator_FieldInfo_[] = {
-	{"vector", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/String;>;", 0, $field(NameImplEnumerator, vector)},
-	{"count", "I", nullptr, 0, $field(NameImplEnumerator, count)},
-	{"limit", "I", nullptr, 0, $field(NameImplEnumerator, limit)},
-	{}
-};
-
-$MethodInfo _NameImplEnumerator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Vector;II)V", "(Ljava/util/Vector<Ljava/lang/String;>;II)V", 0, $method(NameImplEnumerator, init$, void, $Vector*, int32_t, int32_t)},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(NameImplEnumerator, hasMoreElements, bool)},
-	{"nextElement", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NameImplEnumerator, nextElement, $Object*)},
-	{}
-};
-
-$ClassInfo _NameImplEnumerator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.naming.NameImplEnumerator",
-	"java.lang.Object",
-	"java.util.Enumeration",
-	_NameImplEnumerator_FieldInfo_,
-	_NameImplEnumerator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/lang/String;>;"
-};
-
-$Object* allocate$NameImplEnumerator($Class* clazz) {
-	return $of($alloc(NameImplEnumerator));
-}
 
 void NameImplEnumerator::init$($Vector* v, int32_t start, int32_t lim) {
 	$set(this, vector, v);
@@ -62,7 +33,30 @@ NameImplEnumerator::NameImplEnumerator() {
 }
 
 $Class* NameImplEnumerator::load$($String* name, bool initialize) {
-	$loadClass(NameImplEnumerator, name, initialize, &_NameImplEnumerator_ClassInfo_, allocate$NameImplEnumerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"vector", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/String;>;", 0, $field(NameImplEnumerator, vector)},
+		{"count", "I", nullptr, 0, $field(NameImplEnumerator, count)},
+		{"limit", "I", nullptr, 0, $field(NameImplEnumerator, limit)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Vector;II)V", "(Ljava/util/Vector<Ljava/lang/String;>;II)V", 0, $method(NameImplEnumerator, init$, void, $Vector*, int32_t, int32_t)},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(NameImplEnumerator, hasMoreElements, bool)},
+		{"nextElement", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NameImplEnumerator, nextElement, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.naming.NameImplEnumerator",
+		"java.lang.Object",
+		"java.util.Enumeration",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/lang/String;>;"
+	};
+	$loadClass(NameImplEnumerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NameImplEnumerator);
+	});
 	return class$;
 }
 

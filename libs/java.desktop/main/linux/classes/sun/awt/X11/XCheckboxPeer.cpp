@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XCheckboxPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -15,7 +14,6 @@
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/Image.h>
 #include <java/awt/Insets.h>
-#include <java/awt/ItemSelectable.h>
 #include <java/awt/Point.h>
 #include <java/awt/Polygon.h>
 #include <java/awt/Rectangle.h>
@@ -35,7 +33,6 @@
 #include <java/awt/peer/ComponentPeer.h>
 #include <java/awt/peer/ContainerPeer.h>
 #include <java/lang/Math.h>
-#include <java/lang/Runnable.h>
 #include <java/util/Objects.h>
 #include <javax/swing/plaf/basic/BasicGraphicsUtils.h>
 #include <sun/awt/SunToolkit.h>
@@ -81,11 +78,9 @@ using $Graphics2D = ::java::awt::Graphics2D;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $Image = ::java::awt::Image;
 using $Insets = ::java::awt::Insets;
-using $ItemSelectable = ::java::awt::ItemSelectable;
 using $Point = ::java::awt::Point;
 using $Polygon = ::java::awt::Polygon;
 using $Rectangle = ::java::awt::Rectangle;
-using $Shape = ::java::awt::Shape;
 using $SystemColor = ::java::awt::SystemColor;
 using $FocusEvent = ::java::awt::event::FocusEvent;
 using $FocusEvent$Cause = ::java::awt::event::FocusEvent$Cause;
@@ -106,14 +101,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $Objects = ::java::util::Objects;
 using $BasicGraphicsUtils = ::javax::swing::plaf::basic::BasicGraphicsUtils;
 using $XCheckboxPeer$1 = ::sun::awt::X11::XCheckboxPeer$1;
 using $XComponentPeer = ::sun::awt::X11::XComponentPeer;
 using $XCreateWindowParams = ::sun::awt::X11::XCreateWindowParams;
 using $XToolkit = ::sun::awt::X11::XToolkit;
-using $X11GraphicsConfig = ::sun::awt::X11GraphicsConfig;
 using $Region = ::sun::java2d::pipe::Region;
 using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
@@ -121,122 +114,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XCheckboxPeer_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XCheckboxPeer, log)},
-	{"focusInsets", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XCheckboxPeer, focusInsets)},
-	{"borderInsets", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XCheckboxPeer, borderInsets)},
-	{"checkBoxInsetFromText", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XCheckboxPeer, checkBoxInsetFromText)},
-	{"MASTER_SIZE", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XCheckboxPeer, MASTER_SIZE)},
-	{"MASTER_CHECKMARK", "Ljava/awt/Polygon;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XCheckboxPeer, MASTER_CHECKMARK)},
-	{"myCheckMark", "Ljava/awt/Shape;", nullptr, $PRIVATE, $field(XCheckboxPeer, myCheckMark)},
-	{"focusColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(XCheckboxPeer, focusColor)},
-	{"pressed", "Z", nullptr, $PRIVATE, $field(XCheckboxPeer, pressed)},
-	{"armed", "Z", nullptr, $PRIVATE, $field(XCheckboxPeer, armed)},
-	{"selected", "Z", nullptr, $PRIVATE, $field(XCheckboxPeer, selected)},
-	{"textRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(XCheckboxPeer, textRect)},
-	{"focusRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(XCheckboxPeer, focusRect)},
-	{"checkBoxSize", "I", nullptr, $PRIVATE, $field(XCheckboxPeer, checkBoxSize)},
-	{"cbX", "I", nullptr, $PRIVATE, $field(XCheckboxPeer, cbX)},
-	{"cbY", "I", nullptr, $PRIVATE, $field(XCheckboxPeer, cbY)},
-	{"label", "Ljava/lang/String;", nullptr, 0, $field(XCheckboxPeer, label)},
-	{"checkBoxGroup", "Ljava/awt/CheckboxGroup;", nullptr, 0, $field(XCheckboxPeer, checkBoxGroup)},
-	{}
-};
-
-$MethodInfo _XCheckboxPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC},
-	{"*dispose", "()V", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Checkbox;)V", nullptr, 0, $method(XCheckboxPeer, init$, void, $Checkbox*)},
-	{"action", "(Z)V", nullptr, 0, $virtualMethod(XCheckboxPeer, action, void, bool)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, focusLost, void, $FocusEvent*)},
-	{"getCheckboxSize", "(Ljava/awt/FontMetrics;)I", nullptr, $PRIVATE, $method(XCheckboxPeer, getCheckboxSize, int32_t, $FontMetrics*)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, getMinimumSize, $Dimension*)},
-	{"handleJavaKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(XCheckboxPeer, handleJavaKeyEvent, void, $KeyEvent*)},
-	{"handleJavaMouseEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(XCheckboxPeer, handleJavaMouseEvent, void, $MouseEvent*)},
-	{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, isFocusable, bool)},
-	{"*isObscured", "()Z", nullptr, $PUBLIC},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"keyPressed", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, keyPressed, void, $KeyEvent*)},
-	{"keyReleased", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, keyReleased, void, $KeyEvent*)},
-	{"keyTyped", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, keyTyped, void, $KeyEvent*)},
-	{"layout", "()V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, layout, void)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, mouseClicked, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, mouseExited, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, mouseReleased, void, $MouseEvent*)},
-	{"notifyStateChanged", "(Z)V", nullptr, 0, $virtualMethod(XCheckboxPeer, notifyStateChanged, void, bool)},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"paintCheckbox", "(Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, paintCheckbox, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintFocus", "(Ljava/awt/Graphics;IIII)V", nullptr, $PROTECTED, $virtualMethod(XCheckboxPeer, paintFocus, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintPeer", "(Ljava/awt/Graphics;)V", nullptr, 0, $virtualMethod(XCheckboxPeer, paintPeer, void, $Graphics*)},
-	{"paintRadioButton", "(Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, paintRadioButton, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintText", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(XCheckboxPeer, paintText, void, $Graphics*, $Rectangle*, $String*)},
-	{"preInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, preInit, void, $XCreateWindowParams*)},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $FINAL},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, setBackground, void, $Color*)},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"setCheckboxGroup", "(Ljava/awt/CheckboxGroup;)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, setCheckboxGroup, void, $CheckboxGroup*)},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, setLabel, void, $String*)},
-	{"setState", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, setState, void, bool)},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _XCheckboxPeer_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XCheckboxPeer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XCheckboxPeer_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XCheckboxPeer",
-	"sun.awt.X11.XComponentPeer",
-	"java.awt.peer.CheckboxPeer",
-	_XCheckboxPeer_FieldInfo_,
-	_XCheckboxPeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XCheckboxPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XCheckboxPeer$1"
-};
-
-$Object* allocate$XCheckboxPeer($Class* clazz) {
-	return $of($alloc(XCheckboxPeer));
-}
 
 void XCheckboxPeer::reparent($ContainerPeer* newNativeParent) {
 	this->$XComponentPeer::reparent(newNativeParent);
@@ -393,7 +270,7 @@ double XCheckboxPeer::MASTER_SIZE = 0.0;
 $Polygon* XCheckboxPeer::MASTER_CHECKMARK = nullptr;
 
 void XCheckboxPeer::init$($Checkbox* target) {
-	$XComponentPeer::init$(static_cast<$Component*>(target));
+	$XComponentPeer::init$(target);
 	$init($SystemColor);
 	$set(this, focusColor, $SystemColor::windowText);
 	this->pressed = false;
@@ -431,20 +308,14 @@ void XCheckboxPeer::handleJavaKeyEvent($KeyEvent* e) {
 	int32_t i = $nc(e)->getID();
 	switch (i) {
 	case $KeyEvent::KEY_PRESSED:
-		{
-			keyPressed(e);
-			break;
-		}
+		keyPressed(e);
+		break;
 	case $KeyEvent::KEY_RELEASED:
-		{
-			keyReleased(e);
-			break;
-		}
+		keyReleased(e);
+		break;
 	case $KeyEvent::KEY_TYPED:
-		{
-			keyTyped(e);
-			break;
-		}
+		keyTyped(e);
+		break;
 	}
 }
 
@@ -477,43 +348,43 @@ void XCheckboxPeer::handleJavaMouseEvent($MouseEvent* e) {
 	int32_t i = $nc(e)->getID();
 	switch (i) {
 	case $MouseEvent::MOUSE_PRESSED:
-		{
-			mousePressed(e);
-			break;
-		}
+		mousePressed(e);
+		break;
 	case $MouseEvent::MOUSE_RELEASED:
-		{
-			mouseReleased(e);
-			break;
-		}
+		mouseReleased(e);
+		break;
 	case $MouseEvent::MOUSE_ENTERED:
-		{
-			mouseEntered(e);
-			break;
-		}
+		mouseEntered(e);
+		break;
 	case $MouseEvent::MOUSE_EXITED:
-		{
-			mouseExited(e);
-			break;
-		}
+		mouseExited(e);
+		break;
 	case $MouseEvent::MOUSE_CLICKED:
-		{
-			mouseClicked(e);
-			break;
-		}
+		mouseClicked(e);
+		break;
 	}
 }
 
 void XCheckboxPeer::mousePressed($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($XToolkit::isLeftMouseButton(e)) {
 		$var($Checkbox, cb, $cast($Checkbox, $nc(e)->getSource()));
 		int32_t var$0 = e->getX();
 		if ($nc(cb)->contains(var$0, e->getY())) {
 			$init($PlatformLogger$Level);
 			if ($nc(XCheckboxPeer::log)->isLoggable($PlatformLogger$Level::FINER)) {
-				$var($String, var$1, $$str({"mousePressed() on "_s, $($nc(this->target)->getName()), " : armed = "_s, $$str(this->armed), ", pressed = "_s, $$str(this->pressed), ", selected = "_s, $$str(this->selected), ", enabled = "_s}));
-				$nc(XCheckboxPeer::log)->finer($$concat(var$1, $$str(isEnabled())));
+				$var($StringBuilder, var$1, $new($StringBuilder));
+				var$1->append("mousePressed() on "_s);
+				var$1->append($($nc(this->target)->getName()));
+				var$1->append(" : armed = "_s);
+				var$1->append(this->armed);
+				var$1->append(", pressed = "_s);
+				var$1->append(this->pressed);
+				var$1->append(", selected = "_s);
+				var$1->append(this->selected);
+				var$1->append(", enabled = "_s);
+				var$1->append(isEnabled());
+				XCheckboxPeer::log->finer($$str(var$1));
 			}
 			if (!isEnabled()) {
 				return;
@@ -528,11 +399,21 @@ void XCheckboxPeer::mousePressed($MouseEvent* e) {
 }
 
 void XCheckboxPeer::mouseReleased($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XCheckboxPeer::log)->isLoggable($PlatformLogger$Level::FINER)) {
-		$var($String, var$0, $$str({"mouseReleased() on "_s, $($nc(this->target)->getName()), ": armed = "_s, $$str(this->armed), ", pressed = "_s, $$str(this->pressed), ", selected = "_s, $$str(this->selected), ", enabled = "_s}));
-		$nc(XCheckboxPeer::log)->finer($$concat(var$0, $$str(isEnabled())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("mouseReleased() on "_s);
+		var$0->append($($nc(this->target)->getName()));
+		var$0->append(": armed = "_s);
+		var$0->append(this->armed);
+		var$0->append(", pressed = "_s);
+		var$0->append(this->pressed);
+		var$0->append(", selected = "_s);
+		var$0->append(this->selected);
+		var$0->append(", enabled = "_s);
+		var$0->append(isEnabled());
+		XCheckboxPeer::log->finer($$str(var$0));
 	}
 	bool sendEvent = false;
 	if ($XToolkit::isLeftMouseButton(e)) {
@@ -550,11 +431,21 @@ void XCheckboxPeer::mouseReleased($MouseEvent* e) {
 }
 
 void XCheckboxPeer::mouseEntered($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XCheckboxPeer::log)->isLoggable($PlatformLogger$Level::FINER)) {
-		$var($String, var$0, $$str({"mouseEntered() on "_s, $($nc(this->target)->getName()), ": armed = "_s, $$str(this->armed), ", pressed = "_s, $$str(this->pressed), ", selected = "_s, $$str(this->selected), ", enabled = "_s}));
-		$nc(XCheckboxPeer::log)->finer($$concat(var$0, $$str(isEnabled())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("mouseEntered() on "_s);
+		var$0->append($($nc(this->target)->getName()));
+		var$0->append(": armed = "_s);
+		var$0->append(this->armed);
+		var$0->append(", pressed = "_s);
+		var$0->append(this->pressed);
+		var$0->append(", selected = "_s);
+		var$0->append(this->selected);
+		var$0->append(", enabled = "_s);
+		var$0->append(isEnabled());
+		XCheckboxPeer::log->finer($$str(var$0));
 	}
 	if (this->pressed) {
 		this->armed = true;
@@ -563,11 +454,21 @@ void XCheckboxPeer::mouseEntered($MouseEvent* e) {
 }
 
 void XCheckboxPeer::mouseExited($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XCheckboxPeer::log)->isLoggable($PlatformLogger$Level::FINER)) {
-		$var($String, var$0, $$str({"mouseExited() on "_s, $($nc(this->target)->getName()), ": armed = "_s, $$str(this->armed), ", pressed = "_s, $$str(this->pressed), ", selected = "_s, $$str(this->selected), ", enabled = "_s}));
-		$nc(XCheckboxPeer::log)->finer($$concat(var$0, $$str(isEnabled())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("mouseExited() on "_s);
+		var$0->append($($nc(this->target)->getName()));
+		var$0->append(": armed = "_s);
+		var$0->append(this->armed);
+		var$0->append(", pressed = "_s);
+		var$0->append(this->pressed);
+		var$0->append(", selected = "_s);
+		var$0->append(this->selected);
+		var$0->append(", enabled = "_s);
+		var$0->append(isEnabled());
+		XCheckboxPeer::log->finer($$str(var$0));
 	}
 	if (this->armed) {
 		this->armed = false;
@@ -579,7 +480,7 @@ void XCheckboxPeer::mouseClicked($MouseEvent* e) {
 }
 
 $Dimension* XCheckboxPeer::getMinimumSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontMetrics, fm, getFontMetrics($(getPeerFont())));
 	int32_t var$0 = $nc(fm)->stringWidth(this->label);
 	int32_t wdth = var$0 + getCheckboxSize(fm) + (2 * XCheckboxPeer::checkBoxInsetFromText) + 8;
@@ -597,34 +498,34 @@ void XCheckboxPeer::setBackground($Color* c) {
 }
 
 void XCheckboxPeer::layout() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, size, getPeerSize());
 	$var($Font, f, getPeerFont());
 	$var($FontMetrics, fm, getFontMetrics(f));
 	$var($String, text, this->label);
 	this->checkBoxSize = getCheckboxSize(fm);
-	this->cbX = $nc(XCheckboxPeer::borderInsets)->left + XCheckboxPeer::checkBoxInsetFromText;
+	this->cbX = XCheckboxPeer::borderInsets->left + XCheckboxPeer::checkBoxInsetFromText;
 	this->cbY = $nc(size)->height / 2 - this->checkBoxSize / 2;
-	int32_t minTextX = $nc(XCheckboxPeer::borderInsets)->left + 2 * XCheckboxPeer::checkBoxInsetFromText + this->checkBoxSize;
+	int32_t minTextX = XCheckboxPeer::borderInsets->left + 2 * XCheckboxPeer::checkBoxInsetFromText + this->checkBoxSize;
 	$nc(this->textRect)->width = $nc(fm)->stringWidth(text == nullptr ? ""_s : text);
 	$nc(this->textRect)->height = fm->getHeight();
 	$nc(this->textRect)->x = $Math::max(minTextX, size->width / 2 - $nc(this->textRect)->width / 2);
-	$nc(this->textRect)->y = (size->height - $nc(this->textRect)->height) / 2;
-	$nc(this->focusRect)->x = $nc(XCheckboxPeer::focusInsets)->left;
-	$nc(this->focusRect)->y = $nc(XCheckboxPeer::focusInsets)->top;
-	$nc(this->focusRect)->width = size->width - ($nc(XCheckboxPeer::focusInsets)->left + $nc(XCheckboxPeer::focusInsets)->right) - 1;
-	$nc(this->focusRect)->height = size->height - ($nc(XCheckboxPeer::focusInsets)->top + $nc(XCheckboxPeer::focusInsets)->bottom) - 1;
+	this->textRect->y = (size->height - this->textRect->height) / 2;
+	$nc(this->focusRect)->x = XCheckboxPeer::focusInsets->left;
+	this->focusRect->y = XCheckboxPeer::focusInsets->top;
+	this->focusRect->width = size->width - (XCheckboxPeer::focusInsets->left + XCheckboxPeer::focusInsets->right) - 1;
+	this->focusRect->height = size->height - (XCheckboxPeer::focusInsets->top + XCheckboxPeer::focusInsets->bottom) - 1;
 	double fsize = (double)this->checkBoxSize;
-	$set(this, myCheckMark, $nc($($AffineTransform::getScaleInstance($div(fsize, XCheckboxPeer::MASTER_SIZE), $div(fsize, XCheckboxPeer::MASTER_SIZE))))->createTransformedShape(XCheckboxPeer::MASTER_CHECKMARK));
+	$set(this, myCheckMark, $$nc($AffineTransform::getScaleInstance($div(fsize, XCheckboxPeer::MASTER_SIZE), $div(fsize, XCheckboxPeer::MASTER_SIZE)))->createTransformedShape(XCheckboxPeer::MASTER_CHECKMARK));
 }
 
 void XCheckboxPeer::paintPeer($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, size, getPeerSize());
 	$var($Font, f, getPeerFont());
 	flush();
 	$nc(g)->setColor($(getPeerBackground()));
-	g->fillRect(0, 0, $nc(size)->width, size->height);
+	g->fillRect(0, 0, $nc(size)->width, $nc(size)->height);
 	if (this->label != nullptr) {
 		g->setFont(f);
 		paintText(g, this->textRect, this->label);
@@ -641,7 +542,7 @@ void XCheckboxPeer::paintPeer($Graphics* g) {
 }
 
 void XCheckboxPeer::paintCheckbox($Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool useBufferedImage = false;
 	$var($BufferedImage, buffer, nullptr);
 	$var($Graphics2D, g2, nullptr);
@@ -656,29 +557,27 @@ void XCheckboxPeer::paintCheckbox($Graphics* g, int32_t x, int32_t y, int32_t w,
 	} else {
 		$assign(g2, $cast($Graphics2D, g));
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			drawMotif3DRect(g2, rx, ry, w - 1, h - 1, this->armed | this->selected);
-			$nc(g2)->setColor((this->armed | this->selected) ? this->selectColor : $(getPeerBackground()));
-			g2->fillRect(rx + 1, ry + 1, w - 2, h - 2);
-			if (this->armed | this->selected) {
-				g2->setColor($(getPeerForeground()));
-				$var($AffineTransform, af, g2->getTransform());
-				g2->setTransform($($AffineTransform::getTranslateInstance((double)rx, (double)ry)));
-				g2->fill(this->myCheckMark);
-				g2->setTransform(af);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (useBufferedImage) {
-				$nc(g2)->dispose();
-			}
+	$var($Throwable, var$0, nullptr);
+	try {
+		drawMotif3DRect(g2, rx, ry, w - 1, h - 1, this->armed | this->selected);
+		$nc(g2)->setColor((this->armed | this->selected) ? this->selectColor : $(getPeerBackground()));
+		g2->fillRect(rx + 1, ry + 1, w - 2, h - 2);
+		if (this->armed | this->selected) {
+			g2->setColor($(getPeerForeground()));
+			$var($AffineTransform, af, g2->getTransform());
+			g2->setTransform($($AffineTransform::getTranslateInstance((double)rx, (double)ry)));
+			g2->fill(this->myCheckMark);
+			g2->setTransform(af);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (useBufferedImage) {
+			$nc(g2)->dispose();
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	if (useBufferedImage) {
 		$nc(g)->drawImage(buffer, x, y, nullptr);
@@ -697,17 +596,17 @@ void XCheckboxPeer::paintRadioButton($Graphics* g, int32_t x, int32_t y, int32_t
 }
 
 void XCheckboxPeer::paintText($Graphics* g, $Rectangle* textRect, $String* text) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontMetrics, fm, $nc(g)->getFontMetrics());
 	int32_t mnemonicIndex = -1;
 	if (isEnabled()) {
 		g->setColor($(getPeerForeground()));
-		$BasicGraphicsUtils::drawStringUnderlineCharAt(g, text, mnemonicIndex, $nc(textRect)->x, textRect->y + $nc(fm)->getAscent());
+		$BasicGraphicsUtils::drawStringUnderlineCharAt(g, text, mnemonicIndex, $nc(textRect)->x, $nc(textRect)->y + $nc(fm)->getAscent());
 	} else {
-		g->setColor($($nc($(getPeerBackground()))->brighter()));
-		$BasicGraphicsUtils::drawStringUnderlineCharAt(g, text, mnemonicIndex, $nc(textRect)->x, textRect->y + $nc(fm)->getAscent());
-		g->setColor($($nc($(getPeerBackground()))->darker()));
-		$BasicGraphicsUtils::drawStringUnderlineCharAt(g, text, mnemonicIndex, $nc(textRect)->x - 1, textRect->y + $nc(fm)->getAscent() - 1);
+		g->setColor($($$nc(getPeerBackground())->brighter()));
+		$BasicGraphicsUtils::drawStringUnderlineCharAt(g, text, mnemonicIndex, $nc(textRect)->x, $nc(textRect)->y + $nc(fm)->getAscent());
+		g->setColor($($$nc(getPeerBackground())->darker()));
+		$BasicGraphicsUtils::drawStringUnderlineCharAt(g, text, mnemonicIndex, textRect->x - 1, textRect->y + fm->getAscent() - 1);
 	}
 }
 
@@ -731,21 +630,21 @@ void XCheckboxPeer::setCheckboxGroup($CheckboxGroup* g) {
 }
 
 void XCheckboxPeer::action(bool state) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Checkbox, cb, $cast($Checkbox, this->target));
 	bool newState = state;
 	$XToolkit::executeOnEventHandlerThread(cb, $$new($XCheckboxPeer$1, this, cb, newState));
 }
 
 void XCheckboxPeer::notifyStateChanged(bool state) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Checkbox, cb, $cast($Checkbox, this->target));
 	$var($ItemEvent, e, $new($ItemEvent, cb, $ItemEvent::ITEM_STATE_CHANGED, $($nc(cb)->getLabel()), state ? $ItemEvent::SELECTED : $ItemEvent::DESELECTED));
 	postEvent(e);
 }
 
-void clinit$XCheckboxPeer($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void XCheckboxPeer::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	XCheckboxPeer::MASTER_SIZE = 128.0;
 	$assignStatic(XCheckboxPeer::log, $PlatformLogger::getLogger("sun.awt.X11.XCheckboxPeer"_s));
 	$assignStatic(XCheckboxPeer::focusInsets, $new($Insets, 0, 0, 0, 0));
@@ -773,7 +672,117 @@ XCheckboxPeer::XCheckboxPeer() {
 }
 
 $Class* XCheckboxPeer::load$($String* name, bool initialize) {
-	$loadClass(XCheckboxPeer, name, initialize, &_XCheckboxPeer_ClassInfo_, clinit$XCheckboxPeer, allocate$XCheckboxPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XCheckboxPeer, log)},
+		{"focusInsets", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XCheckboxPeer, focusInsets)},
+		{"borderInsets", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XCheckboxPeer, borderInsets)},
+		{"checkBoxInsetFromText", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XCheckboxPeer, checkBoxInsetFromText)},
+		{"MASTER_SIZE", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XCheckboxPeer, MASTER_SIZE)},
+		{"MASTER_CHECKMARK", "Ljava/awt/Polygon;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XCheckboxPeer, MASTER_CHECKMARK)},
+		{"myCheckMark", "Ljava/awt/Shape;", nullptr, $PRIVATE, $field(XCheckboxPeer, myCheckMark)},
+		{"focusColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(XCheckboxPeer, focusColor)},
+		{"pressed", "Z", nullptr, $PRIVATE, $field(XCheckboxPeer, pressed)},
+		{"armed", "Z", nullptr, $PRIVATE, $field(XCheckboxPeer, armed)},
+		{"selected", "Z", nullptr, $PRIVATE, $field(XCheckboxPeer, selected)},
+		{"textRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(XCheckboxPeer, textRect)},
+		{"focusRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(XCheckboxPeer, focusRect)},
+		{"checkBoxSize", "I", nullptr, $PRIVATE, $field(XCheckboxPeer, checkBoxSize)},
+		{"cbX", "I", nullptr, $PRIVATE, $field(XCheckboxPeer, cbX)},
+		{"cbY", "I", nullptr, $PRIVATE, $field(XCheckboxPeer, cbY)},
+		{"label", "Ljava/lang/String;", nullptr, 0, $field(XCheckboxPeer, label)},
+		{"checkBoxGroup", "Ljava/awt/CheckboxGroup;", nullptr, 0, $field(XCheckboxPeer, checkBoxGroup)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC},
+		{"*dispose", "()V", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Checkbox;)V", nullptr, 0, $method(XCheckboxPeer, init$, void, $Checkbox*)},
+		{"action", "(Z)V", nullptr, 0, $virtualMethod(XCheckboxPeer, action, void, bool)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, focusLost, void, $FocusEvent*)},
+		{"getCheckboxSize", "(Ljava/awt/FontMetrics;)I", nullptr, $PRIVATE, $method(XCheckboxPeer, getCheckboxSize, int32_t, $FontMetrics*)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, getMinimumSize, $Dimension*)},
+		{"handleJavaKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(XCheckboxPeer, handleJavaKeyEvent, void, $KeyEvent*)},
+		{"handleJavaMouseEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(XCheckboxPeer, handleJavaMouseEvent, void, $MouseEvent*)},
+		{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, isFocusable, bool)},
+		{"*isObscured", "()Z", nullptr, $PUBLIC},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"keyPressed", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, keyPressed, void, $KeyEvent*)},
+		{"keyReleased", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, keyReleased, void, $KeyEvent*)},
+		{"keyTyped", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, keyTyped, void, $KeyEvent*)},
+		{"layout", "()V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, layout, void)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, mouseClicked, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, mouseExited, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, mouseReleased, void, $MouseEvent*)},
+		{"notifyStateChanged", "(Z)V", nullptr, 0, $virtualMethod(XCheckboxPeer, notifyStateChanged, void, bool)},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"paintCheckbox", "(Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, paintCheckbox, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintFocus", "(Ljava/awt/Graphics;IIII)V", nullptr, $PROTECTED, $virtualMethod(XCheckboxPeer, paintFocus, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintPeer", "(Ljava/awt/Graphics;)V", nullptr, 0, $virtualMethod(XCheckboxPeer, paintPeer, void, $Graphics*)},
+		{"paintRadioButton", "(Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, paintRadioButton, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintText", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(XCheckboxPeer, paintText, void, $Graphics*, $Rectangle*, $String*)},
+		{"preInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, preInit, void, $XCreateWindowParams*)},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $FINAL},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, setBackground, void, $Color*)},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"setCheckboxGroup", "(Ljava/awt/CheckboxGroup;)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, setCheckboxGroup, void, $CheckboxGroup*)},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, setLabel, void, $String*)},
+		{"setState", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XCheckboxPeer, setState, void, bool)},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XCheckboxPeer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XCheckboxPeer",
+		"sun.awt.X11.XComponentPeer",
+		"java.awt.peer.CheckboxPeer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XCheckboxPeer$1"
+	};
+	$loadClass(XCheckboxPeer, name, initialize, &classInfo$$, XCheckboxPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XCheckboxPeer));
+	});
 	return class$;
 }
 

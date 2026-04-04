@@ -47,6 +47,7 @@ class $export MBeanServerPermission : public ::java::security::BasicPermission {
 public:
 	MBeanServerPermission();
 	using ::java::security::BasicPermission::getCanonicalName;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	void init$($String* name, $String* actions);
 	void init$(int32_t mask);
@@ -61,7 +62,7 @@ public:
 	static int32_t parseMask($String* name);
 	void readObject(::java::io::ObjectInputStream* in);
 	static int32_t simplifyMask(int32_t mask);
-	static const int64_t serialVersionUID = (int64_t)0xB16C9A6BD5FAE3D2;
+	static const int64_t serialVersionUID = (int64_t)0xb16c9a6bd5fae3d2;
 	static const int32_t CREATE = 0;
 	static const int32_t FIND = 1;
 	static const int32_t NEW = 2;

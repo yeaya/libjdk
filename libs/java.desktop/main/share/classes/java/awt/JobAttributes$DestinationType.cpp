@@ -1,5 +1,4 @@
 #include <java/awt/JobAttributes$DestinationType.h>
-
 #include <java/awt/AttributeValue.h>
 #include <java/awt/JobAttributes.h>
 #include <jcpp.h>
@@ -19,47 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 
-$FieldInfo _JobAttributes$DestinationType_FieldInfo_[] = {
-	{"I_FILE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobAttributes$DestinationType, I_FILE)},
-	{"I_PRINTER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobAttributes$DestinationType, I_PRINTER)},
-	{"NAMES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JobAttributes$DestinationType, NAMES)},
-	{"FILE", "Ljava/awt/JobAttributes$DestinationType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobAttributes$DestinationType, FILE)},
-	{"PRINTER", "Ljava/awt/JobAttributes$DestinationType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobAttributes$DestinationType, PRINTER)},
-	{}
-};
-
-$MethodInfo _JobAttributes$DestinationType_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(JobAttributes$DestinationType, init$, void, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JobAttributes$DestinationType, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JobAttributes$DestinationType, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _JobAttributes$DestinationType_InnerClassesInfo_[] = {
-	{"java.awt.JobAttributes$DestinationType", "java.awt.JobAttributes", "DestinationType", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _JobAttributes$DestinationType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.JobAttributes$DestinationType",
-	"java.awt.AttributeValue",
-	nullptr,
-	_JobAttributes$DestinationType_FieldInfo_,
-	_JobAttributes$DestinationType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JobAttributes$DestinationType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.JobAttributes"
-};
-
-$Object* allocate$JobAttributes$DestinationType($Class* clazz) {
-	return $of($alloc(JobAttributes$DestinationType));
-}
-
 $StringArray* JobAttributes$DestinationType::NAMES = nullptr;
 JobAttributes$DestinationType* JobAttributes$DestinationType::FILE = nullptr;
 JobAttributes$DestinationType* JobAttributes$DestinationType::PRINTER = nullptr;
@@ -76,7 +34,7 @@ int32_t JobAttributes$DestinationType::hashCode() {
 	return $AttributeValue::hashCode();
 }
 
-void clinit$JobAttributes$DestinationType($Class* class$) {
+void JobAttributes$DestinationType::clinit$($Class* clazz) {
 	$assignStatic(JobAttributes$DestinationType::NAMES, $new($StringArray, {
 		"file"_s,
 		"printer"_s
@@ -89,7 +47,42 @@ JobAttributes$DestinationType::JobAttributes$DestinationType() {
 }
 
 $Class* JobAttributes$DestinationType::load$($String* name, bool initialize) {
-	$loadClass(JobAttributes$DestinationType, name, initialize, &_JobAttributes$DestinationType_ClassInfo_, clinit$JobAttributes$DestinationType, allocate$JobAttributes$DestinationType);
+	$FieldInfo fieldInfos$$[] = {
+		{"I_FILE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobAttributes$DestinationType, I_FILE)},
+		{"I_PRINTER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobAttributes$DestinationType, I_PRINTER)},
+		{"NAMES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JobAttributes$DestinationType, NAMES)},
+		{"FILE", "Ljava/awt/JobAttributes$DestinationType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobAttributes$DestinationType, FILE)},
+		{"PRINTER", "Ljava/awt/JobAttributes$DestinationType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobAttributes$DestinationType, PRINTER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PRIVATE, $method(JobAttributes$DestinationType, init$, void, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JobAttributes$DestinationType, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JobAttributes$DestinationType, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.JobAttributes$DestinationType", "java.awt.JobAttributes", "DestinationType", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.JobAttributes$DestinationType",
+		"java.awt.AttributeValue",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.JobAttributes"
+	};
+	$loadClass(JobAttributes$DestinationType, name, initialize, &classInfo$$, JobAttributes$DestinationType::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JobAttributes$DestinationType);
+	});
 	return class$;
 }
 

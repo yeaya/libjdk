@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/SocketTube$SliceBufferSource.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/invoke/CallSite.h>
@@ -42,76 +41,32 @@ public:
 	virtual $Object* get() override {
 		 return $of($Utils::getBuffer());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SocketTube$SliceBufferSource$$Lambda$getBuffer>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SocketTube$SliceBufferSource$$Lambda$getBuffer::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SocketTube$SliceBufferSource$$Lambda$getBuffer, init$, void)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SocketTube$SliceBufferSource$$Lambda$getBuffer, get, $Object*)},
-	{}
-};
-$ClassInfo SocketTube$SliceBufferSource$$Lambda$getBuffer::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.SocketTube$SliceBufferSource$$Lambda$getBuffer",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	nullptr,
-	methodInfos
 };
 $Class* SocketTube$SliceBufferSource$$Lambda$getBuffer::load$($String* name, bool initialize) {
-	$loadClass(SocketTube$SliceBufferSource$$Lambda$getBuffer, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SocketTube$SliceBufferSource$$Lambda$getBuffer, init$, void)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SocketTube$SliceBufferSource$$Lambda$getBuffer, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.SocketTube$SliceBufferSource$$Lambda$getBuffer",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SocketTube$SliceBufferSource$$Lambda$getBuffer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketTube$SliceBufferSource$$Lambda$getBuffer);
+	});
 	return class$;
 }
 $Class* SocketTube$SliceBufferSource$$Lambda$getBuffer::class$ = nullptr;
 
-$FieldInfo _SocketTube$SliceBufferSource_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SocketTube$SliceBufferSource, $assertionsDisabled)},
-	{"factory", "Ljava/util/function/Supplier;", "Ljava/util/function/Supplier<Ljava/nio/ByteBuffer;>;", $PRIVATE | $FINAL, $field(SocketTube$SliceBufferSource, factory)},
-	{"current", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $VOLATILE, $field(SocketTube$SliceBufferSource, current)},
-	{}
-};
-
-$MethodInfo _SocketTube$SliceBufferSource_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SocketTube$SliceBufferSource, init$, void)},
-	{"<init>", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(SocketTube$SliceBufferSource, init$, void, $Supplier*)},
-	{"append", "(Ljava/util/List;Ljava/nio/ByteBuffer;I)Ljava/util/List;", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Ljava/nio/ByteBuffer;I)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PUBLIC | $FINAL, $virtualMethod(SocketTube$SliceBufferSource, append, $List*, $List*, $ByteBuffer*, int32_t)},
-	{"getBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketTube$SliceBufferSource, getBuffer, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _SocketTube$SliceBufferSource_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.SocketTube$SliceBufferSource", "jdk.internal.net.http.SocketTube", "SliceBufferSource", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.net.http.SocketTube$BufferSource", "jdk.internal.net.http.SocketTube", "BufferSource", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SocketTube$SliceBufferSource_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.SocketTube$SliceBufferSource",
-	"java.lang.Object",
-	"jdk.internal.net.http.SocketTube$BufferSource",
-	_SocketTube$SliceBufferSource_FieldInfo_,
-	_SocketTube$SliceBufferSource_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SocketTube$SliceBufferSource_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.SocketTube"
-};
-
-$Object* allocate$SocketTube$SliceBufferSource($Class* clazz) {
-	return $of($alloc(SocketTube$SliceBufferSource));
-}
-
 bool SocketTube$SliceBufferSource::$assertionsDisabled = false;
 
 void SocketTube$SliceBufferSource::init$() {
-	SocketTube$SliceBufferSource::init$(static_cast<$Supplier*>($$new(SocketTube$SliceBufferSource$$Lambda$getBuffer)));
+	SocketTube$SliceBufferSource::init$($$new(SocketTube$SliceBufferSource$$Lambda$getBuffer));
 }
 
 void SocketTube$SliceBufferSource::init$($Supplier* factory) {
@@ -120,7 +75,7 @@ void SocketTube$SliceBufferSource::init$($Supplier* factory) {
 
 $ByteBuffer* SocketTube$SliceBufferSource::getBuffer() {
 	$var($ByteBuffer, buf, this->current);
-	$assign(buf, (buf == nullptr || !$nc(buf)->hasRemaining()) ? ($set(this, current, $cast($ByteBuffer, $nc(this->factory)->get()))) : buf);
+	$assign(buf, (buf == nullptr || !buf->hasRemaining()) ? ($set(this, current, $cast($ByteBuffer, $nc(this->factory)->get()))) : buf);
 	if (!SocketTube$SliceBufferSource::$assertionsDisabled && !$nc(buf)->hasRemaining()) {
 		$throwNew($AssertionError);
 	}
@@ -128,7 +83,7 @@ $ByteBuffer* SocketTube$SliceBufferSource::getBuffer() {
 }
 
 $List* SocketTube$SliceBufferSource::append($List* list, $ByteBuffer* buf, int32_t start) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t limit = $nc(buf)->limit();
 	buf->limit(buf->position());
 	buf->position(start);
@@ -138,7 +93,7 @@ $List* SocketTube$SliceBufferSource::append($List* list, $ByteBuffer* buf, int32
 	return $SocketTube::listOf(list, $($nc(slice)->asReadOnlyBuffer()));
 }
 
-void clinit$SocketTube$SliceBufferSource($Class* class$) {
+void SocketTube$SliceBufferSource::clinit$($Class* clazz) {
 	$load($SocketTube);
 	SocketTube$SliceBufferSource::$assertionsDisabled = !$SocketTube::class$->desiredAssertionStatus();
 }
@@ -148,11 +103,46 @@ SocketTube$SliceBufferSource::SocketTube$SliceBufferSource() {
 
 $Class* SocketTube$SliceBufferSource::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SocketTube$SliceBufferSource$$Lambda$getBuffer::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.SocketTube$SliceBufferSource$$Lambda$getBuffer")) {
 			return SocketTube$SliceBufferSource$$Lambda$getBuffer::load$(name, initialize);
 		}
 	}
-	$loadClass(SocketTube$SliceBufferSource, name, initialize, &_SocketTube$SliceBufferSource_ClassInfo_, clinit$SocketTube$SliceBufferSource, allocate$SocketTube$SliceBufferSource);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SocketTube$SliceBufferSource, $assertionsDisabled)},
+		{"factory", "Ljava/util/function/Supplier;", "Ljava/util/function/Supplier<Ljava/nio/ByteBuffer;>;", $PRIVATE | $FINAL, $field(SocketTube$SliceBufferSource, factory)},
+		{"current", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $VOLATILE, $field(SocketTube$SliceBufferSource, current)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SocketTube$SliceBufferSource, init$, void)},
+		{"<init>", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(SocketTube$SliceBufferSource, init$, void, $Supplier*)},
+		{"append", "(Ljava/util/List;Ljava/nio/ByteBuffer;I)Ljava/util/List;", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Ljava/nio/ByteBuffer;I)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PUBLIC | $FINAL, $virtualMethod(SocketTube$SliceBufferSource, append, $List*, $List*, $ByteBuffer*, int32_t)},
+		{"getBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketTube$SliceBufferSource, getBuffer, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.SocketTube$SliceBufferSource", "jdk.internal.net.http.SocketTube", "SliceBufferSource", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.net.http.SocketTube$BufferSource", "jdk.internal.net.http.SocketTube", "BufferSource", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.SocketTube$SliceBufferSource",
+		"java.lang.Object",
+		"jdk.internal.net.http.SocketTube$BufferSource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.SocketTube"
+	};
+	$loadClass(SocketTube$SliceBufferSource, name, initialize, &classInfo$$, SocketTube$SliceBufferSource::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketTube$SliceBufferSource);
+	});
 	return class$;
 }
 

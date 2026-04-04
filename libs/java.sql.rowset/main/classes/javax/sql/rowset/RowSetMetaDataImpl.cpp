@@ -1,5 +1,4 @@
 #include <javax/sql/rowset/RowSetMetaDataImpl.h>
-
 #include <java/lang/reflect/Field.h>
 #include <java/math/BigDecimal.h>
 #include <java/sql/Blob.h>
@@ -48,7 +47,6 @@ using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Short = ::java::lang::Short;
-using $Field = ::java::lang::reflect::Field;
 using $BigDecimal = ::java::math::BigDecimal;
 using $Blob = ::java::sql::Blob;
 using $Clob = ::java::sql::Clob;
@@ -64,89 +62,6 @@ using $RowSetMetaDataImpl$ColInfo = ::javax::sql::rowset::RowSetMetaDataImpl$Col
 namespace javax {
 	namespace sql {
 		namespace rowset {
-
-$FieldInfo _RowSetMetaDataImpl_FieldInfo_[] = {
-	{"colCount", "I", nullptr, $PRIVATE, $field(RowSetMetaDataImpl, colCount)},
-	{"colInfo", "[Ljavax/sql/rowset/RowSetMetaDataImpl$ColInfo;", nullptr, $PRIVATE, $field(RowSetMetaDataImpl, colInfo)},
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(RowSetMetaDataImpl, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _RowSetMetaDataImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RowSetMetaDataImpl, init$, void)},
-	{"checkColRange", "(I)V", nullptr, $PRIVATE, $method(RowSetMetaDataImpl, checkColRange, void, int32_t), "java.sql.SQLException"},
-	{"checkColType", "(I)V", nullptr, $PRIVATE, $method(RowSetMetaDataImpl, checkColType, void, int32_t), "java.sql.SQLException"},
-	{"getCatalogName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, getCatalogName, $String*, int32_t), "java.sql.SQLException"},
-	{"getColumnClassName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, getColumnClassName, $String*, int32_t), "java.sql.SQLException"},
-	{"getColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, getColumnCount, int32_t), "java.sql.SQLException"},
-	{"getColumnDisplaySize", "(I)I", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, getColumnDisplaySize, int32_t, int32_t), "java.sql.SQLException"},
-	{"getColumnLabel", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, getColumnLabel, $String*, int32_t), "java.sql.SQLException"},
-	{"getColumnName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, getColumnName, $String*, int32_t), "java.sql.SQLException"},
-	{"getColumnType", "(I)I", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, getColumnType, int32_t, int32_t), "java.sql.SQLException"},
-	{"getColumnTypeName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, getColumnTypeName, $String*, int32_t), "java.sql.SQLException"},
-	{"getPrecision", "(I)I", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, getPrecision, int32_t, int32_t), "java.sql.SQLException"},
-	{"getScale", "(I)I", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, getScale, int32_t, int32_t), "java.sql.SQLException"},
-	{"getSchemaName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, getSchemaName, $String*, int32_t), "java.sql.SQLException"},
-	{"getTableName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, getTableName, $String*, int32_t), "java.sql.SQLException"},
-	{"isAutoIncrement", "(I)Z", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, isAutoIncrement, bool, int32_t), "java.sql.SQLException"},
-	{"isCaseSensitive", "(I)Z", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, isCaseSensitive, bool, int32_t), "java.sql.SQLException"},
-	{"isCurrency", "(I)Z", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, isCurrency, bool, int32_t), "java.sql.SQLException"},
-	{"isDefinitelyWritable", "(I)Z", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, isDefinitelyWritable, bool, int32_t), "java.sql.SQLException"},
-	{"isNullable", "(I)I", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, isNullable, int32_t, int32_t), "java.sql.SQLException"},
-	{"isReadOnly", "(I)Z", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, isReadOnly, bool, int32_t), "java.sql.SQLException"},
-	{"isSearchable", "(I)Z", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, isSearchable, bool, int32_t), "java.sql.SQLException"},
-	{"isSigned", "(I)Z", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, isSigned, bool, int32_t), "java.sql.SQLException"},
-	{"isWrapperFor", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC, $virtualMethod(RowSetMetaDataImpl, isWrapperFor, bool, $Class*), "java.sql.SQLException"},
-	{"isWritable", "(I)Z", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, isWritable, bool, int32_t), "java.sql.SQLException"},
-	{"setAutoIncrement", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setAutoIncrement, void, int32_t, bool), "java.sql.SQLException"},
-	{"setCaseSensitive", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setCaseSensitive, void, int32_t, bool), "java.sql.SQLException"},
-	{"setCatalogName", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setCatalogName, void, int32_t, $String*), "java.sql.SQLException"},
-	{"setColumnCount", "(I)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setColumnCount, void, int32_t), "java.sql.SQLException"},
-	{"setColumnDisplaySize", "(II)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setColumnDisplaySize, void, int32_t, int32_t), "java.sql.SQLException"},
-	{"setColumnLabel", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setColumnLabel, void, int32_t, $String*), "java.sql.SQLException"},
-	{"setColumnName", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setColumnName, void, int32_t, $String*), "java.sql.SQLException"},
-	{"setColumnType", "(II)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setColumnType, void, int32_t, int32_t), "java.sql.SQLException"},
-	{"setColumnTypeName", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setColumnTypeName, void, int32_t, $String*), "java.sql.SQLException"},
-	{"setCurrency", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setCurrency, void, int32_t, bool), "java.sql.SQLException"},
-	{"setNullable", "(II)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setNullable, void, int32_t, int32_t), "java.sql.SQLException"},
-	{"setPrecision", "(II)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setPrecision, void, int32_t, int32_t), "java.sql.SQLException"},
-	{"setScale", "(II)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setScale, void, int32_t, int32_t), "java.sql.SQLException"},
-	{"setSchemaName", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setSchemaName, void, int32_t, $String*), "java.sql.SQLException"},
-	{"setSearchable", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setSearchable, void, int32_t, bool), "java.sql.SQLException"},
-	{"setSigned", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setSigned, void, int32_t, bool), "java.sql.SQLException"},
-	{"setTableName", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setTableName, void, int32_t, $String*), "java.sql.SQLException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unwrap", "(Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(RowSetMetaDataImpl, unwrap, $Object*, $Class*), "java.sql.SQLException"},
-	{}
-};
-
-$InnerClassInfo _RowSetMetaDataImpl_InnerClassesInfo_[] = {
-	{"javax.sql.rowset.RowSetMetaDataImpl$ColInfo", "javax.sql.rowset.RowSetMetaDataImpl", "ColInfo", $PRIVATE},
-	{}
-};
-
-$ClassInfo _RowSetMetaDataImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.sql.rowset.RowSetMetaDataImpl",
-	"java.lang.Object",
-	"javax.sql.RowSetMetaData,java.io.Serializable",
-	_RowSetMetaDataImpl_FieldInfo_,
-	_RowSetMetaDataImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RowSetMetaDataImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.sql.rowset.RowSetMetaDataImpl$ColInfo"
-};
-
-$Object* allocate$RowSetMetaDataImpl($Class* clazz) {
-	return $of($alloc(RowSetMetaDataImpl));
-}
 
 int32_t RowSetMetaDataImpl::hashCode() {
 	 return this->$RowSetMetaData::hashCode();
@@ -172,19 +87,19 @@ void RowSetMetaDataImpl::init$() {
 }
 
 void RowSetMetaDataImpl::checkColRange(int32_t col) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (col <= 0 || col > this->colCount) {
 		$throwNew($SQLException, $$str({"Invalid column index :"_s, $$str(col)}));
 	}
 }
 
 void RowSetMetaDataImpl::checkColType(int32_t SQLType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		$load($Types);
 		$Class* c = $Types::class$;
-		$var($FieldArray, publicFields, $nc(c)->getFields());
+		$var($FieldArray, publicFields, c->getFields());
 		int32_t fieldValue = 0;
 		for (int32_t i = 0; i < $nc(publicFields)->length; ++i) {
 			fieldValue = $nc(publicFields->get(i))->getInt(c);
@@ -199,7 +114,7 @@ void RowSetMetaDataImpl::checkColType(int32_t SQLType) {
 }
 
 void RowSetMetaDataImpl::setColumnCount(int32_t columnCount) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (columnCount <= 0) {
 		$throwNew($SQLException, "Invalid column count. Cannot be less or equal to zero"_s);
 	}
@@ -207,7 +122,7 @@ void RowSetMetaDataImpl::setColumnCount(int32_t columnCount) {
 	if (!(this->colCount == $Integer::MAX_VALUE)) {
 		$set(this, colInfo, $new($RowSetMetaDataImpl$ColInfoArray, this->colCount + 1));
 		for (int32_t i = 1; i <= this->colCount; ++i) {
-			$nc(this->colInfo)->set(i, $$new($RowSetMetaDataImpl$ColInfo, this));
+			this->colInfo->set(i, $$new($RowSetMetaDataImpl$ColInfo, this));
 		}
 	}
 }
@@ -383,7 +298,7 @@ $String* RowSetMetaDataImpl::getSchemaName(int32_t columnIndex) {
 	$var($String, str, ""_s);
 	if ($nc($nc(this->colInfo)->get(columnIndex))->schemaName == nullptr) {
 	} else {
-		$assign(str, $nc($nc(this->colInfo)->get(columnIndex))->schemaName);
+		$assign(str, $nc(this->colInfo->get(columnIndex))->schemaName);
 	}
 	return str;
 }
@@ -408,7 +323,7 @@ $String* RowSetMetaDataImpl::getCatalogName(int32_t columnIndex) {
 	$var($String, str, ""_s);
 	if ($nc($nc(this->colInfo)->get(columnIndex))->catName == nullptr) {
 	} else {
-		$assign(str, $nc($nc(this->colInfo)->get(columnIndex))->catName);
+		$assign(str, $nc(this->colInfo->get(columnIndex))->catName);
 	}
 	return str;
 }
@@ -443,103 +358,64 @@ $String* RowSetMetaDataImpl::getColumnClassName(int32_t columnIndex) {
 	int32_t sqlType = getColumnType(columnIndex);
 	switch (sqlType) {
 	case $Types::NUMERIC:
-		{}
 	case $Types::DECIMAL:
-		{
-			$load($BigDecimal);
-			$assign(className, $BigDecimal::class$->getName());
-			break;
-		}
+		$load($BigDecimal);
+		$assign(className, $BigDecimal::class$->getName());
+		break;
 	case $Types::BIT:
-		{
-			$load($Boolean);
-			$assign(className, $Boolean::class$->getName());
-			break;
-		}
+		$assign(className, $Boolean::class$->getName());
+		break;
 	case $Types::TINYINT:
-		{
-			$load($Byte);
-			$assign(className, $Byte::class$->getName());
-			break;
-		}
+		$assign(className, $Byte::class$->getName());
+		break;
 	case $Types::SMALLINT:
-		{
-			$load($Short);
-			$assign(className, $Short::class$->getName());
-			break;
-		}
+		$assign(className, $Short::class$->getName());
+		break;
 	case $Types::INTEGER:
-		{
-			$load($Integer);
-			$assign(className, $Integer::class$->getName());
-			break;
-		}
+		$assign(className, $Integer::class$->getName());
+		break;
 	case $Types::BIGINT:
-		{
-			$load($Long);
-			$assign(className, $Long::class$->getName());
-			break;
-		}
+		$assign(className, $Long::class$->getName());
+		break;
 	case $Types::REAL:
-		{
-			$load($Float);
-			$assign(className, $Float::class$->getName());
-			break;
-		}
+		$assign(className, $Float::class$->getName());
+		break;
 	case $Types::FLOAT:
-		{}
 	case $Types::DOUBLE:
-		{
-			$load($Double);
-			$assign(className, $Double::class$->getName());
-			break;
-		}
+		$assign(className, $Double::class$->getName());
+		break;
 	case $Types::BINARY:
-		{}
 	case $Types::VARBINARY:
-		{}
 	case $Types::LONGVARBINARY:
-		{
-			$assign(className, "byte[]"_s);
-			break;
-		}
+		$assign(className, "byte[]"_s);
+		break;
 	case $Types::DATE:
-		{
-			$load($Date);
-			$assign(className, $Date::class$->getName());
-			break;
-		}
+		$load($Date);
+		$assign(className, $Date::class$->getName());
+		break;
 	case $Types::TIME:
-		{
-			$load($Time);
-			$assign(className, $Time::class$->getName());
-			break;
-		}
+		$load($Time);
+		$assign(className, $Time::class$->getName());
+		break;
 	case $Types::TIMESTAMP:
-		{
-			$load($Timestamp);
-			$assign(className, $Timestamp::class$->getName());
-			break;
-		}
+		$load($Timestamp);
+		$assign(className, $Timestamp::class$->getName());
+		break;
 	case $Types::BLOB:
-		{
-			$load($Blob);
-			$assign(className, $Blob::class$->getName());
-			break;
-		}
+		$load($Blob);
+		$assign(className, $Blob::class$->getName());
+		break;
 	case $Types::CLOB:
-		{
-			$load($Clob);
-			$assign(className, $Clob::class$->getName());
-			break;
-		}
+		$load($Clob);
+		$assign(className, $Clob::class$->getName());
+		break;
 	}
 	return className;
 }
 
 $Object* RowSetMetaDataImpl::unwrap($Class* iface) {
 	if (isWrapperFor(iface)) {
-		return $of($nc(iface)->cast(this));
+		return $nc(iface)->cast(this);
 	} else {
 		$throwNew($SQLException, $$str({"unwrap failed for:"_s, iface}));
 	}
@@ -553,7 +429,84 @@ RowSetMetaDataImpl::RowSetMetaDataImpl() {
 }
 
 $Class* RowSetMetaDataImpl::load$($String* name, bool initialize) {
-	$loadClass(RowSetMetaDataImpl, name, initialize, &_RowSetMetaDataImpl_ClassInfo_, allocate$RowSetMetaDataImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"colCount", "I", nullptr, $PRIVATE, $field(RowSetMetaDataImpl, colCount)},
+		{"colInfo", "[Ljavax/sql/rowset/RowSetMetaDataImpl$ColInfo;", nullptr, $PRIVATE, $field(RowSetMetaDataImpl, colInfo)},
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(RowSetMetaDataImpl, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RowSetMetaDataImpl, init$, void)},
+		{"checkColRange", "(I)V", nullptr, $PRIVATE, $method(RowSetMetaDataImpl, checkColRange, void, int32_t), "java.sql.SQLException"},
+		{"checkColType", "(I)V", nullptr, $PRIVATE, $method(RowSetMetaDataImpl, checkColType, void, int32_t), "java.sql.SQLException"},
+		{"getCatalogName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, getCatalogName, $String*, int32_t), "java.sql.SQLException"},
+		{"getColumnClassName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, getColumnClassName, $String*, int32_t), "java.sql.SQLException"},
+		{"getColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, getColumnCount, int32_t), "java.sql.SQLException"},
+		{"getColumnDisplaySize", "(I)I", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, getColumnDisplaySize, int32_t, int32_t), "java.sql.SQLException"},
+		{"getColumnLabel", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, getColumnLabel, $String*, int32_t), "java.sql.SQLException"},
+		{"getColumnName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, getColumnName, $String*, int32_t), "java.sql.SQLException"},
+		{"getColumnType", "(I)I", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, getColumnType, int32_t, int32_t), "java.sql.SQLException"},
+		{"getColumnTypeName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, getColumnTypeName, $String*, int32_t), "java.sql.SQLException"},
+		{"getPrecision", "(I)I", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, getPrecision, int32_t, int32_t), "java.sql.SQLException"},
+		{"getScale", "(I)I", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, getScale, int32_t, int32_t), "java.sql.SQLException"},
+		{"getSchemaName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, getSchemaName, $String*, int32_t), "java.sql.SQLException"},
+		{"getTableName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, getTableName, $String*, int32_t), "java.sql.SQLException"},
+		{"isAutoIncrement", "(I)Z", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, isAutoIncrement, bool, int32_t), "java.sql.SQLException"},
+		{"isCaseSensitive", "(I)Z", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, isCaseSensitive, bool, int32_t), "java.sql.SQLException"},
+		{"isCurrency", "(I)Z", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, isCurrency, bool, int32_t), "java.sql.SQLException"},
+		{"isDefinitelyWritable", "(I)Z", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, isDefinitelyWritable, bool, int32_t), "java.sql.SQLException"},
+		{"isNullable", "(I)I", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, isNullable, int32_t, int32_t), "java.sql.SQLException"},
+		{"isReadOnly", "(I)Z", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, isReadOnly, bool, int32_t), "java.sql.SQLException"},
+		{"isSearchable", "(I)Z", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, isSearchable, bool, int32_t), "java.sql.SQLException"},
+		{"isSigned", "(I)Z", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, isSigned, bool, int32_t), "java.sql.SQLException"},
+		{"isWrapperFor", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC, $virtualMethod(RowSetMetaDataImpl, isWrapperFor, bool, $Class*), "java.sql.SQLException"},
+		{"isWritable", "(I)Z", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, isWritable, bool, int32_t), "java.sql.SQLException"},
+		{"setAutoIncrement", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setAutoIncrement, void, int32_t, bool), "java.sql.SQLException"},
+		{"setCaseSensitive", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setCaseSensitive, void, int32_t, bool), "java.sql.SQLException"},
+		{"setCatalogName", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setCatalogName, void, int32_t, $String*), "java.sql.SQLException"},
+		{"setColumnCount", "(I)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setColumnCount, void, int32_t), "java.sql.SQLException"},
+		{"setColumnDisplaySize", "(II)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setColumnDisplaySize, void, int32_t, int32_t), "java.sql.SQLException"},
+		{"setColumnLabel", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setColumnLabel, void, int32_t, $String*), "java.sql.SQLException"},
+		{"setColumnName", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setColumnName, void, int32_t, $String*), "java.sql.SQLException"},
+		{"setColumnType", "(II)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setColumnType, void, int32_t, int32_t), "java.sql.SQLException"},
+		{"setColumnTypeName", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setColumnTypeName, void, int32_t, $String*), "java.sql.SQLException"},
+		{"setCurrency", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setCurrency, void, int32_t, bool), "java.sql.SQLException"},
+		{"setNullable", "(II)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setNullable, void, int32_t, int32_t), "java.sql.SQLException"},
+		{"setPrecision", "(II)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setPrecision, void, int32_t, int32_t), "java.sql.SQLException"},
+		{"setScale", "(II)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setScale, void, int32_t, int32_t), "java.sql.SQLException"},
+		{"setSchemaName", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setSchemaName, void, int32_t, $String*), "java.sql.SQLException"},
+		{"setSearchable", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setSearchable, void, int32_t, bool), "java.sql.SQLException"},
+		{"setSigned", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setSigned, void, int32_t, bool), "java.sql.SQLException"},
+		{"setTableName", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RowSetMetaDataImpl, setTableName, void, int32_t, $String*), "java.sql.SQLException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unwrap", "(Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(RowSetMetaDataImpl, unwrap, $Object*, $Class*), "java.sql.SQLException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.sql.rowset.RowSetMetaDataImpl$ColInfo", "javax.sql.rowset.RowSetMetaDataImpl", "ColInfo", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.sql.rowset.RowSetMetaDataImpl",
+		"java.lang.Object",
+		"javax.sql.RowSetMetaData,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.sql.rowset.RowSetMetaDataImpl$ColInfo"
+	};
+	$loadClass(RowSetMetaDataImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RowSetMetaDataImpl));
+	});
 	return class$;
 }
 

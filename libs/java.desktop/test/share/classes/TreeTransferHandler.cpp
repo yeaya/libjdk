@@ -1,5 +1,4 @@
 #include <TreeTransferHandler.h>
-
 #include <TreeTransferHandler$NodesTransferable.h>
 #include <java/awt/Component.h>
 #include <java/awt/datatransfer/DataFlavor.h>
@@ -17,7 +16,6 @@
 #include <javax/swing/TransferHandler.h>
 #include <javax/swing/tree/DefaultMutableTreeNode.h>
 #include <javax/swing/tree/DefaultTreeModel.h>
-#include <javax/swing/tree/MutableTreeNode.h>
 #include <javax/swing/tree/TreeModel.h>
 #include <javax/swing/tree/TreeNode.h>
 #include <javax/swing/tree/TreePath.h>
@@ -34,7 +32,6 @@ using $DataFlavor = ::java::awt::datatransfer::DataFlavor;
 using $Transferable = ::java::awt::datatransfer::Transferable;
 using $UnsupportedFlavorException = ::java::awt::datatransfer::UnsupportedFlavorException;
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -49,75 +46,29 @@ using $TransferHandler = ::javax::swing::TransferHandler;
 using $TransferHandler$TransferSupport = ::javax::swing::TransferHandler$TransferSupport;
 using $DefaultMutableTreeNode = ::javax::swing::tree::DefaultMutableTreeNode;
 using $DefaultTreeModel = ::javax::swing::tree::DefaultTreeModel;
-using $MutableTreeNode = ::javax::swing::tree::MutableTreeNode;
 using $TreeNode = ::javax::swing::tree::TreeNode;
 using $TreePath = ::javax::swing::tree::TreePath;
 
-$FieldInfo _TreeTransferHandler_FieldInfo_[] = {
-	{"nodesFlavor", "Ljava/awt/datatransfer/DataFlavor;", nullptr, 0, $field(TreeTransferHandler, nodesFlavor)},
-	{"flavors", "[Ljava/awt/datatransfer/DataFlavor;", nullptr, 0, $field(TreeTransferHandler, flavors)},
-	{"nodesToRemove", "[Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, 0, $field(TreeTransferHandler, nodesToRemove)},
-	{}
-};
-
-$MethodInfo _TreeTransferHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TreeTransferHandler, init$, void)},
-	{"canImport", "(Ljavax/swing/TransferHandler$TransferSupport;)Z", nullptr, $PUBLIC, $virtualMethod(TreeTransferHandler, canImport, bool, $TransferHandler$TransferSupport*)},
-	{"copy", "(Ljavax/swing/tree/TreeNode;)Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PRIVATE, $method(TreeTransferHandler, copy, $DefaultMutableTreeNode*, $TreeNode*)},
-	{"createTransferable", "(Ljavax/swing/JComponent;)Ljava/awt/datatransfer/Transferable;", nullptr, $PROTECTED, $virtualMethod(TreeTransferHandler, createTransferable, $Transferable*, $JComponent*)},
-	{"exportDone", "(Ljavax/swing/JComponent;Ljava/awt/datatransfer/Transferable;I)V", nullptr, $PROTECTED, $virtualMethod(TreeTransferHandler, exportDone, void, $JComponent*, $Transferable*, int32_t)},
-	{"getSourceActions", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(TreeTransferHandler, getSourceActions, int32_t, $JComponent*)},
-	{"haveCompleteNode", "(Ljavax/swing/JTree;)Z", nullptr, $PRIVATE, $method(TreeTransferHandler, haveCompleteNode, bool, $JTree*)},
-	{"importData", "(Ljavax/swing/TransferHandler$TransferSupport;)Z", nullptr, $PUBLIC, $virtualMethod(TreeTransferHandler, importData, bool, $TransferHandler$TransferSupport*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TreeTransferHandler, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _TreeTransferHandler_InnerClassesInfo_[] = {
-	{"TreeTransferHandler$NodesTransferable", "TreeTransferHandler", "NodesTransferable", $PUBLIC},
-	{}
-};
-
-$ClassInfo _TreeTransferHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"TreeTransferHandler",
-	"javax.swing.TransferHandler",
-	nullptr,
-	_TreeTransferHandler_FieldInfo_,
-	_TreeTransferHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TreeTransferHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TreeTransferHandler$NodesTransferable"
-};
-
-$Object* allocate$TreeTransferHandler($Class* clazz) {
-	return $of($alloc(TreeTransferHandler));
-}
-
 void TreeTransferHandler::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$TransferHandler::init$();
 	$set(this, flavors, $new($DataFlavorArray, 1));
 	try {
-		$init($DataFlavor);
-		$load($DefaultMutableTreeNodeArray);
+		$load($DefaultMutableTreeNode);
 		$var($String, mimeType, $str({$DataFlavor::javaJVMLocalObjectMimeType, ";class=\""_s, $($getClass($DefaultMutableTreeNodeArray)->getName()), "\""_s}));
 		$set(this, nodesFlavor, $new($DataFlavor, mimeType));
-		$nc(this->flavors)->set(0, this->nodesFlavor);
+		this->flavors->set(0, this->nodesFlavor);
 	} catch ($ClassNotFoundException& e) {
 		$nc($System::out)->println($$str({"ClassNotFound: "_s, $(e->getMessage())}));
 	}
 }
 
 bool TreeTransferHandler::canImport($TransferHandler$TransferSupport* support) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(support)->isDrop()) {
 		return false;
 	}
-	$nc(support)->setShowDropLocation(true);
+	support->setShowDropLocation(true);
 	if (!support->isDataFlavorSupported(this->nodesFlavor)) {
 		return false;
 	}
@@ -134,9 +85,9 @@ bool TreeTransferHandler::canImport($TransferHandler$TransferSupport* support) {
 	if (action == $TransferHandler::MOVE) {
 		return haveCompleteNode(tree);
 	}
-	$var($TreePath, dest, $nc(dl)->getPath());
+	$var($TreePath, dest, dl->getPath());
 	$var($DefaultMutableTreeNode, target, $cast($DefaultMutableTreeNode, $nc(dest)->getLastPathComponent()));
-	$var($TreePath, path, tree->getPathForRow($nc(selRows)->get(0)));
+	$var($TreePath, path, tree->getPathForRow(selRows->get(0)));
 	$var($DefaultMutableTreeNode, firstNode, $cast($DefaultMutableTreeNode, $nc(path)->getLastPathComponent()));
 	bool var$0 = $nc(firstNode)->getChildCount() > 0;
 	if (var$0) {
@@ -150,15 +101,15 @@ bool TreeTransferHandler::canImport($TransferHandler$TransferSupport* support) {
 }
 
 bool TreeTransferHandler::haveCompleteNode($JTree* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, selRows, $nc(tree)->getSelectionRows());
 	$var($TreePath, path, tree->getPathForRow($nc(selRows)->get(0)));
 	$var($DefaultMutableTreeNode, first, $cast($DefaultMutableTreeNode, $nc(path)->getLastPathComponent()));
 	int32_t childCount = $nc(first)->getChildCount();
-	if (childCount > 0 && $nc(selRows)->length == 1) {
+	if (childCount > 0 && selRows->length == 1) {
 		return false;
 	}
-	for (int32_t i = 1; i < $nc(selRows)->length; ++i) {
+	for (int32_t i = 1; i < selRows->length; ++i) {
 		$assign(path, tree->getPathForRow(selRows->get(i)));
 		$var($DefaultMutableTreeNode, next, $cast($DefaultMutableTreeNode, $nc(path)->getLastPathComponent()));
 		if (first->isNodeChild(next)) {
@@ -171,7 +122,7 @@ bool TreeTransferHandler::haveCompleteNode($JTree* tree) {
 }
 
 $Transferable* TreeTransferHandler::createTransferable($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTree, tree, $cast($JTree, c));
 	$var($TreePathArray, paths, $nc(tree)->getSelectionPaths());
 	if (paths != nullptr) {
@@ -187,8 +138,8 @@ $Transferable* TreeTransferHandler::createTransferable($JComponent* c) {
 			if (var$0 < $nc(node)->getLevel()) {
 				break;
 			} else {
-				int32_t var$2 = next->getLevel();
-				if (var$2 > node->getLevel()) {
+				int32_t var$1 = next->getLevel();
+				if (var$1 > node->getLevel()) {
 					$nc(copy)->add($(this->copy(next)));
 				} else {
 					copies->add($(this->copy(next)));
@@ -196,8 +147,8 @@ $Transferable* TreeTransferHandler::createTransferable($JComponent* c) {
 				}
 			}
 		}
-		$var($DefaultMutableTreeNodeArray, nodes, $fcast($DefaultMutableTreeNodeArray, copies->toArray($$new($DefaultMutableTreeNodeArray, copies->size()))));
-		$set(this, nodesToRemove, $fcast($DefaultMutableTreeNodeArray, toRemove->toArray($$new($DefaultMutableTreeNodeArray, toRemove->size()))));
+		$var($DefaultMutableTreeNodeArray, nodes, $cast($DefaultMutableTreeNodeArray, copies->toArray($$new($DefaultMutableTreeNodeArray, copies->size()))));
+		$set(this, nodesToRemove, $cast($DefaultMutableTreeNodeArray, toRemove->toArray($$new($DefaultMutableTreeNodeArray, toRemove->size()))));
 		return $new($TreeTransferHandler$NodesTransferable, this, nodes);
 	}
 	return nullptr;
@@ -208,15 +159,13 @@ $DefaultMutableTreeNode* TreeTransferHandler::copy($TreeNode* node) {
 }
 
 void TreeTransferHandler::exportDone($JComponent* source, $Transferable* data, int32_t action) {
-	$useLocalCurrentObjectStackCache();
-	if (((int32_t)(action & (uint32_t)$TransferHandler::MOVE)) == $TransferHandler::MOVE) {
+	$useLocalObjectStack();
+	if ((action & $TransferHandler::MOVE) == $TransferHandler::MOVE) {
 		$var($JTree, tree, $cast($JTree, source));
 		$var($DefaultTreeModel, model, $cast($DefaultTreeModel, $nc(tree)->getModel()));
 		{
 			$var($DefaultMutableTreeNodeArray, arr$, this->nodesToRemove);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($DefaultMutableTreeNode, nodesToRemove1, arr$->get(i$));
 				{
 					$nc(model)->removeNodeFromParent(nodesToRemove1);
@@ -231,7 +180,7 @@ int32_t TreeTransferHandler::getSourceActions($JComponent* c) {
 }
 
 bool TreeTransferHandler::importData($TransferHandler$TransferSupport* support) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!canImport(support)) {
 		return false;
 	}
@@ -256,9 +205,7 @@ bool TreeTransferHandler::importData($TransferHandler$TransferSupport* support) 
 	}
 	{
 		$var($DefaultMutableTreeNodeArray, arr$, nodes);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($DefaultMutableTreeNode, node, arr$->get(i$));
 			{
 				$nc(model)->insertNodeInto(node, parent, index++);
@@ -276,7 +223,45 @@ TreeTransferHandler::TreeTransferHandler() {
 }
 
 $Class* TreeTransferHandler::load$($String* name, bool initialize) {
-	$loadClass(TreeTransferHandler, name, initialize, &_TreeTransferHandler_ClassInfo_, allocate$TreeTransferHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"nodesFlavor", "Ljava/awt/datatransfer/DataFlavor;", nullptr, 0, $field(TreeTransferHandler, nodesFlavor)},
+		{"flavors", "[Ljava/awt/datatransfer/DataFlavor;", nullptr, 0, $field(TreeTransferHandler, flavors)},
+		{"nodesToRemove", "[Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, 0, $field(TreeTransferHandler, nodesToRemove)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TreeTransferHandler, init$, void)},
+		{"canImport", "(Ljavax/swing/TransferHandler$TransferSupport;)Z", nullptr, $PUBLIC, $virtualMethod(TreeTransferHandler, canImport, bool, $TransferHandler$TransferSupport*)},
+		{"copy", "(Ljavax/swing/tree/TreeNode;)Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PRIVATE, $method(TreeTransferHandler, copy, $DefaultMutableTreeNode*, $TreeNode*)},
+		{"createTransferable", "(Ljavax/swing/JComponent;)Ljava/awt/datatransfer/Transferable;", nullptr, $PROTECTED, $virtualMethod(TreeTransferHandler, createTransferable, $Transferable*, $JComponent*)},
+		{"exportDone", "(Ljavax/swing/JComponent;Ljava/awt/datatransfer/Transferable;I)V", nullptr, $PROTECTED, $virtualMethod(TreeTransferHandler, exportDone, void, $JComponent*, $Transferable*, int32_t)},
+		{"getSourceActions", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(TreeTransferHandler, getSourceActions, int32_t, $JComponent*)},
+		{"haveCompleteNode", "(Ljavax/swing/JTree;)Z", nullptr, $PRIVATE, $method(TreeTransferHandler, haveCompleteNode, bool, $JTree*)},
+		{"importData", "(Ljavax/swing/TransferHandler$TransferSupport;)Z", nullptr, $PUBLIC, $virtualMethod(TreeTransferHandler, importData, bool, $TransferHandler$TransferSupport*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TreeTransferHandler, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TreeTransferHandler$NodesTransferable", "TreeTransferHandler", "NodesTransferable", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TreeTransferHandler",
+		"javax.swing.TransferHandler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TreeTransferHandler$NodesTransferable"
+	};
+	$loadClass(TreeTransferHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeTransferHandler);
+	});
 	return class$;
 }
 

@@ -16,6 +16,7 @@ namespace sun {
 class StateTracker : public ::java::lang::Object {
 	$interface(StateTracker, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual bool isCurrent() {return false;}
 	static ::sun::java2d::StateTracker* ALWAYS_CURRENT;
 	static ::sun::java2d::StateTracker* NEVER_CURRENT;

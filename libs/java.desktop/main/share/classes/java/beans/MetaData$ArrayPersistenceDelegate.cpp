@@ -1,5 +1,4 @@
 #include <java/beans/MetaData$ArrayPersistenceDelegate.h>
-
 #include <java/beans/DefaultPersistenceDelegate.h>
 #include <java/beans/Encoder.h>
 #include <java/beans/ExceptionListener.h>
@@ -12,7 +11,6 @@
 
 using $DefaultPersistenceDelegate = ::java::beans::DefaultPersistenceDelegate;
 using $Encoder = ::java::beans::Encoder;
-using $ExceptionListener = ::java::beans::ExceptionListener;
 using $Expression = ::java::beans::Expression;
 using $PersistenceDelegate = ::java::beans::PersistenceDelegate;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -25,39 +23,6 @@ using $Objects = ::java::util::Objects;
 
 namespace java {
 	namespace beans {
-
-$MethodInfo _MetaData$ArrayPersistenceDelegate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MetaData$ArrayPersistenceDelegate, init$, void)},
-	{"initialize", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", $PROTECTED, $virtualMethod(MetaData$ArrayPersistenceDelegate, initialize, void, $Class*, Object$*, Object$*, $Encoder*)},
-	{"instantiate", "(Ljava/lang/Object;Ljava/beans/Encoder;)Ljava/beans/Expression;", nullptr, $PROTECTED, $virtualMethod(MetaData$ArrayPersistenceDelegate, instantiate, $Expression*, Object$*, $Encoder*)},
-	{"mutatesTo", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(MetaData$ArrayPersistenceDelegate, mutatesTo, bool, Object$*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _MetaData$ArrayPersistenceDelegate_InnerClassesInfo_[] = {
-	{"java.beans.MetaData$ArrayPersistenceDelegate", "java.beans.MetaData", "ArrayPersistenceDelegate", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MetaData$ArrayPersistenceDelegate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.beans.MetaData$ArrayPersistenceDelegate",
-	"java.beans.PersistenceDelegate",
-	nullptr,
-	nullptr,
-	_MetaData$ArrayPersistenceDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetaData$ArrayPersistenceDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.beans.MetaData"
-};
-
-$Object* allocate$MetaData$ArrayPersistenceDelegate($Class* clazz) {
-	return $of($alloc(MetaData$ArrayPersistenceDelegate));
-}
 
 void MetaData$ArrayPersistenceDelegate::init$() {
 	$PersistenceDelegate::init$();
@@ -77,17 +42,17 @@ bool MetaData$ArrayPersistenceDelegate::mutatesTo(Object$* oldInstance, Object$*
 }
 
 $Expression* MetaData$ArrayPersistenceDelegate::instantiate(Object$* oldInstance, $Encoder* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Class* oldClass = $nc($of(oldInstance))->getClass();
 	$load($1Array);
 	return $new($Expression, oldInstance, $1Array::class$, "newInstance"_s, $$new($ObjectArray, {
-		$of($nc(oldClass)->getComponentType()),
-		$($of($Integer::valueOf($1Array::getLength(oldInstance))))
+		oldClass->getComponentType(),
+		$($Integer::valueOf($1Array::getLength(oldInstance)))
 	}));
 }
 
 void MetaData$ArrayPersistenceDelegate::initialize($Class* type, Object$* oldInstance, Object$* newInstance, $Encoder* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = $1Array::getLength(oldInstance);
 	for (int32_t i = 0; i < n; ++i) {
 		$var($Object, index, $Integer::valueOf(i));
@@ -104,7 +69,7 @@ void MetaData$ArrayPersistenceDelegate::initialize($Class* type, Object$* oldIns
 				}), out);
 			}
 		} catch ($Exception& e) {
-			$nc($($nc(out)->getExceptionListener()))->exceptionThrown(e);
+			$$nc($nc(out)->getExceptionListener())->exceptionThrown(e);
 		}
 	}
 }
@@ -113,7 +78,35 @@ MetaData$ArrayPersistenceDelegate::MetaData$ArrayPersistenceDelegate() {
 }
 
 $Class* MetaData$ArrayPersistenceDelegate::load$($String* name, bool initialize) {
-	$loadClass(MetaData$ArrayPersistenceDelegate, name, initialize, &_MetaData$ArrayPersistenceDelegate_ClassInfo_, allocate$MetaData$ArrayPersistenceDelegate);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MetaData$ArrayPersistenceDelegate, init$, void)},
+		{"initialize", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", $PROTECTED, $virtualMethod(MetaData$ArrayPersistenceDelegate, initialize, void, $Class*, Object$*, Object$*, $Encoder*)},
+		{"instantiate", "(Ljava/lang/Object;Ljava/beans/Encoder;)Ljava/beans/Expression;", nullptr, $PROTECTED, $virtualMethod(MetaData$ArrayPersistenceDelegate, instantiate, $Expression*, Object$*, $Encoder*)},
+		{"mutatesTo", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(MetaData$ArrayPersistenceDelegate, mutatesTo, bool, Object$*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.MetaData$ArrayPersistenceDelegate", "java.beans.MetaData", "ArrayPersistenceDelegate", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.beans.MetaData$ArrayPersistenceDelegate",
+		"java.beans.PersistenceDelegate",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.beans.MetaData"
+	};
+	$loadClass(MetaData$ArrayPersistenceDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetaData$ArrayPersistenceDelegate);
+	});
 	return class$;
 }
 

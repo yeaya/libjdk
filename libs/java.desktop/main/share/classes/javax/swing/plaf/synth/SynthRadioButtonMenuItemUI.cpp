@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthRadioButtonMenuItemUI.h>
-
 #include <java/awt/Graphics.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -15,34 +14,11 @@ using $JComponent = ::javax::swing::JComponent;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthMenuItemUI = ::javax::swing::plaf::synth::SynthMenuItemUI;
-using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$MethodInfo _SynthRadioButtonMenuItemUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SynthRadioButtonMenuItemUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthRadioButtonMenuItemUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SynthRadioButtonMenuItemUI, getPropertyPrefix, $String*)},
-	{"paintBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, 0, $virtualMethod(SynthRadioButtonMenuItemUI, paintBackground, void, $SynthContext*, $Graphics*, $JComponent*)},
-	{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthRadioButtonMenuItemUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _SynthRadioButtonMenuItemUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.synth.SynthRadioButtonMenuItemUI",
-	"javax.swing.plaf.synth.SynthMenuItemUI",
-	nullptr,
-	nullptr,
-	_SynthRadioButtonMenuItemUI_MethodInfo_
-};
-
-$Object* allocate$SynthRadioButtonMenuItemUI($Class* clazz) {
-	return $of($alloc(SynthRadioButtonMenuItemUI));
-}
 
 void SynthRadioButtonMenuItemUI::init$() {
 	$SynthMenuItemUI::init$();
@@ -58,22 +34,37 @@ $String* SynthRadioButtonMenuItemUI::getPropertyPrefix() {
 }
 
 void SynthRadioButtonMenuItemUI::paintBackground($SynthContext* context, $Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
-	$var($SynthContext, var$0, context);
-	$var($Graphics, var$1, g);
-	int32_t var$2 = $nc(c)->getWidth();
-	$nc($($nc(context)->getPainter()))->paintRadioButtonMenuItemBackground(var$0, var$1, 0, 0, var$2, c->getHeight());
+	int32_t var$0 = $nc(c)->getWidth();
+	$$nc($nc(context)->getPainter())->paintRadioButtonMenuItemBackground(context, g, 0, 0, var$0, c->getHeight());
 }
 
 void SynthRadioButtonMenuItemUI::paintBorder($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$nc($($nc(context)->getPainter()))->paintRadioButtonMenuItemBorder(context, g, x, y, w, h);
+	$$nc($nc(context)->getPainter())->paintRadioButtonMenuItemBorder(context, g, x, y, w, h);
 }
 
 SynthRadioButtonMenuItemUI::SynthRadioButtonMenuItemUI() {
 }
 
 $Class* SynthRadioButtonMenuItemUI::load$($String* name, bool initialize) {
-	$loadClass(SynthRadioButtonMenuItemUI, name, initialize, &_SynthRadioButtonMenuItemUI_ClassInfo_, allocate$SynthRadioButtonMenuItemUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SynthRadioButtonMenuItemUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthRadioButtonMenuItemUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SynthRadioButtonMenuItemUI, getPropertyPrefix, $String*)},
+		{"paintBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, 0, $virtualMethod(SynthRadioButtonMenuItemUI, paintBackground, void, $SynthContext*, $Graphics*, $JComponent*)},
+		{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthRadioButtonMenuItemUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.synth.SynthRadioButtonMenuItemUI",
+		"javax.swing.plaf.synth.SynthMenuItemUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SynthRadioButtonMenuItemUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthRadioButtonMenuItemUI));
+	});
 	return class$;
 }
 

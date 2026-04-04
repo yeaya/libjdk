@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/main/JavaCompiler$2.h>
-
 #include <com/sun/tools/javac/main/JavaCompiler$CompilePolicy.h>
 #include <com/sun/tools/javac/main/JavaCompiler.h>
 #include <com/sun/tools/javac/tree/JCTree$Tag.h>
@@ -28,75 +27,38 @@ namespace com {
 			namespace javac {
 				namespace main {
 
-$FieldInfo _JavaCompiler$2_FieldInfo_[] = {
-	{"$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JavaCompiler$2, $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)},
-	{"$SwitchMap$com$sun$tools$javac$main$JavaCompiler$CompilePolicy", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JavaCompiler$2, $SwitchMap$com$sun$tools$javac$main$JavaCompiler$CompilePolicy)},
-	{}
-};
-
-$EnclosingMethodInfo _JavaCompiler$2_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.main.JavaCompiler",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _JavaCompiler$2_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.main.JavaCompiler$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _JavaCompiler$2_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.tools.javac.main.JavaCompiler$2",
-	"java.lang.Object",
-	nullptr,
-	_JavaCompiler$2_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_JavaCompiler$2_EnclosingMethodInfo_,
-	_JavaCompiler$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.main.JavaCompiler"
-};
-
-$Object* allocate$JavaCompiler$2($Class* clazz) {
-	return $of($alloc(JavaCompiler$2));
-}
-
 $ints* JavaCompiler$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag = nullptr;
 $ints* JavaCompiler$2::$SwitchMap$com$sun$tools$javac$main$JavaCompiler$CompilePolicy = nullptr;
 
-void clinit$JavaCompiler$2($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void JavaCompiler$2::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(JavaCompiler$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag, $new($ints, $($JCTree$Tag::values())->length));
 	{
 		try {
-			$nc(JavaCompiler$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::CLASSDEF->ordinal(), 1);
+			JavaCompiler$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::CLASSDEF->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavaCompiler$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::METHODDEF->ordinal(), 2);
+			JavaCompiler$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::METHODDEF->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavaCompiler$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::VARDEF->ordinal(), 3);
+			JavaCompiler$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::VARDEF->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(JavaCompiler$2::$SwitchMap$com$sun$tools$javac$main$JavaCompiler$CompilePolicy, $new($ints, $($JavaCompiler$CompilePolicy::values())->length));
 	{
 		try {
-			$nc(JavaCompiler$2::$SwitchMap$com$sun$tools$javac$main$JavaCompiler$CompilePolicy)->set($JavaCompiler$CompilePolicy::SIMPLE->ordinal(), 1);
+			JavaCompiler$2::$SwitchMap$com$sun$tools$javac$main$JavaCompiler$CompilePolicy->set($JavaCompiler$CompilePolicy::SIMPLE->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavaCompiler$2::$SwitchMap$com$sun$tools$javac$main$JavaCompiler$CompilePolicy)->set($JavaCompiler$CompilePolicy::BY_FILE->ordinal(), 2);
+			JavaCompiler$2::$SwitchMap$com$sun$tools$javac$main$JavaCompiler$CompilePolicy->set($JavaCompiler$CompilePolicy::BY_FILE->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavaCompiler$2::$SwitchMap$com$sun$tools$javac$main$JavaCompiler$CompilePolicy)->set($JavaCompiler$CompilePolicy::BY_TODO->ordinal(), 3);
+			JavaCompiler$2::$SwitchMap$com$sun$tools$javac$main$JavaCompiler$CompilePolicy->set($JavaCompiler$CompilePolicy::BY_TODO->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -106,7 +68,38 @@ JavaCompiler$2::JavaCompiler$2() {
 }
 
 $Class* JavaCompiler$2::load$($String* name, bool initialize) {
-	$loadClass(JavaCompiler$2, name, initialize, &_JavaCompiler$2_ClassInfo_, clinit$JavaCompiler$2, allocate$JavaCompiler$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JavaCompiler$2, $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)},
+		{"$SwitchMap$com$sun$tools$javac$main$JavaCompiler$CompilePolicy", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JavaCompiler$2, $SwitchMap$com$sun$tools$javac$main$JavaCompiler$CompilePolicy)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.main.JavaCompiler",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.main.JavaCompiler$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.tools.javac.main.JavaCompiler$2",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.main.JavaCompiler"
+	};
+	$loadClass(JavaCompiler$2, name, initialize, &classInfo$$, JavaCompiler$2::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JavaCompiler$2);
+	});
 	return class$;
 }
 

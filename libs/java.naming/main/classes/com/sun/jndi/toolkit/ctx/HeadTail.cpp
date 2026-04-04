@@ -1,5 +1,4 @@
 #include <com/sun/jndi/toolkit/ctx/HeadTail.h>
-
 #include <javax/naming/Name.h>
 #include <jcpp.h>
 
@@ -13,36 +12,6 @@ namespace com {
 		namespace jndi {
 			namespace toolkit {
 				namespace ctx {
-
-$FieldInfo _HeadTail_FieldInfo_[] = {
-	{"status", "I", nullptr, $PRIVATE, $field(HeadTail, status)},
-	{"head", "Ljavax/naming/Name;", nullptr, $PRIVATE, $field(HeadTail, head)},
-	{"tail", "Ljavax/naming/Name;", nullptr, $PRIVATE, $field(HeadTail, tail)},
-	{}
-};
-
-$MethodInfo _HeadTail_MethodInfo_[] = {
-	{"<init>", "(Ljavax/naming/Name;Ljavax/naming/Name;)V", nullptr, $PUBLIC, $method(HeadTail, init$, void, $Name*, $Name*)},
-	{"<init>", "(Ljavax/naming/Name;Ljavax/naming/Name;I)V", nullptr, $PUBLIC, $method(HeadTail, init$, void, $Name*, $Name*, int32_t)},
-	{"getHead", "()Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(HeadTail, getHead, $Name*)},
-	{"getStatus", "()I", nullptr, $PUBLIC, $virtualMethod(HeadTail, getStatus, int32_t)},
-	{"getTail", "()Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(HeadTail, getTail, $Name*)},
-	{"setStatus", "(I)V", nullptr, $PUBLIC, $virtualMethod(HeadTail, setStatus, void, int32_t)},
-	{}
-};
-
-$ClassInfo _HeadTail_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.jndi.toolkit.ctx.HeadTail",
-	"java.lang.Object",
-	nullptr,
-	_HeadTail_FieldInfo_,
-	_HeadTail_MethodInfo_
-};
-
-$Object* allocate$HeadTail($Class* clazz) {
-	return $of($alloc(HeadTail));
-}
 
 void HeadTail::init$($Name* head, $Name* tail) {
 	HeadTail::init$(head, tail, 0);
@@ -74,7 +43,32 @@ HeadTail::HeadTail() {
 }
 
 $Class* HeadTail::load$($String* name, bool initialize) {
-	$loadClass(HeadTail, name, initialize, &_HeadTail_ClassInfo_, allocate$HeadTail);
+	$FieldInfo fieldInfos$$[] = {
+		{"status", "I", nullptr, $PRIVATE, $field(HeadTail, status)},
+		{"head", "Ljavax/naming/Name;", nullptr, $PRIVATE, $field(HeadTail, head)},
+		{"tail", "Ljavax/naming/Name;", nullptr, $PRIVATE, $field(HeadTail, tail)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/naming/Name;Ljavax/naming/Name;)V", nullptr, $PUBLIC, $method(HeadTail, init$, void, $Name*, $Name*)},
+		{"<init>", "(Ljavax/naming/Name;Ljavax/naming/Name;I)V", nullptr, $PUBLIC, $method(HeadTail, init$, void, $Name*, $Name*, int32_t)},
+		{"getHead", "()Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(HeadTail, getHead, $Name*)},
+		{"getStatus", "()I", nullptr, $PUBLIC, $virtualMethod(HeadTail, getStatus, int32_t)},
+		{"getTail", "()Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(HeadTail, getTail, $Name*)},
+		{"setStatus", "(I)V", nullptr, $PUBLIC, $virtualMethod(HeadTail, setStatus, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.jndi.toolkit.ctx.HeadTail",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HeadTail, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadTail);
+	});
 	return class$;
 }
 

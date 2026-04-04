@@ -17,8 +17,9 @@ class $import DocFlavor$CHAR_ARRAY : public ::javax::print::DocFlavor {
 	$class(DocFlavor$CHAR_ARRAY, 0, ::javax::print::DocFlavor)
 public:
 	DocFlavor$CHAR_ARRAY();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* mimeType);
-	static const int64_t serialVersionUID = (int64_t)0x86FA3CC6D8010E78;
+	static const int64_t serialVersionUID = (int64_t)0x86fa3cc6d8010e78;
 	static ::javax::print::DocFlavor$CHAR_ARRAY* TEXT_PLAIN;
 	static ::javax::print::DocFlavor$CHAR_ARRAY* TEXT_HTML;
 };

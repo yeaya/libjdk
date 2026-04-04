@@ -45,6 +45,7 @@ class LoggingProviderImpl : public ::jdk::internal::logger::DefaultLoggerFinder 
 	$class(LoggingProviderImpl, 0, ::jdk::internal::logger::DefaultLoggerFinder)
 public:
 	LoggingProviderImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::logging::Logger* demandJULLoggerFor($String* name, ::java::lang::Module* module);
 	virtual ::java::lang::System$Logger* demandLoggerFor($String* name, ::java::lang::Module* module) override;

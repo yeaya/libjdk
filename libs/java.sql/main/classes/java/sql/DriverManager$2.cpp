@@ -1,5 +1,4 @@
 #include <java/sql/DriverManager$2.h>
-
 #include <java/sql/Driver.h>
 #include <java/sql/DriverManager.h>
 #include <java/util/Iterator.h>
@@ -17,48 +16,11 @@ using $ServiceLoader = ::java::util::ServiceLoader;
 namespace java {
 	namespace sql {
 
-$MethodInfo _DriverManager$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DriverManager$2, init$, void)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(DriverManager$2, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _DriverManager$2_EnclosingMethodInfo_ = {
-	"java.sql.DriverManager",
-	"ensureDriversInitialized",
-	"()V"
-};
-
-$InnerClassInfo _DriverManager$2_InnerClassesInfo_[] = {
-	{"java.sql.DriverManager$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DriverManager$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.sql.DriverManager$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_DriverManager$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
-	&_DriverManager$2_EnclosingMethodInfo_,
-	_DriverManager$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.sql.DriverManager"
-};
-
-$Object* allocate$DriverManager$2($Class* clazz) {
-	return $of($alloc(DriverManager$2));
-}
-
 void DriverManager$2::init$() {
 }
 
 $Object* DriverManager$2::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$load($Driver);
 	$var($ServiceLoader, loadedDrivers, $ServiceLoader::load($Driver::class$));
@@ -69,14 +31,45 @@ $Object* DriverManager$2::run() {
 		}
 	} catch ($Throwable& t) {
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 DriverManager$2::DriverManager$2() {
 }
 
 $Class* DriverManager$2::load$($String* name, bool initialize) {
-	$loadClass(DriverManager$2, name, initialize, &_DriverManager$2_ClassInfo_, allocate$DriverManager$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DriverManager$2, init$, void)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(DriverManager$2, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.sql.DriverManager",
+		"ensureDriversInitialized",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.sql.DriverManager$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.sql.DriverManager$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.sql.DriverManager"
+	};
+	$loadClass(DriverManager$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DriverManager$2);
+	});
 	return class$;
 }
 

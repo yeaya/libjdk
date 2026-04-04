@@ -21,10 +21,13 @@ public:
 	BackingStoreException();
 	void init$($String* s);
 	void init$($Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0x0BEE9C5C998835F5;
+	static const int64_t serialVersionUID = (int64_t)0x0bee9c5c998835f5;
 	BackingStoreException(const BackingStoreException& e);
 	virtual void throw$() override;
-	inline BackingStoreException* operator ->() {
+	inline BackingStoreException* operator ->() const {
+		return (BackingStoreException*)throwing$;
+	}
+	inline operator BackingStoreException*() const {
 		return (BackingStoreException*)throwing$;
 	}
 };

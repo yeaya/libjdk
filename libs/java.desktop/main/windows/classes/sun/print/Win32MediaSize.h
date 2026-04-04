@@ -35,6 +35,7 @@ class Win32MediaSize : public ::javax::print::attribute::standard::MediaSizeName
 	$class(Win32MediaSize, 0, ::javax::print::attribute::standard::MediaSizeName)
 public:
 	Win32MediaSize();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t x);
 	void init$($String* name, int32_t dmPaper);
 	static ::sun::print::Win32MediaSize* findMediaName($String* name);

@@ -31,6 +31,7 @@ class $import ManagementFactoryHelper$PlatformLoggingImpl : public ::java::lang:
 	$class(ManagementFactoryHelper$PlatformLoggingImpl, 0, ::java::lang::management::PlatformLoggingMXBean)
 public:
 	ManagementFactoryHelper$PlatformLoggingImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::management::ManagementFactoryHelper$LoggingMXBeanAccess* loggingAccess);
 	static ::sun::management::ManagementFactoryHelper$PlatformLoggingImpl* getInstance();
 	virtual $String* getLoggerLevel($String* loggerName) override;

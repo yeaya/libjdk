@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/NumberUpSupported.h>
-
 #include <javax/print/attribute/SetOfIntegerSyntax.h>
 #include <jcpp.h>
 
@@ -15,38 +14,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _NumberUpSupported_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumberUpSupported, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NumberUpSupported_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "([[I)V", nullptr, $PUBLIC, $method(NumberUpSupported, init$, void, $intArray2*)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(NumberUpSupported, init$, void, int32_t)},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(NumberUpSupported, init$, void, int32_t, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NumberUpSupported, equals, bool, Object$*)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(NumberUpSupported, getCategory, $Class*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(NumberUpSupported, getName, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _NumberUpSupported_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.NumberUpSupported",
-	"javax.print.attribute.SetOfIntegerSyntax",
-	"javax.print.attribute.SupportedValuesAttribute",
-	_NumberUpSupported_FieldInfo_,
-	_NumberUpSupported_MethodInfo_
-};
-
-$Object* allocate$NumberUpSupported($Class* clazz) {
-	return $of($alloc(NumberUpSupported));
-}
 
 int32_t NumberUpSupported::hashCode() {
 	 return this->$SetOfIntegerSyntax::hashCode();
@@ -114,7 +81,34 @@ NumberUpSupported::NumberUpSupported() {
 }
 
 $Class* NumberUpSupported::load$($String* name, bool initialize) {
-	$loadClass(NumberUpSupported, name, initialize, &_NumberUpSupported_ClassInfo_, allocate$NumberUpSupported);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumberUpSupported, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "([[I)V", nullptr, $PUBLIC, $method(NumberUpSupported, init$, void, $intArray2*)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(NumberUpSupported, init$, void, int32_t)},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(NumberUpSupported, init$, void, int32_t, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NumberUpSupported, equals, bool, Object$*)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(NumberUpSupported, getCategory, $Class*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(NumberUpSupported, getName, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.NumberUpSupported",
+		"javax.print.attribute.SetOfIntegerSyntax",
+		"javax.print.attribute.SupportedValuesAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NumberUpSupported, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NumberUpSupported));
+	});
 	return class$;
 }
 

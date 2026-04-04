@@ -1,5 +1,4 @@
 #include <jdk/nio/zipfs/ZipDirectoryStream$1.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/nio/file/Path.h>
 #include <java/util/Iterator.h>
@@ -14,57 +13,12 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $Path = ::java::nio::file::Path;
-using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $ZipDirectoryStream = ::jdk::nio::zipfs::ZipDirectoryStream;
 
 namespace jdk {
 	namespace nio {
 		namespace zipfs {
-
-$FieldInfo _ZipDirectoryStream$1_FieldInfo_[] = {
-	{"this$0", "Ljdk/nio/zipfs/ZipDirectoryStream;", nullptr, $FINAL | $SYNTHETIC, $field(ZipDirectoryStream$1, this$0)},
-	{}
-};
-
-$MethodInfo _ZipDirectoryStream$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/nio/zipfs/ZipDirectoryStream;)V", nullptr, 0, $method(ZipDirectoryStream$1, init$, void, $ZipDirectoryStream*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ZipDirectoryStream$1, hasNext, bool)},
-	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ZipDirectoryStream$1, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ZipDirectoryStream$1, remove, void)},
-	{}
-};
-
-$EnclosingMethodInfo _ZipDirectoryStream$1_EnclosingMethodInfo_ = {
-	"jdk.nio.zipfs.ZipDirectoryStream",
-	"iterator",
-	"()Ljava/util/Iterator;"
-};
-
-$InnerClassInfo _ZipDirectoryStream$1_InnerClassesInfo_[] = {
-	{"jdk.nio.zipfs.ZipDirectoryStream$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ZipDirectoryStream$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.nio.zipfs.ZipDirectoryStream$1",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_ZipDirectoryStream$1_FieldInfo_,
-	_ZipDirectoryStream$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljava/nio/file/Path;>;",
-	&_ZipDirectoryStream$1_EnclosingMethodInfo_,
-	_ZipDirectoryStream$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.nio.zipfs.ZipDirectoryStream"
-};
-
-$Object* allocate$ZipDirectoryStream$1($Class* clazz) {
-	return $of($alloc(ZipDirectoryStream$1));
-}
 
 void ZipDirectoryStream$1::init$($ZipDirectoryStream* this$0) {
 	$set(this, this$0, this$0);
@@ -94,7 +48,44 @@ ZipDirectoryStream$1::ZipDirectoryStream$1() {
 }
 
 $Class* ZipDirectoryStream$1::load$($String* name, bool initialize) {
-	$loadClass(ZipDirectoryStream$1, name, initialize, &_ZipDirectoryStream$1_ClassInfo_, allocate$ZipDirectoryStream$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/nio/zipfs/ZipDirectoryStream;", nullptr, $FINAL | $SYNTHETIC, $field(ZipDirectoryStream$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/nio/zipfs/ZipDirectoryStream;)V", nullptr, 0, $method(ZipDirectoryStream$1, init$, void, $ZipDirectoryStream*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ZipDirectoryStream$1, hasNext, bool)},
+		{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ZipDirectoryStream$1, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ZipDirectoryStream$1, remove, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.nio.zipfs.ZipDirectoryStream",
+		"iterator",
+		"()Ljava/util/Iterator;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.nio.zipfs.ZipDirectoryStream$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.nio.zipfs.ZipDirectoryStream$1",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljava/nio/file/Path;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.nio.zipfs.ZipDirectoryStream"
+	};
+	$loadClass(ZipDirectoryStream$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ZipDirectoryStream$1);
+	});
 	return class$;
 }
 

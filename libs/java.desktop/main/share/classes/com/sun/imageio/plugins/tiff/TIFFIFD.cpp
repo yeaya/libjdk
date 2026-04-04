@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFIFD.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFIFD$TIFFIFDEntry.h>
 #include <java/io/EOFException.h>
 #include <java/lang/Math.h>
@@ -121,73 +120,14 @@ namespace com {
 			namespace plugins {
 				namespace tiff {
 
-$FieldInfo _TIFFIFD_FieldInfo_[] = {
-	{"MAX_SAMPLES_PER_PIXEL", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TIFFIFD, MAX_SAMPLES_PER_PIXEL)},
-	{"MAX_ASCII_SIZE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TIFFIFD, MAX_ASCII_SIZE)},
-	{"stripOrTileByteCountsPosition", "J", nullptr, $PRIVATE, $field(TIFFIFD, stripOrTileByteCountsPosition)},
-	{"stripOrTileOffsetsPosition", "J", nullptr, $PRIVATE, $field(TIFFIFD, stripOrTileOffsetsPosition)},
-	{"lastPosition", "J", nullptr, $PRIVATE, $field(TIFFIFD, lastPosition)},
-	{"essentialTags", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $VOLATILE, $staticField(TIFFIFD, essentialTags)},
-	{}
-};
-
-$MethodInfo _TIFFIFD_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;Ljavax/imageio/plugins/tiff/TIFFTag;)V", "(Ljava/util/List<Ljavax/imageio/plugins/tiff/TIFFTagSet;>;Ljavax/imageio/plugins/tiff/TIFFTag;)V", $PUBLIC, $method(TIFFIFD, init$, void, $List*, $TIFFTag*)},
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljavax/imageio/plugins/tiff/TIFFTagSet;>;)V", $PUBLIC, $method(TIFFIFD, init$, void, $List*)},
-	{"calculateByteCounts", "(ILjava/util/List;)Z", "(ILjava/util/List<Ljavax/imageio/plugins/tiff/TIFFField;>;)Z", $PRIVATE, $method(TIFFIFD, calculateByteCounts, bool, int32_t, $List*)},
-	{"checkFieldOffsets", "(J)V", nullptr, $PRIVATE, $method(TIFFIFD, checkFieldOffsets, void, int64_t), "javax.imageio.IIOException"},
-	{"getDirectoryAsIFD", "(Ljavax/imageio/plugins/tiff/TIFFDirectory;)Lcom/sun/imageio/plugins/tiff/TIFFIFD;", nullptr, $PUBLIC | $STATIC, $staticMethod(TIFFIFD, getDirectoryAsIFD, TIFFIFD*, $TIFFDirectory*)},
-	{"getFieldAsInt", "(I)I", nullptr, $PRIVATE, $method(TIFFIFD, getFieldAsInt, int32_t, int32_t)},
-	{"getFieldAsLong", "(I)J", nullptr, $PRIVATE, $method(TIFFIFD, getFieldAsLong, int64_t, int32_t)},
-	{"getLastPosition", "()J", nullptr, $PUBLIC, $virtualMethod(TIFFIFD, getLastPosition, int64_t)},
-	{"getShallowClone", "()Lcom/sun/imageio/plugins/tiff/TIFFIFD;", nullptr, $PUBLIC, $virtualMethod(TIFFIFD, getShallowClone, TIFFIFD*)},
-	{"getStripOrTileByteCountsPosition", "()J", nullptr, $PUBLIC, $virtualMethod(TIFFIFD, getStripOrTileByteCountsPosition, int64_t)},
-	{"getStripOrTileOffsetsPosition", "()J", nullptr, $PUBLIC, $virtualMethod(TIFFIFD, getStripOrTileOffsetsPosition, int64_t)},
-	{"getTag", "(ILjava/util/List;)Ljavax/imageio/plugins/tiff/TIFFTag;", "(ILjava/util/List<Ljavax/imageio/plugins/tiff/TIFFTagSet;>;)Ljavax/imageio/plugins/tiff/TIFFTag;", $PUBLIC | $STATIC, $staticMethod(TIFFIFD, getTag, $TIFFTag*, int32_t, $List*)},
-	{"getTag", "(Ljava/lang/String;Ljava/util/List;)Ljavax/imageio/plugins/tiff/TIFFTag;", "(Ljava/lang/String;Ljava/util/List<Ljavax/imageio/plugins/tiff/TIFFTagSet;>;)Ljavax/imageio/plugins/tiff/TIFFTag;", $PUBLIC | $STATIC, $staticMethod(TIFFIFD, getTag, $TIFFTag*, $String*, $List*)},
-	{"getTagSetList", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/imageio/plugins/tiff/TIFFTagSet;>;", $PUBLIC, $virtualMethod(TIFFIFD, getTagSetList, $List*)},
-	{"initialize", "(Ljavax/imageio/stream/ImageInputStream;ZZZ)V", nullptr, $PUBLIC, $virtualMethod(TIFFIFD, initialize, void, $ImageInputStream*, bool, bool, bool), "java.io.IOException"},
-	{"initializeEssentialTags", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFIFD, initializeEssentialTags, void)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljavax/imageio/plugins/tiff/TIFFField;>;", $PUBLIC, $virtualMethod(TIFFIFD, iterator, $Iterator*)},
-	{"readFieldValue", "(Ljavax/imageio/stream/ImageInputStream;II[Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFIFD, readFieldValue, int32_t, $ImageInputStream*, int32_t, int32_t, $ObjectArray*), "java.io.IOException"},
-	{"setPositions", "(JJJ)V", nullptr, 0, $virtualMethod(TIFFIFD, setPositions, void, int64_t, int64_t, int64_t)},
-	{"writeTIFFFieldToStream", "(Ljavax/imageio/plugins/tiff/TIFFField;Ljavax/imageio/stream/ImageOutputStream;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFIFD, writeTIFFFieldToStream, void, $TIFFField*, $ImageOutputStream*), "java.io.IOException"},
-	{"writeToStream", "(Ljavax/imageio/stream/ImageOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(TIFFIFD, writeToStream, void, $ImageOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _TIFFIFD_InnerClassesInfo_[] = {
-	{"com.sun.imageio.plugins.tiff.TIFFIFD$TIFFIFDEntry", "com.sun.imageio.plugins.tiff.TIFFIFD", "TIFFIFDEntry", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _TIFFIFD_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFIFD",
-	"javax.imageio.plugins.tiff.TIFFDirectory",
-	nullptr,
-	_TIFFIFD_FieldInfo_,
-	_TIFFIFD_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TIFFIFD_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.imageio.plugins.tiff.TIFFIFD$TIFFIFDEntry"
-};
-
-$Object* allocate$TIFFIFD($Class* clazz) {
-	return $of($alloc(TIFFIFD));
-}
-
 $volatile($Set*) TIFFIFD::essentialTags = nullptr;
 
 void TIFFIFD::initializeEssentialTags() {
 	$init(TIFFIFD);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, tags, TIFFIFD::essentialTags);
 	if (tags == nullptr) {
-		$assignStatic(TIFFIFD::essentialTags, ($assign(tags, $Set::of($$new($IntegerArray, {
+		$assignStatic(TIFFIFD::essentialTags, $assign(tags, $Set::of($$new($IntegerArray, {
 			$($Integer::valueOf($BaselineTIFFTagSet::TAG_BITS_PER_SAMPLE)),
 			$($Integer::valueOf($BaselineTIFFTagSet::TAG_COLOR_MAP)),
 			$($Integer::valueOf($BaselineTIFFTagSet::TAG_COMPRESSION)),
@@ -221,19 +161,19 @@ void TIFFIFD::initializeEssentialTags() {
 			$($Integer::valueOf($BaselineTIFFTagSet::TAG_TILE_WIDTH)),
 			$($Integer::valueOf($BaselineTIFFTagSet::TAG_Y_CB_CR_COEFFICIENTS)),
 			$($Integer::valueOf($BaselineTIFFTagSet::TAG_Y_CB_CR_SUBSAMPLING))
-		})))));
+		}))));
 	}
 }
 
 TIFFIFD* TIFFIFD::getDirectoryAsIFD($TIFFDirectory* dir) {
 	$init(TIFFIFD);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf(TIFFIFD, dir)) {
 		return $cast(TIFFIFD, dir);
 	}
 	$var($List, var$0, $Arrays::asList($($nc(dir)->getTagSets())));
-	$var(TIFFIFD, ifd, $new(TIFFIFD, var$0, $($nc(dir)->getParentTag())));
-	$var($TIFFFieldArray, fields, $nc(dir)->getTIFFFields());
+	$var(TIFFIFD, ifd, $new(TIFFIFD, var$0, $(dir->getParentTag())));
+	$var($TIFFFieldArray, fields, dir->getTIFFFields());
 	int32_t numFields = $nc(fields)->length;
 	for (int32_t i = 0; i < numFields; ++i) {
 		$var($TIFFField, f, fields->get(i));
@@ -247,9 +187,8 @@ TIFFIFD* TIFFIFD::getDirectoryAsIFD($TIFFDirectory* dir) {
 			}
 			if (subDir != nullptr) {
 				$var($TIFFDirectory, subIFD, getDirectoryAsIFD(subDir));
-				$var($TIFFTag, var$1, tag);
-				int32_t var$2 = f->getType();
-				$assign(f, $new($TIFFField, var$1, var$2, (int64_t)f->getCount(), subIFD));
+				int32_t var$1 = f->getType();
+				$assign(f, $new($TIFFField, tag, var$1, (int64_t)f->getCount(), subIFD));
 			} else {
 				$assign(f, nullptr);
 			}
@@ -263,16 +202,14 @@ TIFFIFD* TIFFIFD::getDirectoryAsIFD($TIFFDirectory* dir) {
 
 $TIFFTag* TIFFIFD::getTag(int32_t tagNumber, $List* tagSets) {
 	$init(TIFFIFD);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(tagSets)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($TIFFTagSet, tagSet, $cast($TIFFTagSet, i$->next()));
-			{
-				$var($TIFFTag, tag, $nc(tagSet)->getTag(tagNumber));
-				if (tag != nullptr) {
-					return tag;
-				}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(tagSets)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($TIFFTagSet, tagSet, $cast($TIFFTagSet, i$->next()));
+		{
+			$var($TIFFTag, tag, $nc(tagSet)->getTag(tagNumber));
+			if (tag != nullptr) {
+				return tag;
 			}
 		}
 	}
@@ -281,16 +218,14 @@ $TIFFTag* TIFFIFD::getTag(int32_t tagNumber, $List* tagSets) {
 
 $TIFFTag* TIFFIFD::getTag($String* tagName, $List* tagSets) {
 	$init(TIFFIFD);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(tagSets)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($TIFFTagSet, tagSet, $cast($TIFFTagSet, i$->next()));
-			{
-				$var($TIFFTag, tag, $nc(tagSet)->getTag(tagName));
-				if (tag != nullptr) {
-					return tag;
-				}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(tagSets)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($TIFFTagSet, tagSet, $cast($TIFFTagSet, i$->next()));
+		{
+			$var($TIFFTag, tag, $nc(tagSet)->getTag(tagName));
+			if (tag != nullptr) {
+				return tag;
 			}
 		}
 	}
@@ -299,94 +234,70 @@ $TIFFTag* TIFFIFD::getTag($String* tagName, $List* tagSets) {
 
 void TIFFIFD::writeTIFFFieldToStream($TIFFField* field, $ImageOutputStream* stream) {
 	$init(TIFFIFD);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = $nc(field)->getCount();
 	$var($Object, data, field->getData());
 	switch (field->getType()) {
 	case $TIFFTag::TIFF_ASCII:
-		{
-			for (int32_t i = 0; i < count; ++i) {
-				$var($String, s, $nc(($cast($StringArray, data)))->get(i));
-				int32_t length = $nc(s)->length();
-				for (int32_t j = 0; j < length; ++j) {
-					$nc(stream)->writeByte((int32_t)(s->charAt(j) & (uint32_t)255));
-				}
-				$nc(stream)->writeByte(0);
+		for (int32_t i = 0; i < count; ++i) {
+			$var($String, s, $nc($cast($StringArray, data))->get(i));
+			int32_t length = $nc(s)->length();
+			for (int32_t j = 0; j < length; ++j) {
+				$nc(stream)->writeByte(s->charAt(j) & 0xff);
 			}
-			break;
+			$nc(stream)->writeByte(0);
 		}
+		break;
 	case $TIFFTag::TIFF_UNDEFINED:
-		{}
 	case $TIFFTag::TIFF_BYTE:
-		{}
 	case $TIFFTag::TIFF_SBYTE:
-		{
-			$nc(stream)->write($cast($bytes, data));
-			break;
-		}
+		$nc(stream)->write($cast($bytes, data));
+		break;
 	case $TIFFTag::TIFF_SHORT:
-		{
-			$nc(stream)->writeChars($cast($chars, data), 0, $nc(($cast($chars, data)))->length);
-			break;
-		}
+		$nc(stream)->writeChars($cast($chars, data), 0, $nc($cast($chars, data))->length);
+		break;
 	case $TIFFTag::TIFF_SSHORT:
-		{
-			$nc(stream)->writeShorts($cast($shorts, data), 0, $nc(($cast($shorts, data)))->length);
-			break;
-		}
+		$nc(stream)->writeShorts($cast($shorts, data), 0, $nc($cast($shorts, data))->length);
+		break;
 	case $TIFFTag::TIFF_SLONG:
-		{
-			$nc(stream)->writeInts($cast($ints, data), 0, $nc(($cast($ints, data)))->length);
-			break;
-		}
+		$nc(stream)->writeInts($cast($ints, data), 0, $nc($cast($ints, data))->length);
+		break;
 	case $TIFFTag::TIFF_LONG:
-		{
-			for (int32_t i = 0; i < count; ++i) {
-				$nc(stream)->writeInt((int32_t)($nc(($cast($longs, data)))->get(i)));
-			}
-			break;
+		for (int32_t i = 0; i < count; ++i) {
+			$nc(stream)->writeInt((int32_t)($nc($cast($longs, data))->get(i)));
 		}
+		break;
 	case $TIFFTag::TIFF_IFD_POINTER:
-		{
-			$nc(stream)->writeInt(0);
-			break;
-		}
+		$nc(stream)->writeInt(0);
+		break;
 	case $TIFFTag::TIFF_FLOAT:
-		{
-			$nc(stream)->writeFloats($cast($floats, data), 0, $nc(($cast($floats, data)))->length);
-			break;
-		}
+		$nc(stream)->writeFloats($cast($floats, data), 0, $nc($cast($floats, data))->length);
+		break;
 	case $TIFFTag::TIFF_DOUBLE:
-		{
-			$nc(stream)->writeDoubles($cast($doubles, data), 0, $nc(($cast($doubles, data)))->length);
-			break;
-		}
+		$nc(stream)->writeDoubles($cast($doubles, data), 0, $nc($cast($doubles, data))->length);
+		break;
 	case $TIFFTag::TIFF_SRATIONAL:
-		{
-			for (int32_t i = 0; i < count; ++i) {
-				$nc(stream)->writeInt($nc($nc(($cast($intArray2, data)))->get(i))->get(0));
-				stream->writeInt($nc($nc(($cast($intArray2, data)))->get(i))->get(1));
-			}
-			break;
+		for (int32_t i = 0; i < count; ++i) {
+			$nc(stream)->writeInt($nc($nc($cast($intArray2, data))->get(i))->get(0));
+			stream->writeInt($nc($cast($intArray2, data)->get(i))->get(1));
 		}
+		break;
 	case $TIFFTag::TIFF_RATIONAL:
-		{
-			for (int32_t i = 0; i < count; ++i) {
-				int64_t num = $nc($nc(($cast($longArray2, data)))->get(i))->get(0);
-				int64_t den = $nc($nc(($cast($longArray2, data)))->get(i))->get(1);
-				$nc(stream)->writeInt((int32_t)num);
-				stream->writeInt((int32_t)den);
-			}
-			break;
+		for (int32_t i = 0; i < count; ++i) {
+			int64_t num = $nc($nc($cast($longArray2, data))->get(i))->get(0);
+			int64_t den = $nc($cast($longArray2, data)->get(i))->get(1);
+			$nc(stream)->writeInt((int32_t)num);
+			stream->writeInt((int32_t)den);
 		}
+		break;
 	default:
-		{}
+		break;
 	}
 }
 
 void TIFFIFD::init$($List* tagSets, $TIFFTag* parentTag) {
-	$useLocalCurrentObjectStackCache();
-	$TIFFDirectory::init$($fcast($TIFFTagSetArray, $($nc(tagSets)->toArray($$new($TIFFTagSetArray, tagSets->size())))), parentTag);
+	$useLocalObjectStack();
+	$TIFFDirectory::init$($$cast($TIFFTagSetArray, $nc(tagSets)->toArray($$new($TIFFTagSetArray, $nc(tagSets)->size()))), parentTag);
 	this->stripOrTileByteCountsPosition = -1;
 	this->stripOrTileOffsetsPosition = -1;
 	this->lastPosition = -1;
@@ -401,15 +312,15 @@ $List* TIFFIFD::getTagSetList() {
 }
 
 $Iterator* TIFFIFD::iterator() {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($Arrays::asList($(getTIFFFields()))))->iterator();
+	$useLocalObjectStack();
+	return $$nc($Arrays::asList($(getTIFFFields())))->iterator();
 }
 
 int32_t TIFFIFD::readFieldValue($ImageInputStream* stream, int32_t type, int32_t count, $ObjectArray* data) {
 	$init(TIFFIFD);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, obj, nullptr);
-	int32_t UNIT_SIZE = 0x000FA000;
+	int32_t UNIT_SIZE = 1024000;
 	{
 		int32_t SHORT_TILE_SIZE = 0;
 		int32_t LONG_TILE_SIZE = 0;
@@ -421,393 +332,369 @@ int32_t TIFFIFD::readFieldValue($ImageInputStream* stream, int32_t type, int32_t
 		int32_t DOUBLE_TILE_SIZE = 0;
 		switch (type) {
 		case $TIFFTag::TIFF_BYTE:
-			{}
 		case $TIFFTag::TIFF_SBYTE:
-			{}
 		case $TIFFTag::TIFF_UNDEFINED:
-			{}
 		case $TIFFTag::TIFF_ASCII:
-			{
-				if (type == $TIFFTag::TIFF_ASCII) {
-					$var($bytes, bvalues, $new($bytes, count));
-					$nc(stream)->readFully(bvalues, 0, count);
-					$var($ArrayList, v, $new($ArrayList));
-					bool inString = false;
-					int32_t prevIndex = 0;
-					for (int32_t index = 0; index <= count; ++index) {
-						if (index < count && bvalues->get(index) != 0) {
-							if (!inString) {
-								prevIndex = index;
-								inString = true;
-							}
-						} else if (inString) {
-							$init($StandardCharsets);
-							$var($String, s, $new($String, bvalues, prevIndex, index - prevIndex, $StandardCharsets::US_ASCII));
-							v->add(s);
-							inString = false;
+			if (type == $TIFFTag::TIFF_ASCII) {
+				$var($bytes, bvalues, $new($bytes, count));
+				$nc(stream)->readFully(bvalues, 0, count);
+				$var($ArrayList, v, $new($ArrayList));
+				bool inString = false;
+				int32_t prevIndex = 0;
+				for (int32_t index = 0; index <= count; ++index) {
+					if (index < count && bvalues->get(index) != 0) {
+						if (!inString) {
+							prevIndex = index;
+							inString = true;
 						}
+					} else if (inString) {
+						$init($StandardCharsets);
+						$var($String, s, $new($String, bvalues, prevIndex, index - prevIndex, $StandardCharsets::US_ASCII));
+						v->add(s);
+						inString = false;
 					}
-					count = v->size();
-					$var($StringArray, strings, nullptr);
-					if (count != 0) {
-						$assign(strings, $new($StringArray, count));
-						for (int32_t c = 0; c < count; ++c) {
-							strings->set(c, $cast($String, $(v->get(c))));
-						}
-					} else {
-						count = 1;
-						$assign(strings, $new($StringArray, {""_s}));
-					}
-					$assign(obj, strings);
-				} else if (count < UNIT_SIZE) {
-					$var($bytes, bvalues, $new($bytes, count));
-					$nc(stream)->readFully(bvalues, 0, count);
-					$assign(obj, bvalues);
-				} else {
-					int32_t bytesToRead = count;
-					int32_t bytesRead = 0;
-					$var($List, bufs, $new($ArrayList));
-					while (bytesToRead != 0) {
-						int32_t sz = $Math::min(bytesToRead, UNIT_SIZE);
-						$var($bytes, unit, $new($bytes, sz));
-						$nc(stream)->readFully(unit, bytesRead, sz);
-						bufs->add(unit);
-						bytesRead += sz;
-						bytesToRead -= sz;
-					}
-					$var($bytes, tagData, $new($bytes, bytesRead));
-					int32_t copiedBytes = 0;
-					{
-						$var($Iterator, i$, bufs->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($bytes, ba, $cast($bytes, i$->next()));
-							{
-								$System::arraycopy(ba, 0, tagData, copiedBytes, $nc(ba)->length);
-								copiedBytes += $nc(ba)->length;
-							}
-						}
-					}
-					$assign(obj, tagData);
 				}
-				break;
+				count = v->size();
+				$var($StringArray, strings, nullptr);
+				if (count != 0) {
+					$assign(strings, $new($StringArray, count));
+					for (int32_t c = 0; c < count; ++c) {
+						strings->set(c, $$cast($String, v->get(c)));
+					}
+				} else {
+					count = 1;
+					$assign(strings, $new($StringArray, {""_s}));
+				}
+				$assign(obj, strings);
+			} else if (count < UNIT_SIZE) {
+				$var($bytes, bvalues, $new($bytes, count));
+				$nc(stream)->readFully(bvalues, 0, count);
+				$assign(obj, bvalues);
+			} else {
+				int32_t bytesToRead = count;
+				int32_t bytesRead = 0;
+				$var($List, bufs, $new($ArrayList));
+				while (bytesToRead != 0) {
+					int32_t sz = $Math::min(bytesToRead, UNIT_SIZE);
+					$var($bytes, unit, $new($bytes, sz));
+					$nc(stream)->readFully(unit, bytesRead, sz);
+					bufs->add(unit);
+					bytesRead += sz;
+					bytesToRead -= sz;
+				}
+				$var($bytes, tagData, $new($bytes, bytesRead));
+				int32_t copiedBytes = 0;
+				{
+					$var($Iterator, i$, bufs->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($bytes, ba, $cast($bytes, i$->next()));
+						{
+							$System::arraycopy(ba, 0, tagData, copiedBytes, $nc(ba)->length);
+							copiedBytes += ba->length;
+						}
+					}
+				}
+				$assign(obj, tagData);
 			}
+			break;
 		case $TIFFTag::TIFF_SHORT:
-			{
-				SHORT_TILE_SIZE = $div(UNIT_SIZE, $TIFFTag::getSizeOfType($TIFFTag::TIFF_SHORT));
-				if (count < SHORT_TILE_SIZE) {
-					$var($chars, cvalues, $new($chars, count));
-					for (int32_t j = 0; j < count; ++j) {
-						cvalues->set(j, (char16_t)($nc(stream)->readUnsignedShort()));
-					}
-					$assign(obj, cvalues);
-				} else {
-					int32_t charsToRead = count;
-					int32_t charsRead = 0;
-					$var($List, bufs, $new($ArrayList));
-					while (charsToRead != 0) {
-						int32_t sz = $Math::min(charsToRead, SHORT_TILE_SIZE);
-						$var($chars, unit, $new($chars, sz));
-						for (int32_t i = 0; i < sz; ++i) {
-							unit->set(i, (char16_t)($nc(stream)->readUnsignedShort()));
-						}
-						bufs->add(unit);
-						charsRead += sz;
-						charsToRead -= sz;
-					}
-					$var($chars, tagData, $new($chars, charsRead));
-					int32_t copiedChars = 0;
-					{
-						$var($Iterator, i$, bufs->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($chars, ca, $cast($chars, i$->next()));
-							{
-								$System::arraycopy(ca, 0, tagData, copiedChars, $nc(ca)->length);
-								copiedChars += $nc(ca)->length;
-							}
-						}
-					}
-					$assign(obj, tagData);
+			SHORT_TILE_SIZE = $div(UNIT_SIZE, $TIFFTag::getSizeOfType($TIFFTag::TIFF_SHORT));
+			if (count < SHORT_TILE_SIZE) {
+				$var($chars, cvalues, $new($chars, count));
+				for (int32_t j = 0; j < count; ++j) {
+					cvalues->set(j, (char16_t)($nc(stream)->readUnsignedShort()));
 				}
-				break;
+				$assign(obj, cvalues);
+			} else {
+				int32_t charsToRead = count;
+				int32_t charsRead = 0;
+				$var($List, bufs, $new($ArrayList));
+				while (charsToRead != 0) {
+					int32_t sz = $Math::min(charsToRead, SHORT_TILE_SIZE);
+					$var($chars, unit, $new($chars, sz));
+					for (int32_t i = 0; i < sz; ++i) {
+						unit->set(i, (char16_t)($nc(stream)->readUnsignedShort()));
+					}
+					bufs->add(unit);
+					charsRead += sz;
+					charsToRead -= sz;
+				}
+				$var($chars, tagData, $new($chars, charsRead));
+				int32_t copiedChars = 0;
+				{
+					$var($Iterator, i$, bufs->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($chars, ca, $cast($chars, i$->next()));
+						{
+							$System::arraycopy(ca, 0, tagData, copiedChars, $nc(ca)->length);
+							copiedChars += ca->length;
+						}
+					}
+				}
+				$assign(obj, tagData);
 			}
+			break;
 		case $TIFFTag::TIFF_LONG:
-			{}
 		case $TIFFTag::TIFF_IFD_POINTER:
-			{
-				LONG_TILE_SIZE = $div(UNIT_SIZE, $TIFFTag::getSizeOfType($TIFFTag::TIFF_LONG));
-				if (count < LONG_TILE_SIZE) {
-					$var($longs, lvalues, $new($longs, count));
-					for (int32_t j = 0; j < count; ++j) {
-						lvalues->set(j, $nc(stream)->readUnsignedInt());
-					}
-					$assign(obj, lvalues);
-				} else {
-					int32_t longsToRead = count;
-					int32_t longsRead = 0;
-					$var($List, bufs, $new($ArrayList));
-					while (longsToRead != 0) {
-						int32_t sz = $Math::min(longsToRead, LONG_TILE_SIZE);
-						$var($longs, unit, $new($longs, sz));
-						for (int32_t i = 0; i < sz; ++i) {
-							unit->set(i, $nc(stream)->readUnsignedInt());
-						}
-						bufs->add(unit);
-						longsRead += sz;
-						longsToRead -= sz;
-					}
-					$var($longs, tagData, $new($longs, longsRead));
-					int32_t copiedLongs = 0;
-					{
-						$var($Iterator, i$, bufs->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($longs, la, $cast($longs, i$->next()));
-							{
-								$System::arraycopy(la, 0, tagData, copiedLongs, $nc(la)->length);
-								copiedLongs += $nc(la)->length;
-							}
-						}
-					}
-					$assign(obj, tagData);
+			LONG_TILE_SIZE = $div(UNIT_SIZE, $TIFFTag::getSizeOfType($TIFFTag::TIFF_LONG));
+			if (count < LONG_TILE_SIZE) {
+				$var($longs, lvalues, $new($longs, count));
+				for (int32_t j = 0; j < count; ++j) {
+					lvalues->set(j, $nc(stream)->readUnsignedInt());
 				}
-				break;
+				$assign(obj, lvalues);
+			} else {
+				int32_t longsToRead = count;
+				int32_t longsRead = 0;
+				$var($List, bufs, $new($ArrayList));
+				while (longsToRead != 0) {
+					int32_t sz = $Math::min(longsToRead, LONG_TILE_SIZE);
+					$var($longs, unit, $new($longs, sz));
+					for (int32_t i = 0; i < sz; ++i) {
+						unit->set(i, $nc(stream)->readUnsignedInt());
+					}
+					bufs->add(unit);
+					longsRead += sz;
+					longsToRead -= sz;
+				}
+				$var($longs, tagData, $new($longs, longsRead));
+				int32_t copiedLongs = 0;
+				{
+					$var($Iterator, i$, bufs->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($longs, la, $cast($longs, i$->next()));
+						{
+							$System::arraycopy(la, 0, tagData, copiedLongs, $nc(la)->length);
+							copiedLongs += la->length;
+						}
+					}
+				}
+				$assign(obj, tagData);
 			}
+			break;
 		case $TIFFTag::TIFF_RATIONAL:
-			{
-				RATIONAL_TILE_SIZE = $div(UNIT_SIZE, $TIFFTag::getSizeOfType($TIFFTag::TIFF_RATIONAL));
-				if (count < RATIONAL_TILE_SIZE) {
-					$var($longArray2, llvalues, $new($longArray2, count, 2));
-					for (int32_t j = 0; j < count; ++j) {
-						$nc(llvalues->get(j))->set(0, $nc(stream)->readUnsignedInt());
-						$nc(llvalues->get(j))->set(1, stream->readUnsignedInt());
-					}
-					$assign(obj, llvalues);
-				} else {
-					int32_t rationalsToRead = count;
-					int32_t rationalsRead = 0;
-					$var($List, bufs, $new($ArrayList));
-					while (rationalsToRead != 0) {
-						int32_t sz = $Math::min(rationalsToRead, RATIONAL_TILE_SIZE);
-						$var($longs, unit, $new($longs, sz * 2));
-						for (int32_t i = 0; i < (sz * 2); ++i) {
-							unit->set(i, $nc(stream)->readUnsignedInt());
-						}
-						bufs->add(unit);
-						rationalsRead += sz;
-						rationalsToRead -= sz;
-					}
-					$var($longArray2, tagData, $new($longArray2, rationalsRead, 2));
-					int32_t copiedRationals = 0;
-					{
-						$var($Iterator, i$, bufs->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($longs, la, $cast($longs, i$->next()));
-							{
-								for (int32_t i = 0; i < $nc(la)->length; i = i + 2) {
-									$nc(tagData->get(copiedRationals + i))->set(0, la->get(i));
-									$nc(tagData->get(copiedRationals + i))->set(1, la->get(i + 1));
-								}
-								copiedRationals += ($nc(la)->length / 2);
-							}
-						}
-					}
-					$assign(obj, tagData);
+			RATIONAL_TILE_SIZE = $div(UNIT_SIZE, $TIFFTag::getSizeOfType($TIFFTag::TIFF_RATIONAL));
+			if (count < RATIONAL_TILE_SIZE) {
+				$var($longArray2, llvalues, $new($longArray2, count, 2));
+				for (int32_t j = 0; j < count; ++j) {
+					$nc(llvalues->get(j))->set(0, $nc(stream)->readUnsignedInt());
+					$nc(llvalues->get(j))->set(1, stream->readUnsignedInt());
 				}
-				break;
+				$assign(obj, llvalues);
+			} else {
+				int32_t rationalsToRead = count;
+				int32_t rationalsRead = 0;
+				$var($List, bufs, $new($ArrayList));
+				while (rationalsToRead != 0) {
+					int32_t sz = $Math::min(rationalsToRead, RATIONAL_TILE_SIZE);
+					$var($longs, unit, $new($longs, sz * 2));
+					for (int32_t i = 0; i < (sz * 2); ++i) {
+						unit->set(i, $nc(stream)->readUnsignedInt());
+					}
+					bufs->add(unit);
+					rationalsRead += sz;
+					rationalsToRead -= sz;
+				}
+				$var($longArray2, tagData, $new($longArray2, rationalsRead, 2));
+				int32_t copiedRationals = 0;
+				{
+					$var($Iterator, i$, bufs->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($longs, la, $cast($longs, i$->next()));
+						{
+							for (int32_t i = 0; i < $nc(la)->length; i = i + 2) {
+								$nc(tagData->get(copiedRationals + i))->set(0, la->get(i));
+								$nc(tagData->get(copiedRationals + i))->set(1, la->get(i + 1));
+							}
+							copiedRationals += (la->length / 2);
+						}
+					}
+				}
+				$assign(obj, tagData);
 			}
+			break;
 		case $TIFFTag::TIFF_SSHORT:
-			{
-				SSHORT_TILE_SIZE = $div(UNIT_SIZE, $TIFFTag::getSizeOfType($TIFFTag::TIFF_SSHORT));
-				if (count < SSHORT_TILE_SIZE) {
-					$var($shorts, svalues, $new($shorts, count));
-					for (int32_t j = 0; j < count; ++j) {
-						svalues->set(j, $nc(stream)->readShort());
-					}
-					$assign(obj, svalues);
-				} else {
-					int32_t shortsToRead = count;
-					int32_t shortsRead = 0;
-					$var($List, bufs, $new($ArrayList));
-					while (shortsToRead != 0) {
-						int32_t sz = $Math::min(shortsToRead, SSHORT_TILE_SIZE);
-						$var($shorts, unit, $new($shorts, sz));
-						$nc(stream)->readFully(unit, shortsRead, sz);
-						bufs->add(unit);
-						shortsRead += sz;
-						shortsToRead -= sz;
-					}
-					$var($shorts, tagData, $new($shorts, shortsRead));
-					int32_t copiedShorts = 0;
-					{
-						$var($Iterator, i$, bufs->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($shorts, sa, $cast($shorts, i$->next()));
-							{
-								$System::arraycopy(sa, 0, tagData, copiedShorts, $nc(sa)->length);
-								copiedShorts += $nc(sa)->length;
-							}
+			SSHORT_TILE_SIZE = $div(UNIT_SIZE, $TIFFTag::getSizeOfType($TIFFTag::TIFF_SSHORT));
+			if (count < SSHORT_TILE_SIZE) {
+				$var($shorts, svalues, $new($shorts, count));
+				for (int32_t j = 0; j < count; ++j) {
+					svalues->set(j, $nc(stream)->readShort());
+				}
+				$assign(obj, svalues);
+			} else {
+				int32_t shortsToRead = count;
+				int32_t shortsRead = 0;
+				$var($List, bufs, $new($ArrayList));
+				while (shortsToRead != 0) {
+					int32_t sz = $Math::min(shortsToRead, SSHORT_TILE_SIZE);
+					$var($shorts, unit, $new($shorts, sz));
+					$nc(stream)->readFully(unit, shortsRead, sz);
+					bufs->add(unit);
+					shortsRead += sz;
+					shortsToRead -= sz;
+				}
+				$var($shorts, tagData, $new($shorts, shortsRead));
+				int32_t copiedShorts = 0;
+				{
+					$var($Iterator, i$, bufs->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($shorts, sa, $cast($shorts, i$->next()));
+						{
+							$System::arraycopy(sa, 0, tagData, copiedShorts, $nc(sa)->length);
+							copiedShorts += sa->length;
 						}
 					}
-					$assign(obj, tagData);
 				}
-				break;
+				$assign(obj, tagData);
 			}
+			break;
 		case $TIFFTag::TIFF_SLONG:
-			{
-				INT_TILE_SIZE = $div(UNIT_SIZE, $TIFFTag::getSizeOfType($TIFFTag::TIFF_SLONG));
-				if (count < INT_TILE_SIZE) {
-					$var($ints, ivalues, $new($ints, count));
-					for (int32_t j = 0; j < count; ++j) {
-						ivalues->set(j, $nc(stream)->readInt());
-					}
-					$assign(obj, ivalues);
-				} else {
-					int32_t intsToRead = count;
-					int32_t intsRead = 0;
-					$var($List, bufs, $new($ArrayList));
-					while (intsToRead != 0) {
-						int32_t sz = $Math::min(intsToRead, INT_TILE_SIZE);
-						$var($ints, unit, $new($ints, sz));
-						$nc(stream)->readFully(unit, intsToRead, sz);
-						bufs->add(unit);
-						intsRead += sz;
-						intsToRead -= sz;
-					}
-					$var($ints, tagData, $new($ints, intsRead));
-					int32_t copiedInts = 0;
-					{
-						$var($Iterator, i$, bufs->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($ints, ia, $cast($ints, i$->next()));
-							{
-								$System::arraycopy(ia, 0, tagData, copiedInts, $nc(ia)->length);
-								copiedInts += $nc(ia)->length;
-							}
+			INT_TILE_SIZE = $div(UNIT_SIZE, $TIFFTag::getSizeOfType($TIFFTag::TIFF_SLONG));
+			if (count < INT_TILE_SIZE) {
+				$var($ints, ivalues, $new($ints, count));
+				for (int32_t j = 0; j < count; ++j) {
+					ivalues->set(j, $nc(stream)->readInt());
+				}
+				$assign(obj, ivalues);
+			} else {
+				int32_t intsToRead = count;
+				int32_t intsRead = 0;
+				$var($List, bufs, $new($ArrayList));
+				while (intsToRead != 0) {
+					int32_t sz = $Math::min(intsToRead, INT_TILE_SIZE);
+					$var($ints, unit, $new($ints, sz));
+					$nc(stream)->readFully(unit, intsToRead, sz);
+					bufs->add(unit);
+					intsRead += sz;
+					intsToRead -= sz;
+				}
+				$var($ints, tagData, $new($ints, intsRead));
+				int32_t copiedInts = 0;
+				{
+					$var($Iterator, i$, bufs->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($ints, ia, $cast($ints, i$->next()));
+						{
+							$System::arraycopy(ia, 0, tagData, copiedInts, $nc(ia)->length);
+							copiedInts += ia->length;
 						}
 					}
-					$assign(obj, tagData);
 				}
-				break;
+				$assign(obj, tagData);
 			}
+			break;
 		case $TIFFTag::TIFF_SRATIONAL:
-			{
-				SRATIONAL_TILE_SIZE = $div(UNIT_SIZE, $TIFFTag::getSizeOfType($TIFFTag::TIFF_SRATIONAL));
-				if (count < SRATIONAL_TILE_SIZE) {
-					$var($intArray2, iivalues, $new($intArray2, count, 2));
-					for (int32_t j = 0; j < count; ++j) {
-						$nc(iivalues->get(j))->set(0, $nc(stream)->readInt());
-						$nc(iivalues->get(j))->set(1, stream->readInt());
-					}
-					$assign(obj, iivalues);
-				} else {
-					int32_t srationalsToRead = count;
-					int32_t srationalsRead = 0;
-					$var($List, bufs, $new($ArrayList));
-					while (srationalsToRead != 0) {
-						int32_t sz = $Math::min(srationalsToRead, SRATIONAL_TILE_SIZE);
-						$var($ints, unit, $new($ints, sz * 2));
-						$nc(stream)->readFully(unit, (srationalsToRead * 2), (sz * 2));
-						bufs->add(unit);
-						srationalsRead += sz;
-						srationalsToRead -= sz;
-					}
-					$var($intArray2, tagData, $new($intArray2, srationalsRead, 2));
-					int32_t copiedSrationals = 0;
-					{
-						$var($Iterator, i$, bufs->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($ints, ia, $cast($ints, i$->next()));
-							{
-								for (int32_t i = 0; i < $nc(ia)->length; i = i + 2) {
-									$nc(tagData->get(copiedSrationals + i))->set(0, ia->get(i));
-									$nc(tagData->get(copiedSrationals + i))->set(1, ia->get(i + 1));
-								}
-								copiedSrationals += ($nc(ia)->length / 2);
+			SRATIONAL_TILE_SIZE = $div(UNIT_SIZE, $TIFFTag::getSizeOfType($TIFFTag::TIFF_SRATIONAL));
+			if (count < SRATIONAL_TILE_SIZE) {
+				$var($intArray2, iivalues, $new($intArray2, count, 2));
+				for (int32_t j = 0; j < count; ++j) {
+					$nc(iivalues->get(j))->set(0, $nc(stream)->readInt());
+					$nc(iivalues->get(j))->set(1, stream->readInt());
+				}
+				$assign(obj, iivalues);
+			} else {
+				int32_t srationalsToRead = count;
+				int32_t srationalsRead = 0;
+				$var($List, bufs, $new($ArrayList));
+				while (srationalsToRead != 0) {
+					int32_t sz = $Math::min(srationalsToRead, SRATIONAL_TILE_SIZE);
+					$var($ints, unit, $new($ints, sz * 2));
+					$nc(stream)->readFully(unit, (srationalsToRead * 2), (sz * 2));
+					bufs->add(unit);
+					srationalsRead += sz;
+					srationalsToRead -= sz;
+				}
+				$var($intArray2, tagData, $new($intArray2, srationalsRead, 2));
+				int32_t copiedSrationals = 0;
+				{
+					$var($Iterator, i$, bufs->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($ints, ia, $cast($ints, i$->next()));
+						{
+							for (int32_t i = 0; i < $nc(ia)->length; i = i + 2) {
+								$nc(tagData->get(copiedSrationals + i))->set(0, ia->get(i));
+								$nc(tagData->get(copiedSrationals + i))->set(1, ia->get(i + 1));
 							}
+							copiedSrationals += (ia->length / 2);
 						}
 					}
-					$assign(obj, tagData);
 				}
-				break;
+				$assign(obj, tagData);
 			}
+			break;
 		case $TIFFTag::TIFF_FLOAT:
-			{
-				FLOAT_TILE_SIZE = $div(UNIT_SIZE, $TIFFTag::getSizeOfType($TIFFTag::TIFF_FLOAT));
-				if (count < FLOAT_TILE_SIZE) {
-					$var($floats, fvalues, $new($floats, count));
-					for (int32_t j = 0; j < count; ++j) {
-						fvalues->set(j, $nc(stream)->readFloat());
-					}
-					$assign(obj, fvalues);
-				} else {
-					int32_t floatsToRead = count;
-					int32_t floatsRead = 0;
-					$var($List, bufs, $new($ArrayList));
-					while (floatsToRead != 0) {
-						int32_t sz = $Math::min(floatsToRead, FLOAT_TILE_SIZE);
-						$var($floats, unit, $new($floats, sz));
-						$nc(stream)->readFully(unit, floatsToRead, sz);
-						bufs->add(unit);
-						floatsRead += sz;
-						floatsToRead -= sz;
-					}
-					$var($floats, tagData, $new($floats, floatsRead));
-					int32_t copiedFloats = 0;
-					{
-						$var($Iterator, i$, bufs->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($floats, fa, $cast($floats, i$->next()));
-							{
-								$System::arraycopy(fa, 0, tagData, copiedFloats, $nc(fa)->length);
-								copiedFloats += $nc(fa)->length;
-							}
+			FLOAT_TILE_SIZE = $div(UNIT_SIZE, $TIFFTag::getSizeOfType($TIFFTag::TIFF_FLOAT));
+			if (count < FLOAT_TILE_SIZE) {
+				$var($floats, fvalues, $new($floats, count));
+				for (int32_t j = 0; j < count; ++j) {
+					fvalues->set(j, $nc(stream)->readFloat());
+				}
+				$assign(obj, fvalues);
+			} else {
+				int32_t floatsToRead = count;
+				int32_t floatsRead = 0;
+				$var($List, bufs, $new($ArrayList));
+				while (floatsToRead != 0) {
+					int32_t sz = $Math::min(floatsToRead, FLOAT_TILE_SIZE);
+					$var($floats, unit, $new($floats, sz));
+					$nc(stream)->readFully(unit, floatsToRead, sz);
+					bufs->add(unit);
+					floatsRead += sz;
+					floatsToRead -= sz;
+				}
+				$var($floats, tagData, $new($floats, floatsRead));
+				int32_t copiedFloats = 0;
+				{
+					$var($Iterator, i$, bufs->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($floats, fa, $cast($floats, i$->next()));
+						{
+							$System::arraycopy(fa, 0, tagData, copiedFloats, $nc(fa)->length);
+							copiedFloats += fa->length;
 						}
 					}
-					$assign(obj, tagData);
 				}
-				break;
+				$assign(obj, tagData);
 			}
+			break;
 		case $TIFFTag::TIFF_DOUBLE:
-			{
-				DOUBLE_TILE_SIZE = $div(UNIT_SIZE, $TIFFTag::getSizeOfType($TIFFTag::TIFF_DOUBLE));
-				if (count < DOUBLE_TILE_SIZE) {
-					$var($doubles, dvalues, $new($doubles, count));
-					for (int32_t j = 0; j < count; ++j) {
-						dvalues->set(j, $nc(stream)->readDouble());
-					}
-					$assign(obj, dvalues);
-				} else {
-					int32_t doublesToRead = count;
-					int32_t doublesRead = 0;
-					$var($List, bufs, $new($ArrayList));
-					while (doublesToRead != 0) {
-						int32_t sz = $Math::min(doublesToRead, DOUBLE_TILE_SIZE);
-						$var($doubles, unit, $new($doubles, sz));
-						$nc(stream)->readFully(unit, doublesToRead, sz);
-						bufs->add(unit);
-						doublesRead += sz;
-						doublesToRead -= sz;
-					}
-					$var($doubles, tagData, $new($doubles, doublesRead));
-					int32_t copiedDoubles = 0;
-					{
-						$var($Iterator, i$, bufs->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($doubles, da, $cast($doubles, i$->next()));
-							{
-								$System::arraycopy(da, 0, tagData, copiedDoubles, $nc(da)->length);
-								copiedDoubles += $nc(da)->length;
-							}
+			DOUBLE_TILE_SIZE = $div(UNIT_SIZE, $TIFFTag::getSizeOfType($TIFFTag::TIFF_DOUBLE));
+			if (count < DOUBLE_TILE_SIZE) {
+				$var($doubles, dvalues, $new($doubles, count));
+				for (int32_t j = 0; j < count; ++j) {
+					dvalues->set(j, $nc(stream)->readDouble());
+				}
+				$assign(obj, dvalues);
+			} else {
+				int32_t doublesToRead = count;
+				int32_t doublesRead = 0;
+				$var($List, bufs, $new($ArrayList));
+				while (doublesToRead != 0) {
+					int32_t sz = $Math::min(doublesToRead, DOUBLE_TILE_SIZE);
+					$var($doubles, unit, $new($doubles, sz));
+					$nc(stream)->readFully(unit, doublesToRead, sz);
+					bufs->add(unit);
+					doublesRead += sz;
+					doublesToRead -= sz;
+				}
+				$var($doubles, tagData, $new($doubles, doublesRead));
+				int32_t copiedDoubles = 0;
+				{
+					$var($Iterator, i$, bufs->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($doubles, da, $cast($doubles, i$->next()));
+						{
+							$System::arraycopy(da, 0, tagData, copiedDoubles, $nc(da)->length);
+							copiedDoubles += da->length;
 						}
 					}
-					$assign(obj, tagData);
 				}
-				break;
+				$assign(obj, tagData);
 			}
+			break;
 		default:
-			{
-				$assign(obj, nullptr);
-				break;
-			}
+			$assign(obj, nullptr);
+			break;
 		}
 	}
 	$nc(data)->set(0, obj);
@@ -816,16 +703,16 @@ int32_t TIFFIFD::readFieldValue($ImageInputStream* stream, int32_t type, int32_t
 
 int64_t TIFFIFD::getFieldAsLong(int32_t tagNumber) {
 	$var($TIFFField, f, getTIFFField(tagNumber));
-	return f == nullptr ? (int64_t)-1 : $nc(f)->getAsLong(0);
+	return f == nullptr ? -1 : f->getAsLong(0);
 }
 
 int32_t TIFFIFD::getFieldAsInt(int32_t tagNumber) {
 	$var($TIFFField, f, getTIFFField(tagNumber));
-	return f == nullptr ? -1 : $nc(f)->getAsInt(0);
+	return f == nullptr ? -1 : f->getAsInt(0);
 }
 
 bool TIFFIFD::calculateByteCounts(int32_t expectedSize, $List* byteCounts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(byteCounts)->isEmpty()) {
 		$throwNew($IllegalArgumentException, "byteCounts is not empty"_s);
 	}
@@ -869,9 +756,7 @@ bool TIFFIFD::calculateByteCounts(int32_t expectedSize, $List* byteCounts) {
 	int32_t bitsPerPixel = 0;
 	{
 		$var($ints, arr$, bitsPerSample);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int32_t bps = arr$->get(i$);
 			{
 				bitsPerPixel += bps;
@@ -892,26 +777,26 @@ bool TIFFIFD::calculateByteCounts(int32_t expectedSize, $List* byteCounts) {
 	} else {
 		tagNumber = $BaselineTIFFTagSet::TAG_STRIP_BYTE_COUNTS;
 	}
-	$var($TIFFTag, t, $nc($($BaselineTIFFTagSet::getInstance()))->getTag(tagNumber));
+	$var($TIFFTag, t, $$nc($BaselineTIFFTagSet::getInstance())->getTag(tagNumber));
 	$assign(f, getTIFFField(tagNumber));
 	if (f != nullptr) {
 		removeTIFFField(tagNumber);
 	}
 	int32_t numPackets = (int32_t)(nx * ny);
 	$var($longs, packetByteCounts, $new($longs, numPackets));
-	$Arrays::fill(packetByteCounts, (int64_t)bytesPerPacket);
+	$Arrays::fill(packetByteCounts, bytesPerPacket);
 	if (tw <= w && $mod(h, th) != 0) {
 		int32_t numRowsInLastStrip = (int32_t)(h - (ny - 1) * th);
 		packetByteCounts->set(numPackets - 1, numRowsInLastStrip * bytesPerRow);
 	}
-	$assign(f, $new($TIFFField, t, $TIFFTag::TIFF_LONG, numPackets, $of(packetByteCounts)));
+	$assign(f, $new($TIFFField, t, $TIFFTag::TIFF_LONG, numPackets, packetByteCounts));
 	addTIFFField(f);
-	$nc(byteCounts)->add(f);
+	byteCounts->add(f);
 	return true;
 }
 
 void TIFFIFD::checkFieldOffsets(int64_t streamLength) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (streamLength < 0) {
 		return;
 	}
@@ -951,24 +836,18 @@ void TIFFIFD::checkFieldOffsets(int64_t streamLength) {
 			byteCounts->add(f);
 		}
 		if (byteCounts->size() > 0) {
-			{
-				$var($Iterator, i$, offsets->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($TIFFField, offset, $cast($TIFFField, i$->next()));
-					{
-						{
-							$var($Iterator, i$, byteCounts->iterator());
-							for (; $nc(i$)->hasNext();) {
-								$var($TIFFField, byteCount, $cast($TIFFField, i$->next()));
-								{
-									for (int32_t i = 0; i < count; ++i) {
-										int64_t dataOffset = $nc(offset)->getAsLong(i);
-										int64_t dataByteCount = $nc(byteCount)->getAsLong(i);
-										if (dataOffset + dataByteCount > streamLength) {
-											$throwNew($IIOException, "Data segment out of stream"_s);
-										}
-									}
-								}
+			$var($Iterator, i$, offsets->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($TIFFField, offset, $cast($TIFFField, i$->next()));
+				{
+					$var($Iterator, i$, byteCounts->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($TIFFField, byteCount, $cast($TIFFField, i$->next()));
+						for (int32_t i = 0; i < count; ++i) {
+							int64_t dataOffset = $nc(offset)->getAsLong(i);
+							int64_t dataByteCount = $nc(byteCount)->getAsLong(i);
+							if (dataOffset + dataByteCount > streamLength) {
+								$throwNew($IIOException, "Data segment out of stream"_s);
 							}
 						}
 					}
@@ -989,13 +868,13 @@ void TIFFIFD::checkFieldOffsets(int64_t streamLength) {
 	bool var$1 = jpegOffset == nullptr;
 	if (var$1) {
 		bool var$2 = offsets->size() == 0;
-		var$1 = (var$2 || byteCounts->size() == 0);
+		var$1 = var$2 || byteCounts->size() == 0;
 	}
 	if (var$1) {
 		bool throwException = true;
 		bool var$3 = offsets->size() != 0;
 		if (var$3 && byteCounts->size() == 0) {
-			int32_t expectedSize = $nc(($cast($TIFFField, $(offsets->get(0)))))->getCount();
+			int32_t expectedSize = $$sure($TIFFField, offsets->get(0))->getCount();
 			throwException = !calculateByteCounts(expectedSize, byteCounts);
 		}
 		if (throwException) {
@@ -1007,14 +886,10 @@ void TIFFIFD::checkFieldOffsets(int64_t streamLength) {
 		$var($longs, tableOffsets, f->getAsLongs());
 		{
 			$var($longs, arr$, tableOffsets);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				int64_t off = arr$->get(i$);
-				{
-					if (off + 64 > streamLength) {
-						$throwNew($IIOException, "JPEGQTables data out of stream"_s);
-					}
+				if (off + 64 > streamLength) {
+					$throwNew($IIOException, "JPEGQTables data out of stream"_s);
 				}
 			}
 		}
@@ -1024,14 +899,10 @@ void TIFFIFD::checkFieldOffsets(int64_t streamLength) {
 		$var($longs, tableOffsets, f->getAsLongs());
 		{
 			$var($longs, arr$, tableOffsets);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				int64_t off = arr$->get(i$);
-				{
-					if (off + 16 > streamLength) {
-						$throwNew($IIOException, "JPEGDCTables data out of stream"_s);
-					}
+				if (off + 16 > streamLength) {
+					$throwNew($IIOException, "JPEGDCTables data out of stream"_s);
 				}
 			}
 		}
@@ -1041,14 +912,10 @@ void TIFFIFD::checkFieldOffsets(int64_t streamLength) {
 		$var($longs, tableOffsets, f->getAsLongs());
 		{
 			$var($longs, arr$, tableOffsets);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				int64_t off = arr$->get(i$);
-				{
-					if (off + 16 > streamLength) {
-						$throwNew($IIOException, "JPEGACTables data out of stream"_s);
-					}
+				if (off + 16 > streamLength) {
+					$throwNew($IIOException, "JPEGACTables data out of stream"_s);
 				}
 			}
 		}
@@ -1056,7 +923,7 @@ void TIFFIFD::checkFieldOffsets(int64_t streamLength) {
 }
 
 void TIFFIFD::initialize($ImageInputStream* stream, bool isPrimaryIFD, bool ignoreMetadata, bool readUnknownTags) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	removeTIFFFields();
 	int64_t streamLength = $nc(stream)->length();
 	bool haveStreamLength = streamLength != -1;
@@ -1093,9 +960,10 @@ void TIFFIFD::initialize($ImageInputStream* stream, bool isPrimaryIFD, bool igno
 		}
 		int32_t count = (int32_t)longCount;
 		if (tag == nullptr) {
+			$init($TIFFTag);
 			$assign(tag, $new($TIFFTag, $TIFFTag::UNKNOWN_TAG_NAME, tagNumber, $sl(1, type), count));
 		} else {
-			int32_t expectedCount = $nc(tag)->getCount();
+			int32_t expectedCount = tag->getCount();
 			if (expectedCount > 0) {
 				if (count != expectedCount) {
 					$throwNew($IIOException, $$str({"Unexpected count "_s, $$str(count), " for "_s, $(tag->getName()), " field"_s}));
@@ -1125,7 +993,7 @@ void TIFFIFD::initialize($ImageInputStream* stream, bool isPrimaryIFD, bool igno
 				count = readFieldValue(stream, type, count, entryData);
 				$assign(obj, entryData->get(0));
 			} catch ($EOFException& eofe) {
-				if ($nc($($BaselineTIFFTagSet::getInstance()))->getTag(tagNumber) == nullptr) {
+				if ($$nc($BaselineTIFFTagSet::getInstance())->getTag(tagNumber) == nullptr) {
 					$throw(eofe);
 				}
 			}
@@ -1141,44 +1009,42 @@ void TIFFIFD::initialize($ImageInputStream* stream, bool isPrimaryIFD, bool igno
 		$var($Iterator, i$, entries->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Object, entry, i$->next());
-			{
-				if ($instanceOf($TIFFField, entry)) {
-					addTIFFField($cast($TIFFField, entry));
+			if ($instanceOf($TIFFField, entry)) {
+				addTIFFField($cast($TIFFField, entry));
+			} else {
+				$var($TIFFIFD$TIFFIFDEntry, e, $cast($TIFFIFD$TIFFIFDEntry, entry));
+				$var($TIFFTag, tag, $nc(e)->tag);
+				int32_t tagNumber = $nc(tag)->getNumber();
+				int32_t type = e->type;
+				int32_t count = e->count;
+				stream->seek(e->offset);
+				if (tag->isIFDPointer()) {
+					$var($List, tagSets, $new($ArrayList, 1));
+					tagSets->add($(tag->getTagSet()));
+					$var(TIFFIFD, subIFD, $new(TIFFIFD, tagSets));
+					subIFD->initialize(stream, false, ignoreMetadata, readUnknownTags);
+					$var($TIFFField, f, $new($TIFFField, tag, type, e->offset, subIFD));
+					addTIFFField(f);
 				} else {
-					$var($TIFFIFD$TIFFIFDEntry, e, $cast($TIFFIFD$TIFFIFDEntry, entry));
-					$var($TIFFTag, tag, $nc(e)->tag);
-					int32_t tagNumber = $nc(tag)->getNumber();
-					int32_t type = e->type;
-					int32_t count = e->count;
-					stream->seek(e->offset);
-					if (tag->isIFDPointer()) {
-						$var($List, tagSets, $new($ArrayList, 1));
-						tagSets->add($(tag->getTagSet()));
-						$var(TIFFIFD, subIFD, $new(TIFFIFD, tagSets));
-						subIFD->initialize(stream, false, ignoreMetadata, readUnknownTags);
-						$var($TIFFField, f, $new($TIFFField, tag, type, e->offset, static_cast<$TIFFDirectory*>(subIFD)));
-						addTIFFField(f);
-					} else {
-						if (tagNumber == $BaselineTIFFTagSet::TAG_STRIP_BYTE_COUNTS || tagNumber == $BaselineTIFFTagSet::TAG_TILE_BYTE_COUNTS || tagNumber == $BaselineTIFFTagSet::TAG_JPEG_INTERCHANGE_FORMAT_LENGTH) {
-							this->stripOrTileByteCountsPosition = stream->getStreamPosition();
-						} else if (tagNumber == $BaselineTIFFTagSet::TAG_STRIP_OFFSETS || tagNumber == $BaselineTIFFTagSet::TAG_TILE_OFFSETS || tagNumber == $BaselineTIFFTagSet::TAG_JPEG_INTERCHANGE_FORMAT) {
-							this->stripOrTileOffsetsPosition = stream->getStreamPosition();
-						}
-						$var($Object, obj, nullptr);
-						try {
-							count = readFieldValue(stream, type, count, fieldData);
-							$assign(obj, fieldData->get(0));
-						} catch ($EOFException& eofe) {
-							if ($nc($($BaselineTIFFTagSet::getInstance()))->getTag(tagNumber) != nullptr) {
-								$throw(eofe);
-							}
-						}
-						if (obj == nullptr) {
-							continue;
-						}
-						$var($TIFFField, f, $new($TIFFField, tag, type, count, obj));
-						addTIFFField(f);
+					if (tagNumber == $BaselineTIFFTagSet::TAG_STRIP_BYTE_COUNTS || tagNumber == $BaselineTIFFTagSet::TAG_TILE_BYTE_COUNTS || tagNumber == $BaselineTIFFTagSet::TAG_JPEG_INTERCHANGE_FORMAT_LENGTH) {
+						this->stripOrTileByteCountsPosition = stream->getStreamPosition();
+					} else if (tagNumber == $BaselineTIFFTagSet::TAG_STRIP_OFFSETS || tagNumber == $BaselineTIFFTagSet::TAG_TILE_OFFSETS || tagNumber == $BaselineTIFFTagSet::TAG_JPEG_INTERCHANGE_FORMAT) {
+						this->stripOrTileOffsetsPosition = stream->getStreamPosition();
 					}
+					$var($Object, obj, nullptr);
+					try {
+						count = readFieldValue(stream, type, count, fieldData);
+						$assign(obj, fieldData->get(0));
+					} catch ($EOFException& eofe) {
+						if ($$nc($BaselineTIFFTagSet::getInstance())->getTag(tagNumber) != nullptr) {
+							$throw(eofe);
+						}
+					}
+					if (obj == nullptr) {
+						continue;
+					}
+					$var($TIFFField, f, $new($TIFFField, tag, type, count, obj));
+					addTIFFField(f);
 				}
 			}
 		}
@@ -1191,7 +1057,7 @@ void TIFFIFD::initialize($ImageInputStream* stream, bool isPrimaryIFD, bool igno
 }
 
 void TIFFIFD::writeToStream($ImageOutputStream* stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t numFields = getNumTIFFFields();
 	$nc(stream)->writeShort(numFields);
 	int64_t nextSpace = stream->getStreamPosition() + 12 * numFields + 4;
@@ -1208,7 +1074,7 @@ void TIFFIFD::writeToStream($ImageOutputStream* stream) {
 		if (type == $TIFFTag::TIFF_ASCII) {
 			int32_t chars = 0;
 			for (int32_t i = 0; i < count; ++i) {
-				chars += $nc($(f->getAsString(i)))->length() + 1;
+				chars += $$nc(f->getAsString(i))->length() + 1;
 			}
 			count = chars;
 			size = count;
@@ -1222,11 +1088,11 @@ void TIFFIFD::writeToStream($ImageOutputStream* stream) {
 		stream->skipBytes(-4);
 		int64_t pos = 0;
 		if (size > 4 || $nc(tag)->isIFDPointer()) {
-			nextSpace = (int64_t)((nextSpace + 3) & (uint64_t)(int64_t)~3);
+			nextSpace = (nextSpace + 3) & ~3;
 			stream->writeInt((int32_t)nextSpace);
 			stream->seek(nextSpace);
 			pos = nextSpace;
-			bool var$0 = tag->isIFDPointer();
+			bool var$0 = $nc(tag)->isIFDPointer();
 			if (var$0 && f->hasDirectory()) {
 				$var(TIFFIFD, subIFD, getDirectoryAsIFD($(f->getDirectory())));
 				$nc(subIFD)->writeToStream(stream);
@@ -1268,7 +1134,7 @@ void TIFFIFD::setPositions(int64_t stripOrTileOffsetsPosition, int64_t stripOrTi
 }
 
 TIFFIFD* TIFFIFD::getShallowClone() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TIFFTagSet, baselineTagSet, $BaselineTIFFTagSet::getInstance());
 	$var($List, tagSetList, getTagSetList());
 	if (!$nc(tagSetList)->contains(baselineTagSet)) {
@@ -1282,74 +1148,50 @@ TIFFIFD* TIFFIFD::getShallowClone() {
 		$var($Integer, tagNumber, $Integer::valueOf($nc(field)->getTagNumber()));
 		$var($TIFFField, fieldClone, nullptr);
 		if ($nc(baselineTagNumbers)->contains(tagNumber)) {
-			$var($Object, fieldData, $nc(field)->getData());
+			$var($Object, fieldData, field->getData());
 			int32_t fieldType = field->getType();
 			try {
 				switch (fieldType) {
 				case $TIFFTag::TIFF_BYTE:
-					{}
 				case $TIFFTag::TIFF_SBYTE:
-					{}
 				case $TIFFTag::TIFF_UNDEFINED:
-					{
-						$assign(fieldData, $nc(($cast($bytes, fieldData)))->clone());
-						break;
-					}
+					$assign(fieldData, $nc($cast($bytes, fieldData))->clone());
+					break;
 				case $TIFFTag::TIFF_ASCII:
-					{
-						$assign(fieldData, $nc(($cast($StringArray, fieldData)))->clone());
-						break;
-					}
+					$assign(fieldData, $nc($cast($StringArray, fieldData))->clone());
+					break;
 				case $TIFFTag::TIFF_SHORT:
-					{
-						$assign(fieldData, $nc(($cast($chars, fieldData)))->clone());
-						break;
-					}
+					$assign(fieldData, $nc($cast($chars, fieldData))->clone());
+					break;
 				case $TIFFTag::TIFF_LONG:
-					{}
 				case $TIFFTag::TIFF_IFD_POINTER:
-					{
-						$assign(fieldData, $nc(($cast($longs, fieldData)))->clone());
-						break;
-					}
+					$assign(fieldData, $nc($cast($longs, fieldData))->clone());
+					break;
 				case $TIFFTag::TIFF_RATIONAL:
-					{
-						$assign(fieldData, $nc(($cast($longArray2, fieldData)))->clone());
-						break;
-					}
+					$assign(fieldData, $nc($cast($longArray2, fieldData))->clone());
+					break;
 				case $TIFFTag::TIFF_SSHORT:
-					{
-						$assign(fieldData, $nc(($cast($shorts, fieldData)))->clone());
-						break;
-					}
+					$assign(fieldData, $nc($cast($shorts, fieldData))->clone());
+					break;
 				case $TIFFTag::TIFF_SLONG:
-					{
-						$assign(fieldData, $nc(($cast($ints, fieldData)))->clone());
-						break;
-					}
+					$assign(fieldData, $nc($cast($ints, fieldData))->clone());
+					break;
 				case $TIFFTag::TIFF_SRATIONAL:
-					{
-						$assign(fieldData, $nc(($cast($intArray2, fieldData)))->clone());
-						break;
-					}
+					$assign(fieldData, $nc($cast($intArray2, fieldData))->clone());
+					break;
 				case $TIFFTag::TIFF_FLOAT:
-					{
-						$assign(fieldData, $nc(($cast($floats, fieldData)))->clone());
-						break;
-					}
+					$assign(fieldData, $nc($cast($floats, fieldData))->clone());
+					break;
 				case $TIFFTag::TIFF_DOUBLE:
-					{
-						$assign(fieldData, $nc(($cast($doubles, fieldData)))->clone());
-						break;
-					}
+					$assign(fieldData, $nc($cast($doubles, fieldData))->clone());
+					break;
 				default:
-					{}
+					break;
 				}
 			} catch ($Exception& e) {
 			}
 			$var($TIFFTag, var$0, field->getTag());
-			int32_t var$1 = fieldType;
-			$assign(fieldClone, $new($TIFFField, var$0, var$1, field->getCount(), fieldData));
+			$assign(fieldClone, $new($TIFFField, var$0, fieldType, field->getCount(), fieldData));
 		} else {
 			$assign(fieldClone, field);
 		}
@@ -1359,7 +1201,7 @@ TIFFIFD* TIFFIFD::getShallowClone() {
 	return shallowClone;
 }
 
-void clinit$TIFFIFD($Class* class$) {
+void TIFFIFD::clinit$($Class* clazz) {
 	$assignStatic(TIFFIFD::essentialTags, nullptr);
 }
 
@@ -1367,7 +1209,60 @@ TIFFIFD::TIFFIFD() {
 }
 
 $Class* TIFFIFD::load$($String* name, bool initialize) {
-	$loadClass(TIFFIFD, name, initialize, &_TIFFIFD_ClassInfo_, clinit$TIFFIFD, allocate$TIFFIFD);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_SAMPLES_PER_PIXEL", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TIFFIFD, MAX_SAMPLES_PER_PIXEL)},
+		{"MAX_ASCII_SIZE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TIFFIFD, MAX_ASCII_SIZE)},
+		{"stripOrTileByteCountsPosition", "J", nullptr, $PRIVATE, $field(TIFFIFD, stripOrTileByteCountsPosition)},
+		{"stripOrTileOffsetsPosition", "J", nullptr, $PRIVATE, $field(TIFFIFD, stripOrTileOffsetsPosition)},
+		{"lastPosition", "J", nullptr, $PRIVATE, $field(TIFFIFD, lastPosition)},
+		{"essentialTags", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $VOLATILE, $staticField(TIFFIFD, essentialTags)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;Ljavax/imageio/plugins/tiff/TIFFTag;)V", "(Ljava/util/List<Ljavax/imageio/plugins/tiff/TIFFTagSet;>;Ljavax/imageio/plugins/tiff/TIFFTag;)V", $PUBLIC, $method(TIFFIFD, init$, void, $List*, $TIFFTag*)},
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljavax/imageio/plugins/tiff/TIFFTagSet;>;)V", $PUBLIC, $method(TIFFIFD, init$, void, $List*)},
+		{"calculateByteCounts", "(ILjava/util/List;)Z", "(ILjava/util/List<Ljavax/imageio/plugins/tiff/TIFFField;>;)Z", $PRIVATE, $method(TIFFIFD, calculateByteCounts, bool, int32_t, $List*)},
+		{"checkFieldOffsets", "(J)V", nullptr, $PRIVATE, $method(TIFFIFD, checkFieldOffsets, void, int64_t), "javax.imageio.IIOException"},
+		{"getDirectoryAsIFD", "(Ljavax/imageio/plugins/tiff/TIFFDirectory;)Lcom/sun/imageio/plugins/tiff/TIFFIFD;", nullptr, $PUBLIC | $STATIC, $staticMethod(TIFFIFD, getDirectoryAsIFD, TIFFIFD*, $TIFFDirectory*)},
+		{"getFieldAsInt", "(I)I", nullptr, $PRIVATE, $method(TIFFIFD, getFieldAsInt, int32_t, int32_t)},
+		{"getFieldAsLong", "(I)J", nullptr, $PRIVATE, $method(TIFFIFD, getFieldAsLong, int64_t, int32_t)},
+		{"getLastPosition", "()J", nullptr, $PUBLIC, $virtualMethod(TIFFIFD, getLastPosition, int64_t)},
+		{"getShallowClone", "()Lcom/sun/imageio/plugins/tiff/TIFFIFD;", nullptr, $PUBLIC, $virtualMethod(TIFFIFD, getShallowClone, TIFFIFD*)},
+		{"getStripOrTileByteCountsPosition", "()J", nullptr, $PUBLIC, $virtualMethod(TIFFIFD, getStripOrTileByteCountsPosition, int64_t)},
+		{"getStripOrTileOffsetsPosition", "()J", nullptr, $PUBLIC, $virtualMethod(TIFFIFD, getStripOrTileOffsetsPosition, int64_t)},
+		{"getTag", "(ILjava/util/List;)Ljavax/imageio/plugins/tiff/TIFFTag;", "(ILjava/util/List<Ljavax/imageio/plugins/tiff/TIFFTagSet;>;)Ljavax/imageio/plugins/tiff/TIFFTag;", $PUBLIC | $STATIC, $staticMethod(TIFFIFD, getTag, $TIFFTag*, int32_t, $List*)},
+		{"getTag", "(Ljava/lang/String;Ljava/util/List;)Ljavax/imageio/plugins/tiff/TIFFTag;", "(Ljava/lang/String;Ljava/util/List<Ljavax/imageio/plugins/tiff/TIFFTagSet;>;)Ljavax/imageio/plugins/tiff/TIFFTag;", $PUBLIC | $STATIC, $staticMethod(TIFFIFD, getTag, $TIFFTag*, $String*, $List*)},
+		{"getTagSetList", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/imageio/plugins/tiff/TIFFTagSet;>;", $PUBLIC, $virtualMethod(TIFFIFD, getTagSetList, $List*)},
+		{"initialize", "(Ljavax/imageio/stream/ImageInputStream;ZZZ)V", nullptr, $PUBLIC, $virtualMethod(TIFFIFD, initialize, void, $ImageInputStream*, bool, bool, bool), "java.io.IOException"},
+		{"initializeEssentialTags", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFIFD, initializeEssentialTags, void)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljavax/imageio/plugins/tiff/TIFFField;>;", $PUBLIC, $virtualMethod(TIFFIFD, iterator, $Iterator*)},
+		{"readFieldValue", "(Ljavax/imageio/stream/ImageInputStream;II[Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFIFD, readFieldValue, int32_t, $ImageInputStream*, int32_t, int32_t, $ObjectArray*), "java.io.IOException"},
+		{"setPositions", "(JJJ)V", nullptr, 0, $virtualMethod(TIFFIFD, setPositions, void, int64_t, int64_t, int64_t)},
+		{"writeTIFFFieldToStream", "(Ljavax/imageio/plugins/tiff/TIFFField;Ljavax/imageio/stream/ImageOutputStream;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFIFD, writeTIFFFieldToStream, void, $TIFFField*, $ImageOutputStream*), "java.io.IOException"},
+		{"writeToStream", "(Ljavax/imageio/stream/ImageOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(TIFFIFD, writeToStream, void, $ImageOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.imageio.plugins.tiff.TIFFIFD$TIFFIFDEntry", "com.sun.imageio.plugins.tiff.TIFFIFD", "TIFFIFDEntry", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFIFD",
+		"javax.imageio.plugins.tiff.TIFFDirectory",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.imageio.plugins.tiff.TIFFIFD$TIFFIFDEntry"
+	};
+	$loadClass(TIFFIFD, name, initialize, &classInfo$$, TIFFIFD::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFIFD);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/InputMap.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/util/HashMap.h>
@@ -15,47 +14,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashMap = ::java::util::HashMap;
-using $Set = ::java::util::Set;
 using $ArrayTable = ::javax::swing::ArrayTable;
 using $KeyStroke = ::javax::swing::KeyStroke;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _InputMap_FieldInfo_[] = {
-	{"arrayTable", "Ljavax/swing/ArrayTable;", nullptr, $PRIVATE | $TRANSIENT, $field(InputMap, arrayTable)},
-	{"parent", "Ljavax/swing/InputMap;", nullptr, $PRIVATE, $field(InputMap, parent)},
-	{}
-};
-
-$MethodInfo _InputMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InputMap, init$, void)},
-	{"allKeys", "()[Ljavax/swing/KeyStroke;", nullptr, $PUBLIC, $virtualMethod(InputMap, allKeys, $KeyStrokeArray*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(InputMap, clear, void)},
-	{"get", "(Ljavax/swing/KeyStroke;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(InputMap, get, $Object*, $KeyStroke*)},
-	{"getParent", "()Ljavax/swing/InputMap;", nullptr, $PUBLIC, $virtualMethod(InputMap, getParent, InputMap*)},
-	{"keys", "()[Ljavax/swing/KeyStroke;", nullptr, $PUBLIC, $virtualMethod(InputMap, keys, $KeyStrokeArray*)},
-	{"put", "(Ljavax/swing/KeyStroke;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InputMap, put, void, $KeyStroke*, Object$*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(InputMap, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"remove", "(Ljavax/swing/KeyStroke;)V", nullptr, $PUBLIC, $virtualMethod(InputMap, remove, void, $KeyStroke*)},
-	{"setParent", "(Ljavax/swing/InputMap;)V", nullptr, $PUBLIC, $virtualMethod(InputMap, setParent, void, InputMap*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(InputMap, size, int32_t)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(InputMap, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _InputMap_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.InputMap",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_InputMap_FieldInfo_,
-	_InputMap_MethodInfo_
-};
-
-$Object* allocate$InputMap($Class* clazz) {
-	return $of($alloc(InputMap));
-}
 
 void InputMap::init$() {
 }
@@ -83,33 +46,33 @@ void InputMap::put($KeyStroke* keyStroke, Object$* actionMapKey) {
 }
 
 $Object* InputMap::get($KeyStroke* keyStroke) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->arrayTable == nullptr) {
 		$var(InputMap, parent, getParent());
 		if (parent != nullptr) {
-			return $of(parent->get(keyStroke));
+			return parent->get(keyStroke);
 		}
-		return $of(nullptr);
+		return nullptr;
 	}
 	$var($Object, value, $nc(this->arrayTable)->get(keyStroke));
 	if (value == nullptr) {
 		$var(InputMap, parent, getParent());
 		if (parent != nullptr) {
-			return $of(parent->get(keyStroke));
+			return parent->get(keyStroke);
 		}
 	}
-	return $of(value);
+	return value;
 }
 
 void InputMap::remove($KeyStroke* key) {
 	if (this->arrayTable != nullptr) {
-		$nc(this->arrayTable)->remove(key);
+		this->arrayTable->remove(key);
 	}
 }
 
 void InputMap::clear() {
 	if (this->arrayTable != nullptr) {
-		$nc(this->arrayTable)->clear();
+		this->arrayTable->clear();
 	}
 }
 
@@ -130,7 +93,7 @@ int32_t InputMap::size() {
 }
 
 $KeyStrokeArray* InputMap::allKeys() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = size();
 	$var(InputMap, parent, getParent());
 	if (count == 0) {
@@ -159,7 +122,7 @@ $KeyStrokeArray* InputMap::allKeys() {
 		keyMap->put(pKeys->get(counter), pKeys->get(counter));
 	}
 	$var($KeyStrokeArray, allKeys, $new($KeyStrokeArray, keyMap->size()));
-	return $fcast($KeyStrokeArray, $nc($(keyMap->keySet()))->toArray(allKeys));
+	return $cast($KeyStrokeArray, $$nc(keyMap->keySet())->toArray(allKeys));
 }
 
 void InputMap::writeObject($ObjectOutputStream* s) {
@@ -168,7 +131,7 @@ void InputMap::writeObject($ObjectOutputStream* s) {
 }
 
 void InputMap::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultReadObject();
 	for (int32_t counter = s->readInt() - 1; counter >= 0; --counter) {
 		$var($KeyStroke, var$0, $cast($KeyStroke, s->readObject()));
@@ -180,7 +143,37 @@ InputMap::InputMap() {
 }
 
 $Class* InputMap::load$($String* name, bool initialize) {
-	$loadClass(InputMap, name, initialize, &_InputMap_ClassInfo_, allocate$InputMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"arrayTable", "Ljavax/swing/ArrayTable;", nullptr, $PRIVATE | $TRANSIENT, $field(InputMap, arrayTable)},
+		{"parent", "Ljavax/swing/InputMap;", nullptr, $PRIVATE, $field(InputMap, parent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InputMap, init$, void)},
+		{"allKeys", "()[Ljavax/swing/KeyStroke;", nullptr, $PUBLIC, $virtualMethod(InputMap, allKeys, $KeyStrokeArray*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(InputMap, clear, void)},
+		{"get", "(Ljavax/swing/KeyStroke;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(InputMap, get, $Object*, $KeyStroke*)},
+		{"getParent", "()Ljavax/swing/InputMap;", nullptr, $PUBLIC, $virtualMethod(InputMap, getParent, InputMap*)},
+		{"keys", "()[Ljavax/swing/KeyStroke;", nullptr, $PUBLIC, $virtualMethod(InputMap, keys, $KeyStrokeArray*)},
+		{"put", "(Ljavax/swing/KeyStroke;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InputMap, put, void, $KeyStroke*, Object$*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(InputMap, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"remove", "(Ljavax/swing/KeyStroke;)V", nullptr, $PUBLIC, $virtualMethod(InputMap, remove, void, $KeyStroke*)},
+		{"setParent", "(Ljavax/swing/InputMap;)V", nullptr, $PUBLIC, $virtualMethod(InputMap, setParent, void, InputMap*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(InputMap, size, int32_t)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(InputMap, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.InputMap",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InputMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InputMap);
+	});
 	return class$;
 }
 

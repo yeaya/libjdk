@@ -27,7 +27,7 @@ public:
 	virtual $String* getAccessibleName() override;
 	virtual ::javax::accessibility::AccessibleRole* getAccessibleRole() override;
 	::java::awt::Label* this$0 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xCE787AE9C9BDF34A;
+	static const int64_t serialVersionUID = (int64_t)0xce787ae9c9bdf34a;
 };
 
 	} // awt

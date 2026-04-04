@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WPrintDialogPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -80,7 +79,6 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Vector = ::java::util::Vector;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $WComponentPeer = ::sun::awt::windows::WComponentPeer;
 using $WPrintDialog = ::sun::awt::windows::WPrintDialog;
 using $WToolkit = ::sun::awt::windows::WToolkit;
@@ -100,149 +98,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$show$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WPrintDialogPeer$$Lambda$lambda$show$0>());
-	}
 	WPrintDialogPeer* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo WPrintDialogPeer$$Lambda$lambda$show$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(WPrintDialogPeer$$Lambda$lambda$show$0, inst$)},
-	{}
-};
-$MethodInfo WPrintDialogPeer$$Lambda$lambda$show$0::methodInfos[3] = {
-	{"<init>", "(Lsun/awt/windows/WPrintDialogPeer;)V", nullptr, $PUBLIC, $method(WPrintDialogPeer$$Lambda$lambda$show$0, init$, void, WPrintDialogPeer*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer$$Lambda$lambda$show$0, run, void)},
-	{}
-};
-$ClassInfo WPrintDialogPeer$$Lambda$lambda$show$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.windows.WPrintDialogPeer$$Lambda$lambda$show$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* WPrintDialogPeer$$Lambda$lambda$show$0::load$($String* name, bool initialize) {
-	$loadClass(WPrintDialogPeer$$Lambda$lambda$show$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(WPrintDialogPeer$$Lambda$lambda$show$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/windows/WPrintDialogPeer;)V", nullptr, $PUBLIC, $method(WPrintDialogPeer$$Lambda$lambda$show$0, init$, void, WPrintDialogPeer*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer$$Lambda$lambda$show$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.windows.WPrintDialogPeer$$Lambda$lambda$show$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WPrintDialogPeer$$Lambda$lambda$show$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WPrintDialogPeer$$Lambda$lambda$show$0);
+	});
 	return class$;
 }
 $Class* WPrintDialogPeer$$Lambda$lambda$show$0::class$ = nullptr;
-
-$FieldInfo _WPrintDialogPeer_FieldInfo_[] = {
-	{"parent", "Lsun/awt/windows/WComponentPeer;", nullptr, $PRIVATE, $field(WPrintDialogPeer, parent)},
-	{"blockedWindows", "Ljava/util/Vector;", "Ljava/util/Vector<Lsun/awt/windows/WWindowPeer;>;", $PRIVATE, $field(WPrintDialogPeer, blockedWindows)},
-	{}
-};
-
-$MethodInfo _WPrintDialogPeer_MethodInfo_[] = {
-	{"*beginLayout", "()V", nullptr, $PUBLIC},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*endLayout", "()V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
-	{"*getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $NATIVE},
-	{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/awt/windows/WPrintDialog;)V", nullptr, 0, $method(WPrintDialogPeer, init$, void, $WPrintDialog*)},
-	{"_show", "()Z", nullptr, $PRIVATE | $NATIVE, $method(WPrintDialogPeer, _show, bool)},
-	{"addDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, addDropTarget, void, $DropTarget*)},
-	{"applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, applyShape, void, $Region*)},
-	{"beginValidate", "()V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, beginValidate, void)},
-	{"blockWindow", "(Lsun/awt/windows/WWindowPeer;)V", nullptr, $SYNCHRONIZED, $virtualMethod(WPrintDialogPeer, blockWindow, void, $WWindowPeer*)},
-	{"blockWindows", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/awt/Window;>;)V", $PUBLIC, $virtualMethod(WPrintDialogPeer, blockWindows, void, $List*)},
-	{"checkCreation", "()V", nullptr, $PROTECTED, $virtualMethod(WPrintDialogPeer, checkCreation, void)},
-	{"create", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, 0, $virtualMethod(WPrintDialogPeer, create, void, $WComponentPeer*)},
-	{"createScreenSurface", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, createScreenSurface, void, bool)},
-	{"disable", "()V", nullptr, 0, $virtualMethod(WPrintDialogPeer, disable, void)},
-	{"disposeImpl", "()V", nullptr, $PROTECTED, $virtualMethod(WPrintDialogPeer, disposeImpl, void)},
-	{"enable", "()V", nullptr, 0, $virtualMethod(WPrintDialogPeer, enable, void)},
-	{"endValidate", "()V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, endValidate, void)},
-	{"handleEvent", "(Ljava/awt/Event;)Z", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, handleEvent, bool, $Event*)},
-	{"hide", "()V", nullptr, 0, $virtualMethod(WPrintDialogPeer, hide, void)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WPrintDialogPeer, initIDs, void)},
-	{"initialize", "()V", nullptr, 0, $virtualMethod(WPrintDialogPeer, initialize, void)},
-	{"invalidate", "(IIII)V", nullptr, 0, $virtualMethod(WPrintDialogPeer, invalidate, void, int32_t, int32_t, int32_t, int32_t)},
-	{"*isFocusable", "()Z", nullptr, $PUBLIC},
-	{"*isObscured", "()Z", nullptr, $PUBLIC | $NATIVE},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"lambda$show$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(WPrintDialogPeer, lambda$show$0, void)},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"removeDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, removeDropTarget, void, $DropTarget*)},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"replaceSurfaceData", "()V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, replaceSurfaceData, void)},
-	{"*repositionSecurityWarning", "()V", nullptr, $PUBLIC | $NATIVE},
-	{"requestFocus", "(ZZ)Z", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, requestFocus, bool, bool, bool)},
-	{"requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, requestFocus, bool, $Component*, bool, bool, int64_t, $FocusEvent$Cause*)},
-	{"reshape", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, reshape, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, setBackground, void, $Color*)},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, setFont, void, $Font*)},
-	{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, setForeground, void, $Color*)},
-	{"setHWnd", "(J)V", nullptr, $SYNCHRONIZED, $virtualMethod(WPrintDialogPeer, setHWnd, void, int64_t)},
-	{"*setModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC},
-	{"setOpacity", "(F)V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, setOpacity, void, float)},
-	{"setOpaque", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, setOpaque, void, bool)},
-	{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, setResizable, void, bool)},
-	{"*setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, setZOrder, void, $ComponentPeer*)},
-	{"show", "()V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, show, void)},
-	{"start", "()V", nullptr, 0, $virtualMethod(WPrintDialogPeer, start, void)},
-	{"toBack", "()V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WPrintDialogPeer, toBack, void)},
-	{"toFront", "()V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WPrintDialogPeer, toFront, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unblockWindow", "(Lsun/awt/windows/WWindowPeer;)V", nullptr, $SYNCHRONIZED, $virtualMethod(WPrintDialogPeer, unblockWindow, void, $WWindowPeer*)},
-	{"updateAlwaysOnTopState", "()V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, updateAlwaysOnTopState, void)},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"updateFocusableWindowState", "()V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, updateFocusableWindowState, void)},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"updateIconImages", "()V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, updateIconImages, void)},
-	{"updateMinimumSize", "()V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, updateMinimumSize, void)},
-	{"*updateWindow", "()V", nullptr, $PUBLIC},
-	{"updateWindow", "(Ljava/awt/image/BufferedImage;)V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, updateWindow, void, $BufferedImage*)},
-	{}
-};
-
-#define _METHOD_INDEX__show 26
-#define _METHOD_INDEX_initIDs 41
-#define _METHOD_INDEX_toBack 73
-#define _METHOD_INDEX_toFront 74
-
-$ClassInfo _WPrintDialogPeer_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.windows.WPrintDialogPeer",
-	"sun.awt.windows.WWindowPeer",
-	"java.awt.peer.DialogPeer",
-	_WPrintDialogPeer_FieldInfo_,
-	_WPrintDialogPeer_MethodInfo_
-};
-
-$Object* allocate$WPrintDialogPeer($Class* clazz) {
-	return $of($alloc(WPrintDialogPeer));
-}
 
 void WPrintDialogPeer::setTitle($String* title) {
 	this->$WWindowPeer::setTitle(title);
@@ -429,33 +310,30 @@ void WPrintDialogPeer::disposeImpl() {
 }
 
 bool WPrintDialogPeer::_show() {
-	bool $ret = false;
-	$prepareNative(WPrintDialogPeer, _show, bool);
-	$ret = $invokeNative();
+	$prepareNative(_show, bool);
+	bool $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 void WPrintDialogPeer::show() {
-	$useLocalCurrentObjectStackCache();
-	$var($Runnable, runnable, static_cast<$Runnable*>($new(WPrintDialogPeer$$Lambda$lambda$show$0, this)));
+	$useLocalObjectStack();
+	$var($Runnable, runnable, $new(WPrintDialogPeer$$Lambda$lambda$show$0, this));
 	$$new($Thread, nullptr, runnable, "PrintDialog"_s, 0, false)->start();
 }
 
 void WPrintDialogPeer::setHWnd(int64_t hwnd) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		this->hwnd = hwnd;
 		{
 			$var($Iterator, i$, $nc(this->blockedWindows)->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($WWindowPeer, window, $cast($WWindowPeer, i$->next()));
-				{
-					if (hwnd != 0) {
-						$nc(window)->modalDisable($cast($Dialog, this->target), hwnd);
-					} else {
-						$nc(window)->modalEnable($cast($Dialog, this->target));
-					}
+				if (hwnd != 0) {
+					$nc(window)->modalDisable($cast($Dialog, this->target), hwnd);
+				} else {
+					$nc(window)->modalEnable($cast($Dialog, this->target));
 				}
 			}
 		}
@@ -473,7 +351,7 @@ void WPrintDialogPeer::blockWindow($WWindowPeer* window) {
 
 void WPrintDialogPeer::unblockWindow($WWindowPeer* window) {
 	$synchronized(this) {
-		$nc(this->blockedWindows)->remove($of(window));
+		$nc(this->blockedWindows)->remove(window);
 		if (this->hwnd != 0) {
 			$nc(window)->modalEnable($cast($Dialog, this->target));
 		}
@@ -481,29 +359,27 @@ void WPrintDialogPeer::unblockWindow($WWindowPeer* window) {
 }
 
 void WPrintDialogPeer::blockWindows($List* toBlock) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(toBlock)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Window, w, $cast($Window, i$->next()));
-			{
-				$var($WWindowPeer, wp, $cast($WWindowPeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(w)));
-				if (wp != nullptr) {
-					blockWindow(wp);
-				}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(toBlock)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Window, w, $cast($Window, i$->next()));
+		{
+			$var($WWindowPeer, wp, $cast($WWindowPeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(w)));
+			if (wp != nullptr) {
+				blockWindow(wp);
 			}
 		}
 	}
 }
 
 void WPrintDialogPeer::toFront() {
-	$prepareNative(WPrintDialogPeer, toFront, void);
+	$prepareNative(toFront, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void WPrintDialogPeer::toBack() {
-	$prepareNative(WPrintDialogPeer, toBack, void);
+	$prepareNative(toBack, void);
 	$invokeNative();
 	$finishNative();
 }
@@ -582,7 +458,7 @@ void WPrintDialogPeer::setZOrder($ComponentPeer* above) {
 
 void WPrintDialogPeer::initIDs() {
 	$init(WPrintDialogPeer);
-	$prepareNativeStatic(WPrintDialogPeer, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -607,13 +483,13 @@ void WPrintDialogPeer::replaceSurfaceData() {
 
 void WPrintDialogPeer::lambda$show$0() {
 	try {
-		$nc(($cast($WPrintDialog, this->target)))->setRetVal(_show());
+		$nc($cast($WPrintDialog, this->target))->setRetVal(_show());
 	} catch ($Exception& e) {
 	}
-	$nc(($cast($WPrintDialog, this->target)))->setVisible(false);
+	$nc($cast($WPrintDialog, this->target))->setVisible(false);
 }
 
-void clinit$WPrintDialogPeer($Class* class$) {
+void WPrintDialogPeer::clinit$($Class* clazz) {
 	{
 		WPrintDialogPeer::initIDs();
 	}
@@ -624,11 +500,114 @@ WPrintDialogPeer::WPrintDialogPeer() {
 
 $Class* WPrintDialogPeer::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(WPrintDialogPeer$$Lambda$lambda$show$0::classInfo$.name)) {
+		if (name->equals("sun.awt.windows.WPrintDialogPeer$$Lambda$lambda$show$0")) {
 			return WPrintDialogPeer$$Lambda$lambda$show$0::load$(name, initialize);
 		}
 	}
-	$loadClass(WPrintDialogPeer, name, initialize, &_WPrintDialogPeer_ClassInfo_, clinit$WPrintDialogPeer, allocate$WPrintDialogPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"parent", "Lsun/awt/windows/WComponentPeer;", nullptr, $PRIVATE, $field(WPrintDialogPeer, parent)},
+		{"blockedWindows", "Ljava/util/Vector;", "Ljava/util/Vector<Lsun/awt/windows/WWindowPeer;>;", $PRIVATE, $field(WPrintDialogPeer, blockedWindows)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*beginLayout", "()V", nullptr, $PUBLIC},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*endLayout", "()V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
+		{"*getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $NATIVE},
+		{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/awt/windows/WPrintDialog;)V", nullptr, 0, $method(WPrintDialogPeer, init$, void, $WPrintDialog*)},
+		{"_show", "()Z", nullptr, $PRIVATE | $NATIVE, $method(WPrintDialogPeer, _show, bool)},
+		{"addDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, addDropTarget, void, $DropTarget*)},
+		{"applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, applyShape, void, $Region*)},
+		{"beginValidate", "()V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, beginValidate, void)},
+		{"blockWindow", "(Lsun/awt/windows/WWindowPeer;)V", nullptr, $SYNCHRONIZED, $virtualMethod(WPrintDialogPeer, blockWindow, void, $WWindowPeer*)},
+		{"blockWindows", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/awt/Window;>;)V", $PUBLIC, $virtualMethod(WPrintDialogPeer, blockWindows, void, $List*)},
+		{"checkCreation", "()V", nullptr, $PROTECTED, $virtualMethod(WPrintDialogPeer, checkCreation, void)},
+		{"create", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, 0, $virtualMethod(WPrintDialogPeer, create, void, $WComponentPeer*)},
+		{"createScreenSurface", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, createScreenSurface, void, bool)},
+		{"disable", "()V", nullptr, 0, $virtualMethod(WPrintDialogPeer, disable, void)},
+		{"disposeImpl", "()V", nullptr, $PROTECTED, $virtualMethod(WPrintDialogPeer, disposeImpl, void)},
+		{"enable", "()V", nullptr, 0, $virtualMethod(WPrintDialogPeer, enable, void)},
+		{"endValidate", "()V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, endValidate, void)},
+		{"handleEvent", "(Ljava/awt/Event;)Z", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, handleEvent, bool, $Event*)},
+		{"hide", "()V", nullptr, 0, $virtualMethod(WPrintDialogPeer, hide, void)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WPrintDialogPeer, initIDs, void)},
+		{"initialize", "()V", nullptr, 0, $virtualMethod(WPrintDialogPeer, initialize, void)},
+		{"invalidate", "(IIII)V", nullptr, 0, $virtualMethod(WPrintDialogPeer, invalidate, void, int32_t, int32_t, int32_t, int32_t)},
+		{"*isFocusable", "()Z", nullptr, $PUBLIC},
+		{"*isObscured", "()Z", nullptr, $PUBLIC | $NATIVE},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"lambda$show$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(WPrintDialogPeer, lambda$show$0, void)},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"removeDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, removeDropTarget, void, $DropTarget*)},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"replaceSurfaceData", "()V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, replaceSurfaceData, void)},
+		{"*repositionSecurityWarning", "()V", nullptr, $PUBLIC | $NATIVE},
+		{"requestFocus", "(ZZ)Z", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, requestFocus, bool, bool, bool)},
+		{"requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, requestFocus, bool, $Component*, bool, bool, int64_t, $FocusEvent$Cause*)},
+		{"reshape", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, reshape, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, setBackground, void, $Color*)},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, setFont, void, $Font*)},
+		{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, setForeground, void, $Color*)},
+		{"setHWnd", "(J)V", nullptr, $SYNCHRONIZED, $virtualMethod(WPrintDialogPeer, setHWnd, void, int64_t)},
+		{"*setModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC},
+		{"setOpacity", "(F)V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, setOpacity, void, float)},
+		{"setOpaque", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, setOpaque, void, bool)},
+		{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, setResizable, void, bool)},
+		{"*setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, setZOrder, void, $ComponentPeer*)},
+		{"show", "()V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, show, void)},
+		{"start", "()V", nullptr, 0, $virtualMethod(WPrintDialogPeer, start, void)},
+		{"toBack", "()V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WPrintDialogPeer, toBack, void)},
+		{"toFront", "()V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WPrintDialogPeer, toFront, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unblockWindow", "(Lsun/awt/windows/WWindowPeer;)V", nullptr, $SYNCHRONIZED, $virtualMethod(WPrintDialogPeer, unblockWindow, void, $WWindowPeer*)},
+		{"updateAlwaysOnTopState", "()V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, updateAlwaysOnTopState, void)},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"updateFocusableWindowState", "()V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, updateFocusableWindowState, void)},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"updateIconImages", "()V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, updateIconImages, void)},
+		{"updateMinimumSize", "()V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, updateMinimumSize, void)},
+		{"*updateWindow", "()V", nullptr, $PUBLIC},
+		{"updateWindow", "(Ljava/awt/image/BufferedImage;)V", nullptr, $PUBLIC, $virtualMethod(WPrintDialogPeer, updateWindow, void, $BufferedImage*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.windows.WPrintDialogPeer",
+		"sun.awt.windows.WWindowPeer",
+		"java.awt.peer.DialogPeer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WPrintDialogPeer, name, initialize, &classInfo$$, WPrintDialogPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WPrintDialogPeer));
+	});
 	return class$;
 }
 

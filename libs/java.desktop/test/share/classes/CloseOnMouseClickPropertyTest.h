@@ -29,6 +29,7 @@ class $export CloseOnMouseClickPropertyTest : public ::java::lang::Object {
 	$class(CloseOnMouseClickPropertyTest, 0, ::java::lang::Object)
 public:
 	CloseOnMouseClickPropertyTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createAndShowGUI(::CloseOnMouseClickPropertyTest$TestItem* testItem);
 	static ::java::awt::Point* getClickPoint(bool parent);

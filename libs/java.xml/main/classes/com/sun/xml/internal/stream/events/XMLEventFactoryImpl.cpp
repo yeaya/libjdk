@@ -1,5 +1,4 @@
 #include <com/sun/xml/internal/stream/events/XMLEventFactoryImpl.h>
-
 #include <com/sun/xml/internal/stream/events/AttributeImpl.h>
 #include <com/sun/xml/internal/stream/events/CharacterEvent.h>
 #include <com/sun/xml/internal/stream/events/CommentEvent.h>
@@ -69,55 +68,6 @@ namespace com {
 				namespace stream {
 					namespace events {
 
-$FieldInfo _XMLEventFactoryImpl_FieldInfo_[] = {
-	{"location", "Ljavax/xml/stream/Location;", nullptr, 0, $field(XMLEventFactoryImpl, location)},
-	{}
-};
-
-$MethodInfo _XMLEventFactoryImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLEventFactoryImpl, init$, void)},
-	{"createAttribute", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/stream/events/Attribute;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createAttribute, $Attribute*, $String*, $String*)},
-	{"createAttribute", "(Ljavax/xml/namespace/QName;Ljava/lang/String;)Ljavax/xml/stream/events/Attribute;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createAttribute, $Attribute*, $QName*, $String*)},
-	{"createAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/stream/events/Attribute;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createAttribute, $Attribute*, $String*, $String*, $String*, $String*)},
-	{"createCData", "(Ljava/lang/String;)Ljavax/xml/stream/events/Characters;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createCData, $Characters*, $String*)},
-	{"createCharacters", "(Ljava/lang/String;)Ljavax/xml/stream/events/Characters;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createCharacters, $Characters*, $String*)},
-	{"createComment", "(Ljava/lang/String;)Ljavax/xml/stream/events/Comment;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createComment, $Comment*, $String*)},
-	{"createDTD", "(Ljava/lang/String;)Ljavax/xml/stream/events/DTD;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createDTD, $DTD*, $String*)},
-	{"createEndDocument", "()Ljavax/xml/stream/events/EndDocument;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createEndDocument, $EndDocument*)},
-	{"createEndElement", "(Ljavax/xml/namespace/QName;Ljava/util/Iterator;)Ljavax/xml/stream/events/EndElement;", "(Ljavax/xml/namespace/QName;Ljava/util/Iterator<+Ljavax/xml/stream/events/Namespace;>;)Ljavax/xml/stream/events/EndElement;", $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createEndElement, $EndElement*, $QName*, $Iterator*)},
-	{"createEndElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/stream/events/EndElement;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createEndElement, $EndElement*, $String*, $String*, $String*)},
-	{"createEndElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Iterator;)Ljavax/xml/stream/events/EndElement;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Iterator<+Ljavax/xml/stream/events/Namespace;>;)Ljavax/xml/stream/events/EndElement;", $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createEndElement, $EndElement*, $String*, $String*, $String*, $Iterator*)},
-	{"createEntityReference", "(Ljava/lang/String;Ljavax/xml/stream/events/EntityDeclaration;)Ljavax/xml/stream/events/EntityReference;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createEntityReference, $EntityReference*, $String*, $EntityDeclaration*)},
-	{"createIgnorableSpace", "(Ljava/lang/String;)Ljavax/xml/stream/events/Characters;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createIgnorableSpace, $Characters*, $String*)},
-	{"createNamespace", "(Ljava/lang/String;)Ljavax/xml/stream/events/Namespace;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createNamespace, $Namespace*, $String*)},
-	{"createNamespace", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/stream/events/Namespace;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createNamespace, $Namespace*, $String*, $String*)},
-	{"createProcessingInstruction", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/stream/events/ProcessingInstruction;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createProcessingInstruction, $ProcessingInstruction*, $String*, $String*)},
-	{"createSpace", "(Ljava/lang/String;)Ljavax/xml/stream/events/Characters;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createSpace, $Characters*, $String*)},
-	{"createStartDocument", "()Ljavax/xml/stream/events/StartDocument;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createStartDocument, $StartDocument*)},
-	{"createStartDocument", "(Ljava/lang/String;)Ljavax/xml/stream/events/StartDocument;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createStartDocument, $StartDocument*, $String*)},
-	{"createStartDocument", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/stream/events/StartDocument;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createStartDocument, $StartDocument*, $String*, $String*)},
-	{"createStartDocument", "(Ljava/lang/String;Ljava/lang/String;Z)Ljavax/xml/stream/events/StartDocument;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createStartDocument, $StartDocument*, $String*, $String*, bool)},
-	{"createStartElement", "(Ljavax/xml/namespace/QName;Ljava/util/Iterator;Ljava/util/Iterator;)Ljavax/xml/stream/events/StartElement;", "(Ljavax/xml/namespace/QName;Ljava/util/Iterator<+Ljavax/xml/stream/events/Attribute;>;Ljava/util/Iterator<+Ljavax/xml/stream/events/Namespace;>;)Ljavax/xml/stream/events/StartElement;", $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createStartElement, $StartElement*, $QName*, $Iterator*, $Iterator*)},
-	{"createStartElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/stream/events/StartElement;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createStartElement, $StartElement*, $String*, $String*, $String*)},
-	{"createStartElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Iterator;Ljava/util/Iterator;)Ljavax/xml/stream/events/StartElement;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Iterator<+Ljavax/xml/stream/events/Attribute;>;Ljava/util/Iterator<+Ljavax/xml/stream/events/Namespace;>;)Ljavax/xml/stream/events/StartElement;", $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createStartElement, $StartElement*, $String*, $String*, $String*, $Iterator*, $Iterator*)},
-	{"createStartElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Iterator;Ljava/util/Iterator;Ljavax/xml/namespace/NamespaceContext;)Ljavax/xml/stream/events/StartElement;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Iterator<+Ljavax/xml/stream/events/Attribute;>;Ljava/util/Iterator<+Ljavax/xml/stream/events/Namespace;>;Ljavax/xml/namespace/NamespaceContext;)Ljavax/xml/stream/events/StartElement;", $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createStartElement, $StartElement*, $String*, $String*, $String*, $Iterator*, $Iterator*, $NamespaceContext*)},
-	{"setLocation", "(Ljavax/xml/stream/Location;)V", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, setLocation, void, $Location*)},
-	{}
-};
-
-$ClassInfo _XMLEventFactoryImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.xml.internal.stream.events.XMLEventFactoryImpl",
-	"javax.xml.stream.XMLEventFactory",
-	nullptr,
-	_XMLEventFactoryImpl_FieldInfo_,
-	_XMLEventFactoryImpl_MethodInfo_
-};
-
-$Object* allocate$XMLEventFactoryImpl($Class* clazz) {
-	return $of($alloc(XMLEventFactoryImpl));
-}
-
 void XMLEventFactoryImpl::init$() {
 	$XMLEventFactory::init$();
 	$set(this, location, nullptr);
@@ -132,14 +82,14 @@ $Attribute* XMLEventFactoryImpl::createAttribute($String* localName, $String* va
 }
 
 $Attribute* XMLEventFactoryImpl::createAttribute($QName* name, $String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, $nc(name)->getPrefix());
 	$var($String, var$1, name->getNamespaceURI());
 	return createAttribute(var$0, var$1, $(name->getLocalPart()), value);
 }
 
 $Attribute* XMLEventFactoryImpl::createAttribute($String* prefix, $String* namespaceURI, $String* localName, $String* value) {
-	$var($AttributeImpl, attr, $new($AttributeImpl, prefix, namespaceURI, localName, value, ($String*)nullptr));
+	$var($AttributeImpl, attr, $new($AttributeImpl, prefix, namespaceURI, localName, value, nullptr));
 	if (this->location != nullptr) {
 		attr->setLocation(this->location);
 	}
@@ -187,7 +137,7 @@ $EndDocument* XMLEventFactoryImpl::createEndDocument() {
 }
 
 $EndElement* XMLEventFactoryImpl::createEndElement($QName* name, $Iterator* namespaces) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, $nc(name)->getPrefix());
 	$var($String, var$1, name->getNamespaceURI());
 	return createEndElement(var$0, var$1, $(name->getLocalPart()));
@@ -202,11 +152,11 @@ $EndElement* XMLEventFactoryImpl::createEndElement($String* prefix, $String* nam
 }
 
 $EndElement* XMLEventFactoryImpl::createEndElement($String* prefix, $String* namespaceUri, $String* localName, $Iterator* namespaces) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($EndElementEvent, event, $new($EndElementEvent, prefix, namespaceUri, localName));
 	if (namespaces != nullptr) {
 		while (namespaces->hasNext()) {
-			event->addNamespace($cast($Namespace, $(namespaces->next())));
+			event->addNamespace($$cast($Namespace, namespaces->next()));
 		}
 	}
 	if (this->location != nullptr) {
@@ -296,7 +246,7 @@ $StartDocument* XMLEventFactoryImpl::createStartDocument($String* encoding, $Str
 }
 
 $StartElement* XMLEventFactoryImpl::createStartElement($QName* name, $Iterator* attributes, $Iterator* namespaces) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, $nc(name)->getPrefix());
 	$var($String, var$1, name->getNamespaceURI());
 	return createStartElement(var$0, var$1, $(name->getLocalPart()), attributes, namespaces);
@@ -333,7 +283,51 @@ XMLEventFactoryImpl::XMLEventFactoryImpl() {
 }
 
 $Class* XMLEventFactoryImpl::load$($String* name, bool initialize) {
-	$loadClass(XMLEventFactoryImpl, name, initialize, &_XMLEventFactoryImpl_ClassInfo_, allocate$XMLEventFactoryImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"location", "Ljavax/xml/stream/Location;", nullptr, 0, $field(XMLEventFactoryImpl, location)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLEventFactoryImpl, init$, void)},
+		{"createAttribute", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/stream/events/Attribute;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createAttribute, $Attribute*, $String*, $String*)},
+		{"createAttribute", "(Ljavax/xml/namespace/QName;Ljava/lang/String;)Ljavax/xml/stream/events/Attribute;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createAttribute, $Attribute*, $QName*, $String*)},
+		{"createAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/stream/events/Attribute;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createAttribute, $Attribute*, $String*, $String*, $String*, $String*)},
+		{"createCData", "(Ljava/lang/String;)Ljavax/xml/stream/events/Characters;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createCData, $Characters*, $String*)},
+		{"createCharacters", "(Ljava/lang/String;)Ljavax/xml/stream/events/Characters;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createCharacters, $Characters*, $String*)},
+		{"createComment", "(Ljava/lang/String;)Ljavax/xml/stream/events/Comment;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createComment, $Comment*, $String*)},
+		{"createDTD", "(Ljava/lang/String;)Ljavax/xml/stream/events/DTD;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createDTD, $DTD*, $String*)},
+		{"createEndDocument", "()Ljavax/xml/stream/events/EndDocument;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createEndDocument, $EndDocument*)},
+		{"createEndElement", "(Ljavax/xml/namespace/QName;Ljava/util/Iterator;)Ljavax/xml/stream/events/EndElement;", "(Ljavax/xml/namespace/QName;Ljava/util/Iterator<+Ljavax/xml/stream/events/Namespace;>;)Ljavax/xml/stream/events/EndElement;", $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createEndElement, $EndElement*, $QName*, $Iterator*)},
+		{"createEndElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/stream/events/EndElement;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createEndElement, $EndElement*, $String*, $String*, $String*)},
+		{"createEndElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Iterator;)Ljavax/xml/stream/events/EndElement;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Iterator<+Ljavax/xml/stream/events/Namespace;>;)Ljavax/xml/stream/events/EndElement;", $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createEndElement, $EndElement*, $String*, $String*, $String*, $Iterator*)},
+		{"createEntityReference", "(Ljava/lang/String;Ljavax/xml/stream/events/EntityDeclaration;)Ljavax/xml/stream/events/EntityReference;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createEntityReference, $EntityReference*, $String*, $EntityDeclaration*)},
+		{"createIgnorableSpace", "(Ljava/lang/String;)Ljavax/xml/stream/events/Characters;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createIgnorableSpace, $Characters*, $String*)},
+		{"createNamespace", "(Ljava/lang/String;)Ljavax/xml/stream/events/Namespace;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createNamespace, $Namespace*, $String*)},
+		{"createNamespace", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/stream/events/Namespace;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createNamespace, $Namespace*, $String*, $String*)},
+		{"createProcessingInstruction", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/stream/events/ProcessingInstruction;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createProcessingInstruction, $ProcessingInstruction*, $String*, $String*)},
+		{"createSpace", "(Ljava/lang/String;)Ljavax/xml/stream/events/Characters;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createSpace, $Characters*, $String*)},
+		{"createStartDocument", "()Ljavax/xml/stream/events/StartDocument;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createStartDocument, $StartDocument*)},
+		{"createStartDocument", "(Ljava/lang/String;)Ljavax/xml/stream/events/StartDocument;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createStartDocument, $StartDocument*, $String*)},
+		{"createStartDocument", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/stream/events/StartDocument;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createStartDocument, $StartDocument*, $String*, $String*)},
+		{"createStartDocument", "(Ljava/lang/String;Ljava/lang/String;Z)Ljavax/xml/stream/events/StartDocument;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createStartDocument, $StartDocument*, $String*, $String*, bool)},
+		{"createStartElement", "(Ljavax/xml/namespace/QName;Ljava/util/Iterator;Ljava/util/Iterator;)Ljavax/xml/stream/events/StartElement;", "(Ljavax/xml/namespace/QName;Ljava/util/Iterator<+Ljavax/xml/stream/events/Attribute;>;Ljava/util/Iterator<+Ljavax/xml/stream/events/Namespace;>;)Ljavax/xml/stream/events/StartElement;", $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createStartElement, $StartElement*, $QName*, $Iterator*, $Iterator*)},
+		{"createStartElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/stream/events/StartElement;", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createStartElement, $StartElement*, $String*, $String*, $String*)},
+		{"createStartElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Iterator;Ljava/util/Iterator;)Ljavax/xml/stream/events/StartElement;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Iterator<+Ljavax/xml/stream/events/Attribute;>;Ljava/util/Iterator<+Ljavax/xml/stream/events/Namespace;>;)Ljavax/xml/stream/events/StartElement;", $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createStartElement, $StartElement*, $String*, $String*, $String*, $Iterator*, $Iterator*)},
+		{"createStartElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Iterator;Ljava/util/Iterator;Ljavax/xml/namespace/NamespaceContext;)Ljavax/xml/stream/events/StartElement;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Iterator<+Ljavax/xml/stream/events/Attribute;>;Ljava/util/Iterator<+Ljavax/xml/stream/events/Namespace;>;Ljavax/xml/namespace/NamespaceContext;)Ljavax/xml/stream/events/StartElement;", $PUBLIC, $virtualMethod(XMLEventFactoryImpl, createStartElement, $StartElement*, $String*, $String*, $String*, $Iterator*, $Iterator*, $NamespaceContext*)},
+		{"setLocation", "(Ljavax/xml/stream/Location;)V", nullptr, $PUBLIC, $virtualMethod(XMLEventFactoryImpl, setLocation, void, $Location*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.xml.internal.stream.events.XMLEventFactoryImpl",
+		"javax.xml.stream.XMLEventFactory",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLEventFactoryImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLEventFactoryImpl);
+	});
 	return class$;
 }
 

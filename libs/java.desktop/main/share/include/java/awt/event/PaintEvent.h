@@ -38,7 +38,7 @@ public:
 	static const int32_t PAINT = PAINT_FIRST;
 	static const int32_t UPDATE = 801; // PAINT_FIRST + 1
 	::java::awt::Rectangle* updateRect = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x119709485732F8F9;
+	static const int64_t serialVersionUID = (int64_t)0x119709485732f8f9;
 };
 
 		} // event

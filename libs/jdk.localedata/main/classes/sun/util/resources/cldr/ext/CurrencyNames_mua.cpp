@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/CurrencyNames_mua.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,263 +13,244 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _CurrencyNames_mua_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_mua, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_mua, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_mua_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.CurrencyNames_mua",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_mua_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_mua($Class* clazz) {
-	return $of($alloc(CurrencyNames_mua));
-}
-
 void CurrencyNames_mua::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_mua::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("aed"_s),
-			$of("Solai Arabiya"_s)
+			"aed"_s,
+			"Solai Arabiya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aoa"_s),
-			$of("solai Angola"_s)
+			"aoa"_s,
+			"solai Angola"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aud"_s),
-			$of("solai Australya"_s)
+			"aud"_s,
+			"solai Australya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bhd"_s),
-			$of("solai Barenya"_s)
+			"bhd"_s,
+			"solai Barenya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bif"_s),
-			$of("solai Burundi"_s)
+			"bif"_s,
+			"solai Burundi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bwp"_s),
-			$of("solai Botswana"_s)
+			"bwp"_s,
+			"solai Botswana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cad"_s),
-			$of("solai Kanada"_s)
+			"cad"_s,
+			"solai Kanada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cdf"_s),
-			$of("solai Kongo"_s)
+			"cdf"_s,
+			"solai Kongo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chf"_s),
-			$of("Solai Swiss"_s)
+			"chf"_s,
+			"Solai Swiss"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cny"_s),
-			$of(u"solai Syiŋ"_s)
+			"cny"_s,
+			u"solai Syiŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cve"_s),
-			$of("solai Kapverdiya"_s)
+			"cve"_s,
+			"solai Kapverdiya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("djf"_s),
-			$of("solai Djibouti"_s)
+			"djf"_s,
+			"solai Djibouti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dzd"_s),
-			$of("solai Algerya"_s)
+			"dzd"_s,
+			"solai Algerya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("egp"_s),
-			$of("solai Egypt"_s)
+			"egp"_s,
+			"solai Egypt"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ern"_s),
-			$of("solai Eritre"_s)
+			"ern"_s,
+			"solai Eritre"_s
 		}),
 		$$new($ObjectArray, {
-			$of("etb"_s),
-			$of("solai Etiopia"_s)
+			"etb"_s,
+			"solai Etiopia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eur"_s),
-			$of("solai Euro"_s)
+			"eur"_s,
+			"solai Euro"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gbp"_s),
-			$of("solai Britaniya"_s)
+			"gbp"_s,
+			"solai Britaniya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ghc"_s),
-			$of("solai Gana"_s)
+			"ghc"_s,
+			"solai Gana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gmd"_s),
-			$of("solai Gambiya"_s)
+			"gmd"_s,
+			"solai Gambiya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gns"_s),
-			$of("solai Guine"_s)
+			"gns"_s,
+			"solai Guine"_s
 		}),
 		$$new($ObjectArray, {
-			$of("inr"_s),
-			$of("solai India"_s)
+			"inr"_s,
+			"solai India"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jpy"_s),
-			$of(u"solai Japoŋ"_s)
+			"jpy"_s,
+			u"solai Japoŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kes"_s),
-			$of("solai Kenia"_s)
+			"kes"_s,
+			"solai Kenia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kmf"_s),
-			$of("solai Komorya"_s)
+			"kmf"_s,
+			"solai Komorya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lrd"_s),
-			$of("solai Liberiya"_s)
+			"lrd"_s,
+			"solai Liberiya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lsl"_s),
-			$of("solai Lesotho"_s)
+			"lsl"_s,
+			"solai Lesotho"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lyd"_s),
-			$of("solai Libya"_s)
+			"lyd"_s,
+			"solai Libya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mad"_s),
-			$of("Solai Marok"_s)
+			"mad"_s,
+			"Solai Marok"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mga"_s),
-			$of("Solai Malagasya"_s)
+			"mga"_s,
+			"Solai Malagasya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mro"_s),
-			$of(u"Solai Mauritaniya (1973–2017)"_s)
+			"mro"_s,
+			u"Solai Mauritaniya (1973–2017)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mru"_s),
-			$of("Solai Mauritaniya"_s)
+			"mru"_s,
+			"Solai Mauritaniya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mur"_s),
-			$of(u"Solai Mauricǝ"_s)
+			"mur"_s,
+			u"Solai Mauricǝ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mwk"_s),
-			$of("Solai Malawi"_s)
+			"mwk"_s,
+			"Solai Malawi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mzm"_s),
-			$of("Solai Mozambika"_s)
+			"mzm"_s,
+			"Solai Mozambika"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nad"_s),
-			$of("Solai Namibiya"_s)
+			"nad"_s,
+			"Solai Namibiya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ngn"_s),
-			$of("Solai Nigeriya"_s)
+			"ngn"_s,
+			"Solai Nigeriya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rwf"_s),
-			$of("Solai Rwanda"_s)
+			"rwf"_s,
+			"Solai Rwanda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sar"_s),
-			$of("Solai Saudiya"_s)
+			"sar"_s,
+			"Solai Saudiya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("scr"_s),
-			$of("Solai Saichel"_s)
+			"scr"_s,
+			"Solai Saichel"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sdg"_s),
-			$of(u"Solai Sudaŋ ma dii ne dinar"_s)
+			"sdg"_s,
+			u"Solai Sudaŋ ma dii ne dinar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sdp"_s),
-			$of(u"Solai Sudaŋ ma dii ne livre"_s)
+			"sdp"_s,
+			u"Solai Sudaŋ ma dii ne livre"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shp"_s),
-			$of("Solai Helena"_s)
+			"shp"_s,
+			"Solai Helena"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sll"_s),
-			$of(u"solai Sierra leonǝ"_s)
+			"sll"_s,
+			u"solai Sierra leonǝ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sos"_s),
-			$of("Solai Somaliya"_s)
+			"sos"_s,
+			"Solai Somaliya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("std"_s),
-			$of(u"Solai Sao Tome (1977–2017)"_s)
+			"std"_s,
+			u"Solai Sao Tome (1977–2017)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("stn"_s),
-			$of("Solai Sao Tome"_s)
+			"stn"_s,
+			"Solai Sao Tome"_s
 		}),
 		$$new($ObjectArray, {
-			$of("szl"_s),
-			$of("solai Swaziland"_s)
+			"szl"_s,
+			"solai Swaziland"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tnd"_s),
-			$of("Solai Tunisiya"_s)
+			"tnd"_s,
+			"Solai Tunisiya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tzs"_s),
-			$of("Solai Tanzaniya"_s)
+			"tzs"_s,
+			"Solai Tanzaniya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ugx"_s),
-			$of("Solai Uganda"_s)
+			"ugx"_s,
+			"Solai Uganda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("usd"_s),
-			$of("Solai Amerika"_s)
+			"usd"_s,
+			"Solai Amerika"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xaf"_s),
-			$of("solai BEAC"_s)
+			"xaf"_s,
+			"solai BEAC"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xof"_s),
-			$of("solai BCEAO"_s)
+			"xof"_s,
+			"solai BCEAO"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zar"_s),
-			$of(u"Solai Africa nekǝsǝŋ"_s)
+			"zar"_s,
+			u"Solai Africa nekǝsǝŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zmk"_s),
-			$of(u"Solai Zambiya (1968–2012)"_s)
+			"zmk"_s,
+			u"Solai Zambiya (1968–2012)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zmw"_s),
-			$of("Solai Zambiya"_s)
+			"zmw"_s,
+			"Solai Zambiya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zwd"_s),
-			$of("Solai Zimbabwe"_s)
+			"zwd"_s,
+			"Solai Zimbabwe"_s
 		})
 	}));
 	return data;
@@ -280,7 +260,22 @@ CurrencyNames_mua::CurrencyNames_mua() {
 }
 
 $Class* CurrencyNames_mua::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_mua, name, initialize, &_CurrencyNames_mua_ClassInfo_, allocate$CurrencyNames_mua);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_mua, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_mua, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.CurrencyNames_mua",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_mua, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_mua);
+	});
 	return class$;
 }
 

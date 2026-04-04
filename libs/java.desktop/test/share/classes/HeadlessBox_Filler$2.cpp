@@ -1,5 +1,4 @@
 #include <HeadlessBox_Filler$2.h>
-
 #include <HeadlessBox_Filler.h>
 #include <java/awt/Component.h>
 #include <jcpp.h>
@@ -10,42 +9,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _HeadlessBox_Filler$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HeadlessBox_Filler$2, init$, void)},
-	{}
-};
-
-$EnclosingMethodInfo _HeadlessBox_Filler$2_EnclosingMethodInfo_ = {
-	"HeadlessBox_Filler",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _HeadlessBox_Filler$2_InnerClassesInfo_[] = {
-	{"HeadlessBox_Filler$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessBox_Filler$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"HeadlessBox_Filler$2",
-	"java.awt.Component",
-	nullptr,
-	nullptr,
-	_HeadlessBox_Filler$2_MethodInfo_,
-	nullptr,
-	&_HeadlessBox_Filler$2_EnclosingMethodInfo_,
-	_HeadlessBox_Filler$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"HeadlessBox_Filler"
-};
-
-$Object* allocate$HeadlessBox_Filler$2($Class* clazz) {
-	return $of($alloc(HeadlessBox_Filler$2));
-}
-
 void HeadlessBox_Filler$2::init$() {
 	$Component::init$();
 }
@@ -54,7 +17,37 @@ HeadlessBox_Filler$2::HeadlessBox_Filler$2() {
 }
 
 $Class* HeadlessBox_Filler$2::load$($String* name, bool initialize) {
-	$loadClass(HeadlessBox_Filler$2, name, initialize, &_HeadlessBox_Filler$2_ClassInfo_, allocate$HeadlessBox_Filler$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HeadlessBox_Filler$2, init$, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"HeadlessBox_Filler",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessBox_Filler$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"HeadlessBox_Filler$2",
+		"java.awt.Component",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"HeadlessBox_Filler"
+	};
+	$loadClass(HeadlessBox_Filler$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HeadlessBox_Filler$2));
+	});
 	return class$;
 }
 

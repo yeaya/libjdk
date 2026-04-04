@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/InvalidDatatypeValueException.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/DatatypeException.h>
 #include <jcpp.h>
 
@@ -17,29 +16,6 @@ namespace com {
 						namespace impl {
 							namespace dv {
 
-$FieldInfo _InvalidDatatypeValueException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(InvalidDatatypeValueException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InvalidDatatypeValueException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(InvalidDatatypeValueException, init$, void, $String*, $ObjectArray*)},
-	{}
-};
-
-$ClassInfo _InvalidDatatypeValueException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException",
-	"com.sun.org.apache.xerces.internal.impl.dv.DatatypeException",
-	nullptr,
-	_InvalidDatatypeValueException_FieldInfo_,
-	_InvalidDatatypeValueException_MethodInfo_
-};
-
-$Object* allocate$InvalidDatatypeValueException($Class* clazz) {
-	return $of($alloc(InvalidDatatypeValueException));
-}
-
 void InvalidDatatypeValueException::init$($String* key, $ObjectArray* args) {
 	$DatatypeException::init$(key, args);
 }
@@ -55,7 +31,25 @@ void InvalidDatatypeValueException::throw$() {
 }
 
 $Class* InvalidDatatypeValueException::load$($String* name, bool initialize) {
-	$loadClass(InvalidDatatypeValueException, name, initialize, &_InvalidDatatypeValueException_ClassInfo_, allocate$InvalidDatatypeValueException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(InvalidDatatypeValueException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(InvalidDatatypeValueException, init$, void, $String*, $ObjectArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException",
+		"com.sun.org.apache.xerces.internal.impl.dv.DatatypeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InvalidDatatypeValueException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvalidDatatypeValueException);
+	});
 	return class$;
 }
 

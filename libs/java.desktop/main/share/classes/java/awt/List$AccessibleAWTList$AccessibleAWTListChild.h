@@ -88,7 +88,7 @@ public:
 	virtual void setVisible(bool b) override;
 	virtual $String* toString() override;
 	::java::awt::List$AccessibleAWTList* this$1 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x3D3AA779AECBE01D;
+	static const int64_t serialVersionUID = (int64_t)0x3d3aa779aecbe01d;
 	::java::awt::List* parent = nullptr;
 	int32_t indexInParent = 0;
 };

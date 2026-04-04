@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/launcher/Main$Fault.h>
-
 #include <com/sun/tools/javac/launcher/Main.h>
 #include <com/sun/tools/javac/util/JCDiagnostic$Error.h>
 #include <jcpp.h>
@@ -18,42 +17,6 @@ namespace com {
 			namespace javac {
 				namespace launcher {
 
-$FieldInfo _Main$Fault_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/launcher/Main;", nullptr, $FINAL | $SYNTHETIC, $field(Main$Fault, this$0)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main$Fault, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Main$Fault_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/launcher/Main;Lcom/sun/tools/javac/util/JCDiagnostic$Error;)V", nullptr, 0, $method(Main$Fault, init$, void, $Main*, $JCDiagnostic$Error*)},
-	{}
-};
-
-$InnerClassInfo _Main$Fault_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.launcher.Main$Fault", "com.sun.tools.javac.launcher.Main", "Fault", $PUBLIC},
-	{}
-};
-
-$ClassInfo _Main$Fault_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.launcher.Main$Fault",
-	"java.lang.Exception",
-	nullptr,
-	_Main$Fault_FieldInfo_,
-	_Main$Fault_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Main$Fault_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.launcher.Main"
-};
-
-$Object* allocate$Main$Fault($Class* clazz) {
-	return $of($alloc(Main$Fault));
-}
-
 void Main$Fault::init$($Main* this$0, $JCDiagnostic$Error* error) {
 	$set(this, this$0, this$0);
 	$Exception::init$($(this$0->getMessage(error)));
@@ -70,7 +33,37 @@ void Main$Fault::throw$() {
 }
 
 $Class* Main$Fault::load$($String* name, bool initialize) {
-	$loadClass(Main$Fault, name, initialize, &_Main$Fault_ClassInfo_, allocate$Main$Fault);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/launcher/Main;", nullptr, $FINAL | $SYNTHETIC, $field(Main$Fault, this$0)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main$Fault, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/launcher/Main;Lcom/sun/tools/javac/util/JCDiagnostic$Error;)V", nullptr, 0, $method(Main$Fault, init$, void, $Main*, $JCDiagnostic$Error*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.launcher.Main$Fault", "com.sun.tools.javac.launcher.Main", "Fault", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.launcher.Main$Fault",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.launcher.Main"
+	};
+	$loadClass(Main$Fault, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$Fault);
+	});
 	return class$;
 }
 

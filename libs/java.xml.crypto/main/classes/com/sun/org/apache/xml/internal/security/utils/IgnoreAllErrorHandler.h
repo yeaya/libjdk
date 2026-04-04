@@ -45,6 +45,7 @@ class IgnoreAllErrorHandler : public ::org::xml::sax::ErrorHandler {
 	$class(IgnoreAllErrorHandler, 0, ::org::xml::sax::ErrorHandler)
 public:
 	IgnoreAllErrorHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void error(::org::xml::sax::SAXParseException* ex) override;
 	virtual void fatalError(::org::xml::sax::SAXParseException* ex) override;

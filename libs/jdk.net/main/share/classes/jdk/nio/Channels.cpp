@@ -1,5 +1,4 @@
 #include <jdk/nio/Channels.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/lang/SecurityManager.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -28,42 +27,11 @@ using $SelectorProviderImpl = ::sun::nio::ch::SelectorProviderImpl;
 namespace jdk {
 	namespace nio {
 
-$MethodInfo _Channels_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Channels, init$, void)},
-	{"readWriteSelectableChannel", "(Ljava/io/FileDescriptor;Ljdk/nio/Channels$SelectableChannelCloser;)Ljava/nio/channels/SelectableChannel;", nullptr, $PUBLIC | $STATIC, $staticMethod(Channels, readWriteSelectableChannel, $SelectableChannel*, $FileDescriptor*, $Channels$SelectableChannelCloser*)},
-	{}
-};
-
-$InnerClassInfo _Channels_InnerClassesInfo_[] = {
-	{"jdk.nio.Channels$ReadWriteChannelImpl", "jdk.nio.Channels", "ReadWriteChannelImpl", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.nio.Channels$SelectableChannelCloser", "jdk.nio.Channels", "SelectableChannelCloser", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Channels_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.nio.Channels",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Channels_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Channels_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.nio.Channels$ReadWriteChannelImpl,jdk.nio.Channels$SelectableChannelCloser"
-};
-
-$Object* allocate$Channels($Class* clazz) {
-	return $of($alloc(Channels));
-}
-
 void Channels::init$() {
 }
 
 $SelectableChannel* Channels::readWriteSelectableChannel($FileDescriptor* fd, $Channels$SelectableChannelCloser* closer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(closer);
 	if (!$nc(fd)->valid()) {
 		$throwNew($IllegalArgumentException, "file descriptor is not valid"_s);
@@ -84,7 +52,33 @@ Channels::Channels() {
 }
 
 $Class* Channels::load$($String* name, bool initialize) {
-	$loadClass(Channels, name, initialize, &_Channels_ClassInfo_, allocate$Channels);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Channels, init$, void)},
+		{"readWriteSelectableChannel", "(Ljava/io/FileDescriptor;Ljdk/nio/Channels$SelectableChannelCloser;)Ljava/nio/channels/SelectableChannel;", nullptr, $PUBLIC | $STATIC, $staticMethod(Channels, readWriteSelectableChannel, $SelectableChannel*, $FileDescriptor*, $Channels$SelectableChannelCloser*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.nio.Channels$ReadWriteChannelImpl", "jdk.nio.Channels", "ReadWriteChannelImpl", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.nio.Channels$SelectableChannelCloser", "jdk.nio.Channels", "SelectableChannelCloser", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.nio.Channels",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.nio.Channels$ReadWriteChannelImpl,jdk.nio.Channels$SelectableChannelCloser"
+	};
+	$loadClass(Channels, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Channels);
+	});
 	return class$;
 }
 

@@ -323,6 +323,7 @@ class $export XPATHErrorResources : public ::java::util::ListResourceBundle {
 	$class(XPATHErrorResources, 0, ::java::util::ListResourceBundle)
 public:
 	XPATHErrorResources();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Array<::java::lang::Object, 2>* getContents() override;
 	static $String* ERROR0000;

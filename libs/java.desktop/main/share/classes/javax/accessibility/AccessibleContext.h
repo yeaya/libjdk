@@ -90,6 +90,7 @@ class $export AccessibleContext : public ::java::lang::Object {
 	$class(AccessibleContext, 0, ::java::lang::Object)
 public:
 	AccessibleContext();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addPropertyChangeListener(::java::beans::PropertyChangeListener* listener);
 	virtual void firePropertyChange($String* propertyName, Object$* oldValue, Object$* newValue);

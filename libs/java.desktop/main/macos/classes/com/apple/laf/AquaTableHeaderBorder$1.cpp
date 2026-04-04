@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaTableHeaderBorder$1.h>
-
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
 #include <javax/swing/BorderFactory.h>
 #include <javax/swing/border/Border.h>
@@ -16,57 +15,51 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaTableHeaderBorder$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AquaTableHeaderBorder$1, init$, void)},
-	{"getInstance", "()Ljavax/swing/border/Border;", nullptr, $PROTECTED, $virtualMethod(AquaTableHeaderBorder$1, getInstance, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaTableHeaderBorder$1_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaTableHeaderBorder",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _AquaTableHeaderBorder$1_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaTableHeaderBorder$1", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaUtils$RecyclableSingleton", "com.apple.laf.AquaUtils", "RecyclableSingleton", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaTableHeaderBorder$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaTableHeaderBorder$1",
-	"com.apple.laf.AquaUtils$RecyclableSingleton",
-	nullptr,
-	nullptr,
-	_AquaTableHeaderBorder$1_MethodInfo_,
-	"Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/border/Border;>;",
-	&_AquaTableHeaderBorder$1_EnclosingMethodInfo_,
-	_AquaTableHeaderBorder$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaTableHeaderBorder"
-};
-
-$Object* allocate$AquaTableHeaderBorder$1($Class* clazz) {
-	return $of($alloc(AquaTableHeaderBorder$1));
-}
-
 void AquaTableHeaderBorder$1::init$() {
 	$AquaUtils$RecyclableSingleton::init$();
 }
 
 $Object* AquaTableHeaderBorder$1::getInstance() {
-	return $of($BorderFactory::createRaisedBevelBorder());
+	return $BorderFactory::createRaisedBevelBorder();
 }
 
 AquaTableHeaderBorder$1::AquaTableHeaderBorder$1() {
 }
 
 $Class* AquaTableHeaderBorder$1::load$($String* name, bool initialize) {
-	$loadClass(AquaTableHeaderBorder$1, name, initialize, &_AquaTableHeaderBorder$1_ClassInfo_, allocate$AquaTableHeaderBorder$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AquaTableHeaderBorder$1, init$, void)},
+		{"getInstance", "()Ljavax/swing/border/Border;", nullptr, $PROTECTED, $virtualMethod(AquaTableHeaderBorder$1, getInstance, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaTableHeaderBorder",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaTableHeaderBorder$1", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaUtils$RecyclableSingleton", "com.apple.laf.AquaUtils", "RecyclableSingleton", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaTableHeaderBorder$1",
+		"com.apple.laf.AquaUtils$RecyclableSingleton",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/border/Border;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaTableHeaderBorder"
+	};
+	$loadClass(AquaTableHeaderBorder$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaTableHeaderBorder$1);
+	});
 	return class$;
 }
 

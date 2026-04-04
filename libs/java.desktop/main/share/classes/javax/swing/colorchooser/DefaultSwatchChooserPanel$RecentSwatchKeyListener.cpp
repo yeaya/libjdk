@@ -1,5 +1,4 @@
 #include <javax/swing/colorchooser/DefaultSwatchChooserPanel$RecentSwatchKeyListener.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/event/KeyAdapter.h>
 #include <java/awt/event/KeyEvent.h>
@@ -18,47 +17,10 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DefaultSwatchChooserPanel = ::javax::swing::colorchooser::DefaultSwatchChooserPanel;
-using $RecentSwatchPanel = ::javax::swing::colorchooser::RecentSwatchPanel;
 
 namespace javax {
 	namespace swing {
 		namespace colorchooser {
-
-$FieldInfo _DefaultSwatchChooserPanel$RecentSwatchKeyListener_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/colorchooser/DefaultSwatchChooserPanel;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultSwatchChooserPanel$RecentSwatchKeyListener, this$0)},
-	{}
-};
-
-$MethodInfo _DefaultSwatchChooserPanel$RecentSwatchKeyListener_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/colorchooser/DefaultSwatchChooserPanel;)V", nullptr, $PRIVATE, $method(DefaultSwatchChooserPanel$RecentSwatchKeyListener, init$, void, $DefaultSwatchChooserPanel*)},
-	{"keyPressed", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultSwatchChooserPanel$RecentSwatchKeyListener, keyPressed, void, $KeyEvent*)},
-	{}
-};
-
-$InnerClassInfo _DefaultSwatchChooserPanel$RecentSwatchKeyListener_InnerClassesInfo_[] = {
-	{"javax.swing.colorchooser.DefaultSwatchChooserPanel$RecentSwatchKeyListener", "javax.swing.colorchooser.DefaultSwatchChooserPanel", "RecentSwatchKeyListener", $PRIVATE},
-	{}
-};
-
-$ClassInfo _DefaultSwatchChooserPanel$RecentSwatchKeyListener_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.colorchooser.DefaultSwatchChooserPanel$RecentSwatchKeyListener",
-	"java.awt.event.KeyAdapter",
-	nullptr,
-	_DefaultSwatchChooserPanel$RecentSwatchKeyListener_FieldInfo_,
-	_DefaultSwatchChooserPanel$RecentSwatchKeyListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultSwatchChooserPanel$RecentSwatchKeyListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.colorchooser.DefaultSwatchChooserPanel"
-};
-
-$Object* allocate$DefaultSwatchChooserPanel$RecentSwatchKeyListener($Class* clazz) {
-	return $of($alloc(DefaultSwatchChooserPanel$RecentSwatchKeyListener));
-}
 
 void DefaultSwatchChooserPanel$RecentSwatchKeyListener::init$($DefaultSwatchChooserPanel* this$0) {
 	$set(this, this$0, this$0);
@@ -76,7 +38,37 @@ DefaultSwatchChooserPanel$RecentSwatchKeyListener::DefaultSwatchChooserPanel$Rec
 }
 
 $Class* DefaultSwatchChooserPanel$RecentSwatchKeyListener::load$($String* name, bool initialize) {
-	$loadClass(DefaultSwatchChooserPanel$RecentSwatchKeyListener, name, initialize, &_DefaultSwatchChooserPanel$RecentSwatchKeyListener_ClassInfo_, allocate$DefaultSwatchChooserPanel$RecentSwatchKeyListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/colorchooser/DefaultSwatchChooserPanel;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultSwatchChooserPanel$RecentSwatchKeyListener, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/colorchooser/DefaultSwatchChooserPanel;)V", nullptr, $PRIVATE, $method(DefaultSwatchChooserPanel$RecentSwatchKeyListener, init$, void, $DefaultSwatchChooserPanel*)},
+		{"keyPressed", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultSwatchChooserPanel$RecentSwatchKeyListener, keyPressed, void, $KeyEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.colorchooser.DefaultSwatchChooserPanel$RecentSwatchKeyListener", "javax.swing.colorchooser.DefaultSwatchChooserPanel", "RecentSwatchKeyListener", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.colorchooser.DefaultSwatchChooserPanel$RecentSwatchKeyListener",
+		"java.awt.event.KeyAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.colorchooser.DefaultSwatchChooserPanel"
+	};
+	$loadClass(DefaultSwatchChooserPanel$RecentSwatchKeyListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultSwatchChooserPanel$RecentSwatchKeyListener);
+	});
 	return class$;
 }
 

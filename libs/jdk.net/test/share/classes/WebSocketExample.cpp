@@ -1,5 +1,4 @@
 #include <WebSocketExample.h>
-
 #include <WebSocketExample$1.h>
 #include <WebSocketExample$2.h>
 #include <java/lang/CharSequence.h>
@@ -24,65 +23,24 @@ using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $ProxySelector = ::java::net::ProxySelector;
 using $URI = ::java::net::URI;
 using $HttpClient = ::java::net::http::HttpClient;
-using $HttpClient$Builder = ::java::net::http::HttpClient$Builder;
-using $WebSocket$Builder = ::java::net::http::WebSocket$Builder;
 using $WebSocket$Listener = ::java::net::http::WebSocket$Listener;
 using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
-
-$FieldInfo _WebSocketExample_FieldInfo_[] = {
-	{"listener", "Ljava/net/http/WebSocket$Listener;", nullptr, 0, $field(WebSocketExample, listener)},
-	{}
-};
-
-$MethodInfo _WebSocketExample_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WebSocketExample, init$, void)},
-	{"newBuilderExample0", "()V", nullptr, $PUBLIC, $virtualMethod(WebSocketExample, newBuilderExample0, void)},
-	{"newBuilderExample1", "()V", nullptr, $PUBLIC, $virtualMethod(WebSocketExample, newBuilderExample1, void)},
-	{"processCompleteTextMessage", "(Ljava/lang/CharSequence;)V", nullptr, $STATIC, $staticMethod(WebSocketExample, processCompleteTextMessage, void, $CharSequence*)},
-	{"requestExample", "()V", nullptr, $PUBLIC, $virtualMethod(WebSocketExample, requestExample, void)},
-	{}
-};
-
-$InnerClassInfo _WebSocketExample_InnerClassesInfo_[] = {
-	{"WebSocketExample$2", nullptr, nullptr, 0},
-	{"WebSocketExample$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WebSocketExample_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"WebSocketExample",
-	"java.lang.Object",
-	nullptr,
-	_WebSocketExample_FieldInfo_,
-	_WebSocketExample_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WebSocketExample_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"WebSocketExample$2,WebSocketExample$1"
-};
-
-$Object* allocate$WebSocketExample($Class* clazz) {
-	return $of($alloc(WebSocketExample));
-}
 
 void WebSocketExample::init$() {
 	$set(this, listener, $new($WebSocketExample$1, this));
 }
 
 void WebSocketExample::newBuilderExample0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpClient, client, $HttpClient::newHttpClient());
-	$var($CompletableFuture, ws, $nc($($nc(client)->newWebSocketBuilder()))->buildAsync($($URI::create("ws://websocket.example.com"_s)), this->listener));
+	$var($CompletableFuture, ws, $$nc($nc(client)->newWebSocketBuilder())->buildAsync($($URI::create("ws://websocket.example.com"_s)), this->listener));
 }
 
 void WebSocketExample::newBuilderExample1() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InetSocketAddress, addr, $new($InetSocketAddress, "proxy.example.com"_s, 80));
-	$var($HttpClient, client, $nc($($nc($($HttpClient::newBuilder()))->proxy($($ProxySelector::of(addr)))))->build());
-	$var($CompletableFuture, ws, $nc($($nc(client)->newWebSocketBuilder()))->buildAsync($($URI::create("ws://websocket.example.com"_s)), this->listener));
+	$var($HttpClient, client, $$nc($$nc($HttpClient::newBuilder())->proxy($($ProxySelector::of(addr))))->build());
+	$var($CompletableFuture, ws, $$nc($nc(client)->newWebSocketBuilder())->buildAsync($($URI::create("ws://websocket.example.com"_s)), this->listener));
 }
 
 void WebSocketExample::requestExample() {
@@ -96,7 +54,40 @@ WebSocketExample::WebSocketExample() {
 }
 
 $Class* WebSocketExample::load$($String* name, bool initialize) {
-	$loadClass(WebSocketExample, name, initialize, &_WebSocketExample_ClassInfo_, allocate$WebSocketExample);
+	$FieldInfo fieldInfos$$[] = {
+		{"listener", "Ljava/net/http/WebSocket$Listener;", nullptr, 0, $field(WebSocketExample, listener)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WebSocketExample, init$, void)},
+		{"newBuilderExample0", "()V", nullptr, $PUBLIC, $virtualMethod(WebSocketExample, newBuilderExample0, void)},
+		{"newBuilderExample1", "()V", nullptr, $PUBLIC, $virtualMethod(WebSocketExample, newBuilderExample1, void)},
+		{"processCompleteTextMessage", "(Ljava/lang/CharSequence;)V", nullptr, $STATIC, $staticMethod(WebSocketExample, processCompleteTextMessage, void, $CharSequence*)},
+		{"requestExample", "()V", nullptr, $PUBLIC, $virtualMethod(WebSocketExample, requestExample, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"WebSocketExample$2", nullptr, nullptr, 0},
+		{"WebSocketExample$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"WebSocketExample",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"WebSocketExample$2,WebSocketExample$1"
+	};
+	$loadClass(WebSocketExample, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WebSocketExample);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Analyzer$StatementScanner.h>
-
 #include <com/sun/source/tree/BlockTree.h>
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <com/sun/tools/javac/comp/Analyzer$RewritingContext.h>
@@ -32,7 +31,6 @@ using $Analyzer$StatementAnalyzerArray = $Array<::com::sun::tools::javac::comp::
 using $Analyzer = ::com::sun::tools::javac::comp::Analyzer;
 using $Analyzer$RewritingContext = ::com::sun::tools::javac::comp::Analyzer$RewritingContext;
 using $Analyzer$StatementAnalyzer = ::com::sun::tools::javac::comp::Analyzer$StatementAnalyzer;
-using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCBlock = ::com::sun::tools::javac::tree::JCTree$JCBlock;
@@ -61,57 +59,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Analyzer$StatementScanner_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Analyzer;", nullptr, $FINAL | $SYNTHETIC, $field(Analyzer$StatementScanner, this$0)},
-	{"rewritings", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;>;", 0, $field(Analyzer$StatementScanner, rewritings)},
-	{"originalTree", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $field(Analyzer$StatementScanner, originalTree)},
-	{"env", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", 0, $field(Analyzer$StatementScanner, env)},
-	{}
-};
-
-$MethodInfo _Analyzer$StatementScanner_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $method(Analyzer$StatementScanner, init$, void, $Analyzer*, $JCTree*, $Env*)},
-	{"scan", "()V", nullptr, $PUBLIC, $virtualMethod(Analyzer$StatementScanner, scan, void)},
-	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$StatementScanner, scan, void, $JCTree*)},
-	{"visitBlock", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$StatementScanner, visitBlock, void, $JCTree$JCBlock*)},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$StatementScanner, visitClassDef, void, $JCTree$JCClassDecl*)},
-	{"visitDoLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCDoWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$StatementScanner, visitDoLoop, void, $JCTree$JCDoWhileLoop*)},
-	{"visitForLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCForLoop;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$StatementScanner, visitForLoop, void, $JCTree$JCForLoop*)},
-	{"visitForeachLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$StatementScanner, visitForeachLoop, void, $JCTree$JCEnhancedForLoop*)},
-	{"visitIf", "(Lcom/sun/tools/javac/tree/JCTree$JCIf;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$StatementScanner, visitIf, void, $JCTree$JCIf*)},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$StatementScanner, visitLambda, void, $JCTree$JCLambda*)},
-	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$StatementScanner, visitMethodDef, void, $JCTree$JCMethodDecl*)},
-	{"visitSwitch", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitch;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$StatementScanner, visitSwitch, void, $JCTree$JCSwitch*)},
-	{"visitTry", "(Lcom/sun/tools/javac/tree/JCTree$JCTry;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$StatementScanner, visitTry, void, $JCTree$JCTry*)},
-	{"visitWhileLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$StatementScanner, visitWhileLoop, void, $JCTree$JCWhileLoop*)},
-	{}
-};
-
-$InnerClassInfo _Analyzer$StatementScanner_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Analyzer$StatementScanner", "com.sun.tools.javac.comp.Analyzer", "StatementScanner", 0},
-	{}
-};
-
-$ClassInfo _Analyzer$StatementScanner_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Analyzer$StatementScanner",
-	"com.sun.tools.javac.tree.TreeScanner",
-	nullptr,
-	_Analyzer$StatementScanner_FieldInfo_,
-	_Analyzer$StatementScanner_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Analyzer$StatementScanner_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Analyzer"
-};
-
-$Object* allocate$Analyzer$StatementScanner($Class* clazz) {
-	return $of($alloc(Analyzer$StatementScanner));
-}
-
 void Analyzer$StatementScanner::init$($Analyzer* this$0, $JCTree* originalTree, $Env* env) {
 	$set(this, this$0, this$0);
 	$TreeScanner::init$();
@@ -125,29 +72,25 @@ void Analyzer$StatementScanner::scan() {
 }
 
 void Analyzer$StatementScanner::scan($JCTree* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (tree != nullptr) {
-		{
-			$var($Analyzer$StatementAnalyzerArray, arr$, this->this$0->analyzers);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Analyzer$StatementAnalyzer, analyzer, arr$->get(i$));
-				{
-					bool var$1 = $nc(analyzer)->isEnabled();
-					bool var$0 = var$1 && tree->hasTag(analyzer->tag);
-					if (var$0 && analyzer->match(tree)) {
+		$var($Analyzer$StatementAnalyzerArray, arr$, this->this$0->analyzers);
+		int32_t len$ = $nc(arr$)->length;
+		int32_t i$ = 0;
+		for (; i$ < len$; ++i$) {
+			$var($Analyzer$StatementAnalyzer, analyzer, arr$->get(i$));
+			{
+				bool var$1 = $nc(analyzer)->isEnabled();
+				bool var$0 = var$1 && tree->hasTag(analyzer->tag);
+				if (var$0 && analyzer->match(tree)) {
+					$var($Iterator, i$, $$nc(analyzer->rewrite(tree))->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($JCTree, t, $cast($JCTree, i$->next()));
 						{
-							$var($Iterator, i$, $nc($(analyzer->rewrite(tree)))->iterator());
-							for (; $nc(i$)->hasNext();) {
-								$var($JCTree, t, $cast($JCTree, i$->next()));
-								{
-									$nc(this->rewritings)->add($$new($Analyzer$RewritingContext, this->this$0, this->originalTree, tree, t, analyzer, this->env));
-								}
-							}
+							$nc(this->rewritings)->add($$new($Analyzer$RewritingContext, this->this$0, this->originalTree, tree, t, analyzer, this->env));
 						}
-						break;
 					}
+					break;
 				}
 			}
 		}
@@ -168,43 +111,88 @@ void Analyzer$StatementScanner::visitLambda($JCTree$JCLambda* tree) {
 }
 
 void Analyzer$StatementScanner::visitSwitch($JCTree$JCSwitch* tree) {
-	scan($($cast($JCTree, $nc(tree)->getExpression())));
+	scan($$cast($JCTree, $nc(tree)->getExpression()));
 }
 
 void Analyzer$StatementScanner::visitForLoop($JCTree$JCForLoop* tree) {
-	$useLocalCurrentObjectStackCache();
-	scan($($cast($JCTree, $nc(tree)->getCondition())));
-	scan($($cast($List, $nc(tree)->getUpdate())));
+	$useLocalObjectStack();
+	scan($$cast($JCTree, $nc(tree)->getCondition()));
+	scan($$cast($List, tree->getUpdate()));
 }
 
 void Analyzer$StatementScanner::visitTry($JCTree$JCTry* tree) {
-	$useLocalCurrentObjectStackCache();
-	scan($($cast($JCTree, $nc(tree)->getBlock())));
-	scan($($cast($List, $nc(tree)->getCatches())));
-	scan($($cast($JCTree, $nc(tree)->getFinallyBlock())));
+	$useLocalObjectStack();
+	scan($$cast($JCTree, $nc(tree)->getBlock()));
+	scan($$cast($List, tree->getCatches()));
+	scan($$cast($JCTree, tree->getFinallyBlock()));
 }
 
 void Analyzer$StatementScanner::visitForeachLoop($JCTree$JCEnhancedForLoop* tree) {
-	scan($($cast($JCTree, $nc(tree)->getExpression())));
+	scan($$cast($JCTree, $nc(tree)->getExpression()));
 }
 
 void Analyzer$StatementScanner::visitWhileLoop($JCTree$JCWhileLoop* tree) {
-	scan($($cast($JCTree, $nc(tree)->getCondition())));
+	scan($$cast($JCTree, $nc(tree)->getCondition()));
 }
 
 void Analyzer$StatementScanner::visitDoLoop($JCTree$JCDoWhileLoop* tree) {
-	scan($($cast($JCTree, $nc(tree)->getCondition())));
+	scan($$cast($JCTree, $nc(tree)->getCondition()));
 }
 
 void Analyzer$StatementScanner::visitIf($JCTree$JCIf* tree) {
-	scan($($cast($JCTree, $nc(tree)->getCondition())));
+	scan($$cast($JCTree, $nc(tree)->getCondition()));
 }
 
 Analyzer$StatementScanner::Analyzer$StatementScanner() {
 }
 
 $Class* Analyzer$StatementScanner::load$($String* name, bool initialize) {
-	$loadClass(Analyzer$StatementScanner, name, initialize, &_Analyzer$StatementScanner_ClassInfo_, allocate$Analyzer$StatementScanner);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Analyzer;", nullptr, $FINAL | $SYNTHETIC, $field(Analyzer$StatementScanner, this$0)},
+		{"rewritings", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;>;", 0, $field(Analyzer$StatementScanner, rewritings)},
+		{"originalTree", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $field(Analyzer$StatementScanner, originalTree)},
+		{"env", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", 0, $field(Analyzer$StatementScanner, env)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $method(Analyzer$StatementScanner, init$, void, $Analyzer*, $JCTree*, $Env*)},
+		{"scan", "()V", nullptr, $PUBLIC, $virtualMethod(Analyzer$StatementScanner, scan, void)},
+		{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$StatementScanner, scan, void, $JCTree*)},
+		{"visitBlock", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$StatementScanner, visitBlock, void, $JCTree$JCBlock*)},
+		{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$StatementScanner, visitClassDef, void, $JCTree$JCClassDecl*)},
+		{"visitDoLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCDoWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$StatementScanner, visitDoLoop, void, $JCTree$JCDoWhileLoop*)},
+		{"visitForLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCForLoop;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$StatementScanner, visitForLoop, void, $JCTree$JCForLoop*)},
+		{"visitForeachLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$StatementScanner, visitForeachLoop, void, $JCTree$JCEnhancedForLoop*)},
+		{"visitIf", "(Lcom/sun/tools/javac/tree/JCTree$JCIf;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$StatementScanner, visitIf, void, $JCTree$JCIf*)},
+		{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$StatementScanner, visitLambda, void, $JCTree$JCLambda*)},
+		{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$StatementScanner, visitMethodDef, void, $JCTree$JCMethodDecl*)},
+		{"visitSwitch", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitch;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$StatementScanner, visitSwitch, void, $JCTree$JCSwitch*)},
+		{"visitTry", "(Lcom/sun/tools/javac/tree/JCTree$JCTry;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$StatementScanner, visitTry, void, $JCTree$JCTry*)},
+		{"visitWhileLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$StatementScanner, visitWhileLoop, void, $JCTree$JCWhileLoop*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Analyzer$StatementScanner", "com.sun.tools.javac.comp.Analyzer", "StatementScanner", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Analyzer$StatementScanner",
+		"com.sun.tools.javac.tree.TreeScanner",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Analyzer"
+	};
+	$loadClass(Analyzer$StatementScanner, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Analyzer$StatementScanner);
+	});
 	return class$;
 }
 

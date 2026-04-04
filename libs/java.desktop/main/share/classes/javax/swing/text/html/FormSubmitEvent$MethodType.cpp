@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/FormSubmitEvent$MethodType.h>
-
 #include <java/lang/Enum.h>
 #include <javax/swing/text/html/FormSubmitEvent.h>
 #include <jcpp.h>
@@ -18,46 +17,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _FormSubmitEvent$MethodType_FieldInfo_[] = {
-	{"GET", "Ljavax/swing/text/html/FormSubmitEvent$MethodType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FormSubmitEvent$MethodType, GET)},
-	{"POST", "Ljavax/swing/text/html/FormSubmitEvent$MethodType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FormSubmitEvent$MethodType, POST)},
-	{"$VALUES", "[Ljavax/swing/text/html/FormSubmitEvent$MethodType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(FormSubmitEvent$MethodType, $VALUES)},
-	{}
-};
-
-$MethodInfo _FormSubmitEvent$MethodType_MethodInfo_[] = {
-	{"$values", "()[Ljavax/swing/text/html/FormSubmitEvent$MethodType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FormSubmitEvent$MethodType, $values, $FormSubmitEvent$MethodTypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(FormSubmitEvent$MethodType, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/swing/text/html/FormSubmitEvent$MethodType;", nullptr, $PUBLIC | $STATIC, $staticMethod(FormSubmitEvent$MethodType, valueOf, FormSubmitEvent$MethodType*, $String*)},
-	{"values", "()[Ljavax/swing/text/html/FormSubmitEvent$MethodType;", nullptr, $PUBLIC | $STATIC, $staticMethod(FormSubmitEvent$MethodType, values, $FormSubmitEvent$MethodTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _FormSubmitEvent$MethodType_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.FormSubmitEvent$MethodType", "javax.swing.text.html.FormSubmitEvent", "MethodType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _FormSubmitEvent$MethodType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"javax.swing.text.html.FormSubmitEvent$MethodType",
-	"java.lang.Enum",
-	nullptr,
-	_FormSubmitEvent$MethodType_FieldInfo_,
-	_FormSubmitEvent$MethodType_MethodInfo_,
-	"Ljava/lang/Enum<Ljavax/swing/text/html/FormSubmitEvent$MethodType;>;",
-	nullptr,
-	_FormSubmitEvent$MethodType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.FormSubmitEvent"
-};
-
-$Object* allocate$FormSubmitEvent$MethodType($Class* clazz) {
-	return $of($alloc(FormSubmitEvent$MethodType));
-}
 
 FormSubmitEvent$MethodType* FormSubmitEvent$MethodType::GET = nullptr;
 FormSubmitEvent$MethodType* FormSubmitEvent$MethodType::POST = nullptr;
@@ -85,7 +44,7 @@ void FormSubmitEvent$MethodType::init$($String* $enum$name, int32_t $enum$ordina
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$FormSubmitEvent$MethodType($Class* class$) {
+void FormSubmitEvent$MethodType::clinit$($Class* clazz) {
 	$assignStatic(FormSubmitEvent$MethodType::GET, $new(FormSubmitEvent$MethodType, "GET"_s, 0));
 	$assignStatic(FormSubmitEvent$MethodType::POST, $new(FormSubmitEvent$MethodType, "POST"_s, 1));
 	$assignStatic(FormSubmitEvent$MethodType::$VALUES, FormSubmitEvent$MethodType::$values());
@@ -95,7 +54,41 @@ FormSubmitEvent$MethodType::FormSubmitEvent$MethodType() {
 }
 
 $Class* FormSubmitEvent$MethodType::load$($String* name, bool initialize) {
-	$loadClass(FormSubmitEvent$MethodType, name, initialize, &_FormSubmitEvent$MethodType_ClassInfo_, clinit$FormSubmitEvent$MethodType, allocate$FormSubmitEvent$MethodType);
+	$FieldInfo fieldInfos$$[] = {
+		{"GET", "Ljavax/swing/text/html/FormSubmitEvent$MethodType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FormSubmitEvent$MethodType, GET)},
+		{"POST", "Ljavax/swing/text/html/FormSubmitEvent$MethodType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FormSubmitEvent$MethodType, POST)},
+		{"$VALUES", "[Ljavax/swing/text/html/FormSubmitEvent$MethodType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(FormSubmitEvent$MethodType, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljavax/swing/text/html/FormSubmitEvent$MethodType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FormSubmitEvent$MethodType, $values, $FormSubmitEvent$MethodTypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(FormSubmitEvent$MethodType, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljavax/swing/text/html/FormSubmitEvent$MethodType;", nullptr, $PUBLIC | $STATIC, $staticMethod(FormSubmitEvent$MethodType, valueOf, FormSubmitEvent$MethodType*, $String*)},
+		{"values", "()[Ljavax/swing/text/html/FormSubmitEvent$MethodType;", nullptr, $PUBLIC | $STATIC, $staticMethod(FormSubmitEvent$MethodType, values, $FormSubmitEvent$MethodTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.FormSubmitEvent$MethodType", "javax.swing.text.html.FormSubmitEvent", "MethodType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"javax.swing.text.html.FormSubmitEvent$MethodType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljavax/swing/text/html/FormSubmitEvent$MethodType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.FormSubmitEvent"
+	};
+	$loadClass(FormSubmitEvent$MethodType, name, initialize, &classInfo$$, FormSubmitEvent$MethodType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FormSubmitEvent$MethodType));
+	});
 	return class$;
 }
 

@@ -1,27 +1,8 @@
 #include <ReaderDriver.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _ReaderDriver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ReaderDriver, init$, void)},
-	{}
-};
-
-$ClassInfo _ReaderDriver_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"ReaderDriver",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ReaderDriver_MethodInfo_
-};
-
-$Object* allocate$ReaderDriver($Class* clazz) {
-	return $of($alloc(ReaderDriver));
-}
 
 void ReaderDriver::init$() {
 }
@@ -30,7 +11,21 @@ ReaderDriver::ReaderDriver() {
 }
 
 $Class* ReaderDriver::load$($String* name, bool initialize) {
-	$loadClass(ReaderDriver, name, initialize, &_ReaderDriver_ClassInfo_, allocate$ReaderDriver);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ReaderDriver, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"ReaderDriver",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ReaderDriver, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReaderDriver);
+	});
 	return class$;
 }
 

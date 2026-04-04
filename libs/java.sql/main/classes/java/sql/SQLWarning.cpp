@@ -1,5 +1,4 @@
 #include <java/sql/SQLWarning.h>
-
 #include <java/lang/ClassCastException.h>
 #include <java/lang/Error.h>
 #include <java/sql/DriverManager.h>
@@ -17,40 +16,8 @@ using $SQLException = ::java::sql::SQLException;
 namespace java {
 	namespace sql {
 
-$FieldInfo _SQLWarning_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SQLWarning, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SQLWarning_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(SQLWarning, init$, void, $String*, $String*, int32_t)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLWarning, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLWarning, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SQLWarning, init$, void)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLWarning, init$, void, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLWarning, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLWarning, init$, void, $String*, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLWarning, init$, void, $String*, $String*, int32_t, $Throwable*)},
-	{"getNextWarning", "()Ljava/sql/SQLWarning;", nullptr, $PUBLIC, $virtualMethod(SQLWarning, getNextWarning, SQLWarning*)},
-	{"setNextWarning", "(Ljava/sql/SQLWarning;)V", nullptr, $PUBLIC, $virtualMethod(SQLWarning, setNextWarning, void, SQLWarning*)},
-	{}
-};
-
-$ClassInfo _SQLWarning_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.sql.SQLWarning",
-	"java.sql.SQLException",
-	nullptr,
-	_SQLWarning_FieldInfo_,
-	_SQLWarning_MethodInfo_
-};
-
-$Object* allocate$SQLWarning($Class* clazz) {
-	return $of($alloc(SQLWarning));
-}
-
 void SQLWarning::init$($String* reason, $String* SQLState, int32_t vendorCode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SQLException::init$(reason, SQLState, vendorCode);
 	$DriverManager::println($$str({"SQLWarning: reason("_s, reason, ") SQLState("_s, SQLState, ") vendor code("_s, $$str(vendorCode), ")"_s}));
 }
@@ -86,14 +53,14 @@ void SQLWarning::init$($String* reason, $String* SQLState, $Throwable* cause) {
 }
 
 void SQLWarning::init$($String* reason, $String* SQLState, int32_t vendorCode, $Throwable* cause) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SQLException::init$(reason, SQLState, vendorCode, cause);
 	$DriverManager::println($$str({"SQLWarning: reason("_s, reason, ") SQLState("_s, SQLState, ") vendor code("_s, $$str(vendorCode), ")"_s}));
 }
 
 SQLWarning* SQLWarning::getNextWarning() {
 	try {
-		return ($cast(SQLWarning, getNextException()));
+		return $cast(SQLWarning, getNextException());
 	} catch ($ClassCastException& ex) {
 		$throwNew($Error, "SQLWarning chain holds value that is not a SQLWarning"_s);
 	}
@@ -115,7 +82,34 @@ void SQLWarning::throw$() {
 }
 
 $Class* SQLWarning::load$($String* name, bool initialize) {
-	$loadClass(SQLWarning, name, initialize, &_SQLWarning_ClassInfo_, allocate$SQLWarning);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SQLWarning, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(SQLWarning, init$, void, $String*, $String*, int32_t)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLWarning, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLWarning, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SQLWarning, init$, void)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLWarning, init$, void, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLWarning, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLWarning, init$, void, $String*, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLWarning, init$, void, $String*, $String*, int32_t, $Throwable*)},
+		{"getNextWarning", "()Ljava/sql/SQLWarning;", nullptr, $PUBLIC, $virtualMethod(SQLWarning, getNextWarning, SQLWarning*)},
+		{"setNextWarning", "(Ljava/sql/SQLWarning;)V", nullptr, $PUBLIC, $virtualMethod(SQLWarning, setNextWarning, void, SQLWarning*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.sql.SQLWarning",
+		"java.sql.SQLException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SQLWarning, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SQLWarning));
+	});
 	return class$;
 }
 

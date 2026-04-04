@@ -39,6 +39,7 @@ class XML11DTDValidator : public ::com::sun::org::apache::xerces::internal::impl
 	$class(XML11DTDValidator, 0, ::com::sun::org::apache::xerces::internal::impl::dtd::XMLDTDValidator)
 public:
 	XML11DTDValidator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void init() override;
 	virtual void reset(::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager* manager) override;

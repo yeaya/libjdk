@@ -1,5 +1,4 @@
 #include <UIManagerSetLookAndFeelNPETest.h>
-
 #include <javax/swing/UIManager.h>
 #include <jcpp.h>
 
@@ -8,25 +7,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $UIManager = ::javax::swing::UIManager;
-
-$MethodInfo _UIManagerSetLookAndFeelNPETest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UIManagerSetLookAndFeelNPETest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManagerSetLookAndFeelNPETest, main, void, $StringArray*), "java.lang.ClassNotFoundException,javax.swing.UnsupportedLookAndFeelException,java.lang.InstantiationException,java.lang.IllegalAccessException"},
-	{}
-};
-
-$ClassInfo _UIManagerSetLookAndFeelNPETest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"UIManagerSetLookAndFeelNPETest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_UIManagerSetLookAndFeelNPETest_MethodInfo_
-};
-
-$Object* allocate$UIManagerSetLookAndFeelNPETest($Class* clazz) {
-	return $of($alloc(UIManagerSetLookAndFeelNPETest));
-}
 
 void UIManagerSetLookAndFeelNPETest::init$() {
 }
@@ -47,7 +27,22 @@ UIManagerSetLookAndFeelNPETest::UIManagerSetLookAndFeelNPETest() {
 }
 
 $Class* UIManagerSetLookAndFeelNPETest::load$($String* name, bool initialize) {
-	$loadClass(UIManagerSetLookAndFeelNPETest, name, initialize, &_UIManagerSetLookAndFeelNPETest_ClassInfo_, allocate$UIManagerSetLookAndFeelNPETest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UIManagerSetLookAndFeelNPETest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManagerSetLookAndFeelNPETest, main, void, $StringArray*), "java.lang.ClassNotFoundException,javax.swing.UnsupportedLookAndFeelException,java.lang.InstantiationException,java.lang.IllegalAccessException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"UIManagerSetLookAndFeelNPETest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UIManagerSetLookAndFeelNPETest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UIManagerSetLookAndFeelNPETest);
+	});
 	return class$;
 }
 

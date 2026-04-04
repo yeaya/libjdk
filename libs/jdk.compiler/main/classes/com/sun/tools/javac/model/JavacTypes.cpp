@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/model/JavacTypes.h>
-
 #include <com/sun/tools/javac/code/BoundKind.h>
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Scope$WriteableScope.h>
@@ -22,7 +21,6 @@
 #include <com/sun/tools/javac/util/ListBuffer.h>
 #include <com/sun/tools/javac/util/Name.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Enum.h>
 #include <java/lang/Iterable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -71,11 +69,9 @@
 using $TypeMirrorArray = $Array<::javax::lang::model::type::TypeMirror>;
 using $BoundKind = ::com::sun::tools::javac::code::BoundKind;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
-using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
@@ -84,15 +80,12 @@ using $Type$WildcardType = ::com::sun::tools::javac::code::Type$WildcardType;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $JavacTypes$1 = ::com::sun::tools::javac::model::JavacTypes$1;
 using $Context = ::com::sun::tools::javac::util::Context;
-using $1List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Collections = ::java::util::Collections;
@@ -102,7 +95,6 @@ using $LinkedHashSet = ::java::util::LinkedHashSet;
 using $List = ::java::util::List;
 using $Set = ::java::util::Set;
 using $Function = ::java::util::function::Function;
-using $Stream = ::java::util::stream::Stream;
 using $Element = ::javax::lang::model::element::Element;
 using $ElementKind = ::javax::lang::model::element::ElementKind;
 using $Modifier = ::javax::lang::model::element::Modifier;
@@ -133,90 +125,27 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $of($sure($Type, inst$)->stripMetadataIfNeeded());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavacTypes$$Lambda$stripMetadataIfNeeded>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JavacTypes$$Lambda$stripMetadataIfNeeded::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavacTypes$$Lambda$stripMetadataIfNeeded, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacTypes$$Lambda$stripMetadataIfNeeded, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo JavacTypes$$Lambda$stripMetadataIfNeeded::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.model.JavacTypes$$Lambda$stripMetadataIfNeeded",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* JavacTypes$$Lambda$stripMetadataIfNeeded::load$($String* name, bool initialize) {
-	$loadClass(JavacTypes$$Lambda$stripMetadataIfNeeded, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavacTypes$$Lambda$stripMetadataIfNeeded, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacTypes$$Lambda$stripMetadataIfNeeded, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.model.JavacTypes$$Lambda$stripMetadataIfNeeded",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavacTypes$$Lambda$stripMetadataIfNeeded, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacTypes$$Lambda$stripMetadataIfNeeded);
+	});
 	return class$;
 }
 $Class* JavacTypes$$Lambda$stripMetadataIfNeeded::class$ = nullptr;
-
-$FieldInfo _JavacTypes_FieldInfo_[] = {
-	{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, $PRIVATE | $FINAL, $field(JavacTypes, syms)},
-	{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $PRIVATE | $FINAL, $field(JavacTypes, types)},
-	{"EXEC_OR_PKG_OR_MOD", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/lang/model/type/TypeKind;>;", $PRIVATE | $STATIC | $FINAL, $staticField(JavacTypes, EXEC_OR_PKG_OR_MOD)},
-	{}
-};
-
-$MethodInfo _JavacTypes_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(JavacTypes, init$, void, $Context*)},
-	{"asElement", "(Ljavax/lang/model/type/TypeMirror;)Ljavax/lang/model/element/Element;", nullptr, $PUBLIC, $virtualMethod(JavacTypes, asElement, $Element*, $TypeMirror*)},
-	{"asMemberOf", "(Ljavax/lang/model/type/DeclaredType;Ljavax/lang/model/element/Element;)Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC, $virtualMethod(JavacTypes, asMemberOf, $TypeMirror*, $DeclaredType*, $Element*)},
-	{"boxedClass", "(Ljavax/lang/model/type/PrimitiveType;)Ljavax/lang/model/element/TypeElement;", nullptr, $PUBLIC, $virtualMethod(JavacTypes, boxedClass, $TypeElement*, $PrimitiveType*)},
-	{"capture", "(Ljavax/lang/model/type/TypeMirror;)Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC, $virtualMethod(JavacTypes, capture, $TypeMirror*, $TypeMirror*)},
-	{"cast", "(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;Ljava/lang/Object;)TT;", $PRIVATE | $STATIC, $staticMethod(JavacTypes, cast, $Object*, $Class*, Object$*)},
-	{"contains", "(Ljavax/lang/model/type/TypeMirror;Ljavax/lang/model/type/TypeMirror;)Z", nullptr, $PUBLIC, $virtualMethod(JavacTypes, contains, bool, $TypeMirror*, $TypeMirror*)},
-	{"directSupertypes", "(Ljavax/lang/model/type/TypeMirror;)Ljava/util/List;", "(Ljavax/lang/model/type/TypeMirror;)Ljava/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(JavacTypes, directSupertypes, $List*, $TypeMirror*)},
-	{"erasure", "(Ljavax/lang/model/type/TypeMirror;)Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC, $virtualMethod(JavacTypes, erasure, $TypeMirror*, $TypeMirror*)},
-	{"getArrayType", "(Ljavax/lang/model/type/TypeMirror;)Ljavax/lang/model/type/ArrayType;", nullptr, $PUBLIC, $virtualMethod(JavacTypes, getArrayType, $ArrayType*, $TypeMirror*)},
-	{"getDeclaredType", "(Ljavax/lang/model/element/TypeElement;[Ljavax/lang/model/type/TypeMirror;)Ljavax/lang/model/type/DeclaredType;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(JavacTypes, getDeclaredType, $DeclaredType*, $TypeElement*, $TypeMirrorArray*)},
-	{"getDeclaredType", "(Ljavax/lang/model/type/DeclaredType;Ljavax/lang/model/element/TypeElement;[Ljavax/lang/model/type/TypeMirror;)Ljavax/lang/model/type/DeclaredType;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(JavacTypes, getDeclaredType, $DeclaredType*, $DeclaredType*, $TypeElement*, $TypeMirrorArray*)},
-	{"getDeclaredType0", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;[Ljavax/lang/model/type/TypeMirror;)Ljavax/lang/model/type/DeclaredType;", nullptr, $PRIVATE | $TRANSIENT, $method(JavacTypes, getDeclaredType0, $DeclaredType*, $Type*, $Symbol$ClassSymbol*, $TypeMirrorArray*)},
-	{"getNoType", "(Ljavax/lang/model/type/TypeKind;)Ljavax/lang/model/type/NoType;", nullptr, $PUBLIC, $virtualMethod(JavacTypes, getNoType, $NoType*, $TypeKind*)},
-	{"getNullType", "()Ljavax/lang/model/type/NullType;", nullptr, $PUBLIC, $virtualMethod(JavacTypes, getNullType, $NullType*)},
-	{"getOverriddenMethods", "(Ljavax/lang/model/element/Element;)Ljava/util/Set;", "(Ljavax/lang/model/element/Element;)Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;>;", $PUBLIC, $virtualMethod(JavacTypes, getOverriddenMethods, $Set*, $Element*)},
-	{"getPrimitiveType", "(Ljavax/lang/model/type/TypeKind;)Ljavax/lang/model/type/PrimitiveType;", nullptr, $PUBLIC, $virtualMethod(JavacTypes, getPrimitiveType, $PrimitiveType*, $TypeKind*)},
-	{"getWildcardType", "(Ljavax/lang/model/type/TypeMirror;Ljavax/lang/model/type/TypeMirror;)Ljavax/lang/model/type/WildcardType;", nullptr, $PUBLIC, $virtualMethod(JavacTypes, getWildcardType, $WildcardType*, $TypeMirror*, $TypeMirror*)},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/model/JavacTypes;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacTypes, instance, JavacTypes*, $Context*)},
-	{"isAssignable", "(Ljavax/lang/model/type/TypeMirror;Ljavax/lang/model/type/TypeMirror;)Z", nullptr, $PUBLIC, $virtualMethod(JavacTypes, isAssignable, bool, $TypeMirror*, $TypeMirror*)},
-	{"isSameType", "(Ljavax/lang/model/type/TypeMirror;Ljavax/lang/model/type/TypeMirror;)Z", nullptr, $PUBLIC, $virtualMethod(JavacTypes, isSameType, bool, $TypeMirror*, $TypeMirror*)},
-	{"isSubsignature", "(Ljavax/lang/model/type/ExecutableType;Ljavax/lang/model/type/ExecutableType;)Z", nullptr, $PUBLIC, $virtualMethod(JavacTypes, isSubsignature, bool, $ExecutableType*, $ExecutableType*)},
-	{"isSubtype", "(Ljavax/lang/model/type/TypeMirror;Ljavax/lang/model/type/TypeMirror;)Z", nullptr, $PUBLIC, $virtualMethod(JavacTypes, isSubtype, bool, $TypeMirror*, $TypeMirror*)},
-	{"unboxedType", "(Ljavax/lang/model/type/TypeMirror;)Ljavax/lang/model/type/PrimitiveType;", nullptr, $PUBLIC, $virtualMethod(JavacTypes, unboxedType, $PrimitiveType*, $TypeMirror*)},
-	{"validateTypeNotIn", "(Ljavax/lang/model/type/TypeMirror;Ljava/util/Set;)V", "(Ljavax/lang/model/type/TypeMirror;Ljava/util/Set<Ljavax/lang/model/type/TypeKind;>;)V", $PRIVATE, $method(JavacTypes, validateTypeNotIn, void, $TypeMirror*, $Set*)},
-	{}
-};
-
-$InnerClassInfo _JavacTypes_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.model.JavacTypes$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _JavacTypes_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.model.JavacTypes",
-	"java.lang.Object",
-	"javax.lang.model.util.Types",
-	_JavacTypes_FieldInfo_,
-	_JavacTypes_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavacTypes_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.model.JavacTypes$1"
-};
-
-$Object* allocate$JavacTypes($Class* clazz) {
-	return $of($alloc(JavacTypes));
-}
 
 $Set* JavacTypes::EXEC_OR_PKG_OR_MOD = nullptr;
 
@@ -230,34 +159,25 @@ JavacTypes* JavacTypes::instance($Context* context) {
 }
 
 void JavacTypes::init$($Context* context) {
-	$nc(context)->put(JavacTypes::class$, $of(this));
+	$nc(context)->put(JavacTypes::class$, this);
 	$set(this, syms, $Symtab::instance(context));
 	$set(this, types, $Types::instance(context));
 }
 
 $Element* JavacTypes::asElement($TypeMirror* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JavacTypes$1);
-	{
-		$var($Type, type, nullptr)
-		switch ($nc($JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind)->get($nc(($($nc(t)->getKind())))->ordinal())) {
-		case 1:
-			{}
-		case 2:
-			{}
-		case 3:
-			{}
-		case 4:
-			{
-				$load($Type);
-				$assign(type, $cast($Type, cast($Type::class$, t)));
-				return $nc(type)->asElement();
-			}
-		default:
-			{
-				return nullptr;
-			}
-		}
+	$var($Type, type, nullptr);
+	switch ($nc($JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind)->get(($$nc($nc(t)->getKind()))->ordinal())) {
+	case 1:
+	case 2:
+	case 3:
+	case 4:
+		$load($Type);
+		$assign(type, $cast($Type, cast($Type::class$, t)));
+		return $nc(type)->asElement();
+	default:
+		return nullptr;
 	}
 }
 
@@ -293,20 +213,20 @@ bool JavacTypes::isSubsignature($ExecutableType* m1, $ExecutableType* m2) {
 }
 
 $List* JavacTypes::directSupertypes($TypeMirror* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	validateTypeNotIn(t, JavacTypes::EXEC_OR_PKG_OR_MOD);
 	$var($Type, ty, $cast($Type, t));
-	return $nc($($nc($($nc($($nc(this->types)->directSupertypes(ty)))->stream()))->map(static_cast<$Function*>($$new(JavacTypes$$Lambda$stripMetadataIfNeeded)))))->toList();
+	return $$nc($$nc($$nc($nc(this->types)->directSupertypes(ty))->stream())->map($$new(JavacTypes$$Lambda$stripMetadataIfNeeded)))->toList();
 }
 
 $TypeMirror* JavacTypes::erasure($TypeMirror* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$TypeKind* kind = $nc(t)->getKind();
 	$init($TypeKind);
 	if (kind == $TypeKind::PACKAGE || kind == $TypeKind::MODULE) {
 		$throwNew($IllegalArgumentException, $(t->toString()));
 	}
-	return $nc($($nc(this->types)->erasure($cast($Type, t))))->stripMetadataIfNeeded();
+	return $$nc($nc(this->types)->erasure($cast($Type, t)))->stripMetadataIfNeeded();
 }
 
 $TypeElement* JavacTypes::boxedClass($PrimitiveType* p) {
@@ -314,62 +234,44 @@ $TypeElement* JavacTypes::boxedClass($PrimitiveType* p) {
 }
 
 $PrimitiveType* JavacTypes::unboxedType($TypeMirror* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TypeKind);
 	if ($nc(t)->getKind() != $TypeKind::DECLARED) {
 		$throwNew($IllegalArgumentException, $(t->toString()));
 	}
 	$var($Type, unboxed, $nc(this->types)->unboxedType($cast($Type, t)));
 	if (!$nc(unboxed)->isPrimitive()) {
-		$throwNew($IllegalArgumentException, $($nc(t)->toString()));
+		$throwNew($IllegalArgumentException, $(t->toString()));
 	}
 	return $cast($PrimitiveType, unboxed);
 }
 
 $TypeMirror* JavacTypes::capture($TypeMirror* t) {
 	validateTypeNotIn(t, JavacTypes::EXEC_OR_PKG_OR_MOD);
-	return $nc($($nc(this->types)->capture($cast($Type, t))))->stripMetadataIfNeeded();
+	return $$nc($nc(this->types)->capture($cast($Type, t)))->stripMetadataIfNeeded();
 }
 
 $PrimitiveType* JavacTypes::getPrimitiveType($TypeKind* kind) {
 	$init($JavacTypes$1);
 	switch ($nc($JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind)->get($nc((kind))->ordinal())) {
 	case 5:
-		{
-			return $nc(this->syms)->booleanType;
-		}
+		return $nc(this->syms)->booleanType;
 	case 6:
-		{
-			return $nc(this->syms)->byteType;
-		}
+		return $nc(this->syms)->byteType;
 	case 7:
-		{
-			return $nc(this->syms)->shortType;
-		}
+		return $nc(this->syms)->shortType;
 	case 8:
-		{
-			return $nc(this->syms)->intType;
-		}
+		return $nc(this->syms)->intType;
 	case 9:
-		{
-			return $nc(this->syms)->longType;
-		}
+		return $nc(this->syms)->longType;
 	case 10:
-		{
-			return $nc(this->syms)->charType;
-		}
+		return $nc(this->syms)->charType;
 	case 11:
-		{
-			return $nc(this->syms)->floatType;
-		}
+		return $nc(this->syms)->floatType;
 	case 12:
-		{
-			return $nc(this->syms)->doubleType;
-		}
+		return $nc(this->syms)->doubleType;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Not a primitive type: "_s, kind}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Not a primitive type: "_s, kind}));
 	}
 }
 
@@ -381,43 +283,31 @@ $NoType* JavacTypes::getNoType($TypeKind* kind) {
 	$init($JavacTypes$1);
 	switch ($nc($JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind)->get($nc((kind))->ordinal())) {
 	case 13:
-		{
-			return $nc(this->syms)->voidType;
-		}
+		return $nc(this->syms)->voidType;
 	case 14:
-		{
-			$init($Type);
-			return $Type::noType;
-		}
+		$init($Type);
+		return $Type::noType;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $(kind->toString()));
-		}
+		$throwNew($IllegalArgumentException, $(kind->toString()));
 	}
 }
 
 $ArrayType* JavacTypes::getArrayType($TypeMirror* componentType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JavacTypes$1);
-	switch ($nc($JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind)->get($nc(($($nc(componentType)->getKind())))->ordinal())) {
+	switch ($nc($JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind)->get(($$nc($nc(componentType)->getKind()))->ordinal())) {
 	case 13:
-		{}
 	case 15:
-		{}
 	case 16:
-		{}
 	case 17:
-		{}
 	case 18:
-		{
-			$throwNew($IllegalArgumentException, $(componentType->toString()));
-		}
+		$throwNew($IllegalArgumentException, $(componentType->toString()));
 	}
 	return $new($Type$ArrayType, $cast($Type, componentType), $nc(this->syms)->arrayClass);
 }
 
 $WildcardType* JavacTypes::getWildcardType($TypeMirror* extendsBound, $TypeMirror* superBound) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BoundKind* bkind = nullptr;
 	$var($Type, bound, nullptr);
 	if (extendsBound == nullptr && superBound == nullptr) {
@@ -436,38 +326,31 @@ $WildcardType* JavacTypes::getWildcardType($TypeMirror* extendsBound, $TypeMirro
 		$throwNew($IllegalArgumentException, "Extends and super bounds cannot both be provided"_s);
 	}
 	$init($JavacTypes$1);
-	switch ($nc($JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind)->get($nc(($($nc(bound)->getKind())))->ordinal())) {
+	switch ($nc($JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind)->get(($$nc($nc(bound)->getKind()))->ordinal())) {
 	case 19:
-		{}
 	case 1:
-		{}
 	case 3:
-		{}
 	case 4:
-		{
-			return $new($Type$WildcardType, bound, bkind, $nc(this->syms)->boundClass);
-		}
+		return $new($Type$WildcardType, bound, bkind, $nc(this->syms)->boundClass);
 	default:
-		{
-			$throwNew($IllegalArgumentException, $(bound->toString()));
-		}
+		$throwNew($IllegalArgumentException, $(bound->toString()));
 	}
 }
 
 $DeclaredType* JavacTypes::getDeclaredType($TypeElement* typeElem, $TypeMirrorArray* typeArgs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol$ClassSymbol, sym, $cast($Symbol$ClassSymbol, typeElem));
 	if ($nc(typeArgs)->length == 0) {
 		return $cast($DeclaredType, $nc(sym)->erasure(this->types));
 	}
-	if ($nc($($nc($nc(sym)->type)->getEnclosingType()))->isParameterized()) {
+	if ($$nc($nc($nc(sym)->type)->getEnclosingType())->isParameterized()) {
 		$throwNew($IllegalArgumentException, $(sym->toString()));
 	}
-	return getDeclaredType0($($nc($nc(sym)->type)->getEnclosingType()), sym, typeArgs);
+	return getDeclaredType0($($nc(sym->type)->getEnclosingType()), sym, typeArgs);
 }
 
 $DeclaredType* JavacTypes::getDeclaredType($DeclaredType* enclosing, $TypeElement* typeElem, $TypeMirrorArray* typeArgs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (enclosing == nullptr) {
 		return getDeclaredType(typeElem, typeArgs);
 	}
@@ -476,23 +359,21 @@ $DeclaredType* JavacTypes::getDeclaredType($DeclaredType* enclosing, $TypeElemen
 	if (!$equals($nc(outer)->tsym, $nc($nc(sym)->owner)->enclClass())) {
 		$throwNew($IllegalArgumentException, $($nc($of(enclosing))->toString()));
 	}
-	if (!$nc(outer)->isParameterized()) {
+	if (!outer->isParameterized()) {
 		return getDeclaredType(typeElem, typeArgs);
 	}
 	return getDeclaredType0(outer, sym, typeArgs);
 }
 
 $DeclaredType* JavacTypes::getDeclaredType0($Type* outer, $Symbol$ClassSymbol* sym, $TypeMirrorArray* typeArgs) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(typeArgs)->length != $nc($($nc($nc(sym)->type)->getTypeArguments()))->length()) {
+	$useLocalObjectStack();
+	if ($nc(typeArgs)->length != $$nc($nc($nc(sym)->type)->getTypeArguments())->length()) {
 		$throwNew($IllegalArgumentException, "Incorrect number of type arguments"_s);
 	}
 	$var($ListBuffer, targs, $new($ListBuffer));
 	{
 		$var($TypeMirrorArray, arr$, typeArgs);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($TypeMirror, t, arr$->get(i$));
 			{
 				if (!($instanceOf($ReferenceType, t) || $instanceOf($WildcardType, t))) {
@@ -502,23 +383,23 @@ $DeclaredType* JavacTypes::getDeclaredType0($Type* outer, $Symbol$ClassSymbol* s
 			}
 		}
 	}
-	return static_cast<$DeclaredType*>($as($ErrorType, $new($Type$ClassType, outer, $(targs->toList()), sym)));
+	return $cast($DeclaredType, $as($ErrorType, $new($Type$ClassType, outer, $(targs->toList()), sym)));
 }
 
 $TypeMirror* JavacTypes::asMemberOf($DeclaredType* containing, $Element* element) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, site, $cast($Type, containing));
 	$var($Symbol, sym, $cast($Symbol, element));
-	if ($nc(this->types)->asSuper(site, $($cast($Symbol, $nc(sym)->getEnclosingElement()))) == nullptr) {
+	if ($nc(this->types)->asSuper(site, $$cast($Symbol, $nc(sym)->getEnclosingElement())) == nullptr) {
 		$throwNew($IllegalArgumentException, $$str({sym, "@"_s, site}));
 	}
-	return $nc(this->types)->memberType(site, sym);
+	return this->types->memberType(site, sym);
 }
 
 void JavacTypes::validateTypeNotIn($TypeMirror* t, $Set* invalidKinds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(invalidKinds)->contains($($nc(t)->getKind()))) {
-		$throwNew($IllegalArgumentException, $($nc(t)->toString()));
+		$throwNew($IllegalArgumentException, $(t->toString()));
 	}
 }
 
@@ -527,16 +408,16 @@ $Object* JavacTypes::cast($Class* clazz, Object$* o) {
 	if (!$nc(clazz)->isInstance(o)) {
 		$throwNew($IllegalArgumentException, $($nc($of(o))->toString()));
 	}
-	return $of($nc(clazz)->cast(o));
+	return clazz->cast(o);
 }
 
 $Set* JavacTypes::getOverriddenMethods($Element* elem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ElementKind);
 	bool var$1 = $nc(elem)->getKind() != $ElementKind::METHOD;
 	$init($Modifier);
-	bool var$0 = var$1 || $nc($($nc(elem)->getModifiers()))->contains($Modifier::STATIC);
-	if (var$0 || $nc($($nc(elem)->getModifiers()))->contains($Modifier::PRIVATE)) {
+	bool var$0 = var$1 || $$nc(elem->getModifiers())->contains($Modifier::STATIC);
+	if (var$0 || $$nc(elem->getModifiers())->contains($Modifier::PRIVATE)) {
 		return $Collections::emptySet();
 	}
 	$var($Symbol$MethodSymbol, methodSymbol, nullptr);
@@ -551,22 +432,18 @@ $Set* JavacTypes::getOverriddenMethods($Element* elem) {
 	$var($Symbol$ClassSymbol, origin, $cast($Symbol$ClassSymbol, $nc(methodSymbol)->owner));
 	$var($Set, results, $new($LinkedHashSet));
 	{
-		$var($Iterator, i$, $nc($($nc(this->types)->closure($nc(origin)->type)))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->types)->closure($nc(origin)->type))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Type, t, $cast($Type, i$->next()));
-			{
-				if (t != $nc(origin)->type) {
-					$var($Symbol$ClassSymbol, c, $cast($Symbol$ClassSymbol, $nc(t)->tsym));
-					{
-						$var($Iterator, i$, $nc($($nc($($nc(c)->members()))->getSymbolsByName(methodSymbol->name)))->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($Symbol, sym, $cast($Symbol, i$->next()));
-							{
-								$init($Kinds$Kind);
-								if ($nc(sym)->kind == $Kinds$Kind::MTH && methodSymbol->overrides(sym, origin, this->types, true)) {
-									results->add($cast($Symbol$MethodSymbol, sym));
-								}
-							}
+			if (t != origin->type) {
+				$var($Symbol$ClassSymbol, c, $cast($Symbol$ClassSymbol, $nc(t)->tsym));
+				{
+					$var($Iterator, i$, $$nc($$nc($nc(c)->members())->getSymbolsByName(methodSymbol->name))->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($Symbol, sym, $cast($Symbol, i$->next()));
+						$init($Kinds$Kind);
+						if ($nc(sym)->kind == $Kinds$Kind::MTH && methodSymbol->overrides(sym, origin, this->types, true)) {
+							results->add($cast($Symbol$MethodSymbol, sym));
 						}
 					}
 				}
@@ -576,7 +453,7 @@ $Set* JavacTypes::getOverriddenMethods($Element* elem) {
 	return results;
 }
 
-void clinit$JavacTypes($Class* class$) {
+void JavacTypes::clinit$($Class* clazz) {
 	$init($TypeKind);
 	$assignStatic(JavacTypes::EXEC_OR_PKG_OR_MOD, $EnumSet::of($TypeKind::EXECUTABLE, $TypeKind::PACKAGE, $TypeKind::MODULE));
 }
@@ -586,11 +463,65 @@ JavacTypes::JavacTypes() {
 
 $Class* JavacTypes::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JavacTypes$$Lambda$stripMetadataIfNeeded::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.model.JavacTypes$$Lambda$stripMetadataIfNeeded")) {
 			return JavacTypes$$Lambda$stripMetadataIfNeeded::load$(name, initialize);
 		}
 	}
-	$loadClass(JavacTypes, name, initialize, &_JavacTypes_ClassInfo_, clinit$JavacTypes, allocate$JavacTypes);
+	$FieldInfo fieldInfos$$[] = {
+		{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, $PRIVATE | $FINAL, $field(JavacTypes, syms)},
+		{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $PRIVATE | $FINAL, $field(JavacTypes, types)},
+		{"EXEC_OR_PKG_OR_MOD", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/lang/model/type/TypeKind;>;", $PRIVATE | $STATIC | $FINAL, $staticField(JavacTypes, EXEC_OR_PKG_OR_MOD)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(JavacTypes, init$, void, $Context*)},
+		{"asElement", "(Ljavax/lang/model/type/TypeMirror;)Ljavax/lang/model/element/Element;", nullptr, $PUBLIC, $virtualMethod(JavacTypes, asElement, $Element*, $TypeMirror*)},
+		{"asMemberOf", "(Ljavax/lang/model/type/DeclaredType;Ljavax/lang/model/element/Element;)Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC, $virtualMethod(JavacTypes, asMemberOf, $TypeMirror*, $DeclaredType*, $Element*)},
+		{"boxedClass", "(Ljavax/lang/model/type/PrimitiveType;)Ljavax/lang/model/element/TypeElement;", nullptr, $PUBLIC, $virtualMethod(JavacTypes, boxedClass, $TypeElement*, $PrimitiveType*)},
+		{"capture", "(Ljavax/lang/model/type/TypeMirror;)Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC, $virtualMethod(JavacTypes, capture, $TypeMirror*, $TypeMirror*)},
+		{"cast", "(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;Ljava/lang/Object;)TT;", $PRIVATE | $STATIC, $staticMethod(JavacTypes, cast, $Object*, $Class*, Object$*)},
+		{"contains", "(Ljavax/lang/model/type/TypeMirror;Ljavax/lang/model/type/TypeMirror;)Z", nullptr, $PUBLIC, $virtualMethod(JavacTypes, contains, bool, $TypeMirror*, $TypeMirror*)},
+		{"directSupertypes", "(Ljavax/lang/model/type/TypeMirror;)Ljava/util/List;", "(Ljavax/lang/model/type/TypeMirror;)Ljava/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(JavacTypes, directSupertypes, $List*, $TypeMirror*)},
+		{"erasure", "(Ljavax/lang/model/type/TypeMirror;)Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC, $virtualMethod(JavacTypes, erasure, $TypeMirror*, $TypeMirror*)},
+		{"getArrayType", "(Ljavax/lang/model/type/TypeMirror;)Ljavax/lang/model/type/ArrayType;", nullptr, $PUBLIC, $virtualMethod(JavacTypes, getArrayType, $ArrayType*, $TypeMirror*)},
+		{"getDeclaredType", "(Ljavax/lang/model/element/TypeElement;[Ljavax/lang/model/type/TypeMirror;)Ljavax/lang/model/type/DeclaredType;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(JavacTypes, getDeclaredType, $DeclaredType*, $TypeElement*, $TypeMirrorArray*)},
+		{"getDeclaredType", "(Ljavax/lang/model/type/DeclaredType;Ljavax/lang/model/element/TypeElement;[Ljavax/lang/model/type/TypeMirror;)Ljavax/lang/model/type/DeclaredType;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(JavacTypes, getDeclaredType, $DeclaredType*, $DeclaredType*, $TypeElement*, $TypeMirrorArray*)},
+		{"getDeclaredType0", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;[Ljavax/lang/model/type/TypeMirror;)Ljavax/lang/model/type/DeclaredType;", nullptr, $PRIVATE | $TRANSIENT, $method(JavacTypes, getDeclaredType0, $DeclaredType*, $Type*, $Symbol$ClassSymbol*, $TypeMirrorArray*)},
+		{"getNoType", "(Ljavax/lang/model/type/TypeKind;)Ljavax/lang/model/type/NoType;", nullptr, $PUBLIC, $virtualMethod(JavacTypes, getNoType, $NoType*, $TypeKind*)},
+		{"getNullType", "()Ljavax/lang/model/type/NullType;", nullptr, $PUBLIC, $virtualMethod(JavacTypes, getNullType, $NullType*)},
+		{"getOverriddenMethods", "(Ljavax/lang/model/element/Element;)Ljava/util/Set;", "(Ljavax/lang/model/element/Element;)Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;>;", $PUBLIC, $virtualMethod(JavacTypes, getOverriddenMethods, $Set*, $Element*)},
+		{"getPrimitiveType", "(Ljavax/lang/model/type/TypeKind;)Ljavax/lang/model/type/PrimitiveType;", nullptr, $PUBLIC, $virtualMethod(JavacTypes, getPrimitiveType, $PrimitiveType*, $TypeKind*)},
+		{"getWildcardType", "(Ljavax/lang/model/type/TypeMirror;Ljavax/lang/model/type/TypeMirror;)Ljavax/lang/model/type/WildcardType;", nullptr, $PUBLIC, $virtualMethod(JavacTypes, getWildcardType, $WildcardType*, $TypeMirror*, $TypeMirror*)},
+		{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/model/JavacTypes;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacTypes, instance, JavacTypes*, $Context*)},
+		{"isAssignable", "(Ljavax/lang/model/type/TypeMirror;Ljavax/lang/model/type/TypeMirror;)Z", nullptr, $PUBLIC, $virtualMethod(JavacTypes, isAssignable, bool, $TypeMirror*, $TypeMirror*)},
+		{"isSameType", "(Ljavax/lang/model/type/TypeMirror;Ljavax/lang/model/type/TypeMirror;)Z", nullptr, $PUBLIC, $virtualMethod(JavacTypes, isSameType, bool, $TypeMirror*, $TypeMirror*)},
+		{"isSubsignature", "(Ljavax/lang/model/type/ExecutableType;Ljavax/lang/model/type/ExecutableType;)Z", nullptr, $PUBLIC, $virtualMethod(JavacTypes, isSubsignature, bool, $ExecutableType*, $ExecutableType*)},
+		{"isSubtype", "(Ljavax/lang/model/type/TypeMirror;Ljavax/lang/model/type/TypeMirror;)Z", nullptr, $PUBLIC, $virtualMethod(JavacTypes, isSubtype, bool, $TypeMirror*, $TypeMirror*)},
+		{"unboxedType", "(Ljavax/lang/model/type/TypeMirror;)Ljavax/lang/model/type/PrimitiveType;", nullptr, $PUBLIC, $virtualMethod(JavacTypes, unboxedType, $PrimitiveType*, $TypeMirror*)},
+		{"validateTypeNotIn", "(Ljavax/lang/model/type/TypeMirror;Ljava/util/Set;)V", "(Ljavax/lang/model/type/TypeMirror;Ljava/util/Set<Ljavax/lang/model/type/TypeKind;>;)V", $PRIVATE, $method(JavacTypes, validateTypeNotIn, void, $TypeMirror*, $Set*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.model.JavacTypes$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.model.JavacTypes",
+		"java.lang.Object",
+		"javax.lang.model.util.Types",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.model.JavacTypes$1"
+	};
+	$loadClass(JavacTypes, name, initialize, &classInfo$$, JavacTypes::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacTypes);
+	});
 	return class$;
 }
 

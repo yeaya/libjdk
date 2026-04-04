@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifScrollPaneUI.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifScrollPaneUI$1.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -15,7 +14,6 @@
 #include <jcpp.h>
 
 using $MotifScrollPaneUI$1 = ::com::sun::java::swing::plaf::motif::MotifScrollPaneUI$1;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -36,51 +34,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace motif {
-
-$FieldInfo _MotifScrollPaneUI_FieldInfo_[] = {
-	{"vsbMarginBorderR", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MotifScrollPaneUI, vsbMarginBorderR)},
-	{"vsbMarginBorderL", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MotifScrollPaneUI, vsbMarginBorderL)},
-	{"hsbMarginBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MotifScrollPaneUI, hsbMarginBorder)},
-	{"vsbBorder", "Ljavax/swing/border/CompoundBorder;", nullptr, $PRIVATE, $field(MotifScrollPaneUI, vsbBorder)},
-	{"hsbBorder", "Ljavax/swing/border/CompoundBorder;", nullptr, $PRIVATE, $field(MotifScrollPaneUI, hsbBorder)},
-	{"propertyChangeHandler", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(MotifScrollPaneUI, propertyChangeHandler)},
-	{}
-};
-
-$MethodInfo _MotifScrollPaneUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifScrollPaneUI, init$, void)},
-	{"createPropertyChangeHandler", "()Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $method(MotifScrollPaneUI, createPropertyChangeHandler, $PropertyChangeListener*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifScrollPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{"installDefaults", "(Ljavax/swing/JScrollPane;)V", nullptr, $PROTECTED, $virtualMethod(MotifScrollPaneUI, installDefaults, void, $JScrollPane*)},
-	{"installListeners", "(Ljavax/swing/JScrollPane;)V", nullptr, $PROTECTED, $virtualMethod(MotifScrollPaneUI, installListeners, void, $JScrollPane*)},
-	{"uninstallDefaults", "(Ljavax/swing/JScrollPane;)V", nullptr, $PROTECTED, $virtualMethod(MotifScrollPaneUI, uninstallDefaults, void, $JScrollPane*)},
-	{"uninstallListeners", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(MotifScrollPaneUI, uninstallListeners, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _MotifScrollPaneUI_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifScrollPaneUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MotifScrollPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifScrollPaneUI",
-	"javax.swing.plaf.basic.BasicScrollPaneUI",
-	nullptr,
-	_MotifScrollPaneUI_FieldInfo_,
-	_MotifScrollPaneUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifScrollPaneUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifScrollPaneUI$1"
-};
-
-$Object* allocate$MotifScrollPaneUI($Class* clazz) {
-	return $of($alloc(MotifScrollPaneUI));
-}
 
 $Border* MotifScrollPaneUI::vsbMarginBorderR = nullptr;
 $Border* MotifScrollPaneUI::vsbMarginBorderL = nullptr;
@@ -106,11 +59,11 @@ $PropertyChangeListener* MotifScrollPaneUI::createPropertyChangeHandler() {
 }
 
 void MotifScrollPaneUI::installDefaults($JScrollPane* scrollpane) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicScrollPaneUI::installDefaults(scrollpane);
 	$var($JScrollBar, vsb, $nc(scrollpane)->getVerticalScrollBar());
 	if (vsb != nullptr) {
-		if ($nc($(scrollpane->getComponentOrientation()))->isLeftToRight()) {
+		if ($$nc(scrollpane->getComponentOrientation())->isLeftToRight()) {
 			$set(this, vsbBorder, $new($CompoundBorder, MotifScrollPaneUI::vsbMarginBorderR, $(vsb->getBorder())));
 		} else {
 			$set(this, vsbBorder, $new($CompoundBorder, MotifScrollPaneUI::vsbMarginBorderL, $(vsb->getBorder())));
@@ -125,7 +78,7 @@ void MotifScrollPaneUI::installDefaults($JScrollPane* scrollpane) {
 }
 
 void MotifScrollPaneUI::uninstallDefaults($JScrollPane* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicScrollPaneUI::uninstallDefaults(c);
 	$var($JScrollBar, vsb, $nc(this->scrollpane)->getVerticalScrollBar());
 	if (vsb != nullptr) {
@@ -148,7 +101,7 @@ $ComponentUI* MotifScrollPaneUI::createUI($JComponent* x) {
 	return $new(MotifScrollPaneUI);
 }
 
-void clinit$MotifScrollPaneUI($Class* class$) {
+void MotifScrollPaneUI::clinit$($Class* clazz) {
 	$assignStatic(MotifScrollPaneUI::vsbMarginBorderR, $new($EmptyBorder, 0, 4, 0, 0));
 	$assignStatic(MotifScrollPaneUI::vsbMarginBorderL, $new($EmptyBorder, 0, 0, 0, 4));
 	$assignStatic(MotifScrollPaneUI::hsbMarginBorder, $new($EmptyBorder, 4, 0, 0, 0));
@@ -158,7 +111,46 @@ MotifScrollPaneUI::MotifScrollPaneUI() {
 }
 
 $Class* MotifScrollPaneUI::load$($String* name, bool initialize) {
-	$loadClass(MotifScrollPaneUI, name, initialize, &_MotifScrollPaneUI_ClassInfo_, clinit$MotifScrollPaneUI, allocate$MotifScrollPaneUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"vsbMarginBorderR", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MotifScrollPaneUI, vsbMarginBorderR)},
+		{"vsbMarginBorderL", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MotifScrollPaneUI, vsbMarginBorderL)},
+		{"hsbMarginBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MotifScrollPaneUI, hsbMarginBorder)},
+		{"vsbBorder", "Ljavax/swing/border/CompoundBorder;", nullptr, $PRIVATE, $field(MotifScrollPaneUI, vsbBorder)},
+		{"hsbBorder", "Ljavax/swing/border/CompoundBorder;", nullptr, $PRIVATE, $field(MotifScrollPaneUI, hsbBorder)},
+		{"propertyChangeHandler", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(MotifScrollPaneUI, propertyChangeHandler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifScrollPaneUI, init$, void)},
+		{"createPropertyChangeHandler", "()Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $method(MotifScrollPaneUI, createPropertyChangeHandler, $PropertyChangeListener*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifScrollPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{"installDefaults", "(Ljavax/swing/JScrollPane;)V", nullptr, $PROTECTED, $virtualMethod(MotifScrollPaneUI, installDefaults, void, $JScrollPane*)},
+		{"installListeners", "(Ljavax/swing/JScrollPane;)V", nullptr, $PROTECTED, $virtualMethod(MotifScrollPaneUI, installListeners, void, $JScrollPane*)},
+		{"uninstallDefaults", "(Ljavax/swing/JScrollPane;)V", nullptr, $PROTECTED, $virtualMethod(MotifScrollPaneUI, uninstallDefaults, void, $JScrollPane*)},
+		{"uninstallListeners", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(MotifScrollPaneUI, uninstallListeners, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifScrollPaneUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifScrollPaneUI",
+		"javax.swing.plaf.basic.BasicScrollPaneUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifScrollPaneUI$1"
+	};
+	$loadClass(MotifScrollPaneUI, name, initialize, &classInfo$$, MotifScrollPaneUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifScrollPaneUI));
+	});
 	return class$;
 }
 

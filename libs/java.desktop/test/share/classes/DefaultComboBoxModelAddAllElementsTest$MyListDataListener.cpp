@@ -1,5 +1,4 @@
 #include <DefaultComboBoxModelAddAllElementsTest$MyListDataListener.h>
-
 #include <DefaultComboBoxModelAddAllElementsTest.h>
 #include <javax/swing/event/ListDataEvent.h>
 #include <jcpp.h>
@@ -10,49 +9,21 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ListDataEvent = ::javax::swing::event::ListDataEvent;
 
-$MethodInfo _DefaultComboBoxModelAddAllElementsTest$MyListDataListener_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DefaultComboBoxModelAddAllElementsTest$MyListDataListener, init$, void)},
-	{"contentsChanged", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultComboBoxModelAddAllElementsTest$MyListDataListener, contentsChanged, void, $ListDataEvent*)},
-	{"intervalAdded", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultComboBoxModelAddAllElementsTest$MyListDataListener, intervalAdded, void, $ListDataEvent*)},
-	{"intervalRemoved", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultComboBoxModelAddAllElementsTest$MyListDataListener, intervalRemoved, void, $ListDataEvent*)},
-	{}
-};
-
-$InnerClassInfo _DefaultComboBoxModelAddAllElementsTest$MyListDataListener_InnerClassesInfo_[] = {
-	{"DefaultComboBoxModelAddAllElementsTest$MyListDataListener", "DefaultComboBoxModelAddAllElementsTest", "MyListDataListener", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultComboBoxModelAddAllElementsTest$MyListDataListener_ClassInfo_ = {
-	$ACC_SUPER,
-	"DefaultComboBoxModelAddAllElementsTest$MyListDataListener",
-	"java.lang.Object",
-	"javax.swing.event.ListDataListener",
-	nullptr,
-	_DefaultComboBoxModelAddAllElementsTest$MyListDataListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultComboBoxModelAddAllElementsTest$MyListDataListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"DefaultComboBoxModelAddAllElementsTest"
-};
-
-$Object* allocate$DefaultComboBoxModelAddAllElementsTest$MyListDataListener($Class* clazz) {
-	return $of($alloc(DefaultComboBoxModelAddAllElementsTest$MyListDataListener));
-}
-
 void DefaultComboBoxModelAddAllElementsTest$MyListDataListener::init$() {
 }
 
 void DefaultComboBoxModelAddAllElementsTest$MyListDataListener::intervalAdded($ListDataEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(e)->getIndex1();
 	if (var$0 - e->getIndex0() != 50 - 0 - 1) {
-		$var($String, var$1, $$str({"Test case failed. Expected "_s, $$str((50 - 0)), " elements to be added, but only got "_s}));
-		int32_t var$2 = e->getIndex1();
-		$throwNew($RuntimeException, $$concat(var$1, $$str((var$2 - e->getIndex0()))));
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append("Test case failed. Expected "_s);
+		var$1->append(50);
+		var$1->append(0);
+		var$1->append(" elements to be added, but only got "_s);
+		var$1->append(e->getIndex1());
+		var$1->append(e->getIndex0());
+		$throwNew($RuntimeException, $$str(var$1));
 	}
 }
 
@@ -66,7 +37,35 @@ DefaultComboBoxModelAddAllElementsTest$MyListDataListener::DefaultComboBoxModelA
 }
 
 $Class* DefaultComboBoxModelAddAllElementsTest$MyListDataListener::load$($String* name, bool initialize) {
-	$loadClass(DefaultComboBoxModelAddAllElementsTest$MyListDataListener, name, initialize, &_DefaultComboBoxModelAddAllElementsTest$MyListDataListener_ClassInfo_, allocate$DefaultComboBoxModelAddAllElementsTest$MyListDataListener);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DefaultComboBoxModelAddAllElementsTest$MyListDataListener, init$, void)},
+		{"contentsChanged", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultComboBoxModelAddAllElementsTest$MyListDataListener, contentsChanged, void, $ListDataEvent*)},
+		{"intervalAdded", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultComboBoxModelAddAllElementsTest$MyListDataListener, intervalAdded, void, $ListDataEvent*)},
+		{"intervalRemoved", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultComboBoxModelAddAllElementsTest$MyListDataListener, intervalRemoved, void, $ListDataEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"DefaultComboBoxModelAddAllElementsTest$MyListDataListener", "DefaultComboBoxModelAddAllElementsTest", "MyListDataListener", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"DefaultComboBoxModelAddAllElementsTest$MyListDataListener",
+		"java.lang.Object",
+		"javax.swing.event.ListDataListener",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"DefaultComboBoxModelAddAllElementsTest"
+	};
+	$loadClass(DefaultComboBoxModelAddAllElementsTest$MyListDataListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultComboBoxModelAddAllElementsTest$MyListDataListener);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/net/httpserver/Authenticator.h>
-
 #include <com/sun/net/httpserver/Authenticator$Result.h>
 #include <com/sun/net/httpserver/HttpExchange.h>
 #include <jcpp.h>
@@ -15,39 +14,6 @@ namespace com {
 		namespace net {
 			namespace httpserver {
 
-$MethodInfo _Authenticator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(Authenticator, init$, void)},
-	{"authenticate", "(Lcom/sun/net/httpserver/HttpExchange;)Lcom/sun/net/httpserver/Authenticator$Result;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Authenticator, authenticate, $Authenticator$Result*, $HttpExchange*)},
-	{}
-};
-
-$InnerClassInfo _Authenticator_InnerClassesInfo_[] = {
-	{"com.sun.net.httpserver.Authenticator$Retry", "com.sun.net.httpserver.Authenticator", "Retry", $PUBLIC | $STATIC},
-	{"com.sun.net.httpserver.Authenticator$Success", "com.sun.net.httpserver.Authenticator", "Success", $PUBLIC | $STATIC},
-	{"com.sun.net.httpserver.Authenticator$Failure", "com.sun.net.httpserver.Authenticator", "Failure", $PUBLIC | $STATIC},
-	{"com.sun.net.httpserver.Authenticator$Result", "com.sun.net.httpserver.Authenticator", "Result", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Authenticator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.net.httpserver.Authenticator",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Authenticator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Authenticator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.net.httpserver.Authenticator$Retry,com.sun.net.httpserver.Authenticator$Success,com.sun.net.httpserver.Authenticator$Failure,com.sun.net.httpserver.Authenticator$Result"
-};
-
-$Object* allocate$Authenticator($Class* clazz) {
-	return $of($alloc(Authenticator));
-}
-
 void Authenticator::init$() {
 }
 
@@ -55,7 +21,35 @@ Authenticator::Authenticator() {
 }
 
 $Class* Authenticator::load$($String* name, bool initialize) {
-	$loadClass(Authenticator, name, initialize, &_Authenticator_ClassInfo_, allocate$Authenticator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(Authenticator, init$, void)},
+		{"authenticate", "(Lcom/sun/net/httpserver/HttpExchange;)Lcom/sun/net/httpserver/Authenticator$Result;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Authenticator, authenticate, $Authenticator$Result*, $HttpExchange*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.net.httpserver.Authenticator$Retry", "com.sun.net.httpserver.Authenticator", "Retry", $PUBLIC | $STATIC},
+		{"com.sun.net.httpserver.Authenticator$Success", "com.sun.net.httpserver.Authenticator", "Success", $PUBLIC | $STATIC},
+		{"com.sun.net.httpserver.Authenticator$Failure", "com.sun.net.httpserver.Authenticator", "Failure", $PUBLIC | $STATIC},
+		{"com.sun.net.httpserver.Authenticator$Result", "com.sun.net.httpserver.Authenticator", "Result", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.net.httpserver.Authenticator",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.net.httpserver.Authenticator$Retry,com.sun.net.httpserver.Authenticator$Success,com.sun.net.httpserver.Authenticator$Failure,com.sun.net.httpserver.Authenticator$Result"
+	};
+	$loadClass(Authenticator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Authenticator);
+	});
 	return class$;
 }
 

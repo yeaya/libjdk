@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$TypeProjection$2.h>
-
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type$ArrayType.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -24,51 +23,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Types$TypeProjection$2_FieldInfo_[] = {
-	{"this$1", "Lcom/sun/tools/javac/code/Types$TypeProjection;", nullptr, $FINAL | $SYNTHETIC, $field(Types$TypeProjection$2, this$1)},
-	{}
-};
-
-$MethodInfo _Types$TypeProjection$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types$TypeProjection;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, 0, $method(Types$TypeProjection$2, init$, void, $Types$TypeProjection*, $Type*, $Symbol$TypeSymbol*, $TypeMetadata*)},
-	{"needsStripping", "()Z", nullptr, $PROTECTED, $virtualMethod(Types$TypeProjection$2, needsStripping, bool)},
-	{}
-};
-
-$EnclosingMethodInfo _Types$TypeProjection$2_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Types$TypeProjection",
-	"visitArrayType",
-	"(Lcom/sun/tools/javac/code/Type$ArrayType;Lcom/sun/tools/javac/code/Types$ProjectionKind;)Lcom/sun/tools/javac/code/Type;"
-};
-
-$InnerClassInfo _Types$TypeProjection$2_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$TypeProjection", "com.sun.tools.javac.code.Types", "TypeProjection", 0},
-	{"com.sun.tools.javac.code.Types$TypeProjection$2", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Type$ArrayType", "com.sun.tools.javac.code.Type", "ArrayType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Types$ProjectionKind", "com.sun.tools.javac.code.Types", "ProjectionKind", $STATIC | $ABSTRACT | $ENUM},
-	{}
-};
-
-$ClassInfo _Types$TypeProjection$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Types$TypeProjection$2",
-	"com.sun.tools.javac.code.Type$ArrayType",
-	nullptr,
-	_Types$TypeProjection$2_FieldInfo_,
-	_Types$TypeProjection$2_MethodInfo_,
-	nullptr,
-	&_Types$TypeProjection$2_EnclosingMethodInfo_,
-	_Types$TypeProjection$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$TypeProjection$2($Class* clazz) {
-	return $of($alloc(Types$TypeProjection$2));
-}
-
 void Types$TypeProjection$2::init$($Types$TypeProjection* this$1, $Type* elemtype, $Symbol$TypeSymbol* arrayClass, $TypeMetadata* metadata) {
 	$set(this, this$1, this$1);
 	$Type$ArrayType::init$(elemtype, arrayClass, metadata);
@@ -82,7 +36,45 @@ Types$TypeProjection$2::Types$TypeProjection$2() {
 }
 
 $Class* Types$TypeProjection$2::load$($String* name, bool initialize) {
-	$loadClass(Types$TypeProjection$2, name, initialize, &_Types$TypeProjection$2_ClassInfo_, allocate$Types$TypeProjection$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lcom/sun/tools/javac/code/Types$TypeProjection;", nullptr, $FINAL | $SYNTHETIC, $field(Types$TypeProjection$2, this$1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types$TypeProjection;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, 0, $method(Types$TypeProjection$2, init$, void, $Types$TypeProjection*, $Type*, $Symbol$TypeSymbol*, $TypeMetadata*)},
+		{"needsStripping", "()Z", nullptr, $PROTECTED, $virtualMethod(Types$TypeProjection$2, needsStripping, bool)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Types$TypeProjection",
+		"visitArrayType",
+		"(Lcom/sun/tools/javac/code/Type$ArrayType;Lcom/sun/tools/javac/code/Types$ProjectionKind;)Lcom/sun/tools/javac/code/Type;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$TypeProjection", "com.sun.tools.javac.code.Types", "TypeProjection", 0},
+		{"com.sun.tools.javac.code.Types$TypeProjection$2", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Type$ArrayType", "com.sun.tools.javac.code.Type", "ArrayType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Types$ProjectionKind", "com.sun.tools.javac.code.Types", "ProjectionKind", $STATIC | $ABSTRACT | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Types$TypeProjection$2",
+		"com.sun.tools.javac.code.Type$ArrayType",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$TypeProjection$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Types$TypeProjection$2));
+	});
 	return class$;
 }
 

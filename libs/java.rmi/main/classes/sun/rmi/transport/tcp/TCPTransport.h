@@ -91,6 +91,7 @@ class TCPTransport : public ::sun::rmi::transport::Transport {
 	$class(TCPTransport, 0, ::sun::rmi::transport::Transport)
 public:
 	TCPTransport();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::LinkedList* epList);
 	virtual void checkAcceptPermission(::java::security::AccessControlContext* acc) override;
 	static void closeSocket(::java::net::Socket* sock);

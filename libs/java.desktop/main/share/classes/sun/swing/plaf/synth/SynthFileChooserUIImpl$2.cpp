@@ -1,5 +1,4 @@
 #include <sun/swing/plaf/synth/SynthFileChooserUIImpl$2.h>
-
 #include <java/beans/PropertyChangeEvent.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/JToggleButton.h>
@@ -16,7 +15,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JToggleButton = ::javax::swing::JToggleButton;
 using $FilePane = ::sun::swing::FilePane;
 using $SynthFileChooserUIImpl = ::sun::swing::plaf::synth::SynthFileChooserUIImpl;
 
@@ -24,48 +22,6 @@ namespace sun {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthFileChooserUIImpl$2_FieldInfo_[] = {
-	{"this$0", "Lsun/swing/plaf/synth/SynthFileChooserUIImpl;", nullptr, $FINAL | $SYNTHETIC, $field(SynthFileChooserUIImpl$2, this$0)},
-	{}
-};
-
-$MethodInfo _SynthFileChooserUIImpl$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/swing/plaf/synth/SynthFileChooserUIImpl;)V", nullptr, 0, $method(SynthFileChooserUIImpl$2, init$, void, $SynthFileChooserUIImpl*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUIImpl$2, propertyChange, void, $PropertyChangeEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _SynthFileChooserUIImpl$2_EnclosingMethodInfo_ = {
-	"sun.swing.plaf.synth.SynthFileChooserUIImpl",
-	"installComponents",
-	"(Ljavax/swing/JFileChooser;)V"
-};
-
-$InnerClassInfo _SynthFileChooserUIImpl$2_InnerClassesInfo_[] = {
-	{"sun.swing.plaf.synth.SynthFileChooserUIImpl$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SynthFileChooserUIImpl$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.swing.plaf.synth.SynthFileChooserUIImpl$2",
-	"java.lang.Object",
-	"java.beans.PropertyChangeListener",
-	_SynthFileChooserUIImpl$2_FieldInfo_,
-	_SynthFileChooserUIImpl$2_MethodInfo_,
-	nullptr,
-	&_SynthFileChooserUIImpl$2_EnclosingMethodInfo_,
-	_SynthFileChooserUIImpl$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.plaf.synth.SynthFileChooserUIImpl"
-};
-
-$Object* allocate$SynthFileChooserUIImpl$2($Class* clazz) {
-	return $of($alloc(SynthFileChooserUIImpl$2));
-}
 
 void SynthFileChooserUIImpl$2::init$($SynthFileChooserUIImpl* this$0) {
 	$set(this, this$0, this$0);
@@ -76,15 +32,11 @@ void SynthFileChooserUIImpl$2::propertyChange($PropertyChangeEvent* e) {
 		int32_t viewType = $nc(this->this$0->filePane)->getViewType();
 		switch (viewType) {
 		case $FilePane::VIEWTYPE_LIST:
-			{
-				$nc(this->this$0->listViewButton)->setSelected(true);
-				break;
-			}
+			$nc(this->this$0->listViewButton)->setSelected(true);
+			break;
 		case $FilePane::VIEWTYPE_DETAILS:
-			{
-				$nc(this->this$0->detailsViewButton)->setSelected(true);
-				break;
-			}
+			$nc(this->this$0->detailsViewButton)->setSelected(true);
+			break;
 		}
 	}
 }
@@ -93,7 +45,42 @@ SynthFileChooserUIImpl$2::SynthFileChooserUIImpl$2() {
 }
 
 $Class* SynthFileChooserUIImpl$2::load$($String* name, bool initialize) {
-	$loadClass(SynthFileChooserUIImpl$2, name, initialize, &_SynthFileChooserUIImpl$2_ClassInfo_, allocate$SynthFileChooserUIImpl$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/swing/plaf/synth/SynthFileChooserUIImpl;", nullptr, $FINAL | $SYNTHETIC, $field(SynthFileChooserUIImpl$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/swing/plaf/synth/SynthFileChooserUIImpl;)V", nullptr, 0, $method(SynthFileChooserUIImpl$2, init$, void, $SynthFileChooserUIImpl*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUIImpl$2, propertyChange, void, $PropertyChangeEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.swing.plaf.synth.SynthFileChooserUIImpl",
+		"installComponents",
+		"(Ljavax/swing/JFileChooser;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.plaf.synth.SynthFileChooserUIImpl$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.swing.plaf.synth.SynthFileChooserUIImpl$2",
+		"java.lang.Object",
+		"java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.plaf.synth.SynthFileChooserUIImpl"
+	};
+	$loadClass(SynthFileChooserUIImpl$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SynthFileChooserUIImpl$2);
+	});
 	return class$;
 }
 

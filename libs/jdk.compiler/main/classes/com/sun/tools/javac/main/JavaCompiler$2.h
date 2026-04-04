@@ -15,6 +15,7 @@ class JavaCompiler$2 : public ::java::lang::Object {
 	$class(JavaCompiler$2, 0, ::java::lang::Object)
 public:
 	JavaCompiler$2();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag;
 	static $ints* $SwitchMap$com$sun$tools$javac$main$JavaCompiler$CompilePolicy;
 };

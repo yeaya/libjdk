@@ -33,7 +33,10 @@ public:
 	::com::sun::tools::javac::util::JCDiagnostic* diagnostic = nullptr;
 	Resolve$InapplicableMethodException(const Resolve$InapplicableMethodException& e);
 	virtual void throw$() override;
-	inline Resolve$InapplicableMethodException* operator ->() {
+	inline Resolve$InapplicableMethodException* operator ->() const {
+		return (Resolve$InapplicableMethodException*)throwing$;
+	}
+	inline operator Resolve$InapplicableMethodException*() const {
 		return (Resolve$InapplicableMethodException*)throwing$;
 	}
 };

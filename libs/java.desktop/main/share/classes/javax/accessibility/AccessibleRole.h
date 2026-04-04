@@ -139,6 +139,7 @@ class $export AccessibleRole : public ::javax::accessibility::AccessibleBundle {
 	$class(AccessibleRole, 0, ::javax::accessibility::AccessibleBundle)
 public:
 	AccessibleRole();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* key);
 	static ::javax::accessibility::AccessibleRole* ALERT;
 	static ::javax::accessibility::AccessibleRole* COLUMN_HEADER;

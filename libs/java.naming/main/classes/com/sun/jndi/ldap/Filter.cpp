@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/Filter.h>
-
 #include <com/sun/jndi/ldap/Ber.h>
 #include <com/sun/jndi/ldap/BerEncoder.h>
 #include <com/sun/jndi/ldap/LdapClient.h>
@@ -29,7 +28,6 @@
 using $Ber = ::com::sun::jndi::ldap::Ber;
 using $BerEncoder = ::com::sun::jndi::ldap::BerEncoder;
 using $LdapClient = ::com::sun::jndi::ldap::LdapClient;
-using $PrintStream = ::java::io::PrintStream;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -41,62 +39,6 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$FieldInfo _Filter_FieldInfo_[] = {
-	{"dbg", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Filter, dbg)},
-	{"dbgIndent", "I", nullptr, $PRIVATE | $STATIC, $staticField(Filter, dbgIndent)},
-	{"LDAP_FILTER_AND", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_FILTER_AND)},
-	{"LDAP_FILTER_OR", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_FILTER_OR)},
-	{"LDAP_FILTER_NOT", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_FILTER_NOT)},
-	{"LDAP_FILTER_EQUALITY", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_FILTER_EQUALITY)},
-	{"LDAP_FILTER_SUBSTRINGS", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_FILTER_SUBSTRINGS)},
-	{"LDAP_FILTER_GE", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_FILTER_GE)},
-	{"LDAP_FILTER_LE", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_FILTER_LE)},
-	{"LDAP_FILTER_PRESENT", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_FILTER_PRESENT)},
-	{"LDAP_FILTER_APPROX", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_FILTER_APPROX)},
-	{"LDAP_FILTER_EXT", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_FILTER_EXT)},
-	{"LDAP_FILTER_EXT_RULE", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_FILTER_EXT_RULE)},
-	{"LDAP_FILTER_EXT_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_FILTER_EXT_TYPE)},
-	{"LDAP_FILTER_EXT_VAL", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_FILTER_EXT_VAL)},
-	{"LDAP_FILTER_EXT_DN", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_FILTER_EXT_DN)},
-	{"LDAP_SUBSTRING_INITIAL", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_SUBSTRING_INITIAL)},
-	{"LDAP_SUBSTRING_ANY", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_SUBSTRING_ANY)},
-	{"LDAP_SUBSTRING_FINAL", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_SUBSTRING_FINAL)},
-	{}
-};
-
-$MethodInfo _Filter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Filter, init$, void)},
-	{"dprint", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, dprint, void, $String*)},
-	{"dprint", "(Ljava/lang/String;[B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, dprint, void, $String*, $bytes*)},
-	{"dprint", "(Ljava/lang/String;[BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, dprint, void, $String*, $bytes*, int32_t, int32_t)},
-	{"encodeComplexFilter", "(Lcom/sun/jndi/ldap/BerEncoder;[BI[II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, encodeComplexFilter, void, $BerEncoder*, $bytes*, int32_t, $ints*, int32_t), "java.io.IOException,javax.naming.NamingException"},
-	{"encodeExtensibleMatch", "(Lcom/sun/jndi/ldap/BerEncoder;[BIIII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, encodeExtensibleMatch, void, $BerEncoder*, $bytes*, int32_t, int32_t, int32_t, int32_t), "java.io.IOException,javax.naming.NamingException"},
-	{"encodeFilter", "(Lcom/sun/jndi/ldap/BerEncoder;[BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, encodeFilter, void, $BerEncoder*, $bytes*, int32_t, int32_t), "java.io.IOException,javax.naming.NamingException"},
-	{"encodeFilterList", "(Lcom/sun/jndi/ldap/BerEncoder;[BIII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, encodeFilterList, void, $BerEncoder*, $bytes*, int32_t, int32_t, int32_t), "java.io.IOException,javax.naming.NamingException"},
-	{"encodeFilterString", "(Lcom/sun/jndi/ldap/BerEncoder;Ljava/lang/String;Z)V", nullptr, $STATIC, $staticMethod(Filter, encodeFilterString, void, $BerEncoder*, $String*, bool), "java.io.IOException,javax.naming.NamingException"},
-	{"encodeSimpleFilter", "(Lcom/sun/jndi/ldap/BerEncoder;[BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, encodeSimpleFilter, void, $BerEncoder*, $bytes*, int32_t, int32_t), "java.io.IOException,javax.naming.NamingException"},
-	{"encodeSubstringFilter", "(Lcom/sun/jndi/ldap/BerEncoder;[BIIII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, encodeSubstringFilter, void, $BerEncoder*, $bytes*, int32_t, int32_t, int32_t, int32_t), "java.io.IOException,javax.naming.NamingException"},
-	{"findRightParen", "([B[II)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, findRightParen, $ints*, $bytes*, $ints*, int32_t), "java.io.IOException,javax.naming.NamingException"},
-	{"findUnescaped", "([BCII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, findUnescaped, int32_t, $bytes*, char16_t, int32_t, int32_t)},
-	{"indexOf", "([BCII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, indexOf, int32_t, $bytes*, char16_t, int32_t, int32_t)},
-	{"indexOf", "([BLjava/lang/String;II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, indexOf, int32_t, $bytes*, $String*, int32_t, int32_t)},
-	{"unescapeFilterValue", "([BII)[B", nullptr, $STATIC, $staticMethod(Filter, unescapeFilterValue, $bytes*, $bytes*, int32_t, int32_t), "javax.naming.NamingException"},
-	{}
-};
-
-$ClassInfo _Filter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.Filter",
-	"java.lang.Object",
-	nullptr,
-	_Filter_FieldInfo_,
-	_Filter_MethodInfo_
-};
-
-$Object* allocate$Filter($Class* clazz) {
-	return $of($alloc(Filter));
-}
-
 int32_t Filter::dbgIndent = 0;
 
 void Filter::init$() {
@@ -104,7 +46,7 @@ void Filter::init$() {
 
 void Filter::encodeFilterString($BerEncoder* ber, $String* filterStr, bool isLdapv3) {
 	$init(Filter);
-	if ((filterStr == nullptr) || ($nc(filterStr)->isEmpty())) {
+	if ((filterStr == nullptr) || (filterStr->isEmpty())) {
 		$throwNew($InvalidSearchFilterException, "Empty filter"_s);
 	}
 	$var($bytes, filter, nullptr);
@@ -115,11 +57,13 @@ void Filter::encodeFilterString($BerEncoder* ber, $String* filterStr, bool isLda
 		$assign(filter, $nc(filterStr)->getBytes("8859_1"_s));
 	}
 	filterLen = $nc(filter)->length;
+	;
 	encodeFilter(ber, filter, 0, filterLen);
 }
 
 void Filter::encodeFilter($BerEncoder* ber, $bytes* filter, int32_t filterStart, int32_t filterEnd) {
 	$init(Filter);
+	;
 	if ((filterEnd - filterStart) <= 0) {
 		$throwNew($InvalidSearchFilterException, "Empty filter"_s);
 	}
@@ -132,79 +76,63 @@ void Filter::encodeFilter($BerEncoder* ber, $bytes* filter, int32_t filterStart,
 	for (filtOffset->set(0, filterStart); filtOffset->get(0) < filterEnd;) {
 		switch ($nc(filter)->get(filtOffset->get(0))) {
 		case u'(':
-			{
-				++(*filtOffset)[0];
-				++parens;
-				switch (filter->get(filtOffset->get(0))) {
-				case u'&':
-					{
-						encodeComplexFilter(ber, filter, Filter::LDAP_FILTER_AND, filtOffset, filterEnd);
-						--parens;
-						break;
+			++(*filtOffset)[0];
+			++parens;
+			switch (filter->get(filtOffset->get(0))) {
+			case u'&':
+				encodeComplexFilter(ber, filter, Filter::LDAP_FILTER_AND, filtOffset, filterEnd);
+				--parens;
+				break;
+			case u'|':
+				encodeComplexFilter(ber, filter, Filter::LDAP_FILTER_OR, filtOffset, filterEnd);
+				--parens;
+				break;
+			case u'!':
+				encodeComplexFilter(ber, filter, Filter::LDAP_FILTER_NOT, filtOffset, filterEnd);
+				--parens;
+				break;
+			default:
+				balance = 1;
+				escape = false;
+				nextOffset = filtOffset->get(0);
+				while (nextOffset < filterEnd && balance > 0) {
+					if (!escape) {
+						if (filter->get(nextOffset) == u'(') {
+							++balance;
+						} else if (filter->get(nextOffset) == u')') {
+							--balance;
+						}
 					}
-				case u'|':
-					{
-						encodeComplexFilter(ber, filter, Filter::LDAP_FILTER_OR, filtOffset, filterEnd);
-						--parens;
-						break;
-					}
-				case u'!':
-					{
-						encodeComplexFilter(ber, filter, Filter::LDAP_FILTER_NOT, filtOffset, filterEnd);
-						--parens;
-						break;
-					}
-				default:
-					{
-						balance = 1;
+					if (filter->get(nextOffset) == u'\\' && !escape) {
+						escape = true;
+					} else {
 						escape = false;
-						nextOffset = filtOffset->get(0);
-						while (nextOffset < filterEnd && balance > 0) {
-							if (!escape) {
-								if (filter->get(nextOffset) == u'(') {
-									++balance;
-								} else if (filter->get(nextOffset) == u')') {
-									--balance;
-								}
-							}
-							if (filter->get(nextOffset) == u'\\' && !escape) {
-								escape = true;
-							} else {
-								escape = false;
-							}
-							if (balance > 0) {
-								++nextOffset;
-							}
-						}
-						if (balance != 0) {
-							$throwNew($InvalidSearchFilterException, "Unbalanced parenthesis"_s);
-						}
-						encodeSimpleFilter(ber, filter, filtOffset->get(0), nextOffset);
-						filtOffset->set(0, nextOffset + 1);
-						--parens;
-						break;
+					}
+					if (balance > 0) {
+						++nextOffset;
 					}
 				}
-				break;
-			}
-		case u')':
-			{
-				$nc(ber)->endSeq();
-				++(*filtOffset)[0];
+				if (balance != 0) {
+					$throwNew($InvalidSearchFilterException, "Unbalanced parenthesis"_s);
+				}
+				encodeSimpleFilter(ber, filter, filtOffset->get(0), nextOffset);
+				filtOffset->set(0, nextOffset + 1);
 				--parens;
 				break;
 			}
+			break;
+		case u')':
+			$nc(ber)->endSeq();
+			++(*filtOffset)[0];
+			--parens;
+			break;
 		case u' ':
-			{
-				++(*filtOffset)[0];
-				break;
-			}
+			++(*filtOffset)[0];
+			break;
 		default:
-			{
-				encodeSimpleFilter(ber, filter, filtOffset->get(0), filterEnd);
-				filtOffset->set(0, filterEnd);
-				break;
-			}
+			encodeSimpleFilter(ber, filter, filtOffset->get(0), filterEnd);
+			filtOffset->set(0, filterEnd);
+			break;
 		}
 		if (parens < 0) {
 			$throwNew($InvalidSearchFilterException, "Unbalanced parenthesis"_s);
@@ -213,15 +141,17 @@ void Filter::encodeFilter($BerEncoder* ber, $bytes* filter, int32_t filterStart,
 	if (parens != 0) {
 		$throwNew($InvalidSearchFilterException, "Unbalanced parenthesis"_s);
 	}
+	;
 }
 
 $bytes* Filter::unescapeFilterValue($bytes* orig, int32_t start, int32_t end) {
 	$init(Filter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool escape = false;
 	bool escStart = false;
 	int32_t ival = 0;
 	int8_t ch = 0;
+	;
 	int32_t len = end - start;
 	$var($bytes, tbuf, $new($bytes, len));
 	int32_t j = 0;
@@ -251,6 +181,7 @@ $bytes* Filter::unescapeFilterValue($bytes* orig, int32_t start, int32_t end) {
 	}
 	$var($bytes, answer, $new($bytes, j));
 	$System::arraycopy(tbuf, 0, answer, 0, j);
+	;
 	return answer;
 }
 
@@ -268,7 +199,7 @@ int32_t Filter::indexOf($bytes* str, $String* target, int32_t start, int32_t end
 	$init(Filter);
 	int32_t where = indexOf(str, $nc(target)->charAt(0), start, end);
 	if (where >= 0) {
-		for (int32_t i = 1; i < $nc(target)->length(); ++i) {
+		for (int32_t i = 1; i < target->length(); ++i) {
 			if ($nc(str)->get(where + i) != target->charAt(i)) {
 				return -1;
 			}
@@ -284,6 +215,7 @@ int32_t Filter::findUnescaped($bytes* str, char16_t ch, int32_t start, int32_t e
 		int32_t backSlashPos = 0;
 		int32_t backSlashCnt = 0;
 		for (backSlashPos = where - 1; ((backSlashPos >= start) && ($nc(str)->get(backSlashPos) == u'\\')); --backSlashPos, ++backSlashCnt) {
+			;
 		}
 		if (where == start || where == -1 || ((backSlashCnt % 2) == 0)) {
 			return where;
@@ -295,7 +227,8 @@ int32_t Filter::findUnescaped($bytes* str, char16_t ch, int32_t start, int32_t e
 
 void Filter::encodeSimpleFilter($BerEncoder* ber, $bytes* filter, int32_t filtStart, int32_t filtEnd) {
 	$init(Filter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	$var($String, type, nullptr);
 	$var($String, value, nullptr);
 	int32_t valueStart = 0;
@@ -312,36 +245,27 @@ void Filter::encodeSimpleFilter($BerEncoder* ber, $bytes* filter, int32_t filtSt
 	int32_t ftype = 0;
 	switch ($nc(filter)->get(eq - 1)) {
 	case u'<':
-		{
-			ftype = Filter::LDAP_FILTER_LE;
-			typeEnd = eq - 1;
-			break;
-		}
+		ftype = Filter::LDAP_FILTER_LE;
+		typeEnd = eq - 1;
+		break;
 	case u'>':
-		{
-			ftype = Filter::LDAP_FILTER_GE;
-			typeEnd = eq - 1;
-			break;
-		}
+		ftype = Filter::LDAP_FILTER_GE;
+		typeEnd = eq - 1;
+		break;
 	case u'~':
-		{
-			ftype = Filter::LDAP_FILTER_APPROX;
-			typeEnd = eq - 1;
-			break;
-		}
+		ftype = Filter::LDAP_FILTER_APPROX;
+		typeEnd = eq - 1;
+		break;
 	case u':':
-		{
-			ftype = Filter::LDAP_FILTER_EXT;
-			typeEnd = eq - 1;
-			break;
-		}
+		ftype = Filter::LDAP_FILTER_EXT;
+		typeEnd = eq - 1;
+		break;
 	default:
-		{
-			typeEnd = eq;
-			ftype = 0;
-			break;
-		}
+		typeEnd = eq;
+		ftype = 0;
+		break;
 	}
+	;
 	int32_t optionsStart = -1;
 	int32_t extensibleStart = -1;
 	if ((filter->get(typeStart) >= u'0' && filter->get(typeStart) <= u'9') || (filter->get(typeStart) >= u'A' && filter->get(typeStart) <= u'Z') || (filter->get(typeStart) >= u'a' && filter->get(typeStart) <= u'z')) {
@@ -449,11 +373,13 @@ void Filter::encodeSimpleFilter($BerEncoder* ber, $bytes* filter, int32_t filtSt
 		ber->encodeOctetString($(unescapeFilterValue(filter, valueStart, valueEnd)), $Ber::ASN_OCTET_STR);
 		ber->endSeq();
 	}
+	;
 }
 
 void Filter::encodeSubstringFilter($BerEncoder* ber, $bytes* filter, int32_t typeStart, int32_t typeEnd, int32_t valueStart, int32_t valueEnd) {
 	$init(Filter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	$nc(ber)->beginSeq(Filter::LDAP_FILTER_SUBSTRINGS);
 	ber->encodeOctetString(filter, $Ber::ASN_OCTET_STR, typeStart, typeEnd - typeStart);
 	ber->beginSeq($LdapClient::LBER_SEQUENCE);
@@ -462,27 +388,33 @@ void Filter::encodeSubstringFilter($BerEncoder* ber, $bytes* filter, int32_t typ
 	while ((index = findUnescaped(filter, u'*', previndex, valueEnd)) != -1) {
 		if (previndex == valueStart) {
 			if (previndex < index) {
+				;
 				ber->encodeOctetString($(unescapeFilterValue(filter, previndex, index)), Filter::LDAP_SUBSTRING_INITIAL);
 			}
 		} else if (previndex < index) {
+			;
 			ber->encodeOctetString($(unescapeFilterValue(filter, previndex, index)), Filter::LDAP_SUBSTRING_ANY);
 		}
 		previndex = index + 1;
 	}
 	if (previndex < valueEnd) {
+		;
 		ber->encodeOctetString($(unescapeFilterValue(filter, previndex, valueEnd)), Filter::LDAP_SUBSTRING_FINAL);
 	}
 	ber->endSeq();
 	ber->endSeq();
+	;
 }
 
 void Filter::encodeComplexFilter($BerEncoder* ber, $bytes* filter, int32_t filterType, $ints* filtOffset, int32_t filtEnd) {
 	$init(Filter);
+	;
 	++(*$nc(filtOffset))[0];
 	$nc(ber)->beginSeq(filterType);
 	$var($ints, parens, findRightParen(filter, filtOffset, filtEnd));
-	encodeFilterList(ber, filter, filterType, $nc(parens)->get(0), parens->get(1));
+	encodeFilterList(ber, filter, filterType, $nc(parens)->get(0), $nc(parens)->get(1));
 	ber->endSeq();
+	;
 }
 
 $ints* Filter::findRightParen($bytes* filter, $ints* filtOffset, int32_t end) {
@@ -520,7 +452,8 @@ $ints* Filter::findRightParen($bytes* filter, $ints* filtOffset, int32_t end) {
 
 void Filter::encodeFilterList($BerEncoder* ber, $bytes* filter, int32_t filterType, int32_t start, int32_t end) {
 	$init(Filter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	$var($ints, filtOffset, $new($ints, 1));
 	int32_t listNumber = 0;
 	for (filtOffset->set(0, start); filtOffset->get(0) < end; ++(*filtOffset)[0]) {
@@ -530,11 +463,11 @@ void Filter::encodeFilterList($BerEncoder* ber, $bytes* filter, int32_t filterTy
 		if ((filterType == Filter::LDAP_FILTER_NOT) && (listNumber > 0)) {
 			$throwNew($InvalidSearchFilterException, "Filter (!) cannot be followed by more than one filters"_s);
 		}
-		if ($nc(filter)->get(filtOffset->get(0)) == u'(') {
+		if (filter->get(filtOffset->get(0)) == u'(') {
 			continue;
 		}
 		$var($ints, parens, findRightParen(filter, filtOffset, end));
-		int32_t len = $nc(parens)->get(1) - parens->get(0);
+		int32_t len = $nc(parens)->get(1) - $nc(parens)->get(0);
 		$var($bytes, newfilter, $new($bytes, len + 2));
 		$System::arraycopy(filter, parens->get(0), newfilter, 1, len);
 		newfilter->set(0, (int8_t)u'(');
@@ -542,6 +475,7 @@ void Filter::encodeFilterList($BerEncoder* ber, $bytes* filter, int32_t filterTy
 		encodeFilter(ber, newfilter, 0, newfilter->length);
 		++listNumber;
 	}
+	;
 }
 
 void Filter::encodeExtensibleMatch($BerEncoder* ber, $bytes* filter, int32_t matchStart, int32_t matchEnd, int32_t valueStart, int32_t valueEnd) {
@@ -595,12 +529,12 @@ void Filter::dprint($String* msg, $bytes* str, int32_t start, int32_t end) {
 	$plusAssign(dstr, msg);
 	$nc($System::err)->print(dstr);
 	for (int32_t j = start; j < end; ++j) {
-		$nc($System::err)->print((char16_t)$nc(str)->get(j));
+		$System::err->print((char16_t)$nc(str)->get(j));
 	}
-	$nc($System::err)->println();
+	$System::err->println();
 }
 
-void clinit$Filter($Class* class$) {
+void Filter::clinit$($Class* clazz) {
 	Filter::dbgIndent = 0;
 }
 
@@ -608,7 +542,58 @@ Filter::Filter() {
 }
 
 $Class* Filter::load$($String* name, bool initialize) {
-	$loadClass(Filter, name, initialize, &_Filter_ClassInfo_, clinit$Filter, allocate$Filter);
+	$FieldInfo fieldInfos$$[] = {
+		{"dbg", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Filter, dbg)},
+		{"dbgIndent", "I", nullptr, $PRIVATE | $STATIC, $staticField(Filter, dbgIndent)},
+		{"LDAP_FILTER_AND", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_FILTER_AND)},
+		{"LDAP_FILTER_OR", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_FILTER_OR)},
+		{"LDAP_FILTER_NOT", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_FILTER_NOT)},
+		{"LDAP_FILTER_EQUALITY", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_FILTER_EQUALITY)},
+		{"LDAP_FILTER_SUBSTRINGS", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_FILTER_SUBSTRINGS)},
+		{"LDAP_FILTER_GE", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_FILTER_GE)},
+		{"LDAP_FILTER_LE", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_FILTER_LE)},
+		{"LDAP_FILTER_PRESENT", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_FILTER_PRESENT)},
+		{"LDAP_FILTER_APPROX", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_FILTER_APPROX)},
+		{"LDAP_FILTER_EXT", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_FILTER_EXT)},
+		{"LDAP_FILTER_EXT_RULE", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_FILTER_EXT_RULE)},
+		{"LDAP_FILTER_EXT_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_FILTER_EXT_TYPE)},
+		{"LDAP_FILTER_EXT_VAL", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_FILTER_EXT_VAL)},
+		{"LDAP_FILTER_EXT_DN", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_FILTER_EXT_DN)},
+		{"LDAP_SUBSTRING_INITIAL", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_SUBSTRING_INITIAL)},
+		{"LDAP_SUBSTRING_ANY", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_SUBSTRING_ANY)},
+		{"LDAP_SUBSTRING_FINAL", "I", nullptr, $STATIC | $FINAL, $constField(Filter, LDAP_SUBSTRING_FINAL)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Filter, init$, void)},
+		{"dprint", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, dprint, void, $String*)},
+		{"dprint", "(Ljava/lang/String;[B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, dprint, void, $String*, $bytes*)},
+		{"dprint", "(Ljava/lang/String;[BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, dprint, void, $String*, $bytes*, int32_t, int32_t)},
+		{"encodeComplexFilter", "(Lcom/sun/jndi/ldap/BerEncoder;[BI[II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, encodeComplexFilter, void, $BerEncoder*, $bytes*, int32_t, $ints*, int32_t), "java.io.IOException,javax.naming.NamingException"},
+		{"encodeExtensibleMatch", "(Lcom/sun/jndi/ldap/BerEncoder;[BIIII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, encodeExtensibleMatch, void, $BerEncoder*, $bytes*, int32_t, int32_t, int32_t, int32_t), "java.io.IOException,javax.naming.NamingException"},
+		{"encodeFilter", "(Lcom/sun/jndi/ldap/BerEncoder;[BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, encodeFilter, void, $BerEncoder*, $bytes*, int32_t, int32_t), "java.io.IOException,javax.naming.NamingException"},
+		{"encodeFilterList", "(Lcom/sun/jndi/ldap/BerEncoder;[BIII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, encodeFilterList, void, $BerEncoder*, $bytes*, int32_t, int32_t, int32_t), "java.io.IOException,javax.naming.NamingException"},
+		{"encodeFilterString", "(Lcom/sun/jndi/ldap/BerEncoder;Ljava/lang/String;Z)V", nullptr, $STATIC, $staticMethod(Filter, encodeFilterString, void, $BerEncoder*, $String*, bool), "java.io.IOException,javax.naming.NamingException"},
+		{"encodeSimpleFilter", "(Lcom/sun/jndi/ldap/BerEncoder;[BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, encodeSimpleFilter, void, $BerEncoder*, $bytes*, int32_t, int32_t), "java.io.IOException,javax.naming.NamingException"},
+		{"encodeSubstringFilter", "(Lcom/sun/jndi/ldap/BerEncoder;[BIIII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, encodeSubstringFilter, void, $BerEncoder*, $bytes*, int32_t, int32_t, int32_t, int32_t), "java.io.IOException,javax.naming.NamingException"},
+		{"findRightParen", "([B[II)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, findRightParen, $ints*, $bytes*, $ints*, int32_t), "java.io.IOException,javax.naming.NamingException"},
+		{"findUnescaped", "([BCII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, findUnescaped, int32_t, $bytes*, char16_t, int32_t, int32_t)},
+		{"indexOf", "([BCII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, indexOf, int32_t, $bytes*, char16_t, int32_t, int32_t)},
+		{"indexOf", "([BLjava/lang/String;II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, indexOf, int32_t, $bytes*, $String*, int32_t, int32_t)},
+		{"unescapeFilterValue", "([BII)[B", nullptr, $STATIC, $staticMethod(Filter, unescapeFilterValue, $bytes*, $bytes*, int32_t, int32_t), "javax.naming.NamingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.Filter",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Filter, name, initialize, &classInfo$$, Filter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Filter);
+	});
 	return class$;
 }
 

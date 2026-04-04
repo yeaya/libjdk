@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/jpeg/JPEGBuffer.h>
-
 #include <com/sun/imageio/plugins/jpeg/JPEG.h>
 #include <com/sun/imageio/plugins/jpeg/JPEGImageReader.h>
 #include <java/lang/Math.h>
@@ -12,7 +11,6 @@
 
 using $JPEG = ::com::sun::imageio::plugins::jpeg::JPEG;
 using $JPEGImageReader = ::com::sun::imageio::plugins::jpeg::JPEGImageReader;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
@@ -27,41 +25,6 @@ namespace com {
 			namespace plugins {
 				namespace jpeg {
 
-$FieldInfo _JPEGBuffer_FieldInfo_[] = {
-	{"debug", "Z", nullptr, $PRIVATE, $field(JPEGBuffer, debug)},
-	{"BUFFER_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(JPEGBuffer, BUFFER_SIZE)},
-	{"buf", "[B", nullptr, 0, $field(JPEGBuffer, buf)},
-	{"bufAvail", "I", nullptr, 0, $field(JPEGBuffer, bufAvail)},
-	{"bufPtr", "I", nullptr, 0, $field(JPEGBuffer, bufPtr)},
-	{"iis", "Ljavax/imageio/stream/ImageInputStream;", nullptr, 0, $field(JPEGBuffer, iis)},
-	{}
-};
-
-$MethodInfo _JPEGBuffer_MethodInfo_[] = {
-	{"<init>", "(Ljavax/imageio/stream/ImageInputStream;)V", nullptr, 0, $method(JPEGBuffer, init$, void, $ImageInputStream*)},
-	{"getStreamPosition", "()J", nullptr, 0, $virtualMethod(JPEGBuffer, getStreamPosition, int64_t), "java.io.IOException"},
-	{"loadBuf", "(I)V", nullptr, 0, $virtualMethod(JPEGBuffer, loadBuf, void, int32_t), "java.io.IOException"},
-	{"print", "(I)V", nullptr, 0, $virtualMethod(JPEGBuffer, print, void, int32_t)},
-	{"pushBack", "()V", nullptr, 0, $virtualMethod(JPEGBuffer, pushBack, void), "java.io.IOException"},
-	{"readData", "([B)V", nullptr, 0, $virtualMethod(JPEGBuffer, readData, void, $bytes*), "java.io.IOException"},
-	{"scanForFF", "(Lcom/sun/imageio/plugins/jpeg/JPEGImageReader;)Z", nullptr, 0, $virtualMethod(JPEGBuffer, scanForFF, bool, $JPEGImageReader*), "java.io.IOException"},
-	{"skipData", "(I)V", nullptr, 0, $virtualMethod(JPEGBuffer, skipData, void, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _JPEGBuffer_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.jpeg.JPEGBuffer",
-	"java.lang.Object",
-	nullptr,
-	_JPEGBuffer_FieldInfo_,
-	_JPEGBuffer_MethodInfo_
-};
-
-$Object* allocate$JPEGBuffer($Class* clazz) {
-	return $of($alloc(JPEGBuffer));
-}
-
 void JPEGBuffer::init$($ImageInputStream* iis) {
 	this->debug = false;
 	$set(this, buf, $new($bytes, JPEGBuffer::BUFFER_SIZE));
@@ -71,11 +34,11 @@ void JPEGBuffer::init$($ImageInputStream* iis) {
 }
 
 void JPEGBuffer::loadBuf(int32_t count) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->debug) {
 		$nc($System::out)->print("loadbuf called with "_s);
-		$nc($System::out)->print($$str({"count "_s, $$str(count), ", "_s}));
-		$nc($System::out)->println($$str({"bufAvail "_s, $$str(this->bufAvail), ", "_s}));
+		$System::out->print($$str({"count "_s, $$str(count), ", "_s}));
+		$System::out->println($$str({"bufAvail "_s, $$str(this->bufAvail), ", "_s}));
 	}
 	if (count != 0) {
 		if (this->bufAvail >= count) {
@@ -153,7 +116,7 @@ bool JPEGBuffer::scanForFF($JPEGImageReader* reader) {
 	bool foundFF = false;
 	while (foundFF == false) {
 		while (this->bufAvail > 0) {
-			if (((int32_t)($nc(this->buf)->get(this->bufPtr++) & (uint32_t)255)) == 255) {
+			if (($nc(this->buf)->get(this->bufPtr++) & 0xff) == 0xff) {
 				--this->bufAvail;
 				foundFF = true;
 				break;
@@ -162,7 +125,7 @@ bool JPEGBuffer::scanForFF($JPEGImageReader* reader) {
 		}
 		loadBuf(0);
 		if (foundFF == true) {
-			while ((this->bufAvail > 0) && ((int32_t)($nc(this->buf)->get(this->bufPtr) & (uint32_t)255)) == 255) {
+			while ((this->bufAvail > 0) && ($nc(this->buf)->get(this->bufPtr) & 0xff) == 0xff) {
 				++this->bufPtr;
 				--this->bufAvail;
 			}
@@ -179,25 +142,55 @@ bool JPEGBuffer::scanForFF($JPEGImageReader* reader) {
 }
 
 void JPEGBuffer::print(int32_t count) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->print("buffer has "_s);
-	$nc($System::out)->print(this->bufAvail);
-	$nc($System::out)->println(" bytes available"_s);
+	$System::out->print(this->bufAvail);
+	$System::out->println(" bytes available"_s);
 	if (this->bufAvail < count) {
 		count = this->bufAvail;
 	}
 	for (int32_t ptr = this->bufPtr; count > 0; --count) {
-		int32_t val = (int32_t)((int32_t)$nc(this->buf)->get(ptr++) & (uint32_t)255);
-		$nc($System::out)->print($$str({" "_s, $($Integer::toHexString(val))}));
+		int32_t val = (int32_t)$nc(this->buf)->get(ptr++) & 0xff;
+		$System::out->print($$str({" "_s, $($Integer::toHexString(val))}));
 	}
-	$nc($System::out)->println();
+	$System::out->println();
 }
 
 JPEGBuffer::JPEGBuffer() {
 }
 
 $Class* JPEGBuffer::load$($String* name, bool initialize) {
-	$loadClass(JPEGBuffer, name, initialize, &_JPEGBuffer_ClassInfo_, allocate$JPEGBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Z", nullptr, $PRIVATE, $field(JPEGBuffer, debug)},
+		{"BUFFER_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(JPEGBuffer, BUFFER_SIZE)},
+		{"buf", "[B", nullptr, 0, $field(JPEGBuffer, buf)},
+		{"bufAvail", "I", nullptr, 0, $field(JPEGBuffer, bufAvail)},
+		{"bufPtr", "I", nullptr, 0, $field(JPEGBuffer, bufPtr)},
+		{"iis", "Ljavax/imageio/stream/ImageInputStream;", nullptr, 0, $field(JPEGBuffer, iis)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/imageio/stream/ImageInputStream;)V", nullptr, 0, $method(JPEGBuffer, init$, void, $ImageInputStream*)},
+		{"getStreamPosition", "()J", nullptr, 0, $virtualMethod(JPEGBuffer, getStreamPosition, int64_t), "java.io.IOException"},
+		{"loadBuf", "(I)V", nullptr, 0, $virtualMethod(JPEGBuffer, loadBuf, void, int32_t), "java.io.IOException"},
+		{"print", "(I)V", nullptr, 0, $virtualMethod(JPEGBuffer, print, void, int32_t)},
+		{"pushBack", "()V", nullptr, 0, $virtualMethod(JPEGBuffer, pushBack, void), "java.io.IOException"},
+		{"readData", "([B)V", nullptr, 0, $virtualMethod(JPEGBuffer, readData, void, $bytes*), "java.io.IOException"},
+		{"scanForFF", "(Lcom/sun/imageio/plugins/jpeg/JPEGImageReader;)Z", nullptr, 0, $virtualMethod(JPEGBuffer, scanForFF, bool, $JPEGImageReader*), "java.io.IOException"},
+		{"skipData", "(I)V", nullptr, 0, $virtualMethod(JPEGBuffer, skipData, void, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.jpeg.JPEGBuffer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JPEGBuffer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JPEGBuffer);
+	});
 	return class$;
 }
 

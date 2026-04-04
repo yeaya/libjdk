@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/BindingPatternTree.h>
-
 #include <com/sun/source/tree/VariableTree.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _BindingPatternTree_MethodInfo_[] = {
-	{"getVariable", "()Lcom/sun/source/tree/VariableTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BindingPatternTree, getVariable, $VariableTree*)},
-	{}
-};
-
-$ClassInfo _BindingPatternTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.BindingPatternTree",
-	nullptr,
-	"com.sun.source.tree.PatternTree",
-	nullptr,
-	_BindingPatternTree_MethodInfo_
-};
-
-$Object* allocate$BindingPatternTree($Class* clazz) {
-	return $of($alloc(BindingPatternTree));
-}
-
 $Class* BindingPatternTree::load$($String* name, bool initialize) {
-	$loadClass(BindingPatternTree, name, initialize, &_BindingPatternTree_ClassInfo_, allocate$BindingPatternTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getVariable", "()Lcom/sun/source/tree/VariableTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BindingPatternTree, getVariable, $VariableTree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.BindingPatternTree",
+		nullptr,
+		"com.sun.source.tree.PatternTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BindingPatternTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BindingPatternTree);
+	});
 	return class$;
 }
 

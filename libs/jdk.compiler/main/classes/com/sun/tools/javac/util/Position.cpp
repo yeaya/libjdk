@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Position.h>
-
 #include <com/sun/tools/javac/util/Position$LineMap.h>
 #include <com/sun/tools/javac/util/Position$LineMapImpl.h>
 #include <com/sun/tools/javac/util/Position$LineTabMapImpl.h>
@@ -29,56 +28,11 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$FieldInfo _Position_FieldInfo_[] = {
-	{"NOPOS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Position, NOPOS)},
-	{"FIRSTPOS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Position, FIRSTPOS)},
-	{"FIRSTLINE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Position, FIRSTLINE)},
-	{"FIRSTCOLUMN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Position, FIRSTCOLUMN)},
-	{"LINESHIFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Position, LINESHIFT)},
-	{"MAXCOLUMN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Position, MAXCOLUMN)},
-	{"MAXLINE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Position, MAXLINE)},
-	{"MAXPOS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Position, MAXPOS)},
-	{}
-};
-
-$MethodInfo _Position_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Position, init$, void)},
-	{"encodePosition", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Position, encodePosition, int32_t, int32_t, int32_t)},
-	{"makeLineMap", "([CIZ)Lcom/sun/tools/javac/util/Position$LineMap;", nullptr, $PUBLIC | $STATIC, $staticMethod(Position, makeLineMap, $Position$LineMap*, $chars*, int32_t, bool)},
-	{}
-};
-
-$InnerClassInfo _Position_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.Position$LineTabMapImpl", "com.sun.tools.javac.util.Position", "LineTabMapImpl", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.util.Position$LineMapImpl", "com.sun.tools.javac.util.Position", "LineMapImpl", $STATIC},
-	{"com.sun.tools.javac.util.Position$LineMap", "com.sun.tools.javac.util.Position", "LineMap", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Position_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.Position",
-	"java.lang.Object",
-	nullptr,
-	_Position_FieldInfo_,
-	_Position_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Position_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.Position$LineTabMapImpl,com.sun.tools.javac.util.Position$LineMapImpl,com.sun.tools.javac.util.Position$LineMap"
-};
-
-$Object* allocate$Position($Class* clazz) {
-	return $of($alloc(Position));
-}
-
 void Position::init$() {
 }
 
 $Position$LineMap* Position::makeLineMap($chars* src, int32_t max, bool expandTabs) {
-	$var($Position$LineMapImpl, lineMap, expandTabs ? static_cast<$Position$LineMapImpl*>($new($Position$LineTabMapImpl, max)) : $new($Position$LineMapImpl));
+	$var($Position$LineMapImpl, lineMap, expandTabs ? $cast($Position$LineMapImpl, $new($Position$LineTabMapImpl, max)) : $new($Position$LineMapImpl));
 	$nc(lineMap)->build(src, max);
 	return lineMap;
 }
@@ -100,7 +54,46 @@ Position::Position() {
 }
 
 $Class* Position::load$($String* name, bool initialize) {
-	$loadClass(Position, name, initialize, &_Position_ClassInfo_, allocate$Position);
+	$FieldInfo fieldInfos$$[] = {
+		{"NOPOS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Position, NOPOS)},
+		{"FIRSTPOS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Position, FIRSTPOS)},
+		{"FIRSTLINE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Position, FIRSTLINE)},
+		{"FIRSTCOLUMN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Position, FIRSTCOLUMN)},
+		{"LINESHIFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Position, LINESHIFT)},
+		{"MAXCOLUMN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Position, MAXCOLUMN)},
+		{"MAXLINE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Position, MAXLINE)},
+		{"MAXPOS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Position, MAXPOS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Position, init$, void)},
+		{"encodePosition", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Position, encodePosition, int32_t, int32_t, int32_t)},
+		{"makeLineMap", "([CIZ)Lcom/sun/tools/javac/util/Position$LineMap;", nullptr, $PUBLIC | $STATIC, $staticMethod(Position, makeLineMap, $Position$LineMap*, $chars*, int32_t, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.Position$LineTabMapImpl", "com.sun.tools.javac.util.Position", "LineTabMapImpl", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.util.Position$LineMapImpl", "com.sun.tools.javac.util.Position", "LineMapImpl", $STATIC},
+		{"com.sun.tools.javac.util.Position$LineMap", "com.sun.tools.javac.util.Position", "LineMap", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.Position",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.Position$LineTabMapImpl,com.sun.tools.javac.util.Position$LineMapImpl,com.sun.tools.javac.util.Position$LineMap"
+	};
+	$loadClass(Position, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Position);
+	});
 	return class$;
 }
 

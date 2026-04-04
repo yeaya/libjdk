@@ -352,6 +352,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::com::sun::org::apache::xerces::internal::impl::xs::identity::XPathMatcher* activateField(::com::sun::org::apache::xerces::internal::impl::xs::identity::Field* field, int32_t initialDepth) override;
 	void activateSelectorFor(::com::sun::org::apache::xerces::internal::impl::xs::identity::IdentityConstraint* ic);

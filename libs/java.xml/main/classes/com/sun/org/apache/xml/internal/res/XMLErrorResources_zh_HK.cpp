@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/res/XMLErrorResources_zh_HK.h>
-
 #include <com/sun/org/apache/xml/internal/res/XMLErrorResources_zh_TW.h>
 #include <jcpp.h>
 
@@ -15,24 +14,6 @@ namespace com {
 					namespace internal {
 						namespace res {
 
-$MethodInfo _XMLErrorResources_zh_HK_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLErrorResources_zh_HK, init$, void)},
-	{}
-};
-
-$ClassInfo _XMLErrorResources_zh_HK_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.res.XMLErrorResources_zh_HK",
-	"com.sun.org.apache.xml.internal.res.XMLErrorResources_zh_TW",
-	nullptr,
-	nullptr,
-	_XMLErrorResources_zh_HK_MethodInfo_
-};
-
-$Object* allocate$XMLErrorResources_zh_HK($Class* clazz) {
-	return $of($alloc(XMLErrorResources_zh_HK));
-}
-
 void XMLErrorResources_zh_HK::init$() {
 	$XMLErrorResources_zh_TW::init$();
 }
@@ -41,7 +22,21 @@ XMLErrorResources_zh_HK::XMLErrorResources_zh_HK() {
 }
 
 $Class* XMLErrorResources_zh_HK::load$($String* name, bool initialize) {
-	$loadClass(XMLErrorResources_zh_HK, name, initialize, &_XMLErrorResources_zh_HK_ClassInfo_, allocate$XMLErrorResources_zh_HK);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLErrorResources_zh_HK, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.res.XMLErrorResources_zh_HK",
+		"com.sun.org.apache.xml.internal.res.XMLErrorResources_zh_TW",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XMLErrorResources_zh_HK, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLErrorResources_zh_HK);
+	});
 	return class$;
 }
 

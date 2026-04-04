@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthSliderUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -10,7 +9,6 @@
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <java/lang/Math.h>
 #include <java/util/Dictionary.h>
 #include <java/util/Enumeration.h>
@@ -28,7 +26,6 @@
 #include <javax/swing/plaf/synth/SynthPainter.h>
 #include <javax/swing/plaf/synth/SynthSliderUI$SynthTrackListener.h>
 #include <javax/swing/plaf/synth/SynthStyle.h>
-#include <javax/swing/plaf/synth/SynthUI.h>
 #include <sun/swing/SwingUtilities2.h>
 #include <jcpp.h>
 
@@ -44,7 +41,6 @@
 #undef TEXT_FOREGROUND
 #undef VERTICAL
 
-using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
@@ -53,7 +49,6 @@ using $Insets = ::java::awt::Insets;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -76,128 +71,14 @@ using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthGraphicsUtils = ::javax::swing::plaf::synth::SynthGraphicsUtils;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
-using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
 using $SynthSliderUI$SynthTrackListener = ::javax::swing::plaf::synth::SynthSliderUI$SynthTrackListener;
 using $SynthStyle = ::javax::swing::plaf::synth::SynthStyle;
-using $SynthUI = ::javax::swing::plaf::synth::SynthUI;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthSliderUI_FieldInfo_[] = {
-	{"valueRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(SynthSliderUI, valueRect)},
-	{"paintValue", "Z", nullptr, $PRIVATE, $field(SynthSliderUI, paintValue)},
-	{"lastSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE, $field(SynthSliderUI, lastSize)},
-	{"trackHeight", "I", nullptr, $PRIVATE, $field(SynthSliderUI, trackHeight)},
-	{"trackBorder", "I", nullptr, $PRIVATE, $field(SynthSliderUI, trackBorder)},
-	{"thumbWidth", "I", nullptr, $PRIVATE, $field(SynthSliderUI, thumbWidth)},
-	{"thumbHeight", "I", nullptr, $PRIVATE, $field(SynthSliderUI, thumbHeight)},
-	{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthSliderUI, style)},
-	{"sliderTrackStyle", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthSliderUI, sliderTrackStyle)},
-	{"sliderThumbStyle", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthSliderUI, sliderThumbStyle)},
-	{"thumbActive", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(SynthSliderUI, thumbActive)},
-	{"thumbPressed", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(SynthSliderUI, thumbPressed)},
-	{}
-};
-
-$MethodInfo _SynthSliderUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JSlider;)V", nullptr, $PROTECTED, $method(SynthSliderUI, init$, void, $JSlider*)},
-	{"access$000", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$000, $Rectangle*, SynthSliderUI*)},
-	{"access$100", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$100, $JSlider*, SynthSliderUI*)},
-	{"access$1000", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$1000, $JSlider*, SynthSliderUI*)},
-	{"access$1100", "(Ljavax/swing/plaf/synth/SynthSliderUI;I)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$1100, int32_t, SynthSliderUI*, int32_t)},
-	{"access$1200", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$1200, bool, SynthSliderUI*)},
-	{"access$1300", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$1300, $Rectangle*, SynthSliderUI*)},
-	{"access$1400", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$1400, $JSlider*, SynthSliderUI*)},
-	{"access$1500", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$1500, $Rectangle*, SynthSliderUI*)},
-	{"access$1600", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$1600, $Rectangle*, SynthSliderUI*)},
-	{"access$1700", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$1700, $Rectangle*, SynthSliderUI*)},
-	{"access$1800", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$1800, $Rectangle*, SynthSliderUI*)},
-	{"access$1900", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$1900, $JSlider*, SynthSliderUI*)},
-	{"access$200", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$200, bool, SynthSliderUI*)},
-	{"access$2000", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$2000, $JSlider*, SynthSliderUI*)},
-	{"access$2100", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$2100, bool, SynthSliderUI*)},
-	{"access$2200", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$2200, $Rectangle*, SynthSliderUI*)},
-	{"access$2300", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$2300, $JSlider*, SynthSliderUI*)},
-	{"access$2400", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$2400, $JSlider*, SynthSliderUI*)},
-	{"access$300", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$300, $JSlider*, SynthSliderUI*)},
-	{"access$400", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$400, $JSlider*, SynthSliderUI*)},
-	{"access$500", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$500, $Rectangle*, SynthSliderUI*)},
-	{"access$600", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$600, $Rectangle*, SynthSliderUI*)},
-	{"access$700", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$700, $Rectangle*, SynthSliderUI*)},
-	{"access$800", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$800, $Rectangle*, SynthSliderUI*)},
-	{"access$900", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$900, $JSlider*, SynthSliderUI*)},
-	{"calculateGeometry", "()V", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, calculateGeometry, void)},
-	{"calculateThumbLocation", "()V", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, calculateThumbLocation, void)},
-	{"createTrackListener", "(Ljavax/swing/JSlider;)Ljavax/swing/plaf/basic/BasicSliderUI$TrackListener;", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, createTrackListener, $BasicSliderUI$TrackListener*, $JSlider*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthSliderUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(SynthSliderUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
-	{"getComponentState", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;)I", nullptr, $PRIVATE, $method(SynthSliderUI, getComponentState, int32_t, $JComponent*, $Region*)},
-	{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthSliderUI, getContext, $SynthContext*, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthSliderUI, getContext, $SynthContext*, $JComponent*, int32_t)},
-	{"getContext", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthSliderUI, getContext, $SynthContext*, $JComponent*, $Region*)},
-	{"getContext", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthSliderUI, getContext, $SynthContext*, $JComponent*, $Region*, int32_t)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthSliderUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getPadForLabel", "(I)I", nullptr, $PRIVATE, $method(SynthSliderUI, getPadForLabel, int32_t, int32_t)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthSliderUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getThumbSize", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, getThumbSize, $Dimension*)},
-	{"installDefaults", "(Ljavax/swing/JSlider;)V", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, installDefaults, void, $JSlider*)},
-	{"installListeners", "(Ljavax/swing/JSlider;)V", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, installListeners, void, $JSlider*)},
-	{"layout", "()V", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, layout, void)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthSliderUI, paint, void, $Graphics*, $JComponent*)},
-	{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, paint, void, $SynthContext*, $Graphics*)},
-	{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthSliderUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintThumb", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, paintThumb, void, $SynthContext*, $Graphics*, $Rectangle*)},
-	{"paintTrack", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, paintTrack, void, $SynthContext*, $Graphics*, $Rectangle*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthSliderUI, propertyChange, void, $PropertyChangeEvent*)},
-	{"recalculateIfInsetsChanged", "()V", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, recalculateIfInsetsChanged, void)},
-	{"setThumbActive", "(Z)V", nullptr, $PRIVATE, $method(SynthSliderUI, setThumbActive, void, bool)},
-	{"setThumbLocation", "(II)V", nullptr, $PUBLIC, $virtualMethod(SynthSliderUI, setThumbLocation, void, int32_t, int32_t)},
-	{"setThumbPressed", "(Z)V", nullptr, $PRIVATE, $method(SynthSliderUI, setThumbPressed, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallDefaults", "(Ljavax/swing/JSlider;)V", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, uninstallDefaults, void, $JSlider*)},
-	{"uninstallListeners", "(Ljavax/swing/JSlider;)V", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, uninstallListeners, void, $JSlider*)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthSliderUI, update, void, $Graphics*, $JComponent*)},
-	{"updateStyle", "(Ljavax/swing/JSlider;)V", nullptr, $PRIVATE, $method(SynthSliderUI, updateStyle, void, $JSlider*)},
-	{"updateThumbState", "(II)V", nullptr, $PRIVATE, $method(SynthSliderUI, updateThumbState, void, int32_t, int32_t)},
-	{"updateThumbState", "(IIZ)V", nullptr, $PRIVATE, $method(SynthSliderUI, updateThumbState, void, int32_t, int32_t, bool)},
-	{"valueForXPosition", "(I)I", nullptr, $PUBLIC, $virtualMethod(SynthSliderUI, valueForXPosition, int32_t, int32_t)},
-	{"valueForYPosition", "(I)I", nullptr, $PUBLIC, $virtualMethod(SynthSliderUI, valueForYPosition, int32_t, int32_t)},
-	{"xPositionForValue", "(I)I", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, xPositionForValue, int32_t, int32_t)},
-	{"yPositionForValue", "(III)I", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, yPositionForValue, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _SynthSliderUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthSliderUI$SynthTrackListener", "javax.swing.plaf.synth.SynthSliderUI", "SynthTrackListener", $PRIVATE},
-	{}
-};
-
-$ClassInfo _SynthSliderUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.synth.SynthSliderUI",
-	"javax.swing.plaf.basic.BasicSliderUI",
-	"java.beans.PropertyChangeListener,javax.swing.plaf.synth.SynthUI",
-	_SynthSliderUI_FieldInfo_,
-	_SynthSliderUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthSliderUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthSliderUI$SynthTrackListener"
-};
-
-$Object* allocate$SynthSliderUI($Class* clazz) {
-	return $of($alloc(SynthSliderUI));
-}
 
 int32_t SynthSliderUI::hashCode() {
 	 return this->$BasicSliderUI::hashCode();
@@ -359,7 +240,7 @@ void SynthSliderUI::installDefaults($JSlider* slider) {
 }
 
 void SynthSliderUI::uninstallDefaults($JSlider* slider) {
-	$var($SynthContext, context, getContext(static_cast<$JComponent*>(slider), $SynthConstants::ENABLED));
+	$var($SynthContext, context, getContext(slider, $SynthConstants::ENABLED));
 	$nc(this->style)->uninstallDefaults(context);
 	$set(this, style, nullptr);
 	$init($Region);
@@ -382,8 +263,8 @@ void SynthSliderUI::uninstallListeners($JSlider* slider) {
 }
 
 void SynthSliderUI::updateStyle($JSlider* c) {
-	$useLocalCurrentObjectStackCache();
-	$var($SynthContext, context, getContext(static_cast<$JComponent*>(c), $SynthConstants::ENABLED));
+	$useLocalObjectStack();
+	$var($SynthContext, context, getContext(c, $SynthConstants::ENABLED));
 	$var($SynthStyle, oldStyle, this->style);
 	$set(this, style, $SynthLookAndFeel::updateStyle(context, this));
 	if (this->style != oldStyle) {
@@ -445,7 +326,7 @@ void SynthSliderUI::setThumbPressed(bool pressed) {
 }
 
 int32_t SynthSliderUI::getBaseline($JComponent* c, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (c == nullptr) {
 		$throwNew($NullPointerException, "Component must be non-null"_s);
 	}
@@ -456,13 +337,13 @@ int32_t SynthSliderUI::getBaseline($JComponent* c, int32_t width, int32_t height
 	if (var$0 && labelsHaveSameBaselines()) {
 		$var($Insets, trackInsets, $new($Insets, 0, 0, 0, 0));
 		$init($Region);
-		$var($SynthContext, trackContext, getContext(static_cast<$JComponent*>(this->slider), $Region::SLIDER_TRACK));
+		$var($SynthContext, trackContext, getContext(this->slider, $Region::SLIDER_TRACK));
 		$nc(this->style)->getInsets(trackContext, trackInsets);
 		if ($nc(this->slider)->getOrientation() == $JSlider::HORIZONTAL) {
 			int32_t valueHeight = 0;
 			if (this->paintValue) {
 				$var($SynthContext, context, getContext(this->slider));
-				valueHeight = $nc($($nc($($nc(context)->getStyle()))->getGraphicsUtils(context)))->getMaximumCharHeight(context);
+				valueHeight = $$nc($$nc($nc(context)->getStyle())->getGraphicsUtils(context))->getMaximumCharHeight(context);
 			}
 			int32_t tickHeight = 0;
 			if ($nc(this->slider)->getPaintTicks()) {
@@ -474,9 +355,9 @@ int32_t SynthSliderUI::getBaseline($JComponent* c, int32_t width, int32_t height
 			centerY += valueHeight + 2;
 			centerY += this->trackHeight + trackInsets->top + trackInsets->bottom;
 			centerY += tickHeight + 2;
-			$var($JComponent, label, $cast($JComponent, $nc($($nc($($nc(this->slider)->getLabelTable()))->elements()))->nextElement()));
+			$var($JComponent, label, $cast($JComponent, $$nc($$nc($nc(this->slider)->getLabelTable())->elements())->nextElement()));
 			$var($Dimension, pref, $nc(label)->getPreferredSize());
-			return centerY + label->getBaseline($nc(pref)->width, pref->height);
+			return centerY + label->getBaseline($nc(pref)->width, $nc(pref)->height);
 		} else {
 			$var($Integer, value, $nc(this->slider)->getInverted() ? getLowestValue() : getHighestValue());
 			if (value != nullptr) {
@@ -484,15 +365,15 @@ int32_t SynthSliderUI::getBaseline($JComponent* c, int32_t width, int32_t height
 				int32_t valueHeight = 0;
 				if (this->paintValue) {
 					$var($SynthContext, context, getContext(this->slider));
-					valueHeight = $nc($($nc($($nc(context)->getStyle()))->getGraphicsUtils(context)))->getMaximumCharHeight(context);
+					valueHeight = $$nc($$nc($nc(context)->getStyle())->getGraphicsUtils(context))->getMaximumCharHeight(context);
 				}
 				int32_t contentHeight = height - $nc(this->insetCache)->top - $nc(this->insetCache)->bottom;
 				int32_t trackY = valueY + valueHeight;
 				int32_t trackHeight = contentHeight - valueHeight;
 				int32_t yPosition = yPositionForValue(value->intValue(), trackY, trackHeight);
-				$var($JComponent, label, $cast($JComponent, $nc($($nc(this->slider)->getLabelTable()))->get(value)));
+				$var($JComponent, label, $cast($JComponent, $$nc($nc(this->slider)->getLabelTable())->get(value)));
 				$var($Dimension, pref, $nc(label)->getPreferredSize());
-				return yPosition - $nc(pref)->height / 2 + label->getBaseline(pref->width, pref->height);
+				return yPosition - $nc(pref)->height / 2 + label->getBaseline($nc(pref)->width, $nc(pref)->height);
 			}
 		}
 	}
@@ -500,16 +381,16 @@ int32_t SynthSliderUI::getBaseline($JComponent* c, int32_t width, int32_t height
 }
 
 $Dimension* SynthSliderUI::getPreferredSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	recalculateIfInsetsChanged();
 	$var($Dimension, d, $new($Dimension, $nc(this->contentRect)->width, $nc(this->contentRect)->height));
 	$var($Insets, i, $nc(this->slider)->getInsets());
 	if ($nc(this->slider)->getOrientation() == $JSlider::VERTICAL) {
 		d->height = 200;
-		d->height += $nc(i)->top + i->bottom;
+		d->height += $nc(i)->top + $nc(i)->bottom;
 	} else {
 		d->width = 200;
-		d->width += $nc(i)->left + i->right;
+		d->width += $nc(i)->left + $nc(i)->right;
 	}
 	return d;
 }
@@ -532,17 +413,17 @@ void SynthSliderUI::calculateGeometry() {
 }
 
 void SynthSliderUI::layout() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(this->slider));
 	$var($SynthGraphicsUtils, synthGraphics, $nc(this->style)->getGraphicsUtils(context));
 	$var($Insets, trackInsets, $new($Insets, 0, 0, 0, 0));
 	$init($Region);
-	$var($SynthContext, trackContext, getContext(static_cast<$JComponent*>(this->slider), $Region::SLIDER_TRACK));
+	$var($SynthContext, trackContext, getContext(this->slider, $Region::SLIDER_TRACK));
 	$nc(this->style)->getInsets(trackContext, trackInsets);
 	if ($nc(this->slider)->getOrientation() == $JSlider::HORIZONTAL) {
 		$nc(this->valueRect)->height = 0;
 		if (this->paintValue) {
-			$nc(this->valueRect)->height = $nc(synthGraphics)->getMaximumCharHeight(context);
+			this->valueRect->height = $nc(synthGraphics)->getMaximumCharHeight(context);
 		}
 		$nc(this->trackRect)->height = this->trackHeight;
 		$nc(this->tickRect)->height = 0;
@@ -554,11 +435,11 @@ void SynthSliderUI::layout() {
 			$nc(this->labelRect)->height = getHeightOfTallestLabel();
 		}
 		$nc(this->contentRect)->height = $nc(this->valueRect)->height + $nc(this->trackRect)->height + trackInsets->top + trackInsets->bottom + $nc(this->tickRect)->height + $nc(this->labelRect)->height + 4;
-		$nc(this->contentRect)->width = $nc(this->slider)->getWidth() - $nc(this->insetCache)->left - $nc(this->insetCache)->right;
+		this->contentRect->width = $nc(this->slider)->getWidth() - $nc(this->insetCache)->left - $nc(this->insetCache)->right;
 		int32_t pad = 0;
 		if ($nc(this->slider)->getPaintLabels()) {
 			$nc(this->trackRect)->x = $nc(this->insetCache)->left;
-			$nc(this->trackRect)->width = $nc(this->contentRect)->width;
+			this->trackRect->width = $nc(this->contentRect)->width;
 			$var($Dictionary, dictionary, $nc(this->slider)->getLabelTable());
 			if (dictionary != nullptr) {
 				int32_t minValue = $nc(this->slider)->getMinimum();
@@ -568,7 +449,7 @@ void SynthSliderUI::layout() {
 				{
 					$var($Enumeration, keys, dictionary->keys());
 					for (; $nc(keys)->hasMoreElements();) {
-						int32_t keyInt = $nc(($cast($Integer, $(keys->nextElement()))))->intValue();
+						int32_t keyInt = $$sure($Integer, keys->nextElement())->intValue();
 						if (keyInt >= minValue && keyInt < firstLblIdx) {
 							firstLblIdx = keyInt;
 						}
@@ -582,16 +463,16 @@ void SynthSliderUI::layout() {
 			}
 		}
 		$nc(this->valueRect)->x = ($nc(this->trackRect)->x = ($nc(this->tickRect)->x = ($nc(this->labelRect)->x = ($nc(this->insetCache)->left + pad))));
-		$nc(this->valueRect)->width = ($nc(this->trackRect)->width = ($nc(this->tickRect)->width = ($nc(this->labelRect)->width = ($nc(this->contentRect)->width - (pad * 2)))));
-		int32_t centerY = $nc(this->slider)->getHeight() / 2 - $nc(this->contentRect)->height / 2;
+		this->valueRect->width = (this->trackRect->width = (this->tickRect->width = (this->labelRect->width = ($nc(this->contentRect)->width - (pad * 2)))));
+		int32_t centerY = $nc(this->slider)->getHeight() / 2 - this->contentRect->height / 2;
 		$nc(this->valueRect)->y = centerY;
-		centerY += $nc(this->valueRect)->height + 2;
+		centerY += this->valueRect->height + 2;
 		$nc(this->trackRect)->y = centerY + trackInsets->top;
-		centerY += $nc(this->trackRect)->height + trackInsets->top + trackInsets->bottom;
+		centerY += this->trackRect->height + trackInsets->top + trackInsets->bottom;
 		$nc(this->tickRect)->y = centerY;
-		centerY += $nc(this->tickRect)->height + 2;
+		centerY += this->tickRect->height + 2;
 		$nc(this->labelRect)->y = centerY;
-		centerY += $nc(this->labelRect)->height;
+		centerY += this->labelRect->height;
 	} else {
 		$nc(this->trackRect)->width = this->trackHeight;
 		$nc(this->tickRect)->width = 0;
@@ -603,60 +484,56 @@ void SynthSliderUI::layout() {
 			$nc(this->labelRect)->width = getWidthOfWidestLabel();
 		}
 		$nc(this->valueRect)->y = $nc(this->insetCache)->top;
-		$nc(this->valueRect)->height = 0;
+		this->valueRect->height = 0;
 		if (this->paintValue) {
-			$nc(this->valueRect)->height = $nc(synthGraphics)->getMaximumCharHeight(context);
+			this->valueRect->height = $nc(synthGraphics)->getMaximumCharHeight(context);
 		}
 		$var($FontMetrics, fm, $nc(this->slider)->getFontMetrics($($nc(this->slider)->getFont())));
-		$var($SynthContext, var$1, context);
-		$var($Font, var$2, $nc(this->slider)->getFont());
-		$var($FontMetrics, var$3, fm);
-		int32_t var$0 = $nc(synthGraphics)->computeStringWidth(var$1, var$2, var$3, $$str({""_s, $$str($nc(this->slider)->getMaximum())}));
-		$var($SynthContext, var$4, context);
-		$var($Font, var$5, $nc(this->slider)->getFont());
-		$var($FontMetrics, var$6, fm);
-		$nc(this->valueRect)->width = $Math::max(var$0, synthGraphics->computeStringWidth(var$4, var$5, var$6, $$str({""_s, $$str($nc(this->slider)->getMinimum())})));
+		$var($Font, var$1, $nc(this->slider)->getFont());
+		int32_t var$0 = $nc(synthGraphics)->computeStringWidth(context, var$1, fm, $$str({""_s, $$str(this->slider->getMaximum())}));
+		$var($Font, var$2, this->slider->getFont());
+		$nc(this->valueRect)->width = $Math::max(var$0, $nc(synthGraphics)->computeStringWidth(context, var$2, fm, $$str({""_s, $$str(this->slider->getMinimum())})));
 		int32_t l = $nc(this->valueRect)->width / 2;
 		int32_t w1 = trackInsets->left + $nc(this->trackRect)->width / 2;
-		int32_t w2 = $nc(this->trackRect)->width / 2 + trackInsets->right + $nc(this->tickRect)->width + $nc(this->labelRect)->width;
-		int32_t var$7 = $Math::max(w1, l);
-		$nc(this->contentRect)->width = var$7 + $Math::max(w2, l) + 2 + $nc(this->insetCache)->left + $nc(this->insetCache)->right;
-		$nc(this->contentRect)->height = $nc(this->slider)->getHeight() - $nc(this->insetCache)->top - $nc(this->insetCache)->bottom;
+		int32_t w2 = this->trackRect->width / 2 + trackInsets->right + $nc(this->tickRect)->width + $nc(this->labelRect)->width;
+		int32_t var$3 = $Math::max(w1, l);
+		$nc(this->contentRect)->width = var$3 + $Math::max(w2, l) + 2 + $nc(this->insetCache)->left + $nc(this->insetCache)->right;
+		$nc(this->contentRect)->height = $nc(this->slider)->getHeight() - this->insetCache->top - this->insetCache->bottom;
 		$nc(this->trackRect)->y = ($nc(this->tickRect)->y = ($nc(this->labelRect)->y = $nc(this->valueRect)->y + $nc(this->valueRect)->height));
-		$nc(this->trackRect)->height = ($nc(this->tickRect)->height = ($nc(this->labelRect)->height = $nc(this->contentRect)->height - $nc(this->valueRect)->height));
-		int32_t startX = $nc(this->slider)->getWidth() / 2 - $nc(this->contentRect)->width / 2;
+		this->trackRect->height = (this->tickRect->height = (this->labelRect->height = $nc(this->contentRect)->height - this->valueRect->height));
+		int32_t startX = $nc(this->slider)->getWidth() / 2 - this->contentRect->width / 2;
 		if ($SynthLookAndFeel::isLeftToRight(this->slider)) {
 			if (l > w1) {
 				startX += (l - w1);
 			}
 			$nc(this->trackRect)->x = startX + trackInsets->left;
-			startX += trackInsets->left + $nc(this->trackRect)->width + trackInsets->right;
+			startX += trackInsets->left + this->trackRect->width + trackInsets->right;
 			$nc(this->tickRect)->x = startX;
-			$nc(this->labelRect)->x = startX + $nc(this->tickRect)->width + 2;
+			$nc(this->labelRect)->x = startX + this->tickRect->width + 2;
 		} else {
 			if (l > w2) {
 				startX += (l - w2);
 			}
 			$nc(this->labelRect)->x = startX;
-			startX += $nc(this->labelRect)->width + 2;
+			startX += this->labelRect->width + 2;
 			$nc(this->tickRect)->x = startX;
-			$nc(this->trackRect)->x = startX + $nc(this->tickRect)->width + trackInsets->left;
+			$nc(this->trackRect)->x = startX + this->tickRect->width + trackInsets->left;
 		}
 	}
 	$set(this, lastSize, $nc(this->slider)->getSize());
 }
 
 int32_t SynthSliderUI::getPadForLabel(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pad = 0;
-	$var($JComponent, c, $cast($JComponent, $nc($($nc(this->slider)->getLabelTable()))->get($($Integer::valueOf(i)))));
+	$var($JComponent, c, $cast($JComponent, $$nc($nc(this->slider)->getLabelTable())->get($($Integer::valueOf(i)))));
 	if (c != nullptr) {
 		int32_t centerX = xPositionForValue(i);
 		int32_t cHalfWidth = $nc($(c->getPreferredSize()))->width / 2;
 		if (centerX - cHalfWidth < $nc(this->insetCache)->left) {
-			pad = $Math::max(pad, $nc(this->insetCache)->left - (centerX - cHalfWidth));
+			pad = $Math::max(pad, this->insetCache->left - (centerX - cHalfWidth));
 		}
-		if (centerX + cHalfWidth > $nc(this->slider)->getWidth() - $nc(this->insetCache)->right) {
+		if (centerX + cHalfWidth > $nc(this->slider)->getWidth() - this->insetCache->right) {
 			pad = $Math::max(pad, (centerX + cHalfWidth) - ($nc(this->slider)->getWidth() - $nc(this->insetCache)->right));
 		}
 	}
@@ -686,7 +563,7 @@ int32_t SynthSliderUI::xPositionForValue(int32_t value) {
 	int32_t min = $nc(this->slider)->getMinimum();
 	int32_t max = $nc(this->slider)->getMaximum();
 	int32_t trackLeft = $nc(this->trackRect)->x + $nc(this->thumbRect)->width / 2 + this->trackBorder;
-	int32_t trackRight = $nc(this->trackRect)->x + $nc(this->trackRect)->width - $nc(this->thumbRect)->width / 2 - this->trackBorder;
+	int32_t trackRight = this->trackRect->x + this->trackRect->width - this->thumbRect->width / 2 - this->trackBorder;
 	int32_t trackLength = trackRight - trackLeft;
 	double valueRange = (double)max - (double)min;
 	double pixelsPerValue = (double)trackLength / valueRange;
@@ -707,7 +584,7 @@ int32_t SynthSliderUI::yPositionForValue(int32_t value, int32_t trackY, int32_t 
 	int32_t min = $nc(this->slider)->getMinimum();
 	int32_t max = $nc(this->slider)->getMaximum();
 	int32_t trackTop = trackY + $nc(this->thumbRect)->height / 2 + this->trackBorder;
-	int32_t trackBottom = trackY + trackHeight - $nc(this->thumbRect)->height / 2 - this->trackBorder;
+	int32_t trackBottom = trackY + trackHeight - this->thumbRect->height / 2 - this->trackBorder;
 	int32_t trackLength = trackBottom - trackTop;
 	double valueRange = (double)max - (double)min;
 	double pixelsPerValue = (double)trackLength / valueRange;
@@ -729,7 +606,7 @@ int32_t SynthSliderUI::valueForYPosition(int32_t yPos) {
 	int32_t minValue = $nc(this->slider)->getMinimum();
 	int32_t maxValue = $nc(this->slider)->getMaximum();
 	int32_t trackTop = $nc(this->trackRect)->y + $nc(this->thumbRect)->height / 2 + this->trackBorder;
-	int32_t trackBottom = $nc(this->trackRect)->y + $nc(this->trackRect)->height - $nc(this->thumbRect)->height / 2 - this->trackBorder;
+	int32_t trackBottom = this->trackRect->y + this->trackRect->height - this->thumbRect->height / 2 - this->trackBorder;
 	int32_t trackLength = trackBottom - trackTop;
 	if (yPos <= trackTop) {
 		value = drawInverted() ? minValue : maxValue;
@@ -750,7 +627,7 @@ int32_t SynthSliderUI::valueForXPosition(int32_t xPos) {
 	int32_t minValue = $nc(this->slider)->getMinimum();
 	int32_t maxValue = $nc(this->slider)->getMaximum();
 	int32_t trackLeft = $nc(this->trackRect)->x + $nc(this->thumbRect)->width / 2 + this->trackBorder;
-	int32_t trackRight = $nc(this->trackRect)->x + $nc(this->trackRect)->width - $nc(this->thumbRect)->width / 2 - this->trackBorder;
+	int32_t trackRight = this->trackRect->x + this->trackRect->width - this->thumbRect->width / 2 - this->trackBorder;
 	int32_t trackLength = trackRight - trackLeft;
 	if (xPos <= trackLeft) {
 		value = drawInverted() ? maxValue : minValue;
@@ -779,7 +656,7 @@ $Dimension* SynthSliderUI::getThumbSize() {
 }
 
 void SynthSliderUI::recalculateIfInsetsChanged() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(this->slider));
 	$var($Insets, newInsets, $nc(this->style)->getInsets(context, nullptr));
 	$var($Insets, compInsets, $nc(this->slider)->getInsets());
@@ -810,10 +687,8 @@ $SynthContext* SynthSliderUI::getContext($JComponent* c, $Region* subregion, int
 	$init($Region);
 	if (subregion == $Region::SLIDER_TRACK) {
 		$assign(style, this->sliderTrackStyle);
-	} else {
-		if (subregion == $Region::SLIDER_THUMB) {
-			$assign(style, this->sliderThumbStyle);
-		}
+	} else if (subregion == $Region::SLIDER_THUMB) {
+		$assign(style, this->sliderThumbStyle);
 	}
 	return $SynthContext::getContext(c, subregion, style, state);
 }
@@ -831,14 +706,12 @@ int32_t SynthSliderUI::getComponentState($JComponent* c, $Region* region) {
 }
 
 void SynthSliderUI::update($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(c));
 	$SynthLookAndFeel::update(context, g);
-	$var($SynthContext, var$0, context);
-	$var($Graphics, var$1, g);
-	int32_t var$2 = $nc(c)->getWidth();
-	int32_t var$3 = c->getHeight();
-	$nc($($nc(context)->getPainter()))->paintSliderBackground(var$0, var$1, 0, 0, var$2, var$3, $nc(this->slider)->getOrientation());
+	int32_t var$0 = $nc(c)->getWidth();
+	int32_t var$1 = c->getHeight();
+	$$nc($nc(context)->getPainter())->paintSliderBackground(context, g, 0, 0, var$0, var$1, $nc(this->slider)->getOrientation());
 	paint(context, g);
 }
 
@@ -848,74 +721,72 @@ void SynthSliderUI::paint($Graphics* g, $JComponent* c) {
 }
 
 void SynthSliderUI::paint($SynthContext* context, $Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	recalculateIfInsetsChanged();
 	recalculateIfOrientationChanged();
 	$var($Rectangle, clip, $nc(g)->getClipBounds());
-	if (this->lastSize == nullptr || !$nc(this->lastSize)->equals($($nc(this->slider)->getSize()))) {
+	if (this->lastSize == nullptr || !this->lastSize->equals($($nc(this->slider)->getSize()))) {
 		calculateGeometry();
 	}
 	if (this->paintValue) {
-		$var($FontMetrics, fm, $SwingUtilities2::getFontMetrics(static_cast<$JComponent*>(this->slider), g));
-		$var($SynthContext, var$0, context);
-		$var($Font, var$1, g->getFont());
-		$var($FontMetrics, var$2, fm);
-		int32_t labelWidth = $nc($($nc($($nc(context)->getStyle()))->getGraphicsUtils(context)))->computeStringWidth(var$0, var$1, var$2, $$str({""_s, $$str($nc(this->slider)->getValue())}));
+		$var($FontMetrics, fm, $SwingUtilities2::getFontMetrics(this->slider, g));
+		$var($Font, var$0, g->getFont());
+		int32_t labelWidth = $$nc($$nc($nc(context)->getStyle())->getGraphicsUtils(context))->computeStringWidth(context, var$0, fm, $$str({""_s, $$str($nc(this->slider)->getValue())}));
 		$nc(this->valueRect)->x = $nc(this->thumbRect)->x + ($nc(this->thumbRect)->width - labelWidth) / 2;
 		if ($nc(this->slider)->getOrientation() == $JSlider::HORIZONTAL) {
 			if ($nc(this->valueRect)->x + labelWidth > $nc(this->insetCache)->left + $nc(this->contentRect)->width) {
-				$nc(this->valueRect)->x = ($nc(this->insetCache)->left + $nc(this->contentRect)->width) - labelWidth;
+				this->valueRect->x = (this->insetCache->left + this->contentRect->width) - labelWidth;
 			}
-			$nc(this->valueRect)->x = $Math::max($nc(this->valueRect)->x, 0);
+			this->valueRect->x = $Math::max(this->valueRect->x, 0);
 		}
 		$init($ColorType);
-		g->setColor($($nc($(context->getStyle()))->getColor(context, $ColorType::TEXT_FOREGROUND)));
-		$nc($($nc($(context->getStyle()))->getGraphicsUtils(context)))->paintText(context, g, $$str({""_s, $$str($nc(this->slider)->getValue())}), $nc(this->valueRect)->x, $nc(this->valueRect)->y, -1);
+		g->setColor($($$nc($nc(context)->getStyle())->getColor(context, $ColorType::TEXT_FOREGROUND)));
+		$$nc($$nc(context->getStyle())->getGraphicsUtils(context))->paintText(context, g, $$str({""_s, $$str($nc(this->slider)->getValue())}), $nc(this->valueRect)->x, $nc(this->valueRect)->y, -1);
 	}
-	bool var$3 = $nc(this->slider)->getPaintTrack();
-	if (var$3 && $nc(clip)->intersects(this->trackRect)) {
+	bool var$1 = $nc(this->slider)->getPaintTrack();
+	if (var$1 && $nc(clip)->intersects(this->trackRect)) {
 		$init($Region);
-		$var($SynthContext, subcontext, getContext(static_cast<$JComponent*>(this->slider), $Region::SLIDER_TRACK));
+		$var($SynthContext, subcontext, getContext(this->slider, $Region::SLIDER_TRACK));
 		paintTrack(subcontext, g, this->trackRect);
 	}
 	if ($nc(clip)->intersects(this->thumbRect)) {
 		$init($Region);
-		$var($SynthContext, subcontext, getContext(static_cast<$JComponent*>(this->slider), $Region::SLIDER_THUMB));
+		$var($SynthContext, subcontext, getContext(this->slider, $Region::SLIDER_THUMB));
 		paintThumb(subcontext, g, this->thumbRect);
 	}
-	bool var$4 = $nc(this->slider)->getPaintTicks();
-	if (var$4 && $nc(clip)->intersects(this->tickRect)) {
+	bool var$2 = $nc(this->slider)->getPaintTicks();
+	if (var$2 && clip->intersects(this->tickRect)) {
 		paintTicks(g);
 	}
-	bool var$5 = $nc(this->slider)->getPaintLabels();
-	if (var$5 && $nc(clip)->intersects(this->labelRect)) {
+	bool var$3 = $nc(this->slider)->getPaintLabels();
+	if (var$3 && clip->intersects(this->labelRect)) {
 		paintLabels(g);
 	}
 }
 
 void SynthSliderUI::paintBorder($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$nc($($nc(context)->getPainter()))->paintSliderBorder(context, g, x, y, w, h, $nc(this->slider)->getOrientation());
+	$$nc($nc(context)->getPainter())->paintSliderBorder(context, g, x, y, w, h, $nc(this->slider)->getOrientation());
 }
 
 void SynthSliderUI::paintThumb($SynthContext* context, $Graphics* g, $Rectangle* thumbBounds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t orientation = $nc(this->slider)->getOrientation();
 	$SynthLookAndFeel::updateSubregion(context, g, thumbBounds);
-	$nc($($nc(context)->getPainter()))->paintSliderThumbBackground(context, g, $nc(thumbBounds)->x, thumbBounds->y, thumbBounds->width, thumbBounds->height, orientation);
-	$nc($(context->getPainter()))->paintSliderThumbBorder(context, g, $nc(thumbBounds)->x, thumbBounds->y, thumbBounds->width, thumbBounds->height, orientation);
+	$$nc($nc(context)->getPainter())->paintSliderThumbBackground(context, g, $nc(thumbBounds)->x, $nc(thumbBounds)->y, $nc(thumbBounds)->width, $nc(thumbBounds)->height, orientation);
+	$$nc(context->getPainter())->paintSliderThumbBorder(context, g, thumbBounds->x, thumbBounds->y, thumbBounds->width, thumbBounds->height, orientation);
 }
 
 void SynthSliderUI::paintTrack($SynthContext* context, $Graphics* g, $Rectangle* trackBounds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t orientation = $nc(this->slider)->getOrientation();
 	$SynthLookAndFeel::updateSubregion(context, g, trackBounds);
-	$nc($($nc(context)->getPainter()))->paintSliderTrackBackground(context, g, $nc(trackBounds)->x, trackBounds->y, trackBounds->width, trackBounds->height, orientation);
-	$nc($(context->getPainter()))->paintSliderTrackBorder(context, g, $nc(trackBounds)->x, trackBounds->y, trackBounds->width, trackBounds->height, orientation);
+	$$nc($nc(context)->getPainter())->paintSliderTrackBackground(context, g, $nc(trackBounds)->x, $nc(trackBounds)->y, $nc(trackBounds)->width, $nc(trackBounds)->height, orientation);
+	$$nc(context->getPainter())->paintSliderTrackBorder(context, g, trackBounds->x, trackBounds->y, trackBounds->width, trackBounds->height, orientation);
 }
 
 void SynthSliderUI::propertyChange($PropertyChangeEvent* e) {
 	if ($SynthLookAndFeel::shouldUpdateStyle(e)) {
-		updateStyle($cast($JSlider, $($nc(e)->getSource())));
+		updateStyle($$cast($JSlider, $nc(e)->getSource()));
 	}
 }
 
@@ -923,7 +794,113 @@ SynthSliderUI::SynthSliderUI() {
 }
 
 $Class* SynthSliderUI::load$($String* name, bool initialize) {
-	$loadClass(SynthSliderUI, name, initialize, &_SynthSliderUI_ClassInfo_, allocate$SynthSliderUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"valueRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(SynthSliderUI, valueRect)},
+		{"paintValue", "Z", nullptr, $PRIVATE, $field(SynthSliderUI, paintValue)},
+		{"lastSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE, $field(SynthSliderUI, lastSize)},
+		{"trackHeight", "I", nullptr, $PRIVATE, $field(SynthSliderUI, trackHeight)},
+		{"trackBorder", "I", nullptr, $PRIVATE, $field(SynthSliderUI, trackBorder)},
+		{"thumbWidth", "I", nullptr, $PRIVATE, $field(SynthSliderUI, thumbWidth)},
+		{"thumbHeight", "I", nullptr, $PRIVATE, $field(SynthSliderUI, thumbHeight)},
+		{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthSliderUI, style)},
+		{"sliderTrackStyle", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthSliderUI, sliderTrackStyle)},
+		{"sliderThumbStyle", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthSliderUI, sliderThumbStyle)},
+		{"thumbActive", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(SynthSliderUI, thumbActive)},
+		{"thumbPressed", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(SynthSliderUI, thumbPressed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JSlider;)V", nullptr, $PROTECTED, $method(SynthSliderUI, init$, void, $JSlider*)},
+		{"access$000", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$000, $Rectangle*, SynthSliderUI*)},
+		{"access$100", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$100, $JSlider*, SynthSliderUI*)},
+		{"access$1000", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$1000, $JSlider*, SynthSliderUI*)},
+		{"access$1100", "(Ljavax/swing/plaf/synth/SynthSliderUI;I)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$1100, int32_t, SynthSliderUI*, int32_t)},
+		{"access$1200", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$1200, bool, SynthSliderUI*)},
+		{"access$1300", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$1300, $Rectangle*, SynthSliderUI*)},
+		{"access$1400", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$1400, $JSlider*, SynthSliderUI*)},
+		{"access$1500", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$1500, $Rectangle*, SynthSliderUI*)},
+		{"access$1600", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$1600, $Rectangle*, SynthSliderUI*)},
+		{"access$1700", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$1700, $Rectangle*, SynthSliderUI*)},
+		{"access$1800", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$1800, $Rectangle*, SynthSliderUI*)},
+		{"access$1900", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$1900, $JSlider*, SynthSliderUI*)},
+		{"access$200", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$200, bool, SynthSliderUI*)},
+		{"access$2000", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$2000, $JSlider*, SynthSliderUI*)},
+		{"access$2100", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$2100, bool, SynthSliderUI*)},
+		{"access$2200", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$2200, $Rectangle*, SynthSliderUI*)},
+		{"access$2300", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$2300, $JSlider*, SynthSliderUI*)},
+		{"access$2400", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$2400, $JSlider*, SynthSliderUI*)},
+		{"access$300", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$300, $JSlider*, SynthSliderUI*)},
+		{"access$400", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$400, $JSlider*, SynthSliderUI*)},
+		{"access$500", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$500, $Rectangle*, SynthSliderUI*)},
+		{"access$600", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$600, $Rectangle*, SynthSliderUI*)},
+		{"access$700", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$700, $Rectangle*, SynthSliderUI*)},
+		{"access$800", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$800, $Rectangle*, SynthSliderUI*)},
+		{"access$900", "(Ljavax/swing/plaf/synth/SynthSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSliderUI, access$900, $JSlider*, SynthSliderUI*)},
+		{"calculateGeometry", "()V", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, calculateGeometry, void)},
+		{"calculateThumbLocation", "()V", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, calculateThumbLocation, void)},
+		{"createTrackListener", "(Ljavax/swing/JSlider;)Ljavax/swing/plaf/basic/BasicSliderUI$TrackListener;", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, createTrackListener, $BasicSliderUI$TrackListener*, $JSlider*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthSliderUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(SynthSliderUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
+		{"getComponentState", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;)I", nullptr, $PRIVATE, $method(SynthSliderUI, getComponentState, int32_t, $JComponent*, $Region*)},
+		{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthSliderUI, getContext, $SynthContext*, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthSliderUI, getContext, $SynthContext*, $JComponent*, int32_t)},
+		{"getContext", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthSliderUI, getContext, $SynthContext*, $JComponent*, $Region*)},
+		{"getContext", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthSliderUI, getContext, $SynthContext*, $JComponent*, $Region*, int32_t)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthSliderUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getPadForLabel", "(I)I", nullptr, $PRIVATE, $method(SynthSliderUI, getPadForLabel, int32_t, int32_t)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthSliderUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getThumbSize", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, getThumbSize, $Dimension*)},
+		{"installDefaults", "(Ljavax/swing/JSlider;)V", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, installDefaults, void, $JSlider*)},
+		{"installListeners", "(Ljavax/swing/JSlider;)V", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, installListeners, void, $JSlider*)},
+		{"layout", "()V", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, layout, void)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthSliderUI, paint, void, $Graphics*, $JComponent*)},
+		{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, paint, void, $SynthContext*, $Graphics*)},
+		{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthSliderUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintThumb", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, paintThumb, void, $SynthContext*, $Graphics*, $Rectangle*)},
+		{"paintTrack", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, paintTrack, void, $SynthContext*, $Graphics*, $Rectangle*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthSliderUI, propertyChange, void, $PropertyChangeEvent*)},
+		{"recalculateIfInsetsChanged", "()V", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, recalculateIfInsetsChanged, void)},
+		{"setThumbActive", "(Z)V", nullptr, $PRIVATE, $method(SynthSliderUI, setThumbActive, void, bool)},
+		{"setThumbLocation", "(II)V", nullptr, $PUBLIC, $virtualMethod(SynthSliderUI, setThumbLocation, void, int32_t, int32_t)},
+		{"setThumbPressed", "(Z)V", nullptr, $PRIVATE, $method(SynthSliderUI, setThumbPressed, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallDefaults", "(Ljavax/swing/JSlider;)V", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, uninstallDefaults, void, $JSlider*)},
+		{"uninstallListeners", "(Ljavax/swing/JSlider;)V", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, uninstallListeners, void, $JSlider*)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthSliderUI, update, void, $Graphics*, $JComponent*)},
+		{"updateStyle", "(Ljavax/swing/JSlider;)V", nullptr, $PRIVATE, $method(SynthSliderUI, updateStyle, void, $JSlider*)},
+		{"updateThumbState", "(II)V", nullptr, $PRIVATE, $method(SynthSliderUI, updateThumbState, void, int32_t, int32_t)},
+		{"updateThumbState", "(IIZ)V", nullptr, $PRIVATE, $method(SynthSliderUI, updateThumbState, void, int32_t, int32_t, bool)},
+		{"valueForXPosition", "(I)I", nullptr, $PUBLIC, $virtualMethod(SynthSliderUI, valueForXPosition, int32_t, int32_t)},
+		{"valueForYPosition", "(I)I", nullptr, $PUBLIC, $virtualMethod(SynthSliderUI, valueForYPosition, int32_t, int32_t)},
+		{"xPositionForValue", "(I)I", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, xPositionForValue, int32_t, int32_t)},
+		{"yPositionForValue", "(III)I", nullptr, $PROTECTED, $virtualMethod(SynthSliderUI, yPositionForValue, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthSliderUI$SynthTrackListener", "javax.swing.plaf.synth.SynthSliderUI", "SynthTrackListener", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.synth.SynthSliderUI",
+		"javax.swing.plaf.basic.BasicSliderUI",
+		"java.beans.PropertyChangeListener,javax.swing.plaf.synth.SynthUI",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthSliderUI$SynthTrackListener"
+	};
+	$loadClass(SynthSliderUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthSliderUI));
+	});
 	return class$;
 }
 

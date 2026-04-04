@@ -28,6 +28,7 @@ class $export Test8019180 : public ::java::lang::Runnable {
 	$class(Test8019180, 0, ::java::lang::Runnable)
 public:
 	Test8019180();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	virtual void run() override;

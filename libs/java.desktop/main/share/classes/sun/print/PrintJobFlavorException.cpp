@@ -1,5 +1,4 @@
 #include <sun/print/PrintJobFlavorException.h>
-
 #include <javax/print/DocFlavor.h>
 #include <javax/print/PrintException.h>
 #include <jcpp.h>
@@ -13,35 +12,6 @@ using $PrintException = ::javax::print::PrintException;
 
 namespace sun {
 	namespace print {
-
-$FieldInfo _PrintJobFlavorException_FieldInfo_[] = {
-	{"flavor", "Ljavax/print/DocFlavor;", nullptr, $PRIVATE, $field(PrintJobFlavorException, flavor)},
-	{}
-};
-
-$MethodInfo _PrintJobFlavorException_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Ljavax/print/DocFlavor;)V", nullptr, 0, $method(PrintJobFlavorException, init$, void, $String*, $DocFlavor*)},
-	{"getUnsupportedFlavors", "()[Ljavax/print/DocFlavor;", nullptr, $PUBLIC, $virtualMethod(PrintJobFlavorException, getUnsupportedFlavors, $DocFlavorArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _PrintJobFlavorException_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.print.PrintJobFlavorException",
-	"javax.print.PrintException",
-	"javax.print.FlavorException",
-	_PrintJobFlavorException_FieldInfo_,
-	_PrintJobFlavorException_MethodInfo_
-};
-
-$Object* allocate$PrintJobFlavorException($Class* clazz) {
-	return $of($alloc(PrintJobFlavorException));
-}
 
 $String* PrintJobFlavorException::toString() {
 	 return this->$PrintException::toString();
@@ -84,7 +54,31 @@ void PrintJobFlavorException::throw$() {
 }
 
 $Class* PrintJobFlavorException::load$($String* name, bool initialize) {
-	$loadClass(PrintJobFlavorException, name, initialize, &_PrintJobFlavorException_ClassInfo_, allocate$PrintJobFlavorException);
+	$FieldInfo fieldInfos$$[] = {
+		{"flavor", "Ljavax/print/DocFlavor;", nullptr, $PRIVATE, $field(PrintJobFlavorException, flavor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;Ljavax/print/DocFlavor;)V", nullptr, 0, $method(PrintJobFlavorException, init$, void, $String*, $DocFlavor*)},
+		{"getUnsupportedFlavors", "()[Ljavax/print/DocFlavor;", nullptr, $PUBLIC, $virtualMethod(PrintJobFlavorException, getUnsupportedFlavors, $DocFlavorArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.print.PrintJobFlavorException",
+		"javax.print.PrintException",
+		"javax.print.FlavorException",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PrintJobFlavorException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PrintJobFlavorException));
+	});
 	return class$;
 }
 

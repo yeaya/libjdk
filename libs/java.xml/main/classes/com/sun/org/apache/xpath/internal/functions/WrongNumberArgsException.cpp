@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/functions/WrongNumberArgsException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -14,29 +13,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 						namespace functions {
-
-$FieldInfo _WrongNumberArgsException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(WrongNumberArgsException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _WrongNumberArgsException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(WrongNumberArgsException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _WrongNumberArgsException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.functions.WrongNumberArgsException",
-	"java.lang.Exception",
-	nullptr,
-	_WrongNumberArgsException_FieldInfo_,
-	_WrongNumberArgsException_MethodInfo_
-};
-
-$Object* allocate$WrongNumberArgsException($Class* clazz) {
-	return $of($alloc(WrongNumberArgsException));
-}
 
 void WrongNumberArgsException::init$($String* argsExpected) {
 	$Exception::init$(argsExpected);
@@ -53,7 +29,25 @@ void WrongNumberArgsException::throw$() {
 }
 
 $Class* WrongNumberArgsException::load$($String* name, bool initialize) {
-	$loadClass(WrongNumberArgsException, name, initialize, &_WrongNumberArgsException_ClassInfo_, allocate$WrongNumberArgsException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(WrongNumberArgsException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(WrongNumberArgsException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.functions.WrongNumberArgsException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WrongNumberArgsException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WrongNumberArgsException);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/CSSParser.h>
-
 #include <java/io/Reader.h>
 #include <java/lang/StringBuffer.h>
 #include <javax/swing/text/html/CSSParser$CSSParserCallback.h>
@@ -29,79 +28,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _CSSParser_FieldInfo_[] = {
-	{"IDENTIFIER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CSSParser, IDENTIFIER)},
-	{"BRACKET_OPEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CSSParser, BRACKET_OPEN)},
-	{"BRACKET_CLOSE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CSSParser, BRACKET_CLOSE)},
-	{"BRACE_OPEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CSSParser, BRACE_OPEN)},
-	{"BRACE_CLOSE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CSSParser, BRACE_CLOSE)},
-	{"PAREN_OPEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CSSParser, PAREN_OPEN)},
-	{"PAREN_CLOSE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CSSParser, PAREN_CLOSE)},
-	{"END", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CSSParser, END)},
-	{"charMapping", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CSSParser, charMapping)},
-	{"didPushChar", "Z", nullptr, $PRIVATE, $field(CSSParser, didPushChar)},
-	{"pushedChar", "I", nullptr, $PRIVATE, $field(CSSParser, pushedChar)},
-	{"unitBuffer", "Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $field(CSSParser, unitBuffer)},
-	{"unitStack", "[I", nullptr, $PRIVATE, $field(CSSParser, unitStack)},
-	{"stackCount", "I", nullptr, $PRIVATE, $field(CSSParser, stackCount)},
-	{"reader", "Ljava/io/Reader;", nullptr, $PRIVATE, $field(CSSParser, reader)},
-	{"encounteredRuleSet", "Z", nullptr, $PRIVATE, $field(CSSParser, encounteredRuleSet)},
-	{"callback", "Ljavax/swing/text/html/CSSParser$CSSParserCallback;", nullptr, $PRIVATE, $field(CSSParser, callback)},
-	{"tokenBuffer", "[C", nullptr, $PRIVATE, $field(CSSParser, tokenBuffer)},
-	{"tokenBufferLength", "I", nullptr, $PRIVATE, $field(CSSParser, tokenBufferLength)},
-	{"readWS", "Z", nullptr, $PRIVATE, $field(CSSParser, readWS$)},
-	{}
-};
-
-$MethodInfo _CSSParser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CSSParser, init$, void)},
-	{"append", "(C)V", nullptr, $PRIVATE, $method(CSSParser, append, void, char16_t)},
-	{"endBlock", "(I)V", nullptr, $PRIVATE, $method(CSSParser, endBlock, void, int32_t)},
-	{"getIdentifier", "(C)Z", nullptr, $PRIVATE, $method(CSSParser, getIdentifier, bool, char16_t), "java.io.IOException"},
-	{"getNextStatement", "()Z", nullptr, $PRIVATE, $method(CSSParser, getNextStatement, bool), "java.io.IOException"},
-	{"inBlock", "()Z", nullptr, $PRIVATE, $method(CSSParser, inBlock, bool)},
-	{"nextToken", "(C)I", nullptr, $PRIVATE, $method(CSSParser, nextToken, int32_t, char16_t), "java.io.IOException"},
-	{"parse", "(Ljava/io/Reader;Ljavax/swing/text/html/CSSParser$CSSParserCallback;Z)V", nullptr, 0, $virtualMethod(CSSParser, parse, void, $Reader*, $CSSParser$CSSParserCallback*, bool), "java.io.IOException"},
-	{"parseAtRule", "()V", nullptr, $PRIVATE, $method(CSSParser, parseAtRule, void), "java.io.IOException"},
-	{"parseDeclaration", "()I", nullptr, $PRIVATE, $method(CSSParser, parseDeclaration, int32_t), "java.io.IOException"},
-	{"parseDeclarationBlock", "()V", nullptr, $PRIVATE, $method(CSSParser, parseDeclarationBlock, void), "java.io.IOException"},
-	{"parseIdentifiers", "(CZ)I", nullptr, $PRIVATE, $method(CSSParser, parseIdentifiers, int32_t, char16_t, bool), "java.io.IOException"},
-	{"parseRuleSet", "()V", nullptr, $PRIVATE, $method(CSSParser, parseRuleSet, void), "java.io.IOException"},
-	{"parseSelectors", "()Z", nullptr, $PRIVATE, $method(CSSParser, parseSelectors, bool), "java.io.IOException"},
-	{"parseTillClosed", "(I)V", nullptr, $PRIVATE, $method(CSSParser, parseTillClosed, void, int32_t), "java.io.IOException"},
-	{"pushChar", "(I)V", nullptr, $PRIVATE, $method(CSSParser, pushChar, void, int32_t)},
-	{"readChar", "()I", nullptr, $PRIVATE, $method(CSSParser, readChar, int32_t), "java.io.IOException"},
-	{"readComment", "()V", nullptr, $PRIVATE, $method(CSSParser, readComment, void), "java.io.IOException"},
-	{"readTill", "(C)V", nullptr, $PRIVATE, $method(CSSParser, readTill, void, char16_t), "java.io.IOException"},
-	{"readWS", "()I", nullptr, $PRIVATE, $method(CSSParser, readWS, int32_t), "java.io.IOException"},
-	{"startBlock", "(I)V", nullptr, $PRIVATE, $method(CSSParser, startBlock, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CSSParser_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.CSSParser$CSSParserCallback", "javax.swing.text.html.CSSParser", "CSSParserCallback", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CSSParser_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.CSSParser",
-	"java.lang.Object",
-	nullptr,
-	_CSSParser_FieldInfo_,
-	_CSSParser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CSSParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.CSSParser$CSSParserCallback"
-};
-
-$Object* allocate$CSSParser($Class* clazz) {
-	return $of($alloc(CSSParser));
-}
-
 $chars* CSSParser::charMapping = nullptr;
 
 void CSSParser::init$() {
@@ -111,31 +37,30 @@ void CSSParser::init$() {
 }
 
 void CSSParser::parse($Reader* reader$renamed, $CSSParser$CSSParserCallback* callback$renamed, bool inRule) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Reader, reader, reader$renamed);
 	$var($CSSParser$CSSParserCallback, callback, callback$renamed);
 	$set(this, callback, callback);
 	this->stackCount = (this->tokenBufferLength = 0);
 	$set(this, reader, reader);
 	this->encounteredRuleSet = false;
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (inRule) {
-				parseDeclarationBlock();
-			} else {
-				while (getNextStatement()) {
-				}
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (inRule) {
+			parseDeclarationBlock();
+		} else {
+			while (getNextStatement()) {
+				;
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$assign(callback, nullptr);
-			$assign(reader, nullptr);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$assign(callback, nullptr);
+		$assign(reader, nullptr);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -144,100 +69,75 @@ bool CSSParser::getNextStatement() {
 	int32_t token = nextToken((char16_t)0);
 	switch (token) {
 	case CSSParser::IDENTIFIER:
-		{
-			if (this->tokenBufferLength > 0) {
-				if ($nc(this->tokenBuffer)->get(0) == u'@') {
-					parseAtRule();
-				} else {
-					this->encounteredRuleSet = true;
-					parseRuleSet();
-				}
+		if (this->tokenBufferLength > 0) {
+			if ($nc(this->tokenBuffer)->get(0) == u'@') {
+				parseAtRule();
+			} else {
+				this->encounteredRuleSet = true;
+				parseRuleSet();
 			}
-			return true;
 		}
+		return true;
 	case CSSParser::BRACKET_OPEN:
-		{}
 	case CSSParser::BRACE_OPEN:
-		{}
 	case CSSParser::PAREN_OPEN:
-		{
-			parseTillClosed(token);
-			return true;
-		}
+		parseTillClosed(token);
+		return true;
 	case CSSParser::BRACKET_CLOSE:
-		{}
 	case CSSParser::BRACE_CLOSE:
-		{}
 	case CSSParser::PAREN_CLOSE:
-		{
-			$throwNew($RuntimeException, "Unexpected top level block close"_s);
-		}
+		$throwNew($RuntimeException, "Unexpected top level block close"_s);
 	case CSSParser::END:
-		{
-			return false;
-		}
+		return false;
 	}
 	return true;
 }
 
 void CSSParser::parseAtRule() {
 	bool done = false;
-	bool isImport = (this->tokenBufferLength == 7 && $nc(this->tokenBuffer)->get(0) == u'@' && $nc(this->tokenBuffer)->get(1) == u'i' && $nc(this->tokenBuffer)->get(2) == u'm' && $nc(this->tokenBuffer)->get(3) == u'p' && $nc(this->tokenBuffer)->get(4) == u'o' && $nc(this->tokenBuffer)->get(5) == u'r' && $nc(this->tokenBuffer)->get(6) == u't');
+	bool isImport = (this->tokenBufferLength == 7 && $nc(this->tokenBuffer)->get(0) == u'@' && this->tokenBuffer->get(1) == u'i' && this->tokenBuffer->get(2) == u'm' && this->tokenBuffer->get(3) == u'p' && this->tokenBuffer->get(4) == u'o' && this->tokenBuffer->get(5) == u'r' && this->tokenBuffer->get(6) == u't');
 	$nc(this->unitBuffer)->setLength(0);
 	while (!done) {
 		int32_t nextToken = this->nextToken(u';');
 		switch (nextToken) {
 		case CSSParser::IDENTIFIER:
-			{
-				if (this->tokenBufferLength > 0 && $nc(this->tokenBuffer)->get(this->tokenBufferLength - 1) == u';') {
-					--this->tokenBufferLength;
-					done = true;
-				}
-				if (this->tokenBufferLength > 0) {
-					if ($nc(this->unitBuffer)->length() > 0 && this->readWS$) {
-						$nc(this->unitBuffer)->append(u' ');
-					}
-					$nc(this->unitBuffer)->append(this->tokenBuffer, 0, this->tokenBufferLength);
-				}
-				break;
+			if (this->tokenBufferLength > 0 && $nc(this->tokenBuffer)->get(this->tokenBufferLength - 1) == u';') {
+				--this->tokenBufferLength;
+				done = true;
 			}
-		case CSSParser::BRACE_OPEN:
-			{
+			if (this->tokenBufferLength > 0) {
 				if ($nc(this->unitBuffer)->length() > 0 && this->readWS$) {
-					$nc(this->unitBuffer)->append(u' ');
+					this->unitBuffer->append(u' ');
 				}
-				$nc(this->unitBuffer)->append($nc(CSSParser::charMapping)->get(nextToken));
-				parseTillClosed(nextToken);
-				done = true;
-				{
-					int32_t nextChar = readWS();
-					if (nextChar != -1 && nextChar != u';') {
-						pushChar(nextChar);
-					}
-				}
-				break;
+				this->unitBuffer->append(this->tokenBuffer, 0, this->tokenBufferLength);
 			}
+			break;
+		case CSSParser::BRACE_OPEN:
+			if ($nc(this->unitBuffer)->length() > 0 && this->readWS$) {
+				this->unitBuffer->append(u' ');
+			}
+			this->unitBuffer->append(CSSParser::charMapping->get(nextToken));
+			parseTillClosed(nextToken);
+			done = true;
+			{
+				int32_t nextChar = readWS();
+				if (nextChar != -1 && nextChar != u';') {
+					pushChar(nextChar);
+				}
+			}
+			break;
 		case CSSParser::BRACKET_OPEN:
-			{}
 		case CSSParser::PAREN_OPEN:
-			{
-				$nc(this->unitBuffer)->append($nc(CSSParser::charMapping)->get(nextToken));
-				parseTillClosed(nextToken);
-				break;
-			}
+			$nc(this->unitBuffer)->append(CSSParser::charMapping->get(nextToken));
+			parseTillClosed(nextToken);
+			break;
 		case CSSParser::BRACKET_CLOSE:
-			{}
 		case CSSParser::BRACE_CLOSE:
-			{}
 		case CSSParser::PAREN_CLOSE:
-			{
-				$throwNew($RuntimeException, "Unexpected close in @ rule"_s);
-			}
+			$throwNew($RuntimeException, "Unexpected close in @ rule"_s);
 		case CSSParser::END:
-			{
-				done = true;
-				break;
-			}
+			done = true;
+			break;
 		}
 	}
 	if (isImport && !this->encounteredRuleSet) {
@@ -254,7 +154,7 @@ void CSSParser::parseRuleSet() {
 }
 
 bool CSSParser::parseSelectors() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nextToken = 0;
 	if (this->tokenBufferLength > 0) {
 		$nc(this->callback)->handleSelector($$new($String, this->tokenBuffer, 0, this->tokenBufferLength));
@@ -268,29 +168,18 @@ bool CSSParser::parseSelectors() {
 		}
 		switch (nextToken) {
 		case CSSParser::BRACE_OPEN:
-			{
-				return true;
-			}
+			return true;
 		case CSSParser::BRACKET_OPEN:
-			{}
 		case CSSParser::PAREN_OPEN:
-			{
-				parseTillClosed(nextToken);
-				$nc(this->unitBuffer)->setLength(0);
-				break;
-			}
+			parseTillClosed(nextToken);
+			$nc(this->unitBuffer)->setLength(0);
+			break;
 		case CSSParser::BRACKET_CLOSE:
-			{}
 		case CSSParser::BRACE_CLOSE:
-			{}
 		case CSSParser::PAREN_CLOSE:
-			{
-				$throwNew($RuntimeException, "Unexpected block close in selector"_s);
-			}
+			$throwNew($RuntimeException, "Unexpected block close in selector"_s);
 		case CSSParser::END:
-			{
-				return false;
-			}
+			return false;
 		}
 	}
 }
@@ -300,35 +189,27 @@ void CSSParser::parseDeclarationBlock() {
 		int32_t token = parseDeclaration();
 		switch (token) {
 		case CSSParser::END:
-			{}
 		case CSSParser::BRACE_CLOSE:
-			{
-				return;
-			}
+			return;
 		case CSSParser::BRACKET_CLOSE:
-			{}
 		case CSSParser::PAREN_CLOSE:
-			{
-				$throwNew($RuntimeException, "Unexpected close in declaration block"_s);
-			}
+			$throwNew($RuntimeException, "Unexpected close in declaration block"_s);
 		case CSSParser::IDENTIFIER:
-			{
-				break;
-			}
+			break;
 		}
 	}
 }
 
 int32_t CSSParser::parseDeclaration() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t token = 0;
 	if ((token = parseIdentifiers(u':', false)) != CSSParser::IDENTIFIER) {
 		return token;
 	}
 	for (int32_t counter = $nc(this->unitBuffer)->length() - 1; counter >= 0; --counter) {
-		$nc(this->unitBuffer)->setCharAt(counter, $Character::toLowerCase($nc(this->unitBuffer)->charAt(counter)));
+		this->unitBuffer->setCharAt(counter, $Character::toLowerCase(this->unitBuffer->charAt(counter)));
 	}
-	$nc(this->callback)->handleProperty($($nc(this->unitBuffer)->toString()));
+	$nc(this->callback)->handleProperty($(this->unitBuffer->toString()));
 	token = parseIdentifiers(u';', true);
 	$nc(this->callback)->handleValue($($nc(this->unitBuffer)->toString()));
 	return token;
@@ -342,50 +223,39 @@ int32_t CSSParser::parseIdentifiers(char16_t extraChar, bool wantsBlocks) {
 		nextToken = this->nextToken(extraChar);
 		switch (nextToken) {
 		case CSSParser::IDENTIFIER:
-			{
-				if (this->tokenBufferLength > 0) {
-					if ($nc(this->tokenBuffer)->get(this->tokenBufferLength - 1) == extraChar) {
-						if (--this->tokenBufferLength > 0) {
-							if (this->readWS$ && $nc(this->unitBuffer)->length() > 0) {
-								$nc(this->unitBuffer)->append(u' ');
-							}
-							$nc(this->unitBuffer)->append(this->tokenBuffer, 0, this->tokenBufferLength);
+			if (this->tokenBufferLength > 0) {
+				if ($nc(this->tokenBuffer)->get(this->tokenBufferLength - 1) == extraChar) {
+					if (--this->tokenBufferLength > 0) {
+						if (this->readWS$ && $nc(this->unitBuffer)->length() > 0) {
+							this->unitBuffer->append(u' ');
 						}
-						return CSSParser::IDENTIFIER;
+						$nc(this->unitBuffer)->append(this->tokenBuffer, 0, this->tokenBufferLength);
 					}
-					if (this->readWS$ && $nc(this->unitBuffer)->length() > 0) {
-						$nc(this->unitBuffer)->append(u' ');
-					}
-					$nc(this->unitBuffer)->append(this->tokenBuffer, 0, this->tokenBufferLength);
+					return CSSParser::IDENTIFIER;
 				}
-				break;
+				if (this->readWS$ && $nc(this->unitBuffer)->length() > 0) {
+					this->unitBuffer->append(u' ');
+				}
+				$nc(this->unitBuffer)->append(this->tokenBuffer, 0, this->tokenBufferLength);
 			}
+			break;
 		case CSSParser::BRACKET_OPEN:
-			{}
 		case CSSParser::BRACE_OPEN:
-			{}
 		case CSSParser::PAREN_OPEN:
-			{
-				ubl = $nc(this->unitBuffer)->length();
-				if (wantsBlocks) {
-					$nc(this->unitBuffer)->append($nc(CSSParser::charMapping)->get(nextToken));
-				}
-				parseTillClosed(nextToken);
-				if (!wantsBlocks) {
-					$nc(this->unitBuffer)->setLength(ubl);
-				}
-				break;
+			ubl = $nc(this->unitBuffer)->length();
+			if (wantsBlocks) {
+				this->unitBuffer->append(CSSParser::charMapping->get(nextToken));
 			}
+			parseTillClosed(nextToken);
+			if (!wantsBlocks) {
+				$nc(this->unitBuffer)->setLength(ubl);
+			}
+			break;
 		case CSSParser::BRACE_CLOSE:
-			{}
 		case CSSParser::BRACKET_CLOSE:
-			{}
 		case CSSParser::PAREN_CLOSE:
-			{}
 		case CSSParser::END:
-			{
-				return nextToken;
-			}
+			return nextToken;
 		}
 	}
 }
@@ -398,48 +268,36 @@ void CSSParser::parseTillClosed(int32_t openToken) {
 		nextToken = this->nextToken((char16_t)0);
 		switch (nextToken) {
 		case CSSParser::IDENTIFIER:
-			{
-				if ($nc(this->unitBuffer)->length() > 0 && this->readWS$) {
-					$nc(this->unitBuffer)->append(u' ');
-				}
-				if (this->tokenBufferLength > 0) {
-					$nc(this->unitBuffer)->append(this->tokenBuffer, 0, this->tokenBufferLength);
-				}
-				break;
+			if ($nc(this->unitBuffer)->length() > 0 && this->readWS$) {
+				this->unitBuffer->append(u' ');
 			}
+			if (this->tokenBufferLength > 0) {
+				this->unitBuffer->append(this->tokenBuffer, 0, this->tokenBufferLength);
+			}
+			break;
 		case CSSParser::BRACKET_OPEN:
-			{}
 		case CSSParser::BRACE_OPEN:
-			{}
 		case CSSParser::PAREN_OPEN:
-			{
-				if ($nc(this->unitBuffer)->length() > 0 && this->readWS$) {
-					$nc(this->unitBuffer)->append(u' ');
-				}
-				$nc(this->unitBuffer)->append($nc(CSSParser::charMapping)->get(nextToken));
-				startBlock(nextToken);
-				break;
+			if ($nc(this->unitBuffer)->length() > 0 && this->readWS$) {
+				this->unitBuffer->append(u' ');
 			}
+			this->unitBuffer->append(CSSParser::charMapping->get(nextToken));
+			startBlock(nextToken);
+			break;
 		case CSSParser::BRACKET_CLOSE:
-			{}
 		case CSSParser::BRACE_CLOSE:
-			{}
 		case CSSParser::PAREN_CLOSE:
-			{
-				if ($nc(this->unitBuffer)->length() > 0 && this->readWS$) {
-					$nc(this->unitBuffer)->append(u' ');
-				}
-				$nc(this->unitBuffer)->append($nc(CSSParser::charMapping)->get(nextToken));
-				endBlock(nextToken);
-				if (!inBlock()) {
-					done = true;
-				}
-				break;
+			if ($nc(this->unitBuffer)->length() > 0 && this->readWS$) {
+				this->unitBuffer->append(u' ');
 			}
+			this->unitBuffer->append(CSSParser::charMapping->get(nextToken));
+			endBlock(nextToken);
+			if (!inBlock()) {
+				done = true;
+			}
+			break;
 		case CSSParser::END:
-			{
-				$throwNew($RuntimeException, "Unclosed block"_s);
-			}
+			$throwNew($RuntimeException, "Unclosed block"_s);
 		}
 	}
 }
@@ -449,55 +307,35 @@ int32_t CSSParser::nextToken(char16_t idChar) {
 	int32_t nextChar = readWS();
 	switch (nextChar) {
 	case u'\'':
-		{
-			readTill(u'\'');
-			if (this->tokenBufferLength > 0) {
-				--this->tokenBufferLength;
-			}
-			return CSSParser::IDENTIFIER;
+		readTill(u'\'');
+		if (this->tokenBufferLength > 0) {
+			--this->tokenBufferLength;
 		}
+		return CSSParser::IDENTIFIER;
 	case u'\"':
-		{
-			readTill(u'\"');
-			if (this->tokenBufferLength > 0) {
-				--this->tokenBufferLength;
-			}
-			return CSSParser::IDENTIFIER;
+		readTill(u'\"');
+		if (this->tokenBufferLength > 0) {
+			--this->tokenBufferLength;
 		}
+		return CSSParser::IDENTIFIER;
 	case u'[':
-		{
-			return CSSParser::BRACKET_OPEN;
-		}
+		return CSSParser::BRACKET_OPEN;
 	case u']':
-		{
-			return CSSParser::BRACKET_CLOSE;
-		}
+		return CSSParser::BRACKET_CLOSE;
 	case u'{':
-		{
-			return CSSParser::BRACE_OPEN;
-		}
+		return CSSParser::BRACE_OPEN;
 	case u'}':
-		{
-			return CSSParser::BRACE_CLOSE;
-		}
+		return CSSParser::BRACE_CLOSE;
 	case u'(':
-		{
-			return CSSParser::PAREN_OPEN;
-		}
+		return CSSParser::PAREN_OPEN;
 	case u')':
-		{
-			return CSSParser::PAREN_CLOSE;
-		}
+		return CSSParser::PAREN_CLOSE;
 	case -1:
-		{
-			return CSSParser::END;
-		}
+		return CSSParser::END;
 	default:
-		{
-			pushChar(nextChar);
-			getIdentifier(idChar);
-			return CSSParser::IDENTIFIER;
-		}
+		pushChar(nextChar);
+		getIdentifier(idChar);
+		return CSSParser::IDENTIFIER;
 	}
 }
 
@@ -515,109 +353,63 @@ bool CSSParser::getIdentifier(char16_t stopChar) {
 		nextChar = readChar();
 		switch (nextChar) {
 		case u'\\':
-			{
-				type = (int16_t)1;
-				break;
-			}
+			type = 1;
+			break;
 		case u'0':
-			{}
 		case u'1':
-			{}
 		case u'2':
-			{}
 		case u'3':
-			{}
 		case u'4':
-			{}
 		case u'5':
-			{}
 		case u'6':
-			{}
 		case u'7':
-			{}
 		case u'8':
-			{}
 		case u'9':
-			{
-				type = (int16_t)2;
-				escapeOffset = nextChar - u'0';
-				break;
-			}
+			type = 2;
+			escapeOffset = nextChar - u'0';
+			break;
 		case u'a':
-			{}
 		case u'b':
-			{}
 		case u'c':
-			{}
 		case u'd':
-			{}
 		case u'e':
-			{}
 		case u'f':
-			{
-				type = (int16_t)2;
-				escapeOffset = nextChar - u'a' + 10;
-				break;
-			}
+			type = 2;
+			escapeOffset = nextChar - u'a' + 10;
+			break;
 		case u'A':
-			{}
 		case u'B':
-			{}
 		case u'C':
-			{}
 		case u'D':
-			{}
 		case u'E':
-			{}
 		case u'F':
-			{
-				type = (int16_t)2;
-				escapeOffset = nextChar - u'A' + 10;
-				break;
-			}
+			type = 2;
+			escapeOffset = nextChar - u'A' + 10;
+			break;
 		case u'\'':
-			{}
 		case u'\"':
-			{}
 		case u'[':
-			{}
 		case u']':
-			{}
 		case u'{':
-			{}
 		case u'}':
-			{}
 		case u'(':
-			{}
 		case u')':
-			{}
 		case u' ':
-			{}
 		case u'\n':
-			{}
 		case u'\t':
-			{}
 		case u'\r':
-			{
-				type = (int16_t)3;
-				break;
-			}
+			type = 3;
+			break;
 		case u'/':
-			{
-				type = (int16_t)4;
-				break;
-			}
+			type = 4;
+			break;
 		case -1:
-			{
-				done = true;
-				type = (int16_t)0;
-				break;
-			}
+			done = true;
+			type = 0;
+			break;
 		default:
-			{
-				type = (int16_t)0;
-				break;
-			}
+			type = 0;
+			break;
 		}
 		if (lastWasEscape) {
 			if (type == 2) {
@@ -668,7 +460,7 @@ bool CSSParser::getIdentifier(char16_t stopChar) {
 }
 
 void CSSParser::readTill(char16_t stopChar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool lastWasEscape = false;
 	int32_t escapeCount = 0;
 	int32_t escapeChar = 0;
@@ -682,75 +474,44 @@ void CSSParser::readTill(char16_t stopChar) {
 		nextChar = readChar();
 		switch (nextChar) {
 		case u'\\':
-			{
-				type = (int16_t)1;
-				break;
-			}
+			type = 1;
+			break;
 		case u'0':
-			{}
 		case u'1':
-			{}
 		case u'2':
-			{}
 		case u'3':
-			{}
 		case u'4':
-			{}
 		case u'5':
-			{}
 		case u'6':
-			{}
 		case u'7':
-			{}
 		case u'8':
-			{}
 		case u'9':
-			{
-				type = (int16_t)2;
-				escapeOffset = nextChar - u'0';
-				break;
-			}
+			type = 2;
+			escapeOffset = nextChar - u'0';
+			break;
 		case u'a':
-			{}
 		case u'b':
-			{}
 		case u'c':
-			{}
 		case u'd':
-			{}
 		case u'e':
-			{}
 		case u'f':
-			{
-				type = (int16_t)2;
-				escapeOffset = nextChar - u'a' + 10;
-				break;
-			}
+			type = 2;
+			escapeOffset = nextChar - u'a' + 10;
+			break;
 		case u'A':
-			{}
 		case u'B':
-			{}
 		case u'C':
-			{}
 		case u'D':
-			{}
 		case u'E':
-			{}
 		case u'F':
-			{
-				type = (int16_t)2;
-				escapeOffset = nextChar - u'A' + 10;
-				break;
-			}
+			type = 2;
+			escapeOffset = nextChar - u'A' + 10;
+			break;
 		case -1:
-			{
-				$throwNew($RuntimeException, $$str({"Unclosed "_s, $$str(stopChar)}));
-			}
+			$throwNew($RuntimeException, $$str({"Unclosed "_s, $$str(stopChar)}));
 		default:
-			{
-				type = (int16_t)0;
-				break;
-			}
+			type = 0;
+			break;
 		}
 		if (lastWasEscape) {
 			if (type == 2) {
@@ -789,11 +550,11 @@ void CSSParser::readTill(char16_t stopChar) {
 
 void CSSParser::append(char16_t character) {
 	if (this->tokenBufferLength == $nc(this->tokenBuffer)->length) {
-		$var($chars, newBuffer, $new($chars, $nc(this->tokenBuffer)->length * 2));
-		$System::arraycopy(this->tokenBuffer, 0, newBuffer, 0, $nc(this->tokenBuffer)->length);
+		$var($chars, newBuffer, $new($chars, this->tokenBuffer->length * 2));
+		$System::arraycopy(this->tokenBuffer, 0, newBuffer, 0, this->tokenBuffer->length);
 		$set(this, tokenBuffer, newBuffer);
 	}
-	$nc(this->tokenBuffer)->set(this->tokenBufferLength++, character);
+	this->tokenBuffer->set(this->tokenBufferLength++, character);
 }
 
 void CSSParser::readComment() {
@@ -802,25 +563,19 @@ void CSSParser::readComment() {
 		nextChar = readChar();
 		switch (nextChar) {
 		case -1:
-			{
-				$throwNew($RuntimeException, "Unclosed comment"_s);
-			}
+			$throwNew($RuntimeException, "Unclosed comment"_s);
 		case u'*':
-			{
-				nextChar = readChar();
-				if (nextChar == u'/') {
-					return;
-				} else if (nextChar == -1) {
-					$throwNew($RuntimeException, "Unclosed comment"_s);
-				} else {
-					pushChar(nextChar);
-				}
-				break;
+			nextChar = readChar();
+			if (nextChar == u'/') {
+				return;
+			} else if (nextChar == -1) {
+				$throwNew($RuntimeException, "Unclosed comment"_s);
+			} else {
+				pushChar(nextChar);
 			}
+			break;
 		default:
-			{
-				break;
-			}
+			break;
 		}
 	}
 }
@@ -831,32 +586,24 @@ void CSSParser::startBlock(int32_t startToken) {
 		$System::arraycopy(this->unitStack, 0, newUS, 0, this->stackCount);
 		$set(this, unitStack, newUS);
 	}
-	$nc(this->unitStack)->set(this->stackCount++, startToken);
+	this->unitStack->set(this->stackCount++, startToken);
 }
 
 void CSSParser::endBlock(int32_t endToken) {
 	int32_t startToken = 0;
 	switch (endToken) {
 	case CSSParser::BRACKET_CLOSE:
-		{
-			startToken = CSSParser::BRACKET_OPEN;
-			break;
-		}
+		startToken = CSSParser::BRACKET_OPEN;
+		break;
 	case CSSParser::BRACE_CLOSE:
-		{
-			startToken = CSSParser::BRACE_OPEN;
-			break;
-		}
+		startToken = CSSParser::BRACE_OPEN;
+		break;
 	case CSSParser::PAREN_CLOSE:
-		{
-			startToken = CSSParser::PAREN_OPEN;
-			break;
-		}
+		startToken = CSSParser::PAREN_OPEN;
+		break;
 	default:
-		{
-			startToken = -1;
-			break;
-		}
+		startToken = -1;
+		break;
 	}
 	if (this->stackCount > 0 && $nc(this->unitStack)->get(this->stackCount - 1) == startToken) {
 		--this->stackCount;
@@ -899,17 +646,17 @@ void CSSParser::pushChar(int32_t tempChar) {
 	this->pushedChar = tempChar;
 }
 
-void clinit$CSSParser($Class* class$) {
+void CSSParser::clinit$($Class* clazz) {
 	$assignStatic(CSSParser::charMapping, $new($chars, {
-		(char16_t)0,
-		(char16_t)0,
+		0,
+		0,
 		u'[',
 		u']',
 		u'{',
 		u'}',
 		u'(',
 		u')',
-		(char16_t)0
+		0
 	}));
 }
 
@@ -917,7 +664,74 @@ CSSParser::CSSParser() {
 }
 
 $Class* CSSParser::load$($String* name, bool initialize) {
-	$loadClass(CSSParser, name, initialize, &_CSSParser_ClassInfo_, clinit$CSSParser, allocate$CSSParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"IDENTIFIER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CSSParser, IDENTIFIER)},
+		{"BRACKET_OPEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CSSParser, BRACKET_OPEN)},
+		{"BRACKET_CLOSE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CSSParser, BRACKET_CLOSE)},
+		{"BRACE_OPEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CSSParser, BRACE_OPEN)},
+		{"BRACE_CLOSE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CSSParser, BRACE_CLOSE)},
+		{"PAREN_OPEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CSSParser, PAREN_OPEN)},
+		{"PAREN_CLOSE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CSSParser, PAREN_CLOSE)},
+		{"END", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CSSParser, END)},
+		{"charMapping", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CSSParser, charMapping)},
+		{"didPushChar", "Z", nullptr, $PRIVATE, $field(CSSParser, didPushChar)},
+		{"pushedChar", "I", nullptr, $PRIVATE, $field(CSSParser, pushedChar)},
+		{"unitBuffer", "Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $field(CSSParser, unitBuffer)},
+		{"unitStack", "[I", nullptr, $PRIVATE, $field(CSSParser, unitStack)},
+		{"stackCount", "I", nullptr, $PRIVATE, $field(CSSParser, stackCount)},
+		{"reader", "Ljava/io/Reader;", nullptr, $PRIVATE, $field(CSSParser, reader)},
+		{"encounteredRuleSet", "Z", nullptr, $PRIVATE, $field(CSSParser, encounteredRuleSet)},
+		{"callback", "Ljavax/swing/text/html/CSSParser$CSSParserCallback;", nullptr, $PRIVATE, $field(CSSParser, callback)},
+		{"tokenBuffer", "[C", nullptr, $PRIVATE, $field(CSSParser, tokenBuffer)},
+		{"tokenBufferLength", "I", nullptr, $PRIVATE, $field(CSSParser, tokenBufferLength)},
+		{"readWS", "Z", nullptr, $PRIVATE, $field(CSSParser, readWS$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CSSParser, init$, void)},
+		{"append", "(C)V", nullptr, $PRIVATE, $method(CSSParser, append, void, char16_t)},
+		{"endBlock", "(I)V", nullptr, $PRIVATE, $method(CSSParser, endBlock, void, int32_t)},
+		{"getIdentifier", "(C)Z", nullptr, $PRIVATE, $method(CSSParser, getIdentifier, bool, char16_t), "java.io.IOException"},
+		{"getNextStatement", "()Z", nullptr, $PRIVATE, $method(CSSParser, getNextStatement, bool), "java.io.IOException"},
+		{"inBlock", "()Z", nullptr, $PRIVATE, $method(CSSParser, inBlock, bool)},
+		{"nextToken", "(C)I", nullptr, $PRIVATE, $method(CSSParser, nextToken, int32_t, char16_t), "java.io.IOException"},
+		{"parse", "(Ljava/io/Reader;Ljavax/swing/text/html/CSSParser$CSSParserCallback;Z)V", nullptr, 0, $virtualMethod(CSSParser, parse, void, $Reader*, $CSSParser$CSSParserCallback*, bool), "java.io.IOException"},
+		{"parseAtRule", "()V", nullptr, $PRIVATE, $method(CSSParser, parseAtRule, void), "java.io.IOException"},
+		{"parseDeclaration", "()I", nullptr, $PRIVATE, $method(CSSParser, parseDeclaration, int32_t), "java.io.IOException"},
+		{"parseDeclarationBlock", "()V", nullptr, $PRIVATE, $method(CSSParser, parseDeclarationBlock, void), "java.io.IOException"},
+		{"parseIdentifiers", "(CZ)I", nullptr, $PRIVATE, $method(CSSParser, parseIdentifiers, int32_t, char16_t, bool), "java.io.IOException"},
+		{"parseRuleSet", "()V", nullptr, $PRIVATE, $method(CSSParser, parseRuleSet, void), "java.io.IOException"},
+		{"parseSelectors", "()Z", nullptr, $PRIVATE, $method(CSSParser, parseSelectors, bool), "java.io.IOException"},
+		{"parseTillClosed", "(I)V", nullptr, $PRIVATE, $method(CSSParser, parseTillClosed, void, int32_t), "java.io.IOException"},
+		{"pushChar", "(I)V", nullptr, $PRIVATE, $method(CSSParser, pushChar, void, int32_t)},
+		{"readChar", "()I", nullptr, $PRIVATE, $method(CSSParser, readChar, int32_t), "java.io.IOException"},
+		{"readComment", "()V", nullptr, $PRIVATE, $method(CSSParser, readComment, void), "java.io.IOException"},
+		{"readTill", "(C)V", nullptr, $PRIVATE, $method(CSSParser, readTill, void, char16_t), "java.io.IOException"},
+		{"readWS", "()I", nullptr, $PRIVATE, $method(CSSParser, readWS, int32_t), "java.io.IOException"},
+		{"startBlock", "(I)V", nullptr, $PRIVATE, $method(CSSParser, startBlock, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.CSSParser$CSSParserCallback", "javax.swing.text.html.CSSParser", "CSSParserCallback", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.CSSParser",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.CSSParser$CSSParserCallback"
+	};
+	$loadClass(CSSParser, name, initialize, &classInfo$$, CSSParser::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CSSParser);
+	});
 	return class$;
 }
 

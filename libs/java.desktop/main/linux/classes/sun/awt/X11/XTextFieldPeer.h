@@ -85,6 +85,7 @@ public:
 	virtual bool isObscured() override;
 	virtual bool isReparentSupported() override;
 	virtual void layout() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::TextField* target);
 	void action(int64_t when, int32_t modifiers);
 	void deselect();

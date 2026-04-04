@@ -1,8 +1,6 @@
 #include <javax/swing/text/StyledEditorKit$BoldAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/JEditorPane.h>
-#include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/SimpleAttributeSet.h>
 #include <javax/swing/text/StyleConstants.h>
@@ -15,7 +13,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JEditorPane = ::javax::swing::JEditorPane;
-using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $SimpleAttributeSet = ::javax::swing::text::SimpleAttributeSet;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
@@ -26,44 +23,12 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _StyledEditorKit$BoldAction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StyledEditorKit$BoldAction, init$, void)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(StyledEditorKit$BoldAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _StyledEditorKit$BoldAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.StyledEditorKit$BoldAction", "javax.swing.text.StyledEditorKit", "BoldAction", $PUBLIC | $STATIC},
-	{"javax.swing.text.StyledEditorKit$StyledTextAction", "javax.swing.text.StyledEditorKit", "StyledTextAction", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _StyledEditorKit$BoldAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.StyledEditorKit$BoldAction",
-	"javax.swing.text.StyledEditorKit$StyledTextAction",
-	nullptr,
-	nullptr,
-	_StyledEditorKit$BoldAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StyledEditorKit$BoldAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.StyledEditorKit"
-};
-
-$Object* allocate$StyledEditorKit$BoldAction($Class* clazz) {
-	return $of($alloc(StyledEditorKit$BoldAction));
-}
-
 void StyledEditorKit$BoldAction::init$() {
 	$StyledEditorKit$StyledTextAction::init$("font-bold"_s);
 }
 
 void StyledEditorKit$BoldAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JEditorPane, editor, getEditor(e));
 	if (editor != nullptr) {
 		$var($StyledEditorKit, kit, getStyledEditorKit(editor));
@@ -79,7 +44,34 @@ StyledEditorKit$BoldAction::StyledEditorKit$BoldAction() {
 }
 
 $Class* StyledEditorKit$BoldAction::load$($String* name, bool initialize) {
-	$loadClass(StyledEditorKit$BoldAction, name, initialize, &_StyledEditorKit$BoldAction_ClassInfo_, allocate$StyledEditorKit$BoldAction);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StyledEditorKit$BoldAction, init$, void)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(StyledEditorKit$BoldAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.StyledEditorKit$BoldAction", "javax.swing.text.StyledEditorKit", "BoldAction", $PUBLIC | $STATIC},
+		{"javax.swing.text.StyledEditorKit$StyledTextAction", "javax.swing.text.StyledEditorKit", "StyledTextAction", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.StyledEditorKit$BoldAction",
+		"javax.swing.text.StyledEditorKit$StyledTextAction",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.StyledEditorKit"
+	};
+	$loadClass(StyledEditorKit$BoldAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StyledEditorKit$BoldAction));
+	});
 	return class$;
 }
 

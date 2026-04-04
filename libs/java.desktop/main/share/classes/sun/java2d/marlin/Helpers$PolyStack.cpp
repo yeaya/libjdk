@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/Helpers$PolyStack.h>
-
 #include <java/util/Arrays.h>
 #include <sun/java2d/marlin/ByteArrayCache$Reference.h>
 #include <sun/java2d/marlin/DPathConsumer2D.h>
@@ -24,9 +23,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
-using $ByteArrayCache$Reference = ::sun::java2d::marlin::ByteArrayCache$Reference;
 using $DPathConsumer2D = ::sun::java2d::marlin::DPathConsumer2D;
-using $DoubleArrayCache$Reference = ::sun::java2d::marlin::DoubleArrayCache$Reference;
 using $MarlinConst = ::sun::java2d::marlin::MarlinConst;
 using $RendererContext = ::sun::java2d::marlin::RendererContext;
 using $Histogram = ::sun::java2d::marlin::stats::Histogram;
@@ -35,67 +32,6 @@ using $StatLong = ::sun::java2d::marlin::stats::StatLong;
 namespace sun {
 	namespace java2d {
 		namespace marlin {
-
-$FieldInfo _Helpers$PolyStack_FieldInfo_[] = {
-	{"TYPE_LINETO", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Helpers$PolyStack, TYPE_LINETO)},
-	{"TYPE_QUADTO", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Helpers$PolyStack, TYPE_QUADTO)},
-	{"TYPE_CUBICTO", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Helpers$PolyStack, TYPE_CUBICTO)},
-	{"INITIAL_CURVES_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Helpers$PolyStack, INITIAL_CURVES_COUNT)},
-	{"INITIAL_TYPES_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Helpers$PolyStack, INITIAL_TYPES_COUNT)},
-	{"curves", "[D", nullptr, 0, $field(Helpers$PolyStack, curves)},
-	{"end", "I", nullptr, 0, $field(Helpers$PolyStack, end)},
-	{"curveTypes", "[B", nullptr, 0, $field(Helpers$PolyStack, curveTypes)},
-	{"numCurves", "I", nullptr, 0, $field(Helpers$PolyStack, numCurves)},
-	{"curves_ref", "Lsun/java2d/marlin/DoubleArrayCache$Reference;", nullptr, $FINAL, $field(Helpers$PolyStack, curves_ref)},
-	{"curveTypes_ref", "Lsun/java2d/marlin/ByteArrayCache$Reference;", nullptr, $FINAL, $field(Helpers$PolyStack, curveTypes_ref)},
-	{"curveTypesUseMark", "I", nullptr, 0, $field(Helpers$PolyStack, curveTypesUseMark)},
-	{"curvesUseMark", "I", nullptr, 0, $field(Helpers$PolyStack, curvesUseMark)},
-	{"stat_polystack_types", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $PRIVATE | $FINAL, $field(Helpers$PolyStack, stat_polystack_types)},
-	{"stat_polystack_curves", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $PRIVATE | $FINAL, $field(Helpers$PolyStack, stat_polystack_curves)},
-	{"hist_polystack_curves", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $PRIVATE | $FINAL, $field(Helpers$PolyStack, hist_polystack_curves)},
-	{"stat_array_polystack_curves", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $PRIVATE | $FINAL, $field(Helpers$PolyStack, stat_array_polystack_curves)},
-	{"stat_array_polystack_curveTypes", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $PRIVATE | $FINAL, $field(Helpers$PolyStack, stat_array_polystack_curveTypes)},
-	{}
-};
-
-$MethodInfo _Helpers$PolyStack_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/marlin/RendererContext;)V", nullptr, 0, $method(Helpers$PolyStack, init$, void, $RendererContext*)},
-	{"<init>", "(Lsun/java2d/marlin/RendererContext;Lsun/java2d/marlin/stats/StatLong;Lsun/java2d/marlin/stats/StatLong;Lsun/java2d/marlin/stats/Histogram;Lsun/java2d/marlin/stats/StatLong;Lsun/java2d/marlin/stats/StatLong;)V", nullptr, 0, $method(Helpers$PolyStack, init$, void, $RendererContext*, $StatLong*, $StatLong*, $Histogram*, $StatLong*, $StatLong*)},
-	{"dispose", "()V", nullptr, 0, $method(Helpers$PolyStack, dispose, void)},
-	{"ensureSpace", "(I)V", nullptr, $PRIVATE, $method(Helpers$PolyStack, ensureSpace, void, int32_t)},
-	{"popAll", "(Lsun/java2d/marlin/DPathConsumer2D;)V", nullptr, 0, $method(Helpers$PolyStack, popAll, void, $DPathConsumer2D*)},
-	{"pullAll", "(Lsun/java2d/marlin/DPathConsumer2D;)V", nullptr, 0, $method(Helpers$PolyStack, pullAll, void, $DPathConsumer2D*)},
-	{"pushCubic", "(DDDDDD)V", nullptr, 0, $method(Helpers$PolyStack, pushCubic, void, double, double, double, double, double, double)},
-	{"pushLine", "(DD)V", nullptr, 0, $method(Helpers$PolyStack, pushLine, void, double, double)},
-	{"pushQuad", "(DDDD)V", nullptr, 0, $method(Helpers$PolyStack, pushQuad, void, double, double, double, double)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Helpers$PolyStack, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Helpers$PolyStack_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.Helpers$PolyStack", "sun.java2d.marlin.Helpers", "PolyStack", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Helpers$PolyStack_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.Helpers$PolyStack",
-	"java.lang.Object",
-	nullptr,
-	_Helpers$PolyStack_FieldInfo_,
-	_Helpers$PolyStack_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Helpers$PolyStack_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.Helpers"
-};
-
-$Object* allocate$Helpers$PolyStack($Class* clazz) {
-	return $of($alloc(Helpers$PolyStack));
-}
 
 int32_t Helpers$PolyStack::INITIAL_CURVES_COUNT = 0;
 int32_t Helpers$PolyStack::INITIAL_TYPES_COUNT = 0;
@@ -185,11 +121,11 @@ void Helpers$PolyStack::pushLine(double x, double y) {
 	ensureSpace(2);
 	$nc(this->curveTypes)->set(this->numCurves++, Helpers$PolyStack::TYPE_LINETO);
 	$nc(this->curves)->set(this->end++, x);
-	$nc(this->curves)->set(this->end++, y);
+	this->curves->set(this->end++, y);
 }
 
 void Helpers$PolyStack::pullAll($DPathConsumer2D* io) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nc = this->numCurves;
 	if (nc == 0) {
 		return;
@@ -209,25 +145,19 @@ void Helpers$PolyStack::pullAll($DPathConsumer2D* io) {
 	for (int32_t i = 0; i < nc; ++i) {
 		switch ($nc(_curveTypes)->get(i)) {
 		case Helpers$PolyStack::TYPE_LINETO:
-			{
-				$nc(io)->lineTo($nc(_curves)->get(e), _curves->get(e + 1));
-				e += 2;
-				continue;
-			}
+			$nc(io)->lineTo($nc(_curves)->get(e), $nc(_curves)->get(e + 1));
+			e += 2;
+			continue;
 		case Helpers$PolyStack::TYPE_CUBICTO:
-			{
-				$nc(io)->curveTo($nc(_curves)->get(e), _curves->get(e + 1), _curves->get(e + 2), _curves->get(e + 3), _curves->get(e + 4), _curves->get(e + 5));
-				e += 6;
-				continue;
-			}
+			$nc(io)->curveTo($nc(_curves)->get(e), $nc(_curves)->get(e + 1), $nc(_curves)->get(e + 2), $nc(_curves)->get(e + 3), $nc(_curves)->get(e + 4), $nc(_curves)->get(e + 5));
+			e += 6;
+			continue;
 		case Helpers$PolyStack::TYPE_QUADTO:
-			{
-				$nc(io)->quadTo($nc(_curves)->get(e), _curves->get(e + 1), _curves->get(e + 2), _curves->get(e + 3));
-				e += 4;
-				continue;
-			}
+			$nc(io)->quadTo($nc(_curves)->get(e), $nc(_curves)->get(e + 1), $nc(_curves)->get(e + 2), $nc(_curves)->get(e + 3));
+			e += 4;
+			continue;
 		default:
-			{}
+			break;
 		}
 	}
 	this->numCurves = 0;
@@ -235,7 +165,7 @@ void Helpers$PolyStack::pullAll($DPathConsumer2D* io) {
 }
 
 void Helpers$PolyStack::popAll($DPathConsumer2D* io) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nc = this->numCurves;
 	if (nc == 0) {
 		return;
@@ -255,25 +185,19 @@ void Helpers$PolyStack::popAll($DPathConsumer2D* io) {
 	while (nc != 0) {
 		switch ($nc(_curveTypes)->get(--nc)) {
 		case Helpers$PolyStack::TYPE_LINETO:
-			{
-				e -= 2;
-				$nc(io)->lineTo($nc(_curves)->get(e), _curves->get(e + 1));
-				continue;
-			}
+			e -= 2;
+			$nc(io)->lineTo($nc(_curves)->get(e), $nc(_curves)->get(e + 1));
+			continue;
 		case Helpers$PolyStack::TYPE_CUBICTO:
-			{
-				e -= 6;
-				$nc(io)->curveTo($nc(_curves)->get(e), _curves->get(e + 1), _curves->get(e + 2), _curves->get(e + 3), _curves->get(e + 4), _curves->get(e + 5));
-				continue;
-			}
+			e -= 6;
+			$nc(io)->curveTo($nc(_curves)->get(e), $nc(_curves)->get(e + 1), $nc(_curves)->get(e + 2), $nc(_curves)->get(e + 3), $nc(_curves)->get(e + 4), $nc(_curves)->get(e + 5));
+			continue;
 		case Helpers$PolyStack::TYPE_QUADTO:
-			{
-				e -= 4;
-				$nc(io)->quadTo($nc(_curves)->get(e), _curves->get(e + 1), _curves->get(e + 2), _curves->get(e + 3));
-				continue;
-			}
+			e -= 4;
+			$nc(io)->quadTo($nc(_curves)->get(e), $nc(_curves)->get(e + 1), $nc(_curves)->get(e + 2), $nc(_curves)->get(e + 3));
+			continue;
 		default:
-			{}
+			break;
 		}
 	}
 	this->numCurves = 0;
@@ -281,7 +205,7 @@ void Helpers$PolyStack::popAll($DPathConsumer2D* io) {
 }
 
 $String* Helpers$PolyStack::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, ret, ""_s);
 	int32_t nc = this->numCurves;
 	int32_t last = this->end;
@@ -289,27 +213,19 @@ $String* Helpers$PolyStack::toString() {
 	while (nc != 0) {
 		switch ($nc(this->curveTypes)->get(--nc)) {
 		case Helpers$PolyStack::TYPE_LINETO:
-			{
-				len = 2;
-				$plusAssign(ret, "line: "_s);
-				break;
-			}
+			len = 2;
+			$plusAssign(ret, "line: "_s);
+			break;
 		case Helpers$PolyStack::TYPE_QUADTO:
-			{
-				len = 4;
-				$plusAssign(ret, "quad: "_s);
-				break;
-			}
+			len = 4;
+			$plusAssign(ret, "quad: "_s);
+			break;
 		case Helpers$PolyStack::TYPE_CUBICTO:
-			{
-				len = 6;
-				$plusAssign(ret, "cubic: "_s);
-				break;
-			}
+			len = 6;
+			$plusAssign(ret, "cubic: "_s);
+			break;
 		default:
-			{
-				len = 0;
-			}
+			len = 0;
 		}
 		last -= len;
 		$plusAssign(ret, $$str({$($Arrays::toString($($Arrays::copyOfRange(this->curves, last, last + len)))), "\n"_s}));
@@ -317,7 +233,7 @@ $String* Helpers$PolyStack::toString() {
 	return ret;
 }
 
-void clinit$Helpers$PolyStack($Class* class$) {
+void Helpers$PolyStack::clinit$($Class* clazz) {
 	$init($MarlinConst);
 	Helpers$PolyStack::INITIAL_CURVES_COUNT = $MarlinConst::INITIAL_EDGES_COUNT << 1;
 	Helpers$PolyStack::INITIAL_TYPES_COUNT = $MarlinConst::INITIAL_EDGES_COUNT;
@@ -327,7 +243,62 @@ Helpers$PolyStack::Helpers$PolyStack() {
 }
 
 $Class* Helpers$PolyStack::load$($String* name, bool initialize) {
-	$loadClass(Helpers$PolyStack, name, initialize, &_Helpers$PolyStack_ClassInfo_, clinit$Helpers$PolyStack, allocate$Helpers$PolyStack);
+	$FieldInfo fieldInfos$$[] = {
+		{"TYPE_LINETO", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Helpers$PolyStack, TYPE_LINETO)},
+		{"TYPE_QUADTO", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Helpers$PolyStack, TYPE_QUADTO)},
+		{"TYPE_CUBICTO", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Helpers$PolyStack, TYPE_CUBICTO)},
+		{"INITIAL_CURVES_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Helpers$PolyStack, INITIAL_CURVES_COUNT)},
+		{"INITIAL_TYPES_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Helpers$PolyStack, INITIAL_TYPES_COUNT)},
+		{"curves", "[D", nullptr, 0, $field(Helpers$PolyStack, curves)},
+		{"end", "I", nullptr, 0, $field(Helpers$PolyStack, end)},
+		{"curveTypes", "[B", nullptr, 0, $field(Helpers$PolyStack, curveTypes)},
+		{"numCurves", "I", nullptr, 0, $field(Helpers$PolyStack, numCurves)},
+		{"curves_ref", "Lsun/java2d/marlin/DoubleArrayCache$Reference;", nullptr, $FINAL, $field(Helpers$PolyStack, curves_ref)},
+		{"curveTypes_ref", "Lsun/java2d/marlin/ByteArrayCache$Reference;", nullptr, $FINAL, $field(Helpers$PolyStack, curveTypes_ref)},
+		{"curveTypesUseMark", "I", nullptr, 0, $field(Helpers$PolyStack, curveTypesUseMark)},
+		{"curvesUseMark", "I", nullptr, 0, $field(Helpers$PolyStack, curvesUseMark)},
+		{"stat_polystack_types", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $PRIVATE | $FINAL, $field(Helpers$PolyStack, stat_polystack_types)},
+		{"stat_polystack_curves", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $PRIVATE | $FINAL, $field(Helpers$PolyStack, stat_polystack_curves)},
+		{"hist_polystack_curves", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $PRIVATE | $FINAL, $field(Helpers$PolyStack, hist_polystack_curves)},
+		{"stat_array_polystack_curves", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $PRIVATE | $FINAL, $field(Helpers$PolyStack, stat_array_polystack_curves)},
+		{"stat_array_polystack_curveTypes", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $PRIVATE | $FINAL, $field(Helpers$PolyStack, stat_array_polystack_curveTypes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/marlin/RendererContext;)V", nullptr, 0, $method(Helpers$PolyStack, init$, void, $RendererContext*)},
+		{"<init>", "(Lsun/java2d/marlin/RendererContext;Lsun/java2d/marlin/stats/StatLong;Lsun/java2d/marlin/stats/StatLong;Lsun/java2d/marlin/stats/Histogram;Lsun/java2d/marlin/stats/StatLong;Lsun/java2d/marlin/stats/StatLong;)V", nullptr, 0, $method(Helpers$PolyStack, init$, void, $RendererContext*, $StatLong*, $StatLong*, $Histogram*, $StatLong*, $StatLong*)},
+		{"dispose", "()V", nullptr, 0, $method(Helpers$PolyStack, dispose, void)},
+		{"ensureSpace", "(I)V", nullptr, $PRIVATE, $method(Helpers$PolyStack, ensureSpace, void, int32_t)},
+		{"popAll", "(Lsun/java2d/marlin/DPathConsumer2D;)V", nullptr, 0, $method(Helpers$PolyStack, popAll, void, $DPathConsumer2D*)},
+		{"pullAll", "(Lsun/java2d/marlin/DPathConsumer2D;)V", nullptr, 0, $method(Helpers$PolyStack, pullAll, void, $DPathConsumer2D*)},
+		{"pushCubic", "(DDDDDD)V", nullptr, 0, $method(Helpers$PolyStack, pushCubic, void, double, double, double, double, double, double)},
+		{"pushLine", "(DD)V", nullptr, 0, $method(Helpers$PolyStack, pushLine, void, double, double)},
+		{"pushQuad", "(DDDD)V", nullptr, 0, $method(Helpers$PolyStack, pushQuad, void, double, double, double, double)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Helpers$PolyStack, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.Helpers$PolyStack", "sun.java2d.marlin.Helpers", "PolyStack", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.Helpers$PolyStack",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.Helpers"
+	};
+	$loadClass(Helpers$PolyStack, name, initialize, &classInfo$$, Helpers$PolyStack::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Helpers$PolyStack);
+	});
 	return class$;
 }
 

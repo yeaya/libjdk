@@ -1,5 +1,4 @@
 #include <com/sun/jndi/toolkit/dir/SearchFilter$AtomicFilter.h>
-
 #include <com/sun/jndi/toolkit/dir/SearchFilter.h>
 #include <java/util/Enumeration.h>
 #include <java/util/Locale.h>
@@ -36,105 +35,61 @@ namespace com {
 			namespace toolkit {
 				namespace dir {
 
-$FieldInfo _SearchFilter$AtomicFilter_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/jndi/toolkit/dir/SearchFilter;", nullptr, $FINAL | $SYNTHETIC, $field(SearchFilter$AtomicFilter, this$0)},
-	{"attrID", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SearchFilter$AtomicFilter, attrID)},
-	{"value", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SearchFilter$AtomicFilter, value)},
-	{"matchType", "I", nullptr, $PRIVATE, $field(SearchFilter$AtomicFilter, matchType)},
-	{}
-};
-
-$MethodInfo _SearchFilter$AtomicFilter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/toolkit/dir/SearchFilter;)V", nullptr, 0, $method(SearchFilter$AtomicFilter, init$, void, $SearchFilter*)},
-	{"check", "(Ljavax/naming/directory/Attributes;)Z", nullptr, $PUBLIC, $virtualMethod(SearchFilter$AtomicFilter, check, bool, $Attributes*)},
-	{"parse", "()V", nullptr, $PUBLIC, $virtualMethod(SearchFilter$AtomicFilter, parse, void), "javax.naming.directory.InvalidSearchFilterException"},
-	{"substringMatch", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(SearchFilter$AtomicFilter, substringMatch, bool, $String*, $String*)},
-	{}
-};
-
-$InnerClassInfo _SearchFilter$AtomicFilter_InnerClassesInfo_[] = {
-	{"com.sun.jndi.toolkit.dir.SearchFilter$AtomicFilter", "com.sun.jndi.toolkit.dir.SearchFilter", "AtomicFilter", $FINAL},
-	{"com.sun.jndi.toolkit.dir.SearchFilter$StringFilter", "com.sun.jndi.toolkit.dir.SearchFilter", "StringFilter", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SearchFilter$AtomicFilter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jndi.toolkit.dir.SearchFilter$AtomicFilter",
-	"java.lang.Object",
-	"com.sun.jndi.toolkit.dir.SearchFilter$StringFilter",
-	_SearchFilter$AtomicFilter_FieldInfo_,
-	_SearchFilter$AtomicFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SearchFilter$AtomicFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jndi.toolkit.dir.SearchFilter"
-};
-
-$Object* allocate$SearchFilter$AtomicFilter($Class* clazz) {
-	return $of($alloc(SearchFilter$AtomicFilter));
-}
-
 void SearchFilter$AtomicFilter::init$($SearchFilter* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void SearchFilter$AtomicFilter::parse() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->this$0->skipWhiteSpace();
 	try {
 		int32_t endPos = this->this$0->relIndexOf(u')');
 		int32_t i = this->this$0->relIndexOf(u'=');
+		;
 		int32_t qualifier = this->this$0->relCharAt(i - 1);
 		switch (qualifier) {
 		case u'~':
-			{
-				this->matchType = 2;
-				$set(this, attrID, this->this$0->relSubstring(0, i - 1));
-				$set(this, value, this->this$0->relSubstring(i + 1, endPos));
-				break;
-			}
+			;
+			this->matchType = 2;
+			$set(this, attrID, this->this$0->relSubstring(0, i - 1));
+			$set(this, value, this->this$0->relSubstring(i + 1, endPos));
+			break;
 		case u'>':
-			{
-				this->matchType = 3;
-				$set(this, attrID, this->this$0->relSubstring(0, i - 1));
-				$set(this, value, this->this$0->relSubstring(i + 1, endPos));
-				break;
-			}
+			;
+			this->matchType = 3;
+			$set(this, attrID, this->this$0->relSubstring(0, i - 1));
+			$set(this, value, this->this$0->relSubstring(i + 1, endPos));
+			break;
 		case u'<':
-			{
-				this->matchType = 4;
-				$set(this, attrID, this->this$0->relSubstring(0, i - 1));
-				$set(this, value, this->this$0->relSubstring(i + 1, endPos));
-				break;
-			}
+			;
+			this->matchType = 4;
+			$set(this, attrID, this->this$0->relSubstring(0, i - 1));
+			$set(this, value, this->this$0->relSubstring(i + 1, endPos));
+			break;
 		case u':':
-			{
-				$throwNew($OperationNotSupportedException, "Extensible match not supported"_s);
-			}
+			;
+			$throwNew($OperationNotSupportedException, "Extensible match not supported"_s);
 		default:
-			{
-				this->matchType = 1;
-				$set(this, attrID, this->this$0->relSubstring(0, i));
-				$set(this, value, this->this$0->relSubstring(i + 1, endPos));
-				break;
-			}
+			;
+			this->matchType = 1;
+			$set(this, attrID, this->this$0->relSubstring(0, i));
+			$set(this, value, this->this$0->relSubstring(i + 1, endPos));
+			break;
 		}
 		$set(this, attrID, $nc(this->attrID)->trim());
 		$set(this, value, $nc(this->value)->trim());
 		this->this$0->consumeChars(endPos);
 	} catch ($Exception& e) {
+		;
 		$var($InvalidSearchFilterException, sfe, $new($InvalidSearchFilterException, $$str({"Unable to parse character "_s, $$str(this->this$0->pos), " in \""_s, this->this$0->filter, "\""_s})));
 		sfe->setRootCause(e);
 		$throw(sfe);
 	}
+	;
 }
 
 bool SearchFilter$AtomicFilter::check($Attributes* targetAttrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Enumeration, candidates, nullptr);
 	try {
 		$var($Attribute, attr, $nc(targetAttrs)->get(this->attrID));
@@ -143,67 +98,69 @@ bool SearchFilter$AtomicFilter::check($Attributes* targetAttrs) {
 		}
 		$assign(candidates, $nc(attr)->getAll());
 	} catch ($NamingException& ne) {
+		;
 		return false;
 	}
 	while ($nc(candidates)->hasMoreElements()) {
-		$var($String, val, $nc($of($(candidates->nextElement())))->toString());
+		$var($String, val, $$nc(candidates->nextElement())->toString());
+		;
 		switch (this->matchType) {
 		case 2:
-			{}
 		case 1:
-			{
-				if (substringMatch(this->value, val)) {
-					return true;
-				}
-				break;
+			if (substringMatch(this->value, val)) {
+				;
+				return true;
 			}
+			break;
 		case 3:
-			{
-				if ($nc(val)->compareTo(this->value) >= 0) {
-					return true;
-				}
-				break;
+			;
+			if ($nc(val)->compareTo(this->value) >= 0) {
+				return true;
 			}
+			break;
 		case 4:
-			{
-				if ($nc(val)->compareTo(this->value) <= 0) {
-					return true;
-				}
-				break;
+			;
+			if ($nc(val)->compareTo(this->value) <= 0) {
+				return true;
 			}
+			break;
 		default:
-			{
-			}
+			;
 		}
 	}
 	return false;
 }
 
 bool SearchFilter$AtomicFilter::substringMatch($String* proto, $String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(proto)->equals($($Character::toString(u'*')))) {
+		;
 		return true;
 	}
-	if ($nc(proto)->indexOf((int32_t)u'*') == -1) {
+	if (proto->indexOf(u'*') == -1) {
 		return proto->equalsIgnoreCase(value);
 	}
+	;
 	int32_t currentPos = 0;
 	$var($StringTokenizer, subStrs, $new($StringTokenizer, proto, "*"_s, false));
-	bool var$0 = $nc(proto)->charAt(0) != u'*';
+	bool var$0 = proto->charAt(0) != u'*';
 	$init($Locale);
-	if (var$0 && !$($nc(value)->toLowerCase($Locale::ENGLISH))->startsWith($($nc($(subStrs->nextToken()))->toLowerCase($Locale::ENGLISH)))) {
+	if (var$0 && !$($nc(value)->toLowerCase($Locale::ENGLISH))->startsWith($($$nc(subStrs->nextToken())->toLowerCase($Locale::ENGLISH)))) {
+		;
 		return false;
 	}
 	while (subStrs->hasMoreTokens()) {
 		$var($String, currentStr, subStrs->nextToken());
+		;
 		currentPos = $($nc(value)->toLowerCase($Locale::ENGLISH))->indexOf($($nc(currentStr)->toLowerCase($Locale::ENGLISH)), currentPos);
 		if (currentPos == -1) {
 			return false;
 		}
-		currentPos += $nc(currentStr)->length();
+		currentPos += currentStr->length();
 	}
-	bool var$1 = $nc(proto)->charAt(proto->length() - 1) != u'*';
+	bool var$1 = proto->charAt(proto->length() - 1) != u'*';
 	if (var$1 && currentPos != $nc(value)->length()) {
+		;
 		return false;
 	}
 	return true;
@@ -213,7 +170,43 @@ SearchFilter$AtomicFilter::SearchFilter$AtomicFilter() {
 }
 
 $Class* SearchFilter$AtomicFilter::load$($String* name, bool initialize) {
-	$loadClass(SearchFilter$AtomicFilter, name, initialize, &_SearchFilter$AtomicFilter_ClassInfo_, allocate$SearchFilter$AtomicFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/jndi/toolkit/dir/SearchFilter;", nullptr, $FINAL | $SYNTHETIC, $field(SearchFilter$AtomicFilter, this$0)},
+		{"attrID", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SearchFilter$AtomicFilter, attrID)},
+		{"value", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SearchFilter$AtomicFilter, value)},
+		{"matchType", "I", nullptr, $PRIVATE, $field(SearchFilter$AtomicFilter, matchType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/jndi/toolkit/dir/SearchFilter;)V", nullptr, 0, $method(SearchFilter$AtomicFilter, init$, void, $SearchFilter*)},
+		{"check", "(Ljavax/naming/directory/Attributes;)Z", nullptr, $PUBLIC, $virtualMethod(SearchFilter$AtomicFilter, check, bool, $Attributes*)},
+		{"parse", "()V", nullptr, $PUBLIC, $virtualMethod(SearchFilter$AtomicFilter, parse, void), "javax.naming.directory.InvalidSearchFilterException"},
+		{"substringMatch", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(SearchFilter$AtomicFilter, substringMatch, bool, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jndi.toolkit.dir.SearchFilter$AtomicFilter", "com.sun.jndi.toolkit.dir.SearchFilter", "AtomicFilter", $FINAL},
+		{"com.sun.jndi.toolkit.dir.SearchFilter$StringFilter", "com.sun.jndi.toolkit.dir.SearchFilter", "StringFilter", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jndi.toolkit.dir.SearchFilter$AtomicFilter",
+		"java.lang.Object",
+		"com.sun.jndi.toolkit.dir.SearchFilter$StringFilter",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jndi.toolkit.dir.SearchFilter"
+	};
+	$loadClass(SearchFilter$AtomicFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SearchFilter$AtomicFilter);
+	});
 	return class$;
 }
 

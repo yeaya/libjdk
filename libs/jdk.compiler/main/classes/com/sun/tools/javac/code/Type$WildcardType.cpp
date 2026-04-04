@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Type$WildcardType.h>
-
 #include <com/sun/tools/javac/code/BoundKind.h>
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type$TypeVar.h>
@@ -15,7 +14,6 @@
 #include <javax/lang/model/type/TypeKind.h>
 #include <javax/lang/model/type/TypeMirror.h>
 #include <javax/lang/model/type/TypeVisitor.h>
-#include <javax/lang/model/type/WildcardType.h>
 #include <jcpp.h>
 
 #undef EMPTY
@@ -43,77 +41,12 @@ using $List = ::java::util::List;
 using $TypeKind = ::javax::lang::model::type::TypeKind;
 using $TypeMirror = ::javax::lang::model::type::TypeMirror;
 using $TypeVisitor = ::javax::lang::model::type::TypeVisitor;
-using $WildcardType = ::javax::lang::model::type::WildcardType;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Type$WildcardType_FieldInfo_[] = {
-	{"type", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Type$WildcardType, type)},
-	{"kind", "Lcom/sun/tools/javac/code/BoundKind;", nullptr, $PUBLIC, $field(Type$WildcardType, kind)},
-	{"bound", "Lcom/sun/tools/javac/code/Type$TypeVar;", nullptr, $PUBLIC, $field(Type$WildcardType, bound)},
-	{"isPrintingBound", "Z", nullptr, 0, $field(Type$WildcardType, isPrintingBound)},
-	{}
-};
-
-$MethodInfo _Type$WildcardType_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/BoundKind;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, $PUBLIC, $method(Type$WildcardType, init$, void, $Type*, $BoundKind*, $Symbol$TypeSymbol*)},
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/BoundKind;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, $PUBLIC, $method(Type$WildcardType, init$, void, $Type*, $BoundKind*, $Symbol$TypeSymbol*, $TypeMetadata*)},
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/BoundKind;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type$TypeVar;)V", nullptr, $PUBLIC, $method(Type$WildcardType, init$, void, $Type*, $BoundKind*, $Symbol$TypeSymbol*, $Type$TypeVar*)},
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/BoundKind;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type$TypeVar;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, $PUBLIC, $method(Type$WildcardType, init$, void, $Type*, $BoundKind*, $Symbol$TypeSymbol*, $Type$TypeVar*, $TypeMetadata*)},
-	{"accept", "(Lcom/sun/tools/javac/code/Type$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;S:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Type$Visitor<TR;TS;>;TS;)TR;", $PUBLIC, $virtualMethod(Type$WildcardType, accept, $Object*, $Type$Visitor*, Object$*)},
-	{"accept", "(Ljavax/lang/model/type/TypeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/type/TypeVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Type$WildcardType, accept, $Object*, $TypeVisitor*, Object$*)},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$WildcardType;", nullptr, $PUBLIC, $virtualMethod(Type$WildcardType, cloneWithMetadata, Type$WildcardType*, $TypeMetadata*)},
-	{"contains", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Type$WildcardType, contains, bool, $Type*)},
-	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$WildcardType, getAnnotationMirrors, $List*)},
-	{"getExtendsBound", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$WildcardType, getExtendsBound, $TypeMirror*)},
-	{"getKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $virtualMethod(Type$WildcardType, getKind, $TypeKind*)},
-	{"getSuperBound", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$WildcardType, getSuperBound, $TypeMirror*)},
-	{"getTag", "()Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $virtualMethod(Type$WildcardType, getTag, $TypeTag*)},
-	{"isExtendsBound", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$WildcardType, isExtendsBound, bool)},
-	{"isNullOrReference", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$WildcardType, isNullOrReference, bool)},
-	{"isReference", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$WildcardType, isReference, bool)},
-	{"isSuperBound", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$WildcardType, isSuperBound, bool)},
-	{"isUnbound", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$WildcardType, isUnbound, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type$WildcardType, toString, $String*)},
-	{"withTypeVar", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$WildcardType, withTypeVar, $Type*, $Type*)},
-	{}
-};
-
-$InnerClassInfo _Type$WildcardType_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Type$WildcardType", "com.sun.tools.javac.code.Type", "WildcardType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$WildcardType$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Type$WildcardType_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Type$WildcardType",
-	"com.sun.tools.javac.code.Type",
-	"javax.lang.model.type.WildcardType",
-	_Type$WildcardType_FieldInfo_,
-	_Type$WildcardType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Type$WildcardType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Type"
-};
-
-$Object* allocate$Type$WildcardType($Class* clazz) {
-	return $of($alloc(Type$WildcardType));
-}
 
 $Annotation* Type$WildcardType::getAnnotation($Class* annotationType) {
 	 return this->$Type::getAnnotation(annotationType);
@@ -140,7 +73,7 @@ void Type$WildcardType::finalize() {
 }
 
 $Object* Type$WildcardType::accept($Type$Visitor* v, Object$* s) {
-	return $of($nc(v)->visitWildcardType(this, s));
+	return $nc(v)->visitWildcardType(this, s);
 }
 
 void Type$WildcardType::init$($Type* type, $BoundKind* kind, $Symbol$TypeSymbol* tsym) {
@@ -211,28 +144,26 @@ $Type* Type$WildcardType::withTypeVar($Type* t) {
 }
 
 $String* Type$WildcardType::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, s, $new($StringBuilder));
 	appendAnnotationsString(s);
 	s->append($($nc(this->kind)->toString()));
 	if (this->kind != $BoundKind::UNBOUND) {
-		s->append($of(this->type));
+		s->append(this->type);
 	}
 	$init($Type);
 	if ($Type::moreInfo && this->bound != nullptr && !this->isPrintingBound) {
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				this->isPrintingBound = true;
-				s->append("{:"_s)->append($($of($nc(this->bound)->getUpperBound())))->append(":}"_s);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				this->isPrintingBound = false;
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			this->isPrintingBound = true;
+			s->append("{:"_s)->append($(this->bound->getUpperBound()))->append(":}"_s);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			this->isPrintingBound = false;
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	return s->toString();
@@ -262,7 +193,7 @@ $TypeKind* Type$WildcardType::getKind() {
 }
 
 $Object* Type$WildcardType::accept($TypeVisitor* v, Object$* p) {
-	return $of($nc(v)->visitWildcard(this, p));
+	return $nc(v)->visitWildcard(this, p);
 }
 
 $List* Type$WildcardType::getAnnotationMirrors() {
@@ -273,7 +204,65 @@ Type$WildcardType::Type$WildcardType() {
 }
 
 $Class* Type$WildcardType::load$($String* name, bool initialize) {
-	$loadClass(Type$WildcardType, name, initialize, &_Type$WildcardType_ClassInfo_, allocate$Type$WildcardType);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Type$WildcardType, type)},
+		{"kind", "Lcom/sun/tools/javac/code/BoundKind;", nullptr, $PUBLIC, $field(Type$WildcardType, kind)},
+		{"bound", "Lcom/sun/tools/javac/code/Type$TypeVar;", nullptr, $PUBLIC, $field(Type$WildcardType, bound)},
+		{"isPrintingBound", "Z", nullptr, 0, $field(Type$WildcardType, isPrintingBound)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
+		{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/BoundKind;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, $PUBLIC, $method(Type$WildcardType, init$, void, $Type*, $BoundKind*, $Symbol$TypeSymbol*)},
+		{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/BoundKind;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, $PUBLIC, $method(Type$WildcardType, init$, void, $Type*, $BoundKind*, $Symbol$TypeSymbol*, $TypeMetadata*)},
+		{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/BoundKind;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type$TypeVar;)V", nullptr, $PUBLIC, $method(Type$WildcardType, init$, void, $Type*, $BoundKind*, $Symbol$TypeSymbol*, $Type$TypeVar*)},
+		{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/BoundKind;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type$TypeVar;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, $PUBLIC, $method(Type$WildcardType, init$, void, $Type*, $BoundKind*, $Symbol$TypeSymbol*, $Type$TypeVar*, $TypeMetadata*)},
+		{"accept", "(Lcom/sun/tools/javac/code/Type$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;S:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Type$Visitor<TR;TS;>;TS;)TR;", $PUBLIC, $virtualMethod(Type$WildcardType, accept, $Object*, $Type$Visitor*, Object$*)},
+		{"accept", "(Ljavax/lang/model/type/TypeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/type/TypeVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Type$WildcardType, accept, $Object*, $TypeVisitor*, Object$*)},
+		{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$WildcardType;", nullptr, $PUBLIC, $virtualMethod(Type$WildcardType, cloneWithMetadata, Type$WildcardType*, $TypeMetadata*)},
+		{"contains", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Type$WildcardType, contains, bool, $Type*)},
+		{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$WildcardType, getAnnotationMirrors, $List*)},
+		{"getExtendsBound", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$WildcardType, getExtendsBound, $TypeMirror*)},
+		{"getKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $virtualMethod(Type$WildcardType, getKind, $TypeKind*)},
+		{"getSuperBound", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$WildcardType, getSuperBound, $TypeMirror*)},
+		{"getTag", "()Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $virtualMethod(Type$WildcardType, getTag, $TypeTag*)},
+		{"isExtendsBound", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$WildcardType, isExtendsBound, bool)},
+		{"isNullOrReference", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$WildcardType, isNullOrReference, bool)},
+		{"isReference", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$WildcardType, isReference, bool)},
+		{"isSuperBound", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$WildcardType, isSuperBound, bool)},
+		{"isUnbound", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$WildcardType, isUnbound, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type$WildcardType, toString, $String*)},
+		{"withTypeVar", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$WildcardType, withTypeVar, $Type*, $Type*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Type$WildcardType", "com.sun.tools.javac.code.Type", "WildcardType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$WildcardType$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Type$WildcardType",
+		"com.sun.tools.javac.code.Type",
+		"javax.lang.model.type.WildcardType",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Type"
+	};
+	$loadClass(Type$WildcardType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Type$WildcardType));
+	});
 	return class$;
 }
 

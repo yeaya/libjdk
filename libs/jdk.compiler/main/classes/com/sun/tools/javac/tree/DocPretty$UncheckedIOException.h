@@ -22,10 +22,13 @@ class DocPretty$UncheckedIOException : public ::java::lang::Error {
 public:
 	DocPretty$UncheckedIOException();
 	void init$(::java::io::IOException* e);
-	static const int64_t serialVersionUID = (int64_t)0xC808FF5FDA719B51;
+	static const int64_t serialVersionUID = (int64_t)0xc808ff5fda719b51;
 	DocPretty$UncheckedIOException(const DocPretty$UncheckedIOException& e);
 	virtual void throw$() override;
-	inline DocPretty$UncheckedIOException* operator ->() {
+	inline DocPretty$UncheckedIOException* operator ->() const {
+		return (DocPretty$UncheckedIOException*)throwing$;
+	}
+	inline operator DocPretty$UncheckedIOException*() const {
 		return (DocPretty$UncheckedIOException*)throwing$;
 	}
 };

@@ -35,6 +35,7 @@ class $import SystemTray : public ::java::lang::Object {
 	$class(SystemTray, 0, ::java::lang::Object)
 public:
 	SystemTray();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void add(::java::awt::TrayIcon* trayIcon);
 	virtual void addNotify();

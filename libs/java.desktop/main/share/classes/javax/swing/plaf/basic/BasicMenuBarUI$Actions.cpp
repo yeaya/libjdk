@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicMenuBarUI$Actions.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <java/util/EventObject.h>
 #include <javax/swing/JMenu.h>
@@ -30,42 +29,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicMenuBarUI$Actions_FieldInfo_[] = {
-	{"TAKE_FOCUS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicMenuBarUI$Actions, TAKE_FOCUS)},
-	{}
-};
-
-$MethodInfo _BasicMenuBarUI$Actions_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicMenuBarUI$Actions, init$, void, $String*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuBarUI$Actions, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicMenuBarUI$Actions_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicMenuBarUI$Actions", "javax.swing.plaf.basic.BasicMenuBarUI", "Actions", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicMenuBarUI$Actions_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicMenuBarUI$Actions",
-	"sun.swing.UIAction",
-	nullptr,
-	_BasicMenuBarUI$Actions_FieldInfo_,
-	_BasicMenuBarUI$Actions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicMenuBarUI$Actions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicMenuBarUI"
-};
-
-$Object* allocate$BasicMenuBarUI$Actions($Class* clazz) {
-	return $of($alloc(BasicMenuBarUI$Actions));
-}
-
 $String* BasicMenuBarUI$Actions::TAKE_FOCUS = nullptr;
 
 void BasicMenuBarUI$Actions::init$($String* key) {
@@ -73,7 +36,7 @@ void BasicMenuBarUI$Actions::init$($String* key) {
 }
 
 void BasicMenuBarUI$Actions::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JMenuBar, menuBar, $cast($JMenuBar, $nc(e)->getSource()));
 	$var($MenuSelectionManager, defaultManager, $MenuSelectionManager::defaultManager());
 	$var($MenuElementArray, me, nullptr);
@@ -81,9 +44,9 @@ void BasicMenuBarUI$Actions::actionPerformed($ActionEvent* e) {
 	$var($JMenu, menu, $nc(menuBar)->getMenu(0));
 	if (menu != nullptr) {
 		$assign(me, $new($MenuElementArray, 3));
-		me->set(0, static_cast<$MenuElement*>(menuBar));
-		me->set(1, static_cast<$MenuElement*>(menu));
-		me->set(2, static_cast<$MenuElement*>($(menu->getPopupMenu())));
+		me->set(0, $cast($MenuElement, menuBar));
+		me->set(1, $cast($MenuElement, menu));
+		me->set(2, $$cast($MenuElement, menu->getPopupMenu()));
 		$nc(defaultManager)->setSelectedPath(me);
 	}
 }
@@ -91,12 +54,42 @@ void BasicMenuBarUI$Actions::actionPerformed($ActionEvent* e) {
 BasicMenuBarUI$Actions::BasicMenuBarUI$Actions() {
 }
 
-void clinit$BasicMenuBarUI$Actions($Class* class$) {
+void BasicMenuBarUI$Actions::clinit$($Class* clazz) {
 	$assignStatic(BasicMenuBarUI$Actions::TAKE_FOCUS, "takeFocus"_s);
 }
 
 $Class* BasicMenuBarUI$Actions::load$($String* name, bool initialize) {
-	$loadClass(BasicMenuBarUI$Actions, name, initialize, &_BasicMenuBarUI$Actions_ClassInfo_, clinit$BasicMenuBarUI$Actions, allocate$BasicMenuBarUI$Actions);
+	$FieldInfo fieldInfos$$[] = {
+		{"TAKE_FOCUS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicMenuBarUI$Actions, TAKE_FOCUS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicMenuBarUI$Actions, init$, void, $String*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuBarUI$Actions, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicMenuBarUI$Actions", "javax.swing.plaf.basic.BasicMenuBarUI", "Actions", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicMenuBarUI$Actions",
+		"sun.swing.UIAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicMenuBarUI"
+	};
+	$loadClass(BasicMenuBarUI$Actions, name, initialize, &classInfo$$, BasicMenuBarUI$Actions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicMenuBarUI$Actions);
+	});
 	return class$;
 }
 

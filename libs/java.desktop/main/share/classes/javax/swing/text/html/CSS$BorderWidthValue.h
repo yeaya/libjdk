@@ -15,6 +15,7 @@ class $export CSS$BorderWidthValue : public ::javax::swing::text::html::CSS$Leng
 	$class(CSS$BorderWidthValue, 0, ::javax::swing::text::html::CSS$LengthValue)
 public:
 	CSS$BorderWidthValue();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* svalue, int32_t index);
 	virtual $Object* parseCssValue($String* value) override;
 	virtual $Object* parseHtmlValue($String* value) override;

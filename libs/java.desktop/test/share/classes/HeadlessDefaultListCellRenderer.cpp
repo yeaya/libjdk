@@ -1,5 +1,4 @@
 #include <HeadlessDefaultListCellRenderer.h>
-
 #include <HeadlessDefaultListCellRenderer$1.h>
 #include <HeadlessDefaultListCellRenderer$2.h>
 #include <HeadlessDefaultListCellRenderer$3.h>
@@ -50,7 +49,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -61,47 +59,15 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 using $DefaultListCellRenderer = ::javax::swing::DefaultListCellRenderer;
 
-$MethodInfo _HeadlessDefaultListCellRenderer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessDefaultListCellRenderer, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessDefaultListCellRenderer, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _HeadlessDefaultListCellRenderer_InnerClassesInfo_[] = {
-	{"HeadlessDefaultListCellRenderer$3", nullptr, nullptr, 0},
-	{"HeadlessDefaultListCellRenderer$2", nullptr, nullptr, 0},
-	{"HeadlessDefaultListCellRenderer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessDefaultListCellRenderer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessDefaultListCellRenderer",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessDefaultListCellRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessDefaultListCellRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadlessDefaultListCellRenderer$3,HeadlessDefaultListCellRenderer$2,HeadlessDefaultListCellRenderer$1"
-};
-
-$Object* allocate$HeadlessDefaultListCellRenderer($Class* clazz) {
-	return $of($alloc(HeadlessDefaultListCellRenderer));
-}
-
 void HeadlessDefaultListCellRenderer::init$() {
 }
 
 void HeadlessDefaultListCellRenderer::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DefaultListCellRenderer, dcr, $new($DefaultListCellRenderer));
-	$var($Component, c1, dcr->add(static_cast<$Component*>($$new($HeadlessDefaultListCellRenderer$1))));
-	$var($Component, c2, dcr->add(static_cast<$Component*>($$new($HeadlessDefaultListCellRenderer$2))));
-	$var($Component, c3, dcr->add(static_cast<$Component*>($$new($HeadlessDefaultListCellRenderer$3))));
+	$var($Component, c1, dcr->add($$new($HeadlessDefaultListCellRenderer$1)));
+	$var($Component, c2, dcr->add($$new($HeadlessDefaultListCellRenderer$2)));
+	$var($Component, c3, dcr->add($$new($HeadlessDefaultListCellRenderer$3)));
 	dcr->setLayout($$new($FlowLayout));
 	dcr->invalidate();
 	dcr->validate();
@@ -124,26 +90,22 @@ void HeadlessDefaultListCellRenderer::main($StringArray* args) {
 	dcr->setForeground($Color::red);
 	dcr->setBackground($Color::red);
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					dcr->setFont(f1);
-					dcr->setFont(f2);
-					dcr->setFont(f3);
-					dcr->setFont(f4);
-					dcr->getFontMetrics(f1);
-					dcr->getFontMetrics(f2);
-					dcr->getFontMetrics(f3);
-					dcr->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				dcr->setFont(f1);
+				dcr->setFont(f2);
+				dcr->setFont(f3);
+				dcr->setFont(f4);
+				dcr->getFontMetrics(f1);
+				dcr->getFontMetrics(f2);
+				dcr->getFontMetrics(f3);
+				dcr->getFontMetrics(f4);
 			}
 		}
 	}
@@ -210,13 +172,11 @@ void HeadlessDefaultListCellRenderer::main($StringArray* args) {
 	dcr->getFont();
 	dcr->isFontSet();
 	$var($Container, c, $new($Container));
-	c->add(static_cast<$Component*>(dcr));
+	c->add(dcr);
 	dcr->getLocale();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			dcr->setLocale(locale);
 		}
@@ -274,7 +234,34 @@ HeadlessDefaultListCellRenderer::HeadlessDefaultListCellRenderer() {
 }
 
 $Class* HeadlessDefaultListCellRenderer::load$($String* name, bool initialize) {
-	$loadClass(HeadlessDefaultListCellRenderer, name, initialize, &_HeadlessDefaultListCellRenderer_ClassInfo_, allocate$HeadlessDefaultListCellRenderer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessDefaultListCellRenderer, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessDefaultListCellRenderer, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessDefaultListCellRenderer$3", nullptr, nullptr, 0},
+		{"HeadlessDefaultListCellRenderer$2", nullptr, nullptr, 0},
+		{"HeadlessDefaultListCellRenderer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessDefaultListCellRenderer",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadlessDefaultListCellRenderer$3,HeadlessDefaultListCellRenderer$2,HeadlessDefaultListCellRenderer$1"
+	};
+	$loadClass(HeadlessDefaultListCellRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessDefaultListCellRenderer);
+	});
 	return class$;
 }
 

@@ -1,11 +1,9 @@
 #include <javax/swing/plaf/synth/SynthMenuUI.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JMenu.h>
@@ -23,7 +21,6 @@
 #include <javax/swing/plaf/synth/SynthMenuItemLayoutHelper.h>
 #include <javax/swing/plaf/synth/SynthPainter.h>
 #include <javax/swing/plaf/synth/SynthStyle.h>
-#include <javax/swing/plaf/synth/SynthUI.h>
 #include <sun/swing/MenuItemLayoutHelper.h>
 #include <sun/swing/StringUIClientPropertyKey.h>
 #include <jcpp.h>
@@ -36,12 +33,10 @@
 #undef MOUSE_OVER
 #undef SELECTED
 
-using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -59,63 +54,13 @@ using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthGraphicsUtils = ::javax::swing::plaf::synth::SynthGraphicsUtils;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
 using $SynthMenuItemLayoutHelper = ::javax::swing::plaf::synth::SynthMenuItemLayoutHelper;
-using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
 using $SynthStyle = ::javax::swing::plaf::synth::SynthStyle;
-using $SynthUI = ::javax::swing::plaf::synth::SynthUI;
 using $MenuItemLayoutHelper = ::sun::swing::MenuItemLayoutHelper;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthMenuUI_FieldInfo_[] = {
-	{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthMenuUI, style)},
-	{"accStyle", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthMenuUI, accStyle)},
-	{}
-};
-
-$MethodInfo _SynthMenuUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SynthMenuUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthMenuUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getComponentState", "(Ljavax/swing/JComponent;)I", nullptr, $PRIVATE, $method(SynthMenuUI, getComponentState, int32_t, $JComponent*)},
-	{"getComponentState", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;)I", nullptr, $PRIVATE, $method(SynthMenuUI, getComponentState, int32_t, $JComponent*, $Region*)},
-	{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthMenuUI, getContext, $SynthContext*, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, 0, $virtualMethod(SynthMenuUI, getContext, $SynthContext*, $JComponent*, int32_t)},
-	{"getContext", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, 0, $virtualMethod(SynthMenuUI, getContext, $SynthContext*, $JComponent*, $Region*)},
-	{"getContext", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthMenuUI, getContext, $SynthContext*, $JComponent*, $Region*, int32_t)},
-	{"getPreferredMenuItemSize", "(Ljavax/swing/JComponent;Ljavax/swing/Icon;Ljavax/swing/Icon;I)Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(SynthMenuUI, getPreferredMenuItemSize, $Dimension*, $JComponent*, $Icon*, $Icon*, int32_t)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthMenuUI, installDefaults, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthMenuUI, installListeners, void)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthMenuUI, paint, void, $Graphics*, $JComponent*)},
-	{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthMenuUI, paint, void, $SynthContext*, $Graphics*)},
-	{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthMenuUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthMenuUI, propertyChange, void, $PropertyChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthMenuUI, uninstallDefaults, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthMenuUI, uninstallListeners, void)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthMenuUI, uninstallUI, void, $JComponent*)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthMenuUI, update, void, $Graphics*, $JComponent*)},
-	{"updateStyle", "(Ljavax/swing/JMenuItem;)V", nullptr, $PRIVATE, $method(SynthMenuUI, updateStyle, void, $JMenuItem*)},
-	{}
-};
-
-$ClassInfo _SynthMenuUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.synth.SynthMenuUI",
-	"javax.swing.plaf.basic.BasicMenuUI",
-	"java.beans.PropertyChangeListener,javax.swing.plaf.synth.SynthUI",
-	_SynthMenuUI_FieldInfo_,
-	_SynthMenuUI_MethodInfo_
-};
-
-$Object* allocate$SynthMenuUI($Class* clazz) {
-	return $of($alloc(SynthMenuUI));
-}
 
 int32_t SynthMenuUI::hashCode() {
 	 return this->$BasicMenuUI::hashCode();
@@ -156,15 +101,15 @@ void SynthMenuUI::installListeners() {
 }
 
 void SynthMenuUI::updateStyle($JMenuItem* mi) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthStyle, oldStyle, this->style);
-	$var($SynthContext, context, getContext(static_cast<$JComponent*>(mi), $SynthConstants::ENABLED));
+	$var($SynthContext, context, getContext(mi, $SynthConstants::ENABLED));
 	$set(this, style, $SynthLookAndFeel::updateStyle(context, this));
 	if (oldStyle != this->style) {
 		$var($String, prefix, getPropertyPrefix());
 		this->defaultTextIconGap = $nc(this->style)->getInt(context, $$str({prefix, ".textIconGap"_s}), 4);
 		bool var$0 = $nc(this->menuItem)->getMargin() == nullptr;
-		if (var$0 || ($instanceOf($UIResource, $($nc(this->menuItem)->getMargin())))) {
+		if (var$0 || ($instanceOf($UIResource, $(this->menuItem->getMargin())))) {
 			$var($Insets, insets, $cast($Insets, $nc(this->style)->get(context, $$str({prefix, ".margin"_s}))));
 			if (insets == nullptr) {
 				$assign(insets, $SynthLookAndFeel::EMPTY_UIRESOURCE_INSETS);
@@ -179,7 +124,7 @@ void SynthMenuUI::updateStyle($JMenuItem* mi) {
 			$set(this, checkIcon, nullptr);
 			$set(this, arrowIcon, nullptr);
 		}
-		$nc(($cast($JMenu, this->menuItem)))->setDelay($nc(this->style)->getInt(context, $$str({prefix, ".delay"_s}), 200));
+		$nc($cast($JMenu, this->menuItem))->setDelay($nc(this->style)->getInt(context, $$str({prefix, ".delay"_s}), 200));
 		if (oldStyle != nullptr) {
 			uninstallKeyboardActions();
 			installKeyboardActions();
@@ -200,8 +145,8 @@ void SynthMenuUI::uninstallUI($JComponent* c) {
 }
 
 void SynthMenuUI::uninstallDefaults() {
-	$useLocalCurrentObjectStackCache();
-	$var($SynthContext, context, getContext(static_cast<$JComponent*>(this->menuItem), $SynthConstants::ENABLED));
+	$useLocalObjectStack();
+	$var($SynthContext, context, getContext(this->menuItem, $SynthConstants::ENABLED));
 	$nc(this->style)->uninstallDefaults(context);
 	$set(this, style, nullptr);
 	$init($Region);
@@ -253,30 +198,22 @@ int32_t SynthMenuUI::getComponentState($JComponent* c, $Region* region) {
 }
 
 $Dimension* SynthMenuUI::getPreferredMenuItemSize($JComponent* c, $Icon* checkIcon, $Icon* arrowIcon, int32_t defaultTextIconGap) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(c));
 	$init($Region);
 	$var($SynthContext, accContext, getContext(c, $Region::MENU_ITEM_ACCELERATOR));
-	$var($SynthContext, var$0, context);
-	$var($SynthContext, var$1, accContext);
-	$var($JComponent, var$2, c);
-	$var($Icon, var$3, checkIcon);
-	$var($Icon, var$4, arrowIcon);
-	int32_t var$5 = defaultTextIconGap;
-	$var($String, var$6, this->acceleratorDelimiter);
-	bool var$7 = $MenuItemLayoutHelper::useCheckAndArrow(this->menuItem);
-	$var($Dimension, value, $SynthGraphicsUtils::getPreferredMenuItemSize(var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, $(getPropertyPrefix())));
+	$var($String, var$0, this->acceleratorDelimiter);
+	bool var$1 = $MenuItemLayoutHelper::useCheckAndArrow(this->menuItem);
+	$var($Dimension, value, $SynthGraphicsUtils::getPreferredMenuItemSize(context, accContext, c, checkIcon, arrowIcon, defaultTextIconGap, var$0, var$1, $(getPropertyPrefix())));
 	return value;
 }
 
 void SynthMenuUI::update($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(c));
 	$SynthLookAndFeel::update(context, g);
-	$var($SynthContext, var$0, context);
-	$var($Graphics, var$1, g);
-	int32_t var$2 = $nc(c)->getWidth();
-	$nc($($nc(context)->getPainter()))->paintMenuBackground(var$0, var$1, 0, 0, var$2, c->getHeight());
+	int32_t var$0 = $nc(c)->getWidth();
+	$$nc($nc(context)->getPainter())->paintMenuBackground(context, g, 0, 0, var$0, c->getHeight());
 	paint(context, g);
 }
 
@@ -286,9 +223,9 @@ void SynthMenuUI::paint($Graphics* g, $JComponent* c) {
 }
 
 void SynthMenuUI::paint($SynthContext* context, $Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Region);
-	$var($SynthContext, accContext, getContext(static_cast<$JComponent*>(this->menuItem), $Region::MENU_ITEM_ACCELERATOR));
+	$var($SynthContext, accContext, getContext(this->menuItem, $Region::MENU_ITEM_ACCELERATOR));
 	$var($String, prefix, getPropertyPrefix());
 	$var($Icon, checkIcon, $nc(this->style)->getIcon(context, $$str({prefix, ".checkIcon"_s})));
 	$var($Icon, arrowIcon, $nc(this->style)->getIcon(context, $$str({prefix, ".arrowIcon"_s})));
@@ -296,18 +233,18 @@ void SynthMenuUI::paint($SynthContext* context, $Graphics* g) {
 }
 
 void SynthMenuUI::paintBorder($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$nc($($nc(context)->getPainter()))->paintMenuBorder(context, g, x, y, w, h);
+	$$nc($nc(context)->getPainter())->paintMenuBorder(context, g, x, y, w, h);
 }
 
 void SynthMenuUI::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $SynthLookAndFeel::shouldUpdateStyle(e);
 	if (!var$0) {
-		bool var$1 = $nc($($nc(e)->getPropertyName()))->equals("ancestor"_s);
-		var$0 = (var$1 && $UIManager::getBoolean("Menu.useMenuBarForTopLevelMenus"_s));
+		bool var$1 = $$nc($nc(e)->getPropertyName())->equals("ancestor"_s);
+		var$0 = var$1 && $UIManager::getBoolean("Menu.useMenuBarForTopLevelMenus"_s);
 	}
 	if (var$0) {
-		updateStyle($cast($JMenu, $(e->getSource())));
+		updateStyle($$cast($JMenu, $nc(e)->getSource()));
 	}
 }
 
@@ -315,7 +252,50 @@ SynthMenuUI::SynthMenuUI() {
 }
 
 $Class* SynthMenuUI::load$($String* name, bool initialize) {
-	$loadClass(SynthMenuUI, name, initialize, &_SynthMenuUI_ClassInfo_, allocate$SynthMenuUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthMenuUI, style)},
+		{"accStyle", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthMenuUI, accStyle)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SynthMenuUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthMenuUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getComponentState", "(Ljavax/swing/JComponent;)I", nullptr, $PRIVATE, $method(SynthMenuUI, getComponentState, int32_t, $JComponent*)},
+		{"getComponentState", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;)I", nullptr, $PRIVATE, $method(SynthMenuUI, getComponentState, int32_t, $JComponent*, $Region*)},
+		{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthMenuUI, getContext, $SynthContext*, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, 0, $virtualMethod(SynthMenuUI, getContext, $SynthContext*, $JComponent*, int32_t)},
+		{"getContext", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, 0, $virtualMethod(SynthMenuUI, getContext, $SynthContext*, $JComponent*, $Region*)},
+		{"getContext", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthMenuUI, getContext, $SynthContext*, $JComponent*, $Region*, int32_t)},
+		{"getPreferredMenuItemSize", "(Ljavax/swing/JComponent;Ljavax/swing/Icon;Ljavax/swing/Icon;I)Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(SynthMenuUI, getPreferredMenuItemSize, $Dimension*, $JComponent*, $Icon*, $Icon*, int32_t)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthMenuUI, installDefaults, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthMenuUI, installListeners, void)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthMenuUI, paint, void, $Graphics*, $JComponent*)},
+		{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthMenuUI, paint, void, $SynthContext*, $Graphics*)},
+		{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthMenuUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthMenuUI, propertyChange, void, $PropertyChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthMenuUI, uninstallDefaults, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthMenuUI, uninstallListeners, void)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthMenuUI, uninstallUI, void, $JComponent*)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthMenuUI, update, void, $Graphics*, $JComponent*)},
+		{"updateStyle", "(Ljavax/swing/JMenuItem;)V", nullptr, $PRIVATE, $method(SynthMenuUI, updateStyle, void, $JMenuItem*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.synth.SynthMenuUI",
+		"javax.swing.plaf.basic.BasicMenuUI",
+		"java.beans.PropertyChangeListener,javax.swing.plaf.synth.SynthUI",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SynthMenuUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthMenuUI));
+	});
 	return class$;
 }
 

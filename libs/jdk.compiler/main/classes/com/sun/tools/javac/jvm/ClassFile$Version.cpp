@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/ClassFile$Version.h>
-
 #include <com/sun/tools/javac/jvm/ClassFile.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -19,64 +18,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$FieldInfo _ClassFile$Version_FieldInfo_[] = {
-	{"V45_3", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassFile$Version, V45_3)},
-	{"V49", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassFile$Version, V49)},
-	{"V50", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassFile$Version, V50)},
-	{"V51", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassFile$Version, V51)},
-	{"V52", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassFile$Version, V52)},
-	{"V53", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassFile$Version, V53)},
-	{"V54", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassFile$Version, V54)},
-	{"V55", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassFile$Version, V55)},
-	{"V56", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassFile$Version, V56)},
-	{"V57", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassFile$Version, V57)},
-	{"V58", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassFile$Version, V58)},
-	{"V59", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassFile$Version, V59)},
-	{"V60", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassFile$Version, V60)},
-	{"V61", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassFile$Version, V61)},
-	{"$VALUES", "[Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ClassFile$Version, $VALUES)},
-	{"major", "I", nullptr, $PUBLIC | $FINAL, $field(ClassFile$Version, major)},
-	{"minor", "I", nullptr, $PUBLIC | $FINAL, $field(ClassFile$Version, minor)},
-	{"MIN", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClassFile$Version, MIN$)},
-	{"MAX", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClassFile$Version, MAX$)},
-	{}
-};
-
-$MethodInfo _ClassFile$Version_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ClassFile$Version, $values, $ClassFile$VersionArray*)},
-	{"<init>", "(Ljava/lang/String;III)V", "(II)V", $PRIVATE, $method(ClassFile$Version, init$, void, $String*, int32_t, int32_t, int32_t)},
-	{"MAX", "()Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassFile$Version, MAX, ClassFile$Version*)},
-	{"MIN", "()Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassFile$Version, MIN, ClassFile$Version*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassFile$Version, valueOf, ClassFile$Version*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassFile$Version, values, $ClassFile$VersionArray*)},
-	{}
-};
-
-$InnerClassInfo _ClassFile$Version_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.ClassFile$Version", "com.sun.tools.javac.jvm.ClassFile", "Version", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _ClassFile$Version_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.jvm.ClassFile$Version",
-	"java.lang.Enum",
-	nullptr,
-	_ClassFile$Version_FieldInfo_,
-	_ClassFile$Version_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/jvm/ClassFile$Version;>;",
-	nullptr,
-	_ClassFile$Version_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.ClassFile"
-};
-
-$Object* allocate$ClassFile$Version($Class* clazz) {
-	return $of($alloc(ClassFile$Version));
-}
 
 ClassFile$Version* ClassFile$Version::V45_3 = nullptr;
 ClassFile$Version* ClassFile$Version::V49 = nullptr;
@@ -142,8 +83,8 @@ ClassFile$Version* ClassFile$Version::MAX() {
 	return ClassFile$Version::MAX$;
 }
 
-void clinit$ClassFile$Version($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ClassFile$Version::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(ClassFile$Version::V45_3, $new(ClassFile$Version, "V45_3"_s, 0, 45, 3));
 	$assignStatic(ClassFile$Version::V49, $new(ClassFile$Version, "V49"_s, 1, 49, 0));
 	$assignStatic(ClassFile$Version::V50, $new(ClassFile$Version, "V50"_s, 2, 50, 0));
@@ -167,7 +108,59 @@ ClassFile$Version::ClassFile$Version() {
 }
 
 $Class* ClassFile$Version::load$($String* name, bool initialize) {
-	$loadClass(ClassFile$Version, name, initialize, &_ClassFile$Version_ClassInfo_, clinit$ClassFile$Version, allocate$ClassFile$Version);
+	$FieldInfo fieldInfos$$[] = {
+		{"V45_3", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassFile$Version, V45_3)},
+		{"V49", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassFile$Version, V49)},
+		{"V50", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassFile$Version, V50)},
+		{"V51", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassFile$Version, V51)},
+		{"V52", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassFile$Version, V52)},
+		{"V53", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassFile$Version, V53)},
+		{"V54", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassFile$Version, V54)},
+		{"V55", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassFile$Version, V55)},
+		{"V56", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassFile$Version, V56)},
+		{"V57", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassFile$Version, V57)},
+		{"V58", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassFile$Version, V58)},
+		{"V59", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassFile$Version, V59)},
+		{"V60", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassFile$Version, V60)},
+		{"V61", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassFile$Version, V61)},
+		{"$VALUES", "[Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ClassFile$Version, $VALUES)},
+		{"major", "I", nullptr, $PUBLIC | $FINAL, $field(ClassFile$Version, major)},
+		{"minor", "I", nullptr, $PUBLIC | $FINAL, $field(ClassFile$Version, minor)},
+		{"MIN", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClassFile$Version, MIN$)},
+		{"MAX", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClassFile$Version, MAX$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ClassFile$Version, $values, $ClassFile$VersionArray*)},
+		{"<init>", "(Ljava/lang/String;III)V", "(II)V", $PRIVATE, $method(ClassFile$Version, init$, void, $String*, int32_t, int32_t, int32_t)},
+		{"MAX", "()Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassFile$Version, MAX, ClassFile$Version*)},
+		{"MIN", "()Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassFile$Version, MIN, ClassFile$Version*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassFile$Version, valueOf, ClassFile$Version*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassFile$Version, values, $ClassFile$VersionArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.ClassFile$Version", "com.sun.tools.javac.jvm.ClassFile", "Version", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.jvm.ClassFile$Version",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/jvm/ClassFile$Version;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.ClassFile"
+	};
+	$loadClass(ClassFile$Version, name, initialize, &classInfo$$, ClassFile$Version::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ClassFile$Version));
+	});
 	return class$;
 }
 

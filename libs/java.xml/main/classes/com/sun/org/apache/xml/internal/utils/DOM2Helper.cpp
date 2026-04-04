@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/DOM2Helper.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMNodeProxy.h>
 #include <org/w3c/dom/Attr.h>
 #include <org/w3c/dom/Document.h>
@@ -26,31 +25,6 @@ namespace com {
 					namespace internal {
 						namespace utils {
 
-$MethodInfo _DOM2Helper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DOM2Helper, init$, void)},
-	{"getLocalNameOfNode", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOM2Helper, getLocalNameOfNode, $String*, $Node*)},
-	{"getLocalNameOfNodeFallback", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOM2Helper, getLocalNameOfNodeFallback, $String*, $Node*)},
-	{"getNamespaceOfNode", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOM2Helper, getNamespaceOfNode, $String*, $Node*)},
-	{"getParentOfNode", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOM2Helper, getParentOfNode, $Node*, $Node*)},
-	{"isNodeAfter", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DOM2Helper, isNodeAfter, bool, $Node*, $Node*)},
-	{"isNodeAfterSibling", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DOM2Helper, isNodeAfterSibling, bool, $Node*, $Node*, $Node*)},
-	{"isNodeTheSame", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DOM2Helper, isNodeTheSame, bool, $Node*, $Node*)},
-	{}
-};
-
-$ClassInfo _DOM2Helper_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.DOM2Helper",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_DOM2Helper_MethodInfo_
-};
-
-$Object* allocate$DOM2Helper($Class* clazz) {
-	return $of($alloc(DOM2Helper));
-}
-
 void DOM2Helper::init$() {
 }
 
@@ -61,7 +35,7 @@ $String* DOM2Helper::getLocalNameOfNode($Node* n) {
 
 $String* DOM2Helper::getLocalNameOfNodeFallback($Node* n) {
 	$var($String, qname, $nc(n)->getNodeName());
-	int32_t index = $nc(qname)->indexOf((int32_t)u':');
+	int32_t index = $nc(qname)->indexOf(u':');
 	return (index < 0) ? qname : qname->substring(index + 1);
 }
 
@@ -70,7 +44,7 @@ $String* DOM2Helper::getNamespaceOfNode($Node* n) {
 }
 
 bool DOM2Helper::isNodeAfter($Node* node1, $Node* node2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (node1 == node2 || isNodeTheSame(node1, node2)) {
 		return true;
 	}
@@ -128,7 +102,7 @@ bool DOM2Helper::isNodeAfter($Node* node1, $Node* node2) {
 
 bool DOM2Helper::isNodeTheSame($Node* node1, $Node* node2) {
 	if ($instanceOf($DTMNodeProxy, node1) && $instanceOf($DTMNodeProxy, node2)) {
-		return $nc(($cast($DTMNodeProxy, node1)))->equals(static_cast<$Node*>(static_cast<$Document*>($cast($DTMNodeProxy, node2))));
+		return $cast($DTMNodeProxy, node1)->equals($cast($Document, $cast($DTMNodeProxy, node2)));
 	} else {
 		return (node1 == node2);
 	}
@@ -137,13 +111,13 @@ bool DOM2Helper::isNodeTheSame($Node* node1, $Node* node2) {
 $Node* DOM2Helper::getParentOfNode($Node* node) {
 	$var($Node, parent, $nc(node)->getParentNode());
 	if (parent == nullptr && ($Node::ATTRIBUTE_NODE == node->getNodeType())) {
-		$assign(parent, $nc(($cast($Attr, node)))->getOwnerElement());
+		$assign(parent, $cast($Attr, node)->getOwnerElement());
 	}
 	return parent;
 }
 
 bool DOM2Helper::isNodeAfterSibling($Node* parent, $Node* child1, $Node* child2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool isNodeAfterSibling = false;
 	int16_t child1type = $nc(child1)->getNodeType();
 	int16_t child2type = $nc(child2)->getNodeType();
@@ -200,7 +174,28 @@ DOM2Helper::DOM2Helper() {
 }
 
 $Class* DOM2Helper::load$($String* name, bool initialize) {
-	$loadClass(DOM2Helper, name, initialize, &_DOM2Helper_ClassInfo_, allocate$DOM2Helper);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DOM2Helper, init$, void)},
+		{"getLocalNameOfNode", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOM2Helper, getLocalNameOfNode, $String*, $Node*)},
+		{"getLocalNameOfNodeFallback", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOM2Helper, getLocalNameOfNodeFallback, $String*, $Node*)},
+		{"getNamespaceOfNode", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOM2Helper, getNamespaceOfNode, $String*, $Node*)},
+		{"getParentOfNode", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOM2Helper, getParentOfNode, $Node*, $Node*)},
+		{"isNodeAfter", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DOM2Helper, isNodeAfter, bool, $Node*, $Node*)},
+		{"isNodeAfterSibling", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DOM2Helper, isNodeAfterSibling, bool, $Node*, $Node*, $Node*)},
+		{"isNodeTheSame", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DOM2Helper, isNodeTheSame, bool, $Node*, $Node*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.DOM2Helper",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DOM2Helper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DOM2Helper);
+	});
 	return class$;
 }
 

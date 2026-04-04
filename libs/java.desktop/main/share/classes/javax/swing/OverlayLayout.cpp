@@ -1,5 +1,4 @@
 #include <javax/swing/OverlayLayout.h>
-
 #include <java/awt/AWTError.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -26,66 +25,6 @@ using $SizeRequirements = ::javax::swing::SizeRequirements;
 
 namespace javax {
 	namespace swing {
-
-$Attribute OverlayLayout_Attribute_var$1[] = {
-	{'s', "target"},
-	{'-'}
-};
-
-$NamedAttribute OverlayLayout_Attribute_var$0[] = {
-	{"value", '[', OverlayLayout_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _OverlayLayout_MethodAnnotations_init$0[] = {
-	{"Ljava/beans/ConstructorProperties;", OverlayLayout_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _OverlayLayout_FieldInfo_[] = {
-	{"target", "Ljava/awt/Container;", nullptr, $PRIVATE, $field(OverlayLayout, target)},
-	{"xChildren", "[Ljavax/swing/SizeRequirements;", nullptr, $PRIVATE, $field(OverlayLayout, xChildren)},
-	{"yChildren", "[Ljavax/swing/SizeRequirements;", nullptr, $PRIVATE, $field(OverlayLayout, yChildren)},
-	{"xTotal", "Ljavax/swing/SizeRequirements;", nullptr, $PRIVATE, $field(OverlayLayout, xTotal)},
-	{"yTotal", "Ljavax/swing/SizeRequirements;", nullptr, $PRIVATE, $field(OverlayLayout, yTotal)},
-	{}
-};
-
-$MethodInfo _OverlayLayout_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $method(OverlayLayout, init$, void, $Container*), nullptr, nullptr, _OverlayLayout_MethodAnnotations_init$0},
-	{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(OverlayLayout, addLayoutComponent, void, $String*, $Component*)},
-	{"addLayoutComponent", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(OverlayLayout, addLayoutComponent, void, $Component*, Object$*)},
-	{"checkContainer", "(Ljava/awt/Container;)V", nullptr, 0, $virtualMethod(OverlayLayout, checkContainer, void, $Container*)},
-	{"checkRequests", "()V", nullptr, 0, $virtualMethod(OverlayLayout, checkRequests, void)},
-	{"getLayoutAlignmentX", "(Ljava/awt/Container;)F", nullptr, $PUBLIC, $virtualMethod(OverlayLayout, getLayoutAlignmentX, float, $Container*)},
-	{"getLayoutAlignmentY", "(Ljava/awt/Container;)F", nullptr, $PUBLIC, $virtualMethod(OverlayLayout, getLayoutAlignmentY, float, $Container*)},
-	{"getTarget", "()Ljava/awt/Container;", nullptr, $PUBLIC | $FINAL, $method(OverlayLayout, getTarget, $Container*)},
-	{"invalidateLayout", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(OverlayLayout, invalidateLayout, void, $Container*)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(OverlayLayout, layoutContainer, void, $Container*)},
-	{"maximumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(OverlayLayout, maximumLayoutSize, $Dimension*, $Container*)},
-	{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(OverlayLayout, minimumLayoutSize, $Dimension*, $Container*)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(OverlayLayout, preferredLayoutSize, $Dimension*, $Container*)},
-	{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(OverlayLayout, removeLayoutComponent, void, $Component*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _OverlayLayout_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.OverlayLayout",
-	"java.lang.Object",
-	"java.awt.LayoutManager2,java.io.Serializable",
-	_OverlayLayout_FieldInfo_,
-	_OverlayLayout_MethodInfo_
-};
-
-$Object* allocate$OverlayLayout($Class* clazz) {
-	return $of($alloc(OverlayLayout));
-}
 
 int32_t OverlayLayout::hashCode() {
 	 return this->$LayoutManager2::hashCode();
@@ -136,34 +75,34 @@ void OverlayLayout::addLayoutComponent($Component* comp, Object$* constraints) {
 }
 
 $Dimension* OverlayLayout::preferredLayoutSize($Container* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkContainer(target);
 	checkRequests();
 	$var($Dimension, size, $new($Dimension, $nc(this->xTotal)->preferred, $nc(this->yTotal)->preferred));
 	$var($Insets, insets, $nc(target)->getInsets());
-	size->width += $nc(insets)->left + insets->right;
+	size->width += $nc(insets)->left + $nc(insets)->right;
 	size->height += insets->top + insets->bottom;
 	return size;
 }
 
 $Dimension* OverlayLayout::minimumLayoutSize($Container* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkContainer(target);
 	checkRequests();
 	$var($Dimension, size, $new($Dimension, $nc(this->xTotal)->minimum, $nc(this->yTotal)->minimum));
 	$var($Insets, insets, $nc(target)->getInsets());
-	size->width += $nc(insets)->left + insets->right;
+	size->width += $nc(insets)->left + $nc(insets)->right;
 	size->height += insets->top + insets->bottom;
 	return size;
 }
 
 $Dimension* OverlayLayout::maximumLayoutSize($Container* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkContainer(target);
 	checkRequests();
 	$var($Dimension, size, $new($Dimension, $nc(this->xTotal)->maximum, $nc(this->yTotal)->maximum));
 	$var($Insets, insets, $nc(target)->getInsets());
-	size->width += $nc(insets)->left + insets->right;
+	size->width += $nc(insets)->left + $nc(insets)->right;
 	size->height += insets->top + insets->bottom;
 	return size;
 }
@@ -181,7 +120,7 @@ float OverlayLayout::getLayoutAlignmentY($Container* target) {
 }
 
 void OverlayLayout::layoutContainer($Container* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkContainer(target);
 	checkRequests();
 	int32_t nChildren = $nc(target)->getComponentCount();
@@ -191,7 +130,7 @@ void OverlayLayout::layoutContainer($Container* target) {
 	$var($ints, ySpans, $new($ints, nChildren));
 	$var($Dimension, alloc, target->getSize());
 	$var($Insets, in, target->getInsets());
-	$nc(alloc)->width -= $nc(in)->left + in->right;
+	$nc(alloc)->width -= $nc(in)->left + $nc(in)->right;
 	alloc->height -= in->top + in->bottom;
 	$SizeRequirements::calculateAlignedPositions(alloc->width, this->xTotal, this->xChildren, xOffsets, xSpans);
 	$SizeRequirements::calculateAlignedPositions(alloc->height, this->yTotal, this->yChildren, yOffsets, ySpans);
@@ -208,7 +147,7 @@ void OverlayLayout::checkContainer($Container* target) {
 }
 
 void OverlayLayout::checkRequests() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->xChildren == nullptr || this->yChildren == nullptr) {
 		int32_t n = $nc(this->target)->getComponentCount();
 		$set(this, xChildren, $new($SizeRequirementsArray, n));
@@ -219,7 +158,7 @@ void OverlayLayout::checkRequests() {
 			$var($Dimension, typ, c->getPreferredSize());
 			$var($Dimension, max, c->getMaximumSize());
 			$nc(this->xChildren)->set(i, $$new($SizeRequirements, $nc(min)->width, $nc(typ)->width, $nc(max)->width, c->getAlignmentX()));
-			$nc(this->yChildren)->set(i, $$new($SizeRequirements, $nc(min)->height, $nc(typ)->height, $nc(max)->height, c->getAlignmentY()));
+			$nc(this->yChildren)->set(i, $$new($SizeRequirements, min->height, typ->height, max->height, c->getAlignmentY()));
 		}
 		$set(this, xTotal, $SizeRequirements::getAlignedSizeRequirements(this->xChildren));
 		$set(this, yTotal, $SizeRequirements::getAlignedSizeRequirements(this->yChildren));
@@ -230,7 +169,59 @@ OverlayLayout::OverlayLayout() {
 }
 
 $Class* OverlayLayout::load$($String* name, bool initialize) {
-	$loadClass(OverlayLayout, name, initialize, &_OverlayLayout_ClassInfo_, allocate$OverlayLayout);
+	$FieldInfo fieldInfos$$[] = {
+		{"target", "Ljava/awt/Container;", nullptr, $PRIVATE, $field(OverlayLayout, target)},
+		{"xChildren", "[Ljavax/swing/SizeRequirements;", nullptr, $PRIVATE, $field(OverlayLayout, xChildren)},
+		{"yChildren", "[Ljavax/swing/SizeRequirements;", nullptr, $PRIVATE, $field(OverlayLayout, yChildren)},
+		{"xTotal", "Ljavax/swing/SizeRequirements;", nullptr, $PRIVATE, $field(OverlayLayout, xTotal)},
+		{"yTotal", "Ljavax/swing/SizeRequirements;", nullptr, $PRIVATE, $field(OverlayLayout, yTotal)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "target"},
+		{'-'}
+	};
+	$NamedAttribute init$methodAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/beans/ConstructorProperties;", init$methodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $method(OverlayLayout, init$, void, $Container*), nullptr, nullptr, init$methodAnnotations$$},
+		{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(OverlayLayout, addLayoutComponent, void, $String*, $Component*)},
+		{"addLayoutComponent", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(OverlayLayout, addLayoutComponent, void, $Component*, Object$*)},
+		{"checkContainer", "(Ljava/awt/Container;)V", nullptr, 0, $virtualMethod(OverlayLayout, checkContainer, void, $Container*)},
+		{"checkRequests", "()V", nullptr, 0, $virtualMethod(OverlayLayout, checkRequests, void)},
+		{"getLayoutAlignmentX", "(Ljava/awt/Container;)F", nullptr, $PUBLIC, $virtualMethod(OverlayLayout, getLayoutAlignmentX, float, $Container*)},
+		{"getLayoutAlignmentY", "(Ljava/awt/Container;)F", nullptr, $PUBLIC, $virtualMethod(OverlayLayout, getLayoutAlignmentY, float, $Container*)},
+		{"getTarget", "()Ljava/awt/Container;", nullptr, $PUBLIC | $FINAL, $method(OverlayLayout, getTarget, $Container*)},
+		{"invalidateLayout", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(OverlayLayout, invalidateLayout, void, $Container*)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(OverlayLayout, layoutContainer, void, $Container*)},
+		{"maximumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(OverlayLayout, maximumLayoutSize, $Dimension*, $Container*)},
+		{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(OverlayLayout, minimumLayoutSize, $Dimension*, $Container*)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(OverlayLayout, preferredLayoutSize, $Dimension*, $Container*)},
+		{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(OverlayLayout, removeLayoutComponent, void, $Component*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.OverlayLayout",
+		"java.lang.Object",
+		"java.awt.LayoutManager2,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OverlayLayout, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(OverlayLayout));
+	});
 	return class$;
 }
 

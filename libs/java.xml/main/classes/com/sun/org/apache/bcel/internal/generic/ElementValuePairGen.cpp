@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/ElementValuePairGen.h>
-
 #include <com/sun/org/apache/bcel/internal/classfile/Constant.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantUtf8.h>
@@ -28,41 +27,8 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$FieldInfo _ElementValuePairGen_FieldInfo_[] = {
-	{"nameIdx", "I", nullptr, $PRIVATE, $field(ElementValuePairGen, nameIdx)},
-	{"value", "Lcom/sun/org/apache/bcel/internal/generic/ElementValueGen;", nullptr, $PRIVATE | $FINAL, $field(ElementValuePairGen, value)},
-	{"constantPoolGen", "Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;", nullptr, $PRIVATE | $FINAL, $field(ElementValuePairGen, constantPoolGen)},
-	{}
-};
-
-$MethodInfo _ElementValuePairGen_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/ElementValuePair;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;Z)V", nullptr, $PUBLIC, $method(ElementValuePairGen, init$, void, $ElementValuePair*, $ConstantPoolGen*, bool)},
-	{"<init>", "(ILcom/sun/org/apache/bcel/internal/generic/ElementValueGen;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PROTECTED, $method(ElementValuePairGen, init$, void, int32_t, $ElementValueGen*, $ConstantPoolGen*)},
-	{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/ElementValueGen;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(ElementValuePairGen, init$, void, $String*, $ElementValueGen*, $ConstantPoolGen*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PROTECTED, $virtualMethod(ElementValuePairGen, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getElementNameValuePair", "()Lcom/sun/org/apache/bcel/internal/classfile/ElementValuePair;", nullptr, $PUBLIC, $virtualMethod(ElementValuePairGen, getElementNameValuePair, $ElementValuePair*)},
-	{"getNameIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ElementValuePairGen, getNameIndex, int32_t)},
-	{"getNameString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(ElementValuePairGen, getNameString, $String*)},
-	{"getValue", "()Lcom/sun/org/apache/bcel/internal/generic/ElementValueGen;", nullptr, $PUBLIC | $FINAL, $method(ElementValuePairGen, getValue, $ElementValueGen*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ElementValuePairGen, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ElementValuePairGen_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.ElementValuePairGen",
-	"java.lang.Object",
-	nullptr,
-	_ElementValuePairGen_FieldInfo_,
-	_ElementValuePairGen_MethodInfo_
-};
-
-$Object* allocate$ElementValuePairGen($Class* clazz) {
-	return $of($alloc(ElementValuePairGen));
-}
-
 void ElementValuePairGen::init$($ElementValuePair* nvp, $ConstantPoolGen* cpool, bool copyPoolEntries) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, constantPoolGen, cpool);
 	if (copyPoolEntries) {
 		this->nameIdx = $nc(cpool)->addUtf8($($nc(nvp)->getNameString()));
@@ -73,7 +39,7 @@ void ElementValuePairGen::init$($ElementValuePair* nvp, $ConstantPoolGen* cpool,
 }
 
 $ElementValuePair* ElementValuePairGen::getElementNameValuePair() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ElementValue, immutableValue, $nc(this->value)->getElementValue());
 	return $new($ElementValuePair, this->nameIdx, immutableValue, $($nc(this->constantPoolGen)->getConstantPool()));
 }
@@ -100,7 +66,7 @@ int32_t ElementValuePairGen::getNameIndex() {
 }
 
 $String* ElementValuePairGen::getNameString() {
-	return $nc(($cast($ConstantUtf8, $($nc(this->constantPoolGen)->getConstant(this->nameIdx)))))->getBytes();
+	return $$sure($ConstantUtf8, $nc(this->constantPoolGen)->getConstant(this->nameIdx))->getBytes();
 }
 
 $ElementValueGen* ElementValuePairGen::getValue() {
@@ -108,17 +74,49 @@ $ElementValueGen* ElementValuePairGen::getValue() {
 }
 
 $String* ElementValuePairGen::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({"ElementValuePair:["_s, $(getNameString()), "="_s}));
-	$var($String, var$0, $$concat(var$1, $($nc(this->value)->stringifyValue())));
-	return $concat(var$0, "]"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("ElementValuePair:["_s);
+	var$0->append($(getNameString()));
+	var$0->append("="_s);
+	var$0->append($($nc(this->value)->stringifyValue()));
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 ElementValuePairGen::ElementValuePairGen() {
 }
 
 $Class* ElementValuePairGen::load$($String* name, bool initialize) {
-	$loadClass(ElementValuePairGen, name, initialize, &_ElementValuePairGen_ClassInfo_, allocate$ElementValuePairGen);
+	$FieldInfo fieldInfos$$[] = {
+		{"nameIdx", "I", nullptr, $PRIVATE, $field(ElementValuePairGen, nameIdx)},
+		{"value", "Lcom/sun/org/apache/bcel/internal/generic/ElementValueGen;", nullptr, $PRIVATE | $FINAL, $field(ElementValuePairGen, value)},
+		{"constantPoolGen", "Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;", nullptr, $PRIVATE | $FINAL, $field(ElementValuePairGen, constantPoolGen)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/ElementValuePair;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;Z)V", nullptr, $PUBLIC, $method(ElementValuePairGen, init$, void, $ElementValuePair*, $ConstantPoolGen*, bool)},
+		{"<init>", "(ILcom/sun/org/apache/bcel/internal/generic/ElementValueGen;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PROTECTED, $method(ElementValuePairGen, init$, void, int32_t, $ElementValueGen*, $ConstantPoolGen*)},
+		{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/ElementValueGen;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(ElementValuePairGen, init$, void, $String*, $ElementValueGen*, $ConstantPoolGen*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PROTECTED, $virtualMethod(ElementValuePairGen, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getElementNameValuePair", "()Lcom/sun/org/apache/bcel/internal/classfile/ElementValuePair;", nullptr, $PUBLIC, $virtualMethod(ElementValuePairGen, getElementNameValuePair, $ElementValuePair*)},
+		{"getNameIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ElementValuePairGen, getNameIndex, int32_t)},
+		{"getNameString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(ElementValuePairGen, getNameString, $String*)},
+		{"getValue", "()Lcom/sun/org/apache/bcel/internal/generic/ElementValueGen;", nullptr, $PUBLIC | $FINAL, $method(ElementValuePairGen, getValue, $ElementValueGen*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ElementValuePairGen, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.ElementValuePairGen",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ElementValuePairGen, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ElementValuePairGen);
+	});
 	return class$;
 }
 

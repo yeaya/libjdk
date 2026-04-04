@@ -1,8 +1,6 @@
 #include <com/apple/laf/AquaBorder.h>
-
 #include <apple/laf/JRSUIConstants$AlignmentHorizontal.h>
 #include <apple/laf/JRSUIConstants$AlignmentVertical.h>
-#include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$Size.h>
 #include <apple/laf/JRSUIState.h>
 #include <com/apple/laf/AquaPainter.h>
@@ -25,7 +23,6 @@
 
 using $JRSUIConstants$AlignmentHorizontal = ::apple::laf::JRSUIConstants$AlignmentHorizontal;
 using $JRSUIConstants$AlignmentVertical = ::apple::laf::JRSUIConstants$AlignmentVertical;
-using $JRSUIConstants$Property = ::apple::laf::JRSUIConstants$Property;
 using $JRSUIConstants$Size = ::apple::laf::JRSUIConstants$Size;
 using $JRSUIState = ::apple::laf::JRSUIState;
 using $AquaPainter = ::com::apple::laf::AquaPainter;
@@ -38,7 +35,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Constructor = ::java::lang::reflect::Constructor;
 using $JComponent = ::javax::swing::JComponent;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JViewport = ::javax::swing::JViewport;
@@ -48,56 +44,6 @@ using $JTextComponent = ::javax::swing::text::JTextComponent;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaBorder_FieldInfo_[] = {
-	{"painter", "Lcom/apple/laf/AquaPainter;", "Lcom/apple/laf/AquaPainter<+Lapple/laf/JRSUIState;>;", $PROTECTED | $FINAL, $field(AquaBorder, painter)},
-	{"sizeDescriptor", "Lcom/apple/laf/AquaUtilControlSize$SizeDescriptor;", nullptr, $PROTECTED | $FINAL, $field(AquaBorder, sizeDescriptor)},
-	{"sizeVariant", "Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PROTECTED, $field(AquaBorder, sizeVariant)},
-	{}
-};
-
-$MethodInfo _AquaBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/apple/laf/AquaUtilControlSize$SizeDescriptor;)V", nullptr, $PROTECTED, $method(AquaBorder, init$, void, $AquaUtilControlSize$SizeDescriptor*)},
-	{"<init>", "(Lcom/apple/laf/AquaBorder;)V", nullptr, $PROTECTED, $method(AquaBorder, init$, void, AquaBorder*)},
-	{"createPainter", "()Lcom/apple/laf/AquaPainter;", "()Lcom/apple/laf/AquaPainter<+Lapple/laf/JRSUIState;>;", $PROTECTED, $virtualMethod(AquaBorder, createPainter, $AquaPainter*)},
-	{"deriveBorderForSize", "(Lapple/laf/JRSUIConstants$Size;)Lcom/apple/laf/AquaBorder;", nullptr, $PROTECTED, $virtualMethod(AquaBorder, deriveBorderForSize, AquaBorder*, $JRSUIConstants$Size*)},
-	{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaBorder, getBorderInsets, $Insets*, $Component*)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaBorder, isBorderOpaque, bool)},
-	{"isFocused", "(Ljava/awt/Component;)Z", nullptr, $PROTECTED, $virtualMethod(AquaBorder, isFocused, bool, $Component*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"repaintBorder", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaBorder, repaintBorder, void, $JComponent*)},
-	{"setSize", "(Lapple/laf/JRSUIConstants$Size;)V", nullptr, $PROTECTED, $virtualMethod(AquaBorder, setSize, void, $JRSUIConstants$Size*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AquaBorder_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaBorder$Default", "com.apple.laf.AquaBorder", "Default", $STATIC},
-	{}
-};
-
-$ClassInfo _AquaBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.apple.laf.AquaBorder",
-	"java.lang.Object",
-	"javax.swing.border.Border,javax.swing.plaf.UIResource",
-	_AquaBorder_FieldInfo_,
-	_AquaBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaBorder$Default"
-};
-
-$Object* allocate$AquaBorder($Class* clazz) {
-	return $of($alloc(AquaBorder));
-}
 
 int32_t AquaBorder::hashCode() {
 	 return this->$Border::hashCode();
@@ -127,7 +73,7 @@ void AquaBorder::init$($AquaUtilControlSize$SizeDescriptor* sizeDescriptor) {
 }
 
 $AquaPainter* AquaBorder::createPainter() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AquaPainter, painter, $AquaPainter::create($($JRSUIState::getInstance())));
 	$init($JRSUIConstants$AlignmentVertical);
 	$nc($nc(painter)->state)->set($JRSUIConstants$AlignmentVertical::CENTER);
@@ -143,7 +89,7 @@ void AquaBorder::init$(AquaBorder* other) {
 	$init($JRSUIConstants$AlignmentVertical);
 	$nc($nc(this->painter)->state)->set($JRSUIConstants$AlignmentVertical::CENTER);
 	$init($JRSUIConstants$AlignmentHorizontal);
-	$nc($nc(this->painter)->state)->set($JRSUIConstants$AlignmentHorizontal::CENTER);
+	$nc(this->painter->state)->set($JRSUIConstants$AlignmentHorizontal::CENTER);
 }
 
 void AquaBorder::setSize($JRSUIConstants$Size* size) {
@@ -156,11 +102,11 @@ $Insets* AquaBorder::getBorderInsets($Component* c) {
 }
 
 AquaBorder* AquaBorder::deriveBorderForSize($JRSUIConstants$Size* size) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		$Class* clazz = $of(this)->getClass();
-		$var(AquaBorder, border, $cast(AquaBorder, $nc($($nc(clazz)->getConstructor($$new($ClassArray, {clazz}))))->newInstance($$new($ObjectArray, {$of(this)}))));
+		$var(AquaBorder, border, $cast(AquaBorder, $$nc(clazz->getConstructor($$new($ClassArray, {clazz})))->newInstance($$new($ObjectArray, {this}))));
 		$nc(border)->setSize(size);
 		return border;
 	} catch ($Throwable& e) {
@@ -171,13 +117,13 @@ AquaBorder* AquaBorder::deriveBorderForSize($JRSUIConstants$Size* size) {
 
 void AquaBorder::repaintBorder($JComponent* c) {
 	$init(AquaBorder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, borderedComponent, c);
 	$var($Border, border, $nc(c)->getBorder());
 	if (border == nullptr) {
 		$var($Container, p, c->getParent());
 		if ($instanceOf($JViewport, p)) {
-			$assign(borderedComponent, $cast($JComponent, $nc(p)->getParent()));
+			$assign(borderedComponent, $cast($JComponent, p->getParent()));
 			if (borderedComponent != nullptr) {
 				$assign(border, borderedComponent->getBorder());
 			}
@@ -190,16 +136,16 @@ void AquaBorder::repaintBorder($JComponent* c) {
 	int32_t height = borderedComponent->getHeight();
 	$var($Insets, i, borderedComponent->getInsets());
 	borderedComponent->repaint(0, 0, width, $nc(i)->top);
-	borderedComponent->repaint(0, 0, $nc(i)->left, height);
-	borderedComponent->repaint(0, height - $nc(i)->bottom, width, i->bottom);
-	borderedComponent->repaint(width - $nc(i)->right, 0, i->right, height);
+	borderedComponent->repaint(0, 0, i->left, height);
+	borderedComponent->repaint(0, height - i->bottom, width, i->bottom);
+	borderedComponent->repaint(width - i->right, 0, i->right, height);
 }
 
 bool AquaBorder::isFocused($Component* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, focusable, c);
 	if ($instanceOf($JScrollPane, c)) {
-		$var($JViewport, vp, $nc(($cast($JScrollPane, c)))->getViewport());
+		$var($JViewport, vp, $cast($JScrollPane, c)->getViewport());
 		if (vp != nullptr) {
 			$assign(focusable, vp->getView());
 			if ($instanceOf($JTextComponent, focusable)) {
@@ -207,11 +153,11 @@ bool AquaBorder::isFocused($Component* c) {
 			}
 		}
 	} else if ($instanceOf($JTextComponent, focusable)) {
-		if (!$nc(($cast($JTextComponent, focusable)))->isEditable()) {
+		if (!$cast($JTextComponent, focusable)->isEditable()) {
 			return false;
 		}
 	}
-	return (focusable != nullptr && $instanceOf($JComponent, focusable) && $nc(($cast($JComponent, focusable)))->hasFocus());
+	return (focusable != nullptr && $instanceOf($JComponent, focusable) && $cast($JComponent, focusable)->hasFocus());
 }
 
 bool AquaBorder::isBorderOpaque() {
@@ -226,7 +172,51 @@ AquaBorder::AquaBorder() {
 }
 
 $Class* AquaBorder::load$($String* name, bool initialize) {
-	$loadClass(AquaBorder, name, initialize, &_AquaBorder_ClassInfo_, allocate$AquaBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"painter", "Lcom/apple/laf/AquaPainter;", "Lcom/apple/laf/AquaPainter<+Lapple/laf/JRSUIState;>;", $PROTECTED | $FINAL, $field(AquaBorder, painter)},
+		{"sizeDescriptor", "Lcom/apple/laf/AquaUtilControlSize$SizeDescriptor;", nullptr, $PROTECTED | $FINAL, $field(AquaBorder, sizeDescriptor)},
+		{"sizeVariant", "Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PROTECTED, $field(AquaBorder, sizeVariant)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/apple/laf/AquaUtilControlSize$SizeDescriptor;)V", nullptr, $PROTECTED, $method(AquaBorder, init$, void, $AquaUtilControlSize$SizeDescriptor*)},
+		{"<init>", "(Lcom/apple/laf/AquaBorder;)V", nullptr, $PROTECTED, $method(AquaBorder, init$, void, AquaBorder*)},
+		{"createPainter", "()Lcom/apple/laf/AquaPainter;", "()Lcom/apple/laf/AquaPainter<+Lapple/laf/JRSUIState;>;", $PROTECTED, $virtualMethod(AquaBorder, createPainter, $AquaPainter*)},
+		{"deriveBorderForSize", "(Lapple/laf/JRSUIConstants$Size;)Lcom/apple/laf/AquaBorder;", nullptr, $PROTECTED, $virtualMethod(AquaBorder, deriveBorderForSize, AquaBorder*, $JRSUIConstants$Size*)},
+		{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaBorder, getBorderInsets, $Insets*, $Component*)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaBorder, isBorderOpaque, bool)},
+		{"isFocused", "(Ljava/awt/Component;)Z", nullptr, $PROTECTED, $virtualMethod(AquaBorder, isFocused, bool, $Component*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"repaintBorder", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaBorder, repaintBorder, void, $JComponent*)},
+		{"setSize", "(Lapple/laf/JRSUIConstants$Size;)V", nullptr, $PROTECTED, $virtualMethod(AquaBorder, setSize, void, $JRSUIConstants$Size*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaBorder$Default", "com.apple.laf.AquaBorder", "Default", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.apple.laf.AquaBorder",
+		"java.lang.Object",
+		"javax.swing.border.Border,javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaBorder$Default"
+	};
+	$loadClass(AquaBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaBorder));
+	});
 	return class$;
 }
 

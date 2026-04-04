@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKIconFactory.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKIconFactory$DelegatingIcon.h>
 #include <com/sun/java/swing/plaf/gtk/GTKIconFactory$MenuArrowIcon.h>
 #include <com/sun/java/swing/plaf/gtk/GTKIconFactory$SynthExpanderIcon.h>
@@ -36,7 +35,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
@@ -50,69 +48,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace gtk {
-
-$FieldInfo _GTKIconFactory_FieldInfo_[] = {
-	{"CHECK_ICON_EXTRA_INSET", "I", nullptr, $STATIC | $FINAL, $constField(GTKIconFactory, CHECK_ICON_EXTRA_INSET)},
-	{"DEFAULT_ICON_SPACING", "I", nullptr, $STATIC | $FINAL, $constField(GTKIconFactory, DEFAULT_ICON_SPACING)},
-	{"DEFAULT_ICON_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(GTKIconFactory, DEFAULT_ICON_SIZE)},
-	{"DEFAULT_TOGGLE_MENU_ITEM_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(GTKIconFactory, DEFAULT_TOGGLE_MENU_ITEM_SIZE)},
-	{"RADIO_BUTTON_ICON", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKIconFactory, RADIO_BUTTON_ICON)},
-	{"CHECK_BOX_ICON", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKIconFactory, CHECK_BOX_ICON)},
-	{"MENU_ARROW_ICON", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKIconFactory, MENU_ARROW_ICON)},
-	{"CHECK_BOX_MENU_ITEM_CHECK_ICON", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKIconFactory, CHECK_BOX_MENU_ITEM_CHECK_ICON)},
-	{"RADIO_BUTTON_MENU_ITEM_CHECK_ICON", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKIconFactory, RADIO_BUTTON_MENU_ITEM_CHECK_ICON)},
-	{"TREE_EXPANDED_ICON", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKIconFactory, TREE_EXPANDED_ICON)},
-	{"TREE_COLLAPSED_ICON", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKIconFactory, TREE_COLLAPSED_ICON)},
-	{"ASCENDING_SORT_ICON", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKIconFactory, ASCENDING_SORT_ICON)},
-	{"DESCENDING_SORT_ICON", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKIconFactory, DESCENDING_SORT_ICON)},
-	{"TOOL_BAR_HANDLE_ICON", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKIconFactory, TOOL_BAR_HANDLE_ICON)},
-	{"iconsPool", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/java/swing/plaf/gtk/GTKIconFactory$DelegatingIcon;>;", $PRIVATE | $STATIC, $staticField(GTKIconFactory, iconsPool)},
-	{}
-};
-
-$MethodInfo _GTKIconFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(GTKIconFactory, init$, void)},
-	{"getAscendingSortIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKIconFactory, getAscendingSortIcon, $Icon*)},
-	{"getCheckBoxIcon", "()Ljavax/swing/plaf/synth/SynthIcon;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKIconFactory, getCheckBoxIcon, $SynthIcon*)},
-	{"getCheckBoxMenuItemCheckIcon", "()Ljavax/swing/plaf/synth/SynthIcon;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKIconFactory, getCheckBoxMenuItemCheckIcon, $SynthIcon*)},
-	{"getDescendingSortIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKIconFactory, getDescendingSortIcon, $Icon*)},
-	{"getIcon", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/gtk/GTKIconFactory$DelegatingIcon;", nullptr, $PRIVATE | $STATIC, $staticMethod(GTKIconFactory, getIcon, $GTKIconFactory$DelegatingIcon*, $String*)},
-	{"getMenuArrowIcon", "()Ljavax/swing/plaf/synth/SynthIcon;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKIconFactory, getMenuArrowIcon, $SynthIcon*)},
-	{"getRadioButtonIcon", "()Ljavax/swing/plaf/synth/SynthIcon;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKIconFactory, getRadioButtonIcon, $SynthIcon*)},
-	{"getRadioButtonMenuItemCheckIcon", "()Ljavax/swing/plaf/synth/SynthIcon;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKIconFactory, getRadioButtonMenuItemCheckIcon, $SynthIcon*)},
-	{"getToolBarHandleIcon", "()Ljavax/swing/plaf/synth/SynthIcon;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKIconFactory, getToolBarHandleIcon, $SynthIcon*)},
-	{"getTreeCollapsedIcon", "()Ljavax/swing/plaf/synth/SynthIcon;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKIconFactory, getTreeCollapsedIcon, $SynthIcon*)},
-	{"getTreeExpandedIcon", "()Ljavax/swing/plaf/synth/SynthIcon;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKIconFactory, getTreeExpandedIcon, $SynthIcon*)},
-	{"resetIcons", "()V", nullptr, $STATIC, $staticMethod(GTKIconFactory, resetIcons, void)},
-	{}
-};
-
-$InnerClassInfo _GTKIconFactory_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKIconFactory$MenuArrowIcon", "com.sun.java.swing.plaf.gtk.GTKIconFactory", "MenuArrowIcon", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.gtk.GTKIconFactory$ToolBarHandleIcon", "com.sun.java.swing.plaf.gtk.GTKIconFactory", "ToolBarHandleIcon", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.gtk.GTKIconFactory$SynthExpanderIcon", "com.sun.java.swing.plaf.gtk.GTKIconFactory", "SynthExpanderIcon", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.gtk.GTKIconFactory$DelegatingIcon", "com.sun.java.swing.plaf.gtk.GTKIconFactory", "DelegatingIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _GTKIconFactory_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.GTKIconFactory",
-	"java.lang.Object",
-	nullptr,
-	_GTKIconFactory_FieldInfo_,
-	_GTKIconFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GTKIconFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKIconFactory$MenuArrowIcon,com.sun.java.swing.plaf.gtk.GTKIconFactory$ToolBarHandleIcon,com.sun.java.swing.plaf.gtk.GTKIconFactory$SynthExpanderIcon,com.sun.java.swing.plaf.gtk.GTKIconFactory$DelegatingIcon"
-};
-
-$Object* allocate$GTKIconFactory($Class* clazz) {
-	return $of($alloc(GTKIconFactory));
-}
 
 $String* GTKIconFactory::RADIO_BUTTON_ICON = nullptr;
 $String* GTKIconFactory::CHECK_BOX_ICON = nullptr;
@@ -135,18 +70,14 @@ $GTKIconFactory$DelegatingIcon* GTKIconFactory::getIcon($String* methodName) {
 	if (result == nullptr) {
 		if (methodName == GTKIconFactory::TREE_COLLAPSED_ICON || methodName == GTKIconFactory::TREE_EXPANDED_ICON) {
 			$assign(result, $new($GTKIconFactory$SynthExpanderIcon, methodName));
+		} else if (methodName == GTKIconFactory::TOOL_BAR_HANDLE_ICON) {
+			$assign(result, $new($GTKIconFactory$ToolBarHandleIcon));
+		} else if (methodName == GTKIconFactory::MENU_ARROW_ICON) {
+			$assign(result, $new($GTKIconFactory$MenuArrowIcon));
 		} else {
-			if (methodName == GTKIconFactory::TOOL_BAR_HANDLE_ICON) {
-				$assign(result, $new($GTKIconFactory$ToolBarHandleIcon));
-			} else {
-				if (methodName == GTKIconFactory::MENU_ARROW_ICON) {
-					$assign(result, $new($GTKIconFactory$MenuArrowIcon));
-				} else {
-					$assign(result, $new($GTKIconFactory$DelegatingIcon, methodName));
-				}
-			}
+			$assign(result, $new($GTKIconFactory$DelegatingIcon, methodName));
 		}
-		$nc(GTKIconFactory::iconsPool)->put(methodName, result);
+		GTKIconFactory::iconsPool->put(methodName, result);
 	}
 	return result;
 }
@@ -203,21 +134,19 @@ $SynthIcon* GTKIconFactory::getToolBarHandleIcon() {
 
 void GTKIconFactory::resetIcons() {
 	$init(GTKIconFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(GTKIconFactory::iconsPool) {
-		{
-			$var($Iterator, i$, $nc($($nc(GTKIconFactory::iconsPool)->values()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($GTKIconFactory$DelegatingIcon, di, $cast($GTKIconFactory$DelegatingIcon, i$->next()));
-				{
-					$nc(di)->resetIconDimensions();
-				}
+		$var($Iterator, i$, $$nc(GTKIconFactory::iconsPool->values())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($GTKIconFactory$DelegatingIcon, di, $cast($GTKIconFactory$DelegatingIcon, i$->next()));
+			{
+				$nc(di)->resetIconDimensions();
 			}
 		}
 	}
 }
 
-void clinit$GTKIconFactory($Class* class$) {
+void GTKIconFactory::clinit$($Class* clazz) {
 	$assignStatic(GTKIconFactory::RADIO_BUTTON_ICON, "paintRadioButtonIcon"_s);
 	$assignStatic(GTKIconFactory::CHECK_BOX_ICON, "paintCheckBoxIcon"_s);
 	$assignStatic(GTKIconFactory::MENU_ARROW_ICON, "paintMenuArrowIcon"_s);
@@ -235,7 +164,64 @@ GTKIconFactory::GTKIconFactory() {
 }
 
 $Class* GTKIconFactory::load$($String* name, bool initialize) {
-	$loadClass(GTKIconFactory, name, initialize, &_GTKIconFactory_ClassInfo_, clinit$GTKIconFactory, allocate$GTKIconFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"CHECK_ICON_EXTRA_INSET", "I", nullptr, $STATIC | $FINAL, $constField(GTKIconFactory, CHECK_ICON_EXTRA_INSET)},
+		{"DEFAULT_ICON_SPACING", "I", nullptr, $STATIC | $FINAL, $constField(GTKIconFactory, DEFAULT_ICON_SPACING)},
+		{"DEFAULT_ICON_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(GTKIconFactory, DEFAULT_ICON_SIZE)},
+		{"DEFAULT_TOGGLE_MENU_ITEM_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(GTKIconFactory, DEFAULT_TOGGLE_MENU_ITEM_SIZE)},
+		{"RADIO_BUTTON_ICON", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKIconFactory, RADIO_BUTTON_ICON)},
+		{"CHECK_BOX_ICON", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKIconFactory, CHECK_BOX_ICON)},
+		{"MENU_ARROW_ICON", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKIconFactory, MENU_ARROW_ICON)},
+		{"CHECK_BOX_MENU_ITEM_CHECK_ICON", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKIconFactory, CHECK_BOX_MENU_ITEM_CHECK_ICON)},
+		{"RADIO_BUTTON_MENU_ITEM_CHECK_ICON", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKIconFactory, RADIO_BUTTON_MENU_ITEM_CHECK_ICON)},
+		{"TREE_EXPANDED_ICON", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKIconFactory, TREE_EXPANDED_ICON)},
+		{"TREE_COLLAPSED_ICON", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKIconFactory, TREE_COLLAPSED_ICON)},
+		{"ASCENDING_SORT_ICON", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKIconFactory, ASCENDING_SORT_ICON)},
+		{"DESCENDING_SORT_ICON", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKIconFactory, DESCENDING_SORT_ICON)},
+		{"TOOL_BAR_HANDLE_ICON", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKIconFactory, TOOL_BAR_HANDLE_ICON)},
+		{"iconsPool", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/java/swing/plaf/gtk/GTKIconFactory$DelegatingIcon;>;", $PRIVATE | $STATIC, $staticField(GTKIconFactory, iconsPool)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(GTKIconFactory, init$, void)},
+		{"getAscendingSortIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKIconFactory, getAscendingSortIcon, $Icon*)},
+		{"getCheckBoxIcon", "()Ljavax/swing/plaf/synth/SynthIcon;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKIconFactory, getCheckBoxIcon, $SynthIcon*)},
+		{"getCheckBoxMenuItemCheckIcon", "()Ljavax/swing/plaf/synth/SynthIcon;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKIconFactory, getCheckBoxMenuItemCheckIcon, $SynthIcon*)},
+		{"getDescendingSortIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKIconFactory, getDescendingSortIcon, $Icon*)},
+		{"getIcon", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/gtk/GTKIconFactory$DelegatingIcon;", nullptr, $PRIVATE | $STATIC, $staticMethod(GTKIconFactory, getIcon, $GTKIconFactory$DelegatingIcon*, $String*)},
+		{"getMenuArrowIcon", "()Ljavax/swing/plaf/synth/SynthIcon;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKIconFactory, getMenuArrowIcon, $SynthIcon*)},
+		{"getRadioButtonIcon", "()Ljavax/swing/plaf/synth/SynthIcon;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKIconFactory, getRadioButtonIcon, $SynthIcon*)},
+		{"getRadioButtonMenuItemCheckIcon", "()Ljavax/swing/plaf/synth/SynthIcon;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKIconFactory, getRadioButtonMenuItemCheckIcon, $SynthIcon*)},
+		{"getToolBarHandleIcon", "()Ljavax/swing/plaf/synth/SynthIcon;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKIconFactory, getToolBarHandleIcon, $SynthIcon*)},
+		{"getTreeCollapsedIcon", "()Ljavax/swing/plaf/synth/SynthIcon;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKIconFactory, getTreeCollapsedIcon, $SynthIcon*)},
+		{"getTreeExpandedIcon", "()Ljavax/swing/plaf/synth/SynthIcon;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKIconFactory, getTreeExpandedIcon, $SynthIcon*)},
+		{"resetIcons", "()V", nullptr, $STATIC, $staticMethod(GTKIconFactory, resetIcons, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKIconFactory$MenuArrowIcon", "com.sun.java.swing.plaf.gtk.GTKIconFactory", "MenuArrowIcon", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.gtk.GTKIconFactory$ToolBarHandleIcon", "com.sun.java.swing.plaf.gtk.GTKIconFactory", "ToolBarHandleIcon", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.gtk.GTKIconFactory$SynthExpanderIcon", "com.sun.java.swing.plaf.gtk.GTKIconFactory", "SynthExpanderIcon", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.gtk.GTKIconFactory$DelegatingIcon", "com.sun.java.swing.plaf.gtk.GTKIconFactory", "DelegatingIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.GTKIconFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKIconFactory$MenuArrowIcon,com.sun.java.swing.plaf.gtk.GTKIconFactory$ToolBarHandleIcon,com.sun.java.swing.plaf.gtk.GTKIconFactory$SynthExpanderIcon,com.sun.java.swing.plaf.gtk.GTKIconFactory$DelegatingIcon"
+	};
+	$loadClass(GTKIconFactory, name, initialize, &classInfo$$, GTKIconFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GTKIconFactory);
+	});
 	return class$;
 }
 

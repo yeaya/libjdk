@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/PersistentSearchControl.h>
-
 #include <com/sun/jndi/ldap/BasicControl.h>
 #include <com/sun/jndi/ldap/Ber.h>
 #include <com/sun/jndi/ldap/BerEncoder.h>
@@ -25,40 +24,6 @@ namespace com {
 	namespace sun {
 		namespace jndi {
 			namespace ldap {
-
-$FieldInfo _PersistentSearchControl_FieldInfo_[] = {
-	{"OID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PersistentSearchControl, OID)},
-	{"ADD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PersistentSearchControl, ADD)},
-	{"DELETE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PersistentSearchControl, DELETE)},
-	{"MODIFY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PersistentSearchControl, MODIFY)},
-	{"RENAME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PersistentSearchControl, RENAME)},
-	{"ANY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PersistentSearchControl, ANY)},
-	{"changeTypes", "I", nullptr, $PRIVATE, $field(PersistentSearchControl, changeTypes)},
-	{"changesOnly", "Z", nullptr, $PRIVATE, $field(PersistentSearchControl, changesOnly)},
-	{"returnControls", "Z", nullptr, $PRIVATE, $field(PersistentSearchControl, returnControls)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PersistentSearchControl, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _PersistentSearchControl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PersistentSearchControl, init$, void), "java.io.IOException"},
-	{"<init>", "(IZZZ)V", nullptr, $PUBLIC, $method(PersistentSearchControl, init$, void, int32_t, bool, bool, bool), "java.io.IOException"},
-	{"setEncodedValue", "()[B", nullptr, $PRIVATE, $method(PersistentSearchControl, setEncodedValue, $bytes*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _PersistentSearchControl_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.PersistentSearchControl",
-	"com.sun.jndi.ldap.BasicControl",
-	nullptr,
-	_PersistentSearchControl_FieldInfo_,
-	_PersistentSearchControl_MethodInfo_
-};
-
-$Object* allocate$PersistentSearchControl($Class* clazz) {
-	return $of($alloc(PersistentSearchControl));
-}
 
 $String* PersistentSearchControl::OID = nullptr;
 
@@ -94,12 +59,41 @@ $bytes* PersistentSearchControl::setEncodedValue() {
 PersistentSearchControl::PersistentSearchControl() {
 }
 
-void clinit$PersistentSearchControl($Class* class$) {
+void PersistentSearchControl::clinit$($Class* clazz) {
 	$assignStatic(PersistentSearchControl::OID, "2.16.840.1.113730.3.4.3"_s);
 }
 
 $Class* PersistentSearchControl::load$($String* name, bool initialize) {
-	$loadClass(PersistentSearchControl, name, initialize, &_PersistentSearchControl_ClassInfo_, clinit$PersistentSearchControl, allocate$PersistentSearchControl);
+	$FieldInfo fieldInfos$$[] = {
+		{"OID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PersistentSearchControl, OID)},
+		{"ADD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PersistentSearchControl, ADD)},
+		{"DELETE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PersistentSearchControl, DELETE)},
+		{"MODIFY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PersistentSearchControl, MODIFY)},
+		{"RENAME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PersistentSearchControl, RENAME)},
+		{"ANY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PersistentSearchControl, ANY)},
+		{"changeTypes", "I", nullptr, $PRIVATE, $field(PersistentSearchControl, changeTypes)},
+		{"changesOnly", "Z", nullptr, $PRIVATE, $field(PersistentSearchControl, changesOnly)},
+		{"returnControls", "Z", nullptr, $PRIVATE, $field(PersistentSearchControl, returnControls)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PersistentSearchControl, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PersistentSearchControl, init$, void), "java.io.IOException"},
+		{"<init>", "(IZZZ)V", nullptr, $PUBLIC, $method(PersistentSearchControl, init$, void, int32_t, bool, bool, bool), "java.io.IOException"},
+		{"setEncodedValue", "()[B", nullptr, $PRIVATE, $method(PersistentSearchControl, setEncodedValue, $bytes*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.PersistentSearchControl",
+		"com.sun.jndi.ldap.BasicControl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PersistentSearchControl, name, initialize, &classInfo$$, PersistentSearchControl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PersistentSearchControl);
+	});
 	return class$;
 }
 

@@ -30,7 +30,7 @@ public:
 	virtual float getGamma();
 	virtual $floats* getMediaWhitePoint() override;
 	virtual $shorts* getTRC();
-	static const int64_t serialVersionUID = (int64_t)0xF0642FF1F299A2A7;
+	static const int64_t serialVersionUID = (int64_t)0xf0642ff1f299a2a7;
 };
 
 		} // color

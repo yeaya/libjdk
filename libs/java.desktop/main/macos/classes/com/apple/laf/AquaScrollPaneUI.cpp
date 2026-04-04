@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaScrollPaneUI.h>
-
 #include <com/apple/laf/AquaScrollPaneUI$XYMouseWheelHandler.h>
 #include <java/awt/event/MouseWheelListener.h>
 #include <javax/swing/JComponent.h>
@@ -20,37 +19,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaScrollPaneUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaScrollPaneUI, init$, void)},
-	{"createMouseWheelListener", "()Ljava/awt/event/MouseWheelListener;", nullptr, $PROTECTED, $virtualMethod(AquaScrollPaneUI, createMouseWheelListener, $MouseWheelListener*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaScrollPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _AquaScrollPaneUI_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaScrollPaneUI$XYMouseWheelHandler", "com.apple.laf.AquaScrollPaneUI", "XYMouseWheelHandler", $PROTECTED},
-	{}
-};
-
-$ClassInfo _AquaScrollPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaScrollPaneUI",
-	"javax.swing.plaf.basic.BasicScrollPaneUI",
-	nullptr,
-	nullptr,
-	_AquaScrollPaneUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaScrollPaneUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaScrollPaneUI$XYMouseWheelHandler"
-};
-
-$Object* allocate$AquaScrollPaneUI($Class* clazz) {
-	return $of($alloc(AquaScrollPaneUI));
-}
-
 void AquaScrollPaneUI::init$() {
 	$BasicScrollPaneUI::init$();
 }
@@ -68,7 +36,33 @@ AquaScrollPaneUI::AquaScrollPaneUI() {
 }
 
 $Class* AquaScrollPaneUI::load$($String* name, bool initialize) {
-	$loadClass(AquaScrollPaneUI, name, initialize, &_AquaScrollPaneUI_ClassInfo_, allocate$AquaScrollPaneUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaScrollPaneUI, init$, void)},
+		{"createMouseWheelListener", "()Ljava/awt/event/MouseWheelListener;", nullptr, $PROTECTED, $virtualMethod(AquaScrollPaneUI, createMouseWheelListener, $MouseWheelListener*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaScrollPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaScrollPaneUI$XYMouseWheelHandler", "com.apple.laf.AquaScrollPaneUI", "XYMouseWheelHandler", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaScrollPaneUI",
+		"javax.swing.plaf.basic.BasicScrollPaneUI",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaScrollPaneUI$XYMouseWheelHandler"
+	};
+	$loadClass(AquaScrollPaneUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaScrollPaneUI));
+	});
 	return class$;
 }
 

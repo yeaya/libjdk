@@ -1,12 +1,10 @@
 #include <AliasingTest.h>
-
 #include <AliasingTest$1.h>
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/FlowLayout.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
@@ -38,7 +36,6 @@ using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $FlowLayout = ::java::awt::FlowLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $Serializable = ::java::io::Serializable;
@@ -71,33 +68,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$run$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AliasingTest$$Lambda$lambda$run$0>());
-	}
 	AliasingTest* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo AliasingTest$$Lambda$lambda$run$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(AliasingTest$$Lambda$lambda$run$0, inst$)},
-	{}
-};
-$MethodInfo AliasingTest$$Lambda$lambda$run$0::methodInfos[3] = {
-	{"<init>", "(LAliasingTest;)V", nullptr, $PUBLIC, $method(AliasingTest$$Lambda$lambda$run$0, init$, void, AliasingTest*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AliasingTest$$Lambda$lambda$run$0, run, void)},
-	{}
-};
-$ClassInfo AliasingTest$$Lambda$lambda$run$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"AliasingTest$$Lambda$lambda$run$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* AliasingTest$$Lambda$lambda$run$0::load$($String* name, bool initialize) {
-	$loadClass(AliasingTest$$Lambda$lambda$run$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(AliasingTest$$Lambda$lambda$run$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LAliasingTest;)V", nullptr, $PUBLIC, $method(AliasingTest$$Lambda$lambda$run$0, init$, void, AliasingTest*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AliasingTest$$Lambda$lambda$run$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"AliasingTest$$Lambda$lambda$run$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AliasingTest$$Lambda$lambda$run$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AliasingTest$$Lambda$lambda$run$0);
+	});
 	return class$;
 }
 $Class* AliasingTest$$Lambda$lambda$run$0::class$ = nullptr;
@@ -111,33 +104,29 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		$nc(inst$)->lambda$createUI$1(e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AliasingTest$$Lambda$lambda$createUI$1$1>());
-	}
 	AliasingTest* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo AliasingTest$$Lambda$lambda$createUI$1$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(AliasingTest$$Lambda$lambda$createUI$1$1, inst$)},
-	{}
-};
-$MethodInfo AliasingTest$$Lambda$lambda$createUI$1$1::methodInfos[3] = {
-	{"<init>", "(LAliasingTest;)V", nullptr, $PUBLIC, $method(AliasingTest$$Lambda$lambda$createUI$1$1, init$, void, AliasingTest*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AliasingTest$$Lambda$lambda$createUI$1$1, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo AliasingTest$$Lambda$lambda$createUI$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"AliasingTest$$Lambda$lambda$createUI$1$1",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* AliasingTest$$Lambda$lambda$createUI$1$1::load$($String* name, bool initialize) {
-	$loadClass(AliasingTest$$Lambda$lambda$createUI$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(AliasingTest$$Lambda$lambda$createUI$1$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LAliasingTest;)V", nullptr, $PUBLIC, $method(AliasingTest$$Lambda$lambda$createUI$1$1, init$, void, AliasingTest*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AliasingTest$$Lambda$lambda$createUI$1$1, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"AliasingTest$$Lambda$lambda$createUI$1$1",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AliasingTest$$Lambda$lambda$createUI$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AliasingTest$$Lambda$lambda$createUI$1$1);
+	});
 	return class$;
 }
 $Class* AliasingTest$$Lambda$lambda$createUI$1$1::class$ = nullptr;
@@ -151,83 +140,32 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		$nc(inst$)->lambda$createUI$2(e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AliasingTest$$Lambda$lambda$createUI$2$2>());
-	}
 	AliasingTest* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo AliasingTest$$Lambda$lambda$createUI$2$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(AliasingTest$$Lambda$lambda$createUI$2$2, inst$)},
-	{}
-};
-$MethodInfo AliasingTest$$Lambda$lambda$createUI$2$2::methodInfos[3] = {
-	{"<init>", "(LAliasingTest;)V", nullptr, $PUBLIC, $method(AliasingTest$$Lambda$lambda$createUI$2$2, init$, void, AliasingTest*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AliasingTest$$Lambda$lambda$createUI$2$2, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo AliasingTest$$Lambda$lambda$createUI$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"AliasingTest$$Lambda$lambda$createUI$2$2",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* AliasingTest$$Lambda$lambda$createUI$2$2::load$($String* name, bool initialize) {
-	$loadClass(AliasingTest$$Lambda$lambda$createUI$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(AliasingTest$$Lambda$lambda$createUI$2$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LAliasingTest;)V", nullptr, $PUBLIC, $method(AliasingTest$$Lambda$lambda$createUI$2$2, init$, void, AliasingTest*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AliasingTest$$Lambda$lambda$createUI$2$2, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"AliasingTest$$Lambda$lambda$createUI$2$2",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AliasingTest$$Lambda$lambda$createUI$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AliasingTest$$Lambda$lambda$createUI$2$2);
+	});
 	return class$;
 }
 $Class* AliasingTest$$Lambda$lambda$createUI$2$2::class$ = nullptr;
-
-$FieldInfo _AliasingTest_FieldInfo_[] = {
-	{"f", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(AliasingTest, f)},
-	{"dialog", "Ljavax/swing/JDialog;", nullptr, $STATIC, $staticField(AliasingTest, dialog)},
-	{"testResult", "Z", nullptr, $PUBLIC, $field(AliasingTest, testResult)},
-	{"latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $FINAL, $field(AliasingTest, latch)},
-	{}
-};
-
-$MethodInfo _AliasingTest_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CountDownLatch;)V", nullptr, $PUBLIC, $method(AliasingTest, init$, void, $CountDownLatch*), "java.lang.Exception"},
-	{"aliasingTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(AliasingTest, aliasingTest, void)},
-	{"createHtmlViewer", "(Z)Ljava/awt/Component;", nullptr, $PRIVATE | $STATIC, $staticMethod(AliasingTest, createHtmlViewer, $Component*, bool)},
-	{"createSplitPane", "()Ljava/awt/Component;", nullptr, $PRIVATE | $STATIC, $staticMethod(AliasingTest, createSplitPane, $Component*)},
-	{"createUI", "()V", nullptr, $PRIVATE | $FINAL, $method(AliasingTest, createUI, void)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(AliasingTest, dispose, void)},
-	{"getHtml", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(AliasingTest, getHtml, $String*)},
-	{"lambda$createUI$1", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(AliasingTest, lambda$createUI$1, void, $ActionEvent*)},
-	{"lambda$createUI$2", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(AliasingTest, lambda$createUI$2, void, $ActionEvent*)},
-	{"lambda$run$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(AliasingTest, lambda$run$0, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AliasingTest, run, void)},
-	{}
-};
-
-$InnerClassInfo _AliasingTest_InnerClassesInfo_[] = {
-	{"AliasingTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AliasingTest_ClassInfo_ = {
-	$ACC_SUPER,
-	"AliasingTest",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_AliasingTest_FieldInfo_,
-	_AliasingTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AliasingTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"AliasingTest$1"
-};
-
-$Object* allocate$AliasingTest($Class* clazz) {
-	return $of($alloc(AliasingTest));
-}
 
 $JFrame* AliasingTest::f = nullptr;
 $JDialog* AliasingTest::dialog = nullptr;
@@ -238,12 +176,12 @@ void AliasingTest::init$($CountDownLatch* latch) {
 }
 
 void AliasingTest::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(AliasingTest$$Lambda$lambda$run$0, this)));
+		$SwingUtilities::invokeAndWait($$new(AliasingTest$$Lambda$lambda$run$0, this));
 	} catch ($Exception& ex) {
 		if (AliasingTest::f != nullptr) {
-			$nc(AliasingTest::f)->dispose();
+			AliasingTest::f->dispose();
 		}
 		$nc(this->latch)->countDown();
 		$throwNew($RuntimeException, $$str({"createUI Failed: "_s, $(ex->getMessage())}));
@@ -262,7 +200,7 @@ $String* AliasingTest::getHtml() {
 
 $Component* AliasingTest::createSplitPane() {
 	$init(AliasingTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, var$0, createHtmlViewer(false));
 	$var($JSplitPane, splitPane, $new($JSplitPane, $JSplitPane::VERTICAL_SPLIT, var$0, $(createHtmlViewer(true))));
 	splitPane->setOneTouchExpandable(true);
@@ -273,7 +211,7 @@ $Component* AliasingTest::createSplitPane() {
 
 $Component* AliasingTest::createHtmlViewer(bool antialiasing) {
 	$init(AliasingTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JEditorPane, editorPane, nullptr);
 	if (antialiasing) {
 		$assign(editorPane, $new($AliasingTest$1));
@@ -289,31 +227,30 @@ $Component* AliasingTest::createHtmlViewer(bool antialiasing) {
 void AliasingTest::aliasingTest() {
 	$init(AliasingTest);
 	$assignStatic(AliasingTest::f, $new($JFrame, "List Bullets"_s));
-	$nc(AliasingTest::f)->add($(createSplitPane()));
+	AliasingTest::f->add($(createSplitPane()));
 	$nc(AliasingTest::f)->pack();
 	$nc(AliasingTest::f)->setLocationRelativeTo(nullptr);
 	$nc(AliasingTest::f)->setVisible(true);
 }
 
 void AliasingTest::createUI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, description, " INSTRUCTIONS:\n A JEditorPane divided by SplitPane will be shown.\n The upper html is rendered in a default JEditorPane.\n  The lower html is rendered in a JEditorPane using  rendering hints to turn on antialiasing.\n If upper html bullets looks pixelated AND larger than needed relative to text font size\n and not as smooth as shown in lower html\n  then press fail else press pass"_s);
 	$assignStatic(AliasingTest::dialog, $new($JDialog));
-	$nc(AliasingTest::dialog)->setTitle("textselectionTest"_s);
+	AliasingTest::dialog->setTitle("textselectionTest"_s);
 	$var($JTextArea, textArea, $new($JTextArea, description));
 	textArea->setEditable(false);
 	$var($JButton, passButton, $new($JButton, "PASS"_s));
-	passButton->addActionListener(static_cast<$ActionListener*>($$new(AliasingTest$$Lambda$lambda$createUI$1$1, this)));
+	passButton->addActionListener($$new(AliasingTest$$Lambda$lambda$createUI$1$1, this));
 	$var($JButton, failButton, $new($JButton, "FAIL"_s));
-	failButton->addActionListener(static_cast<$ActionListener*>($$new(AliasingTest$$Lambda$lambda$createUI$2$2, this)));
-	$var($JPanel, mainPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout))));
-	$init($BorderLayout);
-	mainPanel->add(static_cast<$Component*>(textArea), $of($BorderLayout::CENTER));
-	$var($JPanel, buttonPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($FlowLayout))));
-	buttonPanel->add(static_cast<$Component*>(passButton));
-	buttonPanel->add(static_cast<$Component*>(failButton));
-	mainPanel->add(static_cast<$Component*>(buttonPanel), $of($BorderLayout::SOUTH));
-	$nc(AliasingTest::dialog)->add(static_cast<$Component*>(mainPanel));
+	failButton->addActionListener($$new(AliasingTest$$Lambda$lambda$createUI$2$2, this));
+	$var($JPanel, mainPanel, $new($JPanel, $$new($BorderLayout)));
+	mainPanel->add(textArea, $BorderLayout::CENTER);
+	$var($JPanel, buttonPanel, $new($JPanel, $$new($FlowLayout)));
+	buttonPanel->add(passButton);
+	buttonPanel->add(failButton);
+	mainPanel->add(buttonPanel, $BorderLayout::SOUTH);
+	$nc(AliasingTest::dialog)->add(mainPanel);
 	$nc(AliasingTest::dialog)->pack();
 	$nc(AliasingTest::dialog)->setVisible(true);
 }
@@ -340,17 +277,58 @@ AliasingTest::AliasingTest() {
 
 $Class* AliasingTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(AliasingTest$$Lambda$lambda$run$0::classInfo$.name)) {
+		if (name->equals("AliasingTest$$Lambda$lambda$run$0")) {
 			return AliasingTest$$Lambda$lambda$run$0::load$(name, initialize);
 		}
-		if (name->equals(AliasingTest$$Lambda$lambda$createUI$1$1::classInfo$.name)) {
+		if (name->equals("AliasingTest$$Lambda$lambda$createUI$1$1")) {
 			return AliasingTest$$Lambda$lambda$createUI$1$1::load$(name, initialize);
 		}
-		if (name->equals(AliasingTest$$Lambda$lambda$createUI$2$2::classInfo$.name)) {
+		if (name->equals("AliasingTest$$Lambda$lambda$createUI$2$2")) {
 			return AliasingTest$$Lambda$lambda$createUI$2$2::load$(name, initialize);
 		}
 	}
-	$loadClass(AliasingTest, name, initialize, &_AliasingTest_ClassInfo_, allocate$AliasingTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"f", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(AliasingTest, f)},
+		{"dialog", "Ljavax/swing/JDialog;", nullptr, $STATIC, $staticField(AliasingTest, dialog)},
+		{"testResult", "Z", nullptr, $PUBLIC, $field(AliasingTest, testResult)},
+		{"latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $FINAL, $field(AliasingTest, latch)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/CountDownLatch;)V", nullptr, $PUBLIC, $method(AliasingTest, init$, void, $CountDownLatch*), "java.lang.Exception"},
+		{"aliasingTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(AliasingTest, aliasingTest, void)},
+		{"createHtmlViewer", "(Z)Ljava/awt/Component;", nullptr, $PRIVATE | $STATIC, $staticMethod(AliasingTest, createHtmlViewer, $Component*, bool)},
+		{"createSplitPane", "()Ljava/awt/Component;", nullptr, $PRIVATE | $STATIC, $staticMethod(AliasingTest, createSplitPane, $Component*)},
+		{"createUI", "()V", nullptr, $PRIVATE | $FINAL, $method(AliasingTest, createUI, void)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(AliasingTest, dispose, void)},
+		{"getHtml", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(AliasingTest, getHtml, $String*)},
+		{"lambda$createUI$1", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(AliasingTest, lambda$createUI$1, void, $ActionEvent*)},
+		{"lambda$createUI$2", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(AliasingTest, lambda$createUI$2, void, $ActionEvent*)},
+		{"lambda$run$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(AliasingTest, lambda$run$0, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AliasingTest, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"AliasingTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"AliasingTest",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"AliasingTest$1"
+	};
+	$loadClass(AliasingTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AliasingTest);
+	});
 	return class$;
 }
 

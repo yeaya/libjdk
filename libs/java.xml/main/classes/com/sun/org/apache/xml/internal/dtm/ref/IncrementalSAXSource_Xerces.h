@@ -61,6 +61,7 @@ class IncrementalSAXSource_Xerces : public ::com::sun::org::apache::xml::interna
 	$class(IncrementalSAXSource_Xerces, 0, ::com::sun::org::apache::xml::internal::dtm::ref::IncrementalSAXSource)
 public:
 	IncrementalSAXSource_Xerces();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::com::sun::org::apache::xerces::internal::parsers::SAXParser* parser);
 	static void _main($StringArray* args);

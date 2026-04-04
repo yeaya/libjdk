@@ -15,6 +15,7 @@ class ExtendedCharsets : public ::sun::nio::cs::ext::AbstractCharsetProvider {
 	$class(ExtendedCharsets, 0, ::sun::nio::cs::ext::AbstractCharsetProvider)
 public:
 	ExtendedCharsets();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $StringArray* aliasesFor($String* charsetName);
 	static $volatile(::sun::nio::cs::ext::ExtendedCharsets*) instance;

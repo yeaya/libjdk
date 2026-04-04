@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/OuterGlowEffect.h>
-
 #include <java/awt/Color.h>
 #include <javax/swing/plaf/nimbus/DropShadowEffect.h>
 #include <javax/swing/plaf/nimbus/ShadowEffect.h>
@@ -15,24 +14,6 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$MethodInfo _OuterGlowEffect_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(OuterGlowEffect, init$, void)},
-	{}
-};
-
-$ClassInfo _OuterGlowEffect_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.nimbus.OuterGlowEffect",
-	"javax.swing.plaf.nimbus.DropShadowEffect",
-	nullptr,
-	nullptr,
-	_OuterGlowEffect_MethodInfo_
-};
-
-$Object* allocate$OuterGlowEffect($Class* clazz) {
-	return $of($alloc(OuterGlowEffect));
-}
-
 void OuterGlowEffect::init$() {
 	$DropShadowEffect::init$();
 	this->distance = 0;
@@ -43,7 +24,21 @@ OuterGlowEffect::OuterGlowEffect() {
 }
 
 $Class* OuterGlowEffect::load$($String* name, bool initialize) {
-	$loadClass(OuterGlowEffect, name, initialize, &_OuterGlowEffect_ClassInfo_, allocate$OuterGlowEffect);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(OuterGlowEffect, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.nimbus.OuterGlowEffect",
+		"javax.swing.plaf.nimbus.DropShadowEffect",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(OuterGlowEffect, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OuterGlowEffect);
+	});
 	return class$;
 }
 

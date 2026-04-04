@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DRenderer$Tracer.h>
-
 #include <java/awt/geom/Path2D$Float.h>
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/d3d/D3DRenderer$Tracer$1.h>
@@ -26,55 +25,6 @@ using $SpanIterator = ::sun::java2d::pipe::SpanIterator;
 namespace sun {
 	namespace java2d {
 		namespace d3d {
-
-$FieldInfo _D3DRenderer$Tracer_FieldInfo_[] = {
-	{"this$0", "Lsun/java2d/d3d/D3DRenderer;", nullptr, $FINAL | $SYNTHETIC, $field(D3DRenderer$Tracer, this$0)},
-	{"d3dr", "Lsun/java2d/d3d/D3DRenderer;", nullptr, $PRIVATE, $field(D3DRenderer$Tracer, d3dr)},
-	{}
-};
-
-$MethodInfo _D3DRenderer$Tracer_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/d3d/D3DRenderer;Lsun/java2d/d3d/D3DRenderer;)V", nullptr, 0, $method(D3DRenderer$Tracer, init$, void, $D3DRenderer*, $D3DRenderer*)},
-	{"copyArea", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(D3DRenderer$Tracer, copyArea, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"drawLine", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(D3DRenderer$Tracer, drawLine, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawParallelogram", "(Lsun/java2d/SunGraphics2D;DDDDDDDDDDDD)V", nullptr, $PUBLIC, $virtualMethod(D3DRenderer$Tracer, drawParallelogram, void, $SunGraphics2D*, double, double, double, double, double, double, double, double, double, double, double, double)},
-	{"drawPath", "(Lsun/java2d/SunGraphics2D;Ljava/awt/geom/Path2D$Float;II)V", nullptr, $PROTECTED, $virtualMethod(D3DRenderer$Tracer, drawPath, void, $SunGraphics2D*, $Path2D$Float*, int32_t, int32_t)},
-	{"drawPoly", "(Lsun/java2d/SunGraphics2D;[I[IIZ)V", nullptr, $PROTECTED, $virtualMethod(D3DRenderer$Tracer, drawPoly, void, $SunGraphics2D*, $ints*, $ints*, int32_t, bool)},
-	{"drawRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(D3DRenderer$Tracer, drawRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"fillParallelogram", "(Lsun/java2d/SunGraphics2D;DDDDDDDDDD)V", nullptr, $PUBLIC, $virtualMethod(D3DRenderer$Tracer, fillParallelogram, void, $SunGraphics2D*, double, double, double, double, double, double, double, double, double, double)},
-	{"fillPath", "(Lsun/java2d/SunGraphics2D;Ljava/awt/geom/Path2D$Float;II)V", nullptr, $PROTECTED, $virtualMethod(D3DRenderer$Tracer, fillPath, void, $SunGraphics2D*, $Path2D$Float*, int32_t, int32_t)},
-	{"fillRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(D3DRenderer$Tracer, fillRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"fillSpans", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/pipe/SpanIterator;II)V", nullptr, $PROTECTED, $virtualMethod(D3DRenderer$Tracer, fillSpans, void, $SunGraphics2D*, $SpanIterator*, int32_t, int32_t)},
-	{"getAAParallelogramPipe", "()Lsun/java2d/pipe/ParallelogramPipe;", nullptr, $PUBLIC, $virtualMethod(D3DRenderer$Tracer, getAAParallelogramPipe, $ParallelogramPipe*)},
-	{"validateContext", "(Lsun/java2d/SunGraphics2D;)V", nullptr, $PROTECTED, $virtualMethod(D3DRenderer$Tracer, validateContext, void, $SunGraphics2D*)},
-	{}
-};
-
-$InnerClassInfo _D3DRenderer$Tracer_InnerClassesInfo_[] = {
-	{"sun.java2d.d3d.D3DRenderer$Tracer", "sun.java2d.d3d.D3DRenderer", "Tracer", $PRIVATE},
-	{"sun.java2d.d3d.D3DRenderer$Tracer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _D3DRenderer$Tracer_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.d3d.D3DRenderer$Tracer",
-	"sun.java2d.d3d.D3DRenderer",
-	nullptr,
-	_D3DRenderer$Tracer_FieldInfo_,
-	_D3DRenderer$Tracer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_D3DRenderer$Tracer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.d3d.D3DRenderer"
-};
-
-$Object* allocate$D3DRenderer$Tracer($Class* clazz) {
-	return $of($alloc(D3DRenderer$Tracer));
-}
 
 void D3DRenderer$Tracer::init$($D3DRenderer* this$0, $D3DRenderer* d3dr) {
 	$set(this, this$0, this$0);
@@ -145,7 +95,50 @@ D3DRenderer$Tracer::D3DRenderer$Tracer() {
 }
 
 $Class* D3DRenderer$Tracer::load$($String* name, bool initialize) {
-	$loadClass(D3DRenderer$Tracer, name, initialize, &_D3DRenderer$Tracer_ClassInfo_, allocate$D3DRenderer$Tracer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/java2d/d3d/D3DRenderer;", nullptr, $FINAL | $SYNTHETIC, $field(D3DRenderer$Tracer, this$0)},
+		{"d3dr", "Lsun/java2d/d3d/D3DRenderer;", nullptr, $PRIVATE, $field(D3DRenderer$Tracer, d3dr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/d3d/D3DRenderer;Lsun/java2d/d3d/D3DRenderer;)V", nullptr, 0, $method(D3DRenderer$Tracer, init$, void, $D3DRenderer*, $D3DRenderer*)},
+		{"copyArea", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(D3DRenderer$Tracer, copyArea, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"drawLine", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(D3DRenderer$Tracer, drawLine, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawParallelogram", "(Lsun/java2d/SunGraphics2D;DDDDDDDDDDDD)V", nullptr, $PUBLIC, $virtualMethod(D3DRenderer$Tracer, drawParallelogram, void, $SunGraphics2D*, double, double, double, double, double, double, double, double, double, double, double, double)},
+		{"drawPath", "(Lsun/java2d/SunGraphics2D;Ljava/awt/geom/Path2D$Float;II)V", nullptr, $PROTECTED, $virtualMethod(D3DRenderer$Tracer, drawPath, void, $SunGraphics2D*, $Path2D$Float*, int32_t, int32_t)},
+		{"drawPoly", "(Lsun/java2d/SunGraphics2D;[I[IIZ)V", nullptr, $PROTECTED, $virtualMethod(D3DRenderer$Tracer, drawPoly, void, $SunGraphics2D*, $ints*, $ints*, int32_t, bool)},
+		{"drawRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(D3DRenderer$Tracer, drawRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"fillParallelogram", "(Lsun/java2d/SunGraphics2D;DDDDDDDDDD)V", nullptr, $PUBLIC, $virtualMethod(D3DRenderer$Tracer, fillParallelogram, void, $SunGraphics2D*, double, double, double, double, double, double, double, double, double, double)},
+		{"fillPath", "(Lsun/java2d/SunGraphics2D;Ljava/awt/geom/Path2D$Float;II)V", nullptr, $PROTECTED, $virtualMethod(D3DRenderer$Tracer, fillPath, void, $SunGraphics2D*, $Path2D$Float*, int32_t, int32_t)},
+		{"fillRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(D3DRenderer$Tracer, fillRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"fillSpans", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/pipe/SpanIterator;II)V", nullptr, $PROTECTED, $virtualMethod(D3DRenderer$Tracer, fillSpans, void, $SunGraphics2D*, $SpanIterator*, int32_t, int32_t)},
+		{"getAAParallelogramPipe", "()Lsun/java2d/pipe/ParallelogramPipe;", nullptr, $PUBLIC, $virtualMethod(D3DRenderer$Tracer, getAAParallelogramPipe, $ParallelogramPipe*)},
+		{"validateContext", "(Lsun/java2d/SunGraphics2D;)V", nullptr, $PROTECTED, $virtualMethod(D3DRenderer$Tracer, validateContext, void, $SunGraphics2D*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.d3d.D3DRenderer$Tracer", "sun.java2d.d3d.D3DRenderer", "Tracer", $PRIVATE},
+		{"sun.java2d.d3d.D3DRenderer$Tracer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.d3d.D3DRenderer$Tracer",
+		"sun.java2d.d3d.D3DRenderer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.d3d.D3DRenderer"
+	};
+	$loadClass(D3DRenderer$Tracer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(D3DRenderer$Tracer));
+	});
 	return class$;
 }
 

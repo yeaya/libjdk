@@ -59,6 +59,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t screennum);
 	virtual void addDisplayChangedListener(::sun::awt::DisplayChangedListener* client);
 	virtual void addFSWindowListener(::java::awt::Window* w);

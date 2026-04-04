@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/ConstFold.h>
-
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Symtab.h>
@@ -17,7 +16,6 @@
 
 using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$JCPrimitiveType = ::com::sun::tools::javac::code::Type$JCPrimitiveType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $ConstFold$1 = ::com::sun::tools::javac::comp::ConstFold$1;
 using $ByteCodes = ::com::sun::tools::javac::jvm::ByteCodes;
@@ -40,53 +38,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _ConstFold_FieldInfo_[] = {
-	{"constFoldKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/comp/ConstFold;>;", $PROTECTED | $STATIC | $FINAL, $staticField(ConstFold, constFoldKey)},
-	{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, $PRIVATE, $field(ConstFold, syms)},
-	{"minusOne", "Ljava/lang/Integer;", nullptr, $STATIC | $FINAL, $staticField(ConstFold, minusOne)},
-	{"zero", "Ljava/lang/Integer;", nullptr, $STATIC | $FINAL, $staticField(ConstFold, zero)},
-	{"one", "Ljava/lang/Integer;", nullptr, $STATIC | $FINAL, $staticField(ConstFold, one)},
-	{}
-};
-
-$MethodInfo _ConstFold_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PRIVATE, $method(ConstFold, init$, void, $Context*)},
-	{"b2i", "(Z)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC, $staticMethod(ConstFold, b2i, $Integer*, bool)},
-	{"coerce", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ConstFold, coerce, $Type*, $Type*, $Type*)},
-	{"doubleValue", "(Ljava/lang/Object;)D", nullptr, $PRIVATE | $STATIC, $staticMethod(ConstFold, doubleValue, double, Object$*)},
-	{"floatValue", "(Ljava/lang/Object;)F", nullptr, $PRIVATE | $STATIC, $staticMethod(ConstFold, floatValue, float, Object$*)},
-	{"fold1", "(ILcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ConstFold, fold1, $Type*, int32_t, $Type*)},
-	{"fold2", "(ILcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ConstFold, fold2, $Type*, int32_t, $Type*, $Type*)},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/ConstFold;", nullptr, $PUBLIC | $STATIC, $staticMethod(ConstFold, instance, ConstFold*, $Context*)},
-	{"intValue", "(Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ConstFold, intValue, int32_t, Object$*)},
-	{"longValue", "(Ljava/lang/Object;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(ConstFold, longValue, int64_t, Object$*)},
-	{}
-};
-
-$InnerClassInfo _ConstFold_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.ConstFold$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _ConstFold_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.ConstFold",
-	"java.lang.Object",
-	nullptr,
-	_ConstFold_FieldInfo_,
-	_ConstFold_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ConstFold_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.ConstFold$1"
-};
-
-$Object* allocate$ConstFold($Class* clazz) {
-	return $of($alloc(ConstFold));
-}
-
 $Context$Key* ConstFold::constFoldKey = nullptr;
 $Integer* ConstFold::minusOne = nullptr;
 $Integer* ConstFold::zero = nullptr;
@@ -102,7 +53,7 @@ ConstFold* ConstFold::instance($Context* context) {
 }
 
 void ConstFold::init$($Context* context) {
-	$nc(context)->put(ConstFold::constFoldKey, $of(this));
+	$nc(context)->put(ConstFold::constFoldKey, this);
 	$set(this, syms, $Symtab::instance(context));
 }
 
@@ -113,89 +64,59 @@ $Integer* ConstFold::b2i(bool b) {
 
 int32_t ConstFold::intValue(Object$* x) {
 	$init(ConstFold);
-	return $nc(($cast($Number, x)))->intValue();
+	return $nc($cast($Number, x))->intValue();
 }
 
 int64_t ConstFold::longValue(Object$* x) {
 	$init(ConstFold);
-	return $nc(($cast($Number, x)))->longValue();
+	return $nc($cast($Number, x))->longValue();
 }
 
 float ConstFold::floatValue(Object$* x) {
 	$init(ConstFold);
-	return $nc(($cast($Number, x)))->floatValue();
+	return $nc($cast($Number, x))->floatValue();
 }
 
 double ConstFold::doubleValue(Object$* x) {
 	$init(ConstFold);
-	return $nc(($cast($Number, x)))->doubleValue();
+	return $nc($cast($Number, x))->doubleValue();
 }
 
 $Type* ConstFold::fold1(int32_t opcode, $Type* operand) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($Object, od, $nc(operand)->constValue());
 		switch (opcode) {
 		case 0:
-			{
-				return operand;
-			}
+			return operand;
 		case 116:
-			{
-				return $nc($nc(this->syms)->intType)->constType($($Integer::valueOf(-intValue(od))));
-			}
+			return $nc($nc(this->syms)->intType)->constType($($Integer::valueOf(-intValue(od))));
 		case 130:
-			{
-				return $nc($nc(this->syms)->intType)->constType($($Integer::valueOf(~intValue(od))));
-			}
+			return $nc($nc(this->syms)->intType)->constType($($Integer::valueOf(~intValue(od))));
 		case 257:
-			{
-				return $nc($nc(this->syms)->booleanType)->constType($(b2i(intValue(od) == 0)));
-			}
+			return $nc($nc(this->syms)->booleanType)->constType($(b2i(intValue(od) == 0)));
 		case 153:
-			{
-				return $nc($nc(this->syms)->booleanType)->constType($(b2i(intValue(od) == 0)));
-			}
+			return $nc($nc(this->syms)->booleanType)->constType($(b2i(intValue(od) == 0)));
 		case 154:
-			{
-				return $nc($nc(this->syms)->booleanType)->constType($(b2i(intValue(od) != 0)));
-			}
+			return $nc($nc(this->syms)->booleanType)->constType($(b2i(intValue(od) != 0)));
 		case 155:
-			{
-				return $nc($nc(this->syms)->booleanType)->constType($(b2i(intValue(od) < 0)));
-			}
+			return $nc($nc(this->syms)->booleanType)->constType($(b2i(intValue(od) < 0)));
 		case 157:
-			{
-				return $nc($nc(this->syms)->booleanType)->constType($(b2i(intValue(od) > 0)));
-			}
+			return $nc($nc(this->syms)->booleanType)->constType($(b2i(intValue(od) > 0)));
 		case 158:
-			{
-				return $nc($nc(this->syms)->booleanType)->constType($(b2i(intValue(od) <= 0)));
-			}
+			return $nc($nc(this->syms)->booleanType)->constType($(b2i(intValue(od) <= 0)));
 		case 156:
-			{
-				return $nc($nc(this->syms)->booleanType)->constType($(b2i(intValue(od) >= 0)));
-			}
+			return $nc($nc(this->syms)->booleanType)->constType($(b2i(intValue(od) >= 0)));
 		case 117:
-			{
-				return $nc($nc(this->syms)->longType)->constType($($Long::valueOf(-longValue(od))));
-			}
+			return $nc($nc(this->syms)->longType)->constType($($Long::valueOf(-longValue(od))));
 		case 131:
-			{
-				return $nc($nc(this->syms)->longType)->constType($($Long::valueOf(~longValue(od))));
-			}
+			return $nc($nc(this->syms)->longType)->constType($($Long::valueOf(~longValue(od))));
 		case 118:
-			{
-				return $nc($nc(this->syms)->floatType)->constType($($Float::valueOf(-floatValue(od))));
-			}
+			return $nc($nc(this->syms)->floatType)->constType($($Float::valueOf(-floatValue(od))));
 		case 119:
-			{
-				return $nc($nc(this->syms)->doubleType)->constType($($Double::valueOf(-doubleValue(od))));
-			}
+			return $nc($nc(this->syms)->doubleType)->constType($($Double::valueOf(-doubleValue(od))));
 		default:
-			{
-				return nullptr;
-			}
+			return nullptr;
 		}
 	} catch ($ArithmeticException& e) {
 		return nullptr;
@@ -204,11 +125,11 @@ $Type* ConstFold::fold1(int32_t opcode, $Type* operand) {
 }
 
 $Type* ConstFold::fold2(int32_t opcode, $Type* left, $Type* right) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if (opcode > $ByteCodes::preMask) {
 			$var($Type, t1, fold2($sr(opcode, $ByteCodes::preShift), left, right));
-			return ($nc(t1)->constValue() == nullptr) ? t1 : fold1((int32_t)(opcode & (uint32_t)$ByteCodes::preMask), t1);
+			return ($nc(t1)->constValue() == nullptr) ? t1 : fold1(opcode & $ByteCodes::preMask, t1);
 		} else {
 			$var($Object, l, $nc(left)->constValue());
 			$var($Object, r, $nc(right)->constValue());
@@ -242,12 +163,12 @@ $Type* ConstFold::fold2(int32_t opcode, $Type* left, $Type* right) {
 				{
 					$init($TypeTag);
 					int32_t var$5 = intValue(l);
-					return $nc((left->hasTag($TypeTag::BOOLEAN) ? $nc(this->syms)->booleanType : $nc(this->syms)->intType))->constType($($Integer::valueOf((int32_t)(var$5 & (uint32_t)intValue(r)))));
+					return $nc((left->hasTag($TypeTag::BOOLEAN) ? $nc(this->syms)->booleanType : $nc(this->syms)->intType))->constType($($Integer::valueOf(var$5 & intValue(r))));
 				}
 			case 258:
 				{
 					int32_t var$6 = intValue(l);
-					return $nc($nc(this->syms)->booleanType)->constType($(b2i(((int32_t)(var$6 & (uint32_t)intValue(r))) != 0)));
+					return $nc($nc(this->syms)->booleanType)->constType($(b2i((var$6 & intValue(r)) != 0)));
 				}
 			case 128:
 				{
@@ -267,21 +188,18 @@ $Type* ConstFold::fold2(int32_t opcode, $Type* left, $Type* right) {
 					return $nc((left->hasTag($TypeTag::BOOLEAN) ? $nc(this->syms)->booleanType : $nc(this->syms)->intType))->constType($($Integer::valueOf(var$9 ^ intValue(r))));
 				}
 			case 120:
-				{}
 			case 270:
 				{
 					int32_t var$10 = intValue(l);
 					return $nc($nc(this->syms)->intType)->constType($($Integer::valueOf($sl(var$10, intValue(r)))));
 				}
 			case 122:
-				{}
 			case 272:
 				{
 					int32_t var$11 = intValue(l);
 					return $nc($nc(this->syms)->intType)->constType($($Integer::valueOf($sr(var$11, intValue(r)))));
 				}
 			case 124:
-				{}
 			case 274:
 				{
 					int32_t var$12 = intValue(l);
@@ -345,7 +263,7 @@ $Type* ConstFold::fold2(int32_t opcode, $Type* left, $Type* right) {
 			case 127:
 				{
 					int64_t var$24 = longValue(l);
-					return $nc($nc(this->syms)->longType)->constType($($Long::valueOf((int64_t)(var$24 & (uint64_t)longValue(r)))));
+					return $nc($nc(this->syms)->longType)->constType($($Long::valueOf(var$24 & longValue(r))));
 				}
 			case 129:
 				{
@@ -358,14 +276,12 @@ $Type* ConstFold::fold2(int32_t opcode, $Type* left, $Type* right) {
 					return $nc($nc(this->syms)->longType)->constType($($Long::valueOf(var$26 ^ longValue(r))));
 				}
 			case 121:
-				{}
 			case 271:
 				{
 					int64_t var$27 = longValue(l);
 					return $nc($nc(this->syms)->longType)->constType($($Long::valueOf($sl(var$27, intValue(r)))));
 				}
 			case 123:
-				{}
 			case 273:
 				{
 					int64_t var$28 = longValue(l);
@@ -382,8 +298,8 @@ $Type* ConstFold::fold2(int32_t opcode, $Type* left, $Type* right) {
 					if (var$30 < longValue(r)) {
 						return $nc($nc(this->syms)->intType)->constType(ConstFold::minusOne);
 					} else {
-						int64_t var$32 = longValue(l);
-						if (var$32 > longValue(r)) {
+						int64_t var$31 = longValue(l);
+						if (var$31 > longValue(r)) {
 							return $nc($nc(this->syms)->intType)->constType(ConstFold::one);
 						} else {
 							return $nc($nc(this->syms)->intType)->constType(ConstFold::zero);
@@ -392,42 +308,39 @@ $Type* ConstFold::fold2(int32_t opcode, $Type* left, $Type* right) {
 				}
 			case 98:
 				{
-					float var$33 = floatValue(l);
-					return $nc($nc(this->syms)->floatType)->constType($($Float::valueOf(var$33 + floatValue(r))));
+					float var$32 = floatValue(l);
+					return $nc($nc(this->syms)->floatType)->constType($($Float::valueOf(var$32 + floatValue(r))));
 				}
 			case 102:
 				{
-					float var$34 = floatValue(l);
-					return $nc($nc(this->syms)->floatType)->constType($($Float::valueOf(var$34 - floatValue(r))));
+					float var$33 = floatValue(l);
+					return $nc($nc(this->syms)->floatType)->constType($($Float::valueOf(var$33 - floatValue(r))));
 				}
 			case 106:
 				{
-					float var$35 = floatValue(l);
-					return $nc($nc(this->syms)->floatType)->constType($($Float::valueOf(var$35 * floatValue(r))));
+					float var$34 = floatValue(l);
+					return $nc($nc(this->syms)->floatType)->constType($($Float::valueOf(var$34 * floatValue(r))));
 				}
 			case 110:
 				{
-					float var$36 = floatValue(l);
-					return $nc($nc(this->syms)->floatType)->constType($($Float::valueOf(var$36 / floatValue(r))));
+					float var$35 = floatValue(l);
+					return $nc($nc(this->syms)->floatType)->constType($($Float::valueOf(var$35 / floatValue(r))));
 				}
 			case 114:
-				{
-					return $nc($nc(this->syms)->floatType)->constType($($Float::valueOf($Float::mod(floatValue(l), floatValue(r)))));
-				}
+				return $nc($nc(this->syms)->floatType)->constType($($Float::valueOf($Float::mod(floatValue(l), floatValue(r)))));
 			case 150:
-				{}
 			case 149:
 				{
-					float var$37 = floatValue(l);
-					if (var$37 < floatValue(r)) {
+					float var$36 = floatValue(l);
+					if (var$36 < floatValue(r)) {
 						return $nc($nc(this->syms)->intType)->constType(ConstFold::minusOne);
 					} else {
-						float var$39 = floatValue(l);
-						if (var$39 > floatValue(r)) {
+						float var$37 = floatValue(l);
+						if (var$37 > floatValue(r)) {
 							return $nc($nc(this->syms)->intType)->constType(ConstFold::one);
 						} else {
-							float var$41 = floatValue(l);
-							if (var$41 == floatValue(r)) {
+							float var$38 = floatValue(l);
+							if (var$38 == floatValue(r)) {
 								return $nc($nc(this->syms)->intType)->constType(ConstFold::zero);
 							} else if (opcode == 150) {
 								return $nc($nc(this->syms)->intType)->constType(ConstFold::one);
@@ -439,42 +352,39 @@ $Type* ConstFold::fold2(int32_t opcode, $Type* left, $Type* right) {
 				}
 			case 99:
 				{
-					double var$42 = doubleValue(l);
-					return $nc($nc(this->syms)->doubleType)->constType($($Double::valueOf(var$42 + doubleValue(r))));
+					double var$39 = doubleValue(l);
+					return $nc($nc(this->syms)->doubleType)->constType($($Double::valueOf(var$39 + doubleValue(r))));
 				}
 			case 103:
 				{
-					double var$43 = doubleValue(l);
-					return $nc($nc(this->syms)->doubleType)->constType($($Double::valueOf(var$43 - doubleValue(r))));
+					double var$40 = doubleValue(l);
+					return $nc($nc(this->syms)->doubleType)->constType($($Double::valueOf(var$40 - doubleValue(r))));
 				}
 			case 107:
 				{
-					double var$44 = doubleValue(l);
-					return $nc($nc(this->syms)->doubleType)->constType($($Double::valueOf(var$44 * doubleValue(r))));
+					double var$41 = doubleValue(l);
+					return $nc($nc(this->syms)->doubleType)->constType($($Double::valueOf(var$41 * doubleValue(r))));
 				}
 			case 111:
 				{
-					double var$45 = doubleValue(l);
-					return $nc($nc(this->syms)->doubleType)->constType($($Double::valueOf(var$45 / doubleValue(r))));
+					double var$42 = doubleValue(l);
+					return $nc($nc(this->syms)->doubleType)->constType($($Double::valueOf(var$42 / doubleValue(r))));
 				}
 			case 115:
-				{
-					return $nc($nc(this->syms)->doubleType)->constType($($Double::valueOf($Double::mod(doubleValue(l), doubleValue(r)))));
-				}
+				return $nc($nc(this->syms)->doubleType)->constType($($Double::valueOf($Double::mod(doubleValue(l), doubleValue(r)))));
 			case 152:
-				{}
 			case 151:
 				{
-					double var$46 = doubleValue(l);
-					if (var$46 < doubleValue(r)) {
+					double var$43 = doubleValue(l);
+					if (var$43 < doubleValue(r)) {
 						return $nc($nc(this->syms)->intType)->constType(ConstFold::minusOne);
 					} else {
-						double var$48 = doubleValue(l);
-						if (var$48 > doubleValue(r)) {
+						double var$44 = doubleValue(l);
+						if (var$44 > doubleValue(r)) {
 							return $nc($nc(this->syms)->intType)->constType(ConstFold::one);
 						} else {
-							double var$50 = doubleValue(l);
-							if (var$50 == doubleValue(r)) {
+							double var$45 = doubleValue(l);
+							if (var$45 == doubleValue(r)) {
 								return $nc($nc(this->syms)->intType)->constType(ConstFold::zero);
 							} else if (opcode == 152) {
 								return $nc($nc(this->syms)->intType)->constType(ConstFold::one);
@@ -485,22 +395,18 @@ $Type* ConstFold::fold2(int32_t opcode, $Type* left, $Type* right) {
 					}
 				}
 			case 165:
-				{
-					return $nc($nc(this->syms)->booleanType)->constType($(b2i($nc($of(l))->equals(r))));
-				}
+				return $nc($nc(this->syms)->booleanType)->constType($(b2i($nc(l)->equals(r))));
 			case 166:
-				{
-					return $nc($nc(this->syms)->booleanType)->constType($(b2i(!$nc($of(l))->equals(r))));
-				}
+				return $nc($nc(this->syms)->booleanType)->constType($(b2i(!$nc(l)->equals(r))));
 			case 256:
 				{
-					$var($String, var$51, $(left->stringValue()));
-					return $nc($nc(this->syms)->stringType)->constType($$concat(var$51, $(right->stringValue())));
+					$var($StringBuilder, var$46, $new($StringBuilder));
+					var$46->append($(left->stringValue()));
+					var$46->append($(right->stringValue()));
+					return $nc($nc(this->syms)->stringType)->constType($$str(var$46));
 				}
 			default:
-				{
-					return nullptr;
-				}
+				return nullptr;
 			}
 		}
 	} catch ($ArithmeticException& e) {
@@ -510,48 +416,34 @@ $Type* ConstFold::fold2(int32_t opcode, $Type* left, $Type* right) {
 }
 
 $Type* ConstFold::coerce($Type* etype, $Type* ttype) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc($nc(etype)->tsym)->type == $nc($nc(ttype)->tsym)->type) {
 		return etype;
 	}
-	if ($nc(etype)->isNumeric()) {
+	if (etype->isNumeric()) {
 		$var($Object, n, etype->constValue());
 		$init($ConstFold$1);
-		switch ($nc($ConstFold$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get($nc(($($nc(ttype)->getTag())))->ordinal())) {
+		switch ($nc($ConstFold$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get(($$nc(ttype->getTag()))->ordinal())) {
 		case 1:
-			{
-				return $nc($nc(this->syms)->byteType)->constType($($Integer::valueOf(0 + (int8_t)intValue(n))));
-			}
+			return $nc($nc(this->syms)->byteType)->constType($($Integer::valueOf(0 + (int8_t)intValue(n))));
 		case 2:
-			{
-				return $nc($nc(this->syms)->charType)->constType($($Integer::valueOf(0 + (char16_t)intValue(n))));
-			}
+			return $nc($nc(this->syms)->charType)->constType($($Integer::valueOf(0 + (char16_t)intValue(n))));
 		case 3:
-			{
-				return $nc($nc(this->syms)->shortType)->constType($($Integer::valueOf(0 + (int16_t)intValue(n))));
-			}
+			return $nc($nc(this->syms)->shortType)->constType($($Integer::valueOf(0 + (int16_t)intValue(n))));
 		case 4:
-			{
-				return $nc($nc(this->syms)->intType)->constType($($Integer::valueOf(intValue(n))));
-			}
+			return $nc($nc(this->syms)->intType)->constType($($Integer::valueOf(intValue(n))));
 		case 5:
-			{
-				return $nc($nc(this->syms)->longType)->constType($($Long::valueOf(longValue(n))));
-			}
+			return $nc($nc(this->syms)->longType)->constType($($Long::valueOf(longValue(n))));
 		case 6:
-			{
-				return $nc($nc(this->syms)->floatType)->constType($($Float::valueOf(floatValue(n))));
-			}
+			return $nc($nc(this->syms)->floatType)->constType($($Float::valueOf(floatValue(n))));
 		case 7:
-			{
-				return $nc($nc(this->syms)->doubleType)->constType($($Double::valueOf(doubleValue(n))));
-			}
+			return $nc($nc(this->syms)->doubleType)->constType($($Double::valueOf(doubleValue(n))));
 		}
 	}
 	return ttype;
 }
 
-void clinit$ConstFold($Class* class$) {
+void ConstFold::clinit$($Class* clazz) {
 	$assignStatic(ConstFold::constFoldKey, $new($Context$Key));
 	$assignStatic(ConstFold::minusOne, $Integer::valueOf(-1));
 	$assignStatic(ConstFold::zero, $Integer::valueOf(0));
@@ -562,7 +454,48 @@ ConstFold::ConstFold() {
 }
 
 $Class* ConstFold::load$($String* name, bool initialize) {
-	$loadClass(ConstFold, name, initialize, &_ConstFold_ClassInfo_, clinit$ConstFold, allocate$ConstFold);
+	$FieldInfo fieldInfos$$[] = {
+		{"constFoldKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/comp/ConstFold;>;", $PROTECTED | $STATIC | $FINAL, $staticField(ConstFold, constFoldKey)},
+		{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, $PRIVATE, $field(ConstFold, syms)},
+		{"minusOne", "Ljava/lang/Integer;", nullptr, $STATIC | $FINAL, $staticField(ConstFold, minusOne)},
+		{"zero", "Ljava/lang/Integer;", nullptr, $STATIC | $FINAL, $staticField(ConstFold, zero)},
+		{"one", "Ljava/lang/Integer;", nullptr, $STATIC | $FINAL, $staticField(ConstFold, one)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PRIVATE, $method(ConstFold, init$, void, $Context*)},
+		{"b2i", "(Z)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC, $staticMethod(ConstFold, b2i, $Integer*, bool)},
+		{"coerce", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ConstFold, coerce, $Type*, $Type*, $Type*)},
+		{"doubleValue", "(Ljava/lang/Object;)D", nullptr, $PRIVATE | $STATIC, $staticMethod(ConstFold, doubleValue, double, Object$*)},
+		{"floatValue", "(Ljava/lang/Object;)F", nullptr, $PRIVATE | $STATIC, $staticMethod(ConstFold, floatValue, float, Object$*)},
+		{"fold1", "(ILcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ConstFold, fold1, $Type*, int32_t, $Type*)},
+		{"fold2", "(ILcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ConstFold, fold2, $Type*, int32_t, $Type*, $Type*)},
+		{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/ConstFold;", nullptr, $PUBLIC | $STATIC, $staticMethod(ConstFold, instance, ConstFold*, $Context*)},
+		{"intValue", "(Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ConstFold, intValue, int32_t, Object$*)},
+		{"longValue", "(Ljava/lang/Object;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(ConstFold, longValue, int64_t, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.ConstFold$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.ConstFold",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.ConstFold$1"
+	};
+	$loadClass(ConstFold, name, initialize, &classInfo$$, ConstFold::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ConstFold);
+	});
 	return class$;
 }
 

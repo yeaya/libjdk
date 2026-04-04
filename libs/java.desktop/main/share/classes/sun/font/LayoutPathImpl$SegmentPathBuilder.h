@@ -19,6 +19,7 @@ class LayoutPathImpl$SegmentPathBuilder : public ::java::lang::Object {
 	$class(LayoutPathImpl$SegmentPathBuilder, 0, ::java::lang::Object)
 public:
 	LayoutPathImpl$SegmentPathBuilder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::sun::font::LayoutPathImpl$SegmentPath* build(::sun::font::LayoutPathImpl$EndType* etype, $doubles* pts);
 	::sun::font::LayoutPathImpl$SegmentPath* complete();

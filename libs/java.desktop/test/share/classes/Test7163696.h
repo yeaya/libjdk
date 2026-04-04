@@ -19,6 +19,7 @@ class $export Test7163696 : public ::java::lang::Runnable {
 	$class(Test7163696, 0, ::java::lang::Runnable)
 public:
 	Test7163696();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	virtual void run() override;

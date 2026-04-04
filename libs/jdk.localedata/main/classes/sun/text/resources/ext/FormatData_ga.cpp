@@ -1,5 +1,4 @@
 #include <sun/text/resources/ext/FormatData_ga.h>
-
 #include <sun/util/resources/ParallelListResourceBundle.h>
 #include <jcpp.h>
 
@@ -13,35 +12,16 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _FormatData_ga_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_ga, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_ga, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _FormatData_ga_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.ext.FormatData_ga",
-	"sun.util.resources.ParallelListResourceBundle",
-	nullptr,
-	nullptr,
-	_FormatData_ga_MethodInfo_
-};
-
-$Object* allocate$FormatData_ga($Class* clazz) {
-	return $of($alloc(FormatData_ga));
-}
-
 void FormatData_ga::init$() {
 	$ParallelListResourceBundle::init$();
 }
 
 $ObjectArray2* FormatData_ga::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("MonthNames"_s),
-			$of($$new($StringArray, {
+			"MonthNames"_s,
+			$$new($StringArray, {
 				u"Eanáir"_s,
 				"Feabhra"_s,
 				u"Márta"_s,
@@ -55,11 +35,11 @@ $ObjectArray2* FormatData_ga::getContents() {
 				"Samhain"_s,
 				"Nollaig"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("MonthAbbreviations"_s),
-			$of($$new($StringArray, {
+			"MonthAbbreviations"_s,
+			$$new($StringArray, {
 				"Ean"_s,
 				"Feabh"_s,
 				u"Márta"_s,
@@ -73,11 +53,11 @@ $ObjectArray2* FormatData_ga::getContents() {
 				"Samh"_s,
 				"Noll"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("MonthNarrows"_s),
-			$of($$new($StringArray, {
+			"MonthNarrows"_s,
+			$$new($StringArray, {
 				"E"_s,
 				"F"_s,
 				"M"_s,
@@ -91,11 +71,11 @@ $ObjectArray2* FormatData_ga::getContents() {
 				"S"_s,
 				"N"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DayNames"_s),
-			$of($$new($StringArray, {
+			"DayNames"_s,
+			$$new($StringArray, {
 				u"Dé Domhnaigh"_s,
 				u"Dé Luain"_s,
 				u"Dé Máirt"_s,
@@ -103,11 +83,11 @@ $ObjectArray2* FormatData_ga::getContents() {
 				u"Déardaoin"_s,
 				u"Dé hAoine"_s,
 				u"Dé Sathairn"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DayAbbreviations"_s),
-			$of($$new($StringArray, {
+			"DayAbbreviations"_s,
+			$$new($StringArray, {
 				"Domh"_s,
 				"Luan"_s,
 				u"Máirt"_s,
@@ -115,40 +95,40 @@ $ObjectArray2* FormatData_ga::getContents() {
 				u"Déar"_s,
 				"Aoine"_s,
 				"Sath"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("AmPmMarkers"_s),
-			$of($$new($StringArray, {
+			"AmPmMarkers"_s,
+			$$new($StringArray, {
 				"a.m."_s,
 				"p.m."_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("Eras"_s),
-			$of($$new($StringArray, {
+			"Eras"_s,
+			$$new($StringArray, {
 				"RC"_s,
 				"AD"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("short.Eras"_s),
-			$of($$new($StringArray, {
+			"short.Eras"_s,
+			$$new($StringArray, {
 				"RC"_s,
 				"AD"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("NumberPatterns"_s),
-			$of($$new($StringArray, {
+			"NumberPatterns"_s,
+			$$new($StringArray, {
 				"#,##0.###"_s,
 				u"¤ #,##0.00"_s,
 				"#,##0%"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("NumberElements"_s),
-			$of($$new($StringArray, {
+			"NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -160,33 +140,33 @@ $ObjectArray2* FormatData_ga::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("TimePatterns"_s),
-			$of($$new($StringArray, {
+			"TimePatterns"_s,
+			$$new($StringArray, {
 				"HH:mm:ss z"_s,
 				"HH:mm:ss z"_s,
 				"HH:mm:ss"_s,
 				"HH:mm"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DatePatterns"_s),
-			$of($$new($StringArray, {
+			"DatePatterns"_s,
+			$$new($StringArray, {
 				"EEEE, yyyy MMMM dd"_s,
 				"yyyy MMMM d"_s,
 				"yyyy MMM d"_s,
 				"yy/MM/dd"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DateTimePatterns"_s),
-			$of($$new($StringArray, {"{1} {0}"_s}))
+			"DateTimePatterns"_s,
+			$$new($StringArray, {"{1} {0}"_s})
 		}),
 		$$new($ObjectArray, {
-			$of("DateTimePatternChars"_s),
-			$of("RbMLkUnsSElFtTauKcZ"_s)
+			"DateTimePatternChars"_s,
+			"RbMLkUnsSElFtTauKcZ"_s
 		})
 	});
 }
@@ -195,7 +175,22 @@ FormatData_ga::FormatData_ga() {
 }
 
 $Class* FormatData_ga::load$($String* name, bool initialize) {
-	$loadClass(FormatData_ga, name, initialize, &_FormatData_ga_ClassInfo_, allocate$FormatData_ga);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_ga, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_ga, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.ext.FormatData_ga",
+		"sun.util.resources.ParallelListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FormatData_ga, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatData_ga);
+	});
 	return class$;
 }
 

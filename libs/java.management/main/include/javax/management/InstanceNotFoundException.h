@@ -14,10 +14,13 @@ public:
 	InstanceNotFoundException();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0xF3C072AD486A71C7;
+	static const int64_t serialVersionUID = (int64_t)0xf3c072ad486a71c7;
 	InstanceNotFoundException(const InstanceNotFoundException& e);
 	virtual void throw$() override;
-	inline InstanceNotFoundException* operator ->() {
+	inline InstanceNotFoundException* operator ->() const {
+		return (InstanceNotFoundException*)throwing$;
+	}
+	inline operator InstanceNotFoundException*() const {
 		return (InstanceNotFoundException*)throwing$;
 	}
 };

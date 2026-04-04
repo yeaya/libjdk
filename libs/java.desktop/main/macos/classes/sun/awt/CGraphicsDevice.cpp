@@ -1,5 +1,4 @@
 #include <sun/awt/CGraphicsDevice.h>
-
 #include <java/awt/AWTPermission.h>
 #include <java/awt/Component.h>
 #include <java/awt/DisplayMode.h>
@@ -33,7 +32,6 @@
 using $DisplayModeArray = $Array<::java::awt::DisplayMode>;
 using $GraphicsConfigurationArray = $Array<::java::awt::GraphicsConfiguration>;
 using $AWTPermission = ::java::awt::AWTPermission;
-using $Component = ::java::awt::Component;
 using $DisplayMode = ::java::awt::DisplayMode;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $GraphicsDevice = ::java::awt::GraphicsDevice;
@@ -42,7 +40,6 @@ using $Rectangle = ::java::awt::Rectangle;
 using $Window = ::java::awt::Window;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $WindowPeer = ::java::awt::peer::WindowPeer;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -51,11 +48,9 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $Permission = ::java::security::Permission;
 using $Arrays = ::java::util::Arrays;
 using $Objects = ::java::util::Objects;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $FullScreenCapable = ::sun::awt::FullScreenCapable;
 using $MacOSFlags = ::sun::java2d::MacOSFlags;
 using $SunGraphicsEnvironment = ::sun::java2d::SunGraphicsEnvironment;
@@ -64,88 +59,6 @@ using $CGLGraphicsConfig = ::sun::java2d::opengl::CGLGraphicsConfig;
 
 namespace sun {
 	namespace awt {
-
-$FieldInfo _CGraphicsDevice_FieldInfo_[] = {
-	{"displayID", "I", nullptr, $PRIVATE | $VOLATILE, $field(CGraphicsDevice, displayID)},
-	{"xResolution", "D", nullptr, $PRIVATE | $VOLATILE, $field(CGraphicsDevice, xResolution)},
-	{"yResolution", "D", nullptr, $PRIVATE | $VOLATILE, $field(CGraphicsDevice, yResolution)},
-	{"bounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $VOLATILE, $field(CGraphicsDevice, bounds)},
-	{"scale", "I", nullptr, $PRIVATE | $VOLATILE, $field(CGraphicsDevice, scale)},
-	{"config", "Ljava/awt/GraphicsConfiguration;", nullptr, $PRIVATE, $field(CGraphicsDevice, config)},
-	{"metalPipelineEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(CGraphicsDevice, metalPipelineEnabled)},
-	{"oglPipelineEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(CGraphicsDevice, oglPipelineEnabled)},
-	{"fullScreenExclusivePermission", "Ljava/awt/AWTPermission;", nullptr, $PRIVATE | $STATIC, $staticField(CGraphicsDevice, fullScreenExclusivePermission)},
-	{"originalMode", "Ljava/awt/DisplayMode;", nullptr, $PRIVATE, $field(CGraphicsDevice, originalMode)},
-	{"initialMode", "Ljava/awt/DisplayMode;", nullptr, $PRIVATE, $field(CGraphicsDevice, initialMode)},
-	{}
-};
-
-$MethodInfo _CGraphicsDevice_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(CGraphicsDevice, init$, void, int32_t)},
-	{"displayChanged", "()V", nullptr, $PUBLIC, $virtualMethod(CGraphicsDevice, displayChanged, void)},
-	{"enterFullScreenExclusive", "(Ljava/awt/Window;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CGraphicsDevice, enterFullScreenExclusive, void, $Window*)},
-	{"exitFullScreenExclusive", "(Ljava/awt/Window;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CGraphicsDevice, exitFullScreenExclusive, void, $Window*)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, 0, $method(CGraphicsDevice, getBounds, $Rectangle*)},
-	{"getConfigurations", "()[Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(CGraphicsDevice, getConfigurations, $GraphicsConfigurationArray*)},
-	{"getDefaultConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(CGraphicsDevice, getDefaultConfiguration, $GraphicsConfiguration*)},
-	{"getDisplayMode", "()Ljava/awt/DisplayMode;", nullptr, $PUBLIC, $virtualMethod(CGraphicsDevice, getDisplayMode, $DisplayMode*)},
-	{"getDisplayModes", "()[Ljava/awt/DisplayMode;", nullptr, $PUBLIC, $virtualMethod(CGraphicsDevice, getDisplayModes, $DisplayModeArray*)},
-	{"getIDstring", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CGraphicsDevice, getIDstring, $String*)},
-	{"getScaleFactor", "()I", nullptr, $PUBLIC, $method(CGraphicsDevice, getScaleFactor, int32_t)},
-	{"getScreenInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $method(CGraphicsDevice, getScreenInsets, $Insets*)},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(CGraphicsDevice, getType, int32_t)},
-	{"getXResolution", "()D", nullptr, $PUBLIC, $method(CGraphicsDevice, getXResolution, double)},
-	{"getYResolution", "()D", nullptr, $PUBLIC, $method(CGraphicsDevice, getYResolution, double)},
-	{"initScaleFactor", "()V", nullptr, $PRIVATE, $method(CGraphicsDevice, initScaleFactor, void)},
-	{"invalidate", "(Lsun/awt/CGraphicsDevice;)V", nullptr, $PUBLIC, $method(CGraphicsDevice, invalidate, void, CGraphicsDevice*)},
-	{"isDisplayChangeSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(CGraphicsDevice, isDisplayChangeSupported, bool)},
-	{"isFSExclusiveModeAllowed", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(CGraphicsDevice, isFSExclusiveModeAllowed, bool)},
-	{"isFullScreenSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(CGraphicsDevice, isFullScreenSupported, bool)},
-	{"isSameMode", "(Ljava/awt/DisplayMode;Ljava/awt/DisplayMode;)Z", nullptr, $PRIVATE, $method(CGraphicsDevice, isSameMode, bool, $DisplayMode*, $DisplayMode*)},
-	{"nativeGetBounds", "(I)Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGraphicsDevice, nativeGetBounds, $Rectangle2D*, int32_t)},
-	{"nativeGetDisplayMode", "(I)Ljava/awt/DisplayMode;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGraphicsDevice, nativeGetDisplayMode, $DisplayMode*, int32_t)},
-	{"nativeGetDisplayModes", "(I)[Ljava/awt/DisplayMode;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGraphicsDevice, nativeGetDisplayModes, $DisplayModeArray*, int32_t)},
-	{"nativeGetScaleFactor", "(I)D", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGraphicsDevice, nativeGetScaleFactor, double, int32_t)},
-	{"nativeGetScreenInsets", "(I)Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGraphicsDevice, nativeGetScreenInsets, $Insets*, int32_t)},
-	{"nativeGetXResolution", "(I)D", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGraphicsDevice, nativeGetXResolution, double, int32_t)},
-	{"nativeGetYResolution", "(I)D", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGraphicsDevice, nativeGetYResolution, double, int32_t)},
-	{"nativeResetDisplayMode", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGraphicsDevice, nativeResetDisplayMode, void)},
-	{"nativeSetDisplayMode", "(IIIII)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGraphicsDevice, nativeSetDisplayMode, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"paletteChanged", "()V", nullptr, $PUBLIC, $virtualMethod(CGraphicsDevice, paletteChanged, void)},
-	{"resizeFSWindow", "(Ljava/awt/Window;Ljava/awt/Rectangle;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CGraphicsDevice, resizeFSWindow, void, $Window*, $Rectangle*)},
-	{"setDisplayMode", "(Ljava/awt/DisplayMode;)V", nullptr, $PUBLIC, $virtualMethod(CGraphicsDevice, setDisplayMode, void, $DisplayMode*)},
-	{"setFullScreenWindow", "(Ljava/awt/Window;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CGraphicsDevice, setFullScreenWindow, void, $Window*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"usingMetalPipeline", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(CGraphicsDevice, usingMetalPipeline, bool)},
-	{}
-};
-
-#define _METHOD_INDEX_nativeGetBounds 25
-#define _METHOD_INDEX_nativeGetDisplayMode 26
-#define _METHOD_INDEX_nativeGetDisplayModes 27
-#define _METHOD_INDEX_nativeGetScaleFactor 28
-#define _METHOD_INDEX_nativeGetScreenInsets 29
-#define _METHOD_INDEX_nativeGetXResolution 30
-#define _METHOD_INDEX_nativeGetYResolution 31
-#define _METHOD_INDEX_nativeResetDisplayMode 32
-#define _METHOD_INDEX_nativeSetDisplayMode 33
-
-$ClassInfo _CGraphicsDevice_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.CGraphicsDevice",
-	"java.awt.GraphicsDevice",
-	"sun.awt.DisplayChangedListener",
-	_CGraphicsDevice_FieldInfo_,
-	_CGraphicsDevice_MethodInfo_
-};
-
-$Object* allocate$CGraphicsDevice($Class* clazz) {
-	return $of($alloc(CGraphicsDevice));
-}
 
 int32_t CGraphicsDevice::hashCode() {
 	 return this->$GraphicsDevice::hashCode();
@@ -172,7 +85,7 @@ bool CGraphicsDevice::oglPipelineEnabled = false;
 $AWTPermission* CGraphicsDevice::fullScreenExclusivePermission = nullptr;
 
 void CGraphicsDevice::init$(int32_t displayID) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$GraphicsDevice::init$();
 	this->displayID = displayID;
 	$set(this, initialMode, getDisplayMode());
@@ -256,10 +169,10 @@ void CGraphicsDevice::invalidate(CGraphicsDevice* device) {
 }
 
 void CGraphicsDevice::displayChanged() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->xResolution = nativeGetXResolution(this->displayID);
 	this->yResolution = nativeGetYResolution(this->displayID);
-	$set(this, bounds, $nc($(nativeGetBounds(this->displayID)))->getBounds());
+	$set(this, bounds, $$nc(nativeGetBounds(this->displayID))->getBounds());
 	initScaleFactor();
 	resizeFSWindow($(getFullScreenWindow()), this->bounds);
 }
@@ -313,8 +226,8 @@ bool CGraphicsDevice::isFSExclusiveModeAllowed() {
 
 void CGraphicsDevice::enterFullScreenExclusive($Window* w) {
 	$init(CGraphicsDevice);
-	$useLocalCurrentObjectStackCache();
-	$var($FullScreenCapable, peer, $cast($FullScreenCapable, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(w)));
+	$useLocalObjectStack();
+	$var($FullScreenCapable, peer, $cast($FullScreenCapable, $$nc($AWTAccessor::getComponentAccessor())->getPeer(w)));
 	if (peer != nullptr) {
 		peer->enterFullScreenMode();
 	}
@@ -322,8 +235,8 @@ void CGraphicsDevice::enterFullScreenExclusive($Window* w) {
 
 void CGraphicsDevice::exitFullScreenExclusive($Window* w) {
 	$init(CGraphicsDevice);
-	$useLocalCurrentObjectStackCache();
-	$var($FullScreenCapable, peer, $cast($FullScreenCapable, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(w)));
+	$useLocalObjectStack();
+	$var($FullScreenCapable, peer, $cast($FullScreenCapable, $$nc($AWTAccessor::getComponentAccessor())->getPeer(w)));
 	if (peer != nullptr) {
 		peer->exitFullScreenMode();
 	}
@@ -331,11 +244,11 @@ void CGraphicsDevice::exitFullScreenExclusive($Window* w) {
 
 void CGraphicsDevice::resizeFSWindow($Window* w, $Rectangle* b) {
 	$init(CGraphicsDevice);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (w != nullptr) {
-		$var($WindowPeer, peer, $cast($WindowPeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(w)));
+		$var($WindowPeer, peer, $cast($WindowPeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(w)));
 		if (peer != nullptr) {
-			peer->setBounds($nc(b)->x, b->y, b->width, b->height, 3);
+			peer->setBounds($nc(b)->x, $nc(b)->y, $nc(b)->width, $nc(b)->height, 3);
 		}
 	}
 }
@@ -355,20 +268,20 @@ bool CGraphicsDevice::isSameMode($DisplayMode* newMode, $DisplayMode* oldMode) {
 		bool var$2 = var$3;
 		if (var$2) {
 			int32_t var$5 = newMode->getHeight();
-			var$2 = var$5 == oldMode->getHeight();
+			var$2 = var$5 == $nc(oldMode)->getHeight();
 		}
 		bool var$1 = var$2;
 		if (var$1) {
 			int32_t var$6 = newMode->getBitDepth();
-			var$1 = var$6 == oldMode->getBitDepth();
+			var$1 = var$6 == $nc(oldMode)->getBitDepth();
 		}
-		var$0 = (var$1);
+		var$0 = var$1;
 	}
 	return (var$0);
 }
 
 void CGraphicsDevice::setDisplayMode($DisplayMode* dm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (dm == nullptr) {
 		$throwNew($IllegalArgumentException, "Invalid display mode"_s);
 	}
@@ -397,20 +310,16 @@ $DisplayMode* CGraphicsDevice::getDisplayMode() {
 }
 
 $DisplayModeArray* CGraphicsDevice::getDisplayModes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DisplayModeArray, nativeModes, nativeGetDisplayModes(this->displayID));
 	bool match = false;
 	{
 		$var($DisplayModeArray, arr$, nativeModes);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($DisplayMode, mode, arr$->get(i$));
-			{
-				if ($nc(this->initialMode)->equals(mode)) {
-					match = true;
-					break;
-				}
+			if ($nc(this->initialMode)->equals(mode)) {
+				match = true;
+				break;
 			}
 		}
 	}
@@ -418,8 +327,7 @@ $DisplayModeArray* CGraphicsDevice::getDisplayModes() {
 		return nativeModes;
 	} else {
 		int32_t len = $nc(nativeModes)->length;
-		$load($DisplayModeArray);
-		$var($DisplayModeArray, modes, $fcast($DisplayModeArray, $Arrays::copyOf(nativeModes, len + 1, $getClass($DisplayModeArray))));
+		$var($DisplayModeArray, modes, $cast($DisplayModeArray, $Arrays::copyOf(nativeModes, len + 1, $getClass($DisplayModeArray))));
 		modes->set(len, this->initialMode);
 		return modes;
 	}
@@ -441,82 +349,75 @@ void CGraphicsDevice::initScaleFactor() {
 
 double CGraphicsDevice::nativeGetScaleFactor(int32_t displayID) {
 	$init(CGraphicsDevice);
-	double $ret = 0.0;
-	$prepareNativeStatic(CGraphicsDevice, nativeGetScaleFactor, double, int32_t displayID);
-	$ret = $invokeNativeStatic(displayID);
+	$prepareNativeStatic(nativeGetScaleFactor, double, int32_t displayID);
+	double $ret = $invokeNativeStatic(displayID);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void CGraphicsDevice::nativeResetDisplayMode() {
 	$init(CGraphicsDevice);
-	$prepareNativeStatic(CGraphicsDevice, nativeResetDisplayMode, void);
+	$prepareNativeStatic(nativeResetDisplayMode, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void CGraphicsDevice::nativeSetDisplayMode(int32_t displayID, int32_t w, int32_t h, int32_t bpp, int32_t refrate) {
 	$init(CGraphicsDevice);
-	$prepareNativeStatic(CGraphicsDevice, nativeSetDisplayMode, void, int32_t displayID, int32_t w, int32_t h, int32_t bpp, int32_t refrate);
+	$prepareNativeStatic(nativeSetDisplayMode, void, int32_t displayID, int32_t w, int32_t h, int32_t bpp, int32_t refrate);
 	$invokeNativeStatic(displayID, w, h, bpp, refrate);
 	$finishNativeStatic();
 }
 
 $DisplayMode* CGraphicsDevice::nativeGetDisplayMode(int32_t displayID) {
 	$init(CGraphicsDevice);
-	$var($DisplayMode, $ret, nullptr);
-	$prepareNativeStatic(CGraphicsDevice, nativeGetDisplayMode, $DisplayMode*, int32_t displayID);
-	$assign($ret, $invokeNativeStaticObject(displayID));
+	$prepareNativeStatic(nativeGetDisplayMode, $DisplayMode*, int32_t displayID);
+	$var($DisplayMode, $ret, $invokeNativeStaticObject(displayID));
 	$finishNativeStatic();
 	return $ret;
 }
 
 $DisplayModeArray* CGraphicsDevice::nativeGetDisplayModes(int32_t displayID) {
 	$init(CGraphicsDevice);
-	$var($DisplayModeArray, $ret, nullptr);
-	$prepareNativeStatic(CGraphicsDevice, nativeGetDisplayModes, $DisplayModeArray*, int32_t displayID);
-	$assign($ret, $invokeNativeStaticObject(displayID));
+	$prepareNativeStatic(nativeGetDisplayModes, $DisplayModeArray*, int32_t displayID);
+	$var($DisplayModeArray, $ret, $invokeNativeStaticObject(displayID));
 	$finishNativeStatic();
 	return $ret;
 }
 
 double CGraphicsDevice::nativeGetXResolution(int32_t displayID) {
 	$init(CGraphicsDevice);
-	double $ret = 0.0;
-	$prepareNativeStatic(CGraphicsDevice, nativeGetXResolution, double, int32_t displayID);
-	$ret = $invokeNativeStatic(displayID);
+	$prepareNativeStatic(nativeGetXResolution, double, int32_t displayID);
+	double $ret = $invokeNativeStatic(displayID);
 	$finishNativeStatic();
 	return $ret;
 }
 
 double CGraphicsDevice::nativeGetYResolution(int32_t displayID) {
 	$init(CGraphicsDevice);
-	double $ret = 0.0;
-	$prepareNativeStatic(CGraphicsDevice, nativeGetYResolution, double, int32_t displayID);
-	$ret = $invokeNativeStatic(displayID);
+	$prepareNativeStatic(nativeGetYResolution, double, int32_t displayID);
+	double $ret = $invokeNativeStatic(displayID);
 	$finishNativeStatic();
 	return $ret;
 }
 
 $Insets* CGraphicsDevice::nativeGetScreenInsets(int32_t displayID) {
 	$init(CGraphicsDevice);
-	$var($Insets, $ret, nullptr);
-	$prepareNativeStatic(CGraphicsDevice, nativeGetScreenInsets, $Insets*, int32_t displayID);
-	$assign($ret, $invokeNativeStaticObject(displayID));
+	$prepareNativeStatic(nativeGetScreenInsets, $Insets*, int32_t displayID);
+	$var($Insets, $ret, $invokeNativeStaticObject(displayID));
 	$finishNativeStatic();
 	return $ret;
 }
 
 $Rectangle2D* CGraphicsDevice::nativeGetBounds(int32_t displayID) {
 	$init(CGraphicsDevice);
-	$var($Rectangle2D, $ret, nullptr);
-	$prepareNativeStatic(CGraphicsDevice, nativeGetBounds, $Rectangle2D*, int32_t displayID);
-	$assign($ret, $invokeNativeStaticObject(displayID));
+	$prepareNativeStatic(nativeGetBounds, $Rectangle2D*, int32_t displayID);
+	$var($Rectangle2D, $ret, $invokeNativeStaticObject(displayID));
 	$finishNativeStatic();
 	return $ret;
 }
 
-void clinit$CGraphicsDevice($Class* class$) {
+void CGraphicsDevice::clinit$($Class* clazz) {
 	CGraphicsDevice::metalPipelineEnabled = false;
 	CGraphicsDevice::oglPipelineEnabled = false;
 }
@@ -525,7 +426,74 @@ CGraphicsDevice::CGraphicsDevice() {
 }
 
 $Class* CGraphicsDevice::load$($String* name, bool initialize) {
-	$loadClass(CGraphicsDevice, name, initialize, &_CGraphicsDevice_ClassInfo_, clinit$CGraphicsDevice, allocate$CGraphicsDevice);
+	$FieldInfo fieldInfos$$[] = {
+		{"displayID", "I", nullptr, $PRIVATE | $VOLATILE, $field(CGraphicsDevice, displayID)},
+		{"xResolution", "D", nullptr, $PRIVATE | $VOLATILE, $field(CGraphicsDevice, xResolution)},
+		{"yResolution", "D", nullptr, $PRIVATE | $VOLATILE, $field(CGraphicsDevice, yResolution)},
+		{"bounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $VOLATILE, $field(CGraphicsDevice, bounds)},
+		{"scale", "I", nullptr, $PRIVATE | $VOLATILE, $field(CGraphicsDevice, scale)},
+		{"config", "Ljava/awt/GraphicsConfiguration;", nullptr, $PRIVATE, $field(CGraphicsDevice, config)},
+		{"metalPipelineEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(CGraphicsDevice, metalPipelineEnabled)},
+		{"oglPipelineEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(CGraphicsDevice, oglPipelineEnabled)},
+		{"fullScreenExclusivePermission", "Ljava/awt/AWTPermission;", nullptr, $PRIVATE | $STATIC, $staticField(CGraphicsDevice, fullScreenExclusivePermission)},
+		{"originalMode", "Ljava/awt/DisplayMode;", nullptr, $PRIVATE, $field(CGraphicsDevice, originalMode)},
+		{"initialMode", "Ljava/awt/DisplayMode;", nullptr, $PRIVATE, $field(CGraphicsDevice, initialMode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(CGraphicsDevice, init$, void, int32_t)},
+		{"displayChanged", "()V", nullptr, $PUBLIC, $virtualMethod(CGraphicsDevice, displayChanged, void)},
+		{"enterFullScreenExclusive", "(Ljava/awt/Window;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CGraphicsDevice, enterFullScreenExclusive, void, $Window*)},
+		{"exitFullScreenExclusive", "(Ljava/awt/Window;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CGraphicsDevice, exitFullScreenExclusive, void, $Window*)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, 0, $method(CGraphicsDevice, getBounds, $Rectangle*)},
+		{"getConfigurations", "()[Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(CGraphicsDevice, getConfigurations, $GraphicsConfigurationArray*)},
+		{"getDefaultConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(CGraphicsDevice, getDefaultConfiguration, $GraphicsConfiguration*)},
+		{"getDisplayMode", "()Ljava/awt/DisplayMode;", nullptr, $PUBLIC, $virtualMethod(CGraphicsDevice, getDisplayMode, $DisplayMode*)},
+		{"getDisplayModes", "()[Ljava/awt/DisplayMode;", nullptr, $PUBLIC, $virtualMethod(CGraphicsDevice, getDisplayModes, $DisplayModeArray*)},
+		{"getIDstring", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CGraphicsDevice, getIDstring, $String*)},
+		{"getScaleFactor", "()I", nullptr, $PUBLIC, $method(CGraphicsDevice, getScaleFactor, int32_t)},
+		{"getScreenInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $method(CGraphicsDevice, getScreenInsets, $Insets*)},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(CGraphicsDevice, getType, int32_t)},
+		{"getXResolution", "()D", nullptr, $PUBLIC, $method(CGraphicsDevice, getXResolution, double)},
+		{"getYResolution", "()D", nullptr, $PUBLIC, $method(CGraphicsDevice, getYResolution, double)},
+		{"initScaleFactor", "()V", nullptr, $PRIVATE, $method(CGraphicsDevice, initScaleFactor, void)},
+		{"invalidate", "(Lsun/awt/CGraphicsDevice;)V", nullptr, $PUBLIC, $method(CGraphicsDevice, invalidate, void, CGraphicsDevice*)},
+		{"isDisplayChangeSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(CGraphicsDevice, isDisplayChangeSupported, bool)},
+		{"isFSExclusiveModeAllowed", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(CGraphicsDevice, isFSExclusiveModeAllowed, bool)},
+		{"isFullScreenSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(CGraphicsDevice, isFullScreenSupported, bool)},
+		{"isSameMode", "(Ljava/awt/DisplayMode;Ljava/awt/DisplayMode;)Z", nullptr, $PRIVATE, $method(CGraphicsDevice, isSameMode, bool, $DisplayMode*, $DisplayMode*)},
+		{"nativeGetBounds", "(I)Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGraphicsDevice, nativeGetBounds, $Rectangle2D*, int32_t)},
+		{"nativeGetDisplayMode", "(I)Ljava/awt/DisplayMode;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGraphicsDevice, nativeGetDisplayMode, $DisplayMode*, int32_t)},
+		{"nativeGetDisplayModes", "(I)[Ljava/awt/DisplayMode;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGraphicsDevice, nativeGetDisplayModes, $DisplayModeArray*, int32_t)},
+		{"nativeGetScaleFactor", "(I)D", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGraphicsDevice, nativeGetScaleFactor, double, int32_t)},
+		{"nativeGetScreenInsets", "(I)Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGraphicsDevice, nativeGetScreenInsets, $Insets*, int32_t)},
+		{"nativeGetXResolution", "(I)D", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGraphicsDevice, nativeGetXResolution, double, int32_t)},
+		{"nativeGetYResolution", "(I)D", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGraphicsDevice, nativeGetYResolution, double, int32_t)},
+		{"nativeResetDisplayMode", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGraphicsDevice, nativeResetDisplayMode, void)},
+		{"nativeSetDisplayMode", "(IIIII)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGraphicsDevice, nativeSetDisplayMode, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"paletteChanged", "()V", nullptr, $PUBLIC, $virtualMethod(CGraphicsDevice, paletteChanged, void)},
+		{"resizeFSWindow", "(Ljava/awt/Window;Ljava/awt/Rectangle;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CGraphicsDevice, resizeFSWindow, void, $Window*, $Rectangle*)},
+		{"setDisplayMode", "(Ljava/awt/DisplayMode;)V", nullptr, $PUBLIC, $virtualMethod(CGraphicsDevice, setDisplayMode, void, $DisplayMode*)},
+		{"setFullScreenWindow", "(Ljava/awt/Window;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CGraphicsDevice, setFullScreenWindow, void, $Window*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"usingMetalPipeline", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(CGraphicsDevice, usingMetalPipeline, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.CGraphicsDevice",
+		"java.awt.GraphicsDevice",
+		"sun.awt.DisplayChangedListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CGraphicsDevice, name, initialize, &classInfo$$, CGraphicsDevice::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CGraphicsDevice));
+	});
 	return class$;
 }
 

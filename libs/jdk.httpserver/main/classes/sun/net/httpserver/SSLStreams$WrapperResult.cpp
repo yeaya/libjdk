@@ -1,5 +1,4 @@
 #include <sun/net/httpserver/SSLStreams$WrapperResult.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <javax/net/ssl/SSLEngineResult.h>
 #include <sun/net/httpserver/SSLStreams.h>
@@ -15,43 +14,6 @@ namespace sun {
 	namespace net {
 		namespace httpserver {
 
-$FieldInfo _SSLStreams$WrapperResult_FieldInfo_[] = {
-	{"this$0", "Lsun/net/httpserver/SSLStreams;", nullptr, $FINAL | $SYNTHETIC, $field(SSLStreams$WrapperResult, this$0)},
-	{"result", "Ljavax/net/ssl/SSLEngineResult;", nullptr, 0, $field(SSLStreams$WrapperResult, result)},
-	{"buf", "Ljava/nio/ByteBuffer;", nullptr, 0, $field(SSLStreams$WrapperResult, buf)},
-	{}
-};
-
-$MethodInfo _SSLStreams$WrapperResult_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/SSLStreams;)V", nullptr, 0, $method(SSLStreams$WrapperResult, init$, void, $SSLStreams*)},
-	{}
-};
-
-$InnerClassInfo _SSLStreams$WrapperResult_InnerClassesInfo_[] = {
-	{"sun.net.httpserver.SSLStreams$WrapperResult", "sun.net.httpserver.SSLStreams", "WrapperResult", 0},
-	{}
-};
-
-$ClassInfo _SSLStreams$WrapperResult_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.httpserver.SSLStreams$WrapperResult",
-	"java.lang.Object",
-	nullptr,
-	_SSLStreams$WrapperResult_FieldInfo_,
-	_SSLStreams$WrapperResult_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLStreams$WrapperResult_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.httpserver.SSLStreams"
-};
-
-$Object* allocate$SSLStreams$WrapperResult($Class* clazz) {
-	return $of($alloc(SSLStreams$WrapperResult));
-}
-
 void SSLStreams$WrapperResult::init$($SSLStreams* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -60,7 +22,38 @@ SSLStreams$WrapperResult::SSLStreams$WrapperResult() {
 }
 
 $Class* SSLStreams$WrapperResult::load$($String* name, bool initialize) {
-	$loadClass(SSLStreams$WrapperResult, name, initialize, &_SSLStreams$WrapperResult_ClassInfo_, allocate$SSLStreams$WrapperResult);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/net/httpserver/SSLStreams;", nullptr, $FINAL | $SYNTHETIC, $field(SSLStreams$WrapperResult, this$0)},
+		{"result", "Ljavax/net/ssl/SSLEngineResult;", nullptr, 0, $field(SSLStreams$WrapperResult, result)},
+		{"buf", "Ljava/nio/ByteBuffer;", nullptr, 0, $field(SSLStreams$WrapperResult, buf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/httpserver/SSLStreams;)V", nullptr, 0, $method(SSLStreams$WrapperResult, init$, void, $SSLStreams*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.httpserver.SSLStreams$WrapperResult", "sun.net.httpserver.SSLStreams", "WrapperResult", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.httpserver.SSLStreams$WrapperResult",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.httpserver.SSLStreams"
+	};
+	$loadClass(SSLStreams$WrapperResult, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLStreams$WrapperResult);
+	});
 	return class$;
 }
 

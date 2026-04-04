@@ -1,5 +1,4 @@
 #include <javax/swing/JScrollPane.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Container.h>
@@ -85,314 +84,6 @@ using $ScrollPaneUI = ::javax::swing::plaf::ScrollPaneUI;
 namespace javax {
 	namespace swing {
 
-$NamedAttribute JScrollPane_Attribute_var$0[] = {
-	{"defaultProperty", 's', "UI"},
-	{"description", 's', "A specialized container that manages a viewport, optional scrollbars and headers"},
-	{}
-};
-
-$NamedAttribute JScrollPane_Attribute_var$1[] = {
-	{"delegate", 's', "getViewport"},
-	{}
-};
-
-$CompoundAttribute _JScrollPane_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", JScrollPane_Attribute_var$0},
-	{"Ljavax/swing/SwingContainer;", JScrollPane_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JScrollPane_Attribute_var$2[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JScrollPane_MethodAnnotations_getAccessibleContext7[] = {
-	{"Ljava/beans/BeanProperty;", JScrollPane_Attribute_var$2},
-	{}
-};
-
-$CompoundAttribute _JScrollPane_MethodAnnotations_getColumnHeader8[] = {
-	{"Ljava/beans/Transient;", nullptr},
-	{}
-};
-
-$CompoundAttribute _JScrollPane_MethodAnnotations_getHorizontalScrollBar10[] = {
-	{"Ljava/beans/Transient;", nullptr},
-	{}
-};
-
-$CompoundAttribute _JScrollPane_MethodAnnotations_getRowHeader12[] = {
-	{"Ljava/beans/Transient;", nullptr},
-	{}
-};
-
-$NamedAttribute JScrollPane_Attribute_var$3[] = {
-	{"hidden", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The UI object that implements the Component\'s LookAndFeel."},
-	{}
-};
-
-$CompoundAttribute _JScrollPane_MethodAnnotations_getUI13[] = {
-	{"Ljava/beans/BeanProperty;", JScrollPane_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute JScrollPane_Attribute_var$4[] = {
-	{"bound", 'Z', "false"},
-	{"hidden", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _JScrollPane_MethodAnnotations_getUIClassID14[] = {
-	{"Ljava/beans/BeanProperty;", JScrollPane_Attribute_var$4},
-	{}
-};
-
-$CompoundAttribute _JScrollPane_MethodAnnotations_getVerticalScrollBar15[] = {
-	{"Ljava/beans/Transient;", nullptr},
-	{}
-};
-
-$NamedAttribute JScrollPane_Attribute_var$5[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JScrollPane_MethodAnnotations_getViewportBorderBounds19[] = {
-	{"Ljava/beans/BeanProperty;", JScrollPane_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute JScrollPane_Attribute_var$6[] = {
-	{"hidden", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _JScrollPane_MethodAnnotations_isValidateRoot20[] = {
-	{"Ljava/beans/BeanProperty;", JScrollPane_Attribute_var$6},
-	{}
-};
-
-$NamedAttribute JScrollPane_Attribute_var$7[] = {
-	{"description", 's', "Flag for enabling/disabling mouse wheel scrolling"},
-	{}
-};
-
-$CompoundAttribute _JScrollPane_MethodAnnotations_isWheelScrollingEnabled21[] = {
-	{"Ljava/beans/BeanProperty;", JScrollPane_Attribute_var$7},
-	{}
-};
-
-$NamedAttribute JScrollPane_Attribute_var$8[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The column header child for this scrollpane"},
-	{}
-};
-
-$CompoundAttribute _JScrollPane_MethodAnnotations_setColumnHeader23[] = {
-	{"Ljava/beans/BeanProperty;", JScrollPane_Attribute_var$8},
-	{}
-};
-
-$NamedAttribute JScrollPane_Attribute_var$9[] = {
-	{"expert", 'Z', "true"},
-	{"description", 's', "The horizontal scrollbar."},
-	{}
-};
-
-$CompoundAttribute _JScrollPane_MethodAnnotations_setHorizontalScrollBar27[] = {
-	{"Ljava/beans/BeanProperty;", JScrollPane_Attribute_var$9},
-	{}
-};
-
-$Attribute JScrollPane_Attribute_var$11[] = {
-	{'s', "ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED"},
-	{'s', "ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER"},
-	{'s', "ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS"},
-	{'-'}
-};
-
-$NamedAttribute JScrollPane_Attribute_var$10[] = {
-	{"preferred", 'Z', "true"},
-	{"enumerationValues", '[', JScrollPane_Attribute_var$11},
-	{"description", 's', "The scrollpane scrollbar policy"},
-	{}
-};
-
-$CompoundAttribute _JScrollPane_MethodAnnotations_setHorizontalScrollBarPolicy28[] = {
-	{"Ljava/beans/BeanProperty;", JScrollPane_Attribute_var$10},
-	{}
-};
-
-$NamedAttribute JScrollPane_Attribute_var$12[] = {
-	{"expert", 'Z', "true"},
-	{"description", 's', "The row header child for this scrollpane"},
-	{}
-};
-
-$CompoundAttribute _JScrollPane_MethodAnnotations_setRowHeader30[] = {
-	{"Ljava/beans/BeanProperty;", JScrollPane_Attribute_var$12},
-	{}
-};
-
-$NamedAttribute JScrollPane_Attribute_var$13[] = {
-	{"expert", 'Z', "true"},
-	{"description", 's', "The vertical scrollbar."},
-	{}
-};
-
-$CompoundAttribute _JScrollPane_MethodAnnotations_setVerticalScrollBar33[] = {
-	{"Ljava/beans/BeanProperty;", JScrollPane_Attribute_var$13},
-	{}
-};
-
-$Attribute JScrollPane_Attribute_var$15[] = {
-	{'s', "ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED"},
-	{'s', "ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER"},
-	{'s', "ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS"},
-	{'-'}
-};
-
-$NamedAttribute JScrollPane_Attribute_var$14[] = {
-	{"preferred", 'Z', "true"},
-	{"enumerationValues", '[', JScrollPane_Attribute_var$15},
-	{"description", 's', "The scrollpane vertical scrollbar policy"},
-	{}
-};
-
-$CompoundAttribute _JScrollPane_MethodAnnotations_setVerticalScrollBarPolicy34[] = {
-	{"Ljava/beans/BeanProperty;", JScrollPane_Attribute_var$14},
-	{}
-};
-
-$NamedAttribute JScrollPane_Attribute_var$16[] = {
-	{"expert", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The viewport child for this scrollpane"},
-	{}
-};
-
-$CompoundAttribute _JScrollPane_MethodAnnotations_setViewport35[] = {
-	{"Ljava/beans/BeanProperty;", JScrollPane_Attribute_var$16},
-	{}
-};
-
-$NamedAttribute JScrollPane_Attribute_var$17[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "The border around the viewport."},
-	{}
-};
-
-$CompoundAttribute _JScrollPane_MethodAnnotations_setViewportBorder36[] = {
-	{"Ljava/beans/BeanProperty;", JScrollPane_Attribute_var$17},
-	{}
-};
-
-$NamedAttribute JScrollPane_Attribute_var$18[] = {
-	{"description", 's', "Flag for enabling/disabling mouse wheel scrolling"},
-	{}
-};
-
-$CompoundAttribute _JScrollPane_MethodAnnotations_setWheelScrollingEnabled38[] = {
-	{"Ljava/beans/BeanProperty;", JScrollPane_Attribute_var$18},
-	{}
-};
-
-$FieldInfo _JScrollPane_FieldInfo_[] = {
-	{"viewportBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE, $field(JScrollPane, viewportBorder)},
-	{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JScrollPane, uiClassID)},
-	{"verticalScrollBarPolicy", "I", nullptr, $PROTECTED, $field(JScrollPane, verticalScrollBarPolicy)},
-	{"horizontalScrollBarPolicy", "I", nullptr, $PROTECTED, $field(JScrollPane, horizontalScrollBarPolicy)},
-	{"viewport", "Ljavax/swing/JViewport;", nullptr, $PROTECTED, $field(JScrollPane, viewport)},
-	{"verticalScrollBar", "Ljavax/swing/JScrollBar;", nullptr, $PROTECTED, $field(JScrollPane, verticalScrollBar)},
-	{"horizontalScrollBar", "Ljavax/swing/JScrollBar;", nullptr, $PROTECTED, $field(JScrollPane, horizontalScrollBar)},
-	{"rowHeader", "Ljavax/swing/JViewport;", nullptr, $PROTECTED, $field(JScrollPane, rowHeader)},
-	{"columnHeader", "Ljavax/swing/JViewport;", nullptr, $PROTECTED, $field(JScrollPane, columnHeader)},
-	{"lowerLeft", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(JScrollPane, lowerLeft)},
-	{"lowerRight", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(JScrollPane, lowerRight)},
-	{"upperLeft", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(JScrollPane, upperLeft)},
-	{"upperRight", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(JScrollPane, upperRight)},
-	{"wheelScrollState", "Z", nullptr, $PRIVATE, $field(JScrollPane, wheelScrollState)},
-	{}
-};
-
-$MethodInfo _JScrollPane_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Component;II)V", nullptr, $PUBLIC, $method(JScrollPane, init$, void, $Component*, int32_t, int32_t)},
-	{"<init>", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $method(JScrollPane, init$, void, $Component*)},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(JScrollPane, init$, void, int32_t, int32_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JScrollPane, init$, void)},
-	{"createHorizontalScrollBar", "()Ljavax/swing/JScrollBar;", nullptr, $PUBLIC, $virtualMethod(JScrollPane, createHorizontalScrollBar, $JScrollBar*)},
-	{"createVerticalScrollBar", "()Ljavax/swing/JScrollBar;", nullptr, $PUBLIC, $virtualMethod(JScrollPane, createVerticalScrollBar, $JScrollBar*)},
-	{"createViewport", "()Ljavax/swing/JViewport;", nullptr, $PROTECTED, $virtualMethod(JScrollPane, createViewport, $JViewport*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JScrollPane, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, _JScrollPane_MethodAnnotations_getAccessibleContext7},
-	{"getColumnHeader", "()Ljavax/swing/JViewport;", nullptr, $PUBLIC, $virtualMethod(JScrollPane, getColumnHeader, $JViewport*), nullptr, nullptr, _JScrollPane_MethodAnnotations_getColumnHeader8},
-	{"getCorner", "(Ljava/lang/String;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JScrollPane, getCorner, $Component*, $String*)},
-	{"getHorizontalScrollBar", "()Ljavax/swing/JScrollBar;", nullptr, $PUBLIC, $virtualMethod(JScrollPane, getHorizontalScrollBar, $JScrollBar*), nullptr, nullptr, _JScrollPane_MethodAnnotations_getHorizontalScrollBar10},
-	{"getHorizontalScrollBarPolicy", "()I", nullptr, $PUBLIC, $virtualMethod(JScrollPane, getHorizontalScrollBarPolicy, int32_t)},
-	{"getRowHeader", "()Ljavax/swing/JViewport;", nullptr, $PUBLIC, $virtualMethod(JScrollPane, getRowHeader, $JViewport*), nullptr, nullptr, _JScrollPane_MethodAnnotations_getRowHeader12},
-	{"getUI", "()Ljavax/swing/plaf/ScrollPaneUI;", nullptr, $PUBLIC, $virtualMethod(JScrollPane, getUI, $ComponentUI*), nullptr, nullptr, _JScrollPane_MethodAnnotations_getUI13},
-	{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JScrollPane, getUIClassID, $String*), nullptr, nullptr, _JScrollPane_MethodAnnotations_getUIClassID14},
-	{"getVerticalScrollBar", "()Ljavax/swing/JScrollBar;", nullptr, $PUBLIC, $virtualMethod(JScrollPane, getVerticalScrollBar, $JScrollBar*), nullptr, nullptr, _JScrollPane_MethodAnnotations_getVerticalScrollBar15},
-	{"getVerticalScrollBarPolicy", "()I", nullptr, $PUBLIC, $virtualMethod(JScrollPane, getVerticalScrollBarPolicy, int32_t)},
-	{"getViewport", "()Ljavax/swing/JViewport;", nullptr, $PUBLIC, $virtualMethod(JScrollPane, getViewport, $JViewport*)},
-	{"getViewportBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC, $virtualMethod(JScrollPane, getViewportBorder, $Border*)},
-	{"getViewportBorderBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(JScrollPane, getViewportBorderBounds, $Rectangle*), nullptr, nullptr, _JScrollPane_MethodAnnotations_getViewportBorderBounds19},
-	{"isValidateRoot", "()Z", nullptr, $PUBLIC, $virtualMethod(JScrollPane, isValidateRoot, bool), nullptr, nullptr, _JScrollPane_MethodAnnotations_isValidateRoot20},
-	{"isWheelScrollingEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JScrollPane, isWheelScrollingEnabled, bool), nullptr, nullptr, _JScrollPane_MethodAnnotations_isWheelScrollingEnabled21},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JScrollPane, paramString, $String*)},
-	{"setColumnHeader", "(Ljavax/swing/JViewport;)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setColumnHeader, void, $JViewport*), nullptr, nullptr, _JScrollPane_MethodAnnotations_setColumnHeader23},
-	{"setColumnHeaderView", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setColumnHeaderView, void, $Component*)},
-	{"setComponentOrientation", "(Ljava/awt/ComponentOrientation;)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setComponentOrientation, void, $ComponentOrientation*)},
-	{"setCorner", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setCorner, void, $String*, $Component*)},
-	{"setHorizontalScrollBar", "(Ljavax/swing/JScrollBar;)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setHorizontalScrollBar, void, $JScrollBar*), nullptr, nullptr, _JScrollPane_MethodAnnotations_setHorizontalScrollBar27},
-	{"setHorizontalScrollBarPolicy", "(I)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setHorizontalScrollBarPolicy, void, int32_t), nullptr, nullptr, _JScrollPane_MethodAnnotations_setHorizontalScrollBarPolicy28},
-	{"setLayout", "(Ljava/awt/LayoutManager;)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setLayout, void, $LayoutManager*)},
-	{"setRowHeader", "(Ljavax/swing/JViewport;)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setRowHeader, void, $JViewport*), nullptr, nullptr, _JScrollPane_MethodAnnotations_setRowHeader30},
-	{"setRowHeaderView", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setRowHeaderView, void, $Component*)},
-	{"setUI", "(Ljavax/swing/plaf/ScrollPaneUI;)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setUI, void, $ScrollPaneUI*)},
-	{"setVerticalScrollBar", "(Ljavax/swing/JScrollBar;)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setVerticalScrollBar, void, $JScrollBar*), nullptr, nullptr, _JScrollPane_MethodAnnotations_setVerticalScrollBar33},
-	{"setVerticalScrollBarPolicy", "(I)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setVerticalScrollBarPolicy, void, int32_t), nullptr, nullptr, _JScrollPane_MethodAnnotations_setVerticalScrollBarPolicy34},
-	{"setViewport", "(Ljavax/swing/JViewport;)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setViewport, void, $JViewport*), nullptr, nullptr, _JScrollPane_MethodAnnotations_setViewport35},
-	{"setViewportBorder", "(Ljavax/swing/border/Border;)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setViewportBorder, void, $Border*), nullptr, nullptr, _JScrollPane_MethodAnnotations_setViewportBorder36},
-	{"setViewportView", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setViewportView, void, $Component*)},
-	{"setWheelScrollingEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setWheelScrollingEnabled, void, bool), nullptr, nullptr, _JScrollPane_MethodAnnotations_setWheelScrollingEnabled38},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, updateUI, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JScrollPane, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JScrollPane_InnerClassesInfo_[] = {
-	{"javax.swing.JScrollPane$AccessibleJScrollPane", "javax.swing.JScrollPane", "AccessibleJScrollPane", $PROTECTED},
-	{"javax.swing.JScrollPane$ScrollBar", "javax.swing.JScrollPane", "ScrollBar", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JScrollPane_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JScrollPane",
-	"javax.swing.JComponent",
-	"javax.swing.ScrollPaneConstants,javax.accessibility.Accessible",
-	_JScrollPane_FieldInfo_,
-	_JScrollPane_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JScrollPane_InnerClassesInfo_,
-	_JScrollPane_Annotations_,
-	nullptr,
-	"javax.swing.JScrollPane$AccessibleJScrollPane,javax.swing.JScrollPane$ScrollBar"
-};
-
-$Object* allocate$JScrollPane($Class* clazz) {
-	return $of($alloc(JScrollPane));
-}
-
 $String* JScrollPane::toString() {
 	 return this->$JComponent::toString();
 }
@@ -416,7 +107,7 @@ void JScrollPane::finalize() {
 $String* JScrollPane::uiClassID = nullptr;
 
 void JScrollPane::init$($Component* view, int32_t vsbPolicy, int32_t hsbPolicy) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JComponent::init$();
 	this->verticalScrollBarPolicy = $ScrollPaneConstants::VERTICAL_SCROLLBAR_AS_NEEDED;
 	this->horizontalScrollBarPolicy = $ScrollPaneConstants::HORIZONTAL_SCROLLBAR_AS_NEEDED;
@@ -432,7 +123,7 @@ void JScrollPane::init$($Component* view, int32_t vsbPolicy, int32_t hsbPolicy) 
 	}
 	setUIProperty("opaque"_s, $($Boolean::valueOf(true)));
 	updateUI();
-	if (!$nc($(this->getComponentOrientation()))->isLeftToRight()) {
+	if (!$$nc(this->getComponentOrientation())->isLeftToRight()) {
 		$nc(this->viewport)->setViewPosition($$new($Point, $Integer::MAX_VALUE, 0));
 	}
 }
@@ -458,7 +149,7 @@ void JScrollPane::setUI($ScrollPaneUI* ui) {
 }
 
 void JScrollPane::updateUI() {
-	setUI($cast($ScrollPaneUI, $($UIManager::getUI(this))));
+	setUI($$cast($ScrollPaneUI, $UIManager::getUI(this)));
 }
 
 $String* JScrollPane::getUIClassID() {
@@ -468,7 +159,7 @@ $String* JScrollPane::getUIClassID() {
 void JScrollPane::setLayout($LayoutManager* layout) {
 	if ($instanceOf($ScrollPaneLayout, layout)) {
 		$JComponent::setLayout(layout);
-		$nc(($cast($ScrollPaneLayout, layout)))->syncWithScrollPane(this);
+		$cast($ScrollPaneLayout, layout)->syncWithScrollPane(this);
 	} else if (layout == nullptr) {
 		$JComponent::setLayout(layout);
 	} else {
@@ -488,17 +179,11 @@ int32_t JScrollPane::getVerticalScrollBarPolicy() {
 void JScrollPane::setVerticalScrollBarPolicy(int32_t policy) {
 	switch (policy) {
 	case $ScrollPaneConstants::VERTICAL_SCROLLBAR_AS_NEEDED:
-		{}
 	case $ScrollPaneConstants::VERTICAL_SCROLLBAR_NEVER:
-		{}
 	case $ScrollPaneConstants::VERTICAL_SCROLLBAR_ALWAYS:
-		{
-			break;
-		}
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, "invalid verticalScrollBarPolicy"_s);
-		}
+		$throwNew($IllegalArgumentException, "invalid verticalScrollBarPolicy"_s);
 	}
 	int32_t old = this->verticalScrollBarPolicy;
 	this->verticalScrollBarPolicy = policy;
@@ -514,17 +199,11 @@ int32_t JScrollPane::getHorizontalScrollBarPolicy() {
 void JScrollPane::setHorizontalScrollBarPolicy(int32_t policy) {
 	switch (policy) {
 	case $ScrollPaneConstants::HORIZONTAL_SCROLLBAR_AS_NEEDED:
-		{}
 	case $ScrollPaneConstants::HORIZONTAL_SCROLLBAR_NEVER:
-		{}
 	case $ScrollPaneConstants::HORIZONTAL_SCROLLBAR_ALWAYS:
-		{
-			break;
-		}
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, "invalid horizontalScrollBarPolicy"_s);
-		}
+		$throwNew($IllegalArgumentException, "invalid horizontalScrollBarPolicy"_s);
 	}
 	int32_t old = this->horizontalScrollBarPolicy;
 	this->horizontalScrollBarPolicy = policy;
@@ -540,11 +219,11 @@ $Border* JScrollPane::getViewportBorder() {
 void JScrollPane::setViewportBorder($Border* viewportBorder) {
 	$var($Border, oldValue, this->viewportBorder);
 	$set(this, viewportBorder, viewportBorder);
-	firePropertyChange("viewportBorder"_s, $of(oldValue), $of(viewportBorder));
+	firePropertyChange("viewportBorder"_s, oldValue, viewportBorder);
 }
 
 $Rectangle* JScrollPane::getViewportBorderBounds() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, borderR, $new($Rectangle, $(getSize())));
 	$var($Insets, insets, getInsets());
 	borderR->x = $nc(insets)->left;
@@ -594,11 +273,11 @@ void JScrollPane::setHorizontalScrollBar($JScrollBar* horizontalScrollBar) {
 	$set(this, horizontalScrollBar, horizontalScrollBar);
 	if (horizontalScrollBar != nullptr) {
 		$init($ScrollPaneConstants);
-		add(static_cast<$Component*>(horizontalScrollBar), $of($ScrollPaneConstants::HORIZONTAL_SCROLLBAR));
+		add(horizontalScrollBar, $ScrollPaneConstants::HORIZONTAL_SCROLLBAR);
 	} else if (old != nullptr) {
-		remove(static_cast<$Component*>(old));
+		remove(old);
 	}
-	firePropertyChange("horizontalScrollBar"_s, $of(old), $of(horizontalScrollBar));
+	firePropertyChange("horizontalScrollBar"_s, old, horizontalScrollBar);
 	revalidate();
 	repaint();
 }
@@ -615,8 +294,8 @@ void JScrollPane::setVerticalScrollBar($JScrollBar* verticalScrollBar) {
 	$var($JScrollBar, old, getVerticalScrollBar());
 	$set(this, verticalScrollBar, verticalScrollBar);
 	$init($ScrollPaneConstants);
-	add(static_cast<$Component*>(verticalScrollBar), $of($ScrollPaneConstants::VERTICAL_SCROLLBAR));
-	firePropertyChange("verticalScrollBar"_s, $of(old), $of(verticalScrollBar));
+	add(verticalScrollBar, $ScrollPaneConstants::VERTICAL_SCROLLBAR);
+	firePropertyChange("verticalScrollBar"_s, old, verticalScrollBar);
 	revalidate();
 	repaint();
 }
@@ -634,24 +313,24 @@ void JScrollPane::setViewport($JViewport* viewport) {
 	$set(this, viewport, viewport);
 	if (viewport != nullptr) {
 		$init($ScrollPaneConstants);
-		add(static_cast<$Component*>(viewport), $of($ScrollPaneConstants::VIEWPORT));
+		add(viewport, $ScrollPaneConstants::VIEWPORT);
 	} else if (old != nullptr) {
-		remove(static_cast<$Component*>(old));
+		remove(old);
 	}
-	firePropertyChange("viewport"_s, $of(old), $of(viewport));
+	firePropertyChange("viewport"_s, old, viewport);
 	if (this->accessibleContext != nullptr) {
-		$nc(($cast($JScrollPane$AccessibleJScrollPane, this->accessibleContext)))->resetViewPort();
+		$cast($JScrollPane$AccessibleJScrollPane, this->accessibleContext)->resetViewPort();
 	}
 	revalidate();
 	repaint();
 }
 
 void JScrollPane::setViewportView($Component* view) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getViewport() == nullptr) {
 		setViewport($(createViewport()));
 	}
-	$nc($(getViewport()))->setView(view);
+	$$nc(getViewport())->setView(view);
 }
 
 $JViewport* JScrollPane::getRowHeader() {
@@ -663,21 +342,21 @@ void JScrollPane::setRowHeader($JViewport* rowHeader) {
 	$set(this, rowHeader, rowHeader);
 	if (rowHeader != nullptr) {
 		$init($ScrollPaneConstants);
-		add(static_cast<$Component*>(rowHeader), $of($ScrollPaneConstants::ROW_HEADER));
+		add(rowHeader, $ScrollPaneConstants::ROW_HEADER);
 	} else if (old != nullptr) {
-		remove(static_cast<$Component*>(old));
+		remove(old);
 	}
-	firePropertyChange("rowHeader"_s, $of(old), $of(rowHeader));
+	firePropertyChange("rowHeader"_s, old, rowHeader);
 	revalidate();
 	repaint();
 }
 
 void JScrollPane::setRowHeaderView($Component* view) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getRowHeader() == nullptr) {
 		setRowHeader($(createViewport()));
 	}
-	$nc($(getRowHeader()))->setView(view);
+	$$nc(getRowHeader())->setView(view);
 }
 
 $JViewport* JScrollPane::getColumnHeader() {
@@ -689,111 +368,87 @@ void JScrollPane::setColumnHeader($JViewport* columnHeader) {
 	$set(this, columnHeader, columnHeader);
 	if (columnHeader != nullptr) {
 		$init($ScrollPaneConstants);
-		add(static_cast<$Component*>(columnHeader), $of($ScrollPaneConstants::COLUMN_HEADER));
+		add(columnHeader, $ScrollPaneConstants::COLUMN_HEADER);
 	} else if (old != nullptr) {
-		remove(static_cast<$Component*>(old));
+		remove(old);
 	}
-	firePropertyChange("columnHeader"_s, $of(old), $of(columnHeader));
+	firePropertyChange("columnHeader"_s, old, columnHeader);
 	revalidate();
 	repaint();
 }
 
 void JScrollPane::setColumnHeaderView($Component* view) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getColumnHeader() == nullptr) {
 		setColumnHeader($(createViewport()));
 	}
-	$nc($(getColumnHeader()))->setView(view);
+	$$nc(getColumnHeader())->setView(view);
 }
 
 $Component* JScrollPane::getCorner($String* key$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, key, key$renamed);
-	bool isLeftToRight = $nc($(getComponentOrientation()))->isLeftToRight();
+	bool isLeftToRight = $$nc(getComponentOrientation())->isLeftToRight();
 	$init($ScrollPaneConstants);
 	if ($nc(key)->equals($ScrollPaneConstants::LOWER_LEADING_CORNER)) {
 		$assign(key, isLeftToRight ? $ScrollPaneConstants::LOWER_LEFT_CORNER : $ScrollPaneConstants::LOWER_RIGHT_CORNER);
-	} else {
-		if (key->equals($ScrollPaneConstants::LOWER_TRAILING_CORNER)) {
-			$assign(key, isLeftToRight ? $ScrollPaneConstants::LOWER_RIGHT_CORNER : $ScrollPaneConstants::LOWER_LEFT_CORNER);
-		} else {
-			if (key->equals($ScrollPaneConstants::UPPER_LEADING_CORNER)) {
-				$assign(key, isLeftToRight ? $ScrollPaneConstants::UPPER_LEFT_CORNER : $ScrollPaneConstants::UPPER_RIGHT_CORNER);
-			} else {
-				if (key->equals($ScrollPaneConstants::UPPER_TRAILING_CORNER)) {
-					$assign(key, isLeftToRight ? $ScrollPaneConstants::UPPER_RIGHT_CORNER : $ScrollPaneConstants::UPPER_LEFT_CORNER);
-				}
-			}
-		}
+	} else if (key->equals($ScrollPaneConstants::LOWER_TRAILING_CORNER)) {
+		$assign(key, isLeftToRight ? $ScrollPaneConstants::LOWER_RIGHT_CORNER : $ScrollPaneConstants::LOWER_LEFT_CORNER);
+	} else if (key->equals($ScrollPaneConstants::UPPER_LEADING_CORNER)) {
+		$assign(key, isLeftToRight ? $ScrollPaneConstants::UPPER_LEFT_CORNER : $ScrollPaneConstants::UPPER_RIGHT_CORNER);
+	} else if (key->equals($ScrollPaneConstants::UPPER_TRAILING_CORNER)) {
+		$assign(key, isLeftToRight ? $ScrollPaneConstants::UPPER_RIGHT_CORNER : $ScrollPaneConstants::UPPER_LEFT_CORNER);
 	}
 	if ($nc(key)->equals($ScrollPaneConstants::LOWER_LEFT_CORNER)) {
 		return this->lowerLeft;
+	} else if (key->equals($ScrollPaneConstants::LOWER_RIGHT_CORNER)) {
+		return this->lowerRight;
+	} else if (key->equals($ScrollPaneConstants::UPPER_LEFT_CORNER)) {
+		return this->upperLeft;
+	} else if (key->equals($ScrollPaneConstants::UPPER_RIGHT_CORNER)) {
+		return this->upperRight;
 	} else {
-		if (key->equals($ScrollPaneConstants::LOWER_RIGHT_CORNER)) {
-			return this->lowerRight;
-		} else {
-			if (key->equals($ScrollPaneConstants::UPPER_LEFT_CORNER)) {
-				return this->upperLeft;
-			} else {
-				if (key->equals($ScrollPaneConstants::UPPER_RIGHT_CORNER)) {
-					return this->upperRight;
-				} else {
-					return nullptr;
-				}
-			}
-		}
+		return nullptr;
 	}
 }
 
 void JScrollPane::setCorner($String* key$renamed, $Component* corner) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, key, key$renamed);
 	$var($Component, old, nullptr);
-	bool isLeftToRight = $nc($(getComponentOrientation()))->isLeftToRight();
+	bool isLeftToRight = $$nc(getComponentOrientation())->isLeftToRight();
 	$init($ScrollPaneConstants);
 	if ($nc(key)->equals($ScrollPaneConstants::LOWER_LEADING_CORNER)) {
 		$assign(key, isLeftToRight ? $ScrollPaneConstants::LOWER_LEFT_CORNER : $ScrollPaneConstants::LOWER_RIGHT_CORNER);
-	} else {
-		if (key->equals($ScrollPaneConstants::LOWER_TRAILING_CORNER)) {
-			$assign(key, isLeftToRight ? $ScrollPaneConstants::LOWER_RIGHT_CORNER : $ScrollPaneConstants::LOWER_LEFT_CORNER);
-		} else {
-			if (key->equals($ScrollPaneConstants::UPPER_LEADING_CORNER)) {
-				$assign(key, isLeftToRight ? $ScrollPaneConstants::UPPER_LEFT_CORNER : $ScrollPaneConstants::UPPER_RIGHT_CORNER);
-			} else {
-				if (key->equals($ScrollPaneConstants::UPPER_TRAILING_CORNER)) {
-					$assign(key, isLeftToRight ? $ScrollPaneConstants::UPPER_RIGHT_CORNER : $ScrollPaneConstants::UPPER_LEFT_CORNER);
-				}
-			}
-		}
+	} else if (key->equals($ScrollPaneConstants::LOWER_TRAILING_CORNER)) {
+		$assign(key, isLeftToRight ? $ScrollPaneConstants::LOWER_RIGHT_CORNER : $ScrollPaneConstants::LOWER_LEFT_CORNER);
+	} else if (key->equals($ScrollPaneConstants::UPPER_LEADING_CORNER)) {
+		$assign(key, isLeftToRight ? $ScrollPaneConstants::UPPER_LEFT_CORNER : $ScrollPaneConstants::UPPER_RIGHT_CORNER);
+	} else if (key->equals($ScrollPaneConstants::UPPER_TRAILING_CORNER)) {
+		$assign(key, isLeftToRight ? $ScrollPaneConstants::UPPER_RIGHT_CORNER : $ScrollPaneConstants::UPPER_LEFT_CORNER);
 	}
 	if ($nc(key)->equals($ScrollPaneConstants::LOWER_LEFT_CORNER)) {
 		$assign(old, this->lowerLeft);
 		$set(this, lowerLeft, corner);
+	} else if (key->equals($ScrollPaneConstants::LOWER_RIGHT_CORNER)) {
+		$assign(old, this->lowerRight);
+		$set(this, lowerRight, corner);
+	} else if (key->equals($ScrollPaneConstants::UPPER_LEFT_CORNER)) {
+		$assign(old, this->upperLeft);
+		$set(this, upperLeft, corner);
+	} else if (key->equals($ScrollPaneConstants::UPPER_RIGHT_CORNER)) {
+		$assign(old, this->upperRight);
+		$set(this, upperRight, corner);
 	} else {
-		if (key->equals($ScrollPaneConstants::LOWER_RIGHT_CORNER)) {
-			$assign(old, this->lowerRight);
-			$set(this, lowerRight, corner);
-		} else {
-			if (key->equals($ScrollPaneConstants::UPPER_LEFT_CORNER)) {
-				$assign(old, this->upperLeft);
-				$set(this, upperLeft, corner);
-			} else {
-				if (key->equals($ScrollPaneConstants::UPPER_RIGHT_CORNER)) {
-					$assign(old, this->upperRight);
-					$set(this, upperRight, corner);
-				} else {
-					$throwNew($IllegalArgumentException, "invalid corner key"_s);
-				}
-			}
-		}
+		$throwNew($IllegalArgumentException, "invalid corner key"_s);
 	}
 	if (old != nullptr) {
 		remove(old);
 	}
 	if (corner != nullptr) {
-		add(corner, $of(key));
+		add(corner, key);
 	}
-	firePropertyChange(key, $of(old), $of(corner));
+	firePropertyChange(key, old, corner);
 	revalidate();
 	repaint();
 }
@@ -801,10 +456,10 @@ void JScrollPane::setCorner($String* key$renamed, $Component* corner) {
 void JScrollPane::setComponentOrientation($ComponentOrientation* co) {
 	$JComponent::setComponentOrientation(co);
 	if (this->verticalScrollBar != nullptr) {
-		$nc(this->verticalScrollBar)->setComponentOrientation(co);
+		this->verticalScrollBar->setComponentOrientation(co);
 	}
 	if (this->horizontalScrollBar != nullptr) {
-		$nc(this->horizontalScrollBar)->setComponentOrientation(co);
+		this->horizontalScrollBar->setComponentOrientation(co);
 	}
 }
 
@@ -820,19 +475,19 @@ void JScrollPane::setWheelScrollingEnabled(bool handleWheel) {
 
 void JScrollPane::writeObject($ObjectOutputStream* s) {
 	$nc(s)->defaultWriteObject();
-	if ($nc($(getUIClassID()))->equals(JScrollPane::uiClassID)) {
+	if ($$nc(getUIClassID())->equals(JScrollPane::uiClassID)) {
 		int8_t count = $JComponent::getWriteObjCounter(this);
 		$JComponent::setWriteObjCounter(this, --count);
 		if (count == 0 && this->ui != nullptr) {
-			$nc(this->ui)->installUI(this);
+			this->ui->installUI(this);
 		}
 	}
 }
 
 $String* JScrollPane::paramString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, viewportBorderString, this->viewportBorder != nullptr ? $nc($of(this->viewportBorder))->toString() : ""_s);
-	$var($String, viewportString, this->viewport != nullptr ? $nc(this->viewport)->toString() : ""_s);
+	$useLocalObjectStack();
+	$var($String, viewportBorderString, this->viewportBorder != nullptr ? this->viewportBorder->toString() : ""_s);
+	$var($String, viewportString, this->viewport != nullptr ? this->viewport->toString() : ""_s);
 	$var($String, verticalScrollBarPolicyString, nullptr);
 	if (this->verticalScrollBarPolicy == $ScrollPaneConstants::VERTICAL_SCROLLBAR_AS_NEEDED) {
 		$assign(verticalScrollBarPolicyString, "VERTICAL_SCROLLBAR_AS_NEEDED"_s);
@@ -853,14 +508,14 @@ $String* JScrollPane::paramString() {
 	} else {
 		$assign(horizontalScrollBarPolicyString, ""_s);
 	}
-	$var($String, horizontalScrollBarString, this->horizontalScrollBar != nullptr ? $nc(this->horizontalScrollBar)->toString() : ""_s);
-	$var($String, verticalScrollBarString, this->verticalScrollBar != nullptr ? $nc(this->verticalScrollBar)->toString() : ""_s);
-	$var($String, columnHeaderString, this->columnHeader != nullptr ? $nc(this->columnHeader)->toString() : ""_s);
-	$var($String, rowHeaderString, this->rowHeader != nullptr ? $nc(this->rowHeader)->toString() : ""_s);
-	$var($String, lowerLeftString, this->lowerLeft != nullptr ? $nc(this->lowerLeft)->toString() : ""_s);
-	$var($String, lowerRightString, this->lowerRight != nullptr ? $nc(this->lowerRight)->toString() : ""_s);
-	$var($String, upperLeftString, this->upperLeft != nullptr ? $nc(this->upperLeft)->toString() : ""_s);
-	$var($String, upperRightString, this->upperRight != nullptr ? $nc(this->upperRight)->toString() : ""_s);
+	$var($String, horizontalScrollBarString, this->horizontalScrollBar != nullptr ? this->horizontalScrollBar->toString() : ""_s);
+	$var($String, verticalScrollBarString, this->verticalScrollBar != nullptr ? this->verticalScrollBar->toString() : ""_s);
+	$var($String, columnHeaderString, this->columnHeader != nullptr ? this->columnHeader->toString() : ""_s);
+	$var($String, rowHeaderString, this->rowHeader != nullptr ? this->rowHeader->toString() : ""_s);
+	$var($String, lowerLeftString, this->lowerLeft != nullptr ? this->lowerLeft->toString() : ""_s);
+	$var($String, lowerRightString, this->lowerRight != nullptr ? this->lowerRight->toString() : ""_s);
+	$var($String, upperLeftString, this->upperLeft != nullptr ? this->upperLeft->toString() : ""_s);
+	$var($String, upperRightString, this->upperRight != nullptr ? this->upperRight->toString() : ""_s);
 	return $str({$($JComponent::paramString()), ",columnHeader="_s, columnHeaderString, ",horizontalScrollBar="_s, horizontalScrollBarString, ",horizontalScrollBarPolicy="_s, horizontalScrollBarPolicyString, ",lowerLeft="_s, lowerLeftString, ",lowerRight="_s, lowerRightString, ",rowHeader="_s, rowHeaderString, ",upperLeft="_s, upperLeftString, ",upperRight="_s, 
 	upperRightString, ",verticalScrollBar="_s, verticalScrollBarString, ",verticalScrollBarPolicy="_s, verticalScrollBarPolicyString, ",viewport="_s, viewportString, ",viewportBorder="_s, viewportBorderString});
 }
@@ -875,12 +530,275 @@ $AccessibleContext* JScrollPane::getAccessibleContext() {
 JScrollPane::JScrollPane() {
 }
 
-void clinit$JScrollPane($Class* class$) {
+void JScrollPane::clinit$($Class* clazz) {
 	$assignStatic(JScrollPane::uiClassID, "ScrollPaneUI"_s);
 }
 
 $Class* JScrollPane::load$($String* name, bool initialize) {
-	$loadClass(JScrollPane, name, initialize, &_JScrollPane_ClassInfo_, clinit$JScrollPane, allocate$JScrollPane);
+	$FieldInfo fieldInfos$$[] = {
+		{"viewportBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE, $field(JScrollPane, viewportBorder)},
+		{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JScrollPane, uiClassID)},
+		{"verticalScrollBarPolicy", "I", nullptr, $PROTECTED, $field(JScrollPane, verticalScrollBarPolicy)},
+		{"horizontalScrollBarPolicy", "I", nullptr, $PROTECTED, $field(JScrollPane, horizontalScrollBarPolicy)},
+		{"viewport", "Ljavax/swing/JViewport;", nullptr, $PROTECTED, $field(JScrollPane, viewport)},
+		{"verticalScrollBar", "Ljavax/swing/JScrollBar;", nullptr, $PROTECTED, $field(JScrollPane, verticalScrollBar)},
+		{"horizontalScrollBar", "Ljavax/swing/JScrollBar;", nullptr, $PROTECTED, $field(JScrollPane, horizontalScrollBar)},
+		{"rowHeader", "Ljavax/swing/JViewport;", nullptr, $PROTECTED, $field(JScrollPane, rowHeader)},
+		{"columnHeader", "Ljavax/swing/JViewport;", nullptr, $PROTECTED, $field(JScrollPane, columnHeader)},
+		{"lowerLeft", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(JScrollPane, lowerLeft)},
+		{"lowerRight", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(JScrollPane, lowerRight)},
+		{"upperLeft", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(JScrollPane, upperLeft)},
+		{"upperRight", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(JScrollPane, upperRight)},
+		{"wheelScrollState", "Z", nullptr, $PRIVATE, $field(JScrollPane, wheelScrollState)},
+		{}
+	};
+	$NamedAttribute getAccessibleContextmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getAccessibleContextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getAccessibleContextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$CompoundAttribute getColumnHeadermethodAnnotations$$[] = {
+		{"Ljava/beans/Transient;", nullptr},
+		{}
+	};
+	$CompoundAttribute getHorizontalScrollBarmethodAnnotations$$[] = {
+		{"Ljava/beans/Transient;", nullptr},
+		{}
+	};
+	$CompoundAttribute getRowHeadermethodAnnotations$$[] = {
+		{"Ljava/beans/Transient;", nullptr},
+		{}
+	};
+	$NamedAttribute getUImethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The UI object that implements the Component\'s LookAndFeel."},
+		{}
+	};
+	$CompoundAttribute getUImethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getUImethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getUIClassIDmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"hidden", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute getUIClassIDmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getUIClassIDmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$CompoundAttribute getVerticalScrollBarmethodAnnotations$$[] = {
+		{"Ljava/beans/Transient;", nullptr},
+		{}
+	};
+	$NamedAttribute getViewportBorderBoundsmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getViewportBorderBoundsmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getViewportBorderBoundsmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute isValidateRootmethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute isValidateRootmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", isValidateRootmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute isWheelScrollingEnabledmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "Flag for enabling/disabling mouse wheel scrolling"},
+		{}
+	};
+	$CompoundAttribute isWheelScrollingEnabledmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", isWheelScrollingEnabledmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setColumnHeadermethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The column header child for this scrollpane"},
+		{}
+	};
+	$CompoundAttribute setColumnHeadermethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setColumnHeadermethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setHorizontalScrollBarmethodAnnotations$$$namedAttribute[] = {
+		{"expert", 'Z', "true"},
+		{"description", 's', "The horizontal scrollbar."},
+		{}
+	};
+	$CompoundAttribute setHorizontalScrollBarmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setHorizontalScrollBarmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED"},
+		{'s', "ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER"},
+		{'s', "ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS"},
+		{'-'}
+	};
+	$NamedAttribute setHorizontalScrollBarPolicymethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"enumerationValues", '[', $attribute},
+		{"description", 's', "The scrollpane scrollbar policy"},
+		{}
+	};
+	$CompoundAttribute setHorizontalScrollBarPolicymethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setHorizontalScrollBarPolicymethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setRowHeadermethodAnnotations$$$namedAttribute[] = {
+		{"expert", 'Z', "true"},
+		{"description", 's', "The row header child for this scrollpane"},
+		{}
+	};
+	$CompoundAttribute setRowHeadermethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setRowHeadermethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setVerticalScrollBarmethodAnnotations$$$namedAttribute[] = {
+		{"expert", 'Z', "true"},
+		{"description", 's', "The vertical scrollbar."},
+		{}
+	};
+	$CompoundAttribute setVerticalScrollBarmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setVerticalScrollBarmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$1[] = {
+		{'s', "ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED"},
+		{'s', "ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER"},
+		{'s', "ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS"},
+		{'-'}
+	};
+	$NamedAttribute setVerticalScrollBarPolicymethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"enumerationValues", '[', $attribute$1},
+		{"description", 's', "The scrollpane vertical scrollbar policy"},
+		{}
+	};
+	$CompoundAttribute setVerticalScrollBarPolicymethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setVerticalScrollBarPolicymethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setViewportmethodAnnotations$$$namedAttribute[] = {
+		{"expert", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The viewport child for this scrollpane"},
+		{}
+	};
+	$CompoundAttribute setViewportmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setViewportmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setViewportBordermethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "The border around the viewport."},
+		{}
+	};
+	$CompoundAttribute setViewportBordermethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setViewportBordermethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setWheelScrollingEnabledmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "Flag for enabling/disabling mouse wheel scrolling"},
+		{}
+	};
+	$CompoundAttribute setWheelScrollingEnabledmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setWheelScrollingEnabledmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Component;II)V", nullptr, $PUBLIC, $method(JScrollPane, init$, void, $Component*, int32_t, int32_t)},
+		{"<init>", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $method(JScrollPane, init$, void, $Component*)},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(JScrollPane, init$, void, int32_t, int32_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JScrollPane, init$, void)},
+		{"createHorizontalScrollBar", "()Ljavax/swing/JScrollBar;", nullptr, $PUBLIC, $virtualMethod(JScrollPane, createHorizontalScrollBar, $JScrollBar*)},
+		{"createVerticalScrollBar", "()Ljavax/swing/JScrollBar;", nullptr, $PUBLIC, $virtualMethod(JScrollPane, createVerticalScrollBar, $JScrollBar*)},
+		{"createViewport", "()Ljavax/swing/JViewport;", nullptr, $PROTECTED, $virtualMethod(JScrollPane, createViewport, $JViewport*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JScrollPane, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, getAccessibleContextmethodAnnotations$$},
+		{"getColumnHeader", "()Ljavax/swing/JViewport;", nullptr, $PUBLIC, $virtualMethod(JScrollPane, getColumnHeader, $JViewport*), nullptr, nullptr, getColumnHeadermethodAnnotations$$},
+		{"getCorner", "(Ljava/lang/String;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JScrollPane, getCorner, $Component*, $String*)},
+		{"getHorizontalScrollBar", "()Ljavax/swing/JScrollBar;", nullptr, $PUBLIC, $virtualMethod(JScrollPane, getHorizontalScrollBar, $JScrollBar*), nullptr, nullptr, getHorizontalScrollBarmethodAnnotations$$},
+		{"getHorizontalScrollBarPolicy", "()I", nullptr, $PUBLIC, $virtualMethod(JScrollPane, getHorizontalScrollBarPolicy, int32_t)},
+		{"getRowHeader", "()Ljavax/swing/JViewport;", nullptr, $PUBLIC, $virtualMethod(JScrollPane, getRowHeader, $JViewport*), nullptr, nullptr, getRowHeadermethodAnnotations$$},
+		{"getUI", "()Ljavax/swing/plaf/ScrollPaneUI;", nullptr, $PUBLIC, $virtualMethod(JScrollPane, getUI, $ComponentUI*), nullptr, nullptr, getUImethodAnnotations$$},
+		{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JScrollPane, getUIClassID, $String*), nullptr, nullptr, getUIClassIDmethodAnnotations$$},
+		{"getVerticalScrollBar", "()Ljavax/swing/JScrollBar;", nullptr, $PUBLIC, $virtualMethod(JScrollPane, getVerticalScrollBar, $JScrollBar*), nullptr, nullptr, getVerticalScrollBarmethodAnnotations$$},
+		{"getVerticalScrollBarPolicy", "()I", nullptr, $PUBLIC, $virtualMethod(JScrollPane, getVerticalScrollBarPolicy, int32_t)},
+		{"getViewport", "()Ljavax/swing/JViewport;", nullptr, $PUBLIC, $virtualMethod(JScrollPane, getViewport, $JViewport*)},
+		{"getViewportBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC, $virtualMethod(JScrollPane, getViewportBorder, $Border*)},
+		{"getViewportBorderBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(JScrollPane, getViewportBorderBounds, $Rectangle*), nullptr, nullptr, getViewportBorderBoundsmethodAnnotations$$},
+		{"isValidateRoot", "()Z", nullptr, $PUBLIC, $virtualMethod(JScrollPane, isValidateRoot, bool), nullptr, nullptr, isValidateRootmethodAnnotations$$},
+		{"isWheelScrollingEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JScrollPane, isWheelScrollingEnabled, bool), nullptr, nullptr, isWheelScrollingEnabledmethodAnnotations$$},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JScrollPane, paramString, $String*)},
+		{"setColumnHeader", "(Ljavax/swing/JViewport;)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setColumnHeader, void, $JViewport*), nullptr, nullptr, setColumnHeadermethodAnnotations$$},
+		{"setColumnHeaderView", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setColumnHeaderView, void, $Component*)},
+		{"setComponentOrientation", "(Ljava/awt/ComponentOrientation;)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setComponentOrientation, void, $ComponentOrientation*)},
+		{"setCorner", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setCorner, void, $String*, $Component*)},
+		{"setHorizontalScrollBar", "(Ljavax/swing/JScrollBar;)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setHorizontalScrollBar, void, $JScrollBar*), nullptr, nullptr, setHorizontalScrollBarmethodAnnotations$$},
+		{"setHorizontalScrollBarPolicy", "(I)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setHorizontalScrollBarPolicy, void, int32_t), nullptr, nullptr, setHorizontalScrollBarPolicymethodAnnotations$$},
+		{"setLayout", "(Ljava/awt/LayoutManager;)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setLayout, void, $LayoutManager*)},
+		{"setRowHeader", "(Ljavax/swing/JViewport;)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setRowHeader, void, $JViewport*), nullptr, nullptr, setRowHeadermethodAnnotations$$},
+		{"setRowHeaderView", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setRowHeaderView, void, $Component*)},
+		{"setUI", "(Ljavax/swing/plaf/ScrollPaneUI;)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setUI, void, $ScrollPaneUI*)},
+		{"setVerticalScrollBar", "(Ljavax/swing/JScrollBar;)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setVerticalScrollBar, void, $JScrollBar*), nullptr, nullptr, setVerticalScrollBarmethodAnnotations$$},
+		{"setVerticalScrollBarPolicy", "(I)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setVerticalScrollBarPolicy, void, int32_t), nullptr, nullptr, setVerticalScrollBarPolicymethodAnnotations$$},
+		{"setViewport", "(Ljavax/swing/JViewport;)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setViewport, void, $JViewport*), nullptr, nullptr, setViewportmethodAnnotations$$},
+		{"setViewportBorder", "(Ljavax/swing/border/Border;)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setViewportBorder, void, $Border*), nullptr, nullptr, setViewportBordermethodAnnotations$$},
+		{"setViewportView", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setViewportView, void, $Component*)},
+		{"setWheelScrollingEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, setWheelScrollingEnabled, void, bool), nullptr, nullptr, setWheelScrollingEnabledmethodAnnotations$$},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JScrollPane, updateUI, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JScrollPane, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JScrollPane$AccessibleJScrollPane", "javax.swing.JScrollPane", "AccessibleJScrollPane", $PROTECTED},
+		{"javax.swing.JScrollPane$ScrollBar", "javax.swing.JScrollPane", "ScrollBar", $PROTECTED},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"defaultProperty", 's', "UI"},
+		{"description", 's', "A specialized container that manages a viewport, optional scrollbars and headers"},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"delegate", 's', "getViewport"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{"Ljavax/swing/SwingContainer;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JScrollPane",
+		"javax.swing.JComponent",
+		"javax.swing.ScrollPaneConstants,javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.JScrollPane$AccessibleJScrollPane,javax.swing.JScrollPane$ScrollBar"
+	};
+	$loadClass(JScrollPane, name, initialize, &classInfo$$, JScrollPane::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JScrollPane));
+	});
 	return class$;
 }
 

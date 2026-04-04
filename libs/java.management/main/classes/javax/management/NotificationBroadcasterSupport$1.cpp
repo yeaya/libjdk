@@ -1,5 +1,4 @@
 #include <javax/management/NotificationBroadcasterSupport$1.h>
-
 #include <java/lang/Runnable.h>
 #include <jcpp.h>
 
@@ -12,43 +11,6 @@ using $Runnable = ::java::lang::Runnable;
 namespace javax {
 	namespace management {
 
-$MethodInfo _NotificationBroadcasterSupport$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(NotificationBroadcasterSupport$1, init$, void)},
-	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(NotificationBroadcasterSupport$1, execute, void, $Runnable*)},
-	{}
-};
-
-$EnclosingMethodInfo _NotificationBroadcasterSupport$1_EnclosingMethodInfo_ = {
-	"javax.management.NotificationBroadcasterSupport",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _NotificationBroadcasterSupport$1_InnerClassesInfo_[] = {
-	{"javax.management.NotificationBroadcasterSupport$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NotificationBroadcasterSupport$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.NotificationBroadcasterSupport$1",
-	"java.lang.Object",
-	"java.util.concurrent.Executor",
-	nullptr,
-	_NotificationBroadcasterSupport$1_MethodInfo_,
-	nullptr,
-	&_NotificationBroadcasterSupport$1_EnclosingMethodInfo_,
-	_NotificationBroadcasterSupport$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.management.NotificationBroadcasterSupport"
-};
-
-$Object* allocate$NotificationBroadcasterSupport$1($Class* clazz) {
-	return $of($alloc(NotificationBroadcasterSupport$1));
-}
-
 void NotificationBroadcasterSupport$1::init$() {
 }
 
@@ -60,7 +22,38 @@ NotificationBroadcasterSupport$1::NotificationBroadcasterSupport$1() {
 }
 
 $Class* NotificationBroadcasterSupport$1::load$($String* name, bool initialize) {
-	$loadClass(NotificationBroadcasterSupport$1, name, initialize, &_NotificationBroadcasterSupport$1_ClassInfo_, allocate$NotificationBroadcasterSupport$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(NotificationBroadcasterSupport$1, init$, void)},
+		{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(NotificationBroadcasterSupport$1, execute, void, $Runnable*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.management.NotificationBroadcasterSupport",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.NotificationBroadcasterSupport$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.NotificationBroadcasterSupport$1",
+		"java.lang.Object",
+		"java.util.concurrent.Executor",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.management.NotificationBroadcasterSupport"
+	};
+	$loadClass(NotificationBroadcasterSupport$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NotificationBroadcasterSupport$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/management/MXBean.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -11,56 +10,48 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 namespace javax {
 	namespace management {
 
-$NamedAttribute MXBean_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$Attribute MXBean_Attribute_var$2[] = {
-	{'e', "Ljava/lang/annotation/ElementType; TYPE"},
-	{'-'}
-};
-
-$NamedAttribute MXBean_Attribute_var$1[] = {
-	{"value", '[', MXBean_Attribute_var$2},
-	{}
-};
-
-$CompoundAttribute _MXBean_Annotations_[] = {
-	{"Ljava/lang/annotation/Documented;", nullptr},
-	{"Ljava/lang/annotation/Retention;", MXBean_Attribute_var$0},
-	{"Ljava/lang/annotation/Target;", MXBean_Attribute_var$1},
-	{}
-};
-
-$Attribute _MXBean_DefaultValue_value0 = {
-	'Z', "true"
-};
-
-$MethodInfo _MXBean_MethodInfo_[] = {
-	{"value", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MXBean, value, bool), nullptr, &_MXBean_DefaultValue_value0},
-	{}
-};
-
-$ClassInfo _MXBean_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"javax.management.MXBean",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_MXBean_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_MXBean_Annotations_
-};
-
-$Object* allocate$MXBean($Class* clazz) {
-	return $of($alloc(MXBean));
-}
-
 $Class* MXBean::load$($String* name, bool initialize) {
-	$loadClass(MXBean, name, initialize, &_MXBean_ClassInfo_, allocate$MXBean);
+
+	$Attribute valuedefaultValue$$ = {
+		'Z', "true"
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MXBean, value, bool), nullptr, &valuedefaultValue$$},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; TYPE"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Documented;", nullptr},
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"javax.management.MXBean",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(MXBean, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MXBean);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <TestJSpinnerPressUnpress.h>
-
 #include <TestJSpinnerPressUnpress$1.h>
 #include <java/awt/Component.h>
 #include <java/awt/GridBagConstraints.h>
@@ -11,7 +10,6 @@
 #include <java/awt/event/ActionListener.h>
 #include <java/awt/event/WindowListener.h>
 #include <java/io/Serializable.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -38,18 +36,13 @@
 
 using $TestJSpinnerPressUnpress$1 = ::TestJSpinnerPressUnpress$1;
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
-using $Component = ::java::awt::Component;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Window = ::java::awt::Window;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $WindowListener = ::java::awt::event::WindowListener;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -77,27 +70,24 @@ public:
 	virtual void run() override {
 		TestJSpinnerPressUnpress::createUI();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestJSpinnerPressUnpress$$Lambda$createUI>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestJSpinnerPressUnpress$$Lambda$createUI::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestJSpinnerPressUnpress$$Lambda$createUI, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestJSpinnerPressUnpress$$Lambda$createUI, run, void)},
-	{}
-};
-$ClassInfo TestJSpinnerPressUnpress$$Lambda$createUI::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestJSpinnerPressUnpress$$Lambda$createUI",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestJSpinnerPressUnpress$$Lambda$createUI::load$($String* name, bool initialize) {
-	$loadClass(TestJSpinnerPressUnpress$$Lambda$createUI, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestJSpinnerPressUnpress$$Lambda$createUI, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestJSpinnerPressUnpress$$Lambda$createUI, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestJSpinnerPressUnpress$$Lambda$createUI",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestJSpinnerPressUnpress$$Lambda$createUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestJSpinnerPressUnpress$$Lambda$createUI);
+	});
 	return class$;
 }
 $Class* TestJSpinnerPressUnpress$$Lambda$createUI::class$ = nullptr;
@@ -111,33 +101,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->dispose();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestJSpinnerPressUnpress$$Lambda$dispose$1>());
-	}
 	$Window* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestJSpinnerPressUnpress$$Lambda$dispose$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestJSpinnerPressUnpress$$Lambda$dispose$1, inst$)},
-	{}
-};
-$MethodInfo TestJSpinnerPressUnpress$$Lambda$dispose$1::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(TestJSpinnerPressUnpress$$Lambda$dispose$1, init$, void, $Window*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestJSpinnerPressUnpress$$Lambda$dispose$1, run, void)},
-	{}
-};
-$ClassInfo TestJSpinnerPressUnpress$$Lambda$dispose$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestJSpinnerPressUnpress$$Lambda$dispose$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestJSpinnerPressUnpress$$Lambda$dispose$1::load$($String* name, bool initialize) {
-	$loadClass(TestJSpinnerPressUnpress$$Lambda$dispose$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestJSpinnerPressUnpress$$Lambda$dispose$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(TestJSpinnerPressUnpress$$Lambda$dispose$1, init$, void, $Window*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestJSpinnerPressUnpress$$Lambda$dispose$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestJSpinnerPressUnpress$$Lambda$dispose$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestJSpinnerPressUnpress$$Lambda$dispose$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestJSpinnerPressUnpress$$Lambda$dispose$1);
+	});
 	return class$;
 }
 $Class* TestJSpinnerPressUnpress$$Lambda$dispose$1::class$ = nullptr;
@@ -150,27 +136,24 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		TestJSpinnerPressUnpress::lambda$createUI$0(e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestJSpinnerPressUnpress$$Lambda$lambda$createUI$0$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestJSpinnerPressUnpress$$Lambda$lambda$createUI$0$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestJSpinnerPressUnpress$$Lambda$lambda$createUI$0$2, init$, void)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestJSpinnerPressUnpress$$Lambda$lambda$createUI$0$2, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo TestJSpinnerPressUnpress$$Lambda$lambda$createUI$0$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestJSpinnerPressUnpress$$Lambda$lambda$createUI$0$2",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	nullptr,
-	methodInfos
 };
 $Class* TestJSpinnerPressUnpress$$Lambda$lambda$createUI$0$2::load$($String* name, bool initialize) {
-	$loadClass(TestJSpinnerPressUnpress$$Lambda$lambda$createUI$0$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestJSpinnerPressUnpress$$Lambda$lambda$createUI$0$2, init$, void)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestJSpinnerPressUnpress$$Lambda$lambda$createUI$0$2, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestJSpinnerPressUnpress$$Lambda$lambda$createUI$0$2",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestJSpinnerPressUnpress$$Lambda$lambda$createUI$0$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestJSpinnerPressUnpress$$Lambda$lambda$createUI$0$2);
+	});
 	return class$;
 }
 $Class* TestJSpinnerPressUnpress$$Lambda$lambda$createUI$0$2::class$ = nullptr;
@@ -183,72 +166,27 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		TestJSpinnerPressUnpress::lambda$createUI$1(e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestJSpinnerPressUnpress$$Lambda$lambda$createUI$1$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestJSpinnerPressUnpress$$Lambda$lambda$createUI$1$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestJSpinnerPressUnpress$$Lambda$lambda$createUI$1$3, init$, void)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestJSpinnerPressUnpress$$Lambda$lambda$createUI$1$3, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo TestJSpinnerPressUnpress$$Lambda$lambda$createUI$1$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestJSpinnerPressUnpress$$Lambda$lambda$createUI$1$3",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	nullptr,
-	methodInfos
 };
 $Class* TestJSpinnerPressUnpress$$Lambda$lambda$createUI$1$3::load$($String* name, bool initialize) {
-	$loadClass(TestJSpinnerPressUnpress$$Lambda$lambda$createUI$1$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestJSpinnerPressUnpress$$Lambda$lambda$createUI$1$3, init$, void)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestJSpinnerPressUnpress$$Lambda$lambda$createUI$1$3, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestJSpinnerPressUnpress$$Lambda$lambda$createUI$1$3",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestJSpinnerPressUnpress$$Lambda$lambda$createUI$1$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestJSpinnerPressUnpress$$Lambda$lambda$createUI$1$3);
+	});
 	return class$;
 }
 $Class* TestJSpinnerPressUnpress$$Lambda$lambda$createUI$1$3::class$ = nullptr;
-
-$FieldInfo _TestJSpinnerPressUnpress_FieldInfo_[] = {
-	{"mainFrame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(TestJSpinnerPressUnpress, mainFrame)},
-	{"testResult", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(TestJSpinnerPressUnpress, testResult)},
-	{"countDownLatch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(TestJSpinnerPressUnpress, countDownLatch)},
-	{"GTK_LAF_CLASS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestJSpinnerPressUnpress, GTK_LAF_CLASS)},
-	{"INSTRUCTIONS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestJSpinnerPressUnpress, INSTRUCTIONS)},
-	{}
-};
-
-$MethodInfo _TestJSpinnerPressUnpress_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestJSpinnerPressUnpress, init$, void)},
-	{"createUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestJSpinnerPressUnpress, createUI, void)},
-	{"lambda$createUI$0", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestJSpinnerPressUnpress, lambda$createUI$0, void, $ActionEvent*)},
-	{"lambda$createUI$1", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestJSpinnerPressUnpress, lambda$createUI$1, void, $ActionEvent*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestJSpinnerPressUnpress, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _TestJSpinnerPressUnpress_InnerClassesInfo_[] = {
-	{"TestJSpinnerPressUnpress$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TestJSpinnerPressUnpress_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestJSpinnerPressUnpress",
-	"java.lang.Object",
-	nullptr,
-	_TestJSpinnerPressUnpress_FieldInfo_,
-	_TestJSpinnerPressUnpress_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestJSpinnerPressUnpress_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TestJSpinnerPressUnpress$1"
-};
-
-$Object* allocate$TestJSpinnerPressUnpress($Class* clazz) {
-	return $of($alloc(TestJSpinnerPressUnpress));
-}
 
 $JFrame* TestJSpinnerPressUnpress::mainFrame = nullptr;
 $volatile(bool) TestJSpinnerPressUnpress::testResult = false;
@@ -261,34 +199,30 @@ void TestJSpinnerPressUnpress::init$() {
 
 void TestJSpinnerPressUnpress::main($StringArray* args) {
 	$init(TestJSpinnerPressUnpress);
-	$useLocalCurrentObjectStackCache();
-	if (!$nc($($System::getProperty("os.name"_s)))->startsWith("Linux"_s)) {
+	$useLocalObjectStack();
+	if (!$$nc($System::getProperty("os.name"_s))->startsWith("Linux"_s)) {
 		$nc($System::out)->println("This test is meant for Linux platform only"_s);
 		return;
 	}
 	$assignStatic(TestJSpinnerPressUnpress::countDownLatch, $new($CountDownLatch, 1));
 	{
 		$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($UIManager$LookAndFeelInfo, lookAndFeelInfo, arr$->get(i$));
-			{
-				if ($nc($($nc(lookAndFeelInfo)->getClassName()))->contains(TestJSpinnerPressUnpress::GTK_LAF_CLASS)) {
-					try {
-						$UIManager::setLookAndFeel($(lookAndFeelInfo->getClassName()));
-					} catch ($UnsupportedLookAndFeelException& ignored) {
-						$nc($System::out)->println("GTK L&F could not be set, so this test can not be run in this scenario "_s);
-						return;
-					}
+			if ($$nc($nc(lookAndFeelInfo)->getClassName())->contains(TestJSpinnerPressUnpress::GTK_LAF_CLASS)) {
+				try {
+					$UIManager::setLookAndFeel($(lookAndFeelInfo->getClassName()));
+				} catch ($UnsupportedLookAndFeelException& ignored) {
+					$nc($System::out)->println("GTK L&F could not be set, so this test can not be run in this scenario "_s);
+					return;
 				}
 			}
 		}
 	}
-	$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(TestJSpinnerPressUnpress$$Lambda$createUI)));
+	$SwingUtilities::invokeLater($$new(TestJSpinnerPressUnpress$$Lambda$createUI));
 	$init($TimeUnit);
 	$nc(TestJSpinnerPressUnpress::countDownLatch)->await(15, $TimeUnit::MINUTES);
-	$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(TestJSpinnerPressUnpress$$Lambda$dispose$1, static_cast<$JFrame*>($nc(TestJSpinnerPressUnpress::mainFrame)))));
+	$SwingUtilities::invokeLater($$new(TestJSpinnerPressUnpress$$Lambda$dispose$1, $nc(TestJSpinnerPressUnpress::mainFrame)));
 	if (!TestJSpinnerPressUnpress::testResult) {
 		$throwNew($RuntimeException, "Test failed!"_s);
 	}
@@ -296,39 +230,39 @@ void TestJSpinnerPressUnpress::main($StringArray* args) {
 
 void TestJSpinnerPressUnpress::createUI() {
 	$init(TestJSpinnerPressUnpress);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GridBagLayout, layout, $new($GridBagLayout));
-	$var($JPanel, mainControlPanel, $new($JPanel, static_cast<$LayoutManager*>(layout)));
-	$var($JPanel, resultButtonPanel, $new($JPanel, static_cast<$LayoutManager*>(layout)));
+	$var($JPanel, mainControlPanel, $new($JPanel, layout));
+	$var($JPanel, resultButtonPanel, $new($JPanel, layout));
 	$var($GridBagConstraints, gbc, $new($GridBagConstraints));
 	gbc->gridx = 0;
 	gbc->gridy = 0;
 	$set(gbc, insets, $new($Insets, 5, 15, 5, 15));
 	gbc->fill = $GridBagConstraints::HORIZONTAL;
-	mainControlPanel->add(static_cast<$Component*>($$new($JSpinner)), $of(gbc));
+	mainControlPanel->add($$new($JSpinner), gbc);
 	$var($JTextArea, instructionTextArea, $new($JTextArea));
 	instructionTextArea->setText(TestJSpinnerPressUnpress::INSTRUCTIONS);
 	instructionTextArea->setEditable(false);
 	gbc->gridx = 0;
 	gbc->gridy = 1;
 	gbc->fill = $GridBagConstraints::HORIZONTAL;
-	mainControlPanel->add(static_cast<$Component*>(instructionTextArea), $of(gbc));
+	mainControlPanel->add(instructionTextArea, gbc);
 	$var($JButton, passButton, $new($JButton, "Pass"_s));
 	passButton->setActionCommand("Pass"_s);
-	passButton->addActionListener(static_cast<$ActionListener*>($$new(TestJSpinnerPressUnpress$$Lambda$lambda$createUI$0$2)));
+	passButton->addActionListener($$new(TestJSpinnerPressUnpress$$Lambda$lambda$createUI$0$2));
 	$var($JButton, failButton, $new($JButton, "Fail"_s));
 	failButton->setActionCommand("Fail"_s);
-	failButton->addActionListener(static_cast<$ActionListener*>($$new(TestJSpinnerPressUnpress$$Lambda$lambda$createUI$1$3)));
+	failButton->addActionListener($$new(TestJSpinnerPressUnpress$$Lambda$lambda$createUI$1$3));
 	gbc->gridx = 0;
 	gbc->gridy = 0;
-	resultButtonPanel->add(static_cast<$Component*>(passButton), $of(gbc));
+	resultButtonPanel->add(passButton, gbc);
 	gbc->gridx = 1;
 	gbc->gridy = 0;
-	resultButtonPanel->add(static_cast<$Component*>(failButton), $of(gbc));
+	resultButtonPanel->add(failButton, gbc);
 	gbc->gridx = 0;
 	gbc->gridy = 2;
-	mainControlPanel->add(static_cast<$Component*>(resultButtonPanel), $of(gbc));
-	$nc(TestJSpinnerPressUnpress::mainFrame)->add(static_cast<$Component*>(mainControlPanel));
+	mainControlPanel->add(resultButtonPanel, gbc);
+	$nc(TestJSpinnerPressUnpress::mainFrame)->add(mainControlPanel);
 	$nc(TestJSpinnerPressUnpress::mainFrame)->pack();
 	$nc(TestJSpinnerPressUnpress::mainFrame)->addWindowListener($$new($TestJSpinnerPressUnpress$1));
 	$nc(TestJSpinnerPressUnpress::mainFrame)->setVisible(true);
@@ -345,7 +279,7 @@ void TestJSpinnerPressUnpress::lambda$createUI$0($ActionEvent* e) {
 	$nc(TestJSpinnerPressUnpress::countDownLatch)->countDown();
 }
 
-void clinit$TestJSpinnerPressUnpress($Class* class$) {
+void TestJSpinnerPressUnpress::clinit$($Class* clazz) {
 	$assignStatic(TestJSpinnerPressUnpress::GTK_LAF_CLASS, "GTKLookAndFeel"_s);
 	$assignStatic(TestJSpinnerPressUnpress::INSTRUCTIONS, "INSTRUCTIONS:\n\nVerify that when spinner up/down button is pressed to change\nthe spinner value, the button\'s rendering is changed to show\nthe pressed state. If yes, Press Pass, Otherwise, Press Fail."_s);
 	$assignStatic(TestJSpinnerPressUnpress::mainFrame, $new($JFrame));
@@ -357,20 +291,56 @@ TestJSpinnerPressUnpress::TestJSpinnerPressUnpress() {
 
 $Class* TestJSpinnerPressUnpress::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TestJSpinnerPressUnpress$$Lambda$createUI::classInfo$.name)) {
+		if (name->equals("TestJSpinnerPressUnpress$$Lambda$createUI")) {
 			return TestJSpinnerPressUnpress$$Lambda$createUI::load$(name, initialize);
 		}
-		if (name->equals(TestJSpinnerPressUnpress$$Lambda$dispose$1::classInfo$.name)) {
+		if (name->equals("TestJSpinnerPressUnpress$$Lambda$dispose$1")) {
 			return TestJSpinnerPressUnpress$$Lambda$dispose$1::load$(name, initialize);
 		}
-		if (name->equals(TestJSpinnerPressUnpress$$Lambda$lambda$createUI$0$2::classInfo$.name)) {
+		if (name->equals("TestJSpinnerPressUnpress$$Lambda$lambda$createUI$0$2")) {
 			return TestJSpinnerPressUnpress$$Lambda$lambda$createUI$0$2::load$(name, initialize);
 		}
-		if (name->equals(TestJSpinnerPressUnpress$$Lambda$lambda$createUI$1$3::classInfo$.name)) {
+		if (name->equals("TestJSpinnerPressUnpress$$Lambda$lambda$createUI$1$3")) {
 			return TestJSpinnerPressUnpress$$Lambda$lambda$createUI$1$3::load$(name, initialize);
 		}
 	}
-	$loadClass(TestJSpinnerPressUnpress, name, initialize, &_TestJSpinnerPressUnpress_ClassInfo_, clinit$TestJSpinnerPressUnpress, allocate$TestJSpinnerPressUnpress);
+	$FieldInfo fieldInfos$$[] = {
+		{"mainFrame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(TestJSpinnerPressUnpress, mainFrame)},
+		{"testResult", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(TestJSpinnerPressUnpress, testResult)},
+		{"countDownLatch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(TestJSpinnerPressUnpress, countDownLatch)},
+		{"GTK_LAF_CLASS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestJSpinnerPressUnpress, GTK_LAF_CLASS)},
+		{"INSTRUCTIONS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestJSpinnerPressUnpress, INSTRUCTIONS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestJSpinnerPressUnpress, init$, void)},
+		{"createUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestJSpinnerPressUnpress, createUI, void)},
+		{"lambda$createUI$0", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestJSpinnerPressUnpress, lambda$createUI$0, void, $ActionEvent*)},
+		{"lambda$createUI$1", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestJSpinnerPressUnpress, lambda$createUI$1, void, $ActionEvent*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestJSpinnerPressUnpress, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestJSpinnerPressUnpress$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestJSpinnerPressUnpress",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TestJSpinnerPressUnpress$1"
+	};
+	$loadClass(TestJSpinnerPressUnpress, name, initialize, &classInfo$$, TestJSpinnerPressUnpress::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TestJSpinnerPressUnpress);
+	});
 	return class$;
 }
 

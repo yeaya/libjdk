@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XEmbedCanvasPeer$XEmbedDropTarget.h>
-
 #include <java/awt/dnd/DropTarget.h>
 #include <java/awt/dnd/DropTargetListener.h>
 #include <java/util/TooManyListenersException.h>
@@ -17,37 +16,6 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$MethodInfo _XEmbedCanvasPeer$XEmbedDropTarget_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(XEmbedCanvasPeer$XEmbedDropTarget, init$, void)},
-	{"addDropTargetListener", "(Ljava/awt/dnd/DropTargetListener;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer$XEmbedDropTarget, addDropTargetListener, void, $DropTargetListener*), "java.util.TooManyListenersException"},
-	{}
-};
-
-$InnerClassInfo _XEmbedCanvasPeer$XEmbedDropTarget_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XEmbedCanvasPeer$XEmbedDropTarget", "sun.awt.X11.XEmbedCanvasPeer", "XEmbedDropTarget", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _XEmbedCanvasPeer$XEmbedDropTarget_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XEmbedCanvasPeer$XEmbedDropTarget",
-	"java.awt.dnd.DropTarget",
-	nullptr,
-	nullptr,
-	_XEmbedCanvasPeer$XEmbedDropTarget_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XEmbedCanvasPeer$XEmbedDropTarget_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XEmbedCanvasPeer"
-};
-
-$Object* allocate$XEmbedCanvasPeer$XEmbedDropTarget($Class* clazz) {
-	return $of($alloc(XEmbedCanvasPeer$XEmbedDropTarget));
-}
-
 void XEmbedCanvasPeer$XEmbedDropTarget::init$() {
 	$DropTarget::init$();
 }
@@ -60,7 +28,33 @@ XEmbedCanvasPeer$XEmbedDropTarget::XEmbedCanvasPeer$XEmbedDropTarget() {
 }
 
 $Class* XEmbedCanvasPeer$XEmbedDropTarget::load$($String* name, bool initialize) {
-	$loadClass(XEmbedCanvasPeer$XEmbedDropTarget, name, initialize, &_XEmbedCanvasPeer$XEmbedDropTarget_ClassInfo_, allocate$XEmbedCanvasPeer$XEmbedDropTarget);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(XEmbedCanvasPeer$XEmbedDropTarget, init$, void)},
+		{"addDropTargetListener", "(Ljava/awt/dnd/DropTargetListener;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer$XEmbedDropTarget, addDropTargetListener, void, $DropTargetListener*), "java.util.TooManyListenersException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XEmbedCanvasPeer$XEmbedDropTarget", "sun.awt.X11.XEmbedCanvasPeer", "XEmbedDropTarget", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XEmbedCanvasPeer$XEmbedDropTarget",
+		"java.awt.dnd.DropTarget",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XEmbedCanvasPeer"
+	};
+	$loadClass(XEmbedCanvasPeer$XEmbedDropTarget, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XEmbedCanvasPeer$XEmbedDropTarget));
+	});
 	return class$;
 }
 

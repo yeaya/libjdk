@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsTreeUI$ExpandedIcon.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
 #include <com/sun/java/swing/plaf/windows/WindowsTreeUI.h>
@@ -33,46 +32,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$MethodInfo _WindowsTreeUI$ExpandedIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsTreeUI$ExpandedIcon, init$, void)},
-	{"createExpandedIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsTreeUI$ExpandedIcon, createExpandedIcon, $Icon*)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsTreeUI$ExpandedIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsTreeUI$ExpandedIcon, getIconWidth, int32_t)},
-	{"getSkin", "(Ljava/awt/Component;)Lcom/sun/java/swing/plaf/windows/XPStyle$Skin;", nullptr, 0, $virtualMethod(WindowsTreeUI$ExpandedIcon, getSkin, $XPStyle$Skin*, $Component*)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(WindowsTreeUI$ExpandedIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _WindowsTreeUI$ExpandedIcon_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsTreeUI$ExpandedIcon", "com.sun.java.swing.plaf.windows.WindowsTreeUI", "ExpandedIcon", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsTreeUI$ExpandedIcon_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsTreeUI$ExpandedIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,java.io.Serializable",
-	nullptr,
-	_WindowsTreeUI$ExpandedIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsTreeUI$ExpandedIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsTreeUI"
-};
-
-$Object* allocate$WindowsTreeUI$ExpandedIcon($Class* clazz) {
-	return $of($alloc(WindowsTreeUI$ExpandedIcon));
-}
-
 int32_t WindowsTreeUI$ExpandedIcon::hashCode() {
 	 return this->$Icon::hashCode();
 }
@@ -104,11 +63,11 @@ $Icon* WindowsTreeUI$ExpandedIcon::createExpandedIcon() {
 $XPStyle$Skin* WindowsTreeUI$ExpandedIcon::getSkin($Component* c) {
 	$var($XPStyle, xp, $XPStyle::getXP());
 	$init($TMSchema$Part);
-	return (xp != nullptr) ? $nc(xp)->getSkin(c, $TMSchema$Part::TVP_GLYPH) : ($XPStyle$Skin*)nullptr;
+	return (xp != nullptr) ? xp->getSkin(c, $TMSchema$Part::TVP_GLYPH) : ($XPStyle$Skin*)nullptr;
 }
 
 void WindowsTreeUI$ExpandedIcon::paintIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle$Skin, skin, getSkin(c));
 	if (skin != nullptr) {
 		$init($TMSchema$State);
@@ -132,19 +91,54 @@ void WindowsTreeUI$ExpandedIcon::paintIcon($Component* c, $Graphics* g, int32_t 
 
 int32_t WindowsTreeUI$ExpandedIcon::getIconWidth() {
 	$var($XPStyle$Skin, skin, getSkin(nullptr));
-	return (skin != nullptr) ? $nc(skin)->getWidth() : 9;
+	return (skin != nullptr) ? skin->getWidth() : 9;
 }
 
 int32_t WindowsTreeUI$ExpandedIcon::getIconHeight() {
 	$var($XPStyle$Skin, skin, getSkin(nullptr));
-	return (skin != nullptr) ? $nc(skin)->getHeight() : 9;
+	return (skin != nullptr) ? skin->getHeight() : 9;
 }
 
 WindowsTreeUI$ExpandedIcon::WindowsTreeUI$ExpandedIcon() {
 }
 
 $Class* WindowsTreeUI$ExpandedIcon::load$($String* name, bool initialize) {
-	$loadClass(WindowsTreeUI$ExpandedIcon, name, initialize, &_WindowsTreeUI$ExpandedIcon_ClassInfo_, allocate$WindowsTreeUI$ExpandedIcon);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsTreeUI$ExpandedIcon, init$, void)},
+		{"createExpandedIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsTreeUI$ExpandedIcon, createExpandedIcon, $Icon*)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsTreeUI$ExpandedIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsTreeUI$ExpandedIcon, getIconWidth, int32_t)},
+		{"getSkin", "(Ljava/awt/Component;)Lcom/sun/java/swing/plaf/windows/XPStyle$Skin;", nullptr, 0, $virtualMethod(WindowsTreeUI$ExpandedIcon, getSkin, $XPStyle$Skin*, $Component*)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(WindowsTreeUI$ExpandedIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsTreeUI$ExpandedIcon", "com.sun.java.swing.plaf.windows.WindowsTreeUI", "ExpandedIcon", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsTreeUI$ExpandedIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,java.io.Serializable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsTreeUI"
+	};
+	$loadClass(WindowsTreeUI$ExpandedIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsTreeUI$ExpandedIcon));
+	});
 	return class$;
 }
 

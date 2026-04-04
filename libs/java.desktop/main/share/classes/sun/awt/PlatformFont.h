@@ -26,6 +26,7 @@ class $export PlatformFont : public ::java::awt::peer::FontPeer {
 	$class(PlatformFont, 0, ::java::awt::peer::FontPeer)
 public:
 	PlatformFont();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, int32_t style);
 	$ObjectArray* getFontCache();
 	virtual char16_t getMissingGlyphCharacter() {return 0;}

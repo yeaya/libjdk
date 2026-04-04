@@ -1,5 +1,4 @@
 #include <java/awt/Taskbar$Feature.h>
-
 #include <java/awt/Taskbar.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -24,54 +23,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _Taskbar$Feature_FieldInfo_[] = {
-	{"ICON_BADGE_TEXT", "Ljava/awt/Taskbar$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$Feature, ICON_BADGE_TEXT)},
-	{"ICON_BADGE_NUMBER", "Ljava/awt/Taskbar$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$Feature, ICON_BADGE_NUMBER)},
-	{"ICON_BADGE_IMAGE_WINDOW", "Ljava/awt/Taskbar$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$Feature, ICON_BADGE_IMAGE_WINDOW)},
-	{"ICON_IMAGE", "Ljava/awt/Taskbar$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$Feature, ICON_IMAGE)},
-	{"MENU", "Ljava/awt/Taskbar$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$Feature, MENU)},
-	{"PROGRESS_STATE_WINDOW", "Ljava/awt/Taskbar$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$Feature, PROGRESS_STATE_WINDOW)},
-	{"PROGRESS_VALUE", "Ljava/awt/Taskbar$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$Feature, PROGRESS_VALUE)},
-	{"PROGRESS_VALUE_WINDOW", "Ljava/awt/Taskbar$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$Feature, PROGRESS_VALUE_WINDOW)},
-	{"USER_ATTENTION", "Ljava/awt/Taskbar$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$Feature, USER_ATTENTION)},
-	{"USER_ATTENTION_WINDOW", "Ljava/awt/Taskbar$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$Feature, USER_ATTENTION_WINDOW)},
-	{"$VALUES", "[Ljava/awt/Taskbar$Feature;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Taskbar$Feature, $VALUES)},
-	{}
-};
-
-$MethodInfo _Taskbar$Feature_MethodInfo_[] = {
-	{"$values", "()[Ljava/awt/Taskbar$Feature;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Taskbar$Feature, $values, $Taskbar$FeatureArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Taskbar$Feature, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/awt/Taskbar$Feature;", nullptr, $PUBLIC | $STATIC, $staticMethod(Taskbar$Feature, valueOf, Taskbar$Feature*, $String*)},
-	{"values", "()[Ljava/awt/Taskbar$Feature;", nullptr, $PUBLIC | $STATIC, $staticMethod(Taskbar$Feature, values, $Taskbar$FeatureArray*)},
-	{}
-};
-
-$InnerClassInfo _Taskbar$Feature_InnerClassesInfo_[] = {
-	{"java.awt.Taskbar$Feature", "java.awt.Taskbar", "Feature", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Taskbar$Feature_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.awt.Taskbar$Feature",
-	"java.lang.Enum",
-	nullptr,
-	_Taskbar$Feature_FieldInfo_,
-	_Taskbar$Feature_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/awt/Taskbar$Feature;>;",
-	nullptr,
-	_Taskbar$Feature_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Taskbar"
-};
-
-$Object* allocate$Taskbar$Feature($Class* clazz) {
-	return $of($alloc(Taskbar$Feature));
-}
 
 Taskbar$Feature* Taskbar$Feature::ICON_BADGE_TEXT = nullptr;
 Taskbar$Feature* Taskbar$Feature::ICON_BADGE_NUMBER = nullptr;
@@ -115,7 +66,7 @@ void Taskbar$Feature::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Taskbar$Feature($Class* class$) {
+void Taskbar$Feature::clinit$($Class* clazz) {
 	$assignStatic(Taskbar$Feature::ICON_BADGE_TEXT, $new(Taskbar$Feature, "ICON_BADGE_TEXT"_s, 0));
 	$assignStatic(Taskbar$Feature::ICON_BADGE_NUMBER, $new(Taskbar$Feature, "ICON_BADGE_NUMBER"_s, 1));
 	$assignStatic(Taskbar$Feature::ICON_BADGE_IMAGE_WINDOW, $new(Taskbar$Feature, "ICON_BADGE_IMAGE_WINDOW"_s, 2));
@@ -133,7 +84,49 @@ Taskbar$Feature::Taskbar$Feature() {
 }
 
 $Class* Taskbar$Feature::load$($String* name, bool initialize) {
-	$loadClass(Taskbar$Feature, name, initialize, &_Taskbar$Feature_ClassInfo_, clinit$Taskbar$Feature, allocate$Taskbar$Feature);
+	$FieldInfo fieldInfos$$[] = {
+		{"ICON_BADGE_TEXT", "Ljava/awt/Taskbar$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$Feature, ICON_BADGE_TEXT)},
+		{"ICON_BADGE_NUMBER", "Ljava/awt/Taskbar$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$Feature, ICON_BADGE_NUMBER)},
+		{"ICON_BADGE_IMAGE_WINDOW", "Ljava/awt/Taskbar$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$Feature, ICON_BADGE_IMAGE_WINDOW)},
+		{"ICON_IMAGE", "Ljava/awt/Taskbar$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$Feature, ICON_IMAGE)},
+		{"MENU", "Ljava/awt/Taskbar$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$Feature, MENU)},
+		{"PROGRESS_STATE_WINDOW", "Ljava/awt/Taskbar$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$Feature, PROGRESS_STATE_WINDOW)},
+		{"PROGRESS_VALUE", "Ljava/awt/Taskbar$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$Feature, PROGRESS_VALUE)},
+		{"PROGRESS_VALUE_WINDOW", "Ljava/awt/Taskbar$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$Feature, PROGRESS_VALUE_WINDOW)},
+		{"USER_ATTENTION", "Ljava/awt/Taskbar$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$Feature, USER_ATTENTION)},
+		{"USER_ATTENTION_WINDOW", "Ljava/awt/Taskbar$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$Feature, USER_ATTENTION_WINDOW)},
+		{"$VALUES", "[Ljava/awt/Taskbar$Feature;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Taskbar$Feature, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/awt/Taskbar$Feature;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Taskbar$Feature, $values, $Taskbar$FeatureArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Taskbar$Feature, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/awt/Taskbar$Feature;", nullptr, $PUBLIC | $STATIC, $staticMethod(Taskbar$Feature, valueOf, Taskbar$Feature*, $String*)},
+		{"values", "()[Ljava/awt/Taskbar$Feature;", nullptr, $PUBLIC | $STATIC, $staticMethod(Taskbar$Feature, values, $Taskbar$FeatureArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Taskbar$Feature", "java.awt.Taskbar", "Feature", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.awt.Taskbar$Feature",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/awt/Taskbar$Feature;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Taskbar"
+	};
+	$loadClass(Taskbar$Feature, name, initialize, &classInfo$$, Taskbar$Feature::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Taskbar$Feature));
+	});
 	return class$;
 }
 

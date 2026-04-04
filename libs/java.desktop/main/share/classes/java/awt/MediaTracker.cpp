@@ -1,5 +1,4 @@
 #include <java/awt/MediaTracker.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Image.h>
 #include <java/awt/ImageMediaEntry.h>
@@ -24,65 +23,6 @@ using $MultiResolutionToolkitImage = ::sun::awt::image::MultiResolutionToolkitIm
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _MediaTracker_FieldInfo_[] = {
-	{"target", "Ljava/awt/Component;", nullptr, 0, $field(MediaTracker, target)},
-	{"head", "Ljava/awt/MediaEntry;", nullptr, 0, $field(MediaTracker, head)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MediaTracker, serialVersionUID)},
-	{"LOADING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MediaTracker, LOADING)},
-	{"ABORTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MediaTracker, ABORTED)},
-	{"ERRORED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MediaTracker, ERRORED)},
-	{"COMPLETE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MediaTracker, COMPLETE)},
-	{"DONE", "I", nullptr, $STATIC | $FINAL, $constField(MediaTracker, DONE)},
-	{}
-};
-
-$MethodInfo _MediaTracker_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $method(MediaTracker, init$, void, $Component*)},
-	{"addImage", "(Ljava/awt/Image;I)V", nullptr, $PUBLIC, $virtualMethod(MediaTracker, addImage, void, $Image*, int32_t)},
-	{"addImage", "(Ljava/awt/Image;III)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MediaTracker, addImage, void, $Image*, int32_t, int32_t, int32_t)},
-	{"addImageImpl", "(Ljava/awt/Image;III)V", nullptr, $PRIVATE, $method(MediaTracker, addImageImpl, void, $Image*, int32_t, int32_t, int32_t)},
-	{"checkAll", "()Z", nullptr, $PUBLIC, $virtualMethod(MediaTracker, checkAll, bool)},
-	{"checkAll", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(MediaTracker, checkAll, bool, bool)},
-	{"checkAll", "(ZZ)Z", nullptr, $PRIVATE | $SYNCHRONIZED, $method(MediaTracker, checkAll, bool, bool, bool)},
-	{"checkID", "(I)Z", nullptr, $PUBLIC, $virtualMethod(MediaTracker, checkID, bool, int32_t)},
-	{"checkID", "(IZ)Z", nullptr, $PUBLIC, $virtualMethod(MediaTracker, checkID, bool, int32_t, bool)},
-	{"checkID", "(IZZ)Z", nullptr, $PRIVATE | $SYNCHRONIZED, $method(MediaTracker, checkID, bool, int32_t, bool, bool)},
-	{"getErrorsAny", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MediaTracker, getErrorsAny, $ObjectArray*)},
-	{"getErrorsID", "(I)[Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MediaTracker, getErrorsID, $ObjectArray*, int32_t)},
-	{"getResolutionVariant", "(Ljava/awt/Image;)Ljava/awt/Image;", nullptr, $PRIVATE | $STATIC, $staticMethod(MediaTracker, getResolutionVariant, $Image*, $Image*)},
-	{"isErrorAny", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MediaTracker, isErrorAny, bool)},
-	{"isErrorID", "(I)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MediaTracker, isErrorID, bool, int32_t)},
-	{"removeImage", "(Ljava/awt/Image;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MediaTracker, removeImage, void, $Image*)},
-	{"removeImage", "(Ljava/awt/Image;I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MediaTracker, removeImage, void, $Image*, int32_t)},
-	{"removeImage", "(Ljava/awt/Image;III)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MediaTracker, removeImage, void, $Image*, int32_t, int32_t, int32_t)},
-	{"removeImageImpl", "(Ljava/awt/Image;)V", nullptr, $PRIVATE, $method(MediaTracker, removeImageImpl, void, $Image*)},
-	{"removeImageImpl", "(Ljava/awt/Image;I)V", nullptr, $PRIVATE, $method(MediaTracker, removeImageImpl, void, $Image*, int32_t)},
-	{"removeImageImpl", "(Ljava/awt/Image;III)V", nullptr, $PRIVATE, $method(MediaTracker, removeImageImpl, void, $Image*, int32_t, int32_t, int32_t)},
-	{"setDone", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(MediaTracker, setDone, void)},
-	{"statusAll", "(Z)I", nullptr, $PUBLIC, $virtualMethod(MediaTracker, statusAll, int32_t, bool)},
-	{"statusAll", "(ZZ)I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(MediaTracker, statusAll, int32_t, bool, bool)},
-	{"statusID", "(IZ)I", nullptr, $PUBLIC, $virtualMethod(MediaTracker, statusID, int32_t, int32_t, bool)},
-	{"statusID", "(IZZ)I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(MediaTracker, statusID, int32_t, int32_t, bool, bool)},
-	{"waitForAll", "()V", nullptr, $PUBLIC, $virtualMethod(MediaTracker, waitForAll, void), "java.lang.InterruptedException"},
-	{"waitForAll", "(J)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MediaTracker, waitForAll, bool, int64_t), "java.lang.InterruptedException"},
-	{"waitForID", "(I)V", nullptr, $PUBLIC, $virtualMethod(MediaTracker, waitForID, void, int32_t), "java.lang.InterruptedException"},
-	{"waitForID", "(IJ)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MediaTracker, waitForID, bool, int32_t, int64_t), "java.lang.InterruptedException"},
-	{}
-};
-
-$ClassInfo _MediaTracker_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.MediaTracker",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_MediaTracker_FieldInfo_,
-	_MediaTracker_MethodInfo_
-};
-
-$Object* allocate$MediaTracker($Class* clazz) {
-	return $of($alloc(MediaTracker));
-}
 
 void MediaTracker::init$($Component* comp) {
 	$set(this, target, comp);
@@ -119,7 +59,7 @@ bool MediaTracker::checkAll(bool load, bool verify) {
 		$var($MediaEntry, cur, this->head);
 		bool done = true;
 		while (cur != nullptr) {
-			if (((int32_t)(cur->getStatus(load, verify) & (uint32_t)MediaTracker::DONE)) == 0) {
+			if ((cur->getStatus(load, verify) & MediaTracker::DONE) == 0) {
 				done = false;
 			}
 			$assign(cur, cur->next);
@@ -132,7 +72,7 @@ bool MediaTracker::isErrorAny() {
 	$synchronized(this) {
 		$var($MediaEntry, cur, this->head);
 		while (cur != nullptr) {
-			if (((int32_t)(cur->getStatus(false, true) & (uint32_t)MediaTracker::ERRORED)) != 0) {
+			if ((cur->getStatus(false, true) & MediaTracker::ERRORED) != 0) {
 				return true;
 			}
 			$assign(cur, cur->next);
@@ -143,11 +83,11 @@ bool MediaTracker::isErrorAny() {
 
 $ObjectArray* MediaTracker::getErrorsAny() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($MediaEntry, cur, this->head);
 		int32_t numerrors = 0;
 		while (cur != nullptr) {
-			if (((int32_t)(cur->getStatus(false, true) & (uint32_t)MediaTracker::ERRORED)) != 0) {
+			if ((cur->getStatus(false, true) & MediaTracker::ERRORED) != 0) {
 				++numerrors;
 			}
 			$assign(cur, cur->next);
@@ -159,7 +99,7 @@ $ObjectArray* MediaTracker::getErrorsAny() {
 		$assign(cur, this->head);
 		numerrors = 0;
 		while (cur != nullptr) {
-			if (((int32_t)(cur->getStatus(false, false) & (uint32_t)MediaTracker::ERRORED)) != 0) {
+			if ((cur->getStatus(false, false) & MediaTracker::ERRORED) != 0) {
 				errors->set(numerrors++, $(cur->getMedia()));
 			}
 			$assign(cur, cur->next);
@@ -178,7 +118,7 @@ bool MediaTracker::waitForAll(int64_t ms) {
 		bool first = true;
 		while (true) {
 			int32_t status = statusAll(first, first);
-			if (((int32_t)(status & (uint32_t)MediaTracker::LOADING)) == 0) {
+			if ((status & MediaTracker::LOADING) == 0) {
 				return (status == MediaTracker::COMPLETE);
 			}
 			first = false;
@@ -226,7 +166,7 @@ bool MediaTracker::checkID(int32_t id, bool load, bool verify) {
 		bool done = true;
 		while (cur != nullptr) {
 			bool var$0 = cur->getID() == id;
-			if (var$0 && ((int32_t)(cur->getStatus(load, verify) & (uint32_t)MediaTracker::DONE)) == 0) {
+			if (var$0 && (cur->getStatus(load, verify) & MediaTracker::DONE) == 0) {
 				done = false;
 			}
 			$assign(cur, cur->next);
@@ -240,7 +180,7 @@ bool MediaTracker::isErrorID(int32_t id) {
 		$var($MediaEntry, cur, this->head);
 		while (cur != nullptr) {
 			bool var$0 = cur->getID() == id;
-			if (var$0 && ((int32_t)(cur->getStatus(false, true) & (uint32_t)MediaTracker::ERRORED)) != 0) {
+			if (var$0 && (cur->getStatus(false, true) & MediaTracker::ERRORED) != 0) {
 				return true;
 			}
 			$assign(cur, cur->next);
@@ -251,12 +191,12 @@ bool MediaTracker::isErrorID(int32_t id) {
 
 $ObjectArray* MediaTracker::getErrorsID(int32_t id) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($MediaEntry, cur, this->head);
 		int32_t numerrors = 0;
 		while (cur != nullptr) {
 			bool var$0 = cur->getID() == id;
-			if (var$0 && ((int32_t)(cur->getStatus(false, true) & (uint32_t)MediaTracker::ERRORED)) != 0) {
+			if (var$0 && (cur->getStatus(false, true) & MediaTracker::ERRORED) != 0) {
 				++numerrors;
 			}
 			$assign(cur, cur->next);
@@ -269,7 +209,7 @@ $ObjectArray* MediaTracker::getErrorsID(int32_t id) {
 		numerrors = 0;
 		while (cur != nullptr) {
 			bool var$1 = cur->getID() == id;
-			if (var$1 && ((int32_t)(cur->getStatus(false, false) & (uint32_t)MediaTracker::ERRORED)) != 0) {
+			if (var$1 && (cur->getStatus(false, false) & MediaTracker::ERRORED) != 0) {
 				errors->set(numerrors++, $(cur->getMedia()));
 			}
 			$assign(cur, cur->next);
@@ -288,7 +228,7 @@ bool MediaTracker::waitForID(int32_t id, int64_t ms) {
 		bool first = true;
 		while (true) {
 			int32_t status = statusID(id, first, first);
-			if (((int32_t)(status & (uint32_t)MediaTracker::LOADING)) == 0) {
+			if ((status & MediaTracker::LOADING) == 0) {
 				return (status == MediaTracker::COMPLETE);
 			}
 			first = false;
@@ -336,7 +276,7 @@ void MediaTracker::removeImage($Image* image) {
 }
 
 void MediaTracker::removeImageImpl($Image* image) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MediaEntry, cur, this->head);
 	$var($MediaEntry, prev, nullptr);
 	while (cur != nullptr) {
@@ -345,7 +285,7 @@ void MediaTracker::removeImageImpl($Image* image) {
 			if (prev == nullptr) {
 				$set(this, head, next);
 			} else {
-				$set($nc(prev), next, next);
+				$set(prev, next, next);
 			}
 			cur->cancel();
 		} else {
@@ -367,7 +307,7 @@ void MediaTracker::removeImage($Image* image, int32_t id) {
 }
 
 void MediaTracker::removeImageImpl($Image* image, int32_t id) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MediaEntry, cur, this->head);
 	$var($MediaEntry, prev, nullptr);
 	while (cur != nullptr) {
@@ -377,7 +317,7 @@ void MediaTracker::removeImageImpl($Image* image, int32_t id) {
 			if (prev == nullptr) {
 				$set(this, head, next);
 			} else {
-				$set($nc(prev), next, next);
+				$set(prev, next, next);
 			}
 			cur->cancel();
 		} else {
@@ -399,17 +339,17 @@ void MediaTracker::removeImage($Image* image, int32_t id, int32_t width, int32_t
 }
 
 void MediaTracker::removeImageImpl($Image* image, int32_t id, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MediaEntry, cur, this->head);
 	$var($MediaEntry, prev, nullptr);
 	while (cur != nullptr) {
 		$var($MediaEntry, next, cur->next);
 		bool var$0 = cur->getID() == id && $instanceOf($ImageMediaEntry, cur);
-		if (var$0 && $nc(($cast($ImageMediaEntry, cur)))->matches(image, width, height)) {
+		if (var$0 && $cast($ImageMediaEntry, cur)->matches(image, width, height)) {
 			if (prev == nullptr) {
 				$set(this, head, next);
 			} else {
-				$set($nc(prev), next, next);
+				$set(prev, next, next);
 			}
 			cur->cancel();
 		} else {
@@ -428,7 +368,7 @@ void MediaTracker::setDone() {
 $Image* MediaTracker::getResolutionVariant($Image* image) {
 	$init(MediaTracker);
 	if ($instanceOf($MultiResolutionToolkitImage, image)) {
-		return $nc(($cast($MultiResolutionToolkitImage, image)))->getResolutionVariant();
+		return $cast($MultiResolutionToolkitImage, image)->getResolutionVariant();
 	}
 	return nullptr;
 }
@@ -437,7 +377,61 @@ MediaTracker::MediaTracker() {
 }
 
 $Class* MediaTracker::load$($String* name, bool initialize) {
-	$loadClass(MediaTracker, name, initialize, &_MediaTracker_ClassInfo_, allocate$MediaTracker);
+	$FieldInfo fieldInfos$$[] = {
+		{"target", "Ljava/awt/Component;", nullptr, 0, $field(MediaTracker, target)},
+		{"head", "Ljava/awt/MediaEntry;", nullptr, 0, $field(MediaTracker, head)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MediaTracker, serialVersionUID)},
+		{"LOADING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MediaTracker, LOADING)},
+		{"ABORTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MediaTracker, ABORTED)},
+		{"ERRORED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MediaTracker, ERRORED)},
+		{"COMPLETE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MediaTracker, COMPLETE)},
+		{"DONE", "I", nullptr, $STATIC | $FINAL, $constField(MediaTracker, DONE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $method(MediaTracker, init$, void, $Component*)},
+		{"addImage", "(Ljava/awt/Image;I)V", nullptr, $PUBLIC, $virtualMethod(MediaTracker, addImage, void, $Image*, int32_t)},
+		{"addImage", "(Ljava/awt/Image;III)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MediaTracker, addImage, void, $Image*, int32_t, int32_t, int32_t)},
+		{"addImageImpl", "(Ljava/awt/Image;III)V", nullptr, $PRIVATE, $method(MediaTracker, addImageImpl, void, $Image*, int32_t, int32_t, int32_t)},
+		{"checkAll", "()Z", nullptr, $PUBLIC, $virtualMethod(MediaTracker, checkAll, bool)},
+		{"checkAll", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(MediaTracker, checkAll, bool, bool)},
+		{"checkAll", "(ZZ)Z", nullptr, $PRIVATE | $SYNCHRONIZED, $method(MediaTracker, checkAll, bool, bool, bool)},
+		{"checkID", "(I)Z", nullptr, $PUBLIC, $virtualMethod(MediaTracker, checkID, bool, int32_t)},
+		{"checkID", "(IZ)Z", nullptr, $PUBLIC, $virtualMethod(MediaTracker, checkID, bool, int32_t, bool)},
+		{"checkID", "(IZZ)Z", nullptr, $PRIVATE | $SYNCHRONIZED, $method(MediaTracker, checkID, bool, int32_t, bool, bool)},
+		{"getErrorsAny", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MediaTracker, getErrorsAny, $ObjectArray*)},
+		{"getErrorsID", "(I)[Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MediaTracker, getErrorsID, $ObjectArray*, int32_t)},
+		{"getResolutionVariant", "(Ljava/awt/Image;)Ljava/awt/Image;", nullptr, $PRIVATE | $STATIC, $staticMethod(MediaTracker, getResolutionVariant, $Image*, $Image*)},
+		{"isErrorAny", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MediaTracker, isErrorAny, bool)},
+		{"isErrorID", "(I)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MediaTracker, isErrorID, bool, int32_t)},
+		{"removeImage", "(Ljava/awt/Image;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MediaTracker, removeImage, void, $Image*)},
+		{"removeImage", "(Ljava/awt/Image;I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MediaTracker, removeImage, void, $Image*, int32_t)},
+		{"removeImage", "(Ljava/awt/Image;III)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MediaTracker, removeImage, void, $Image*, int32_t, int32_t, int32_t)},
+		{"removeImageImpl", "(Ljava/awt/Image;)V", nullptr, $PRIVATE, $method(MediaTracker, removeImageImpl, void, $Image*)},
+		{"removeImageImpl", "(Ljava/awt/Image;I)V", nullptr, $PRIVATE, $method(MediaTracker, removeImageImpl, void, $Image*, int32_t)},
+		{"removeImageImpl", "(Ljava/awt/Image;III)V", nullptr, $PRIVATE, $method(MediaTracker, removeImageImpl, void, $Image*, int32_t, int32_t, int32_t)},
+		{"setDone", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(MediaTracker, setDone, void)},
+		{"statusAll", "(Z)I", nullptr, $PUBLIC, $virtualMethod(MediaTracker, statusAll, int32_t, bool)},
+		{"statusAll", "(ZZ)I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(MediaTracker, statusAll, int32_t, bool, bool)},
+		{"statusID", "(IZ)I", nullptr, $PUBLIC, $virtualMethod(MediaTracker, statusID, int32_t, int32_t, bool)},
+		{"statusID", "(IZZ)I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(MediaTracker, statusID, int32_t, int32_t, bool, bool)},
+		{"waitForAll", "()V", nullptr, $PUBLIC, $virtualMethod(MediaTracker, waitForAll, void), "java.lang.InterruptedException"},
+		{"waitForAll", "(J)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MediaTracker, waitForAll, bool, int64_t), "java.lang.InterruptedException"},
+		{"waitForID", "(I)V", nullptr, $PUBLIC, $virtualMethod(MediaTracker, waitForID, void, int32_t), "java.lang.InterruptedException"},
+		{"waitForID", "(IJ)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MediaTracker, waitForID, bool, int32_t, int64_t), "java.lang.InterruptedException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.MediaTracker",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MediaTracker, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MediaTracker);
+	});
 	return class$;
 }
 

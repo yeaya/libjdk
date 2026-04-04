@@ -1,5 +1,4 @@
 #include <sun/font/GlyphLayout$LayoutEngineFactory.h>
-
 #include <sun/font/Font2D.h>
 #include <sun/font/GlyphLayout$LayoutEngine.h>
 #include <sun/font/GlyphLayout$LayoutEngineKey.h>
@@ -16,39 +15,34 @@ using $GlyphLayout$LayoutEngineKey = ::sun::font::GlyphLayout$LayoutEngineKey;
 namespace sun {
 	namespace font {
 
-$MethodInfo _GlyphLayout$LayoutEngineFactory_MethodInfo_[] = {
-	{"getEngine", "(Lsun/font/Font2D;II)Lsun/font/GlyphLayout$LayoutEngine;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GlyphLayout$LayoutEngineFactory, getEngine, $GlyphLayout$LayoutEngine*, $Font2D*, int32_t, int32_t)},
-	{"getEngine", "(Lsun/font/GlyphLayout$LayoutEngineKey;)Lsun/font/GlyphLayout$LayoutEngine;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GlyphLayout$LayoutEngineFactory, getEngine, $GlyphLayout$LayoutEngine*, $GlyphLayout$LayoutEngineKey*)},
-	{}
-};
-
-$InnerClassInfo _GlyphLayout$LayoutEngineFactory_InnerClassesInfo_[] = {
-	{"sun.font.GlyphLayout$LayoutEngineFactory", "sun.font.GlyphLayout", "LayoutEngineFactory", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _GlyphLayout$LayoutEngineFactory_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.font.GlyphLayout$LayoutEngineFactory",
-	nullptr,
-	nullptr,
-	nullptr,
-	_GlyphLayout$LayoutEngineFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GlyphLayout$LayoutEngineFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.font.GlyphLayout"
-};
-
-$Object* allocate$GlyphLayout$LayoutEngineFactory($Class* clazz) {
-	return $of($alloc(GlyphLayout$LayoutEngineFactory));
-}
-
 $Class* GlyphLayout$LayoutEngineFactory::load$($String* name, bool initialize) {
-	$loadClass(GlyphLayout$LayoutEngineFactory, name, initialize, &_GlyphLayout$LayoutEngineFactory_ClassInfo_, allocate$GlyphLayout$LayoutEngineFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"getEngine", "(Lsun/font/Font2D;II)Lsun/font/GlyphLayout$LayoutEngine;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GlyphLayout$LayoutEngineFactory, getEngine, $GlyphLayout$LayoutEngine*, $Font2D*, int32_t, int32_t)},
+		{"getEngine", "(Lsun/font/GlyphLayout$LayoutEngineKey;)Lsun/font/GlyphLayout$LayoutEngine;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GlyphLayout$LayoutEngineFactory, getEngine, $GlyphLayout$LayoutEngine*, $GlyphLayout$LayoutEngineKey*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.GlyphLayout$LayoutEngineFactory", "sun.font.GlyphLayout", "LayoutEngineFactory", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.font.GlyphLayout$LayoutEngineFactory",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.font.GlyphLayout"
+	};
+	$loadClass(GlyphLayout$LayoutEngineFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GlyphLayout$LayoutEngineFactory);
+	});
 	return class$;
 }
 

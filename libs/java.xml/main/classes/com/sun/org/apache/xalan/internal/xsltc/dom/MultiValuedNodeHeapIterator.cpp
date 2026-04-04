@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator$HeapNode.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/BasisLibrary.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisIterator.h>
@@ -30,56 +29,6 @@ namespace com {
 						namespace xsltc {
 							namespace dom {
 
-$FieldInfo _MultiValuedNodeHeapIterator_FieldInfo_[] = {
-	{"InitSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MultiValuedNodeHeapIterator, InitSize)},
-	{"_heapSize", "I", nullptr, $PRIVATE, $field(MultiValuedNodeHeapIterator, _heapSize)},
-	{"_size", "I", nullptr, $PRIVATE, $field(MultiValuedNodeHeapIterator, _size)},
-	{"_heap", "[Lcom/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator$HeapNode;", nullptr, $PRIVATE, $field(MultiValuedNodeHeapIterator, _heap)},
-	{"_free", "I", nullptr, $PRIVATE, $field(MultiValuedNodeHeapIterator, _free)},
-	{"_returnedLast", "I", nullptr, $PRIVATE, $field(MultiValuedNodeHeapIterator, _returnedLast)},
-	{"_cachedReturnedLast", "I", nullptr, $PRIVATE, $field(MultiValuedNodeHeapIterator, _cachedReturnedLast)},
-	{"_cachedHeapSize", "I", nullptr, $PRIVATE, $field(MultiValuedNodeHeapIterator, _cachedHeapSize)},
-	{}
-};
-
-$MethodInfo _MultiValuedNodeHeapIterator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MultiValuedNodeHeapIterator, init$, void)},
-	{"addHeapNode", "(Lcom/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator$HeapNode;)V", nullptr, $PROTECTED, $virtualMethod(MultiValuedNodeHeapIterator, addHeapNode, void, $MultiValuedNodeHeapIterator$HeapNode*)},
-	{"cloneIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(MultiValuedNodeHeapIterator, cloneIterator, $DTMAxisIterator*)},
-	{"gotoMark", "()V", nullptr, $PUBLIC, $virtualMethod(MultiValuedNodeHeapIterator, gotoMark, void)},
-	{"heapify", "(I)V", nullptr, $PRIVATE, $method(MultiValuedNodeHeapIterator, heapify, void, int32_t)},
-	{"init", "()V", nullptr, $PROTECTED, $virtualMethod(MultiValuedNodeHeapIterator, init, void)},
-	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(MultiValuedNodeHeapIterator, next, int32_t)},
-	{"reset", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(MultiValuedNodeHeapIterator, reset, $DTMAxisIterator*)},
-	{"setMark", "()V", nullptr, $PUBLIC, $virtualMethod(MultiValuedNodeHeapIterator, setMark, void)},
-	{"setStartNode", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(MultiValuedNodeHeapIterator, setStartNode, $DTMAxisIterator*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _MultiValuedNodeHeapIterator_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xalan.internal.xsltc.dom.MultiValuedNodeHeapIterator$HeapNode", "com.sun.org.apache.xalan.internal.xsltc.dom.MultiValuedNodeHeapIterator", "HeapNode", $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MultiValuedNodeHeapIterator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.MultiValuedNodeHeapIterator",
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMAxisIteratorBase",
-	nullptr,
-	_MultiValuedNodeHeapIterator_FieldInfo_,
-	_MultiValuedNodeHeapIterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MultiValuedNodeHeapIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.MultiValuedNodeHeapIterator$HeapNode"
-};
-
-$Object* allocate$MultiValuedNodeHeapIterator($Class* clazz) {
-	return $of($alloc(MultiValuedNodeHeapIterator));
-}
-
 void MultiValuedNodeHeapIterator::init$() {
 	$DTMAxisIteratorBase::init$();
 	this->_heapSize = 0;
@@ -90,7 +39,7 @@ void MultiValuedNodeHeapIterator::init$() {
 }
 
 $DTMAxisIterator* MultiValuedNodeHeapIterator::cloneIterator() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->_isRestartable = false;
 	$var($MultiValuedNodeHeapIterator$HeapNodeArray, heapCopy, $new($MultiValuedNodeHeapIterator$HeapNodeArray, $nc(this->_heap)->length));
 	try {
@@ -103,7 +52,7 @@ $DTMAxisIterator* MultiValuedNodeHeapIterator::cloneIterator() {
 		return clone->reset();
 	} catch ($CloneNotSupportedException& e) {
 		$init($BasisLibrary);
-		$BasisLibrary::runTimeError($BasisLibrary::ITERATOR_CLONE_ERR, $($of(e->toString())));
+		$BasisLibrary::runTimeError($BasisLibrary::ITERATOR_CLONE_ERR, $(e->toString()));
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -120,19 +69,19 @@ void MultiValuedNodeHeapIterator::addHeapNode($MultiValuedNodeHeapIterator$HeapN
 }
 
 int32_t MultiValuedNodeHeapIterator::next() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (this->_heapSize > 0) {
 		int32_t smallest = $nc($nc(this->_heap)->get(0))->_node;
 		if (smallest == $DTMAxisIterator::END) {
 			if (this->_heapSize > 1) {
-				$var($MultiValuedNodeHeapIterator$HeapNode, temp, $nc(this->_heap)->get(0));
-				$nc(this->_heap)->set(0, $nc(this->_heap)->get(--this->_heapSize));
-				$nc(this->_heap)->set(this->_heapSize, temp);
+				$var($MultiValuedNodeHeapIterator$HeapNode, temp, this->_heap->get(0));
+				this->_heap->set(0, this->_heap->get(--this->_heapSize));
+				this->_heap->set(this->_heapSize, temp);
 			} else {
 				return $DTMAxisIterator::END;
 			}
 		} else if (smallest == this->_returnedLast) {
-			$nc($nc(this->_heap)->get(0))->step();
+			$nc(this->_heap->get(0))->step();
 		} else {
 			$nc($nc(this->_heap)->get(0))->step();
 			heapify(0);
@@ -148,7 +97,7 @@ $DTMAxisIterator* MultiValuedNodeHeapIterator::setStartNode(int32_t node) {
 		this->_startNode = node;
 		for (int32_t i = 0; i < this->_free; ++i) {
 			if (!$nc($nc(this->_heap)->get(i))->_isStartSet) {
-				$nc($nc(this->_heap)->get(i))->setStartNode(node);
+				$nc(this->_heap->get(i))->setStartNode(node);
 				$nc($nc(this->_heap)->get(i))->step();
 				$nc($nc(this->_heap)->get(i))->_isStartSet = true;
 			}
@@ -171,26 +120,21 @@ void MultiValuedNodeHeapIterator::init() {
 }
 
 void MultiValuedNodeHeapIterator::heapify(int32_t i) {
-	$useLocalCurrentObjectStackCache();
-	{
-		int32_t r = 0;
-		int32_t l = 0;
-		int32_t smallest = 0;
-		for (;;) {
-			r = (i + 1) << 1;
-			l = r - 1;
-			smallest = l < this->_heapSize && $nc($nc(this->_heap)->get(l))->isLessThan($nc(this->_heap)->get(i)) ? l : i;
-			if (r < this->_heapSize && $nc($nc(this->_heap)->get(r))->isLessThan($nc(this->_heap)->get(smallest))) {
-				smallest = r;
-			}
-			if (smallest != i) {
-				$var($MultiValuedNodeHeapIterator$HeapNode, temp, $nc(this->_heap)->get(smallest));
-				$nc(this->_heap)->set(smallest, $nc(this->_heap)->get(i));
-				$nc(this->_heap)->set(i, temp);
-				i = smallest;
-			} else {
-				break;
-			}
+	$useLocalObjectStack();
+	for (int32_t r = 0, l = 0, smallest = 0;;) {
+		r = (i + 1) << 1;
+		l = r - 1;
+		smallest = l < this->_heapSize && $nc($nc(this->_heap)->get(l))->isLessThan($nc(this->_heap)->get(i)) ? l : i;
+		if (r < this->_heapSize && $nc($nc(this->_heap)->get(r))->isLessThan($nc(this->_heap)->get(smallest))) {
+			smallest = r;
+		}
+		if (smallest != i) {
+			$var($MultiValuedNodeHeapIterator$HeapNode, temp, $nc(this->_heap)->get(smallest));
+			this->_heap->set(smallest, this->_heap->get(i));
+			this->_heap->set(i, temp);
+			i = smallest;
+		} else {
+			break;
 		}
 	}
 }
@@ -229,7 +173,51 @@ MultiValuedNodeHeapIterator::MultiValuedNodeHeapIterator() {
 }
 
 $Class* MultiValuedNodeHeapIterator::load$($String* name, bool initialize) {
-	$loadClass(MultiValuedNodeHeapIterator, name, initialize, &_MultiValuedNodeHeapIterator_ClassInfo_, allocate$MultiValuedNodeHeapIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"InitSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MultiValuedNodeHeapIterator, InitSize)},
+		{"_heapSize", "I", nullptr, $PRIVATE, $field(MultiValuedNodeHeapIterator, _heapSize)},
+		{"_size", "I", nullptr, $PRIVATE, $field(MultiValuedNodeHeapIterator, _size)},
+		{"_heap", "[Lcom/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator$HeapNode;", nullptr, $PRIVATE, $field(MultiValuedNodeHeapIterator, _heap)},
+		{"_free", "I", nullptr, $PRIVATE, $field(MultiValuedNodeHeapIterator, _free)},
+		{"_returnedLast", "I", nullptr, $PRIVATE, $field(MultiValuedNodeHeapIterator, _returnedLast)},
+		{"_cachedReturnedLast", "I", nullptr, $PRIVATE, $field(MultiValuedNodeHeapIterator, _cachedReturnedLast)},
+		{"_cachedHeapSize", "I", nullptr, $PRIVATE, $field(MultiValuedNodeHeapIterator, _cachedHeapSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MultiValuedNodeHeapIterator, init$, void)},
+		{"addHeapNode", "(Lcom/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator$HeapNode;)V", nullptr, $PROTECTED, $virtualMethod(MultiValuedNodeHeapIterator, addHeapNode, void, $MultiValuedNodeHeapIterator$HeapNode*)},
+		{"cloneIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(MultiValuedNodeHeapIterator, cloneIterator, $DTMAxisIterator*)},
+		{"gotoMark", "()V", nullptr, $PUBLIC, $virtualMethod(MultiValuedNodeHeapIterator, gotoMark, void)},
+		{"heapify", "(I)V", nullptr, $PRIVATE, $method(MultiValuedNodeHeapIterator, heapify, void, int32_t)},
+		{"init", "()V", nullptr, $PROTECTED, $virtualMethod(MultiValuedNodeHeapIterator, init, void)},
+		{"next", "()I", nullptr, $PUBLIC, $virtualMethod(MultiValuedNodeHeapIterator, next, int32_t)},
+		{"reset", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(MultiValuedNodeHeapIterator, reset, $DTMAxisIterator*)},
+		{"setMark", "()V", nullptr, $PUBLIC, $virtualMethod(MultiValuedNodeHeapIterator, setMark, void)},
+		{"setStartNode", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(MultiValuedNodeHeapIterator, setStartNode, $DTMAxisIterator*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xalan.internal.xsltc.dom.MultiValuedNodeHeapIterator$HeapNode", "com.sun.org.apache.xalan.internal.xsltc.dom.MultiValuedNodeHeapIterator", "HeapNode", $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.MultiValuedNodeHeapIterator",
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMAxisIteratorBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.MultiValuedNodeHeapIterator$HeapNode"
+	};
+	$loadClass(MultiValuedNodeHeapIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiValuedNodeHeapIterator);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/XMLScanner$NameType.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/XMLScanner.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -29,56 +28,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace impl {
-
-$FieldInfo _XMLScanner$NameType_FieldInfo_[] = {
-	{"ATTRIBUTE", "Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLScanner$NameType, ATTRIBUTE)},
-	{"ATTRIBUTENAME", "Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLScanner$NameType, ATTRIBUTENAME)},
-	{"COMMENT", "Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLScanner$NameType, COMMENT)},
-	{"DOCTYPE", "Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLScanner$NameType, DOCTYPE)},
-	{"ELEMENTSTART", "Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLScanner$NameType, ELEMENTSTART)},
-	{"ELEMENTEND", "Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLScanner$NameType, ELEMENTEND)},
-	{"ENTITY", "Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLScanner$NameType, ENTITY)},
-	{"NOTATION", "Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLScanner$NameType, NOTATION)},
-	{"PI", "Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLScanner$NameType, PI)},
-	{"REFERENCE", "Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLScanner$NameType, REFERENCE)},
-	{"$VALUES", "[Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(XMLScanner$NameType, $VALUES)},
-	{"literal", "Ljava/lang/String;", nullptr, $FINAL, $field(XMLScanner$NameType, literal$)},
-	{}
-};
-
-$MethodInfo _XMLScanner$NameType_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XMLScanner$NameType, $values, $XMLScanner$NameTypeArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(XMLScanner$NameType, init$, void, $String*, int32_t, $String*)},
-	{"literal", "()Ljava/lang/String;", nullptr, 0, $method(XMLScanner$NameType, literal, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLScanner$NameType, valueOf, XMLScanner$NameType*, $String*)},
-	{"values", "()[Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLScanner$NameType, values, $XMLScanner$NameTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _XMLScanner$NameType_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.XMLScanner$NameType", "com.sun.org.apache.xerces.internal.impl.XMLScanner", "NameType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _XMLScanner$NameType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.org.apache.xerces.internal.impl.XMLScanner$NameType",
-	"java.lang.Enum",
-	nullptr,
-	_XMLScanner$NameType_FieldInfo_,
-	_XMLScanner$NameType_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;>;",
-	nullptr,
-	_XMLScanner$NameType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.XMLScanner"
-};
-
-$Object* allocate$XMLScanner$NameType($Class* clazz) {
-	return $of($alloc(XMLScanner$NameType));
-}
 
 XMLScanner$NameType* XMLScanner$NameType::ATTRIBUTE = nullptr;
 XMLScanner$NameType* XMLScanner$NameType::ATTRIBUTENAME = nullptr;
@@ -127,7 +76,7 @@ $String* XMLScanner$NameType::literal() {
 	return this->literal$;
 }
 
-void clinit$XMLScanner$NameType($Class* class$) {
+void XMLScanner$NameType::clinit$($Class* clazz) {
 	$assignStatic(XMLScanner$NameType::ATTRIBUTE, $new(XMLScanner$NameType, "ATTRIBUTE"_s, 0, "attribute"_s));
 	$assignStatic(XMLScanner$NameType::ATTRIBUTENAME, $new(XMLScanner$NameType, "ATTRIBUTENAME"_s, 1, "attribute name"_s));
 	$assignStatic(XMLScanner$NameType::COMMENT, $new(XMLScanner$NameType, "COMMENT"_s, 2, "comment"_s));
@@ -145,7 +94,51 @@ XMLScanner$NameType::XMLScanner$NameType() {
 }
 
 $Class* XMLScanner$NameType::load$($String* name, bool initialize) {
-	$loadClass(XMLScanner$NameType, name, initialize, &_XMLScanner$NameType_ClassInfo_, clinit$XMLScanner$NameType, allocate$XMLScanner$NameType);
+	$FieldInfo fieldInfos$$[] = {
+		{"ATTRIBUTE", "Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLScanner$NameType, ATTRIBUTE)},
+		{"ATTRIBUTENAME", "Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLScanner$NameType, ATTRIBUTENAME)},
+		{"COMMENT", "Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLScanner$NameType, COMMENT)},
+		{"DOCTYPE", "Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLScanner$NameType, DOCTYPE)},
+		{"ELEMENTSTART", "Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLScanner$NameType, ELEMENTSTART)},
+		{"ELEMENTEND", "Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLScanner$NameType, ELEMENTEND)},
+		{"ENTITY", "Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLScanner$NameType, ENTITY)},
+		{"NOTATION", "Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLScanner$NameType, NOTATION)},
+		{"PI", "Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLScanner$NameType, PI)},
+		{"REFERENCE", "Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLScanner$NameType, REFERENCE)},
+		{"$VALUES", "[Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(XMLScanner$NameType, $VALUES)},
+		{"literal", "Ljava/lang/String;", nullptr, $FINAL, $field(XMLScanner$NameType, literal$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XMLScanner$NameType, $values, $XMLScanner$NameTypeArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(XMLScanner$NameType, init$, void, $String*, int32_t, $String*)},
+		{"literal", "()Ljava/lang/String;", nullptr, 0, $method(XMLScanner$NameType, literal, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLScanner$NameType, valueOf, XMLScanner$NameType*, $String*)},
+		{"values", "()[Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLScanner$NameType, values, $XMLScanner$NameTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.XMLScanner$NameType", "com.sun.org.apache.xerces.internal.impl.XMLScanner", "NameType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.org.apache.xerces.internal.impl.XMLScanner$NameType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/org/apache/xerces/internal/impl/XMLScanner$NameType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.XMLScanner"
+	};
+	$loadClass(XMLScanner$NameType, name, initialize, &classInfo$$, XMLScanner$NameType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XMLScanner$NameType));
+	});
 	return class$;
 }
 

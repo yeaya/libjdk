@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/StyleSheet$ListPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -59,7 +58,6 @@
 using $charArray2 = $Array<char16_t, 2>;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Container = ::java::awt::Container;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
@@ -78,7 +76,6 @@ using $NumberFormatException = ::java::lang::NumberFormatException;
 using $MalformedURLException = ::java::net::MalformedURLException;
 using $URL = ::java::net::URL;
 using $StringTokenizer = ::java::util::StringTokenizer;
-using $Icon = ::javax::swing::Icon;
 using $ImageIcon = ::javax::swing::ImageIcon;
 using $JComponent = ::javax::swing::JComponent;
 using $UIManager = ::javax::swing::UIManager;
@@ -100,66 +97,10 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _StyleSheet$ListPainter_FieldInfo_[] = {
-	{"romanChars", "[[C", nullptr, $STATIC | $FINAL, $staticField(StyleSheet$ListPainter, romanChars)},
-	{"paintRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(StyleSheet$ListPainter, paintRect)},
-	{"checkedForStart", "Z", nullptr, $PRIVATE, $field(StyleSheet$ListPainter, checkedForStart)},
-	{"start", "I", nullptr, $PRIVATE, $field(StyleSheet$ListPainter, start)},
-	{"type", "Ljavax/swing/text/html/CSS$Value;", nullptr, $PRIVATE, $field(StyleSheet$ListPainter, type)},
-	{"imageurl", "Ljava/net/URL;", nullptr, 0, $field(StyleSheet$ListPainter, imageurl)},
-	{"ss", "Ljavax/swing/text/html/StyleSheet;", nullptr, $PRIVATE, $field(StyleSheet$ListPainter, ss)},
-	{"img", "Ljavax/swing/Icon;", nullptr, 0, $field(StyleSheet$ListPainter, img)},
-	{"bulletgap", "I", nullptr, $PRIVATE, $field(StyleSheet$ListPainter, bulletgap)},
-	{"isLeftToRight", "Z", nullptr, $PRIVATE, $field(StyleSheet$ListPainter, isLeftToRight)},
-	{}
-};
-
-$MethodInfo _StyleSheet$ListPainter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/html/StyleSheet;)V", nullptr, 0, $method(StyleSheet$ListPainter, init$, void, $AttributeSet*, $StyleSheet*)},
-	{"drawIcon", "(Ljava/awt/Graphics;IIIIFLjava/awt/Component;)V", nullptr, 0, $virtualMethod(StyleSheet$ListPainter, drawIcon, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, float, $Component*)},
-	{"drawLetter", "(Ljava/awt/Graphics;CIIIIFI)V", nullptr, 0, $virtualMethod(StyleSheet$ListPainter, drawLetter, void, $Graphics*, char16_t, int32_t, int32_t, int32_t, int32_t, float, int32_t)},
-	{"drawShape", "(Ljava/awt/Graphics;Ljavax/swing/text/html/CSS$Value;IIIIF)V", nullptr, 0, $virtualMethod(StyleSheet$ListPainter, drawShape, void, $Graphics*, $CSS$Value*, int32_t, int32_t, int32_t, int32_t, float)},
-	{"formatAlphaNumerals", "(I)Ljava/lang/String;", nullptr, 0, $virtualMethod(StyleSheet$ListPainter, formatAlphaNumerals, $String*, int32_t)},
-	{"formatItemNum", "(IC)Ljava/lang/String;", nullptr, 0, $virtualMethod(StyleSheet$ListPainter, formatItemNum, $String*, int32_t, char16_t)},
-	{"formatRomanDigit", "(II)Ljava/lang/String;", nullptr, 0, $virtualMethod(StyleSheet$ListPainter, formatRomanDigit, $String*, int32_t, int32_t)},
-	{"formatRomanNumerals", "(I)Ljava/lang/String;", nullptr, 0, $virtualMethod(StyleSheet$ListPainter, formatRomanNumerals, $String*, int32_t)},
-	{"formatRomanNumerals", "(II)Ljava/lang/String;", nullptr, 0, $virtualMethod(StyleSheet$ListPainter, formatRomanNumerals, $String*, int32_t, int32_t)},
-	{"getChildType", "(Ljavax/swing/text/View;)Ljavax/swing/text/html/CSS$Value;", nullptr, $PRIVATE, $method(StyleSheet$ListPainter, getChildType, $CSS$Value*, $View*)},
-	{"getRenderIndex", "(Ljavax/swing/text/View;I)I", nullptr, $PRIVATE, $method(StyleSheet$ListPainter, getRenderIndex, int32_t, $View*, int32_t)},
-	{"getStart", "(Ljavax/swing/text/View;)V", nullptr, $PRIVATE, $method(StyleSheet$ListPainter, getStart, void, $View*)},
-	{"paint", "(Ljava/awt/Graphics;FFFFLjavax/swing/text/View;I)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$ListPainter, paint, void, $Graphics*, float, float, float, float, $View*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _StyleSheet$ListPainter_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.StyleSheet$ListPainter", "javax.swing.text.html.StyleSheet", "ListPainter", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _StyleSheet$ListPainter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.StyleSheet$ListPainter",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_StyleSheet$ListPainter_FieldInfo_,
-	_StyleSheet$ListPainter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StyleSheet$ListPainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.StyleSheet"
-};
-
-$Object* allocate$StyleSheet$ListPainter($Class* clazz) {
-	return $of($alloc(StyleSheet$ListPainter));
-}
-
 $charArray2* StyleSheet$ListPainter::romanChars = nullptr;
 
 void StyleSheet$ListPainter::init$($AttributeSet* attr, $StyleSheet* ss) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, ss, nullptr);
 	$set(this, img, nullptr);
 	this->bulletgap = 5;
@@ -200,15 +141,15 @@ void StyleSheet$ListPainter::init$($AttributeSet* attr, $StyleSheet* ss) {
 }
 
 $CSS$Value* StyleSheet$ListPainter::getChildType($View* childView) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($CSS$Attribute);
-	$var($CSS$Value, childtype, $cast($CSS$Value, $nc($($nc(childView)->getAttributes()))->getAttribute($CSS$Attribute::LIST_STYLE_TYPE)));
+	$var($CSS$Value, childtype, $cast($CSS$Value, $$nc($nc(childView)->getAttributes())->getAttribute($CSS$Attribute::LIST_STYLE_TYPE)));
 	if (childtype == nullptr) {
 		if (this->type == nullptr) {
 			$var($View, v, childView->getParent());
 			$var($HTMLDocument, doc, $cast($HTMLDocument, $nc(v)->getDocument()));
 			$init($HTML$Tag);
-			if ($HTMLDocument::matchNameAttribute($($nc($(v->getElement()))->getAttributes()), $HTML$Tag::OL)) {
+			if ($HTMLDocument::matchNameAttribute($($$nc(v->getElement())->getAttributes()), $HTML$Tag::OL)) {
 				$init($CSS$Value);
 				$assign(childtype, $CSS$Value::DECIMAL);
 			} else {
@@ -223,7 +164,7 @@ $CSS$Value* StyleSheet$ListPainter::getChildType($View* childView) {
 }
 
 void StyleSheet$ListPainter::getStart($View* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->checkedForStart = true;
 	$var($Element, element, $nc(parent)->getElement());
 	if (element != nullptr) {
@@ -241,13 +182,13 @@ void StyleSheet$ListPainter::getStart($View* parent) {
 }
 
 int32_t StyleSheet$ListPainter::getRenderIndex($View* parentView, int32_t childIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->checkedForStart) {
 		getStart(parentView);
 	}
 	int32_t retIndex = childIndex;
 	for (int32_t counter = childIndex; counter >= 0; --counter) {
-		$var($AttributeSet, as, $nc($($nc($($nc(parentView)->getElement()))->getElement(counter)))->getAttributes());
+		$var($AttributeSet, as, $$nc($$nc($nc(parentView)->getElement())->getElement(counter))->getAttributes());
 		$init($StyleConstants);
 		$init($HTML$Tag);
 		if (!$equals($nc(as)->getAttribute($StyleConstants::NameAttribute), $HTML$Tag::LI)) {
@@ -270,65 +211,55 @@ int32_t StyleSheet$ListPainter::getRenderIndex($View* parentView, int32_t childI
 }
 
 void StyleSheet$ListPainter::paint($Graphics* g, float x, float y, float w, float h, $View* v, int32_t item) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($View, cv, $nc(v)->getView(item));
 	$var($Container, host, v->getContainer());
 	$init($StyleConstants);
-	$var($Object, name, $nc($($nc($($nc(cv)->getElement()))->getAttributes()))->getAttribute($StyleConstants::NameAttribute));
+	$var($Object, name, $$nc($$nc($nc(cv)->getElement())->getAttributes())->getAttribute($StyleConstants::NameAttribute));
 	$init($HTML$Tag);
 	if (!($instanceOf($HTML$Tag, name)) || !$equals(name, $HTML$Tag::LI)) {
 		return;
 	}
-	this->isLeftToRight = $nc($($nc(host)->getComponentOrientation()))->isLeftToRight();
-	float align = (float)0;
+	this->isLeftToRight = $$nc($nc(host)->getComponentOrientation())->isLeftToRight();
+	float align = 0;
 	if (cv->getViewCount() > 0) {
 		$var($View, pView, cv->getView(0));
-		$var($Object, cName, $nc($($nc($($nc(pView)->getElement()))->getAttributes()))->getAttribute($StyleConstants::NameAttribute));
+		$var($Object, cName, $$nc($$nc($nc(pView)->getElement())->getAttributes())->getAttribute($StyleConstants::NameAttribute));
 		if (($equals(cName, $HTML$Tag::P) || $equals(cName, $HTML$Tag::IMPLIED)) && pView->getViewCount() > 0) {
 			$nc(this->paintRect)->setBounds($cast(int32_t, x), $cast(int32_t, y), $cast(int32_t, w), $cast(int32_t, h));
 			$var($Shape, shape, cv->getChildAllocation(0, this->paintRect));
-			if (shape != nullptr && ($assign(shape, $nc($(pView->getView(0)))->getChildAllocation(0, shape))) != nullptr) {
+			if (shape != nullptr && ($assign(shape, $$nc(pView->getView(0))->getChildAllocation(0, shape))) != nullptr) {
 				$var($Rectangle, rect, ($instanceOf($Rectangle, shape)) ? $cast($Rectangle, shape) : shape->getBounds());
-				align = $nc($(pView->getView(0)))->getAlignment($View::Y_AXIS);
+				align = $$nc(pView->getView(0))->getAlignment($View::Y_AXIS);
 				y = (float)$nc(rect)->y;
 				h = (float)rect->height;
 			}
 		}
 	}
-	$var($Color, c, host->isEnabled() ? (this->ss != nullptr ? $nc(this->ss)->getForeground($(cv->getAttributes())) : host->getForeground()) : $UIManager::getColor("textInactiveText"_s));
+	$var($Color, c, host->isEnabled() ? (this->ss != nullptr ? this->ss->getForeground($(cv->getAttributes())) : host->getForeground()) : $UIManager::getColor("textInactiveText"_s));
 	$nc(g)->setColor(c);
 	if (this->img != nullptr) {
 		drawIcon(g, $cast(int32_t, x), $cast(int32_t, y), $cast(int32_t, w), $cast(int32_t, h), align, host);
 		return;
 	}
 	$var($CSS$Value, childtype, getChildType(cv));
-	$var($Font, font, $nc(($cast($StyledDocument, $(cv->getDocument()))))->getFont($(cv->getAttributes())));
+	$var($Font, font, $$sure($StyledDocument, cv->getDocument())->getFont($(cv->getAttributes())));
 	if (font != nullptr) {
 		g->setFont(font);
 	}
 	$init($CSS$Value);
 	if (childtype == $CSS$Value::SQUARE || childtype == $CSS$Value::CIRCLE || childtype == $CSS$Value::DISC) {
 		drawShape(g, childtype, $cast(int32_t, x), $cast(int32_t, y), $cast(int32_t, w), $cast(int32_t, h), align);
-	} else {
-		if (childtype == $CSS$Value::DECIMAL) {
-			drawLetter(g, u'1', $cast(int32_t, x), $cast(int32_t, y), $cast(int32_t, w), $cast(int32_t, h), align, getRenderIndex(v, item));
-		} else {
-			if (childtype == $CSS$Value::LOWER_ALPHA) {
-				drawLetter(g, u'a', $cast(int32_t, x), $cast(int32_t, y), $cast(int32_t, w), $cast(int32_t, h), align, getRenderIndex(v, item));
-			} else {
-				if (childtype == $CSS$Value::UPPER_ALPHA) {
-					drawLetter(g, u'A', $cast(int32_t, x), $cast(int32_t, y), $cast(int32_t, w), $cast(int32_t, h), align, getRenderIndex(v, item));
-				} else {
-					if (childtype == $CSS$Value::LOWER_ROMAN) {
-						drawLetter(g, u'i', $cast(int32_t, x), $cast(int32_t, y), $cast(int32_t, w), $cast(int32_t, h), align, getRenderIndex(v, item));
-					} else {
-						if (childtype == $CSS$Value::UPPER_ROMAN) {
-							drawLetter(g, u'I', $cast(int32_t, x), $cast(int32_t, y), $cast(int32_t, w), $cast(int32_t, h), align, getRenderIndex(v, item));
-						}
-					}
-				}
-			}
-		}
+	} else if (childtype == $CSS$Value::DECIMAL) {
+		drawLetter(g, u'1', $cast(int32_t, x), $cast(int32_t, y), $cast(int32_t, w), $cast(int32_t, h), align, getRenderIndex(v, item));
+	} else if (childtype == $CSS$Value::LOWER_ALPHA) {
+		drawLetter(g, u'a', $cast(int32_t, x), $cast(int32_t, y), $cast(int32_t, w), $cast(int32_t, h), align, getRenderIndex(v, item));
+	} else if (childtype == $CSS$Value::UPPER_ALPHA) {
+		drawLetter(g, u'A', $cast(int32_t, x), $cast(int32_t, y), $cast(int32_t, w), $cast(int32_t, h), align, getRenderIndex(v, item));
+	} else if (childtype == $CSS$Value::LOWER_ROMAN) {
+		drawLetter(g, u'i', $cast(int32_t, x), $cast(int32_t, y), $cast(int32_t, w), $cast(int32_t, h), align, getRenderIndex(v, item));
+	} else if (childtype == $CSS$Value::UPPER_ROMAN) {
+		drawLetter(g, u'I', $cast(int32_t, x), $cast(int32_t, y), $cast(int32_t, w), $cast(int32_t, h), align, getRenderIndex(v, item));
 	}
 }
 
@@ -340,69 +271,56 @@ void StyleSheet$ListPainter::drawIcon($Graphics* g, int32_t ax, int32_t ay, int3
 }
 
 void StyleSheet$ListPainter::drawShape($Graphics* g, $CSS$Value* type, int32_t ax, int32_t ay, int32_t aw, int32_t ah, float align) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($RenderingHints);
-	$var($Object, origAA, $nc(($cast($Graphics2D, g)))->getRenderingHint($RenderingHints::KEY_ANTIALIASING));
-	($cast($Graphics2D, g))->setRenderingHint($RenderingHints::KEY_ANTIALIASING, $RenderingHints::VALUE_ANTIALIAS_ON);
-	int32_t size = $nc($($nc(g)->getFont()))->getSize();
+	$var($Object, origAA, $nc($cast($Graphics2D, g))->getRenderingHint($RenderingHints::KEY_ANTIALIASING));
+	$cast($Graphics2D, g)->setRenderingHint($RenderingHints::KEY_ANTIALIASING, $RenderingHints::VALUE_ANTIALIAS_ON);
+	int32_t size = $$nc(g->getFont())->getSize();
 	int32_t gap = this->isLeftToRight ? -(this->bulletgap + size / 3) : (aw + this->bulletgap);
 	int32_t x = ax + gap;
 	int32_t y = $Math::max(ay, ay + $cast(int32_t, $Math::ceil((double)(ah / 2))));
 	$init($CSS$Value);
 	if (type == $CSS$Value::SQUARE) {
 		g->drawRect(x, y, size / 3, size / 3);
+	} else if (type == $CSS$Value::CIRCLE) {
+		g->drawOval(x, y, size / 3, size / 3);
 	} else {
-		if (type == $CSS$Value::CIRCLE) {
-			g->drawOval(x, y, size / 3, size / 3);
-		} else {
-			g->fillOval(x, y, size / 3, size / 3);
-		}
+		g->fillOval(x, y, size / 3, size / 3);
 	}
-	($cast($Graphics2D, g))->setRenderingHint($RenderingHints::KEY_ANTIALIASING, origAA);
+	$cast($Graphics2D, g)->setRenderingHint($RenderingHints::KEY_ANTIALIASING, origAA);
 }
 
 void StyleSheet$ListPainter::drawLetter($Graphics* g, char16_t letter, int32_t ax, int32_t ay, int32_t aw, int32_t ah, float align, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, formatItemNum(index, letter));
 	$assign(str, this->isLeftToRight ? $str({str, "."_s}) : $str({"."_s, str}));
-	$var($FontMetrics, fm, $SwingUtilities2::getFontMetrics(($JComponent*)nullptr, g));
+	$var($FontMetrics, fm, $SwingUtilities2::getFontMetrics(nullptr, g));
 	int32_t stringwidth = $SwingUtilities2::stringWidth(nullptr, fm, str);
 	int32_t gap = this->isLeftToRight ? -(stringwidth + this->bulletgap) : (aw + this->bulletgap);
 	int32_t x = ax + gap;
 	int32_t y = $Math::max(ay + $nc(fm)->getAscent(), ay + $cast(int32_t, (ah * align)));
-	$SwingUtilities2::drawString(($JComponent*)nullptr, g, str, x, y);
+	$SwingUtilities2::drawString(nullptr, g, str, x, y);
 }
 
 $String* StyleSheet$ListPainter::formatItemNum(int32_t itemNum, char16_t type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, numStyle, "1"_s);
 	bool uppercase = false;
 	$var($String, formattedNum, nullptr);
 	switch (type) {
 	case u'1':
-		{}
 	default:
-		{
-			$assign(formattedNum, $String::valueOf(itemNum));
-			break;
-		}
+		$assign(formattedNum, $String::valueOf(itemNum));
+		break;
 	case u'A':
-		{
-			uppercase = true;
-		}
+		uppercase = true;
 	case u'a':
-		{
-			$assign(formattedNum, formatAlphaNumerals(itemNum));
-			break;
-		}
+		$assign(formattedNum, formatAlphaNumerals(itemNum));
+		break;
 	case u'I':
-		{
-			uppercase = true;
-		}
+		uppercase = true;
 	case u'i':
-		{
-			$assign(formattedNum, formatRomanNumerals(itemNum));
-		}
+		$assign(formattedNum, formatRomanNumerals(itemNum));
 	}
 	if (uppercase) {
 		$assign(formattedNum, $nc(formattedNum)->toUpperCase());
@@ -411,11 +329,13 @@ $String* StyleSheet$ListPainter::formatItemNum(int32_t itemNum, char16_t type) {
 }
 
 $String* StyleSheet$ListPainter::formatAlphaNumerals(int32_t itemNum) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, result, nullptr);
 	if (itemNum > 26) {
-		$var($String, var$0, $(formatAlphaNumerals(itemNum / 26)));
-		$assign(result, $concat(var$0, $(formatAlphaNumerals(itemNum % 26))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(formatAlphaNumerals(itemNum / 26)));
+		var$0->append($(formatAlphaNumerals(itemNum % 26)));
+		$assign(result, $str(var$0));
 	} else {
 		$assign(result, $String::valueOf((char16_t)(u'a' + itemNum - 1)));
 	}
@@ -427,38 +347,40 @@ $String* StyleSheet$ListPainter::formatRomanNumerals(int32_t num) {
 }
 
 $String* StyleSheet$ListPainter::formatRomanNumerals(int32_t level, int32_t num) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (num < 10) {
 		return formatRomanDigit(level, num);
 	} else {
-		$var($String, var$0, $(formatRomanNumerals(level + 1, num / 10)));
-		return $concat(var$0, $(formatRomanDigit(level, num % 10)));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(formatRomanNumerals(level + 1, num / 10)));
+		var$0->append($(formatRomanDigit(level, num % 10)));
+		return $str(var$0);
 	}
 }
 
 $String* StyleSheet$ListPainter::formatRomanDigit(int32_t level, int32_t digit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, result, ""_s);
 	if (digit == 9) {
-		$assign(result, $str({result, $$str($nc($nc(StyleSheet$ListPainter::romanChars)->get(level))->get(0))}));
-		$assign(result, $str({result, $$str($nc($nc(StyleSheet$ListPainter::romanChars)->get(level + 1))->get(0))}));
+		$assign(result, $str({result, $$str($nc(StyleSheet$ListPainter::romanChars->get(level))->get(0))}));
+		$assign(result, $str({result, $$str($nc(StyleSheet$ListPainter::romanChars->get(level + 1))->get(0))}));
 		return result;
 	} else if (digit == 4) {
-		$assign(result, $str({result, $$str($nc($nc(StyleSheet$ListPainter::romanChars)->get(level))->get(0))}));
-		$assign(result, $str({result, $$str($nc($nc(StyleSheet$ListPainter::romanChars)->get(level))->get(1))}));
+		$assign(result, $str({result, $$str($nc(StyleSheet$ListPainter::romanChars->get(level))->get(0))}));
+		$assign(result, $str({result, $$str($nc(StyleSheet$ListPainter::romanChars->get(level))->get(1))}));
 		return result;
 	} else if (digit >= 5) {
-		$assign(result, $str({result, $$str($nc($nc(StyleSheet$ListPainter::romanChars)->get(level))->get(1))}));
+		$assign(result, $str({result, $$str($nc(StyleSheet$ListPainter::romanChars->get(level))->get(1))}));
 		digit -= 5;
 	}
 	for (int32_t i = 0; i < digit; ++i) {
-		$assign(result, $str({result, $$str($nc($nc(StyleSheet$ListPainter::romanChars)->get(level))->get(0))}));
+		$assign(result, $str({result, $$str($nc(StyleSheet$ListPainter::romanChars->get(level))->get(0))}));
 	}
 	return result;
 }
 
-void clinit$StyleSheet$ListPainter($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void StyleSheet$ListPainter::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(StyleSheet$ListPainter::romanChars, $new($charArray2, {
 		$$new($chars, {
 			u'i',
@@ -483,7 +405,57 @@ StyleSheet$ListPainter::StyleSheet$ListPainter() {
 }
 
 $Class* StyleSheet$ListPainter::load$($String* name, bool initialize) {
-	$loadClass(StyleSheet$ListPainter, name, initialize, &_StyleSheet$ListPainter_ClassInfo_, clinit$StyleSheet$ListPainter, allocate$StyleSheet$ListPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"romanChars", "[[C", nullptr, $STATIC | $FINAL, $staticField(StyleSheet$ListPainter, romanChars)},
+		{"paintRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(StyleSheet$ListPainter, paintRect)},
+		{"checkedForStart", "Z", nullptr, $PRIVATE, $field(StyleSheet$ListPainter, checkedForStart)},
+		{"start", "I", nullptr, $PRIVATE, $field(StyleSheet$ListPainter, start)},
+		{"type", "Ljavax/swing/text/html/CSS$Value;", nullptr, $PRIVATE, $field(StyleSheet$ListPainter, type)},
+		{"imageurl", "Ljava/net/URL;", nullptr, 0, $field(StyleSheet$ListPainter, imageurl)},
+		{"ss", "Ljavax/swing/text/html/StyleSheet;", nullptr, $PRIVATE, $field(StyleSheet$ListPainter, ss)},
+		{"img", "Ljavax/swing/Icon;", nullptr, 0, $field(StyleSheet$ListPainter, img)},
+		{"bulletgap", "I", nullptr, $PRIVATE, $field(StyleSheet$ListPainter, bulletgap)},
+		{"isLeftToRight", "Z", nullptr, $PRIVATE, $field(StyleSheet$ListPainter, isLeftToRight)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/html/StyleSheet;)V", nullptr, 0, $method(StyleSheet$ListPainter, init$, void, $AttributeSet*, $StyleSheet*)},
+		{"drawIcon", "(Ljava/awt/Graphics;IIIIFLjava/awt/Component;)V", nullptr, 0, $virtualMethod(StyleSheet$ListPainter, drawIcon, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, float, $Component*)},
+		{"drawLetter", "(Ljava/awt/Graphics;CIIIIFI)V", nullptr, 0, $virtualMethod(StyleSheet$ListPainter, drawLetter, void, $Graphics*, char16_t, int32_t, int32_t, int32_t, int32_t, float, int32_t)},
+		{"drawShape", "(Ljava/awt/Graphics;Ljavax/swing/text/html/CSS$Value;IIIIF)V", nullptr, 0, $virtualMethod(StyleSheet$ListPainter, drawShape, void, $Graphics*, $CSS$Value*, int32_t, int32_t, int32_t, int32_t, float)},
+		{"formatAlphaNumerals", "(I)Ljava/lang/String;", nullptr, 0, $virtualMethod(StyleSheet$ListPainter, formatAlphaNumerals, $String*, int32_t)},
+		{"formatItemNum", "(IC)Ljava/lang/String;", nullptr, 0, $virtualMethod(StyleSheet$ListPainter, formatItemNum, $String*, int32_t, char16_t)},
+		{"formatRomanDigit", "(II)Ljava/lang/String;", nullptr, 0, $virtualMethod(StyleSheet$ListPainter, formatRomanDigit, $String*, int32_t, int32_t)},
+		{"formatRomanNumerals", "(I)Ljava/lang/String;", nullptr, 0, $virtualMethod(StyleSheet$ListPainter, formatRomanNumerals, $String*, int32_t)},
+		{"formatRomanNumerals", "(II)Ljava/lang/String;", nullptr, 0, $virtualMethod(StyleSheet$ListPainter, formatRomanNumerals, $String*, int32_t, int32_t)},
+		{"getChildType", "(Ljavax/swing/text/View;)Ljavax/swing/text/html/CSS$Value;", nullptr, $PRIVATE, $method(StyleSheet$ListPainter, getChildType, $CSS$Value*, $View*)},
+		{"getRenderIndex", "(Ljavax/swing/text/View;I)I", nullptr, $PRIVATE, $method(StyleSheet$ListPainter, getRenderIndex, int32_t, $View*, int32_t)},
+		{"getStart", "(Ljavax/swing/text/View;)V", nullptr, $PRIVATE, $method(StyleSheet$ListPainter, getStart, void, $View*)},
+		{"paint", "(Ljava/awt/Graphics;FFFFLjavax/swing/text/View;I)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$ListPainter, paint, void, $Graphics*, float, float, float, float, $View*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.StyleSheet$ListPainter", "javax.swing.text.html.StyleSheet", "ListPainter", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.StyleSheet$ListPainter",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.StyleSheet"
+	};
+	$loadClass(StyleSheet$ListPainter, name, initialize, &classInfo$$, StyleSheet$ListPainter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StyleSheet$ListPainter);
+	});
 	return class$;
 }
 

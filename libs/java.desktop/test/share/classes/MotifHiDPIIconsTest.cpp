@@ -1,5 +1,4 @@
 #include <MotifHiDPIIconsTest.h>
-
 #include <MotifHiDPIIconsTest$1.h>
 #include <MotifHiDPIIconsTest$2.h>
 #include <java/awt/Color.h>
@@ -8,7 +7,6 @@
 #include <java/awt/FlowLayout.h>
 #include <java/awt/GridBagConstraints.h>
 #include <java/awt/GridBagLayout.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
@@ -45,15 +43,11 @@
 using $MotifHiDPIIconsTest$1 = ::MotifHiDPIIconsTest$1;
 using $MotifHiDPIIconsTest$2 = ::MotifHiDPIIconsTest$2;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $FlowLayout = ::java::awt::FlowLayout;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $WindowListener = ::java::awt::event::WindowListener;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -84,27 +78,24 @@ public:
 	virtual void run() override {
 		MotifHiDPIIconsTest::createUI();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MotifHiDPIIconsTest$$Lambda$createUI>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MotifHiDPIIconsTest$$Lambda$createUI::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifHiDPIIconsTest$$Lambda$createUI, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MotifHiDPIIconsTest$$Lambda$createUI, run, void)},
-	{}
-};
-$ClassInfo MotifHiDPIIconsTest$$Lambda$createUI::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"MotifHiDPIIconsTest$$Lambda$createUI",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* MotifHiDPIIconsTest$$Lambda$createUI::load$($String* name, bool initialize) {
-	$loadClass(MotifHiDPIIconsTest$$Lambda$createUI, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifHiDPIIconsTest$$Lambda$createUI, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MotifHiDPIIconsTest$$Lambda$createUI, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"MotifHiDPIIconsTest$$Lambda$createUI",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MotifHiDPIIconsTest$$Lambda$createUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MotifHiDPIIconsTest$$Lambda$createUI);
+	});
 	return class$;
 }
 $Class* MotifHiDPIIconsTest$$Lambda$createUI::class$ = nullptr;
@@ -118,77 +109,32 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		MotifHiDPIIconsTest::lambda$createUI$0(mainFrame, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MotifHiDPIIconsTest$$Lambda$lambda$createUI$0$1>());
-	}
 	$JFrame* mainFrame = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo MotifHiDPIIconsTest$$Lambda$lambda$createUI$0$1::fieldInfos[2] = {
-	{"mainFrame", "Ljavax/swing/JFrame;", nullptr, $PUBLIC, $field(MotifHiDPIIconsTest$$Lambda$lambda$createUI$0$1, mainFrame)},
-	{}
-};
-$MethodInfo MotifHiDPIIconsTest$$Lambda$lambda$createUI$0$1::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/JFrame;)V", nullptr, $PUBLIC, $method(MotifHiDPIIconsTest$$Lambda$lambda$createUI$0$1, init$, void, $JFrame*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifHiDPIIconsTest$$Lambda$lambda$createUI$0$1, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo MotifHiDPIIconsTest$$Lambda$lambda$createUI$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"MotifHiDPIIconsTest$$Lambda$lambda$createUI$0$1",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* MotifHiDPIIconsTest$$Lambda$lambda$createUI$0$1::load$($String* name, bool initialize) {
-	$loadClass(MotifHiDPIIconsTest$$Lambda$lambda$createUI$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"mainFrame", "Ljavax/swing/JFrame;", nullptr, $PUBLIC, $field(MotifHiDPIIconsTest$$Lambda$lambda$createUI$0$1, mainFrame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JFrame;)V", nullptr, $PUBLIC, $method(MotifHiDPIIconsTest$$Lambda$lambda$createUI$0$1, init$, void, $JFrame*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifHiDPIIconsTest$$Lambda$lambda$createUI$0$1, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"MotifHiDPIIconsTest$$Lambda$lambda$createUI$0$1",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MotifHiDPIIconsTest$$Lambda$lambda$createUI$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MotifHiDPIIconsTest$$Lambda$lambda$createUI$0$1);
+	});
 	return class$;
 }
 $Class* MotifHiDPIIconsTest$$Lambda$lambda$createUI$0$1::class$ = nullptr;
-
-$FieldInfo _MotifHiDPIIconsTest_FieldInfo_[] = {
-	{"testResult", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(MotifHiDPIIconsTest, testResult)},
-	{"countDownLatch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(MotifHiDPIIconsTest, countDownLatch)},
-	{"INSTRUCTIONS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MotifHiDPIIconsTest, INSTRUCTIONS)},
-	{}
-};
-
-$MethodInfo _MotifHiDPIIconsTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifHiDPIIconsTest, init$, void)},
-	{"createJPanel", "()Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticMethod(MotifHiDPIIconsTest, createJPanel, $JPanel*)},
-	{"createUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(MotifHiDPIIconsTest, createUI, void)},
-	{"lambda$createUI$0", "(Ljavax/swing/JFrame;Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MotifHiDPIIconsTest, lambda$createUI$0, void, $JFrame*, $ActionEvent*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifHiDPIIconsTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _MotifHiDPIIconsTest_InnerClassesInfo_[] = {
-	{"MotifHiDPIIconsTest$2", nullptr, nullptr, 0},
-	{"MotifHiDPIIconsTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MotifHiDPIIconsTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MotifHiDPIIconsTest",
-	"java.lang.Object",
-	nullptr,
-	_MotifHiDPIIconsTest_FieldInfo_,
-	_MotifHiDPIIconsTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifHiDPIIconsTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"MotifHiDPIIconsTest$2,MotifHiDPIIconsTest$1"
-};
-
-$Object* allocate$MotifHiDPIIconsTest($Class* clazz) {
-	return $of($alloc(MotifHiDPIIconsTest));
-}
 
 $volatile(bool) MotifHiDPIIconsTest::testResult = false;
 $volatile($CountDownLatch*) MotifHiDPIIconsTest::countDownLatch = nullptr;
@@ -200,7 +146,7 @@ void MotifHiDPIIconsTest::init$() {
 void MotifHiDPIIconsTest::main($StringArray* args) {
 	$init(MotifHiDPIIconsTest);
 	$assignStatic(MotifHiDPIIconsTest::countDownLatch, $new($CountDownLatch, 1));
-	$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(MotifHiDPIIconsTest$$Lambda$createUI)));
+	$SwingUtilities::invokeLater($$new(MotifHiDPIIconsTest$$Lambda$createUI));
 	$init($TimeUnit);
 	$nc(MotifHiDPIIconsTest::countDownLatch)->await(15, $TimeUnit::MINUTES);
 	if (!MotifHiDPIIconsTest::testResult) {
@@ -210,17 +156,17 @@ void MotifHiDPIIconsTest::main($StringArray* args) {
 
 void MotifHiDPIIconsTest::createUI() {
 	$init(MotifHiDPIIconsTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFrame, mainFrame, $new($JFrame, "Motif L&F icons test"_s));
 	$var($GridBagLayout, layout, $new($GridBagLayout));
-	$var($JPanel, mainControlPanel, $new($JPanel, static_cast<$LayoutManager*>(layout)));
-	$var($JPanel, resultButtonPanel, $new($JPanel, static_cast<$LayoutManager*>(layout)));
+	$var($JPanel, mainControlPanel, $new($JPanel, layout));
+	$var($JPanel, resultButtonPanel, $new($JPanel, layout));
 	$var($GridBagConstraints, gbc, $new($GridBagConstraints));
 	$var($JPanel, testPanel, createJPanel());
 	gbc->gridx = 0;
 	gbc->gridy = 0;
 	gbc->fill = $GridBagConstraints::HORIZONTAL;
-	mainControlPanel->add(static_cast<$Component*>(testPanel), $of(gbc));
+	mainControlPanel->add(testPanel, gbc);
 	$var($JTextArea, instructionTextArea, $new($JTextArea));
 	instructionTextArea->setText(MotifHiDPIIconsTest::INSTRUCTIONS);
 	instructionTextArea->setEditable(false);
@@ -229,23 +175,23 @@ void MotifHiDPIIconsTest::createUI() {
 	gbc->gridx = 0;
 	gbc->gridy = 1;
 	gbc->fill = $GridBagConstraints::HORIZONTAL;
-	mainControlPanel->add(static_cast<$Component*>(instructionTextArea), $of(gbc));
+	mainControlPanel->add(instructionTextArea, gbc);
 	$var($JButton, passButton, $new($JButton, "Pass"_s));
 	passButton->setActionCommand("Pass"_s);
-	passButton->addActionListener(static_cast<$ActionListener*>($$new(MotifHiDPIIconsTest$$Lambda$lambda$createUI$0$1, mainFrame)));
+	passButton->addActionListener($$new(MotifHiDPIIconsTest$$Lambda$lambda$createUI$0$1, mainFrame));
 	$var($JButton, failButton, $new($JButton, "Fail"_s));
 	failButton->setActionCommand("Fail"_s);
 	failButton->addActionListener($$new($MotifHiDPIIconsTest$1, mainFrame));
 	gbc->gridx = 0;
 	gbc->gridy = 0;
-	resultButtonPanel->add(static_cast<$Component*>(passButton), $of(gbc));
+	resultButtonPanel->add(passButton, gbc);
 	gbc->gridx = 1;
 	gbc->gridy = 0;
-	resultButtonPanel->add(static_cast<$Component*>(failButton), $of(gbc));
+	resultButtonPanel->add(failButton, gbc);
 	gbc->gridx = 0;
 	gbc->gridy = 2;
-	mainControlPanel->add(static_cast<$Component*>(resultButtonPanel), $of(gbc));
-	mainFrame->add(static_cast<$Component*>(mainControlPanel));
+	mainControlPanel->add(resultButtonPanel, gbc);
+	mainFrame->add(mainControlPanel);
 	mainFrame->pack();
 	mainFrame->addWindowListener($$new($MotifHiDPIIconsTest$2, mainFrame));
 	mainFrame->setVisible(true);
@@ -253,40 +199,40 @@ void MotifHiDPIIconsTest::createUI() {
 
 $JPanel* MotifHiDPIIconsTest::createJPanel() {
 	$init(MotifHiDPIIconsTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JPanel, panel, $new($JPanel));
 	panel->setLayout($$new($BoxLayout, panel, $BoxLayout::Y_AXIS));
-	$var($JPanel, iconPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($FlowLayout))));
+	$var($JPanel, iconPanel, $new($JPanel, $$new($FlowLayout)));
 	$var($JRadioButton, radioButton, $new($JRadioButton));
 	radioButton->setSelected(false);
-	iconPanel->add(static_cast<$Component*>(radioButton));
+	iconPanel->add(radioButton);
 	$assign(radioButton, $new($JRadioButton));
 	radioButton->setSelected(true);
-	iconPanel->add(static_cast<$Component*>(radioButton));
-	panel->add(static_cast<$Component*>(iconPanel));
-	$assign(iconPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($FlowLayout))));
+	iconPanel->add(radioButton);
+	panel->add(iconPanel);
+	$assign(iconPanel, $new($JPanel, $$new($FlowLayout)));
 	$var($JCheckBox, checkBox, $new($JCheckBox));
 	checkBox->setSelected(false);
-	iconPanel->add(static_cast<$Component*>(checkBox));
+	iconPanel->add(checkBox);
 	$assign(checkBox, $new($JCheckBox));
 	checkBox->setSelected(true);
-	iconPanel->add(static_cast<$Component*>(checkBox));
-	panel->add(static_cast<$Component*>(iconPanel));
-	$assign(iconPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($FlowLayout))));
+	iconPanel->add(checkBox);
+	panel->add(iconPanel);
+	$assign(iconPanel, $new($JPanel, $$new($FlowLayout)));
 	$var($JComboBox, comboBox, $new($JComboBox, $$new($StringArray, {
 		"111"_s,
 		"222"_s
 	})));
-	iconPanel->add(static_cast<$Component*>(comboBox));
-	panel->add(static_cast<$Component*>(iconPanel));
-	$assign(iconPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($FlowLayout))));
+	iconPanel->add(comboBox);
+	panel->add(iconPanel);
+	$assign(iconPanel, $new($JPanel, $$new($FlowLayout)));
 	$var($JTextArea, textArea, $new($JTextArea, 3, 7));
 	textArea->setText("AAA"_s);
 	$var($JScrollPane, scrollPane, $new($JScrollPane, textArea));
 	scrollPane->setHorizontalScrollBarPolicy($ScrollPaneConstants::HORIZONTAL_SCROLLBAR_ALWAYS);
 	scrollPane->setVerticalScrollBarPolicy($ScrollPaneConstants::VERTICAL_SCROLLBAR_ALWAYS);
-	iconPanel->add(static_cast<$Component*>(scrollPane));
-	panel->add(static_cast<$Component*>(iconPanel));
+	iconPanel->add(scrollPane);
+	panel->add(iconPanel);
 	return panel;
 }
 
@@ -297,7 +243,7 @@ void MotifHiDPIIconsTest::lambda$createUI$0($JFrame* mainFrame, $ActionEvent* e)
 	$nc(MotifHiDPIIconsTest::countDownLatch)->countDown();
 }
 
-void clinit$MotifHiDPIIconsTest($Class* class$) {
+void MotifHiDPIIconsTest::clinit$($Class* clazz) {
 	$assignStatic(MotifHiDPIIconsTest::INSTRUCTIONS, "INSTRUCTIONS:\nCheck that the icons are painted smoothly on Swing UI controls:\n  - JRadioButton\n  - JCheckBox\n  - JComboBox\n  - JScrollPane (vertical and horizontal scroll bars)\n\nIf so, press PASS, else press FAIL.\n"_s);
 	MotifHiDPIIconsTest::testResult = false;
 }
@@ -307,14 +253,49 @@ MotifHiDPIIconsTest::MotifHiDPIIconsTest() {
 
 $Class* MotifHiDPIIconsTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(MotifHiDPIIconsTest$$Lambda$createUI::classInfo$.name)) {
+		if (name->equals("MotifHiDPIIconsTest$$Lambda$createUI")) {
 			return MotifHiDPIIconsTest$$Lambda$createUI::load$(name, initialize);
 		}
-		if (name->equals(MotifHiDPIIconsTest$$Lambda$lambda$createUI$0$1::classInfo$.name)) {
+		if (name->equals("MotifHiDPIIconsTest$$Lambda$lambda$createUI$0$1")) {
 			return MotifHiDPIIconsTest$$Lambda$lambda$createUI$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(MotifHiDPIIconsTest, name, initialize, &_MotifHiDPIIconsTest_ClassInfo_, clinit$MotifHiDPIIconsTest, allocate$MotifHiDPIIconsTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"testResult", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(MotifHiDPIIconsTest, testResult)},
+		{"countDownLatch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(MotifHiDPIIconsTest, countDownLatch)},
+		{"INSTRUCTIONS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MotifHiDPIIconsTest, INSTRUCTIONS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifHiDPIIconsTest, init$, void)},
+		{"createJPanel", "()Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticMethod(MotifHiDPIIconsTest, createJPanel, $JPanel*)},
+		{"createUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(MotifHiDPIIconsTest, createUI, void)},
+		{"lambda$createUI$0", "(Ljavax/swing/JFrame;Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MotifHiDPIIconsTest, lambda$createUI$0, void, $JFrame*, $ActionEvent*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifHiDPIIconsTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"MotifHiDPIIconsTest$2", nullptr, nullptr, 0},
+		{"MotifHiDPIIconsTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MotifHiDPIIconsTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"MotifHiDPIIconsTest$2,MotifHiDPIIconsTest$1"
+	};
+	$loadClass(MotifHiDPIIconsTest, name, initialize, &classInfo$$, MotifHiDPIIconsTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MotifHiDPIIconsTest);
+	});
 	return class$;
 }
 

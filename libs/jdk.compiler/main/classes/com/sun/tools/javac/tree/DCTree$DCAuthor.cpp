@@ -1,6 +1,4 @@
 #include <com/sun/tools/javac/tree/DCTree$DCAuthor.h>
-
-#include <com/sun/source/doctree/AuthorTree.h>
 #include <com/sun/source/doctree/DocTree$Kind.h>
 #include <com/sun/source/doctree/DocTreeVisitor.h>
 #include <com/sun/tools/javac/tree/DCTree$DCBlockTag.h>
@@ -10,7 +8,6 @@
 
 #undef AUTHOR
 
-using $AuthorTree = ::com::sun::source::doctree::AuthorTree;
 using $DocTree$Kind = ::com::sun::source::doctree::DocTree$Kind;
 using $DocTreeVisitor = ::com::sun::source::doctree::DocTreeVisitor;
 using $DCTree$DCBlockTag = ::com::sun::tools::javac::tree::DCTree$DCBlockTag;
@@ -25,51 +22,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _DCTree$DCAuthor_FieldInfo_[] = {
-	{"name", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PUBLIC | $FINAL, $field(DCTree$DCAuthor, name)},
-	{}
-};
-
-$MethodInfo _DCTree$DCAuthor_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;)V", 0, $method(DCTree$DCAuthor, init$, void, $List*)},
-	{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(DCTree$DCAuthor, accept, $Object*, $DocTreeVisitor*, Object$*)},
-	{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCAuthor, getKind, $DocTree$Kind*)},
-	{"getName", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DCTree$DCAuthor, getName, $List*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DCTree$DCAuthor_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.DCTree$DCAuthor", "com.sun.tools.javac.tree.DCTree", "DCAuthor", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.DCTree$DCBlockTag", "com.sun.tools.javac.tree.DCTree", "DCBlockTag", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DCTree$DCAuthor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.DCTree$DCAuthor",
-	"com.sun.tools.javac.tree.DCTree$DCBlockTag",
-	"com.sun.source.doctree.AuthorTree",
-	_DCTree$DCAuthor_FieldInfo_,
-	_DCTree$DCAuthor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DCTree$DCAuthor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.DCTree"
-};
-
-$Object* allocate$DCTree$DCAuthor($Class* clazz) {
-	return $of($alloc(DCTree$DCAuthor));
-}
 
 $String* DCTree$DCAuthor::getTagName() {
 	 return this->$DCTree$DCBlockTag::getTagName();
@@ -106,7 +58,7 @@ $DocTree$Kind* DCTree$DCAuthor::getKind() {
 }
 
 $Object* DCTree$DCAuthor::accept($DocTreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitAuthor(this, d));
+	return $nc(v)->visitAuthor(this, d);
 }
 
 $List* DCTree$DCAuthor::getName() {
@@ -117,7 +69,46 @@ DCTree$DCAuthor::DCTree$DCAuthor() {
 }
 
 $Class* DCTree$DCAuthor::load$($String* name, bool initialize) {
-	$loadClass(DCTree$DCAuthor, name, initialize, &_DCTree$DCAuthor_ClassInfo_, allocate$DCTree$DCAuthor);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PUBLIC | $FINAL, $field(DCTree$DCAuthor, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;)V", 0, $method(DCTree$DCAuthor, init$, void, $List*)},
+		{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(DCTree$DCAuthor, accept, $Object*, $DocTreeVisitor*, Object$*)},
+		{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCAuthor, getKind, $DocTree$Kind*)},
+		{"getName", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DCTree$DCAuthor, getName, $List*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.DCTree$DCAuthor", "com.sun.tools.javac.tree.DCTree", "DCAuthor", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.DCTree$DCBlockTag", "com.sun.tools.javac.tree.DCTree", "DCBlockTag", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.DCTree$DCAuthor",
+		"com.sun.tools.javac.tree.DCTree$DCBlockTag",
+		"com.sun.source.doctree.AuthorTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.DCTree"
+	};
+	$loadClass(DCTree$DCAuthor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DCTree$DCAuthor));
+	});
 	return class$;
 }
 

@@ -60,6 +60,7 @@ class DummyEvent : public ::javax::xml::stream::events::XMLEvent {
 	$class(DummyEvent, 0, ::javax::xml::stream::events::XMLEvent)
 public:
 	DummyEvent();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t i);
 	virtual ::javax::xml::stream::events::Characters* asCharacters() override;

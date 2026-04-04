@@ -1,5 +1,4 @@
 #include <sun/font/X11Dingbats$Encoder.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
@@ -28,45 +27,6 @@ using $X11Dingbats = ::sun::font::X11Dingbats;
 namespace sun {
 	namespace font {
 
-$FieldInfo _X11Dingbats$Encoder_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(X11Dingbats$Encoder, $assertionsDisabled)},
-	{"table", "[B", nullptr, $PRIVATE | $STATIC, $staticField(X11Dingbats$Encoder, table)},
-	{}
-};
-
-$MethodInfo _X11Dingbats$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(X11Dingbats$Encoder, init$, void, $Charset*)},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(X11Dingbats$Encoder, canEncode, bool, char16_t)},
-	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(X11Dingbats$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC, $virtualMethod(X11Dingbats$Encoder, isLegalReplacement, bool, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _X11Dingbats$Encoder_InnerClassesInfo_[] = {
-	{"sun.font.X11Dingbats$Encoder", "sun.font.X11Dingbats", "Encoder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _X11Dingbats$Encoder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.font.X11Dingbats$Encoder",
-	"java.nio.charset.CharsetEncoder",
-	nullptr,
-	_X11Dingbats$Encoder_FieldInfo_,
-	_X11Dingbats$Encoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_X11Dingbats$Encoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.font.X11Dingbats"
-};
-
-$Object* allocate$X11Dingbats$Encoder($Class* clazz) {
-	return $of($alloc(X11Dingbats$Encoder));
-}
-
 bool X11Dingbats$Encoder::$assertionsDisabled = false;
 $bytes* X11Dingbats$Encoder::table = nullptr;
 
@@ -85,7 +45,7 @@ bool X11Dingbats$Encoder::canEncode(char16_t ch) {
 }
 
 $CoderResult* X11Dingbats$Encoder::encodeLoop($CharBuffer* src, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, sa, $cast($chars, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -104,47 +64,45 @@ $CoderResult* X11Dingbats$Encoder::encodeLoop($CharBuffer* src, $ByteBuffer* dst
 		$throwNew($AssertionError);
 	}
 	dp = (dp <= dl ? dp : dl);
-	{
-		$var($Throwable, var$4, nullptr);
-		$var($CoderResult, var$6, nullptr);
-		bool return$5 = false;
-		try {
-			while (sp < sl) {
-				char16_t c = $nc(sa)->get(sp);
-				if (dl - dp < 1) {
-					$init($CoderResult);
-					$assign(var$6, $CoderResult::OVERFLOW);
-					return$5 = true;
-					goto $finally;
-				}
-				if (!canEncode(c)) {
-					$assign(var$6, $CoderResult::unmappableForLength(1));
-					return$5 = true;
-					goto $finally;
-				}
-				++sp;
-				if (c >= 10081) {
-					$nc(da)->set(dp++, $nc(X11Dingbats$Encoder::table)->get(c - 10081));
-				} else {
-					$nc(da)->set(dp++, (int8_t)(c + 32 - 9984));
-				}
+	$var($Throwable, var$4, nullptr);
+	$var($CoderResult, var$6, nullptr);
+	bool return$5 = false;
+	try {
+		while (sp < sl) {
+			char16_t c = $nc(sa)->get(sp);
+			if (dl - dp < 1) {
+				$init($CoderResult);
+				$assign(var$6, $CoderResult::OVERFLOW);
+				return$5 = true;
+				goto $finally;
 			}
-			$init($CoderResult);
-			$assign(var$6, $CoderResult::UNDERFLOW);
-			return$5 = true;
-			goto $finally;
-		} catch ($Throwable& var$7) {
-			$assign(var$4, var$7);
-		} $finally: {
-			src->position(sp - src->arrayOffset());
-			dst->position(dp - dst->arrayOffset());
+			if (!canEncode(c)) {
+				$assign(var$6, $CoderResult::unmappableForLength(1));
+				return$5 = true;
+				goto $finally;
+			}
+			++sp;
+			if (c >= 10081) {
+				$nc(da)->set(dp++, $nc(X11Dingbats$Encoder::table)->get(c - 10081));
+			} else {
+				$nc(da)->set(dp++, (int8_t)(c + 32 - 9984));
+			}
 		}
-		if (var$4 != nullptr) {
-			$throw(var$4);
-		}
-		if (return$5) {
-			return var$6;
-		}
+		$init($CoderResult);
+		$assign(var$6, $CoderResult::UNDERFLOW);
+		return$5 = true;
+		goto $finally;
+	} catch ($Throwable& var$7) {
+		$assign(var$4, var$7);
+	} $finally: {
+		src->position(sp - src->arrayOffset());
+		dst->position(dp - dst->arrayOffset());
+	}
+	if (var$4 != nullptr) {
+		$throw(var$4);
+	}
+	if (return$5) {
+		return var$6;
 	}
 	$shouldNotReachHere();
 }
@@ -153,7 +111,7 @@ bool X11Dingbats$Encoder::isLegalReplacement($bytes* repl) {
 	return true;
 }
 
-void clinit$X11Dingbats$Encoder($Class* class$) {
+void X11Dingbats$Encoder::clinit$($Class* clazz) {
 	$load($X11Dingbats);
 	X11Dingbats$Encoder::$assertionsDisabled = !$X11Dingbats::class$->desiredAssertionStatus();
 	$assignStatic(X11Dingbats$Encoder::table, $new($bytes, {
@@ -258,7 +216,40 @@ X11Dingbats$Encoder::X11Dingbats$Encoder() {
 }
 
 $Class* X11Dingbats$Encoder::load$($String* name, bool initialize) {
-	$loadClass(X11Dingbats$Encoder, name, initialize, &_X11Dingbats$Encoder_ClassInfo_, clinit$X11Dingbats$Encoder, allocate$X11Dingbats$Encoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(X11Dingbats$Encoder, $assertionsDisabled)},
+		{"table", "[B", nullptr, $PRIVATE | $STATIC, $staticField(X11Dingbats$Encoder, table)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(X11Dingbats$Encoder, init$, void, $Charset*)},
+		{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(X11Dingbats$Encoder, canEncode, bool, char16_t)},
+		{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(X11Dingbats$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC, $virtualMethod(X11Dingbats$Encoder, isLegalReplacement, bool, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.X11Dingbats$Encoder", "sun.font.X11Dingbats", "Encoder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.font.X11Dingbats$Encoder",
+		"java.nio.charset.CharsetEncoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.font.X11Dingbats"
+	};
+	$loadClass(X11Dingbats$Encoder, name, initialize, &classInfo$$, X11Dingbats$Encoder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(X11Dingbats$Encoder);
+	});
 	return class$;
 }
 

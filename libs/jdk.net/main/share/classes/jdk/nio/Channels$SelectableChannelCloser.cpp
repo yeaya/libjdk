@@ -1,5 +1,4 @@
 #include <jdk/nio/Channels$SelectableChannelCloser.h>
-
 #include <java/nio/channels/SelectableChannel.h>
 #include <jdk/nio/Channels.h>
 #include <jcpp.h>
@@ -12,39 +11,34 @@ using $SelectableChannel = ::java::nio::channels::SelectableChannel;
 namespace jdk {
 	namespace nio {
 
-$MethodInfo _Channels$SelectableChannelCloser_MethodInfo_[] = {
-	{"implCloseChannel", "(Ljava/nio/channels/SelectableChannel;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Channels$SelectableChannelCloser, implCloseChannel, void, $SelectableChannel*), "java.io.IOException"},
-	{"implReleaseChannel", "(Ljava/nio/channels/SelectableChannel;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Channels$SelectableChannelCloser, implReleaseChannel, void, $SelectableChannel*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Channels$SelectableChannelCloser_InnerClassesInfo_[] = {
-	{"jdk.nio.Channels$SelectableChannelCloser", "jdk.nio.Channels", "SelectableChannelCloser", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Channels$SelectableChannelCloser_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.nio.Channels$SelectableChannelCloser",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Channels$SelectableChannelCloser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Channels$SelectableChannelCloser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.nio.Channels"
-};
-
-$Object* allocate$Channels$SelectableChannelCloser($Class* clazz) {
-	return $of($alloc(Channels$SelectableChannelCloser));
-}
-
 $Class* Channels$SelectableChannelCloser::load$($String* name, bool initialize) {
-	$loadClass(Channels$SelectableChannelCloser, name, initialize, &_Channels$SelectableChannelCloser_ClassInfo_, allocate$Channels$SelectableChannelCloser);
+	$MethodInfo methodInfos$$[] = {
+		{"implCloseChannel", "(Ljava/nio/channels/SelectableChannel;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Channels$SelectableChannelCloser, implCloseChannel, void, $SelectableChannel*), "java.io.IOException"},
+		{"implReleaseChannel", "(Ljava/nio/channels/SelectableChannel;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Channels$SelectableChannelCloser, implReleaseChannel, void, $SelectableChannel*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.nio.Channels$SelectableChannelCloser", "jdk.nio.Channels", "SelectableChannelCloser", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.nio.Channels$SelectableChannelCloser",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.nio.Channels"
+	};
+	$loadClass(Channels$SelectableChannelCloser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Channels$SelectableChannelCloser);
+	});
 	return class$;
 }
 

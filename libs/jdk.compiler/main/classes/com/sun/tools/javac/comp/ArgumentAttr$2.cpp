@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/ArgumentAttr$2.h>
-
 #include <com/sun/source/tree/LambdaExpressionTree$BodyKind.h>
 #include <com/sun/source/tree/LambdaExpressionTree.h>
 #include <com/sun/tools/javac/comp/ArgumentAttr.h>
@@ -22,53 +21,17 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _ArgumentAttr$2_FieldInfo_[] = {
-	{"$SwitchMap$com$sun$source$tree$LambdaExpressionTree$BodyKind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ArgumentAttr$2, $SwitchMap$com$sun$source$tree$LambdaExpressionTree$BodyKind)},
-	{}
-};
-
-$EnclosingMethodInfo _ArgumentAttr$2_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.ArgumentAttr",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ArgumentAttr$2_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.ArgumentAttr$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _ArgumentAttr$2_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.tools.javac.comp.ArgumentAttr$2",
-	"java.lang.Object",
-	nullptr,
-	_ArgumentAttr$2_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_ArgumentAttr$2_EnclosingMethodInfo_,
-	_ArgumentAttr$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.ArgumentAttr"
-};
-
-$Object* allocate$ArgumentAttr$2($Class* clazz) {
-	return $of($alloc(ArgumentAttr$2));
-}
-
 $ints* ArgumentAttr$2::$SwitchMap$com$sun$source$tree$LambdaExpressionTree$BodyKind = nullptr;
 
-void clinit$ArgumentAttr$2($Class* class$) {
+void ArgumentAttr$2::clinit$($Class* clazz) {
 	$assignStatic(ArgumentAttr$2::$SwitchMap$com$sun$source$tree$LambdaExpressionTree$BodyKind, $new($ints, $($LambdaExpressionTree$BodyKind::values())->length));
 	{
 		try {
-			$nc(ArgumentAttr$2::$SwitchMap$com$sun$source$tree$LambdaExpressionTree$BodyKind)->set($LambdaExpressionTree$BodyKind::EXPRESSION->ordinal(), 1);
+			ArgumentAttr$2::$SwitchMap$com$sun$source$tree$LambdaExpressionTree$BodyKind->set($LambdaExpressionTree$BodyKind::EXPRESSION->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ArgumentAttr$2::$SwitchMap$com$sun$source$tree$LambdaExpressionTree$BodyKind)->set($LambdaExpressionTree$BodyKind::STATEMENT->ordinal(), 2);
+			ArgumentAttr$2::$SwitchMap$com$sun$source$tree$LambdaExpressionTree$BodyKind->set($LambdaExpressionTree$BodyKind::STATEMENT->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -78,7 +41,37 @@ ArgumentAttr$2::ArgumentAttr$2() {
 }
 
 $Class* ArgumentAttr$2::load$($String* name, bool initialize) {
-	$loadClass(ArgumentAttr$2, name, initialize, &_ArgumentAttr$2_ClassInfo_, clinit$ArgumentAttr$2, allocate$ArgumentAttr$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$com$sun$source$tree$LambdaExpressionTree$BodyKind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ArgumentAttr$2, $SwitchMap$com$sun$source$tree$LambdaExpressionTree$BodyKind)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.ArgumentAttr",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.ArgumentAttr$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.tools.javac.comp.ArgumentAttr$2",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.ArgumentAttr"
+	};
+	$loadClass(ArgumentAttr$2, name, initialize, &classInfo$$, ArgumentAttr$2::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ArgumentAttr$2);
+	});
 	return class$;
 }
 

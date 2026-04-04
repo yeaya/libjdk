@@ -121,6 +121,7 @@ class DOMSignatureMethod : public ::org::jcp::xml::dsig::internal::dom::Abstract
 	$class(DOMSignatureMethod, 0, ::org::jcp::xml::dsig::internal::dom::AbstractDOMSignatureMethod)
 public:
 	DOMSignatureMethod();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::spec::AlgorithmParameterSpec* params);
 	void init$(::org::w3c::dom::Element* smElem);
 	static void checkKeySize(::javax::xml::crypto::XMLCryptoContext* context, ::java::security::Key* key);

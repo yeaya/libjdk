@@ -1,5 +1,4 @@
 #include <sun/print/PageableDoc.h>
-
 #include <java/awt/print/Pageable.h>
 #include <java/io/InputStream.h>
 #include <java/io/Reader.h>
@@ -25,34 +24,6 @@ using $HashDocAttributeSet = ::javax::print::attribute::HashDocAttributeSet;
 namespace sun {
 	namespace print {
 
-$FieldInfo _PageableDoc_FieldInfo_[] = {
-	{"pageable", "Ljava/awt/print/Pageable;", nullptr, $PRIVATE, $field(PageableDoc, pageable)},
-	{}
-};
-
-$MethodInfo _PageableDoc_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/print/Pageable;)V", nullptr, $PUBLIC, $method(PageableDoc, init$, void, $Pageable*)},
-	{"getAttributes", "()Ljavax/print/attribute/DocAttributeSet;", nullptr, $PUBLIC, $virtualMethod(PageableDoc, getAttributes, $DocAttributeSet*)},
-	{"getDocFlavor", "()Ljavax/print/DocFlavor;", nullptr, $PUBLIC, $virtualMethod(PageableDoc, getDocFlavor, $DocFlavor*)},
-	{"getPrintData", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PageableDoc, getPrintData, $Object*), "java.io.IOException"},
-	{"getReaderForText", "()Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(PageableDoc, getReaderForText, $Reader*), "java.io.UnsupportedEncodingException,java.io.IOException"},
-	{"getStreamForBytes", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(PageableDoc, getStreamForBytes, $InputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _PageableDoc_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.print.PageableDoc",
-	"java.lang.Object",
-	"javax.print.Doc",
-	_PageableDoc_FieldInfo_,
-	_PageableDoc_MethodInfo_
-};
-
-$Object* allocate$PageableDoc($Class* clazz) {
-	return $of($alloc(PageableDoc));
-}
-
 void PageableDoc::init$($Pageable* pageable) {
 	$set(this, pageable, pageable);
 }
@@ -67,7 +38,7 @@ $DocAttributeSet* PageableDoc::getAttributes() {
 }
 
 $Object* PageableDoc::getPrintData() {
-	return $of(this->pageable);
+	return this->pageable;
 }
 
 $Reader* PageableDoc::getReaderForText() {
@@ -82,7 +53,30 @@ PageableDoc::PageableDoc() {
 }
 
 $Class* PageableDoc::load$($String* name, bool initialize) {
-	$loadClass(PageableDoc, name, initialize, &_PageableDoc_ClassInfo_, allocate$PageableDoc);
+	$FieldInfo fieldInfos$$[] = {
+		{"pageable", "Ljava/awt/print/Pageable;", nullptr, $PRIVATE, $field(PageableDoc, pageable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/print/Pageable;)V", nullptr, $PUBLIC, $method(PageableDoc, init$, void, $Pageable*)},
+		{"getAttributes", "()Ljavax/print/attribute/DocAttributeSet;", nullptr, $PUBLIC, $virtualMethod(PageableDoc, getAttributes, $DocAttributeSet*)},
+		{"getDocFlavor", "()Ljavax/print/DocFlavor;", nullptr, $PUBLIC, $virtualMethod(PageableDoc, getDocFlavor, $DocFlavor*)},
+		{"getPrintData", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PageableDoc, getPrintData, $Object*), "java.io.IOException"},
+		{"getReaderForText", "()Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(PageableDoc, getReaderForText, $Reader*), "java.io.UnsupportedEncodingException,java.io.IOException"},
+		{"getStreamForBytes", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(PageableDoc, getStreamForBytes, $InputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.print.PageableDoc",
+		"java.lang.Object",
+		"javax.print.Doc",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PageableDoc, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PageableDoc);
+	});
 	return class$;
 }
 

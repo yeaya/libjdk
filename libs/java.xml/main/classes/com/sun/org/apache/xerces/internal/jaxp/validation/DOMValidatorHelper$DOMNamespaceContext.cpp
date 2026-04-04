@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext.h>
-
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/DOMValidatorHelper.h>
 #include <com/sun/org/apache/xerces/internal/util/NamespaceSupport.h>
 #include <com/sun/org/apache/xerces/internal/util/SymbolTable.h>
@@ -18,8 +17,6 @@
 #undef XMLNS_URI
 
 using $DOMValidatorHelper = ::com::sun::org::apache::xerces::internal::jaxp::validation::DOMValidatorHelper;
-using $NamespaceSupport = ::com::sun::org::apache::xerces::internal::util::NamespaceSupport;
-using $SymbolTable = ::com::sun::org::apache::xerces::internal::util::SymbolTable;
 using $XMLSymbols = ::com::sun::org::apache::xerces::internal::util::XMLSymbols;
 using $NamespaceContext = ::com::sun::org::apache::xerces::internal::xni::NamespaceContext;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -39,56 +36,6 @@ namespace com {
 					namespace internal {
 						namespace jaxp {
 							namespace validation {
-
-$FieldInfo _DOMValidatorHelper$DOMNamespaceContext_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/DOMValidatorHelper;", nullptr, $FINAL | $SYNTHETIC, $field(DOMValidatorHelper$DOMNamespaceContext, this$0)},
-	{"fNamespace", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(DOMValidatorHelper$DOMNamespaceContext, fNamespace)},
-	{"fNamespaceSize", "I", nullptr, $PROTECTED, $field(DOMValidatorHelper$DOMNamespaceContext, fNamespaceSize)},
-	{"fDOMContextBuilt", "Z", nullptr, $PROTECTED, $field(DOMValidatorHelper$DOMNamespaceContext, fDOMContextBuilt)},
-	{}
-};
-
-$MethodInfo _DOMValidatorHelper$DOMNamespaceContext_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/jaxp/validation/DOMValidatorHelper;)V", nullptr, 0, $method(DOMValidatorHelper$DOMNamespaceContext, init$, void, $DOMValidatorHelper*)},
-	{"declarePrefix", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DOMValidatorHelper$DOMNamespaceContext, declarePrefix, bool, $String*, $String*)},
-	{"declarePrefix0", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(DOMValidatorHelper$DOMNamespaceContext, declarePrefix0, void, $String*, $String*)},
-	{"fillNamespaceContext", "()V", nullptr, $PRIVATE, $method(DOMValidatorHelper$DOMNamespaceContext, fillNamespaceContext, void)},
-	{"getAllPrefixes", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(DOMValidatorHelper$DOMNamespaceContext, getAllPrefixes, $Enumeration*)},
-	{"getDeclaredPrefixAt", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMValidatorHelper$DOMNamespaceContext, getDeclaredPrefixAt, $String*, int32_t)},
-	{"getDeclaredPrefixCount", "()I", nullptr, $PUBLIC, $virtualMethod(DOMValidatorHelper$DOMNamespaceContext, getDeclaredPrefixCount, int32_t)},
-	{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMValidatorHelper$DOMNamespaceContext, getPrefix, $String*, $String*)},
-	{"getURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMValidatorHelper$DOMNamespaceContext, getURI, $String*, $String*)},
-	{"getURI0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(DOMValidatorHelper$DOMNamespaceContext, getURI0, $String*, $String*)},
-	{"popContext", "()V", nullptr, $PUBLIC, $virtualMethod(DOMValidatorHelper$DOMNamespaceContext, popContext, void)},
-	{"pushContext", "()V", nullptr, $PUBLIC, $virtualMethod(DOMValidatorHelper$DOMNamespaceContext, pushContext, void)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(DOMValidatorHelper$DOMNamespaceContext, reset, void)},
-	{}
-};
-
-$InnerClassInfo _DOMValidatorHelper$DOMNamespaceContext_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.jaxp.validation.DOMValidatorHelper$DOMNamespaceContext", "com.sun.org.apache.xerces.internal.jaxp.validation.DOMValidatorHelper", "DOMNamespaceContext", $FINAL},
-	{}
-};
-
-$ClassInfo _DOMValidatorHelper$DOMNamespaceContext_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.jaxp.validation.DOMValidatorHelper$DOMNamespaceContext",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.xni.NamespaceContext",
-	_DOMValidatorHelper$DOMNamespaceContext_FieldInfo_,
-	_DOMValidatorHelper$DOMNamespaceContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DOMValidatorHelper$DOMNamespaceContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.jaxp.validation.DOMValidatorHelper"
-};
-
-$Object* allocate$DOMValidatorHelper$DOMNamespaceContext($Class* clazz) {
-	return $of($alloc(DOMValidatorHelper$DOMNamespaceContext));
-}
 
 void DOMValidatorHelper$DOMNamespaceContext::init$($DOMValidatorHelper* this$0) {
 	$set(this, this$0, this$0);
@@ -145,9 +92,9 @@ void DOMValidatorHelper$DOMNamespaceContext::reset() {
 }
 
 void DOMValidatorHelper$DOMNamespaceContext::fillNamespaceContext() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$0->fRoot != nullptr) {
-		$var($Node, currentNode, $nc(this->this$0->fRoot)->getParentNode());
+		$var($Node, currentNode, this->this$0->fRoot->getParentNode());
 		while (currentNode != nullptr) {
 			if ($Node::ELEMENT_NODE == currentNode->getNodeType()) {
 				$var($NamedNodeMap, attributes, currentNode->getAttributes());
@@ -163,8 +110,8 @@ void DOMValidatorHelper$DOMNamespaceContext::fillNamespaceContext() {
 					$init($NamespaceContext);
 					if ($nc(this->this$0->fAttributeQName)->uri == $NamespaceContext::XMLNS_URI) {
 						$init($XMLSymbols);
-						if ($nc(this->this$0->fAttributeQName)->prefix == $XMLSymbols::PREFIX_XMLNS) {
-							declarePrefix0($nc(this->this$0->fAttributeQName)->localpart, $nc(value)->length() != 0 ? $($nc(this->this$0->fSymbolTable)->addSymbol(value)) : ($String*)nullptr);
+						if (this->this$0->fAttributeQName->prefix == $XMLSymbols::PREFIX_XMLNS) {
+							declarePrefix0(this->this$0->fAttributeQName->localpart, $nc(value)->length() != 0 ? $($nc(this->this$0->fSymbolTable)->addSymbol(value)) : ($String*)nullptr);
 						} else {
 							declarePrefix0($XMLSymbols::EMPTY_STRING, $nc(value)->length() != 0 ? $($nc(this->this$0->fSymbolTable)->addSymbol(value)) : ($String*)nullptr);
 						}
@@ -182,14 +129,14 @@ void DOMValidatorHelper$DOMNamespaceContext::declarePrefix0($String* prefix, $St
 		$System::arraycopy(this->fNamespace, 0, namespacearray, 0, this->fNamespaceSize);
 		$set(this, fNamespace, namespacearray);
 	}
-	$nc(this->fNamespace)->set(this->fNamespaceSize++, prefix);
-	$nc(this->fNamespace)->set(this->fNamespaceSize++, uri);
+	this->fNamespace->set(this->fNamespaceSize++, prefix);
+	this->fNamespace->set(this->fNamespaceSize++, uri);
 }
 
 $String* DOMValidatorHelper$DOMNamespaceContext::getURI0($String* prefix) {
 	for (int32_t i = 0; i < this->fNamespaceSize; i += 2) {
 		if ($nc(this->fNamespace)->get(i) == prefix) {
-			return $nc(this->fNamespace)->get(i + 1);
+			return this->fNamespace->get(i + 1);
 		}
 	}
 	return nullptr;
@@ -199,7 +146,51 @@ DOMValidatorHelper$DOMNamespaceContext::DOMValidatorHelper$DOMNamespaceContext()
 }
 
 $Class* DOMValidatorHelper$DOMNamespaceContext::load$($String* name, bool initialize) {
-	$loadClass(DOMValidatorHelper$DOMNamespaceContext, name, initialize, &_DOMValidatorHelper$DOMNamespaceContext_ClassInfo_, allocate$DOMValidatorHelper$DOMNamespaceContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/DOMValidatorHelper;", nullptr, $FINAL | $SYNTHETIC, $field(DOMValidatorHelper$DOMNamespaceContext, this$0)},
+		{"fNamespace", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(DOMValidatorHelper$DOMNamespaceContext, fNamespace)},
+		{"fNamespaceSize", "I", nullptr, $PROTECTED, $field(DOMValidatorHelper$DOMNamespaceContext, fNamespaceSize)},
+		{"fDOMContextBuilt", "Z", nullptr, $PROTECTED, $field(DOMValidatorHelper$DOMNamespaceContext, fDOMContextBuilt)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/jaxp/validation/DOMValidatorHelper;)V", nullptr, 0, $method(DOMValidatorHelper$DOMNamespaceContext, init$, void, $DOMValidatorHelper*)},
+		{"declarePrefix", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DOMValidatorHelper$DOMNamespaceContext, declarePrefix, bool, $String*, $String*)},
+		{"declarePrefix0", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(DOMValidatorHelper$DOMNamespaceContext, declarePrefix0, void, $String*, $String*)},
+		{"fillNamespaceContext", "()V", nullptr, $PRIVATE, $method(DOMValidatorHelper$DOMNamespaceContext, fillNamespaceContext, void)},
+		{"getAllPrefixes", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(DOMValidatorHelper$DOMNamespaceContext, getAllPrefixes, $Enumeration*)},
+		{"getDeclaredPrefixAt", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMValidatorHelper$DOMNamespaceContext, getDeclaredPrefixAt, $String*, int32_t)},
+		{"getDeclaredPrefixCount", "()I", nullptr, $PUBLIC, $virtualMethod(DOMValidatorHelper$DOMNamespaceContext, getDeclaredPrefixCount, int32_t)},
+		{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMValidatorHelper$DOMNamespaceContext, getPrefix, $String*, $String*)},
+		{"getURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMValidatorHelper$DOMNamespaceContext, getURI, $String*, $String*)},
+		{"getURI0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(DOMValidatorHelper$DOMNamespaceContext, getURI0, $String*, $String*)},
+		{"popContext", "()V", nullptr, $PUBLIC, $virtualMethod(DOMValidatorHelper$DOMNamespaceContext, popContext, void)},
+		{"pushContext", "()V", nullptr, $PUBLIC, $virtualMethod(DOMValidatorHelper$DOMNamespaceContext, pushContext, void)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(DOMValidatorHelper$DOMNamespaceContext, reset, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.jaxp.validation.DOMValidatorHelper$DOMNamespaceContext", "com.sun.org.apache.xerces.internal.jaxp.validation.DOMValidatorHelper", "DOMNamespaceContext", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.jaxp.validation.DOMValidatorHelper$DOMNamespaceContext",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.xni.NamespaceContext",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.jaxp.validation.DOMValidatorHelper"
+	};
+	$loadClass(DOMValidatorHelper$DOMNamespaceContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMValidatorHelper$DOMNamespaceContext);
+	});
 	return class$;
 }
 

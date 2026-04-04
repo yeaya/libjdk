@@ -1,8 +1,5 @@
 #include <sun/security/krb5/internal/crypto/Des.h>
-
 #include <java/security/GeneralSecurityException.h>
-#include <java/security/Key.h>
-#include <java/security/spec/AlgorithmParameterSpec.h>
 #include <java/util/Arrays.h>
 #include <javax/crypto/Cipher.h>
 #include <javax/crypto/SecretKey.h>
@@ -22,8 +19,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
-using $Key = ::java::security::Key;
-using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $Arrays = ::java::util::Arrays;
 using $Cipher = ::javax::crypto::Cipher;
 using $SecretKey = ::javax::crypto::SecretKey;
@@ -39,45 +34,6 @@ namespace sun {
 			namespace internal {
 				namespace crypto {
 
-$FieldInfo _Des_FieldInfo_[] = {
-	{"CHARSET", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Des, CHARSET)},
-	{"bad_keys", "[J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Des, bad_keys)},
-	{"good_parity", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Des, good_parity)},
-	{}
-};
-
-$MethodInfo _Des_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Des, init$, void)},
-	{"bad_key", "(J)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Des, bad_key, bool, int64_t)},
-	{"bad_key", "([B)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Des, bad_key, bool, $bytes*)},
-	{"cbc_encrypt", "([B[B[B[BZ)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Des, cbc_encrypt, void, $bytes*, $bytes*, $bytes*, $bytes*, bool), "sun.security.krb5.KrbCryptoException"},
-	{"char_to_key", "([C)J", nullptr, $PUBLIC | $STATIC, $staticMethod(Des, char_to_key, int64_t, $chars*), "sun.security.krb5.KrbCryptoException"},
-	{"des_cksum", "([B[B[B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des, des_cksum, $bytes*, $bytes*, $bytes*, $bytes*), "sun.security.krb5.KrbCryptoException"},
-	{"long2octet", "(J)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des, long2octet, $bytes*, int64_t)},
-	{"long2octet", "(J[B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Des, long2octet, void, int64_t, $bytes*)},
-	{"long2octet", "(J[BI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Des, long2octet, void, int64_t, $bytes*, int32_t)},
-	{"octet2long", "([B)J", nullptr, $PUBLIC | $STATIC, $staticMethod(Des, octet2long, int64_t, $bytes*)},
-	{"octet2long", "([BI)J", nullptr, $PUBLIC | $STATIC, $staticMethod(Des, octet2long, int64_t, $bytes*, int32_t)},
-	{"pad", "([B)[B", nullptr, $STATIC, $staticMethod(Des, pad, $bytes*, $bytes*)},
-	{"set_parity", "([B)[B", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Des, set_parity, $bytes*, $bytes*)},
-	{"set_parity", "(J)J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Des, set_parity, int64_t, int64_t)},
-	{"string_to_key_bytes", "([C)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des, string_to_key_bytes, $bytes*, $chars*), "sun.security.krb5.KrbCryptoException"},
-	{}
-};
-
-$ClassInfo _Des_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.krb5.internal.crypto.Des",
-	"java.lang.Object",
-	nullptr,
-	_Des_FieldInfo_,
-	_Des_MethodInfo_
-};
-
-$Object* allocate$Des($Class* clazz) {
-	return $of($alloc(Des));
-}
-
 $String* Des::CHARSET = nullptr;
 $longs* Des::bad_keys = nullptr;
 $bytes* Des::good_parity = nullptr;
@@ -88,21 +44,21 @@ void Des::init$() {
 $bytes* Des::set_parity($bytes* key) {
 	$init(Des);
 	for (int32_t i = 0; i < 8; ++i) {
-		$nc(key)->set(i, $nc(Des::good_parity)->get((int32_t)(key->get(i) & (uint32_t)255)));
+		$nc(key)->set(i, Des::good_parity->get($nc(key)->get(i) & 0xff));
 	}
 	return key;
 }
 
 int64_t Des::set_parity(int64_t key) {
 	$init(Des);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return octet2long($(set_parity($(long2octet(key)))));
 }
 
 bool Des::bad_key(int64_t key) {
 	$init(Des);
-	for (int32_t i = 0; i < $nc(Des::bad_keys)->length; ++i) {
-		if ($nc(Des::bad_keys)->get(i) == key) {
+	for (int32_t i = 0; i < Des::bad_keys->length; ++i) {
+		if (Des::bad_keys->get(i) == key) {
 			return true;
 		}
 	}
@@ -124,7 +80,7 @@ int64_t Des::octet2long($bytes* input, int32_t offset) {
 	int64_t result = 0;
 	for (int32_t i = 0; i < 8; ++i) {
 		if (i + offset < $nc(input)->length) {
-			result |= $sl((int64_t)(((int64_t)input->get(i + offset)) & (uint64_t)(int64_t)255), (7 - i) * 8);
+			result |= $sl(((int64_t)input->get(i + offset)) & (int64_t)0xff, (7 - i) * 8);
 		}
 	}
 	return result;
@@ -134,7 +90,7 @@ $bytes* Des::long2octet(int64_t input) {
 	$init(Des);
 	$var($bytes, output, $new($bytes, 8));
 	for (int32_t i = 0; i < 8; ++i) {
-		output->set(i, (int8_t)((int64_t)(($usr(input, (7 - i) * 8)) & (uint64_t)(int64_t)255)));
+		output->set(i, (int8_t)(($usr(input, (7 - i) * 8)) & (int64_t)0xff));
 	}
 	return output;
 }
@@ -148,14 +104,14 @@ void Des::long2octet(int64_t input, $bytes* output, int32_t offset) {
 	$init(Des);
 	for (int32_t i = 0; i < 8; ++i) {
 		if (i + offset < $nc(output)->length) {
-			output->set(i + offset, (int8_t)((int64_t)(($usr(input, (7 - i) * 8)) & (uint64_t)(int64_t)255)));
+			output->set(i + offset, (int8_t)(($usr(input, (7 - i) * 8)) & (int64_t)0xff));
 		}
 	}
 }
 
 void Des::cbc_encrypt($bytes* input, $bytes* output, $bytes* key, $bytes* ivec, bool encrypt) {
 	$init(Des);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Cipher, cipher, nullptr);
 	try {
 		$assign(cipher, $Cipher::getInstance("DES/CBC/NoPadding"_s));
@@ -168,11 +124,11 @@ void Des::cbc_encrypt($bytes* input, $bytes* output, $bytes* key, $bytes* ivec, 
 	$var($SecretKeySpec, skSpec, $new($SecretKeySpec, key, "DES"_s));
 	try {
 		$var($SecretKeyFactory, skf, $SecretKeyFactory::getInstance("DES"_s));
-		$var($SecretKey, sk, static_cast<$SecretKey*>(skSpec));
+		$var($SecretKey, sk, $cast($SecretKey, skSpec));
 		if (encrypt) {
-			$nc(cipher)->init($Cipher::ENCRYPT_MODE, static_cast<$Key*>(sk), static_cast<$AlgorithmParameterSpec*>(params));
+			$nc(cipher)->init($Cipher::ENCRYPT_MODE, sk, params);
 		} else {
-			$nc(cipher)->init($Cipher::DECRYPT_MODE, static_cast<$Key*>(sk), static_cast<$AlgorithmParameterSpec*>(params));
+			$nc(cipher)->init($Cipher::DECRYPT_MODE, sk, params);
 		}
 		$var($bytes, result, nullptr);
 		$assign(result, $nc(cipher)->doFinal(input));
@@ -186,7 +142,7 @@ void Des::cbc_encrypt($bytes* input, $bytes* output, $bytes* key, $bytes* ivec, 
 
 int64_t Des::char_to_key($chars* passwdChars) {
 	$init(Des);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t key = 0;
 	int64_t octet = 0;
 	int64_t octet1 = 0;
@@ -208,13 +164,13 @@ int64_t Des::char_to_key($chars* passwdChars) {
 	}
 	$var($bytes, passwdBytes, pad(cbytes));
 	$var($bytes, newkey, $new($bytes, 8));
-	int32_t length = ($nc(passwdBytes)->length / 8) + (passwdBytes->length % 8 == 0 ? 0 : 1);
+	int32_t length = ($nc(passwdBytes)->length / 8) + ($nc(passwdBytes)->length % 8 == 0 ? 0 : 1);
 	for (int32_t i = 0; i < length; ++i) {
-		octet = (int64_t)(octet2long(passwdBytes, i * 8) & (uint64_t)(int64_t)0x7F7F7F7F7F7F7F7F);
+		octet = octet2long(passwdBytes, i * 8) & (int64_t)0x7f7f7f7f7f7f7f7f;
 		if (i % 2 == 1) {
 			octet1 = 0;
 			for (int32_t j = 0; j < 64; ++j) {
-				octet1 |= $sl($usr((int64_t)(octet & (uint64_t)($sl((int64_t)1, j))), j), 63 - j);
+				octet1 |= $sl($usr(octet & ($sl((int64_t)1, j)), j), 63 - j);
 			}
 			octet = (int64_t)((uint64_t)octet1 >> 1);
 		}
@@ -227,8 +183,7 @@ int64_t Des::char_to_key($chars* passwdChars) {
 		key = octet2long(temp);
 	}
 	$var($bytes, var$0, long2octet(key));
-	$var($bytes, var$1, passwdBytes);
-	$assign(newkey, des_cksum(var$0, var$1, $(long2octet(key))));
+	$assign(newkey, des_cksum(var$0, passwdBytes, $(long2octet(key))));
 	key = octet2long($(set_parity(newkey)));
 	if (bad_key(key)) {
 		$var($bytes, temp, long2octet(key));
@@ -246,7 +201,7 @@ int64_t Des::char_to_key($chars* passwdChars) {
 
 $bytes* Des::des_cksum($bytes* ivec, $bytes* msg, $bytes* key) {
 	$init(Des);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Cipher, cipher, nullptr);
 	$var($bytes, result, $new($bytes, 8));
 	try {
@@ -260,11 +215,11 @@ $bytes* Des::des_cksum($bytes* ivec, $bytes* msg, $bytes* key) {
 	$var($SecretKeySpec, skSpec, $new($SecretKeySpec, key, "DES"_s));
 	try {
 		$var($SecretKeyFactory, skf, $SecretKeyFactory::getInstance("DES"_s));
-		$var($SecretKey, sk, static_cast<$SecretKey*>(skSpec));
-		$nc(cipher)->init($Cipher::ENCRYPT_MODE, static_cast<$Key*>(sk), static_cast<$AlgorithmParameterSpec*>(params));
+		$var($SecretKey, sk, $cast($SecretKey, skSpec));
+		$nc(cipher)->init($Cipher::ENCRYPT_MODE, sk, params);
 		for (int32_t i = 0; i < $nc(msg)->length / 8; ++i) {
 			$assign(result, cipher->doFinal(msg, i * 8, 8));
-			cipher->init($Cipher::ENCRYPT_MODE, static_cast<$Key*>(sk), (static_cast<$AlgorithmParameterSpec*>($$new($IvParameterSpec, result))));
+			cipher->init($Cipher::ENCRYPT_MODE, sk, ($$new($IvParameterSpec, result)));
 		}
 	} catch ($GeneralSecurityException& e) {
 		$var($KrbCryptoException, ke, $new($KrbCryptoException, $(e->getMessage())));
@@ -285,9 +240,9 @@ $bytes* Des::pad($bytes* data) {
 	if (len == 0) {
 		return data;
 	} else {
-		$var($bytes, padding, $new($bytes, 8 - len + $nc(data)->length));
+		$var($bytes, padding, $new($bytes, 8 - len + data->length));
 		for (int32_t i = padding->length - 1; i > data->length - 1; --i) {
-			padding->set(i, (int8_t)0);
+			padding->set(i, 0);
 		}
 		$System::arraycopy(data, 0, padding, 0, data->length);
 		return padding;
@@ -299,155 +254,155 @@ $bytes* Des::string_to_key_bytes($chars* passwdChars) {
 	return long2octet(char_to_key(passwdChars));
 }
 
-void clinit$Des($Class* class$) {
+void Des::clinit$($Class* clazz) {
 	$assignStatic(Des::CHARSET, $GetPropertyAction::privilegedGetProperty("sun.security.krb5.msinterop.des.s2kcharset"_s));
 	$assignStatic(Des::bad_keys, $new($longs, {
 		(int64_t)0x0101010101010101,
-		(int64_t)0xFEFEFEFEFEFEFEFE,
-		(int64_t)0x1F1F1F1F1F1F1F1F,
-		(int64_t)0xE0E0E0E0E0E0E0E0,
-		(int64_t)0x01FE01FE01FE01FE,
-		(int64_t)0xFE01FE01FE01FE01,
-		(int64_t)0x1FE01FE00EF10EF1,
-		(int64_t)0xE01FE01FF10EF10E,
-		(int64_t)0x01E001E001F101F1,
-		(int64_t)0xE001E001F101F101,
-		(int64_t)0x1FFE1FFE0EFE0EFE,
-		(int64_t)0xFE1FFE1FFE0EFE0E,
-		(int64_t)0x011F011F010E010E,
-		(int64_t)0x1F011F010E010E01,
-		(int64_t)0xE0FEE0FEF1FEF1FE,
-		(int64_t)0xFEE0FEE0FEF1FEF1
+		(int64_t)0xfefefefefefefefe,
+		(int64_t)0x1f1f1f1f1f1f1f1f,
+		(int64_t)0xe0e0e0e0e0e0e0e0,
+		(int64_t)0x01fe01fe01fe01fe,
+		(int64_t)0xfe01fe01fe01fe01,
+		(int64_t)0x1fe01fe00ef10ef1,
+		(int64_t)0xe01fe01ff10ef10e,
+		(int64_t)0x01e001e001f101f1,
+		(int64_t)0xe001e001f101f101,
+		(int64_t)0x1ffe1ffe0efe0efe,
+		(int64_t)0xfe1ffe1ffe0efe0e,
+		(int64_t)0x011f011f010e010e,
+		(int64_t)0x1f011f010e010e01,
+		(int64_t)0xe0fee0fef1fef1fe,
+		(int64_t)0xfee0fee0fef1fef1
 	}));
 	$assignStatic(Des::good_parity, $new($bytes, {
-		(int8_t)1,
-		(int8_t)1,
-		(int8_t)2,
-		(int8_t)2,
-		(int8_t)4,
-		(int8_t)4,
-		(int8_t)7,
-		(int8_t)7,
-		(int8_t)8,
-		(int8_t)8,
-		(int8_t)11,
-		(int8_t)11,
-		(int8_t)13,
-		(int8_t)13,
-		(int8_t)14,
-		(int8_t)14,
-		(int8_t)16,
-		(int8_t)16,
-		(int8_t)19,
-		(int8_t)19,
-		(int8_t)21,
-		(int8_t)21,
-		(int8_t)22,
-		(int8_t)22,
-		(int8_t)25,
-		(int8_t)25,
-		(int8_t)26,
-		(int8_t)26,
-		(int8_t)28,
-		(int8_t)28,
-		(int8_t)31,
-		(int8_t)31,
-		(int8_t)32,
-		(int8_t)32,
-		(int8_t)35,
-		(int8_t)35,
-		(int8_t)37,
-		(int8_t)37,
-		(int8_t)38,
-		(int8_t)38,
-		(int8_t)41,
-		(int8_t)41,
-		(int8_t)42,
-		(int8_t)42,
-		(int8_t)44,
-		(int8_t)44,
-		(int8_t)47,
-		(int8_t)47,
-		(int8_t)49,
-		(int8_t)49,
-		(int8_t)50,
-		(int8_t)50,
-		(int8_t)52,
-		(int8_t)52,
-		(int8_t)55,
-		(int8_t)55,
-		(int8_t)56,
-		(int8_t)56,
-		(int8_t)59,
-		(int8_t)59,
-		(int8_t)61,
-		(int8_t)61,
-		(int8_t)62,
-		(int8_t)62,
-		(int8_t)64,
-		(int8_t)64,
-		(int8_t)67,
-		(int8_t)67,
-		(int8_t)69,
-		(int8_t)69,
-		(int8_t)70,
-		(int8_t)70,
-		(int8_t)73,
-		(int8_t)73,
-		(int8_t)74,
-		(int8_t)74,
-		(int8_t)76,
-		(int8_t)76,
-		(int8_t)79,
-		(int8_t)79,
-		(int8_t)81,
-		(int8_t)81,
-		(int8_t)82,
-		(int8_t)82,
-		(int8_t)84,
-		(int8_t)84,
-		(int8_t)87,
-		(int8_t)87,
-		(int8_t)88,
-		(int8_t)88,
-		(int8_t)91,
-		(int8_t)91,
-		(int8_t)93,
-		(int8_t)93,
-		(int8_t)94,
-		(int8_t)94,
-		(int8_t)97,
-		(int8_t)97,
-		(int8_t)98,
-		(int8_t)98,
-		(int8_t)100,
-		(int8_t)100,
-		(int8_t)103,
-		(int8_t)103,
-		(int8_t)104,
-		(int8_t)104,
-		(int8_t)107,
-		(int8_t)107,
-		(int8_t)109,
-		(int8_t)109,
-		(int8_t)110,
-		(int8_t)110,
-		(int8_t)112,
-		(int8_t)112,
-		(int8_t)115,
-		(int8_t)115,
-		(int8_t)117,
-		(int8_t)117,
-		(int8_t)118,
-		(int8_t)118,
-		(int8_t)121,
-		(int8_t)121,
-		(int8_t)122,
-		(int8_t)122,
-		(int8_t)124,
-		(int8_t)124,
-		(int8_t)127,
-		(int8_t)127,
+		1,
+		1,
+		2,
+		2,
+		4,
+		4,
+		7,
+		7,
+		8,
+		8,
+		11,
+		11,
+		13,
+		13,
+		14,
+		14,
+		16,
+		16,
+		19,
+		19,
+		21,
+		21,
+		22,
+		22,
+		25,
+		25,
+		26,
+		26,
+		28,
+		28,
+		31,
+		31,
+		32,
+		32,
+		35,
+		35,
+		37,
+		37,
+		38,
+		38,
+		41,
+		41,
+		42,
+		42,
+		44,
+		44,
+		47,
+		47,
+		49,
+		49,
+		50,
+		50,
+		52,
+		52,
+		55,
+		55,
+		56,
+		56,
+		59,
+		59,
+		61,
+		61,
+		62,
+		62,
+		64,
+		64,
+		67,
+		67,
+		69,
+		69,
+		70,
+		70,
+		73,
+		73,
+		74,
+		74,
+		76,
+		76,
+		79,
+		79,
+		81,
+		81,
+		82,
+		82,
+		84,
+		84,
+		87,
+		87,
+		88,
+		88,
+		91,
+		91,
+		93,
+		93,
+		94,
+		94,
+		97,
+		97,
+		98,
+		98,
+		100,
+		100,
+		103,
+		103,
+		104,
+		104,
+		107,
+		107,
+		109,
+		109,
+		110,
+		110,
+		112,
+		112,
+		115,
+		115,
+		117,
+		117,
+		118,
+		118,
+		121,
+		121,
+		122,
+		122,
+		124,
+		124,
+		127,
+		127,
 		(int8_t)128,
 		(int8_t)128,
 		(int8_t)131,
@@ -583,7 +538,41 @@ Des::Des() {
 }
 
 $Class* Des::load$($String* name, bool initialize) {
-	$loadClass(Des, name, initialize, &_Des_ClassInfo_, clinit$Des, allocate$Des);
+	$FieldInfo fieldInfos$$[] = {
+		{"CHARSET", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Des, CHARSET)},
+		{"bad_keys", "[J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Des, bad_keys)},
+		{"good_parity", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Des, good_parity)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Des, init$, void)},
+		{"bad_key", "(J)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Des, bad_key, bool, int64_t)},
+		{"bad_key", "([B)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Des, bad_key, bool, $bytes*)},
+		{"cbc_encrypt", "([B[B[B[BZ)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Des, cbc_encrypt, void, $bytes*, $bytes*, $bytes*, $bytes*, bool), "sun.security.krb5.KrbCryptoException"},
+		{"char_to_key", "([C)J", nullptr, $PUBLIC | $STATIC, $staticMethod(Des, char_to_key, int64_t, $chars*), "sun.security.krb5.KrbCryptoException"},
+		{"des_cksum", "([B[B[B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des, des_cksum, $bytes*, $bytes*, $bytes*, $bytes*), "sun.security.krb5.KrbCryptoException"},
+		{"long2octet", "(J)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des, long2octet, $bytes*, int64_t)},
+		{"long2octet", "(J[B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Des, long2octet, void, int64_t, $bytes*)},
+		{"long2octet", "(J[BI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Des, long2octet, void, int64_t, $bytes*, int32_t)},
+		{"octet2long", "([B)J", nullptr, $PUBLIC | $STATIC, $staticMethod(Des, octet2long, int64_t, $bytes*)},
+		{"octet2long", "([BI)J", nullptr, $PUBLIC | $STATIC, $staticMethod(Des, octet2long, int64_t, $bytes*, int32_t)},
+		{"pad", "([B)[B", nullptr, $STATIC, $staticMethod(Des, pad, $bytes*, $bytes*)},
+		{"set_parity", "([B)[B", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Des, set_parity, $bytes*, $bytes*)},
+		{"set_parity", "(J)J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Des, set_parity, int64_t, int64_t)},
+		{"string_to_key_bytes", "([C)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des, string_to_key_bytes, $bytes*, $chars*), "sun.security.krb5.KrbCryptoException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.krb5.internal.crypto.Des",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Des, name, initialize, &classInfo$$, Des::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Des);
+	});
 	return class$;
 }
 

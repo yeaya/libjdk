@@ -1,5 +1,4 @@
 #include <javax/print/ServiceUI.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Dialog.h>
 #include <java/awt/GraphicsConfiguration.h>
@@ -27,7 +26,6 @@
 using $PrintServiceArray = $Array<::javax::print::PrintService>;
 using $AttributeArray = $Array<::javax::print::attribute::Attribute>;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
-using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $HeadlessException = ::java::awt::HeadlessException;
 using $Rectangle = ::java::awt::Rectangle;
@@ -50,35 +48,15 @@ using $SunAlternateMedia = ::sun::print::SunAlternateMedia;
 namespace javax {
 	namespace print {
 
-$MethodInfo _ServiceUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ServiceUI, init$, void)},
-	{"printDialog", "(Ljava/awt/GraphicsConfiguration;II[Ljavax/print/PrintService;Ljavax/print/PrintService;Ljavax/print/DocFlavor;Ljavax/print/attribute/PrintRequestAttributeSet;)Ljavax/print/PrintService;", nullptr, $PUBLIC | $STATIC, $staticMethod(ServiceUI, printDialog, $PrintService*, $GraphicsConfiguration*, int32_t, int32_t, $PrintServiceArray*, $PrintService*, $DocFlavor*, $PrintRequestAttributeSet*), "java.awt.HeadlessException"},
-	{"removeUnsupportedAttributes", "(Ljavax/print/PrintService;Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ServiceUI, removeUnsupportedAttributes, void, $PrintService*, $DocFlavor*, $AttributeSet*)},
-	{}
-};
-
-$ClassInfo _ServiceUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.print.ServiceUI",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ServiceUI_MethodInfo_
-};
-
-$Object* allocate$ServiceUI($Class* clazz) {
-	return $of($alloc(ServiceUI));
-}
-
 void ServiceUI::init$() {
 }
 
 $PrintService* ServiceUI::printDialog($GraphicsConfiguration* gc, int32_t x, int32_t y, $PrintServiceArray* services, $PrintService* defaultService, $DocFlavor* flavor, $PrintRequestAttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t defaultIndex = -1;
 	if ($GraphicsEnvironment::isHeadless()) {
 		$throwNew($HeadlessException);
-	} else if ((services == nullptr) || ($nc(services)->length == 0)) {
+	} else if ((services == nullptr) || (services->length == 0)) {
 		$throwNew($IllegalArgumentException, "services must be non-null and non-empty"_s);
 	} else if (attributes == nullptr) {
 		$throwNew($IllegalArgumentException, "attributes must be non-null"_s);
@@ -98,9 +76,9 @@ $PrintService* ServiceUI::printDialog($GraphicsConfiguration* gc, int32_t x, int
 	}
 	$load($DialogOwner);
 	$var($DialogOwner, dlgOwner, $cast($DialogOwner, $nc(attributes)->get($DialogOwner::class$)));
-	$var($Window, owner, (dlgOwner != nullptr) ? $nc(dlgOwner)->getOwner() : ($Window*)nullptr);
+	$var($Window, owner, (dlgOwner != nullptr) ? dlgOwner->getOwner() : ($Window*)nullptr);
 	bool setOnTop = (dlgOwner != nullptr) && (owner == nullptr);
-	$var($Rectangle, gcBounds, (gc == nullptr) ? $nc($($nc($($nc($($GraphicsEnvironment::getLocalGraphicsEnvironment()))->getDefaultScreenDevice()))->getDefaultConfiguration()))->getBounds() : $nc(gc)->getBounds());
+	$var($Rectangle, gcBounds, (gc == nullptr) ? $$nc($$nc($$nc($GraphicsEnvironment::getLocalGraphicsEnvironment())->getDefaultScreenDevice())->getDefaultConfiguration())->getBounds() : gc->getBounds());
 	x += $nc(gcBounds)->x;
 	y += gcBounds->y;
 	$var($ServiceDialog, dialog, $new($ServiceDialog, gc, x, y, services, defaultIndex, flavor, attributes, owner));
@@ -112,21 +90,21 @@ $PrintService* ServiceUI::printDialog($GraphicsConfiguration* gc, int32_t x, int
 	}
 	$var($Rectangle, dlgBounds, dialog->getBounds());
 	if (!gcBounds->contains(dlgBounds)) {
-		if ($nc(dlgBounds)->x + dlgBounds->width > gcBounds->x + gcBounds->width) {
+		if ($nc(dlgBounds)->x + $nc(dlgBounds)->width > gcBounds->x + gcBounds->width) {
 			if ((gcBounds->x + gcBounds->width - dlgBounds->width) > gcBounds->x) {
 				x = (gcBounds->x + gcBounds->width) - dlgBounds->width;
 			} else {
 				x = gcBounds->x;
 			}
 		}
-		if ($nc(dlgBounds)->y + dlgBounds->height > gcBounds->y + gcBounds->height) {
+		if (dlgBounds->y + dlgBounds->height > gcBounds->y + gcBounds->height) {
 			if ((gcBounds->y + gcBounds->height - dlgBounds->height) > gcBounds->y) {
 				y = (gcBounds->y + gcBounds->height) - dlgBounds->height;
 			} else {
 				y = gcBounds->y;
 			}
 		}
-		dialog->setBounds(x, y, $nc(dlgBounds)->width, dlgBounds->height);
+		dialog->setBounds(x, y, dlgBounds->width, dlgBounds->height);
 	}
 	dialog->show();
 	if (dialog->getStatus() == $ServiceDialog::APPROVE) {
@@ -158,7 +136,7 @@ $PrintService* ServiceUI::printDialog($GraphicsConfiguration* gc, int32_t x, int
 }
 
 void ServiceUI::removeUnsupportedAttributes($PrintService* ps, $DocFlavor* flavor, $AttributeSet* aset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeSet, asUnsupported, $nc(ps)->getUnsupportedAttributes(flavor, aset));
 	if (asUnsupported != nullptr) {
 		$var($AttributeArray, usAttrs, asUnsupported->toArray());
@@ -182,7 +160,23 @@ ServiceUI::ServiceUI() {
 }
 
 $Class* ServiceUI::load$($String* name, bool initialize) {
-	$loadClass(ServiceUI, name, initialize, &_ServiceUI_ClassInfo_, allocate$ServiceUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ServiceUI, init$, void)},
+		{"printDialog", "(Ljava/awt/GraphicsConfiguration;II[Ljavax/print/PrintService;Ljavax/print/PrintService;Ljavax/print/DocFlavor;Ljavax/print/attribute/PrintRequestAttributeSet;)Ljavax/print/PrintService;", nullptr, $PUBLIC | $STATIC, $staticMethod(ServiceUI, printDialog, $PrintService*, $GraphicsConfiguration*, int32_t, int32_t, $PrintServiceArray*, $PrintService*, $DocFlavor*, $PrintRequestAttributeSet*), "java.awt.HeadlessException"},
+		{"removeUnsupportedAttributes", "(Ljavax/print/PrintService;Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ServiceUI, removeUnsupportedAttributes, void, $PrintService*, $DocFlavor*, $AttributeSet*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.print.ServiceUI",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ServiceUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServiceUI);
+	});
 	return class$;
 }
 

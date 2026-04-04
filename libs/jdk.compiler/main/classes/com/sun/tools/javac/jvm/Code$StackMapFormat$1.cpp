@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/Code$StackMapFormat$1.h>
-
 #include <com/sun/tools/javac/jvm/Code$StackMapFormat.h>
 #include <com/sun/tools/javac/util/Name.h>
 #include <com/sun/tools/javac/util/Names.h>
@@ -19,44 +18,6 @@ namespace com {
 			namespace javac {
 				namespace jvm {
 
-$MethodInfo _Code$StackMapFormat$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Code$StackMapFormat$1, init$, void, $String*, int32_t)},
-	{"getAttributeName", "(Lcom/sun/tools/javac/util/Names;)Lcom/sun/tools/javac/util/Name;", nullptr, 0, $virtualMethod(Code$StackMapFormat$1, getAttributeName, $Name*, $Names*)},
-	{}
-};
-
-$EnclosingMethodInfo _Code$StackMapFormat$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.jvm.Code$StackMapFormat",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Code$StackMapFormat$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.Code$StackMapFormat", "com.sun.tools.javac.jvm.Code", "StackMapFormat", $PUBLIC | $STATIC | $ENUM},
-	{"com.sun.tools.javac.jvm.Code$StackMapFormat$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Code$StackMapFormat$1_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.jvm.Code$StackMapFormat$1",
-	"com.sun.tools.javac.jvm.Code$StackMapFormat",
-	nullptr,
-	nullptr,
-	_Code$StackMapFormat$1_MethodInfo_,
-	nullptr,
-	&_Code$StackMapFormat$1_EnclosingMethodInfo_,
-	_Code$StackMapFormat$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.Code"
-};
-
-$Object* allocate$Code$StackMapFormat$1($Class* clazz) {
-	return $of($alloc(Code$StackMapFormat$1));
-}
-
 void Code$StackMapFormat$1::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Code$StackMapFormat::init$($enum$name, $enum$ordinal);
 }
@@ -69,7 +30,39 @@ Code$StackMapFormat$1::Code$StackMapFormat$1() {
 }
 
 $Class* Code$StackMapFormat$1::load$($String* name, bool initialize) {
-	$loadClass(Code$StackMapFormat$1, name, initialize, &_Code$StackMapFormat$1_ClassInfo_, allocate$Code$StackMapFormat$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Code$StackMapFormat$1, init$, void, $String*, int32_t)},
+		{"getAttributeName", "(Lcom/sun/tools/javac/util/Names;)Lcom/sun/tools/javac/util/Name;", nullptr, 0, $virtualMethod(Code$StackMapFormat$1, getAttributeName, $Name*, $Names*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.jvm.Code$StackMapFormat",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.Code$StackMapFormat", "com.sun.tools.javac.jvm.Code", "StackMapFormat", $PUBLIC | $STATIC | $ENUM},
+		{"com.sun.tools.javac.jvm.Code$StackMapFormat$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.jvm.Code$StackMapFormat$1",
+		"com.sun.tools.javac.jvm.Code$StackMapFormat",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.Code"
+	};
+	$loadClass(Code$StackMapFormat$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Code$StackMapFormat$1));
+	});
 	return class$;
 }
 

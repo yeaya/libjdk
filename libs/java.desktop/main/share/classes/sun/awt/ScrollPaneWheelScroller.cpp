@@ -1,5 +1,4 @@
 #include <sun/awt/ScrollPaneWheelScroller.h>
-
 #include <java/awt/Adjustable.h>
 #include <java/awt/Insets.h>
 #include <java/awt/ScrollPane.h>
@@ -29,33 +28,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace sun {
 	namespace awt {
 
-$FieldInfo _ScrollPaneWheelScroller_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ScrollPaneWheelScroller, log)},
-	{}
-};
-
-$MethodInfo _ScrollPaneWheelScroller_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ScrollPaneWheelScroller, init$, void)},
-	{"getAdjustableToScroll", "(Ljava/awt/ScrollPane;)Ljava/awt/Adjustable;", nullptr, $PUBLIC | $STATIC, $staticMethod(ScrollPaneWheelScroller, getAdjustableToScroll, $Adjustable*, $ScrollPane*)},
-	{"getIncrementFromAdjustable", "(Ljava/awt/Adjustable;Ljava/awt/event/MouseWheelEvent;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ScrollPaneWheelScroller, getIncrementFromAdjustable, int32_t, $Adjustable*, $MouseWheelEvent*)},
-	{"handleWheelScrolling", "(Ljava/awt/ScrollPane;Ljava/awt/event/MouseWheelEvent;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ScrollPaneWheelScroller, handleWheelScrolling, void, $ScrollPane*, $MouseWheelEvent*)},
-	{"scrollAdjustable", "(Ljava/awt/Adjustable;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ScrollPaneWheelScroller, scrollAdjustable, void, $Adjustable*, int32_t)},
-	{}
-};
-
-$ClassInfo _ScrollPaneWheelScroller_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.awt.ScrollPaneWheelScroller",
-	"java.lang.Object",
-	nullptr,
-	_ScrollPaneWheelScroller_FieldInfo_,
-	_ScrollPaneWheelScroller_MethodInfo_
-};
-
-$Object* allocate$ScrollPaneWheelScroller($Class* clazz) {
-	return $of($alloc(ScrollPaneWheelScroller));
-}
-
 $PlatformLogger* ScrollPaneWheelScroller::log = nullptr;
 
 void ScrollPaneWheelScroller::init$() {
@@ -63,21 +35,25 @@ void ScrollPaneWheelScroller::init$() {
 
 void ScrollPaneWheelScroller::handleWheelScrolling($ScrollPane* sp, $MouseWheelEvent* e) {
 	$init(ScrollPaneWheelScroller);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(ScrollPaneWheelScroller::log)->isLoggable($PlatformLogger$Level::FINER)) {
-		$var($String, var$2, $$str({"x = "_s, $$str($nc(e)->getX()), ", y = "_s}));
-		$var($String, var$1, $$concat(var$2, $$str(e->getY())));
-		$var($String, var$0, $$concat(var$1, ", src is "_s));
-		$nc(ScrollPaneWheelScroller::log)->finer($$concat(var$0, $(e->getSource())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("x = "_s);
+		var$0->append($nc(e)->getX());
+		var$0->append(", y = "_s);
+		var$0->append(e->getY());
+		var$0->append(", src is "_s);
+		var$0->append($(e->getSource()));
+		ScrollPaneWheelScroller::log->finer($$str(var$0));
 	}
 	int32_t increment = 0;
 	if (sp != nullptr && $nc(e)->getScrollAmount() != 0) {
 		$var($Adjustable, adj, getAdjustableToScroll(sp));
 		if (adj != nullptr) {
 			increment = getIncrementFromAdjustable(adj, e);
-			if ($nc(ScrollPaneWheelScroller::log)->isLoggable($PlatformLogger$Level::FINER)) {
-				$nc(ScrollPaneWheelScroller::log)->finer($$str({"increment from adjustable("_s, $of(adj)->getClass(), ") : "_s, $$str(increment)}));
+			if (ScrollPaneWheelScroller::log->isLoggable($PlatformLogger$Level::FINER)) {
+				ScrollPaneWheelScroller::log->finer($$str({"increment from adjustable("_s, adj->getClass(), ") : "_s, $$str(increment)}));
 			}
 			scrollAdjustable(adj, increment);
 		}
@@ -86,12 +62,12 @@ void ScrollPaneWheelScroller::handleWheelScrolling($ScrollPane* sp, $MouseWheelE
 
 $Adjustable* ScrollPaneWheelScroller::getAdjustableToScroll($ScrollPane* sp) {
 	$init(ScrollPaneWheelScroller);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t policy = $nc(sp)->getScrollbarDisplayPolicy();
 	if (policy == $ScrollPane::SCROLLBARS_ALWAYS || policy == $ScrollPane::SCROLLBARS_NEVER) {
 		$init($PlatformLogger$Level);
 		if ($nc(ScrollPaneWheelScroller::log)->isLoggable($PlatformLogger$Level::FINER)) {
-			$nc(ScrollPaneWheelScroller::log)->finer("using vertical scrolling due to scrollbar policy"_s);
+			ScrollPaneWheelScroller::log->finer("using vertical scrolling due to scrollbar policy"_s);
 		}
 		return sp->getVAdjustable();
 	} else {
@@ -99,24 +75,24 @@ $Adjustable* ScrollPaneWheelScroller::getAdjustableToScroll($ScrollPane* sp) {
 		int32_t vertScrollWidth = sp->getVScrollbarWidth();
 		$init($PlatformLogger$Level);
 		if ($nc(ScrollPaneWheelScroller::log)->isLoggable($PlatformLogger$Level::FINER)) {
-			$nc(ScrollPaneWheelScroller::log)->finer($$str({"insets: l = "_s, $$str($nc(ins)->left), ", r = "_s, $$str(ins->right), ", t = "_s, $$str(ins->top), ", b = "_s, $$str(ins->bottom)}));
-			$nc(ScrollPaneWheelScroller::log)->finer($$str({"vertScrollWidth = "_s, $$str(vertScrollWidth)}));
+			ScrollPaneWheelScroller::log->finer($$str({"insets: l = "_s, $$str($nc(ins)->left), ", r = "_s, $$str($nc(ins)->right), ", t = "_s, $$str($nc(ins)->top), ", b = "_s, $$str($nc(ins)->bottom)}));
+			ScrollPaneWheelScroller::log->finer($$str({"vertScrollWidth = "_s, $$str(vertScrollWidth)}));
 		}
 		if ($nc(ins)->right >= vertScrollWidth) {
-			if ($nc(ScrollPaneWheelScroller::log)->isLoggable($PlatformLogger$Level::FINER)) {
-				$nc(ScrollPaneWheelScroller::log)->finer("using vertical scrolling because scrollbar is present"_s);
+			if (ScrollPaneWheelScroller::log->isLoggable($PlatformLogger$Level::FINER)) {
+				ScrollPaneWheelScroller::log->finer("using vertical scrolling because scrollbar is present"_s);
 			}
 			return sp->getVAdjustable();
 		} else {
 			int32_t horizScrollHeight = sp->getHScrollbarHeight();
 			if (ins->bottom >= horizScrollHeight) {
-				if ($nc(ScrollPaneWheelScroller::log)->isLoggable($PlatformLogger$Level::FINER)) {
-					$nc(ScrollPaneWheelScroller::log)->finer("using horiz scrolling because scrollbar is present"_s);
+				if (ScrollPaneWheelScroller::log->isLoggable($PlatformLogger$Level::FINER)) {
+					ScrollPaneWheelScroller::log->finer("using horiz scrolling because scrollbar is present"_s);
 				}
 				return sp->getHAdjustable();
 			} else {
-				if ($nc(ScrollPaneWheelScroller::log)->isLoggable($PlatformLogger$Level::FINER)) {
-					$nc(ScrollPaneWheelScroller::log)->finer("using NO scrollbar becsause neither is present"_s);
+				if (ScrollPaneWheelScroller::log->isLoggable($PlatformLogger$Level::FINER)) {
+					ScrollPaneWheelScroller::log->finer("using NO scrollbar becsause neither is present"_s);
 				}
 				return nullptr;
 			}
@@ -129,7 +105,7 @@ int32_t ScrollPaneWheelScroller::getIncrementFromAdjustable($Adjustable* adj, $M
 	$init($PlatformLogger$Level);
 	if ($nc(ScrollPaneWheelScroller::log)->isLoggable($PlatformLogger$Level::FINE)) {
 		if (adj == nullptr) {
-			$nc(ScrollPaneWheelScroller::log)->fine("Assertion (adj != null) failed"_s);
+			ScrollPaneWheelScroller::log->fine("Assertion (adj != null) failed"_s);
 		}
 	}
 	int32_t increment = 0;
@@ -145,21 +121,21 @@ int32_t ScrollPaneWheelScroller::getIncrementFromAdjustable($Adjustable* adj, $M
 
 void ScrollPaneWheelScroller::scrollAdjustable($Adjustable* adj, int32_t amount) {
 	$init(ScrollPaneWheelScroller);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(ScrollPaneWheelScroller::log)->isLoggable($PlatformLogger$Level::FINE)) {
 		if (adj == nullptr) {
-			$nc(ScrollPaneWheelScroller::log)->fine("Assertion (adj != null) failed"_s);
+			ScrollPaneWheelScroller::log->fine("Assertion (adj != null) failed"_s);
 		}
 		if (amount == 0) {
-			$nc(ScrollPaneWheelScroller::log)->fine("Assertion (amount != 0) failed"_s);
+			ScrollPaneWheelScroller::log->fine("Assertion (amount != 0) failed"_s);
 		}
 	}
 	int32_t current = $nc(adj)->getValue();
 	int32_t var$0 = adj->getMaximum();
 	int32_t upperLimit = var$0 - adj->getVisibleAmount();
-	if ($nc(ScrollPaneWheelScroller::log)->isLoggable($PlatformLogger$Level::FINER)) {
-		$nc(ScrollPaneWheelScroller::log)->finer($$str({"doScrolling by "_s, $$str(amount)}));
+	if (ScrollPaneWheelScroller::log->isLoggable($PlatformLogger$Level::FINER)) {
+		ScrollPaneWheelScroller::log->finer($$str({"doScrolling by "_s, $$str(amount)}));
 	}
 	if (amount > 0 && current < upperLimit) {
 		if (current + amount < upperLimit) {
@@ -180,7 +156,7 @@ void ScrollPaneWheelScroller::scrollAdjustable($Adjustable* adj, int32_t amount)
 	}
 }
 
-void clinit$ScrollPaneWheelScroller($Class* class$) {
+void ScrollPaneWheelScroller::clinit$($Class* clazz) {
 	$assignStatic(ScrollPaneWheelScroller::log, $PlatformLogger::getLogger("sun.awt.ScrollPaneWheelScroller"_s));
 }
 
@@ -188,7 +164,29 @@ ScrollPaneWheelScroller::ScrollPaneWheelScroller() {
 }
 
 $Class* ScrollPaneWheelScroller::load$($String* name, bool initialize) {
-	$loadClass(ScrollPaneWheelScroller, name, initialize, &_ScrollPaneWheelScroller_ClassInfo_, clinit$ScrollPaneWheelScroller, allocate$ScrollPaneWheelScroller);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ScrollPaneWheelScroller, log)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ScrollPaneWheelScroller, init$, void)},
+		{"getAdjustableToScroll", "(Ljava/awt/ScrollPane;)Ljava/awt/Adjustable;", nullptr, $PUBLIC | $STATIC, $staticMethod(ScrollPaneWheelScroller, getAdjustableToScroll, $Adjustable*, $ScrollPane*)},
+		{"getIncrementFromAdjustable", "(Ljava/awt/Adjustable;Ljava/awt/event/MouseWheelEvent;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ScrollPaneWheelScroller, getIncrementFromAdjustable, int32_t, $Adjustable*, $MouseWheelEvent*)},
+		{"handleWheelScrolling", "(Ljava/awt/ScrollPane;Ljava/awt/event/MouseWheelEvent;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ScrollPaneWheelScroller, handleWheelScrolling, void, $ScrollPane*, $MouseWheelEvent*)},
+		{"scrollAdjustable", "(Ljava/awt/Adjustable;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ScrollPaneWheelScroller, scrollAdjustable, void, $Adjustable*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.awt.ScrollPaneWheelScroller",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ScrollPaneWheelScroller, name, initialize, &classInfo$$, ScrollPaneWheelScroller::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ScrollPaneWheelScroller);
+	});
 	return class$;
 }
 

@@ -1,7 +1,5 @@
 #include <com/apple/laf/AquaButtonBorder$Dynamic.h>
-
 #include <apple/laf/JRSUIConstants$Animating.h>
-#include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$Size.h>
 #include <apple/laf/JRSUIConstants$State.h>
 #include <apple/laf/JRSUIConstants$Widget.h>
@@ -11,7 +9,6 @@
 #include <com/apple/laf/AquaButtonBorder$SizeConstants.h>
 #include <com/apple/laf/AquaButtonBorder.h>
 #include <com/apple/laf/AquaPainter.h>
-#include <com/apple/laf/AquaUtilControlSize$SizeDescriptor.h>
 #include <com/apple/laf/AquaUtilControlSize$SizeVariant.h>
 #include <com/apple/laf/AquaUtilControlSize.h>
 #include <java/awt/Graphics.h>
@@ -19,7 +16,6 @@
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JComponent.h>
 #include <jcpp.h>
 
 #undef ALTERNATE_BEVEL_INSETS
@@ -35,16 +31,13 @@
 #undef YES
 
 using $JRSUIConstants$Animating = ::apple::laf::JRSUIConstants$Animating;
-using $JRSUIConstants$Property = ::apple::laf::JRSUIConstants$Property;
 using $JRSUIConstants$Size = ::apple::laf::JRSUIConstants$Size;
 using $JRSUIConstants$State = ::apple::laf::JRSUIConstants$State;
 using $JRSUIConstants$Widget = ::apple::laf::JRSUIConstants$Widget;
-using $JRSUIState = ::apple::laf::JRSUIState;
 using $AquaButtonBorder = ::com::apple::laf::AquaButtonBorder;
 using $AquaButtonBorder$Dynamic$1 = ::com::apple::laf::AquaButtonBorder$Dynamic$1;
 using $AquaButtonBorder$SizeConstants = ::com::apple::laf::AquaButtonBorder$SizeConstants;
 using $AquaUtilControlSize = ::com::apple::laf::AquaUtilControlSize;
-using $AquaUtilControlSize$SizeDescriptor = ::com::apple::laf::AquaUtilControlSize$SizeDescriptor;
 using $AquaUtilControlSize$SizeVariant = ::com::apple::laf::AquaUtilControlSize$SizeVariant;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
@@ -54,65 +47,21 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractButton = ::javax::swing::AbstractButton;
 using $ButtonModel = ::javax::swing::ButtonModel;
-using $JComponent = ::javax::swing::JComponent;
 
 namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaButtonBorder$Dynamic_FieldInfo_[] = {
-	{"ALTERNATE_PUSH_INSETS", "Ljava/awt/Insets;", nullptr, $FINAL, $field(AquaButtonBorder$Dynamic, ALTERNATE_PUSH_INSETS)},
-	{"ALTERNATE_BEVEL_INSETS", "Ljava/awt/Insets;", nullptr, $FINAL, $field(AquaButtonBorder$Dynamic, ALTERNATE_BEVEL_INSETS)},
-	{"ALTERNATE_SQUARE_INSETS", "Ljava/awt/Insets;", nullptr, $FINAL, $field(AquaButtonBorder$Dynamic, ALTERNATE_SQUARE_INSETS)},
-	{}
-};
-
-$MethodInfo _AquaButtonBorder$Dynamic_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaButtonBorder$Dynamic, init$, void)},
-	{"<init>", "(Lcom/apple/laf/AquaButtonBorder$Dynamic;)V", nullptr, $PUBLIC, $method(AquaButtonBorder$Dynamic, init$, void, AquaButtonBorder$Dynamic*)},
-	{"doButtonPaint", "(Ljavax/swing/AbstractButton;Ljavax/swing/ButtonModel;Ljava/awt/Graphics;IIII)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonBorder$Dynamic, doButtonPaint, void, $AbstractButton*, $ButtonModel*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"getButtonState", "(Ljavax/swing/AbstractButton;Ljavax/swing/ButtonModel;)Lapple/laf/JRSUIConstants$State;", nullptr, $PROTECTED, $virtualMethod(AquaButtonBorder$Dynamic, getButtonState, $JRSUIConstants$State*, $AbstractButton*, $ButtonModel*)},
-	{"getContentInsets", "(Ljavax/swing/AbstractButton;II)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaButtonBorder$Dynamic, getContentInsets, $Insets*, $AbstractButton*, int32_t, int32_t)},
-	{"getStyleForSize", "(Ljavax/swing/AbstractButton;Lapple/laf/JRSUIConstants$Size;II)Lapple/laf/JRSUIConstants$Widget;", nullptr, $PROTECTED, $virtualMethod(AquaButtonBorder$Dynamic, getStyleForSize, $JRSUIConstants$Widget*, $AbstractButton*, $JRSUIConstants$Size*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AquaButtonBorder$Dynamic_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaButtonBorder$Dynamic", "com.apple.laf.AquaButtonBorder", "Dynamic", $PUBLIC | $STATIC},
-	{"com.apple.laf.AquaButtonBorder$Dynamic$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaButtonBorder$Dynamic_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaButtonBorder$Dynamic",
-	"com.apple.laf.AquaButtonBorder",
-	nullptr,
-	_AquaButtonBorder$Dynamic_FieldInfo_,
-	_AquaButtonBorder$Dynamic_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaButtonBorder$Dynamic_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaButtonBorder"
-};
-
-$Object* allocate$AquaButtonBorder$Dynamic($Class* clazz) {
-	return $of($alloc(AquaButtonBorder$Dynamic));
-}
-
 void AquaButtonBorder$Dynamic::init$() {
-	$useLocalCurrentObjectStackCache();
-	$AquaButtonBorder::init$(static_cast<$AquaUtilControlSize$SizeDescriptor*>($$new($AquaButtonBorder$Dynamic$1, $($$new($AquaUtilControlSize$SizeVariant, 75, 29)->alterMargins(3, 20, 5, 20)))));
+	$useLocalObjectStack();
+	$AquaButtonBorder::init$($$new($AquaButtonBorder$Dynamic$1, $($$new($AquaUtilControlSize$SizeVariant, 75, 29)->alterMargins(3, 20, 5, 20))));
 	$set(this, ALTERNATE_PUSH_INSETS, $new($Insets, 3, 12, 5, 12));
 	$set(this, ALTERNATE_BEVEL_INSETS, $new($Insets, 0, 5, 0, 5));
 	$set(this, ALTERNATE_SQUARE_INSETS, $new($Insets, 0, 2, 0, 2));
 }
 
 void AquaButtonBorder$Dynamic::init$(AquaButtonBorder$Dynamic* other) {
-	$AquaButtonBorder::init$(static_cast<$AquaButtonBorder*>(other));
+	$AquaButtonBorder::init$(other);
 	$set(this, ALTERNATE_PUSH_INSETS, $new($Insets, 3, 12, 5, 12));
 	$set(this, ALTERNATE_BEVEL_INSETS, $new($Insets, 0, 5, 0, 5));
 	$set(this, ALTERNATE_SQUARE_INSETS, $new($Insets, 0, 2, 0, 2));
@@ -122,12 +71,12 @@ $JRSUIConstants$State* AquaButtonBorder$Dynamic::getButtonState($AbstractButton*
 	$var($JRSUIConstants$State, state, $AquaButtonBorder::getButtonState(b, model));
 	$init($JRSUIConstants$State);
 	$init($JRSUIConstants$Animating);
-	$nc($nc(this->painter)->state)->set(state == $JRSUIConstants$State::PULSED ? static_cast<$JRSUIConstants$Property*>($JRSUIConstants$Animating::YES) : static_cast<$JRSUIConstants$Property*>($JRSUIConstants$Animating::NO));
+	$nc($nc(this->painter)->state)->set(state == $JRSUIConstants$State::PULSED ? $JRSUIConstants$Animating::YES : $JRSUIConstants$Animating::NO);
 	return state;
 }
 
 $Insets* AquaButtonBorder$Dynamic::getContentInsets($AbstractButton* b, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JRSUIConstants$Size, size, $AquaUtilControlSize::getUserSizeFrom(b));
 	$var($JRSUIConstants$Widget, style, getStyleForSize(b, size, width, height));
 	$init($JRSUIConstants$Widget);
@@ -144,11 +93,11 @@ $Insets* AquaButtonBorder$Dynamic::getContentInsets($AbstractButton* b, int32_t 
 }
 
 void AquaButtonBorder$Dynamic::doButtonPaint($AbstractButton* b, $ButtonModel* model, $Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JRSUIConstants$Size, size, $AquaUtilControlSize::getUserSizeFrom(b));
 	$nc($nc(this->painter)->state)->set(size);
 	$var($JRSUIConstants$Widget, style, getStyleForSize(b, size, width, height));
-	$nc($nc(this->painter)->state)->set(style);
+	$nc(this->painter->state)->set(style);
 	$init($JRSUIConstants$Widget);
 	if (style == $JRSUIConstants$Widget::BUTTON_PUSH && y % 2 == 0) {
 		$init($JRSUIConstants$Size);
@@ -192,7 +141,44 @@ AquaButtonBorder$Dynamic::AquaButtonBorder$Dynamic() {
 }
 
 $Class* AquaButtonBorder$Dynamic::load$($String* name, bool initialize) {
-	$loadClass(AquaButtonBorder$Dynamic, name, initialize, &_AquaButtonBorder$Dynamic_ClassInfo_, allocate$AquaButtonBorder$Dynamic);
+	$FieldInfo fieldInfos$$[] = {
+		{"ALTERNATE_PUSH_INSETS", "Ljava/awt/Insets;", nullptr, $FINAL, $field(AquaButtonBorder$Dynamic, ALTERNATE_PUSH_INSETS)},
+		{"ALTERNATE_BEVEL_INSETS", "Ljava/awt/Insets;", nullptr, $FINAL, $field(AquaButtonBorder$Dynamic, ALTERNATE_BEVEL_INSETS)},
+		{"ALTERNATE_SQUARE_INSETS", "Ljava/awt/Insets;", nullptr, $FINAL, $field(AquaButtonBorder$Dynamic, ALTERNATE_SQUARE_INSETS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaButtonBorder$Dynamic, init$, void)},
+		{"<init>", "(Lcom/apple/laf/AquaButtonBorder$Dynamic;)V", nullptr, $PUBLIC, $method(AquaButtonBorder$Dynamic, init$, void, AquaButtonBorder$Dynamic*)},
+		{"doButtonPaint", "(Ljavax/swing/AbstractButton;Ljavax/swing/ButtonModel;Ljava/awt/Graphics;IIII)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonBorder$Dynamic, doButtonPaint, void, $AbstractButton*, $ButtonModel*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"getButtonState", "(Ljavax/swing/AbstractButton;Ljavax/swing/ButtonModel;)Lapple/laf/JRSUIConstants$State;", nullptr, $PROTECTED, $virtualMethod(AquaButtonBorder$Dynamic, getButtonState, $JRSUIConstants$State*, $AbstractButton*, $ButtonModel*)},
+		{"getContentInsets", "(Ljavax/swing/AbstractButton;II)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaButtonBorder$Dynamic, getContentInsets, $Insets*, $AbstractButton*, int32_t, int32_t)},
+		{"getStyleForSize", "(Ljavax/swing/AbstractButton;Lapple/laf/JRSUIConstants$Size;II)Lapple/laf/JRSUIConstants$Widget;", nullptr, $PROTECTED, $virtualMethod(AquaButtonBorder$Dynamic, getStyleForSize, $JRSUIConstants$Widget*, $AbstractButton*, $JRSUIConstants$Size*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaButtonBorder$Dynamic", "com.apple.laf.AquaButtonBorder", "Dynamic", $PUBLIC | $STATIC},
+		{"com.apple.laf.AquaButtonBorder$Dynamic$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaButtonBorder$Dynamic",
+		"com.apple.laf.AquaButtonBorder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaButtonBorder"
+	};
+	$loadClass(AquaButtonBorder$Dynamic, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaButtonBorder$Dynamic));
+	});
 	return class$;
 }
 

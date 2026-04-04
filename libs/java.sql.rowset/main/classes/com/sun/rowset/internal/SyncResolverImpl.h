@@ -499,7 +499,7 @@ public:
 	::java::sql::Connection* con = nullptr;
 	::javax::sql::rowset::CachedRowSet* row = nullptr;
 	::com::sun::rowset::JdbcRowSetResourceBundle* resBundle = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xD194282ECEDF6D45;
+	static const int64_t serialVersionUID = (int64_t)0xd194282ecedf6d45;
 };
 
 			} // internal

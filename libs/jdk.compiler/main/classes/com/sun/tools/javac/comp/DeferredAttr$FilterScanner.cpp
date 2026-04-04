@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/DeferredAttr$FilterScanner.h>
-
 #include <com/sun/tools/javac/comp/DeferredAttr.h>
 #include <com/sun/tools/javac/tree/JCTree$Tag.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
@@ -40,78 +39,36 @@ public:
 	virtual bool test(Object$* t) override {
 		 return DeferredAttr$FilterScanner::lambda$new$0(validTags, $cast($JCTree, t));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DeferredAttr$FilterScanner$$Lambda$lambda$new$0>());
-	}
 	$Set* validTags = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo DeferredAttr$FilterScanner$$Lambda$lambda$new$0::fieldInfos[2] = {
-	{"validTags", "Ljava/util/Set;", nullptr, $PUBLIC, $field(DeferredAttr$FilterScanner$$Lambda$lambda$new$0, validTags)},
-	{}
-};
-$MethodInfo DeferredAttr$FilterScanner$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(DeferredAttr$FilterScanner$$Lambda$lambda$new$0, init$, void, $Set*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$FilterScanner$$Lambda$lambda$new$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo DeferredAttr$FilterScanner$$Lambda$lambda$new$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.DeferredAttr$FilterScanner$$Lambda$lambda$new$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* DeferredAttr$FilterScanner$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
-	$loadClass(DeferredAttr$FilterScanner$$Lambda$lambda$new$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"validTags", "Ljava/util/Set;", nullptr, $PUBLIC, $field(DeferredAttr$FilterScanner$$Lambda$lambda$new$0, validTags)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(DeferredAttr$FilterScanner$$Lambda$lambda$new$0, init$, void, $Set*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$FilterScanner$$Lambda$lambda$new$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.DeferredAttr$FilterScanner$$Lambda$lambda$new$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DeferredAttr$FilterScanner$$Lambda$lambda$new$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeferredAttr$FilterScanner$$Lambda$lambda$new$0);
+	});
 	return class$;
 }
 $Class* DeferredAttr$FilterScanner$$Lambda$lambda$new$0::class$ = nullptr;
 
-$FieldInfo _DeferredAttr$FilterScanner_FieldInfo_[] = {
-	{"treeFilter", "Ljava/util/function/Predicate;", "Ljava/util/function/Predicate<Lcom/sun/tools/javac/tree/JCTree;>;", $FINAL, $field(DeferredAttr$FilterScanner, treeFilter)},
-	{}
-};
-
-$MethodInfo _DeferredAttr$FilterScanner_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<Lcom/sun/tools/javac/tree/JCTree$Tag;>;)V", 0, $method(DeferredAttr$FilterScanner, init$, void, $Set*)},
-	{"lambda$new$0", "(Ljava/util/Set;Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DeferredAttr$FilterScanner, lambda$new$0, bool, $Set*, $JCTree*)},
-	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$FilterScanner, scan, void, $JCTree*)},
-	{"skip", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $virtualMethod(DeferredAttr$FilterScanner, skip, void, $JCTree*)},
-	{}
-};
-
-$InnerClassInfo _DeferredAttr$FilterScanner_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.DeferredAttr$FilterScanner", "com.sun.tools.javac.comp.DeferredAttr", "FilterScanner", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DeferredAttr$FilterScanner_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.comp.DeferredAttr$FilterScanner",
-	"com.sun.tools.javac.tree.TreeScanner",
-	nullptr,
-	_DeferredAttr$FilterScanner_FieldInfo_,
-	_DeferredAttr$FilterScanner_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DeferredAttr$FilterScanner_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.DeferredAttr"
-};
-
-$Object* allocate$DeferredAttr$FilterScanner($Class* clazz) {
-	return $of($alloc(DeferredAttr$FilterScanner));
-}
-
 void DeferredAttr$FilterScanner::init$($Set* validTags) {
 	$TreeScanner::init$();
-	$set(this, treeFilter, static_cast<$Predicate*>($new(DeferredAttr$FilterScanner$$Lambda$lambda$new$0, validTags)));
+	$set(this, treeFilter, $new(DeferredAttr$FilterScanner$$Lambda$lambda$new$0, validTags));
 }
 
 void DeferredAttr$FilterScanner::scan($JCTree* tree) {
@@ -137,11 +94,43 @@ DeferredAttr$FilterScanner::DeferredAttr$FilterScanner() {
 
 $Class* DeferredAttr$FilterScanner::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DeferredAttr$FilterScanner$$Lambda$lambda$new$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.DeferredAttr$FilterScanner$$Lambda$lambda$new$0")) {
 			return DeferredAttr$FilterScanner$$Lambda$lambda$new$0::load$(name, initialize);
 		}
 	}
-	$loadClass(DeferredAttr$FilterScanner, name, initialize, &_DeferredAttr$FilterScanner_ClassInfo_, allocate$DeferredAttr$FilterScanner);
+	$FieldInfo fieldInfos$$[] = {
+		{"treeFilter", "Ljava/util/function/Predicate;", "Ljava/util/function/Predicate<Lcom/sun/tools/javac/tree/JCTree;>;", $FINAL, $field(DeferredAttr$FilterScanner, treeFilter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<Lcom/sun/tools/javac/tree/JCTree$Tag;>;)V", 0, $method(DeferredAttr$FilterScanner, init$, void, $Set*)},
+		{"lambda$new$0", "(Ljava/util/Set;Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DeferredAttr$FilterScanner, lambda$new$0, bool, $Set*, $JCTree*)},
+		{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$FilterScanner, scan, void, $JCTree*)},
+		{"skip", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $virtualMethod(DeferredAttr$FilterScanner, skip, void, $JCTree*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.DeferredAttr$FilterScanner", "com.sun.tools.javac.comp.DeferredAttr", "FilterScanner", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.comp.DeferredAttr$FilterScanner",
+		"com.sun.tools.javac.tree.TreeScanner",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.DeferredAttr"
+	};
+	$loadClass(DeferredAttr$FilterScanner, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeferredAttr$FilterScanner);
+	});
 	return class$;
 }
 

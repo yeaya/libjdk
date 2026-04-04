@@ -22,6 +22,7 @@ class MetaData$java_awt_BorderLayout_PersistenceDelegate : public ::java::beans:
 	$class(MetaData$java_awt_BorderLayout_PersistenceDelegate, 0, ::java::beans::DefaultPersistenceDelegate)
 public:
 	MetaData$java_awt_BorderLayout_PersistenceDelegate();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void initialize($Class* type, Object$* oldInstance, Object$* newInstance, ::java::beans::Encoder* out) override;
 	static $StringArray* CONSTRAINTS;

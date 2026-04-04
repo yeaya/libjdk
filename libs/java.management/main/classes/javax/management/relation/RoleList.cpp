@@ -1,9 +1,7 @@
 #include <javax/management/relation/RoleList.h>
-
 #include <com/sun/jmx/mbeanserver/Util.h>
 #include <java/lang/ClassCastException.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/Iterator.h>
@@ -18,7 +16,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
@@ -28,49 +25,6 @@ using $Role = ::javax::management::relation::Role;
 namespace javax {
 	namespace management {
 		namespace relation {
-
-$FieldInfo _RoleList_FieldInfo_[] = {
-	{"typeSafe", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(RoleList, typeSafe)},
-	{"tainted", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(RoleList, tainted)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RoleList, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _RoleList_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RoleList, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(RoleList, init$, void, int32_t)},
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljavax/management/relation/Role;>;)V", $PUBLIC, $method(RoleList, init$, void, $List*), "java.lang.IllegalArgumentException"},
-	{"add", "(Ljavax/management/relation/Role;)V", nullptr, $PUBLIC, $virtualMethod(RoleList, add, void, $Role*), "java.lang.IllegalArgumentException"},
-	{"add", "(ILjavax/management/relation/Role;)V", nullptr, $PUBLIC, $virtualMethod(RoleList, add, void, int32_t, $Role*), "java.lang.IllegalArgumentException,java.lang.IndexOutOfBoundsException"},
-	{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RoleList, add, bool, Object$*)},
-	{"add", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(RoleList, add, void, int32_t, Object$*)},
-	{"addAll", "(Ljavax/management/relation/RoleList;)Z", nullptr, $PUBLIC, $virtualMethod(RoleList, addAll, bool, RoleList*), "java.lang.IndexOutOfBoundsException"},
-	{"addAll", "(ILjavax/management/relation/RoleList;)Z", nullptr, $PUBLIC, $virtualMethod(RoleList, addAll, bool, int32_t, RoleList*), "java.lang.IllegalArgumentException,java.lang.IndexOutOfBoundsException"},
-	{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(RoleList, addAll, bool, $Collection*)},
-	{"addAll", "(ILjava/util/Collection;)Z", "(ILjava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(RoleList, addAll, bool, int32_t, $Collection*)},
-	{"asList", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/management/relation/Role;>;", $PUBLIC, $virtualMethod(RoleList, asList, $List*)},
-	{"checkTypeSafe", "(Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(RoleList, checkTypeSafe, void, Object$*)},
-	{"checkTypeSafe", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<*>;)V", $PRIVATE | $STATIC, $staticMethod(RoleList, checkTypeSafe, void, $Collection*)},
-	{"isTainted", "(Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(RoleList, isTainted, bool, Object$*)},
-	{"isTainted", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PRIVATE | $STATIC, $staticMethod(RoleList, isTainted, bool, $Collection*)},
-	{"set", "(ILjavax/management/relation/Role;)V", nullptr, $PUBLIC, $virtualMethod(RoleList, set, void, int32_t, $Role*), "java.lang.IllegalArgumentException,java.lang.IndexOutOfBoundsException"},
-	{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RoleList, set, $Object*, int32_t, Object$*)},
-	{}
-};
-
-$ClassInfo _RoleList_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.relation.RoleList",
-	"java.util.ArrayList",
-	nullptr,
-	_RoleList_FieldInfo_,
-	_RoleList_MethodInfo_,
-	"Ljava/util/ArrayList<Ljava/lang/Object;>;"
-};
-
-$Object* allocate$RoleList($Class* clazz) {
-	return $of($alloc(RoleList));
-}
 
 void RoleList::init$() {
 	$ArrayList::init$();
@@ -85,14 +39,14 @@ void RoleList::init$($List* list) {
 	if (list == nullptr) {
 		$throwNew($IllegalArgumentException, "Null parameter"_s);
 	}
-	checkTypeSafe(static_cast<$Collection*>(list));
+	checkTypeSafe(list);
 	$ArrayList::addAll(list);
 }
 
 $List* RoleList::asList() {
 	if (!this->typeSafe) {
 		if (this->tainted) {
-			checkTypeSafe(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(static_cast<$ArrayList*>(this)))));
+			checkTypeSafe($cast($AbstractCollection, this));
 		}
 		this->typeSafe = true;
 	}
@@ -127,7 +81,7 @@ bool RoleList::addAll(RoleList* roleList) {
 	if (roleList == nullptr) {
 		return true;
 	}
-	return ($ArrayList::addAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(static_cast<$ArrayList*>(roleList))))));
+	return ($ArrayList::addAll($cast($AbstractCollection, roleList)));
 }
 
 bool RoleList::addAll(int32_t index, RoleList* roleList) {
@@ -135,7 +89,7 @@ bool RoleList::addAll(int32_t index, RoleList* roleList) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
 	}
-	return ($ArrayList::addAll(index, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(static_cast<$ArrayList*>(roleList))))));
+	return ($ArrayList::addAll(index, $cast($AbstractCollection, roleList)));
 }
 
 bool RoleList::add(Object$* o) {
@@ -185,7 +139,7 @@ $Object* RoleList::set(int32_t index, Object$* element) {
 	if (this->typeSafe) {
 		checkTypeSafe(element);
 	}
-	return $of($ArrayList::set(index, element));
+	return $ArrayList::set(index, element);
 }
 
 void RoleList::checkTypeSafe(Object$* o$renamed) {
@@ -194,13 +148,13 @@ void RoleList::checkTypeSafe(Object$* o$renamed) {
 	try {
 		$assign(o, $cast($Role, o));
 	} catch ($ClassCastException& e) {
-		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(e));
+		$throwNew($IllegalArgumentException, e);
 	}
 }
 
 void RoleList::checkTypeSafe($Collection* c) {
 	$init(RoleList);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($Role, r, nullptr);
 		{
@@ -211,7 +165,7 @@ void RoleList::checkTypeSafe($Collection* c) {
 			}
 		}
 	} catch ($ClassCastException& e) {
-		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(e));
+		$throwNew($IllegalArgumentException, e);
 	}
 }
 
@@ -239,7 +193,45 @@ RoleList::RoleList() {
 }
 
 $Class* RoleList::load$($String* name, bool initialize) {
-	$loadClass(RoleList, name, initialize, &_RoleList_ClassInfo_, allocate$RoleList);
+	$FieldInfo fieldInfos$$[] = {
+		{"typeSafe", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(RoleList, typeSafe)},
+		{"tainted", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(RoleList, tainted)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RoleList, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RoleList, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(RoleList, init$, void, int32_t)},
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljavax/management/relation/Role;>;)V", $PUBLIC, $method(RoleList, init$, void, $List*), "java.lang.IllegalArgumentException"},
+		{"add", "(Ljavax/management/relation/Role;)V", nullptr, $PUBLIC, $virtualMethod(RoleList, add, void, $Role*), "java.lang.IllegalArgumentException"},
+		{"add", "(ILjavax/management/relation/Role;)V", nullptr, $PUBLIC, $virtualMethod(RoleList, add, void, int32_t, $Role*), "java.lang.IllegalArgumentException,java.lang.IndexOutOfBoundsException"},
+		{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RoleList, add, bool, Object$*)},
+		{"add", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(RoleList, add, void, int32_t, Object$*)},
+		{"addAll", "(Ljavax/management/relation/RoleList;)Z", nullptr, $PUBLIC, $virtualMethod(RoleList, addAll, bool, RoleList*), "java.lang.IndexOutOfBoundsException"},
+		{"addAll", "(ILjavax/management/relation/RoleList;)Z", nullptr, $PUBLIC, $virtualMethod(RoleList, addAll, bool, int32_t, RoleList*), "java.lang.IllegalArgumentException,java.lang.IndexOutOfBoundsException"},
+		{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(RoleList, addAll, bool, $Collection*)},
+		{"addAll", "(ILjava/util/Collection;)Z", "(ILjava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(RoleList, addAll, bool, int32_t, $Collection*)},
+		{"asList", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/management/relation/Role;>;", $PUBLIC, $virtualMethod(RoleList, asList, $List*)},
+		{"checkTypeSafe", "(Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(RoleList, checkTypeSafe, void, Object$*)},
+		{"checkTypeSafe", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<*>;)V", $PRIVATE | $STATIC, $staticMethod(RoleList, checkTypeSafe, void, $Collection*)},
+		{"isTainted", "(Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(RoleList, isTainted, bool, Object$*)},
+		{"isTainted", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PRIVATE | $STATIC, $staticMethod(RoleList, isTainted, bool, $Collection*)},
+		{"set", "(ILjavax/management/relation/Role;)V", nullptr, $PUBLIC, $virtualMethod(RoleList, set, void, int32_t, $Role*), "java.lang.IllegalArgumentException,java.lang.IndexOutOfBoundsException"},
+		{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RoleList, set, $Object*, int32_t, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.relation.RoleList",
+		"java.util.ArrayList",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/ArrayList<Ljava/lang/Object;>;"
+	};
+	$loadClass(RoleList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RoleList));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/IllegalComponentStateException.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _IllegalComponentStateException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllegalComponentStateException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _IllegalComponentStateException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalComponentStateException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalComponentStateException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _IllegalComponentStateException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.IllegalComponentStateException",
-	"java.lang.IllegalStateException",
-	nullptr,
-	_IllegalComponentStateException_FieldInfo_,
-	_IllegalComponentStateException_MethodInfo_
-};
-
-$Object* allocate$IllegalComponentStateException($Class* clazz) {
-	return $of($alloc(IllegalComponentStateException));
-}
 
 void IllegalComponentStateException::init$() {
 	$IllegalStateException::init$();
@@ -54,7 +29,26 @@ void IllegalComponentStateException::throw$() {
 }
 
 $Class* IllegalComponentStateException::load$($String* name, bool initialize) {
-	$loadClass(IllegalComponentStateException, name, initialize, &_IllegalComponentStateException_ClassInfo_, allocate$IllegalComponentStateException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllegalComponentStateException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalComponentStateException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalComponentStateException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.IllegalComponentStateException",
+		"java.lang.IllegalStateException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IllegalComponentStateException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IllegalComponentStateException);
+	});
 	return class$;
 }
 

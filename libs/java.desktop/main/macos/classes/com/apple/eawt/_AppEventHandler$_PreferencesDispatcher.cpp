@@ -1,5 +1,4 @@
 #include <com/apple/eawt/_AppEventHandler$_PreferencesDispatcher.h>
-
 #include <com/apple/eawt/_AppEventHandler$_AppEventDispatcher.h>
 #include <com/apple/eawt/_AppEventHandler$_NativeEvent.h>
 #include <com/apple/eawt/_AppEventHandler.h>
@@ -23,46 +22,6 @@ namespace com {
 	namespace apple {
 		namespace eawt {
 
-$FieldInfo __AppEventHandler$_PreferencesDispatcher_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/eawt/_AppEventHandler;", nullptr, $FINAL | $SYNTHETIC, $field(_AppEventHandler$_PreferencesDispatcher, this$0)},
-	{}
-};
-
-$MethodInfo __AppEventHandler$_PreferencesDispatcher_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/eawt/_AppEventHandler;)V", nullptr, 0, $method(_AppEventHandler$_PreferencesDispatcher, init$, void, $_AppEventHandler*)},
-	{"performUsing", "(Ljava/awt/desktop/PreferencesHandler;Lcom/apple/eawt/_AppEventHandler$_NativeEvent;)V", nullptr, 0, $virtualMethod(_AppEventHandler$_PreferencesDispatcher, performUsing, void, $PreferencesHandler*, $_AppEventHandler$_NativeEvent*)},
-	{"performUsing", "(Ljava/lang/Object;Lcom/apple/eawt/_AppEventHandler$_NativeEvent;)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(_AppEventHandler$_PreferencesDispatcher, performUsing, void, Object$*, $_AppEventHandler$_NativeEvent*)},
-	{"setHandler", "(Ljava/awt/desktop/PreferencesHandler;)V", nullptr, $SYNCHRONIZED, $virtualMethod(_AppEventHandler$_PreferencesDispatcher, setHandler, void, $PreferencesHandler*)},
-	{"setHandler", "(Ljava/lang/Object;)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(_AppEventHandler$_PreferencesDispatcher, setHandler, void, Object$*)},
-	{}
-};
-
-$InnerClassInfo __AppEventHandler$_PreferencesDispatcher_InnerClassesInfo_[] = {
-	{"com.apple.eawt._AppEventHandler$_PreferencesDispatcher", "com.apple.eawt._AppEventHandler", "_PreferencesDispatcher", 0},
-	{"com.apple.eawt._AppEventHandler$_AppEventDispatcher", "com.apple.eawt._AppEventHandler", "_AppEventDispatcher", $ABSTRACT},
-	{}
-};
-
-$ClassInfo __AppEventHandler$_PreferencesDispatcher_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.eawt._AppEventHandler$_PreferencesDispatcher",
-	"com.apple.eawt._AppEventHandler$_AppEventDispatcher",
-	nullptr,
-	__AppEventHandler$_PreferencesDispatcher_FieldInfo_,
-	__AppEventHandler$_PreferencesDispatcher_MethodInfo_,
-	"Lcom/apple/eawt/_AppEventHandler$_AppEventDispatcher<Ljava/awt/desktop/PreferencesHandler;>;",
-	nullptr,
-	__AppEventHandler$_PreferencesDispatcher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.eawt._AppEventHandler"
-};
-
-$Object* allocate$_AppEventHandler$_PreferencesDispatcher($Class* clazz) {
-	return $of($alloc(_AppEventHandler$_PreferencesDispatcher));
-}
-
 void _AppEventHandler$_PreferencesDispatcher::init$($_AppEventHandler* this$0) {
 	$set(this, this$0, this$0);
 	$_AppEventHandler$_AppEventDispatcher::init$(this$0);
@@ -70,10 +29,10 @@ void _AppEventHandler$_PreferencesDispatcher::init$($_AppEventHandler* this$0) {
 
 void _AppEventHandler$_PreferencesDispatcher::setHandler($PreferencesHandler* handler) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$_AppEventHandler$_AppEventDispatcher::setHandler(handler);
-		$nc($($_AppMenuBarHandler::getInstance()))->setPreferencesMenuItemVisible(handler != nullptr);
-		$nc($($_AppMenuBarHandler::getInstance()))->setPreferencesMenuItemEnabled(handler != nullptr);
+		$$nc($_AppMenuBarHandler::getInstance())->setPreferencesMenuItemVisible(handler != nullptr);
+		$$nc($_AppMenuBarHandler::getInstance())->setPreferencesMenuItemEnabled(handler != nullptr);
 	}
 }
 
@@ -93,7 +52,41 @@ _AppEventHandler$_PreferencesDispatcher::_AppEventHandler$_PreferencesDispatcher
 }
 
 $Class* _AppEventHandler$_PreferencesDispatcher::load$($String* name, bool initialize) {
-	$loadClass(_AppEventHandler$_PreferencesDispatcher, name, initialize, &__AppEventHandler$_PreferencesDispatcher_ClassInfo_, allocate$_AppEventHandler$_PreferencesDispatcher);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/eawt/_AppEventHandler;", nullptr, $FINAL | $SYNTHETIC, $field(_AppEventHandler$_PreferencesDispatcher, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/eawt/_AppEventHandler;)V", nullptr, 0, $method(_AppEventHandler$_PreferencesDispatcher, init$, void, $_AppEventHandler*)},
+		{"performUsing", "(Ljava/awt/desktop/PreferencesHandler;Lcom/apple/eawt/_AppEventHandler$_NativeEvent;)V", nullptr, 0, $virtualMethod(_AppEventHandler$_PreferencesDispatcher, performUsing, void, $PreferencesHandler*, $_AppEventHandler$_NativeEvent*)},
+		{"performUsing", "(Ljava/lang/Object;Lcom/apple/eawt/_AppEventHandler$_NativeEvent;)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(_AppEventHandler$_PreferencesDispatcher, performUsing, void, Object$*, $_AppEventHandler$_NativeEvent*)},
+		{"setHandler", "(Ljava/awt/desktop/PreferencesHandler;)V", nullptr, $SYNCHRONIZED, $virtualMethod(_AppEventHandler$_PreferencesDispatcher, setHandler, void, $PreferencesHandler*)},
+		{"setHandler", "(Ljava/lang/Object;)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(_AppEventHandler$_PreferencesDispatcher, setHandler, void, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.eawt._AppEventHandler$_PreferencesDispatcher", "com.apple.eawt._AppEventHandler", "_PreferencesDispatcher", 0},
+		{"com.apple.eawt._AppEventHandler$_AppEventDispatcher", "com.apple.eawt._AppEventHandler", "_AppEventDispatcher", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.eawt._AppEventHandler$_PreferencesDispatcher",
+		"com.apple.eawt._AppEventHandler$_AppEventDispatcher",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/apple/eawt/_AppEventHandler$_AppEventDispatcher<Ljava/awt/desktop/PreferencesHandler;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.eawt._AppEventHandler"
+	};
+	$loadClass(_AppEventHandler$_PreferencesDispatcher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(_AppEventHandler$_PreferencesDispatcher);
+	});
 	return class$;
 }
 

@@ -27,6 +27,7 @@ class $export Test6462562 : public ::java::lang::Object {
 	$class(Test6462562, 0, ::java::lang::Object)
 public:
 	Test6462562();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::Test6462562$TestFormattedTextField* create(::java::text::NumberFormat* format);
 	virtual ::Test6462562$TestFormattedTextField* create(::java::text::DateFormat* format);

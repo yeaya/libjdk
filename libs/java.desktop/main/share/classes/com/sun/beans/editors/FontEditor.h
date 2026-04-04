@@ -64,7 +64,7 @@ public:
 	virtual void setValue(Object$* o) override;
 	virtual bool supportsCustomEditor() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x5D6F5F0F01DEED1D;
+	static const int64_t serialVersionUID = (int64_t)0x5d6f5f0f01deed1d;
 	::java::awt::Font* font = nullptr;
 	::java::awt::Toolkit* toolkit = nullptr;
 	$String* sampleText = nullptr;

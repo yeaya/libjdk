@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicMenuUI$ChangeHandler.h>
-
 #include <java/awt/Component.h>
 #include <javax/swing/JMenu.h>
 #include <javax/swing/event/ChangeEvent.h>
@@ -19,46 +18,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicMenuUI$ChangeHandler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicMenuUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicMenuUI$ChangeHandler, this$0)},
-	{"menu", "Ljavax/swing/JMenu;", nullptr, $PUBLIC, $field(BasicMenuUI$ChangeHandler, menu)},
-	{"ui", "Ljavax/swing/plaf/basic/BasicMenuUI;", nullptr, $PUBLIC, $field(BasicMenuUI$ChangeHandler, ui)},
-	{"isSelected", "Z", nullptr, $PUBLIC, $field(BasicMenuUI$ChangeHandler, isSelected)},
-	{"wasFocused", "Ljava/awt/Component;", nullptr, $PUBLIC, $field(BasicMenuUI$ChangeHandler, wasFocused)},
-	{}
-};
-
-$MethodInfo _BasicMenuUI$ChangeHandler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicMenuUI;Ljavax/swing/JMenu;Ljavax/swing/plaf/basic/BasicMenuUI;)V", nullptr, $PUBLIC, $method(BasicMenuUI$ChangeHandler, init$, void, $BasicMenuUI*, $JMenu*, $BasicMenuUI*)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuUI$ChangeHandler, stateChanged, void, $ChangeEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicMenuUI$ChangeHandler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicMenuUI$ChangeHandler", "javax.swing.plaf.basic.BasicMenuUI", "ChangeHandler", $PUBLIC},
-	{}
-};
-
-$ClassInfo _BasicMenuUI$ChangeHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicMenuUI$ChangeHandler",
-	"java.lang.Object",
-	"javax.swing.event.ChangeListener",
-	_BasicMenuUI$ChangeHandler_FieldInfo_,
-	_BasicMenuUI$ChangeHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicMenuUI$ChangeHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicMenuUI"
-};
-
-$Object* allocate$BasicMenuUI$ChangeHandler($Class* clazz) {
-	return $of($alloc(BasicMenuUI$ChangeHandler));
-}
-
 void BasicMenuUI$ChangeHandler::init$($BasicMenuUI* this$0, $JMenu* m, $BasicMenuUI* ui) {
 	$set(this, this$0, this$0);
 	this->isSelected = false;
@@ -73,7 +32,41 @@ BasicMenuUI$ChangeHandler::BasicMenuUI$ChangeHandler() {
 }
 
 $Class* BasicMenuUI$ChangeHandler::load$($String* name, bool initialize) {
-	$loadClass(BasicMenuUI$ChangeHandler, name, initialize, &_BasicMenuUI$ChangeHandler_ClassInfo_, allocate$BasicMenuUI$ChangeHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicMenuUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicMenuUI$ChangeHandler, this$0)},
+		{"menu", "Ljavax/swing/JMenu;", nullptr, $PUBLIC, $field(BasicMenuUI$ChangeHandler, menu)},
+		{"ui", "Ljavax/swing/plaf/basic/BasicMenuUI;", nullptr, $PUBLIC, $field(BasicMenuUI$ChangeHandler, ui)},
+		{"isSelected", "Z", nullptr, $PUBLIC, $field(BasicMenuUI$ChangeHandler, isSelected)},
+		{"wasFocused", "Ljava/awt/Component;", nullptr, $PUBLIC, $field(BasicMenuUI$ChangeHandler, wasFocused)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicMenuUI;Ljavax/swing/JMenu;Ljavax/swing/plaf/basic/BasicMenuUI;)V", nullptr, $PUBLIC, $method(BasicMenuUI$ChangeHandler, init$, void, $BasicMenuUI*, $JMenu*, $BasicMenuUI*)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuUI$ChangeHandler, stateChanged, void, $ChangeEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicMenuUI$ChangeHandler", "javax.swing.plaf.basic.BasicMenuUI", "ChangeHandler", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicMenuUI$ChangeHandler",
+		"java.lang.Object",
+		"javax.swing.event.ChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicMenuUI"
+	};
+	$loadClass(BasicMenuUI$ChangeHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicMenuUI$ChangeHandler);
+	});
 	return class$;
 }
 

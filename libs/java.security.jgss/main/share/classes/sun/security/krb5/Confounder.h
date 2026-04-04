@@ -19,6 +19,7 @@ class $export Confounder : public ::java::lang::Object {
 	$class(Confounder, 0, ::java::lang::Object)
 public:
 	Confounder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $bytes* bytes(int32_t size);
 	static int32_t intValue();

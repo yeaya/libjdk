@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/res/XResources_fr.h>
-
 #include <com/sun/org/apache/xml/internal/utils/res/CharArrayWrapper.h>
 #include <com/sun/org/apache/xml/internal/utils/res/XResourceBundle.h>
 #include <jcpp.h>
@@ -20,30 +19,6 @@ namespace com {
 						namespace utils {
 							namespace res {
 
-$FieldInfo _XResources_fr_FieldInfo_[] = {
-	{"_contents", "[[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XResources_fr, _contents)},
-	{}
-};
-
-$MethodInfo _XResources_fr_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XResources_fr, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XResources_fr, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _XResources_fr_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.res.XResources_fr",
-	"com.sun.org.apache.xml.internal.utils.res.XResourceBundle",
-	nullptr,
-	_XResources_fr_FieldInfo_,
-	_XResources_fr_MethodInfo_
-};
-
-$Object* allocate$XResources_fr($Class* clazz) {
-	return $of($alloc(XResources_fr));
-}
-
 $ObjectArray2* XResources_fr::_contents = nullptr;
 
 void XResources_fr::init$() {
@@ -54,24 +29,24 @@ $ObjectArray2* XResources_fr::getContents() {
 	return XResources_fr::_contents;
 }
 
-void clinit$XResources_fr($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void XResources_fr::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(XResources_fr::_contents, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("ui_language"_s),
-			$of("fr"_s)
+			"ui_language"_s,
+			"fr"_s
 		}),
 		$$new($ObjectArray, {
-			$of("help_language"_s),
-			$of("fr"_s)
+			"help_language"_s,
+			"fr"_s
 		}),
 		$$new($ObjectArray, {
-			$of("language"_s),
-			$of("fr"_s)
+			"language"_s,
+			"fr"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alphabet"_s),
-			$of($$new($CharArrayWrapper, $$new($chars, {
+			"alphabet"_s,
+			$$new($CharArrayWrapper, $$new($chars, {
 				u'A',
 				u'B',
 				u'C',
@@ -98,11 +73,11 @@ void clinit$XResources_fr($Class* class$) {
 				u'X',
 				u'Y',
 				u'Z'
-			})))
+			}))
 		}),
 		$$new($ObjectArray, {
-			$of("tradAlphabet"_s),
-			$of($$new($CharArrayWrapper, $$new($chars, {
+			"tradAlphabet"_s,
+			$$new($CharArrayWrapper, $$new($chars, {
 				u'A',
 				u'B',
 				u'C',
@@ -129,15 +104,15 @@ void clinit$XResources_fr($Class* class$) {
 				u'X',
 				u'Y',
 				u'Z'
-			})))
+			}))
 		}),
 		$$new($ObjectArray, {
-			$of("orientation"_s),
-			$of("LeftToRight"_s)
+			"orientation"_s,
+			"LeftToRight"_s
 		}),
 		$$new($ObjectArray, {
-			$of("numbering"_s),
-			$of("additive"_s)
+			"numbering"_s,
+			"additive"_s
 		})
 	}));
 }
@@ -146,7 +121,26 @@ XResources_fr::XResources_fr() {
 }
 
 $Class* XResources_fr::load$($String* name, bool initialize) {
-	$loadClass(XResources_fr, name, initialize, &_XResources_fr_ClassInfo_, clinit$XResources_fr, allocate$XResources_fr);
+	$FieldInfo fieldInfos$$[] = {
+		{"_contents", "[[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XResources_fr, _contents)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XResources_fr, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XResources_fr, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.res.XResources_fr",
+		"com.sun.org.apache.xml.internal.utils.res.XResourceBundle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XResources_fr, name, initialize, &classInfo$$, XResources_fr::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XResources_fr);
+	});
 	return class$;
 }
 

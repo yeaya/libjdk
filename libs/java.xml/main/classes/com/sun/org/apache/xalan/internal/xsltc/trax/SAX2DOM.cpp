@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/trax/SAX2DOM.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/Constants.h>
 #include <com/sun/org/apache/xerces/internal/jaxp/DocumentBuilderFactoryImpl.h>
 #include <com/sun/org/apache/xerces/internal/util/XMLSymbols.h>
@@ -36,10 +35,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
-using $List = ::java::util::List;
 using $Stack = ::java::util::Stack;
-using $DocumentBuilder = ::javax::xml::parsers::DocumentBuilder;
-using $DocumentBuilderFactory = ::javax::xml::parsers::DocumentBuilderFactory;
 using $JdkXmlUtils = ::jdk::xml::internal::JdkXmlUtils;
 using $Comment = ::org::w3c::dom::Comment;
 using $Document = ::org::w3c::dom::Document;
@@ -59,69 +55,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace trax {
-
-$FieldInfo _SAX2DOM_FieldInfo_[] = {
-	{"_root", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(SAX2DOM, _root)},
-	{"_document", "Lorg/w3c/dom/Document;", nullptr, $PRIVATE, $field(SAX2DOM, _document)},
-	{"_nextSibling", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(SAX2DOM, _nextSibling)},
-	{"_nodeStk", "Ljava/util/Stack;", "Ljava/util/Stack<Lorg/w3c/dom/Node;>;", $PRIVATE, $field(SAX2DOM, _nodeStk)},
-	{"_namespaceDecls", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(SAX2DOM, _namespaceDecls)},
-	{"_lastSibling", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(SAX2DOM, _lastSibling)},
-	{"locator", "Lorg/xml/sax/Locator;", nullptr, $PRIVATE, $field(SAX2DOM, locator)},
-	{"needToSetDocumentInfo", "Z", nullptr, $PRIVATE, $field(SAX2DOM, needToSetDocumentInfo)},
-	{"_textBuffer", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE, $field(SAX2DOM, _textBuffer)},
-	{"_nextSiblingCache", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(SAX2DOM, _nextSiblingCache)},
-	{"_factory", "Ljavax/xml/parsers/DocumentBuilderFactory;", nullptr, $PRIVATE, $field(SAX2DOM, _factory)},
-	{"_internal", "Z", nullptr, $PRIVATE, $field(SAX2DOM, _internal)},
-	{}
-};
-
-$MethodInfo _SAX2DOM_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(SAX2DOM, init$, void, bool), "javax.xml.parsers.ParserConfigurationException"},
-	{"<init>", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Z)V", nullptr, $PUBLIC, $method(SAX2DOM, init$, void, $Node*, $Node*, bool), "javax.xml.parsers.ParserConfigurationException"},
-	{"<init>", "(Lorg/w3c/dom/Node;Z)V", nullptr, $PUBLIC, $method(SAX2DOM, init$, void, $Node*, bool), "javax.xml.parsers.ParserConfigurationException"},
-	{"appendTextNode", "()V", nullptr, $PRIVATE, $method(SAX2DOM, appendTextNode, void)},
-	{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, characters, void, $chars*, int32_t, int32_t)},
-	{"comment", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, comment, void, $chars*, int32_t, int32_t)},
-	{"createDocument", "(Z)Lorg/w3c/dom/Document;", nullptr, $PRIVATE, $method(SAX2DOM, createDocument, $Document*, bool), "javax.xml.parsers.ParserConfigurationException"},
-	{"endCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, endCDATA, void)},
-	{"endDTD", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, endDTD, void)},
-	{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, endDocument, void)},
-	{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, endElement, void, $String*, $String*, $String*)},
-	{"endEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, endEntity, void, $String*)},
-	{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, endPrefixMapping, void, $String*)},
-	{"getDOM", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, getDOM, $Node*)},
-	{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, ignorableWhitespace, void, $chars*, int32_t, int32_t)},
-	{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, processingInstruction, void, $String*, $String*)},
-	{"setDocumentInfo", "()V", nullptr, $PRIVATE, $method(SAX2DOM, setDocumentInfo, void)},
-	{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, setDocumentLocator, void, $Locator*)},
-	{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, skippedEntity, void, $String*)},
-	{"startCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, startCDATA, void)},
-	{"startDTD", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, startDTD, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, startDocument, void)},
-	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, startElement, void, $String*, $String*, $String*, $Attributes*)},
-	{"startEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, startEntity, void, $String*)},
-	{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, startPrefixMapping, void, $String*, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _SAX2DOM_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.trax.SAX2DOM",
-	"java.lang.Object",
-	"org.xml.sax.ContentHandler,org.xml.sax.ext.LexicalHandler,com.sun.org.apache.xalan.internal.xsltc.runtime.Constants",
-	_SAX2DOM_FieldInfo_,
-	_SAX2DOM_MethodInfo_
-};
-
-$Object* allocate$SAX2DOM($Class* clazz) {
-	return $of($alloc(SAX2DOM));
-}
 
 int32_t SAX2DOM::hashCode() {
 	 return this->$ContentHandler::hashCode();
@@ -203,11 +136,11 @@ void SAX2DOM::characters($chars* ch, int32_t start, int32_t length) {
 }
 
 void SAX2DOM::appendTextNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->_textBuffer)->length() > 0) {
 		$var($Node, last, $cast($Node, $nc(this->_nodeStk)->peek()));
 		if (last == this->_root && this->_nextSiblingCache != nullptr) {
-			$set(this, _lastSibling, $nc(last)->insertBefore($($nc(this->_document)->createTextNode($($nc(this->_textBuffer)->toString()))), this->_nextSiblingCache));
+			$set(this, _lastSibling, $nc(last)->insertBefore($($nc(this->_document)->createTextNode($(this->_textBuffer->toString()))), this->_nextSiblingCache));
 		} else {
 			$set(this, _lastSibling, $nc(last)->appendChild($($nc(this->_document)->createTextNode($($nc(this->_textBuffer)->toString())))));
 		}
@@ -228,13 +161,13 @@ void SAX2DOM::setDocumentInfo() {
 		return;
 	}
 	try {
-		$nc(this->_document)->setXmlVersion($($nc(($cast($Locator2, this->locator)))->getXMLVersion()));
+		$nc(this->_document)->setXmlVersion($($nc($cast($Locator2, this->locator))->getXMLVersion()));
 	} catch ($ClassCastException& e) {
 	}
 }
 
 void SAX2DOM::startElement($String* namespace$, $String* localName, $String* qName, $Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	appendTextNode();
 	if (this->needToSetDocumentInfo) {
 		setDocumentInfo();
@@ -242,14 +175,14 @@ void SAX2DOM::startElement($String* namespace$, $String* localName, $String* qNa
 	}
 	$var($Element, tmp, $nc(this->_document)->createElementNS(namespace$, qName));
 	if (this->_namespaceDecls != nullptr) {
-		int32_t nDecls = $nc(this->_namespaceDecls)->size();
+		int32_t nDecls = this->_namespaceDecls->size();
 		for (int32_t i = 0; i < nDecls; ++i) {
 			$var($String, prefix, $cast($String, $nc(this->_namespaceDecls)->get(i++)));
 			$init($Constants);
-			if (prefix == nullptr || $nc(prefix)->equals($Constants::EMPTYSTRING)) {
-				$nc(tmp)->setAttributeNS($Constants::XMLNS_URI, $Constants::XMLNS_PREFIX, $cast($String, $($nc(this->_namespaceDecls)->get(i))));
+			if (prefix == nullptr || prefix->equals($Constants::EMPTYSTRING)) {
+				$nc(tmp)->setAttributeNS($Constants::XMLNS_URI, $Constants::XMLNS_PREFIX, $$cast($String, this->_namespaceDecls->get(i)));
 			} else {
-				$nc(tmp)->setAttributeNS($Constants::XMLNS_URI, $$str({$Constants::XMLNS_STRING, prefix}), $cast($String, $($nc(this->_namespaceDecls)->get(i))));
+				$nc(tmp)->setAttributeNS($Constants::XMLNS_URI, $$str({$Constants::XMLNS_STRING, prefix}), $$cast($String, $nc(this->_namespaceDecls)->get(i)));
 			}
 		}
 		$nc(this->_namespaceDecls)->clear();
@@ -260,7 +193,7 @@ void SAX2DOM::startElement($String* namespace$, $String* localName, $String* qNa
 		$var($String, attURI, attrs->getURI(i));
 		$init($XMLSymbols);
 		$var($String, type, (attrs->getType(i) == nullptr) ? $XMLSymbols::fCDATASymbol : attrs->getType(i));
-		if ($nc($(attrs->getLocalName(i)))->equals(""_s)) {
+		if ($$nc(attrs->getLocalName(i))->equals(""_s)) {
 			$nc(tmp)->setAttribute(attQName, $(attrs->getValue(i)));
 			if ($nc(type)->equals("ID"_s)) {
 				tmp->setIdAttribute(attQName, true);
@@ -293,7 +226,7 @@ void SAX2DOM::startPrefixMapping($String* prefix, $String* uri) {
 		$set(this, _namespaceDecls, $new($ArrayList, 2));
 	}
 	$nc(this->_namespaceDecls)->add(prefix);
-	$nc(this->_namespaceDecls)->add(uri);
+	this->_namespaceDecls->add(uri);
 }
 
 void SAX2DOM::endPrefixMapping($String* prefix) {
@@ -303,7 +236,7 @@ void SAX2DOM::ignorableWhitespace($chars* ch, int32_t start, int32_t length) {
 }
 
 void SAX2DOM::processingInstruction($String* target, $String* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	appendTextNode();
 	$var($Node, last, $cast($Node, $nc(this->_nodeStk)->peek()));
 	$var($ProcessingInstruction, pi, $nc(this->_document)->createProcessingInstruction(target, data));
@@ -325,7 +258,7 @@ void SAX2DOM::skippedEntity($String* name) {
 }
 
 void SAX2DOM::comment($chars* ch, int32_t start, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	appendTextNode();
 	$var($Node, last, $cast($Node, $nc(this->_nodeStk)->peek()));
 	$var($Comment, comment, $nc(this->_document)->createComment($$new($String, ch, start, length)));
@@ -358,7 +291,7 @@ void SAX2DOM::startDTD($String* name, $String* publicId, $String* systemId) {
 }
 
 $Document* SAX2DOM::createDocument(bool overrideDefaultParser) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->_factory == nullptr) {
 		$set(this, _factory, $JdkXmlUtils::getDOMFactory(overrideDefaultParser));
 		this->_internal = true;
@@ -368,10 +301,10 @@ $Document* SAX2DOM::createDocument(bool overrideDefaultParser) {
 	}
 	$var($Document, doc, nullptr);
 	if (this->_internal) {
-		$assign(doc, $nc($($nc(this->_factory)->newDocumentBuilder()))->newDocument());
+		$assign(doc, $$nc($nc(this->_factory)->newDocumentBuilder())->newDocument());
 	} else {
 		$synchronized(SAX2DOM::class$) {
-			$assign(doc, $nc($($nc(this->_factory)->newDocumentBuilder()))->newDocument());
+			$assign(doc, $$nc($nc(this->_factory)->newDocumentBuilder())->newDocument());
 		}
 	}
 	return doc;
@@ -381,7 +314,65 @@ SAX2DOM::SAX2DOM() {
 }
 
 $Class* SAX2DOM::load$($String* name, bool initialize) {
-	$loadClass(SAX2DOM, name, initialize, &_SAX2DOM_ClassInfo_, allocate$SAX2DOM);
+	$FieldInfo fieldInfos$$[] = {
+		{"_root", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(SAX2DOM, _root)},
+		{"_document", "Lorg/w3c/dom/Document;", nullptr, $PRIVATE, $field(SAX2DOM, _document)},
+		{"_nextSibling", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(SAX2DOM, _nextSibling)},
+		{"_nodeStk", "Ljava/util/Stack;", "Ljava/util/Stack<Lorg/w3c/dom/Node;>;", $PRIVATE, $field(SAX2DOM, _nodeStk)},
+		{"_namespaceDecls", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(SAX2DOM, _namespaceDecls)},
+		{"_lastSibling", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(SAX2DOM, _lastSibling)},
+		{"locator", "Lorg/xml/sax/Locator;", nullptr, $PRIVATE, $field(SAX2DOM, locator)},
+		{"needToSetDocumentInfo", "Z", nullptr, $PRIVATE, $field(SAX2DOM, needToSetDocumentInfo)},
+		{"_textBuffer", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE, $field(SAX2DOM, _textBuffer)},
+		{"_nextSiblingCache", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(SAX2DOM, _nextSiblingCache)},
+		{"_factory", "Ljavax/xml/parsers/DocumentBuilderFactory;", nullptr, $PRIVATE, $field(SAX2DOM, _factory)},
+		{"_internal", "Z", nullptr, $PRIVATE, $field(SAX2DOM, _internal)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(SAX2DOM, init$, void, bool), "javax.xml.parsers.ParserConfigurationException"},
+		{"<init>", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Z)V", nullptr, $PUBLIC, $method(SAX2DOM, init$, void, $Node*, $Node*, bool), "javax.xml.parsers.ParserConfigurationException"},
+		{"<init>", "(Lorg/w3c/dom/Node;Z)V", nullptr, $PUBLIC, $method(SAX2DOM, init$, void, $Node*, bool), "javax.xml.parsers.ParserConfigurationException"},
+		{"appendTextNode", "()V", nullptr, $PRIVATE, $method(SAX2DOM, appendTextNode, void)},
+		{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, characters, void, $chars*, int32_t, int32_t)},
+		{"comment", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, comment, void, $chars*, int32_t, int32_t)},
+		{"createDocument", "(Z)Lorg/w3c/dom/Document;", nullptr, $PRIVATE, $method(SAX2DOM, createDocument, $Document*, bool), "javax.xml.parsers.ParserConfigurationException"},
+		{"endCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, endCDATA, void)},
+		{"endDTD", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, endDTD, void)},
+		{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, endDocument, void)},
+		{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, endElement, void, $String*, $String*, $String*)},
+		{"endEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, endEntity, void, $String*)},
+		{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, endPrefixMapping, void, $String*)},
+		{"getDOM", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, getDOM, $Node*)},
+		{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, ignorableWhitespace, void, $chars*, int32_t, int32_t)},
+		{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, processingInstruction, void, $String*, $String*)},
+		{"setDocumentInfo", "()V", nullptr, $PRIVATE, $method(SAX2DOM, setDocumentInfo, void)},
+		{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, setDocumentLocator, void, $Locator*)},
+		{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, skippedEntity, void, $String*)},
+		{"startCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, startCDATA, void)},
+		{"startDTD", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, startDTD, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, startDocument, void)},
+		{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, startElement, void, $String*, $String*, $String*, $Attributes*)},
+		{"startEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, startEntity, void, $String*)},
+		{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DOM, startPrefixMapping, void, $String*, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.trax.SAX2DOM",
+		"java.lang.Object",
+		"org.xml.sax.ContentHandler,org.xml.sax.ext.LexicalHandler,com.sun.org.apache.xalan.internal.xsltc.runtime.Constants",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SAX2DOM, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SAX2DOM));
+	});
 	return class$;
 }
 

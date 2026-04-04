@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/ResponseContent$BodyParser.h>
-
 #include <jdk/internal/net/http/AbstractSubscription.h>
 #include <jdk/internal/net/http/ResponseContent.h>
 #include <jcpp.h>
@@ -14,39 +13,34 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$MethodInfo _ResponseContent$BodyParser_MethodInfo_[] = {
-	{"currentStateMessage", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResponseContent$BodyParser, currentStateMessage, $String*)},
-	{"onSubscribe", "(Ljdk/internal/net/http/AbstractSubscription;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResponseContent$BodyParser, onSubscribe, void, $AbstractSubscription*)},
-	{}
-};
-
-$InnerClassInfo _ResponseContent$BodyParser_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.ResponseContent$BodyParser", "jdk.internal.net.http.ResponseContent", "BodyParser", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ResponseContent$BodyParser_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"jdk.internal.net.http.ResponseContent$BodyParser",
-	nullptr,
-	"java.util.function.Consumer",
-	nullptr,
-	_ResponseContent$BodyParser_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/function/Consumer<Ljava/nio/ByteBuffer;>;",
-	nullptr,
-	_ResponseContent$BodyParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.ResponseContent"
-};
-
-$Object* allocate$ResponseContent$BodyParser($Class* clazz) {
-	return $of($alloc(ResponseContent$BodyParser));
-}
-
 $Class* ResponseContent$BodyParser::load$($String* name, bool initialize) {
-	$loadClass(ResponseContent$BodyParser, name, initialize, &_ResponseContent$BodyParser_ClassInfo_, allocate$ResponseContent$BodyParser);
+	$MethodInfo methodInfos$$[] = {
+		{"currentStateMessage", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResponseContent$BodyParser, currentStateMessage, $String*)},
+		{"onSubscribe", "(Ljdk/internal/net/http/AbstractSubscription;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResponseContent$BodyParser, onSubscribe, void, $AbstractSubscription*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.ResponseContent$BodyParser", "jdk.internal.net.http.ResponseContent", "BodyParser", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"jdk.internal.net.http.ResponseContent$BodyParser",
+		nullptr,
+		"java.util.function.Consumer",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/function/Consumer<Ljava/nio/ByteBuffer;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.ResponseContent"
+	};
+	$loadClass(ResponseContent$BodyParser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseContent$BodyParser);
+	});
 	return class$;
 }
 

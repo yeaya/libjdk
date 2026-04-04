@@ -40,6 +40,7 @@ class $import JMX : public ::java::lang::Object {
 	$class(JMX, 0, ::java::lang::Object)
 public:
 	JMX();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Object* createProxy(::javax::management::MBeanServerConnection* connection, ::javax::management::ObjectName* objectName, $Class* interfaceClass, bool notificationEmitter, bool isMXBean);
 	static bool isMXBeanInterface($Class* interfaceClass);

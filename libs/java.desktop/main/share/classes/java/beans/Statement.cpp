@@ -1,5 +1,4 @@
 #include <java/beans/Statement.h>
-
 #include <com/sun/beans/finder/ClassFinder.h>
 #include <com/sun/beans/finder/ConstructorFinder.h>
 #include <com/sun/beans/finder/MethodFinder.h>
@@ -20,7 +19,6 @@
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedActionException.h>
-#include <java/security/PrivilegedExceptionAction.h>
 #include <sun/reflect/misc/MethodUtil.h>
 #include <sun/reflect/misc/ReflectUtil.h>
 #include <jcpp.h>
@@ -54,79 +52,11 @@ using $Method = ::java::lang::reflect::Method;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $MethodUtil = ::sun::reflect::misc::MethodUtil;
 using $ReflectUtil = ::sun::reflect::misc::ReflectUtil;
 
 namespace java {
 	namespace beans {
-
-$Attribute Statement_Attribute_var$1[] = {
-	{'s', "target"},
-	{'s', "methodName"},
-	{'s', "arguments"},
-	{'-'}
-};
-
-$NamedAttribute Statement_Attribute_var$0[] = {
-	{"value", '[', Statement_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _Statement_MethodAnnotations_init$0[] = {
-	{"Ljava/beans/ConstructorProperties;", Statement_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _Statement_FieldInfo_[] = {
-	{"emptyArray", "[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(Statement, emptyArray)},
-	{"defaultExceptionListener", "Ljava/beans/ExceptionListener;", nullptr, $STATIC, $staticField(Statement, defaultExceptionListener)},
-	{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $FINAL, $field(Statement, acc)},
-	{"target", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(Statement, target)},
-	{"methodName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Statement, methodName)},
-	{"arguments", "[Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(Statement, arguments)},
-	{"loader", "Ljava/lang/ClassLoader;", nullptr, 0, $field(Statement, loader)},
-	{}
-};
-
-$MethodInfo _Statement_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Statement, init$, void, Object$*, $String*, $ObjectArray*), nullptr, nullptr, _Statement_MethodAnnotations_init$0},
-	{"execute", "()V", nullptr, $PUBLIC, $virtualMethod(Statement, execute, void), "java.lang.Exception"},
-	{"getArguments", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Statement, getArguments, $ObjectArray*)},
-	{"getMethod", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $STATIC | $TRANSIENT, $staticMethod(Statement, getMethod, $Method*, $Class*, $String*, $ClassArray*)},
-	{"getMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Statement, getMethodName, $String*)},
-	{"getTarget", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Statement, getTarget, $Object*)},
-	{"instanceName", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, 0, $virtualMethod(Statement, instanceName, $String*, Object$*)},
-	{"invoke", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(Statement, invoke, $Object*), "java.lang.Exception"},
-	{"invokeInternal", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Statement, invokeInternal, $Object*), "java.lang.Exception"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Statement, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Statement_InnerClassesInfo_[] = {
-	{"java.beans.Statement$2", nullptr, nullptr, 0},
-	{"java.beans.Statement$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Statement_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.beans.Statement",
-	"java.lang.Object",
-	nullptr,
-	_Statement_FieldInfo_,
-	_Statement_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Statement_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.beans.Statement$2,java.beans.Statement$1"
-};
-
-$Object* allocate$Statement($Class* clazz) {
-	return $of($alloc(Statement));
-}
 
 $ObjectArray* Statement::emptyArray = nullptr;
 $ExceptionListener* Statement::defaultExceptionListener = nullptr;
@@ -135,11 +65,11 @@ void Statement::init$(Object$* target, $String* methodName, $ObjectArray* argume
 	$set(this, acc, $AccessController::getContext());
 	$set(this, target, target);
 	$set(this, methodName, methodName);
-	$set(this, arguments, (arguments == nullptr) ? Statement::emptyArray : $cast($ObjectArray, $nc(arguments)->clone()));
+	$set(this, arguments, (arguments == nullptr) ? Statement::emptyArray : $cast($ObjectArray, arguments->clone()));
 }
 
 $Object* Statement::getTarget() {
-	return $of(this->target);
+	return this->target;
 }
 
 $String* Statement::getMethodName() {
@@ -155,14 +85,14 @@ void Statement::execute() {
 }
 
 $Object* Statement::invoke() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($AccessControlContext, acc, this->acc);
 	if ((acc == nullptr) && ($System::getSecurityManager() != nullptr)) {
 		$throwNew($SecurityException, "AccessControlContext is not set"_s);
 	}
 	try {
-		return $of($AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($Statement$2, this)), acc));
+		return $AccessController::doPrivileged($$new($Statement$2, this), acc);
 	} catch ($PrivilegedActionException& exception) {
 		$throw($(exception->getException()));
 	}
@@ -170,7 +100,7 @@ $Object* Statement::invoke() {
 }
 
 $Object* Statement::invokeInternal() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Object, target, getTarget());
 	$var($String, methodName, getMethodName());
@@ -181,7 +111,7 @@ $Object* Statement::invokeInternal() {
 	if (arguments == nullptr) {
 		$assign(arguments, Statement::emptyArray);
 	} else {
-		$assign(arguments, $cast($ObjectArray, $nc(arguments)->clone()));
+		$assign(arguments, $cast($ObjectArray, arguments->clone()));
 	}
 	if ($equals(target, $Class::class$) && $nc(methodName)->equals("forName"_s)) {
 		$var($String, name, $cast($String, $nc(arguments)->get(0)));
@@ -192,25 +122,24 @@ $Object* Statement::invokeInternal() {
 	}
 	$var($ClassArray, argClasses, $new($ClassArray, $nc(arguments)->length));
 	for (int32_t i = 0; i < arguments->length; ++i) {
-		argClasses->set(i, (arguments->get(i) == nullptr) ? ($Class*)nullptr : $nc($of(arguments->get(i)))->getClass());
+		argClasses->set(i, (arguments->get(i) == nullptr) ? ($Class*)nullptr : $nc(arguments->get(i))->getClass());
 	}
 	$var($AccessibleObject, m, nullptr);
 	if ($instanceOf($Class, target)) {
 		if ($nc(methodName)->equals("new"_s)) {
 			$assign(methodName, "newInstance"_s);
 		}
-		bool var$0 = $nc(methodName)->equals("newInstance"_s);
-		if (var$0 && $nc(($cast($Class, target)))->isArray()) {
-			$var($Object, result, $1Array::newInstance($nc(($cast($Class, target)))->getComponentType(), arguments->length));
+		bool var$0 = methodName->equals("newInstance"_s);
+		if (var$0 && $cast($Class, target)->isArray()) {
+			$var($Object, result, $1Array::newInstance($cast($Class, target)->getComponentType(), arguments->length));
 			for (int32_t i = 0; i < arguments->length; ++i) {
 				$1Array::set(result, i, arguments->get(i));
 			}
-			return $of(result);
+			return result;
 		}
-		if ($nc(methodName)->equals("newInstance"_s) && arguments->length != 0) {
-			$load($Character);
+		if (methodName->equals("newInstance"_s) && arguments->length != 0) {
 			if ($equals(target, $Character::class$) && arguments->length == 1 && argClasses->get(0) == $String::class$) {
-				return $of($Character::valueOf($nc(($cast($String, arguments->get(0))))->charAt(0)));
+				return $of($Character::valueOf($nc($cast($String, arguments->get(0)))->charAt(0)));
 			}
 			try {
 				$assign(m, $ConstructorFinder::findConstructor($cast($Class, target), argClasses));
@@ -225,31 +154,31 @@ $Object* Statement::invokeInternal() {
 			$assign(m, getMethod($Class::class$, methodName, argClasses));
 		}
 	} else {
-		bool var$1 = $nc($of(target))->getClass()->isArray();
+		bool var$1 = $nc(target)->getClass()->isArray();
 		if (var$1) {
 			bool var$2 = $nc(methodName)->equals("set"_s);
-			var$1 = (var$2 || $nc(methodName)->equals("get"_s));
+			var$1 = var$2 || methodName->equals("get"_s);
 		}
 		if (var$1) {
-			int32_t index = $nc(($cast($Integer, arguments->get(0))))->intValue();
-			if (methodName->equals("get"_s)) {
-				return $of($1Array::get(target, index));
+			int32_t index = $nc($cast($Integer, arguments->get(0)))->intValue();
+			if ($nc(methodName)->equals("get"_s)) {
+				return $1Array::get(target, index);
 			} else {
 				$1Array::set(target, index, arguments->get(1));
-				return $of(nullptr);
+				return nullptr;
 			}
 		}
-		$assign(m, getMethod($nc($of(target))->getClass(), methodName, argClasses));
+		$assign(m, getMethod(target->getClass(), methodName, argClasses));
 	}
 	if (m != nullptr) {
 		try {
 			if ($instanceOf($Method, m)) {
-				return $of($MethodUtil::invoke($cast($Method, m), target, arguments));
+				return $MethodUtil::invoke($cast($Method, m), target, arguments);
 			} else {
-				return $of($nc(($cast($Constructor, m)))->newInstance(arguments));
+				return $cast($Constructor, m)->newInstance(arguments);
 			}
 		} catch ($IllegalAccessException& iae) {
-			$throwNew($Exception, $$str({"Statement cannot invoke: "_s, methodName, " on "_s, $nc($of(target))->getClass()}), iae);
+			$throwNew($Exception, $$str({"Statement cannot invoke: "_s, methodName, " on "_s, $nc(target)->getClass()}), iae);
 		} catch ($InvocationTargetException& ite) {
 			$var($Throwable, te, ite->getCause());
 			if ($instanceOf($Exception, te)) {
@@ -266,7 +195,7 @@ $Object* Statement::invokeInternal() {
 $String* Statement::instanceName(Object$* instance) {
 	if (instance == nullptr) {
 		return "null"_s;
-	} else if ($nc($of(instance))->getClass() == $String::class$) {
+	} else if ($of(instance)->getClass() == $String::class$) {
 		return $str({"\""_s, $cast($String, instance), "\""_s});
 	} else {
 		return $NameGenerator::unqualifiedClassName($of(instance)->getClass());
@@ -274,7 +203,7 @@ $String* Statement::instanceName(Object$* instance) {
 }
 
 $String* Statement::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, target, getTarget());
 	$var($String, methodName, getMethodName());
 	$var($ObjectArray, arguments, getArguments());
@@ -303,7 +232,7 @@ $Method* Statement::getMethod($Class* type, $String* name, $ClassArray* args) {
 	$shouldNotReachHere();
 }
 
-void clinit$Statement($Class* class$) {
+void Statement::clinit$($Class* clazz) {
 	$assignStatic(Statement::emptyArray, $new($ObjectArray, 0));
 	$assignStatic(Statement::defaultExceptionListener, $new($Statement$1));
 }
@@ -312,7 +241,65 @@ Statement::Statement() {
 }
 
 $Class* Statement::load$($String* name, bool initialize) {
-	$loadClass(Statement, name, initialize, &_Statement_ClassInfo_, clinit$Statement, allocate$Statement);
+	$FieldInfo fieldInfos$$[] = {
+		{"emptyArray", "[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(Statement, emptyArray)},
+		{"defaultExceptionListener", "Ljava/beans/ExceptionListener;", nullptr, $STATIC, $staticField(Statement, defaultExceptionListener)},
+		{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $FINAL, $field(Statement, acc)},
+		{"target", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(Statement, target)},
+		{"methodName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Statement, methodName)},
+		{"arguments", "[Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(Statement, arguments)},
+		{"loader", "Ljava/lang/ClassLoader;", nullptr, 0, $field(Statement, loader)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "target"},
+		{'s', "methodName"},
+		{'s', "arguments"},
+		{'-'}
+	};
+	$NamedAttribute init$methodAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/beans/ConstructorProperties;", init$methodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Statement, init$, void, Object$*, $String*, $ObjectArray*), nullptr, nullptr, init$methodAnnotations$$},
+		{"execute", "()V", nullptr, $PUBLIC, $virtualMethod(Statement, execute, void), "java.lang.Exception"},
+		{"getArguments", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Statement, getArguments, $ObjectArray*)},
+		{"getMethod", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $STATIC | $TRANSIENT, $staticMethod(Statement, getMethod, $Method*, $Class*, $String*, $ClassArray*)},
+		{"getMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Statement, getMethodName, $String*)},
+		{"getTarget", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Statement, getTarget, $Object*)},
+		{"instanceName", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, 0, $virtualMethod(Statement, instanceName, $String*, Object$*)},
+		{"invoke", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(Statement, invoke, $Object*), "java.lang.Exception"},
+		{"invokeInternal", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Statement, invokeInternal, $Object*), "java.lang.Exception"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Statement, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.Statement$2", nullptr, nullptr, 0},
+		{"java.beans.Statement$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.beans.Statement",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.beans.Statement$2,java.beans.Statement$1"
+	};
+	$loadClass(Statement, name, initialize, &classInfo$$, Statement::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Statement);
+	});
 	return class$;
 }
 

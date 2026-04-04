@@ -21,6 +21,7 @@ class $export ScrollableTabbedPaneTest : public ::java::lang::Object {
 	$class(ScrollableTabbedPaneTest, 0, ::java::lang::Object)
 public:
 	ScrollableTabbedPaneTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void cleanUp();
 	static void createLeftUI($String* shortLAF);

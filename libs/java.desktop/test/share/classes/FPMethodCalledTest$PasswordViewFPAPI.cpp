@@ -1,5 +1,4 @@
 #include <FPMethodCalledTest$PasswordViewFPAPI.h>
-
 #include <FPMethodCalledTest.h>
 #include <java/awt/Graphics2D.h>
 #include <javax/swing/text/Element.h>
@@ -13,49 +12,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Element = ::javax::swing::text::Element;
 using $PasswordView = ::javax::swing::text::PasswordView;
-
-$FieldInfo _FPMethodCalledTest$PasswordViewFPAPI_FieldInfo_[] = {
-	{"isFPMethodCalled", "Z", nullptr, 0, $field(FPMethodCalledTest$PasswordViewFPAPI, isFPMethodCalled)},
-	{}
-};
-
-$MethodInfo _FPMethodCalledTest$PasswordViewFPAPI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(FPMethodCalledTest$PasswordViewFPAPI, init$, void, $Element*)},
-	{"drawEchoCharacter", "(Ljava/awt/Graphics2D;FFC)F", nullptr, $PROTECTED, $virtualMethod(FPMethodCalledTest$PasswordViewFPAPI, drawEchoCharacter, float, $Graphics2D*, float, float, char16_t)},
-	{"getResult", "()Z", nullptr, $PUBLIC, $virtualMethod(FPMethodCalledTest$PasswordViewFPAPI, getResult, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _FPMethodCalledTest$PasswordViewFPAPI_InnerClassesInfo_[] = {
-	{"FPMethodCalledTest$PasswordViewFPAPI", "FPMethodCalledTest", "PasswordViewFPAPI", $STATIC},
-	{"FPMethodCalledTest$Resultable", "FPMethodCalledTest", "Resultable", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _FPMethodCalledTest$PasswordViewFPAPI_ClassInfo_ = {
-	$ACC_SUPER,
-	"FPMethodCalledTest$PasswordViewFPAPI",
-	"javax.swing.text.PasswordView",
-	"FPMethodCalledTest$Resultable",
-	_FPMethodCalledTest$PasswordViewFPAPI_FieldInfo_,
-	_FPMethodCalledTest$PasswordViewFPAPI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FPMethodCalledTest$PasswordViewFPAPI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"FPMethodCalledTest"
-};
-
-$Object* allocate$FPMethodCalledTest$PasswordViewFPAPI($Class* clazz) {
-	return $of($alloc(FPMethodCalledTest$PasswordViewFPAPI));
-}
 
 int32_t FPMethodCalledTest$PasswordViewFPAPI::hashCode() {
 	 return this->$PasswordView::hashCode();
@@ -95,7 +51,44 @@ FPMethodCalledTest$PasswordViewFPAPI::FPMethodCalledTest$PasswordViewFPAPI() {
 }
 
 $Class* FPMethodCalledTest$PasswordViewFPAPI::load$($String* name, bool initialize) {
-	$loadClass(FPMethodCalledTest$PasswordViewFPAPI, name, initialize, &_FPMethodCalledTest$PasswordViewFPAPI_ClassInfo_, allocate$FPMethodCalledTest$PasswordViewFPAPI);
+	$FieldInfo fieldInfos$$[] = {
+		{"isFPMethodCalled", "Z", nullptr, 0, $field(FPMethodCalledTest$PasswordViewFPAPI, isFPMethodCalled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(FPMethodCalledTest$PasswordViewFPAPI, init$, void, $Element*)},
+		{"drawEchoCharacter", "(Ljava/awt/Graphics2D;FFC)F", nullptr, $PROTECTED, $virtualMethod(FPMethodCalledTest$PasswordViewFPAPI, drawEchoCharacter, float, $Graphics2D*, float, float, char16_t)},
+		{"getResult", "()Z", nullptr, $PUBLIC, $virtualMethod(FPMethodCalledTest$PasswordViewFPAPI, getResult, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"FPMethodCalledTest$PasswordViewFPAPI", "FPMethodCalledTest", "PasswordViewFPAPI", $STATIC},
+		{"FPMethodCalledTest$Resultable", "FPMethodCalledTest", "Resultable", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"FPMethodCalledTest$PasswordViewFPAPI",
+		"javax.swing.text.PasswordView",
+		"FPMethodCalledTest$Resultable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"FPMethodCalledTest"
+	};
+	$loadClass(FPMethodCalledTest$PasswordViewFPAPI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FPMethodCalledTest$PasswordViewFPAPI));
+	});
 	return class$;
 }
 

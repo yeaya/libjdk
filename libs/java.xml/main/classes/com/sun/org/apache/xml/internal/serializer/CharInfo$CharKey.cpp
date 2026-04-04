@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/CharInfo$CharKey.h>
-
 #include <com/sun/org/apache/xml/internal/serializer/CharInfo.h>
 #include <jcpp.h>
 
@@ -15,45 +14,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace serializer {
-
-$FieldInfo _CharInfo$CharKey_FieldInfo_[] = {
-	{"m_char", "C", nullptr, $PRIVATE, $field(CharInfo$CharKey, m_char)},
-	{}
-};
-
-$MethodInfo _CharInfo$CharKey_MethodInfo_[] = {
-	{"<init>", "(C)V", nullptr, $PUBLIC, $method(CharInfo$CharKey, init$, void, char16_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CharInfo$CharKey, init$, void)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(CharInfo$CharKey, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(CharInfo$CharKey, hashCode, int32_t)},
-	{"setChar", "(C)V", nullptr, $PUBLIC | $FINAL, $method(CharInfo$CharKey, setChar, void, char16_t)},
-	{}
-};
-
-$InnerClassInfo _CharInfo$CharKey_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.serializer.CharInfo$CharKey", "com.sun.org.apache.xml.internal.serializer.CharInfo", "CharKey", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _CharInfo$CharKey_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serializer.CharInfo$CharKey",
-	"java.lang.Object",
-	nullptr,
-	_CharInfo$CharKey_FieldInfo_,
-	_CharInfo$CharKey_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CharInfo$CharKey_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.serializer.CharInfo"
-};
-
-$Object* allocate$CharInfo$CharKey($Class* clazz) {
-	return $of($alloc(CharInfo$CharKey));
-}
 
 void CharInfo$CharKey::init$(char16_t key) {
 	this->m_char = key;
@@ -71,14 +31,47 @@ int32_t CharInfo$CharKey::hashCode() {
 }
 
 bool CharInfo$CharKey::equals(Object$* obj) {
-	return $nc(($cast(CharInfo$CharKey, obj)))->m_char == this->m_char;
+	return $nc($cast(CharInfo$CharKey, obj))->m_char == this->m_char;
 }
 
 CharInfo$CharKey::CharInfo$CharKey() {
 }
 
 $Class* CharInfo$CharKey::load$($String* name, bool initialize) {
-	$loadClass(CharInfo$CharKey, name, initialize, &_CharInfo$CharKey_ClassInfo_, allocate$CharInfo$CharKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_char", "C", nullptr, $PRIVATE, $field(CharInfo$CharKey, m_char)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(C)V", nullptr, $PUBLIC, $method(CharInfo$CharKey, init$, void, char16_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CharInfo$CharKey, init$, void)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(CharInfo$CharKey, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(CharInfo$CharKey, hashCode, int32_t)},
+		{"setChar", "(C)V", nullptr, $PUBLIC | $FINAL, $method(CharInfo$CharKey, setChar, void, char16_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.serializer.CharInfo$CharKey", "com.sun.org.apache.xml.internal.serializer.CharInfo", "CharKey", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serializer.CharInfo$CharKey",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.serializer.CharInfo"
+	};
+	$loadClass(CharInfo$CharKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CharInfo$CharKey);
+	});
 	return class$;
 }
 

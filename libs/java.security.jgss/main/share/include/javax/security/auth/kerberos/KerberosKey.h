@@ -39,7 +39,7 @@ public:
 	virtual int32_t hashCode() override;
 	virtual bool isDestroyed() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xBFCF45226BB0F22F;
+	static const int64_t serialVersionUID = (int64_t)0xbfcf45226bb0f22f;
 	::javax::security::auth::kerberos::KerberosPrincipal* principal = nullptr;
 	int32_t versionNum = 0;
 	::javax::security::auth::kerberos::KeyImpl* key = nullptr;

@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifSplitPaneUI.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifSplitPaneDivider.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -22,26 +21,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$MethodInfo _MotifSplitPaneUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifSplitPaneUI, init$, void)},
-	{"createDefaultDivider", "()Ljavax/swing/plaf/basic/BasicSplitPaneDivider;", nullptr, $PUBLIC, $virtualMethod(MotifSplitPaneUI, createDefaultDivider, $BasicSplitPaneDivider*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifSplitPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _MotifSplitPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifSplitPaneUI",
-	"javax.swing.plaf.basic.BasicSplitPaneUI",
-	nullptr,
-	nullptr,
-	_MotifSplitPaneUI_MethodInfo_
-};
-
-$Object* allocate$MotifSplitPaneUI($Class* clazz) {
-	return $of($alloc(MotifSplitPaneUI));
-}
-
 void MotifSplitPaneUI::init$() {
 	$BasicSplitPaneUI::init$();
 }
@@ -59,7 +38,23 @@ MotifSplitPaneUI::MotifSplitPaneUI() {
 }
 
 $Class* MotifSplitPaneUI::load$($String* name, bool initialize) {
-	$loadClass(MotifSplitPaneUI, name, initialize, &_MotifSplitPaneUI_ClassInfo_, allocate$MotifSplitPaneUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifSplitPaneUI, init$, void)},
+		{"createDefaultDivider", "()Ljavax/swing/plaf/basic/BasicSplitPaneDivider;", nullptr, $PUBLIC, $virtualMethod(MotifSplitPaneUI, createDefaultDivider, $BasicSplitPaneDivider*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifSplitPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifSplitPaneUI",
+		"javax.swing.plaf.basic.BasicSplitPaneUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MotifSplitPaneUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MotifSplitPaneUI);
+	});
 	return class$;
 }
 

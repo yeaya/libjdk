@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/Version.h>
-
 #include <jcpp.h>
 
 #undef VERSION
@@ -11,30 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace java2d {
 		namespace marlin {
-
-$FieldInfo _Version_FieldInfo_[] = {
-	{"VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Version, VERSION)},
-	{}
-};
-
-$MethodInfo _Version_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Version, init$, void)},
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Version, getVersion, $String*)},
-	{}
-};
-
-$ClassInfo _Version_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.Version",
-	"java.lang.Object",
-	nullptr,
-	_Version_FieldInfo_,
-	_Version_MethodInfo_
-};
-
-$Object* allocate$Version($Class* clazz) {
-	return $of($alloc(Version));
-}
 
 $String* Version::VERSION = nullptr;
 
@@ -49,12 +24,31 @@ void Version::init$() {
 Version::Version() {
 }
 
-void clinit$Version($Class* class$) {
+void Version::clinit$($Class* clazz) {
 	$assignStatic(Version::VERSION, "marlin-0.9.1.4-Unsafe-OpenJDK"_s);
 }
 
 $Class* Version::load$($String* name, bool initialize) {
-	$loadClass(Version, name, initialize, &_Version_ClassInfo_, clinit$Version, allocate$Version);
+	$FieldInfo fieldInfos$$[] = {
+		{"VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Version, VERSION)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Version, init$, void)},
+		{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Version, getVersion, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.Version",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Version, name, initialize, &classInfo$$, Version::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Version);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <TitledBorderLabel$1.h>
-
 #include <TitledBorderLabel.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/WindowAdapter.h>
@@ -17,48 +16,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JDialog = ::javax::swing::JDialog;
 
-$FieldInfo _TitledBorderLabel$1_FieldInfo_[] = {
-	{"val$dialog", "Ljavax/swing/JDialog;", nullptr, $FINAL | $SYNTHETIC, $field(TitledBorderLabel$1, val$dialog)},
-	{}
-};
-
-$MethodInfo _TitledBorderLabel$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JDialog;)V", nullptr, 0, $method(TitledBorderLabel$1, init$, void, $JDialog*)},
-	{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(TitledBorderLabel$1, windowClosing, void, $WindowEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _TitledBorderLabel$1_EnclosingMethodInfo_ = {
-	"TitledBorderLabel",
-	"createAndShowTestDialog",
-	"()V"
-};
-
-$InnerClassInfo _TitledBorderLabel$1_InnerClassesInfo_[] = {
-	{"TitledBorderLabel$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TitledBorderLabel$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"TitledBorderLabel$1",
-	"java.awt.event.WindowAdapter",
-	nullptr,
-	_TitledBorderLabel$1_FieldInfo_,
-	_TitledBorderLabel$1_MethodInfo_,
-	nullptr,
-	&_TitledBorderLabel$1_EnclosingMethodInfo_,
-	_TitledBorderLabel$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TitledBorderLabel"
-};
-
-$Object* allocate$TitledBorderLabel$1($Class* clazz) {
-	return $of($alloc(TitledBorderLabel$1));
-}
-
 void TitledBorderLabel$1::init$($JDialog* val$dialog) {
 	$set(this, val$dialog, val$dialog);
 	$WindowAdapter::init$();
@@ -73,7 +30,42 @@ TitledBorderLabel$1::TitledBorderLabel$1() {
 }
 
 $Class* TitledBorderLabel$1::load$($String* name, bool initialize) {
-	$loadClass(TitledBorderLabel$1, name, initialize, &_TitledBorderLabel$1_ClassInfo_, allocate$TitledBorderLabel$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$dialog", "Ljavax/swing/JDialog;", nullptr, $FINAL | $SYNTHETIC, $field(TitledBorderLabel$1, val$dialog)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JDialog;)V", nullptr, 0, $method(TitledBorderLabel$1, init$, void, $JDialog*)},
+		{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(TitledBorderLabel$1, windowClosing, void, $WindowEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"TitledBorderLabel",
+		"createAndShowTestDialog",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TitledBorderLabel$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TitledBorderLabel$1",
+		"java.awt.event.WindowAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TitledBorderLabel"
+	};
+	$loadClass(TitledBorderLabel$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TitledBorderLabel$1));
+	});
 	return class$;
 }
 

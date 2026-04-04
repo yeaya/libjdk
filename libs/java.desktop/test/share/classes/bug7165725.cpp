@@ -1,5 +1,4 @@
 #include <bug7165725.h>
-
 #include <bug7165725$1.h>
 #include <bug7165725$2.h>
 #include <bug7165725$GoldenElement.h>
@@ -8,12 +7,10 @@
 #include <java/io/File.h>
 #include <java/io/FileReader.h>
 #include <java/io/Reader.h>
-#include <java/lang/Runnable.h>
 #include <java/net/URL.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/text/html/HTMLEditorKit$ParserCallback.h>
 #include <javax/swing/text/html/parser/ParserDelegator.h>
 #include <jcpp.h>
 
@@ -25,108 +22,58 @@ using $bug7165725$SBParserCallback = ::bug7165725$SBParserCallback;
 using $Robot = ::java::awt::Robot;
 using $File = ::java::io::File;
 using $FileReader = ::java::io::FileReader;
-using $PrintStream = ::java::io::PrintStream;
-using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $URL = ::java::net::URL;
 using $JFrame = ::javax::swing::JFrame;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $HTMLEditorKit$ParserCallback = ::javax::swing::text::html::HTMLEditorKit$ParserCallback;
 using $ParserDelegator = ::javax::swing::text::html::parser::ParserDelegator;
-
-$FieldInfo _bug7165725_FieldInfo_[] = {
-	{"editorPane", "Ljavax/swing/JEditorPane;", nullptr, $PRIVATE, $field(bug7165725, editorPane)},
-	{}
-};
-
-$MethodInfo _bug7165725_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug7165725, init$, void)},
-	{"checkByCallbackForFalseTextAfterScript", "()V", nullptr, $STATIC, $staticMethod(bug7165725, checkByCallbackForFalseTextAfterScript, void), "java.lang.Exception"},
-	{"checkByCallbackForSuccessiveScript", "()V", nullptr, $STATIC, $staticMethod(bug7165725, checkByCallbackForSuccessiveScript, void), "java.lang.Exception"},
-	{"createFalseTextAfterScript", "()Lbug7165725$GoldenElement;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug7165725, createFalseTextAfterScript, $bug7165725$GoldenElement*)},
-	{"createSuccessiveScriptTags", "()Lbug7165725$GoldenElement;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug7165725, createSuccessiveScriptTags, $bug7165725$GoldenElement*)},
-	{"execute", "(Ljava/lang/String;Lbug7165725$GoldenElement;)V", nullptr, $PUBLIC, $virtualMethod(bug7165725, execute, void, $String*, $bug7165725$GoldenElement*), "java.lang.Exception"},
-	{"getDirURL", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(bug7165725, getDirURL, $String*)},
-	{"getParsedContentOneLine", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(bug7165725, getParsedContentOneLine, $String*, $String*), "java.lang.Exception"},
-	{"getParsedContentOneLine", "(Ljava/net/URL;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(bug7165725, getParsedContentOneLine, $String*, $URL*), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug7165725, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug7165725_InnerClassesInfo_[] = {
-	{"bug7165725$SBParserCallback", "bug7165725", "SBParserCallback", $STATIC},
-	{"bug7165725$GoldenElement", "bug7165725", "GoldenElement", $PRIVATE | $STATIC},
-	{"bug7165725$2", nullptr, nullptr, 0},
-	{"bug7165725$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug7165725_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug7165725",
-	"javax.swing.JFrame",
-	nullptr,
-	_bug7165725_FieldInfo_,
-	_bug7165725_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug7165725_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug7165725$SBParserCallback,bug7165725$GoldenElement,bug7165725$2,bug7165725$1,bug7165725$1$1"
-};
-
-$Object* allocate$bug7165725($Class* clazz) {
-	return $of($alloc(bug7165725));
-}
 
 void bug7165725::init$() {
 	$JFrame::init$();
 }
 
 void bug7165725::execute($String* urlStr, $bug7165725$GoldenElement* goldenElement) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println();
-	$nc($System::out)->println($$str({"***** TEST: "_s, urlStr, " *****"_s}));
-	$nc($System::out)->println();
+	$System::out->println($$str({"***** TEST: "_s, urlStr, " *****"_s}));
+	$System::out->println();
 	$SwingUtilities::invokeAndWait($$new($bug7165725$1, this, urlStr));
 	$var($Robot, robot, $new($Robot));
 	robot->waitForIdle();
 	$SwingUtilities::invokeAndWait($$new($bug7165725$2, this, goldenElement));
-	$nc($System::out)->println();
-	$nc($System::out)->println("*********************************"_s);
-	$nc($System::out)->println();
+	$System::out->println();
+	$System::out->println("*********************************"_s);
+	$System::out->println();
 }
 
 void bug7165725::main($StringArray* args) {
 	$init(bug7165725);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, dirURL, getDirURL());
 	$nc($System::out)->println($$str({"dirURL = "_s, dirURL}));
 	$$new(bug7165725)->execute($$str({dirURL, "successive-script-tag.html"_s}), $(createSuccessiveScriptTags()));
 	$$new(bug7165725)->execute($$str({dirURL, "false-text-after-script.html"_s}), $(createFalseTextAfterScript()));
 	checkByCallbackForSuccessiveScript();
 	checkByCallbackForFalseTextAfterScript();
-	$nc($System::out)->println();
-	$nc($System::out)->println();
-	$nc($System::out)->println("Test passed."_s);
+	$System::out->println();
+	$System::out->println();
+	$System::out->println("Test passed."_s);
 }
 
 $String* bug7165725::getDirURL() {
 	$init(bug7165725);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($File);
 	return $str({"file:///"_s, $($$new($File, $($System::getProperty("test.src"_s, "."_s)))->getAbsolutePath()), $File::separator});
 }
 
 $String* bug7165725::getParsedContentOneLine($String* path) {
 	$init(bug7165725);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, f, $new($File, path));
 	$var($FileReader, fr, $new($FileReader, f));
 	$var($ParserDelegator, pd, $new($ParserDelegator));
@@ -143,19 +90,19 @@ $String* bug7165725::getParsedContentOneLine($URL* url) {
 
 void bug7165725::checkByCallbackForSuccessiveScript() {
 	$init(bug7165725);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, content, getParsedContentOneLine($$new($URL, $$str({$(getDirURL()), "successive-script-tag.html"_s}))));
 	if (!$nc(content)->matches(".*<script .*/js/js1\\.js.*<script .*/js/js2\\.js.*<script .*/js/js3\\.js.*"_s)) {
 		$throwNew($RuntimeException, "Failed to lookup script tags/attributes."_s);
 	}
-	if (!$nc(content)->matches(".*<style .*stylesheets/base\\.css.*<style .*stylesheets/adv\\.css.*"_s)) {
+	if (!content->matches(".*<style .*stylesheets/base\\.css.*<style .*stylesheets/adv\\.css.*"_s)) {
 		$throwNew($RuntimeException, "Failed to lookup style tags."_s);
 	}
 }
 
 void bug7165725::checkByCallbackForFalseTextAfterScript() {
 	$init(bug7165725);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, content, getParsedContentOneLine($$new($URL, $$str({$(getDirURL()), "false-text-after-script.html"_s}))));
 	int32_t bodyIdx = $nc(content)->indexOf("<body "_s);
 	if (bodyIdx > 0) {
@@ -170,7 +117,7 @@ void bug7165725::checkByCallbackForFalseTextAfterScript() {
 
 $bug7165725$GoldenElement* bug7165725::createSuccessiveScriptTags() {
 	$init(bug7165725);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($bug7165725$GoldenElement, "html"_s, $$new($bug7165725$GoldenElementArray, {
 		$$new($bug7165725$GoldenElement, "head"_s, $$new($bug7165725$GoldenElementArray, {$$new($bug7165725$GoldenElement, "p-implied"_s, $$new($bug7165725$GoldenElementArray, {
 			$$new($bug7165725$GoldenElement, "title"_s, $$new($bug7165725$GoldenElementArray, 0)),
@@ -192,7 +139,7 @@ $bug7165725$GoldenElement* bug7165725::createSuccessiveScriptTags() {
 
 $bug7165725$GoldenElement* bug7165725::createFalseTextAfterScript() {
 	$init(bug7165725);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($bug7165725$GoldenElement, "html"_s, $$new($bug7165725$GoldenElementArray, {
 		$$new($bug7165725$GoldenElement, "head"_s, $$new($bug7165725$GoldenElementArray, {$$new($bug7165725$GoldenElement, "p-implied"_s, $$new($bug7165725$GoldenElementArray, {
 			$$new($bug7165725$GoldenElement, "title"_s, $$new($bug7165725$GoldenElementArray, 0)),
@@ -222,7 +169,47 @@ bug7165725::bug7165725() {
 }
 
 $Class* bug7165725::load$($String* name, bool initialize) {
-	$loadClass(bug7165725, name, initialize, &_bug7165725_ClassInfo_, allocate$bug7165725);
+	$FieldInfo fieldInfos$$[] = {
+		{"editorPane", "Ljavax/swing/JEditorPane;", nullptr, $PRIVATE, $field(bug7165725, editorPane)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug7165725, init$, void)},
+		{"checkByCallbackForFalseTextAfterScript", "()V", nullptr, $STATIC, $staticMethod(bug7165725, checkByCallbackForFalseTextAfterScript, void), "java.lang.Exception"},
+		{"checkByCallbackForSuccessiveScript", "()V", nullptr, $STATIC, $staticMethod(bug7165725, checkByCallbackForSuccessiveScript, void), "java.lang.Exception"},
+		{"createFalseTextAfterScript", "()Lbug7165725$GoldenElement;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug7165725, createFalseTextAfterScript, $bug7165725$GoldenElement*)},
+		{"createSuccessiveScriptTags", "()Lbug7165725$GoldenElement;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug7165725, createSuccessiveScriptTags, $bug7165725$GoldenElement*)},
+		{"execute", "(Ljava/lang/String;Lbug7165725$GoldenElement;)V", nullptr, $PUBLIC, $virtualMethod(bug7165725, execute, void, $String*, $bug7165725$GoldenElement*), "java.lang.Exception"},
+		{"getDirURL", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(bug7165725, getDirURL, $String*)},
+		{"getParsedContentOneLine", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(bug7165725, getParsedContentOneLine, $String*, $String*), "java.lang.Exception"},
+		{"getParsedContentOneLine", "(Ljava/net/URL;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(bug7165725, getParsedContentOneLine, $String*, $URL*), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug7165725, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug7165725$SBParserCallback", "bug7165725", "SBParserCallback", $STATIC},
+		{"bug7165725$GoldenElement", "bug7165725", "GoldenElement", $PRIVATE | $STATIC},
+		{"bug7165725$2", nullptr, nullptr, 0},
+		{"bug7165725$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug7165725",
+		"javax.swing.JFrame",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug7165725$SBParserCallback,bug7165725$GoldenElement,bug7165725$2,bug7165725$1,bug7165725$1$1"
+	};
+	$loadClass(bug7165725, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug7165725));
+	});
 	return class$;
 }
 

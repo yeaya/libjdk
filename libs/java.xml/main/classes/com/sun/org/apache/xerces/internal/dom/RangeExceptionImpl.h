@@ -18,10 +18,13 @@ class RangeExceptionImpl : public ::org::w3c::dom::ranges::RangeException {
 public:
 	RangeExceptionImpl();
 	void init$(int16_t code, $String* message);
-	static const int64_t serialVersionUID = (int64_t)0x824B55207F057A68;
+	static const int64_t serialVersionUID = (int64_t)0x824b55207f057a68;
 	RangeExceptionImpl(const RangeExceptionImpl& e);
 	virtual void throw$() override;
-	inline RangeExceptionImpl* operator ->() {
+	inline RangeExceptionImpl* operator ->() const {
+		return (RangeExceptionImpl*)throwing$;
+	}
+	inline operator RangeExceptionImpl*() const {
 		return (RangeExceptionImpl*)throwing$;
 	}
 };

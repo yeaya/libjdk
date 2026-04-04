@@ -1,5 +1,4 @@
 #include <java/rmi/UnknownHostException.h>
-
 #include <java/rmi/RemoteException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $RemoteException = ::java::rmi::RemoteException;
 
 namespace java {
 	namespace rmi {
-
-$FieldInfo _UnknownHostException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnknownHostException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _UnknownHostException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnknownHostException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(UnknownHostException, init$, void, $String*, $Exception*)},
-	{}
-};
-
-$ClassInfo _UnknownHostException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.rmi.UnknownHostException",
-	"java.rmi.RemoteException",
-	nullptr,
-	_UnknownHostException_FieldInfo_,
-	_UnknownHostException_MethodInfo_
-};
-
-$Object* allocate$UnknownHostException($Class* clazz) {
-	return $of($alloc(UnknownHostException));
-}
 
 void UnknownHostException::init$($String* s) {
 	$RemoteException::init$(s);
@@ -55,7 +30,26 @@ void UnknownHostException::throw$() {
 }
 
 $Class* UnknownHostException::load$($String* name, bool initialize) {
-	$loadClass(UnknownHostException, name, initialize, &_UnknownHostException_ClassInfo_, allocate$UnknownHostException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnknownHostException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnknownHostException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(UnknownHostException, init$, void, $String*, $Exception*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.rmi.UnknownHostException",
+		"java.rmi.RemoteException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnknownHostException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnknownHostException);
+	});
 	return class$;
 }
 

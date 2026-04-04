@@ -1,5 +1,4 @@
 #include <ProvokeGTK.h>
-
 #include <java/awt/Window.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
@@ -34,27 +33,24 @@ public:
 	virtual void run() override {
 		ProvokeGTK::createAndShow();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ProvokeGTK$$Lambda$createAndShow>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ProvokeGTK$$Lambda$createAndShow::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ProvokeGTK$$Lambda$createAndShow, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ProvokeGTK$$Lambda$createAndShow, run, void)},
-	{}
-};
-$ClassInfo ProvokeGTK$$Lambda$createAndShow::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ProvokeGTK$$Lambda$createAndShow",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* ProvokeGTK$$Lambda$createAndShow::load$($String* name, bool initialize) {
-	$loadClass(ProvokeGTK$$Lambda$createAndShow, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ProvokeGTK$$Lambda$createAndShow, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ProvokeGTK$$Lambda$createAndShow, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ProvokeGTK$$Lambda$createAndShow",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ProvokeGTK$$Lambda$createAndShow, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProvokeGTK$$Lambda$createAndShow);
+	});
 	return class$;
 }
 $Class* ProvokeGTK$$Lambda$createAndShow::class$ = nullptr;
@@ -67,56 +63,27 @@ public:
 	virtual void run() override {
 		ProvokeGTK::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ProvokeGTK$$Lambda$lambda$main$0$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ProvokeGTK$$Lambda$lambda$main$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ProvokeGTK$$Lambda$lambda$main$0$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ProvokeGTK$$Lambda$lambda$main$0$1, run, void)},
-	{}
-};
-$ClassInfo ProvokeGTK$$Lambda$lambda$main$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ProvokeGTK$$Lambda$lambda$main$0$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* ProvokeGTK$$Lambda$lambda$main$0$1::load$($String* name, bool initialize) {
-	$loadClass(ProvokeGTK$$Lambda$lambda$main$0$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ProvokeGTK$$Lambda$lambda$main$0$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ProvokeGTK$$Lambda$lambda$main$0$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ProvokeGTK$$Lambda$lambda$main$0$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ProvokeGTK$$Lambda$lambda$main$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProvokeGTK$$Lambda$lambda$main$0$1);
+	});
 	return class$;
 }
 $Class* ProvokeGTK$$Lambda$lambda$main$0$1::class$ = nullptr;
-
-$FieldInfo _ProvokeGTK_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(ProvokeGTK, frame)},
-	{}
-};
-
-$MethodInfo _ProvokeGTK_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ProvokeGTK, init$, void)},
-	{"createAndShow", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ProvokeGTK, createAndShow, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProvokeGTK, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ProvokeGTK, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ProvokeGTK_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ProvokeGTK",
-	"java.lang.Object",
-	nullptr,
-	_ProvokeGTK_FieldInfo_,
-	_ProvokeGTK_MethodInfo_
-};
-
-$Object* allocate$ProvokeGTK($Class* clazz) {
-	return $of($alloc(ProvokeGTK));
-}
 
 $JFrame* ProvokeGTK::frame = nullptr;
 
@@ -131,16 +98,16 @@ void ProvokeGTK::createAndShow() {
 	}
 	$init(ProvokeGTK);
 	$assignStatic(ProvokeGTK::frame, $new($JFrame, "JFrame"_s));
-	$nc(ProvokeGTK::frame)->setSize(200, 200);
+	ProvokeGTK::frame->setSize(200, 200);
 	$nc(ProvokeGTK::frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$nc(ProvokeGTK::frame)->setVisible(true);
 }
 
 void ProvokeGTK::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(ProvokeGTK$$Lambda$createAndShow)));
+	$useLocalObjectStack();
+	$SwingUtilities::invokeAndWait($$new(ProvokeGTK$$Lambda$createAndShow));
 	$Thread::sleep(1000);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(ProvokeGTK$$Lambda$lambda$main$0$1)));
+	$SwingUtilities::invokeAndWait($$new(ProvokeGTK$$Lambda$lambda$main$0$1));
 }
 
 void ProvokeGTK::lambda$main$0() {
@@ -154,14 +121,35 @@ ProvokeGTK::ProvokeGTK() {
 
 $Class* ProvokeGTK::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ProvokeGTK$$Lambda$createAndShow::classInfo$.name)) {
+		if (name->equals("ProvokeGTK$$Lambda$createAndShow")) {
 			return ProvokeGTK$$Lambda$createAndShow::load$(name, initialize);
 		}
-		if (name->equals(ProvokeGTK$$Lambda$lambda$main$0$1::classInfo$.name)) {
+		if (name->equals("ProvokeGTK$$Lambda$lambda$main$0$1")) {
 			return ProvokeGTK$$Lambda$lambda$main$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(ProvokeGTK, name, initialize, &_ProvokeGTK_ClassInfo_, allocate$ProvokeGTK);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(ProvokeGTK, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ProvokeGTK, init$, void)},
+		{"createAndShow", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ProvokeGTK, createAndShow, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProvokeGTK, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ProvokeGTK, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ProvokeGTK",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ProvokeGTK, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProvokeGTK);
+	});
 	return class$;
 }
 

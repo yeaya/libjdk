@@ -1,10 +1,7 @@
 #include <com/apple/laf/AquaMenuItemUI.h>
-
 #include <com/apple/laf/AquaMenuItemUI$1.h>
 #include <com/apple/laf/AquaMenuItemUI$IndeterminateListener.h>
-#include <com/apple/laf/AquaMenuPainter$Client.h>
 #include <com/apple/laf/AquaMenuPainter.h>
-#include <com/apple/laf/AquaUtils$Selectable.h>
 #include <com/apple/laf/AquaUtils.h>
 #include <java/awt/Color.h>
 #include <java/awt/Container.h>
@@ -32,19 +29,14 @@
 using $AquaMenuItemUI$1 = ::com::apple::laf::AquaMenuItemUI$1;
 using $AquaMenuItemUI$IndeterminateListener = ::com::apple::laf::AquaMenuItemUI$IndeterminateListener;
 using $AquaMenuPainter = ::com::apple::laf::AquaMenuPainter;
-using $AquaMenuPainter$Client = ::com::apple::laf::AquaMenuPainter$Client;
 using $AquaUtils = ::com::apple::laf::AquaUtils;
-using $AquaUtils$Selectable = ::com::apple::laf::AquaUtils$Selectable;
 using $Color = ::java::awt::Color;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
-using $MouseListener = ::java::awt::event::MouseListener;
-using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ButtonModel = ::javax::swing::ButtonModel;
 using $Icon = ::javax::swing::Icon;
 using $JCheckBoxMenuItem = ::javax::swing::JCheckBoxMenuItem;
 using $JComponent = ::javax::swing::JComponent;
@@ -58,71 +50,6 @@ using $BasicMenuItemUI = ::javax::swing::plaf::basic::BasicMenuItemUI;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaMenuItemUI_FieldInfo_[] = {
-	{"kPlain", "I", nullptr, $STATIC | $FINAL, $constField(AquaMenuItemUI, kPlain)},
-	{"kCheckBox", "I", nullptr, $STATIC | $FINAL, $constField(AquaMenuItemUI, kCheckBox)},
-	{"kRadioButton", "I", nullptr, $STATIC | $FINAL, $constField(AquaMenuItemUI, kRadioButton)},
-	{"sPropertyPrefixes", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaMenuItemUI, sPropertyPrefixes)},
-	{"fIsScreenMenuItem", "Z", nullptr, 0, $field(AquaMenuItemUI, fIsScreenMenuItem)},
-	{"fIsIndeterminate", "Z", nullptr, 0, $field(AquaMenuItemUI, fIsIndeterminate)},
-	{"fType", "I", nullptr, 0, $field(AquaMenuItemUI, fType)},
-	{"INDETERMINATE_LISTENER", "Lcom/apple/laf/AquaMenuItemUI$IndeterminateListener;", nullptr, $STATIC | $FINAL, $staticField(AquaMenuItemUI, INDETERMINATE_LISTENER)},
-	{}
-};
-
-$MethodInfo _AquaMenuItemUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(I)V", nullptr, 0, $method(AquaMenuItemUI, init$, void, int32_t)},
-	{"access$000", "(Lcom/apple/laf/AquaMenuItemUI;)Ljavax/swing/JMenuItem;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaMenuItemUI, access$000, $JMenuItem*, AquaMenuItemUI*)},
-	{"access$100", "(Lcom/apple/laf/AquaMenuItemUI;)Ljavax/swing/JMenuItem;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaMenuItemUI, access$100, $JMenuItem*, AquaMenuItemUI*)},
-	{"access$202", "(Lcom/apple/laf/AquaMenuItemUI;Ljavax/swing/Icon;)Ljavax/swing/Icon;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaMenuItemUI, access$202, $Icon*, AquaMenuItemUI*, $Icon*)},
-	{"access$302", "(Lcom/apple/laf/AquaMenuItemUI;Ljavax/swing/Icon;)Ljavax/swing/Icon;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaMenuItemUI, access$302, $Icon*, AquaMenuItemUI*, $Icon*)},
-	{"addListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaMenuItemUI, addListeners, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaMenuItemUI, createUI, $ComponentUI*, $JComponent*)},
-	{"doClick", "(Ljavax/swing/MenuSelectionManager;)V", nullptr, $PROTECTED, $virtualMethod(AquaMenuItemUI, doClick, void, $MenuSelectionManager*)},
-	{"getPreferredMenuItemSize", "(Ljavax/swing/JComponent;Ljavax/swing/Icon;Ljavax/swing/Icon;I)Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(AquaMenuItemUI, getPreferredMenuItemSize, $Dimension*, $JComponent*, $Icon*, $Icon*, int32_t)},
-	{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AquaMenuItemUI, getPropertyPrefix, $String*)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaMenuItemUI, installListeners, void)},
-	{"paintBackground", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;II)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuItemUI, paintBackground, void, $Graphics*, $JComponent*, int32_t, int32_t)},
-	{"paintMenuItem", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljavax/swing/Icon;Ljavax/swing/Icon;Ljava/awt/Color;Ljava/awt/Color;I)V", nullptr, $PROTECTED, $virtualMethod(AquaMenuItemUI, paintMenuItem, void, $Graphics*, $JComponent*, $Icon*, $Icon*, $Color*, $Color*, int32_t)},
-	{"removeListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaMenuItemUI, removeListeners, void)},
-	{"setIsScreenMenu", "(Z)V", nullptr, $PROTECTED, $virtualMethod(AquaMenuItemUI, setIsScreenMenu, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaMenuItemUI, uninstallListeners, void)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuItemUI, update, void, $Graphics*, $JComponent*)},
-	{"updateListenersForScreenMenuItem", "()V", nullptr, $PUBLIC, $virtualMethod(AquaMenuItemUI, updateListenersForScreenMenuItem, void)},
-	{}
-};
-
-$InnerClassInfo _AquaMenuItemUI_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaMenuPainter$Client", "com.apple.laf.AquaMenuPainter", "Client", $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.apple.laf.AquaMenuItemUI$IndeterminateListener", "com.apple.laf.AquaMenuItemUI", "IndeterminateListener", $STATIC},
-	{"com.apple.laf.AquaMenuItemUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaMenuItemUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaMenuItemUI",
-	"javax.swing.plaf.basic.BasicMenuItemUI",
-	"com.apple.laf.AquaMenuPainter$Client",
-	_AquaMenuItemUI_FieldInfo_,
-	_AquaMenuItemUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaMenuItemUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaMenuItemUI$IndeterminateListener,com.apple.laf.AquaMenuItemUI$1"
-};
-
-$Object* allocate$AquaMenuItemUI($Class* clazz) {
-	return $of($alloc(AquaMenuItemUI));
-}
 
 int32_t AquaMenuItemUI::hashCode() {
 	 return this->$BasicMenuItemUI::hashCode();
@@ -187,7 +114,7 @@ $ComponentUI* AquaMenuItemUI::createUI($JComponent* c) {
 }
 
 $String* AquaMenuItemUI::getPropertyPrefix() {
-	return $nc(AquaMenuItemUI::sPropertyPrefixes)->get(this->fType);
+	return AquaMenuItemUI::sPropertyPrefixes->get(this->fType);
 }
 
 void AquaMenuItemUI::installListeners() {
@@ -228,15 +155,15 @@ void AquaMenuItemUI::addListeners() {
 }
 
 void AquaMenuItemUI::paintMenuItem($Graphics* g, $JComponent* c, $Icon* localCheckIcon, $Icon* localArrowIcon, $Color* background, $Color* foreground, int32_t localDefaultTextIconGap) {
-	$nc($($AquaMenuPainter::instance()))->paintMenuItem(this, g, c, localCheckIcon, localArrowIcon, background, foreground, this->disabledForeground, this->selectionForeground, localDefaultTextIconGap, this->acceleratorFont);
+	$$nc($AquaMenuPainter::instance())->paintMenuItem(this, g, c, localCheckIcon, localArrowIcon, background, foreground, this->disabledForeground, this->selectionForeground, localDefaultTextIconGap, this->acceleratorFont);
 }
 
 $Dimension* AquaMenuItemUI::getPreferredMenuItemSize($JComponent* c, $Icon* localCheckIcon, $Icon* localArrowIcon, int32_t localDefaultTextIconGap) {
-	return $nc($($AquaMenuPainter::instance()))->getPreferredMenuItemSize(c, localCheckIcon, localArrowIcon, localDefaultTextIconGap, this->acceleratorFont);
+	return $$nc($AquaMenuPainter::instance())->getPreferredMenuItemSize(c, localCheckIcon, localArrowIcon, localDefaultTextIconGap, this->acceleratorFont);
 }
 
 void AquaMenuItemUI::update($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(c)->isOpaque()) {
 		$var($Color, oldColor, $nc(g)->getColor());
 		g->setColor($(c->getBackground()));
@@ -248,18 +175,18 @@ void AquaMenuItemUI::update($Graphics* g, $JComponent* c) {
 }
 
 void AquaMenuItemUI::paintBackground($Graphics* g, $JComponent* c, int32_t menuWidth, int32_t menuHeight) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JMenuBar, $($nc(c)->getParent()))) {
 		return;
 	}
 	$var($Color, oldColor, $nc(g)->getColor());
-	g->setColor($($nc(c)->getBackground()));
+	g->setColor($(c->getBackground()));
 	g->fillRect(0, 0, menuWidth, menuHeight);
-	if ($nc(($cast($JMenuItem, c)))->isBorderPainted()) {
-		if ($nc($(($cast($JMenuItem, c))->getModel()))->isArmed()) {
-			$nc($($AquaMenuPainter::instance()))->paintSelectedMenuItemBackground(g, menuWidth, menuHeight);
+	if ($cast($JMenuItem, c)->isBorderPainted()) {
+		if ($$nc($cast($JMenuItem, c)->getModel())->isArmed()) {
+			$$nc($AquaMenuPainter::instance())->paintSelectedMenuItemBackground(g, menuWidth, menuHeight);
 		}
-	} else if ($nc($(($cast($JMenuItem, c))->getModel()))->isArmed()) {
+	} else if ($$nc($cast($JMenuItem, c)->getModel())->isArmed()) {
 		$var($Color, holdc, g->getColor());
 		$init($Color);
 		g->setColor($Color::black);
@@ -274,13 +201,13 @@ void AquaMenuItemUI::paintBackground($Graphics* g, $JComponent* c, int32_t menuW
 }
 
 void AquaMenuItemUI::doClick($MenuSelectionManager* msm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, size, $nc(this->menuItem)->getSize());
 	$AquaUtils::blinkMenu($$new($AquaMenuItemUI$1, this, size));
 	$BasicMenuItemUI::doClick(msm);
 }
 
-void clinit$AquaMenuItemUI($Class* class$) {
+void AquaMenuItemUI::clinit$($Class* clazz) {
 	$assignStatic(AquaMenuItemUI::sPropertyPrefixes, $new($StringArray, {
 		"MenuItem"_s,
 		"CheckBoxMenuItem"_s,
@@ -293,7 +220,66 @@ AquaMenuItemUI::AquaMenuItemUI() {
 }
 
 $Class* AquaMenuItemUI::load$($String* name, bool initialize) {
-	$loadClass(AquaMenuItemUI, name, initialize, &_AquaMenuItemUI_ClassInfo_, clinit$AquaMenuItemUI, allocate$AquaMenuItemUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"kPlain", "I", nullptr, $STATIC | $FINAL, $constField(AquaMenuItemUI, kPlain)},
+		{"kCheckBox", "I", nullptr, $STATIC | $FINAL, $constField(AquaMenuItemUI, kCheckBox)},
+		{"kRadioButton", "I", nullptr, $STATIC | $FINAL, $constField(AquaMenuItemUI, kRadioButton)},
+		{"sPropertyPrefixes", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaMenuItemUI, sPropertyPrefixes)},
+		{"fIsScreenMenuItem", "Z", nullptr, 0, $field(AquaMenuItemUI, fIsScreenMenuItem)},
+		{"fIsIndeterminate", "Z", nullptr, 0, $field(AquaMenuItemUI, fIsIndeterminate)},
+		{"fType", "I", nullptr, 0, $field(AquaMenuItemUI, fType)},
+		{"INDETERMINATE_LISTENER", "Lcom/apple/laf/AquaMenuItemUI$IndeterminateListener;", nullptr, $STATIC | $FINAL, $staticField(AquaMenuItemUI, INDETERMINATE_LISTENER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(I)V", nullptr, 0, $method(AquaMenuItemUI, init$, void, int32_t)},
+		{"access$000", "(Lcom/apple/laf/AquaMenuItemUI;)Ljavax/swing/JMenuItem;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaMenuItemUI, access$000, $JMenuItem*, AquaMenuItemUI*)},
+		{"access$100", "(Lcom/apple/laf/AquaMenuItemUI;)Ljavax/swing/JMenuItem;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaMenuItemUI, access$100, $JMenuItem*, AquaMenuItemUI*)},
+		{"access$202", "(Lcom/apple/laf/AquaMenuItemUI;Ljavax/swing/Icon;)Ljavax/swing/Icon;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaMenuItemUI, access$202, $Icon*, AquaMenuItemUI*, $Icon*)},
+		{"access$302", "(Lcom/apple/laf/AquaMenuItemUI;Ljavax/swing/Icon;)Ljavax/swing/Icon;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaMenuItemUI, access$302, $Icon*, AquaMenuItemUI*, $Icon*)},
+		{"addListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaMenuItemUI, addListeners, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaMenuItemUI, createUI, $ComponentUI*, $JComponent*)},
+		{"doClick", "(Ljavax/swing/MenuSelectionManager;)V", nullptr, $PROTECTED, $virtualMethod(AquaMenuItemUI, doClick, void, $MenuSelectionManager*)},
+		{"getPreferredMenuItemSize", "(Ljavax/swing/JComponent;Ljavax/swing/Icon;Ljavax/swing/Icon;I)Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(AquaMenuItemUI, getPreferredMenuItemSize, $Dimension*, $JComponent*, $Icon*, $Icon*, int32_t)},
+		{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AquaMenuItemUI, getPropertyPrefix, $String*)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaMenuItemUI, installListeners, void)},
+		{"paintBackground", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;II)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuItemUI, paintBackground, void, $Graphics*, $JComponent*, int32_t, int32_t)},
+		{"paintMenuItem", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljavax/swing/Icon;Ljavax/swing/Icon;Ljava/awt/Color;Ljava/awt/Color;I)V", nullptr, $PROTECTED, $virtualMethod(AquaMenuItemUI, paintMenuItem, void, $Graphics*, $JComponent*, $Icon*, $Icon*, $Color*, $Color*, int32_t)},
+		{"removeListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaMenuItemUI, removeListeners, void)},
+		{"setIsScreenMenu", "(Z)V", nullptr, $PROTECTED, $virtualMethod(AquaMenuItemUI, setIsScreenMenu, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaMenuItemUI, uninstallListeners, void)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuItemUI, update, void, $Graphics*, $JComponent*)},
+		{"updateListenersForScreenMenuItem", "()V", nullptr, $PUBLIC, $virtualMethod(AquaMenuItemUI, updateListenersForScreenMenuItem, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaMenuPainter$Client", "com.apple.laf.AquaMenuPainter", "Client", $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.apple.laf.AquaMenuItemUI$IndeterminateListener", "com.apple.laf.AquaMenuItemUI", "IndeterminateListener", $STATIC},
+		{"com.apple.laf.AquaMenuItemUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaMenuItemUI",
+		"javax.swing.plaf.basic.BasicMenuItemUI",
+		"com.apple.laf.AquaMenuPainter$Client",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaMenuItemUI$IndeterminateListener,com.apple.laf.AquaMenuItemUI$1"
+	};
+	$loadClass(AquaMenuItemUI, name, initialize, &classInfo$$, AquaMenuItemUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaMenuItemUI));
+	});
 	return class$;
 }
 

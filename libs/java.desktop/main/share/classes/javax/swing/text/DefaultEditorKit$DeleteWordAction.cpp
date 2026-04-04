@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultEditorKit$DeleteWordAction.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/lang/AssertionError.h>
@@ -21,7 +20,6 @@
 #undef DONE
 #undef NAME
 
-using $Component = ::java::awt::Component;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -31,11 +29,9 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BreakIterator = ::java::text::BreakIterator;
 using $Action = ::javax::swing::Action;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
-using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $TextAction = ::javax::swing::text::TextAction;
@@ -44,42 +40,6 @@ using $Utilities = ::javax::swing::text::Utilities;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _DefaultEditorKit$DeleteWordAction_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DefaultEditorKit$DeleteWordAction, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _DefaultEditorKit$DeleteWordAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(DefaultEditorKit$DeleteWordAction, init$, void, $String*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$DeleteWordAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _DefaultEditorKit$DeleteWordAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultEditorKit$DeleteWordAction", "javax.swing.text.DefaultEditorKit", "DeleteWordAction", $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultEditorKit$DeleteWordAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.DefaultEditorKit$DeleteWordAction",
-	"javax.swing.text.TextAction",
-	nullptr,
-	_DefaultEditorKit$DeleteWordAction_FieldInfo_,
-	_DefaultEditorKit$DeleteWordAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultEditorKit$DeleteWordAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultEditorKit"
-};
-
-$Object* allocate$DefaultEditorKit$DeleteWordAction($Class* clazz) {
-	return $of($alloc(DefaultEditorKit$DeleteWordAction));
-}
 
 bool DefaultEditorKit$DeleteWordAction::$assertionsDisabled = false;
 
@@ -91,12 +51,12 @@ void DefaultEditorKit$DeleteWordAction::init$($String* name) {
 }
 
 void DefaultEditorKit$DeleteWordAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextComponent, target, getTextComponent(e));
 	if ((target != nullptr) && (e != nullptr)) {
-		bool var$0 = (!target->isEditable());
+		bool var$0 = !target->isEditable();
 		if (var$0 || (!target->isEnabled())) {
-			$nc($($UIManager::getLookAndFeel()))->provideErrorFeedback(target);
+			$$nc($UIManager::getLookAndFeel())->provideErrorFeedback(target);
 			return;
 		}
 		bool beep = true;
@@ -129,18 +89,18 @@ void DefaultEditorKit$DeleteWordAction::actionPerformed($ActionEvent* e) {
 			int32_t offs = $Math::min(start, end);
 			int32_t len = $Math::abs(end - start);
 			if (offs >= 0) {
-				$nc($(target->getDocument()))->remove(offs, len);
+				$$nc(target->getDocument())->remove(offs, len);
 				beep = false;
 			}
 		} catch ($BadLocationException& ignore) {
 		}
 		if (beep) {
-			$nc($($UIManager::getLookAndFeel()))->provideErrorFeedback(target);
+			$$nc($UIManager::getLookAndFeel())->provideErrorFeedback(target);
 		}
 	}
 }
 
-void clinit$DefaultEditorKit$DeleteWordAction($Class* class$) {
+void DefaultEditorKit$DeleteWordAction::clinit$($Class* clazz) {
 	$load($DefaultEditorKit);
 	DefaultEditorKit$DeleteWordAction::$assertionsDisabled = !$DefaultEditorKit::class$->desiredAssertionStatus();
 }
@@ -149,7 +109,37 @@ DefaultEditorKit$DeleteWordAction::DefaultEditorKit$DeleteWordAction() {
 }
 
 $Class* DefaultEditorKit$DeleteWordAction::load$($String* name, bool initialize) {
-	$loadClass(DefaultEditorKit$DeleteWordAction, name, initialize, &_DefaultEditorKit$DeleteWordAction_ClassInfo_, clinit$DefaultEditorKit$DeleteWordAction, allocate$DefaultEditorKit$DeleteWordAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DefaultEditorKit$DeleteWordAction, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(DefaultEditorKit$DeleteWordAction, init$, void, $String*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$DeleteWordAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultEditorKit$DeleteWordAction", "javax.swing.text.DefaultEditorKit", "DeleteWordAction", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.DefaultEditorKit$DeleteWordAction",
+		"javax.swing.text.TextAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultEditorKit"
+	};
+	$loadClass(DefaultEditorKit$DeleteWordAction, name, initialize, &classInfo$$, DefaultEditorKit$DeleteWordAction::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultEditorKit$DeleteWordAction));
+	});
 	return class$;
 }
 

@@ -33,6 +33,7 @@ class JMXPluggableAuthenticator$FileLoginConfig : public ::javax::security::auth
 	$class(JMXPluggableAuthenticator$FileLoginConfig, 0, ::javax::security::auth::login::Configuration)
 public:
 	JMXPluggableAuthenticator$FileLoginConfig();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* passwordFile, $String* hashPasswords);
 	virtual $Array<::javax::security::auth::login::AppConfigurationEntry>* getAppConfigurationEntry($String* name) override;
 	virtual void refresh() override;

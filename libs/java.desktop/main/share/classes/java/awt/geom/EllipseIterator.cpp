@@ -1,5 +1,4 @@
 #include <java/awt/geom/EllipseIterator.h>
-
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/Ellipse2D.h>
 #include <java/awt/geom/PathIterator.h>
@@ -24,43 +23,6 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 namespace java {
 	namespace awt {
 		namespace geom {
-
-$FieldInfo _EllipseIterator_FieldInfo_[] = {
-	{"x", "D", nullptr, 0, $field(EllipseIterator, x)},
-	{"y", "D", nullptr, 0, $field(EllipseIterator, y)},
-	{"w", "D", nullptr, 0, $field(EllipseIterator, w)},
-	{"h", "D", nullptr, 0, $field(EllipseIterator, h)},
-	{"affine", "Ljava/awt/geom/AffineTransform;", nullptr, 0, $field(EllipseIterator, affine)},
-	{"index", "I", nullptr, 0, $field(EllipseIterator, index)},
-	{"CtrlVal", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EllipseIterator, CtrlVal)},
-	{"pcv", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EllipseIterator, pcv)},
-	{"ncv", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EllipseIterator, ncv)},
-	{"ctrlpts", "[[D", nullptr, $PRIVATE | $STATIC, $staticField(EllipseIterator, ctrlpts)},
-	{}
-};
-
-$MethodInfo _EllipseIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/geom/Ellipse2D;Ljava/awt/geom/AffineTransform;)V", nullptr, 0, $method(EllipseIterator, init$, void, $Ellipse2D*, $AffineTransform*)},
-	{"currentSegment", "([F)I", nullptr, $PUBLIC, $virtualMethod(EllipseIterator, currentSegment, int32_t, $floats*)},
-	{"currentSegment", "([D)I", nullptr, $PUBLIC, $virtualMethod(EllipseIterator, currentSegment, int32_t, $doubles*)},
-	{"getWindingRule", "()I", nullptr, $PUBLIC, $virtualMethod(EllipseIterator, getWindingRule, int32_t)},
-	{"isDone", "()Z", nullptr, $PUBLIC, $virtualMethod(EllipseIterator, isDone, bool)},
-	{"next", "()V", nullptr, $PUBLIC, $virtualMethod(EllipseIterator, next, void)},
-	{}
-};
-
-$ClassInfo _EllipseIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.geom.EllipseIterator",
-	"java.lang.Object",
-	"java.awt.geom.PathIterator",
-	_EllipseIterator_FieldInfo_,
-	_EllipseIterator_MethodInfo_
-};
-
-$Object* allocate$EllipseIterator($Class* clazz) {
-	return $of($alloc(EllipseIterator));
-}
 
 double EllipseIterator::CtrlVal = 0.0;
 double EllipseIterator::pcv = 0.0;
@@ -91,7 +53,7 @@ void EllipseIterator::next() {
 }
 
 int32_t EllipseIterator::currentSegment($floats* coords) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isDone()) {
 		$throwNew($NoSuchElementException, "ellipse iterator out of bounds"_s);
 	}
@@ -103,7 +65,7 @@ int32_t EllipseIterator::currentSegment($floats* coords) {
 		$nc(coords)->set(0, (float)(this->x + $nc(ctrls)->get(4) * this->w));
 		coords->set(1, (float)(this->y + ctrls->get(5) * this->h));
 		if (this->affine != nullptr) {
-			$nc(this->affine)->transform(coords, 0, coords, 0, 1);
+			this->affine->transform(coords, 0, coords, 0, 1);
 		}
 		return $PathIterator::SEG_MOVETO;
 	}
@@ -115,13 +77,13 @@ int32_t EllipseIterator::currentSegment($floats* coords) {
 	coords->set(4, (float)(this->x + ctrls->get(4) * this->w));
 	coords->set(5, (float)(this->y + ctrls->get(5) * this->h));
 	if (this->affine != nullptr) {
-		$nc(this->affine)->transform(coords, 0, coords, 0, 3);
+		this->affine->transform(coords, 0, coords, 0, 3);
 	}
 	return $PathIterator::SEG_CUBICTO;
 }
 
 int32_t EllipseIterator::currentSegment($doubles* coords) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isDone()) {
 		$throwNew($NoSuchElementException, "ellipse iterator out of bounds"_s);
 	}
@@ -133,7 +95,7 @@ int32_t EllipseIterator::currentSegment($doubles* coords) {
 		$nc(coords)->set(0, this->x + $nc(ctrls)->get(4) * this->w);
 		coords->set(1, this->y + ctrls->get(5) * this->h);
 		if (this->affine != nullptr) {
-			$nc(this->affine)->transform(coords, 0, coords, 0, 1);
+			this->affine->transform(coords, 0, coords, 0, 1);
 		}
 		return $PathIterator::SEG_MOVETO;
 	}
@@ -145,13 +107,13 @@ int32_t EllipseIterator::currentSegment($doubles* coords) {
 	coords->set(4, this->x + ctrls->get(4) * this->w);
 	coords->set(5, this->y + ctrls->get(5) * this->h);
 	if (this->affine != nullptr) {
-		$nc(this->affine)->transform(coords, 0, coords, 0, 3);
+		this->affine->transform(coords, 0, coords, 0, 3);
 	}
 	return $PathIterator::SEG_CUBICTO;
 }
 
-void clinit$EllipseIterator($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void EllipseIterator::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	EllipseIterator::CtrlVal = 0.5522847498307933;
 	EllipseIterator::pcv = 0.5 + EllipseIterator::CtrlVal * 0.5;
 	EllipseIterator::ncv = 0.5 - EllipseIterator::CtrlVal * 0.5;
@@ -195,7 +157,39 @@ EllipseIterator::EllipseIterator() {
 }
 
 $Class* EllipseIterator::load$($String* name, bool initialize) {
-	$loadClass(EllipseIterator, name, initialize, &_EllipseIterator_ClassInfo_, clinit$EllipseIterator, allocate$EllipseIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"x", "D", nullptr, 0, $field(EllipseIterator, x)},
+		{"y", "D", nullptr, 0, $field(EllipseIterator, y)},
+		{"w", "D", nullptr, 0, $field(EllipseIterator, w)},
+		{"h", "D", nullptr, 0, $field(EllipseIterator, h)},
+		{"affine", "Ljava/awt/geom/AffineTransform;", nullptr, 0, $field(EllipseIterator, affine)},
+		{"index", "I", nullptr, 0, $field(EllipseIterator, index)},
+		{"CtrlVal", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EllipseIterator, CtrlVal)},
+		{"pcv", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EllipseIterator, pcv)},
+		{"ncv", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EllipseIterator, ncv)},
+		{"ctrlpts", "[[D", nullptr, $PRIVATE | $STATIC, $staticField(EllipseIterator, ctrlpts)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/geom/Ellipse2D;Ljava/awt/geom/AffineTransform;)V", nullptr, 0, $method(EllipseIterator, init$, void, $Ellipse2D*, $AffineTransform*)},
+		{"currentSegment", "([F)I", nullptr, $PUBLIC, $virtualMethod(EllipseIterator, currentSegment, int32_t, $floats*)},
+		{"currentSegment", "([D)I", nullptr, $PUBLIC, $virtualMethod(EllipseIterator, currentSegment, int32_t, $doubles*)},
+		{"getWindingRule", "()I", nullptr, $PUBLIC, $virtualMethod(EllipseIterator, getWindingRule, int32_t)},
+		{"isDone", "()Z", nullptr, $PUBLIC, $virtualMethod(EllipseIterator, isDone, bool)},
+		{"next", "()V", nullptr, $PUBLIC, $virtualMethod(EllipseIterator, next, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.geom.EllipseIterator",
+		"java.lang.Object",
+		"java.awt.geom.PathIterator",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EllipseIterator, name, initialize, &classInfo$$, EllipseIterator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(EllipseIterator);
+	});
 	return class$;
 }
 

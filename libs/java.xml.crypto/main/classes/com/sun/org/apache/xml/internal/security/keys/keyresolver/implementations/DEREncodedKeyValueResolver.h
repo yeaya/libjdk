@@ -79,6 +79,7 @@ class DEREncodedKeyValueResolver : public ::com::sun::org::apache::xml::internal
 	$class(DEREncodedKeyValueResolver, 0, ::com::sun::org::apache::xml::internal::security::keys::keyresolver::KeyResolverSpi)
 public:
 	DEREncodedKeyValueResolver();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool engineCanResolve(::org::w3c::dom::Element* element, $String* baseURI, ::com::sun::org::apache::xml::internal::security::keys::storage::StorageResolver* storage) override;
 	virtual ::java::security::PrivateKey* engineLookupAndResolvePrivateKey(::org::w3c::dom::Element* element, $String* baseURI, ::com::sun::org::apache::xml::internal::security::keys::storage::StorageResolver* storage, bool secureValidation) override;

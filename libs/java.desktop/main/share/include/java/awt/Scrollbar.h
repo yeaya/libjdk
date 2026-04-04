@@ -55,6 +55,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t orientation);
 	void init$(int32_t orientation, int32_t value, int32_t visible, int32_t minimum, int32_t maximum);
@@ -108,7 +109,7 @@ public:
 	::java::awt::event::AdjustmentListener* adjustmentListener = nullptr;
 	static $String* base;
 	static int32_t nameCounter;
-	static const int64_t serialVersionUID = (int64_t)0x754A5ADE9D4AA18F;
+	static const int64_t serialVersionUID = (int64_t)0x754a5ade9d4aa18f;
 	int32_t scrollbarSerializedDataVersion = 0;
 };
 

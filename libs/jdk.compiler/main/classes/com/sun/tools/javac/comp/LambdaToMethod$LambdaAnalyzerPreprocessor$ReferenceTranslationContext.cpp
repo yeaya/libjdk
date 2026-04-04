@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext.h>
-
 #include <com/sun/source/tree/MemberReferenceTree$ReferenceMode.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
@@ -26,16 +25,12 @@
 #undef SUPER
 
 using $MemberReferenceTree$ReferenceMode = ::com::sun::source::tree::MemberReferenceTree$ReferenceMode;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $LambdaToMethod = ::com::sun::tools::javac::comp::LambdaToMethod;
 using $LambdaToMethod$1 = ::com::sun::tools::javac::comp::LambdaToMethod$1;
 using $LambdaToMethod$LambdaAnalyzerPreprocessor = ::com::sun::tools::javac::comp::LambdaToMethod$LambdaAnalyzerPreprocessor;
 using $LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext = ::com::sun::tools::javac::comp::LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext;
-using $JCTree$JCFunctionalExpression = ::com::sun::tools::javac::tree::JCTree$JCFunctionalExpression;
 using $JCTree$JCMemberReference = ::com::sun::tools::javac::tree::JCTree$JCMemberReference;
 using $JCTree$JCMemberReference$ReferenceKind = ::com::sun::tools::javac::tree::JCTree$JCMemberReference$ReferenceKind;
 using $List = ::com::sun::tools::javac::util::List;
@@ -44,62 +39,12 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $TypeKind = ::javax::lang::model::type::TypeKind;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext_FieldInfo_[] = {
-	{"this$1", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;", nullptr, $FINAL | $SYNTHETIC, $field(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, this$1)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, $assertionsDisabled)},
-	{"isSuper", "Z", nullptr, $FINAL, $field(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, isSuper)},
-	{}
-};
-
-$MethodInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, init$, void, $LambdaToMethod$LambdaAnalyzerPreprocessor*, $JCTree$JCMemberReference*)},
-	{"bridgedRefSig", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, bridgedRefSig, $Type*)},
-	{"generatedRefSig", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, generatedRefSig, $Type*)},
-	{"interfaceParameterIsIntersectionOrUnionType", "()Z", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, interfaceParameterIsIntersectionOrUnionType, bool)},
-	{"isArrayOp", "()Z", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, isArrayOp, bool)},
-	{"isIntersectionOrUnionType", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, isIntersectionOrUnionType, bool, $Type*)},
-	{"isPrivateInOtherClass", "()Z", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, isPrivateInOtherClass, bool)},
-	{"needsConversionToLambda", "()Z", nullptr, $FINAL, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, needsConversionToLambda, bool)},
-	{"needsVarArgsConversion", "()Z", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, needsVarArgsConversion, bool)},
-	{"receiverAccessible", "()Z", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, receiverAccessible, bool)},
-	{}
-};
-
-$InnerClassInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor", "com.sun.tools.javac.comp.LambdaToMethod", "LambdaAnalyzerPreprocessor", 0},
-	{"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext", "com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor", "ReferenceTranslationContext", $FINAL},
-	{"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext", "com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor", "TranslationContext", $ABSTRACT},
-	{"com.sun.tools.javac.tree.JCTree$JCMemberReference", "com.sun.tools.javac.tree.JCTree", "JCMemberReference", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext",
-	"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext",
-	nullptr,
-	_LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext_FieldInfo_,
-	_LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext_MethodInfo_,
-	"Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext<Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;>;",
-	nullptr,
-	_LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.LambdaToMethod"
-};
-
-$Object* allocate$LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext($Class* clazz) {
-	return $of($alloc(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext));
-}
 
 bool LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::$assertionsDisabled = false;
 
@@ -123,22 +68,22 @@ bool LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::rece
 }
 
 bool LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::isPrivateInOtherClass() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::$assertionsDisabled && ! !$nc(this->this$1->this$0)->nestmateLambdas) {
 		$throwNew($AssertionError);
 	}
-	bool var$0 = ((int64_t)($nc($nc(($cast($JCTree$JCMemberReference, this->tree)))->sym)->flags() & (uint64_t)(int64_t)2)) != 0;
+	bool var$0 = ($nc($nc(($cast($JCTree$JCMemberReference, this->tree)))->sym)->flags() & 2) != 0;
 	if (var$0) {
-		$var($Type, var$1, $nc($nc(this->this$1->this$0)->types)->erasure($($cast($Type, $nc($($nc($nc(($cast($JCTree$JCMemberReference, this->tree)))->sym)->enclClass()))->asType()))));
-		var$0 = !$nc($nc(this->this$1->this$0)->types)->isSameType(var$1, $($nc($nc(this->this$1->this$0)->types)->erasure($($cast($Type, $nc($($nc(this->owner)->enclClass()))->asType())))));
+		$var($Type, var$1, $nc($nc(this->this$1->this$0)->types)->erasure($$cast($Type, $$nc(($cast($JCTree$JCMemberReference, this->tree))->sym->enclClass())->asType())));
+		var$0 = !$nc($nc(this->this$1->this$0)->types)->isSameType(var$1, $(this->this$1->this$0->types->erasure($$cast($Type, $$nc($nc(this->owner)->enclClass())->asType()))));
 	}
 	return var$0;
 }
 
 bool LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::interfaceParameterIsIntersectionOrUnionType() {
-	$useLocalCurrentObjectStackCache();
-	$var($List, tl, $nc($($nc(($cast($JCTree$JCMemberReference, this->tree)))->getDescriptorType($nc(this->this$1->this$0)->types)))->getParameterTypes());
-	for (; $nc(tl)->nonEmpty(); $assign(tl, $nc(tl)->tail)) {
+	$useLocalObjectStack();
+	$var($List, tl, $$nc($nc($cast($JCTree$JCMemberReference, this->tree))->getDescriptorType($nc(this->this$1->this$0)->types))->getParameterTypes());
+	for (; $nc(tl)->nonEmpty(); $assign(tl, tl->tail)) {
 		$var($Type, pt, $cast($Type, tl->head));
 		return isIntersectionOrUnionType(pt);
 	}
@@ -146,23 +91,16 @@ bool LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::inte
 }
 
 bool LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::isIntersectionOrUnionType($Type* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($LambdaToMethod$1);
-	{
-		$var($Type$TypeVar, tv, nullptr)
-		switch ($nc($LambdaToMethod$1::$SwitchMap$javax$lang$model$type$TypeKind)->get($nc(($($nc(t)->getKind())))->ordinal())) {
-		case 1:
-			{}
-		case 2:
-			{
-				return true;
-			}
-		case 3:
-			{
-				$assign(tv, $cast($Type$TypeVar, t));
-				return isIntersectionOrUnionType($($nc(tv)->getUpperBound()));
-			}
-		}
+	$var($Type$TypeVar, tv, nullptr);
+	switch ($nc($LambdaToMethod$1::$SwitchMap$javax$lang$model$type$TypeKind)->get(($$nc($nc(t)->getKind()))->ordinal())) {
+	case 1:
+	case 2:
+		return true;
+	case 3:
+		$assign(tv, $cast($Type$TypeVar, t));
+		return isIntersectionOrUnionType($($nc(tv)->getUpperBound()));
 	}
 	return false;
 }
@@ -177,12 +115,12 @@ bool LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::need
 	if (!var$0) {
 		$init($MemberReferenceTree$ReferenceMode);
 		$init($JCTree$JCMemberReference$ReferenceKind);
-		bool var$6 = $nc(($cast($JCTree$JCMemberReference, this->tree)))->getMode() == $MemberReferenceTree$ReferenceMode::NEW && $nc(($cast($JCTree$JCMemberReference, this->tree)))->kind != $JCTree$JCMemberReference$ReferenceKind::ARRAY_CTOR;
+		bool var$6 = $nc($cast($JCTree$JCMemberReference, this->tree))->getMode() == $MemberReferenceTree$ReferenceMode::NEW && ($cast($JCTree$JCMemberReference, this->tree))->kind != $JCTree$JCMemberReference$ReferenceKind::ARRAY_CTOR;
 		if (var$6) {
-			bool var$7 = $nc($nc($nc(($cast($JCTree$JCMemberReference, this->tree)))->sym)->owner)->isDirectlyOrIndirectlyLocal();
-			var$6 = (var$7 || $nc($nc($nc(($cast($JCTree$JCMemberReference, this->tree)))->sym)->owner)->isInner());
+			bool var$7 = $nc($nc(($cast($JCTree$JCMemberReference, this->tree))->sym)->owner)->isDirectlyOrIndirectlyLocal();
+			var$6 = var$7 || ($cast($JCTree$JCMemberReference, this->tree))->sym->owner->isInner();
 		}
-		var$0 = (var$6);
+		var$0 = var$6;
 	}
 	return var$0;
 }
@@ -195,7 +133,7 @@ $Type* LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::br
 	return $nc($nc(this->this$1->this$0)->types)->erasure($nc($($nc($nc(this->this$1->this$0)->types)->findDescriptorSymbol($nc($nc(($cast($JCTree$JCMemberReference, this->tree)))->target)->tsym)))->type);
 }
 
-void clinit$LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext($Class* class$) {
+void LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::clinit$($Class* clazz) {
 	$load($LambdaToMethod);
 	LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::$assertionsDisabled = !$LambdaToMethod::class$->desiredAssertionStatus();
 }
@@ -204,7 +142,50 @@ LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::LambdaToM
 }
 
 $Class* LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::load$($String* name, bool initialize) {
-	$loadClass(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, name, initialize, &_LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext_ClassInfo_, clinit$LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, allocate$LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;", nullptr, $FINAL | $SYNTHETIC, $field(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, this$1)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, $assertionsDisabled)},
+		{"isSuper", "Z", nullptr, $FINAL, $field(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, isSuper)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, init$, void, $LambdaToMethod$LambdaAnalyzerPreprocessor*, $JCTree$JCMemberReference*)},
+		{"bridgedRefSig", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, bridgedRefSig, $Type*)},
+		{"generatedRefSig", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, generatedRefSig, $Type*)},
+		{"interfaceParameterIsIntersectionOrUnionType", "()Z", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, interfaceParameterIsIntersectionOrUnionType, bool)},
+		{"isArrayOp", "()Z", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, isArrayOp, bool)},
+		{"isIntersectionOrUnionType", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, isIntersectionOrUnionType, bool, $Type*)},
+		{"isPrivateInOtherClass", "()Z", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, isPrivateInOtherClass, bool)},
+		{"needsConversionToLambda", "()Z", nullptr, $FINAL, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, needsConversionToLambda, bool)},
+		{"needsVarArgsConversion", "()Z", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, needsVarArgsConversion, bool)},
+		{"receiverAccessible", "()Z", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, receiverAccessible, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor", "com.sun.tools.javac.comp.LambdaToMethod", "LambdaAnalyzerPreprocessor", 0},
+		{"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext", "com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor", "ReferenceTranslationContext", $FINAL},
+		{"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext", "com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor", "TranslationContext", $ABSTRACT},
+		{"com.sun.tools.javac.tree.JCTree$JCMemberReference", "com.sun.tools.javac.tree.JCTree", "JCMemberReference", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext",
+		"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext<Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.LambdaToMethod"
+	};
+	$loadClass(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, name, initialize, &classInfo$$, LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext);
+	});
 	return class$;
 }
 

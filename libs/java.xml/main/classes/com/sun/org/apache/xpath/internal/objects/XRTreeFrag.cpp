@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/objects/XRTreeFrag.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMManager.h>
@@ -39,11 +38,9 @@ using $ExpressionNode = ::com::sun::org::apache::xpath::internal::ExpressionNode
 using $NodeSetDTM = ::com::sun::org::apache::xpath::internal::NodeSetDTM;
 using $XPathContext = ::com::sun::org::apache::xpath::internal::XPathContext;
 using $RTFIterator = ::com::sun::org::apache::xpath::internal::axes::RTFIterator;
-using $DTMXRTreeFrag = ::com::sun::org::apache::xpath::internal::objects::DTMXRTreeFrag;
 using $XObject = ::com::sun::org::apache::xpath::internal::objects::XObject;
 using $XString = ::com::sun::org::apache::xpath::internal::objects::XString;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $TransformerException = ::javax::xml::transform::TransformerException;
@@ -56,50 +53,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 						namespace objects {
-
-$FieldInfo _XRTreeFrag_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(XRTreeFrag, serialVersionUID)},
-	{"m_DTMXRTreeFrag", "Lcom/sun/org/apache/xpath/internal/objects/DTMXRTreeFrag;", nullptr, $PRIVATE, $field(XRTreeFrag, m_DTMXRTreeFrag)},
-	{"m_dtmRoot", "I", nullptr, $PRIVATE, $field(XRTreeFrag, m_dtmRoot)},
-	{"m_allowRelease", "Z", nullptr, $PROTECTED, $field(XRTreeFrag, m_allowRelease)},
-	{"m_xmlStr", "Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PRIVATE, $field(XRTreeFrag, m_xmlStr)},
-	{}
-};
-
-$MethodInfo _XRTreeFrag_MethodInfo_[] = {
-	{"<init>", "(ILcom/sun/org/apache/xpath/internal/XPathContext;Lcom/sun/org/apache/xpath/internal/ExpressionNode;)V", nullptr, $PUBLIC, $method(XRTreeFrag, init$, void, int32_t, $XPathContext*, $ExpressionNode*)},
-	{"<init>", "(ILcom/sun/org/apache/xpath/internal/XPathContext;)V", nullptr, $PUBLIC, $method(XRTreeFrag, init$, void, int32_t, $XPathContext*)},
-	{"<init>", "(Lcom/sun/org/apache/xpath/internal/Expression;)V", nullptr, $PUBLIC, $method(XRTreeFrag, init$, void, $Expression*)},
-	{"allowDetachToRelease", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XRTreeFrag, allowDetachToRelease, void, bool)},
-	{"appendToFsb", "(Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;)V", nullptr, $PUBLIC, $virtualMethod(XRTreeFrag, appendToFsb, void, $FastStringBuffer*)},
-	{"asNodeIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(XRTreeFrag, asNodeIterator, $DTMIterator*)},
-	{"bool", "()Z", nullptr, $PUBLIC, $virtualMethod(XRTreeFrag, bool$, bool)},
-	{"convertToNodeset", "()Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(XRTreeFrag, convertToNodeset, $NodeList*)},
-	{"detach", "()V", nullptr, $PUBLIC, $virtualMethod(XRTreeFrag, detach, void)},
-	{"equals", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;)Z", nullptr, $PUBLIC, $virtualMethod(XRTreeFrag, equals, bool, $XObject*)},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(XRTreeFrag, getType, int32_t)},
-	{"getTypeString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XRTreeFrag, getTypeString, $String*)},
-	{"initDTM", "(ILcom/sun/org/apache/xpath/internal/XPathContext;)V", nullptr, $PRIVATE | $FINAL, $method(XRTreeFrag, initDTM, void, int32_t, $XPathContext*)},
-	{"num", "()D", nullptr, $PUBLIC, $virtualMethod(XRTreeFrag, num, double), "javax.xml.transform.TransformerException"},
-	{"object", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XRTreeFrag, object, $Object*)},
-	{"rtf", "()I", nullptr, $PUBLIC, $virtualMethod(XRTreeFrag, rtf, int32_t)},
-	{"str", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XRTreeFrag, str, $String*)},
-	{"xstr", "()Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XRTreeFrag, xstr, $XMLString*)},
-	{}
-};
-
-$ClassInfo _XRTreeFrag_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.objects.XRTreeFrag",
-	"com.sun.org.apache.xpath.internal.objects.XObject",
-	nullptr,
-	_XRTreeFrag_FieldInfo_,
-	_XRTreeFrag_MethodInfo_
-};
-
-$Object* allocate$XRTreeFrag($Class* clazz) {
-	return $of($alloc(XRTreeFrag));
-}
 
 void XRTreeFrag::init$(int32_t root, $XPathContext* xctxt, $ExpressionNode* parent) {
 	$XObject::init$(nullptr);
@@ -127,11 +80,11 @@ void XRTreeFrag::initDTM(int32_t root, $XPathContext* xctxt) {
 }
 
 $Object* XRTreeFrag::object() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->m_DTMXRTreeFrag)->getXPathContext() != nullptr) {
-		return $of($new($DTMNodeIterator, static_cast<$DTMIterator*>(($$new($NodeSetDTM, this->m_dtmRoot, $($nc($($nc(this->m_DTMXRTreeFrag)->getXPathContext()))->getDTMManager()))))));
+		return $new($DTMNodeIterator, $$cast($DTMIterator, ($new($NodeSetDTM, this->m_dtmRoot, $($$nc($nc(this->m_DTMXRTreeFrag)->getXPathContext())->getDTMManager())))));
 	} else {
-		return $of($XObject::object());
+		return $XObject::object();
 	}
 }
 
@@ -172,7 +125,7 @@ bool XRTreeFrag::bool$() {
 
 $XMLString* XRTreeFrag::xstr() {
 	if (nullptr == this->m_xmlStr) {
-		$set(this, m_xmlStr, $nc($($nc(this->m_DTMXRTreeFrag)->getDTM()))->getStringValue(this->m_dtmRoot));
+		$set(this, m_xmlStr, $$nc($nc(this->m_DTMXRTreeFrag)->getDTM())->getStringValue(this->m_dtmRoot));
 	}
 	return this->m_xmlStr;
 }
@@ -183,8 +136,8 @@ void XRTreeFrag::appendToFsb($FastStringBuffer* fsb) {
 }
 
 $String* XRTreeFrag::str() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, str, $nc($($nc($($nc(this->m_DTMXRTreeFrag)->getDTM()))->getStringValue(this->m_dtmRoot)))->toString());
+	$useLocalObjectStack();
+	$var($String, str, $$nc($$nc($nc(this->m_DTMXRTreeFrag)->getDTM())->getStringValue(this->m_dtmRoot))->toString());
 	return (nullptr == str) ? ""_s : str;
 }
 
@@ -193,8 +146,8 @@ int32_t XRTreeFrag::rtf() {
 }
 
 $DTMIterator* XRTreeFrag::asNodeIterator() {
-	$useLocalCurrentObjectStackCache();
-	return $new($RTFIterator, this->m_dtmRoot, $($nc($($nc(this->m_DTMXRTreeFrag)->getXPathContext()))->getDTMManager()));
+	$useLocalObjectStack();
+	return $new($RTFIterator, this->m_dtmRoot, $($$nc($nc(this->m_DTMXRTreeFrag)->getXPathContext())->getDTMManager()));
 }
 
 $NodeList* XRTreeFrag::convertToNodeset() {
@@ -206,10 +159,10 @@ $NodeList* XRTreeFrag::convertToNodeset() {
 }
 
 bool XRTreeFrag::equals($XObject* obj2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if ($XObject::CLASS_NODESET == $nc(obj2)->getType()) {
-			return obj2->equals(static_cast<$XObject*>(this));
+			return obj2->equals(this);
 		} else if ($XObject::CLASS_BOOLEAN == obj2->getType()) {
 			bool var$0 = bool$();
 			return var$0 == obj2->bool$();
@@ -217,11 +170,11 @@ bool XRTreeFrag::equals($XObject* obj2) {
 			double var$1 = num();
 			return var$1 == obj2->num();
 		} else if ($XObject::CLASS_NODESET == obj2->getType()) {
-			return $nc($(xstr()))->equals($(obj2->xstr()));
+			return $$nc(xstr())->equals($(obj2->xstr()));
 		} else if ($XObject::CLASS_STRING == obj2->getType()) {
-			return $nc($(xstr()))->equals($(obj2->xstr()));
+			return $$nc(xstr())->equals($(obj2->xstr()));
 		} else if ($XObject::CLASS_RTREEFRAG == obj2->getType()) {
-			return $nc($(xstr()))->equals($(obj2->xstr()));
+			return $$nc(xstr())->equals($(obj2->xstr()));
 		} else {
 			return $XObject::equals(obj2);
 		}
@@ -235,7 +188,46 @@ XRTreeFrag::XRTreeFrag() {
 }
 
 $Class* XRTreeFrag::load$($String* name, bool initialize) {
-	$loadClass(XRTreeFrag, name, initialize, &_XRTreeFrag_ClassInfo_, allocate$XRTreeFrag);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(XRTreeFrag, serialVersionUID)},
+		{"m_DTMXRTreeFrag", "Lcom/sun/org/apache/xpath/internal/objects/DTMXRTreeFrag;", nullptr, $PRIVATE, $field(XRTreeFrag, m_DTMXRTreeFrag)},
+		{"m_dtmRoot", "I", nullptr, $PRIVATE, $field(XRTreeFrag, m_dtmRoot)},
+		{"m_allowRelease", "Z", nullptr, $PROTECTED, $field(XRTreeFrag, m_allowRelease)},
+		{"m_xmlStr", "Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PRIVATE, $field(XRTreeFrag, m_xmlStr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILcom/sun/org/apache/xpath/internal/XPathContext;Lcom/sun/org/apache/xpath/internal/ExpressionNode;)V", nullptr, $PUBLIC, $method(XRTreeFrag, init$, void, int32_t, $XPathContext*, $ExpressionNode*)},
+		{"<init>", "(ILcom/sun/org/apache/xpath/internal/XPathContext;)V", nullptr, $PUBLIC, $method(XRTreeFrag, init$, void, int32_t, $XPathContext*)},
+		{"<init>", "(Lcom/sun/org/apache/xpath/internal/Expression;)V", nullptr, $PUBLIC, $method(XRTreeFrag, init$, void, $Expression*)},
+		{"allowDetachToRelease", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XRTreeFrag, allowDetachToRelease, void, bool)},
+		{"appendToFsb", "(Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;)V", nullptr, $PUBLIC, $virtualMethod(XRTreeFrag, appendToFsb, void, $FastStringBuffer*)},
+		{"asNodeIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(XRTreeFrag, asNodeIterator, $DTMIterator*)},
+		{"bool", "()Z", nullptr, $PUBLIC, $virtualMethod(XRTreeFrag, bool$, bool)},
+		{"convertToNodeset", "()Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(XRTreeFrag, convertToNodeset, $NodeList*)},
+		{"detach", "()V", nullptr, $PUBLIC, $virtualMethod(XRTreeFrag, detach, void)},
+		{"equals", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;)Z", nullptr, $PUBLIC, $virtualMethod(XRTreeFrag, equals, bool, $XObject*)},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(XRTreeFrag, getType, int32_t)},
+		{"getTypeString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XRTreeFrag, getTypeString, $String*)},
+		{"initDTM", "(ILcom/sun/org/apache/xpath/internal/XPathContext;)V", nullptr, $PRIVATE | $FINAL, $method(XRTreeFrag, initDTM, void, int32_t, $XPathContext*)},
+		{"num", "()D", nullptr, $PUBLIC, $virtualMethod(XRTreeFrag, num, double), "javax.xml.transform.TransformerException"},
+		{"object", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XRTreeFrag, object, $Object*)},
+		{"rtf", "()I", nullptr, $PUBLIC, $virtualMethod(XRTreeFrag, rtf, int32_t)},
+		{"str", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XRTreeFrag, str, $String*)},
+		{"xstr", "()Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XRTreeFrag, xstr, $XMLString*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.objects.XRTreeFrag",
+		"com.sun.org.apache.xpath.internal.objects.XObject",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XRTreeFrag, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XRTreeFrag));
+	});
 	return class$;
 }
 

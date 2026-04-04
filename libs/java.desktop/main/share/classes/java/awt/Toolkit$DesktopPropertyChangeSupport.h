@@ -29,6 +29,7 @@ class Toolkit$DesktopPropertyChangeSupport : public ::java::beans::PropertyChang
 public:
 	Toolkit$DesktopPropertyChangeSupport();
 	using ::java::beans::PropertyChangeSupport::firePropertyChange;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(Object$* sourceBean);
 	virtual void addPropertyChangeListener($String* propertyName, ::java::beans::PropertyChangeListener* listener) override;
 	virtual void addPropertyChangeListener(::java::beans::PropertyChangeListener* listener) override;

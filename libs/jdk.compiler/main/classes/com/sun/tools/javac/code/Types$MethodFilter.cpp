@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$MethodFilter.h>
-
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -25,45 +24,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Types$MethodFilter_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$MethodFilter, this$0)},
-	{"msym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, 0, $field(Types$MethodFilter, msym)},
-	{"site", "Lcom/sun/tools/javac/code/Type;", nullptr, 0, $field(Types$MethodFilter, site)},
-	{}
-};
-
-$MethodInfo _Types$MethodFilter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Types$MethodFilter, init$, void, $Types*, $Symbol*, $Type*)},
-	{"test", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC, $virtualMethod(Types$MethodFilter, test, bool, $Symbol*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$MethodFilter, test, bool, Object$*)},
-	{}
-};
-
-$InnerClassInfo _Types$MethodFilter_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$MethodFilter", "com.sun.tools.javac.code.Types", "MethodFilter", $PRIVATE},
-	{}
-};
-
-$ClassInfo _Types$MethodFilter_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Types$MethodFilter",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	_Types$MethodFilter_FieldInfo_,
-	_Types$MethodFilter_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;",
-	nullptr,
-	_Types$MethodFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$MethodFilter($Class* clazz) {
-	return $of($alloc(Types$MethodFilter));
-}
-
 void Types$MethodFilter::init$($Types* this$0, $Symbol* msym, $Type* site) {
 	$set(this, this$0, this$0);
 	$set(this, msym, msym);
@@ -71,9 +31,9 @@ void Types$MethodFilter::init$($Types* this$0, $Symbol* msym, $Type* site) {
 }
 
 bool Types$MethodFilter::test($Symbol* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Kinds$Kind);
-	bool var$1 = $nc(s)->kind == $Kinds$Kind::MTH && s->name == $nc(this->msym)->name && ((int64_t)(s->flags() & (uint64_t)(int64_t)4096)) == 0;
+	bool var$1 = $nc(s)->kind == $Kinds$Kind::MTH && s->name == $nc(this->msym)->name && (s->flags() & 0x1000) == 0;
 	bool var$0 = var$1 && s->isInheritedIn($nc(this->site)->tsym, this->this$0);
 	if (var$0) {
 		$var($Type, var$2, this->this$0->memberType(this->site, s));
@@ -90,7 +50,40 @@ Types$MethodFilter::Types$MethodFilter() {
 }
 
 $Class* Types$MethodFilter::load$($String* name, bool initialize) {
-	$loadClass(Types$MethodFilter, name, initialize, &_Types$MethodFilter_ClassInfo_, allocate$Types$MethodFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$MethodFilter, this$0)},
+		{"msym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, 0, $field(Types$MethodFilter, msym)},
+		{"site", "Lcom/sun/tools/javac/code/Type;", nullptr, 0, $field(Types$MethodFilter, site)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Types$MethodFilter, init$, void, $Types*, $Symbol*, $Type*)},
+		{"test", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC, $virtualMethod(Types$MethodFilter, test, bool, $Symbol*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$MethodFilter, test, bool, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$MethodFilter", "com.sun.tools.javac.code.Types", "MethodFilter", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Types$MethodFilter",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$MethodFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$MethodFilter);
+	});
 	return class$;
 }
 

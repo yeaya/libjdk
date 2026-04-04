@@ -1,5 +1,4 @@
 #include <com/apple/eawt/FullScreenAdapter.h>
-
 #include <com/apple/eawt/event/FullScreenEvent.h>
 #include <jcpp.h>
 
@@ -10,28 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace com {
 	namespace apple {
 		namespace eawt {
-
-$MethodInfo _FullScreenAdapter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FullScreenAdapter, init$, void)},
-	{"windowEnteredFullScreen", "(Lcom/apple/eawt/event/FullScreenEvent;)V", nullptr, $PUBLIC, $virtualMethod(FullScreenAdapter, windowEnteredFullScreen, void, $FullScreenEvent*)},
-	{"windowEnteringFullScreen", "(Lcom/apple/eawt/event/FullScreenEvent;)V", nullptr, $PUBLIC, $virtualMethod(FullScreenAdapter, windowEnteringFullScreen, void, $FullScreenEvent*)},
-	{"windowExitedFullScreen", "(Lcom/apple/eawt/event/FullScreenEvent;)V", nullptr, $PUBLIC, $virtualMethod(FullScreenAdapter, windowExitedFullScreen, void, $FullScreenEvent*)},
-	{"windowExitingFullScreen", "(Lcom/apple/eawt/event/FullScreenEvent;)V", nullptr, $PUBLIC, $virtualMethod(FullScreenAdapter, windowExitingFullScreen, void, $FullScreenEvent*)},
-	{}
-};
-
-$ClassInfo _FullScreenAdapter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.apple.eawt.FullScreenAdapter",
-	"java.lang.Object",
-	"com.apple.eawt.FullScreenListener",
-	nullptr,
-	_FullScreenAdapter_MethodInfo_
-};
-
-$Object* allocate$FullScreenAdapter($Class* clazz) {
-	return $of($alloc(FullScreenAdapter));
-}
 
 void FullScreenAdapter::init$() {
 }
@@ -52,7 +29,25 @@ FullScreenAdapter::FullScreenAdapter() {
 }
 
 $Class* FullScreenAdapter::load$($String* name, bool initialize) {
-	$loadClass(FullScreenAdapter, name, initialize, &_FullScreenAdapter_ClassInfo_, allocate$FullScreenAdapter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FullScreenAdapter, init$, void)},
+		{"windowEnteredFullScreen", "(Lcom/apple/eawt/event/FullScreenEvent;)V", nullptr, $PUBLIC, $virtualMethod(FullScreenAdapter, windowEnteredFullScreen, void, $FullScreenEvent*)},
+		{"windowEnteringFullScreen", "(Lcom/apple/eawt/event/FullScreenEvent;)V", nullptr, $PUBLIC, $virtualMethod(FullScreenAdapter, windowEnteringFullScreen, void, $FullScreenEvent*)},
+		{"windowExitedFullScreen", "(Lcom/apple/eawt/event/FullScreenEvent;)V", nullptr, $PUBLIC, $virtualMethod(FullScreenAdapter, windowExitedFullScreen, void, $FullScreenEvent*)},
+		{"windowExitingFullScreen", "(Lcom/apple/eawt/event/FullScreenEvent;)V", nullptr, $PUBLIC, $virtualMethod(FullScreenAdapter, windowExitingFullScreen, void, $FullScreenEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.apple.eawt.FullScreenAdapter",
+		"java.lang.Object",
+		"com.apple.eawt.FullScreenListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FullScreenAdapter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FullScreenAdapter);
+	});
 	return class$;
 }
 

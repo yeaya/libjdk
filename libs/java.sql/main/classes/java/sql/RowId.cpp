@@ -1,5 +1,4 @@
 #include <java/sql/RowId.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -7,27 +6,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace sql {
-
-$MethodInfo _RowId_MethodInfo_[] = {
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"getBytes", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RowId, getBytes, $bytes*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RowId_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.sql.RowId",
-	nullptr,
-	nullptr,
-	nullptr,
-	_RowId_MethodInfo_
-};
-
-$Object* allocate$RowId($Class* clazz) {
-	return $of($alloc(RowId));
-}
 
 bool RowId::equals(Object$* obj) {
 	 return this->$Object::equals(obj);
@@ -42,7 +20,24 @@ int32_t RowId::hashCode() {
 }
 
 $Class* RowId::load$($String* name, bool initialize) {
-	$loadClass(RowId, name, initialize, &_RowId_ClassInfo_, allocate$RowId);
+	$MethodInfo methodInfos$$[] = {
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"getBytes", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RowId, getBytes, $bytes*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.sql.RowId",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RowId, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RowId);
+	});
 	return class$;
 }
 

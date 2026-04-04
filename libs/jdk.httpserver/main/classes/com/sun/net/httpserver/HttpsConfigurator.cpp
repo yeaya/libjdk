@@ -1,5 +1,4 @@
 #include <com/sun/net/httpserver/HttpsConfigurator.h>
-
 #include <com/sun/net/httpserver/HttpsParameters.h>
 #include <javax/net/ssl/SSLContext.h>
 #include <javax/net/ssl/SSLParameters.h>
@@ -17,31 +16,6 @@ namespace com {
 		namespace net {
 			namespace httpserver {
 
-$FieldInfo _HttpsConfigurator_FieldInfo_[] = {
-	{"context", "Ljavax/net/ssl/SSLContext;", nullptr, $PRIVATE, $field(HttpsConfigurator, context)},
-	{}
-};
-
-$MethodInfo _HttpsConfigurator_MethodInfo_[] = {
-	{"<init>", "(Ljavax/net/ssl/SSLContext;)V", nullptr, $PUBLIC, $method(HttpsConfigurator, init$, void, $SSLContext*)},
-	{"configure", "(Lcom/sun/net/httpserver/HttpsParameters;)V", nullptr, $PUBLIC, $virtualMethod(HttpsConfigurator, configure, void, $HttpsParameters*)},
-	{"getSSLContext", "()Ljavax/net/ssl/SSLContext;", nullptr, $PUBLIC, $virtualMethod(HttpsConfigurator, getSSLContext, $SSLContext*)},
-	{}
-};
-
-$ClassInfo _HttpsConfigurator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.net.httpserver.HttpsConfigurator",
-	"java.lang.Object",
-	nullptr,
-	_HttpsConfigurator_FieldInfo_,
-	_HttpsConfigurator_MethodInfo_
-};
-
-$Object* allocate$HttpsConfigurator($Class* clazz) {
-	return $of($alloc(HttpsConfigurator));
-}
-
 void HttpsConfigurator::init$($SSLContext* context) {
 	if (context == nullptr) {
 		$throwNew($NullPointerException, "null SSLContext"_s);
@@ -54,15 +28,35 @@ $SSLContext* HttpsConfigurator::getSSLContext() {
 }
 
 void HttpsConfigurator::configure($HttpsParameters* params) {
-	$useLocalCurrentObjectStackCache();
-	$nc(params)->setSSLParameters($($nc($(getSSLContext()))->getDefaultSSLParameters()));
+	$useLocalObjectStack();
+	$nc(params)->setSSLParameters($($$nc(getSSLContext())->getDefaultSSLParameters()));
 }
 
 HttpsConfigurator::HttpsConfigurator() {
 }
 
 $Class* HttpsConfigurator::load$($String* name, bool initialize) {
-	$loadClass(HttpsConfigurator, name, initialize, &_HttpsConfigurator_ClassInfo_, allocate$HttpsConfigurator);
+	$FieldInfo fieldInfos$$[] = {
+		{"context", "Ljavax/net/ssl/SSLContext;", nullptr, $PRIVATE, $field(HttpsConfigurator, context)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/net/ssl/SSLContext;)V", nullptr, $PUBLIC, $method(HttpsConfigurator, init$, void, $SSLContext*)},
+		{"configure", "(Lcom/sun/net/httpserver/HttpsParameters;)V", nullptr, $PUBLIC, $virtualMethod(HttpsConfigurator, configure, void, $HttpsParameters*)},
+		{"getSSLContext", "()Ljavax/net/ssl/SSLContext;", nullptr, $PUBLIC, $virtualMethod(HttpsConfigurator, getSSLContext, $SSLContext*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.net.httpserver.HttpsConfigurator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpsConfigurator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpsConfigurator);
+	});
 	return class$;
 }
 

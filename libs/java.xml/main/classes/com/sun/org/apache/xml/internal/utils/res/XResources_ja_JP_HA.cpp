@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/res/XResources_ja_JP_HA.h>
-
 #include <com/sun/org/apache/xml/internal/utils/res/CharArrayWrapper.h>
 #include <com/sun/org/apache/xml/internal/utils/res/IntArrayWrapper.h>
 #include <com/sun/org/apache/xml/internal/utils/res/LongArrayWrapper.h>
@@ -29,30 +28,6 @@ namespace com {
 						namespace utils {
 							namespace res {
 
-$FieldInfo _XResources_ja_JP_HA_FieldInfo_[] = {
-	{"_contents", "[[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XResources_ja_JP_HA, _contents)},
-	{}
-};
-
-$MethodInfo _XResources_ja_JP_HA_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XResources_ja_JP_HA, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XResources_ja_JP_HA, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _XResources_ja_JP_HA_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.res.XResources_ja_JP_HA",
-	"com.sun.org.apache.xml.internal.utils.res.XResourceBundle",
-	nullptr,
-	_XResources_ja_JP_HA_FieldInfo_,
-	_XResources_ja_JP_HA_MethodInfo_
-};
-
-$Object* allocate$XResources_ja_JP_HA($Class* clazz) {
-	return $of($alloc(XResources_ja_JP_HA));
-}
-
 $ObjectArray2* XResources_ja_JP_HA::_contents = nullptr;
 
 void XResources_ja_JP_HA::init$() {
@@ -63,77 +38,77 @@ $ObjectArray2* XResources_ja_JP_HA::getContents() {
 	return XResources_ja_JP_HA::_contents;
 }
 
-void clinit$XResources_ja_JP_HA($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void XResources_ja_JP_HA::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(XResources_ja_JP_HA::_contents, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("ui_language"_s),
-			$of("ja"_s)
+			"ui_language"_s,
+			"ja"_s
 		}),
 		$$new($ObjectArray, {
-			$of("help_language"_s),
-			$of("ja"_s)
+			"help_language"_s,
+			"ja"_s
 		}),
 		$$new($ObjectArray, {
-			$of("language"_s),
-			$of("ja"_s)
+			"language"_s,
+			"ja"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alphabet"_s),
-			$of($$new($CharArrayWrapper, $$new($chars, {
-				(char16_t)12354,
-				(char16_t)12356,
-				(char16_t)12358,
-				(char16_t)12360,
-				(char16_t)12362,
-				(char16_t)12363,
-				(char16_t)12365,
-				(char16_t)12367,
-				(char16_t)12369,
-				(char16_t)12371,
-				(char16_t)12373,
-				(char16_t)12375,
-				(char16_t)12377,
-				(char16_t)12379,
-				(char16_t)12381,
-				(char16_t)12383,
-				(char16_t)12385,
-				(char16_t)12388,
-				(char16_t)12390,
-				(char16_t)12392,
-				(char16_t)12394,
-				(char16_t)12395,
-				(char16_t)12396,
-				(char16_t)12397,
-				(char16_t)12398,
-				(char16_t)12399,
-				(char16_t)12402,
-				(char16_t)12405,
-				(char16_t)12408,
-				(char16_t)12411,
-				(char16_t)12414,
-				(char16_t)12415,
-				(char16_t)12416,
-				(char16_t)12417,
-				(char16_t)12418,
-				(char16_t)12420,
-				(char16_t)12422,
-				(char16_t)12424,
-				(char16_t)12425,
-				(char16_t)12426,
-				(char16_t)12427,
-				(char16_t)12428,
-				(char16_t)12429,
-				(char16_t)12431,
-				(char16_t)12432,
-				(char16_t)12433,
-				(char16_t)12434,
-				(char16_t)12435
-			})))
+			"alphabet"_s,
+			$$new($CharArrayWrapper, $$new($chars, {
+				12354,
+				12356,
+				12358,
+				12360,
+				12362,
+				12363,
+				12365,
+				12367,
+				12369,
+				12371,
+				12373,
+				12375,
+				12377,
+				12379,
+				12381,
+				12383,
+				12385,
+				12388,
+				12390,
+				12392,
+				12394,
+				12395,
+				12396,
+				12397,
+				12398,
+				12399,
+				12402,
+				12405,
+				12408,
+				12411,
+				12414,
+				12415,
+				12416,
+				12417,
+				12418,
+				12420,
+				12422,
+				12424,
+				12425,
+				12426,
+				12427,
+				12428,
+				12429,
+				12431,
+				12432,
+				12433,
+				12434,
+				12435
+			}))
 		}),
 		$$new($ObjectArray, {
-			$of("tradAlphabet"_s),
-			$of($$new($CharArrayWrapper, $$new($chars, {
+			"tradAlphabet"_s,
+			$$new($CharArrayWrapper, $$new($chars, {
 				u'A',
 				u'B',
 				u'C',
@@ -160,69 +135,69 @@ void clinit$XResources_ja_JP_HA($Class* class$) {
 				u'X',
 				u'Y',
 				u'Z'
-			})))
+			}))
 		}),
 		$$new($ObjectArray, {
-			$of("orientation"_s),
-			$of("LeftToRight"_s)
+			"orientation"_s,
+			"LeftToRight"_s
 		}),
 		$$new($ObjectArray, {
-			$of("numbering"_s),
-			$of("multiplicative-additive"_s)
+			"numbering"_s,
+			"multiplicative-additive"_s
 		}),
 		$$new($ObjectArray, {
-			$of("multiplierOrder"_s),
-			$of("follows"_s)
+			"multiplierOrder"_s,
+			"follows"_s
 		}),
 		$$new($ObjectArray, {
-			$of("numberGroups"_s),
-			$of($$new($IntArrayWrapper, $$new($ints, {1})))
+			"numberGroups"_s,
+			$$new($IntArrayWrapper, $$new($ints, {1}))
 		}),
 		$$new($ObjectArray, {
-			$of("multiplier"_s),
-			$of($$new($LongArrayWrapper, $$new($longs, {
+			"multiplier"_s,
+			$$new($LongArrayWrapper, $$new($longs, {
 				$Long::MAX_VALUE,
 				$Long::MAX_VALUE,
-				(int64_t)0x05F5E100,
-				(int64_t)10000,
-				(int64_t)1000,
-				(int64_t)100,
-				(int64_t)10
-			})))
+				100000000,
+				10000,
+				1000,
+				100,
+				10
+			}))
 		}),
 		$$new($ObjectArray, {
-			$of("multiplierChar"_s),
-			$of($$new($CharArrayWrapper, $$new($chars, {
-				(char16_t)20140,
-				(char16_t)20806,
-				(char16_t)20740,
-				(char16_t)19975,
-				(char16_t)21315,
-				(char16_t)30334,
-				(char16_t)21313
-			})))
+			"multiplierChar"_s,
+			$$new($CharArrayWrapper, $$new($chars, {
+				20140,
+				20806,
+				20740,
+				19975,
+				21315,
+				30334,
+				21313
+			}))
 		}),
 		$$new($ObjectArray, {
-			$of("zero"_s),
-			$of($$new($CharArrayWrapper, $$new($chars, 0)))
+			"zero"_s,
+			$$new($CharArrayWrapper, $$new($chars, 0))
 		}),
 		$$new($ObjectArray, {
-			$of("digits"_s),
-			$of($$new($CharArrayWrapper, $$new($chars, {
-				(char16_t)19968,
-				(char16_t)20108,
-				(char16_t)19977,
-				(char16_t)22235,
-				(char16_t)20116,
-				(char16_t)20845,
-				(char16_t)19971,
-				(char16_t)20843,
-				(char16_t)20061
-			})))
+			"digits"_s,
+			$$new($CharArrayWrapper, $$new($chars, {
+				19968,
+				20108,
+				19977,
+				22235,
+				20116,
+				20845,
+				19971,
+				20843,
+				20061
+			}))
 		}),
 		$$new($ObjectArray, {
-			$of("tables"_s),
-			$of($$new($StringArrayWrapper, $$new($StringArray, {"digits"_s})))
+			"tables"_s,
+			$$new($StringArrayWrapper, $$new($StringArray, {"digits"_s}))
 		})
 	}));
 }
@@ -231,7 +206,26 @@ XResources_ja_JP_HA::XResources_ja_JP_HA() {
 }
 
 $Class* XResources_ja_JP_HA::load$($String* name, bool initialize) {
-	$loadClass(XResources_ja_JP_HA, name, initialize, &_XResources_ja_JP_HA_ClassInfo_, clinit$XResources_ja_JP_HA, allocate$XResources_ja_JP_HA);
+	$FieldInfo fieldInfos$$[] = {
+		{"_contents", "[[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XResources_ja_JP_HA, _contents)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XResources_ja_JP_HA, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XResources_ja_JP_HA, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.res.XResources_ja_JP_HA",
+		"com.sun.org.apache.xml.internal.utils.res.XResourceBundle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XResources_ja_JP_HA, name, initialize, &classInfo$$, XResources_ja_JP_HA::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XResources_ja_JP_HA);
+	});
 	return class$;
 }
 

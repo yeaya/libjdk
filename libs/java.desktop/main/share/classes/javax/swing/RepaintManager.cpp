@@ -1,8 +1,6 @@
 #include <javax/swing/RepaintManager.h>
-
 #include <com/sun/java/swing/SwingUtilities3.h>
 #include <java/applet/Applet.h>
-#include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -25,7 +23,6 @@
 #include <java/lang/Runnable.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
@@ -58,7 +55,6 @@
 #include <sun/awt/SunToolkit.h>
 #include <sun/java2d/SunGraphicsEnvironment.h>
 #include <sun/security/action/GetPropertyAction.h>
-#include <sun/swing/SwingAccessor$RepaintManagerAccessor.h>
 #include <sun/swing/SwingAccessor.h>
 #include <sun/swing/SwingUtilities2$RepaintListener.h>
 #include <jcpp.h>
@@ -77,11 +73,9 @@
 using $GraphicsDeviceArray = $Array<::java::awt::GraphicsDevice>;
 using $SwingUtilities3 = ::com::sun::java::swing::SwingUtilities3;
 using $Applet = ::java::applet::Applet;
-using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
-using $EventQueue = ::java::awt::EventQueue;
 using $Frame = ::java::awt::Frame;
 using $Graphics = ::java::awt::Graphics;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
@@ -107,7 +101,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 using $Runnable = ::java::lang::Runnable;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
@@ -133,157 +126,16 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $JavaSecurityAccess = ::jdk::internal::access::JavaSecurityAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
-using $AWTAccessor$WindowAccessor = ::sun::awt::AWTAccessor$WindowAccessor;
 using $AppContext = ::sun::awt::AppContext;
 using $DisplayChangedListener = ::sun::awt::DisplayChangedListener;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $SunGraphicsEnvironment = ::sun::java2d::SunGraphicsEnvironment;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 using $SwingAccessor = ::sun::swing::SwingAccessor;
-using $SwingAccessor$RepaintManagerAccessor = ::sun::swing::SwingAccessor$RepaintManagerAccessor;
 using $SwingUtilities2$RepaintListener = ::sun::swing::SwingUtilities2$RepaintListener;
 
 namespace javax {
 	namespace swing {
-
-$NamedAttribute RepaintManager_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _RepaintManager_MethodAnnotations_addDirtyRegion5[] = {
-	{"Ljava/lang/Deprecated;", RepaintManager_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _RepaintManager_FieldInfo_[] = {
-	{"HANDLE_TOP_LEVEL_PAINT", "Z", nullptr, $STATIC | $FINAL, $staticField(RepaintManager, HANDLE_TOP_LEVEL_PAINT)},
-	{"BUFFER_STRATEGY_NOT_SPECIFIED", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RepaintManager, BUFFER_STRATEGY_NOT_SPECIFIED)},
-	{"BUFFER_STRATEGY_SPECIFIED_ON", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RepaintManager, BUFFER_STRATEGY_SPECIFIED_ON)},
-	{"BUFFER_STRATEGY_SPECIFIED_OFF", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RepaintManager, BUFFER_STRATEGY_SPECIFIED_OFF)},
-	{"BUFFER_STRATEGY_TYPE", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RepaintManager, BUFFER_STRATEGY_TYPE)},
-	{"volatileMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/awt/GraphicsConfiguration;Ljava/awt/image/VolatileImage;>;", $PRIVATE, $field(RepaintManager, volatileMap)},
-	{"hwDirtyComponents", "Ljava/util/Map;", "Ljava/util/Map<Ljava/awt/Container;Ljava/awt/Rectangle;>;", $PRIVATE, $field(RepaintManager, hwDirtyComponents)},
-	{"dirtyComponents", "Ljava/util/Map;", "Ljava/util/Map<Ljava/awt/Component;Ljava/awt/Rectangle;>;", $PRIVATE, $field(RepaintManager, dirtyComponents)},
-	{"tmpDirtyComponents", "Ljava/util/Map;", "Ljava/util/Map<Ljava/awt/Component;Ljava/awt/Rectangle;>;", $PRIVATE, $field(RepaintManager, tmpDirtyComponents)},
-	{"invalidComponents", "Ljava/util/List;", "Ljava/util/List<Ljava/awt/Component;>;", $PRIVATE, $field(RepaintManager, invalidComponents)},
-	{"runnableList", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Runnable;>;", $PRIVATE, $field(RepaintManager, runnableList)},
-	{"doubleBufferingEnabled", "Z", nullptr, 0, $field(RepaintManager, doubleBufferingEnabled)},
-	{"doubleBufferMaxSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE, $field(RepaintManager, doubleBufferMaxSize)},
-	{"isCustomMaxBufferSizeSet", "Z", nullptr, $PRIVATE, $field(RepaintManager, isCustomMaxBufferSizeSet)},
-	{"standardDoubleBuffer", "Ljavax/swing/RepaintManager$DoubleBufferInfo;", nullptr, 0, $field(RepaintManager, standardDoubleBuffer)},
-	{"paintManager", "Ljavax/swing/RepaintManager$PaintManager;", nullptr, $PRIVATE, $field(RepaintManager, paintManager)},
-	{"repaintManagerKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RepaintManager, repaintManagerKey)},
-	{"volatileImageBufferEnabled", "Z", nullptr, $STATIC, $staticField(RepaintManager, volatileImageBufferEnabled)},
-	{"volatileBufferType", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RepaintManager, volatileBufferType)},
-	{"nativeDoubleBuffering", "Z", nullptr, $PRIVATE | $STATIC, $staticField(RepaintManager, nativeDoubleBuffering)},
-	{"VOLATILE_LOOP_MAX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RepaintManager, VOLATILE_LOOP_MAX)},
-	{"paintDepth", "I", nullptr, $PRIVATE, $field(RepaintManager, paintDepth)},
-	{"bufferStrategyType", "S", nullptr, $PRIVATE, $field(RepaintManager, bufferStrategyType)},
-	{"painting", "Z", nullptr, $PRIVATE, $field(RepaintManager, painting)},
-	{"repaintRoot", "Ljavax/swing/JComponent;", nullptr, $PRIVATE, $field(RepaintManager, repaintRoot)},
-	{"paintThread", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(RepaintManager, paintThread)},
-	{"processingRunnable", "Ljavax/swing/RepaintManager$ProcessingRunnable;", nullptr, $PRIVATE | $FINAL, $field(RepaintManager, processingRunnable)},
-	{"javaSecurityAccess", "Ljdk/internal/access/JavaSecurityAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RepaintManager, javaSecurityAccess)},
-	{"displayChangedHandler", "Lsun/awt/DisplayChangedListener;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RepaintManager, displayChangedHandler)},
-	{"tmp", "Ljava/awt/Rectangle;", nullptr, 0, $field(RepaintManager, tmp)},
-	{"repaintListeners", "Ljava/util/List;", "Ljava/util/List<Lsun/swing/SwingUtilities2$RepaintListener;>;", $PRIVATE, $field(RepaintManager, repaintListeners)},
-	{}
-};
-
-$MethodInfo _RepaintManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RepaintManager, init$, void)},
-	{"<init>", "(S)V", nullptr, $PRIVATE, $method(RepaintManager, init$, void, int16_t)},
-	{"_getOffscreenBuffer", "(Ljava/awt/Component;II)Ljava/awt/Image;", nullptr, $PRIVATE, $method(RepaintManager, _getOffscreenBuffer, $Image*, $Component*, int32_t, int32_t)},
-	{"addDirtyRegion", "(Ljavax/swing/JComponent;IIII)V", nullptr, $PUBLIC, $virtualMethod(RepaintManager, addDirtyRegion, void, $JComponent*, int32_t, int32_t, int32_t, int32_t)},
-	{"addDirtyRegion", "(Ljava/awt/Window;IIII)V", nullptr, $PUBLIC, $virtualMethod(RepaintManager, addDirtyRegion, void, $Window*, int32_t, int32_t, int32_t, int32_t)},
-	{"addDirtyRegion", "(Ljava/applet/Applet;IIII)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(RepaintManager, addDirtyRegion, void, $Applet*, int32_t, int32_t, int32_t, int32_t), nullptr, nullptr, _RepaintManager_MethodAnnotations_addDirtyRegion5},
-	{"addDirtyRegion0", "(Ljava/awt/Container;IIII)V", nullptr, $PRIVATE, $method(RepaintManager, addDirtyRegion0, void, $Container*, int32_t, int32_t, int32_t, int32_t)},
-	{"addInvalidComponent", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RepaintManager, addInvalidComponent, void, $JComponent*)},
-	{"addRepaintListener", "(Lsun/swing/SwingUtilities2$RepaintListener;)V", nullptr, $PRIVATE, $method(RepaintManager, addRepaintListener, void, $SwingUtilities2$RepaintListener*)},
-	{"adjustRoots", "(Ljavax/swing/JComponent;Ljava/util/List;I)V", "(Ljavax/swing/JComponent;Ljava/util/List<Ljava/awt/Component;>;I)V", $PRIVATE, $method(RepaintManager, adjustRoots, void, $JComponent*, $List*, int32_t)},
-	{"beginPaint", "()V", nullptr, 0, $virtualMethod(RepaintManager, beginPaint, void)},
-	{"clearImages", "()V", nullptr, $PRIVATE, $method(RepaintManager, clearImages, void)},
-	{"clearImages", "(II)V", nullptr, $PRIVATE, $method(RepaintManager, clearImages, void, int32_t, int32_t)},
-	{"collectDirtyComponents", "(Ljava/util/Map;Ljava/awt/Component;Ljava/util/List;)V", "(Ljava/util/Map<Ljava/awt/Component;Ljava/awt/Rectangle;>;Ljava/awt/Component;Ljava/util/List<Ljava/awt/Component;>;)V", 0, $virtualMethod(RepaintManager, collectDirtyComponents, void, $Map*, $Component*, $List*)},
-	{"copyArea", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;IIIIIIZ)V", nullptr, 0, $virtualMethod(RepaintManager, copyArea, void, $JComponent*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"currentManager", "(Ljava/awt/Component;)Ljavax/swing/RepaintManager;", nullptr, $PUBLIC | $STATIC, $staticMethod(RepaintManager, currentManager, RepaintManager*, $Component*)},
-	{"currentManager", "(Lsun/awt/AppContext;)Ljavax/swing/RepaintManager;", nullptr, $STATIC, $staticMethod(RepaintManager, currentManager, RepaintManager*, $AppContext*)},
-	{"currentManager", "(Ljavax/swing/JComponent;)Ljavax/swing/RepaintManager;", nullptr, $PUBLIC | $STATIC, $staticMethod(RepaintManager, currentManager, RepaintManager*, $JComponent*)},
-	{"displayChanged", "()V", nullptr, $PRIVATE, $method(RepaintManager, displayChanged, void)},
-	{"doubleBufferingChanged", "(Ljavax/swing/JRootPane;)V", nullptr, 0, $virtualMethod(RepaintManager, doubleBufferingChanged, void, $JRootPane*)},
-	{"endPaint", "()V", nullptr, 0, $virtualMethod(RepaintManager, endPaint, void)},
-	{"extendDirtyRegion", "(Ljava/awt/Component;IIII)Z", nullptr, $PRIVATE | $SYNCHRONIZED, $method(RepaintManager, extendDirtyRegion, bool, $Component*, int32_t, int32_t, int32_t, int32_t)},
-	{"getDelegate", "(Ljava/awt/Component;)Ljavax/swing/RepaintManager;", nullptr, $PRIVATE, $method(RepaintManager, getDelegate, RepaintManager*, $Component*)},
-	{"getDirtyRegion", "(Ljavax/swing/JComponent;)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(RepaintManager, getDirtyRegion, $Rectangle*, $JComponent*)},
-	{"getDoubleBufferMaximumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(RepaintManager, getDoubleBufferMaximumSize, $Dimension*)},
-	{"getOffscreenBuffer", "(Ljava/awt/Component;II)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(RepaintManager, getOffscreenBuffer, $Image*, $Component*, int32_t, int32_t)},
-	{"getPaintManager", "()Ljavax/swing/RepaintManager$PaintManager;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(RepaintManager, getPaintManager, $RepaintManager$PaintManager*)},
-	{"getVolatileOffscreenBuffer", "(Ljava/awt/Component;II)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(RepaintManager, getVolatileOffscreenBuffer, $Image*, $Component*, int32_t, int32_t)},
-	{"isCompletelyDirty", "(Ljavax/swing/JComponent;)Z", nullptr, $PUBLIC, $virtualMethod(RepaintManager, isCompletelyDirty, bool, $JComponent*)},
-	{"isDoubleBufferingEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(RepaintManager, isDoubleBufferingEnabled, bool)},
-	{"isPainting", "()Z", nullptr, 0, $virtualMethod(RepaintManager, isPainting, bool)},
-	{"isPaintingThread", "()Z", nullptr, $PRIVATE | $SYNCHRONIZED, $method(RepaintManager, isPaintingThread, bool)},
-	{"markCompletelyClean", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(RepaintManager, markCompletelyClean, void, $JComponent*)},
-	{"markCompletelyDirty", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(RepaintManager, markCompletelyDirty, void, $JComponent*)},
-	{"nativeAddDirtyRegion", "(Lsun/awt/AppContext;Ljava/awt/Container;IIII)V", nullptr, 0, $virtualMethod(RepaintManager, nativeAddDirtyRegion, void, $AppContext*, $Container*, int32_t, int32_t, int32_t, int32_t)},
-	{"nativeQueueSurfaceDataRunnable", "(Lsun/awt/AppContext;Ljava/awt/Component;Ljava/lang/Runnable;)V", nullptr, 0, $virtualMethod(RepaintManager, nativeQueueSurfaceDataRunnable, void, $AppContext*, $Component*, $Runnable*)},
-	{"notifyRepaintPerformed", "(Ljavax/swing/JComponent;IIII)V", nullptr, 0, $virtualMethod(RepaintManager, notifyRepaintPerformed, void, $JComponent*, int32_t, int32_t, int32_t, int32_t)},
-	{"paint", "(Ljavax/swing/JComponent;Ljavax/swing/JComponent;Ljava/awt/Graphics;IIII)V", nullptr, 0, $virtualMethod(RepaintManager, paint, void, $JComponent*, $JComponent*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintDirtyRegions", "()V", nullptr, $PUBLIC, $virtualMethod(RepaintManager, paintDirtyRegions, void)},
-	{"paintDirtyRegions", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/awt/Component;Ljava/awt/Rectangle;>;)V", $PRIVATE, $method(RepaintManager, paintDirtyRegions, void, $Map*)},
-	{"prePaintDirtyRegions", "()V", nullptr, $PRIVATE, $method(RepaintManager, prePaintDirtyRegions, void)},
-	{"removeInvalidComponent", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RepaintManager, removeInvalidComponent, void, $JComponent*)},
-	{"removeRepaintListener", "(Lsun/swing/SwingUtilities2$RepaintListener;)V", nullptr, $PRIVATE, $method(RepaintManager, removeRepaintListener, void, $SwingUtilities2$RepaintListener*)},
-	{"resetDoubleBuffer", "()V", nullptr, 0, $virtualMethod(RepaintManager, resetDoubleBuffer, void)},
-	{"resetVolatileDoubleBuffer", "(Ljava/awt/GraphicsConfiguration;)V", nullptr, 0, $virtualMethod(RepaintManager, resetVolatileDoubleBuffer, void, $GraphicsConfiguration*)},
-	{"scheduleHeavyWeightPaints", "()V", nullptr, 0, $virtualMethod(RepaintManager, scheduleHeavyWeightPaints, void)},
-	{"scheduleProcessingRunnable", "(Lsun/awt/AppContext;)V", nullptr, $PRIVATE, $method(RepaintManager, scheduleProcessingRunnable, void, $AppContext*)},
-	{"setCurrentManager", "(Ljavax/swing/RepaintManager;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RepaintManager, setCurrentManager, void, RepaintManager*)},
-	{"setDoubleBufferMaximumSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(RepaintManager, setDoubleBufferMaximumSize, void, $Dimension*)},
-	{"setDoubleBufferingEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(RepaintManager, setDoubleBufferingEnabled, void, bool)},
-	{"setPaintManager", "(Ljavax/swing/RepaintManager$PaintManager;)V", nullptr, 0, $virtualMethod(RepaintManager, setPaintManager, void, $RepaintManager$PaintManager*)},
-	{"show", "(Ljava/awt/Container;IIII)Z", nullptr, 0, $virtualMethod(RepaintManager, show, bool, $Container*, int32_t, int32_t, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RepaintManager, toString, $String*)},
-	{"updateWindows", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/awt/Component;Ljava/awt/Rectangle;>;)V", $PRIVATE, $method(RepaintManager, updateWindows, void, $Map*)},
-	{"useVolatileDoubleBuffer", "()Z", nullptr, 0, $virtualMethod(RepaintManager, useVolatileDoubleBuffer, bool)},
-	{"validateInvalidComponents", "()V", nullptr, $PUBLIC, $virtualMethod(RepaintManager, validateInvalidComponents, void)},
-	{}
-};
-
-$InnerClassInfo _RepaintManager_InnerClassesInfo_[] = {
-	{"javax.swing.RepaintManager$ProcessingRunnable", "javax.swing.RepaintManager", "ProcessingRunnable", $PRIVATE | $FINAL},
-	{"javax.swing.RepaintManager$DisplayChangedRunnable", "javax.swing.RepaintManager", "DisplayChangedRunnable", $PRIVATE | $STATIC | $FINAL},
-	{"javax.swing.RepaintManager$DisplayChangedHandler", "javax.swing.RepaintManager", "DisplayChangedHandler", $PRIVATE | $STATIC | $FINAL},
-	{"javax.swing.RepaintManager$DoubleBufferInfo", "javax.swing.RepaintManager", "DoubleBufferInfo", $PRIVATE},
-	{"javax.swing.RepaintManager$PaintManager", "javax.swing.RepaintManager", "PaintManager", $STATIC},
-	{"javax.swing.RepaintManager$4", nullptr, nullptr, 0},
-	{"javax.swing.RepaintManager$3", nullptr, nullptr, 0},
-	{"javax.swing.RepaintManager$2", nullptr, nullptr, 0},
-	{"javax.swing.RepaintManager$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _RepaintManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.RepaintManager",
-	"java.lang.Object",
-	nullptr,
-	_RepaintManager_FieldInfo_,
-	_RepaintManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RepaintManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.RepaintManager$ProcessingRunnable,javax.swing.RepaintManager$DisplayChangedRunnable,javax.swing.RepaintManager$DisplayChangedHandler,javax.swing.RepaintManager$DoubleBufferInfo,javax.swing.RepaintManager$PaintManager,javax.swing.RepaintManager$4,javax.swing.RepaintManager$3,javax.swing.RepaintManager$2,javax.swing.RepaintManager$2$1,javax.swing.RepaintManager$1"
-};
-
-$Object* allocate$RepaintManager($Class* clazz) {
-	return $of($alloc(RepaintManager));
-}
 
 bool RepaintManager::HANDLE_TOP_LEVEL_PAINT = false;
 int16_t RepaintManager::BUFFER_STRATEGY_TYPE = 0;
@@ -311,7 +163,7 @@ RepaintManager* RepaintManager::currentManager($AppContext* appContext) {
 
 RepaintManager* RepaintManager::currentManager($JComponent* c) {
 	$init(RepaintManager);
-	return currentManager(static_cast<$Component*>(c));
+	return currentManager($cast($Component, c));
 }
 
 void RepaintManager::setCurrentManager(RepaintManager* aRepaintManager) {
@@ -354,7 +206,7 @@ void RepaintManager::displayChanged() {
 
 void RepaintManager::addInvalidComponent($JComponent* invalidComponent) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var(RepaintManager, delegate, getDelegate(invalidComponent));
 		if (delegate != nullptr) {
 			delegate->addInvalidComponent(invalidComponent);
@@ -367,9 +219,9 @@ void RepaintManager::addInvalidComponent($JComponent* invalidComponent) {
 		if (this->invalidComponents == nullptr) {
 			$set(this, invalidComponents, $new($ArrayList));
 		} else {
-			int32_t n = $nc(this->invalidComponents)->size();
+			int32_t n = this->invalidComponents->size();
 			for (int32_t i = 0; i < n; ++i) {
-				if ($equals(validateRoot, $nc(this->invalidComponents)->get(i))) {
+				if ($equals(validateRoot, this->invalidComponents->get(i))) {
 					return;
 				}
 			}
@@ -387,21 +239,21 @@ void RepaintManager::removeInvalidComponent($JComponent* component) {
 			return;
 		}
 		if (this->invalidComponents != nullptr) {
-			int32_t index = $nc(this->invalidComponents)->indexOf(component);
+			int32_t index = this->invalidComponents->indexOf(component);
 			if (index != -1) {
-				$nc(this->invalidComponents)->remove(index);
+				this->invalidComponents->remove(index);
 			}
 		}
 	}
 }
 
 void RepaintManager::addDirtyRegion0($Container* c, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((w <= 0) || (h <= 0) || (c == nullptr)) {
 		return;
 	}
-	bool var$0 = ($nc(c)->getWidth() <= 0);
-	if (var$0 || ($nc(c)->getHeight() <= 0)) {
+	bool var$0 = $nc(c)->getWidth() <= 0;
+	if (var$0 || (c->getHeight() <= 0)) {
 		return;
 	}
 	if (extendDirtyRegion(c, x, y, w, h)) {
@@ -410,13 +262,13 @@ void RepaintManager::addDirtyRegion0($Container* c, int32_t x, int32_t y, int32_
 	$var($Component, root, nullptr);
 	{
 		$var($Container, p, c);
-		for (; p != nullptr; $assign(p, $nc(p)->getParent())) {
+		for (; p != nullptr; $assign(p, p->getParent())) {
 			bool var$1 = !p->isVisible();
 			if (var$1 || !p->isDisplayable()) {
 				return;
 			}
 			if (($instanceOf($Window, p)) || ($instanceOf($Applet, p))) {
-				if ($instanceOf($Frame, p) && ((int32_t)($nc(($cast($Frame, p)))->getExtendedState() & (uint32_t)$Frame::ICONIFIED)) == $Frame::ICONIFIED) {
+				if ($instanceOf($Frame, p) && ($cast($Frame, p)->getExtendedState() & $Frame::ICONIFIED) == $Frame::ICONIFIED) {
 					return;
 				}
 				$assign(root, p);
@@ -454,7 +306,7 @@ void RepaintManager::addDirtyRegion($Applet* applet, int32_t x, int32_t y, int32
 }
 
 void RepaintManager::scheduleHeavyWeightPaints() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, hws, nullptr);
 	$synchronized(this) {
 		if ($nc(this->hwDirtyComponents)->size() == 0) {
@@ -464,17 +316,17 @@ void RepaintManager::scheduleHeavyWeightPaints() {
 		$set(this, hwDirtyComponents, $new($IdentityHashMap));
 	}
 	{
-		$var($Iterator, i$, $nc($($nc(hws)->keySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(hws)->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Container, hw, $cast($Container, i$->next()));
 			{
 				$var($Rectangle, dirty, $cast($Rectangle, hws->get(hw)));
 				if ($instanceOf($Window, hw)) {
-					addDirtyRegion($cast($Window, hw), $nc(dirty)->x, dirty->y, dirty->width, dirty->height);
+					addDirtyRegion($cast($Window, hw), $nc(dirty)->x, $nc(dirty)->y, $nc(dirty)->width, $nc(dirty)->height);
 				} else if ($instanceOf($Applet, hw)) {
-					addDirtyRegion($cast($Applet, hw), $nc(dirty)->x, dirty->y, dirty->width, dirty->height);
+					addDirtyRegion($cast($Applet, hw), $nc(dirty)->x, $nc(dirty)->y, $nc(dirty)->width, $nc(dirty)->height);
 				} else {
-					addDirtyRegion0(hw, $nc(dirty)->x, dirty->y, dirty->width, dirty->height);
+					addDirtyRegion0(hw, $nc(dirty)->x, $nc(dirty)->y, $nc(dirty)->width, $nc(dirty)->height);
 				}
 			}
 		}
@@ -482,14 +334,14 @@ void RepaintManager::scheduleHeavyWeightPaints() {
 }
 
 void RepaintManager::nativeAddDirtyRegion($AppContext* appContext, $Container* c, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (w > 0 && h > 0) {
 		$synchronized(this) {
 			$var($Rectangle, dirty, $cast($Rectangle, $nc(this->hwDirtyComponents)->get(c)));
 			if (dirty == nullptr) {
-				$nc(this->hwDirtyComponents)->put(c, $$new($Rectangle, x, y, w, h));
+				this->hwDirtyComponents->put(c, $$new($Rectangle, x, y, w, h));
 			} else {
-				$nc(this->hwDirtyComponents)->put(c, $($SwingUtilities::computeUnion(x, y, w, h, dirty)));
+				this->hwDirtyComponents->put(c, $($SwingUtilities::computeUnion(x, y, w, h, dirty)));
 			}
 		}
 		scheduleProcessingRunnable(appContext);
@@ -518,7 +370,7 @@ bool RepaintManager::extendDirtyRegion($Component* c, int32_t x, int32_t y, int3
 }
 
 $Rectangle* RepaintManager::getDirtyRegion($JComponent* aComponent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(RepaintManager, delegate, getDelegate(aComponent));
 	if (delegate != nullptr) {
 		return delegate->getDirtyRegion(aComponent);
@@ -555,7 +407,7 @@ void RepaintManager::markCompletelyClean($JComponent* aComponent) {
 }
 
 bool RepaintManager::isCompletelyDirty($JComponent* aComponent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(RepaintManager, delegate, getDelegate(aComponent));
 	if (delegate != nullptr) {
 		return delegate->isCompletelyDirty(aComponent);
@@ -570,7 +422,7 @@ bool RepaintManager::isCompletelyDirty($JComponent* aComponent) {
 }
 
 void RepaintManager::validateInvalidComponents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, ic, nullptr);
 	$synchronized(this) {
 		if (this->invalidComponents == nullptr) {
@@ -583,13 +435,13 @@ void RepaintManager::validateInvalidComponents() {
 	for (int32_t i = 0; i < n; ++i) {
 		$var($Component, c, $cast($Component, ic->get(i)));
 		$var($AccessControlContext, stack, $AccessController::getContext());
-		$var($AccessControlContext, acc, $nc($($AWTAccessor::getComponentAccessor()))->getAccessControlContext(c));
+		$var($AccessControlContext, acc, $$nc($AWTAccessor::getComponentAccessor())->getAccessControlContext(c));
 		$nc(RepaintManager::javaSecurityAccess)->doIntersectionPrivilege($$new($RepaintManager$3, this, c), stack, acc);
 	}
 }
 
 void RepaintManager::prePaintDirtyRegions() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, dirtyComponents, nullptr);
 	$var($List, runnableList, nullptr);
 	$synchronized(this) {
@@ -598,13 +450,11 @@ void RepaintManager::prePaintDirtyRegions() {
 		$set(this, runnableList, nullptr);
 	}
 	if (runnableList != nullptr) {
-		{
-			$var($Iterator, i$, runnableList->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Runnable, runnable, $cast($Runnable, i$->next()));
-				{
-					$nc(runnable)->run();
-				}
+		$var($Iterator, i$, runnableList->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Runnable, runnable, $cast($Runnable, i$->next()));
+			{
+				$nc(runnable)->run();
 			}
 		}
 	}
@@ -615,9 +465,9 @@ void RepaintManager::prePaintDirtyRegions() {
 }
 
 void RepaintManager::updateWindows($Map* dirtyComponents) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Toolkit, toolkit, $Toolkit::getDefaultToolkit());
-	if (!($instanceOf($SunToolkit, toolkit) && $nc(($cast($SunToolkit, toolkit)))->needUpdateWindow())) {
+	if (!($instanceOf($SunToolkit, toolkit) && $cast($SunToolkit, toolkit)->needUpdateWindow())) {
 		return;
 	}
 	$var($Set, windows, $new($HashSet));
@@ -637,7 +487,7 @@ void RepaintManager::updateWindows($Map* dirtyComponents) {
 		for (; $nc(i$)->hasNext();) {
 			$var($Window, window, $cast($Window, i$->next()));
 			{
-				$nc($($AWTAccessor::getWindowAccessor()))->updateWindow(window);
+				$$nc($AWTAccessor::getWindowAccessor())->updateWindow(window);
 			}
 		}
 	}
@@ -658,13 +508,13 @@ void RepaintManager::paintDirtyRegions() {
 }
 
 void RepaintManager::paintDirtyRegions($Map* tmpDirtyComponents) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(tmpDirtyComponents)->isEmpty()) {
 		return;
 	}
-	$var($List, roots, $new($ArrayList, $nc(tmpDirtyComponents)->size()));
+	$var($List, roots, $new($ArrayList, tmpDirtyComponents->size()));
 	{
-		$var($Iterator, i$, $nc($($nc(tmpDirtyComponents)->keySet()))->iterator());
+		$var($Iterator, i$, $$nc(tmpDirtyComponents->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Component, dirty, $cast($Component, i$->next()));
 			{
@@ -674,31 +524,29 @@ void RepaintManager::paintDirtyRegions($Map* tmpDirtyComponents) {
 	}
 	$var($AtomicInteger, count, $new($AtomicInteger, roots->size()));
 	this->painting = true;
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			for (int32_t j = 0; j < count->get(); ++j) {
-				int32_t i = j;
-				$var($Component, dirtyComponent, $cast($Component, roots->get(j)));
-				$var($AccessControlContext, stack, $AccessController::getContext());
-				$var($AccessControlContext, acc, $nc($($AWTAccessor::getComponentAccessor()))->getAccessControlContext(dirtyComponent));
-				$nc(RepaintManager::javaSecurityAccess)->doIntersectionPrivilege($$new($RepaintManager$4, this, tmpDirtyComponents, dirtyComponent, roots, i, count), stack, acc);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			this->painting = false;
+	$var($Throwable, var$0, nullptr);
+	try {
+		for (int32_t j = 0; j < count->get(); ++j) {
+			int32_t i = j;
+			$var($Component, dirtyComponent, $cast($Component, roots->get(j)));
+			$var($AccessControlContext, stack, $AccessController::getContext());
+			$var($AccessControlContext, acc, $$nc($AWTAccessor::getComponentAccessor())->getAccessControlContext(dirtyComponent));
+			$nc(RepaintManager::javaSecurityAccess)->doIntersectionPrivilege($$new($RepaintManager$4, this, tmpDirtyComponents, dirtyComponent, roots, i, count), stack, acc);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->painting = false;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	updateWindows(tmpDirtyComponents);
 	tmpDirtyComponents->clear();
 }
 
 void RepaintManager::adjustRoots($JComponent* root, $List* roots, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = $nc(roots)->size() - 1; i >= index; --i) {
 		$var($Component, c, $cast($Component, roots->get(i)));
 		for (;;) {
@@ -714,7 +562,7 @@ void RepaintManager::adjustRoots($JComponent* root, $List* roots, int32_t index)
 }
 
 void RepaintManager::collectDirtyComponents($Map* dirtyComponents, $Component* dirtyComponent, $List* roots) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t dx = 0;
 	int32_t dy = 0;
 	int32_t rootDx = 0;
@@ -723,14 +571,14 @@ void RepaintManager::collectDirtyComponents($Map* dirtyComponents, $Component* d
 	$var($Component, rootDirtyComponent, nullptr);
 	$var($Component, parent, nullptr);
 	$var($Rectangle, cBounds, nullptr);
-	$assign(component, ($assign(rootDirtyComponent, dirtyComponent)));
+	$assign(component, $assign(rootDirtyComponent, dirtyComponent));
 	int32_t x = $nc(dirtyComponent)->getX();
 	int32_t y = dirtyComponent->getY();
 	int32_t w = dirtyComponent->getWidth();
 	int32_t h = dirtyComponent->getHeight();
 	dx = (rootDx = 0);
 	dy = (rootDy = 0);
-	$nc(this->tmp)->setBounds($cast($Rectangle, $($nc(dirtyComponents)->get(dirtyComponent))));
+	$nc(this->tmp)->setBounds($$cast($Rectangle, $nc(dirtyComponents)->get(dirtyComponent)));
 	$SwingUtilities::computeIntersection(0, 0, w, h, this->tmp);
 	if ($nc(this->tmp)->isEmpty()) {
 		return;
@@ -747,7 +595,7 @@ void RepaintManager::collectDirtyComponents($Map* dirtyComponents, $Component* d
 		dx += x;
 		dy += y;
 		$nc(this->tmp)->setLocation($nc(this->tmp)->x + x, $nc(this->tmp)->y + y);
-		x = component->getX();
+		x = $nc(component)->getX();
 		y = component->getY();
 		w = component->getWidth();
 		h = component->getHeight();
@@ -755,7 +603,7 @@ void RepaintManager::collectDirtyComponents($Map* dirtyComponents, $Component* d
 		if ($nc(this->tmp)->isEmpty()) {
 			return;
 		}
-		if ($nc(dirtyComponents)->get(component) != nullptr) {
+		if (dirtyComponents->get(component) != nullptr) {
 			$assign(rootDirtyComponent, component);
 			rootDx = dx;
 			rootDy = dy;
@@ -764,7 +612,7 @@ void RepaintManager::collectDirtyComponents($Map* dirtyComponents, $Component* d
 	if (dirtyComponent != rootDirtyComponent) {
 		$var($Rectangle, r, nullptr);
 		$nc(this->tmp)->setLocation($nc(this->tmp)->x + rootDx - dx, $nc(this->tmp)->y + rootDy - dy);
-		$assign(r, $cast($Rectangle, $nc(dirtyComponents)->get(rootDirtyComponent)));
+		$assign(r, $cast($Rectangle, dirtyComponents->get(rootDirtyComponent)));
 		$SwingUtilities::computeUnion($nc(this->tmp)->x, $nc(this->tmp)->y, $nc(this->tmp)->width, $nc(this->tmp)->height, r);
 	}
 	if (!$nc(roots)->contains(rootDirtyComponent)) {
@@ -774,7 +622,7 @@ void RepaintManager::collectDirtyComponents($Map* dirtyComponents, $Component* d
 
 $String* RepaintManager::toString() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($StringBuilder, sb, $new($StringBuilder));
 		if (this->dirtyComponents != nullptr) {
 			sb->append($$str({""_s, this->dirtyComponents}));
@@ -792,7 +640,7 @@ $Image* RepaintManager::getOffscreenBuffer($Component* c, int32_t proposedWidth,
 }
 
 $Image* RepaintManager::getVolatileOffscreenBuffer($Component* c, int32_t proposedWidth, int32_t proposedHeight) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(RepaintManager, delegate, getDelegate(c));
 	if (delegate != nullptr) {
 		return delegate->getVolatileOffscreenBuffer(c, proposedWidth, proposedHeight);
@@ -800,20 +648,20 @@ $Image* RepaintManager::getVolatileOffscreenBuffer($Component* c, int32_t propos
 	$var($Window, w, ($instanceOf($Window, c)) ? $cast($Window, c) : $SwingUtilities::getWindowAncestor(c));
 	if (!$nc(w)->isOpaque()) {
 		$var($Toolkit, tk, $Toolkit::getDefaultToolkit());
-		if (($instanceOf($SunToolkit, tk)) && ($nc(($cast($SunToolkit, tk)))->needUpdateWindow())) {
+		if (($instanceOf($SunToolkit, tk)) && ($cast($SunToolkit, tk)->needUpdateWindow())) {
 			return nullptr;
 		}
 	}
 	$var($GraphicsConfiguration, config, $nc(c)->getGraphicsConfiguration());
 	if (config == nullptr) {
-		$assign(config, $nc($($nc($($GraphicsEnvironment::getLocalGraphicsEnvironment()))->getDefaultScreenDevice()))->getDefaultConfiguration());
+		$assign(config, $$nc($$nc($GraphicsEnvironment::getLocalGraphicsEnvironment())->getDefaultScreenDevice())->getDefaultConfiguration());
 	}
 	$var($Dimension, maxSize, getDoubleBufferMaximumSize());
-	int32_t width = proposedWidth < 1 ? 1 : (proposedWidth > $nc(maxSize)->width ? $nc(maxSize)->width : proposedWidth);
-	int32_t height = proposedHeight < 1 ? 1 : (proposedHeight > maxSize->height ? maxSize->height : proposedHeight);
+	int32_t width = proposedWidth < 1 ? 1 : (proposedWidth > $nc(maxSize)->width ? maxSize->width : proposedWidth);
+	int32_t height = proposedHeight < 1 ? 1 : (proposedHeight > $nc(maxSize)->height ? maxSize->height : proposedHeight);
 	$var($VolatileImage, image, $cast($VolatileImage, $nc(this->volatileMap)->get(config)));
-	bool var$0 = image == nullptr || $nc(image)->getWidth() < width;
-	if (var$0 || $nc(image)->getHeight() < height) {
+	bool var$0 = image == nullptr || image->getWidth() < width;
+	if (var$0 || image->getHeight() < height) {
 		if (image != nullptr) {
 			image->flush();
 		}
@@ -824,7 +672,7 @@ $Image* RepaintManager::getVolatileOffscreenBuffer($Component* c, int32_t propos
 }
 
 $Image* RepaintManager::_getOffscreenBuffer($Component* c, int32_t proposedWidth, int32_t proposedHeight) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, maxSize, getDoubleBufferMaximumSize());
 	$var($RepaintManager$DoubleBufferInfo, doubleBuffer, nullptr);
 	int32_t width = 0;
@@ -832,7 +680,7 @@ $Image* RepaintManager::_getOffscreenBuffer($Component* c, int32_t proposedWidth
 	$var($Window, w, ($instanceOf($Window, c)) ? $cast($Window, c) : $SwingUtilities::getWindowAncestor(c));
 	if (!$nc(w)->isOpaque()) {
 		$var($Toolkit, tk, $Toolkit::getDefaultToolkit());
-		if (($instanceOf($SunToolkit, tk)) && ($nc(($cast($SunToolkit, tk)))->needUpdateWindow())) {
+		if (($instanceOf($SunToolkit, tk)) && ($cast($SunToolkit, tk)->needUpdateWindow())) {
 			return nullptr;
 		}
 	}
@@ -840,23 +688,23 @@ $Image* RepaintManager::_getOffscreenBuffer($Component* c, int32_t proposedWidth
 		$set(this, standardDoubleBuffer, $new($RepaintManager$DoubleBufferInfo, this));
 	}
 	$assign(doubleBuffer, this->standardDoubleBuffer);
-	width = proposedWidth < 1 ? 1 : (proposedWidth > $nc(maxSize)->width ? $nc(maxSize)->width : proposedWidth);
-	height = proposedHeight < 1 ? 1 : (proposedHeight > maxSize->height ? maxSize->height : proposedHeight);
-	if ($nc(doubleBuffer)->needsReset || ($nc(doubleBuffer)->image != nullptr && ($nc(doubleBuffer->size)->width < width || $nc($nc(doubleBuffer)->size)->height < height))) {
+	width = proposedWidth < 1 ? 1 : (proposedWidth > $nc(maxSize)->width ? maxSize->width : proposedWidth);
+	height = proposedHeight < 1 ? 1 : (proposedHeight > $nc(maxSize)->height ? maxSize->height : proposedHeight);
+	if ($nc(doubleBuffer)->needsReset || (doubleBuffer->image != nullptr && ($nc(doubleBuffer->size)->width < width || doubleBuffer->size->height < height))) {
 		doubleBuffer->needsReset = false;
 		if (doubleBuffer->image != nullptr) {
-			$nc(doubleBuffer->image)->flush();
+			doubleBuffer->image->flush();
 			$set(doubleBuffer, image, nullptr);
 		}
 		width = $Math::max($nc(doubleBuffer->size)->width, width);
-		height = $Math::max($nc(doubleBuffer->size)->height, height);
+		height = $Math::max(doubleBuffer->size->height, height);
 	}
-	$var($Image, result, $nc(doubleBuffer)->image);
+	$var($Image, result, doubleBuffer->image);
 	if (doubleBuffer->image == nullptr) {
 		$assign(result, $nc(c)->createImage(width, height));
 		$set(doubleBuffer, size, $new($Dimension, width, height));
 		if ($instanceOf($JComponent, c)) {
-			$nc(($cast($JComponent, c)))->setCreatedDoubleBuffer(true);
+			$cast($JComponent, c)->setCreatedDoubleBuffer(true);
 			$set(doubleBuffer, image, result);
 		}
 	}
@@ -870,7 +718,7 @@ void RepaintManager::setDoubleBufferMaximumSize($Dimension* d) {
 		clearImages();
 	} else {
 		this->isCustomMaxBufferSizeSet = true;
-		clearImages($nc(d)->width, d->height);
+		clearImages($nc(d)->width, $nc(d)->height);
 	}
 }
 
@@ -879,20 +727,20 @@ void RepaintManager::clearImages() {
 }
 
 void RepaintManager::clearImages(int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
-	if (this->standardDoubleBuffer != nullptr && $nc(this->standardDoubleBuffer)->image != nullptr) {
-		bool var$0 = $nc($nc(this->standardDoubleBuffer)->image)->getWidth(nullptr) > width;
-		if (var$0 || $nc($nc(this->standardDoubleBuffer)->image)->getHeight(nullptr) > height) {
+	$useLocalObjectStack();
+	if (this->standardDoubleBuffer != nullptr && this->standardDoubleBuffer->image != nullptr) {
+		bool var$0 = this->standardDoubleBuffer->image->getWidth(nullptr) > width;
+		if (var$0 || this->standardDoubleBuffer->image->getHeight(nullptr) > height) {
 			$nc($nc(this->standardDoubleBuffer)->image)->flush();
 			$set($nc(this->standardDoubleBuffer), image, nullptr);
 		}
 	}
-	$var($Iterator, gcs, $nc($($nc(this->volatileMap)->keySet()))->iterator());
+	$var($Iterator, gcs, $$nc($nc(this->volatileMap)->keySet())->iterator());
 	while ($nc(gcs)->hasNext()) {
 		$var($GraphicsConfiguration, gc, $cast($GraphicsConfiguration, gcs->next()));
 		$var($VolatileImage, image, $cast($VolatileImage, $nc(this->volatileMap)->get(gc)));
 		bool var$1 = $nc(image)->getWidth() > width;
-		if (var$1 || $nc(image)->getHeight() > height) {
+		if (var$1 || image->getHeight() > height) {
 			image->flush();
 			gcs->remove();
 		}
@@ -900,16 +748,14 @@ void RepaintManager::clearImages(int32_t width, int32_t height) {
 }
 
 $Dimension* RepaintManager::getDoubleBufferMaximumSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->doubleBufferMaxSize == nullptr) {
 		try {
 			$var($Rectangle, virtualBounds, $new($Rectangle));
 			$var($GraphicsEnvironment, ge, $GraphicsEnvironment::getLocalGraphicsEnvironment());
 			{
 				$var($GraphicsDeviceArray, arr$, $nc(ge)->getScreenDevices());
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
+				for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 					$var($GraphicsDevice, gd, arr$->get(i$));
 					{
 						$var($GraphicsConfiguration, gc, $nc(gd)->getDefaultConfiguration());
@@ -917,7 +763,7 @@ $Dimension* RepaintManager::getDoubleBufferMaximumSize() {
 					}
 				}
 			}
-			$set(this, doubleBufferMaxSize, $new($Dimension, $nc(virtualBounds)->width, virtualBounds->height));
+			$set(this, doubleBufferMaxSize, $new($Dimension, $nc(virtualBounds)->width, $nc(virtualBounds)->height));
 		} catch ($HeadlessException& e) {
 			$set(this, doubleBufferMaxSize, $new($Dimension, $Integer::MAX_VALUE, $Integer::MAX_VALUE));
 		}
@@ -926,11 +772,11 @@ $Dimension* RepaintManager::getDoubleBufferMaximumSize() {
 }
 
 void RepaintManager::setDoubleBufferingEnabled(bool aFlag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->doubleBufferingEnabled = aFlag;
 	$var($RepaintManager$PaintManager, paintManager, getPaintManager());
 	$load($RepaintManager$PaintManager);
-	if (!aFlag && $nc($of(paintManager))->getClass() != $RepaintManager$PaintManager::class$) {
+	if (!aFlag && $nc(paintManager)->getClass() != $RepaintManager$PaintManager::class$) {
 		setPaintManager($$new($RepaintManager$PaintManager));
 	}
 }
@@ -941,7 +787,7 @@ bool RepaintManager::isDoubleBufferingEnabled() {
 
 void RepaintManager::resetDoubleBuffer() {
 	if (this->standardDoubleBuffer != nullptr) {
-		$nc(this->standardDoubleBuffer)->needsReset = true;
+		this->standardDoubleBuffer->needsReset = true;
 	}
 }
 
@@ -966,7 +812,7 @@ void RepaintManager::paint($JComponent* paintingComponent, $JComponent* bufferCo
 	$var($RepaintManager$PaintManager, paintManager, getPaintManager());
 	if (!isPaintingThread()) {
 		$load($RepaintManager$PaintManager);
-		if ($nc($of(paintManager))->getClass() != $RepaintManager$PaintManager::class$) {
+		if ($nc(paintManager)->getClass() != $RepaintManager$PaintManager::class$) {
 			$assign(paintManager, $new($RepaintManager$PaintManager));
 			$set(paintManager, repaintManager, this);
 		}
@@ -978,7 +824,7 @@ void RepaintManager::paint($JComponent* paintingComponent, $JComponent* bufferCo
 }
 
 void RepaintManager::copyArea($JComponent* c, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h, int32_t deltaX, int32_t deltaY, bool clip) {
-	$nc($(getPaintManager()))->copyArea(c, g, x, y, w, h, deltaX, deltaY, clip);
+	$$nc(getPaintManager())->copyArea(c, g, x, y, w, h, deltaX, deltaY, clip);
 }
 
 void RepaintManager::addRepaintListener($SwingUtilities2$RepaintListener* l) {
@@ -986,24 +832,22 @@ void RepaintManager::addRepaintListener($SwingUtilities2$RepaintListener* l) {
 }
 
 void RepaintManager::removeRepaintListener($SwingUtilities2$RepaintListener* l) {
-	$nc(this->repaintListeners)->remove($of(l));
+	$nc(this->repaintListeners)->remove(l);
 }
 
 void RepaintManager::notifyRepaintPerformed($JComponent* c, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(this->repaintListeners)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($SwingUtilities2$RepaintListener, l, $cast($SwingUtilities2$RepaintListener, i$->next()));
-			{
-				$nc(l)->repaintPerformed(c, x, y, w, h);
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(this->repaintListeners)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($SwingUtilities2$RepaintListener, l, $cast($SwingUtilities2$RepaintListener, i$->next()));
+		{
+			$nc(l)->repaintPerformed(c, x, y, w, h);
 		}
 	}
 }
 
 void RepaintManager::beginPaint() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool multiThreadedPaint = false;
 	int32_t paintDepth = 0;
 	$var($Thread, currentThread, $Thread::currentThread());
@@ -1017,7 +861,7 @@ void RepaintManager::beginPaint() {
 		}
 	}
 	if (!multiThreadedPaint && paintDepth == 0) {
-		$nc($(getPaintManager()))->beginPaint();
+		$$nc(getPaintManager())->beginPaint();
 	}
 }
 
@@ -1039,15 +883,15 @@ void RepaintManager::endPaint() {
 }
 
 bool RepaintManager::show($Container* c, int32_t x, int32_t y, int32_t w, int32_t h) {
-	return $nc($(getPaintManager()))->show(c, x, y, w, h);
+	return $$nc(getPaintManager())->show(c, x, y, w, h);
 }
 
 void RepaintManager::doubleBufferingChanged($JRootPane* rootPane) {
-	$nc($(getPaintManager()))->doubleBufferingChanged(rootPane);
+	$$nc(getPaintManager())->doubleBufferingChanged(rootPane);
 }
 
 void RepaintManager::setPaintManager($RepaintManager$PaintManager* paintManager$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($RepaintManager$PaintManager, paintManager, paintManager$renamed);
 	if (paintManager == nullptr) {
 		$assign(paintManager, $new($RepaintManager$PaintManager));
@@ -1065,34 +909,26 @@ void RepaintManager::setPaintManager($RepaintManager$PaintManager* paintManager$
 
 $RepaintManager$PaintManager* RepaintManager::getPaintManager() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->paintManager == nullptr) {
 			$var($RepaintManager$PaintManager, paintManager, nullptr);
 			if (this->doubleBufferingEnabled && !RepaintManager::nativeDoubleBuffering) {
-				{
-					$var($Toolkit, tk, nullptr)
-					switch (this->bufferStrategyType) {
-					case RepaintManager::BUFFER_STRATEGY_NOT_SPECIFIED:
-						{
-							$assign(tk, $Toolkit::getDefaultToolkit());
-							if ($instanceOf($SunToolkit, tk)) {
-								$var($SunToolkit, stk, $cast($SunToolkit, tk));
-								if ($nc(stk)->useBufferPerWindow()) {
-									$assign(paintManager, $new($BufferStrategyPaintManager));
-								}
-							}
-							break;
-						}
-					case RepaintManager::BUFFER_STRATEGY_SPECIFIED_ON:
-						{
+				$var($Toolkit, tk, nullptr);
+				switch (this->bufferStrategyType) {
+				case RepaintManager::BUFFER_STRATEGY_NOT_SPECIFIED:
+					$assign(tk, $Toolkit::getDefaultToolkit());
+					if ($instanceOf($SunToolkit, tk)) {
+						$var($SunToolkit, stk, $cast($SunToolkit, tk));
+						if (stk->useBufferPerWindow()) {
 							$assign(paintManager, $new($BufferStrategyPaintManager));
-							break;
-						}
-					default:
-						{
-							break;
 						}
 					}
+					break;
+				case RepaintManager::BUFFER_STRATEGY_SPECIFIED_ON:
+					$assign(paintManager, $new($BufferStrategyPaintManager));
+					break;
+				default:
+					break;
 				}
 			}
 			setPaintManager(paintManager);
@@ -1102,13 +938,13 @@ $RepaintManager$PaintManager* RepaintManager::getPaintManager() {
 }
 
 void RepaintManager::scheduleProcessingRunnable($AppContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->processingRunnable)->markPending()) {
 		$var($Toolkit, tk, $Toolkit::getDefaultToolkit());
 		if ($instanceOf($SunToolkit, tk)) {
-			$nc($($SunToolkit::getSystemEventQueueImplPP(context)))->postEvent($$new($InvocationEvent, $($Toolkit::getDefaultToolkit()), this->processingRunnable));
+			$$nc($SunToolkit::getSystemEventQueueImplPP(context))->postEvent($$new($InvocationEvent, $($Toolkit::getDefaultToolkit()), this->processingRunnable));
 		} else {
-			$nc($($nc($($Toolkit::getDefaultToolkit()))->getSystemEventQueue()))->postEvent($$new($InvocationEvent, $($Toolkit::getDefaultToolkit()), this->processingRunnable));
+			$$nc($$nc($Toolkit::getDefaultToolkit())->getSystemEventQueue())->postEvent($$new($InvocationEvent, $($Toolkit::getDefaultToolkit()), this->processingRunnable));
 		}
 	}
 }
@@ -1121,8 +957,8 @@ RepaintManager* RepaintManager::getDelegate($Component* c) {
 	return delegate;
 }
 
-void clinit$RepaintManager($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void RepaintManager::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$assignStatic(RepaintManager::repaintManagerKey, RepaintManager::class$);
 	RepaintManager::volatileImageBufferEnabled = true;
@@ -1130,15 +966,15 @@ void clinit$RepaintManager($Class* class$) {
 	$assignStatic(RepaintManager::displayChangedHandler, $new($RepaintManager$DisplayChangedHandler));
 	{
 		$SwingAccessor::setRepaintManagerAccessor($$new($RepaintManager$1));
-		bool t1 = "true"_s->equals($($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "swing.volatileImageBufferEnabled"_s, "true"_s)))));
+		bool t1 = "true"_s->equals($($AccessController::doPrivileged($$new($GetPropertyAction, "swing.volatileImageBufferEnabled"_s, "true"_s))));
 		RepaintManager::volatileImageBufferEnabled = t1;
 		bool headless = $GraphicsEnvironment::isHeadless();
 		if (RepaintManager::volatileImageBufferEnabled && headless) {
 			RepaintManager::volatileImageBufferEnabled = false;
 		}
-		bool t2 = "true"_s->equals($($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "awt.nativeDoubleBuffering"_s)))));
+		bool t2 = "true"_s->equals($($AccessController::doPrivileged($$new($GetPropertyAction, "awt.nativeDoubleBuffering"_s))));
 		RepaintManager::nativeDoubleBuffering = t2;
-		$var($String, bs, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "swing.bufferPerWindow"_s)))));
+		$var($String, bs, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "swing.bufferPerWindow"_s))));
 		if (headless) {
 			RepaintManager::BUFFER_STRATEGY_TYPE = RepaintManager::BUFFER_STRATEGY_SPECIFIED_OFF;
 		} else if (bs == nullptr) {
@@ -1148,14 +984,14 @@ void clinit$RepaintManager($Class* class$) {
 		} else {
 			RepaintManager::BUFFER_STRATEGY_TYPE = RepaintManager::BUFFER_STRATEGY_SPECIFIED_OFF;
 		}
-		bool t3 = "true"_s->equals($($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "swing.handleTopLevelPaint"_s, "true"_s)))));
+		bool t3 = "true"_s->equals($($AccessController::doPrivileged($$new($GetPropertyAction, "swing.handleTopLevelPaint"_s, "true"_s))));
 		RepaintManager::HANDLE_TOP_LEVEL_PAINT = t3;
 		$var($GraphicsEnvironment, ge, $GraphicsEnvironment::getLocalGraphicsEnvironment());
 		if ($instanceOf($SunGraphicsEnvironment, ge)) {
-			$nc(($cast($SunGraphicsEnvironment, ge)))->addDisplayChangedListener(RepaintManager::displayChangedHandler);
+			$cast($SunGraphicsEnvironment, ge)->addDisplayChangedListener(RepaintManager::displayChangedHandler);
 		}
 		$var($Toolkit, tk, $Toolkit::getDefaultToolkit());
-		if (($instanceOf($SunToolkit, tk)) && $nc(($cast($SunToolkit, tk)))->isSwingBackbufferTranslucencySupported()) {
+		if (($instanceOf($SunToolkit, tk)) && $cast($SunToolkit, tk)->isSwingBackbufferTranslucencySupported()) {
 			RepaintManager::volatileBufferType = $Transparency::TRANSLUCENT;
 		} else {
 			RepaintManager::volatileBufferType = $Transparency::OPAQUE;
@@ -1167,7 +1003,137 @@ RepaintManager::RepaintManager() {
 }
 
 $Class* RepaintManager::load$($String* name, bool initialize) {
-	$loadClass(RepaintManager, name, initialize, &_RepaintManager_ClassInfo_, clinit$RepaintManager, allocate$RepaintManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"HANDLE_TOP_LEVEL_PAINT", "Z", nullptr, $STATIC | $FINAL, $staticField(RepaintManager, HANDLE_TOP_LEVEL_PAINT)},
+		{"BUFFER_STRATEGY_NOT_SPECIFIED", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RepaintManager, BUFFER_STRATEGY_NOT_SPECIFIED)},
+		{"BUFFER_STRATEGY_SPECIFIED_ON", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RepaintManager, BUFFER_STRATEGY_SPECIFIED_ON)},
+		{"BUFFER_STRATEGY_SPECIFIED_OFF", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RepaintManager, BUFFER_STRATEGY_SPECIFIED_OFF)},
+		{"BUFFER_STRATEGY_TYPE", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RepaintManager, BUFFER_STRATEGY_TYPE)},
+		{"volatileMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/awt/GraphicsConfiguration;Ljava/awt/image/VolatileImage;>;", $PRIVATE, $field(RepaintManager, volatileMap)},
+		{"hwDirtyComponents", "Ljava/util/Map;", "Ljava/util/Map<Ljava/awt/Container;Ljava/awt/Rectangle;>;", $PRIVATE, $field(RepaintManager, hwDirtyComponents)},
+		{"dirtyComponents", "Ljava/util/Map;", "Ljava/util/Map<Ljava/awt/Component;Ljava/awt/Rectangle;>;", $PRIVATE, $field(RepaintManager, dirtyComponents)},
+		{"tmpDirtyComponents", "Ljava/util/Map;", "Ljava/util/Map<Ljava/awt/Component;Ljava/awt/Rectangle;>;", $PRIVATE, $field(RepaintManager, tmpDirtyComponents)},
+		{"invalidComponents", "Ljava/util/List;", "Ljava/util/List<Ljava/awt/Component;>;", $PRIVATE, $field(RepaintManager, invalidComponents)},
+		{"runnableList", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Runnable;>;", $PRIVATE, $field(RepaintManager, runnableList)},
+		{"doubleBufferingEnabled", "Z", nullptr, 0, $field(RepaintManager, doubleBufferingEnabled)},
+		{"doubleBufferMaxSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE, $field(RepaintManager, doubleBufferMaxSize)},
+		{"isCustomMaxBufferSizeSet", "Z", nullptr, $PRIVATE, $field(RepaintManager, isCustomMaxBufferSizeSet)},
+		{"standardDoubleBuffer", "Ljavax/swing/RepaintManager$DoubleBufferInfo;", nullptr, 0, $field(RepaintManager, standardDoubleBuffer)},
+		{"paintManager", "Ljavax/swing/RepaintManager$PaintManager;", nullptr, $PRIVATE, $field(RepaintManager, paintManager)},
+		{"repaintManagerKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RepaintManager, repaintManagerKey)},
+		{"volatileImageBufferEnabled", "Z", nullptr, $STATIC, $staticField(RepaintManager, volatileImageBufferEnabled)},
+		{"volatileBufferType", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RepaintManager, volatileBufferType)},
+		{"nativeDoubleBuffering", "Z", nullptr, $PRIVATE | $STATIC, $staticField(RepaintManager, nativeDoubleBuffering)},
+		{"VOLATILE_LOOP_MAX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RepaintManager, VOLATILE_LOOP_MAX)},
+		{"paintDepth", "I", nullptr, $PRIVATE, $field(RepaintManager, paintDepth)},
+		{"bufferStrategyType", "S", nullptr, $PRIVATE, $field(RepaintManager, bufferStrategyType)},
+		{"painting", "Z", nullptr, $PRIVATE, $field(RepaintManager, painting)},
+		{"repaintRoot", "Ljavax/swing/JComponent;", nullptr, $PRIVATE, $field(RepaintManager, repaintRoot)},
+		{"paintThread", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(RepaintManager, paintThread)},
+		{"processingRunnable", "Ljavax/swing/RepaintManager$ProcessingRunnable;", nullptr, $PRIVATE | $FINAL, $field(RepaintManager, processingRunnable)},
+		{"javaSecurityAccess", "Ljdk/internal/access/JavaSecurityAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RepaintManager, javaSecurityAccess)},
+		{"displayChangedHandler", "Lsun/awt/DisplayChangedListener;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RepaintManager, displayChangedHandler)},
+		{"tmp", "Ljava/awt/Rectangle;", nullptr, 0, $field(RepaintManager, tmp)},
+		{"repaintListeners", "Ljava/util/List;", "Ljava/util/List<Lsun/swing/SwingUtilities2$RepaintListener;>;", $PRIVATE, $field(RepaintManager, repaintListeners)},
+		{}
+	};
+	$NamedAttribute addDirtyRegionmethodAnnotations$$$2$namedAttribute[] = {
+		{"since", 's', "9"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute addDirtyRegionmethodAnnotations$$$2[] = {
+		{"Ljava/lang/Deprecated;", addDirtyRegionmethodAnnotations$$$2$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RepaintManager, init$, void)},
+		{"<init>", "(S)V", nullptr, $PRIVATE, $method(RepaintManager, init$, void, int16_t)},
+		{"_getOffscreenBuffer", "(Ljava/awt/Component;II)Ljava/awt/Image;", nullptr, $PRIVATE, $method(RepaintManager, _getOffscreenBuffer, $Image*, $Component*, int32_t, int32_t)},
+		{"addDirtyRegion", "(Ljavax/swing/JComponent;IIII)V", nullptr, $PUBLIC, $virtualMethod(RepaintManager, addDirtyRegion, void, $JComponent*, int32_t, int32_t, int32_t, int32_t)},
+		{"addDirtyRegion", "(Ljava/awt/Window;IIII)V", nullptr, $PUBLIC, $virtualMethod(RepaintManager, addDirtyRegion, void, $Window*, int32_t, int32_t, int32_t, int32_t)},
+		{"addDirtyRegion", "(Ljava/applet/Applet;IIII)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(RepaintManager, addDirtyRegion, void, $Applet*, int32_t, int32_t, int32_t, int32_t), nullptr, nullptr, addDirtyRegionmethodAnnotations$$$2},
+		{"addDirtyRegion0", "(Ljava/awt/Container;IIII)V", nullptr, $PRIVATE, $method(RepaintManager, addDirtyRegion0, void, $Container*, int32_t, int32_t, int32_t, int32_t)},
+		{"addInvalidComponent", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RepaintManager, addInvalidComponent, void, $JComponent*)},
+		{"addRepaintListener", "(Lsun/swing/SwingUtilities2$RepaintListener;)V", nullptr, $PRIVATE, $method(RepaintManager, addRepaintListener, void, $SwingUtilities2$RepaintListener*)},
+		{"adjustRoots", "(Ljavax/swing/JComponent;Ljava/util/List;I)V", "(Ljavax/swing/JComponent;Ljava/util/List<Ljava/awt/Component;>;I)V", $PRIVATE, $method(RepaintManager, adjustRoots, void, $JComponent*, $List*, int32_t)},
+		{"beginPaint", "()V", nullptr, 0, $virtualMethod(RepaintManager, beginPaint, void)},
+		{"clearImages", "()V", nullptr, $PRIVATE, $method(RepaintManager, clearImages, void)},
+		{"clearImages", "(II)V", nullptr, $PRIVATE, $method(RepaintManager, clearImages, void, int32_t, int32_t)},
+		{"collectDirtyComponents", "(Ljava/util/Map;Ljava/awt/Component;Ljava/util/List;)V", "(Ljava/util/Map<Ljava/awt/Component;Ljava/awt/Rectangle;>;Ljava/awt/Component;Ljava/util/List<Ljava/awt/Component;>;)V", 0, $virtualMethod(RepaintManager, collectDirtyComponents, void, $Map*, $Component*, $List*)},
+		{"copyArea", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;IIIIIIZ)V", nullptr, 0, $virtualMethod(RepaintManager, copyArea, void, $JComponent*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"currentManager", "(Ljava/awt/Component;)Ljavax/swing/RepaintManager;", nullptr, $PUBLIC | $STATIC, $staticMethod(RepaintManager, currentManager, RepaintManager*, $Component*)},
+		{"currentManager", "(Lsun/awt/AppContext;)Ljavax/swing/RepaintManager;", nullptr, $STATIC, $staticMethod(RepaintManager, currentManager, RepaintManager*, $AppContext*)},
+		{"currentManager", "(Ljavax/swing/JComponent;)Ljavax/swing/RepaintManager;", nullptr, $PUBLIC | $STATIC, $staticMethod(RepaintManager, currentManager, RepaintManager*, $JComponent*)},
+		{"displayChanged", "()V", nullptr, $PRIVATE, $method(RepaintManager, displayChanged, void)},
+		{"doubleBufferingChanged", "(Ljavax/swing/JRootPane;)V", nullptr, 0, $virtualMethod(RepaintManager, doubleBufferingChanged, void, $JRootPane*)},
+		{"endPaint", "()V", nullptr, 0, $virtualMethod(RepaintManager, endPaint, void)},
+		{"extendDirtyRegion", "(Ljava/awt/Component;IIII)Z", nullptr, $PRIVATE | $SYNCHRONIZED, $method(RepaintManager, extendDirtyRegion, bool, $Component*, int32_t, int32_t, int32_t, int32_t)},
+		{"getDelegate", "(Ljava/awt/Component;)Ljavax/swing/RepaintManager;", nullptr, $PRIVATE, $method(RepaintManager, getDelegate, RepaintManager*, $Component*)},
+		{"getDirtyRegion", "(Ljavax/swing/JComponent;)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(RepaintManager, getDirtyRegion, $Rectangle*, $JComponent*)},
+		{"getDoubleBufferMaximumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(RepaintManager, getDoubleBufferMaximumSize, $Dimension*)},
+		{"getOffscreenBuffer", "(Ljava/awt/Component;II)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(RepaintManager, getOffscreenBuffer, $Image*, $Component*, int32_t, int32_t)},
+		{"getPaintManager", "()Ljavax/swing/RepaintManager$PaintManager;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(RepaintManager, getPaintManager, $RepaintManager$PaintManager*)},
+		{"getVolatileOffscreenBuffer", "(Ljava/awt/Component;II)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(RepaintManager, getVolatileOffscreenBuffer, $Image*, $Component*, int32_t, int32_t)},
+		{"isCompletelyDirty", "(Ljavax/swing/JComponent;)Z", nullptr, $PUBLIC, $virtualMethod(RepaintManager, isCompletelyDirty, bool, $JComponent*)},
+		{"isDoubleBufferingEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(RepaintManager, isDoubleBufferingEnabled, bool)},
+		{"isPainting", "()Z", nullptr, 0, $virtualMethod(RepaintManager, isPainting, bool)},
+		{"isPaintingThread", "()Z", nullptr, $PRIVATE | $SYNCHRONIZED, $method(RepaintManager, isPaintingThread, bool)},
+		{"markCompletelyClean", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(RepaintManager, markCompletelyClean, void, $JComponent*)},
+		{"markCompletelyDirty", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(RepaintManager, markCompletelyDirty, void, $JComponent*)},
+		{"nativeAddDirtyRegion", "(Lsun/awt/AppContext;Ljava/awt/Container;IIII)V", nullptr, 0, $virtualMethod(RepaintManager, nativeAddDirtyRegion, void, $AppContext*, $Container*, int32_t, int32_t, int32_t, int32_t)},
+		{"nativeQueueSurfaceDataRunnable", "(Lsun/awt/AppContext;Ljava/awt/Component;Ljava/lang/Runnable;)V", nullptr, 0, $virtualMethod(RepaintManager, nativeQueueSurfaceDataRunnable, void, $AppContext*, $Component*, $Runnable*)},
+		{"notifyRepaintPerformed", "(Ljavax/swing/JComponent;IIII)V", nullptr, 0, $virtualMethod(RepaintManager, notifyRepaintPerformed, void, $JComponent*, int32_t, int32_t, int32_t, int32_t)},
+		{"paint", "(Ljavax/swing/JComponent;Ljavax/swing/JComponent;Ljava/awt/Graphics;IIII)V", nullptr, 0, $virtualMethod(RepaintManager, paint, void, $JComponent*, $JComponent*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintDirtyRegions", "()V", nullptr, $PUBLIC, $virtualMethod(RepaintManager, paintDirtyRegions, void)},
+		{"paintDirtyRegions", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/awt/Component;Ljava/awt/Rectangle;>;)V", $PRIVATE, $method(RepaintManager, paintDirtyRegions, void, $Map*)},
+		{"prePaintDirtyRegions", "()V", nullptr, $PRIVATE, $method(RepaintManager, prePaintDirtyRegions, void)},
+		{"removeInvalidComponent", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RepaintManager, removeInvalidComponent, void, $JComponent*)},
+		{"removeRepaintListener", "(Lsun/swing/SwingUtilities2$RepaintListener;)V", nullptr, $PRIVATE, $method(RepaintManager, removeRepaintListener, void, $SwingUtilities2$RepaintListener*)},
+		{"resetDoubleBuffer", "()V", nullptr, 0, $virtualMethod(RepaintManager, resetDoubleBuffer, void)},
+		{"resetVolatileDoubleBuffer", "(Ljava/awt/GraphicsConfiguration;)V", nullptr, 0, $virtualMethod(RepaintManager, resetVolatileDoubleBuffer, void, $GraphicsConfiguration*)},
+		{"scheduleHeavyWeightPaints", "()V", nullptr, 0, $virtualMethod(RepaintManager, scheduleHeavyWeightPaints, void)},
+		{"scheduleProcessingRunnable", "(Lsun/awt/AppContext;)V", nullptr, $PRIVATE, $method(RepaintManager, scheduleProcessingRunnable, void, $AppContext*)},
+		{"setCurrentManager", "(Ljavax/swing/RepaintManager;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RepaintManager, setCurrentManager, void, RepaintManager*)},
+		{"setDoubleBufferMaximumSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(RepaintManager, setDoubleBufferMaximumSize, void, $Dimension*)},
+		{"setDoubleBufferingEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(RepaintManager, setDoubleBufferingEnabled, void, bool)},
+		{"setPaintManager", "(Ljavax/swing/RepaintManager$PaintManager;)V", nullptr, 0, $virtualMethod(RepaintManager, setPaintManager, void, $RepaintManager$PaintManager*)},
+		{"show", "(Ljava/awt/Container;IIII)Z", nullptr, 0, $virtualMethod(RepaintManager, show, bool, $Container*, int32_t, int32_t, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RepaintManager, toString, $String*)},
+		{"updateWindows", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/awt/Component;Ljava/awt/Rectangle;>;)V", $PRIVATE, $method(RepaintManager, updateWindows, void, $Map*)},
+		{"useVolatileDoubleBuffer", "()Z", nullptr, 0, $virtualMethod(RepaintManager, useVolatileDoubleBuffer, bool)},
+		{"validateInvalidComponents", "()V", nullptr, $PUBLIC, $virtualMethod(RepaintManager, validateInvalidComponents, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.RepaintManager$ProcessingRunnable", "javax.swing.RepaintManager", "ProcessingRunnable", $PRIVATE | $FINAL},
+		{"javax.swing.RepaintManager$DisplayChangedRunnable", "javax.swing.RepaintManager", "DisplayChangedRunnable", $PRIVATE | $STATIC | $FINAL},
+		{"javax.swing.RepaintManager$DisplayChangedHandler", "javax.swing.RepaintManager", "DisplayChangedHandler", $PRIVATE | $STATIC | $FINAL},
+		{"javax.swing.RepaintManager$DoubleBufferInfo", "javax.swing.RepaintManager", "DoubleBufferInfo", $PRIVATE},
+		{"javax.swing.RepaintManager$PaintManager", "javax.swing.RepaintManager", "PaintManager", $STATIC},
+		{"javax.swing.RepaintManager$4", nullptr, nullptr, 0},
+		{"javax.swing.RepaintManager$3", nullptr, nullptr, 0},
+		{"javax.swing.RepaintManager$2", nullptr, nullptr, 0},
+		{"javax.swing.RepaintManager$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.RepaintManager",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.RepaintManager$ProcessingRunnable,javax.swing.RepaintManager$DisplayChangedRunnable,javax.swing.RepaintManager$DisplayChangedHandler,javax.swing.RepaintManager$DoubleBufferInfo,javax.swing.RepaintManager$PaintManager,javax.swing.RepaintManager$4,javax.swing.RepaintManager$3,javax.swing.RepaintManager$2,javax.swing.RepaintManager$2$1,javax.swing.RepaintManager$1"
+	};
+	$loadClass(RepaintManager, name, initialize, &classInfo$$, RepaintManager::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RepaintManager);
+	});
 	return class$;
 }
 

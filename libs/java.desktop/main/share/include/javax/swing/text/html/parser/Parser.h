@@ -57,6 +57,7 @@ class $import Parser : public ::javax::swing::text::html::parser::DTDConstants {
 	$class(Parser, 0, ::javax::swing::text::html::parser::DTDConstants)
 public:
 	Parser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::text::html::parser::DTD* dtd);
 	virtual void addString(int32_t c);
 	virtual void endTag(bool omitted);

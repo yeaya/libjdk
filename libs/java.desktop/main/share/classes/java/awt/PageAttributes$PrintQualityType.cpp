@@ -1,5 +1,4 @@
 #include <java/awt/PageAttributes$PrintQualityType.h>
-
 #include <java/awt/AttributeValue.h>
 #include <java/awt/PageAttributes.h>
 #include <jcpp.h>
@@ -21,49 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 
-$FieldInfo _PageAttributes$PrintQualityType_FieldInfo_[] = {
-	{"I_HIGH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PageAttributes$PrintQualityType, I_HIGH)},
-	{"I_NORMAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PageAttributes$PrintQualityType, I_NORMAL)},
-	{"I_DRAFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PageAttributes$PrintQualityType, I_DRAFT)},
-	{"NAMES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PageAttributes$PrintQualityType, NAMES)},
-	{"HIGH", "Ljava/awt/PageAttributes$PrintQualityType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PageAttributes$PrintQualityType, HIGH)},
-	{"NORMAL", "Ljava/awt/PageAttributes$PrintQualityType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PageAttributes$PrintQualityType, NORMAL)},
-	{"DRAFT", "Ljava/awt/PageAttributes$PrintQualityType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PageAttributes$PrintQualityType, DRAFT)},
-	{}
-};
-
-$MethodInfo _PageAttributes$PrintQualityType_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(PageAttributes$PrintQualityType, init$, void, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PageAttributes$PrintQualityType, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PageAttributes$PrintQualityType, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _PageAttributes$PrintQualityType_InnerClassesInfo_[] = {
-	{"java.awt.PageAttributes$PrintQualityType", "java.awt.PageAttributes", "PrintQualityType", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PageAttributes$PrintQualityType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.PageAttributes$PrintQualityType",
-	"java.awt.AttributeValue",
-	nullptr,
-	_PageAttributes$PrintQualityType_FieldInfo_,
-	_PageAttributes$PrintQualityType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PageAttributes$PrintQualityType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.PageAttributes"
-};
-
-$Object* allocate$PageAttributes$PrintQualityType($Class* clazz) {
-	return $of($alloc(PageAttributes$PrintQualityType));
-}
-
 $StringArray* PageAttributes$PrintQualityType::NAMES = nullptr;
 PageAttributes$PrintQualityType* PageAttributes$PrintQualityType::HIGH = nullptr;
 PageAttributes$PrintQualityType* PageAttributes$PrintQualityType::NORMAL = nullptr;
@@ -81,7 +37,7 @@ int32_t PageAttributes$PrintQualityType::hashCode() {
 	return $AttributeValue::hashCode();
 }
 
-void clinit$PageAttributes$PrintQualityType($Class* class$) {
+void PageAttributes$PrintQualityType::clinit$($Class* clazz) {
 	$assignStatic(PageAttributes$PrintQualityType::NAMES, $new($StringArray, {
 		"high"_s,
 		"normal"_s,
@@ -96,7 +52,44 @@ PageAttributes$PrintQualityType::PageAttributes$PrintQualityType() {
 }
 
 $Class* PageAttributes$PrintQualityType::load$($String* name, bool initialize) {
-	$loadClass(PageAttributes$PrintQualityType, name, initialize, &_PageAttributes$PrintQualityType_ClassInfo_, clinit$PageAttributes$PrintQualityType, allocate$PageAttributes$PrintQualityType);
+	$FieldInfo fieldInfos$$[] = {
+		{"I_HIGH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PageAttributes$PrintQualityType, I_HIGH)},
+		{"I_NORMAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PageAttributes$PrintQualityType, I_NORMAL)},
+		{"I_DRAFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PageAttributes$PrintQualityType, I_DRAFT)},
+		{"NAMES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PageAttributes$PrintQualityType, NAMES)},
+		{"HIGH", "Ljava/awt/PageAttributes$PrintQualityType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PageAttributes$PrintQualityType, HIGH)},
+		{"NORMAL", "Ljava/awt/PageAttributes$PrintQualityType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PageAttributes$PrintQualityType, NORMAL)},
+		{"DRAFT", "Ljava/awt/PageAttributes$PrintQualityType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PageAttributes$PrintQualityType, DRAFT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PRIVATE, $method(PageAttributes$PrintQualityType, init$, void, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PageAttributes$PrintQualityType, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PageAttributes$PrintQualityType, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.PageAttributes$PrintQualityType", "java.awt.PageAttributes", "PrintQualityType", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.PageAttributes$PrintQualityType",
+		"java.awt.AttributeValue",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.PageAttributes"
+	};
+	$loadClass(PageAttributes$PrintQualityType, name, initialize, &classInfo$$, PageAttributes$PrintQualityType::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PageAttributes$PrintQualityType);
+	});
 	return class$;
 }
 

@@ -22,6 +22,7 @@ class $export bug5074573 : public ::java::lang::Object {
 	$class(bug5074573, 0, ::java::lang::Object)
 public:
 	bug5074573();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t getCtrlKey();
 	static $String* getText();

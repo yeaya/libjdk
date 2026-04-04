@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/MuxingAttributeSet$MuxingAttributeNameEnumeration.h>
-
 #include <java/util/Enumeration.h>
 #include <java/util/NoSuchElementException.h>
 #include <javax/swing/text/AttributeSet.h>
@@ -11,55 +10,13 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Enumeration = ::java::util::Enumeration;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
-using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $MuxingAttributeSet = ::javax::swing::text::html::MuxingAttributeSet;
 
 namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _MuxingAttributeSet$MuxingAttributeNameEnumeration_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/html/MuxingAttributeSet;", nullptr, $FINAL | $SYNTHETIC, $field(MuxingAttributeSet$MuxingAttributeNameEnumeration, this$0)},
-	{"attrIndex", "I", nullptr, $PRIVATE, $field(MuxingAttributeSet$MuxingAttributeNameEnumeration, attrIndex)},
-	{"currentEnum", "Ljava/util/Enumeration;", "Ljava/util/Enumeration<*>;", $PRIVATE, $field(MuxingAttributeSet$MuxingAttributeNameEnumeration, currentEnum)},
-	{}
-};
-
-$MethodInfo _MuxingAttributeSet$MuxingAttributeNameEnumeration_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/html/MuxingAttributeSet;)V", nullptr, 0, $method(MuxingAttributeSet$MuxingAttributeNameEnumeration, init$, void, $MuxingAttributeSet*)},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(MuxingAttributeSet$MuxingAttributeNameEnumeration, hasMoreElements, bool)},
-	{"nextElement", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MuxingAttributeSet$MuxingAttributeNameEnumeration, nextElement, $Object*)},
-	{"updateEnum", "()V", nullptr, 0, $virtualMethod(MuxingAttributeSet$MuxingAttributeNameEnumeration, updateEnum, void)},
-	{}
-};
-
-$InnerClassInfo _MuxingAttributeSet$MuxingAttributeNameEnumeration_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.MuxingAttributeSet$MuxingAttributeNameEnumeration", "javax.swing.text.html.MuxingAttributeSet", "MuxingAttributeNameEnumeration", $PRIVATE},
-	{}
-};
-
-$ClassInfo _MuxingAttributeSet$MuxingAttributeNameEnumeration_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.MuxingAttributeSet$MuxingAttributeNameEnumeration",
-	"java.lang.Object",
-	"java.util.Enumeration",
-	_MuxingAttributeSet$MuxingAttributeNameEnumeration_FieldInfo_,
-	_MuxingAttributeSet$MuxingAttributeNameEnumeration_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/lang/Object;>;",
-	nullptr,
-	_MuxingAttributeSet$MuxingAttributeNameEnumeration_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.MuxingAttributeSet"
-};
-
-$Object* allocate$MuxingAttributeSet$MuxingAttributeNameEnumeration($Class* clazz) {
-	return $of($alloc(MuxingAttributeSet$MuxingAttributeNameEnumeration));
-}
 
 void MuxingAttributeSet$MuxingAttributeNameEnumeration::init$($MuxingAttributeSet* this$0) {
 	$set(this, this$0, this$0);
@@ -78,10 +35,10 @@ $Object* MuxingAttributeSet$MuxingAttributeNameEnumeration::nextElement() {
 		$throwNew($NoSuchElementException, "No more names"_s);
 	}
 	$var($Object, retObject, $nc(this->currentEnum)->nextElement());
-	if (!$nc(this->currentEnum)->hasMoreElements()) {
+	if (!this->currentEnum->hasMoreElements()) {
 		updateEnum();
 	}
-	return $of(retObject);
+	return retObject;
 }
 
 void MuxingAttributeSet$MuxingAttributeNameEnumeration::updateEnum() {
@@ -99,7 +56,41 @@ MuxingAttributeSet$MuxingAttributeNameEnumeration::MuxingAttributeSet$MuxingAttr
 }
 
 $Class* MuxingAttributeSet$MuxingAttributeNameEnumeration::load$($String* name, bool initialize) {
-	$loadClass(MuxingAttributeSet$MuxingAttributeNameEnumeration, name, initialize, &_MuxingAttributeSet$MuxingAttributeNameEnumeration_ClassInfo_, allocate$MuxingAttributeSet$MuxingAttributeNameEnumeration);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/html/MuxingAttributeSet;", nullptr, $FINAL | $SYNTHETIC, $field(MuxingAttributeSet$MuxingAttributeNameEnumeration, this$0)},
+		{"attrIndex", "I", nullptr, $PRIVATE, $field(MuxingAttributeSet$MuxingAttributeNameEnumeration, attrIndex)},
+		{"currentEnum", "Ljava/util/Enumeration;", "Ljava/util/Enumeration<*>;", $PRIVATE, $field(MuxingAttributeSet$MuxingAttributeNameEnumeration, currentEnum)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/html/MuxingAttributeSet;)V", nullptr, 0, $method(MuxingAttributeSet$MuxingAttributeNameEnumeration, init$, void, $MuxingAttributeSet*)},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(MuxingAttributeSet$MuxingAttributeNameEnumeration, hasMoreElements, bool)},
+		{"nextElement", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MuxingAttributeSet$MuxingAttributeNameEnumeration, nextElement, $Object*)},
+		{"updateEnum", "()V", nullptr, 0, $virtualMethod(MuxingAttributeSet$MuxingAttributeNameEnumeration, updateEnum, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.MuxingAttributeSet$MuxingAttributeNameEnumeration", "javax.swing.text.html.MuxingAttributeSet", "MuxingAttributeNameEnumeration", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.MuxingAttributeSet$MuxingAttributeNameEnumeration",
+		"java.lang.Object",
+		"java.util.Enumeration",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/lang/Object;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.MuxingAttributeSet"
+	};
+	$loadClass(MuxingAttributeSet$MuxingAttributeNameEnumeration, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MuxingAttributeSet$MuxingAttributeNameEnumeration);
+	});
 	return class$;
 }
 

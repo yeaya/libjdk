@@ -1,10 +1,8 @@
 #include <com/sun/org/apache/xalan/internal/lib/ExsltDynamic.h>
-
 #include <com/sun/org/apache/xalan/internal/extensions/ExpressionContext.h>
 #include <com/sun/org/apache/xalan/internal/lib/ExsltBase.h>
 #include <com/sun/org/apache/xalan/internal/res/XSLMessages.h>
 #include <com/sun/org/apache/xalan/internal/res/XSLTErrorResources.h>
-#include <com/sun/org/apache/xml/internal/dtm/DTMIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMManager.h>
 #include <com/sun/org/apache/xml/internal/utils/PrefixResolver.h>
 #include <com/sun/org/apache/xpath/internal/NodeSet.h>
@@ -36,7 +34,6 @@ using $ExpressionContext = ::com::sun::org::apache::xalan::internal::extensions:
 using $ExsltBase = ::com::sun::org::apache::xalan::internal::lib::ExsltBase;
 using $XSLMessages = ::com::sun::org::apache::xalan::internal::res::XSLMessages;
 using $XSLTErrorResources = ::com::sun::org::apache::xalan::internal::res::XSLTErrorResources;
-using $DTMIterator = ::com::sun::org::apache::xml::internal::dtm::DTMIterator;
 using $NodeSet = ::com::sun::org::apache::xpath::internal::NodeSet;
 using $NodeSetDTM = ::com::sun::org::apache::xpath::internal::NodeSetDTM;
 using $XPath = ::com::sun::org::apache::xpath::internal::XPath;
@@ -69,35 +66,6 @@ namespace com {
 					namespace internal {
 						namespace lib {
 
-$FieldInfo _ExsltDynamic_FieldInfo_[] = {
-	{"EXSL_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExsltDynamic, EXSL_URI)},
-	{}
-};
-
-$MethodInfo _ExsltDynamic_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExsltDynamic, init$, void)},
-	{"closure", "(Lcom/sun/org/apache/xalan/internal/extensions/ExpressionContext;Lorg/w3c/dom/NodeList;Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDynamic, closure, $NodeList*, $ExpressionContext*, $NodeList*, $String*), "org.xml.sax.SAXNotSupportedException"},
-	{"evaluate", "(Lcom/sun/org/apache/xalan/internal/extensions/ExpressionContext;Ljava/lang/String;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDynamic, evaluate, $XObject*, $ExpressionContext*, $String*), "org.xml.sax.SAXNotSupportedException"},
-	{"map", "(Lcom/sun/org/apache/xalan/internal/extensions/ExpressionContext;Lorg/w3c/dom/NodeList;Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDynamic, map, $NodeList*, $ExpressionContext*, $NodeList*, $String*), "org.xml.sax.SAXNotSupportedException"},
-	{"max", "(Lcom/sun/org/apache/xalan/internal/extensions/ExpressionContext;Lorg/w3c/dom/NodeList;Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDynamic, max, double, $ExpressionContext*, $NodeList*, $String*), "org.xml.sax.SAXNotSupportedException"},
-	{"min", "(Lcom/sun/org/apache/xalan/internal/extensions/ExpressionContext;Lorg/w3c/dom/NodeList;Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDynamic, min, double, $ExpressionContext*, $NodeList*, $String*), "org.xml.sax.SAXNotSupportedException"},
-	{"sum", "(Lcom/sun/org/apache/xalan/internal/extensions/ExpressionContext;Lorg/w3c/dom/NodeList;Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDynamic, sum, double, $ExpressionContext*, $NodeList*, $String*), "org.xml.sax.SAXNotSupportedException"},
-	{}
-};
-
-$ClassInfo _ExsltDynamic_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.lib.ExsltDynamic",
-	"com.sun.org.apache.xalan.internal.lib.ExsltBase",
-	nullptr,
-	_ExsltDynamic_FieldInfo_,
-	_ExsltDynamic_MethodInfo_
-};
-
-$Object* allocate$ExsltDynamic($Class* clazz) {
-	return $of($alloc(ExsltDynamic));
-}
-
 $String* ExsltDynamic::EXSL_URI = nullptr;
 
 void ExsltDynamic::init$() {
@@ -106,31 +74,28 @@ void ExsltDynamic::init$() {
 
 double ExsltDynamic::max($ExpressionContext* myContext, $NodeList* nl, $String* expr) {
 	$init(ExsltDynamic);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPathContext, xctxt, nullptr);
 	if ($instanceOf($XPathContext$XPathExpressionContext, myContext)) {
-		$assign(xctxt, $nc(($cast($XPathContext$XPathExpressionContext, myContext)))->getXPathContext());
+		$assign(xctxt, $cast($XPathContext$XPathExpressionContext, myContext)->getXPathContext());
 	} else {
 		$init($XSLTErrorResources);
-		$throwNew($SAXNotSupportedException, $($XSLMessages::createMessage($XSLTErrorResources::ER_INVALID_CONTEXT_PASSED, $$new($ObjectArray, {$of(myContext)}))));
+		$throwNew($SAXNotSupportedException, $($XSLMessages::createMessage($XSLTErrorResources::ER_INVALID_CONTEXT_PASSED, $$new($ObjectArray, {myContext}))));
 	}
-	if (expr == nullptr || $nc(expr)->length() == 0) {
-		$init($Double);
+	if (expr == nullptr || expr->length() == 0) {
 		return $Double::NaN;
 	}
 	$var($NodeSetDTM, contextNodes, $new($NodeSetDTM, nl, xctxt));
 	$nc(xctxt)->pushContextNodeList(contextNodes);
-	$init($Double);
 	double maxValue = -$Double::MAX_VALUE;
 	for (int32_t i = 0; i < contextNodes->getLength(); ++i) {
 		int32_t contextNode = contextNodes->item(i);
 		xctxt->pushCurrentNode(contextNode);
-		double result = (double)0;
+		double result = 0;
 		try {
-			$var($String, var$0, expr);
-			$var($SourceLocator, var$1, xctxt->getSAXLocator());
-			$var($XPath, dynamicXPath, $new($XPath, var$0, var$1, $(xctxt->getNamespaceContext()), $XPath::SELECT));
-			result = $nc($(dynamicXPath->execute(xctxt, contextNode, $(xctxt->getNamespaceContext()))))->num();
+			$var($SourceLocator, var$0, xctxt->getSAXLocator());
+			$var($XPath, dynamicXPath, $new($XPath, expr, var$0, $(xctxt->getNamespaceContext()), $XPath::SELECT));
+			result = $$nc(dynamicXPath->execute(xctxt, contextNode, $(xctxt->getNamespaceContext())))->num();
 		} catch ($TransformerException& e) {
 			xctxt->popCurrentNode();
 			xctxt->popContextNodeList();
@@ -147,31 +112,28 @@ double ExsltDynamic::max($ExpressionContext* myContext, $NodeList* nl, $String* 
 
 double ExsltDynamic::min($ExpressionContext* myContext, $NodeList* nl, $String* expr) {
 	$init(ExsltDynamic);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPathContext, xctxt, nullptr);
 	if ($instanceOf($XPathContext$XPathExpressionContext, myContext)) {
-		$assign(xctxt, $nc(($cast($XPathContext$XPathExpressionContext, myContext)))->getXPathContext());
+		$assign(xctxt, $cast($XPathContext$XPathExpressionContext, myContext)->getXPathContext());
 	} else {
 		$init($XSLTErrorResources);
-		$throwNew($SAXNotSupportedException, $($XSLMessages::createMessage($XSLTErrorResources::ER_INVALID_CONTEXT_PASSED, $$new($ObjectArray, {$of(myContext)}))));
+		$throwNew($SAXNotSupportedException, $($XSLMessages::createMessage($XSLTErrorResources::ER_INVALID_CONTEXT_PASSED, $$new($ObjectArray, {myContext}))));
 	}
-	if (expr == nullptr || $nc(expr)->length() == 0) {
-		$init($Double);
+	if (expr == nullptr || expr->length() == 0) {
 		return $Double::NaN;
 	}
 	$var($NodeSetDTM, contextNodes, $new($NodeSetDTM, nl, xctxt));
 	$nc(xctxt)->pushContextNodeList(contextNodes);
-	$init($Double);
 	double minValue = $Double::MAX_VALUE;
 	for (int32_t i = 0; i < $nc(nl)->getLength(); ++i) {
 		int32_t contextNode = contextNodes->item(i);
 		xctxt->pushCurrentNode(contextNode);
-		double result = (double)0;
+		double result = 0;
 		try {
-			$var($String, var$0, expr);
-			$var($SourceLocator, var$1, xctxt->getSAXLocator());
-			$var($XPath, dynamicXPath, $new($XPath, var$0, var$1, $(xctxt->getNamespaceContext()), $XPath::SELECT));
-			result = $nc($(dynamicXPath->execute(xctxt, contextNode, $(xctxt->getNamespaceContext()))))->num();
+			$var($SourceLocator, var$0, xctxt->getSAXLocator());
+			$var($XPath, dynamicXPath, $new($XPath, expr, var$0, $(xctxt->getNamespaceContext()), $XPath::SELECT));
+			result = $$nc(dynamicXPath->execute(xctxt, contextNode, $(xctxt->getNamespaceContext())))->num();
 		} catch ($TransformerException& e) {
 			xctxt->popCurrentNode();
 			xctxt->popContextNodeList();
@@ -188,34 +150,31 @@ double ExsltDynamic::min($ExpressionContext* myContext, $NodeList* nl, $String* 
 
 double ExsltDynamic::sum($ExpressionContext* myContext, $NodeList* nl, $String* expr) {
 	$init(ExsltDynamic);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPathContext, xctxt, nullptr);
 	if ($instanceOf($XPathContext$XPathExpressionContext, myContext)) {
-		$assign(xctxt, $nc(($cast($XPathContext$XPathExpressionContext, myContext)))->getXPathContext());
+		$assign(xctxt, $cast($XPathContext$XPathExpressionContext, myContext)->getXPathContext());
 	} else {
 		$init($XSLTErrorResources);
-		$throwNew($SAXNotSupportedException, $($XSLMessages::createMessage($XSLTErrorResources::ER_INVALID_CONTEXT_PASSED, $$new($ObjectArray, {$of(myContext)}))));
+		$throwNew($SAXNotSupportedException, $($XSLMessages::createMessage($XSLTErrorResources::ER_INVALID_CONTEXT_PASSED, $$new($ObjectArray, {myContext}))));
 	}
-	if (expr == nullptr || $nc(expr)->length() == 0) {
-		$init($Double);
+	if (expr == nullptr || expr->length() == 0) {
 		return $Double::NaN;
 	}
 	$var($NodeSetDTM, contextNodes, $new($NodeSetDTM, nl, xctxt));
 	$nc(xctxt)->pushContextNodeList(contextNodes);
-	double sum = (double)0;
+	double sum = 0;
 	for (int32_t i = 0; i < $nc(nl)->getLength(); ++i) {
 		int32_t contextNode = contextNodes->item(i);
 		xctxt->pushCurrentNode(contextNode);
-		double result = (double)0;
+		double result = 0;
 		try {
-			$var($String, var$0, expr);
-			$var($SourceLocator, var$1, xctxt->getSAXLocator());
-			$var($XPath, dynamicXPath, $new($XPath, var$0, var$1, $(xctxt->getNamespaceContext()), $XPath::SELECT));
-			result = $nc($(dynamicXPath->execute(xctxt, contextNode, $(xctxt->getNamespaceContext()))))->num();
+			$var($SourceLocator, var$0, xctxt->getSAXLocator());
+			$var($XPath, dynamicXPath, $new($XPath, expr, var$0, $(xctxt->getNamespaceContext()), $XPath::SELECT));
+			result = $$nc(dynamicXPath->execute(xctxt, contextNode, $(xctxt->getNamespaceContext())))->num();
 		} catch ($TransformerException& e) {
 			xctxt->popCurrentNode();
 			xctxt->popContextNodeList();
-			$init($Double);
 			return $Double::NaN;
 		}
 		xctxt->popCurrentNode();
@@ -227,16 +186,16 @@ double ExsltDynamic::sum($ExpressionContext* myContext, $NodeList* nl, $String* 
 
 $NodeList* ExsltDynamic::map($ExpressionContext* myContext, $NodeList* nl, $String* expr) {
 	$init(ExsltDynamic);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPathContext, xctxt, nullptr);
 	$var($Document, lDoc, nullptr);
 	if ($instanceOf($XPathContext$XPathExpressionContext, myContext)) {
-		$assign(xctxt, $nc(($cast($XPathContext$XPathExpressionContext, myContext)))->getXPathContext());
+		$assign(xctxt, $cast($XPathContext$XPathExpressionContext, myContext)->getXPathContext());
 	} else {
 		$init($XSLTErrorResources);
-		$throwNew($SAXNotSupportedException, $($XSLMessages::createMessage($XSLTErrorResources::ER_INVALID_CONTEXT_PASSED, $$new($ObjectArray, {$of(myContext)}))));
+		$throwNew($SAXNotSupportedException, $($XSLMessages::createMessage($XSLTErrorResources::ER_INVALID_CONTEXT_PASSED, $$new($ObjectArray, {myContext}))));
 	}
-	if (expr == nullptr || $nc(expr)->length() == 0) {
+	if (expr == nullptr || expr->length() == 0) {
 		return $new($NodeSet);
 	}
 	$var($NodeSetDTM, contextNodes, $new($NodeSetDTM, nl, xctxt));
@@ -248,13 +207,12 @@ $NodeList* ExsltDynamic::map($ExpressionContext* myContext, $NodeList* nl, $Stri
 		xctxt->pushCurrentNode(contextNode);
 		$var($XObject, object, nullptr);
 		try {
-			$var($String, var$0, expr);
-			$var($SourceLocator, var$1, xctxt->getSAXLocator());
-			$var($XPath, dynamicXPath, $new($XPath, var$0, var$1, $(xctxt->getNamespaceContext()), $XPath::SELECT));
+			$var($SourceLocator, var$0, xctxt->getSAXLocator());
+			$var($XPath, dynamicXPath, $new($XPath, expr, var$0, $(xctxt->getNamespaceContext()), $XPath::SELECT));
 			$assign(object, dynamicXPath->execute(xctxt, contextNode, $(xctxt->getNamespaceContext())));
 			if ($instanceOf($XNodeSet, object)) {
 				$var($NodeList, nodelist, nullptr);
-				$assign(nodelist, $nc(($cast($XNodeSet, object)))->nodelist());
+				$assign(nodelist, $cast($XNodeSet, object)->nodelist());
 				for (int32_t k = 0; k < $nc(nodelist)->getLength(); ++k) {
 					$var($Node, n, nodelist->item(k));
 					if (!resultSet->contains(n)) {
@@ -290,38 +248,36 @@ $NodeList* ExsltDynamic::map($ExpressionContext* myContext, $NodeList* nl, $Stri
 
 $XObject* ExsltDynamic::evaluate($ExpressionContext* myContext, $String* xpathExpr) {
 	$init(ExsltDynamic);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($XPathContext$XPathExpressionContext, myContext)) {
 		$var($XPathContext, xctxt, nullptr);
 		try {
-			$assign(xctxt, $nc(($cast($XPathContext$XPathExpressionContext, myContext)))->getXPathContext());
-			$var($String, var$0, xpathExpr);
-			$var($SourceLocator, var$1, $nc(xctxt)->getSAXLocator());
-			$var($XPath, dynamicXPath, $new($XPath, var$0, var$1, $(xctxt->getNamespaceContext()), $XPath::SELECT));
-			$var($XPathContext, var$2, xctxt);
-			$var($Node, var$3, $nc(myContext)->getContextNode());
-			return dynamicXPath->execute(var$2, var$3, $($nc(xctxt)->getNamespaceContext()));
+			$assign(xctxt, $cast($XPathContext$XPathExpressionContext, myContext)->getXPathContext());
+			$var($SourceLocator, var$0, $nc(xctxt)->getSAXLocator());
+			$var($XPath, dynamicXPath, $new($XPath, xpathExpr, var$0, $(xctxt->getNamespaceContext()), $XPath::SELECT));
+			$var($Node, var$1, myContext->getContextNode());
+			return dynamicXPath->execute(xctxt, var$1, $(xctxt->getNamespaceContext()));
 		} catch ($TransformerException& e) {
 			return $new($XNodeSet, $($nc(xctxt)->getDTMManager()));
 		}
 	} else {
 		$init($XSLTErrorResources);
-		$throwNew($SAXNotSupportedException, $($XSLMessages::createMessage($XSLTErrorResources::ER_INVALID_CONTEXT_PASSED, $$new($ObjectArray, {$of(myContext)}))));
+		$throwNew($SAXNotSupportedException, $($XSLMessages::createMessage($XSLTErrorResources::ER_INVALID_CONTEXT_PASSED, $$new($ObjectArray, {myContext}))));
 	}
 	$shouldNotReachHere();
 }
 
 $NodeList* ExsltDynamic::closure($ExpressionContext* myContext, $NodeList* nl, $String* expr) {
 	$init(ExsltDynamic);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPathContext, xctxt, nullptr);
 	if ($instanceOf($XPathContext$XPathExpressionContext, myContext)) {
-		$assign(xctxt, $nc(($cast($XPathContext$XPathExpressionContext, myContext)))->getXPathContext());
+		$assign(xctxt, $cast($XPathContext$XPathExpressionContext, myContext)->getXPathContext());
 	} else {
 		$init($XSLTErrorResources);
-		$throwNew($SAXNotSupportedException, $($XSLMessages::createMessage($XSLTErrorResources::ER_INVALID_CONTEXT_PASSED, $$new($ObjectArray, {$of(myContext)}))));
+		$throwNew($SAXNotSupportedException, $($XSLMessages::createMessage($XSLTErrorResources::ER_INVALID_CONTEXT_PASSED, $$new($ObjectArray, {myContext}))));
 	}
-	if (expr == nullptr || $nc(expr)->length() == 0) {
+	if (expr == nullptr || expr->length() == 0) {
 		return $new($NodeSet);
 	}
 	$var($NodeSet, closureSet, $new($NodeSet));
@@ -336,13 +292,12 @@ $NodeList* ExsltDynamic::closure($ExpressionContext* myContext, $NodeList* nl, $
 			xctxt->pushCurrentNode(contextNode);
 			$var($XObject, object, nullptr);
 			try {
-				$var($String, var$0, expr);
-				$var($SourceLocator, var$1, xctxt->getSAXLocator());
-				$var($XPath, dynamicXPath, $new($XPath, var$0, var$1, $(xctxt->getNamespaceContext()), $XPath::SELECT));
+				$var($SourceLocator, var$0, xctxt->getSAXLocator());
+				$var($XPath, dynamicXPath, $new($XPath, expr, var$0, $(xctxt->getNamespaceContext()), $XPath::SELECT));
 				$assign(object, dynamicXPath->execute(xctxt, contextNode, $(xctxt->getNamespaceContext())));
 				if ($instanceOf($XNodeSet, object)) {
 					$var($NodeList, nodelist, nullptr);
-					$assign(nodelist, $nc(($cast($XNodeSet, object)))->nodelist());
+					$assign(nodelist, $cast($XNodeSet, object)->nodelist());
 					for (int32_t k = 0; k < $nc(nodelist)->getLength(); ++k) {
 						$var($Node, n, nodelist->item(k));
 						if (!iterationSet->contains(n)) {
@@ -376,12 +331,36 @@ $NodeList* ExsltDynamic::closure($ExpressionContext* myContext, $NodeList* nl, $
 ExsltDynamic::ExsltDynamic() {
 }
 
-void clinit$ExsltDynamic($Class* class$) {
+void ExsltDynamic::clinit$($Class* clazz) {
 	$assignStatic(ExsltDynamic::EXSL_URI, "http://exslt.org/common"_s);
 }
 
 $Class* ExsltDynamic::load$($String* name, bool initialize) {
-	$loadClass(ExsltDynamic, name, initialize, &_ExsltDynamic_ClassInfo_, clinit$ExsltDynamic, allocate$ExsltDynamic);
+	$FieldInfo fieldInfos$$[] = {
+		{"EXSL_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExsltDynamic, EXSL_URI)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExsltDynamic, init$, void)},
+		{"closure", "(Lcom/sun/org/apache/xalan/internal/extensions/ExpressionContext;Lorg/w3c/dom/NodeList;Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDynamic, closure, $NodeList*, $ExpressionContext*, $NodeList*, $String*), "org.xml.sax.SAXNotSupportedException"},
+		{"evaluate", "(Lcom/sun/org/apache/xalan/internal/extensions/ExpressionContext;Ljava/lang/String;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDynamic, evaluate, $XObject*, $ExpressionContext*, $String*), "org.xml.sax.SAXNotSupportedException"},
+		{"map", "(Lcom/sun/org/apache/xalan/internal/extensions/ExpressionContext;Lorg/w3c/dom/NodeList;Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDynamic, map, $NodeList*, $ExpressionContext*, $NodeList*, $String*), "org.xml.sax.SAXNotSupportedException"},
+		{"max", "(Lcom/sun/org/apache/xalan/internal/extensions/ExpressionContext;Lorg/w3c/dom/NodeList;Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDynamic, max, double, $ExpressionContext*, $NodeList*, $String*), "org.xml.sax.SAXNotSupportedException"},
+		{"min", "(Lcom/sun/org/apache/xalan/internal/extensions/ExpressionContext;Lorg/w3c/dom/NodeList;Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDynamic, min, double, $ExpressionContext*, $NodeList*, $String*), "org.xml.sax.SAXNotSupportedException"},
+		{"sum", "(Lcom/sun/org/apache/xalan/internal/extensions/ExpressionContext;Lorg/w3c/dom/NodeList;Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDynamic, sum, double, $ExpressionContext*, $NodeList*, $String*), "org.xml.sax.SAXNotSupportedException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.lib.ExsltDynamic",
+		"com.sun.org.apache.xalan.internal.lib.ExsltBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ExsltDynamic, name, initialize, &classInfo$$, ExsltDynamic::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ExsltDynamic);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/font/TextMeasurer.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/font/CharArrayIterator.h>
 #include <java/awt/font/FontRenderContext.h>
@@ -15,7 +14,6 @@
 #include <java/lang/Cloneable.h>
 #include <java/lang/Error.h>
 #include <java/lang/Math.h>
-#include <java/text/AttributedCharacterIterator$Attribute.h>
 #include <java/text/AttributedCharacterIterator.h>
 #include <java/text/Bidi.h>
 #include <java/text/BreakIterator.h>
@@ -48,7 +46,6 @@ using $StyledParagraph = ::java::awt::font::StyledParagraph;
 using $TextAttribute = ::java::awt::font::TextAttribute;
 using $TextLayout = ::java::awt::font::TextLayout;
 using $TextLine = ::java::awt::font::TextLine;
-using $PrintStream = ::java::io::PrintStream;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CloneNotSupportedException = ::java::lang::CloneNotSupportedException;
@@ -60,7 +57,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
-using $AttributedCharacterIterator$Attribute = ::java::text::AttributedCharacterIterator$Attribute;
 using $Bidi = ::java::text::Bidi;
 using $BreakIterator = ::java::text::BreakIterator;
 using $CharacterIterator = ::java::text::CharacterIterator;
@@ -75,67 +71,6 @@ namespace java {
 	namespace awt {
 		namespace font {
 
-$FieldInfo _TextMeasurer_FieldInfo_[] = {
-	{"EST_LINES", "F", nullptr, $PRIVATE | $STATIC, $staticField(TextMeasurer, EST_LINES)},
-	{"fFrc", "Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE, $field(TextMeasurer, fFrc)},
-	{"fStart", "I", nullptr, $PRIVATE, $field(TextMeasurer, fStart)},
-	{"fChars", "[C", nullptr, $PRIVATE, $field(TextMeasurer, fChars)},
-	{"fBidi", "Ljava/text/Bidi;", nullptr, $PRIVATE, $field(TextMeasurer, fBidi)},
-	{"fLevels", "[B", nullptr, $PRIVATE, $field(TextMeasurer, fLevels)},
-	{"fComponents", "[Lsun/font/TextLineComponent;", nullptr, $PRIVATE, $field(TextMeasurer, fComponents)},
-	{"fComponentStart", "I", nullptr, $PRIVATE, $field(TextMeasurer, fComponentStart)},
-	{"fComponentLimit", "I", nullptr, $PRIVATE, $field(TextMeasurer, fComponentLimit)},
-	{"haveLayoutWindow", "Z", nullptr, $PRIVATE, $field(TextMeasurer, haveLayoutWindow)},
-	{"fLineBreak", "Ljava/text/BreakIterator;", nullptr, $PRIVATE, $field(TextMeasurer, fLineBreak)},
-	{"charIter", "Ljava/awt/font/CharArrayIterator;", nullptr, $PRIVATE, $field(TextMeasurer, charIter)},
-	{"layoutCount", "I", nullptr, 0, $field(TextMeasurer, layoutCount)},
-	{"layoutCharCount", "I", nullptr, 0, $field(TextMeasurer, layoutCharCount)},
-	{"fParagraph", "Ljava/awt/font/StyledParagraph;", nullptr, $PRIVATE, $field(TextMeasurer, fParagraph)},
-	{"fIsDirectionLTR", "Z", nullptr, $PRIVATE, $field(TextMeasurer, fIsDirectionLTR)},
-	{"fBaseline", "B", nullptr, $PRIVATE, $field(TextMeasurer, fBaseline)},
-	{"fBaselineOffsets", "[F", nullptr, $PRIVATE, $field(TextMeasurer, fBaselineOffsets)},
-	{"fJustifyRatio", "F", nullptr, $PRIVATE, $field(TextMeasurer, fJustifyRatio)},
-	{"formattedChars", "I", nullptr, $PRIVATE, $field(TextMeasurer, formattedChars)},
-	{"wantStats", "Z", nullptr, $PRIVATE | $STATIC, $staticField(TextMeasurer, wantStats)},
-	{"collectStats", "Z", nullptr, $PRIVATE, $field(TextMeasurer, collectStats)},
-	{}
-};
-
-$MethodInfo _TextMeasurer_MethodInfo_[] = {
-	{"<init>", "(Ljava/text/AttributedCharacterIterator;Ljava/awt/font/FontRenderContext;)V", nullptr, $PUBLIC, $method(TextMeasurer, init$, void, $AttributedCharacterIterator*, $FontRenderContext*)},
-	{"calcLineBreak", "(IF)I", nullptr, $PRIVATE, $method(TextMeasurer, calcLineBreak, int32_t, int32_t, float)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(TextMeasurer, clone, $Object*)},
-	{"deleteChar", "(Ljava/text/AttributedCharacterIterator;I)V", nullptr, $PUBLIC, $method(TextMeasurer, deleteChar, void, $AttributedCharacterIterator*, int32_t)},
-	{"ensureComponents", "(II)V", nullptr, $PRIVATE, $method(TextMeasurer, ensureComponents, void, int32_t, int32_t)},
-	{"generateComponents", "(II)V", nullptr, $PRIVATE, $method(TextMeasurer, generateComponents, void, int32_t, int32_t)},
-	{"getAdvanceBetween", "(II)F", nullptr, $PUBLIC, $method(TextMeasurer, getAdvanceBetween, float, int32_t, int32_t)},
-	{"getChars", "()[C", nullptr, 0, $method(TextMeasurer, getChars, $chars*)},
-	{"getLayout", "(II)Ljava/awt/font/TextLayout;", nullptr, $PUBLIC, $method(TextMeasurer, getLayout, $TextLayout*, int32_t, int32_t)},
-	{"getLineBreakIndex", "(IF)I", nullptr, $PUBLIC, $method(TextMeasurer, getLineBreakIndex, int32_t, int32_t, float)},
-	{"initAll", "(Ljava/text/AttributedCharacterIterator;)V", nullptr, $PRIVATE, $method(TextMeasurer, initAll, void, $AttributedCharacterIterator*)},
-	{"insertChar", "(Ljava/text/AttributedCharacterIterator;I)V", nullptr, $PUBLIC, $method(TextMeasurer, insertChar, void, $AttributedCharacterIterator*, int32_t)},
-	{"invalidateComponents", "()V", nullptr, $PRIVATE, $method(TextMeasurer, invalidateComponents, void)},
-	{"makeComponentsOnRange", "(II)[Lsun/font/TextLineComponent;", nullptr, $PRIVATE, $method(TextMeasurer, makeComponentsOnRange, $TextLineComponentArray*, int32_t, int32_t)},
-	{"makeLayoutWindow", "(I)V", nullptr, $PRIVATE, $method(TextMeasurer, makeLayoutWindow, void, int32_t)},
-	{"makeTextLineOnRange", "(II)Ljava/awt/font/TextLine;", nullptr, $PRIVATE, $method(TextMeasurer, makeTextLineOnRange, $TextLine*, int32_t, int32_t)},
-	{"printStats", "()V", nullptr, $PRIVATE, $method(TextMeasurer, printStats, void)},
-	{"trailingCdWhitespaceStart", "(II)I", nullptr, $PRIVATE, $method(TextMeasurer, trailingCdWhitespaceStart, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _TextMeasurer_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.font.TextMeasurer",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_TextMeasurer_FieldInfo_,
-	_TextMeasurer_MethodInfo_
-};
-
-$Object* allocate$TextMeasurer($Class* clazz) {
-	return $of($alloc(TextMeasurer));
-}
-
 float TextMeasurer::EST_LINES = 0.0;
 bool TextMeasurer::wantStats = false;
 
@@ -144,7 +79,7 @@ void TextMeasurer::init$($AttributedCharacterIterator* text, $FontRenderContext*
 	$set(this, charIter, nullptr);
 	this->layoutCount = 0;
 	this->layoutCharCount = 0;
-	this->fJustifyRatio = (float)1;
+	this->fJustifyRatio = 1;
 	this->formattedChars = 0;
 	this->collectStats = false;
 	$set(this, fFrc, frc);
@@ -159,9 +94,9 @@ $Object* TextMeasurer::clone() {
 		$throwNew($Error);
 	}
 	if (this->fComponents != nullptr) {
-		$set($nc(other), fComponents, $cast($TextLineComponentArray, $nc(this->fComponents)->clone()));
+		$set($nc(other), fComponents, $cast($TextLineComponentArray, this->fComponents->clone()));
 	}
-	return $of(other);
+	return other;
 }
 
 void TextMeasurer::invalidateComponents() {
@@ -171,16 +106,16 @@ void TextMeasurer::invalidateComponents() {
 }
 
 void TextMeasurer::initAll($AttributedCharacterIterator* text) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->fStart = $nc(text)->getBeginIndex();
 	$set(this, fChars, $new($chars, text->getEndIndex() - this->fStart));
 	int32_t n = 0;
 	for (char16_t c = text->first(); c != $CharacterIterator::DONE; c = text->next()) {
-		$nc(this->fChars)->set(n++, c);
+		this->fChars->set(n++, c);
 	}
 	text->first();
 	$set(this, fBidi, $new($Bidi, text));
-	if ($nc(this->fBidi)->isLeftToRight()) {
+	if (this->fBidi->isLeftToRight()) {
 		$set(this, fBidi, nullptr);
 	}
 	text->first();
@@ -205,7 +140,7 @@ void TextMeasurer::initAll($AttributedCharacterIterator* text) {
 			$var($GraphicAttribute, graphic, $cast($GraphicAttribute, $nc(paragraphAttrs)->get($TextAttribute::CHAR_REPLACEMENT)));
 			this->fBaseline = $TextLayout::getBaselineFromGraphic(graphic);
 			$var($Hashtable, fmap, $new($Hashtable, 5, (float)0.9));
-			$var($Font, dummyFont, $new($Font, static_cast<$Map*>(fmap)));
+			$var($Font, dummyFont, $new($Font, fmap));
 			$var($LineMetrics, lm, dummyFont->getLineMetrics(" "_s, 0, 1, this->fFrc));
 			$set(this, fBaselineOffsets, $nc(lm)->getBaselineOffsets());
 		}
@@ -215,7 +150,7 @@ void TextMeasurer::initAll($AttributedCharacterIterator* text) {
 }
 
 void TextMeasurer::generateComponents(int32_t startingAt, int32_t endingAt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->collectStats) {
 		this->formattedChars += (endingAt - startingAt);
 	}
@@ -235,7 +170,7 @@ void TextMeasurer::generateComponents(int32_t startingAt, int32_t endingAt) {
 		$set(this, fComponents, $TextLine::getComponents(this->fParagraph, this->fChars, startingAt, endingAt, charsLtoV, this->fLevels, factory));
 	} catch ($IllegalArgumentException& e) {
 		$nc($System::out)->println($$str({"startingAt="_s, $$str(startingAt), "; endingAt="_s, $$str(endingAt)}));
-		$nc($System::out)->println($$str({"fComponentLimit="_s, $$str(this->fComponentLimit)}));
+		$System::out->println($$str({"fComponentLimit="_s, $$str(this->fComponentLimit)}));
 		$throw(e);
 	}
 	this->fComponentStart = startingAt;
@@ -243,13 +178,13 @@ void TextMeasurer::generateComponents(int32_t startingAt, int32_t endingAt) {
 }
 
 int32_t TextMeasurer::calcLineBreak(int32_t pos, float maxAdvance) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t startPos = pos;
 	float width = maxAdvance;
 	int32_t tlcIndex = 0;
 	int32_t tlcStart = this->fComponentStart;
 	for (tlcIndex = 0; tlcIndex < $nc(this->fComponents)->length; ++tlcIndex) {
-		int32_t gaLimit = tlcStart + $nc($nc(this->fComponents)->get(tlcIndex))->getNumCharacters();
+		int32_t gaLimit = tlcStart + $nc(this->fComponents->get(tlcIndex))->getNumCharacters();
 		if (gaLimit > startPos) {
 			break;
 		} else {
@@ -257,7 +192,7 @@ int32_t TextMeasurer::calcLineBreak(int32_t pos, float maxAdvance) {
 		}
 	}
 	for (; tlcIndex < $nc(this->fComponents)->length; ++tlcIndex) {
-		$var($TextLineComponent, tlc, $nc(this->fComponents)->get(tlcIndex));
+		$var($TextLineComponent, tlc, this->fComponents->get(tlcIndex));
 		int32_t numCharsInGa = $nc(tlc)->getNumCharacters();
 		int32_t lineBreak = tlc->getLineBreakIndex(startPos - tlcStart, width);
 		if (lineBreak == numCharsInGa && tlcIndex < $nc(this->fComponents)->length) {
@@ -269,7 +204,7 @@ int32_t TextMeasurer::calcLineBreak(int32_t pos, float maxAdvance) {
 		}
 	}
 	if (this->fComponentLimit < $nc(this->fChars)->length) {
-		generateComponents(pos, $nc(this->fChars)->length);
+		generateComponents(pos, this->fChars->length);
 		return calcLineBreak(pos, maxAdvance);
 	}
 	return $nc(this->fChars)->length;
@@ -279,7 +214,7 @@ int32_t TextMeasurer::trailingCdWhitespaceStart(int32_t startPos, int32_t limitP
 	if (this->fLevels != nullptr) {
 		int8_t baseLevel = (int8_t)(this->fIsDirectionLTR ? 0 : 1);
 		for (int32_t cdWsStart = limitPos; --cdWsStart >= startPos;) {
-			if (($nc(this->fLevels)->get(cdWsStart) % 2) == baseLevel || $Character::getDirectionality($nc(this->fChars)->get(cdWsStart)) != $Character::DIRECTIONALITY_WHITESPACE) {
+			if ((this->fLevels->get(cdWsStart) % 2) == baseLevel || $Character::getDirectionality($nc(this->fChars)->get(cdWsStart)) != $Character::DIRECTIONALITY_WHITESPACE) {
 				return ++cdWsStart;
 			}
 		}
@@ -288,12 +223,12 @@ int32_t TextMeasurer::trailingCdWhitespaceStart(int32_t startPos, int32_t limitP
 }
 
 $TextLineComponentArray* TextMeasurer::makeComponentsOnRange(int32_t startPos, int32_t limitPos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t cdWsStart = trailingCdWhitespaceStart(startPos, limitPos);
 	int32_t tlcIndex = 0;
 	int32_t tlcStart = this->fComponentStart;
 	for (tlcIndex = 0; tlcIndex < $nc(this->fComponents)->length; ++tlcIndex) {
-		int32_t gaLimit = tlcStart + $nc($nc(this->fComponents)->get(tlcIndex))->getNumCharacters();
+		int32_t gaLimit = tlcStart + $nc(this->fComponents->get(tlcIndex))->getNumCharacters();
 		if (gaLimit > startPos) {
 			break;
 		} else {
@@ -353,11 +288,11 @@ $TextLineComponentArray* TextMeasurer::makeComponentsOnRange(int32_t startPos, i
 }
 
 $TextLine* TextMeasurer::makeTextLineOnRange(int32_t startPos, int32_t limitPos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, charsLtoV, nullptr);
 	$var($bytes, charLevels, nullptr);
 	if (this->fBidi != nullptr) {
-		$var($Bidi, lineBidi, $nc(this->fBidi)->createLineBidi(startPos, limitPos));
+		$var($Bidi, lineBidi, this->fBidi->createLineBidi(startPos, limitPos));
 		$assign(charLevels, $BidiUtils::getLevels(lineBidi));
 		$var($ints, charsVtoL, $BidiUtils::createVisualToLogicalMap(charLevels));
 		$assign(charsLtoV, $BidiUtils::createInverseMap(charsVtoL));
@@ -377,26 +312,26 @@ void TextMeasurer::makeLayoutWindow(int32_t localStart) {
 	int32_t compLimit = $nc(this->fChars)->length;
 	if (this->layoutCount > 0 && !this->haveLayoutWindow) {
 		float avgLineLength = (float)$Math::max($div(this->layoutCharCount, this->layoutCount), 1);
-		compLimit = $Math::min(localStart + $cast(int32_t, (avgLineLength * TextMeasurer::EST_LINES)), $nc(this->fChars)->length);
+		compLimit = $Math::min(localStart + $cast(int32_t, (avgLineLength * TextMeasurer::EST_LINES)), this->fChars->length);
 	}
-	if (localStart > 0 || compLimit < $nc(this->fChars)->length) {
+	if (localStart > 0 || compLimit < this->fChars->length) {
 		if (this->charIter == nullptr) {
 			$set(this, charIter, $new($CharArrayIterator, this->fChars));
 		} else {
-			$nc(this->charIter)->reset(this->fChars);
+			this->charIter->reset(this->fChars);
 		}
 		if (this->fLineBreak == nullptr) {
 			$set(this, fLineBreak, $BreakIterator::getLineInstance());
 		}
-		$nc(this->fLineBreak)->setText(static_cast<$CharacterIterator*>(this->charIter));
+		$nc(this->fLineBreak)->setText(this->charIter);
 		if (localStart > 0) {
-			if (!$nc(this->fLineBreak)->isBoundary(localStart)) {
-				compStart = $nc(this->fLineBreak)->preceding(localStart);
+			if (!this->fLineBreak->isBoundary(localStart)) {
+				compStart = this->fLineBreak->preceding(localStart);
 			}
 		}
 		if (compLimit < $nc(this->fChars)->length) {
-			if (!$nc(this->fLineBreak)->isBoundary(compLimit)) {
-				compLimit = $nc(this->fLineBreak)->following(compLimit);
+			if (!this->fLineBreak->isBoundary(compLimit)) {
+				compLimit = this->fLineBreak->following(compLimit);
 			}
 		}
 	}
@@ -413,7 +348,7 @@ int32_t TextMeasurer::getLineBreakIndex(int32_t start, float maxAdvance) {
 }
 
 float TextMeasurer::getAdvanceBetween(int32_t start, int32_t limit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t localStart = start - this->fStart;
 	int32_t localLimit = limit - this->fStart;
 	ensureComponents(localStart, localLimit);
@@ -434,7 +369,7 @@ $TextLayout* TextMeasurer::getLayout(int32_t start, int32_t limit) {
 }
 
 void TextMeasurer::printStats() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println($$str({"formattedChars: "_s, $$str(this->formattedChars)}));
 	this->collectStats = false;
 }
@@ -462,7 +397,7 @@ void TextMeasurer::insertChar($AttributedCharacterIterator* newParagraph, int32_
 	$init($TextAttribute);
 	if (var$0 || newParagraph->getAttribute($TextAttribute::BIDI_EMBEDDING) != nullptr) {
 		$set(this, fBidi, $new($Bidi, newParagraph));
-		if ($nc(this->fBidi)->isLeftToRight()) {
+		if (this->fBidi->isLeftToRight()) {
 			$set(this, fBidi, nullptr);
 		}
 	}
@@ -483,7 +418,7 @@ void TextMeasurer::deleteChar($AttributedCharacterIterator* newParagraph, int32_
 	$set(this, fChars, newChars);
 	if (this->fBidi != nullptr) {
 		$set(this, fBidi, $new($Bidi, newParagraph));
-		if ($nc(this->fBidi)->isLeftToRight()) {
+		if (this->fBidi->isLeftToRight()) {
 			$set(this, fBidi, nullptr);
 		}
 	}
@@ -495,7 +430,7 @@ $chars* TextMeasurer::getChars() {
 	return this->fChars;
 }
 
-void clinit$TextMeasurer($Class* class$) {
+void TextMeasurer::clinit$($Class* clazz) {
 	TextMeasurer::EST_LINES = (float)2.1;
 	TextMeasurer::wantStats = false;
 }
@@ -504,7 +439,63 @@ TextMeasurer::TextMeasurer() {
 }
 
 $Class* TextMeasurer::load$($String* name, bool initialize) {
-	$loadClass(TextMeasurer, name, initialize, &_TextMeasurer_ClassInfo_, clinit$TextMeasurer, allocate$TextMeasurer);
+	$FieldInfo fieldInfos$$[] = {
+		{"EST_LINES", "F", nullptr, $PRIVATE | $STATIC, $staticField(TextMeasurer, EST_LINES)},
+		{"fFrc", "Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE, $field(TextMeasurer, fFrc)},
+		{"fStart", "I", nullptr, $PRIVATE, $field(TextMeasurer, fStart)},
+		{"fChars", "[C", nullptr, $PRIVATE, $field(TextMeasurer, fChars)},
+		{"fBidi", "Ljava/text/Bidi;", nullptr, $PRIVATE, $field(TextMeasurer, fBidi)},
+		{"fLevels", "[B", nullptr, $PRIVATE, $field(TextMeasurer, fLevels)},
+		{"fComponents", "[Lsun/font/TextLineComponent;", nullptr, $PRIVATE, $field(TextMeasurer, fComponents)},
+		{"fComponentStart", "I", nullptr, $PRIVATE, $field(TextMeasurer, fComponentStart)},
+		{"fComponentLimit", "I", nullptr, $PRIVATE, $field(TextMeasurer, fComponentLimit)},
+		{"haveLayoutWindow", "Z", nullptr, $PRIVATE, $field(TextMeasurer, haveLayoutWindow)},
+		{"fLineBreak", "Ljava/text/BreakIterator;", nullptr, $PRIVATE, $field(TextMeasurer, fLineBreak)},
+		{"charIter", "Ljava/awt/font/CharArrayIterator;", nullptr, $PRIVATE, $field(TextMeasurer, charIter)},
+		{"layoutCount", "I", nullptr, 0, $field(TextMeasurer, layoutCount)},
+		{"layoutCharCount", "I", nullptr, 0, $field(TextMeasurer, layoutCharCount)},
+		{"fParagraph", "Ljava/awt/font/StyledParagraph;", nullptr, $PRIVATE, $field(TextMeasurer, fParagraph)},
+		{"fIsDirectionLTR", "Z", nullptr, $PRIVATE, $field(TextMeasurer, fIsDirectionLTR)},
+		{"fBaseline", "B", nullptr, $PRIVATE, $field(TextMeasurer, fBaseline)},
+		{"fBaselineOffsets", "[F", nullptr, $PRIVATE, $field(TextMeasurer, fBaselineOffsets)},
+		{"fJustifyRatio", "F", nullptr, $PRIVATE, $field(TextMeasurer, fJustifyRatio)},
+		{"formattedChars", "I", nullptr, $PRIVATE, $field(TextMeasurer, formattedChars)},
+		{"wantStats", "Z", nullptr, $PRIVATE | $STATIC, $staticField(TextMeasurer, wantStats)},
+		{"collectStats", "Z", nullptr, $PRIVATE, $field(TextMeasurer, collectStats)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/text/AttributedCharacterIterator;Ljava/awt/font/FontRenderContext;)V", nullptr, $PUBLIC, $method(TextMeasurer, init$, void, $AttributedCharacterIterator*, $FontRenderContext*)},
+		{"calcLineBreak", "(IF)I", nullptr, $PRIVATE, $method(TextMeasurer, calcLineBreak, int32_t, int32_t, float)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(TextMeasurer, clone, $Object*)},
+		{"deleteChar", "(Ljava/text/AttributedCharacterIterator;I)V", nullptr, $PUBLIC, $method(TextMeasurer, deleteChar, void, $AttributedCharacterIterator*, int32_t)},
+		{"ensureComponents", "(II)V", nullptr, $PRIVATE, $method(TextMeasurer, ensureComponents, void, int32_t, int32_t)},
+		{"generateComponents", "(II)V", nullptr, $PRIVATE, $method(TextMeasurer, generateComponents, void, int32_t, int32_t)},
+		{"getAdvanceBetween", "(II)F", nullptr, $PUBLIC, $method(TextMeasurer, getAdvanceBetween, float, int32_t, int32_t)},
+		{"getChars", "()[C", nullptr, 0, $method(TextMeasurer, getChars, $chars*)},
+		{"getLayout", "(II)Ljava/awt/font/TextLayout;", nullptr, $PUBLIC, $method(TextMeasurer, getLayout, $TextLayout*, int32_t, int32_t)},
+		{"getLineBreakIndex", "(IF)I", nullptr, $PUBLIC, $method(TextMeasurer, getLineBreakIndex, int32_t, int32_t, float)},
+		{"initAll", "(Ljava/text/AttributedCharacterIterator;)V", nullptr, $PRIVATE, $method(TextMeasurer, initAll, void, $AttributedCharacterIterator*)},
+		{"insertChar", "(Ljava/text/AttributedCharacterIterator;I)V", nullptr, $PUBLIC, $method(TextMeasurer, insertChar, void, $AttributedCharacterIterator*, int32_t)},
+		{"invalidateComponents", "()V", nullptr, $PRIVATE, $method(TextMeasurer, invalidateComponents, void)},
+		{"makeComponentsOnRange", "(II)[Lsun/font/TextLineComponent;", nullptr, $PRIVATE, $method(TextMeasurer, makeComponentsOnRange, $TextLineComponentArray*, int32_t, int32_t)},
+		{"makeLayoutWindow", "(I)V", nullptr, $PRIVATE, $method(TextMeasurer, makeLayoutWindow, void, int32_t)},
+		{"makeTextLineOnRange", "(II)Ljava/awt/font/TextLine;", nullptr, $PRIVATE, $method(TextMeasurer, makeTextLineOnRange, $TextLine*, int32_t, int32_t)},
+		{"printStats", "()V", nullptr, $PRIVATE, $method(TextMeasurer, printStats, void)},
+		{"trailingCdWhitespaceStart", "(II)I", nullptr, $PRIVATE, $method(TextMeasurer, trailingCdWhitespaceStart, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.font.TextMeasurer",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TextMeasurer, name, initialize, &classInfo$$, TextMeasurer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TextMeasurer);
+	});
 	return class$;
 }
 

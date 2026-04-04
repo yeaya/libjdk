@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Infer$GraphStrategy.h>
-
 #include <com/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node.h>
 #include <com/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph.h>
 #include <com/sun/tools/javac/comp/Infer.h>
@@ -17,40 +16,35 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$MethodInfo _Infer$GraphStrategy_MethodInfo_[] = {
-	{"done", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Infer$GraphStrategy, done, bool)},
-	{"pickNode", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph;)Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Infer$GraphStrategy, pickNode, $Infer$GraphSolver$InferenceGraph$Node*, $Infer$GraphSolver$InferenceGraph*), "com.sun.tools.javac.comp.Infer$GraphStrategy$NodeNotFoundException"},
-	{}
-};
-
-$InnerClassInfo _Infer$GraphStrategy_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Infer$GraphStrategy", "com.sun.tools.javac.comp.Infer", "GraphStrategy", $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.comp.Infer$GraphStrategy$NodeNotFoundException", "com.sun.tools.javac.comp.Infer$GraphStrategy", "NodeNotFoundException", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Infer$GraphStrategy_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.comp.Infer$GraphStrategy",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Infer$GraphStrategy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Infer$GraphStrategy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Infer"
-};
-
-$Object* allocate$Infer$GraphStrategy($Class* clazz) {
-	return $of($alloc(Infer$GraphStrategy));
-}
-
 $Class* Infer$GraphStrategy::load$($String* name, bool initialize) {
-	$loadClass(Infer$GraphStrategy, name, initialize, &_Infer$GraphStrategy_ClassInfo_, allocate$Infer$GraphStrategy);
+	$MethodInfo methodInfos$$[] = {
+		{"done", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Infer$GraphStrategy, done, bool)},
+		{"pickNode", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph;)Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Infer$GraphStrategy, pickNode, $Infer$GraphSolver$InferenceGraph$Node*, $Infer$GraphSolver$InferenceGraph*), "com.sun.tools.javac.comp.Infer$GraphStrategy$NodeNotFoundException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Infer$GraphStrategy", "com.sun.tools.javac.comp.Infer", "GraphStrategy", $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.comp.Infer$GraphStrategy$NodeNotFoundException", "com.sun.tools.javac.comp.Infer$GraphStrategy", "NodeNotFoundException", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.comp.Infer$GraphStrategy",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Infer"
+	};
+	$loadClass(Infer$GraphStrategy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Infer$GraphStrategy);
+	});
 	return class$;
 }
 

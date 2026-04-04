@@ -41,6 +41,7 @@ class $export GetUpToDateData : public ::java::lang::Object {
 	$class(GetUpToDateData, 0, ::java::lang::Object)
 public:
 	GetUpToDateData();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void lambda$main$1();
 	static void lambda$main$2();

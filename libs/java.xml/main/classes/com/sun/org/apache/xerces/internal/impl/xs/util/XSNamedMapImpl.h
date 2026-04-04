@@ -74,6 +74,7 @@ public:
 	virtual int32_t hashCode() override;
 	virtual bool isEmpty() override;
 	virtual ::java::util::Set* keySet() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* namespace$, ::com::sun::org::apache::xerces::internal::util::SymbolHash* map);
 	void init$($StringArray* namespaces, $Array<::com::sun::org::apache::xerces::internal::util::SymbolHash>* maps, int32_t num);
 	void init$($Array<::com::sun::org::apache::xerces::internal::xs::XSObject>* array, int32_t length);

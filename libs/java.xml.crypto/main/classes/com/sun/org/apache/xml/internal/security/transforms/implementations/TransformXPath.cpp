@@ -1,6 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/transforms/implementations/TransformXPath.h>
-
-#include <com/sun/org/apache/xml/internal/security/signature/NodeFilter.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureInput.h>
 #include <com/sun/org/apache/xml/internal/security/transforms/TransformSpi.h>
 #include <com/sun/org/apache/xml/internal/security/transforms/TransformationException.h>
@@ -20,7 +18,6 @@
 #undef TRANSFORM_XPATH
 #undef _TAG_XPATH
 
-using $NodeFilter = ::com::sun::org::apache::xml::internal::security::signature::NodeFilter;
 using $XMLSignatureInput = ::com::sun::org::apache::xml::internal::security::signature::XMLSignatureInput;
 using $TransformSpi = ::com::sun::org::apache::xml::internal::security::transforms::TransformSpi;
 using $TransformationException = ::com::sun::org::apache::xml::internal::security::transforms::TransformationException;
@@ -32,7 +29,6 @@ using $XPathAPI = ::com::sun::org::apache::xml::internal::security::utils::XPath
 using $XPathFactory = ::com::sun::org::apache::xml::internal::security::utils::XPathFactory;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DOMException = ::org::w3c::dom::DOMException;
@@ -49,39 +45,6 @@ namespace com {
 							namespace transforms {
 								namespace implementations {
 
-$MethodInfo _TransformXPath_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TransformXPath, init$, void)},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(TransformXPath, engineGetURI, $String*)},
-	{"enginePerformTransform", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;Lorg/w3c/dom/Element;Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PROTECTED, $virtualMethod(TransformXPath, enginePerformTransform, $XMLSignatureInput*, $XMLSignatureInput*, $OutputStream*, $Element*, $String*, bool), "com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
-	{"getXPathFactory", "()Lcom/sun/org/apache/xml/internal/security/utils/XPathFactory;", nullptr, $PROTECTED, $virtualMethod(TransformXPath, getXPathFactory, $XPathFactory*)},
-	{"needsCircumvent", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(TransformXPath, needsCircumvent, bool, $String*)},
-	{}
-};
-
-$InnerClassInfo _TransformXPath_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformXPath$XPathNodeFilter", "com.sun.org.apache.xml.internal.security.transforms.implementations.TransformXPath", "XPathNodeFilter", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _TransformXPath_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformXPath",
-	"com.sun.org.apache.xml.internal.security.transforms.TransformSpi",
-	nullptr,
-	nullptr,
-	_TransformXPath_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TransformXPath_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformXPath$XPathNodeFilter"
-};
-
-$Object* allocate$TransformXPath($Class* clazz) {
-	return $of($alloc(TransformXPath));
-}
-
 void TransformXPath::init$() {
 	$TransformSpi::init$();
 }
@@ -92,14 +55,14 @@ $String* TransformXPath::engineGetURI() {
 }
 
 $XMLSignatureInput* TransformXPath::enginePerformTransform($XMLSignatureInput* input, $OutputStream* os, $Element* transformElement, $String* baseURI, bool secureValidation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($Constants);
 		$var($Element, xpathElement, $XMLUtils::selectDsNode($($nc(transformElement)->getFirstChild()), $Constants::_TAG_XPATH, 0));
 		if (xpathElement == nullptr) {
 			$var($ObjectArray, exArgs, $new($ObjectArray, {
-				$of("ds:XPath"_s),
-				$of("Transform"_s)
+				"ds:XPath"_s,
+				"Transform"_s
 			}));
 			$throwNew($TransformationException, "xml.WrongContent"_s, exArgs);
 		}
@@ -115,7 +78,7 @@ $XMLSignatureInput* TransformXPath::enginePerformTransform($XMLSignatureInput* i
 		input->setNodeSet(true);
 		return input;
 	} catch ($DOMException& ex) {
-		$throwNew($TransformationException, static_cast<$Exception*>(ex));
+		$throwNew($TransformationException, ex);
 	}
 	$shouldNotReachHere();
 }
@@ -126,14 +89,42 @@ $XPathFactory* TransformXPath::getXPathFactory() {
 
 bool TransformXPath::needsCircumvent($String* str) {
 	bool var$0 = $nc(str)->indexOf("namespace"_s) != -1;
-	return var$0 || $nc(str)->indexOf("name()"_s) != -1;
+	return var$0 || str->indexOf("name()"_s) != -1;
 }
 
 TransformXPath::TransformXPath() {
 }
 
 $Class* TransformXPath::load$($String* name, bool initialize) {
-	$loadClass(TransformXPath, name, initialize, &_TransformXPath_ClassInfo_, allocate$TransformXPath);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TransformXPath, init$, void)},
+		{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(TransformXPath, engineGetURI, $String*)},
+		{"enginePerformTransform", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;Lorg/w3c/dom/Element;Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PROTECTED, $virtualMethod(TransformXPath, enginePerformTransform, $XMLSignatureInput*, $XMLSignatureInput*, $OutputStream*, $Element*, $String*, bool), "com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
+		{"getXPathFactory", "()Lcom/sun/org/apache/xml/internal/security/utils/XPathFactory;", nullptr, $PROTECTED, $virtualMethod(TransformXPath, getXPathFactory, $XPathFactory*)},
+		{"needsCircumvent", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(TransformXPath, needsCircumvent, bool, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformXPath$XPathNodeFilter", "com.sun.org.apache.xml.internal.security.transforms.implementations.TransformXPath", "XPathNodeFilter", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformXPath",
+		"com.sun.org.apache.xml.internal.security.transforms.TransformSpi",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformXPath$XPathNodeFilter"
+	};
+	$loadClass(TransformXPath, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransformXPath);
+	});
 	return class$;
 }
 

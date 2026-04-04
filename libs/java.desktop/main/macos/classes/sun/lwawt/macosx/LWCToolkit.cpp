@@ -1,8 +1,6 @@
 #include <sun/lwawt/macosx/LWCToolkit.h>
-
 #include <com/apple/laf/AquaMenuBarUI.h>
 #include <java/awt/AWTError.h>
-#include <java/awt/AWTEvent.h>
 #include <java/awt/CheckboxMenuItem.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -186,7 +184,6 @@
 
 using $AquaMenuBarUI = ::com::apple::laf::AquaMenuBarUI;
 using $AWTError = ::java::awt::AWTError;
-using $AWTEvent = ::java::awt::AWTEvent;
 using $CheckboxMenuItem = ::java::awt::CheckboxMenuItem;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
@@ -242,7 +239,6 @@ using $RobotPeer = ::java::awt::peer::RobotPeer;
 using $SystemTrayPeer = ::java::awt::peer::SystemTrayPeer;
 using $TaskbarPeer = ::java::awt::peer::TaskbarPeer;
 using $TrayIconPeer = ::java::awt::peer::TrayIconPeer;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
@@ -276,8 +272,6 @@ using $ResourceBundle = ::java::util::ResourceBundle;
 using $Callable = ::java::util::concurrent::Callable;
 using $UIManager = ::javax::swing::UIManager;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$SystemColorAccessor = ::sun::awt::AWTAccessor$SystemColorAccessor;
-using $AWTAccessor$ToolkitAccessor = ::sun::awt::AWTAccessor$ToolkitAccessor;
 using $AppContext = ::sun::awt::AppContext;
 using $CGraphicsDevice = ::sun::awt::CGraphicsDevice;
 using $LightweightFrame = ::sun::awt::LightweightFrame;
@@ -308,7 +302,6 @@ using $CDropTarget = ::sun::lwawt::macosx::CDropTarget;
 using $CEmbeddedFrame = ::sun::lwawt::macosx::CEmbeddedFrame;
 using $CFileDialog = ::sun::lwawt::macosx::CFileDialog;
 using $CImage = ::sun::lwawt::macosx::CImage;
-using $CImage$Creator = ::sun::lwawt::macosx::CImage$Creator;
 using $CInputMethod = ::sun::lwawt::macosx::CInputMethod;
 using $CInputMethodDescriptor = ::sun::lwawt::macosx::CInputMethodDescriptor;
 using $CMenu = ::sun::lwawt::macosx::CMenu;
@@ -348,29 +341,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(LWCToolkit::lambda$new$0());
+		 return LWCToolkit::lambda$new$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LWCToolkit$$Lambda$lambda$new$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo LWCToolkit$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LWCToolkit$$Lambda$lambda$new$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit$$Lambda$lambda$new$0, run, $Object*)},
-	{}
-};
-$ClassInfo LWCToolkit$$Lambda$lambda$new$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.macosx.LWCToolkit$$Lambda$lambda$new$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* LWCToolkit$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
-	$loadClass(LWCToolkit$$Lambda$lambda$new$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LWCToolkit$$Lambda$lambda$new$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit$$Lambda$lambda$new$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.macosx.LWCToolkit$$Lambda$lambda$new$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LWCToolkit$$Lambda$lambda$new$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LWCToolkit$$Lambda$lambda$new$0);
+	});
 	return class$;
 }
 $Class* LWCToolkit$$Lambda$lambda$new$0::class$ = nullptr;
@@ -383,27 +373,24 @@ public:
 	virtual void run() override {
 		LWCToolkit::lambda$systemColorsChanged$2();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LWCToolkit$$Lambda$lambda$systemColorsChanged$2$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo LWCToolkit$$Lambda$lambda$systemColorsChanged$2$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LWCToolkit$$Lambda$lambda$systemColorsChanged$2$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LWCToolkit$$Lambda$lambda$systemColorsChanged$2$1, run, void)},
-	{}
-};
-$ClassInfo LWCToolkit$$Lambda$lambda$systemColorsChanged$2$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.macosx.LWCToolkit$$Lambda$lambda$systemColorsChanged$2$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* LWCToolkit$$Lambda$lambda$systemColorsChanged$2$1::load$($String* name, bool initialize) {
-	$loadClass(LWCToolkit$$Lambda$lambda$systemColorsChanged$2$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LWCToolkit$$Lambda$lambda$systemColorsChanged$2$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LWCToolkit$$Lambda$lambda$systemColorsChanged$2$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.macosx.LWCToolkit$$Lambda$lambda$systemColorsChanged$2$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LWCToolkit$$Lambda$lambda$systemColorsChanged$2$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LWCToolkit$$Lambda$lambda$systemColorsChanged$2$1);
+	});
 	return class$;
 }
 $Class* LWCToolkit$$Lambda$lambda$systemColorsChanged$2$1::class$ = nullptr;
@@ -414,29 +401,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(LWCToolkit::lambda$installToolkitThreadInJava$3());
+		 return LWCToolkit::lambda$installToolkitThreadInJava$3();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LWCToolkit$$Lambda$lambda$installToolkitThreadInJava$3$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo LWCToolkit$$Lambda$lambda$installToolkitThreadInJava$3$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LWCToolkit$$Lambda$lambda$installToolkitThreadInJava$3$2, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit$$Lambda$lambda$installToolkitThreadInJava$3$2, run, $Object*)},
-	{}
-};
-$ClassInfo LWCToolkit$$Lambda$lambda$installToolkitThreadInJava$3$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.macosx.LWCToolkit$$Lambda$lambda$installToolkitThreadInJava$3$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* LWCToolkit$$Lambda$lambda$installToolkitThreadInJava$3$2::load$($String* name, bool initialize) {
-	$loadClass(LWCToolkit$$Lambda$lambda$installToolkitThreadInJava$3$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LWCToolkit$$Lambda$lambda$installToolkitThreadInJava$3$2, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit$$Lambda$lambda$installToolkitThreadInJava$3$2, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.macosx.LWCToolkit$$Lambda$lambda$installToolkitThreadInJava$3$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LWCToolkit$$Lambda$lambda$installToolkitThreadInJava$3$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LWCToolkit$$Lambda$lambda$installToolkitThreadInJava$3$2);
+	});
 	return class$;
 }
 $Class* LWCToolkit$$Lambda$lambda$installToolkitThreadInJava$3$2::class$ = nullptr;
@@ -450,33 +434,29 @@ public:
 	virtual void run() override {
 		LWCToolkit::lambda$invokeAndWait$4(mediator);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LWCToolkit$$Lambda$lambda$invokeAndWait$4$3>());
-	}
 	int64_t mediator = 0;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LWCToolkit$$Lambda$lambda$invokeAndWait$4$3::fieldInfos[2] = {
-	{"mediator", "J", nullptr, $PUBLIC, $field(LWCToolkit$$Lambda$lambda$invokeAndWait$4$3, mediator)},
-	{}
-};
-$MethodInfo LWCToolkit$$Lambda$lambda$invokeAndWait$4$3::methodInfos[3] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(LWCToolkit$$Lambda$lambda$invokeAndWait$4$3, init$, void, int64_t)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LWCToolkit$$Lambda$lambda$invokeAndWait$4$3, run, void)},
-	{}
-};
-$ClassInfo LWCToolkit$$Lambda$lambda$invokeAndWait$4$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.macosx.LWCToolkit$$Lambda$lambda$invokeAndWait$4$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* LWCToolkit$$Lambda$lambda$invokeAndWait$4$3::load$($String* name, bool initialize) {
-	$loadClass(LWCToolkit$$Lambda$lambda$invokeAndWait$4$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"mediator", "J", nullptr, $PUBLIC, $field(LWCToolkit$$Lambda$lambda$invokeAndWait$4$3, mediator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(LWCToolkit$$Lambda$lambda$invokeAndWait$4$3, init$, void, int64_t)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LWCToolkit$$Lambda$lambda$invokeAndWait$4$3, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.macosx.LWCToolkit$$Lambda$lambda$invokeAndWait$4$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LWCToolkit$$Lambda$lambda$invokeAndWait$4$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LWCToolkit$$Lambda$lambda$invokeAndWait$4$3);
+	});
 	return class$;
 }
 $Class* LWCToolkit$$Lambda$lambda$invokeAndWait$4$3::class$ = nullptr;
@@ -489,207 +469,27 @@ public:
 	virtual $Object* run() override {
 		 return LWCToolkit::lambda$systemColorsChanged$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LWCToolkit$$Lambda$lambda$systemColorsChanged$1$4>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo LWCToolkit$$Lambda$lambda$systemColorsChanged$1$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LWCToolkit$$Lambda$lambda$systemColorsChanged$1$4, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit$$Lambda$lambda$systemColorsChanged$1$4, run, $Object*)},
-	{}
-};
-$ClassInfo LWCToolkit$$Lambda$lambda$systemColorsChanged$1$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.macosx.LWCToolkit$$Lambda$lambda$systemColorsChanged$1$4",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* LWCToolkit$$Lambda$lambda$systemColorsChanged$1$4::load$($String* name, bool initialize) {
-	$loadClass(LWCToolkit$$Lambda$lambda$systemColorsChanged$1$4, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LWCToolkit$$Lambda$lambda$systemColorsChanged$1$4, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit$$Lambda$lambda$systemColorsChanged$1$4, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.macosx.LWCToolkit$$Lambda$lambda$systemColorsChanged$1$4",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LWCToolkit$$Lambda$lambda$systemColorsChanged$1$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LWCToolkit$$Lambda$lambda$systemColorsChanged$1$4);
+	});
 	return class$;
 }
 $Class* LWCToolkit$$Lambda$lambda$systemColorsChanged$1$4::class$ = nullptr;
-
-$NamedAttribute LWCToolkit_Attribute_var$0[] = {
-	{"since", 's', "10"},
-	{}
-};
-
-$CompoundAttribute _LWCToolkit_MethodAnnotations_getMenuShortcutKeyMask49[] = {
-	{"Ljava/lang/Deprecated;", LWCToolkit_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _LWCToolkit_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LWCToolkit, $assertionsDisabled)},
-	{"BUTTONS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LWCToolkit, BUTTONS)},
-	{"sInputMethodDescriptor", "Lsun/lwawt/macosx/CInputMethodDescriptor;", nullptr, $PRIVATE | $STATIC, $staticField(LWCToolkit, sInputMethodDescriptor)},
-	{"inAWT", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LWCToolkit, inAWT)},
-	{"NUM_APPLE_COLORS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LWCToolkit, NUM_APPLE_COLORS)},
-	{"KEYBOARD_FOCUS_COLOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LWCToolkit, KEYBOARD_FOCUS_COLOR)},
-	{"INACTIVE_SELECTION_BACKGROUND_COLOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LWCToolkit, INACTIVE_SELECTION_BACKGROUND_COLOR)},
-	{"INACTIVE_SELECTION_FOREGROUND_COLOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LWCToolkit, INACTIVE_SELECTION_FOREGROUND_COLOR)},
-	{"SELECTED_CONTROL_TEXT_COLOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LWCToolkit, SELECTED_CONTROL_TEXT_COLOR)},
-	{"appleColors", "[I", nullptr, $PRIVATE | $STATIC, $staticField(LWCToolkit, appleColors)},
-	{"areExtraMouseButtonsEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(LWCToolkit, areExtraMouseButtonsEnabled$)},
-	{"APPKIT_THREAD_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LWCToolkit, APPKIT_THREAD_NAME)},
-	{"nsImagePrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LWCToolkit, nsImagePrefix)},
-	{}
-};
-
-$MethodInfo _LWCToolkit_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LWCToolkit, init$, void)},
-	{"activateApplicationIgnoringOtherApps", "()V", nullptr, $PUBLIC | $NATIVE, $method(LWCToolkit, activateApplicationIgnoringOtherApps, void)},
-	{"areExtraMouseButtonsEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, areExtraMouseButtonsEnabled, bool), "java.awt.HeadlessException"},
-	{"beep", "()V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(LWCToolkit, beep, void)},
-	{"canPopupOverlapTaskBar", "()Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, canPopupOverlapTaskBar, bool)},
-	{"checkException", "(Ljava/awt/event/InvocationEvent;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LWCToolkit, checkException, void, $InvocationEvent*), "java.lang.reflect.InvocationTargetException"},
-	{"checkForNSImage", "(Ljava/lang/String;)Ljava/awt/Image;", nullptr, $PRIVATE, $method(LWCToolkit, checkForNSImage, $Image*, $String*)},
-	{"createAWTRunLoopMediator", "()J", nullptr, $STATIC | $NATIVE, $staticMethod(LWCToolkit, createAWTRunLoopMediator, int64_t)},
-	{"createCPrinterDialog", "(Lsun/lwawt/macosx/CPrinterDialog;)Lsun/lwawt/macosx/CPrinterDialogPeer;", nullptr, $PRIVATE, $method(LWCToolkit, createCPrinterDialog, $CPrinterDialogPeer*, $CPrinterDialog*)},
-	{"createCheckboxMenuItem", "(Ljava/awt/CheckboxMenuItem;)Ljava/awt/peer/CheckboxMenuItemPeer;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, createCheckboxMenuItem, $CheckboxMenuItemPeer*, $CheckboxMenuItem*)},
-	{"createCustomCursor", "(Ljava/awt/Image;Ljava/awt/Point;Ljava/lang/String;)Ljava/awt/Cursor;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, createCustomCursor, $Cursor*, $Image*, $Point*, $String*), "java.lang.IndexOutOfBoundsException,java.awt.HeadlessException"},
-	{"createDesktopPeer", "(Ljava/awt/Desktop;)Ljava/awt/peer/DesktopPeer;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, createDesktopPeer, $DesktopPeer*, $Desktop*)},
-	{"createDialog", "(Ljava/awt/Dialog;)Ljava/awt/peer/DialogPeer;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, createDialog, $DialogPeer*, $Dialog*)},
-	{"createDragGestureRecognizer", "(Ljava/lang/Class;Ljava/awt/dnd/DragSource;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)Ljava/awt/dnd/DragGestureRecognizer;", "<T:Ljava/awt/dnd/DragGestureRecognizer;>(Ljava/lang/Class<TT;>;Ljava/awt/dnd/DragSource;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)TT;", $PUBLIC, $virtualMethod(LWCToolkit, createDragGestureRecognizer, $DragGestureRecognizer*, $Class*, $DragSource*, $Component*, int32_t, $DragGestureListener*)},
-	{"createDragSourceContextPeer", "(Ljava/awt/dnd/DragGestureEvent;)Ljava/awt/dnd/peer/DragSourceContextPeer;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, createDragSourceContextPeer, $DragSourceContextPeer*, $DragGestureEvent*), "java.awt.dnd.InvalidDnDOperationException"},
-	{"createDropTarget", "(Ljava/awt/dnd/DropTarget;Ljava/awt/Component;Lsun/lwawt/LWComponentPeer;)Lsun/lwawt/PlatformDropTarget;", "(Ljava/awt/dnd/DropTarget;Ljava/awt/Component;Lsun/lwawt/LWComponentPeer<**>;)Lsun/lwawt/PlatformDropTarget;", $PROTECTED, $virtualMethod(LWCToolkit, createDropTarget, $PlatformDropTarget*, $DropTarget*, $Component*, $LWComponentPeer*)},
-	{"createEmbeddedFrame", "(Lsun/lwawt/macosx/CEmbeddedFrame;)Lsun/lwawt/LWWindowPeer;", nullptr, 0, $method(LWCToolkit, createEmbeddedFrame, $LWWindowPeer*, $CEmbeddedFrame*)},
-	{"createEmbeddedFrame", "(Lsun/lwawt/macosx/CViewEmbeddedFrame;)Lsun/lwawt/LWWindowPeer;", nullptr, 0, $method(LWCToolkit, createEmbeddedFrame, $LWWindowPeer*, $CViewEmbeddedFrame*)},
-	{"createFileDialogPeer", "(Ljava/awt/FileDialog;)Ljava/awt/peer/FileDialogPeer;", nullptr, $PROTECTED, $virtualMethod(LWCToolkit, createFileDialogPeer, $FileDialogPeer*, $FileDialog*)},
-	{"createLwPlatformComponent", "()Lsun/lwawt/PlatformComponent;", nullptr, $PROTECTED, $virtualMethod(LWCToolkit, createLwPlatformComponent, $PlatformComponent*)},
-	{"createMenu", "(Ljava/awt/Menu;)Ljava/awt/peer/MenuPeer;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, createMenu, $MenuPeer*, $Menu*)},
-	{"createMenuBar", "(Ljava/awt/MenuBar;)Ljava/awt/peer/MenuBarPeer;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, createMenuBar, $MenuBarPeer*, $MenuBar*)},
-	{"createMenuItem", "(Ljava/awt/MenuItem;)Ljava/awt/peer/MenuItemPeer;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, createMenuItem, $MenuItemPeer*, $MenuItem*)},
-	{"createPlatformClipboard", "()Ljava/awt/datatransfer/Clipboard;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, createPlatformClipboard, $Clipboard*)},
-	{"createPlatformComponent", "()Lsun/lwawt/PlatformComponent;", nullptr, $PROTECTED, $virtualMethod(LWCToolkit, createPlatformComponent, $PlatformComponent*)},
-	{"createPlatformWindow", "(Lsun/lwawt/LWWindowPeer$PeerType;)Lsun/lwawt/PlatformWindow;", nullptr, $PROTECTED, $virtualMethod(LWCToolkit, createPlatformWindow, $PlatformWindow*, $LWWindowPeer$PeerType*)},
-	{"createPopupMenu", "(Ljava/awt/PopupMenu;)Ljava/awt/peer/PopupMenuPeer;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, createPopupMenu, $PopupMenuPeer*, $PopupMenu*)},
-	{"createRobot", "(Ljava/awt/GraphicsDevice;)Ljava/awt/peer/RobotPeer;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, createRobot, $RobotPeer*, $GraphicsDevice*), "java.awt.AWTException"},
-	{"createSecurityWarning", "(Ljava/awt/Window;Lsun/lwawt/LWWindowPeer;)Lsun/lwawt/SecurityWarningWindow;", nullptr, $PROTECTED, $virtualMethod(LWCToolkit, createSecurityWarning, $SecurityWarningWindow*, $Window*, $LWWindowPeer*)},
-	{"createSystemTray", "(Ljava/awt/SystemTray;)Ljava/awt/peer/SystemTrayPeer;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, createSystemTray, $SystemTrayPeer*, $SystemTray*)},
-	{"createTaskbarPeer", "(Ljava/awt/Taskbar;)Ljava/awt/peer/TaskbarPeer;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, createTaskbarPeer, $TaskbarPeer*, $Taskbar*)},
-	{"createTrayIcon", "(Ljava/awt/TrayIcon;)Ljava/awt/peer/TrayIconPeer;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, createTrayIcon, $TrayIconPeer*, $TrayIcon*)},
-	{"doAWTRunLoop", "(JZ)V", nullptr, $STATIC, $staticMethod(LWCToolkit, doAWTRunLoop, void, int64_t, bool)},
-	{"doAWTRunLoopImpl", "(JZZ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LWCToolkit, doAWTRunLoopImpl, void, int64_t, bool, bool)},
-	{"doEquals", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/awt/Component;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LWCToolkit, doEquals, bool, Object$*, Object$*, $Component*)},
-	{"enableInputMethodsForTextComponent", "()Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, enableInputMethodsForTextComponent, bool)},
-	{"flushNativeSelectors", "()V", nullptr, $STATIC | $NATIVE, $staticMethod(LWCToolkit, flushNativeSelectors, void)},
-	{"getAppleColor", "(I)Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC, $staticMethod(LWCToolkit, getAppleColor, $Color*, int32_t)},
-	{"getBestCursorSize", "(II)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, getBestCursorSize, $Dimension*, int32_t, int32_t), "java.awt.HeadlessException"},
-	{"getCursorManager", "()Lsun/lwawt/LWCursorManager;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, getCursorManager, $LWCursorManager*)},
-	{"getDataTransferer", "()Lsun/awt/datatransfer/DataTransferer;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, getDataTransferer, $DataTransferer*)},
-	{"getDefaultKeyboardLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, getDefaultKeyboardLocale, $Locale*)},
-	{"getFocusAcceleratorKeyMask", "()I", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, getFocusAcceleratorKeyMask, int32_t)},
-	{"getFontPeer", "(Ljava/lang/String;I)Ljava/awt/peer/FontPeer;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, getFontPeer, $FontPeer*, $String*, int32_t)},
-	{"getImage", "(Ljava/lang/String;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, getImage, $Image*, $String*)},
-	{"getImage", "(Ljava/net/URL;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, getImage, $Image*, $URL*)},
-	{"getInputMethodAdapterDescriptor", "()Ljava/awt/im/spi/InputMethodDescriptor;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, getInputMethodAdapterDescriptor, $InputMethodDescriptor*)},
-	{"getLWCToolkit", "()Lsun/lwawt/macosx/LWCToolkit;", nullptr, $PUBLIC | $STATIC, $staticMethod(LWCToolkit, getLWCToolkit, LWCToolkit*)},
-	{"getLockingKeyState", "(I)Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, getLockingKeyState, bool, int32_t), "java.lang.UnsupportedOperationException"},
-	{"getMenuShortcutKeyMask", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(LWCToolkit, getMenuShortcutKeyMask, int32_t), nullptr, nullptr, _LWCToolkit_MethodAnnotations_getMenuShortcutKeyMask49},
-	{"getMenuShortcutKeyMaskEx", "()I", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, getMenuShortcutKeyMaskEx, int32_t)},
-	{"getMultiClickTime", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LWCToolkit, getMultiClickTime, int32_t)},
-	{"getNumberOfButtons", "()I", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, getNumberOfButtons, int32_t)},
-	{"getPlatformWindowUnderMouse", "()Lsun/lwawt/PlatformWindow;", nullptr, $PROTECTED, $virtualMethod(LWCToolkit, getPlatformWindowUnderMouse, $PlatformWindow*)},
-	{"getScaledImageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LWCToolkit, getScaledImageName, $String*, $String*)},
-	{"getScaledImageURL", "(Ljava/net/URL;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(LWCToolkit, getScaledImageURL, $URL*, $URL*)},
-	{"getScreenInsets", "(Ljava/awt/GraphicsConfiguration;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, getScreenInsets, $Insets*, $GraphicsConfiguration*)},
-	{"getScreenResolution", "()I", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, getScreenResolution, int32_t), "java.awt.HeadlessException"},
-	{"initAppkit", "(Ljava/lang/ThreadGroup;Z)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LWCToolkit, initAppkit, void, $ThreadGroup*, bool)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LWCToolkit, initIDs, void)},
-	{"initializeDesktopProperties", "()V", nullptr, $PROTECTED, $virtualMethod(LWCToolkit, initializeDesktopProperties, void)},
-	{"installToolkitThreadInJava", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(LWCToolkit, installToolkitThreadInJava, void)},
-	{"invokeAndWait", "(Ljava/util/concurrent/Callable;Ljava/awt/Component;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TT;>;Ljava/awt/Component;)TT;", $PUBLIC | $STATIC, $staticMethod(LWCToolkit, invokeAndWait, $Object*, $Callable*, $Component*), "java.lang.Exception"},
-	{"invokeAndWait", "(Ljava/lang/Runnable;Ljava/awt/Component;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LWCToolkit, invokeAndWait, void, $Runnable*, $Component*), "java.lang.reflect.InvocationTargetException"},
-	{"invokeLater", "(Ljava/lang/Runnable;Ljava/awt/Component;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LWCToolkit, invokeLater, void, $Runnable*, $Component*), "java.lang.reflect.InvocationTargetException"},
-	{"isAlwaysOnTopSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, isAlwaysOnTopSupported, bool)},
-	{"isApplicationActive", "()Z", nullptr, $NATIVE, $method(LWCToolkit, isApplicationActive, bool)},
-	{"isCapsLockOn", "()Z", nullptr, $PRIVATE | $NATIVE, $method(LWCToolkit, isCapsLockOn, bool)},
-	{"isCharModifierKeyInUSInternationalPC", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LWCToolkit, isCharModifierKeyInUSInternationalPC, bool, char16_t)},
-	{"isEmbedded", "()Z", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(LWCToolkit, isEmbedded, bool)},
-	{"isFrameStateSupported", "(I)Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, isFrameStateSupported, bool, int32_t), "java.awt.HeadlessException"},
-	{"isLocaleUSInternationalPC", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LWCToolkit, isLocaleUSInternationalPC, bool, $Locale*)},
-	{"isModalExclusionTypeSupported", "(Ljava/awt/Dialog$ModalExclusionType;)Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, isModalExclusionTypeSupported, bool, $Dialog$ModalExclusionType*)},
-	{"isModalityTypeSupported", "(Ljava/awt/Dialog$ModalityType;)Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, isModalityTypeSupported, bool, $Dialog$ModalityType*)},
-	{"isPrintableCharacterModifiersMask", "(I)Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, isPrintableCharacterModifiersMask, bool, int32_t)},
-	{"isSwingBackbufferTranslucencySupported", "()Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, isSwingBackbufferTranslucencySupported, bool)},
-	{"isTranslucencyCapable", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, isTranslucencyCapable, bool, $GraphicsConfiguration*)},
-	{"isTraySupported", "()Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, isTraySupported, bool)},
-	{"isValidPath", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(LWCToolkit, isValidPath, bool, $String*)},
-	{"isWindowOpacitySupported", "()Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, isWindowOpacitySupported, bool)},
-	{"isWindowShapingSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, isWindowShapingSupported, bool)},
-	{"isWindowTranslucencySupported", "()Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, isWindowTranslucencySupported, bool)},
-	{"lambda$installToolkitThreadInJava$3", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LWCToolkit, lambda$installToolkitThreadInJava$3, $Void*)},
-	{"lambda$invokeAndWait$4", "(J)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LWCToolkit, lambda$invokeAndWait$4, void, int64_t)},
-	{"lambda$new$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LWCToolkit, lambda$new$0, $Void*)},
-	{"lambda$systemColorsChanged$1", "()Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LWCToolkit, lambda$systemColorsChanged$1, $Object*)},
-	{"lambda$systemColorsChanged$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LWCToolkit, lambda$systemColorsChanged$2, void)},
-	{"loadNativeColors", "([I[I)V", nullptr, $PRIVATE | $NATIVE, $method(LWCToolkit, loadNativeColors, void, $ints*, $ints*)},
-	{"loadSystemColors", "([I)V", nullptr, $PROTECTED, $virtualMethod(LWCToolkit, loadSystemColors, void, $ints*)},
-	{"mapInputMethodHighlight", "(Ljava/awt/im/InputMethodHighlight;)Ljava/util/Map;", "(Ljava/awt/im/InputMethodHighlight;)Ljava/util/Map<Ljava/awt/font/TextAttribute;*>;", $PUBLIC, $virtualMethod(LWCToolkit, mapInputMethodHighlight, $Map*, $InputMethodHighlight*)},
-	{"nativeSyncQueue", "(J)Z", nullptr, $PRIVATE | $NATIVE, $method(LWCToolkit, nativeSyncQueue, bool, int64_t)},
-	{"performOnMainThreadAfterDelay", "(Ljava/lang/Runnable;J)V", nullptr, $STATIC | $NATIVE, $staticMethod(LWCToolkit, performOnMainThreadAfterDelay, void, $Runnable*, int64_t)},
-	{"platformCleanup", "()V", nullptr, $PROTECTED, $virtualMethod(LWCToolkit, platformCleanup, void)},
-	{"platformInit", "()V", nullptr, $PROTECTED, $virtualMethod(LWCToolkit, platformInit, void)},
-	{"platformRunMessage", "()V", nullptr, $PROTECTED, $virtualMethod(LWCToolkit, platformRunMessage, void)},
-	{"platformShutdown", "()V", nullptr, $PROTECTED, $virtualMethod(LWCToolkit, platformShutdown, void)},
-	{"stopAWTRunLoop", "(J)V", nullptr, $STATIC | $NATIVE, $staticMethod(LWCToolkit, stopAWTRunLoop, void, int64_t)},
-	{"sync", "()V", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, sync, void)},
-	{"syncNativeQueue", "(J)Z", nullptr, $PROTECTED, $virtualMethod(LWCToolkit, syncNativeQueue, bool, int64_t)},
-	{"systemColorsChanged", "()V", nullptr, $STATIC, $staticMethod(LWCToolkit, systemColorsChanged, void)},
-	{"updateScreenMenuBarUI", "()V", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, updateScreenMenuBarUI, void)},
-	{}
-};
-
-#define _METHOD_INDEX_activateApplicationIgnoringOtherApps 1
-#define _METHOD_INDEX_beep 3
-#define _METHOD_INDEX_createAWTRunLoopMediator 7
-#define _METHOD_INDEX_doAWTRunLoopImpl 33
-#define _METHOD_INDEX_flushNativeSelectors 36
-#define _METHOD_INDEX_getMultiClickTime 51
-#define _METHOD_INDEX_initAppkit 58
-#define _METHOD_INDEX_initIDs 59
-#define _METHOD_INDEX_isApplicationActive 66
-#define _METHOD_INDEX_isCapsLockOn 67
-#define _METHOD_INDEX_isEmbedded 69
-#define _METHOD_INDEX_loadNativeColors 87
-#define _METHOD_INDEX_nativeSyncQueue 90
-#define _METHOD_INDEX_performOnMainThreadAfterDelay 91
-#define _METHOD_INDEX_stopAWTRunLoop 96
-
-$InnerClassInfo _LWCToolkit_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.LWCToolkit$CallableWrapper", "sun.lwawt.macosx.LWCToolkit", "CallableWrapper", $STATIC | $FINAL},
-	{"sun.lwawt.macosx.LWCToolkit$OSXPlatformFont", "sun.lwawt.macosx.LWCToolkit", "OSXPlatformFont", 0},
-	{"sun.lwawt.macosx.LWCToolkit$AppleSpecificColor", "sun.lwawt.macosx.LWCToolkit", "AppleSpecificColor", $PRIVATE | $STATIC},
-	{"sun.lwawt.macosx.LWCToolkit$3", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.LWCToolkit$2", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.LWCToolkit$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LWCToolkit_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.lwawt.macosx.LWCToolkit",
-	"sun.lwawt.LWToolkit",
-	nullptr,
-	_LWCToolkit_FieldInfo_,
-	_LWCToolkit_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LWCToolkit_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.LWCToolkit$CallableWrapper,sun.lwawt.macosx.LWCToolkit$OSXPlatformFont,sun.lwawt.macosx.LWCToolkit$AppleSpecificColor,sun.lwawt.macosx.LWCToolkit$3,sun.lwawt.macosx.LWCToolkit$2,sun.lwawt.macosx.LWCToolkit$1"
-};
-
-$Object* allocate$LWCToolkit($Class* clazz) {
-	return $of($alloc(LWCToolkit));
-}
 
 bool LWCToolkit::$assertionsDisabled = false;
 $CInputMethodDescriptor* LWCToolkit::sInputMethodDescriptor = nullptr;
@@ -701,28 +501,28 @@ $String* LWCToolkit::nsImagePrefix = nullptr;
 
 void LWCToolkit::initIDs() {
 	$init(LWCToolkit);
-	$prepareNativeStatic(LWCToolkit, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void LWCToolkit::initAppkit($ThreadGroup* appKitThreadGroup, bool headless) {
 	$init(LWCToolkit);
-	$prepareNativeStatic(LWCToolkit, initAppkit, void, $ThreadGroup* appKitThreadGroup, bool headless);
+	$prepareNativeStatic(initAppkit, void, $ThreadGroup* appKitThreadGroup, bool headless);
 	$invokeNativeStatic(appKitThreadGroup, headless);
 	$finishNativeStatic();
 }
 
 void LWCToolkit::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$LWToolkit::init$();
 	$var($String, extraButtons, "sun.awt.enableExtraMouseButtons"_s);
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(LWCToolkit$$Lambda$lambda$new$0)));
+	$AccessController::doPrivileged($cast($PrivilegedAction, $$new(LWCToolkit$$Lambda$lambda$new$0)));
 }
 
 void LWCToolkit::loadNativeColors($ints* systemColors, $ints* appleColors) {
-	$prepareNative(LWCToolkit, loadNativeColors, void, $ints* systemColors, $ints* appleColors);
+	$prepareNative(loadNativeColors, void, $ints* systemColors, $ints* appleColors);
 	$invokeNative(systemColors, appleColors);
 	$finishNative();
 }
@@ -741,7 +541,7 @@ $Color* LWCToolkit::getAppleColor(int32_t color) {
 
 void LWCToolkit::systemColorsChanged() {
 	$init(LWCToolkit);
-	$EventQueue::invokeLater(static_cast<$Runnable*>($$new(LWCToolkit$$Lambda$lambda$systemColorsChanged$2$1)));
+	$EventQueue::invokeLater($$new(LWCToolkit$$Lambda$lambda$systemColorsChanged$2$1));
 }
 
 LWCToolkit* LWCToolkit::getLWCToolkit() {
@@ -753,24 +553,20 @@ $PlatformWindow* LWCToolkit::createPlatformWindow($LWWindowPeer$PeerType* peerTy
 	$init($LWWindowPeer$PeerType);
 	if (peerType == $LWWindowPeer$PeerType::EMBEDDED_FRAME) {
 		return $new($CPlatformEmbeddedFrame);
+	} else if (peerType == $LWWindowPeer$PeerType::VIEW_EMBEDDED_FRAME) {
+		return $new($CViewPlatformEmbeddedFrame);
+	} else if (peerType == $LWWindowPeer$PeerType::LW_FRAME) {
+		return $new($CPlatformLWWindow);
 	} else {
-		if (peerType == $LWWindowPeer$PeerType::VIEW_EMBEDDED_FRAME) {
-			return $new($CViewPlatformEmbeddedFrame);
-		} else {
-			if (peerType == $LWWindowPeer$PeerType::LW_FRAME) {
-				return $new($CPlatformLWWindow);
-			} else {
-				if (!LWCToolkit::$assertionsDisabled && !(peerType == $LWWindowPeer$PeerType::SIMPLEWINDOW || peerType == $LWWindowPeer$PeerType::DIALOG || peerType == $LWWindowPeer$PeerType::FRAME)) {
-					$throwNew($AssertionError);
-				}
-				return $new($CPlatformWindow);
-			}
+		if (!LWCToolkit::$assertionsDisabled && !(peerType == $LWWindowPeer$PeerType::SIMPLEWINDOW || peerType == $LWWindowPeer$PeerType::DIALOG || peerType == $LWWindowPeer$PeerType::FRAME)) {
+			$throwNew($AssertionError);
 		}
+		return $new($CPlatformWindow);
 	}
 }
 
 $LWWindowPeer* LWCToolkit::createEmbeddedFrame($CEmbeddedFrame* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PlatformComponent, platformComponent, createPlatformComponent());
 	$init($LWWindowPeer$PeerType);
 	$var($PlatformWindow, platformWindow, createPlatformWindow($LWWindowPeer$PeerType::EMBEDDED_FRAME));
@@ -778,7 +574,7 @@ $LWWindowPeer* LWCToolkit::createEmbeddedFrame($CEmbeddedFrame* target) {
 }
 
 $LWWindowPeer* LWCToolkit::createEmbeddedFrame($CViewEmbeddedFrame* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PlatformComponent, platformComponent, createPlatformComponent());
 	$init($LWWindowPeer$PeerType);
 	$var($PlatformWindow, platformWindow, createPlatformWindow($LWWindowPeer$PeerType::VIEW_EMBEDDED_FRAME));
@@ -786,7 +582,7 @@ $LWWindowPeer* LWCToolkit::createEmbeddedFrame($CViewEmbeddedFrame* target) {
 }
 
 $CPrinterDialogPeer* LWCToolkit::createCPrinterDialog($CPrinterDialog* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PlatformComponent, platformComponent, createPlatformComponent());
 	$init($LWWindowPeer$PeerType);
 	$var($PlatformWindow, platformWindow, createPlatformWindow($LWWindowPeer$PeerType::DIALOG));
@@ -895,26 +691,25 @@ $FontPeer* LWCToolkit::getFontPeer($String* name, int32_t style) {
 }
 
 void LWCToolkit::initializeDesktopProperties() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LWToolkit::initializeDesktopProperties();
 	$var($Map, fontHints, $new($HashMap));
 	$init($RenderingHints);
 	fontHints->put($RenderingHints::KEY_TEXT_ANTIALIASING, $RenderingHints::VALUE_TEXT_ANTIALIAS_LCD_HRGB);
 	$init($SunToolkit);
 	$nc(this->desktopProperties)->put($SunToolkit::DESKTOPFONTHINTS, fontHints);
-	$nc(this->desktopProperties)->put("awt.mouse.numButtons"_s, $($Integer::valueOf(LWCToolkit::BUTTONS)));
-	$nc(this->desktopProperties)->put("awt.multiClickInterval"_s, $($Integer::valueOf(getMultiClickTime())));
-	$nc(this->desktopProperties)->put("DnD.Autoscroll.initialDelay"_s, $($Integer::valueOf(50)));
-	$nc(this->desktopProperties)->put("DnD.Autoscroll.interval"_s, $($Integer::valueOf(50)));
-	$nc(this->desktopProperties)->put("DnD.Autoscroll.cursorHysteresis"_s, $($Integer::valueOf(5)));
-	$init($Boolean);
-	$nc(this->desktopProperties)->put("DnD.isDragImageSupported"_s, $Boolean::TRUE);
-	$nc(this->desktopProperties)->put("DnD.Cursor.CopyDrop"_s, $$new($NamedCursor, "DnD.Cursor.CopyDrop"_s));
-	$nc(this->desktopProperties)->put("DnD.Cursor.MoveDrop"_s, $$new($NamedCursor, "DnD.Cursor.MoveDrop"_s));
-	$nc(this->desktopProperties)->put("DnD.Cursor.LinkDrop"_s, $$new($NamedCursor, "DnD.Cursor.LinkDrop"_s));
-	$nc(this->desktopProperties)->put("DnD.Cursor.CopyNoDrop"_s, $$new($NamedCursor, "DnD.Cursor.CopyNoDrop"_s));
-	$nc(this->desktopProperties)->put("DnD.Cursor.MoveNoDrop"_s, $$new($NamedCursor, "DnD.Cursor.MoveNoDrop"_s));
-	$nc(this->desktopProperties)->put("DnD.Cursor.LinkNoDrop"_s, $$new($NamedCursor, "DnD.Cursor.LinkNoDrop"_s));
+	this->desktopProperties->put("awt.mouse.numButtons"_s, $($Integer::valueOf(LWCToolkit::BUTTONS)));
+	this->desktopProperties->put("awt.multiClickInterval"_s, $($Integer::valueOf(getMultiClickTime())));
+	this->desktopProperties->put("DnD.Autoscroll.initialDelay"_s, $($Integer::valueOf(50)));
+	this->desktopProperties->put("DnD.Autoscroll.interval"_s, $($Integer::valueOf(50)));
+	this->desktopProperties->put("DnD.Autoscroll.cursorHysteresis"_s, $($Integer::valueOf(5)));
+	this->desktopProperties->put("DnD.isDragImageSupported"_s, $Boolean::TRUE);
+	this->desktopProperties->put("DnD.Cursor.CopyDrop"_s, $$new($NamedCursor, "DnD.Cursor.CopyDrop"_s));
+	this->desktopProperties->put("DnD.Cursor.MoveDrop"_s, $$new($NamedCursor, "DnD.Cursor.MoveDrop"_s));
+	this->desktopProperties->put("DnD.Cursor.LinkDrop"_s, $$new($NamedCursor, "DnD.Cursor.LinkDrop"_s));
+	this->desktopProperties->put("DnD.Cursor.CopyNoDrop"_s, $$new($NamedCursor, "DnD.Cursor.CopyNoDrop"_s));
+	this->desktopProperties->put("DnD.Cursor.MoveNoDrop"_s, $$new($NamedCursor, "DnD.Cursor.MoveNoDrop"_s));
+	this->desktopProperties->put("DnD.Cursor.LinkNoDrop"_s, $$new($NamedCursor, "DnD.Cursor.LinkNoDrop"_s));
 }
 
 bool LWCToolkit::syncNativeQueue(int64_t timeout) {
@@ -929,14 +724,14 @@ bool LWCToolkit::syncNativeQueue(int64_t timeout) {
 }
 
 void LWCToolkit::beep() {
-	$prepareNative(LWCToolkit, beep, void);
+	$prepareNative(beep, void);
 	$invokeNative();
 	$finishNative();
 }
 
 int32_t LWCToolkit::getScreenResolution() {
-	$useLocalCurrentObjectStackCache();
-	return $cast(int32_t, $nc(($cast($CGraphicsDevice, $($nc($($GraphicsEnvironment::getLocalGraphicsEnvironment()))->getDefaultScreenDevice()))))->getXResolution());
+	$useLocalObjectStack();
+	return $cast(int32_t, $$sure($CGraphicsDevice, $$nc($GraphicsEnvironment::getLocalGraphicsEnvironment())->getDefaultScreenDevice())->getXResolution());
 }
 
 $Insets* LWCToolkit::getScreenInsets($GraphicsConfiguration* gc) {
@@ -944,7 +739,7 @@ $Insets* LWCToolkit::getScreenInsets($GraphicsConfiguration* gc) {
 	if (!($instanceOf($CGraphicsDevice, gd))) {
 		return $LWToolkit::getScreenInsets(gc);
 	}
-	return $nc(($cast($CGraphicsDevice, gd)))->getScreenInsets();
+	return $nc($cast($CGraphicsDevice, gd))->getScreenInsets();
 }
 
 void LWCToolkit::sync() {
@@ -964,9 +759,8 @@ $RobotPeer* LWCToolkit::createRobot($GraphicsDevice* screen) {
 }
 
 bool LWCToolkit::isCapsLockOn() {
-	bool $ret = false;
-	$prepareNative(LWCToolkit, isCapsLockOn, bool);
-	$ret = $invokeNative();
+	$prepareNative(isCapsLockOn, bool);
+	bool $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -974,21 +768,13 @@ bool LWCToolkit::isCapsLockOn() {
 bool LWCToolkit::getLockingKeyState(int32_t keyCode) {
 	switch (keyCode) {
 	case $KeyEvent::VK_NUM_LOCK:
-		{}
 	case $KeyEvent::VK_SCROLL_LOCK:
-		{}
 	case $KeyEvent::VK_KANA_LOCK:
-		{
-			$throwNew($UnsupportedOperationException, "Toolkit.getLockingKeyState"_s);
-		}
+		$throwNew($UnsupportedOperationException, "Toolkit.getLockingKeyState"_s);
 	case $KeyEvent::VK_CAPS_LOCK:
-		{
-			return isCapsLockOn();
-		}
+		return isCapsLockOn();
 	default:
-		{
-			$throwNew($IllegalArgumentException, "invalid key for Toolkit.getLockingKeyState"_s);
-		}
+		$throwNew($IllegalArgumentException, "invalid key for Toolkit.getLockingKeyState"_s);
 	}
 }
 
@@ -1002,9 +788,8 @@ int32_t LWCToolkit::getNumberOfButtons() {
 
 int32_t LWCToolkit::getMultiClickTime() {
 	$init(LWCToolkit);
-	int32_t $ret = 0;
-	$prepareNativeStatic(LWCToolkit, getMultiClickTime, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(getMultiClickTime, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1023,10 +808,10 @@ bool LWCToolkit::isAlwaysOnTopSupported() {
 
 void LWCToolkit::installToolkitThreadInJava() {
 	$init(LWCToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$($Thread::currentThread())->setName(LWCToolkit::APPKIT_THREAD_NAME);
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(LWCToolkit$$Lambda$lambda$installToolkitThreadInJava$3$2)));
+	$AccessController::doPrivileged($cast($PrivilegedAction, $$new(LWCToolkit$$Lambda$lambda$installToolkitThreadInJava$3$2)));
 }
 
 bool LWCToolkit::isWindowOpacitySupported() {
@@ -1036,17 +821,11 @@ bool LWCToolkit::isWindowOpacitySupported() {
 bool LWCToolkit::isFrameStateSupported(int32_t state) {
 	switch (state) {
 	case $Frame::NORMAL:
-		{}
 	case $Frame::ICONIFIED:
-		{}
 	case $Frame::MAXIMIZED_BOTH:
-		{
-			return true;
-		}
+		return true;
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
@@ -1059,7 +838,7 @@ int32_t LWCToolkit::getMenuShortcutKeyMaskEx() {
 }
 
 $Image* LWCToolkit::getImage($String* filename) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Image, nsImage, checkForNSImage(filename));
 	if (nsImage != nullptr) {
 		return nsImage;
@@ -1080,25 +859,25 @@ $Image* LWCToolkit::getImage($URL* url) {
 }
 
 $Image* LWCToolkit::checkForNSImage($String* imageName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (imageName == nullptr) {
 		return nullptr;
 	}
 	if (!$nc(imageName)->startsWith(LWCToolkit::nsImagePrefix)) {
 		return nullptr;
 	}
-	return $nc($($CImage::getCreator()))->createImageFromName($($nc(imageName)->substring($nc(LWCToolkit::nsImagePrefix)->length())));
+	return $$nc($CImage::getCreator())->createImageFromName($(imageName->substring(LWCToolkit::nsImagePrefix->length())));
 }
 
 bool LWCToolkit::doEquals(Object$* a, Object$* b, $Component* c) {
 	$init(LWCToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(a, b)) {
 		return true;
 	}
 	$var($booleans, ret, $new($booleans, 1));
 	try {
-		invokeAndWait(static_cast<$Runnable*>($$new($LWCToolkit$3, ret, a, b)), c);
+		invokeAndWait($$new($LWCToolkit$3, ret, a, b), c);
 	} catch ($Exception& e) {
 		e->printStackTrace();
 	}
@@ -1110,16 +889,16 @@ bool LWCToolkit::doEquals(Object$* a, Object$* b, $Component* c) {
 $Object* LWCToolkit::invokeAndWait($Callable* callable, $Component* component) {
 	$init(LWCToolkit);
 	$var($LWCToolkit$CallableWrapper, wrapper, $new($LWCToolkit$CallableWrapper, callable));
-	invokeAndWait(static_cast<$Runnable*>(wrapper), component);
-	return $of(wrapper->getResult());
+	invokeAndWait(wrapper, component);
+	return wrapper->getResult();
 }
 
 void LWCToolkit::invokeAndWait($Runnable* runnable, $Component* component) {
 	$init(LWCToolkit);
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(component), "Null component provided to invokeAndWait"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(component, "Null component provided to invokeAndWait"_s);
 	int64_t mediator = createAWTRunLoopMediator();
-	$var($InvocationEvent, invocationEvent, $new($InvocationEvent, $of(component), runnable, static_cast<$Runnable*>($$new(LWCToolkit$$Lambda$lambda$invokeAndWait$4$3, mediator)), true));
+	$var($InvocationEvent, invocationEvent, $new($InvocationEvent, component, runnable, $$new(LWCToolkit$$Lambda$lambda$invokeAndWait$4$3, mediator), true));
 	$var($AppContext, appContext, $SunToolkit::targetToAppContext(component));
 	$SunToolkit::postEvent(appContext, invocationEvent);
 	$SunToolkit::flushPendingEvents(appContext);
@@ -1129,8 +908,8 @@ void LWCToolkit::invokeAndWait($Runnable* runnable, $Component* component) {
 
 void LWCToolkit::invokeLater($Runnable* event, $Component* component) {
 	$init(LWCToolkit);
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(component), "Null component provided to invokeLater"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(component, "Null component provided to invokeLater"_s);
 	$var($InvocationEvent, invocationEvent, $new($InvocationEvent, component, event));
 	$var($AppContext, appContext, $SunToolkit::targetToAppContext(component));
 	$SunToolkit::postEvent($($SunToolkit::targetToAppContext(component)), invocationEvent);
@@ -1145,20 +924,20 @@ void LWCToolkit::checkException($InvocationEvent* event) {
 		return;
 	}
 	if ($instanceOf($UndeclaredThrowableException, eventException)) {
-		$assign(eventException, $nc(($cast($UndeclaredThrowableException, eventException)))->getUndeclaredThrowable());
+		$assign(eventException, $cast($UndeclaredThrowableException, eventException)->getUndeclaredThrowable());
 	}
 	$throwNew($InvocationTargetException, eventException);
 }
 
 void LWCToolkit::performOnMainThreadAfterDelay($Runnable* r, int64_t delay) {
 	$init(LWCToolkit);
-	$prepareNativeStatic(LWCToolkit, performOnMainThreadAfterDelay, void, $Runnable* r, int64_t delay);
+	$prepareNativeStatic(performOnMainThreadAfterDelay, void, $Runnable* r, int64_t delay);
 	$invokeNativeStatic(r, delay);
 	$finishNativeStatic();
 }
 
 $DragSourceContextPeer* LWCToolkit::createDragSourceContextPeer($DragGestureEvent* dge) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LightweightFrame, f, $SunToolkit::getLightweightFrame($($nc(dge)->getComponent())));
 	if (f != nullptr) {
 		return f->createDragSourceContextPeer(dge);
@@ -1167,14 +946,14 @@ $DragSourceContextPeer* LWCToolkit::createDragSourceContextPeer($DragGestureEven
 }
 
 $DragGestureRecognizer* LWCToolkit::createDragGestureRecognizer($Class* abstractRecognizerClass, $DragSource* ds, $Component* c, int32_t srcActions, $DragGestureListener* dgl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LightweightFrame, f, $SunToolkit::getLightweightFrame(c));
 	if (f != nullptr) {
 		return f->createDragGestureRecognizer(abstractRecognizerClass, ds, c, srcActions, dgl);
 	}
 	$var($DragGestureRecognizer, dgr, nullptr);
 	$load($MouseDragGestureRecognizer);
-	if ($of($MouseDragGestureRecognizer::class$)->equals(abstractRecognizerClass)) {
+	if ($MouseDragGestureRecognizer::class$->equals(abstractRecognizerClass)) {
 		$assign(dgr, $new($CMouseDragGestureRecognizer, ds, c, srcActions, dgl));
 	}
 	return dgr;
@@ -1194,29 +973,25 @@ $Locale* LWCToolkit::getDefaultKeyboardLocale() {
 
 bool LWCToolkit::isLocaleUSInternationalPC($Locale* locale) {
 	$init(LWCToolkit);
-	return (locale != nullptr ? $nc($($nc(locale)->toString()))->equals("_US_UserDefined_15000"_s) : false);
+	return (locale != nullptr ? $$nc(locale->toString())->equals("_US_UserDefined_15000"_s) : false);
 }
 
 bool LWCToolkit::isCharModifierKeyInUSInternationalPC(char16_t ch) {
 	$init(LWCToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, modifierKeys, $new($chars, {
 		u'\'',
 		u'\"',
 		u'`',
-		(char16_t)0x2DC,
-		(char16_t)0x2C6
+		(char16_t)0x02dc,
+		(char16_t)0x02c6
 	}));
 	{
 		$var($chars, arr$, modifierKeys);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			char16_t modKey = arr$->get(i$);
-			{
-				if (modKey == ch) {
-					return true;
-				}
+			if (modKey == ch) {
+				return true;
 			}
 		}
 	}
@@ -1239,7 +1014,7 @@ int32_t LWCToolkit::getFocusAcceleratorKeyMask() {
 }
 
 bool LWCToolkit::isPrintableCharacterModifiersMask(int32_t mods) {
-	return (((int32_t)(mods & (uint32_t)($InputEvent::META_MASK | $InputEvent::CTRL_MASK))) == 0);
+	return ((mods & ($InputEvent::META_MASK | $InputEvent::CTRL_MASK)) == 0);
 }
 
 bool LWCToolkit::canPopupOverlapTaskBar() {
@@ -1247,33 +1022,30 @@ bool LWCToolkit::canPopupOverlapTaskBar() {
 }
 
 bool LWCToolkit::isApplicationActive() {
-	bool $ret = false;
-	$prepareNative(LWCToolkit, isApplicationActive, bool);
-	$ret = $invokeNative();
+	$prepareNative(isApplicationActive, bool);
+	bool $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 bool LWCToolkit::isEmbedded() {
 	$init(LWCToolkit);
-	bool $ret = false;
-	$prepareNativeStatic(LWCToolkit, isEmbedded, bool);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(isEmbedded, bool);
+	bool $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 void LWCToolkit::activateApplicationIgnoringOtherApps() {
-	$prepareNative(LWCToolkit, activateApplicationIgnoringOtherApps, void);
+	$prepareNative(activateApplicationIgnoringOtherApps, void);
 	$invokeNative();
 	$finishNative();
 }
 
 int64_t LWCToolkit::createAWTRunLoopMediator() {
 	$init(LWCToolkit);
-	int64_t $ret = 0;
-	$prepareNativeStatic(LWCToolkit, createAWTRunLoopMediator, int64_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(createAWTRunLoopMediator, int64_t);
+	int64_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1285,29 +1057,28 @@ void LWCToolkit::doAWTRunLoop(int64_t mediator, bool processEvents) {
 
 void LWCToolkit::doAWTRunLoopImpl(int64_t mediator, bool processEvents, bool inAWT) {
 	$init(LWCToolkit);
-	$prepareNativeStatic(LWCToolkit, doAWTRunLoopImpl, void, int64_t mediator, bool processEvents, bool inAWT);
+	$prepareNativeStatic(doAWTRunLoopImpl, void, int64_t mediator, bool processEvents, bool inAWT);
 	$invokeNativeStatic(mediator, processEvents, inAWT);
 	$finishNativeStatic();
 }
 
 void LWCToolkit::stopAWTRunLoop(int64_t mediator) {
 	$init(LWCToolkit);
-	$prepareNativeStatic(LWCToolkit, stopAWTRunLoop, void, int64_t mediator);
+	$prepareNativeStatic(stopAWTRunLoop, void, int64_t mediator);
 	$invokeNativeStatic(mediator);
 	$finishNativeStatic();
 }
 
 bool LWCToolkit::nativeSyncQueue(int64_t timeout) {
-	bool $ret = false;
-	$prepareNative(LWCToolkit, nativeSyncQueue, bool, int64_t timeout);
-	$ret = $invokeNative(timeout);
+	$prepareNative(nativeSyncQueue, bool, int64_t timeout);
+	bool $ret = $invokeNative(timeout);
 	$finishNative();
 	return $ret;
 }
 
 void LWCToolkit::flushNativeSelectors() {
 	$init(LWCToolkit);
-	$prepareNativeStatic(LWCToolkit, flushNativeSelectors, void);
+	$prepareNativeStatic(flushNativeSelectors, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -1348,14 +1119,14 @@ bool LWCToolkit::enableInputMethodsForTextComponent() {
 
 $URL* LWCToolkit::getScaledImageURL($URL* url) {
 	$init(LWCToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($String, scaledImagePath, getScaledImageName($($nc(url)->getPath())));
 		$var($URL, var$0, nullptr);
 		if (scaledImagePath == nullptr) {
 			$assign(var$0, nullptr);
 		} else {
-			$var($String, var$1, $nc(url)->getProtocol());
+			$var($String, var$1, url->getProtocol());
 			$var($String, var$2, url->getHost());
 			$assign(var$0, $new($URL, var$1, var$2, url->getPort(), scaledImagePath));
 		}
@@ -1368,22 +1139,25 @@ $URL* LWCToolkit::getScaledImageURL($URL* url) {
 
 $String* LWCToolkit::getScaledImageName($String* path) {
 	$init(LWCToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isValidPath(path)) {
 		return nullptr;
 	}
-	int32_t slash = $nc(path)->lastIndexOf((int32_t)u'/');
+	int32_t slash = $nc(path)->lastIndexOf(u'/');
 	$var($String, name, (slash < 0) ? path : path->substring(slash + 1));
 	if ($nc(name)->contains("@2x"_s)) {
 		return nullptr;
 	}
-	int32_t dot = $nc(name)->lastIndexOf((int32_t)u'.');
+	int32_t dot = name->lastIndexOf(u'.');
 	$var($String, var$0, nullptr);
 	if (dot < 0) {
 		$assign(var$0, $str({name, "@2x"_s}));
 	} else {
-		$var($String, var$1, $$str({$(name->substring(0, dot)), "@2x"_s}));
-		$assign(var$0, $concat(var$1, $(name->substring(dot))));
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append($(name->substring(0, dot)));
+		var$1->append("@2x"_s);
+		var$1->append($(name->substring(dot)));
+		$assign(var$0, $str(var$1));
 	}
 	$var($String, name2x, var$0);
 	return (slash < 0) ? name2x : $str({$(path->substring(0, slash + 1)), name2x});
@@ -1424,18 +1198,18 @@ $Void* LWCToolkit::lambda$installToolkitThreadInJava$3() {
 void LWCToolkit::lambda$systemColorsChanged$2() {
 	$init(LWCToolkit);
 	$beforeCallerSensitive();
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(LWCToolkit$$Lambda$lambda$systemColorsChanged$1$4)));
+	$AccessController::doPrivileged($cast($PrivilegedAction, $$new(LWCToolkit$$Lambda$lambda$systemColorsChanged$1$4)));
 }
 
 $Object* LWCToolkit::lambda$systemColorsChanged$1() {
 	$init(LWCToolkit);
-	$nc($($AWTAccessor::getSystemColorAccessor()))->updateSystemColors();
-	return $of(nullptr);
+	$$nc($AWTAccessor::getSystemColorAccessor())->updateSystemColors();
+	return nullptr;
 }
 
 $Void* LWCToolkit::lambda$new$0() {
 	$init(LWCToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, extraButtons, "sun.awt.enableExtraMouseButtons"_s);
 	LWCToolkit::areExtraMouseButtonsEnabled$ = $Boolean::parseBoolean($($System::getProperty(extraButtons, "true"_s)));
 	$System::setProperty(extraButtons, $$str({""_s, $$str(LWCToolkit::areExtraMouseButtonsEnabled$)}));
@@ -1444,30 +1218,30 @@ $Void* LWCToolkit::lambda$new$0() {
 	return nullptr;
 }
 
-void clinit$LWCToolkit($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void LWCToolkit::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(LWCToolkit::APPKIT_THREAD_NAME, "AppKit Thread"_s);
 	$assignStatic(LWCToolkit::nsImagePrefix, "NSImage://"_s);
 	$beforeCallerSensitive();
 	LWCToolkit::$assertionsDisabled = !LWCToolkit::class$->desiredAssertionStatus();
 	{
 		$nc($System::err)->flush();
-		$var($ResourceBundle, platformResources, $cast($ResourceBundle, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($LWCToolkit$1)))));
+		$var($ResourceBundle, platformResources, $cast($ResourceBundle, $AccessController::doPrivileged($$new($LWCToolkit$1))));
 		bool var$0 = !$GraphicsEnvironment::isHeadless();
 		if (var$0 && !$PlatformGraphicsInfo::isInAquaSession()) {
 			$throwNew($AWTError, "WindowServer is not available"_s);
 		}
-		$nc($($AWTAccessor::getToolkitAccessor()))->setPlatformResources(platformResources);
+		$$nc($AWTAccessor::getToolkitAccessor())->setPlatformResources(platformResources);
 		if (!$GraphicsEnvironment::isHeadless()) {
 			LWCToolkit::initIDs();
 		}
-		LWCToolkit::inAWT = $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($LWCToolkit$2)))))))->booleanValue();
+		LWCToolkit::inAWT = $$sure($Boolean, $AccessController::doPrivileged($$new($LWCToolkit$2)))->booleanValue();
 	}
 	$assignStatic(LWCToolkit::appleColors, $new($ints, {
-		(int32_t)0xFF808080,
-		(int32_t)0xFFC0C0C0,
-		(int32_t)0xFF303030,
-		-1
+		(int32_t)0xff808080,
+		(int32_t)0xffc0c0c0,
+		(int32_t)0xff303030,
+		(int32_t)0xffffffff
 	}));
 	LWCToolkit::areExtraMouseButtonsEnabled$ = true;
 }
@@ -1477,23 +1251,176 @@ LWCToolkit::LWCToolkit() {
 
 $Class* LWCToolkit::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(LWCToolkit$$Lambda$lambda$new$0::classInfo$.name)) {
+		if (name->equals("sun.lwawt.macosx.LWCToolkit$$Lambda$lambda$new$0")) {
 			return LWCToolkit$$Lambda$lambda$new$0::load$(name, initialize);
 		}
-		if (name->equals(LWCToolkit$$Lambda$lambda$systemColorsChanged$2$1::classInfo$.name)) {
+		if (name->equals("sun.lwawt.macosx.LWCToolkit$$Lambda$lambda$systemColorsChanged$2$1")) {
 			return LWCToolkit$$Lambda$lambda$systemColorsChanged$2$1::load$(name, initialize);
 		}
-		if (name->equals(LWCToolkit$$Lambda$lambda$installToolkitThreadInJava$3$2::classInfo$.name)) {
+		if (name->equals("sun.lwawt.macosx.LWCToolkit$$Lambda$lambda$installToolkitThreadInJava$3$2")) {
 			return LWCToolkit$$Lambda$lambda$installToolkitThreadInJava$3$2::load$(name, initialize);
 		}
-		if (name->equals(LWCToolkit$$Lambda$lambda$invokeAndWait$4$3::classInfo$.name)) {
+		if (name->equals("sun.lwawt.macosx.LWCToolkit$$Lambda$lambda$invokeAndWait$4$3")) {
 			return LWCToolkit$$Lambda$lambda$invokeAndWait$4$3::load$(name, initialize);
 		}
-		if (name->equals(LWCToolkit$$Lambda$lambda$systemColorsChanged$1$4::classInfo$.name)) {
+		if (name->equals("sun.lwawt.macosx.LWCToolkit$$Lambda$lambda$systemColorsChanged$1$4")) {
 			return LWCToolkit$$Lambda$lambda$systemColorsChanged$1$4::load$(name, initialize);
 		}
 	}
-	$loadClass(LWCToolkit, name, initialize, &_LWCToolkit_ClassInfo_, clinit$LWCToolkit, allocate$LWCToolkit);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LWCToolkit, $assertionsDisabled)},
+		{"BUTTONS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LWCToolkit, BUTTONS)},
+		{"sInputMethodDescriptor", "Lsun/lwawt/macosx/CInputMethodDescriptor;", nullptr, $PRIVATE | $STATIC, $staticField(LWCToolkit, sInputMethodDescriptor)},
+		{"inAWT", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LWCToolkit, inAWT)},
+		{"NUM_APPLE_COLORS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LWCToolkit, NUM_APPLE_COLORS)},
+		{"KEYBOARD_FOCUS_COLOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LWCToolkit, KEYBOARD_FOCUS_COLOR)},
+		{"INACTIVE_SELECTION_BACKGROUND_COLOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LWCToolkit, INACTIVE_SELECTION_BACKGROUND_COLOR)},
+		{"INACTIVE_SELECTION_FOREGROUND_COLOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LWCToolkit, INACTIVE_SELECTION_FOREGROUND_COLOR)},
+		{"SELECTED_CONTROL_TEXT_COLOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LWCToolkit, SELECTED_CONTROL_TEXT_COLOR)},
+		{"appleColors", "[I", nullptr, $PRIVATE | $STATIC, $staticField(LWCToolkit, appleColors)},
+		{"areExtraMouseButtonsEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(LWCToolkit, areExtraMouseButtonsEnabled$)},
+		{"APPKIT_THREAD_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LWCToolkit, APPKIT_THREAD_NAME)},
+		{"nsImagePrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LWCToolkit, nsImagePrefix)},
+		{}
+	};
+	$NamedAttribute getMenuShortcutKeyMaskmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "10"},
+		{}
+	};
+	$CompoundAttribute getMenuShortcutKeyMaskmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", getMenuShortcutKeyMaskmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LWCToolkit, init$, void)},
+		{"activateApplicationIgnoringOtherApps", "()V", nullptr, $PUBLIC | $NATIVE, $method(LWCToolkit, activateApplicationIgnoringOtherApps, void)},
+		{"areExtraMouseButtonsEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, areExtraMouseButtonsEnabled, bool), "java.awt.HeadlessException"},
+		{"beep", "()V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(LWCToolkit, beep, void)},
+		{"canPopupOverlapTaskBar", "()Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, canPopupOverlapTaskBar, bool)},
+		{"checkException", "(Ljava/awt/event/InvocationEvent;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LWCToolkit, checkException, void, $InvocationEvent*), "java.lang.reflect.InvocationTargetException"},
+		{"checkForNSImage", "(Ljava/lang/String;)Ljava/awt/Image;", nullptr, $PRIVATE, $method(LWCToolkit, checkForNSImage, $Image*, $String*)},
+		{"createAWTRunLoopMediator", "()J", nullptr, $STATIC | $NATIVE, $staticMethod(LWCToolkit, createAWTRunLoopMediator, int64_t)},
+		{"createCPrinterDialog", "(Lsun/lwawt/macosx/CPrinterDialog;)Lsun/lwawt/macosx/CPrinterDialogPeer;", nullptr, $PRIVATE, $method(LWCToolkit, createCPrinterDialog, $CPrinterDialogPeer*, $CPrinterDialog*)},
+		{"createCheckboxMenuItem", "(Ljava/awt/CheckboxMenuItem;)Ljava/awt/peer/CheckboxMenuItemPeer;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, createCheckboxMenuItem, $CheckboxMenuItemPeer*, $CheckboxMenuItem*)},
+		{"createCustomCursor", "(Ljava/awt/Image;Ljava/awt/Point;Ljava/lang/String;)Ljava/awt/Cursor;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, createCustomCursor, $Cursor*, $Image*, $Point*, $String*), "java.lang.IndexOutOfBoundsException,java.awt.HeadlessException"},
+		{"createDesktopPeer", "(Ljava/awt/Desktop;)Ljava/awt/peer/DesktopPeer;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, createDesktopPeer, $DesktopPeer*, $Desktop*)},
+		{"createDialog", "(Ljava/awt/Dialog;)Ljava/awt/peer/DialogPeer;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, createDialog, $DialogPeer*, $Dialog*)},
+		{"createDragGestureRecognizer", "(Ljava/lang/Class;Ljava/awt/dnd/DragSource;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)Ljava/awt/dnd/DragGestureRecognizer;", "<T:Ljava/awt/dnd/DragGestureRecognizer;>(Ljava/lang/Class<TT;>;Ljava/awt/dnd/DragSource;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)TT;", $PUBLIC, $virtualMethod(LWCToolkit, createDragGestureRecognizer, $DragGestureRecognizer*, $Class*, $DragSource*, $Component*, int32_t, $DragGestureListener*)},
+		{"createDragSourceContextPeer", "(Ljava/awt/dnd/DragGestureEvent;)Ljava/awt/dnd/peer/DragSourceContextPeer;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, createDragSourceContextPeer, $DragSourceContextPeer*, $DragGestureEvent*), "java.awt.dnd.InvalidDnDOperationException"},
+		{"createDropTarget", "(Ljava/awt/dnd/DropTarget;Ljava/awt/Component;Lsun/lwawt/LWComponentPeer;)Lsun/lwawt/PlatformDropTarget;", "(Ljava/awt/dnd/DropTarget;Ljava/awt/Component;Lsun/lwawt/LWComponentPeer<**>;)Lsun/lwawt/PlatformDropTarget;", $PROTECTED, $virtualMethod(LWCToolkit, createDropTarget, $PlatformDropTarget*, $DropTarget*, $Component*, $LWComponentPeer*)},
+		{"createEmbeddedFrame", "(Lsun/lwawt/macosx/CEmbeddedFrame;)Lsun/lwawt/LWWindowPeer;", nullptr, 0, $method(LWCToolkit, createEmbeddedFrame, $LWWindowPeer*, $CEmbeddedFrame*)},
+		{"createEmbeddedFrame", "(Lsun/lwawt/macosx/CViewEmbeddedFrame;)Lsun/lwawt/LWWindowPeer;", nullptr, 0, $method(LWCToolkit, createEmbeddedFrame, $LWWindowPeer*, $CViewEmbeddedFrame*)},
+		{"createFileDialogPeer", "(Ljava/awt/FileDialog;)Ljava/awt/peer/FileDialogPeer;", nullptr, $PROTECTED, $virtualMethod(LWCToolkit, createFileDialogPeer, $FileDialogPeer*, $FileDialog*)},
+		{"createLwPlatformComponent", "()Lsun/lwawt/PlatformComponent;", nullptr, $PROTECTED, $virtualMethod(LWCToolkit, createLwPlatformComponent, $PlatformComponent*)},
+		{"createMenu", "(Ljava/awt/Menu;)Ljava/awt/peer/MenuPeer;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, createMenu, $MenuPeer*, $Menu*)},
+		{"createMenuBar", "(Ljava/awt/MenuBar;)Ljava/awt/peer/MenuBarPeer;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, createMenuBar, $MenuBarPeer*, $MenuBar*)},
+		{"createMenuItem", "(Ljava/awt/MenuItem;)Ljava/awt/peer/MenuItemPeer;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, createMenuItem, $MenuItemPeer*, $MenuItem*)},
+		{"createPlatformClipboard", "()Ljava/awt/datatransfer/Clipboard;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, createPlatformClipboard, $Clipboard*)},
+		{"createPlatformComponent", "()Lsun/lwawt/PlatformComponent;", nullptr, $PROTECTED, $virtualMethod(LWCToolkit, createPlatformComponent, $PlatformComponent*)},
+		{"createPlatformWindow", "(Lsun/lwawt/LWWindowPeer$PeerType;)Lsun/lwawt/PlatformWindow;", nullptr, $PROTECTED, $virtualMethod(LWCToolkit, createPlatformWindow, $PlatformWindow*, $LWWindowPeer$PeerType*)},
+		{"createPopupMenu", "(Ljava/awt/PopupMenu;)Ljava/awt/peer/PopupMenuPeer;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, createPopupMenu, $PopupMenuPeer*, $PopupMenu*)},
+		{"createRobot", "(Ljava/awt/GraphicsDevice;)Ljava/awt/peer/RobotPeer;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, createRobot, $RobotPeer*, $GraphicsDevice*), "java.awt.AWTException"},
+		{"createSecurityWarning", "(Ljava/awt/Window;Lsun/lwawt/LWWindowPeer;)Lsun/lwawt/SecurityWarningWindow;", nullptr, $PROTECTED, $virtualMethod(LWCToolkit, createSecurityWarning, $SecurityWarningWindow*, $Window*, $LWWindowPeer*)},
+		{"createSystemTray", "(Ljava/awt/SystemTray;)Ljava/awt/peer/SystemTrayPeer;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, createSystemTray, $SystemTrayPeer*, $SystemTray*)},
+		{"createTaskbarPeer", "(Ljava/awt/Taskbar;)Ljava/awt/peer/TaskbarPeer;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, createTaskbarPeer, $TaskbarPeer*, $Taskbar*)},
+		{"createTrayIcon", "(Ljava/awt/TrayIcon;)Ljava/awt/peer/TrayIconPeer;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, createTrayIcon, $TrayIconPeer*, $TrayIcon*)},
+		{"doAWTRunLoop", "(JZ)V", nullptr, $STATIC, $staticMethod(LWCToolkit, doAWTRunLoop, void, int64_t, bool)},
+		{"doAWTRunLoopImpl", "(JZZ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LWCToolkit, doAWTRunLoopImpl, void, int64_t, bool, bool)},
+		{"doEquals", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/awt/Component;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LWCToolkit, doEquals, bool, Object$*, Object$*, $Component*)},
+		{"enableInputMethodsForTextComponent", "()Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, enableInputMethodsForTextComponent, bool)},
+		{"flushNativeSelectors", "()V", nullptr, $STATIC | $NATIVE, $staticMethod(LWCToolkit, flushNativeSelectors, void)},
+		{"getAppleColor", "(I)Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC, $staticMethod(LWCToolkit, getAppleColor, $Color*, int32_t)},
+		{"getBestCursorSize", "(II)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, getBestCursorSize, $Dimension*, int32_t, int32_t), "java.awt.HeadlessException"},
+		{"getCursorManager", "()Lsun/lwawt/LWCursorManager;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, getCursorManager, $LWCursorManager*)},
+		{"getDataTransferer", "()Lsun/awt/datatransfer/DataTransferer;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, getDataTransferer, $DataTransferer*)},
+		{"getDefaultKeyboardLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, getDefaultKeyboardLocale, $Locale*)},
+		{"getFocusAcceleratorKeyMask", "()I", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, getFocusAcceleratorKeyMask, int32_t)},
+		{"getFontPeer", "(Ljava/lang/String;I)Ljava/awt/peer/FontPeer;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, getFontPeer, $FontPeer*, $String*, int32_t)},
+		{"getImage", "(Ljava/lang/String;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, getImage, $Image*, $String*)},
+		{"getImage", "(Ljava/net/URL;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, getImage, $Image*, $URL*)},
+		{"getInputMethodAdapterDescriptor", "()Ljava/awt/im/spi/InputMethodDescriptor;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, getInputMethodAdapterDescriptor, $InputMethodDescriptor*)},
+		{"getLWCToolkit", "()Lsun/lwawt/macosx/LWCToolkit;", nullptr, $PUBLIC | $STATIC, $staticMethod(LWCToolkit, getLWCToolkit, LWCToolkit*)},
+		{"getLockingKeyState", "(I)Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, getLockingKeyState, bool, int32_t), "java.lang.UnsupportedOperationException"},
+		{"getMenuShortcutKeyMask", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(LWCToolkit, getMenuShortcutKeyMask, int32_t), nullptr, nullptr, getMenuShortcutKeyMaskmethodAnnotations$$},
+		{"getMenuShortcutKeyMaskEx", "()I", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, getMenuShortcutKeyMaskEx, int32_t)},
+		{"getMultiClickTime", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LWCToolkit, getMultiClickTime, int32_t)},
+		{"getNumberOfButtons", "()I", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, getNumberOfButtons, int32_t)},
+		{"getPlatformWindowUnderMouse", "()Lsun/lwawt/PlatformWindow;", nullptr, $PROTECTED, $virtualMethod(LWCToolkit, getPlatformWindowUnderMouse, $PlatformWindow*)},
+		{"getScaledImageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LWCToolkit, getScaledImageName, $String*, $String*)},
+		{"getScaledImageURL", "(Ljava/net/URL;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(LWCToolkit, getScaledImageURL, $URL*, $URL*)},
+		{"getScreenInsets", "(Ljava/awt/GraphicsConfiguration;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, getScreenInsets, $Insets*, $GraphicsConfiguration*)},
+		{"getScreenResolution", "()I", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, getScreenResolution, int32_t), "java.awt.HeadlessException"},
+		{"initAppkit", "(Ljava/lang/ThreadGroup;Z)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LWCToolkit, initAppkit, void, $ThreadGroup*, bool)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LWCToolkit, initIDs, void)},
+		{"initializeDesktopProperties", "()V", nullptr, $PROTECTED, $virtualMethod(LWCToolkit, initializeDesktopProperties, void)},
+		{"installToolkitThreadInJava", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(LWCToolkit, installToolkitThreadInJava, void)},
+		{"invokeAndWait", "(Ljava/util/concurrent/Callable;Ljava/awt/Component;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TT;>;Ljava/awt/Component;)TT;", $PUBLIC | $STATIC, $staticMethod(LWCToolkit, invokeAndWait, $Object*, $Callable*, $Component*), "java.lang.Exception"},
+		{"invokeAndWait", "(Ljava/lang/Runnable;Ljava/awt/Component;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LWCToolkit, invokeAndWait, void, $Runnable*, $Component*), "java.lang.reflect.InvocationTargetException"},
+		{"invokeLater", "(Ljava/lang/Runnable;Ljava/awt/Component;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LWCToolkit, invokeLater, void, $Runnable*, $Component*), "java.lang.reflect.InvocationTargetException"},
+		{"isAlwaysOnTopSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, isAlwaysOnTopSupported, bool)},
+		{"isApplicationActive", "()Z", nullptr, $NATIVE, $method(LWCToolkit, isApplicationActive, bool)},
+		{"isCapsLockOn", "()Z", nullptr, $PRIVATE | $NATIVE, $method(LWCToolkit, isCapsLockOn, bool)},
+		{"isCharModifierKeyInUSInternationalPC", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LWCToolkit, isCharModifierKeyInUSInternationalPC, bool, char16_t)},
+		{"isEmbedded", "()Z", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(LWCToolkit, isEmbedded, bool)},
+		{"isFrameStateSupported", "(I)Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, isFrameStateSupported, bool, int32_t), "java.awt.HeadlessException"},
+		{"isLocaleUSInternationalPC", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LWCToolkit, isLocaleUSInternationalPC, bool, $Locale*)},
+		{"isModalExclusionTypeSupported", "(Ljava/awt/Dialog$ModalExclusionType;)Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, isModalExclusionTypeSupported, bool, $Dialog$ModalExclusionType*)},
+		{"isModalityTypeSupported", "(Ljava/awt/Dialog$ModalityType;)Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, isModalityTypeSupported, bool, $Dialog$ModalityType*)},
+		{"isPrintableCharacterModifiersMask", "(I)Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, isPrintableCharacterModifiersMask, bool, int32_t)},
+		{"isSwingBackbufferTranslucencySupported", "()Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, isSwingBackbufferTranslucencySupported, bool)},
+		{"isTranslucencyCapable", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, isTranslucencyCapable, bool, $GraphicsConfiguration*)},
+		{"isTraySupported", "()Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, isTraySupported, bool)},
+		{"isValidPath", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(LWCToolkit, isValidPath, bool, $String*)},
+		{"isWindowOpacitySupported", "()Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, isWindowOpacitySupported, bool)},
+		{"isWindowShapingSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, isWindowShapingSupported, bool)},
+		{"isWindowTranslucencySupported", "()Z", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, isWindowTranslucencySupported, bool)},
+		{"lambda$installToolkitThreadInJava$3", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LWCToolkit, lambda$installToolkitThreadInJava$3, $Void*)},
+		{"lambda$invokeAndWait$4", "(J)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LWCToolkit, lambda$invokeAndWait$4, void, int64_t)},
+		{"lambda$new$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LWCToolkit, lambda$new$0, $Void*)},
+		{"lambda$systemColorsChanged$1", "()Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LWCToolkit, lambda$systemColorsChanged$1, $Object*)},
+		{"lambda$systemColorsChanged$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LWCToolkit, lambda$systemColorsChanged$2, void)},
+		{"loadNativeColors", "([I[I)V", nullptr, $PRIVATE | $NATIVE, $method(LWCToolkit, loadNativeColors, void, $ints*, $ints*)},
+		{"loadSystemColors", "([I)V", nullptr, $PROTECTED, $virtualMethod(LWCToolkit, loadSystemColors, void, $ints*)},
+		{"mapInputMethodHighlight", "(Ljava/awt/im/InputMethodHighlight;)Ljava/util/Map;", "(Ljava/awt/im/InputMethodHighlight;)Ljava/util/Map<Ljava/awt/font/TextAttribute;*>;", $PUBLIC, $virtualMethod(LWCToolkit, mapInputMethodHighlight, $Map*, $InputMethodHighlight*)},
+		{"nativeSyncQueue", "(J)Z", nullptr, $PRIVATE | $NATIVE, $method(LWCToolkit, nativeSyncQueue, bool, int64_t)},
+		{"performOnMainThreadAfterDelay", "(Ljava/lang/Runnable;J)V", nullptr, $STATIC | $NATIVE, $staticMethod(LWCToolkit, performOnMainThreadAfterDelay, void, $Runnable*, int64_t)},
+		{"platformCleanup", "()V", nullptr, $PROTECTED, $virtualMethod(LWCToolkit, platformCleanup, void)},
+		{"platformInit", "()V", nullptr, $PROTECTED, $virtualMethod(LWCToolkit, platformInit, void)},
+		{"platformRunMessage", "()V", nullptr, $PROTECTED, $virtualMethod(LWCToolkit, platformRunMessage, void)},
+		{"platformShutdown", "()V", nullptr, $PROTECTED, $virtualMethod(LWCToolkit, platformShutdown, void)},
+		{"stopAWTRunLoop", "(J)V", nullptr, $STATIC | $NATIVE, $staticMethod(LWCToolkit, stopAWTRunLoop, void, int64_t)},
+		{"sync", "()V", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, sync, void)},
+		{"syncNativeQueue", "(J)Z", nullptr, $PROTECTED, $virtualMethod(LWCToolkit, syncNativeQueue, bool, int64_t)},
+		{"systemColorsChanged", "()V", nullptr, $STATIC, $staticMethod(LWCToolkit, systemColorsChanged, void)},
+		{"updateScreenMenuBarUI", "()V", nullptr, $PUBLIC, $virtualMethod(LWCToolkit, updateScreenMenuBarUI, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.LWCToolkit$CallableWrapper", "sun.lwawt.macosx.LWCToolkit", "CallableWrapper", $STATIC | $FINAL},
+		{"sun.lwawt.macosx.LWCToolkit$OSXPlatformFont", "sun.lwawt.macosx.LWCToolkit", "OSXPlatformFont", 0},
+		{"sun.lwawt.macosx.LWCToolkit$AppleSpecificColor", "sun.lwawt.macosx.LWCToolkit", "AppleSpecificColor", $PRIVATE | $STATIC},
+		{"sun.lwawt.macosx.LWCToolkit$3", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.LWCToolkit$2", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.LWCToolkit$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.lwawt.macosx.LWCToolkit",
+		"sun.lwawt.LWToolkit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.LWCToolkit$CallableWrapper,sun.lwawt.macosx.LWCToolkit$OSXPlatformFont,sun.lwawt.macosx.LWCToolkit$AppleSpecificColor,sun.lwawt.macosx.LWCToolkit$3,sun.lwawt.macosx.LWCToolkit$2,sun.lwawt.macosx.LWCToolkit$1"
+	};
+	$loadClass(LWCToolkit, name, initialize, &classInfo$$, LWCToolkit::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LWCToolkit));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/LMUL.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/ArithmeticInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackConsumer.h>
@@ -12,9 +11,6 @@
 
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
 using $ArithmeticInstruction = ::com::sun::org::apache::bcel::internal::generic::ArithmeticInstruction;
-using $StackConsumer = ::com::sun::org::apache::bcel::internal::generic::StackConsumer;
-using $StackProducer = ::com::sun::org::apache::bcel::internal::generic::StackProducer;
-using $TypedInstruction = ::com::sun::org::apache::bcel::internal::generic::TypedInstruction;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -26,25 +22,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$MethodInfo _LMUL_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LMUL, init$, void)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(LMUL, accept, void, $Visitor*)},
-	{}
-};
-
-$ClassInfo _LMUL_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.LMUL",
-	"com.sun.org.apache.bcel.internal.generic.ArithmeticInstruction",
-	nullptr,
-	nullptr,
-	_LMUL_MethodInfo_
-};
-
-$Object* allocate$LMUL($Class* clazz) {
-	return $of($alloc(LMUL));
-}
 
 void LMUL::init$() {
 	$ArithmeticInstruction::init$($Const::LMUL);
@@ -62,7 +39,22 @@ LMUL::LMUL() {
 }
 
 $Class* LMUL::load$($String* name, bool initialize) {
-	$loadClass(LMUL, name, initialize, &_LMUL_ClassInfo_, allocate$LMUL);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LMUL, init$, void)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(LMUL, accept, void, $Visitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.LMUL",
+		"com.sun.org.apache.bcel.internal.generic.ArithmeticInstruction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LMUL, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LMUL));
+	});
 	return class$;
 }
 

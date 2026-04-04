@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/CurrencyNames_rof.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,263 +13,244 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _CurrencyNames_rof_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_rof, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_rof, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_rof_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.CurrencyNames_rof",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_rof_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_rof($Class* clazz) {
-	return $of($alloc(CurrencyNames_rof));
-}
-
 void CurrencyNames_rof::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_rof::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("TZS"_s),
-			$of("TSh"_s)
+			"TZS"_s,
+			"TSh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aed"_s),
-			$of("heleri sa Falme za Kiarabu"_s)
+			"aed"_s,
+			"heleri sa Falme za Kiarabu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aoa"_s),
-			$of("heleri sa Angola"_s)
+			"aoa"_s,
+			"heleri sa Angola"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aud"_s),
-			$of("heleri sa Australia"_s)
+			"aud"_s,
+			"heleri sa Australia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bhd"_s),
-			$of("heleri sa Bahareni"_s)
+			"bhd"_s,
+			"heleri sa Bahareni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bif"_s),
-			$of("heleri sa Burundi"_s)
+			"bif"_s,
+			"heleri sa Burundi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bwp"_s),
-			$of("heleri sa Botswana"_s)
+			"bwp"_s,
+			"heleri sa Botswana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cad"_s),
-			$of("heleri sa Kanada"_s)
+			"cad"_s,
+			"heleri sa Kanada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cdf"_s),
-			$of("heleri sa Kongo"_s)
+			"cdf"_s,
+			"heleri sa Kongo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chf"_s),
-			$of("heleri sa Uswisi"_s)
+			"chf"_s,
+			"heleri sa Uswisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cny"_s),
-			$of("heleri sa China"_s)
+			"cny"_s,
+			"heleri sa China"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cve"_s),
-			$of("heleri sa Kepuvede"_s)
+			"cve"_s,
+			"heleri sa Kepuvede"_s
 		}),
 		$$new($ObjectArray, {
-			$of("djf"_s),
-			$of("heleri sa Jibuti"_s)
+			"djf"_s,
+			"heleri sa Jibuti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dzd"_s),
-			$of("heleri sa Aljeria"_s)
+			"dzd"_s,
+			"heleri sa Aljeria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("egp"_s),
-			$of("heleri sa Misri"_s)
+			"egp"_s,
+			"heleri sa Misri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ern"_s),
-			$of("heleri sa Eritrea"_s)
+			"ern"_s,
+			"heleri sa Eritrea"_s
 		}),
 		$$new($ObjectArray, {
-			$of("etb"_s),
-			$of("heleri sa Uhabeshi"_s)
+			"etb"_s,
+			"heleri sa Uhabeshi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eur"_s),
-			$of("yuro"_s)
+			"eur"_s,
+			"yuro"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gbp"_s),
-			$of("heleri sa Uingereza"_s)
+			"gbp"_s,
+			"heleri sa Uingereza"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ghc"_s),
-			$of("heleri sa Ghana"_s)
+			"ghc"_s,
+			"heleri sa Ghana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gmd"_s),
-			$of("heleri sa Gambia"_s)
+			"gmd"_s,
+			"heleri sa Gambia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gns"_s),
-			$of("heleri sa Gine"_s)
+			"gns"_s,
+			"heleri sa Gine"_s
 		}),
 		$$new($ObjectArray, {
-			$of("inr"_s),
-			$of("heleri sa India"_s)
+			"inr"_s,
+			"heleri sa India"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jpy"_s),
-			$of("heleri sa Japani"_s)
+			"jpy"_s,
+			"heleri sa Japani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kes"_s),
-			$of("heleri sa Kenya"_s)
+			"kes"_s,
+			"heleri sa Kenya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kmf"_s),
-			$of("heleri sa Komoro"_s)
+			"kmf"_s,
+			"heleri sa Komoro"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lrd"_s),
-			$of("heleri sa Liberia"_s)
+			"lrd"_s,
+			"heleri sa Liberia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lsl"_s),
-			$of("heleri sa Lesoto"_s)
+			"lsl"_s,
+			"heleri sa Lesoto"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lyd"_s),
-			$of("heleri sa Libya"_s)
+			"lyd"_s,
+			"heleri sa Libya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mad"_s),
-			$of("heleri sa Moroko"_s)
+			"mad"_s,
+			"heleri sa Moroko"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mga"_s),
-			$of("heleri sa Bukini"_s)
+			"mga"_s,
+			"heleri sa Bukini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mro"_s),
-			$of(u"heleri sa Moritania (1973–2017)"_s)
+			"mro"_s,
+			u"heleri sa Moritania (1973–2017)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mru"_s),
-			$of("heleri sa Moritania"_s)
+			"mru"_s,
+			"heleri sa Moritania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mur"_s),
-			$of("heleri sa Morisi"_s)
+			"mur"_s,
+			"heleri sa Morisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mwk"_s),
-			$of("heleri sa Malawi"_s)
+			"mwk"_s,
+			"heleri sa Malawi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mzm"_s),
-			$of("heleri sa Msumbiji"_s)
+			"mzm"_s,
+			"heleri sa Msumbiji"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nad"_s),
-			$of("heleri sa Namibia"_s)
+			"nad"_s,
+			"heleri sa Namibia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ngn"_s),
-			$of("heleri sa Nijeria"_s)
+			"ngn"_s,
+			"heleri sa Nijeria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rwf"_s),
-			$of("heleri sa Rwanda"_s)
+			"rwf"_s,
+			"heleri sa Rwanda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sar"_s),
-			$of("heleri sa Saudia"_s)
+			"sar"_s,
+			"heleri sa Saudia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("scr"_s),
-			$of("heleri sa Shelisheli"_s)
+			"scr"_s,
+			"heleri sa Shelisheli"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sdg"_s),
-			$of("heleri sa Sudani"_s)
+			"sdg"_s,
+			"heleri sa Sudani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shp"_s),
-			$of("heleri sa Santahelena"_s)
+			"shp"_s,
+			"heleri sa Santahelena"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sll"_s),
-			$of("leoni"_s)
+			"sll"_s,
+			"leoni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sos"_s),
-			$of("heleri sa Somalia"_s)
+			"sos"_s,
+			"heleri sa Somalia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("std"_s),
-			$of(u"heleri sa Sao Tome na Principe (1977–2017)"_s)
+			"std"_s,
+			u"heleri sa Sao Tome na Principe (1977–2017)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("stn"_s),
-			$of("heleri sa Sao Tome na Principe"_s)
+			"stn"_s,
+			"heleri sa Sao Tome na Principe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("szl"_s),
-			$of("lilangeni"_s)
+			"szl"_s,
+			"lilangeni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tnd"_s),
-			$of("heleri sa Tunisia"_s)
+			"tnd"_s,
+			"heleri sa Tunisia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tzs"_s),
-			$of("heleri sa Tanzania"_s)
+			"tzs"_s,
+			"heleri sa Tanzania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ugx"_s),
-			$of("heleri sa Uganda"_s)
+			"ugx"_s,
+			"heleri sa Uganda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("usd"_s),
-			$of("heleri sa Marekani"_s)
+			"usd"_s,
+			"heleri sa Marekani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xaf"_s),
-			$of("heleri sa CFA BEAC"_s)
+			"xaf"_s,
+			"heleri sa CFA BEAC"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xof"_s),
-			$of("heleri sa CFA BCEAO"_s)
+			"xof"_s,
+			"heleri sa CFA BCEAO"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zar"_s),
-			$of("heleri sa Afrika Kusini"_s)
+			"zar"_s,
+			"heleri sa Afrika Kusini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zmk"_s),
-			$of(u"heleri sa Zambia (1968–2012)"_s)
+			"zmk"_s,
+			u"heleri sa Zambia (1968–2012)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zmw"_s),
-			$of("heleri sa Zambia"_s)
+			"zmw"_s,
+			"heleri sa Zambia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zwd"_s),
-			$of("heleri sa Zimbabwe"_s)
+			"zwd"_s,
+			"heleri sa Zimbabwe"_s
 		})
 	}));
 	return data;
@@ -280,7 +260,22 @@ CurrencyNames_rof::CurrencyNames_rof() {
 }
 
 $Class* CurrencyNames_rof::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_rof, name, initialize, &_CurrencyNames_rof_ClassInfo_, allocate$CurrencyNames_rof);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_rof, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_rof, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.CurrencyNames_rof",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_rof, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_rof);
+	});
 	return class$;
 }
 

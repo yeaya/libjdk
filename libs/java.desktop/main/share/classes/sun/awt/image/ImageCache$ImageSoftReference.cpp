@@ -1,5 +1,4 @@
 #include <sun/awt/image/ImageCache$ImageSoftReference.h>
-
 #include <java/awt/Image.h>
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/lang/ref/SoftReference.h>
@@ -20,41 +19,6 @@ namespace sun {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _ImageCache$ImageSoftReference_FieldInfo_[] = {
-	{"key", "Lsun/awt/image/ImageCache$PixelsKey;", nullptr, $FINAL, $field(ImageCache$ImageSoftReference, key)},
-	{}
-};
-
-$MethodInfo _ImageCache$ImageSoftReference_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/image/ImageCache$PixelsKey;Ljava/awt/Image;Ljava/lang/ref/ReferenceQueue;)V", "(Lsun/awt/image/ImageCache$PixelsKey;Ljava/awt/Image;Ljava/lang/ref/ReferenceQueue<-Ljava/awt/Image;>;)V", 0, $method(ImageCache$ImageSoftReference, init$, void, $ImageCache$PixelsKey*, $Image*, $ReferenceQueue*)},
-	{}
-};
-
-$InnerClassInfo _ImageCache$ImageSoftReference_InnerClassesInfo_[] = {
-	{"sun.awt.image.ImageCache$ImageSoftReference", "sun.awt.image.ImageCache", "ImageSoftReference", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ImageCache$ImageSoftReference_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.image.ImageCache$ImageSoftReference",
-	"java.lang.ref.SoftReference",
-	nullptr,
-	_ImageCache$ImageSoftReference_FieldInfo_,
-	_ImageCache$ImageSoftReference_MethodInfo_,
-	"Ljava/lang/ref/SoftReference<Ljava/awt/Image;>;",
-	nullptr,
-	_ImageCache$ImageSoftReference_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.image.ImageCache"
-};
-
-$Object* allocate$ImageCache$ImageSoftReference($Class* clazz) {
-	return $of($alloc(ImageCache$ImageSoftReference));
-}
-
 void ImageCache$ImageSoftReference::init$($ImageCache$PixelsKey* key, $Image* referent, $ReferenceQueue* q) {
 	$SoftReference::init$(referent, q);
 	$set(this, key, key);
@@ -64,7 +28,36 @@ ImageCache$ImageSoftReference::ImageCache$ImageSoftReference() {
 }
 
 $Class* ImageCache$ImageSoftReference::load$($String* name, bool initialize) {
-	$loadClass(ImageCache$ImageSoftReference, name, initialize, &_ImageCache$ImageSoftReference_ClassInfo_, allocate$ImageCache$ImageSoftReference);
+	$FieldInfo fieldInfos$$[] = {
+		{"key", "Lsun/awt/image/ImageCache$PixelsKey;", nullptr, $FINAL, $field(ImageCache$ImageSoftReference, key)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/image/ImageCache$PixelsKey;Ljava/awt/Image;Ljava/lang/ref/ReferenceQueue;)V", "(Lsun/awt/image/ImageCache$PixelsKey;Ljava/awt/Image;Ljava/lang/ref/ReferenceQueue<-Ljava/awt/Image;>;)V", 0, $method(ImageCache$ImageSoftReference, init$, void, $ImageCache$PixelsKey*, $Image*, $ReferenceQueue*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.image.ImageCache$ImageSoftReference", "sun.awt.image.ImageCache", "ImageSoftReference", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.image.ImageCache$ImageSoftReference",
+		"java.lang.ref.SoftReference",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/ref/SoftReference<Ljava/awt/Image;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.image.ImageCache"
+	};
+	$loadClass(ImageCache$ImageSoftReference, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageCache$ImageSoftReference);
+	});
 	return class$;
 }
 

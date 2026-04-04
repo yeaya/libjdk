@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsFileChooserUI$10.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsFileChooserUI.h>
 #include <java/awt/Dimension.h>
 #include <javax/swing/JButton.h>
@@ -22,64 +21,57 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsFileChooserUI$10_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileChooserUI$10, this$0)},
-	{}
-};
-
-$MethodInfo _WindowsFileChooserUI$10_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;Ljava/lang/String;)V", nullptr, 0, $method(WindowsFileChooserUI$10, init$, void, $WindowsFileChooserUI*, $String*)},
-	{"getMaximumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI$10, getMaximumSize, $Dimension*)},
-	{}
-};
-
-$EnclosingMethodInfo _WindowsFileChooserUI$10_EnclosingMethodInfo_ = {
-	"com.sun.java.swing.plaf.windows.WindowsFileChooserUI",
-	"installComponents",
-	"(Ljavax/swing/JFileChooser;)V"
-};
-
-$InnerClassInfo _WindowsFileChooserUI$10_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$10", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WindowsFileChooserUI$10_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$10",
-	"javax.swing.JButton",
-	nullptr,
-	_WindowsFileChooserUI$10_FieldInfo_,
-	_WindowsFileChooserUI$10_MethodInfo_,
-	nullptr,
-	&_WindowsFileChooserUI$10_EnclosingMethodInfo_,
-	_WindowsFileChooserUI$10_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsFileChooserUI"
-};
-
-$Object* allocate$WindowsFileChooserUI$10($Class* clazz) {
-	return $of($alloc(WindowsFileChooserUI$10));
-}
-
 void WindowsFileChooserUI$10::init$($WindowsFileChooserUI* this$0, $String* text) {
 	$set(this, this$0, this$0);
 	$JButton::init$(text);
 }
 
 $Dimension* WindowsFileChooserUI$10::getMaximumSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc($($nc(this->this$0->approveButton)->getPreferredSize()))->width;
-	return var$0 > $nc($($nc(this->this$0->cancelButton)->getPreferredSize()))->width ? $nc(this->this$0->approveButton)->getPreferredSize() : $nc(this->this$0->cancelButton)->getPreferredSize();
+	return var$0 > $nc($($nc(this->this$0->cancelButton)->getPreferredSize()))->width ? this->this$0->approveButton->getPreferredSize() : this->this$0->cancelButton->getPreferredSize();
 }
 
 WindowsFileChooserUI$10::WindowsFileChooserUI$10() {
 }
 
 $Class* WindowsFileChooserUI$10::load$($String* name, bool initialize) {
-	$loadClass(WindowsFileChooserUI$10, name, initialize, &_WindowsFileChooserUI$10_ClassInfo_, allocate$WindowsFileChooserUI$10);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileChooserUI$10, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;Ljava/lang/String;)V", nullptr, 0, $method(WindowsFileChooserUI$10, init$, void, $WindowsFileChooserUI*, $String*)},
+		{"getMaximumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI$10, getMaximumSize, $Dimension*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.java.swing.plaf.windows.WindowsFileChooserUI",
+		"installComponents",
+		"(Ljavax/swing/JFileChooser;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$10", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$10",
+		"javax.swing.JButton",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsFileChooserUI"
+	};
+	$loadClass(WindowsFileChooserUI$10, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsFileChooserUI$10));
+	});
 	return class$;
 }
 

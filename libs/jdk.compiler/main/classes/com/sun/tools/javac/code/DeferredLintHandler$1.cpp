@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/DeferredLintHandler$1.h>
-
 #include <com/sun/tools/javac/tree/EndPosTable.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <com/sun/tools/javac/util/Assert.h>
@@ -18,47 +17,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$MethodInfo _DeferredLintHandler$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DeferredLintHandler$1, init$, void)},
-	{"getEndPosition", "(Lcom/sun/tools/javac/tree/EndPosTable;)I", nullptr, $PUBLIC, $virtualMethod(DeferredLintHandler$1, getEndPosition, int32_t, $EndPosTable*)},
-	{"getPreferredPosition", "()I", nullptr, $PUBLIC, $virtualMethod(DeferredLintHandler$1, getPreferredPosition, int32_t)},
-	{"getStartPosition", "()I", nullptr, $PUBLIC, $virtualMethod(DeferredLintHandler$1, getStartPosition, int32_t)},
-	{"getTree", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(DeferredLintHandler$1, getTree, $JCTree*)},
-	{}
-};
-
-$EnclosingMethodInfo _DeferredLintHandler$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.DeferredLintHandler",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _DeferredLintHandler$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.DeferredLintHandler$1", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticPosition", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticPosition", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DeferredLintHandler$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.DeferredLintHandler$1",
-	"java.lang.Object",
-	"com.sun.tools.javac.util.JCDiagnostic$DiagnosticPosition",
-	nullptr,
-	_DeferredLintHandler$1_MethodInfo_,
-	nullptr,
-	&_DeferredLintHandler$1_EnclosingMethodInfo_,
-	_DeferredLintHandler$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.DeferredLintHandler"
-};
-
-$Object* allocate$DeferredLintHandler$1($Class* clazz) {
-	return $of($alloc(DeferredLintHandler$1));
-}
 
 void DeferredLintHandler$1::init$() {
 }
@@ -87,7 +45,42 @@ DeferredLintHandler$1::DeferredLintHandler$1() {
 }
 
 $Class* DeferredLintHandler$1::load$($String* name, bool initialize) {
-	$loadClass(DeferredLintHandler$1, name, initialize, &_DeferredLintHandler$1_ClassInfo_, allocate$DeferredLintHandler$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DeferredLintHandler$1, init$, void)},
+		{"getEndPosition", "(Lcom/sun/tools/javac/tree/EndPosTable;)I", nullptr, $PUBLIC, $virtualMethod(DeferredLintHandler$1, getEndPosition, int32_t, $EndPosTable*)},
+		{"getPreferredPosition", "()I", nullptr, $PUBLIC, $virtualMethod(DeferredLintHandler$1, getPreferredPosition, int32_t)},
+		{"getStartPosition", "()I", nullptr, $PUBLIC, $virtualMethod(DeferredLintHandler$1, getStartPosition, int32_t)},
+		{"getTree", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(DeferredLintHandler$1, getTree, $JCTree*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.DeferredLintHandler",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.DeferredLintHandler$1", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticPosition", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticPosition", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.DeferredLintHandler$1",
+		"java.lang.Object",
+		"com.sun.tools.javac.util.JCDiagnostic$DiagnosticPosition",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.DeferredLintHandler"
+	};
+	$loadClass(DeferredLintHandler$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeferredLintHandler$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Scope$ErrorScope.h>
-
 #include <com/sun/tools/javac/code/Scope$Entry.h>
 #include <com/sun/tools/javac/code/Scope$LookupKind.h>
 #include <com/sun/tools/javac/code/Scope$ScopeImpl.h>
@@ -31,53 +30,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$MethodInfo _Scope$ErrorScope_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Scope$ScopeImpl;Lcom/sun/tools/javac/code/Symbol;[Lcom/sun/tools/javac/code/Scope$Entry;)V", nullptr, 0, $method(Scope$ErrorScope, init$, void, $Scope$ScopeImpl*, $Symbol*, $Scope$EntryArray*)},
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Scope$ErrorScope, init$, void, $Symbol*)},
-	{"anyMatch", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Scope$ErrorScope, anyMatch, bool, $Predicate*)},
-	{"dup", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC, $virtualMethod(Scope$ErrorScope, dup, $Scope$WriteableScope*, $Symbol*)},
-	{"dupUnshared", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC, $virtualMethod(Scope$ErrorScope, dupUnshared, $Scope$WriteableScope*, $Symbol*)},
-	{"enter", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Scope$ErrorScope, enter, void, $Symbol*)},
-	{"enterIfAbsent", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Scope$ErrorScope, enterIfAbsent, void, $Symbol*)},
-	{"findFirst", "(Lcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Scope$ErrorScope, findFirst, $Symbol*, $Name*, $Predicate*)},
-	{"getOrigin", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Scope;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Scope$ErrorScope, getOrigin, $Scope*, $Symbol*)},
-	{"getSymbols", "(Ljava/util/function/Predicate;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Scope$ErrorScope, getSymbols, $Iterable*, $Predicate*, $Scope$LookupKind*)},
-	{"getSymbolsByName", "(Lcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Scope$ErrorScope, getSymbolsByName, $Iterable*, $Name*, $Predicate*, $Scope$LookupKind*)},
-	{"includes", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Scope$ErrorScope, includes, bool, $Symbol*)},
-	{"isStaticallyImported", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Scope$ErrorScope, isStaticallyImported, bool, $Symbol*)},
-	{"leave", "()Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Scope$ErrorScope, leave, $Scope$WriteableScope*)},
-	{"lookup", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Scope$Entry;", nullptr, $PUBLIC, $virtualMethod(Scope$ErrorScope, lookup, $Scope$Entry*, $Name*)},
-	{"remove", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Scope$ErrorScope, remove, void, $Symbol*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Scope$ErrorScope, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Scope$ErrorScope_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Scope$ErrorScope", "com.sun.tools.javac.code.Scope", "ErrorScope", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Scope$ScopeImpl", "com.sun.tools.javac.code.Scope", "ScopeImpl", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Scope$ErrorScope_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Scope$ErrorScope",
-	"com.sun.tools.javac.code.Scope$ScopeImpl",
-	nullptr,
-	nullptr,
-	_Scope$ErrorScope_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Scope$ErrorScope_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Scope"
-};
-
-$Object* allocate$Scope$ErrorScope($Class* clazz) {
-	return $of($alloc(Scope$ErrorScope));
-}
-
 void Scope$ErrorScope::init$($Scope$ScopeImpl* next, $Symbol* errSymbol, $Scope$EntryArray* table) {
 	$Scope$ScopeImpl::init$(next, errSymbol, table);
 }
@@ -91,7 +43,7 @@ $Scope$WriteableScope* Scope$ErrorScope::dup($Symbol* newOwner) {
 }
 
 $Scope$WriteableScope* Scope$ErrorScope::dupUnshared($Symbol* newOwner) {
-	return $new(Scope$ErrorScope, this, newOwner, $cast($Scope$EntryArray, $($nc(this->table)->clone())));
+	return $new(Scope$ErrorScope, this, newOwner, $$cast($Scope$EntryArray, $nc(this->table)->clone()));
 }
 
 $Scope$Entry* Scope$ErrorScope::lookup($Name* name) {
@@ -155,7 +107,49 @@ Scope$ErrorScope::Scope$ErrorScope() {
 }
 
 $Class* Scope$ErrorScope::load$($String* name, bool initialize) {
-	$loadClass(Scope$ErrorScope, name, initialize, &_Scope$ErrorScope_ClassInfo_, allocate$Scope$ErrorScope);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Scope$ScopeImpl;Lcom/sun/tools/javac/code/Symbol;[Lcom/sun/tools/javac/code/Scope$Entry;)V", nullptr, 0, $method(Scope$ErrorScope, init$, void, $Scope$ScopeImpl*, $Symbol*, $Scope$EntryArray*)},
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Scope$ErrorScope, init$, void, $Symbol*)},
+		{"anyMatch", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Scope$ErrorScope, anyMatch, bool, $Predicate*)},
+		{"dup", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC, $virtualMethod(Scope$ErrorScope, dup, $Scope$WriteableScope*, $Symbol*)},
+		{"dupUnshared", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC, $virtualMethod(Scope$ErrorScope, dupUnshared, $Scope$WriteableScope*, $Symbol*)},
+		{"enter", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Scope$ErrorScope, enter, void, $Symbol*)},
+		{"enterIfAbsent", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Scope$ErrorScope, enterIfAbsent, void, $Symbol*)},
+		{"findFirst", "(Lcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Scope$ErrorScope, findFirst, $Symbol*, $Name*, $Predicate*)},
+		{"getOrigin", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Scope;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Scope$ErrorScope, getOrigin, $Scope*, $Symbol*)},
+		{"getSymbols", "(Ljava/util/function/Predicate;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Scope$ErrorScope, getSymbols, $Iterable*, $Predicate*, $Scope$LookupKind*)},
+		{"getSymbolsByName", "(Lcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Scope$ErrorScope, getSymbolsByName, $Iterable*, $Name*, $Predicate*, $Scope$LookupKind*)},
+		{"includes", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Scope$ErrorScope, includes, bool, $Symbol*)},
+		{"isStaticallyImported", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Scope$ErrorScope, isStaticallyImported, bool, $Symbol*)},
+		{"leave", "()Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Scope$ErrorScope, leave, $Scope$WriteableScope*)},
+		{"lookup", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Scope$Entry;", nullptr, $PUBLIC, $virtualMethod(Scope$ErrorScope, lookup, $Scope$Entry*, $Name*)},
+		{"remove", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Scope$ErrorScope, remove, void, $Symbol*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Scope$ErrorScope, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Scope$ErrorScope", "com.sun.tools.javac.code.Scope", "ErrorScope", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Scope$ScopeImpl", "com.sun.tools.javac.code.Scope", "ScopeImpl", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Scope$ErrorScope",
+		"com.sun.tools.javac.code.Scope$ScopeImpl",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Scope"
+	};
+	$loadClass(Scope$ErrorScope, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Scope$ErrorScope);
+	});
 	return class$;
 }
 

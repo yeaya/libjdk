@@ -1,5 +1,4 @@
 #include <sun/net/httpserver/Request.h>
-
 #include <com/sun/net/httpserver/Headers.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -28,57 +27,6 @@ namespace sun {
 	namespace net {
 		namespace httpserver {
 
-$FieldInfo _Request_FieldInfo_[] = {
-	{"BUF_LEN", "I", nullptr, $STATIC | $FINAL, $constField(Request, BUF_LEN)},
-	{"CR", "B", nullptr, $STATIC | $FINAL, $constField(Request, CR)},
-	{"LF", "B", nullptr, $STATIC | $FINAL, $constField(Request, LF)},
-	{"startLine", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Request, startLine)},
-	{"chan", "Ljava/nio/channels/SocketChannel;", nullptr, $PRIVATE, $field(Request, chan)},
-	{"is", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(Request, is)},
-	{"os", "Ljava/io/OutputStream;", nullptr, $PRIVATE, $field(Request, os)},
-	{"buf", "[C", nullptr, 0, $field(Request, buf)},
-	{"pos", "I", nullptr, 0, $field(Request, pos)},
-	{"lineBuf", "Ljava/lang/StringBuffer;", nullptr, 0, $field(Request, lineBuf)},
-	{"hdrs", "Lcom/sun/net/httpserver/Headers;", nullptr, 0, $field(Request, hdrs)},
-	{}
-};
-
-$MethodInfo _Request_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, 0, $method(Request, init$, void, $InputStream*, $OutputStream*), "java.io.IOException"},
-	{"consume", "(I)V", nullptr, $PRIVATE, $method(Request, consume, void, int32_t)},
-	{"headers", "()Lcom/sun/net/httpserver/Headers;", nullptr, 0, $virtualMethod(Request, headers, $Headers*), "java.io.IOException"},
-	{"inputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(Request, inputStream, $InputStream*)},
-	{"outputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(Request, outputStream, $OutputStream*)},
-	{"readLine", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Request, readLine, $String*), "java.io.IOException"},
-	{"requestLine", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Request, requestLine, $String*)},
-	{}
-};
-
-$InnerClassInfo _Request_InnerClassesInfo_[] = {
-	{"sun.net.httpserver.Request$WriteStream", "sun.net.httpserver.Request", "WriteStream", $STATIC},
-	{"sun.net.httpserver.Request$ReadStream", "sun.net.httpserver.Request", "ReadStream", $STATIC},
-	{}
-};
-
-$ClassInfo _Request_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.httpserver.Request",
-	"java.lang.Object",
-	nullptr,
-	_Request_FieldInfo_,
-	_Request_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Request_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.net.httpserver.Request$WriteStream,sun.net.httpserver.Request$ReadStream"
-};
-
-$Object* allocate$Request($Class* clazz) {
-	return $of($alloc(Request));
-}
-
 void Request::init$($InputStream* rawInputStream, $OutputStream* rawout) {
 	$set(this, buf, $new($chars, Request::BUF_LEN));
 	$set(this, hdrs, nullptr);
@@ -89,7 +37,7 @@ void Request::init$($InputStream* rawInputStream, $OutputStream* rawout) {
 		if (this->startLine == nullptr) {
 			return;
 		}
-	} while (this->startLine == nullptr ? false : $nc(this->startLine)->equals(""_s));
+	} while (this->startLine == nullptr ? false : this->startLine->equals(""_s));
 }
 
 $InputStream* Request::inputStream() {
@@ -141,7 +89,7 @@ $String* Request::requestLine() {
 }
 
 $Headers* Request::headers() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->hdrs != nullptr) {
 		return this->hdrs;
 	}
@@ -150,7 +98,7 @@ $Headers* Request::headers() {
 	int32_t len = 0;
 	int32_t firstc = $nc(this->is)->read();
 	if (firstc == Request::CR || firstc == Request::LF) {
-		int32_t c = $nc(this->is)->read();
+		int32_t c = this->is->read();
 		if (c == Request::CR || c == Request::LF) {
 			return this->hdrs;
 		}
@@ -169,50 +117,41 @@ $Headers* Request::headers() {
 				while ((c = $nc(this->is)->read()) >= 0) {
 					switch (c) {
 					case u':':
-						{
-							if (inKey && len > 0) {
-								keyend = len;
-							}
-							inKey = false;
-							break;
+						if (inKey && len > 0) {
+							keyend = len;
 						}
+						inKey = false;
+						break;
 					case u'\t':
-						{
-							c = u' ';
-						}
+						c = u' ';
 					case u' ':
-						{
-							inKey = false;
-							break;
-						}
+						inKey = false;
+						break;
 					case Request::CR:
-						{}
 					case Request::LF:
-						{
-							firstc = $nc(this->is)->read();
-							if (c == Request::CR && firstc == Request::LF) {
-								firstc = $nc(this->is)->read();
-								if (firstc == Request::CR) {
-									firstc = $nc(this->is)->read();
-								}
+						firstc = this->is->read();
+						if (c == Request::CR && firstc == Request::LF) {
+							firstc = this->is->read();
+							if (firstc == Request::CR) {
+								firstc = this->is->read();
 							}
-							if (firstc == Request::LF || firstc == Request::CR || firstc > u' ') {
-								parseloop$break = true;
-								break;
-							}
-							c = u' ';
+						}
+						if (firstc == Request::LF || firstc == Request::CR || firstc > u' ') {
+							parseloop$break = true;
 							break;
 						}
+						c = u' ';
+						break;
 					}
-
 					if (parseloop$break) {
 						break;
-					}					if (len >= $nc(s)->length) {
+					}
+					if (len >= $nc(s)->length) {
 						$var($chars, ns, $new($chars, s->length * 2));
 						$System::arraycopy(s, 0, ns, 0, len);
 						$assign(s, ns);
 					}
-					$nc(s)->set(len++, (char16_t)c);
+					s->set(len++, (char16_t)c);
 				}
 				if (parseloop$break) {
 					break;
@@ -221,7 +160,7 @@ $Headers* Request::headers() {
 			}
 			break;
 		}
-		while (len > 0 && s->get(len - 1) <= u' ') {
+		while (len > 0 && $nc(s)->get(len - 1) <= u' ') {
 			--len;
 		}
 		$var($String, k, nullptr);
@@ -230,10 +169,10 @@ $Headers* Request::headers() {
 			keyend = 0;
 		} else {
 			$assign(k, $String::copyValueOf(s, 0, keyend));
-			if (keyend < len && s->get(keyend) == u':') {
+			if (keyend < len && $nc(s)->get(keyend) == u':') {
 				++keyend;
 			}
-			while (keyend < len && s->get(keyend) <= u' ') {
+			while (keyend < len && $nc(s)->get(keyend) <= u' ') {
 				++keyend;
 			}
 		}
@@ -257,7 +196,52 @@ Request::Request() {
 }
 
 $Class* Request::load$($String* name, bool initialize) {
-	$loadClass(Request, name, initialize, &_Request_ClassInfo_, allocate$Request);
+	$FieldInfo fieldInfos$$[] = {
+		{"BUF_LEN", "I", nullptr, $STATIC | $FINAL, $constField(Request, BUF_LEN)},
+		{"CR", "B", nullptr, $STATIC | $FINAL, $constField(Request, CR)},
+		{"LF", "B", nullptr, $STATIC | $FINAL, $constField(Request, LF)},
+		{"startLine", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Request, startLine)},
+		{"chan", "Ljava/nio/channels/SocketChannel;", nullptr, $PRIVATE, $field(Request, chan)},
+		{"is", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(Request, is)},
+		{"os", "Ljava/io/OutputStream;", nullptr, $PRIVATE, $field(Request, os)},
+		{"buf", "[C", nullptr, 0, $field(Request, buf)},
+		{"pos", "I", nullptr, 0, $field(Request, pos)},
+		{"lineBuf", "Ljava/lang/StringBuffer;", nullptr, 0, $field(Request, lineBuf)},
+		{"hdrs", "Lcom/sun/net/httpserver/Headers;", nullptr, 0, $field(Request, hdrs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, 0, $method(Request, init$, void, $InputStream*, $OutputStream*), "java.io.IOException"},
+		{"consume", "(I)V", nullptr, $PRIVATE, $method(Request, consume, void, int32_t)},
+		{"headers", "()Lcom/sun/net/httpserver/Headers;", nullptr, 0, $virtualMethod(Request, headers, $Headers*), "java.io.IOException"},
+		{"inputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(Request, inputStream, $InputStream*)},
+		{"outputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(Request, outputStream, $OutputStream*)},
+		{"readLine", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Request, readLine, $String*), "java.io.IOException"},
+		{"requestLine", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Request, requestLine, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.httpserver.Request$WriteStream", "sun.net.httpserver.Request", "WriteStream", $STATIC},
+		{"sun.net.httpserver.Request$ReadStream", "sun.net.httpserver.Request", "ReadStream", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.httpserver.Request",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.net.httpserver.Request$WriteStream,sun.net.httpserver.Request$ReadStream"
+	};
+	$loadClass(Request, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Request);
+	});
 	return class$;
 }
 

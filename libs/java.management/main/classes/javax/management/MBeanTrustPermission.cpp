@@ -1,5 +1,4 @@
 #include <javax/management/MBeanTrustPermission.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/security/BasicPermission.h>
@@ -17,32 +16,6 @@ using $BasicPermission = ::java::security::BasicPermission;
 namespace javax {
 	namespace management {
 
-$FieldInfo _MBeanTrustPermission_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanTrustPermission, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _MBeanTrustPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanTrustPermission, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanTrustPermission, init$, void, $String*, $String*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MBeanTrustPermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"validate", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanTrustPermission, validate, void, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _MBeanTrustPermission_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.MBeanTrustPermission",
-	"java.security.BasicPermission",
-	nullptr,
-	_MBeanTrustPermission_FieldInfo_,
-	_MBeanTrustPermission_MethodInfo_
-};
-
-$Object* allocate$MBeanTrustPermission($Class* clazz) {
-	return $of($alloc(MBeanTrustPermission));
-}
-
 void MBeanTrustPermission::init$($String* name) {
 	MBeanTrustPermission::init$(name, nullptr);
 }
@@ -54,7 +27,7 @@ void MBeanTrustPermission::init$($String* name, $String* actions) {
 
 void MBeanTrustPermission::validate($String* name, $String* actions) {
 	$init(MBeanTrustPermission);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (actions != nullptr && actions->length() > 0) {
 		$throwNew($IllegalArgumentException, $$str({"MBeanTrustPermission actions must be null: "_s, actions}));
 	}
@@ -65,7 +38,7 @@ void MBeanTrustPermission::validate($String* name, $String* actions) {
 }
 
 void MBeanTrustPermission::readObject($ObjectInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(in)->defaultReadObject();
 	try {
 		$var($String, var$0, $BasicPermission::getName());
@@ -79,7 +52,28 @@ MBeanTrustPermission::MBeanTrustPermission() {
 }
 
 $Class* MBeanTrustPermission::load$($String* name, bool initialize) {
-	$loadClass(MBeanTrustPermission, name, initialize, &_MBeanTrustPermission_ClassInfo_, allocate$MBeanTrustPermission);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanTrustPermission, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanTrustPermission, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanTrustPermission, init$, void, $String*, $String*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MBeanTrustPermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"validate", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanTrustPermission, validate, void, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.MBeanTrustPermission",
+		"java.security.BasicPermission",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MBeanTrustPermission, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MBeanTrustPermission));
+	});
 	return class$;
 }
 

@@ -35,6 +35,7 @@ class $import Statement : public ::java::lang::Object {
 	$class(Statement, 0, ::java::lang::Object)
 public:
 	Statement();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(Object$* target, $String* methodName, $ObjectArray* arguments);
 	virtual void execute();
 	virtual $ObjectArray* getArguments();

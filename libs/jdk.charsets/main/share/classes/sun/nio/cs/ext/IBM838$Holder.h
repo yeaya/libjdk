@@ -14,6 +14,7 @@ class IBM838$Holder : public ::java::lang::Object {
 	$class(IBM838$Holder, 0, ::java::lang::Object)
 public:
 	IBM838$Holder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* b2cTable;
 	static $chars* b2c;

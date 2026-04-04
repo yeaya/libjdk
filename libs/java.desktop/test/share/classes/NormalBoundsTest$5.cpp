@@ -1,5 +1,4 @@
 #include <NormalBoundsTest$5.h>
-
 #include <NormalBoundsTest.h>
 #include <java/awt/Window.h>
 #include <java/beans/PropertyVetoException.h>
@@ -14,45 +13,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $JFrame = ::javax::swing::JFrame;
-using $JInternalFrame = ::javax::swing::JInternalFrame;
-
-$MethodInfo _NormalBoundsTest$5_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(NormalBoundsTest$5, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NormalBoundsTest$5, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _NormalBoundsTest$5_EnclosingMethodInfo_ = {
-	"NormalBoundsTest",
-	"executeTest",
-	"(Ljava/awt/Robot;)V"
-};
-
-$InnerClassInfo _NormalBoundsTest$5_InnerClassesInfo_[] = {
-	{"NormalBoundsTest$5", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NormalBoundsTest$5_ClassInfo_ = {
-	$ACC_SUPER,
-	"NormalBoundsTest$5",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_NormalBoundsTest$5_MethodInfo_,
-	nullptr,
-	&_NormalBoundsTest$5_EnclosingMethodInfo_,
-	_NormalBoundsTest$5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"NormalBoundsTest"
-};
-
-$Object* allocate$NormalBoundsTest$5($Class* clazz) {
-	return $of($alloc(NormalBoundsTest$5));
-}
 
 void NormalBoundsTest$5::init$() {
 }
@@ -72,7 +32,38 @@ NormalBoundsTest$5::NormalBoundsTest$5() {
 }
 
 $Class* NormalBoundsTest$5::load$($String* name, bool initialize) {
-	$loadClass(NormalBoundsTest$5, name, initialize, &_NormalBoundsTest$5_ClassInfo_, allocate$NormalBoundsTest$5);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(NormalBoundsTest$5, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NormalBoundsTest$5, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"NormalBoundsTest",
+		"executeTest",
+		"(Ljava/awt/Robot;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"NormalBoundsTest$5", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"NormalBoundsTest$5",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"NormalBoundsTest"
+	};
+	$loadClass(NormalBoundsTest$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NormalBoundsTest$5);
+	});
 	return class$;
 }
 

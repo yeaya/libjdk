@@ -1,5 +1,4 @@
 #include <javax/sql/rowset/JdbcRowSet.h>
-
 #include <java/sql/Savepoint.h>
 #include <javax/sql/RowSet.h>
 #include <javax/sql/rowset/RowSetWarning.h>
@@ -14,36 +13,6 @@ using $RowSetWarning = ::javax::sql::rowset::RowSetWarning;
 namespace javax {
 	namespace sql {
 		namespace rowset {
-
-$MethodInfo _JdbcRowSet_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"commit", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JdbcRowSet, commit, void), "java.sql.SQLException"},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getAutoCommit", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JdbcRowSet, getAutoCommit, bool), "java.sql.SQLException"},
-	{"getRowSetWarnings", "()Ljavax/sql/rowset/RowSetWarning;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JdbcRowSet, getRowSetWarnings, $RowSetWarning*), "java.sql.SQLException"},
-	{"getShowDeleted", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JdbcRowSet, getShowDeleted, bool), "java.sql.SQLException"},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"rollback", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JdbcRowSet, rollback, void), "java.sql.SQLException"},
-	{"rollback", "(Ljava/sql/Savepoint;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JdbcRowSet, rollback, void, $Savepoint*), "java.sql.SQLException"},
-	{"setAutoCommit", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JdbcRowSet, setAutoCommit, void, bool), "java.sql.SQLException"},
-	{"setShowDeleted", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JdbcRowSet, setShowDeleted, void, bool), "java.sql.SQLException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _JdbcRowSet_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.sql.rowset.JdbcRowSet",
-	nullptr,
-	"javax.sql.RowSet,javax.sql.rowset.Joinable",
-	nullptr,
-	_JdbcRowSet_MethodInfo_
-};
-
-$Object* allocate$JdbcRowSet($Class* clazz) {
-	return $of($alloc(JdbcRowSet));
-}
 
 int32_t JdbcRowSet::hashCode() {
 	 return this->$RowSet::hashCode();
@@ -66,7 +35,33 @@ void JdbcRowSet::finalize() {
 }
 
 $Class* JdbcRowSet::load$($String* name, bool initialize) {
-	$loadClass(JdbcRowSet, name, initialize, &_JdbcRowSet_ClassInfo_, allocate$JdbcRowSet);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"commit", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JdbcRowSet, commit, void), "java.sql.SQLException"},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"getAutoCommit", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JdbcRowSet, getAutoCommit, bool), "java.sql.SQLException"},
+		{"getRowSetWarnings", "()Ljavax/sql/rowset/RowSetWarning;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JdbcRowSet, getRowSetWarnings, $RowSetWarning*), "java.sql.SQLException"},
+		{"getShowDeleted", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JdbcRowSet, getShowDeleted, bool), "java.sql.SQLException"},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"rollback", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JdbcRowSet, rollback, void), "java.sql.SQLException"},
+		{"rollback", "(Ljava/sql/Savepoint;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JdbcRowSet, rollback, void, $Savepoint*), "java.sql.SQLException"},
+		{"setAutoCommit", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JdbcRowSet, setAutoCommit, void, bool), "java.sql.SQLException"},
+		{"setShowDeleted", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JdbcRowSet, setShowDeleted, void, bool), "java.sql.SQLException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.sql.rowset.JdbcRowSet",
+		nullptr,
+		"javax.sql.RowSet,javax.sql.rowset.Joinable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JdbcRowSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JdbcRowSet));
+	});
 	return class$;
 }
 

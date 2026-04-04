@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/ChunkedIntArray$ChunksVector.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/ref/ChunkedIntArray.h>
 #include <jcpp.h>
 
@@ -20,48 +19,6 @@ namespace com {
 					namespace internal {
 						namespace dtm {
 							namespace ref {
-
-$FieldInfo _ChunkedIntArray$ChunksVector_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xml/internal/dtm/ref/ChunkedIntArray;", nullptr, $FINAL | $SYNTHETIC, $field(ChunkedIntArray$ChunksVector, this$0)},
-	{"BLOCKSIZE", "I", nullptr, $STATIC | $FINAL, $constField(ChunkedIntArray$ChunksVector, BLOCKSIZE)},
-	{"m_map", "[[I", nullptr, 0, $field(ChunkedIntArray$ChunksVector, m_map)},
-	{"m_mapSize", "I", nullptr, 0, $field(ChunkedIntArray$ChunksVector, m_mapSize)},
-	{"pos", "I", nullptr, 0, $field(ChunkedIntArray$ChunksVector, pos)},
-	{}
-};
-
-$MethodInfo _ChunkedIntArray$ChunksVector_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/ref/ChunkedIntArray;)V", nullptr, 0, $method(ChunkedIntArray$ChunksVector, init$, void, $ChunkedIntArray*)},
-	{"addElement", "([I)V", nullptr, 0, $virtualMethod(ChunkedIntArray$ChunksVector, addElement, void, $ints*)},
-	{"elementAt", "(I)[I", nullptr, $FINAL, $method(ChunkedIntArray$ChunksVector, elementAt, $ints*, int32_t)},
-	{"size", "()I", nullptr, $FINAL, $method(ChunkedIntArray$ChunksVector, size, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ChunkedIntArray$ChunksVector_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.dtm.ref.ChunkedIntArray$ChunksVector", "com.sun.org.apache.xml.internal.dtm.ref.ChunkedIntArray", "ChunksVector", 0},
-	{}
-};
-
-$ClassInfo _ChunkedIntArray$ChunksVector_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xml.internal.dtm.ref.ChunkedIntArray$ChunksVector",
-	"java.lang.Object",
-	nullptr,
-	_ChunkedIntArray$ChunksVector_FieldInfo_,
-	_ChunkedIntArray$ChunksVector_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ChunkedIntArray$ChunksVector_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.dtm.ref.ChunkedIntArray"
-};
-
-$Object* allocate$ChunkedIntArray$ChunksVector($Class* clazz) {
-	return $of($alloc(ChunkedIntArray$ChunksVector));
-}
 
 void ChunkedIntArray$ChunksVector::init$($ChunkedIntArray* this$0) {
 	$set(this, this$0, this$0);
@@ -96,7 +53,43 @@ ChunkedIntArray$ChunksVector::ChunkedIntArray$ChunksVector() {
 }
 
 $Class* ChunkedIntArray$ChunksVector::load$($String* name, bool initialize) {
-	$loadClass(ChunkedIntArray$ChunksVector, name, initialize, &_ChunkedIntArray$ChunksVector_ClassInfo_, allocate$ChunkedIntArray$ChunksVector);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xml/internal/dtm/ref/ChunkedIntArray;", nullptr, $FINAL | $SYNTHETIC, $field(ChunkedIntArray$ChunksVector, this$0)},
+		{"BLOCKSIZE", "I", nullptr, $STATIC | $FINAL, $constField(ChunkedIntArray$ChunksVector, BLOCKSIZE)},
+		{"m_map", "[[I", nullptr, 0, $field(ChunkedIntArray$ChunksVector, m_map)},
+		{"m_mapSize", "I", nullptr, 0, $field(ChunkedIntArray$ChunksVector, m_mapSize)},
+		{"pos", "I", nullptr, 0, $field(ChunkedIntArray$ChunksVector, pos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/ref/ChunkedIntArray;)V", nullptr, 0, $method(ChunkedIntArray$ChunksVector, init$, void, $ChunkedIntArray*)},
+		{"addElement", "([I)V", nullptr, 0, $virtualMethod(ChunkedIntArray$ChunksVector, addElement, void, $ints*)},
+		{"elementAt", "(I)[I", nullptr, $FINAL, $method(ChunkedIntArray$ChunksVector, elementAt, $ints*, int32_t)},
+		{"size", "()I", nullptr, $FINAL, $method(ChunkedIntArray$ChunksVector, size, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.dtm.ref.ChunkedIntArray$ChunksVector", "com.sun.org.apache.xml.internal.dtm.ref.ChunkedIntArray", "ChunksVector", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xml.internal.dtm.ref.ChunkedIntArray$ChunksVector",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.dtm.ref.ChunkedIntArray"
+	};
+	$loadClass(ChunkedIntArray$ChunksVector, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ChunkedIntArray$ChunksVector);
+	});
 	return class$;
 }
 

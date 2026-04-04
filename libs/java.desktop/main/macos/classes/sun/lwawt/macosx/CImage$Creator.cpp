@@ -1,8 +1,5 @@
 #include <sun/lwawt/macosx/CImage$Creator.h>
-
 #include <java/awt/AlphaComposite.h>
-#include <java/awt/Component.h>
-#include <java/awt/Composite.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/Image.h>
 #include <java/awt/Label.h>
@@ -28,8 +25,6 @@
 
 using $intArray2 = $Array<int32_t, 2>;
 using $AlphaComposite = ::java::awt::AlphaComposite;
-using $Component = ::java::awt::Component;
-using $Composite = ::java::awt::Composite;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Image = ::java::awt::Image;
 using $Label = ::java::awt::Label;
@@ -39,7 +34,6 @@ using $BufferedImage = ::java::awt::image::BufferedImage;
 using $DataBufferInt = ::java::awt::image::DataBufferInt;
 using $ImageObserver = ::java::awt::image::ImageObserver;
 using $MultiResolutionImage = ::java::awt::image::MultiResolutionImage;
-using $WritableRaster = ::java::awt::image::WritableRaster;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Error = ::java::lang::Error;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -57,59 +51,6 @@ namespace sun {
 	namespace lwawt {
 		namespace macosx {
 
-$FieldInfo _CImage$Creator_FieldInfo_[] = {
-	{"observer", "Lsun/lwawt/macosx/CTrayIcon$IconObserver;", nullptr, 0, $field(CImage$Creator, observer)},
-	{}
-};
-
-$MethodInfo _CImage$Creator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CImage$Creator, init$, void)},
-	{"createFromImage", "(Ljava/awt/Image;)Lsun/lwawt/macosx/CImage;", nullptr, $PUBLIC, $virtualMethod(CImage$Creator, createFromImage, $CImage*, $Image*)},
-	{"createFromImage", "(Ljava/awt/Image;Lsun/lwawt/macosx/CTrayIcon$IconObserver;)Lsun/lwawt/macosx/CImage;", nullptr, $PUBLIC, $virtualMethod(CImage$Creator, createFromImage, $CImage*, $Image*, $CTrayIcon$IconObserver*)},
-	{"createFromImage", "(Ljava/awt/Image;ZLsun/lwawt/macosx/CTrayIcon$IconObserver;)Lsun/lwawt/macosx/CImage;", nullptr, $PRIVATE, $method(CImage$Creator, createFromImage, $CImage*, $Image*, bool, $CTrayIcon$IconObserver*)},
-	{"createFromImageImmediately", "(Ljava/awt/Image;)Lsun/lwawt/macosx/CImage;", nullptr, $PUBLIC, $virtualMethod(CImage$Creator, createFromImageImmediately, $CImage*, $Image*)},
-	{"createFromImages", "(Ljava/util/List;)Lsun/lwawt/macosx/CImage;", "(Ljava/util/List<Ljava/awt/Image;>;)Lsun/lwawt/macosx/CImage;", $PUBLIC, $virtualMethod(CImage$Creator, createFromImages, $CImage*, $List*)},
-	{"createFromImages", "(Ljava/util/List;Z)Lsun/lwawt/macosx/CImage;", "(Ljava/util/List<Ljava/awt/Image;>;Z)Lsun/lwawt/macosx/CImage;", $PRIVATE, $method(CImage$Creator, createFromImages, $CImage*, $List*, bool)},
-	{"createImage", "(JDD)Ljava/awt/Image;", nullptr, 0, $virtualMethod(CImage$Creator, createImage, $Image*, int64_t, double, double)},
-	{"createImageFromFile", "(Ljava/lang/String;DD)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(CImage$Creator, createImageFromFile, $Image*, $String*, double, double)},
-	{"createImageFromName", "(Ljava/lang/String;II)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(CImage$Creator, createImageFromName, $Image*, $String*, int32_t, int32_t)},
-	{"createImageFromName", "(Ljava/lang/String;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(CImage$Creator, createImageFromName, $Image*, $String*)},
-	{"createImageFromPlatformImageBytes", "([B)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(CImage$Creator, createImageFromPlatformImageBytes, $Image*, $bytes*)},
-	{"createImageOfFile", "(Ljava/lang/String;II)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(CImage$Creator, createImageOfFile, $Image*, $String*, int32_t, int32_t)},
-	{"createImageUsingNativeSize", "(J)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(CImage$Creator, createImageUsingNativeSize, $Image*, int64_t)},
-	{"createImageWithSize", "(JDD)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(CImage$Creator, createImageWithSize, $Image*, int64_t, double, double)},
-	{"createSystemImageFromSelector", "(Ljava/lang/String;II)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(CImage$Creator, createSystemImageFromSelector, $Image*, $String*, int32_t, int32_t)},
-	{"getPlatformImageBytes", "(Ljava/awt/Image;)[B", nullptr, $PUBLIC, $virtualMethod(CImage$Creator, getPlatformImageBytes, $bytes*, $Image*)},
-	{"getSelectorAsInt", "(Ljava/lang/String;)I", nullptr, $STATIC, $staticMethod(CImage$Creator, getSelectorAsInt, int32_t, $String*)},
-	{"imageToArray", "(Ljava/awt/Image;ZLsun/lwawt/macosx/CTrayIcon$IconObserver;)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(CImage$Creator, imageToArray, $ints*, $Image*, bool, $CTrayIcon$IconObserver*)},
-	{}
-};
-
-$InnerClassInfo _CImage$Creator_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.CImage$Creator", "sun.lwawt.macosx.CImage", "Creator", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _CImage$Creator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.lwawt.macosx.CImage$Creator",
-	"java.lang.Object",
-	nullptr,
-	_CImage$Creator_FieldInfo_,
-	_CImage$Creator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CImage$Creator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.CImage"
-};
-
-$Object* allocate$CImage$Creator($Class* clazz) {
-	return $of($alloc(CImage$Creator));
-}
-
 void CImage$Creator::init$() {
 }
 
@@ -118,9 +59,8 @@ $Image* CImage$Creator::createImageUsingNativeSize(int64_t image) {
 		return nullptr;
 	}
 	$var($Dimension2D, size, $CImage::nativeGetNSImageSize(image));
-	int64_t var$0 = image;
-	double var$1 = $nc(size)->getWidth();
-	return createImage(var$0, var$1, size->getHeight());
+	double var$0 = $nc(size)->getWidth();
+	return createImage(image, var$0, size->getHeight());
 }
 
 $Image* CImage$Creator::createImage(int64_t image, double width, double height) {
@@ -159,7 +99,7 @@ $Image* CImage$Creator::createImageFromName($String* name) {
 }
 
 $ints* CImage$Creator::imageToArray($Image* image, bool prepareImage, $CTrayIcon$IconObserver* observer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (image == nullptr) {
 		return nullptr;
 	}
@@ -187,18 +127,16 @@ $ints* CImage$Creator::imageToArray($Image* image, bool prepareImage, $CTrayIcon
 	$nc(g2)->setComposite($AlphaComposite::Src);
 	g2->drawImage(image, 0, 0, observer);
 	g2->dispose();
-	return $nc(($cast($DataBufferInt, $($nc($(bimg->getRaster()))->getDataBuffer()))))->getData();
+	return $$sure($DataBufferInt, $$nc(bimg->getRaster())->getDataBuffer())->getData();
 }
 
 $bytes* CImage$Creator::getPlatformImageBytes($Image* image) {
-	$useLocalCurrentObjectStackCache();
 	$var($ints, buffer, imageToArray(image, false, nullptr));
 	if (buffer == nullptr) {
 		return nullptr;
 	}
-	$var($ints, var$0, buffer);
-	int32_t var$1 = $nc(image)->getWidth(nullptr);
-	return $CImage::nativeGetPlatformImageBytes(var$0, var$1, image->getHeight(nullptr));
+	int32_t var$0 = $nc(image)->getWidth(nullptr);
+	return $CImage::nativeGetPlatformImageBytes(buffer, var$0, image->getHeight(nullptr));
 }
 
 $Image* CImage$Creator::createImageFromPlatformImageBytes($bytes* buffer) {
@@ -218,18 +156,17 @@ $CImage* CImage$Creator::createFromImageImmediately($Image* image) {
 }
 
 $CImage* CImage$Creator::createFromImage($Image* image, bool prepareImage, $CTrayIcon$IconObserver* observer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($MultiResolutionImage, image)) {
-		$var($List, resolutionVariants, $nc(($cast($MultiResolutionImage, image)))->getResolutionVariants());
+		$var($List, resolutionVariants, $cast($MultiResolutionImage, image)->getResolutionVariants());
 		return createFromImages(resolutionVariants, prepareImage);
 	}
 	$var($ints, buffer, imageToArray(image, prepareImage, observer));
 	if (buffer == nullptr) {
 		return nullptr;
 	}
-	$var($ints, var$0, buffer);
-	int32_t var$1 = $nc(image)->getWidth(nullptr);
-	return $new($CImage, $CImage::nativeCreateNSImageFromArray(var$0, var$1, image->getHeight(nullptr)));
+	int32_t var$0 = $nc(image)->getWidth(nullptr);
+	return $new($CImage, $CImage::nativeCreateNSImageFromArray(buffer, var$0, image->getHeight(nullptr)));
 }
 
 $CImage* CImage$Creator::createFromImages($List* images) {
@@ -237,8 +174,8 @@ $CImage* CImage$Creator::createFromImages($List* images) {
 }
 
 $CImage* CImage$Creator::createFromImages($List* images, bool prepareImage) {
-	$useLocalCurrentObjectStackCache();
-	if (images == nullptr || $nc(images)->isEmpty()) {
+	$useLocalObjectStack();
+	if (images == nullptr || images->isEmpty()) {
 		return nullptr;
 	}
 	int32_t num = $nc(images)->size();
@@ -264,7 +201,7 @@ $CImage* CImage$Creator::createFromImages($List* images, bool prepareImage) {
 	if (num == 0) {
 		return nullptr;
 	}
-	$var($intArray2, var$0, $fcast($intArray2, $Arrays::copyOf(static_cast<$ObjectArray*>(static_cast<$Object*>(static_cast<$intArray2*>(buffers))), num)));
+	$var($intArray2, var$0, $cast($intArray2, $Arrays::copyOf(buffers, num)));
 	$var($ints, var$1, $Arrays::copyOf(w, num));
 	return $new($CImage, $CImage::nativeCreateNSImageFromArrays(var$0, var$1, $($Arrays::copyOf(h, num))));
 }
@@ -277,7 +214,7 @@ int32_t CImage$Creator::getSelectorAsInt($String* fromString) {
 		if (i > 0) {
 			result <<= 8;
 		}
-		result |= ((int32_t)(b->get(i) & (uint32_t)255));
+		result |= (b->get(i) & 0xff);
 	}
 	return result;
 }
@@ -286,7 +223,54 @@ CImage$Creator::CImage$Creator() {
 }
 
 $Class* CImage$Creator::load$($String* name, bool initialize) {
-	$loadClass(CImage$Creator, name, initialize, &_CImage$Creator_ClassInfo_, allocate$CImage$Creator);
+	$FieldInfo fieldInfos$$[] = {
+		{"observer", "Lsun/lwawt/macosx/CTrayIcon$IconObserver;", nullptr, 0, $field(CImage$Creator, observer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CImage$Creator, init$, void)},
+		{"createFromImage", "(Ljava/awt/Image;)Lsun/lwawt/macosx/CImage;", nullptr, $PUBLIC, $virtualMethod(CImage$Creator, createFromImage, $CImage*, $Image*)},
+		{"createFromImage", "(Ljava/awt/Image;Lsun/lwawt/macosx/CTrayIcon$IconObserver;)Lsun/lwawt/macosx/CImage;", nullptr, $PUBLIC, $virtualMethod(CImage$Creator, createFromImage, $CImage*, $Image*, $CTrayIcon$IconObserver*)},
+		{"createFromImage", "(Ljava/awt/Image;ZLsun/lwawt/macosx/CTrayIcon$IconObserver;)Lsun/lwawt/macosx/CImage;", nullptr, $PRIVATE, $method(CImage$Creator, createFromImage, $CImage*, $Image*, bool, $CTrayIcon$IconObserver*)},
+		{"createFromImageImmediately", "(Ljava/awt/Image;)Lsun/lwawt/macosx/CImage;", nullptr, $PUBLIC, $virtualMethod(CImage$Creator, createFromImageImmediately, $CImage*, $Image*)},
+		{"createFromImages", "(Ljava/util/List;)Lsun/lwawt/macosx/CImage;", "(Ljava/util/List<Ljava/awt/Image;>;)Lsun/lwawt/macosx/CImage;", $PUBLIC, $virtualMethod(CImage$Creator, createFromImages, $CImage*, $List*)},
+		{"createFromImages", "(Ljava/util/List;Z)Lsun/lwawt/macosx/CImage;", "(Ljava/util/List<Ljava/awt/Image;>;Z)Lsun/lwawt/macosx/CImage;", $PRIVATE, $method(CImage$Creator, createFromImages, $CImage*, $List*, bool)},
+		{"createImage", "(JDD)Ljava/awt/Image;", nullptr, 0, $virtualMethod(CImage$Creator, createImage, $Image*, int64_t, double, double)},
+		{"createImageFromFile", "(Ljava/lang/String;DD)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(CImage$Creator, createImageFromFile, $Image*, $String*, double, double)},
+		{"createImageFromName", "(Ljava/lang/String;II)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(CImage$Creator, createImageFromName, $Image*, $String*, int32_t, int32_t)},
+		{"createImageFromName", "(Ljava/lang/String;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(CImage$Creator, createImageFromName, $Image*, $String*)},
+		{"createImageFromPlatformImageBytes", "([B)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(CImage$Creator, createImageFromPlatformImageBytes, $Image*, $bytes*)},
+		{"createImageOfFile", "(Ljava/lang/String;II)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(CImage$Creator, createImageOfFile, $Image*, $String*, int32_t, int32_t)},
+		{"createImageUsingNativeSize", "(J)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(CImage$Creator, createImageUsingNativeSize, $Image*, int64_t)},
+		{"createImageWithSize", "(JDD)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(CImage$Creator, createImageWithSize, $Image*, int64_t, double, double)},
+		{"createSystemImageFromSelector", "(Ljava/lang/String;II)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(CImage$Creator, createSystemImageFromSelector, $Image*, $String*, int32_t, int32_t)},
+		{"getPlatformImageBytes", "(Ljava/awt/Image;)[B", nullptr, $PUBLIC, $virtualMethod(CImage$Creator, getPlatformImageBytes, $bytes*, $Image*)},
+		{"getSelectorAsInt", "(Ljava/lang/String;)I", nullptr, $STATIC, $staticMethod(CImage$Creator, getSelectorAsInt, int32_t, $String*)},
+		{"imageToArray", "(Ljava/awt/Image;ZLsun/lwawt/macosx/CTrayIcon$IconObserver;)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(CImage$Creator, imageToArray, $ints*, $Image*, bool, $CTrayIcon$IconObserver*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.CImage$Creator", "sun.lwawt.macosx.CImage", "Creator", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.lwawt.macosx.CImage$Creator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.CImage"
+	};
+	$loadClass(CImage$Creator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CImage$Creator);
+	});
 	return class$;
 }
 

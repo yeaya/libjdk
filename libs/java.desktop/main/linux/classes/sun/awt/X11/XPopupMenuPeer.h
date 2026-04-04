@@ -63,6 +63,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::PopupMenu* target);
 	virtual void doDispose() override;
 	virtual ::java::awt::Dimension* getCaptionSize() override;

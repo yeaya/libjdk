@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/comp/FileObjectWithLocation.h>
-
 #include <javax/tools/FileObject.h>
 #include <javax/tools/ForwardingFileObject.h>
 #include <javax/tools/JavaFileManager$Location.h>
@@ -18,41 +17,6 @@ namespace com {
 		namespace tools {
 			namespace sjavac {
 				namespace comp {
-
-$CompoundAttribute _FileObjectWithLocation_Annotations_[] = {
-	{"Lcom/sun/tools/javac/api/ClientCodeWrapper$Trusted;", nullptr},
-	{}
-};
-
-$FieldInfo _FileObjectWithLocation_FieldInfo_[] = {
-	{"loc", "Ljavax/tools/JavaFileManager$Location;", nullptr, $PRIVATE | $FINAL, $field(FileObjectWithLocation, loc)},
-	{}
-};
-
-$MethodInfo _FileObjectWithLocation_MethodInfo_[] = {
-	{"<init>", "(Ljavax/tools/FileObject;Ljavax/tools/JavaFileManager$Location;)V", "(TF;Ljavax/tools/JavaFileManager$Location;)V", $PUBLIC, $method(FileObjectWithLocation, init$, void, $FileObject*, $JavaFileManager$Location*)},
-	{"getDelegate", "()Ljavax/tools/FileObject;", nullptr, $PUBLIC, $virtualMethod(FileObjectWithLocation, getDelegate, $FileObject*)},
-	{"getLocation", "()Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $virtualMethod(FileObjectWithLocation, getLocation, $JavaFileManager$Location*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileObjectWithLocation, toString, $String*)},
-	{}
-};
-
-$ClassInfo _FileObjectWithLocation_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.comp.FileObjectWithLocation",
-	"javax.tools.ForwardingFileObject",
-	nullptr,
-	_FileObjectWithLocation_FieldInfo_,
-	_FileObjectWithLocation_MethodInfo_,
-	"<F::Ljavax/tools/FileObject;>Ljavax/tools/ForwardingFileObject<TF;>;",
-	nullptr,
-	nullptr,
-	_FileObjectWithLocation_Annotations_
-};
-
-$Object* allocate$FileObjectWithLocation($Class* clazz) {
-	return $of($alloc(FileObjectWithLocation));
-}
 
 void FileObjectWithLocation::init$($FileObject* delegate, $JavaFileManager$Location* loc) {
 	$ForwardingFileObject::init$(delegate);
@@ -75,7 +39,36 @@ FileObjectWithLocation::FileObjectWithLocation() {
 }
 
 $Class* FileObjectWithLocation::load$($String* name, bool initialize) {
-	$loadClass(FileObjectWithLocation, name, initialize, &_FileObjectWithLocation_ClassInfo_, allocate$FileObjectWithLocation);
+	$FieldInfo fieldInfos$$[] = {
+		{"loc", "Ljavax/tools/JavaFileManager$Location;", nullptr, $PRIVATE | $FINAL, $field(FileObjectWithLocation, loc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/tools/FileObject;Ljavax/tools/JavaFileManager$Location;)V", "(TF;Ljavax/tools/JavaFileManager$Location;)V", $PUBLIC, $method(FileObjectWithLocation, init$, void, $FileObject*, $JavaFileManager$Location*)},
+		{"getDelegate", "()Ljavax/tools/FileObject;", nullptr, $PUBLIC, $virtualMethod(FileObjectWithLocation, getDelegate, $FileObject*)},
+		{"getLocation", "()Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $virtualMethod(FileObjectWithLocation, getLocation, $JavaFileManager$Location*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileObjectWithLocation, toString, $String*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Lcom/sun/tools/javac/api/ClientCodeWrapper$Trusted;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.comp.FileObjectWithLocation",
+		"javax.tools.ForwardingFileObject",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<F::Ljavax/tools/FileObject;>Ljavax/tools/ForwardingFileObject<TF;>;",
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(FileObjectWithLocation, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileObjectWithLocation);
+	});
 	return class$;
 }
 

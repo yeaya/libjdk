@@ -1,5 +1,4 @@
 #include <sun/awt/X11/Native$1.h>
-
 #include <sun/awt/X11/Native.h>
 #include <jcpp.h>
 
@@ -12,43 +11,6 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$MethodInfo _Native$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Native$1, init$, void)},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Native$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Native$1_EnclosingMethodInfo_ = {
-	"sun.awt.X11.Native",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Native$1_InnerClassesInfo_[] = {
-	{"sun.awt.X11.Native$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Native$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.Native$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_Native$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
-	&_Native$1_EnclosingMethodInfo_,
-	_Native$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.Native"
-};
-
-$Object* allocate$Native$1($Class* clazz) {
-	return $of($alloc(Native$1));
-}
-
 void Native$1::init$() {
 }
 
@@ -60,7 +22,38 @@ Native$1::Native$1() {
 }
 
 $Class* Native$1::load$($String* name, bool initialize) {
-	$loadClass(Native$1, name, initialize, &_Native$1_ClassInfo_, allocate$Native$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Native$1, init$, void)},
+		{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Native$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.X11.Native",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.Native$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.Native$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.Native"
+	};
+	$loadClass(Native$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Native$1);
+	});
 	return class$;
 }
 

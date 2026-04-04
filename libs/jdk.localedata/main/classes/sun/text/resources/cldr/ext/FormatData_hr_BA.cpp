@@ -1,5 +1,4 @@
 #include <sun/text/resources/cldr/ext/FormatData_hr_BA.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,31 +13,12 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _FormatData_hr_BA_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_hr_BA, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_hr_BA, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _FormatData_hr_BA_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.cldr.ext.FormatData_hr_BA",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_FormatData_hr_BA_MethodInfo_
-};
-
-$Object* allocate$FormatData_hr_BA($Class* clazz) {
-	return $of($alloc(FormatData_hr_BA));
-}
-
 void FormatData_hr_BA::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* FormatData_hr_BA::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, metaValue_QuarterAbbreviations, $new($StringArray, {
 		"1. kv."_s,
 		"2. kv."_s,
@@ -47,16 +27,16 @@ $ObjectArray2* FormatData_hr_BA::getContents() {
 	}));
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("buddhist.QuarterAbbreviations"_s),
-			$of(metaValue_QuarterAbbreviations)
+			"buddhist.QuarterAbbreviations"_s,
+			metaValue_QuarterAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.QuarterAbbreviations"_s),
-			$of(metaValue_QuarterAbbreviations)
+			"islamic.QuarterAbbreviations"_s,
+			metaValue_QuarterAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.DayNarrows"_s),
-			$of($$new($StringArray, {
+			"standalone.DayNarrows"_s,
+			$$new($StringArray, {
 				"N"_s,
 				"P"_s,
 				"U"_s,
@@ -64,28 +44,28 @@ $ObjectArray2* FormatData_hr_BA::getContents() {
 				u"Č"_s,
 				"P"_s,
 				"S"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.QuarterAbbreviations"_s),
-			$of(metaValue_QuarterAbbreviations)
+			"japanese.QuarterAbbreviations"_s,
+			metaValue_QuarterAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("QuarterAbbreviations"_s),
-			$of(metaValue_QuarterAbbreviations)
+			"QuarterAbbreviations"_s,
+			metaValue_QuarterAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("DatePatterns"_s),
-			$of($$new($StringArray, {
+			"DatePatterns"_s,
+			$$new($StringArray, {
 				"EEEE, d. MMMM y."_s,
 				"d. MMMM y."_s,
 				"d. MMM y."_s,
 				"d. M. yy."_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("roc.QuarterAbbreviations"_s),
-			$of(metaValue_QuarterAbbreviations)
+			"roc.QuarterAbbreviations"_s,
+			metaValue_QuarterAbbreviations
 		})
 	}));
 	return data;
@@ -95,7 +75,22 @@ FormatData_hr_BA::FormatData_hr_BA() {
 }
 
 $Class* FormatData_hr_BA::load$($String* name, bool initialize) {
-	$loadClass(FormatData_hr_BA, name, initialize, &_FormatData_hr_BA_ClassInfo_, allocate$FormatData_hr_BA);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_hr_BA, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_hr_BA, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.cldr.ext.FormatData_hr_BA",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FormatData_hr_BA, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatData_hr_BA);
+	});
 	return class$;
 }
 

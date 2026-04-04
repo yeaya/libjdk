@@ -1,11 +1,9 @@
 #include <TestMemLeakComboBox.h>
-
 #include <TestMemLeakComboBox$MyPanel.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/FlowLayout.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/Window.h>
 #include <java/io/Serializable.h>
 #include <java/lang/ClassNotFoundException.h>
@@ -29,11 +27,8 @@
 
 using $TestMemLeakComboBox$MyPanel = ::TestMemLeakComboBox$MyPanel;
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
-using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $FlowLayout = ::java::awt::FlowLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
@@ -42,7 +37,6 @@ using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InstantiationException = ::java::lang::InstantiationException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
@@ -63,33 +57,29 @@ public:
 	virtual void run() override {
 		TestMemLeakComboBox::lambda$main$0(laf);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestMemLeakComboBox$$Lambda$lambda$main$0>());
-	}
 	$UIManager$LookAndFeelInfo* laf = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestMemLeakComboBox$$Lambda$lambda$main$0::fieldInfos[2] = {
-	{"laf", "Ljavax/swing/UIManager$LookAndFeelInfo;", nullptr, $PUBLIC, $field(TestMemLeakComboBox$$Lambda$lambda$main$0, laf)},
-	{}
-};
-$MethodInfo TestMemLeakComboBox$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PUBLIC, $method(TestMemLeakComboBox$$Lambda$lambda$main$0, init$, void, $UIManager$LookAndFeelInfo*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestMemLeakComboBox$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo TestMemLeakComboBox$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestMemLeakComboBox$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestMemLeakComboBox$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(TestMemLeakComboBox$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"laf", "Ljavax/swing/UIManager$LookAndFeelInfo;", nullptr, $PUBLIC, $field(TestMemLeakComboBox$$Lambda$lambda$main$0, laf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PUBLIC, $method(TestMemLeakComboBox$$Lambda$lambda$main$0, init$, void, $UIManager$LookAndFeelInfo*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestMemLeakComboBox$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestMemLeakComboBox$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestMemLeakComboBox$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestMemLeakComboBox$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* TestMemLeakComboBox$$Lambda$lambda$main$0::class$ = nullptr;
@@ -102,27 +92,24 @@ public:
 	virtual void run() override {
 		TestMemLeakComboBox::lambda$test$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestMemLeakComboBox$$Lambda$lambda$test$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestMemLeakComboBox$$Lambda$lambda$test$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestMemLeakComboBox$$Lambda$lambda$test$1$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestMemLeakComboBox$$Lambda$lambda$test$1$1, run, void)},
-	{}
-};
-$ClassInfo TestMemLeakComboBox$$Lambda$lambda$test$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestMemLeakComboBox$$Lambda$lambda$test$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestMemLeakComboBox$$Lambda$lambda$test$1$1::load$($String* name, bool initialize) {
-	$loadClass(TestMemLeakComboBox$$Lambda$lambda$test$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestMemLeakComboBox$$Lambda$lambda$test$1$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestMemLeakComboBox$$Lambda$lambda$test$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestMemLeakComboBox$$Lambda$lambda$test$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestMemLeakComboBox$$Lambda$lambda$test$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestMemLeakComboBox$$Lambda$lambda$test$1$1);
+	});
 	return class$;
 }
 $Class* TestMemLeakComboBox$$Lambda$lambda$test$1$1::class$ = nullptr;
@@ -135,71 +122,27 @@ public:
 	virtual void run() override {
 		TestMemLeakComboBox::lambda$test$2();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestMemLeakComboBox$$Lambda$lambda$test$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestMemLeakComboBox$$Lambda$lambda$test$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestMemLeakComboBox$$Lambda$lambda$test$2$2, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestMemLeakComboBox$$Lambda$lambda$test$2$2, run, void)},
-	{}
-};
-$ClassInfo TestMemLeakComboBox$$Lambda$lambda$test$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestMemLeakComboBox$$Lambda$lambda$test$2$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestMemLeakComboBox$$Lambda$lambda$test$2$2::load$($String* name, bool initialize) {
-	$loadClass(TestMemLeakComboBox$$Lambda$lambda$test$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestMemLeakComboBox$$Lambda$lambda$test$2$2, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestMemLeakComboBox$$Lambda$lambda$test$2$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestMemLeakComboBox$$Lambda$lambda$test$2$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestMemLeakComboBox$$Lambda$lambda$test$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestMemLeakComboBox$$Lambda$lambda$test$2$2);
+	});
 	return class$;
 }
 $Class* TestMemLeakComboBox$$Lambda$lambda$test$2$2::class$ = nullptr;
-
-$FieldInfo _TestMemLeakComboBox_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(TestMemLeakComboBox, frame)},
-	{"failed", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(TestMemLeakComboBox, failed)},
-	{}
-};
-
-$MethodInfo _TestMemLeakComboBox_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestMemLeakComboBox, init$, void)},
-	{"lambda$main$0", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestMemLeakComboBox, lambda$main$0, void, $UIManager$LookAndFeelInfo*)},
-	{"lambda$test$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestMemLeakComboBox, lambda$test$1, void)},
-	{"lambda$test$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestMemLeakComboBox, lambda$test$2, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestMemLeakComboBox, main, void, $StringArray*), "java.lang.Exception"},
-	{"setLookAndFeel", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestMemLeakComboBox, setLookAndFeel, void, $UIManager$LookAndFeelInfo*)},
-	{"test", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestMemLeakComboBox, test, void), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _TestMemLeakComboBox_InnerClassesInfo_[] = {
-	{"TestMemLeakComboBox$MyPanel", "TestMemLeakComboBox", "MyPanel", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _TestMemLeakComboBox_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestMemLeakComboBox",
-	"java.lang.Object",
-	nullptr,
-	_TestMemLeakComboBox_FieldInfo_,
-	_TestMemLeakComboBox_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestMemLeakComboBox_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TestMemLeakComboBox$MyPanel"
-};
-
-$Object* allocate$TestMemLeakComboBox($Class* clazz) {
-	return $of($alloc(TestMemLeakComboBox));
-}
 
 $JFrame* TestMemLeakComboBox::frame = nullptr;
 $String* TestMemLeakComboBox::failed = nullptr;
@@ -209,36 +152,32 @@ void TestMemLeakComboBox::init$() {
 
 void TestMemLeakComboBox::setLookAndFeel($UIManager$LookAndFeelInfo* laf) {
 	$init(TestMemLeakComboBox);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$UIManager::setLookAndFeel($($nc(laf)->getClassName()));
 	} catch ($UnsupportedLookAndFeelException& ignored) {
 		$nc($System::out)->println($$str({"Unsupported L&F: "_s, $($nc(laf)->getClassName())}));
 	} catch ($ClassNotFoundException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($InstantiationException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($IllegalAccessException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
 void TestMemLeakComboBox::main($StringArray* args) {
 	$init(TestMemLeakComboBox);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($UIManager$LookAndFeelInfo, laf, arr$->get(i$));
-			{
-				$nc($System::out)->println($$str({"Testing l&f : "_s, $($nc(laf)->getClassName())}));
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestMemLeakComboBox$$Lambda$lambda$main$0, laf)));
-				test();
-				if (TestMemLeakComboBox::failed != nullptr) {
-					$throwNew($RuntimeException, TestMemLeakComboBox::failed);
-				}
+	$useLocalObjectStack();
+	$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($UIManager$LookAndFeelInfo, laf, arr$->get(i$));
+		{
+			$nc($System::out)->println($$str({"Testing l&f : "_s, $($nc(laf)->getClassName())}));
+			$SwingUtilities::invokeAndWait($$new(TestMemLeakComboBox$$Lambda$lambda$main$0, laf));
+			test();
+			if (TestMemLeakComboBox::failed != nullptr) {
+				$throwNew($RuntimeException, TestMemLeakComboBox::failed);
 			}
 		}
 	}
@@ -246,21 +185,19 @@ void TestMemLeakComboBox::main($StringArray* args) {
 
 void TestMemLeakComboBox::test() {
 	$init(TestMemLeakComboBox);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestMemLeakComboBox$$Lambda$lambda$test$1$1)));
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (TestMemLeakComboBox::frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestMemLeakComboBox$$Lambda$lambda$test$2$2)));
-			}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$SwingUtilities::invokeAndWait($$new(TestMemLeakComboBox$$Lambda$lambda$test$1$1));
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (TestMemLeakComboBox::frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(TestMemLeakComboBox$$Lambda$lambda$test$2$2));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -271,17 +208,17 @@ void TestMemLeakComboBox::lambda$test$2() {
 
 void TestMemLeakComboBox::lambda$test$1() {
 	$init(TestMemLeakComboBox);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(TestMemLeakComboBox::frame, $new($JFrame));
 	$var($JPanel, panel, $new($TestMemLeakComboBox$MyPanel));
 	panel->setPreferredSize($$new($Dimension, 100, 100));
 	panel->setLayout($$new($FlowLayout));
-	panel->add(static_cast<$Component*>($$new($JComboBox, $$new($StringArray, {
+	panel->add($$new($JComboBox, $$new($StringArray, {
 		"one"_s,
 		"two"_s,
 		"three"_s
-	}))));
-	$nc(TestMemLeakComboBox::frame)->add(static_cast<$Component*>(panel));
+	})));
+	$nc(TestMemLeakComboBox::frame)->add(panel);
 	$nc(TestMemLeakComboBox::frame)->pack();
 	$nc(TestMemLeakComboBox::frame)->setVisible(true);
 }
@@ -291,7 +228,7 @@ void TestMemLeakComboBox::lambda$main$0($UIManager$LookAndFeelInfo* laf) {
 	setLookAndFeel(laf);
 }
 
-void clinit$TestMemLeakComboBox($Class* class$) {
+void TestMemLeakComboBox::clinit$($Class* clazz) {
 	$assignStatic(TestMemLeakComboBox::failed, nullptr);
 }
 
@@ -300,17 +237,52 @@ TestMemLeakComboBox::TestMemLeakComboBox() {
 
 $Class* TestMemLeakComboBox::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TestMemLeakComboBox$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("TestMemLeakComboBox$$Lambda$lambda$main$0")) {
 			return TestMemLeakComboBox$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(TestMemLeakComboBox$$Lambda$lambda$test$1$1::classInfo$.name)) {
+		if (name->equals("TestMemLeakComboBox$$Lambda$lambda$test$1$1")) {
 			return TestMemLeakComboBox$$Lambda$lambda$test$1$1::load$(name, initialize);
 		}
-		if (name->equals(TestMemLeakComboBox$$Lambda$lambda$test$2$2::classInfo$.name)) {
+		if (name->equals("TestMemLeakComboBox$$Lambda$lambda$test$2$2")) {
 			return TestMemLeakComboBox$$Lambda$lambda$test$2$2::load$(name, initialize);
 		}
 	}
-	$loadClass(TestMemLeakComboBox, name, initialize, &_TestMemLeakComboBox_ClassInfo_, clinit$TestMemLeakComboBox, allocate$TestMemLeakComboBox);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(TestMemLeakComboBox, frame)},
+		{"failed", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(TestMemLeakComboBox, failed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestMemLeakComboBox, init$, void)},
+		{"lambda$main$0", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestMemLeakComboBox, lambda$main$0, void, $UIManager$LookAndFeelInfo*)},
+		{"lambda$test$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestMemLeakComboBox, lambda$test$1, void)},
+		{"lambda$test$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestMemLeakComboBox, lambda$test$2, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestMemLeakComboBox, main, void, $StringArray*), "java.lang.Exception"},
+		{"setLookAndFeel", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestMemLeakComboBox, setLookAndFeel, void, $UIManager$LookAndFeelInfo*)},
+		{"test", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestMemLeakComboBox, test, void), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestMemLeakComboBox$MyPanel", "TestMemLeakComboBox", "MyPanel", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestMemLeakComboBox",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TestMemLeakComboBox$MyPanel"
+	};
+	$loadClass(TestMemLeakComboBox, name, initialize, &classInfo$$, TestMemLeakComboBox::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TestMemLeakComboBox);
+	});
 	return class$;
 }
 

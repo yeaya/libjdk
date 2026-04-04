@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKColorChooserPanel$ColorTriangle.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKColorChooserPanel$ColorAction.h>
 #include <com/sun/java/swing/plaf/gtk/GTKColorChooserPanel.h>
 #include <java/awt/AWTEvent.h>
@@ -58,14 +57,10 @@ using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
-using $InputMap = ::javax::swing::InputMap;
-using $JComponent = ::javax::swing::JComponent;
 using $JPanel = ::javax::swing::JPanel;
 using $KeyStroke = ::javax::swing::KeyStroke;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIManager = ::javax::swing::UIManager;
 using $ActionMapUIResource = ::javax::swing::plaf::ActionMapUIResource;
 
@@ -76,79 +71,8 @@ namespace com {
 				namespace plaf {
 					namespace gtk {
 
-$FieldInfo _GTKColorChooserPanel$ColorTriangle_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/gtk/GTKColorChooserPanel;", nullptr, $FINAL | $SYNTHETIC, $field(GTKColorChooserPanel$ColorTriangle, this$0)},
-	{"wheelImage", "Ljava/awt/Image;", nullptr, $PRIVATE, $field(GTKColorChooserPanel$ColorTriangle, wheelImage)},
-	{"triangleImage", "Ljava/awt/Image;", nullptr, $PRIVATE, $field(GTKColorChooserPanel$ColorTriangle, triangleImage)},
-	{"angle", "D", nullptr, $PRIVATE, $field(GTKColorChooserPanel$ColorTriangle, angle)},
-	{"flags", "I", nullptr, $PRIVATE, $field(GTKColorChooserPanel$ColorTriangle, flags)},
-	{"circleX", "I", nullptr, $PRIVATE, $field(GTKColorChooserPanel$ColorTriangle, circleX)},
-	{"circleY", "I", nullptr, $PRIVATE, $field(GTKColorChooserPanel$ColorTriangle, circleY)},
-	{}
-};
-
-$MethodInfo _GTKColorChooserPanel$ColorTriangle_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/gtk/GTKColorChooserPanel;)V", nullptr, $PUBLIC, $method(GTKColorChooserPanel$ColorTriangle, init$, void, $GTKColorChooserPanel*)},
-	{"adjustHue", "(IIZ)Z", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, adjustHue, bool, int32_t, int32_t, bool)},
-	{"adjustSB", "(IIZ)Z", nullptr, 0, $virtualMethod(GTKColorChooserPanel$ColorTriangle, adjustSB, bool, int32_t, int32_t, bool)},
-	{"colorWheelLocationToRGB", "(IID)I", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, colorWheelLocationToRGB, int32_t, int32_t, int32_t, double)},
-	{"focusTriangle", "()V", nullptr, 0, $virtualMethod(GTKColorChooserPanel$ColorTriangle, focusTriangle, void)},
-	{"focusWheel", "()V", nullptr, 0, $virtualMethod(GTKColorChooserPanel$ColorTriangle, focusWheel, void)},
-	{"getColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(GTKColorChooserPanel$ColorTriangle, getColor, $Color*)},
-	{"getColorX", "()I", nullptr, 0, $virtualMethod(GTKColorChooserPanel$ColorTriangle, getColorX, int32_t)},
-	{"getColorY", "()I", nullptr, 0, $virtualMethod(GTKColorChooserPanel$ColorTriangle, getColorY, int32_t)},
-	{"getGTKColorChooserPanel", "()Lcom/sun/java/swing/plaf/gtk/GTKColorChooserPanel;", nullptr, 0, $virtualMethod(GTKColorChooserPanel$ColorTriangle, getGTKColorChooserPanel, $GTKColorChooserPanel*)},
-	{"getImage", "(I)Ljava/awt/Image;", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, getImage, $Image*, int32_t)},
-	{"getIndicatorSize", "()I", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, getIndicatorSize, int32_t)},
-	{"getTriangleCircumscribedRadius", "()I", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, getTriangleCircumscribedRadius, int32_t)},
-	{"getWheelImage", "(I)Ljava/awt/Image;", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, getWheelImage, $Image*, int32_t)},
-	{"getWheelRadius", "()I", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, getWheelRadius, int32_t)},
-	{"getWheelWidth", "()I", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, getWheelWidth, int32_t)},
-	{"getWheelXOrigin", "()I", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, getWheelXOrigin, int32_t)},
-	{"getWheelYOrigin", "()I", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, getWheelYOrigin, int32_t)},
-	{"incrementHue", "(Z)V", nullptr, 0, $virtualMethod(GTKColorChooserPanel$ColorTriangle, incrementHue, void, bool)},
-	{"isSet", "(I)Z", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, isSet, bool, int32_t)},
-	{"isWheelFocused", "()Z", nullptr, 0, $virtualMethod(GTKColorChooserPanel$ColorTriangle, isWheelFocused, bool)},
-	{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(GTKColorChooserPanel$ColorTriangle, paintComponent, void, $Graphics*)},
-	{"paintTriangle", "(Ljava/awt/Graphics;ILjava/awt/Color;)V", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, paintTriangle, void, $Graphics*, int32_t, $Color*)},
-	{"processEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PROTECTED, $virtualMethod(GTKColorChooserPanel$ColorTriangle, processEvent, void, $AWTEvent*)},
-	{"setAngleFromHue", "(F)V", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, setAngleFromHue, void, float)},
-	{"setColor", "(FFF)V", nullptr, $PUBLIC, $virtualMethod(GTKColorChooserPanel$ColorTriangle, setColor, void, float, float, float)},
-	{"setFlag", "(IZ)V", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, setFlag, void, int32_t, bool)},
-	{"setFocusType", "(I)V", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, setFocusType, void, int32_t)},
-	{"setHueAngle", "(D)V", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, setHueAngle, void, double)},
-	{"setSaturationAndBrightness", "(FF)V", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, setSaturationAndBrightness, void, float, float)},
-	{"setSaturationAndBrightness", "(FFII)V", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, setSaturationAndBrightness, void, float, float, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _GTKColorChooserPanel$ColorTriangle_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKColorChooserPanel$ColorTriangle", "com.sun.java.swing.plaf.gtk.GTKColorChooserPanel", "ColorTriangle", $PRIVATE},
-	{}
-};
-
-$ClassInfo _GTKColorChooserPanel$ColorTriangle_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.GTKColorChooserPanel$ColorTriangle",
-	"javax.swing.JPanel",
-	nullptr,
-	_GTKColorChooserPanel$ColorTriangle_FieldInfo_,
-	_GTKColorChooserPanel$ColorTriangle_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GTKColorChooserPanel$ColorTriangle_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKColorChooserPanel"
-};
-
-$Object* allocate$GTKColorChooserPanel$ColorTriangle($Class* clazz) {
-	return $of($alloc(GTKColorChooserPanel$ColorTriangle));
-}
-
 void GTKColorChooserPanel$ColorTriangle::init$($GTKColorChooserPanel* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$JPanel::init$();
 	enableEvents($AWTEvent::FOCUS_EVENT_MASK);
@@ -159,16 +83,16 @@ void GTKColorChooserPanel$ColorTriangle::init$($GTKColorChooserPanel* this$0) {
 	int32_t var$1 = getWheelRadius() * 2 + 2;
 	setPreferredSize($$new($Dimension, var$1, getWheelRadius() * 2 + 2));
 	setFocusTraversalKeysEnabled(false);
-	$nc($(getInputMap()))->put($($KeyStroke::getKeyStroke("UP"_s)), "up"_s);
-	$nc($(getInputMap()))->put($($KeyStroke::getKeyStroke("DOWN"_s)), "down"_s);
-	$nc($(getInputMap()))->put($($KeyStroke::getKeyStroke("LEFT"_s)), "left"_s);
-	$nc($(getInputMap()))->put($($KeyStroke::getKeyStroke("RIGHT"_s)), "right"_s);
-	$nc($(getInputMap()))->put($($KeyStroke::getKeyStroke("KP_UP"_s)), "up"_s);
-	$nc($(getInputMap()))->put($($KeyStroke::getKeyStroke("KP_DOWN"_s)), "down"_s);
-	$nc($(getInputMap()))->put($($KeyStroke::getKeyStroke("KP_LEFT"_s)), "left"_s);
-	$nc($(getInputMap()))->put($($KeyStroke::getKeyStroke("KP_RIGHT"_s)), "right"_s);
-	$nc($(getInputMap()))->put($($KeyStroke::getKeyStroke("TAB"_s)), "focusNext"_s);
-	$nc($(getInputMap()))->put($($KeyStroke::getKeyStroke("shift TAB"_s)), "focusLast"_s);
+	$$nc(getInputMap())->put($($KeyStroke::getKeyStroke("UP"_s)), "up"_s);
+	$$nc(getInputMap())->put($($KeyStroke::getKeyStroke("DOWN"_s)), "down"_s);
+	$$nc(getInputMap())->put($($KeyStroke::getKeyStroke("LEFT"_s)), "left"_s);
+	$$nc(getInputMap())->put($($KeyStroke::getKeyStroke("RIGHT"_s)), "right"_s);
+	$$nc(getInputMap())->put($($KeyStroke::getKeyStroke("KP_UP"_s)), "up"_s);
+	$$nc(getInputMap())->put($($KeyStroke::getKeyStroke("KP_DOWN"_s)), "down"_s);
+	$$nc(getInputMap())->put($($KeyStroke::getKeyStroke("KP_LEFT"_s)), "left"_s);
+	$$nc(getInputMap())->put($($KeyStroke::getKeyStroke("KP_RIGHT"_s)), "right"_s);
+	$$nc(getInputMap())->put($($KeyStroke::getKeyStroke("TAB"_s)), "focusNext"_s);
+	$$nc(getInputMap())->put($($KeyStroke::getKeyStroke("shift TAB"_s)), "focusLast"_s);
 	$var($ActionMap, map, $cast($ActionMap, $UIManager::get("GTKColorChooserPanel.actionMap"_s)));
 	if (map == nullptr) {
 		$assign(map, $new($ActionMapUIResource));
@@ -178,7 +102,7 @@ void GTKColorChooserPanel$ColorTriangle::init$($GTKColorChooserPanel* this$0) {
 		map->put("down"_s, $$new($GTKColorChooserPanel$ColorAction, "down"_s, 1));
 		map->put("focusNext"_s, $$new($GTKColorChooserPanel$ColorAction, "focusNext"_s, 4));
 		map->put("focusLast"_s, $$new($GTKColorChooserPanel$ColorAction, "focusLast"_s, 5));
-		$nc($($UIManager::getLookAndFeelDefaults()))->put("GTKColorChooserPanel.actionMap"_s, map);
+		$$nc($UIManager::getLookAndFeelDefaults())->put("GTKColorChooserPanel.actionMap"_s, map);
 	}
 	$SwingUtilities::replaceUIActionMap(this, map);
 }
@@ -225,13 +149,13 @@ void GTKColorChooserPanel$ColorTriangle::processEvent($AWTEvent* e) {
 	bool var$0 = $nc(e)->getID() == $MouseEvent::MOUSE_PRESSED;
 	if (!var$0) {
 		bool var$2 = isSet(2);
-		bool var$1 = (var$2 || isSet(4));
-		var$0 = (var$1 && $nc(e)->getID() == $MouseEvent::MOUSE_DRAGGED);
+		bool var$1 = var$2 || isSet(4);
+		var$0 = var$1 && e->getID() == $MouseEvent::MOUSE_DRAGGED;
 	}
 	if (var$0) {
 		int32_t size = getWheelRadius();
-		int32_t x = $nc(($cast($MouseEvent, e)))->getX() - size;
-		int32_t y = ($cast($MouseEvent, e))->getY() - size;
+		int32_t x = $cast($MouseEvent, e)->getX() - size;
+		int32_t y = $cast($MouseEvent, e)->getY() - size;
 		if (!hasFocus()) {
 			requestFocus();
 		}
@@ -262,45 +186,44 @@ void GTKColorChooserPanel$ColorTriangle::processEvent($AWTEvent* e) {
 }
 
 void GTKColorChooserPanel$ColorTriangle::paintComponent($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JPanel::paintComponent(g);
 	int32_t size = getWheelRadius();
 	int32_t width = getWheelWidth();
 	$var($Image, image, getImage(size));
-	$var($Image, var$0, image);
-	int32_t var$1 = getWheelXOrigin() - size;
-	$nc(g)->drawImage(var$0, var$1, getWheelYOrigin() - size, nullptr);
-	bool var$2 = hasFocus();
-	if (var$2 && isSet(16)) {
+	int32_t var$0 = getWheelXOrigin() - size;
+	$nc(g)->drawImage(image, var$0, getWheelYOrigin() - size, nullptr);
+	bool var$1 = hasFocus();
+	if (var$1 && isSet(16)) {
 		$init($Color);
-		g->setColor($Color::BLACK);
-		int32_t var$3 = getWheelXOrigin() - size;
-		g->drawOval(var$3, getWheelYOrigin() - size, 2 * size, 2 * size);
-		int32_t var$4 = getWheelXOrigin() - size + width;
-		g->drawOval(var$4, getWheelYOrigin() - size + width, 2 * (size - width), 2 * (size - width));
+		$nc(g)->setColor($Color::BLACK);
+		int32_t var$2 = getWheelXOrigin() - size;
+		g->drawOval(var$2, getWheelYOrigin() - size, 2 * size, 2 * size);
+		int32_t var$3 = getWheelXOrigin() - size + width;
+		g->drawOval(var$3, getWheelYOrigin() - size + width, 2 * (size - width), 2 * (size - width));
 	}
 	$init($Math);
-	bool var$5 = $Math::toDegrees($Math::PI * 2 - this->angle) <= 20;
-	if (var$5 || $Math::toDegrees($Math::PI * 2 - this->angle) >= 201) {
+	bool var$4 = $Math::toDegrees($Math::PI * 2 - this->angle) <= 20;
+	if (var$4 || $Math::toDegrees($Math::PI * 2 - this->angle) >= 201) {
 		$init($Color);
-		g->setColor($Color::WHITE);
+		$nc(g)->setColor($Color::WHITE);
 	} else {
 		$init($Color);
-		g->setColor($Color::BLACK);
+		$nc(g)->setColor($Color::BLACK);
 	}
 	int32_t lineX0 = $cast(int32_t, ($Math::cos(this->angle) * size));
 	int32_t lineY0 = $cast(int32_t, ($Math::sin(this->angle) * size));
 	int32_t lineX1 = $cast(int32_t, ($Math::cos(this->angle) * (size - width)));
 	int32_t lineY1 = $cast(int32_t, ($Math::sin(this->angle) * (size - width)));
-	g->drawLine(lineX0 + size, lineY0 + size, lineX1 + size, lineY1 + size);
-	bool var$6 = hasFocus();
-	if (var$6 && isSet(32)) {
+	$nc(g)->drawLine(lineX0 + size, lineY0 + size, lineX1 + size, lineY1 + size);
+	bool var$5 = hasFocus();
+	if (var$5 && isSet(32)) {
 		$var($Graphics, g2, g->create());
 		int32_t innerR = getTriangleCircumscribedRadius();
-		int32_t a = $cast(int32_t, (3 * innerR / $Math::sqrt((double)3)));
-		int32_t var$7 = getWheelXOrigin();
-		$nc(g2)->translate(var$7, getWheelYOrigin());
-		$nc(($cast($Graphics2D, g2)))->rotate(this->angle + $Math::PI / 2);
+		int32_t a = $cast(int32_t, (3 * innerR / $Math::sqrt(3)));
+		int32_t var$6 = getWheelXOrigin();
+		$nc(g2)->translate(var$6, getWheelYOrigin());
+		$nc($cast($Graphics2D, g2))->rotate(this->angle + $Math::PI / 2);
 		$init($Color);
 		g2->setColor($Color::BLACK);
 		g2->drawLine(0, -innerR, a / 2, innerR / 2);
@@ -310,30 +233,30 @@ void GTKColorChooserPanel$ColorTriangle::paintComponent($Graphics* g) {
 	}
 	$init($Color);
 	g->setColor($Color::BLACK);
-	int32_t var$8 = this->circleX;
-	int32_t var$9 = this->circleY;
-	int32_t var$10 = getIndicatorSize() - 1;
-	g->drawOval(var$8, var$9, var$10, getIndicatorSize() - 1);
+	int32_t var$7 = this->circleX;
+	int32_t var$8 = this->circleY;
+	int32_t var$9 = getIndicatorSize() - 1;
+	g->drawOval(var$7, var$8, var$9, getIndicatorSize() - 1);
 	g->setColor($Color::WHITE);
-	int32_t var$11 = this->circleX + 1;
-	int32_t var$12 = this->circleY + 1;
-	int32_t var$13 = getIndicatorSize() - 3;
-	g->drawOval(var$11, var$12, var$13, getIndicatorSize() - 3);
+	int32_t var$10 = this->circleX + 1;
+	int32_t var$11 = this->circleY + 1;
+	int32_t var$12 = getIndicatorSize() - 3;
+	g->drawOval(var$10, var$11, var$12, getIndicatorSize() - 3);
 }
 
 $Image* GTKColorChooserPanel$ColorTriangle::getImage(int32_t size) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !isSet(1) && this->wheelImage != nullptr;
-	if (var$0 && $nc(this->wheelImage)->getWidth(nullptr) == size * 2) {
+	if (var$0 && this->wheelImage->getWidth(nullptr) == size * 2) {
 		return this->wheelImage;
 	}
-	if (this->wheelImage == nullptr || $nc(this->wheelImage)->getWidth(nullptr) != size) {
+	if (this->wheelImage == nullptr || this->wheelImage->getWidth(nullptr) != size) {
 		$set(this, wheelImage, getWheelImage(size));
 	}
 	int32_t innerR = getTriangleCircumscribedRadius();
 	int32_t triangleSize = $cast(int32_t, (innerR * 3.0 / 2.0));
-	int32_t a = $cast(int32_t, (2 * triangleSize / $Math::sqrt((double)3)));
-	if (this->triangleImage == nullptr || $nc(this->triangleImage)->getWidth(nullptr) != a) {
+	int32_t a = $cast(int32_t, (2 * triangleSize / $Math::sqrt(3)));
+	if (this->triangleImage == nullptr || this->triangleImage->getWidth(nullptr) != a) {
 		$set(this, triangleImage, $new($BufferedImage, a, a, $BufferedImage::TYPE_INT_ARGB));
 	}
 	$var($Graphics, g, $nc(this->triangleImage)->getGraphics());
@@ -344,23 +267,23 @@ $Image* GTKColorChooserPanel$ColorTriangle::getImage(int32_t size) {
 	g->translate(-a / 2, 0);
 	g->dispose();
 	$assign(g, $nc(this->wheelImage)->getGraphics());
-	g->setColor($$new($Color, 0, 0, 0, 0));
+	$nc(g)->setColor($$new($Color, 0, 0, 0, 0));
 	int32_t var$1 = getWheelWidth();
 	int32_t var$2 = getWheelWidth();
 	int32_t var$3 = 2 * (size - getWheelWidth());
 	g->fillOval(var$1, var$2, var$3, 2 * (size - getWheelWidth()));
 	double rotate = $Math::toRadians(-30.0) + this->angle;
 	g->translate(size, size);
-	$nc(($cast($Graphics2D, g)))->rotate(rotate);
+	$cast($Graphics2D, g)->rotate(rotate);
 	g->drawImage(this->triangleImage, -a / 2, getWheelWidth() - size, nullptr);
-	$nc(($cast($Graphics2D, g)))->rotate(-rotate);
+	$cast($Graphics2D, g)->rotate(-rotate);
 	g->translate(a / 2, size - getWheelWidth());
 	setFlag(1, false);
 	return this->wheelImage;
 }
 
 void GTKColorChooserPanel$ColorTriangle::paintTriangle($Graphics* g, int32_t size, $Color* color) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(color)->getRed();
 	int32_t var$1 = color->getGreen();
 	$var($floats, colors, $Color::RGBtoHSB(var$0, var$1, color->getBlue(), nullptr));
@@ -392,7 +315,7 @@ $Image* GTKColorChooserPanel$ColorTriangle::getWheelImage(int32_t size) {
 		for (int32_t x = -size; x < size; ++x) {
 			double rad = $Math::sqrt((double)(ySquared + x * x));
 			if (rad < size && rad > minSize) {
-				int32_t rgb = colorWheelLocationToRGB(x, y, rad) | (int32_t)0xFF000000;
+				int32_t rgb = colorWheelLocationToRGB(x, y, rad) | (int32_t)0xff000000;
 				image->setRGB(x + size, y + size, rgb);
 			}
 		}
@@ -432,7 +355,7 @@ bool GTKColorChooserPanel$ColorTriangle::adjustSB(int32_t x, int32_t y, bool che
 		if (checkLoc) {
 			return false;
 		}
-		y1 = (double)(-maxY);
+		y1 = (double)-maxY;
 		resetXY = true;
 	} else if (y1 > maxY) {
 		if (checkLoc) {
@@ -446,16 +369,14 @@ bool GTKColorChooserPanel$ColorTriangle::adjustSB(int32_t x, int32_t y, bool che
 	double var$4 = $Math::sin($Math::toRadians(-30.0)) * x1;
 	double y2 = var$4 + $Math::cos($Math::toRadians(-30.0)) * y1;
 	float value = $Math::min(1.0f, (float)((innerR - y2) / (double)triangleSize));
-	float maxX = (float)($Math::tan($Math::toRadians((double)30)) * (innerR - y2));
+	float maxX = (float)($Math::tan($Math::toRadians(30)) * (innerR - y2));
 	float saturation = $Math::min(1.0f, (float)(x2 / maxX / 2 + 0.5));
 	setFlag(8, true);
 	if (resetXY) {
 		setSaturationAndBrightness(saturation, value);
 	} else {
-		float var$5 = saturation;
-		float var$6 = value;
-		int32_t var$7 = x + getWheelXOrigin();
-		setSaturationAndBrightness(var$5, var$6, var$7, getWheelYOrigin() - y);
+		int32_t var$5 = x + getWheelXOrigin();
+		setSaturationAndBrightness(saturation, value, var$5, getWheelYOrigin() - y);
 	}
 	this->this$0->setSaturationAndBrightness(saturation, value, true);
 	setFlag(8, false);
@@ -483,12 +404,10 @@ void GTKColorChooserPanel$ColorTriangle::setSaturationAndBrightness(float s, flo
 	newCircleY -= getIndicatorSize() / 2;
 	int32_t minX = $Math::min(newCircleX, this->circleX);
 	int32_t minY = $Math::min(newCircleY, this->circleY);
-	int32_t var$0 = minX;
-	int32_t var$1 = minY;
-	int32_t var$3 = $Math::max(this->circleX, newCircleX) - minX;
-	int32_t var$2 = var$3 + getIndicatorSize() + 1;
-	int32_t var$4 = $Math::max(this->circleY, newCircleY) - minY;
-	repaint(var$0, var$1, var$2, var$4 + getIndicatorSize() + 1);
+	int32_t var$1 = $Math::max(this->circleX, newCircleX) - minX;
+	int32_t var$0 = var$1 + getIndicatorSize() + 1;
+	int32_t var$2 = $Math::max(this->circleY, newCircleY) - minY;
+	repaint(minX, minY, var$0, var$2 + getIndicatorSize() + 1);
 	this->circleX = newCircleX;
 	this->circleY = newCircleY;
 }
@@ -590,7 +509,7 @@ void GTKColorChooserPanel$ColorTriangle::setFlag(int32_t flag, bool value) {
 }
 
 bool GTKColorChooserPanel$ColorTriangle::isSet(int32_t flag) {
-	return (((int32_t)(this->flags & (uint32_t)flag)) == flag);
+	return ((this->flags & flag) == flag);
 }
 
 int32_t GTKColorChooserPanel$ColorTriangle::colorWheelLocationToRGB(int32_t x, int32_t y, double rad) {
@@ -598,31 +517,31 @@ int32_t GTKColorChooserPanel$ColorTriangle::colorWheelLocationToRGB(int32_t x, i
 	int32_t rgb = 0;
 	if (angle < 1.0471976f) {
 		if (y < 0) {
-			rgb = 0x00FF0000 | ($Math::min(255, $cast(int32_t, (255 * angle / 1.0471976f))) << 8);
+			rgb = 0x00ff0000 | ($Math::min(255, $cast(int32_t, (255 * angle / 1.0471976f))) << 8);
 		} else {
-			rgb = 0x00FF0000 | $Math::min(255, $cast(int32_t, (255 * angle / 1.0471976f)));
+			rgb = 0x00ff0000 | $Math::min(255, $cast(int32_t, (255 * angle / 1.0471976f)));
 		}
 	} else if (angle < 2 * 1.0471976f) {
 		angle -= 1.0471976f;
 		if (y < 0) {
-			rgb = 0x0000FF00 | ($Math::max(0, 255 - $cast(int32_t, (255 * angle / 1.0471976f))) << 16);
+			rgb = 0xff00 | ($Math::max(0, 255 - $cast(int32_t, (255 * angle / 1.0471976f))) << 16);
 		} else {
-			rgb = 255 | ($Math::max(0, 255 - $cast(int32_t, (255 * angle / 1.0471976f))) << 16);
+			rgb = 0xff | ($Math::max(0, 255 - $cast(int32_t, (255 * angle / 1.0471976f))) << 16);
 		}
 	} else {
 		angle -= 2 * 1.0471976f;
 		if (y < 0) {
-			rgb = 0x0000FF00 | $Math::min(255, $cast(int32_t, (255 * angle / 1.0471976f)));
+			rgb = 0xff00 | $Math::min(255, $cast(int32_t, (255 * angle / 1.0471976f)));
 		} else {
-			rgb = 255 | ($Math::min(255, $cast(int32_t, (255 * angle / 1.0471976f))) << 8);
+			rgb = 0xff | ($Math::min(255, $cast(int32_t, (255 * angle / 1.0471976f))) << 8);
 		}
 	}
 	return rgb;
 }
 
 void GTKColorChooserPanel$ColorTriangle::incrementHue(bool positive) {
-	$useLocalCurrentObjectStackCache();
-	float hue = $nc($($nc(this->this$0->triangle)->getGTKColorChooserPanel()))->getHue();
+	$useLocalObjectStack();
+	float hue = $$nc($nc(this->this$0->triangle)->getGTKColorChooserPanel())->getHue();
 	if (positive) {
 		hue += 1.0f / 360.0f;
 	} else {
@@ -633,14 +552,79 @@ void GTKColorChooserPanel$ColorTriangle::incrementHue(bool positive) {
 	} else if (hue < 0) {
 		hue += 1;
 	}
-	$nc($(getGTKColorChooserPanel()))->setHue(hue, true);
+	$$nc(getGTKColorChooserPanel())->setHue(hue, true);
 }
 
 GTKColorChooserPanel$ColorTriangle::GTKColorChooserPanel$ColorTriangle() {
 }
 
 $Class* GTKColorChooserPanel$ColorTriangle::load$($String* name, bool initialize) {
-	$loadClass(GTKColorChooserPanel$ColorTriangle, name, initialize, &_GTKColorChooserPanel$ColorTriangle_ClassInfo_, allocate$GTKColorChooserPanel$ColorTriangle);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/gtk/GTKColorChooserPanel;", nullptr, $FINAL | $SYNTHETIC, $field(GTKColorChooserPanel$ColorTriangle, this$0)},
+		{"wheelImage", "Ljava/awt/Image;", nullptr, $PRIVATE, $field(GTKColorChooserPanel$ColorTriangle, wheelImage)},
+		{"triangleImage", "Ljava/awt/Image;", nullptr, $PRIVATE, $field(GTKColorChooserPanel$ColorTriangle, triangleImage)},
+		{"angle", "D", nullptr, $PRIVATE, $field(GTKColorChooserPanel$ColorTriangle, angle)},
+		{"flags", "I", nullptr, $PRIVATE, $field(GTKColorChooserPanel$ColorTriangle, flags)},
+		{"circleX", "I", nullptr, $PRIVATE, $field(GTKColorChooserPanel$ColorTriangle, circleX)},
+		{"circleY", "I", nullptr, $PRIVATE, $field(GTKColorChooserPanel$ColorTriangle, circleY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/gtk/GTKColorChooserPanel;)V", nullptr, $PUBLIC, $method(GTKColorChooserPanel$ColorTriangle, init$, void, $GTKColorChooserPanel*)},
+		{"adjustHue", "(IIZ)Z", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, adjustHue, bool, int32_t, int32_t, bool)},
+		{"adjustSB", "(IIZ)Z", nullptr, 0, $virtualMethod(GTKColorChooserPanel$ColorTriangle, adjustSB, bool, int32_t, int32_t, bool)},
+		{"colorWheelLocationToRGB", "(IID)I", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, colorWheelLocationToRGB, int32_t, int32_t, int32_t, double)},
+		{"focusTriangle", "()V", nullptr, 0, $virtualMethod(GTKColorChooserPanel$ColorTriangle, focusTriangle, void)},
+		{"focusWheel", "()V", nullptr, 0, $virtualMethod(GTKColorChooserPanel$ColorTriangle, focusWheel, void)},
+		{"getColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(GTKColorChooserPanel$ColorTriangle, getColor, $Color*)},
+		{"getColorX", "()I", nullptr, 0, $virtualMethod(GTKColorChooserPanel$ColorTriangle, getColorX, int32_t)},
+		{"getColorY", "()I", nullptr, 0, $virtualMethod(GTKColorChooserPanel$ColorTriangle, getColorY, int32_t)},
+		{"getGTKColorChooserPanel", "()Lcom/sun/java/swing/plaf/gtk/GTKColorChooserPanel;", nullptr, 0, $virtualMethod(GTKColorChooserPanel$ColorTriangle, getGTKColorChooserPanel, $GTKColorChooserPanel*)},
+		{"getImage", "(I)Ljava/awt/Image;", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, getImage, $Image*, int32_t)},
+		{"getIndicatorSize", "()I", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, getIndicatorSize, int32_t)},
+		{"getTriangleCircumscribedRadius", "()I", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, getTriangleCircumscribedRadius, int32_t)},
+		{"getWheelImage", "(I)Ljava/awt/Image;", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, getWheelImage, $Image*, int32_t)},
+		{"getWheelRadius", "()I", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, getWheelRadius, int32_t)},
+		{"getWheelWidth", "()I", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, getWheelWidth, int32_t)},
+		{"getWheelXOrigin", "()I", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, getWheelXOrigin, int32_t)},
+		{"getWheelYOrigin", "()I", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, getWheelYOrigin, int32_t)},
+		{"incrementHue", "(Z)V", nullptr, 0, $virtualMethod(GTKColorChooserPanel$ColorTriangle, incrementHue, void, bool)},
+		{"isSet", "(I)Z", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, isSet, bool, int32_t)},
+		{"isWheelFocused", "()Z", nullptr, 0, $virtualMethod(GTKColorChooserPanel$ColorTriangle, isWheelFocused, bool)},
+		{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(GTKColorChooserPanel$ColorTriangle, paintComponent, void, $Graphics*)},
+		{"paintTriangle", "(Ljava/awt/Graphics;ILjava/awt/Color;)V", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, paintTriangle, void, $Graphics*, int32_t, $Color*)},
+		{"processEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PROTECTED, $virtualMethod(GTKColorChooserPanel$ColorTriangle, processEvent, void, $AWTEvent*)},
+		{"setAngleFromHue", "(F)V", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, setAngleFromHue, void, float)},
+		{"setColor", "(FFF)V", nullptr, $PUBLIC, $virtualMethod(GTKColorChooserPanel$ColorTriangle, setColor, void, float, float, float)},
+		{"setFlag", "(IZ)V", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, setFlag, void, int32_t, bool)},
+		{"setFocusType", "(I)V", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, setFocusType, void, int32_t)},
+		{"setHueAngle", "(D)V", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, setHueAngle, void, double)},
+		{"setSaturationAndBrightness", "(FF)V", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, setSaturationAndBrightness, void, float, float)},
+		{"setSaturationAndBrightness", "(FFII)V", nullptr, $PRIVATE, $method(GTKColorChooserPanel$ColorTriangle, setSaturationAndBrightness, void, float, float, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKColorChooserPanel$ColorTriangle", "com.sun.java.swing.plaf.gtk.GTKColorChooserPanel", "ColorTriangle", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.GTKColorChooserPanel$ColorTriangle",
+		"javax.swing.JPanel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKColorChooserPanel"
+	};
+	$loadClass(GTKColorChooserPanel$ColorTriangle, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GTKColorChooserPanel$ColorTriangle));
+	});
 	return class$;
 }
 

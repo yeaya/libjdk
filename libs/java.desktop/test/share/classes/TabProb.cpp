@@ -1,5 +1,4 @@
 #include <TabProb.h>
-
 #include <TabProb$1.h>
 #include <TabProb$FixLayout.h>
 #include <java/awt/BorderLayout.h>
@@ -8,7 +7,6 @@
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Frame.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/io/Serializable.h>
@@ -38,11 +36,7 @@ using $TabProb$FixLayout = ::TabProb$FixLayout;
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
-using $Dimension = ::java::awt::Dimension;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Robot = ::java::awt::Robot;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -68,27 +62,24 @@ public:
 	virtual void run() override {
 		TabProb::lambda$test$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TabProb$$Lambda$lambda$test$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TabProb$$Lambda$lambda$test$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TabProb$$Lambda$lambda$test$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TabProb$$Lambda$lambda$test$0, run, void)},
-	{}
-};
-$ClassInfo TabProb$$Lambda$lambda$test$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TabProb$$Lambda$lambda$test$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TabProb$$Lambda$lambda$test$0::load$($String* name, bool initialize) {
-	$loadClass(TabProb$$Lambda$lambda$test$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TabProb$$Lambda$lambda$test$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TabProb$$Lambda$lambda$test$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TabProb$$Lambda$lambda$test$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TabProb$$Lambda$lambda$test$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TabProb$$Lambda$lambda$test$0);
+	});
 	return class$;
 }
 $Class* TabProb$$Lambda$lambda$test$0::class$ = nullptr;
@@ -101,124 +92,77 @@ public:
 	virtual void run() override {
 		TabProb::lambda$test$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TabProb$$Lambda$lambda$test$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TabProb$$Lambda$lambda$test$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TabProb$$Lambda$lambda$test$1$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TabProb$$Lambda$lambda$test$1$1, run, void)},
-	{}
-};
-$ClassInfo TabProb$$Lambda$lambda$test$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TabProb$$Lambda$lambda$test$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TabProb$$Lambda$lambda$test$1$1::load$($String* name, bool initialize) {
-	$loadClass(TabProb$$Lambda$lambda$test$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TabProb$$Lambda$lambda$test$1$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TabProb$$Lambda$lambda$test$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TabProb$$Lambda$lambda$test$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TabProb$$Lambda$lambda$test$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TabProb$$Lambda$lambda$test$1$1);
+	});
 	return class$;
 }
 $Class* TabProb$$Lambda$lambda$test$1$1::class$ = nullptr;
-
-$FieldInfo _TabProb_FieldInfo_[] = {
-	{"tb1", "LTabProb;", nullptr, $STATIC, $staticField(TabProb, tb1)},
-	{"tb2", "LTabProb;", nullptr, $STATIC, $staticField(TabProb, tb2)},
-	{}
-};
-
-$MethodInfo _TabProb_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(TabProb, init$, void, int32_t)},
-	{"lambda$test$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TabProb, lambda$test$0, void)},
-	{"lambda$test$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TabProb, lambda$test$1, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TabProb, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(TabProb, test, void), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _TabProb_InnerClassesInfo_[] = {
-	{"TabProb$FixLayout", "TabProb", "FixLayout", 0},
-	{"TabProb$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TabProb_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TabProb",
-	"javax.swing.JFrame",
-	nullptr,
-	_TabProb_FieldInfo_,
-	_TabProb_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TabProb_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TabProb$FixLayout,TabProb$1"
-};
-
-$Object* allocate$TabProb($Class* clazz) {
-	return $of($alloc(TabProb));
-}
 
 TabProb* TabProb::tb1 = nullptr;
 TabProb* TabProb::tb2 = nullptr;
 
 void TabProb::init$(int32_t layoutPolicy) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JFrame::init$();
 	$var($JTabbedPane, tabpanel, $new($JTabbedPane));
 	tabpanel->setTabPlacement($JTabbedPane::TOP);
 	tabpanel->setTabLayoutPolicy(layoutPolicy);
-	$var($JPanel, panel, $new($JPanel, static_cast<$LayoutManager*>($$new($TabProb$FixLayout, this))));
+	$var($JPanel, panel, $new($JPanel, $$new($TabProb$FixLayout, this)));
 	$var($JLabel, label, $new($JLabel, "Label"_s));
 	$init($Color);
 	label->setBorder($($BorderFactory::createLineBorder($Color::green, 3)));
-	panel->add(static_cast<$Component*>(label));
-	tabpanel->add("TEST"_s, static_cast<$Component*>(panel));
+	panel->add(label);
+	tabpanel->add("TEST"_s, panel);
 	$init($BorderLayout);
-	add(static_cast<$Component*>(tabpanel), $of($BorderLayout::CENTER));
+	add(tabpanel, $BorderLayout::CENTER);
 	setUndecorated(true);
 	setDefaultCloseOperation($JFrame::DISPOSE_ON_CLOSE);
 }
 
 void TabProb::main($StringArray* args) {
 	$init(TabProb);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($UIManager$LookAndFeelInfo, laf, arr$->get(i$));
-			{
-				$nc($System::out)->println($$str({"Test for LookAndFeel "_s, $($nc(laf)->getClassName())}));
-				$UIManager::setLookAndFeel($($nc(laf)->getClassName()));
-				test();
-				$nc($System::out)->println($$str({"Test passed for LookAndFeel "_s, $($nc(laf)->getClassName())}));
-			}
+	$useLocalObjectStack();
+	$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($UIManager$LookAndFeelInfo, laf, arr$->get(i$));
+		{
+			$nc($System::out)->println($$str({"Test for LookAndFeel "_s, $($nc(laf)->getClassName())}));
+			$UIManager::setLookAndFeel($(laf->getClassName()));
+			test();
+			$System::out->println($$str({"Test passed for LookAndFeel "_s, $(laf->getClassName())}));
 		}
 	}
 }
 
 void TabProb::test() {
 	$init(TabProb);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Robot, robot, $new($Robot));
 	$SwingUtilities::invokeAndWait($$new($TabProb$1));
-	double tb1height = $nc($($nc(TabProb::tb1)->getPreferredSize()))->getHeight();
-	double tb2height = $nc($($nc(TabProb::tb2)->getPreferredSize()))->getHeight();
+	double tb1height = $$nc($nc(TabProb::tb1)->getPreferredSize())->getHeight();
+	double tb2height = $$nc($nc(TabProb::tb2)->getPreferredSize())->getHeight();
 	$nc($System::out)->println(tb1height);
-	$nc($System::out)->println(tb2height);
+	$System::out->println(tb2height);
 	robot->waitForIdle();
 	robot->delay(2000);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TabProb$$Lambda$lambda$test$0)));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TabProb$$Lambda$lambda$test$1$1)));
+	$SwingUtilities::invokeAndWait($$new(TabProb$$Lambda$lambda$test$0));
+	$SwingUtilities::invokeAndWait($$new(TabProb$$Lambda$lambda$test$1$1));
 	if (tb1height != tb2height) {
 		$throwNew($RuntimeException, "JTabbedPane preferred size calculation is wrong for SCROLL_TAB_LAYOUT"_s);
 	}
@@ -239,14 +183,48 @@ TabProb::TabProb() {
 
 $Class* TabProb::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TabProb$$Lambda$lambda$test$0::classInfo$.name)) {
+		if (name->equals("TabProb$$Lambda$lambda$test$0")) {
 			return TabProb$$Lambda$lambda$test$0::load$(name, initialize);
 		}
-		if (name->equals(TabProb$$Lambda$lambda$test$1$1::classInfo$.name)) {
+		if (name->equals("TabProb$$Lambda$lambda$test$1$1")) {
 			return TabProb$$Lambda$lambda$test$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(TabProb, name, initialize, &_TabProb_ClassInfo_, allocate$TabProb);
+	$FieldInfo fieldInfos$$[] = {
+		{"tb1", "LTabProb;", nullptr, $STATIC, $staticField(TabProb, tb1)},
+		{"tb2", "LTabProb;", nullptr, $STATIC, $staticField(TabProb, tb2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(TabProb, init$, void, int32_t)},
+		{"lambda$test$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TabProb, lambda$test$0, void)},
+		{"lambda$test$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TabProb, lambda$test$1, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TabProb, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(TabProb, test, void), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TabProb$FixLayout", "TabProb", "FixLayout", 0},
+		{"TabProb$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TabProb",
+		"javax.swing.JFrame",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TabProb$FixLayout,TabProb$1"
+	};
+	$loadClass(TabProb, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TabProb));
+	});
 	return class$;
 }
 

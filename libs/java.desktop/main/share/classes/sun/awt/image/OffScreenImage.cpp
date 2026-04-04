@@ -1,5 +1,4 @@
 #include <sun/awt/image/OffScreenImage.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Font.h>
@@ -26,7 +25,6 @@ using $Font = ::java::awt::Font;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
-using $Image = ::java::awt::Image;
 using $SystemColor = ::java::awt::SystemColor;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ColorModel = ::java::awt::image::ColorModel;
@@ -44,37 +42,8 @@ namespace sun {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _OffScreenImage_FieldInfo_[] = {
-	{"c", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(OffScreenImage, c)},
-	{"osis", "Lsun/awt/image/OffScreenImageSource;", nullptr, $PRIVATE, $field(OffScreenImage, osis)},
-	{"defaultFont", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(OffScreenImage, defaultFont)},
-	{}
-};
-
-$MethodInfo _OffScreenImage_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Component;Ljava/awt/image/ColorModel;Ljava/awt/image/WritableRaster;Z)V", nullptr, $PUBLIC, $method(OffScreenImage, init$, void, $Component*, $ColorModel*, $WritableRaster*, bool)},
-	{"createGraphics", "()Ljava/awt/Graphics2D;", nullptr, $PUBLIC, $virtualMethod(OffScreenImage, createGraphics, $Graphics2D*)},
-	{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(OffScreenImage, getGraphics, $Graphics*)},
-	{"getSource", "()Ljava/awt/image/ImageProducer;", nullptr, $PUBLIC, $virtualMethod(OffScreenImage, getSource, $ImageProducer*)},
-	{"initSurface", "(II)V", nullptr, $PRIVATE, $method(OffScreenImage, initSurface, void, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _OffScreenImage_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.image.OffScreenImage",
-	"java.awt.image.BufferedImage",
-	nullptr,
-	_OffScreenImage_FieldInfo_,
-	_OffScreenImage_MethodInfo_
-};
-
-$Object* allocate$OffScreenImage($Class* clazz) {
-	return $of($alloc(OffScreenImage));
-}
-
 void OffScreenImage::init$($Component* c, $ColorModel* cm, $WritableRaster* raster, bool isRasterPremultiplied) {
-	$BufferedImage::init$(cm, raster, isRasterPremultiplied, ($Hashtable*)nullptr);
+	$BufferedImage::init$(cm, raster, isRasterPremultiplied, nullptr);
 	$set(this, c, c);
 	int32_t var$0 = $nc(raster)->getWidth();
 	initSurface(var$0, raster->getHeight());
@@ -85,7 +54,7 @@ $Graphics* OffScreenImage::getGraphics() {
 }
 
 $Graphics2D* OffScreenImage::createGraphics() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->c == nullptr) {
 		$var($GraphicsEnvironment, env, $GraphicsEnvironment::getLocalGraphicsEnvironment());
 		return $nc(env)->createGraphics(this);
@@ -111,20 +80,18 @@ $Graphics2D* OffScreenImage::createGraphics() {
 }
 
 void OffScreenImage::initSurface(int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Graphics2D, g2, createGraphics());
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(g2)->clearRect(0, 0, width, height);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(g2)->dispose();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(g2)->clearRect(0, 0, width, height);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(g2)->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -139,7 +106,31 @@ OffScreenImage::OffScreenImage() {
 }
 
 $Class* OffScreenImage::load$($String* name, bool initialize) {
-	$loadClass(OffScreenImage, name, initialize, &_OffScreenImage_ClassInfo_, allocate$OffScreenImage);
+	$FieldInfo fieldInfos$$[] = {
+		{"c", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(OffScreenImage, c)},
+		{"osis", "Lsun/awt/image/OffScreenImageSource;", nullptr, $PRIVATE, $field(OffScreenImage, osis)},
+		{"defaultFont", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(OffScreenImage, defaultFont)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Component;Ljava/awt/image/ColorModel;Ljava/awt/image/WritableRaster;Z)V", nullptr, $PUBLIC, $method(OffScreenImage, init$, void, $Component*, $ColorModel*, $WritableRaster*, bool)},
+		{"createGraphics", "()Ljava/awt/Graphics2D;", nullptr, $PUBLIC, $virtualMethod(OffScreenImage, createGraphics, $Graphics2D*)},
+		{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(OffScreenImage, getGraphics, $Graphics*)},
+		{"getSource", "()Ljava/awt/image/ImageProducer;", nullptr, $PUBLIC, $virtualMethod(OffScreenImage, getSource, $ImageProducer*)},
+		{"initSurface", "(II)V", nullptr, $PRIVATE, $method(OffScreenImage, initSurface, void, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.image.OffScreenImage",
+		"java.awt.image.BufferedImage",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OffScreenImage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(OffScreenImage));
+	});
 	return class$;
 }
 

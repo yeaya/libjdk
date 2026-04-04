@@ -1,5 +1,4 @@
 #include <javax/xml/transform/stream/StreamSource.h>
-
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -16,56 +15,11 @@ using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $URI = ::java::net::URI;
 
 namespace javax {
 	namespace xml {
 		namespace transform {
 			namespace stream {
-
-$FieldInfo _StreamSource_FieldInfo_[] = {
-	{"FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StreamSource, FEATURE)},
-	{"publicId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StreamSource, publicId)},
-	{"systemId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StreamSource, systemId)},
-	{"inputStream", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(StreamSource, inputStream)},
-	{"reader", "Ljava/io/Reader;", nullptr, $PRIVATE, $field(StreamSource, reader)},
-	{}
-};
-
-$MethodInfo _StreamSource_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StreamSource, init$, void)},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(StreamSource, init$, void, $InputStream*)},
-	{"<init>", "(Ljava/io/InputStream;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StreamSource, init$, void, $InputStream*, $String*)},
-	{"<init>", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $method(StreamSource, init$, void, $Reader*)},
-	{"<init>", "(Ljava/io/Reader;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StreamSource, init$, void, $Reader*, $String*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StreamSource, init$, void, $String*)},
-	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(StreamSource, init$, void, $File*)},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(StreamSource, getInputStream, $InputStream*)},
-	{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamSource, getPublicId, $String*)},
-	{"getReader", "()Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(StreamSource, getReader, $Reader*)},
-	{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamSource, getSystemId, $String*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(StreamSource, isEmpty, bool)},
-	{"isStreamEmpty", "()Z", nullptr, $PRIVATE, $method(StreamSource, isStreamEmpty, bool)},
-	{"setInputStream", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(StreamSource, setInputStream, void, $InputStream*)},
-	{"setPublicId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StreamSource, setPublicId, void, $String*)},
-	{"setReader", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(StreamSource, setReader, void, $Reader*)},
-	{"setSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StreamSource, setSystemId, void, $String*)},
-	{"setSystemId", "(Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(StreamSource, setSystemId, void, $File*)},
-	{}
-};
-
-$ClassInfo _StreamSource_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.xml.transform.stream.StreamSource",
-	"java.lang.Object",
-	"javax.xml.transform.Source",
-	_StreamSource_FieldInfo_,
-	_StreamSource_MethodInfo_
-};
-
-$Object* allocate$StreamSource($Class* clazz) {
-	return $of($alloc(StreamSource));
-}
 
 $String* StreamSource::FEATURE = nullptr;
 
@@ -95,8 +49,8 @@ void StreamSource::init$($String* systemId) {
 }
 
 void StreamSource::init$($File* f) {
-	$useLocalCurrentObjectStackCache();
-	setSystemId($($nc($($nc(f)->toURI()))->toASCIIString()));
+	$useLocalObjectStack();
+	setSystemId($($$nc($nc(f)->toURI())->toASCIIString()));
 }
 
 void StreamSource::setInputStream($InputStream* inputStream) {
@@ -132,7 +86,7 @@ $String* StreamSource::getSystemId() {
 }
 
 void StreamSource::setSystemId($File* f) {
-	$set(this, systemId, $nc($($nc(f)->toURI()))->toASCIIString());
+	$set(this, systemId, $$nc($nc(f)->toURI())->toASCIIString());
 }
 
 bool StreamSource::isEmpty() {
@@ -143,16 +97,16 @@ bool StreamSource::isStreamEmpty() {
 	bool empty = true;
 	try {
 		if (this->inputStream != nullptr) {
-			$nc(this->inputStream)->reset();
-			int32_t bytesRead = $nc(this->inputStream)->available();
+			this->inputStream->reset();
+			int32_t bytesRead = this->inputStream->available();
 			if (bytesRead > 0) {
 				return false;
 			}
 		}
 		if (this->reader != nullptr) {
-			$nc(this->reader)->reset();
-			int32_t c = $nc(this->reader)->read();
-			$nc(this->reader)->reset();
+			this->reader->reset();
+			int32_t c = this->reader->read();
+			this->reader->reset();
 			if (c != -1) {
 				return false;
 			}
@@ -166,12 +120,51 @@ bool StreamSource::isStreamEmpty() {
 StreamSource::StreamSource() {
 }
 
-void clinit$StreamSource($Class* class$) {
+void StreamSource::clinit$($Class* clazz) {
 	$assignStatic(StreamSource::FEATURE, "http://javax.xml.transform.stream.StreamSource/feature"_s);
 }
 
 $Class* StreamSource::load$($String* name, bool initialize) {
-	$loadClass(StreamSource, name, initialize, &_StreamSource_ClassInfo_, clinit$StreamSource, allocate$StreamSource);
+	$FieldInfo fieldInfos$$[] = {
+		{"FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StreamSource, FEATURE)},
+		{"publicId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StreamSource, publicId)},
+		{"systemId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StreamSource, systemId)},
+		{"inputStream", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(StreamSource, inputStream)},
+		{"reader", "Ljava/io/Reader;", nullptr, $PRIVATE, $field(StreamSource, reader)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StreamSource, init$, void)},
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(StreamSource, init$, void, $InputStream*)},
+		{"<init>", "(Ljava/io/InputStream;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StreamSource, init$, void, $InputStream*, $String*)},
+		{"<init>", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $method(StreamSource, init$, void, $Reader*)},
+		{"<init>", "(Ljava/io/Reader;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StreamSource, init$, void, $Reader*, $String*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StreamSource, init$, void, $String*)},
+		{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(StreamSource, init$, void, $File*)},
+		{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(StreamSource, getInputStream, $InputStream*)},
+		{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamSource, getPublicId, $String*)},
+		{"getReader", "()Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(StreamSource, getReader, $Reader*)},
+		{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamSource, getSystemId, $String*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(StreamSource, isEmpty, bool)},
+		{"isStreamEmpty", "()Z", nullptr, $PRIVATE, $method(StreamSource, isStreamEmpty, bool)},
+		{"setInputStream", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(StreamSource, setInputStream, void, $InputStream*)},
+		{"setPublicId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StreamSource, setPublicId, void, $String*)},
+		{"setReader", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(StreamSource, setReader, void, $Reader*)},
+		{"setSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StreamSource, setSystemId, void, $String*)},
+		{"setSystemId", "(Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(StreamSource, setSystemId, void, $File*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.xml.transform.stream.StreamSource",
+		"java.lang.Object",
+		"javax.xml.transform.Source",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StreamSource, name, initialize, &classInfo$$, StreamSource::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StreamSource);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMSubTreeData$DelayedNodeIterator.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
@@ -24,7 +23,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
-using $ListIterator = ::java::util::ListIterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $NamedNodeMap = ::org::w3c::dom::NamedNodeMap;
 using $Node = ::org::w3c::dom::Node;
@@ -35,49 +33,6 @@ namespace org {
 			namespace dsig {
 				namespace internal {
 					namespace dom {
-
-$FieldInfo _DOMSubTreeData$DelayedNodeIterator_FieldInfo_[] = {
-	{"root", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(DOMSubTreeData$DelayedNodeIterator, root)},
-	{"nodeSet", "Ljava/util/List;", "Ljava/util/List<Lorg/w3c/dom/Node;>;", $PRIVATE, $field(DOMSubTreeData$DelayedNodeIterator, nodeSet)},
-	{"li", "Ljava/util/ListIterator;", "Ljava/util/ListIterator<Lorg/w3c/dom/Node;>;", $PRIVATE, $field(DOMSubTreeData$DelayedNodeIterator, li)},
-	{"withComments", "Z", nullptr, $PRIVATE, $field(DOMSubTreeData$DelayedNodeIterator, withComments)},
-	{}
-};
-
-$MethodInfo _DOMSubTreeData$DelayedNodeIterator_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Node;Z)V", nullptr, 0, $method(DOMSubTreeData$DelayedNodeIterator, init$, void, $Node*, bool)},
-	{"dereferenceSameDocumentURI", "(Lorg/w3c/dom/Node;)Ljava/util/List;", "(Lorg/w3c/dom/Node;)Ljava/util/List<Lorg/w3c/dom/Node;>;", $PRIVATE, $method(DOMSubTreeData$DelayedNodeIterator, dereferenceSameDocumentURI, $List*, $Node*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(DOMSubTreeData$DelayedNodeIterator, hasNext, bool)},
-	{"next", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMSubTreeData$DelayedNodeIterator, next, $Object*)},
-	{"nodeSetMinusCommentNodes", "(Lorg/w3c/dom/Node;Ljava/util/List;Lorg/w3c/dom/Node;)V", "(Lorg/w3c/dom/Node;Ljava/util/List<Lorg/w3c/dom/Node;>;Lorg/w3c/dom/Node;)V", $PRIVATE, $method(DOMSubTreeData$DelayedNodeIterator, nodeSetMinusCommentNodes, void, $Node*, $List*, $Node*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(DOMSubTreeData$DelayedNodeIterator, remove, void)},
-	{}
-};
-
-$InnerClassInfo _DOMSubTreeData$DelayedNodeIterator_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.DOMSubTreeData$DelayedNodeIterator", "org.jcp.xml.dsig.internal.dom.DOMSubTreeData", "DelayedNodeIterator", $STATIC},
-	{}
-};
-
-$ClassInfo _DOMSubTreeData$DelayedNodeIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMSubTreeData$DelayedNodeIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_DOMSubTreeData$DelayedNodeIterator_FieldInfo_,
-	_DOMSubTreeData$DelayedNodeIterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Lorg/w3c/dom/Node;>;",
-	nullptr,
-	_DOMSubTreeData$DelayedNodeIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.DOMSubTreeData"
-};
-
-$Object* allocate$DOMSubTreeData$DelayedNodeIterator($Class* clazz) {
-	return $of($alloc(DOMSubTreeData$DelayedNodeIterator));
-}
 
 void DOMSubTreeData$DelayedNodeIterator::init$($Node* root, bool excludeComments) {
 	$set(this, root, root);
@@ -98,7 +53,7 @@ $Object* DOMSubTreeData$DelayedNodeIterator::next() {
 		$set(this, li, $nc(this->nodeSet)->listIterator());
 	}
 	if ($nc(this->li)->hasNext()) {
-		return $of($cast($Node, $nc(this->li)->next()));
+		return $cast($Node, this->li->next());
 	} else {
 		$throwNew($NoSuchElementException);
 	}
@@ -117,72 +72,61 @@ $List* DOMSubTreeData$DelayedNodeIterator::dereferenceSameDocumentURI($Node* nod
 }
 
 void DOMSubTreeData$DelayedNodeIterator::nodeSetMinusCommentNodes($Node* node, $List* nodeSet, $Node* prevSibling) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($NamedNodeMap, attrs, nullptr)
-		$var($Node, pSibling, nullptr)
-		switch ($nc(node)->getNodeType()) {
-		case $Node::ELEMENT_NODE:
-			{
-				$assign(attrs, node->getAttributes());
-				if (attrs != nullptr) {
-					{
-						int32_t i = 0;
-						int32_t len = attrs->getLength();
-						for (; i < len; ++i) {
-							$nc(nodeSet)->add($(attrs->item(i)));
-						}
-					}
-				}
-				$nc(nodeSet)->add(node);
-				$assign(pSibling, nullptr);
-				{
-					$var($Node, child, node->getFirstChild());
-					for (; child != nullptr; $assign(child, $nc(child)->getNextSibling())) {
-						nodeSetMinusCommentNodes(child, nodeSet, pSibling);
-						$assign(pSibling, child);
-					}
-				}
-				break;
-			}
-		case $Node::DOCUMENT_NODE:
-			{
-				$assign(pSibling, nullptr);
-				{
-					$var($Node, child, node->getFirstChild());
-					for (; child != nullptr; $assign(child, $nc(child)->getNextSibling())) {
-						nodeSetMinusCommentNodes(child, nodeSet, pSibling);
-						$assign(pSibling, child);
-					}
-				}
-				break;
-			}
-		case $Node::TEXT_NODE:
-			{}
-		case $Node::CDATA_SECTION_NODE:
-			{
-				bool var$0 = prevSibling != nullptr;
-				if (var$0) {
-					bool var$1 = prevSibling->getNodeType() == $Node::TEXT_NODE;
-					var$0 = (var$1 || prevSibling->getNodeType() == $Node::CDATA_SECTION_NODE);
-				}
-				if (var$0) {
-					return;
-				}
-				$nc(nodeSet)->add(node);
-				break;
-			}
-		case $Node::PROCESSING_INSTRUCTION_NODE:
-			{
-				$nc(nodeSet)->add(node);
-				break;
-			}
-		case $Node::COMMENT_NODE:
-			{
-				if (this->withComments) {
-					$nc(nodeSet)->add(node);
+	$useLocalObjectStack();
+	$var($NamedNodeMap, attrs, nullptr);
+	$var($Node, pSibling, nullptr);
+	switch ($nc(node)->getNodeType()) {
+	case $Node::ELEMENT_NODE:
+		{
+			$assign(attrs, node->getAttributes());
+			if (attrs != nullptr) {
+				for (int32_t i = 0, len = attrs->getLength(); i < len; ++i) {
+					$nc(nodeSet)->add($(attrs->item(i)));
 				}
 			}
+			$nc(nodeSet)->add(node);
+			$assign(pSibling, nullptr);
+			{
+				$var($Node, child, node->getFirstChild());
+				for (; child != nullptr; $assign(child, child->getNextSibling())) {
+					nodeSetMinusCommentNodes(child, nodeSet, pSibling);
+					$assign(pSibling, child);
+				}
+			}
+			break;
+		}
+	case $Node::DOCUMENT_NODE:
+		{
+			$assign(pSibling, nullptr);
+			{
+				$var($Node, child, node->getFirstChild());
+				for (; child != nullptr; $assign(child, child->getNextSibling())) {
+					nodeSetMinusCommentNodes(child, nodeSet, pSibling);
+					$assign(pSibling, child);
+				}
+			}
+			break;
+		}
+	case $Node::TEXT_NODE:
+	case $Node::CDATA_SECTION_NODE:
+		{
+			bool var$0 = prevSibling != nullptr;
+			if (var$0) {
+				bool var$1 = prevSibling->getNodeType() == $Node::TEXT_NODE;
+				var$0 = var$1 || prevSibling->getNodeType() == $Node::CDATA_SECTION_NODE;
+			}
+			if (var$0) {
+				return;
+			}
+			$nc(nodeSet)->add(node);
+			break;
+		}
+	case $Node::PROCESSING_INSTRUCTION_NODE:
+		$nc(nodeSet)->add(node);
+		break;
+	case $Node::COMMENT_NODE:
+		if (this->withComments) {
+			$nc(nodeSet)->add(node);
 		}
 	}
 }
@@ -191,7 +135,44 @@ DOMSubTreeData$DelayedNodeIterator::DOMSubTreeData$DelayedNodeIterator() {
 }
 
 $Class* DOMSubTreeData$DelayedNodeIterator::load$($String* name, bool initialize) {
-	$loadClass(DOMSubTreeData$DelayedNodeIterator, name, initialize, &_DOMSubTreeData$DelayedNodeIterator_ClassInfo_, allocate$DOMSubTreeData$DelayedNodeIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"root", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(DOMSubTreeData$DelayedNodeIterator, root)},
+		{"nodeSet", "Ljava/util/List;", "Ljava/util/List<Lorg/w3c/dom/Node;>;", $PRIVATE, $field(DOMSubTreeData$DelayedNodeIterator, nodeSet)},
+		{"li", "Ljava/util/ListIterator;", "Ljava/util/ListIterator<Lorg/w3c/dom/Node;>;", $PRIVATE, $field(DOMSubTreeData$DelayedNodeIterator, li)},
+		{"withComments", "Z", nullptr, $PRIVATE, $field(DOMSubTreeData$DelayedNodeIterator, withComments)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/w3c/dom/Node;Z)V", nullptr, 0, $method(DOMSubTreeData$DelayedNodeIterator, init$, void, $Node*, bool)},
+		{"dereferenceSameDocumentURI", "(Lorg/w3c/dom/Node;)Ljava/util/List;", "(Lorg/w3c/dom/Node;)Ljava/util/List<Lorg/w3c/dom/Node;>;", $PRIVATE, $method(DOMSubTreeData$DelayedNodeIterator, dereferenceSameDocumentURI, $List*, $Node*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(DOMSubTreeData$DelayedNodeIterator, hasNext, bool)},
+		{"next", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMSubTreeData$DelayedNodeIterator, next, $Object*)},
+		{"nodeSetMinusCommentNodes", "(Lorg/w3c/dom/Node;Ljava/util/List;Lorg/w3c/dom/Node;)V", "(Lorg/w3c/dom/Node;Ljava/util/List<Lorg/w3c/dom/Node;>;Lorg/w3c/dom/Node;)V", $PRIVATE, $method(DOMSubTreeData$DelayedNodeIterator, nodeSetMinusCommentNodes, void, $Node*, $List*, $Node*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(DOMSubTreeData$DelayedNodeIterator, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.DOMSubTreeData$DelayedNodeIterator", "org.jcp.xml.dsig.internal.dom.DOMSubTreeData", "DelayedNodeIterator", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMSubTreeData$DelayedNodeIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Lorg/w3c/dom/Node;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.DOMSubTreeData"
+	};
+	$loadClass(DOMSubTreeData$DelayedNodeIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMSubTreeData$DelayedNodeIterator);
+	});
 	return class$;
 }
 

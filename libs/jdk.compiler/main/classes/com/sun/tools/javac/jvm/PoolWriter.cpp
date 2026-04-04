@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/PoolWriter.h>
-
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$ModuleSymbol.h>
@@ -13,7 +12,6 @@
 #include <com/sun/tools/javac/jvm/PoolConstant$Dynamic.h>
 #include <com/sun/tools/javac/jvm/PoolConstant$LoadableConstant.h>
 #include <com/sun/tools/javac/jvm/PoolConstant$NameAndType.h>
-#include <com/sun/tools/javac/jvm/PoolConstant.h>
 #include <com/sun/tools/javac/jvm/PoolWriter$SharedSignatureGenerator.h>
 #include <com/sun/tools/javac/jvm/PoolWriter$WriteablePoolHelper.h>
 #include <com/sun/tools/javac/util/ByteBuffer.h>
@@ -43,7 +41,6 @@ using $Type = ::com::sun::tools::javac::code::Type;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $ClassWriter$PoolOverflow = ::com::sun::tools::javac::jvm::ClassWriter$PoolOverflow;
 using $ClassWriter$StringOverflow = ::com::sun::tools::javac::jvm::ClassWriter$StringOverflow;
-using $PoolConstant = ::com::sun::tools::javac::jvm::PoolConstant;
 using $PoolConstant$Dynamic = ::com::sun::tools::javac::jvm::PoolConstant$Dynamic;
 using $PoolConstant$Dynamic$BsmKey = ::com::sun::tools::javac::jvm::PoolConstant$Dynamic$BsmKey;
 using $PoolConstant$LoadableConstant = ::com::sun::tools::javac::jvm::PoolConstant$LoadableConstant;
@@ -66,78 +63,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
-using $Map = ::java::util::Map;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$FieldInfo _PoolWriter_FieldInfo_[] = {
-	{"MAX_ENTRIES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PoolWriter, MAX_ENTRIES)},
-	{"MAX_STRING_LENGTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PoolWriter, MAX_STRING_LENGTH)},
-	{"POOL_BUF_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PoolWriter, POOL_BUF_SIZE)},
-	{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $PRIVATE | $FINAL, $field(PoolWriter, types)},
-	{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PRIVATE | $FINAL, $field(PoolWriter, names)},
-	{"pool", "Lcom/sun/tools/javac/jvm/PoolWriter$WriteablePoolHelper;", nullptr, $FINAL, $field(PoolWriter, pool)},
-	{"signatureGen", "Lcom/sun/tools/javac/jvm/PoolWriter$SharedSignatureGenerator;", nullptr, $FINAL, $field(PoolWriter, signatureGen)},
-	{"innerClasses", "Ljava/util/LinkedHashSet;", "Ljava/util/LinkedHashSet<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", 0, $field(PoolWriter, innerClasses)},
-	{"bootstrapMethods", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/jvm/PoolConstant$Dynamic$BsmKey;Ljava/lang/Integer;>;", 0, $field(PoolWriter, bootstrapMethods)},
-	{}
-};
-
-$MethodInfo _PoolWriter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/util/Names;)V", nullptr, $PUBLIC, $method(PoolWriter, init$, void, $Types*, $Names*)},
-	{"classSig", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE, $method(PoolWriter, classSig, $Name*, $Type*)},
-	{"descriptorType", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(PoolWriter, descriptorType, $Type*, $Symbol*)},
-	{"enterInner", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0, $virtualMethod(PoolWriter, enterInner, void, $Symbol$ClassSymbol*)},
-	{"makeBootstrapEntry", "(Lcom/sun/tools/javac/jvm/PoolConstant$Dynamic;)I", nullptr, $PRIVATE, $method(PoolWriter, makeBootstrapEntry, int32_t, $PoolConstant$Dynamic*)},
-	{"putClass", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, 0, $virtualMethod(PoolWriter, putClass, int32_t, $Symbol$ClassSymbol*)},
-	{"putClass", "(Lcom/sun/tools/javac/code/Type;)I", nullptr, 0, $virtualMethod(PoolWriter, putClass, int32_t, $Type*)},
-	{"putConstant", "(Ljava/lang/Object;)I", nullptr, 0, $virtualMethod(PoolWriter, putConstant, int32_t, Object$*)},
-	{"putConstant", "(Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;)I", nullptr, 0, $virtualMethod(PoolWriter, putConstant, int32_t, $PoolConstant$LoadableConstant*)},
-	{"putDescriptor", "(Lcom/sun/tools/javac/code/Type;)I", nullptr, 0, $virtualMethod(PoolWriter, putDescriptor, int32_t, $Type*)},
-	{"putDescriptor", "(Lcom/sun/tools/javac/code/Symbol;)I", nullptr, 0, $virtualMethod(PoolWriter, putDescriptor, int32_t, $Symbol*)},
-	{"putDynamic", "(Lcom/sun/tools/javac/jvm/PoolConstant$Dynamic;)I", nullptr, 0, $virtualMethod(PoolWriter, putDynamic, int32_t, $PoolConstant$Dynamic*)},
-	{"putMember", "(Lcom/sun/tools/javac/code/Symbol;)I", nullptr, 0, $virtualMethod(PoolWriter, putMember, int32_t, $Symbol*)},
-	{"putModule", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)I", nullptr, 0, $virtualMethod(PoolWriter, putModule, int32_t, $Symbol$ModuleSymbol*)},
-	{"putName", "(Lcom/sun/tools/javac/util/Name;)I", nullptr, 0, $virtualMethod(PoolWriter, putName, int32_t, $Name*)},
-	{"putNameAndType", "(Lcom/sun/tools/javac/code/Symbol;)I", nullptr, 0, $virtualMethod(PoolWriter, putNameAndType, int32_t, $Symbol*)},
-	{"putPackage", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)I", nullptr, 0, $virtualMethod(PoolWriter, putPackage, int32_t, $Symbol$PackageSymbol*)},
-	{"putSignature", "(Lcom/sun/tools/javac/code/Symbol;)I", nullptr, 0, $virtualMethod(PoolWriter, putSignature, int32_t, $Symbol*)},
-	{"reset", "()V", nullptr, 0, $virtualMethod(PoolWriter, reset, void)},
-	{"size", "()I", nullptr, 0, $virtualMethod(PoolWriter, size, int32_t)},
-	{"typeSig", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE, $method(PoolWriter, typeSig, $Name*, $Type*)},
-	{"writePool", "(Ljava/io/OutputStream;)V", nullptr, 0, $virtualMethod(PoolWriter, writePool, void, $OutputStream*), "java.io.IOException,com.sun.tools.javac.jvm.ClassWriter$PoolOverflow"},
-	{}
-};
-
-$InnerClassInfo _PoolWriter_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.PoolWriter$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.jvm.PoolWriter$WriteablePoolHelper", "com.sun.tools.javac.jvm.PoolWriter", "WriteablePoolHelper", 0},
-	{"com.sun.tools.javac.jvm.PoolWriter$SharedSignatureGenerator", "com.sun.tools.javac.jvm.PoolWriter", "SharedSignatureGenerator", 0},
-	{}
-};
-
-$ClassInfo _PoolWriter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.jvm.PoolWriter",
-	"java.lang.Object",
-	nullptr,
-	_PoolWriter_FieldInfo_,
-	_PoolWriter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PoolWriter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.PoolWriter$1,com.sun.tools.javac.jvm.PoolWriter$WriteablePoolHelper,com.sun.tools.javac.jvm.PoolWriter$SharedSignatureGenerator"
-};
-
-$Object* allocate$PoolWriter($Class* clazz) {
-	return $of($alloc(PoolWriter));
-}
 
 void PoolWriter::init$($Types* types, $Names* names) {
 	$set(this, innerClasses, $new($LinkedHashSet));
@@ -165,7 +96,7 @@ int32_t PoolWriter::putDynamic($PoolConstant$Dynamic* d) {
 }
 
 int32_t PoolWriter::putDescriptor($Type* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return putName($(typeSig($($nc(this->types)->erasure(t)))));
 }
 
@@ -174,7 +105,7 @@ int32_t PoolWriter::putDescriptor($Symbol* s) {
 }
 
 int32_t PoolWriter::putSignature($Symbol* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Kinds$Kind);
 	if ($nc(s)->kind == $Kinds$Kind::TYP) {
 		return putName($(classSig(s->type)));
@@ -184,7 +115,7 @@ int32_t PoolWriter::putSignature($Symbol* s) {
 }
 
 int32_t PoolWriter::putConstant(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Integer, intVal, nullptr);
 		$var($Float, floatVal, nullptr);
@@ -199,39 +130,39 @@ int32_t PoolWriter::putConstant(Object$* o) {
 		if (var$0) {
 			return putConstant($($PoolConstant$LoadableConstant::Int($nc(intVal)->intValue())));
 		} else {
-			bool var$2 = $instanceOf($Float, o);
-			if (var$2) {
+			bool var$1 = $instanceOf($Float, o);
+			if (var$1) {
 				$assign(floatVal, $cast($Float, o));
-				var$2 = true;
+				var$1 = true;
 			}
-			if (var$2) {
+			if (var$1) {
 				return putConstant($($PoolConstant$LoadableConstant::Float($nc(floatVal)->floatValue())));
 			} else {
-				bool var$4 = $instanceOf($Long, o);
-				if (var$4) {
+				bool var$2 = $instanceOf($Long, o);
+				if (var$2) {
 					$assign(longVal, $cast($Long, o));
-					var$4 = true;
+					var$2 = true;
 				}
-				if (var$4) {
+				if (var$2) {
 					return putConstant($($PoolConstant$LoadableConstant::Long($nc(longVal)->longValue())));
 				} else {
-					bool var$6 = $instanceOf($Double, o);
-					if (var$6) {
+					bool var$3 = $instanceOf($Double, o);
+					if (var$3) {
 						$assign(doubleVal, $cast($Double, o));
-						var$6 = true;
+						var$3 = true;
 					}
-					if (var$6) {
+					if (var$3) {
 						return putConstant($($PoolConstant$LoadableConstant::Double($nc(doubleVal)->doubleValue())));
 					} else {
-						bool var$8 = $instanceOf($String, o);
-						if (var$8) {
+						bool var$4 = $instanceOf($String, o);
+						if (var$4) {
 							$assign(strVal, $cast($String, o));
-							var$8 = true;
+							var$4 = true;
 						}
-						if (var$8) {
+						if (var$4) {
 							return putConstant($($PoolConstant$LoadableConstant::String(strVal)));
 						} else {
-							$throwNew($AssertionError, $of($$str({"unexpected constant: "_s, o})));
+							$throwNew($AssertionError, $$of($str({"unexpected constant: "_s, o})));
 						}
 					}
 				}
@@ -243,17 +174,11 @@ int32_t PoolWriter::putConstant(Object$* o) {
 int32_t PoolWriter::putConstant($PoolConstant$LoadableConstant* c) {
 	switch ($nc(c)->poolTag()) {
 	case 7:
-		{
-			return putClass($cast($Type, c));
-		}
+		return putClass($cast($Type, c));
 	case 16:
-		{
-			return $nc(this->pool)->writeIfNeeded($($nc(this->types)->erasure($cast($Type, c))));
-		}
+		return $nc(this->pool)->writeIfNeeded($($nc(this->types)->erasure($cast($Type, c))));
 	default:
-		{
-			return $nc(this->pool)->writeIfNeeded(c);
-		}
+		return $nc(this->pool)->writeIfNeeded(c);
 	}
 }
 
@@ -262,7 +187,7 @@ int32_t PoolWriter::putName($Name* name) {
 }
 
 int32_t PoolWriter::putNameAndType($Symbol* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $nc(this->pool)->writeIfNeeded($$new($PoolConstant$NameAndType, $nc(s)->name, $(descriptorType(s))));
 }
 
@@ -275,11 +200,11 @@ int32_t PoolWriter::putModule($Symbol$ModuleSymbol* mod) {
 }
 
 void PoolWriter::enterInner($Symbol$ClassSymbol* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc($nc(c)->type)->isCompound()) {
-		$throwNew($AssertionError, $of($$str({"Unexpected intersection type: "_s, c->type})));
+		$throwNew($AssertionError, $$of($str({"Unexpected intersection type: "_s, c->type})));
 	}
-	$nc(c)->complete();
+	c->complete();
 	bool var$0 = $nc(c->owner)->enclClass() != nullptr;
 	if (var$0 && !$nc(this->innerClasses)->contains(c)) {
 		enterInner($($nc(c->owner)->enclClass()));
@@ -289,23 +214,23 @@ void PoolWriter::enterInner($Symbol$ClassSymbol* c) {
 
 $Type* PoolWriter::descriptorType($Symbol* s) {
 	$init($Kinds$Kind);
-	return $nc(s)->kind == $Kinds$Kind::MTH ? $nc(s)->externalType(this->types) : s->erasure(this->types);
+	return $nc(s)->kind == $Kinds$Kind::MTH ? s->externalType(this->types) : s->erasure(this->types);
 }
 
 int32_t PoolWriter::makeBootstrapEntry($PoolConstant$Dynamic* dynamic) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PoolConstant$Dynamic$BsmKey, bsmKey, $nc(dynamic)->bsmKey(this->types));
 	$var($Integer, index, $cast($Integer, $nc(this->bootstrapMethods)->get(bsmKey)));
 	if (index == nullptr) {
-		$assign(index, $Integer::valueOf($nc(this->bootstrapMethods)->size()));
-		$nc(this->bootstrapMethods)->put(bsmKey, index);
+		$assign(index, $Integer::valueOf(this->bootstrapMethods->size()));
+		this->bootstrapMethods->put(bsmKey, index);
 	}
 	return $nc(index)->intValue();
 }
 
 void PoolWriter::writePool($OutputStream* out) {
 	if ($nc(this->pool)->overflowString != nullptr) {
-		$throwNew($ClassWriter$StringOverflow, $nc(this->pool)->overflowString);
+		$throwNew($ClassWriter$StringOverflow, this->pool->overflowString);
 	}
 	int32_t size = this->size();
 	if (size > PoolWriter::MAX_ENTRIES) {
@@ -313,7 +238,7 @@ void PoolWriter::writePool($OutputStream* out) {
 	}
 	$nc(out)->write(size >> 8);
 	out->write(size);
-	out->write($nc($nc(this->pool)->poolbuf)->elems, 0, $nc($nc(this->pool)->poolbuf)->length);
+	out->write($nc(this->pool->poolbuf)->elems, 0, $nc(this->pool->poolbuf)->length);
 }
 
 int32_t PoolWriter::size() {
@@ -322,26 +247,26 @@ int32_t PoolWriter::size() {
 
 $Name* PoolWriter::typeSig($Type* type) {
 	$nc(this->signatureGen)->reset();
-	$nc(this->signatureGen)->assembleSig(type);
-	return $nc(this->signatureGen)->toName();
+	this->signatureGen->assembleSig(type);
+	return this->signatureGen->toName();
 }
 
 $Name* PoolWriter::classSig($Type* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->signatureGen)->reset();
 	$var($List, typarams, $nc(t)->getTypeArguments());
 	if ($nc(typarams)->nonEmpty()) {
-		$nc(this->signatureGen)->assembleParamsSig(typarams);
+		this->signatureGen->assembleParamsSig(typarams);
 	}
-	$nc(this->signatureGen)->assembleSig($($nc(this->types)->supertype(t)));
+	this->signatureGen->assembleSig($($nc(this->types)->supertype(t)));
 	{
-		$var($Iterator, i$, $nc($($nc(this->types)->interfaces(t)))->iterator());
+		$var($Iterator, i$, $$nc(this->types->interfaces(t))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Type, i, $cast($Type, i$->next()));
-			$nc(this->signatureGen)->assembleSig(i);
+			this->signatureGen->assembleSig(i);
 		}
 	}
-	return $nc(this->signatureGen)->toName();
+	return this->signatureGen->toName();
 }
 
 void PoolWriter::reset() {
@@ -354,7 +279,66 @@ PoolWriter::PoolWriter() {
 }
 
 $Class* PoolWriter::load$($String* name, bool initialize) {
-	$loadClass(PoolWriter, name, initialize, &_PoolWriter_ClassInfo_, allocate$PoolWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_ENTRIES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PoolWriter, MAX_ENTRIES)},
+		{"MAX_STRING_LENGTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PoolWriter, MAX_STRING_LENGTH)},
+		{"POOL_BUF_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PoolWriter, POOL_BUF_SIZE)},
+		{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $PRIVATE | $FINAL, $field(PoolWriter, types)},
+		{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PRIVATE | $FINAL, $field(PoolWriter, names)},
+		{"pool", "Lcom/sun/tools/javac/jvm/PoolWriter$WriteablePoolHelper;", nullptr, $FINAL, $field(PoolWriter, pool)},
+		{"signatureGen", "Lcom/sun/tools/javac/jvm/PoolWriter$SharedSignatureGenerator;", nullptr, $FINAL, $field(PoolWriter, signatureGen)},
+		{"innerClasses", "Ljava/util/LinkedHashSet;", "Ljava/util/LinkedHashSet<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", 0, $field(PoolWriter, innerClasses)},
+		{"bootstrapMethods", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/jvm/PoolConstant$Dynamic$BsmKey;Ljava/lang/Integer;>;", 0, $field(PoolWriter, bootstrapMethods)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/util/Names;)V", nullptr, $PUBLIC, $method(PoolWriter, init$, void, $Types*, $Names*)},
+		{"classSig", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE, $method(PoolWriter, classSig, $Name*, $Type*)},
+		{"descriptorType", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(PoolWriter, descriptorType, $Type*, $Symbol*)},
+		{"enterInner", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0, $virtualMethod(PoolWriter, enterInner, void, $Symbol$ClassSymbol*)},
+		{"makeBootstrapEntry", "(Lcom/sun/tools/javac/jvm/PoolConstant$Dynamic;)I", nullptr, $PRIVATE, $method(PoolWriter, makeBootstrapEntry, int32_t, $PoolConstant$Dynamic*)},
+		{"putClass", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, 0, $virtualMethod(PoolWriter, putClass, int32_t, $Symbol$ClassSymbol*)},
+		{"putClass", "(Lcom/sun/tools/javac/code/Type;)I", nullptr, 0, $virtualMethod(PoolWriter, putClass, int32_t, $Type*)},
+		{"putConstant", "(Ljava/lang/Object;)I", nullptr, 0, $virtualMethod(PoolWriter, putConstant, int32_t, Object$*)},
+		{"putConstant", "(Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;)I", nullptr, 0, $virtualMethod(PoolWriter, putConstant, int32_t, $PoolConstant$LoadableConstant*)},
+		{"putDescriptor", "(Lcom/sun/tools/javac/code/Type;)I", nullptr, 0, $virtualMethod(PoolWriter, putDescriptor, int32_t, $Type*)},
+		{"putDescriptor", "(Lcom/sun/tools/javac/code/Symbol;)I", nullptr, 0, $virtualMethod(PoolWriter, putDescriptor, int32_t, $Symbol*)},
+		{"putDynamic", "(Lcom/sun/tools/javac/jvm/PoolConstant$Dynamic;)I", nullptr, 0, $virtualMethod(PoolWriter, putDynamic, int32_t, $PoolConstant$Dynamic*)},
+		{"putMember", "(Lcom/sun/tools/javac/code/Symbol;)I", nullptr, 0, $virtualMethod(PoolWriter, putMember, int32_t, $Symbol*)},
+		{"putModule", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)I", nullptr, 0, $virtualMethod(PoolWriter, putModule, int32_t, $Symbol$ModuleSymbol*)},
+		{"putName", "(Lcom/sun/tools/javac/util/Name;)I", nullptr, 0, $virtualMethod(PoolWriter, putName, int32_t, $Name*)},
+		{"putNameAndType", "(Lcom/sun/tools/javac/code/Symbol;)I", nullptr, 0, $virtualMethod(PoolWriter, putNameAndType, int32_t, $Symbol*)},
+		{"putPackage", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)I", nullptr, 0, $virtualMethod(PoolWriter, putPackage, int32_t, $Symbol$PackageSymbol*)},
+		{"putSignature", "(Lcom/sun/tools/javac/code/Symbol;)I", nullptr, 0, $virtualMethod(PoolWriter, putSignature, int32_t, $Symbol*)},
+		{"reset", "()V", nullptr, 0, $virtualMethod(PoolWriter, reset, void)},
+		{"size", "()I", nullptr, 0, $virtualMethod(PoolWriter, size, int32_t)},
+		{"typeSig", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE, $method(PoolWriter, typeSig, $Name*, $Type*)},
+		{"writePool", "(Ljava/io/OutputStream;)V", nullptr, 0, $virtualMethod(PoolWriter, writePool, void, $OutputStream*), "java.io.IOException,com.sun.tools.javac.jvm.ClassWriter$PoolOverflow"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.PoolWriter$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.jvm.PoolWriter$WriteablePoolHelper", "com.sun.tools.javac.jvm.PoolWriter", "WriteablePoolHelper", 0},
+		{"com.sun.tools.javac.jvm.PoolWriter$SharedSignatureGenerator", "com.sun.tools.javac.jvm.PoolWriter", "SharedSignatureGenerator", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.jvm.PoolWriter",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.PoolWriter$1,com.sun.tools.javac.jvm.PoolWriter$WriteablePoolHelper,com.sun.tools.javac.jvm.PoolWriter$SharedSignatureGenerator"
+	};
+	$loadClass(PoolWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PoolWriter);
+	});
 	return class$;
 }
 

@@ -1,14 +1,11 @@
 #include <java/awt/PopupMenu$AccessibleAWTPopupMenu.h>
-
 #include <java/awt/Menu$AccessibleAWTMenu.h>
-#include <java/awt/Menu.h>
 #include <java/awt/PopupMenu.h>
 #include <javax/accessibility/AccessibleRole.h>
 #include <jcpp.h>
 
 #undef POPUP_MENU
 
-using $Menu = ::java::awt::Menu;
 using $Menu$AccessibleAWTMenu = ::java::awt::Menu$AccessibleAWTMenu;
 using $PopupMenu = ::java::awt::PopupMenu;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -19,44 +16,6 @@ using $AccessibleRole = ::javax::accessibility::AccessibleRole;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _PopupMenu$AccessibleAWTPopupMenu_FieldInfo_[] = {
-	{"this$0", "Ljava/awt/PopupMenu;", nullptr, $FINAL | $SYNTHETIC, $field(PopupMenu$AccessibleAWTPopupMenu, this$0)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PopupMenu$AccessibleAWTPopupMenu, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _PopupMenu$AccessibleAWTPopupMenu_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/PopupMenu;)V", nullptr, $PROTECTED, $method(PopupMenu$AccessibleAWTPopupMenu, init$, void, $PopupMenu*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(PopupMenu$AccessibleAWTPopupMenu, getAccessibleRole, $AccessibleRole*)},
-	{}
-};
-
-$InnerClassInfo _PopupMenu$AccessibleAWTPopupMenu_InnerClassesInfo_[] = {
-	{"java.awt.PopupMenu$AccessibleAWTPopupMenu", "java.awt.PopupMenu", "AccessibleAWTPopupMenu", $PROTECTED},
-	{"java.awt.Menu$AccessibleAWTMenu", "java.awt.Menu", "AccessibleAWTMenu", $PROTECTED},
-	{}
-};
-
-$ClassInfo _PopupMenu$AccessibleAWTPopupMenu_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.PopupMenu$AccessibleAWTPopupMenu",
-	"java.awt.Menu$AccessibleAWTMenu",
-	nullptr,
-	_PopupMenu$AccessibleAWTPopupMenu_FieldInfo_,
-	_PopupMenu$AccessibleAWTPopupMenu_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PopupMenu$AccessibleAWTPopupMenu_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.PopupMenu"
-};
-
-$Object* allocate$PopupMenu$AccessibleAWTPopupMenu($Class* clazz) {
-	return $of($alloc(PopupMenu$AccessibleAWTPopupMenu));
-}
 
 void PopupMenu$AccessibleAWTPopupMenu::init$($PopupMenu* this$0) {
 	$set(this, this$0, this$0);
@@ -72,7 +31,39 @@ PopupMenu$AccessibleAWTPopupMenu::PopupMenu$AccessibleAWTPopupMenu() {
 }
 
 $Class* PopupMenu$AccessibleAWTPopupMenu::load$($String* name, bool initialize) {
-	$loadClass(PopupMenu$AccessibleAWTPopupMenu, name, initialize, &_PopupMenu$AccessibleAWTPopupMenu_ClassInfo_, allocate$PopupMenu$AccessibleAWTPopupMenu);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/awt/PopupMenu;", nullptr, $FINAL | $SYNTHETIC, $field(PopupMenu$AccessibleAWTPopupMenu, this$0)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PopupMenu$AccessibleAWTPopupMenu, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/PopupMenu;)V", nullptr, $PROTECTED, $method(PopupMenu$AccessibleAWTPopupMenu, init$, void, $PopupMenu*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(PopupMenu$AccessibleAWTPopupMenu, getAccessibleRole, $AccessibleRole*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.PopupMenu$AccessibleAWTPopupMenu", "java.awt.PopupMenu", "AccessibleAWTPopupMenu", $PROTECTED},
+		{"java.awt.Menu$AccessibleAWTMenu", "java.awt.Menu", "AccessibleAWTMenu", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.PopupMenu$AccessibleAWTPopupMenu",
+		"java.awt.Menu$AccessibleAWTMenu",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.PopupMenu"
+	};
+	$loadClass(PopupMenu$AccessibleAWTPopupMenu, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PopupMenu$AccessibleAWTPopupMenu));
+	});
 	return class$;
 }
 

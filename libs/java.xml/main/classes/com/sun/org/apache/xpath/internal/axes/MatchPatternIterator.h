@@ -87,7 +87,7 @@ public:
 	virtual int32_t getNextNode();
 	virtual int32_t nextNode() override;
 	virtual void setRoot(int32_t context, Object$* environment) override;
-	static const int64_t serialVersionUID = (int64_t)0xB7D1CA349828B8E6;
+	static const int64_t serialVersionUID = (int64_t)0xb7d1ca349828b8e6;
 	::com::sun::org::apache::xpath::internal::patterns::StepPattern* m_pattern = nullptr;
 	int32_t m_superAxis = 0;
 	::com::sun::org::apache::xml::internal::dtm::DTMAxisTraverser* m_traverser = nullptr;

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/TestSeq.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/BranchHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/GOTO_W.h>
@@ -21,7 +20,6 @@
 #include <java/util/Map.h>
 #include <jcpp.h>
 
-using $BranchInstruction = ::com::sun::org::apache::bcel::internal::generic::BranchInstruction;
 using $GOTO_W = ::com::sun::org::apache::bcel::internal::generic::GOTO_W;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
@@ -50,44 +48,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _TestSeq_FieldInfo_[] = {
-	{"_kernelType", "I", nullptr, $PRIVATE, $field(TestSeq, _kernelType)},
-	{"_patterns", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern;>;", $PRIVATE, $field(TestSeq, _patterns)},
-	{"_mode", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Mode;", nullptr, $PRIVATE, $field(TestSeq, _mode)},
-	{"_default", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;", nullptr, $PRIVATE, $field(TestSeq, _default)},
-	{"_instructionList", "Lcom/sun/org/apache/bcel/internal/generic/InstructionList;", nullptr, $PRIVATE, $field(TestSeq, _instructionList)},
-	{"_start", "Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PRIVATE, $field(TestSeq, _start)},
-	{}
-};
-
-$MethodInfo _TestSeq_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Mode;)V", "(Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern;>;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Mode;)V", $PUBLIC, $method(TestSeq, init$, void, $List*, $Mode*)},
-	{"<init>", "(Ljava/util/List;ILcom/sun/org/apache/xalan/internal/xsltc/compiler/Mode;)V", "(Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern;>;ILcom/sun/org/apache/xalan/internal/xsltc/compiler/Mode;)V", $PUBLIC, $method(TestSeq, init$, void, $List*, int32_t, $Mode*)},
-	{"compile", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $method(TestSeq, compile, $InstructionHandle*, $ClassGenerator*, $MethodGenerator*, $InstructionHandle*)},
-	{"findTemplates", "(Ljava/util/Map;)V", "(Ljava/util/Map<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;Ljava/lang/Object;>;)V", $PUBLIC, $method(TestSeq, findTemplates, void, $Map*)},
-	{"getInstructionList", "()Lcom/sun/org/apache/bcel/internal/generic/InstructionList;", nullptr, $PUBLIC, $method(TestSeq, getInstructionList, $InstructionList*)},
-	{"getPattern", "(I)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern;", nullptr, $PRIVATE, $method(TestSeq, getPattern, $LocationPathPattern*, int32_t)},
-	{"getPosition", "()I", nullptr, $PUBLIC, $method(TestSeq, getPosition, int32_t)},
-	{"getPriority", "()D", nullptr, $PUBLIC, $method(TestSeq, getPriority, double)},
-	{"getTemplateHandle", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PRIVATE, $method(TestSeq, getTemplateHandle, $InstructionHandle*, $Template*)},
-	{"reduce", "()V", nullptr, $PUBLIC, $method(TestSeq, reduce, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestSeq, toString, $String*)},
-	{}
-};
-
-$ClassInfo _TestSeq_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.TestSeq",
-	"java.lang.Object",
-	nullptr,
-	_TestSeq_FieldInfo_,
-	_TestSeq_MethodInfo_
-};
-
-$Object* allocate$TestSeq($Class* clazz) {
-	return $of($alloc(TestSeq));
-}
-
 void TestSeq::init$($List* patterns, $Mode* mode) {
 	TestSeq::init$(patterns, -2, mode);
 }
@@ -103,7 +63,7 @@ void TestSeq::init$($List* patterns, int32_t kernelType, $Mode* mode) {
 }
 
 $String* TestSeq::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = $nc(this->_patterns)->size();
 	$var($StringBuffer, result, $new($StringBuffer));
 	for (int32_t i = 0; i < count; ++i) {
@@ -121,19 +81,19 @@ $InstructionList* TestSeq::getInstructionList() {
 }
 
 double TestSeq::getPriority() {
-	$useLocalCurrentObjectStackCache();
-	$var($Template, template$, ($nc(this->_patterns)->isEmpty()) ? this->_default : $nc(($cast($Pattern, $($nc(this->_patterns)->get(0)))))->getTemplate());
+	$useLocalObjectStack();
+	$var($Template, template$, ($nc(this->_patterns)->isEmpty()) ? this->_default : $$sure($Pattern, this->_patterns->get(0))->getTemplate());
 	return $nc(template$)->getPriority();
 }
 
 int32_t TestSeq::getPosition() {
-	$useLocalCurrentObjectStackCache();
-	$var($Template, template$, ($nc(this->_patterns)->isEmpty()) ? this->_default : $nc(($cast($Pattern, $($nc(this->_patterns)->get(0)))))->getTemplate());
+	$useLocalObjectStack();
+	$var($Template, template$, ($nc(this->_patterns)->isEmpty()) ? this->_default : $$sure($Pattern, this->_patterns->get(0))->getTemplate());
 	return $nc(template$)->getPosition();
 }
 
 void TestSeq::reduce() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, newPatterns, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc(this->_patterns)->iterator());
@@ -154,7 +114,7 @@ void TestSeq::reduce() {
 }
 
 void TestSeq::findTemplates($Map* templates) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->_default != nullptr) {
 		$nc(templates)->put(this->_default, this);
 	}
@@ -178,7 +138,7 @@ $LocationPathPattern* TestSeq::getPattern(int32_t n) {
 }
 
 $InstructionHandle* TestSeq::compile($ClassGenerator* classGen, $MethodGenerator* methodGen, $InstructionHandle* continuation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->_start != nullptr) {
 		return this->_start;
 	}
@@ -192,7 +152,7 @@ $InstructionHandle* TestSeq::compile($ClassGenerator* classGen, $MethodGenerator
 		$var($Template, template$, $nc(pattern)->getTemplate());
 		$var($InstructionList, il, $new($InstructionList));
 		il->append($($nc(methodGen)->loadCurrentNode()));
-		$var($InstructionList, ilist, $nc(methodGen)->getInstructionList(pattern));
+		$var($InstructionList, ilist, methodGen->getInstructionList(pattern));
 		if (ilist == nullptr) {
 			$assign(ilist, pattern->compile(classGen, methodGen));
 			methodGen->addInstructionList(pattern, ilist);
@@ -208,7 +168,7 @@ $InstructionHandle* TestSeq::compile($ClassGenerator* classGen, $MethodGenerator
 		}
 		il->append(copyOfilist);
 		$var($InstructionHandle, gtmpl, getTemplateHandle(template$));
-		$var($InstructionHandle, success, il->append(static_cast<$BranchInstruction*>($$new($GOTO_W, gtmpl))));
+		$var($InstructionHandle, success, il->append($$new($GOTO_W, gtmpl)));
 		if (trueList != nullptr) {
 			trueList->backPatch(success);
 		}
@@ -228,7 +188,40 @@ TestSeq::TestSeq() {
 }
 
 $Class* TestSeq::load$($String* name, bool initialize) {
-	$loadClass(TestSeq, name, initialize, &_TestSeq_ClassInfo_, allocate$TestSeq);
+	$FieldInfo fieldInfos$$[] = {
+		{"_kernelType", "I", nullptr, $PRIVATE, $field(TestSeq, _kernelType)},
+		{"_patterns", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern;>;", $PRIVATE, $field(TestSeq, _patterns)},
+		{"_mode", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Mode;", nullptr, $PRIVATE, $field(TestSeq, _mode)},
+		{"_default", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;", nullptr, $PRIVATE, $field(TestSeq, _default)},
+		{"_instructionList", "Lcom/sun/org/apache/bcel/internal/generic/InstructionList;", nullptr, $PRIVATE, $field(TestSeq, _instructionList)},
+		{"_start", "Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PRIVATE, $field(TestSeq, _start)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Mode;)V", "(Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern;>;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Mode;)V", $PUBLIC, $method(TestSeq, init$, void, $List*, $Mode*)},
+		{"<init>", "(Ljava/util/List;ILcom/sun/org/apache/xalan/internal/xsltc/compiler/Mode;)V", "(Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern;>;ILcom/sun/org/apache/xalan/internal/xsltc/compiler/Mode;)V", $PUBLIC, $method(TestSeq, init$, void, $List*, int32_t, $Mode*)},
+		{"compile", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $method(TestSeq, compile, $InstructionHandle*, $ClassGenerator*, $MethodGenerator*, $InstructionHandle*)},
+		{"findTemplates", "(Ljava/util/Map;)V", "(Ljava/util/Map<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;Ljava/lang/Object;>;)V", $PUBLIC, $method(TestSeq, findTemplates, void, $Map*)},
+		{"getInstructionList", "()Lcom/sun/org/apache/bcel/internal/generic/InstructionList;", nullptr, $PUBLIC, $method(TestSeq, getInstructionList, $InstructionList*)},
+		{"getPattern", "(I)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern;", nullptr, $PRIVATE, $method(TestSeq, getPattern, $LocationPathPattern*, int32_t)},
+		{"getPosition", "()I", nullptr, $PUBLIC, $method(TestSeq, getPosition, int32_t)},
+		{"getPriority", "()D", nullptr, $PUBLIC, $method(TestSeq, getPriority, double)},
+		{"getTemplateHandle", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PRIVATE, $method(TestSeq, getTemplateHandle, $InstructionHandle*, $Template*)},
+		{"reduce", "()V", nullptr, $PUBLIC, $method(TestSeq, reduce, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestSeq, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.TestSeq",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestSeq, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestSeq);
+	});
 	return class$;
 }
 

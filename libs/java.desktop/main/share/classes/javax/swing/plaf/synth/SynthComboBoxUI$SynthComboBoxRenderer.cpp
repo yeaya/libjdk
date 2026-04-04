@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthComboBoxUI$SynthComboBoxRenderer.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -23,7 +22,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Icon = ::javax::swing::Icon;
-using $JComboBox = ::javax::swing::JComboBox;
 using $JLabel = ::javax::swing::JLabel;
 using $JList = ::javax::swing::JList;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
@@ -35,49 +33,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthComboBoxUI$SynthComboBoxRenderer_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/synth/SynthComboBoxUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthComboBoxUI$SynthComboBoxRenderer, this$0)},
-	{}
-};
-
-$MethodInfo _SynthComboBoxUI$SynthComboBoxRenderer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/synth/SynthComboBoxUI;)V", nullptr, $PUBLIC, $method(SynthComboBoxUI$SynthComboBoxRenderer, init$, void, $SynthComboBoxUI*)},
-	{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<*>;Ljava/lang/Object;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(SynthComboBoxUI$SynthComboBoxRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$SynthComboBoxRenderer, getName, $String*)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$SynthComboBoxRenderer, paint, void, $Graphics*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SynthComboBoxUI$SynthComboBoxRenderer_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthComboBoxUI$SynthComboBoxRenderer", "javax.swing.plaf.synth.SynthComboBoxUI", "SynthComboBoxRenderer", $PRIVATE},
-	{}
-};
-
-$ClassInfo _SynthComboBoxUI$SynthComboBoxRenderer_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthComboBoxUI$SynthComboBoxRenderer",
-	"javax.swing.JLabel",
-	"javax.swing.ListCellRenderer,javax.swing.plaf.UIResource",
-	_SynthComboBoxUI$SynthComboBoxRenderer_FieldInfo_,
-	_SynthComboBoxUI$SynthComboBoxRenderer_MethodInfo_,
-	"Ljavax/swing/JLabel;Ljavax/swing/ListCellRenderer<Ljava/lang/Object;>;Ljavax/swing/plaf/UIResource;",
-	nullptr,
-	_SynthComboBoxUI$SynthComboBoxRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthComboBoxUI"
-};
-
-$Object* allocate$SynthComboBoxUI$SynthComboBoxRenderer($Class* clazz) {
-	return $of($alloc(SynthComboBoxUI$SynthComboBoxRenderer));
-}
 
 $String* SynthComboBoxUI$SynthComboBoxRenderer::toString() {
 	 return this->$JLabel::toString();
@@ -111,37 +66,35 @@ $String* SynthComboBoxUI$SynthComboBoxRenderer::getName() {
 }
 
 $Component* SynthComboBoxUI$SynthComboBoxRenderer::getListCellRendererComponent($JList* list, Object$* value, int32_t index, bool isSelected, bool cellHasFocus) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setName("ComboBox.listRenderer"_s);
 	$SynthLookAndFeel::resetSelectedUI();
 	if (isSelected) {
 		setBackground($($nc(list)->getSelectionBackground()));
-		setForeground($($nc(list)->getSelectionForeground()));
+		setForeground($(list->getSelectionForeground()));
 		if (!this->this$0->useListColors) {
 			$load($SynthLabelUI);
 			$var($ComponentUI, var$0, $cast($SynthLabelUI, $SynthLookAndFeel::getUIOfType($(getUI()), $SynthLabelUI::class$)));
-			bool var$1 = isSelected;
-			bool var$2 = cellHasFocus;
-			$SynthLookAndFeel::setSelectedUI(var$0, var$1, var$2, $nc(list)->isEnabled(), false);
+			$SynthLookAndFeel::setSelectedUI(var$0, isSelected, cellHasFocus, list->isEnabled(), false);
 		}
 	} else {
 		setBackground($($nc(list)->getBackground()));
-		setForeground($($nc(list)->getForeground()));
+		setForeground($(list->getForeground()));
 	}
 	setFont($($nc(list)->getFont()));
 	if ($instanceOf($Icon, value)) {
 		setIcon($cast($Icon, value));
 		setText(""_s);
 	} else {
-		$var($String, text, (value == nullptr) ? " "_s : $nc($of(value))->toString());
+		$var($String, text, (value == nullptr) ? " "_s : $of(value)->toString());
 		if (""_s->equals(text)) {
 			$assign(text, " "_s);
 		}
 		setText(text);
 	}
 	if ($SynthComboBoxUI::access$000(this->this$0) != nullptr) {
-		setEnabled($nc($($SynthComboBoxUI::access$100(this->this$0)))->isEnabled());
-		setComponentOrientation($($nc($($SynthComboBoxUI::access$200(this->this$0)))->getComponentOrientation()));
+		setEnabled($$nc($SynthComboBoxUI::access$100(this->this$0))->isEnabled());
+		setComponentOrientation($($$nc($SynthComboBoxUI::access$200(this->this$0))->getComponentOrientation()));
 	}
 	return this;
 }
@@ -155,7 +108,44 @@ SynthComboBoxUI$SynthComboBoxRenderer::SynthComboBoxUI$SynthComboBoxRenderer() {
 }
 
 $Class* SynthComboBoxUI$SynthComboBoxRenderer::load$($String* name, bool initialize) {
-	$loadClass(SynthComboBoxUI$SynthComboBoxRenderer, name, initialize, &_SynthComboBoxUI$SynthComboBoxRenderer_ClassInfo_, allocate$SynthComboBoxUI$SynthComboBoxRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/synth/SynthComboBoxUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthComboBoxUI$SynthComboBoxRenderer, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/synth/SynthComboBoxUI;)V", nullptr, $PUBLIC, $method(SynthComboBoxUI$SynthComboBoxRenderer, init$, void, $SynthComboBoxUI*)},
+		{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<*>;Ljava/lang/Object;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(SynthComboBoxUI$SynthComboBoxRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$SynthComboBoxRenderer, getName, $String*)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$SynthComboBoxRenderer, paint, void, $Graphics*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthComboBoxUI$SynthComboBoxRenderer", "javax.swing.plaf.synth.SynthComboBoxUI", "SynthComboBoxRenderer", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthComboBoxUI$SynthComboBoxRenderer",
+		"javax.swing.JLabel",
+		"javax.swing.ListCellRenderer,javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljavax/swing/JLabel;Ljavax/swing/ListCellRenderer<Ljava/lang/Object;>;Ljavax/swing/plaf/UIResource;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthComboBoxUI"
+	};
+	$loadClass(SynthComboBoxUI$SynthComboBoxRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthComboBoxUI$SynthComboBoxRenderer));
+	});
 	return class$;
 }
 

@@ -1,11 +1,8 @@
 #include <javax/swing/text/JTextComponent$3.h>
-
 #include <java/awt/Component.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Error.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Runnable.h>
-#include <java/util/concurrent/Callable.h>
 #include <java/util/concurrent/ExecutionException.h>
 #include <java/util/concurrent/Future.h>
 #include <java/util/concurrent/FutureTask.h>
@@ -25,13 +22,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Callable = ::java::util::concurrent::Callable;
 using $ExecutionException = ::java::util::concurrent::ExecutionException;
-using $Future = ::java::util::concurrent::Future;
 using $FutureTask = ::java::util::concurrent::FutureTask;
-using $Document = ::javax::swing::text::Document;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $JTextComponent$3$1 = ::javax::swing::text::JTextComponent$3$1;
 using $JTextComponent$3$2 = ::javax::swing::text::JTextComponent$3$2;
@@ -41,52 +34,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _JTextComponent$3_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/JTextComponent;", nullptr, $FINAL | $SYNTHETIC, $field(JTextComponent$3, this$0)},
-	{"val$futurePrinting", "Ljava/util/concurrent/FutureTask;", nullptr, $FINAL | $SYNTHETIC, $field(JTextComponent$3, val$futurePrinting)},
-	{"val$isEventDispatchThread", "Z", nullptr, $FINAL | $SYNTHETIC, $field(JTextComponent$3, val$isEventDispatchThread)},
-	{}
-};
-
-$MethodInfo _JTextComponent$3_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/JTextComponent;ZLjava/util/concurrent/FutureTask;)V", "()V", 0, $method(JTextComponent$3, init$, void, $JTextComponent*, bool, $FutureTask*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$3, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _JTextComponent$3_EnclosingMethodInfo_ = {
-	"javax.swing.text.JTextComponent",
-	"print",
-	"(Ljava/text/MessageFormat;Ljava/text/MessageFormat;ZLjavax/print/PrintService;Ljavax/print/attribute/PrintRequestAttributeSet;Z)Z"
-};
-
-$InnerClassInfo _JTextComponent$3_InnerClassesInfo_[] = {
-	{"javax.swing.text.JTextComponent$3", nullptr, nullptr, 0},
-	{"javax.swing.text.JTextComponent$3$2", nullptr, nullptr, 0},
-	{"javax.swing.text.JTextComponent$3$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JTextComponent$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.JTextComponent$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_JTextComponent$3_FieldInfo_,
-	_JTextComponent$3_MethodInfo_,
-	nullptr,
-	&_JTextComponent$3_EnclosingMethodInfo_,
-	_JTextComponent$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.JTextComponent"
-};
-
-$Object* allocate$JTextComponent$3($Class* clazz) {
-	return $of($alloc(JTextComponent$3));
-}
-
 void JTextComponent$3::init$($JTextComponent* this$0, bool val$isEventDispatchThread, $FutureTask* val$futurePrinting) {
 	$set(this, this$0, this$0);
 	this->val$isEventDispatchThread = val$isEventDispatchThread;
@@ -94,7 +41,7 @@ void JTextComponent$3::init$($JTextComponent* this$0, bool val$isEventDispatchTh
 }
 
 void JTextComponent$3::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool wasEnabled = false;
 	if (this->val$isEventDispatchThread) {
 		if (this->this$0->isEnabled()) {
@@ -103,9 +50,9 @@ void JTextComponent$3::run() {
 		}
 	} else {
 		try {
-			wasEnabled = $nc(($cast($Boolean, $($nc($($SwingUtilities2::submit($$new($JTextComponent$3$1, this))))->get()))))->booleanValue();
+			wasEnabled = $$sure($Boolean, $$nc($SwingUtilities2::submit($$new($JTextComponent$3$1, this)))->get())->booleanValue();
 		} catch ($InterruptedException& e) {
-			$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+			$throwNew($RuntimeException, e);
 		} catch ($ExecutionException& e) {
 			$var($Throwable, cause, e->getCause());
 			if ($instanceOf($Error, cause)) {
@@ -114,18 +61,18 @@ void JTextComponent$3::run() {
 			if ($instanceOf($RuntimeException, cause)) {
 				$throw($cast($RuntimeException, cause));
 			}
-			$throwNew($AssertionError, $of(cause));
+			$throwNew($AssertionError, cause);
 		}
 	}
-	$nc($(this->this$0->getDocument()))->render(this->val$futurePrinting);
+	$$nc(this->this$0->getDocument())->render(this->val$futurePrinting);
 	if (wasEnabled) {
 		if (this->val$isEventDispatchThread) {
 			this->this$0->setEnabled(true);
 		} else {
 			try {
-				$nc($($SwingUtilities2::submit($$new($JTextComponent$3$2, this), nullptr)))->get();
+				$$nc($SwingUtilities2::submit($$new($JTextComponent$3$2, this), nullptr))->get();
 			} catch ($InterruptedException& e) {
-				$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+				$throwNew($RuntimeException, e);
 			} catch ($ExecutionException& e) {
 				$var($Throwable, cause, e->getCause());
 				if ($instanceOf($Error, cause)) {
@@ -134,7 +81,7 @@ void JTextComponent$3::run() {
 				if ($instanceOf($RuntimeException, cause)) {
 					$throw($cast($RuntimeException, cause));
 				}
-				$throwNew($AssertionError, $of(cause));
+				$throwNew($AssertionError, cause);
 			}
 		}
 	}
@@ -144,7 +91,46 @@ JTextComponent$3::JTextComponent$3() {
 }
 
 $Class* JTextComponent$3::load$($String* name, bool initialize) {
-	$loadClass(JTextComponent$3, name, initialize, &_JTextComponent$3_ClassInfo_, allocate$JTextComponent$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/JTextComponent;", nullptr, $FINAL | $SYNTHETIC, $field(JTextComponent$3, this$0)},
+		{"val$futurePrinting", "Ljava/util/concurrent/FutureTask;", nullptr, $FINAL | $SYNTHETIC, $field(JTextComponent$3, val$futurePrinting)},
+		{"val$isEventDispatchThread", "Z", nullptr, $FINAL | $SYNTHETIC, $field(JTextComponent$3, val$isEventDispatchThread)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/JTextComponent;ZLjava/util/concurrent/FutureTask;)V", "()V", 0, $method(JTextComponent$3, init$, void, $JTextComponent*, bool, $FutureTask*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$3, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.text.JTextComponent",
+		"print",
+		"(Ljava/text/MessageFormat;Ljava/text/MessageFormat;ZLjavax/print/PrintService;Ljavax/print/attribute/PrintRequestAttributeSet;Z)Z"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.JTextComponent$3", nullptr, nullptr, 0},
+		{"javax.swing.text.JTextComponent$3$2", nullptr, nullptr, 0},
+		{"javax.swing.text.JTextComponent$3$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.JTextComponent$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.JTextComponent"
+	};
+	$loadClass(JTextComponent$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JTextComponent$3);
+	});
 	return class$;
 }
 

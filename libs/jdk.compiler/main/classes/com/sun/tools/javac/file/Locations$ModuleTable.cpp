@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/file/Locations$ModuleTable.h>
-
 #include <com/sun/tools/javac/file/Locations$ModuleLocationHandler.h>
 #include <com/sun/tools/javac/file/Locations.h>
 #include <java/io/Serializable.h>
@@ -32,17 +31,14 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Path = ::java::nio::file::Path;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
-using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Set = ::java::util::Set;
 using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
 using $Collectors = ::java::util::stream::Collectors;
-using $Stream = ::java::util::stream::Stream;
 
 namespace com {
 	namespace sun {
@@ -58,27 +54,24 @@ public:
 	virtual bool test(Object$* e) override {
 		 return Locations$ModuleTable::lambda$explicitLocations$0($cast($Map$Entry, e));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Locations$ModuleTable$$Lambda$lambda$explicitLocations$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Locations$ModuleTable$$Lambda$lambda$explicitLocations$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Locations$ModuleTable$$Lambda$lambda$explicitLocations$0, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Locations$ModuleTable$$Lambda$lambda$explicitLocations$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Locations$ModuleTable$$Lambda$lambda$explicitLocations$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.file.Locations$ModuleTable$$Lambda$lambda$explicitLocations$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* Locations$ModuleTable$$Lambda$lambda$explicitLocations$0::load$($String* name, bool initialize) {
-	$loadClass(Locations$ModuleTable$$Lambda$lambda$explicitLocations$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Locations$ModuleTable$$Lambda$lambda$explicitLocations$0, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Locations$ModuleTable$$Lambda$lambda$explicitLocations$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.file.Locations$ModuleTable$$Lambda$lambda$explicitLocations$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Locations$ModuleTable$$Lambda$lambda$explicitLocations$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Locations$ModuleTable$$Lambda$lambda$explicitLocations$0);
+	});
 	return class$;
 }
 $Class* Locations$ModuleTable$$Lambda$lambda$explicitLocations$0::class$ = nullptr;
@@ -91,78 +84,27 @@ public:
 	virtual $Object* apply(Object$* e) override {
 		 return $of(Locations$ModuleTable::lambda$explicitLocations$1($cast($Map$Entry, e)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Locations$ModuleTable$$Lambda$lambda$explicitLocations$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Locations$ModuleTable$$Lambda$lambda$explicitLocations$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Locations$ModuleTable$$Lambda$lambda$explicitLocations$1$1, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Locations$ModuleTable$$Lambda$lambda$explicitLocations$1$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Locations$ModuleTable$$Lambda$lambda$explicitLocations$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.file.Locations$ModuleTable$$Lambda$lambda$explicitLocations$1$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Locations$ModuleTable$$Lambda$lambda$explicitLocations$1$1::load$($String* name, bool initialize) {
-	$loadClass(Locations$ModuleTable$$Lambda$lambda$explicitLocations$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Locations$ModuleTable$$Lambda$lambda$explicitLocations$1$1, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Locations$ModuleTable$$Lambda$lambda$explicitLocations$1$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.file.Locations$ModuleTable$$Lambda$lambda$explicitLocations$1$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Locations$ModuleTable$$Lambda$lambda$explicitLocations$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Locations$ModuleTable$$Lambda$lambda$explicitLocations$1$1);
+	});
 	return class$;
 }
 $Class* Locations$ModuleTable$$Lambda$lambda$explicitLocations$1$1::class$ = nullptr;
-
-$FieldInfo _Locations$ModuleTable_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/file/Locations;", nullptr, $FINAL | $SYNTHETIC, $field(Locations$ModuleTable, this$0)},
-	{"nameMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/javac/file/Locations$ModuleLocationHandler;>;", $PRIVATE | $FINAL, $field(Locations$ModuleTable, nameMap)},
-	{"pathMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/nio/file/Path;Lcom/sun/tools/javac/file/Locations$ModuleLocationHandler;>;", $PRIVATE | $FINAL, $field(Locations$ModuleTable, pathMap)},
-	{}
-};
-
-$MethodInfo _Locations$ModuleTable_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/Locations;)V", nullptr, $PRIVATE, $method(Locations$ModuleTable, init$, void, $Locations*)},
-	{"add", "(Lcom/sun/tools/javac/file/Locations$ModuleLocationHandler;)V", nullptr, 0, $virtualMethod(Locations$ModuleTable, add, void, $Locations$ModuleLocationHandler*)},
-	{"clear", "()V", nullptr, 0, $virtualMethod(Locations$ModuleTable, clear, void)},
-	{"contains", "(Ljava/nio/file/Path;)Z", nullptr, 0, $virtualMethod(Locations$ModuleTable, contains, bool, $Path*), "java.io.IOException"},
-	{"explicitLocations", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/tools/JavaFileManager$Location;>;", 0, $virtualMethod(Locations$ModuleTable, explicitLocations, $Set*)},
-	{"get", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/Locations$ModuleLocationHandler;", nullptr, 0, $virtualMethod(Locations$ModuleTable, get, $Locations$ModuleLocationHandler*, $String*)},
-	{"get", "(Ljava/nio/file/Path;)Lcom/sun/tools/javac/file/Locations$ModuleLocationHandler;", nullptr, 0, $virtualMethod(Locations$ModuleTable, get, $Locations$ModuleLocationHandler*, $Path*)},
-	{"isEmpty", "()Z", nullptr, 0, $virtualMethod(Locations$ModuleTable, isEmpty, bool)},
-	{"lambda$explicitLocations$0", "(Ljava/util/Map$Entry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Locations$ModuleTable, lambda$explicitLocations$0, bool, $Map$Entry*)},
-	{"lambda$explicitLocations$1", "(Ljava/util/Map$Entry;)Lcom/sun/tools/javac/file/Locations$ModuleLocationHandler;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Locations$ModuleTable, lambda$explicitLocations$1, $Locations$ModuleLocationHandler*, $Map$Entry*)},
-	{"locations", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/tools/JavaFileManager$Location;>;", 0, $virtualMethod(Locations$ModuleTable, locations, $Set*)},
-	{"updatePaths", "(Lcom/sun/tools/javac/file/Locations$ModuleLocationHandler;)V", nullptr, 0, $virtualMethod(Locations$ModuleTable, updatePaths, void, $Locations$ModuleLocationHandler*)},
-	{}
-};
-
-$InnerClassInfo _Locations$ModuleTable_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.file.Locations$ModuleTable", "com.sun.tools.javac.file.Locations", "ModuleTable", $PRIVATE},
-	{}
-};
-
-$ClassInfo _Locations$ModuleTable_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.file.Locations$ModuleTable",
-	"java.lang.Object",
-	nullptr,
-	_Locations$ModuleTable_FieldInfo_,
-	_Locations$ModuleTable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Locations$ModuleTable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.file.Locations"
-};
-
-$Object* allocate$Locations$ModuleTable($Class* clazz) {
-	return $of($alloc(Locations$ModuleTable));
-}
 
 void Locations$ModuleTable::init$($Locations* this$0) {
 	$set(this, this$0, this$0);
@@ -171,23 +113,23 @@ void Locations$ModuleTable::init$($Locations* this$0) {
 }
 
 void Locations$ModuleTable::add($Locations$ModuleLocationHandler* h) {
-	$useLocalCurrentObjectStackCache();
-	$nc(this->nameMap)->put($nc(h)->moduleName, h);
+	$useLocalObjectStack();
+	this->nameMap->put($nc(h)->moduleName, h);
 	{
-		$var($Iterator, i$, $nc($nc(h)->searchPath)->iterator());
+		$var($Iterator, i$, $nc(h->searchPath)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Path, p, $cast($Path, i$->next()));
 			{
-				$nc(this->pathMap)->put($($Locations::normalize(p)), h);
+				this->pathMap->put($($Locations::normalize(p)), h);
 			}
 		}
 	}
 }
 
 void Locations$ModuleTable::updatePaths($Locations$ModuleLocationHandler* h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
-		$var($Iterator, iter, $nc($($nc(this->pathMap)->entrySet()))->iterator());
+		$var($Iterator, iter, $$nc(this->pathMap->entrySet())->iterator());
 		for (; $nc(iter)->hasNext();) {
 			$var($Map$Entry, e, $cast($Map$Entry, iter->next()));
 			if ($equals($nc(e)->getValue(), h)) {
@@ -200,21 +142,21 @@ void Locations$ModuleTable::updatePaths($Locations$ModuleLocationHandler* h) {
 		for (; $nc(i$)->hasNext();) {
 			$var($Path, p, $cast($Path, i$->next()));
 			{
-				$nc(this->pathMap)->put($($Locations::normalize(p)), h);
+				this->pathMap->put($($Locations::normalize(p)), h);
 			}
 		}
 	}
 }
 
 $Locations$ModuleLocationHandler* Locations$ModuleTable::get($String* name) {
-	return $cast($Locations$ModuleLocationHandler, $nc(this->nameMap)->get(name));
+	return $cast($Locations$ModuleLocationHandler, this->nameMap->get(name));
 }
 
 $Locations$ModuleLocationHandler* Locations$ModuleTable::get($Path* path$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, path, path$renamed);
 	while (path != nullptr) {
-		$var($Locations$ModuleLocationHandler, l, $cast($Locations$ModuleLocationHandler, $nc(this->pathMap)->get(path)));
+		$var($Locations$ModuleLocationHandler, l, $cast($Locations$ModuleLocationHandler, this->pathMap->get(path)));
 		if (l != nullptr) {
 			return l;
 		}
@@ -224,26 +166,26 @@ $Locations$ModuleLocationHandler* Locations$ModuleTable::get($Path* path$renamed
 }
 
 void Locations$ModuleTable::clear() {
-	$nc(this->nameMap)->clear();
-	$nc(this->pathMap)->clear();
+	this->nameMap->clear();
+	this->pathMap->clear();
 }
 
 bool Locations$ModuleTable::isEmpty() {
-	return $nc(this->nameMap)->isEmpty();
+	return this->nameMap->isEmpty();
 }
 
 bool Locations$ModuleTable::contains($Path* file) {
-	return this->this$0->contains($(static_cast<$Collection*>($nc(this->pathMap)->keySet())), file);
+	return this->this$0->contains($(this->pathMap->keySet()), file);
 }
 
 $Set* Locations$ModuleTable::locations() {
-	$useLocalCurrentObjectStackCache();
-	return $Collections::unmodifiableSet($cast($Set, $($nc($($nc($($nc(this->nameMap)->values()))->stream()))->collect($($Collectors::toSet())))));
+	$useLocalObjectStack();
+	return $Collections::unmodifiableSet($$cast($Set, $$nc($$nc(this->nameMap->values())->stream())->collect($($Collectors::toSet()))));
 }
 
 $Set* Locations$ModuleTable::explicitLocations() {
-	$useLocalCurrentObjectStackCache();
-	return $Collections::unmodifiableSet($cast($Set, $($nc($($nc($($nc($($nc($($nc(this->nameMap)->entrySet()))->stream()))->filter(static_cast<$Predicate*>($$new(Locations$ModuleTable$$Lambda$lambda$explicitLocations$0)))))->map(static_cast<$Function*>($$new(Locations$ModuleTable$$Lambda$lambda$explicitLocations$1$1)))))->collect($($Collectors::toSet())))));
+	$useLocalObjectStack();
+	return $Collections::unmodifiableSet($$cast($Set, $$nc($$nc($$nc($$nc(this->nameMap->entrySet())->stream())->filter($$new(Locations$ModuleTable$$Lambda$lambda$explicitLocations$0)))->map($$new(Locations$ModuleTable$$Lambda$lambda$explicitLocations$1$1)))->collect($($Collectors::toSet()))));
 }
 
 $Locations$ModuleLocationHandler* Locations$ModuleTable::lambda$explicitLocations$1($Map$Entry* e) {
@@ -251,7 +193,7 @@ $Locations$ModuleLocationHandler* Locations$ModuleTable::lambda$explicitLocation
 }
 
 bool Locations$ModuleTable::lambda$explicitLocations$0($Map$Entry* e) {
-	return $nc(($cast($Locations$ModuleLocationHandler, $($nc(e)->getValue()))))->explicit$;
+	return $nc(($$cast($Locations$ModuleLocationHandler, $nc(e)->getValue())))->explicit$;
 }
 
 Locations$ModuleTable::Locations$ModuleTable() {
@@ -259,14 +201,56 @@ Locations$ModuleTable::Locations$ModuleTable() {
 
 $Class* Locations$ModuleTable::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Locations$ModuleTable$$Lambda$lambda$explicitLocations$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.file.Locations$ModuleTable$$Lambda$lambda$explicitLocations$0")) {
 			return Locations$ModuleTable$$Lambda$lambda$explicitLocations$0::load$(name, initialize);
 		}
-		if (name->equals(Locations$ModuleTable$$Lambda$lambda$explicitLocations$1$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.file.Locations$ModuleTable$$Lambda$lambda$explicitLocations$1$1")) {
 			return Locations$ModuleTable$$Lambda$lambda$explicitLocations$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(Locations$ModuleTable, name, initialize, &_Locations$ModuleTable_ClassInfo_, allocate$Locations$ModuleTable);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/file/Locations;", nullptr, $FINAL | $SYNTHETIC, $field(Locations$ModuleTable, this$0)},
+		{"nameMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/javac/file/Locations$ModuleLocationHandler;>;", $PRIVATE | $FINAL, $field(Locations$ModuleTable, nameMap)},
+		{"pathMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/nio/file/Path;Lcom/sun/tools/javac/file/Locations$ModuleLocationHandler;>;", $PRIVATE | $FINAL, $field(Locations$ModuleTable, pathMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/file/Locations;)V", nullptr, $PRIVATE, $method(Locations$ModuleTable, init$, void, $Locations*)},
+		{"add", "(Lcom/sun/tools/javac/file/Locations$ModuleLocationHandler;)V", nullptr, 0, $virtualMethod(Locations$ModuleTable, add, void, $Locations$ModuleLocationHandler*)},
+		{"clear", "()V", nullptr, 0, $virtualMethod(Locations$ModuleTable, clear, void)},
+		{"contains", "(Ljava/nio/file/Path;)Z", nullptr, 0, $virtualMethod(Locations$ModuleTable, contains, bool, $Path*), "java.io.IOException"},
+		{"explicitLocations", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/tools/JavaFileManager$Location;>;", 0, $virtualMethod(Locations$ModuleTable, explicitLocations, $Set*)},
+		{"get", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/Locations$ModuleLocationHandler;", nullptr, 0, $virtualMethod(Locations$ModuleTable, get, $Locations$ModuleLocationHandler*, $String*)},
+		{"get", "(Ljava/nio/file/Path;)Lcom/sun/tools/javac/file/Locations$ModuleLocationHandler;", nullptr, 0, $virtualMethod(Locations$ModuleTable, get, $Locations$ModuleLocationHandler*, $Path*)},
+		{"isEmpty", "()Z", nullptr, 0, $virtualMethod(Locations$ModuleTable, isEmpty, bool)},
+		{"lambda$explicitLocations$0", "(Ljava/util/Map$Entry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Locations$ModuleTable, lambda$explicitLocations$0, bool, $Map$Entry*)},
+		{"lambda$explicitLocations$1", "(Ljava/util/Map$Entry;)Lcom/sun/tools/javac/file/Locations$ModuleLocationHandler;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Locations$ModuleTable, lambda$explicitLocations$1, $Locations$ModuleLocationHandler*, $Map$Entry*)},
+		{"locations", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/tools/JavaFileManager$Location;>;", 0, $virtualMethod(Locations$ModuleTable, locations, $Set*)},
+		{"updatePaths", "(Lcom/sun/tools/javac/file/Locations$ModuleLocationHandler;)V", nullptr, 0, $virtualMethod(Locations$ModuleTable, updatePaths, void, $Locations$ModuleLocationHandler*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.file.Locations$ModuleTable", "com.sun.tools.javac.file.Locations", "ModuleTable", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.file.Locations$ModuleTable",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.file.Locations"
+	};
+	$loadClass(Locations$ModuleTable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Locations$ModuleTable);
+	});
 	return class$;
 }
 

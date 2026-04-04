@@ -443,7 +443,7 @@ public:
 	::java::util::Vector* iMatchColumns = nullptr;
 	::java::util::Vector* strMatchColumns = nullptr;
 	::com::sun::rowset::JdbcRowSetResourceBundle* resBundle = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xCE26D81F4973C205;
+	static const int64_t serialVersionUID = (int64_t)0xce26d81f4973c205;
 };
 
 		} // rowset

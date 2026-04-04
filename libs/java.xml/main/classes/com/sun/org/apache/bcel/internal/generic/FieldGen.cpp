@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/FieldGen.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/AccessFlags.h>
 #include <com/sun/org/apache/bcel/internal/classfile/AnnotationEntry.h>
@@ -77,7 +76,6 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -86,69 +84,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$FieldInfo _FieldGen_FieldInfo_[] = {
-	{"value", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(FieldGen, value)},
-	{"bcelComparator", "Lcom/sun/org/apache/bcel/internal/util/BCELComparator;", nullptr, $PRIVATE | $STATIC, $staticField(FieldGen, bcelComparator)},
-	{"observers", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/FieldObserver;>;", $PRIVATE, $field(FieldGen, observers)},
-	{}
-};
-
-$MethodInfo _FieldGen_MethodInfo_[] = {
-	{"<init>", "(ILcom/sun/org/apache/bcel/internal/generic/Type;Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(FieldGen, init$, void, int32_t, $Type*, $String*, $ConstantPoolGen*)},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/Field;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(FieldGen, init$, void, $Field*, $ConstantPoolGen*)},
-	{"addAnnotationsAsAttribute", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PRIVATE, $method(FieldGen, addAnnotationsAsAttribute, void, $ConstantPoolGen*)},
-	{"addConstant", "()I", nullptr, $PRIVATE, $method(FieldGen, addConstant, int32_t)},
-	{"addObserver", "(Lcom/sun/org/apache/bcel/internal/generic/FieldObserver;)V", nullptr, $PUBLIC, $virtualMethod(FieldGen, addObserver, void, $FieldObserver*)},
-	{"cancelInitValue", "()V", nullptr, $PUBLIC, $virtualMethod(FieldGen, cancelInitValue, void)},
-	{"checkType", "(Lcom/sun/org/apache/bcel/internal/generic/Type;)V", nullptr, $PRIVATE, $method(FieldGen, checkType, void, $Type*)},
-	{"copy", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/FieldGen;", nullptr, $PUBLIC, $virtualMethod(FieldGen, copy, FieldGen*, $ConstantPoolGen*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FieldGen, equals, bool, Object$*)},
-	{"getComparator", "()Lcom/sun/org/apache/bcel/internal/util/BCELComparator;", nullptr, $PUBLIC | $STATIC, $staticMethod(FieldGen, getComparator, $BCELComparator*)},
-	{"getField", "()Lcom/sun/org/apache/bcel/internal/classfile/Field;", nullptr, $PUBLIC, $virtualMethod(FieldGen, getField, $Field*)},
-	{"getInitValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FieldGen, getInitValue, $String*)},
-	{"getSignature", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FieldGen, getSignature, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(FieldGen, hashCode, int32_t)},
-	{"removeObserver", "(Lcom/sun/org/apache/bcel/internal/generic/FieldObserver;)V", nullptr, $PUBLIC, $virtualMethod(FieldGen, removeObserver, void, $FieldObserver*)},
-	{"setComparator", "(Lcom/sun/org/apache/bcel/internal/util/BCELComparator;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FieldGen, setComparator, void, $BCELComparator*)},
-	{"setInitValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FieldGen, setInitValue, void, $String*)},
-	{"setInitValue", "(J)V", nullptr, $PUBLIC, $virtualMethod(FieldGen, setInitValue, void, int64_t)},
-	{"setInitValue", "(I)V", nullptr, $PUBLIC, $virtualMethod(FieldGen, setInitValue, void, int32_t)},
-	{"setInitValue", "(S)V", nullptr, $PUBLIC, $virtualMethod(FieldGen, setInitValue, void, int16_t)},
-	{"setInitValue", "(C)V", nullptr, $PUBLIC, $virtualMethod(FieldGen, setInitValue, void, char16_t)},
-	{"setInitValue", "(B)V", nullptr, $PUBLIC, $virtualMethod(FieldGen, setInitValue, void, int8_t)},
-	{"setInitValue", "(Z)V", nullptr, $PUBLIC, $virtualMethod(FieldGen, setInitValue, void, bool)},
-	{"setInitValue", "(F)V", nullptr, $PUBLIC, $virtualMethod(FieldGen, setInitValue, void, float)},
-	{"setInitValue", "(D)V", nullptr, $PUBLIC, $virtualMethod(FieldGen, setInitValue, void, double)},
-	{"setValue", "(I)V", nullptr, $PRIVATE, $method(FieldGen, setValue, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(FieldGen, toString, $String*)},
-	{"update", "()V", nullptr, $PUBLIC, $virtualMethod(FieldGen, update, void)},
-	{}
-};
-
-$InnerClassInfo _FieldGen_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.bcel.internal.generic.FieldGen$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FieldGen_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.FieldGen",
-	"com.sun.org.apache.bcel.internal.generic.FieldGenOrMethodGen",
-	nullptr,
-	_FieldGen_FieldInfo_,
-	_FieldGen_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FieldGen_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.bcel.internal.generic.FieldGen$1"
-};
-
-$Object* allocate$FieldGen($Class* clazz) {
-	return $of($alloc(FieldGen));
-}
 
 $BCELComparator* FieldGen::bcelComparator = nullptr;
 
@@ -161,47 +96,43 @@ void FieldGen::init$(int32_t access_flags, $Type* type, $String* name, $Constant
 }
 
 void FieldGen::init$($Field* field, $ConstantPoolGen* cp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(field)->getAccessFlags();
 	$var($Type, var$1, $Type::getType($(field->getSignature())));
 	FieldGen::init$(var$0, var$1, $(field->getName()), cp);
-	$var($AttributeArray, attrs, $nc(field)->getAttributes());
+	$var($AttributeArray, attrs, field->getAttributes());
 	{
 		$var($AttributeArray, arr$, attrs);
 		int32_t len$ = $nc(arr$)->length;
 		int32_t i$ = 0;
 		for (; i$ < len$; ++i$) {
 			$var($Attribute, attr, arr$->get(i$));
-			{
-				if ($instanceOf($ConstantValue, attr)) {
-					setValue($nc(($cast($ConstantValue, attr)))->getConstantValueIndex());
-				} else if ($instanceOf($Annotations, attr)) {
-					$var($Annotations, runtimeAnnotations, $cast($Annotations, attr));
-					$var($AnnotationEntryArray, annotationEntries, $nc(runtimeAnnotations)->getAnnotationEntries());
-					{
-						$var($AnnotationEntryArray, arr$, annotationEntries);
-						int32_t len$ = arr$->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
-							$var($AnnotationEntry, element, arr$->get(i$));
-							{
-								addAnnotationEntry($$new($AnnotationEntryGen, element, cp, false));
-							}
+			if ($instanceOf($ConstantValue, attr)) {
+				setValue($cast($ConstantValue, attr)->getConstantValueIndex());
+			} else if ($instanceOf($Annotations, attr)) {
+				$var($Annotations, runtimeAnnotations, $cast($Annotations, attr));
+				$var($AnnotationEntryArray, annotationEntries, runtimeAnnotations->getAnnotationEntries());
+				{
+					$var($AnnotationEntryArray, arr$, annotationEntries);
+					for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+						$var($AnnotationEntry, element, arr$->get(i$));
+						{
+							addAnnotationEntry($$new($AnnotationEntryGen, element, cp, false));
 						}
 					}
-				} else {
-					addAttribute(attr);
 				}
+			} else {
+				addAttribute(attr);
 			}
 		}
 	}
 }
 
 void FieldGen::setValue(int32_t index) {
-	$useLocalCurrentObjectStackCache();
-	$var($ConstantPool, cp, $nc($($FieldGenOrMethodGen::getConstantPool()))->getConstantPool());
+	$useLocalObjectStack();
+	$var($ConstantPool, cp, $$nc($FieldGenOrMethodGen::getConstantPool())->getConstantPool());
 	$var($Constant, c, $nc(cp)->getConstant(index));
-	$set(this, value, $nc(($cast($ConstantObject, c)))->getConstantValue(cp));
+	$set(this, value, $nc($cast($ConstantObject, c))->getConstantValue(cp));
 }
 
 void FieldGen::setInitValue($String* str) {
@@ -214,7 +145,7 @@ void FieldGen::setInitValue($String* str) {
 void FieldGen::setInitValue(int64_t l) {
 	$init($Type);
 	checkType($Type::LONG);
-	if (l != (int64_t)0) {
+	if (l != 0) {
 		$set(this, value, $Long::valueOf(l));
 	}
 }
@@ -231,7 +162,7 @@ void FieldGen::setInitValue(int16_t s) {
 	$init($Type);
 	checkType($Type::SHORT);
 	if (s != 0) {
-		$set(this, value, $Integer::valueOf((int32_t)s));
+		$set(this, value, $Integer::valueOf(s));
 	}
 }
 
@@ -239,7 +170,7 @@ void FieldGen::setInitValue(char16_t c) {
 	$init($Type);
 	checkType($Type::CHAR);
 	if (c != 0) {
-		$set(this, value, $Integer::valueOf((int32_t)c));
+		$set(this, value, $Integer::valueOf(c));
 	}
 }
 
@@ -247,7 +178,7 @@ void FieldGen::setInitValue(int8_t b) {
 	$init($Type);
 	checkType($Type::BYTE);
 	if (b != 0) {
-		$set(this, value, $Integer::valueOf((int32_t)b));
+		$set(this, value, $Integer::valueOf(b));
 	}
 }
 
@@ -280,7 +211,7 @@ void FieldGen::cancelInitValue() {
 }
 
 void FieldGen::checkType($Type* atype) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, superType, $FieldGenOrMethodGen::getType());
 	if (superType == nullptr) {
 		$throwNew($ClassGenException, "You haven\'t defined the type of the field yet"_s);
@@ -294,33 +225,28 @@ void FieldGen::checkType($Type* atype) {
 }
 
 $Field* FieldGen::getField() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, signature, getSignature());
-	int32_t name_index = $nc($($FieldGenOrMethodGen::getConstantPool()))->addUtf8($($FieldGenOrMethodGen::getName()));
-	int32_t signature_index = $nc($($FieldGenOrMethodGen::getConstantPool()))->addUtf8(signature);
+	int32_t name_index = $$nc($FieldGenOrMethodGen::getConstantPool())->addUtf8($($FieldGenOrMethodGen::getName()));
+	int32_t signature_index = $$nc($FieldGenOrMethodGen::getConstantPool())->addUtf8(signature);
 	if (this->value != nullptr) {
 		checkType($($FieldGenOrMethodGen::getType()));
 		int32_t index = addConstant();
-		int32_t var$0 = $nc($($FieldGenOrMethodGen::getConstantPool()))->addUtf8("ConstantValue"_s);
-		int32_t var$1 = index;
-		addAttribute($$new($ConstantValue, var$0, 2, var$1, $($nc($($FieldGenOrMethodGen::getConstantPool()))->getConstantPool())));
+		int32_t var$0 = $$nc($FieldGenOrMethodGen::getConstantPool())->addUtf8("ConstantValue"_s);
+		addAttribute($$new($ConstantValue, var$0, 2, index, $($$nc($FieldGenOrMethodGen::getConstantPool())->getConstantPool())));
 	}
 	addAnnotationsAsAttribute($($FieldGenOrMethodGen::getConstantPool()));
-	int32_t var$2 = $FieldGenOrMethodGen::getAccessFlags();
-	int32_t var$3 = name_index;
-	int32_t var$4 = signature_index;
-	$var($AttributeArray, var$5, getAttributes());
-	return $new($Field, var$2, var$3, var$4, var$5, $($nc($($FieldGenOrMethodGen::getConstantPool()))->getConstantPool()));
+	int32_t var$1 = $FieldGenOrMethodGen::getAccessFlags();
+	$var($AttributeArray, var$2, getAttributes());
+	return $new($Field, var$1, name_index, signature_index, var$2, $($$nc($FieldGenOrMethodGen::getConstantPool())->getConstantPool()));
 }
 
 void FieldGen::addAnnotationsAsAttribute($ConstantPoolGen* cp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeArray, attrs, $AnnotationEntryGen::getAnnotationAttributes(cp, $($FieldGenOrMethodGen::getAnnotationEntries())));
 	{
 		$var($AttributeArray, arr$, attrs);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Attribute, attr, arr$->get(i$));
 			{
 				addAttribute(attr);
@@ -330,45 +256,29 @@ void FieldGen::addAnnotationsAsAttribute($ConstantPoolGen* cp) {
 }
 
 int32_t FieldGen::addConstant() {
-	$useLocalCurrentObjectStackCache();
-	switch ($nc($($FieldGenOrMethodGen::getType()))->getType()) {
+	$useLocalObjectStack();
+	switch ($$nc($FieldGenOrMethodGen::getType())->getType()) {
 	case $Const::T_INT:
-		{}
 	case $Const::T_CHAR:
-		{}
 	case $Const::T_BYTE:
-		{}
 	case $Const::T_BOOLEAN:
-		{}
 	case $Const::T_SHORT:
-		{
-			return $nc($($FieldGenOrMethodGen::getConstantPool()))->addInteger($nc(($cast($Integer, this->value)))->intValue());
-		}
+		return $$nc($FieldGenOrMethodGen::getConstantPool())->addInteger($nc($cast($Integer, this->value))->intValue());
 	case $Const::T_FLOAT:
-		{
-			return $nc($($FieldGenOrMethodGen::getConstantPool()))->addFloat($nc(($cast($Float, this->value)))->floatValue());
-		}
+		return $$nc($FieldGenOrMethodGen::getConstantPool())->addFloat($nc($cast($Float, this->value))->floatValue());
 	case $Const::T_DOUBLE:
-		{
-			return $nc($($FieldGenOrMethodGen::getConstantPool()))->addDouble($nc(($cast($Double, this->value)))->doubleValue());
-		}
+		return $$nc($FieldGenOrMethodGen::getConstantPool())->addDouble($nc($cast($Double, this->value))->doubleValue());
 	case $Const::T_LONG:
-		{
-			return $nc($($FieldGenOrMethodGen::getConstantPool()))->addLong($nc(($cast($Long, this->value)))->longValue());
-		}
+		return $$nc($FieldGenOrMethodGen::getConstantPool())->addLong($nc($cast($Long, this->value))->longValue());
 	case $Const::T_REFERENCE:
-		{
-			return $nc($($FieldGenOrMethodGen::getConstantPool()))->addString($cast($String, this->value));
-		}
+		return $$nc($FieldGenOrMethodGen::getConstantPool())->addString($cast($String, this->value));
 	default:
-		{
-			$throwNew($IllegalStateException, $$str({"Unhandled : "_s, $$str($nc($($FieldGenOrMethodGen::getType()))->getType())}));
-		}
+		$throwNew($IllegalStateException, $$str({"Unhandled : "_s, $$str($$nc($FieldGenOrMethodGen::getType())->getType())}));
 	}
 }
 
 $String* FieldGen::getSignature() {
-	return $nc($($FieldGenOrMethodGen::getType()))->getSignature();
+	return $$nc($FieldGenOrMethodGen::getType())->getSignature();
 }
 
 void FieldGen::addObserver($FieldObserver* o) {
@@ -380,20 +290,18 @@ void FieldGen::addObserver($FieldObserver* o) {
 
 void FieldGen::removeObserver($FieldObserver* o) {
 	if (this->observers != nullptr) {
-		$nc(this->observers)->remove($of(o));
+		this->observers->remove(o);
 	}
 }
 
 void FieldGen::update() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->observers != nullptr) {
-		{
-			$var($Iterator, i$, $nc(this->observers)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($FieldObserver, observer, $cast($FieldObserver, i$->next()));
-				{
-					$nc(observer)->notify(this);
-				}
+		$var($Iterator, i$, this->observers->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($FieldObserver, observer, $cast($FieldObserver, i$->next()));
+			{
+				$nc(observer)->notify(this);
 			}
 		}
 	}
@@ -401,19 +309,19 @@ void FieldGen::update() {
 
 $String* FieldGen::getInitValue() {
 	if (this->value != nullptr) {
-		return $nc($of(this->value))->toString();
+		return this->value->toString();
 	}
 	return nullptr;
 }
 
 $String* FieldGen::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, nullptr);
 	$var($String, signature, nullptr);
 	$var($String, access, nullptr);
 	$assign(access, $Utility::accessToString($FieldGenOrMethodGen::getAccessFlags()));
 	$assign(access, $nc(access)->isEmpty() ? ""_s : ($str({access, " "_s})));
-	$assign(signature, $nc($($FieldGenOrMethodGen::getType()))->toString());
+	$assign(signature, $$nc($FieldGenOrMethodGen::getType())->toString());
 	$assign(name, getName());
 	$var($StringBuilder, buf, $new($StringBuilder, 32));
 	buf->append(access)->append(signature)->append(" "_s)->append(name);
@@ -448,7 +356,7 @@ int32_t FieldGen::hashCode() {
 	return $nc(FieldGen::bcelComparator)->hashCode(this);
 }
 
-void clinit$FieldGen($Class* class$) {
+void FieldGen::clinit$($Class* clazz) {
 	$assignStatic(FieldGen::bcelComparator, $new($FieldGen$1));
 }
 
@@ -456,7 +364,64 @@ FieldGen::FieldGen() {
 }
 
 $Class* FieldGen::load$($String* name, bool initialize) {
-	$loadClass(FieldGen, name, initialize, &_FieldGen_ClassInfo_, clinit$FieldGen, allocate$FieldGen);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(FieldGen, value)},
+		{"bcelComparator", "Lcom/sun/org/apache/bcel/internal/util/BCELComparator;", nullptr, $PRIVATE | $STATIC, $staticField(FieldGen, bcelComparator)},
+		{"observers", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/FieldObserver;>;", $PRIVATE, $field(FieldGen, observers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILcom/sun/org/apache/bcel/internal/generic/Type;Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(FieldGen, init$, void, int32_t, $Type*, $String*, $ConstantPoolGen*)},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/Field;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(FieldGen, init$, void, $Field*, $ConstantPoolGen*)},
+		{"addAnnotationsAsAttribute", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PRIVATE, $method(FieldGen, addAnnotationsAsAttribute, void, $ConstantPoolGen*)},
+		{"addConstant", "()I", nullptr, $PRIVATE, $method(FieldGen, addConstant, int32_t)},
+		{"addObserver", "(Lcom/sun/org/apache/bcel/internal/generic/FieldObserver;)V", nullptr, $PUBLIC, $virtualMethod(FieldGen, addObserver, void, $FieldObserver*)},
+		{"cancelInitValue", "()V", nullptr, $PUBLIC, $virtualMethod(FieldGen, cancelInitValue, void)},
+		{"checkType", "(Lcom/sun/org/apache/bcel/internal/generic/Type;)V", nullptr, $PRIVATE, $method(FieldGen, checkType, void, $Type*)},
+		{"copy", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/FieldGen;", nullptr, $PUBLIC, $virtualMethod(FieldGen, copy, FieldGen*, $ConstantPoolGen*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FieldGen, equals, bool, Object$*)},
+		{"getComparator", "()Lcom/sun/org/apache/bcel/internal/util/BCELComparator;", nullptr, $PUBLIC | $STATIC, $staticMethod(FieldGen, getComparator, $BCELComparator*)},
+		{"getField", "()Lcom/sun/org/apache/bcel/internal/classfile/Field;", nullptr, $PUBLIC, $virtualMethod(FieldGen, getField, $Field*)},
+		{"getInitValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FieldGen, getInitValue, $String*)},
+		{"getSignature", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FieldGen, getSignature, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(FieldGen, hashCode, int32_t)},
+		{"removeObserver", "(Lcom/sun/org/apache/bcel/internal/generic/FieldObserver;)V", nullptr, $PUBLIC, $virtualMethod(FieldGen, removeObserver, void, $FieldObserver*)},
+		{"setComparator", "(Lcom/sun/org/apache/bcel/internal/util/BCELComparator;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FieldGen, setComparator, void, $BCELComparator*)},
+		{"setInitValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FieldGen, setInitValue, void, $String*)},
+		{"setInitValue", "(J)V", nullptr, $PUBLIC, $virtualMethod(FieldGen, setInitValue, void, int64_t)},
+		{"setInitValue", "(I)V", nullptr, $PUBLIC, $virtualMethod(FieldGen, setInitValue, void, int32_t)},
+		{"setInitValue", "(S)V", nullptr, $PUBLIC, $virtualMethod(FieldGen, setInitValue, void, int16_t)},
+		{"setInitValue", "(C)V", nullptr, $PUBLIC, $virtualMethod(FieldGen, setInitValue, void, char16_t)},
+		{"setInitValue", "(B)V", nullptr, $PUBLIC, $virtualMethod(FieldGen, setInitValue, void, int8_t)},
+		{"setInitValue", "(Z)V", nullptr, $PUBLIC, $virtualMethod(FieldGen, setInitValue, void, bool)},
+		{"setInitValue", "(F)V", nullptr, $PUBLIC, $virtualMethod(FieldGen, setInitValue, void, float)},
+		{"setInitValue", "(D)V", nullptr, $PUBLIC, $virtualMethod(FieldGen, setInitValue, void, double)},
+		{"setValue", "(I)V", nullptr, $PRIVATE, $method(FieldGen, setValue, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(FieldGen, toString, $String*)},
+		{"update", "()V", nullptr, $PUBLIC, $virtualMethod(FieldGen, update, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.bcel.internal.generic.FieldGen$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.FieldGen",
+		"com.sun.org.apache.bcel.internal.generic.FieldGenOrMethodGen",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.bcel.internal.generic.FieldGen$1"
+	};
+	$loadClass(FieldGen, name, initialize, &classInfo$$, FieldGen::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FieldGen));
+	});
 	return class$;
 }
 

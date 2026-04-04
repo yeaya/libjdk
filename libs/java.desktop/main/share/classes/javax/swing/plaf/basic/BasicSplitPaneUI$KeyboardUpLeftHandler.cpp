@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicSplitPaneUI$KeyboardUpLeftHandler.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <java/lang/Math.h>
 #include <javax/swing/JSplitPane.h>
@@ -12,49 +11,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JSplitPane = ::javax::swing::JSplitPane;
 using $BasicSplitPaneUI = ::javax::swing::plaf::basic::BasicSplitPaneUI;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicSplitPaneUI$KeyboardUpLeftHandler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicSplitPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicSplitPaneUI$KeyboardUpLeftHandler, this$0)},
-	{}
-};
-
-$MethodInfo _BasicSplitPaneUI$KeyboardUpLeftHandler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneUI;)V", nullptr, $PUBLIC, $method(BasicSplitPaneUI$KeyboardUpLeftHandler, init$, void, $BasicSplitPaneUI*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$KeyboardUpLeftHandler, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicSplitPaneUI$KeyboardUpLeftHandler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicSplitPaneUI$KeyboardUpLeftHandler", "javax.swing.plaf.basic.BasicSplitPaneUI", "KeyboardUpLeftHandler", $PUBLIC},
-	{}
-};
-
-$ClassInfo _BasicSplitPaneUI$KeyboardUpLeftHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicSplitPaneUI$KeyboardUpLeftHandler",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	_BasicSplitPaneUI$KeyboardUpLeftHandler_FieldInfo_,
-	_BasicSplitPaneUI$KeyboardUpLeftHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicSplitPaneUI$KeyboardUpLeftHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicSplitPaneUI"
-};
-
-$Object* allocate$BasicSplitPaneUI$KeyboardUpLeftHandler($Class* clazz) {
-	return $of($alloc(BasicSplitPaneUI$KeyboardUpLeftHandler));
-}
 
 void BasicSplitPaneUI$KeyboardUpLeftHandler::init$($BasicSplitPaneUI* this$0) {
 	$set(this, this$0, this$0);
@@ -71,7 +33,37 @@ BasicSplitPaneUI$KeyboardUpLeftHandler::BasicSplitPaneUI$KeyboardUpLeftHandler()
 }
 
 $Class* BasicSplitPaneUI$KeyboardUpLeftHandler::load$($String* name, bool initialize) {
-	$loadClass(BasicSplitPaneUI$KeyboardUpLeftHandler, name, initialize, &_BasicSplitPaneUI$KeyboardUpLeftHandler_ClassInfo_, allocate$BasicSplitPaneUI$KeyboardUpLeftHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicSplitPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicSplitPaneUI$KeyboardUpLeftHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneUI;)V", nullptr, $PUBLIC, $method(BasicSplitPaneUI$KeyboardUpLeftHandler, init$, void, $BasicSplitPaneUI*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$KeyboardUpLeftHandler, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicSplitPaneUI$KeyboardUpLeftHandler", "javax.swing.plaf.basic.BasicSplitPaneUI", "KeyboardUpLeftHandler", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicSplitPaneUI$KeyboardUpLeftHandler",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicSplitPaneUI"
+	};
+	$loadClass(BasicSplitPaneUI$KeyboardUpLeftHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicSplitPaneUI$KeyboardUpLeftHandler);
+	});
 	return class$;
 }
 

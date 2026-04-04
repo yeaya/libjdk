@@ -21,6 +21,7 @@ class EmptyIterator : public ::com::sun::org::apache::xml::internal::dtm::DTMAxi
 	$class(EmptyIterator, 0, ::com::sun::org::apache::xml::internal::dtm::DTMAxisIterator)
 public:
 	EmptyIterator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::com::sun::org::apache::xml::internal::dtm::DTMAxisIterator* cloneIterator() override;
 	static ::com::sun::org::apache::xml::internal::dtm::DTMAxisIterator* getInstance();

@@ -16,10 +16,13 @@ public:
 	KdcErrException();
 	void init$(int32_t i);
 	void init$(int32_t i, $String* s);
-	static const int64_t serialVersionUID = (int64_t)0x860A175DD333E69E;
+	static const int64_t serialVersionUID = (int64_t)0x860a175dd333e69e;
 	KdcErrException(const KdcErrException& e);
 	virtual void throw$() override;
-	inline KdcErrException* operator ->() {
+	inline KdcErrException* operator ->() const {
+		return (KdcErrException*)throwing$;
+	}
+	inline operator KdcErrException*() const {
 		return (KdcErrException*)throwing$;
 	}
 };

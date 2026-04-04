@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalLookAndFeel$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <javax/swing/LayoutStyle$ComponentPlacement.h>
 #include <javax/swing/LayoutStyle.h>
@@ -22,57 +21,21 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalLookAndFeel$1_FieldInfo_[] = {
-	{"$SwitchMap$javax$swing$LayoutStyle$ComponentPlacement", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MetalLookAndFeel$1, $SwitchMap$javax$swing$LayoutStyle$ComponentPlacement)},
-	{}
-};
-
-$EnclosingMethodInfo _MetalLookAndFeel$1_EnclosingMethodInfo_ = {
-	"javax.swing.plaf.metal.MetalLookAndFeel",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _MetalLookAndFeel$1_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalLookAndFeel$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _MetalLookAndFeel$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"javax.swing.plaf.metal.MetalLookAndFeel$1",
-	"java.lang.Object",
-	nullptr,
-	_MetalLookAndFeel$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_MetalLookAndFeel$1_EnclosingMethodInfo_,
-	_MetalLookAndFeel$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalLookAndFeel"
-};
-
-$Object* allocate$MetalLookAndFeel$1($Class* clazz) {
-	return $of($alloc(MetalLookAndFeel$1));
-}
-
 $ints* MetalLookAndFeel$1::$SwitchMap$javax$swing$LayoutStyle$ComponentPlacement = nullptr;
 
-void clinit$MetalLookAndFeel$1($Class* class$) {
+void MetalLookAndFeel$1::clinit$($Class* clazz) {
 	$assignStatic(MetalLookAndFeel$1::$SwitchMap$javax$swing$LayoutStyle$ComponentPlacement, $new($ints, $($LayoutStyle$ComponentPlacement::values())->length));
 	{
 		try {
-			$nc(MetalLookAndFeel$1::$SwitchMap$javax$swing$LayoutStyle$ComponentPlacement)->set($LayoutStyle$ComponentPlacement::INDENT->ordinal(), 1);
+			MetalLookAndFeel$1::$SwitchMap$javax$swing$LayoutStyle$ComponentPlacement->set($LayoutStyle$ComponentPlacement::INDENT->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(MetalLookAndFeel$1::$SwitchMap$javax$swing$LayoutStyle$ComponentPlacement)->set($LayoutStyle$ComponentPlacement::RELATED->ordinal(), 2);
+			MetalLookAndFeel$1::$SwitchMap$javax$swing$LayoutStyle$ComponentPlacement->set($LayoutStyle$ComponentPlacement::RELATED->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(MetalLookAndFeel$1::$SwitchMap$javax$swing$LayoutStyle$ComponentPlacement)->set($LayoutStyle$ComponentPlacement::UNRELATED->ordinal(), 3);
+			MetalLookAndFeel$1::$SwitchMap$javax$swing$LayoutStyle$ComponentPlacement->set($LayoutStyle$ComponentPlacement::UNRELATED->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -82,7 +45,37 @@ MetalLookAndFeel$1::MetalLookAndFeel$1() {
 }
 
 $Class* MetalLookAndFeel$1::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$1, name, initialize, &_MetalLookAndFeel$1_ClassInfo_, clinit$MetalLookAndFeel$1, allocate$MetalLookAndFeel$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$javax$swing$LayoutStyle$ComponentPlacement", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MetalLookAndFeel$1, $SwitchMap$javax$swing$LayoutStyle$ComponentPlacement)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.plaf.metal.MetalLookAndFeel",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalLookAndFeel$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"javax.swing.plaf.metal.MetalLookAndFeel$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalLookAndFeel"
+	};
+	$loadClass(MetalLookAndFeel$1, name, initialize, &classInfo$$, MetalLookAndFeel$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$1);
+	});
 	return class$;
 }
 

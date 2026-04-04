@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel$1.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsIconFactory$VistaMenuItemCheckIconFactory.h>
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel.h>
 #include <com/sun/java/swing/plaf/windows/WindowsPopupMenuUI.h>
@@ -24,49 +23,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsLookAndFeel$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsLookAndFeel$1, this$0)},
-	{}
-};
-
-$MethodInfo _WindowsLookAndFeel$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel;)V", nullptr, 0, $method(WindowsLookAndFeel$1, init$, void, $WindowsLookAndFeel*)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$1, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-
-$EnclosingMethodInfo _WindowsLookAndFeel$1_EnclosingMethodInfo_ = {
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel",
-	"initVistaComponentDefaults",
-	"(Ljavax/swing/UIDefaults;)V"
-};
-
-$InnerClassInfo _WindowsLookAndFeel$1_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$1", nullptr, nullptr, 0},
-	{"javax.swing.UIDefaults$ActiveValue", "javax.swing.UIDefaults", "ActiveValue", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _WindowsLookAndFeel$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$1",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$ActiveValue",
-	_WindowsLookAndFeel$1_FieldInfo_,
-	_WindowsLookAndFeel$1_MethodInfo_,
-	nullptr,
-	&_WindowsLookAndFeel$1_EnclosingMethodInfo_,
-	_WindowsLookAndFeel$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
-};
-
-$Object* allocate$WindowsLookAndFeel$1($Class* clazz) {
-	return $of($alloc(WindowsLookAndFeel$1));
-}
-
 void WindowsLookAndFeel$1::init$($WindowsLookAndFeel* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -82,7 +38,43 @@ WindowsLookAndFeel$1::WindowsLookAndFeel$1() {
 }
 
 $Class* WindowsLookAndFeel$1::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$1, name, initialize, &_WindowsLookAndFeel$1_ClassInfo_, allocate$WindowsLookAndFeel$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsLookAndFeel$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel;)V", nullptr, 0, $method(WindowsLookAndFeel$1, init$, void, $WindowsLookAndFeel*)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$1, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel",
+		"initVistaComponentDefaults",
+		"(Ljavax/swing/UIDefaults;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$1", nullptr, nullptr, 0},
+		{"javax.swing.UIDefaults$ActiveValue", "javax.swing.UIDefaults", "ActiveValue", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$1",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$ActiveValue",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
+	};
+	$loadClass(WindowsLookAndFeel$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$1);
+	});
 	return class$;
 }
 

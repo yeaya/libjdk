@@ -1,5 +1,4 @@
 #include <javax/imageio/ImageIO.h>
-
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/RenderedImage.h>
 #include <java/io/File.h>
@@ -15,10 +14,7 @@
 #include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <java/security/AccessController.h>
-#include <java/security/Permission.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/HashSet.h>
@@ -78,11 +74,7 @@ using $SecurityManager = ::java::lang::SecurityManager;
 using $Method = ::java::lang::reflect::Method;
 using $URL = ::java::net::URL;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractSet = ::java::util::AbstractSet;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
@@ -116,92 +108,6 @@ using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 namespace javax {
 	namespace imageio {
 
-$FieldInfo _ImageIO_FieldInfo_[] = {
-	{"theRegistry", "Ljavax/imageio/spi/IIORegistry;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ImageIO, theRegistry)},
-	{"readerFormatNamesMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(ImageIO, readerFormatNamesMethod)},
-	{"readerFileSuffixesMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(ImageIO, readerFileSuffixesMethod)},
-	{"readerMIMETypesMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(ImageIO, readerMIMETypesMethod)},
-	{"writerFormatNamesMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(ImageIO, writerFormatNamesMethod)},
-	{"writerFileSuffixesMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(ImageIO, writerFileSuffixesMethod)},
-	{"writerMIMETypesMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(ImageIO, writerMIMETypesMethod)},
-	{}
-};
-
-$MethodInfo _ImageIO_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ImageIO, init$, void)},
-	{"contains", "([Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ImageIO, contains, bool, $StringArray*, $String*)},
-	{"createImageInputStream", "(Ljava/lang/Object;)Ljavax/imageio/stream/ImageInputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, createImageInputStream, $ImageInputStream*, Object$*), "java.io.IOException"},
-	{"createImageOutputStream", "(Ljava/lang/Object;)Ljavax/imageio/stream/ImageOutputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, createImageOutputStream, $ImageOutputStream*, Object$*), "java.io.IOException"},
-	{"doWrite", "(Ljava/awt/image/RenderedImage;Ljavax/imageio/ImageWriter;Ljavax/imageio/stream/ImageOutputStream;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ImageIO, doWrite, bool, $RenderedImage*, $ImageWriter*, $ImageOutputStream*), "java.io.IOException"},
-	{"getCacheDirectory", "()Ljava/io/File;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, getCacheDirectory, $File*)},
-	{"getCacheInfo", "()Ljavax/imageio/ImageIO$CacheInfo;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(ImageIO, getCacheInfo, $ImageIO$CacheInfo*)},
-	{"getImageReader", "(Ljavax/imageio/ImageWriter;)Ljavax/imageio/ImageReader;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, getImageReader, $ImageReader*, $ImageWriter*)},
-	{"getImageReaders", "(Ljava/lang/Object;)Ljava/util/Iterator;", "(Ljava/lang/Object;)Ljava/util/Iterator<Ljavax/imageio/ImageReader;>;", $PUBLIC | $STATIC, $staticMethod(ImageIO, getImageReaders, $Iterator*, Object$*)},
-	{"getImageReadersByFormatName", "(Ljava/lang/String;)Ljava/util/Iterator;", "(Ljava/lang/String;)Ljava/util/Iterator<Ljavax/imageio/ImageReader;>;", $PUBLIC | $STATIC, $staticMethod(ImageIO, getImageReadersByFormatName, $Iterator*, $String*)},
-	{"getImageReadersByMIMEType", "(Ljava/lang/String;)Ljava/util/Iterator;", "(Ljava/lang/String;)Ljava/util/Iterator<Ljavax/imageio/ImageReader;>;", $PUBLIC | $STATIC, $staticMethod(ImageIO, getImageReadersByMIMEType, $Iterator*, $String*)},
-	{"getImageReadersBySuffix", "(Ljava/lang/String;)Ljava/util/Iterator;", "(Ljava/lang/String;)Ljava/util/Iterator<Ljavax/imageio/ImageReader;>;", $PUBLIC | $STATIC, $staticMethod(ImageIO, getImageReadersBySuffix, $Iterator*, $String*)},
-	{"getImageTranscoders", "(Ljavax/imageio/ImageReader;Ljavax/imageio/ImageWriter;)Ljava/util/Iterator;", "(Ljavax/imageio/ImageReader;Ljavax/imageio/ImageWriter;)Ljava/util/Iterator<Ljavax/imageio/ImageTranscoder;>;", $PUBLIC | $STATIC, $staticMethod(ImageIO, getImageTranscoders, $Iterator*, $ImageReader*, $ImageWriter*)},
-	{"getImageWriter", "(Ljavax/imageio/ImageReader;)Ljavax/imageio/ImageWriter;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, getImageWriter, $ImageWriter*, $ImageReader*)},
-	{"getImageWriters", "(Ljavax/imageio/ImageTypeSpecifier;Ljava/lang/String;)Ljava/util/Iterator;", "(Ljavax/imageio/ImageTypeSpecifier;Ljava/lang/String;)Ljava/util/Iterator<Ljavax/imageio/ImageWriter;>;", $PUBLIC | $STATIC, $staticMethod(ImageIO, getImageWriters, $Iterator*, $ImageTypeSpecifier*, $String*)},
-	{"getImageWritersByFormatName", "(Ljava/lang/String;)Ljava/util/Iterator;", "(Ljava/lang/String;)Ljava/util/Iterator<Ljavax/imageio/ImageWriter;>;", $PUBLIC | $STATIC, $staticMethod(ImageIO, getImageWritersByFormatName, $Iterator*, $String*)},
-	{"getImageWritersByMIMEType", "(Ljava/lang/String;)Ljava/util/Iterator;", "(Ljava/lang/String;)Ljava/util/Iterator<Ljavax/imageio/ImageWriter;>;", $PUBLIC | $STATIC, $staticMethod(ImageIO, getImageWritersByMIMEType, $Iterator*, $String*)},
-	{"getImageWritersBySuffix", "(Ljava/lang/String;)Ljava/util/Iterator;", "(Ljava/lang/String;)Ljava/util/Iterator<Ljavax/imageio/ImageWriter;>;", $PUBLIC | $STATIC, $staticMethod(ImageIO, getImageWritersBySuffix, $Iterator*, $String*)},
-	{"getReaderFileSuffixes", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, getReaderFileSuffixes, $StringArray*)},
-	{"getReaderFormatNames", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, getReaderFormatNames, $StringArray*)},
-	{"getReaderMIMETypes", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, getReaderMIMETypes, $StringArray*)},
-	{"getReaderWriterInfo", "(Ljava/lang/Class;Ljavax/imageio/ImageIO$SpiInfo;)[Ljava/lang/String;", "<S:Ljavax/imageio/spi/ImageReaderWriterSpi;>(Ljava/lang/Class<TS;>;Ljavax/imageio/ImageIO$SpiInfo;)[Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(ImageIO, getReaderWriterInfo, $StringArray*, $Class*, $ImageIO$SpiInfo*)},
-	{"getTempDir", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ImageIO, getTempDir, $String*)},
-	{"getUseCache", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, getUseCache, bool)},
-	{"getWriter", "(Ljava/awt/image/RenderedImage;Ljava/lang/String;)Ljavax/imageio/ImageWriter;", nullptr, $PRIVATE | $STATIC, $staticMethod(ImageIO, getWriter, $ImageWriter*, $RenderedImage*, $String*)},
-	{"getWriterFileSuffixes", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, getWriterFileSuffixes, $StringArray*)},
-	{"getWriterFormatNames", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, getWriterFormatNames, $StringArray*)},
-	{"getWriterMIMETypes", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, getWriterMIMETypes, $StringArray*)},
-	{"hasCachePermission", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ImageIO, hasCachePermission, bool)},
-	{"read", "(Ljava/io/File;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, read, $BufferedImage*, $File*), "java.io.IOException"},
-	{"read", "(Ljava/io/InputStream;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, read, $BufferedImage*, $InputStream*), "java.io.IOException"},
-	{"read", "(Ljava/net/URL;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, read, $BufferedImage*, $URL*), "java.io.IOException"},
-	{"read", "(Ljavax/imageio/stream/ImageInputStream;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, read, $BufferedImage*, $ImageInputStream*), "java.io.IOException"},
-	{"scanForPlugins", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, scanForPlugins, void)},
-	{"setCacheDirectory", "(Ljava/io/File;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, setCacheDirectory, void, $File*)},
-	{"setUseCache", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, setUseCache, void, bool)},
-	{"write", "(Ljava/awt/image/RenderedImage;Ljava/lang/String;Ljavax/imageio/stream/ImageOutputStream;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, write, bool, $RenderedImage*, $String*, $ImageOutputStream*), "java.io.IOException"},
-	{"write", "(Ljava/awt/image/RenderedImage;Ljava/lang/String;Ljava/io/File;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, write, bool, $RenderedImage*, $String*, $File*), "java.io.IOException"},
-	{"write", "(Ljava/awt/image/RenderedImage;Ljava/lang/String;Ljava/io/OutputStream;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, write, bool, $RenderedImage*, $String*, $OutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ImageIO_InnerClassesInfo_[] = {
-	{"javax.imageio.ImageIO$TranscoderFilter", "javax.imageio.ImageIO", "TranscoderFilter", $STATIC},
-	{"javax.imageio.ImageIO$ImageTranscoderIterator", "javax.imageio.ImageIO", "ImageTranscoderIterator", $STATIC},
-	{"javax.imageio.ImageIO$ImageWriterIterator", "javax.imageio.ImageIO", "ImageWriterIterator", $STATIC},
-	{"javax.imageio.ImageIO$ContainsFilter", "javax.imageio.ImageIO", "ContainsFilter", $STATIC},
-	{"javax.imageio.ImageIO$CanEncodeImageAndFormatFilter", "javax.imageio.ImageIO", "CanEncodeImageAndFormatFilter", $STATIC},
-	{"javax.imageio.ImageIO$CanDecodeInputFilter", "javax.imageio.ImageIO", "CanDecodeInputFilter", $STATIC},
-	{"javax.imageio.ImageIO$ImageReaderIterator", "javax.imageio.ImageIO", "ImageReaderIterator", $STATIC},
-	{"javax.imageio.ImageIO$SpiInfo", "javax.imageio.ImageIO", "SpiInfo", $PRIVATE | $STATIC | $ABSTRACT | $ENUM},
-	{"javax.imageio.ImageIO$CacheInfo", "javax.imageio.ImageIO", "CacheInfo", $STATIC},
-	{}
-};
-
-$ClassInfo _ImageIO_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.imageio.ImageIO",
-	"java.lang.Object",
-	nullptr,
-	_ImageIO_FieldInfo_,
-	_ImageIO_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ImageIO_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.imageio.ImageIO$TranscoderFilter,javax.imageio.ImageIO$ImageTranscoderIterator,javax.imageio.ImageIO$ImageWriterIterator,javax.imageio.ImageIO$ContainsFilter,javax.imageio.ImageIO$CanEncodeImageAndFormatFilter,javax.imageio.ImageIO$CanDecodeInputFilter,javax.imageio.ImageIO$ImageReaderIterator,javax.imageio.ImageIO$SpiInfo,javax.imageio.ImageIO$SpiInfo$3,javax.imageio.ImageIO$SpiInfo$2,javax.imageio.ImageIO$SpiInfo$1,javax.imageio.ImageIO$CacheInfo"
-};
-
-$Object* allocate$ImageIO($Class* clazz) {
-	return $of($alloc(ImageIO));
-}
-
 $IIORegistry* ImageIO::theRegistry = nullptr;
 $Method* ImageIO::readerFormatNamesMethod = nullptr;
 $Method* ImageIO::readerFileSuffixesMethod = nullptr;
@@ -219,10 +125,9 @@ void ImageIO::scanForPlugins() {
 }
 
 $ImageIO$CacheInfo* ImageIO::getCacheInfo() {
-	$load(ImageIO);
+	$init(ImageIO);
 	$synchronized(class$) {
-		$init(ImageIO);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($AppContext, context, $AppContext::getAppContext());
 		$load($ImageIO$CacheInfo);
 		$var($ImageIO$CacheInfo, info, $cast($ImageIO$CacheInfo, $nc(context)->get($ImageIO$CacheInfo::class$)));
@@ -238,13 +143,13 @@ $String* ImageIO::getTempDir() {
 	$init(ImageIO);
 	$beforeCallerSensitive();
 	$var($GetPropertyAction, a, $new($GetPropertyAction, "java.io.tmpdir"_s));
-	return $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>(a)));
+	return $cast($String, $AccessController::doPrivileged(a));
 }
 
 bool ImageIO::hasCachePermission() {
 	$init(ImageIO);
-	$useLocalCurrentObjectStackCache();
-	$var($Boolean, hasPermission, $nc($(getCacheInfo()))->getHasPermission());
+	$useLocalObjectStack();
+	$var($Boolean, hasPermission, $$nc(getCacheInfo())->getHasPermission());
 	if (hasPermission != nullptr) {
 		return hasPermission->booleanValue();
 	} else {
@@ -257,9 +162,8 @@ bool ImageIO::hasCachePermission() {
 					$assign(cachepath, cachedir->getPath());
 				} else {
 					$assign(cachepath, getTempDir());
-					if (cachepath == nullptr || $nc(cachepath)->isEmpty()) {
-						$init($Boolean);
-						$nc($(getCacheInfo()))->setHasPermission($Boolean::FALSE);
+					if (cachepath == nullptr || cachepath->isEmpty()) {
+						$$nc(getCacheInfo())->setHasPermission($Boolean::FALSE);
 						return false;
 					}
 				}
@@ -272,44 +176,42 @@ bool ImageIO::hasCachePermission() {
 				security->checkPermission($$new($FilePermission, filepath, "read, write, delete"_s));
 			}
 		} catch ($SecurityException& e) {
-			$init($Boolean);
-			$nc($(getCacheInfo()))->setHasPermission($Boolean::FALSE);
+			$$nc(getCacheInfo())->setHasPermission($Boolean::FALSE);
 			return false;
 		}
-		$init($Boolean);
-		$nc($(getCacheInfo()))->setHasPermission($Boolean::TRUE);
+		$$nc(getCacheInfo())->setHasPermission($Boolean::TRUE);
 		return true;
 	}
 }
 
 void ImageIO::setUseCache(bool useCache) {
 	$init(ImageIO);
-	$nc($(getCacheInfo()))->setUseCache(useCache);
+	$$nc(getCacheInfo())->setUseCache(useCache);
 }
 
 bool ImageIO::getUseCache() {
 	$init(ImageIO);
-	return $nc($(getCacheInfo()))->getUseCache();
+	return $$nc(getCacheInfo())->getUseCache();
 }
 
 void ImageIO::setCacheDirectory($File* cacheDirectory) {
 	$init(ImageIO);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((cacheDirectory != nullptr) && !(cacheDirectory->isDirectory())) {
 		$throwNew($IllegalArgumentException, "Not a directory!"_s);
 	}
-	$nc($(getCacheInfo()))->setCacheDirectory(cacheDirectory);
-	$nc($(getCacheInfo()))->setHasPermission(nullptr);
+	$$nc(getCacheInfo())->setCacheDirectory(cacheDirectory);
+	$$nc(getCacheInfo())->setHasPermission(nullptr);
 }
 
 $File* ImageIO::getCacheDirectory() {
 	$init(ImageIO);
-	return $nc($(getCacheInfo()))->getCacheDirectory();
+	return $$nc(getCacheInfo())->getCacheDirectory();
 }
 
 $ImageInputStream* ImageIO::createImageInputStream(Object$* input) {
 	$init(ImageIO);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (input == nullptr) {
 		$throwNew($IllegalArgumentException, "input == null!"_s);
 	}
@@ -337,7 +239,7 @@ $ImageInputStream* ImageIO::createImageInputStream(Object$* input) {
 
 $ImageOutputStream* ImageIO::createImageOutputStream(Object$* output) {
 	$init(ImageIO);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (output == nullptr) {
 		$throwNew($IllegalArgumentException, "output == null!"_s);
 	}
@@ -365,7 +267,7 @@ $ImageOutputStream* ImageIO::createImageOutputStream(Object$* output) {
 
 $StringArray* ImageIO::getReaderWriterInfo($Class* spiClass, $ImageIO$SpiInfo* spiInfo) {
 	$init(ImageIO);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Iterator, iter, nullptr);
 	try {
 		$assign(iter, $nc(ImageIO::theRegistry)->getServiceProviders(spiClass, true));
@@ -377,10 +279,10 @@ $StringArray* ImageIO::getReaderWriterInfo($Class* spiClass, $ImageIO$SpiInfo* s
 		$var($ImageReaderWriterSpi, spi, $cast($ImageReaderWriterSpi, iter->next()));
 		$var($StringArray, info, $nc(spiInfo)->info(spi));
 		if (info != nullptr) {
-			$Collections::addAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(s))), info);
+			$Collections::addAll($cast($AbstractCollection, s), info);
 		}
 	}
-	return $fcast($StringArray, s->toArray($$new($StringArray, s->size())));
+	return $cast($StringArray, s->toArray($$new($StringArray, s->size())));
 }
 
 $StringArray* ImageIO::getReaderFormatNames() {
@@ -406,7 +308,7 @@ $StringArray* ImageIO::getReaderFileSuffixes() {
 
 $Iterator* ImageIO::getImageReaders(Object$* input) {
 	$init(ImageIO);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (input == nullptr) {
 		$throwNew($IllegalArgumentException, "input == null!"_s);
 	}
@@ -422,7 +324,7 @@ $Iterator* ImageIO::getImageReaders(Object$* input) {
 
 $Iterator* ImageIO::getImageReadersByFormatName($String* formatName) {
 	$init(ImageIO);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (formatName == nullptr) {
 		$throwNew($IllegalArgumentException, "formatName == null!"_s);
 	}
@@ -438,7 +340,7 @@ $Iterator* ImageIO::getImageReadersByFormatName($String* formatName) {
 
 $Iterator* ImageIO::getImageReadersBySuffix($String* fileSuffix) {
 	$init(ImageIO);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (fileSuffix == nullptr) {
 		$throwNew($IllegalArgumentException, "fileSuffix == null!"_s);
 	}
@@ -454,7 +356,7 @@ $Iterator* ImageIO::getImageReadersBySuffix($String* fileSuffix) {
 
 $Iterator* ImageIO::getImageReadersByMIMEType($String* MIMEType) {
 	$init(ImageIO);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (MIMEType == nullptr) {
 		$throwNew($IllegalArgumentException, "MIMEType == null!"_s);
 	}
@@ -501,7 +403,7 @@ bool ImageIO::contains($StringArray* names, $String* name) {
 
 $Iterator* ImageIO::getImageWritersByFormatName($String* formatName) {
 	$init(ImageIO);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (formatName == nullptr) {
 		$throwNew($IllegalArgumentException, "formatName == null!"_s);
 	}
@@ -517,7 +419,7 @@ $Iterator* ImageIO::getImageWritersByFormatName($String* formatName) {
 
 $Iterator* ImageIO::getImageWritersBySuffix($String* fileSuffix) {
 	$init(ImageIO);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (fileSuffix == nullptr) {
 		$throwNew($IllegalArgumentException, "fileSuffix == null!"_s);
 	}
@@ -533,7 +435,7 @@ $Iterator* ImageIO::getImageWritersBySuffix($String* fileSuffix) {
 
 $Iterator* ImageIO::getImageWritersByMIMEType($String* MIMEType) {
 	$init(ImageIO);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (MIMEType == nullptr) {
 		$throwNew($IllegalArgumentException, "MIMEType == null!"_s);
 	}
@@ -549,7 +451,7 @@ $Iterator* ImageIO::getImageWritersByMIMEType($String* MIMEType) {
 
 $ImageWriter* ImageIO::getImageWriter($ImageReader* reader) {
 	$init(ImageIO);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (reader == nullptr) {
 		$throwNew($IllegalArgumentException, "reader == null!"_s);
@@ -592,7 +494,7 @@ $ImageWriter* ImageIO::getImageWriter($ImageReader* reader) {
 		return $nc(writerSpi)->createWriterInstance();
 	} catch ($IOException& e) {
 		$load($ImageWriterSpi);
-		$nc(ImageIO::theRegistry)->deregisterServiceProvider(writerSpi, $ImageWriterSpi::class$);
+		ImageIO::theRegistry->deregisterServiceProvider(writerSpi, $ImageWriterSpi::class$);
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -600,7 +502,7 @@ $ImageWriter* ImageIO::getImageWriter($ImageReader* reader) {
 
 $ImageReader* ImageIO::getImageReader($ImageWriter* writer) {
 	$init(ImageIO);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (writer == nullptr) {
 		$throwNew($IllegalArgumentException, "writer == null!"_s);
@@ -643,7 +545,7 @@ $ImageReader* ImageIO::getImageReader($ImageWriter* writer) {
 		return $nc(readerSpi)->createReaderInstance();
 	} catch ($IOException& e) {
 		$load($ImageReaderSpi);
-		$nc(ImageIO::theRegistry)->deregisterServiceProvider(readerSpi, $ImageReaderSpi::class$);
+		ImageIO::theRegistry->deregisterServiceProvider(readerSpi, $ImageReaderSpi::class$);
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -651,7 +553,7 @@ $ImageReader* ImageIO::getImageReader($ImageWriter* writer) {
 
 $Iterator* ImageIO::getImageWriters($ImageTypeSpecifier* type, $String* formatName) {
 	$init(ImageIO);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (type == nullptr) {
 		$throwNew($IllegalArgumentException, "type == null!"_s);
 	}
@@ -670,7 +572,7 @@ $Iterator* ImageIO::getImageWriters($ImageTypeSpecifier* type, $String* formatNa
 
 $Iterator* ImageIO::getImageTranscoders($ImageReader* reader, $ImageWriter* writer) {
 	$init(ImageIO);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (reader == nullptr) {
 		$throwNew($IllegalArgumentException, "reader == null!"_s);
 	}
@@ -692,7 +594,7 @@ $Iterator* ImageIO::getImageTranscoders($ImageReader* reader, $ImageWriter* writ
 
 $BufferedImage* ImageIO::read($File* input) {
 	$init(ImageIO);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (input == nullptr) {
 		$throwNew($IllegalArgumentException, "input == null!"_s);
 	}
@@ -712,7 +614,7 @@ $BufferedImage* ImageIO::read($File* input) {
 
 $BufferedImage* ImageIO::read($InputStream* input) {
 	$init(ImageIO);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (input == nullptr) {
 		$throwNew($IllegalArgumentException, "input == null!"_s);
 	}
@@ -729,7 +631,7 @@ $BufferedImage* ImageIO::read($InputStream* input) {
 
 $BufferedImage* ImageIO::read($URL* input) {
 	$init(ImageIO);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (input == nullptr) {
 		$throwNew($IllegalArgumentException, "input == null!"_s);
 	}
@@ -745,28 +647,26 @@ $BufferedImage* ImageIO::read($URL* input) {
 		$throwNew($IIOException, "Can\'t create an ImageInputStream!"_s);
 	}
 	$var($BufferedImage, bi, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$assign(bi, read(stream));
-			if (bi == nullptr) {
-				$nc(stream)->close();
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(istream)->close();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$assign(bi, read(stream));
+		if (bi == nullptr) {
+			$nc(stream)->close();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(istream)->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return bi;
 }
 
 $BufferedImage* ImageIO::read($ImageInputStream* stream) {
 	$init(ImageIO);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (stream == nullptr) {
 		$throwNew($IllegalArgumentException, "stream == null!"_s);
 	}
@@ -774,23 +674,21 @@ $BufferedImage* ImageIO::read($ImageInputStream* stream) {
 	if (!$nc(iter)->hasNext()) {
 		return nullptr;
 	}
-	$var($ImageReader, reader, $cast($ImageReader, $nc(iter)->next()));
+	$var($ImageReader, reader, $cast($ImageReader, iter->next()));
 	$var($ImageReadParam, param, $nc(reader)->getDefaultReadParam());
 	reader->setInput(stream, true, true);
 	$var($BufferedImage, bi, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$assign(bi, reader->read(0, param));
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			reader->dispose();
-			$nc(stream)->close();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$assign(bi, reader->read(0, param));
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		reader->dispose();
+		$nc(stream)->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return bi;
 }
@@ -811,7 +709,7 @@ bool ImageIO::write($RenderedImage* im, $String* formatName, $ImageOutputStream*
 
 bool ImageIO::write($RenderedImage* im, $String* formatName, $File* output) {
 	$init(ImageIO);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (output == nullptr) {
 		$throwNew($IllegalArgumentException, "output == null!"_s);
 	}
@@ -824,32 +722,30 @@ bool ImageIO::write($RenderedImage* im, $String* formatName, $File* output) {
 	if (stream == nullptr) {
 		$throwNew($IIOException, "Can\'t create an ImageOutputStream!"_s);
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			var$2 = doWrite(im, writer, stream);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(stream)->close();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		var$2 = doWrite(im, writer, stream);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(stream)->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 bool ImageIO::write($RenderedImage* im, $String* formatName, $OutputStream* output) {
 	$init(ImageIO);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (output == nullptr) {
 		$throwNew($IllegalArgumentException, "output == null!"_s);
 	}
@@ -857,32 +753,30 @@ bool ImageIO::write($RenderedImage* im, $String* formatName, $OutputStream* outp
 	if (stream == nullptr) {
 		$throwNew($IIOException, "Can\'t create an ImageOutputStream!"_s);
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			var$2 = doWrite(im, $(getWriter(im, formatName)), stream);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(stream)->close();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		var$2 = doWrite(im, $(getWriter(im, formatName)), stream);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(stream)->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $ImageWriter* ImageIO::getWriter($RenderedImage* im, $String* formatName) {
 	$init(ImageIO);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ImageTypeSpecifier, type, $ImageTypeSpecifier::createFromRenderedImage(im));
 	$var($Iterator, iter, getImageWriters(type, formatName));
 	if ($nc(iter)->hasNext()) {
@@ -898,25 +792,23 @@ bool ImageIO::doWrite($RenderedImage* im, $ImageWriter* writer, $ImageOutputStre
 		return false;
 	}
 	$nc(writer)->setOutput(output);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			writer->write(im);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			writer->dispose();
-			$nc(output)->flush();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		writer->write(im);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		writer->dispose();
+		$nc(output)->flush();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return true;
 }
 
-void clinit$ImageIO($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ImageIO::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$assignStatic(ImageIO::theRegistry, $IIORegistry::getDefaultInstance());
 	{
@@ -939,7 +831,87 @@ ImageIO::ImageIO() {
 }
 
 $Class* ImageIO::load$($String* name, bool initialize) {
-	$loadClass(ImageIO, name, initialize, &_ImageIO_ClassInfo_, clinit$ImageIO, allocate$ImageIO);
+	$FieldInfo fieldInfos$$[] = {
+		{"theRegistry", "Ljavax/imageio/spi/IIORegistry;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ImageIO, theRegistry)},
+		{"readerFormatNamesMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(ImageIO, readerFormatNamesMethod)},
+		{"readerFileSuffixesMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(ImageIO, readerFileSuffixesMethod)},
+		{"readerMIMETypesMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(ImageIO, readerMIMETypesMethod)},
+		{"writerFormatNamesMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(ImageIO, writerFormatNamesMethod)},
+		{"writerFileSuffixesMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(ImageIO, writerFileSuffixesMethod)},
+		{"writerMIMETypesMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(ImageIO, writerMIMETypesMethod)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ImageIO, init$, void)},
+		{"contains", "([Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ImageIO, contains, bool, $StringArray*, $String*)},
+		{"createImageInputStream", "(Ljava/lang/Object;)Ljavax/imageio/stream/ImageInputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, createImageInputStream, $ImageInputStream*, Object$*), "java.io.IOException"},
+		{"createImageOutputStream", "(Ljava/lang/Object;)Ljavax/imageio/stream/ImageOutputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, createImageOutputStream, $ImageOutputStream*, Object$*), "java.io.IOException"},
+		{"doWrite", "(Ljava/awt/image/RenderedImage;Ljavax/imageio/ImageWriter;Ljavax/imageio/stream/ImageOutputStream;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ImageIO, doWrite, bool, $RenderedImage*, $ImageWriter*, $ImageOutputStream*), "java.io.IOException"},
+		{"getCacheDirectory", "()Ljava/io/File;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, getCacheDirectory, $File*)},
+		{"getCacheInfo", "()Ljavax/imageio/ImageIO$CacheInfo;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(ImageIO, getCacheInfo, $ImageIO$CacheInfo*)},
+		{"getImageReader", "(Ljavax/imageio/ImageWriter;)Ljavax/imageio/ImageReader;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, getImageReader, $ImageReader*, $ImageWriter*)},
+		{"getImageReaders", "(Ljava/lang/Object;)Ljava/util/Iterator;", "(Ljava/lang/Object;)Ljava/util/Iterator<Ljavax/imageio/ImageReader;>;", $PUBLIC | $STATIC, $staticMethod(ImageIO, getImageReaders, $Iterator*, Object$*)},
+		{"getImageReadersByFormatName", "(Ljava/lang/String;)Ljava/util/Iterator;", "(Ljava/lang/String;)Ljava/util/Iterator<Ljavax/imageio/ImageReader;>;", $PUBLIC | $STATIC, $staticMethod(ImageIO, getImageReadersByFormatName, $Iterator*, $String*)},
+		{"getImageReadersByMIMEType", "(Ljava/lang/String;)Ljava/util/Iterator;", "(Ljava/lang/String;)Ljava/util/Iterator<Ljavax/imageio/ImageReader;>;", $PUBLIC | $STATIC, $staticMethod(ImageIO, getImageReadersByMIMEType, $Iterator*, $String*)},
+		{"getImageReadersBySuffix", "(Ljava/lang/String;)Ljava/util/Iterator;", "(Ljava/lang/String;)Ljava/util/Iterator<Ljavax/imageio/ImageReader;>;", $PUBLIC | $STATIC, $staticMethod(ImageIO, getImageReadersBySuffix, $Iterator*, $String*)},
+		{"getImageTranscoders", "(Ljavax/imageio/ImageReader;Ljavax/imageio/ImageWriter;)Ljava/util/Iterator;", "(Ljavax/imageio/ImageReader;Ljavax/imageio/ImageWriter;)Ljava/util/Iterator<Ljavax/imageio/ImageTranscoder;>;", $PUBLIC | $STATIC, $staticMethod(ImageIO, getImageTranscoders, $Iterator*, $ImageReader*, $ImageWriter*)},
+		{"getImageWriter", "(Ljavax/imageio/ImageReader;)Ljavax/imageio/ImageWriter;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, getImageWriter, $ImageWriter*, $ImageReader*)},
+		{"getImageWriters", "(Ljavax/imageio/ImageTypeSpecifier;Ljava/lang/String;)Ljava/util/Iterator;", "(Ljavax/imageio/ImageTypeSpecifier;Ljava/lang/String;)Ljava/util/Iterator<Ljavax/imageio/ImageWriter;>;", $PUBLIC | $STATIC, $staticMethod(ImageIO, getImageWriters, $Iterator*, $ImageTypeSpecifier*, $String*)},
+		{"getImageWritersByFormatName", "(Ljava/lang/String;)Ljava/util/Iterator;", "(Ljava/lang/String;)Ljava/util/Iterator<Ljavax/imageio/ImageWriter;>;", $PUBLIC | $STATIC, $staticMethod(ImageIO, getImageWritersByFormatName, $Iterator*, $String*)},
+		{"getImageWritersByMIMEType", "(Ljava/lang/String;)Ljava/util/Iterator;", "(Ljava/lang/String;)Ljava/util/Iterator<Ljavax/imageio/ImageWriter;>;", $PUBLIC | $STATIC, $staticMethod(ImageIO, getImageWritersByMIMEType, $Iterator*, $String*)},
+		{"getImageWritersBySuffix", "(Ljava/lang/String;)Ljava/util/Iterator;", "(Ljava/lang/String;)Ljava/util/Iterator<Ljavax/imageio/ImageWriter;>;", $PUBLIC | $STATIC, $staticMethod(ImageIO, getImageWritersBySuffix, $Iterator*, $String*)},
+		{"getReaderFileSuffixes", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, getReaderFileSuffixes, $StringArray*)},
+		{"getReaderFormatNames", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, getReaderFormatNames, $StringArray*)},
+		{"getReaderMIMETypes", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, getReaderMIMETypes, $StringArray*)},
+		{"getReaderWriterInfo", "(Ljava/lang/Class;Ljavax/imageio/ImageIO$SpiInfo;)[Ljava/lang/String;", "<S:Ljavax/imageio/spi/ImageReaderWriterSpi;>(Ljava/lang/Class<TS;>;Ljavax/imageio/ImageIO$SpiInfo;)[Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(ImageIO, getReaderWriterInfo, $StringArray*, $Class*, $ImageIO$SpiInfo*)},
+		{"getTempDir", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ImageIO, getTempDir, $String*)},
+		{"getUseCache", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, getUseCache, bool)},
+		{"getWriter", "(Ljava/awt/image/RenderedImage;Ljava/lang/String;)Ljavax/imageio/ImageWriter;", nullptr, $PRIVATE | $STATIC, $staticMethod(ImageIO, getWriter, $ImageWriter*, $RenderedImage*, $String*)},
+		{"getWriterFileSuffixes", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, getWriterFileSuffixes, $StringArray*)},
+		{"getWriterFormatNames", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, getWriterFormatNames, $StringArray*)},
+		{"getWriterMIMETypes", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, getWriterMIMETypes, $StringArray*)},
+		{"hasCachePermission", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ImageIO, hasCachePermission, bool)},
+		{"read", "(Ljava/io/File;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, read, $BufferedImage*, $File*), "java.io.IOException"},
+		{"read", "(Ljava/io/InputStream;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, read, $BufferedImage*, $InputStream*), "java.io.IOException"},
+		{"read", "(Ljava/net/URL;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, read, $BufferedImage*, $URL*), "java.io.IOException"},
+		{"read", "(Ljavax/imageio/stream/ImageInputStream;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, read, $BufferedImage*, $ImageInputStream*), "java.io.IOException"},
+		{"scanForPlugins", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, scanForPlugins, void)},
+		{"setCacheDirectory", "(Ljava/io/File;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, setCacheDirectory, void, $File*)},
+		{"setUseCache", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, setUseCache, void, bool)},
+		{"write", "(Ljava/awt/image/RenderedImage;Ljava/lang/String;Ljavax/imageio/stream/ImageOutputStream;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, write, bool, $RenderedImage*, $String*, $ImageOutputStream*), "java.io.IOException"},
+		{"write", "(Ljava/awt/image/RenderedImage;Ljava/lang/String;Ljava/io/File;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, write, bool, $RenderedImage*, $String*, $File*), "java.io.IOException"},
+		{"write", "(Ljava/awt/image/RenderedImage;Ljava/lang/String;Ljava/io/OutputStream;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageIO, write, bool, $RenderedImage*, $String*, $OutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.ImageIO$TranscoderFilter", "javax.imageio.ImageIO", "TranscoderFilter", $STATIC},
+		{"javax.imageio.ImageIO$ImageTranscoderIterator", "javax.imageio.ImageIO", "ImageTranscoderIterator", $STATIC},
+		{"javax.imageio.ImageIO$ImageWriterIterator", "javax.imageio.ImageIO", "ImageWriterIterator", $STATIC},
+		{"javax.imageio.ImageIO$ContainsFilter", "javax.imageio.ImageIO", "ContainsFilter", $STATIC},
+		{"javax.imageio.ImageIO$CanEncodeImageAndFormatFilter", "javax.imageio.ImageIO", "CanEncodeImageAndFormatFilter", $STATIC},
+		{"javax.imageio.ImageIO$CanDecodeInputFilter", "javax.imageio.ImageIO", "CanDecodeInputFilter", $STATIC},
+		{"javax.imageio.ImageIO$ImageReaderIterator", "javax.imageio.ImageIO", "ImageReaderIterator", $STATIC},
+		{"javax.imageio.ImageIO$SpiInfo", "javax.imageio.ImageIO", "SpiInfo", $PRIVATE | $STATIC | $ABSTRACT | $ENUM},
+		{"javax.imageio.ImageIO$CacheInfo", "javax.imageio.ImageIO", "CacheInfo", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.imageio.ImageIO",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.imageio.ImageIO$TranscoderFilter,javax.imageio.ImageIO$ImageTranscoderIterator,javax.imageio.ImageIO$ImageWriterIterator,javax.imageio.ImageIO$ContainsFilter,javax.imageio.ImageIO$CanEncodeImageAndFormatFilter,javax.imageio.ImageIO$CanDecodeInputFilter,javax.imageio.ImageIO$ImageReaderIterator,javax.imageio.ImageIO$SpiInfo,javax.imageio.ImageIO$SpiInfo$3,javax.imageio.ImageIO$SpiInfo$2,javax.imageio.ImageIO$SpiInfo$1,javax.imageio.ImageIO$CacheInfo"
+	};
+	$loadClass(ImageIO, name, initialize, &classInfo$$, ImageIO::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageIO);
+	});
 	return class$;
 }
 

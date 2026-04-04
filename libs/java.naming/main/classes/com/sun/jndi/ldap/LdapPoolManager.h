@@ -94,6 +94,7 @@ class LdapPoolManager : public ::java::lang::Object {
 	$class(LdapPoolManager, 0, ::java::lang::Object)
 public:
 	LdapPoolManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void d($String* msg);
 	static void d($String* msg, $String* o);

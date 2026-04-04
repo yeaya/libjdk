@@ -32,7 +32,7 @@ public:
 	::java::net::URL* url = nullptr;
 	int32_t baseType = 0;
 	$String* baseTypeName = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x273B31AFB4DFFABA;
+	static const int64_t serialVersionUID = (int64_t)0x273b31afb4dffaba;
 };
 
 			} // serial

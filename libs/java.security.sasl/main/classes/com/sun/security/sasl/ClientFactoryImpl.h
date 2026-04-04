@@ -44,6 +44,7 @@ class ClientFactoryImpl : public ::javax::security::sasl::SaslClientFactory {
 	$class(ClientFactoryImpl, 0, ::javax::security::sasl::SaslClientFactory)
 public:
 	ClientFactoryImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::security::sasl::SaslClient* createSaslClient($StringArray* mechs, $String* authorizationId, $String* protocol, $String* serverName, ::java::util::Map* props, ::javax::security::auth::callback::CallbackHandler* cbh) override;
 	virtual $StringArray* getMechanismNames(::java::util::Map* props) override;

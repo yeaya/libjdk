@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/Blit$GeneralMaskBlit.h>
-
 #include <java/awt/Composite.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/loops/Blit.h>
@@ -25,42 +24,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _Blit$GeneralMaskBlit_FieldInfo_[] = {
-	{"performop", "Lsun/java2d/loops/MaskBlit;", nullptr, 0, $field(Blit$GeneralMaskBlit, performop)},
-	{}
-};
-
-$MethodInfo _Blit$GeneralMaskBlit_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(Blit$GeneralMaskBlit, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(Blit$GeneralMaskBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Blit$GeneralMaskBlit_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.Blit$GeneralMaskBlit", "sun.java2d.loops.Blit", "GeneralMaskBlit", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Blit$GeneralMaskBlit_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.Blit$GeneralMaskBlit",
-	"sun.java2d.loops.Blit",
-	nullptr,
-	_Blit$GeneralMaskBlit_FieldInfo_,
-	_Blit$GeneralMaskBlit_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Blit$GeneralMaskBlit_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.Blit"
-};
-
-$Object* allocate$Blit$GeneralMaskBlit($Class* clazz) {
-	return $of($alloc(Blit$GeneralMaskBlit));
-}
-
 void Blit$GeneralMaskBlit::init$($SurfaceType* srctype, $CompositeType* comptype, $SurfaceType* dsttype) {
 	$Blit::init$(srctype, comptype, dsttype);
 	$set(this, performop, $MaskBlit::locate(srctype, comptype, dsttype));
@@ -74,7 +37,37 @@ Blit$GeneralMaskBlit::Blit$GeneralMaskBlit() {
 }
 
 $Class* Blit$GeneralMaskBlit::load$($String* name, bool initialize) {
-	$loadClass(Blit$GeneralMaskBlit, name, initialize, &_Blit$GeneralMaskBlit_ClassInfo_, allocate$Blit$GeneralMaskBlit);
+	$FieldInfo fieldInfos$$[] = {
+		{"performop", "Lsun/java2d/loops/MaskBlit;", nullptr, 0, $field(Blit$GeneralMaskBlit, performop)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(Blit$GeneralMaskBlit, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(Blit$GeneralMaskBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.Blit$GeneralMaskBlit", "sun.java2d.loops.Blit", "GeneralMaskBlit", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.Blit$GeneralMaskBlit",
+		"sun.java2d.loops.Blit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.Blit"
+	};
+	$loadClass(Blit$GeneralMaskBlit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Blit$GeneralMaskBlit);
+	});
 	return class$;
 }
 

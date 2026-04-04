@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftSynthesizer.h>
-
 #include <com/sun/media/sound/AudioFloatConverter.h>
 #include <com/sun/media/sound/AudioSynthesizer.h>
 #include <com/sun/media/sound/AudioSynthesizerPropertyInfo.h>
@@ -57,11 +56,9 @@
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
-#include <java/util/Comparator.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -131,7 +128,6 @@ using $SoftLinearResampler2 = ::com::sun::media::sound::SoftLinearResampler2;
 using $SoftMainMixer = ::com::sun::media::sound::SoftMainMixer;
 using $SoftPointResampler = ::com::sun::media::sound::SoftPointResampler;
 using $SoftReceiver = ::com::sun::media::sound::SoftReceiver;
-using $SoftResampler = ::com::sun::media::sound::SoftResampler;
 using $SoftSincResampler = ::com::sun::media::sound::SoftSincResampler;
 using $SoftSynthesizer$1 = ::com::sun::media::sound::SoftSynthesizer$1;
 using $SoftSynthesizer$2 = ::com::sun::media::sound::SoftSynthesizer$2;
@@ -171,11 +167,8 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
-using $Comparator = ::java::util::Comparator;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
@@ -213,27 +206,24 @@ public:
 	virtual $Object* run() override {
 		 return $of(SoftSynthesizer::lambda$getDefaultSoundbank$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SoftSynthesizer$$Lambda$lambda$getDefaultSoundbank$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SoftSynthesizer$$Lambda$lambda$getDefaultSoundbank$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SoftSynthesizer$$Lambda$lambda$getDefaultSoundbank$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer$$Lambda$lambda$getDefaultSoundbank$0, run, $Object*)},
-	{}
-};
-$ClassInfo SoftSynthesizer$$Lambda$lambda$getDefaultSoundbank$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.media.sound.SoftSynthesizer$$Lambda$lambda$getDefaultSoundbank$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* SoftSynthesizer$$Lambda$lambda$getDefaultSoundbank$0::load$($String* name, bool initialize) {
-	$loadClass(SoftSynthesizer$$Lambda$lambda$getDefaultSoundbank$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SoftSynthesizer$$Lambda$lambda$getDefaultSoundbank$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer$$Lambda$lambda$getDefaultSoundbank$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.media.sound.SoftSynthesizer$$Lambda$lambda$getDefaultSoundbank$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SoftSynthesizer$$Lambda$lambda$getDefaultSoundbank$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftSynthesizer$$Lambda$lambda$getDefaultSoundbank$0);
+	});
 	return class$;
 }
 $Class* SoftSynthesizer$$Lambda$lambda$getDefaultSoundbank$0::class$ = nullptr;
@@ -246,164 +236,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(SoftSynthesizer::lambda$getStoredProperties$1());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SoftSynthesizer$$Lambda$lambda$getStoredProperties$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SoftSynthesizer$$Lambda$lambda$getStoredProperties$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SoftSynthesizer$$Lambda$lambda$getStoredProperties$1$1, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer$$Lambda$lambda$getStoredProperties$1$1, run, $Object*)},
-	{}
-};
-$ClassInfo SoftSynthesizer$$Lambda$lambda$getStoredProperties$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.media.sound.SoftSynthesizer$$Lambda$lambda$getStoredProperties$1$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* SoftSynthesizer$$Lambda$lambda$getStoredProperties$1$1::load$($String* name, bool initialize) {
-	$loadClass(SoftSynthesizer$$Lambda$lambda$getStoredProperties$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SoftSynthesizer$$Lambda$lambda$getStoredProperties$1$1, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer$$Lambda$lambda$getStoredProperties$1$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.media.sound.SoftSynthesizer$$Lambda$lambda$getStoredProperties$1$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SoftSynthesizer$$Lambda$lambda$getStoredProperties$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftSynthesizer$$Lambda$lambda$getStoredProperties$1$1);
+	});
 	return class$;
 }
 $Class* SoftSynthesizer$$Lambda$lambda$getStoredProperties$1$1::class$ = nullptr;
-
-$FieldInfo _SoftSynthesizer_FieldInfo_[] = {
-	{"INFO_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SoftSynthesizer, INFO_NAME)},
-	{"INFO_VENDOR", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SoftSynthesizer, INFO_VENDOR)},
-	{"INFO_DESCRIPTION", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SoftSynthesizer, INFO_DESCRIPTION)},
-	{"INFO_VERSION", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SoftSynthesizer, INFO_VERSION)},
-	{"info", "Ljavax/sound/midi/MidiDevice$Info;", nullptr, $STATIC | $FINAL, $staticField(SoftSynthesizer, info)},
-	{"testline", "Ljavax/sound/sampled/SourceDataLine;", nullptr, $PRIVATE | $STATIC, $staticField(SoftSynthesizer, testline)},
-	{"defaultSoundBank", "Ljavax/sound/midi/Soundbank;", nullptr, $PRIVATE | $STATIC, $staticField(SoftSynthesizer, defaultSoundBank)},
-	{"weakstream", "Lcom/sun/media/sound/SoftSynthesizer$WeakAudioStream;", nullptr, 0, $field(SoftSynthesizer, weakstream)},
-	{"control_mutex", "Ljava/lang/Object;", nullptr, $FINAL, $field(SoftSynthesizer, control_mutex)},
-	{"voiceIDCounter", "I", nullptr, 0, $field(SoftSynthesizer, voiceIDCounter)},
-	{"voice_allocation_mode", "I", nullptr, 0, $field(SoftSynthesizer, voice_allocation_mode)},
-	{"load_default_soundbank", "Z", nullptr, 0, $field(SoftSynthesizer, load_default_soundbank)},
-	{"reverb_light", "Z", nullptr, 0, $field(SoftSynthesizer, reverb_light)},
-	{"reverb_on", "Z", nullptr, 0, $field(SoftSynthesizer, reverb_on)},
-	{"chorus_on", "Z", nullptr, 0, $field(SoftSynthesizer, chorus_on)},
-	{"agc_on", "Z", nullptr, 0, $field(SoftSynthesizer, agc_on)},
-	{"channels", "[Lcom/sun/media/sound/SoftChannel;", nullptr, 0, $field(SoftSynthesizer, channels)},
-	{"external_channels", "[Lcom/sun/media/sound/SoftChannelProxy;", nullptr, 0, $field(SoftSynthesizer, external_channels)},
-	{"largemode", "Z", nullptr, $PRIVATE, $field(SoftSynthesizer, largemode)},
-	{"gmmode", "I", nullptr, $PRIVATE, $field(SoftSynthesizer, gmmode)},
-	{"deviceid", "I", nullptr, $PRIVATE, $field(SoftSynthesizer, deviceid)},
-	{"format", "Ljavax/sound/sampled/AudioFormat;", nullptr, $PRIVATE, $field(SoftSynthesizer, format)},
-	{"sourceDataLine", "Ljavax/sound/sampled/SourceDataLine;", nullptr, $PRIVATE, $field(SoftSynthesizer, sourceDataLine)},
-	{"pusher", "Lcom/sun/media/sound/SoftAudioPusher;", nullptr, $PRIVATE, $field(SoftSynthesizer, pusher)},
-	{"pusher_stream", "Ljavax/sound/sampled/AudioInputStream;", nullptr, $PRIVATE, $field(SoftSynthesizer, pusher_stream)},
-	{"controlrate", "F", nullptr, $PRIVATE, $field(SoftSynthesizer, controlrate)},
-	{"open", "Z", nullptr, $PRIVATE, $field(SoftSynthesizer, open$)},
-	{"implicitOpen", "Z", nullptr, $PRIVATE, $field(SoftSynthesizer, implicitOpen)},
-	{"resamplerType", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SoftSynthesizer, resamplerType)},
-	{"resampler", "Lcom/sun/media/sound/SoftResampler;", nullptr, $PRIVATE, $field(SoftSynthesizer, resampler)},
-	{"number_of_midi_channels", "I", nullptr, $PRIVATE, $field(SoftSynthesizer, number_of_midi_channels)},
-	{"maxpoly", "I", nullptr, $PRIVATE, $field(SoftSynthesizer, maxpoly)},
-	{"latency", "J", nullptr, $PRIVATE, $field(SoftSynthesizer, latency)},
-	{"jitter_correction", "Z", nullptr, $PRIVATE, $field(SoftSynthesizer, jitter_correction)},
-	{"mainmixer", "Lcom/sun/media/sound/SoftMainMixer;", nullptr, $PRIVATE, $field(SoftSynthesizer, mainmixer)},
-	{"voices", "[Lcom/sun/media/sound/SoftVoice;", nullptr, $PRIVATE, $field(SoftSynthesizer, voices)},
-	{"tunings", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/media/sound/SoftTuning;>;", $PRIVATE | $FINAL, $field(SoftSynthesizer, tunings)},
-	{"inslist", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/media/sound/SoftInstrument;>;", $PRIVATE | $FINAL, $field(SoftSynthesizer, inslist)},
-	{"loadedlist", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/media/sound/ModelInstrument;>;", $PRIVATE | $FINAL, $field(SoftSynthesizer, loadedlist)},
-	{"recvslist", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljavax/sound/midi/Receiver;>;", $PRIVATE | $FINAL, $field(SoftSynthesizer, recvslist)},
-	{}
-};
-
-$MethodInfo _SoftSynthesizer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SoftSynthesizer, init$, void)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, close, void)},
-	{"findInstrument", "(III)Lcom/sun/media/sound/SoftInstrument;", nullptr, 0, $method(SoftSynthesizer, findInstrument, $SoftInstrument*, int32_t, int32_t, int32_t)},
-	{"getAvailableInstruments", "()[Ljavax/sound/midi/Instrument;", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getAvailableInstruments, $InstrumentArray*)},
-	{"getBuffers", "(Lcom/sun/media/sound/ModelInstrument;Ljava/util/List;)V", "(Lcom/sun/media/sound/ModelInstrument;Ljava/util/List<Lcom/sun/media/sound/ModelByteBuffer;>;)V", $PRIVATE, $method(SoftSynthesizer, getBuffers, void, $ModelInstrument*, $List*)},
-	{"getChannels", "()[Ljavax/sound/midi/MidiChannel;", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getChannels, $MidiChannelArray*)},
-	{"getControlRate", "()F", nullptr, 0, $method(SoftSynthesizer, getControlRate, float)},
-	{"getDefaultSoundbank", "()Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getDefaultSoundbank, $Soundbank*)},
-	{"getDeviceID", "()I", nullptr, 0, $method(SoftSynthesizer, getDeviceID, int32_t)},
-	{"getDeviceInfo", "()Ljavax/sound/midi/MidiDevice$Info;", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getDeviceInfo, $MidiDevice$Info*)},
-	{"getFormat", "()Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getFormat, $AudioFormat*)},
-	{"getGeneralMidiMode", "()I", nullptr, 0, $method(SoftSynthesizer, getGeneralMidiMode, int32_t)},
-	{"getLatency", "()J", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getLatency, int64_t)},
-	{"getLoadedInstruments", "()[Ljavax/sound/midi/Instrument;", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getLoadedInstruments, $InstrumentArray*)},
-	{"getMainMixer", "()Lcom/sun/media/sound/SoftMainMixer;", nullptr, 0, $method(SoftSynthesizer, getMainMixer, $SoftMainMixer*)},
-	{"getMaxPolyphony", "()I", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getMaxPolyphony, int32_t)},
-	{"getMaxReceivers", "()I", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getMaxReceivers, int32_t)},
-	{"getMaxTransmitters", "()I", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getMaxTransmitters, int32_t)},
-	{"getMicrosecondPosition", "()J", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getMicrosecondPosition, int64_t)},
-	{"getPropertyInfo", "(Ljava/util/Map;)[Lcom/sun/media/sound/AudioSynthesizerPropertyInfo;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)[Lcom/sun/media/sound/AudioSynthesizerPropertyInfo;", $PUBLIC, $virtualMethod(SoftSynthesizer, getPropertyInfo, $AudioSynthesizerPropertyInfoArray*, $Map*)},
-	{"getReceiver", "()Ljavax/sound/midi/Receiver;", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getReceiver, $Receiver*), "javax.sound.midi.MidiUnavailableException"},
-	{"getReceiverReferenceCounting", "()Ljavax/sound/midi/Receiver;", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getReceiverReferenceCounting, $Receiver*), "javax.sound.midi.MidiUnavailableException"},
-	{"getReceivers", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/sound/midi/Receiver;>;", $PUBLIC, $virtualMethod(SoftSynthesizer, getReceivers, $List*)},
-	{"getStoredProperties", "()Ljava/util/Properties;", nullptr, $PRIVATE, $method(SoftSynthesizer, getStoredProperties, $Properties*)},
-	{"getTransmitter", "()Ljavax/sound/midi/Transmitter;", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getTransmitter, $Transmitter*), "javax.sound.midi.MidiUnavailableException"},
-	{"getTransmitterReferenceCounting", "()Ljavax/sound/midi/Transmitter;", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getTransmitterReferenceCounting, $Transmitter*), "javax.sound.midi.MidiUnavailableException"},
-	{"getTransmitters", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/sound/midi/Transmitter;>;", $PUBLIC, $virtualMethod(SoftSynthesizer, getTransmitters, $List*)},
-	{"getTuning", "(Ljavax/sound/midi/Patch;)Lcom/sun/media/sound/SoftTuning;", nullptr, 0, $method(SoftSynthesizer, getTuning, $SoftTuning*, $Patch*)},
-	{"getVoiceAllocationMode", "()I", nullptr, 0, $method(SoftSynthesizer, getVoiceAllocationMode, int32_t)},
-	{"getVoiceStatus", "()[Ljavax/sound/midi/VoiceStatus;", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getVoiceStatus, $VoiceStatusArray*)},
-	{"getVoices", "()[Lcom/sun/media/sound/SoftVoice;", nullptr, 0, $method(SoftSynthesizer, getVoices, $SoftVoiceArray*)},
-	{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, isOpen, bool)},
-	{"isSoundbankSupported", "(Ljavax/sound/midi/Soundbank;)Z", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, isSoundbankSupported, bool, $Soundbank*)},
-	{"lambda$getDefaultSoundbank$0", "()Ljava/io/OutputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SoftSynthesizer, lambda$getDefaultSoundbank$0, $OutputStream*)},
-	{"lambda$getStoredProperties$1", "()Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SoftSynthesizer, lambda$getStoredProperties$1, $Properties*)},
-	{"loadAllInstruments", "(Ljavax/sound/midi/Soundbank;)Z", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, loadAllInstruments, bool, $Soundbank*)},
-	{"loadInstrument", "(Ljavax/sound/midi/Instrument;)Z", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, loadInstrument, bool, $Instrument*)},
-	{"loadInstruments", "(Ljava/util/List;)Z", "(Ljava/util/List<Lcom/sun/media/sound/ModelInstrument;>;)Z", $PRIVATE, $method(SoftSynthesizer, loadInstruments, bool, $List*)},
-	{"loadInstruments", "(Ljavax/sound/midi/Soundbank;[Ljavax/sound/midi/Patch;)Z", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, loadInstruments, bool, $Soundbank*, $PatchArray*)},
-	{"loadSamples", "(Ljava/util/List;)Z", "(Ljava/util/List<Lcom/sun/media/sound/ModelInstrument;>;)Z", $PRIVATE, $method(SoftSynthesizer, loadSamples, bool, $List*)},
-	{"open", "()V", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, open, void), "javax.sound.midi.MidiUnavailableException"},
-	{"open", "(Ljavax/sound/sampled/SourceDataLine;Ljava/util/Map;)V", "(Ljavax/sound/sampled/SourceDataLine;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", $PUBLIC, $virtualMethod(SoftSynthesizer, open, void, $SourceDataLine*, $Map*), "javax.sound.midi.MidiUnavailableException"},
-	{"openStream", "(Ljavax/sound/sampled/AudioFormat;Ljava/util/Map;)Ljavax/sound/sampled/AudioInputStream;", "(Ljavax/sound/sampled/AudioFormat;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)Ljavax/sound/sampled/AudioInputStream;", $PUBLIC, $virtualMethod(SoftSynthesizer, openStream, $AudioInputStream*, $AudioFormat*, $Map*), "javax.sound.midi.MidiUnavailableException"},
-	{"patchToString", "(Ljavax/sound/midi/Patch;)Ljava/lang/String;", nullptr, $PRIVATE, $method(SoftSynthesizer, patchToString, $String*, $Patch*)},
-	{"processPropertyInfo", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", $PRIVATE, $method(SoftSynthesizer, processPropertyInfo, void, $Map*)},
-	{"remapInstrument", "(Ljavax/sound/midi/Instrument;Ljavax/sound/midi/Instrument;)Z", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, remapInstrument, bool, $Instrument*, $Instrument*)},
-	{"removeReceiver", "(Ljavax/sound/midi/Receiver;)V", nullptr, 0, $method(SoftSynthesizer, removeReceiver, void, $Receiver*)},
-	{"setFormat", "(Ljavax/sound/sampled/AudioFormat;)V", nullptr, $PRIVATE, $method(SoftSynthesizer, setFormat, void, $AudioFormat*)},
-	{"setGeneralMidiMode", "(I)V", nullptr, 0, $method(SoftSynthesizer, setGeneralMidiMode, void, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unloadAllInstruments", "(Ljavax/sound/midi/Soundbank;)V", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, unloadAllInstruments, void, $Soundbank*)},
-	{"unloadInstrument", "(Ljavax/sound/midi/Instrument;)V", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, unloadInstrument, void, $Instrument*)},
-	{"unloadInstruments", "(Ljavax/sound/midi/Soundbank;[Ljavax/sound/midi/Patch;)V", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, unloadInstruments, void, $Soundbank*, $PatchArray*)},
-	{}
-};
-
-$InnerClassInfo _SoftSynthesizer_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.SoftSynthesizer$Info", "com.sun.media.sound.SoftSynthesizer", "Info", $PRIVATE | $STATIC},
-	{"com.sun.media.sound.SoftSynthesizer$WeakAudioStream", "com.sun.media.sound.SoftSynthesizer", "WeakAudioStream", $PROTECTED | $STATIC | $FINAL},
-	{"com.sun.media.sound.SoftSynthesizer$4", nullptr, nullptr, 0},
-	{"com.sun.media.sound.SoftSynthesizer$3", nullptr, nullptr, 0},
-	{"com.sun.media.sound.SoftSynthesizer$2", nullptr, nullptr, 0},
-	{"com.sun.media.sound.SoftSynthesizer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SoftSynthesizer_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SoftSynthesizer",
-	"java.lang.Object",
-	"com.sun.media.sound.AudioSynthesizer,com.sun.media.sound.ReferenceCountingDevice",
-	_SoftSynthesizer_FieldInfo_,
-	_SoftSynthesizer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SoftSynthesizer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.SoftSynthesizer$Info,com.sun.media.sound.SoftSynthesizer$WeakAudioStream,com.sun.media.sound.SoftSynthesizer$WeakAudioStream$1,com.sun.media.sound.SoftSynthesizer$4,com.sun.media.sound.SoftSynthesizer$3,com.sun.media.sound.SoftSynthesizer$2,com.sun.media.sound.SoftSynthesizer$1"
-};
-
-$Object* allocate$SoftSynthesizer($Class* clazz) {
-	return $of($alloc(SoftSynthesizer));
-}
 
 int32_t SoftSynthesizer::hashCode() {
 	 return this->$AudioSynthesizer::hashCode();
@@ -447,7 +300,7 @@ void SoftSynthesizer::init$() {
 	this->largemode = false;
 	this->gmmode = 0;
 	this->deviceid = 0;
-	$set(this, format, $new($AudioFormat, (float)0x0000AC44, 16, 2, true, false));
+	$set(this, format, $new($AudioFormat, 0x0000ac44, 16, 2, true, false));
 	$set(this, sourceDataLine, nullptr);
 	$set(this, pusher, nullptr);
 	$set(this, pusher_stream, nullptr);
@@ -458,7 +311,7 @@ void SoftSynthesizer::init$() {
 	$set(this, resampler, $new($SoftLinearResampler));
 	this->number_of_midi_channels = 16;
 	this->maxpoly = 64;
-	this->latency = 0x00030D40;
+	this->latency = 200000;
 	this->jitter_correction = false;
 	$set(this, tunings, $new($HashMap));
 	$set(this, inslist, $new($HashMap));
@@ -467,33 +320,25 @@ void SoftSynthesizer::init$() {
 }
 
 void SoftSynthesizer::getBuffers($ModelInstrument* instrument, $List* buffers) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($ModelPerformerArray, arr$, $nc(instrument)->getPerformers());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($ModelPerformer, performer, arr$->get(i$));
-			{
-				if ($nc(performer)->getOscillators() != nullptr) {
-					{
-						$var($Iterator, i$, $nc($(performer->getOscillators()))->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($ModelOscillator, osc, $cast($ModelOscillator, i$->next()));
-							{
-								if ($instanceOf($ModelByteBufferWavetable, osc)) {
-									$var($ModelByteBufferWavetable, w, $cast($ModelByteBufferWavetable, osc));
-									$var($ModelByteBuffer, buff, $nc(w)->getBuffer());
-									if (buff != nullptr) {
-										$nc(buffers)->add(buff);
-									}
-									$assign(buff, w->get8BitExtensionBuffer());
-									if (buff != nullptr) {
-										$nc(buffers)->add(buff);
-									}
-								}
-							}
-						}
+	$useLocalObjectStack();
+	$var($ModelPerformerArray, arr$, $nc(instrument)->getPerformers());
+	int32_t len$ = $nc(arr$)->length;
+	int32_t i$ = 0;
+	for (; i$ < len$; ++i$) {
+		$var($ModelPerformer, performer, arr$->get(i$));
+		if ($nc(performer)->getOscillators() != nullptr) {
+			$var($Iterator, i$, $$nc(performer->getOscillators())->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($ModelOscillator, osc, $cast($ModelOscillator, i$->next()));
+				if ($instanceOf($ModelByteBufferWavetable, osc)) {
+					$var($ModelByteBufferWavetable, w, $cast($ModelByteBufferWavetable, osc));
+					$var($ModelByteBuffer, buff, w->getBuffer());
+					if (buff != nullptr) {
+						$nc(buffers)->add(buff);
+					}
+					$assign(buff, w->get8BitExtensionBuffer());
+					if (buff != nullptr) {
+						$nc(buffers)->add(buff);
 					}
 				}
 			}
@@ -502,7 +347,7 @@ void SoftSynthesizer::getBuffers($ModelInstrument* instrument, $List* buffers) {
 }
 
 bool SoftSynthesizer::loadSamples($List* instruments) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->largemode) {
 		return true;
 	}
@@ -523,7 +368,7 @@ bool SoftSynthesizer::loadSamples($List* instruments) {
 }
 
 bool SoftSynthesizer::loadInstruments($List* instruments) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isOpen()) {
 		return false;
 	}
@@ -532,16 +377,12 @@ bool SoftSynthesizer::loadInstruments($List* instruments) {
 	}
 	$synchronized(this->control_mutex) {
 		if (this->channels != nullptr) {
-			{
-				$var($SoftChannelArray, arr$, this->channels);
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					$var($SoftChannel, c, arr$->get(i$));
-					{
-						$set($nc(c), current_instrument, nullptr);
-						$set(c, current_director, nullptr);
-					}
+			$var($SoftChannelArray, arr$, this->channels);
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+				$var($SoftChannel, c, arr$->get(i$));
+				{
+					$set($nc(c), current_instrument, nullptr);
+					$set(c, current_director, nullptr);
 				}
 			}
 		}
@@ -552,8 +393,8 @@ bool SoftSynthesizer::loadInstruments($List* instruments) {
 				{
 					$var($String, pat, patchToString($($nc(instrument)->getPatch())));
 					$var($SoftInstrument, softins, $new($SoftInstrument, $cast($ModelInstrument, instrument)));
-					$nc(this->inslist)->put(pat, softins);
-					$nc(this->loadedlist)->put(pat, $cast($ModelInstrument, instrument));
+					this->inslist->put(pat, softins);
+					this->loadedlist->put(pat, $cast($ModelInstrument, instrument));
 				}
 			}
 		}
@@ -562,7 +403,7 @@ bool SoftSynthesizer::loadInstruments($List* instruments) {
 }
 
 void SoftSynthesizer::processPropertyInfo($Map* info) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AudioSynthesizerPropertyInfoArray, items, getPropertyInfo(info));
 	$var($String, resamplerType, $cast($String, $nc($nc(items)->get(0))->value));
 	if ($nc(resamplerType)->equalsIgnoreCase("point"_s)) {
@@ -588,28 +429,35 @@ void SoftSynthesizer::processPropertyInfo($Map* info) {
 		$set(this, resamplerType, "sinc"_s);
 	}
 	setFormat($cast($AudioFormat, $nc(items->get(2))->value));
-	this->controlrate = $nc(($cast($Float, $nc(items->get(1))->value)))->floatValue();
-	this->latency = $nc(($cast($Long, $nc(items->get(3))->value)))->longValue();
-	this->deviceid = $nc(($cast($Integer, $nc(items->get(4))->value)))->intValue();
-	this->maxpoly = $nc(($cast($Integer, $nc(items->get(5))->value)))->intValue();
-	this->reverb_on = $nc(($cast($Boolean, $nc(items->get(6))->value)))->booleanValue();
-	this->chorus_on = $nc(($cast($Boolean, $nc(items->get(7))->value)))->booleanValue();
-	this->agc_on = $nc(($cast($Boolean, $nc(items->get(8))->value)))->booleanValue();
-	this->largemode = $nc(($cast($Boolean, $nc(items->get(9))->value)))->booleanValue();
-	this->number_of_midi_channels = $nc(($cast($Integer, $nc(items->get(10))->value)))->intValue();
-	this->jitter_correction = $nc(($cast($Boolean, $nc(items->get(11))->value)))->booleanValue();
-	this->reverb_light = $nc(($cast($Boolean, $nc(items->get(12))->value)))->booleanValue();
-	this->load_default_soundbank = $nc(($cast($Boolean, $nc(items->get(13))->value)))->booleanValue();
+	this->controlrate = $nc($cast($Float, $nc(items->get(1))->value))->floatValue();
+	this->latency = $cast($Long, $nc(items->get(3))->value)->longValue();
+	this->deviceid = $cast($Integer, $nc(items->get(4))->value)->intValue();
+	this->maxpoly = $cast($Integer, $nc(items->get(5))->value)->intValue();
+	this->reverb_on = $cast($Boolean, $nc(items->get(6))->value)->booleanValue();
+	this->chorus_on = $cast($Boolean, $nc(items->get(7))->value)->booleanValue();
+	this->agc_on = $cast($Boolean, $nc(items->get(8))->value)->booleanValue();
+	this->largemode = $cast($Boolean, $nc(items->get(9))->value)->booleanValue();
+	this->number_of_midi_channels = $cast($Integer, $nc(items->get(10))->value)->intValue();
+	this->jitter_correction = $cast($Boolean, $nc(items->get(11))->value)->booleanValue();
+	this->reverb_light = $cast($Boolean, $nc(items->get(12))->value)->booleanValue();
+	this->load_default_soundbank = $cast($Boolean, $nc(items->get(13))->value)->booleanValue();
 }
 
 $String* SoftSynthesizer::patchToString($Patch* patch) {
-	$useLocalCurrentObjectStackCache();
-	if ($instanceOf($ModelPatch, patch) && $nc(($cast($ModelPatch, patch)))->isPercussion()) {
-		$var($String, var$0, $$str({"p."_s, $$str($nc(patch)->getProgram()), "."_s}));
-		return $concat(var$0, $$str(patch->getBank()));
+	$useLocalObjectStack();
+	if ($instanceOf($ModelPatch, patch) && $cast($ModelPatch, patch)->isPercussion()) {
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("p."_s);
+		var$0->append(patch->getProgram());
+		var$0->append("."_s);
+		var$0->append(patch->getBank());
+		return $str(var$0);
 	} else {
-		$var($String, var$1, $$str({$$str($nc(patch)->getProgram()), "."_s}));
-		return $concat(var$1, $$str(patch->getBank()));
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append($nc(patch)->getProgram());
+		var$1->append("."_s);
+		var$1->append(patch->getBank());
+		return $str(var$1);
 	}
 }
 
@@ -626,8 +474,8 @@ void SoftSynthesizer::setFormat($AudioFormat* format) {
 void SoftSynthesizer::removeReceiver($Receiver* recv) {
 	bool perform_close = false;
 	$synchronized(this->control_mutex) {
-		if ($nc(this->recvslist)->remove($of(recv))) {
-			if (this->implicitOpen && $nc(this->recvslist)->isEmpty()) {
+		if (this->recvslist->remove(recv)) {
+			if (this->implicitOpen && this->recvslist->isEmpty()) {
 				perform_close = true;
 			}
 		}
@@ -645,9 +493,9 @@ $SoftMainMixer* SoftSynthesizer::getMainMixer() {
 }
 
 $SoftInstrument* SoftSynthesizer::findInstrument(int32_t program, int32_t bank, int32_t channel) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (bank >> 7 == 120 || bank >> 7 == 121) {
-		$var($SoftInstrument, current_instrument, $cast($SoftInstrument, $nc(this->inslist)->get($$str({$$str(program), "."_s, $$str(bank)}))));
+		$var($SoftInstrument, current_instrument, $cast($SoftInstrument, this->inslist->get($$str({$$str(program), "."_s, $$str(bank)}))));
 		if (current_instrument != nullptr) {
 			return current_instrument;
 		}
@@ -657,19 +505,19 @@ $SoftInstrument* SoftSynthesizer::findInstrument(int32_t program, int32_t bank, 
 		} else {
 			$assign(p_plaf, ""_s);
 		}
-		$assign(current_instrument, $cast($SoftInstrument, $nc(this->inslist)->get($$str({p_plaf, $$str(program), "."_s, $$str((((int32_t)(bank & (uint32_t)128)) << 7))}))));
+		$assign(current_instrument, $cast($SoftInstrument, this->inslist->get($$str({p_plaf, $$str(program), "."_s, $$str(((bank & 0x80) << 7))}))));
 		if (current_instrument != nullptr) {
 			return current_instrument;
 		}
-		$assign(current_instrument, $cast($SoftInstrument, $nc(this->inslist)->get($$str({p_plaf, $$str(program), "."_s, $$str(((int32_t)(bank & (uint32_t)128)))}))));
+		$assign(current_instrument, $cast($SoftInstrument, this->inslist->get($$str({p_plaf, $$str(program), "."_s, $$str((bank & 0x80))}))));
 		if (current_instrument != nullptr) {
 			return current_instrument;
 		}
-		$assign(current_instrument, $cast($SoftInstrument, $nc(this->inslist)->get($$str({p_plaf, $$str(program), ".0"_s}))));
+		$assign(current_instrument, $cast($SoftInstrument, this->inslist->get($$str({p_plaf, $$str(program), ".0"_s}))));
 		if (current_instrument != nullptr) {
 			return current_instrument;
 		}
-		$assign(current_instrument, $cast($SoftInstrument, $nc(this->inslist)->get($$str({p_plaf, $$str(program), "0.0"_s}))));
+		$assign(current_instrument, $cast($SoftInstrument, this->inslist->get($$str({p_plaf, $$str(program), "0.0"_s}))));
 		if (current_instrument != nullptr) {
 			return current_instrument;
 		}
@@ -681,15 +529,15 @@ $SoftInstrument* SoftSynthesizer::findInstrument(int32_t program, int32_t bank, 
 	} else {
 		$assign(p_plaf, ""_s);
 	}
-	$var($SoftInstrument, current_instrument, $cast($SoftInstrument, $nc(this->inslist)->get($$str({p_plaf, $$str(program), "."_s, $$str(bank)}))));
+	$var($SoftInstrument, current_instrument, $cast($SoftInstrument, this->inslist->get($$str({p_plaf, $$str(program), "."_s, $$str(bank)}))));
 	if (current_instrument != nullptr) {
 		return current_instrument;
 	}
-	$assign(current_instrument, $cast($SoftInstrument, $nc(this->inslist)->get($$str({p_plaf, $$str(program), ".0"_s}))));
+	$assign(current_instrument, $cast($SoftInstrument, this->inslist->get($$str({p_plaf, $$str(program), ".0"_s}))));
 	if (current_instrument != nullptr) {
 		return current_instrument;
 	}
-	$assign(current_instrument, $cast($SoftInstrument, $nc(this->inslist)->get($$str({p_plaf, "0.0"_s}))));
+	$assign(current_instrument, $cast($SoftInstrument, this->inslist->get($$str({p_plaf, "0.0"_s}))));
 	if (current_instrument != nullptr) {
 		return current_instrument;
 	}
@@ -721,12 +569,12 @@ $SoftVoiceArray* SoftSynthesizer::getVoices() {
 }
 
 $SoftTuning* SoftSynthesizer::getTuning($Patch* patch) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, t_id, patchToString(patch));
-	$var($SoftTuning, tuning, $cast($SoftTuning, $nc(this->tunings)->get(t_id)));
+	$var($SoftTuning, tuning, $cast($SoftTuning, this->tunings->get(t_id)));
 	if (tuning == nullptr) {
 		$assign(tuning, $new($SoftTuning, patch));
-		$nc(this->tunings)->put(t_id, tuning);
+		this->tunings->put(t_id, tuning);
 	}
 	return tuning;
 }
@@ -750,12 +598,12 @@ int32_t SoftSynthesizer::getMaxPolyphony() {
 }
 
 $MidiChannelArray* SoftSynthesizer::getChannels() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->control_mutex) {
 		if (this->external_channels == nullptr) {
 			$set(this, external_channels, $new($SoftChannelProxyArray, 16));
-			for (int32_t i = 0; i < $nc(this->external_channels)->length; ++i) {
-				$nc(this->external_channels)->set(i, $$new($SoftChannelProxy));
+			for (int32_t i = 0; i < this->external_channels->length; ++i) {
+				this->external_channels->set(i, $$new($SoftChannelProxy));
 			}
 		}
 		$var($MidiChannelArray, ret, nullptr);
@@ -772,7 +620,7 @@ $MidiChannelArray* SoftSynthesizer::getChannels() {
 }
 
 $VoiceStatusArray* SoftSynthesizer::getVoiceStatus() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isOpen()) {
 		$var($VoiceStatusArray, tempVoiceStatusArray, $new($VoiceStatusArray, getMaxPolyphony()));
 		for (int32_t i = 0; i < tempVoiceStatusArray->length; ++i) {
@@ -789,8 +637,8 @@ $VoiceStatusArray* SoftSynthesizer::getVoiceStatus() {
 	}
 	$synchronized(this->control_mutex) {
 		$var($VoiceStatusArray, tempVoiceStatusArray, $new($VoiceStatusArray, $nc(this->voices)->length));
-		for (int32_t i = 0; i < $nc(this->voices)->length; ++i) {
-			$var($VoiceStatus, a, $nc(this->voices)->get(i));
+		for (int32_t i = 0; i < this->voices->length; ++i) {
+			$var($VoiceStatus, a, this->voices->get(i));
 			$var($VoiceStatus, b, $new($VoiceStatus));
 			b->active = $nc(a)->active;
 			b->bank = a->bank;
@@ -805,23 +653,19 @@ $VoiceStatusArray* SoftSynthesizer::getVoiceStatus() {
 }
 
 bool SoftSynthesizer::isSoundbankSupported($Soundbank* soundbank) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($InstrumentArray, arr$, $nc(soundbank)->getInstruments());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($Instrument, ins, arr$->get(i$));
-			if (!($instanceOf($ModelInstrument, ins))) {
-				return false;
-			}
+	$useLocalObjectStack();
+	$var($InstrumentArray, arr$, $nc(soundbank)->getInstruments());
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($Instrument, ins, arr$->get(i$));
+		if (!($instanceOf($ModelInstrument, ins))) {
+			return false;
 		}
 	}
 	return true;
 }
 
 bool SoftSynthesizer::loadInstrument($Instrument* instrument) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (instrument == nullptr || (!($instanceOf($ModelInstrument, instrument)))) {
 		$throwNew($IllegalArgumentException, $$str({"Unsupported instrument: "_s, instrument}));
 	}
@@ -831,7 +675,7 @@ bool SoftSynthesizer::loadInstrument($Instrument* instrument) {
 }
 
 void SoftSynthesizer::unloadInstrument($Instrument* instrument) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (instrument == nullptr || (!($instanceOf($ModelInstrument, instrument)))) {
 		$throwNew($IllegalArgumentException, $$str({"Unsupported instrument: "_s, instrument}));
 	}
@@ -842,23 +686,21 @@ void SoftSynthesizer::unloadInstrument($Instrument* instrument) {
 	$synchronized(this->control_mutex) {
 		{
 			$var($SoftChannelArray, arr$, this->channels);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($SoftChannel, c, arr$->get(i$));
 				$set($nc(c), current_instrument, nullptr);
 			}
 		}
-		$nc(this->inslist)->remove(pat);
-		$nc(this->loadedlist)->remove(pat);
+		this->inslist->remove(pat);
+		this->loadedlist->remove(pat);
 		for (int32_t i = 0; i < $nc(this->channels)->length; ++i) {
-			$nc($nc(this->channels)->get(i))->allSoundOff();
+			$nc(this->channels->get(i))->allSoundOff();
 		}
 	}
 }
 
 bool SoftSynthesizer::remapInstrument($Instrument* from, $Instrument* to) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (from == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -875,7 +717,7 @@ bool SoftSynthesizer::remapInstrument($Instrument* from, $Instrument* to) {
 		return false;
 	}
 	$synchronized(this->control_mutex) {
-		if (!$nc(this->loadedlist)->containsValue(to)) {
+		if (!this->loadedlist->containsValue(to)) {
 			$throwNew($IllegalArgumentException, "Instrument to is not loaded."_s);
 		}
 		unloadInstrument(from);
@@ -885,7 +727,7 @@ bool SoftSynthesizer::remapInstrument($Instrument* from, $Instrument* to) {
 }
 
 $Soundbank* SoftSynthesizer::getDefaultSoundbank() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$synchronized(SoftSynthesizer::class$) {
 		if (SoftSynthesizer::defaultSoundBank != nullptr) {
@@ -900,32 +742,28 @@ $Soundbank* SoftSynthesizer::getDefaultSoundbank() {
 			$var($Iterator, i$, actions->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($PrivilegedAction, action, $cast($PrivilegedAction, i$->next()));
-				{
-					try {
-						$var($InputStream, is, $cast($InputStream, $AccessController::doPrivileged(action)));
-						if (is == nullptr) {
-							continue;
-						}
-						$var($Soundbank, sbk, nullptr);
-						{
-							$var($Throwable, var$0, nullptr);
-							try {
-								$assign(sbk, $MidiSystem::getSoundbank(static_cast<$InputStream*>($$new($BufferedInputStream, is))));
-							} catch ($Throwable& var$1) {
-								$assign(var$0, var$1);
-							} /*finally*/ {
-								$nc(is)->close();
-							}
-							if (var$0 != nullptr) {
-								$throw(var$0);
-							}
-						}
-						if (sbk != nullptr) {
-							$assignStatic(SoftSynthesizer::defaultSoundBank, sbk);
-							return SoftSynthesizer::defaultSoundBank;
-						}
-					} catch ($Exception& e) {
+				try {
+					$var($InputStream, is, $cast($InputStream, $AccessController::doPrivileged(action)));
+					if (is == nullptr) {
+						continue;
 					}
+					$var($Soundbank, sbk, nullptr);
+					$var($Throwable, var$0, nullptr);
+					try {
+						$assign(sbk, $MidiSystem::getSoundbank($$new($BufferedInputStream, is)));
+					} catch ($Throwable& var$1) {
+						$assign(var$0, var$1);
+					} /*finally*/ {
+						$nc(is)->close();
+					}
+					if (var$0 != nullptr) {
+						$throw(var$0);
+					}
+					if (sbk != nullptr) {
+						$assignStatic(SoftSynthesizer::defaultSoundBank, sbk);
+						return SoftSynthesizer::defaultSoundBank;
+					}
+				} catch ($Exception& e) {
 				}
 			}
 		}
@@ -934,10 +772,10 @@ $Soundbank* SoftSynthesizer::getDefaultSoundbank() {
 		} catch ($Exception& e) {
 		}
 		if (SoftSynthesizer::defaultSoundBank != nullptr) {
-			$var($OutputStream, out, $cast($OutputStream, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(SoftSynthesizer$$Lambda$lambda$getDefaultSoundbank$0)))));
+			$var($OutputStream, out, $cast($OutputStream, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(SoftSynthesizer$$Lambda$lambda$getDefaultSoundbank$0)))));
 			if (out != nullptr) {
 				try {
-					$nc(($cast($SF2Soundbank, SoftSynthesizer::defaultSoundBank)))->save(out);
+					$cast($SF2Soundbank, SoftSynthesizer::defaultSoundBank)->save(out);
 					out->close();
 				} catch ($IOException& ignored) {
 				}
@@ -948,7 +786,7 @@ $Soundbank* SoftSynthesizer::getDefaultSoundbank() {
 }
 
 $InstrumentArray* SoftSynthesizer::getAvailableInstruments() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Soundbank, defsbk, getDefaultSoundbank());
 	if (defsbk == nullptr) {
 		return $new($InstrumentArray, 0);
@@ -959,26 +797,24 @@ $InstrumentArray* SoftSynthesizer::getAvailableInstruments() {
 }
 
 $InstrumentArray* SoftSynthesizer::getLoadedInstruments() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isOpen()) {
 		return $new($InstrumentArray, 0);
 	}
 	$synchronized(this->control_mutex) {
-		$var($ModelInstrumentArray, inslist_array, $new($ModelInstrumentArray, $nc($($nc(this->loadedlist)->values()))->size()));
-		$nc($($nc(this->loadedlist)->values()))->toArray(inslist_array);
+		$var($ModelInstrumentArray, inslist_array, $new($ModelInstrumentArray, $$nc(this->loadedlist->values())->size()));
+		$$nc(this->loadedlist->values())->toArray(inslist_array);
 		$Arrays::sort(inslist_array, $$new($ModelInstrumentComparator));
-		return $fcast($InstrumentArray, inslist_array);
+		return $cast($InstrumentArray, inslist_array);
 	}
 }
 
 bool SoftSynthesizer::loadAllInstruments($Soundbank* soundbank) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, instruments, $new($ArrayList));
 	{
 		$var($InstrumentArray, arr$, $nc(soundbank)->getInstruments());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Instrument, ins, arr$->get(i$));
 			{
 				if (ins == nullptr || !($instanceOf($ModelInstrument, ins))) {
@@ -992,7 +828,7 @@ bool SoftSynthesizer::loadAllInstruments($Soundbank* soundbank) {
 }
 
 void SoftSynthesizer::unloadAllInstruments($Soundbank* soundbank) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (soundbank == nullptr || !isSoundbankSupported(soundbank)) {
 		$throwNew($IllegalArgumentException, $$str({"Unsupported soundbank: "_s, soundbank}));
 	}
@@ -1001,27 +837,21 @@ void SoftSynthesizer::unloadAllInstruments($Soundbank* soundbank) {
 	}
 	{
 		$var($InstrumentArray, arr$, $nc(soundbank)->getInstruments());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Instrument, ins, arr$->get(i$));
-			{
-				if ($instanceOf($ModelInstrument, ins)) {
-					unloadInstrument(ins);
-				}
+			if ($instanceOf($ModelInstrument, ins)) {
+				unloadInstrument(ins);
 			}
 		}
 	}
 }
 
 bool SoftSynthesizer::loadInstruments($Soundbank* soundbank, $PatchArray* patchList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, instruments, $new($ArrayList));
 	{
 		$var($PatchArray, arr$, patchList);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Patch, patch, arr$->get(i$));
 			{
 				$var($Instrument, ins, $nc(soundbank)->getInstrument(patch));
@@ -1036,7 +866,7 @@ bool SoftSynthesizer::loadInstruments($Soundbank* soundbank, $PatchArray* patchL
 }
 
 void SoftSynthesizer::unloadInstruments($Soundbank* soundbank, $PatchArray* patchList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (soundbank == nullptr || !isSoundbankSupported(soundbank)) {
 		$throwNew($IllegalArgumentException, $$str({"Unsupported soundbank: "_s, soundbank}));
 	}
@@ -1045,9 +875,7 @@ void SoftSynthesizer::unloadInstruments($Soundbank* soundbank, $PatchArray* patc
 	}
 	{
 		$var($PatchArray, arr$, patchList);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Patch, pat, arr$->get(i$));
 			{
 				$var($Instrument, ins, $nc(soundbank)->getInstrument(pat));
@@ -1065,15 +893,15 @@ $MidiDevice$Info* SoftSynthesizer::getDeviceInfo() {
 
 $Properties* SoftSynthesizer::getStoredProperties() {
 	$beforeCallerSensitive();
-	return $cast($Properties, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(SoftSynthesizer$$Lambda$lambda$getStoredProperties$1$1))));
+	return $cast($Properties, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(SoftSynthesizer$$Lambda$lambda$getStoredProperties$1$1))));
 }
 
 $AudioSynthesizerPropertyInfoArray* SoftSynthesizer::getPropertyInfo($Map* info) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, list, $new($ArrayList));
 	$var($AudioSynthesizerPropertyInfo, item, nullptr);
 	bool o = info == nullptr && this->open$;
-	$assign(item, $new($AudioSynthesizerPropertyInfo, "interpolation"_s, o ? $of(this->resamplerType) : $of("linear"_s)));
+	$assign(item, $new($AudioSynthesizerPropertyInfo, "interpolation"_s, o ? this->resamplerType : "linear"_s));
 	$set(item, choices, $new($StringArray, {
 		"linear"_s,
 		"linear1"_s,
@@ -1088,10 +916,10 @@ $AudioSynthesizerPropertyInfoArray* SoftSynthesizer::getPropertyInfo($Map* info)
 	$assign(item, $new($AudioSynthesizerPropertyInfo, "control rate"_s, $($Float::valueOf(o ? this->controlrate : 147.0f))));
 	$set(item, description, "Control rate"_s);
 	list->add(item);
-	$assign(item, $new($AudioSynthesizerPropertyInfo, "format"_s, o ? $of(this->format) : $of($$new($AudioFormat, (float)0x0000AC44, 16, 2, true, false))));
+	$assign(item, $new($AudioSynthesizerPropertyInfo, "format"_s, o ? this->format : $$new($AudioFormat, 0x0000ac44, 16, 2, true, false)));
 	$set(item, description, "Default audio format"_s);
 	list->add(item);
-	$assign(item, $new($AudioSynthesizerPropertyInfo, "latency"_s, $($Long::valueOf(o ? this->latency : (int64_t)120000))));
+	$assign(item, $new($AudioSynthesizerPropertyInfo, "latency"_s, $($Long::valueOf(o ? this->latency : 120000))));
 	$set(item, description, "Default latency"_s);
 	list->add(item);
 	$assign(item, $new($AudioSynthesizerPropertyInfo, "device id"_s, $($Integer::valueOf(o ? this->deviceid : 0))));
@@ -1125,16 +953,14 @@ $AudioSynthesizerPropertyInfoArray* SoftSynthesizer::getPropertyInfo($Map* info)
 	$set(item, description, "Enabled/disable loading default soundbank"_s);
 	list->add(item);
 	$var($AudioSynthesizerPropertyInfoArray, items, nullptr);
-	$assign(items, $fcast($AudioSynthesizerPropertyInfoArray, list->toArray($$new($AudioSynthesizerPropertyInfoArray, list->size()))));
+	$assign(items, $cast($AudioSynthesizerPropertyInfoArray, list->toArray($$new($AudioSynthesizerPropertyInfoArray, list->size()))));
 	$var($Properties, storedProperties, getStoredProperties());
 	{
 		$var($AudioSynthesizerPropertyInfoArray, arr$, items);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($AudioSynthesizerPropertyInfo, item2, arr$->get(i$));
 			{
-				$var($Object, v, (info == nullptr) ? ($Object*)nullptr : $nc(info)->get($nc(item2)->name));
+				$var($Object, v, (info == nullptr) ? ($Object*)nullptr : info->get($nc(item2)->name));
 				$assign(v, (v != nullptr) ? v : $of($nc(storedProperties)->getProperty($nc(item2)->name)));
 				if (v != nullptr) {
 					$Class* c = ($nc(item2)->valueClass);
@@ -1161,7 +987,7 @@ $AudioSynthesizerPropertyInfoArray* SoftSynthesizer::getPropertyInfo($Map* info)
 									$var($StringTokenizer, st, $new($StringTokenizer, s, ", "_s));
 									$var($String, prevToken, ""_s);
 									while (st->hasMoreTokens()) {
-										$var($String, token, $nc($(st->nextToken()))->toLowerCase());
+										$var($String, token, $$nc(st->nextToken())->toLowerCase());
 										if (token->equals("mono"_s)) {
 											channels = 1;
 										}
@@ -1187,31 +1013,18 @@ $AudioSynthesizerPropertyInfoArray* SoftSynthesizer::getPropertyInfo($Map* info)
 								}
 							} else {
 								try {
-									$load($Byte);
 									if (c == $Byte::class$) {
 										$set(item2, value, $Byte::valueOf(s));
-									} else {
-										$load($Short);
-										if (c == $Short::class$) {
-											$set(item2, value, $Short::valueOf(s));
-										} else {
-											if (c == $Integer::class$) {
-												$set(item2, value, $Integer::valueOf(s));
-											} else {
-												if (c == $Long::class$) {
-													$set(item2, value, $Long::valueOf(s));
-												} else {
-													if (c == $Float::class$) {
-														$set(item2, value, $Float::valueOf(s));
-													} else {
-														$load($Double);
-														if (c == $Double::class$) {
-															$set(item2, value, $Double::valueOf(s));
-														}
-													}
-												}
-											}
-										}
+									} else if (c == $Short::class$) {
+										$set(item2, value, $Short::valueOf(s));
+									} else if (c == $Integer::class$) {
+										$set(item2, value, $Integer::valueOf(s));
+									} else if (c == $Long::class$) {
+										$set(item2, value, $Long::valueOf(s));
+									} else if (c == $Float::class$) {
+										$set(item2, value, $Float::valueOf(s));
+									} else if (c == $Double::class$) {
+										$set(item2, value, $Double::valueOf(s));
 									}
 								} catch ($NumberFormatException& e) {
 								}
@@ -1219,11 +1032,9 @@ $AudioSynthesizerPropertyInfoArray* SoftSynthesizer::getPropertyInfo($Map* info)
 						}
 					} else if ($instanceOf($Number, v)) {
 						$var($Number, n, $cast($Number, v));
-						$load($Byte);
 						if (c == $Byte::class$) {
 							$set(item2, value, $Byte::valueOf(n->byteValue()));
 						}
-						$load($Short);
 						if (c == $Short::class$) {
 							$set(item2, value, $Short::valueOf(n->shortValue()));
 						}
@@ -1236,7 +1047,6 @@ $AudioSynthesizerPropertyInfoArray* SoftSynthesizer::getPropertyInfo($Map* info)
 						if (c == $Float::class$) {
 							$set(item2, value, $Float::valueOf(n->floatValue()));
 						}
-						$load($Double);
 						if (c == $Double::class$) {
 							$set(item2, value, $Double::valueOf(n->doubleValue()));
 						}
@@ -1259,7 +1069,7 @@ void SoftSynthesizer::open() {
 }
 
 void SoftSynthesizer::open($SourceDataLine* line$renamed, $Map* info) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SourceDataLine, line, line$renamed);
 	if (isOpen()) {
 		$synchronized(this->control_mutex) {
@@ -1274,7 +1084,7 @@ void SoftSynthesizer::open($SourceDataLine* line$renamed, $Map* info) {
 			}
 			$var($AudioInputStream, ais, openStream($(getFormat()), info));
 			$set(this, weakstream, $new($SoftSynthesizer$WeakAudioStream, ais));
-			$assign(ais, $nc(this->weakstream)->getAudioInputStream());
+			$assign(ais, this->weakstream->getAudioInputStream());
 			if (line == nullptr) {
 				if (SoftSynthesizer::testline != nullptr) {
 					$assign(line, SoftSynthesizer::testline);
@@ -1284,12 +1094,12 @@ void SoftSynthesizer::open($SourceDataLine* line$renamed, $Map* info) {
 			}
 			double latency = (double)this->latency;
 			if (!$nc(line)->isOpen()) {
-				int32_t var$0 = $nc($(getFormat()))->getFrameSize();
-				int32_t bufferSize = var$0 * $cast(int32_t, ($nc($(getFormat()))->getFrameRate() * (latency / 1000000.0f)));
+				int32_t var$0 = $$nc(getFormat())->getFrameSize();
+				int32_t bufferSize = var$0 * $cast(int32_t, ($$nc(getFormat())->getFrameRate() * (latency / 1000000.0f)));
 				line->open($(getFormat()), bufferSize);
 				$set(this, sourceDataLine, line);
 			}
-			if (!$nc(line)->isActive()) {
+			if (!line->isActive()) {
 				line->start();
 			}
 			int32_t controlbuffersize = 512;
@@ -1297,7 +1107,7 @@ void SoftSynthesizer::open($SourceDataLine* line$renamed, $Map* info) {
 				controlbuffersize = $nc(ais)->available();
 			} catch ($IOException& e) {
 			}
-			int32_t buffersize = $nc(line)->getBufferSize();
+			int32_t buffersize = line->getBufferSize();
 			buffersize -= $mod(buffersize, controlbuffersize);
 			if (buffersize < 3 * controlbuffersize) {
 				buffersize = 3 * controlbuffersize;
@@ -1305,15 +1115,15 @@ void SoftSynthesizer::open($SourceDataLine* line$renamed, $Map* info) {
 			if (this->jitter_correction) {
 				$assign(ais, $new($SoftJitterCorrector, ais, buffersize, controlbuffersize));
 				if (this->weakstream != nullptr) {
-					$set($nc(this->weakstream), jitter_stream, ais);
+					$set(this->weakstream, jitter_stream, ais);
 				}
 			}
 			$set(this, pusher, $new($SoftAudioPusher, line, ais, controlbuffersize));
 			$set(this, pusher_stream, ais);
-			$nc(this->pusher)->start();
+			this->pusher->start();
 			if (this->weakstream != nullptr) {
-				$set($nc(this->weakstream), pusher, this->pusher);
-				$set($nc(this->weakstream), sourceDataLine, this->sourceDataLine);
+				$set(this->weakstream, pusher, this->pusher);
+				$set(this->weakstream, sourceDataLine, this->sourceDataLine);
 			}
 		} catch ($LineUnavailableException& e) {
 			if (isOpen()) {
@@ -1341,7 +1151,7 @@ void SoftSynthesizer::open($SourceDataLine* line$renamed, $Map* info) {
 }
 
 $AudioInputStream* SoftSynthesizer::openStream($AudioFormat* targetFormat, $Map* info) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isOpen()) {
 		$throwNew($MidiUnavailableException, "Synthesizer is already open"_s);
 	}
@@ -1362,45 +1172,43 @@ $AudioInputStream* SoftSynthesizer::openStream($AudioFormat* targetFormat, $Map*
 		}
 		$set(this, voices, $new($SoftVoiceArray, this->maxpoly));
 		for (int32_t i = 0; i < this->maxpoly; ++i) {
-			$nc(this->voices)->set(i, $$new($SoftVoice, this));
+			this->voices->set(i, $$new($SoftVoice, this));
 		}
 		$set(this, mainmixer, $new($SoftMainMixer, this));
 		$set(this, channels, $new($SoftChannelArray, this->number_of_midi_channels));
-		for (int32_t i = 0; i < $nc(this->channels)->length; ++i) {
-			$nc(this->channels)->set(i, $$new($SoftChannel, this, i));
+		for (int32_t i = 0; i < this->channels->length; ++i) {
+			this->channels->set(i, $$new($SoftChannel, this, i));
 		}
 		if (this->external_channels == nullptr) {
-			if ($nc(this->channels)->length < 16) {
+			if (this->channels->length < 16) {
 				$set(this, external_channels, $new($SoftChannelProxyArray, 16));
 			} else {
-				$set(this, external_channels, $new($SoftChannelProxyArray, $nc(this->channels)->length));
+				$set(this, external_channels, $new($SoftChannelProxyArray, this->channels->length));
 			}
 			for (int32_t i = 0; i < $nc(this->external_channels)->length; ++i) {
-				$nc(this->external_channels)->set(i, $$new($SoftChannelProxy));
+				this->external_channels->set(i, $$new($SoftChannelProxy));
 			}
-		} else if ($nc(this->channels)->length > $nc(this->external_channels)->length) {
-			$var($SoftChannelProxyArray, new_external_channels, $new($SoftChannelProxyArray, $nc(this->channels)->length));
-			for (int32_t i = 0; i < $nc(this->external_channels)->length; ++i) {
-				new_external_channels->set(i, $nc(this->external_channels)->get(i));
+		} else if (this->channels->length > this->external_channels->length) {
+			$var($SoftChannelProxyArray, new_external_channels, $new($SoftChannelProxyArray, this->channels->length));
+			for (int32_t i = 0; i < this->external_channels->length; ++i) {
+				new_external_channels->set(i, this->external_channels->get(i));
 			}
-			for (int32_t i = $nc(this->external_channels)->length; i < new_external_channels->length; ++i) {
+			for (int32_t i = this->external_channels->length; i < new_external_channels->length; ++i) {
 				new_external_channels->set(i, $$new($SoftChannelProxy));
 			}
 		}
 		for (int32_t i = 0; i < $nc(this->channels)->length; ++i) {
-			$nc($nc(this->external_channels)->get(i))->setChannel($nc(this->channels)->get(i));
+			$nc($nc(this->external_channels)->get(i))->setChannel(this->channels->get(i));
 		}
 		{
 			$var($SoftVoiceArray, arr$, getVoices());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($SoftVoice, voice, arr$->get(i$));
 				$set($nc(voice), resampler, $nc(this->resampler)->openStreamer());
 			}
 		}
 		{
-			$var($Iterator, i$, $nc($(getReceivers()))->iterator());
+			$var($Iterator, i$, $$nc(getReceivers())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Receiver, recv, $cast($Receiver, i$->next()));
 				{
@@ -1416,7 +1224,7 @@ $AudioInputStream* SoftSynthesizer::openStream($AudioFormat* targetFormat, $Map*
 }
 
 void SoftSynthesizer::close() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isOpen()) {
 		return;
 	}
@@ -1439,7 +1247,7 @@ void SoftSynthesizer::close() {
 	}
 	$synchronized(this->control_mutex) {
 		if (this->mainmixer != nullptr) {
-			$nc(this->mainmixer)->close();
+			this->mainmixer->close();
 		}
 		this->open$ = false;
 		this->implicitOpen = false;
@@ -1448,18 +1256,18 @@ void SoftSynthesizer::close() {
 		$set(this, channels, nullptr);
 		if (this->external_channels != nullptr) {
 			for (int32_t i = 0; i < $nc(this->external_channels)->length; ++i) {
-				$nc($nc(this->external_channels)->get(i))->setChannel(nullptr);
+				$nc(this->external_channels->get(i))->setChannel(nullptr);
 			}
 		}
 		if (this->sourceDataLine != nullptr) {
-			$nc(this->sourceDataLine)->close();
+			this->sourceDataLine->close();
 			$set(this, sourceDataLine, nullptr);
 		}
-		$nc(this->inslist)->clear();
-		$nc(this->loadedlist)->clear();
-		$nc(this->tunings)->clear();
-		while ($nc(this->recvslist)->size() != 0) {
-			$nc(($cast($Receiver, $($nc(this->recvslist)->get($nc(this->recvslist)->size() - 1)))))->close();
+		this->inslist->clear();
+		this->loadedlist->clear();
+		this->tunings->clear();
+		while (this->recvslist->size() != 0) {
+			$$sure($Receiver, this->recvslist->get(this->recvslist->size() - 1))->close();
 		}
 	}
 }
@@ -1491,7 +1299,7 @@ $Receiver* SoftSynthesizer::getReceiver() {
 	$synchronized(this->control_mutex) {
 		$var($SoftReceiver, receiver, $new($SoftReceiver, this));
 		receiver->open = this->open$;
-		$nc(this->recvslist)->add(receiver);
+		this->recvslist->add(receiver);
 		return receiver;
 	}
 }
@@ -1499,7 +1307,7 @@ $Receiver* SoftSynthesizer::getReceiver() {
 $List* SoftSynthesizer::getReceivers() {
 	$synchronized(this->control_mutex) {
 		$var($ArrayList, recvs, $new($ArrayList));
-		recvs->addAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(this->recvslist))));
+		recvs->addAll($cast($AbstractCollection, this->recvslist));
 		return recvs;
 	}
 }
@@ -1530,7 +1338,7 @@ $Transmitter* SoftSynthesizer::getTransmitterReferenceCounting() {
 
 $Properties* SoftSynthesizer::lambda$getStoredProperties$1() {
 	$init(SoftSynthesizer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Properties, p, $new($Properties));
 	$var($String, notePath, "/com/sun/media/sound/softsynthesizer"_s);
 	try {
@@ -1540,9 +1348,7 @@ $Properties* SoftSynthesizer::lambda$getStoredProperties$1() {
 			$var($StringArray, prefs_keys, $nc(prefs)->keys());
 			{
 				$var($StringArray, arr$, prefs_keys);
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
+				for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 					$var($String, prefs_key, arr$->get(i$));
 					{
 						$var($String, val, prefs->get(prefs_key, nullptr));
@@ -1560,7 +1366,7 @@ $Properties* SoftSynthesizer::lambda$getStoredProperties$1() {
 
 $OutputStream* SoftSynthesizer::lambda$getDefaultSoundbank$0() {
 	$init(SoftSynthesizer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($File, userhome, $new($File, $($System::getProperty("user.home"_s)), ".gervill"_s));
 		if (!userhome->isDirectory()) {
@@ -1578,7 +1384,7 @@ $OutputStream* SoftSynthesizer::lambda$getDefaultSoundbank$0() {
 	return nullptr;
 }
 
-void clinit$SoftSynthesizer($Class* class$) {
+void SoftSynthesizer::clinit$($Class* clazz) {
 	$assignStatic(SoftSynthesizer::INFO_NAME, "Gervill"_s);
 	$assignStatic(SoftSynthesizer::INFO_VENDOR, "OpenJDK"_s);
 	$assignStatic(SoftSynthesizer::INFO_DESCRIPTION, "Software MIDI Synthesizer"_s);
@@ -1593,14 +1399,142 @@ SoftSynthesizer::SoftSynthesizer() {
 
 $Class* SoftSynthesizer::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SoftSynthesizer$$Lambda$lambda$getDefaultSoundbank$0::classInfo$.name)) {
+		if (name->equals("com.sun.media.sound.SoftSynthesizer$$Lambda$lambda$getDefaultSoundbank$0")) {
 			return SoftSynthesizer$$Lambda$lambda$getDefaultSoundbank$0::load$(name, initialize);
 		}
-		if (name->equals(SoftSynthesizer$$Lambda$lambda$getStoredProperties$1$1::classInfo$.name)) {
+		if (name->equals("com.sun.media.sound.SoftSynthesizer$$Lambda$lambda$getStoredProperties$1$1")) {
 			return SoftSynthesizer$$Lambda$lambda$getStoredProperties$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(SoftSynthesizer, name, initialize, &_SoftSynthesizer_ClassInfo_, clinit$SoftSynthesizer, allocate$SoftSynthesizer);
+	$FieldInfo fieldInfos$$[] = {
+		{"INFO_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SoftSynthesizer, INFO_NAME)},
+		{"INFO_VENDOR", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SoftSynthesizer, INFO_VENDOR)},
+		{"INFO_DESCRIPTION", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SoftSynthesizer, INFO_DESCRIPTION)},
+		{"INFO_VERSION", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SoftSynthesizer, INFO_VERSION)},
+		{"info", "Ljavax/sound/midi/MidiDevice$Info;", nullptr, $STATIC | $FINAL, $staticField(SoftSynthesizer, info)},
+		{"testline", "Ljavax/sound/sampled/SourceDataLine;", nullptr, $PRIVATE | $STATIC, $staticField(SoftSynthesizer, testline)},
+		{"defaultSoundBank", "Ljavax/sound/midi/Soundbank;", nullptr, $PRIVATE | $STATIC, $staticField(SoftSynthesizer, defaultSoundBank)},
+		{"weakstream", "Lcom/sun/media/sound/SoftSynthesizer$WeakAudioStream;", nullptr, 0, $field(SoftSynthesizer, weakstream)},
+		{"control_mutex", "Ljava/lang/Object;", nullptr, $FINAL, $field(SoftSynthesizer, control_mutex)},
+		{"voiceIDCounter", "I", nullptr, 0, $field(SoftSynthesizer, voiceIDCounter)},
+		{"voice_allocation_mode", "I", nullptr, 0, $field(SoftSynthesizer, voice_allocation_mode)},
+		{"load_default_soundbank", "Z", nullptr, 0, $field(SoftSynthesizer, load_default_soundbank)},
+		{"reverb_light", "Z", nullptr, 0, $field(SoftSynthesizer, reverb_light)},
+		{"reverb_on", "Z", nullptr, 0, $field(SoftSynthesizer, reverb_on)},
+		{"chorus_on", "Z", nullptr, 0, $field(SoftSynthesizer, chorus_on)},
+		{"agc_on", "Z", nullptr, 0, $field(SoftSynthesizer, agc_on)},
+		{"channels", "[Lcom/sun/media/sound/SoftChannel;", nullptr, 0, $field(SoftSynthesizer, channels)},
+		{"external_channels", "[Lcom/sun/media/sound/SoftChannelProxy;", nullptr, 0, $field(SoftSynthesizer, external_channels)},
+		{"largemode", "Z", nullptr, $PRIVATE, $field(SoftSynthesizer, largemode)},
+		{"gmmode", "I", nullptr, $PRIVATE, $field(SoftSynthesizer, gmmode)},
+		{"deviceid", "I", nullptr, $PRIVATE, $field(SoftSynthesizer, deviceid)},
+		{"format", "Ljavax/sound/sampled/AudioFormat;", nullptr, $PRIVATE, $field(SoftSynthesizer, format)},
+		{"sourceDataLine", "Ljavax/sound/sampled/SourceDataLine;", nullptr, $PRIVATE, $field(SoftSynthesizer, sourceDataLine)},
+		{"pusher", "Lcom/sun/media/sound/SoftAudioPusher;", nullptr, $PRIVATE, $field(SoftSynthesizer, pusher)},
+		{"pusher_stream", "Ljavax/sound/sampled/AudioInputStream;", nullptr, $PRIVATE, $field(SoftSynthesizer, pusher_stream)},
+		{"controlrate", "F", nullptr, $PRIVATE, $field(SoftSynthesizer, controlrate)},
+		{"open", "Z", nullptr, $PRIVATE, $field(SoftSynthesizer, open$)},
+		{"implicitOpen", "Z", nullptr, $PRIVATE, $field(SoftSynthesizer, implicitOpen)},
+		{"resamplerType", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SoftSynthesizer, resamplerType)},
+		{"resampler", "Lcom/sun/media/sound/SoftResampler;", nullptr, $PRIVATE, $field(SoftSynthesizer, resampler)},
+		{"number_of_midi_channels", "I", nullptr, $PRIVATE, $field(SoftSynthesizer, number_of_midi_channels)},
+		{"maxpoly", "I", nullptr, $PRIVATE, $field(SoftSynthesizer, maxpoly)},
+		{"latency", "J", nullptr, $PRIVATE, $field(SoftSynthesizer, latency)},
+		{"jitter_correction", "Z", nullptr, $PRIVATE, $field(SoftSynthesizer, jitter_correction)},
+		{"mainmixer", "Lcom/sun/media/sound/SoftMainMixer;", nullptr, $PRIVATE, $field(SoftSynthesizer, mainmixer)},
+		{"voices", "[Lcom/sun/media/sound/SoftVoice;", nullptr, $PRIVATE, $field(SoftSynthesizer, voices)},
+		{"tunings", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/media/sound/SoftTuning;>;", $PRIVATE | $FINAL, $field(SoftSynthesizer, tunings)},
+		{"inslist", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/media/sound/SoftInstrument;>;", $PRIVATE | $FINAL, $field(SoftSynthesizer, inslist)},
+		{"loadedlist", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/media/sound/ModelInstrument;>;", $PRIVATE | $FINAL, $field(SoftSynthesizer, loadedlist)},
+		{"recvslist", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljavax/sound/midi/Receiver;>;", $PRIVATE | $FINAL, $field(SoftSynthesizer, recvslist)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SoftSynthesizer, init$, void)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, close, void)},
+		{"findInstrument", "(III)Lcom/sun/media/sound/SoftInstrument;", nullptr, 0, $method(SoftSynthesizer, findInstrument, $SoftInstrument*, int32_t, int32_t, int32_t)},
+		{"getAvailableInstruments", "()[Ljavax/sound/midi/Instrument;", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getAvailableInstruments, $InstrumentArray*)},
+		{"getBuffers", "(Lcom/sun/media/sound/ModelInstrument;Ljava/util/List;)V", "(Lcom/sun/media/sound/ModelInstrument;Ljava/util/List<Lcom/sun/media/sound/ModelByteBuffer;>;)V", $PRIVATE, $method(SoftSynthesizer, getBuffers, void, $ModelInstrument*, $List*)},
+		{"getChannels", "()[Ljavax/sound/midi/MidiChannel;", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getChannels, $MidiChannelArray*)},
+		{"getControlRate", "()F", nullptr, 0, $method(SoftSynthesizer, getControlRate, float)},
+		{"getDefaultSoundbank", "()Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getDefaultSoundbank, $Soundbank*)},
+		{"getDeviceID", "()I", nullptr, 0, $method(SoftSynthesizer, getDeviceID, int32_t)},
+		{"getDeviceInfo", "()Ljavax/sound/midi/MidiDevice$Info;", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getDeviceInfo, $MidiDevice$Info*)},
+		{"getFormat", "()Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getFormat, $AudioFormat*)},
+		{"getGeneralMidiMode", "()I", nullptr, 0, $method(SoftSynthesizer, getGeneralMidiMode, int32_t)},
+		{"getLatency", "()J", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getLatency, int64_t)},
+		{"getLoadedInstruments", "()[Ljavax/sound/midi/Instrument;", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getLoadedInstruments, $InstrumentArray*)},
+		{"getMainMixer", "()Lcom/sun/media/sound/SoftMainMixer;", nullptr, 0, $method(SoftSynthesizer, getMainMixer, $SoftMainMixer*)},
+		{"getMaxPolyphony", "()I", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getMaxPolyphony, int32_t)},
+		{"getMaxReceivers", "()I", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getMaxReceivers, int32_t)},
+		{"getMaxTransmitters", "()I", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getMaxTransmitters, int32_t)},
+		{"getMicrosecondPosition", "()J", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getMicrosecondPosition, int64_t)},
+		{"getPropertyInfo", "(Ljava/util/Map;)[Lcom/sun/media/sound/AudioSynthesizerPropertyInfo;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)[Lcom/sun/media/sound/AudioSynthesizerPropertyInfo;", $PUBLIC, $virtualMethod(SoftSynthesizer, getPropertyInfo, $AudioSynthesizerPropertyInfoArray*, $Map*)},
+		{"getReceiver", "()Ljavax/sound/midi/Receiver;", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getReceiver, $Receiver*), "javax.sound.midi.MidiUnavailableException"},
+		{"getReceiverReferenceCounting", "()Ljavax/sound/midi/Receiver;", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getReceiverReferenceCounting, $Receiver*), "javax.sound.midi.MidiUnavailableException"},
+		{"getReceivers", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/sound/midi/Receiver;>;", $PUBLIC, $virtualMethod(SoftSynthesizer, getReceivers, $List*)},
+		{"getStoredProperties", "()Ljava/util/Properties;", nullptr, $PRIVATE, $method(SoftSynthesizer, getStoredProperties, $Properties*)},
+		{"getTransmitter", "()Ljavax/sound/midi/Transmitter;", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getTransmitter, $Transmitter*), "javax.sound.midi.MidiUnavailableException"},
+		{"getTransmitterReferenceCounting", "()Ljavax/sound/midi/Transmitter;", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getTransmitterReferenceCounting, $Transmitter*), "javax.sound.midi.MidiUnavailableException"},
+		{"getTransmitters", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/sound/midi/Transmitter;>;", $PUBLIC, $virtualMethod(SoftSynthesizer, getTransmitters, $List*)},
+		{"getTuning", "(Ljavax/sound/midi/Patch;)Lcom/sun/media/sound/SoftTuning;", nullptr, 0, $method(SoftSynthesizer, getTuning, $SoftTuning*, $Patch*)},
+		{"getVoiceAllocationMode", "()I", nullptr, 0, $method(SoftSynthesizer, getVoiceAllocationMode, int32_t)},
+		{"getVoiceStatus", "()[Ljavax/sound/midi/VoiceStatus;", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, getVoiceStatus, $VoiceStatusArray*)},
+		{"getVoices", "()[Lcom/sun/media/sound/SoftVoice;", nullptr, 0, $method(SoftSynthesizer, getVoices, $SoftVoiceArray*)},
+		{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, isOpen, bool)},
+		{"isSoundbankSupported", "(Ljavax/sound/midi/Soundbank;)Z", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, isSoundbankSupported, bool, $Soundbank*)},
+		{"lambda$getDefaultSoundbank$0", "()Ljava/io/OutputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SoftSynthesizer, lambda$getDefaultSoundbank$0, $OutputStream*)},
+		{"lambda$getStoredProperties$1", "()Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SoftSynthesizer, lambda$getStoredProperties$1, $Properties*)},
+		{"loadAllInstruments", "(Ljavax/sound/midi/Soundbank;)Z", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, loadAllInstruments, bool, $Soundbank*)},
+		{"loadInstrument", "(Ljavax/sound/midi/Instrument;)Z", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, loadInstrument, bool, $Instrument*)},
+		{"loadInstruments", "(Ljava/util/List;)Z", "(Ljava/util/List<Lcom/sun/media/sound/ModelInstrument;>;)Z", $PRIVATE, $method(SoftSynthesizer, loadInstruments, bool, $List*)},
+		{"loadInstruments", "(Ljavax/sound/midi/Soundbank;[Ljavax/sound/midi/Patch;)Z", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, loadInstruments, bool, $Soundbank*, $PatchArray*)},
+		{"loadSamples", "(Ljava/util/List;)Z", "(Ljava/util/List<Lcom/sun/media/sound/ModelInstrument;>;)Z", $PRIVATE, $method(SoftSynthesizer, loadSamples, bool, $List*)},
+		{"open", "()V", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, open, void), "javax.sound.midi.MidiUnavailableException"},
+		{"open", "(Ljavax/sound/sampled/SourceDataLine;Ljava/util/Map;)V", "(Ljavax/sound/sampled/SourceDataLine;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", $PUBLIC, $virtualMethod(SoftSynthesizer, open, void, $SourceDataLine*, $Map*), "javax.sound.midi.MidiUnavailableException"},
+		{"openStream", "(Ljavax/sound/sampled/AudioFormat;Ljava/util/Map;)Ljavax/sound/sampled/AudioInputStream;", "(Ljavax/sound/sampled/AudioFormat;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)Ljavax/sound/sampled/AudioInputStream;", $PUBLIC, $virtualMethod(SoftSynthesizer, openStream, $AudioInputStream*, $AudioFormat*, $Map*), "javax.sound.midi.MidiUnavailableException"},
+		{"patchToString", "(Ljavax/sound/midi/Patch;)Ljava/lang/String;", nullptr, $PRIVATE, $method(SoftSynthesizer, patchToString, $String*, $Patch*)},
+		{"processPropertyInfo", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", $PRIVATE, $method(SoftSynthesizer, processPropertyInfo, void, $Map*)},
+		{"remapInstrument", "(Ljavax/sound/midi/Instrument;Ljavax/sound/midi/Instrument;)Z", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, remapInstrument, bool, $Instrument*, $Instrument*)},
+		{"removeReceiver", "(Ljavax/sound/midi/Receiver;)V", nullptr, 0, $method(SoftSynthesizer, removeReceiver, void, $Receiver*)},
+		{"setFormat", "(Ljavax/sound/sampled/AudioFormat;)V", nullptr, $PRIVATE, $method(SoftSynthesizer, setFormat, void, $AudioFormat*)},
+		{"setGeneralMidiMode", "(I)V", nullptr, 0, $method(SoftSynthesizer, setGeneralMidiMode, void, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unloadAllInstruments", "(Ljavax/sound/midi/Soundbank;)V", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, unloadAllInstruments, void, $Soundbank*)},
+		{"unloadInstrument", "(Ljavax/sound/midi/Instrument;)V", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, unloadInstrument, void, $Instrument*)},
+		{"unloadInstruments", "(Ljavax/sound/midi/Soundbank;[Ljavax/sound/midi/Patch;)V", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer, unloadInstruments, void, $Soundbank*, $PatchArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.SoftSynthesizer$Info", "com.sun.media.sound.SoftSynthesizer", "Info", $PRIVATE | $STATIC},
+		{"com.sun.media.sound.SoftSynthesizer$WeakAudioStream", "com.sun.media.sound.SoftSynthesizer", "WeakAudioStream", $PROTECTED | $STATIC | $FINAL},
+		{"com.sun.media.sound.SoftSynthesizer$4", nullptr, nullptr, 0},
+		{"com.sun.media.sound.SoftSynthesizer$3", nullptr, nullptr, 0},
+		{"com.sun.media.sound.SoftSynthesizer$2", nullptr, nullptr, 0},
+		{"com.sun.media.sound.SoftSynthesizer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SoftSynthesizer",
+		"java.lang.Object",
+		"com.sun.media.sound.AudioSynthesizer,com.sun.media.sound.ReferenceCountingDevice",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.SoftSynthesizer$Info,com.sun.media.sound.SoftSynthesizer$WeakAudioStream,com.sun.media.sound.SoftSynthesizer$WeakAudioStream$1,com.sun.media.sound.SoftSynthesizer$4,com.sun.media.sound.SoftSynthesizer$3,com.sun.media.sound.SoftSynthesizer$2,com.sun.media.sound.SoftSynthesizer$1"
+	};
+	$loadClass(SoftSynthesizer, name, initialize, &classInfo$$, SoftSynthesizer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SoftSynthesizer));
+	});
 	return class$;
 }
 

@@ -83,6 +83,7 @@ class ExceptionConst : public ::java::lang::Object {
 	$class(ExceptionConst, 0, ::java::lang::Object)
 public:
 	ExceptionConst();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $ClassArray* createExceptions(::com::sun::org::apache::bcel::internal::ExceptionConst$EXCS* type, $ClassArray* extraClasses);
 	static $ClassArray* mergeExceptions($ClassArray* input, $ClassArray* extraClasses);

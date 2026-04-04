@@ -1,5 +1,4 @@
 #include <javax/imageio/spi/FilterIterator.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/Iterator.h>
 #include <java/util/NoSuchElementException.h>
@@ -18,36 +17,6 @@ namespace javax {
 	namespace imageio {
 		namespace spi {
 
-$FieldInfo _FilterIterator_FieldInfo_[] = {
-	{"iter", "Ljava/util/Iterator;", "Ljava/util/Iterator<+TT;>;", $PRIVATE, $field(FilterIterator, iter)},
-	{"filter", "Ljavax/imageio/spi/ServiceRegistry$Filter;", nullptr, $PRIVATE, $field(FilterIterator, filter)},
-	{"next", "Ljava/lang/Object;", "TT;", $PRIVATE, $field(FilterIterator, next$)},
-	{}
-};
-
-$MethodInfo _FilterIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Iterator;Ljavax/imageio/spi/ServiceRegistry$Filter;)V", "(Ljava/util/Iterator<+TT;>;Ljavax/imageio/spi/ServiceRegistry$Filter;)V", $PUBLIC, $method(FilterIterator, init$, void, $Iterator*, $ServiceRegistry$Filter*)},
-	{"advance", "()V", nullptr, $PRIVATE, $method(FilterIterator, advance, void)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(FilterIterator, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(FilterIterator, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(FilterIterator, remove, void)},
-	{}
-};
-
-$ClassInfo _FilterIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.spi.FilterIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_FilterIterator_FieldInfo_,
-	_FilterIterator_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Iterator<TT;>;"
-};
-
-$Object* allocate$FilterIterator($Class* clazz) {
-	return $of($alloc(FilterIterator));
-}
-
 void FilterIterator::init$($Iterator* iter, $ServiceRegistry$Filter* filter) {
 	$set(this, next$, nullptr);
 	$set(this, iter, iter);
@@ -56,9 +25,9 @@ void FilterIterator::init$($Iterator* iter, $ServiceRegistry$Filter* filter) {
 }
 
 void FilterIterator::advance() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while ($nc(this->iter)->hasNext()) {
-		$var($Object, elt, $nc(this->iter)->next());
+		$var($Object, elt, this->iter->next());
 		if ($nc(this->filter)->filter(elt)) {
 			$set(this, next$, elt);
 			return;
@@ -77,7 +46,7 @@ $Object* FilterIterator::next() {
 	}
 	$var($Object, o, this->next$);
 	advance();
-	return $of(o);
+	return o;
 }
 
 void FilterIterator::remove() {
@@ -88,7 +57,32 @@ FilterIterator::FilterIterator() {
 }
 
 $Class* FilterIterator::load$($String* name, bool initialize) {
-	$loadClass(FilterIterator, name, initialize, &_FilterIterator_ClassInfo_, allocate$FilterIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"iter", "Ljava/util/Iterator;", "Ljava/util/Iterator<+TT;>;", $PRIVATE, $field(FilterIterator, iter)},
+		{"filter", "Ljavax/imageio/spi/ServiceRegistry$Filter;", nullptr, $PRIVATE, $field(FilterIterator, filter)},
+		{"next", "Ljava/lang/Object;", "TT;", $PRIVATE, $field(FilterIterator, next$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Iterator;Ljavax/imageio/spi/ServiceRegistry$Filter;)V", "(Ljava/util/Iterator<+TT;>;Ljavax/imageio/spi/ServiceRegistry$Filter;)V", $PUBLIC, $method(FilterIterator, init$, void, $Iterator*, $ServiceRegistry$Filter*)},
+		{"advance", "()V", nullptr, $PRIVATE, $method(FilterIterator, advance, void)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(FilterIterator, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(FilterIterator, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(FilterIterator, remove, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.spi.FilterIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Iterator<TT;>;"
+	};
+	$loadClass(FilterIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FilterIterator);
+	});
 	return class$;
 }
 

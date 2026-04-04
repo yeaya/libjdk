@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/OpaqueCopyArgbToAny.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/Raster.h>
@@ -33,25 +32,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$MethodInfo _OpaqueCopyArgbToAny_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(OpaqueCopyArgbToAny, init$, void)},
-	{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(OpaqueCopyArgbToAny, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _OpaqueCopyArgbToAny_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.OpaqueCopyArgbToAny",
-	"sun.java2d.loops.Blit",
-	nullptr,
-	nullptr,
-	_OpaqueCopyArgbToAny_MethodInfo_
-};
-
-$Object* allocate$OpaqueCopyArgbToAny($Class* clazz) {
-	return $of($alloc(OpaqueCopyArgbToAny));
-}
-
 void OpaqueCopyArgbToAny::init$() {
 	$init($SurfaceType);
 	$init($CompositeType);
@@ -59,7 +39,7 @@ void OpaqueCopyArgbToAny::init$() {
 }
 
 void OpaqueCopyArgbToAny::Blit$($SurfaceData* src, $SurfaceData* dst, $Composite* comp, $Region* clip, int32_t srcx, int32_t srcy, int32_t dstx, int32_t dsty, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Raster, srcRast, $nc(src)->getRaster(srcx, srcy, w, h));
 	$var($IntegerComponentRaster, icr, $cast($IntegerComponentRaster, srcRast));
 	$var($ints, srcPix, $nc(icr)->getDataStorage());
@@ -89,7 +69,22 @@ OpaqueCopyArgbToAny::OpaqueCopyArgbToAny() {
 }
 
 $Class* OpaqueCopyArgbToAny::load$($String* name, bool initialize) {
-	$loadClass(OpaqueCopyArgbToAny, name, initialize, &_OpaqueCopyArgbToAny_ClassInfo_, allocate$OpaqueCopyArgbToAny);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(OpaqueCopyArgbToAny, init$, void)},
+		{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(OpaqueCopyArgbToAny, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.OpaqueCopyArgbToAny",
+		"sun.java2d.loops.Blit",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(OpaqueCopyArgbToAny, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OpaqueCopyArgbToAny);
+	});
 	return class$;
 }
 

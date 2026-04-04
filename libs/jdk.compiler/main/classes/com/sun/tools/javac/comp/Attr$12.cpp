@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Attr$12.h>
-
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/comp/Attr.h>
 #include <com/sun/tools/javac/tree/JCTree$JCFieldAccess.h>
@@ -24,52 +23,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Attr$12_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Attr;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$12, this$0)},
-	{"val$pkg", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$12, val$pkg)},
-	{"packge", "Lcom/sun/tools/javac/code/Symbol;", nullptr, 0, $field(Attr$12, packge)},
-	{}
-};
-
-$MethodInfo _Attr$12_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(Attr$12, init$, void, $Attr*, $Symbol*)},
-	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(Attr$12, visitIdent, void, $JCTree$JCIdent*)},
-	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(Attr$12, visitSelect, void, $JCTree$JCFieldAccess*)},
-	{}
-};
-
-$EnclosingMethodInfo _Attr$12_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Attr",
-	"setPackageSymbols",
-	"(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/code/Symbol;)V"
-};
-
-$InnerClassInfo _Attr$12_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Attr$12", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Attr$12_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Attr$12",
-	"com.sun.tools.javac.tree.TreeScanner",
-	nullptr,
-	_Attr$12_FieldInfo_,
-	_Attr$12_MethodInfo_,
-	nullptr,
-	&_Attr$12_EnclosingMethodInfo_,
-	_Attr$12_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Attr"
-};
-
-$Object* allocate$Attr$12($Class* clazz) {
-	return $of($alloc(Attr$12));
-}
-
 void Attr$12::init$($Attr* this$0, $Symbol* val$pkg) {
 	$set(this, this$0, this$0);
 	$set(this, val$pkg, val$pkg);
@@ -91,7 +44,46 @@ Attr$12::Attr$12() {
 }
 
 $Class* Attr$12::load$($String* name, bool initialize) {
-	$loadClass(Attr$12, name, initialize, &_Attr$12_ClassInfo_, allocate$Attr$12);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Attr;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$12, this$0)},
+		{"val$pkg", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$12, val$pkg)},
+		{"packge", "Lcom/sun/tools/javac/code/Symbol;", nullptr, 0, $field(Attr$12, packge)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(Attr$12, init$, void, $Attr*, $Symbol*)},
+		{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(Attr$12, visitIdent, void, $JCTree$JCIdent*)},
+		{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(Attr$12, visitSelect, void, $JCTree$JCFieldAccess*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Attr",
+		"setPackageSymbols",
+		"(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/code/Symbol;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Attr$12", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Attr$12",
+		"com.sun.tools.javac.tree.TreeScanner",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Attr"
+	};
+	$loadClass(Attr$12, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Attr$12);
+	});
 	return class$;
 }
 

@@ -54,13 +54,14 @@ class $import SimpleType : public ::javax::management::openmbean::OpenType {
 	$class(SimpleType, 0, ::javax::management::openmbean::OpenType)
 public:
 	SimpleType();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Class* valueClass);
 	virtual bool equals(Object$* obj) override;
 	virtual int32_t hashCode() override;
 	virtual bool isValue(Object$* obj) override;
 	$Object* readResolve();
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x1EBF4FF8DC657827;
+	static const int64_t serialVersionUID = (int64_t)0x1ebf4ff8dc657827;
 	static ::javax::management::openmbean::SimpleType* VOID;
 	static ::javax::management::openmbean::SimpleType* BOOLEAN;
 	static ::javax::management::openmbean::SimpleType* CHARACTER;

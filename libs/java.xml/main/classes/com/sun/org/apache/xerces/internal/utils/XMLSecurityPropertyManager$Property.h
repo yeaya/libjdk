@@ -24,6 +24,7 @@ class XMLSecurityPropertyManager$Property : public ::java::lang::Enum {
 public:
 	XMLSecurityPropertyManager$Property();
 	static $Array<::com::sun::org::apache::xerces::internal::utils::XMLSecurityPropertyManager$Property>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* name, $String* value);
 	virtual $String* defaultValue();
 	virtual bool equalsName($String* propertyName);

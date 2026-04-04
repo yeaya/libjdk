@@ -21,6 +21,7 @@ class $export Win32ShellFolder2$4 : public ::java::util::concurrent::Callable {
 	$class(Win32ShellFolder2$4, 0, ::java::util::concurrent::Callable)
 public:
 	Win32ShellFolder2$4();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::shell::Win32ShellFolder2* this$0);
 	virtual $Object* call() override;
 	::sun::awt::shell::Win32ShellFolder2* this$0 = nullptr;

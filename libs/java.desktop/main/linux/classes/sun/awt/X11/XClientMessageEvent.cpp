@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XClientMessageEvent.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XAtom.h>
@@ -12,68 +11,14 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XAtom = ::sun::awt::X11::XAtom;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XClientMessageEvent_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XClientMessageEvent, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XClientMessageEvent, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XClientMessageEvent, pData)},
-	{}
-};
-
-$MethodInfo _XClientMessageEvent_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XClientMessageEvent, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XClientMessageEvent, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XClientMessageEvent, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XClientMessageEvent, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XClientMessageEvent, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XClientMessageEvent, getSize, int32_t)},
-	{"get_data", "(I)J", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, get_data, int64_t, int32_t)},
-	{"get_data", "()J", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, get_data, int64_t)},
-	{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, get_display, int64_t)},
-	{"get_format", "()I", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, get_format, int32_t)},
-	{"get_message_type", "()J", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, get_message_type, int64_t)},
-	{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, get_send_event, bool)},
-	{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, get_serial, int64_t)},
-	{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, get_type, int32_t)},
-	{"get_window", "()J", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, get_window, int64_t)},
-	{"set_data", "(IJ)V", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, set_data, void, int32_t, int64_t)},
-	{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, set_display, void, int64_t)},
-	{"set_format", "(I)V", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, set_format, void, int32_t)},
-	{"set_message_type", "(J)V", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, set_message_type, void, int64_t)},
-	{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, set_send_event, void, bool)},
-	{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, set_serial, void, int64_t)},
-	{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, set_type, void, int32_t)},
-	{"set_window", "(J)V", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, set_window, void, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XClientMessageEvent, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XClientMessageEvent, zero, void)},
-	{}
-};
-
-$ClassInfo _XClientMessageEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XClientMessageEvent",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XClientMessageEvent_FieldInfo_,
-	_XClientMessageEvent_MethodInfo_
-};
-
-$Object* allocate$XClientMessageEvent($Class* clazz) {
-	return $of($alloc(XClientMessageEvent));
-}
 
 int32_t XClientMessageEvent::getSize() {
 	$init(XClientMessageEvent);
@@ -112,7 +57,7 @@ void XClientMessageEvent::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -224,7 +169,7 @@ $String* XClientMessageEvent::getName() {
 }
 
 $String* XClientMessageEvent::getFieldsAsString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, ret, $new($StringBuilder, 320));
 	$init($XlibWrapper);
 	ret->append("type = "_s)->append($nc($XlibWrapper::eventToString)->get(get_type()))->append(", "_s);
@@ -232,14 +177,14 @@ $String* XClientMessageEvent::getFieldsAsString() {
 	ret->append("send_event = "_s)->append(get_send_event())->append(", "_s);
 	ret->append("display = "_s)->append(get_display())->append(", "_s);
 	ret->append("window = "_s)->append($(getWindow(get_window())))->append(", "_s);
-	ret->append("message_type = "_s)->append($($of($XAtom::get(get_message_type()))))->append(", "_s);
+	ret->append("message_type = "_s)->append($($XAtom::get(get_message_type())))->append(", "_s);
 	ret->append("format = "_s)->append(get_format())->append(", "_s);
 	ret->append("{"_s)->append(get_data(0))->append(" "_s)->append(get_data(1))->append(" "_s)->append(get_data(2))->append(" "_s)->append(get_data(3))->append(" "_s)->append(get_data(4))->append(" "_s)->append("}"_s);
 	return ret->toString();
 }
 
 $Object* XClientMessageEvent::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XClientMessageEvent::zero() {
@@ -254,7 +199,54 @@ XClientMessageEvent::XClientMessageEvent() {
 }
 
 $Class* XClientMessageEvent::load$($String* name, bool initialize) {
-	$loadClass(XClientMessageEvent, name, initialize, &_XClientMessageEvent_ClassInfo_, allocate$XClientMessageEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XClientMessageEvent, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XClientMessageEvent, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XClientMessageEvent, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XClientMessageEvent, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XClientMessageEvent, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XClientMessageEvent, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XClientMessageEvent, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XClientMessageEvent, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XClientMessageEvent, getSize, int32_t)},
+		{"get_data", "(I)J", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, get_data, int64_t, int32_t)},
+		{"get_data", "()J", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, get_data, int64_t)},
+		{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, get_display, int64_t)},
+		{"get_format", "()I", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, get_format, int32_t)},
+		{"get_message_type", "()J", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, get_message_type, int64_t)},
+		{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, get_send_event, bool)},
+		{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, get_serial, int64_t)},
+		{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, get_type, int32_t)},
+		{"get_window", "()J", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, get_window, int64_t)},
+		{"set_data", "(IJ)V", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, set_data, void, int32_t, int64_t)},
+		{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, set_display, void, int64_t)},
+		{"set_format", "(I)V", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, set_format, void, int32_t)},
+		{"set_message_type", "(J)V", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, set_message_type, void, int64_t)},
+		{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, set_send_event, void, bool)},
+		{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, set_serial, void, int64_t)},
+		{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, set_type, void, int32_t)},
+		{"set_window", "(J)V", nullptr, $PUBLIC, $virtualMethod(XClientMessageEvent, set_window, void, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XClientMessageEvent, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XClientMessageEvent, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XClientMessageEvent",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XClientMessageEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XClientMessageEvent);
+	});
 	return class$;
 }
 

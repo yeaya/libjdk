@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/Op$CharOp.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/Op.h>
 #include <jcpp.h>
 
@@ -19,42 +18,6 @@ namespace com {
 							namespace xpath {
 								namespace regex {
 
-$FieldInfo _Op$CharOp_FieldInfo_[] = {
-	{"charData", "I", nullptr, $FINAL, $field(Op$CharOp, charData)},
-	{}
-};
-
-$MethodInfo _Op$CharOp_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, 0, $method(Op$CharOp, init$, void, int32_t, int32_t)},
-	{"getData", "()I", nullptr, 0, $virtualMethod(Op$CharOp, getData, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Op$CharOp_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Op$CharOp", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Op", "CharOp", $STATIC},
-	{}
-};
-
-$ClassInfo _Op$CharOp_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.Op$CharOp",
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.Op",
-	nullptr,
-	_Op$CharOp_FieldInfo_,
-	_Op$CharOp_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Op$CharOp_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.Op"
-};
-
-$Object* allocate$Op$CharOp($Class* clazz) {
-	return $of($alloc(Op$CharOp));
-}
-
 void Op$CharOp::init$(int32_t type, int32_t data) {
 	$Op::init$(type);
 	this->charData = data;
@@ -68,7 +31,37 @@ Op$CharOp::Op$CharOp() {
 }
 
 $Class* Op$CharOp::load$($String* name, bool initialize) {
-	$loadClass(Op$CharOp, name, initialize, &_Op$CharOp_ClassInfo_, allocate$Op$CharOp);
+	$FieldInfo fieldInfos$$[] = {
+		{"charData", "I", nullptr, $FINAL, $field(Op$CharOp, charData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II)V", nullptr, 0, $method(Op$CharOp, init$, void, int32_t, int32_t)},
+		{"getData", "()I", nullptr, 0, $virtualMethod(Op$CharOp, getData, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Op$CharOp", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Op", "CharOp", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.Op$CharOp",
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.Op",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.Op"
+	};
+	$loadClass(Op$CharOp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Op$CharOp);
+	});
 	return class$;
 }
 

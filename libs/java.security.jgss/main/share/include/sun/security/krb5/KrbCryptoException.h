@@ -14,10 +14,13 @@ class $import KrbCryptoException : public ::sun::security::krb5::KrbException {
 public:
 	KrbCryptoException();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0xE8FFD8A86B771256;
+	static const int64_t serialVersionUID = (int64_t)0xe8ffd8a86b771256;
 	KrbCryptoException(const KrbCryptoException& e);
 	virtual void throw$() override;
-	inline KrbCryptoException* operator ->() {
+	inline KrbCryptoException* operator ->() const {
+		return (KrbCryptoException*)throwing$;
+	}
+	inline operator KrbCryptoException*() const {
 		return (KrbCryptoException*)throwing$;
 	}
 };

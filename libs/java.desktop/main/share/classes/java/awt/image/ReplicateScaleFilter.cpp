@@ -1,5 +1,4 @@
 #include <java/awt/image/ReplicateScaleFilter.h>
-
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/ImageConsumer.h>
 #include <java/awt/image/ImageFilter.h>
@@ -7,7 +6,6 @@
 #include <jcpp.h>
 
 using $ColorModel = ::java::awt::image::ColorModel;
-using $ImageConsumer = ::java::awt::image::ImageConsumer;
 using $ImageFilter = ::java::awt::image::ImageFilter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -19,42 +17,8 @@ namespace java {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _ReplicateScaleFilter_FieldInfo_[] = {
-	{"srcWidth", "I", nullptr, $PROTECTED, $field(ReplicateScaleFilter, srcWidth)},
-	{"srcHeight", "I", nullptr, $PROTECTED, $field(ReplicateScaleFilter, srcHeight)},
-	{"destWidth", "I", nullptr, $PROTECTED, $field(ReplicateScaleFilter, destWidth)},
-	{"destHeight", "I", nullptr, $PROTECTED, $field(ReplicateScaleFilter, destHeight)},
-	{"srcrows", "[I", nullptr, $PROTECTED, $field(ReplicateScaleFilter, srcrows)},
-	{"srccols", "[I", nullptr, $PROTECTED, $field(ReplicateScaleFilter, srccols)},
-	{"outpixbuf", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(ReplicateScaleFilter, outpixbuf)},
-	{}
-};
-
-$MethodInfo _ReplicateScaleFilter_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(ReplicateScaleFilter, init$, void, int32_t, int32_t)},
-	{"calculateMaps", "()V", nullptr, $PRIVATE, $method(ReplicateScaleFilter, calculateMaps, void)},
-	{"setDimensions", "(II)V", nullptr, $PUBLIC, $virtualMethod(ReplicateScaleFilter, setDimensions, void, int32_t, int32_t)},
-	{"setPixels", "(IIIILjava/awt/image/ColorModel;[BII)V", nullptr, $PUBLIC, $virtualMethod(ReplicateScaleFilter, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $bytes*, int32_t, int32_t)},
-	{"setPixels", "(IIIILjava/awt/image/ColorModel;[III)V", nullptr, $PUBLIC, $virtualMethod(ReplicateScaleFilter, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $ints*, int32_t, int32_t)},
-	{"setProperties", "(Ljava/util/Hashtable;)V", "(Ljava/util/Hashtable<**>;)V", $PUBLIC, $virtualMethod(ReplicateScaleFilter, setProperties, void, $Hashtable*)},
-	{}
-};
-
-$ClassInfo _ReplicateScaleFilter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.image.ReplicateScaleFilter",
-	"java.awt.image.ImageFilter",
-	nullptr,
-	_ReplicateScaleFilter_FieldInfo_,
-	_ReplicateScaleFilter_MethodInfo_
-};
-
-$Object* allocate$ReplicateScaleFilter($Class* clazz) {
-	return $of($alloc(ReplicateScaleFilter));
-}
-
 void ReplicateScaleFilter::init$(int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ImageFilter::init$();
 	if (width == 0 || height == 0) {
 		$throwNew($IllegalArgumentException, $$str({"Width ("_s, $$str(width), ") and height ("_s, $$str(height), ") must be non-zero"_s}));
@@ -64,13 +28,13 @@ void ReplicateScaleFilter::init$(int32_t width, int32_t height) {
 }
 
 void ReplicateScaleFilter::setProperties($Hashtable* props) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Hashtable, p, $cast($Hashtable, $nc(props)->clone()));
 	$var($String, key, "rescale"_s);
 	$var($String, val, $str({$$str(this->destWidth), "x"_s, $$str(this->destHeight)}));
 	$var($Object, o, $nc(p)->get(key));
 	if (o != nullptr && $instanceOf($String, o)) {
-		$assign(val, $str({($cast($String, o)), ", "_s, val}));
+		$assign(val, $str({$cast($String, o), ", "_s, val}));
 	}
 	p->put(key, val);
 	$ImageFilter::setProperties(p);
@@ -95,11 +59,11 @@ void ReplicateScaleFilter::setDimensions(int32_t w, int32_t h) {
 void ReplicateScaleFilter::calculateMaps() {
 	$set(this, srcrows, $new($ints, this->destHeight + 1));
 	for (int32_t y = 0; y <= this->destHeight; ++y) {
-		$nc(this->srcrows)->set(y, $div((2 * y * this->srcHeight + this->srcHeight), (2 * this->destHeight)));
+		this->srcrows->set(y, $div((2 * y * this->srcHeight + this->srcHeight), (2 * this->destHeight)));
 	}
 	$set(this, srccols, $new($ints, this->destWidth + 1));
 	for (int32_t x = 0; x <= this->destWidth; ++x) {
-		$nc(this->srccols)->set(x, $div((2 * x * this->srcWidth + this->srcWidth), (2 * this->destWidth)));
+		this->srccols->set(x, $div((2 * x * this->srcWidth + this->srcWidth), (2 * this->destWidth)));
 	}
 }
 
@@ -161,7 +125,36 @@ ReplicateScaleFilter::ReplicateScaleFilter() {
 }
 
 $Class* ReplicateScaleFilter::load$($String* name, bool initialize) {
-	$loadClass(ReplicateScaleFilter, name, initialize, &_ReplicateScaleFilter_ClassInfo_, allocate$ReplicateScaleFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"srcWidth", "I", nullptr, $PROTECTED, $field(ReplicateScaleFilter, srcWidth)},
+		{"srcHeight", "I", nullptr, $PROTECTED, $field(ReplicateScaleFilter, srcHeight)},
+		{"destWidth", "I", nullptr, $PROTECTED, $field(ReplicateScaleFilter, destWidth)},
+		{"destHeight", "I", nullptr, $PROTECTED, $field(ReplicateScaleFilter, destHeight)},
+		{"srcrows", "[I", nullptr, $PROTECTED, $field(ReplicateScaleFilter, srcrows)},
+		{"srccols", "[I", nullptr, $PROTECTED, $field(ReplicateScaleFilter, srccols)},
+		{"outpixbuf", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(ReplicateScaleFilter, outpixbuf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(ReplicateScaleFilter, init$, void, int32_t, int32_t)},
+		{"calculateMaps", "()V", nullptr, $PRIVATE, $method(ReplicateScaleFilter, calculateMaps, void)},
+		{"setDimensions", "(II)V", nullptr, $PUBLIC, $virtualMethod(ReplicateScaleFilter, setDimensions, void, int32_t, int32_t)},
+		{"setPixels", "(IIIILjava/awt/image/ColorModel;[BII)V", nullptr, $PUBLIC, $virtualMethod(ReplicateScaleFilter, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $bytes*, int32_t, int32_t)},
+		{"setPixels", "(IIIILjava/awt/image/ColorModel;[III)V", nullptr, $PUBLIC, $virtualMethod(ReplicateScaleFilter, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $ints*, int32_t, int32_t)},
+		{"setProperties", "(Ljava/util/Hashtable;)V", "(Ljava/util/Hashtable<**>;)V", $PUBLIC, $virtualMethod(ReplicateScaleFilter, setProperties, void, $Hashtable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.image.ReplicateScaleFilter",
+		"java.awt.image.ImageFilter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ReplicateScaleFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ReplicateScaleFilter));
+	});
 	return class$;
 }
 

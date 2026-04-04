@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/OGLSurfaceToSwBlit.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/lang/ref/WeakReference.h>
@@ -13,7 +12,6 @@
 #include <sun/java2d/opengl/OGLSurfaceData.h>
 #include <sun/java2d/pipe/Region.h>
 #include <sun/java2d/pipe/RenderBuffer.h>
-#include <sun/java2d/pipe/hw/AccelSurface.h>
 #include <jcpp.h>
 
 #undef PF_INT_ARGB_PRE
@@ -35,37 +33,10 @@ using $OGLRenderQueue = ::sun::java2d::opengl::OGLRenderQueue;
 using $OGLSurfaceData = ::sun::java2d::opengl::OGLSurfaceData;
 using $Region = ::sun::java2d::pipe::Region;
 using $RenderBuffer = ::sun::java2d::pipe::RenderBuffer;
-using $AccelSurface = ::sun::java2d::pipe::hw::AccelSurface;
 
 namespace sun {
 	namespace java2d {
 		namespace opengl {
-
-$FieldInfo _OGLSurfaceToSwBlit_FieldInfo_[] = {
-	{"typeval", "I", nullptr, $PRIVATE | $FINAL, $field(OGLSurfaceToSwBlit, typeval)},
-	{"srcTmp", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lsun/java2d/SurfaceData;>;", $PRIVATE, $field(OGLSurfaceToSwBlit, srcTmp)},
-	{}
-};
-
-$MethodInfo _OGLSurfaceToSwBlit_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;I)V", nullptr, 0, $method(OGLSurfaceToSwBlit, init$, void, $SurfaceType*, int32_t)},
-	{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(OGLSurfaceToSwBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"complexClipBlit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(OGLSurfaceToSwBlit, complexClipBlit, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _OGLSurfaceToSwBlit_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.opengl.OGLSurfaceToSwBlit",
-	"sun.java2d.loops.Blit",
-	nullptr,
-	_OGLSurfaceToSwBlit_FieldInfo_,
-	_OGLSurfaceToSwBlit_MethodInfo_
-};
-
-$Object* allocate$OGLSurfaceToSwBlit($Class* clazz) {
-	return $of($alloc(OGLSurfaceToSwBlit));
-}
 
 void OGLSurfaceToSwBlit::init$($SurfaceType* dstType, int32_t typeval) {
 	$init($OGLSurfaceData);
@@ -76,11 +47,11 @@ void OGLSurfaceToSwBlit::init$($SurfaceType* dstType, int32_t typeval) {
 
 void OGLSurfaceToSwBlit::complexClipBlit($SurfaceData* src$renamed, $SurfaceData* dst, $Composite* comp, $Region* clip, int32_t sx, int32_t sy, int32_t dx, int32_t dy, int32_t w, int32_t h) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($SurfaceData, src, src$renamed);
 		$var($SurfaceData, cachedSrc, nullptr);
 		if (this->srcTmp != nullptr) {
-			$assign(cachedSrc, $cast($SurfaceData, $nc(this->srcTmp)->get()));
+			$assign(cachedSrc, $cast($SurfaceData, this->srcTmp->get()));
 		}
 		int32_t type = this->typeval == $OGLSurfaceData::PF_INT_ARGB_PRE ? $BufferedImage::TYPE_INT_ARGB_PRE : $BufferedImage::TYPE_INT_ARGB;
 		$assign(src, convertFrom(this, src, sx, sy, w, h, cachedSrc, type));
@@ -96,14 +67,14 @@ void OGLSurfaceToSwBlit::complexClipBlit($SurfaceData* src$renamed, $SurfaceData
 }
 
 void OGLSurfaceToSwBlit::Blit$($SurfaceData* src, $SurfaceData* dst, $Composite* comp, $Region* clip$renamed, int32_t sx, int32_t sy, int32_t dx, int32_t dy, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, clip, clip$renamed);
 	if (clip != nullptr) {
 		$assign(clip, clip->getIntersectionXYWH(dx, dy, w, h));
 		if ($nc(clip)->isEmpty()) {
 			return;
 		}
-		sx += $nc(clip)->getLoX() - dx;
+		sx += clip->getLoX() - dx;
 		sy += clip->getLoY() - dy;
 		dx = clip->getLoX();
 		dy = clip->getLoY();
@@ -116,29 +87,27 @@ void OGLSurfaceToSwBlit::Blit$($SurfaceData* src, $SurfaceData* dst, $Composite*
 	}
 	$var($OGLRenderQueue, rq, $OGLRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			rq->addReference(dst);
-			$var($RenderBuffer, buf, rq->getBuffer());
-			$OGLContext::validateContext($cast($OGLSurfaceData, src));
-			rq->ensureCapacityAndAlignment(48, 32);
-			$nc(buf)->putInt(34);
-			$nc($(buf->putInt(sx)))->putInt(sy);
-			$nc($(buf->putInt(dx)))->putInt(dy);
-			$nc($(buf->putInt(w)))->putInt(h);
-			buf->putInt(this->typeval);
-			buf->putLong($nc(src)->getNativeOps());
-			buf->putLong($nc(dst)->getNativeOps());
-			rq->flushNow();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			rq->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		rq->addReference(dst);
+		$var($RenderBuffer, buf, rq->getBuffer());
+		$OGLContext::validateContext($cast($OGLSurfaceData, src));
+		rq->ensureCapacityAndAlignment(48, 32);
+		$nc(buf)->putInt(34);
+		$$nc(buf->putInt(sx))->putInt(sy);
+		$$nc(buf->putInt(dx))->putInt(dy);
+		$$nc(buf->putInt(w))->putInt(h);
+		buf->putInt(this->typeval);
+		buf->putLong($nc(src)->getNativeOps());
+		buf->putLong($nc(dst)->getNativeOps());
+		rq->flushNow();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -146,7 +115,28 @@ OGLSurfaceToSwBlit::OGLSurfaceToSwBlit() {
 }
 
 $Class* OGLSurfaceToSwBlit::load$($String* name, bool initialize) {
-	$loadClass(OGLSurfaceToSwBlit, name, initialize, &_OGLSurfaceToSwBlit_ClassInfo_, allocate$OGLSurfaceToSwBlit);
+	$FieldInfo fieldInfos$$[] = {
+		{"typeval", "I", nullptr, $PRIVATE | $FINAL, $field(OGLSurfaceToSwBlit, typeval)},
+		{"srcTmp", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lsun/java2d/SurfaceData;>;", $PRIVATE, $field(OGLSurfaceToSwBlit, srcTmp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;I)V", nullptr, 0, $method(OGLSurfaceToSwBlit, init$, void, $SurfaceType*, int32_t)},
+		{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(OGLSurfaceToSwBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"complexClipBlit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(OGLSurfaceToSwBlit, complexClipBlit, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.opengl.OGLSurfaceToSwBlit",
+		"sun.java2d.loops.Blit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OGLSurfaceToSwBlit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OGLSurfaceToSwBlit);
+	});
 	return class$;
 }
 

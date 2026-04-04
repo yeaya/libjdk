@@ -1,5 +1,4 @@
 #include <java/awt/font/TextLine$TextLineMetrics.h>
-
 #include <java/awt/font/TextLine.h>
 #include <jcpp.h>
 
@@ -12,44 +11,6 @@ namespace java {
 	namespace awt {
 		namespace font {
 
-$FieldInfo _TextLine$TextLineMetrics_FieldInfo_[] = {
-	{"ascent", "F", nullptr, $PUBLIC | $FINAL, $field(TextLine$TextLineMetrics, ascent)},
-	{"descent", "F", nullptr, $PUBLIC | $FINAL, $field(TextLine$TextLineMetrics, descent)},
-	{"leading", "F", nullptr, $PUBLIC | $FINAL, $field(TextLine$TextLineMetrics, leading)},
-	{"advance", "F", nullptr, $PUBLIC | $FINAL, $field(TextLine$TextLineMetrics, advance)},
-	{}
-};
-
-$MethodInfo _TextLine$TextLineMetrics_MethodInfo_[] = {
-	{"<init>", "(FFFF)V", nullptr, $PUBLIC, $method(TextLine$TextLineMetrics, init$, void, float, float, float, float)},
-	{}
-};
-
-$InnerClassInfo _TextLine$TextLineMetrics_InnerClassesInfo_[] = {
-	{"java.awt.font.TextLine$TextLineMetrics", "java.awt.font.TextLine", "TextLineMetrics", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _TextLine$TextLineMetrics_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.awt.font.TextLine$TextLineMetrics",
-	"java.lang.Object",
-	nullptr,
-	_TextLine$TextLineMetrics_FieldInfo_,
-	_TextLine$TextLineMetrics_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TextLine$TextLineMetrics_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.font.TextLine"
-};
-
-$Object* allocate$TextLine$TextLineMetrics($Class* clazz) {
-	return $of($alloc(TextLine$TextLineMetrics));
-}
-
 void TextLine$TextLineMetrics::init$(float ascent, float descent, float leading, float advance) {
 	this->ascent = ascent;
 	this->descent = descent;
@@ -61,7 +22,39 @@ TextLine$TextLineMetrics::TextLine$TextLineMetrics() {
 }
 
 $Class* TextLine$TextLineMetrics::load$($String* name, bool initialize) {
-	$loadClass(TextLine$TextLineMetrics, name, initialize, &_TextLine$TextLineMetrics_ClassInfo_, allocate$TextLine$TextLineMetrics);
+	$FieldInfo fieldInfos$$[] = {
+		{"ascent", "F", nullptr, $PUBLIC | $FINAL, $field(TextLine$TextLineMetrics, ascent)},
+		{"descent", "F", nullptr, $PUBLIC | $FINAL, $field(TextLine$TextLineMetrics, descent)},
+		{"leading", "F", nullptr, $PUBLIC | $FINAL, $field(TextLine$TextLineMetrics, leading)},
+		{"advance", "F", nullptr, $PUBLIC | $FINAL, $field(TextLine$TextLineMetrics, advance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(FFFF)V", nullptr, $PUBLIC, $method(TextLine$TextLineMetrics, init$, void, float, float, float, float)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.font.TextLine$TextLineMetrics", "java.awt.font.TextLine", "TextLineMetrics", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.awt.font.TextLine$TextLineMetrics",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.font.TextLine"
+	};
+	$loadClass(TextLine$TextLineMetrics, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TextLine$TextLineMetrics);
+	});
 	return class$;
 }
 

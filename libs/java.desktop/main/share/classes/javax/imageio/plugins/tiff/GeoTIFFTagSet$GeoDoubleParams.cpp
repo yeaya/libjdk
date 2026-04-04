@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/GeoTIFFTagSet$GeoDoubleParams.h>
-
 #include <javax/imageio/plugins/tiff/GeoTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,45 +15,40 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _GeoTIFFTagSet$GeoDoubleParams_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GeoTIFFTagSet$GeoDoubleParams, init$, void)},
-	{}
-};
-
-$InnerClassInfo _GeoTIFFTagSet$GeoDoubleParams_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.GeoTIFFTagSet$GeoDoubleParams", "javax.imageio.plugins.tiff.GeoTIFFTagSet", "GeoDoubleParams", $STATIC},
-	{}
-};
-
-$ClassInfo _GeoTIFFTagSet$GeoDoubleParams_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.GeoTIFFTagSet$GeoDoubleParams",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_GeoTIFFTagSet$GeoDoubleParams_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GeoTIFFTagSet$GeoDoubleParams_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.GeoTIFFTagSet"
-};
-
-$Object* allocate$GeoTIFFTagSet$GeoDoubleParams($Class* clazz) {
-	return $of($alloc(GeoTIFFTagSet$GeoDoubleParams));
-}
-
 void GeoTIFFTagSet$GeoDoubleParams::init$() {
-	$TIFFTag::init$("GeoDoubleParamsTag"_s, 0x000087B0, $sl(1, $TIFFTag::TIFF_DOUBLE));
+	$TIFFTag::init$("GeoDoubleParamsTag"_s, 0x000087b0, $sl(1, $TIFFTag::TIFF_DOUBLE));
 }
 
 GeoTIFFTagSet$GeoDoubleParams::GeoTIFFTagSet$GeoDoubleParams() {
 }
 
 $Class* GeoTIFFTagSet$GeoDoubleParams::load$($String* name, bool initialize) {
-	$loadClass(GeoTIFFTagSet$GeoDoubleParams, name, initialize, &_GeoTIFFTagSet$GeoDoubleParams_ClassInfo_, allocate$GeoTIFFTagSet$GeoDoubleParams);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GeoTIFFTagSet$GeoDoubleParams, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.GeoTIFFTagSet$GeoDoubleParams", "javax.imageio.plugins.tiff.GeoTIFFTagSet", "GeoDoubleParams", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.GeoTIFFTagSet$GeoDoubleParams",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.GeoTIFFTagSet"
+	};
+	$loadClass(GeoTIFFTagSet$GeoDoubleParams, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GeoTIFFTagSet$GeoDoubleParams);
+	});
 	return class$;
 }
 

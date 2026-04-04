@@ -48,6 +48,7 @@ class LoggingOutputStream : public ::java::io::FilterOutputStream {
 	$class(LoggingOutputStream, 0, ::java::io::FilterOutputStream)
 public:
 	LoggingOutputStream();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::OutputStream* out, ::com::sun::tools::sjavac::Log$Level* level, $String* linePrefix);
 	using ::java::io::FilterOutputStream::write;
 	virtual void write(int32_t b) override;

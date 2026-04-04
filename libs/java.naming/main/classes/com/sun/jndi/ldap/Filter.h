@@ -59,6 +59,7 @@ class Filter : public ::java::lang::Object {
 	$class(Filter, 0, ::java::lang::Object)
 public:
 	Filter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void dprint($String* msg);
 	static void dprint($String* msg, $bytes* str);

@@ -1,5 +1,4 @@
 #include <com/sun/xml/internal/stream/events/CommentEvent.h>
-
 #include <com/sun/xml/internal/stream/events/DummyEvent.h>
 #include <java/io/Writer.h>
 #include <javax/xml/namespace/QName.h>
@@ -30,54 +29,6 @@ namespace com {
 			namespace internal {
 				namespace stream {
 					namespace events {
-
-$FieldInfo _CommentEvent_FieldInfo_[] = {
-	{"fText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CommentEvent, fText)},
-	{}
-};
-
-$MethodInfo _CommentEvent_MethodInfo_[] = {
-	{"*asCharacters", "()Ljavax/xml/stream/events/Characters;", nullptr, $PUBLIC},
-	{"*asEndElement", "()Ljavax/xml/stream/events/EndElement;", nullptr, $PUBLIC},
-	{"*asStartElement", "()Ljavax/xml/stream/events/StartElement;", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getEventType", "()I", nullptr, $PUBLIC},
-	{"*getLocation", "()Ljavax/xml/stream/Location;", nullptr, $PUBLIC},
-	{"*getSchemaType", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CommentEvent, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CommentEvent, init$, void, $String*)},
-	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CommentEvent, getText, $String*)},
-	{"init", "()V", nullptr, $PROTECTED, $virtualMethod(CommentEvent, init, void)},
-	{"*isAttribute", "()Z", nullptr, $PUBLIC},
-	{"*isCharacters", "()Z", nullptr, $PUBLIC},
-	{"*isEndDocument", "()Z", nullptr, $PUBLIC},
-	{"*isEndElement", "()Z", nullptr, $PUBLIC},
-	{"*isEntityReference", "()Z", nullptr, $PUBLIC},
-	{"*isNamespace", "()Z", nullptr, $PUBLIC},
-	{"*isProcessingInstruction", "()Z", nullptr, $PUBLIC},
-	{"*isStartDocument", "()Z", nullptr, $PUBLIC},
-	{"*isStartElement", "()Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CommentEvent, toString, $String*)},
-	{"*writeAsEncodedUnicode", "(Ljava/io/Writer;)V", nullptr, $PUBLIC},
-	{"writeAsEncodedUnicodeEx", "(Ljava/io/Writer;)V", nullptr, $PROTECTED, $virtualMethod(CommentEvent, writeAsEncodedUnicodeEx, void, $Writer*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _CommentEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.xml.internal.stream.events.CommentEvent",
-	"com.sun.xml.internal.stream.events.DummyEvent",
-	"javax.xml.stream.events.Comment",
-	_CommentEvent_FieldInfo_,
-	_CommentEvent_MethodInfo_
-};
-
-$Object* allocate$CommentEvent($Class* clazz) {
-	return $of($alloc(CommentEvent));
-}
 
 int32_t CommentEvent::getEventType() {
 	 return this->$DummyEvent::getEventType();
@@ -183,7 +134,7 @@ $String* CommentEvent::getText() {
 }
 
 void CommentEvent::writeAsEncodedUnicodeEx($Writer* writer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(writer)->write($$str({"<!--"_s, $(getText()), "-->"_s}));
 }
 
@@ -191,7 +142,50 @@ CommentEvent::CommentEvent() {
 }
 
 $Class* CommentEvent::load$($String* name, bool initialize) {
-	$loadClass(CommentEvent, name, initialize, &_CommentEvent_ClassInfo_, allocate$CommentEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"fText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CommentEvent, fText)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*asCharacters", "()Ljavax/xml/stream/events/Characters;", nullptr, $PUBLIC},
+		{"*asEndElement", "()Ljavax/xml/stream/events/EndElement;", nullptr, $PUBLIC},
+		{"*asStartElement", "()Ljavax/xml/stream/events/StartElement;", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getEventType", "()I", nullptr, $PUBLIC},
+		{"*getLocation", "()Ljavax/xml/stream/Location;", nullptr, $PUBLIC},
+		{"*getSchemaType", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CommentEvent, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CommentEvent, init$, void, $String*)},
+		{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CommentEvent, getText, $String*)},
+		{"init", "()V", nullptr, $PROTECTED, $virtualMethod(CommentEvent, init, void)},
+		{"*isAttribute", "()Z", nullptr, $PUBLIC},
+		{"*isCharacters", "()Z", nullptr, $PUBLIC},
+		{"*isEndDocument", "()Z", nullptr, $PUBLIC},
+		{"*isEndElement", "()Z", nullptr, $PUBLIC},
+		{"*isEntityReference", "()Z", nullptr, $PUBLIC},
+		{"*isNamespace", "()Z", nullptr, $PUBLIC},
+		{"*isProcessingInstruction", "()Z", nullptr, $PUBLIC},
+		{"*isStartDocument", "()Z", nullptr, $PUBLIC},
+		{"*isStartElement", "()Z", nullptr, $PUBLIC},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CommentEvent, toString, $String*)},
+		{"*writeAsEncodedUnicode", "(Ljava/io/Writer;)V", nullptr, $PUBLIC},
+		{"writeAsEncodedUnicodeEx", "(Ljava/io/Writer;)V", nullptr, $PROTECTED, $virtualMethod(CommentEvent, writeAsEncodedUnicodeEx, void, $Writer*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.xml.internal.stream.events.CommentEvent",
+		"com.sun.xml.internal.stream.events.DummyEvent",
+		"javax.xml.stream.events.Comment",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CommentEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CommentEvent));
+	});
 	return class$;
 }
 

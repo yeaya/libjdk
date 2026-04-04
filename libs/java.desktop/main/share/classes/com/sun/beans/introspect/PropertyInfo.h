@@ -44,6 +44,7 @@ class PropertyInfo : public ::java::lang::Object {
 	$class(PropertyInfo, 0, ::java::lang::Object)
 public:
 	PropertyInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::List* add(::java::util::List* list, ::java::lang::reflect::Method* method, ::java::lang::reflect::Type* type);
 	$Object* get(::com::sun::beans::introspect::PropertyInfo$Name* name);

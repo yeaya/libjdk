@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/HttpClientImpl$SelectorAttachment.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
@@ -45,7 +44,6 @@ using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $Selector = ::java::nio::channels::Selector;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
-using $Set = ::java::util::Set;
 using $Predicate = ::java::util::function::Predicate;
 using $Supplier = ::java::util::function::Supplier;
 using $Stream = ::java::util::stream::Stream;
@@ -68,33 +66,29 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->toString());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpClientImpl$SelectorAttachment$$Lambda$toString>());
-	}
 	$String* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo HttpClientImpl$SelectorAttachment$$Lambda$toString::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HttpClientImpl$SelectorAttachment$$Lambda$toString, inst$)},
-	{}
-};
-$MethodInfo HttpClientImpl$SelectorAttachment$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpClientImpl$SelectorAttachment$$Lambda$toString, init$, void, $String*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SelectorAttachment$$Lambda$toString, get, $Object*)},
-	{}
-};
-$ClassInfo HttpClientImpl$SelectorAttachment$$Lambda$toString::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.HttpClientImpl$SelectorAttachment$$Lambda$toString",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* HttpClientImpl$SelectorAttachment$$Lambda$toString::load$($String* name, bool initialize) {
-	$loadClass(HttpClientImpl$SelectorAttachment$$Lambda$toString, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HttpClientImpl$SelectorAttachment$$Lambda$toString, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpClientImpl$SelectorAttachment$$Lambda$toString, init$, void, $String*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SelectorAttachment$$Lambda$toString, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.HttpClientImpl$SelectorAttachment$$Lambda$toString",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpClientImpl$SelectorAttachment$$Lambda$toString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpClientImpl$SelectorAttachment$$Lambda$toString);
+	});
 	return class$;
 }
 $Class* HttpClientImpl$SelectorAttachment$$Lambda$toString::class$ = nullptr;
@@ -108,81 +102,32 @@ public:
 	virtual bool test(Object$* ev) override {
 		 return HttpClientImpl$SelectorAttachment::lambda$events$0(interestOps, $cast($AsyncEvent, ev));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1>());
-	}
 	int32_t interestOps = 0;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1::fieldInfos[2] = {
-	{"interestOps", "I", nullptr, $PUBLIC, $field(HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1, interestOps)},
-	{}
-};
-$MethodInfo HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1, init$, void, int32_t)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1::load$($String* name, bool initialize) {
-	$loadClass(HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"interestOps", "I", nullptr, $PUBLIC, $field(HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1, interestOps)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1, init$, void, int32_t)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1);
+	});
 	return class$;
 }
 $Class* HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1::class$ = nullptr;
-
-$FieldInfo _HttpClientImpl$SelectorAttachment_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(HttpClientImpl$SelectorAttachment, $assertionsDisabled)},
-	{"chan", "Ljava/nio/channels/SelectableChannel;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl$SelectorAttachment, chan)},
-	{"selector", "Ljava/nio/channels/Selector;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl$SelectorAttachment, selector)},
-	{"pending", "Ljava/util/Set;", "Ljava/util/Set<Ljdk/internal/net/http/AsyncEvent;>;", $PRIVATE | $FINAL, $field(HttpClientImpl$SelectorAttachment, pending)},
-	{"debug", "Ljdk/internal/net/http/common/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HttpClientImpl$SelectorAttachment, debug)},
-	{"interestOps", "I", nullptr, $PRIVATE, $field(HttpClientImpl$SelectorAttachment, interestOps)},
-	{}
-};
-
-$MethodInfo _HttpClientImpl$SelectorAttachment_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/SelectableChannel;Ljava/nio/channels/Selector;)V", nullptr, 0, $method(HttpClientImpl$SelectorAttachment, init$, void, $SelectableChannel*, $Selector*)},
-	{"abortPending", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(HttpClientImpl$SelectorAttachment, abortPending, void, $Throwable*)},
-	{"events", "(I)Ljava/util/stream/Stream;", "(I)Ljava/util/stream/Stream<Ljdk/internal/net/http/AsyncEvent;>;", 0, $virtualMethod(HttpClientImpl$SelectorAttachment, events, $Stream*, int32_t)},
-	{"lambda$events$0", "(ILjdk/internal/net/http/AsyncEvent;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpClientImpl$SelectorAttachment, lambda$events$0, bool, int32_t, $AsyncEvent*)},
-	{"register", "(Ljdk/internal/net/http/AsyncEvent;)V", nullptr, 0, $virtualMethod(HttpClientImpl$SelectorAttachment, register$, void, $AsyncEvent*), "java.nio.channels.ClosedChannelException"},
-	{"resetInterestOps", "(I)V", nullptr, 0, $virtualMethod(HttpClientImpl$SelectorAttachment, resetInterestOps, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _HttpClientImpl$SelectorAttachment_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.HttpClientImpl$SelectorAttachment", "jdk.internal.net.http.HttpClientImpl", "SelectorAttachment", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _HttpClientImpl$SelectorAttachment_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.HttpClientImpl$SelectorAttachment",
-	"java.lang.Object",
-	nullptr,
-	_HttpClientImpl$SelectorAttachment_FieldInfo_,
-	_HttpClientImpl$SelectorAttachment_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HttpClientImpl$SelectorAttachment_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.HttpClientImpl"
-};
-
-$Object* allocate$HttpClientImpl$SelectorAttachment($Class* clazz) {
-	return $of($alloc(HttpClientImpl$SelectorAttachment));
-}
 
 bool HttpClientImpl$SelectorAttachment::$assertionsDisabled = false;
 $Logger* HttpClientImpl$SelectorAttachment::debug = nullptr;
@@ -194,16 +139,16 @@ void HttpClientImpl$SelectorAttachment::init$($SelectableChannel* chan, $Selecto
 }
 
 void HttpClientImpl$SelectorAttachment::register$($AsyncEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t newOps = $nc(e)->interestOps();
-	bool reRegister = ((int32_t)(this->interestOps & (uint32_t)newOps)) != newOps;
+	bool reRegister = (this->interestOps & newOps) != newOps;
 	this->interestOps |= newOps;
 	$nc(this->pending)->add(e);
 	if ($nc(HttpClientImpl$SelectorAttachment::debug)->on()) {
-		$nc(HttpClientImpl$SelectorAttachment::debug)->log("Registering %s for %d (%s)"_s, $$new($ObjectArray, {
-			$of(e),
-			$($of($Integer::valueOf(newOps))),
-			$($of($Boolean::valueOf(reRegister)))
+		HttpClientImpl$SelectorAttachment::debug->log("Registering %s for %d (%s)"_s, $$new($ObjectArray, {
+			e,
+			$($Integer::valueOf(newOps)),
+			$($Boolean::valueOf(reRegister))
 		}));
 	}
 	if (reRegister) {
@@ -218,12 +163,12 @@ void HttpClientImpl$SelectorAttachment::register$($AsyncEvent* e) {
 }
 
 $Stream* HttpClientImpl$SelectorAttachment::events(int32_t interestOps) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc(this->pending)->stream()))->filter(static_cast<$Predicate*>($$new(HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1, interestOps)));
+	$useLocalObjectStack();
+	return $$nc($nc(this->pending)->stream())->filter($$new(HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1, interestOps));
 }
 
 void HttpClientImpl$SelectorAttachment::resetInterestOps(int32_t interestOps) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t newOps = 0;
 	$var($Iterator, itr, $nc(this->pending)->iterator());
 	while ($nc(itr)->hasNext()) {
@@ -233,7 +178,7 @@ void HttpClientImpl$SelectorAttachment::resetInterestOps(int32_t interestOps) {
 			newOps |= evops;
 			continue;
 		}
-		if (((int32_t)(evops & (uint32_t)interestOps)) != 0) {
+		if ((evops & interestOps) != 0) {
 			itr->remove();
 		} else {
 			newOps |= evops;
@@ -241,15 +186,15 @@ void HttpClientImpl$SelectorAttachment::resetInterestOps(int32_t interestOps) {
 	}
 	this->interestOps = newOps;
 	$var($SelectionKey, key, $nc(this->chan)->keyFor(this->selector));
-	if (newOps == 0 && key != nullptr && $nc(this->pending)->isEmpty()) {
+	if (newOps == 0 && key != nullptr && this->pending->isEmpty()) {
 		key->cancel();
 	} else {
 		try {
 			if (key == nullptr || !key->isValid()) {
 				$throwNew($CancelledKeyException);
 			}
-			key->interestOps(newOps);
-			if (!$nc(this->chan)->isOpen()) {
+			$nc(key)->interestOps(newOps);
+			if (!this->chan->isOpen()) {
 				abortPending($$new($ClosedChannelException));
 				return;
 			}
@@ -258,7 +203,7 @@ void HttpClientImpl$SelectorAttachment::resetInterestOps(int32_t interestOps) {
 			}
 		} catch ($CancelledKeyException& x) {
 			if ($nc(HttpClientImpl$SelectorAttachment::debug)->on()) {
-				$nc(HttpClientImpl$SelectorAttachment::debug)->log($$str({"key cancelled for "_s, this->chan}));
+				HttpClientImpl$SelectorAttachment::debug->log($$str({"key cancelled for "_s, this->chan}));
 			}
 			abortPending(x);
 		}
@@ -266,16 +211,14 @@ void HttpClientImpl$SelectorAttachment::resetInterestOps(int32_t interestOps) {
 }
 
 void HttpClientImpl$SelectorAttachment::abortPending($Throwable* x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(this->pending)->isEmpty()) {
-		$var($AsyncEventArray, evts, $fcast($AsyncEventArray, $nc(this->pending)->toArray($$new($AsyncEventArray, 0))));
-		$nc(this->pending)->clear();
+		$var($AsyncEventArray, evts, $cast($AsyncEventArray, this->pending->toArray($$new($AsyncEventArray, 0))));
+		this->pending->clear();
 		$var($IOException, io, $Utils::getIOException(x));
 		{
 			$var($AsyncEventArray, arr$, evts);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($AsyncEvent, event, arr$->get(i$));
 				{
 					$nc(event)->abort(io);
@@ -287,14 +230,14 @@ void HttpClientImpl$SelectorAttachment::abortPending($Throwable* x) {
 
 bool HttpClientImpl$SelectorAttachment::lambda$events$0(int32_t interestOps, $AsyncEvent* ev) {
 	$init(HttpClientImpl$SelectorAttachment);
-	return ((int32_t)($nc(ev)->interestOps() & (uint32_t)interestOps)) != 0;
+	return ($nc(ev)->interestOps() & interestOps) != 0;
 }
 
-void clinit$HttpClientImpl$SelectorAttachment($Class* class$) {
+void HttpClientImpl$SelectorAttachment::clinit$($Class* clazz) {
 	$load($HttpClientImpl);
 	HttpClientImpl$SelectorAttachment::$assertionsDisabled = !$HttpClientImpl::class$->desiredAssertionStatus();
 	$init($Utils);
-	$assignStatic(HttpClientImpl$SelectorAttachment::debug, $Utils::getDebugLogger(static_cast<$Supplier*>($$new(HttpClientImpl$SelectorAttachment$$Lambda$toString, static_cast<$String*>("SelectorAttachment"_s))), $Utils::DEBUG));
+	$assignStatic(HttpClientImpl$SelectorAttachment::debug, $Utils::getDebugLogger($$new(HttpClientImpl$SelectorAttachment$$Lambda$toString, "SelectorAttachment"_s), $Utils::DEBUG));
 }
 
 HttpClientImpl$SelectorAttachment::HttpClientImpl$SelectorAttachment() {
@@ -302,14 +245,53 @@ HttpClientImpl$SelectorAttachment::HttpClientImpl$SelectorAttachment() {
 
 $Class* HttpClientImpl$SelectorAttachment::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(HttpClientImpl$SelectorAttachment$$Lambda$toString::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.HttpClientImpl$SelectorAttachment$$Lambda$toString")) {
 			return HttpClientImpl$SelectorAttachment$$Lambda$toString::load$(name, initialize);
 		}
-		if (name->equals(HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1")) {
 			return HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(HttpClientImpl$SelectorAttachment, name, initialize, &_HttpClientImpl$SelectorAttachment_ClassInfo_, clinit$HttpClientImpl$SelectorAttachment, allocate$HttpClientImpl$SelectorAttachment);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(HttpClientImpl$SelectorAttachment, $assertionsDisabled)},
+		{"chan", "Ljava/nio/channels/SelectableChannel;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl$SelectorAttachment, chan)},
+		{"selector", "Ljava/nio/channels/Selector;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl$SelectorAttachment, selector)},
+		{"pending", "Ljava/util/Set;", "Ljava/util/Set<Ljdk/internal/net/http/AsyncEvent;>;", $PRIVATE | $FINAL, $field(HttpClientImpl$SelectorAttachment, pending)},
+		{"debug", "Ljdk/internal/net/http/common/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HttpClientImpl$SelectorAttachment, debug)},
+		{"interestOps", "I", nullptr, $PRIVATE, $field(HttpClientImpl$SelectorAttachment, interestOps)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/SelectableChannel;Ljava/nio/channels/Selector;)V", nullptr, 0, $method(HttpClientImpl$SelectorAttachment, init$, void, $SelectableChannel*, $Selector*)},
+		{"abortPending", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(HttpClientImpl$SelectorAttachment, abortPending, void, $Throwable*)},
+		{"events", "(I)Ljava/util/stream/Stream;", "(I)Ljava/util/stream/Stream<Ljdk/internal/net/http/AsyncEvent;>;", 0, $virtualMethod(HttpClientImpl$SelectorAttachment, events, $Stream*, int32_t)},
+		{"lambda$events$0", "(ILjdk/internal/net/http/AsyncEvent;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpClientImpl$SelectorAttachment, lambda$events$0, bool, int32_t, $AsyncEvent*)},
+		{"register", "(Ljdk/internal/net/http/AsyncEvent;)V", nullptr, 0, $virtualMethod(HttpClientImpl$SelectorAttachment, register$, void, $AsyncEvent*), "java.nio.channels.ClosedChannelException"},
+		{"resetInterestOps", "(I)V", nullptr, 0, $virtualMethod(HttpClientImpl$SelectorAttachment, resetInterestOps, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.HttpClientImpl$SelectorAttachment", "jdk.internal.net.http.HttpClientImpl", "SelectorAttachment", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.HttpClientImpl$SelectorAttachment",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.HttpClientImpl"
+	};
+	$loadClass(HttpClientImpl$SelectorAttachment, name, initialize, &classInfo$$, HttpClientImpl$SelectorAttachment::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpClientImpl$SelectorAttachment);
+	});
 	return class$;
 }
 

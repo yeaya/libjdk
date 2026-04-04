@@ -44,6 +44,7 @@ class $import HttpClientImpl$SSLDirectBufferSupplier : public ::jdk::internal::n
 	$class(HttpClientImpl$SSLDirectBufferSupplier, 0, ::jdk::internal::net::http::common::BufferSupplier)
 public:
 	HttpClientImpl$SSLDirectBufferSupplier();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::HttpClientImpl* client);
 	virtual $Object* get() override;
 	virtual void recycle(::java::nio::ByteBuffer* buffer) override;

@@ -1,5 +1,4 @@
 #include <sun/font/SunLayoutEngine.h>
-
 #include <java/awt/geom/Point2D$Float.h>
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -55,89 +54,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* font) override {
-		 return $of($new($SunLayoutEngine$FaceRef, $cast($Font2D, font)));
+		 return $new($SunLayoutEngine$FaceRef, $cast($Font2D, font));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SunLayoutEngine$$Lambda$FaceRef>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SunLayoutEngine$$Lambda$FaceRef::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SunLayoutEngine$$Lambda$FaceRef, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SunLayoutEngine$$Lambda$FaceRef, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo SunLayoutEngine$$Lambda$FaceRef::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.font.SunLayoutEngine$$Lambda$FaceRef",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* SunLayoutEngine$$Lambda$FaceRef::load$($String* name, bool initialize) {
-	$loadClass(SunLayoutEngine$$Lambda$FaceRef, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SunLayoutEngine$$Lambda$FaceRef, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SunLayoutEngine$$Lambda$FaceRef, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.font.SunLayoutEngine$$Lambda$FaceRef",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SunLayoutEngine$$Lambda$FaceRef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SunLayoutEngine$$Lambda$FaceRef);
+	});
 	return class$;
 }
 $Class* SunLayoutEngine$$Lambda$FaceRef::class$ = nullptr;
-
-$FieldInfo _SunLayoutEngine_FieldInfo_[] = {
-	{"key", "Lsun/font/GlyphLayout$LayoutEngineKey;", nullptr, $PRIVATE, $field(SunLayoutEngine, key)},
-	{"instance", "Lsun/font/GlyphLayout$LayoutEngineFactory;", nullptr, $PRIVATE | $STATIC, $staticField(SunLayoutEngine, instance$)},
-	{"cacheref", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<Ljava/util/concurrent/ConcurrentHashMap<Lsun/font/GlyphLayout$LayoutEngineKey;Lsun/font/GlyphLayout$LayoutEngine;>;>;", $PRIVATE, $field(SunLayoutEngine, cacheref)},
-	{"facePtr", "Ljava/util/WeakHashMap;", "Ljava/util/WeakHashMap<Lsun/font/Font2D;Lsun/font/SunLayoutEngine$FaceRef;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SunLayoutEngine, facePtr)},
-	{}
-};
-
-$MethodInfo _SunLayoutEngine_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SunLayoutEngine, init$, void)},
-	{"<init>", "(Lsun/font/GlyphLayout$LayoutEngineKey;)V", nullptr, $PRIVATE, $method(SunLayoutEngine, init$, void, $GlyphLayout$LayoutEngineKey*)},
-	{"createFace", "(Lsun/font/Font2D;J)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SunLayoutEngine, createFace, int64_t, $Font2D*, int64_t)},
-	{"disposeFace", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SunLayoutEngine, disposeFace, void, int64_t)},
-	{"getEngine", "(Lsun/font/Font2D;II)Lsun/font/GlyphLayout$LayoutEngine;", nullptr, $PUBLIC, $virtualMethod(SunLayoutEngine, getEngine, $GlyphLayout$LayoutEngine*, $Font2D*, int32_t, int32_t)},
-	{"getEngine", "(Lsun/font/GlyphLayout$LayoutEngineKey;)Lsun/font/GlyphLayout$LayoutEngine;", nullptr, $PUBLIC, $virtualMethod(SunLayoutEngine, getEngine, $GlyphLayout$LayoutEngine*, $GlyphLayout$LayoutEngineKey*)},
-	{"getFacePtr", "(Lsun/font/Font2D;)J", nullptr, $PRIVATE, $method(SunLayoutEngine, getFacePtr, int64_t, $Font2D*)},
-	{"instance", "()Lsun/font/GlyphLayout$LayoutEngineFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(SunLayoutEngine, instance, $GlyphLayout$LayoutEngineFactory*)},
-	{"layout", "(Lsun/font/FontStrikeDesc;[FFIILsun/font/TextRecord;ILjava/awt/geom/Point2D$Float;Lsun/font/GlyphLayout$GVData;)V", nullptr, $PUBLIC, $virtualMethod(SunLayoutEngine, layout, void, $FontStrikeDesc*, $floats*, float, int32_t, int32_t, $TextRecord*, int32_t, $Point2D$Float*, $GlyphLayout$GVData*)},
-	{"shape", "(Lsun/font/Font2D;Lsun/font/FontStrike;F[FJ[CLsun/font/GlyphLayout$GVData;IIIILjava/awt/geom/Point2D$Float;II)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SunLayoutEngine, shape, bool, $Font2D*, $FontStrike*, float, $floats*, int64_t, $chars*, $GlyphLayout$GVData*, int32_t, int32_t, int32_t, int32_t, $Point2D$Float*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-#define _METHOD_INDEX_createFace 6
-#define _METHOD_INDEX_disposeFace 7
-#define _METHOD_INDEX_shape 13
-
-$InnerClassInfo _SunLayoutEngine_InnerClassesInfo_[] = {
-	{"sun.font.GlyphLayout$LayoutEngine", "sun.font.GlyphLayout", "LayoutEngine", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.font.GlyphLayout$LayoutEngineFactory", "sun.font.GlyphLayout", "LayoutEngineFactory", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.font.SunLayoutEngine$FaceRef", "sun.font.SunLayoutEngine", "FaceRef", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SunLayoutEngine_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.font.SunLayoutEngine",
-	"java.lang.Object",
-	"sun.font.GlyphLayout$LayoutEngine,sun.font.GlyphLayout$LayoutEngineFactory",
-	_SunLayoutEngine_FieldInfo_,
-	_SunLayoutEngine_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SunLayoutEngine_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.font.SunLayoutEngine$FaceRef"
-};
-
-$Object* allocate$SunLayoutEngine($Class* clazz) {
-	return $of($alloc(SunLayoutEngine));
-}
 
 int32_t SunLayoutEngine::hashCode() {
 	 return this->$GlyphLayout$LayoutEngine::hashCode();
@@ -179,7 +118,7 @@ $GlyphLayout$LayoutEngine* SunLayoutEngine::getEngine($Font2D* font, int32_t scr
 }
 
 $GlyphLayout$LayoutEngine* SunLayoutEngine::getEngine($GlyphLayout$LayoutEngineKey* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentHashMap, cache, $cast($ConcurrentHashMap, $nc(this->cacheref)->get()));
 	if (cache == nullptr) {
 		$assign(cache, $new($ConcurrentHashMap));
@@ -200,50 +139,48 @@ void SunLayoutEngine::init$($GlyphLayout$LayoutEngineKey* key) {
 }
 
 int64_t SunLayoutEngine::getFacePtr($Font2D* font2D) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SunLayoutEngine$FaceRef, ref, nullptr);
 	$synchronized(SunLayoutEngine::facePtr) {
-		$assign(ref, $cast($SunLayoutEngine$FaceRef, $nc(SunLayoutEngine::facePtr)->computeIfAbsent(font2D, static_cast<$Function*>($$new(SunLayoutEngine$$Lambda$FaceRef)))));
+		$assign(ref, $cast($SunLayoutEngine$FaceRef, SunLayoutEngine::facePtr->computeIfAbsent(font2D, $$new(SunLayoutEngine$$Lambda$FaceRef))));
 	}
 	return $nc(ref)->getNativePtr();
 }
 
 void SunLayoutEngine::layout($FontStrikeDesc* desc, $floats* mat, float ptSize, int32_t gmask, int32_t baseIndex, $TextRecord* tr, int32_t typo_flags, $Point2D$Float* pt, $GlyphLayout$GVData* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Font2D, font, $nc(this->key)->font());
 	$var($FontStrike, strike, $nc(font)->getStrike(desc));
 	int64_t pFace = getFacePtr(font);
 	if (pFace != 0) {
-		shape(font, strike, ptSize, mat, pFace, $nc(tr)->text, data, $nc(this->key)->script(), tr->start, tr->limit, baseIndex, pt, typo_flags, gmask);
+		shape(font, strike, ptSize, mat, pFace, $nc(tr)->text, data, $nc(this->key)->script(), $nc(tr)->start, $nc(tr)->limit, baseIndex, pt, typo_flags, gmask);
 	}
 }
 
 bool SunLayoutEngine::shape($Font2D* font, $FontStrike* strike, float ptSize, $floats* mat, int64_t pFace, $chars* chars, $GlyphLayout$GVData* data, int32_t script, int32_t offset, int32_t limit, int32_t baseIndex, $Point2D$Float* pt, int32_t typo_flags, int32_t slot) {
 	$init(SunLayoutEngine);
-	bool $ret = false;
-	$prepareNativeStatic(SunLayoutEngine, shape, bool, $Font2D* font, $FontStrike* strike, float ptSize, $floats* mat, int64_t pFace, $chars* chars, $GlyphLayout$GVData* data, int32_t script, int32_t offset, int32_t limit, int32_t baseIndex, $Point2D$Float* pt, int32_t typo_flags, int32_t slot);
-	$ret = $invokeNativeStatic(font, strike, ptSize, mat, pFace, chars, data, script, offset, limit, baseIndex, pt, typo_flags, slot);
+	$prepareNativeStatic(shape, bool, $Font2D* font, $FontStrike* strike, float ptSize, $floats* mat, int64_t pFace, $chars* chars, $GlyphLayout$GVData* data, int32_t script, int32_t offset, int32_t limit, int32_t baseIndex, $Point2D$Float* pt, int32_t typo_flags, int32_t slot);
+	bool $ret = $invokeNativeStatic(font, strike, ptSize, mat, pFace, chars, data, script, offset, limit, baseIndex, pt, typo_flags, slot);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int64_t SunLayoutEngine::createFace($Font2D* font, int64_t platformNativeFontPtr) {
 	$init(SunLayoutEngine);
-	int64_t $ret = 0;
-	$prepareNativeStatic(SunLayoutEngine, createFace, int64_t, $Font2D* font, int64_t platformNativeFontPtr);
-	$ret = $invokeNativeStatic(font, platformNativeFontPtr);
+	$prepareNativeStatic(createFace, int64_t, $Font2D* font, int64_t platformNativeFontPtr);
+	int64_t $ret = $invokeNativeStatic(font, platformNativeFontPtr);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void SunLayoutEngine::disposeFace(int64_t facePtr) {
 	$init(SunLayoutEngine);
-	$prepareNativeStatic(SunLayoutEngine, disposeFace, void, int64_t facePtr);
+	$prepareNativeStatic(disposeFace, void, int64_t facePtr);
 	$invokeNativeStatic(facePtr);
 	$finishNativeStatic();
 }
 
-void clinit$SunLayoutEngine($Class* class$) {
+void SunLayoutEngine::clinit$($Class* clazz) {
 	{
 		$FontManagerNativeLibrary::load();
 	}
@@ -255,11 +192,58 @@ SunLayoutEngine::SunLayoutEngine() {
 
 $Class* SunLayoutEngine::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SunLayoutEngine$$Lambda$FaceRef::classInfo$.name)) {
+		if (name->equals("sun.font.SunLayoutEngine$$Lambda$FaceRef")) {
 			return SunLayoutEngine$$Lambda$FaceRef::load$(name, initialize);
 		}
 	}
-	$loadClass(SunLayoutEngine, name, initialize, &_SunLayoutEngine_ClassInfo_, clinit$SunLayoutEngine, allocate$SunLayoutEngine);
+	$FieldInfo fieldInfos$$[] = {
+		{"key", "Lsun/font/GlyphLayout$LayoutEngineKey;", nullptr, $PRIVATE, $field(SunLayoutEngine, key)},
+		{"instance", "Lsun/font/GlyphLayout$LayoutEngineFactory;", nullptr, $PRIVATE | $STATIC, $staticField(SunLayoutEngine, instance$)},
+		{"cacheref", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<Ljava/util/concurrent/ConcurrentHashMap<Lsun/font/GlyphLayout$LayoutEngineKey;Lsun/font/GlyphLayout$LayoutEngine;>;>;", $PRIVATE, $field(SunLayoutEngine, cacheref)},
+		{"facePtr", "Ljava/util/WeakHashMap;", "Ljava/util/WeakHashMap<Lsun/font/Font2D;Lsun/font/SunLayoutEngine$FaceRef;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SunLayoutEngine, facePtr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SunLayoutEngine, init$, void)},
+		{"<init>", "(Lsun/font/GlyphLayout$LayoutEngineKey;)V", nullptr, $PRIVATE, $method(SunLayoutEngine, init$, void, $GlyphLayout$LayoutEngineKey*)},
+		{"createFace", "(Lsun/font/Font2D;J)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SunLayoutEngine, createFace, int64_t, $Font2D*, int64_t)},
+		{"disposeFace", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SunLayoutEngine, disposeFace, void, int64_t)},
+		{"getEngine", "(Lsun/font/Font2D;II)Lsun/font/GlyphLayout$LayoutEngine;", nullptr, $PUBLIC, $virtualMethod(SunLayoutEngine, getEngine, $GlyphLayout$LayoutEngine*, $Font2D*, int32_t, int32_t)},
+		{"getEngine", "(Lsun/font/GlyphLayout$LayoutEngineKey;)Lsun/font/GlyphLayout$LayoutEngine;", nullptr, $PUBLIC, $virtualMethod(SunLayoutEngine, getEngine, $GlyphLayout$LayoutEngine*, $GlyphLayout$LayoutEngineKey*)},
+		{"getFacePtr", "(Lsun/font/Font2D;)J", nullptr, $PRIVATE, $method(SunLayoutEngine, getFacePtr, int64_t, $Font2D*)},
+		{"instance", "()Lsun/font/GlyphLayout$LayoutEngineFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(SunLayoutEngine, instance, $GlyphLayout$LayoutEngineFactory*)},
+		{"layout", "(Lsun/font/FontStrikeDesc;[FFIILsun/font/TextRecord;ILjava/awt/geom/Point2D$Float;Lsun/font/GlyphLayout$GVData;)V", nullptr, $PUBLIC, $virtualMethod(SunLayoutEngine, layout, void, $FontStrikeDesc*, $floats*, float, int32_t, int32_t, $TextRecord*, int32_t, $Point2D$Float*, $GlyphLayout$GVData*)},
+		{"shape", "(Lsun/font/Font2D;Lsun/font/FontStrike;F[FJ[CLsun/font/GlyphLayout$GVData;IIIILjava/awt/geom/Point2D$Float;II)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SunLayoutEngine, shape, bool, $Font2D*, $FontStrike*, float, $floats*, int64_t, $chars*, $GlyphLayout$GVData*, int32_t, int32_t, int32_t, int32_t, $Point2D$Float*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.GlyphLayout$LayoutEngine", "sun.font.GlyphLayout", "LayoutEngine", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.font.GlyphLayout$LayoutEngineFactory", "sun.font.GlyphLayout", "LayoutEngineFactory", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.font.SunLayoutEngine$FaceRef", "sun.font.SunLayoutEngine", "FaceRef", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.font.SunLayoutEngine",
+		"java.lang.Object",
+		"sun.font.GlyphLayout$LayoutEngine,sun.font.GlyphLayout$LayoutEngineFactory",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.font.SunLayoutEngine$FaceRef"
+	};
+	$loadClass(SunLayoutEngine, name, initialize, &classInfo$$, SunLayoutEngine::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SunLayoutEngine));
+	});
 	return class$;
 }
 

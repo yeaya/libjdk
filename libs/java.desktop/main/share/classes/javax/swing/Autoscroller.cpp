@@ -1,10 +1,8 @@
 #include <javax/swing/Autoscroller.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/MouseEvent.h>
 #include <javax/swing/JComponent.h>
@@ -19,7 +17,6 @@ using $Component = ::java::awt::Component;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -31,40 +28,6 @@ using $AWTAccessor$MouseEventAccessor = ::sun::awt::AWTAccessor$MouseEventAccess
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _Autoscroller_FieldInfo_[] = {
-	{"sharedInstance", "Ljavax/swing/Autoscroller;", nullptr, $PRIVATE | $STATIC, $staticField(Autoscroller, sharedInstance)},
-	{"event", "Ljava/awt/event/MouseEvent;", nullptr, $PRIVATE | $STATIC, $staticField(Autoscroller, event)},
-	{"timer", "Ljavax/swing/Timer;", nullptr, $PRIVATE | $STATIC, $staticField(Autoscroller, timer)},
-	{"component", "Ljavax/swing/JComponent;", nullptr, $PRIVATE | $STATIC, $staticField(Autoscroller, component)},
-	{}
-};
-
-$MethodInfo _Autoscroller_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Autoscroller, init$, void)},
-	{"_isRunning", "(Ljavax/swing/JComponent;)Z", nullptr, $PRIVATE, $method(Autoscroller, _isRunning, bool, $JComponent*)},
-	{"_processMouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(Autoscroller, _processMouseDragged, void, $MouseEvent*)},
-	{"_stop", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(Autoscroller, _stop, void, $JComponent*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(Autoscroller, actionPerformed, void, $ActionEvent*)},
-	{"isRunning", "(Ljavax/swing/JComponent;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Autoscroller, isRunning, bool, $JComponent*)},
-	{"processMouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Autoscroller, processMouseDragged, void, $MouseEvent*)},
-	{"start", "(Ljavax/swing/JComponent;Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(Autoscroller, start, void, $JComponent*, $MouseEvent*)},
-	{"stop", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Autoscroller, stop, void, $JComponent*)},
-	{}
-};
-
-$ClassInfo _Autoscroller_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.Autoscroller",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	_Autoscroller_FieldInfo_,
-	_Autoscroller_MethodInfo_
-};
-
-$Object* allocate$Autoscroller($Class* clazz) {
-	return $of($alloc(Autoscroller));
-}
 
 Autoscroller* Autoscroller::sharedInstance = nullptr;
 $MouseEvent* Autoscroller::event = nullptr;
@@ -90,13 +53,13 @@ void Autoscroller::init$() {
 }
 
 void Autoscroller::start($JComponent* c, $MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Point, screenLocation, $nc(c)->getLocationOnScreen());
 	if (Autoscroller::component != c) {
 		_stop(Autoscroller::component);
 	}
 	$assignStatic(Autoscroller::component, c);
-	$var($Component, var$0, static_cast<$Component*>(Autoscroller::component));
+	$var($Component, var$0, Autoscroller::component);
 	int32_t var$1 = $nc(e)->getID();
 	int64_t var$2 = e->getWhen();
 	int32_t var$3 = e->getModifiers();
@@ -107,7 +70,7 @@ void Autoscroller::start($JComponent* c, $MouseEvent* e) {
 	int32_t var$8 = e->getClickCount();
 	$assignStatic(Autoscroller::event, $new($MouseEvent, var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, e->isPopupTrigger(), $MouseEvent::NOBUTTON));
 	$var($AWTAccessor$MouseEventAccessor, meAccessor, $AWTAccessor::getMouseEventAccessor());
-	$nc(meAccessor)->setCausedByTouchEvent(Autoscroller::event, meAccessor->isCausedByTouchEvent(e));
+	$nc(meAccessor)->setCausedByTouchEvent(Autoscroller::event, $nc(meAccessor)->isCausedByTouchEvent(e));
 	if (Autoscroller::timer == nullptr) {
 		$assignStatic(Autoscroller::timer, $new($Timer, 100, this));
 	}
@@ -119,7 +82,7 @@ void Autoscroller::start($JComponent* c, $MouseEvent* e) {
 void Autoscroller::_stop($JComponent* c) {
 	if (Autoscroller::component == c) {
 		if (Autoscroller::timer != nullptr) {
-			$nc(Autoscroller::timer)->stop();
+			Autoscroller::timer->stop();
 		}
 		$assignStatic(Autoscroller::timer, nullptr);
 		$assignStatic(Autoscroller::event, nullptr);
@@ -128,11 +91,11 @@ void Autoscroller::_stop($JComponent* c) {
 }
 
 bool Autoscroller::_isRunning($JComponent* c) {
-	return (c == Autoscroller::component && Autoscroller::timer != nullptr && $nc(Autoscroller::timer)->isRunning());
+	return (c == Autoscroller::component && Autoscroller::timer != nullptr && Autoscroller::timer->isRunning());
 }
 
 void Autoscroller::_processMouseDragged($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, component, $cast($JComponent, $nc(e)->getComponent()));
 	bool stop = true;
 	if ($nc(component)->isShowing()) {
@@ -148,29 +111,28 @@ void Autoscroller::_processMouseDragged($MouseEvent* e) {
 }
 
 void Autoscroller::actionPerformed($ActionEvent* x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, component, Autoscroller::component);
-	if (component == nullptr || !$nc(component)->isShowing() || (Autoscroller::event == nullptr)) {
+	if (component == nullptr || !component->isShowing() || (Autoscroller::event == nullptr)) {
 		_stop(component);
 		return;
 	}
 	$var($Point, screenLocation, $nc(component)->getLocationOnScreen());
-	$var($Component, var$0, static_cast<$Component*>(component));
-	int32_t var$1 = $nc(Autoscroller::event)->getID();
-	int64_t var$2 = $nc(Autoscroller::event)->getWhen();
-	int32_t var$3 = $nc(Autoscroller::event)->getModifiers();
-	int32_t var$4 = $nc(Autoscroller::event)->getX() - $nc(screenLocation)->x;
-	int32_t var$5 = $nc(Autoscroller::event)->getY() - screenLocation->y;
-	int32_t var$6 = $nc(Autoscroller::event)->getXOnScreen();
-	int32_t var$7 = $nc(Autoscroller::event)->getYOnScreen();
-	int32_t var$8 = $nc(Autoscroller::event)->getClickCount();
-	$var($MouseEvent, e, $new($MouseEvent, var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, $nc(Autoscroller::event)->isPopupTrigger(), $MouseEvent::NOBUTTON));
+	int32_t var$0 = $nc(Autoscroller::event)->getID();
+	int64_t var$1 = Autoscroller::event->getWhen();
+	int32_t var$2 = Autoscroller::event->getModifiers();
+	int32_t var$3 = Autoscroller::event->getX() - $nc(screenLocation)->x;
+	int32_t var$4 = Autoscroller::event->getY() - screenLocation->y;
+	int32_t var$5 = Autoscroller::event->getXOnScreen();
+	int32_t var$6 = Autoscroller::event->getYOnScreen();
+	int32_t var$7 = Autoscroller::event->getClickCount();
+	$var($MouseEvent, e, $new($MouseEvent, component, var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, Autoscroller::event->isPopupTrigger(), $MouseEvent::NOBUTTON));
 	$var($AWTAccessor$MouseEventAccessor, meAccessor, $AWTAccessor::getMouseEventAccessor());
-	$nc(meAccessor)->setCausedByTouchEvent(e, meAccessor->isCausedByTouchEvent(Autoscroller::event));
+	$nc(meAccessor)->setCausedByTouchEvent(e, $nc(meAccessor)->isCausedByTouchEvent(Autoscroller::event));
 	component->superProcessMouseMotionEvent(e);
 }
 
-void clinit$Autoscroller($Class* class$) {
+void Autoscroller::clinit$($Class* clazz) {
 	$assignStatic(Autoscroller::sharedInstance, $new(Autoscroller));
 }
 
@@ -178,7 +140,36 @@ Autoscroller::Autoscroller() {
 }
 
 $Class* Autoscroller::load$($String* name, bool initialize) {
-	$loadClass(Autoscroller, name, initialize, &_Autoscroller_ClassInfo_, clinit$Autoscroller, allocate$Autoscroller);
+	$FieldInfo fieldInfos$$[] = {
+		{"sharedInstance", "Ljavax/swing/Autoscroller;", nullptr, $PRIVATE | $STATIC, $staticField(Autoscroller, sharedInstance)},
+		{"event", "Ljava/awt/event/MouseEvent;", nullptr, $PRIVATE | $STATIC, $staticField(Autoscroller, event)},
+		{"timer", "Ljavax/swing/Timer;", nullptr, $PRIVATE | $STATIC, $staticField(Autoscroller, timer)},
+		{"component", "Ljavax/swing/JComponent;", nullptr, $PRIVATE | $STATIC, $staticField(Autoscroller, component)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Autoscroller, init$, void)},
+		{"_isRunning", "(Ljavax/swing/JComponent;)Z", nullptr, $PRIVATE, $method(Autoscroller, _isRunning, bool, $JComponent*)},
+		{"_processMouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(Autoscroller, _processMouseDragged, void, $MouseEvent*)},
+		{"_stop", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(Autoscroller, _stop, void, $JComponent*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(Autoscroller, actionPerformed, void, $ActionEvent*)},
+		{"isRunning", "(Ljavax/swing/JComponent;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Autoscroller, isRunning, bool, $JComponent*)},
+		{"processMouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Autoscroller, processMouseDragged, void, $MouseEvent*)},
+		{"start", "(Ljavax/swing/JComponent;Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(Autoscroller, start, void, $JComponent*, $MouseEvent*)},
+		{"stop", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Autoscroller, stop, void, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.Autoscroller",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Autoscroller, name, initialize, &classInfo$$, Autoscroller::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Autoscroller);
+	});
 	return class$;
 }
 

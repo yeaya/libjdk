@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/XPStyle$Skin.h>
-
 #include <com/sun/java/swing/plaf/windows/AnimationController.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$Prop.h>
@@ -27,7 +26,6 @@ using $TMSchema$Part = ::com::sun::java::swing::plaf::windows::TMSchema$Part;
 using $TMSchema$Prop = ::com::sun::java::swing::plaf::windows::TMSchema$Prop;
 using $TMSchema$State = ::com::sun::java::swing::plaf::windows::TMSchema$State;
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
-using $XPStyle$SkinPainter = ::com::sun::java::swing::plaf::windows::XPStyle$SkinPainter;
 using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
@@ -48,63 +46,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _XPStyle$Skin_FieldInfo_[] = {
-	{"component", "Ljava/awt/Component;", nullptr, $FINAL, $field(XPStyle$Skin, component)},
-	{"part", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $FINAL, $field(XPStyle$Skin, part)},
-	{"state", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $FINAL, $field(XPStyle$Skin, state)},
-	{"string", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(XPStyle$Skin, string)},
-	{"size", "Ljava/awt/Dimension;", nullptr, $PRIVATE, $field(XPStyle$Skin, size)},
-	{"switchStates", "Z", nullptr, $PRIVATE, $field(XPStyle$Skin, switchStates$)},
-	{}
-};
-
-$MethodInfo _XPStyle$Skin_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;)V", nullptr, 0, $method(XPStyle$Skin, init$, void, $Component*, $TMSchema$Part*)},
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;)V", nullptr, 0, $method(XPStyle$Skin, init$, void, $TMSchema$Part*, $TMSchema$State*)},
-	{"<init>", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;)V", nullptr, 0, $method(XPStyle$Skin, init$, void, $Component*, $TMSchema$Part*, $TMSchema$State*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XPStyle$Skin, equals, bool, Object$*)},
-	{"getContentMargin", "()Ljava/awt/Insets;", nullptr, 0, $virtualMethod(XPStyle$Skin, getContentMargin, $Insets*)},
-	{"getHeight", "(Lcom/sun/java/swing/plaf/windows/TMSchema$State;)I", nullptr, $PRIVATE, $method(XPStyle$Skin, getHeight, int32_t, $TMSchema$State*)},
-	{"getHeight", "()I", nullptr, 0, $virtualMethod(XPStyle$Skin, getHeight, int32_t)},
-	{"getWidth", "(Lcom/sun/java/swing/plaf/windows/TMSchema$State;)I", nullptr, $PRIVATE, $method(XPStyle$Skin, getWidth, int32_t, $TMSchema$State*)},
-	{"getWidth", "()I", nullptr, 0, $virtualMethod(XPStyle$Skin, getWidth, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(XPStyle$Skin, hashCode, int32_t)},
-	{"haveToSwitchStates", "()Z", nullptr, 0, $virtualMethod(XPStyle$Skin, haveToSwitchStates, bool)},
-	{"paintSkin", "(Ljava/awt/Graphics;IILcom/sun/java/swing/plaf/windows/TMSchema$State;)V", nullptr, 0, $virtualMethod(XPStyle$Skin, paintSkin, void, $Graphics*, int32_t, int32_t, $TMSchema$State*)},
-	{"paintSkin", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Lcom/sun/java/swing/plaf/windows/TMSchema$State;)V", nullptr, 0, $virtualMethod(XPStyle$Skin, paintSkin, void, $Graphics*, $Rectangle*, $TMSchema$State*)},
-	{"paintSkin", "(Ljava/awt/Graphics;IIIILcom/sun/java/swing/plaf/windows/TMSchema$State;)V", nullptr, 0, $virtualMethod(XPStyle$Skin, paintSkin, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, $TMSchema$State*)},
-	{"paintSkin", "(Ljava/awt/Graphics;IIIILcom/sun/java/swing/plaf/windows/TMSchema$State;Z)V", nullptr, 0, $virtualMethod(XPStyle$Skin, paintSkin, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, $TMSchema$State*, bool)},
-	{"paintSkinRaw", "(Ljava/awt/Graphics;IIIILcom/sun/java/swing/plaf/windows/TMSchema$State;)V", nullptr, 0, $virtualMethod(XPStyle$Skin, paintSkinRaw, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, $TMSchema$State*)},
-	{"switchStates", "(Z)V", nullptr, 0, $virtualMethod(XPStyle$Skin, switchStates, void, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XPStyle$Skin, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _XPStyle$Skin_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.XPStyle$Skin", "com.sun.java.swing.plaf.windows.XPStyle", "Skin", $STATIC},
-	{}
-};
-
-$ClassInfo _XPStyle$Skin_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.XPStyle$Skin",
-	"java.lang.Object",
-	nullptr,
-	_XPStyle$Skin_FieldInfo_,
-	_XPStyle$Skin_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XPStyle$Skin_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.XPStyle"
-};
-
-$Object* allocate$XPStyle$Skin($Class* clazz) {
-	return $of($alloc(XPStyle$Skin));
-}
-
 void XPStyle$Skin::init$($Component* component, $TMSchema$Part* part) {
 	XPStyle$Skin::init$(component, part, nullptr);
 }
@@ -114,14 +55,17 @@ void XPStyle$Skin::init$($TMSchema$Part* part, $TMSchema$State* state) {
 }
 
 void XPStyle$Skin::init$($Component* component, $TMSchema$Part* part, $TMSchema$State* state) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, size, nullptr);
 	this->switchStates$ = false;
 	$set(this, component, component);
 	$set(this, part, part);
 	$set(this, state, state);
-	$var($String, var$0, $$str({$($nc(part)->getControlName(component)), "."_s}));
-	$var($String, str, $concat(var$0, $(part->name())));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($nc(part)->getControlName(component)));
+	var$0->append("."_s);
+	var$0->append($(part->name()));
+	$var($String, str, $str(var$0));
 	if (state != nullptr) {
 		$plusAssign(str, $$str({"("_s, $(state->name()), ")"_s}));
 	}
@@ -129,7 +73,7 @@ void XPStyle$Skin::init$($Component* component, $TMSchema$Part* part, $TMSchema$
 }
 
 $Insets* XPStyle$Skin::getContentMargin() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t boundingWidth = 100;
 	int32_t boundingHeight = 100;
 	$var($String, var$0, this->part->getControlName(nullptr));
@@ -149,7 +93,7 @@ int32_t XPStyle$Skin::getWidth($TMSchema$State* state) {
 	if (this->size == nullptr) {
 		$set(this, size, $XPStyle::getPartSize(this->part, state));
 	}
-	return (this->size != nullptr) ? $nc(this->size)->width : 0;
+	return (this->size != nullptr) ? this->size->width : 0;
 }
 
 int32_t XPStyle$Skin::getWidth() {
@@ -161,7 +105,7 @@ int32_t XPStyle$Skin::getHeight($TMSchema$State* state) {
 	if (this->size == nullptr) {
 		$set(this, size, $XPStyle::getPartSize(this->part, state));
 	}
-	return (this->size != nullptr) ? $nc(this->size)->height : 0;
+	return (this->size != nullptr) ? this->size->height : 0;
 }
 
 int32_t XPStyle$Skin::getHeight() {
@@ -174,7 +118,7 @@ $String* XPStyle$Skin::toString() {
 }
 
 bool XPStyle$Skin::equals(Object$* obj) {
-	return ($instanceOf(XPStyle$Skin, obj) && $nc($nc(($cast(XPStyle$Skin, obj)))->string)->equals(this->string));
+	return ($instanceOf(XPStyle$Skin, obj) && $nc($cast(XPStyle$Skin, obj)->string)->equals(this->string));
 }
 
 int32_t XPStyle$Skin::hashCode() {
@@ -182,20 +126,16 @@ int32_t XPStyle$Skin::hashCode() {
 }
 
 void XPStyle$Skin::paintSkin($Graphics* g, int32_t dx, int32_t dy, $TMSchema$State* state$renamed) {
-	$useLocalCurrentObjectStackCache();
 	$var($TMSchema$State, state, state$renamed);
 	if (state == nullptr) {
 		state = this->state;
 	}
-	$var($Graphics, var$0, g);
-	int32_t var$1 = dx;
-	int32_t var$2 = dy;
-	int32_t var$3 = getWidth(state);
-	paintSkin(var$0, var$1, var$2, var$3, getHeight(state), state);
+	int32_t var$0 = getWidth(state);
+	paintSkin(g, dx, dy, var$0, getHeight(state), state);
 }
 
 void XPStyle$Skin::paintSkin($Graphics* g, $Rectangle* r, $TMSchema$State* state) {
-	paintSkin(g, $nc(r)->x, r->y, r->width, r->height, state);
+	paintSkin(g, $nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height, state);
 }
 
 void XPStyle$Skin::paintSkin($Graphics* g, int32_t dx, int32_t dy, int32_t dw, int32_t dh, $TMSchema$State* state) {
@@ -215,13 +155,13 @@ void XPStyle$Skin::paintSkinRaw($Graphics* g, int32_t dx, int32_t dy, int32_t dw
 		return;
 	}
 	$nc($XPStyle::skinPainter)->paint(nullptr, g, dx, dy, dw, dh, $$new($ObjectArray, {
-		$of(this),
-		$of(state)
+		this,
+		state
 	}));
 }
 
 void XPStyle$Skin::paintSkin($Graphics* g, int32_t dx, int32_t dy, int32_t dw, int32_t dh, $TMSchema$State* state, bool borderFill) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($XPStyle::getXP() == nullptr) {
 		return;
 	}
@@ -230,8 +170,8 @@ void XPStyle$Skin::paintSkin($Graphics* g, int32_t dx, int32_t dy, int32_t dw, i
 		return;
 	}
 	$nc($XPStyle::skinPainter)->paint(nullptr, g, dx, dy, dw, dh, $$new($ObjectArray, {
-		$of(this),
-		$of(state)
+		this,
+		state
 	}));
 }
 
@@ -239,7 +179,58 @@ XPStyle$Skin::XPStyle$Skin() {
 }
 
 $Class* XPStyle$Skin::load$($String* name, bool initialize) {
-	$loadClass(XPStyle$Skin, name, initialize, &_XPStyle$Skin_ClassInfo_, allocate$XPStyle$Skin);
+	$FieldInfo fieldInfos$$[] = {
+		{"component", "Ljava/awt/Component;", nullptr, $FINAL, $field(XPStyle$Skin, component)},
+		{"part", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $FINAL, $field(XPStyle$Skin, part)},
+		{"state", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $FINAL, $field(XPStyle$Skin, state)},
+		{"string", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(XPStyle$Skin, string)},
+		{"size", "Ljava/awt/Dimension;", nullptr, $PRIVATE, $field(XPStyle$Skin, size)},
+		{"switchStates", "Z", nullptr, $PRIVATE, $field(XPStyle$Skin, switchStates$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;)V", nullptr, 0, $method(XPStyle$Skin, init$, void, $Component*, $TMSchema$Part*)},
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;)V", nullptr, 0, $method(XPStyle$Skin, init$, void, $TMSchema$Part*, $TMSchema$State*)},
+		{"<init>", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;)V", nullptr, 0, $method(XPStyle$Skin, init$, void, $Component*, $TMSchema$Part*, $TMSchema$State*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XPStyle$Skin, equals, bool, Object$*)},
+		{"getContentMargin", "()Ljava/awt/Insets;", nullptr, 0, $virtualMethod(XPStyle$Skin, getContentMargin, $Insets*)},
+		{"getHeight", "(Lcom/sun/java/swing/plaf/windows/TMSchema$State;)I", nullptr, $PRIVATE, $method(XPStyle$Skin, getHeight, int32_t, $TMSchema$State*)},
+		{"getHeight", "()I", nullptr, 0, $virtualMethod(XPStyle$Skin, getHeight, int32_t)},
+		{"getWidth", "(Lcom/sun/java/swing/plaf/windows/TMSchema$State;)I", nullptr, $PRIVATE, $method(XPStyle$Skin, getWidth, int32_t, $TMSchema$State*)},
+		{"getWidth", "()I", nullptr, 0, $virtualMethod(XPStyle$Skin, getWidth, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(XPStyle$Skin, hashCode, int32_t)},
+		{"haveToSwitchStates", "()Z", nullptr, 0, $virtualMethod(XPStyle$Skin, haveToSwitchStates, bool)},
+		{"paintSkin", "(Ljava/awt/Graphics;IILcom/sun/java/swing/plaf/windows/TMSchema$State;)V", nullptr, 0, $virtualMethod(XPStyle$Skin, paintSkin, void, $Graphics*, int32_t, int32_t, $TMSchema$State*)},
+		{"paintSkin", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Lcom/sun/java/swing/plaf/windows/TMSchema$State;)V", nullptr, 0, $virtualMethod(XPStyle$Skin, paintSkin, void, $Graphics*, $Rectangle*, $TMSchema$State*)},
+		{"paintSkin", "(Ljava/awt/Graphics;IIIILcom/sun/java/swing/plaf/windows/TMSchema$State;)V", nullptr, 0, $virtualMethod(XPStyle$Skin, paintSkin, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, $TMSchema$State*)},
+		{"paintSkin", "(Ljava/awt/Graphics;IIIILcom/sun/java/swing/plaf/windows/TMSchema$State;Z)V", nullptr, 0, $virtualMethod(XPStyle$Skin, paintSkin, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, $TMSchema$State*, bool)},
+		{"paintSkinRaw", "(Ljava/awt/Graphics;IIIILcom/sun/java/swing/plaf/windows/TMSchema$State;)V", nullptr, 0, $virtualMethod(XPStyle$Skin, paintSkinRaw, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, $TMSchema$State*)},
+		{"switchStates", "(Z)V", nullptr, 0, $virtualMethod(XPStyle$Skin, switchStates, void, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XPStyle$Skin, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.XPStyle$Skin", "com.sun.java.swing.plaf.windows.XPStyle", "Skin", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.XPStyle$Skin",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.XPStyle"
+	};
+	$loadClass(XPStyle$Skin, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XPStyle$Skin);
+	});
 	return class$;
 }
 

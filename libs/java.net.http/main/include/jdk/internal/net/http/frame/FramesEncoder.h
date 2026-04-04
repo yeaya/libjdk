@@ -52,6 +52,7 @@ class $import FramesEncoder : public ::java::lang::Object {
 	$class(FramesEncoder, 0, ::java::lang::Object)
 public:
 	FramesEncoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::nio::ByteBuffer* encodeConnectionPreface($bytes* preface, ::jdk::internal::net::http::frame::SettingsFrame* frame);
 	::java::util::List* encodeContinuationFrame(::jdk::internal::net::http::frame::ContinuationFrame* frame);

@@ -1,5 +1,4 @@
 #include <javax/swing/AbstractButton$Handler.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
@@ -24,54 +23,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractAction = ::javax::swing::AbstractAction;
 using $AbstractButton = ::javax::swing::AbstractButton;
 using $Action = ::javax::swing::Action;
-using $ButtonModel = ::javax::swing::ButtonModel;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _AbstractButton$Handler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/AbstractButton;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractButton$Handler, this$0)},
-	{}
-};
-
-$MethodInfo _AbstractButton$Handler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/AbstractButton;)V", nullptr, 0, $method(AbstractButton$Handler, init$, void, $AbstractButton*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton$Handler, actionPerformed, void, $ActionEvent*)},
-	{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton$Handler, itemStateChanged, void, $ItemEvent*)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton$Handler, stateChanged, void, $ChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AbstractButton$Handler_InnerClassesInfo_[] = {
-	{"javax.swing.AbstractButton$Handler", "javax.swing.AbstractButton", "Handler", 0},
-	{}
-};
-
-$ClassInfo _AbstractButton$Handler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.AbstractButton$Handler",
-	"java.lang.Object",
-	"java.awt.event.ActionListener,javax.swing.event.ChangeListener,java.awt.event.ItemListener,java.io.Serializable",
-	_AbstractButton$Handler_FieldInfo_,
-	_AbstractButton$Handler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractButton$Handler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.AbstractButton"
-};
-
-$Object* allocate$AbstractButton$Handler($Class* clazz) {
-	return $of($alloc(AbstractButton$Handler));
-}
 
 int32_t AbstractButton$Handler::hashCode() {
 	 return this->$ActionListener::hashCode();
@@ -113,7 +68,7 @@ void AbstractButton$Handler::actionPerformed($ActionEvent* event) {
 }
 
 void AbstractButton$Handler::itemStateChanged($ItemEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->this$0->fireItemStateChanged(event);
 	if (this->this$0->shouldUpdateSelectedStateFromAction()) {
 		$var($Action, action, this->this$0->getAction());
@@ -132,7 +87,44 @@ AbstractButton$Handler::AbstractButton$Handler() {
 }
 
 $Class* AbstractButton$Handler::load$($String* name, bool initialize) {
-	$loadClass(AbstractButton$Handler, name, initialize, &_AbstractButton$Handler_ClassInfo_, allocate$AbstractButton$Handler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/AbstractButton;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractButton$Handler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/AbstractButton;)V", nullptr, 0, $method(AbstractButton$Handler, init$, void, $AbstractButton*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton$Handler, actionPerformed, void, $ActionEvent*)},
+		{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton$Handler, itemStateChanged, void, $ItemEvent*)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton$Handler, stateChanged, void, $ChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.AbstractButton$Handler", "javax.swing.AbstractButton", "Handler", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.AbstractButton$Handler",
+		"java.lang.Object",
+		"java.awt.event.ActionListener,javax.swing.event.ChangeListener,java.awt.event.ItemListener,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.AbstractButton"
+	};
+	$loadClass(AbstractButton$Handler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractButton$Handler));
+	});
 	return class$;
 }
 

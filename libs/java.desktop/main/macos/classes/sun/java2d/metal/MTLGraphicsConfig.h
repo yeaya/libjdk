@@ -87,6 +87,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::CGraphicsDevice* device, int64_t configInfo, int32_t maxTextureSize, ::sun::java2d::pipe::hw::ContextCapabilities* mtlCaps);
 	virtual void assertOperationSupported(int32_t numBuffers, ::java::awt::BufferCapabilities* caps) override;
 	virtual ::java::awt::Image* createAcceleratedImage(::java::awt::Component* target, int32_t width, int32_t height) override;

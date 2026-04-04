@@ -54,6 +54,7 @@ class $export MouseEvent : public ::java::awt::event::InputEvent {
 	$class(MouseEvent, 0, ::java::awt::event::InputEvent)
 public:
 	MouseEvent();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Component* source, int32_t id, int64_t when, int32_t modifiers, int32_t x, int32_t y, int32_t clickCount, bool popupTrigger, int32_t button);
 	void init$(::java::awt::Component* source, int32_t id, int64_t when, int32_t modifiers, int32_t x, int32_t y, int32_t clickCount, bool popupTrigger);
 	void init$(::java::awt::Component* source, int32_t id, int64_t when, int32_t modifiers, int32_t x, int32_t y, int32_t xAbs, int32_t yAbs, int32_t clickCount, bool popupTrigger, int32_t button);
@@ -96,7 +97,7 @@ public:
 	bool causedByTouchEvent = false;
 	int32_t button = 0;
 	bool popupTrigger = false;
-	static const int64_t serialVersionUID = (int64_t)0xF23E7FFAA499B220;
+	static const int64_t serialVersionUID = (int64_t)0xf23e7ffaa499b220;
 	static int32_t cachedNumberOfButtons;
 	bool shouldExcludeButtonFromExtModifiers = false;
 };

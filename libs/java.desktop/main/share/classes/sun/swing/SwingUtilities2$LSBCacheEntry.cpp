@@ -1,5 +1,4 @@
 #include <sun/swing/SwingUtilities2$LSBCacheEntry.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/RenderingHints.h>
@@ -28,50 +27,6 @@ using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 namespace sun {
 	namespace swing {
 
-$FieldInfo _SwingUtilities2$LSBCacheEntry_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SwingUtilities2$LSBCacheEntry, $assertionsDisabled)},
-	{"UNSET", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SwingUtilities2$LSBCacheEntry, UNSET)},
-	{"oneChar", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SwingUtilities2$LSBCacheEntry, oneChar)},
-	{"lsbCache", "[B", nullptr, $PRIVATE, $field(SwingUtilities2$LSBCacheEntry, lsbCache)},
-	{"font", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(SwingUtilities2$LSBCacheEntry, font)},
-	{"frc", "Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE, $field(SwingUtilities2$LSBCacheEntry, frc)},
-	{}
-};
-
-$MethodInfo _SwingUtilities2$LSBCacheEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/font/FontRenderContext;Ljava/awt/Font;)V", nullptr, $PUBLIC, $method(SwingUtilities2$LSBCacheEntry, init$, void, $FontRenderContext*, $Font*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SwingUtilities2$LSBCacheEntry, equals, bool, Object$*)},
-	{"getLeftSideBearing", "(C)I", nullptr, $PUBLIC, $virtualMethod(SwingUtilities2$LSBCacheEntry, getLeftSideBearing, int32_t, char16_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SwingUtilities2$LSBCacheEntry, hashCode, int32_t)},
-	{"reset", "(Ljava/awt/font/FontRenderContext;Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(SwingUtilities2$LSBCacheEntry, reset, void, $FontRenderContext*, $Font*)},
-	{}
-};
-
-$InnerClassInfo _SwingUtilities2$LSBCacheEntry_InnerClassesInfo_[] = {
-	{"sun.swing.SwingUtilities2$LSBCacheEntry", "sun.swing.SwingUtilities2", "LSBCacheEntry", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SwingUtilities2$LSBCacheEntry_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.swing.SwingUtilities2$LSBCacheEntry",
-	"java.lang.Object",
-	nullptr,
-	_SwingUtilities2$LSBCacheEntry_FieldInfo_,
-	_SwingUtilities2$LSBCacheEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SwingUtilities2$LSBCacheEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.SwingUtilities2"
-};
-
-$Object* allocate$SwingUtilities2$LSBCacheEntry($Class* clazz) {
-	return $of($alloc(SwingUtilities2$LSBCacheEntry));
-}
-
 bool SwingUtilities2$LSBCacheEntry::$assertionsDisabled = false;
 $chars* SwingUtilities2$LSBCacheEntry::oneChar = nullptr;
 
@@ -84,19 +39,19 @@ void SwingUtilities2$LSBCacheEntry::reset($FontRenderContext* frc, $Font* font) 
 	$set(this, font, font);
 	$set(this, frc, frc);
 	for (int32_t counter = $nc(this->lsbCache)->length - 1; counter >= 0; --counter) {
-		$nc(this->lsbCache)->set(counter, SwingUtilities2$LSBCacheEntry::UNSET);
+		this->lsbCache->set(counter, SwingUtilities2$LSBCacheEntry::UNSET);
 	}
 }
 
 int32_t SwingUtilities2$LSBCacheEntry::getLeftSideBearing(char16_t aChar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t index = aChar - 87;
 	if (!SwingUtilities2$LSBCacheEntry::$assertionsDisabled && !(index >= 0 && index < (88 - 87))) {
 		$throwNew($AssertionError);
 	}
 	int8_t lsb = $nc(this->lsbCache)->get(index);
 	if (lsb == SwingUtilities2$LSBCacheEntry::UNSET) {
-		$nc(SwingUtilities2$LSBCacheEntry::oneChar)->set(0, aChar);
+		SwingUtilities2$LSBCacheEntry::oneChar->set(0, aChar);
 		$var($GlyphVector, gv, $nc(this->font)->createGlyphVector(this->frc, SwingUtilities2$LSBCacheEntry::oneChar));
 		lsb = (int8_t)$nc($($nc(gv)->getGlyphPixelBounds(0, this->frc, 0.0f, 0.0f)))->x;
 		if (lsb < 0) {
@@ -120,21 +75,21 @@ bool SwingUtilities2$LSBCacheEntry::equals(Object$* entry) {
 	}
 	$var(SwingUtilities2$LSBCacheEntry, oEntry, $cast(SwingUtilities2$LSBCacheEntry, entry));
 	bool var$0 = $nc(this->font)->equals($nc(oEntry)->font);
-	return (var$0 && $nc(this->frc)->equals($nc(oEntry)->frc));
+	return (var$0 && $nc(this->frc)->equals(oEntry->frc));
 }
 
 int32_t SwingUtilities2$LSBCacheEntry::hashCode() {
 	int32_t result = 17;
 	if (this->font != nullptr) {
-		result = 37 * result + $nc(this->font)->hashCode();
+		result = 37 * result + this->font->hashCode();
 	}
 	if (this->frc != nullptr) {
-		result = 37 * result + $nc(this->frc)->hashCode();
+		result = 37 * result + this->frc->hashCode();
 	}
 	return result;
 }
 
-void clinit$SwingUtilities2$LSBCacheEntry($Class* class$) {
+void SwingUtilities2$LSBCacheEntry::clinit$($Class* clazz) {
 	$load($SwingUtilities2);
 	SwingUtilities2$LSBCacheEntry::$assertionsDisabled = !$SwingUtilities2::class$->desiredAssertionStatus();
 	$assignStatic(SwingUtilities2$LSBCacheEntry::oneChar, $new($chars, 1));
@@ -144,7 +99,45 @@ SwingUtilities2$LSBCacheEntry::SwingUtilities2$LSBCacheEntry() {
 }
 
 $Class* SwingUtilities2$LSBCacheEntry::load$($String* name, bool initialize) {
-	$loadClass(SwingUtilities2$LSBCacheEntry, name, initialize, &_SwingUtilities2$LSBCacheEntry_ClassInfo_, clinit$SwingUtilities2$LSBCacheEntry, allocate$SwingUtilities2$LSBCacheEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SwingUtilities2$LSBCacheEntry, $assertionsDisabled)},
+		{"UNSET", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SwingUtilities2$LSBCacheEntry, UNSET)},
+		{"oneChar", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SwingUtilities2$LSBCacheEntry, oneChar)},
+		{"lsbCache", "[B", nullptr, $PRIVATE, $field(SwingUtilities2$LSBCacheEntry, lsbCache)},
+		{"font", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(SwingUtilities2$LSBCacheEntry, font)},
+		{"frc", "Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE, $field(SwingUtilities2$LSBCacheEntry, frc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/font/FontRenderContext;Ljava/awt/Font;)V", nullptr, $PUBLIC, $method(SwingUtilities2$LSBCacheEntry, init$, void, $FontRenderContext*, $Font*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SwingUtilities2$LSBCacheEntry, equals, bool, Object$*)},
+		{"getLeftSideBearing", "(C)I", nullptr, $PUBLIC, $virtualMethod(SwingUtilities2$LSBCacheEntry, getLeftSideBearing, int32_t, char16_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SwingUtilities2$LSBCacheEntry, hashCode, int32_t)},
+		{"reset", "(Ljava/awt/font/FontRenderContext;Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(SwingUtilities2$LSBCacheEntry, reset, void, $FontRenderContext*, $Font*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.SwingUtilities2$LSBCacheEntry", "sun.swing.SwingUtilities2", "LSBCacheEntry", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.swing.SwingUtilities2$LSBCacheEntry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.SwingUtilities2"
+	};
+	$loadClass(SwingUtilities2$LSBCacheEntry, name, initialize, &classInfo$$, SwingUtilities2$LSBCacheEntry::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SwingUtilities2$LSBCacheEntry);
+	});
 	return class$;
 }
 

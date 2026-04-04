@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/BREAKPOINT.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Visitor.h>
@@ -21,25 +20,6 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$MethodInfo _BREAKPOINT_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BREAKPOINT, init$, void)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(BREAKPOINT, accept, void, $Visitor*)},
-	{}
-};
-
-$ClassInfo _BREAKPOINT_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.BREAKPOINT",
-	"com.sun.org.apache.bcel.internal.generic.Instruction",
-	nullptr,
-	nullptr,
-	_BREAKPOINT_MethodInfo_
-};
-
-$Object* allocate$BREAKPOINT($Class* clazz) {
-	return $of($alloc(BREAKPOINT));
-}
-
 void BREAKPOINT::init$() {
 	$Instruction::init$($Const::BREAKPOINT, (int16_t)1);
 }
@@ -52,7 +32,22 @@ BREAKPOINT::BREAKPOINT() {
 }
 
 $Class* BREAKPOINT::load$($String* name, bool initialize) {
-	$loadClass(BREAKPOINT, name, initialize, &_BREAKPOINT_ClassInfo_, allocate$BREAKPOINT);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BREAKPOINT, init$, void)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(BREAKPOINT, accept, void, $Visitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.BREAKPOINT",
+		"com.sun.org.apache.bcel.internal.generic.Instruction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BREAKPOINT, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BREAKPOINT);
+	});
 	return class$;
 }
 

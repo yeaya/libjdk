@@ -1,11 +1,9 @@
 #include <sun/awt/windows/HTMLCodec.h>
-
 #include <java/io/BufferedInputStream.h>
 #include <java/io/BufferedReader.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/Reader.h>
 #include <java/io/UnsupportedEncodingException.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/util/Arrays.h>
@@ -38,7 +36,6 @@ using $BufferedReader = ::java::io::BufferedReader;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
-using $Reader = ::java::io::Reader;
 using $UnsupportedEncodingException = ::java::io::UnsupportedEncodingException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -53,80 +50,6 @@ using $HTMLCodec$1 = ::sun::awt::windows::HTMLCodec$1;
 namespace sun {
 	namespace awt {
 		namespace windows {
-
-$FieldInfo _HTMLCodec_FieldInfo_[] = {
-	{"ENCODING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLCodec, ENCODING)},
-	{"VERSION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLCodec, VERSION)},
-	{"START_HTML", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLCodec, START_HTML)},
-	{"END_HTML", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLCodec, END_HTML)},
-	{"START_FRAGMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLCodec, START_FRAGMENT)},
-	{"END_FRAGMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLCodec, END_FRAGMENT)},
-	{"START_SELECTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLCodec, START_SELECTION)},
-	{"END_SELECTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLCodec, END_SELECTION)},
-	{"START_FRAGMENT_CMT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLCodec, START_FRAGMENT_CMT)},
-	{"END_FRAGMENT_CMT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLCodec, END_FRAGMENT_CMT)},
-	{"SOURCE_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLCodec, SOURCE_URL)},
-	{"DEF_SOURCE_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLCodec, DEF_SOURCE_URL)},
-	{"EOLN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLCodec, EOLN)},
-	{"VERSION_NUM", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLCodec, VERSION_NUM)},
-	{"PADDED_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HTMLCodec, PADDED_WIDTH)},
-	{"bufferedStream", "Ljava/io/BufferedInputStream;", nullptr, $PRIVATE | $FINAL, $field(HTMLCodec, bufferedStream)},
-	{"descriptionParsed", "Z", nullptr, $PRIVATE, $field(HTMLCodec, descriptionParsed)},
-	{"closed", "Z", nullptr, $PRIVATE, $field(HTMLCodec, closed)},
-	{"BYTE_BUFFER_LEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HTMLCodec, BYTE_BUFFER_LEN)},
-	{"CHAR_BUFFER_LEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HTMLCodec, CHAR_BUFFER_LEN)},
-	{"FAILURE_MSG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLCodec, FAILURE_MSG)},
-	{"INVALID_MSG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLCodec, INVALID_MSG)},
-	{"iHTMLStart", "J", nullptr, $PRIVATE, $field(HTMLCodec, iHTMLStart)},
-	{"iHTMLEnd", "J", nullptr, $PRIVATE, $field(HTMLCodec, iHTMLEnd)},
-	{"iFragStart", "J", nullptr, $PRIVATE, $field(HTMLCodec, iFragStart)},
-	{"iFragEnd", "J", nullptr, $PRIVATE, $field(HTMLCodec, iFragEnd)},
-	{"iSelStart", "J", nullptr, $PRIVATE, $field(HTMLCodec, iSelStart)},
-	{"iSelEnd", "J", nullptr, $PRIVATE, $field(HTMLCodec, iSelEnd)},
-	{"stBaseURL", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HTMLCodec, stBaseURL)},
-	{"stVersion", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HTMLCodec, stVersion)},
-	{"iStartOffset", "J", nullptr, $PRIVATE, $field(HTMLCodec, iStartOffset)},
-	{"iEndOffset", "J", nullptr, $PRIVATE, $field(HTMLCodec, iEndOffset)},
-	{"iReadCount", "J", nullptr, $PRIVATE, $field(HTMLCodec, iReadCount)},
-	{"readMode", "Lsun/awt/windows/EHTMLReadMode;", nullptr, $PRIVATE, $field(HTMLCodec, readMode)},
-	{}
-};
-
-$MethodInfo _HTMLCodec_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Lsun/awt/windows/EHTMLReadMode;)V", nullptr, $PUBLIC, $method(HTMLCodec, init$, void, $InputStream*, $EHTMLReadMode*), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(HTMLCodec, close, void), "java.io.IOException"},
-	{"convertToHTMLFormat", "([B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(HTMLCodec, convertToHTMLFormat, $bytes*, $bytes*)},
-	{"getBaseURL", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(HTMLCodec, getBaseURL, $String*), "java.io.IOException"},
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(HTMLCodec, getVersion, $String*), "java.io.IOException"},
-	{"parseDescription", "()V", nullptr, $PRIVATE, $method(HTMLCodec, parseDescription, void), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(HTMLCodec, read, int32_t), "java.io.IOException"},
-	{"toPaddedString", "(II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(HTMLCodec, toPaddedString, $String*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _HTMLCodec_InnerClassesInfo_[] = {
-	{"sun.awt.windows.HTMLCodec$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _HTMLCodec_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.windows.HTMLCodec",
-	"java.io.InputStream",
-	nullptr,
-	_HTMLCodec_FieldInfo_,
-	_HTMLCodec_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HTMLCodec_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.windows.HTMLCodec$1"
-};
-
-$Object* allocate$HTMLCodec($Class* clazz) {
-	return $of($alloc(HTMLCodec));
-}
 
 $String* HTMLCodec::ENCODING = nullptr;
 $String* HTMLCodec::VERSION = nullptr;
@@ -147,9 +70,9 @@ $String* HTMLCodec::INVALID_MSG = nullptr;
 
 $String* HTMLCodec::toPaddedString(int32_t n, int32_t width) {
 	$init(HTMLCodec);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, string, $str({""_s, $$str(n)}));
-	int32_t len = $nc(string)->length();
+	int32_t len = string->length();
 	if (n >= 0 && len < width) {
 		$var($chars, array, $new($chars, width - len));
 		$Arrays::fill(array, u'0');
@@ -160,7 +83,7 @@ $String* HTMLCodec::toPaddedString(int32_t n, int32_t width) {
 
 $bytes* HTMLCodec::convertToHTMLFormat($bytes* bytes) {
 	$init(HTMLCodec);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, htmlPrefix, ""_s);
 	$var($String, htmlSuffix, ""_s);
 	{
@@ -173,27 +96,29 @@ $bytes* HTMLCodec::convertToHTMLFormat($bytes* bytes) {
 				$assign(htmlPrefix, $str({htmlPrefix, "<BODY>"_s}));
 				$assign(htmlSuffix, $str({"</BODY>"_s, htmlSuffix}));
 			}
+			;
 		}
+		;
 	}
 	$var($String, stBaseUrl, HTMLCodec::DEF_SOURCE_URL);
-	int32_t var$12 = $nc(HTMLCodec::VERSION)->length();
-	int32_t var$11 = var$12 + $nc(HTMLCodec::VERSION_NUM)->length();
-	int32_t var$10 = var$11 + $nc(HTMLCodec::EOLN)->length();
-	int32_t var$9 = var$10 + $nc(HTMLCodec::START_HTML)->length() + HTMLCodec::PADDED_WIDTH;
-	int32_t var$8 = var$9 + $nc(HTMLCodec::EOLN)->length();
-	int32_t var$7 = var$8 + $nc(HTMLCodec::END_HTML)->length() + HTMLCodec::PADDED_WIDTH;
-	int32_t var$6 = var$7 + $nc(HTMLCodec::EOLN)->length();
-	int32_t var$5 = var$6 + $nc(HTMLCodec::START_FRAGMENT)->length() + HTMLCodec::PADDED_WIDTH;
-	int32_t var$4 = var$5 + $nc(HTMLCodec::EOLN)->length();
-	int32_t var$3 = var$4 + $nc(HTMLCodec::END_FRAGMENT)->length() + HTMLCodec::PADDED_WIDTH;
-	int32_t var$2 = var$3 + $nc(HTMLCodec::EOLN)->length();
-	int32_t var$1 = var$2 + $nc(HTMLCodec::SOURCE_URL)->length();
+	int32_t var$12 = HTMLCodec::VERSION->length();
+	int32_t var$11 = var$12 + HTMLCodec::VERSION_NUM->length();
+	int32_t var$10 = var$11 + HTMLCodec::EOLN->length();
+	int32_t var$9 = var$10 + HTMLCodec::START_HTML->length() + HTMLCodec::PADDED_WIDTH;
+	int32_t var$8 = var$9 + HTMLCodec::EOLN->length();
+	int32_t var$7 = var$8 + HTMLCodec::END_HTML->length() + HTMLCodec::PADDED_WIDTH;
+	int32_t var$6 = var$7 + HTMLCodec::EOLN->length();
+	int32_t var$5 = var$6 + HTMLCodec::START_FRAGMENT->length() + HTMLCodec::PADDED_WIDTH;
+	int32_t var$4 = var$5 + HTMLCodec::EOLN->length();
+	int32_t var$3 = var$4 + HTMLCodec::END_FRAGMENT->length() + HTMLCodec::PADDED_WIDTH;
+	int32_t var$2 = var$3 + HTMLCodec::EOLN->length();
+	int32_t var$1 = var$2 + HTMLCodec::SOURCE_URL->length();
 	int32_t var$0 = var$1 + $nc(stBaseUrl)->length();
-	int32_t nStartHTML = var$0 + $nc(HTMLCodec::EOLN)->length();
+	int32_t nStartHTML = var$0 + HTMLCodec::EOLN->length();
 	int32_t nStartFragment = nStartHTML + htmlPrefix->length();
 	int32_t nEndFragment = nStartFragment + $nc(bytes)->length - 1;
 	int32_t nEndHTML = nEndFragment + htmlSuffix->length();
-	$var($StringBuilder, header, $new($StringBuilder, nStartFragment + $nc(HTMLCodec::START_FRAGMENT_CMT)->length()));
+	$var($StringBuilder, header, $new($StringBuilder, nStartFragment + HTMLCodec::START_FRAGMENT_CMT->length()));
 	header->append(HTMLCodec::VERSION);
 	header->append(HTMLCodec::VERSION_NUM);
 	header->append(HTMLCodec::EOLN);
@@ -216,7 +141,7 @@ $bytes* HTMLCodec::convertToHTMLFormat($bytes* bytes) {
 	$var($bytes, headerBytes, nullptr);
 	$var($bytes, trailerBytes, nullptr);
 	try {
-		$assign(headerBytes, $nc($(header->toString()))->getBytes(HTMLCodec::ENCODING));
+		$assign(headerBytes, $(header->toString())->getBytes(HTMLCodec::ENCODING));
 		$assign(trailerBytes, htmlSuffix->getBytes(HTMLCodec::ENCODING));
 	} catch ($UnsupportedEncodingException& cannotHappen) {
 	}
@@ -224,7 +149,7 @@ $bytes* HTMLCodec::convertToHTMLFormat($bytes* bytes) {
 	$System::arraycopy(headerBytes, 0, retval, 0, headerBytes->length);
 	$System::arraycopy(bytes, 0, retval, headerBytes->length, bytes->length - 1);
 	$System::arraycopy(trailerBytes, 0, retval, headerBytes->length + bytes->length - 1, trailerBytes->length);
-	retval->set(retval->length - 1, (int8_t)0);
+	retval->set(retval->length - 1, 0);
 	return retval;
 }
 
@@ -255,11 +180,11 @@ $String* HTMLCodec::getVersion() {
 }
 
 void HTMLCodec::parseDescription() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, stBaseURL, nullptr);
 	$set(this, stVersion, nullptr);
 	this->iHTMLEnd = (this->iHTMLStart = (this->iFragEnd = (this->iFragStart = (this->iSelEnd = (this->iSelStart = -1)))));
-	$nc(this->bufferedStream)->mark(HTMLCodec::BYTE_BUFFER_LEN);
+	this->bufferedStream->mark(HTMLCodec::BYTE_BUFFER_LEN);
 	$var($StringArray, astEntries, $new($StringArray, {
 		HTMLCodec::VERSION,
 		HTMLCodec::START_HTML,
@@ -270,9 +195,9 @@ void HTMLCodec::parseDescription() {
 		HTMLCodec::END_SELECTION,
 		HTMLCodec::SOURCE_URL
 	}));
-	$var($BufferedReader, bufferedReader, $new($BufferedReader, $$new($InputStreamReader, static_cast<$InputStream*>(this->bufferedStream), HTMLCodec::ENCODING), HTMLCodec::CHAR_BUFFER_LEN));
+	$var($BufferedReader, bufferedReader, $new($BufferedReader, $$new($InputStreamReader, this->bufferedStream, HTMLCodec::ENCODING), HTMLCodec::CHAR_BUFFER_LEN));
 	int64_t iHeadSize = 0;
-	int64_t iCRSize = $nc(HTMLCodec::EOLN)->length();
+	int64_t iCRSize = HTMLCodec::EOLN->length();
 	int32_t iEntCount = astEntries->length;
 	bool bContinue = true;
 	for (int32_t iEntry = 0; iEntry < iEntCount; ++iEntry) {
@@ -284,52 +209,37 @@ void HTMLCodec::parseDescription() {
 			if (!$nc(stLine)->startsWith(astEntries->get(iEntry))) {
 				continue;
 			}
-			iHeadSize += $nc(stLine)->length() + iCRSize;
+			iHeadSize += stLine->length() + iCRSize;
 			$var($String, stValue, $(stLine->substring($nc(astEntries->get(iEntry))->length()))->trim());
 			if (nullptr != stValue) {
 				try {
 					switch (iEntry) {
 					case 0:
-						{
-							$set(this, stVersion, stValue);
-							break;
-						}
+						$set(this, stVersion, stValue);
+						break;
 					case 1:
-						{
-							this->iHTMLStart = $Integer::parseInt(stValue);
-							break;
-						}
+						this->iHTMLStart = $Integer::parseInt(stValue);
+						break;
 					case 2:
-						{
-							this->iHTMLEnd = $Integer::parseInt(stValue);
-							break;
-						}
+						this->iHTMLEnd = $Integer::parseInt(stValue);
+						break;
 					case 3:
-						{
-							this->iFragStart = $Integer::parseInt(stValue);
-							break;
-						}
+						this->iFragStart = $Integer::parseInt(stValue);
+						break;
 					case 4:
-						{
-							this->iFragEnd = $Integer::parseInt(stValue);
-							break;
-						}
+						this->iFragEnd = $Integer::parseInt(stValue);
+						break;
 					case 5:
-						{
-							this->iSelStart = $Integer::parseInt(stValue);
-							break;
-						}
+						this->iSelStart = $Integer::parseInt(stValue);
+						break;
 					case 6:
-						{
-							this->iSelEnd = $Integer::parseInt(stValue);
-							break;
-						}
+						this->iSelEnd = $Integer::parseInt(stValue);
+						break;
 					case 7:
-						{
-							$set(this, stBaseURL, stValue);
-							break;
-						}
+						$set(this, stBaseURL, stValue);
+						break;
 					}
+					;
 				} catch ($NumberFormatException& e) {
 					$throwNew($IOException, $$str({HTMLCodec::FAILURE_MSG, astEntries->get(iEntry), " value "_s, e, HTMLCodec::INVALID_MSG}));
 				}
@@ -355,33 +265,26 @@ void HTMLCodec::parseDescription() {
 	$init($HTMLCodec$1);
 	switch ($nc($HTMLCodec$1::$SwitchMap$sun$awt$windows$EHTMLReadMode)->get($nc((this->readMode))->ordinal())) {
 	case 1:
-		{
-			this->iStartOffset = this->iHTMLStart;
-			this->iEndOffset = this->iHTMLEnd;
-			break;
-		}
+		this->iStartOffset = this->iHTMLStart;
+		this->iEndOffset = this->iHTMLEnd;
+		break;
 	case 2:
-		{
-			this->iStartOffset = this->iFragStart;
-			this->iEndOffset = this->iFragEnd;
-			break;
-		}
+		this->iStartOffset = this->iFragStart;
+		this->iEndOffset = this->iFragEnd;
+		break;
 	case 3:
-		{}
 	default:
-		{
-			this->iStartOffset = this->iSelStart;
-			this->iEndOffset = this->iSelEnd;
-			break;
-		}
+		this->iStartOffset = this->iSelStart;
+		this->iEndOffset = this->iSelEnd;
+		break;
 	}
-	$nc(this->bufferedStream)->reset();
+	this->bufferedStream->reset();
 	if (-1 == this->iStartOffset) {
 		$throwNew($IOException, $$str({HTMLCodec::FAILURE_MSG, "invalid HTML format."_s}));
 	}
 	int32_t curOffset = 0;
 	while (curOffset < this->iStartOffset) {
-		curOffset += $nc(this->bufferedStream)->skip(this->iStartOffset - curOffset);
+		curOffset += this->bufferedStream->skip(this->iStartOffset - curOffset);
 	}
 	this->iReadCount = curOffset;
 	if (this->iStartOffset != this->iReadCount) {
@@ -401,7 +304,7 @@ int32_t HTMLCodec::read() {
 		if (-1 != this->iEndOffset && this->iReadCount >= this->iEndOffset) {
 			return -1;
 		}
-		int32_t retval = $nc(this->bufferedStream)->read();
+		int32_t retval = this->bufferedStream->read();
 		if (retval == -1) {
 			return -1;
 		}
@@ -414,7 +317,7 @@ void HTMLCodec::close() {
 	$synchronized(this) {
 		if (!this->closed) {
 			this->closed = true;
-			$nc(this->bufferedStream)->close();
+			this->bufferedStream->close();
 		}
 	}
 }
@@ -422,7 +325,7 @@ void HTMLCodec::close() {
 HTMLCodec::HTMLCodec() {
 }
 
-void clinit$HTMLCodec($Class* class$) {
+void HTMLCodec::clinit$($Class* clazz) {
 	$assignStatic(HTMLCodec::ENCODING, "UTF-8"_s);
 	$assignStatic(HTMLCodec::VERSION, "Version:"_s);
 	$assignStatic(HTMLCodec::START_HTML, "StartHTML:"_s);
@@ -442,7 +345,75 @@ void clinit$HTMLCodec($Class* class$) {
 }
 
 $Class* HTMLCodec::load$($String* name, bool initialize) {
-	$loadClass(HTMLCodec, name, initialize, &_HTMLCodec_ClassInfo_, clinit$HTMLCodec, allocate$HTMLCodec);
+	$FieldInfo fieldInfos$$[] = {
+		{"ENCODING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLCodec, ENCODING)},
+		{"VERSION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLCodec, VERSION)},
+		{"START_HTML", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLCodec, START_HTML)},
+		{"END_HTML", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLCodec, END_HTML)},
+		{"START_FRAGMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLCodec, START_FRAGMENT)},
+		{"END_FRAGMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLCodec, END_FRAGMENT)},
+		{"START_SELECTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLCodec, START_SELECTION)},
+		{"END_SELECTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLCodec, END_SELECTION)},
+		{"START_FRAGMENT_CMT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLCodec, START_FRAGMENT_CMT)},
+		{"END_FRAGMENT_CMT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLCodec, END_FRAGMENT_CMT)},
+		{"SOURCE_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLCodec, SOURCE_URL)},
+		{"DEF_SOURCE_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLCodec, DEF_SOURCE_URL)},
+		{"EOLN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLCodec, EOLN)},
+		{"VERSION_NUM", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLCodec, VERSION_NUM)},
+		{"PADDED_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HTMLCodec, PADDED_WIDTH)},
+		{"bufferedStream", "Ljava/io/BufferedInputStream;", nullptr, $PRIVATE | $FINAL, $field(HTMLCodec, bufferedStream)},
+		{"descriptionParsed", "Z", nullptr, $PRIVATE, $field(HTMLCodec, descriptionParsed)},
+		{"closed", "Z", nullptr, $PRIVATE, $field(HTMLCodec, closed)},
+		{"BYTE_BUFFER_LEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HTMLCodec, BYTE_BUFFER_LEN)},
+		{"CHAR_BUFFER_LEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HTMLCodec, CHAR_BUFFER_LEN)},
+		{"FAILURE_MSG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLCodec, FAILURE_MSG)},
+		{"INVALID_MSG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLCodec, INVALID_MSG)},
+		{"iHTMLStart", "J", nullptr, $PRIVATE, $field(HTMLCodec, iHTMLStart)},
+		{"iHTMLEnd", "J", nullptr, $PRIVATE, $field(HTMLCodec, iHTMLEnd)},
+		{"iFragStart", "J", nullptr, $PRIVATE, $field(HTMLCodec, iFragStart)},
+		{"iFragEnd", "J", nullptr, $PRIVATE, $field(HTMLCodec, iFragEnd)},
+		{"iSelStart", "J", nullptr, $PRIVATE, $field(HTMLCodec, iSelStart)},
+		{"iSelEnd", "J", nullptr, $PRIVATE, $field(HTMLCodec, iSelEnd)},
+		{"stBaseURL", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HTMLCodec, stBaseURL)},
+		{"stVersion", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HTMLCodec, stVersion)},
+		{"iStartOffset", "J", nullptr, $PRIVATE, $field(HTMLCodec, iStartOffset)},
+		{"iEndOffset", "J", nullptr, $PRIVATE, $field(HTMLCodec, iEndOffset)},
+		{"iReadCount", "J", nullptr, $PRIVATE, $field(HTMLCodec, iReadCount)},
+		{"readMode", "Lsun/awt/windows/EHTMLReadMode;", nullptr, $PRIVATE, $field(HTMLCodec, readMode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;Lsun/awt/windows/EHTMLReadMode;)V", nullptr, $PUBLIC, $method(HTMLCodec, init$, void, $InputStream*, $EHTMLReadMode*), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(HTMLCodec, close, void), "java.io.IOException"},
+		{"convertToHTMLFormat", "([B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(HTMLCodec, convertToHTMLFormat, $bytes*, $bytes*)},
+		{"getBaseURL", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(HTMLCodec, getBaseURL, $String*), "java.io.IOException"},
+		{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(HTMLCodec, getVersion, $String*), "java.io.IOException"},
+		{"parseDescription", "()V", nullptr, $PRIVATE, $method(HTMLCodec, parseDescription, void), "java.io.IOException"},
+		{"read", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(HTMLCodec, read, int32_t), "java.io.IOException"},
+		{"toPaddedString", "(II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(HTMLCodec, toPaddedString, $String*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.windows.HTMLCodec$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.windows.HTMLCodec",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.windows.HTMLCodec$1"
+	};
+	$loadClass(HTMLCodec, name, initialize, &classInfo$$, HTMLCodec::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HTMLCodec);
+	});
 	return class$;
 }
 

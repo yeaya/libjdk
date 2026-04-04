@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/ToStream$WritertoStringBuffer.h>
-
 #include <com/sun/org/apache/xml/internal/serializer/ToStream.h>
 #include <java/io/Writer.h>
 #include <java/lang/StringBuffer.h>
@@ -20,47 +19,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace serializer {
-
-$FieldInfo _ToStream$WritertoStringBuffer_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xml/internal/serializer/ToStream;", nullptr, $FINAL | $SYNTHETIC, $field(ToStream$WritertoStringBuffer, this$0)},
-	{"m_stringbuf", "Ljava/lang/StringBuffer;", nullptr, $PRIVATE | $FINAL, $field(ToStream$WritertoStringBuffer, m_stringbuf)},
-	{}
-};
-
-$MethodInfo _ToStream$WritertoStringBuffer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/serializer/ToStream;Ljava/lang/StringBuffer;)V", nullptr, 0, $method(ToStream$WritertoStringBuffer, init$, void, $ToStream*, $StringBuffer*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ToStream$WritertoStringBuffer, close, void), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(ToStream$WritertoStringBuffer, flush, void), "java.io.IOException"},
-	{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToStream$WritertoStringBuffer, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(ToStream$WritertoStringBuffer, write, void, int32_t)},
-	{"write", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream$WritertoStringBuffer, write, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _ToStream$WritertoStringBuffer_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.serializer.ToStream$WritertoStringBuffer", "com.sun.org.apache.xml.internal.serializer.ToStream", "WritertoStringBuffer", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ToStream$WritertoStringBuffer_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serializer.ToStream$WritertoStringBuffer",
-	"java.io.Writer",
-	nullptr,
-	_ToStream$WritertoStringBuffer_FieldInfo_,
-	_ToStream$WritertoStringBuffer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ToStream$WritertoStringBuffer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.serializer.ToStream"
-};
-
-$Object* allocate$ToStream$WritertoStringBuffer($Class* clazz) {
-	return $of($alloc(ToStream$WritertoStringBuffer));
-}
 
 void ToStream$WritertoStringBuffer::init$($ToStream* this$0, $StringBuffer* sb) {
 	$set(this, this$0, this$0);
@@ -90,7 +48,42 @@ ToStream$WritertoStringBuffer::ToStream$WritertoStringBuffer() {
 }
 
 $Class* ToStream$WritertoStringBuffer::load$($String* name, bool initialize) {
-	$loadClass(ToStream$WritertoStringBuffer, name, initialize, &_ToStream$WritertoStringBuffer_ClassInfo_, allocate$ToStream$WritertoStringBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xml/internal/serializer/ToStream;", nullptr, $FINAL | $SYNTHETIC, $field(ToStream$WritertoStringBuffer, this$0)},
+		{"m_stringbuf", "Ljava/lang/StringBuffer;", nullptr, $PRIVATE | $FINAL, $field(ToStream$WritertoStringBuffer, m_stringbuf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/serializer/ToStream;Ljava/lang/StringBuffer;)V", nullptr, 0, $method(ToStream$WritertoStringBuffer, init$, void, $ToStream*, $StringBuffer*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ToStream$WritertoStringBuffer, close, void), "java.io.IOException"},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(ToStream$WritertoStringBuffer, flush, void), "java.io.IOException"},
+		{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToStream$WritertoStringBuffer, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(ToStream$WritertoStringBuffer, write, void, int32_t)},
+		{"write", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream$WritertoStringBuffer, write, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.serializer.ToStream$WritertoStringBuffer", "com.sun.org.apache.xml.internal.serializer.ToStream", "WritertoStringBuffer", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serializer.ToStream$WritertoStringBuffer",
+		"java.io.Writer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.serializer.ToStream"
+	};
+	$loadClass(ToStream$WritertoStringBuffer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ToStream$WritertoStringBuffer));
+	});
 	return class$;
 }
 

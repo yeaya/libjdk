@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$DescriptorCache$FunctionDescriptor.h>
-
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type$IntersectionClassType.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -18,12 +17,8 @@
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$IntersectionClassType = ::com::sun::tools::javac::code::Type$IntersectionClassType;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $Types$DescriptorCache = ::com::sun::tools::javac::code::Types$DescriptorCache;
-using $Check = ::com::sun::tools::javac::comp::Check;
 using $CompilerProperties$Fragments = ::com::sun::tools::javac::resources::CompilerProperties$Fragments;
-using $JCDiagnostic$Factory = ::com::sun::tools::javac::util::JCDiagnostic$Factory;
-using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -36,45 +31,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Types$DescriptorCache$FunctionDescriptor_FieldInfo_[] = {
-	{"this$1", "Lcom/sun/tools/javac/code/Types$DescriptorCache;", nullptr, $FINAL | $SYNTHETIC, $field(Types$DescriptorCache$FunctionDescriptor, this$1)},
-	{"descSym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, 0, $field(Types$DescriptorCache$FunctionDescriptor, descSym)},
-	{}
-};
-
-$MethodInfo _Types$DescriptorCache$FunctionDescriptor_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types$DescriptorCache;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(Types$DescriptorCache$FunctionDescriptor, init$, void, $Types$DescriptorCache*, $Symbol*)},
-	{"getSymbol", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Types$DescriptorCache$FunctionDescriptor, getSymbol, $Symbol*)},
-	{"getType", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$DescriptorCache$FunctionDescriptor, getType, $Type*, $Type*)},
-	{}
-};
-
-$InnerClassInfo _Types$DescriptorCache$FunctionDescriptor_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$DescriptorCache", "com.sun.tools.javac.code.Types", "DescriptorCache", 0},
-	{"com.sun.tools.javac.code.Types$DescriptorCache$FunctionDescriptor", "com.sun.tools.javac.code.Types$DescriptorCache", "FunctionDescriptor", 0},
-	{}
-};
-
-$ClassInfo _Types$DescriptorCache$FunctionDescriptor_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Types$DescriptorCache$FunctionDescriptor",
-	"java.lang.Object",
-	nullptr,
-	_Types$DescriptorCache$FunctionDescriptor_FieldInfo_,
-	_Types$DescriptorCache$FunctionDescriptor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Types$DescriptorCache$FunctionDescriptor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$DescriptorCache$FunctionDescriptor($Class* clazz) {
-	return $of($alloc(Types$DescriptorCache$FunctionDescriptor));
-}
-
 void Types$DescriptorCache$FunctionDescriptor::init$($Types$DescriptorCache* this$1, $Symbol* descSym) {
 	$set(this, this$1, this$1);
 	$set(this, descSym, descSym);
@@ -85,33 +41,64 @@ $Symbol* Types$DescriptorCache$FunctionDescriptor::getSymbol() {
 }
 
 $Type* Types$DescriptorCache$FunctionDescriptor::getType($Type* site$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, site, site$renamed);
 	$assign(site, $nc(this->this$1->this$0)->removeWildcards(site));
 	if ($nc(site)->isIntersection()) {
 		$var($Type$IntersectionClassType, ict, $cast($Type$IntersectionClassType, site));
 		{
-			$var($Iterator, i$, $nc($(ict->getExplicitComponents()))->iterator());
+			$var($Iterator, i$, $$nc(ict->getExplicitComponents())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Type, component, $cast($Type, i$->next()));
-				{
-					if (!$nc($nc(this->this$1->this$0)->chk)->checkValidGenericType(component)) {
-						$throw($(this->this$1->failure($($nc($nc(this->this$1->this$0)->diags)->fragment($($CompilerProperties$Fragments::NoSuitableFunctionalIntfInst(site)))))));
-					}
+				if (!$nc(this->this$1->this$0->chk)->checkValidGenericType(component)) {
+					$throw($(this->this$1->failure($($nc(this->this$1->this$0->diags)->fragment($($CompilerProperties$Fragments::NoSuitableFunctionalIntfInst(site)))))));
 				}
 			}
 		}
-	} else if (!$nc($nc(this->this$1->this$0)->chk)->checkValidGenericType(site)) {
-		$throw($(this->this$1->failure($($nc($nc(this->this$1->this$0)->diags)->fragment($($CompilerProperties$Fragments::NoSuitableFunctionalIntfInst(site)))))));
+	} else if (!$nc(this->this$1->this$0->chk)->checkValidGenericType(site)) {
+		$throw($(this->this$1->failure($($nc(this->this$1->this$0->diags)->fragment($($CompilerProperties$Fragments::NoSuitableFunctionalIntfInst(site)))))));
 	}
-	return $nc(this->this$1->this$0)->memberType(site, this->descSym);
+	return this->this$1->this$0->memberType(site, this->descSym);
 }
 
 Types$DescriptorCache$FunctionDescriptor::Types$DescriptorCache$FunctionDescriptor() {
 }
 
 $Class* Types$DescriptorCache$FunctionDescriptor::load$($String* name, bool initialize) {
-	$loadClass(Types$DescriptorCache$FunctionDescriptor, name, initialize, &_Types$DescriptorCache$FunctionDescriptor_ClassInfo_, allocate$Types$DescriptorCache$FunctionDescriptor);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lcom/sun/tools/javac/code/Types$DescriptorCache;", nullptr, $FINAL | $SYNTHETIC, $field(Types$DescriptorCache$FunctionDescriptor, this$1)},
+		{"descSym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, 0, $field(Types$DescriptorCache$FunctionDescriptor, descSym)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types$DescriptorCache;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(Types$DescriptorCache$FunctionDescriptor, init$, void, $Types$DescriptorCache*, $Symbol*)},
+		{"getSymbol", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Types$DescriptorCache$FunctionDescriptor, getSymbol, $Symbol*)},
+		{"getType", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$DescriptorCache$FunctionDescriptor, getType, $Type*, $Type*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$DescriptorCache", "com.sun.tools.javac.code.Types", "DescriptorCache", 0},
+		{"com.sun.tools.javac.code.Types$DescriptorCache$FunctionDescriptor", "com.sun.tools.javac.code.Types$DescriptorCache", "FunctionDescriptor", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Types$DescriptorCache$FunctionDescriptor",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$DescriptorCache$FunctionDescriptor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$DescriptorCache$FunctionDescriptor);
+	});
 	return class$;
 }
 

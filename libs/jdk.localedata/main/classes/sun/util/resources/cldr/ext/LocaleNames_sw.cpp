@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/LocaleNames_sw.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,31 +13,12 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _LocaleNames_sw_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_sw, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_sw, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _LocaleNames_sw_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.LocaleNames_sw",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_LocaleNames_sw_MethodInfo_
-};
-
-$Object* allocate$LocaleNames_sw($Class* clazz) {
-	return $of($alloc(LocaleNames_sw));
-}
-
 void LocaleNames_sw::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* LocaleNames_sw::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, metaValue_ar, "Kiarabu"_s);
 	$var($String, metaValue_bn, "Kibengali"_s);
 	$var($String, metaValue_bo, "Kitibeti"_s);
@@ -61,3456 +41,3456 @@ $ObjectArray2* LocaleNames_sw::getContents() {
 	$var($String, metaValue_type_co_standard, "Mpangilio wa Kawaida"_s);
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("ksh"_s),
-			$of("Kicologne"_s)
+			"ksh"_s,
+			"Kicologne"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mwl"_s),
-			$of("Kimirandi"_s)
+			"mwl"_s,
+			"Kimirandi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zsym"_s),
-			$of("Alama"_s)
+			"Zsym"_s,
+			"Alama"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zsye"_s),
-			$of("Emoji"_s)
+			"Zsye"_s,
+			"Emoji"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ccp"_s),
-			$of("Kichakma"_s)
+			"ccp"_s,
+			"Kichakma"_s
 		}),
 		$$new($ObjectArray, {
-			$of("egy"_s),
-			$of("Kimisri"_s)
+			"egy"_s,
+			"Kimisri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tem"_s),
-			$of("Kitemne"_s)
+			"tem"_s,
+			"Kitemne"_s
 		}),
 		$$new($ObjectArray, {
-			$of("teo"_s),
-			$of("Kiteso"_s)
+			"teo"_s,
+			"Kiteso"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rap"_s),
-			$of("Kirapanui"_s)
+			"rap"_s,
+			"Kirapanui"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AC"_s),
-			$of("Kisiwa cha Ascension"_s)
+			"AC"_s,
+			"Kisiwa cha Ascension"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rar"_s),
-			$of("Kirarotonga"_s)
+			"rar"_s,
+			"Kirarotonga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tet"_s),
-			$of("Kitetum"_s)
+			"tet"_s,
+			"Kitetum"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AD"_s),
-			$of("Andorra"_s)
+			"AD"_s,
+			"Andorra"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AE"_s),
-			$of("Falme za Kiarabu"_s)
+			"AE"_s,
+			"Falme za Kiarabu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nl_BE"_s),
-			$of("Kiflemi"_s)
+			"nl_BE"_s,
+			"Kiflemi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AF"_s),
-			$of("Afghanistan"_s)
+			"AF"_s,
+			"Afghanistan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AG"_s),
-			$of("Antigua na Barbuda"_s)
+			"AG"_s,
+			"Antigua na Barbuda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.ethiopic"_s),
-			$of("Kalenda ya Kiethiopia"_s)
+			"type.ca.ethiopic"_s,
+			"Kalenda ya Kiethiopia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AI"_s),
-			$of("Anguilla"_s)
+			"AI"_s,
+			"Anguilla"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.tz"_s),
-			$of("Saa za Eneo"_s)
+			"key.tz"_s,
+			"Saa za Eneo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AL"_s),
-			$of("Albania"_s)
+			"AL"_s,
+			"Albania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AM"_s),
-			$of("Armenia"_s)
+			"AM"_s,
+			"Armenia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AO"_s),
-			$of("Angola"_s)
+			"AO"_s,
+			"Angola"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AQ"_s),
-			$of("Antaktiki"_s)
+			"AQ"_s,
+			"Antaktiki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AR"_s),
-			$of("Ajentina"_s)
+			"AR"_s,
+			"Ajentina"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AS"_s),
-			$of("Samoa ya Marekani"_s)
+			"AS"_s,
+			"Samoa ya Marekani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AT"_s),
-			$of("Austria"_s)
+			"AT"_s,
+			"Austria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AU"_s),
-			$of("Australia"_s)
+			"AU"_s,
+			"Australia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AW"_s),
-			$of("Aruba"_s)
+			"AW"_s,
+			"Aruba"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AX"_s),
-			$of("Visiwa vya Aland"_s)
+			"AX"_s,
+			"Visiwa vya Aland"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AZ"_s),
-			$of("Azerbaijani"_s)
+			"AZ"_s,
+			"Azerbaijani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BA"_s),
-			$of("Bosnia na Hezegovina"_s)
+			"BA"_s,
+			"Bosnia na Hezegovina"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BB"_s),
-			$of("Babadosi"_s)
+			"BB"_s,
+			"Babadosi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ceb"_s),
-			$of("Kichebuano"_s)
+			"ceb"_s,
+			"Kichebuano"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BD"_s),
-			$of("Bangladeshi"_s)
+			"BD"_s,
+			"Bangladeshi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kum"_s),
-			$of("Kumyk"_s)
+			"kum"_s,
+			"Kumyk"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BE"_s),
-			$of("Ubelgiji"_s)
+			"BE"_s,
+			"Ubelgiji"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BF"_s),
-			$of("Bukinafaso"_s)
+			"BF"_s,
+			"Bukinafaso"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BG"_s),
-			$of("Bulgaria"_s)
+			"BG"_s,
+			"Bulgaria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BH"_s),
-			$of("Bahareni"_s)
+			"BH"_s,
+			"Bahareni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BI"_s),
-			$of("Burundi"_s)
+			"BI"_s,
+			"Burundi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BJ"_s),
-			$of("Benin"_s)
+			"BJ"_s,
+			"Benin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BL"_s),
-			$of("St. Barthelemy"_s)
+			"BL"_s,
+			"St. Barthelemy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BM"_s),
-			$of("Bermuda"_s)
+			"BM"_s,
+			"Bermuda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("myv"_s),
-			$of("Kierzya"_s)
+			"myv"_s,
+			"Kierzya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BN"_s),
-			$of("Brunei"_s)
+			"BN"_s,
+			"Brunei"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BO"_s),
-			$of("Bolivia"_s)
+			"BO"_s,
+			"Bolivia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BQ"_s),
-			$of("Uholanzi ya Karibiani"_s)
+			"BQ"_s,
+			"Uholanzi ya Karibiani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BR"_s),
-			$of("Brazil"_s)
+			"BR"_s,
+			"Brazil"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BS"_s),
-			$of("Bahama"_s)
+			"BS"_s,
+			"Bahama"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xog"_s),
-			$of("Kisoga"_s)
+			"xog"_s,
+			"Kisoga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BT"_s),
-			$of("Bhutan"_s)
+			"BT"_s,
+			"Bhutan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BV"_s),
-			$of("Kisiwa cha Bouvet"_s)
+			"BV"_s,
+			"Kisiwa cha Bouvet"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BW"_s),
-			$of("Botswana"_s)
+			"BW"_s,
+			"Botswana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BY"_s),
-			$of("Belarus"_s)
+			"BY"_s,
+			"Belarus"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BZ"_s),
-			$of("Belize"_s)
+			"BZ"_s,
+			"Belize"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.persian"_s),
-			$of("Kalenda ya Kiajemi"_s)
+			"type.ca.persian"_s,
+			"Kalenda ya Kiajemi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hebr"_s),
-			$of("Nambari za Kiebrania"_s)
+			"type.nu.hebr"_s,
+			"Nambari za Kiebrania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CA"_s),
-			$of("Kanada"_s)
+			"CA"_s,
+			"Kanada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CC"_s),
-			$of("Visiwa vya Cocos (Keeling)"_s)
+			"CC"_s,
+			"Visiwa vya Cocos (Keeling)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mzn"_s),
-			$of("Kimazanderani"_s)
+			"mzn"_s,
+			"Kimazanderani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CD"_s),
-			$of("Jamhuri ya Kidemokrasia ya Kongo"_s)
+			"CD"_s,
+			"Jamhuri ya Kidemokrasia ya Kongo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CF"_s),
-			$of("Jamhuri ya Afrika ya Kati"_s)
+			"CF"_s,
+			"Jamhuri ya Afrika ya Kati"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CG"_s),
-			$of("Kongo - Brazzaville"_s)
+			"CG"_s,
+			"Kongo - Brazzaville"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CH"_s),
-			$of("Uswisi"_s)
+			"CH"_s,
+			"Uswisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CI"_s),
-			$of(u"Cote d’Ivoire"_s)
+			"CI"_s,
+			u"Cote d’Ivoire"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CK"_s),
-			$of("Visiwa vya Cook"_s)
+			"CK"_s,
+			"Visiwa vya Cook"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CL"_s),
-			$of("Chile"_s)
+			"CL"_s,
+			"Chile"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CM"_s),
-			$of("Kameruni"_s)
+			"CM"_s,
+			"Kameruni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CN"_s),
-			$of("Uchina"_s)
+			"CN"_s,
+			"Uchina"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CO"_s),
-			$of("Kolombia"_s)
+			"CO"_s,
+			"Kolombia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CP"_s),
-			$of("Kisiwa cha Clipperton"_s)
+			"CP"_s,
+			"Kisiwa cha Clipperton"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CR"_s),
-			$of("Kostarika"_s)
+			"CR"_s,
+			"Kostarika"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CU"_s),
-			$of("Kuba"_s)
+			"CU"_s,
+			"Kuba"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CV"_s),
-			$of("Cape Verde"_s)
+			"CV"_s,
+			"Cape Verde"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CW"_s),
-			$of("Curacao"_s)
+			"CW"_s,
+			"Curacao"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CX"_s),
-			$of("Kisiwa cha Krismasi"_s)
+			"CX"_s,
+			"Kisiwa cha Krismasi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CY"_s),
-			$of("Saiprasi"_s)
+			"CY"_s,
+			"Saiprasi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CZ"_s),
-			$of("Chechia"_s)
+			"CZ"_s,
+			"Chechia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eka"_s),
-			$of("Kiekajuk"_s)
+			"eka"_s,
+			"Kiekajuk"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DE"_s),
-			$of("Ujerumani"_s)
+			"DE"_s,
+			"Ujerumani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ace"_s),
-			$of("Kiacheni"_s)
+			"ace"_s,
+			"Kiacheni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cgg"_s),
-			$of("Kichiga"_s)
+			"cgg"_s,
+			"Kichiga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DG"_s),
-			$of("Diego Garcia"_s)
+			"DG"_s,
+			"Diego Garcia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.deva"_s),
-			$of("Nambari za Kidevanagari"_s)
+			"type.nu.deva"_s,
+			"Nambari za Kidevanagari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DJ"_s),
-			$of("Jibuti"_s)
+			"DJ"_s,
+			"Jibuti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DK"_s),
-			$of("Denmaki"_s)
+			"DK"_s,
+			"Denmaki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ach"_s),
-			$of("Kiakoli"_s)
+			"ach"_s,
+			"Kiakoli"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Brai"_s),
-			$of("Nukta nundu"_s)
+			"Brai"_s,
+			"Nukta nundu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DM"_s),
-			$of("Dominika"_s)
+			"DM"_s,
+			"Dominika"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.armnlow"_s),
-			$of("Nambari Ndogo za Kiarmenia"_s)
+			"type.nu.armnlow"_s,
+			"Nambari Ndogo za Kiarmenia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DO"_s),
-			$of("Jamhuri ya Dominika"_s)
+			"DO"_s,
+			"Jamhuri ya Dominika"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gor"_s),
-			$of("Kigorontalo"_s)
+			"gor"_s,
+			"Kigorontalo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zun"_s),
-			$of("Kizuni"_s)
+			"zun"_s,
+			"Kizuni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tig"_s),
-			$of("Kitigre"_s)
+			"tig"_s,
+			"Kitigre"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DZ"_s),
-			$of("Aljeria"_s)
+			"DZ"_s,
+			"Aljeria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pag"_s),
-			$of("Kipangasinan"_s)
+			"pag"_s,
+			"Kipangasinan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.d0.hwidth"_s),
-			$of("Nusu upana"_s)
+			"type.d0.hwidth"_s,
+			"Nusu upana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EA"_s),
-			$of("Ceuta na Melilla"_s)
+			"EA"_s,
+			"Ceuta na Melilla"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pam"_s),
-			$of("Kipampanga"_s)
+			"pam"_s,
+			"Kipampanga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EC"_s),
-			$of("Ecuador"_s)
+			"EC"_s,
+			"Ecuador"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pap"_s),
-			$of("Kipapiamento"_s)
+			"pap"_s,
+			"Kipapiamento"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ada"_s),
-			$of("Kiadangme"_s)
+			"ada"_s,
+			"Kiadangme"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EE"_s),
-			$of("Estonia"_s)
+			"EE"_s,
+			"Estonia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EG"_s),
-			$of("Misri"_s)
+			"EG"_s,
+			"Misri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EH"_s),
-			$of("Sahara Magharibi"_s)
+			"EH"_s,
+			"Sahara Magharibi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pau"_s),
-			$of("Kipalau"_s)
+			"pau"_s,
+			"Kipalau"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chk"_s),
-			$of("Kichukisi"_s)
+			"chk"_s,
+			"Kichukisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chm"_s),
-			$of("Kimari"_s)
+			"chm"_s,
+			"Kimari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cho"_s),
-			$of("Kichoktao"_s)
+			"cho"_s,
+			"Kichoktao"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chr"_s),
-			$of("Kicherokee"_s)
+			"chr"_s,
+			"Kicherokee"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ER"_s),
-			$of("Eritrea"_s)
+			"ER"_s,
+			"Eritrea"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ES"_s),
-			$of("Uhispania"_s)
+			"ES"_s,
+			"Uhispania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ET"_s),
-			$of("Ethiopia"_s)
+			"ET"_s,
+			"Ethiopia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EU"_s),
-			$of("Umoja wa Ulaya"_s)
+			"EU"_s,
+			"Umoja wa Ulaya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.gregorian"_s),
-			$of("Kalenda ya Kigregori"_s)
+			"type.ca.gregorian"_s,
+			"Kalenda ya Kigregori"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EZ"_s),
-			$of("Jumuiya ya Ulaya"_s)
+			"EZ"_s,
+			"Jumuiya ya Ulaya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chy"_s),
-			$of("Kicheyeni"_s)
+			"chy"_s,
+			"Kicheyeni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.gujr"_s),
-			$of("Nambari za Kigujarati"_s)
+			"type.nu.gujr"_s,
+			"Nambari za Kigujarati"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ady"_s),
-			$of("Kiadyghe"_s)
+			"ady"_s,
+			"Kiadyghe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FI"_s),
-			$of("Ufini"_s)
+			"FI"_s,
+			"Ufini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FJ"_s),
-			$of("Fiji"_s)
+			"FJ"_s,
+			"Fiji"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FK"_s),
-			$of("Visiwa vya Falkland"_s)
+			"FK"_s,
+			"Visiwa vya Falkland"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FM"_s),
-			$of("Mikronesia"_s)
+			"FM"_s,
+			"Mikronesia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.va"_s),
-			$of("Lahaja za Lugha"_s)
+			"key.va"_s,
+			"Lahaja za Lugha"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FO"_s),
-			$of("Visiwa vya Faroe"_s)
+			"FO"_s,
+			"Visiwa vya Faroe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Taml"_s),
-			$of("Kitamil"_s)
+			"Taml"_s,
+			"Kitamil"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FR"_s),
-			$of("Ufaransa"_s)
+			"FR"_s,
+			"Ufaransa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.indian"_s),
-			$of("Kalenda ya Taifa ya India"_s)
+			"type.ca.indian"_s,
+			"Kalenda ya Taifa ya India"_s
 		}),
 		$$new($ObjectArray, {
-			$of("grc"_s),
-			$of("Kiyunani"_s)
+			"grc"_s,
+			"Kiyunani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GA"_s),
-			$of("Gabon"_s)
+			"GA"_s,
+			"Gabon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GB"_s),
-			$of("Ufalme wa Muungano"_s)
+			"GB"_s,
+			"Ufalme wa Muungano"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pcm"_s),
-			$of("Pijini ya Nigeria"_s)
+			"pcm"_s,
+			"Pijini ya Nigeria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GD"_s),
-			$of("Grenada"_s)
+			"GD"_s,
+			"Grenada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GE"_s),
-			$of("Jojia"_s)
+			"GE"_s,
+			"Jojia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GF"_s),
-			$of("Guiana ya Ufaransa"_s)
+			"GF"_s,
+			"Guiana ya Ufaransa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GG"_s),
-			$of("Guernsey"_s)
+			"GG"_s,
+			"Guernsey"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GH"_s),
-			$of("Ghana"_s)
+			"GH"_s,
+			"Ghana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GI"_s),
-			$of("Gibraltar"_s)
+			"GI"_s,
+			"Gibraltar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GL"_s),
-			$of("Greenland"_s)
+			"GL"_s,
+			"Greenland"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GM"_s),
-			$of("Gambia"_s)
+			"GM"_s,
+			"Gambia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GN"_s),
-			$of("Gine"_s)
+			"GN"_s,
+			"Gine"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GP"_s),
-			$of("Guadeloupe"_s)
+			"GP"_s,
+			"Guadeloupe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GQ"_s),
-			$of("Guinea ya Ikweta"_s)
+			"GQ"_s,
+			"Guinea ya Ikweta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GR"_s),
-			$of("Ugiriki"_s)
+			"GR"_s,
+			"Ugiriki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GS"_s),
-			$of("Visiwa vya Georgia Kusini na Sandwich Kusini"_s)
+			"GS"_s,
+			"Visiwa vya Georgia Kusini na Sandwich Kusini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GT"_s),
-			$of("Guatemala"_s)
+			"GT"_s,
+			"Guatemala"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GU"_s),
-			$of("Guam"_s)
+			"GU"_s,
+			"Guam"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GW"_s),
-			$of("Ginebisau"_s)
+			"GW"_s,
+			"Ginebisau"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tlh"_s),
-			$of("Kiklingoni"_s)
+			"tlh"_s,
+			"Kiklingoni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GY"_s),
-			$of("Guyana"_s)
+			"GY"_s,
+			"Guyana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ckb"_s),
-			$of("Kikurdi cha Sorani"_s)
+			"ckb"_s,
+			"Kikurdi cha Sorani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zxx"_s),
-			$of("Hakuna maudhui ya lugha"_s)
+			"zxx"_s,
+			"Hakuna maudhui ya lugha"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HK"_s),
-			$of("Hong Kong SAR China"_s)
+			"HK"_s,
+			"Hong Kong SAR China"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HM"_s),
-			$of("Kisiwa cha Heard na Visiwa vya McDonald"_s)
+			"HM"_s,
+			"Kisiwa cha Heard na Visiwa vya McDonald"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HN"_s),
-			$of("Honduras"_s)
+			"HN"_s,
+			"Honduras"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HR"_s),
-			$of("Croatia"_s)
+			"HR"_s,
+			"Croatia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("agq"_s),
-			$of("Kiaghem"_s)
+			"agq"_s,
+			"Kiaghem"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gsw"_s),
-			$of("Kijerumani cha Uswisi"_s)
+			"gsw"_s,
+			"Kijerumani cha Uswisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HT"_s),
-			$of("Haiti"_s)
+			"HT"_s,
+			"Haiti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HU"_s),
-			$of("Hungaria"_s)
+			"HU"_s,
+			"Hungaria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IC"_s),
-			$of("Visiwa vya Kanari"_s)
+			"IC"_s,
+			"Visiwa vya Kanari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ID"_s),
-			$of("Indonesia"_s)
+			"ID"_s,
+			"Indonesia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("peo"_s),
-			$of("Kiajemi cha Kale"_s)
+			"peo"_s,
+			"Kiajemi cha Kale"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IE"_s),
-			$of("Ayalandi"_s)
+			"IE"_s,
+			"Ayalandi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nap"_s),
-			$of("Kinapoli"_s)
+			"nap"_s,
+			"Kinapoli"_s
 		}),
 		$$new($ObjectArray, {
-			$of("naq"_s),
-			$of("Kinama"_s)
+			"naq"_s,
+			"Kinama"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zza"_s),
-			$of("Kizaza"_s)
+			"zza"_s,
+			"Kizaza"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IL"_s),
-			$of("Israeli"_s)
+			"IL"_s,
+			"Israeli"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IM"_s),
-			$of("Kisiwa cha Man"_s)
+			"IM"_s,
+			"Kisiwa cha Man"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IN"_s),
-			$of("India"_s)
+			"IN"_s,
+			"India"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IO"_s),
-			$of("Eneo la Uingereza katika Bahari Hindi"_s)
+			"IO"_s,
+			"Eneo la Uingereza katika Bahari Hindi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IQ"_s),
-			$of("Iraki"_s)
+			"IQ"_s,
+			"Iraki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IR"_s),
-			$of("Iran"_s)
+			"IR"_s,
+			"Iran"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IS"_s),
-			$of("Aisilandi"_s)
+			"IS"_s,
+			"Aisilandi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IT"_s),
-			$of("Italia"_s)
+			"IT"_s,
+			"Italia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zmth"_s),
-			$of("Hati za kihisabati"_s)
+			"Zmth"_s,
+			"Hati za kihisabati"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.thai"_s),
-			$of("Nambari za Kithai"_s)
+			"type.nu.thai"_s,
+			"Nambari za Kithai"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.beng"_s),
-			$of("Nambari za Kibengali"_s)
+			"type.nu.beng"_s,
+			"Nambari za Kibengali"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JE"_s),
-			$of("Jersey"_s)
+			"JE"_s,
+			"Jersey"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.islamic"_s),
-			$of("Kalenda ya Kiislamu"_s)
+			"type.ca.islamic"_s,
+			"Kalenda ya Kiislamu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Beng"_s),
-			$of(metaValue_bn)
+			"Beng"_s,
+			metaValue_bn
 		}),
 		$$new($ObjectArray, {
-			$of("JM"_s),
-			$of("Jamaika"_s)
+			"JM"_s,
+			"Jamaika"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JO"_s),
-			$of("Jordan"_s)
+			"JO"_s,
+			"Jordan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JP"_s),
-			$of("Japani"_s)
+			"JP"_s,
+			"Japani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ain"_s),
-			$of("Kiainu"_s)
+			"ain"_s,
+			"Kiainu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("guz"_s),
-			$of("Kikisii"_s)
+			"guz"_s,
+			"Kikisii"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.knda"_s),
-			$of("Nambari za Kikannada"_s)
+			"type.nu.knda"_s,
+			"Nambari za Kikannada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.phonetic"_s),
-			$of("Utaratibu wa Kupanga Fonetiki"_s)
+			"type.co.phonetic"_s,
+			"Utaratibu wa Kupanga Fonetiki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.buddhist"_s),
-			$of("Kalenda ya Kibuddha"_s)
+			"type.ca.buddhist"_s,
+			"Kalenda ya Kibuddha"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KE"_s),
-			$of("Kenya"_s)
+			"KE"_s,
+			"Kenya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("419"_s),
-			$of("Amerika ya Kilatini"_s)
+			"419"_s,
+			"Amerika ya Kilatini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KG"_s),
-			$of("Kirigizistani"_s)
+			"KG"_s,
+			"Kirigizistani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KH"_s),
-			$of("Kambodia"_s)
+			"KH"_s,
+			"Kambodia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KI"_s),
-			$of("Kiribati"_s)
+			"KI"_s,
+			"Kiribati"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KM"_s),
-			$of("Komoro"_s)
+			"KM"_s,
+			"Komoro"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Knda"_s),
-			$of(metaValue_kn)
+			"Knda"_s,
+			metaValue_kn
 		}),
 		$$new($ObjectArray, {
-			$of("KN"_s),
-			$of("St. Kitts na Nevis"_s)
+			"KN"_s,
+			"St. Kitts na Nevis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr_CA"_s),
-			$of("Kifaransa (Canada)"_s)
+			"fr_CA"_s,
+			"Kifaransa (Canada)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KP"_s),
-			$of("Korea Kaskazini"_s)
+			"KP"_s,
+			"Korea Kaskazini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KR"_s),
-			$of("Korea Kusini"_s)
+			"KR"_s,
+			"Korea Kusini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KW"_s),
-			$of("Kuwait"_s)
+			"KW"_s,
+			"Kuwait"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tpi"_s),
-			$of("Kitokpisin"_s)
+			"tpi"_s,
+			"Kitokpisin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KY"_s),
-			$of("Visiwa vya Cayman"_s)
+			"KY"_s,
+			"Visiwa vya Cayman"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KZ"_s),
-			$of("Kazakistani"_s)
+			"KZ"_s,
+			"Kazakistani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cyrl"_s),
-			$of("Kisiriliki"_s)
+			"Cyrl"_s,
+			"Kisiriliki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LA"_s),
-			$of("Laos"_s)
+			"LA"_s,
+			"Laos"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LB"_s),
-			$of("Lebanon"_s)
+			"LB"_s,
+			"Lebanon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LC"_s),
-			$of("St. Lucia"_s)
+			"LC"_s,
+			"St. Lucia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gwi"_s),
-			$of(u"Gwichʼin"_s)
+			"gwi"_s,
+			u"Gwichʼin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nds"_s),
-			$of("Kisaksoni"_s)
+			"nds"_s,
+			"Kisaksoni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LI"_s),
-			$of("Liechtenstein"_s)
+			"LI"_s,
+			"Liechtenstein"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LK"_s),
-			$of("Sri Lanka"_s)
+			"LK"_s,
+			"Sri Lanka"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cop"_s),
-			$of("Kikhufti"_s)
+			"cop"_s,
+			"Kikhufti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LR"_s),
-			$of("Liberia"_s)
+			"LR"_s,
+			"Liberia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LS"_s),
-			$of("Lesoto"_s)
+			"LS"_s,
+			"Lesoto"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LT"_s),
-			$of("Lithuania"_s)
+			"LT"_s,
+			"Lithuania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LU"_s),
-			$of("Luxembourg"_s)
+			"LU"_s,
+			"Luxembourg"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LV"_s),
-			$of("Latvia"_s)
+			"LV"_s,
+			"Latvia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kana"_s),
-			$of("Kikatakana"_s)
+			"Kana"_s,
+			"Kikatakana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LY"_s),
-			$of("Libya"_s)
+			"LY"_s,
+			"Libya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lad"_s),
-			$of("Kiladino"_s)
+			"lad"_s,
+			"Kiladino"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vun"_s),
-			$of("Kivunjo"_s)
+			"vun"_s,
+			"Kivunjo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lag"_s),
-			$of("Kirangi"_s)
+			"lag"_s,
+			"Kirangi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Thaa"_s),
-			$of("Kithaana"_s)
+			"Thaa"_s,
+			"Kithaana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MA"_s),
-			$of("Morocco"_s)
+			"MA"_s,
+			"Morocco"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MC"_s),
-			$of("Monaco"_s)
+			"MC"_s,
+			"Monaco"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MD"_s),
-			$of("Moldova"_s)
+			"MD"_s,
+			"Moldova"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ME"_s),
-			$of("Montenegro"_s)
+			"ME"_s,
+			"Montenegro"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MF"_s),
-			$of("St. Martin"_s)
+			"MF"_s,
+			"St. Martin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lam"_s),
-			$of("Lamba"_s)
+			"lam"_s,
+			"Lamba"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MG"_s),
-			$of("Madagaska"_s)
+			"MG"_s,
+			"Madagaska"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Thai"_s),
-			$of(metaValue_th)
+			"Thai"_s,
+			metaValue_th
 		}),
 		$$new($ObjectArray, {
-			$of("MH"_s),
-			$of("Visiwa vya Marshall"_s)
+			"MH"_s,
+			"Visiwa vya Marshall"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ale"_s),
-			$of("Kialeut"_s)
+			"ale"_s,
+			"Kialeut"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.vaii"_s),
-			$of("Dijiti za Vai"_s)
+			"type.nu.vaii"_s,
+			"Dijiti za Vai"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MK"_s),
-			$of("Masedonia ya Kaskazini"_s)
+			"MK"_s,
+			"Masedonia ya Kaskazini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ML"_s),
-			$of("Mali"_s)
+			"ML"_s,
+			"Mali"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MM"_s),
-			$of("Myanmar (Burma)"_s)
+			"MM"_s,
+			"Myanmar (Burma)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MN"_s),
-			$of("Mongolia"_s)
+			"MN"_s,
+			"Mongolia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("new"_s),
-			$of("Kinewari"_s)
+			"new"_s,
+			"Kinewari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MO"_s),
-			$of("Makau SAR China"_s)
+			"MO"_s,
+			"Makau SAR China"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MP"_s),
-			$of("Visiwa vya Mariana vya Kaskazini"_s)
+			"MP"_s,
+			"Visiwa vya Mariana vya Kaskazini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MQ"_s),
-			$of("Martinique"_s)
+			"MQ"_s,
+			"Martinique"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MR"_s),
-			$of("Moritania"_s)
+			"MR"_s,
+			"Moritania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MS"_s),
-			$of("Montserrat"_s)
+			"MS"_s,
+			"Montserrat"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MT"_s),
-			$of("Malta"_s)
+			"MT"_s,
+			"Malta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.m0.ungegn"_s),
-			$of("Mtindo wa kunukuu wa UN GEGN"_s)
+			"type.m0.ungegn"_s,
+			"Mtindo wa kunukuu wa UN GEGN"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MU"_s),
-			$of("Morisi"_s)
+			"MU"_s,
+			"Morisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alt"_s),
-			$of("Kialtai"_s)
+			"alt"_s,
+			"Kialtai"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MV"_s),
-			$of("Maldivi"_s)
+			"MV"_s,
+			"Maldivi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MW"_s),
-			$of("Malawi"_s)
+			"MW"_s,
+			"Malawi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MX"_s),
-			$of("Meksiko"_s)
+			"MX"_s,
+			"Meksiko"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.japanese"_s),
-			$of("Kalenda ya Kijapani"_s)
+			"type.ca.japanese"_s,
+			"Kalenda ya Kijapani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MY"_s),
-			$of("Malesia"_s)
+			"MY"_s,
+			"Malesia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MZ"_s),
-			$of("Msumbiji"_s)
+			"MZ"_s,
+			"Msumbiji"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NA"_s),
-			$of("Namibia"_s)
+			"NA"_s,
+			"Namibia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("202"_s),
-			$of("Afrika ya Kusini mwa Jangwa la Sahara"_s)
+			"202"_s,
+			"Afrika ya Kusini mwa Jangwa la Sahara"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.hebrew"_s),
-			$of("Kalenda ya Kiebrania"_s)
+			"type.ca.hebrew"_s,
+			"Kalenda ya Kiebrania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.dictionary"_s),
-			$of("Mpangilio wa Kamusi"_s)
+			"type.co.dictionary"_s,
+			"Mpangilio wa Kamusi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NC"_s),
-			$of("New Caledonia"_s)
+			"NC"_s,
+			"New Caledonia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NE"_s),
-			$of("Niger"_s)
+			"NE"_s,
+			"Niger"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NF"_s),
-			$of("Kisiwa cha Norfolk"_s)
+			"NF"_s,
+			"Kisiwa cha Norfolk"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NG"_s),
-			$of("Nigeria"_s)
+			"NG"_s,
+			"Nigeria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("trv"_s),
-			$of("Kitaroko"_s)
+			"trv"_s,
+			"Kitaroko"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NI"_s),
-			$of("Nikaragwa"_s)
+			"NI"_s,
+			"Nikaragwa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NL"_s),
-			$of("Uholanzi"_s)
+			"NL"_s,
+			"Uholanzi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NO"_s),
-			$of("Norway"_s)
+			"NO"_s,
+			"Norway"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NP"_s),
-			$of("Nepal"_s)
+			"NP"_s,
+			"Nepal"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NR"_s),
-			$of("Nauru"_s)
+			"NR"_s,
+			"Nauru"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NU"_s),
-			$of("Niue"_s)
+			"NU"_s,
+			"Niue"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rof"_s),
-			$of("Kirombo"_s)
+			"rof"_s,
+			"Kirombo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NZ"_s),
-			$of("Nyuzilandi"_s)
+			"NZ"_s,
+			"Nyuzilandi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ang"_s),
-			$of("Kiingereza cha Kale"_s)
+			"ang"_s,
+			"Kiingereza cha Kale"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OM"_s),
-			$of("Oman"_s)
+			"OM"_s,
+			"Oman"_s
 		}),
 		$$new($ObjectArray, {
-			$of("anp"_s),
-			$of("Kiangika"_s)
+			"anp"_s,
+			"Kiangika"_s
 		}),
 		$$new($ObjectArray, {
-			$of("crs"_s),
-			$of("Krioli ya Shelisheli"_s)
+			"crs"_s,
+			"Krioli ya Shelisheli"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PA"_s),
-			$of("Panama"_s)
+			"PA"_s,
+			"Panama"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.islamic-civil"_s),
-			$of("Kalenda ya Kiislamu/Rasmi"_s)
+			"type.ca.islamic-civil"_s,
+			"Kalenda ya Kiislamu/Rasmi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_GB"_s),
-			$of("Kiingereza (Uingereza)"_s)
+			"en_GB"_s,
+			"Kiingereza (Uingereza)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PE"_s),
-			$of("Peru"_s)
+			"PE"_s,
+			"Peru"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PF"_s),
-			$of("Polynesia ya Ufaransa"_s)
+			"PF"_s,
+			"Polynesia ya Ufaransa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PG"_s),
-			$of("Papua New Guinea"_s)
+			"PG"_s,
+			"Papua New Guinea"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PH"_s),
-			$of("Ufilipino"_s)
+			"PH"_s,
+			"Ufilipino"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PK"_s),
-			$of("Pakistani"_s)
+			"PK"_s,
+			"Pakistani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PL"_s),
-			$of("Poland"_s)
+			"PL"_s,
+			"Poland"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ewo"_s),
-			$of("Kiewondo"_s)
+			"ewo"_s,
+			"Kiewondo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PM"_s),
-			$of("Santapierre na Miquelon"_s)
+			"PM"_s,
+			"Santapierre na Miquelon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PN"_s),
-			$of("Visiwa vya Pitcairn"_s)
+			"PN"_s,
+			"Visiwa vya Pitcairn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PR"_s),
-			$of("Puerto Rico"_s)
+			"PR"_s,
+			"Puerto Rico"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PS"_s),
-			$of("Maeneo ya Palestina"_s)
+			"PS"_s,
+			"Maeneo ya Palestina"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PT"_s),
-			$of("Ureno"_s)
+			"PT"_s,
+			"Ureno"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PW"_s),
-			$of("Palau"_s)
+			"PW"_s,
+			"Palau"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nia"_s),
-			$of("Kiniasi"_s)
+			"nia"_s,
+			"Kiniasi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.greklow"_s),
-			$of("Nambari Ndogo za Kigiriki"_s)
+			"type.nu.greklow"_s,
+			"Nambari Ndogo za Kigiriki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PY"_s),
-			$of("Paraguay"_s)
+			"PY"_s,
+			"Paraguay"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tum"_s),
-			$of("Kitumbuka"_s)
+			"tum"_s,
+			"Kitumbuka"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hebr"_s),
-			$of(metaValue_he)
+			"Hebr"_s,
+			metaValue_he
 		}),
 		$$new($ObjectArray, {
-			$of("QA"_s),
-			$of("Qatar"_s)
+			"QA"_s,
+			"Qatar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("niu"_s),
-			$of("Kiniuea"_s)
+			"niu"_s,
+			"Kiniuea"_s
 		}),
 		$$new($ObjectArray, {
-			$of("QO"_s),
-			$of("Oceania ya Nje"_s)
+			"QO"_s,
+			"Oceania ya Nje"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lez"_s),
-			$of("Kilezighian"_s)
+			"lez"_s,
+			"Kilezighian"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tvl"_s),
-			$of("Kituvalu"_s)
+			"tvl"_s,
+			"Kituvalu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("001"_s),
-			$of("Dunia"_s)
+			"001"_s,
+			"Dunia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("002"_s),
-			$of("Afrika"_s)
+			"002"_s,
+			"Afrika"_s
 		}),
 		$$new($ObjectArray, {
-			$of("003"_s),
-			$of("Amerika Kaskazini"_s)
+			"003"_s,
+			"Amerika Kaskazini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RE"_s),
-			$of("Reunion"_s)
+			"RE"_s,
+			"Reunion"_s
 		}),
 		$$new($ObjectArray, {
-			$of("005"_s),
-			$of("Amerika Kusini"_s)
+			"005"_s,
+			"Amerika Kusini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jbo"_s),
-			$of("Lojban"_s)
+			"jbo"_s,
+			"Lojban"_s
 		}),
 		$$new($ObjectArray, {
-			$of("009"_s),
-			$of("Oceania"_s)
+			"009"_s,
+			"Oceania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RO"_s),
-			$of("Romania"_s)
+			"RO"_s,
+			"Romania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RS"_s),
-			$of("Serbia"_s)
+			"RS"_s,
+			"Serbia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RU"_s),
-			$of("Urusi"_s)
+			"RU"_s,
+			"Urusi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RW"_s),
-			$of("Rwanda"_s)
+			"RW"_s,
+			"Rwanda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SA"_s),
-			$of("Saudia"_s)
+			"SA"_s,
+			"Saudia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SB"_s),
-			$of("Visiwa vya Solomon"_s)
+			"SB"_s,
+			"Visiwa vya Solomon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("twq"_s),
-			$of("Kitasawak"_s)
+			"twq"_s,
+			"Kitasawak"_s
 		}),
 		$$new($ObjectArray, {
-			$of("011"_s),
-			$of("Afrika ya Magharibi"_s)
+			"011"_s,
+			"Afrika ya Magharibi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SC"_s),
-			$of("Ushelisheli"_s)
+			"SC"_s,
+			"Ushelisheli"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SD"_s),
-			$of("Sudan"_s)
+			"SD"_s,
+			"Sudan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("013"_s),
-			$of("Amerika ya Kati"_s)
+			"013"_s,
+			"Amerika ya Kati"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SE"_s),
-			$of("Uswidi"_s)
+			"SE"_s,
+			"Uswidi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("014"_s),
-			$of("Afrika ya Mashariki"_s)
+			"014"_s,
+			"Afrika ya Mashariki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arc"_s),
-			$of("Kiaramu"_s)
+			"arc"_s,
+			"Kiaramu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("015"_s),
-			$of("Afrika ya Kaskazini"_s)
+			"015"_s,
+			"Afrika ya Kaskazini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SG"_s),
-			$of("Singapore"_s)
+			"SG"_s,
+			"Singapore"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SH"_s),
-			$of("St. Helena"_s)
+			"SH"_s,
+			"St. Helena"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.lb.strict"_s),
-			$of("Mtindo Finyu wa Kukata Mstari"_s)
+			"type.lb.strict"_s,
+			"Mtindo Finyu wa Kukata Mstari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("017"_s),
-			$of("Afrika ya Kati"_s)
+			"017"_s,
+			"Afrika ya Kati"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SI"_s),
-			$of("Slovenia"_s)
+			"SI"_s,
+			"Slovenia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("018"_s),
-			$of("Afrika ya Kusini"_s)
+			"018"_s,
+			"Afrika ya Kusini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SJ"_s),
-			$of("Svalbard na Jan Mayen"_s)
+			"SJ"_s,
+			"Svalbard na Jan Mayen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("019"_s),
-			$of("Amerika"_s)
+			"019"_s,
+			"Amerika"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SK"_s),
-			$of("Slovakia"_s)
+			"SK"_s,
+			"Slovakia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SL"_s),
-			$of("Siera Leoni"_s)
+			"SL"_s,
+			"Siera Leoni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SM"_s),
-			$of("San Marino"_s)
+			"SM"_s,
+			"San Marino"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SN"_s),
-			$of("Senegali"_s)
+			"SN"_s,
+			"Senegali"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SO"_s),
-			$of("Somalia"_s)
+			"SO"_s,
+			"Somalia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arn"_s),
-			$of("Kimapuche"_s)
+			"arn"_s,
+			"Kimapuche"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arp"_s),
-			$of("Kiarapaho"_s)
+			"arp"_s,
+			"Kiarapaho"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.taml"_s),
-			$of("Nambari za Kitamil cha Jadi"_s)
+			"type.nu.taml"_s,
+			"Nambari za Kitamil cha Jadi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SR"_s),
-			$of("Suriname"_s)
+			"SR"_s,
+			"Suriname"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SS"_s),
-			$of("Sudan Kusini"_s)
+			"SS"_s,
+			"Sudan Kusini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ST"_s),
-			$of("Sao Tome na Principe"_s)
+			"ST"_s,
+			"Sao Tome na Principe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arq"_s),
-			$of("Kiarabu cha Algeria"_s)
+			"arq"_s,
+			"Kiarabu cha Algeria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SV"_s),
-			$of("El Salvador"_s)
+			"SV"_s,
+			"El Salvador"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SX"_s),
-			$of("Sint Maarten"_s)
+			"SX"_s,
+			"Sint Maarten"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SY"_s),
-			$of("Syria"_s)
+			"SY"_s,
+			"Syria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yao"_s),
-			$of("Kiyao"_s)
+			"yao"_s,
+			"Kiyao"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SZ"_s),
-			$of("Eswatini"_s)
+			"SZ"_s,
+			"Eswatini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arz"_s),
-			$of("Kiarabu cha Misri"_s)
+			"arz"_s,
+			"Kiarabu cha Misri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TA"_s),
-			$of("Tristan da Cunha"_s)
+			"TA"_s,
+			"Tristan da Cunha"_s
 		}),
 		$$new($ObjectArray, {
-			$of("asa"_s),
-			$of("Kiasu"_s)
+			"asa"_s,
+			"Kiasu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ms.ussystem"_s),
-			$of("Mfumo wa Vipimo wa Marekani"_s)
+			"type.ms.ussystem"_s,
+			"Mfumo wa Vipimo wa Marekani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("021"_s),
-			$of("Amerika ya Kaskazini"_s)
+			"021"_s,
+			"Amerika ya Kaskazini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TC"_s),
-			$of("Visiwa vya Turks na Caicos"_s)
+			"TC"_s,
+			"Visiwa vya Turks na Caicos"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yav"_s),
-			$of("Kiyangben"_s)
+			"yav"_s,
+			"Kiyangben"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TD"_s),
-			$of("Chad"_s)
+			"TD"_s,
+			"Chad"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TF"_s),
-			$of("Himaya za Kusini za Kifaranza"_s)
+			"TF"_s,
+			"Himaya za Kusini za Kifaranza"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TG"_s),
-			$of("Togo"_s)
+			"TG"_s,
+			"Togo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TH"_s),
-			$of("Tailandi"_s)
+			"TH"_s,
+			"Tailandi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TJ"_s),
-			$of("Tajikistani"_s)
+			"TJ"_s,
+			"Tajikistani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("029"_s),
-			$of("Karibiani"_s)
+			"029"_s,
+			"Karibiani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TK"_s),
-			$of("Tokelau"_s)
+			"TK"_s,
+			"Tokelau"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TL"_s),
-			$of("Timor-Leste"_s)
+			"TL"_s,
+			"Timor-Leste"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ybb"_s),
-			$of("Kiyemba"_s)
+			"ybb"_s,
+			"Kiyemba"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.searchjl"_s),
-			$of("Tafuta kwa Konsonanti Halisi ya Hangul"_s)
+			"type.co.searchjl"_s,
+			"Tafuta kwa Konsonanti Halisi ya Hangul"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TM"_s),
-			$of("Turkmenistan"_s)
+			"TM"_s,
+			"Turkmenistan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TN"_s),
-			$of("Tunisia"_s)
+			"TN"_s,
+			"Tunisia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TO"_s),
-			$of("Tonga"_s)
+			"TO"_s,
+			"Tonga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TR"_s),
-			$of("Uturuki"_s)
+			"TR"_s,
+			"Uturuki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TT"_s),
-			$of("Trinidad na Tobago"_s)
+			"TT"_s,
+			"Trinidad na Tobago"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TV"_s),
-			$of("Tuvalu"_s)
+			"TV"_s,
+			"Tuvalu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TW"_s),
-			$of("Taiwan"_s)
+			"TW"_s,
+			"Taiwan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ast"_s),
-			$of("Kiasturia"_s)
+			"ast"_s,
+			"Kiasturia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TZ"_s),
-			$of("Tanzania"_s)
+			"TZ"_s,
+			"Tanzania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nmg"_s),
-			$of("Kikwasio"_s)
+			"nmg"_s,
+			"Kikwasio"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zzzz"_s),
-			$of("Hati isiyojulikana"_s)
+			"Zzzz"_s,
+			"Hati isiyojulikana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UA"_s),
-			$of("Ukraine"_s)
+			"UA"_s,
+			"Ukraine"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rup"_s),
-			$of("Kiaromania"_s)
+			"rup"_s,
+			"Kiaromania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("030"_s),
-			$of("Asia ya Mashariki"_s)
+			"030"_s,
+			"Asia ya Mashariki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tyv"_s),
-			$of("Kituva"_s)
+			"tyv"_s,
+			"Kituva"_s
 		}),
 		$$new($ObjectArray, {
-			$of("034"_s),
-			$of("Asia ya Kusini"_s)
+			"034"_s,
+			"Asia ya Kusini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("035"_s),
-			$of("Asia ya Kusini Mashariki"_s)
+			"035"_s,
+			"Asia ya Kusini Mashariki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UG"_s),
-			$of("Uganda"_s)
+			"UG"_s,
+			"Uganda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.pinyin"_s),
-			$of("Mpangilio wa Kipinyin"_s)
+			"type.co.pinyin"_s,
+			"Mpangilio wa Kipinyin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("039"_s),
-			$of("Ulaya ya Kusini"_s)
+			"039"_s,
+			"Ulaya ya Kusini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sinh"_s),
-			$of(metaValue_si)
+			"Sinh"_s,
+			metaValue_si
 		}),
 		$$new($ObjectArray, {
-			$of("UM"_s),
-			$of("Visiwa Vidogo vya Nje vya Marekani"_s)
+			"UM"_s,
+			"Visiwa Vidogo vya Nje vya Marekani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UN"_s),
-			$of("Umoja wa Mataifa"_s)
+			"UN"_s,
+			"Umoja wa Mataifa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("US"_s),
-			$of("Marekani"_s)
+			"US"_s,
+			"Marekani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("haw"_s),
-			$of("Kihawai"_s)
+			"haw"_s,
+			"Kihawai"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.gb2312han"_s),
-			$of("Mpangilio wa Kichina Rahisi - GB2312"_s)
+			"type.co.gb2312han"_s,
+			"Mpangilio wa Kichina Rahisi - GB2312"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UY"_s),
-			$of("Uruguay"_s)
+			"UY"_s,
+			"Uruguay"_s
 		}),
 		$$new($ObjectArray, {
-			$of("prg"_s),
-			$of("Kiprussia"_s)
+			"prg"_s,
+			"Kiprussia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UZ"_s),
-			$of("Uzibekistani"_s)
+			"UZ"_s,
+			"Uzibekistani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tzm"_s),
-			$of("Kitamazighati cha Atlasi ya Kati"_s)
+			"tzm"_s,
+			"Kitamazighati cha Atlasi ya Kati"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.stroke"_s),
-			$of("Mpangilio wa Mikwaju"_s)
+			"type.co.stroke"_s,
+			"Mpangilio wa Mikwaju"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nnh"_s),
-			$of("Lugha ya Ngiemboon"_s)
+			"nnh"_s,
+			"Lugha ya Ngiemboon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VA"_s),
-			$of("Mji wa Vatican"_s)
+			"VA"_s,
+			"Mji wa Vatican"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VC"_s),
-			$of("St. Vincent na Grenadines"_s)
+			"VC"_s,
+			"St. Vincent na Grenadines"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VE"_s),
-			$of("Venezuela"_s)
+			"VE"_s,
+			"Venezuela"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VG"_s),
-			$of("Visiwa vya Virgin, Uingereza"_s)
+			"VG"_s,
+			"Visiwa vya Virgin, Uingereza"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VI"_s),
-			$of("Visiwa vya Virgin, Marekani"_s)
+			"VI"_s,
+			"Visiwa vya Virgin, Marekani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VN"_s),
-			$of("Vietnamu"_s)
+			"VN"_s,
+			"Vietnamu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VU"_s),
-			$of("Vanuatu"_s)
+			"VU"_s,
+			"Vanuatu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nog"_s),
-			$of("Kinogai"_s)
+			"nog"_s,
+			"Kinogai"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rwk"_s),
-			$of("Lugha ya Rwa"_s)
+			"rwk"_s,
+			"Lugha ya Rwa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("053"_s),
-			$of("Australasia"_s)
+			"053"_s,
+			"Australasia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("054"_s),
-			$of("Melanesia"_s)
+			"054"_s,
+			"Melanesia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WF"_s),
-			$of("Wallis na Futuna"_s)
+			"WF"_s,
+			"Wallis na Futuna"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.traditional"_s),
-			$of(metaValue_type_co_standard)
+			"type.co.traditional"_s,
+			metaValue_type_co_standard
 		}),
 		$$new($ObjectArray, {
-			$of("057"_s),
-			$of("Eneo la Mikronesia"_s)
+			"057"_s,
+			"Eneo la Mikronesia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jgo"_s),
-			$of("Kingomba"_s)
+			"jgo"_s,
+			"Kingomba"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lkt"_s),
-			$of("Kilakota"_s)
+			"lkt"_s,
+			"Kilakota"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.finance"_s),
-			$of("Tarakimu za Kifedha"_s)
+			"type.nu.finance"_s,
+			"Tarakimu za Kifedha"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wae"_s),
-			$of("Kiwalser"_s)
+			"wae"_s,
+			"Kiwalser"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WS"_s),
-			$of("Samoa"_s)
+			"WS"_s,
+			"Samoa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wal"_s),
-			$of("Kiwolaytta"_s)
+			"wal"_s,
+			"Kiwolaytta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("XA"_s),
-			$of("Lafudhi Bandia"_s)
+			"XA"_s,
+			"Lafudhi Bandia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("war"_s),
-			$of("Kiwaray"_s)
+			"war"_s,
+			"Kiwaray"_s
 		}),
 		$$new($ObjectArray, {
-			$of("XB"_s),
-			$of("Lafudhi Bidi"_s)
+			"XB"_s,
+			"Lafudhi Bidi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("awa"_s),
-			$of("Kiawadhi"_s)
+			"awa"_s,
+			"Kiawadhi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("061"_s),
-			$of("Polynesia"_s)
+			"061"_s,
+			"Polynesia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("XK"_s),
-			$of("Kosovo"_s)
+			"XK"_s,
+			"Kosovo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Gujr"_s),
-			$of(metaValue_gu)
+			"Gujr"_s,
+			metaValue_gu
 		}),
 		$$new($ObjectArray, {
-			$of("Zxxx"_s),
-			$of("Haijaandikwa"_s)
+			"Zxxx"_s,
+			"Haijaandikwa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wbp"_s),
-			$of("Kiwarlpiri"_s)
+			"wbp"_s,
+			"Kiwarlpiri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("YE"_s),
-			$of("Yemeni"_s)
+			"YE"_s,
+			"Yemeni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nqo"_s),
-			$of(u"N’Ko"_s)
+			"nqo"_s,
+			u"N’Ko"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.standard"_s),
-			$of(metaValue_type_co_standard)
+			"type.co.standard"_s,
+			metaValue_type_co_standard
 		}),
 		$$new($ObjectArray, {
-			$of("YT"_s),
-			$of("Mayotte"_s)
+			"YT"_s,
+			"Mayotte"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZA"_s),
-			$of("Afrika Kusini"_s)
+			"ZA"_s,
+			"Afrika Kusini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.lb.loose"_s),
-			$of("Mtindo Pana wa Kukata Mstari"_s)
+			"type.lb.loose"_s,
+			"Mtindo Pana wa Kukata Mstari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Deva"_s),
-			$of("Kidevanagari"_s)
+			"Deva"_s,
+			"Kidevanagari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.geor"_s),
-			$of("Nambari za Kigeorgia"_s)
+			"type.nu.geor"_s,
+			"Nambari za Kigeorgia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hira"_s),
-			$of("Hiragana"_s)
+			"Hira"_s,
+			"Hiragana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZM"_s),
-			$of("Zambia"_s)
+			"ZM"_s,
+			"Zambia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZW"_s),
-			$of("Zimbabwe"_s)
+			"ZW"_s,
+			"Zimbabwe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZZ"_s),
-			$of("Eneo lisilojulikana"_s)
+			"ZZ"_s,
+			"Eneo lisilojulikana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ms.metric"_s),
-			$of("Mfumo wa Metriki"_s)
+			"type.ms.metric"_s,
+			"Mfumo wa Metriki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.iso8601"_s),
-			$of("Kalenda ya ISO-8601"_s)
+			"type.ca.iso8601"_s,
+			"Kalenda ya ISO-8601"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lol"_s),
-			$of("Kimongo"_s)
+			"lol"_s,
+			"Kimongo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nso"_s),
-			$of("Kisotho cha Kaskazini"_s)
+			"nso"_s,
+			"Kisotho cha Kaskazini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.telu"_s),
-			$of("Nambari za Kitelugu"_s)
+			"type.nu.telu"_s,
+			"Nambari za Kitelugu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("loz"_s),
-			$of("Kilozi"_s)
+			"loz"_s,
+			"Kilozi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jmc"_s),
-			$of("Kimachame"_s)
+			"jmc"_s,
+			"Kimachame"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hansfin"_s),
-			$of("Nambari za Kifedha za Kichina Rahisi"_s)
+			"type.nu.hansfin"_s,
+			"Nambari za Kifedha za Kichina Rahisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hil"_s),
-			$of("Kihiligaynon"_s)
+			"hil"_s,
+			"Kihiligaynon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.arabext"_s),
-			$of("Nambari za Kiarabu/Kihindi Zilizopanuliwa"_s)
+			"type.nu.arabext"_s,
+			"Nambari za Kiarabu/Kihindi Zilizopanuliwa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nus"_s),
-			$of("Kinuer"_s)
+			"nus"_s,
+			"Kinuer"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dak"_s),
-			$of("Kidakota"_s)
+			"dak"_s,
+			"Kidakota"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.fullwide"_s),
-			$of("Nambari za Upana Kamili"_s)
+			"type.nu.fullwide"_s,
+			"Nambari za Upana Kamili"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hit"_s),
-			$of("Kihiti"_s)
+			"hit"_s,
+			"Kihiti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dar"_s),
-			$of("Kidaragwa"_s)
+			"dar"_s,
+			"Kidaragwa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dav"_s),
-			$of("Kitaita"_s)
+			"dav"_s,
+			"Kitaita"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lrc"_s),
-			$of("Kiluri cha Kaskazini"_s)
+			"lrc"_s,
+			"Kiluri cha Kaskazini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nwc"_s),
-			$of("Kinewari cha kale"_s)
+			"nwc"_s,
+			"Kinewari cha kale"_s
 		}),
 		$$new($ObjectArray, {
-			$of("udm"_s),
-			$of("Kiudmurt"_s)
+			"udm"_s,
+			"Kiudmurt"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Khmr"_s),
-			$of(metaValue_km)
+			"Khmr"_s,
+			metaValue_km
 		}),
 		$$new($ObjectArray, {
-			$of("sad"_s),
-			$of("Kisandawe"_s)
+			"sad"_s,
+			"Kisandawe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.roman"_s),
-			$of("Nambari za Kirumi"_s)
+			"type.nu.roman"_s,
+			"Nambari za Kirumi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sah"_s),
-			$of("Kisakha"_s)
+			"sah"_s,
+			"Kisakha"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sam"_s),
-			$of("Kiaramu cha Wasamaria"_s)
+			"sam"_s,
+			"Kiaramu cha Wasamaria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("saq"_s),
-			$of("Kisamburu"_s)
+			"saq"_s,
+			"Kisamburu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sat"_s),
-			$of("Kisantali"_s)
+			"sat"_s,
+			"Kisantali"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.d0.npinyin"_s),
-			$of("Ya Nambari"_s)
+			"type.d0.npinyin"_s,
+			"Ya Nambari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.native"_s),
-			$of("Digiti Asili"_s)
+			"type.nu.native"_s,
+			"Digiti Asili"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sba"_s),
-			$of("Kingambay"_s)
+			"sba"_s,
+			"Kingambay"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Guru"_s),
-			$of("Kigurmukhi"_s)
+			"Guru"_s,
+			"Kigurmukhi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lua"_s),
-			$of("Kiluba-Lulua"_s)
+			"lua"_s,
+			"Kiluba-Lulua"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.d0.fwidth"_s),
-			$of("Upana kamili"_s)
+			"type.d0.fwidth"_s,
+			"Upana kamili"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sbp"_s),
-			$of("Kisangu"_s)
+			"sbp"_s,
+			"Kisangu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nyn"_s),
-			$of("Kinyankole"_s)
+			"nyn"_s,
+			"Kinyankole"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nym"_s),
-			$of("Kinyamwezi"_s)
+			"nym"_s,
+			"Kinyamwezi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lun"_s),
-			$of("Kilunda"_s)
+			"lun"_s,
+			"Kilunda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nyo"_s),
-			$of("Kinyoro"_s)
+			"nyo"_s,
+			"Kinyoro"_s
 		}),
 		$$new($ObjectArray, {
-			$of("luo"_s),
-			$of("Kijaluo"_s)
+			"luo"_s,
+			"Kijaluo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fil"_s),
-			$of("Kifilipino"_s)
+			"fil"_s,
+			"Kifilipino"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hmn"_s),
-			$of("Kihmong"_s)
+			"hmn"_s,
+			"Kihmong"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lus"_s),
-			$of("Kimizo"_s)
+			"lus"_s,
+			"Kimizo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ban"_s),
-			$of("Kibali"_s)
+			"ban"_s,
+			"Kibali"_s
 		}),
 		$$new($ObjectArray, {
-			$of("luy"_s),
-			$of("Kiluhya"_s)
+			"luy"_s,
+			"Kiluhya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bas"_s),
-			$of("Kibasaa"_s)
+			"bas"_s,
+			"Kibasaa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bax"_s),
-			$of("Kibamun"_s)
+			"bax"_s,
+			"Kibamun"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es_ES"_s),
-			$of("Kihispania (Ulaya)"_s)
+			"es_ES"_s,
+			"Kihispania (Ulaya)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nzi"_s),
-			$of("Kinzema"_s)
+			"nzi"_s,
+			"Kinzema"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sco"_s),
-			$of("Kiskoti"_s)
+			"sco"_s,
+			"Kiskoti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("scn"_s),
-			$of("Kisicilia"_s)
+			"scn"_s,
+			"Kisicilia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aa"_s),
-			$of("Kiafar"_s)
+			"aa"_s,
+			"Kiafar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ab"_s),
-			$of("Kiabkhazi"_s)
+			"ab"_s,
+			"Kiabkhazi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("af"_s),
-			$of("Kiafrikana"_s)
+			"af"_s,
+			"Kiafrikana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ak"_s),
-			$of("Kiakani"_s)
+			"ak"_s,
+			"Kiakani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bbj"_s),
-			$of("Kighomala"_s)
+			"bbj"_s,
+			"Kighomala"_s
 		}),
 		$$new($ObjectArray, {
-			$of("am"_s),
-			$of("Kiamhari"_s)
+			"am"_s,
+			"Kiamhari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Arab"_s),
-			$of(metaValue_ar)
+			"Arab"_s,
+			metaValue_ar
 		}),
 		$$new($ObjectArray, {
-			$of("an"_s),
-			$of("Kiaragoni"_s)
+			"an"_s,
+			"Kiaragoni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Jpan"_s),
-			$of(metaValue_ja)
+			"Jpan"_s,
+			metaValue_ja
 		}),
 		$$new($ObjectArray, {
-			$of("ar"_s),
-			$of(metaValue_ar)
+			"ar"_s,
+			metaValue_ar
 		}),
 		$$new($ObjectArray, {
-			$of("Hrkt"_s),
-			$of("Hati za Kijapani"_s)
+			"Hrkt"_s,
+			"Hati za Kijapani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("as"_s),
-			$of("Kiassam"_s)
+			"as"_s,
+			"Kiassam"_s
 		}),
 		$$new($ObjectArray, {
-			$of("av"_s),
-			$of("Kiavari"_s)
+			"av"_s,
+			"Kiavari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sdh"_s),
-			$of("Kikurdi cha Kusini"_s)
+			"sdh"_s,
+			"Kikurdi cha Kusini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ay"_s),
-			$of("Kiaymara"_s)
+			"ay"_s,
+			"Kiaymara"_s
 		}),
 		$$new($ObjectArray, {
-			$of("az"_s),
-			$of("Kiazerbaijani"_s)
+			"az"_s,
+			"Kiazerbaijani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ba"_s),
-			$of("Kibashkiri"_s)
+			"ba"_s,
+			"Kibashkiri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.unihan"_s),
-			$of("Mpangilio wa Mikwaju ya Shina"_s)
+			"type.co.unihan"_s,
+			"Mpangilio wa Mikwaju ya Shina"_s
 		}),
 		$$new($ObjectArray, {
-			$of("be"_s),
-			$of("Kibelarusi"_s)
+			"be"_s,
+			"Kibelarusi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bg"_s),
-			$of("Kibulgaria"_s)
+			"bg"_s,
+			"Kibulgaria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bi"_s),
-			$of("Kibislama"_s)
+			"bi"_s,
+			"Kibislama"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bm"_s),
-			$of("Kibambara"_s)
+			"bm"_s,
+			"Kibambara"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bn"_s),
-			$of(metaValue_bn)
+			"bn"_s,
+			metaValue_bn
 		}),
 		$$new($ObjectArray, {
-			$of("bo"_s),
-			$of(metaValue_bo)
+			"bo"_s,
+			metaValue_bo
 		}),
 		$$new($ObjectArray, {
-			$of("dgr"_s),
-			$of("Kidogrib"_s)
+			"dgr"_s,
+			"Kidogrib"_s
 		}),
 		$$new($ObjectArray, {
-			$of("br"_s),
-			$of("Kibretoni"_s)
+			"br"_s,
+			"Kibretoni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bs"_s),
-			$of("Kibosnia"_s)
+			"bs"_s,
+			"Kibosnia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mymr"_s),
-			$of("Myama"_s)
+			"Mymr"_s,
+			"Myama"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.laoo"_s),
-			$of("Nambari za Kilao"_s)
+			"type.nu.laoo"_s,
+			"Nambari za Kilao"_s
 		}),
 		$$new($ObjectArray, {
-			$of("seh"_s),
-			$of("Kisena"_s)
+			"seh"_s,
+			"Kisena"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ca"_s),
-			$of("Kikatalani"_s)
+			"ca"_s,
+			"Kikatalani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ses"_s),
-			$of("Kikoyraboro Senni"_s)
+			"ses"_s,
+			"Kikoyraboro Senni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ce"_s),
-			$of("Kichechenia"_s)
+			"ce"_s,
+			"Kichechenia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ch"_s),
-			$of("Kichamorro"_s)
+			"ch"_s,
+			"Kichamorro"_s
 		}),
 		$$new($ObjectArray, {
-			$of("co"_s),
-			$of("Kikosikani"_s)
+			"co"_s,
+			"Kikosikani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Orya"_s),
-			$of(metaValue_or)
+			"Orya"_s,
+			metaValue_or
 		}),
 		$$new($ObjectArray, {
-			$of("cs"_s),
-			$of("Kicheki"_s)
+			"cs"_s,
+			"Kicheki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cu"_s),
-			$of("Kislovakia cha Kanisa"_s)
+			"cu"_s,
+			"Kislovakia cha Kanisa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cv"_s),
-			$of("Kichuvash"_s)
+			"cv"_s,
+			"Kichuvash"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cy"_s),
-			$of("Kiwelisi"_s)
+			"cy"_s,
+			"Kiwelisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.ethi"_s),
-			$of("Nambari za Kiethiopia"_s)
+			"type.nu.ethi"_s,
+			"Nambari za Kiethiopia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("da"_s),
-			$of("Kidenmaki"_s)
+			"da"_s,
+			"Kidenmaki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt_PT"_s),
-			$of("Kireno (Ulaya)"_s)
+			"pt_PT"_s,
+			"Kireno (Ulaya)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de"_s),
-			$of("Kijerumani"_s)
+			"de"_s,
+			"Kijerumani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.cf.standard"_s),
-			$of("Mpangilio wa Kawaida wa Sarafu"_s)
+			"type.cf.standard"_s,
+			"Mpangilio wa Kawaida wa Sarafu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bej"_s),
-			$of("Kibeja"_s)
+			"bej"_s,
+			"Kibeja"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bem"_s),
-			$of("Kibemba"_s)
+			"bem"_s,
+			"Kibemba"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mong"_s),
-			$of("Nambari za Kimongolia"_s)
+			"type.nu.mong"_s,
+			"Nambari za Kimongolia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dv"_s),
-			$of("Kidivehi"_s)
+			"dv"_s,
+			"Kidivehi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es_419"_s),
-			$of("Kihispania (Amerika ya Latini)"_s)
+			"es_419"_s,
+			"Kihispania (Amerika ya Latini)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dz"_s),
-			$of("Kizongkha"_s)
+			"dz"_s,
+			"Kizongkha"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bez"_s),
-			$of("Kibena"_s)
+			"bez"_s,
+			"Kibena"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.chinese"_s),
-			$of("Kalenda ya Kichina"_s)
+			"type.ca.chinese"_s,
+			"Kalenda ya Kichina"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dje"_s),
-			$of("Kizarma"_s)
+			"dje"_s,
+			"Kizarma"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.grek"_s),
-			$of("Nambari za Kigiriki"_s)
+			"type.nu.grek"_s,
+			"Nambari za Kigiriki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ee"_s),
-			$of("Kiewe"_s)
+			"ee"_s,
+			"Kiewe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bfd"_s),
-			$of("Kibafut"_s)
+			"bfd"_s,
+			"Kibafut"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.lb.normal"_s),
-			$of("Mtindo wa Kawaida wa Kukata Mstari"_s)
+			"type.lb.normal"_s,
+			"Mtindo wa Kawaida wa Kukata Mstari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ro_MD"_s),
-			$of("Kimoldova cha Romania"_s)
+			"ro_MD"_s,
+			"Kimoldova cha Romania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("el"_s),
-			$of(metaValue_el)
+			"el"_s,
+			metaValue_el
 		}),
 		$$new($ObjectArray, {
-			$of("en"_s),
-			$of("Kiingereza"_s)
+			"en"_s,
+			"Kiingereza"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eo"_s),
-			$of("Kiesperanto"_s)
+			"eo"_s,
+			"Kiesperanto"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.big5han"_s),
-			$of("Mpangilio wa Kichina cha Jadi - Big5"_s)
+			"type.co.big5han"_s,
+			"Mpangilio wa Kichina cha Jadi - Big5"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es"_s),
-			$of("Kihispania"_s)
+			"es"_s,
+			"Kihispania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("et"_s),
-			$of("Kiestonia"_s)
+			"et"_s,
+			"Kiestonia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hanb"_s),
-			$of("Kihan chenye Bopomofo"_s)
+			"Hanb"_s,
+			"Kihan chenye Bopomofo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eu"_s),
-			$of("Kibaski"_s)
+			"eu"_s,
+			"Kibaski"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hang"_s),
-			$of("Kihangul"_s)
+			"Hang"_s,
+			"Kihangul"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shi"_s),
-			$of("Kitachelhit"_s)
+			"shi"_s,
+			"Kitachelhit"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hsb"_s),
-			$of("Kisobia cha Ukanda wa Juu"_s)
+			"hsb"_s,
+			"Kisobia cha Ukanda wa Juu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hani"_s),
-			$of("Kihan"_s)
+			"Hani"_s,
+			"Kihan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shn"_s),
-			$of("Kishan"_s)
+			"shn"_s,
+			"Kishan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fa"_s),
-			$of("Kiajemi"_s)
+			"fa"_s,
+			"Kiajemi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hans"_s),
-			$of("Rahisi"_s)
+			"Hans"_s,
+			"Rahisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.latn"_s),
-			$of("Nambari za Nchi za Magharibi"_s)
+			"type.nu.latn"_s,
+			"Nambari za Nchi za Magharibi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hant"_s),
-			$of("Cha jadi"_s)
+			"Hant"_s,
+			"Cha jadi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ff"_s),
-			$of("Kifulani"_s)
+			"ff"_s,
+			"Kifulani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shu"_s),
-			$of("Kiarabu cha Chad"_s)
+			"shu"_s,
+			"Kiarabu cha Chad"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fi"_s),
-			$of("Kifini"_s)
+			"fi"_s,
+			"Kifini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fj"_s),
-			$of("Kifiji"_s)
+			"fj"_s,
+			"Kifiji"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fon"_s),
-			$of("Kifon"_s)
+			"fon"_s,
+			"Kifon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bgn"_s),
-			$of("Kibalochi cha Magharibi"_s)
+			"bgn"_s,
+			"Kibalochi cha Magharibi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yue"_s),
-			$of("Kikantoni"_s)
+			"yue"_s,
+			"Kikantoni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fo"_s),
-			$of("Kifaroe"_s)
+			"fo"_s,
+			"Kifaroe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.m0.bgn"_s),
-			$of("Mtindo wa kunukuu wa US BGN"_s)
+			"type.m0.bgn"_s,
+			"Mtindo wa kunukuu wa US BGN"_s
 		}),
 		$$new($ObjectArray, {
-			$of("umb"_s),
-			$of("Umbundu"_s)
+			"umb"_s,
+			"Umbundu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr"_s),
-			$of("Kifaransa"_s)
+			"fr"_s,
+			"Kifaransa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fy"_s),
-			$of("Kifrisia cha Magharibi"_s)
+			"fy"_s,
+			"Kifrisia cha Magharibi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ga"_s),
-			$of("Kiayalandi"_s)
+			"ga"_s,
+			"Kiayalandi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gd"_s),
-			$of("Kigaeli cha Uskoti"_s)
+			"gd"_s,
+			"Kigaeli cha Uskoti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gl"_s),
-			$of("Kigalisi"_s)
+			"gl"_s,
+			"Kigalisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gn"_s),
-			$of("Kiguarani"_s)
+			"gn"_s,
+			"Kiguarani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bho"_s),
-			$of("Kibhojpuri"_s)
+			"bho"_s,
+			"Kibhojpuri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("und"_s),
-			$of("Lugha isiyojulikana"_s)
+			"und"_s,
+			"Lugha isiyojulikana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.ethiopic-amete-alem"_s),
-			$of("Kalenda ya Kiethiopia ya Amete Alem"_s)
+			"type.ca.ethiopic-amete-alem"_s,
+			"Kalenda ya Kiethiopia ya Amete Alem"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gu"_s),
-			$of(metaValue_gu)
+			"gu"_s,
+			metaValue_gu
 		}),
 		$$new($ObjectArray, {
-			$of("gv"_s),
-			$of("Kimanx"_s)
+			"gv"_s,
+			"Kimanx"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ha"_s),
-			$of("Kihausa"_s)
+			"ha"_s,
+			"Kihausa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("he"_s),
-			$of(metaValue_he)
+			"he"_s,
+			metaValue_he
 		}),
 		$$new($ObjectArray, {
-			$of("hi"_s),
-			$of("Kihindi"_s)
+			"hi"_s,
+			"Kihindi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hup"_s),
-			$of("Hupa"_s)
+			"hup"_s,
+			"Hupa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bin"_s),
-			$of("Kibini"_s)
+			"bin"_s,
+			"Kibini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hr"_s),
-			$of("Kikorasia"_s)
+			"hr"_s,
+			"Kikorasia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ht"_s),
-			$of("Kihaiti"_s)
+			"ht"_s,
+			"Kihaiti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hu"_s),
-			$of("Kihungaria"_s)
+			"hu"_s,
+			"Kihungaria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hy"_s),
-			$of(metaValue_hy)
+			"hy"_s,
+			metaValue_hy
 		}),
 		$$new($ObjectArray, {
-			$of("hz"_s),
-			$of("Kiherero"_s)
+			"hz"_s,
+			"Kiherero"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ia"_s),
-			$of("Kiintalingua"_s)
+			"ia"_s,
+			"Kiintalingua"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Jamo"_s),
-			$of("Jamo"_s)
+			"Jamo"_s,
+			"Jamo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("id"_s),
-			$of("Kiindonesia"_s)
+			"id"_s,
+			"Kiindonesia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.tibt"_s),
-			$of("Nambari za Kitibeti"_s)
+			"type.nu.tibt"_s,
+			"Nambari za Kitibeti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ie"_s),
-			$of("lugha ya kisayansi"_s)
+			"ie"_s,
+			"lugha ya kisayansi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ig"_s),
-			$of("Kiigbo"_s)
+			"ig"_s,
+			"Kiigbo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ii"_s),
-			$of("Kiyi cha Sichuan"_s)
+			"ii"_s,
+			"Kiyi cha Sichuan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fro"_s),
-			$of("Kifaransa cha Kale"_s)
+			"fro"_s,
+			"Kifaransa cha Kale"_s
 		}),
 		$$new($ObjectArray, {
-			$of("io"_s),
-			$of("Kiido"_s)
+			"io"_s,
+			"Kiido"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frs"_s),
-			$of("Kifrisia cha Mashariki"_s)
+			"frs"_s,
+			"Kifrisia cha Mashariki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frr"_s),
-			$of("Kifrisia cha Kaskazini"_s)
+			"frr"_s,
+			"Kifrisia cha Kaskazini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("is"_s),
-			$of("Kiisilandi"_s)
+			"is"_s,
+			"Kiisilandi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("it"_s),
-			$of("Kiitaliano"_s)
+			"it"_s,
+			"Kiitaliano"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iu"_s),
-			$of("Kiinuktituti"_s)
+			"iu"_s,
+			"Kiinuktituti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ja"_s),
-			$of(metaValue_ja)
+			"ja"_s,
+			metaValue_ja
 		}),
 		$$new($ObjectArray, {
-			$of("Mlym"_s),
-			$of("Kimalayalam"_s)
+			"Mlym"_s,
+			"Kimalayalam"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bkm"_s),
-			$of("Kikom"_s)
+			"bkm"_s,
+			"Kikom"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sma"_s),
-			$of("Kisami cha Kusini"_s)
+			"sma"_s,
+			"Kisami cha Kusini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jv"_s),
-			$of("Kijava"_s)
+			"jv"_s,
+			"Kijava"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mad"_s),
-			$of("Kimadura"_s)
+			"mad"_s,
+			"Kimadura"_s
 		}),
 		$$new($ObjectArray, {
-			$of("smj"_s),
-			$of("Kisami cha Lule"_s)
+			"smj"_s,
+			"Kisami cha Lule"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mag"_s),
-			$of("Kimagahi"_s)
+			"mag"_s,
+			"Kimagahi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("maf"_s),
-			$of("Kimafa"_s)
+			"maf"_s,
+			"Kimafa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mai"_s),
-			$of("Kimaithili"_s)
+			"mai"_s,
+			"Kimaithili"_s
 		}),
 		$$new($ObjectArray, {
-			$of("smn"_s),
-			$of("Kisami cha Inari"_s)
+			"smn"_s,
+			"Kisami cha Inari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ka"_s),
-			$of(metaValue_ka)
+			"ka"_s,
+			metaValue_ka
 		}),
 		$$new($ObjectArray, {
-			$of("bla"_s),
-			$of("Kisiksika"_s)
+			"bla"_s,
+			"Kisiksika"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mak"_s),
-			$of("Kimakasar"_s)
+			"mak"_s,
+			"Kimakasar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sms"_s),
-			$of("Kisami cha Skolt"_s)
+			"sms"_s,
+			"Kisami cha Skolt"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kg"_s),
-			$of("Kikongo"_s)
+			"kg"_s,
+			"Kikongo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ki"_s),
-			$of("Kikikuyu"_s)
+			"ki"_s,
+			"Kikikuyu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mas"_s),
-			$of("Kimaasai"_s)
+			"mas"_s,
+			"Kimaasai"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kj"_s),
-			$of("Kikwanyama"_s)
+			"kj"_s,
+			"Kikwanyama"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kk"_s),
-			$of("Kikazakh"_s)
+			"kk"_s,
+			"Kikazakh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kl"_s),
-			$of("Kikalaallisut"_s)
+			"kl"_s,
+			"Kikalaallisut"_s
 		}),
 		$$new($ObjectArray, {
-			$of("km"_s),
-			$of(metaValue_km)
+			"km"_s,
+			metaValue_km
 		}),
 		$$new($ObjectArray, {
-			$of("kn"_s),
-			$of(metaValue_kn)
+			"kn"_s,
+			metaValue_kn
 		}),
 		$$new($ObjectArray, {
-			$of("ko"_s),
-			$of(metaValue_ko)
+			"ko"_s,
+			metaValue_ko
 		}),
 		$$new($ObjectArray, {
-			$of("kr"_s),
-			$of("Kikanuri"_s)
+			"kr"_s,
+			"Kikanuri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ks"_s),
-			$of("Kikashmiri"_s)
+			"ks"_s,
+			"Kikashmiri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ku"_s),
-			$of("Kikurdi"_s)
+			"ku"_s,
+			"Kikurdi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kv"_s),
-			$of("Kikomi"_s)
+			"kv"_s,
+			"Kikomi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kw"_s),
-			$of("Kikorni"_s)
+			"kw"_s,
+			"Kikorni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ky"_s),
-			$of("Kikyrgyz"_s)
+			"ky"_s,
+			"Kikyrgyz"_s
 		}),
 		$$new($ObjectArray, {
-			$of("snk"_s),
-			$of("Kisoninke"_s)
+			"snk"_s,
+			"Kisoninke"_s
 		}),
 		$$new($ObjectArray, {
-			$of("la"_s),
-			$of(metaValue_la)
+			"la"_s,
+			metaValue_la
 		}),
 		$$new($ObjectArray, {
-			$of("lb"_s),
-			$of("Kilasembagi"_s)
+			"lb"_s,
+			"Kilasembagi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mlym"_s),
-			$of("Nambari za Malayalam"_s)
+			"type.nu.mlym"_s,
+			"Nambari za Malayalam"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lg"_s),
-			$of("Kiganda"_s)
+			"lg"_s,
+			"Kiganda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("li"_s),
-			$of("Limburgish"_s)
+			"li"_s,
+			"Limburgish"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tibt"_s),
-			$of(metaValue_bo)
+			"Tibt"_s,
+			metaValue_bo
 		}),
 		$$new($ObjectArray, {
-			$of("ln"_s),
-			$of("Kilingala"_s)
+			"ln"_s,
+			"Kilingala"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fur"_s),
-			$of("Kifriulian"_s)
+			"fur"_s,
+			"Kifriulian"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lo"_s),
-			$of(metaValue_lo)
+			"lo"_s,
+			metaValue_lo
 		}),
 		$$new($ObjectArray, {
-			$of("type.ms.uksystem"_s),
-			$of("Mfumo wa Vipimo wa Uingereza"_s)
+			"type.ms.uksystem"_s,
+			"Mfumo wa Vipimo wa Uingereza"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lt"_s),
-			$of("Kilithuania"_s)
+			"lt"_s,
+			"Kilithuania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lu"_s),
-			$of("Kiluba-Katanga"_s)
+			"lu"_s,
+			"Kiluba-Katanga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lv"_s),
-			$of("Kilatvia"_s)
+			"lv"_s,
+			"Kilatvia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mg"_s),
-			$of("Kimalagasi"_s)
+			"mg"_s,
+			"Kimalagasi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mh"_s),
-			$of("Kimashale"_s)
+			"mh"_s,
+			"Kimashale"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.ducet"_s),
-			$of("Mpangilio Chaguo-Msingi wa Unicode"_s)
+			"type.co.ducet"_s,
+			"Mpangilio Chaguo-Msingi wa Unicode"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mi"_s),
-			$of("Kimaori"_s)
+			"mi"_s,
+			"Kimaori"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mk"_s),
-			$of("Kimacedonia"_s)
+			"mk"_s,
+			"Kimacedonia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ml"_s),
-			$of("Kimalayalamu"_s)
+			"ml"_s,
+			"Kimalayalamu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mn"_s),
-			$of(metaValue_mn)
+			"mn"_s,
+			metaValue_mn
 		}),
 		$$new($ObjectArray, {
-			$of("mr"_s),
-			$of("Kimarathi"_s)
+			"mr"_s,
+			"Kimarathi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ms"_s),
-			$of("Kimalei"_s)
+			"ms"_s,
+			"Kimalei"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mt"_s),
-			$of("Kimalta"_s)
+			"mt"_s,
+			"Kimalta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("my"_s),
-			$of("Kiburma"_s)
+			"my"_s,
+			"Kiburma"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Armn"_s),
-			$of(metaValue_hy)
+			"Armn"_s,
+			metaValue_hy
 		}),
 		$$new($ObjectArray, {
-			$of("mdf"_s),
-			$of("Lugha ya Moksha"_s)
+			"mdf"_s,
+			"Lugha ya Moksha"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mde"_s),
-			$of("Kimaba"_s)
+			"mde"_s,
+			"Kimaba"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dsb"_s),
-			$of("Kisobia cha Chini"_s)
+			"dsb"_s,
+			"Kisobia cha Chini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("na"_s),
-			$of("Kinauru"_s)
+			"na"_s,
+			"Kinauru"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.search"_s),
-			$of("Utafutaji wa Kijumla"_s)
+			"type.co.search"_s,
+			"Utafutaji wa Kijumla"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nb"_s),
-			$of("Kinorwe cha Bokmal"_s)
+			"nb"_s,
+			"Kinorwe cha Bokmal"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nd"_s),
-			$of("Kindebele cha Kaskazini"_s)
+			"nd"_s,
+			"Kindebele cha Kaskazini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ne"_s),
-			$of("Kinepali"_s)
+			"ne"_s,
+			"Kinepali"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ng"_s),
-			$of("Kindonga"_s)
+			"ng"_s,
+			"Kindonga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nl"_s),
-			$of("Kiholanzi"_s)
+			"nl"_s,
+			"Kiholanzi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nn"_s),
-			$of("Kinorwe cha Nynorsk"_s)
+			"nn"_s,
+			"Kinorwe cha Nynorsk"_s
 		}),
 		$$new($ObjectArray, {
-			$of("no"_s),
-			$of("Kinorwe"_s)
+			"no"_s,
+			"Kinorwe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nr"_s),
-			$of("Kindebele"_s)
+			"nr"_s,
+			"Kindebele"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nv"_s),
-			$of("Kinavajo"_s)
+			"nv"_s,
+			"Kinavajo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ny"_s),
-			$of("Kinyanja"_s)
+			"ny"_s,
+			"Kinyanja"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kac"_s),
-			$of("Kachin"_s)
+			"kac"_s,
+			"Kachin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kab"_s),
-			$of("Kikabylia"_s)
+			"kab"_s,
+			"Kikabylia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("oc"_s),
-			$of("Kiokitani"_s)
+			"oc"_s,
+			"Kiokitani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kaj"_s),
-			$of("Kijju"_s)
+			"kaj"_s,
+			"Kijju"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kam"_s),
-			$of("Kikamba"_s)
+			"kam"_s,
+			"Kikamba"_s
 		}),
 		$$new($ObjectArray, {
-			$of("men"_s),
-			$of("Kimende"_s)
+			"men"_s,
+			"Kimende"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mer"_s),
-			$of("Kimeru"_s)
+			"mer"_s,
+			"Kimeru"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.armn"_s),
-			$of("Nambari za Kiarmenia"_s)
+			"type.nu.armn"_s,
+			"Nambari za Kiarmenia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("om"_s),
-			$of("Kioromo"_s)
+			"om"_s,
+			"Kioromo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("or"_s),
-			$of(metaValue_or)
+			"or"_s,
+			metaValue_or
 		}),
 		$$new($ObjectArray, {
-			$of("os"_s),
-			$of("Kiosetia"_s)
+			"os"_s,
+			"Kiosetia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kbd"_s),
-			$of("Kikabardian"_s)
+			"kbd"_s,
+			"Kikabardian"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mfe"_s),
-			$of("Kimoriseni"_s)
+			"mfe"_s,
+			"Kimoriseni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("srn"_s),
-			$of("Lugha ya Sranan Tongo"_s)
+			"srn"_s,
+			"Lugha ya Sranan Tongo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pa"_s),
-			$of("Kipunjabi"_s)
+			"pa"_s,
+			"Kipunjabi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dua"_s),
-			$of("Kiduala"_s)
+			"dua"_s,
+			"Kiduala"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kbl"_s),
-			$of("Kikanembu"_s)
+			"kbl"_s,
+			"Kikanembu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pl"_s),
-			$of("Kipolandi"_s)
+			"pl"_s,
+			"Kipolandi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.dangi"_s),
-			$of("Kalenda ya Dangi"_s)
+			"type.ca.dangi"_s,
+			"Kalenda ya Dangi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ps"_s),
-			$of("Kipashto"_s)
+			"ps"_s,
+			"Kipashto"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt"_s),
-			$of("Kireno"_s)
+			"pt"_s,
+			"Kireno"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.co"_s),
-			$of("Mpangilio"_s)
+			"key.co"_s,
+			"Mpangilio"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt_BR"_s),
-			$of("Kireno (Brazili)"_s)
+			"pt_BR"_s,
+			"Kireno (Brazili)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kcg"_s),
-			$of("Kityap"_s)
+			"kcg"_s,
+			"Kityap"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mgh"_s),
-			$of("Kimakhuwa-Meetto"_s)
+			"mgh"_s,
+			"Kimakhuwa-Meetto"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.cf"_s),
-			$of("Mpangilio wa Sarafu"_s)
+			"key.cf"_s,
+			"Mpangilio wa Sarafu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.ca"_s),
-			$of("Kalenda"_s)
+			"key.ca"_s,
+			"Kalenda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Laoo"_s),
-			$of(metaValue_lo)
+			"Laoo"_s,
+			metaValue_lo
 		}),
 		$$new($ObjectArray, {
-			$of("mgo"_s),
-			$of("Kimeta"_s)
+			"mgo"_s,
+			"Kimeta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.hc.h23"_s),
-			$of(u"Kipindi cha saa 24 (0–23)"_s)
+			"type.hc.h23"_s,
+			u"Kipindi cha saa 24 (0–23)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.hc.h24"_s),
-			$of(u"Kipindi cha saa 24 (1–24)"_s)
+			"type.hc.h24"_s,
+			u"Kipindi cha saa 24 (1–24)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ssy"_s),
-			$of("Kisaho"_s)
+			"ssy"_s,
+			"Kisaho"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mymr"_s),
-			$of("Nambari za Myanmar"_s)
+			"type.nu.mymr"_s,
+			"Nambari za Myanmar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("qu"_s),
-			$of("Kikechua"_s)
+			"qu"_s,
+			"Kikechua"_s
 		}),
 		$$new($ObjectArray, {
-			$of("brx"_s),
-			$of("Kibodo"_s)
+			"brx"_s,
+			"Kibodo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kde"_s),
-			$of("Kimakonde"_s)
+			"kde"_s,
+			"Kimakonde"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Ethi"_s),
-			$of("Kiethiopia"_s)
+			"Ethi"_s,
+			"Kiethiopia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.hc.h12"_s),
-			$of(u"Kipindi cha saa 12 (1–12)"_s)
+			"type.hc.h12"_s,
+			u"Kipindi cha saa 12 (1–12)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.hc.h11"_s),
-			$of(u"Kipindi cha saa 12 (0–11)"_s)
+			"type.hc.h11"_s,
+			u"Kipindi cha saa 12 (0–11)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rm"_s),
-			$of("Kiromanshi"_s)
+			"rm"_s,
+			"Kiromanshi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rn"_s),
-			$of("Kirundi"_s)
+			"rn"_s,
+			"Kirundi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.cu"_s),
-			$of("Sarafu"_s)
+			"key.cu"_s,
+			"Sarafu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ro"_s),
-			$of("Kiromania"_s)
+			"ro"_s,
+			"Kiromania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.orya"_s),
-			$of("Nambari za Kioriya"_s)
+			"type.nu.orya"_s,
+			"Nambari za Kioriya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hanidec"_s),
-			$of("Nambari za Desimali za Kichina"_s)
+			"type.nu.hanidec"_s,
+			"Nambari za Desimali za Kichina"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ru"_s),
-			$of("Kirusi"_s)
+			"ru"_s,
+			"Kirusi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rw"_s),
-			$of("Kinyarwanda"_s)
+			"rw"_s,
+			"Kinyarwanda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kea"_s),
-			$of("Kikabuverdianu"_s)
+			"kea"_s,
+			"Kikabuverdianu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mic"_s),
-			$of(u"Mi’kmaq"_s)
+			"mic"_s,
+			u"Mi’kmaq"_s
 		}),
 		$$new($ObjectArray, {
-			$of("suk"_s),
-			$of("Kisukuma"_s)
+			"suk"_s,
+			"Kisukuma"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sa"_s),
-			$of("Kisanskriti"_s)
+			"sa"_s,
+			"Kisanskriti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sc"_s),
-			$of("Kisardinia"_s)
+			"sc"_s,
+			"Kisardinia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sus"_s),
-			$of("Kisusu"_s)
+			"sus"_s,
+			"Kisusu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sd"_s),
-			$of("Kisindhi"_s)
+			"sd"_s,
+			"Kisindhi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("se"_s),
-			$of("Kisami cha Kaskazini"_s)
+			"se"_s,
+			"Kisami cha Kaskazini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("min"_s),
-			$of("Kiminangkabau"_s)
+			"min"_s,
+			"Kiminangkabau"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sg"_s),
-			$of("Kisango"_s)
+			"sg"_s,
+			"Kisango"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sh"_s),
-			$of("Kiserbia-kroeshia"_s)
+			"sh"_s,
+			"Kiserbia-kroeshia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("si"_s),
-			$of(metaValue_si)
+			"si"_s,
+			metaValue_si
 		}),
 		$$new($ObjectArray, {
-			$of("sk"_s),
-			$of("Kislovakia"_s)
+			"sk"_s,
+			"Kislovakia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sl"_s),
-			$of("Kislovenia"_s)
+			"sl"_s,
+			"Kislovenia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sm"_s),
-			$of("Kisamoa"_s)
+			"sm"_s,
+			"Kisamoa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sn"_s),
-			$of("Kishona"_s)
+			"sn"_s,
+			"Kishona"_s
 		}),
 		$$new($ObjectArray, {
-			$of("so"_s),
-			$of("Kisomali"_s)
+			"so"_s,
+			"Kisomali"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.arab"_s),
-			$of("Nambari za Kiarabu/Kihindi"_s)
+			"type.nu.arab"_s,
+			"Nambari za Kiarabu/Kihindi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sq"_s),
-			$of("Kialbania"_s)
+			"sq"_s,
+			"Kialbania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sr"_s),
-			$of("Kiserbia"_s)
+			"sr"_s,
+			"Kiserbia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ss"_s),
-			$of("Kiswati"_s)
+			"ss"_s,
+			"Kiswati"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.cf.account"_s),
-			$of("Mpangilio wa Kihasibu wa Sarafu"_s)
+			"type.cf.account"_s,
+			"Mpangilio wa Kihasibu wa Sarafu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("st"_s),
-			$of("Kisotho"_s)
+			"st"_s,
+			"Kisotho"_s
 		}),
 		$$new($ObjectArray, {
-			$of("su"_s),
-			$of("Kisunda"_s)
+			"su"_s,
+			"Kisunda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sv"_s),
-			$of("Kiswidi"_s)
+			"sv"_s,
+			"Kiswidi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sw"_s),
-			$of("Kiswahili"_s)
+			"sw"_s,
+			"Kiswahili"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hantfin"_s),
-			$of("Nambari za Kifedha za Kichina cha Jadi"_s)
+			"type.nu.hantfin"_s,
+			"Nambari za Kifedha za Kichina cha Jadi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ibb"_s),
-			$of("Kiibibio"_s)
+			"ibb"_s,
+			"Kiibibio"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iba"_s),
-			$of("Kiiban"_s)
+			"iba"_s,
+			"Kiiban"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ta"_s),
-			$of("Kitamili"_s)
+			"ta"_s,
+			"Kitamili"_s
 		}),
 		$$new($ObjectArray, {
-			$of("142"_s),
-			$of("Asia"_s)
+			"142"_s,
+			"Asia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("143"_s),
-			$of("Asia ya Kati"_s)
+			"143"_s,
+			"Asia ya Kati"_s
 		}),
 		$$new($ObjectArray, {
-			$of("te"_s),
-			$of(metaValue_te)
+			"te"_s,
+			metaValue_te
 		}),
 		$$new($ObjectArray, {
-			$of("145"_s),
-			$of("Asia ya Magharibi"_s)
+			"145"_s,
+			"Asia ya Magharibi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tg"_s),
-			$of("Kitajiki"_s)
+			"tg"_s,
+			"Kitajiki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("th"_s),
-			$of(metaValue_th)
+			"th"_s,
+			metaValue_th
 		}),
 		$$new($ObjectArray, {
-			$of("ti"_s),
-			$of("Kitigrinya"_s)
+			"ti"_s,
+			"Kitigrinya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bug"_s),
-			$of("Kibugini"_s)
+			"bug"_s,
+			"Kibugini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kfo"_s),
-			$of("Kikoro"_s)
+			"kfo"_s,
+			"Kikoro"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_CA"_s),
-			$of("Kiingereza (Canada)"_s)
+			"en_CA"_s,
+			"Kiingereza (Canada)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tk"_s),
-			$of("Kiturukimeni"_s)
+			"tk"_s,
+			"Kiturukimeni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tn"_s),
-			$of("Kitswana"_s)
+			"tn"_s,
+			"Kitswana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("to"_s),
-			$of("Kitonga"_s)
+			"to"_s,
+			"Kitonga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bum"_s),
-			$of("Kibulu"_s)
+			"bum"_s,
+			"Kibulu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dyo"_s),
-			$of("Kijola-Fonyi"_s)
+			"dyo"_s,
+			"Kijola-Fonyi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.jpan"_s),
-			$of("Nambari za Kijapani"_s)
+			"type.nu.jpan"_s,
+			"Nambari za Kijapani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tr"_s),
-			$of("Kituruki"_s)
+			"tr"_s,
+			"Kituruki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ts"_s),
-			$of("Kitsonga"_s)
+			"ts"_s,
+			"Kitsonga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("swb"_s),
-			$of("Shikomor"_s)
+			"swb"_s,
+			"Shikomor"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tt"_s),
-			$of("Kitatari"_s)
+			"tt"_s,
+			"Kitatari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dyu"_s),
-			$of("Kijula"_s)
+			"dyu"_s,
+			"Kijula"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tw"_s),
-			$of("Twi"_s)
+			"tw"_s,
+			"Twi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ty"_s),
-			$of("Kitahiti"_s)
+			"ty"_s,
+			"Kitahiti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("150"_s),
-			$of("Ulaya"_s)
+			"150"_s,
+			"Ulaya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("151"_s),
-			$of("Ulaya ya Mashariki"_s)
+			"151"_s,
+			"Ulaya ya Mashariki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("154"_s),
-			$of("Ulaya ya Kaskazini"_s)
+			"154"_s,
+			"Ulaya ya Kaskazini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dzg"_s),
-			$of("Kidazaga"_s)
+			"dzg"_s,
+			"Kidazaga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("155"_s),
-			$of("Ulaya ya Magharibi"_s)
+			"155"_s,
+			"Ulaya ya Magharibi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ug"_s),
-			$of("Kiuyghur"_s)
+			"ug"_s,
+			"Kiuyghur"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kore"_s),
-			$of(metaValue_ko)
+			"Kore"_s,
+			metaValue_ko
 		}),
 		$$new($ObjectArray, {
-			$of("Zyyy"_s),
-			$of("Kawaida"_s)
+			"Zyyy"_s,
+			"Kawaida"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uk"_s),
-			$of("Kiukraini"_s)
+			"uk"_s,
+			"Kiukraini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.coptic"_s),
-			$of("Kalenda ya Koptiki"_s)
+			"type.ca.coptic"_s,
+			"Kalenda ya Koptiki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ur"_s),
-			$of("Kiurdu"_s)
+			"ur"_s,
+			"Kiurdu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xal"_s),
-			$of("Kikalmyk"_s)
+			"xal"_s,
+			"Kikalmyk"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uz"_s),
-			$of("Kiuzbeki"_s)
+			"uz"_s,
+			"Kiuzbeki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kha"_s),
-			$of("Kikhasi"_s)
+			"kha"_s,
+			"Kikhasi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ve"_s),
-			$of("Kivenda"_s)
+			"ve"_s,
+			"Kivenda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.roc"_s),
-			$of("Kalenda ya Jamhuri ya Uchina"_s)
+			"type.ca.roc"_s,
+			"Kalenda ya Jamhuri ya Uchina"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vi"_s),
-			$of("Kivietinamu"_s)
+			"vi"_s,
+			"Kivietinamu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("khq"_s),
-			$of("Kikoyra Chiini"_s)
+			"khq"_s,
+			"Kikoyra Chiini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.hc"_s),
-			$of("Kipindi cha saa (12 au 24)"_s)
+			"key.hc"_s,
+			"Kipindi cha saa (12 au 24)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vo"_s),
-			$of("Kivolapuk"_s)
+			"vo"_s,
+			"Kivolapuk"_s
 		}),
 		$$new($ObjectArray, {
-			$of("quc"_s),
-			$of(u"Kʼicheʼ"_s)
+			"quc"_s,
+			u"Kʼicheʼ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gaa"_s),
-			$of("Ga"_s)
+			"gaa"_s,
+			"Ga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wa"_s),
-			$of("Kiwaloon"_s)
+			"wa"_s,
+			"Kiwaloon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gag"_s),
-			$of("Kigagauz"_s)
+			"gag"_s,
+			"Kigagauz"_s
 		}),
 		$$new($ObjectArray, {
-			$of("syr"_s),
-			$of("Lugha ya Syriac"_s)
+			"syr"_s,
+			"Lugha ya Syriac"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Grek"_s),
-			$of(metaValue_el)
+			"Grek"_s,
+			metaValue_el
 		}),
 		$$new($ObjectArray, {
-			$of("wo"_s),
-			$of("Kiwolofu"_s)
+			"wo"_s,
+			"Kiwolofu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zgh"_s),
-			$of("Kiberber Sanifu cha Moroko"_s)
+			"zgh"_s,
+			"Kiberber Sanifu cha Moroko"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ar_001"_s),
-			$of("Kiarabu sanifu"_s)
+			"ar_001"_s,
+			"Kiarabu sanifu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mong"_s),
-			$of(metaValue_mn)
+			"Mong"_s,
+			metaValue_mn
 		}),
 		$$new($ObjectArray, {
-			$of("gba"_s),
-			$of("Kigbaya"_s)
+			"gba"_s,
+			"Kigbaya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mni"_s),
-			$of("Kimanipuri"_s)
+			"mni"_s,
+			"Kimanipuri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Latn"_s),
-			$of(metaValue_la)
+			"Latn"_s,
+			metaValue_la
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hans"_s),
-			$of("Nambari za Kichina Rahisi"_s)
+			"type.nu.hans"_s,
+			"Nambari za Kichina Rahisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hant"_s),
-			$of("Nambari za Kichina cha Jadi"_s)
+			"type.nu.hant"_s,
+			"Nambari za Kichina cha Jadi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xh"_s),
-			$of("Kixhosa"_s)
+			"xh"_s,
+			"Kixhosa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.romanlow"_s),
-			$of("Nambari Ndogo za Kirumi"_s)
+			"type.nu.romanlow"_s,
+			"Nambari Ndogo za Kirumi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("byn"_s),
-			$of("Kiblin"_s)
+			"byn"_s,
+			"Kiblin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("byv"_s),
-			$of("Kimedumba"_s)
+			"byv"_s,
+			"Kimedumba"_s
 		}),
 		$$new($ObjectArray, {
-			$of("moh"_s),
-			$of("Lugha ya Mohawk"_s)
+			"moh"_s,
+			"Lugha ya Mohawk"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kkj"_s),
-			$of("Lugha ya Kako"_s)
+			"kkj"_s,
+			"Lugha ya Kako"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yi"_s),
-			$of("Kiyiddi"_s)
+			"yi"_s,
+			"Kiyiddi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mos"_s),
-			$of("Kimoore"_s)
+			"mos"_s,
+			"Kimoore"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yo"_s),
-			$of("Kiyoruba"_s)
+			"yo"_s,
+			"Kiyoruba"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.traditional"_s),
-			$of("Tarakimu za Jadi"_s)
+			"type.nu.traditional"_s,
+			"Tarakimu za Jadi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vai"_s),
-			$of("Kivai"_s)
+			"vai"_s,
+			"Kivai"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kln"_s),
-			$of("Kikalenjin"_s)
+			"kln"_s,
+			"Kikalenjin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh"_s),
-			$of("Kichina"_s)
+			"zh"_s,
+			"Kichina"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Bopo"_s),
-			$of("Kibopomofo"_s)
+			"Bopo"_s,
+			"Kibopomofo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.lb"_s),
-			$of("Mtindo wa Kukata Mstari"_s)
+			"key.lb"_s,
+			"Mtindo wa Kukata Mstari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zu"_s),
-			$of("Kizulu"_s)
+			"zu"_s,
+			"Kizulu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.phonebook"_s),
-			$of("Mpangilio wa Orodha za Nambari za Simu"_s)
+			"type.co.phonebook"_s,
+			"Mpangilio wa Orodha za Nambari za Simu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Geor"_s),
-			$of(metaValue_ka)
+			"Geor"_s,
+			metaValue_ka
 		}),
 		$$new($ObjectArray, {
-			$of("kmb"_s),
-			$of("Kimbundu"_s)
+			"kmb"_s,
+			"Kimbundu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.jpanfin"_s),
-			$of("Nambari za Kifedha za Kijapani"_s)
+			"type.nu.jpanfin"_s,
+			"Nambari za Kifedha za Kijapani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gez"_s),
-			$of(u"Kige’ez"_s)
+			"gez"_s,
+			u"Kige’ez"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.reformed"_s),
-			$of("Mpangilio Uliorekebishwa"_s)
+			"type.co.reformed"_s,
+			"Mpangilio Uliorekebishwa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ebu"_s),
-			$of("Kiembu"_s)
+			"ebu"_s,
+			"Kiembu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh_Hans"_s),
-			$of("Kichina (Kilichorahisishwa)"_s)
+			"zh_Hans"_s,
+			"Kichina (Kilichorahisishwa)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("koi"_s),
-			$of("Kikomi-Permyak"_s)
+			"koi"_s,
+			"Kikomi-Permyak"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kok"_s),
-			$of("Kikonkani"_s)
+			"kok"_s,
+			"Kikonkani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh_Hant"_s),
-			$of("Kichina cha Jadi"_s)
+			"zh_Hant"_s,
+			"Kichina cha Jadi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kpe"_s),
-			$of("Kikpelle"_s)
+			"kpe"_s,
+			"Kikpelle"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.khmr"_s),
-			$of("Nambari za Kikambodia"_s)
+			"type.nu.khmr"_s,
+			"Nambari za Kikambodia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ilo"_s),
-			$of("Kiilocano"_s)
+			"ilo"_s,
+			"Kiilocano"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mua"_s),
-			$of("Kimundang"_s)
+			"mua"_s,
+			"Kimundang"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.guru"_s),
-			$of("Nambari za Kigurmukhi"_s)
+			"type.nu.guru"_s,
+			"Nambari za Kigurmukhi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mul"_s),
-			$of("Lugha nyingi"_s)
+			"mul"_s,
+			"Lugha nyingi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.ms"_s),
-			$of("Mfumo wa Vipimo"_s)
+			"key.ms"_s,
+			"Mfumo wa Vipimo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mus"_s),
-			$of("Kikriki"_s)
+			"mus"_s,
+			"Kikriki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gil"_s),
-			$of("Kikiribati"_s)
+			"gil"_s,
+			"Kikiribati"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.tamldec"_s),
-			$of("Nambari za Kitamil"_s)
+			"type.nu.tamldec"_s,
+			"Nambari za Kitamil"_s
 		}),
 		$$new($ObjectArray, {
-			$of("krc"_s),
-			$of("Kikarachay-Balkar"_s)
+			"krc"_s,
+			"Kikarachay-Balkar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("inh"_s),
-			$of("Kiingush"_s)
+			"inh"_s,
+			"Kiingush"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fa_AF"_s),
-			$of("Kiajemi (Afganistani)"_s)
+			"fa_AF"_s,
+			"Kiajemi (Afganistani)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("krl"_s),
-			$of("Karjala"_s)
+			"krl"_s,
+			"Karjala"_s
 		}),
 		$$new($ObjectArray, {
-			$of("efi"_s),
-			$of("Kiefik"_s)
+			"efi"_s,
+			"Kiefik"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.nu"_s),
-			$of("Nambari"_s)
+			"key.nu"_s,
+			"Nambari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kru"_s),
-			$of("Kurukh"_s)
+			"kru"_s,
+			"Kurukh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ksb"_s),
-			$of("Kisambaa"_s)
+			"ksb"_s,
+			"Kisambaa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Telu"_s),
-			$of(metaValue_te)
+			"Telu"_s,
+			metaValue_te
 		}),
 		$$new($ObjectArray, {
-			$of("ksf"_s),
-			$of("Kibafia"_s)
+			"ksf"_s,
+			"Kibafia"_s
 		})
 	}));
 	return data;
@@ -3520,7 +3500,22 @@ LocaleNames_sw::LocaleNames_sw() {
 }
 
 $Class* LocaleNames_sw::load$($String* name, bool initialize) {
-	$loadClass(LocaleNames_sw, name, initialize, &_LocaleNames_sw_ClassInfo_, allocate$LocaleNames_sw);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_sw, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_sw, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.LocaleNames_sw",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNames_sw, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNames_sw);
+	});
 	return class$;
 }
 

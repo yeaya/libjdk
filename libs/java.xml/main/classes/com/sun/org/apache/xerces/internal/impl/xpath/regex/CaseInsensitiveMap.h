@@ -32,6 +32,7 @@ class CaseInsensitiveMap : public ::java::lang::Object {
 	$class(CaseInsensitiveMap, 0, ::java::lang::Object)
 public:
 	CaseInsensitiveMap();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void buildCaseInsensitiveMap();
 	static bool contains($ints* map, int32_t codePoint);

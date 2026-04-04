@@ -24,6 +24,7 @@ class $export JavaCompiler$CompilePolicy : public ::java::lang::Enum {
 public:
 	JavaCompiler$CompilePolicy();
 	static $Array<::com::sun::tools::javac::main::JavaCompiler$CompilePolicy>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::main::JavaCompiler$CompilePolicy* decode($String* option);
 	static ::com::sun::tools::javac::main::JavaCompiler$CompilePolicy* valueOf($String* name);

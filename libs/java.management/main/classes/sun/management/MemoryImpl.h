@@ -40,6 +40,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::management::VMManagement* vm);
 	static void createNotification($String* notifType, $String* poolName, ::java::lang::management::MemoryUsage* usage, int64_t count);
 	virtual void gc() override;

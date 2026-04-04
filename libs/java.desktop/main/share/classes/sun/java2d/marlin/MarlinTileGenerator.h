@@ -41,6 +41,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::java2d::marlin::RendererStats* stats, ::sun::java2d::marlin::Renderer* r, ::sun::java2d::marlin::MarlinCache* cache);
 	virtual void dispose() override;
 	virtual void getAlpha($bytes* tile, int32_t offset, int32_t rowstride) override;

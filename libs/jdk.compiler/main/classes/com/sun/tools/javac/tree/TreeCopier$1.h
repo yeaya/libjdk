@@ -15,6 +15,7 @@ class TreeCopier$1 : public ::java::lang::Object {
 	$class(TreeCopier$1, 0, ::java::lang::Object)
 public:
 	TreeCopier$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag;
 };
 

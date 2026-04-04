@@ -1,5 +1,4 @@
 #include <javax/swing/RowFilter$RegexFilter.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/util/regex/Matcher.h>
 #include <java/util/regex/Pattern.h>
@@ -14,50 +13,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
 using $RowFilter$Entry = ::javax::swing::RowFilter$Entry;
 using $RowFilter$GeneralFilter = ::javax::swing::RowFilter$GeneralFilter;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _RowFilter$RegexFilter_FieldInfo_[] = {
-	{"matcher", "Ljava/util/regex/Matcher;", nullptr, $PRIVATE, $field(RowFilter$RegexFilter, matcher)},
-	{}
-};
-
-$MethodInfo _RowFilter$RegexFilter_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/regex/Pattern;[I)V", nullptr, 0, $method(RowFilter$RegexFilter, init$, void, $Pattern*, $ints*)},
-	{"include", "(Ljavax/swing/RowFilter$Entry;I)Z", "(Ljavax/swing/RowFilter$Entry<+TM;+TI;>;I)Z", $PROTECTED, $virtualMethod(RowFilter$RegexFilter, include, bool, $RowFilter$Entry*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _RowFilter$RegexFilter_InnerClassesInfo_[] = {
-	{"javax.swing.RowFilter$RegexFilter", "javax.swing.RowFilter", "RegexFilter", $PRIVATE | $STATIC},
-	{"javax.swing.RowFilter$GeneralFilter", "javax.swing.RowFilter", "GeneralFilter", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RowFilter$RegexFilter_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.RowFilter$RegexFilter",
-	"javax.swing.RowFilter$GeneralFilter",
-	nullptr,
-	_RowFilter$RegexFilter_FieldInfo_,
-	_RowFilter$RegexFilter_MethodInfo_,
-	"<M:Ljava/lang/Object;I:Ljava/lang/Object;>Ljavax/swing/RowFilter$GeneralFilter<TM;TI;>;",
-	nullptr,
-	_RowFilter$RegexFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.RowFilter"
-};
-
-$Object* allocate$RowFilter$RegexFilter($Class* clazz) {
-	return $of($alloc(RowFilter$RegexFilter));
-}
 
 void RowFilter$RegexFilter::init$($Pattern* regex, $ints* columns) {
 	$RowFilter$GeneralFilter::init$(columns);
@@ -76,7 +37,38 @@ RowFilter$RegexFilter::RowFilter$RegexFilter() {
 }
 
 $Class* RowFilter$RegexFilter::load$($String* name, bool initialize) {
-	$loadClass(RowFilter$RegexFilter, name, initialize, &_RowFilter$RegexFilter_ClassInfo_, allocate$RowFilter$RegexFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"matcher", "Ljava/util/regex/Matcher;", nullptr, $PRIVATE, $field(RowFilter$RegexFilter, matcher)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/regex/Pattern;[I)V", nullptr, 0, $method(RowFilter$RegexFilter, init$, void, $Pattern*, $ints*)},
+		{"include", "(Ljavax/swing/RowFilter$Entry;I)Z", "(Ljavax/swing/RowFilter$Entry<+TM;+TI;>;I)Z", $PROTECTED, $virtualMethod(RowFilter$RegexFilter, include, bool, $RowFilter$Entry*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.RowFilter$RegexFilter", "javax.swing.RowFilter", "RegexFilter", $PRIVATE | $STATIC},
+		{"javax.swing.RowFilter$GeneralFilter", "javax.swing.RowFilter", "GeneralFilter", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.RowFilter$RegexFilter",
+		"javax.swing.RowFilter$GeneralFilter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<M:Ljava/lang/Object;I:Ljava/lang/Object;>Ljavax/swing/RowFilter$GeneralFilter<TM;TI;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.RowFilter"
+	};
+	$loadClass(RowFilter$RegexFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RowFilter$RegexFilter);
+	});
 	return class$;
 }
 

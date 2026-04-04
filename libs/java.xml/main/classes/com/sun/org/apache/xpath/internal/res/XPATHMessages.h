@@ -27,6 +27,7 @@ class $export XPATHMessages : public ::com::sun::org::apache::xml::internal::res
 	$class(XPATHMessages, 0, ::com::sun::org::apache::xml::internal::res::XMLMessages)
 public:
 	XPATHMessages();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* createXPATHMessage($String* msgKey, $ObjectArray* args);
 	static $String* createXPATHMsg(::java::util::ResourceBundle* fResourceBundle, $String* msgKey, $ObjectArray* args);

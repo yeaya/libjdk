@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/crypto/EType.h>
-
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
@@ -35,7 +34,6 @@
 #undef TRUE
 
 using $EncryptionKeyArray = $Array<::sun::security::krb5::EncryptionKey>;
-using $PrintStream = ::java::io::PrintStream;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -68,59 +66,6 @@ namespace sun {
 			namespace internal {
 				namespace crypto {
 
-$FieldInfo _EType_FieldInfo_[] = {
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EType, DEBUG)},
-	{"allowWeakCrypto", "Z", nullptr, $PRIVATE | $STATIC, $staticField(EType, allowWeakCrypto)},
-	{"BUILTIN_ETYPES", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EType, BUILTIN_ETYPES)},
-	{"BUILTIN_ETYPES_NOAES256", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EType, BUILTIN_ETYPES_NOAES256)},
-	{}
-};
-
-$MethodInfo _EType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(EType, init$, void)},
-	{"blockSize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EType, blockSize, int32_t)},
-	{"checksumSize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EType, checksumSize, int32_t)},
-	{"checksumType", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EType, checksumType, int32_t)},
-	{"confounderSize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EType, confounderSize, int32_t)},
-	{"dataSize", "([B)I", nullptr, $PUBLIC, $virtualMethod(EType, dataSize, int32_t, $bytes*)},
-	{"decrypt", "([B[BI)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EType, decrypt, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
-	{"decrypt", "([B[B[BI)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EType, decrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
-	{"decryptedData", "([B)[B", nullptr, $PUBLIC, $virtualMethod(EType, decryptedData, $bytes*, $bytes*)},
-	{"eType", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EType, eType, int32_t)},
-	{"encrypt", "([B[BI)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EType, encrypt, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
-	{"encrypt", "([B[B[BI)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EType, encrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
-	{"getBuiltInDefaults", "()[I", nullptr, $PUBLIC | $STATIC, $staticMethod(EType, getBuiltInDefaults, $ints*)},
-	{"getDefaults", "(Ljava/lang/String;)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(EType, getDefaults, $ints*, $String*), "sun.security.krb5.KrbException"},
-	{"getDefaults", "(Ljava/lang/String;[Lsun/security/krb5/EncryptionKey;)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(EType, getDefaults, $ints*, $String*, $EncryptionKeyArray*), "sun.security.krb5.KrbException"},
-	{"getInstance", "(I)Lsun/security/krb5/internal/crypto/EType;", nullptr, $PUBLIC | $STATIC, $staticMethod(EType, getInstance, EType*, int32_t), "sun.security.krb5.internal.KdcErrException"},
-	{"initStatic", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(EType, initStatic, void)},
-	{"isNewer", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(EType, isNewer, bool, int32_t)},
-	{"isSupported", "(I[I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(EType, isSupported, bool, int32_t, $ints*)},
-	{"isSupported", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(EType, isSupported, bool, int32_t)},
-	{"keySize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EType, keySize, int32_t)},
-	{"keyType", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EType, keyType, int32_t)},
-	{"minimumPadSize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EType, minimumPadSize, int32_t)},
-	{"padSize", "([B)I", nullptr, $PUBLIC, $virtualMethod(EType, padSize, int32_t, $bytes*)},
-	{"startOfChecksum", "()I", nullptr, $PUBLIC, $virtualMethod(EType, startOfChecksum, int32_t)},
-	{"startOfData", "()I", nullptr, $PUBLIC, $virtualMethod(EType, startOfData, int32_t)},
-	{"startOfPad", "([B)I", nullptr, $PUBLIC, $virtualMethod(EType, startOfPad, int32_t, $bytes*)},
-	{"toString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(EType, toString, $String*, int32_t)},
-	{}
-};
-
-$ClassInfo _EType_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.security.krb5.internal.crypto.EType",
-	"java.lang.Object",
-	nullptr,
-	_EType_FieldInfo_,
-	_EType_MethodInfo_
-};
-
-$Object* allocate$EType($Class* clazz) {
-	return $of($alloc(EType));
-}
-
 bool EType::DEBUG = false;
 bool EType::allowWeakCrypto = false;
 $ints* EType::BUILTIN_ETYPES = nullptr;
@@ -131,11 +76,10 @@ void EType::init$() {
 
 void EType::initStatic() {
 	$init(EType);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool allowed = false;
 	try {
 		$var($Config, cfg, $Config::getInstance());
-		$init($Boolean);
 		allowed = $nc(cfg)->getBooleanObject($$new($StringArray, {
 			"libdefaults"_s,
 			"allow_weak_crypto"_s
@@ -150,71 +94,51 @@ void EType::initStatic() {
 
 EType* EType::getInstance(int32_t eTypeConst) {
 	$init(EType);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(EType, eType, nullptr);
 	$var($String, eTypeName, nullptr);
 	{
-		$var($String, msg, nullptr)
+		$var($String, msg, nullptr);
 		switch (eTypeConst) {
 		case $EncryptedData::ETYPE_NULL:
-			{
-				$assign(eType, $new($NullEType));
-				$assign(eTypeName, "sun.security.krb5.internal.crypto.NullEType"_s);
-				break;
-			}
+			$assign(eType, $new($NullEType));
+			$assign(eTypeName, "sun.security.krb5.internal.crypto.NullEType"_s);
+			break;
 		case $EncryptedData::ETYPE_DES_CBC_CRC:
-			{
-				$assign(eType, $new($DesCbcCrcEType));
-				$assign(eTypeName, "sun.security.krb5.internal.crypto.DesCbcCrcEType"_s);
-				break;
-			}
+			$assign(eType, $new($DesCbcCrcEType));
+			$assign(eTypeName, "sun.security.krb5.internal.crypto.DesCbcCrcEType"_s);
+			break;
 		case $EncryptedData::ETYPE_DES_CBC_MD5:
-			{
-				$assign(eType, $new($DesCbcMd5EType));
-				$assign(eTypeName, "sun.security.krb5.internal.crypto.DesCbcMd5EType"_s);
-				break;
-			}
+			$assign(eType, $new($DesCbcMd5EType));
+			$assign(eTypeName, "sun.security.krb5.internal.crypto.DesCbcMd5EType"_s);
+			break;
 		case $EncryptedData::ETYPE_DES3_CBC_HMAC_SHA1_KD:
-			{
-				$assign(eType, $new($Des3CbcHmacSha1KdEType));
-				$assign(eTypeName, "sun.security.krb5.internal.crypto.Des3CbcHmacSha1KdEType"_s);
-				break;
-			}
+			$assign(eType, $new($Des3CbcHmacSha1KdEType));
+			$assign(eTypeName, "sun.security.krb5.internal.crypto.Des3CbcHmacSha1KdEType"_s);
+			break;
 		case $EncryptedData::ETYPE_AES128_CTS_HMAC_SHA1_96:
-			{
-				$assign(eType, $new($Aes128CtsHmacSha1EType));
-				$assign(eTypeName, "sun.security.krb5.internal.crypto.Aes128CtsHmacSha1EType"_s);
-				break;
-			}
+			$assign(eType, $new($Aes128CtsHmacSha1EType));
+			$assign(eTypeName, "sun.security.krb5.internal.crypto.Aes128CtsHmacSha1EType"_s);
+			break;
 		case $EncryptedData::ETYPE_AES256_CTS_HMAC_SHA1_96:
-			{
-				$assign(eType, $new($Aes256CtsHmacSha1EType));
-				$assign(eTypeName, "sun.security.krb5.internal.crypto.Aes256CtsHmacSha1EType"_s);
-				break;
-			}
+			$assign(eType, $new($Aes256CtsHmacSha1EType));
+			$assign(eTypeName, "sun.security.krb5.internal.crypto.Aes256CtsHmacSha1EType"_s);
+			break;
 		case $EncryptedData::ETYPE_AES128_CTS_HMAC_SHA256_128:
-			{
-				$assign(eType, $new($Aes128CtsHmacSha2EType));
-				$assign(eTypeName, "sun.security.krb5.internal.crypto.Aes128CtsHmacSha2EType"_s);
-				break;
-			}
+			$assign(eType, $new($Aes128CtsHmacSha2EType));
+			$assign(eTypeName, "sun.security.krb5.internal.crypto.Aes128CtsHmacSha2EType"_s);
+			break;
 		case $EncryptedData::ETYPE_AES256_CTS_HMAC_SHA384_192:
-			{
-				$assign(eType, $new($Aes256CtsHmacSha2EType));
-				$assign(eTypeName, "sun.security.krb5.internal.crypto.Aes256CtsHmacSha2EType"_s);
-				break;
-			}
+			$assign(eType, $new($Aes256CtsHmacSha2EType));
+			$assign(eTypeName, "sun.security.krb5.internal.crypto.Aes256CtsHmacSha2EType"_s);
+			break;
 		case $EncryptedData::ETYPE_ARCFOUR_HMAC:
-			{
-				$assign(eType, $new($ArcFourHmacEType));
-				$assign(eTypeName, "sun.security.krb5.internal.crypto.ArcFourHmacEType"_s);
-				break;
-			}
+			$assign(eType, $new($ArcFourHmacEType));
+			$assign(eTypeName, "sun.security.krb5.internal.crypto.ArcFourHmacEType"_s);
+			break;
 		default:
-			{
-				$assign(msg, $str({"encryption type = "_s, $(toString(eTypeConst)), " ("_s, $$str(eTypeConst), ")"_s}));
-				$throwNew($KdcErrException, $Krb5::KDC_ERR_ETYPE_NOSUPP, msg);
-			}
+			$assign(msg, $str({"encryption type = "_s, $(toString(eTypeConst)), " ("_s, $$str(eTypeConst), ")"_s}));
+			$throwNew($KdcErrException, $Krb5::KDC_ERR_ETYPE_NOSUPP, msg);
 		}
 	}
 	if (EType::DEBUG) {
@@ -276,14 +200,14 @@ $ints* EType::getBuiltInDefaults() {
 
 $ints* EType::getDefaults($String* configName) {
 	$init(EType);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Config, config, nullptr);
 	try {
 		$assign(config, $Config::getInstance());
 	} catch ($KrbException& exc) {
 		if (EType::DEBUG) {
 			$nc($System::out)->println($$str({"Exception while getting "_s, configName, ": "_s, $(exc->getMessage())}));
-			$nc($System::out)->println("Using default builtin etypes"_s);
+			$System::out->println("Using default builtin etypes"_s);
 		}
 		return getBuiltInDefaults();
 	}
@@ -292,10 +216,10 @@ $ints* EType::getDefaults($String* configName) {
 
 $ints* EType::getDefaults($String* configName, $EncryptionKeyArray* keys) {
 	$init(EType);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, answer, getDefaults(configName));
 	$var($List, list, $new($ArrayList, $nc(answer)->length));
-	for (int32_t i = 0; i < $nc(answer)->length; ++i) {
+	for (int32_t i = 0; i < answer->length; ++i) {
 		if ($EncryptionKey::findKey(answer->get(i), keys) != nullptr) {
 			list->add($($Integer::valueOf(answer->get(i))));
 		}
@@ -311,7 +235,7 @@ $ints* EType::getDefaults($String* configName, $EncryptionKeyArray* keys) {
 	} else {
 		$assign(answer, $new($ints, len));
 		for (int32_t i = 0; i < len; ++i) {
-			answer->set(i, $nc(($cast($Integer, $(list->get(i)))))->intValue());
+			answer->set(i, $$sure($Integer, list->get(i))->intValue());
 		}
 		return answer;
 	}
@@ -342,98 +266,54 @@ $String* EType::toString(int32_t type) {
 	$init(EType);
 	switch (type) {
 	case 0:
-		{
-			return "NULL"_s;
-		}
+		return "NULL"_s;
 	case 1:
-		{
-			return "DES CBC mode with CRC-32"_s;
-		}
+		return "DES CBC mode with CRC-32"_s;
 	case 2:
-		{
-			return "DES CBC mode with MD4"_s;
-		}
+		return "DES CBC mode with MD4"_s;
 	case 3:
-		{
-			return "DES CBC mode with MD5"_s;
-		}
+		return "DES CBC mode with MD5"_s;
 	case 4:
-		{
-			return "reserved"_s;
-		}
+		return "reserved"_s;
 	case 5:
-		{
-			return "DES3 CBC mode with MD5"_s;
-		}
+		return "DES3 CBC mode with MD5"_s;
 	case 6:
-		{
-			return "reserved"_s;
-		}
+		return "reserved"_s;
 	case 7:
-		{
-			return "DES3 CBC mode with SHA1"_s;
-		}
+		return "DES3 CBC mode with SHA1"_s;
 	case 9:
-		{
-			return "DSA with SHA1- Cms0ID"_s;
-		}
+		return "DSA with SHA1- Cms0ID"_s;
 	case 10:
-		{
-			return "MD5 with RSA encryption - Cms0ID"_s;
-		}
+		return "MD5 with RSA encryption - Cms0ID"_s;
 	case 11:
-		{
-			return "SHA1 with RSA encryption - Cms0ID"_s;
-		}
+		return "SHA1 with RSA encryption - Cms0ID"_s;
 	case 12:
-		{
-			return "RC2 CBC mode with Env0ID"_s;
-		}
+		return "RC2 CBC mode with Env0ID"_s;
 	case 13:
-		{
-			return "RSA encryption with Env0ID"_s;
-		}
+		return "RSA encryption with Env0ID"_s;
 	case 14:
-		{
-			return "RSAES-0AEP-ENV-0ID"_s;
-		}
+		return "RSAES-0AEP-ENV-0ID"_s;
 	case 15:
-		{
-			return "DES-EDE3-CBC-ENV-0ID"_s;
-		}
+		return "DES-EDE3-CBC-ENV-0ID"_s;
 	case 16:
-		{
-			return "DES3 CBC mode with SHA1-KD"_s;
-		}
+		return "DES3 CBC mode with SHA1-KD"_s;
 	case 17:
-		{
-			return "AES128 CTS mode with HMAC SHA1-96"_s;
-		}
+		return "AES128 CTS mode with HMAC SHA1-96"_s;
 	case 18:
-		{
-			return "AES256 CTS mode with HMAC SHA1-96"_s;
-		}
+		return "AES256 CTS mode with HMAC SHA1-96"_s;
 	case 23:
-		{
-			return "RC4 with HMAC"_s;
-		}
+		return "RC4 with HMAC"_s;
 	case 24:
-		{
-			return "RC4 with HMAC EXP"_s;
-		}
+		return "RC4 with HMAC EXP"_s;
 	case $EncryptedData::ETYPE_AES128_CTS_HMAC_SHA256_128:
-		{
-			return "AES128 CTS mode with HMAC SHA256-128"_s;
-		}
+		return "AES128 CTS mode with HMAC SHA256-128"_s;
 	case $EncryptedData::ETYPE_AES256_CTS_HMAC_SHA384_192:
-		{
-			return "AES256 CTS mode with HMAC SHA384-192"_s;
-		}
+		return "AES256 CTS mode with HMAC SHA384-192"_s;
 	}
 	return $str({"Unknown ("_s, $$str(type), ")"_s});
 }
 
-void clinit$EType($Class* class$) {
+void EType::clinit$($Class* clazz) {
 	$init($Krb5);
 	EType::DEBUG = $Krb5::DEBUG;
 	{
@@ -463,7 +343,55 @@ EType::EType() {
 }
 
 $Class* EType::load$($String* name, bool initialize) {
-	$loadClass(EType, name, initialize, &_EType_ClassInfo_, clinit$EType, allocate$EType);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EType, DEBUG)},
+		{"allowWeakCrypto", "Z", nullptr, $PRIVATE | $STATIC, $staticField(EType, allowWeakCrypto)},
+		{"BUILTIN_ETYPES", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EType, BUILTIN_ETYPES)},
+		{"BUILTIN_ETYPES_NOAES256", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EType, BUILTIN_ETYPES_NOAES256)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(EType, init$, void)},
+		{"blockSize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EType, blockSize, int32_t)},
+		{"checksumSize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EType, checksumSize, int32_t)},
+		{"checksumType", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EType, checksumType, int32_t)},
+		{"confounderSize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EType, confounderSize, int32_t)},
+		{"dataSize", "([B)I", nullptr, $PUBLIC, $virtualMethod(EType, dataSize, int32_t, $bytes*)},
+		{"decrypt", "([B[BI)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EType, decrypt, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
+		{"decrypt", "([B[B[BI)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EType, decrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
+		{"decryptedData", "([B)[B", nullptr, $PUBLIC, $virtualMethod(EType, decryptedData, $bytes*, $bytes*)},
+		{"eType", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EType, eType, int32_t)},
+		{"encrypt", "([B[BI)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EType, encrypt, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+		{"encrypt", "([B[B[BI)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EType, encrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+		{"getBuiltInDefaults", "()[I", nullptr, $PUBLIC | $STATIC, $staticMethod(EType, getBuiltInDefaults, $ints*)},
+		{"getDefaults", "(Ljava/lang/String;)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(EType, getDefaults, $ints*, $String*), "sun.security.krb5.KrbException"},
+		{"getDefaults", "(Ljava/lang/String;[Lsun/security/krb5/EncryptionKey;)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(EType, getDefaults, $ints*, $String*, $EncryptionKeyArray*), "sun.security.krb5.KrbException"},
+		{"getInstance", "(I)Lsun/security/krb5/internal/crypto/EType;", nullptr, $PUBLIC | $STATIC, $staticMethod(EType, getInstance, EType*, int32_t), "sun.security.krb5.internal.KdcErrException"},
+		{"initStatic", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(EType, initStatic, void)},
+		{"isNewer", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(EType, isNewer, bool, int32_t)},
+		{"isSupported", "(I[I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(EType, isSupported, bool, int32_t, $ints*)},
+		{"isSupported", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(EType, isSupported, bool, int32_t)},
+		{"keySize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EType, keySize, int32_t)},
+		{"keyType", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EType, keyType, int32_t)},
+		{"minimumPadSize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EType, minimumPadSize, int32_t)},
+		{"padSize", "([B)I", nullptr, $PUBLIC, $virtualMethod(EType, padSize, int32_t, $bytes*)},
+		{"startOfChecksum", "()I", nullptr, $PUBLIC, $virtualMethod(EType, startOfChecksum, int32_t)},
+		{"startOfData", "()I", nullptr, $PUBLIC, $virtualMethod(EType, startOfData, int32_t)},
+		{"startOfPad", "([B)I", nullptr, $PUBLIC, $virtualMethod(EType, startOfPad, int32_t, $bytes*)},
+		{"toString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(EType, toString, $String*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.security.krb5.internal.crypto.EType",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EType, name, initialize, &classInfo$$, EType::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(EType);
+	});
 	return class$;
 }
 

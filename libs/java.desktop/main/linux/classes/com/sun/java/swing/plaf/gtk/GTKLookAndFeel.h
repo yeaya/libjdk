@@ -77,6 +77,7 @@ class GTKLookAndFeel : public ::javax::swing::plaf::synth::SynthLookAndFeel {
 	$class(GTKLookAndFeel, 0, ::javax::swing::plaf::synth::SynthLookAndFeel)
 public:
 	GTKLookAndFeel();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::com::sun::java::swing::plaf::gtk::GTKConstants$PositionType* SwingOrientationConstantToGTK(int32_t side);
 	bool configIconSizes($String* sizeString);

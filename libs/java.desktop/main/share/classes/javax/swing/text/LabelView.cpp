@@ -1,5 +1,4 @@
 #include <javax/swing/text/LabelView.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Container.h>
 #include <java/awt/Font.h>
@@ -42,56 +41,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$CompoundAttribute _LabelView_MethodAnnotations_getFontMetrics4[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _LabelView_FieldInfo_[] = {
-	{"font", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(LabelView, font)},
-	{"fg", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(LabelView, fg)},
-	{"bg", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(LabelView, bg)},
-	{"underline", "Z", nullptr, $PRIVATE, $field(LabelView, underline)},
-	{"strike", "Z", nullptr, $PRIVATE, $field(LabelView, strike)},
-	{"superscript", "Z", nullptr, $PRIVATE, $field(LabelView, superscript)},
-	{"subscript", "Z", nullptr, $PRIVATE, $field(LabelView, subscript)},
-	{}
-};
-
-$MethodInfo _LabelView_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(LabelView, init$, void, $Element*)},
-	{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(LabelView, changedUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(LabelView, getBackground, $Color*)},
-	{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(LabelView, getFont, $Font*)},
-	{"getFontMetrics", "()Ljava/awt/FontMetrics;", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(LabelView, getFontMetrics, $FontMetrics*), nullptr, nullptr, _LabelView_MethodAnnotations_getFontMetrics4},
-	{"getForeground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(LabelView, getForeground, $Color*)},
-	{"isStrikeThrough", "()Z", nullptr, $PUBLIC, $virtualMethod(LabelView, isStrikeThrough, bool)},
-	{"isSubscript", "()Z", nullptr, $PUBLIC, $virtualMethod(LabelView, isSubscript, bool)},
-	{"isSuperscript", "()Z", nullptr, $PUBLIC, $virtualMethod(LabelView, isSuperscript, bool)},
-	{"isUnderline", "()Z", nullptr, $PUBLIC, $virtualMethod(LabelView, isUnderline, bool)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(LabelView, setBackground, void, $Color*)},
-	{"setPropertiesFromAttributes", "()V", nullptr, $PROTECTED, $virtualMethod(LabelView, setPropertiesFromAttributes, void)},
-	{"setStrikeThrough", "(Z)V", nullptr, $PROTECTED, $virtualMethod(LabelView, setStrikeThrough, void, bool)},
-	{"setSubscript", "(Z)V", nullptr, $PROTECTED, $virtualMethod(LabelView, setSubscript, void, bool)},
-	{"setSuperscript", "(Z)V", nullptr, $PROTECTED, $virtualMethod(LabelView, setSuperscript, void, bool)},
-	{"setUnderline", "(Z)V", nullptr, $PROTECTED, $virtualMethod(LabelView, setUnderline, void, bool)},
-	{"sync", "()V", nullptr, $FINAL, $method(LabelView, sync, void)},
-	{}
-};
-
-$ClassInfo _LabelView_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.LabelView",
-	"javax.swing.text.GlyphView",
-	nullptr,
-	_LabelView_FieldInfo_,
-	_LabelView_MethodInfo_
-};
-
-$Object* allocate$LabelView($Class* clazz) {
-	return $of($alloc(LabelView));
-}
-
 void LabelView::init$($Element* elem) {
 	$GlyphView::init$(elem);
 }
@@ -123,13 +72,13 @@ void LabelView::setBackground($Color* bg) {
 }
 
 void LabelView::setPropertiesFromAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeSet, attr, getAttributes());
 	if (attr != nullptr) {
 		$var($Document, d, getDocument());
 		if ($instanceOf($StyledDocument, d)) {
 			$var($StyledDocument, doc, $cast($StyledDocument, d));
-			$set(this, font, $nc(doc)->getFont(attr));
+			$set(this, font, doc->getFont(attr));
 			$set(this, fg, doc->getForeground(attr));
 			$init($StyleConstants);
 			if (attr->isDefined($StyleConstants::Background)) {
@@ -148,10 +97,10 @@ void LabelView::setPropertiesFromAttributes() {
 }
 
 $FontMetrics* LabelView::getFontMetrics() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	sync();
 	$var($Container, c, getContainer());
-	return (c != nullptr) ? $nc(c)->getFontMetrics(this->font) : $nc($($Toolkit::getDefaultToolkit()))->getFontMetrics(this->font);
+	return (c != nullptr) ? c->getFontMetrics(this->font) : $$nc($Toolkit::getDefaultToolkit())->getFontMetrics(this->font);
 }
 
 $Color* LabelView::getBackground() {
@@ -198,7 +147,51 @@ LabelView::LabelView() {
 }
 
 $Class* LabelView::load$($String* name, bool initialize) {
-	$loadClass(LabelView, name, initialize, &_LabelView_ClassInfo_, allocate$LabelView);
+	$FieldInfo fieldInfos$$[] = {
+		{"font", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(LabelView, font)},
+		{"fg", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(LabelView, fg)},
+		{"bg", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(LabelView, bg)},
+		{"underline", "Z", nullptr, $PRIVATE, $field(LabelView, underline)},
+		{"strike", "Z", nullptr, $PRIVATE, $field(LabelView, strike)},
+		{"superscript", "Z", nullptr, $PRIVATE, $field(LabelView, superscript)},
+		{"subscript", "Z", nullptr, $PRIVATE, $field(LabelView, subscript)},
+		{}
+	};
+	$CompoundAttribute getFontMetricsmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(LabelView, init$, void, $Element*)},
+		{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(LabelView, changedUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(LabelView, getBackground, $Color*)},
+		{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(LabelView, getFont, $Font*)},
+		{"getFontMetrics", "()Ljava/awt/FontMetrics;", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(LabelView, getFontMetrics, $FontMetrics*), nullptr, nullptr, getFontMetricsmethodAnnotations$$},
+		{"getForeground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(LabelView, getForeground, $Color*)},
+		{"isStrikeThrough", "()Z", nullptr, $PUBLIC, $virtualMethod(LabelView, isStrikeThrough, bool)},
+		{"isSubscript", "()Z", nullptr, $PUBLIC, $virtualMethod(LabelView, isSubscript, bool)},
+		{"isSuperscript", "()Z", nullptr, $PUBLIC, $virtualMethod(LabelView, isSuperscript, bool)},
+		{"isUnderline", "()Z", nullptr, $PUBLIC, $virtualMethod(LabelView, isUnderline, bool)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(LabelView, setBackground, void, $Color*)},
+		{"setPropertiesFromAttributes", "()V", nullptr, $PROTECTED, $virtualMethod(LabelView, setPropertiesFromAttributes, void)},
+		{"setStrikeThrough", "(Z)V", nullptr, $PROTECTED, $virtualMethod(LabelView, setStrikeThrough, void, bool)},
+		{"setSubscript", "(Z)V", nullptr, $PROTECTED, $virtualMethod(LabelView, setSubscript, void, bool)},
+		{"setSuperscript", "(Z)V", nullptr, $PROTECTED, $virtualMethod(LabelView, setSuperscript, void, bool)},
+		{"setUnderline", "(Z)V", nullptr, $PROTECTED, $virtualMethod(LabelView, setUnderline, void, bool)},
+		{"sync", "()V", nullptr, $FINAL, $method(LabelView, sync, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.LabelView",
+		"javax.swing.text.GlyphView",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LabelView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LabelView));
+	});
 	return class$;
 }
 

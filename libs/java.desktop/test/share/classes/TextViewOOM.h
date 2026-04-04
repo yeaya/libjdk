@@ -26,6 +26,7 @@ class $export TextViewOOM : public ::java::lang::Object {
 	$class(TextViewOOM, 0, ::java::lang::Object)
 public:
 	TextViewOOM();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createAndShowGUI();
 	static void lambda$main$0(::java::lang::StringBuilder* sb);

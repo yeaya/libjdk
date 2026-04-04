@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/file/PathFileObject$JRTFileObject.h>
-
 #include <com/sun/tools/javac/file/BaseFileManager.h>
 #include <com/sun/tools/javac/file/PathFileObject.h>
 #include <java/lang/Iterable.h>
@@ -19,40 +18,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace file {
-
-$MethodInfo _PathFileObject$JRTFileObject_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/BaseFileManager;Ljava/nio/file/Path;)V", nullptr, $PRIVATE, $method(PathFileObject$JRTFileObject, init$, void, $BaseFileManager*, $Path*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$JRTFileObject, getName, $String*)},
-	{"getSibling", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/PathFileObject;", nullptr, 0, $virtualMethod(PathFileObject$JRTFileObject, getSibling, $PathFileObject*, $String*)},
-	{"inferBinaryName", "(Ljava/lang/Iterable;)Ljava/lang/String;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Ljava/lang/String;", $PUBLIC, $virtualMethod(PathFileObject$JRTFileObject, inferBinaryName, $String*, $Iterable*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$JRTFileObject, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _PathFileObject$JRTFileObject_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.file.PathFileObject$JRTFileObject", "com.sun.tools.javac.file.PathFileObject", "JRTFileObject", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _PathFileObject$JRTFileObject_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.file.PathFileObject$JRTFileObject",
-	"com.sun.tools.javac.file.PathFileObject",
-	nullptr,
-	nullptr,
-	_PathFileObject$JRTFileObject_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PathFileObject$JRTFileObject_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.file.PathFileObject"
-};
-
-$Object* allocate$PathFileObject$JRTFileObject($Class* clazz) {
-	return $of($alloc(PathFileObject$JRTFileObject));
-}
 
 void PathFileObject$JRTFileObject::init$($BaseFileManager* fileManager, $Path* path) {
 	$PathFileObject::init$(fileManager, path);
@@ -78,7 +43,36 @@ PathFileObject$JRTFileObject::PathFileObject$JRTFileObject() {
 }
 
 $Class* PathFileObject$JRTFileObject::load$($String* name, bool initialize) {
-	$loadClass(PathFileObject$JRTFileObject, name, initialize, &_PathFileObject$JRTFileObject_ClassInfo_, allocate$PathFileObject$JRTFileObject);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/file/BaseFileManager;Ljava/nio/file/Path;)V", nullptr, $PRIVATE, $method(PathFileObject$JRTFileObject, init$, void, $BaseFileManager*, $Path*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$JRTFileObject, getName, $String*)},
+		{"getSibling", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/PathFileObject;", nullptr, 0, $virtualMethod(PathFileObject$JRTFileObject, getSibling, $PathFileObject*, $String*)},
+		{"inferBinaryName", "(Ljava/lang/Iterable;)Ljava/lang/String;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Ljava/lang/String;", $PUBLIC, $virtualMethod(PathFileObject$JRTFileObject, inferBinaryName, $String*, $Iterable*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$JRTFileObject, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.file.PathFileObject$JRTFileObject", "com.sun.tools.javac.file.PathFileObject", "JRTFileObject", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.file.PathFileObject$JRTFileObject",
+		"com.sun.tools.javac.file.PathFileObject",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.file.PathFileObject"
+	};
+	$loadClass(PathFileObject$JRTFileObject, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PathFileObject$JRTFileObject);
+	});
 	return class$;
 }
 

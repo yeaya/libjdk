@@ -39,7 +39,7 @@ public:
 	virtual void setDeleted();
 	virtual void setInserted();
 	virtual void setUpdated();
-	static const int64_t serialVersionUID = (int64_t)0x460D990BA30B5C4A;
+	static const int64_t serialVersionUID = (int64_t)0x460d990ba30b5c4a;
 	$ObjectArray* currentVals = nullptr;
 	::java::util::BitSet* colsChanged = nullptr;
 	bool deleted = false;

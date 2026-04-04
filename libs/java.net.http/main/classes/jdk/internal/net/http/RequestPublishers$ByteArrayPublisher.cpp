@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/RequestPublishers$ByteArrayPublisher.h>
-
 #include <java/lang/Iterable.h>
 #include <java/lang/Math.h>
 #include <java/nio/ByteBuffer.h>
@@ -16,7 +15,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
@@ -30,50 +28,6 @@ namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$FieldInfo _RequestPublishers$ByteArrayPublisher_FieldInfo_[] = {
-	{"length", "I", nullptr, $PRIVATE | $FINAL, $field(RequestPublishers$ByteArrayPublisher, length)},
-	{"content", "[B", nullptr, $PRIVATE | $FINAL, $field(RequestPublishers$ByteArrayPublisher, content)},
-	{"offset", "I", nullptr, $PRIVATE | $FINAL, $field(RequestPublishers$ByteArrayPublisher, offset)},
-	{"bufSize", "I", nullptr, $PRIVATE | $FINAL, $field(RequestPublishers$ByteArrayPublisher, bufSize)},
-	{}
-};
-
-$MethodInfo _RequestPublishers$ByteArrayPublisher_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(RequestPublishers$ByteArrayPublisher, init$, void, $bytes*)},
-	{"<init>", "([BII)V", nullptr, $PUBLIC, $method(RequestPublishers$ByteArrayPublisher, init$, void, $bytes*, int32_t, int32_t)},
-	{"<init>", "([BIII)V", nullptr, 0, $method(RequestPublishers$ByteArrayPublisher, init$, void, $bytes*, int32_t, int32_t, int32_t)},
-	{"contentLength", "()J", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$ByteArrayPublisher, contentLength, int64_t)},
-	{"copy", "([BII)Ljava/util/List;", "([BII)Ljava/util/List<Ljava/nio/ByteBuffer;>;", 0, $virtualMethod(RequestPublishers$ByteArrayPublisher, copy, $List*, $bytes*, int32_t, int32_t)},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(RequestPublishers$ByteArrayPublisher, subscribe, void, $Flow$Subscriber*)},
-	{}
-};
-
-$InnerClassInfo _RequestPublishers$ByteArrayPublisher_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.RequestPublishers$ByteArrayPublisher", "jdk.internal.net.http.RequestPublishers", "ByteArrayPublisher", $PUBLIC | $STATIC},
-	{"java.net.http.HttpRequest$BodyPublisher", "java.net.http.HttpRequest", "BodyPublisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RequestPublishers$ByteArrayPublisher_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.RequestPublishers$ByteArrayPublisher",
-	"java.lang.Object",
-	"java.net.http.HttpRequest$BodyPublisher",
-	_RequestPublishers$ByteArrayPublisher_FieldInfo_,
-	_RequestPublishers$ByteArrayPublisher_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RequestPublishers$ByteArrayPublisher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.RequestPublishers"
-};
-
-$Object* allocate$RequestPublishers$ByteArrayPublisher($Class* clazz) {
-	return $of($alloc(RequestPublishers$ByteArrayPublisher));
-}
 
 void RequestPublishers$ByteArrayPublisher::init$($bytes* content) {
 	RequestPublishers$ByteArrayPublisher::init$(content, 0, $nc(content)->length);
@@ -92,7 +46,7 @@ void RequestPublishers$ByteArrayPublisher::init$($bytes* content, int32_t offset
 }
 
 $List* RequestPublishers$ByteArrayPublisher::copy($bytes* content, int32_t offset, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, bufs, $new($ArrayList));
 	while (length > 0) {
 		$var($ByteBuffer, b, $ByteBuffer::allocate($Math::min(this->bufSize, length)));
@@ -108,7 +62,7 @@ $List* RequestPublishers$ByteArrayPublisher::copy($bytes* content, int32_t offse
 }
 
 void RequestPublishers$ByteArrayPublisher::subscribe($Flow$Subscriber* subscriber) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, copy, this->copy(this->content, this->offset, this->length));
 	$var($PullPublisher, delegate, $new($PullPublisher, copy));
 	delegate->subscribe(subscriber);
@@ -122,7 +76,45 @@ RequestPublishers$ByteArrayPublisher::RequestPublishers$ByteArrayPublisher() {
 }
 
 $Class* RequestPublishers$ByteArrayPublisher::load$($String* name, bool initialize) {
-	$loadClass(RequestPublishers$ByteArrayPublisher, name, initialize, &_RequestPublishers$ByteArrayPublisher_ClassInfo_, allocate$RequestPublishers$ByteArrayPublisher);
+	$FieldInfo fieldInfos$$[] = {
+		{"length", "I", nullptr, $PRIVATE | $FINAL, $field(RequestPublishers$ByteArrayPublisher, length)},
+		{"content", "[B", nullptr, $PRIVATE | $FINAL, $field(RequestPublishers$ByteArrayPublisher, content)},
+		{"offset", "I", nullptr, $PRIVATE | $FINAL, $field(RequestPublishers$ByteArrayPublisher, offset)},
+		{"bufSize", "I", nullptr, $PRIVATE | $FINAL, $field(RequestPublishers$ByteArrayPublisher, bufSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(RequestPublishers$ByteArrayPublisher, init$, void, $bytes*)},
+		{"<init>", "([BII)V", nullptr, $PUBLIC, $method(RequestPublishers$ByteArrayPublisher, init$, void, $bytes*, int32_t, int32_t)},
+		{"<init>", "([BIII)V", nullptr, 0, $method(RequestPublishers$ByteArrayPublisher, init$, void, $bytes*, int32_t, int32_t, int32_t)},
+		{"contentLength", "()J", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$ByteArrayPublisher, contentLength, int64_t)},
+		{"copy", "([BII)Ljava/util/List;", "([BII)Ljava/util/List<Ljava/nio/ByteBuffer;>;", 0, $virtualMethod(RequestPublishers$ByteArrayPublisher, copy, $List*, $bytes*, int32_t, int32_t)},
+		{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(RequestPublishers$ByteArrayPublisher, subscribe, void, $Flow$Subscriber*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.RequestPublishers$ByteArrayPublisher", "jdk.internal.net.http.RequestPublishers", "ByteArrayPublisher", $PUBLIC | $STATIC},
+		{"java.net.http.HttpRequest$BodyPublisher", "java.net.http.HttpRequest", "BodyPublisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.RequestPublishers$ByteArrayPublisher",
+		"java.lang.Object",
+		"java.net.http.HttpRequest$BodyPublisher",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.RequestPublishers"
+	};
+	$loadClass(RequestPublishers$ByteArrayPublisher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RequestPublishers$ByteArrayPublisher);
+	});
 	return class$;
 }
 

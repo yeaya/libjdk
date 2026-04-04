@@ -14,6 +14,7 @@ class MacSymbol$Holder : public ::java::lang::Object {
 	$class(MacSymbol$Holder, 0, ::java::lang::Object)
 public:
 	MacSymbol$Holder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* b2cTable;
 	static $chars* b2c;

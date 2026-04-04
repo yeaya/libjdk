@@ -56,7 +56,7 @@ public:
 	::java::sql::Clob* clob = nullptr;
 	int64_t len = 0;
 	int64_t origLen = 0;
-	static const int64_t serialVersionUID = (int64_t)0xE8ED8B26783FDE2F;
+	static const int64_t serialVersionUID = (int64_t)0xe8ed8b26783fde2f;
 };
 
 			} // serial

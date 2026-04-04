@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalIconFactory$InternalFrameAltMaximizeIcon.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -32,49 +31,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalIconFactory$InternalFrameAltMaximizeIcon_FieldInfo_[] = {
-	{"iconSize", "I", nullptr, 0, $field(MetalIconFactory$InternalFrameAltMaximizeIcon, iconSize)},
-	{}
-};
-
-$MethodInfo _MetalIconFactory$InternalFrameAltMaximizeIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(MetalIconFactory$InternalFrameAltMaximizeIcon, init$, void, int32_t)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$InternalFrameAltMaximizeIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$InternalFrameAltMaximizeIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$InternalFrameAltMaximizeIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MetalIconFactory$InternalFrameAltMaximizeIcon_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalIconFactory$InternalFrameAltMaximizeIcon", "javax.swing.plaf.metal.MetalIconFactory", "InternalFrameAltMaximizeIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalIconFactory$InternalFrameAltMaximizeIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalIconFactory$InternalFrameAltMaximizeIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
-	_MetalIconFactory$InternalFrameAltMaximizeIcon_FieldInfo_,
-	_MetalIconFactory$InternalFrameAltMaximizeIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalIconFactory$InternalFrameAltMaximizeIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalIconFactory"
-};
-
-$Object* allocate$MetalIconFactory$InternalFrameAltMaximizeIcon($Class* clazz) {
-	return $of($alloc(MetalIconFactory$InternalFrameAltMaximizeIcon));
-}
-
 int32_t MetalIconFactory$InternalFrameAltMaximizeIcon::hashCode() {
 	 return this->$Icon::hashCode();
 }
@@ -101,7 +57,7 @@ void MetalIconFactory$InternalFrameAltMaximizeIcon::init$(int32_t size) {
 }
 
 void MetalIconFactory$InternalFrameAltMaximizeIcon::paintIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JButton, parentButton, $cast($JButton, c));
 	$var($ButtonModel, buttonModel, $nc(parentButton)->getModel());
 	$var($Color, backgroundColor, $MetalLookAndFeel::getPrimaryControl());
@@ -110,7 +66,6 @@ void MetalIconFactory$InternalFrameAltMaximizeIcon::paintIcon($Component* c, $Gr
 	$var($Color, darkHighlightColor, $MetalLookAndFeel::getBlack());
 	$var($Color, ulLightHighlightColor, $MetalLookAndFeel::getWhite());
 	$var($Color, lrLightHighlightColor, $MetalLookAndFeel::getWhite());
-	$init($Boolean);
 	if (!$equals(parentButton->getClientProperty("paintActive"_s), $Boolean::TRUE)) {
 		$assign(backgroundColor, $MetalLookAndFeel::getControl());
 		$assign(internalBackgroundColor, backgroundColor);
@@ -122,8 +77,8 @@ void MetalIconFactory$InternalFrameAltMaximizeIcon::paintIcon($Component* c, $Gr
 			$assign(mainItemColor, darkHighlightColor);
 		}
 	} else {
-		bool var$2 = $nc(buttonModel)->isPressed();
-		if (var$2 && buttonModel->isArmed()) {
+		bool var$1 = $nc(buttonModel)->isPressed();
+		if (var$1 && buttonModel->isArmed()) {
 			$assign(internalBackgroundColor, $MetalLookAndFeel::getPrimaryControlShadow());
 			$assign(ulLightHighlightColor, internalBackgroundColor);
 			$assign(mainItemColor, darkHighlightColor);
@@ -182,7 +137,44 @@ MetalIconFactory$InternalFrameAltMaximizeIcon::MetalIconFactory$InternalFrameAlt
 }
 
 $Class* MetalIconFactory$InternalFrameAltMaximizeIcon::load$($String* name, bool initialize) {
-	$loadClass(MetalIconFactory$InternalFrameAltMaximizeIcon, name, initialize, &_MetalIconFactory$InternalFrameAltMaximizeIcon_ClassInfo_, allocate$MetalIconFactory$InternalFrameAltMaximizeIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"iconSize", "I", nullptr, 0, $field(MetalIconFactory$InternalFrameAltMaximizeIcon, iconSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(MetalIconFactory$InternalFrameAltMaximizeIcon, init$, void, int32_t)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$InternalFrameAltMaximizeIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$InternalFrameAltMaximizeIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$InternalFrameAltMaximizeIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalIconFactory$InternalFrameAltMaximizeIcon", "javax.swing.plaf.metal.MetalIconFactory", "InternalFrameAltMaximizeIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalIconFactory$InternalFrameAltMaximizeIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalIconFactory"
+	};
+	$loadClass(MetalIconFactory$InternalFrameAltMaximizeIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalIconFactory$InternalFrameAltMaximizeIcon));
+	});
 	return class$;
 }
 

@@ -27,7 +27,7 @@ public:
 	::javax::sound::sampled::Line* getLine();
 	::javax::sound::sampled::LineEvent$Type* getType();
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xEE50F7B6064F5126;
+	static const int64_t serialVersionUID = (int64_t)0xee50f7b6064f5126;
 	::javax::sound::sampled::LineEvent$Type* type = nullptr;
 	int64_t position = 0;
 };

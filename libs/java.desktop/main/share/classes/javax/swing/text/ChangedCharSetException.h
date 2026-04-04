@@ -20,7 +20,10 @@ public:
 	bool charSetKey = false;
 	ChangedCharSetException(const ChangedCharSetException& e);
 	virtual void throw$() override;
-	inline ChangedCharSetException* operator ->() {
+	inline ChangedCharSetException* operator ->() const {
+		return (ChangedCharSetException*)throwing$;
+	}
+	inline operator ChangedCharSetException*() const {
 		return (ChangedCharSetException*)throwing$;
 	}
 };

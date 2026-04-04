@@ -111,6 +111,7 @@ class DOMRSAPSSSignatureMethod : public ::org::jcp::xml::dsig::internal::dom::Ab
 	$class(DOMRSAPSSSignatureMethod, 0, ::org::jcp::xml::dsig::internal::dom::AbstractDOMSignatureMethod)
 public:
 	DOMRSAPSSSignatureMethod();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::spec::AlgorithmParameterSpec* params);
 	void init$(::org::w3c::dom::Element* smElem);
 	virtual void checkParams(::javax::xml::crypto::dsig::spec::SignatureMethodParameterSpec* params) override;

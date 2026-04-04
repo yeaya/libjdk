@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Flags.h>
-
 #include <com/sun/tools/javac/code/Flags$Flag.h>
 #include <com/sun/tools/javac/code/Symbol$VarSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -114,141 +113,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Flags_FieldInfo_[] = {
-	{"PUBLIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, PUBLIC)},
-	{"PRIVATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, PRIVATE)},
-	{"PROTECTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, PROTECTED)},
-	{"STATIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, STATIC)},
-	{"FINAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, FINAL)},
-	{"SYNCHRONIZED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, SYNCHRONIZED)},
-	{"VOLATILE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, VOLATILE)},
-	{"TRANSIENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, TRANSIENT)},
-	{"NATIVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, NATIVE)},
-	{"INTERFACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, INTERFACE)},
-	{"ABSTRACT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ABSTRACT)},
-	{"STRICTFP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, STRICTFP)},
-	{"SYNTHETIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, SYNTHETIC)},
-	{"ANNOTATION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ANNOTATION)},
-	{"ENUM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ENUM)},
-	{"MANDATED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, MANDATED)},
-	{"StandardFlags", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, StandardFlags)},
-	{"ACC_SUPER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ACC_SUPER)},
-	{"ACC_BRIDGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ACC_BRIDGE)},
-	{"ACC_VARARGS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ACC_VARARGS)},
-	{"ACC_MODULE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ACC_MODULE)},
-	{"DEPRECATED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, DEPRECATED)},
-	{"HASINIT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, HASINIT)},
-	{"BLOCK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, BLOCK)},
-	{"NOOUTERTHIS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, NOOUTERTHIS)},
-	{"EXISTS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, EXISTS)},
-	{"COMPOUND", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, COMPOUND)},
-	{"CLASS_SEEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, CLASS_SEEN)},
-	{"SOURCE_SEEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, SOURCE_SEEN)},
-	{"LOCKED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, LOCKED)},
-	{"UNATTRIBUTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, UNATTRIBUTED)},
-	{"ANONCONSTR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ANONCONSTR)},
-	{"SUPER_OWNER_ATTRIBUTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, SUPER_OWNER_ATTRIBUTED)},
-	{"ACYCLIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ACYCLIC)},
-	{"BRIDGE", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, BRIDGE)},
-	{"PARAMETER", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, PARAMETER)},
-	{"VARARGS", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, VARARGS)},
-	{"ACYCLIC_ANN", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ACYCLIC_ANN)},
-	{"GENERATEDCONSTR", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, GENERATEDCONSTR)},
-	{"HYPOTHETICAL", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, HYPOTHETICAL)},
-	{"PROPRIETARY", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, PROPRIETARY)},
-	{"UNION", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, UNION)},
-	{"RECOVERABLE", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, RECOVERABLE)},
-	{"EFFECTIVELY_FINAL", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, EFFECTIVELY_FINAL)},
-	{"CLASH", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, CLASH)},
-	{"DEFAULT", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, DEFAULT)},
-	{"AUXILIARY", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, AUXILIARY)},
-	{"NOT_IN_PROFILE", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, NOT_IN_PROFILE)},
-	{"BAD_OVERRIDE", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, BAD_OVERRIDE)},
-	{"SIGNATURE_POLYMORPHIC", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, SIGNATURE_POLYMORPHIC)},
-	{"THROWS", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, THROWS)},
-	{"POTENTIALLY_AMBIGUOUS", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, POTENTIALLY_AMBIGUOUS)},
-	{"LAMBDA_METHOD", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, LAMBDA_METHOD)},
-	{"TYPE_TRANSLATED", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, TYPE_TRANSLATED)},
-	{"MODULE", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, MODULE)},
-	{"AUTOMATIC_MODULE", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, AUTOMATIC_MODULE)},
-	{"HAS_RESOURCE", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, HAS_RESOURCE)},
-	{"NAME_FILLED", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, NAME_FILLED)},
-	{"SYSTEM_MODULE", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, SYSTEM_MODULE)},
-	{"VALUE_BASED", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, VALUE_BASED)},
-	{"DEPRECATED_ANNOTATION", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, DEPRECATED_ANNOTATION)},
-	{"DEPRECATED_REMOVAL", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, DEPRECATED_REMOVAL)},
-	{"PREVIEW_API", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, PREVIEW_API)},
-	{"ANONCONSTR_BASED", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ANONCONSTR_BASED)},
-	{"BODY_ONLY_FINALIZE", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, BODY_ONLY_FINALIZE)},
-	{"PREVIEW_REFLECTIVE", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, PREVIEW_REFLECTIVE)},
-	{"MATCH_BINDING", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, MATCH_BINDING)},
-	{"MATCH_BINDING_TO_OUTER", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, MATCH_BINDING_TO_OUTER)},
-	{"RECORD", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, RECORD)},
-	{"COMPACT_RECORD_CONSTRUCTOR", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, COMPACT_RECORD_CONSTRUCTOR)},
-	{"UNINITIALIZED_FIELD", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, UNINITIALIZED_FIELD)},
-	{"GENERATED_MEMBER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, GENERATED_MEMBER)},
-	{"SEALED", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, SEALED)},
-	{"NON_SEALED", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, NON_SEALED)},
-	{"AccessFlags", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, AccessFlags)},
-	{"LocalClassFlags", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, LocalClassFlags)},
-	{"StaticLocalFlags", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, StaticLocalFlags)},
-	{"MemberClassFlags", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, MemberClassFlags)},
-	{"MemberStaticClassFlags", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, MemberStaticClassFlags)},
-	{"ClassFlags", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ClassFlags)},
-	{"InterfaceVarFlags", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, InterfaceVarFlags)},
-	{"VarFlags", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, VarFlags)},
-	{"ConstructorFlags", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ConstructorFlags)},
-	{"InterfaceMethodFlags", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, InterfaceMethodFlags)},
-	{"MethodFlags", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, MethodFlags)},
-	{"RecordMethodFlags", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, RecordMethodFlags)},
-	{"ExtendedStandardFlags", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ExtendedStandardFlags)},
-	{"ExtendedMemberClassFlags", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ExtendedMemberClassFlags)},
-	{"ExtendedMemberStaticClassFlags", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ExtendedMemberStaticClassFlags)},
-	{"ExtendedClassFlags", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ExtendedClassFlags)},
-	{"ModifierFlags", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ModifierFlags)},
-	{"InterfaceMethodMask", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, InterfaceMethodMask)},
-	{"AnnotationTypeElementMask", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, AnnotationTypeElementMask)},
-	{"LocalVarFlags", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, LocalVarFlags)},
-	{"ReceiverParamFlags", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ReceiverParamFlags)},
-	{"modifierSets", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Long;Ljava/util/Set<Ljavax/lang/model/element/Modifier;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Flags, modifierSets)},
-	{}
-};
-
-$MethodInfo _Flags_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Flags, init$, void)},
-	{"asFlagSet", "(J)Ljava/util/EnumSet;", "(J)Ljava/util/EnumSet<Lcom/sun/tools/javac/code/Flags$Flag;>;", $PUBLIC | $STATIC, $staticMethod(Flags, asFlagSet, $EnumSet*, int64_t)},
-	{"asModifierSet", "(J)Ljava/util/Set;", "(J)Ljava/util/Set<Ljavax/lang/model/element/Modifier;>;", $PUBLIC | $STATIC, $staticMethod(Flags, asModifierSet, $Set*, int64_t)},
-	{"isConstant", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Flags, isConstant, bool, $Symbol$VarSymbol*)},
-	{"isEnum", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Flags, isEnum, bool, $Symbol*)},
-	{"isStatic", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Flags, isStatic, bool, $Symbol*)},
-	{"toString", "(J)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Flags, toString, $String*, int64_t)},
-	{}
-};
-
-$InnerClassInfo _Flags_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Flags$Flag", "com.sun.tools.javac.code.Flags", "Flag", $PUBLIC | $STATIC | $ENUM},
-	{}
-};
-
-$ClassInfo _Flags_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Flags",
-	"java.lang.Object",
-	nullptr,
-	_Flags_FieldInfo_,
-	_Flags_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Flags_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Flags$Flag,com.sun.tools.javac.code.Flags$Flag$1"
-};
-
-$Object* allocate$Flags($Class* clazz) {
-	return $of($alloc(Flags));
-}
-
 $Map* Flags::modifierSets = nullptr;
 
 void Flags::init$() {
@@ -256,16 +120,16 @@ void Flags::init$() {
 
 $String* Flags::toString(int64_t flags) {
 	$init(Flags);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	$var($String, sep, ""_s);
 	{
-		$var($Iterator, i$, $nc($(asFlagSet(flags)))->iterator());
+		$var($Iterator, i$, $$nc(asFlagSet(flags))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$Flags$Flag* flag = $cast($Flags$Flag, i$->next());
 			{
 				buf->append(sep);
-				buf->append($of(flag));
+				buf->append(flag);
 				$assign(sep, " "_s);
 			}
 		}
@@ -275,20 +139,16 @@ $String* Flags::toString(int64_t flags) {
 
 $EnumSet* Flags::asFlagSet(int64_t flags) {
 	$init(Flags);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($Flags$Flag);
 	$var($EnumSet, flagSet, $EnumSet::noneOf($Flags$Flag::class$));
 	{
 		$var($Flags$FlagArray, arr$, $Flags$Flag::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$Flags$Flag* flag = arr$->get(i$);
-			{
-				if (((int64_t)(flags & (uint64_t)$nc(flag)->value)) != 0) {
-					$nc(flagSet)->add(flag);
-					flags &= (uint64_t)~flag->value;
-				}
+			if ((flags & $nc(flag)->value) != 0) {
+				$nc(flagSet)->add(flag);
+				flags &= (uint64_t)~flag->value;
 			}
 		}
 	}
@@ -298,81 +158,81 @@ $EnumSet* Flags::asFlagSet(int64_t flags) {
 
 $Set* Flags::asModifierSet(int64_t flags) {
 	$init(Flags);
-	$useLocalCurrentObjectStackCache();
-	$var($Set, modifiers, $cast($Set, $nc(Flags::modifierSets)->get($($Long::valueOf(flags)))));
+	$useLocalObjectStack();
+	$var($Set, modifiers, $cast($Set, Flags::modifierSets->get($($Long::valueOf(flags)))));
 	if (modifiers == nullptr) {
 		$load($Modifier);
 		$assign(modifiers, $EnumSet::noneOf($Modifier::class$));
-		if (0 != ((int64_t)(flags & (uint64_t)(int64_t)Flags::PUBLIC))) {
+		if (0 != (flags & Flags::PUBLIC)) {
 			$init($Modifier);
 			$nc(modifiers)->add($Modifier::PUBLIC);
 		}
-		if (0 != ((int64_t)(flags & (uint64_t)(int64_t)Flags::PROTECTED))) {
+		if (0 != (flags & Flags::PROTECTED)) {
 			$init($Modifier);
 			$nc(modifiers)->add($Modifier::PROTECTED);
 		}
-		if (0 != ((int64_t)(flags & (uint64_t)(int64_t)Flags::PRIVATE))) {
+		if (0 != (flags & Flags::PRIVATE)) {
 			$init($Modifier);
 			$nc(modifiers)->add($Modifier::PRIVATE);
 		}
-		if (0 != ((int64_t)(flags & (uint64_t)(int64_t)Flags::ABSTRACT))) {
+		if (0 != (flags & Flags::ABSTRACT)) {
 			$init($Modifier);
 			$nc(modifiers)->add($Modifier::ABSTRACT);
 		}
-		if (0 != ((int64_t)(flags & (uint64_t)(int64_t)Flags::STATIC))) {
+		if (0 != (flags & Flags::STATIC)) {
 			$init($Modifier);
 			$nc(modifiers)->add($Modifier::STATIC);
 		}
-		if (0 != ((int64_t)(flags & (uint64_t)Flags::SEALED))) {
+		if (0 != (flags & Flags::SEALED)) {
 			$init($Modifier);
 			$nc(modifiers)->add($Modifier::SEALED);
 		}
-		if (0 != ((int64_t)(flags & (uint64_t)Flags::NON_SEALED))) {
+		if (0 != (flags & Flags::NON_SEALED)) {
 			$init($Modifier);
 			$nc(modifiers)->add($Modifier::NON_SEALED);
 		}
-		if (0 != ((int64_t)(flags & (uint64_t)(int64_t)Flags::FINAL))) {
+		if (0 != (flags & Flags::FINAL)) {
 			$init($Modifier);
 			$nc(modifiers)->add($Modifier::FINAL);
 		}
-		if (0 != ((int64_t)(flags & (uint64_t)(int64_t)Flags::TRANSIENT))) {
+		if (0 != (flags & Flags::TRANSIENT)) {
 			$init($Modifier);
 			$nc(modifiers)->add($Modifier::TRANSIENT);
 		}
-		if (0 != ((int64_t)(flags & (uint64_t)(int64_t)Flags::VOLATILE))) {
+		if (0 != (flags & Flags::VOLATILE)) {
 			$init($Modifier);
 			$nc(modifiers)->add($Modifier::VOLATILE);
 		}
-		if (0 != ((int64_t)(flags & (uint64_t)(int64_t)Flags::SYNCHRONIZED))) {
+		if (0 != (flags & Flags::SYNCHRONIZED)) {
 			$init($Modifier);
 			$nc(modifiers)->add($Modifier::SYNCHRONIZED);
 		}
-		if (0 != ((int64_t)(flags & (uint64_t)(int64_t)Flags::NATIVE))) {
+		if (0 != (flags & Flags::NATIVE)) {
 			$init($Modifier);
 			$nc(modifiers)->add($Modifier::NATIVE);
 		}
-		if (0 != ((int64_t)(flags & (uint64_t)(int64_t)Flags::STRICTFP))) {
+		if (0 != (flags & Flags::STRICTFP)) {
 			$init($Modifier);
 			$nc(modifiers)->add($Modifier::STRICTFP);
 		}
-		if (0 != ((int64_t)(flags & (uint64_t)Flags::DEFAULT))) {
+		if (0 != (flags & Flags::DEFAULT)) {
 			$init($Modifier);
 			$nc(modifiers)->add($Modifier::DEFAULT);
 		}
 		$assign(modifiers, $Collections::unmodifiableSet(modifiers));
-		$nc(Flags::modifierSets)->put($($Long::valueOf(flags)), modifiers);
+		Flags::modifierSets->put($($Long::valueOf(flags)), modifiers);
 	}
 	return modifiers;
 }
 
 bool Flags::isStatic($Symbol* symbol) {
 	$init(Flags);
-	return ((int64_t)($nc(symbol)->flags() & (uint64_t)(int64_t)Flags::STATIC)) != 0;
+	return ($nc(symbol)->flags() & Flags::STATIC) != 0;
 }
 
 bool Flags::isEnum($Symbol* symbol) {
 	$init(Flags);
-	return ((int64_t)($nc(symbol)->flags() & (uint64_t)(int64_t)Flags::ENUM)) != 0;
+	return ($nc(symbol)->flags() & Flags::ENUM) != 0;
 }
 
 bool Flags::isConstant($Symbol$VarSymbol* symbol) {
@@ -380,15 +240,144 @@ bool Flags::isConstant($Symbol$VarSymbol* symbol) {
 	return $nc(symbol)->getConstValue() != nullptr;
 }
 
-void clinit$Flags($Class* class$) {
-	$assignStatic(Flags::modifierSets, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap, 64))));
+void Flags::clinit$($Class* clazz) {
+	$assignStatic(Flags::modifierSets, $cast($AbstractMap, $new($ConcurrentHashMap, 64)));
 }
 
 Flags::Flags() {
 }
 
 $Class* Flags::load$($String* name, bool initialize) {
-	$loadClass(Flags, name, initialize, &_Flags_ClassInfo_, clinit$Flags, allocate$Flags);
+	$FieldInfo fieldInfos$$[] = {
+		{"PUBLIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, PUBLIC)},
+		{"PRIVATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, PRIVATE)},
+		{"PROTECTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, PROTECTED)},
+		{"STATIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, STATIC)},
+		{"FINAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, FINAL)},
+		{"SYNCHRONIZED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, SYNCHRONIZED)},
+		{"VOLATILE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, VOLATILE)},
+		{"TRANSIENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, TRANSIENT)},
+		{"NATIVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, NATIVE)},
+		{"INTERFACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, INTERFACE)},
+		{"ABSTRACT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ABSTRACT)},
+		{"STRICTFP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, STRICTFP)},
+		{"SYNTHETIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, SYNTHETIC)},
+		{"ANNOTATION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ANNOTATION)},
+		{"ENUM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ENUM)},
+		{"MANDATED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, MANDATED)},
+		{"StandardFlags", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, StandardFlags)},
+		{"ACC_SUPER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ACC_SUPER)},
+		{"ACC_BRIDGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ACC_BRIDGE)},
+		{"ACC_VARARGS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ACC_VARARGS)},
+		{"ACC_MODULE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ACC_MODULE)},
+		{"DEPRECATED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, DEPRECATED)},
+		{"HASINIT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, HASINIT)},
+		{"BLOCK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, BLOCK)},
+		{"NOOUTERTHIS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, NOOUTERTHIS)},
+		{"EXISTS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, EXISTS)},
+		{"COMPOUND", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, COMPOUND)},
+		{"CLASS_SEEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, CLASS_SEEN)},
+		{"SOURCE_SEEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, SOURCE_SEEN)},
+		{"LOCKED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, LOCKED)},
+		{"UNATTRIBUTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, UNATTRIBUTED)},
+		{"ANONCONSTR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ANONCONSTR)},
+		{"SUPER_OWNER_ATTRIBUTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, SUPER_OWNER_ATTRIBUTED)},
+		{"ACYCLIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ACYCLIC)},
+		{"BRIDGE", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, BRIDGE)},
+		{"PARAMETER", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, PARAMETER)},
+		{"VARARGS", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, VARARGS)},
+		{"ACYCLIC_ANN", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ACYCLIC_ANN)},
+		{"GENERATEDCONSTR", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, GENERATEDCONSTR)},
+		{"HYPOTHETICAL", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, HYPOTHETICAL)},
+		{"PROPRIETARY", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, PROPRIETARY)},
+		{"UNION", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, UNION)},
+		{"RECOVERABLE", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, RECOVERABLE)},
+		{"EFFECTIVELY_FINAL", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, EFFECTIVELY_FINAL)},
+		{"CLASH", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, CLASH)},
+		{"DEFAULT", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, DEFAULT)},
+		{"AUXILIARY", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, AUXILIARY)},
+		{"NOT_IN_PROFILE", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, NOT_IN_PROFILE)},
+		{"BAD_OVERRIDE", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, BAD_OVERRIDE)},
+		{"SIGNATURE_POLYMORPHIC", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, SIGNATURE_POLYMORPHIC)},
+		{"THROWS", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, THROWS)},
+		{"POTENTIALLY_AMBIGUOUS", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, POTENTIALLY_AMBIGUOUS)},
+		{"LAMBDA_METHOD", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, LAMBDA_METHOD)},
+		{"TYPE_TRANSLATED", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, TYPE_TRANSLATED)},
+		{"MODULE", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, MODULE)},
+		{"AUTOMATIC_MODULE", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, AUTOMATIC_MODULE)},
+		{"HAS_RESOURCE", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, HAS_RESOURCE)},
+		{"NAME_FILLED", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, NAME_FILLED)},
+		{"SYSTEM_MODULE", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, SYSTEM_MODULE)},
+		{"VALUE_BASED", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, VALUE_BASED)},
+		{"DEPRECATED_ANNOTATION", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, DEPRECATED_ANNOTATION)},
+		{"DEPRECATED_REMOVAL", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, DEPRECATED_REMOVAL)},
+		{"PREVIEW_API", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, PREVIEW_API)},
+		{"ANONCONSTR_BASED", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ANONCONSTR_BASED)},
+		{"BODY_ONLY_FINALIZE", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, BODY_ONLY_FINALIZE)},
+		{"PREVIEW_REFLECTIVE", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, PREVIEW_REFLECTIVE)},
+		{"MATCH_BINDING", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, MATCH_BINDING)},
+		{"MATCH_BINDING_TO_OUTER", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, MATCH_BINDING_TO_OUTER)},
+		{"RECORD", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, RECORD)},
+		{"COMPACT_RECORD_CONSTRUCTOR", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, COMPACT_RECORD_CONSTRUCTOR)},
+		{"UNINITIALIZED_FIELD", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, UNINITIALIZED_FIELD)},
+		{"GENERATED_MEMBER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, GENERATED_MEMBER)},
+		{"SEALED", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, SEALED)},
+		{"NON_SEALED", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, NON_SEALED)},
+		{"AccessFlags", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, AccessFlags)},
+		{"LocalClassFlags", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, LocalClassFlags)},
+		{"StaticLocalFlags", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, StaticLocalFlags)},
+		{"MemberClassFlags", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, MemberClassFlags)},
+		{"MemberStaticClassFlags", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, MemberStaticClassFlags)},
+		{"ClassFlags", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ClassFlags)},
+		{"InterfaceVarFlags", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, InterfaceVarFlags)},
+		{"VarFlags", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, VarFlags)},
+		{"ConstructorFlags", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ConstructorFlags)},
+		{"InterfaceMethodFlags", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, InterfaceMethodFlags)},
+		{"MethodFlags", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, MethodFlags)},
+		{"RecordMethodFlags", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, RecordMethodFlags)},
+		{"ExtendedStandardFlags", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ExtendedStandardFlags)},
+		{"ExtendedMemberClassFlags", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ExtendedMemberClassFlags)},
+		{"ExtendedMemberStaticClassFlags", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ExtendedMemberStaticClassFlags)},
+		{"ExtendedClassFlags", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ExtendedClassFlags)},
+		{"ModifierFlags", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ModifierFlags)},
+		{"InterfaceMethodMask", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, InterfaceMethodMask)},
+		{"AnnotationTypeElementMask", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, AnnotationTypeElementMask)},
+		{"LocalVarFlags", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, LocalVarFlags)},
+		{"ReceiverParamFlags", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Flags, ReceiverParamFlags)},
+		{"modifierSets", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Long;Ljava/util/Set<Ljavax/lang/model/element/Modifier;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Flags, modifierSets)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Flags, init$, void)},
+		{"asFlagSet", "(J)Ljava/util/EnumSet;", "(J)Ljava/util/EnumSet<Lcom/sun/tools/javac/code/Flags$Flag;>;", $PUBLIC | $STATIC, $staticMethod(Flags, asFlagSet, $EnumSet*, int64_t)},
+		{"asModifierSet", "(J)Ljava/util/Set;", "(J)Ljava/util/Set<Ljavax/lang/model/element/Modifier;>;", $PUBLIC | $STATIC, $staticMethod(Flags, asModifierSet, $Set*, int64_t)},
+		{"isConstant", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Flags, isConstant, bool, $Symbol$VarSymbol*)},
+		{"isEnum", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Flags, isEnum, bool, $Symbol*)},
+		{"isStatic", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Flags, isStatic, bool, $Symbol*)},
+		{"toString", "(J)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Flags, toString, $String*, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Flags$Flag", "com.sun.tools.javac.code.Flags", "Flag", $PUBLIC | $STATIC | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Flags",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Flags$Flag,com.sun.tools.javac.code.Flags$Flag$1"
+	};
+	$loadClass(Flags, name, initialize, &classInfo$$, Flags::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Flags);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFExifJPEGCompressor.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFBaseJPEGCompressor.h>
 #include <com/sun/imageio/plugins/tiff/TIFFCompressor.h>
 #include <com/sun/imageio/plugins/tiff/TIFFImageWriter.h>
@@ -25,25 +24,6 @@ namespace com {
 			namespace plugins {
 				namespace tiff {
 
-$MethodInfo _TIFFExifJPEGCompressor_MethodInfo_[] = {
-	{"<init>", "(Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $method(TIFFExifJPEGCompressor, init$, void, $ImageWriteParam*)},
-	{"setMetadata", "(Ljavax/imageio/metadata/IIOMetadata;)V", nullptr, $PUBLIC, $virtualMethod(TIFFExifJPEGCompressor, setMetadata, void, $IIOMetadata*)},
-	{}
-};
-
-$ClassInfo _TIFFExifJPEGCompressor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFExifJPEGCompressor",
-	"com.sun.imageio.plugins.tiff.TIFFBaseJPEGCompressor",
-	nullptr,
-	nullptr,
-	_TIFFExifJPEGCompressor_MethodInfo_
-};
-
-$Object* allocate$TIFFExifJPEGCompressor($Class* clazz) {
-	return $of($alloc(TIFFExifJPEGCompressor));
-}
-
 void TIFFExifJPEGCompressor::init$($ImageWriteParam* param) {
 	$init($TIFFImageWriter);
 	$TIFFBaseJPEGCompressor::init$($TIFFImageWriter::EXIF_JPEG_COMPRESSION_TYPE, $BaselineTIFFTagSet::COMPRESSION_OLD_JPEG, false, param);
@@ -58,7 +38,22 @@ TIFFExifJPEGCompressor::TIFFExifJPEGCompressor() {
 }
 
 $Class* TIFFExifJPEGCompressor::load$($String* name, bool initialize) {
-	$loadClass(TIFFExifJPEGCompressor, name, initialize, &_TIFFExifJPEGCompressor_ClassInfo_, allocate$TIFFExifJPEGCompressor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $method(TIFFExifJPEGCompressor, init$, void, $ImageWriteParam*)},
+		{"setMetadata", "(Ljavax/imageio/metadata/IIOMetadata;)V", nullptr, $PUBLIC, $virtualMethod(TIFFExifJPEGCompressor, setMetadata, void, $IIOMetadata*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFExifJPEGCompressor",
+		"com.sun.imageio.plugins.tiff.TIFFBaseJPEGCompressor",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TIFFExifJPEGCompressor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFExifJPEGCompressor);
+	});
 	return class$;
 }
 

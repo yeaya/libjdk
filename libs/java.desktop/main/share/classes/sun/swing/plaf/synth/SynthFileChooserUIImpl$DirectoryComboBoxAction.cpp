@@ -1,5 +1,4 @@
 #include <sun/swing/plaf/synth/SynthFileChooserUIImpl$DirectoryComboBoxAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <java/io/File.h>
 #include <javax/swing/AbstractAction.h>
@@ -19,7 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractAction = ::javax::swing::AbstractAction;
 using $JComboBox = ::javax::swing::JComboBox;
 using $JComponent = ::javax::swing::JComponent;
-using $JFileChooser = ::javax::swing::JFileChooser;
 using $SynthFileChooserUIImpl = ::sun::swing::plaf::synth::SynthFileChooserUIImpl;
 
 namespace sun {
@@ -27,54 +25,18 @@ namespace sun {
 		namespace plaf {
 			namespace synth {
 
-$FieldInfo _SynthFileChooserUIImpl$DirectoryComboBoxAction_FieldInfo_[] = {
-	{"this$0", "Lsun/swing/plaf/synth/SynthFileChooserUIImpl;", nullptr, $FINAL | $SYNTHETIC, $field(SynthFileChooserUIImpl$DirectoryComboBoxAction, this$0)},
-	{}
-};
-
-$MethodInfo _SynthFileChooserUIImpl$DirectoryComboBoxAction_MethodInfo_[] = {
-	{"<init>", "(Lsun/swing/plaf/synth/SynthFileChooserUIImpl;)V", nullptr, $PROTECTED, $method(SynthFileChooserUIImpl$DirectoryComboBoxAction, init$, void, $SynthFileChooserUIImpl*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUIImpl$DirectoryComboBoxAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _SynthFileChooserUIImpl$DirectoryComboBoxAction_InnerClassesInfo_[] = {
-	{"sun.swing.plaf.synth.SynthFileChooserUIImpl$DirectoryComboBoxAction", "sun.swing.plaf.synth.SynthFileChooserUIImpl", "DirectoryComboBoxAction", $PROTECTED},
-	{}
-};
-
-$ClassInfo _SynthFileChooserUIImpl$DirectoryComboBoxAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.swing.plaf.synth.SynthFileChooserUIImpl$DirectoryComboBoxAction",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_SynthFileChooserUIImpl$DirectoryComboBoxAction_FieldInfo_,
-	_SynthFileChooserUIImpl$DirectoryComboBoxAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthFileChooserUIImpl$DirectoryComboBoxAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.plaf.synth.SynthFileChooserUIImpl"
-};
-
-$Object* allocate$SynthFileChooserUIImpl$DirectoryComboBoxAction($Class* clazz) {
-	return $of($alloc(SynthFileChooserUIImpl$DirectoryComboBoxAction));
-}
-
 void SynthFileChooserUIImpl$DirectoryComboBoxAction::init$($SynthFileChooserUIImpl* this$0) {
 	$set(this, this$0, this$0);
 	$AbstractAction::init$("DirectoryComboBoxAction"_s);
 }
 
 void SynthFileChooserUIImpl$DirectoryComboBoxAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->this$0->directoryComboBox)->hidePopup();
 	$var($JComponent, cb, this->this$0->getDirectoryComboBox());
 	if ($instanceOf($JComboBox, cb)) {
-		$var($File, f, $cast($File, $nc(($cast($JComboBox, cb)))->getSelectedItem()));
-		$nc($(this->this$0->getFileChooser()))->setCurrentDirectory(f);
+		$var($File, f, $cast($File, $cast($JComboBox, cb)->getSelectedItem()));
+		$$nc(this->this$0->getFileChooser())->setCurrentDirectory(f);
 	}
 }
 
@@ -82,7 +44,37 @@ SynthFileChooserUIImpl$DirectoryComboBoxAction::SynthFileChooserUIImpl$Directory
 }
 
 $Class* SynthFileChooserUIImpl$DirectoryComboBoxAction::load$($String* name, bool initialize) {
-	$loadClass(SynthFileChooserUIImpl$DirectoryComboBoxAction, name, initialize, &_SynthFileChooserUIImpl$DirectoryComboBoxAction_ClassInfo_, allocate$SynthFileChooserUIImpl$DirectoryComboBoxAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/swing/plaf/synth/SynthFileChooserUIImpl;", nullptr, $FINAL | $SYNTHETIC, $field(SynthFileChooserUIImpl$DirectoryComboBoxAction, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/swing/plaf/synth/SynthFileChooserUIImpl;)V", nullptr, $PROTECTED, $method(SynthFileChooserUIImpl$DirectoryComboBoxAction, init$, void, $SynthFileChooserUIImpl*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUIImpl$DirectoryComboBoxAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.plaf.synth.SynthFileChooserUIImpl$DirectoryComboBoxAction", "sun.swing.plaf.synth.SynthFileChooserUIImpl", "DirectoryComboBoxAction", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.swing.plaf.synth.SynthFileChooserUIImpl$DirectoryComboBoxAction",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.plaf.synth.SynthFileChooserUIImpl"
+	};
+	$loadClass(SynthFileChooserUIImpl$DirectoryComboBoxAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthFileChooserUIImpl$DirectoryComboBoxAction));
+	});
 	return class$;
 }
 

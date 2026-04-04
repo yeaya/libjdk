@@ -20,10 +20,13 @@ class InvalidDatatypeFacetException : public ::com::sun::org::apache::xerces::in
 public:
 	InvalidDatatypeFacetException();
 	void init$($String* key, $ObjectArray* args);
-	static const int64_t serialVersionUID = (int64_t)0xC70B6DA39E9BC122;
+	static const int64_t serialVersionUID = (int64_t)0xc70b6da39e9bc122;
 	InvalidDatatypeFacetException(const InvalidDatatypeFacetException& e);
 	virtual void throw$() override;
-	inline InvalidDatatypeFacetException* operator ->() {
+	inline InvalidDatatypeFacetException* operator ->() const {
+		return (InvalidDatatypeFacetException*)throwing$;
+	}
+	inline operator InvalidDatatypeFacetException*() const {
 		return (InvalidDatatypeFacetException*)throwing$;
 	}
 };

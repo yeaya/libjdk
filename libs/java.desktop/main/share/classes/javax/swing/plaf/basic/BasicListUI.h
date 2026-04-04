@@ -92,6 +92,7 @@ class $export BasicListUI : public ::javax::swing::plaf::ListUI {
 	$class(BasicListUI, 0, ::javax::swing::plaf::ListUI)
 public:
 	BasicListUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t adjustIndex(int32_t index, ::javax::swing::JList* list);
 	int32_t convertLocationToColumn(int32_t x, int32_t y);

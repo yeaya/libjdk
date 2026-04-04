@@ -1,5 +1,4 @@
 #include <javax/swing/JLayer.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -33,7 +32,6 @@ using $Graphics = ::java::awt::Graphics;
 using $Image = ::java::awt::Image;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Rectangle = ::java::awt::Rectangle;
-using $Shape = ::java::awt::Shape;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectInputStream$GetField = ::java::io::ObjectInputStream$GetField;
@@ -57,89 +55,6 @@ using $LayerUI = ::javax::swing::plaf::LayerUI;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JLayer_FieldInfo_[] = {
-	{"view", "Ljava/awt/Component;", "TV;", $PRIVATE, $field(JLayer, view)},
-	{"layerUI", "Ljavax/swing/plaf/LayerUI;", "Ljavax/swing/plaf/LayerUI<-TV;>;", $PRIVATE, $field(JLayer, layerUI)},
-	{"glassPane", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(JLayer, glassPane)},
-	{"eventMask", "J", nullptr, $PRIVATE, $field(JLayer, eventMask)},
-	{"isPaintCalling", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(JLayer, isPaintCalling)},
-	{"isPaintImmediatelyCalling", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(JLayer, isPaintImmediatelyCalling)},
-	{"isImageUpdateCalling", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(JLayer, isImageUpdateCalling)},
-	{"eventController", "Ljavax/swing/JLayer$LayerEventController;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JLayer, eventController)},
-	{}
-};
-
-$MethodInfo _JLayer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JLayer, init$, void)},
-	{"<init>", "(Ljava/awt/Component;)V", "(TV;)V", $PUBLIC, $method(JLayer, init$, void, $Component*)},
-	{"<init>", "(Ljava/awt/Component;Ljavax/swing/plaf/LayerUI;)V", "(TV;Ljavax/swing/plaf/LayerUI<TV;>;)V", $PUBLIC, $method(JLayer, init$, void, $Component*, $LayerUI*)},
-	{"addImpl", "(Ljava/awt/Component;Ljava/lang/Object;I)V", nullptr, $PROTECTED, $virtualMethod(JLayer, addImpl, void, $Component*, Object$*, int32_t)},
-	{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(JLayer, addNotify, void)},
-	{"createGlassPane", "()Ljavax/swing/JPanel;", nullptr, $PUBLIC, $method(JLayer, createGlassPane, $JPanel*)},
-	{"doLayout", "()V", nullptr, $PUBLIC, $virtualMethod(JLayer, doLayout, void)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JLayer, getAccessibleContext, $AccessibleContext*)},
-	{"getBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC, $virtualMethod(JLayer, getBorder, $Border*)},
-	{"getGlassPane", "()Ljavax/swing/JPanel;", nullptr, $PUBLIC, $method(JLayer, getGlassPane, $JPanel*)},
-	{"getLayerEventMask", "()J", nullptr, $PUBLIC, $method(JLayer, getLayerEventMask, int64_t)},
-	{"getPreferredScrollableViewportSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JLayer, getPreferredScrollableViewportSize, $Dimension*)},
-	{"getScrollableBlockIncrement", "(Ljava/awt/Rectangle;II)I", nullptr, $PUBLIC, $virtualMethod(JLayer, getScrollableBlockIncrement, int32_t, $Rectangle*, int32_t, int32_t)},
-	{"getScrollableTracksViewportHeight", "()Z", nullptr, $PUBLIC, $virtualMethod(JLayer, getScrollableTracksViewportHeight, bool)},
-	{"getScrollableTracksViewportWidth", "()Z", nullptr, $PUBLIC, $virtualMethod(JLayer, getScrollableTracksViewportWidth, bool)},
-	{"getScrollableUnitIncrement", "(Ljava/awt/Rectangle;II)I", nullptr, $PUBLIC, $virtualMethod(JLayer, getScrollableUnitIncrement, int32_t, $Rectangle*, int32_t, int32_t)},
-	{"getUI", "()Ljavax/swing/plaf/LayerUI;", "()Ljavax/swing/plaf/LayerUI<-TV;>;", $PUBLIC, $virtualMethod(JLayer, getUI, $ComponentUI*)},
-	{"getView", "()Ljava/awt/Component;", "()TV;", $PUBLIC, $method(JLayer, getView, $Component*)},
-	{"imageUpdate", "(Ljava/awt/Image;IIIII)Z", nullptr, $PUBLIC, $virtualMethod(JLayer, imageUpdate, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"isOptimizedDrawingEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JLayer, isOptimizedDrawingEnabled, bool)},
-	{"isPaintingOrigin", "()Z", nullptr, $PROTECTED, $virtualMethod(JLayer, isPaintingOrigin, bool)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(JLayer, paint, void, $Graphics*)},
-	{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(JLayer, paintComponent, void, $Graphics*)},
-	{"paintImmediately", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(JLayer, paintImmediately, void, int32_t, int32_t, int32_t, int32_t)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JLayer, propertyChange, void, $PropertyChangeEvent*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(JLayer, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"remove", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JLayer, remove, void, $Component*)},
-	{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(JLayer, removeAll, void)},
-	{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(JLayer, removeNotify, void)},
-	{"setBorder", "(Ljavax/swing/border/Border;)V", nullptr, $PUBLIC, $virtualMethod(JLayer, setBorder, void, $Border*)},
-	{"setGlassPane", "(Ljavax/swing/JPanel;)V", nullptr, $PUBLIC, $method(JLayer, setGlassPane, void, $JPanel*)},
-	{"setLayerEventMask", "(J)V", nullptr, $PUBLIC, $method(JLayer, setLayerEventMask, void, int64_t)},
-	{"setLayout", "(Ljava/awt/LayoutManager;)V", nullptr, $PUBLIC, $virtualMethod(JLayer, setLayout, void, $LayoutManager*)},
-	{"setUI", "(Ljavax/swing/plaf/LayerUI;)V", "(Ljavax/swing/plaf/LayerUI<-TV;>;)V", $PUBLIC, $method(JLayer, setUI, void, $LayerUI*)},
-	{"setView", "(Ljava/awt/Component;)V", "(TV;)V", $PUBLIC, $method(JLayer, setView, void, $Component*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JLayer, updateUI, void)},
-	{}
-};
-
-$InnerClassInfo _JLayer_InnerClassesInfo_[] = {
-	{"javax.swing.JLayer$DefaultLayerGlassPane", "javax.swing.JLayer", "DefaultLayerGlassPane", $PRIVATE | $STATIC},
-	{"javax.swing.JLayer$LayerEventController", "javax.swing.JLayer", "LayerEventController", $PRIVATE | $STATIC},
-	{"javax.swing.JLayer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JLayer_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.swing.JLayer",
-	"javax.swing.JComponent",
-	"javax.swing.Scrollable,java.beans.PropertyChangeListener,javax.accessibility.Accessible",
-	_JLayer_FieldInfo_,
-	_JLayer_MethodInfo_,
-	"<V:Ljava/awt/Component;>Ljavax/swing/JComponent;Ljavax/swing/Scrollable;Ljava/beans/PropertyChangeListener;Ljavax/accessibility/Accessible;",
-	nullptr,
-	_JLayer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.JLayer$DefaultLayerGlassPane,javax.swing.JLayer$LayerEventController,javax.swing.JLayer$LayerEventController$2,javax.swing.JLayer$LayerEventController$1,javax.swing.JLayer$1"
-};
-
-$Object* allocate$JLayer($Class* clazz) {
-	return $of($alloc(JLayer));
-}
 
 $String* JLayer::toString() {
 	 return this->$JComponent::toString();
@@ -191,7 +106,7 @@ void JLayer::setView($Component* view) {
 		$JComponent::addImpl(view, nullptr, getComponentCount());
 	}
 	$set(this, view, view);
-	firePropertyChange("view"_s, $of(oldView), $of(view));
+	firePropertyChange("view"_s, oldView, view);
 	revalidate();
 	repaint();
 }
@@ -210,7 +125,7 @@ $JPanel* JLayer::getGlassPane() {
 }
 
 void JLayer::setGlassPane($JPanel* glassPane) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, oldGlassPane, getGlassPane());
 	bool isGlassPaneVisible = false;
 	if (oldGlassPane != nullptr) {
@@ -223,7 +138,7 @@ void JLayer::setGlassPane($JPanel* glassPane) {
 		$JComponent::addImpl(glassPane, nullptr, 0);
 	}
 	$set(this, glassPane, glassPane);
-	firePropertyChange("glassPane"_s, $of(oldGlassPane), $of(glassPane));
+	firePropertyChange("glassPane"_s, oldGlassPane, glassPane);
 	revalidate();
 	repaint();
 }
@@ -240,13 +155,13 @@ void JLayer::setLayout($LayoutManager* mgr) {
 
 void JLayer::setBorder($Border* border) {
 	if ($instanceOf($JComponent, this->view)) {
-		$nc(($cast($JComponent, this->view)))->setBorder(border);
+		$cast($JComponent, this->view)->setBorder(border);
 	}
 }
 
 $Border* JLayer::getBorder() {
 	if ($instanceOf($JComponent, this->view)) {
-		return $nc(($cast($JComponent, this->view)))->getBorder();
+		return $cast($JComponent, this->view)->getBorder();
 	}
 	return nullptr;
 }
@@ -281,21 +196,19 @@ bool JLayer::isPaintingOrigin() {
 }
 
 void JLayer::paintImmediately(int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->isPaintImmediatelyCalling && $cast($LayerUI, getUI()) != nullptr) {
 		this->isPaintImmediatelyCalling = true;
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$nc($($cast($LayerUI, getUI())))->paintImmediately(x, y, w, h, this);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				this->isPaintImmediatelyCalling = false;
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			$$sure($LayerUI, getUI())->paintImmediately(x, y, w, h, this);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			this->isPaintImmediatelyCalling = false;
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} else {
 		$JComponent::paintImmediately(x, y, w, h);
@@ -303,28 +216,26 @@ void JLayer::paintImmediately(int32_t x, int32_t y, int32_t w, int32_t h) {
 }
 
 bool JLayer::imageUpdate($Image* img, int32_t infoflags, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->isImageUpdateCalling && $cast($LayerUI, getUI()) != nullptr) {
 		this->isImageUpdateCalling = true;
-		{
-			$var($Throwable, var$0, nullptr);
-			bool var$2 = false;
-			bool return$1 = false;
-			try {
-				var$2 = $nc($($cast($LayerUI, getUI())))->imageUpdate(img, infoflags, x, y, w, h, this);
-				return$1 = true;
-				goto $finally;
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				this->isImageUpdateCalling = false;
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		$var($Throwable, var$0, nullptr);
+		bool var$2 = false;
+		bool return$1 = false;
+		try {
+			var$2 = $$sure($LayerUI, getUI())->imageUpdate(img, infoflags, x, y, w, h, this);
+			return$1 = true;
+			goto $finally;
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			this->isImageUpdateCalling = false;
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	} else {
 		return $JComponent::imageUpdate(img, infoflags, x, y, w, h);
@@ -334,18 +245,16 @@ bool JLayer::imageUpdate($Image* img, int32_t infoflags, int32_t x, int32_t y, i
 void JLayer::paint($Graphics* g) {
 	if (!this->isPaintCalling) {
 		this->isPaintCalling = true;
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$JComponent::paintComponent(g);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				this->isPaintCalling = false;
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			$JComponent::paintComponent(g);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			this->isPaintCalling = false;
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} else {
 		$JComponent::paint(g);
@@ -361,7 +270,7 @@ bool JLayer::isOptimizedDrawingEnabled() {
 
 void JLayer::propertyChange($PropertyChangeEvent* evt) {
 	if ($cast($LayerUI, getUI()) != nullptr) {
-		$nc($($cast($LayerUI, getUI())))->applyPropertyChange(evt, this);
+		$$sure($LayerUI, getUI())->applyPropertyChange(evt, this);
 	}
 }
 
@@ -373,7 +282,7 @@ void JLayer::setLayerEventMask(int64_t layerEventMask) {
 		disableEvents(oldEventMask);
 		enableEvents(this->eventMask);
 		if (isDisplayable()) {
-			$nc(JLayer::eventController)->updateAWTEventListener(oldEventMask, layerEventMask);
+			JLayer::eventController->updateAWTEventListener(oldEventMask, layerEventMask);
 		}
 	}
 }
@@ -384,60 +293,60 @@ int64_t JLayer::getLayerEventMask() {
 
 void JLayer::updateUI() {
 	if ($cast($LayerUI, getUI()) != nullptr) {
-		$nc($($cast($LayerUI, getUI())))->updateUI(this);
+		$$sure($LayerUI, getUI())->updateUI(this);
 	}
 }
 
 $Dimension* JLayer::getPreferredScrollableViewportSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Scrollable, $(getView()))) {
-		return $nc(($cast($Scrollable, $(getView()))))->getPreferredScrollableViewportSize();
+		return $$sure($Scrollable, getView())->getPreferredScrollableViewportSize();
 	}
 	return getPreferredSize();
 }
 
 int32_t JLayer::getScrollableBlockIncrement($Rectangle* visibleRect, int32_t orientation, int32_t direction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Scrollable, $(getView()))) {
-		return $nc(($cast($Scrollable, $(getView()))))->getScrollableBlockIncrement(visibleRect, orientation, direction);
+		return $$sure($Scrollable, getView())->getScrollableBlockIncrement(visibleRect, orientation, direction);
 	}
-	return (orientation == $SwingConstants::VERTICAL) ? $nc(visibleRect)->height : visibleRect->width;
+	return (orientation == $SwingConstants::VERTICAL) ? $nc(visibleRect)->height : $nc(visibleRect)->width;
 }
 
 bool JLayer::getScrollableTracksViewportHeight() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Scrollable, $(getView()))) {
-		return $nc(($cast($Scrollable, $(getView()))))->getScrollableTracksViewportHeight();
+		return $$sure($Scrollable, getView())->getScrollableTracksViewportHeight();
 	}
 	return false;
 }
 
 bool JLayer::getScrollableTracksViewportWidth() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Scrollable, $(getView()))) {
-		return $nc(($cast($Scrollable, $(getView()))))->getScrollableTracksViewportWidth();
+		return $$sure($Scrollable, getView())->getScrollableTracksViewportWidth();
 	}
 	return false;
 }
 
 int32_t JLayer::getScrollableUnitIncrement($Rectangle* visibleRect, int32_t orientation, int32_t direction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Scrollable, $(getView()))) {
-		return $nc(($cast($Scrollable, $(getView()))))->getScrollableUnitIncrement(visibleRect, orientation, direction);
+		return $$sure($Scrollable, getView())->getScrollableUnitIncrement(visibleRect, orientation, direction);
 	}
 	return 1;
 }
 
 void JLayer::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, f, $nc(s)->readFields());
-	$set(this, view, $cast($Component, $nc(f)->get("view"_s, ($Object*)nullptr)));
-	$set(this, glassPane, $cast($JPanel, f->get("glassPane"_s, ($Object*)nullptr)));
+	$set(this, view, $cast($Component, $nc(f)->get("view"_s, nullptr)));
+	$set(this, glassPane, $cast($JPanel, f->get("glassPane"_s, nullptr)));
 	this->eventMask = f->get("eventMask"_s, (int64_t)0);
 	if (this->eventMask != 0) {
-		$nc(JLayer::eventController)->updateAWTEventListener(0, this->eventMask);
+		JLayer::eventController->updateAWTEventListener(0, this->eventMask);
 	}
-	$var($LayerUI, newLayerUI, $cast($LayerUI, f->get("layerUI"_s, ($Object*)nullptr)));
+	$var($LayerUI, newLayerUI, $cast($LayerUI, f->get("layerUI"_s, nullptr)));
 	if (newLayerUI != nullptr) {
 		setUI(newLayerUI);
 	}
@@ -445,17 +354,17 @@ void JLayer::readObject($ObjectInputStream* s) {
 
 void JLayer::addNotify() {
 	$JComponent::addNotify();
-	$nc(JLayer::eventController)->updateAWTEventListener(0, this->eventMask);
+	JLayer::eventController->updateAWTEventListener(0, this->eventMask);
 }
 
 void JLayer::removeNotify() {
 	$JComponent::removeNotify();
-	$nc(JLayer::eventController)->updateAWTEventListener(this->eventMask, 0);
+	JLayer::eventController->updateAWTEventListener(this->eventMask, 0);
 }
 
 void JLayer::doLayout() {
 	if ($cast($LayerUI, getUI()) != nullptr) {
-		$nc($($cast($LayerUI, getUI())))->doLayout(this);
+		$$sure($LayerUI, getUI())->doLayout(this);
 	}
 }
 
@@ -466,7 +375,7 @@ $AccessibleContext* JLayer::getAccessibleContext() {
 	return this->accessibleContext;
 }
 
-void clinit$JLayer($Class* class$) {
+void JLayer::clinit$($Class* clazz) {
 	$assignStatic(JLayer::eventController, $new($JLayer$LayerEventController));
 }
 
@@ -474,7 +383,84 @@ JLayer::JLayer() {
 }
 
 $Class* JLayer::load$($String* name, bool initialize) {
-	$loadClass(JLayer, name, initialize, &_JLayer_ClassInfo_, clinit$JLayer, allocate$JLayer);
+	$FieldInfo fieldInfos$$[] = {
+		{"view", "Ljava/awt/Component;", "TV;", $PRIVATE, $field(JLayer, view)},
+		{"layerUI", "Ljavax/swing/plaf/LayerUI;", "Ljavax/swing/plaf/LayerUI<-TV;>;", $PRIVATE, $field(JLayer, layerUI)},
+		{"glassPane", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(JLayer, glassPane)},
+		{"eventMask", "J", nullptr, $PRIVATE, $field(JLayer, eventMask)},
+		{"isPaintCalling", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(JLayer, isPaintCalling)},
+		{"isPaintImmediatelyCalling", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(JLayer, isPaintImmediatelyCalling)},
+		{"isImageUpdateCalling", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(JLayer, isImageUpdateCalling)},
+		{"eventController", "Ljavax/swing/JLayer$LayerEventController;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JLayer, eventController)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JLayer, init$, void)},
+		{"<init>", "(Ljava/awt/Component;)V", "(TV;)V", $PUBLIC, $method(JLayer, init$, void, $Component*)},
+		{"<init>", "(Ljava/awt/Component;Ljavax/swing/plaf/LayerUI;)V", "(TV;Ljavax/swing/plaf/LayerUI<TV;>;)V", $PUBLIC, $method(JLayer, init$, void, $Component*, $LayerUI*)},
+		{"addImpl", "(Ljava/awt/Component;Ljava/lang/Object;I)V", nullptr, $PROTECTED, $virtualMethod(JLayer, addImpl, void, $Component*, Object$*, int32_t)},
+		{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(JLayer, addNotify, void)},
+		{"createGlassPane", "()Ljavax/swing/JPanel;", nullptr, $PUBLIC, $method(JLayer, createGlassPane, $JPanel*)},
+		{"doLayout", "()V", nullptr, $PUBLIC, $virtualMethod(JLayer, doLayout, void)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JLayer, getAccessibleContext, $AccessibleContext*)},
+		{"getBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC, $virtualMethod(JLayer, getBorder, $Border*)},
+		{"getGlassPane", "()Ljavax/swing/JPanel;", nullptr, $PUBLIC, $method(JLayer, getGlassPane, $JPanel*)},
+		{"getLayerEventMask", "()J", nullptr, $PUBLIC, $method(JLayer, getLayerEventMask, int64_t)},
+		{"getPreferredScrollableViewportSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JLayer, getPreferredScrollableViewportSize, $Dimension*)},
+		{"getScrollableBlockIncrement", "(Ljava/awt/Rectangle;II)I", nullptr, $PUBLIC, $virtualMethod(JLayer, getScrollableBlockIncrement, int32_t, $Rectangle*, int32_t, int32_t)},
+		{"getScrollableTracksViewportHeight", "()Z", nullptr, $PUBLIC, $virtualMethod(JLayer, getScrollableTracksViewportHeight, bool)},
+		{"getScrollableTracksViewportWidth", "()Z", nullptr, $PUBLIC, $virtualMethod(JLayer, getScrollableTracksViewportWidth, bool)},
+		{"getScrollableUnitIncrement", "(Ljava/awt/Rectangle;II)I", nullptr, $PUBLIC, $virtualMethod(JLayer, getScrollableUnitIncrement, int32_t, $Rectangle*, int32_t, int32_t)},
+		{"getUI", "()Ljavax/swing/plaf/LayerUI;", "()Ljavax/swing/plaf/LayerUI<-TV;>;", $PUBLIC, $virtualMethod(JLayer, getUI, $ComponentUI*)},
+		{"getView", "()Ljava/awt/Component;", "()TV;", $PUBLIC, $method(JLayer, getView, $Component*)},
+		{"imageUpdate", "(Ljava/awt/Image;IIIII)Z", nullptr, $PUBLIC, $virtualMethod(JLayer, imageUpdate, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"isOptimizedDrawingEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JLayer, isOptimizedDrawingEnabled, bool)},
+		{"isPaintingOrigin", "()Z", nullptr, $PROTECTED, $virtualMethod(JLayer, isPaintingOrigin, bool)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(JLayer, paint, void, $Graphics*)},
+		{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(JLayer, paintComponent, void, $Graphics*)},
+		{"paintImmediately", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(JLayer, paintImmediately, void, int32_t, int32_t, int32_t, int32_t)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JLayer, propertyChange, void, $PropertyChangeEvent*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(JLayer, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"remove", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JLayer, remove, void, $Component*)},
+		{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(JLayer, removeAll, void)},
+		{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(JLayer, removeNotify, void)},
+		{"setBorder", "(Ljavax/swing/border/Border;)V", nullptr, $PUBLIC, $virtualMethod(JLayer, setBorder, void, $Border*)},
+		{"setGlassPane", "(Ljavax/swing/JPanel;)V", nullptr, $PUBLIC, $method(JLayer, setGlassPane, void, $JPanel*)},
+		{"setLayerEventMask", "(J)V", nullptr, $PUBLIC, $method(JLayer, setLayerEventMask, void, int64_t)},
+		{"setLayout", "(Ljava/awt/LayoutManager;)V", nullptr, $PUBLIC, $virtualMethod(JLayer, setLayout, void, $LayoutManager*)},
+		{"setUI", "(Ljavax/swing/plaf/LayerUI;)V", "(Ljavax/swing/plaf/LayerUI<-TV;>;)V", $PUBLIC, $method(JLayer, setUI, void, $LayerUI*)},
+		{"setView", "(Ljava/awt/Component;)V", "(TV;)V", $PUBLIC, $method(JLayer, setView, void, $Component*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JLayer, updateUI, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JLayer$DefaultLayerGlassPane", "javax.swing.JLayer", "DefaultLayerGlassPane", $PRIVATE | $STATIC},
+		{"javax.swing.JLayer$LayerEventController", "javax.swing.JLayer", "LayerEventController", $PRIVATE | $STATIC},
+		{"javax.swing.JLayer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.swing.JLayer",
+		"javax.swing.JComponent",
+		"javax.swing.Scrollable,java.beans.PropertyChangeListener,javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		"<V:Ljava/awt/Component;>Ljavax/swing/JComponent;Ljavax/swing/Scrollable;Ljava/beans/PropertyChangeListener;Ljavax/accessibility/Accessible;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.JLayer$DefaultLayerGlassPane,javax.swing.JLayer$LayerEventController,javax.swing.JLayer$LayerEventController$2,javax.swing.JLayer$LayerEventController$1,javax.swing.JLayer$1"
+	};
+	$loadClass(JLayer, name, initialize, &classInfo$$, JLayer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JLayer));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/XMLStreamReaderImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/PropertyManager.h>
 #include <com/sun/org/apache/xerces/internal/impl/XML11NSDocumentScannerImpl.h>
@@ -29,7 +28,6 @@
 #include <com/sun/xml/internal/stream/Entity$ScannedEntity.h>
 #include <com/sun/xml/internal/stream/Entity.h>
 #include <com/sun/xml/internal/stream/StaxErrorReporter.h>
-#include <com/sun/xml/internal/stream/XMLBufferListener.h>
 #include <com/sun/xml/internal/stream/XMLEntityStorage.h>
 #include <com/sun/xml/internal/stream/dtd/nonvalidating/DTDGrammar.h>
 #include <com/sun/xml/internal/stream/dtd/nonvalidating/XMLNotationDecl.h>
@@ -94,27 +92,22 @@ using $XML11NSDocumentScannerImpl = ::com::sun::org::apache::xerces::internal::i
 using $XMLDTDScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDTDScannerImpl;
 using $XMLDocumentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentScannerImpl;
 using $XMLEntityManager = ::com::sun::org::apache::xerces::internal::impl::XMLEntityManager;
-using $XMLEntityScanner = ::com::sun::org::apache::xerces::internal::impl::XMLEntityScanner;
 using $XMLNSDocumentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLNSDocumentScannerImpl;
 using $XMLStreamReaderImpl$1 = ::com::sun::org::apache::xerces::internal::impl::XMLStreamReaderImpl$1;
 using $NamespaceContextWrapper = ::com::sun::org::apache::xerces::internal::util::NamespaceContextWrapper;
 using $NamespaceSupport = ::com::sun::org::apache::xerces::internal::util::NamespaceSupport;
 using $SymbolTable = ::com::sun::org::apache::xerces::internal::util::SymbolTable;
 using $XMLAttributesImpl = ::com::sun::org::apache::xerces::internal::util::XMLAttributesImpl;
-using $XMLAttributesIteratorImpl = ::com::sun::org::apache::xerces::internal::util::XMLAttributesIteratorImpl;
 using $XMLChar = ::com::sun::org::apache::xerces::internal::util::XMLChar;
 using $XMLStringBuffer = ::com::sun::org::apache::xerces::internal::util::XMLStringBuffer;
-using $1NamespaceContext = ::com::sun::org::apache::xerces::internal::xni::NamespaceContext;
+using $NamespaceContext = ::com::sun::org::apache::xerces::internal::xni::NamespaceContext;
 using $1QName = ::com::sun::org::apache::xerces::internal::xni::QName;
-using $XMLResourceIdentifier = ::com::sun::org::apache::xerces::internal::xni::XMLResourceIdentifier;
-using $XMLString = ::com::sun::org::apache::xerces::internal::xni::XMLString;
 using $XNIException = ::com::sun::org::apache::xerces::internal::xni::XNIException;
 using $XMLInputSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLInputSource;
 using $Entity = ::com::sun::xml::internal::stream::Entity;
 using $Entity$ExternalEntity = ::com::sun::xml::internal::stream::Entity$ExternalEntity;
 using $Entity$InternalEntity = ::com::sun::xml::internal::stream::Entity$InternalEntity;
 using $StaxErrorReporter = ::com::sun::xml::internal::stream::StaxErrorReporter;
-using $XMLBufferListener = ::com::sun::xml::internal::stream::XMLBufferListener;
 using $XMLEntityStorage = ::com::sun::xml::internal::stream::XMLEntityStorage;
 using $DTDGrammar = ::com::sun::xml::internal::stream::dtd::nonvalidating::DTDGrammar;
 using $XMLNotationDecl = ::com::sun::xml::internal::stream::dtd::nonvalidating::XMLNotationDecl;
@@ -124,7 +117,6 @@ using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $BufferedReader = ::java::io::BufferedReader;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $Reader = ::java::io::Reader;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -141,9 +133,8 @@ using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
-using $Set = ::java::util::Set;
 using $XMLConstants = ::javax::xml::XMLConstants;
-using $NamespaceContext = ::javax::xml::namespace$::NamespaceContext;
+using $1NamespaceContext = ::javax::xml::namespace$::NamespaceContext;
 using $QName = ::javax::xml::namespace$::QName;
 using $Location = ::javax::xml::stream::Location;
 using $XMLInputFactory = ::javax::xml::stream::XMLInputFactory;
@@ -159,135 +150,16 @@ namespace com {
 					namespace internal {
 						namespace impl {
 
-$FieldInfo _XMLStreamReaderImpl_FieldInfo_[] = {
-	{"ENTITY_MANAGER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLStreamReaderImpl, ENTITY_MANAGER)},
-	{"ERROR_REPORTER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLStreamReaderImpl, ERROR_REPORTER)},
-	{"SYMBOL_TABLE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLStreamReaderImpl, SYMBOL_TABLE)},
-	{"READER_IN_DEFINED_STATE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLStreamReaderImpl, READER_IN_DEFINED_STATE)},
-	{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PRIVATE, $field(XMLStreamReaderImpl, fSymbolTable)},
-	{"fScanner", "Lcom/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl;", nullptr, $PROTECTED, $field(XMLStreamReaderImpl, fScanner)},
-	{"fNamespaceContextWrapper", "Lcom/sun/org/apache/xerces/internal/util/NamespaceContextWrapper;", nullptr, $PROTECTED, $field(XMLStreamReaderImpl, fNamespaceContextWrapper)},
-	{"fEntityManager", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager;", nullptr, $PROTECTED, $field(XMLStreamReaderImpl, fEntityManager)},
-	{"fErrorReporter", "Lcom/sun/xml/internal/stream/StaxErrorReporter;", nullptr, $PROTECTED, $field(XMLStreamReaderImpl, fErrorReporter)},
-	{"fEntityScanner", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityScanner;", nullptr, $PROTECTED, $field(XMLStreamReaderImpl, fEntityScanner)},
-	{"fInputSource", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;", nullptr, $PROTECTED, $field(XMLStreamReaderImpl, fInputSource)},
-	{"fPropertyManager", "Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;", nullptr, $PROTECTED, $field(XMLStreamReaderImpl, fPropertyManager)},
-	{"fEventType", "I", nullptr, $PRIVATE, $field(XMLStreamReaderImpl, fEventType)},
-	{"DEBUG", "Z", nullptr, $STATIC | $FINAL, $constField(XMLStreamReaderImpl, DEBUG)},
-	{"fReuse", "Z", nullptr, $PRIVATE, $field(XMLStreamReaderImpl, fReuse)},
-	{"fReaderInDefinedState", "Z", nullptr, $PRIVATE, $field(XMLStreamReaderImpl, fReaderInDefinedState)},
-	{"fDTDDecl", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XMLStreamReaderImpl, fDTDDecl)},
-	{"versionStr", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XMLStreamReaderImpl, versionStr)},
-	{}
-};
-
-$MethodInfo _XMLStreamReaderImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $PUBLIC, $method(XMLStreamReaderImpl, init$, void, $InputStream*, $PropertyManager*), "javax.xml.stream.XMLStreamException"},
-	{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $PUBLIC, $method(XMLStreamReaderImpl, init$, void, $String*, $PropertyManager*), "javax.xml.stream.XMLStreamException"},
-	{"<init>", "(Ljava/io/InputStream;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $PUBLIC, $method(XMLStreamReaderImpl, init$, void, $InputStream*, $String*, $PropertyManager*), "javax.xml.stream.XMLStreamException"},
-	{"<init>", "(Ljava/io/Reader;Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $PUBLIC, $method(XMLStreamReaderImpl, init$, void, $Reader*, $PropertyManager*), "javax.xml.stream.XMLStreamException"},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $PUBLIC, $method(XMLStreamReaderImpl, init$, void, $XMLInputSource*, $PropertyManager*), "javax.xml.stream.XMLStreamException"},
-	{"canReuse", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, canReuse, bool)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, close, void), "javax.xml.stream.XMLStreamException"},
-	{"convertXNIQNametoJavaxQName", "(Lcom/sun/org/apache/xerces/internal/xni/QName;)Ljavax/xml/namespace/QName;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, convertXNIQNametoJavaxQName, $QName*, $1QName*)},
-	{"getAttributeCount", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getAttributeCount, int32_t)},
-	{"getAttributeLocalName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getAttributeLocalName, $String*, int32_t)},
-	{"getAttributeName", "(I)Ljavax/xml/namespace/QName;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getAttributeName, $QName*, int32_t)},
-	{"getAttributeNamespace", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getAttributeNamespace, $String*, int32_t)},
-	{"getAttributePrefix", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getAttributePrefix, $String*, int32_t)},
-	{"getAttributeQName", "(I)Ljavax/xml/namespace/QName;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getAttributeQName, $QName*, int32_t)},
-	{"getAttributeType", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getAttributeType, $String*, int32_t)},
-	{"getAttributeValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getAttributeValue, $String*, int32_t)},
-	{"getAttributeValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getAttributeValue, $String*, $String*, $String*)},
-	{"getCharacterEncodingScheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getCharacterEncodingScheme, $String*)},
-	{"getColumnNumber", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getColumnNumber, int32_t)},
-	{"getElementText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getElementText, $String*), "javax.xml.stream.XMLStreamException"},
-	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getEncoding, $String*)},
-	{"getEntityDecls", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/stream/events/EntityDeclaration;>;", $PROTECTED, $virtualMethod(XMLStreamReaderImpl, getEntityDecls, $List*)},
-	{"getEventType", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getEventType, int32_t)},
-	{"getEventTypeString", "(I)Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticMethod(XMLStreamReaderImpl, getEventTypeString, $String*, int32_t)},
-	{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getLineNumber, int32_t)},
-	{"getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getLocalName, $String*)},
-	{"getLocation", "()Ljavax/xml/stream/Location;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getLocation, $Location*)},
-	{"getName", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getName, $QName*)},
-	{"getNamespaceContext", "()Ljavax/xml/namespace/NamespaceContext;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getNamespaceContext, $NamespaceContext*)},
-	{"getNamespaceCount", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getNamespaceCount, int32_t)},
-	{"getNamespacePrefix", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getNamespacePrefix, $String*, int32_t)},
-	{"getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getNamespaceURI, $String*)},
-	{"getNamespaceURI", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getNamespaceURI, $String*, int32_t)},
-	{"getNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getNamespaceURI, $String*, $String*)},
-	{"getNotationDecls", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/stream/events/NotationDeclaration;>;", $PROTECTED, $virtualMethod(XMLStreamReaderImpl, getNotationDecls, $List*)},
-	{"getPIData", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getPIData, $String*)},
-	{"getPITarget", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getPITarget, $String*)},
-	{"getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getPrefix, $String*)},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getProperty, $Object*, $String*), "java.lang.IllegalArgumentException"},
-	{"getPropertyManager", "()Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;", nullptr, $PROTECTED, $virtualMethod(XMLStreamReaderImpl, getPropertyManager, $PropertyManager*)},
-	{"getScanner", "()Lcom/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getScanner, $XMLDocumentScannerImpl*)},
-	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getText, $String*)},
-	{"getTextCharacters", "()[C", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getTextCharacters, $chars*)},
-	{"getTextCharacters", "(I[CII)I", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getTextCharacters, int32_t, int32_t, $chars*, int32_t, int32_t), "javax.xml.stream.XMLStreamException"},
-	{"getTextLength", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getTextLength, int32_t)},
-	{"getTextStart", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getTextStart, int32_t)},
-	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getValue, $String*)},
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getVersion, $String*)},
-	{"hasAttributes", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, hasAttributes, bool)},
-	{"hasName", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, hasName, bool)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, hasNext, bool), "javax.xml.stream.XMLStreamException"},
-	{"hasText", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, hasText, bool)},
-	{"hasValue", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, hasValue, bool)},
-	{"init", "(Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $FINAL, $method(XMLStreamReaderImpl, init, void, $PropertyManager*), "javax.xml.stream.XMLStreamException"},
-	{"isAttributeSpecified", "(I)Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, isAttributeSpecified, bool, int32_t)},
-	{"isCharacters", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, isCharacters, bool)},
-	{"isEndElement", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, isEndElement, bool)},
-	{"isStandalone", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, isStandalone, bool)},
-	{"isStartElement", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, isStartElement, bool)},
-	{"isWhiteSpace", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, isWhiteSpace, bool)},
-	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, next, int32_t), "javax.xml.stream.XMLStreamException"},
-	{"nextTag", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, nextTag, int32_t), "javax.xml.stream.XMLStreamException"},
-	{"pr", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(XMLStreamReaderImpl, pr, void, $String*)},
-	{"require", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, require, void, int32_t, $String*, $String*), "javax.xml.stream.XMLStreamException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, reset, void)},
-	{"setInputSource", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V", nullptr, $PUBLIC | $FINAL, $method(XMLStreamReaderImpl, setInputSource, void, $XMLInputSource*), "javax.xml.stream.XMLStreamException"},
-	{"setPropertyManager", "(Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $PROTECTED, $virtualMethod(XMLStreamReaderImpl, setPropertyManager, void, $PropertyManager*)},
-	{"standaloneSet", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, standaloneSet, bool)},
-	{"switchToXML11Scanner", "()V", nullptr, $PRIVATE, $method(XMLStreamReaderImpl, switchToXML11Scanner, void), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _XMLStreamReaderImpl_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.XMLStreamReaderImpl$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XMLStreamReaderImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.XMLStreamReaderImpl",
-	"java.lang.Object",
-	"javax.xml.stream.XMLStreamReader",
-	_XMLStreamReaderImpl_FieldInfo_,
-	_XMLStreamReaderImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XMLStreamReaderImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.XMLStreamReaderImpl$1"
-};
-
-$Object* allocate$XMLStreamReaderImpl($Class* clazz) {
-	return $of($alloc(XMLStreamReaderImpl));
-}
-
 $String* XMLStreamReaderImpl::ENTITY_MANAGER = nullptr;
 $String* XMLStreamReaderImpl::ERROR_REPORTER = nullptr;
 $String* XMLStreamReaderImpl::SYMBOL_TABLE = nullptr;
 $String* XMLStreamReaderImpl::READER_IN_DEFINED_STATE = nullptr;
 
 void XMLStreamReaderImpl::init$($InputStream* inputStream, $PropertyManager* props) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, fSymbolTable, $new($SymbolTable));
 	$set(this, fScanner, $new($XMLNSDocumentScannerImpl));
-	$set(this, fNamespaceContextWrapper, $new($NamespaceContextWrapper, $cast($NamespaceSupport, $($nc(this->fScanner)->getNamespaceContext()))));
+	$set(this, fNamespaceContextWrapper, $new($NamespaceContextWrapper, $$cast($NamespaceSupport, this->fScanner->getNamespaceContext())));
 	$set(this, fEntityManager, $new($XMLEntityManager));
 	$set(this, fErrorReporter, $new($StaxErrorReporter));
 	$set(this, fEntityScanner, nullptr);
@@ -298,7 +170,7 @@ void XMLStreamReaderImpl::init$($InputStream* inputStream, $PropertyManager* pro
 	$set(this, fDTDDecl, nullptr);
 	$set(this, versionStr, nullptr);
 	init(props);
-	$var($XMLInputSource, inputSource, $new($XMLInputSource, ($String*)nullptr, ($String*)nullptr, ($String*)nullptr, inputStream, ($String*)nullptr));
+	$var($XMLInputSource, inputSource, $new($XMLInputSource, nullptr, nullptr, nullptr, inputStream, nullptr));
 	setInputSource(inputSource);
 }
 
@@ -308,10 +180,10 @@ $XMLDocumentScannerImpl* XMLStreamReaderImpl::getScanner() {
 }
 
 void XMLStreamReaderImpl::init$($String* systemid, $PropertyManager* props) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, fSymbolTable, $new($SymbolTable));
 	$set(this, fScanner, $new($XMLNSDocumentScannerImpl));
-	$set(this, fNamespaceContextWrapper, $new($NamespaceContextWrapper, $cast($NamespaceSupport, $($nc(this->fScanner)->getNamespaceContext()))));
+	$set(this, fNamespaceContextWrapper, $new($NamespaceContextWrapper, $$cast($NamespaceSupport, this->fScanner->getNamespaceContext())));
 	$set(this, fEntityManager, $new($XMLEntityManager));
 	$set(this, fErrorReporter, $new($StaxErrorReporter));
 	$set(this, fEntityScanner, nullptr);
@@ -327,10 +199,10 @@ void XMLStreamReaderImpl::init$($String* systemid, $PropertyManager* props) {
 }
 
 void XMLStreamReaderImpl::init$($InputStream* inputStream, $String* encoding, $PropertyManager* props) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, fSymbolTable, $new($SymbolTable));
 	$set(this, fScanner, $new($XMLNSDocumentScannerImpl));
-	$set(this, fNamespaceContextWrapper, $new($NamespaceContextWrapper, $cast($NamespaceSupport, $($nc(this->fScanner)->getNamespaceContext()))));
+	$set(this, fNamespaceContextWrapper, $new($NamespaceContextWrapper, $$cast($NamespaceSupport, this->fScanner->getNamespaceContext())));
 	$set(this, fEntityManager, $new($XMLEntityManager));
 	$set(this, fErrorReporter, $new($StaxErrorReporter));
 	$set(this, fEntityScanner, nullptr);
@@ -341,15 +213,15 @@ void XMLStreamReaderImpl::init$($InputStream* inputStream, $String* encoding, $P
 	$set(this, fDTDDecl, nullptr);
 	$set(this, versionStr, nullptr);
 	init(props);
-	$var($XMLInputSource, inputSource, $new($XMLInputSource, ($String*)nullptr, ($String*)nullptr, ($String*)nullptr, static_cast<$InputStream*>($$new($BufferedInputStream, inputStream)), encoding));
+	$var($XMLInputSource, inputSource, $new($XMLInputSource, nullptr, nullptr, nullptr, $$new($BufferedInputStream, inputStream), encoding));
 	setInputSource(inputSource);
 }
 
 void XMLStreamReaderImpl::init$($Reader* reader, $PropertyManager* props) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, fSymbolTable, $new($SymbolTable));
 	$set(this, fScanner, $new($XMLNSDocumentScannerImpl));
-	$set(this, fNamespaceContextWrapper, $new($NamespaceContextWrapper, $cast($NamespaceSupport, $($nc(this->fScanner)->getNamespaceContext()))));
+	$set(this, fNamespaceContextWrapper, $new($NamespaceContextWrapper, $$cast($NamespaceSupport, this->fScanner->getNamespaceContext())));
 	$set(this, fEntityManager, $new($XMLEntityManager));
 	$set(this, fErrorReporter, $new($StaxErrorReporter));
 	$set(this, fEntityScanner, nullptr);
@@ -360,14 +232,14 @@ void XMLStreamReaderImpl::init$($Reader* reader, $PropertyManager* props) {
 	$set(this, fDTDDecl, nullptr);
 	$set(this, versionStr, nullptr);
 	init(props);
-	$var($XMLInputSource, inputSource, $new($XMLInputSource, ($String*)nullptr, ($String*)nullptr, ($String*)nullptr, static_cast<$Reader*>($$new($BufferedReader, reader)), ($String*)nullptr));
+	$var($XMLInputSource, inputSource, $new($XMLInputSource, nullptr, nullptr, nullptr, $$new($BufferedReader, reader), nullptr));
 	setInputSource(inputSource);
 }
 
 void XMLStreamReaderImpl::init$($XMLInputSource* inputSource, $PropertyManager* props) {
 	$set(this, fSymbolTable, $new($SymbolTable));
 	$set(this, fScanner, $new($XMLNSDocumentScannerImpl));
-	$set(this, fNamespaceContextWrapper, $new($NamespaceContextWrapper, $cast($NamespaceSupport, $($nc(this->fScanner)->getNamespaceContext()))));
+	$set(this, fNamespaceContextWrapper, $new($NamespaceContextWrapper, $$cast($NamespaceSupport, this->fScanner->getNamespaceContext())));
 	$set(this, fEntityManager, $new($XMLEntityManager));
 	$set(this, fErrorReporter, $new($StaxErrorReporter));
 	$set(this, fEntityScanner, nullptr);
@@ -382,7 +254,7 @@ void XMLStreamReaderImpl::init$($XMLInputSource* inputSource, $PropertyManager* 
 }
 
 void XMLStreamReaderImpl::setInputSource($XMLInputSource* inputSource) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->fReuse = false;
 	try {
 		$nc(this->fScanner)->setInputSource(inputSource);
@@ -391,12 +263,12 @@ void XMLStreamReaderImpl::setInputSource($XMLInputSource* inputSource) {
 			if (this->versionStr == nullptr) {
 				$set(this, versionStr, getVersion());
 			}
-			if (this->fEventType == $XMLStreamConstants::START_DOCUMENT && this->versionStr != nullptr && $nc(this->versionStr)->equals("1.1"_s)) {
+			if (this->fEventType == $XMLStreamConstants::START_DOCUMENT && this->versionStr != nullptr && this->versionStr->equals("1.1"_s)) {
 				switchToXML11Scanner();
 			}
 		}
 	} catch ($IOException& ex) {
-		$throwNew($XMLStreamException, static_cast<$Throwable*>(ex));
+		$throwNew($XMLStreamException, ex);
 	} catch ($XNIException& ex) {
 		$var($String, var$0, ex->getMessage());
 		$var($Location, var$1, getLocation());
@@ -413,6 +285,7 @@ void XMLStreamReaderImpl::init($PropertyManager* propertyManager) {
 }
 
 bool XMLStreamReaderImpl::canReuse() {
+	;
 	return this->fReuse;
 }
 
@@ -423,7 +296,7 @@ void XMLStreamReaderImpl::reset() {
 	$nc(this->fScanner)->reset(this->fPropertyManager);
 	$set(this, fDTDDecl, nullptr);
 	$set(this, fEntityScanner, $nc(this->fEntityManager)->getEntityScanner());
-	this->fReaderInDefinedState = $nc(($cast($Boolean, $($nc(this->fPropertyManager)->getProperty(XMLStreamReaderImpl::READER_IN_DEFINED_STATE)))))->booleanValue();
+	this->fReaderInDefinedState = $$sure($Boolean, $nc(this->fPropertyManager)->getProperty(XMLStreamReaderImpl::READER_IN_DEFINED_STATE))->booleanValue();
 	$set(this, versionStr, nullptr);
 }
 
@@ -452,7 +325,7 @@ int32_t XMLStreamReaderImpl::getLineNumber() {
 }
 
 $String* XMLStreamReaderImpl::getLocalName() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fEventType == $XMLEvent::START_ELEMENT || this->fEventType == $XMLEvent::END_ELEMENT) {
 		return $nc($($nc(this->fScanner)->getElementQName()))->localpart;
 	} else if (this->fEventType == $XMLEvent::ENTITY_REFERENCE) {
@@ -469,16 +342,16 @@ $String* XMLStreamReaderImpl::getNamespaceURI() {
 }
 
 $String* XMLStreamReaderImpl::getPIData() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fEventType == $XMLEvent::PROCESSING_INSTRUCTION) {
-		return $nc($($nc(this->fScanner)->getPIData()))->toString();
+		return $$nc($nc(this->fScanner)->getPIData())->toString();
 	} else {
 		$throwNew($IllegalStateException, $$str({"Current state of the parser is "_s, $(getEventTypeString(this->fEventType)), " But Expected state is "_s, $$str($XMLEvent::PROCESSING_INSTRUCTION)}));
 	}
 }
 
 $String* XMLStreamReaderImpl::getPITarget() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fEventType == $XMLEvent::PROCESSING_INSTRUCTION) {
 		return $nc(this->fScanner)->getPITarget();
 	} else {
@@ -487,7 +360,7 @@ $String* XMLStreamReaderImpl::getPITarget() {
 }
 
 $String* XMLStreamReaderImpl::getPrefix() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fEventType == $XMLEvent::START_ELEMENT || this->fEventType == $XMLEvent::END_ELEMENT) {
 		$var($String, prefix, $nc($($nc(this->fScanner)->getElementQName()))->prefix);
 		$init($XMLConstants);
@@ -497,66 +370,78 @@ $String* XMLStreamReaderImpl::getPrefix() {
 }
 
 $chars* XMLStreamReaderImpl::getTextCharacters() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fEventType == $XMLEvent::CHARACTERS || this->fEventType == $XMLEvent::COMMENT || this->fEventType == $XMLEvent::CDATA || this->fEventType == $XMLEvent::SPACE) {
 		return $nc($($nc(this->fScanner)->getCharacterData()))->ch;
 	} else {
-		$var($String, var$7, $$str({"Current state = "_s, $(getEventTypeString(this->fEventType)), " is not among the states "_s}));
-		$var($String, var$6, $$concat(var$7, $(getEventTypeString($XMLEvent::CHARACTERS))));
-		$var($String, var$5, $$concat(var$6, " , "_s));
-		$var($String, var$4, $$concat(var$5, $(getEventTypeString($XMLEvent::COMMENT))));
-		$var($String, var$3, $$concat(var$4, " , "_s));
-		$var($String, var$2, $$concat(var$3, $(getEventTypeString($XMLEvent::CDATA))));
-		$var($String, var$1, $$concat(var$2, " , "_s));
-		$var($String, var$0, $$concat(var$1, $(getEventTypeString($XMLEvent::SPACE))));
-		$throwNew($IllegalStateException, $$concat(var$0, " valid for getTextCharacters() "_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Current state = "_s);
+		var$0->append($(getEventTypeString(this->fEventType)));
+		var$0->append(" is not among the states "_s);
+		var$0->append($(getEventTypeString($XMLEvent::CHARACTERS)));
+		var$0->append(" , "_s);
+		var$0->append($(getEventTypeString($XMLEvent::COMMENT)));
+		var$0->append(" , "_s);
+		var$0->append($(getEventTypeString($XMLEvent::CDATA)));
+		var$0->append(" , "_s);
+		var$0->append($(getEventTypeString($XMLEvent::SPACE)));
+		var$0->append(" valid for getTextCharacters() "_s);
+		$throwNew($IllegalStateException, $$str(var$0));
 	}
 }
 
 int32_t XMLStreamReaderImpl::getTextLength() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fEventType == $XMLEvent::CHARACTERS || this->fEventType == $XMLEvent::COMMENT || this->fEventType == $XMLEvent::CDATA || this->fEventType == $XMLEvent::SPACE) {
 		return $nc($($nc(this->fScanner)->getCharacterData()))->length;
 	} else {
-		$var($String, var$7, $$str({"Current state = "_s, $(getEventTypeString(this->fEventType)), " is not among the states "_s}));
-		$var($String, var$6, $$concat(var$7, $(getEventTypeString($XMLEvent::CHARACTERS))));
-		$var($String, var$5, $$concat(var$6, " , "_s));
-		$var($String, var$4, $$concat(var$5, $(getEventTypeString($XMLEvent::COMMENT))));
-		$var($String, var$3, $$concat(var$4, " , "_s));
-		$var($String, var$2, $$concat(var$3, $(getEventTypeString($XMLEvent::CDATA))));
-		$var($String, var$1, $$concat(var$2, " , "_s));
-		$var($String, var$0, $$concat(var$1, $(getEventTypeString($XMLEvent::SPACE))));
-		$throwNew($IllegalStateException, $$concat(var$0, " valid for getTextLength() "_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Current state = "_s);
+		var$0->append($(getEventTypeString(this->fEventType)));
+		var$0->append(" is not among the states "_s);
+		var$0->append($(getEventTypeString($XMLEvent::CHARACTERS)));
+		var$0->append(" , "_s);
+		var$0->append($(getEventTypeString($XMLEvent::COMMENT)));
+		var$0->append(" , "_s);
+		var$0->append($(getEventTypeString($XMLEvent::CDATA)));
+		var$0->append(" , "_s);
+		var$0->append($(getEventTypeString($XMLEvent::SPACE)));
+		var$0->append(" valid for getTextLength() "_s);
+		$throwNew($IllegalStateException, $$str(var$0));
 	}
 }
 
 int32_t XMLStreamReaderImpl::getTextStart() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fEventType == $XMLEvent::CHARACTERS || this->fEventType == $XMLEvent::COMMENT || this->fEventType == $XMLEvent::CDATA || this->fEventType == $XMLEvent::SPACE) {
 		return $nc($($nc(this->fScanner)->getCharacterData()))->offset;
 	} else {
-		$var($String, var$7, $$str({"Current state = "_s, $(getEventTypeString(this->fEventType)), " is not among the states "_s}));
-		$var($String, var$6, $$concat(var$7, $(getEventTypeString($XMLEvent::CHARACTERS))));
-		$var($String, var$5, $$concat(var$6, " , "_s));
-		$var($String, var$4, $$concat(var$5, $(getEventTypeString($XMLEvent::COMMENT))));
-		$var($String, var$3, $$concat(var$4, " , "_s));
-		$var($String, var$2, $$concat(var$3, $(getEventTypeString($XMLEvent::CDATA))));
-		$var($String, var$1, $$concat(var$2, " , "_s));
-		$var($String, var$0, $$concat(var$1, $(getEventTypeString($XMLEvent::SPACE))));
-		$throwNew($IllegalStateException, $$concat(var$0, " valid for getTextStart() "_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Current state = "_s);
+		var$0->append($(getEventTypeString(this->fEventType)));
+		var$0->append(" is not among the states "_s);
+		var$0->append($(getEventTypeString($XMLEvent::CHARACTERS)));
+		var$0->append(" , "_s);
+		var$0->append($(getEventTypeString($XMLEvent::COMMENT)));
+		var$0->append(" , "_s);
+		var$0->append($(getEventTypeString($XMLEvent::CDATA)));
+		var$0->append(" , "_s);
+		var$0->append($(getEventTypeString($XMLEvent::SPACE)));
+		var$0->append(" valid for getTextStart() "_s);
+		$throwNew($IllegalStateException, $$str(var$0));
 	}
 }
 
 $String* XMLStreamReaderImpl::getValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fEventType == $XMLEvent::PROCESSING_INSTRUCTION) {
-		return $nc($($nc(this->fScanner)->getPIData()))->toString();
+		return $$nc($nc(this->fScanner)->getPIData())->toString();
 	} else if (this->fEventType == $XMLEvent::COMMENT) {
 		return $nc(this->fScanner)->getComment();
 	} else if (this->fEventType == $XMLEvent::START_ELEMENT || this->fEventType == $XMLEvent::END_ELEMENT) {
 		return $nc($($nc(this->fScanner)->getElementQName()))->localpart;
 	} else if (this->fEventType == $XMLEvent::CHARACTERS) {
-		return $nc($($nc(this->fScanner)->getCharacterData()))->toString();
+		return $$nc($nc(this->fScanner)->getCharacterData())->toString();
 	}
 	return nullptr;
 }
@@ -567,7 +452,7 @@ $String* XMLStreamReaderImpl::getVersion() {
 }
 
 bool XMLStreamReaderImpl::hasAttributes() {
-	return $nc($($nc(this->fScanner)->getAttributeIterator()))->getLength() > 0 ? true : false;
+	return $$nc($nc(this->fScanner)->getAttributeIterator())->getLength() > 0 ? true : false;
 }
 
 bool XMLStreamReaderImpl::hasName() {
@@ -621,7 +506,7 @@ bool XMLStreamReaderImpl::isWhiteSpace() {
 }
 
 int32_t XMLStreamReaderImpl::next() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!hasNext()) {
 		if (this->fEventType != -1) {
 			$throwNew($NoSuchElementException, "END_DOCUMENT reached: no more elements on the stream."_s);
@@ -634,7 +519,7 @@ int32_t XMLStreamReaderImpl::next() {
 		if (this->versionStr == nullptr) {
 			$set(this, versionStr, getVersion());
 		}
-		if (this->fEventType == $XMLStreamConstants::START_DOCUMENT && this->versionStr != nullptr && $nc(this->versionStr)->equals("1.1"_s)) {
+		if (this->fEventType == $XMLStreamConstants::START_DOCUMENT && this->versionStr != nullptr && this->versionStr->equals("1.1"_s)) {
 			switchToXML11Scanner();
 		}
 		if (this->fEventType == $XMLStreamConstants::CHARACTERS || this->fEventType == $XMLStreamConstants::ENTITY_REFERENCE || this->fEventType == $XMLStreamConstants::PROCESSING_INSTRUCTION || this->fEventType == $XMLStreamConstants::COMMENT || this->fEventType == $XMLStreamConstants::CDATA) {
@@ -649,7 +534,7 @@ int32_t XMLStreamReaderImpl::next() {
 				this->fEventType = $XMLEvent::DTD;
 				$nc(this->fScanner)->setScannerState($XMLDocumentScannerImpl::SCANNER_STATE_PROLOG);
 				$nc(this->fScanner)->setDriver($nc(this->fScanner)->fPrologDriver);
-				if (this->fDTDDecl == nullptr || $nc(this->fDTDDecl)->length() == 0) {
+				if (this->fDTDDecl == nullptr || this->fDTDDecl->length() == 0) {
 					$set(this, fDTDDecl, "<!-- Exception scanning External DTD Subset.  True contents of DTD cannot be determined.  Processing will continue as XMLInputFactory.IS_VALIDATING == false. -->"_s);
 				}
 				return $XMLEvent::DTD;
@@ -667,179 +552,187 @@ int32_t XMLStreamReaderImpl::next() {
 
 void XMLStreamReaderImpl::switchToXML11Scanner() {
 	int32_t oldEntityDepth = $nc(this->fScanner)->fEntityDepth;
-	$var($1NamespaceContext, oldNamespaceContext, $nc(this->fScanner)->fNamespaceContext);
+	$var($NamespaceContext, oldNamespaceContext, this->fScanner->fNamespaceContext);
 	$set(this, fScanner, $new($XML11NSDocumentScannerImpl));
-	$nc(this->fScanner)->reset(this->fPropertyManager);
+	this->fScanner->reset(this->fPropertyManager);
 	$nc(this->fScanner)->setPropertyManager(this->fPropertyManager);
 	$set(this, fEntityScanner, $nc(this->fEntityManager)->getEntityScanner());
 	$nc(this->fEntityScanner)->registerListener(this->fScanner);
 	$nc($nc(this->fEntityManager)->fCurrentEntity)->mayReadChunks = true;
 	$nc(this->fScanner)->setScannerState($XMLEvent::START_DOCUMENT);
 	$nc(this->fScanner)->fEntityDepth = oldEntityDepth;
-	$set($nc(this->fScanner), fNamespaceContext, oldNamespaceContext);
-	this->fEventType = $nc(this->fScanner)->next();
+	$set(this->fScanner, fNamespaceContext, oldNamespaceContext);
+	this->fEventType = this->fScanner->next();
 }
 
 $String* XMLStreamReaderImpl::getEventTypeString(int32_t eventType) {
 	$init(XMLStreamReaderImpl);
 	switch (eventType) {
 	case $XMLEvent::START_ELEMENT:
-		{
-			return "START_ELEMENT"_s;
-		}
+		return "START_ELEMENT"_s;
 	case $XMLEvent::END_ELEMENT:
-		{
-			return "END_ELEMENT"_s;
-		}
+		return "END_ELEMENT"_s;
 	case $XMLEvent::PROCESSING_INSTRUCTION:
-		{
-			return "PROCESSING_INSTRUCTION"_s;
-		}
+		return "PROCESSING_INSTRUCTION"_s;
 	case $XMLEvent::CHARACTERS:
-		{
-			return "CHARACTERS"_s;
-		}
+		return "CHARACTERS"_s;
 	case $XMLEvent::COMMENT:
-		{
-			return "COMMENT"_s;
-		}
+		return "COMMENT"_s;
 	case $XMLEvent::START_DOCUMENT:
-		{
-			return "START_DOCUMENT"_s;
-		}
+		return "START_DOCUMENT"_s;
 	case $XMLEvent::END_DOCUMENT:
-		{
-			return "END_DOCUMENT"_s;
-		}
+		return "END_DOCUMENT"_s;
 	case $XMLEvent::ENTITY_REFERENCE:
-		{
-			return "ENTITY_REFERENCE"_s;
-		}
+		return "ENTITY_REFERENCE"_s;
 	case $XMLEvent::ATTRIBUTE:
-		{
-			return "ATTRIBUTE"_s;
-		}
+		return "ATTRIBUTE"_s;
 	case $XMLEvent::DTD:
-		{
-			return "DTD"_s;
-		}
+		return "DTD"_s;
 	case $XMLEvent::CDATA:
-		{
-			return "CDATA"_s;
-		}
+		return "CDATA"_s;
 	case $XMLEvent::SPACE:
-		{
-			return "SPACE"_s;
-		}
+		return "SPACE"_s;
 	}
 	return $str({"UNKNOWN_EVENT_TYPE, "_s, $($String::valueOf(eventType))});
 }
 
 int32_t XMLStreamReaderImpl::getAttributeCount() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fEventType == $XMLEvent::START_ELEMENT || this->fEventType == $XMLEvent::ATTRIBUTE) {
-		return $nc($($nc(this->fScanner)->getAttributeIterator()))->getLength();
+		return $$nc($nc(this->fScanner)->getAttributeIterator())->getLength();
 	} else {
-		$var($String, var$1, $$str({"Current state is not among the states "_s, $(getEventTypeString($XMLEvent::START_ELEMENT)), " , "_s}));
-		$var($String, var$0, $$concat(var$1, $(getEventTypeString($XMLEvent::ATTRIBUTE))));
-		$throwNew($IllegalStateException, $$concat(var$0, "valid for getAttributeCount()"_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Current state is not among the states "_s);
+		var$0->append($(getEventTypeString($XMLEvent::START_ELEMENT)));
+		var$0->append(" , "_s);
+		var$0->append($(getEventTypeString($XMLEvent::ATTRIBUTE)));
+		var$0->append("valid for getAttributeCount()"_s);
+		$throwNew($IllegalStateException, $$str(var$0));
 	}
 }
 
 $QName* XMLStreamReaderImpl::getAttributeName(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fEventType == $XMLEvent::START_ELEMENT || this->fEventType == $XMLEvent::ATTRIBUTE) {
-		return convertXNIQNametoJavaxQName($($nc($($nc(this->fScanner)->getAttributeIterator()))->getQualifiedName(index)));
+		return convertXNIQNametoJavaxQName($($$nc($nc(this->fScanner)->getAttributeIterator())->getQualifiedName(index)));
 	} else {
-		$var($String, var$1, $$str({"Current state is not among the states "_s, $(getEventTypeString($XMLEvent::START_ELEMENT)), " , "_s}));
-		$var($String, var$0, $$concat(var$1, $(getEventTypeString($XMLEvent::ATTRIBUTE))));
-		$throwNew($IllegalStateException, $$concat(var$0, "valid for getAttributeName()"_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Current state is not among the states "_s);
+		var$0->append($(getEventTypeString($XMLEvent::START_ELEMENT)));
+		var$0->append(" , "_s);
+		var$0->append($(getEventTypeString($XMLEvent::ATTRIBUTE)));
+		var$0->append("valid for getAttributeName()"_s);
+		$throwNew($IllegalStateException, $$str(var$0));
 	}
 }
 
 $String* XMLStreamReaderImpl::getAttributeLocalName(int32_t index) {
 	if (this->fEventType == $XMLEvent::START_ELEMENT || this->fEventType == $XMLEvent::ATTRIBUTE) {
-		return $nc($($nc(this->fScanner)->getAttributeIterator()))->getLocalName(index);
+		return $$nc($nc(this->fScanner)->getAttributeIterator())->getLocalName(index);
 	} else {
 		$throwNew($IllegalStateException);
 	}
 }
 
 $String* XMLStreamReaderImpl::getAttributeNamespace(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fEventType == $XMLEvent::START_ELEMENT || this->fEventType == $XMLEvent::ATTRIBUTE) {
-		return $nc($($nc(this->fScanner)->getAttributeIterator()))->getURI(index);
+		return $$nc($nc(this->fScanner)->getAttributeIterator())->getURI(index);
 	} else {
-		$var($String, var$1, $$str({"Current state is not among the states "_s, $(getEventTypeString($XMLEvent::START_ELEMENT)), " , "_s}));
-		$var($String, var$0, $$concat(var$1, $(getEventTypeString($XMLEvent::ATTRIBUTE))));
-		$throwNew($IllegalStateException, $$concat(var$0, "valid for getAttributeNamespace()"_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Current state is not among the states "_s);
+		var$0->append($(getEventTypeString($XMLEvent::START_ELEMENT)));
+		var$0->append(" , "_s);
+		var$0->append($(getEventTypeString($XMLEvent::ATTRIBUTE)));
+		var$0->append("valid for getAttributeNamespace()"_s);
+		$throwNew($IllegalStateException, $$str(var$0));
 	}
 }
 
 $String* XMLStreamReaderImpl::getAttributePrefix(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fEventType == $XMLEvent::START_ELEMENT || this->fEventType == $XMLEvent::ATTRIBUTE) {
-		return $nc($($nc(this->fScanner)->getAttributeIterator()))->getPrefix(index);
+		return $$nc($nc(this->fScanner)->getAttributeIterator())->getPrefix(index);
 	} else {
-		$var($String, var$1, $$str({"Current state is not among the states "_s, $(getEventTypeString($XMLEvent::START_ELEMENT)), " , "_s}));
-		$var($String, var$0, $$concat(var$1, $(getEventTypeString($XMLEvent::ATTRIBUTE))));
-		$throwNew($IllegalStateException, $$concat(var$0, "valid for getAttributePrefix()"_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Current state is not among the states "_s);
+		var$0->append($(getEventTypeString($XMLEvent::START_ELEMENT)));
+		var$0->append(" , "_s);
+		var$0->append($(getEventTypeString($XMLEvent::ATTRIBUTE)));
+		var$0->append("valid for getAttributePrefix()"_s);
+		$throwNew($IllegalStateException, $$str(var$0));
 	}
 }
 
 $QName* XMLStreamReaderImpl::getAttributeQName(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fEventType == $XMLEvent::START_ELEMENT || this->fEventType == $XMLEvent::ATTRIBUTE) {
-		$var($String, localName, $nc($($nc(this->fScanner)->getAttributeIterator()))->getLocalName(index));
-		$var($String, uri, $nc($($nc(this->fScanner)->getAttributeIterator()))->getURI(index));
+		$var($String, localName, $$nc($nc(this->fScanner)->getAttributeIterator())->getLocalName(index));
+		$var($String, uri, $$nc($nc(this->fScanner)->getAttributeIterator())->getURI(index));
 		return $new($QName, uri, localName);
 	} else {
-		$var($String, var$1, $$str({"Current state is not among the states "_s, $(getEventTypeString($XMLEvent::START_ELEMENT)), " , "_s}));
-		$var($String, var$0, $$concat(var$1, $(getEventTypeString($XMLEvent::ATTRIBUTE))));
-		$throwNew($IllegalStateException, $$concat(var$0, "valid for getAttributeQName()"_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Current state is not among the states "_s);
+		var$0->append($(getEventTypeString($XMLEvent::START_ELEMENT)));
+		var$0->append(" , "_s);
+		var$0->append($(getEventTypeString($XMLEvent::ATTRIBUTE)));
+		var$0->append("valid for getAttributeQName()"_s);
+		$throwNew($IllegalStateException, $$str(var$0));
 	}
 }
 
 $String* XMLStreamReaderImpl::getAttributeType(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fEventType == $XMLEvent::START_ELEMENT || this->fEventType == $XMLEvent::ATTRIBUTE) {
-		return $nc($($nc(this->fScanner)->getAttributeIterator()))->getType(index);
+		return $$nc($nc(this->fScanner)->getAttributeIterator())->getType(index);
 	} else {
-		$var($String, var$1, $$str({"Current state is not among the states "_s, $(getEventTypeString($XMLEvent::START_ELEMENT)), " , "_s}));
-		$var($String, var$0, $$concat(var$1, $(getEventTypeString($XMLEvent::ATTRIBUTE))));
-		$throwNew($IllegalStateException, $$concat(var$0, "valid for getAttributeType()"_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Current state is not among the states "_s);
+		var$0->append($(getEventTypeString($XMLEvent::START_ELEMENT)));
+		var$0->append(" , "_s);
+		var$0->append($(getEventTypeString($XMLEvent::ATTRIBUTE)));
+		var$0->append("valid for getAttributeType()"_s);
+		$throwNew($IllegalStateException, $$str(var$0));
 	}
 }
 
 $String* XMLStreamReaderImpl::getAttributeValue(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fEventType == $XMLEvent::START_ELEMENT || this->fEventType == $XMLEvent::ATTRIBUTE) {
-		return $nc($($nc(this->fScanner)->getAttributeIterator()))->getValue(index);
+		return $$nc($nc(this->fScanner)->getAttributeIterator())->getValue(index);
 	} else {
-		$var($String, var$1, $$str({"Current state is not among the states "_s, $(getEventTypeString($XMLEvent::START_ELEMENT)), " , "_s}));
-		$var($String, var$0, $$concat(var$1, $(getEventTypeString($XMLEvent::ATTRIBUTE))));
-		$throwNew($IllegalStateException, $$concat(var$0, "valid for getAttributeValue()"_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Current state is not among the states "_s);
+		var$0->append($(getEventTypeString($XMLEvent::START_ELEMENT)));
+		var$0->append(" , "_s);
+		var$0->append($(getEventTypeString($XMLEvent::ATTRIBUTE)));
+		var$0->append("valid for getAttributeValue()"_s);
+		$throwNew($IllegalStateException, $$str(var$0));
 	}
 }
 
 $String* XMLStreamReaderImpl::getAttributeValue($String* namespaceURI, $String* localName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fEventType == $XMLEvent::START_ELEMENT || this->fEventType == $XMLEvent::ATTRIBUTE) {
 		$var($XMLAttributesImpl, attributes, $nc(this->fScanner)->getAttributeIterator());
 		if (namespaceURI == nullptr) {
-			return $nc(attributes)->getValue(attributes->getIndexByLocalName(localName));
+			return $nc(attributes)->getValue($nc(attributes)->getIndexByLocalName(localName));
 		} else {
-			return $nc($($nc(this->fScanner)->getAttributeIterator()))->getValue($nc(namespaceURI)->length() == 0 ? ($String*)nullptr : namespaceURI, localName);
+			return $$nc($nc(this->fScanner)->getAttributeIterator())->getValue(namespaceURI->length() == 0 ? ($String*)nullptr : namespaceURI, localName);
 		}
 	} else {
-		$var($String, var$1, $$str({"Current state is not among the states "_s, $(getEventTypeString($XMLEvent::START_ELEMENT)), " , "_s}));
-		$var($String, var$0, $$concat(var$1, $(getEventTypeString($XMLEvent::ATTRIBUTE))));
-		$throwNew($IllegalStateException, $$concat(var$0, "valid for getAttributeValue()"_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Current state is not among the states "_s);
+		var$0->append($(getEventTypeString($XMLEvent::START_ELEMENT)));
+		var$0->append(" , "_s);
+		var$0->append($(getEventTypeString($XMLEvent::ATTRIBUTE)));
+		var$0->append("valid for getAttributeValue()"_s);
+		$throwNew($IllegalStateException, $$str(var$0));
 	}
 }
 
 $String* XMLStreamReaderImpl::getElementText() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getEventType() != $XMLStreamConstants::START_ELEMENT) {
 		$throwNew($XMLStreamException, "parser must be on START_ELEMENT to read next text"_s, $(getLocation()));
 	}
@@ -866,64 +759,80 @@ $Location* XMLStreamReaderImpl::getLocation() {
 }
 
 $QName* XMLStreamReaderImpl::getName() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fEventType == $XMLEvent::START_ELEMENT || this->fEventType == $XMLEvent::END_ELEMENT) {
 		return convertXNIQNametoJavaxQName($($nc(this->fScanner)->getElementQName()));
 	} else {
-		$var($String, var$2, $$str({"Illegal to call getName() when event type is "_s, $(getEventTypeString(this->fEventType)), ". Valid states are "_s}));
-		$var($String, var$1, $$concat(var$2, $(getEventTypeString($XMLEvent::START_ELEMENT))));
-		$var($String, var$0, $$concat(var$1, ", "_s));
-		$throwNew($IllegalStateException, $$concat(var$0, $(getEventTypeString($XMLEvent::END_ELEMENT))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Illegal to call getName() when event type is "_s);
+		var$0->append($(getEventTypeString(this->fEventType)));
+		var$0->append(". Valid states are "_s);
+		var$0->append($(getEventTypeString($XMLEvent::START_ELEMENT)));
+		var$0->append(", "_s);
+		var$0->append($(getEventTypeString($XMLEvent::END_ELEMENT)));
+		$throwNew($IllegalStateException, $$str(var$0));
 	}
 }
 
-$NamespaceContext* XMLStreamReaderImpl::getNamespaceContext() {
+$1NamespaceContext* XMLStreamReaderImpl::getNamespaceContext() {
 	return this->fNamespaceContextWrapper;
 }
 
 int32_t XMLStreamReaderImpl::getNamespaceCount() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fEventType == $XMLEvent::START_ELEMENT || this->fEventType == $XMLEvent::END_ELEMENT || this->fEventType == $XMLEvent::NAMESPACE) {
-		return $nc($($nc(this->fScanner)->getNamespaceContext()))->getDeclaredPrefixCount();
+		return $$nc($nc(this->fScanner)->getNamespaceContext())->getDeclaredPrefixCount();
 	} else {
-		$var($String, var$5, $$str({"Current event state is "_s, $(getEventTypeString(this->fEventType)), " is not among the states "_s}));
-		$var($String, var$4, $$concat(var$5, $(getEventTypeString($XMLEvent::START_ELEMENT))));
-		$var($String, var$3, $$concat(var$4, ", "_s));
-		$var($String, var$2, $$concat(var$3, $(getEventTypeString($XMLEvent::END_ELEMENT))));
-		$var($String, var$1, $$concat(var$2, ", "_s));
-		$var($String, var$0, $$concat(var$1, $(getEventTypeString($XMLEvent::NAMESPACE))));
-		$throwNew($IllegalStateException, $$concat(var$0, " valid for getNamespaceCount()."_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Current event state is "_s);
+		var$0->append($(getEventTypeString(this->fEventType)));
+		var$0->append(" is not among the states "_s);
+		var$0->append($(getEventTypeString($XMLEvent::START_ELEMENT)));
+		var$0->append(", "_s);
+		var$0->append($(getEventTypeString($XMLEvent::END_ELEMENT)));
+		var$0->append(", "_s);
+		var$0->append($(getEventTypeString($XMLEvent::NAMESPACE)));
+		var$0->append(" valid for getNamespaceCount()."_s);
+		$throwNew($IllegalStateException, $$str(var$0));
 	}
 }
 
 $String* XMLStreamReaderImpl::getNamespacePrefix(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fEventType == $XMLEvent::START_ELEMENT || this->fEventType == $XMLEvent::END_ELEMENT || this->fEventType == $XMLEvent::NAMESPACE) {
-		$var($String, prefix, $nc($($nc(this->fScanner)->getNamespaceContext()))->getDeclaredPrefixAt(index));
+		$var($String, prefix, $$nc($nc(this->fScanner)->getNamespaceContext())->getDeclaredPrefixAt(index));
 		return $nc(prefix)->equals(""_s) ? ($String*)nullptr : prefix;
 	} else {
-		$var($String, var$5, $$str({"Current state "_s, $(getEventTypeString(this->fEventType)), " is not among the states "_s}));
-		$var($String, var$4, $$concat(var$5, $(getEventTypeString($XMLEvent::START_ELEMENT))));
-		$var($String, var$3, $$concat(var$4, ", "_s));
-		$var($String, var$2, $$concat(var$3, $(getEventTypeString($XMLEvent::END_ELEMENT))));
-		$var($String, var$1, $$concat(var$2, ", "_s));
-		$var($String, var$0, $$concat(var$1, $(getEventTypeString($XMLEvent::NAMESPACE))));
-		$throwNew($IllegalStateException, $$concat(var$0, " valid for getNamespacePrefix()."_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Current state "_s);
+		var$0->append($(getEventTypeString(this->fEventType)));
+		var$0->append(" is not among the states "_s);
+		var$0->append($(getEventTypeString($XMLEvent::START_ELEMENT)));
+		var$0->append(", "_s);
+		var$0->append($(getEventTypeString($XMLEvent::END_ELEMENT)));
+		var$0->append(", "_s);
+		var$0->append($(getEventTypeString($XMLEvent::NAMESPACE)));
+		var$0->append(" valid for getNamespacePrefix()."_s);
+		$throwNew($IllegalStateException, $$str(var$0));
 	}
 }
 
 $String* XMLStreamReaderImpl::getNamespaceURI(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fEventType == $XMLEvent::START_ELEMENT || this->fEventType == $XMLEvent::END_ELEMENT || this->fEventType == $XMLEvent::NAMESPACE) {
-		return $nc($($nc(this->fScanner)->getNamespaceContext()))->getURI($($nc($($nc(this->fScanner)->getNamespaceContext()))->getDeclaredPrefixAt(index)));
+		return $$nc($nc(this->fScanner)->getNamespaceContext())->getURI($($$nc($nc(this->fScanner)->getNamespaceContext())->getDeclaredPrefixAt(index)));
 	} else {
-		$var($String, var$5, $$str({"Current state "_s, $(getEventTypeString(this->fEventType)), " is not among the states "_s}));
-		$var($String, var$4, $$concat(var$5, $(getEventTypeString($XMLEvent::START_ELEMENT))));
-		$var($String, var$3, $$concat(var$4, ", "_s));
-		$var($String, var$2, $$concat(var$3, $(getEventTypeString($XMLEvent::END_ELEMENT))));
-		$var($String, var$1, $$concat(var$2, ", "_s));
-		$var($String, var$0, $$concat(var$1, $(getEventTypeString($XMLEvent::NAMESPACE))));
-		$throwNew($IllegalStateException, $$concat(var$0, " valid for getNamespaceURI()."_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Current state "_s);
+		var$0->append($(getEventTypeString(this->fEventType)));
+		var$0->append(" is not among the states "_s);
+		var$0->append($(getEventTypeString($XMLEvent::START_ELEMENT)));
+		var$0->append(", "_s);
+		var$0->append($(getEventTypeString($XMLEvent::END_ELEMENT)));
+		var$0->append(", "_s);
+		var$0->append($(getEventTypeString($XMLEvent::NAMESPACE)));
+		var$0->append(" valid for getNamespaceURI()."_s);
+		$throwNew($IllegalStateException, $$str(var$0));
 	}
 }
 
@@ -934,27 +843,25 @@ $Object* XMLStreamReaderImpl::getProperty($String* name) {
 	if (this->fPropertyManager != nullptr) {
 		$init($PropertyManager);
 		if ($nc(name)->equals($PropertyManager::STAX_NOTATIONS)) {
-			return $of(getNotationDecls());
+			return getNotationDecls();
+		} else if (name->equals($PropertyManager::STAX_ENTITIES)) {
+			return getEntityDecls();
 		} else {
-			if (name->equals($PropertyManager::STAX_ENTITIES)) {
-				return $of(getEntityDecls());
-			} else {
-				return $of($nc(this->fPropertyManager)->getProperty(name));
-			}
+			return this->fPropertyManager->getProperty(name);
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $String* XMLStreamReaderImpl::getText() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fEventType == $XMLEvent::CHARACTERS || this->fEventType == $XMLEvent::COMMENT || this->fEventType == $XMLEvent::CDATA || this->fEventType == $XMLEvent::SPACE) {
-		return $nc($($nc(this->fScanner)->getCharacterData()))->toString();
+		return $$nc($nc(this->fScanner)->getCharacterData())->toString();
 	} else if (this->fEventType == $XMLEvent::ENTITY_REFERENCE) {
 		$var($String, name, $nc(this->fScanner)->getEntityName());
 		if (name != nullptr) {
 			if ($nc(this->fScanner)->foundBuiltInRefs) {
-				return $nc($($nc(this->fScanner)->getCharacterData()))->toString();
+				return $$nc(this->fScanner->getCharacterData())->toString();
 			}
 			$var($XMLEntityStorage, entityStore, $nc(this->fEntityManager)->getEntityStore());
 			$var($Entity, en, $nc(entityStore)->getEntity(name));
@@ -962,9 +869,9 @@ $String* XMLStreamReaderImpl::getText() {
 				return nullptr;
 			}
 			if ($nc(en)->isExternal()) {
-				return $nc($nc(($cast($Entity$ExternalEntity, en)))->entityLocation)->getExpandedSystemId();
+				return $nc($cast($Entity$ExternalEntity, en)->entityLocation)->getExpandedSystemId();
 			} else {
-				return $nc(($cast($Entity$InternalEntity, en)))->text;
+				return $cast($Entity$InternalEntity, en)->text;
 			}
 		} else {
 			return nullptr;
@@ -977,27 +884,35 @@ $String* XMLStreamReaderImpl::getText() {
 		$set(this, fDTDDecl, $nc(tmpBuffer)->toString());
 		return this->fDTDDecl;
 	} else {
-		$var($String, var$11, $$str({"Current state "_s, $(getEventTypeString(this->fEventType)), " is not among the states"_s}));
-		$var($String, var$10, $$concat(var$11, $(getEventTypeString($XMLEvent::CHARACTERS))));
-		$var($String, var$9, $$concat(var$10, ", "_s));
-		$var($String, var$8, $$concat(var$9, $(getEventTypeString($XMLEvent::COMMENT))));
-		$var($String, var$7, $$concat(var$8, ", "_s));
-		$var($String, var$6, $$concat(var$7, $(getEventTypeString($XMLEvent::CDATA))));
-		$var($String, var$5, $$concat(var$6, ", "_s));
-		$var($String, var$4, $$concat(var$5, $(getEventTypeString($XMLEvent::SPACE))));
-		$var($String, var$3, $$concat(var$4, ", "_s));
-		$var($String, var$2, $$concat(var$3, $(getEventTypeString($XMLEvent::ENTITY_REFERENCE))));
-		$var($String, var$1, $$concat(var$2, ", "_s));
-		$var($String, var$0, $$concat(var$1, $(getEventTypeString($XMLEvent::DTD))));
-		$throwNew($IllegalStateException, $$concat(var$0, " valid for getText() "_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Current state "_s);
+		var$0->append($(getEventTypeString(this->fEventType)));
+		var$0->append(" is not among the states"_s);
+		var$0->append($(getEventTypeString($XMLEvent::CHARACTERS)));
+		var$0->append(", "_s);
+		var$0->append($(getEventTypeString($XMLEvent::COMMENT)));
+		var$0->append(", "_s);
+		var$0->append($(getEventTypeString($XMLEvent::CDATA)));
+		var$0->append(", "_s);
+		var$0->append($(getEventTypeString($XMLEvent::SPACE)));
+		var$0->append(", "_s);
+		var$0->append($(getEventTypeString($XMLEvent::ENTITY_REFERENCE)));
+		var$0->append(", "_s);
+		var$0->append($(getEventTypeString($XMLEvent::DTD)));
+		var$0->append(" valid for getText() "_s);
+		$throwNew($IllegalStateException, $$str(var$0));
 	}
 }
 
 void XMLStreamReaderImpl::require(int32_t type, $String* namespaceURI, $String* localName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (type != this->fEventType) {
-		$var($String, var$0, $$str({"Event type "_s, $(getEventTypeString(type)), " specified did not match with current parser event "_s}));
-		$throwNew($XMLStreamException, $$concat(var$0, $(getEventTypeString(this->fEventType))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Event type "_s);
+		var$0->append($(getEventTypeString(type)));
+		var$0->append(" specified did not match with current parser event "_s);
+		var$0->append($(getEventTypeString(this->fEventType)));
+		$throwNew($XMLStreamException, $$str(var$0));
 	}
 	if (namespaceURI != nullptr && !namespaceURI->equals($(getNamespaceURI()))) {
 		$throwNew($XMLStreamException, $$str({"Namespace URI "_s, namespaceURI, " specified did not match with current namespace URI"_s}));
@@ -1025,13 +940,14 @@ int32_t XMLStreamReaderImpl::getTextCharacters(int32_t sourceStart, $chars* targ
 	} else {
 		copiedLength = length;
 	}
-	$var($Object, var$0, $of(getTextCharacters()));
+	$var($Object, var$0, getTextCharacters());
 	$System::arraycopy(var$0, getTextStart() + sourceStart, target, targetStart, copiedLength);
 	return copiedLength;
 }
 
 bool XMLStreamReaderImpl::hasText() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	if (this->fEventType == $XMLEvent::CHARACTERS || this->fEventType == $XMLEvent::COMMENT || this->fEventType == $XMLEvent::CDATA) {
 		return $nc($($nc(this->fScanner)->getCharacterData()))->length > 0;
 	} else if (this->fEventType == $XMLEvent::ENTITY_REFERENCE) {
@@ -1046,9 +962,9 @@ bool XMLStreamReaderImpl::hasText() {
 				return false;
 			}
 			if ($nc(en)->isExternal()) {
-				return $nc($nc(($cast($Entity$ExternalEntity, en)))->entityLocation)->getExpandedSystemId() != nullptr;
+				return $nc($cast($Entity$ExternalEntity, en)->entityLocation)->getExpandedSystemId() != nullptr;
 			} else {
-				return $nc(($cast($Entity$InternalEntity, en)))->text != nullptr;
+				return $cast($Entity$InternalEntity, en)->text != nullptr;
 			}
 		} else {
 			return false;
@@ -1060,13 +976,17 @@ bool XMLStreamReaderImpl::hasText() {
 }
 
 bool XMLStreamReaderImpl::isAttributeSpecified(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((this->fEventType == $XMLEvent::START_ELEMENT) || (this->fEventType == $XMLEvent::ATTRIBUTE)) {
-		return $nc($($nc(this->fScanner)->getAttributeIterator()))->isSpecified(index);
+		return $$nc($nc(this->fScanner)->getAttributeIterator())->isSpecified(index);
 	} else {
-		$var($String, var$1, $$str({"Current state is not among the states "_s, $(getEventTypeString($XMLEvent::START_ELEMENT)), " , "_s}));
-		$var($String, var$0, $$concat(var$1, $(getEventTypeString($XMLEvent::ATTRIBUTE))));
-		$throwNew($IllegalStateException, $$concat(var$0, "valid for isAttributeSpecified()"_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Current state is not among the states "_s);
+		var$0->append($(getEventTypeString($XMLEvent::START_ELEMENT)));
+		var$0->append(" , "_s);
+		var$0->append($(getEventTypeString($XMLEvent::ATTRIBUTE)));
+		var$0->append("valid for isAttributeSpecified()"_s);
+		$throwNew($IllegalStateException, $$str(var$0));
 	}
 }
 
@@ -1075,10 +995,10 @@ bool XMLStreamReaderImpl::isCharacters() {
 }
 
 int32_t XMLStreamReaderImpl::nextTag() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t eventType = next();
 	while (true) {
-		bool var$0 = (eventType == $XMLStreamConstants::CHARACTERS && isWhiteSpace());
+		bool var$0 = eventType == $XMLStreamConstants::CHARACTERS && isWhiteSpace();
 		if (!(var$0 || (eventType == $XMLStreamConstants::CDATA && isWhiteSpace()) || eventType == $XMLStreamConstants::SPACE || eventType == $XMLStreamConstants::PROCESSING_INSTRUCTION || eventType == $XMLStreamConstants::COMMENT)) {
 			break;
 		}
@@ -1087,10 +1007,14 @@ int32_t XMLStreamReaderImpl::nextTag() {
 		}
 	}
 	if (eventType != $XMLStreamConstants::START_ELEMENT && eventType != $XMLStreamConstants::END_ELEMENT) {
-		$var($String, var$4, $$str({"found: "_s, $(getEventTypeString(eventType)), ", expected "_s}));
-		$var($String, var$3, $$concat(var$4, $(getEventTypeString($XMLStreamConstants::START_ELEMENT))));
-		$var($String, var$2, $$concat(var$3, " or "_s));
-		$var($String, var$1, $concat(var$2, $(getEventTypeString($XMLStreamConstants::END_ELEMENT))));
+		$var($StringBuilder, var$2, $new($StringBuilder));
+		var$2->append("found: "_s);
+		var$2->append($(getEventTypeString(eventType)));
+		var$2->append(", expected "_s);
+		var$2->append($(getEventTypeString($XMLStreamConstants::START_ELEMENT)));
+		var$2->append(" or "_s);
+		var$2->append($(getEventTypeString($XMLStreamConstants::END_ELEMENT)));
+		$var($String, var$1, $str(var$2));
 		$throwNew($XMLStreamException, var$1, $(getLocation()));
 	}
 	return eventType;
@@ -1112,11 +1036,11 @@ $QName* XMLStreamReaderImpl::convertXNIQNametoJavaxQName($1QName* qname) {
 }
 
 $String* XMLStreamReaderImpl::getNamespaceURI($String* prefix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (prefix == nullptr) {
 		$throwNew($IllegalArgumentException, "prefix cannot be null."_s);
 	}
-	return $nc($($nc(this->fScanner)->getNamespaceContext()))->getURI($($nc(this->fSymbolTable)->addSymbol(prefix)));
+	return $$nc($nc(this->fScanner)->getNamespaceContext())->getURI($($nc(this->fSymbolTable)->addSymbol(prefix)));
 }
 
 void XMLStreamReaderImpl::setPropertyManager($PropertyManager* propertyManager) {
@@ -1135,7 +1059,7 @@ void XMLStreamReaderImpl::pr($String* str) {
 }
 
 $List* XMLStreamReaderImpl::getEntityDecls() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fEventType == $XMLStreamConstants::DTD) {
 		$var($XMLEntityStorage, entityStore, $nc(this->fEntityManager)->getEntityStore());
 		$var($ArrayList, list, nullptr);
@@ -1144,7 +1068,7 @@ $List* XMLStreamReaderImpl::getEntityDecls() {
 			$var($EntityDeclarationImpl, decl, nullptr);
 			$assign(list, $new($ArrayList, entities->size()));
 			{
-				$var($Iterator, i$, $nc($(entities->entrySet()))->iterator());
+				$var($Iterator, i$, $$nc(entities->entrySet())->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 					{
@@ -1153,10 +1077,10 @@ $List* XMLStreamReaderImpl::getEntityDecls() {
 						$assign(decl, $new($EntityDeclarationImpl));
 						decl->setEntityName(key);
 						if ($nc(en)->isExternal()) {
-							decl->setXMLResourceIdentifier($nc(($cast($Entity$ExternalEntity, en)))->entityLocation);
-							decl->setNotationName($nc(($cast($Entity$ExternalEntity, en)))->notation);
+							decl->setXMLResourceIdentifier($cast($Entity$ExternalEntity, en)->entityLocation);
+							decl->setNotationName($cast($Entity$ExternalEntity, en)->notation);
 						} else {
-							decl->setEntityReplacementText($nc(($cast($Entity$InternalEntity, en)))->text);
+							decl->setEntityReplacementText($cast($Entity$InternalEntity, en)->text);
 						}
 						list->add(decl);
 					}
@@ -1169,12 +1093,12 @@ $List* XMLStreamReaderImpl::getEntityDecls() {
 }
 
 $List* XMLStreamReaderImpl::getNotationDecls() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fEventType == $XMLStreamConstants::DTD) {
 		if ($nc(this->fScanner)->fDTDScanner == nullptr) {
 			return nullptr;
 		}
-		$var($DTDGrammar, grammar, $nc((($cast($XMLDTDScannerImpl, $nc(this->fScanner)->fDTDScanner))))->getGrammar());
+		$var($DTDGrammar, grammar, $nc($cast($XMLDTDScannerImpl, this->fScanner->fDTDScanner))->getGrammar());
 		if (grammar == nullptr) {
 			return nullptr;
 		}
@@ -1184,10 +1108,8 @@ $List* XMLStreamReaderImpl::getNotationDecls() {
 			$var($Iterator, i$, $nc(notations)->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($XMLNotationDecl, notation, $cast($XMLNotationDecl, i$->next()));
-				{
-					if (notation != nullptr) {
-						list->add($$new($NotationDeclarationImpl, notation));
-					}
+				if (notation != nullptr) {
+					list->add($$new($NotationDeclarationImpl, notation));
 				}
 			}
 		}
@@ -1199,7 +1121,7 @@ $List* XMLStreamReaderImpl::getNotationDecls() {
 XMLStreamReaderImpl::XMLStreamReaderImpl() {
 }
 
-void clinit$XMLStreamReaderImpl($Class* class$) {
+void XMLStreamReaderImpl::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(XMLStreamReaderImpl::ENTITY_MANAGER, $str({$Constants::XERCES_PROPERTY_PREFIX, $Constants::ENTITY_MANAGER_PROPERTY}));
 	$assignStatic(XMLStreamReaderImpl::ERROR_REPORTER, $str({$Constants::XERCES_PROPERTY_PREFIX, $Constants::ERROR_REPORTER_PROPERTY}));
@@ -1208,7 +1130,120 @@ void clinit$XMLStreamReaderImpl($Class* class$) {
 }
 
 $Class* XMLStreamReaderImpl::load$($String* name, bool initialize) {
-	$loadClass(XMLStreamReaderImpl, name, initialize, &_XMLStreamReaderImpl_ClassInfo_, clinit$XMLStreamReaderImpl, allocate$XMLStreamReaderImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"ENTITY_MANAGER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLStreamReaderImpl, ENTITY_MANAGER)},
+		{"ERROR_REPORTER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLStreamReaderImpl, ERROR_REPORTER)},
+		{"SYMBOL_TABLE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLStreamReaderImpl, SYMBOL_TABLE)},
+		{"READER_IN_DEFINED_STATE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLStreamReaderImpl, READER_IN_DEFINED_STATE)},
+		{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PRIVATE, $field(XMLStreamReaderImpl, fSymbolTable)},
+		{"fScanner", "Lcom/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl;", nullptr, $PROTECTED, $field(XMLStreamReaderImpl, fScanner)},
+		{"fNamespaceContextWrapper", "Lcom/sun/org/apache/xerces/internal/util/NamespaceContextWrapper;", nullptr, $PROTECTED, $field(XMLStreamReaderImpl, fNamespaceContextWrapper)},
+		{"fEntityManager", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager;", nullptr, $PROTECTED, $field(XMLStreamReaderImpl, fEntityManager)},
+		{"fErrorReporter", "Lcom/sun/xml/internal/stream/StaxErrorReporter;", nullptr, $PROTECTED, $field(XMLStreamReaderImpl, fErrorReporter)},
+		{"fEntityScanner", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityScanner;", nullptr, $PROTECTED, $field(XMLStreamReaderImpl, fEntityScanner)},
+		{"fInputSource", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;", nullptr, $PROTECTED, $field(XMLStreamReaderImpl, fInputSource)},
+		{"fPropertyManager", "Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;", nullptr, $PROTECTED, $field(XMLStreamReaderImpl, fPropertyManager)},
+		{"fEventType", "I", nullptr, $PRIVATE, $field(XMLStreamReaderImpl, fEventType)},
+		{"DEBUG", "Z", nullptr, $STATIC | $FINAL, $constField(XMLStreamReaderImpl, DEBUG)},
+		{"fReuse", "Z", nullptr, $PRIVATE, $field(XMLStreamReaderImpl, fReuse)},
+		{"fReaderInDefinedState", "Z", nullptr, $PRIVATE, $field(XMLStreamReaderImpl, fReaderInDefinedState)},
+		{"fDTDDecl", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XMLStreamReaderImpl, fDTDDecl)},
+		{"versionStr", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XMLStreamReaderImpl, versionStr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $PUBLIC, $method(XMLStreamReaderImpl, init$, void, $InputStream*, $PropertyManager*), "javax.xml.stream.XMLStreamException"},
+		{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $PUBLIC, $method(XMLStreamReaderImpl, init$, void, $String*, $PropertyManager*), "javax.xml.stream.XMLStreamException"},
+		{"<init>", "(Ljava/io/InputStream;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $PUBLIC, $method(XMLStreamReaderImpl, init$, void, $InputStream*, $String*, $PropertyManager*), "javax.xml.stream.XMLStreamException"},
+		{"<init>", "(Ljava/io/Reader;Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $PUBLIC, $method(XMLStreamReaderImpl, init$, void, $Reader*, $PropertyManager*), "javax.xml.stream.XMLStreamException"},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $PUBLIC, $method(XMLStreamReaderImpl, init$, void, $XMLInputSource*, $PropertyManager*), "javax.xml.stream.XMLStreamException"},
+		{"canReuse", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, canReuse, bool)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, close, void), "javax.xml.stream.XMLStreamException"},
+		{"convertXNIQNametoJavaxQName", "(Lcom/sun/org/apache/xerces/internal/xni/QName;)Ljavax/xml/namespace/QName;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, convertXNIQNametoJavaxQName, $QName*, $1QName*)},
+		{"getAttributeCount", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getAttributeCount, int32_t)},
+		{"getAttributeLocalName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getAttributeLocalName, $String*, int32_t)},
+		{"getAttributeName", "(I)Ljavax/xml/namespace/QName;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getAttributeName, $QName*, int32_t)},
+		{"getAttributeNamespace", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getAttributeNamespace, $String*, int32_t)},
+		{"getAttributePrefix", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getAttributePrefix, $String*, int32_t)},
+		{"getAttributeQName", "(I)Ljavax/xml/namespace/QName;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getAttributeQName, $QName*, int32_t)},
+		{"getAttributeType", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getAttributeType, $String*, int32_t)},
+		{"getAttributeValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getAttributeValue, $String*, int32_t)},
+		{"getAttributeValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getAttributeValue, $String*, $String*, $String*)},
+		{"getCharacterEncodingScheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getCharacterEncodingScheme, $String*)},
+		{"getColumnNumber", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getColumnNumber, int32_t)},
+		{"getElementText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getElementText, $String*), "javax.xml.stream.XMLStreamException"},
+		{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getEncoding, $String*)},
+		{"getEntityDecls", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/stream/events/EntityDeclaration;>;", $PROTECTED, $virtualMethod(XMLStreamReaderImpl, getEntityDecls, $List*)},
+		{"getEventType", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getEventType, int32_t)},
+		{"getEventTypeString", "(I)Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticMethod(XMLStreamReaderImpl, getEventTypeString, $String*, int32_t)},
+		{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getLineNumber, int32_t)},
+		{"getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getLocalName, $String*)},
+		{"getLocation", "()Ljavax/xml/stream/Location;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getLocation, $Location*)},
+		{"getName", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getName, $QName*)},
+		{"getNamespaceContext", "()Ljavax/xml/namespace/NamespaceContext;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getNamespaceContext, $1NamespaceContext*)},
+		{"getNamespaceCount", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getNamespaceCount, int32_t)},
+		{"getNamespacePrefix", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getNamespacePrefix, $String*, int32_t)},
+		{"getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getNamespaceURI, $String*)},
+		{"getNamespaceURI", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getNamespaceURI, $String*, int32_t)},
+		{"getNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getNamespaceURI, $String*, $String*)},
+		{"getNotationDecls", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/stream/events/NotationDeclaration;>;", $PROTECTED, $virtualMethod(XMLStreamReaderImpl, getNotationDecls, $List*)},
+		{"getPIData", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getPIData, $String*)},
+		{"getPITarget", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getPITarget, $String*)},
+		{"getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getPrefix, $String*)},
+		{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getProperty, $Object*, $String*), "java.lang.IllegalArgumentException"},
+		{"getPropertyManager", "()Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;", nullptr, $PROTECTED, $virtualMethod(XMLStreamReaderImpl, getPropertyManager, $PropertyManager*)},
+		{"getScanner", "()Lcom/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getScanner, $XMLDocumentScannerImpl*)},
+		{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getText, $String*)},
+		{"getTextCharacters", "()[C", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getTextCharacters, $chars*)},
+		{"getTextCharacters", "(I[CII)I", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getTextCharacters, int32_t, int32_t, $chars*, int32_t, int32_t), "javax.xml.stream.XMLStreamException"},
+		{"getTextLength", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getTextLength, int32_t)},
+		{"getTextStart", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getTextStart, int32_t)},
+		{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getValue, $String*)},
+		{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, getVersion, $String*)},
+		{"hasAttributes", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, hasAttributes, bool)},
+		{"hasName", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, hasName, bool)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, hasNext, bool), "javax.xml.stream.XMLStreamException"},
+		{"hasText", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, hasText, bool)},
+		{"hasValue", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, hasValue, bool)},
+		{"init", "(Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $FINAL, $method(XMLStreamReaderImpl, init, void, $PropertyManager*), "javax.xml.stream.XMLStreamException"},
+		{"isAttributeSpecified", "(I)Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, isAttributeSpecified, bool, int32_t)},
+		{"isCharacters", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, isCharacters, bool)},
+		{"isEndElement", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, isEndElement, bool)},
+		{"isStandalone", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, isStandalone, bool)},
+		{"isStartElement", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, isStartElement, bool)},
+		{"isWhiteSpace", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, isWhiteSpace, bool)},
+		{"next", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, next, int32_t), "javax.xml.stream.XMLStreamException"},
+		{"nextTag", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, nextTag, int32_t), "javax.xml.stream.XMLStreamException"},
+		{"pr", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(XMLStreamReaderImpl, pr, void, $String*)},
+		{"require", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, require, void, int32_t, $String*, $String*), "javax.xml.stream.XMLStreamException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, reset, void)},
+		{"setInputSource", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V", nullptr, $PUBLIC | $FINAL, $method(XMLStreamReaderImpl, setInputSource, void, $XMLInputSource*), "javax.xml.stream.XMLStreamException"},
+		{"setPropertyManager", "(Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $PROTECTED, $virtualMethod(XMLStreamReaderImpl, setPropertyManager, void, $PropertyManager*)},
+		{"standaloneSet", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl, standaloneSet, bool)},
+		{"switchToXML11Scanner", "()V", nullptr, $PRIVATE, $method(XMLStreamReaderImpl, switchToXML11Scanner, void), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.XMLStreamReaderImpl$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.XMLStreamReaderImpl",
+		"java.lang.Object",
+		"javax.xml.stream.XMLStreamReader",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.XMLStreamReaderImpl$1"
+	};
+	$loadClass(XMLStreamReaderImpl, name, initialize, &classInfo$$, XMLStreamReaderImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLStreamReaderImpl);
+	});
 	return class$;
 }
 

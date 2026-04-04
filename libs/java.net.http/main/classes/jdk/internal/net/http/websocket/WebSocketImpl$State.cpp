@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/websocket/WebSocketImpl$State.h>
-
 #include <java/lang/Enum.h>
 #include <jdk/internal/net/http/websocket/WebSocketImpl.h>
 #include <jcpp.h>
@@ -26,53 +25,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 				namespace websocket {
-
-$FieldInfo _WebSocketImpl$State_FieldInfo_[] = {
-	{"OPEN", "Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WebSocketImpl$State, OPEN)},
-	{"IDLE", "Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WebSocketImpl$State, IDLE)},
-	{"WAITING", "Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WebSocketImpl$State, WAITING)},
-	{"TEXT", "Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WebSocketImpl$State, TEXT)},
-	{"BINARY", "Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WebSocketImpl$State, BINARY)},
-	{"PING", "Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WebSocketImpl$State, PING)},
-	{"PONG", "Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WebSocketImpl$State, PONG)},
-	{"CLOSE", "Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WebSocketImpl$State, CLOSE)},
-	{"ERROR", "Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WebSocketImpl$State, ERROR)},
-	{"$VALUES", "[Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(WebSocketImpl$State, $VALUES)},
-	{}
-};
-
-$MethodInfo _WebSocketImpl$State_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WebSocketImpl$State, $values, $WebSocketImpl$StateArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(WebSocketImpl$State, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(WebSocketImpl$State, valueOf, WebSocketImpl$State*, $String*)},
-	{"values", "()[Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(WebSocketImpl$State, values, $WebSocketImpl$StateArray*)},
-	{}
-};
-
-$InnerClassInfo _WebSocketImpl$State_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.websocket.WebSocketImpl$State", "jdk.internal.net.http.websocket.WebSocketImpl", "State", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _WebSocketImpl$State_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"jdk.internal.net.http.websocket.WebSocketImpl$State",
-	"java.lang.Enum",
-	nullptr,
-	_WebSocketImpl$State_FieldInfo_,
-	_WebSocketImpl$State_MethodInfo_,
-	"Ljava/lang/Enum<Ljdk/internal/net/http/websocket/WebSocketImpl$State;>;",
-	nullptr,
-	_WebSocketImpl$State_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.websocket.WebSocketImpl"
-};
-
-$Object* allocate$WebSocketImpl$State($Class* clazz) {
-	return $of($alloc(WebSocketImpl$State));
-}
 
 WebSocketImpl$State* WebSocketImpl$State::OPEN = nullptr;
 WebSocketImpl$State* WebSocketImpl$State::IDLE = nullptr;
@@ -114,7 +66,7 @@ void WebSocketImpl$State::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$WebSocketImpl$State($Class* class$) {
+void WebSocketImpl$State::clinit$($Class* clazz) {
 	$assignStatic(WebSocketImpl$State::OPEN, $new(WebSocketImpl$State, "OPEN"_s, 0));
 	$assignStatic(WebSocketImpl$State::IDLE, $new(WebSocketImpl$State, "IDLE"_s, 1));
 	$assignStatic(WebSocketImpl$State::WAITING, $new(WebSocketImpl$State, "WAITING"_s, 2));
@@ -131,7 +83,48 @@ WebSocketImpl$State::WebSocketImpl$State() {
 }
 
 $Class* WebSocketImpl$State::load$($String* name, bool initialize) {
-	$loadClass(WebSocketImpl$State, name, initialize, &_WebSocketImpl$State_ClassInfo_, clinit$WebSocketImpl$State, allocate$WebSocketImpl$State);
+	$FieldInfo fieldInfos$$[] = {
+		{"OPEN", "Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WebSocketImpl$State, OPEN)},
+		{"IDLE", "Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WebSocketImpl$State, IDLE)},
+		{"WAITING", "Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WebSocketImpl$State, WAITING)},
+		{"TEXT", "Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WebSocketImpl$State, TEXT)},
+		{"BINARY", "Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WebSocketImpl$State, BINARY)},
+		{"PING", "Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WebSocketImpl$State, PING)},
+		{"PONG", "Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WebSocketImpl$State, PONG)},
+		{"CLOSE", "Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WebSocketImpl$State, CLOSE)},
+		{"ERROR", "Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WebSocketImpl$State, ERROR)},
+		{"$VALUES", "[Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(WebSocketImpl$State, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WebSocketImpl$State, $values, $WebSocketImpl$StateArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(WebSocketImpl$State, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(WebSocketImpl$State, valueOf, WebSocketImpl$State*, $String*)},
+		{"values", "()[Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(WebSocketImpl$State, values, $WebSocketImpl$StateArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.websocket.WebSocketImpl$State", "jdk.internal.net.http.websocket.WebSocketImpl", "State", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"jdk.internal.net.http.websocket.WebSocketImpl$State",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljdk/internal/net/http/websocket/WebSocketImpl$State;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.websocket.WebSocketImpl"
+	};
+	$loadClass(WebSocketImpl$State, name, initialize, &classInfo$$, WebSocketImpl$State::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WebSocketImpl$State));
+	});
 	return class$;
 }
 

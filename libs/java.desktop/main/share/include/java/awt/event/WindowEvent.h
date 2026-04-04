@@ -68,7 +68,7 @@ public:
 	::java::awt::Window* opposite = nullptr;
 	int32_t oldState = 0;
 	int32_t newState = 0;
-	static const int64_t serialVersionUID = (int64_t)0xEA3D7D79CE63A841;
+	static const int64_t serialVersionUID = (int64_t)0xea3d7d79ce63a841;
 };
 
 		} // event

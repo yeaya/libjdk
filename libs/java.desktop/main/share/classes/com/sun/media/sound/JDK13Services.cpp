@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/JDK13Services.h>
-
 #include <com/sun/media/sound/JSSecurityManager.h>
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -74,65 +73,32 @@ public:
 	virtual $Object* run() override {
 		 return $of(JDK13Services::lambda$getDefaultProvider$0(name));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JDK13Services$$Lambda$lambda$getDefaultProvider$0>());
-	}
 	$String* name = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JDK13Services$$Lambda$lambda$getDefaultProvider$0::fieldInfos[2] = {
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(JDK13Services$$Lambda$lambda$getDefaultProvider$0, name)},
-	{}
-};
-$MethodInfo JDK13Services$$Lambda$lambda$getDefaultProvider$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JDK13Services$$Lambda$lambda$getDefaultProvider$0, init$, void, $String*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JDK13Services$$Lambda$lambda$getDefaultProvider$0, run, $Object*)},
-	{}
-};
-$ClassInfo JDK13Services$$Lambda$lambda$getDefaultProvider$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.media.sound.JDK13Services$$Lambda$lambda$getDefaultProvider$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* JDK13Services$$Lambda$lambda$getDefaultProvider$0::load$($String* name, bool initialize) {
-	$loadClass(JDK13Services$$Lambda$lambda$getDefaultProvider$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(JDK13Services$$Lambda$lambda$getDefaultProvider$0, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JDK13Services$$Lambda$lambda$getDefaultProvider$0, init$, void, $String*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JDK13Services$$Lambda$lambda$getDefaultProvider$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.media.sound.JDK13Services$$Lambda$lambda$getDefaultProvider$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JDK13Services$$Lambda$lambda$getDefaultProvider$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JDK13Services$$Lambda$lambda$getDefaultProvider$0);
+	});
 	return class$;
 }
 $Class* JDK13Services$$Lambda$lambda$getDefaultProvider$0::class$ = nullptr;
-
-$FieldInfo _JDK13Services_FieldInfo_[] = {
-	{"properties", "Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC, $staticField(JDK13Services, properties)},
-	{}
-};
-
-$MethodInfo _JDK13Services_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(JDK13Services, init$, void)},
-	{"getDefaultInstanceName", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(JDK13Services, getDefaultInstanceName, $String*, $Class*)},
-	{"getDefaultProvider", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(JDK13Services, getDefaultProvider, $String*, $Class*)},
-	{"getDefaultProviderClassName", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(JDK13Services, getDefaultProviderClassName, $String*, $Class*)},
-	{"getProperties", "()Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(JDK13Services, getProperties, $Properties*)},
-	{"getProviders", "(Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;)Ljava/util/List<*>;", $PUBLIC | $STATIC, $staticMethod(JDK13Services, getProviders, $List*, $Class*)},
-	{"lambda$getDefaultProvider$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JDK13Services, lambda$getDefaultProvider$0, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _JDK13Services_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.JDK13Services",
-	"java.lang.Object",
-	nullptr,
-	_JDK13Services_FieldInfo_,
-	_JDK13Services_MethodInfo_
-};
-
-$Object* allocate$JDK13Services($Class* clazz) {
-	return $of($alloc(JDK13Services));
-}
 
 $Properties* JDK13Services::properties = nullptr;
 
@@ -142,21 +108,21 @@ void JDK13Services::init$() {
 $List* JDK13Services::getProviders($Class* serviceClass) {
 	$var($List, providers, nullptr);
 	$load($MixerProvider);
-	bool var$6 = !$of($MixerProvider::class$)->equals(serviceClass);
+	bool var$6 = !$MixerProvider::class$->equals(serviceClass);
 	$load($FormatConversionProvider);
-	bool var$5 = var$6 && !$of($FormatConversionProvider::class$)->equals(serviceClass);
+	bool var$5 = var$6 && !$FormatConversionProvider::class$->equals(serviceClass);
 	$load($AudioFileReader);
-	bool var$4 = var$5 && !$of($AudioFileReader::class$)->equals(serviceClass);
+	bool var$4 = var$5 && !$AudioFileReader::class$->equals(serviceClass);
 	$load($AudioFileWriter);
-	bool var$3 = var$4 && !$of($AudioFileWriter::class$)->equals(serviceClass);
+	bool var$3 = var$4 && !$AudioFileWriter::class$->equals(serviceClass);
 	$load($MidiDeviceProvider);
-	bool var$2 = var$3 && !$of($MidiDeviceProvider::class$)->equals(serviceClass);
+	bool var$2 = var$3 && !$MidiDeviceProvider::class$->equals(serviceClass);
 	$load($SoundbankReader);
-	bool var$1 = var$2 && !$of($SoundbankReader::class$)->equals(serviceClass);
+	bool var$1 = var$2 && !$SoundbankReader::class$->equals(serviceClass);
 	$load($MidiFileWriter);
-	bool var$0 = var$1 && !$of($MidiFileWriter::class$)->equals(serviceClass);
+	bool var$0 = var$1 && !$MidiFileWriter::class$->equals(serviceClass);
 	$load($MidiFileReader);
-	if (var$0 && !$of($MidiFileReader::class$)->equals(serviceClass)) {
+	if (var$0 && !$MidiFileReader::class$->equals(serviceClass)) {
 		$assign(providers, $new($ArrayList, 0));
 	} else {
 		$assign(providers, $JSSecurityManager::getProviders(serviceClass));
@@ -167,11 +133,11 @@ $List* JDK13Services::getProviders($Class* serviceClass) {
 $String* JDK13Services::getDefaultProviderClassName($Class* typeClass) {
 	$load(JDK13Services);
 	$synchronized(class$) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($String, value, nullptr);
 		$var($String, defaultProviderSpec, getDefaultProvider(typeClass));
 		if (defaultProviderSpec != nullptr) {
-			int32_t hashpos = defaultProviderSpec->indexOf((int32_t)u'#');
+			int32_t hashpos = defaultProviderSpec->indexOf(u'#');
 			if (hashpos == 0) {
 			} else if (hashpos > 0) {
 				$assign(value, defaultProviderSpec->substring(0, hashpos));
@@ -186,11 +152,11 @@ $String* JDK13Services::getDefaultProviderClassName($Class* typeClass) {
 $String* JDK13Services::getDefaultInstanceName($Class* typeClass) {
 	$load(JDK13Services);
 	$synchronized(class$) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($String, value, nullptr);
 		$var($String, defaultProviderSpec, getDefaultProvider(typeClass));
 		if (defaultProviderSpec != nullptr) {
-			int32_t hashpos = defaultProviderSpec->indexOf((int32_t)u'#');
+			int32_t hashpos = defaultProviderSpec->indexOf(u'#');
 			if (hashpos >= 0 && hashpos < defaultProviderSpec->length() - 1) {
 				$assign(value, defaultProviderSpec->substring(hashpos + 1));
 			}
@@ -202,31 +168,30 @@ $String* JDK13Services::getDefaultInstanceName($Class* typeClass) {
 $String* JDK13Services::getDefaultProvider($Class* typeClass) {
 	$load(JDK13Services);
 	$synchronized(class$) {
-		$load(JDK13Services);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$beforeCallerSensitive();
 		$load($SourceDataLine);
-		bool var$6 = !$of($SourceDataLine::class$)->equals(typeClass);
+		bool var$6 = !$SourceDataLine::class$->equals(typeClass);
 		$load($TargetDataLine);
-		bool var$5 = var$6 && !$of($TargetDataLine::class$)->equals(typeClass);
+		bool var$5 = var$6 && !$TargetDataLine::class$->equals(typeClass);
 		$load($Clip);
-		bool var$4 = var$5 && !$of($Clip::class$)->equals(typeClass);
+		bool var$4 = var$5 && !$Clip::class$->equals(typeClass);
 		$load($Port);
-		bool var$3 = var$4 && !$of($Port::class$)->equals(typeClass);
+		bool var$3 = var$4 && !$Port::class$->equals(typeClass);
 		$load($Receiver);
-		bool var$2 = var$3 && !$of($Receiver::class$)->equals(typeClass);
+		bool var$2 = var$3 && !$Receiver::class$->equals(typeClass);
 		$load($Transmitter);
-		bool var$1 = var$2 && !$of($Transmitter::class$)->equals(typeClass);
+		bool var$1 = var$2 && !$Transmitter::class$->equals(typeClass);
 		$load($Synthesizer);
-		bool var$0 = var$1 && !$of($Synthesizer::class$)->equals(typeClass);
+		bool var$0 = var$1 && !$Synthesizer::class$->equals(typeClass);
 		$load($Sequencer);
-		if (var$0 && !$of($Sequencer::class$)->equals(typeClass)) {
+		if (var$0 && !$Sequencer::class$->equals(typeClass)) {
 			return nullptr;
 		}
 		$var($String, name, $nc(typeClass)->getName());
-		$var($String, value, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(JDK13Services$$Lambda$lambda$getDefaultProvider$0, name)))));
+		$var($String, value, $cast($String, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(JDK13Services$$Lambda$lambda$getDefaultProvider$0, name)))));
 		if (value == nullptr) {
-			$assign(value, $nc($(getProperties()))->getProperty(name));
+			$assign(value, $$nc(getProperties())->getProperty(name));
 		}
 		if (""_s->equals(value)) {
 			$assign(value, nullptr);
@@ -256,11 +221,35 @@ JDK13Services::JDK13Services() {
 
 $Class* JDK13Services::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JDK13Services$$Lambda$lambda$getDefaultProvider$0::classInfo$.name)) {
+		if (name->equals("com.sun.media.sound.JDK13Services$$Lambda$lambda$getDefaultProvider$0")) {
 			return JDK13Services$$Lambda$lambda$getDefaultProvider$0::load$(name, initialize);
 		}
 	}
-	$loadClass(JDK13Services, name, initialize, &_JDK13Services_ClassInfo_, allocate$JDK13Services);
+	$FieldInfo fieldInfos$$[] = {
+		{"properties", "Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC, $staticField(JDK13Services, properties)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(JDK13Services, init$, void)},
+		{"getDefaultInstanceName", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(JDK13Services, getDefaultInstanceName, $String*, $Class*)},
+		{"getDefaultProvider", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(JDK13Services, getDefaultProvider, $String*, $Class*)},
+		{"getDefaultProviderClassName", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(JDK13Services, getDefaultProviderClassName, $String*, $Class*)},
+		{"getProperties", "()Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(JDK13Services, getProperties, $Properties*)},
+		{"getProviders", "(Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;)Ljava/util/List<*>;", $PUBLIC | $STATIC, $staticMethod(JDK13Services, getProviders, $List*, $Class*)},
+		{"lambda$getDefaultProvider$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JDK13Services, lambda$getDefaultProvider$0, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.JDK13Services",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JDK13Services, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JDK13Services);
+	});
 	return class$;
 }
 

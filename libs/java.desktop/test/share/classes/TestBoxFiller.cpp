@@ -1,9 +1,6 @@
 #include <TestBoxFiller.h>
-
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/ContainerOrderFocusTraversalPolicy.h>
-#include <java/awt/FocusTraversalPolicy.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
@@ -27,9 +24,7 @@
 #undef VK_TAB
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ContainerOrderFocusTraversalPolicy = ::java::awt::ContainerOrderFocusTraversalPolicy;
-using $FocusTraversalPolicy = ::java::awt::FocusTraversalPolicy;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $Robot = ::java::awt::Robot;
 using $Window = ::java::awt::Window;
@@ -57,27 +52,24 @@ public:
 	virtual void run() override {
 		TestBoxFiller::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestBoxFiller$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestBoxFiller$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestBoxFiller$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestBoxFiller$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo TestBoxFiller$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestBoxFiller$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestBoxFiller$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(TestBoxFiller$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestBoxFiller$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestBoxFiller$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestBoxFiller$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestBoxFiller$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestBoxFiller$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* TestBoxFiller$$Lambda$lambda$main$0::class$ = nullptr;
@@ -91,33 +83,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->dispose();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestBoxFiller$$Lambda$dispose$1>());
-	}
 	$Window* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestBoxFiller$$Lambda$dispose$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestBoxFiller$$Lambda$dispose$1, inst$)},
-	{}
-};
-$MethodInfo TestBoxFiller$$Lambda$dispose$1::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(TestBoxFiller$$Lambda$dispose$1, init$, void, $Window*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestBoxFiller$$Lambda$dispose$1, run, void)},
-	{}
-};
-$ClassInfo TestBoxFiller$$Lambda$dispose$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestBoxFiller$$Lambda$dispose$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestBoxFiller$$Lambda$dispose$1::load$($String* name, bool initialize) {
-	$loadClass(TestBoxFiller$$Lambda$dispose$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestBoxFiller$$Lambda$dispose$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(TestBoxFiller$$Lambda$dispose$1, init$, void, $Window*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestBoxFiller$$Lambda$dispose$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestBoxFiller$$Lambda$dispose$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestBoxFiller$$Lambda$dispose$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestBoxFiller$$Lambda$dispose$1);
+	});
 	return class$;
 }
 $Class* TestBoxFiller$$Lambda$dispose$1::class$ = nullptr;
@@ -130,56 +118,27 @@ public:
 	virtual void propertyChange($PropertyChangeEvent* e) override {
 		TestBoxFiller::showFocusOwner(e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestBoxFiller$$Lambda$showFocusOwner$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestBoxFiller$$Lambda$showFocusOwner$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestBoxFiller$$Lambda$showFocusOwner$2, init$, void)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestBoxFiller$$Lambda$showFocusOwner$2, propertyChange, void, $PropertyChangeEvent*)},
-	{}
-};
-$ClassInfo TestBoxFiller$$Lambda$showFocusOwner$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestBoxFiller$$Lambda$showFocusOwner$2",
-	"java.lang.Object",
-	"java.beans.PropertyChangeListener",
-	nullptr,
-	methodInfos
 };
 $Class* TestBoxFiller$$Lambda$showFocusOwner$2::load$($String* name, bool initialize) {
-	$loadClass(TestBoxFiller$$Lambda$showFocusOwner$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestBoxFiller$$Lambda$showFocusOwner$2, init$, void)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestBoxFiller$$Lambda$showFocusOwner$2, propertyChange, void, $PropertyChangeEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestBoxFiller$$Lambda$showFocusOwner$2",
+		"java.lang.Object",
+		"java.beans.PropertyChangeListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestBoxFiller$$Lambda$showFocusOwner$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestBoxFiller$$Lambda$showFocusOwner$2);
+	});
 	return class$;
 }
 $Class* TestBoxFiller$$Lambda$showFocusOwner$2::class$ = nullptr;
-
-$FieldInfo _TestBoxFiller_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(TestBoxFiller, frame)},
-	{}
-};
-
-$MethodInfo _TestBoxFiller_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestBoxFiller, init$, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestBoxFiller, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestBoxFiller, main, void, $StringArray*), "java.lang.Exception"},
-	{"showFocusOwner", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestBoxFiller, showFocusOwner, void, $PropertyChangeEvent*)},
-	{}
-};
-
-$ClassInfo _TestBoxFiller_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestBoxFiller",
-	"java.lang.Object",
-	nullptr,
-	_TestBoxFiller_FieldInfo_,
-	_TestBoxFiller_MethodInfo_
-};
-
-$Object* allocate$TestBoxFiller($Class* clazz) {
-	return $of($alloc(TestBoxFiller));
-}
 
 $JFrame* TestBoxFiller::frame = nullptr;
 
@@ -194,44 +153,42 @@ void TestBoxFiller::showFocusOwner($PropertyChangeEvent* e) {
 }
 
 void TestBoxFiller::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Robot, robot, $new($Robot));
-			robot->setAutoDelay(100);
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestBoxFiller$$Lambda$lambda$main$0)));
-			robot->waitForIdle();
-			robot->keyPress($KeyEvent::VK_TAB);
-			robot->keyRelease($KeyEvent::VK_TAB);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$init(TestBoxFiller);
-			if (TestBoxFiller::frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestBoxFiller$$Lambda$dispose$1, static_cast<$JFrame*>($nc(TestBoxFiller::frame)))));
-			}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Robot, robot, $new($Robot));
+		robot->setAutoDelay(100);
+		$SwingUtilities::invokeAndWait($$new(TestBoxFiller$$Lambda$lambda$main$0));
+		robot->waitForIdle();
+		robot->keyPress($KeyEvent::VK_TAB);
+		robot->keyRelease($KeyEvent::VK_TAB);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$init(TestBoxFiller);
+		if (TestBoxFiller::frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(TestBoxFiller$$Lambda$dispose$1, TestBoxFiller::frame));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void TestBoxFiller::lambda$main$0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(TestBoxFiller);
 	$assignStatic(TestBoxFiller::frame, $new($JFrame));
 	$var($KeyboardFocusManager, m, $KeyboardFocusManager::getCurrentKeyboardFocusManager());
-	$nc(m)->addPropertyChangeListener("focusOwner"_s, static_cast<$PropertyChangeListener*>($$new(TestBoxFiller$$Lambda$showFocusOwner$2)));
+	$nc(m)->addPropertyChangeListener("focusOwner"_s, $$new(TestBoxFiller$$Lambda$showFocusOwner$2));
 	$var($Box, box, $Box::createHorizontalBox());
 	$var($JTextField, tf1, $new($JTextField, "Test"_s));
 	tf1->setColumns(40);
 	$var($JTextField, tf2, $new($JTextField, "Test"_s));
 	tf2->setColumns(40);
-	$nc(box)->add(static_cast<$Component*>(tf1));
+	$nc(box)->add(tf1);
 	box->add($($Box::createHorizontalStrut(20)));
-	box->add(static_cast<$Component*>(tf2));
+	box->add(tf2);
 	$nc(TestBoxFiller::frame)->setContentPane(box);
 	$nc(TestBoxFiller::frame)->setFocusTraversalPolicy($$new($ContainerOrderFocusTraversalPolicy));
 	$nc(TestBoxFiller::frame)->pack();
@@ -245,17 +202,38 @@ TestBoxFiller::TestBoxFiller() {
 
 $Class* TestBoxFiller::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TestBoxFiller$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("TestBoxFiller$$Lambda$lambda$main$0")) {
 			return TestBoxFiller$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(TestBoxFiller$$Lambda$dispose$1::classInfo$.name)) {
+		if (name->equals("TestBoxFiller$$Lambda$dispose$1")) {
 			return TestBoxFiller$$Lambda$dispose$1::load$(name, initialize);
 		}
-		if (name->equals(TestBoxFiller$$Lambda$showFocusOwner$2::classInfo$.name)) {
+		if (name->equals("TestBoxFiller$$Lambda$showFocusOwner$2")) {
 			return TestBoxFiller$$Lambda$showFocusOwner$2::load$(name, initialize);
 		}
 	}
-	$loadClass(TestBoxFiller, name, initialize, &_TestBoxFiller_ClassInfo_, allocate$TestBoxFiller);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(TestBoxFiller, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestBoxFiller, init$, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestBoxFiller, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestBoxFiller, main, void, $StringArray*), "java.lang.Exception"},
+		{"showFocusOwner", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestBoxFiller, showFocusOwner, void, $PropertyChangeEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestBoxFiller",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestBoxFiller, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestBoxFiller);
+	});
 	return class$;
 }
 

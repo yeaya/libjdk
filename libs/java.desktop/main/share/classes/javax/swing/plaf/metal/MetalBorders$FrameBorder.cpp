@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalBorders$FrameBorder.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Frame.h>
@@ -32,48 +31,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalBorders$FrameBorder_FieldInfo_[] = {
-	{"corner", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MetalBorders$FrameBorder, corner)},
-	{}
-};
-
-$MethodInfo _MetalBorders$FrameBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(MetalBorders$FrameBorder, init$, void)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MetalBorders$FrameBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MetalBorders$FrameBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MetalBorders$FrameBorder_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalBorders$FrameBorder", "javax.swing.plaf.metal.MetalBorders", "FrameBorder", $STATIC},
-	{}
-};
-
-$ClassInfo _MetalBorders$FrameBorder_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalBorders$FrameBorder",
-	"javax.swing.border.AbstractBorder",
-	"javax.swing.plaf.UIResource",
-	_MetalBorders$FrameBorder_FieldInfo_,
-	_MetalBorders$FrameBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalBorders$FrameBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalBorders"
-};
-
-$Object* allocate$MetalBorders$FrameBorder($Class* clazz) {
-	return $of($alloc(MetalBorders$FrameBorder));
-}
-
 int32_t MetalBorders$FrameBorder::hashCode() {
 	 return this->$AbstractBorder::hashCode();
 }
@@ -99,7 +56,7 @@ void MetalBorders$FrameBorder::init$() {
 }
 
 void MetalBorders$FrameBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, background, nullptr);
 	$var($Color, highlight, nullptr);
 	$var($Color, shadow, nullptr);
@@ -121,7 +78,7 @@ void MetalBorders$FrameBorder::paintBorder($Component* c, $Graphics* g, int32_t 
 	for (int32_t i = 1; i < 5; ++i) {
 		g->drawRect(x + i, y + i, w - (i * 2) - 1, h - (i * 2) - 1);
 	}
-	if (($instanceOf($Frame, window)) && $nc(($cast($Frame, window)))->isResizable()) {
+	if (($instanceOf($Frame, window)) && $cast($Frame, window)->isResizable()) {
 		g->setColor(highlight);
 		g->drawLine(MetalBorders$FrameBorder::corner + 1, 3, w - MetalBorders$FrameBorder::corner, 3);
 		g->drawLine(3, MetalBorders$FrameBorder::corner + 1, 3, h - MetalBorders$FrameBorder::corner);
@@ -144,7 +101,43 @@ MetalBorders$FrameBorder::MetalBorders$FrameBorder() {
 }
 
 $Class* MetalBorders$FrameBorder::load$($String* name, bool initialize) {
-	$loadClass(MetalBorders$FrameBorder, name, initialize, &_MetalBorders$FrameBorder_ClassInfo_, allocate$MetalBorders$FrameBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"corner", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MetalBorders$FrameBorder, corner)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(MetalBorders$FrameBorder, init$, void)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MetalBorders$FrameBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MetalBorders$FrameBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalBorders$FrameBorder", "javax.swing.plaf.metal.MetalBorders", "FrameBorder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalBorders$FrameBorder",
+		"javax.swing.border.AbstractBorder",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalBorders"
+	};
+	$loadClass(MetalBorders$FrameBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalBorders$FrameBorder));
+	});
 	return class$;
 }
 

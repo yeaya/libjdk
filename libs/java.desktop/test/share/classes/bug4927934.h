@@ -51,6 +51,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool checkSelectionChanged(::javax::swing::JTree* tree, int32_t shouldBeSel);
 	static void createNodes(::javax::swing::tree::DefaultMutableTreeNode* root);

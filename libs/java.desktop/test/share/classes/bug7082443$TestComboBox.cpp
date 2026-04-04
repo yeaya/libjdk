@@ -1,5 +1,4 @@
 #include <bug7082443$TestComboBox.h>
-
 #include <bug7082443$TestComboBox$1.h>
 #include <bug7082443.h>
 #include <javax/swing/JComboBox.h>
@@ -16,45 +15,6 @@ using $JComboBox = ::javax::swing::JComboBox;
 using $JLabel = ::javax::swing::JLabel;
 using $ListCellRenderer = ::javax::swing::ListCellRenderer;
 
-$FieldInfo _bug7082443$TestComboBox_FieldInfo_[] = {
-	{"renderer", "Ljavax/swing/ListCellRenderer;", nullptr, $PRIVATE | $FINAL, $field(bug7082443$TestComboBox, renderer)},
-	{}
-};
-
-$MethodInfo _bug7082443$TestComboBox_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(bug7082443$TestComboBox, init$, void)},
-	{"access$001", "(Lbug7082443$TestComboBox;)Ljavax/swing/ListCellRenderer;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(bug7082443$TestComboBox, access$001, $ListCellRenderer*, bug7082443$TestComboBox*)},
-	{"getRenderer", "()Ljavax/swing/ListCellRenderer;", nullptr, $PUBLIC, $virtualMethod(bug7082443$TestComboBox, getRenderer, $ListCellRenderer*)},
-	{"isOldRendererOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(bug7082443$TestComboBox, isOldRendererOpaque, bool)},
-	{}
-};
-
-$InnerClassInfo _bug7082443$TestComboBox_InnerClassesInfo_[] = {
-	{"bug7082443$TestComboBox", "bug7082443", "TestComboBox", $PRIVATE | $STATIC},
-	{"bug7082443$TestComboBox$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug7082443$TestComboBox_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug7082443$TestComboBox",
-	"javax.swing.JComboBox",
-	nullptr,
-	_bug7082443$TestComboBox_FieldInfo_,
-	_bug7082443$TestComboBox_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug7082443$TestComboBox_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug7082443"
-};
-
-$Object* allocate$bug7082443$TestComboBox($Class* clazz) {
-	return $of($alloc(bug7082443$TestComboBox));
-}
-
 $ListCellRenderer* bug7082443$TestComboBox::access$001(bug7082443$TestComboBox* x0) {
 	$init(bug7082443$TestComboBox);
 	return $nc(x0)->$JComboBox::getRenderer();
@@ -70,14 +30,47 @@ $ListCellRenderer* bug7082443$TestComboBox::getRenderer() {
 }
 
 bool bug7082443$TestComboBox::isOldRendererOpaque() {
-	return $nc(($cast($JLabel, $($JComboBox::getRenderer()))))->isOpaque();
+	return $$sure($JLabel, $JComboBox::getRenderer())->isOpaque();
 }
 
 bug7082443$TestComboBox::bug7082443$TestComboBox() {
 }
 
 $Class* bug7082443$TestComboBox::load$($String* name, bool initialize) {
-	$loadClass(bug7082443$TestComboBox, name, initialize, &_bug7082443$TestComboBox_ClassInfo_, allocate$bug7082443$TestComboBox);
+	$FieldInfo fieldInfos$$[] = {
+		{"renderer", "Ljavax/swing/ListCellRenderer;", nullptr, $PRIVATE | $FINAL, $field(bug7082443$TestComboBox, renderer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(bug7082443$TestComboBox, init$, void)},
+		{"access$001", "(Lbug7082443$TestComboBox;)Ljavax/swing/ListCellRenderer;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(bug7082443$TestComboBox, access$001, $ListCellRenderer*, bug7082443$TestComboBox*)},
+		{"getRenderer", "()Ljavax/swing/ListCellRenderer;", nullptr, $PUBLIC, $virtualMethod(bug7082443$TestComboBox, getRenderer, $ListCellRenderer*)},
+		{"isOldRendererOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(bug7082443$TestComboBox, isOldRendererOpaque, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug7082443$TestComboBox", "bug7082443", "TestComboBox", $PRIVATE | $STATIC},
+		{"bug7082443$TestComboBox$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug7082443$TestComboBox",
+		"javax.swing.JComboBox",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug7082443"
+	};
+	$loadClass(bug7082443$TestComboBox, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug7082443$TestComboBox));
+	});
 	return class$;
 }
 

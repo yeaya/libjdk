@@ -1,5 +1,4 @@
 #include <sun/java2d/x11/X11Renderer$X11TracingRenderer.h>
-
 #include <java/awt/geom/Path2D$Float.h>
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/loops/GraphicsPrimitive.h>
@@ -19,50 +18,6 @@ using $X11Renderer = ::sun::java2d::x11::X11Renderer;
 namespace sun {
 	namespace java2d {
 		namespace x11 {
-
-$MethodInfo _X11Renderer$X11TracingRenderer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(X11Renderer$X11TracingRenderer, init$, void)},
-	{"XDoPath", "(Lsun/java2d/SunGraphics2D;JJIILjava/awt/geom/Path2D$Float;Z)V", nullptr, 0, $virtualMethod(X11Renderer$X11TracingRenderer, XDoPath, void, $SunGraphics2D*, int64_t, int64_t, int32_t, int32_t, $Path2D$Float*, bool)},
-	{"XDrawArc", "(JJIIIIII)V", nullptr, 0, $virtualMethod(X11Renderer$X11TracingRenderer, XDrawArc, void, int64_t, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"XDrawLine", "(JJIIII)V", nullptr, 0, $virtualMethod(X11Renderer$X11TracingRenderer, XDrawLine, void, int64_t, int64_t, int32_t, int32_t, int32_t, int32_t)},
-	{"XDrawOval", "(JJIIII)V", nullptr, 0, $virtualMethod(X11Renderer$X11TracingRenderer, XDrawOval, void, int64_t, int64_t, int32_t, int32_t, int32_t, int32_t)},
-	{"XDrawPoly", "(JJII[I[IIZ)V", nullptr, 0, $virtualMethod(X11Renderer$X11TracingRenderer, XDrawPoly, void, int64_t, int64_t, int32_t, int32_t, $ints*, $ints*, int32_t, bool)},
-	{"XDrawRect", "(JJIIII)V", nullptr, 0, $virtualMethod(X11Renderer$X11TracingRenderer, XDrawRect, void, int64_t, int64_t, int32_t, int32_t, int32_t, int32_t)},
-	{"XDrawRoundRect", "(JJIIIIII)V", nullptr, 0, $virtualMethod(X11Renderer$X11TracingRenderer, XDrawRoundRect, void, int64_t, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"XFillArc", "(JJIIIIII)V", nullptr, 0, $virtualMethod(X11Renderer$X11TracingRenderer, XFillArc, void, int64_t, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"XFillOval", "(JJIIII)V", nullptr, 0, $virtualMethod(X11Renderer$X11TracingRenderer, XFillOval, void, int64_t, int64_t, int32_t, int32_t, int32_t, int32_t)},
-	{"XFillPoly", "(JJII[I[II)V", nullptr, 0, $virtualMethod(X11Renderer$X11TracingRenderer, XFillPoly, void, int64_t, int64_t, int32_t, int32_t, $ints*, $ints*, int32_t)},
-	{"XFillRect", "(JJIIII)V", nullptr, 0, $virtualMethod(X11Renderer$X11TracingRenderer, XFillRect, void, int64_t, int64_t, int32_t, int32_t, int32_t, int32_t)},
-	{"XFillRoundRect", "(JJIIIIII)V", nullptr, 0, $virtualMethod(X11Renderer$X11TracingRenderer, XFillRoundRect, void, int64_t, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"XFillSpans", "(JJLsun/java2d/pipe/SpanIterator;JII)V", nullptr, 0, $virtualMethod(X11Renderer$X11TracingRenderer, XFillSpans, void, int64_t, int64_t, $SpanIterator*, int64_t, int32_t, int32_t)},
-	{"devCopyArea", "(JJIIIIII)V", nullptr, 0, $virtualMethod(X11Renderer$X11TracingRenderer, devCopyArea, void, int64_t, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _X11Renderer$X11TracingRenderer_InnerClassesInfo_[] = {
-	{"sun.java2d.x11.X11Renderer$X11TracingRenderer", "sun.java2d.x11.X11Renderer", "X11TracingRenderer", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _X11Renderer$X11TracingRenderer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.x11.X11Renderer$X11TracingRenderer",
-	"sun.java2d.x11.X11Renderer",
-	nullptr,
-	nullptr,
-	_X11Renderer$X11TracingRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_X11Renderer$X11TracingRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.x11.X11Renderer"
-};
-
-$Object* allocate$X11Renderer$X11TracingRenderer($Class* clazz) {
-	return $of($alloc(X11Renderer$X11TracingRenderer));
-}
 
 void X11Renderer$X11TracingRenderer::init$() {
 	$X11Renderer::init$();
@@ -99,7 +54,7 @@ void X11Renderer$X11TracingRenderer::XDrawPoly(int64_t pXSData, int64_t xgc, int
 }
 
 void X11Renderer$X11TracingRenderer::XDoPath($SunGraphics2D* sg2d, int64_t pXSData, int64_t xgc, int32_t transX, int32_t transY, $Path2D$Float* p2df, bool isFill) {
-	$GraphicsPrimitive::tracePrimitive(isFill ? $of("X11FillPath"_s) : $of("X11DrawPath"_s));
+	$GraphicsPrimitive::tracePrimitive(isFill ? "X11FillPath"_s : "X11DrawPath"_s);
 	$X11Renderer::XDoPath(sg2d, pXSData, xgc, transX, transY, p2df, isFill);
 }
 
@@ -142,7 +97,46 @@ X11Renderer$X11TracingRenderer::X11Renderer$X11TracingRenderer() {
 }
 
 $Class* X11Renderer$X11TracingRenderer::load$($String* name, bool initialize) {
-	$loadClass(X11Renderer$X11TracingRenderer, name, initialize, &_X11Renderer$X11TracingRenderer_ClassInfo_, allocate$X11Renderer$X11TracingRenderer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(X11Renderer$X11TracingRenderer, init$, void)},
+		{"XDoPath", "(Lsun/java2d/SunGraphics2D;JJIILjava/awt/geom/Path2D$Float;Z)V", nullptr, 0, $virtualMethod(X11Renderer$X11TracingRenderer, XDoPath, void, $SunGraphics2D*, int64_t, int64_t, int32_t, int32_t, $Path2D$Float*, bool)},
+		{"XDrawArc", "(JJIIIIII)V", nullptr, 0, $virtualMethod(X11Renderer$X11TracingRenderer, XDrawArc, void, int64_t, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"XDrawLine", "(JJIIII)V", nullptr, 0, $virtualMethod(X11Renderer$X11TracingRenderer, XDrawLine, void, int64_t, int64_t, int32_t, int32_t, int32_t, int32_t)},
+		{"XDrawOval", "(JJIIII)V", nullptr, 0, $virtualMethod(X11Renderer$X11TracingRenderer, XDrawOval, void, int64_t, int64_t, int32_t, int32_t, int32_t, int32_t)},
+		{"XDrawPoly", "(JJII[I[IIZ)V", nullptr, 0, $virtualMethod(X11Renderer$X11TracingRenderer, XDrawPoly, void, int64_t, int64_t, int32_t, int32_t, $ints*, $ints*, int32_t, bool)},
+		{"XDrawRect", "(JJIIII)V", nullptr, 0, $virtualMethod(X11Renderer$X11TracingRenderer, XDrawRect, void, int64_t, int64_t, int32_t, int32_t, int32_t, int32_t)},
+		{"XDrawRoundRect", "(JJIIIIII)V", nullptr, 0, $virtualMethod(X11Renderer$X11TracingRenderer, XDrawRoundRect, void, int64_t, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"XFillArc", "(JJIIIIII)V", nullptr, 0, $virtualMethod(X11Renderer$X11TracingRenderer, XFillArc, void, int64_t, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"XFillOval", "(JJIIII)V", nullptr, 0, $virtualMethod(X11Renderer$X11TracingRenderer, XFillOval, void, int64_t, int64_t, int32_t, int32_t, int32_t, int32_t)},
+		{"XFillPoly", "(JJII[I[II)V", nullptr, 0, $virtualMethod(X11Renderer$X11TracingRenderer, XFillPoly, void, int64_t, int64_t, int32_t, int32_t, $ints*, $ints*, int32_t)},
+		{"XFillRect", "(JJIIII)V", nullptr, 0, $virtualMethod(X11Renderer$X11TracingRenderer, XFillRect, void, int64_t, int64_t, int32_t, int32_t, int32_t, int32_t)},
+		{"XFillRoundRect", "(JJIIIIII)V", nullptr, 0, $virtualMethod(X11Renderer$X11TracingRenderer, XFillRoundRect, void, int64_t, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"XFillSpans", "(JJLsun/java2d/pipe/SpanIterator;JII)V", nullptr, 0, $virtualMethod(X11Renderer$X11TracingRenderer, XFillSpans, void, int64_t, int64_t, $SpanIterator*, int64_t, int32_t, int32_t)},
+		{"devCopyArea", "(JJIIIIII)V", nullptr, 0, $virtualMethod(X11Renderer$X11TracingRenderer, devCopyArea, void, int64_t, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.x11.X11Renderer$X11TracingRenderer", "sun.java2d.x11.X11Renderer", "X11TracingRenderer", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.x11.X11Renderer$X11TracingRenderer",
+		"sun.java2d.x11.X11Renderer",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.x11.X11Renderer"
+	};
+	$loadClass(X11Renderer$X11TracingRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(X11Renderer$X11TracingRenderer));
+	});
 	return class$;
 }
 

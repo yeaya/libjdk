@@ -1,5 +1,4 @@
 #include <HeadlessJScrollPane.h>
-
 #include <HeadlessJScrollPane$1.h>
 #include <HeadlessJScrollPane$2.h>
 #include <HeadlessJScrollPane$3.h>
@@ -48,7 +47,6 @@ using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -60,43 +58,11 @@ using $Locale = ::java::util::Locale;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $ScrollPaneLayout = ::javax::swing::ScrollPaneLayout;
 
-$MethodInfo _HeadlessJScrollPane_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJScrollPane, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJScrollPane, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _HeadlessJScrollPane_InnerClassesInfo_[] = {
-	{"HeadlessJScrollPane$3", nullptr, nullptr, 0},
-	{"HeadlessJScrollPane$2", nullptr, nullptr, 0},
-	{"HeadlessJScrollPane$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJScrollPane_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJScrollPane",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJScrollPane_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessJScrollPane_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadlessJScrollPane$3,HeadlessJScrollPane$2,HeadlessJScrollPane$1"
-};
-
-$Object* allocate$HeadlessJScrollPane($Class* clazz) {
-	return $of($alloc(HeadlessJScrollPane));
-}
-
 void HeadlessJScrollPane::init$() {
 }
 
 void HeadlessJScrollPane::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JScrollPane, sp, $new($JScrollPane));
 	sp->getAccessibleContext();
 	sp->isFocusTraversable();
@@ -108,9 +74,9 @@ void HeadlessJScrollPane::main($StringArray* args) {
 	sp->getMaximumSize();
 	sp->getMinimumSize();
 	sp->contains(1, 2);
-	$var($Component, c1, sp->add(static_cast<$Component*>($$new($HeadlessJScrollPane$1))));
-	$var($Component, c2, sp->add(static_cast<$Component*>($$new($HeadlessJScrollPane$2))));
-	$var($Component, c3, sp->add(static_cast<$Component*>($$new($HeadlessJScrollPane$3))));
+	$var($Component, c1, sp->add($$new($HeadlessJScrollPane$1)));
+	$var($Component, c2, sp->add($$new($HeadlessJScrollPane$2)));
+	$var($Component, c3, sp->add($$new($HeadlessJScrollPane$3)));
 	$var($Insets, ins, sp->getInsets());
 	sp->getAlignmentY();
 	sp->getAlignmentX();
@@ -121,26 +87,22 @@ void HeadlessJScrollPane::main($StringArray* args) {
 	sp->setForeground($Color::red);
 	sp->setBackground($Color::red);
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					sp->setFont(f1);
-					sp->setFont(f2);
-					sp->setFont(f3);
-					sp->setFont(f4);
-					sp->getFontMetrics(f1);
-					sp->getFontMetrics(f2);
-					sp->getFontMetrics(f3);
-					sp->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				sp->setFont(f1);
+				sp->setFont(f2);
+				sp->setFont(f3);
+				sp->setFont(f4);
+				sp->getFontMetrics(f1);
+				sp->getFontMetrics(f2);
+				sp->getFontMetrics(f3);
+				sp->getFontMetrics(f4);
 			}
 		}
 	}
@@ -205,13 +167,11 @@ void HeadlessJScrollPane::main($StringArray* args) {
 	sp->getFont();
 	sp->isFontSet();
 	$var($Container, c, $new($Container));
-	c->add(static_cast<$Component*>(sp));
+	c->add(sp);
 	sp->getLocale();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			sp->setLocale(locale);
 		}
@@ -268,7 +228,34 @@ HeadlessJScrollPane::HeadlessJScrollPane() {
 }
 
 $Class* HeadlessJScrollPane::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJScrollPane, name, initialize, &_HeadlessJScrollPane_ClassInfo_, allocate$HeadlessJScrollPane);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJScrollPane, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJScrollPane, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJScrollPane$3", nullptr, nullptr, 0},
+		{"HeadlessJScrollPane$2", nullptr, nullptr, 0},
+		{"HeadlessJScrollPane$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJScrollPane",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadlessJScrollPane$3,HeadlessJScrollPane$2,HeadlessJScrollPane$1"
+	};
+	$loadClass(HeadlessJScrollPane, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJScrollPane);
+	});
 	return class$;
 }
 

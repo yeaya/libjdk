@@ -1,5 +1,4 @@
 #include <javax/rmi/ssl/SslRMIServerSocketFactory.h>
-
 #include <java/net/ServerSocket.h>
 #include <java/net/Socket.h>
 #include <java/util/Arrays.h>
@@ -33,56 +32,6 @@ namespace javax {
 	namespace rmi {
 		namespace ssl {
 
-$FieldInfo _SslRMIServerSocketFactory_FieldInfo_[] = {
-	{"defaultSSLSocketFactory", "Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PRIVATE | $STATIC, $staticField(SslRMIServerSocketFactory, defaultSSLSocketFactory)},
-	{"enabledCipherSuites", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SslRMIServerSocketFactory, enabledCipherSuites)},
-	{"enabledProtocols", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SslRMIServerSocketFactory, enabledProtocols)},
-	{"needClientAuth", "Z", nullptr, $PRIVATE | $FINAL, $field(SslRMIServerSocketFactory, needClientAuth)},
-	{"enabledCipherSuitesList", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(SslRMIServerSocketFactory, enabledCipherSuitesList)},
-	{"enabledProtocolsList", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(SslRMIServerSocketFactory, enabledProtocolsList)},
-	{"context", "Ljavax/net/ssl/SSLContext;", nullptr, $PRIVATE, $field(SslRMIServerSocketFactory, context)},
-	{}
-};
-
-$MethodInfo _SslRMIServerSocketFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SslRMIServerSocketFactory, init$, void)},
-	{"<init>", "([Ljava/lang/String;[Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(SslRMIServerSocketFactory, init$, void, $StringArray*, $StringArray*, bool), "java.lang.IllegalArgumentException"},
-	{"<init>", "(Ljavax/net/ssl/SSLContext;[Ljava/lang/String;[Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(SslRMIServerSocketFactory, init$, void, $SSLContext*, $StringArray*, $StringArray*, bool), "java.lang.IllegalArgumentException"},
-	{"checkParameters", "(Ljavax/rmi/ssl/SslRMIServerSocketFactory;)Z", nullptr, $PRIVATE, $method(SslRMIServerSocketFactory, checkParameters, bool, SslRMIServerSocketFactory*)},
-	{"createServerSocket", "(I)Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(SslRMIServerSocketFactory, createServerSocket, $ServerSocket*, int32_t), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SslRMIServerSocketFactory, equals, bool, Object$*)},
-	{"getDefaultSSLSocketFactory", "()Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(SslRMIServerSocketFactory, getDefaultSSLSocketFactory, $SSLSocketFactory*)},
-	{"getEnabledCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(SslRMIServerSocketFactory, getEnabledCipherSuites, $StringArray*)},
-	{"getEnabledProtocols", "()[Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(SslRMIServerSocketFactory, getEnabledProtocols, $StringArray*)},
-	{"getNeedClientAuth", "()Z", nullptr, $PUBLIC | $FINAL, $method(SslRMIServerSocketFactory, getNeedClientAuth, bool)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SslRMIServerSocketFactory, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _SslRMIServerSocketFactory_InnerClassesInfo_[] = {
-	{"javax.rmi.ssl.SslRMIServerSocketFactory$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SslRMIServerSocketFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.rmi.ssl.SslRMIServerSocketFactory",
-	"java.lang.Object",
-	"java.rmi.server.RMIServerSocketFactory",
-	_SslRMIServerSocketFactory_FieldInfo_,
-	_SslRMIServerSocketFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SslRMIServerSocketFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.rmi.ssl.SslRMIServerSocketFactory$1"
-};
-
-$Object* allocate$SslRMIServerSocketFactory($Class* clazz) {
-	return $of($alloc(SslRMIServerSocketFactory));
-}
-
 $SSLSocketFactory* SslRMIServerSocketFactory::defaultSSLSocketFactory = nullptr;
 
 void SslRMIServerSocketFactory::init$() {
@@ -94,19 +43,19 @@ void SslRMIServerSocketFactory::init$($StringArray* enabledCipherSuites, $String
 }
 
 void SslRMIServerSocketFactory::init$($SSLContext* context, $StringArray* enabledCipherSuites, $StringArray* enabledProtocols, bool needClientAuth) {
-	$useLocalCurrentObjectStackCache();
-	$set(this, enabledCipherSuites, enabledCipherSuites == nullptr ? ($StringArray*)nullptr : $cast($StringArray, $nc(enabledCipherSuites)->clone()));
-	$set(this, enabledProtocols, enabledProtocols == nullptr ? ($StringArray*)nullptr : $cast($StringArray, $nc(enabledProtocols)->clone()));
+	$useLocalObjectStack();
+	$set(this, enabledCipherSuites, enabledCipherSuites == nullptr ? ($StringArray*)nullptr : $cast($StringArray, enabledCipherSuites->clone()));
+	$set(this, enabledProtocols, enabledProtocols == nullptr ? ($StringArray*)nullptr : $cast($StringArray, enabledProtocols->clone()));
 	this->needClientAuth = needClientAuth;
 	$set(this, context, context);
-	$var($SSLSocketFactory, sslSocketFactory, context == nullptr ? getDefaultSSLSocketFactory() : $nc(context)->getSocketFactory());
+	$var($SSLSocketFactory, sslSocketFactory, context == nullptr ? getDefaultSSLSocketFactory() : context->getSocketFactory());
 	$var($SSLSocket, sslSocket, nullptr);
 	if (this->enabledCipherSuites != nullptr || this->enabledProtocols != nullptr) {
 		try {
 			$assign(sslSocket, $cast($SSLSocket, $nc(sslSocketFactory)->createSocket()));
 		} catch ($Exception& e) {
 			$var($String, msg, "Unable to check if the cipher suites and protocols to enable are supported"_s);
-			$throw($cast($IllegalArgumentException, $($$new($IllegalArgumentException, msg)->initCause(e))));
+			$throw($$cast($IllegalArgumentException, $$new($IllegalArgumentException, msg)->initCause(e)));
 		}
 	}
 	if (this->enabledCipherSuites != nullptr) {
@@ -120,11 +69,11 @@ void SslRMIServerSocketFactory::init$($SSLContext* context, $StringArray* enable
 }
 
 $StringArray* SslRMIServerSocketFactory::getEnabledCipherSuites() {
-	return this->enabledCipherSuites == nullptr ? ($StringArray*)nullptr : $cast($StringArray, $nc(this->enabledCipherSuites)->clone());
+	return this->enabledCipherSuites == nullptr ? ($StringArray*)nullptr : $cast($StringArray, this->enabledCipherSuites->clone());
 }
 
 $StringArray* SslRMIServerSocketFactory::getEnabledProtocols() {
-	return this->enabledProtocols == nullptr ? ($StringArray*)nullptr : $cast($StringArray, $nc(this->enabledProtocols)->clone());
+	return this->enabledProtocols == nullptr ? ($StringArray*)nullptr : $cast($StringArray, this->enabledProtocols->clone());
 }
 
 bool SslRMIServerSocketFactory::getNeedClientAuth() {
@@ -132,7 +81,7 @@ bool SslRMIServerSocketFactory::getNeedClientAuth() {
 }
 
 $ServerSocket* SslRMIServerSocketFactory::createServerSocket(int32_t port) {
-	$var($SSLSocketFactory, sslSocketFactory, this->context == nullptr ? getDefaultSSLSocketFactory() : $nc(this->context)->getSocketFactory());
+	$var($SSLSocketFactory, sslSocketFactory, this->context == nullptr ? getDefaultSSLSocketFactory() : this->context->getSocketFactory());
 	return $new($SslRMIServerSocketFactory$1, this, port, sslSocketFactory);
 }
 
@@ -147,31 +96,31 @@ bool SslRMIServerSocketFactory::equals(Object$* obj) {
 		return false;
 	}
 	$var(SslRMIServerSocketFactory, that, $cast(SslRMIServerSocketFactory, obj));
-	bool var$0 = $of($of(this)->getClass())->equals($nc($of(that))->getClass());
+	bool var$0 = $of(this)->getClass()->equals($nc(that)->getClass());
 	return (var$0 && checkParameters(that));
 }
 
 bool SslRMIServerSocketFactory::checkParameters(SslRMIServerSocketFactory* that) {
-	$useLocalCurrentObjectStackCache();
-	if (this->context == nullptr ? $nc(that)->context != nullptr : !$nc($of(this->context))->equals(that->context)) {
+	$useLocalObjectStack();
+	if (this->context == nullptr ? $nc(that)->context != nullptr : !this->context->equals($nc(that)->context)) {
 		return false;
 	}
 	if (this->needClientAuth != $nc(that)->needClientAuth) {
 		return false;
 	}
-	if ((this->enabledCipherSuites == nullptr && $nc(that)->enabledCipherSuites != nullptr) || (this->enabledCipherSuites != nullptr && $nc(that)->enabledCipherSuites == nullptr)) {
+	if ((this->enabledCipherSuites == nullptr && that->enabledCipherSuites != nullptr) || (this->enabledCipherSuites != nullptr && that->enabledCipherSuites == nullptr)) {
 		return false;
 	}
-	if (this->enabledCipherSuites != nullptr && $nc(that)->enabledCipherSuites != nullptr) {
+	if (this->enabledCipherSuites != nullptr && that->enabledCipherSuites != nullptr) {
 		$var($List, thatEnabledCipherSuitesList, $Arrays::asList(that->enabledCipherSuites));
 		if (!$nc(this->enabledCipherSuitesList)->equals(thatEnabledCipherSuitesList)) {
 			return false;
 		}
 	}
-	if ((this->enabledProtocols == nullptr && $nc(that)->enabledProtocols != nullptr) || (this->enabledProtocols != nullptr && $nc(that)->enabledProtocols == nullptr)) {
+	if ((this->enabledProtocols == nullptr && that->enabledProtocols != nullptr) || (this->enabledProtocols != nullptr && that->enabledProtocols == nullptr)) {
 		return false;
 	}
-	if (this->enabledProtocols != nullptr && $nc(that)->enabledProtocols != nullptr) {
+	if (this->enabledProtocols != nullptr && that->enabledProtocols != nullptr) {
 		$var($List, thatEnabledProtocolsList, $Arrays::asList(that->enabledProtocols));
 		if (!$nc(this->enabledProtocolsList)->equals(thatEnabledProtocolsList)) {
 			return false;
@@ -181,18 +130,16 @@ bool SslRMIServerSocketFactory::checkParameters(SslRMIServerSocketFactory* that)
 }
 
 int32_t SslRMIServerSocketFactory::hashCode() {
-	int32_t var$3 = $of($of(this)->getClass())->hashCode();
-	int32_t var$2 = var$3 + (this->context == nullptr ? 0 : $nc($of(this->context))->hashCode());
-	$init($Boolean);
+	int32_t var$3 = $of(this)->getClass()->hashCode();
+	int32_t var$2 = var$3 + (this->context == nullptr ? 0 : this->context->hashCode());
 	int32_t var$1 = var$2 + (this->needClientAuth ? $nc($Boolean::TRUE)->hashCode() : $nc($Boolean::FALSE)->hashCode());
 	int32_t var$0 = var$1 + (this->enabledCipherSuites == nullptr ? 0 : $nc(this->enabledCipherSuitesList)->hashCode());
 	return var$0 + (this->enabledProtocols == nullptr ? 0 : $nc(this->enabledProtocolsList)->hashCode());
 }
 
 $SSLSocketFactory* SslRMIServerSocketFactory::getDefaultSSLSocketFactory() {
-	$load(SslRMIServerSocketFactory);
+	$init(SslRMIServerSocketFactory);
 	$synchronized(class$) {
-		$init(SslRMIServerSocketFactory);
 		if (SslRMIServerSocketFactory::defaultSSLSocketFactory == nullptr) {
 			$assignStatic(SslRMIServerSocketFactory::defaultSSLSocketFactory, $cast($SSLSocketFactory, $SSLSocketFactory::getDefault()));
 		}
@@ -200,7 +147,7 @@ $SSLSocketFactory* SslRMIServerSocketFactory::getDefaultSSLSocketFactory() {
 	}
 }
 
-void clinit$SslRMIServerSocketFactory($Class* class$) {
+void SslRMIServerSocketFactory::clinit$($Class* clazz) {
 	$assignStatic(SslRMIServerSocketFactory::defaultSSLSocketFactory, nullptr);
 }
 
@@ -208,7 +155,51 @@ SslRMIServerSocketFactory::SslRMIServerSocketFactory() {
 }
 
 $Class* SslRMIServerSocketFactory::load$($String* name, bool initialize) {
-	$loadClass(SslRMIServerSocketFactory, name, initialize, &_SslRMIServerSocketFactory_ClassInfo_, clinit$SslRMIServerSocketFactory, allocate$SslRMIServerSocketFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultSSLSocketFactory", "Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PRIVATE | $STATIC, $staticField(SslRMIServerSocketFactory, defaultSSLSocketFactory)},
+		{"enabledCipherSuites", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SslRMIServerSocketFactory, enabledCipherSuites)},
+		{"enabledProtocols", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SslRMIServerSocketFactory, enabledProtocols)},
+		{"needClientAuth", "Z", nullptr, $PRIVATE | $FINAL, $field(SslRMIServerSocketFactory, needClientAuth)},
+		{"enabledCipherSuitesList", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(SslRMIServerSocketFactory, enabledCipherSuitesList)},
+		{"enabledProtocolsList", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(SslRMIServerSocketFactory, enabledProtocolsList)},
+		{"context", "Ljavax/net/ssl/SSLContext;", nullptr, $PRIVATE, $field(SslRMIServerSocketFactory, context)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SslRMIServerSocketFactory, init$, void)},
+		{"<init>", "([Ljava/lang/String;[Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(SslRMIServerSocketFactory, init$, void, $StringArray*, $StringArray*, bool), "java.lang.IllegalArgumentException"},
+		{"<init>", "(Ljavax/net/ssl/SSLContext;[Ljava/lang/String;[Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(SslRMIServerSocketFactory, init$, void, $SSLContext*, $StringArray*, $StringArray*, bool), "java.lang.IllegalArgumentException"},
+		{"checkParameters", "(Ljavax/rmi/ssl/SslRMIServerSocketFactory;)Z", nullptr, $PRIVATE, $method(SslRMIServerSocketFactory, checkParameters, bool, SslRMIServerSocketFactory*)},
+		{"createServerSocket", "(I)Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(SslRMIServerSocketFactory, createServerSocket, $ServerSocket*, int32_t), "java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SslRMIServerSocketFactory, equals, bool, Object$*)},
+		{"getDefaultSSLSocketFactory", "()Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(SslRMIServerSocketFactory, getDefaultSSLSocketFactory, $SSLSocketFactory*)},
+		{"getEnabledCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(SslRMIServerSocketFactory, getEnabledCipherSuites, $StringArray*)},
+		{"getEnabledProtocols", "()[Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(SslRMIServerSocketFactory, getEnabledProtocols, $StringArray*)},
+		{"getNeedClientAuth", "()Z", nullptr, $PUBLIC | $FINAL, $method(SslRMIServerSocketFactory, getNeedClientAuth, bool)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SslRMIServerSocketFactory, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.rmi.ssl.SslRMIServerSocketFactory$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.rmi.ssl.SslRMIServerSocketFactory",
+		"java.lang.Object",
+		"java.rmi.server.RMIServerSocketFactory",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.rmi.ssl.SslRMIServerSocketFactory$1"
+	};
+	$loadClass(SslRMIServerSocketFactory, name, initialize, &classInfo$$, SslRMIServerSocketFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SslRMIServerSocketFactory);
+	});
 	return class$;
 }
 

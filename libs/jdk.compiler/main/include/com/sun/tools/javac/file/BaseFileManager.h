@@ -104,6 +104,7 @@ class $import BaseFileManager : public ::javax::tools::JavaFileManager {
 public:
 	BaseFileManager();
 	using ::javax::tools::JavaFileManager::getClassLoader;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* charset);
 	virtual void cache(::javax::tools::JavaFileObject* file, ::java::nio::CharBuffer* cb);
 	virtual void clear();

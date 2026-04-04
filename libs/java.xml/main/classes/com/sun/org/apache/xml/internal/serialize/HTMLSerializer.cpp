@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serialize/HTMLSerializer.h>
-
 #include <com/sun/org/apache/xerces/internal/dom/DOMMessageFormatter.h>
 #include <com/sun/org/apache/xml/internal/serialize/BaseMarkupSerializer.h>
 #include <com/sun/org/apache/xml/internal/serialize/ElementState.h>
@@ -36,22 +35,18 @@ using $ElementState = ::com::sun::org::apache::xml::internal::serialize::Element
 using $HTMLdtd = ::com::sun::org::apache::xml::internal::serialize::HTMLdtd;
 using $Method = ::com::sun::org::apache::xml::internal::serialize::Method;
 using $OutputFormat = ::com::sun::org::apache::xml::internal::serialize::OutputFormat;
-using $Printer = ::com::sun::org::apache::xml::internal::serialize::Printer;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $Iterator = ::java::util::Iterator;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $Attr = ::org::w3c::dom::Attr;
 using $Element = ::org::w3c::dom::Element;
 using $NamedNodeMap = ::org::w3c::dom::NamedNodeMap;
@@ -67,57 +62,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace serialize {
-
-$CompoundAttribute _HTMLSerializer_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _HTMLSerializer_FieldInfo_[] = {
-	{"_xhtml", "Z", nullptr, $PRIVATE, $field(HTMLSerializer, _xhtml)},
-	{"XHTMLNamespace", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLSerializer, XHTMLNamespace)},
-	{"fUserXHTMLNamespace", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HTMLSerializer, fUserXHTMLNamespace)},
-	{}
-};
-
-$MethodInfo _HTMLSerializer_MethodInfo_[] = {
-	{"<init>", "(ZLcom/sun/org/apache/xml/internal/serialize/OutputFormat;)V", nullptr, $PROTECTED, $method(HTMLSerializer, init$, void, bool, $OutputFormat*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HTMLSerializer, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)V", nullptr, $PUBLIC, $method(HTMLSerializer, init$, void, $OutputFormat*)},
-	{"<init>", "(Ljava/io/Writer;Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)V", nullptr, $PUBLIC, $method(HTMLSerializer, init$, void, $Writer*, $OutputFormat*)},
-	{"<init>", "(Ljava/io/OutputStream;Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)V", nullptr, $PUBLIC, $method(HTMLSerializer, init$, void, $OutputStream*, $OutputFormat*)},
-	{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(HTMLSerializer, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"characters", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(HTMLSerializer, characters, void, $String*), "java.io.IOException"},
-	{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HTMLSerializer, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"endElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HTMLSerializer, endElement, void, $String*), "org.xml.sax.SAXException"},
-	{"endElementIO", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HTMLSerializer, endElementIO, void, $String*, $String*, $String*), "java.io.IOException"},
-	{"escapeURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(HTMLSerializer, escapeURI, $String*, $String*)},
-	{"getEntityRef", "(I)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(HTMLSerializer, getEntityRef, $String*, int32_t)},
-	{"serializeElement", "(Lorg/w3c/dom/Element;)V", nullptr, $PROTECTED, $virtualMethod(HTMLSerializer, serializeElement, void, $Element*), "java.io.IOException"},
-	{"setOutputFormat", "(Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)V", nullptr, $PUBLIC, $virtualMethod(HTMLSerializer, setOutputFormat, void, $OutputFormat*)},
-	{"setXHTMLNamespace", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HTMLSerializer, setXHTMLNamespace, void, $String*)},
-	{"startDocument", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(HTMLSerializer, startDocument, void, $String*), "java.io.IOException"},
-	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(HTMLSerializer, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
-	{"startElement", "(Ljava/lang/String;Lorg/xml/sax/AttributeList;)V", nullptr, $PUBLIC, $virtualMethod(HTMLSerializer, startElement, void, $String*, $AttributeList*), "org.xml.sax.SAXException"},
-	{}
-};
-
-$ClassInfo _HTMLSerializer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serialize.HTMLSerializer",
-	"com.sun.org.apache.xml.internal.serialize.BaseMarkupSerializer",
-	nullptr,
-	_HTMLSerializer_FieldInfo_,
-	_HTMLSerializer_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_HTMLSerializer_Annotations_
-};
-
-$Object* allocate$HTMLSerializer($Class* clazz) {
-	return $of($alloc(HTMLSerializer));
-}
 
 $String* HTMLSerializer::XHTMLNamespace = nullptr;
 
@@ -159,7 +103,7 @@ void HTMLSerializer::setXHTMLNamespace($String* newNamespace) {
 }
 
 void HTMLSerializer::startElement($String* namespaceURI, $String* localName, $String* rawName$renamed, $Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, rawName, rawName$renamed);
 	int32_t i = 0;
 	bool preserveSpace = false;
@@ -176,19 +120,19 @@ void HTMLSerializer::startElement($String* namespaceURI, $String* localName, $St
 		$assign(state, getElementState());
 		if (isDocumentState()) {
 			if (!this->_started) {
-				startDocument((localName == nullptr || $nc(localName)->length() == 0) ? rawName : localName);
+				startDocument((localName == nullptr || localName->length() == 0) ? rawName : localName);
 			}
 		} else {
 			if ($nc(state)->empty) {
 				$nc(this->_printer)->printText(u'>');
 			}
-			if (this->_indenting && !$nc(state)->preserveSpace && (state->empty || $nc(state)->afterElement)) {
+			if (this->_indenting && !state->preserveSpace && (state->empty || state->afterElement)) {
 				$nc(this->_printer)->breakLine();
 			}
 		}
 		preserveSpace = $nc(state)->preserveSpace;
 		bool hasNamespaceURI = (namespaceURI != nullptr && namespaceURI->length() != 0);
-		if (rawName == nullptr || $nc(rawName)->length() == 0) {
+		if (rawName == nullptr || rawName->length() == 0) {
 			$assign(rawName, localName);
 			if (hasNamespaceURI) {
 				$var($String, prefix, nullptr);
@@ -202,8 +146,8 @@ void HTMLSerializer::startElement($String* namespaceURI, $String* localName, $St
 		if (!hasNamespaceURI) {
 			$assign(htmlName, rawName);
 		} else {
-			bool var$1 = namespaceURI->equals(HTMLSerializer::XHTMLNamespace);
-			if (var$1 || (this->fUserXHTMLNamespace != nullptr && $nc(this->fUserXHTMLNamespace)->equals(namespaceURI))) {
+			bool var$0 = $nc(namespaceURI)->equals(HTMLSerializer::XHTMLNamespace);
+			if (var$0 || (this->fUserXHTMLNamespace != nullptr && this->fUserXHTMLNamespace->equals(namespaceURI))) {
 				$assign(htmlName, localName);
 			} else {
 				$assign(htmlName, nullptr);
@@ -221,7 +165,7 @@ void HTMLSerializer::startElement($String* namespaceURI, $String* localName, $St
 			for (i = 0; i < attrs->getLength(); ++i) {
 				$nc(this->_printer)->printSpace();
 				$init($Locale);
-				$assign(name, $nc($(attrs->getQName(i)))->toLowerCase($Locale::ENGLISH));
+				$assign(name, $$nc(attrs->getQName(i))->toLowerCase($Locale::ENGLISH));
 				$assign(value, attrs->getValue(i));
 				if (this->_xhtml || hasNamespaceURI) {
 					if (value == nullptr) {
@@ -237,8 +181,8 @@ void HTMLSerializer::startElement($String* namespaceURI, $String* localName, $St
 					if (value == nullptr) {
 						$assign(value, ""_s);
 					}
-					bool var$2 = !$nc(this->_format)->getPreserveEmptyAttributes();
-					if (var$2 && $nc(value)->length() == 0) {
+					bool var$1 = !$nc(this->_format)->getPreserveEmptyAttributes();
+					if (var$1 && $nc(value)->length() == 0) {
 						$nc(this->_printer)->printText(name);
 					} else if ($HTMLdtd::isURI(rawName, name)) {
 						$nc(this->_printer)->printText(name);
@@ -260,53 +204,51 @@ void HTMLSerializer::startElement($String* namespaceURI, $String* localName, $St
 			preserveSpace = true;
 		}
 		if (addNSAttr) {
-			{
-				$var($Iterator, i$, $nc($($nc(this->_prefixes)->entrySet()))->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
-					{
-						$nc(this->_printer)->printSpace();
-						$assign(value, $cast($String, $nc(entry)->getKey()));
-						$assign(name, $cast($String, entry->getValue()));
-						if ($nc(name)->length() == 0) {
-							$nc(this->_printer)->printText("xmlns=\""_s);
-							printEscaped(value);
-							$nc(this->_printer)->printText(u'\"');
-						} else {
-							$nc(this->_printer)->printText("xmlns:"_s);
-							$nc(this->_printer)->printText(name);
-							$nc(this->_printer)->printText("=\""_s);
-							printEscaped(value);
-							$nc(this->_printer)->printText(u'\"');
-						}
+			$var($Iterator, i$, $$nc($nc(this->_prefixes)->entrySet())->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
+				{
+					$nc(this->_printer)->printSpace();
+					$assign(value, $cast($String, $nc(entry)->getKey()));
+					$assign(name, $cast($String, entry->getValue()));
+					if ($nc(name)->length() == 0) {
+						$nc(this->_printer)->printText("xmlns=\""_s);
+						printEscaped(value);
+						$nc(this->_printer)->printText(u'\"');
+					} else {
+						$nc(this->_printer)->printText("xmlns:"_s);
+						$nc(this->_printer)->printText(name);
+						$nc(this->_printer)->printText("=\""_s);
+						printEscaped(value);
+						$nc(this->_printer)->printText(u'\"');
 					}
 				}
 			}
 		}
 		$assign(state, enterElementState(namespaceURI, localName, rawName, preserveSpace));
-		bool var$3 = htmlName != nullptr;
-		if (var$3) {
-			bool var$4 = htmlName->equalsIgnoreCase("A"_s);
-			var$3 = (var$4 || htmlName->equalsIgnoreCase("TD"_s));
+		bool var$2 = htmlName != nullptr;
+		if (var$2) {
+			bool var$3 = htmlName->equalsIgnoreCase("A"_s);
+			var$2 = var$3 || htmlName->equalsIgnoreCase("TD"_s);
 		}
-		if (var$3) {
-			state->empty = false;
+		if (var$2) {
+			$nc(state)->empty = false;
 			$nc(this->_printer)->printText(u'>');
 		}
-		bool var$5 = htmlName != nullptr;
-		if (var$5) {
-			bool var$6 = $nc(rawName)->equalsIgnoreCase("SCRIPT"_s);
-			var$5 = (var$6 || $nc(rawName)->equalsIgnoreCase("STYLE"_s));
+		bool var$4 = htmlName != nullptr;
+		if (var$4) {
+			bool var$5 = $nc(rawName)->equalsIgnoreCase("SCRIPT"_s);
+			var$4 = var$5 || rawName->equalsIgnoreCase("STYLE"_s);
 		}
-		if (var$5) {
+		if (var$4) {
 			if (this->_xhtml) {
-				state->doCData = true;
+				$nc(state)->doCData = true;
 			} else {
-				state->unescaped = true;
+				$nc(state)->unescaped = true;
 			}
 		}
 	} catch ($IOException& except) {
-		$throwNew($SAXException, static_cast<$Exception*>(except));
+		$throwNew($SAXException, except);
 	}
 }
 
@@ -314,28 +256,28 @@ void HTMLSerializer::endElement($String* namespaceURI, $String* localName, $Stri
 	try {
 		endElementIO(namespaceURI, localName, rawName);
 	} catch ($IOException& except) {
-		$throwNew($SAXException, static_cast<$Exception*>(except));
+		$throwNew($SAXException, except);
 	}
 }
 
 void HTMLSerializer::endElementIO($String* namespaceURI, $String* localName, $String* rawName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ElementState, state, nullptr);
 	$var($String, htmlName, nullptr);
 	$nc(this->_printer)->unindent();
 	$assign(state, getElementState());
-	if ($nc(state)->namespaceURI == nullptr || $nc($nc(state)->namespaceURI)->length() == 0) {
+	if ($nc(state)->namespaceURI == nullptr || state->namespaceURI->length() == 0) {
 		$assign(htmlName, state->rawName);
 	} else {
-		bool var$1 = $nc(state->namespaceURI)->equals(HTMLSerializer::XHTMLNamespace);
-		if (var$1 || (this->fUserXHTMLNamespace != nullptr && $nc(this->fUserXHTMLNamespace)->equals(state->namespaceURI))) {
+		bool var$0 = state->namespaceURI->equals(HTMLSerializer::XHTMLNamespace);
+		if (var$0 || (this->fUserXHTMLNamespace != nullptr && this->fUserXHTMLNamespace->equals(state->namespaceURI))) {
 			$assign(htmlName, state->localName);
 		} else {
 			$assign(htmlName, nullptr);
 		}
 	}
 	if (this->_xhtml) {
-		if ($nc(state)->empty) {
+		if (state->empty) {
 			$nc(this->_printer)->printText(" />"_s);
 		} else {
 			if (state->inCData) {
@@ -347,28 +289,28 @@ void HTMLSerializer::endElementIO($String* namespaceURI, $String* localName, $St
 			$nc(this->_printer)->printText(u'>');
 		}
 	} else {
-		if ($nc(state)->empty) {
+		if (state->empty) {
 			$nc(this->_printer)->printText(u'>');
 		}
 		if (htmlName == nullptr || !$HTMLdtd::isOnlyOpening(htmlName)) {
-			if (this->_indenting && !$nc(state)->preserveSpace && state->afterElement) {
+			if (this->_indenting && !state->preserveSpace && state->afterElement) {
 				$nc(this->_printer)->breakLine();
 			}
-			if ($nc(state)->inCData) {
+			if (state->inCData) {
 				$nc(this->_printer)->printText("]]>"_s);
 			}
 			$nc(this->_printer)->printText("</"_s);
-			$nc(this->_printer)->printText($nc(state)->rawName);
+			$nc(this->_printer)->printText(state->rawName);
 			$nc(this->_printer)->printText(u'>');
 		}
 	}
 	$assign(state, leaveElementState());
-	bool var$2 = htmlName == nullptr;
-	if (!var$2) {
-		bool var$3 = !$nc(htmlName)->equalsIgnoreCase("A"_s);
-		var$2 = (var$3 && !htmlName->equalsIgnoreCase("TD"_s));
+	bool var$1 = htmlName == nullptr;
+	if (!var$1) {
+		bool var$2 = !htmlName->equalsIgnoreCase("A"_s);
+		var$1 = var$2 && !htmlName->equalsIgnoreCase("TD"_s);
 	}
-	if (var$2) {
+	if (var$1) {
 		$nc(state)->afterElement = true;
 	}
 	$nc(state)->empty = false;
@@ -384,12 +326,12 @@ void HTMLSerializer::characters($chars* chars, int32_t start, int32_t length) {
 		$nc(state)->doCData = false;
 		$BaseMarkupSerializer::characters(chars, start, length);
 	} catch ($IOException& except) {
-		$throwNew($SAXException, static_cast<$Exception*>(except));
+		$throwNew($SAXException, except);
 	}
 }
 
 void HTMLSerializer::startElement($String* tagName, $AttributeList* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	bool preserveSpace = false;
 	$var($ElementState, state, nullptr);
@@ -409,7 +351,7 @@ void HTMLSerializer::startElement($String* tagName, $AttributeList* attrs) {
 			if ($nc(state)->empty) {
 				$nc(this->_printer)->printText(u'>');
 			}
-			if (this->_indenting && !$nc(state)->preserveSpace && (state->empty || $nc(state)->afterElement)) {
+			if (this->_indenting && !state->preserveSpace && (state->empty || state->afterElement)) {
 				$nc(this->_printer)->breakLine();
 			}
 		}
@@ -426,7 +368,7 @@ void HTMLSerializer::startElement($String* tagName, $AttributeList* attrs) {
 			for (i = 0; i < attrs->getLength(); ++i) {
 				$nc(this->_printer)->printSpace();
 				$init($Locale);
-				$assign(name, $nc($(attrs->getName(i)))->toLowerCase($Locale::ENGLISH));
+				$assign(name, $$nc(attrs->getName(i))->toLowerCase($Locale::ENGLISH));
 				$assign(value, attrs->getValue(i));
 				if (this->_xhtml) {
 					if (value == nullptr) {
@@ -466,20 +408,20 @@ void HTMLSerializer::startElement($String* tagName, $AttributeList* attrs) {
 		}
 		$assign(state, enterElementState(nullptr, nullptr, tagName, preserveSpace));
 		bool var$1 = $nc(tagName)->equalsIgnoreCase("A"_s);
-		if (var$1 || $nc(tagName)->equalsIgnoreCase("TD"_s)) {
-			state->empty = false;
+		if (var$1 || tagName->equalsIgnoreCase("TD"_s)) {
+			$nc(state)->empty = false;
 			$nc(this->_printer)->printText(u'>');
 		}
-		bool var$2 = $nc(tagName)->equalsIgnoreCase("SCRIPT"_s);
-		if (var$2 || $nc(tagName)->equalsIgnoreCase("STYLE"_s)) {
+		bool var$2 = tagName->equalsIgnoreCase("SCRIPT"_s);
+		if (var$2 || tagName->equalsIgnoreCase("STYLE"_s)) {
 			if (this->_xhtml) {
-				state->doCData = true;
+				$nc(state)->doCData = true;
 			} else {
-				state->unescaped = true;
+				$nc(state)->unescaped = true;
 			}
 		}
 	} catch ($IOException& except) {
-		$throwNew($SAXException, static_cast<$Exception*>(except));
+		$throwNew($SAXException, except);
 	}
 }
 
@@ -538,7 +480,7 @@ void HTMLSerializer::startDocument($String* rootTagName) {
 }
 
 void HTMLSerializer::serializeElement($Element* elem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Attr, attr, nullptr);
 	$var($NamedNodeMap, attrMap, nullptr);
 	int32_t i = 0;
@@ -558,7 +500,7 @@ void HTMLSerializer::serializeElement($Element* elem) {
 		if ($nc(state)->empty) {
 			$nc(this->_printer)->printText(u'>');
 		}
-		if (this->_indenting && !$nc(state)->preserveSpace && (state->empty || $nc(state)->afterElement)) {
+		if (this->_indenting && !state->preserveSpace && (state->empty || state->afterElement)) {
 			$nc(this->_printer)->breakLine();
 		}
 	}
@@ -576,7 +518,7 @@ void HTMLSerializer::serializeElement($Element* elem) {
 		for (i = 0; i < attrMap->getLength(); ++i) {
 			$assign(attr, $cast($Attr, attrMap->item(i)));
 			$init($Locale);
-			$assign(name, $nc($($nc(attr)->getName()))->toLowerCase($Locale::ENGLISH));
+			$assign(name, $$nc($nc(attr)->getName())->toLowerCase($Locale::ENGLISH));
 			$assign(value, attr->getValue());
 			if (attr->getSpecified()) {
 				$nc(this->_printer)->printSpace();
@@ -621,12 +563,12 @@ void HTMLSerializer::serializeElement($Element* elem) {
 	if (var$1 || !$HTMLdtd::isEmptyTag(tagName)) {
 		$assign(state, enterElementState(nullptr, nullptr, tagName, preserveSpace));
 		bool var$2 = $nc(tagName)->equalsIgnoreCase("A"_s);
-		if (var$2 || $nc(tagName)->equalsIgnoreCase("TD"_s)) {
+		if (var$2 || tagName->equalsIgnoreCase("TD"_s)) {
 			$nc(state)->empty = false;
 			$nc(this->_printer)->printText(u'>');
 		}
-		bool var$3 = $nc(tagName)->equalsIgnoreCase("SCRIPT"_s);
-		if (var$3 || $nc(tagName)->equalsIgnoreCase("STYLE"_s)) {
+		bool var$3 = tagName->equalsIgnoreCase("SCRIPT"_s);
+		if (var$3 || tagName->equalsIgnoreCase("STYLE"_s)) {
 			if (this->_xhtml) {
 				$nc(state)->doCData = true;
 			} else {
@@ -677,12 +619,57 @@ $String* HTMLSerializer::escapeURI($String* uri) {
 HTMLSerializer::HTMLSerializer() {
 }
 
-void clinit$HTMLSerializer($Class* class$) {
+void HTMLSerializer::clinit$($Class* clazz) {
 	$assignStatic(HTMLSerializer::XHTMLNamespace, "http://www.w3.org/1999/xhtml"_s);
 }
 
 $Class* HTMLSerializer::load$($String* name, bool initialize) {
-	$loadClass(HTMLSerializer, name, initialize, &_HTMLSerializer_ClassInfo_, clinit$HTMLSerializer, allocate$HTMLSerializer);
+	$FieldInfo fieldInfos$$[] = {
+		{"_xhtml", "Z", nullptr, $PRIVATE, $field(HTMLSerializer, _xhtml)},
+		{"XHTMLNamespace", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLSerializer, XHTMLNamespace)},
+		{"fUserXHTMLNamespace", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HTMLSerializer, fUserXHTMLNamespace)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZLcom/sun/org/apache/xml/internal/serialize/OutputFormat;)V", nullptr, $PROTECTED, $method(HTMLSerializer, init$, void, bool, $OutputFormat*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HTMLSerializer, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)V", nullptr, $PUBLIC, $method(HTMLSerializer, init$, void, $OutputFormat*)},
+		{"<init>", "(Ljava/io/Writer;Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)V", nullptr, $PUBLIC, $method(HTMLSerializer, init$, void, $Writer*, $OutputFormat*)},
+		{"<init>", "(Ljava/io/OutputStream;Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)V", nullptr, $PUBLIC, $method(HTMLSerializer, init$, void, $OutputStream*, $OutputFormat*)},
+		{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(HTMLSerializer, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"characters", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(HTMLSerializer, characters, void, $String*), "java.io.IOException"},
+		{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HTMLSerializer, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"endElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HTMLSerializer, endElement, void, $String*), "org.xml.sax.SAXException"},
+		{"endElementIO", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HTMLSerializer, endElementIO, void, $String*, $String*, $String*), "java.io.IOException"},
+		{"escapeURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(HTMLSerializer, escapeURI, $String*, $String*)},
+		{"getEntityRef", "(I)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(HTMLSerializer, getEntityRef, $String*, int32_t)},
+		{"serializeElement", "(Lorg/w3c/dom/Element;)V", nullptr, $PROTECTED, $virtualMethod(HTMLSerializer, serializeElement, void, $Element*), "java.io.IOException"},
+		{"setOutputFormat", "(Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)V", nullptr, $PUBLIC, $virtualMethod(HTMLSerializer, setOutputFormat, void, $OutputFormat*)},
+		{"setXHTMLNamespace", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HTMLSerializer, setXHTMLNamespace, void, $String*)},
+		{"startDocument", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(HTMLSerializer, startDocument, void, $String*), "java.io.IOException"},
+		{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(HTMLSerializer, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
+		{"startElement", "(Ljava/lang/String;Lorg/xml/sax/AttributeList;)V", nullptr, $PUBLIC, $virtualMethod(HTMLSerializer, startElement, void, $String*, $AttributeList*), "org.xml.sax.SAXException"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serialize.HTMLSerializer",
+		"com.sun.org.apache.xml.internal.serialize.BaseMarkupSerializer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(HTMLSerializer, name, initialize, &classInfo$$, HTMLSerializer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HTMLSerializer));
+	});
 	return class$;
 }
 

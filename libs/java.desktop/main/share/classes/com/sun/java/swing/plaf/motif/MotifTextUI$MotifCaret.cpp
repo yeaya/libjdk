@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifTextUI$MotifCaret.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifTextUI.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -33,50 +32,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$FieldInfo _MotifTextUI$MotifCaret_FieldInfo_[] = {
-	{"IBeamOverhang", "I", nullptr, $STATIC | $FINAL, $constField(MotifTextUI$MotifCaret, IBeamOverhang)},
-	{}
-};
-
-$MethodInfo _MotifTextUI$MotifCaret_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifTextUI$MotifCaret, init$, void)},
-	{"damage", "(Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(MotifTextUI$MotifCaret, damage, void, $Rectangle*)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifTextUI$MotifCaret, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifTextUI$MotifCaret, focusLost, void, $FocusEvent*)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MotifTextUI$MotifCaret, paint, void, $Graphics*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MotifTextUI$MotifCaret_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifTextUI$MotifCaret", "com.sun.java.swing.plaf.motif.MotifTextUI", "MotifCaret", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MotifTextUI$MotifCaret_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifTextUI$MotifCaret",
-	"javax.swing.text.DefaultCaret",
-	"javax.swing.plaf.UIResource",
-	_MotifTextUI$MotifCaret_FieldInfo_,
-	_MotifTextUI$MotifCaret_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifTextUI$MotifCaret_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifTextUI"
-};
-
-$Object* allocate$MotifTextUI$MotifCaret($Class* clazz) {
-	return $of($alloc(MotifTextUI$MotifCaret));
-}
-
 bool MotifTextUI$MotifCaret::equals(Object$* obj) {
 	 return this->$DefaultCaret::equals(obj);
 }
@@ -103,12 +58,12 @@ void MotifTextUI$MotifCaret::init$() {
 
 void MotifTextUI$MotifCaret::focusGained($FocusEvent* e) {
 	$DefaultCaret::focusGained(e);
-	$nc($(getComponent()))->repaint();
+	$$nc(getComponent())->repaint();
 }
 
 void MotifTextUI$MotifCaret::focusLost($FocusEvent* e) {
 	$DefaultCaret::focusLost(e);
-	$nc($(getComponent()))->repaint();
+	$$nc(getComponent())->repaint();
 }
 
 void MotifTextUI$MotifCaret::damage($Rectangle* r) {
@@ -122,11 +77,11 @@ void MotifTextUI$MotifCaret::damage($Rectangle* r) {
 }
 
 void MotifTextUI$MotifCaret::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isVisible()) {
 		try {
 			$var($JTextComponent, c, getComponent());
-			$var($Color, fg, $nc(c)->hasFocus() ? $nc(c)->getCaretColor() : c->getDisabledTextColor());
+			$var($Color, fg, $nc(c)->hasFocus() ? c->getCaretColor() : c->getDisabledTextColor());
 			$var($TextUI, mapper, $cast($TextUI, c->getUI()));
 			int32_t dot = getDot();
 			$var($Rectangle, r, $nc(mapper)->modelToView(c, dot));
@@ -147,7 +102,45 @@ MotifTextUI$MotifCaret::MotifTextUI$MotifCaret() {
 }
 
 $Class* MotifTextUI$MotifCaret::load$($String* name, bool initialize) {
-	$loadClass(MotifTextUI$MotifCaret, name, initialize, &_MotifTextUI$MotifCaret_ClassInfo_, allocate$MotifTextUI$MotifCaret);
+	$FieldInfo fieldInfos$$[] = {
+		{"IBeamOverhang", "I", nullptr, $STATIC | $FINAL, $constField(MotifTextUI$MotifCaret, IBeamOverhang)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifTextUI$MotifCaret, init$, void)},
+		{"damage", "(Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(MotifTextUI$MotifCaret, damage, void, $Rectangle*)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifTextUI$MotifCaret, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifTextUI$MotifCaret, focusLost, void, $FocusEvent*)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MotifTextUI$MotifCaret, paint, void, $Graphics*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifTextUI$MotifCaret", "com.sun.java.swing.plaf.motif.MotifTextUI", "MotifCaret", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifTextUI$MotifCaret",
+		"javax.swing.text.DefaultCaret",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifTextUI"
+	};
+	$loadClass(MotifTextUI$MotifCaret, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifTextUI$MotifCaret));
+	});
 	return class$;
 }
 

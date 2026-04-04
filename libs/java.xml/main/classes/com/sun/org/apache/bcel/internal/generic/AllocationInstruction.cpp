@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/AllocationInstruction.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -12,17 +11,14 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$ClassInfo _AllocationInstruction_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.generic.AllocationInstruction"
-};
-
-$Object* allocate$AllocationInstruction($Class* clazz) {
-	return $of($alloc(AllocationInstruction));
-}
-
 $Class* AllocationInstruction::load$($String* name, bool initialize) {
-	$loadClass(AllocationInstruction, name, initialize, &_AllocationInstruction_ClassInfo_, allocate$AllocationInstruction);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.generic.AllocationInstruction"
+	};
+	$loadClass(AllocationInstruction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AllocationInstruction);
+	});
 	return class$;
 }
 

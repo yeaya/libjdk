@@ -50,6 +50,7 @@ class XDnDDragSourceProtocol : public ::sun::awt::X11::XDragSourceProtocol {
 	$class(XDnDDragSourceProtocol, 0, ::sun::awt::X11::XDragSourceProtocol)
 public:
 	XDnDDragSourceProtocol();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::X11::XDragSourceProtocolListener* listener);
 	static ::sun::awt::X11::XDragSourceProtocol* createInstance(::sun::awt::X11::XDragSourceProtocolListener* listener);
 	virtual $String* getProtocolName() override;

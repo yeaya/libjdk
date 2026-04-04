@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicBorders$ButtonBorder.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -31,51 +30,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicBorders$ButtonBorder_FieldInfo_[] = {
-	{"shadow", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicBorders$ButtonBorder, shadow)},
-	{"darkShadow", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicBorders$ButtonBorder, darkShadow)},
-	{"highlight", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicBorders$ButtonBorder, highlight)},
-	{"lightHighlight", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicBorders$ButtonBorder, lightHighlight)},
-	{}
-};
-
-$MethodInfo _BasicBorders$ButtonBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(BasicBorders$ButtonBorder, init$, void, $Color*, $Color*, $Color*, $Color*)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(BasicBorders$ButtonBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(BasicBorders$ButtonBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicBorders$ButtonBorder_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicBorders$ButtonBorder", "javax.swing.plaf.basic.BasicBorders", "ButtonBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicBorders$ButtonBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicBorders$ButtonBorder",
-	"javax.swing.border.AbstractBorder",
-	"javax.swing.plaf.UIResource",
-	_BasicBorders$ButtonBorder_FieldInfo_,
-	_BasicBorders$ButtonBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicBorders$ButtonBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicBorders"
-};
-
-$Object* allocate$BasicBorders$ButtonBorder($Class* clazz) {
-	return $of($alloc(BasicBorders$ButtonBorder));
-}
-
 int32_t BasicBorders$ButtonBorder::hashCode() {
 	 return this->$AbstractBorder::hashCode();
 }
@@ -105,16 +59,16 @@ void BasicBorders$ButtonBorder::init$($Color* shadow, $Color* darkShadow, $Color
 }
 
 void BasicBorders$ButtonBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool isPressed = false;
 	bool isDefault = false;
 	if ($instanceOf($AbstractButton, c)) {
 		$var($AbstractButton, b, $cast($AbstractButton, c));
-		$var($ButtonModel, model, $nc(b)->getModel());
+		$var($ButtonModel, model, b->getModel());
 		bool var$0 = $nc(model)->isPressed();
 		isPressed = var$0 && model->isArmed();
 		if ($instanceOf($JButton, c)) {
-			isDefault = $nc(($cast($JButton, c)))->isDefaultButton();
+			isDefault = $cast($JButton, c)->isDefaultButton();
 		}
 	}
 	$BasicGraphicsUtils::drawBezel(g, x, y, width, height, isPressed, isDefault, this->shadow, this->darkShadow, this->highlight, this->lightHighlight);
@@ -129,7 +83,46 @@ BasicBorders$ButtonBorder::BasicBorders$ButtonBorder() {
 }
 
 $Class* BasicBorders$ButtonBorder::load$($String* name, bool initialize) {
-	$loadClass(BasicBorders$ButtonBorder, name, initialize, &_BasicBorders$ButtonBorder_ClassInfo_, allocate$BasicBorders$ButtonBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"shadow", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicBorders$ButtonBorder, shadow)},
+		{"darkShadow", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicBorders$ButtonBorder, darkShadow)},
+		{"highlight", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicBorders$ButtonBorder, highlight)},
+		{"lightHighlight", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicBorders$ButtonBorder, lightHighlight)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(BasicBorders$ButtonBorder, init$, void, $Color*, $Color*, $Color*, $Color*)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(BasicBorders$ButtonBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(BasicBorders$ButtonBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicBorders$ButtonBorder", "javax.swing.plaf.basic.BasicBorders", "ButtonBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicBorders$ButtonBorder",
+		"javax.swing.border.AbstractBorder",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicBorders"
+	};
+	$loadClass(BasicBorders$ButtonBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicBorders$ButtonBorder));
+	});
 	return class$;
 }
 

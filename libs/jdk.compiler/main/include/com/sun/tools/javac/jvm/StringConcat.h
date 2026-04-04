@@ -93,6 +93,7 @@ class $import StringConcat : public ::java::lang::Object {
 	$class(StringConcat, 0, ::java::lang::Object)
 public:
 	StringConcat();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	::com::sun::tools::javac::util::List* collect(::com::sun::tools::javac::tree::JCTree* tree, ::com::sun::tools::javac::util::List* res);
 	virtual ::com::sun::tools::javac::util::List* collectAll(::com::sun::tools::javac::tree::JCTree* tree);

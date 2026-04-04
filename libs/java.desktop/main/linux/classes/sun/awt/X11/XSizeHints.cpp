@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XSizeHints.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,86 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XSizeHints_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XSizeHints, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XSizeHints, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XSizeHints, pData)},
-	{}
-};
-
-$MethodInfo _XSizeHints_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XSizeHints, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XSizeHints, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XSizeHints, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XSizeHints, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XSizeHints, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XSizeHints, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XSizeHints, getSize, int32_t)},
-	{"get_base_height", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_base_height, int32_t)},
-	{"get_base_width", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_base_width, int32_t)},
-	{"get_flags", "()J", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_flags, int64_t)},
-	{"get_height", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_height, int32_t)},
-	{"get_height_inc", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_height_inc, int32_t)},
-	{"get_max_aspect_x", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_max_aspect_x, int32_t)},
-	{"get_max_aspect_y", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_max_aspect_y, int32_t)},
-	{"get_max_height", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_max_height, int32_t)},
-	{"get_max_width", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_max_width, int32_t)},
-	{"get_min_aspect_x", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_min_aspect_x, int32_t)},
-	{"get_min_aspect_y", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_min_aspect_y, int32_t)},
-	{"get_min_height", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_min_height, int32_t)},
-	{"get_min_width", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_min_width, int32_t)},
-	{"get_width", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_width, int32_t)},
-	{"get_width_inc", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_width_inc, int32_t)},
-	{"get_win_gravity", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_win_gravity, int32_t)},
-	{"get_x", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_x, int32_t)},
-	{"get_y", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_y, int32_t)},
-	{"set_base_height", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_base_height, void, int32_t)},
-	{"set_base_width", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_base_width, void, int32_t)},
-	{"set_flags", "(J)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_flags, void, int64_t)},
-	{"set_height", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_height, void, int32_t)},
-	{"set_height_inc", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_height_inc, void, int32_t)},
-	{"set_max_aspect_x", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_max_aspect_x, void, int32_t)},
-	{"set_max_aspect_y", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_max_aspect_y, void, int32_t)},
-	{"set_max_height", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_max_height, void, int32_t)},
-	{"set_max_width", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_max_width, void, int32_t)},
-	{"set_min_aspect_x", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_min_aspect_x, void, int32_t)},
-	{"set_min_aspect_y", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_min_aspect_y, void, int32_t)},
-	{"set_min_height", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_min_height, void, int32_t)},
-	{"set_min_width", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_min_width, void, int32_t)},
-	{"set_width", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_width, void, int32_t)},
-	{"set_width_inc", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_width_inc, void, int32_t)},
-	{"set_win_gravity", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_win_gravity, void, int32_t)},
-	{"set_x", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_x, void, int32_t)},
-	{"set_y", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_y, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XSizeHints, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XSizeHints, zero, void)},
-	{}
-};
-
-$ClassInfo _XSizeHints_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XSizeHints",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XSizeHints_FieldInfo_,
-	_XSizeHints_MethodInfo_
-};
-
-$Object* allocate$XSizeHints($Class* clazz) {
-	return $of($alloc(XSizeHints));
-}
 
 int32_t XSizeHints::getSize() {
 	$init(XSizeHints);
@@ -129,7 +55,7 @@ void XSizeHints::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -378,7 +304,7 @@ $String* XSizeHints::getFieldsAsString() {
 }
 
 $Object* XSizeHints::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XSizeHints::zero() {
@@ -393,7 +319,73 @@ XSizeHints::XSizeHints() {
 }
 
 $Class* XSizeHints::load$($String* name, bool initialize) {
-	$loadClass(XSizeHints, name, initialize, &_XSizeHints_ClassInfo_, allocate$XSizeHints);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XSizeHints, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XSizeHints, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XSizeHints, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XSizeHints, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XSizeHints, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XSizeHints, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XSizeHints, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XSizeHints, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XSizeHints, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XSizeHints, getSize, int32_t)},
+		{"get_base_height", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_base_height, int32_t)},
+		{"get_base_width", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_base_width, int32_t)},
+		{"get_flags", "()J", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_flags, int64_t)},
+		{"get_height", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_height, int32_t)},
+		{"get_height_inc", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_height_inc, int32_t)},
+		{"get_max_aspect_x", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_max_aspect_x, int32_t)},
+		{"get_max_aspect_y", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_max_aspect_y, int32_t)},
+		{"get_max_height", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_max_height, int32_t)},
+		{"get_max_width", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_max_width, int32_t)},
+		{"get_min_aspect_x", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_min_aspect_x, int32_t)},
+		{"get_min_aspect_y", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_min_aspect_y, int32_t)},
+		{"get_min_height", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_min_height, int32_t)},
+		{"get_min_width", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_min_width, int32_t)},
+		{"get_width", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_width, int32_t)},
+		{"get_width_inc", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_width_inc, int32_t)},
+		{"get_win_gravity", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_win_gravity, int32_t)},
+		{"get_x", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_x, int32_t)},
+		{"get_y", "()I", nullptr, $PUBLIC, $virtualMethod(XSizeHints, get_y, int32_t)},
+		{"set_base_height", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_base_height, void, int32_t)},
+		{"set_base_width", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_base_width, void, int32_t)},
+		{"set_flags", "(J)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_flags, void, int64_t)},
+		{"set_height", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_height, void, int32_t)},
+		{"set_height_inc", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_height_inc, void, int32_t)},
+		{"set_max_aspect_x", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_max_aspect_x, void, int32_t)},
+		{"set_max_aspect_y", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_max_aspect_y, void, int32_t)},
+		{"set_max_height", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_max_height, void, int32_t)},
+		{"set_max_width", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_max_width, void, int32_t)},
+		{"set_min_aspect_x", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_min_aspect_x, void, int32_t)},
+		{"set_min_aspect_y", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_min_aspect_y, void, int32_t)},
+		{"set_min_height", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_min_height, void, int32_t)},
+		{"set_min_width", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_min_width, void, int32_t)},
+		{"set_width", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_width, void, int32_t)},
+		{"set_width_inc", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_width_inc, void, int32_t)},
+		{"set_win_gravity", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_win_gravity, void, int32_t)},
+		{"set_x", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_x, void, int32_t)},
+		{"set_y", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSizeHints, set_y, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XSizeHints, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XSizeHints, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XSizeHints",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XSizeHints, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSizeHints);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <TestTitledBorderLeak.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Window.h>
@@ -26,9 +25,6 @@
 #undef TOTAL_TITLEDBORDER
 
 using $JFrameArray = $Array<::javax::swing::JFrame>;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -44,7 +40,6 @@ using $JFrame = ::javax::swing::JFrame;
 using $JLabel = ::javax::swing::JLabel;
 using $JPanel = ::javax::swing::JPanel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $Border = ::javax::swing::border::Border;
 using $TitledBorder = ::javax::swing::border::TitledBorder;
 
 class TestTitledBorderLeak$$Lambda$lambda$main$0 : public $Runnable {
@@ -56,33 +51,29 @@ public:
 	virtual void run() override {
 		TestTitledBorderLeak::lambda$main$0(frame);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestTitledBorderLeak$$Lambda$lambda$main$0>());
-	}
 	$JFrameArray* frame = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestTitledBorderLeak$$Lambda$lambda$main$0::fieldInfos[2] = {
-	{"frame", "[Ljavax/swing/JFrame;", nullptr, $PUBLIC, $field(TestTitledBorderLeak$$Lambda$lambda$main$0, frame)},
-	{}
-};
-$MethodInfo TestTitledBorderLeak$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "([Ljavax/swing/JFrame;)V", nullptr, $PUBLIC, $method(TestTitledBorderLeak$$Lambda$lambda$main$0, init$, void, $JFrameArray*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestTitledBorderLeak$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo TestTitledBorderLeak$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestTitledBorderLeak$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestTitledBorderLeak$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(TestTitledBorderLeak$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "[Ljavax/swing/JFrame;", nullptr, $PUBLIC, $field(TestTitledBorderLeak$$Lambda$lambda$main$0, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljavax/swing/JFrame;)V", nullptr, $PUBLIC, $method(TestTitledBorderLeak$$Lambda$lambda$main$0, init$, void, $JFrameArray*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestTitledBorderLeak$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestTitledBorderLeak$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestTitledBorderLeak$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestTitledBorderLeak$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* TestTitledBorderLeak$$Lambda$lambda$main$0::class$ = nullptr;
@@ -96,66 +87,32 @@ public:
 	virtual void run() override {
 		TestTitledBorderLeak::lambda$main$1(frame);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestTitledBorderLeak$$Lambda$lambda$main$1$1>());
-	}
 	$JFrameArray* frame = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestTitledBorderLeak$$Lambda$lambda$main$1$1::fieldInfos[2] = {
-	{"frame", "[Ljavax/swing/JFrame;", nullptr, $PUBLIC, $field(TestTitledBorderLeak$$Lambda$lambda$main$1$1, frame)},
-	{}
-};
-$MethodInfo TestTitledBorderLeak$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "([Ljavax/swing/JFrame;)V", nullptr, $PUBLIC, $method(TestTitledBorderLeak$$Lambda$lambda$main$1$1, init$, void, $JFrameArray*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestTitledBorderLeak$$Lambda$lambda$main$1$1, run, void)},
-	{}
-};
-$ClassInfo TestTitledBorderLeak$$Lambda$lambda$main$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestTitledBorderLeak$$Lambda$lambda$main$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestTitledBorderLeak$$Lambda$lambda$main$1$1::load$($String* name, bool initialize) {
-	$loadClass(TestTitledBorderLeak$$Lambda$lambda$main$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "[Ljavax/swing/JFrame;", nullptr, $PUBLIC, $field(TestTitledBorderLeak$$Lambda$lambda$main$1$1, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljavax/swing/JFrame;)V", nullptr, $PUBLIC, $method(TestTitledBorderLeak$$Lambda$lambda$main$1$1, init$, void, $JFrameArray*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestTitledBorderLeak$$Lambda$lambda$main$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestTitledBorderLeak$$Lambda$lambda$main$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestTitledBorderLeak$$Lambda$lambda$main$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestTitledBorderLeak$$Lambda$lambda$main$1$1);
+	});
 	return class$;
 }
 $Class* TestTitledBorderLeak$$Lambda$lambda$main$1$1::class$ = nullptr;
-
-$FieldInfo _TestTitledBorderLeak_FieldInfo_[] = {
-	{"TOTAL_TITLEDBORDER", "I", nullptr, $STATIC | $FINAL, $constField(TestTitledBorderLeak, TOTAL_TITLEDBORDER)},
-	{"GC_ATTEMPTS", "I", nullptr, $STATIC | $FINAL, $constField(TestTitledBorderLeak, GC_ATTEMPTS)},
-	{"weakRefArrTB", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/ref/WeakReference<Ljavax/swing/border/TitledBorder;>;>;", $STATIC, $staticField(TestTitledBorderLeak, weakRefArrTB)},
-	{}
-};
-
-$MethodInfo _TestTitledBorderLeak_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestTitledBorderLeak, init$, void)},
-	{"attemptGCTitledBorder", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestTitledBorderLeak, attemptGCTitledBorder, void)},
-	{"getCleanedUpTitledBorderCount", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(TestTitledBorderLeak, getCleanedUpTitledBorderCount, int32_t)},
-	{"lambda$main$0", "([Ljavax/swing/JFrame;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestTitledBorderLeak, lambda$main$0, void, $JFrameArray*)},
-	{"lambda$main$1", "([Ljavax/swing/JFrame;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestTitledBorderLeak, lambda$main$1, void, $JFrameArray*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestTitledBorderLeak, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _TestTitledBorderLeak_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestTitledBorderLeak",
-	"java.lang.Object",
-	nullptr,
-	_TestTitledBorderLeak_FieldInfo_,
-	_TestTitledBorderLeak_MethodInfo_
-};
-
-$Object* allocate$TestTitledBorderLeak($Class* clazz) {
-	return $of($alloc(TestTitledBorderLeak));
-}
 
 $ArrayList* TestTitledBorderLeak::weakRefArrTB = nullptr;
 
@@ -164,14 +121,14 @@ void TestTitledBorderLeak::init$() {
 
 void TestTitledBorderLeak::main($StringArray* args) {
 	$init(TestTitledBorderLeak);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFrameArray, frame, $new($JFrameArray, TestTitledBorderLeak::TOTAL_TITLEDBORDER));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestTitledBorderLeak$$Lambda$lambda$main$0, frame)));
+	$SwingUtilities::invokeAndWait($$new(TestTitledBorderLeak$$Lambda$lambda$main$0, frame));
 	if (TestTitledBorderLeak::TOTAL_TITLEDBORDER != $nc(TestTitledBorderLeak::weakRefArrTB)->size()) {
 		$nc($System::err)->println("TOTAL_TITLEDBORDER != weakRefArrTB.size()"_s);
 	}
 	$Thread::sleep(3000);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestTitledBorderLeak$$Lambda$lambda$main$1$1, frame)));
+	$SwingUtilities::invokeAndWait($$new(TestTitledBorderLeak$$Lambda$lambda$main$1$1, frame));
 	$Thread::sleep(3000);
 	attemptGCTitledBorder();
 	if (TestTitledBorderLeak::TOTAL_TITLEDBORDER != getCleanedUpTitledBorderCount()) {
@@ -198,16 +155,14 @@ void TestTitledBorderLeak::attemptGCTitledBorder() {
 
 int32_t TestTitledBorderLeak::getCleanedUpTitledBorderCount() {
 	$init(TestTitledBorderLeak);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = 0;
 	{
 		$var($Iterator, i$, $nc(TestTitledBorderLeak::weakRefArrTB)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($WeakReference, ref, $cast($WeakReference, i$->next()));
-			{
-				if ($nc(ref)->get() == nullptr) {
-					++count;
-				}
+			if ($nc(ref)->get() == nullptr) {
+				++count;
 			}
 		}
 	}
@@ -224,7 +179,7 @@ void TestTitledBorderLeak::lambda$main$1($JFrameArray* frame) {
 
 void TestTitledBorderLeak::lambda$main$0($JFrameArray* frame) {
 	$init(TestTitledBorderLeak);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < TestTitledBorderLeak::TOTAL_TITLEDBORDER; ++i) {
 		$var($TitledBorder, tb, $new($TitledBorder, ""_s));
 		$nc(TestTitledBorderLeak::weakRefArrTB)->add(i, $$new($WeakReference, tb));
@@ -232,13 +187,13 @@ void TestTitledBorderLeak::lambda$main$0($JFrameArray* frame) {
 		label->setBorder(tb);
 		$nc(frame)->set(i, $$new($JFrame, "Borders"_s));
 		$var($JPanel, panel, $new($JPanel));
-		panel->add(static_cast<$Component*>(label));
+		panel->add(label);
 		$nc(frame->get(i))->setContentPane(panel);
 		$nc(frame->get(i))->setVisible(true);
 	}
 }
 
-void clinit$TestTitledBorderLeak($Class* class$) {
+void TestTitledBorderLeak::clinit$($Class* clazz) {
 	$assignStatic(TestTitledBorderLeak::weakRefArrTB, $new($ArrayList, TestTitledBorderLeak::TOTAL_TITLEDBORDER));
 }
 
@@ -247,14 +202,39 @@ TestTitledBorderLeak::TestTitledBorderLeak() {
 
 $Class* TestTitledBorderLeak::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TestTitledBorderLeak$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("TestTitledBorderLeak$$Lambda$lambda$main$0")) {
 			return TestTitledBorderLeak$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(TestTitledBorderLeak$$Lambda$lambda$main$1$1::classInfo$.name)) {
+		if (name->equals("TestTitledBorderLeak$$Lambda$lambda$main$1$1")) {
 			return TestTitledBorderLeak$$Lambda$lambda$main$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(TestTitledBorderLeak, name, initialize, &_TestTitledBorderLeak_ClassInfo_, clinit$TestTitledBorderLeak, allocate$TestTitledBorderLeak);
+	$FieldInfo fieldInfos$$[] = {
+		{"TOTAL_TITLEDBORDER", "I", nullptr, $STATIC | $FINAL, $constField(TestTitledBorderLeak, TOTAL_TITLEDBORDER)},
+		{"GC_ATTEMPTS", "I", nullptr, $STATIC | $FINAL, $constField(TestTitledBorderLeak, GC_ATTEMPTS)},
+		{"weakRefArrTB", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/ref/WeakReference<Ljavax/swing/border/TitledBorder;>;>;", $STATIC, $staticField(TestTitledBorderLeak, weakRefArrTB)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestTitledBorderLeak, init$, void)},
+		{"attemptGCTitledBorder", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestTitledBorderLeak, attemptGCTitledBorder, void)},
+		{"getCleanedUpTitledBorderCount", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(TestTitledBorderLeak, getCleanedUpTitledBorderCount, int32_t)},
+		{"lambda$main$0", "([Ljavax/swing/JFrame;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestTitledBorderLeak, lambda$main$0, void, $JFrameArray*)},
+		{"lambda$main$1", "([Ljavax/swing/JFrame;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestTitledBorderLeak, lambda$main$1, void, $JFrameArray*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestTitledBorderLeak, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestTitledBorderLeak",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestTitledBorderLeak, name, initialize, &classInfo$$, TestTitledBorderLeak::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TestTitledBorderLeak);
+	});
 	return class$;
 }
 

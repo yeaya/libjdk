@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/UnicodeReader.h>
-
 #include <com/sun/tools/javac/parser/ScannerFactory.h>
 #include <com/sun/tools/javac/parser/UnicodeReader$1.h>
 #include <com/sun/tools/javac/parser/UnicodeReader$UnicodeEscapeResult.h>
@@ -17,7 +16,6 @@ using $ScannerFactory = ::com::sun::tools::javac::parser::ScannerFactory;
 using $UnicodeReader$1 = ::com::sun::tools::javac::parser::UnicodeReader$1;
 using $UnicodeReader$UnicodeEscapeResult = ::com::sun::tools::javac::parser::UnicodeReader$UnicodeEscapeResult;
 using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::CompilerProperties$Errors;
-using $Log = ::com::sun::tools::javac::util::Log;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -30,78 +28,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace parser {
-
-$FieldInfo _UnicodeReader_FieldInfo_[] = {
-	{"buffer", "[C", nullptr, $PRIVATE | $FINAL, $field(UnicodeReader, buffer)},
-	{"length", "I", nullptr, $PRIVATE | $FINAL, $field(UnicodeReader, length$)},
-	{"position", "I", nullptr, $PRIVATE, $field(UnicodeReader, position$)},
-	{"width", "I", nullptr, $PRIVATE, $field(UnicodeReader, width)},
-	{"character", "C", nullptr, $PRIVATE, $field(UnicodeReader, character)},
-	{"codepoint", "I", nullptr, $PRIVATE, $field(UnicodeReader, codepoint)},
-	{"wasBackslash", "Z", nullptr, $PRIVATE, $field(UnicodeReader, wasBackslash)},
-	{"wasUnicodeEscape", "Z", nullptr, $PRIVATE, $field(UnicodeReader, wasUnicodeEscape)},
-	{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE | $FINAL, $field(UnicodeReader, log)},
-	{}
-};
-
-$MethodInfo _UnicodeReader_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;[CI)V", nullptr, $PROTECTED, $method(UnicodeReader, init$, void, $ScannerFactory*, $chars*, int32_t)},
-	{"accept", "(C)Z", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, accept, bool, char16_t)},
-	{"accept", "(Ljava/lang/String;)Z", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, accept, bool, $String*)},
-	{"acceptOneOf", "(CC)Z", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, acceptOneOf, bool, char16_t, char16_t)},
-	{"acceptOneOf", "(CCC)Z", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, acceptOneOf, bool, char16_t, char16_t, char16_t)},
-	{"digit", "(II)I", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, digit, int32_t, int32_t, int32_t)},
-	{"get", "()C", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, get, char16_t)},
-	{"getCodepoint", "()I", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, getCodepoint, int32_t)},
-	{"getRawCharacters", "()[C", nullptr, $PUBLIC, $virtualMethod(UnicodeReader, getRawCharacters, $chars*)},
-	{"getRawCharacters", "(II)[C", nullptr, $PUBLIC, $virtualMethod(UnicodeReader, getRawCharacters, $chars*, int32_t, int32_t)},
-	{"inRange", "(CC)Z", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, inRange, bool, char16_t, char16_t)},
-	{"is", "(C)Z", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, is, bool, char16_t)},
-	{"isASCII", "()Z", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, isASCII, bool)},
-	{"isAvailable", "()Z", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, isAvailable, bool)},
-	{"isOneOf", "(CC)Z", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, isOneOf, bool, char16_t, char16_t)},
-	{"isOneOf", "(CCC)Z", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, isOneOf, bool, char16_t, char16_t, char16_t)},
-	{"isOneOf", "(CCCCCC)Z", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, isOneOf, bool, char16_t, char16_t, char16_t, char16_t, char16_t, char16_t)},
-	{"isSurrogate", "()Z", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, isSurrogate, bool)},
-	{"length", "()I", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, length, int32_t)},
-	{"next", "()C", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, next, char16_t)},
-	{"nextCodePoint", "()V", nullptr, $PRIVATE, $method(UnicodeReader, nextCodePoint, void)},
-	{"nextCodeUnit", "()V", nullptr, $PRIVATE, $method(UnicodeReader, nextCodeUnit, void)},
-	{"nextUnicodeInputCharacter", "()V", nullptr, $PRIVATE, $method(UnicodeReader, nextUnicodeInputCharacter, void)},
-	{"position", "()I", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, position, int32_t)},
-	{"reset", "(I)V", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, reset, void, int32_t)},
-	{"skip", "(C)V", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, skip, void, char16_t)},
-	{"skipToEOLN", "()V", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, skipToEOLN, void)},
-	{"skipWhitespace", "()V", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, skipWhitespace, void)},
-	{"unicodeEscape", "()Lcom/sun/tools/javac/parser/UnicodeReader$UnicodeEscapeResult;", nullptr, $PRIVATE, $method(UnicodeReader, unicodeEscape, $UnicodeReader$UnicodeEscapeResult*)},
-	{}
-};
-
-$InnerClassInfo _UnicodeReader_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.UnicodeReader$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.parser.UnicodeReader$PositionTrackingReader", "com.sun.tools.javac.parser.UnicodeReader", "PositionTrackingReader", $STATIC},
-	{"com.sun.tools.javac.parser.UnicodeReader$UnicodeEscapeResult", "com.sun.tools.javac.parser.UnicodeReader", "UnicodeEscapeResult", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _UnicodeReader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.parser.UnicodeReader",
-	"java.lang.Object",
-	nullptr,
-	_UnicodeReader_FieldInfo_,
-	_UnicodeReader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UnicodeReader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.UnicodeReader$1,com.sun.tools.javac.parser.UnicodeReader$PositionTrackingReader,com.sun.tools.javac.parser.UnicodeReader$UnicodeEscapeResult"
-};
-
-$Object* allocate$UnicodeReader($Class* clazz) {
-	return $of($alloc(UnicodeReader));
-}
 
 void UnicodeReader::init$($ScannerFactory* sf, $chars* array, int32_t length) {
 	$set(this, buffer, array);
@@ -127,7 +53,7 @@ bool UnicodeReader::isAvailable() {
 void UnicodeReader::nextCodeUnit() {
 	int32_t index = this->position$ + this->width;
 	if (this->length$ <= index) {
-		this->character = (char16_t)26;
+		this->character = 26;
 	} else {
 		this->character = $nc(this->buffer)->get(index);
 		++this->width;
@@ -140,28 +66,22 @@ void UnicodeReader::nextUnicodeInputCharacter() {
 	nextCodeUnit();
 	if (this->character == u'\\' && (!this->wasBackslash || this->wasUnicodeEscape)) {
 		$init($UnicodeReader$1);
-		switch ($nc($UnicodeReader$1::$SwitchMap$com$sun$tools$javac$parser$UnicodeReader$UnicodeEscapeResult)->get($nc(($(unicodeEscape())))->ordinal())) {
+		switch ($nc($UnicodeReader$1::$SwitchMap$com$sun$tools$javac$parser$UnicodeReader$UnicodeEscapeResult)->get(($$nc(unicodeEscape()))->ordinal())) {
 		case 1:
 			{
-				{
-					this->wasUnicodeEscape = false;
-					this->wasBackslash = !this->wasBackslash;
-				}
-				break;
+				this->wasUnicodeEscape = false;
+				this->wasBackslash = !this->wasBackslash;
 			}
+			break;
 		case 2:
 			{
-				{
-					this->wasUnicodeEscape = true;
-					this->wasBackslash = this->character == u'\\' && !this->wasBackslash;
-				}
-				break;
+				this->wasUnicodeEscape = true;
+				this->wasBackslash = this->character == u'\\' && !this->wasBackslash;
 			}
+			break;
 		case 3:
-			{
-				nextUnicodeInputCharacter();
-				break;
-			}
+			nextUnicodeInputCharacter();
+			break;
 		}
 	} else {
 		this->wasBackslash = false;
@@ -250,7 +170,7 @@ int32_t UnicodeReader::getCodepoint() {
 }
 
 bool UnicodeReader::isSurrogate() {
-	return 0x0000FFFF < this->codepoint;
+	return 0x0000ffff < this->codepoint;
 }
 
 bool UnicodeReader::isASCII() {
@@ -335,12 +255,12 @@ void UnicodeReader::skipToEOLN() {
 
 bool UnicodeReader::accept($String* string) {
 	bool var$0 = $nc(string)->length() == 0;
-	if (var$0 || !is($nc(string)->charAt(0))) {
+	if (var$0 || !is(string->charAt(0))) {
 		return false;
 	}
 	int32_t savedPosition = this->position$;
 	nextCodePoint();
-	for (int32_t i = 1; i < $nc(string)->length(); ++i) {
+	for (int32_t i = 1; i < string->length(); ++i) {
 		if (!is(string->charAt(i))) {
 			reset(savedPosition);
 			return false;
@@ -377,7 +297,73 @@ UnicodeReader::UnicodeReader() {
 }
 
 $Class* UnicodeReader::load$($String* name, bool initialize) {
-	$loadClass(UnicodeReader, name, initialize, &_UnicodeReader_ClassInfo_, allocate$UnicodeReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"buffer", "[C", nullptr, $PRIVATE | $FINAL, $field(UnicodeReader, buffer)},
+		{"length", "I", nullptr, $PRIVATE | $FINAL, $field(UnicodeReader, length$)},
+		{"position", "I", nullptr, $PRIVATE, $field(UnicodeReader, position$)},
+		{"width", "I", nullptr, $PRIVATE, $field(UnicodeReader, width)},
+		{"character", "C", nullptr, $PRIVATE, $field(UnicodeReader, character)},
+		{"codepoint", "I", nullptr, $PRIVATE, $field(UnicodeReader, codepoint)},
+		{"wasBackslash", "Z", nullptr, $PRIVATE, $field(UnicodeReader, wasBackslash)},
+		{"wasUnicodeEscape", "Z", nullptr, $PRIVATE, $field(UnicodeReader, wasUnicodeEscape)},
+		{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE | $FINAL, $field(UnicodeReader, log)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;[CI)V", nullptr, $PROTECTED, $method(UnicodeReader, init$, void, $ScannerFactory*, $chars*, int32_t)},
+		{"accept", "(C)Z", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, accept, bool, char16_t)},
+		{"accept", "(Ljava/lang/String;)Z", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, accept, bool, $String*)},
+		{"acceptOneOf", "(CC)Z", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, acceptOneOf, bool, char16_t, char16_t)},
+		{"acceptOneOf", "(CCC)Z", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, acceptOneOf, bool, char16_t, char16_t, char16_t)},
+		{"digit", "(II)I", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, digit, int32_t, int32_t, int32_t)},
+		{"get", "()C", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, get, char16_t)},
+		{"getCodepoint", "()I", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, getCodepoint, int32_t)},
+		{"getRawCharacters", "()[C", nullptr, $PUBLIC, $virtualMethod(UnicodeReader, getRawCharacters, $chars*)},
+		{"getRawCharacters", "(II)[C", nullptr, $PUBLIC, $virtualMethod(UnicodeReader, getRawCharacters, $chars*, int32_t, int32_t)},
+		{"inRange", "(CC)Z", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, inRange, bool, char16_t, char16_t)},
+		{"is", "(C)Z", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, is, bool, char16_t)},
+		{"isASCII", "()Z", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, isASCII, bool)},
+		{"isAvailable", "()Z", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, isAvailable, bool)},
+		{"isOneOf", "(CC)Z", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, isOneOf, bool, char16_t, char16_t)},
+		{"isOneOf", "(CCC)Z", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, isOneOf, bool, char16_t, char16_t, char16_t)},
+		{"isOneOf", "(CCCCCC)Z", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, isOneOf, bool, char16_t, char16_t, char16_t, char16_t, char16_t, char16_t)},
+		{"isSurrogate", "()Z", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, isSurrogate, bool)},
+		{"length", "()I", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, length, int32_t)},
+		{"next", "()C", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, next, char16_t)},
+		{"nextCodePoint", "()V", nullptr, $PRIVATE, $method(UnicodeReader, nextCodePoint, void)},
+		{"nextCodeUnit", "()V", nullptr, $PRIVATE, $method(UnicodeReader, nextCodeUnit, void)},
+		{"nextUnicodeInputCharacter", "()V", nullptr, $PRIVATE, $method(UnicodeReader, nextUnicodeInputCharacter, void)},
+		{"position", "()I", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, position, int32_t)},
+		{"reset", "(I)V", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, reset, void, int32_t)},
+		{"skip", "(C)V", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, skip, void, char16_t)},
+		{"skipToEOLN", "()V", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, skipToEOLN, void)},
+		{"skipWhitespace", "()V", nullptr, $PROTECTED, $virtualMethod(UnicodeReader, skipWhitespace, void)},
+		{"unicodeEscape", "()Lcom/sun/tools/javac/parser/UnicodeReader$UnicodeEscapeResult;", nullptr, $PRIVATE, $method(UnicodeReader, unicodeEscape, $UnicodeReader$UnicodeEscapeResult*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.UnicodeReader$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.parser.UnicodeReader$PositionTrackingReader", "com.sun.tools.javac.parser.UnicodeReader", "PositionTrackingReader", $STATIC},
+		{"com.sun.tools.javac.parser.UnicodeReader$UnicodeEscapeResult", "com.sun.tools.javac.parser.UnicodeReader", "UnicodeEscapeResult", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.parser.UnicodeReader",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.UnicodeReader$1,com.sun.tools.javac.parser.UnicodeReader$PositionTrackingReader,com.sun.tools.javac.parser.UnicodeReader$UnicodeEscapeResult"
+	};
+	$loadClass(UnicodeReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnicodeReader);
+	});
 	return class$;
 }
 

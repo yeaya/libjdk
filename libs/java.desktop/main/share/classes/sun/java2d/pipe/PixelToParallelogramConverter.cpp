@@ -1,5 +1,4 @@
 #include <sun/java2d/pipe/PixelToParallelogramConverter.h>
-
 #include <java/awt/BasicStroke.h>
 #include <java/awt/Shape.h>
 #include <java/awt/Stroke.h>
@@ -51,49 +50,6 @@ using $ShapeDrawPipe = ::sun::java2d::pipe::ShapeDrawPipe;
 namespace sun {
 	namespace java2d {
 		namespace pipe {
-
-$FieldInfo _PixelToParallelogramConverter_FieldInfo_[] = {
-	{"outrenderer", "Lsun/java2d/pipe/ParallelogramPipe;", nullptr, 0, $field(PixelToParallelogramConverter, outrenderer)},
-	{"minPenSize", "D", nullptr, 0, $field(PixelToParallelogramConverter, minPenSize)},
-	{"normPosition", "D", nullptr, 0, $field(PixelToParallelogramConverter, normPosition)},
-	{"normRoundingBias", "D", nullptr, 0, $field(PixelToParallelogramConverter, normRoundingBias)},
-	{"adjustfill", "Z", nullptr, 0, $field(PixelToParallelogramConverter, adjustfill)},
-	{}
-};
-
-$MethodInfo _PixelToParallelogramConverter_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/java2d/pipe/ShapeDrawPipe;Lsun/java2d/pipe/ParallelogramPipe;DDZ)V", nullptr, $PUBLIC, $method(PixelToParallelogramConverter, init$, void, $ShapeDrawPipe*, $ParallelogramPipe*, double, double, bool)},
-	{"draw", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(PixelToParallelogramConverter, draw, void, $SunGraphics2D*, $Shape*)},
-	{"drawGeneralLine", "(Lsun/java2d/SunGraphics2D;DDDD)Z", nullptr, $PUBLIC, $virtualMethod(PixelToParallelogramConverter, drawGeneralLine, bool, $SunGraphics2D*, double, double, double, double)},
-	{"drawLine", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(PixelToParallelogramConverter, drawLine, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(PixelToParallelogramConverter, drawRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawRectangle", "(Lsun/java2d/SunGraphics2D;DDDDD)V", nullptr, $PUBLIC, $virtualMethod(PixelToParallelogramConverter, drawRectangle, void, $SunGraphics2D*, double, double, double, double, double)},
-	{"fill", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(PixelToParallelogramConverter, fill, void, $SunGraphics2D*, $Shape*)},
-	{"fillOuterParallelogram", "(Lsun/java2d/SunGraphics2D;DDDDDDDDDDDDDD)V", nullptr, $PUBLIC, $virtualMethod(PixelToParallelogramConverter, fillOuterParallelogram, void, $SunGraphics2D*, double, double, double, double, double, double, double, double, double, double, double, double, double, double)},
-	{"fillRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(PixelToParallelogramConverter, fillRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"fillRectangle", "(Lsun/java2d/SunGraphics2D;DDDD)V", nullptr, $PUBLIC, $virtualMethod(PixelToParallelogramConverter, fillRectangle, void, $SunGraphics2D*, double, double, double, double)},
-	{"len", "(DD)D", nullptr, $STATIC, $staticMethod(PixelToParallelogramConverter, len, double, double, double)},
-	{"normalize", "(D)D", nullptr, 0, $virtualMethod(PixelToParallelogramConverter, normalize, double, double)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _PixelToParallelogramConverter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.pipe.PixelToParallelogramConverter",
-	"sun.java2d.pipe.PixelToShapeConverter",
-	"sun.java2d.pipe.ShapeDrawPipe",
-	_PixelToParallelogramConverter_FieldInfo_,
-	_PixelToParallelogramConverter_MethodInfo_
-};
-
-$Object* allocate$PixelToParallelogramConverter($Class* clazz) {
-	return $of($alloc(PixelToParallelogramConverter));
-}
 
 int32_t PixelToParallelogramConverter::hashCode() {
 	 return this->$PixelToShapeConverter::hashCode();
@@ -157,14 +113,14 @@ void PixelToParallelogramConverter::fillRect($SunGraphics2D* sg2d, int32_t x, in
 }
 
 void PixelToParallelogramConverter::draw($SunGraphics2D* sg2d, $Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(sg2d)->strokeState < $SunGraphics2D::STROKE_CUSTOM) {
 		$var($BasicStroke, bs, $cast($BasicStroke, sg2d->stroke));
 		if ($instanceOf($Rectangle2D, s)) {
 			bool var$0 = $nc(bs)->getLineJoin() == $BasicStroke::JOIN_MITER;
 			if (var$0 && bs->getDashArray() == nullptr) {
 				$var($Rectangle2D, r2d, $cast($Rectangle2D, s));
-				double w = $nc(r2d)->getWidth();
+				double w = r2d->getWidth();
 				double h = r2d->getHeight();
 				double x = r2d->getX();
 				double y = r2d->getY();
@@ -176,11 +132,10 @@ void PixelToParallelogramConverter::draw($SunGraphics2D* sg2d, $Shape* s) {
 			}
 		} else if ($instanceOf($Line2D, s)) {
 			$var($Line2D, l2d, $cast($Line2D, s));
-			$var($SunGraphics2D, var$1, sg2d);
-			double var$2 = $nc(l2d)->getX1();
-			double var$3 = l2d->getY1();
-			double var$4 = l2d->getX2();
-			if (drawGeneralLine(var$1, var$2, var$3, var$4, l2d->getY2())) {
+			double var$1 = l2d->getX1();
+			double var$2 = l2d->getY1();
+			double var$3 = l2d->getX2();
+			if (drawGeneralLine(sg2d, var$1, var$2, var$3, l2d->getY2())) {
 				return;
 			}
 		}
@@ -191,7 +146,7 @@ void PixelToParallelogramConverter::draw($SunGraphics2D* sg2d, $Shape* s) {
 void PixelToParallelogramConverter::fill($SunGraphics2D* sg2d, $Shape* s) {
 	if ($instanceOf($Rectangle2D, s)) {
 		$var($Rectangle2D, r2d, $cast($Rectangle2D, s));
-		double w = $nc(r2d)->getWidth();
+		double w = r2d->getWidth();
 		double h = r2d->getHeight();
 		if (w > 0 && h > 0) {
 			double x = r2d->getX();
@@ -213,11 +168,11 @@ double PixelToParallelogramConverter::normalize(double v) {
 }
 
 bool PixelToParallelogramConverter::drawGeneralLine($SunGraphics2D* sg2d, double ux1, double uy1, double ux2, double uy2) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(sg2d)->strokeState == $SunGraphics2D::STROKE_CUSTOM || $nc(sg2d)->strokeState == $SunGraphics2D::STROKE_THINDASHED) {
+	$useLocalObjectStack();
+	if ($nc(sg2d)->strokeState == $SunGraphics2D::STROKE_CUSTOM || sg2d->strokeState == $SunGraphics2D::STROKE_THINDASHED) {
 		return false;
 	}
-	$var($BasicStroke, bs, $cast($BasicStroke, $nc(sg2d)->stroke));
+	$var($BasicStroke, bs, $cast($BasicStroke, sg2d->stroke));
 	int32_t cap = $nc(bs)->getEndCap();
 	if (cap == $BasicStroke::CAP_ROUND || bs->getDashArray() != nullptr) {
 		return false;
@@ -231,50 +186,40 @@ bool PixelToParallelogramConverter::drawGeneralLine($SunGraphics2D* sg2d, double
 	double y2 = 0.0;
 	switch (sg2d->transformState) {
 	case $SunGraphics2D::TRANSFORM_GENERIC:
-		{}
 	case $SunGraphics2D::TRANSFORM_TRANSLATESCALE:
 		{
-			{
-				$var($doubles, coords, $new($doubles, {
-					ux1,
-					uy1,
-					ux2,
-					uy2
-				}));
-				$nc(sg2d->transform$)->transform(coords, 0, coords, 0, 2);
-				x1 = coords->get(0);
-				y1 = coords->get(1);
-				x2 = coords->get(2);
-				y2 = coords->get(3);
-			}
-			break;
+			$var($doubles, coords, $new($doubles, {
+				ux1,
+				uy1,
+				ux2,
+				uy2
+			}));
+			$nc(sg2d->transform$)->transform(coords, 0, coords, 0, 2);
+			x1 = coords->get(0);
+			y1 = coords->get(1);
+			x2 = coords->get(2);
+			y2 = coords->get(3);
 		}
+		break;
 	case $SunGraphics2D::TRANSFORM_ANY_TRANSLATE:
-		{}
 	case $SunGraphics2D::TRANSFORM_INT_TRANSLATE:
 		{
-			{
-				double tx = $nc(sg2d->transform$)->getTranslateX();
-				double ty = $nc(sg2d->transform$)->getTranslateY();
-				x1 = ux1 + tx;
-				y1 = uy1 + ty;
-				x2 = ux2 + tx;
-				y2 = uy2 + ty;
-			}
-			break;
+			double tx = $nc(sg2d->transform$)->getTranslateX();
+			double ty = $nc(sg2d->transform$)->getTranslateY();
+			x1 = ux1 + tx;
+			y1 = uy1 + ty;
+			x2 = ux2 + tx;
+			y2 = uy2 + ty;
 		}
+		break;
 	case $SunGraphics2D::TRANSFORM_ISIDENT:
-		{
-			x1 = ux1;
-			y1 = uy1;
-			x2 = ux2;
-			y2 = uy2;
-			break;
-		}
+		x1 = ux1;
+		y1 = uy1;
+		x2 = ux2;
+		y2 = uy2;
+		break;
 	default:
-		{
-			$throwNew($InternalError, "unknown TRANSFORM state..."_s);
-		}
+		$throwNew($InternalError, "unknown TRANSFORM state..."_s);
 	}
 	if (sg2d->strokeHint != $SunHints::INTVAL_STROKE_PURE) {
 		if (sg2d->strokeState == $SunGraphics2D::STROKE_THIN && $instanceOf($PixelDrawPipe, this->outrenderer)) {
@@ -282,7 +227,7 @@ bool PixelToParallelogramConverter::drawGeneralLine($SunGraphics2D* sg2d, double
 			int32_t iy1 = $cast(int32_t, $Math::floor(y1 - sg2d->transY));
 			int32_t ix2 = $cast(int32_t, $Math::floor(x2 - sg2d->transX));
 			int32_t iy2 = $cast(int32_t, $Math::floor(y2 - sg2d->transY));
-			$nc(($cast($PixelDrawPipe, this->outrenderer)))->drawLine(sg2d, ix1, iy1, ix2, iy2);
+			$cast($PixelDrawPipe, this->outrenderer)->drawLine(sg2d, ix1, iy1, ix2, iy2);
 			return true;
 		}
 		x1 = normalize(x1);
@@ -293,7 +238,7 @@ bool PixelToParallelogramConverter::drawGeneralLine($SunGraphics2D* sg2d, double
 	if (sg2d->transformState >= $SunGraphics2D::TRANSFORM_TRANSLATESCALE) {
 		double len = PixelToParallelogramConverter::len(dx, dy);
 		if (len == 0) {
-			dx = (len = (double)1);
+			dx = (len = 1);
 		}
 		$var($doubles, unitvector, $new($doubles, {
 			dy / len,
@@ -313,7 +258,7 @@ bool PixelToParallelogramConverter::drawGeneralLine($SunGraphics2D* sg2d, double
 			return true;
 		}
 		udx = lw;
-		udy = (double)0;
+		udy = 0;
 	} else {
 		udx = lw * dx / len;
 		udy = lw * dy / len;
@@ -411,8 +356,8 @@ void PixelToParallelogramConverter::fillOuterParallelogram($SunGraphics2D* sg2d,
 	double udy2 = dy2 / len2;
 	if (len1 == 0) {
 		if (len2 == 0) {
-			udx2 = (double)0;
-			udy2 = (double)1;
+			udx2 = 0;
+			udy2 = 1;
 		}
 		udx1 = udy2;
 		udy1 = -udx2;
@@ -437,7 +382,45 @@ PixelToParallelogramConverter::PixelToParallelogramConverter() {
 }
 
 $Class* PixelToParallelogramConverter::load$($String* name, bool initialize) {
-	$loadClass(PixelToParallelogramConverter, name, initialize, &_PixelToParallelogramConverter_ClassInfo_, allocate$PixelToParallelogramConverter);
+	$FieldInfo fieldInfos$$[] = {
+		{"outrenderer", "Lsun/java2d/pipe/ParallelogramPipe;", nullptr, 0, $field(PixelToParallelogramConverter, outrenderer)},
+		{"minPenSize", "D", nullptr, 0, $field(PixelToParallelogramConverter, minPenSize)},
+		{"normPosition", "D", nullptr, 0, $field(PixelToParallelogramConverter, normPosition)},
+		{"normRoundingBias", "D", nullptr, 0, $field(PixelToParallelogramConverter, normRoundingBias)},
+		{"adjustfill", "Z", nullptr, 0, $field(PixelToParallelogramConverter, adjustfill)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/java2d/pipe/ShapeDrawPipe;Lsun/java2d/pipe/ParallelogramPipe;DDZ)V", nullptr, $PUBLIC, $method(PixelToParallelogramConverter, init$, void, $ShapeDrawPipe*, $ParallelogramPipe*, double, double, bool)},
+		{"draw", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(PixelToParallelogramConverter, draw, void, $SunGraphics2D*, $Shape*)},
+		{"drawGeneralLine", "(Lsun/java2d/SunGraphics2D;DDDD)Z", nullptr, $PUBLIC, $virtualMethod(PixelToParallelogramConverter, drawGeneralLine, bool, $SunGraphics2D*, double, double, double, double)},
+		{"drawLine", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(PixelToParallelogramConverter, drawLine, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(PixelToParallelogramConverter, drawRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawRectangle", "(Lsun/java2d/SunGraphics2D;DDDDD)V", nullptr, $PUBLIC, $virtualMethod(PixelToParallelogramConverter, drawRectangle, void, $SunGraphics2D*, double, double, double, double, double)},
+		{"fill", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(PixelToParallelogramConverter, fill, void, $SunGraphics2D*, $Shape*)},
+		{"fillOuterParallelogram", "(Lsun/java2d/SunGraphics2D;DDDDDDDDDDDDDD)V", nullptr, $PUBLIC, $virtualMethod(PixelToParallelogramConverter, fillOuterParallelogram, void, $SunGraphics2D*, double, double, double, double, double, double, double, double, double, double, double, double, double, double)},
+		{"fillRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(PixelToParallelogramConverter, fillRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"fillRectangle", "(Lsun/java2d/SunGraphics2D;DDDD)V", nullptr, $PUBLIC, $virtualMethod(PixelToParallelogramConverter, fillRectangle, void, $SunGraphics2D*, double, double, double, double)},
+		{"len", "(DD)D", nullptr, $STATIC, $staticMethod(PixelToParallelogramConverter, len, double, double, double)},
+		{"normalize", "(D)D", nullptr, 0, $virtualMethod(PixelToParallelogramConverter, normalize, double, double)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.pipe.PixelToParallelogramConverter",
+		"sun.java2d.pipe.PixelToShapeConverter",
+		"sun.java2d.pipe.ShapeDrawPipe",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PixelToParallelogramConverter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PixelToParallelogramConverter));
+	});
 	return class$;
 }
 

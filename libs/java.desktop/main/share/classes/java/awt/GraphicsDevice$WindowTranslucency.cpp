@@ -1,5 +1,4 @@
 #include <java/awt/GraphicsDevice$WindowTranslucency.h>
-
 #include <java/awt/GraphicsDevice.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -17,47 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _GraphicsDevice$WindowTranslucency_FieldInfo_[] = {
-	{"PERPIXEL_TRANSPARENT", "Ljava/awt/GraphicsDevice$WindowTranslucency;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GraphicsDevice$WindowTranslucency, PERPIXEL_TRANSPARENT)},
-	{"TRANSLUCENT", "Ljava/awt/GraphicsDevice$WindowTranslucency;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GraphicsDevice$WindowTranslucency, TRANSLUCENT)},
-	{"PERPIXEL_TRANSLUCENT", "Ljava/awt/GraphicsDevice$WindowTranslucency;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GraphicsDevice$WindowTranslucency, PERPIXEL_TRANSLUCENT)},
-	{"$VALUES", "[Ljava/awt/GraphicsDevice$WindowTranslucency;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(GraphicsDevice$WindowTranslucency, $VALUES)},
-	{}
-};
-
-$MethodInfo _GraphicsDevice$WindowTranslucency_MethodInfo_[] = {
-	{"$values", "()[Ljava/awt/GraphicsDevice$WindowTranslucency;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GraphicsDevice$WindowTranslucency, $values, $GraphicsDevice$WindowTranslucencyArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(GraphicsDevice$WindowTranslucency, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/awt/GraphicsDevice$WindowTranslucency;", nullptr, $PUBLIC | $STATIC, $staticMethod(GraphicsDevice$WindowTranslucency, valueOf, GraphicsDevice$WindowTranslucency*, $String*)},
-	{"values", "()[Ljava/awt/GraphicsDevice$WindowTranslucency;", nullptr, $PUBLIC | $STATIC, $staticMethod(GraphicsDevice$WindowTranslucency, values, $GraphicsDevice$WindowTranslucencyArray*)},
-	{}
-};
-
-$InnerClassInfo _GraphicsDevice$WindowTranslucency_InnerClassesInfo_[] = {
-	{"java.awt.GraphicsDevice$WindowTranslucency", "java.awt.GraphicsDevice", "WindowTranslucency", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _GraphicsDevice$WindowTranslucency_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.awt.GraphicsDevice$WindowTranslucency",
-	"java.lang.Enum",
-	nullptr,
-	_GraphicsDevice$WindowTranslucency_FieldInfo_,
-	_GraphicsDevice$WindowTranslucency_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/awt/GraphicsDevice$WindowTranslucency;>;",
-	nullptr,
-	_GraphicsDevice$WindowTranslucency_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.GraphicsDevice"
-};
-
-$Object* allocate$GraphicsDevice$WindowTranslucency($Class* clazz) {
-	return $of($alloc(GraphicsDevice$WindowTranslucency));
-}
 
 GraphicsDevice$WindowTranslucency* GraphicsDevice$WindowTranslucency::PERPIXEL_TRANSPARENT = nullptr;
 GraphicsDevice$WindowTranslucency* GraphicsDevice$WindowTranslucency::TRANSLUCENT = nullptr;
@@ -87,7 +45,7 @@ void GraphicsDevice$WindowTranslucency::init$($String* $enum$name, int32_t $enum
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$GraphicsDevice$WindowTranslucency($Class* class$) {
+void GraphicsDevice$WindowTranslucency::clinit$($Class* clazz) {
 	$assignStatic(GraphicsDevice$WindowTranslucency::PERPIXEL_TRANSPARENT, $new(GraphicsDevice$WindowTranslucency, "PERPIXEL_TRANSPARENT"_s, 0));
 	$assignStatic(GraphicsDevice$WindowTranslucency::TRANSLUCENT, $new(GraphicsDevice$WindowTranslucency, "TRANSLUCENT"_s, 1));
 	$assignStatic(GraphicsDevice$WindowTranslucency::PERPIXEL_TRANSLUCENT, $new(GraphicsDevice$WindowTranslucency, "PERPIXEL_TRANSLUCENT"_s, 2));
@@ -98,7 +56,42 @@ GraphicsDevice$WindowTranslucency::GraphicsDevice$WindowTranslucency() {
 }
 
 $Class* GraphicsDevice$WindowTranslucency::load$($String* name, bool initialize) {
-	$loadClass(GraphicsDevice$WindowTranslucency, name, initialize, &_GraphicsDevice$WindowTranslucency_ClassInfo_, clinit$GraphicsDevice$WindowTranslucency, allocate$GraphicsDevice$WindowTranslucency);
+	$FieldInfo fieldInfos$$[] = {
+		{"PERPIXEL_TRANSPARENT", "Ljava/awt/GraphicsDevice$WindowTranslucency;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GraphicsDevice$WindowTranslucency, PERPIXEL_TRANSPARENT)},
+		{"TRANSLUCENT", "Ljava/awt/GraphicsDevice$WindowTranslucency;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GraphicsDevice$WindowTranslucency, TRANSLUCENT)},
+		{"PERPIXEL_TRANSLUCENT", "Ljava/awt/GraphicsDevice$WindowTranslucency;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GraphicsDevice$WindowTranslucency, PERPIXEL_TRANSLUCENT)},
+		{"$VALUES", "[Ljava/awt/GraphicsDevice$WindowTranslucency;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(GraphicsDevice$WindowTranslucency, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/awt/GraphicsDevice$WindowTranslucency;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GraphicsDevice$WindowTranslucency, $values, $GraphicsDevice$WindowTranslucencyArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(GraphicsDevice$WindowTranslucency, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/awt/GraphicsDevice$WindowTranslucency;", nullptr, $PUBLIC | $STATIC, $staticMethod(GraphicsDevice$WindowTranslucency, valueOf, GraphicsDevice$WindowTranslucency*, $String*)},
+		{"values", "()[Ljava/awt/GraphicsDevice$WindowTranslucency;", nullptr, $PUBLIC | $STATIC, $staticMethod(GraphicsDevice$WindowTranslucency, values, $GraphicsDevice$WindowTranslucencyArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.GraphicsDevice$WindowTranslucency", "java.awt.GraphicsDevice", "WindowTranslucency", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.awt.GraphicsDevice$WindowTranslucency",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/awt/GraphicsDevice$WindowTranslucency;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.GraphicsDevice"
+	};
+	$loadClass(GraphicsDevice$WindowTranslucency, name, initialize, &classInfo$$, GraphicsDevice$WindowTranslucency::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GraphicsDevice$WindowTranslucency));
+	});
 	return class$;
 }
 

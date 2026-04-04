@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/SAXInputSource.h>
-
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLInputSource.h>
 #include <java/io/InputStream.h>
 #include <java/io/Reader.h>
@@ -24,41 +23,6 @@ namespace com {
 					namespace internal {
 						namespace util {
 
-$FieldInfo _SAXInputSource_FieldInfo_[] = {
-	{"fXMLReader", "Lorg/xml/sax/XMLReader;", nullptr, $PRIVATE, $field(SAXInputSource, fXMLReader)},
-	{"fInputSource", "Lorg/xml/sax/InputSource;", nullptr, $PRIVATE, $field(SAXInputSource, fInputSource)},
-	{}
-};
-
-$MethodInfo _SAXInputSource_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SAXInputSource, init$, void)},
-	{"<init>", "(Lorg/xml/sax/InputSource;)V", nullptr, $PUBLIC, $method(SAXInputSource, init$, void, $InputSource*)},
-	{"<init>", "(Lorg/xml/sax/XMLReader;Lorg/xml/sax/InputSource;)V", nullptr, $PUBLIC, $method(SAXInputSource, init$, void, $XMLReader*, $InputSource*)},
-	{"getInputSource", "()Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $method(SAXInputSource, getInputSource, $InputSource*)},
-	{"getXMLReader", "()Lorg/xml/sax/XMLReader;", nullptr, $PUBLIC, $method(SAXInputSource, getXMLReader, $XMLReader*)},
-	{"setByteStream", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(SAXInputSource, setByteStream, void, $InputStream*)},
-	{"setCharacterStream", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(SAXInputSource, setCharacterStream, void, $Reader*)},
-	{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAXInputSource, setEncoding, void, $String*)},
-	{"setInputSource", "(Lorg/xml/sax/InputSource;)V", nullptr, $PUBLIC, $method(SAXInputSource, setInputSource, void, $InputSource*)},
-	{"setPublicId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAXInputSource, setPublicId, void, $String*)},
-	{"setSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAXInputSource, setSystemId, void, $String*)},
-	{"setXMLReader", "(Lorg/xml/sax/XMLReader;)V", nullptr, $PUBLIC, $method(SAXInputSource, setXMLReader, void, $XMLReader*)},
-	{}
-};
-
-$ClassInfo _SAXInputSource_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.util.SAXInputSource",
-	"com.sun.org.apache.xerces.internal.xni.parser.XMLInputSource",
-	nullptr,
-	_SAXInputSource_FieldInfo_,
-	_SAXInputSource_MethodInfo_
-};
-
-$Object* allocate$SAXInputSource($Class* clazz) {
-	return $of($alloc(SAXInputSource));
-}
-
 void SAXInputSource::init$() {
 	SAXInputSource::init$(nullptr);
 }
@@ -68,8 +32,8 @@ void SAXInputSource::init$($InputSource* inputSource) {
 }
 
 void SAXInputSource::init$($XMLReader* reader, $InputSource* inputSource) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, inputSource != nullptr ? $nc(inputSource)->getPublicId() : ($String*)nullptr);
+	$useLocalObjectStack();
+	$var($String, var$0, inputSource != nullptr ? inputSource->getPublicId() : ($String*)nullptr);
 	$XMLInputSource::init$(var$0, inputSource != nullptr ? $(inputSource->getSystemId()) : ($String*)nullptr, nullptr, false);
 	if (inputSource != nullptr) {
 		setByteStream($(inputSource->getByteStream()));
@@ -89,7 +53,7 @@ $XMLReader* SAXInputSource::getXMLReader() {
 }
 
 void SAXInputSource::setInputSource($InputSource* inputSource) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (inputSource != nullptr) {
 		setPublicId($(inputSource->getPublicId()));
 		setSystemId($(inputSource->getSystemId()));
@@ -154,7 +118,37 @@ SAXInputSource::SAXInputSource() {
 }
 
 $Class* SAXInputSource::load$($String* name, bool initialize) {
-	$loadClass(SAXInputSource, name, initialize, &_SAXInputSource_ClassInfo_, allocate$SAXInputSource);
+	$FieldInfo fieldInfos$$[] = {
+		{"fXMLReader", "Lorg/xml/sax/XMLReader;", nullptr, $PRIVATE, $field(SAXInputSource, fXMLReader)},
+		{"fInputSource", "Lorg/xml/sax/InputSource;", nullptr, $PRIVATE, $field(SAXInputSource, fInputSource)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SAXInputSource, init$, void)},
+		{"<init>", "(Lorg/xml/sax/InputSource;)V", nullptr, $PUBLIC, $method(SAXInputSource, init$, void, $InputSource*)},
+		{"<init>", "(Lorg/xml/sax/XMLReader;Lorg/xml/sax/InputSource;)V", nullptr, $PUBLIC, $method(SAXInputSource, init$, void, $XMLReader*, $InputSource*)},
+		{"getInputSource", "()Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $method(SAXInputSource, getInputSource, $InputSource*)},
+		{"getXMLReader", "()Lorg/xml/sax/XMLReader;", nullptr, $PUBLIC, $method(SAXInputSource, getXMLReader, $XMLReader*)},
+		{"setByteStream", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(SAXInputSource, setByteStream, void, $InputStream*)},
+		{"setCharacterStream", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(SAXInputSource, setCharacterStream, void, $Reader*)},
+		{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAXInputSource, setEncoding, void, $String*)},
+		{"setInputSource", "(Lorg/xml/sax/InputSource;)V", nullptr, $PUBLIC, $method(SAXInputSource, setInputSource, void, $InputSource*)},
+		{"setPublicId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAXInputSource, setPublicId, void, $String*)},
+		{"setSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAXInputSource, setSystemId, void, $String*)},
+		{"setXMLReader", "(Lorg/xml/sax/XMLReader;)V", nullptr, $PUBLIC, $method(SAXInputSource, setXMLReader, void, $XMLReader*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.util.SAXInputSource",
+		"com.sun.org.apache.xerces.internal.xni.parser.XMLInputSource",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SAXInputSource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SAXInputSource);
+	});
 	return class$;
 }
 

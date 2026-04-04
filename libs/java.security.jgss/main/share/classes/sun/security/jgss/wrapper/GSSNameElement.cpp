@@ -1,10 +1,8 @@
 #include <sun/security/jgss/wrapper/GSSNameElement.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/security/Permission.h>
 #include <java/security/Provider.h>
 #include <javax/security/auth/kerberos/ServicePermission.h>
 #include <org/ietf/jgss/GSSException.h>
@@ -37,13 +35,11 @@ using $OidArray = $Array<::org::ietf::jgss::Oid>;
 using $IOException = ::java::io::IOException;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $Permission = ::java::security::Permission;
 using $Provider = ::java::security::Provider;
 using $ServicePermission = ::javax::security::auth::kerberos::ServicePermission;
 using $GSSException = ::org::ietf::jgss::GSSException;
@@ -64,56 +60,12 @@ namespace sun {
 		namespace jgss {
 			namespace wrapper {
 
-$FieldInfo _GSSNameElement_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(GSSNameElement, $assertionsDisabled)},
-	{"pName", "J", nullptr, 0, $field(GSSNameElement, pName)},
-	{"printableName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GSSNameElement, printableName)},
-	{"printableType", "Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE, $field(GSSNameElement, printableType)},
-	{"cStub", "Lsun/security/jgss/wrapper/GSSLibStub;", nullptr, $PRIVATE, $field(GSSNameElement, cStub)},
-	{"DEF_ACCEPTOR", "Lsun/security/jgss/wrapper/GSSNameElement;", nullptr, $STATIC | $FINAL, $staticField(GSSNameElement, DEF_ACCEPTOR)},
-	{}
-};
-
-$MethodInfo _GSSNameElement_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(GSSNameElement, init$, void)},
-	{"<init>", "(JLsun/security/jgss/wrapper/GSSLibStub;)V", nullptr, 0, $method(GSSNameElement, init$, void, int64_t, $GSSLibStub*), "org.ietf.jgss.GSSException"},
-	{"<init>", "([BLorg/ietf/jgss/Oid;Lsun/security/jgss/wrapper/GSSLibStub;)V", nullptr, 0, $method(GSSNameElement, init$, void, $bytes*, $Oid*, $GSSLibStub*), "org.ietf.jgss.GSSException"},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(GSSNameElement, dispose, void)},
-	{"equals", "(Lsun/security/jgss/spi/GSSNameSpi;)Z", nullptr, $PUBLIC, $virtualMethod(GSSNameElement, equals, bool, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GSSNameElement, equals, bool, Object$*)},
-	{"export", "()[B", nullptr, $PUBLIC, $virtualMethod(GSSNameElement, export$, $bytes*), "org.ietf.jgss.GSSException"},
-	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(GSSNameElement, finalize, void), "java.lang.Throwable"},
-	{"getKrbName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GSSNameElement, getKrbName, $String*), "org.ietf.jgss.GSSException"},
-	{"getMechanism", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(GSSNameElement, getMechanism, $Oid*)},
-	{"getNativeNameType", "(Lorg/ietf/jgss/Oid;Lsun/security/jgss/wrapper/GSSLibStub;)Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE | $STATIC, $staticMethod(GSSNameElement, getNativeNameType, $Oid*, $Oid*, $GSSLibStub*)},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(GSSNameElement, getProvider, $Provider*)},
-	{"getStringNameType", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(GSSNameElement, getStringNameType, $Oid*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(GSSNameElement, hashCode, int32_t)},
-	{"isAnonymousName", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSNameElement, isAnonymousName, bool)},
-	{"setPrintables", "()V", nullptr, $PRIVATE, $method(GSSNameElement, setPrintables, void), "org.ietf.jgss.GSSException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GSSNameElement, toString, $String*)},
-	{}
-};
-
-$ClassInfo _GSSNameElement_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.jgss.wrapper.GSSNameElement",
-	"java.lang.Object",
-	"sun.security.jgss.spi.GSSNameSpi",
-	_GSSNameElement_FieldInfo_,
-	_GSSNameElement_MethodInfo_
-};
-
-$Object* allocate$GSSNameElement($Class* clazz) {
-	return $of($alloc(GSSNameElement));
-}
-
 bool GSSNameElement::$assertionsDisabled = false;
 GSSNameElement* GSSNameElement::DEF_ACCEPTOR = nullptr;
 
 $Oid* GSSNameElement::getNativeNameType($Oid* nameType, $GSSLibStub* stub$renamed) {
 	$init(GSSNameElement);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GSSLibStub, stub, stub$renamed);
 	$init($GSSUtil);
 	if ($nc($GSSUtil::NT_GSS_KRB5_PRINCIPAL)->equals(nameType)) {
@@ -165,7 +117,7 @@ void GSSNameElement::init$(int64_t pNativeName, $GSSLibStub* stub) {
 }
 
 void GSSNameElement::init$($bytes* nameBytes, $Oid* nameType$renamed, $GSSLibStub* stub) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Oid, nameType, nameType$renamed);
 	this->pName = 0;
 	if (!GSSNameElement::$assertionsDisabled && !(stub != nullptr)) {
@@ -186,13 +138,13 @@ void GSSNameElement::init$($bytes* nameBytes, $Oid* nameType$renamed, $GSSLibStu
 			try {
 				dout->putOID($($ObjectIdentifier::of($($nc(mech)->toString()))));
 			} catch ($IOException& e) {
-				$throwNew($GSSExceptionImpl, $GSSException::FAILURE, static_cast<$Exception*>(e));
+				$throwNew($GSSExceptionImpl, $GSSException::FAILURE, e);
 			}
 			$assign(mechBytes, dout->toByteArray());
 			$assign(name, $new($bytes, 2 + 2 + $nc(mechBytes)->length + 4 + $nc(nameBytes)->length));
 			int32_t pos = 0;
-			name->set(pos++, (int8_t)4);
-			name->set(pos++, (int8_t)1);
+			name->set(pos++, 4);
+			name->set(pos++, 1);
 			name->set(pos++, (int8_t)((int32_t)((uint32_t)mechBytes->length >> 8)));
 			name->set(pos++, (int8_t)mechBytes->length);
 			$System::arraycopy(mechBytes, 0, name, pos, mechBytes->length);
@@ -210,11 +162,11 @@ void GSSNameElement::init$($bytes* nameBytes, $Oid* nameType$renamed, $GSSLibStu
 	$init($Realm);
 	if (sm != nullptr && !$Realm::AUTODEDUCEREALM) {
 		$var($String, krbName, getKrbName());
-		int32_t atPos = $nc(krbName)->lastIndexOf((int32_t)u'@');
+		int32_t atPos = $nc(krbName)->lastIndexOf(u'@');
 		if (atPos != -1) {
 			$var($String, atRealm, krbName->substring(atPos));
 			$init($GSSUtil);
-			bool var$0 = (nameType == nullptr || $nc(nameType)->equals($GSSUtil::NT_GSS_KRB5_PRINCIPAL));
+			bool var$0 = nameType == nullptr || nameType->equals($GSSUtil::NT_GSS_KRB5_PRINCIPAL);
 			if (var$0 && $$new($String, nameBytes)->endsWith(atRealm)) {
 			} else {
 				try {
@@ -246,18 +198,17 @@ void GSSNameElement::setPrintables() {
 }
 
 $String* GSSNameElement::getKrbName() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t mName = 0;
 	$var($GSSLibStub, stub, this->cStub);
 	if (!$GSSUtil::isKerberosMech($($nc(this->cStub)->getMech()))) {
-		$init($GSSUtil);
 		$assign(stub, $GSSLibStub::getInstance($GSSUtil::GSS_KRB5_MECH_OID));
 	}
 	mName = $nc(stub)->canonicalizeName(this->pName);
 	$var($ObjectArray, printables2, stub->displayName(mName));
 	stub->releaseName(mName);
 	$SunNativeProvider::debug($$str({"Got kerberized name: "_s, $nc(printables2)->get(0)}));
-	return $cast($String, $nc(printables2)->get(0));
+	return $cast($String, printables2->get(0));
 }
 
 $Provider* GSSNameElement::getProvider() {
@@ -269,7 +220,7 @@ bool GSSNameElement::equals($GSSNameSpi* other) {
 	if (!($instanceOf(GSSNameElement, other))) {
 		return false;
 	}
-	return $nc(this->cStub)->compareName(this->pName, $nc(($cast(GSSNameElement, other)))->pName);
+	return $nc(this->cStub)->compareName(this->pName, $nc($cast(GSSNameElement, other))->pName);
 }
 
 bool GSSNameElement::equals(Object$* other) {
@@ -289,31 +240,31 @@ int32_t GSSNameElement::hashCode() {
 }
 
 $bytes* GSSNameElement::export$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, nameVal, $nc(this->cStub)->exportName(this->pName));
 	int32_t pos = 0;
-	bool var$0 = ($nc(nameVal)->get(pos++) != 4);
-	if (var$0 || ($nc(nameVal)->get(pos++) != 1)) {
+	bool var$0 = $nc(nameVal)->get(pos++) != 4;
+	if (var$0 || (nameVal->get(pos++) != 1)) {
 		$throwNew($GSSException, $GSSException::BAD_NAME);
 	}
-	int32_t var$1 = (((int32_t)(255 & (uint32_t)(int32_t)$nc(nameVal)->get(pos++))) << 8);
-	int32_t mechOidLen = (var$1 | ((int32_t)(255 & (uint32_t)(int32_t)nameVal->get(pos++))));
+	int32_t var$1 = (0xff & nameVal->get(pos++)) << 8;
+	int32_t mechOidLen = (var$1 | (0xff & nameVal->get(pos++)));
 	$var($ObjectIdentifier, temp, nullptr);
 	try {
 		$var($DerInputStream, din, $new($DerInputStream, nameVal, pos, mechOidLen));
 		$assign(temp, $new($ObjectIdentifier, din));
 	} catch ($IOException& e) {
-		$throwNew($GSSExceptionImpl, $GSSException::BAD_NAME, static_cast<$Exception*>(e));
+		$throwNew($GSSExceptionImpl, $GSSException::BAD_NAME, e);
 	}
 	$var($Oid, mech2, $new($Oid, $($nc(temp)->toString())));
 	if (!GSSNameElement::$assertionsDisabled && !(mech2->equals($(getMechanism())))) {
 		$throwNew($AssertionError);
 	}
 	pos += mechOidLen;
-	int32_t var$4 = (((int32_t)(255 & (uint32_t)(int32_t)nameVal->get(pos++))) << 24);
-	int32_t var$3 = var$4 | (((int32_t)(255 & (uint32_t)(int32_t)nameVal->get(pos++))) << 16);
-	int32_t var$2 = var$3 | (((int32_t)(255 & (uint32_t)(int32_t)nameVal->get(pos++))) << 8);
-	int32_t mechPortionLen = (var$2 | ((int32_t)(255 & (uint32_t)(int32_t)nameVal->get(pos++))));
+	int32_t var$4 = (0xff & nameVal->get(pos++)) << 24;
+	int32_t var$3 = var$4 | ((0xff & nameVal->get(pos++)) << 16);
+	int32_t var$2 = var$3 | ((0xff & nameVal->get(pos++)) << 8);
+	int32_t mechPortionLen = (var$2 | (0xff & nameVal->get(pos++)));
 	if (mechPortionLen < 0) {
 		$throwNew($GSSException, $GSSException::BAD_NAME);
 	}
@@ -350,7 +301,7 @@ void GSSNameElement::finalize() {
 	dispose();
 }
 
-void clinit$GSSNameElement($Class* class$) {
+void GSSNameElement::clinit$($Class* clazz) {
 	GSSNameElement::$assertionsDisabled = !GSSNameElement::class$->desiredAssertionStatus();
 	$assignStatic(GSSNameElement::DEF_ACCEPTOR, $new(GSSNameElement));
 }
@@ -359,7 +310,46 @@ GSSNameElement::GSSNameElement() {
 }
 
 $Class* GSSNameElement::load$($String* name, bool initialize) {
-	$loadClass(GSSNameElement, name, initialize, &_GSSNameElement_ClassInfo_, clinit$GSSNameElement, allocate$GSSNameElement);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(GSSNameElement, $assertionsDisabled)},
+		{"pName", "J", nullptr, 0, $field(GSSNameElement, pName)},
+		{"printableName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GSSNameElement, printableName)},
+		{"printableType", "Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE, $field(GSSNameElement, printableType)},
+		{"cStub", "Lsun/security/jgss/wrapper/GSSLibStub;", nullptr, $PRIVATE, $field(GSSNameElement, cStub)},
+		{"DEF_ACCEPTOR", "Lsun/security/jgss/wrapper/GSSNameElement;", nullptr, $STATIC | $FINAL, $staticField(GSSNameElement, DEF_ACCEPTOR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(GSSNameElement, init$, void)},
+		{"<init>", "(JLsun/security/jgss/wrapper/GSSLibStub;)V", nullptr, 0, $method(GSSNameElement, init$, void, int64_t, $GSSLibStub*), "org.ietf.jgss.GSSException"},
+		{"<init>", "([BLorg/ietf/jgss/Oid;Lsun/security/jgss/wrapper/GSSLibStub;)V", nullptr, 0, $method(GSSNameElement, init$, void, $bytes*, $Oid*, $GSSLibStub*), "org.ietf.jgss.GSSException"},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(GSSNameElement, dispose, void)},
+		{"equals", "(Lsun/security/jgss/spi/GSSNameSpi;)Z", nullptr, $PUBLIC, $virtualMethod(GSSNameElement, equals, bool, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GSSNameElement, equals, bool, Object$*)},
+		{"export", "()[B", nullptr, $PUBLIC, $virtualMethod(GSSNameElement, export$, $bytes*), "org.ietf.jgss.GSSException"},
+		{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(GSSNameElement, finalize, void), "java.lang.Throwable"},
+		{"getKrbName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GSSNameElement, getKrbName, $String*), "org.ietf.jgss.GSSException"},
+		{"getMechanism", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(GSSNameElement, getMechanism, $Oid*)},
+		{"getNativeNameType", "(Lorg/ietf/jgss/Oid;Lsun/security/jgss/wrapper/GSSLibStub;)Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE | $STATIC, $staticMethod(GSSNameElement, getNativeNameType, $Oid*, $Oid*, $GSSLibStub*)},
+		{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(GSSNameElement, getProvider, $Provider*)},
+		{"getStringNameType", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(GSSNameElement, getStringNameType, $Oid*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(GSSNameElement, hashCode, int32_t)},
+		{"isAnonymousName", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSNameElement, isAnonymousName, bool)},
+		{"setPrintables", "()V", nullptr, $PRIVATE, $method(GSSNameElement, setPrintables, void), "org.ietf.jgss.GSSException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GSSNameElement, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.jgss.wrapper.GSSNameElement",
+		"java.lang.Object",
+		"sun.security.jgss.spi.GSSNameSpi",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GSSNameElement, name, initialize, &classInfo$$, GSSNameElement::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GSSNameElement);
+	});
 	return class$;
 }
 

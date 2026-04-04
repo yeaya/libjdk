@@ -1,5 +1,4 @@
 #include <sun/awt/image/ImageConsumerQueue.h>
-
 #include <java/awt/image/ImageConsumer.h>
 #include <java/awt/image/ImageProducer.h>
 #include <java/lang/SecurityException.h>
@@ -22,48 +21,18 @@ namespace sun {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _ImageConsumerQueue_FieldInfo_[] = {
-	{"next", "Lsun/awt/image/ImageConsumerQueue;", nullptr, 0, $field(ImageConsumerQueue, next)},
-	{"consumer", "Ljava/awt/image/ImageConsumer;", nullptr, 0, $field(ImageConsumerQueue, consumer)},
-	{"interested", "Z", nullptr, 0, $field(ImageConsumerQueue, interested)},
-	{"securityContext", "Ljava/lang/Object;", nullptr, 0, $field(ImageConsumerQueue, securityContext)},
-	{"secure", "Z", nullptr, 0, $field(ImageConsumerQueue, secure)},
-	{}
-};
-
-$MethodInfo _ImageConsumerQueue_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/image/InputStreamImageSource;Ljava/awt/image/ImageConsumer;)V", nullptr, 0, $method(ImageConsumerQueue, init$, void, $InputStreamImageSource*, $ImageConsumer*)},
-	{"isConsumer", "(Lsun/awt/image/ImageConsumerQueue;Ljava/awt/image/ImageConsumer;)Z", nullptr, $STATIC, $staticMethod(ImageConsumerQueue, isConsumer, bool, ImageConsumerQueue*, $ImageConsumer*)},
-	{"removeConsumer", "(Lsun/awt/image/ImageConsumerQueue;Ljava/awt/image/ImageConsumer;Z)Lsun/awt/image/ImageConsumerQueue;", nullptr, $STATIC, $staticMethod(ImageConsumerQueue, removeConsumer, ImageConsumerQueue*, ImageConsumerQueue*, $ImageConsumer*, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageConsumerQueue, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ImageConsumerQueue_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.image.ImageConsumerQueue",
-	"java.lang.Object",
-	nullptr,
-	_ImageConsumerQueue_FieldInfo_,
-	_ImageConsumerQueue_MethodInfo_
-};
-
-$Object* allocate$ImageConsumerQueue($Class* clazz) {
-	return $of($alloc(ImageConsumerQueue));
-}
-
 ImageConsumerQueue* ImageConsumerQueue::removeConsumer(ImageConsumerQueue* cqbase$renamed, $ImageConsumer* ic, bool stillinterested) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(ImageConsumerQueue, cqbase, cqbase$renamed);
 	$var(ImageConsumerQueue, cqprev, nullptr);
 	{
 		$var(ImageConsumerQueue, cq, cqbase);
-		for (; cq != nullptr; $assign(cq, $nc(cq)->next)) {
+		for (; cq != nullptr; $assign(cq, cq->next)) {
 			if (cq->consumer == ic) {
 				if (cqprev == nullptr) {
 					$assign(cqbase, cq->next);
 				} else {
-					$set($nc(cqprev), next, cq->next);
+					$set(cqprev, next, cq->next);
 				}
 				cq->interested = stillinterested;
 				break;
@@ -75,24 +44,22 @@ ImageConsumerQueue* ImageConsumerQueue::removeConsumer(ImageConsumerQueue* cqbas
 }
 
 bool ImageConsumerQueue::isConsumer(ImageConsumerQueue* cqbase, $ImageConsumer* ic) {
-	{
-		$var(ImageConsumerQueue, cq, cqbase);
-		for (; cq != nullptr; $assign(cq, $nc(cq)->next)) {
-			if (cq->consumer == ic) {
-				return true;
-			}
+	$var(ImageConsumerQueue, cq, cqbase);
+	for (; cq != nullptr; $assign(cq, cq->next)) {
+		if (cq->consumer == ic) {
+			return true;
 		}
 	}
 	return false;
 }
 
 void ImageConsumerQueue::init$($InputStreamImageSource* src, $ImageConsumer* ic) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, consumer, ic);
 	this->interested = true;
 	if ($instanceOf($ImageRepresentation, ic)) {
 		$var($ImageRepresentation, ir, $cast($ImageRepresentation, ic));
-		if (!$equals($nc($nc(ir)->image)->source, src)) {
+		if (!$equals($nc(ir->image)->source, src)) {
 			$throwNew($SecurityException, "ImageRep added to wrong image source"_s);
 		}
 		this->secure = true;
@@ -107,17 +74,48 @@ void ImageConsumerQueue::init$($InputStreamImageSource* src, $ImageConsumer* ic)
 }
 
 $String* ImageConsumerQueue::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({"["_s, this->consumer, ", "_s, (this->interested ? ""_s : "not "_s), "interested"_s}));
-	$var($String, var$0, $$concat(var$1, (this->securityContext != nullptr ? $$str({", "_s, this->securityContext}) : ""_s)));
-	return ($concat(var$0, "]"_s));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("["_s);
+	var$0->append(this->consumer);
+	var$0->append(", "_s);
+	var$0->append(this->interested ? ""_s : "not "_s);
+	var$0->append("interested"_s);
+	var$0->append(this->securityContext != nullptr ? $$str({", "_s, this->securityContext}) : ""_s);
+	var$0->append("]"_s);
+	return ($str(var$0));
 }
 
 ImageConsumerQueue::ImageConsumerQueue() {
 }
 
 $Class* ImageConsumerQueue::load$($String* name, bool initialize) {
-	$loadClass(ImageConsumerQueue, name, initialize, &_ImageConsumerQueue_ClassInfo_, allocate$ImageConsumerQueue);
+	$FieldInfo fieldInfos$$[] = {
+		{"next", "Lsun/awt/image/ImageConsumerQueue;", nullptr, 0, $field(ImageConsumerQueue, next)},
+		{"consumer", "Ljava/awt/image/ImageConsumer;", nullptr, 0, $field(ImageConsumerQueue, consumer)},
+		{"interested", "Z", nullptr, 0, $field(ImageConsumerQueue, interested)},
+		{"securityContext", "Ljava/lang/Object;", nullptr, 0, $field(ImageConsumerQueue, securityContext)},
+		{"secure", "Z", nullptr, 0, $field(ImageConsumerQueue, secure)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/image/InputStreamImageSource;Ljava/awt/image/ImageConsumer;)V", nullptr, 0, $method(ImageConsumerQueue, init$, void, $InputStreamImageSource*, $ImageConsumer*)},
+		{"isConsumer", "(Lsun/awt/image/ImageConsumerQueue;Ljava/awt/image/ImageConsumer;)Z", nullptr, $STATIC, $staticMethod(ImageConsumerQueue, isConsumer, bool, ImageConsumerQueue*, $ImageConsumer*)},
+		{"removeConsumer", "(Lsun/awt/image/ImageConsumerQueue;Ljava/awt/image/ImageConsumer;Z)Lsun/awt/image/ImageConsumerQueue;", nullptr, $STATIC, $staticMethod(ImageConsumerQueue, removeConsumer, ImageConsumerQueue*, ImageConsumerQueue*, $ImageConsumer*, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageConsumerQueue, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.image.ImageConsumerQueue",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ImageConsumerQueue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageConsumerQueue);
+	});
 	return class$;
 }
 

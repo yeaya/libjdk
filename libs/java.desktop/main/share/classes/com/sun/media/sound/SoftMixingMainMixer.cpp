@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftMixingMainMixer.h>
-
 #include <com/sun/media/sound/SoftAudioBuffer.h>
 #include <com/sun/media/sound/SoftAudioProcessor.h>
 #include <com/sun/media/sound/SoftChorus.h>
@@ -34,7 +33,6 @@
 using $SoftAudioBufferArray = $Array<::com::sun::media::sound::SoftAudioBuffer>;
 using $SoftMixingDataLineArray = $Array<::com::sun::media::sound::SoftMixingDataLine>;
 using $SoftAudioBuffer = ::com::sun::media::sound::SoftAudioBuffer;
-using $SoftAudioProcessor = ::com::sun::media::sound::SoftAudioProcessor;
 using $SoftChorus = ::com::sun::media::sound::SoftChorus;
 using $SoftLimiter = ::com::sun::media::sound::SoftLimiter;
 using $SoftMixingDataLine = ::com::sun::media::sound::SoftMixingDataLine;
@@ -47,8 +45,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
-using $List = ::java::util::List;
-using $AudioFormat = ::javax::sound::sampled::AudioFormat;
 using $AudioInputStream = ::javax::sound::sampled::AudioInputStream;
 using $AudioSystem = ::javax::sound::sampled::AudioSystem;
 
@@ -57,74 +53,13 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _SoftMixingMainMixer_FieldInfo_[] = {
-	{"CHANNEL_LEFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftMixingMainMixer, CHANNEL_LEFT)},
-	{"CHANNEL_RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftMixingMainMixer, CHANNEL_RIGHT)},
-	{"CHANNEL_EFFECT1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftMixingMainMixer, CHANNEL_EFFECT1)},
-	{"CHANNEL_EFFECT2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftMixingMainMixer, CHANNEL_EFFECT2)},
-	{"CHANNEL_EFFECT3", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftMixingMainMixer, CHANNEL_EFFECT3)},
-	{"CHANNEL_EFFECT4", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftMixingMainMixer, CHANNEL_EFFECT4)},
-	{"CHANNEL_LEFT_DRY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftMixingMainMixer, CHANNEL_LEFT_DRY)},
-	{"CHANNEL_RIGHT_DRY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftMixingMainMixer, CHANNEL_RIGHT_DRY)},
-	{"CHANNEL_SCRATCH1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftMixingMainMixer, CHANNEL_SCRATCH1)},
-	{"CHANNEL_SCRATCH2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftMixingMainMixer, CHANNEL_SCRATCH2)},
-	{"CHANNEL_CHANNELMIXER_LEFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftMixingMainMixer, CHANNEL_CHANNELMIXER_LEFT)},
-	{"CHANNEL_CHANNELMIXER_RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftMixingMainMixer, CHANNEL_CHANNELMIXER_RIGHT)},
-	{"mixer", "Lcom/sun/media/sound/SoftMixingMixer;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingMainMixer, mixer)},
-	{"ais", "Ljavax/sound/sampled/AudioInputStream;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingMainMixer, ais)},
-	{"buffers", "[Lcom/sun/media/sound/SoftAudioBuffer;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingMainMixer, buffers)},
-	{"reverb", "Lcom/sun/media/sound/SoftAudioProcessor;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingMainMixer, reverb)},
-	{"chorus", "Lcom/sun/media/sound/SoftAudioProcessor;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingMainMixer, chorus)},
-	{"agc", "Lcom/sun/media/sound/SoftAudioProcessor;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingMainMixer, agc)},
-	{"nrofchannels", "I", nullptr, $PRIVATE | $FINAL, $field(SoftMixingMainMixer, nrofchannels)},
-	{"control_mutex", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingMainMixer, control_mutex)},
-	{"openLinesList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/media/sound/SoftMixingDataLine;>;", $PRIVATE | $FINAL, $field(SoftMixingMainMixer, openLinesList)},
-	{"openLines", "[Lcom/sun/media/sound/SoftMixingDataLine;", nullptr, $PRIVATE, $field(SoftMixingMainMixer, openLines)},
-	{}
-};
-
-$MethodInfo _SoftMixingMainMixer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/SoftMixingMixer;)V", nullptr, $PUBLIC, $method(SoftMixingMainMixer, init$, void, $SoftMixingMixer*)},
-	{"close", "()V", nullptr, $PUBLIC, $method(SoftMixingMainMixer, close, void)},
-	{"closeLine", "(Lcom/sun/media/sound/SoftMixingDataLine;)V", nullptr, $PUBLIC, $method(SoftMixingMainMixer, closeLine, void, $SoftMixingDataLine*)},
-	{"getInputStream", "()Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC, $method(SoftMixingMainMixer, getInputStream, $AudioInputStream*)},
-	{"getOpenLines", "()[Lcom/sun/media/sound/SoftMixingDataLine;", nullptr, $PUBLIC, $method(SoftMixingMainMixer, getOpenLines, $SoftMixingDataLineArray*)},
-	{"openLine", "(Lcom/sun/media/sound/SoftMixingDataLine;)V", nullptr, $PUBLIC, $method(SoftMixingMainMixer, openLine, void, $SoftMixingDataLine*)},
-	{"processAudioBuffers", "()V", nullptr, 0, $method(SoftMixingMainMixer, processAudioBuffers, void)},
-	{}
-};
-
-$InnerClassInfo _SoftMixingMainMixer_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.SoftMixingMainMixer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SoftMixingMainMixer_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SoftMixingMainMixer",
-	"java.lang.Object",
-	nullptr,
-	_SoftMixingMainMixer_FieldInfo_,
-	_SoftMixingMainMixer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SoftMixingMainMixer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.SoftMixingMainMixer$1"
-};
-
-$Object* allocate$SoftMixingMainMixer($Class* clazz) {
-	return $of($alloc(SoftMixingMainMixer));
-}
-
 $AudioInputStream* SoftMixingMainMixer::getInputStream() {
 	return this->ais;
 }
 
 void SoftMixingMainMixer::processAudioBuffers() {
 	for (int32_t i = 0; i < $nc(this->buffers)->length; ++i) {
-		$nc($nc(this->buffers)->get(i))->clear();
+		$nc(this->buffers->get(i))->clear();
 	}
 	$var($SoftMixingDataLineArray, openLines, nullptr);
 	$synchronized(this->control_mutex) {
@@ -136,56 +71,56 @@ void SoftMixingMainMixer::processAudioBuffers() {
 		$nc(this->reverb)->processControlLogic();
 		$nc(this->agc)->processControlLogic();
 	}
-	for (int32_t i = 0; i < $nc(openLines)->length; ++i) {
+	for (int32_t i = 0; i < openLines->length; ++i) {
 		$nc(openLines->get(i))->processAudioLogic(this->buffers);
 	}
-	$nc(this->chorus)->processAudio();
-	$nc(this->reverb)->processAudio();
-	$nc(this->agc)->processAudio();
+	this->chorus->processAudio();
+	this->reverb->processAudio();
+	this->agc->processAudio();
 }
 
 void SoftMixingMainMixer::init$($SoftMixingMixer* mixer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, openLinesList, $new($ArrayList));
 	$set(this, openLines, $new($SoftMixingDataLineArray, 0));
 	$set(this, mixer, mixer);
-	this->nrofchannels = $nc($($nc(mixer)->getFormat()))->getChannels();
-	float var$0 = $nc($(mixer->getFormat()))->getSampleRate();
+	this->nrofchannels = $$nc($nc(mixer)->getFormat())->getChannels();
+	float var$0 = $$nc(mixer->getFormat())->getSampleRate();
 	int32_t buffersize = $cast(int32_t, (var$0 / mixer->getControlRate()));
 	$set(this, control_mutex, mixer->control_mutex);
 	$set(this, buffers, $new($SoftAudioBufferArray, 16));
-	for (int32_t i = 0; i < $nc(this->buffers)->length; ++i) {
-		$nc(this->buffers)->set(i, $$new($SoftAudioBuffer, buffersize, $(mixer->getFormat())));
+	for (int32_t i = 0; i < this->buffers->length; ++i) {
+		this->buffers->set(i, $$new($SoftAudioBuffer, buffersize, $(mixer->getFormat())));
 	}
 	$set(this, reverb, $new($SoftReverb));
 	$set(this, chorus, $new($SoftChorus));
 	$set(this, agc, $new($SoftLimiter));
-	float samplerate = $nc($(mixer->getFormat()))->getSampleRate();
+	float samplerate = $$nc(mixer->getFormat())->getSampleRate();
 	float controlrate = mixer->getControlRate();
-	$nc(this->reverb)->init(samplerate, controlrate);
-	$nc(this->chorus)->init(samplerate, controlrate);
-	$nc(this->agc)->init(samplerate, controlrate);
-	$nc(this->reverb)->setMixMode(true);
-	$nc(this->chorus)->setMixMode(true);
-	$nc(this->agc)->setMixMode(false);
-	$nc(this->chorus)->setInput(0, $nc(this->buffers)->get(SoftMixingMainMixer::CHANNEL_EFFECT2));
-	$nc(this->chorus)->setOutput(0, $nc(this->buffers)->get(SoftMixingMainMixer::CHANNEL_LEFT));
+	this->reverb->init(samplerate, controlrate);
+	this->chorus->init(samplerate, controlrate);
+	this->agc->init(samplerate, controlrate);
+	this->reverb->setMixMode(true);
+	this->chorus->setMixMode(true);
+	this->agc->setMixMode(false);
+	this->chorus->setInput(0, this->buffers->get(SoftMixingMainMixer::CHANNEL_EFFECT2));
+	this->chorus->setOutput(0, this->buffers->get(SoftMixingMainMixer::CHANNEL_LEFT));
 	if (this->nrofchannels != 1) {
-		$nc(this->chorus)->setOutput(1, $nc(this->buffers)->get(SoftMixingMainMixer::CHANNEL_RIGHT));
+		this->chorus->setOutput(1, this->buffers->get(SoftMixingMainMixer::CHANNEL_RIGHT));
 	}
-	$nc(this->chorus)->setOutput(2, $nc(this->buffers)->get(SoftMixingMainMixer::CHANNEL_EFFECT1));
-	$nc(this->reverb)->setInput(0, $nc(this->buffers)->get(SoftMixingMainMixer::CHANNEL_EFFECT1));
-	$nc(this->reverb)->setOutput(0, $nc(this->buffers)->get(SoftMixingMainMixer::CHANNEL_LEFT));
+	this->chorus->setOutput(2, this->buffers->get(SoftMixingMainMixer::CHANNEL_EFFECT1));
+	this->reverb->setInput(0, this->buffers->get(SoftMixingMainMixer::CHANNEL_EFFECT1));
+	this->reverb->setOutput(0, this->buffers->get(SoftMixingMainMixer::CHANNEL_LEFT));
 	if (this->nrofchannels != 1) {
-		$nc(this->reverb)->setOutput(1, $nc(this->buffers)->get(SoftMixingMainMixer::CHANNEL_RIGHT));
+		this->reverb->setOutput(1, this->buffers->get(SoftMixingMainMixer::CHANNEL_RIGHT));
 	}
-	$nc(this->agc)->setInput(0, $nc(this->buffers)->get(SoftMixingMainMixer::CHANNEL_LEFT));
+	this->agc->setInput(0, this->buffers->get(SoftMixingMainMixer::CHANNEL_LEFT));
 	if (this->nrofchannels != 1) {
-		$nc(this->agc)->setInput(1, $nc(this->buffers)->get(SoftMixingMainMixer::CHANNEL_RIGHT));
+		this->agc->setInput(1, this->buffers->get(SoftMixingMainMixer::CHANNEL_RIGHT));
 	}
-	$nc(this->agc)->setOutput(0, $nc(this->buffers)->get(SoftMixingMainMixer::CHANNEL_LEFT));
+	this->agc->setOutput(0, this->buffers->get(SoftMixingMainMixer::CHANNEL_LEFT));
 	if (this->nrofchannels != 1) {
-		$nc(this->agc)->setOutput(1, $nc(this->buffers)->get(SoftMixingMainMixer::CHANNEL_RIGHT));
+		this->agc->setOutput(1, this->buffers->get(SoftMixingMainMixer::CHANNEL_RIGHT));
 	}
 	$var($InputStream, in, $new($SoftMixingMainMixer$1, this));
 	$set(this, ais, $new($AudioInputStream, in, $(mixer->getFormat()), $AudioSystem::NOT_SPECIFIED));
@@ -193,18 +128,18 @@ void SoftMixingMainMixer::init$($SoftMixingMixer* mixer) {
 
 void SoftMixingMainMixer::openLine($SoftMixingDataLine* line) {
 	$synchronized(this->control_mutex) {
-		$nc(this->openLinesList)->add(line);
-		$set(this, openLines, $fcast($SoftMixingDataLineArray, $nc(this->openLinesList)->toArray($$new($SoftMixingDataLineArray, $nc(this->openLinesList)->size()))));
+		this->openLinesList->add(line);
+		$set(this, openLines, $cast($SoftMixingDataLineArray, this->openLinesList->toArray($$new($SoftMixingDataLineArray, this->openLinesList->size()))));
 	}
 }
 
 void SoftMixingMainMixer::closeLine($SoftMixingDataLine* line) {
 	$synchronized(this->control_mutex) {
-		$nc(this->openLinesList)->remove($of(line));
-		$set(this, openLines, $fcast($SoftMixingDataLineArray, $nc(this->openLinesList)->toArray($$new($SoftMixingDataLineArray, $nc(this->openLinesList)->size()))));
+		this->openLinesList->remove(line);
+		$set(this, openLines, $cast($SoftMixingDataLineArray, this->openLinesList->toArray($$new($SoftMixingDataLineArray, this->openLinesList->size()))));
 		if ($nc(this->openLines)->length == 0) {
 			if ($nc(this->mixer)->implicitOpen) {
-				$nc(this->mixer)->close();
+				this->mixer->close();
 			}
 		}
 	}
@@ -227,7 +162,62 @@ SoftMixingMainMixer::SoftMixingMainMixer() {
 }
 
 $Class* SoftMixingMainMixer::load$($String* name, bool initialize) {
-	$loadClass(SoftMixingMainMixer, name, initialize, &_SoftMixingMainMixer_ClassInfo_, allocate$SoftMixingMainMixer);
+	$FieldInfo fieldInfos$$[] = {
+		{"CHANNEL_LEFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftMixingMainMixer, CHANNEL_LEFT)},
+		{"CHANNEL_RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftMixingMainMixer, CHANNEL_RIGHT)},
+		{"CHANNEL_EFFECT1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftMixingMainMixer, CHANNEL_EFFECT1)},
+		{"CHANNEL_EFFECT2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftMixingMainMixer, CHANNEL_EFFECT2)},
+		{"CHANNEL_EFFECT3", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftMixingMainMixer, CHANNEL_EFFECT3)},
+		{"CHANNEL_EFFECT4", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftMixingMainMixer, CHANNEL_EFFECT4)},
+		{"CHANNEL_LEFT_DRY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftMixingMainMixer, CHANNEL_LEFT_DRY)},
+		{"CHANNEL_RIGHT_DRY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftMixingMainMixer, CHANNEL_RIGHT_DRY)},
+		{"CHANNEL_SCRATCH1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftMixingMainMixer, CHANNEL_SCRATCH1)},
+		{"CHANNEL_SCRATCH2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftMixingMainMixer, CHANNEL_SCRATCH2)},
+		{"CHANNEL_CHANNELMIXER_LEFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftMixingMainMixer, CHANNEL_CHANNELMIXER_LEFT)},
+		{"CHANNEL_CHANNELMIXER_RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftMixingMainMixer, CHANNEL_CHANNELMIXER_RIGHT)},
+		{"mixer", "Lcom/sun/media/sound/SoftMixingMixer;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingMainMixer, mixer)},
+		{"ais", "Ljavax/sound/sampled/AudioInputStream;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingMainMixer, ais)},
+		{"buffers", "[Lcom/sun/media/sound/SoftAudioBuffer;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingMainMixer, buffers)},
+		{"reverb", "Lcom/sun/media/sound/SoftAudioProcessor;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingMainMixer, reverb)},
+		{"chorus", "Lcom/sun/media/sound/SoftAudioProcessor;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingMainMixer, chorus)},
+		{"agc", "Lcom/sun/media/sound/SoftAudioProcessor;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingMainMixer, agc)},
+		{"nrofchannels", "I", nullptr, $PRIVATE | $FINAL, $field(SoftMixingMainMixer, nrofchannels)},
+		{"control_mutex", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingMainMixer, control_mutex)},
+		{"openLinesList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/media/sound/SoftMixingDataLine;>;", $PRIVATE | $FINAL, $field(SoftMixingMainMixer, openLinesList)},
+		{"openLines", "[Lcom/sun/media/sound/SoftMixingDataLine;", nullptr, $PRIVATE, $field(SoftMixingMainMixer, openLines)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/SoftMixingMixer;)V", nullptr, $PUBLIC, $method(SoftMixingMainMixer, init$, void, $SoftMixingMixer*)},
+		{"close", "()V", nullptr, $PUBLIC, $method(SoftMixingMainMixer, close, void)},
+		{"closeLine", "(Lcom/sun/media/sound/SoftMixingDataLine;)V", nullptr, $PUBLIC, $method(SoftMixingMainMixer, closeLine, void, $SoftMixingDataLine*)},
+		{"getInputStream", "()Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC, $method(SoftMixingMainMixer, getInputStream, $AudioInputStream*)},
+		{"getOpenLines", "()[Lcom/sun/media/sound/SoftMixingDataLine;", nullptr, $PUBLIC, $method(SoftMixingMainMixer, getOpenLines, $SoftMixingDataLineArray*)},
+		{"openLine", "(Lcom/sun/media/sound/SoftMixingDataLine;)V", nullptr, $PUBLIC, $method(SoftMixingMainMixer, openLine, void, $SoftMixingDataLine*)},
+		{"processAudioBuffers", "()V", nullptr, 0, $method(SoftMixingMainMixer, processAudioBuffers, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.SoftMixingMainMixer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SoftMixingMainMixer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.SoftMixingMainMixer$1"
+	};
+	$loadClass(SoftMixingMainMixer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftMixingMainMixer);
+	});
 	return class$;
 }
 

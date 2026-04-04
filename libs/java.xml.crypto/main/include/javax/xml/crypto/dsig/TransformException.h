@@ -34,11 +34,14 @@ public:
 	virtual void printStackTrace() override;
 	virtual void printStackTrace(::java::io::PrintStream* s) override;
 	virtual void printStackTrace(::java::io::PrintWriter* s) override;
-	static const int64_t serialVersionUID = (int64_t)0x4689256C42205B18;
+	static const int64_t serialVersionUID = (int64_t)0x4689256c42205b18;
 	$Throwable* cause = nullptr;
 	TransformException(const TransformException& e);
 	virtual void throw$() override;
-	inline TransformException* operator ->() {
+	inline TransformException* operator ->() const {
+		return (TransformException*)throwing$;
+	}
+	inline operator TransformException*() const {
 		return (TransformException*)throwing$;
 	}
 };

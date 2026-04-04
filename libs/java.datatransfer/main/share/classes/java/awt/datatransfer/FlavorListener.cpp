@@ -1,5 +1,4 @@
 #include <java/awt/datatransfer/FlavorListener.h>
-
 #include <java/awt/datatransfer/FlavorEvent.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace java {
 	namespace awt {
 		namespace datatransfer {
 
-$MethodInfo _FlavorListener_MethodInfo_[] = {
-	{"flavorsChanged", "(Ljava/awt/datatransfer/FlavorEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FlavorListener, flavorsChanged, void, $FlavorEvent*)},
-	{}
-};
-
-$ClassInfo _FlavorListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.datatransfer.FlavorListener",
-	nullptr,
-	"java.util.EventListener",
-	nullptr,
-	_FlavorListener_MethodInfo_
-};
-
-$Object* allocate$FlavorListener($Class* clazz) {
-	return $of($alloc(FlavorListener));
-}
-
 $Class* FlavorListener::load$($String* name, bool initialize) {
-	$loadClass(FlavorListener, name, initialize, &_FlavorListener_ClassInfo_, allocate$FlavorListener);
+	$MethodInfo methodInfos$$[] = {
+		{"flavorsChanged", "(Ljava/awt/datatransfer/FlavorEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FlavorListener, flavorsChanged, void, $FlavorEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.datatransfer.FlavorListener",
+		nullptr,
+		"java.util.EventListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FlavorListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FlavorListener);
+	});
 	return class$;
 }
 

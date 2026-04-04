@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/TypeEnvs.h>
-
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/comp/Env.h>
 #include <com/sun/tools/javac/util/Context$Key.h>
@@ -24,37 +23,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _TypeEnvs_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TypeEnvs, serialVersionUID)},
-	{"typeEnvsKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/comp/TypeEnvs;>;", $PROTECTED | $STATIC | $FINAL, $staticField(TypeEnvs, typeEnvsKey)},
-	{"map", "Ljava/util/HashMap;", "Ljava/util/HashMap<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;", $PRIVATE, $field(TypeEnvs, map)},
-	{}
-};
-
-$MethodInfo _TypeEnvs_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(TypeEnvs, init$, void, $Context*)},
-	{"clear", "()V", nullptr, 0, $virtualMethod(TypeEnvs, clear, void)},
-	{"get", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", 0, $virtualMethod(TypeEnvs, get, $Env*, $Symbol$TypeSymbol*)},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/TypeEnvs;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeEnvs, instance, TypeEnvs*, $Context*)},
-	{"put", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", 0, $virtualMethod(TypeEnvs, put, $Env*, $Symbol$TypeSymbol*, $Env*)},
-	{"remove", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", 0, $virtualMethod(TypeEnvs, remove, $Env*, $Symbol$TypeSymbol*)},
-	{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;", 0, $virtualMethod(TypeEnvs, values, $Collection*)},
-	{}
-};
-
-$ClassInfo _TypeEnvs_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.TypeEnvs",
-	"java.lang.Object",
-	nullptr,
-	_TypeEnvs_FieldInfo_,
-	_TypeEnvs_MethodInfo_
-};
-
-$Object* allocate$TypeEnvs($Class* clazz) {
-	return $of($alloc(TypeEnvs));
-}
-
 $Context$Key* TypeEnvs::typeEnvsKey = nullptr;
 
 TypeEnvs* TypeEnvs::instance($Context* context) {
@@ -68,7 +36,7 @@ TypeEnvs* TypeEnvs::instance($Context* context) {
 
 void TypeEnvs::init$($Context* context) {
 	$set(this, map, $new($HashMap));
-	$nc(context)->put(TypeEnvs::typeEnvsKey, $of(this));
+	$nc(context)->put(TypeEnvs::typeEnvsKey, this);
 }
 
 $Env* TypeEnvs::get($Symbol$TypeSymbol* sym) {
@@ -91,7 +59,7 @@ void TypeEnvs::clear() {
 	$nc(this->map)->clear();
 }
 
-void clinit$TypeEnvs($Class* class$) {
+void TypeEnvs::clinit$($Class* clazz) {
 	$assignStatic(TypeEnvs::typeEnvsKey, $new($Context$Key));
 }
 
@@ -99,7 +67,33 @@ TypeEnvs::TypeEnvs() {
 }
 
 $Class* TypeEnvs::load$($String* name, bool initialize) {
-	$loadClass(TypeEnvs, name, initialize, &_TypeEnvs_ClassInfo_, clinit$TypeEnvs, allocate$TypeEnvs);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TypeEnvs, serialVersionUID)},
+		{"typeEnvsKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/comp/TypeEnvs;>;", $PROTECTED | $STATIC | $FINAL, $staticField(TypeEnvs, typeEnvsKey)},
+		{"map", "Ljava/util/HashMap;", "Ljava/util/HashMap<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;", $PRIVATE, $field(TypeEnvs, map)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(TypeEnvs, init$, void, $Context*)},
+		{"clear", "()V", nullptr, 0, $virtualMethod(TypeEnvs, clear, void)},
+		{"get", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", 0, $virtualMethod(TypeEnvs, get, $Env*, $Symbol$TypeSymbol*)},
+		{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/TypeEnvs;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeEnvs, instance, TypeEnvs*, $Context*)},
+		{"put", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", 0, $virtualMethod(TypeEnvs, put, $Env*, $Symbol$TypeSymbol*, $Env*)},
+		{"remove", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", 0, $virtualMethod(TypeEnvs, remove, $Env*, $Symbol$TypeSymbol*)},
+		{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;", 0, $virtualMethod(TypeEnvs, values, $Collection*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.TypeEnvs",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TypeEnvs, name, initialize, &classInfo$$, TypeEnvs::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeEnvs);
+	});
 	return class$;
 }
 

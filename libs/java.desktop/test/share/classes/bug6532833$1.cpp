@@ -1,5 +1,4 @@
 #include <bug6532833$1.h>
-
 #include <bug6532833.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -17,7 +16,6 @@
 using $JSpinnerArray = $Array<::javax::swing::JSpinner>;
 using $Component = ::java::awt::Component;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -26,52 +24,14 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JSpinner = ::javax::swing::JSpinner;
-
-$MethodInfo _bug6532833$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug6532833$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6532833$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug6532833$1_EnclosingMethodInfo_ = {
-	"bug6532833",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug6532833$1_InnerClassesInfo_[] = {
-	{"bug6532833$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6532833$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6532833$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug6532833$1_MethodInfo_,
-	nullptr,
-	&_bug6532833$1_EnclosingMethodInfo_,
-	_bug6532833$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6532833"
-};
-
-$Object* allocate$bug6532833$1($Class* clazz) {
-	return $of($alloc(bug6532833$1));
-}
 
 void bug6532833$1::init$() {
 }
 
 void bug6532833$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JSpinnerArray, spinners, $new($JSpinnerArray, 2));
 	for (int32_t i = 0; i < spinners->length; ++i) {
 		$var($JSpinner, spinner, $new($JSpinner));
@@ -90,26 +50,22 @@ void bug6532833$1::run() {
 	$var($JFrame, frame, $new($JFrame));
 	{
 		$var($JSpinnerArray, arr$, spinners);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($JSpinner, spinner, arr$->get(i$));
 			{
-				$nc($(frame->getContentPane()))->add(static_cast<$Component*>(spinner));
+				$$nc(frame->getContentPane())->add(spinner);
 			}
 		}
 	}
 	frame->pack();
 	{
 		$var($JSpinnerArray, arr$, spinners);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($JSpinner, spinner, arr$->get(i$));
 			{
 				$var($Insets, insets, $nc(spinner)->getInsets());
 				int32_t var$0 = spinner->getWidth();
-				if (var$0 != $nc(insets)->left + insets->right + $nc($(spinner->getEditor()))->getWidth()) {
+				if (var$0 != $nc(insets)->left + $nc(insets)->right + $$nc(spinner->getEditor())->getWidth()) {
 					$throwNew($RuntimeException, "Spinner editor width is invalid"_s);
 				}
 			}
@@ -122,7 +78,38 @@ bug6532833$1::bug6532833$1() {
 }
 
 $Class* bug6532833$1::load$($String* name, bool initialize) {
-	$loadClass(bug6532833$1, name, initialize, &_bug6532833$1_ClassInfo_, allocate$bug6532833$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug6532833$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6532833$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug6532833",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6532833$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6532833$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6532833"
+	};
+	$loadClass(bug6532833$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6532833$1);
+	});
 	return class$;
 }
 

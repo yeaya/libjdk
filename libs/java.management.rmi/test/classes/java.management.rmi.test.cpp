@@ -1,5 +1,4 @@
 #include <java.management.rmi.test.h>
-
 #include <java.management.rmi.h>
 #include <java.naming.h>
 #include <java.management.h>

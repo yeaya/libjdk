@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/SchemaDOMParser.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLErrorReporter.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaSymbols.h>
@@ -57,9 +56,6 @@ using $Augmentations = ::com::sun::org::apache::xerces::internal::xni::Augmentat
 using $NamespaceContext = ::com::sun::org::apache::xerces::internal::xni::NamespaceContext;
 using $QName = ::com::sun::org::apache::xerces::internal::xni::QName;
 using $XMLAttributes = ::com::sun::org::apache::xerces::internal::xni::XMLAttributes;
-using $XMLDTDContentModelHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDTDContentModelHandler;
-using $XMLDTDHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDTDHandler;
-using $XMLDocumentHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDocumentHandler;
 using $XMLLocator = ::com::sun::org::apache::xerces::internal::xni::XMLLocator;
 using $XMLString = ::com::sun::org::apache::xerces::internal::xni::XMLString;
 using $XMLEntityResolver = ::com::sun::org::apache::xerces::internal::xni::parser::XMLEntityResolver;
@@ -80,75 +76,6 @@ namespace com {
 						namespace impl {
 							namespace xs {
 								namespace opti {
-
-$FieldInfo _SchemaDOMParser_FieldInfo_[] = {
-	{"ERROR_REPORTER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SchemaDOMParser, ERROR_REPORTER)},
-	{"GENERATE_SYNTHETIC_ANNOTATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SchemaDOMParser, GENERATE_SYNTHETIC_ANNOTATION)},
-	{"fLocator", "Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;", nullptr, $PROTECTED, $field(SchemaDOMParser, fLocator)},
-	{"fNamespaceContext", "Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;", nullptr, $PROTECTED, $field(SchemaDOMParser, fNamespaceContext)},
-	{"schemaDOM", "Lcom/sun/org/apache/xerces/internal/impl/xs/opti/SchemaDOM;", nullptr, 0, $field(SchemaDOMParser, schemaDOM)},
-	{"config", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration;", nullptr, 0, $field(SchemaDOMParser, config)},
-	{"fCurrentAnnotationElement", "Lcom/sun/org/apache/xerces/internal/impl/xs/opti/ElementImpl;", nullptr, $PRIVATE, $field(SchemaDOMParser, fCurrentAnnotationElement)},
-	{"fAnnotationDepth", "I", nullptr, $PRIVATE, $field(SchemaDOMParser, fAnnotationDepth)},
-	{"fInnerAnnotationDepth", "I", nullptr, $PRIVATE, $field(SchemaDOMParser, fInnerAnnotationDepth)},
-	{"fDepth", "I", nullptr, $PRIVATE, $field(SchemaDOMParser, fDepth)},
-	{"fErrorReporter", "Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;", nullptr, 0, $field(SchemaDOMParser, fErrorReporter)},
-	{"fGenerateSyntheticAnnotation", "Z", nullptr, $PRIVATE, $field(SchemaDOMParser, fGenerateSyntheticAnnotation)},
-	{"fHasNonSchemaAttributes", "Lcom/sun/org/apache/xerces/internal/impl/xs/opti/SchemaDOMParser$BooleanStack;", nullptr, $PRIVATE, $field(SchemaDOMParser, fHasNonSchemaAttributes)},
-	{"fSawAnnotation", "Lcom/sun/org/apache/xerces/internal/impl/xs/opti/SchemaDOMParser$BooleanStack;", nullptr, $PRIVATE, $field(SchemaDOMParser, fSawAnnotation)},
-	{"fEmptyAttr", "Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;", nullptr, $PRIVATE, $field(SchemaDOMParser, fEmptyAttr)},
-	{}
-};
-
-$MethodInfo _SchemaDOMParser_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration;)V", nullptr, $PUBLIC, $method(SchemaDOMParser, init$, void, $XMLParserConfiguration*)},
-	{"characters", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, characters, void, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"comment", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, comment, void, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"emptyElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, emptyElement, void, $QName*, $XMLAttributes*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"endCDATA", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, endCDATA, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"endDocument", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, endDocument, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"endElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, endElement, void, $QName*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"getDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, getDocument, $Document*)},
-	{"getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, getFeature, bool, $String*)},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, getProperty, $Object*, $String*)},
-	{"hasNonSchemaAttributes", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;)Z", nullptr, $PRIVATE, $method(SchemaDOMParser, hasNonSchemaAttributes, bool, $QName*, $XMLAttributes*)},
-	{"ignorableWhitespace", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, ignorableWhitespace, void, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"parse", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, parse, void, $XMLInputSource*), "java.io.IOException"},
-	{"processingInstruction", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, processingInstruction, void, $String*, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, reset, void)},
-	{"resetNodePool", "()V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, resetNodePool, void)},
-	{"setEntityResolver", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLEntityResolver;)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, setEntityResolver, void, $XMLEntityResolver*)},
-	{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, setFeature, void, $String*, bool)},
-	{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, setProperty, void, $String*, Object$*)},
-	{"startCDATA", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, startCDATA, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"startDocument", "(Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, startDocument, void, $XMLLocator*, $String*, $NamespaceContext*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"startElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, startElement, void, $QName*, $XMLAttributes*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{}
-};
-
-$InnerClassInfo _SchemaDOMParser_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xs.opti.SchemaDOMParser$BooleanStack", "com.sun.org.apache.xerces.internal.impl.xs.opti.SchemaDOMParser", "BooleanStack", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SchemaDOMParser_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.opti.SchemaDOMParser",
-	"com.sun.org.apache.xerces.internal.impl.xs.opti.DefaultXMLDocumentHandler",
-	nullptr,
-	_SchemaDOMParser_FieldInfo_,
-	_SchemaDOMParser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SchemaDOMParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xs.opti.SchemaDOMParser$BooleanStack"
-};
-
-$Object* allocate$SchemaDOMParser($Class* clazz) {
-	return $of($alloc(SchemaDOMParser));
-}
 
 $String* SchemaDOMParser::ERROR_REPORTER = nullptr;
 $String* SchemaDOMParser::GENERATE_SYNTHETIC_ANNOTATION = nullptr;
@@ -181,7 +108,7 @@ void SchemaDOMParser::startDocument($XMLLocator* locator, $String* encoding, $Na
 	this->fDepth = -1;
 	$set(this, fLocator, locator);
 	$set(this, fNamespaceContext, namespaceContext);
-	$nc(this->schemaDOM)->setDocumentURI($($nc(locator)->getExpandedSystemId()));
+	this->schemaDOM->setDocumentURI($($nc(locator)->getExpandedSystemId()));
 }
 
 void SchemaDOMParser::endDocument($Augmentations* augs) {
@@ -200,13 +127,13 @@ void SchemaDOMParser::processingInstruction($String* target, $XMLString* data, $
 }
 
 void SchemaDOMParser::characters($XMLString* text, $Augmentations* augs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fInnerAnnotationDepth == -1) {
 		for (int32_t i = $nc(text)->offset; i < text->offset + text->length; ++i) {
 			if (!$XMLChar::isSpace($nc(text->ch)->get(i))) {
 				$var($String, txt, $new($String, text->ch, i, text->length + text->offset - i));
 				$init($XSMessageFormatter);
-				$nc(this->fErrorReporter)->reportError(this->fLocator, $XSMessageFormatter::SCHEMA_DOMAIN, "s4s-elt-character"_s, $$new($ObjectArray, {$of(txt)}), $XMLErrorReporter::SEVERITY_ERROR);
+				$nc(this->fErrorReporter)->reportError(this->fLocator, $XSMessageFormatter::SCHEMA_DOMAIN, "s4s-elt-character"_s, $$new($ObjectArray, {txt}), $XMLErrorReporter::SEVERITY_ERROR);
 				break;
 			}
 		}
@@ -216,7 +143,6 @@ void SchemaDOMParser::characters($XMLString* text, $Augmentations* augs) {
 }
 
 void SchemaDOMParser::startElement($QName* element, $XMLAttributes* attributes, $Augmentations* augs) {
-	$useLocalCurrentObjectStackCache();
 	++this->fDepth;
 	if (this->fAnnotationDepth == -1) {
 		$init($SchemaSymbols);
@@ -229,17 +155,13 @@ void SchemaDOMParser::startElement($QName* element, $XMLAttributes* attributes, 
 			}
 			this->fAnnotationDepth = this->fDepth;
 			$nc(this->schemaDOM)->startAnnotation(element, attributes, this->fNamespaceContext);
-			$var($QName, var$0, element);
-			$var($XMLAttributes, var$1, attributes);
-			int32_t var$2 = $nc(this->fLocator)->getLineNumber();
-			int32_t var$3 = $nc(this->fLocator)->getColumnNumber();
-			$set(this, fCurrentAnnotationElement, $nc(this->schemaDOM)->startElement(var$0, var$1, var$2, var$3, $nc(this->fLocator)->getCharacterOffset()));
+			int32_t var$0 = $nc(this->fLocator)->getLineNumber();
+			int32_t var$1 = this->fLocator->getColumnNumber();
+			$set(this, fCurrentAnnotationElement, $nc(this->schemaDOM)->startElement(element, attributes, var$0, var$1, this->fLocator->getCharacterOffset()));
 			return;
-		} else {
-			if (element->uri == $SchemaSymbols::URI_SCHEMAFORSCHEMA && this->fGenerateSyntheticAnnotation) {
-				$nc(this->fSawAnnotation)->push(false);
-				$nc(this->fHasNonSchemaAttributes)->push(hasNonSchemaAttributes(element, attributes));
-			}
+		} else if (element->uri == $SchemaSymbols::URI_SCHEMAFORSCHEMA && this->fGenerateSyntheticAnnotation) {
+			$nc(this->fSawAnnotation)->push(false);
+			$nc(this->fHasNonSchemaAttributes)->push(hasNonSchemaAttributes(element, attributes));
 		}
 	} else if (this->fDepth == this->fAnnotationDepth + 1) {
 		this->fInnerAnnotationDepth = this->fDepth;
@@ -248,27 +170,23 @@ void SchemaDOMParser::startElement($QName* element, $XMLAttributes* attributes, 
 		$nc(this->schemaDOM)->startAnnotationElement(element, attributes);
 		return;
 	}
-	$var($QName, var$4, element);
-	$var($XMLAttributes, var$5, attributes);
-	int32_t var$6 = $nc(this->fLocator)->getLineNumber();
-	int32_t var$7 = $nc(this->fLocator)->getColumnNumber();
-	$nc(this->schemaDOM)->startElement(var$4, var$5, var$6, var$7, $nc(this->fLocator)->getCharacterOffset());
+	int32_t var$2 = $nc(this->fLocator)->getLineNumber();
+	int32_t var$3 = this->fLocator->getColumnNumber();
+	$nc(this->schemaDOM)->startElement(element, attributes, var$2, var$3, this->fLocator->getCharacterOffset());
 }
 
 void SchemaDOMParser::emptyElement($QName* element, $XMLAttributes* attributes, $Augmentations* augs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($SchemaSymbols);
 	if (this->fGenerateSyntheticAnnotation && this->fAnnotationDepth == -1 && $nc(element)->uri == $SchemaSymbols::URI_SCHEMAFORSCHEMA && element->localpart != $SchemaSymbols::ELT_ANNOTATION && hasNonSchemaAttributes(element, attributes)) {
-		$var($QName, var$0, element);
-		$var($XMLAttributes, var$1, attributes);
-		int32_t var$2 = $nc(this->fLocator)->getLineNumber();
-		int32_t var$3 = $nc(this->fLocator)->getColumnNumber();
-		$nc(this->schemaDOM)->startElement(var$0, var$1, var$2, var$3, $nc(this->fLocator)->getCharacterOffset());
+		int32_t var$0 = $nc(this->fLocator)->getLineNumber();
+		int32_t var$1 = this->fLocator->getColumnNumber();
+		$nc(this->schemaDOM)->startElement(element, attributes, var$0, var$1, this->fLocator->getCharacterOffset());
 		$nc(attributes)->removeAllAttributes();
 		$var($String, schemaPrefix, $nc(this->fNamespaceContext)->getPrefix($SchemaSymbols::URI_SCHEMAFORSCHEMA));
 		$var($String, annRawName, ($nc(schemaPrefix)->length() == 0) ? $SchemaSymbols::ELT_ANNOTATION : ($str({schemaPrefix, $$str(u':'), $SchemaSymbols::ELT_ANNOTATION})));
 		$nc(this->schemaDOM)->startAnnotation(annRawName, attributes, this->fNamespaceContext);
-		$var($String, elemRawName, ($nc(schemaPrefix)->length() == 0) ? $SchemaSymbols::ELT_DOCUMENTATION : ($str({schemaPrefix, $$str(u':'), $SchemaSymbols::ELT_DOCUMENTATION})));
+		$var($String, elemRawName, (schemaPrefix->length() == 0) ? $SchemaSymbols::ELT_DOCUMENTATION : ($str({schemaPrefix, $$str(u':'), $SchemaSymbols::ELT_DOCUMENTATION})));
 		$nc(this->schemaDOM)->startAnnotationElement(elemRawName, attributes);
 		$nc(this->schemaDOM)->charactersRaw("SYNTHETIC_ANNOTATION"_s);
 		$nc(this->schemaDOM)->endSyntheticAnnotationElement(elemRawName, false);
@@ -283,11 +201,9 @@ void SchemaDOMParser::emptyElement($QName* element, $XMLAttributes* attributes, 
 	} else {
 		$nc(this->schemaDOM)->startAnnotationElement(element, attributes);
 	}
-	$var($QName, var$4, element);
-	$var($XMLAttributes, var$5, attributes);
-	int32_t var$6 = $nc(this->fLocator)->getLineNumber();
-	int32_t var$7 = $nc(this->fLocator)->getColumnNumber();
-	$var($ElementImpl, newElem, $nc(this->schemaDOM)->emptyElement(var$4, var$5, var$6, var$7, $nc(this->fLocator)->getCharacterOffset()));
+	int32_t var$2 = $nc(this->fLocator)->getLineNumber();
+	int32_t var$3 = this->fLocator->getColumnNumber();
+	$var($ElementImpl, newElem, $nc(this->schemaDOM)->emptyElement(element, attributes, var$2, var$3, this->fLocator->getCharacterOffset()));
 	if (this->fAnnotationDepth == -1) {
 		if ($nc(element)->uri == $SchemaSymbols::URI_SCHEMAFORSCHEMA && element->localpart == $SchemaSymbols::ELT_ANNOTATION) {
 			$nc(this->schemaDOM)->endAnnotation(element, newElem);
@@ -298,7 +214,7 @@ void SchemaDOMParser::emptyElement($QName* element, $XMLAttributes* attributes, 
 }
 
 void SchemaDOMParser::endElement($QName* element, $Augmentations* augs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fAnnotationDepth > -1) {
 		if (this->fInnerAnnotationDepth == this->fDepth) {
 			this->fInnerAnnotationDepth = -1;
@@ -320,7 +236,7 @@ void SchemaDOMParser::endElement($QName* element, $Augmentations* augs) {
 				$var($String, schemaPrefix, $nc(this->fNamespaceContext)->getPrefix($SchemaSymbols::URI_SCHEMAFORSCHEMA));
 				$var($String, annRawName, ($nc(schemaPrefix)->length() == 0) ? $SchemaSymbols::ELT_ANNOTATION : ($str({schemaPrefix, $$str(u':'), $SchemaSymbols::ELT_ANNOTATION})));
 				$nc(this->schemaDOM)->startAnnotation(annRawName, this->fEmptyAttr, this->fNamespaceContext);
-				$var($String, elemRawName, ($nc(schemaPrefix)->length() == 0) ? $SchemaSymbols::ELT_DOCUMENTATION : ($str({schemaPrefix, $$str(u':'), $SchemaSymbols::ELT_DOCUMENTATION})));
+				$var($String, elemRawName, (schemaPrefix->length() == 0) ? $SchemaSymbols::ELT_DOCUMENTATION : ($str({schemaPrefix, $$str(u':'), $SchemaSymbols::ELT_DOCUMENTATION})));
 				$nc(this->schemaDOM)->startAnnotationElement(elemRawName, this->fEmptyAttr);
 				$nc(this->schemaDOM)->charactersRaw("SYNTHETIC_ANNOTATION"_s);
 				$nc(this->schemaDOM)->endSyntheticAnnotationElement(elemRawName, false);
@@ -333,7 +249,7 @@ void SchemaDOMParser::endElement($QName* element, $Augmentations* augs) {
 }
 
 bool SchemaDOMParser::hasNonSchemaAttributes($QName* element, $XMLAttributes* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = $nc(attributes)->getLength();
 	for (int32_t i = 0; i < length; ++i) {
 		$var($String, uri, attributes->getURI(i));
@@ -381,7 +297,7 @@ void SchemaDOMParser::setProperty($String* propertyId, Object$* value) {
 }
 
 $Object* SchemaDOMParser::getProperty($String* propertyId) {
-	return $of($nc(this->config)->getProperty(propertyId));
+	return $nc(this->config)->getProperty(propertyId);
 }
 
 void SchemaDOMParser::setEntityResolver($XMLEntityResolver* er) {
@@ -393,24 +309,87 @@ void SchemaDOMParser::parse($XMLInputSource* inputSource) {
 }
 
 void SchemaDOMParser::reset() {
-	$nc(($cast($SchemaParsingConfig, this->config)))->reset();
+	$nc($cast($SchemaParsingConfig, this->config))->reset();
 }
 
 void SchemaDOMParser::resetNodePool() {
-	$nc(($cast($SchemaParsingConfig, this->config)))->resetNodePool();
+	$nc($cast($SchemaParsingConfig, this->config))->resetNodePool();
 }
 
 SchemaDOMParser::SchemaDOMParser() {
 }
 
-void clinit$SchemaDOMParser($Class* class$) {
+void SchemaDOMParser::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(SchemaDOMParser::ERROR_REPORTER, $str({$Constants::XERCES_PROPERTY_PREFIX, $Constants::ERROR_REPORTER_PROPERTY}));
 	$assignStatic(SchemaDOMParser::GENERATE_SYNTHETIC_ANNOTATION, $str({$Constants::XERCES_FEATURE_PREFIX, $Constants::GENERATE_SYNTHETIC_ANNOTATIONS_FEATURE}));
 }
 
 $Class* SchemaDOMParser::load$($String* name, bool initialize) {
-	$loadClass(SchemaDOMParser, name, initialize, &_SchemaDOMParser_ClassInfo_, clinit$SchemaDOMParser, allocate$SchemaDOMParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"ERROR_REPORTER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SchemaDOMParser, ERROR_REPORTER)},
+		{"GENERATE_SYNTHETIC_ANNOTATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SchemaDOMParser, GENERATE_SYNTHETIC_ANNOTATION)},
+		{"fLocator", "Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;", nullptr, $PROTECTED, $field(SchemaDOMParser, fLocator)},
+		{"fNamespaceContext", "Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;", nullptr, $PROTECTED, $field(SchemaDOMParser, fNamespaceContext)},
+		{"schemaDOM", "Lcom/sun/org/apache/xerces/internal/impl/xs/opti/SchemaDOM;", nullptr, 0, $field(SchemaDOMParser, schemaDOM)},
+		{"config", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration;", nullptr, 0, $field(SchemaDOMParser, config)},
+		{"fCurrentAnnotationElement", "Lcom/sun/org/apache/xerces/internal/impl/xs/opti/ElementImpl;", nullptr, $PRIVATE, $field(SchemaDOMParser, fCurrentAnnotationElement)},
+		{"fAnnotationDepth", "I", nullptr, $PRIVATE, $field(SchemaDOMParser, fAnnotationDepth)},
+		{"fInnerAnnotationDepth", "I", nullptr, $PRIVATE, $field(SchemaDOMParser, fInnerAnnotationDepth)},
+		{"fDepth", "I", nullptr, $PRIVATE, $field(SchemaDOMParser, fDepth)},
+		{"fErrorReporter", "Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;", nullptr, 0, $field(SchemaDOMParser, fErrorReporter)},
+		{"fGenerateSyntheticAnnotation", "Z", nullptr, $PRIVATE, $field(SchemaDOMParser, fGenerateSyntheticAnnotation)},
+		{"fHasNonSchemaAttributes", "Lcom/sun/org/apache/xerces/internal/impl/xs/opti/SchemaDOMParser$BooleanStack;", nullptr, $PRIVATE, $field(SchemaDOMParser, fHasNonSchemaAttributes)},
+		{"fSawAnnotation", "Lcom/sun/org/apache/xerces/internal/impl/xs/opti/SchemaDOMParser$BooleanStack;", nullptr, $PRIVATE, $field(SchemaDOMParser, fSawAnnotation)},
+		{"fEmptyAttr", "Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;", nullptr, $PRIVATE, $field(SchemaDOMParser, fEmptyAttr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration;)V", nullptr, $PUBLIC, $method(SchemaDOMParser, init$, void, $XMLParserConfiguration*)},
+		{"characters", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, characters, void, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"comment", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, comment, void, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"emptyElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, emptyElement, void, $QName*, $XMLAttributes*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"endCDATA", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, endCDATA, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"endDocument", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, endDocument, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"endElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, endElement, void, $QName*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"getDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, getDocument, $Document*)},
+		{"getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, getFeature, bool, $String*)},
+		{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, getProperty, $Object*, $String*)},
+		{"hasNonSchemaAttributes", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;)Z", nullptr, $PRIVATE, $method(SchemaDOMParser, hasNonSchemaAttributes, bool, $QName*, $XMLAttributes*)},
+		{"ignorableWhitespace", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, ignorableWhitespace, void, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"parse", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, parse, void, $XMLInputSource*), "java.io.IOException"},
+		{"processingInstruction", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, processingInstruction, void, $String*, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, reset, void)},
+		{"resetNodePool", "()V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, resetNodePool, void)},
+		{"setEntityResolver", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLEntityResolver;)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, setEntityResolver, void, $XMLEntityResolver*)},
+		{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, setFeature, void, $String*, bool)},
+		{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, setProperty, void, $String*, Object$*)},
+		{"startCDATA", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, startCDATA, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"startDocument", "(Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, startDocument, void, $XMLLocator*, $String*, $NamespaceContext*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"startElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(SchemaDOMParser, startElement, void, $QName*, $XMLAttributes*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xs.opti.SchemaDOMParser$BooleanStack", "com.sun.org.apache.xerces.internal.impl.xs.opti.SchemaDOMParser", "BooleanStack", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.opti.SchemaDOMParser",
+		"com.sun.org.apache.xerces.internal.impl.xs.opti.DefaultXMLDocumentHandler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xs.opti.SchemaDOMParser$BooleanStack"
+	};
+	$loadClass(SchemaDOMParser, name, initialize, &classInfo$$, SchemaDOMParser::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SchemaDOMParser));
+	});
 	return class$;
 }
 

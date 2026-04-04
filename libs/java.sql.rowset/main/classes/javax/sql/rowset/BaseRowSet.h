@@ -231,7 +231,7 @@ public:
 	::java::util::Map* map = nullptr;
 	::java::util::Vector* listeners = nullptr;
 	::java::util::Hashtable* params = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x43D11DA54DC2B1E0;
+	static const int64_t serialVersionUID = (int64_t)0x43d11da54dc2b1e0;
 };
 
 		} // rowset

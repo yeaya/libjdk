@@ -34,6 +34,7 @@ class $import SAXResult : public ::javax::xml::transform::Result {
 	$class(SAXResult, 0, ::javax::xml::transform::Result)
 public:
 	SAXResult();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::org::xml::sax::ContentHandler* handler);
 	virtual ::org::xml::sax::ContentHandler* getHandler();

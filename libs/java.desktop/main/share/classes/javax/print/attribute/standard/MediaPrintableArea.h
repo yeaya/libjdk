@@ -44,7 +44,7 @@ public:
 	int32_t w = 0;
 	int32_t h = 0;
 	int32_t units = 0;
-	static const int64_t serialVersionUID = (int64_t)0xE9D5B503FFDC9AEF;
+	static const int64_t serialVersionUID = (int64_t)0xe9d5b503ffdc9aef;
 	static const int32_t INCH = 25400;
 	static const int32_t MM = 1000;
 };

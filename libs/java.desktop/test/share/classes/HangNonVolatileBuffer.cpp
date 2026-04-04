@@ -1,5 +1,4 @@
 #include <HangNonVolatileBuffer.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Window.h>
 #include <java/io/Serializable.h>
@@ -32,27 +31,24 @@ public:
 	virtual void run() override {
 		HangNonVolatileBuffer::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HangNonVolatileBuffer$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HangNonVolatileBuffer$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HangNonVolatileBuffer$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HangNonVolatileBuffer$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo HangNonVolatileBuffer$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"HangNonVolatileBuffer$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* HangNonVolatileBuffer$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(HangNonVolatileBuffer$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HangNonVolatileBuffer$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HangNonVolatileBuffer$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"HangNonVolatileBuffer$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HangNonVolatileBuffer$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HangNonVolatileBuffer$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* HangNonVolatileBuffer$$Lambda$lambda$main$0::class$ = nullptr;
@@ -65,27 +61,24 @@ public:
 	virtual void run() override {
 		HangNonVolatileBuffer::lambda$main$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HangNonVolatileBuffer$$Lambda$lambda$main$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HangNonVolatileBuffer$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HangNonVolatileBuffer$$Lambda$lambda$main$1$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HangNonVolatileBuffer$$Lambda$lambda$main$1$1, run, void)},
-	{}
-};
-$ClassInfo HangNonVolatileBuffer$$Lambda$lambda$main$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"HangNonVolatileBuffer$$Lambda$lambda$main$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* HangNonVolatileBuffer$$Lambda$lambda$main$1$1::load$($String* name, bool initialize) {
-	$loadClass(HangNonVolatileBuffer$$Lambda$lambda$main$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HangNonVolatileBuffer$$Lambda$lambda$main$1$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HangNonVolatileBuffer$$Lambda$lambda$main$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"HangNonVolatileBuffer$$Lambda$lambda$main$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HangNonVolatileBuffer$$Lambda$lambda$main$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HangNonVolatileBuffer$$Lambda$lambda$main$1$1);
+	});
 	return class$;
 }
 $Class* HangNonVolatileBuffer$$Lambda$lambda$main$1$1::class$ = nullptr;
@@ -99,62 +92,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->dispose();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HangNonVolatileBuffer$$Lambda$dispose$2>());
-	}
 	$Window* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo HangNonVolatileBuffer$$Lambda$dispose$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HangNonVolatileBuffer$$Lambda$dispose$2, inst$)},
-	{}
-};
-$MethodInfo HangNonVolatileBuffer$$Lambda$dispose$2::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(HangNonVolatileBuffer$$Lambda$dispose$2, init$, void, $Window*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HangNonVolatileBuffer$$Lambda$dispose$2, run, void)},
-	{}
-};
-$ClassInfo HangNonVolatileBuffer$$Lambda$dispose$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"HangNonVolatileBuffer$$Lambda$dispose$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* HangNonVolatileBuffer$$Lambda$dispose$2::load$($String* name, bool initialize) {
-	$loadClass(HangNonVolatileBuffer$$Lambda$dispose$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HangNonVolatileBuffer$$Lambda$dispose$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(HangNonVolatileBuffer$$Lambda$dispose$2, init$, void, $Window*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HangNonVolatileBuffer$$Lambda$dispose$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"HangNonVolatileBuffer$$Lambda$dispose$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HangNonVolatileBuffer$$Lambda$dispose$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HangNonVolatileBuffer$$Lambda$dispose$2);
+	});
 	return class$;
 }
 $Class* HangNonVolatileBuffer$$Lambda$dispose$2::class$ = nullptr;
-
-$FieldInfo _HangNonVolatileBuffer_FieldInfo_[] = {
-	{"f", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(HangNonVolatileBuffer, f)},
-	{}
-};
-
-$MethodInfo _HangNonVolatileBuffer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HangNonVolatileBuffer, init$, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HangNonVolatileBuffer, lambda$main$0, void)},
-	{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HangNonVolatileBuffer, lambda$main$1, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HangNonVolatileBuffer, main, void, $StringArray*), "java.lang.reflect.InvocationTargetException,java.lang.InterruptedException"},
-	{}
-};
-
-$ClassInfo _HangNonVolatileBuffer_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"HangNonVolatileBuffer",
-	"java.lang.Object",
-	nullptr,
-	_HangNonVolatileBuffer_FieldInfo_,
-	_HangNonVolatileBuffer_MethodInfo_
-};
-
-$Object* allocate$HangNonVolatileBuffer($Class* clazz) {
-	return $of($alloc(HangNonVolatileBuffer));
-}
 
 $JFrame* HangNonVolatileBuffer::f = nullptr;
 
@@ -162,12 +125,12 @@ void HangNonVolatileBuffer::init$() {
 }
 
 void HangNonVolatileBuffer::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(HangNonVolatileBuffer$$Lambda$lambda$main$0)));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(HangNonVolatileBuffer$$Lambda$lambda$main$1$1)));
+	$useLocalObjectStack();
+	$SwingUtilities::invokeAndWait($$new(HangNonVolatileBuffer$$Lambda$lambda$main$0));
+	$SwingUtilities::invokeAndWait($$new(HangNonVolatileBuffer$$Lambda$lambda$main$1$1));
 	$Thread::sleep(1000);
 	$init(HangNonVolatileBuffer);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(HangNonVolatileBuffer$$Lambda$dispose$2, static_cast<$JFrame*>($nc(HangNonVolatileBuffer::f)))));
+	$SwingUtilities::invokeAndWait($$new(HangNonVolatileBuffer$$Lambda$dispose$2, $nc(HangNonVolatileBuffer::f)));
 }
 
 void HangNonVolatileBuffer::lambda$main$1() {
@@ -176,7 +139,7 @@ void HangNonVolatileBuffer::lambda$main$1() {
 void HangNonVolatileBuffer::lambda$main$0() {
 	$init(HangNonVolatileBuffer);
 	$assignStatic(HangNonVolatileBuffer::f, $new($JFrame, "JFrame"_s));
-	$nc(HangNonVolatileBuffer::f)->setSize(300, 300);
+	HangNonVolatileBuffer::f->setSize(300, 300);
 	$nc(HangNonVolatileBuffer::f)->setLocationRelativeTo(nullptr);
 	$nc(HangNonVolatileBuffer::f)->setVisible(true);
 }
@@ -186,17 +149,38 @@ HangNonVolatileBuffer::HangNonVolatileBuffer() {
 
 $Class* HangNonVolatileBuffer::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(HangNonVolatileBuffer$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("HangNonVolatileBuffer$$Lambda$lambda$main$0")) {
 			return HangNonVolatileBuffer$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(HangNonVolatileBuffer$$Lambda$lambda$main$1$1::classInfo$.name)) {
+		if (name->equals("HangNonVolatileBuffer$$Lambda$lambda$main$1$1")) {
 			return HangNonVolatileBuffer$$Lambda$lambda$main$1$1::load$(name, initialize);
 		}
-		if (name->equals(HangNonVolatileBuffer$$Lambda$dispose$2::classInfo$.name)) {
+		if (name->equals("HangNonVolatileBuffer$$Lambda$dispose$2")) {
 			return HangNonVolatileBuffer$$Lambda$dispose$2::load$(name, initialize);
 		}
 	}
-	$loadClass(HangNonVolatileBuffer, name, initialize, &_HangNonVolatileBuffer_ClassInfo_, allocate$HangNonVolatileBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"f", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(HangNonVolatileBuffer, f)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HangNonVolatileBuffer, init$, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HangNonVolatileBuffer, lambda$main$0, void)},
+		{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HangNonVolatileBuffer, lambda$main$1, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HangNonVolatileBuffer, main, void, $StringArray*), "java.lang.reflect.InvocationTargetException,java.lang.InterruptedException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"HangNonVolatileBuffer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HangNonVolatileBuffer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HangNonVolatileBuffer);
+	});
 	return class$;
 }
 

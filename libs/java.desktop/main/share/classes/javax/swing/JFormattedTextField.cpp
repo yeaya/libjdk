@@ -1,5 +1,4 @@
 #include <javax/swing/JFormattedTextField.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/EventQueue.h>
@@ -8,7 +7,6 @@
 #include <java/awt/im/InputContext.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/lang/Number.h>
-#include <java/lang/Runnable.h>
 #include <java/text/AttributedCharacterIterator.h>
 #include <java/text/DateFormat.h>
 #include <java/text/DecimalFormat.h>
@@ -50,7 +48,6 @@
 
 using $ActionArray = $Array<::javax::swing::Action>;
 using $AWTEvent = ::java::awt::AWTEvent;
-using $Component = ::java::awt::Component;
 using $EventQueue = ::java::awt::EventQueue;
 using $FocusEvent = ::java::awt::event::FocusEvent;
 using $InputMethodEvent = ::java::awt::event::InputMethodEvent;
@@ -66,7 +63,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $Number = ::java::lang::Number;
-using $Runnable = ::java::lang::Runnable;
 using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
 using $DateFormat = ::java::text::DateFormat;
 using $DecimalFormat = ::java::text::DecimalFormat;
@@ -83,10 +79,7 @@ using $JFormattedTextField$CommitAction = ::javax::swing::JFormattedTextField$Co
 using $JFormattedTextField$DocumentHandler = ::javax::swing::JFormattedTextField$DocumentHandler;
 using $JFormattedTextField$FocusLostHandler = ::javax::swing::JFormattedTextField$FocusLostHandler;
 using $JTextField = ::javax::swing::JTextField;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
-using $DocumentListener = ::javax::swing::event::DocumentListener;
-using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $DateFormatter = ::javax::swing::text::DateFormatter;
 using $DefaultFormatter = ::javax::swing::text::DefaultFormatter;
@@ -98,199 +91,6 @@ using $TextAction = ::javax::swing::text::TextAction;
 
 namespace javax {
 	namespace swing {
-
-$CompoundAttribute _JFormattedTextField_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", nullptr},
-	{}
-};
-
-$NamedAttribute JFormattedTextField_Attribute_var$0[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JFormattedTextField_MethodAnnotations_getActions7[] = {
-	{"Ljava/beans/BeanProperty;", JFormattedTextField_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute JFormattedTextField_Attribute_var$1[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "TextFormatter, responsible for formatting the current value"},
-	{}
-};
-
-$CompoundAttribute _JFormattedTextField_MethodAnnotations_getFormatter10[] = {
-	{"Ljava/beans/BeanProperty;", JFormattedTextField_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JFormattedTextField_Attribute_var$2[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JFormattedTextField_MethodAnnotations_getUIClassID12[] = {
-	{"Ljava/beans/BeanProperty;", JFormattedTextField_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute JFormattedTextField_Attribute_var$3[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JFormattedTextField_MethodAnnotations_isEditValid15[] = {
-	{"Ljava/beans/BeanProperty;", JFormattedTextField_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute JFormattedTextField_Attribute_var$4[] = {
-	{"expert", 'Z', "true"},
-	{"description", 's', "the text document model"},
-	{}
-};
-
-$CompoundAttribute _JFormattedTextField_MethodAnnotations_setDocument19[] = {
-	{"Ljava/beans/BeanProperty;", JFormattedTextField_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute JFormattedTextField_Attribute_var$5[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "True indicates the edited value is valid"},
-	{}
-};
-
-$CompoundAttribute _JFormattedTextField_MethodAnnotations_setEditValid20[] = {
-	{"Ljava/beans/BeanProperty;", JFormattedTextField_Attribute_var$5},
-	{}
-};
-
-$Attribute JFormattedTextField_Attribute_var$7[] = {
-	{'s', "JFormattedTextField.COMMIT"},
-	{'s', "JFormattedTextField.COMMIT_OR_REVERT"},
-	{'s', "JFormattedTextField.REVERT"},
-	{'s', "JFormattedTextField.PERSIST"},
-	{'-'}
-};
-
-$NamedAttribute JFormattedTextField_Attribute_var$6[] = {
-	{"bound", 'Z', "false"},
-	{"enumerationValues", '[', JFormattedTextField_Attribute_var$7},
-	{"description", 's', "Behavior when component loses focus"},
-	{}
-};
-
-$CompoundAttribute _JFormattedTextField_MethodAnnotations_setFocusLostBehavior22[] = {
-	{"Ljava/beans/BeanProperty;", JFormattedTextField_Attribute_var$6},
-	{}
-};
-
-$NamedAttribute JFormattedTextField_Attribute_var$8[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "AbstractFormatterFactory, responsible for returning an AbstractFormatter that can format the current value."},
-	{}
-};
-
-$CompoundAttribute _JFormattedTextField_MethodAnnotations_setFormatterFactory25[] = {
-	{"Ljava/beans/BeanProperty;", JFormattedTextField_Attribute_var$8},
-	{}
-};
-
-$NamedAttribute JFormattedTextField_Attribute_var$9[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The value to be formatted."},
-	{}
-};
-
-$CompoundAttribute _JFormattedTextField_MethodAnnotations_setValue26[] = {
-	{"Ljava/beans/BeanProperty;", JFormattedTextField_Attribute_var$9},
-	{}
-};
-
-$FieldInfo _JFormattedTextField_FieldInfo_[] = {
-	{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JFormattedTextField, uiClassID)},
-	{"defaultActions", "[Ljavax/swing/Action;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JFormattedTextField, defaultActions)},
-	{"COMMIT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JFormattedTextField, COMMIT)},
-	{"COMMIT_OR_REVERT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JFormattedTextField, COMMIT_OR_REVERT)},
-	{"REVERT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JFormattedTextField, REVERT)},
-	{"PERSIST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JFormattedTextField, PERSIST)},
-	{"factory", "Ljavax/swing/JFormattedTextField$AbstractFormatterFactory;", nullptr, $PRIVATE, $field(JFormattedTextField, factory)},
-	{"format", "Ljavax/swing/JFormattedTextField$AbstractFormatter;", nullptr, $PRIVATE, $field(JFormattedTextField, format)},
-	{"value", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(JFormattedTextField, value)},
-	{"editValid", "Z", nullptr, $PRIVATE, $field(JFormattedTextField, editValid)},
-	{"focusLostBehavior", "I", nullptr, $PRIVATE, $field(JFormattedTextField, focusLostBehavior)},
-	{"edited", "Z", nullptr, $PRIVATE, $field(JFormattedTextField, edited)},
-	{"documentListener", "Ljavax/swing/event/DocumentListener;", nullptr, $PRIVATE, $field(JFormattedTextField, documentListener)},
-	{"mask", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(JFormattedTextField, mask)},
-	{"textFormatterActionMap", "Ljavax/swing/ActionMap;", nullptr, $PRIVATE, $field(JFormattedTextField, textFormatterActionMap)},
-	{"composedTextExists", "Z", nullptr, $PRIVATE, $field(JFormattedTextField, composedTextExists$)},
-	{"focusLostHandler", "Ljavax/swing/JFormattedTextField$FocusLostHandler;", nullptr, $PRIVATE, $field(JFormattedTextField, focusLostHandler)},
-	{}
-};
-
-$MethodInfo _JFormattedTextField_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JFormattedTextField, init$, void)},
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(JFormattedTextField, init$, void, Object$*)},
-	{"<init>", "(Ljava/text/Format;)V", nullptr, $PUBLIC, $method(JFormattedTextField, init$, void, $Format*)},
-	{"<init>", "(Ljavax/swing/JFormattedTextField$AbstractFormatter;)V", nullptr, $PUBLIC, $method(JFormattedTextField, init$, void, $JFormattedTextField$AbstractFormatter*)},
-	{"<init>", "(Ljavax/swing/JFormattedTextField$AbstractFormatterFactory;)V", nullptr, $PUBLIC, $method(JFormattedTextField, init$, void, $JFormattedTextField$AbstractFormatterFactory*)},
-	{"<init>", "(Ljavax/swing/JFormattedTextField$AbstractFormatterFactory;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(JFormattedTextField, init$, void, $JFormattedTextField$AbstractFormatterFactory*, Object$*)},
-	{"commitEdit", "()V", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField, commitEdit, void), "java.text.ParseException"},
-	{"getActions", "()[Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField, getActions, $ActionArray*), nullptr, nullptr, _JFormattedTextField_MethodAnnotations_getActions7},
-	{"getDefaultFormatterFactory", "(Ljava/lang/Object;)Ljavax/swing/JFormattedTextField$AbstractFormatterFactory;", nullptr, $PRIVATE, $method(JFormattedTextField, getDefaultFormatterFactory, $JFormattedTextField$AbstractFormatterFactory*, Object$*)},
-	{"getFocusLostBehavior", "()I", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField, getFocusLostBehavior, int32_t)},
-	{"getFormatter", "()Ljavax/swing/JFormattedTextField$AbstractFormatter;", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField, getFormatter, $JFormattedTextField$AbstractFormatter*), nullptr, nullptr, _JFormattedTextField_MethodAnnotations_getFormatter10},
-	{"getFormatterFactory", "()Ljavax/swing/JFormattedTextField$AbstractFormatterFactory;", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField, getFormatterFactory, $JFormattedTextField$AbstractFormatterFactory*)},
-	{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField, getUIClassID, $String*), nullptr, nullptr, _JFormattedTextField_MethodAnnotations_getUIClassID12},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField, getValue, $Object*)},
-	{"invalidEdit", "()V", nullptr, $PROTECTED, $virtualMethod(JFormattedTextField, invalidEdit, void)},
-	{"isEditValid", "()Z", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField, isEditValid, bool), nullptr, nullptr, _JFormattedTextField_MethodAnnotations_isEditValid15},
-	{"isEdited", "()Z", nullptr, $PRIVATE, $method(JFormattedTextField, isEdited, bool)},
-	{"processFocusEvent", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PROTECTED, $virtualMethod(JFormattedTextField, processFocusEvent, void, $FocusEvent*)},
-	{"processInputMethodEvent", "(Ljava/awt/event/InputMethodEvent;)V", nullptr, $PROTECTED, $virtualMethod(JFormattedTextField, processInputMethodEvent, void, $InputMethodEvent*)},
-	{"setDocument", "(Ljavax/swing/text/Document;)V", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField, setDocument, void, $Document*), nullptr, nullptr, _JFormattedTextField_MethodAnnotations_setDocument19},
-	{"setEditValid", "(Z)V", nullptr, $PRIVATE, $method(JFormattedTextField, setEditValid, void, bool), nullptr, nullptr, _JFormattedTextField_MethodAnnotations_setEditValid20},
-	{"setEdited", "(Z)V", nullptr, $PRIVATE, $method(JFormattedTextField, setEdited, void, bool)},
-	{"setFocusLostBehavior", "(I)V", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField, setFocusLostBehavior, void, int32_t), nullptr, nullptr, _JFormattedTextField_MethodAnnotations_setFocusLostBehavior22},
-	{"setFormatter", "(Ljavax/swing/JFormattedTextField$AbstractFormatter;)V", nullptr, $PROTECTED, $virtualMethod(JFormattedTextField, setFormatter, void, $JFormattedTextField$AbstractFormatter*)},
-	{"setFormatterActions", "([Ljavax/swing/Action;)V", nullptr, $PRIVATE, $method(JFormattedTextField, setFormatterActions, void, $ActionArray*)},
-	{"setFormatterFactory", "(Ljavax/swing/JFormattedTextField$AbstractFormatterFactory;)V", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField, setFormatterFactory, void, $JFormattedTextField$AbstractFormatterFactory*), nullptr, nullptr, _JFormattedTextField_MethodAnnotations_setFormatterFactory25},
-	{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField, setValue, void, Object$*), nullptr, nullptr, _JFormattedTextField_MethodAnnotations_setValue26},
-	{"setValue", "(Ljava/lang/Object;ZZ)V", nullptr, $PRIVATE, $method(JFormattedTextField, setValue, void, Object$*, bool, bool)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JFormattedTextField, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JFormattedTextField_InnerClassesInfo_[] = {
-	{"javax.swing.JFormattedTextField$DocumentHandler", "javax.swing.JFormattedTextField", "DocumentHandler", $PRIVATE},
-	{"javax.swing.JFormattedTextField$CancelAction", "javax.swing.JFormattedTextField", "CancelAction", $PRIVATE | $STATIC},
-	{"javax.swing.JFormattedTextField$CommitAction", "javax.swing.JFormattedTextField", "CommitAction", $STATIC},
-	{"javax.swing.JFormattedTextField$AbstractFormatter", "javax.swing.JFormattedTextField", "AbstractFormatter", $PUBLIC | $STATIC | $ABSTRACT},
-	{"javax.swing.JFormattedTextField$AbstractFormatterFactory", "javax.swing.JFormattedTextField", "AbstractFormatterFactory", $PUBLIC | $STATIC | $ABSTRACT},
-	{"javax.swing.JFormattedTextField$FocusLostHandler", "javax.swing.JFormattedTextField", "FocusLostHandler", $PRIVATE},
-	{}
-};
-
-$ClassInfo _JFormattedTextField_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JFormattedTextField",
-	"javax.swing.JTextField",
-	nullptr,
-	_JFormattedTextField_FieldInfo_,
-	_JFormattedTextField_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JFormattedTextField_InnerClassesInfo_,
-	_JFormattedTextField_Annotations_,
-	nullptr,
-	"javax.swing.JFormattedTextField$DocumentHandler,javax.swing.JFormattedTextField$CancelAction,javax.swing.JFormattedTextField$CommitAction,javax.swing.JFormattedTextField$AbstractFormatter,javax.swing.JFormattedTextField$AbstractFormatterFactory,javax.swing.JFormattedTextField$FocusLostHandler"
-};
-
-$Object* allocate$JFormattedTextField($Class* clazz) {
-	return $of($alloc(JFormattedTextField));
-}
 
 $String* JFormattedTextField::uiClassID = nullptr;
 $ActionArray* JFormattedTextField::defaultActions = nullptr;
@@ -313,7 +113,7 @@ void JFormattedTextField::init$($Format* format) {
 }
 
 void JFormattedTextField::init$($JFormattedTextField$AbstractFormatter* formatter) {
-	JFormattedTextField::init$(static_cast<$JFormattedTextField$AbstractFormatterFactory*>($$new($DefaultFormatterFactory, formatter)));
+	JFormattedTextField::init$($$new($DefaultFormatterFactory, formatter));
 }
 
 void JFormattedTextField::init$($JFormattedTextField$AbstractFormatterFactory* factory) {
@@ -338,10 +138,10 @@ int32_t JFormattedTextField::getFocusLostBehavior() {
 }
 
 void JFormattedTextField::setFormatterFactory($JFormattedTextField$AbstractFormatterFactory* tf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFormattedTextField$AbstractFormatterFactory, oldFactory, this->factory);
 	$set(this, factory, tf);
-	firePropertyChange("formatterFactory"_s, $of(oldFactory), $of(tf));
+	firePropertyChange("formatterFactory"_s, oldFactory, tf);
 	setValue($(getValue()), true, false);
 }
 
@@ -360,7 +160,7 @@ void JFormattedTextField::setFormatter($JFormattedTextField$AbstractFormatter* f
 		format->install(this);
 	}
 	setEdited(false);
-	firePropertyChange("textFormatter"_s, $of(oldFormat), $of(format));
+	firePropertyChange("textFormatter"_s, oldFormat, format);
 }
 
 $JFormattedTextField$AbstractFormatter* JFormattedTextField::getFormatter() {
@@ -375,11 +175,11 @@ void JFormattedTextField::setValue(Object$* value) {
 }
 
 $Object* JFormattedTextField::getValue() {
-	return $of(this->value);
+	return this->value;
 }
 
 void JFormattedTextField::commitEdit() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFormattedTextField$AbstractFormatter, format, getFormatter());
 	if (format != nullptr) {
 		setValue($(format->stringToValue($(getText()))), false, true);
@@ -387,12 +187,12 @@ void JFormattedTextField::commitEdit() {
 }
 
 void JFormattedTextField::setEditValid(bool isValid) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isValid != this->editValid) {
 		this->editValid = isValid;
 		$var($String, var$0, "editValid"_s);
-		$var($Object, var$1, $of($Boolean::valueOf(!isValid)));
-		firePropertyChange(var$0, var$1, $($of($Boolean::valueOf(isValid))));
+		$var($Object, var$1, $Boolean::valueOf(!isValid));
+		firePropertyChange(var$0, var$1, $($Boolean::valueOf(isValid)));
 	}
 }
 
@@ -401,7 +201,7 @@ bool JFormattedTextField::isEditValid() {
 }
 
 void JFormattedTextField::invalidEdit() {
-	$nc($($UIManager::getLookAndFeel()))->provideErrorFeedback(this);
+	$$nc($UIManager::getLookAndFeel())->provideErrorFeedback(this);
 }
 
 void JFormattedTextField::processInputMethodEvent($InputMethodEvent* e) {
@@ -418,13 +218,13 @@ void JFormattedTextField::processInputMethodEvent($InputMethodEvent* e) {
 }
 
 void JFormattedTextField::processFocusEvent($FocusEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JTextField::processFocusEvent(e);
 	if ($nc(e)->isTemporary()) {
 		return;
 	}
 	bool var$0 = isEdited();
-	if (var$0 && $nc(e)->getID() == $FocusEvent::FOCUS_LOST) {
+	if (var$0 && e->getID() == $FocusEvent::FOCUS_LOST) {
 		$var($InputContext, ic, getInputContext());
 		if (this->focusLostHandler == nullptr) {
 			$set(this, focusLostHandler, $new($JFormattedTextField$FocusLostHandler, this));
@@ -450,7 +250,7 @@ $String* JFormattedTextField::getUIClassID() {
 
 void JFormattedTextField::setDocument($Document* doc) {
 	if (this->documentListener != nullptr && getDocument() != nullptr) {
-		$nc($(getDocument()))->removeDocumentListener(this->documentListener);
+		$$nc(getDocument())->removeDocumentListener(this->documentListener);
 	}
 	$JTextField::setDocument(doc);
 	if (this->documentListener == nullptr) {
@@ -461,20 +261,20 @@ void JFormattedTextField::setDocument($Document* doc) {
 
 void JFormattedTextField::writeObject($ObjectOutputStream* s) {
 	$nc(s)->defaultWriteObject();
-	if ($nc($(getUIClassID()))->equals(JFormattedTextField::uiClassID)) {
+	if ($$nc(getUIClassID())->equals(JFormattedTextField::uiClassID)) {
 		int8_t count = $JComponent::getWriteObjCounter(this);
 		$JComponent::setWriteObjCounter(this, --count);
 		if (count == 0 && this->ui != nullptr) {
-			$nc(this->ui)->installUI(this);
+			this->ui->installUI(this);
 		}
 	}
 }
 
 void JFormattedTextField::setFormatterActions($ActionArray* actions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (actions == nullptr) {
 		if (this->textFormatterActionMap != nullptr) {
-			$nc(this->textFormatterActionMap)->clear();
+			this->textFormatterActionMap->clear();
 		}
 	} else {
 		if (this->textFormatterActionMap == nullptr) {
@@ -490,8 +290,7 @@ void JFormattedTextField::setFormatterActions($ActionArray* actions) {
 				$assign(map, parent);
 			}
 		}
-		for (int32_t counter = $nc(actions)->length - 1; counter >= 0; --counter) {
-			$init($Action);
+		for (int32_t counter = actions->length - 1; counter >= 0; --counter) {
 			$var($Object, key, $nc(actions->get(counter))->getValue($Action::NAME));
 			if (key != nullptr) {
 				$nc(this->textFormatterActionMap)->put(key, actions->get(counter));
@@ -501,7 +300,7 @@ void JFormattedTextField::setFormatterActions($ActionArray* actions) {
 }
 
 void JFormattedTextField::setValue(Object$* value, bool createFormat, bool firePC) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, oldValue, this->value);
 	$set(this, value, value);
 	if (createFormat) {
@@ -531,7 +330,7 @@ bool JFormattedTextField::isEdited() {
 }
 
 $JFormattedTextField$AbstractFormatterFactory* JFormattedTextField::getDefaultFormatterFactory(Object$* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($DateFormat, type)) {
 		return $new($DefaultFormatterFactory, $$new($DateFormatter, $cast($DateFormat, type)));
 	}
@@ -546,20 +345,20 @@ $JFormattedTextField$AbstractFormatterFactory* JFormattedTextField::getDefaultFo
 	}
 	if ($instanceOf($Number, type)) {
 		$var($JFormattedTextField$AbstractFormatter, displayFormatter, $new($NumberFormatter));
-		$nc(($cast($NumberFormatter, displayFormatter)))->setValueClass($nc($of(type))->getClass());
+		$cast($NumberFormatter, displayFormatter)->setValueClass($of(type)->getClass());
 		$var($JFormattedTextField$AbstractFormatter, editFormatter, $new($NumberFormatter, $$new($DecimalFormat, "#.#"_s)));
-		$nc(($cast($NumberFormatter, editFormatter)))->setValueClass($nc($of(type))->getClass());
+		$cast($NumberFormatter, editFormatter)->setValueClass($of(type)->getClass());
 		return $new($DefaultFormatterFactory, displayFormatter, displayFormatter, editFormatter);
 	}
 	return $new($DefaultFormatterFactory, $$new($DefaultFormatter));
 }
 
-void clinit$JFormattedTextField($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void JFormattedTextField::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(JFormattedTextField::uiClassID, "FormattedTextFieldUI"_s);
 	$assignStatic(JFormattedTextField::defaultActions, $new($ActionArray, {
-		static_cast<$Action*>($$new($JFormattedTextField$CommitAction)),
-		static_cast<$Action*>($$new($JFormattedTextField$CancelAction))
+		$$new($JFormattedTextField$CommitAction),
+		$$new($JFormattedTextField$CancelAction)
 	}));
 }
 
@@ -567,7 +366,174 @@ JFormattedTextField::JFormattedTextField() {
 }
 
 $Class* JFormattedTextField::load$($String* name, bool initialize) {
-	$loadClass(JFormattedTextField, name, initialize, &_JFormattedTextField_ClassInfo_, clinit$JFormattedTextField, allocate$JFormattedTextField);
+	$FieldInfo fieldInfos$$[] = {
+		{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JFormattedTextField, uiClassID)},
+		{"defaultActions", "[Ljavax/swing/Action;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JFormattedTextField, defaultActions)},
+		{"COMMIT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JFormattedTextField, COMMIT)},
+		{"COMMIT_OR_REVERT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JFormattedTextField, COMMIT_OR_REVERT)},
+		{"REVERT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JFormattedTextField, REVERT)},
+		{"PERSIST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JFormattedTextField, PERSIST)},
+		{"factory", "Ljavax/swing/JFormattedTextField$AbstractFormatterFactory;", nullptr, $PRIVATE, $field(JFormattedTextField, factory)},
+		{"format", "Ljavax/swing/JFormattedTextField$AbstractFormatter;", nullptr, $PRIVATE, $field(JFormattedTextField, format)},
+		{"value", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(JFormattedTextField, value)},
+		{"editValid", "Z", nullptr, $PRIVATE, $field(JFormattedTextField, editValid)},
+		{"focusLostBehavior", "I", nullptr, $PRIVATE, $field(JFormattedTextField, focusLostBehavior)},
+		{"edited", "Z", nullptr, $PRIVATE, $field(JFormattedTextField, edited)},
+		{"documentListener", "Ljavax/swing/event/DocumentListener;", nullptr, $PRIVATE, $field(JFormattedTextField, documentListener)},
+		{"mask", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(JFormattedTextField, mask)},
+		{"textFormatterActionMap", "Ljavax/swing/ActionMap;", nullptr, $PRIVATE, $field(JFormattedTextField, textFormatterActionMap)},
+		{"composedTextExists", "Z", nullptr, $PRIVATE, $field(JFormattedTextField, composedTextExists$)},
+		{"focusLostHandler", "Ljavax/swing/JFormattedTextField$FocusLostHandler;", nullptr, $PRIVATE, $field(JFormattedTextField, focusLostHandler)},
+		{}
+	};
+	$NamedAttribute getActionsmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getActionsmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getActionsmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getFormattermethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "TextFormatter, responsible for formatting the current value"},
+		{}
+	};
+	$CompoundAttribute getFormattermethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getFormattermethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getUIClassIDmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getUIClassIDmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getUIClassIDmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute isEditValidmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute isEditValidmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", isEditValidmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setDocumentmethodAnnotations$$$namedAttribute[] = {
+		{"expert", 'Z', "true"},
+		{"description", 's', "the text document model"},
+		{}
+	};
+	$CompoundAttribute setDocumentmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setDocumentmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setEditValidmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "True indicates the edited value is valid"},
+		{}
+	};
+	$CompoundAttribute setEditValidmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setEditValidmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "JFormattedTextField.COMMIT"},
+		{'s', "JFormattedTextField.COMMIT_OR_REVERT"},
+		{'s', "JFormattedTextField.REVERT"},
+		{'s', "JFormattedTextField.PERSIST"},
+		{'-'}
+	};
+	$NamedAttribute setFocusLostBehaviormethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"enumerationValues", '[', $attribute},
+		{"description", 's', "Behavior when component loses focus"},
+		{}
+	};
+	$CompoundAttribute setFocusLostBehaviormethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setFocusLostBehaviormethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setFormatterFactorymethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "AbstractFormatterFactory, responsible for returning an AbstractFormatter that can format the current value."},
+		{}
+	};
+	$CompoundAttribute setFormatterFactorymethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setFormatterFactorymethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setValuemethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The value to be formatted."},
+		{}
+	};
+	$CompoundAttribute setValuemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setValuemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JFormattedTextField, init$, void)},
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(JFormattedTextField, init$, void, Object$*)},
+		{"<init>", "(Ljava/text/Format;)V", nullptr, $PUBLIC, $method(JFormattedTextField, init$, void, $Format*)},
+		{"<init>", "(Ljavax/swing/JFormattedTextField$AbstractFormatter;)V", nullptr, $PUBLIC, $method(JFormattedTextField, init$, void, $JFormattedTextField$AbstractFormatter*)},
+		{"<init>", "(Ljavax/swing/JFormattedTextField$AbstractFormatterFactory;)V", nullptr, $PUBLIC, $method(JFormattedTextField, init$, void, $JFormattedTextField$AbstractFormatterFactory*)},
+		{"<init>", "(Ljavax/swing/JFormattedTextField$AbstractFormatterFactory;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(JFormattedTextField, init$, void, $JFormattedTextField$AbstractFormatterFactory*, Object$*)},
+		{"commitEdit", "()V", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField, commitEdit, void), "java.text.ParseException"},
+		{"getActions", "()[Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField, getActions, $ActionArray*), nullptr, nullptr, getActionsmethodAnnotations$$},
+		{"getDefaultFormatterFactory", "(Ljava/lang/Object;)Ljavax/swing/JFormattedTextField$AbstractFormatterFactory;", nullptr, $PRIVATE, $method(JFormattedTextField, getDefaultFormatterFactory, $JFormattedTextField$AbstractFormatterFactory*, Object$*)},
+		{"getFocusLostBehavior", "()I", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField, getFocusLostBehavior, int32_t)},
+		{"getFormatter", "()Ljavax/swing/JFormattedTextField$AbstractFormatter;", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField, getFormatter, $JFormattedTextField$AbstractFormatter*), nullptr, nullptr, getFormattermethodAnnotations$$},
+		{"getFormatterFactory", "()Ljavax/swing/JFormattedTextField$AbstractFormatterFactory;", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField, getFormatterFactory, $JFormattedTextField$AbstractFormatterFactory*)},
+		{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField, getUIClassID, $String*), nullptr, nullptr, getUIClassIDmethodAnnotations$$},
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField, getValue, $Object*)},
+		{"invalidEdit", "()V", nullptr, $PROTECTED, $virtualMethod(JFormattedTextField, invalidEdit, void)},
+		{"isEditValid", "()Z", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField, isEditValid, bool), nullptr, nullptr, isEditValidmethodAnnotations$$},
+		{"isEdited", "()Z", nullptr, $PRIVATE, $method(JFormattedTextField, isEdited, bool)},
+		{"processFocusEvent", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PROTECTED, $virtualMethod(JFormattedTextField, processFocusEvent, void, $FocusEvent*)},
+		{"processInputMethodEvent", "(Ljava/awt/event/InputMethodEvent;)V", nullptr, $PROTECTED, $virtualMethod(JFormattedTextField, processInputMethodEvent, void, $InputMethodEvent*)},
+		{"setDocument", "(Ljavax/swing/text/Document;)V", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField, setDocument, void, $Document*), nullptr, nullptr, setDocumentmethodAnnotations$$},
+		{"setEditValid", "(Z)V", nullptr, $PRIVATE, $method(JFormattedTextField, setEditValid, void, bool), nullptr, nullptr, setEditValidmethodAnnotations$$},
+		{"setEdited", "(Z)V", nullptr, $PRIVATE, $method(JFormattedTextField, setEdited, void, bool)},
+		{"setFocusLostBehavior", "(I)V", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField, setFocusLostBehavior, void, int32_t), nullptr, nullptr, setFocusLostBehaviormethodAnnotations$$},
+		{"setFormatter", "(Ljavax/swing/JFormattedTextField$AbstractFormatter;)V", nullptr, $PROTECTED, $virtualMethod(JFormattedTextField, setFormatter, void, $JFormattedTextField$AbstractFormatter*)},
+		{"setFormatterActions", "([Ljavax/swing/Action;)V", nullptr, $PRIVATE, $method(JFormattedTextField, setFormatterActions, void, $ActionArray*)},
+		{"setFormatterFactory", "(Ljavax/swing/JFormattedTextField$AbstractFormatterFactory;)V", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField, setFormatterFactory, void, $JFormattedTextField$AbstractFormatterFactory*), nullptr, nullptr, setFormatterFactorymethodAnnotations$$},
+		{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField, setValue, void, Object$*), nullptr, nullptr, setValuemethodAnnotations$$},
+		{"setValue", "(Ljava/lang/Object;ZZ)V", nullptr, $PRIVATE, $method(JFormattedTextField, setValue, void, Object$*, bool, bool)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JFormattedTextField, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JFormattedTextField$DocumentHandler", "javax.swing.JFormattedTextField", "DocumentHandler", $PRIVATE},
+		{"javax.swing.JFormattedTextField$CancelAction", "javax.swing.JFormattedTextField", "CancelAction", $PRIVATE | $STATIC},
+		{"javax.swing.JFormattedTextField$CommitAction", "javax.swing.JFormattedTextField", "CommitAction", $STATIC},
+		{"javax.swing.JFormattedTextField$AbstractFormatter", "javax.swing.JFormattedTextField", "AbstractFormatter", $PUBLIC | $STATIC | $ABSTRACT},
+		{"javax.swing.JFormattedTextField$AbstractFormatterFactory", "javax.swing.JFormattedTextField", "AbstractFormatterFactory", $PUBLIC | $STATIC | $ABSTRACT},
+		{"javax.swing.JFormattedTextField$FocusLostHandler", "javax.swing.JFormattedTextField", "FocusLostHandler", $PRIVATE},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JFormattedTextField",
+		"javax.swing.JTextField",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.JFormattedTextField$DocumentHandler,javax.swing.JFormattedTextField$CancelAction,javax.swing.JFormattedTextField$CommitAction,javax.swing.JFormattedTextField$AbstractFormatter,javax.swing.JFormattedTextField$AbstractFormatterFactory,javax.swing.JFormattedTextField$FocusLostHandler"
+	};
+	$loadClass(JFormattedTextField, name, initialize, &classInfo$$, JFormattedTextField::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JFormattedTextField));
+	});
 	return class$;
 }
 

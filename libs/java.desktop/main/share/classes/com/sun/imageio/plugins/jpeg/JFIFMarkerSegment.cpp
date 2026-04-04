@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/jpeg/JFIFMarkerSegment.h>
-
 #include <com/sun/imageio/plugins/jpeg/JFIFMarkerSegment$ICCMarkerSegment.h>
 #include <com/sun/imageio/plugins/jpeg/JFIFMarkerSegment$IllegalThumbException.h>
 #include <com/sun/imageio/plugins/jpeg/JFIFMarkerSegment$JFIFExtensionMarkerSegment.h>
@@ -11,7 +10,6 @@
 #include <com/sun/imageio/plugins/jpeg/JPEGImageWriter.h>
 #include <com/sun/imageio/plugins/jpeg/MarkerSegment.h>
 #include <java/awt/Graphics.h>
-#include <java/awt/Image.h>
 #include <java/awt/color/ColorSpace.h>
 #include <java/awt/color/ICC_ColorSpace.h>
 #include <java/awt/color/ICC_Profile.h>
@@ -19,7 +17,6 @@
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/ImageObserver.h>
 #include <java/awt/image/IndexColorModel.h>
-#include <java/awt/image/Raster.h>
 #include <java/awt/image/WritableRaster.h>
 #include <java/lang/Math.h>
 #include <java/util/ArrayList.h>
@@ -63,7 +60,6 @@
 using $JFIFMarkerSegment$ICCMarkerSegment = ::com::sun::imageio::plugins::jpeg::JFIFMarkerSegment$ICCMarkerSegment;
 using $JFIFMarkerSegment$IllegalThumbException = ::com::sun::imageio::plugins::jpeg::JFIFMarkerSegment$IllegalThumbException;
 using $JFIFMarkerSegment$JFIFExtensionMarkerSegment = ::com::sun::imageio::plugins::jpeg::JFIFMarkerSegment$JFIFExtensionMarkerSegment;
-using $JFIFMarkerSegment$JFIFThumb = ::com::sun::imageio::plugins::jpeg::JFIFMarkerSegment$JFIFThumb;
 using $JFIFMarkerSegment$JFIFThumbRGB = ::com::sun::imageio::plugins::jpeg::JFIFMarkerSegment$JFIFThumbRGB;
 using $JPEG = ::com::sun::imageio::plugins::jpeg::JPEG;
 using $JPEGBuffer = ::com::sun::imageio::plugins::jpeg::JPEGBuffer;
@@ -71,7 +67,6 @@ using $JPEGImageReader = ::com::sun::imageio::plugins::jpeg::JPEGImageReader;
 using $JPEGImageWriter = ::com::sun::imageio::plugins::jpeg::JPEGImageWriter;
 using $MarkerSegment = ::com::sun::imageio::plugins::jpeg::MarkerSegment;
 using $Graphics = ::java::awt::Graphics;
-using $Image = ::java::awt::Image;
 using $ColorSpace = ::java::awt::color::ColorSpace;
 using $ICC_ColorSpace = ::java::awt::color::ICC_ColorSpace;
 using $ICC_Profile = ::java::awt::color::ICC_Profile;
@@ -79,9 +74,6 @@ using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $ImageObserver = ::java::awt::image::ImageObserver;
 using $IndexColorModel = ::java::awt::image::IndexColorModel;
-using $Raster = ::java::awt::image::Raster;
-using $WritableRaster = ::java::awt::image::WritableRaster;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -105,88 +97,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace jpeg {
-
-$FieldInfo _JFIFMarkerSegment_FieldInfo_[] = {
-	{"majorVersion", "I", nullptr, 0, $field(JFIFMarkerSegment, majorVersion)},
-	{"minorVersion", "I", nullptr, 0, $field(JFIFMarkerSegment, minorVersion)},
-	{"resUnits", "I", nullptr, 0, $field(JFIFMarkerSegment, resUnits)},
-	{"Xdensity", "I", nullptr, 0, $field(JFIFMarkerSegment, Xdensity)},
-	{"Ydensity", "I", nullptr, 0, $field(JFIFMarkerSegment, Ydensity)},
-	{"thumbWidth", "I", nullptr, 0, $field(JFIFMarkerSegment, thumbWidth)},
-	{"thumbHeight", "I", nullptr, 0, $field(JFIFMarkerSegment, thumbHeight)},
-	{"thumb", "Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment$JFIFThumbRGB;", nullptr, 0, $field(JFIFMarkerSegment, thumb)},
-	{"extSegments", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment$JFIFExtensionMarkerSegment;>;", 0, $field(JFIFMarkerSegment, extSegments)},
-	{"iccSegment", "Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment$ICCMarkerSegment;", nullptr, 0, $field(JFIFMarkerSegment, iccSegment)},
-	{"THUMB_JPEG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JFIFMarkerSegment, THUMB_JPEG)},
-	{"THUMB_PALETTE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JFIFMarkerSegment, THUMB_PALETTE)},
-	{"THUMB_UNASSIGNED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JFIFMarkerSegment, THUMB_UNASSIGNED)},
-	{"THUMB_RGB", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JFIFMarkerSegment, THUMB_RGB)},
-	{"DATA_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JFIFMarkerSegment, DATA_SIZE)},
-	{"ID_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JFIFMarkerSegment, ID_SIZE)},
-	{"MAX_THUMB_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JFIFMarkerSegment, MAX_THUMB_WIDTH)},
-	{"MAX_THUMB_HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JFIFMarkerSegment, MAX_THUMB_HEIGHT)},
-	{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JFIFMarkerSegment, debug)},
-	{"inICC", "Z", nullptr, $PRIVATE, $field(JFIFMarkerSegment, inICC)},
-	{"tempICCSegment", "Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment$ICCMarkerSegment;", nullptr, $PRIVATE, $field(JFIFMarkerSegment, tempICCSegment)},
-	{}
-};
-
-$MethodInfo _JFIFMarkerSegment_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(JFIFMarkerSegment, init$, void)},
-	{"<init>", "(Lcom/sun/imageio/plugins/jpeg/JPEGBuffer;)V", nullptr, 0, $method(JFIFMarkerSegment, init$, void, $JPEGBuffer*), "java.io.IOException"},
-	{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, 0, $method(JFIFMarkerSegment, init$, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"addICC", "(Lcom/sun/imageio/plugins/jpeg/JPEGBuffer;)V", nullptr, 0, $virtualMethod(JFIFMarkerSegment, addICC, void, $JPEGBuffer*), "java.io.IOException"},
-	{"addICC", "(Ljava/awt/color/ICC_ColorSpace;)V", nullptr, 0, $virtualMethod(JFIFMarkerSegment, addICC, void, $ICC_ColorSpace*), "java.io.IOException"},
-	{"addJFXX", "(Lcom/sun/imageio/plugins/jpeg/JPEGBuffer;Lcom/sun/imageio/plugins/jpeg/JPEGImageReader;)V", nullptr, 0, $virtualMethod(JFIFMarkerSegment, addJFXX, void, $JPEGBuffer*, $JPEGImageReader*), "java.io.IOException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(JFIFMarkerSegment, clone, $Object*)},
-	{"expandGrayThumb", "(Ljava/awt/image/BufferedImage;)Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE | $STATIC, $staticMethod(JFIFMarkerSegment, expandGrayThumb, $BufferedImage*, $BufferedImage*)},
-	{"getNativeNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, 0, $virtualMethod(JFIFMarkerSegment, getNativeNode, $IIOMetadataNode*)},
-	{"getThumbnail", "(Ljavax/imageio/stream/ImageInputStream;ILcom/sun/imageio/plugins/jpeg/JPEGImageReader;)Ljava/awt/image/BufferedImage;", nullptr, 0, $virtualMethod(JFIFMarkerSegment, getThumbnail, $BufferedImage*, $ImageInputStream*, int32_t, $JPEGImageReader*), "java.io.IOException"},
-	{"getThumbnailHeight", "(I)I", nullptr, 0, $virtualMethod(JFIFMarkerSegment, getThumbnailHeight, int32_t, int32_t)},
-	{"getThumbnailWidth", "(I)I", nullptr, 0, $virtualMethod(JFIFMarkerSegment, getThumbnailWidth, int32_t, int32_t)},
-	{"print", "()V", nullptr, 0, $virtualMethod(JFIFMarkerSegment, print, void)},
-	{"updateFromNativeNode", "(Lorg/w3c/dom/Node;Z)V", nullptr, 0, $virtualMethod(JFIFMarkerSegment, updateFromNativeNode, void, $Node*, bool), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"write", "(Ljavax/imageio/stream/ImageOutputStream;Lcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", nullptr, 0, $virtualMethod(JFIFMarkerSegment, write, void, $ImageOutputStream*, $JPEGImageWriter*), "java.io.IOException"},
-	{"write", "(Ljavax/imageio/stream/ImageOutputStream;Ljava/awt/image/BufferedImage;Lcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", nullptr, 0, $virtualMethod(JFIFMarkerSegment, write, void, $ImageOutputStream*, $BufferedImage*, $JPEGImageWriter*), "java.io.IOException"},
-	{"writeDefaultJFIF", "(Ljavax/imageio/stream/ImageOutputStream;Ljava/util/List;Ljava/awt/color/ICC_Profile;Lcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", "(Ljavax/imageio/stream/ImageOutputStream;Ljava/util/List<+Ljava/awt/image/BufferedImage;>;Ljava/awt/color/ICC_Profile;Lcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", $STATIC, $staticMethod(JFIFMarkerSegment, writeDefaultJFIF, void, $ImageOutputStream*, $List*, $ICC_Profile*, $JPEGImageWriter*), "java.io.IOException"},
-	{"writeICC", "(Ljava/awt/color/ICC_Profile;Ljavax/imageio/stream/ImageOutputStream;)V", nullptr, $STATIC, $staticMethod(JFIFMarkerSegment, writeICC, void, $ICC_Profile*, $ImageOutputStream*), "java.io.IOException"},
-	{"writeJFXXSegment", "(ILjava/awt/image/BufferedImage;Ljavax/imageio/stream/ImageOutputStream;Lcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", nullptr, $PRIVATE, $method(JFIFMarkerSegment, writeJFXXSegment, void, int32_t, $BufferedImage*, $ImageOutputStream*, $JPEGImageWriter*), "java.io.IOException"},
-	{"writeThumb", "(Ljavax/imageio/stream/ImageOutputStream;Ljava/awt/image/BufferedImage;Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment$JFIFExtensionMarkerSegment;IZLcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", nullptr, $PRIVATE, $method(JFIFMarkerSegment, writeThumb, void, $ImageOutputStream*, $BufferedImage*, $JFIFMarkerSegment$JFIFExtensionMarkerSegment*, int32_t, bool, $JPEGImageWriter*), "java.io.IOException"},
-	{"writeThumbnailData", "(Ljavax/imageio/stream/ImageOutputStream;[ILcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", nullptr, 0, $virtualMethod(JFIFMarkerSegment, writeThumbnailData, void, $ImageOutputStream*, $ints*, $JPEGImageWriter*), "java.io.IOException"},
-	{"writeWithThumbs", "(Ljavax/imageio/stream/ImageOutputStream;Ljava/util/List;Lcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", "(Ljavax/imageio/stream/ImageOutputStream;Ljava/util/List<+Ljava/awt/image/BufferedImage;>;Lcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", 0, $virtualMethod(JFIFMarkerSegment, writeWithThumbs, void, $ImageOutputStream*, $List*, $JPEGImageWriter*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JFIFMarkerSegment_InnerClassesInfo_[] = {
-	{"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$ICCMarkerSegment", "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment", "ICCMarkerSegment", 0},
-	{"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbJPEG", "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment", "JFIFThumbJPEG", 0},
-	{"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbPalette", "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment", "JFIFThumbPalette", 0},
-	{"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbRGB", "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment", "JFIFThumbRGB", 0},
-	{"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbUncompressed", "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment", "JFIFThumbUncompressed", $ABSTRACT},
-	{"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumb", "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment", "JFIFThumb", $ABSTRACT},
-	{"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFExtensionMarkerSegment", "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment", "JFIFExtensionMarkerSegment", 0},
-	{"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$IllegalThumbException", "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment", "IllegalThumbException", $PRIVATE},
-	{}
-};
-
-$ClassInfo _JFIFMarkerSegment_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment",
-	"com.sun.imageio.plugins.jpeg.MarkerSegment",
-	nullptr,
-	_JFIFMarkerSegment_FieldInfo_,
-	_JFIFMarkerSegment_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JFIFMarkerSegment_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$ICCMarkerSegment,com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbJPEG,com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbJPEG$ThumbnailReadListener,com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbPalette,com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbRGB,com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbUncompressed,com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumb,com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFExtensionMarkerSegment,com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$IllegalThumbException"
-};
-
-$Object* allocate$JFIFMarkerSegment($Class* clazz) {
-	return $of($alloc(JFIFMarkerSegment));
-}
 
 void JFIFMarkerSegment::init$() {
 	$MarkerSegment::init$($JPEG::APP0);
@@ -213,14 +123,14 @@ void JFIFMarkerSegment::init$($JPEGBuffer* buffer) {
 	$set(this, tempICCSegment, nullptr);
 	$nc(buffer)->bufPtr += JFIFMarkerSegment::ID_SIZE;
 	this->majorVersion = $nc(buffer->buf)->get(buffer->bufPtr++);
-	this->minorVersion = $nc(buffer->buf)->get(buffer->bufPtr++);
-	this->resUnits = $nc(buffer->buf)->get(buffer->bufPtr++);
-	this->Xdensity = ((int32_t)($nc(buffer->buf)->get(buffer->bufPtr++) & (uint32_t)255)) << 8;
-	this->Xdensity |= (int32_t)($nc(buffer->buf)->get(buffer->bufPtr++) & (uint32_t)255);
-	this->Ydensity = ((int32_t)($nc(buffer->buf)->get(buffer->bufPtr++) & (uint32_t)255)) << 8;
-	this->Ydensity |= (int32_t)($nc(buffer->buf)->get(buffer->bufPtr++) & (uint32_t)255);
-	this->thumbWidth = (int32_t)($nc(buffer->buf)->get(buffer->bufPtr++) & (uint32_t)255);
-	this->thumbHeight = (int32_t)($nc(buffer->buf)->get(buffer->bufPtr++) & (uint32_t)255);
+	this->minorVersion = buffer->buf->get(buffer->bufPtr++);
+	this->resUnits = buffer->buf->get(buffer->bufPtr++);
+	this->Xdensity = (buffer->buf->get(buffer->bufPtr++) & 0xff) << 8;
+	this->Xdensity |= buffer->buf->get(buffer->bufPtr++) & 0xff;
+	this->Ydensity = (buffer->buf->get(buffer->bufPtr++) & 0xff) << 8;
+	this->Ydensity |= buffer->buf->get(buffer->bufPtr++) & 0xff;
+	this->thumbWidth = buffer->buf->get(buffer->bufPtr++) & 0xff;
+	this->thumbHeight = buffer->buf->get(buffer->bufPtr++) & 0xff;
 	buffer->bufAvail -= JFIFMarkerSegment::DATA_SIZE;
 	if (this->thumbWidth > 0) {
 		$set(this, thumb, $new($JFIFMarkerSegment$JFIFThumbRGB, this, buffer, this->thumbWidth, this->thumbHeight));
@@ -233,22 +143,22 @@ void JFIFMarkerSegment::init$($Node* node) {
 }
 
 $Object* JFIFMarkerSegment::clone() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(JFIFMarkerSegment, newGuy, $cast(JFIFMarkerSegment, $MarkerSegment::clone()));
 	if (!$nc(this->extSegments)->isEmpty()) {
 		$set($nc(newGuy), extSegments, $new($ArrayList));
 		{
-			$var($Iterator, iter, $nc(this->extSegments)->iterator());
+			$var($Iterator, iter, this->extSegments->iterator());
 			for (; $nc(iter)->hasNext();) {
 				$var($JFIFMarkerSegment$JFIFExtensionMarkerSegment, jfxx, $cast($JFIFMarkerSegment$JFIFExtensionMarkerSegment, iter->next()));
-				$nc(newGuy->extSegments)->add($cast($JFIFMarkerSegment$JFIFExtensionMarkerSegment, $($nc(jfxx)->clone())));
+				$nc(newGuy->extSegments)->add($$cast($JFIFMarkerSegment$JFIFExtensionMarkerSegment, $nc(jfxx)->clone()));
 			}
 		}
 	}
 	if (this->iccSegment != nullptr) {
-		$set($nc(newGuy), iccSegment, $cast($JFIFMarkerSegment$ICCMarkerSegment, $nc(this->iccSegment)->clone()));
+		$set($nc(newGuy), iccSegment, $cast($JFIFMarkerSegment$ICCMarkerSegment, this->iccSegment->clone()));
 	}
-	return $of(newGuy);
+	return newGuy;
 }
 
 void JFIFMarkerSegment::addJFXX($JPEGBuffer* buffer, $JPEGImageReader* reader) {
@@ -279,7 +189,7 @@ void JFIFMarkerSegment::addICC($ICC_ColorSpace* cs) {
 }
 
 $IIOMetadataNode* JFIFMarkerSegment::getNativeNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, node, $new($IIOMetadataNode, "app0JFIF"_s));
 	node->setAttribute("majorVersion"_s, $($Integer::toString(this->majorVersion)));
 	node->setAttribute("minorVersion"_s, $($Integer::toString(this->minorVersion)));
@@ -300,13 +210,13 @@ $IIOMetadataNode* JFIFMarkerSegment::getNativeNode() {
 		}
 	}
 	if (this->iccSegment != nullptr) {
-		node->appendChild($($nc(this->iccSegment)->getNativeNode()));
+		node->appendChild($(this->iccSegment->getNativeNode()));
 	}
 	return node;
 }
 
 void JFIFMarkerSegment::updateFromNativeNode($Node* node, bool fromScratch) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NamedNodeMap, attrs, $nc(node)->getAttributes());
 	if ($nc(attrs)->getLength() > 0) {
 		int32_t value = getAttributeValue(node, attrs, "majorVersion"_s, 0, 255, false);
@@ -315,9 +225,9 @@ void JFIFMarkerSegment::updateFromNativeNode($Node* node, bool fromScratch) {
 		this->minorVersion = (value != -1) ? value : this->minorVersion;
 		value = getAttributeValue(node, attrs, "resUnits"_s, 0, 2, false);
 		this->resUnits = (value != -1) ? value : this->resUnits;
-		value = getAttributeValue(node, attrs, "Xdensity"_s, 1, 0x0000FFFF, false);
+		value = getAttributeValue(node, attrs, "Xdensity"_s, 1, 0x0000ffff, false);
 		this->Xdensity = (value != -1) ? value : this->Xdensity;
-		value = getAttributeValue(node, attrs, "Ydensity"_s, 1, 0x0000FFFF, false);
+		value = getAttributeValue(node, attrs, "Ydensity"_s, 1, 0x0000ffff, false);
 		this->Ydensity = (value != -1) ? value : this->Ydensity;
 		value = getAttributeValue(node, attrs, "thumbWidth"_s, 0, 255, false);
 		this->thumbWidth = (value != -1) ? value : this->thumbWidth;
@@ -344,7 +254,7 @@ void JFIFMarkerSegment::updateFromNativeNode($Node* node, bool fromScratch) {
 					$nc(this->extSegments)->add($$new($JFIFMarkerSegment$JFIFExtensionMarkerSegment, this, ext));
 				}
 			}
-			if ($nc(name)->equals("app2ICC"_s)) {
+			if (name->equals("app2ICC"_s)) {
 				if ((this->iccSegment != nullptr) && fromScratch) {
 					$throwNew($IIOInvalidTreeException, "> 1 ICC APP2 Marker Segment not supported"_s, node);
 				}
@@ -357,7 +267,7 @@ void JFIFMarkerSegment::updateFromNativeNode($Node* node, bool fromScratch) {
 int32_t JFIFMarkerSegment::getThumbnailWidth(int32_t index) {
 	if (this->thumb != nullptr) {
 		if (index == 0) {
-			return $nc(this->thumb)->getWidth();
+			return this->thumb->getWidth();
 		}
 		--index;
 	}
@@ -368,7 +278,7 @@ int32_t JFIFMarkerSegment::getThumbnailWidth(int32_t index) {
 int32_t JFIFMarkerSegment::getThumbnailHeight(int32_t index) {
 	if (this->thumb != nullptr) {
 		if (index == 0) {
-			return $nc(this->thumb)->getHeight();
+			return this->thumb->getHeight();
 		}
 		--index;
 	}
@@ -377,11 +287,11 @@ int32_t JFIFMarkerSegment::getThumbnailHeight(int32_t index) {
 }
 
 $BufferedImage* JFIFMarkerSegment::getThumbnail($ImageInputStream* iis, int32_t index, $JPEGImageReader* reader) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(reader)->thumbnailStarted(index);
 	$var($BufferedImage, ret, nullptr);
 	if ((this->thumb != nullptr) && (index == 0)) {
-		$assign(ret, $nc(this->thumb)->getThumbnail(iis, reader));
+		$assign(ret, this->thumb->getThumbnail(iis, reader));
 	} else {
 		if (this->thumb != nullptr) {
 			--index;
@@ -398,7 +308,7 @@ void JFIFMarkerSegment::write($ImageOutputStream* ios, $JPEGImageWriter* writer)
 }
 
 void JFIFMarkerSegment::write($ImageOutputStream* ios, $BufferedImage* thumb, $JPEGImageWriter* writer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t thumbWidth = 0;
 	int32_t thumbHeight = 0;
 	int32_t thumbLength = 0;
@@ -411,17 +321,17 @@ void JFIFMarkerSegment::write($ImageOutputStream* ios, $BufferedImage* thumb, $J
 		}
 		thumbWidth = $Math::min(thumbWidth, JFIFMarkerSegment::MAX_THUMB_WIDTH);
 		thumbHeight = $Math::min(thumbHeight, JFIFMarkerSegment::MAX_THUMB_HEIGHT);
-		$assign(thumbData, $nc($(thumb->getRaster()))->getPixels(0, 0, thumbWidth, thumbHeight, ($ints*)nullptr));
+		$assign(thumbData, $$nc(thumb->getRaster())->getPixels(0, 0, thumbWidth, thumbHeight, ($ints*)nullptr));
 		thumbLength = $nc(thumbData)->length;
 	}
 	this->length = JFIFMarkerSegment::DATA_SIZE + $MarkerSegment::LENGTH_SIZE + thumbLength;
 	writeTag(ios);
 	$var($bytes, id, $new($bytes, {
-		(int8_t)74,
-		(int8_t)70,
-		(int8_t)73,
-		(int8_t)70,
-		(int8_t)0
+		74,
+		70,
+		73,
+		70,
+		0
 	}));
 	$nc(ios)->write(id);
 	ios->write(this->majorVersion);
@@ -452,22 +362,22 @@ void JFIFMarkerSegment::writeThumbnailData($ImageOutputStream* ios, $ints* thumb
 }
 
 void JFIFMarkerSegment::writeWithThumbs($ImageOutputStream* ios, $List* thumbnails, $JPEGImageWriter* writer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (thumbnails != nullptr) {
 		$var($JFIFMarkerSegment$JFIFExtensionMarkerSegment, jfxx, nullptr);
 		if (thumbnails->size() == 1) {
 			if (!$nc(this->extSegments)->isEmpty()) {
-				$assign(jfxx, $cast($JFIFMarkerSegment$JFIFExtensionMarkerSegment, $nc(this->extSegments)->get(0)));
+				$assign(jfxx, $cast($JFIFMarkerSegment$JFIFExtensionMarkerSegment, this->extSegments->get(0)));
 			}
-			writeThumb(ios, $cast($BufferedImage, $(thumbnails->get(0))), jfxx, 0, true, writer);
+			writeThumb(ios, $$cast($BufferedImage, thumbnails->get(0)), jfxx, 0, true, writer);
 		} else {
 			write(ios, writer);
 			for (int32_t i = 0; i < thumbnails->size(); ++i) {
 				$assign(jfxx, nullptr);
 				if (i < $nc(this->extSegments)->size()) {
-					$assign(jfxx, $cast($JFIFMarkerSegment$JFIFExtensionMarkerSegment, $nc(this->extSegments)->get(i)));
+					$assign(jfxx, $cast($JFIFMarkerSegment$JFIFExtensionMarkerSegment, this->extSegments->get(i)));
 				}
-				writeThumb(ios, $cast($BufferedImage, $(thumbnails->get(i))), jfxx, i, false, writer);
+				writeThumb(ios, $$cast($BufferedImage, thumbnails->get(i)), jfxx, i, false, writer);
 			}
 		}
 	} else {
@@ -476,17 +386,17 @@ void JFIFMarkerSegment::writeWithThumbs($ImageOutputStream* ios, $List* thumbnai
 }
 
 void JFIFMarkerSegment::writeThumb($ImageOutputStream* ios, $BufferedImage* thumb, $JFIFMarkerSegment$JFIFExtensionMarkerSegment* jfxx, int32_t index, bool onlyOne, $JPEGImageWriter* writer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorModel, cm, $nc(thumb)->getColorModel());
 	$var($ColorSpace, cs, $nc(cm)->getColorSpace());
 	if ($instanceOf($IndexColorModel, cm)) {
 		if (onlyOne) {
 			write(ios, writer);
 		}
-		if ((jfxx == nullptr) || ($nc(jfxx)->code == JFIFMarkerSegment::THUMB_PALETTE)) {
+		if ((jfxx == nullptr) || (jfxx->code == JFIFMarkerSegment::THUMB_PALETTE)) {
 			writeJFXXSegment(index, thumb, ios, writer);
 		} else {
-			$var($BufferedImage, thumbRGB, $nc(($cast($IndexColorModel, cm)))->convertToIntDiscrete($(thumb->getRaster()), false));
+			$var($BufferedImage, thumbRGB, $cast($IndexColorModel, cm)->convertToIntDiscrete($(thumb->getRaster()), false));
 			jfxx->setThumbnail(thumbRGB);
 			$nc(writer)->thumbnailStarted(index);
 			jfxx->write(ios, writer);
@@ -503,7 +413,7 @@ void JFIFMarkerSegment::writeThumb($ImageOutputStream* ios, $BufferedImage* thum
 			if (onlyOne) {
 				write(ios, writer);
 			}
-			if ($nc(jfxx)->code == JFIFMarkerSegment::THUMB_PALETTE) {
+			if (jfxx->code == JFIFMarkerSegment::THUMB_PALETTE) {
 				writeJFXXSegment(index, thumb, ios, writer);
 				$nc(writer)->warningOccurred($JPEGImageWriter::WARNING_NO_RGB_THUMB_AS_INDEXED);
 			} else {
@@ -525,7 +435,7 @@ void JFIFMarkerSegment::writeThumb($ImageOutputStream* ios, $BufferedImage* thum
 			if (onlyOne) {
 				write(ios, writer);
 			}
-			if ($nc(jfxx)->code == JFIFMarkerSegment::THUMB_RGB) {
+			if (jfxx->code == JFIFMarkerSegment::THUMB_RGB) {
 				$var($BufferedImage, thumbRGB, expandGrayThumb(thumb));
 				writeJFXXSegment(index, thumbRGB, ios, writer);
 			} else if (jfxx->code == JFIFMarkerSegment::THUMB_JPEG) {
@@ -558,7 +468,7 @@ void JFIFMarkerSegment::writeJFXXSegment(int32_t index, $BufferedImage* thumbnai
 
 $BufferedImage* JFIFMarkerSegment::expandGrayThumb($BufferedImage* thumb) {
 	$init(JFIFMarkerSegment);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(thumb)->getWidth();
 	$var($BufferedImage, ret, $new($BufferedImage, var$0, thumb->getHeight(), $BufferedImage::TYPE_INT_RGB));
 	$var($Graphics, g, ret->getGraphics());
@@ -576,43 +486,41 @@ void JFIFMarkerSegment::writeDefaultJFIF($ImageOutputStream* ios, $List* thumbna
 }
 
 void JFIFMarkerSegment::print() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	printTag("JFIF"_s);
 	$nc($System::out)->print("Version "_s);
-	$nc($System::out)->print(this->majorVersion);
-	$nc($System::out)->println($$str({".0"_s, $($Integer::toString(this->minorVersion))}));
-	$nc($System::out)->print("Resolution units: "_s);
-	$nc($System::out)->println(this->resUnits);
-	$nc($System::out)->print("X density: "_s);
-	$nc($System::out)->println(this->Xdensity);
-	$nc($System::out)->print("Y density: "_s);
-	$nc($System::out)->println(this->Ydensity);
-	$nc($System::out)->print("Thumbnail Width: "_s);
-	$nc($System::out)->println(this->thumbWidth);
-	$nc($System::out)->print("Thumbnail Height: "_s);
-	$nc($System::out)->println(this->thumbHeight);
+	$System::out->print(this->majorVersion);
+	$System::out->println($$str({".0"_s, $($Integer::toString(this->minorVersion))}));
+	$System::out->print("Resolution units: "_s);
+	$System::out->println(this->resUnits);
+	$System::out->print("X density: "_s);
+	$System::out->println(this->Xdensity);
+	$System::out->print("Y density: "_s);
+	$System::out->println(this->Ydensity);
+	$System::out->print("Thumbnail Width: "_s);
+	$System::out->println(this->thumbWidth);
+	$System::out->print("Thumbnail Height: "_s);
+	$System::out->println(this->thumbHeight);
 	if (!$nc(this->extSegments)->isEmpty()) {
-		{
-			$var($Iterator, iter, $nc(this->extSegments)->iterator());
-			for (; $nc(iter)->hasNext();) {
-				$var($JFIFMarkerSegment$JFIFExtensionMarkerSegment, extSegment, $cast($JFIFMarkerSegment$JFIFExtensionMarkerSegment, iter->next()));
-				$nc(extSegment)->print();
-			}
+		$var($Iterator, iter, this->extSegments->iterator());
+		for (; $nc(iter)->hasNext();) {
+			$var($JFIFMarkerSegment$JFIFExtensionMarkerSegment, extSegment, $cast($JFIFMarkerSegment$JFIFExtensionMarkerSegment, iter->next()));
+			$nc(extSegment)->print();
 		}
 	}
 	if (this->iccSegment != nullptr) {
-		$nc(this->iccSegment)->print();
+		this->iccSegment->print();
 	}
 }
 
 void JFIFMarkerSegment::writeICC($ICC_Profile* profile, $ImageOutputStream* ios) {
 	$init(JFIFMarkerSegment);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t LENGTH_LENGTH = 2;
 	$var($String, ID, "ICC_PROFILE"_s);
 	int32_t ID_LENGTH = ID->length() + 1;
 	int32_t COUNTS_LENGTH = 2;
-	int32_t MAX_ICC_CHUNK_SIZE = 0x0000FFFF - LENGTH_LENGTH - ID_LENGTH - COUNTS_LENGTH;
+	int32_t MAX_ICC_CHUNK_SIZE = 0x0000ffff - LENGTH_LENGTH - ID_LENGTH - COUNTS_LENGTH;
 	$var($bytes, data, $nc(profile)->getData());
 	int32_t numChunks = $div($nc(data)->length, MAX_ICC_CHUNK_SIZE);
 	if (($mod(data->length, MAX_ICC_CHUNK_SIZE)) != 0) {
@@ -640,7 +548,83 @@ JFIFMarkerSegment::JFIFMarkerSegment() {
 }
 
 $Class* JFIFMarkerSegment::load$($String* name, bool initialize) {
-	$loadClass(JFIFMarkerSegment, name, initialize, &_JFIFMarkerSegment_ClassInfo_, allocate$JFIFMarkerSegment);
+	$FieldInfo fieldInfos$$[] = {
+		{"majorVersion", "I", nullptr, 0, $field(JFIFMarkerSegment, majorVersion)},
+		{"minorVersion", "I", nullptr, 0, $field(JFIFMarkerSegment, minorVersion)},
+		{"resUnits", "I", nullptr, 0, $field(JFIFMarkerSegment, resUnits)},
+		{"Xdensity", "I", nullptr, 0, $field(JFIFMarkerSegment, Xdensity)},
+		{"Ydensity", "I", nullptr, 0, $field(JFIFMarkerSegment, Ydensity)},
+		{"thumbWidth", "I", nullptr, 0, $field(JFIFMarkerSegment, thumbWidth)},
+		{"thumbHeight", "I", nullptr, 0, $field(JFIFMarkerSegment, thumbHeight)},
+		{"thumb", "Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment$JFIFThumbRGB;", nullptr, 0, $field(JFIFMarkerSegment, thumb)},
+		{"extSegments", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment$JFIFExtensionMarkerSegment;>;", 0, $field(JFIFMarkerSegment, extSegments)},
+		{"iccSegment", "Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment$ICCMarkerSegment;", nullptr, 0, $field(JFIFMarkerSegment, iccSegment)},
+		{"THUMB_JPEG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JFIFMarkerSegment, THUMB_JPEG)},
+		{"THUMB_PALETTE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JFIFMarkerSegment, THUMB_PALETTE)},
+		{"THUMB_UNASSIGNED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JFIFMarkerSegment, THUMB_UNASSIGNED)},
+		{"THUMB_RGB", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JFIFMarkerSegment, THUMB_RGB)},
+		{"DATA_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JFIFMarkerSegment, DATA_SIZE)},
+		{"ID_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JFIFMarkerSegment, ID_SIZE)},
+		{"MAX_THUMB_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JFIFMarkerSegment, MAX_THUMB_WIDTH)},
+		{"MAX_THUMB_HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JFIFMarkerSegment, MAX_THUMB_HEIGHT)},
+		{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JFIFMarkerSegment, debug)},
+		{"inICC", "Z", nullptr, $PRIVATE, $field(JFIFMarkerSegment, inICC)},
+		{"tempICCSegment", "Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment$ICCMarkerSegment;", nullptr, $PRIVATE, $field(JFIFMarkerSegment, tempICCSegment)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(JFIFMarkerSegment, init$, void)},
+		{"<init>", "(Lcom/sun/imageio/plugins/jpeg/JPEGBuffer;)V", nullptr, 0, $method(JFIFMarkerSegment, init$, void, $JPEGBuffer*), "java.io.IOException"},
+		{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, 0, $method(JFIFMarkerSegment, init$, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"addICC", "(Lcom/sun/imageio/plugins/jpeg/JPEGBuffer;)V", nullptr, 0, $virtualMethod(JFIFMarkerSegment, addICC, void, $JPEGBuffer*), "java.io.IOException"},
+		{"addICC", "(Ljava/awt/color/ICC_ColorSpace;)V", nullptr, 0, $virtualMethod(JFIFMarkerSegment, addICC, void, $ICC_ColorSpace*), "java.io.IOException"},
+		{"addJFXX", "(Lcom/sun/imageio/plugins/jpeg/JPEGBuffer;Lcom/sun/imageio/plugins/jpeg/JPEGImageReader;)V", nullptr, 0, $virtualMethod(JFIFMarkerSegment, addJFXX, void, $JPEGBuffer*, $JPEGImageReader*), "java.io.IOException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(JFIFMarkerSegment, clone, $Object*)},
+		{"expandGrayThumb", "(Ljava/awt/image/BufferedImage;)Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE | $STATIC, $staticMethod(JFIFMarkerSegment, expandGrayThumb, $BufferedImage*, $BufferedImage*)},
+		{"getNativeNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, 0, $virtualMethod(JFIFMarkerSegment, getNativeNode, $IIOMetadataNode*)},
+		{"getThumbnail", "(Ljavax/imageio/stream/ImageInputStream;ILcom/sun/imageio/plugins/jpeg/JPEGImageReader;)Ljava/awt/image/BufferedImage;", nullptr, 0, $virtualMethod(JFIFMarkerSegment, getThumbnail, $BufferedImage*, $ImageInputStream*, int32_t, $JPEGImageReader*), "java.io.IOException"},
+		{"getThumbnailHeight", "(I)I", nullptr, 0, $virtualMethod(JFIFMarkerSegment, getThumbnailHeight, int32_t, int32_t)},
+		{"getThumbnailWidth", "(I)I", nullptr, 0, $virtualMethod(JFIFMarkerSegment, getThumbnailWidth, int32_t, int32_t)},
+		{"print", "()V", nullptr, 0, $virtualMethod(JFIFMarkerSegment, print, void)},
+		{"updateFromNativeNode", "(Lorg/w3c/dom/Node;Z)V", nullptr, 0, $virtualMethod(JFIFMarkerSegment, updateFromNativeNode, void, $Node*, bool), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"write", "(Ljavax/imageio/stream/ImageOutputStream;Lcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", nullptr, 0, $virtualMethod(JFIFMarkerSegment, write, void, $ImageOutputStream*, $JPEGImageWriter*), "java.io.IOException"},
+		{"write", "(Ljavax/imageio/stream/ImageOutputStream;Ljava/awt/image/BufferedImage;Lcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", nullptr, 0, $virtualMethod(JFIFMarkerSegment, write, void, $ImageOutputStream*, $BufferedImage*, $JPEGImageWriter*), "java.io.IOException"},
+		{"writeDefaultJFIF", "(Ljavax/imageio/stream/ImageOutputStream;Ljava/util/List;Ljava/awt/color/ICC_Profile;Lcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", "(Ljavax/imageio/stream/ImageOutputStream;Ljava/util/List<+Ljava/awt/image/BufferedImage;>;Ljava/awt/color/ICC_Profile;Lcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", $STATIC, $staticMethod(JFIFMarkerSegment, writeDefaultJFIF, void, $ImageOutputStream*, $List*, $ICC_Profile*, $JPEGImageWriter*), "java.io.IOException"},
+		{"writeICC", "(Ljava/awt/color/ICC_Profile;Ljavax/imageio/stream/ImageOutputStream;)V", nullptr, $STATIC, $staticMethod(JFIFMarkerSegment, writeICC, void, $ICC_Profile*, $ImageOutputStream*), "java.io.IOException"},
+		{"writeJFXXSegment", "(ILjava/awt/image/BufferedImage;Ljavax/imageio/stream/ImageOutputStream;Lcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", nullptr, $PRIVATE, $method(JFIFMarkerSegment, writeJFXXSegment, void, int32_t, $BufferedImage*, $ImageOutputStream*, $JPEGImageWriter*), "java.io.IOException"},
+		{"writeThumb", "(Ljavax/imageio/stream/ImageOutputStream;Ljava/awt/image/BufferedImage;Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment$JFIFExtensionMarkerSegment;IZLcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", nullptr, $PRIVATE, $method(JFIFMarkerSegment, writeThumb, void, $ImageOutputStream*, $BufferedImage*, $JFIFMarkerSegment$JFIFExtensionMarkerSegment*, int32_t, bool, $JPEGImageWriter*), "java.io.IOException"},
+		{"writeThumbnailData", "(Ljavax/imageio/stream/ImageOutputStream;[ILcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", nullptr, 0, $virtualMethod(JFIFMarkerSegment, writeThumbnailData, void, $ImageOutputStream*, $ints*, $JPEGImageWriter*), "java.io.IOException"},
+		{"writeWithThumbs", "(Ljavax/imageio/stream/ImageOutputStream;Ljava/util/List;Lcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", "(Ljavax/imageio/stream/ImageOutputStream;Ljava/util/List<+Ljava/awt/image/BufferedImage;>;Lcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", 0, $virtualMethod(JFIFMarkerSegment, writeWithThumbs, void, $ImageOutputStream*, $List*, $JPEGImageWriter*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$ICCMarkerSegment", "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment", "ICCMarkerSegment", 0},
+		{"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbJPEG", "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment", "JFIFThumbJPEG", 0},
+		{"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbPalette", "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment", "JFIFThumbPalette", 0},
+		{"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbRGB", "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment", "JFIFThumbRGB", 0},
+		{"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbUncompressed", "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment", "JFIFThumbUncompressed", $ABSTRACT},
+		{"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumb", "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment", "JFIFThumb", $ABSTRACT},
+		{"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFExtensionMarkerSegment", "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment", "JFIFExtensionMarkerSegment", 0},
+		{"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$IllegalThumbException", "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment", "IllegalThumbException", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment",
+		"com.sun.imageio.plugins.jpeg.MarkerSegment",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$ICCMarkerSegment,com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbJPEG,com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbJPEG$ThumbnailReadListener,com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbPalette,com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbRGB,com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbUncompressed,com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumb,com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFExtensionMarkerSegment,com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$IllegalThumbException"
+	};
+	$loadClass(JFIFMarkerSegment, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JFIFMarkerSegment);
+	});
 	return class$;
 }
 

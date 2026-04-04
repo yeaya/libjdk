@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/RevalidationHandler.h>
-
 #include <com/sun/org/apache/xerces/internal/xni/Augmentations.h>
 #include <jcpp.h>
 
@@ -15,26 +14,22 @@ namespace com {
 					namespace internal {
 						namespace impl {
 
-$MethodInfo _RevalidationHandler_MethodInfo_[] = {
-	{"characterData", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RevalidationHandler, characterData, bool, $String*, $Augmentations*)},
-	{}
-};
-
-$ClassInfo _RevalidationHandler_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.impl.RevalidationHandler",
-	nullptr,
-	"com.sun.org.apache.xerces.internal.xni.parser.XMLDocumentFilter",
-	nullptr,
-	_RevalidationHandler_MethodInfo_
-};
-
-$Object* allocate$RevalidationHandler($Class* clazz) {
-	return $of($alloc(RevalidationHandler));
-}
-
 $Class* RevalidationHandler::load$($String* name, bool initialize) {
-	$loadClass(RevalidationHandler, name, initialize, &_RevalidationHandler_ClassInfo_, allocate$RevalidationHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"characterData", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RevalidationHandler, characterData, bool, $String*, $Augmentations*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.impl.RevalidationHandler",
+		nullptr,
+		"com.sun.org.apache.xerces.internal.xni.parser.XMLDocumentFilter",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RevalidationHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RevalidationHandler));
+	});
 	return class$;
 }
 

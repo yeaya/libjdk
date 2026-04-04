@@ -1,5 +1,4 @@
 #include <java/awt/geom/CubicIterator.h>
-
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/CubicCurve2D.h>
 #include <java/awt/geom/PathIterator.h>
@@ -21,36 +20,6 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 namespace java {
 	namespace awt {
 		namespace geom {
-
-$FieldInfo _CubicIterator_FieldInfo_[] = {
-	{"cubic", "Ljava/awt/geom/CubicCurve2D;", nullptr, 0, $field(CubicIterator, cubic)},
-	{"affine", "Ljava/awt/geom/AffineTransform;", nullptr, 0, $field(CubicIterator, affine)},
-	{"index", "I", nullptr, 0, $field(CubicIterator, index)},
-	{}
-};
-
-$MethodInfo _CubicIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/geom/CubicCurve2D;Ljava/awt/geom/AffineTransform;)V", nullptr, 0, $method(CubicIterator, init$, void, $CubicCurve2D*, $AffineTransform*)},
-	{"currentSegment", "([F)I", nullptr, $PUBLIC, $virtualMethod(CubicIterator, currentSegment, int32_t, $floats*)},
-	{"currentSegment", "([D)I", nullptr, $PUBLIC, $virtualMethod(CubicIterator, currentSegment, int32_t, $doubles*)},
-	{"getWindingRule", "()I", nullptr, $PUBLIC, $virtualMethod(CubicIterator, getWindingRule, int32_t)},
-	{"isDone", "()Z", nullptr, $PUBLIC, $virtualMethod(CubicIterator, isDone, bool)},
-	{"next", "()V", nullptr, $PUBLIC, $virtualMethod(CubicIterator, next, void)},
-	{}
-};
-
-$ClassInfo _CubicIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.geom.CubicIterator",
-	"java.lang.Object",
-	"java.awt.geom.PathIterator",
-	_CubicIterator_FieldInfo_,
-	_CubicIterator_MethodInfo_
-};
-
-$Object* allocate$CubicIterator($Class* clazz) {
-	return $of($alloc(CubicIterator));
-}
 
 void CubicIterator::init$($CubicCurve2D* q, $AffineTransform* at) {
 	$set(this, cubic, q);
@@ -88,7 +57,7 @@ int32_t CubicIterator::currentSegment($floats* coords) {
 		type = $PathIterator::SEG_CUBICTO;
 	}
 	if (this->affine != nullptr) {
-		$nc(this->affine)->transform(coords, 0, coords, 0, this->index == 0 ? 1 : 3);
+		this->affine->transform(coords, 0, coords, 0, this->index == 0 ? 1 : 3);
 	}
 	return type;
 }
@@ -112,7 +81,7 @@ int32_t CubicIterator::currentSegment($doubles* coords) {
 		type = $PathIterator::SEG_CUBICTO;
 	}
 	if (this->affine != nullptr) {
-		$nc(this->affine)->transform(coords, 0, coords, 0, this->index == 0 ? 1 : 3);
+		this->affine->transform(coords, 0, coords, 0, this->index == 0 ? 1 : 3);
 	}
 	return type;
 }
@@ -121,7 +90,32 @@ CubicIterator::CubicIterator() {
 }
 
 $Class* CubicIterator::load$($String* name, bool initialize) {
-	$loadClass(CubicIterator, name, initialize, &_CubicIterator_ClassInfo_, allocate$CubicIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"cubic", "Ljava/awt/geom/CubicCurve2D;", nullptr, 0, $field(CubicIterator, cubic)},
+		{"affine", "Ljava/awt/geom/AffineTransform;", nullptr, 0, $field(CubicIterator, affine)},
+		{"index", "I", nullptr, 0, $field(CubicIterator, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/geom/CubicCurve2D;Ljava/awt/geom/AffineTransform;)V", nullptr, 0, $method(CubicIterator, init$, void, $CubicCurve2D*, $AffineTransform*)},
+		{"currentSegment", "([F)I", nullptr, $PUBLIC, $virtualMethod(CubicIterator, currentSegment, int32_t, $floats*)},
+		{"currentSegment", "([D)I", nullptr, $PUBLIC, $virtualMethod(CubicIterator, currentSegment, int32_t, $doubles*)},
+		{"getWindingRule", "()I", nullptr, $PUBLIC, $virtualMethod(CubicIterator, getWindingRule, int32_t)},
+		{"isDone", "()Z", nullptr, $PUBLIC, $virtualMethod(CubicIterator, isDone, bool)},
+		{"next", "()V", nullptr, $PUBLIC, $virtualMethod(CubicIterator, next, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.geom.CubicIterator",
+		"java.lang.Object",
+		"java.awt.geom.PathIterator",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CubicIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CubicIterator);
+	});
 	return class$;
 }
 

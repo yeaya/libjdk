@@ -1,5 +1,4 @@
 #include <LastNodeLowerHalfDrop.h>
-
 #include <LastNodeLowerHalfDrop$1.h>
 #include <LastNodeLowerHalfDrop$2.h>
 #include <LastNodeLowerHalfDrop$3.h>
@@ -8,17 +7,14 @@
 #include <java/awt/Point.h>
 #include <java/awt/Robot.h>
 #include <java/awt/event/InputEvent.h>
-#include <java/lang/Runnable.h>
 #include <java/util/Enumeration.h>
 #include <javax/swing/DropMode.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JTree.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/TransferHandler.h>
 #include <javax/swing/tree/DefaultMutableTreeNode.h>
 #include <javax/swing/tree/DefaultTreeModel.h>
-#include <javax/swing/tree/MutableTreeNode.h>
 #include <javax/swing/tree/TreeModel.h>
 #include <javax/swing/tree/TreeNode.h>
 #include <javax/swing/tree/TreePath.h>
@@ -33,7 +29,6 @@ using $LastNodeLowerHalfDrop$1 = ::LastNodeLowerHalfDrop$1;
 using $LastNodeLowerHalfDrop$2 = ::LastNodeLowerHalfDrop$2;
 using $LastNodeLowerHalfDrop$3 = ::LastNodeLowerHalfDrop$3;
 using $TreeTransferHandler = ::TreeTransferHandler;
-using $Component = ::java::awt::Component;
 using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
 using $InputEvent = ::java::awt::event::InputEvent;
@@ -42,7 +37,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Enumeration = ::java::util::Enumeration;
 using $DropMode = ::javax::swing::DropMode;
@@ -50,67 +44,11 @@ using $JFrame = ::javax::swing::JFrame;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTree = ::javax::swing::JTree;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $TransferHandler = ::javax::swing::TransferHandler;
 using $DefaultMutableTreeNode = ::javax::swing::tree::DefaultMutableTreeNode;
 using $DefaultTreeModel = ::javax::swing::tree::DefaultTreeModel;
-using $MutableTreeNode = ::javax::swing::tree::MutableTreeNode;
 using $TreeModel = ::javax::swing::tree::TreeModel;
-using $TreeNode = ::javax::swing::tree::TreeNode;
 using $TreePath = ::javax::swing::tree::TreePath;
 using $TreeSelectionModel = ::javax::swing::tree::TreeSelectionModel;
-
-$FieldInfo _LastNodeLowerHalfDrop_FieldInfo_[] = {
-	{"b1", "Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PRIVATE | $STATIC, $staticField(LastNodeLowerHalfDrop, b1)},
-	{"b2", "Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PRIVATE | $STATIC, $staticField(LastNodeLowerHalfDrop, b2)},
-	{"c", "Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PRIVATE | $STATIC, $staticField(LastNodeLowerHalfDrop, c)},
-	{"jTree", "Ljavax/swing/JTree;", nullptr, $PRIVATE | $STATIC, $staticField(LastNodeLowerHalfDrop, jTree)},
-	{"a", "Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PRIVATE | $STATIC, $staticField(LastNodeLowerHalfDrop, a)},
-	{"b", "Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PRIVATE | $STATIC, $staticField(LastNodeLowerHalfDrop, b)},
-	{"a1", "Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PRIVATE | $STATIC, $staticField(LastNodeLowerHalfDrop, a1)},
-	{"dragPoint", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticField(LastNodeLowerHalfDrop, dragPoint)},
-	{"dropPoint", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticField(LastNodeLowerHalfDrop, dropPoint)},
-	{"f", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(LastNodeLowerHalfDrop, f)},
-	{"c1", "Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PRIVATE | $STATIC, $staticField(LastNodeLowerHalfDrop, c1)},
-	{"root", "Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PRIVATE | $STATIC, $staticField(LastNodeLowerHalfDrop, root)},
-	{}
-};
-
-$MethodInfo _LastNodeLowerHalfDrop_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LastNodeLowerHalfDrop, init$, void)},
-	{"cleanUp", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(LastNodeLowerHalfDrop, cleanUp, void), "java.lang.Exception"},
-	{"expandTree", "(Ljavax/swing/JTree;)V", nullptr, $PRIVATE, $method(LastNodeLowerHalfDrop, expandTree, void, $JTree*)},
-	{"getContent", "()Ljavax/swing/JScrollPane;", nullptr, $PRIVATE, $method(LastNodeLowerHalfDrop, getContent, $JScrollPane*)},
-	{"getTreeModel", "()Ljavax/swing/tree/TreeModel;", nullptr, $PROTECTED | $STATIC, $staticMethod(LastNodeLowerHalfDrop, getTreeModel, $TreeModel*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LastNodeLowerHalfDrop, main, void, $StringArray*), "java.lang.Exception"},
-	{"testCase", "(Ljavax/swing/tree/DefaultMutableTreeNode;Ljavax/swing/tree/DefaultMutableTreeNode;F)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LastNodeLowerHalfDrop, testCase, void, $DefaultMutableTreeNode*, $DefaultMutableTreeNode*, float), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _LastNodeLowerHalfDrop_InnerClassesInfo_[] = {
-	{"LastNodeLowerHalfDrop$3", nullptr, nullptr, 0},
-	{"LastNodeLowerHalfDrop$2", nullptr, nullptr, 0},
-	{"LastNodeLowerHalfDrop$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LastNodeLowerHalfDrop_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"LastNodeLowerHalfDrop",
-	"java.lang.Object",
-	nullptr,
-	_LastNodeLowerHalfDrop_FieldInfo_,
-	_LastNodeLowerHalfDrop_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LastNodeLowerHalfDrop_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"LastNodeLowerHalfDrop$3,LastNodeLowerHalfDrop$2,LastNodeLowerHalfDrop$1"
-};
-
-$Object* allocate$LastNodeLowerHalfDrop($Class* clazz) {
-	return $of($alloc(LastNodeLowerHalfDrop));
-}
 
 $DefaultMutableTreeNode* LastNodeLowerHalfDrop::b1 = nullptr;
 $DefaultMutableTreeNode* LastNodeLowerHalfDrop::b2 = nullptr;
@@ -129,16 +67,16 @@ void LastNodeLowerHalfDrop::init$() {
 }
 
 void LastNodeLowerHalfDrop::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SwingUtilities::invokeAndWait($$new($LastNodeLowerHalfDrop$1));
 	$init(LastNodeLowerHalfDrop);
 	testCase(LastNodeLowerHalfDrop::b2, LastNodeLowerHalfDrop::a1, +0.4f);
-	if (!"b2"_s->equals($($nc($of($($nc($($nc(LastNodeLowerHalfDrop::jTree)->getModel()))->getChild(LastNodeLowerHalfDrop::a, $nc(LastNodeLowerHalfDrop::a)->getChildCount() - 1))))->toString()))) {
+	if (!"b2"_s->equals($($$nc($$nc($nc(LastNodeLowerHalfDrop::jTree)->getModel())->getChild(LastNodeLowerHalfDrop::a, $nc(LastNodeLowerHalfDrop::a)->getChildCount() - 1))->toString()))) {
 		cleanUp();
 		$throwNew($RuntimeException, "b1 was not inserted in the last position in a"_s);
 	}
 	testCase(LastNodeLowerHalfDrop::c1, LastNodeLowerHalfDrop::c, -0.4f);
-	if (!"c1"_s->equals($($nc($of($($nc($($nc(LastNodeLowerHalfDrop::jTree)->getModel()))->getChild(LastNodeLowerHalfDrop::root, 2))))->toString()))) {
+	if (!"c1"_s->equals($($$nc($$nc($nc(LastNodeLowerHalfDrop::jTree)->getModel())->getChild(LastNodeLowerHalfDrop::root, 2))->toString()))) {
 		cleanUp();
 		$throwNew($RuntimeException, "c1 was not inserted between c and b nodes"_s);
 	}
@@ -150,7 +88,7 @@ void LastNodeLowerHalfDrop::cleanUp() {
 }
 
 void LastNodeLowerHalfDrop::testCase($DefaultMutableTreeNode* drag, $DefaultMutableTreeNode* drop, float shift) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Robot, robot, $new($Robot));
 	robot->waitForIdle();
 	$SwingUtilities::invokeAndWait($$new($LastNodeLowerHalfDrop$3, drag, drop, shift));
@@ -166,14 +104,14 @@ void LastNodeLowerHalfDrop::testCase($DefaultMutableTreeNode* drag, $DefaultMuta
 }
 
 $JScrollPane* LastNodeLowerHalfDrop::getContent() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(LastNodeLowerHalfDrop::jTree, $new($JTree, $(getTreeModel())));
 	$nc(LastNodeLowerHalfDrop::jTree)->setRootVisible(false);
 	$nc(LastNodeLowerHalfDrop::jTree)->setDragEnabled(true);
 	$init($DropMode);
 	$nc(LastNodeLowerHalfDrop::jTree)->setDropMode($DropMode::INSERT);
 	$nc(LastNodeLowerHalfDrop::jTree)->setTransferHandler($$new($TreeTransferHandler));
-	$nc($($nc(LastNodeLowerHalfDrop::jTree)->getSelectionModel()))->setSelectionMode($TreeSelectionModel::SINGLE_TREE_SELECTION);
+	$$nc($nc(LastNodeLowerHalfDrop::jTree)->getSelectionModel())->setSelectionMode($TreeSelectionModel::SINGLE_TREE_SELECTION);
 	expandTree(LastNodeLowerHalfDrop::jTree);
 	return $new($JScrollPane, LastNodeLowerHalfDrop::jTree);
 }
@@ -182,7 +120,7 @@ $TreeModel* LastNodeLowerHalfDrop::getTreeModel() {
 	$init(LastNodeLowerHalfDrop);
 	$assignStatic(LastNodeLowerHalfDrop::root, $new($DefaultMutableTreeNode, "Root"_s));
 	$assignStatic(LastNodeLowerHalfDrop::a, $new($DefaultMutableTreeNode, "A"_s));
-	$nc(LastNodeLowerHalfDrop::root)->add(LastNodeLowerHalfDrop::a);
+	LastNodeLowerHalfDrop::root->add(LastNodeLowerHalfDrop::a);
 	$assignStatic(LastNodeLowerHalfDrop::a1, $new($DefaultMutableTreeNode, "a1"_s));
 	$nc(LastNodeLowerHalfDrop::a)->add(LastNodeLowerHalfDrop::a1);
 	$assignStatic(LastNodeLowerHalfDrop::b, $new($DefaultMutableTreeNode, "B"_s));
@@ -199,15 +137,15 @@ $TreeModel* LastNodeLowerHalfDrop::getTreeModel() {
 }
 
 void LastNodeLowerHalfDrop::expandTree($JTree* tree) {
-	$useLocalCurrentObjectStackCache();
-	$var($DefaultMutableTreeNode, root, $cast($DefaultMutableTreeNode, $nc($($nc(tree)->getModel()))->getRoot()));
+	$useLocalObjectStack();
+	$var($DefaultMutableTreeNode, root, $cast($DefaultMutableTreeNode, $$nc($nc(tree)->getModel())->getRoot()));
 	$var($Enumeration, e, $nc(root)->breadthFirstEnumeration());
 	while ($nc(e)->hasMoreElements()) {
 		$var($DefaultMutableTreeNode, node, $cast($DefaultMutableTreeNode, e->nextElement()));
 		if ($nc(node)->isLeaf()) {
 			continue;
 		}
-		int32_t row = tree->getRowForPath($$new($TreePath, $($nc(node)->getPath())));
+		int32_t row = tree->getRowForPath($$new($TreePath, $(node->getPath())));
 		tree->expandRow(row);
 	}
 }
@@ -216,7 +154,54 @@ LastNodeLowerHalfDrop::LastNodeLowerHalfDrop() {
 }
 
 $Class* LastNodeLowerHalfDrop::load$($String* name, bool initialize) {
-	$loadClass(LastNodeLowerHalfDrop, name, initialize, &_LastNodeLowerHalfDrop_ClassInfo_, allocate$LastNodeLowerHalfDrop);
+	$FieldInfo fieldInfos$$[] = {
+		{"b1", "Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PRIVATE | $STATIC, $staticField(LastNodeLowerHalfDrop, b1)},
+		{"b2", "Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PRIVATE | $STATIC, $staticField(LastNodeLowerHalfDrop, b2)},
+		{"c", "Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PRIVATE | $STATIC, $staticField(LastNodeLowerHalfDrop, c)},
+		{"jTree", "Ljavax/swing/JTree;", nullptr, $PRIVATE | $STATIC, $staticField(LastNodeLowerHalfDrop, jTree)},
+		{"a", "Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PRIVATE | $STATIC, $staticField(LastNodeLowerHalfDrop, a)},
+		{"b", "Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PRIVATE | $STATIC, $staticField(LastNodeLowerHalfDrop, b)},
+		{"a1", "Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PRIVATE | $STATIC, $staticField(LastNodeLowerHalfDrop, a1)},
+		{"dragPoint", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticField(LastNodeLowerHalfDrop, dragPoint)},
+		{"dropPoint", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticField(LastNodeLowerHalfDrop, dropPoint)},
+		{"f", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(LastNodeLowerHalfDrop, f)},
+		{"c1", "Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PRIVATE | $STATIC, $staticField(LastNodeLowerHalfDrop, c1)},
+		{"root", "Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PRIVATE | $STATIC, $staticField(LastNodeLowerHalfDrop, root)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LastNodeLowerHalfDrop, init$, void)},
+		{"cleanUp", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(LastNodeLowerHalfDrop, cleanUp, void), "java.lang.Exception"},
+		{"expandTree", "(Ljavax/swing/JTree;)V", nullptr, $PRIVATE, $method(LastNodeLowerHalfDrop, expandTree, void, $JTree*)},
+		{"getContent", "()Ljavax/swing/JScrollPane;", nullptr, $PRIVATE, $method(LastNodeLowerHalfDrop, getContent, $JScrollPane*)},
+		{"getTreeModel", "()Ljavax/swing/tree/TreeModel;", nullptr, $PROTECTED | $STATIC, $staticMethod(LastNodeLowerHalfDrop, getTreeModel, $TreeModel*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LastNodeLowerHalfDrop, main, void, $StringArray*), "java.lang.Exception"},
+		{"testCase", "(Ljavax/swing/tree/DefaultMutableTreeNode;Ljavax/swing/tree/DefaultMutableTreeNode;F)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LastNodeLowerHalfDrop, testCase, void, $DefaultMutableTreeNode*, $DefaultMutableTreeNode*, float), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"LastNodeLowerHalfDrop$3", nullptr, nullptr, 0},
+		{"LastNodeLowerHalfDrop$2", nullptr, nullptr, 0},
+		{"LastNodeLowerHalfDrop$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"LastNodeLowerHalfDrop",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"LastNodeLowerHalfDrop$3,LastNodeLowerHalfDrop$2,LastNodeLowerHalfDrop$1"
+	};
+	$loadClass(LastNodeLowerHalfDrop, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LastNodeLowerHalfDrop);
+	});
 	return class$;
 }
 

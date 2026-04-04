@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/TIFFField.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFFieldNode.h>
 #include <java/lang/ClassCastException.h>
 #include <java/lang/Cloneable.h>
@@ -57,74 +56,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$FieldInfo _TIFFField_FieldInfo_[] = {
-	{"MAX_UINT32", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TIFFField, MAX_UINT32)},
-	{"TYPE_NAMES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFField, TYPE_NAMES)},
-	{"IS_INTEGRAL", "[Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFField, IS_INTEGRAL)},
-	{"tag", "Ljavax/imageio/plugins/tiff/TIFFTag;", nullptr, $PRIVATE, $field(TIFFField, tag)},
-	{"tagNumber", "I", nullptr, $PRIVATE, $field(TIFFField, tagNumber)},
-	{"type", "I", nullptr, $PRIVATE, $field(TIFFField, type)},
-	{"count", "I", nullptr, $PRIVATE, $field(TIFFField, count)},
-	{"data", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(TIFFField, data)},
-	{"dir", "Ljavax/imageio/plugins/tiff/TIFFDirectory;", nullptr, $PRIVATE, $field(TIFFField, dir)},
-	{}
-};
-
-$MethodInfo _TIFFField_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(TIFFField, init$, void)},
-	{"<init>", "(Ljavax/imageio/plugins/tiff/TIFFTag;IILjava/lang/Object;)V", nullptr, $PUBLIC, $method(TIFFField, init$, void, $TIFFTag*, int32_t, int32_t, Object$*)},
-	{"<init>", "(Ljavax/imageio/plugins/tiff/TIFFTag;II)V", nullptr, $PUBLIC, $method(TIFFField, init$, void, $TIFFTag*, int32_t, int32_t)},
-	{"<init>", "(Ljavax/imageio/plugins/tiff/TIFFTag;J)V", nullptr, $PUBLIC, $method(TIFFField, init$, void, $TIFFTag*, int64_t)},
-	{"<init>", "(Ljavax/imageio/plugins/tiff/TIFFTag;IJLjavax/imageio/plugins/tiff/TIFFDirectory;)V", nullptr, $PUBLIC, $method(TIFFField, init$, void, $TIFFTag*, int32_t, int64_t, $TIFFDirectory*)},
-	{"clone", "()Ljavax/imageio/plugins/tiff/TIFFField;", nullptr, $PUBLIC, $virtualMethod(TIFFField, clone, TIFFField*), "java.lang.CloneNotSupportedException"},
-	{"createArrayForType", "(II)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(TIFFField, createArrayForType, $Object*, int32_t, int32_t)},
-	{"createFromMetadataNode", "(Ljavax/imageio/plugins/tiff/TIFFTagSet;Lorg/w3c/dom/Node;)Ljavax/imageio/plugins/tiff/TIFFField;", nullptr, $PUBLIC | $STATIC, $staticMethod(TIFFField, createFromMetadataNode, TIFFField*, $TIFFTagSet*, $Node*)},
-	{"getAsBytes", "()[B", nullptr, $PUBLIC, $method(TIFFField, getAsBytes, $bytes*)},
-	{"getAsChars", "()[C", nullptr, $PUBLIC, $method(TIFFField, getAsChars, $chars*)},
-	{"getAsDouble", "(I)D", nullptr, $PUBLIC, $method(TIFFField, getAsDouble, double, int32_t)},
-	{"getAsDoubles", "()[D", nullptr, $PUBLIC, $method(TIFFField, getAsDoubles, $doubles*)},
-	{"getAsFloat", "(I)F", nullptr, $PUBLIC, $method(TIFFField, getAsFloat, float, int32_t)},
-	{"getAsFloats", "()[F", nullptr, $PUBLIC, $method(TIFFField, getAsFloats, $floats*)},
-	{"getAsInt", "(I)I", nullptr, $PUBLIC, $method(TIFFField, getAsInt, int32_t, int32_t)},
-	{"getAsInts", "()[I", nullptr, $PUBLIC, $method(TIFFField, getAsInts, $ints*)},
-	{"getAsLong", "(I)J", nullptr, $PUBLIC, $method(TIFFField, getAsLong, int64_t, int32_t)},
-	{"getAsLongs", "()[J", nullptr, $PUBLIC, $method(TIFFField, getAsLongs, $longs*)},
-	{"getAsNativeNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $method(TIFFField, getAsNativeNode, $Node*)},
-	{"getAsRational", "(I)[J", nullptr, $PUBLIC, $method(TIFFField, getAsRational, $longs*, int32_t)},
-	{"getAsRationals", "()[[J", nullptr, $PUBLIC, $method(TIFFField, getAsRationals, $longArray2*)},
-	{"getAsSRational", "(I)[I", nullptr, $PUBLIC, $method(TIFFField, getAsSRational, $ints*, int32_t)},
-	{"getAsSRationals", "()[[I", nullptr, $PUBLIC, $method(TIFFField, getAsSRationals, $intArray2*)},
-	{"getAsShorts", "()[S", nullptr, $PUBLIC, $method(TIFFField, getAsShorts, $shorts*)},
-	{"getAsString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $method(TIFFField, getAsString, $String*, int32_t)},
-	{"getAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFField, getAttribute, $String*, $Node*, $String*)},
-	{"getCount", "()I", nullptr, $PUBLIC, $method(TIFFField, getCount, int32_t)},
-	{"getData", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(TIFFField, getData, $Object*)},
-	{"getDirectory", "()Ljavax/imageio/plugins/tiff/TIFFDirectory;", nullptr, $PUBLIC, $method(TIFFField, getDirectory, $TIFFDirectory*)},
-	{"getTag", "()Ljavax/imageio/plugins/tiff/TIFFTag;", nullptr, $PUBLIC, $method(TIFFField, getTag, $TIFFTag*)},
-	{"getTagNumber", "()I", nullptr, $PUBLIC, $method(TIFFField, getTagNumber, int32_t)},
-	{"getType", "()I", nullptr, $PUBLIC, $method(TIFFField, getType, int32_t)},
-	{"getTypeByName", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TIFFField, getTypeByName, int32_t, $String*)},
-	{"getTypeName", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(TIFFField, getTypeName, $String*, int32_t)},
-	{"getValueAsString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $method(TIFFField, getValueAsString, $String*, int32_t)},
-	{"hasDirectory", "()Z", nullptr, $PUBLIC, $method(TIFFField, hasDirectory, bool)},
-	{"initData", "(Lorg/w3c/dom/Node;[I[I[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFField, initData, void, $Node*, $ints*, $ints*, $ObjectArray*)},
-	{"isIntegral", "()Z", nullptr, $PUBLIC, $method(TIFFField, isIntegral, bool)},
-	{}
-};
-
-$ClassInfo _TIFFField_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.imageio.plugins.tiff.TIFFField",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_TIFFField_FieldInfo_,
-	_TIFFField_MethodInfo_
-};
-
-$Object* allocate$TIFFField($Class* clazz) {
-	return $of($alloc(TIFFField));
-}
-
 $StringArray* TIFFField::TYPE_NAMES = nullptr;
 $booleans* TIFFField::IS_INTEGRAL = nullptr;
 
@@ -133,14 +64,14 @@ void TIFFField::init$() {
 
 $String* TIFFField::getAttribute($Node* node, $String* attrName) {
 	$init(TIFFField);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NamedNodeMap, attrs, $nc(node)->getAttributes());
-	return $nc($($nc(attrs)->getNamedItem(attrName)))->getNodeValue();
+	return $$nc($nc(attrs)->getNamedItem(attrName))->getNodeValue();
 }
 
 void TIFFField::initData($Node* node, $ints* otype, $ints* ocount, $ObjectArray* odata) {
 	$init(TIFFField);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t type = 0;
 	int32_t count = 0;
 	$var($Object, data, nullptr);
@@ -154,7 +85,7 @@ void TIFFField::initData($Node* node, $ints* otype, $ints* ocount, $ObjectArray*
 	$var($Node, child, node->getFirstChild());
 	count = 0;
 	while (child != nullptr) {
-		$var($String, childTypeName, $nc($(child->getNodeName()))->substring(4));
+		$var($String, childTypeName, $$nc(child->getNodeName())->substring(4));
 		if (!typeName->equals(childTypeName)) {
 		}
 		++count;
@@ -171,71 +102,49 @@ void TIFFField::initData($Node* node, $ints* otype, $ints* ocount, $ObjectArray*
 			int32_t slashPos = 0;
 			switch (type) {
 			case $TIFFTag::TIFF_ASCII:
-				{
-					$nc(($cast($StringArray, data)))->set(idx, value);
-					break;
-				}
+				$nc($cast($StringArray, data))->set(idx, value);
+				break;
 			case $TIFFTag::TIFF_BYTE:
-				{}
 			case $TIFFTag::TIFF_SBYTE:
-				{
-					$nc(($cast($bytes, data)))->set(idx, (int8_t)$Integer::parseInt(value));
-					break;
-				}
+				$nc($cast($bytes, data))->set(idx, (int8_t)$Integer::parseInt(value));
+				break;
 			case $TIFFTag::TIFF_SHORT:
-				{
-					$nc(($cast($chars, data)))->set(idx, (char16_t)$Integer::parseInt(value));
-					break;
-				}
+				$nc($cast($chars, data))->set(idx, (char16_t)$Integer::parseInt(value));
+				break;
 			case $TIFFTag::TIFF_SSHORT:
-				{
-					$nc(($cast($shorts, data)))->set(idx, (int16_t)$Integer::parseInt(value));
-					break;
-				}
+				$nc($cast($shorts, data))->set(idx, (int16_t)$Integer::parseInt(value));
+				break;
 			case $TIFFTag::TIFF_SLONG:
-				{
-					$nc(($cast($ints, data)))->set(idx, $Integer::parseInt(value));
-					break;
-				}
+				$nc($cast($ints, data))->set(idx, $Integer::parseInt(value));
+				break;
 			case $TIFFTag::TIFF_LONG:
-				{}
 			case $TIFFTag::TIFF_IFD_POINTER:
-				{
-					$nc(($cast($longs, data)))->set(idx, $Long::parseLong(value));
-					break;
-				}
+				$nc($cast($longs, data))->set(idx, $Long::parseLong(value));
+				break;
 			case $TIFFTag::TIFF_FLOAT:
-				{
-					$nc(($cast($floats, data)))->set(idx, $Float::parseFloat(value));
-					break;
-				}
+				$nc($cast($floats, data))->set(idx, $Float::parseFloat(value));
+				break;
 			case $TIFFTag::TIFF_DOUBLE:
-				{
-					$nc(($cast($doubles, data)))->set(idx, $Double::parseDouble(value));
-					break;
-				}
+				$nc($cast($doubles, data))->set(idx, $Double::parseDouble(value));
+				break;
 			case $TIFFTag::TIFF_SRATIONAL:
-				{
-					slashPos = $nc(value)->indexOf("/"_s);
-					$assign(numerator, $nc(value)->substring(0, slashPos));
-					$assign(denominator, $nc(value)->substring(slashPos + 1));
-					$nc(($cast($intArray2, data)))->set(idx, $$new($ints, 2));
-					$nc($nc(($cast($intArray2, data)))->get(idx))->set(0, $Integer::parseInt(numerator));
-					$nc($nc(($cast($intArray2, data)))->get(idx))->set(1, $Integer::parseInt(denominator));
-					break;
-				}
+				slashPos = $nc(value)->indexOf("/"_s);
+				$assign(numerator, value->substring(0, slashPos));
+				$assign(denominator, value->substring(slashPos + 1));
+				$nc($cast($intArray2, data))->set(idx, $$new($ints, 2));
+				$nc($cast($intArray2, data)->get(idx))->set(0, $Integer::parseInt(numerator));
+				$nc($cast($intArray2, data)->get(idx))->set(1, $Integer::parseInt(denominator));
+				break;
 			case $TIFFTag::TIFF_RATIONAL:
-				{
-					slashPos = $nc(value)->indexOf("/"_s);
-					$assign(numerator, $nc(value)->substring(0, slashPos));
-					$assign(denominator, $nc(value)->substring(slashPos + 1));
-					$nc(($cast($longArray2, data)))->set(idx, $$new($longs, 2));
-					$nc($nc(($cast($longArray2, data)))->get(idx))->set(0, $Long::parseLong(numerator));
-					$nc($nc(($cast($longArray2, data)))->get(idx))->set(1, $Long::parseLong(denominator));
-					break;
-				}
+				slashPos = $nc(value)->indexOf("/"_s);
+				$assign(numerator, value->substring(0, slashPos));
+				$assign(denominator, value->substring(slashPos + 1));
+				$nc($cast($longArray2, data))->set(idx, $$new($longs, 2));
+				$nc($cast($longArray2, data)->get(idx))->set(0, $Long::parseLong(numerator));
+				$nc($cast($longArray2, data)->get(idx))->set(1, $Long::parseLong(denominator));
+				break;
 			default:
-				{}
+				break;
 			}
 			++idx;
 			$assign(child, child->getNextSibling());
@@ -248,9 +157,9 @@ void TIFFField::initData($Node* node, $ints* otype, $ints* ocount, $ObjectArray*
 
 TIFFField* TIFFField::createFromMetadataNode($TIFFTagSet* tagSet, $Node* node) {
 	$init(TIFFField);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (node == nullptr) {
-		$throwNew($IllegalArgumentException, static_cast<$Throwable*>($$new($NullPointerException, "node == null!"_s)));
+		$throwNew($IllegalArgumentException, $$new($NullPointerException, "node == null!"_s));
 	}
 	$var($String, name, $nc(node)->getNodeName());
 	if (!$nc(name)->equals("TIFFField"_s)) {
@@ -301,18 +210,18 @@ TIFFField* TIFFField::createFromMetadataNode($TIFFTagSet* tagSet, $Node* node) {
 	try {
 		$assign(field, $new(TIFFField, tag, type, count, data));
 	} catch ($NullPointerException& npe) {
-		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(npe));
+		$throwNew($IllegalArgumentException, npe);
 	}
 	return field;
 }
 
 void TIFFField::init$($TIFFTag* tag, int32_t type, int32_t count, Object$* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (tag == nullptr) {
 		$throwNew($NullPointerException, "tag == null!"_s);
 	} else if (type < $TIFFTag::MIN_DATATYPE || type > $TIFFTag::MAX_DATATYPE) {
 		$throwNew($IllegalArgumentException, $$str({"Unknown data type "_s, $$str(type)}));
-	} else if (!$nc(tag)->isDataTypeOK(type)) {
+	} else if (!tag->isDataTypeOK(type)) {
 		$throwNew($IllegalArgumentException, $$str({"Illegal data type "_s, $$str(type), " for "_s, $(tag->getName()), " tag"_s}));
 	} else if (count < 0) {
 		$throwNew($IllegalArgumentException, "count < 0!"_s);
@@ -326,130 +235,90 @@ void TIFFField::init$($TIFFTag* tag, int32_t type, int32_t count, Object$* data)
 	bool isDataArrayCorrect = false;
 	switch (type) {
 	case $TIFFTag::TIFF_BYTE:
-		{}
 	case $TIFFTag::TIFF_SBYTE:
-		{}
 	case $TIFFTag::TIFF_UNDEFINED:
-		{
-			isDataArrayCorrect = $instanceOf($bytes, data) && $nc(($cast($bytes, data)))->length == count;
-			break;
-		}
+		isDataArrayCorrect = $instanceOf($bytes, data) && $cast($bytes, data)->length == count;
+		break;
 	case $TIFFTag::TIFF_ASCII:
-		{
-			isDataArrayCorrect = $instanceOf($StringArray, data) && $nc(($cast($StringArray, data)))->length == count;
-			break;
-		}
+		isDataArrayCorrect = $instanceOf($StringArray, data) && $cast($StringArray, data)->length == count;
+		break;
 	case $TIFFTag::TIFF_SHORT:
-		{
-			isDataArrayCorrect = $instanceOf($chars, data) && $nc(($cast($chars, data)))->length == count;
-			break;
-		}
+		isDataArrayCorrect = $instanceOf($chars, data) && $cast($chars, data)->length == count;
+		break;
 	case $TIFFTag::TIFF_LONG:
-		{
-			isDataArrayCorrect = $instanceOf($longs, data) && $nc(($cast($longs, data)))->length == count;
-			if (isDataArrayCorrect) {
+		isDataArrayCorrect = $instanceOf($longs, data) && $cast($longs, data)->length == count;
+		if (isDataArrayCorrect) {
+			$var($longs, arr$, $cast($longs, data));
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+				int64_t datum = arr$->get(i$);
 				{
-					$var($longs, arr$, $cast($longs, data));
-					int32_t len$ = $nc(arr$)->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
-						int64_t datum = arr$->get(i$);
-						{
-							if (datum < 0) {
-								$throwNew($IllegalArgumentException, "Negative value supplied for TIFF_LONG"_s);
-							}
-							if (datum > TIFFField::MAX_UINT32) {
-								$throwNew($IllegalArgumentException, "Too large value supplied for TIFF_LONG"_s);
-							}
-						}
+					if (datum < 0) {
+						$throwNew($IllegalArgumentException, "Negative value supplied for TIFF_LONG"_s);
+					}
+					if (datum > TIFFField::MAX_UINT32) {
+						$throwNew($IllegalArgumentException, "Too large value supplied for TIFF_LONG"_s);
 					}
 				}
 			}
-			break;
 		}
+		break;
 	case $TIFFTag::TIFF_IFD_POINTER:
-		{
-			isDataArrayCorrect = $instanceOf($longs, data) && $nc(($cast($longs, data)))->length == 1;
-			if ($nc(($cast($longs, data)))->get(0) < 0) {
-				$throwNew($IllegalArgumentException, "Negative value supplied for TIFF_IFD_POINTER"_s);
-			}
-			if ($nc(($cast($longs, data)))->get(0) > TIFFField::MAX_UINT32) {
-				$throwNew($IllegalArgumentException, "Too large value supplied for TIFF_IFD_POINTER"_s);
-			}
-			break;
+		isDataArrayCorrect = $instanceOf($longs, data) && $cast($longs, data)->length == 1;
+		if ($nc($cast($longs, data))->get(0) < 0) {
+			$throwNew($IllegalArgumentException, "Negative value supplied for TIFF_IFD_POINTER"_s);
 		}
+		if ($cast($longs, data)->get(0) > TIFFField::MAX_UINT32) {
+			$throwNew($IllegalArgumentException, "Too large value supplied for TIFF_IFD_POINTER"_s);
+		}
+		break;
 	case $TIFFTag::TIFF_RATIONAL:
-		{
-			isDataArrayCorrect = $instanceOf($longArray2, data) && $nc(($cast($longArray2, data)))->length == count;
-			if (isDataArrayCorrect) {
+		isDataArrayCorrect = $instanceOf($longArray2, data) && $cast($longArray2, data)->length == count;
+		if (isDataArrayCorrect) {
+			$var($longArray2, arr$, $cast($longArray2, data));
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+				$var($longs, datum, arr$->get(i$));
 				{
-					$var($longArray2, arr$, $cast($longArray2, data));
-					int32_t len$ = $nc(arr$)->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
-						$var($longs, datum, arr$->get(i$));
-						{
-							if ($nc(datum)->length != 2) {
-								isDataArrayCorrect = false;
-								break;
-							}
-							if ($nc(datum)->get(0) < 0 || $nc(datum)->get(1) < 0) {
-								$throwNew($IllegalArgumentException, "Negative value supplied for TIFF_RATIONAL"_s);
-							}
-							if ($nc(datum)->get(0) > TIFFField::MAX_UINT32 || $nc(datum)->get(1) > TIFFField::MAX_UINT32) {
-								$throwNew($IllegalArgumentException, "Too large value supplied for TIFF_RATIONAL"_s);
-							}
-						}
+					if ($nc(datum)->length != 2) {
+						isDataArrayCorrect = false;
+						break;
+					}
+					if (datum->get(0) < 0 || datum->get(1) < 0) {
+						$throwNew($IllegalArgumentException, "Negative value supplied for TIFF_RATIONAL"_s);
+					}
+					if (datum->get(0) > TIFFField::MAX_UINT32 || datum->get(1) > TIFFField::MAX_UINT32) {
+						$throwNew($IllegalArgumentException, "Too large value supplied for TIFF_RATIONAL"_s);
 					}
 				}
 			}
-			break;
 		}
+		break;
 	case $TIFFTag::TIFF_SSHORT:
-		{
-			isDataArrayCorrect = $instanceOf($shorts, data) && $nc(($cast($shorts, data)))->length == count;
-			break;
-		}
+		isDataArrayCorrect = $instanceOf($shorts, data) && $cast($shorts, data)->length == count;
+		break;
 	case $TIFFTag::TIFF_SLONG:
-		{
-			isDataArrayCorrect = $instanceOf($ints, data) && $nc(($cast($ints, data)))->length == count;
-			break;
-		}
+		isDataArrayCorrect = $instanceOf($ints, data) && $cast($ints, data)->length == count;
+		break;
 	case $TIFFTag::TIFF_SRATIONAL:
-		{
-			isDataArrayCorrect = $instanceOf($intArray2, data) && $nc(($cast($intArray2, data)))->length == count;
-			if (isDataArrayCorrect) {
-				{
-					$var($intArray2, arr$, $cast($intArray2, data));
-					int32_t len$ = $nc(arr$)->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
-						$var($ints, datum, arr$->get(i$));
-						{
-							if ($nc(datum)->length != 2) {
-								isDataArrayCorrect = false;
-								break;
-							}
-						}
-					}
+		isDataArrayCorrect = $instanceOf($intArray2, data) && $cast($intArray2, data)->length == count;
+		if (isDataArrayCorrect) {
+			$var($intArray2, arr$, $cast($intArray2, data));
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+				$var($ints, datum, arr$->get(i$));
+				if ($nc(datum)->length != 2) {
+					isDataArrayCorrect = false;
+					break;
 				}
 			}
-			break;
 		}
+		break;
 	case $TIFFTag::TIFF_FLOAT:
-		{
-			isDataArrayCorrect = $instanceOf($floats, data) && $nc(($cast($floats, data)))->length == count;
-			break;
-		}
+		isDataArrayCorrect = $instanceOf($floats, data) && $cast($floats, data)->length == count;
+		break;
 	case $TIFFTag::TIFF_DOUBLE:
-		{
-			isDataArrayCorrect = $instanceOf($doubles, data) && $nc(($cast($doubles, data)))->length == count;
-			break;
-		}
+		isDataArrayCorrect = $instanceOf($doubles, data) && $cast($doubles, data)->length == count;
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Unknown data type "_s, $$str(type)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Unknown data type "_s, $$str(type)}));
 	}
 	if (!isDataArrayCorrect) {
 		$throwNew($IllegalArgumentException, "Illegal class or length for data array"_s);
@@ -466,7 +335,7 @@ void TIFFField::init$($TIFFTag* tag, int32_t type, int32_t count) {
 }
 
 void TIFFField::init$($TIFFTag* tag, int64_t value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (tag == nullptr) {
 		$throwNew($NullPointerException, "tag == null!"_s);
 	}
@@ -481,9 +350,13 @@ void TIFFField::init$($TIFFTag* tag, int64_t value) {
 	this->count = 1;
 	if (value < 0x00010000) {
 		if (!tag->isDataTypeOK($TIFFTag::TIFF_SHORT)) {
-			$var($String, var$1, $$str({"Illegal data type "_s, $(getTypeName($TIFFTag::TIFF_SHORT)), " for tag \""_s}));
-			$var($String, var$0, $$concat(var$1, $(tag->getName())));
-			$throwNew($IllegalArgumentException, $$concat(var$0, "\""_s));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("Illegal data type "_s);
+			var$0->append($(getTypeName($TIFFTag::TIFF_SHORT)));
+			var$0->append(" for tag \""_s);
+			var$0->append($(tag->getName()));
+			var$0->append("\""_s);
+			$throwNew($IllegalArgumentException, $$str(var$0));
 		}
 		this->type = $TIFFTag::TIFF_SHORT;
 		$var($chars, cdata, $new($chars, 1));
@@ -491,9 +364,13 @@ void TIFFField::init$($TIFFTag* tag, int64_t value) {
 		$set(this, data, cdata);
 	} else {
 		if (!tag->isDataTypeOK($TIFFTag::TIFF_LONG)) {
-			$var($String, var$3, $$str({"Illegal data type "_s, $(getTypeName($TIFFTag::TIFF_LONG)), " for tag \""_s}));
-			$var($String, var$2, $$concat(var$3, $(tag->getName())));
-			$throwNew($IllegalArgumentException, $$concat(var$2, "\""_s));
+			$var($StringBuilder, var$1, $new($StringBuilder));
+			var$1->append("Illegal data type "_s);
+			var$1->append($(getTypeName($TIFFTag::TIFF_LONG)));
+			var$1->append(" for tag \""_s);
+			var$1->append($(tag->getName()));
+			var$1->append("\""_s);
+			$throwNew($IllegalArgumentException, $$str(var$1));
 		}
 		this->type = $TIFFTag::TIFF_LONG;
 		$var($longs, ldata, $new($longs, 1));
@@ -503,12 +380,12 @@ void TIFFField::init$($TIFFTag* tag, int64_t value) {
 }
 
 void TIFFField::init$($TIFFTag* tag, int32_t type, int64_t offset, $TIFFDirectory* dir) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (tag == nullptr) {
 		$throwNew($NullPointerException, "tag == null!"_s);
 	} else if (type < $TIFFTag::MIN_DATATYPE || type > $TIFFTag::MAX_DATATYPE) {
 		$throwNew($IllegalArgumentException, $$str({"Unknown data type "_s, $$str(type)}));
-	} else if (!$nc(tag)->isDataTypeOK(type)) {
+	} else if (!tag->isDataTypeOK(type)) {
 		$throwNew($IllegalArgumentException, $$str({"Illegal data type "_s, $$str(type), " for "_s, $(tag->getName()), " tag"_s}));
 	} else if (type != $TIFFTag::TIFF_LONG && type != $TIFFTag::TIFF_IFD_POINTER) {
 		$throwNew($IllegalArgumentException, $$str({"type "_s, $$str(type), " is neither TIFFTag.TIFF_LONG nor TIFFTag.TIFF_IFD_POINTER"_s}));
@@ -539,17 +416,17 @@ int32_t TIFFField::getType() {
 
 $String* TIFFField::getTypeName(int32_t dataType) {
 	$init(TIFFField);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (dataType < $TIFFTag::MIN_DATATYPE || dataType > $TIFFTag::MAX_DATATYPE) {
 		$throwNew($IllegalArgumentException, $$str({"Unknown data type "_s, $$str(dataType)}));
 	}
-	return $nc(TIFFField::TYPE_NAMES)->get(dataType);
+	return TIFFField::TYPE_NAMES->get(dataType);
 }
 
 int32_t TIFFField::getTypeByName($String* typeName) {
 	$init(TIFFField);
 	for (int32_t i = $TIFFTag::MIN_DATATYPE; i <= $TIFFTag::MAX_DATATYPE; ++i) {
-		if ($nc(typeName)->equals($nc(TIFFField::TYPE_NAMES)->get(i))) {
+		if ($nc(typeName)->equals(TIFFField::TYPE_NAMES->get(i))) {
 			return i;
 		}
 	}
@@ -558,7 +435,7 @@ int32_t TIFFField::getTypeByName($String* typeName) {
 
 $Object* TIFFField::createArrayForType(int32_t dataType, int32_t count) {
 	$init(TIFFField);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (count < 0) {
 		$throwNew($IllegalArgumentException, "count < 0!"_s);
 	} else if ((dataType == $TIFFTag::TIFF_RATIONAL || dataType == $TIFFTag::TIFF_SRATIONAL) && count < 1) {
@@ -568,55 +445,30 @@ $Object* TIFFField::createArrayForType(int32_t dataType, int32_t count) {
 	}
 	switch (dataType) {
 	case $TIFFTag::TIFF_BYTE:
-		{}
 	case $TIFFTag::TIFF_SBYTE:
-		{}
 	case $TIFFTag::TIFF_UNDEFINED:
-		{
-			return $of($new($bytes, count));
-		}
+		return $new($bytes, count);
 	case $TIFFTag::TIFF_ASCII:
-		{
-			return $of($new($StringArray, count));
-		}
+		return $new($StringArray, count);
 	case $TIFFTag::TIFF_SHORT:
-		{
-			return $of($new($chars, count));
-		}
+		return $new($chars, count);
 	case $TIFFTag::TIFF_LONG:
-		{}
 	case $TIFFTag::TIFF_IFD_POINTER:
-		{
-			return $of($new($longs, count));
-		}
+		return $new($longs, count);
 	case $TIFFTag::TIFF_RATIONAL:
-		{
-			return $of($new($longArray2, count, 2));
-		}
+		return $new($longArray2, count, 2);
 	case $TIFFTag::TIFF_SSHORT:
-		{
-			return $of($new($shorts, count));
-		}
+		return $new($shorts, count);
 	case $TIFFTag::TIFF_SLONG:
-		{
-			return $of($new($ints, count));
-		}
+		return $new($ints, count);
 	case $TIFFTag::TIFF_SRATIONAL:
-		{
-			return $of($new($intArray2, count, 2));
-		}
+		return $new($intArray2, count, 2);
 	case $TIFFTag::TIFF_FLOAT:
-		{
-			return $of($new($floats, count));
-		}
+		return $new($floats, count);
 	case $TIFFTag::TIFF_DOUBLE:
-		{
-			return $of($new($doubles, count));
-		}
+		return $new($doubles, count);
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Unknown data type "_s, $$str(dataType)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Unknown data type "_s, $$str(dataType)}));
 	}
 }
 
@@ -625,7 +477,7 @@ $Node* TIFFField::getAsNativeNode() {
 }
 
 bool TIFFField::isIntegral() {
-	return $nc(TIFFField::IS_INTEGRAL)->get(this->type);
+	return TIFFField::IS_INTEGRAL->get(this->type);
 }
 
 int32_t TIFFField::getCount() {
@@ -633,7 +485,7 @@ int32_t TIFFField::getCount() {
 }
 
 $Object* TIFFField::getData() {
-	return $of(this->data);
+	return this->data;
 }
 
 $bytes* TIFFField::getAsBytes() {
@@ -649,14 +501,14 @@ $shorts* TIFFField::getAsShorts() {
 }
 
 $ints* TIFFField::getAsInts() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($ints, this->data)) {
 		return $cast($ints, this->data);
 	} else if ($instanceOf($chars, this->data)) {
 		$var($chars, cdata, $cast($chars, this->data));
 		$var($ints, idata, $new($ints, $nc(cdata)->length));
 		for (int32_t i = 0; i < cdata->length; ++i) {
-			idata->set(i, (int32_t)(cdata->get(i) & (uint32_t)0x0000FFFF));
+			idata->set(i, cdata->get(i) & 0xffff);
 		}
 		return idata;
 	} else if ($instanceOf($shorts, this->data)) {
@@ -692,356 +544,222 @@ $longArray2* TIFFField::getAsRationals() {
 }
 
 int32_t TIFFField::getAsInt(int32_t index) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($ints, ivalue, nullptr)
-		$var($longs, lvalue, nullptr)
-		$var($String, s, nullptr)
-		switch (this->type) {
-		case $TIFFTag::TIFF_BYTE:
-			{}
-		case $TIFFTag::TIFF_UNDEFINED:
-			{
-				return (int32_t)($nc(($cast($bytes, this->data)))->get(index) & (uint32_t)255);
-			}
-		case $TIFFTag::TIFF_SBYTE:
-			{
-				return $nc(($cast($bytes, this->data)))->get(index);
-			}
-		case $TIFFTag::TIFF_SHORT:
-			{
-				return (int32_t)($nc(($cast($chars, this->data)))->get(index) & (uint32_t)0x0000FFFF);
-			}
-		case $TIFFTag::TIFF_SSHORT:
-			{
-				return $nc(($cast($shorts, this->data)))->get(index);
-			}
-		case $TIFFTag::TIFF_SLONG:
-			{
-				return $nc(($cast($ints, this->data)))->get(index);
-			}
-		case $TIFFTag::TIFF_LONG:
-			{}
-		case $TIFFTag::TIFF_IFD_POINTER:
-			{
-				return (int32_t)$nc(($cast($longs, this->data)))->get(index);
-			}
-		case $TIFFTag::TIFF_FLOAT:
-			{
-				return $cast(int32_t, $nc(($cast($floats, this->data)))->get(index));
-			}
-		case $TIFFTag::TIFF_DOUBLE:
-			{
-				return $cast(int32_t, $nc(($cast($doubles, this->data)))->get(index));
-			}
-		case $TIFFTag::TIFF_SRATIONAL:
-			{
-				$assign(ivalue, getAsSRational(index));
-				return $cast(int32_t, ((double)$nc(ivalue)->get(0) / ivalue->get(1)));
-			}
-		case $TIFFTag::TIFF_RATIONAL:
-			{
-				$assign(lvalue, getAsRational(index));
-				return $cast(int32_t, ((double)$nc(lvalue)->get(0) / lvalue->get(1)));
-			}
-		case $TIFFTag::TIFF_ASCII:
-			{
-				$assign(s, $nc(($cast($StringArray, this->data)))->get(index));
-				return $cast(int32_t, $Double::parseDouble(s));
-			}
-		default:
-			{
-				$throwNew($ClassCastException);
-			}
-		}
+	$useLocalObjectStack();
+	$var($ints, ivalue, nullptr);
+	$var($longs, lvalue, nullptr);
+	$var($String, s, nullptr);
+	switch (this->type) {
+	case $TIFFTag::TIFF_BYTE:
+	case $TIFFTag::TIFF_UNDEFINED:
+		return $nc($cast($bytes, this->data))->get(index) & 0xff;
+	case $TIFFTag::TIFF_SBYTE:
+		return $nc($cast($bytes, this->data))->get(index);
+	case $TIFFTag::TIFF_SHORT:
+		return $nc($cast($chars, this->data))->get(index) & 0xffff;
+	case $TIFFTag::TIFF_SSHORT:
+		return $nc($cast($shorts, this->data))->get(index);
+	case $TIFFTag::TIFF_SLONG:
+		return $nc($cast($ints, this->data))->get(index);
+	case $TIFFTag::TIFF_LONG:
+	case $TIFFTag::TIFF_IFD_POINTER:
+		return (int32_t)$nc($cast($longs, this->data))->get(index);
+	case $TIFFTag::TIFF_FLOAT:
+		return $cast(int32_t, $nc($cast($floats, this->data))->get(index));
+	case $TIFFTag::TIFF_DOUBLE:
+		return $cast(int32_t, $nc($cast($doubles, this->data))->get(index));
+	case $TIFFTag::TIFF_SRATIONAL:
+		$assign(ivalue, getAsSRational(index));
+		return $cast(int32_t, ((double)$nc(ivalue)->get(0) / $nc(ivalue)->get(1)));
+	case $TIFFTag::TIFF_RATIONAL:
+		$assign(lvalue, getAsRational(index));
+		return $cast(int32_t, ((double)$nc(lvalue)->get(0) / $nc(lvalue)->get(1)));
+	case $TIFFTag::TIFF_ASCII:
+		$assign(s, $nc($cast($StringArray, this->data))->get(index));
+		return $cast(int32_t, $Double::parseDouble(s));
+	default:
+		$throwNew($ClassCastException);
 	}
 }
 
 int64_t TIFFField::getAsLong(int32_t index) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($ints, ivalue, nullptr)
-		$var($longs, lvalue, nullptr)
-		$var($String, s, nullptr)
-		switch (this->type) {
-		case $TIFFTag::TIFF_BYTE:
-			{}
-		case $TIFFTag::TIFF_UNDEFINED:
-			{
-				return (int32_t)($nc(($cast($bytes, this->data)))->get(index) & (uint32_t)255);
-			}
-		case $TIFFTag::TIFF_SBYTE:
-			{
-				return $nc(($cast($bytes, this->data)))->get(index);
-			}
-		case $TIFFTag::TIFF_SHORT:
-			{
-				return (int32_t)($nc(($cast($chars, this->data)))->get(index) & (uint32_t)0x0000FFFF);
-			}
-		case $TIFFTag::TIFF_SSHORT:
-			{
-				return $nc(($cast($shorts, this->data)))->get(index);
-			}
-		case $TIFFTag::TIFF_SLONG:
-			{
-				return $nc(($cast($ints, this->data)))->get(index);
-			}
-		case $TIFFTag::TIFF_LONG:
-			{}
-		case $TIFFTag::TIFF_IFD_POINTER:
-			{
-				return $nc(($cast($longs, this->data)))->get(index);
-			}
-		case $TIFFTag::TIFF_FLOAT:
-			{
-				return $cast(int64_t, $nc(($cast($floats, this->data)))->get(index));
-			}
-		case $TIFFTag::TIFF_DOUBLE:
-			{
-				return $cast(int64_t, $nc(($cast($doubles, this->data)))->get(index));
-			}
-		case $TIFFTag::TIFF_SRATIONAL:
-			{
-				$assign(ivalue, getAsSRational(index));
-				return $cast(int64_t, ((double)$nc(ivalue)->get(0) / ivalue->get(1)));
-			}
-		case $TIFFTag::TIFF_RATIONAL:
-			{
-				$assign(lvalue, getAsRational(index));
-				return $cast(int64_t, ((double)$nc(lvalue)->get(0) / lvalue->get(1)));
-			}
-		case $TIFFTag::TIFF_ASCII:
-			{
-				$assign(s, $nc(($cast($StringArray, this->data)))->get(index));
-				return $cast(int64_t, $Double::parseDouble(s));
-			}
-		default:
-			{
-				$throwNew($ClassCastException);
-			}
-		}
+	$useLocalObjectStack();
+	$var($ints, ivalue, nullptr);
+	$var($longs, lvalue, nullptr);
+	$var($String, s, nullptr);
+	switch (this->type) {
+	case $TIFFTag::TIFF_BYTE:
+	case $TIFFTag::TIFF_UNDEFINED:
+		return $nc($cast($bytes, this->data))->get(index) & 0xff;
+	case $TIFFTag::TIFF_SBYTE:
+		return $nc($cast($bytes, this->data))->get(index);
+	case $TIFFTag::TIFF_SHORT:
+		return $nc($cast($chars, this->data))->get(index) & 0xffff;
+	case $TIFFTag::TIFF_SSHORT:
+		return $nc($cast($shorts, this->data))->get(index);
+	case $TIFFTag::TIFF_SLONG:
+		return $nc($cast($ints, this->data))->get(index);
+	case $TIFFTag::TIFF_LONG:
+	case $TIFFTag::TIFF_IFD_POINTER:
+		return $nc($cast($longs, this->data))->get(index);
+	case $TIFFTag::TIFF_FLOAT:
+		return $cast(int64_t, $nc($cast($floats, this->data))->get(index));
+	case $TIFFTag::TIFF_DOUBLE:
+		return $cast(int64_t, $nc($cast($doubles, this->data))->get(index));
+	case $TIFFTag::TIFF_SRATIONAL:
+		$assign(ivalue, getAsSRational(index));
+		return $cast(int64_t, ((double)$nc(ivalue)->get(0) / $nc(ivalue)->get(1)));
+	case $TIFFTag::TIFF_RATIONAL:
+		$assign(lvalue, getAsRational(index));
+		return $cast(int64_t, ((double)$nc(lvalue)->get(0) / $nc(lvalue)->get(1)));
+	case $TIFFTag::TIFF_ASCII:
+		$assign(s, $nc($cast($StringArray, this->data))->get(index));
+		return $cast(int64_t, $Double::parseDouble(s));
+	default:
+		$throwNew($ClassCastException);
 	}
 }
 
 float TIFFField::getAsFloat(int32_t index) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($ints, ivalue, nullptr)
-		$var($longs, lvalue, nullptr)
-		$var($String, s, nullptr)
-		switch (this->type) {
-		case $TIFFTag::TIFF_BYTE:
-			{}
-		case $TIFFTag::TIFF_UNDEFINED:
-			{
-				return (float)((int32_t)($nc(($cast($bytes, this->data)))->get(index) & (uint32_t)255));
-			}
-		case $TIFFTag::TIFF_SBYTE:
-			{
-				return (float)$nc(($cast($bytes, this->data)))->get(index);
-			}
-		case $TIFFTag::TIFF_SHORT:
-			{
-				return (float)((int32_t)($nc(($cast($chars, this->data)))->get(index) & (uint32_t)0x0000FFFF));
-			}
-		case $TIFFTag::TIFF_SSHORT:
-			{
-				return (float)$nc(($cast($shorts, this->data)))->get(index);
-			}
-		case $TIFFTag::TIFF_SLONG:
-			{
-				return (float)$nc(($cast($ints, this->data)))->get(index);
-			}
-		case $TIFFTag::TIFF_LONG:
-			{}
-		case $TIFFTag::TIFF_IFD_POINTER:
-			{
-				return (float)$nc(($cast($longs, this->data)))->get(index);
-			}
-		case $TIFFTag::TIFF_FLOAT:
-			{
-				return $nc(($cast($floats, this->data)))->get(index);
-			}
-		case $TIFFTag::TIFF_DOUBLE:
-			{
-				return (float)$nc(($cast($doubles, this->data)))->get(index);
-			}
-		case $TIFFTag::TIFF_SRATIONAL:
-			{
-				$assign(ivalue, getAsSRational(index));
-				return (float)((double)$nc(ivalue)->get(0) / ivalue->get(1));
-			}
-		case $TIFFTag::TIFF_RATIONAL:
-			{
-				$assign(lvalue, getAsRational(index));
-				return (float)((double)$nc(lvalue)->get(0) / lvalue->get(1));
-			}
-		case $TIFFTag::TIFF_ASCII:
-			{
-				$assign(s, $nc(($cast($StringArray, this->data)))->get(index));
-				return (float)$Double::parseDouble(s);
-			}
-		default:
-			{
-				$throwNew($ClassCastException);
-			}
-		}
+	$useLocalObjectStack();
+	$var($ints, ivalue, nullptr);
+	$var($longs, lvalue, nullptr);
+	$var($String, s, nullptr);
+	switch (this->type) {
+	case $TIFFTag::TIFF_BYTE:
+	case $TIFFTag::TIFF_UNDEFINED:
+		return (float)($nc($cast($bytes, this->data))->get(index) & 0xff);
+	case $TIFFTag::TIFF_SBYTE:
+		return (float)$nc($cast($bytes, this->data))->get(index);
+	case $TIFFTag::TIFF_SHORT:
+		return (float)($nc($cast($chars, this->data))->get(index) & 0xffff);
+	case $TIFFTag::TIFF_SSHORT:
+		return (float)$nc($cast($shorts, this->data))->get(index);
+	case $TIFFTag::TIFF_SLONG:
+		return (float)$nc($cast($ints, this->data))->get(index);
+	case $TIFFTag::TIFF_LONG:
+	case $TIFFTag::TIFF_IFD_POINTER:
+		return (float)$nc($cast($longs, this->data))->get(index);
+	case $TIFFTag::TIFF_FLOAT:
+		return $nc($cast($floats, this->data))->get(index);
+	case $TIFFTag::TIFF_DOUBLE:
+		return (float)$nc($cast($doubles, this->data))->get(index);
+	case $TIFFTag::TIFF_SRATIONAL:
+		$assign(ivalue, getAsSRational(index));
+		return (float)((double)$nc(ivalue)->get(0) / $nc(ivalue)->get(1));
+	case $TIFFTag::TIFF_RATIONAL:
+		$assign(lvalue, getAsRational(index));
+		return (float)((double)$nc(lvalue)->get(0) / $nc(lvalue)->get(1));
+	case $TIFFTag::TIFF_ASCII:
+		$assign(s, $nc($cast($StringArray, this->data))->get(index));
+		return (float)$Double::parseDouble(s);
+	default:
+		$throwNew($ClassCastException);
 	}
 }
 
 double TIFFField::getAsDouble(int32_t index) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($ints, ivalue, nullptr)
-		$var($longs, lvalue, nullptr)
-		$var($String, s, nullptr)
-		switch (this->type) {
-		case $TIFFTag::TIFF_BYTE:
-			{}
-		case $TIFFTag::TIFF_UNDEFINED:
-			{
-				return (double)((int32_t)($nc(($cast($bytes, this->data)))->get(index) & (uint32_t)255));
-			}
-		case $TIFFTag::TIFF_SBYTE:
-			{
-				return (double)$nc(($cast($bytes, this->data)))->get(index);
-			}
-		case $TIFFTag::TIFF_SHORT:
-			{
-				return (double)((int32_t)($nc(($cast($chars, this->data)))->get(index) & (uint32_t)0x0000FFFF));
-			}
-		case $TIFFTag::TIFF_SSHORT:
-			{
-				return (double)$nc(($cast($shorts, this->data)))->get(index);
-			}
-		case $TIFFTag::TIFF_SLONG:
-			{
-				return (double)$nc(($cast($ints, this->data)))->get(index);
-			}
-		case $TIFFTag::TIFF_LONG:
-			{}
-		case $TIFFTag::TIFF_IFD_POINTER:
-			{
-				return (double)$nc(($cast($longs, this->data)))->get(index);
-			}
-		case $TIFFTag::TIFF_FLOAT:
-			{
-				return $nc(($cast($floats, this->data)))->get(index);
-			}
-		case $TIFFTag::TIFF_DOUBLE:
-			{
-				return $nc(($cast($doubles, this->data)))->get(index);
-			}
-		case $TIFFTag::TIFF_SRATIONAL:
-			{
-				$assign(ivalue, getAsSRational(index));
-				return (double)$nc(ivalue)->get(0) / ivalue->get(1);
-			}
-		case $TIFFTag::TIFF_RATIONAL:
-			{
-				$assign(lvalue, getAsRational(index));
-				return (double)$nc(lvalue)->get(0) / lvalue->get(1);
-			}
-		case $TIFFTag::TIFF_ASCII:
-			{
-				$assign(s, $nc(($cast($StringArray, this->data)))->get(index));
-				return $Double::parseDouble(s);
-			}
-		default:
-			{
-				$throwNew($ClassCastException);
-			}
-		}
+	$useLocalObjectStack();
+	$var($ints, ivalue, nullptr);
+	$var($longs, lvalue, nullptr);
+	$var($String, s, nullptr);
+	switch (this->type) {
+	case $TIFFTag::TIFF_BYTE:
+	case $TIFFTag::TIFF_UNDEFINED:
+		return (double)($nc($cast($bytes, this->data))->get(index) & 0xff);
+	case $TIFFTag::TIFF_SBYTE:
+		return (double)$nc($cast($bytes, this->data))->get(index);
+	case $TIFFTag::TIFF_SHORT:
+		return (double)($nc($cast($chars, this->data))->get(index) & 0xffff);
+	case $TIFFTag::TIFF_SSHORT:
+		return (double)$nc($cast($shorts, this->data))->get(index);
+	case $TIFFTag::TIFF_SLONG:
+		return (double)$nc($cast($ints, this->data))->get(index);
+	case $TIFFTag::TIFF_LONG:
+	case $TIFFTag::TIFF_IFD_POINTER:
+		return (double)$nc($cast($longs, this->data))->get(index);
+	case $TIFFTag::TIFF_FLOAT:
+		return $nc($cast($floats, this->data))->get(index);
+	case $TIFFTag::TIFF_DOUBLE:
+		return $nc($cast($doubles, this->data))->get(index);
+	case $TIFFTag::TIFF_SRATIONAL:
+		$assign(ivalue, getAsSRational(index));
+		return (double)$nc(ivalue)->get(0) / $nc(ivalue)->get(1);
+	case $TIFFTag::TIFF_RATIONAL:
+		$assign(lvalue, getAsRational(index));
+		return (double)$nc(lvalue)->get(0) / $nc(lvalue)->get(1);
+	case $TIFFTag::TIFF_ASCII:
+		$assign(s, $nc($cast($StringArray, this->data))->get(index));
+		return $Double::parseDouble(s);
+	default:
+		$throwNew($ClassCastException);
 	}
 }
 
 $String* TIFFField::getAsString(int32_t index) {
-	return $nc(($cast($StringArray, this->data)))->get(index);
+	return $nc($cast($StringArray, this->data))->get(index);
 }
 
 $ints* TIFFField::getAsSRational(int32_t index) {
-	return $nc(($cast($intArray2, this->data)))->get(index);
+	return $nc($cast($intArray2, this->data))->get(index);
 }
 
 $longs* TIFFField::getAsRational(int32_t index) {
-	return $nc(($cast($longArray2, this->data)))->get(index);
+	return $nc($cast($longArray2, this->data))->get(index);
 }
 
 $String* TIFFField::getValueAsString(int32_t index) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($ints, ivalue, nullptr)
-		$var($String, srationalString, nullptr)
-		$var($longs, lvalue, nullptr)
-		$var($String, rationalString, nullptr)
-		switch (this->type) {
-		case $TIFFTag::TIFF_ASCII:
-			{
-				return $nc(($cast($StringArray, this->data)))->get(index);
-			}
-		case $TIFFTag::TIFF_BYTE:
-			{}
-		case $TIFFTag::TIFF_UNDEFINED:
-			{
-				return $Integer::toString((int32_t)($nc(($cast($bytes, this->data)))->get(index) & (uint32_t)255));
-			}
-		case $TIFFTag::TIFF_SBYTE:
-			{
-				return $Integer::toString($nc(($cast($bytes, this->data)))->get(index));
-			}
-		case $TIFFTag::TIFF_SHORT:
-			{
-				return $Integer::toString((int32_t)($nc(($cast($chars, this->data)))->get(index) & (uint32_t)0x0000FFFF));
-			}
-		case $TIFFTag::TIFF_SSHORT:
-			{
-				return $Integer::toString($nc(($cast($shorts, this->data)))->get(index));
-			}
-		case $TIFFTag::TIFF_SLONG:
-			{
-				return $Integer::toString($nc(($cast($ints, this->data)))->get(index));
-			}
-		case $TIFFTag::TIFF_LONG:
-			{}
-		case $TIFFTag::TIFF_IFD_POINTER:
-			{
-				return $Long::toString($nc(($cast($longs, this->data)))->get(index));
-			}
-		case $TIFFTag::TIFF_FLOAT:
-			{
-				return $Float::toString($nc(($cast($floats, this->data)))->get(index));
-			}
-		case $TIFFTag::TIFF_DOUBLE:
-			{
-				return $Double::toString($nc(($cast($doubles, this->data)))->get(index));
-			}
-		case $TIFFTag::TIFF_SRATIONAL:
-			{
-				$assign(ivalue, getAsSRational(index));
-				if ($nc(ivalue)->get(1) != 0 && $mod(ivalue->get(0), ivalue->get(1)) == 0) {
-					$assign(srationalString, $str({$($Integer::toString($div(ivalue->get(0), ivalue->get(1)))), "/1"_s}));
-				} else {
-					$var($String, var$0, $$str({$($Integer::toString(ivalue->get(0))), "/"_s}));
-					$assign(srationalString, $concat(var$0, $($Integer::toString(ivalue->get(1)))));
-				}
-				return srationalString;
-			}
-		case $TIFFTag::TIFF_RATIONAL:
-			{
-				$assign(lvalue, getAsRational(index));
-				if ($nc(lvalue)->get(1) != (int64_t)0 && $mod(lvalue->get(0), lvalue->get(1)) == 0) {
-					$assign(rationalString, $str({$($Long::toString($div(lvalue->get(0), lvalue->get(1)))), "/1"_s}));
-				} else {
-					$var($String, var$1, $$str({$($Long::toString(lvalue->get(0))), "/"_s}));
-					$assign(rationalString, $concat(var$1, $($Long::toString(lvalue->get(1)))));
-				}
-				return rationalString;
-			}
-		default:
-			{
-				$throwNew($ClassCastException);
-			}
+	$useLocalObjectStack();
+	$var($ints, ivalue, nullptr);
+	$var($String, srationalString, nullptr);
+	$var($longs, lvalue, nullptr);
+	$var($String, rationalString, nullptr);
+	switch (this->type) {
+	case $TIFFTag::TIFF_ASCII:
+		return $nc($cast($StringArray, this->data))->get(index);
+	case $TIFFTag::TIFF_BYTE:
+	case $TIFFTag::TIFF_UNDEFINED:
+		return $Integer::toString($nc($cast($bytes, this->data))->get(index) & 0xff);
+	case $TIFFTag::TIFF_SBYTE:
+		return $Integer::toString($nc($cast($bytes, this->data))->get(index));
+	case $TIFFTag::TIFF_SHORT:
+		return $Integer::toString($nc($cast($chars, this->data))->get(index) & 0xffff);
+	case $TIFFTag::TIFF_SSHORT:
+		return $Integer::toString($nc($cast($shorts, this->data))->get(index));
+	case $TIFFTag::TIFF_SLONG:
+		return $Integer::toString($nc($cast($ints, this->data))->get(index));
+	case $TIFFTag::TIFF_LONG:
+	case $TIFFTag::TIFF_IFD_POINTER:
+		return $Long::toString($nc($cast($longs, this->data))->get(index));
+	case $TIFFTag::TIFF_FLOAT:
+		return $Float::toString($nc($cast($floats, this->data))->get(index));
+	case $TIFFTag::TIFF_DOUBLE:
+		return $Double::toString($nc($cast($doubles, this->data))->get(index));
+	case $TIFFTag::TIFF_SRATIONAL:
+		$assign(ivalue, getAsSRational(index));
+		if ($nc(ivalue)->get(1) != 0 && $mod(ivalue->get(0), ivalue->get(1)) == 0) {
+			$assign(srationalString, $str({$($Integer::toString($div(ivalue->get(0), ivalue->get(1)))), "/1"_s}));
+		} else {
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append($($Integer::toString(ivalue->get(0))));
+			var$0->append("/"_s);
+			var$0->append($($Integer::toString(ivalue->get(1))));
+			$assign(srationalString, $str(var$0));
 		}
+		return srationalString;
+	case $TIFFTag::TIFF_RATIONAL:
+		$assign(lvalue, getAsRational(index));
+		if ($nc(lvalue)->get(1) != 0 && $mod(lvalue->get(0), lvalue->get(1)) == 0) {
+			$assign(rationalString, $str({$($Long::toString($div(lvalue->get(0), lvalue->get(1)))), "/1"_s}));
+		} else {
+			$var($StringBuilder, var$1, $new($StringBuilder));
+			var$1->append($($Long::toString(lvalue->get(0))));
+			var$1->append("/"_s);
+			var$1->append($($Long::toString(lvalue->get(1))));
+			$assign(rationalString, $str(var$1));
+		}
+		return rationalString;
+	default:
+		$throwNew($ClassCastException);
 	}
 }
 
@@ -1054,83 +772,58 @@ $TIFFDirectory* TIFFField::getDirectory() {
 }
 
 TIFFField* TIFFField::clone() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(TIFFField, field, $cast(TIFFField, $Cloneable::clone()));
 	$var($Object, fieldData, nullptr);
 	switch (this->type) {
 	case $TIFFTag::TIFF_BYTE:
-		{}
 	case $TIFFTag::TIFF_UNDEFINED:
-		{}
 	case $TIFFTag::TIFF_SBYTE:
-		{
-			$assign(fieldData, $nc(($cast($bytes, this->data)))->clone());
-			break;
-		}
+		$assign(fieldData, $nc($cast($bytes, this->data))->clone());
+		break;
 	case $TIFFTag::TIFF_SHORT:
-		{
-			$assign(fieldData, $nc(($cast($chars, this->data)))->clone());
-			break;
-		}
+		$assign(fieldData, $nc($cast($chars, this->data))->clone());
+		break;
 	case $TIFFTag::TIFF_SSHORT:
-		{
-			$assign(fieldData, $nc(($cast($shorts, this->data)))->clone());
-			break;
-		}
+		$assign(fieldData, $nc($cast($shorts, this->data))->clone());
+		break;
 	case $TIFFTag::TIFF_SLONG:
-		{
-			$assign(fieldData, $nc(($cast($ints, this->data)))->clone());
-			break;
-		}
+		$assign(fieldData, $nc($cast($ints, this->data))->clone());
+		break;
 	case $TIFFTag::TIFF_LONG:
-		{}
 	case $TIFFTag::TIFF_IFD_POINTER:
-		{
-			$assign(fieldData, $nc(($cast($longs, this->data)))->clone());
-			break;
-		}
+		$assign(fieldData, $nc($cast($longs, this->data))->clone());
+		break;
 	case $TIFFTag::TIFF_FLOAT:
-		{
-			$assign(fieldData, $nc(($cast($floats, this->data)))->clone());
-			break;
-		}
+		$assign(fieldData, $nc($cast($floats, this->data))->clone());
+		break;
 	case $TIFFTag::TIFF_DOUBLE:
-		{
-			$assign(fieldData, $nc(($cast($doubles, this->data)))->clone());
-			break;
-		}
+		$assign(fieldData, $nc($cast($doubles, this->data))->clone());
+		break;
 	case $TIFFTag::TIFF_SRATIONAL:
-		{
-			$assign(fieldData, $nc(($cast($intArray2, this->data)))->clone());
-			break;
-		}
+		$assign(fieldData, $nc($cast($intArray2, this->data))->clone());
+		break;
 	case $TIFFTag::TIFF_RATIONAL:
-		{
-			$assign(fieldData, $nc(($cast($longArray2, this->data)))->clone());
-			break;
-		}
+		$assign(fieldData, $nc($cast($longArray2, this->data))->clone());
+		break;
 	case $TIFFTag::TIFF_ASCII:
-		{
-			$assign(fieldData, $nc(($cast($StringArray, this->data)))->clone());
-			break;
-		}
+		$assign(fieldData, $nc($cast($StringArray, this->data))->clone());
+		break;
 	default:
-		{
-			$throwNew($ClassCastException);
-		}
+		$throwNew($ClassCastException);
 	}
 	$set($nc(field), tag, this->tag);
 	field->tagNumber = this->tagNumber;
 	field->type = this->type;
 	field->count = this->count;
 	$set(field, data, fieldData);
-	$set(field, dir, this->dir != nullptr ? $nc(this->dir)->clone() : ($TIFFDirectory*)nullptr);
+	$set(field, dir, this->dir != nullptr ? this->dir->clone() : ($TIFFDirectory*)nullptr);
 	return field;
 }
 
-void clinit$TIFFField($Class* class$) {
+void TIFFField::clinit$($Class* clazz) {
 	$assignStatic(TIFFField::TYPE_NAMES, $new($StringArray, {
-		($String*)nullptr,
+		nullptr,
 		"Byte"_s,
 		"Ascii"_s,
 		"Short"_s,
@@ -1167,7 +860,70 @@ TIFFField::TIFFField() {
 }
 
 $Class* TIFFField::load$($String* name, bool initialize) {
-	$loadClass(TIFFField, name, initialize, &_TIFFField_ClassInfo_, clinit$TIFFField, allocate$TIFFField);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_UINT32", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TIFFField, MAX_UINT32)},
+		{"TYPE_NAMES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFField, TYPE_NAMES)},
+		{"IS_INTEGRAL", "[Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFField, IS_INTEGRAL)},
+		{"tag", "Ljavax/imageio/plugins/tiff/TIFFTag;", nullptr, $PRIVATE, $field(TIFFField, tag)},
+		{"tagNumber", "I", nullptr, $PRIVATE, $field(TIFFField, tagNumber)},
+		{"type", "I", nullptr, $PRIVATE, $field(TIFFField, type)},
+		{"count", "I", nullptr, $PRIVATE, $field(TIFFField, count)},
+		{"data", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(TIFFField, data)},
+		{"dir", "Ljavax/imageio/plugins/tiff/TIFFDirectory;", nullptr, $PRIVATE, $field(TIFFField, dir)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(TIFFField, init$, void)},
+		{"<init>", "(Ljavax/imageio/plugins/tiff/TIFFTag;IILjava/lang/Object;)V", nullptr, $PUBLIC, $method(TIFFField, init$, void, $TIFFTag*, int32_t, int32_t, Object$*)},
+		{"<init>", "(Ljavax/imageio/plugins/tiff/TIFFTag;II)V", nullptr, $PUBLIC, $method(TIFFField, init$, void, $TIFFTag*, int32_t, int32_t)},
+		{"<init>", "(Ljavax/imageio/plugins/tiff/TIFFTag;J)V", nullptr, $PUBLIC, $method(TIFFField, init$, void, $TIFFTag*, int64_t)},
+		{"<init>", "(Ljavax/imageio/plugins/tiff/TIFFTag;IJLjavax/imageio/plugins/tiff/TIFFDirectory;)V", nullptr, $PUBLIC, $method(TIFFField, init$, void, $TIFFTag*, int32_t, int64_t, $TIFFDirectory*)},
+		{"clone", "()Ljavax/imageio/plugins/tiff/TIFFField;", nullptr, $PUBLIC, $virtualMethod(TIFFField, clone, TIFFField*), "java.lang.CloneNotSupportedException"},
+		{"createArrayForType", "(II)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(TIFFField, createArrayForType, $Object*, int32_t, int32_t)},
+		{"createFromMetadataNode", "(Ljavax/imageio/plugins/tiff/TIFFTagSet;Lorg/w3c/dom/Node;)Ljavax/imageio/plugins/tiff/TIFFField;", nullptr, $PUBLIC | $STATIC, $staticMethod(TIFFField, createFromMetadataNode, TIFFField*, $TIFFTagSet*, $Node*)},
+		{"getAsBytes", "()[B", nullptr, $PUBLIC, $method(TIFFField, getAsBytes, $bytes*)},
+		{"getAsChars", "()[C", nullptr, $PUBLIC, $method(TIFFField, getAsChars, $chars*)},
+		{"getAsDouble", "(I)D", nullptr, $PUBLIC, $method(TIFFField, getAsDouble, double, int32_t)},
+		{"getAsDoubles", "()[D", nullptr, $PUBLIC, $method(TIFFField, getAsDoubles, $doubles*)},
+		{"getAsFloat", "(I)F", nullptr, $PUBLIC, $method(TIFFField, getAsFloat, float, int32_t)},
+		{"getAsFloats", "()[F", nullptr, $PUBLIC, $method(TIFFField, getAsFloats, $floats*)},
+		{"getAsInt", "(I)I", nullptr, $PUBLIC, $method(TIFFField, getAsInt, int32_t, int32_t)},
+		{"getAsInts", "()[I", nullptr, $PUBLIC, $method(TIFFField, getAsInts, $ints*)},
+		{"getAsLong", "(I)J", nullptr, $PUBLIC, $method(TIFFField, getAsLong, int64_t, int32_t)},
+		{"getAsLongs", "()[J", nullptr, $PUBLIC, $method(TIFFField, getAsLongs, $longs*)},
+		{"getAsNativeNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $method(TIFFField, getAsNativeNode, $Node*)},
+		{"getAsRational", "(I)[J", nullptr, $PUBLIC, $method(TIFFField, getAsRational, $longs*, int32_t)},
+		{"getAsRationals", "()[[J", nullptr, $PUBLIC, $method(TIFFField, getAsRationals, $longArray2*)},
+		{"getAsSRational", "(I)[I", nullptr, $PUBLIC, $method(TIFFField, getAsSRational, $ints*, int32_t)},
+		{"getAsSRationals", "()[[I", nullptr, $PUBLIC, $method(TIFFField, getAsSRationals, $intArray2*)},
+		{"getAsShorts", "()[S", nullptr, $PUBLIC, $method(TIFFField, getAsShorts, $shorts*)},
+		{"getAsString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $method(TIFFField, getAsString, $String*, int32_t)},
+		{"getAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFField, getAttribute, $String*, $Node*, $String*)},
+		{"getCount", "()I", nullptr, $PUBLIC, $method(TIFFField, getCount, int32_t)},
+		{"getData", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(TIFFField, getData, $Object*)},
+		{"getDirectory", "()Ljavax/imageio/plugins/tiff/TIFFDirectory;", nullptr, $PUBLIC, $method(TIFFField, getDirectory, $TIFFDirectory*)},
+		{"getTag", "()Ljavax/imageio/plugins/tiff/TIFFTag;", nullptr, $PUBLIC, $method(TIFFField, getTag, $TIFFTag*)},
+		{"getTagNumber", "()I", nullptr, $PUBLIC, $method(TIFFField, getTagNumber, int32_t)},
+		{"getType", "()I", nullptr, $PUBLIC, $method(TIFFField, getType, int32_t)},
+		{"getTypeByName", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TIFFField, getTypeByName, int32_t, $String*)},
+		{"getTypeName", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(TIFFField, getTypeName, $String*, int32_t)},
+		{"getValueAsString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $method(TIFFField, getValueAsString, $String*, int32_t)},
+		{"hasDirectory", "()Z", nullptr, $PUBLIC, $method(TIFFField, hasDirectory, bool)},
+		{"initData", "(Lorg/w3c/dom/Node;[I[I[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFField, initData, void, $Node*, $ints*, $ints*, $ObjectArray*)},
+		{"isIntegral", "()Z", nullptr, $PUBLIC, $method(TIFFField, isIntegral, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.imageio.plugins.tiff.TIFFField",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFField, name, initialize, &classInfo$$, TIFFField::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFField);
+	});
 	return class$;
 }
 

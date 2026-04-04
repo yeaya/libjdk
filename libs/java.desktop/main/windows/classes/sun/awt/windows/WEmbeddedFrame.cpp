@@ -1,6 +1,4 @@
 #include <sun/awt/windows/WEmbeddedFrame.h>
-
-#include <java/awt/AWTEvent.h>
 #include <java/awt/AWTKeyStroke.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -19,19 +17,15 @@
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/Runnable.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <sun/awt/AWTAccessor$ComponentAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <sun/awt/AppContext.h>
 #include <sun/awt/EmbeddedFrame.h>
 #include <sun/awt/image/ByteInterleavedRaster.h>
-#include <sun/awt/windows/WCanvasPeer.h>
 #include <sun/awt/windows/WComponentPeer.h>
 #include <sun/awt/windows/WEmbeddedFrame$1.h>
 #include <sun/awt/windows/WEmbeddedFrame$2.h>
 #include <sun/awt/windows/WEmbeddedFramePeer.h>
-#include <sun/awt/windows/WFramePeer.h>
-#include <sun/awt/windows/WPanelPeer.h>
 #include <sun/awt/windows/WToolkit.h>
 #include <sun/awt/windows/WWindowPeer.h>
 #include <sun/security/action/GetPropertyAction.h>
@@ -40,10 +34,8 @@
 #undef MAX_BAND_SIZE
 #undef TYPE_3BYTE_BGR
 
-using $AWTEvent = ::java::awt::AWTEvent;
 using $AWTKeyStroke = ::java::awt::AWTKeyStroke;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Dialog = ::java::awt::Dialog;
 using $EventQueue = ::java::awt::EventQueue;
 using $Graphics = ::java::awt::Graphics;
@@ -64,19 +56,14 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
 using $Runnable = ::java::lang::Runnable;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $AppContext = ::sun::awt::AppContext;
 using $EmbeddedFrame = ::sun::awt::EmbeddedFrame;
 using $ByteInterleavedRaster = ::sun::awt::image::ByteInterleavedRaster;
-using $WCanvasPeer = ::sun::awt::windows::WCanvasPeer;
 using $WComponentPeer = ::sun::awt::windows::WComponentPeer;
 using $WEmbeddedFrame$1 = ::sun::awt::windows::WEmbeddedFrame$1;
 using $WEmbeddedFrame$2 = ::sun::awt::windows::WEmbeddedFrame$2;
 using $WEmbeddedFramePeer = ::sun::awt::windows::WEmbeddedFramePeer;
-using $WFramePeer = ::sun::awt::windows::WFramePeer;
-using $WPanelPeer = ::sun::awt::windows::WPanelPeer;
 using $WToolkit = ::sun::awt::windows::WToolkit;
 using $WWindowPeer = ::sun::awt::windows::WWindowPeer;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
@@ -84,74 +71,6 @@ using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 namespace sun {
 	namespace awt {
 		namespace windows {
-
-$CompoundAttribute _WEmbeddedFrame_MethodAnnotations_init$1[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _WEmbeddedFrame_FieldInfo_[] = {
-	{"handle", "J", nullptr, $PRIVATE, $field(WEmbeddedFrame, handle)},
-	{"bandWidth", "I", nullptr, $PRIVATE, $field(WEmbeddedFrame, bandWidth)},
-	{"bandHeight", "I", nullptr, $PRIVATE, $field(WEmbeddedFrame, bandHeight)},
-	{"imgWid", "I", nullptr, $PRIVATE, $field(WEmbeddedFrame, imgWid)},
-	{"imgHgt", "I", nullptr, $PRIVATE, $field(WEmbeddedFrame, imgHgt)},
-	{"pScale", "I", nullptr, $PRIVATE | $STATIC, $staticField(WEmbeddedFrame, pScale)},
-	{"MAX_BAND_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WEmbeddedFrame, MAX_BAND_SIZE)},
-	{"isEmbeddedInIE", "Z", nullptr, $PRIVATE, $field(WEmbeddedFrame, isEmbeddedInIE)},
-	{"printScale", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(WEmbeddedFrame, printScale)},
-	{}
-};
-
-$MethodInfo _WEmbeddedFrame_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WEmbeddedFrame, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $method(WEmbeddedFrame, init$, void, int32_t), nullptr, nullptr, _WEmbeddedFrame_MethodAnnotations_init$1},
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(WEmbeddedFrame, init$, void, int64_t)},
-	{"activateEmbeddingTopLevel", "()V", nullptr, $PUBLIC, $virtualMethod(WEmbeddedFrame, activateEmbeddingTopLevel, void)},
-	{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(WEmbeddedFrame, addNotify, void)},
-	{"getEmbedderHandle", "()J", nullptr, $PUBLIC, $virtualMethod(WEmbeddedFrame, getEmbedderHandle, int64_t)},
-	{"getPrintScaleFactor", "()I", nullptr, $PROTECTED | $STATIC, $staticMethod(WEmbeddedFrame, getPrintScaleFactor, int32_t)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WEmbeddedFrame, initIDs, void)},
-	{"isPrinterDC", "(J)Z", nullptr, $PRIVATE | $NATIVE, $method(WEmbeddedFrame, isPrinterDC, bool, int64_t)},
-	{"notifyModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC, $virtualMethod(WEmbeddedFrame, notifyModalBlocked, void, $Dialog*, bool)},
-	{"notifyModalBlockedImpl", "(Lsun/awt/windows/WEmbeddedFramePeer;Lsun/awt/windows/WWindowPeer;Z)V", nullptr, $NATIVE, $virtualMethod(WEmbeddedFrame, notifyModalBlockedImpl, void, $WEmbeddedFramePeer*, $WWindowPeer*, bool)},
-	{"print", "(J)V", nullptr, 0, $virtualMethod(WEmbeddedFrame, print, void, int64_t)},
-	{"printBand", "(J[BIIIIIIIII)V", nullptr, $PRIVATE | $NATIVE, $method(WEmbeddedFrame, printBand, void, int64_t, $bytes*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"registerAccelerator", "(Ljava/awt/AWTKeyStroke;)V", nullptr, $PUBLIC, $virtualMethod(WEmbeddedFrame, registerAccelerator, void, $AWTKeyStroke*)},
-	{"synthesizeWindowActivation", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WEmbeddedFrame, synthesizeWindowActivation, void, bool)},
-	{"unregisterAccelerator", "(Ljava/awt/AWTKeyStroke;)V", nullptr, $PUBLIC, $virtualMethod(WEmbeddedFrame, unregisterAccelerator, void, $AWTKeyStroke*)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 7
-#define _METHOD_INDEX_isPrinterDC 8
-#define _METHOD_INDEX_notifyModalBlockedImpl 10
-#define _METHOD_INDEX_printBand 12
-
-$InnerClassInfo _WEmbeddedFrame_InnerClassesInfo_[] = {
-	{"sun.awt.windows.WEmbeddedFrame$2", nullptr, nullptr, 0},
-	{"sun.awt.windows.WEmbeddedFrame$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WEmbeddedFrame_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.windows.WEmbeddedFrame",
-	"sun.awt.EmbeddedFrame",
-	nullptr,
-	_WEmbeddedFrame_FieldInfo_,
-	_WEmbeddedFrame_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WEmbeddedFrame_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.windows.WEmbeddedFrame$2,sun.awt.windows.WEmbeddedFrame$1"
-};
-
-$Object* allocate$WEmbeddedFrame($Class* clazz) {
-	return $of($alloc(WEmbeddedFrame));
-}
 
 int32_t WEmbeddedFrame::pScale = 0;
 $String* WEmbeddedFrame::printScale = nullptr;
@@ -179,10 +98,10 @@ void WEmbeddedFrame::init$(int64_t handle) {
 }
 
 void WEmbeddedFrame::addNotify() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isDisplayable()) {
 		$var($WToolkit, toolkit, $cast($WToolkit, $Toolkit::getDefaultToolkit()));
-		setPeer($(static_cast<$ComponentPeer*>(static_cast<$WComponentPeer*>(static_cast<$WCanvasPeer*>(static_cast<$WPanelPeer*>(static_cast<$WWindowPeer*>(static_cast<$WFramePeer*>($nc(toolkit)->createEmbeddedFrame(this)))))))));
+		setPeer($$cast($WComponentPeer, $nc(toolkit)->createEmbeddedFrame(this)));
 	}
 	$EmbeddedFrame::addNotify();
 }
@@ -192,7 +111,7 @@ int64_t WEmbeddedFrame::getEmbedderHandle() {
 }
 
 void WEmbeddedFrame::print(int64_t hdc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, bandImage, nullptr);
 	int32_t xscale = 1;
 	int32_t yscale = 1;
@@ -218,7 +137,7 @@ void WEmbeddedFrame::print(int64_t hdc) {
 	$nc(clearGraphics)->setColor($Color::white);
 	$var($Graphics2D, g2d, $cast($Graphics2D, bandImage->getGraphics()));
 	$nc(g2d)->translate(0, this->imgHgt);
-	g2d->scale((double)xscale, (double)(-yscale));
+	g2d->scale((double)xscale, (double)-yscale);
 	$var($ByteInterleavedRaster, ras, $cast($ByteInterleavedRaster, bandImage->getRaster()));
 	$var($bytes, data, $nc(ras)->getDataStorage());
 	for (int32_t bandTop = 0; bandTop < frameHeight; bandTop += this->bandHeight) {
@@ -244,7 +163,7 @@ int32_t WEmbeddedFrame::getPrintScaleFactor() {
 		return WEmbeddedFrame::pScale;
 	}
 	if (WEmbeddedFrame::printScale == nullptr) {
-		$assignStatic(WEmbeddedFrame::printScale, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($WEmbeddedFrame$1)))));
+		$assignStatic(WEmbeddedFrame::printScale, $cast($String, $AccessController::doPrivileged($$new($WEmbeddedFrame$1))));
 	}
 	int32_t default_printDC_scale = 4;
 	int32_t scale = default_printDC_scale;
@@ -262,22 +181,21 @@ int32_t WEmbeddedFrame::getPrintScaleFactor() {
 }
 
 bool WEmbeddedFrame::isPrinterDC(int64_t hdc) {
-	bool $ret = false;
-	$prepareNative(WEmbeddedFrame, isPrinterDC, bool, int64_t hdc);
-	$ret = $invokeNative(hdc);
+	$prepareNative(isPrinterDC, bool, int64_t hdc);
+	bool $ret = $invokeNative(hdc);
 	$finishNative();
 	return $ret;
 }
 
 void WEmbeddedFrame::printBand(int64_t hdc, $bytes* data, int32_t offset, int32_t sx, int32_t sy, int32_t swidth, int32_t sheight, int32_t dx, int32_t dy, int32_t dwidth, int32_t dheight) {
-	$prepareNative(WEmbeddedFrame, printBand, void, int64_t hdc, $bytes* data, int32_t offset, int32_t sx, int32_t sy, int32_t swidth, int32_t sheight, int32_t dx, int32_t dy, int32_t dwidth, int32_t dheight);
+	$prepareNative(printBand, void, int64_t hdc, $bytes* data, int32_t offset, int32_t sx, int32_t sy, int32_t swidth, int32_t sheight, int32_t dx, int32_t dy, int32_t dwidth, int32_t dheight);
 	$invokeNative(hdc, data, offset, sx, sy, swidth, sheight, dx, dy, dwidth, dheight);
 	$finishNative();
 }
 
 void WEmbeddedFrame::initIDs() {
 	$init(WEmbeddedFrame);
-	$prepareNativeStatic(WEmbeddedFrame, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -286,8 +204,8 @@ void WEmbeddedFrame::activateEmbeddingTopLevel() {
 }
 
 void WEmbeddedFrame::synthesizeWindowActivation(bool activate) {
-	$useLocalCurrentObjectStackCache();
-	$var($FramePeer, peer, $cast($FramePeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(this)));
+	$useLocalObjectStack();
+	$var($FramePeer, peer, $cast($FramePeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(this)));
 	if (!activate || $EventQueue::isDispatchThread()) {
 		$nc(peer)->emulateActivation(activate);
 	} else {
@@ -304,7 +222,7 @@ void WEmbeddedFrame::unregisterAccelerator($AWTKeyStroke* stroke) {
 }
 
 void WEmbeddedFrame::notifyModalBlocked($Dialog* blocker, bool blocked) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($ComponentPeer, thisPeer, $cast($ComponentPeer, $WToolkit::targetToPeer(this)));
 		$var($ComponentPeer, blockerPeer, $cast($ComponentPeer, $WToolkit::targetToPeer(blocker)));
@@ -315,25 +233,81 @@ void WEmbeddedFrame::notifyModalBlocked($Dialog* blocker, bool blocked) {
 }
 
 void WEmbeddedFrame::notifyModalBlockedImpl($WEmbeddedFramePeer* peer, $WWindowPeer* blockerPeer, bool blocked) {
-	$prepareNative(WEmbeddedFrame, notifyModalBlockedImpl, void, $WEmbeddedFramePeer* peer, $WWindowPeer* blockerPeer, bool blocked);
+	$prepareNative(notifyModalBlockedImpl, void, $WEmbeddedFramePeer* peer, $WWindowPeer* blockerPeer, bool blocked);
 	$invokeNative(peer, blockerPeer, blocked);
 	$finishNative();
 }
 
-void clinit$WEmbeddedFrame($Class* class$) {
+void WEmbeddedFrame::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
 		WEmbeddedFrame::initIDs();
 	}
 	WEmbeddedFrame::pScale = 0;
-	$assignStatic(WEmbeddedFrame::printScale, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "sun.java2d.print.pluginscalefactor"_s)))));
+	$assignStatic(WEmbeddedFrame::printScale, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "sun.java2d.print.pluginscalefactor"_s))));
 }
 
 WEmbeddedFrame::WEmbeddedFrame() {
 }
 
 $Class* WEmbeddedFrame::load$($String* name, bool initialize) {
-	$loadClass(WEmbeddedFrame, name, initialize, &_WEmbeddedFrame_ClassInfo_, clinit$WEmbeddedFrame, allocate$WEmbeddedFrame);
+	$FieldInfo fieldInfos$$[] = {
+		{"handle", "J", nullptr, $PRIVATE, $field(WEmbeddedFrame, handle)},
+		{"bandWidth", "I", nullptr, $PRIVATE, $field(WEmbeddedFrame, bandWidth)},
+		{"bandHeight", "I", nullptr, $PRIVATE, $field(WEmbeddedFrame, bandHeight)},
+		{"imgWid", "I", nullptr, $PRIVATE, $field(WEmbeddedFrame, imgWid)},
+		{"imgHgt", "I", nullptr, $PRIVATE, $field(WEmbeddedFrame, imgHgt)},
+		{"pScale", "I", nullptr, $PRIVATE | $STATIC, $staticField(WEmbeddedFrame, pScale)},
+		{"MAX_BAND_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WEmbeddedFrame, MAX_BAND_SIZE)},
+		{"isEmbeddedInIE", "Z", nullptr, $PRIVATE, $field(WEmbeddedFrame, isEmbeddedInIE)},
+		{"printScale", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(WEmbeddedFrame, printScale)},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WEmbeddedFrame, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $method(WEmbeddedFrame, init$, void, int32_t), nullptr, nullptr, init$methodAnnotations$$$1},
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(WEmbeddedFrame, init$, void, int64_t)},
+		{"activateEmbeddingTopLevel", "()V", nullptr, $PUBLIC, $virtualMethod(WEmbeddedFrame, activateEmbeddingTopLevel, void)},
+		{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(WEmbeddedFrame, addNotify, void)},
+		{"getEmbedderHandle", "()J", nullptr, $PUBLIC, $virtualMethod(WEmbeddedFrame, getEmbedderHandle, int64_t)},
+		{"getPrintScaleFactor", "()I", nullptr, $PROTECTED | $STATIC, $staticMethod(WEmbeddedFrame, getPrintScaleFactor, int32_t)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WEmbeddedFrame, initIDs, void)},
+		{"isPrinterDC", "(J)Z", nullptr, $PRIVATE | $NATIVE, $method(WEmbeddedFrame, isPrinterDC, bool, int64_t)},
+		{"notifyModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC, $virtualMethod(WEmbeddedFrame, notifyModalBlocked, void, $Dialog*, bool)},
+		{"notifyModalBlockedImpl", "(Lsun/awt/windows/WEmbeddedFramePeer;Lsun/awt/windows/WWindowPeer;Z)V", nullptr, $NATIVE, $virtualMethod(WEmbeddedFrame, notifyModalBlockedImpl, void, $WEmbeddedFramePeer*, $WWindowPeer*, bool)},
+		{"print", "(J)V", nullptr, 0, $virtualMethod(WEmbeddedFrame, print, void, int64_t)},
+		{"printBand", "(J[BIIIIIIIII)V", nullptr, $PRIVATE | $NATIVE, $method(WEmbeddedFrame, printBand, void, int64_t, $bytes*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"registerAccelerator", "(Ljava/awt/AWTKeyStroke;)V", nullptr, $PUBLIC, $virtualMethod(WEmbeddedFrame, registerAccelerator, void, $AWTKeyStroke*)},
+		{"synthesizeWindowActivation", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WEmbeddedFrame, synthesizeWindowActivation, void, bool)},
+		{"unregisterAccelerator", "(Ljava/awt/AWTKeyStroke;)V", nullptr, $PUBLIC, $virtualMethod(WEmbeddedFrame, unregisterAccelerator, void, $AWTKeyStroke*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.windows.WEmbeddedFrame$2", nullptr, nullptr, 0},
+		{"sun.awt.windows.WEmbeddedFrame$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.windows.WEmbeddedFrame",
+		"sun.awt.EmbeddedFrame",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.windows.WEmbeddedFrame$2,sun.awt.windows.WEmbeddedFrame$1"
+	};
+	$loadClass(WEmbeddedFrame, name, initialize, &classInfo$$, WEmbeddedFrame::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WEmbeddedFrame));
+	});
 	return class$;
 }
 

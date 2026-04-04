@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XEmbeddingContainer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -20,7 +19,6 @@
 #include <sun/awt/X11/XEmbedHelper.h>
 #include <sun/awt/X11/XEmbeddedFramePeer.h>
 #include <sun/awt/X11/XEvent.h>
-#include <sun/awt/X11/XEventDispatcher.h>
 #include <sun/awt/X11/XKeyEvent.h>
 #include <sun/awt/X11/XToolkit.h>
 #include <sun/awt/X11/XWindow.h>
@@ -34,7 +32,6 @@
 #undef XEMBED_REQUEST_FOCUS
 #undef XEMBED_VERSION
 
-using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $KeyEvent = ::java::awt::event::KeyEvent;
@@ -43,12 +40,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashMap = ::java::util::HashMap;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$AWTEventAccessor = ::sun::awt::AWTAccessor$AWTEventAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $Native = ::sun::awt::X11::Native;
-using $XAtom = ::sun::awt::X11::XAtom;
 using $XClientMessageEvent = ::sun::awt::X11::XClientMessageEvent;
 using $XConstants = ::sun::awt::X11::XConstants;
 using $XEmbedChildProxy = ::sun::awt::X11::XEmbedChildProxy;
@@ -56,7 +49,6 @@ using $XEmbedChildProxyPeer = ::sun::awt::X11::XEmbedChildProxyPeer;
 using $XEmbedHelper = ::sun::awt::X11::XEmbedHelper;
 using $XEmbeddedFramePeer = ::sun::awt::X11::XEmbeddedFramePeer;
 using $XEvent = ::sun::awt::X11::XEvent;
-using $XEventDispatcher = ::sun::awt::X11::XEventDispatcher;
 using $XKeyEvent = ::sun::awt::X11::XKeyEvent;
 using $XToolkit = ::sun::awt::X11::XToolkit;
 using $XWindow = ::sun::awt::X11::XWindow;
@@ -65,49 +57,6 @@ using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XEmbeddingContainer_FieldInfo_[] = {
-	{"children", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Long;Ljava/awt/peer/ComponentPeer;>;", 0, $field(XEmbeddingContainer, children)},
-	{"embedder", "Lsun/awt/X11/XWindow;", nullptr, 0, $field(XEmbeddingContainer, embedder)},
-	{}
-};
-
-$MethodInfo _XEmbeddingContainer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(XEmbeddingContainer, init$, void)},
-	{"add", "(J)V", nullptr, 0, $virtualMethod(XEmbeddingContainer, add, void, int64_t)},
-	{"checkXEmbed", "(J)Z", nullptr, 0, $virtualMethod(XEmbeddingContainer, checkXEmbed, bool, int64_t)},
-	{"childResized", "(Ljava/awt/Component;)V", nullptr, 0, $virtualMethod(XEmbeddingContainer, childResized, void, $Component*)},
-	{"createChildProxy", "(J)Ljava/awt/Component;", nullptr, 0, $virtualMethod(XEmbeddingContainer, createChildProxy, $Component*, int64_t)},
-	{"deinstall", "()V", nullptr, 0, $virtualMethod(XEmbeddingContainer, deinstall, void)},
-	{"detachChild", "(J)V", nullptr, 0, $virtualMethod(XEmbeddingContainer, detachChild, void, int64_t)},
-	{"dispatchEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XEmbeddingContainer, dispatchEvent, void, $XEvent*)},
-	{"focusGained", "(J)V", nullptr, 0, $virtualMethod(XEmbeddingContainer, focusGained, void, int64_t)},
-	{"focusLost", "(J)V", nullptr, 0, $virtualMethod(XEmbeddingContainer, focusLost, void, int64_t)},
-	{"forwardKeyEvent", "(JLjava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(XEmbeddingContainer, forwardKeyEvent, void, int64_t, $KeyEvent*)},
-	{"getChild", "(J)Lsun/awt/X11/XEmbedChildProxyPeer;", nullptr, 0, $virtualMethod(XEmbeddingContainer, getChild, $XEmbedChildProxyPeer*, int64_t)},
-	{"handleClientMessage", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XEmbeddingContainer, handleClientMessage, void, $XEvent*)},
-	{"install", "(Lsun/awt/X11/XWindow;)V", nullptr, 0, $virtualMethod(XEmbeddingContainer, install, void, $XWindow*)},
-	{"notifyChildEmbedded", "(J)V", nullptr, 0, $virtualMethod(XEmbeddingContainer, notifyChildEmbedded, void, int64_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _XEmbeddingContainer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XEmbeddingContainer",
-	"sun.awt.X11.XEmbedHelper",
-	"sun.awt.X11.XEventDispatcher",
-	_XEmbeddingContainer_FieldInfo_,
-	_XEmbeddingContainer_MethodInfo_
-};
-
-$Object* allocate$XEmbeddingContainer($Class* clazz) {
-	return $of($alloc(XEmbeddingContainer));
-}
 
 int32_t XEmbeddingContainer::hashCode() {
 	 return this->$XEmbedHelper::hashCode();
@@ -144,11 +93,11 @@ void XEmbeddingContainer::deinstall() {
 }
 
 void XEmbeddingContainer::add(int64_t child) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (checkXEmbed(child)) {
 		$var($Component, proxy, createChildProxy(child));
-		$nc(($cast($Container, $($nc(this->embedder)->getTarget()))))->add("Center"_s, proxy);
-		$var($XEmbeddedFramePeer, peer, $cast($XEmbeddedFramePeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(proxy)));
+		$$sure($Container, $nc(this->embedder)->getTarget())->add("Center"_s, proxy);
+		$var($XEmbeddedFramePeer, peer, $cast($XEmbeddedFramePeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(proxy)));
 		if (peer != nullptr) {
 			$nc(this->children)->put($($Long::valueOf(child)), peer);
 		}
@@ -169,50 +118,45 @@ void XEmbeddingContainer::childResized($Component* child) {
 bool XEmbeddingContainer::checkXEmbed(int64_t child) {
 	$init($XEmbedHelper);
 	int64_t data = $nc($XEmbedHelper::unsafe)->allocateMemory(8);
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			if ($nc($XEmbedHelper::XEmbedInfo)->getAtomData(child, data, 2)) {
-				int32_t protocol = $nc($XEmbedHelper::unsafe)->getInt(data);
-				int32_t flags = $nc($XEmbedHelper::unsafe)->getInt(data);
-				var$2 = true;
-				return$1 = true;
-				goto $finally;
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc($XEmbedHelper::unsafe)->freeMemory(data);
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		if ($nc($XEmbedHelper::XEmbedInfo)->getAtomData(child, data, 2)) {
+			int32_t protocol = $XEmbedHelper::unsafe->getInt(data);
+			int32_t flags = $XEmbedHelper::unsafe->getInt(data);
+			var$2 = true;
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$XEmbedHelper::unsafe->freeMemory(data);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	return false;
 }
 
 void XEmbeddingContainer::detachChild(int64_t child) {
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$XlibWrapper::XUnmapWindow($XToolkit::getDisplay(), child);
-			int64_t var$1 = $XToolkit::getDisplay();
-			int64_t var$2 = child;
-			$XlibWrapper::XReparentWindow(var$1, var$2, $XToolkit::getDefaultRootWindow(), 0, 0);
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$XlibWrapper::XUnmapWindow($XToolkit::getDisplay(), child);
+		int64_t var$1 = $XToolkit::getDisplay();
+		$XlibWrapper::XReparentWindow(var$1, child, $XToolkit::getDefaultRootWindow(), 0, 0);
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -229,21 +173,17 @@ $XEmbedChildProxyPeer* XEmbeddingContainer::getChild(int64_t child) {
 }
 
 void XEmbeddingContainer::handleClientMessage($XEvent* xev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XClientMessageEvent, msg, $nc(xev)->get_xclient());
 	int64_t var$0 = $nc(msg)->get_message_type();
 	$init($XEmbedHelper);
 	if (var$0 == $nc($XEmbedHelper::XEmbed)->getAtom()) {
-		{
-			int64_t child = 0;
-			switch ((int32_t)msg->get_data(1)) {
-			case $XEmbedHelper::XEMBED_REQUEST_FOCUS:
-				{
-					child = msg->get_data(2);
-					$nc($(getChild(child)))->requestXEmbedFocus();
-					break;
-				}
-			}
+		int64_t child = 0;
+		switch ((int32_t)msg->get_data(1)) {
+		case $XEmbedHelper::XEMBED_REQUEST_FOCUS:
+			child = msg->get_data(2);
+			$$nc(getChild(child))->requestXEmbedFocus();
+			break;
 		}
 	}
 }
@@ -251,16 +191,14 @@ void XEmbeddingContainer::handleClientMessage($XEvent* xev) {
 void XEmbeddingContainer::dispatchEvent($XEvent* xev) {
 	switch ($nc(xev)->get_type()) {
 	case $XConstants::ClientMessage:
-		{
-			handleClientMessage(xev);
-			break;
-		}
+		handleClientMessage(xev);
+		break;
 	}
 }
 
 void XEmbeddingContainer::forwardKeyEvent(int64_t child, $KeyEvent* e) {
-	$useLocalCurrentObjectStackCache();
-	$var($bytes, bdata, $nc($($AWTAccessor::getAWTEventAccessor()))->getBData(e));
+	$useLocalObjectStack();
+	$var($bytes, bdata, $$nc($AWTAccessor::getAWTEventAccessor())->getBData(e));
 	int64_t data = $Native::toData(bdata);
 	if (data == 0) {
 		return;
@@ -268,18 +206,16 @@ void XEmbeddingContainer::forwardKeyEvent(int64_t child, $KeyEvent* e) {
 	$var($XKeyEvent, ke, $new($XKeyEvent, data));
 	ke->set_window(child);
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$XlibWrapper::XSendEvent($XToolkit::getDisplay(), child, false, $XConstants::NoEventMask, data);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$XlibWrapper::XSendEvent($XToolkit::getDisplay(), child, false, $XConstants::NoEventMask, data);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	$init($XlibWrapper);
 	$nc($XlibWrapper::unsafe)->freeMemory(data);
@@ -289,7 +225,45 @@ XEmbeddingContainer::XEmbeddingContainer() {
 }
 
 $Class* XEmbeddingContainer::load$($String* name, bool initialize) {
-	$loadClass(XEmbeddingContainer, name, initialize, &_XEmbeddingContainer_ClassInfo_, allocate$XEmbeddingContainer);
+	$FieldInfo fieldInfos$$[] = {
+		{"children", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Long;Ljava/awt/peer/ComponentPeer;>;", 0, $field(XEmbeddingContainer, children)},
+		{"embedder", "Lsun/awt/X11/XWindow;", nullptr, 0, $field(XEmbeddingContainer, embedder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(XEmbeddingContainer, init$, void)},
+		{"add", "(J)V", nullptr, 0, $virtualMethod(XEmbeddingContainer, add, void, int64_t)},
+		{"checkXEmbed", "(J)Z", nullptr, 0, $virtualMethod(XEmbeddingContainer, checkXEmbed, bool, int64_t)},
+		{"childResized", "(Ljava/awt/Component;)V", nullptr, 0, $virtualMethod(XEmbeddingContainer, childResized, void, $Component*)},
+		{"createChildProxy", "(J)Ljava/awt/Component;", nullptr, 0, $virtualMethod(XEmbeddingContainer, createChildProxy, $Component*, int64_t)},
+		{"deinstall", "()V", nullptr, 0, $virtualMethod(XEmbeddingContainer, deinstall, void)},
+		{"detachChild", "(J)V", nullptr, 0, $virtualMethod(XEmbeddingContainer, detachChild, void, int64_t)},
+		{"dispatchEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XEmbeddingContainer, dispatchEvent, void, $XEvent*)},
+		{"focusGained", "(J)V", nullptr, 0, $virtualMethod(XEmbeddingContainer, focusGained, void, int64_t)},
+		{"focusLost", "(J)V", nullptr, 0, $virtualMethod(XEmbeddingContainer, focusLost, void, int64_t)},
+		{"forwardKeyEvent", "(JLjava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(XEmbeddingContainer, forwardKeyEvent, void, int64_t, $KeyEvent*)},
+		{"getChild", "(J)Lsun/awt/X11/XEmbedChildProxyPeer;", nullptr, 0, $virtualMethod(XEmbeddingContainer, getChild, $XEmbedChildProxyPeer*, int64_t)},
+		{"handleClientMessage", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XEmbeddingContainer, handleClientMessage, void, $XEvent*)},
+		{"install", "(Lsun/awt/X11/XWindow;)V", nullptr, 0, $virtualMethod(XEmbeddingContainer, install, void, $XWindow*)},
+		{"notifyChildEmbedded", "(J)V", nullptr, 0, $virtualMethod(XEmbeddingContainer, notifyChildEmbedded, void, int64_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XEmbeddingContainer",
+		"sun.awt.X11.XEmbedHelper",
+		"sun.awt.X11.XEventDispatcher",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XEmbeddingContainer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XEmbeddingContainer));
+	});
 	return class$;
 }
 

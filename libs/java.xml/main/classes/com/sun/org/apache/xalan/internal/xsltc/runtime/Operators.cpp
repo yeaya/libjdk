@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/Operators.h>
-
 #include <jcpp.h>
 
 #undef EQ
@@ -22,38 +21,6 @@ namespace com {
 						namespace xsltc {
 							namespace runtime {
 
-$FieldInfo _Operators_FieldInfo_[] = {
-	{"EQ", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Operators, EQ)},
-	{"NE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Operators, NE)},
-	{"GT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Operators, GT)},
-	{"LT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Operators, LT)},
-	{"GE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Operators, GE)},
-	{"LE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Operators, LE)},
-	{"names", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Operators, names)},
-	{"swapOpArray", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Operators, swapOpArray)},
-	{}
-};
-
-$MethodInfo _Operators_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Operators, init$, void)},
-	{"getOpNames", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Operators, getOpNames, $String*, int32_t)},
-	{"swapOp", "(I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Operators, swapOp, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _Operators_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.runtime.Operators",
-	"java.lang.Object",
-	nullptr,
-	_Operators_FieldInfo_,
-	_Operators_MethodInfo_
-};
-
-$Object* allocate$Operators($Class* clazz) {
-	return $of($alloc(Operators));
-}
-
 $StringArray* Operators::names = nullptr;
 $ints* Operators::swapOpArray = nullptr;
 
@@ -62,15 +29,15 @@ void Operators::init$() {
 
 $String* Operators::getOpNames(int32_t operator$) {
 	$init(Operators);
-	return $nc(Operators::names)->get(operator$);
+	return Operators::names->get(operator$);
 }
 
 int32_t Operators::swapOp(int32_t operator$) {
 	$init(Operators);
-	return $nc(Operators::swapOpArray)->get(operator$);
+	return Operators::swapOpArray->get(operator$);
 }
 
-void clinit$Operators($Class* class$) {
+void Operators::clinit$($Class* clazz) {
 	$assignStatic(Operators::names, $new($StringArray, {
 		"="_s,
 		"!="_s,
@@ -93,7 +60,34 @@ Operators::Operators() {
 }
 
 $Class* Operators::load$($String* name, bool initialize) {
-	$loadClass(Operators, name, initialize, &_Operators_ClassInfo_, clinit$Operators, allocate$Operators);
+	$FieldInfo fieldInfos$$[] = {
+		{"EQ", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Operators, EQ)},
+		{"NE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Operators, NE)},
+		{"GT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Operators, GT)},
+		{"LT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Operators, LT)},
+		{"GE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Operators, GE)},
+		{"LE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Operators, LE)},
+		{"names", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Operators, names)},
+		{"swapOpArray", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Operators, swapOpArray)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Operators, init$, void)},
+		{"getOpNames", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Operators, getOpNames, $String*, int32_t)},
+		{"swapOp", "(I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Operators, swapOp, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.runtime.Operators",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Operators, name, initialize, &classInfo$$, Operators::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Operators);
+	});
 	return class$;
 }
 

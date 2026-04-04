@@ -1,5 +1,4 @@
 #include <javax/swing/JComboBox$AccessibleJComboBox$EditorAccessibleContext.h>
-
 #include <java/beans/PropertyChangeListener.h>
 #include <java/util/Locale.h>
 #include <javax/accessibility/Accessible.h>
@@ -40,95 +39,10 @@ using $AccessibleStateSet = ::javax::accessibility::AccessibleStateSet;
 using $AccessibleTable = ::javax::accessibility::AccessibleTable;
 using $AccessibleText = ::javax::accessibility::AccessibleText;
 using $AccessibleValue = ::javax::accessibility::AccessibleValue;
-using $JComboBox = ::javax::swing::JComboBox;
 using $JComboBox$AccessibleJComboBox = ::javax::swing::JComboBox$AccessibleJComboBox;
 
 namespace javax {
 	namespace swing {
-
-$NamedAttribute JComboBox$AccessibleJComboBox$EditorAccessibleContext_Attribute_var$0[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "Sets the accessible description for the component."},
-	{}
-};
-
-$CompoundAttribute _JComboBox$AccessibleJComboBox$EditorAccessibleContext_MethodAnnotations_setAccessibleDescription23[] = {
-	{"Ljava/beans/BeanProperty;", JComboBox$AccessibleJComboBox$EditorAccessibleContext_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute JComboBox$AccessibleJComboBox$EditorAccessibleContext_Attribute_var$1[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "Sets the accessible name for the component."},
-	{}
-};
-
-$CompoundAttribute _JComboBox$AccessibleJComboBox$EditorAccessibleContext_MethodAnnotations_setAccessibleName24[] = {
-	{"Ljava/beans/BeanProperty;", JComboBox$AccessibleJComboBox$EditorAccessibleContext_Attribute_var$1},
-	{}
-};
-
-$FieldInfo _JComboBox$AccessibleJComboBox$EditorAccessibleContext_FieldInfo_[] = {
-	{"this$1", "Ljavax/swing/JComboBox$AccessibleJComboBox;", nullptr, $FINAL | $SYNTHETIC, $field(JComboBox$AccessibleJComboBox$EditorAccessibleContext, this$1)},
-	{"ac", "Ljavax/accessibility/AccessibleContext;", nullptr, $PRIVATE, $field(JComboBox$AccessibleJComboBox$EditorAccessibleContext, ac)},
-	{}
-};
-
-$MethodInfo _JComboBox$AccessibleJComboBox$EditorAccessibleContext_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JComboBox$AccessibleJComboBox;)V", nullptr, $PRIVATE, $method(JComboBox$AccessibleJComboBox$EditorAccessibleContext, init$, void, $JComboBox$AccessibleJComboBox*)},
-	{"<init>", "(Ljavax/swing/JComboBox$AccessibleJComboBox;Ljavax/accessibility/Accessible;)V", nullptr, 0, $method(JComboBox$AccessibleJComboBox$EditorAccessibleContext, init$, void, $JComboBox$AccessibleJComboBox*, $Accessible*)},
-	{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, addPropertyChangeListener, void, $PropertyChangeListener*)},
-	{"firePropertyChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, firePropertyChange, void, $String*, Object$*, Object$*)},
-	{"getAccessibleAction", "()Ljavax/accessibility/AccessibleAction;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleAction, $AccessibleAction*)},
-	{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleChild, $Accessible*, int32_t)},
-	{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleChildrenCount, int32_t)},
-	{"getAccessibleComponent", "()Ljavax/accessibility/AccessibleComponent;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleComponent, $AccessibleComponent*)},
-	{"getAccessibleDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleDescription, $String*)},
-	{"getAccessibleEditableText", "()Ljavax/accessibility/AccessibleEditableText;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleEditableText, $AccessibleEditableText*)},
-	{"getAccessibleIcon", "()[Ljavax/accessibility/AccessibleIcon;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleIcon, $AccessibleIconArray*)},
-	{"getAccessibleIndexInParent", "()I", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleIndexInParent, int32_t)},
-	{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleName, $String*)},
-	{"getAccessibleParent", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleParent, $Accessible*)},
-	{"getAccessibleRelationSet", "()Ljavax/accessibility/AccessibleRelationSet;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleRelationSet, $AccessibleRelationSet*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleRole, $AccessibleRole*)},
-	{"getAccessibleSelection", "()Ljavax/accessibility/AccessibleSelection;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleSelection, $AccessibleSelection*)},
-	{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleStateSet, $AccessibleStateSet*)},
-	{"getAccessibleTable", "()Ljavax/accessibility/AccessibleTable;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleTable, $AccessibleTable*)},
-	{"getAccessibleText", "()Ljavax/accessibility/AccessibleText;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleText, $AccessibleText*)},
-	{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleValue, $AccessibleValue*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getLocale, $Locale*), "java.awt.IllegalComponentStateException"},
-	{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, removePropertyChangeListener, void, $PropertyChangeListener*)},
-	{"setAccessibleDescription", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, setAccessibleDescription, void, $String*), nullptr, nullptr, _JComboBox$AccessibleJComboBox$EditorAccessibleContext_MethodAnnotations_setAccessibleDescription23},
-	{"setAccessibleName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, setAccessibleName, void, $String*), nullptr, nullptr, _JComboBox$AccessibleJComboBox$EditorAccessibleContext_MethodAnnotations_setAccessibleName24},
-	{"setAccessibleParent", "(Ljavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, setAccessibleParent, void, $Accessible*)},
-	{}
-};
-
-$InnerClassInfo _JComboBox$AccessibleJComboBox$EditorAccessibleContext_InnerClassesInfo_[] = {
-	{"javax.swing.JComboBox$AccessibleJComboBox", "javax.swing.JComboBox", "AccessibleJComboBox", $PROTECTED},
-	{"javax.swing.JComboBox$AccessibleJComboBox$EditorAccessibleContext", "javax.swing.JComboBox$AccessibleJComboBox", "EditorAccessibleContext", $PRIVATE},
-	{}
-};
-
-$ClassInfo _JComboBox$AccessibleJComboBox$EditorAccessibleContext_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JComboBox$AccessibleJComboBox$EditorAccessibleContext",
-	"javax.accessibility.AccessibleContext",
-	nullptr,
-	_JComboBox$AccessibleJComboBox$EditorAccessibleContext_FieldInfo_,
-	_JComboBox$AccessibleJComboBox$EditorAccessibleContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JComboBox$AccessibleJComboBox$EditorAccessibleContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JComboBox"
-};
-
-$Object* allocate$JComboBox$AccessibleJComboBox$EditorAccessibleContext($Class* clazz) {
-	return $of($alloc(JComboBox$AccessibleJComboBox$EditorAccessibleContext));
-}
 
 void JComboBox$AccessibleJComboBox$EditorAccessibleContext::init$($JComboBox$AccessibleJComboBox* this$1) {
 	$set(this, this$1, this$1);
@@ -241,7 +155,81 @@ JComboBox$AccessibleJComboBox$EditorAccessibleContext::JComboBox$AccessibleJComb
 }
 
 $Class* JComboBox$AccessibleJComboBox$EditorAccessibleContext::load$($String* name, bool initialize) {
-	$loadClass(JComboBox$AccessibleJComboBox$EditorAccessibleContext, name, initialize, &_JComboBox$AccessibleJComboBox$EditorAccessibleContext_ClassInfo_, allocate$JComboBox$AccessibleJComboBox$EditorAccessibleContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljavax/swing/JComboBox$AccessibleJComboBox;", nullptr, $FINAL | $SYNTHETIC, $field(JComboBox$AccessibleJComboBox$EditorAccessibleContext, this$1)},
+		{"ac", "Ljavax/accessibility/AccessibleContext;", nullptr, $PRIVATE, $field(JComboBox$AccessibleJComboBox$EditorAccessibleContext, ac)},
+		{}
+	};
+	$NamedAttribute setAccessibleDescriptionmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "Sets the accessible description for the component."},
+		{}
+	};
+	$CompoundAttribute setAccessibleDescriptionmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setAccessibleDescriptionmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setAccessibleNamemethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "Sets the accessible name for the component."},
+		{}
+	};
+	$CompoundAttribute setAccessibleNamemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setAccessibleNamemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JComboBox$AccessibleJComboBox;)V", nullptr, $PRIVATE, $method(JComboBox$AccessibleJComboBox$EditorAccessibleContext, init$, void, $JComboBox$AccessibleJComboBox*)},
+		{"<init>", "(Ljavax/swing/JComboBox$AccessibleJComboBox;Ljavax/accessibility/Accessible;)V", nullptr, 0, $method(JComboBox$AccessibleJComboBox$EditorAccessibleContext, init$, void, $JComboBox$AccessibleJComboBox*, $Accessible*)},
+		{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, addPropertyChangeListener, void, $PropertyChangeListener*)},
+		{"firePropertyChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, firePropertyChange, void, $String*, Object$*, Object$*)},
+		{"getAccessibleAction", "()Ljavax/accessibility/AccessibleAction;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleAction, $AccessibleAction*)},
+		{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleChild, $Accessible*, int32_t)},
+		{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleChildrenCount, int32_t)},
+		{"getAccessibleComponent", "()Ljavax/accessibility/AccessibleComponent;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleComponent, $AccessibleComponent*)},
+		{"getAccessibleDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleDescription, $String*)},
+		{"getAccessibleEditableText", "()Ljavax/accessibility/AccessibleEditableText;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleEditableText, $AccessibleEditableText*)},
+		{"getAccessibleIcon", "()[Ljavax/accessibility/AccessibleIcon;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleIcon, $AccessibleIconArray*)},
+		{"getAccessibleIndexInParent", "()I", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleIndexInParent, int32_t)},
+		{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleName, $String*)},
+		{"getAccessibleParent", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleParent, $Accessible*)},
+		{"getAccessibleRelationSet", "()Ljavax/accessibility/AccessibleRelationSet;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleRelationSet, $AccessibleRelationSet*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleRole, $AccessibleRole*)},
+		{"getAccessibleSelection", "()Ljavax/accessibility/AccessibleSelection;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleSelection, $AccessibleSelection*)},
+		{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleStateSet, $AccessibleStateSet*)},
+		{"getAccessibleTable", "()Ljavax/accessibility/AccessibleTable;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleTable, $AccessibleTable*)},
+		{"getAccessibleText", "()Ljavax/accessibility/AccessibleText;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleText, $AccessibleText*)},
+		{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getAccessibleValue, $AccessibleValue*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, getLocale, $Locale*), "java.awt.IllegalComponentStateException"},
+		{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, removePropertyChangeListener, void, $PropertyChangeListener*)},
+		{"setAccessibleDescription", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, setAccessibleDescription, void, $String*), nullptr, nullptr, setAccessibleDescriptionmethodAnnotations$$},
+		{"setAccessibleName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, setAccessibleName, void, $String*), nullptr, nullptr, setAccessibleNamemethodAnnotations$$},
+		{"setAccessibleParent", "(Ljavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$EditorAccessibleContext, setAccessibleParent, void, $Accessible*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JComboBox$AccessibleJComboBox", "javax.swing.JComboBox", "AccessibleJComboBox", $PROTECTED},
+		{"javax.swing.JComboBox$AccessibleJComboBox$EditorAccessibleContext", "javax.swing.JComboBox$AccessibleJComboBox", "EditorAccessibleContext", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JComboBox$AccessibleJComboBox$EditorAccessibleContext",
+		"javax.accessibility.AccessibleContext",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JComboBox"
+	};
+	$loadClass(JComboBox$AccessibleJComboBox$EditorAccessibleContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JComboBox$AccessibleJComboBox$EditorAccessibleContext);
+	});
 	return class$;
 }
 

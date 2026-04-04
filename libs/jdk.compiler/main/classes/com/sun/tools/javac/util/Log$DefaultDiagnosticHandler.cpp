@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Log$DefaultDiagnosticHandler.h>
-
 #include <com/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag.h>
 #include <com/sun/tools/javac/util/JCDiagnostic$DiagnosticType.h>
 #include <com/sun/tools/javac/util/JCDiagnostic.h>
@@ -14,7 +13,6 @@
 
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$DiagnosticFlag = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticFlag;
-using $JCDiagnostic$DiagnosticType = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticType;
 using $Log = ::com::sun::tools::javac::util::Log;
 using $Log$1 = ::com::sun::tools::javac::util::Log$1;
 using $Log$DiagnosticHandler = ::com::sun::tools::javac::util::Log$DiagnosticHandler;
@@ -23,7 +21,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Set = ::java::util::Set;
 
 namespace com {
 	namespace sun {
@@ -31,78 +28,35 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$FieldInfo _Log$DefaultDiagnosticHandler_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/util/Log;", nullptr, $FINAL | $SYNTHETIC, $field(Log$DefaultDiagnosticHandler, this$0)},
-	{}
-};
-
-$MethodInfo _Log$DefaultDiagnosticHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Log;)V", nullptr, $PRIVATE, $method(Log$DefaultDiagnosticHandler, init$, void, $Log*)},
-	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC, $virtualMethod(Log$DefaultDiagnosticHandler, report, void, $JCDiagnostic*)},
-	{}
-};
-
-$InnerClassInfo _Log$DefaultDiagnosticHandler_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.Log$DefaultDiagnosticHandler", "com.sun.tools.javac.util.Log", "DefaultDiagnosticHandler", $PRIVATE},
-	{"com.sun.tools.javac.util.Log$DiagnosticHandler", "com.sun.tools.javac.util.Log", "DiagnosticHandler", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Log$DefaultDiagnosticHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.util.Log$DefaultDiagnosticHandler",
-	"com.sun.tools.javac.util.Log$DiagnosticHandler",
-	nullptr,
-	_Log$DefaultDiagnosticHandler_FieldInfo_,
-	_Log$DefaultDiagnosticHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Log$DefaultDiagnosticHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.Log"
-};
-
-$Object* allocate$Log$DefaultDiagnosticHandler($Class* clazz) {
-	return $of($alloc(Log$DefaultDiagnosticHandler));
-}
-
 void Log$DefaultDiagnosticHandler::init$($Log* this$0) {
 	$set(this, this$0, this$0);
 	$Log$DiagnosticHandler::init$();
 }
 
 void Log$DefaultDiagnosticHandler::report($JCDiagnostic* diagnostic) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$0->expectDiagKeys != nullptr) {
-		$nc(this->this$0->expectDiagKeys)->remove($($nc(diagnostic)->getCode()));
+		this->this$0->expectDiagKeys->remove($($nc(diagnostic)->getCode()));
 	}
 	$init($Log$1);
-	switch ($nc($Log$1::$SwitchMap$com$sun$tools$javac$util$JCDiagnostic$DiagnosticType)->get($nc(($($nc(diagnostic)->getType())))->ordinal())) {
+	switch ($nc($Log$1::$SwitchMap$com$sun$tools$javac$util$JCDiagnostic$DiagnosticType)->get(($$nc($nc(diagnostic)->getType()))->ordinal())) {
 	case 1:
-		{
-			$throwNew($IllegalArgumentException);
-		}
+		$throwNew($IllegalArgumentException);
 	case 2:
-		{
-			if ((this->this$0->emitWarnings || diagnostic->isMandatory()) && !this->this$0->suppressNotes) {
-				this->this$0->writeDiagnostic(diagnostic);
-			}
-			break;
+		if ((this->this$0->emitWarnings || diagnostic->isMandatory()) && !this->this$0->suppressNotes) {
+			this->this$0->writeDiagnostic(diagnostic);
 		}
+		break;
 	case 3:
-		{
-			if (this->this$0->emitWarnings || diagnostic->isMandatory()) {
-				if (this->this$0->nwarnings < this->this$0->MaxWarnings) {
-					this->this$0->writeDiagnostic(diagnostic);
-					++this->this$0->nwarnings;
-				} else {
-					++this->this$0->nsuppressedwarns;
-				}
+		if (this->this$0->emitWarnings || diagnostic->isMandatory()) {
+			if (this->this$0->nwarnings < this->this$0->MaxWarnings) {
+				this->this$0->writeDiagnostic(diagnostic);
+				++this->this$0->nwarnings;
+			} else {
+				++this->this$0->nsuppressedwarns;
 			}
-			break;
 		}
+		break;
 	case 4:
 		{
 			$init($JCDiagnostic$DiagnosticFlag);
@@ -128,7 +82,38 @@ Log$DefaultDiagnosticHandler::Log$DefaultDiagnosticHandler() {
 }
 
 $Class* Log$DefaultDiagnosticHandler::load$($String* name, bool initialize) {
-	$loadClass(Log$DefaultDiagnosticHandler, name, initialize, &_Log$DefaultDiagnosticHandler_ClassInfo_, allocate$Log$DefaultDiagnosticHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/util/Log;", nullptr, $FINAL | $SYNTHETIC, $field(Log$DefaultDiagnosticHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Log;)V", nullptr, $PRIVATE, $method(Log$DefaultDiagnosticHandler, init$, void, $Log*)},
+		{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC, $virtualMethod(Log$DefaultDiagnosticHandler, report, void, $JCDiagnostic*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.Log$DefaultDiagnosticHandler", "com.sun.tools.javac.util.Log", "DefaultDiagnosticHandler", $PRIVATE},
+		{"com.sun.tools.javac.util.Log$DiagnosticHandler", "com.sun.tools.javac.util.Log", "DiagnosticHandler", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.util.Log$DefaultDiagnosticHandler",
+		"com.sun.tools.javac.util.Log$DiagnosticHandler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.Log"
+	};
+	$loadClass(Log$DefaultDiagnosticHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Log$DefaultDiagnosticHandler);
+	});
 	return class$;
 }
 

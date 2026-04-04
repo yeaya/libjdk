@@ -76,6 +76,7 @@ class $import WindowsComboBoxUI : public ::javax::swing::plaf::basic::BasicCombo
 	$class(WindowsComboBoxUI, 0, ::javax::swing::plaf::basic::BasicComboBoxUI)
 public:
 	WindowsComboBoxUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::JButton* access$000(::com::sun::java::swing::plaf::windows::WindowsComboBoxUI* x0);
 	static ::javax::swing::JButton* access$100(::com::sun::java::swing::plaf::windows::WindowsComboBoxUI* x0);

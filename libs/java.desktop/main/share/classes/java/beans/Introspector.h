@@ -55,6 +55,7 @@ class $export Introspector : public ::java::lang::Object {
 	$class(Introspector, 0, ::java::lang::Object)
 public:
 	Introspector();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Class* beanClass, $Class* stopClass, int32_t flags);
 	void addEvent(::java::beans::EventSetDescriptor* esd);
 	void addMethod(::java::beans::MethodDescriptor* md);

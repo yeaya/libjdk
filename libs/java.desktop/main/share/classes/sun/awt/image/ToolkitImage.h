@@ -42,6 +42,7 @@ class ToolkitImage : public ::java::awt::Image {
 	$class(ToolkitImage, 0, ::java::awt::Image)
 public:
 	ToolkitImage();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::awt::image::ImageProducer* is);
 	virtual void addInfo(int32_t newinfo);

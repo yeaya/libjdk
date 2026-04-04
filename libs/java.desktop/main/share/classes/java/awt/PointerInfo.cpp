@@ -1,5 +1,4 @@
 #include <java/awt/PointerInfo.h>
-
 #include <java/awt/GraphicsDevice.h>
 #include <java/awt/Point.h>
 #include <jcpp.h>
@@ -12,32 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _PointerInfo_FieldInfo_[] = {
-	{"device", "Ljava/awt/GraphicsDevice;", nullptr, $PRIVATE | $FINAL, $field(PointerInfo, device)},
-	{"location", "Ljava/awt/Point;", nullptr, $PRIVATE | $FINAL, $field(PointerInfo, location)},
-	{}
-};
-
-$MethodInfo _PointerInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/GraphicsDevice;Ljava/awt/Point;)V", nullptr, 0, $method(PointerInfo, init$, void, $GraphicsDevice*, $Point*)},
-	{"getDevice", "()Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC, $virtualMethod(PointerInfo, getDevice, $GraphicsDevice*)},
-	{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(PointerInfo, getLocation, $Point*)},
-	{}
-};
-
-$ClassInfo _PointerInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.PointerInfo",
-	"java.lang.Object",
-	nullptr,
-	_PointerInfo_FieldInfo_,
-	_PointerInfo_MethodInfo_
-};
-
-$Object* allocate$PointerInfo($Class* clazz) {
-	return $of($alloc(PointerInfo));
-}
 
 void PointerInfo::init$($GraphicsDevice* device, $Point* location) {
 	$set(this, device, device);
@@ -56,7 +29,28 @@ PointerInfo::PointerInfo() {
 }
 
 $Class* PointerInfo::load$($String* name, bool initialize) {
-	$loadClass(PointerInfo, name, initialize, &_PointerInfo_ClassInfo_, allocate$PointerInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"device", "Ljava/awt/GraphicsDevice;", nullptr, $PRIVATE | $FINAL, $field(PointerInfo, device)},
+		{"location", "Ljava/awt/Point;", nullptr, $PRIVATE | $FINAL, $field(PointerInfo, location)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/GraphicsDevice;Ljava/awt/Point;)V", nullptr, 0, $method(PointerInfo, init$, void, $GraphicsDevice*, $Point*)},
+		{"getDevice", "()Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC, $virtualMethod(PointerInfo, getDevice, $GraphicsDevice*)},
+		{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(PointerInfo, getLocation, $Point*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.PointerInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PointerInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PointerInfo);
+	});
 	return class$;
 }
 

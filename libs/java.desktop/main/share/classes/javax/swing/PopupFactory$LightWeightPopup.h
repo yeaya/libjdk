@@ -28,6 +28,7 @@ class PopupFactory$LightWeightPopup : public ::javax::swing::PopupFactory$Contai
 	$class(PopupFactory$LightWeightPopup, 0, ::javax::swing::PopupFactory$ContainerPopup)
 public:
 	PopupFactory$LightWeightPopup();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::awt::Component* createComponent(::java::awt::Component* owner) override;
 	static ::javax::swing::Popup* getLightWeightPopup(::java::awt::Component* owner, ::java::awt::Component* contents, int32_t ownerX, int32_t ownerY);

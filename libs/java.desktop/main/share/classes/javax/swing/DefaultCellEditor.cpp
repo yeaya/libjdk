@@ -1,8 +1,6 @@
 #include <javax/swing/DefaultCellEditor.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/util/EventObject.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/AbstractCellEditor.h>
@@ -24,7 +22,6 @@
 #undef TRUE
 
 using $Component = ::java::awt::Component;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $Attribute = ::java::lang::Attribute;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -38,7 +35,6 @@ using $AbstractCellEditor = ::javax::swing::AbstractCellEditor;
 using $DefaultCellEditor$1 = ::javax::swing::DefaultCellEditor$1;
 using $DefaultCellEditor$2 = ::javax::swing::DefaultCellEditor$2;
 using $DefaultCellEditor$3 = ::javax::swing::DefaultCellEditor$3;
-using $DefaultCellEditor$EditorDelegate = ::javax::swing::DefaultCellEditor$EditorDelegate;
 using $JCheckBox = ::javax::swing::JCheckBox;
 using $JComboBox = ::javax::swing::JComboBox;
 using $JComponent = ::javax::swing::JComponent;
@@ -50,79 +46,6 @@ using $TableCellRenderer = ::javax::swing::table::TableCellRenderer;
 
 namespace javax {
 	namespace swing {
-
-$Attribute DefaultCellEditor_Attribute_var$1[] = {
-	{'s', "component"},
-	{'-'}
-};
-
-$NamedAttribute DefaultCellEditor_Attribute_var$0[] = {
-	{"value", '[', DefaultCellEditor_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _DefaultCellEditor_MethodAnnotations_init$0[] = {
-	{"Ljava/beans/ConstructorProperties;", DefaultCellEditor_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _DefaultCellEditor_FieldInfo_[] = {
-	{"editorComponent", "Ljavax/swing/JComponent;", nullptr, $PROTECTED, $field(DefaultCellEditor, editorComponent)},
-	{"delegate", "Ljavax/swing/DefaultCellEditor$EditorDelegate;", nullptr, $PROTECTED, $field(DefaultCellEditor, delegate)},
-	{"clickCountToStart", "I", nullptr, $PROTECTED, $field(DefaultCellEditor, clickCountToStart)},
-	{}
-};
-
-$MethodInfo _DefaultCellEditor_MethodInfo_[] = {
-	{"*addCellEditorListener", "(Ljavax/swing/event/CellEditorListener;)V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JTextField;)V", nullptr, $PUBLIC, $method(DefaultCellEditor, init$, void, $JTextField*), nullptr, nullptr, _DefaultCellEditor_MethodAnnotations_init$0},
-	{"<init>", "(Ljavax/swing/JCheckBox;)V", nullptr, $PUBLIC, $method(DefaultCellEditor, init$, void, $JCheckBox*)},
-	{"<init>", "(Ljavax/swing/JComboBox;)V", "(Ljavax/swing/JComboBox<*>;)V", $PUBLIC, $method(DefaultCellEditor, init$, void, $JComboBox*)},
-	{"cancelCellEditing", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor, cancelCellEditing, void)},
-	{"getCellEditorValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor, getCellEditorValue, $Object*)},
-	{"getClickCountToStart", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor, getClickCountToStart, int32_t)},
-	{"getComponent", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor, getComponent, $Component*)},
-	{"getTableCellEditorComponent", "(Ljavax/swing/JTable;Ljava/lang/Object;ZII)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor, getTableCellEditorComponent, $Component*, $JTable*, Object$*, bool, int32_t, int32_t)},
-	{"getTreeCellEditorComponent", "(Ljavax/swing/JTree;Ljava/lang/Object;ZZZI)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor, getTreeCellEditorComponent, $Component*, $JTree*, Object$*, bool, bool, bool, int32_t)},
-	{"isCellEditable", "(Ljava/util/EventObject;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor, isCellEditable, bool, $EventObject*)},
-	{"*removeCellEditorListener", "(Ljavax/swing/event/CellEditorListener;)V", nullptr, $PUBLIC},
-	{"setClickCountToStart", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor, setClickCountToStart, void, int32_t)},
-	{"shouldSelectCell", "(Ljava/util/EventObject;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor, shouldSelectCell, bool, $EventObject*)},
-	{"stopCellEditing", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor, stopCellEditing, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DefaultCellEditor_InnerClassesInfo_[] = {
-	{"javax.swing.DefaultCellEditor$EditorDelegate", "javax.swing.DefaultCellEditor", "EditorDelegate", $PROTECTED},
-	{"javax.swing.DefaultCellEditor$3", nullptr, nullptr, 0},
-	{"javax.swing.DefaultCellEditor$2", nullptr, nullptr, 0},
-	{"javax.swing.DefaultCellEditor$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DefaultCellEditor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.DefaultCellEditor",
-	"javax.swing.AbstractCellEditor",
-	"javax.swing.table.TableCellEditor,javax.swing.tree.TreeCellEditor",
-	_DefaultCellEditor_FieldInfo_,
-	_DefaultCellEditor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultCellEditor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.DefaultCellEditor$EditorDelegate,javax.swing.DefaultCellEditor$3,javax.swing.DefaultCellEditor$2,javax.swing.DefaultCellEditor$1"
-};
-
-$Object* allocate$DefaultCellEditor($Class* clazz) {
-	return $of($alloc(DefaultCellEditor));
-}
 
 void DefaultCellEditor::addCellEditorListener($CellEditorListener* l) {
 	this->$AbstractCellEditor::addCellEditorListener(l);
@@ -174,7 +97,6 @@ void DefaultCellEditor::init$($JComboBox* comboBox) {
 	$AbstractCellEditor::init$();
 	this->clickCountToStart = 1;
 	$set(this, editorComponent, comboBox);
-	$init($Boolean);
 	$nc(comboBox)->putClientProperty("JComboBox.isTableCellEditor"_s, $Boolean::TRUE);
 	$set(this, delegate, $new($DefaultCellEditor$3, this, comboBox));
 	comboBox->addActionListener(this->delegate);
@@ -193,7 +115,7 @@ int32_t DefaultCellEditor::getClickCountToStart() {
 }
 
 $Object* DefaultCellEditor::getCellEditorValue() {
-	return $of($nc(this->delegate)->getCellEditorValue());
+	return $nc(this->delegate)->getCellEditorValue();
 }
 
 bool DefaultCellEditor::isCellEditable($EventObject* anEvent) {
@@ -219,7 +141,7 @@ $Component* DefaultCellEditor::getTreeCellEditorComponent($JTree* tree, Object$*
 }
 
 $Component* DefaultCellEditor::getTableCellEditorComponent($JTable* table, Object$* value, bool isSelected, int32_t row, int32_t column) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->delegate)->setValue(value);
 	if ($instanceOf($JCheckBox, this->editorComponent)) {
 		$var($TableCellRenderer, renderer, $nc(table)->getCellRenderer(row, column));
@@ -228,7 +150,7 @@ $Component* DefaultCellEditor::getTableCellEditorComponent($JTable* table, Objec
 			$nc(this->editorComponent)->setOpaque(true);
 			$nc(this->editorComponent)->setBackground($(c->getBackground()));
 			if ($instanceOf($JComponent, c)) {
-				$nc(this->editorComponent)->setBorder($($nc(($cast($JComponent, c)))->getBorder()));
+				$nc(this->editorComponent)->setBorder($($cast($JComponent, c)->getBorder()));
 			}
 		} else {
 			$nc(this->editorComponent)->setOpaque(false);
@@ -241,7 +163,71 @@ DefaultCellEditor::DefaultCellEditor() {
 }
 
 $Class* DefaultCellEditor::load$($String* name, bool initialize) {
-	$loadClass(DefaultCellEditor, name, initialize, &_DefaultCellEditor_ClassInfo_, allocate$DefaultCellEditor);
+	$FieldInfo fieldInfos$$[] = {
+		{"editorComponent", "Ljavax/swing/JComponent;", nullptr, $PROTECTED, $field(DefaultCellEditor, editorComponent)},
+		{"delegate", "Ljavax/swing/DefaultCellEditor$EditorDelegate;", nullptr, $PROTECTED, $field(DefaultCellEditor, delegate)},
+		{"clickCountToStart", "I", nullptr, $PROTECTED, $field(DefaultCellEditor, clickCountToStart)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "component"},
+		{'-'}
+	};
+	$NamedAttribute init$methodAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/beans/ConstructorProperties;", init$methodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*addCellEditorListener", "(Ljavax/swing/event/CellEditorListener;)V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JTextField;)V", nullptr, $PUBLIC, $method(DefaultCellEditor, init$, void, $JTextField*), nullptr, nullptr, init$methodAnnotations$$},
+		{"<init>", "(Ljavax/swing/JCheckBox;)V", nullptr, $PUBLIC, $method(DefaultCellEditor, init$, void, $JCheckBox*)},
+		{"<init>", "(Ljavax/swing/JComboBox;)V", "(Ljavax/swing/JComboBox<*>;)V", $PUBLIC, $method(DefaultCellEditor, init$, void, $JComboBox*)},
+		{"cancelCellEditing", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor, cancelCellEditing, void)},
+		{"getCellEditorValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor, getCellEditorValue, $Object*)},
+		{"getClickCountToStart", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor, getClickCountToStart, int32_t)},
+		{"getComponent", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor, getComponent, $Component*)},
+		{"getTableCellEditorComponent", "(Ljavax/swing/JTable;Ljava/lang/Object;ZII)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor, getTableCellEditorComponent, $Component*, $JTable*, Object$*, bool, int32_t, int32_t)},
+		{"getTreeCellEditorComponent", "(Ljavax/swing/JTree;Ljava/lang/Object;ZZZI)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor, getTreeCellEditorComponent, $Component*, $JTree*, Object$*, bool, bool, bool, int32_t)},
+		{"isCellEditable", "(Ljava/util/EventObject;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor, isCellEditable, bool, $EventObject*)},
+		{"*removeCellEditorListener", "(Ljavax/swing/event/CellEditorListener;)V", nullptr, $PUBLIC},
+		{"setClickCountToStart", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor, setClickCountToStart, void, int32_t)},
+		{"shouldSelectCell", "(Ljava/util/EventObject;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor, shouldSelectCell, bool, $EventObject*)},
+		{"stopCellEditing", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor, stopCellEditing, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.DefaultCellEditor$EditorDelegate", "javax.swing.DefaultCellEditor", "EditorDelegate", $PROTECTED},
+		{"javax.swing.DefaultCellEditor$3", nullptr, nullptr, 0},
+		{"javax.swing.DefaultCellEditor$2", nullptr, nullptr, 0},
+		{"javax.swing.DefaultCellEditor$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.DefaultCellEditor",
+		"javax.swing.AbstractCellEditor",
+		"javax.swing.table.TableCellEditor,javax.swing.tree.TreeCellEditor",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.DefaultCellEditor$EditorDelegate,javax.swing.DefaultCellEditor$3,javax.swing.DefaultCellEditor$2,javax.swing.DefaultCellEditor$1"
+	};
+	$loadClass(DefaultCellEditor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultCellEditor));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/rmi/transport/tcp/TCPTransport$ConnectionHandler.h>
-
 #include <java/io/BufferedInputStream.h>
 #include <java/io/BufferedOutputStream.h>
 #include <java/io/DataInputStream.h>
@@ -28,7 +27,6 @@
 #include <java/util/concurrent/atomic/AtomicInteger.h>
 #include <java/util/logging/Level.h>
 #include <sun/rmi/runtime/Log.h>
-#include <sun/rmi/transport/Connection.h>
 #include <sun/rmi/transport/TransportConstants.h>
 #include <sun/rmi/transport/tcp/TCPChannel.h>
 #include <sun/rmi/transport/tcp/TCPConnection.h>
@@ -55,7 +53,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $ThreadLocal = ::java::lang::ThreadLocal;
 using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $SoftReference = ::java::lang::ref::SoftReference;
@@ -65,11 +62,8 @@ using $RMIClientSocketFactory = ::java::rmi::server::RMIClientSocketFactory;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Map = ::java::util::Map;
 using $WeakHashMap = ::java::util::WeakHashMap;
-using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
 using $Log = ::sun::rmi::runtime::Log;
-using $Connection = ::sun::rmi::transport::Connection;
 using $TransportConstants = ::sun::rmi::transport::TransportConstants;
 using $TCPChannel = ::sun::rmi::transport::tcp::TCPChannel;
 using $TCPConnection = ::sun::rmi::transport::tcp::TCPConnection;
@@ -88,84 +82,34 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$run$0());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TCPTransport$ConnectionHandler$$Lambda$lambda$run$0>());
+		 return $nc(inst$)->lambda$run$0();
 	}
 	TCPTransport$ConnectionHandler* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TCPTransport$ConnectionHandler$$Lambda$lambda$run$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TCPTransport$ConnectionHandler$$Lambda$lambda$run$0, inst$)},
-	{}
-};
-$MethodInfo TCPTransport$ConnectionHandler$$Lambda$lambda$run$0::methodInfos[3] = {
-	{"<init>", "(Lsun/rmi/transport/tcp/TCPTransport$ConnectionHandler;)V", nullptr, $PUBLIC, $method(TCPTransport$ConnectionHandler$$Lambda$lambda$run$0, init$, void, TCPTransport$ConnectionHandler*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TCPTransport$ConnectionHandler$$Lambda$lambda$run$0, run, $Object*)},
-	{}
-};
-$ClassInfo TCPTransport$ConnectionHandler$$Lambda$lambda$run$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.transport.tcp.TCPTransport$ConnectionHandler$$Lambda$lambda$run$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* TCPTransport$ConnectionHandler$$Lambda$lambda$run$0::load$($String* name, bool initialize) {
-	$loadClass(TCPTransport$ConnectionHandler$$Lambda$lambda$run$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TCPTransport$ConnectionHandler$$Lambda$lambda$run$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/rmi/transport/tcp/TCPTransport$ConnectionHandler;)V", nullptr, $PUBLIC, $method(TCPTransport$ConnectionHandler$$Lambda$lambda$run$0, init$, void, TCPTransport$ConnectionHandler*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TCPTransport$ConnectionHandler$$Lambda$lambda$run$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.transport.tcp.TCPTransport$ConnectionHandler$$Lambda$lambda$run$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TCPTransport$ConnectionHandler$$Lambda$lambda$run$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TCPTransport$ConnectionHandler$$Lambda$lambda$run$0);
+	});
 	return class$;
 }
 $Class* TCPTransport$ConnectionHandler$$Lambda$lambda$run$0::class$ = nullptr;
-
-$FieldInfo _TCPTransport$ConnectionHandler_FieldInfo_[] = {
-	{"this$0", "Lsun/rmi/transport/tcp/TCPTransport;", nullptr, $FINAL | $SYNTHETIC, $field(TCPTransport$ConnectionHandler, this$0)},
-	{"POST", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TCPTransport$ConnectionHandler, POST)},
-	{"okContext", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE, $field(TCPTransport$ConnectionHandler, okContext)},
-	{"authCache", "Ljava/util/Map;", "Ljava/util/Map<Ljava/security/AccessControlContext;Ljava/lang/ref/Reference<Ljava/security/AccessControlContext;>;>;", $PRIVATE, $field(TCPTransport$ConnectionHandler, authCache)},
-	{"cacheSecurityManager", "Ljava/lang/SecurityManager;", nullptr, $PRIVATE, $field(TCPTransport$ConnectionHandler, cacheSecurityManager)},
-	{"socket", "Ljava/net/Socket;", nullptr, $PRIVATE, $field(TCPTransport$ConnectionHandler, socket)},
-	{"remoteHost", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TCPTransport$ConnectionHandler, remoteHost)},
-	{}
-};
-
-$MethodInfo _TCPTransport$ConnectionHandler_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/transport/tcp/TCPTransport;Ljava/net/Socket;Ljava/lang/String;)V", nullptr, 0, $method(TCPTransport$ConnectionHandler, init$, void, $TCPTransport*, $Socket*, $String*)},
-	{"checkAcceptPermission", "(Ljava/lang/SecurityManager;Ljava/security/AccessControlContext;)V", nullptr, 0, $virtualMethod(TCPTransport$ConnectionHandler, checkAcceptPermission, void, $SecurityManager*, $AccessControlContext*)},
-	{"getClientHost", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(TCPTransport$ConnectionHandler, getClientHost, $String*)},
-	{"lambda$run$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(TCPTransport$ConnectionHandler, lambda$run$0, $Void*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TCPTransport$ConnectionHandler, run, void)},
-	{"run0", "()V", nullptr, $PRIVATE, $method(TCPTransport$ConnectionHandler, run0, void)},
-	{}
-};
-
-$InnerClassInfo _TCPTransport$ConnectionHandler_InnerClassesInfo_[] = {
-	{"sun.rmi.transport.tcp.TCPTransport$ConnectionHandler", "sun.rmi.transport.tcp.TCPTransport", "ConnectionHandler", $PRIVATE},
-	{}
-};
-
-$ClassInfo _TCPTransport$ConnectionHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.rmi.transport.tcp.TCPTransport$ConnectionHandler",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_TCPTransport$ConnectionHandler_FieldInfo_,
-	_TCPTransport$ConnectionHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TCPTransport$ConnectionHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.rmi.transport.tcp.TCPTransport"
-};
-
-$Object* allocate$TCPTransport$ConnectionHandler($Class* clazz) {
-	return $of($alloc(TCPTransport$ConnectionHandler));
-}
 
 void TCPTransport$ConnectionHandler::init$($TCPTransport* this$0, $Socket* socket, $String* remoteHost) {
 	$set(this, this$0, this$0);
@@ -179,7 +123,7 @@ $String* TCPTransport$ConnectionHandler::getClientHost() {
 }
 
 void TCPTransport$ConnectionHandler::checkAcceptPermission($SecurityManager* sm, $AccessControlContext* acc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (sm != this->cacheSecurityManager) {
 		$set(this, okContext, nullptr);
 		$set(this, authCache, $new($WeakHashMap));
@@ -190,36 +134,34 @@ void TCPTransport$ConnectionHandler::checkAcceptPermission($SecurityManager* sm,
 		return;
 	}
 	$var($InetAddress, addr, $nc(this->socket)->getInetAddress());
-	$var($String, host, (addr != nullptr) ? $nc(addr)->getHostAddress() : "*"_s);
-	$nc(sm)->checkAccept(host, $nc(this->socket)->getPort());
+	$var($String, host, (addr != nullptr) ? addr->getHostAddress() : "*"_s);
+	$nc(sm)->checkAccept(host, this->socket->getPort());
 	$nc(this->authCache)->put(acc, $$new($SoftReference, acc));
 	$set(this, okContext, acc);
 }
 
 void TCPTransport$ConnectionHandler::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Thread, t, $Thread::currentThread());
 	$var($String, name, t->getName());
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$init($TCPTransport);
-			t->setName($$str({"RMI TCP Connection("_s, $$str($nc($TCPTransport::connectionCount)->incrementAndGet()), ")-"_s, this->remoteHost}));
-			$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(TCPTransport$ConnectionHandler$$Lambda$lambda$run$0, this)), $TCPTransport::NOPERMS_ACC);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			t->setName(name);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$init($TCPTransport);
+		t->setName($$str({"RMI TCP Connection("_s, $$str($nc($TCPTransport::connectionCount)->incrementAndGet()), ")-"_s, this->remoteHost}));
+		$AccessController::doPrivileged($cast($PrivilegedAction, $$new(TCPTransport$ConnectionHandler$$Lambda$lambda$run$0, this)), $TCPTransport::NOPERMS_ACC);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		t->setName(name);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void TCPTransport$ConnectionHandler::run0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TCPEndpoint, endpoint, this->this$0->getEndpoint());
 	int32_t port = $nc(endpoint)->getPort();
 	$nc($TCPTransport::threadConnectionHandler)->set(this);
@@ -233,104 +175,98 @@ void TCPTransport$ConnectionHandler::run0() {
 		}
 	} catch ($Exception& e) {
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				$var($InputStream, sockIn, $nc(this->socket)->getInputStream());
-				$var($InputStream, bufIn, $nc(sockIn)->markSupported() ? sockIn : static_cast<$InputStream*>($new($BufferedInputStream, sockIn)));
-				$var($DataInputStream, in, $new($DataInputStream, bufIn));
-				int32_t magic = in->readInt();
-				int16_t version = in->readShort();
-				if (magic != $TransportConstants::Magic || version != $TransportConstants::Version) {
-					$init($Log);
-					if ($nc($TCPTransport::tcpLog)->isLoggable($Log::BRIEF)) {
-						$nc($TCPTransport::tcpLog)->log($Log::BRIEF, $$str({"magic or version not match: "_s, $$str(magic), ", "_s, $$str(version)}));
-					}
-					$TCPTransport::closeSocket(this->socket);
-					return$1 = true;
-					goto $finally;
-				}
-				$var($OutputStream, sockOut, $nc(this->socket)->getOutputStream());
-				$var($BufferedOutputStream, bufOut, $new($BufferedOutputStream, sockOut));
-				$var($DataOutputStream, out, $new($DataOutputStream, bufOut));
-				int32_t remotePort = $nc(this->socket)->getPort();
+			$var($InputStream, sockIn, $nc(this->socket)->getInputStream());
+			$var($InputStream, bufIn, $nc(sockIn)->markSupported() ? sockIn : $cast($InputStream, $new($BufferedInputStream, sockIn)));
+			$var($DataInputStream, in, $new($DataInputStream, bufIn));
+			int32_t magic = in->readInt();
+			int16_t version = in->readShort();
+			if (magic != $TransportConstants::Magic || version != $TransportConstants::Version) {
 				$init($Log);
 				if ($nc($TCPTransport::tcpLog)->isLoggable($Log::BRIEF)) {
-					$nc($TCPTransport::tcpLog)->log($Log::BRIEF, $$str({"accepted socket from ["_s, this->remoteHost, ":"_s, $$str(remotePort), "]"_s}));
+					$TCPTransport::tcpLog->log($Log::BRIEF, $$str({"magic or version not match: "_s, $$str(magic), ", "_s, $$str(version)}));
 				}
-				$var($TCPEndpoint, ep, nullptr);
-				$var($TCPChannel, ch, nullptr);
-				$var($TCPConnection, conn, nullptr);
-				int8_t protocol = in->readByte();
-				{
-					$var($String, clientHost, nullptr)
-					int32_t clientPort = 0;
-					switch (protocol) {
-					case $TransportConstants::SingleOpProtocol:
-						{
-							$var($String, var$2, this->remoteHost);
-							int32_t var$3 = $nc(this->socket)->getLocalPort();
-							$var($RMIClientSocketFactory, var$4, endpoint->getClientSocketFactory());
-							$assign(ep, $new($TCPEndpoint, var$2, var$3, var$4, $(endpoint->getServerSocketFactory())));
-							$assign(ch, $new($TCPChannel, this->this$0, ep));
-							$assign(conn, $new($TCPConnection, ch, this->socket, bufIn, bufOut));
-							this->this$0->handleMessages(conn, false);
-							break;
-						}
-					case $TransportConstants::StreamProtocol:
-						{
-							out->writeByte($TransportConstants::ProtocolAck);
-							if ($nc($TCPTransport::tcpLog)->isLoggable($Log::VERBOSE)) {
-								$nc($TCPTransport::tcpLog)->log($Log::VERBOSE, $$str({"(port "_s, $$str(port), ") suggesting "_s, this->remoteHost, ":"_s, $$str(remotePort)}));
-							}
-							out->writeUTF(this->remoteHost);
-							out->writeInt(remotePort);
-							out->flush();
-							$assign(clientHost, in->readUTF());
-							clientPort = in->readInt();
-							if ($nc($TCPTransport::tcpLog)->isLoggable($Log::VERBOSE)) {
-								$nc($TCPTransport::tcpLog)->log($Log::VERBOSE, $$str({"(port "_s, $$str(port), ") client using "_s, clientHost, ":"_s, $$str(clientPort)}));
-							}
-							$var($String, var$5, this->remoteHost);
-							int32_t var$6 = $nc(this->socket)->getLocalPort();
-							$var($RMIClientSocketFactory, var$7, endpoint->getClientSocketFactory());
-							$assign(ep, $new($TCPEndpoint, var$5, var$6, var$7, $(endpoint->getServerSocketFactory())));
-							$assign(ch, $new($TCPChannel, this->this$0, ep));
-							$assign(conn, $new($TCPConnection, ch, this->socket, bufIn, bufOut));
-							this->this$0->handleMessages(conn, true);
-							break;
-						}
-					case $TransportConstants::MultiplexProtocol:
-						{
-							if ($nc($TCPTransport::tcpLog)->isLoggable($Log::VERBOSE)) {
-								$nc($TCPTransport::tcpLog)->log($Log::VERBOSE, $$str({"(port "_s, $$str(port), ") rejecting multiplex protocol"_s}));
-							}
-						}
-					default:
-						{
-							out->writeByte($TransportConstants::ProtocolNack);
-							out->flush();
-							break;
-						}
-					}
-				}
-			} catch ($IOException& e) {
-				$init($Log);
-				$nc($TCPTransport::tcpLog)->log($Log::BRIEF, "terminated with exception:"_s, e);
+				$TCPTransport::closeSocket(this->socket);
+				return$1 = true;
+				goto $finally;
 			}
-		} catch ($Throwable& var$8) {
-			$assign(var$0, var$8);
-		} $finally: {
-			$TCPTransport::closeSocket(this->socket);
+			$var($OutputStream, sockOut, $nc(this->socket)->getOutputStream());
+			$var($BufferedOutputStream, bufOut, $new($BufferedOutputStream, sockOut));
+			$var($DataOutputStream, out, $new($DataOutputStream, bufOut));
+			int32_t remotePort = this->socket->getPort();
+			$init($Log);
+			if ($nc($TCPTransport::tcpLog)->isLoggable($Log::BRIEF)) {
+				$TCPTransport::tcpLog->log($Log::BRIEF, $$str({"accepted socket from ["_s, this->remoteHost, ":"_s, $$str(remotePort), "]"_s}));
+			}
+			$var($TCPEndpoint, ep, nullptr);
+			$var($TCPChannel, ch, nullptr);
+			$var($TCPConnection, conn, nullptr);
+			int8_t protocol = in->readByte();
+			{
+				$var($String, clientHost, nullptr);
+				int32_t clientPort = 0;
+				switch (protocol) {
+				case $TransportConstants::SingleOpProtocol:
+					{
+						$var($String, var$2, this->remoteHost);
+						int32_t var$3 = $nc(this->socket)->getLocalPort();
+						$var($RMIClientSocketFactory, var$4, endpoint->getClientSocketFactory());
+						$assign(ep, $new($TCPEndpoint, var$2, var$3, var$4, $(endpoint->getServerSocketFactory())));
+						$assign(ch, $new($TCPChannel, this->this$0, ep));
+						$assign(conn, $new($TCPConnection, ch, this->socket, bufIn, bufOut));
+						this->this$0->handleMessages(conn, false);
+						break;
+					}
+				case $TransportConstants::StreamProtocol:
+					{
+						out->writeByte($TransportConstants::ProtocolAck);
+						if ($TCPTransport::tcpLog->isLoggable($Log::VERBOSE)) {
+							$TCPTransport::tcpLog->log($Log::VERBOSE, $$str({"(port "_s, $$str(port), ") suggesting "_s, this->remoteHost, ":"_s, $$str(remotePort)}));
+						}
+						out->writeUTF(this->remoteHost);
+						out->writeInt(remotePort);
+						out->flush();
+						$assign(clientHost, in->readUTF());
+						clientPort = in->readInt();
+						if ($TCPTransport::tcpLog->isLoggable($Log::VERBOSE)) {
+							$TCPTransport::tcpLog->log($Log::VERBOSE, $$str({"(port "_s, $$str(port), ") client using "_s, clientHost, ":"_s, $$str(clientPort)}));
+						}
+						$var($String, var$5, this->remoteHost);
+						int32_t var$6 = $nc(this->socket)->getLocalPort();
+						$var($RMIClientSocketFactory, var$7, endpoint->getClientSocketFactory());
+						$assign(ep, $new($TCPEndpoint, var$5, var$6, var$7, $(endpoint->getServerSocketFactory())));
+						$assign(ch, $new($TCPChannel, this->this$0, ep));
+						$assign(conn, $new($TCPConnection, ch, this->socket, bufIn, bufOut));
+						this->this$0->handleMessages(conn, true);
+						break;
+					}
+				case $TransportConstants::MultiplexProtocol:
+					if ($TCPTransport::tcpLog->isLoggable($Log::VERBOSE)) {
+						$TCPTransport::tcpLog->log($Log::VERBOSE, $$str({"(port "_s, $$str(port), ") rejecting multiplex protocol"_s}));
+					}
+				default:
+					out->writeByte($TransportConstants::ProtocolNack);
+					out->flush();
+					break;
+				}
+			}
+		} catch ($IOException& e) {
+			$init($Log);
+			$nc($TCPTransport::tcpLog)->log($Log::BRIEF, "terminated with exception:"_s, e);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return;
-		}
+	} catch ($Throwable& var$8) {
+		$assign(var$0, var$8);
+	} $finally: {
+		$TCPTransport::closeSocket(this->socket);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
@@ -344,11 +280,51 @@ TCPTransport$ConnectionHandler::TCPTransport$ConnectionHandler() {
 
 $Class* TCPTransport$ConnectionHandler::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TCPTransport$ConnectionHandler$$Lambda$lambda$run$0::classInfo$.name)) {
+		if (name->equals("sun.rmi.transport.tcp.TCPTransport$ConnectionHandler$$Lambda$lambda$run$0")) {
 			return TCPTransport$ConnectionHandler$$Lambda$lambda$run$0::load$(name, initialize);
 		}
 	}
-	$loadClass(TCPTransport$ConnectionHandler, name, initialize, &_TCPTransport$ConnectionHandler_ClassInfo_, allocate$TCPTransport$ConnectionHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/rmi/transport/tcp/TCPTransport;", nullptr, $FINAL | $SYNTHETIC, $field(TCPTransport$ConnectionHandler, this$0)},
+		{"POST", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TCPTransport$ConnectionHandler, POST)},
+		{"okContext", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE, $field(TCPTransport$ConnectionHandler, okContext)},
+		{"authCache", "Ljava/util/Map;", "Ljava/util/Map<Ljava/security/AccessControlContext;Ljava/lang/ref/Reference<Ljava/security/AccessControlContext;>;>;", $PRIVATE, $field(TCPTransport$ConnectionHandler, authCache)},
+		{"cacheSecurityManager", "Ljava/lang/SecurityManager;", nullptr, $PRIVATE, $field(TCPTransport$ConnectionHandler, cacheSecurityManager)},
+		{"socket", "Ljava/net/Socket;", nullptr, $PRIVATE, $field(TCPTransport$ConnectionHandler, socket)},
+		{"remoteHost", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TCPTransport$ConnectionHandler, remoteHost)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/rmi/transport/tcp/TCPTransport;Ljava/net/Socket;Ljava/lang/String;)V", nullptr, 0, $method(TCPTransport$ConnectionHandler, init$, void, $TCPTransport*, $Socket*, $String*)},
+		{"checkAcceptPermission", "(Ljava/lang/SecurityManager;Ljava/security/AccessControlContext;)V", nullptr, 0, $virtualMethod(TCPTransport$ConnectionHandler, checkAcceptPermission, void, $SecurityManager*, $AccessControlContext*)},
+		{"getClientHost", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(TCPTransport$ConnectionHandler, getClientHost, $String*)},
+		{"lambda$run$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(TCPTransport$ConnectionHandler, lambda$run$0, $Void*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TCPTransport$ConnectionHandler, run, void)},
+		{"run0", "()V", nullptr, $PRIVATE, $method(TCPTransport$ConnectionHandler, run0, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.transport.tcp.TCPTransport$ConnectionHandler", "sun.rmi.transport.tcp.TCPTransport", "ConnectionHandler", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.rmi.transport.tcp.TCPTransport$ConnectionHandler",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.rmi.transport.tcp.TCPTransport"
+	};
+	$loadClass(TCPTransport$ConnectionHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TCPTransport$ConnectionHandler);
+	});
 	return class$;
 }
 

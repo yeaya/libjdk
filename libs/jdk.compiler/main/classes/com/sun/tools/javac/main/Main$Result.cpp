@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/main/Main$Result.h>
-
 #include <com/sun/tools/javac/main/Main.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -22,51 +21,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace main {
-
-$FieldInfo _Main$Result_FieldInfo_[] = {
-	{"OK", "Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Result, OK)},
-	{"ERROR", "Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Result, ERROR)},
-	{"CMDERR", "Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Result, CMDERR)},
-	{"SYSERR", "Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Result, SYSERR)},
-	{"ABNORMAL", "Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Result, ABNORMAL)},
-	{"$VALUES", "[Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Main$Result, $VALUES)},
-	{"exitCode", "I", nullptr, $PUBLIC | $FINAL, $field(Main$Result, exitCode)},
-	{}
-};
-
-$MethodInfo _Main$Result_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main$Result, $values, $Main$ResultArray*)},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(Main$Result, init$, void, $String*, int32_t, int32_t)},
-	{"isOK", "()Z", nullptr, $PUBLIC, $method(Main$Result, isOK, bool)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC | $STATIC, $staticMethod(Main$Result, valueOf, Main$Result*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC | $STATIC, $staticMethod(Main$Result, values, $Main$ResultArray*)},
-	{}
-};
-
-$InnerClassInfo _Main$Result_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.main.Main$Result", "com.sun.tools.javac.main.Main", "Result", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Main$Result_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.main.Main$Result",
-	"java.lang.Enum",
-	nullptr,
-	_Main$Result_FieldInfo_,
-	_Main$Result_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/main/Main$Result;>;",
-	nullptr,
-	_Main$Result_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.main.Main"
-};
-
-$Object* allocate$Main$Result($Class* clazz) {
-	return $of($alloc(Main$Result));
-}
 
 Main$Result* Main$Result::OK = nullptr;
 Main$Result* Main$Result::ERROR = nullptr;
@@ -105,7 +59,7 @@ bool Main$Result::isOK() {
 	return (this->exitCode == 0);
 }
 
-void clinit$Main$Result($Class* class$) {
+void Main$Result::clinit$($Class* clazz) {
 	$assignStatic(Main$Result::OK, $new(Main$Result, "OK"_s, 0, 0));
 	$assignStatic(Main$Result::ERROR, $new(Main$Result, "ERROR"_s, 1, 1));
 	$assignStatic(Main$Result::CMDERR, $new(Main$Result, "CMDERR"_s, 2, 2));
@@ -118,7 +72,46 @@ Main$Result::Main$Result() {
 }
 
 $Class* Main$Result::load$($String* name, bool initialize) {
-	$loadClass(Main$Result, name, initialize, &_Main$Result_ClassInfo_, clinit$Main$Result, allocate$Main$Result);
+	$FieldInfo fieldInfos$$[] = {
+		{"OK", "Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Result, OK)},
+		{"ERROR", "Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Result, ERROR)},
+		{"CMDERR", "Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Result, CMDERR)},
+		{"SYSERR", "Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Result, SYSERR)},
+		{"ABNORMAL", "Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Result, ABNORMAL)},
+		{"$VALUES", "[Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Main$Result, $VALUES)},
+		{"exitCode", "I", nullptr, $PUBLIC | $FINAL, $field(Main$Result, exitCode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main$Result, $values, $Main$ResultArray*)},
+		{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(Main$Result, init$, void, $String*, int32_t, int32_t)},
+		{"isOK", "()Z", nullptr, $PUBLIC, $method(Main$Result, isOK, bool)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC | $STATIC, $staticMethod(Main$Result, valueOf, Main$Result*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC | $STATIC, $staticMethod(Main$Result, values, $Main$ResultArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.main.Main$Result", "com.sun.tools.javac.main.Main", "Result", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.main.Main$Result",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/main/Main$Result;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.main.Main"
+	};
+	$loadClass(Main$Result, name, initialize, &classInfo$$, Main$Result::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Main$Result));
+	});
 	return class$;
 }
 

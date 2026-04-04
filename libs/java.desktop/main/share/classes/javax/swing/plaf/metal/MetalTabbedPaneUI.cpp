@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalTabbedPaneUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -30,7 +29,6 @@
 
 using $RectangleArray = $Array<::java::awt::Rectangle>;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
@@ -57,76 +55,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$FieldInfo _MetalTabbedPaneUI_FieldInfo_[] = {
-	{"minTabWidth", "I", nullptr, $PROTECTED, $field(MetalTabbedPaneUI, minTabWidth)},
-	{"unselectedBackground", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MetalTabbedPaneUI, unselectedBackground)},
-	{"tabAreaBackground", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalTabbedPaneUI, tabAreaBackground)},
-	{"selectColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalTabbedPaneUI, selectColor)},
-	{"selectHighlight", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalTabbedPaneUI, selectHighlight)},
-	{"tabsOpaque", "Z", nullptr, $PRIVATE, $field(MetalTabbedPaneUI, tabsOpaque)},
-	{"ocean", "Z", nullptr, $PRIVATE, $field(MetalTabbedPaneUI, ocean)},
-	{"oceanSelectedBorderColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MetalTabbedPaneUI, oceanSelectedBorderColor)},
-	{}
-};
-
-$MethodInfo _MetalTabbedPaneUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalTabbedPaneUI, init$, void)},
-	{"calculateMaxTabHeight", "(I)I", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, calculateMaxTabHeight, int32_t, int32_t)},
-	{"createLayoutManager", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, createLayoutManager, $LayoutManager*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalTabbedPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getBaselineOffset", "()I", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, getBaselineOffset, int32_t)},
-	{"getColorForGap", "(III)Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, getColorForGap, $Color*, int32_t, int32_t, int32_t)},
-	{"getRolloverTabIndex", "()I", nullptr, 0, $virtualMethod(MetalTabbedPaneUI, getRolloverTabIndex, int32_t)},
-	{"getTabLabelShiftX", "(IIZ)I", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, getTabLabelShiftX, int32_t, int32_t, int32_t, bool)},
-	{"getTabLabelShiftY", "(IIZ)I", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, getTabLabelShiftY, int32_t, int32_t, int32_t, bool)},
-	{"getTabRunOverlay", "(I)I", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, getTabRunOverlay, int32_t, int32_t)},
-	{"getUnselectedBackgroundAt", "(I)Ljava/awt/Color;", nullptr, $PRIVATE, $method(MetalTabbedPaneUI, getUnselectedBackgroundAt, $Color*, int32_t)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, installDefaults, void)},
-	{"isLastInRun", "(I)Z", nullptr, $PRIVATE, $method(MetalTabbedPaneUI, isLastInRun, bool, int32_t)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalTabbedPaneUI, paint, void, $Graphics*, $JComponent*)},
-	{"paintBottomTabBorder", "(ILjava/awt/Graphics;IIIIIIZ)V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, paintBottomTabBorder, void, int32_t, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"paintContentBorderBottomEdge", "(Ljava/awt/Graphics;IIIIII)V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, paintContentBorderBottomEdge, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"paintContentBorderLeftEdge", "(Ljava/awt/Graphics;IIIIII)V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, paintContentBorderLeftEdge, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"paintContentBorderRightEdge", "(Ljava/awt/Graphics;IIIIII)V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, paintContentBorderRightEdge, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"paintContentBorderTopEdge", "(Ljava/awt/Graphics;IIIIII)V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, paintContentBorderTopEdge, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"paintFocusIndicator", "(Ljava/awt/Graphics;I[Ljava/awt/Rectangle;ILjava/awt/Rectangle;Ljava/awt/Rectangle;Z)V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, paintFocusIndicator, void, $Graphics*, int32_t, $RectangleArray*, int32_t, $Rectangle*, $Rectangle*, bool)},
-	{"paintHighlightBelowTab", "()V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, paintHighlightBelowTab, void)},
-	{"paintLeftTabBorder", "(ILjava/awt/Graphics;IIIIIIZ)V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, paintLeftTabBorder, void, int32_t, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"paintRightTabBorder", "(ILjava/awt/Graphics;IIIIIIZ)V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, paintRightTabBorder, void, int32_t, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"paintTabBackground", "(Ljava/awt/Graphics;IIIIIIZ)V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, paintTabBackground, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"paintTabBorder", "(Ljava/awt/Graphics;IIIIIIZ)V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, paintTabBorder, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"paintTopTabBorder", "(ILjava/awt/Graphics;IIIIIIZ)V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, paintTopTabBorder, void, int32_t, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"shouldFillGap", "(IIII)Z", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, shouldFillGap, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"shouldPadTabRun", "(II)Z", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, shouldPadTabRun, bool, int32_t, int32_t)},
-	{"shouldRotateTabRuns", "(II)Z", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, shouldRotateTabRuns, bool, int32_t, int32_t)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalTabbedPaneUI, update, void, $Graphics*, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _MetalTabbedPaneUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalTabbedPaneUI$TabbedPaneLayout", "javax.swing.plaf.metal.MetalTabbedPaneUI", "TabbedPaneLayout", $PUBLIC},
-	{}
-};
-
-$ClassInfo _MetalTabbedPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalTabbedPaneUI",
-	"javax.swing.plaf.basic.BasicTabbedPaneUI",
-	nullptr,
-	_MetalTabbedPaneUI_FieldInfo_,
-	_MetalTabbedPaneUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalTabbedPaneUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalTabbedPaneUI$TabbedPaneLayout"
-};
-
-$Object* allocate$MetalTabbedPaneUI($Class* clazz) {
-	return $of($alloc(MetalTabbedPaneUI));
-}
 
 void MetalTabbedPaneUI::init$() {
 	$BasicTabbedPaneUI::init$();
@@ -164,31 +92,22 @@ void MetalTabbedPaneUI::paintTabBorder($Graphics* g, int32_t tabPlacement, int32
 	int32_t right = x + (w - 1);
 	switch (tabPlacement) {
 	case $SwingConstants::LEFT:
-		{
-			paintLeftTabBorder(tabIndex, g, x, y, w, h, bottom, right, isSelected);
-			break;
-		}
+		paintLeftTabBorder(tabIndex, g, x, y, w, h, bottom, right, isSelected);
+		break;
 	case $SwingConstants::BOTTOM:
-		{
-			paintBottomTabBorder(tabIndex, g, x, y, w, h, bottom, right, isSelected);
-			break;
-		}
+		paintBottomTabBorder(tabIndex, g, x, y, w, h, bottom, right, isSelected);
+		break;
 	case $SwingConstants::RIGHT:
-		{
-			paintRightTabBorder(tabIndex, g, x, y, w, h, bottom, right, isSelected);
-			break;
-		}
+		paintRightTabBorder(tabIndex, g, x, y, w, h, bottom, right, isSelected);
+		break;
 	case $SwingConstants::TOP:
-		{}
 	default:
-		{
-			paintTopTabBorder(tabIndex, g, x, y, w, h, bottom, right, isSelected);
-		}
+		paintTopTabBorder(tabIndex, g, x, y, w, h, bottom, right, isSelected);
 	}
 }
 
 void MetalTabbedPaneUI::paintTopTabBorder(int32_t tabIndex, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h, int32_t btm, int32_t rght, bool isSelected) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t currentRun = getRunForTab($nc(this->tabPane)->getTabCount(), tabIndex);
 	int32_t lastIndex = lastTabInRun($nc(this->tabPane)->getTabCount(), currentRun);
 	int32_t firstIndex = $nc(this->tabRuns)->get(currentRun);
@@ -262,7 +181,7 @@ void MetalTabbedPaneUI::paintTopTabBorder(int32_t tabIndex, $Graphics* g, int32_
 		g->drawLine(6, 1, (tabIndex == lastIndex) ? right - 1 : right, 1);
 		g->drawLine(1, 6, 1, bottom);
 		if (tabIndex == firstIndex && tabIndex != $nc(this->tabRuns)->get(this->runCount - 1)) {
-			if ($nc(this->tabPane)->getSelectedIndex() == $nc(this->tabRuns)->get(currentRun + 1)) {
+			if ($nc(this->tabPane)->getSelectedIndex() == this->tabRuns->get(currentRun + 1)) {
 				g->setColor(this->selectHighlight);
 			} else {
 				g->setColor(this->highlight);
@@ -282,7 +201,7 @@ void MetalTabbedPaneUI::paintTopTabBorder(int32_t tabIndex, $Graphics* g, int32_
 }
 
 bool MetalTabbedPaneUI::shouldFillGap(int32_t currentRun, int32_t tabIndex, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool result = false;
 	if (!this->tabsOpaque) {
 		return false;
@@ -291,13 +210,13 @@ bool MetalTabbedPaneUI::shouldFillGap(int32_t currentRun, int32_t tabIndex, int3
 		$var($Rectangle, lastTabBounds, getTabBounds(this->tabPane, $nc(this->tabPane)->getTabCount() - 1));
 		$var($Rectangle, tabBounds, getTabBounds(this->tabPane, tabIndex));
 		if ($MetalUtils::isLeftToRight(this->tabPane)) {
-			int32_t lastTabRight = $nc(lastTabBounds)->x + lastTabBounds->width - 1;
+			int32_t lastTabRight = $nc(lastTabBounds)->x + $nc(lastTabBounds)->width - 1;
 			if (lastTabRight > $nc(tabBounds)->x + 2) {
 				return true;
 			}
 		} else {
 			int32_t lastTabLeft = $nc(lastTabBounds)->x;
-			int32_t currentTabRight = $nc(tabBounds)->x + tabBounds->width - 1;
+			int32_t currentTabRight = $nc(tabBounds)->x + $nc(tabBounds)->width - 1;
 			if (lastTabLeft < currentTabRight - 2) {
 				return true;
 			}
@@ -309,7 +228,7 @@ bool MetalTabbedPaneUI::shouldFillGap(int32_t currentRun, int32_t tabIndex, int3
 }
 
 $Color* MetalTabbedPaneUI::getColorForGap(int32_t currentRun, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t shadowWidth = 4;
 	int32_t selectedIndex = $nc(this->tabPane)->getSelectedIndex();
 	int32_t startIndex = $nc(this->tabRuns)->get(currentRun + 1);
@@ -331,7 +250,7 @@ $Color* MetalTabbedPaneUI::getColorForGap(int32_t currentRun, int32_t x, int32_t
 }
 
 void MetalTabbedPaneUI::paintLeftTabBorder(int32_t tabIndex, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h, int32_t btm, int32_t rght, bool isSelected) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t tabCount = $nc(this->tabPane)->getTabCount();
 	int32_t currentRun = getRunForTab(tabCount, tabIndex);
 	int32_t lastIndex = lastTabInRun(tabCount, currentRun);
@@ -345,7 +264,7 @@ void MetalTabbedPaneUI::paintLeftTabBorder(int32_t tabIndex, $Graphics* g, int32
 		g->drawLine(2, 3, 2, 3);
 	}
 	if (this->ocean) {
-		g->setColor(isSelected ? this->selectHighlight : $(static_cast<$Color*>($MetalLookAndFeel::getWhite())));
+		g->setColor(isSelected ? this->selectHighlight : $$cast($Color, $MetalLookAndFeel::getWhite()));
 	} else {
 		g->setColor(isSelected ? this->selectHighlight : this->highlight);
 	}
@@ -356,7 +275,7 @@ void MetalTabbedPaneUI::paintLeftTabBorder(int32_t tabIndex, $Graphics* g, int32
 		if ($nc(this->tabPane)->getSelectedIndex() == tabIndex - 1) {
 			g->setColor(this->selectHighlight);
 		} else {
-			g->setColor(this->ocean ? $(static_cast<$Color*>($MetalLookAndFeel::getWhite())) : this->highlight);
+			g->setColor(this->ocean ? $$cast($Color, $MetalLookAndFeel::getWhite()) : this->highlight);
 		}
 		g->drawLine(1, 0, 1, 4);
 	}
@@ -399,7 +318,7 @@ void MetalTabbedPaneUI::paintLeftTabBorder(int32_t tabIndex, $Graphics* g, int32
 }
 
 void MetalTabbedPaneUI::paintBottomTabBorder(int32_t tabIndex, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h, int32_t btm, int32_t rght, bool isSelected) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t tabCount = $nc(this->tabPane)->getTabCount();
 	int32_t currentRun = getRunForTab(tabCount, tabIndex);
 	int32_t lastIndex = lastTabInRun(tabCount, currentRun);
@@ -475,7 +394,7 @@ void MetalTabbedPaneUI::paintBottomTabBorder(int32_t tabIndex, $Graphics* g, int
 		g->drawLine(1, bottom - 6, 6, bottom - 1);
 		g->drawLine(1, 0, 1, bottom - 6);
 		if (tabIndex == firstIndex && tabIndex != $nc(this->tabRuns)->get(this->runCount - 1)) {
-			if ($nc(this->tabPane)->getSelectedIndex() == $nc(this->tabRuns)->get(currentRun + 1)) {
+			if ($nc(this->tabPane)->getSelectedIndex() == this->tabRuns->get(currentRun + 1)) {
 				g->setColor(this->selectHighlight);
 			} else {
 				g->setColor(this->highlight);
@@ -560,59 +479,41 @@ void MetalTabbedPaneUI::paintTabBackground($Graphics* g, int32_t tabPlacement, i
 	if ($MetalUtils::isLeftToRight(this->tabPane)) {
 		switch (tabPlacement) {
 		case $SwingConstants::LEFT:
-			{
-				$nc(g)->fillRect(x + 5, y + 1, w - 5, h - 1);
-				$nc(g)->fillRect(x + 2, y + 4, 3, h - 4);
-				break;
-			}
+			$nc(g)->fillRect(x + 5, y + 1, w - 5, h - 1);
+			g->fillRect(x + 2, y + 4, 3, h - 4);
+			break;
 		case $SwingConstants::BOTTOM:
-			{
-				$nc(g)->fillRect(x + 2, y, w - 2, h - 4);
-				$nc(g)->fillRect(x + 5, y + (h - 1) - 3, w - 5, 3);
-				break;
-			}
+			$nc(g)->fillRect(x + 2, y, w - 2, h - 4);
+			g->fillRect(x + 5, y + (h - 1) - 3, w - 5, 3);
+			break;
 		case $SwingConstants::RIGHT:
-			{
-				$nc(g)->fillRect(x, y + 2, w - 4, h - 2);
-				$nc(g)->fillRect(x + (w - 1) - 3, y + 5, 3, h - 5);
-				break;
-			}
+			$nc(g)->fillRect(x, y + 2, w - 4, h - 2);
+			g->fillRect(x + (w - 1) - 3, y + 5, 3, h - 5);
+			break;
 		case $SwingConstants::TOP:
-			{}
 		default:
-			{
-				$nc(g)->fillRect(x + 4, y + 2, (w - 1) - 3, (h - 1) - 1);
-				$nc(g)->fillRect(x + 2, y + 5, 2, h - 5);
-			}
+			$nc(g)->fillRect(x + 4, y + 2, (w - 1) - 3, (h - 1) - 1);
+			g->fillRect(x + 2, y + 5, 2, h - 5);
 		}
 	} else {
 		switch (tabPlacement) {
 		case $SwingConstants::LEFT:
-			{
-				$nc(g)->fillRect(x + 5, y + 1, w - 5, h - 1);
-				$nc(g)->fillRect(x + 2, y + 4, 3, h - 4);
-				break;
-			}
+			$nc(g)->fillRect(x + 5, y + 1, w - 5, h - 1);
+			g->fillRect(x + 2, y + 4, 3, h - 4);
+			break;
 		case $SwingConstants::BOTTOM:
-			{
-				$nc(g)->fillRect(x, y, w - 5, h - 1);
-				$nc(g)->fillRect(x + (w - 1) - 4, y, 4, h - 5);
-				$nc(g)->fillRect(x + (w - 1) - 4, y + (h - 1) - 4, 2, 2);
-				break;
-			}
+			$nc(g)->fillRect(x, y, w - 5, h - 1);
+			g->fillRect(x + (w - 1) - 4, y, 4, h - 5);
+			g->fillRect(x + (w - 1) - 4, y + (h - 1) - 4, 2, 2);
+			break;
 		case $SwingConstants::RIGHT:
-			{
-				$nc(g)->fillRect(x + 1, y + 1, w - 5, h - 1);
-				$nc(g)->fillRect(x + (w - 1) - 3, y + 5, 3, h - 5);
-				break;
-			}
+			$nc(g)->fillRect(x + 1, y + 1, w - 5, h - 1);
+			g->fillRect(x + (w - 1) - 3, y + 5, 3, h - 5);
+			break;
 		case $SwingConstants::TOP:
-			{}
 		default:
-			{
-				$nc(g)->fillRect(x, y + 2, (w - 1) - 3, (h - 1) - 1);
-				$nc(g)->fillRect(x + (w - 1) - 3, y + 5, 3, h - 3);
-			}
+			$nc(g)->fillRect(x, y + 2, (w - 1) - 3, (h - 1) - 1);
+			g->fillRect(x + (w - 1) - 3, y + 5, 3, h - 3);
 		}
 	}
 }
@@ -630,7 +531,7 @@ int32_t MetalTabbedPaneUI::getBaselineOffset() {
 }
 
 void MetalTabbedPaneUI::paint($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t tabPlacement = $nc(this->tabPane)->getTabPlacement();
 	$var($Insets, insets, $nc(c)->getInsets());
 	$var($Dimension, size, c->getSize());
@@ -646,29 +547,20 @@ void MetalTabbedPaneUI::paint($Graphics* g, $JComponent* c) {
 			int32_t totalTabWidth = 0;
 			switch (tabPlacement) {
 			case $SwingConstants::LEFT:
-				{
-					$nc(g)->fillRect($nc(insets)->left, insets->top, calculateTabAreaWidth(tabPlacement, this->runCount, this->maxTabWidth), $nc(size)->height - insets->bottom - insets->top);
-					break;
-				}
+				$nc(g)->fillRect($nc(insets)->left, $nc(insets)->top, calculateTabAreaWidth(tabPlacement, this->runCount, this->maxTabWidth), $nc(size)->height - $nc(insets)->bottom - $nc(insets)->top);
+				break;
 			case $SwingConstants::BOTTOM:
-				{
-					totalTabHeight = calculateTabAreaHeight(tabPlacement, this->runCount, this->maxTabHeight);
-					$nc(g)->fillRect($nc(insets)->left, $nc(size)->height - insets->bottom - totalTabHeight, size->width - insets->left - insets->right, totalTabHeight);
-					break;
-				}
+				totalTabHeight = calculateTabAreaHeight(tabPlacement, this->runCount, this->maxTabHeight);
+				$nc(g)->fillRect($nc(insets)->left, $nc(size)->height - $nc(insets)->bottom - totalTabHeight, $nc(size)->width - $nc(insets)->left - $nc(insets)->right, totalTabHeight);
+				break;
 			case $SwingConstants::RIGHT:
-				{
-					totalTabWidth = calculateTabAreaWidth(tabPlacement, this->runCount, this->maxTabWidth);
-					$nc(g)->fillRect($nc(size)->width - $nc(insets)->right - totalTabWidth, insets->top, totalTabWidth, size->height - insets->top - insets->bottom);
-					break;
-				}
+				totalTabWidth = calculateTabAreaWidth(tabPlacement, this->runCount, this->maxTabWidth);
+				$nc(g)->fillRect($nc(size)->width - $nc(insets)->right - totalTabWidth, $nc(insets)->top, totalTabWidth, $nc(size)->height - $nc(insets)->top - $nc(insets)->bottom);
+				break;
 			case $SwingConstants::TOP:
-				{}
 			default:
-				{
-					$nc(g)->fillRect($nc(insets)->left, insets->top, $nc(size)->width - insets->right - insets->left, calculateTabAreaHeight(tabPlacement, this->runCount, this->maxTabHeight));
-					paintHighlightBelowTab();
-				}
+				$nc(g)->fillRect($nc(insets)->left, $nc(insets)->top, $nc(size)->width - $nc(insets)->right - $nc(insets)->left, calculateTabAreaHeight(tabPlacement, this->runCount, this->maxTabHeight));
+				paintHighlightBelowTab();
 			}
 		}
 	}
@@ -683,74 +575,65 @@ void MetalTabbedPaneUI::paintFocusIndicator($Graphics* g, int32_t tabPlacement, 
 		$var($Rectangle, tabRect, $nc(rects)->get(tabIndex));
 		bool lastInRun = isLastInRun(tabIndex);
 		$nc(g)->setColor(this->focus);
-		g->translate($nc(tabRect)->x, tabRect->y);
-		int32_t right = $nc(tabRect)->width - 1;
+		g->translate($nc(tabRect)->x, $nc(tabRect)->y);
+		int32_t right = tabRect->width - 1;
 		int32_t bottom = tabRect->height - 1;
 		bool leftToRight = $MetalUtils::isLeftToRight(this->tabPane);
 		switch (tabPlacement) {
 		case $SwingConstants::RIGHT:
-			{
-				g->drawLine(right - 6, 2, right - 2, 6);
-				g->drawLine(1, 2, right - 6, 2);
-				g->drawLine(right - 2, 6, right - 2, bottom);
-				g->drawLine(1, 2, 1, bottom);
-				g->drawLine(1, bottom, right - 2, bottom);
-				break;
-			}
+			g->drawLine(right - 6, 2, right - 2, 6);
+			g->drawLine(1, 2, right - 6, 2);
+			g->drawLine(right - 2, 6, right - 2, bottom);
+			g->drawLine(1, 2, 1, bottom);
+			g->drawLine(1, bottom, right - 2, bottom);
+			break;
 		case $SwingConstants::BOTTOM:
-			{
-				if (leftToRight) {
-					g->drawLine(2, bottom - 6, 6, bottom - 2);
-					g->drawLine(6, bottom - 2, right, bottom - 2);
-					g->drawLine(2, 0, 2, bottom - 6);
-					g->drawLine(2, 0, right, 0);
-					g->drawLine(right, 0, right, bottom - 2);
+			if (leftToRight) {
+				g->drawLine(2, bottom - 6, 6, bottom - 2);
+				g->drawLine(6, bottom - 2, right, bottom - 2);
+				g->drawLine(2, 0, 2, bottom - 6);
+				g->drawLine(2, 0, right, 0);
+				g->drawLine(right, 0, right, bottom - 2);
+			} else {
+				g->drawLine(right - 2, bottom - 6, right - 6, bottom - 2);
+				g->drawLine(right - 2, 0, right - 2, bottom - 6);
+				if (lastInRun) {
+					g->drawLine(2, bottom - 2, right - 6, bottom - 2);
+					g->drawLine(2, 0, right - 2, 0);
+					g->drawLine(2, 0, 2, bottom - 2);
 				} else {
-					g->drawLine(right - 2, bottom - 6, right - 6, bottom - 2);
-					g->drawLine(right - 2, 0, right - 2, bottom - 6);
-					if (lastInRun) {
-						g->drawLine(2, bottom - 2, right - 6, bottom - 2);
-						g->drawLine(2, 0, right - 2, 0);
-						g->drawLine(2, 0, 2, bottom - 2);
-					} else {
-						g->drawLine(1, bottom - 2, right - 6, bottom - 2);
-						g->drawLine(1, 0, right - 2, 0);
-						g->drawLine(1, 0, 1, bottom - 2);
-					}
+					g->drawLine(1, bottom - 2, right - 6, bottom - 2);
+					g->drawLine(1, 0, right - 2, 0);
+					g->drawLine(1, 0, 1, bottom - 2);
 				}
-				break;
 			}
+			break;
 		case $SwingConstants::LEFT:
-			{
+			g->drawLine(2, 6, 6, 2);
+			g->drawLine(2, 6, 2, bottom - 1);
+			g->drawLine(6, 2, right, 2);
+			g->drawLine(right, 2, right, bottom - 1);
+			g->drawLine(2, bottom - 1, right, bottom - 1);
+			break;
+		case $SwingConstants::TOP:
+		default:
+			if (leftToRight) {
 				g->drawLine(2, 6, 6, 2);
 				g->drawLine(2, 6, 2, bottom - 1);
 				g->drawLine(6, 2, right, 2);
 				g->drawLine(right, 2, right, bottom - 1);
 				g->drawLine(2, bottom - 1, right, bottom - 1);
-				break;
-			}
-		case $SwingConstants::TOP:
-			{}
-		default:
-			{
-				if (leftToRight) {
-					g->drawLine(2, 6, 6, 2);
-					g->drawLine(2, 6, 2, bottom - 1);
-					g->drawLine(6, 2, right, 2);
-					g->drawLine(right, 2, right, bottom - 1);
-					g->drawLine(2, bottom - 1, right, bottom - 1);
+			} else {
+				g->drawLine(right - 2, 6, right - 6, 2);
+				g->drawLine(right - 2, 6, right - 2, bottom - 1);
+				if (lastInRun) {
+					g->drawLine(right - 6, 2, 2, 2);
+					g->drawLine(2, 2, 2, bottom - 1);
+					g->drawLine(right - 2, bottom - 1, 2, bottom - 1);
 				} else {
-					g->drawLine(right - 2, 6, right - 6, 2);
-					g->drawLine(right - 2, 6, right - 2, bottom - 1);
-					if (lastInRun) {
-						g->drawLine(right - 6, 2, 2, 2);
-						g->drawLine(2, 2, 2, bottom - 1);
-						g->drawLine(right - 2, bottom - 1, 2, bottom - 1);
-					} else {
-						g->drawLine(right - 6, 2, 1, 2);
-						g->drawLine(1, 2, 1, bottom - 1);
-						g->drawLine(right - 2, bottom - 1, 1, bottom - 1);
-					}
+					g->drawLine(right - 6, 2, 1, 2);
+					g->drawLine(1, 2, 1, bottom - 1);
+					g->drawLine(right - 2, bottom - 1, 1, bottom - 1);
 				}
 			}
 		}
@@ -759,7 +642,7 @@ void MetalTabbedPaneUI::paintFocusIndicator($Graphics* g, int32_t tabPlacement, 
 }
 
 void MetalTabbedPaneUI::paintContentBorderTopEdge($Graphics* g, int32_t tabPlacement, int32_t selectedIndex, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool leftToRight = $MetalUtils::isLeftToRight(this->tabPane);
 	int32_t right = x + w - 1;
 	$var($Rectangle, selRect, selectedIndex < 0 ? ($Rectangle*)nullptr : getTabBounds(selectedIndex, this->calcRect));
@@ -768,7 +651,7 @@ void MetalTabbedPaneUI::paintContentBorderTopEdge($Graphics* g, int32_t tabPlace
 	} else {
 		$nc(g)->setColor(this->selectHighlight);
 	}
-	if (tabPlacement != $SwingConstants::TOP || selectedIndex < 0 || ($nc(selRect)->y + selRect->height + 1 < y) || ($nc(selRect)->x < x || $nc(selRect)->x > x + w)) {
+	if (tabPlacement != $SwingConstants::TOP || selectedIndex < 0 || ($nc(selRect)->y + $nc(selRect)->height + 1 < y) || ($nc(selRect)->x < x || selRect->x > x + w)) {
 		$nc(g)->drawLine(x, y, x + w - 2, y);
 		if (this->ocean && tabPlacement == $SwingConstants::TOP) {
 			g->setColor($($MetalLookAndFeel::getWhite()));
@@ -777,11 +660,11 @@ void MetalTabbedPaneUI::paintContentBorderTopEdge($Graphics* g, int32_t tabPlace
 	} else {
 		bool lastInRun = isLastInRun(selectedIndex);
 		if (leftToRight || lastInRun) {
-			$nc(g)->drawLine(x, y, selRect->x + 1, y);
+			$nc(g)->drawLine(x, y, $nc(selRect)->x + 1, y);
 		} else {
-			$nc(g)->drawLine(x, y, selRect->x, y);
+			$nc(g)->drawLine(x, y, $nc(selRect)->x, y);
 		}
-		if (selRect->x + selRect->width < right - 1) {
+		if ($nc(selRect)->x + $nc(selRect)->width < right - 1) {
 			if (leftToRight && !lastInRun) {
 				$nc(g)->drawLine(selRect->x + selRect->width, y, right - 1, y);
 			} else {
@@ -818,7 +701,7 @@ void MetalTabbedPaneUI::paintContentBorderBottomEdge($Graphics* g, int32_t tabPl
 	int32_t right = x + w - 1;
 	$var($Rectangle, selRect, selectedIndex < 0 ? ($Rectangle*)nullptr : getTabBounds(selectedIndex, this->calcRect));
 	$nc(g)->setColor(this->darkShadow);
-	if (tabPlacement != $SwingConstants::BOTTOM || selectedIndex < 0 || ($nc(selRect)->y - 1 > h) || ($nc(selRect)->x < x || $nc(selRect)->x > x + w)) {
+	if (tabPlacement != $SwingConstants::BOTTOM || selectedIndex < 0 || ($nc(selRect)->y - 1 > h) || ($nc(selRect)->x < x || selRect->x > x + w)) {
 		if (this->ocean && tabPlacement == $SwingConstants::BOTTOM) {
 			g->setColor(this->oceanSelectedBorderColor);
 		}
@@ -829,11 +712,11 @@ void MetalTabbedPaneUI::paintContentBorderBottomEdge($Graphics* g, int32_t tabPl
 			g->setColor(this->oceanSelectedBorderColor);
 		}
 		if (leftToRight || lastInRun) {
-			g->drawLine(x, bottom, selRect->x, bottom);
+			g->drawLine(x, bottom, $nc(selRect)->x, bottom);
 		} else {
-			g->drawLine(x, bottom, selRect->x - 1, bottom);
+			g->drawLine(x, bottom, $nc(selRect)->x - 1, bottom);
 		}
-		if (selRect->x + selRect->width < x + w - 2) {
+		if ($nc(selRect)->x + $nc(selRect)->width < x + w - 2) {
 			if (leftToRight && !lastInRun) {
 				g->drawLine(selRect->x + selRect->width, bottom, right, bottom);
 			} else {
@@ -844,21 +727,21 @@ void MetalTabbedPaneUI::paintContentBorderBottomEdge($Graphics* g, int32_t tabPl
 }
 
 void MetalTabbedPaneUI::paintContentBorderLeftEdge($Graphics* g, int32_t tabPlacement, int32_t selectedIndex, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, selRect, selectedIndex < 0 ? ($Rectangle*)nullptr : getTabBounds(selectedIndex, this->calcRect));
 	if (this->ocean) {
 		$nc(g)->setColor(this->oceanSelectedBorderColor);
 	} else {
 		$nc(g)->setColor(this->selectHighlight);
 	}
-	if (tabPlacement != $SwingConstants::LEFT || selectedIndex < 0 || ($nc(selRect)->x + selRect->width + 1 < x) || ($nc(selRect)->y < y || $nc(selRect)->y > y + h)) {
+	if (tabPlacement != $SwingConstants::LEFT || selectedIndex < 0 || ($nc(selRect)->x + $nc(selRect)->width + 1 < x) || ($nc(selRect)->y < y || selRect->y > y + h)) {
 		$nc(g)->drawLine(x, y + 1, x, y + h - 2);
 		if (this->ocean && tabPlacement == $SwingConstants::LEFT) {
 			g->setColor($($MetalLookAndFeel::getWhite()));
 			g->drawLine(x + 1, y, x + 1, y + h - 2);
 		}
 	} else {
-		$nc(g)->drawLine(x, y, x, selRect->y + 1);
+		$nc(g)->drawLine(x, y, x, $nc(selRect)->y + 1);
 		if (selRect->y + selRect->height < y + h - 2) {
 			g->drawLine(x, selRect->y + selRect->height + 1, x, y + h + 2);
 		}
@@ -875,7 +758,7 @@ void MetalTabbedPaneUI::paintContentBorderLeftEdge($Graphics* g, int32_t tabPlac
 void MetalTabbedPaneUI::paintContentBorderRightEdge($Graphics* g, int32_t tabPlacement, int32_t selectedIndex, int32_t x, int32_t y, int32_t w, int32_t h) {
 	$var($Rectangle, selRect, selectedIndex < 0 ? ($Rectangle*)nullptr : getTabBounds(selectedIndex, this->calcRect));
 	$nc(g)->setColor(this->darkShadow);
-	if (tabPlacement != $SwingConstants::RIGHT || selectedIndex < 0 || ($nc(selRect)->x - 1 > w) || ($nc(selRect)->y < y || $nc(selRect)->y > y + h)) {
+	if (tabPlacement != $SwingConstants::RIGHT || selectedIndex < 0 || ($nc(selRect)->x - 1 > w) || ($nc(selRect)->y < y || selRect->y > y + h)) {
 		if (this->ocean && tabPlacement == $SwingConstants::RIGHT) {
 			g->setColor(this->oceanSelectedBorderColor);
 		}
@@ -884,7 +767,7 @@ void MetalTabbedPaneUI::paintContentBorderRightEdge($Graphics* g, int32_t tabPla
 		if (this->ocean) {
 			g->setColor(this->oceanSelectedBorderColor);
 		}
-		g->drawLine(x + w - 1, y, x + w - 1, selRect->y);
+		g->drawLine(x + w - 1, y, x + w - 1, $nc(selRect)->y);
 		if (selRect->y + selRect->height < y + h - 2) {
 			g->drawLine(x + w - 1, selRect->y + selRect->height, x + w - 1, y + h - 2);
 		}
@@ -892,12 +775,12 @@ void MetalTabbedPaneUI::paintContentBorderRightEdge($Graphics* g, int32_t tabPla
 }
 
 int32_t MetalTabbedPaneUI::calculateMaxTabHeight(int32_t tabPlacement) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontMetrics, metrics, getFontMetrics());
 	int32_t height = $nc(metrics)->getHeight();
 	bool tallerIcons = false;
 	for (int32_t i = 0; i < $nc(this->tabPane)->getTabCount(); ++i) {
-		$var($Icon, icon, $nc(this->tabPane)->getIconAt(i));
+		$var($Icon, icon, this->tabPane->getIconAt(i));
 		if (icon != nullptr) {
 			if (icon->getIconHeight() > height) {
 				tallerIcons = true;
@@ -948,7 +831,71 @@ MetalTabbedPaneUI::MetalTabbedPaneUI() {
 }
 
 $Class* MetalTabbedPaneUI::load$($String* name, bool initialize) {
-	$loadClass(MetalTabbedPaneUI, name, initialize, &_MetalTabbedPaneUI_ClassInfo_, allocate$MetalTabbedPaneUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"minTabWidth", "I", nullptr, $PROTECTED, $field(MetalTabbedPaneUI, minTabWidth)},
+		{"unselectedBackground", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MetalTabbedPaneUI, unselectedBackground)},
+		{"tabAreaBackground", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalTabbedPaneUI, tabAreaBackground)},
+		{"selectColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalTabbedPaneUI, selectColor)},
+		{"selectHighlight", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalTabbedPaneUI, selectHighlight)},
+		{"tabsOpaque", "Z", nullptr, $PRIVATE, $field(MetalTabbedPaneUI, tabsOpaque)},
+		{"ocean", "Z", nullptr, $PRIVATE, $field(MetalTabbedPaneUI, ocean)},
+		{"oceanSelectedBorderColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MetalTabbedPaneUI, oceanSelectedBorderColor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalTabbedPaneUI, init$, void)},
+		{"calculateMaxTabHeight", "(I)I", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, calculateMaxTabHeight, int32_t, int32_t)},
+		{"createLayoutManager", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, createLayoutManager, $LayoutManager*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalTabbedPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getBaselineOffset", "()I", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, getBaselineOffset, int32_t)},
+		{"getColorForGap", "(III)Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, getColorForGap, $Color*, int32_t, int32_t, int32_t)},
+		{"getRolloverTabIndex", "()I", nullptr, 0, $virtualMethod(MetalTabbedPaneUI, getRolloverTabIndex, int32_t)},
+		{"getTabLabelShiftX", "(IIZ)I", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, getTabLabelShiftX, int32_t, int32_t, int32_t, bool)},
+		{"getTabLabelShiftY", "(IIZ)I", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, getTabLabelShiftY, int32_t, int32_t, int32_t, bool)},
+		{"getTabRunOverlay", "(I)I", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, getTabRunOverlay, int32_t, int32_t)},
+		{"getUnselectedBackgroundAt", "(I)Ljava/awt/Color;", nullptr, $PRIVATE, $method(MetalTabbedPaneUI, getUnselectedBackgroundAt, $Color*, int32_t)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, installDefaults, void)},
+		{"isLastInRun", "(I)Z", nullptr, $PRIVATE, $method(MetalTabbedPaneUI, isLastInRun, bool, int32_t)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalTabbedPaneUI, paint, void, $Graphics*, $JComponent*)},
+		{"paintBottomTabBorder", "(ILjava/awt/Graphics;IIIIIIZ)V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, paintBottomTabBorder, void, int32_t, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"paintContentBorderBottomEdge", "(Ljava/awt/Graphics;IIIIII)V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, paintContentBorderBottomEdge, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"paintContentBorderLeftEdge", "(Ljava/awt/Graphics;IIIIII)V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, paintContentBorderLeftEdge, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"paintContentBorderRightEdge", "(Ljava/awt/Graphics;IIIIII)V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, paintContentBorderRightEdge, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"paintContentBorderTopEdge", "(Ljava/awt/Graphics;IIIIII)V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, paintContentBorderTopEdge, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"paintFocusIndicator", "(Ljava/awt/Graphics;I[Ljava/awt/Rectangle;ILjava/awt/Rectangle;Ljava/awt/Rectangle;Z)V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, paintFocusIndicator, void, $Graphics*, int32_t, $RectangleArray*, int32_t, $Rectangle*, $Rectangle*, bool)},
+		{"paintHighlightBelowTab", "()V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, paintHighlightBelowTab, void)},
+		{"paintLeftTabBorder", "(ILjava/awt/Graphics;IIIIIIZ)V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, paintLeftTabBorder, void, int32_t, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"paintRightTabBorder", "(ILjava/awt/Graphics;IIIIIIZ)V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, paintRightTabBorder, void, int32_t, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"paintTabBackground", "(Ljava/awt/Graphics;IIIIIIZ)V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, paintTabBackground, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"paintTabBorder", "(Ljava/awt/Graphics;IIIIIIZ)V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, paintTabBorder, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"paintTopTabBorder", "(ILjava/awt/Graphics;IIIIIIZ)V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, paintTopTabBorder, void, int32_t, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"shouldFillGap", "(IIII)Z", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, shouldFillGap, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"shouldPadTabRun", "(II)Z", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, shouldPadTabRun, bool, int32_t, int32_t)},
+		{"shouldRotateTabRuns", "(II)Z", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI, shouldRotateTabRuns, bool, int32_t, int32_t)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalTabbedPaneUI, update, void, $Graphics*, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalTabbedPaneUI$TabbedPaneLayout", "javax.swing.plaf.metal.MetalTabbedPaneUI", "TabbedPaneLayout", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalTabbedPaneUI",
+		"javax.swing.plaf.basic.BasicTabbedPaneUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalTabbedPaneUI$TabbedPaneLayout"
+	};
+	$loadClass(MetalTabbedPaneUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalTabbedPaneUI));
+	});
 	return class$;
 }
 

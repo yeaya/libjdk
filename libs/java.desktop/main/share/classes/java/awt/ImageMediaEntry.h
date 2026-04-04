@@ -37,7 +37,7 @@ public:
 	::java::awt::Image* image = nullptr;
 	int32_t width = 0;
 	int32_t height = 0;
-	static const int64_t serialVersionUID = (int64_t)0x41C5A6458288EBCA;
+	static const int64_t serialVersionUID = (int64_t)0x41c5a6458288ebca;
 };
 
 	} // awt

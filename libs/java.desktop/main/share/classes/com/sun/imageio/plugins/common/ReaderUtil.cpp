@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/common/ReaderUtil.h>
-
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/lang/Math.h>
@@ -18,27 +17,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace common {
-
-$MethodInfo _ReaderUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ReaderUtil, init$, void)},
-	{"computeUpdatedPixels", "(IIIIIIIII[II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReaderUtil, computeUpdatedPixels, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*, int32_t)},
-	{"computeUpdatedPixels", "(Ljava/awt/Rectangle;Ljava/awt/Point;IIIIIIIIIIII)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(ReaderUtil, computeUpdatedPixels, $ints*, $Rectangle*, $Point*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"readMultiByteInteger", "(Ljavax/imageio/stream/ImageInputStream;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ReaderUtil, readMultiByteInteger, int32_t, $ImageInputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ReaderUtil_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.common.ReaderUtil",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ReaderUtil_MethodInfo_
-};
-
-$Object* allocate$ReaderUtil($Class* clazz) {
-	return $of($alloc(ReaderUtil));
-}
 
 void ReaderUtil::init$() {
 }
@@ -85,18 +63,18 @@ void ReaderUtil::computeUpdatedPixels(int32_t sourceOffset, int32_t sourceExtent
 
 $ints* ReaderUtil::computeUpdatedPixels($Rectangle* sourceRegion, $Point* destinationOffset, int32_t dstMinX, int32_t dstMinY, int32_t dstMaxX, int32_t dstMaxY, int32_t sourceXSubsampling, int32_t sourceYSubsampling, int32_t passXStart, int32_t passYStart, int32_t passWidth, int32_t passHeight, int32_t passPeriodX, int32_t passPeriodY) {
 	$var($ints, vals, $new($ints, 6));
-	computeUpdatedPixels($nc(sourceRegion)->x, sourceRegion->width, $nc(destinationOffset)->x, dstMinX, dstMaxX, sourceXSubsampling, passXStart, passWidth, passPeriodX, vals, 0);
-	computeUpdatedPixels($nc(sourceRegion)->y, sourceRegion->height, $nc(destinationOffset)->y, dstMinY, dstMaxY, sourceYSubsampling, passYStart, passHeight, passPeriodY, vals, 1);
+	computeUpdatedPixels($nc(sourceRegion)->x, $nc(sourceRegion)->width, $nc(destinationOffset)->x, dstMinX, dstMaxX, sourceXSubsampling, passXStart, passWidth, passPeriodX, vals, 0);
+	computeUpdatedPixels(sourceRegion->y, sourceRegion->height, destinationOffset->y, dstMinY, dstMaxY, sourceYSubsampling, passYStart, passHeight, passPeriodY, vals, 1);
 	return vals;
 }
 
 int32_t ReaderUtil::readMultiByteInteger($ImageInputStream* iis) {
 	int32_t value = $nc(iis)->readByte();
-	int32_t result = (int32_t)(value & (uint32_t)127);
-	while (((int32_t)(value & (uint32_t)128)) == 128) {
+	int32_t result = value & 0x7f;
+	while ((value & 0x80) == 0x80) {
 		result <<= 7;
 		value = iis->readByte();
-		result |= ((int32_t)(value & (uint32_t)127));
+		result |= (value & 0x7f);
 	}
 	return result;
 }
@@ -105,7 +83,24 @@ ReaderUtil::ReaderUtil() {
 }
 
 $Class* ReaderUtil::load$($String* name, bool initialize) {
-	$loadClass(ReaderUtil, name, initialize, &_ReaderUtil_ClassInfo_, allocate$ReaderUtil);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ReaderUtil, init$, void)},
+		{"computeUpdatedPixels", "(IIIIIIIII[II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReaderUtil, computeUpdatedPixels, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*, int32_t)},
+		{"computeUpdatedPixels", "(Ljava/awt/Rectangle;Ljava/awt/Point;IIIIIIIIIIII)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(ReaderUtil, computeUpdatedPixels, $ints*, $Rectangle*, $Point*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"readMultiByteInteger", "(Ljavax/imageio/stream/ImageInputStream;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ReaderUtil, readMultiByteInteger, int32_t, $ImageInputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.common.ReaderUtil",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ReaderUtil, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReaderUtil);
+	});
 	return class$;
 }
 

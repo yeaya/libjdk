@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/Util.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/Type.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Constants.h>
 #include <com/sun/org/apache/xml/internal/utils/XML11Char.h>
@@ -16,7 +15,6 @@
 using $Type = ::com::sun::org::apache::bcel::internal::generic::Type;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
 using $XML11Char = ::com::sun::org::apache::xml::internal::utils::XML11Char;
-using $PrintStream = ::java::io::PrintStream;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -35,47 +33,6 @@ namespace com {
 							namespace compiler {
 								namespace util {
 
-$FieldInfo _Util_FieldInfo_[] = {
-	{"filesep", "C", nullptr, $PRIVATE | $STATIC, $staticField(Util, filesep)},
-	{}
-};
-
-$MethodInfo _Util_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Util, init$, void)},
-	{"TRACE1", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, TRACE1, void)},
-	{"TRACE2", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, TRACE2, void)},
-	{"TRACE3", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, TRACE3, void)},
-	{"baseName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, baseName, $String*, $String*)},
-	{"escape", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, escape, $String*, $String*)},
-	{"getJCRefType", "(Ljava/lang/String;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, getJCRefType, $Type*, $String*)},
-	{"getLocalName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, getLocalName, $String*, $String*)},
-	{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, getPrefix, $String*, $String*)},
-	{"internalName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, internalName, $String*, $String*)},
-	{"isLiteral", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, isLiteral, bool, $String*)},
-	{"isValidQNames", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, isValidQNames, bool, $String*)},
-	{"noExtName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, noExtName, $String*, $String*)},
-	{"pathName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, pathName, $String*, $String*)},
-	{"println", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, println, void, $String*)},
-	{"println", "(C)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, println, void, char16_t)},
-	{"replace", "(Ljava/lang/String;CLjava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, replace, $String*, $String*, char16_t, $String*)},
-	{"replace", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, replace, $String*, $String*, $String*, $StringArray*)},
-	{"toJavaName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, toJavaName, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _Util_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.Util",
-	"java.lang.Object",
-	nullptr,
-	_Util_FieldInfo_,
-	_Util_MethodInfo_
-};
-
-$Object* allocate$Util($Class* clazz) {
-	return $of($alloc(Util));
-}
-
 char16_t Util::filesep = 0;
 
 void Util::init$() {
@@ -83,20 +40,20 @@ void Util::init$() {
 
 $String* Util::noExtName($String* name) {
 	$init(Util);
-	int32_t index = $nc(name)->lastIndexOf((int32_t)u'.');
+	int32_t index = $nc(name)->lastIndexOf(u'.');
 	return name->substring(0, index >= 0 ? index : name->length());
 }
 
 $String* Util::baseName($String* name) {
 	$init(Util);
-	int32_t index = $nc(name)->lastIndexOf((int32_t)u'\\');
+	int32_t index = $nc(name)->lastIndexOf(u'\\');
 	if (index < 0) {
-		index = name->lastIndexOf((int32_t)u'/');
+		index = name->lastIndexOf(u'/');
 	}
 	if (index >= 0) {
 		return name->substring(index + 1);
 	} else {
-		int32_t lastColonIndex = name->lastIndexOf((int32_t)u':');
+		int32_t lastColonIndex = name->lastIndexOf(u':');
 		if (lastColonIndex > 0) {
 			return name->substring(lastColonIndex + 1);
 		} else {
@@ -107,9 +64,9 @@ $String* Util::baseName($String* name) {
 
 $String* Util::pathName($String* name) {
 	$init(Util);
-	int32_t index = $nc(name)->lastIndexOf((int32_t)u'/');
+	int32_t index = $nc(name)->lastIndexOf(u'/');
 	if (index < 0) {
-		index = name->lastIndexOf((int32_t)u'\\');
+		index = name->lastIndexOf(u'\\');
 	}
 	return name->substring(0, index + 1);
 }
@@ -167,8 +124,8 @@ void Util::TRACE3() {
 
 $String* Util::replace($String* base, char16_t ch, $String* str) {
 	$init(Util);
-	$useLocalCurrentObjectStackCache();
-	return ($nc(base)->indexOf((int32_t)ch) < 0) ? base : replace(base, $($String::valueOf(ch)), $$new($StringArray, {str}));
+	$useLocalObjectStack();
+	return ($nc(base)->indexOf(ch) < 0) ? base : replace(base, $($String::valueOf(ch)), $$new($StringArray, {str}));
 }
 
 $String* Util::replace($String* base, $String* delim, $StringArray* str) {
@@ -177,7 +134,7 @@ $String* Util::replace($String* base, $String* delim, $StringArray* str) {
 	$var($StringBuffer, result, $new($StringBuffer));
 	for (int32_t i = 0; i < len; ++i) {
 		char16_t ch = base->charAt(i);
-		int32_t k = $nc(delim)->indexOf((int32_t)ch);
+		int32_t k = $nc(delim)->indexOf(ch);
 		if (k >= 0) {
 			result->append($nc(str)->get(k));
 		} else {
@@ -224,7 +181,7 @@ bool Util::isLiteral($String* str) {
 
 bool Util::isValidQNames($String* str) {
 	$init(Util);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
 	if ((str != nullptr) && (!str->equals($Constants::EMPTYSTRING))) {
 		$var($StringTokenizer, tokens, $new($StringTokenizer, str));
@@ -237,7 +194,7 @@ bool Util::isValidQNames($String* str) {
 	return true;
 }
 
-void clinit$Util($Class* class$) {
+void Util::clinit$($Class* clazz) {
 	{
 		$var($String, temp, $SecuritySupport::getSystemProperty("file.separator"_s, "/"_s));
 		Util::filesep = $nc(temp)->charAt(0);
@@ -248,7 +205,43 @@ Util::Util() {
 }
 
 $Class* Util::load$($String* name, bool initialize) {
-	$loadClass(Util, name, initialize, &_Util_ClassInfo_, clinit$Util, allocate$Util);
+	$FieldInfo fieldInfos$$[] = {
+		{"filesep", "C", nullptr, $PRIVATE | $STATIC, $staticField(Util, filesep)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Util, init$, void)},
+		{"TRACE1", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, TRACE1, void)},
+		{"TRACE2", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, TRACE2, void)},
+		{"TRACE3", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, TRACE3, void)},
+		{"baseName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, baseName, $String*, $String*)},
+		{"escape", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, escape, $String*, $String*)},
+		{"getJCRefType", "(Ljava/lang/String;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, getJCRefType, $Type*, $String*)},
+		{"getLocalName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, getLocalName, $String*, $String*)},
+		{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, getPrefix, $String*, $String*)},
+		{"internalName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, internalName, $String*, $String*)},
+		{"isLiteral", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, isLiteral, bool, $String*)},
+		{"isValidQNames", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, isValidQNames, bool, $String*)},
+		{"noExtName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, noExtName, $String*, $String*)},
+		{"pathName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, pathName, $String*, $String*)},
+		{"println", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, println, void, $String*)},
+		{"println", "(C)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, println, void, char16_t)},
+		{"replace", "(Ljava/lang/String;CLjava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, replace, $String*, $String*, char16_t, $String*)},
+		{"replace", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, replace, $String*, $String*, $String*, $StringArray*)},
+		{"toJavaName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, toJavaName, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.Util",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Util, name, initialize, &classInfo$$, Util::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Util);
+	});
 	return class$;
 }
 

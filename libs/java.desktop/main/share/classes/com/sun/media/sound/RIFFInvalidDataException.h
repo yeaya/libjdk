@@ -19,7 +19,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)1;
 	RIFFInvalidDataException(const RIFFInvalidDataException& e);
 	virtual void throw$() override;
-	inline RIFFInvalidDataException* operator ->() {
+	inline RIFFInvalidDataException* operator ->() const {
+		return (RIFFInvalidDataException*)throwing$;
+	}
+	inline operator RIFFInvalidDataException*() const {
 		return (RIFFInvalidDataException*)throwing$;
 	}
 };

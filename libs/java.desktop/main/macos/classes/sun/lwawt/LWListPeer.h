@@ -38,6 +38,7 @@ class LWListPeer : public ::sun::lwawt::LWComponentPeer, public ::java::awt::pee
 	$class(LWListPeer, 0, ::sun::lwawt::LWComponentPeer, ::java::awt::peer::ListPeer)
 public:
 	LWListPeer();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual void applyShape(::sun::java2d::pipe::Region* shape) override;
 	virtual bool canDetermineObscurity() override;
 	virtual $Object* clone() override;

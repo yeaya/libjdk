@@ -59,6 +59,7 @@ public:
 	XMLX509SKI();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::org::w3c::dom::Document* doc, $bytes* skiBytes);
 	void init$(::org::w3c::dom::Document* doc, ::java::security::cert::X509Certificate* x509certificate);
 	void init$(::org::w3c::dom::Element* element, $String* baseURI);

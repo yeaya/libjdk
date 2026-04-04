@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicSplitPaneDivider$MouseHandler.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Point.h>
 #include <java/awt/event/MouseAdapter.h>
@@ -20,8 +19,6 @@ using $Component = ::java::awt::Component;
 using $Point = ::java::awt::Point;
 using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseEvent = ::java::awt::event::MouseEvent;
-using $MouseListener = ::java::awt::event::MouseListener;
-using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -30,53 +27,11 @@ using $JSplitPane = ::javax::swing::JSplitPane;
 using $BasicSplitPaneDivider = ::javax::swing::plaf::basic::BasicSplitPaneDivider;
 using $BasicSplitPaneDivider$DragController = ::javax::swing::plaf::basic::BasicSplitPaneDivider$DragController;
 using $BasicSplitPaneDivider$VerticalDragController = ::javax::swing::plaf::basic::BasicSplitPaneDivider$VerticalDragController;
-using $BasicSplitPaneUI = ::javax::swing::plaf::basic::BasicSplitPaneUI;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicSplitPaneDivider$MouseHandler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicSplitPaneDivider;", nullptr, $FINAL | $SYNTHETIC, $field(BasicSplitPaneDivider$MouseHandler, this$0)},
-	{}
-};
-
-$MethodInfo _BasicSplitPaneDivider$MouseHandler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneDivider;)V", nullptr, $PROTECTED, $method(BasicSplitPaneDivider$MouseHandler, init$, void, $BasicSplitPaneDivider*)},
-	{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$MouseHandler, mouseDragged, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$MouseHandler, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$MouseHandler, mouseExited, void, $MouseEvent*)},
-	{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$MouseHandler, mouseMoved, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$MouseHandler, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$MouseHandler, mouseReleased, void, $MouseEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicSplitPaneDivider$MouseHandler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicSplitPaneDivider$MouseHandler", "javax.swing.plaf.basic.BasicSplitPaneDivider", "MouseHandler", $PROTECTED},
-	{}
-};
-
-$ClassInfo _BasicSplitPaneDivider$MouseHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicSplitPaneDivider$MouseHandler",
-	"java.awt.event.MouseAdapter",
-	nullptr,
-	_BasicSplitPaneDivider$MouseHandler_FieldInfo_,
-	_BasicSplitPaneDivider$MouseHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicSplitPaneDivider$MouseHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicSplitPaneDivider"
-};
-
-$Object* allocate$BasicSplitPaneDivider$MouseHandler($Class* clazz) {
-	return $of($alloc(BasicSplitPaneDivider$MouseHandler));
-}
 
 void BasicSplitPaneDivider$MouseHandler::init$($BasicSplitPaneDivider* this$0) {
 	$set(this, this$0, this$0);
@@ -85,22 +40,22 @@ void BasicSplitPaneDivider$MouseHandler::init$($BasicSplitPaneDivider* this$0) {
 
 void BasicSplitPaneDivider$MouseHandler::mousePressed($MouseEvent* e) {
 	bool var$1 = $equals($nc(e)->getSource(), this->this$0);
-	bool var$0 = (var$1 || $equals($nc(e)->getSource(), this->this$0->splitPane)) && this->this$0->dragger == nullptr;
+	bool var$0 = (var$1 || $equals(e->getSource(), this->this$0->splitPane)) && this->this$0->dragger == nullptr;
 	if (var$0 && $nc(this->this$0->splitPane)->isEnabled()) {
 		$var($Component, newHiddenDivider, $nc(this->this$0->splitPaneUI)->getNonContinuousLayoutDivider());
 		if (this->this$0->hiddenDivider != newHiddenDivider) {
 			if (this->this$0->hiddenDivider != nullptr) {
-				$nc(this->this$0->hiddenDivider)->removeMouseListener(this);
+				this->this$0->hiddenDivider->removeMouseListener(this);
 				$nc(this->this$0->hiddenDivider)->removeMouseMotionListener(this);
 			}
 			$set(this->this$0, hiddenDivider, newHiddenDivider);
 			if (this->this$0->hiddenDivider != nullptr) {
-				$nc(this->this$0->hiddenDivider)->addMouseMotionListener(this);
+				this->this$0->hiddenDivider->addMouseMotionListener(this);
 				$nc(this->this$0->hiddenDivider)->addMouseListener(this);
 			}
 		}
 		bool var$2 = $nc(this->this$0->splitPane)->getLeftComponent() != nullptr;
-		if (var$2 && $nc(this->this$0->splitPane)->getRightComponent() != nullptr) {
+		if (var$2 && this->this$0->splitPane->getRightComponent() != nullptr) {
 			if (this->this$0->orientation == $JSplitPane::HORIZONTAL_SPLIT) {
 				$set(this->this$0, dragger, $new($BasicSplitPaneDivider$DragController, this->this$0, e));
 			} else {
@@ -118,11 +73,11 @@ void BasicSplitPaneDivider$MouseHandler::mousePressed($MouseEvent* e) {
 }
 
 void BasicSplitPaneDivider$MouseHandler::mouseReleased($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$0->dragger != nullptr) {
 		if ($equals($nc(e)->getSource(), this->this$0->splitPane)) {
 			int32_t var$0 = e->getX();
-			$nc(this->this$0->dragger)->completeDrag(var$0, e->getY());
+			this->this$0->dragger->completeDrag(var$0, e->getY());
 		} else if ($equals(e->getSource(), this->this$0)) {
 			$var($Point, ourLoc, this->this$0->getLocation());
 			int32_t var$1 = e->getX() + $nc(ourLoc)->x;
@@ -134,16 +89,16 @@ void BasicSplitPaneDivider$MouseHandler::mouseReleased($MouseEvent* e) {
 			$nc(this->this$0->dragger)->completeDrag(ourX, ourY);
 		}
 		$set(this->this$0, dragger, nullptr);
-		$nc(e)->consume();
+		e->consume();
 	}
 }
 
 void BasicSplitPaneDivider$MouseHandler::mouseDragged($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$0->dragger != nullptr) {
 		if ($equals($nc(e)->getSource(), this->this$0->splitPane)) {
 			int32_t var$0 = e->getX();
-			$nc(this->this$0->dragger)->continueDrag(var$0, e->getY());
+			this->this$0->dragger->continueDrag(var$0, e->getY());
 		} else if ($equals(e->getSource(), this->this$0)) {
 			$var($Point, ourLoc, this->this$0->getLocation());
 			int32_t var$1 = e->getX() + $nc(ourLoc)->x;
@@ -154,7 +109,7 @@ void BasicSplitPaneDivider$MouseHandler::mouseDragged($MouseEvent* e) {
 			int32_t ourY = e->getY() + hDividerLoc->y;
 			$nc(this->this$0->dragger)->continueDrag(ourX, ourY);
 		}
-		$nc(e)->consume();
+		e->consume();
 	}
 }
 
@@ -177,7 +132,42 @@ BasicSplitPaneDivider$MouseHandler::BasicSplitPaneDivider$MouseHandler() {
 }
 
 $Class* BasicSplitPaneDivider$MouseHandler::load$($String* name, bool initialize) {
-	$loadClass(BasicSplitPaneDivider$MouseHandler, name, initialize, &_BasicSplitPaneDivider$MouseHandler_ClassInfo_, allocate$BasicSplitPaneDivider$MouseHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicSplitPaneDivider;", nullptr, $FINAL | $SYNTHETIC, $field(BasicSplitPaneDivider$MouseHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneDivider;)V", nullptr, $PROTECTED, $method(BasicSplitPaneDivider$MouseHandler, init$, void, $BasicSplitPaneDivider*)},
+		{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$MouseHandler, mouseDragged, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$MouseHandler, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$MouseHandler, mouseExited, void, $MouseEvent*)},
+		{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$MouseHandler, mouseMoved, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$MouseHandler, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$MouseHandler, mouseReleased, void, $MouseEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicSplitPaneDivider$MouseHandler", "javax.swing.plaf.basic.BasicSplitPaneDivider", "MouseHandler", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicSplitPaneDivider$MouseHandler",
+		"java.awt.event.MouseAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicSplitPaneDivider"
+	};
+	$loadClass(BasicSplitPaneDivider$MouseHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicSplitPaneDivider$MouseHandler));
+	});
 	return class$;
 }
 

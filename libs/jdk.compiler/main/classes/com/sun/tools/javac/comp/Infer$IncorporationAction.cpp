@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Infer$IncorporationAction.h>
-
 #include <com/sun/tools/javac/code/Type$UndetVar.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/comp/Infer$IncorporationBinaryOpKind.h>
@@ -28,48 +27,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Infer$IncorporationAction_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Infer;", nullptr, $FINAL | $SYNTHETIC, $field(Infer$IncorporationAction, this$0)},
-	{"uv", "Lcom/sun/tools/javac/code/Type$UndetVar;", nullptr, 0, $field(Infer$IncorporationAction, uv)},
-	{"t", "Lcom/sun/tools/javac/code/Type;", nullptr, 0, $field(Infer$IncorporationAction, t)},
-	{}
-};
-
-$MethodInfo _Infer$IncorporationAction_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Infer$IncorporationAction, init$, void, $Infer*, $Type$UndetVar*, $Type*)},
-	{"apply", "(Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, $ABSTRACT, $virtualMethod(Infer$IncorporationAction, apply, void, $InferenceContext*, $Warner*)},
-	{"dup", "(Lcom/sun/tools/javac/code/Type$UndetVar;)Lcom/sun/tools/javac/comp/Infer$IncorporationAction;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Infer$IncorporationAction, dup, Infer$IncorporationAction*, $Type$UndetVar*)},
-	{"isSameType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0, $virtualMethod(Infer$IncorporationAction, isSameType, bool, $Type*, $Type*)},
-	{"isSubtype", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)Z", nullptr, 0, $virtualMethod(Infer$IncorporationAction, isSubtype, bool, $Type*, $Type*, $Warner*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Infer$IncorporationAction, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Infer$IncorporationAction_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Infer$IncorporationAction", "com.sun.tools.javac.comp.Infer", "IncorporationAction", $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Infer$IncorporationAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.comp.Infer$IncorporationAction",
-	"java.lang.Object",
-	nullptr,
-	_Infer$IncorporationAction_FieldInfo_,
-	_Infer$IncorporationAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Infer$IncorporationAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Infer"
-};
-
-$Object* allocate$Infer$IncorporationAction($Class* clazz) {
-	return $of($alloc(Infer$IncorporationAction));
-}
-
 void Infer$IncorporationAction::init$($Infer* this$0, $Type$UndetVar* uv, $Type* t) {
 	$set(this, this$0, this$0);
 	$set(this, uv, uv);
@@ -87,11 +44,11 @@ bool Infer$IncorporationAction::isSameType($Type* s, $Type* t) {
 }
 
 $String* Infer$IncorporationAction::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("%s[undet=%s,t=%s]"_s, $$new($ObjectArray, {
-		$($of($of(this)->getClass()->getSimpleName())),
-		$of($nc(this->uv)->qtype),
-		$of(this->t)
+		$($of(this)->getClass()->getSimpleName()),
+		$nc(this->uv)->qtype,
+		this->t
 	}));
 }
 
@@ -99,7 +56,43 @@ Infer$IncorporationAction::Infer$IncorporationAction() {
 }
 
 $Class* Infer$IncorporationAction::load$($String* name, bool initialize) {
-	$loadClass(Infer$IncorporationAction, name, initialize, &_Infer$IncorporationAction_ClassInfo_, allocate$Infer$IncorporationAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Infer;", nullptr, $FINAL | $SYNTHETIC, $field(Infer$IncorporationAction, this$0)},
+		{"uv", "Lcom/sun/tools/javac/code/Type$UndetVar;", nullptr, 0, $field(Infer$IncorporationAction, uv)},
+		{"t", "Lcom/sun/tools/javac/code/Type;", nullptr, 0, $field(Infer$IncorporationAction, t)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Infer$IncorporationAction, init$, void, $Infer*, $Type$UndetVar*, $Type*)},
+		{"apply", "(Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, $ABSTRACT, $virtualMethod(Infer$IncorporationAction, apply, void, $InferenceContext*, $Warner*)},
+		{"dup", "(Lcom/sun/tools/javac/code/Type$UndetVar;)Lcom/sun/tools/javac/comp/Infer$IncorporationAction;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Infer$IncorporationAction, dup, Infer$IncorporationAction*, $Type$UndetVar*)},
+		{"isSameType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0, $virtualMethod(Infer$IncorporationAction, isSameType, bool, $Type*, $Type*)},
+		{"isSubtype", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)Z", nullptr, 0, $virtualMethod(Infer$IncorporationAction, isSubtype, bool, $Type*, $Type*, $Warner*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Infer$IncorporationAction, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Infer$IncorporationAction", "com.sun.tools.javac.comp.Infer", "IncorporationAction", $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.comp.Infer$IncorporationAction",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Infer"
+	};
+	$loadClass(Infer$IncorporationAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Infer$IncorporationAction);
+	});
 	return class$;
 }
 

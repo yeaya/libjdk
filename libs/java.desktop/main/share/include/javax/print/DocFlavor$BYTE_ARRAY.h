@@ -51,8 +51,9 @@ class $import DocFlavor$BYTE_ARRAY : public ::javax::print::DocFlavor {
 	$class(DocFlavor$BYTE_ARRAY, 0, ::javax::print::DocFlavor)
 public:
 	DocFlavor$BYTE_ARRAY();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* mimeType);
-	static const int64_t serialVersionUID = (int64_t)0x823098D5A161183D;
+	static const int64_t serialVersionUID = (int64_t)0x823098d5a161183d;
 	static ::javax::print::DocFlavor$BYTE_ARRAY* TEXT_PLAIN_HOST;
 	static ::javax::print::DocFlavor$BYTE_ARRAY* TEXT_PLAIN_UTF_8;
 	static ::javax::print::DocFlavor$BYTE_ARRAY* TEXT_PLAIN_UTF_16;

@@ -24,6 +24,7 @@ class $export TestTabSize : public ::java::lang::Object {
 	$class(TestTabSize, 0, ::java::lang::Object)
 public:
 	TestTabSize();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void lambda$main$0();
 	static void main($StringArray* args);

@@ -1,5 +1,4 @@
 #include <javax/management/ServiceNotFoundException.h>
-
 #include <javax/management/OperationsException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $OperationsException = ::javax::management::OperationsException;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _ServiceNotFoundException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServiceNotFoundException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ServiceNotFoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ServiceNotFoundException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ServiceNotFoundException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _ServiceNotFoundException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.ServiceNotFoundException",
-	"javax.management.OperationsException",
-	nullptr,
-	_ServiceNotFoundException_FieldInfo_,
-	_ServiceNotFoundException_MethodInfo_
-};
-
-$Object* allocate$ServiceNotFoundException($Class* clazz) {
-	return $of($alloc(ServiceNotFoundException));
-}
 
 void ServiceNotFoundException::init$() {
 	$OperationsException::init$();
@@ -54,7 +29,26 @@ void ServiceNotFoundException::throw$() {
 }
 
 $Class* ServiceNotFoundException::load$($String* name, bool initialize) {
-	$loadClass(ServiceNotFoundException, name, initialize, &_ServiceNotFoundException_ClassInfo_, allocate$ServiceNotFoundException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServiceNotFoundException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ServiceNotFoundException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ServiceNotFoundException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.ServiceNotFoundException",
+		"javax.management.OperationsException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ServiceNotFoundException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServiceNotFoundException);
+	});
 	return class$;
 }
 

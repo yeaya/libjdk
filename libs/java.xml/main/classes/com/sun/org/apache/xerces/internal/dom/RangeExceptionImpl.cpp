@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/dom/RangeExceptionImpl.h>
-
 #include <org/w3c/dom/ranges/RangeException.h>
 #include <jcpp.h>
 
@@ -16,29 +15,6 @@ namespace com {
 					namespace internal {
 						namespace dom {
 
-$FieldInfo _RangeExceptionImpl_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(RangeExceptionImpl, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _RangeExceptionImpl_MethodInfo_[] = {
-	{"<init>", "(SLjava/lang/String;)V", nullptr, $PUBLIC, $method(RangeExceptionImpl, init$, void, int16_t, $String*)},
-	{}
-};
-
-$ClassInfo _RangeExceptionImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.dom.RangeExceptionImpl",
-	"org.w3c.dom.ranges.RangeException",
-	nullptr,
-	_RangeExceptionImpl_FieldInfo_,
-	_RangeExceptionImpl_MethodInfo_
-};
-
-$Object* allocate$RangeExceptionImpl($Class* clazz) {
-	return $of($alloc(RangeExceptionImpl));
-}
-
 void RangeExceptionImpl::init$(int16_t code, $String* message) {
 	$RangeException::init$(code, message);
 }
@@ -54,7 +30,25 @@ void RangeExceptionImpl::throw$() {
 }
 
 $Class* RangeExceptionImpl::load$($String* name, bool initialize) {
-	$loadClass(RangeExceptionImpl, name, initialize, &_RangeExceptionImpl_ClassInfo_, allocate$RangeExceptionImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(RangeExceptionImpl, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(SLjava/lang/String;)V", nullptr, $PUBLIC, $method(RangeExceptionImpl, init$, void, int16_t, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.dom.RangeExceptionImpl",
+		"org.w3c.dom.ranges.RangeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RangeExceptionImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RangeExceptionImpl);
+	});
 	return class$;
 }
 

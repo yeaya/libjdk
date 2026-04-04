@@ -1,12 +1,10 @@
 #include <sun/lwawt/macosx/CPrinterDialogPeer.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dialog.h>
 #include <java/awt/Event.h>
 #include <java/awt/Font.h>
 #include <java/awt/Toolkit.h>
-#include <java/awt/Window.h>
 #include <java/awt/dnd/DropTarget.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
@@ -28,12 +26,10 @@
 #undef DIALOG
 
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Dialog = ::java::awt::Dialog;
 using $Event = ::java::awt::Event;
 using $Font = ::java::awt::Font;
 using $Toolkit = ::java::awt::Toolkit;
-using $Window = ::java::awt::Window;
 using $DropTarget = ::java::awt::dnd::DropTarget;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -62,81 +58,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$setVisible$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CPrinterDialogPeer$$Lambda$lambda$setVisible$0>());
-	}
 	CPrinterDialogPeer* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CPrinterDialogPeer$$Lambda$lambda$setVisible$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CPrinterDialogPeer$$Lambda$lambda$setVisible$0, inst$)},
-	{}
-};
-$MethodInfo CPrinterDialogPeer$$Lambda$lambda$setVisible$0::methodInfos[3] = {
-	{"<init>", "(Lsun/lwawt/macosx/CPrinterDialogPeer;)V", nullptr, $PUBLIC, $method(CPrinterDialogPeer$$Lambda$lambda$setVisible$0, init$, void, CPrinterDialogPeer*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer$$Lambda$lambda$setVisible$0, run, void)},
-	{}
-};
-$ClassInfo CPrinterDialogPeer$$Lambda$lambda$setVisible$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.macosx.CPrinterDialogPeer$$Lambda$lambda$setVisible$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* CPrinterDialogPeer$$Lambda$lambda$setVisible$0::load$($String* name, bool initialize) {
-	$loadClass(CPrinterDialogPeer$$Lambda$lambda$setVisible$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CPrinterDialogPeer$$Lambda$lambda$setVisible$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/macosx/CPrinterDialogPeer;)V", nullptr, $PUBLIC, $method(CPrinterDialogPeer$$Lambda$lambda$setVisible$0, init$, void, CPrinterDialogPeer*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer$$Lambda$lambda$setVisible$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.macosx.CPrinterDialogPeer$$Lambda$lambda$setVisible$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CPrinterDialogPeer$$Lambda$lambda$setVisible$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CPrinterDialogPeer$$Lambda$lambda$setVisible$0);
+	});
 	return class$;
 }
 $Class* CPrinterDialogPeer$$Lambda$lambda$setVisible$0::class$ = nullptr;
-
-$FieldInfo _CPrinterDialogPeer_FieldInfo_[] = {
-	{"fTarget", "Ljava/awt/Component;", nullptr, 0, $field(CPrinterDialogPeer, fTarget)},
-	{}
-};
-
-$MethodInfo _CPrinterDialogPeer_MethodInfo_[] = {
-	{"<init>", "(Lsun/lwawt/macosx/CPrinterDialog;Lsun/lwawt/PlatformComponent;Lsun/lwawt/PlatformWindow;)V", nullptr, $PUBLIC, $method(CPrinterDialogPeer, init$, void, $CPrinterDialog*, $PlatformComponent*, $PlatformWindow*)},
-	{"addDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, addDropTarget, void, $DropTarget*)},
-	{"disposeImpl", "()V", nullptr, $PROTECTED, $virtualMethod(CPrinterDialogPeer, disposeImpl, void)},
-	{"handleEvent", "(Ljava/awt/Event;)Z", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, handleEvent, bool, $Event*)},
-	{"invalidate", "(IIII)V", nullptr, 0, $virtualMethod(CPrinterDialogPeer, invalidate, void, int32_t, int32_t, int32_t, int32_t)},
-	{"isRestackSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, isRestackSupported, bool)},
-	{"lambda$setVisible$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(CPrinterDialogPeer, lambda$setVisible$0, void)},
-	{"removeDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, removeDropTarget, void, $DropTarget*)},
-	{"requestFocus", "(ZZ)Z", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, requestFocus, bool, bool, bool)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, setBackground, void, $Color*)},
-	{"setBounds", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, setBounds, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, setEnabled, void, bool)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, setFont, void, $Font*)},
-	{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, setForeground, void, $Color*)},
-	{"setModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, setModalBlocked, void, $Dialog*, bool)},
-	{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, setResizable, void, bool)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, setVisible, void, bool)},
-	{"start", "()V", nullptr, 0, $virtualMethod(CPrinterDialogPeer, start, void)},
-	{"toBack", "()V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, toBack, void)},
-	{"toFront", "()V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, toFront, void)},
-	{"updateAlwaysOnTopState", "()V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, updateAlwaysOnTopState, void)},
-	{"updateFocusableWindowState", "()V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, updateFocusableWindowState, void)},
-	{"updateMinimumSize", "()V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, updateMinimumSize, void)},
-	{}
-};
-
-$ClassInfo _CPrinterDialogPeer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.lwawt.macosx.CPrinterDialogPeer",
-	"sun.lwawt.LWWindowPeer",
-	nullptr,
-	_CPrinterDialogPeer_FieldInfo_,
-	_CPrinterDialogPeer_MethodInfo_
-};
-
-$Object* allocate$CPrinterDialogPeer($Class* clazz) {
-	return $of($alloc(CPrinterDialogPeer));
-}
 
 void CPrinterDialogPeer::init$($CPrinterDialog* target, $PlatformComponent* platformComponent, $PlatformWindow* platformWindow) {
 	$init($LWWindowPeer$PeerType);
@@ -150,9 +97,9 @@ void CPrinterDialogPeer::disposeImpl() {
 }
 
 void CPrinterDialogPeer::setVisible(bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (visible) {
-		$var($Runnable, task, static_cast<$Runnable*>($new(CPrinterDialogPeer$$Lambda$lambda$setVisible$0, this)));
+		$var($Runnable, task, $new(CPrinterDialogPeer$$Lambda$lambda$setVisible$0, this));
 		$$new($Thread, nullptr, task, "PrintDialog"_s, 0, false)->start();
 	}
 }
@@ -219,11 +166,11 @@ void CPrinterDialogPeer::updateFocusableWindowState() {
 
 void CPrinterDialogPeer::lambda$setVisible$0() {
 	$var($CPrinterDialog, printerDialog, $cast($CPrinterDialog, this->fTarget));
-	$nc(printerDialog)->setRetVal(printerDialog->showDialog());
+	$nc(printerDialog)->setRetVal($nc(printerDialog)->showDialog());
 	printerDialog->setVisible(false);
 }
 
-void clinit$CPrinterDialogPeer($Class* class$) {
+void CPrinterDialogPeer::clinit$($Class* clazz) {
 	{
 		$Toolkit::getDefaultToolkit();
 	}
@@ -234,11 +181,51 @@ CPrinterDialogPeer::CPrinterDialogPeer() {
 
 $Class* CPrinterDialogPeer::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(CPrinterDialogPeer$$Lambda$lambda$setVisible$0::classInfo$.name)) {
+		if (name->equals("sun.lwawt.macosx.CPrinterDialogPeer$$Lambda$lambda$setVisible$0")) {
 			return CPrinterDialogPeer$$Lambda$lambda$setVisible$0::load$(name, initialize);
 		}
 	}
-	$loadClass(CPrinterDialogPeer, name, initialize, &_CPrinterDialogPeer_ClassInfo_, clinit$CPrinterDialogPeer, allocate$CPrinterDialogPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"fTarget", "Ljava/awt/Component;", nullptr, 0, $field(CPrinterDialogPeer, fTarget)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/macosx/CPrinterDialog;Lsun/lwawt/PlatformComponent;Lsun/lwawt/PlatformWindow;)V", nullptr, $PUBLIC, $method(CPrinterDialogPeer, init$, void, $CPrinterDialog*, $PlatformComponent*, $PlatformWindow*)},
+		{"addDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, addDropTarget, void, $DropTarget*)},
+		{"disposeImpl", "()V", nullptr, $PROTECTED, $virtualMethod(CPrinterDialogPeer, disposeImpl, void)},
+		{"handleEvent", "(Ljava/awt/Event;)Z", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, handleEvent, bool, $Event*)},
+		{"invalidate", "(IIII)V", nullptr, 0, $virtualMethod(CPrinterDialogPeer, invalidate, void, int32_t, int32_t, int32_t, int32_t)},
+		{"isRestackSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, isRestackSupported, bool)},
+		{"lambda$setVisible$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(CPrinterDialogPeer, lambda$setVisible$0, void)},
+		{"removeDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, removeDropTarget, void, $DropTarget*)},
+		{"requestFocus", "(ZZ)Z", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, requestFocus, bool, bool, bool)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, setBackground, void, $Color*)},
+		{"setBounds", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, setBounds, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, setEnabled, void, bool)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, setFont, void, $Font*)},
+		{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, setForeground, void, $Color*)},
+		{"setModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, setModalBlocked, void, $Dialog*, bool)},
+		{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, setResizable, void, bool)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, setVisible, void, bool)},
+		{"start", "()V", nullptr, 0, $virtualMethod(CPrinterDialogPeer, start, void)},
+		{"toBack", "()V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, toBack, void)},
+		{"toFront", "()V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, toFront, void)},
+		{"updateAlwaysOnTopState", "()V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, updateAlwaysOnTopState, void)},
+		{"updateFocusableWindowState", "()V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, updateFocusableWindowState, void)},
+		{"updateMinimumSize", "()V", nullptr, $PUBLIC, $virtualMethod(CPrinterDialogPeer, updateMinimumSize, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.lwawt.macosx.CPrinterDialogPeer",
+		"sun.lwawt.LWWindowPeer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CPrinterDialogPeer, name, initialize, &classInfo$$, CPrinterDialogPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CPrinterDialogPeer));
+	});
 	return class$;
 }
 

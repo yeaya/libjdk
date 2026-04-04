@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/RIFFWriter.h>
-
 #include <com/sun/media/sound/RIFFWriter$RandomAccessByteWriter.h>
 #include <com/sun/media/sound/RIFFWriter$RandomAccessFileWriter.h>
 #include <com/sun/media/sound/RIFFWriter$RandomAccessWriter.h>
@@ -23,69 +22,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _RIFFWriter_FieldInfo_[] = {
-	{"chunktype", "I", nullptr, $PRIVATE, $field(RIFFWriter, chunktype)},
-	{"raf", "Lcom/sun/media/sound/RIFFWriter$RandomAccessWriter;", nullptr, $PRIVATE, $field(RIFFWriter, raf)},
-	{"chunksizepointer", "J", nullptr, $PRIVATE | $FINAL, $field(RIFFWriter, chunksizepointer)},
-	{"startpointer", "J", nullptr, $PRIVATE | $FINAL, $field(RIFFWriter, startpointer)},
-	{"childchunk", "Lcom/sun/media/sound/RIFFWriter;", nullptr, $PRIVATE, $field(RIFFWriter, childchunk)},
-	{"open", "Z", nullptr, $PRIVATE, $field(RIFFWriter, open)},
-	{"writeoverride", "Z", nullptr, $PRIVATE, $field(RIFFWriter, writeoverride)},
-	{}
-};
-
-$MethodInfo _RIFFWriter_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RIFFWriter, init$, void, $String*, $String*), "java.io.IOException"},
-	{"<init>", "(Ljava/io/File;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RIFFWriter, init$, void, $File*, $String*), "java.io.IOException"},
-	{"<init>", "(Ljava/io/OutputStream;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RIFFWriter, init$, void, $OutputStream*, $String*), "java.io.IOException"},
-	{"<init>", "(Lcom/sun/media/sound/RIFFWriter$RandomAccessWriter;Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(RIFFWriter, init$, void, $RIFFWriter$RandomAccessWriter*, $String*, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter, close, void), "java.io.IOException"},
-	{"getFilePointer", "()J", nullptr, $PUBLIC, $method(RIFFWriter, getFilePointer, int64_t), "java.io.IOException"},
-	{"getWriteOverride", "()Z", nullptr, $PUBLIC, $method(RIFFWriter, getWriteOverride, bool)},
-	{"seek", "(J)V", nullptr, $PUBLIC, $method(RIFFWriter, seek, void, int64_t), "java.io.IOException"},
-	{"setWriteOverride", "(Z)V", nullptr, $PUBLIC, $method(RIFFWriter, setWriteOverride, void, bool)},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter, write, void, int32_t), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"writeByte", "(I)V", nullptr, $PUBLIC, $method(RIFFWriter, writeByte, void, int32_t), "java.io.IOException"},
-	{"writeChunk", "(Ljava/lang/String;)Lcom/sun/media/sound/RIFFWriter;", nullptr, $PUBLIC, $method(RIFFWriter, writeChunk, RIFFWriter*, $String*), "java.io.IOException"},
-	{"writeInt", "(I)V", nullptr, $PUBLIC, $method(RIFFWriter, writeInt, void, int32_t), "java.io.IOException"},
-	{"writeList", "(Ljava/lang/String;)Lcom/sun/media/sound/RIFFWriter;", nullptr, $PUBLIC, $method(RIFFWriter, writeList, RIFFWriter*, $String*), "java.io.IOException"},
-	{"writeLong", "(J)V", nullptr, $PUBLIC, $method(RIFFWriter, writeLong, void, int64_t), "java.io.IOException"},
-	{"writeShort", "(S)V", nullptr, $PUBLIC, $method(RIFFWriter, writeShort, void, int16_t), "java.io.IOException"},
-	{"writeString", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RIFFWriter, writeString, void, $String*), "java.io.IOException"},
-	{"writeString", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(RIFFWriter, writeString, void, $String*, int32_t), "java.io.IOException"},
-	{"writeUnsignedByte", "(I)V", nullptr, $PUBLIC, $method(RIFFWriter, writeUnsignedByte, void, int32_t), "java.io.IOException"},
-	{"writeUnsignedInt", "(J)V", nullptr, $PUBLIC, $method(RIFFWriter, writeUnsignedInt, void, int64_t), "java.io.IOException"},
-	{"writeUnsignedShort", "(I)V", nullptr, $PUBLIC, $method(RIFFWriter, writeUnsignedShort, void, int32_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _RIFFWriter_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.RIFFWriter$RandomAccessByteWriter", "com.sun.media.sound.RIFFWriter", "RandomAccessByteWriter", $PRIVATE | $STATIC},
-	{"com.sun.media.sound.RIFFWriter$RandomAccessFileWriter", "com.sun.media.sound.RIFFWriter", "RandomAccessFileWriter", $PRIVATE | $STATIC},
-	{"com.sun.media.sound.RIFFWriter$RandomAccessWriter", "com.sun.media.sound.RIFFWriter", "RandomAccessWriter", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RIFFWriter_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.RIFFWriter",
-	"java.io.OutputStream",
-	nullptr,
-	_RIFFWriter_FieldInfo_,
-	_RIFFWriter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RIFFWriter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.RIFFWriter$RandomAccessByteWriter,com.sun.media.sound.RIFFWriter$RandomAccessFileWriter,com.sun.media.sound.RIFFWriter$RandomAccessWriter"
-};
-
-$Object* allocate$RIFFWriter($Class* clazz) {
-	return $of($alloc(RIFFWriter));
-}
-
 void RIFFWriter::init$($String* name, $String* format) {
 	RIFFWriter::init$($$new($RIFFWriter$RandomAccessFileWriter, name), format, 0);
 }
@@ -99,7 +35,7 @@ void RIFFWriter::init$($OutputStream* stream, $String* format) {
 }
 
 void RIFFWriter::init$($RIFFWriter$RandomAccessWriter* raf, $String* format, int32_t chunktype) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$OutputStream::init$();
 	this->chunktype = 0;
 	$set(this, childchunk, nullptr);
@@ -115,13 +51,13 @@ void RIFFWriter::init$($RIFFWriter$RandomAccessWriter* raf, $String* format, int
 		raf->write(0);
 	}
 	if (chunktype == 0) {
-		$nc(raf)->write($("RIFF"_s->getBytes("ascii"_s)));
+		raf->write($("RIFF"_s->getBytes("ascii"_s)));
 	} else if (chunktype == 1) {
-		$nc(raf)->write($("LIST"_s->getBytes("ascii"_s)));
+		raf->write($("LIST"_s->getBytes("ascii"_s)));
 	} else {
-		$nc(raf)->write($($($nc(($$str({format, "    "_s})))->substring(0, 4))->getBytes("ascii"_s)));
+		raf->write($($($nc(($$str({format, "    "_s})))->substring(0, 4))->getBytes("ascii"_s)));
 	}
-	this->chunksizepointer = $nc(raf)->getPointer();
+	this->chunksizepointer = raf->getPointer();
 	this->chunktype = 2;
 	writeUnsignedInt(0);
 	this->chunktype = chunktype;
@@ -152,7 +88,7 @@ void RIFFWriter::close() {
 		return;
 	}
 	if (this->childchunk != nullptr) {
-		$nc(this->childchunk)->close();
+		this->childchunk->close();
 		$set(this, childchunk, nullptr);
 	}
 	int32_t bakchunktype = this->chunktype;
@@ -175,7 +111,7 @@ void RIFFWriter::write(int32_t b) {
 			$throwNew($IllegalArgumentException, "Only chunks can write bytes!"_s);
 		}
 		if (this->childchunk != nullptr) {
-			$nc(this->childchunk)->close();
+			this->childchunk->close();
 			$set(this, childchunk, nullptr);
 		}
 	}
@@ -188,7 +124,7 @@ void RIFFWriter::write($bytes* b, int32_t off, int32_t len) {
 			$throwNew($IllegalArgumentException, "Only chunks can write bytes!"_s);
 		}
 		if (this->childchunk != nullptr) {
-			$nc(this->childchunk)->close();
+			this->childchunk->close();
 			$set(this, childchunk, nullptr);
 		}
 	}
@@ -200,7 +136,7 @@ RIFFWriter* RIFFWriter::writeList($String* format) {
 		$throwNew($IllegalArgumentException, "Only LIST and RIFF can write lists!"_s);
 	}
 	if (this->childchunk != nullptr) {
-		$nc(this->childchunk)->close();
+		this->childchunk->close();
 		$set(this, childchunk, nullptr);
 	}
 	$set(this, childchunk, $new(RIFFWriter, this->raf, format, 1));
@@ -212,7 +148,7 @@ RIFFWriter* RIFFWriter::writeChunk($String* format) {
 		$throwNew($IllegalArgumentException, "Only LIST and RIFF can write chunks!"_s);
 	}
 	if (this->childchunk != nullptr) {
-		$nc(this->childchunk)->close();
+		this->childchunk->close();
 		$set(this, childchunk, nullptr);
 	}
 	$set(this, childchunk, $new(RIFFWriter, this->raf, format, 2));
@@ -241,26 +177,26 @@ void RIFFWriter::writeByte(int32_t b) {
 }
 
 void RIFFWriter::writeShort(int16_t b) {
-	write((int32_t)(((int32_t)((uint32_t)b >> 0)) & (uint32_t)255));
-	write((int32_t)(((int32_t)((uint32_t)b >> 8)) & (uint32_t)255));
+	write(((int32_t)((uint32_t)b >> 0)) & 0xff);
+	write(((int32_t)((uint32_t)b >> 8)) & 0xff);
 }
 
 void RIFFWriter::writeInt(int32_t b) {
-	write((int32_t)(((int32_t)((uint32_t)b >> 0)) & (uint32_t)255));
-	write((int32_t)(((int32_t)((uint32_t)b >> 8)) & (uint32_t)255));
-	write((int32_t)(((int32_t)((uint32_t)b >> 16)) & (uint32_t)255));
-	write((int32_t)(((int32_t)((uint32_t)b >> 24)) & (uint32_t)255));
+	write(((int32_t)((uint32_t)b >> 0)) & 0xff);
+	write(((int32_t)((uint32_t)b >> 8)) & 0xff);
+	write(((int32_t)((uint32_t)b >> 16)) & 0xff);
+	write(((int32_t)((uint32_t)b >> 24)) & 0xff);
 }
 
 void RIFFWriter::writeLong(int64_t b) {
-	write((int32_t)((int32_t)((int64_t)((uint64_t)b >> 0)) & (uint32_t)255));
-	write((int32_t)((int32_t)((int64_t)((uint64_t)b >> 8)) & (uint32_t)255));
-	write((int32_t)((int32_t)((int64_t)((uint64_t)b >> 16)) & (uint32_t)255));
-	write((int32_t)((int32_t)((int64_t)((uint64_t)b >> 24)) & (uint32_t)255));
-	write((int32_t)((int32_t)((int64_t)((uint64_t)b >> 32)) & (uint32_t)255));
-	write((int32_t)((int32_t)((int64_t)((uint64_t)b >> 40)) & (uint32_t)255));
-	write((int32_t)((int32_t)((int64_t)((uint64_t)b >> 48)) & (uint32_t)255));
-	write((int32_t)((int32_t)((int64_t)((uint64_t)b >> 56)) & (uint32_t)255));
+	write((int32_t)((int64_t)((uint64_t)b >> 0)) & 0xff);
+	write((int32_t)((int64_t)((uint64_t)b >> 8)) & 0xff);
+	write((int32_t)((int64_t)((uint64_t)b >> 16)) & 0xff);
+	write((int32_t)((int64_t)((uint64_t)b >> 24)) & 0xff);
+	write((int32_t)((int64_t)((uint64_t)b >> 32)) & 0xff);
+	write((int32_t)((int64_t)((uint64_t)b >> 40)) & 0xff);
+	write((int32_t)((int64_t)((uint64_t)b >> 48)) & 0xff);
+	write((int32_t)((int64_t)((uint64_t)b >> 56)) & 0xff);
 }
 
 void RIFFWriter::writeUnsignedByte(int32_t b) {
@@ -279,7 +215,64 @@ RIFFWriter::RIFFWriter() {
 }
 
 $Class* RIFFWriter::load$($String* name, bool initialize) {
-	$loadClass(RIFFWriter, name, initialize, &_RIFFWriter_ClassInfo_, allocate$RIFFWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"chunktype", "I", nullptr, $PRIVATE, $field(RIFFWriter, chunktype)},
+		{"raf", "Lcom/sun/media/sound/RIFFWriter$RandomAccessWriter;", nullptr, $PRIVATE, $field(RIFFWriter, raf)},
+		{"chunksizepointer", "J", nullptr, $PRIVATE | $FINAL, $field(RIFFWriter, chunksizepointer)},
+		{"startpointer", "J", nullptr, $PRIVATE | $FINAL, $field(RIFFWriter, startpointer)},
+		{"childchunk", "Lcom/sun/media/sound/RIFFWriter;", nullptr, $PRIVATE, $field(RIFFWriter, childchunk)},
+		{"open", "Z", nullptr, $PRIVATE, $field(RIFFWriter, open)},
+		{"writeoverride", "Z", nullptr, $PRIVATE, $field(RIFFWriter, writeoverride)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RIFFWriter, init$, void, $String*, $String*), "java.io.IOException"},
+		{"<init>", "(Ljava/io/File;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RIFFWriter, init$, void, $File*, $String*), "java.io.IOException"},
+		{"<init>", "(Ljava/io/OutputStream;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RIFFWriter, init$, void, $OutputStream*, $String*), "java.io.IOException"},
+		{"<init>", "(Lcom/sun/media/sound/RIFFWriter$RandomAccessWriter;Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(RIFFWriter, init$, void, $RIFFWriter$RandomAccessWriter*, $String*, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter, close, void), "java.io.IOException"},
+		{"getFilePointer", "()J", nullptr, $PUBLIC, $method(RIFFWriter, getFilePointer, int64_t), "java.io.IOException"},
+		{"getWriteOverride", "()Z", nullptr, $PUBLIC, $method(RIFFWriter, getWriteOverride, bool)},
+		{"seek", "(J)V", nullptr, $PUBLIC, $method(RIFFWriter, seek, void, int64_t), "java.io.IOException"},
+		{"setWriteOverride", "(Z)V", nullptr, $PUBLIC, $method(RIFFWriter, setWriteOverride, void, bool)},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter, write, void, int32_t), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"writeByte", "(I)V", nullptr, $PUBLIC, $method(RIFFWriter, writeByte, void, int32_t), "java.io.IOException"},
+		{"writeChunk", "(Ljava/lang/String;)Lcom/sun/media/sound/RIFFWriter;", nullptr, $PUBLIC, $method(RIFFWriter, writeChunk, RIFFWriter*, $String*), "java.io.IOException"},
+		{"writeInt", "(I)V", nullptr, $PUBLIC, $method(RIFFWriter, writeInt, void, int32_t), "java.io.IOException"},
+		{"writeList", "(Ljava/lang/String;)Lcom/sun/media/sound/RIFFWriter;", nullptr, $PUBLIC, $method(RIFFWriter, writeList, RIFFWriter*, $String*), "java.io.IOException"},
+		{"writeLong", "(J)V", nullptr, $PUBLIC, $method(RIFFWriter, writeLong, void, int64_t), "java.io.IOException"},
+		{"writeShort", "(S)V", nullptr, $PUBLIC, $method(RIFFWriter, writeShort, void, int16_t), "java.io.IOException"},
+		{"writeString", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RIFFWriter, writeString, void, $String*), "java.io.IOException"},
+		{"writeString", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(RIFFWriter, writeString, void, $String*, int32_t), "java.io.IOException"},
+		{"writeUnsignedByte", "(I)V", nullptr, $PUBLIC, $method(RIFFWriter, writeUnsignedByte, void, int32_t), "java.io.IOException"},
+		{"writeUnsignedInt", "(J)V", nullptr, $PUBLIC, $method(RIFFWriter, writeUnsignedInt, void, int64_t), "java.io.IOException"},
+		{"writeUnsignedShort", "(I)V", nullptr, $PUBLIC, $method(RIFFWriter, writeUnsignedShort, void, int32_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.RIFFWriter$RandomAccessByteWriter", "com.sun.media.sound.RIFFWriter", "RandomAccessByteWriter", $PRIVATE | $STATIC},
+		{"com.sun.media.sound.RIFFWriter$RandomAccessFileWriter", "com.sun.media.sound.RIFFWriter", "RandomAccessFileWriter", $PRIVATE | $STATIC},
+		{"com.sun.media.sound.RIFFWriter$RandomAccessWriter", "com.sun.media.sound.RIFFWriter", "RandomAccessWriter", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.RIFFWriter",
+		"java.io.OutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.RIFFWriter$RandomAccessByteWriter,com.sun.media.sound.RIFFWriter$RandomAccessFileWriter,com.sun.media.sound.RIFFWriter$RandomAccessWriter"
+	};
+	$loadClass(RIFFWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RIFFWriter));
+	});
 	return class$;
 }
 

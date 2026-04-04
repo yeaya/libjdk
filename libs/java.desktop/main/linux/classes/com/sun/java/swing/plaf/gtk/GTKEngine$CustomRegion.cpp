@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKEngine$CustomRegion.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKEngine.h>
 #include <javax/swing/plaf/synth/Region.h>
 #include <jcpp.h>
@@ -19,48 +18,13 @@ namespace com {
 				namespace plaf {
 					namespace gtk {
 
-$FieldInfo _GTKEngine$CustomRegion_FieldInfo_[] = {
-	{"TITLED_BORDER", "Ljavax/swing/plaf/synth/Region;", nullptr, $STATIC, $staticField(GTKEngine$CustomRegion, TITLED_BORDER)},
-	{}
-};
-
-$MethodInfo _GTKEngine$CustomRegion_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(GTKEngine$CustomRegion, init$, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _GTKEngine$CustomRegion_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKEngine$CustomRegion", "com.sun.java.swing.plaf.gtk.GTKEngine", "CustomRegion", $STATIC},
-	{}
-};
-
-$ClassInfo _GTKEngine$CustomRegion_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.GTKEngine$CustomRegion",
-	"javax.swing.plaf.synth.Region",
-	nullptr,
-	_GTKEngine$CustomRegion_FieldInfo_,
-	_GTKEngine$CustomRegion_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GTKEngine$CustomRegion_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKEngine"
-};
-
-$Object* allocate$GTKEngine$CustomRegion($Class* clazz) {
-	return $of($alloc(GTKEngine$CustomRegion));
-}
-
 $Region* GTKEngine$CustomRegion::TITLED_BORDER = nullptr;
 
 void GTKEngine$CustomRegion::init$($String* name) {
 	$Region::init$(name, nullptr, false);
 }
 
-void clinit$GTKEngine$CustomRegion($Class* class$) {
+void GTKEngine$CustomRegion::clinit$($Class* clazz) {
 	$assignStatic(GTKEngine$CustomRegion::TITLED_BORDER, $new(GTKEngine$CustomRegion, "TitledBorder"_s));
 }
 
@@ -68,7 +32,36 @@ GTKEngine$CustomRegion::GTKEngine$CustomRegion() {
 }
 
 $Class* GTKEngine$CustomRegion::load$($String* name, bool initialize) {
-	$loadClass(GTKEngine$CustomRegion, name, initialize, &_GTKEngine$CustomRegion_ClassInfo_, clinit$GTKEngine$CustomRegion, allocate$GTKEngine$CustomRegion);
+	$FieldInfo fieldInfos$$[] = {
+		{"TITLED_BORDER", "Ljavax/swing/plaf/synth/Region;", nullptr, $STATIC, $staticField(GTKEngine$CustomRegion, TITLED_BORDER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(GTKEngine$CustomRegion, init$, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKEngine$CustomRegion", "com.sun.java.swing.plaf.gtk.GTKEngine", "CustomRegion", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.GTKEngine$CustomRegion",
+		"javax.swing.plaf.synth.Region",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKEngine"
+	};
+	$loadClass(GTKEngine$CustomRegion, name, initialize, &classInfo$$, GTKEngine$CustomRegion::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GTKEngine$CustomRegion);
+	});
 	return class$;
 }
 

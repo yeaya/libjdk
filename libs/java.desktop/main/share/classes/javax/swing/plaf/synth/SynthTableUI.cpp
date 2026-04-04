@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthTableUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -9,7 +8,6 @@
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <java/lang/Number.h>
 #include <java/util/Date.h>
 #include <javax/swing/CellRendererPane.h>
@@ -33,7 +31,6 @@
 #include <javax/swing/plaf/synth/SynthStyle.h>
 #include <javax/swing/plaf/synth/SynthTableUI$SynthBooleanTableCellRenderer.h>
 #include <javax/swing/plaf/synth/SynthTableUI$SynthTableCellRenderer.h>
-#include <javax/swing/plaf/synth/SynthUI.h>
 #include <javax/swing/table/JTableHeader.h>
 #include <javax/swing/table/TableCellRenderer.h>
 #include <javax/swing/table/TableColumn.h>
@@ -50,14 +47,11 @@
 
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
@@ -67,7 +61,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Number = ::java::lang::Number;
 using $Date = ::java::util::Date;
-using $CellRendererPane = ::javax::swing::CellRendererPane;
 using $Icon = ::javax::swing::Icon;
 using $ImageIcon = ::javax::swing::ImageIcon;
 using $JComponent = ::javax::swing::JComponent;
@@ -84,11 +77,9 @@ using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthGraphicsUtils = ::javax::swing::plaf::synth::SynthGraphicsUtils;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
-using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
 using $SynthStyle = ::javax::swing::plaf::synth::SynthStyle;
 using $SynthTableUI$SynthBooleanTableCellRenderer = ::javax::swing::plaf::synth::SynthTableUI$SynthBooleanTableCellRenderer;
 using $SynthTableUI$SynthTableCellRenderer = ::javax::swing::plaf::synth::SynthTableUI$SynthTableCellRenderer;
-using $SynthUI = ::javax::swing::plaf::synth::SynthUI;
 using $JTableHeader = ::javax::swing::table::JTableHeader;
 using $TableCellRenderer = ::javax::swing::table::TableCellRenderer;
 using $TableColumn = ::javax::swing::table::TableColumn;
@@ -98,80 +89,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthTableUI_FieldInfo_[] = {
-	{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthTableUI, style)},
-	{"useTableColors", "Z", nullptr, $PRIVATE, $field(SynthTableUI, useTableColors)},
-	{"useUIBorder", "Z", nullptr, $PRIVATE, $field(SynthTableUI, useUIBorder)},
-	{"alternateColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SynthTableUI, alternateColor)},
-	{"dateRenderer", "Ljavax/swing/table/TableCellRenderer;", nullptr, $PRIVATE, $field(SynthTableUI, dateRenderer)},
-	{"numberRenderer", "Ljavax/swing/table/TableCellRenderer;", nullptr, $PRIVATE, $field(SynthTableUI, numberRenderer)},
-	{"doubleRender", "Ljavax/swing/table/TableCellRenderer;", nullptr, $PRIVATE, $field(SynthTableUI, doubleRender)},
-	{"floatRenderer", "Ljavax/swing/table/TableCellRenderer;", nullptr, $PRIVATE, $field(SynthTableUI, floatRenderer)},
-	{"iconRenderer", "Ljavax/swing/table/TableCellRenderer;", nullptr, $PRIVATE, $field(SynthTableUI, iconRenderer)},
-	{"imageIconRenderer", "Ljavax/swing/table/TableCellRenderer;", nullptr, $PRIVATE, $field(SynthTableUI, imageIconRenderer)},
-	{"booleanRenderer", "Ljavax/swing/table/TableCellRenderer;", nullptr, $PRIVATE, $field(SynthTableUI, booleanRenderer)},
-	{"objectRenderer", "Ljavax/swing/table/TableCellRenderer;", nullptr, $PRIVATE, $field(SynthTableUI, objectRenderer)},
-	{}
-};
-
-$MethodInfo _SynthTableUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SynthTableUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthTableUI, createUI, $ComponentUI*, $JComponent*)},
-	{"extendRect", "(Ljava/awt/Rectangle;Z)Ljava/awt/Rectangle;", nullptr, $PRIVATE, $method(SynthTableUI, extendRect, $Rectangle*, $Rectangle*, bool)},
-	{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthTableUI, getContext, $SynthContext*, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthTableUI, getContext, $SynthContext*, $JComponent*, int32_t)},
-	{"getHDropLineRect", "(Ljavax/swing/JTable$DropLocation;)Ljava/awt/Rectangle;", nullptr, $PRIVATE, $method(SynthTableUI, getHDropLineRect, $Rectangle*, $JTable$DropLocation*)},
-	{"getVDropLineRect", "(Ljavax/swing/JTable$DropLocation;)Ljava/awt/Rectangle;", nullptr, $PRIVATE, $method(SynthTableUI, getVDropLineRect, $Rectangle*, $JTable$DropLocation*)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthTableUI, installDefaults, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthTableUI, installListeners, void)},
-	{"installRendererIfPossible", "(Ljava/lang/Class;Ljavax/swing/table/TableCellRenderer;)Ljavax/swing/table/TableCellRenderer;", "(Ljava/lang/Class<*>;Ljavax/swing/table/TableCellRenderer;)Ljavax/swing/table/TableCellRenderer;", $PRIVATE, $method(SynthTableUI, installRendererIfPossible, $TableCellRenderer*, $Class*, $TableCellRenderer*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthTableUI, paint, void, $Graphics*, $JComponent*)},
-	{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthTableUI, paint, void, $SynthContext*, $Graphics*)},
-	{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthTableUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintCell", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljava/awt/Rectangle;II)V", nullptr, $PRIVATE, $method(SynthTableUI, paintCell, void, $SynthContext*, $Graphics*, $Rectangle*, int32_t, int32_t)},
-	{"paintCells", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PRIVATE, $method(SynthTableUI, paintCells, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintDraggedArea", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IILjavax/swing/table/TableColumn;I)V", nullptr, $PRIVATE, $method(SynthTableUI, paintDraggedArea, void, $SynthContext*, $Graphics*, int32_t, int32_t, $TableColumn*, int32_t)},
-	{"paintDropLines", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PRIVATE, $method(SynthTableUI, paintDropLines, void, $SynthContext*, $Graphics*)},
-	{"paintGrid", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PRIVATE, $method(SynthTableUI, paintGrid, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthTableUI, propertyChange, void, $PropertyChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthTableUI, uninstallDefaults, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthTableUI, uninstallListeners, void)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthTableUI, update, void, $Graphics*, $JComponent*)},
-	{"updateStyle", "(Ljavax/swing/JTable;)V", nullptr, $PRIVATE, $method(SynthTableUI, updateStyle, void, $JTable*)},
-	{"viewIndexForColumn", "(Ljavax/swing/table/TableColumn;)I", nullptr, $PRIVATE, $method(SynthTableUI, viewIndexForColumn, int32_t, $TableColumn*)},
-	{}
-};
-
-$InnerClassInfo _SynthTableUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthTableUI$SynthTableCellRenderer", "javax.swing.plaf.synth.SynthTableUI", "SynthTableCellRenderer", $PRIVATE},
-	{"javax.swing.plaf.synth.SynthTableUI$SynthBooleanTableCellRenderer", "javax.swing.plaf.synth.SynthTableUI", "SynthBooleanTableCellRenderer", $PRIVATE},
-	{}
-};
-
-$ClassInfo _SynthTableUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.synth.SynthTableUI",
-	"javax.swing.plaf.basic.BasicTableUI",
-	"javax.swing.plaf.synth.SynthUI,java.beans.PropertyChangeListener",
-	_SynthTableUI_FieldInfo_,
-	_SynthTableUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthTableUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthTableUI$SynthTableCellRenderer,javax.swing.plaf.synth.SynthTableUI$SynthBooleanTableCellRenderer"
-};
-
-$Object* allocate$SynthTableUI($Class* clazz) {
-	return $of($alloc(SynthTableUI));
-}
 
 int32_t SynthTableUI::hashCode() {
 	 return this->$BasicTableUI::hashCode();
@@ -203,20 +120,16 @@ $ComponentUI* SynthTableUI::createUI($JComponent* c) {
 }
 
 void SynthTableUI::installDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($Date);
 	$set(this, dateRenderer, installRendererIfPossible($Date::class$, nullptr));
-	$load($Number);
 	$set(this, numberRenderer, installRendererIfPossible($Number::class$, nullptr));
-	$load($Double);
 	$set(this, doubleRender, installRendererIfPossible($Double::class$, nullptr));
-	$load($Float);
 	$set(this, floatRenderer, installRendererIfPossible($Float::class$, nullptr));
 	$load($Icon);
 	$set(this, iconRenderer, installRendererIfPossible($Icon::class$, nullptr));
 	$load($ImageIcon);
 	$set(this, imageIconRenderer, installRendererIfPossible($ImageIcon::class$, nullptr));
-	$load($Boolean);
 	$set(this, booleanRenderer, installRendererIfPossible($Boolean::class$, $$new($SynthTableUI$SynthBooleanTableCellRenderer, this)));
 	$set(this, objectRenderer, installRendererIfPossible($Object::class$, $$new($SynthTableUI$SynthTableCellRenderer, this)));
 	updateStyle(this->table);
@@ -231,7 +144,7 @@ $TableCellRenderer* SynthTableUI::installRendererIfPossible($Class* objectClass,
 }
 
 void SynthTableUI::updateStyle($JTable* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(c, $SynthConstants::ENABLED));
 	$var($SynthStyle, oldStyle, this->style);
 	$set(this, style, $SynthLookAndFeel::updateStyle(context, this));
@@ -256,7 +169,7 @@ void SynthTableUI::updateStyle($JTable* c) {
 				$assign(gridColor, $nc(this->style)->getColor(context, $ColorType::FOREGROUND));
 			}
 			$init($Color);
-			$nc(this->table)->setGridColor(gridColor == nullptr ? static_cast<$Color*>($$new($ColorUIResource, $Color::GRAY)) : gridColor);
+			$nc(this->table)->setGridColor(gridColor == nullptr ? $$cast($Color, $new($ColorUIResource, $Color::GRAY)) : gridColor);
 		}
 		this->useTableColors = $nc(this->style)->getBoolean(context, "Table.rendererUseTableColors"_s, true);
 		this->useUIBorder = $nc(this->style)->getBoolean(context, "Table.rendererUseUIBorder"_s, true);
@@ -289,20 +202,16 @@ void SynthTableUI::installListeners() {
 }
 
 void SynthTableUI::uninstallDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($Date);
 	$nc(this->table)->setDefaultRenderer($Date::class$, this->dateRenderer);
-	$load($Number);
 	$nc(this->table)->setDefaultRenderer($Number::class$, this->numberRenderer);
-	$load($Double);
 	$nc(this->table)->setDefaultRenderer($Double::class$, this->doubleRender);
-	$load($Float);
 	$nc(this->table)->setDefaultRenderer($Float::class$, this->floatRenderer);
 	$load($Icon);
 	$nc(this->table)->setDefaultRenderer($Icon::class$, this->iconRenderer);
 	$load($ImageIcon);
 	$nc(this->table)->setDefaultRenderer($ImageIcon::class$, this->imageIconRenderer);
-	$load($Boolean);
 	$nc(this->table)->setDefaultRenderer($Boolean::class$, this->booleanRenderer);
 	$nc(this->table)->setDefaultRenderer($Object::class$, this->objectRenderer);
 	if ($instanceOf($UIResource, $($nc(this->table)->getTransferHandler()))) {
@@ -327,18 +236,16 @@ $SynthContext* SynthTableUI::getContext($JComponent* c, int32_t state) {
 }
 
 void SynthTableUI::update($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(c));
 	$SynthLookAndFeel::update(context, g);
-	$var($SynthContext, var$0, context);
-	$var($Graphics, var$1, g);
-	int32_t var$2 = $nc(c)->getWidth();
-	$nc($($nc(context)->getPainter()))->paintTableBackground(var$0, var$1, 0, 0, var$2, c->getHeight());
+	int32_t var$0 = $nc(c)->getWidth();
+	$$nc($nc(context)->getPainter())->paintTableBackground(context, g, 0, 0, var$0, c->getHeight());
 	paint(context, g);
 }
 
 void SynthTableUI::paintBorder($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$nc($($nc(context)->getPainter()))->paintTableBorder(context, g, x, y, w, h);
+	$$nc($nc(context)->getPainter())->paintTableBorder(context, g, x, y, w, h);
 }
 
 void SynthTableUI::paint($Graphics* g, $JComponent* c) {
@@ -347,17 +254,17 @@ void SynthTableUI::paint($Graphics* g, $JComponent* c) {
 }
 
 void SynthTableUI::paint($SynthContext* context, $Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, clip, $nc(g)->getClipBounds());
 	$var($Rectangle, bounds, $nc(this->table)->getBounds());
-	$nc(bounds)->x = (bounds->y = 0);
+	$nc(bounds)->x = ($nc(bounds)->y = 0);
 	bool var$1 = $nc(this->table)->getRowCount() <= 0;
-	bool var$0 = var$1 || $nc(this->table)->getColumnCount() <= 0;
+	bool var$0 = var$1 || this->table->getColumnCount() <= 0;
 	if (var$0 || !bounds->intersects(clip)) {
 		paintDropLines(context, g);
 		return;
 	}
-	bool ltr = $nc($($nc(this->table)->getComponentOrientation()))->isLeftToRight();
+	bool ltr = $$nc($nc(this->table)->getComponentOrientation())->isLeftToRight();
 	$var($Point, upperLeft, $nc(clip)->getLocation());
 	$var($Point, lowerRight, $new($Point, clip->x + clip->width - 1, clip->y + clip->height - 1));
 	int32_t rMin = $nc(this->table)->rowAtPoint(upperLeft);
@@ -382,7 +289,7 @@ void SynthTableUI::paint($SynthContext* context, $Graphics* g) {
 }
 
 void SynthTableUI::paintDropLines($SynthContext* context, $Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTable$DropLocation, loc, $nc(this->table)->getDropLocation());
 	if (loc == nullptr) {
 		return;
@@ -424,11 +331,11 @@ void SynthTableUI::paintDropLines($SynthContext* context, $Graphics* g) {
 }
 
 $Rectangle* SynthTableUI::getHDropLineRect($JTable$DropLocation* loc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(loc)->isInsertRow()) {
 		return nullptr;
 	}
-	int32_t row = $nc(loc)->getRow();
+	int32_t row = loc->getRow();
 	int32_t col = loc->getColumn();
 	if (col >= $nc(this->table)->getColumnCount()) {
 		--col;
@@ -437,40 +344,40 @@ $Rectangle* SynthTableUI::getHDropLineRect($JTable$DropLocation* loc) {
 	if (row >= $nc(this->table)->getRowCount()) {
 		--row;
 		$var($Rectangle, prevRect, $nc(this->table)->getCellRect(row, col, true));
-		$nc(rect)->y = $nc(prevRect)->y + prevRect->height;
+		$nc(rect)->y = $nc(prevRect)->y + $nc(prevRect)->height;
 	}
 	if ($nc(rect)->y == 0) {
 		rect->y = -1;
 	} else {
 		rect->y -= 2;
 	}
-	$nc(rect)->height = 3;
+	rect->height = 3;
 	return rect;
 }
 
 $Rectangle* SynthTableUI::getVDropLineRect($JTable$DropLocation* loc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(loc)->isInsertColumn()) {
 		return nullptr;
 	}
-	bool ltr = $nc($($nc(this->table)->getComponentOrientation()))->isLeftToRight();
-	int32_t col = $nc(loc)->getColumn();
+	bool ltr = $$nc($nc(this->table)->getComponentOrientation())->isLeftToRight();
+	int32_t col = loc->getColumn();
 	$var($Rectangle, rect, $nc(this->table)->getCellRect(loc->getRow(), col, true));
 	if (col >= $nc(this->table)->getColumnCount()) {
 		--col;
 		$assign(rect, $nc(this->table)->getCellRect(loc->getRow(), col, true));
 		if (ltr) {
-			$nc(rect)->x = rect->x + rect->width;
+			$nc(rect)->x = $nc(rect)->x + $nc(rect)->width;
 		}
 	} else if (!ltr) {
-		$nc(rect)->x = rect->x + rect->width;
+		$nc(rect)->x = $nc(rect)->x + $nc(rect)->width;
 	}
 	if ($nc(rect)->x == 0) {
 		rect->x = -1;
 	} else {
 		rect->x -= 2;
 	}
-	$nc(rect)->width = 3;
+	rect->width = 3;
 	return rect;
 }
 
@@ -485,7 +392,7 @@ $Rectangle* SynthTableUI::extendRect($Rectangle* rect, bool horizontal) {
 		$nc(rect)->y = 0;
 		if ($nc(this->table)->getRowCount() != 0) {
 			$var($Rectangle, lastRect, $nc(this->table)->getCellRect($nc(this->table)->getRowCount() - 1, 0, true));
-			rect->height = $nc(lastRect)->y + lastRect->height;
+			rect->height = $nc(lastRect)->y + $nc(lastRect)->height;
 		} else {
 			rect->height = $nc(this->table)->getHeight();
 		}
@@ -494,14 +401,14 @@ $Rectangle* SynthTableUI::extendRect($Rectangle* rect, bool horizontal) {
 }
 
 void SynthTableUI::paintGrid($SynthContext* context, $Graphics* g, int32_t rMin, int32_t rMax, int32_t cMin, int32_t cMax) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(g)->setColor($($nc(this->table)->getGridColor()));
 	$var($Rectangle, minCell, $nc(this->table)->getCellRect(rMin, cMin, true));
 	$var($Rectangle, maxCell, $nc(this->table)->getCellRect(rMax, cMax, true));
 	$var($Rectangle, damagedArea, $nc(minCell)->union$(maxCell));
-	$var($SynthGraphicsUtils, synthG, $nc($($nc(context)->getStyle()))->getGraphicsUtils(context));
+	$var($SynthGraphicsUtils, synthG, $$nc($nc(context)->getStyle())->getGraphicsUtils(context));
 	if ($nc(this->table)->getShowHorizontalLines()) {
-		int32_t tableWidth = $nc(damagedArea)->x + damagedArea->width;
+		int32_t tableWidth = $nc(damagedArea)->x + $nc(damagedArea)->width;
 		int32_t y = damagedArea->y;
 		for (int32_t row = rMin; row <= rMax; ++row) {
 			y += $nc(this->table)->getRowHeight(row);
@@ -510,19 +417,19 @@ void SynthTableUI::paintGrid($SynthContext* context, $Graphics* g, int32_t rMin,
 	}
 	if ($nc(this->table)->getShowVerticalLines()) {
 		$var($TableColumnModel, cm, $nc(this->table)->getColumnModel());
-		int32_t tableHeight = $nc(damagedArea)->y + damagedArea->height;
+		int32_t tableHeight = $nc(damagedArea)->y + $nc(damagedArea)->height;
 		int32_t x = 0;
-		if ($nc($($nc(this->table)->getComponentOrientation()))->isLeftToRight()) {
+		if ($$nc($nc(this->table)->getComponentOrientation())->isLeftToRight()) {
 			x = damagedArea->x;
 			for (int32_t column = cMin; column <= cMax; ++column) {
-				int32_t w = $nc($($nc(cm)->getColumn(column)))->getWidth();
+				int32_t w = $$nc($nc(cm)->getColumn(column))->getWidth();
 				x += w;
 				$nc(synthG)->drawLine(context, "Table.grid"_s, g, x - 1, 0, x - 1, tableHeight - 1);
 			}
 		} else {
 			x = damagedArea->x;
 			for (int32_t column = cMax; column >= cMin; --column) {
-				int32_t w = $nc($($nc(cm)->getColumn(column)))->getWidth();
+				int32_t w = $$nc($nc(cm)->getColumn(column))->getWidth();
 				x += w;
 				$nc(synthG)->drawLine(context, "Table.grid"_s, g, x - 1, 0, x - 1, tableHeight - 1);
 			}
@@ -541,15 +448,15 @@ int32_t SynthTableUI::viewIndexForColumn($TableColumn* aColumn) {
 }
 
 void SynthTableUI::paintCells($SynthContext* context, $Graphics* g, int32_t rMin, int32_t rMax, int32_t cMin, int32_t cMax) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTableHeader, header, $nc(this->table)->getTableHeader());
-	$var($TableColumn, draggedColumn, (header == nullptr) ? ($TableColumn*)nullptr : $nc(header)->getDraggedColumn());
+	$var($TableColumn, draggedColumn, (header == nullptr) ? ($TableColumn*)nullptr : header->getDraggedColumn());
 	$var($TableColumnModel, cm, $nc(this->table)->getColumnModel());
 	int32_t columnMargin = $nc(cm)->getColumnMargin();
 	$var($Rectangle, cellRect, nullptr);
 	$var($TableColumn, aColumn, nullptr);
 	int32_t columnWidth = 0;
-	if ($nc($($nc(this->table)->getComponentOrientation()))->isLeftToRight()) {
+	if ($$nc($nc(this->table)->getComponentOrientation())->isLeftToRight()) {
 		for (int32_t row = rMin; row <= rMax; ++row) {
 			$assign(cellRect, $nc(this->table)->getCellRect(row, cMin, false));
 			for (int32_t column = cMin; column <= cMax; ++column) {
@@ -583,24 +490,24 @@ void SynthTableUI::paintCells($SynthContext* context, $Graphics* g, int32_t rMin
 		}
 	}
 	if (draggedColumn != nullptr) {
-		paintDraggedArea(context, g, rMin, rMax, draggedColumn, header->getDraggedDistance());
+		paintDraggedArea(context, g, rMin, rMax, draggedColumn, $nc(header)->getDraggedDistance());
 	}
 	$nc(this->rendererPane)->removeAll();
 }
 
 void SynthTableUI::paintDraggedArea($SynthContext* context, $Graphics* g, int32_t rMin, int32_t rMax, $TableColumn* draggedColumn, int32_t distance) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t draggedColumnIndex = viewIndexForColumn(draggedColumn);
 	$var($Rectangle, minCell, $nc(this->table)->getCellRect(rMin, draggedColumnIndex, true));
 	$var($Rectangle, maxCell, $nc(this->table)->getCellRect(rMax, draggedColumnIndex, true));
 	$var($Rectangle, vacatedColumnRect, $nc(minCell)->union$(maxCell));
-	$nc(g)->setColor($($nc($($nc(this->table)->getParent()))->getBackground()));
-	g->fillRect($nc(vacatedColumnRect)->x, vacatedColumnRect->y, vacatedColumnRect->width, vacatedColumnRect->height);
-	$nc(vacatedColumnRect)->x += distance;
+	$nc(g)->setColor($($$nc($nc(this->table)->getParent())->getBackground()));
+	g->fillRect($nc(vacatedColumnRect)->x, $nc(vacatedColumnRect)->y, $nc(vacatedColumnRect)->width, $nc(vacatedColumnRect)->height);
+	vacatedColumnRect->x += distance;
 	$init($ColorType);
-	g->setColor($($nc($($nc(context)->getStyle()))->getColor(context, $ColorType::BACKGROUND)));
+	g->setColor($($$nc($nc(context)->getStyle())->getColor(context, $ColorType::BACKGROUND)));
 	g->fillRect(vacatedColumnRect->x, vacatedColumnRect->y, vacatedColumnRect->width, vacatedColumnRect->height);
-	$var($SynthGraphicsUtils, synthG, $nc($($nc(context)->getStyle()))->getGraphicsUtils(context));
+	$var($SynthGraphicsUtils, synthG, $$nc(context->getStyle())->getGraphicsUtils(context));
 	if ($nc(this->table)->getShowVerticalLines()) {
 		g->setColor($($nc(this->table)->getGridColor()));
 		int32_t x1 = vacatedColumnRect->x;
@@ -628,10 +535,10 @@ void SynthTableUI::paintDraggedArea($SynthContext* context, $Graphics* g, int32_
 }
 
 void SynthTableUI::paintCell($SynthContext* context, $Graphics* g, $Rectangle* cellRect, int32_t row, int32_t column) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$1 = $nc(this->table)->isEditing();
-	bool var$0 = var$1 && $nc(this->table)->getEditingRow() == row;
-	if (var$0 && $nc(this->table)->getEditingColumn() == column) {
+	bool var$0 = var$1 && this->table->getEditingRow() == row;
+	if (var$0 && this->table->getEditingColumn() == column) {
 		$var($Component, component, $nc(this->table)->getEditorComponent());
 		$nc(component)->setBounds(cellRect);
 		component->validate();
@@ -644,13 +551,13 @@ void SynthTableUI::paintCell($SynthContext* context, $Graphics* g, $Rectangle* c
 				component->setBackground(this->alternateColor);
 			}
 		}
-		$nc(this->rendererPane)->paintComponent(g, component, this->table, $nc(cellRect)->x, cellRect->y, cellRect->width, cellRect->height, true);
+		$nc(this->rendererPane)->paintComponent(g, component, this->table, $nc(cellRect)->x, $nc(cellRect)->y, $nc(cellRect)->width, $nc(cellRect)->height, true);
 	}
 }
 
 void SynthTableUI::propertyChange($PropertyChangeEvent* event) {
 	if ($SynthLookAndFeel::shouldUpdateStyle(event)) {
-		updateStyle($cast($JTable, $($nc(event)->getSource())));
+		updateStyle($$cast($JTable, $nc(event)->getSource()));
 	}
 }
 
@@ -658,7 +565,75 @@ SynthTableUI::SynthTableUI() {
 }
 
 $Class* SynthTableUI::load$($String* name, bool initialize) {
-	$loadClass(SynthTableUI, name, initialize, &_SynthTableUI_ClassInfo_, allocate$SynthTableUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthTableUI, style)},
+		{"useTableColors", "Z", nullptr, $PRIVATE, $field(SynthTableUI, useTableColors)},
+		{"useUIBorder", "Z", nullptr, $PRIVATE, $field(SynthTableUI, useUIBorder)},
+		{"alternateColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SynthTableUI, alternateColor)},
+		{"dateRenderer", "Ljavax/swing/table/TableCellRenderer;", nullptr, $PRIVATE, $field(SynthTableUI, dateRenderer)},
+		{"numberRenderer", "Ljavax/swing/table/TableCellRenderer;", nullptr, $PRIVATE, $field(SynthTableUI, numberRenderer)},
+		{"doubleRender", "Ljavax/swing/table/TableCellRenderer;", nullptr, $PRIVATE, $field(SynthTableUI, doubleRender)},
+		{"floatRenderer", "Ljavax/swing/table/TableCellRenderer;", nullptr, $PRIVATE, $field(SynthTableUI, floatRenderer)},
+		{"iconRenderer", "Ljavax/swing/table/TableCellRenderer;", nullptr, $PRIVATE, $field(SynthTableUI, iconRenderer)},
+		{"imageIconRenderer", "Ljavax/swing/table/TableCellRenderer;", nullptr, $PRIVATE, $field(SynthTableUI, imageIconRenderer)},
+		{"booleanRenderer", "Ljavax/swing/table/TableCellRenderer;", nullptr, $PRIVATE, $field(SynthTableUI, booleanRenderer)},
+		{"objectRenderer", "Ljavax/swing/table/TableCellRenderer;", nullptr, $PRIVATE, $field(SynthTableUI, objectRenderer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SynthTableUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthTableUI, createUI, $ComponentUI*, $JComponent*)},
+		{"extendRect", "(Ljava/awt/Rectangle;Z)Ljava/awt/Rectangle;", nullptr, $PRIVATE, $method(SynthTableUI, extendRect, $Rectangle*, $Rectangle*, bool)},
+		{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthTableUI, getContext, $SynthContext*, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthTableUI, getContext, $SynthContext*, $JComponent*, int32_t)},
+		{"getHDropLineRect", "(Ljavax/swing/JTable$DropLocation;)Ljava/awt/Rectangle;", nullptr, $PRIVATE, $method(SynthTableUI, getHDropLineRect, $Rectangle*, $JTable$DropLocation*)},
+		{"getVDropLineRect", "(Ljavax/swing/JTable$DropLocation;)Ljava/awt/Rectangle;", nullptr, $PRIVATE, $method(SynthTableUI, getVDropLineRect, $Rectangle*, $JTable$DropLocation*)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthTableUI, installDefaults, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthTableUI, installListeners, void)},
+		{"installRendererIfPossible", "(Ljava/lang/Class;Ljavax/swing/table/TableCellRenderer;)Ljavax/swing/table/TableCellRenderer;", "(Ljava/lang/Class<*>;Ljavax/swing/table/TableCellRenderer;)Ljavax/swing/table/TableCellRenderer;", $PRIVATE, $method(SynthTableUI, installRendererIfPossible, $TableCellRenderer*, $Class*, $TableCellRenderer*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthTableUI, paint, void, $Graphics*, $JComponent*)},
+		{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthTableUI, paint, void, $SynthContext*, $Graphics*)},
+		{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthTableUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintCell", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljava/awt/Rectangle;II)V", nullptr, $PRIVATE, $method(SynthTableUI, paintCell, void, $SynthContext*, $Graphics*, $Rectangle*, int32_t, int32_t)},
+		{"paintCells", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PRIVATE, $method(SynthTableUI, paintCells, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintDraggedArea", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IILjavax/swing/table/TableColumn;I)V", nullptr, $PRIVATE, $method(SynthTableUI, paintDraggedArea, void, $SynthContext*, $Graphics*, int32_t, int32_t, $TableColumn*, int32_t)},
+		{"paintDropLines", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PRIVATE, $method(SynthTableUI, paintDropLines, void, $SynthContext*, $Graphics*)},
+		{"paintGrid", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PRIVATE, $method(SynthTableUI, paintGrid, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthTableUI, propertyChange, void, $PropertyChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthTableUI, uninstallDefaults, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthTableUI, uninstallListeners, void)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthTableUI, update, void, $Graphics*, $JComponent*)},
+		{"updateStyle", "(Ljavax/swing/JTable;)V", nullptr, $PRIVATE, $method(SynthTableUI, updateStyle, void, $JTable*)},
+		{"viewIndexForColumn", "(Ljavax/swing/table/TableColumn;)I", nullptr, $PRIVATE, $method(SynthTableUI, viewIndexForColumn, int32_t, $TableColumn*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthTableUI$SynthTableCellRenderer", "javax.swing.plaf.synth.SynthTableUI", "SynthTableCellRenderer", $PRIVATE},
+		{"javax.swing.plaf.synth.SynthTableUI$SynthBooleanTableCellRenderer", "javax.swing.plaf.synth.SynthTableUI", "SynthBooleanTableCellRenderer", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.synth.SynthTableUI",
+		"javax.swing.plaf.basic.BasicTableUI",
+		"javax.swing.plaf.synth.SynthUI,java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthTableUI$SynthTableCellRenderer,javax.swing.plaf.synth.SynthTableUI$SynthBooleanTableCellRenderer"
+	};
+	$loadClass(SynthTableUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthTableUI));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/management/Query.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/Number.h>
 #include <javax/management/AndQueryExp.h>
@@ -59,67 +58,6 @@ using $ValueExp = ::javax::management::ValueExp;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _Query_FieldInfo_[] = {
-	{"GT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Query, GT)},
-	{"LT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Query, LT)},
-	{"GE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Query, GE)},
-	{"LE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Query, LE)},
-	{"EQ", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Query, EQ)},
-	{"PLUS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Query, PLUS)},
-	{"MINUS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Query, MINUS)},
-	{"TIMES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Query, TIMES)},
-	{"DIV", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Query, DIV)},
-	{}
-};
-
-$MethodInfo _Query_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Query, init$, void)},
-	{"and", "(Ljavax/management/QueryExp;Ljavax/management/QueryExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, and$, $QueryExp*, $QueryExp*, $QueryExp*)},
-	{"anySubString", "(Ljavax/management/AttributeValueExp;Ljavax/management/StringValueExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, anySubString, $QueryExp*, $AttributeValueExp*, $StringValueExp*)},
-	{"attr", "(Ljava/lang/String;)Ljavax/management/AttributeValueExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, attr, $AttributeValueExp*, $String*)},
-	{"attr", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/management/AttributeValueExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, attr, $AttributeValueExp*, $String*, $String*)},
-	{"between", "(Ljavax/management/ValueExp;Ljavax/management/ValueExp;Ljavax/management/ValueExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, between, $QueryExp*, $ValueExp*, $ValueExp*, $ValueExp*)},
-	{"classattr", "()Ljavax/management/AttributeValueExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, classattr, $AttributeValueExp*)},
-	{"div", "(Ljavax/management/ValueExp;Ljavax/management/ValueExp;)Ljavax/management/ValueExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, div, $ValueExp*, $ValueExp*, $ValueExp*)},
-	{"eq", "(Ljavax/management/ValueExp;Ljavax/management/ValueExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, eq, $QueryExp*, $ValueExp*, $ValueExp*)},
-	{"escapeString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Query, escapeString, $String*, $String*)},
-	{"finalSubString", "(Ljavax/management/AttributeValueExp;Ljavax/management/StringValueExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, finalSubString, $QueryExp*, $AttributeValueExp*, $StringValueExp*)},
-	{"geq", "(Ljavax/management/ValueExp;Ljavax/management/ValueExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, geq, $QueryExp*, $ValueExp*, $ValueExp*)},
-	{"gt", "(Ljavax/management/ValueExp;Ljavax/management/ValueExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, gt, $QueryExp*, $ValueExp*, $ValueExp*)},
-	{"in", "(Ljavax/management/ValueExp;[Ljavax/management/ValueExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, in, $QueryExp*, $ValueExp*, $ValueExpArray*)},
-	{"initialSubString", "(Ljavax/management/AttributeValueExp;Ljavax/management/StringValueExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, initialSubString, $QueryExp*, $AttributeValueExp*, $StringValueExp*)},
-	{"isInstanceOf", "(Ljavax/management/StringValueExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, isInstanceOf, $QueryExp*, $StringValueExp*)},
-	{"leq", "(Ljavax/management/ValueExp;Ljavax/management/ValueExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, leq, $QueryExp*, $ValueExp*, $ValueExp*)},
-	{"lt", "(Ljavax/management/ValueExp;Ljavax/management/ValueExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, lt, $QueryExp*, $ValueExp*, $ValueExp*)},
-	{"match", "(Ljavax/management/AttributeValueExp;Ljavax/management/StringValueExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, match, $QueryExp*, $AttributeValueExp*, $StringValueExp*)},
-	{"minus", "(Ljavax/management/ValueExp;Ljavax/management/ValueExp;)Ljavax/management/ValueExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, minus, $ValueExp*, $ValueExp*, $ValueExp*)},
-	{"not", "(Ljavax/management/QueryExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, not$, $QueryExp*, $QueryExp*)},
-	{"or", "(Ljavax/management/QueryExp;Ljavax/management/QueryExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, or$, $QueryExp*, $QueryExp*, $QueryExp*)},
-	{"plus", "(Ljavax/management/ValueExp;Ljavax/management/ValueExp;)Ljavax/management/ValueExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, plus, $ValueExp*, $ValueExp*, $ValueExp*)},
-	{"times", "(Ljavax/management/ValueExp;Ljavax/management/ValueExp;)Ljavax/management/ValueExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, times, $ValueExp*, $ValueExp*, $ValueExp*)},
-	{"value", "(Ljava/lang/String;)Ljavax/management/StringValueExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, value, $StringValueExp*, $String*)},
-	{"value", "(Ljava/lang/Number;)Ljavax/management/ValueExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, value, $ValueExp*, $Number*)},
-	{"value", "(I)Ljavax/management/ValueExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, value, $ValueExp*, int32_t)},
-	{"value", "(J)Ljavax/management/ValueExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, value, $ValueExp*, int64_t)},
-	{"value", "(F)Ljavax/management/ValueExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, value, $ValueExp*, float)},
-	{"value", "(D)Ljavax/management/ValueExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, value, $ValueExp*, double)},
-	{"value", "(Z)Ljavax/management/ValueExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, value, $ValueExp*, bool)},
-	{}
-};
-
-$ClassInfo _Query_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.Query",
-	"java.lang.Object",
-	nullptr,
-	_Query_FieldInfo_,
-	_Query_MethodInfo_
-};
-
-$Object* allocate$Query($Class* clazz) {
-	return $of($alloc(Query));
-}
 
 void Query::init$() {
 }
@@ -225,17 +163,17 @@ $ValueExp* Query::div($ValueExp* value1, $ValueExp* value2) {
 }
 
 $QueryExp* Query::initialSubString($AttributeValueExp* a, $StringValueExp* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($MatchQueryExp, a, $$new($StringValueExp, $$str({$(escapeString($($nc(s)->getValue()))), "*"_s})));
 }
 
 $QueryExp* Query::anySubString($AttributeValueExp* a, $StringValueExp* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($MatchQueryExp, a, $$new($StringValueExp, $$str({"*"_s, $(escapeString($($nc(s)->getValue()))), "*"_s})));
 }
 
 $QueryExp* Query::finalSubString($AttributeValueExp* a, $StringValueExp* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($MatchQueryExp, a, $$new($StringValueExp, $$str({"*"_s, $(escapeString($($nc(s)->getValue())))})));
 }
 
@@ -248,10 +186,10 @@ $String* Query::escapeString($String* s$renamed) {
 	if (s == nullptr) {
 		return nullptr;
 	}
-	$assign(s, $nc(s)->replace(static_cast<$CharSequence*>("\\"_s), static_cast<$CharSequence*>("\\\\"_s)));
-	$assign(s, s->replace(static_cast<$CharSequence*>("*"_s), static_cast<$CharSequence*>("\\*"_s)));
-	$assign(s, s->replace(static_cast<$CharSequence*>("?"_s), static_cast<$CharSequence*>("\\?"_s)));
-	$assign(s, s->replace(static_cast<$CharSequence*>("["_s), static_cast<$CharSequence*>("\\["_s)));
+	$assign(s, $nc(s)->replace("\\"_s, "\\\\"_s));
+	$assign(s, s->replace("*"_s, "\\*"_s));
+	$assign(s, s->replace("?"_s, "\\?"_s));
+	$assign(s, s->replace("["_s, "\\["_s));
 	return s;
 }
 
@@ -259,7 +197,63 @@ Query::Query() {
 }
 
 $Class* Query::load$($String* name, bool initialize) {
-	$loadClass(Query, name, initialize, &_Query_ClassInfo_, allocate$Query);
+	$FieldInfo fieldInfos$$[] = {
+		{"GT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Query, GT)},
+		{"LT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Query, LT)},
+		{"GE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Query, GE)},
+		{"LE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Query, LE)},
+		{"EQ", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Query, EQ)},
+		{"PLUS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Query, PLUS)},
+		{"MINUS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Query, MINUS)},
+		{"TIMES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Query, TIMES)},
+		{"DIV", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Query, DIV)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Query, init$, void)},
+		{"and", "(Ljavax/management/QueryExp;Ljavax/management/QueryExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, and$, $QueryExp*, $QueryExp*, $QueryExp*)},
+		{"anySubString", "(Ljavax/management/AttributeValueExp;Ljavax/management/StringValueExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, anySubString, $QueryExp*, $AttributeValueExp*, $StringValueExp*)},
+		{"attr", "(Ljava/lang/String;)Ljavax/management/AttributeValueExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, attr, $AttributeValueExp*, $String*)},
+		{"attr", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/management/AttributeValueExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, attr, $AttributeValueExp*, $String*, $String*)},
+		{"between", "(Ljavax/management/ValueExp;Ljavax/management/ValueExp;Ljavax/management/ValueExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, between, $QueryExp*, $ValueExp*, $ValueExp*, $ValueExp*)},
+		{"classattr", "()Ljavax/management/AttributeValueExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, classattr, $AttributeValueExp*)},
+		{"div", "(Ljavax/management/ValueExp;Ljavax/management/ValueExp;)Ljavax/management/ValueExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, div, $ValueExp*, $ValueExp*, $ValueExp*)},
+		{"eq", "(Ljavax/management/ValueExp;Ljavax/management/ValueExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, eq, $QueryExp*, $ValueExp*, $ValueExp*)},
+		{"escapeString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Query, escapeString, $String*, $String*)},
+		{"finalSubString", "(Ljavax/management/AttributeValueExp;Ljavax/management/StringValueExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, finalSubString, $QueryExp*, $AttributeValueExp*, $StringValueExp*)},
+		{"geq", "(Ljavax/management/ValueExp;Ljavax/management/ValueExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, geq, $QueryExp*, $ValueExp*, $ValueExp*)},
+		{"gt", "(Ljavax/management/ValueExp;Ljavax/management/ValueExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, gt, $QueryExp*, $ValueExp*, $ValueExp*)},
+		{"in", "(Ljavax/management/ValueExp;[Ljavax/management/ValueExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, in, $QueryExp*, $ValueExp*, $ValueExpArray*)},
+		{"initialSubString", "(Ljavax/management/AttributeValueExp;Ljavax/management/StringValueExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, initialSubString, $QueryExp*, $AttributeValueExp*, $StringValueExp*)},
+		{"isInstanceOf", "(Ljavax/management/StringValueExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, isInstanceOf, $QueryExp*, $StringValueExp*)},
+		{"leq", "(Ljavax/management/ValueExp;Ljavax/management/ValueExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, leq, $QueryExp*, $ValueExp*, $ValueExp*)},
+		{"lt", "(Ljavax/management/ValueExp;Ljavax/management/ValueExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, lt, $QueryExp*, $ValueExp*, $ValueExp*)},
+		{"match", "(Ljavax/management/AttributeValueExp;Ljavax/management/StringValueExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, match, $QueryExp*, $AttributeValueExp*, $StringValueExp*)},
+		{"minus", "(Ljavax/management/ValueExp;Ljavax/management/ValueExp;)Ljavax/management/ValueExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, minus, $ValueExp*, $ValueExp*, $ValueExp*)},
+		{"not", "(Ljavax/management/QueryExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, not$, $QueryExp*, $QueryExp*)},
+		{"or", "(Ljavax/management/QueryExp;Ljavax/management/QueryExp;)Ljavax/management/QueryExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, or$, $QueryExp*, $QueryExp*, $QueryExp*)},
+		{"plus", "(Ljavax/management/ValueExp;Ljavax/management/ValueExp;)Ljavax/management/ValueExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, plus, $ValueExp*, $ValueExp*, $ValueExp*)},
+		{"times", "(Ljavax/management/ValueExp;Ljavax/management/ValueExp;)Ljavax/management/ValueExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, times, $ValueExp*, $ValueExp*, $ValueExp*)},
+		{"value", "(Ljava/lang/String;)Ljavax/management/StringValueExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, value, $StringValueExp*, $String*)},
+		{"value", "(Ljava/lang/Number;)Ljavax/management/ValueExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, value, $ValueExp*, $Number*)},
+		{"value", "(I)Ljavax/management/ValueExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, value, $ValueExp*, int32_t)},
+		{"value", "(J)Ljavax/management/ValueExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, value, $ValueExp*, int64_t)},
+		{"value", "(F)Ljavax/management/ValueExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, value, $ValueExp*, float)},
+		{"value", "(D)Ljavax/management/ValueExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, value, $ValueExp*, double)},
+		{"value", "(Z)Ljavax/management/ValueExp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Query, value, $ValueExp*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.Query",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Query, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Query);
+	});
 	return class$;
 }
 

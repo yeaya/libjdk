@@ -1,30 +1,10 @@
 #include <HeadlessLookAndFeel.h>
-
 #include <javax/swing/plaf/metal/MetalLookAndFeel.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
-
-$MethodInfo _HeadlessLookAndFeel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessLookAndFeel, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessLookAndFeel, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _HeadlessLookAndFeel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessLookAndFeel",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessLookAndFeel_MethodInfo_
-};
-
-$Object* allocate$HeadlessLookAndFeel($Class* clazz) {
-	return $of($alloc(HeadlessLookAndFeel));
-}
 
 void HeadlessLookAndFeel::init$() {
 }
@@ -37,7 +17,22 @@ HeadlessLookAndFeel::HeadlessLookAndFeel() {
 }
 
 $Class* HeadlessLookAndFeel::load$($String* name, bool initialize) {
-	$loadClass(HeadlessLookAndFeel, name, initialize, &_HeadlessLookAndFeel_ClassInfo_, allocate$HeadlessLookAndFeel);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessLookAndFeel, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessLookAndFeel, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessLookAndFeel",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HeadlessLookAndFeel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessLookAndFeel);
+	});
 	return class$;
 }
 

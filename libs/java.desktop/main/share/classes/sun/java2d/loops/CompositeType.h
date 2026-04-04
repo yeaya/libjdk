@@ -59,6 +59,7 @@ class CompositeType : public ::java::lang::Object {
 	$class(CompositeType, 0, ::java::lang::Object)
 public:
 	CompositeType();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::java2d::loops::CompositeType* parent, $String* desc);
 	::sun::java2d::loops::CompositeType* deriveSubType($String* desc);
 	virtual bool equals(Object$* o) override;

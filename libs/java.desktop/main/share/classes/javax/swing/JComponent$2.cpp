@@ -1,5 +1,4 @@
 #include <javax/swing/JComponent$2.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/FocusEvent$Cause.h>
 #include <javax/swing/InputVerifier.h>
@@ -22,48 +21,11 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 namespace javax {
 	namespace swing {
 
-$MethodInfo _JComponent$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(JComponent$2, init$, void)},
-	{"acceptRequestFocus", "(Ljava/awt/Component;Ljava/awt/Component;ZZLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC, $virtualMethod(JComponent$2, acceptRequestFocus, bool, $Component*, $Component*, bool, bool, $FocusEvent$Cause*)},
-	{}
-};
-
-$EnclosingMethodInfo _JComponent$2_EnclosingMethodInfo_ = {
-	"javax.swing.JComponent",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _JComponent$2_InnerClassesInfo_[] = {
-	{"javax.swing.JComponent$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JComponent$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JComponent$2",
-	"java.lang.Object",
-	"sun.awt.RequestFocusController",
-	nullptr,
-	_JComponent$2_MethodInfo_,
-	nullptr,
-	&_JComponent$2_EnclosingMethodInfo_,
-	_JComponent$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JComponent"
-};
-
-$Object* allocate$JComponent$2($Class* clazz) {
-	return $of($alloc(JComponent$2));
-}
-
 void JComponent$2::init$() {
 }
 
 bool JComponent$2::acceptRequestFocus($Component* from, $Component* to, bool temporary, bool focusedWindowChangeAllowed, $FocusEvent$Cause* cause) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((to == nullptr) || !($instanceOf($JComponent, to))) {
 		return true;
 	}
@@ -84,29 +46,27 @@ bool JComponent$2::acceptRequestFocus($Component* from, $Component* to, bool tem
 			return true;
 		}
 		$SwingUtilities::appContextPut($JComponent::INPUT_VERIFIER_SOURCE_KEY, jFocusOwner);
-		{
-			$var($Throwable, var$0, nullptr);
-			bool var$2 = false;
-			bool return$1 = false;
-			try {
-				var$2 = $nc(iv)->shouldYieldFocus(jFocusOwner, target);
-				return$1 = true;
-				goto $finally;
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				if (currentSource != nullptr) {
-					$SwingUtilities::appContextPut($JComponent::INPUT_VERIFIER_SOURCE_KEY, currentSource);
-				} else {
-					$SwingUtilities::appContextRemove($JComponent::INPUT_VERIFIER_SOURCE_KEY);
-				}
+		$var($Throwable, var$0, nullptr);
+		bool var$2 = false;
+		bool return$1 = false;
+		try {
+			var$2 = iv->shouldYieldFocus(jFocusOwner, target);
+			return$1 = true;
+			goto $finally;
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			if (currentSource != nullptr) {
+				$SwingUtilities::appContextPut($JComponent::INPUT_VERIFIER_SOURCE_KEY, currentSource);
+			} else {
+				$SwingUtilities::appContextRemove($JComponent::INPUT_VERIFIER_SOURCE_KEY);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	}
 	$shouldNotReachHere();
@@ -116,7 +76,38 @@ JComponent$2::JComponent$2() {
 }
 
 $Class* JComponent$2::load$($String* name, bool initialize) {
-	$loadClass(JComponent$2, name, initialize, &_JComponent$2_ClassInfo_, allocate$JComponent$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(JComponent$2, init$, void)},
+		{"acceptRequestFocus", "(Ljava/awt/Component;Ljava/awt/Component;ZZLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC, $virtualMethod(JComponent$2, acceptRequestFocus, bool, $Component*, $Component*, bool, bool, $FocusEvent$Cause*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.JComponent",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JComponent$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JComponent$2",
+		"java.lang.Object",
+		"sun.awt.RequestFocusController",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JComponent"
+	};
+	$loadClass(JComponent$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JComponent$2);
+	});
 	return class$;
 }
 

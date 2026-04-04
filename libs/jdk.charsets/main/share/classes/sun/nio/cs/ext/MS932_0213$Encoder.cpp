@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/MS932_0213$Encoder.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetEncoder.h>
 #include <sun/nio/cs/DoubleByte$Encoder.h>
@@ -22,43 +21,6 @@ namespace sun {
 		namespace cs {
 			namespace ext {
 
-$FieldInfo _MS932_0213$Encoder_FieldInfo_[] = {
-	{"encMS932", "Lsun/nio/cs/DoubleByte$Encoder;", nullptr, $STATIC | $FINAL, $staticField(MS932_0213$Encoder, encMS932)},
-	{}
-};
-
-$MethodInfo _MS932_0213$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PROTECTED, $method(MS932_0213$Encoder, init$, void, $Charset*)},
-	{"encodeChar", "(C)I", nullptr, $PROTECTED, $virtualMethod(MS932_0213$Encoder, encodeChar, int32_t, char16_t)},
-	{}
-};
-
-$InnerClassInfo _MS932_0213$Encoder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.MS932_0213$Encoder", "sun.nio.cs.ext.MS932_0213", "Encoder", $PROTECTED | $STATIC},
-	{"sun.nio.cs.ext.SJIS_0213$Encoder", "sun.nio.cs.ext.SJIS_0213", "Encoder", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _MS932_0213$Encoder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.ext.MS932_0213$Encoder",
-	"sun.nio.cs.ext.SJIS_0213$Encoder",
-	nullptr,
-	_MS932_0213$Encoder_FieldInfo_,
-	_MS932_0213$Encoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MS932_0213$Encoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.MS932_0213"
-};
-
-$Object* allocate$MS932_0213$Encoder($Class* clazz) {
-	return $of($alloc(MS932_0213$Encoder));
-}
-
 $DoubleByte$Encoder* MS932_0213$Encoder::encMS932 = nullptr;
 
 void MS932_0213$Encoder::init$($Charset* cs) {
@@ -67,13 +29,13 @@ void MS932_0213$Encoder::init$($Charset* cs) {
 
 int32_t MS932_0213$Encoder::encodeChar(char16_t ch) {
 	int32_t db = $nc(MS932_0213$Encoder::encMS932)->encodeChar(ch);
-	if (db == 0x0000FFFD) {
+	if (db == 0x0000fffd) {
 		return $SJIS_0213$Encoder::encodeChar(ch);
 	}
 	return db;
 }
 
-void clinit$MS932_0213$Encoder($Class* class$) {
+void MS932_0213$Encoder::clinit$($Class* clazz) {
 	$assignStatic(MS932_0213$Encoder::encMS932, $cast($DoubleByte$Encoder, $$new($MS932)->newEncoder()));
 }
 
@@ -81,7 +43,38 @@ MS932_0213$Encoder::MS932_0213$Encoder() {
 }
 
 $Class* MS932_0213$Encoder::load$($String* name, bool initialize) {
-	$loadClass(MS932_0213$Encoder, name, initialize, &_MS932_0213$Encoder_ClassInfo_, clinit$MS932_0213$Encoder, allocate$MS932_0213$Encoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"encMS932", "Lsun/nio/cs/DoubleByte$Encoder;", nullptr, $STATIC | $FINAL, $staticField(MS932_0213$Encoder, encMS932)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PROTECTED, $method(MS932_0213$Encoder, init$, void, $Charset*)},
+		{"encodeChar", "(C)I", nullptr, $PROTECTED, $virtualMethod(MS932_0213$Encoder, encodeChar, int32_t, char16_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.MS932_0213$Encoder", "sun.nio.cs.ext.MS932_0213", "Encoder", $PROTECTED | $STATIC},
+		{"sun.nio.cs.ext.SJIS_0213$Encoder", "sun.nio.cs.ext.SJIS_0213", "Encoder", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.ext.MS932_0213$Encoder",
+		"sun.nio.cs.ext.SJIS_0213$Encoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.MS932_0213"
+	};
+	$loadClass(MS932_0213$Encoder, name, initialize, &classInfo$$, MS932_0213$Encoder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MS932_0213$Encoder);
+	});
 	return class$;
 }
 

@@ -14,6 +14,7 @@ class StyleSheet$1 : public ::java::lang::Object {
 	$class(StyleSheet$1, 0, ::java::lang::Object)
 public:
 	StyleSheet$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$swing$text$html$StyleSheet$BoxPainter$HorizontalMargin;
 };
 

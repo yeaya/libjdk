@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/BorderUIResource$EtchedBorderUIResource.h>
-
 #include <java/awt/Color.h>
 #include <javax/swing/border/EtchedBorder.h>
 #include <javax/swing/plaf/BorderUIResource.h>
@@ -17,61 +16,6 @@ using $EtchedBorder = ::javax::swing::border::EtchedBorder;
 namespace javax {
 	namespace swing {
 		namespace plaf {
-
-$Attribute BorderUIResource$EtchedBorderUIResource_Attribute_var$1[] = {
-	{'s', "etchType"},
-	{'s', "highlightColor"},
-	{'s', "shadowColor"},
-	{'-'}
-};
-
-$NamedAttribute BorderUIResource$EtchedBorderUIResource_Attribute_var$0[] = {
-	{"value", '[', BorderUIResource$EtchedBorderUIResource_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _BorderUIResource$EtchedBorderUIResource_MethodAnnotations_init$3[] = {
-	{"Ljava/beans/ConstructorProperties;", BorderUIResource$EtchedBorderUIResource_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _BorderUIResource$EtchedBorderUIResource_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BorderUIResource$EtchedBorderUIResource, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(BorderUIResource$EtchedBorderUIResource, init$, void, int32_t)},
-	{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(BorderUIResource$EtchedBorderUIResource, init$, void, $Color*, $Color*)},
-	{"<init>", "(ILjava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(BorderUIResource$EtchedBorderUIResource, init$, void, int32_t, $Color*, $Color*), nullptr, nullptr, _BorderUIResource$EtchedBorderUIResource_MethodAnnotations_init$3},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BorderUIResource$EtchedBorderUIResource_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.BorderUIResource$EtchedBorderUIResource", "javax.swing.plaf.BorderUIResource", "EtchedBorderUIResource", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _BorderUIResource$EtchedBorderUIResource_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.BorderUIResource$EtchedBorderUIResource",
-	"javax.swing.border.EtchedBorder",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_BorderUIResource$EtchedBorderUIResource_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BorderUIResource$EtchedBorderUIResource_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.BorderUIResource"
-};
-
-$Object* allocate$BorderUIResource$EtchedBorderUIResource($Class* clazz) {
-	return $of($alloc(BorderUIResource$EtchedBorderUIResource));
-}
 
 int32_t BorderUIResource$EtchedBorderUIResource::hashCode() {
 	 return this->$EtchedBorder::hashCode();
@@ -113,7 +57,54 @@ BorderUIResource$EtchedBorderUIResource::BorderUIResource$EtchedBorderUIResource
 }
 
 $Class* BorderUIResource$EtchedBorderUIResource::load$($String* name, bool initialize) {
-	$loadClass(BorderUIResource$EtchedBorderUIResource, name, initialize, &_BorderUIResource$EtchedBorderUIResource_ClassInfo_, allocate$BorderUIResource$EtchedBorderUIResource);
+	$Attribute $attribute[] = {
+		{'s', "etchType"},
+		{'s', "highlightColor"},
+		{'s', "shadowColor"},
+		{'-'}
+	};
+	$NamedAttribute init$methodAnnotations$$$3$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$3[] = {
+		{"Ljava/beans/ConstructorProperties;", init$methodAnnotations$$$3$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BorderUIResource$EtchedBorderUIResource, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(BorderUIResource$EtchedBorderUIResource, init$, void, int32_t)},
+		{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(BorderUIResource$EtchedBorderUIResource, init$, void, $Color*, $Color*)},
+		{"<init>", "(ILjava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(BorderUIResource$EtchedBorderUIResource, init$, void, int32_t, $Color*, $Color*), nullptr, nullptr, init$methodAnnotations$$$3},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.BorderUIResource$EtchedBorderUIResource", "javax.swing.plaf.BorderUIResource", "EtchedBorderUIResource", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.BorderUIResource$EtchedBorderUIResource",
+		"javax.swing.border.EtchedBorder",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.BorderUIResource"
+	};
+	$loadClass(BorderUIResource$EtchedBorderUIResource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BorderUIResource$EtchedBorderUIResource));
+	});
 	return class$;
 }
 

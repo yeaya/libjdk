@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalToggleButtonUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/FontMetrics.h>
@@ -22,7 +21,6 @@
 #undef METAL_TOGGLE_BUTTON_UI_KEY
 
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;
@@ -45,44 +43,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalToggleButtonUI_FieldInfo_[] = {
-	{"METAL_TOGGLE_BUTTON_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalToggleButtonUI, METAL_TOGGLE_BUTTON_UI_KEY)},
-	{"focusColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalToggleButtonUI, focusColor)},
-	{"selectColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalToggleButtonUI, selectColor)},
-	{"disabledTextColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalToggleButtonUI, disabledTextColor)},
-	{"defaults_initialized", "Z", nullptr, $PRIVATE, $field(MetalToggleButtonUI, defaults_initialized)},
-	{}
-};
-
-$MethodInfo _MetalToggleButtonUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalToggleButtonUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalToggleButtonUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getDisabledTextColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalToggleButtonUI, getDisabledTextColor, $Color*)},
-	{"getFocusColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalToggleButtonUI, getFocusColor, $Color*)},
-	{"getSelectColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalToggleButtonUI, getSelectColor, $Color*)},
-	{"installDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $virtualMethod(MetalToggleButtonUI, installDefaults, void, $AbstractButton*)},
-	{"paintButtonPressed", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(MetalToggleButtonUI, paintButtonPressed, void, $Graphics*, $AbstractButton*)},
-	{"paintFocus", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(MetalToggleButtonUI, paintFocus, void, $Graphics*, $AbstractButton*, $Rectangle*, $Rectangle*, $Rectangle*)},
-	{"paintIcon", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(MetalToggleButtonUI, paintIcon, void, $Graphics*, $AbstractButton*, $Rectangle*)},
-	{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(MetalToggleButtonUI, paintText, void, $Graphics*, $JComponent*, $Rectangle*, $String*)},
-	{"uninstallDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(MetalToggleButtonUI, uninstallDefaults, void, $AbstractButton*)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalToggleButtonUI, update, void, $Graphics*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _MetalToggleButtonUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalToggleButtonUI",
-	"javax.swing.plaf.basic.BasicToggleButtonUI",
-	nullptr,
-	_MetalToggleButtonUI_FieldInfo_,
-	_MetalToggleButtonUI_MethodInfo_
-};
-
-$Object* allocate$MetalToggleButtonUI($Class* clazz) {
-	return $of($alloc(MetalToggleButtonUI));
-}
-
 $Object* MetalToggleButtonUI::METAL_TOGGLE_BUTTON_UI_KEY = nullptr;
 
 void MetalToggleButtonUI::init$() {
@@ -92,7 +52,7 @@ void MetalToggleButtonUI::init$() {
 
 $ComponentUI* MetalToggleButtonUI::createUI($JComponent* b) {
 	$init(MetalToggleButtonUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, appContext, $AppContext::getAppContext());
 	$var(MetalToggleButtonUI, metalToggleButtonUI, $cast(MetalToggleButtonUI, $nc(appContext)->get(MetalToggleButtonUI::METAL_TOGGLE_BUTTON_UI_KEY)));
 	if (metalToggleButtonUI == nullptr) {
@@ -103,7 +63,7 @@ $ComponentUI* MetalToggleButtonUI::createUI($JComponent* b) {
 }
 
 void MetalToggleButtonUI::installDefaults($AbstractButton* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicToggleButtonUI::installDefaults(b);
 	if (!this->defaults_initialized) {
 		$set(this, focusColor, $UIManager::getColor($$str({$(getPropertyPrefix()), "focus"_s})));
@@ -131,9 +91,9 @@ $Color* MetalToggleButtonUI::getFocusColor() {
 }
 
 void MetalToggleButtonUI::update($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, button, $cast($AbstractButton, c));
-	bool var$1 = ($instanceOf($UIResource, $($nc(c)->getBackground())));
+	bool var$1 = $instanceOf($UIResource, $($nc(c)->getBackground()));
 	bool var$0 = var$1 && $nc(button)->isContentAreaFilled();
 	if (var$0 && c->isEnabled()) {
 		$var($ButtonModel, model, button->getModel());
@@ -141,27 +101,23 @@ void MetalToggleButtonUI::update($Graphics* g, $JComponent* c) {
 			bool var$3 = !$nc(model)->isArmed();
 			bool var$2 = var$3 && !model->isPressed();
 			if (var$2) {
-				$var($Component, var$4, static_cast<$Component*>(c));
-				$var($Graphics, var$5, g);
-				$var($String, var$6, "ToggleButton.gradient"_s);
-				int32_t var$7 = c->getWidth();
-				var$2 = $MetalUtils::drawGradient(var$4, var$5, var$6, 0, 0, var$7, c->getHeight(), true);
+				$var($String, var$4, "ToggleButton.gradient"_s);
+				int32_t var$5 = c->getWidth();
+				var$2 = $MetalUtils::drawGradient(c, g, var$4, 0, 0, var$5, c->getHeight(), true);
 			}
 			if (var$2) {
 				paint(g, c);
 				return;
 			}
 		} else {
-			bool var$15 = $nc(model)->isRollover();
-			bool var$14 = (var$15 || $nc(model)->isSelected());
-			if (var$14) {
-				$var($Component, var$16, static_cast<$Component*>(c));
-				$var($Graphics, var$17, g);
-				$var($String, var$18, "ToggleButton.gradient"_s);
-				int32_t var$19 = c->getWidth();
-				var$14 = $MetalUtils::drawGradient(var$16, var$17, var$18, 0, 0, var$19, c->getHeight(), true);
+			bool var$7 = $nc(model)->isRollover();
+			bool var$6 = var$7 || model->isSelected();
+			if (var$6) {
+				$var($String, var$8, "ToggleButton.gradient"_s);
+				int32_t var$9 = c->getWidth();
+				var$6 = $MetalUtils::drawGradient(c, g, var$8, 0, 0, var$9, c->getHeight(), true);
 			}
-			if (var$14) {
+			if (var$6) {
 				paint(g, c);
 				return;
 			}
@@ -179,10 +135,10 @@ void MetalToggleButtonUI::paintButtonPressed($Graphics* g, $AbstractButton* b) {
 }
 
 void MetalToggleButtonUI::paintText($Graphics* g, $JComponent* c, $Rectangle* textRect, $String* text) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, b, $cast($AbstractButton, c));
 	$var($ButtonModel, model, $nc(b)->getModel());
-	$var($FontMetrics, fm, $SwingUtilities2::getFontMetrics(static_cast<$JComponent*>(b), g));
+	$var($FontMetrics, fm, $SwingUtilities2::getFontMetrics(b, g));
 	int32_t mnemIndex = b->getDisplayedMnemonicIndex();
 	if ($nc(model)->isEnabled()) {
 		$nc(g)->setColor($(b->getForeground()));
@@ -191,11 +147,11 @@ void MetalToggleButtonUI::paintText($Graphics* g, $JComponent* c, $Rectangle* te
 	} else {
 		$nc(g)->setColor($(getDisabledTextColor()));
 	}
-	$SwingUtilities2::drawStringUnderlineCharAt(c, g, text, mnemIndex, $nc(textRect)->x, textRect->y + $nc(fm)->getAscent());
+	$SwingUtilities2::drawStringUnderlineCharAt(c, g, text, mnemIndex, $nc(textRect)->x, $nc(textRect)->y + $nc(fm)->getAscent());
 }
 
 void MetalToggleButtonUI::paintFocus($Graphics* g, $AbstractButton* b, $Rectangle* viewRect, $Rectangle* textRect, $Rectangle* iconRect) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, focusRect, $new($Rectangle));
 	$var($String, text, $nc(b)->getText());
 	bool isIcon = b->getIcon() != nullptr;
@@ -216,7 +172,7 @@ void MetalToggleButtonUI::paintIcon($Graphics* g, $AbstractButton* b, $Rectangle
 	$BasicToggleButtonUI::paintIcon(g, b, iconRect);
 }
 
-void clinit$MetalToggleButtonUI($Class* class$) {
+void MetalToggleButtonUI::clinit$($Class* clazz) {
 	$assignStatic(MetalToggleButtonUI::METAL_TOGGLE_BUTTON_UI_KEY, $new($Object));
 }
 
@@ -224,7 +180,40 @@ MetalToggleButtonUI::MetalToggleButtonUI() {
 }
 
 $Class* MetalToggleButtonUI::load$($String* name, bool initialize) {
-	$loadClass(MetalToggleButtonUI, name, initialize, &_MetalToggleButtonUI_ClassInfo_, clinit$MetalToggleButtonUI, allocate$MetalToggleButtonUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"METAL_TOGGLE_BUTTON_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalToggleButtonUI, METAL_TOGGLE_BUTTON_UI_KEY)},
+		{"focusColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalToggleButtonUI, focusColor)},
+		{"selectColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalToggleButtonUI, selectColor)},
+		{"disabledTextColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalToggleButtonUI, disabledTextColor)},
+		{"defaults_initialized", "Z", nullptr, $PRIVATE, $field(MetalToggleButtonUI, defaults_initialized)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalToggleButtonUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalToggleButtonUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getDisabledTextColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalToggleButtonUI, getDisabledTextColor, $Color*)},
+		{"getFocusColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalToggleButtonUI, getFocusColor, $Color*)},
+		{"getSelectColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalToggleButtonUI, getSelectColor, $Color*)},
+		{"installDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $virtualMethod(MetalToggleButtonUI, installDefaults, void, $AbstractButton*)},
+		{"paintButtonPressed", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(MetalToggleButtonUI, paintButtonPressed, void, $Graphics*, $AbstractButton*)},
+		{"paintFocus", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(MetalToggleButtonUI, paintFocus, void, $Graphics*, $AbstractButton*, $Rectangle*, $Rectangle*, $Rectangle*)},
+		{"paintIcon", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(MetalToggleButtonUI, paintIcon, void, $Graphics*, $AbstractButton*, $Rectangle*)},
+		{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(MetalToggleButtonUI, paintText, void, $Graphics*, $JComponent*, $Rectangle*, $String*)},
+		{"uninstallDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(MetalToggleButtonUI, uninstallDefaults, void, $AbstractButton*)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalToggleButtonUI, update, void, $Graphics*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalToggleButtonUI",
+		"javax.swing.plaf.basic.BasicToggleButtonUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MetalToggleButtonUI, name, initialize, &classInfo$$, MetalToggleButtonUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalToggleButtonUI);
+	});
 	return class$;
 }
 

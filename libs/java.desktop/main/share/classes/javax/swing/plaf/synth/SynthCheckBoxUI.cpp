@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthCheckBoxUI.h>
-
 #include <java/awt/Graphics.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -14,35 +13,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
-using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
 using $SynthRadioButtonUI = ::javax::swing::plaf::synth::SynthRadioButtonUI;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$MethodInfo _SynthCheckBoxUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SynthCheckBoxUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthCheckBoxUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SynthCheckBoxUI, getPropertyPrefix, $String*)},
-	{"paintBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, 0, $virtualMethod(SynthCheckBoxUI, paintBackground, void, $SynthContext*, $Graphics*, $JComponent*)},
-	{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthCheckBoxUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _SynthCheckBoxUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.synth.SynthCheckBoxUI",
-	"javax.swing.plaf.synth.SynthRadioButtonUI",
-	nullptr,
-	nullptr,
-	_SynthCheckBoxUI_MethodInfo_
-};
-
-$Object* allocate$SynthCheckBoxUI($Class* clazz) {
-	return $of($alloc(SynthCheckBoxUI));
-}
 
 void SynthCheckBoxUI::init$() {
 	$SynthRadioButtonUI::init$();
@@ -58,22 +34,37 @@ $String* SynthCheckBoxUI::getPropertyPrefix() {
 }
 
 void SynthCheckBoxUI::paintBackground($SynthContext* context, $Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
-	$var($SynthContext, var$0, context);
-	$var($Graphics, var$1, g);
-	int32_t var$2 = $nc(c)->getWidth();
-	$nc($($nc(context)->getPainter()))->paintCheckBoxBackground(var$0, var$1, 0, 0, var$2, c->getHeight());
+	int32_t var$0 = $nc(c)->getWidth();
+	$$nc($nc(context)->getPainter())->paintCheckBoxBackground(context, g, 0, 0, var$0, c->getHeight());
 }
 
 void SynthCheckBoxUI::paintBorder($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$nc($($nc(context)->getPainter()))->paintCheckBoxBorder(context, g, x, y, w, h);
+	$$nc($nc(context)->getPainter())->paintCheckBoxBorder(context, g, x, y, w, h);
 }
 
 SynthCheckBoxUI::SynthCheckBoxUI() {
 }
 
 $Class* SynthCheckBoxUI::load$($String* name, bool initialize) {
-	$loadClass(SynthCheckBoxUI, name, initialize, &_SynthCheckBoxUI_ClassInfo_, allocate$SynthCheckBoxUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SynthCheckBoxUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthCheckBoxUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SynthCheckBoxUI, getPropertyPrefix, $String*)},
+		{"paintBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, 0, $virtualMethod(SynthCheckBoxUI, paintBackground, void, $SynthContext*, $Graphics*, $JComponent*)},
+		{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthCheckBoxUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.synth.SynthCheckBoxUI",
+		"javax.swing.plaf.synth.SynthRadioButtonUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SynthCheckBoxUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthCheckBoxUI));
+	});
 	return class$;
 }
 

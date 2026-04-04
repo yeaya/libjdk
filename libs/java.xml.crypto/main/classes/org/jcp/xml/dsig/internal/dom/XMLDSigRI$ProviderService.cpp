@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/XMLDSigRI$ProviderService.h>
-
 #include <java/security/InvalidParameterException.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/Provider$Service.h>
@@ -65,40 +64,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$MethodInfo _XMLDSigRI$ProviderService_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(XMLDSigRI$ProviderService, init$, void, $Provider*, $String*, $String*, $String*)},
-	{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, 0, $method(XMLDSigRI$ProviderService, init$, void, $Provider*, $String*, $String*, $String*, $StringArray*)},
-	{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", 0, $method(XMLDSigRI$ProviderService, init$, void, $Provider*, $String*, $String*, $String*, $StringArray*, $Map*)},
-	{"newInstance", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLDSigRI$ProviderService, newInstance, $Object*, Object$*), "java.security.NoSuchAlgorithmException"},
-	{}
-};
-
-$InnerClassInfo _XMLDSigRI$ProviderService_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.XMLDSigRI$ProviderService", "org.jcp.xml.dsig.internal.dom.XMLDSigRI", "ProviderService", $PRIVATE | $STATIC | $FINAL},
-	{"java.security.Provider$Service", "java.security.Provider", "Service", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _XMLDSigRI$ProviderService_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.XMLDSigRI$ProviderService",
-	"java.security.Provider$Service",
-	nullptr,
-	nullptr,
-	_XMLDSigRI$ProviderService_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XMLDSigRI$ProviderService_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.XMLDSigRI"
-};
-
-$Object* allocate$XMLDSigRI$ProviderService($Class* clazz) {
-	return $of($alloc(XMLDSigRI$ProviderService));
-}
-
 void XMLDSigRI$ProviderService::init$($Provider* p, $String* type, $String* algo, $String* cn) {
 	$Provider$Service::init$(p, type, algo, cn, nullptr, nullptr);
 }
@@ -112,7 +77,7 @@ void XMLDSigRI$ProviderService::init$($Provider* p, $String* type, $String* algo
 }
 
 $Object* XMLDSigRI$ProviderService::newInstance(Object$* ctrParamObj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, type, getType());
 	if (ctrParamObj != nullptr) {
 		$throwNew($InvalidParameterException, $$str({"constructorParameter not used with "_s, type, " engines"_s}));
@@ -121,45 +86,37 @@ $Object* XMLDSigRI$ProviderService::newInstance(Object$* ctrParamObj) {
 	try {
 		if ("XMLSignatureFactory"_s->equals(type)) {
 			if ("DOM"_s->equals(algo)) {
-				return $of($new($DOMXMLSignatureFactory));
+				return $new($DOMXMLSignatureFactory);
 			}
 		} else if ("KeyInfoFactory"_s->equals(type)) {
 			if ("DOM"_s->equals(algo)) {
-				return $of($new($DOMKeyInfoFactory));
+				return $new($DOMKeyInfoFactory);
 			}
 		} else if ("TransformService"_s->equals(type)) {
 			$init($CanonicalizationMethod);
 			bool var$0 = $nc(algo)->equals($CanonicalizationMethod::INCLUSIVE);
-			if (var$0 || $nc(algo)->equals($CanonicalizationMethod::INCLUSIVE_WITH_COMMENTS)) {
+			if (var$0 || algo->equals($CanonicalizationMethod::INCLUSIVE_WITH_COMMENTS)) {
 				return $of($new($DOMCanonicalXMLC14NMethod));
 			} else {
-				bool var$2 = "http://www.w3.org/2006/12/xml-c14n11"_s->equals(algo);
-				if (var$2 || "http://www.w3.org/2006/12/xml-c14n11#WithComments"_s->equals(algo)) {
+				bool var$1 = "http://www.w3.org/2006/12/xml-c14n11"_s->equals(algo);
+				if (var$1 || "http://www.w3.org/2006/12/xml-c14n11#WithComments"_s->equals(algo)) {
 					return $of($new($DOMCanonicalXMLC14N11Method));
 				} else {
-					bool var$4 = algo->equals($CanonicalizationMethod::EXCLUSIVE);
-					if (var$4 || algo->equals($CanonicalizationMethod::EXCLUSIVE_WITH_COMMENTS)) {
+					bool var$2 = algo->equals($CanonicalizationMethod::EXCLUSIVE);
+					if (var$2 || algo->equals($CanonicalizationMethod::EXCLUSIVE_WITH_COMMENTS)) {
 						return $of($new($DOMExcC14NMethod));
 					} else {
 						$init($Transform);
 						if (algo->equals($Transform::BASE64)) {
 							return $of($new($DOMBase64Transform));
-						} else {
-							if (algo->equals($Transform::ENVELOPED)) {
-								return $of($new($DOMEnvelopedTransform));
-							} else {
-								if (algo->equals($Transform::XPATH2)) {
-									return $of($new($DOMXPathFilter2Transform));
-								} else {
-									if (algo->equals($Transform::XPATH)) {
-										return $of($new($DOMXPathTransform));
-									} else {
-										if (algo->equals($Transform::XSLT)) {
-											return $of($new($DOMXSLTTransform));
-										}
-									}
-								}
-							}
+						} else if (algo->equals($Transform::ENVELOPED)) {
+							return $of($new($DOMEnvelopedTransform));
+						} else if (algo->equals($Transform::XPATH2)) {
+							return $of($new($DOMXPathFilter2Transform));
+						} else if (algo->equals($Transform::XPATH)) {
+							return $of($new($DOMXPathTransform));
+						} else if (algo->equals($Transform::XSLT)) {
+							return $of($new($DOMXSLTTransform));
 						}
 					}
 				}
@@ -176,7 +133,36 @@ XMLDSigRI$ProviderService::XMLDSigRI$ProviderService() {
 }
 
 $Class* XMLDSigRI$ProviderService::load$($String* name, bool initialize) {
-	$loadClass(XMLDSigRI$ProviderService, name, initialize, &_XMLDSigRI$ProviderService_ClassInfo_, allocate$XMLDSigRI$ProviderService);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(XMLDSigRI$ProviderService, init$, void, $Provider*, $String*, $String*, $String*)},
+		{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, 0, $method(XMLDSigRI$ProviderService, init$, void, $Provider*, $String*, $String*, $String*, $StringArray*)},
+		{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", 0, $method(XMLDSigRI$ProviderService, init$, void, $Provider*, $String*, $String*, $String*, $StringArray*, $Map*)},
+		{"newInstance", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLDSigRI$ProviderService, newInstance, $Object*, Object$*), "java.security.NoSuchAlgorithmException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.XMLDSigRI$ProviderService", "org.jcp.xml.dsig.internal.dom.XMLDSigRI", "ProviderService", $PRIVATE | $STATIC | $FINAL},
+		{"java.security.Provider$Service", "java.security.Provider", "Service", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.XMLDSigRI$ProviderService",
+		"java.security.Provider$Service",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.XMLDSigRI"
+	};
+	$loadClass(XMLDSigRI$ProviderService, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLDSigRI$ProviderService);
+	});
 	return class$;
 }
 

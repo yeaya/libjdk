@@ -45,6 +45,7 @@ class $export MultiAuthTest : public ::java::lang::Object {
 	$class(MultiAuthTest, 0, ::java::lang::Object)
 public:
 	MultiAuthTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::com::sun::net::httpserver::HttpServer* createServer(::java::util::concurrent::ExecutorService* e, ::com::sun::net::httpserver::BasicAuthenticator* sa);
 	static void main($StringArray* args);

@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CPrinterJobDialog.h>
-
 #include <java/awt/Frame.h>
 #include <java/awt/print/Pageable.h>
 #include <sun/lwawt/macosx/CPrinterDialog.h>
@@ -18,33 +17,6 @@ namespace sun {
 	namespace lwawt {
 		namespace macosx {
 
-$FieldInfo _CPrinterJobDialog_FieldInfo_[] = {
-	{"fPageable", "Ljava/awt/print/Pageable;", nullptr, $PRIVATE, $field(CPrinterJobDialog, fPageable)},
-	{"fAllowPrintToFile", "Z", nullptr, $PRIVATE, $field(CPrinterJobDialog, fAllowPrintToFile)},
-	{}
-};
-
-$MethodInfo _CPrinterJobDialog_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Frame;Lsun/lwawt/macosx/CPrinterJob;Ljava/awt/print/Pageable;Z)V", nullptr, 0, $method(CPrinterJobDialog, init$, void, $Frame*, $CPrinterJob*, $Pageable*, bool)},
-	{"showDialog", "()Z", nullptr, $PROTECTED | $NATIVE, $virtualMethod(CPrinterJobDialog, showDialog, bool)},
-	{}
-};
-
-#define _METHOD_INDEX_showDialog 1
-
-$ClassInfo _CPrinterJobDialog_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.lwawt.macosx.CPrinterJobDialog",
-	"sun.lwawt.macosx.CPrinterDialog",
-	nullptr,
-	_CPrinterJobDialog_FieldInfo_,
-	_CPrinterJobDialog_MethodInfo_
-};
-
-$Object* allocate$CPrinterJobDialog($Class* clazz) {
-	return $of($alloc(CPrinterJobDialog));
-}
-
 void CPrinterJobDialog::init$($Frame* parent, $CPrinterJob* printerJob, $Pageable* doc, bool allowPrintToFile) {
 	$CPrinterDialog::init$(parent, printerJob);
 	$set(this, fPageable, doc);
@@ -52,9 +24,8 @@ void CPrinterJobDialog::init$($Frame* parent, $CPrinterJob* printerJob, $Pageabl
 }
 
 bool CPrinterJobDialog::showDialog() {
-	bool $ret = false;
-	$prepareNative(CPrinterJobDialog, showDialog, bool);
-	$ret = $invokeNative();
+	$prepareNative(showDialog, bool);
+	bool $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -63,7 +34,27 @@ CPrinterJobDialog::CPrinterJobDialog() {
 }
 
 $Class* CPrinterJobDialog::load$($String* name, bool initialize) {
-	$loadClass(CPrinterJobDialog, name, initialize, &_CPrinterJobDialog_ClassInfo_, allocate$CPrinterJobDialog);
+	$FieldInfo fieldInfos$$[] = {
+		{"fPageable", "Ljava/awt/print/Pageable;", nullptr, $PRIVATE, $field(CPrinterJobDialog, fPageable)},
+		{"fAllowPrintToFile", "Z", nullptr, $PRIVATE, $field(CPrinterJobDialog, fAllowPrintToFile)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Frame;Lsun/lwawt/macosx/CPrinterJob;Ljava/awt/print/Pageable;Z)V", nullptr, 0, $method(CPrinterJobDialog, init$, void, $Frame*, $CPrinterJob*, $Pageable*, bool)},
+		{"showDialog", "()Z", nullptr, $PROTECTED | $NATIVE, $virtualMethod(CPrinterJobDialog, showDialog, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.lwawt.macosx.CPrinterJobDialog",
+		"sun.lwawt.macosx.CPrinterDialog",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CPrinterJobDialog, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CPrinterJobDialog));
+	});
 	return class$;
 }
 

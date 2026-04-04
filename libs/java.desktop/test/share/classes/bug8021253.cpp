@@ -1,5 +1,4 @@
 #include <bug8021253.h>
-
 #include <bug8021253$1.h>
 #include <bug8021253$2.h>
 #include <bug8021253$3.h>
@@ -9,7 +8,6 @@
 #include <java/awt/Dimension.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/io/File.h>
 #include <java/io/IOException.h>
@@ -34,10 +32,8 @@ using $bug8021253$2 = ::bug8021253$2;
 using $bug8021253$3 = ::bug8021253$3;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Robot = ::java::awt::Robot;
 using $Window = ::java::awt::Window;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
@@ -62,78 +58,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->dispose();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug8021253$$Lambda$dispose>());
-	}
 	$Window* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo bug8021253$$Lambda$dispose::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug8021253$$Lambda$dispose, inst$)},
-	{}
-};
-$MethodInfo bug8021253$$Lambda$dispose::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(bug8021253$$Lambda$dispose, init$, void, $Window*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8021253$$Lambda$dispose, run, void)},
-	{}
-};
-$ClassInfo bug8021253$$Lambda$dispose::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug8021253$$Lambda$dispose",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* bug8021253$$Lambda$dispose::load$($String* name, bool initialize) {
-	$loadClass(bug8021253$$Lambda$dispose, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug8021253$$Lambda$dispose, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(bug8021253$$Lambda$dispose, init$, void, $Window*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8021253$$Lambda$dispose, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug8021253$$Lambda$dispose",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug8021253$$Lambda$dispose, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8021253$$Lambda$dispose);
+	});
 	return class$;
 }
 $Class* bug8021253$$Lambda$dispose::class$ = nullptr;
-
-$FieldInfo _bug8021253_FieldInfo_[] = {
-	{"defaultKeyPressed", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(bug8021253, defaultKeyPressed)},
-	{"fileChooser", "Ljavax/swing/JFileChooser;", nullptr, $PRIVATE | $STATIC, $staticField(bug8021253, fileChooser)},
-	{"file", "Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticField(bug8021253, file)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug8021253, frame)},
-	{}
-};
-
-$MethodInfo _bug8021253_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug8021253, init$, void)},
-	{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8021253, createAndShowGUI, void)},
-	{"getTempFile", "()Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8021253, getTempFile, $File*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug8021253, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug8021253_InnerClassesInfo_[] = {
-	{"bug8021253$3", nullptr, nullptr, 0},
-	{"bug8021253$2", nullptr, nullptr, 0},
-	{"bug8021253$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug8021253_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug8021253",
-	"java.lang.Object",
-	nullptr,
-	_bug8021253_FieldInfo_,
-	_bug8021253_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug8021253_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug8021253$3,bug8021253$2,bug8021253$1"
-};
-
-$Object* allocate$bug8021253($Class* clazz) {
-	return $of($alloc(bug8021253));
-}
 
 $volatile(bool) bug8021253::defaultKeyPressed = false;
 $JFileChooser* bug8021253::fileChooser = nullptr;
@@ -144,49 +94,47 @@ void bug8021253::init$() {
 }
 
 void bug8021253::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Robot, robot, $new($Robot));
-			robot->setAutoDelay(100);
-			$SwingUtilities::invokeAndWait($$new($bug8021253$1));
-			robot->waitForIdle();
-			robot->delay(1000);
-			$SwingUtilities::invokeAndWait($$new($bug8021253$2));
-			robot->waitForIdle();
-			robot->keyPress($KeyEvent::VK_ENTER);
-			robot->keyRelease($KeyEvent::VK_ENTER);
-			robot->waitForIdle();
-			$init(bug8021253);
-			if (!bug8021253::defaultKeyPressed) {
-				$throwNew($RuntimeException, "Default button is not pressed"_s);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$init(bug8021253);
-			if (bug8021253::frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug8021253$$Lambda$dispose, static_cast<$JFrame*>($nc(bug8021253::frame)))));
-			}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Robot, robot, $new($Robot));
+		robot->setAutoDelay(100);
+		$SwingUtilities::invokeAndWait($$new($bug8021253$1));
+		robot->waitForIdle();
+		robot->delay(1000);
+		$SwingUtilities::invokeAndWait($$new($bug8021253$2));
+		robot->waitForIdle();
+		robot->keyPress($KeyEvent::VK_ENTER);
+		robot->keyRelease($KeyEvent::VK_ENTER);
+		robot->waitForIdle();
+		$init(bug8021253);
+		if (!bug8021253::defaultKeyPressed) {
+			$throwNew($RuntimeException, "Default button is not pressed"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$init(bug8021253);
+		if (bug8021253::frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(bug8021253$$Lambda$dispose, bug8021253::frame));
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void bug8021253::createAndShowGUI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(bug8021253);
 	$assignStatic(bug8021253::file, getTempFile());
 	$assignStatic(bug8021253::frame, $new($JFrame, "Test"_s));
-	$nc(bug8021253::frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
+	bug8021253::frame->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$nc(bug8021253::frame)->setSize(200, 300);
 	$assignStatic(bug8021253::fileChooser, $new($JFileChooser, $($nc(bug8021253::file)->getParentFile())));
-	$nc(bug8021253::fileChooser)->addActionListener($$new($bug8021253$3));
+	bug8021253::fileChooser->addActionListener($$new($bug8021253$3));
 	$init($BorderLayout);
-	$nc($($nc(bug8021253::frame)->getContentPane()))->add($BorderLayout::CENTER, static_cast<$Component*>(bug8021253::fileChooser));
+	$$nc($nc(bug8021253::frame)->getContentPane())->add($BorderLayout::CENTER, bug8021253::fileChooser);
 	$nc(bug8021253::frame)->setSize($($nc(bug8021253::fileChooser)->getPreferredSize()));
 	$nc(bug8021253::frame)->setLocationRelativeTo(nullptr);
 	$nc(bug8021253::frame)->setVisible(true);
@@ -198,7 +146,7 @@ $File* bug8021253::getTempFile() {
 		$nc(temp)->deleteOnExit();
 		return temp;
 	} catch ($IOException& ex) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(ex));
+		$throwNew($RuntimeException, ex);
 	}
 	$shouldNotReachHere();
 }
@@ -208,11 +156,47 @@ bug8021253::bug8021253() {
 
 $Class* bug8021253::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug8021253$$Lambda$dispose::classInfo$.name)) {
+		if (name->equals("bug8021253$$Lambda$dispose")) {
 			return bug8021253$$Lambda$dispose::load$(name, initialize);
 		}
 	}
-	$loadClass(bug8021253, name, initialize, &_bug8021253_ClassInfo_, allocate$bug8021253);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultKeyPressed", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(bug8021253, defaultKeyPressed)},
+		{"fileChooser", "Ljavax/swing/JFileChooser;", nullptr, $PRIVATE | $STATIC, $staticField(bug8021253, fileChooser)},
+		{"file", "Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticField(bug8021253, file)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug8021253, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug8021253, init$, void)},
+		{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8021253, createAndShowGUI, void)},
+		{"getTempFile", "()Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8021253, getTempFile, $File*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug8021253, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug8021253$3", nullptr, nullptr, 0},
+		{"bug8021253$2", nullptr, nullptr, 0},
+		{"bug8021253$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug8021253",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug8021253$3,bug8021253$2,bug8021253$1"
+	};
+	$loadClass(bug8021253, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8021253);
+	});
 	return class$;
 }
 

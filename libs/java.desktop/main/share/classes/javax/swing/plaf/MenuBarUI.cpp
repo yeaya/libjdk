@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/MenuBarUI.h>
-
 #include <javax/swing/plaf/ComponentUI.h>
 #include <jcpp.h>
 
@@ -11,24 +10,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 
-$MethodInfo _MenuBarUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(MenuBarUI, init$, void)},
-	{}
-};
-
-$ClassInfo _MenuBarUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.plaf.MenuBarUI",
-	"javax.swing.plaf.ComponentUI",
-	nullptr,
-	nullptr,
-	_MenuBarUI_MethodInfo_
-};
-
-$Object* allocate$MenuBarUI($Class* clazz) {
-	return $of($alloc(MenuBarUI));
-}
-
 void MenuBarUI::init$() {
 	$ComponentUI::init$();
 }
@@ -37,7 +18,21 @@ MenuBarUI::MenuBarUI() {
 }
 
 $Class* MenuBarUI::load$($String* name, bool initialize) {
-	$loadClass(MenuBarUI, name, initialize, &_MenuBarUI_ClassInfo_, allocate$MenuBarUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(MenuBarUI, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.plaf.MenuBarUI",
+		"javax.swing.plaf.ComponentUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MenuBarUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MenuBarUI);
+	});
 	return class$;
 }
 

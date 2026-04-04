@@ -34,11 +34,14 @@ public:
 	virtual void printStackTrace() override;
 	virtual void printStackTrace(::java::io::PrintStream* s) override;
 	virtual void printStackTrace(::java::io::PrintWriter* s) override;
-	static const int64_t serialVersionUID = (int64_t)0xD049680011BB8E55;
+	static const int64_t serialVersionUID = (int64_t)0xd049680011bb8e55;
 	$Throwable* cause = nullptr;
 	XMLSignatureException(const XMLSignatureException& e);
 	virtual void throw$() override;
-	inline XMLSignatureException* operator ->() {
+	inline XMLSignatureException* operator ->() const {
+		return (XMLSignatureException*)throwing$;
+	}
+	inline operator XMLSignatureException*() const {
 		return (XMLSignatureException*)throwing$;
 	}
 };

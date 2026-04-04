@@ -14,7 +14,7 @@ public:
 	SQLPermission();
 	void init$($String* name);
 	void init$($String* name, $String* actions);
-	static const int64_t serialVersionUID = (int64_t)0xEC067F2FE5FCA919;
+	static const int64_t serialVersionUID = (int64_t)0xec067f2fe5fca919;
 };
 
 	} // sql

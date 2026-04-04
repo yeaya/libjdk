@@ -31,6 +31,7 @@ class JdkXmlFeatures : public ::java::lang::Object {
 	$class(JdkXmlFeatures, 0, ::java::lang::Object)
 public:
 	JdkXmlFeatures();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool secureProcessing);
 	virtual ::jdk::xml::internal::JdkXmlFeatures$XmlFeature* findByName($String* propertyName);
 	virtual bool getFeature(::jdk::xml::internal::JdkXmlFeatures$XmlFeature* feature);

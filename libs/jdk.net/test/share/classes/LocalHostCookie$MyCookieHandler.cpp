@@ -1,5 +1,4 @@
 #include <LocalHostCookie$MyCookieHandler.h>
-
 #include <LocalHostCookie.h>
 #include <com/sun/net/httpserver/Headers.h>
 #include <com/sun/net/httpserver/HttpExchange.h>
@@ -15,48 +14,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$FieldInfo _LocalHostCookie$MyCookieHandler_FieldInfo_[] = {
-	{"this$0", "LLocalHostCookie;", nullptr, $FINAL | $SYNTHETIC, $field(LocalHostCookie$MyCookieHandler, this$0)},
-	{}
-};
-
-$MethodInfo _LocalHostCookie$MyCookieHandler_MethodInfo_[] = {
-	{"<init>", "(LLocalHostCookie;)V", nullptr, 0, $method(LocalHostCookie$MyCookieHandler, init$, void, $LocalHostCookie*)},
-	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, $virtualMethod(LocalHostCookie$MyCookieHandler, handle, void, $HttpExchange*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _LocalHostCookie$MyCookieHandler_InnerClassesInfo_[] = {
-	{"LocalHostCookie$MyCookieHandler", "LocalHostCookie", "MyCookieHandler", 0},
-	{}
-};
-
-$ClassInfo _LocalHostCookie$MyCookieHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"LocalHostCookie$MyCookieHandler",
-	"java.lang.Object",
-	"com.sun.net.httpserver.HttpHandler",
-	_LocalHostCookie$MyCookieHandler_FieldInfo_,
-	_LocalHostCookie$MyCookieHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LocalHostCookie$MyCookieHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"LocalHostCookie"
-};
-
-$Object* allocate$LocalHostCookie$MyCookieHandler($Class* clazz) {
-	return $of($alloc(LocalHostCookie$MyCookieHandler));
-}
-
 void LocalHostCookie$MyCookieHandler::init$($LocalHostCookie* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void LocalHostCookie$MyCookieHandler::handle($HttpExchange* exchange) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, requestMethod, $nc(exchange)->getRequestMethod());
 	if ($nc(requestMethod)->equalsIgnoreCase("GET"_s)) {
 		$var($Headers, responseHeaders, exchange->getResponseHeaders());
@@ -76,7 +39,37 @@ LocalHostCookie$MyCookieHandler::LocalHostCookie$MyCookieHandler() {
 }
 
 $Class* LocalHostCookie$MyCookieHandler::load$($String* name, bool initialize) {
-	$loadClass(LocalHostCookie$MyCookieHandler, name, initialize, &_LocalHostCookie$MyCookieHandler_ClassInfo_, allocate$LocalHostCookie$MyCookieHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LLocalHostCookie;", nullptr, $FINAL | $SYNTHETIC, $field(LocalHostCookie$MyCookieHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LLocalHostCookie;)V", nullptr, 0, $method(LocalHostCookie$MyCookieHandler, init$, void, $LocalHostCookie*)},
+		{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, $virtualMethod(LocalHostCookie$MyCookieHandler, handle, void, $HttpExchange*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"LocalHostCookie$MyCookieHandler", "LocalHostCookie", "MyCookieHandler", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"LocalHostCookie$MyCookieHandler",
+		"java.lang.Object",
+		"com.sun.net.httpserver.HttpHandler",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"LocalHostCookie"
+	};
+	$loadClass(LocalHostCookie$MyCookieHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocalHostCookie$MyCookieHandler);
+	});
 	return class$;
 }
 

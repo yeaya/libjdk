@@ -23,6 +23,7 @@ class LinuxSocketOptions : public ::jdk::net::ExtendedSocketOptions$PlatformSock
 	$class(LinuxSocketOptions, 0, ::jdk::net::ExtendedSocketOptions$PlatformSocketOptions)
 public:
 	LinuxSocketOptions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int32_t getIncomingNapiId(int32_t fd) override;
 	static int32_t getIncomingNapiId0(int32_t fd);

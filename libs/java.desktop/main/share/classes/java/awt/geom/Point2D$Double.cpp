@@ -1,5 +1,4 @@
 #include <java/awt/geom/Point2D$Double.h>
-
 #include <java/awt/geom/Point2D.h>
 #include <jcpp.h>
 
@@ -12,52 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 		namespace geom {
-
-$FieldInfo _Point2D$Double_FieldInfo_[] = {
-	{"x", "D", nullptr, $PUBLIC, $field(Point2D$Double, x)},
-	{"y", "D", nullptr, $PUBLIC, $field(Point2D$Double, y)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Point2D$Double, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Point2D$Double_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Point2D$Double, init$, void)},
-	{"<init>", "(DD)V", nullptr, $PUBLIC, $method(Point2D$Double, init$, void, double, double)},
-	{"getX", "()D", nullptr, $PUBLIC, $virtualMethod(Point2D$Double, getX, double)},
-	{"getY", "()D", nullptr, $PUBLIC, $virtualMethod(Point2D$Double, getY, double)},
-	{"setLocation", "(DD)V", nullptr, $PUBLIC, $virtualMethod(Point2D$Double, setLocation, void, double, double)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Point2D$Double, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Point2D$Double_InnerClassesInfo_[] = {
-	{"java.awt.geom.Point2D$Double", "java.awt.geom.Point2D", "Double", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Point2D$Double_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.geom.Point2D$Double",
-	"java.awt.geom.Point2D",
-	"java.io.Serializable",
-	_Point2D$Double_FieldInfo_,
-	_Point2D$Double_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Point2D$Double_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.geom.Point2D"
-};
-
-$Object* allocate$Point2D$Double($Class* clazz) {
-	return $of($alloc(Point2D$Double));
-}
 
 $Object* Point2D$Double::clone() {
 	 return this->$Point2D::clone();
@@ -99,7 +52,7 @@ void Point2D$Double::setLocation(double x, double y) {
 }
 
 $String* Point2D$Double::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"Point2D.Double["_s, $$str(this->x), ", "_s, $$str(this->y), "]"_s});
 }
 
@@ -107,7 +60,47 @@ Point2D$Double::Point2D$Double() {
 }
 
 $Class* Point2D$Double::load$($String* name, bool initialize) {
-	$loadClass(Point2D$Double, name, initialize, &_Point2D$Double_ClassInfo_, allocate$Point2D$Double);
+	$FieldInfo fieldInfos$$[] = {
+		{"x", "D", nullptr, $PUBLIC, $field(Point2D$Double, x)},
+		{"y", "D", nullptr, $PUBLIC, $field(Point2D$Double, y)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Point2D$Double, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Point2D$Double, init$, void)},
+		{"<init>", "(DD)V", nullptr, $PUBLIC, $method(Point2D$Double, init$, void, double, double)},
+		{"getX", "()D", nullptr, $PUBLIC, $virtualMethod(Point2D$Double, getX, double)},
+		{"getY", "()D", nullptr, $PUBLIC, $virtualMethod(Point2D$Double, getY, double)},
+		{"setLocation", "(DD)V", nullptr, $PUBLIC, $virtualMethod(Point2D$Double, setLocation, void, double, double)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Point2D$Double, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.geom.Point2D$Double", "java.awt.geom.Point2D", "Double", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.geom.Point2D$Double",
+		"java.awt.geom.Point2D",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.geom.Point2D"
+	};
+	$loadClass(Point2D$Double, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Point2D$Double));
+	});
 	return class$;
 }
 

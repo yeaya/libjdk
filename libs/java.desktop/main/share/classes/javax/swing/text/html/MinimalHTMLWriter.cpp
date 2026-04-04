@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/MinimalHTMLWriter.h>
-
 #include <java/awt/Color.h>
 #include <java/io/Writer.h>
 #include <java/util/Enumeration.h>
@@ -41,7 +40,6 @@ using $AbstractDocument$BranchElement = ::javax::swing::text::AbstractDocument$B
 using $AbstractWriter = ::javax::swing::text::AbstractWriter;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $DefaultStyledDocument = ::javax::swing::text::DefaultStyledDocument;
-using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
 using $ElementIterator = ::javax::swing::text::ElementIterator;
 using $Style = ::javax::swing::text::Style;
@@ -59,77 +57,17 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _MinimalHTMLWriter_FieldInfo_[] = {
-	{"BOLD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MinimalHTMLWriter, BOLD)},
-	{"ITALIC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MinimalHTMLWriter, ITALIC)},
-	{"UNDERLINE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MinimalHTMLWriter, UNDERLINE)},
-	{"css", "Ljavax/swing/text/html/CSS;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MinimalHTMLWriter, css)},
-	{"fontMask", "I", nullptr, $PRIVATE, $field(MinimalHTMLWriter, fontMask)},
-	{"startOffset", "I", nullptr, 0, $field(MinimalHTMLWriter, startOffset)},
-	{"endOffset", "I", nullptr, 0, $field(MinimalHTMLWriter, endOffset)},
-	{"fontAttributes", "Ljavax/swing/text/AttributeSet;", nullptr, $PRIVATE, $field(MinimalHTMLWriter, fontAttributes)},
-	{"styleNameMapping", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(MinimalHTMLWriter, styleNameMapping)},
-	{}
-};
-
-$MethodInfo _MinimalHTMLWriter_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Writer;Ljavax/swing/text/StyledDocument;)V", nullptr, $PUBLIC, $method(MinimalHTMLWriter, init$, void, $Writer*, $StyledDocument*)},
-	{"<init>", "(Ljava/io/Writer;Ljavax/swing/text/StyledDocument;II)V", nullptr, $PUBLIC, $method(MinimalHTMLWriter, init$, void, $Writer*, $StyledDocument*, int32_t, int32_t)},
-	{"addStyleName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(MinimalHTMLWriter, addStyleName, $String*, $String*)},
-	{"endFontTag", "()V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, endFontTag, void), "java.io.IOException"},
-	{"endSpanTag", "()V", nullptr, $PRIVATE, $method(MinimalHTMLWriter, endSpanTag, void), "java.io.IOException"},
-	{"inFontTag", "()Z", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, inFontTag, bool)},
-	{"isText", "(Ljavax/swing/text/Element;)Z", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, isText, bool, $Element*)},
-	{"isValidCharacter", "(C)Z", nullptr, $PRIVATE, $method(MinimalHTMLWriter, isValidCharacter, bool, char16_t)},
-	{"mapStyleName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(MinimalHTMLWriter, mapStyleName, $String*, $String*)},
-	{"setFontMask", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PRIVATE, $method(MinimalHTMLWriter, setFontMask, void, $AttributeSet*)},
-	{"startFontTag", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, startFontTag, void, $String*), "java.io.IOException"},
-	{"startSpanTag", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(MinimalHTMLWriter, startSpanTag, void, $String*), "java.io.IOException"},
-	{"text", "(Ljavax/swing/text/Element;)V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, text, void, $Element*), "java.io.IOException,javax.swing.text.BadLocationException"},
-	{"write", "()V", nullptr, $PUBLIC, $virtualMethod(MinimalHTMLWriter, write, void), "java.io.IOException,javax.swing.text.BadLocationException"},
-	{"writeAttributes", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, writeAttributes, void, $AttributeSet*), "java.io.IOException"},
-	{"writeBody", "()V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, writeBody, void), "java.io.IOException,javax.swing.text.BadLocationException"},
-	{"writeComponent", "(Ljavax/swing/text/Element;)V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, writeComponent, void, $Element*), "java.io.IOException"},
-	{"writeContent", "(Ljavax/swing/text/Element;Z)V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, writeContent, void, $Element*, bool), "java.io.IOException,javax.swing.text.BadLocationException"},
-	{"writeEndMask", "(I)V", nullptr, $PRIVATE, $method(MinimalHTMLWriter, writeEndMask, void, int32_t), "java.io.IOException"},
-	{"writeEndParagraph", "()V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, writeEndParagraph, void), "java.io.IOException"},
-	{"writeEndTag", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, writeEndTag, void, $String*), "java.io.IOException"},
-	{"writeHTMLTags", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, writeHTMLTags, void, $AttributeSet*), "java.io.IOException"},
-	{"writeHeader", "()V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, writeHeader, void), "java.io.IOException"},
-	{"writeImage", "(Ljavax/swing/text/Element;)V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, writeImage, void, $Element*), "java.io.IOException"},
-	{"writeLeaf", "(Ljavax/swing/text/Element;)V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, writeLeaf, void, $Element*), "java.io.IOException"},
-	{"writeNonHTMLAttributes", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, writeNonHTMLAttributes, void, $AttributeSet*), "java.io.IOException"},
-	{"writeStartMask", "(I)V", nullptr, $PRIVATE, $method(MinimalHTMLWriter, writeStartMask, void, int32_t), "java.io.IOException"},
-	{"writeStartParagraph", "(Ljavax/swing/text/Element;)V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, writeStartParagraph, void, $Element*), "java.io.IOException"},
-	{"writeStartTag", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, writeStartTag, void, $String*), "java.io.IOException"},
-	{"writeStyles", "()V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, writeStyles, void), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _MinimalHTMLWriter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.MinimalHTMLWriter",
-	"javax.swing.text.AbstractWriter",
-	nullptr,
-	_MinimalHTMLWriter_FieldInfo_,
-	_MinimalHTMLWriter_MethodInfo_
-};
-
-$Object* allocate$MinimalHTMLWriter($Class* clazz) {
-	return $of($alloc(MinimalHTMLWriter));
-}
-
 $CSS* MinimalHTMLWriter::css = nullptr;
 
 void MinimalHTMLWriter::init$($Writer* w, $StyledDocument* doc) {
-	$AbstractWriter::init$(w, static_cast<$Document*>(doc));
+	$AbstractWriter::init$(w, doc);
 	this->fontMask = 0;
 	this->startOffset = 0;
 	this->endOffset = 0;
 }
 
 void MinimalHTMLWriter::init$($Writer* w, $StyledDocument* doc, int32_t pos, int32_t len) {
-	$AbstractWriter::init$(w, static_cast<$Document*>(doc), pos, len);
+	$AbstractWriter::init$(w, doc, pos, len);
 	this->fontMask = 0;
 	this->startOffset = 0;
 	this->endOffset = 0;
@@ -144,15 +82,15 @@ void MinimalHTMLWriter::write() {
 }
 
 void MinimalHTMLWriter::writeAttributes($AttributeSet* attr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Enumeration, attributeNames, $nc(attr)->getAttributeNames());
 	while ($nc(attributeNames)->hasMoreElements()) {
 		$var($Object, name, attributeNames->nextElement());
 		if (($instanceOf($StyleConstants$ParagraphConstants, name)) || ($instanceOf($StyleConstants$CharacterConstants, name)) || ($instanceOf($StyleConstants$FontConstants, name)) || ($instanceOf($StyleConstants$ColorConstants, name))) {
 			indent();
-			write($($nc($of(name))->toString()));
+			write($($nc(name)->toString()));
 			write(u':');
-			write($($nc($of($($nc(MinimalHTMLWriter::css)->styleConstantsValueToCSSValue($cast($StyleConstants, name), $(attr->getAttribute(name))))))->toString()));
+			write($($$nc(MinimalHTMLWriter::css->styleConstantsValueToCSSValue($cast($StyleConstants, name), $(attr->getAttribute(name))))->toString()));
 			write(u';');
 			write($AbstractWriter::NEWLINE);
 		}
@@ -161,11 +99,11 @@ void MinimalHTMLWriter::writeAttributes($AttributeSet* attr) {
 
 void MinimalHTMLWriter::text($Element* elem) {
 	$var($String, contentStr, getText(elem));
-	bool var$0 = ($nc(contentStr)->length() > 0);
+	bool var$0 = $nc(contentStr)->length() > 0;
 	if (var$0 && (contentStr->charAt(contentStr->length() - 1) == $AbstractWriter::NEWLINE)) {
 		$assign(contentStr, contentStr->substring(0, contentStr->length() - 1));
 	}
-	if ($nc(contentStr)->length() > 0) {
+	if (contentStr->length() > 0) {
 		write(contentStr);
 	}
 }
@@ -195,18 +133,18 @@ void MinimalHTMLWriter::writeHeader() {
 }
 
 void MinimalHTMLWriter::writeStyles() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DefaultStyledDocument, styledDoc, $cast($DefaultStyledDocument, getDocument()));
 	$var($Enumeration, styleNames, $nc(styledDoc)->getStyleNames());
 	while ($nc(styleNames)->hasMoreElements()) {
-		$var($Style, s, styledDoc->getStyle($cast($String, $(styleNames->nextElement()))));
+		$var($Style, s, styledDoc->getStyle($$cast($String, styleNames->nextElement())));
 		bool var$0 = $nc(s)->getAttributeCount() == 1;
 		$init($StyleConstants);
 		if (var$0 && s->isDefined($StyleConstants::NameAttribute)) {
 			continue;
 		}
 		indent();
-		write($$str({"p."_s, $(addStyleName($($nc(s)->getName())))}));
+		write($$str({"p."_s, $(addStyleName($(s->getName())))}));
 		write(" {\n"_s);
 		incrIndent();
 		writeAttributes(s);
@@ -217,7 +155,7 @@ void MinimalHTMLWriter::writeStyles() {
 }
 
 void MinimalHTMLWriter::writeBody() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ElementIterator, it, getElementIterator());
 	$nc(it)->current();
 	$var($Element, next, nullptr);
@@ -259,12 +197,12 @@ void MinimalHTMLWriter::writeEndParagraph() {
 }
 
 void MinimalHTMLWriter::writeStartParagraph($Element* elem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeSet, attr, $nc(elem)->getAttributes());
 	$init($StyleConstants);
 	$var($Object, resolveAttr, $nc(attr)->getAttribute($StyleConstants::ResolveAttribute));
 	if ($instanceOf($StyleContext$NamedStyle, resolveAttr)) {
-		writeStartTag($$str({"<p class="_s, $(mapStyleName($($nc(($cast($StyleContext$NamedStyle, resolveAttr)))->getName()))), ">"_s}));
+		writeStartTag($$str({"<p class="_s, $(mapStyleName($($cast($StyleContext$NamedStyle, resolveAttr)->getName()))), ">"_s}));
 	} else {
 		writeStartTag("<p>"_s);
 	}
@@ -275,10 +213,8 @@ void MinimalHTMLWriter::writeLeaf($Element* elem) {
 	$init($StyleConstants);
 	if ($nc(elem)->getName() == $StyleConstants::IconElementName) {
 		writeImage(elem);
-	} else {
-		if (elem->getName() == $StyleConstants::ComponentElementName) {
-			writeComponent(elem);
-		}
+	} else if (elem->getName() == $StyleConstants::ComponentElementName) {
+		writeComponent(elem);
 	}
 }
 
@@ -308,25 +244,25 @@ void MinimalHTMLWriter::writeHTMLTags($AttributeSet* attr) {
 	setFontMask(attr);
 	int32_t endMask = 0;
 	int32_t startMask = 0;
-	if (((int32_t)(oldMask & (uint32_t)MinimalHTMLWriter::BOLD)) != 0) {
-		if (((int32_t)(this->fontMask & (uint32_t)MinimalHTMLWriter::BOLD)) == 0) {
+	if ((oldMask & MinimalHTMLWriter::BOLD) != 0) {
+		if ((this->fontMask & MinimalHTMLWriter::BOLD) == 0) {
 			endMask |= MinimalHTMLWriter::BOLD;
 		}
-	} else if (((int32_t)(this->fontMask & (uint32_t)MinimalHTMLWriter::BOLD)) != 0) {
+	} else if ((this->fontMask & MinimalHTMLWriter::BOLD) != 0) {
 		startMask |= MinimalHTMLWriter::BOLD;
 	}
-	if (((int32_t)(oldMask & (uint32_t)MinimalHTMLWriter::ITALIC)) != 0) {
-		if (((int32_t)(this->fontMask & (uint32_t)MinimalHTMLWriter::ITALIC)) == 0) {
+	if ((oldMask & MinimalHTMLWriter::ITALIC) != 0) {
+		if ((this->fontMask & MinimalHTMLWriter::ITALIC) == 0) {
 			endMask |= MinimalHTMLWriter::ITALIC;
 		}
-	} else if (((int32_t)(this->fontMask & (uint32_t)MinimalHTMLWriter::ITALIC)) != 0) {
+	} else if ((this->fontMask & MinimalHTMLWriter::ITALIC) != 0) {
 		startMask |= MinimalHTMLWriter::ITALIC;
 	}
-	if (((int32_t)(oldMask & (uint32_t)MinimalHTMLWriter::UNDERLINE)) != 0) {
-		if (((int32_t)(this->fontMask & (uint32_t)MinimalHTMLWriter::UNDERLINE)) == 0) {
+	if ((oldMask & MinimalHTMLWriter::UNDERLINE) != 0) {
+		if ((this->fontMask & MinimalHTMLWriter::UNDERLINE) == 0) {
 			endMask |= MinimalHTMLWriter::UNDERLINE;
 		}
-	} else if (((int32_t)(this->fontMask & (uint32_t)MinimalHTMLWriter::UNDERLINE)) != 0) {
+	} else if ((this->fontMask & MinimalHTMLWriter::UNDERLINE) != 0) {
 		startMask |= MinimalHTMLWriter::UNDERLINE;
 	}
 	writeEndMask(endMask);
@@ -347,13 +283,13 @@ void MinimalHTMLWriter::setFontMask($AttributeSet* attr) {
 
 void MinimalHTMLWriter::writeStartMask(int32_t mask) {
 	if (mask != 0) {
-		if (((int32_t)(mask & (uint32_t)MinimalHTMLWriter::UNDERLINE)) != 0) {
+		if ((mask & MinimalHTMLWriter::UNDERLINE) != 0) {
 			write("<u>"_s);
 		}
-		if (((int32_t)(mask & (uint32_t)MinimalHTMLWriter::ITALIC)) != 0) {
+		if ((mask & MinimalHTMLWriter::ITALIC) != 0) {
 			write("<i>"_s);
 		}
-		if (((int32_t)(mask & (uint32_t)MinimalHTMLWriter::BOLD)) != 0) {
+		if ((mask & MinimalHTMLWriter::BOLD) != 0) {
 			write("<b>"_s);
 		}
 	}
@@ -361,20 +297,20 @@ void MinimalHTMLWriter::writeStartMask(int32_t mask) {
 
 void MinimalHTMLWriter::writeEndMask(int32_t mask) {
 	if (mask != 0) {
-		if (((int32_t)(mask & (uint32_t)MinimalHTMLWriter::BOLD)) != 0) {
+		if ((mask & MinimalHTMLWriter::BOLD) != 0) {
 			write("</b>"_s);
 		}
-		if (((int32_t)(mask & (uint32_t)MinimalHTMLWriter::ITALIC)) != 0) {
+		if ((mask & MinimalHTMLWriter::ITALIC) != 0) {
 			write("</i>"_s);
 		}
-		if (((int32_t)(mask & (uint32_t)MinimalHTMLWriter::UNDERLINE)) != 0) {
+		if ((mask & MinimalHTMLWriter::UNDERLINE) != 0) {
 			write("</u>"_s);
 		}
 	}
 }
 
 void MinimalHTMLWriter::writeNonHTMLAttributes($AttributeSet* attr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, style, ""_s);
 	$var($String, separator, "; "_s);
 	bool var$0 = inFontTag();
@@ -385,7 +321,7 @@ void MinimalHTMLWriter::writeNonHTMLAttributes($AttributeSet* attr) {
 	$init($StyleConstants);
 	$var($Color, color, $cast($Color, $nc(attr)->getAttribute($StyleConstants::Foreground)));
 	if (color != nullptr) {
-		$plusAssign(style, $$str({"color: "_s, $($nc(MinimalHTMLWriter::css)->styleConstantsValueToCSSValue($cast($StyleConstants, $StyleConstants::Foreground), color))}));
+		$plusAssign(style, $$str({"color: "_s, $(MinimalHTMLWriter::css->styleConstantsValueToCSSValue($cast($StyleConstants, $StyleConstants::Foreground), color))}));
 		first = false;
 	}
 	$var($Integer, size, $cast($Integer, attr->getAttribute($StyleConstants::FontSize)));
@@ -459,7 +395,7 @@ void MinimalHTMLWriter::endSpanTag() {
 }
 
 $String* MinimalHTMLWriter::addStyleName($String* style) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->styleNameMapping == nullptr) {
 		return style;
 	}
@@ -472,11 +408,11 @@ $String* MinimalHTMLWriter::addStyleName($String* style) {
 			$nc(sb)->setCharAt(counter, u'a');
 		}
 	}
-	$var($String, mappedName, (sb != nullptr) ? $nc(sb)->toString() : style);
+	$var($String, mappedName, (sb != nullptr) ? sb->toString() : style);
 	while ($nc(this->styleNameMapping)->get(mappedName) != nullptr) {
 		$assign(mappedName, $str({mappedName, $$str(u'x')}));
 	}
-	$nc(this->styleNameMapping)->put(style, mappedName);
+	this->styleNameMapping->put(style, mappedName);
 	return mappedName;
 }
 
@@ -492,7 +428,7 @@ bool MinimalHTMLWriter::isValidCharacter(char16_t character) {
 	return ((character >= u'a' && character <= u'z') || (character >= u'A' && character <= u'Z'));
 }
 
-void clinit$MinimalHTMLWriter($Class* class$) {
+void MinimalHTMLWriter::clinit$($Class* clazz) {
 	$assignStatic(MinimalHTMLWriter::css, $new($CSS));
 }
 
@@ -500,7 +436,62 @@ MinimalHTMLWriter::MinimalHTMLWriter() {
 }
 
 $Class* MinimalHTMLWriter::load$($String* name, bool initialize) {
-	$loadClass(MinimalHTMLWriter, name, initialize, &_MinimalHTMLWriter_ClassInfo_, clinit$MinimalHTMLWriter, allocate$MinimalHTMLWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"BOLD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MinimalHTMLWriter, BOLD)},
+		{"ITALIC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MinimalHTMLWriter, ITALIC)},
+		{"UNDERLINE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MinimalHTMLWriter, UNDERLINE)},
+		{"css", "Ljavax/swing/text/html/CSS;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MinimalHTMLWriter, css)},
+		{"fontMask", "I", nullptr, $PRIVATE, $field(MinimalHTMLWriter, fontMask)},
+		{"startOffset", "I", nullptr, 0, $field(MinimalHTMLWriter, startOffset)},
+		{"endOffset", "I", nullptr, 0, $field(MinimalHTMLWriter, endOffset)},
+		{"fontAttributes", "Ljavax/swing/text/AttributeSet;", nullptr, $PRIVATE, $field(MinimalHTMLWriter, fontAttributes)},
+		{"styleNameMapping", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(MinimalHTMLWriter, styleNameMapping)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/Writer;Ljavax/swing/text/StyledDocument;)V", nullptr, $PUBLIC, $method(MinimalHTMLWriter, init$, void, $Writer*, $StyledDocument*)},
+		{"<init>", "(Ljava/io/Writer;Ljavax/swing/text/StyledDocument;II)V", nullptr, $PUBLIC, $method(MinimalHTMLWriter, init$, void, $Writer*, $StyledDocument*, int32_t, int32_t)},
+		{"addStyleName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(MinimalHTMLWriter, addStyleName, $String*, $String*)},
+		{"endFontTag", "()V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, endFontTag, void), "java.io.IOException"},
+		{"endSpanTag", "()V", nullptr, $PRIVATE, $method(MinimalHTMLWriter, endSpanTag, void), "java.io.IOException"},
+		{"inFontTag", "()Z", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, inFontTag, bool)},
+		{"isText", "(Ljavax/swing/text/Element;)Z", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, isText, bool, $Element*)},
+		{"isValidCharacter", "(C)Z", nullptr, $PRIVATE, $method(MinimalHTMLWriter, isValidCharacter, bool, char16_t)},
+		{"mapStyleName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(MinimalHTMLWriter, mapStyleName, $String*, $String*)},
+		{"setFontMask", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PRIVATE, $method(MinimalHTMLWriter, setFontMask, void, $AttributeSet*)},
+		{"startFontTag", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, startFontTag, void, $String*), "java.io.IOException"},
+		{"startSpanTag", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(MinimalHTMLWriter, startSpanTag, void, $String*), "java.io.IOException"},
+		{"text", "(Ljavax/swing/text/Element;)V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, text, void, $Element*), "java.io.IOException,javax.swing.text.BadLocationException"},
+		{"write", "()V", nullptr, $PUBLIC, $virtualMethod(MinimalHTMLWriter, write, void), "java.io.IOException,javax.swing.text.BadLocationException"},
+		{"writeAttributes", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, writeAttributes, void, $AttributeSet*), "java.io.IOException"},
+		{"writeBody", "()V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, writeBody, void), "java.io.IOException,javax.swing.text.BadLocationException"},
+		{"writeComponent", "(Ljavax/swing/text/Element;)V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, writeComponent, void, $Element*), "java.io.IOException"},
+		{"writeContent", "(Ljavax/swing/text/Element;Z)V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, writeContent, void, $Element*, bool), "java.io.IOException,javax.swing.text.BadLocationException"},
+		{"writeEndMask", "(I)V", nullptr, $PRIVATE, $method(MinimalHTMLWriter, writeEndMask, void, int32_t), "java.io.IOException"},
+		{"writeEndParagraph", "()V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, writeEndParagraph, void), "java.io.IOException"},
+		{"writeEndTag", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, writeEndTag, void, $String*), "java.io.IOException"},
+		{"writeHTMLTags", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, writeHTMLTags, void, $AttributeSet*), "java.io.IOException"},
+		{"writeHeader", "()V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, writeHeader, void), "java.io.IOException"},
+		{"writeImage", "(Ljavax/swing/text/Element;)V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, writeImage, void, $Element*), "java.io.IOException"},
+		{"writeLeaf", "(Ljavax/swing/text/Element;)V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, writeLeaf, void, $Element*), "java.io.IOException"},
+		{"writeNonHTMLAttributes", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, writeNonHTMLAttributes, void, $AttributeSet*), "java.io.IOException"},
+		{"writeStartMask", "(I)V", nullptr, $PRIVATE, $method(MinimalHTMLWriter, writeStartMask, void, int32_t), "java.io.IOException"},
+		{"writeStartParagraph", "(Ljavax/swing/text/Element;)V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, writeStartParagraph, void, $Element*), "java.io.IOException"},
+		{"writeStartTag", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, writeStartTag, void, $String*), "java.io.IOException"},
+		{"writeStyles", "()V", nullptr, $PROTECTED, $virtualMethod(MinimalHTMLWriter, writeStyles, void), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.MinimalHTMLWriter",
+		"javax.swing.text.AbstractWriter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MinimalHTMLWriter, name, initialize, &classInfo$$, MinimalHTMLWriter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MinimalHTMLWriter);
+	});
 	return class$;
 }
 

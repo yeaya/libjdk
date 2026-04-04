@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolver.h>
-
 #include <com/sun/org/apache/xml/internal/security/keys/keyresolver/ClassLoaderUtils.h>
 #include <com/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolver$ResolverIterator.h>
 #include <com/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverException.h>
@@ -27,7 +26,6 @@
 #include <java/security/PublicKey.h>
 #include <java/security/cert/X509Certificate.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <java/util/concurrent/CopyOnWriteArrayList.h>
@@ -71,7 +69,6 @@ using $InvocationTargetException = ::java::lang::reflect::InvocationTargetExcept
 using $PublicKey = ::java::security::PublicKey;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $CopyOnWriteArrayList = ::java::util::concurrent::CopyOnWriteArrayList;
@@ -89,51 +86,6 @@ namespace com {
 							namespace keys {
 								namespace keyresolver {
 
-$FieldInfo _KeyResolver_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyResolver, LOG)},
-	{"resolverList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverSpi;>;", $PRIVATE | $STATIC, $staticField(KeyResolver, resolverList)},
-	{"defaultResolversAdded", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyResolver, defaultResolversAdded)},
-	{}
-};
-
-$MethodInfo _KeyResolver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyResolver, init$, void)},
-	{"getPublicKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PublicKey;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyResolver, getPublicKey, $PublicKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"getX509Certificate", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyResolver, getX509Certificate, $X509Certificate*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverSpi;>;", $PUBLIC | $STATIC, $staticMethod(KeyResolver, iterator, $Iterator*)},
-	{"length", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyResolver, length, int32_t)},
-	{"register", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyResolver, register$, void, $String*), "java.lang.ClassNotFoundException,java.lang.IllegalAccessException,java.lang.InstantiationException,java.lang.reflect.InvocationTargetException"},
-	{"register", "(Lcom/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverSpi;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyResolver, register$, void, $KeyResolverSpi*, bool)},
-	{"registerAtStart", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyResolver, registerAtStart, void, $String*)},
-	{"registerClassNames", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC | $STATIC, $staticMethod(KeyResolver, registerClassNames, void, $List*), "java.lang.ClassNotFoundException,java.lang.IllegalAccessException,java.lang.InstantiationException,java.lang.reflect.InvocationTargetException"},
-	{"registerDefaultResolvers", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyResolver, registerDefaultResolvers, void)},
-	{}
-};
-
-$InnerClassInfo _KeyResolver_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolver$ResolverIterator", "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolver", "ResolverIterator", $STATIC},
-	{}
-};
-
-$ClassInfo _KeyResolver_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolver",
-	"java.lang.Object",
-	nullptr,
-	_KeyResolver_FieldInfo_,
-	_KeyResolver_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeyResolver_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolver$ResolverIterator"
-};
-
-$Object* allocate$KeyResolver($Class* clazz) {
-	return $of($alloc(KeyResolver));
-}
-
 $Logger* KeyResolver::LOG = nullptr;
 $List* KeyResolver::resolverList = nullptr;
 $AtomicBoolean* KeyResolver::defaultResolversAdded = nullptr;
@@ -148,49 +100,49 @@ int32_t KeyResolver::length() {
 
 $X509Certificate* KeyResolver::getX509Certificate($Element* element, $String* baseURI, $StorageResolver* storage, bool secureValidation) {
 	$init(KeyResolver);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Iterator, i$, $nc(KeyResolver::resolverList)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($KeyResolverSpi, resolver, $cast($KeyResolverSpi, i$->next()));
 			{
 				if (resolver == nullptr) {
-					$var($ObjectArray, exArgs, $new($ObjectArray, {element != nullptr && element->getNodeType() == $Node::ELEMENT_NODE ? $($of($nc(element)->getTagName())) : $of("null"_s)}));
+					$var($ObjectArray, exArgs, $new($ObjectArray, {element != nullptr && element->getNodeType() == $Node::ELEMENT_NODE ? $(element->getTagName()) : "null"_s}));
 					$throwNew($KeyResolverException, "utils.resolver.noClass"_s, exArgs);
 				}
-				$nc(KeyResolver::LOG)->debug("check resolvability by class {}"_s, $$new($ObjectArray, {$of($nc($of(resolver))->getClass())}));
-				$var($X509Certificate, cert, $nc(resolver)->engineLookupResolveX509Certificate(element, baseURI, storage, secureValidation));
+				$nc(KeyResolver::LOG)->debug("check resolvability by class {}"_s, $$new($ObjectArray, {$nc(resolver)->getClass()}));
+				$var($X509Certificate, cert, resolver->engineLookupResolveX509Certificate(element, baseURI, storage, secureValidation));
 				if (cert != nullptr) {
 					return cert;
 				}
 			}
 		}
 	}
-	$var($ObjectArray, exArgs, $new($ObjectArray, {element != nullptr && element->getNodeType() == $Node::ELEMENT_NODE ? $($of($nc(element)->getTagName())) : $of("null"_s)}));
+	$var($ObjectArray, exArgs, $new($ObjectArray, {element != nullptr && element->getNodeType() == $Node::ELEMENT_NODE ? $(element->getTagName()) : "null"_s}));
 	$throwNew($KeyResolverException, "utils.resolver.noClass"_s, exArgs);
 }
 
 $PublicKey* KeyResolver::getPublicKey($Element* element, $String* baseURI, $StorageResolver* storage, bool secureValidation) {
 	$init(KeyResolver);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Iterator, i$, $nc(KeyResolver::resolverList)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($KeyResolverSpi, resolver, $cast($KeyResolverSpi, i$->next()));
 			{
 				if (resolver == nullptr) {
-					$var($ObjectArray, exArgs, $new($ObjectArray, {element != nullptr && element->getNodeType() == $Node::ELEMENT_NODE ? $($of($nc(element)->getTagName())) : $of("null"_s)}));
+					$var($ObjectArray, exArgs, $new($ObjectArray, {element != nullptr && element->getNodeType() == $Node::ELEMENT_NODE ? $(element->getTagName()) : "null"_s}));
 					$throwNew($KeyResolverException, "utils.resolver.noClass"_s, exArgs);
 				}
-				$nc(KeyResolver::LOG)->debug("check resolvability by class {}"_s, $$new($ObjectArray, {$of($nc($of(resolver))->getClass())}));
-				$var($PublicKey, cert, $nc(resolver)->engineLookupAndResolvePublicKey(element, baseURI, storage, secureValidation));
+				$nc(KeyResolver::LOG)->debug("check resolvability by class {}"_s, $$new($ObjectArray, {$nc(resolver)->getClass()}));
+				$var($PublicKey, cert, resolver->engineLookupAndResolvePublicKey(element, baseURI, storage, secureValidation));
 				if (cert != nullptr) {
 					return cert;
 				}
 			}
 		}
 	}
-	$var($ObjectArray, exArgs, $new($ObjectArray, {element != nullptr && element->getNodeType() == $Node::ELEMENT_NODE ? $($of($nc(element)->getTagName())) : $of("null"_s)}));
+	$var($ObjectArray, exArgs, $new($ObjectArray, {element != nullptr && element->getNodeType() == $Node::ELEMENT_NODE ? $(element->getTagName()) : "null"_s}));
 	$throwNew($KeyResolverException, "utils.resolver.noClass"_s, exArgs);
 }
 
@@ -203,7 +155,7 @@ void KeyResolver::register$($String* className) {
 
 void KeyResolver::registerAtStart($String* className) {
 	$init(KeyResolver);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JavaUtils::checkRegisterPermission();
 	$var($KeyResolverSpi, keyResolverSpi, nullptr);
 	$var($Exception, ex, nullptr);
@@ -220,7 +172,7 @@ void KeyResolver::registerAtStart($String* className) {
 		$assign(ex, e);
 	}
 	if (ex != nullptr) {
-		$throw($cast($IllegalArgumentException, $($$new($IllegalArgumentException, "Invalid KeyResolver class name"_s)->initCause(ex))));
+		$throw($$cast($IllegalArgumentException, $$new($IllegalArgumentException, "Invalid KeyResolver class name"_s)->initCause(ex)));
 	}
 }
 
@@ -236,11 +188,11 @@ void KeyResolver::register$($KeyResolverSpi* keyResolverSpi, bool start) {
 
 void KeyResolver::registerClassNames($List* classNames) {
 	$init(KeyResolver);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JavaUtils::checkRegisterPermission();
 	$var($List, keyResolverList, $new($ArrayList, $nc(classNames)->size()));
 	{
-		$var($Iterator, i$, $nc(classNames)->iterator());
+		$var($Iterator, i$, classNames->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, className, $cast($String, i$->next()));
 			{
@@ -254,8 +206,8 @@ void KeyResolver::registerClassNames($List* classNames) {
 
 void KeyResolver::registerDefaultResolvers() {
 	$init(KeyResolver);
-	$useLocalCurrentObjectStackCache();
-	if ($nc(KeyResolver::defaultResolversAdded)->compareAndSet(false, true)) {
+	$useLocalObjectStack();
+	if (KeyResolver::defaultResolversAdded->compareAndSet(false, true)) {
 		$var($List, keyResolverList, $new($ArrayList));
 		keyResolverList->add($$new($RSAKeyValueResolver));
 		keyResolverList->add($$new($DSAKeyValueResolver));
@@ -277,7 +229,7 @@ $Iterator* KeyResolver::iterator() {
 	return $new($KeyResolver$ResolverIterator, KeyResolver::resolverList);
 }
 
-void clinit$KeyResolver($Class* class$) {
+void KeyResolver::clinit$($Class* clazz) {
 	$assignStatic(KeyResolver::LOG, $LoggerFactory::getLogger(KeyResolver::class$));
 	$assignStatic(KeyResolver::resolverList, $new($CopyOnWriteArrayList));
 	$assignStatic(KeyResolver::defaultResolversAdded, $new($AtomicBoolean));
@@ -287,7 +239,46 @@ KeyResolver::KeyResolver() {
 }
 
 $Class* KeyResolver::load$($String* name, bool initialize) {
-	$loadClass(KeyResolver, name, initialize, &_KeyResolver_ClassInfo_, clinit$KeyResolver, allocate$KeyResolver);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyResolver, LOG)},
+		{"resolverList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverSpi;>;", $PRIVATE | $STATIC, $staticField(KeyResolver, resolverList)},
+		{"defaultResolversAdded", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyResolver, defaultResolversAdded)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(KeyResolver, init$, void)},
+		{"getPublicKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PublicKey;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyResolver, getPublicKey, $PublicKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"getX509Certificate", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyResolver, getX509Certificate, $X509Certificate*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverSpi;>;", $PUBLIC | $STATIC, $staticMethod(KeyResolver, iterator, $Iterator*)},
+		{"length", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyResolver, length, int32_t)},
+		{"register", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyResolver, register$, void, $String*), "java.lang.ClassNotFoundException,java.lang.IllegalAccessException,java.lang.InstantiationException,java.lang.reflect.InvocationTargetException"},
+		{"register", "(Lcom/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverSpi;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyResolver, register$, void, $KeyResolverSpi*, bool)},
+		{"registerAtStart", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyResolver, registerAtStart, void, $String*)},
+		{"registerClassNames", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC | $STATIC, $staticMethod(KeyResolver, registerClassNames, void, $List*), "java.lang.ClassNotFoundException,java.lang.IllegalAccessException,java.lang.InstantiationException,java.lang.reflect.InvocationTargetException"},
+		{"registerDefaultResolvers", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyResolver, registerDefaultResolvers, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolver$ResolverIterator", "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolver", "ResolverIterator", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolver",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolver$ResolverIterator"
+	};
+	$loadClass(KeyResolver, name, initialize, &classInfo$$, KeyResolver::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyResolver);
+	});
 	return class$;
 }
 

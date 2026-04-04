@@ -1,12 +1,10 @@
 #include <sun/awt/X11GraphicsEnvironment$1.h>
-
 #include <java/awt/GraphicsEnvironment.h>
 #include <sun/awt/X11GraphicsEnvironment.h>
 #include <sun/java2d/xr/XRSurfaceData.h>
 #include <jcpp.h>
 
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -17,48 +15,11 @@ using $XRSurfaceData = ::sun::java2d::xr::XRSurfaceData;
 namespace sun {
 	namespace awt {
 
-$MethodInfo _X11GraphicsEnvironment$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(X11GraphicsEnvironment$1, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsEnvironment$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _X11GraphicsEnvironment$1_EnclosingMethodInfo_ = {
-	"sun.awt.X11GraphicsEnvironment",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _X11GraphicsEnvironment$1_InnerClassesInfo_[] = {
-	{"sun.awt.X11GraphicsEnvironment$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _X11GraphicsEnvironment$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11GraphicsEnvironment$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_X11GraphicsEnvironment$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
-	&_X11GraphicsEnvironment$1_EnclosingMethodInfo_,
-	_X11GraphicsEnvironment$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11GraphicsEnvironment"
-};
-
-$Object* allocate$X11GraphicsEnvironment$1($Class* clazz) {
-	return $of($alloc(X11GraphicsEnvironment$1));
-}
-
 void X11GraphicsEnvironment$1::init$() {
 }
 
 $Object* X11GraphicsEnvironment$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$System::loadLibrary("awt"_s);
 	if (!$GraphicsEnvironment::isHeadless()) {
@@ -69,8 +30,8 @@ $Object* X11GraphicsEnvironment$1::run() {
 			if (var$0 || prop->equals("t"_s)) {
 				glxRequested = true;
 			} else {
-				bool var$2 = prop->equals("True"_s);
-				if (var$2 || prop->equals("T"_s)) {
+				bool var$1 = prop->equals("True"_s);
+				if (var$1 || prop->equals("T"_s)) {
 					glxRequested = true;
 					$init($X11GraphicsEnvironment);
 					$X11GraphicsEnvironment::glxVerbose = true;
@@ -81,19 +42,19 @@ $Object* X11GraphicsEnvironment$1::run() {
 		bool xRenderIgnoreLinuxVersion = false;
 		$var($String, xProp, $System::getProperty("sun.java2d.xrender"_s));
 		if (xProp != nullptr) {
-			bool var$3 = xProp->equals("false"_s);
-			if (var$3 || xProp->equals("f"_s)) {
+			bool var$2 = xProp->equals("false"_s);
+			if (var$2 || xProp->equals("f"_s)) {
 				xRenderRequested = false;
 			} else {
-				bool var$5 = xProp->equals("True"_s);
-				if (var$5 || xProp->equals("T"_s)) {
+				bool var$3 = xProp->equals("True"_s);
+				if (var$3 || xProp->equals("T"_s)) {
 					xRenderRequested = true;
 					$init($X11GraphicsEnvironment);
 					$X11GraphicsEnvironment::xRenderVerbose = true;
 				}
 			}
-			bool var$6 = xProp->equalsIgnoreCase("t"_s);
-			if (var$6 || xProp->equalsIgnoreCase("true"_s)) {
+			bool var$4 = xProp->equalsIgnoreCase("t"_s);
+			if (var$4 || xProp->equalsIgnoreCase("true"_s)) {
 				xRenderIgnoreLinuxVersion = true;
 			}
 		}
@@ -114,14 +75,45 @@ $Object* X11GraphicsEnvironment$1::run() {
 			$XRSurfaceData::initXRSurfaceData();
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 X11GraphicsEnvironment$1::X11GraphicsEnvironment$1() {
 }
 
 $Class* X11GraphicsEnvironment$1::load$($String* name, bool initialize) {
-	$loadClass(X11GraphicsEnvironment$1, name, initialize, &_X11GraphicsEnvironment$1_ClassInfo_, allocate$X11GraphicsEnvironment$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(X11GraphicsEnvironment$1, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsEnvironment$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.X11GraphicsEnvironment",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11GraphicsEnvironment$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11GraphicsEnvironment$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11GraphicsEnvironment"
+	};
+	$loadClass(X11GraphicsEnvironment$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(X11GraphicsEnvironment$1);
+	});
 	return class$;
 }
 

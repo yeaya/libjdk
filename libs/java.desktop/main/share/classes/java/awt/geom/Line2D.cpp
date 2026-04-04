@@ -1,5 +1,4 @@
 #include <java/awt/geom/Line2D.h>
-
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/AffineTransform.h>
@@ -32,77 +31,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 		namespace geom {
-
-$MethodInfo _Line2D_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(Line2D, init$, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Line2D, clone, $Object*)},
-	{"contains", "(DD)Z", nullptr, $PUBLIC, $virtualMethod(Line2D, contains, bool, double, double)},
-	{"contains", "(Ljava/awt/geom/Point2D;)Z", nullptr, $PUBLIC, $virtualMethod(Line2D, contains, bool, $Point2D*)},
-	{"contains", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(Line2D, contains, bool, double, double, double, double)},
-	{"contains", "(Ljava/awt/geom/Rectangle2D;)Z", nullptr, $PUBLIC, $virtualMethod(Line2D, contains, bool, $Rectangle2D*)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(Line2D, getBounds, $Rectangle*)},
-	{"getP1", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Line2D, getP1, $Point2D*)},
-	{"getP2", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Line2D, getP2, $Point2D*)},
-	{"getPathIterator", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/geom/PathIterator;", nullptr, $PUBLIC, $virtualMethod(Line2D, getPathIterator, $PathIterator*, $AffineTransform*)},
-	{"getPathIterator", "(Ljava/awt/geom/AffineTransform;D)Ljava/awt/geom/PathIterator;", nullptr, $PUBLIC, $virtualMethod(Line2D, getPathIterator, $PathIterator*, $AffineTransform*, double)},
-	{"getX1", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Line2D, getX1, double)},
-	{"getX2", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Line2D, getX2, double)},
-	{"getY1", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Line2D, getY1, double)},
-	{"getY2", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Line2D, getY2, double)},
-	{"intersects", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(Line2D, intersects, bool, double, double, double, double)},
-	{"intersects", "(Ljava/awt/geom/Rectangle2D;)Z", nullptr, $PUBLIC, $virtualMethod(Line2D, intersects, bool, $Rectangle2D*)},
-	{"intersectsLine", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(Line2D, intersectsLine, bool, double, double, double, double)},
-	{"intersectsLine", "(Ljava/awt/geom/Line2D;)Z", nullptr, $PUBLIC, $virtualMethod(Line2D, intersectsLine, bool, Line2D*)},
-	{"linesIntersect", "(DDDDDDDD)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Line2D, linesIntersect, bool, double, double, double, double, double, double, double, double)},
-	{"ptLineDist", "(DDDDDD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(Line2D, ptLineDist, double, double, double, double, double, double, double)},
-	{"ptLineDist", "(DD)D", nullptr, $PUBLIC, $virtualMethod(Line2D, ptLineDist, double, double, double)},
-	{"ptLineDist", "(Ljava/awt/geom/Point2D;)D", nullptr, $PUBLIC, $virtualMethod(Line2D, ptLineDist, double, $Point2D*)},
-	{"ptLineDistSq", "(DDDDDD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(Line2D, ptLineDistSq, double, double, double, double, double, double, double)},
-	{"ptLineDistSq", "(DD)D", nullptr, $PUBLIC, $virtualMethod(Line2D, ptLineDistSq, double, double, double)},
-	{"ptLineDistSq", "(Ljava/awt/geom/Point2D;)D", nullptr, $PUBLIC, $virtualMethod(Line2D, ptLineDistSq, double, $Point2D*)},
-	{"ptSegDist", "(DDDDDD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(Line2D, ptSegDist, double, double, double, double, double, double, double)},
-	{"ptSegDist", "(DD)D", nullptr, $PUBLIC, $virtualMethod(Line2D, ptSegDist, double, double, double)},
-	{"ptSegDist", "(Ljava/awt/geom/Point2D;)D", nullptr, $PUBLIC, $virtualMethod(Line2D, ptSegDist, double, $Point2D*)},
-	{"ptSegDistSq", "(DDDDDD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(Line2D, ptSegDistSq, double, double, double, double, double, double, double)},
-	{"ptSegDistSq", "(DD)D", nullptr, $PUBLIC, $virtualMethod(Line2D, ptSegDistSq, double, double, double)},
-	{"ptSegDistSq", "(Ljava/awt/geom/Point2D;)D", nullptr, $PUBLIC, $virtualMethod(Line2D, ptSegDistSq, double, $Point2D*)},
-	{"relativeCCW", "(DDDDDD)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Line2D, relativeCCW, int32_t, double, double, double, double, double, double)},
-	{"relativeCCW", "(DD)I", nullptr, $PUBLIC, $virtualMethod(Line2D, relativeCCW, int32_t, double, double)},
-	{"relativeCCW", "(Ljava/awt/geom/Point2D;)I", nullptr, $PUBLIC, $virtualMethod(Line2D, relativeCCW, int32_t, $Point2D*)},
-	{"setLine", "(DDDD)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Line2D, setLine, void, double, double, double, double)},
-	{"setLine", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)V", nullptr, $PUBLIC, $virtualMethod(Line2D, setLine, void, $Point2D*, $Point2D*)},
-	{"setLine", "(Ljava/awt/geom/Line2D;)V", nullptr, $PUBLIC, $virtualMethod(Line2D, setLine, void, Line2D*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Line2D_InnerClassesInfo_[] = {
-	{"java.awt.geom.Line2D$Double", "java.awt.geom.Line2D", "Double", $PUBLIC | $STATIC},
-	{"java.awt.geom.Line2D$Float", "java.awt.geom.Line2D", "Float", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Line2D_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.geom.Line2D",
-	"java.lang.Object",
-	"java.awt.Shape,java.lang.Cloneable",
-	nullptr,
-	_Line2D_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Line2D_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.geom.Line2D$Double,java.awt.geom.Line2D$Float"
-};
-
-$Object* allocate$Line2D($Class* clazz) {
-	return $of($alloc(Line2D));
-}
 
 int32_t Line2D::hashCode() {
 	 return this->$Shape::hashCode();
@@ -177,23 +105,19 @@ int32_t Line2D::relativeCCW($Point2D* p) {
 bool Line2D::linesIntersect(double x1, double y1, double x2, double y2, double x3, double y3, double x4, double y4) {
 	$init(Line2D);
 	int32_t var$1 = relativeCCW(x1, y1, x2, y2, x3, y3);
-	bool var$0 = (var$1 * relativeCCW(x1, y1, x2, y2, x4, y4) <= 0);
+	bool var$0 = var$1 * relativeCCW(x1, y1, x2, y2, x4, y4) <= 0;
 	if (var$0) {
 		int32_t var$2 = relativeCCW(x3, y3, x4, y4, x1, y1);
-		var$0 = (var$2 * relativeCCW(x3, y3, x4, y4, x2, y2) <= 0);
+		var$0 = var$2 * relativeCCW(x3, y3, x4, y4, x2, y2) <= 0;
 	}
 	return (var$0);
 }
 
 bool Line2D::intersectsLine(double x1, double y1, double x2, double y2) {
-	double var$0 = x1;
-	double var$1 = y1;
-	double var$2 = x2;
-	double var$3 = y2;
-	double var$4 = getX1();
-	double var$5 = getY1();
-	double var$6 = getX2();
-	return linesIntersect(var$0, var$1, var$2, var$3, var$4, var$5, var$6, getY2());
+	double var$0 = getX1();
+	double var$1 = getY1();
+	double var$2 = getX2();
+	return linesIntersect(x1, y1, x2, y2, var$0, var$1, var$2, getY2());
 }
 
 bool Line2D::intersectsLine(Line2D* l) {
@@ -229,7 +153,7 @@ double Line2D::ptSegDistSq(double x1, double y1, double x2, double y2, double px
 	}
 	double lenSq = px * px + py * py - projlenSq;
 	if (lenSq < 0) {
-		lenSq = (double)0;
+		lenSq = 0;
 	}
 	return lenSq;
 }
@@ -281,7 +205,7 @@ double Line2D::ptLineDistSq(double x1, double y1, double x2, double y2, double p
 	double projlenSq = dotprod * dotprod / (x2 * x2 + y2 * y2);
 	double lenSq = px * px + py * py - projlenSq;
 	if (lenSq < 0) {
-		lenSq = (double)0;
+		lenSq = 0;
 	}
 	return lenSq;
 }
@@ -351,7 +275,7 @@ bool Line2D::contains($Rectangle2D* r) {
 }
 
 $Rectangle* Line2D::getBounds() {
-	return $nc($(getBounds2D()))->getBounds();
+	return $$nc(getBounds2D())->getBounds();
 }
 
 $PathIterator* Line2D::getPathIterator($AffineTransform* at) {
@@ -364,9 +288,9 @@ $PathIterator* Line2D::getPathIterator($AffineTransform* at, double flatness) {
 
 $Object* Line2D::clone() {
 	try {
-		return $of($Shape::clone());
+		return $Shape::clone();
 	} catch ($CloneNotSupportedException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
 }
@@ -375,7 +299,73 @@ Line2D::Line2D() {
 }
 
 $Class* Line2D::load$($String* name, bool initialize) {
-	$loadClass(Line2D, name, initialize, &_Line2D_ClassInfo_, allocate$Line2D);
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(Line2D, init$, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Line2D, clone, $Object*)},
+		{"contains", "(DD)Z", nullptr, $PUBLIC, $virtualMethod(Line2D, contains, bool, double, double)},
+		{"contains", "(Ljava/awt/geom/Point2D;)Z", nullptr, $PUBLIC, $virtualMethod(Line2D, contains, bool, $Point2D*)},
+		{"contains", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(Line2D, contains, bool, double, double, double, double)},
+		{"contains", "(Ljava/awt/geom/Rectangle2D;)Z", nullptr, $PUBLIC, $virtualMethod(Line2D, contains, bool, $Rectangle2D*)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(Line2D, getBounds, $Rectangle*)},
+		{"getP1", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Line2D, getP1, $Point2D*)},
+		{"getP2", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Line2D, getP2, $Point2D*)},
+		{"getPathIterator", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/geom/PathIterator;", nullptr, $PUBLIC, $virtualMethod(Line2D, getPathIterator, $PathIterator*, $AffineTransform*)},
+		{"getPathIterator", "(Ljava/awt/geom/AffineTransform;D)Ljava/awt/geom/PathIterator;", nullptr, $PUBLIC, $virtualMethod(Line2D, getPathIterator, $PathIterator*, $AffineTransform*, double)},
+		{"getX1", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Line2D, getX1, double)},
+		{"getX2", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Line2D, getX2, double)},
+		{"getY1", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Line2D, getY1, double)},
+		{"getY2", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Line2D, getY2, double)},
+		{"intersects", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(Line2D, intersects, bool, double, double, double, double)},
+		{"intersects", "(Ljava/awt/geom/Rectangle2D;)Z", nullptr, $PUBLIC, $virtualMethod(Line2D, intersects, bool, $Rectangle2D*)},
+		{"intersectsLine", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(Line2D, intersectsLine, bool, double, double, double, double)},
+		{"intersectsLine", "(Ljava/awt/geom/Line2D;)Z", nullptr, $PUBLIC, $virtualMethod(Line2D, intersectsLine, bool, Line2D*)},
+		{"linesIntersect", "(DDDDDDDD)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Line2D, linesIntersect, bool, double, double, double, double, double, double, double, double)},
+		{"ptLineDist", "(DDDDDD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(Line2D, ptLineDist, double, double, double, double, double, double, double)},
+		{"ptLineDist", "(DD)D", nullptr, $PUBLIC, $virtualMethod(Line2D, ptLineDist, double, double, double)},
+		{"ptLineDist", "(Ljava/awt/geom/Point2D;)D", nullptr, $PUBLIC, $virtualMethod(Line2D, ptLineDist, double, $Point2D*)},
+		{"ptLineDistSq", "(DDDDDD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(Line2D, ptLineDistSq, double, double, double, double, double, double, double)},
+		{"ptLineDistSq", "(DD)D", nullptr, $PUBLIC, $virtualMethod(Line2D, ptLineDistSq, double, double, double)},
+		{"ptLineDistSq", "(Ljava/awt/geom/Point2D;)D", nullptr, $PUBLIC, $virtualMethod(Line2D, ptLineDistSq, double, $Point2D*)},
+		{"ptSegDist", "(DDDDDD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(Line2D, ptSegDist, double, double, double, double, double, double, double)},
+		{"ptSegDist", "(DD)D", nullptr, $PUBLIC, $virtualMethod(Line2D, ptSegDist, double, double, double)},
+		{"ptSegDist", "(Ljava/awt/geom/Point2D;)D", nullptr, $PUBLIC, $virtualMethod(Line2D, ptSegDist, double, $Point2D*)},
+		{"ptSegDistSq", "(DDDDDD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(Line2D, ptSegDistSq, double, double, double, double, double, double, double)},
+		{"ptSegDistSq", "(DD)D", nullptr, $PUBLIC, $virtualMethod(Line2D, ptSegDistSq, double, double, double)},
+		{"ptSegDistSq", "(Ljava/awt/geom/Point2D;)D", nullptr, $PUBLIC, $virtualMethod(Line2D, ptSegDistSq, double, $Point2D*)},
+		{"relativeCCW", "(DDDDDD)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Line2D, relativeCCW, int32_t, double, double, double, double, double, double)},
+		{"relativeCCW", "(DD)I", nullptr, $PUBLIC, $virtualMethod(Line2D, relativeCCW, int32_t, double, double)},
+		{"relativeCCW", "(Ljava/awt/geom/Point2D;)I", nullptr, $PUBLIC, $virtualMethod(Line2D, relativeCCW, int32_t, $Point2D*)},
+		{"setLine", "(DDDD)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Line2D, setLine, void, double, double, double, double)},
+		{"setLine", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)V", nullptr, $PUBLIC, $virtualMethod(Line2D, setLine, void, $Point2D*, $Point2D*)},
+		{"setLine", "(Ljava/awt/geom/Line2D;)V", nullptr, $PUBLIC, $virtualMethod(Line2D, setLine, void, Line2D*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.geom.Line2D$Double", "java.awt.geom.Line2D", "Double", $PUBLIC | $STATIC},
+		{"java.awt.geom.Line2D$Float", "java.awt.geom.Line2D", "Float", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.geom.Line2D",
+		"java.lang.Object",
+		"java.awt.Shape,java.lang.Cloneable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.geom.Line2D$Double,java.awt.geom.Line2D$Float"
+	};
+	$loadClass(Line2D, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Line2D));
+	});
 	return class$;
 }
 

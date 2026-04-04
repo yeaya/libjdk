@@ -376,6 +376,7 @@ class $import PageAttributes$MediaType : public ::java::awt::AttributeValue {
 	$class(PageAttributes$MediaType, 0, ::java::awt::AttributeValue)
 public:
 	PageAttributes$MediaType();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t type);
 	virtual int32_t hashCode() override;
 	virtual $String* toString() override;

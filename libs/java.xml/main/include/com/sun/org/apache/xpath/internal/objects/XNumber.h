@@ -56,7 +56,7 @@ public:
 	virtual $String* str() override;
 	using ::com::sun::org::apache::xpath::internal::objects::XObject::xstr;
 	static $String* zeros(int32_t n);
-	static const int64_t serialVersionUID = (int64_t)0xDA3F31F7C8700E5F;
+	static const int64_t serialVersionUID = (int64_t)0xda3f31f7c8700e5f;
 	double m_val = 0.0;
 };
 

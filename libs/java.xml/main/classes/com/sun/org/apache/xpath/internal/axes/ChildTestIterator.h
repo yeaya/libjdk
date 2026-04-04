@@ -57,7 +57,7 @@ public:
 	virtual int32_t getAxis() override;
 	virtual int32_t getNextNode() override;
 	virtual void setRoot(int32_t context, Object$* environment) override;
-	static const int64_t serialVersionUID = (int64_t)0x91DAB1BF55347946;
+	static const int64_t serialVersionUID = (int64_t)0x91dab1bf55347946;
 	::com::sun::org::apache::xml::internal::dtm::DTMAxisTraverser* m_traverser = nullptr;
 };
 

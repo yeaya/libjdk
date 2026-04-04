@@ -59,6 +59,7 @@ class $export ElementKind : public ::java::lang::Enum {
 public:
 	ElementKind();
 	static $Array<::javax::lang::model::element::ElementKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual bool isClass();
 	virtual bool isField();

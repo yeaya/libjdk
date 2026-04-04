@@ -1,5 +1,4 @@
 #include <javax/swing/filechooser/FileSystemView$FileSystemRoot.h>
-
 #include <java/io/File.h>
 #include <javax/swing/filechooser/FileSystemView.h>
 #include <jcpp.h>
@@ -12,39 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace swing {
 		namespace filechooser {
-
-$MethodInfo _FileSystemView$FileSystemRoot_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(FileSystemView$FileSystemRoot, init$, void, $File*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileSystemView$FileSystemRoot, init$, void, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileSystemView$FileSystemRoot, getName, $String*)},
-	{"isDirectory", "()Z", nullptr, $PUBLIC, $virtualMethod(FileSystemView$FileSystemRoot, isDirectory, bool)},
-	{}
-};
-
-$InnerClassInfo _FileSystemView$FileSystemRoot_InnerClassesInfo_[] = {
-	{"javax.swing.filechooser.FileSystemView$FileSystemRoot", "javax.swing.filechooser.FileSystemView", "FileSystemRoot", $STATIC},
-	{}
-};
-
-$ClassInfo _FileSystemView$FileSystemRoot_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.filechooser.FileSystemView$FileSystemRoot",
-	"java.io.File",
-	nullptr,
-	nullptr,
-	_FileSystemView$FileSystemRoot_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FileSystemView$FileSystemRoot_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.filechooser.FileSystemView"
-};
-
-$Object* allocate$FileSystemView$FileSystemRoot($Class* clazz) {
-	return $of($alloc(FileSystemView$FileSystemRoot));
-}
 
 void FileSystemView$FileSystemRoot::init$($File* f) {
 	$File::init$(f, ""_s);
@@ -66,7 +32,35 @@ FileSystemView$FileSystemRoot::FileSystemView$FileSystemRoot() {
 }
 
 $Class* FileSystemView$FileSystemRoot::load$($String* name, bool initialize) {
-	$loadClass(FileSystemView$FileSystemRoot, name, initialize, &_FileSystemView$FileSystemRoot_ClassInfo_, allocate$FileSystemView$FileSystemRoot);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(FileSystemView$FileSystemRoot, init$, void, $File*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileSystemView$FileSystemRoot, init$, void, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileSystemView$FileSystemRoot, getName, $String*)},
+		{"isDirectory", "()Z", nullptr, $PUBLIC, $virtualMethod(FileSystemView$FileSystemRoot, isDirectory, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.filechooser.FileSystemView$FileSystemRoot", "javax.swing.filechooser.FileSystemView", "FileSystemRoot", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.filechooser.FileSystemView$FileSystemRoot",
+		"java.io.File",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.filechooser.FileSystemView"
+	};
+	$loadClass(FileSystemView$FileSystemRoot, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FileSystemView$FileSystemRoot));
+	});
 	return class$;
 }
 

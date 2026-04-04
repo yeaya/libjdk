@@ -1,5 +1,4 @@
 #include <sun/text/resources/cldr/ext/FormatData_ta_SG.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,35 +13,16 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _FormatData_ta_SG_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_ta_SG, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_ta_SG, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _FormatData_ta_SG_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.cldr.ext.FormatData_ta_SG",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_FormatData_ta_SG_MethodInfo_
-};
-
-$Object* allocate$FormatData_ta_SG($Class* clazz) {
-	return $of($alloc(FormatData_ta_SG));
-}
-
 void FormatData_ta_SG::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* FormatData_ta_SG::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("latn.NumberElements"_s),
-			$of($$new($StringArray, {
+			"latn.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -56,16 +36,16 @@ $ObjectArray2* FormatData_ta_SG::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("latn.NumberPatterns"_s),
-			$of($$new($StringArray, {
+			"latn.NumberPatterns"_s,
+			$$new($StringArray, {
 				"#,##0.###"_s,
 				u"¤ #,##0.00"_s,
 				"#,##0%"_s,
 				u"¤#,##0.00;(¤#,##0.00)"_s
-			}))
+			})
 		})
 	}));
 	return data;
@@ -75,7 +55,22 @@ FormatData_ta_SG::FormatData_ta_SG() {
 }
 
 $Class* FormatData_ta_SG::load$($String* name, bool initialize) {
-	$loadClass(FormatData_ta_SG, name, initialize, &_FormatData_ta_SG_ClassInfo_, allocate$FormatData_ta_SG);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_ta_SG, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_ta_SG, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.cldr.ext.FormatData_ta_SG",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FormatData_ta_SG, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatData_ta_SG);
+	});
 	return class$;
 }
 

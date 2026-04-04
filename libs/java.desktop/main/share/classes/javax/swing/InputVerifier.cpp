@@ -1,5 +1,4 @@
 #include <javax/swing/InputVerifier.h>
-
 #include <javax/swing/JComponent.h>
 #include <jcpp.h>
 
@@ -11,38 +10,6 @@ using $JComponent = ::javax::swing::JComponent;
 
 namespace javax {
 	namespace swing {
-
-$NamedAttribute InputVerifier_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _InputVerifier_MethodAnnotations_shouldYieldFocus1[] = {
-	{"Ljava/lang/Deprecated;", InputVerifier_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _InputVerifier_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(InputVerifier, init$, void)},
-	{"shouldYieldFocus", "(Ljavax/swing/JComponent;)Z", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(InputVerifier, shouldYieldFocus, bool, $JComponent*), nullptr, nullptr, _InputVerifier_MethodAnnotations_shouldYieldFocus1},
-	{"shouldYieldFocus", "(Ljavax/swing/JComponent;Ljavax/swing/JComponent;)Z", nullptr, $PUBLIC, $virtualMethod(InputVerifier, shouldYieldFocus, bool, $JComponent*, $JComponent*)},
-	{"verify", "(Ljavax/swing/JComponent;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InputVerifier, verify, bool, $JComponent*)},
-	{"verifyTarget", "(Ljavax/swing/JComponent;)Z", nullptr, $PUBLIC, $virtualMethod(InputVerifier, verifyTarget, bool, $JComponent*)},
-	{}
-};
-
-$ClassInfo _InputVerifier_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.InputVerifier",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_InputVerifier_MethodInfo_
-};
-
-$Object* allocate$InputVerifier($Class* clazz) {
-	return $of($alloc(InputVerifier));
-}
 
 void InputVerifier::init$() {
 }
@@ -64,7 +31,33 @@ InputVerifier::InputVerifier() {
 }
 
 $Class* InputVerifier::load$($String* name, bool initialize) {
-	$loadClass(InputVerifier, name, initialize, &_InputVerifier_ClassInfo_, allocate$InputVerifier);
+	$NamedAttribute shouldYieldFocusmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute shouldYieldFocusmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", shouldYieldFocusmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(InputVerifier, init$, void)},
+		{"shouldYieldFocus", "(Ljavax/swing/JComponent;)Z", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(InputVerifier, shouldYieldFocus, bool, $JComponent*), nullptr, nullptr, shouldYieldFocusmethodAnnotations$$},
+		{"shouldYieldFocus", "(Ljavax/swing/JComponent;Ljavax/swing/JComponent;)Z", nullptr, $PUBLIC, $virtualMethod(InputVerifier, shouldYieldFocus, bool, $JComponent*, $JComponent*)},
+		{"verify", "(Ljavax/swing/JComponent;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InputVerifier, verify, bool, $JComponent*)},
+		{"verifyTarget", "(Ljavax/swing/JComponent;)Z", nullptr, $PUBLIC, $virtualMethod(InputVerifier, verifyTarget, bool, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.InputVerifier",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InputVerifier, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InputVerifier);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/management/counter/perf/PerfLongArrayCounter.h>
-
 #include <java/nio/LongBuffer.h>
 #include <sun/management/counter/AbstractCounter.h>
 #include <sun/management/counter/Units.h>
@@ -20,46 +19,6 @@ namespace sun {
 	namespace management {
 		namespace counter {
 			namespace perf {
-
-$FieldInfo _PerfLongArrayCounter_FieldInfo_[] = {
-	{"lb", "Ljava/nio/LongBuffer;", nullptr, 0, $field(PerfLongArrayCounter, lb)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PerfLongArrayCounter, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _PerfLongArrayCounter_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getFlags", "()I", nullptr, $PUBLIC},
-	{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getUnits", "()Lsun/management/counter/Units;", nullptr, $PUBLIC},
-	{"*getVariability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC},
-	{"*getVectorLength", "()I", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;IILjava/nio/LongBuffer;)V", nullptr, 0, $method(PerfLongArrayCounter, init$, void, $String*, $Units*, $Variability*, int32_t, int32_t, $LongBuffer*)},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PerfLongArrayCounter, getValue, $Object*)},
-	{"*isInternal", "()Z", nullptr, $PUBLIC},
-	{"*isVector", "()Z", nullptr, $PUBLIC},
-	{"longArrayValue", "()[J", nullptr, $PUBLIC, $virtualMethod(PerfLongArrayCounter, longArrayValue, $longs*)},
-	{"longAt", "(I)J", nullptr, $PUBLIC, $virtualMethod(PerfLongArrayCounter, longAt, int64_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(PerfLongArrayCounter, writeReplace, $Object*), "java.io.ObjectStreamException"},
-	{}
-};
-
-$ClassInfo _PerfLongArrayCounter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.management.counter.perf.PerfLongArrayCounter",
-	"sun.management.counter.AbstractCounter",
-	"sun.management.counter.LongArrayCounter",
-	_PerfLongArrayCounter_FieldInfo_,
-	_PerfLongArrayCounter_MethodInfo_
-};
-
-$Object* allocate$PerfLongArrayCounter($Class* clazz) {
-	return $of($alloc(PerfLongArrayCounter));
-}
 
 $String* PerfLongArrayCounter::getName() {
 	 return this->$AbstractCounter::getName();
@@ -115,7 +74,7 @@ void PerfLongArrayCounter::init$($String* name, $Units* u, $Variability* v, int3
 }
 
 $Object* PerfLongArrayCounter::getValue() {
-	return $of(longArrayValue());
+	return longArrayValue();
 }
 
 $longs* PerfLongArrayCounter::longArrayValue() {
@@ -131,7 +90,7 @@ int64_t PerfLongArrayCounter::longAt(int32_t index) {
 }
 
 $Object* PerfLongArrayCounter::writeReplace() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, getName());
 	$var($Units, var$1, getUnits());
 	$var($Variability, var$2, getVariability());
@@ -144,7 +103,42 @@ PerfLongArrayCounter::PerfLongArrayCounter() {
 }
 
 $Class* PerfLongArrayCounter::load$($String* name, bool initialize) {
-	$loadClass(PerfLongArrayCounter, name, initialize, &_PerfLongArrayCounter_ClassInfo_, allocate$PerfLongArrayCounter);
+	$FieldInfo fieldInfos$$[] = {
+		{"lb", "Ljava/nio/LongBuffer;", nullptr, 0, $field(PerfLongArrayCounter, lb)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PerfLongArrayCounter, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getFlags", "()I", nullptr, $PUBLIC},
+		{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getUnits", "()Lsun/management/counter/Units;", nullptr, $PUBLIC},
+		{"*getVariability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC},
+		{"*getVectorLength", "()I", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;IILjava/nio/LongBuffer;)V", nullptr, 0, $method(PerfLongArrayCounter, init$, void, $String*, $Units*, $Variability*, int32_t, int32_t, $LongBuffer*)},
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PerfLongArrayCounter, getValue, $Object*)},
+		{"*isInternal", "()Z", nullptr, $PUBLIC},
+		{"*isVector", "()Z", nullptr, $PUBLIC},
+		{"longArrayValue", "()[J", nullptr, $PUBLIC, $virtualMethod(PerfLongArrayCounter, longArrayValue, $longs*)},
+		{"longAt", "(I)J", nullptr, $PUBLIC, $virtualMethod(PerfLongArrayCounter, longAt, int64_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(PerfLongArrayCounter, writeReplace, $Object*), "java.io.ObjectStreamException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.management.counter.perf.PerfLongArrayCounter",
+		"sun.management.counter.AbstractCounter",
+		"sun.management.counter.LongArrayCounter",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PerfLongArrayCounter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PerfLongArrayCounter));
+	});
 	return class$;
 }
 

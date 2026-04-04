@@ -25,6 +25,7 @@ class $export TestMultiScreenGConfigNotify : public ::java::lang::Object {
 	$class(TestMultiScreenGConfigNotify, 0, ::java::lang::Object)
 public:
 	TestMultiScreenGConfigNotify();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void lambda$main$0(::java::beans::PropertyChangeEvent* evt);
 	static void lambda$main$1(::java::awt::GraphicsConfiguration* gc, ::java::awt::GraphicsConfiguration* gc2);

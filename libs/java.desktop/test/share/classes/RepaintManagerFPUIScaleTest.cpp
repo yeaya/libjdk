@@ -1,5 +1,4 @@
 #include <RepaintManagerFPUIScaleTest.h>
-
 #include <RepaintManagerFPUIScaleTest$1.h>
 #include <RepaintManagerFPUIScaleTest$2.h>
 #include <RepaintManagerFPUIScaleTest$TestListCellRenderer.h>
@@ -60,18 +59,13 @@ using $RepaintManagerFPUIScaleTest$TestListCellRenderer = ::RepaintManagerFPUISc
 using $ColorArray = $Array<::java::awt::Color>;
 using $ImageArray = $Array<::java::awt::Image>;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Graphics2D = ::java::awt::Graphics2D;
-using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
-using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $Image = ::java::awt::Image;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $WindowListener = ::java::awt::event::WindowListener;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $BaseMultiResolutionImage = ::java::awt::image::BaseMultiResolutionImage;
 using $BufferedImage = ::java::awt::image::BufferedImage;
@@ -93,7 +87,6 @@ using $JList = ::javax::swing::JList;
 using $JPanel = ::javax::swing::JPanel;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTextArea = ::javax::swing::JTextArea;
-using $ListCellRenderer = ::javax::swing::ListCellRenderer;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 
 class RepaintManagerFPUIScaleTest$$Lambda$createUI : public $Runnable {
@@ -104,27 +97,24 @@ public:
 	virtual void run() override {
 		RepaintManagerFPUIScaleTest::createUI();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RepaintManagerFPUIScaleTest$$Lambda$createUI>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo RepaintManagerFPUIScaleTest$$Lambda$createUI::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RepaintManagerFPUIScaleTest$$Lambda$createUI, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RepaintManagerFPUIScaleTest$$Lambda$createUI, run, void)},
-	{}
-};
-$ClassInfo RepaintManagerFPUIScaleTest$$Lambda$createUI::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"RepaintManagerFPUIScaleTest$$Lambda$createUI",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* RepaintManagerFPUIScaleTest$$Lambda$createUI::load$($String* name, bool initialize) {
-	$loadClass(RepaintManagerFPUIScaleTest$$Lambda$createUI, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RepaintManagerFPUIScaleTest$$Lambda$createUI, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RepaintManagerFPUIScaleTest$$Lambda$createUI, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"RepaintManagerFPUIScaleTest$$Lambda$createUI",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RepaintManagerFPUIScaleTest$$Lambda$createUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RepaintManagerFPUIScaleTest$$Lambda$createUI);
+	});
 	return class$;
 }
 $Class* RepaintManagerFPUIScaleTest$$Lambda$createUI::class$ = nullptr;
@@ -138,81 +128,32 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		RepaintManagerFPUIScaleTest::lambda$createUI$0(mainFrame, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RepaintManagerFPUIScaleTest$$Lambda$lambda$createUI$0$1>());
-	}
 	$JFrame* mainFrame = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo RepaintManagerFPUIScaleTest$$Lambda$lambda$createUI$0$1::fieldInfos[2] = {
-	{"mainFrame", "Ljavax/swing/JFrame;", nullptr, $PUBLIC, $field(RepaintManagerFPUIScaleTest$$Lambda$lambda$createUI$0$1, mainFrame)},
-	{}
-};
-$MethodInfo RepaintManagerFPUIScaleTest$$Lambda$lambda$createUI$0$1::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/JFrame;)V", nullptr, $PUBLIC, $method(RepaintManagerFPUIScaleTest$$Lambda$lambda$createUI$0$1, init$, void, $JFrame*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(RepaintManagerFPUIScaleTest$$Lambda$lambda$createUI$0$1, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo RepaintManagerFPUIScaleTest$$Lambda$lambda$createUI$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"RepaintManagerFPUIScaleTest$$Lambda$lambda$createUI$0$1",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* RepaintManagerFPUIScaleTest$$Lambda$lambda$createUI$0$1::load$($String* name, bool initialize) {
-	$loadClass(RepaintManagerFPUIScaleTest$$Lambda$lambda$createUI$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"mainFrame", "Ljavax/swing/JFrame;", nullptr, $PUBLIC, $field(RepaintManagerFPUIScaleTest$$Lambda$lambda$createUI$0$1, mainFrame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JFrame;)V", nullptr, $PUBLIC, $method(RepaintManagerFPUIScaleTest$$Lambda$lambda$createUI$0$1, init$, void, $JFrame*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(RepaintManagerFPUIScaleTest$$Lambda$lambda$createUI$0$1, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"RepaintManagerFPUIScaleTest$$Lambda$lambda$createUI$0$1",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RepaintManagerFPUIScaleTest$$Lambda$lambda$createUI$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RepaintManagerFPUIScaleTest$$Lambda$lambda$createUI$0$1);
+	});
 	return class$;
 }
 $Class* RepaintManagerFPUIScaleTest$$Lambda$lambda$createUI$0$1::class$ = nullptr;
-
-$FieldInfo _RepaintManagerFPUIScaleTest_FieldInfo_[] = {
-	{"testResult", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(RepaintManagerFPUIScaleTest, testResult)},
-	{"countDownLatch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(RepaintManagerFPUIScaleTest, countDownLatch)},
-	{"INSTRUCTIONS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RepaintManagerFPUIScaleTest, INSTRUCTIONS)},
-	{"COLORS", "[Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticField(RepaintManagerFPUIScaleTest, COLORS)},
-	{}
-};
-
-$MethodInfo _RepaintManagerFPUIScaleTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RepaintManagerFPUIScaleTest, init$, void)},
-	{"createComponent", "()Ljavax/swing/JComponent;", nullptr, $PRIVATE | $STATIC, $staticMethod(RepaintManagerFPUIScaleTest, createComponent, $JComponent*)},
-	{"createTestImage", "(III)Ljava/awt/Image;", nullptr, $PRIVATE | $STATIC, $staticMethod(RepaintManagerFPUIScaleTest, createTestImage, $Image*, int32_t, int32_t, int32_t)},
-	{"createTestImage", "(IIDDLjava/awt/Color;)Ljava/awt/Image;", nullptr, $PRIVATE | $STATIC, $staticMethod(RepaintManagerFPUIScaleTest, createTestImage, $Image*, int32_t, int32_t, double, double, $Color*)},
-	{"createUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(RepaintManagerFPUIScaleTest, createUI, void)},
-	{"lambda$createUI$0", "(Ljavax/swing/JFrame;Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RepaintManagerFPUIScaleTest, lambda$createUI$0, void, $JFrame*, $ActionEvent*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RepaintManagerFPUIScaleTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _RepaintManagerFPUIScaleTest_InnerClassesInfo_[] = {
-	{"RepaintManagerFPUIScaleTest$TestListCellRenderer", "RepaintManagerFPUIScaleTest", "TestListCellRenderer", $STATIC},
-	{"RepaintManagerFPUIScaleTest$2", nullptr, nullptr, 0},
-	{"RepaintManagerFPUIScaleTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _RepaintManagerFPUIScaleTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"RepaintManagerFPUIScaleTest",
-	"java.lang.Object",
-	nullptr,
-	_RepaintManagerFPUIScaleTest_FieldInfo_,
-	_RepaintManagerFPUIScaleTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RepaintManagerFPUIScaleTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"RepaintManagerFPUIScaleTest$TestListCellRenderer,RepaintManagerFPUIScaleTest$2,RepaintManagerFPUIScaleTest$1"
-};
-
-$Object* allocate$RepaintManagerFPUIScaleTest($Class* clazz) {
-	return $of($alloc(RepaintManagerFPUIScaleTest));
-}
 
 $volatile(bool) RepaintManagerFPUIScaleTest::testResult = false;
 $volatile($CountDownLatch*) RepaintManagerFPUIScaleTest::countDownLatch = nullptr;
@@ -225,7 +166,7 @@ void RepaintManagerFPUIScaleTest::init$() {
 void RepaintManagerFPUIScaleTest::main($StringArray* args) {
 	$init(RepaintManagerFPUIScaleTest);
 	$assignStatic(RepaintManagerFPUIScaleTest::countDownLatch, $new($CountDownLatch, 1));
-	$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(RepaintManagerFPUIScaleTest$$Lambda$createUI)));
+	$SwingUtilities::invokeLater($$new(RepaintManagerFPUIScaleTest$$Lambda$createUI));
 	$init($TimeUnit);
 	$nc(RepaintManagerFPUIScaleTest::countDownLatch)->await(15, $TimeUnit::MINUTES);
 	if (!RepaintManagerFPUIScaleTest::testResult) {
@@ -235,17 +176,17 @@ void RepaintManagerFPUIScaleTest::main($StringArray* args) {
 
 void RepaintManagerFPUIScaleTest::createUI() {
 	$init(RepaintManagerFPUIScaleTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFrame, mainFrame, $new($JFrame, "Motif L&F icons test"_s));
 	$var($GridBagLayout, layout, $new($GridBagLayout));
-	$var($JPanel, mainControlPanel, $new($JPanel, static_cast<$LayoutManager*>(layout)));
-	$var($JPanel, resultButtonPanel, $new($JPanel, static_cast<$LayoutManager*>(layout)));
+	$var($JPanel, mainControlPanel, $new($JPanel, layout));
+	$var($JPanel, resultButtonPanel, $new($JPanel, layout));
 	$var($GridBagConstraints, gbc, $new($GridBagConstraints));
 	$var($JComponent, testPanel, createComponent());
 	gbc->gridx = 0;
 	gbc->gridy = 0;
 	gbc->fill = $GridBagConstraints::HORIZONTAL;
-	mainControlPanel->add(static_cast<$Component*>(testPanel), $of(gbc));
+	mainControlPanel->add(testPanel, gbc);
 	$var($JTextArea, instructionTextArea, $new($JTextArea));
 	instructionTextArea->setText(RepaintManagerFPUIScaleTest::INSTRUCTIONS);
 	instructionTextArea->setEditable(false);
@@ -254,23 +195,23 @@ void RepaintManagerFPUIScaleTest::createUI() {
 	gbc->gridx = 0;
 	gbc->gridy = 1;
 	gbc->fill = $GridBagConstraints::HORIZONTAL;
-	mainControlPanel->add(static_cast<$Component*>(instructionTextArea), $of(gbc));
+	mainControlPanel->add(instructionTextArea, gbc);
 	$var($JButton, passButton, $new($JButton, "Pass"_s));
 	passButton->setActionCommand("Pass"_s);
-	passButton->addActionListener(static_cast<$ActionListener*>($$new(RepaintManagerFPUIScaleTest$$Lambda$lambda$createUI$0$1, mainFrame)));
+	passButton->addActionListener($$new(RepaintManagerFPUIScaleTest$$Lambda$lambda$createUI$0$1, mainFrame));
 	$var($JButton, failButton, $new($JButton, "Fail"_s));
 	failButton->setActionCommand("Fail"_s);
 	failButton->addActionListener($$new($RepaintManagerFPUIScaleTest$1, mainFrame));
 	gbc->gridx = 0;
 	gbc->gridy = 0;
-	resultButtonPanel->add(static_cast<$Component*>(passButton), $of(gbc));
+	resultButtonPanel->add(passButton, gbc);
 	gbc->gridx = 1;
 	gbc->gridy = 0;
-	resultButtonPanel->add(static_cast<$Component*>(failButton), $of(gbc));
+	resultButtonPanel->add(failButton, gbc);
 	gbc->gridx = 0;
 	gbc->gridy = 2;
-	mainControlPanel->add(static_cast<$Component*>(resultButtonPanel), $of(gbc));
-	mainFrame->add(static_cast<$Component*>(mainControlPanel));
+	mainControlPanel->add(resultButtonPanel, gbc);
+	mainFrame->add(mainControlPanel);
 	mainFrame->pack();
 	mainFrame->addWindowListener($$new($RepaintManagerFPUIScaleTest$2, mainFrame));
 	mainFrame->setVisible(true);
@@ -278,7 +219,7 @@ void RepaintManagerFPUIScaleTest::createUI() {
 
 $JComponent* RepaintManagerFPUIScaleTest::createComponent() {
 	$init(RepaintManagerFPUIScaleTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t N = 100;
 	$var($StringArray, data, $new($StringArray, N));
 	for (int32_t i = 0; i < N; ++i) {
@@ -292,14 +233,12 @@ $JComponent* RepaintManagerFPUIScaleTest::createComponent() {
 
 $Image* RepaintManagerFPUIScaleTest::createTestImage(int32_t width, int32_t height, int32_t colorindex) {
 	$init(RepaintManagerFPUIScaleTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, color, $nc(RepaintManagerFPUIScaleTest::COLORS)->get($mod(colorindex, $nc(RepaintManagerFPUIScaleTest::COLORS)->length)));
-	$var($AffineTransform, tx, $nc($($nc($($nc($($GraphicsEnvironment::getLocalGraphicsEnvironment()))->getDefaultScreenDevice()))->getDefaultConfiguration()))->getDefaultTransform());
-	$var($Image, baseImage, createTestImage(width, height, (double)1, (double)1, color));
-	int32_t var$0 = width;
-	int32_t var$1 = height;
-	double var$2 = $nc(tx)->getScaleX();
-	$var($Image, rvImage, createTestImage(var$0, var$1, var$2, tx->getScaleY(), color));
+	$var($AffineTransform, tx, $$nc($$nc($$nc($GraphicsEnvironment::getLocalGraphicsEnvironment())->getDefaultScreenDevice())->getDefaultConfiguration())->getDefaultTransform());
+	$var($Image, baseImage, createTestImage(width, height, 1, 1, color));
+	double var$0 = $nc(tx)->getScaleX();
+	$var($Image, rvImage, createTestImage(width, height, var$0, tx->getScaleY(), color));
 	return $new($BaseMultiResolutionImage, $$new($ImageArray, {
 		baseImage,
 		rvImage
@@ -308,7 +247,7 @@ $Image* RepaintManagerFPUIScaleTest::createTestImage(int32_t width, int32_t heig
 
 $Image* RepaintManagerFPUIScaleTest::createTestImage(int32_t w, int32_t h, double scaleX, double scaleY, $Color* color) {
 	$init(RepaintManagerFPUIScaleTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t width = $cast(int32_t, $Math::ceil(scaleX * w));
 	int32_t height = $cast(int32_t, $Math::ceil(scaleY * h));
 	$var($BufferedImage, img, $new($BufferedImage, width, height, $BufferedImage::TYPE_INT_RGB));
@@ -334,7 +273,7 @@ void RepaintManagerFPUIScaleTest::lambda$createUI$0($JFrame* mainFrame, $ActionE
 	$nc(RepaintManagerFPUIScaleTest::countDownLatch)->countDown();
 }
 
-void clinit$RepaintManagerFPUIScaleTest($Class* class$) {
+void RepaintManagerFPUIScaleTest::clinit$($Class* clazz) {
 	$assignStatic(RepaintManagerFPUIScaleTest::INSTRUCTIONS, "INSTRUCTIONS:\nCheck JScrollPane correctly repaints the view when UI scale has floating point value:\n\n1. Scroll down the JScrollPane\n2. Select some values\nIf the scrolled selected value is painted without artifacts,press PASS, else press FAIL."_s);
 	RepaintManagerFPUIScaleTest::testResult = false;
 	$init($Color);
@@ -352,14 +291,53 @@ RepaintManagerFPUIScaleTest::RepaintManagerFPUIScaleTest() {
 
 $Class* RepaintManagerFPUIScaleTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(RepaintManagerFPUIScaleTest$$Lambda$createUI::classInfo$.name)) {
+		if (name->equals("RepaintManagerFPUIScaleTest$$Lambda$createUI")) {
 			return RepaintManagerFPUIScaleTest$$Lambda$createUI::load$(name, initialize);
 		}
-		if (name->equals(RepaintManagerFPUIScaleTest$$Lambda$lambda$createUI$0$1::classInfo$.name)) {
+		if (name->equals("RepaintManagerFPUIScaleTest$$Lambda$lambda$createUI$0$1")) {
 			return RepaintManagerFPUIScaleTest$$Lambda$lambda$createUI$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(RepaintManagerFPUIScaleTest, name, initialize, &_RepaintManagerFPUIScaleTest_ClassInfo_, clinit$RepaintManagerFPUIScaleTest, allocate$RepaintManagerFPUIScaleTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"testResult", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(RepaintManagerFPUIScaleTest, testResult)},
+		{"countDownLatch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(RepaintManagerFPUIScaleTest, countDownLatch)},
+		{"INSTRUCTIONS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RepaintManagerFPUIScaleTest, INSTRUCTIONS)},
+		{"COLORS", "[Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticField(RepaintManagerFPUIScaleTest, COLORS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RepaintManagerFPUIScaleTest, init$, void)},
+		{"createComponent", "()Ljavax/swing/JComponent;", nullptr, $PRIVATE | $STATIC, $staticMethod(RepaintManagerFPUIScaleTest, createComponent, $JComponent*)},
+		{"createTestImage", "(III)Ljava/awt/Image;", nullptr, $PRIVATE | $STATIC, $staticMethod(RepaintManagerFPUIScaleTest, createTestImage, $Image*, int32_t, int32_t, int32_t)},
+		{"createTestImage", "(IIDDLjava/awt/Color;)Ljava/awt/Image;", nullptr, $PRIVATE | $STATIC, $staticMethod(RepaintManagerFPUIScaleTest, createTestImage, $Image*, int32_t, int32_t, double, double, $Color*)},
+		{"createUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(RepaintManagerFPUIScaleTest, createUI, void)},
+		{"lambda$createUI$0", "(Ljavax/swing/JFrame;Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RepaintManagerFPUIScaleTest, lambda$createUI$0, void, $JFrame*, $ActionEvent*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RepaintManagerFPUIScaleTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"RepaintManagerFPUIScaleTest$TestListCellRenderer", "RepaintManagerFPUIScaleTest", "TestListCellRenderer", $STATIC},
+		{"RepaintManagerFPUIScaleTest$2", nullptr, nullptr, 0},
+		{"RepaintManagerFPUIScaleTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"RepaintManagerFPUIScaleTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"RepaintManagerFPUIScaleTest$TestListCellRenderer,RepaintManagerFPUIScaleTest$2,RepaintManagerFPUIScaleTest$1"
+	};
+	$loadClass(RepaintManagerFPUIScaleTest, name, initialize, &classInfo$$, RepaintManagerFPUIScaleTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RepaintManagerFPUIScaleTest);
+	});
 	return class$;
 }
 

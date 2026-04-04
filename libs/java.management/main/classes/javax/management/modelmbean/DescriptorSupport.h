@@ -28,6 +28,7 @@ class $export DescriptorSupport : public ::javax::management::Descriptor {
 	$class(DescriptorSupport, 0, ::javax::management::Descriptor)
 public:
 	DescriptorSupport();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t initNumFields);
 	void init$(::javax::management::modelmbean::DescriptorSupport* inDescr);
@@ -57,8 +58,8 @@ public:
 	static $String* unquote($String* s);
 	bool validateField($String* fldName, Object$* fldValue);
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t oldSerialVersionUID = (int64_t)0x7003F1D3BECAD481;
-	static const int64_t newSerialVersionUID = (int64_t)0xA8AAE1DBA1E9E001;
+	static const int64_t oldSerialVersionUID = (int64_t)0x7003f1d3becad481;
+	static const int64_t newSerialVersionUID = (int64_t)0xa8aae1dba1e9e001;
 	static $Array<::java::io::ObjectStreamField>* oldSerialPersistentFields;
 	static $Array<::java::io::ObjectStreamField>* newSerialPersistentFields;
 	static int64_t serialVersionUID;

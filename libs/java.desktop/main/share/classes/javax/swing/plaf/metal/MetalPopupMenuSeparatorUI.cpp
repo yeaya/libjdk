@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalPopupMenuSeparatorUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -22,27 +21,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$MethodInfo _MetalPopupMenuSeparatorUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalPopupMenuSeparatorUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalPopupMenuSeparatorUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalPopupMenuSeparatorUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalPopupMenuSeparatorUI, paint, void, $Graphics*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _MetalPopupMenuSeparatorUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalPopupMenuSeparatorUI",
-	"javax.swing.plaf.metal.MetalSeparatorUI",
-	nullptr,
-	nullptr,
-	_MetalPopupMenuSeparatorUI_MethodInfo_
-};
-
-$Object* allocate$MetalPopupMenuSeparatorUI($Class* clazz) {
-	return $of($alloc(MetalPopupMenuSeparatorUI));
-}
-
 void MetalPopupMenuSeparatorUI::init$() {
 	$MetalSeparatorUI::init$();
 }
@@ -53,12 +31,12 @@ $ComponentUI* MetalPopupMenuSeparatorUI::createUI($JComponent* c) {
 }
 
 void MetalPopupMenuSeparatorUI::paint($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, s, $nc(c)->getSize());
 	$nc(g)->setColor($(c->getForeground()));
 	g->drawLine(0, 1, $nc(s)->width, 1);
 	g->setColor($(c->getBackground()));
-	g->drawLine(0, 2, $nc(s)->width, 2);
+	g->drawLine(0, 2, s->width, 2);
 	g->drawLine(0, 0, 0, 0);
 	g->drawLine(0, 3, 0, 3);
 }
@@ -71,7 +49,24 @@ MetalPopupMenuSeparatorUI::MetalPopupMenuSeparatorUI() {
 }
 
 $Class* MetalPopupMenuSeparatorUI::load$($String* name, bool initialize) {
-	$loadClass(MetalPopupMenuSeparatorUI, name, initialize, &_MetalPopupMenuSeparatorUI_ClassInfo_, allocate$MetalPopupMenuSeparatorUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalPopupMenuSeparatorUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalPopupMenuSeparatorUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalPopupMenuSeparatorUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalPopupMenuSeparatorUI, paint, void, $Graphics*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalPopupMenuSeparatorUI",
+		"javax.swing.plaf.metal.MetalSeparatorUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalPopupMenuSeparatorUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalPopupMenuSeparatorUI);
+	});
 	return class$;
 }
 

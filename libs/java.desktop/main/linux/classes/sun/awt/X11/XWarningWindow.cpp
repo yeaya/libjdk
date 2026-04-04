@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XWarningWindow.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Font.h>
@@ -43,7 +42,6 @@
 #include <sun/awt/AWTIcon64_security_icon_yellow48_png.h>
 #include <sun/awt/IconInfo.h>
 #include <sun/awt/SunToolkit.h>
-#include <sun/awt/X11/InfoWindow$Tooltip$LiveArguments.h>
 #include <sun/awt/X11/InfoWindow$Tooltip.h>
 #include <sun/awt/X11/XAtom.h>
 #include <sun/awt/X11/XBaseWindow.h>
@@ -90,10 +88,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$WindowAccessor = ::sun::awt::AWTAccessor$WindowAccessor;
 using $AWTIcon32_security_icon_bw16_png = ::sun::awt::AWTIcon32_security_icon_bw16_png;
 using $AWTIcon32_security_icon_bw24_png = ::sun::awt::AWTIcon32_security_icon_bw24_png;
 using $AWTIcon32_security_icon_bw32_png = ::sun::awt::AWTIcon32_security_icon_bw32_png;
@@ -121,7 +117,6 @@ using $AWTIcon64_security_icon_yellow48_png = ::sun::awt::AWTIcon64_security_ico
 using $IconInfo = ::sun::awt::IconInfo;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $InfoWindow$Tooltip = ::sun::awt::X11::InfoWindow$Tooltip;
-using $InfoWindow$Tooltip$LiveArguments = ::sun::awt::X11::InfoWindow$Tooltip$LiveArguments;
 using $XConstants = ::sun::awt::X11::XConstants;
 using $XCreateWindowParams = ::sun::awt::X11::XCreateWindowParams;
 using $XEvent = ::sun::awt::X11::XEvent;
@@ -145,152 +140,79 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XWarningWindow_FieldInfo_[] = {
-	{"SHOWING_DELAY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XWarningWindow, SHOWING_DELAY)},
-	{"HIDING_DELAY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XWarningWindow, HIDING_DELAY)},
-	{"ownerWindow", "Ljava/awt/Window;", nullptr, $PRIVATE | $FINAL, $field(XWarningWindow, ownerWindow)},
-	{"ownerPeer", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lsun/awt/X11/XWindowPeer;>;", $PRIVATE, $field(XWarningWindow, ownerPeer)},
-	{"parentWindow", "J", nullptr, $PRIVATE, $field(XWarningWindow, parentWindow)},
-	{"OWNER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XWarningWindow, OWNER)},
-	{"tooltip", "Lsun/awt/X11/InfoWindow$Tooltip;", nullptr, $PRIVATE, $field(XWarningWindow, tooltip)},
-	{"currentIcon", "I", nullptr, $PRIVATE | $VOLATILE, $field(XWarningWindow, currentIcon)},
-	{"currentSize", "I", nullptr, $PRIVATE, $field(XWarningWindow, currentSize)},
-	{"icons", "[[Lsun/awt/IconInfo;", nullptr, $PRIVATE | $STATIC, $staticField(XWarningWindow, icons)},
-	{"hidingTask", "Ljava/lang/Runnable;", nullptr, $PRIVATE | $FINAL, $field(XWarningWindow, hidingTask)},
-	{"showingTask", "Ljava/lang/Runnable;", nullptr, $PRIVATE | $FINAL, $field(XWarningWindow, showingTask)},
-	{}
-};
-
-$MethodInfo _XWarningWindow_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Window;JLsun/awt/X11/XWindowPeer;)V", nullptr, 0, $method(XWarningWindow, init$, void, $Window*, int64_t, $XWindowPeer*)},
-	{"enterNotify", "(J)V", nullptr, $PROTECTED, $virtualMethod(XWarningWindow, enterNotify, void, int64_t)},
-	{"getBackground", "()Ljava/awt/Color;", nullptr, 0, $virtualMethod(XWarningWindow, getBackground, $Color*)},
-	{"getColor", "()Ljava/awt/Color;", nullptr, 0, $virtualMethod(XWarningWindow, getColor, $Color*)},
-	{"getFont", "()Ljava/awt/Font;", nullptr, 0, $virtualMethod(XWarningWindow, getFont, $Font*)},
-	{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(XWarningWindow, getGraphics, $Graphics*)},
-	{"getHeight", "()I", nullptr, 0, $virtualMethod(XWarningWindow, getHeight, int32_t)},
-	{"getSecurityIconInfo", "(II)Lsun/awt/IconInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(XWarningWindow, getSecurityIconInfo, $IconInfo*, int32_t, int32_t)},
-	{"getSecurityIconInfo", "()Lsun/awt/IconInfo;", nullptr, $PRIVATE, $method(XWarningWindow, getSecurityIconInfo, $IconInfo*)},
-	{"getWMName", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XWarningWindow, getWMName, $String*)},
-	{"getWarningString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XWarningWindow, getWarningString, $String*)},
-	{"getWidth", "()I", nullptr, 0, $virtualMethod(XWarningWindow, getWidth, int32_t)},
-	{"handleExposeEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XWarningWindow, handleExposeEvent, void, $XEvent*)},
-	{"isEventDisabled", "(Lsun/awt/X11/XEvent;)Z", nullptr, $PROTECTED, $virtualMethod(XWarningWindow, isEventDisabled, bool, $XEvent*)},
-	{"leaveNotify", "(J)V", nullptr, $PROTECTED, $virtualMethod(XWarningWindow, leaveNotify, void, int64_t)},
-	{"paint", "(Ljava/awt/Graphics;IIII)V", nullptr, 0, $virtualMethod(XWarningWindow, paint, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"postInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XWarningWindow, postInit, void, $XCreateWindowParams*)},
-	{"repaint", "()V", nullptr, $PUBLIC, $virtualMethod(XWarningWindow, repaint, void)},
-	{"reposition", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(XWarningWindow, reposition, void, int32_t, int32_t, int32_t, int32_t)},
-	{"requestNoTaskbar", "()V", nullptr, $PRIVATE, $method(XWarningWindow, requestNoTaskbar, void)},
-	{"setMouseAbove", "(Z)V", nullptr, $PROTECTED, $virtualMethod(XWarningWindow, setMouseAbove, void, bool)},
-	{"setSecurityWarningVisible", "(ZZ)V", nullptr, $PUBLIC, $virtualMethod(XWarningWindow, setSecurityWarningVisible, void, bool, bool)},
-	{"stateChanged", "(JII)V", nullptr, $PROTECTED, $virtualMethod(XWarningWindow, stateChanged, void, int64_t, int32_t, int32_t)},
-	{"updateIconSize", "()V", nullptr, $PRIVATE, $method(XWarningWindow, updateIconSize, void)},
-	{"withdraw", "()V", nullptr, $PRIVATE, $method(XWarningWindow, withdraw, void)},
-	{"xSetVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XWarningWindow, xSetVisible, void, bool)},
-	{}
-};
-
-$InnerClassInfo _XWarningWindow_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XWarningWindow$4", nullptr, nullptr, 0},
-	{"sun.awt.X11.XWarningWindow$3", nullptr, nullptr, 0},
-	{"sun.awt.X11.XWarningWindow$2", nullptr, nullptr, 0},
-	{"sun.awt.X11.XWarningWindow$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XWarningWindow_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XWarningWindow",
-	"sun.awt.X11.XWindow",
-	nullptr,
-	_XWarningWindow_FieldInfo_,
-	_XWarningWindow_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XWarningWindow_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XWarningWindow$4,sun.awt.X11.XWarningWindow$3,sun.awt.X11.XWarningWindow$2,sun.awt.X11.XWarningWindow$1"
-};
-
-$Object* allocate$XWarningWindow($Class* clazz) {
-	return $of($alloc(XWarningWindow));
-}
-
 $String* XWarningWindow::OWNER = nullptr;
 $IconInfoArray2* XWarningWindow::icons = nullptr;
 
 $IconInfo* XWarningWindow::getSecurityIconInfo(int32_t size, int32_t num) {
 	$init(XWarningWindow);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(XWarningWindow::class$) {
 		if (XWarningWindow::icons == nullptr) {
 			$assignStatic(XWarningWindow::icons, $new($IconInfoArray2, 4, 3));
 			$init($XlibWrapper);
 			if ($XlibWrapper::dataModel == 32) {
 				$init($AWTIcon32_security_icon_bw16_png);
-				$nc($nc(XWarningWindow::icons)->get(0))->set(0, $$new($IconInfo, $AWTIcon32_security_icon_bw16_png::security_icon_bw16_png));
+				$nc(XWarningWindow::icons->get(0))->set(0, $$new($IconInfo, $AWTIcon32_security_icon_bw16_png::security_icon_bw16_png));
 				$init($AWTIcon32_security_icon_interim16_png);
-				$nc($nc(XWarningWindow::icons)->get(0))->set(1, $$new($IconInfo, $AWTIcon32_security_icon_interim16_png::security_icon_interim16_png));
+				$nc(XWarningWindow::icons->get(0))->set(1, $$new($IconInfo, $AWTIcon32_security_icon_interim16_png::security_icon_interim16_png));
 				$init($AWTIcon32_security_icon_yellow16_png);
-				$nc($nc(XWarningWindow::icons)->get(0))->set(2, $$new($IconInfo, $AWTIcon32_security_icon_yellow16_png::security_icon_yellow16_png));
+				$nc(XWarningWindow::icons->get(0))->set(2, $$new($IconInfo, $AWTIcon32_security_icon_yellow16_png::security_icon_yellow16_png));
 				$init($AWTIcon32_security_icon_bw24_png);
-				$nc($nc(XWarningWindow::icons)->get(1))->set(0, $$new($IconInfo, $AWTIcon32_security_icon_bw24_png::security_icon_bw24_png));
+				$nc(XWarningWindow::icons->get(1))->set(0, $$new($IconInfo, $AWTIcon32_security_icon_bw24_png::security_icon_bw24_png));
 				$init($AWTIcon32_security_icon_interim24_png);
-				$nc($nc(XWarningWindow::icons)->get(1))->set(1, $$new($IconInfo, $AWTIcon32_security_icon_interim24_png::security_icon_interim24_png));
+				$nc(XWarningWindow::icons->get(1))->set(1, $$new($IconInfo, $AWTIcon32_security_icon_interim24_png::security_icon_interim24_png));
 				$init($AWTIcon32_security_icon_yellow24_png);
-				$nc($nc(XWarningWindow::icons)->get(1))->set(2, $$new($IconInfo, $AWTIcon32_security_icon_yellow24_png::security_icon_yellow24_png));
+				$nc(XWarningWindow::icons->get(1))->set(2, $$new($IconInfo, $AWTIcon32_security_icon_yellow24_png::security_icon_yellow24_png));
 				$init($AWTIcon32_security_icon_bw32_png);
-				$nc($nc(XWarningWindow::icons)->get(2))->set(0, $$new($IconInfo, $AWTIcon32_security_icon_bw32_png::security_icon_bw32_png));
+				$nc(XWarningWindow::icons->get(2))->set(0, $$new($IconInfo, $AWTIcon32_security_icon_bw32_png::security_icon_bw32_png));
 				$init($AWTIcon32_security_icon_interim32_png);
-				$nc($nc(XWarningWindow::icons)->get(2))->set(1, $$new($IconInfo, $AWTIcon32_security_icon_interim32_png::security_icon_interim32_png));
+				$nc(XWarningWindow::icons->get(2))->set(1, $$new($IconInfo, $AWTIcon32_security_icon_interim32_png::security_icon_interim32_png));
 				$init($AWTIcon32_security_icon_yellow32_png);
-				$nc($nc(XWarningWindow::icons)->get(2))->set(2, $$new($IconInfo, $AWTIcon32_security_icon_yellow32_png::security_icon_yellow32_png));
+				$nc(XWarningWindow::icons->get(2))->set(2, $$new($IconInfo, $AWTIcon32_security_icon_yellow32_png::security_icon_yellow32_png));
 				$init($AWTIcon32_security_icon_bw48_png);
-				$nc($nc(XWarningWindow::icons)->get(3))->set(0, $$new($IconInfo, $AWTIcon32_security_icon_bw48_png::security_icon_bw48_png));
+				$nc(XWarningWindow::icons->get(3))->set(0, $$new($IconInfo, $AWTIcon32_security_icon_bw48_png::security_icon_bw48_png));
 				$init($AWTIcon32_security_icon_interim48_png);
-				$nc($nc(XWarningWindow::icons)->get(3))->set(1, $$new($IconInfo, $AWTIcon32_security_icon_interim48_png::security_icon_interim48_png));
+				$nc(XWarningWindow::icons->get(3))->set(1, $$new($IconInfo, $AWTIcon32_security_icon_interim48_png::security_icon_interim48_png));
 				$init($AWTIcon32_security_icon_yellow48_png);
-				$nc($nc(XWarningWindow::icons)->get(3))->set(2, $$new($IconInfo, $AWTIcon32_security_icon_yellow48_png::security_icon_yellow48_png));
+				$nc(XWarningWindow::icons->get(3))->set(2, $$new($IconInfo, $AWTIcon32_security_icon_yellow48_png::security_icon_yellow48_png));
 			} else {
 				$init($AWTIcon64_security_icon_bw16_png);
-				$nc($nc(XWarningWindow::icons)->get(0))->set(0, $$new($IconInfo, $AWTIcon64_security_icon_bw16_png::security_icon_bw16_png));
+				$nc(XWarningWindow::icons->get(0))->set(0, $$new($IconInfo, $AWTIcon64_security_icon_bw16_png::security_icon_bw16_png));
 				$init($AWTIcon64_security_icon_interim16_png);
-				$nc($nc(XWarningWindow::icons)->get(0))->set(1, $$new($IconInfo, $AWTIcon64_security_icon_interim16_png::security_icon_interim16_png));
+				$nc(XWarningWindow::icons->get(0))->set(1, $$new($IconInfo, $AWTIcon64_security_icon_interim16_png::security_icon_interim16_png));
 				$init($AWTIcon64_security_icon_yellow16_png);
-				$nc($nc(XWarningWindow::icons)->get(0))->set(2, $$new($IconInfo, $AWTIcon64_security_icon_yellow16_png::security_icon_yellow16_png));
+				$nc(XWarningWindow::icons->get(0))->set(2, $$new($IconInfo, $AWTIcon64_security_icon_yellow16_png::security_icon_yellow16_png));
 				$init($AWTIcon64_security_icon_bw24_png);
-				$nc($nc(XWarningWindow::icons)->get(1))->set(0, $$new($IconInfo, $AWTIcon64_security_icon_bw24_png::security_icon_bw24_png));
+				$nc(XWarningWindow::icons->get(1))->set(0, $$new($IconInfo, $AWTIcon64_security_icon_bw24_png::security_icon_bw24_png));
 				$init($AWTIcon64_security_icon_interim24_png);
-				$nc($nc(XWarningWindow::icons)->get(1))->set(1, $$new($IconInfo, $AWTIcon64_security_icon_interim24_png::security_icon_interim24_png));
+				$nc(XWarningWindow::icons->get(1))->set(1, $$new($IconInfo, $AWTIcon64_security_icon_interim24_png::security_icon_interim24_png));
 				$init($AWTIcon64_security_icon_yellow24_png);
-				$nc($nc(XWarningWindow::icons)->get(1))->set(2, $$new($IconInfo, $AWTIcon64_security_icon_yellow24_png::security_icon_yellow24_png));
+				$nc(XWarningWindow::icons->get(1))->set(2, $$new($IconInfo, $AWTIcon64_security_icon_yellow24_png::security_icon_yellow24_png));
 				$init($AWTIcon64_security_icon_bw32_png);
-				$nc($nc(XWarningWindow::icons)->get(2))->set(0, $$new($IconInfo, $AWTIcon64_security_icon_bw32_png::security_icon_bw32_png));
+				$nc(XWarningWindow::icons->get(2))->set(0, $$new($IconInfo, $AWTIcon64_security_icon_bw32_png::security_icon_bw32_png));
 				$init($AWTIcon64_security_icon_interim32_png);
-				$nc($nc(XWarningWindow::icons)->get(2))->set(1, $$new($IconInfo, $AWTIcon64_security_icon_interim32_png::security_icon_interim32_png));
+				$nc(XWarningWindow::icons->get(2))->set(1, $$new($IconInfo, $AWTIcon64_security_icon_interim32_png::security_icon_interim32_png));
 				$init($AWTIcon64_security_icon_yellow32_png);
-				$nc($nc(XWarningWindow::icons)->get(2))->set(2, $$new($IconInfo, $AWTIcon64_security_icon_yellow32_png::security_icon_yellow32_png));
+				$nc(XWarningWindow::icons->get(2))->set(2, $$new($IconInfo, $AWTIcon64_security_icon_yellow32_png::security_icon_yellow32_png));
 				$init($AWTIcon64_security_icon_bw48_png);
-				$nc($nc(XWarningWindow::icons)->get(3))->set(0, $$new($IconInfo, $AWTIcon64_security_icon_bw48_png::security_icon_bw48_png));
+				$nc(XWarningWindow::icons->get(3))->set(0, $$new($IconInfo, $AWTIcon64_security_icon_bw48_png::security_icon_bw48_png));
 				$init($AWTIcon64_security_icon_interim48_png);
-				$nc($nc(XWarningWindow::icons)->get(3))->set(1, $$new($IconInfo, $AWTIcon64_security_icon_interim48_png::security_icon_interim48_png));
+				$nc(XWarningWindow::icons->get(3))->set(1, $$new($IconInfo, $AWTIcon64_security_icon_interim48_png::security_icon_interim48_png));
 				$init($AWTIcon64_security_icon_yellow48_png);
-				$nc($nc(XWarningWindow::icons)->get(3))->set(2, $$new($IconInfo, $AWTIcon64_security_icon_yellow48_png::security_icon_yellow48_png));
+				$nc(XWarningWindow::icons->get(3))->set(2, $$new($IconInfo, $AWTIcon64_security_icon_yellow48_png::security_icon_yellow48_png));
 			}
 		}
 	}
 	int32_t sizeIndex = $mod(size, $nc(XWarningWindow::icons)->length);
-	return $nc($nc(XWarningWindow::icons)->get(sizeIndex))->get($mod(num, $nc($nc(XWarningWindow::icons)->get(sizeIndex))->length));
+	return $nc(XWarningWindow::icons->get(sizeIndex))->get($mod(num, $nc(XWarningWindow::icons->get(sizeIndex))->length));
 }
 
 void XWarningWindow::updateIconSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t newSize = -1;
 	if (this->ownerWindow != nullptr) {
-		$var($Insets, insets, $nc(this->ownerWindow)->getInsets());
-		int32_t max = $Math::max($nc(insets)->top, $Math::max(insets->bottom, $Math::max(insets->left, insets->right)));
+		$var($Insets, insets, this->ownerWindow->getInsets());
+		int32_t max = $Math::max($nc(insets)->top, $Math::max($nc(insets)->bottom, $Math::max($nc(insets)->left, $nc(insets)->right)));
 		if (max < 24) {
 			newSize = 0;
 		} else if (max < 32) {
@@ -305,29 +227,27 @@ void XWarningWindow::updateIconSize() {
 		newSize = 0;
 	}
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (newSize != this->currentSize) {
-				this->currentSize = newSize;
-				$var($IconInfo, ico, getSecurityIconInfo(this->currentSize, 0));
-				int64_t var$1 = $XToolkit::getDisplay();
-				int64_t var$2 = getWindow();
-				int32_t var$3 = $nc(ico)->getWidth();
-				int32_t var$4 = ico->getHeight();
-				$XlibWrapper::SetBitmapShape(var$1, var$2, var$3, var$4, $(ico->getIntData()));
-				$var($Window, var$5, this->ownerWindow);
-				int32_t var$6 = $nc(ico)->getWidth();
-				$nc($($AWTAccessor::getWindowAccessor()))->setSecurityWarningSize(var$5, var$6, ico->getHeight());
-			}
-		} catch ($Throwable& var$7) {
-			$assign(var$0, var$7);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (newSize != this->currentSize) {
+			this->currentSize = newSize;
+			$var($IconInfo, ico, getSecurityIconInfo(this->currentSize, 0));
+			int64_t var$1 = $XToolkit::getDisplay();
+			int64_t var$2 = getWindow();
+			int32_t var$3 = $nc(ico)->getWidth();
+			int32_t var$4 = ico->getHeight();
+			$XlibWrapper::SetBitmapShape(var$1, var$2, var$3, var$4, $(ico->getIntData()));
+			$var($Window, var$5, this->ownerWindow);
+			int32_t var$6 = ico->getWidth();
+			$$nc($AWTAccessor::getWindowAccessor())->setSecurityWarningSize(var$5, var$6, ico->getHeight());
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$7) {
+		$assign(var$0, var$7);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -337,13 +257,13 @@ $IconInfo* XWarningWindow::getSecurityIconInfo() {
 }
 
 void XWarningWindow::init$($Window* ownerWindow, int64_t parentWindow, $XWindowPeer* ownerPeer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($XWindow);
 	$XWindow::init$($$new($XCreateWindowParams, $$new($ObjectArray, {
-		$of($XWindow::TARGET),
-		$of(ownerWindow),
-		$of(XWarningWindow::OWNER),
-		$($of($Long::valueOf(parentWindow)))
+		$XWindow::TARGET,
+		ownerWindow,
+		XWarningWindow::OWNER,
+		$($Long::valueOf(parentWindow))
 	})));
 	this->currentIcon = 0;
 	this->currentSize = -1;
@@ -357,47 +277,45 @@ void XWarningWindow::init$($Window* ownerWindow, int64_t parentWindow, $XWindowP
 }
 
 void XWarningWindow::requestNoTaskbar() {
-	$useLocalCurrentObjectStackCache();
-	$var($XNETProtocol, netProtocol, $nc($($XWM::getWM()))->getNETProtocol());
+	$useLocalObjectStack();
+	$var($XNETProtocol, netProtocol, $$nc($XWM::getWM())->getNETProtocol());
 	if (netProtocol != nullptr) {
 		netProtocol->requestState(this, netProtocol->XA_NET_WM_STATE_SKIP_TASKBAR, true);
 	}
 }
 
 void XWarningWindow::postInit($XCreateWindowParams* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XWindow::postInit(params);
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$XWM::setMotifDecor(this, false, 0, 0);
-			$XWM::setOLDecor(this, false, 0);
-			int64_t parentWindow = $nc(($cast($Long, $($nc(params)->get(XWarningWindow::OWNER)))))->longValue();
-			int64_t var$1 = $XToolkit::getDisplay();
-			$XlibWrapper::XSetTransientFor(var$1, getWindow(), parentWindow);
-			$var($XWMHints, hints, getWMHints());
-			$nc(hints)->set_flags((hints->get_flags() | (int32_t)$XUtilConstants::InputHint) | (int32_t)$XUtilConstants::StateHint);
-			hints->set_input(false);
-			hints->set_initial_state($XUtilConstants::NormalState);
-			int64_t var$2 = $XToolkit::getDisplay();
-			$XlibWrapper::XSetWMHints(var$2, getWindow(), hints->pData);
-			initWMProtocols();
-			requestNoTaskbar();
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$XWM::setMotifDecor(this, false, 0, 0);
+		$XWM::setOLDecor(this, false, 0);
+		int64_t parentWindow = $$sure($Long, $nc(params)->get(XWarningWindow::OWNER))->longValue();
+		int64_t var$1 = $XToolkit::getDisplay();
+		$XlibWrapper::XSetTransientFor(var$1, getWindow(), parentWindow);
+		$var($XWMHints, hints, getWMHints());
+		$nc(hints)->set_flags(($nc(hints)->get_flags() | (int32_t)$XUtilConstants::InputHint) | (int32_t)$XUtilConstants::StateHint);
+		hints->set_input(false);
+		hints->set_initial_state($XUtilConstants::NormalState);
+		int64_t var$2 = $XToolkit::getDisplay();
+		$XlibWrapper::XSetWMHints(var$2, getWindow(), hints->pData);
+		initWMProtocols();
+		requestNoTaskbar();
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void XWarningWindow::reposition(int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
-	$var($Point2D, point, $nc($($AWTAccessor::getWindowAccessor()))->calculateSecurityWarningPosition(this->ownerWindow, (double)x, (double)y, (double)w, (double)h));
+	$useLocalObjectStack();
+	$var($Point2D, point, $$nc($AWTAccessor::getWindowAccessor())->calculateSecurityWarningPosition(this->ownerWindow, (double)x, (double)y, (double)w, (double)h));
 	int32_t var$0 = $cast(int32_t, $nc(point)->getX());
 	int32_t var$1 = $cast(int32_t, point->getY());
 	int32_t var$2 = getWidth();
@@ -409,7 +327,7 @@ $String* XWarningWindow::getWMName() {
 }
 
 $Graphics* XWarningWindow::getGraphics() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((this->surfaceData == nullptr) || (this->ownerWindow == nullptr)) {
 		return nullptr;
 	}
@@ -420,8 +338,8 @@ $Graphics* XWarningWindow::getGraphics() {
 }
 
 void XWarningWindow::paint($Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
-	$nc(g)->drawImage($($nc($(getSecurityIconInfo()))->getImage()), 0, 0, nullptr);
+	$useLocalObjectStack();
+	$nc(g)->drawImage($($$nc(getSecurityIconInfo())->getImage()), 0, 0, nullptr);
 }
 
 $String* XWarningWindow::getWarningString() {
@@ -429,11 +347,11 @@ $String* XWarningWindow::getWarningString() {
 }
 
 int32_t XWarningWindow::getWidth() {
-	return $nc($(getSecurityIconInfo()))->getWidth();
+	return $$nc(getSecurityIconInfo())->getWidth();
 }
 
 int32_t XWarningWindow::getHeight() {
-	return $nc($(getSecurityIconInfo()))->getHeight();
+	return $$nc(getSecurityIconInfo())->getHeight();
 }
 
 $Color* XWarningWindow::getBackground() {
@@ -451,34 +369,32 @@ $Font* XWarningWindow::getFont() {
 }
 
 void XWarningWindow::repaint() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, bounds, getBounds());
 	$var($Graphics, g, getGraphics());
 	if (g != nullptr) {
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				paint(g, 0, 0, $nc(bounds)->width, bounds->height);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				g->dispose();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			paint(g, 0, 0, $nc(bounds)->width, $nc(bounds)->height);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			g->dispose();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void XWarningWindow::handleExposeEvent($XEvent* xev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XWindow::handleExposeEvent(xev);
 	$var($XExposeEvent, xe, $nc(xev)->get_xexpose());
 	int32_t x = scaleDown($nc(xe)->get_x());
-	int32_t y = scaleDown($nc(xe)->get_y());
-	int32_t width = scaleDown($nc(xe)->get_width());
-	int32_t height = scaleDown($nc(xe)->get_height());
+	int32_t y = scaleDown(xe->get_y());
+	int32_t width = scaleDown(xe->get_width());
+	int32_t height = scaleDown(xe->get_height());
 	$SunToolkit::executeOnEventHandlerThread(this->target, $$new($XWarningWindow$2, this, x, y, width, height));
 }
 
@@ -487,54 +403,48 @@ bool XWarningWindow::isEventDisabled($XEvent* e) {
 }
 
 void XWarningWindow::withdraw() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XEvent, req, $new($XEvent));
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
+		int64_t root = 0;
+		$XToolkit::awtLock();
+		$var($Throwable, var$1, nullptr);
 		try {
-			int64_t root = 0;
-			$XToolkit::awtLock();
-			{
-				$var($Throwable, var$1, nullptr);
-				try {
-					int64_t var$2 = $XToolkit::getDisplay();
-					root = $XlibWrapper::RootWindow(var$2, getScreenNumber());
-				} catch ($Throwable& var$3) {
-					$assign(var$1, var$3);
-				} /*finally*/ {
-					$XToolkit::awtUnlock();
-				}
-				if (var$1 != nullptr) {
-					$throw(var$1);
-				}
-			}
-			req->set_type($XConstants::UnmapNotify);
-			$var($XUnmapEvent, umev, req->get_xunmap());
-			$nc(umev)->set_event(root);
-			umev->set_window(getWindow());
-			umev->set_from_configure(false);
-			$XToolkit::awtLock();
-			{
-				$var($Throwable, var$4, nullptr);
-				try {
-					$XlibWrapper::XSendEvent($XToolkit::getDisplay(), root, false, $XConstants::SubstructureRedirectMask | $XConstants::SubstructureNotifyMask, req->pData);
-				} catch ($Throwable& var$5) {
-					$assign(var$4, var$5);
-				} /*finally*/ {
-					$XToolkit::awtUnlock();
-				}
-				if (var$4 != nullptr) {
-					$throw(var$4);
-				}
-			}
-		} catch ($Throwable& var$6) {
-			$assign(var$0, var$6);
+			int64_t var$2 = $XToolkit::getDisplay();
+			root = $XlibWrapper::RootWindow(var$2, getScreenNumber());
+		} catch ($Throwable& var$3) {
+			$assign(var$1, var$3);
 		} /*finally*/ {
-			req->dispose();
+			$XToolkit::awtUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (var$1 != nullptr) {
+			$throw(var$1);
 		}
+		req->set_type($XConstants::UnmapNotify);
+		$var($XUnmapEvent, umev, req->get_xunmap());
+		$nc(umev)->set_event(root);
+		umev->set_window(getWindow());
+		umev->set_from_configure(false);
+		$XToolkit::awtLock();
+		$var($Throwable, var$4, nullptr);
+		try {
+			$XlibWrapper::XSendEvent($XToolkit::getDisplay(), root, false, $XConstants::SubstructureRedirectMask | $XConstants::SubstructureNotifyMask, req->pData);
+		} catch ($Throwable& var$5) {
+			$assign(var$4, var$5);
+		} /*finally*/ {
+			$XToolkit::awtUnlock();
+		}
+		if (var$4 != nullptr) {
+			$throw(var$4);
+		}
+	} catch ($Throwable& var$6) {
+		$assign(var$0, var$6);
+	} /*finally*/ {
+		req->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -584,7 +494,7 @@ void XWarningWindow::setSecurityWarningVisible(bool visible, bool doSchedule) {
 		if (doSchedule) {
 			$XToolkit::schedule(this->showingTask, 1);
 		} else {
-			$nc(this->showingTask)->run();
+			this->showingTask->run();
 		}
 	} else {
 		$XToolkit::remove(this->showingTask);
@@ -595,7 +505,7 @@ void XWarningWindow::setSecurityWarningVisible(bool visible, bool doSchedule) {
 		if (doSchedule) {
 			$XToolkit::schedule(this->hidingTask, XWarningWindow::HIDING_DELAY);
 		} else {
-			$nc(this->hidingTask)->run();
+			this->hidingTask->run();
 		}
 	}
 }
@@ -603,12 +513,79 @@ void XWarningWindow::setSecurityWarningVisible(bool visible, bool doSchedule) {
 XWarningWindow::XWarningWindow() {
 }
 
-void clinit$XWarningWindow($Class* class$) {
+void XWarningWindow::clinit$($Class* clazz) {
 	$assignStatic(XWarningWindow::OWNER, "OWNER"_s);
 }
 
 $Class* XWarningWindow::load$($String* name, bool initialize) {
-	$loadClass(XWarningWindow, name, initialize, &_XWarningWindow_ClassInfo_, clinit$XWarningWindow, allocate$XWarningWindow);
+	$FieldInfo fieldInfos$$[] = {
+		{"SHOWING_DELAY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XWarningWindow, SHOWING_DELAY)},
+		{"HIDING_DELAY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XWarningWindow, HIDING_DELAY)},
+		{"ownerWindow", "Ljava/awt/Window;", nullptr, $PRIVATE | $FINAL, $field(XWarningWindow, ownerWindow)},
+		{"ownerPeer", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lsun/awt/X11/XWindowPeer;>;", $PRIVATE, $field(XWarningWindow, ownerPeer)},
+		{"parentWindow", "J", nullptr, $PRIVATE, $field(XWarningWindow, parentWindow)},
+		{"OWNER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XWarningWindow, OWNER)},
+		{"tooltip", "Lsun/awt/X11/InfoWindow$Tooltip;", nullptr, $PRIVATE, $field(XWarningWindow, tooltip)},
+		{"currentIcon", "I", nullptr, $PRIVATE | $VOLATILE, $field(XWarningWindow, currentIcon)},
+		{"currentSize", "I", nullptr, $PRIVATE, $field(XWarningWindow, currentSize)},
+		{"icons", "[[Lsun/awt/IconInfo;", nullptr, $PRIVATE | $STATIC, $staticField(XWarningWindow, icons)},
+		{"hidingTask", "Ljava/lang/Runnable;", nullptr, $PRIVATE | $FINAL, $field(XWarningWindow, hidingTask)},
+		{"showingTask", "Ljava/lang/Runnable;", nullptr, $PRIVATE | $FINAL, $field(XWarningWindow, showingTask)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Window;JLsun/awt/X11/XWindowPeer;)V", nullptr, 0, $method(XWarningWindow, init$, void, $Window*, int64_t, $XWindowPeer*)},
+		{"enterNotify", "(J)V", nullptr, $PROTECTED, $virtualMethod(XWarningWindow, enterNotify, void, int64_t)},
+		{"getBackground", "()Ljava/awt/Color;", nullptr, 0, $virtualMethod(XWarningWindow, getBackground, $Color*)},
+		{"getColor", "()Ljava/awt/Color;", nullptr, 0, $virtualMethod(XWarningWindow, getColor, $Color*)},
+		{"getFont", "()Ljava/awt/Font;", nullptr, 0, $virtualMethod(XWarningWindow, getFont, $Font*)},
+		{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(XWarningWindow, getGraphics, $Graphics*)},
+		{"getHeight", "()I", nullptr, 0, $virtualMethod(XWarningWindow, getHeight, int32_t)},
+		{"getSecurityIconInfo", "(II)Lsun/awt/IconInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(XWarningWindow, getSecurityIconInfo, $IconInfo*, int32_t, int32_t)},
+		{"getSecurityIconInfo", "()Lsun/awt/IconInfo;", nullptr, $PRIVATE, $method(XWarningWindow, getSecurityIconInfo, $IconInfo*)},
+		{"getWMName", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XWarningWindow, getWMName, $String*)},
+		{"getWarningString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XWarningWindow, getWarningString, $String*)},
+		{"getWidth", "()I", nullptr, 0, $virtualMethod(XWarningWindow, getWidth, int32_t)},
+		{"handleExposeEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XWarningWindow, handleExposeEvent, void, $XEvent*)},
+		{"isEventDisabled", "(Lsun/awt/X11/XEvent;)Z", nullptr, $PROTECTED, $virtualMethod(XWarningWindow, isEventDisabled, bool, $XEvent*)},
+		{"leaveNotify", "(J)V", nullptr, $PROTECTED, $virtualMethod(XWarningWindow, leaveNotify, void, int64_t)},
+		{"paint", "(Ljava/awt/Graphics;IIII)V", nullptr, 0, $virtualMethod(XWarningWindow, paint, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"postInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XWarningWindow, postInit, void, $XCreateWindowParams*)},
+		{"repaint", "()V", nullptr, $PUBLIC, $virtualMethod(XWarningWindow, repaint, void)},
+		{"reposition", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(XWarningWindow, reposition, void, int32_t, int32_t, int32_t, int32_t)},
+		{"requestNoTaskbar", "()V", nullptr, $PRIVATE, $method(XWarningWindow, requestNoTaskbar, void)},
+		{"setMouseAbove", "(Z)V", nullptr, $PROTECTED, $virtualMethod(XWarningWindow, setMouseAbove, void, bool)},
+		{"setSecurityWarningVisible", "(ZZ)V", nullptr, $PUBLIC, $virtualMethod(XWarningWindow, setSecurityWarningVisible, void, bool, bool)},
+		{"stateChanged", "(JII)V", nullptr, $PROTECTED, $virtualMethod(XWarningWindow, stateChanged, void, int64_t, int32_t, int32_t)},
+		{"updateIconSize", "()V", nullptr, $PRIVATE, $method(XWarningWindow, updateIconSize, void)},
+		{"withdraw", "()V", nullptr, $PRIVATE, $method(XWarningWindow, withdraw, void)},
+		{"xSetVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XWarningWindow, xSetVisible, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XWarningWindow$4", nullptr, nullptr, 0},
+		{"sun.awt.X11.XWarningWindow$3", nullptr, nullptr, 0},
+		{"sun.awt.X11.XWarningWindow$2", nullptr, nullptr, 0},
+		{"sun.awt.X11.XWarningWindow$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XWarningWindow",
+		"sun.awt.X11.XWindow",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XWarningWindow$4,sun.awt.X11.XWarningWindow$3,sun.awt.X11.XWarningWindow$2,sun.awt.X11.XWarningWindow$1"
+	};
+	$loadClass(XWarningWindow, name, initialize, &classInfo$$, XWarningWindow::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XWarningWindow));
+	});
 	return class$;
 }
 

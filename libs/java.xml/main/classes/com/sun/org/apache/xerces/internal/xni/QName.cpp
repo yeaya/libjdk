@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xni/QName.h>
-
 #include <java/lang/StringBuffer.h>
 #include <jcpp.h>
 
@@ -15,41 +14,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace xni {
-
-$FieldInfo _QName_FieldInfo_[] = {
-	{"prefix", "Ljava/lang/String;", nullptr, $PUBLIC, $field(QName, prefix)},
-	{"localpart", "Ljava/lang/String;", nullptr, $PUBLIC, $field(QName, localpart)},
-	{"rawname", "Ljava/lang/String;", nullptr, $PUBLIC, $field(QName, rawname)},
-	{"uri", "Ljava/lang/String;", nullptr, $PUBLIC, $field(QName, uri)},
-	{}
-};
-
-$MethodInfo _QName_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(QName, init$, void)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(QName, init$, void, $String*, $String*, $String*, $String*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/QName;)V", nullptr, $PUBLIC, $method(QName, init$, void, QName*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(QName, clear, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(QName, clone, $Object*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(QName, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(QName, hashCode, int32_t)},
-	{"setValues", "(Lcom/sun/org/apache/xerces/internal/xni/QName;)V", nullptr, $PUBLIC, $virtualMethod(QName, setValues, void, QName*)},
-	{"setValues", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(QName, setValues, void, $String*, $String*, $String*, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(QName, toString, $String*)},
-	{}
-};
-
-$ClassInfo _QName_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.xni.QName",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_QName_FieldInfo_,
-	_QName_MethodInfo_
-};
-
-$Object* allocate$QName($Class* clazz) {
-	return $of($alloc(QName));
-}
 
 void QName::init$() {
 	clear();
@@ -85,15 +49,15 @@ void QName::clear() {
 }
 
 $Object* QName::clone() {
-	return $of($new(QName, this));
+	return $new(QName, this);
 }
 
 int32_t QName::hashCode() {
 	if (this->uri != nullptr) {
-		int32_t var$0 = $nc(this->uri)->hashCode();
-		return var$0 + ((this->localpart != nullptr) ? $nc(this->localpart)->hashCode() : 0);
+		int32_t var$0 = this->uri->hashCode();
+		return var$0 + ((this->localpart != nullptr) ? this->localpart->hashCode() : 0);
 	}
-	return (this->rawname != nullptr) ? $nc(this->rawname)->hashCode() : 0;
+	return (this->rawname != nullptr) ? this->rawname->hashCode() : 0;
 }
 
 bool QName::equals(Object$* object) {
@@ -104,7 +68,7 @@ bool QName::equals(Object$* object) {
 		$var(QName, qname, $cast(QName, object));
 		if (qname->uri != nullptr) {
 			bool var$0 = $nc(qname->localpart)->equals(this->localpart);
-			return var$0 && $nc(qname->uri)->equals(this->uri);
+			return var$0 && qname->uri->equals(this->uri);
 		} else if (this->uri == nullptr) {
 			return $nc(this->rawname)->equals(qname->rawname);
 		}
@@ -113,7 +77,7 @@ bool QName::equals(Object$* object) {
 }
 
 $String* QName::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, str, $new($StringBuffer));
 	bool comma = false;
 	if (this->prefix != nullptr) {
@@ -147,7 +111,37 @@ QName::QName() {
 }
 
 $Class* QName::load$($String* name, bool initialize) {
-	$loadClass(QName, name, initialize, &_QName_ClassInfo_, allocate$QName);
+	$FieldInfo fieldInfos$$[] = {
+		{"prefix", "Ljava/lang/String;", nullptr, $PUBLIC, $field(QName, prefix)},
+		{"localpart", "Ljava/lang/String;", nullptr, $PUBLIC, $field(QName, localpart)},
+		{"rawname", "Ljava/lang/String;", nullptr, $PUBLIC, $field(QName, rawname)},
+		{"uri", "Ljava/lang/String;", nullptr, $PUBLIC, $field(QName, uri)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(QName, init$, void)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(QName, init$, void, $String*, $String*, $String*, $String*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/QName;)V", nullptr, $PUBLIC, $method(QName, init$, void, QName*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(QName, clear, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(QName, clone, $Object*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(QName, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(QName, hashCode, int32_t)},
+		{"setValues", "(Lcom/sun/org/apache/xerces/internal/xni/QName;)V", nullptr, $PUBLIC, $virtualMethod(QName, setValues, void, QName*)},
+		{"setValues", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(QName, setValues, void, $String*, $String*, $String*, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(QName, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.xni.QName",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(QName, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(QName);
+	});
 	return class$;
 }
 

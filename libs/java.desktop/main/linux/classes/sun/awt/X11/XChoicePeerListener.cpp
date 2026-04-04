@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XChoicePeerListener.h>
-
 #include <sun/awt/X11/ListHelper.h>
 #include <jcpp.h>
 
@@ -11,27 +10,23 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$MethodInfo _XChoicePeerListener_MethodInfo_[] = {
-	{"unfurledChoiceClosing", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XChoicePeerListener, unfurledChoiceClosing, void)},
-	{"unfurledChoiceOpening", "(Lsun/awt/X11/ListHelper;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XChoicePeerListener, unfurledChoiceOpening, void, $ListHelper*)},
-	{}
-};
-
-$ClassInfo _XChoicePeerListener_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"sun.awt.X11.XChoicePeerListener",
-	nullptr,
-	nullptr,
-	nullptr,
-	_XChoicePeerListener_MethodInfo_
-};
-
-$Object* allocate$XChoicePeerListener($Class* clazz) {
-	return $of($alloc(XChoicePeerListener));
-}
-
 $Class* XChoicePeerListener::load$($String* name, bool initialize) {
-	$loadClass(XChoicePeerListener, name, initialize, &_XChoicePeerListener_ClassInfo_, allocate$XChoicePeerListener);
+	$MethodInfo methodInfos$$[] = {
+		{"unfurledChoiceClosing", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XChoicePeerListener, unfurledChoiceClosing, void)},
+		{"unfurledChoiceOpening", "(Lsun/awt/X11/ListHelper;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XChoicePeerListener, unfurledChoiceOpening, void, $ListHelper*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"sun.awt.X11.XChoicePeerListener",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XChoicePeerListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XChoicePeerListener);
+	});
 	return class$;
 }
 

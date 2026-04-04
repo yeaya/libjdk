@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultHighlighter$DefaultHighlightPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
@@ -35,45 +34,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _DefaultHighlighter$DefaultHighlightPainter_FieldInfo_[] = {
-	{"color", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(DefaultHighlighter$DefaultHighlightPainter, color)},
-	{}
-};
-
-$MethodInfo _DefaultHighlighter$DefaultHighlightPainter_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(DefaultHighlighter$DefaultHighlightPainter, init$, void, $Color*)},
-	{"getColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(DefaultHighlighter$DefaultHighlightPainter, getColor, $Color*)},
-	{"paint", "(Ljava/awt/Graphics;IILjava/awt/Shape;Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultHighlighter$DefaultHighlightPainter, paint, void, $Graphics*, int32_t, int32_t, $Shape*, $JTextComponent*)},
-	{"paintLayer", "(Ljava/awt/Graphics;IILjava/awt/Shape;Ljavax/swing/text/JTextComponent;Ljavax/swing/text/View;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(DefaultHighlighter$DefaultHighlightPainter, paintLayer, $Shape*, $Graphics*, int32_t, int32_t, $Shape*, $JTextComponent*, $View*)},
-	{}
-};
-
-$InnerClassInfo _DefaultHighlighter$DefaultHighlightPainter_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultHighlighter$DefaultHighlightPainter", "javax.swing.text.DefaultHighlighter", "DefaultHighlightPainter", $PUBLIC | $STATIC},
-	{"javax.swing.text.LayeredHighlighter$LayerPainter", "javax.swing.text.LayeredHighlighter", "LayerPainter", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DefaultHighlighter$DefaultHighlightPainter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.DefaultHighlighter$DefaultHighlightPainter",
-	"javax.swing.text.LayeredHighlighter$LayerPainter",
-	nullptr,
-	_DefaultHighlighter$DefaultHighlightPainter_FieldInfo_,
-	_DefaultHighlighter$DefaultHighlightPainter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultHighlighter$DefaultHighlightPainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultHighlighter"
-};
-
-$Object* allocate$DefaultHighlighter$DefaultHighlightPainter($Class* clazz) {
-	return $of($alloc(DefaultHighlighter$DefaultHighlightPainter));
-}
-
 void DefaultHighlighter$DefaultHighlightPainter::init$($Color* c) {
 	$LayeredHighlighter$LayerPainter::init$();
 	$set(this, color, c);
@@ -84,7 +44,7 @@ $Color* DefaultHighlighter$DefaultHighlightPainter::getColor() {
 }
 
 void DefaultHighlighter$DefaultHighlightPainter::paint($Graphics* g, int32_t offs0, int32_t offs1, $Shape* bounds, $JTextComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, alloc, $nc(bounds)->getBounds());
 	try {
 		$var($TextUI, mapper, $cast($TextUI, $nc(c)->getUI()));
@@ -98,9 +58,9 @@ void DefaultHighlighter$DefaultHighlightPainter::paint($Graphics* g, int32_t off
 		}
 		if ($nc(p0)->y == $nc(p1)->y) {
 			$var($Rectangle, r, p0->union$(p1));
-			$nc(g)->fillRect($nc(r)->x, r->y, r->width, r->height);
+			$nc(g)->fillRect($nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 		} else {
-			int32_t p0ToMarginWidth = $nc(alloc)->x + alloc->width - p0->x;
+			int32_t p0ToMarginWidth = $nc(alloc)->x + $nc(alloc)->width - p0->x;
 			$nc(g)->fillRect(p0->x, p0->y, p0ToMarginWidth, p0->height);
 			if ((p0->y + p0->height) != p1->y) {
 				g->fillRect(alloc->x, p0->y + p0->height, alloc->width, p1->y - (p0->y + p0->height));
@@ -112,7 +72,7 @@ void DefaultHighlighter$DefaultHighlightPainter::paint($Graphics* g, int32_t off
 }
 
 $Shape* DefaultHighlighter$DefaultHighlightPainter::paintLayer($Graphics* g, int32_t offs0, int32_t offs1, $Shape* bounds, $JTextComponent* c, $View* view) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, color, getColor());
 	if (color == nullptr) {
 		$nc(g)->setColor($($nc(c)->getSelectionColor()));
@@ -147,7 +107,40 @@ DefaultHighlighter$DefaultHighlightPainter::DefaultHighlighter$DefaultHighlightP
 }
 
 $Class* DefaultHighlighter$DefaultHighlightPainter::load$($String* name, bool initialize) {
-	$loadClass(DefaultHighlighter$DefaultHighlightPainter, name, initialize, &_DefaultHighlighter$DefaultHighlightPainter_ClassInfo_, allocate$DefaultHighlighter$DefaultHighlightPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"color", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(DefaultHighlighter$DefaultHighlightPainter, color)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(DefaultHighlighter$DefaultHighlightPainter, init$, void, $Color*)},
+		{"getColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(DefaultHighlighter$DefaultHighlightPainter, getColor, $Color*)},
+		{"paint", "(Ljava/awt/Graphics;IILjava/awt/Shape;Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultHighlighter$DefaultHighlightPainter, paint, void, $Graphics*, int32_t, int32_t, $Shape*, $JTextComponent*)},
+		{"paintLayer", "(Ljava/awt/Graphics;IILjava/awt/Shape;Ljavax/swing/text/JTextComponent;Ljavax/swing/text/View;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(DefaultHighlighter$DefaultHighlightPainter, paintLayer, $Shape*, $Graphics*, int32_t, int32_t, $Shape*, $JTextComponent*, $View*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultHighlighter$DefaultHighlightPainter", "javax.swing.text.DefaultHighlighter", "DefaultHighlightPainter", $PUBLIC | $STATIC},
+		{"javax.swing.text.LayeredHighlighter$LayerPainter", "javax.swing.text.LayeredHighlighter", "LayerPainter", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.DefaultHighlighter$DefaultHighlightPainter",
+		"javax.swing.text.LayeredHighlighter$LayerPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultHighlighter"
+	};
+	$loadClass(DefaultHighlighter$DefaultHighlightPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultHighlighter$DefaultHighlightPainter);
+	});
 	return class$;
 }
 

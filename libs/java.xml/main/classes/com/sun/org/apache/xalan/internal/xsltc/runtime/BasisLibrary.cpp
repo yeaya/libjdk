@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/BasisLibrary.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/DOM.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/Translet.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/AbsoluteIterator.h>
@@ -43,7 +42,6 @@
 #include <java/util/ResourceBundle.h>
 #include <java/util/concurrent/atomic/AtomicInteger.h>
 #include <javax/xml/parsers/ParserConfigurationException.h>
-#include <javax/xml/transform/Source.h>
 #include <javax/xml/transform/dom/DOMSource.h>
 #include <jdk/xml/internal/SecuritySupport.h>
 #include <org/w3c/dom/Attr.h>
@@ -120,7 +118,7 @@ using $BasisLibrary$3 = ::com::sun::org::apache::xalan::internal::xsltc::runtime
 using $BasisLibrary$4 = ::com::sun::org::apache::xalan::internal::xsltc::runtime::BasisLibrary$4;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::runtime::Constants;
 using $InternalRuntimeError = ::com::sun::org::apache::xalan::internal::xsltc::runtime::InternalRuntimeError;
-using $1Node = ::com::sun::org::apache::xalan::internal::xsltc::runtime::Node;
+using $Node = ::com::sun::org::apache::xalan::internal::xsltc::runtime::Node;
 using $Operators = ::com::sun::org::apache::xalan::internal::xsltc::runtime::Operators;
 using $Axis = ::com::sun::org::apache::xml::internal::dtm::Axis;
 using $DTM = ::com::sun::org::apache::xml::internal::dtm::DTM;
@@ -132,7 +130,6 @@ using $DTMNodeProxy = ::com::sun::org::apache::xml::internal::dtm::ref::DTMNodeP
 using $NamespaceMappings = ::com::sun::org::apache::xml::internal::serializer::NamespaceMappings;
 using $SerializationHandler = ::com::sun::org::apache::xml::internal::serializer::SerializationHandler;
 using $XML11Char = ::com::sun::org::apache::xml::internal::utils::XML11Char;
-using $PrintStream = ::java::io::PrintStream;
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -160,13 +157,12 @@ using $Locale = ::java::util::Locale;
 using $ResourceBundle = ::java::util::ResourceBundle;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
 using $ParserConfigurationException = ::javax::xml::parsers::ParserConfigurationException;
-using $Source = ::javax::xml::transform::Source;
 using $DOMSource = ::javax::xml::transform::dom::DOMSource;
 using $SecuritySupport = ::jdk::xml::internal::SecuritySupport;
 using $Attr = ::org::w3c::dom::Attr;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
-using $Node = ::org::w3c::dom::Node;
+using $1Node = ::org::w3c::dom::Node;
 using $NodeList = ::org::w3c::dom::NodeList;
 using $SAXException = ::org::xml::sax::SAXException;
 
@@ -178,156 +174,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace runtime {
-
-$CompoundAttribute _BasisLibrary_MethodAnnotations_positionF35[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _BasisLibrary_FieldInfo_[] = {
-	{"EMPTYSTRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasisLibrary, EMPTYSTRING)},
-	{"threadLocalStringBuilder", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Ljava/lang/StringBuilder;>;", $PRIVATE | $STATIC | $FINAL, $staticField(BasisLibrary, threadLocalStringBuilder)},
-	{"threadLocalStringBuffer", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Ljava/lang/StringBuffer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(BasisLibrary, threadLocalStringBuffer)},
-	{"DOUBLE_FRACTION_DIGITS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasisLibrary, DOUBLE_FRACTION_DIGITS)},
-	{"lowerBounds", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasisLibrary, lowerBounds)},
-	{"upperBounds", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasisLibrary, upperBounds)},
-	{"defaultFormatter", "Ljava/text/DecimalFormat;", nullptr, $PRIVATE | $STATIC, $staticField(BasisLibrary, defaultFormatter)},
-	{"xpathFormatter", "Ljava/text/DecimalFormat;", nullptr, $PRIVATE | $STATIC, $staticField(BasisLibrary, xpathFormatter)},
-	{"defaultPattern", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasisLibrary, defaultPattern)},
-	{"_fieldPosition", "Ljava/text/FieldPosition;", nullptr, $PRIVATE | $STATIC, $staticField(BasisLibrary, _fieldPosition)},
-	{"_characterArray", "[C", nullptr, $PRIVATE | $STATIC, $staticField(BasisLibrary, _characterArray)},
-	{"threadLocalPrefixIndex", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Ljava/util/concurrent/atomic/AtomicInteger;>;", $PRIVATE | $STATIC | $FINAL, $staticField(BasisLibrary, threadLocalPrefixIndex)},
-	{"RUN_TIME_INTERNAL_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, RUN_TIME_INTERNAL_ERR)},
-	{"RUN_TIME_COPY_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, RUN_TIME_COPY_ERR)},
-	{"DATA_CONVERSION_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, DATA_CONVERSION_ERR)},
-	{"EXTERNAL_FUNC_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, EXTERNAL_FUNC_ERR)},
-	{"EQUALITY_EXPR_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, EQUALITY_EXPR_ERR)},
-	{"INVALID_ARGUMENT_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, INVALID_ARGUMENT_ERR)},
-	{"FORMAT_NUMBER_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, FORMAT_NUMBER_ERR)},
-	{"ITERATOR_CLONE_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, ITERATOR_CLONE_ERR)},
-	{"AXIS_SUPPORT_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, AXIS_SUPPORT_ERR)},
-	{"TYPED_AXIS_SUPPORT_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, TYPED_AXIS_SUPPORT_ERR)},
-	{"STRAY_ATTRIBUTE_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, STRAY_ATTRIBUTE_ERR)},
-	{"STRAY_NAMESPACE_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, STRAY_NAMESPACE_ERR)},
-	{"NAMESPACE_PREFIX_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, NAMESPACE_PREFIX_ERR)},
-	{"DOM_ADAPTER_INIT_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, DOM_ADAPTER_INIT_ERR)},
-	{"PARSER_DTD_SUPPORT_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, PARSER_DTD_SUPPORT_ERR)},
-	{"NAMESPACES_SUPPORT_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, NAMESPACES_SUPPORT_ERR)},
-	{"CANT_RESOLVE_RELATIVE_URI_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, CANT_RESOLVE_RELATIVE_URI_ERR)},
-	{"UNSUPPORTED_XSL_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, UNSUPPORTED_XSL_ERR)},
-	{"UNSUPPORTED_EXT_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, UNSUPPORTED_EXT_ERR)},
-	{"UNKNOWN_TRANSLET_VERSION_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, UNKNOWN_TRANSLET_VERSION_ERR)},
-	{"INVALID_QNAME_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, INVALID_QNAME_ERR)},
-	{"INVALID_NCNAME_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, INVALID_NCNAME_ERR)},
-	{"UNALLOWED_EXTENSION_FUNCTION_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, UNALLOWED_EXTENSION_FUNCTION_ERR)},
-	{"UNALLOWED_EXTENSION_ELEMENT_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, UNALLOWED_EXTENSION_ELEMENT_ERR)},
-	{"m_bundle", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticField(BasisLibrary, m_bundle)},
-	{"ERROR_MESSAGES_KEY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, ERROR_MESSAGES_KEY)},
-	{}
-};
-
-$MethodInfo _BasisLibrary_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasisLibrary, init$, void)},
-	{"booleanF", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, booleanF, bool, Object$*)},
-	{"checkAttribQName", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, checkAttribQName, void, $String*)},
-	{"checkNCName", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, checkNCName, void, $String*)},
-	{"checkQName", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, checkQName, void, $String*)},
-	{"compare", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;ILcom/sun/org/apache/xalan/internal/xsltc/DOM;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, compare, bool, $DTMAxisIterator*, $DTMAxisIterator*, int32_t, $DOM*)},
-	{"compare", "(ILcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;ILcom/sun/org/apache/xalan/internal/xsltc/DOM;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, compare, bool, int32_t, $DTMAxisIterator*, int32_t, $DOM*)},
-	{"compare", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;DILcom/sun/org/apache/xalan/internal/xsltc/DOM;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, compare, bool, $DTMAxisIterator*, double, int32_t, $DOM*)},
-	{"compare", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Ljava/lang/String;ILcom/sun/org/apache/xalan/internal/xsltc/DOM;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, compare, bool, $DTMAxisIterator*, $String*, int32_t, $DOM*)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;ILcom/sun/org/apache/xalan/internal/xsltc/DOM;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, compare, bool, Object$*, Object$*, int32_t, $DOM*)},
-	{"compareStrings", "(Ljava/lang/String;Ljava/lang/String;ILcom/sun/org/apache/xalan/internal/xsltc/DOM;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BasisLibrary, compareStrings, bool, $String*, $String*, int32_t, $DOM*)},
-	{"consoleOutput", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, consoleOutput, void, $String*)},
-	{"copy", "(Ljava/lang/Object;Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;ILcom/sun/org/apache/xalan/internal/xsltc/DOM;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, copy, void, Object$*, $SerializationHandler*, int32_t, $DOM*)},
-	{"countF", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, countF, int32_t, $DTMAxisIterator*)},
-	{"formatNumber", "(DLjava/lang/String;Ljava/text/DecimalFormat;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, formatNumber, $String*, double, $String*, $DecimalFormat*)},
-	{"generatePrefix", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, generatePrefix, $String*)},
-	{"generate_idF", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, generate_idF, $String*, int32_t)},
-	{"getLocalName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, getLocalName, $String*, $String*)},
-	{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, getPrefix, $String*, $String*)},
-	{"getSingleNode", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, getSingleNode, $DTMAxisIterator*, $DTMAxisIterator*)},
-	{"getStringLength", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, getStringLength, int32_t, $String*)},
-	{"hasSimpleType", "(Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BasisLibrary, hasSimpleType, bool, Object$*)},
-	{"isWhiteSpace", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BasisLibrary, isWhiteSpace, bool, char16_t)},
-	{"mapQNameToJavaName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, mapQNameToJavaName, $String*, $String*)},
-	{"namespace_uriF", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, namespace_uriF, $String*, $DTMAxisIterator*, $DOM*)},
-	{"namespace_uriF", "(ILcom/sun/org/apache/xalan/internal/xsltc/DOM;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, namespace_uriF, $String*, int32_t, $DOM*)},
-	{"node2Iterator", "(Lorg/w3c/dom/Node;Lcom/sun/org/apache/xalan/internal/xsltc/Translet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, node2Iterator, $DTMAxisIterator*, $Node*, $Translet*, $DOM*)},
-	{"nodeList2Iterator", "(Lorg/w3c/dom/NodeList;Lcom/sun/org/apache/xalan/internal/xsltc/Translet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, nodeList2Iterator, $DTMAxisIterator*, $NodeList*, $Translet*, $DOM*)},
-	{"nodeList2IteratorUsingHandleFromNode", "(Lorg/w3c/dom/NodeList;Lcom/sun/org/apache/xalan/internal/xsltc/Translet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PRIVATE | $STATIC, $staticMethod(BasisLibrary, nodeList2IteratorUsingHandleFromNode, $DTMAxisIterator*, $NodeList*, $Translet*, $DOM*)},
-	{"nodesetF", "(Ljava/lang/Object;)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, nodesetF, $DTMAxisIterator*, Object$*)},
-	{"normalize_spaceF", "(ILcom/sun/org/apache/xalan/internal/xsltc/DOM;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, normalize_spaceF, $String*, int32_t, $DOM*)},
-	{"normalize_spaceF", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, normalize_spaceF, $String*, $String*)},
-	{"numberF", "(ILcom/sun/org/apache/xalan/internal/xsltc/DOM;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, numberF, double, int32_t, $DOM*)},
-	{"numberF", "(Ljava/lang/Object;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, numberF, double, Object$*, $DOM*)},
-	{"objectTypeF", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, objectTypeF, $String*, Object$*)},
-	{"positionF", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)I", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(BasisLibrary, positionF, int32_t, $DTMAxisIterator*), nullptr, nullptr, _BasisLibrary_MethodAnnotations_positionF35},
-	{"realToInt", "(D)I", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, realToInt, int32_t, double)},
-	{"realToString", "(D)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, realToString, $String*, double)},
-	{"referenceToBoolean", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, referenceToBoolean, bool, Object$*)},
-	{"referenceToDouble", "(Ljava/lang/Object;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, referenceToDouble, double, Object$*)},
-	{"referenceToLong", "(Ljava/lang/Object;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, referenceToLong, int64_t, Object$*)},
-	{"referenceToNode", "(Ljava/lang/Object;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, referenceToNode, $Node*, Object$*, $DOM*)},
-	{"referenceToNodeList", "(Ljava/lang/Object;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, referenceToNodeList, $NodeList*, Object$*, $DOM*)},
-	{"referenceToNodeSet", "(Ljava/lang/Object;)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, referenceToNodeSet, $DTMAxisIterator*, Object$*)},
-	{"referenceToResultTree", "(Ljava/lang/Object;)Lcom/sun/org/apache/xalan/internal/xsltc/DOM;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, referenceToResultTree, $DOM*, Object$*)},
-	{"referenceToString", "(Ljava/lang/Object;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, referenceToString, $String*, Object$*, $DOM*)},
-	{"replace", "(Ljava/lang/String;CLjava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, replace, $String*, $String*, char16_t, $String*)},
-	{"replace", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, replace, $String*, $String*, $String*, $StringArray*)},
-	{"resetPrefixIndex", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, resetPrefixIndex, void)},
-	{"roundF", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, roundF, double, double)},
-	{"runTimeError", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, runTimeError, void, $String*)},
-	{"runTimeError", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, runTimeError, void, $String*, $ObjectArray*)},
-	{"runTimeError", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, runTimeError, void, $String*, Object$*)},
-	{"runTimeError", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, runTimeError, void, $String*, Object$*, Object$*)},
-	{"startXslElement", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, startXslElement, $String*, $String*, $String*, $SerializationHandler*, $DOM*, int32_t)},
-	{"stringF", "(ILcom/sun/org/apache/xalan/internal/xsltc/DOM;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, stringF, $String*, int32_t, $DOM*)},
-	{"stringF", "(Ljava/lang/Object;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, stringF, $String*, Object$*, $DOM*)},
-	{"stringF", "(Ljava/lang/Object;ILcom/sun/org/apache/xalan/internal/xsltc/DOM;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, stringF, $String*, Object$*, int32_t, $DOM*)},
-	{"stringToInt", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, stringToInt, int32_t, $String*)},
-	{"stringToReal", "(Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, stringToReal, double, $String*)},
-	{"substringF", "(Ljava/lang/String;D)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, substringF, $String*, $String*, double)},
-	{"substringF", "(Ljava/lang/String;DD)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, substringF, $String*, $String*, double, double)},
-	{"substring_afterF", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, substring_afterF, $String*, $String*, $String*)},
-	{"substring_beforeF", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, substring_beforeF, $String*, $String*, $String*)},
-	{"sumF", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, sumF, double, $DTMAxisIterator*, $DOM*)},
-	{"system_propertyF", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, system_propertyF, $String*, $String*)},
-	{"testLanguage", "(Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, testLanguage, bool, $String*, $DOM*, int32_t)},
-	{"translateF", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, translateF, $String*, $String*, $String*, $String*)},
-	{"unallowed_extension_elementF", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, unallowed_extension_elementF, void, $String*)},
-	{"unallowed_extension_functionF", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, unallowed_extension_functionF, void, $String*)},
-	{"unresolved_externalF", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, unresolved_externalF, void, $String*)},
-	{"unsupported_ElementF", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, unsupported_ElementF, void, $String*, bool)},
-	{}
-};
-
-$InnerClassInfo _BasisLibrary_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary$4", nullptr, nullptr, 0},
-	{"com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary$3", nullptr, nullptr, 0},
-	{"com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary$2", nullptr, nullptr, 0},
-	{"com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BasisLibrary_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary",
-	"java.lang.Object",
-	nullptr,
-	_BasisLibrary_FieldInfo_,
-	_BasisLibrary_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasisLibrary_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary$4,com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary$3,com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary$2,com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary$1"
-};
-
-$Object* allocate$BasisLibrary($Class* clazz) {
-	return $of($alloc(BasisLibrary));
-}
 
 $String* BasisLibrary::EMPTYSTRING = nullptr;
 $ThreadLocal* BasisLibrary::threadLocalStringBuilder = nullptr;
@@ -389,7 +235,7 @@ int32_t BasisLibrary::positionF($DTMAxisIterator* iterator) {
 
 double BasisLibrary::sumF($DTMAxisIterator* iterator, $DOM* dom) {
 	$init(BasisLibrary);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		double result = 0.0;
 		int32_t node = 0;
@@ -398,7 +244,6 @@ double BasisLibrary::sumF($DTMAxisIterator* iterator, $DOM* dom) {
 		}
 		return result;
 	} catch ($NumberFormatException& e) {
-		$init($Double);
 		return $Double::NaN;
 	}
 	$shouldNotReachHere();
@@ -412,11 +257,11 @@ $String* BasisLibrary::stringF(int32_t node, $DOM* dom) {
 $String* BasisLibrary::stringF(Object$* obj, $DOM* dom) {
 	$init(BasisLibrary);
 	if ($instanceOf($DTMAxisIterator, obj)) {
-		return $nc(dom)->getStringValueX($nc($($nc(($cast($DTMAxisIterator, obj)))->reset()))->next());
-	} else if ($instanceOf($1Node, obj)) {
-		return $nc(dom)->getStringValueX($nc(($cast($1Node, obj)))->node);
+		return $nc(dom)->getStringValueX($$nc($cast($DTMAxisIterator, obj)->reset())->next());
+	} else if ($instanceOf($Node, obj)) {
+		return $nc(dom)->getStringValueX($cast($Node, obj)->node);
 	} else if ($instanceOf($DOM, obj)) {
-		return $nc(($cast($DOM, obj)))->getStringValue();
+		return $cast($DOM, obj)->getStringValue();
 	} else {
 		return $nc($of(obj))->toString();
 	}
@@ -424,25 +269,25 @@ $String* BasisLibrary::stringF(Object$* obj, $DOM* dom) {
 
 $String* BasisLibrary::stringF(Object$* obj, int32_t node, $DOM* dom) {
 	$init(BasisLibrary);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($DTMAxisIterator, obj)) {
-		return $nc(dom)->getStringValueX($nc($($nc(($cast($DTMAxisIterator, obj)))->reset()))->next());
-	} else if ($instanceOf($1Node, obj)) {
-		return $nc(dom)->getStringValueX($nc(($cast($1Node, obj)))->node);
+		return $nc(dom)->getStringValueX($$nc($cast($DTMAxisIterator, obj)->reset())->next());
+	} else if ($instanceOf($Node, obj)) {
+		return $nc(dom)->getStringValueX($cast($Node, obj)->node);
 	} else if ($instanceOf($DOM, obj)) {
-		return $nc(($cast($DOM, obj)))->getStringValue();
+		return $cast($DOM, obj)->getStringValue();
 	} else if ($instanceOf($Double, obj)) {
 		$var($Double, d, $cast($Double, obj));
-		$var($String, result, $nc(d)->toString());
-		int32_t length = $nc(result)->length();
-		bool var$0 = (result->charAt(length - 2) == u'.');
+		$var($String, result, d->toString());
+		int32_t length = result->length();
+		bool var$0 = result->charAt(length - 2) == u'.';
 		if (var$0 && (result->charAt(length - 1) == u'0')) {
 			return result->substring(0, length - 2);
 		} else {
 			return result;
 		}
 	} else {
-		return obj != nullptr ? $nc($of(obj))->toString() : ""_s;
+		return obj != nullptr ? $of(obj)->toString() : ""_s;
 	}
 }
 
@@ -453,22 +298,22 @@ double BasisLibrary::numberF(int32_t node, $DOM* dom) {
 
 double BasisLibrary::numberF(Object$* obj, $DOM* dom) {
 	$init(BasisLibrary);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Double, obj)) {
-		return $nc(($cast($Double, obj)))->doubleValue();
+		return $cast($Double, obj)->doubleValue();
 	} else if ($instanceOf($Integer, obj)) {
-		return $nc(($cast($Integer, obj)))->doubleValue();
+		return $cast($Integer, obj)->doubleValue();
 	} else if ($instanceOf($Boolean, obj)) {
-		return $nc(($cast($Boolean, obj)))->booleanValue() ? 1.0 : 0.0;
+		return $cast($Boolean, obj)->booleanValue() ? 1.0 : 0.0;
 	} else if ($instanceOf($String, obj)) {
 		return stringToReal($cast($String, obj));
 	} else if ($instanceOf($DTMAxisIterator, obj)) {
 		$var($DTMAxisIterator, iter, $cast($DTMAxisIterator, obj));
-		return stringToReal($($nc(dom)->getStringValueX($nc($($nc(iter)->reset()))->next())));
-	} else if ($instanceOf($1Node, obj)) {
-		return stringToReal($($nc(dom)->getStringValueX($nc(($cast($1Node, obj)))->node)));
+		return stringToReal($($nc(dom)->getStringValueX($$nc(iter->reset())->next())));
+	} else if ($instanceOf($Node, obj)) {
+		return stringToReal($($nc(dom)->getStringValueX($cast($Node, obj)->node)));
 	} else if ($instanceOf($DOM, obj)) {
-		return stringToReal($($nc(($cast($DOM, obj)))->getStringValue()));
+		return stringToReal($($cast($DOM, obj)->getStringValue()));
 	} else {
 		$var($String, className, $nc($of(obj))->getClass()->getName());
 		runTimeError(BasisLibrary::INVALID_ARGUMENT_ERR, className, "number()"_s);
@@ -478,29 +323,28 @@ double BasisLibrary::numberF(Object$* obj, $DOM* dom) {
 
 double BasisLibrary::roundF(double d) {
 	$init(BasisLibrary);
-	$init($Double);
 	return (d < -0.5 || d > 0.0) ? $Math::floor(d + 0.5) : ((d == 0.0) ? d : ($Double::isNaN(d) ? $Double::NaN : -0.0));
 }
 
 bool BasisLibrary::booleanF(Object$* obj) {
 	$init(BasisLibrary);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Double, obj)) {
-		double temp = $nc(($cast($Double, obj)))->doubleValue();
+		double temp = $cast($Double, obj)->doubleValue();
 		return temp != 0.0 && !$Double::isNaN(temp);
 	} else if ($instanceOf($Integer, obj)) {
-		return $nc(($cast($Integer, obj)))->doubleValue() != 0;
+		return $cast($Integer, obj)->doubleValue() != 0;
 	} else if ($instanceOf($Boolean, obj)) {
-		return $nc(($cast($Boolean, obj)))->booleanValue();
+		return $cast($Boolean, obj)->booleanValue();
 	} else if ($instanceOf($String, obj)) {
-		return !$nc(($cast($String, obj)))->equals(BasisLibrary::EMPTYSTRING);
+		return !$cast($String, obj)->equals(BasisLibrary::EMPTYSTRING);
 	} else if ($instanceOf($DTMAxisIterator, obj)) {
 		$var($DTMAxisIterator, iter, $cast($DTMAxisIterator, obj));
-		return $nc($($nc(iter)->reset()))->next() != $DTMAxisIterator::END;
-	} else if ($instanceOf($1Node, obj)) {
+		return $$nc(iter->reset())->next() != $DTMAxisIterator::END;
+	} else if ($instanceOf($Node, obj)) {
 		return true;
 	} else if ($instanceOf($DOM, obj)) {
-		$var($String, temp, $nc(($cast($DOM, obj)))->getStringValue());
+		$var($String, temp, $cast($DOM, obj)->getStringValue());
 		return !$nc(temp)->equals(BasisLibrary::EMPTYSTRING);
 	} else {
 		$var($String, className, $nc($of(obj))->getClass()->getName());
@@ -526,7 +370,7 @@ $String* BasisLibrary::substringF($String* value, double start) {
 		istart = $nc(value)->offsetByCodePoints(0, istart);
 		return value->substring(istart);
 	} catch ($IndexOutOfBoundsException& e) {
-		runTimeError(BasisLibrary::RUN_TIME_INTERNAL_ERR, $of("substring()"_s));
+		runTimeError(BasisLibrary::RUN_TIME_INTERNAL_ERR, "substring()"_s);
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -564,7 +408,7 @@ $String* BasisLibrary::substringF($String* value, double start, double length) {
 			return value->substring(istart, offset);
 		}
 	} catch ($IndexOutOfBoundsException& e) {
-		runTimeError(BasisLibrary::RUN_TIME_INTERNAL_ERR, $of("substring()"_s));
+		runTimeError(BasisLibrary::RUN_TIME_INTERNAL_ERR, "substring()"_s);
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -595,24 +439,20 @@ $String* BasisLibrary::translateF($String* value, $String* from, $String* to) {
 	int32_t tol = $nc(to)->length();
 	int32_t froml = $nc(from)->length();
 	int32_t valuel = $nc(value)->length();
-	$var($StringBuilder, result, $cast($StringBuilder, $nc(BasisLibrary::threadLocalStringBuilder)->get()));
+	$var($StringBuilder, result, $cast($StringBuilder, BasisLibrary::threadLocalStringBuilder->get()));
 	$nc(result)->setLength(0);
-	{
-		int32_t j = 0;
-		int32_t i = 0;
-		for (; i < valuel; ++i) {
-			char16_t ch = value->charAt(i);
-			for (j = 0; j < froml; ++j) {
-				if (ch == from->charAt(j)) {
-					if (j < tol) {
-						result->append(to->charAt(j));
-					}
-					break;
+	for (int32_t j = 0, i = 0; i < valuel; ++i) {
+		char16_t ch = value->charAt(i);
+		for (j = 0; j < froml; ++j) {
+			if (ch == from->charAt(j)) {
+				if (j < tol) {
+					result->append(to->charAt(j));
 				}
+				break;
 			}
-			if (j == froml) {
-				result->append(ch);
-			}
+		}
+		if (j == froml) {
+			result->append(ch);
 		}
 	}
 	return result->toString();
@@ -627,7 +467,7 @@ $String* BasisLibrary::normalize_spaceF($String* value) {
 	$init(BasisLibrary);
 	int32_t i = 0;
 	int32_t n = $nc(value)->length();
-	$var($StringBuilder, result, $cast($StringBuilder, $nc(BasisLibrary::threadLocalStringBuilder)->get()));
+	$var($StringBuilder, result, $cast($StringBuilder, BasisLibrary::threadLocalStringBuilder->get()));
 	$nc(result)->setLength(0);
 	while (i < n && isWhiteSpace(value->charAt(i))) {
 		++i;
@@ -661,11 +501,11 @@ $String* BasisLibrary::generate_idF(int32_t node) {
 $String* BasisLibrary::getLocalName($String* value$renamed) {
 	$init(BasisLibrary);
 	$var($String, value, value$renamed);
-	int32_t idx = $nc(value)->lastIndexOf((int32_t)u':');
+	int32_t idx = $nc(value)->lastIndexOf(u':');
 	if (idx >= 0) {
 		$assign(value, value->substring(idx + 1));
 	}
-	idx = value->lastIndexOf((int32_t)u'@');
+	idx = value->lastIndexOf(u'@');
 	if (idx >= 0) {
 		$assign(value, value->substring(idx + 1));
 	}
@@ -674,25 +514,25 @@ $String* BasisLibrary::getLocalName($String* value$renamed) {
 
 void BasisLibrary::unresolved_externalF($String* name) {
 	$init(BasisLibrary);
-	runTimeError(BasisLibrary::EXTERNAL_FUNC_ERR, $of(name));
+	runTimeError(BasisLibrary::EXTERNAL_FUNC_ERR, name);
 }
 
 void BasisLibrary::unallowed_extension_functionF($String* name) {
 	$init(BasisLibrary);
-	runTimeError(BasisLibrary::UNALLOWED_EXTENSION_FUNCTION_ERR, $of(name));
+	runTimeError(BasisLibrary::UNALLOWED_EXTENSION_FUNCTION_ERR, name);
 }
 
 void BasisLibrary::unallowed_extension_elementF($String* name) {
 	$init(BasisLibrary);
-	runTimeError(BasisLibrary::UNALLOWED_EXTENSION_ELEMENT_ERR, $of(name));
+	runTimeError(BasisLibrary::UNALLOWED_EXTENSION_ELEMENT_ERR, name);
 }
 
 void BasisLibrary::unsupported_ElementF($String* qname, bool isExtension) {
 	$init(BasisLibrary);
 	if (isExtension) {
-		runTimeError(BasisLibrary::UNSUPPORTED_EXT_ERR, $of(qname));
+		runTimeError(BasisLibrary::UNSUPPORTED_EXT_ERR, qname);
 	} else {
-		runTimeError(BasisLibrary::UNSUPPORTED_XSL_ERR, $of(qname));
+		runTimeError(BasisLibrary::UNSUPPORTED_XSL_ERR, qname);
 	}
 }
 
@@ -706,10 +546,10 @@ $String* BasisLibrary::system_propertyF($String* name) {
 	if ($nc(name)->equals("xsl:version"_s)) {
 		return ("1.0"_s);
 	}
-	if ($nc(name)->equals("xsl:vendor"_s)) {
+	if (name->equals("xsl:vendor"_s)) {
 		return ("Apache Software Foundation (Xalan XSLTC)"_s);
 	}
-	if ($nc(name)->equals("xsl:vendor-url"_s)) {
+	if (name->equals("xsl:vendor-url"_s)) {
 		return ("http://xml.apache.org/xalan-j"_s);
 	}
 	runTimeError(BasisLibrary::INVALID_ARGUMENT_ERR, name, "system-property()"_s);
@@ -719,7 +559,7 @@ $String* BasisLibrary::system_propertyF($String* name) {
 $String* BasisLibrary::namespace_uriF(int32_t node, $DOM* dom) {
 	$init(BasisLibrary);
 	$var($String, value, $nc(dom)->getNodeName(node));
-	int32_t colon = $nc(value)->lastIndexOf((int32_t)u':');
+	int32_t colon = $nc(value)->lastIndexOf(u':');
 	if (colon >= 0) {
 		return value->substring(0, colon);
 	} else {
@@ -746,10 +586,10 @@ $String* BasisLibrary::objectTypeF(Object$* obj) {
 
 $DTMAxisIterator* BasisLibrary::nodesetF(Object$* obj) {
 	$init(BasisLibrary);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($DOM, obj)) {
 		$var($DOM, dom, $cast($DOM, obj));
-		return $new($SingletonIterator, $nc(dom)->getDocument(), true);
+		return $new($SingletonIterator, dom->getDocument(), true);
 	} else if ($instanceOf($DTMAxisIterator, obj)) {
 		return $cast($DTMAxisIterator, obj);
 	} else {
@@ -768,44 +608,38 @@ bool BasisLibrary::compareStrings($String* lstring, $String* rstring, int32_t op
 	$init(BasisLibrary);
 	switch (op) {
 	case $Operators::EQ:
-		{
-			return $nc(lstring)->equals(rstring);
-		}
+		return $nc(lstring)->equals(rstring);
 	case $Operators::NE:
-		{
-			return !$nc(lstring)->equals(rstring);
-		}
+		return !$nc(lstring)->equals(rstring);
 	case $Operators::GT:
 		{
-			double var$0 = numberF($of(lstring), dom);
-			return var$0 > numberF($of(rstring), dom);
+			double var$0 = numberF(lstring, dom);
+			return var$0 > numberF(rstring, dom);
 		}
 	case $Operators::LT:
 		{
-			double var$1 = numberF($of(lstring), dom);
-			return var$1 < numberF($of(rstring), dom);
+			double var$1 = numberF(lstring, dom);
+			return var$1 < numberF(rstring, dom);
 		}
 	case $Operators::GE:
 		{
-			double var$2 = numberF($of(lstring), dom);
-			return var$2 >= numberF($of(rstring), dom);
+			double var$2 = numberF(lstring, dom);
+			return var$2 >= numberF(rstring, dom);
 		}
 	case $Operators::LE:
 		{
-			double var$3 = numberF($of(lstring), dom);
-			return var$3 <= numberF($of(rstring), dom);
+			double var$3 = numberF(lstring, dom);
+			return var$3 <= numberF(rstring, dom);
 		}
 	default:
-		{
-			runTimeError(BasisLibrary::RUN_TIME_INTERNAL_ERR, $of("compare()"_s));
-			return false;
-		}
+		runTimeError(BasisLibrary::RUN_TIME_INTERNAL_ERR, "compare()"_s);
+		return false;
 	}
 }
 
 bool BasisLibrary::compare($DTMAxisIterator* left, $DTMAxisIterator* right, int32_t op, $DOM* dom) {
 	$init(BasisLibrary);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t lnode = 0;
 	$nc(left)->reset();
 	while ((lnode = left->next()) != $DTMAxisIterator::END) {
@@ -830,128 +664,106 @@ bool BasisLibrary::compare($DTMAxisIterator* left, $DTMAxisIterator* right, int3
 
 bool BasisLibrary::compare(int32_t node, $DTMAxisIterator* iterator, int32_t op, $DOM* dom) {
 	$init(BasisLibrary);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t rnode = 0;
 	$var($String, value, nullptr);
 	switch (op) {
 	case $Operators::EQ:
-		{
-			rnode = $nc(iterator)->next();
-			if (rnode != $DTMAxisIterator::END) {
-				$assign(value, $nc(dom)->getStringValueX(node));
-				do {
-					if (node == rnode || $nc(value)->equals($(dom->getStringValueX(rnode)))) {
-						return true;
-					}
-				} while ((rnode = $nc(iterator)->next()) != $DTMAxisIterator::END);
-			}
-			break;
+		rnode = $nc(iterator)->next();
+		if (rnode != $DTMAxisIterator::END) {
+			$assign(value, $nc(dom)->getStringValueX(node));
+			do {
+				if (node == rnode || $nc(value)->equals($(dom->getStringValueX(rnode)))) {
+					return true;
+				}
+			} while ((rnode = iterator->next()) != $DTMAxisIterator::END);
 		}
+		break;
 	case $Operators::NE:
-		{
-			rnode = $nc(iterator)->next();
-			if (rnode != $DTMAxisIterator::END) {
-				$assign(value, $nc(dom)->getStringValueX(node));
-				do {
-					if (node != rnode && !$nc(value)->equals($(dom->getStringValueX(rnode)))) {
-						return true;
-					}
-				} while ((rnode = $nc(iterator)->next()) != $DTMAxisIterator::END);
-			}
-			break;
+		rnode = $nc(iterator)->next();
+		if (rnode != $DTMAxisIterator::END) {
+			$assign(value, $nc(dom)->getStringValueX(node));
+			do {
+				if (node != rnode && !$nc(value)->equals($(dom->getStringValueX(rnode)))) {
+					return true;
+				}
+			} while ((rnode = iterator->next()) != $DTMAxisIterator::END);
 		}
+		break;
 	case $Operators::LT:
-		{
-			while ((rnode = $nc(iterator)->next()) != $DTMAxisIterator::END) {
-				if (rnode > node) {
-					return true;
-				}
+		while ((rnode = $nc(iterator)->next()) != $DTMAxisIterator::END) {
+			if (rnode > node) {
+				return true;
 			}
-			break;
 		}
+		break;
 	case $Operators::GT:
-		{
-			while ((rnode = $nc(iterator)->next()) != $DTMAxisIterator::END) {
-				if (rnode < node) {
-					return true;
-				}
+		while ((rnode = $nc(iterator)->next()) != $DTMAxisIterator::END) {
+			if (rnode < node) {
+				return true;
 			}
-			break;
 		}
+		break;
 	}
 	return (false);
 }
 
 bool BasisLibrary::compare($DTMAxisIterator* left, double rnumber, int32_t op, $DOM* dom) {
 	$init(BasisLibrary);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t node = 0;
 	switch (op) {
 	case $Operators::EQ:
-		{
-			while ((node = $nc(left)->next()) != $DTMAxisIterator::END) {
-				if (numberF($($of($nc(dom)->getStringValueX(node))), dom) == rnumber) {
-					return true;
-				}
+		while ((node = $nc(left)->next()) != $DTMAxisIterator::END) {
+			if (numberF($($nc(dom)->getStringValueX(node)), dom) == rnumber) {
+				return true;
 			}
-			break;
 		}
+		break;
 	case $Operators::NE:
-		{
-			while ((node = $nc(left)->next()) != $DTMAxisIterator::END) {
-				if (numberF($($of($nc(dom)->getStringValueX(node))), dom) != rnumber) {
-					return true;
-				}
+		while ((node = $nc(left)->next()) != $DTMAxisIterator::END) {
+			if (numberF($($nc(dom)->getStringValueX(node)), dom) != rnumber) {
+				return true;
 			}
-			break;
 		}
+		break;
 	case $Operators::GT:
-		{
-			while ((node = $nc(left)->next()) != $DTMAxisIterator::END) {
-				if (numberF($($of($nc(dom)->getStringValueX(node))), dom) > rnumber) {
-					return true;
-				}
+		while ((node = $nc(left)->next()) != $DTMAxisIterator::END) {
+			if (numberF($($nc(dom)->getStringValueX(node)), dom) > rnumber) {
+				return true;
 			}
-			break;
 		}
+		break;
 	case $Operators::LT:
-		{
-			while ((node = $nc(left)->next()) != $DTMAxisIterator::END) {
-				if (numberF($($of($nc(dom)->getStringValueX(node))), dom) < rnumber) {
-					return true;
-				}
+		while ((node = $nc(left)->next()) != $DTMAxisIterator::END) {
+			if (numberF($($nc(dom)->getStringValueX(node)), dom) < rnumber) {
+				return true;
 			}
-			break;
 		}
+		break;
 	case $Operators::GE:
-		{
-			while ((node = $nc(left)->next()) != $DTMAxisIterator::END) {
-				if (numberF($($of($nc(dom)->getStringValueX(node))), dom) >= rnumber) {
-					return true;
-				}
+		while ((node = $nc(left)->next()) != $DTMAxisIterator::END) {
+			if (numberF($($nc(dom)->getStringValueX(node)), dom) >= rnumber) {
+				return true;
 			}
-			break;
 		}
+		break;
 	case $Operators::LE:
-		{
-			while ((node = $nc(left)->next()) != $DTMAxisIterator::END) {
-				if (numberF($($of($nc(dom)->getStringValueX(node))), dom) <= rnumber) {
-					return true;
-				}
+		while ((node = $nc(left)->next()) != $DTMAxisIterator::END) {
+			if (numberF($($nc(dom)->getStringValueX(node)), dom) <= rnumber) {
+				return true;
 			}
-			break;
 		}
+		break;
 	default:
-		{
-			runTimeError(BasisLibrary::RUN_TIME_INTERNAL_ERR, $of("compare()"_s));
-		}
+		runTimeError(BasisLibrary::RUN_TIME_INTERNAL_ERR, "compare()"_s);
 	}
 	return false;
 }
 
 bool BasisLibrary::compare($DTMAxisIterator* left, $String* rstring, int32_t op, $DOM* dom) {
 	$init(BasisLibrary);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t node = 0;
 	while ((node = $nc(left)->next()) != $DTMAxisIterator::END) {
 		if (compareStrings($($nc(dom)->getStringValueX(node)), rstring, op, dom)) {
@@ -963,14 +775,14 @@ bool BasisLibrary::compare($DTMAxisIterator* left, $String* rstring, int32_t op,
 
 bool BasisLibrary::compare(Object$* left$renamed, Object$* right$renamed, int32_t op, $DOM* dom) {
 	$init(BasisLibrary);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, left, left$renamed);
 	$var($Object, right, right$renamed);
 	bool result = false;
 	bool var$0 = hasSimpleType(left);
 	bool hasSimpleArgs = var$0 && hasSimpleType(right);
 	if (op != $Operators::EQ && op != $Operators::NE) {
-		if ($instanceOf($1Node, left) || $instanceOf($1Node, right)) {
+		if ($instanceOf($Node, left) || $instanceOf($Node, right)) {
 			if ($instanceOf($Boolean, left)) {
 				$assign(right, $Boolean::valueOf(booleanF(right)));
 				hasSimpleArgs = true;
@@ -1003,9 +815,7 @@ bool BasisLibrary::compare(Object$* left$renamed, Object$* right$renamed, int32_
 					return var$4 <= numberF(right, dom);
 				}
 			default:
-				{
-					runTimeError(BasisLibrary::RUN_TIME_INTERNAL_ERR, $of("compare()"_s));
-				}
+				runTimeError(BasisLibrary::RUN_TIME_INTERNAL_ERR, "compare()"_s);
 			}
 		}
 	}
@@ -1017,17 +827,17 @@ bool BasisLibrary::compare(Object$* left$renamed, Object$* right$renamed, int32_
 			double var$6 = numberF(left, dom);
 			result = var$6 == numberF(right, dom);
 		} else {
-			result = $nc($(stringF(left, dom)))->equals($(stringF(right, dom)));
+			result = $$nc(stringF(left, dom))->equals($(stringF(right, dom)));
 		}
 		if (op == $Operators::NE) {
 			result = !result;
 		}
 	} else {
-		if ($instanceOf($1Node, left)) {
-			$assign(left, $new($SingletonIterator, $nc(($cast($1Node, left)))->node));
+		if ($instanceOf($Node, left)) {
+			$assign(left, $new($SingletonIterator, $cast($Node, left)->node));
 		}
-		if ($instanceOf($1Node, right)) {
-			$assign(right, $new($SingletonIterator, $nc(($cast($1Node, right)))->node));
+		if ($instanceOf($Node, right)) {
+			$assign(right, $new($SingletonIterator, $cast($Node, right)->node));
 		}
 		if (hasSimpleType(left) || $instanceOf($DOM, left) && $instanceOf($DTMAxisIterator, right)) {
 			$var($Object, temp, right);
@@ -1037,40 +847,40 @@ bool BasisLibrary::compare(Object$* left$renamed, Object$* right$renamed, int32_
 		}
 		if ($instanceOf($DOM, left)) {
 			if ($instanceOf($Boolean, right)) {
-				result = $nc(($cast($Boolean, right)))->booleanValue();
+				result = $cast($Boolean, right)->booleanValue();
 				return result == (op == $Operators::EQ);
 			}
-			$var($String, sleft, $nc(($cast($DOM, left)))->getStringValue());
+			$var($String, sleft, $cast($DOM, left)->getStringValue());
 			if ($instanceOf($Number, right)) {
-				double var$7 = $nc(($cast($Number, right)))->doubleValue();
+				double var$7 = $cast($Number, right)->doubleValue();
 				result = var$7 == stringToReal(sleft);
 			} else if ($instanceOf($String, right)) {
 				result = $nc(sleft)->equals($cast($String, right));
 			} else if ($instanceOf($DOM, right)) {
-				result = $nc(sleft)->equals($($nc(($cast($DOM, right)))->getStringValue()));
+				result = $nc(sleft)->equals($($cast($DOM, right)->getStringValue()));
 			}
 			if (op == $Operators::NE) {
 				result = !result;
 			}
 			return result;
 		}
-		$var($DTMAxisIterator, iter, $nc(($cast($DTMAxisIterator, left)))->reset());
+		$var($DTMAxisIterator, iter, $nc($cast($DTMAxisIterator, left))->reset());
 		if ($instanceOf($DTMAxisIterator, right)) {
 			result = compare(iter, $cast($DTMAxisIterator, right), op, dom);
 		} else if ($instanceOf($String, right)) {
 			result = compare(iter, $cast($String, right), op, dom);
 		} else if ($instanceOf($Number, right)) {
-			double temp = $nc(($cast($Number, right)))->doubleValue();
+			double temp = $cast($Number, right)->doubleValue();
 			result = compare(iter, temp, op, dom);
 		} else if ($instanceOf($Boolean, right)) {
-			bool temp = $nc(($cast($Boolean, right)))->booleanValue();
-			result = ($nc($($nc(iter)->reset()))->next() != $DTMAxisIterator::END) == temp;
+			bool temp = $cast($Boolean, right)->booleanValue();
+			result = ($$nc($nc(iter)->reset())->next() != $DTMAxisIterator::END) == temp;
 		} else if ($instanceOf($DOM, right)) {
-			result = compare(iter, $($nc(($cast($DOM, right)))->getStringValue()), op, dom);
+			result = compare(iter, $($cast($DOM, right)->getStringValue()), op, dom);
 		} else if (right == nullptr) {
 			return (false);
 		} else {
-			$var($String, className, $nc($of(right))->getClass()->getName());
+			$var($String, className, $of(right)->getClass()->getName());
 			runTimeError(BasisLibrary::INVALID_ARGUMENT_ERR, className, "compare()"_s);
 		}
 	}
@@ -1079,13 +889,13 @@ bool BasisLibrary::compare(Object$* left$renamed, Object$* right$renamed, int32_
 
 bool BasisLibrary::testLanguage($String* testLang$renamed, $DOM* dom, int32_t node) {
 	$init(BasisLibrary);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, testLang, testLang$renamed);
 	$var($String, nodeLang, $nc(dom)->getLanguage(node));
 	if (nodeLang == nullptr) {
 		return (false);
 	} else {
-		$assign(nodeLang, $nc(nodeLang)->toLowerCase());
+		$assign(nodeLang, nodeLang->toLowerCase());
 	}
 	$assign(testLang, $nc(testLang)->toLowerCase());
 	if (testLang->length() == 2) {
@@ -1097,15 +907,14 @@ bool BasisLibrary::testLanguage($String* testLang$renamed, $DOM* dom, int32_t no
 
 bool BasisLibrary::hasSimpleType(Object$* obj) {
 	$init(BasisLibrary);
-	return $instanceOf($Boolean, obj) || $instanceOf($Double, obj) || $instanceOf($Integer, obj) || $instanceOf($String, obj) || $instanceOf($1Node, obj) || $instanceOf($DOM, obj);
+	return $instanceOf($Boolean, obj) || $instanceOf($Double, obj) || $instanceOf($Integer, obj) || $instanceOf($String, obj) || $instanceOf($Node, obj) || $instanceOf($DOM, obj);
 }
 
 double BasisLibrary::stringToReal($String* s) {
 	$init(BasisLibrary);
 	try {
-		return $nc($($Double::valueOf(s)))->doubleValue();
+		return $($Double::valueOf(s))->doubleValue();
 	} catch ($NumberFormatException& e) {
-		$init($Double);
 		return $Double::NaN;
 	}
 	$shouldNotReachHere();
@@ -1123,12 +932,12 @@ int32_t BasisLibrary::stringToInt($String* s) {
 
 $String* BasisLibrary::realToString(double d) {
 	$init(BasisLibrary);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	double m = $Math::abs(d);
 	if ((m >= BasisLibrary::lowerBounds) && (m < BasisLibrary::upperBounds)) {
 		$var($String, result, $Double::toString(d));
-		int32_t length = $nc(result)->length();
-		bool var$0 = (result->charAt(length - 2) == u'.');
+		int32_t length = result->length();
+		bool var$0 = result->charAt(length - 2) == u'.';
 		if (var$0 && (result->charAt(length - 1) == u'0')) {
 			return result->substring(0, length - 2);
 		} else {
@@ -1140,7 +949,7 @@ $String* BasisLibrary::realToString(double d) {
 			return ($Double::toString(d));
 		}
 		d = d + 0.0;
-		$var($StringBuffer, result, $cast($StringBuffer, $nc(BasisLibrary::threadLocalStringBuffer)->get()));
+		$var($StringBuffer, result, $cast($StringBuffer, BasisLibrary::threadLocalStringBuffer->get()));
 		$nc(result)->setLength(0);
 		$nc(BasisLibrary::xpathFormatter)->format(d, result, BasisLibrary::_fieldPosition);
 		return result->toString();
@@ -1154,13 +963,13 @@ int32_t BasisLibrary::realToInt(double d) {
 
 $String* BasisLibrary::formatNumber(double number, $String* pattern, $DecimalFormat* formatter$renamed) {
 	$init(BasisLibrary);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DecimalFormat, formatter, formatter$renamed);
 	if (formatter == nullptr) {
 		$assign(formatter, BasisLibrary::defaultFormatter);
 	}
 	try {
-		$var($StringBuffer, result, $cast($StringBuffer, $nc(BasisLibrary::threadLocalStringBuffer)->get()));
+		$var($StringBuffer, result, $cast($StringBuffer, BasisLibrary::threadLocalStringBuffer->get()));
 		$nc(result)->setLength(0);
 		if (pattern != BasisLibrary::defaultPattern) {
 			$nc(formatter)->applyLocalizedPattern(pattern);
@@ -1176,11 +985,11 @@ $String* BasisLibrary::formatNumber(double number, $String* pattern, $DecimalFor
 
 $DTMAxisIterator* BasisLibrary::referenceToNodeSet(Object$* obj) {
 	$init(BasisLibrary);
-	$useLocalCurrentObjectStackCache();
-	if ($instanceOf($1Node, obj)) {
-		return ($new($SingletonIterator, $nc(($cast($1Node, obj)))->node));
+	$useLocalObjectStack();
+	if ($instanceOf($Node, obj)) {
+		return ($new($SingletonIterator, $cast($Node, obj)->node));
 	} else if ($instanceOf($DTMAxisIterator, obj)) {
-		return ($nc($($nc(($cast($DTMAxisIterator, obj)))->cloneIterator()))->reset());
+		return ($$nc($cast($DTMAxisIterator, obj)->cloneIterator())->reset());
 	} else {
 		$var($String, className, $nc($of(obj))->getClass()->getName());
 		runTimeError(BasisLibrary::DATA_CONVERSION_ERR, className, "node-set"_s);
@@ -1190,14 +999,14 @@ $DTMAxisIterator* BasisLibrary::referenceToNodeSet(Object$* obj) {
 
 $NodeList* BasisLibrary::referenceToNodeList(Object$* obj, $DOM* dom$renamed) {
 	$init(BasisLibrary);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DOM, dom, dom$renamed);
-	if ($instanceOf($1Node, obj) || $instanceOf($DTMAxisIterator, obj)) {
+	if ($instanceOf($Node, obj) || $instanceOf($DTMAxisIterator, obj)) {
 		$var($DTMAxisIterator, iter, referenceToNodeSet(obj));
 		return $nc(dom)->makeNodeList(iter);
 	} else if ($instanceOf($DOM, obj)) {
 		$assign(dom, $cast($DOM, obj));
-		return $nc(dom)->makeNodeList($DTMDefaultBase::ROOTNODE);
+		return dom->makeNodeList($DTMDefaultBase::ROOTNODE);
 	} else {
 		$var($String, className, $nc($of(obj))->getClass()->getName());
 		runTimeError(BasisLibrary::DATA_CONVERSION_ERR, className, "org.w3c.dom.NodeList"_s);
@@ -1205,16 +1014,16 @@ $NodeList* BasisLibrary::referenceToNodeList(Object$* obj, $DOM* dom$renamed) {
 	}
 }
 
-$Node* BasisLibrary::referenceToNode(Object$* obj, $DOM* dom$renamed) {
+$1Node* BasisLibrary::referenceToNode(Object$* obj, $DOM* dom$renamed) {
 	$init(BasisLibrary);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DOM, dom, dom$renamed);
-	if ($instanceOf($1Node, obj) || $instanceOf($DTMAxisIterator, obj)) {
+	if ($instanceOf($Node, obj) || $instanceOf($DTMAxisIterator, obj)) {
 		$var($DTMAxisIterator, iter, referenceToNodeSet(obj));
 		return $nc(dom)->makeNode(iter);
 	} else if ($instanceOf($DOM, obj)) {
 		$assign(dom, $cast($DOM, obj));
-		$var($DTMAxisIterator, iter, $nc(dom)->getChildren($DTMDefaultBase::ROOTNODE));
+		$var($DTMAxisIterator, iter, dom->getChildren($DTMDefaultBase::ROOTNODE));
 		return dom->makeNode(iter);
 	} else {
 		$var($String, className, $nc($of(obj))->getClass()->getName());
@@ -1226,10 +1035,9 @@ $Node* BasisLibrary::referenceToNode(Object$* obj, $DOM* dom$renamed) {
 int64_t BasisLibrary::referenceToLong(Object$* obj) {
 	$init(BasisLibrary);
 	if ($instanceOf($Number, obj)) {
-		return $nc(($cast($Number, obj)))->longValue();
+		return $cast($Number, obj)->longValue();
 	} else {
 		$var($String, className, $nc($of(obj))->getClass()->getName());
-		$init($Long);
 		runTimeError(BasisLibrary::DATA_CONVERSION_ERR, className, $Long::TYPE);
 		return 0;
 	}
@@ -1238,22 +1046,20 @@ int64_t BasisLibrary::referenceToLong(Object$* obj) {
 double BasisLibrary::referenceToDouble(Object$* obj) {
 	$init(BasisLibrary);
 	if ($instanceOf($Number, obj)) {
-		return $nc(($cast($Number, obj)))->doubleValue();
+		return $cast($Number, obj)->doubleValue();
 	} else {
 		$var($String, className, $nc($of(obj))->getClass()->getName());
-		$init($Double);
 		runTimeError(BasisLibrary::DATA_CONVERSION_ERR, className, $Double::TYPE);
-		return (double)0;
+		return 0;
 	}
 }
 
 bool BasisLibrary::referenceToBoolean(Object$* obj) {
 	$init(BasisLibrary);
 	if ($instanceOf($Boolean, obj)) {
-		return $nc(($cast($Boolean, obj)))->booleanValue();
+		return $cast($Boolean, obj)->booleanValue();
 	} else {
 		$var($String, className, $nc($of(obj))->getClass()->getName());
-		$init($Boolean);
 		runTimeError(BasisLibrary::DATA_CONVERSION_ERR, className, $Boolean::TYPE);
 		return false;
 	}
@@ -1261,15 +1067,15 @@ bool BasisLibrary::referenceToBoolean(Object$* obj) {
 
 $String* BasisLibrary::referenceToString(Object$* obj, $DOM* dom) {
 	$init(BasisLibrary);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($String, obj)) {
 		return $cast($String, obj);
 	} else if ($instanceOf($DTMAxisIterator, obj)) {
-		return $nc(dom)->getStringValueX($nc($($nc(($cast($DTMAxisIterator, obj)))->reset()))->next());
-	} else if ($instanceOf($1Node, obj)) {
-		return $nc(dom)->getStringValueX($nc(($cast($1Node, obj)))->node);
+		return $nc(dom)->getStringValueX($$nc($cast($DTMAxisIterator, obj)->reset())->next());
+	} else if ($instanceOf($Node, obj)) {
+		return $nc(dom)->getStringValueX($cast($Node, obj)->node);
 	} else if ($instanceOf($DOM, obj)) {
-		return $nc(($cast($DOM, obj)))->getStringValue();
+		return $cast($DOM, obj)->getStringValue();
 	} else {
 		$var($String, className, $nc($of(obj))->getClass()->getName());
 		runTimeError(BasisLibrary::DATA_CONVERSION_ERR, className, $String::class$);
@@ -1277,32 +1083,32 @@ $String* BasisLibrary::referenceToString(Object$* obj, $DOM* dom) {
 	}
 }
 
-$DTMAxisIterator* BasisLibrary::node2Iterator($Node* node, $Translet* translet, $DOM* dom) {
+$DTMAxisIterator* BasisLibrary::node2Iterator($1Node* node, $Translet* translet, $DOM* dom) {
 	$init(BasisLibrary);
-	$useLocalCurrentObjectStackCache();
-	$var($Node, inNode, node);
+	$useLocalObjectStack();
+	$var($1Node, inNode, node);
 	$var($NodeList, nodelist, $new($BasisLibrary$3, inNode));
 	return nodeList2Iterator(nodelist, translet, dom);
 }
 
 $DTMAxisIterator* BasisLibrary::nodeList2IteratorUsingHandleFromNode($NodeList* nodeList, $Translet* translet, $DOM* dom) {
 	$init(BasisLibrary);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = $nc(nodeList)->getLength();
 	$var($ints, dtmHandles, $new($ints, n));
 	$var($DTMManager, dtmManager, nullptr);
 	if ($instanceOf($MultiDOM, dom)) {
-		$assign(dtmManager, $nc(($cast($MultiDOM, dom)))->getDTMManager());
+		$assign(dtmManager, $cast($MultiDOM, dom)->getDTMManager());
 	}
 	for (int32_t i = 0; i < n; ++i) {
-		$var($Node, node, nodeList->item(i));
+		$var($1Node, node, nodeList->item(i));
 		int32_t handle = 0;
 		if (dtmManager != nullptr) {
 			handle = dtmManager->getDTMHandleFromNode(node);
-		} else if ($instanceOf($DTMNodeProxy, node) && $equals($nc(($cast($DTMNodeProxy, node)))->getDTM(), dom)) {
-			handle = $nc(($cast($DTMNodeProxy, node)))->getDTMNodeNumber();
+		} else if ($instanceOf($DTMNodeProxy, node) && $equals($cast($DTMNodeProxy, node)->getDTM(), dom)) {
+			handle = $cast($DTMNodeProxy, node)->getDTMNodeNumber();
 		} else {
-			runTimeError(BasisLibrary::RUN_TIME_INTERNAL_ERR, $of("need MultiDOM"_s));
+			runTimeError(BasisLibrary::RUN_TIME_INTERNAL_ERR, "need MultiDOM"_s);
 			return nullptr;
 		}
 		dtmHandles->set(i, handle);
@@ -1313,19 +1119,19 @@ $DTMAxisIterator* BasisLibrary::nodeList2IteratorUsingHandleFromNode($NodeList* 
 
 $DTMAxisIterator* BasisLibrary::nodeList2Iterator($NodeList* nodeList, $Translet* translet, $DOM* dom) {
 	$init(BasisLibrary);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = 0;
 	$var($Document, doc, nullptr);
 	$var($DTMManager, dtmManager, nullptr);
 	$var($ints, proxyNodes, $new($ints, $nc(nodeList)->getLength()));
 	if ($instanceOf($MultiDOM, dom)) {
-		$assign(dtmManager, $nc(($cast($MultiDOM, dom)))->getDTMManager());
+		$assign(dtmManager, $cast($MultiDOM, dom)->getDTMManager());
 	}
 	for (int32_t i = 0; i < nodeList->getLength(); ++i) {
-		$var($Node, node, nodeList->item(i));
+		$var($1Node, node, nodeList->item(i));
 		if ($instanceOf($DTMNodeProxy, node)) {
 			$var($DTMNodeProxy, proxy, $cast($DTMNodeProxy, node));
-			$var($DTM, nodeDTM, $nc(proxy)->getDTM());
+			$var($DTM, nodeDTM, proxy->getDTM());
 			int32_t handle = proxy->getDTMNodeNumber();
 			bool isOurDOM = ($equals(nodeDTM, dom));
 			if (!isOurDOM && dtmManager != nullptr) {
@@ -1344,49 +1150,38 @@ $DTMAxisIterator* BasisLibrary::nodeList2Iterator($NodeList* nodeList, $Translet
 		int32_t nodeType = $nc(node)->getNodeType();
 		if (doc == nullptr) {
 			if ($instanceOf($MultiDOM, dom) == false) {
-				runTimeError(BasisLibrary::RUN_TIME_INTERNAL_ERR, $of("need MultiDOM"_s));
+				runTimeError(BasisLibrary::RUN_TIME_INTERNAL_ERR, "need MultiDOM"_s);
 				return nullptr;
 			}
 			try {
 				$var($AbstractTranslet, at, $cast($AbstractTranslet, translet));
 				$assign(doc, $nc(at)->newDocument(""_s, "__top__"_s));
 			} catch ($ParserConfigurationException& e) {
-				runTimeError(BasisLibrary::RUN_TIME_INTERNAL_ERR, $($of(e->getMessage())));
+				runTimeError(BasisLibrary::RUN_TIME_INTERNAL_ERR, $(e->getMessage()));
 				return nullptr;
 			}
 		}
 		$var($Element, mid, nullptr);
 		switch (nodeType) {
-		case $Node::ELEMENT_NODE:
-			{}
-		case $Node::TEXT_NODE:
-			{}
-		case $Node::CDATA_SECTION_NODE:
-			{}
-		case $Node::COMMENT_NODE:
-			{}
-		case $Node::ENTITY_REFERENCE_NODE:
-			{}
-		case $Node::PROCESSING_INSTRUCTION_NODE:
-			{
-				$assign(mid, $nc(doc)->createElementNS(nullptr, "__dummy__"_s));
-				$nc(mid)->appendChild($($nc(doc)->importNode(node, true)));
-				$nc($($nc(doc)->getDocumentElement()))->appendChild(mid);
-				++n;
-				break;
-			}
-		case $Node::ATTRIBUTE_NODE:
-			{
-				$assign(mid, $nc(doc)->createElementNS(nullptr, "__dummy__"_s));
-				$nc(mid)->setAttributeNodeNS($cast($Attr, $($nc(doc)->importNode(node, true))));
-				$nc($($nc(doc)->getDocumentElement()))->appendChild(mid);
-				++n;
-				break;
-			}
+		case $1Node::ELEMENT_NODE:
+		case $1Node::TEXT_NODE:
+		case $1Node::CDATA_SECTION_NODE:
+		case $1Node::COMMENT_NODE:
+		case $1Node::ENTITY_REFERENCE_NODE:
+		case $1Node::PROCESSING_INSTRUCTION_NODE:
+			$assign(mid, $nc(doc)->createElementNS(nullptr, "__dummy__"_s));
+			$nc(mid)->appendChild($(doc->importNode(node, true)));
+			$$nc(doc->getDocumentElement())->appendChild(mid);
+			++n;
+			break;
+		case $1Node::ATTRIBUTE_NODE:
+			$assign(mid, $nc(doc)->createElementNS(nullptr, "__dummy__"_s));
+			$nc(mid)->setAttributeNodeNS($$cast($Attr, doc->importNode(node, true)));
+			$$nc(doc->getDocumentElement())->appendChild(mid);
+			++n;
+			break;
 		default:
-			{
-				runTimeError(BasisLibrary::RUN_TIME_INTERNAL_ERR, $of($$str({"Don\'t know how to convert node type "_s, $$str(nodeType)})));
-			}
+			runTimeError(BasisLibrary::RUN_TIME_INTERNAL_ERR, $$str({"Don\'t know how to convert node type "_s, $$str(nodeType)}));
 		}
 	}
 	$var($DTMAxisIterator, iter, nullptr);
@@ -1395,11 +1190,10 @@ $DTMAxisIterator* BasisLibrary::nodeList2Iterator($NodeList* nodeList, $Translet
 	if (doc != nullptr) {
 		$var($MultiDOM, multiDOM, $cast($MultiDOM, dom));
 		$var($DOM, idom, $cast($DOM, $nc(dtmManager)->getDTM($$new($DOMSource, doc), false, nullptr, true, false)));
-		$var($DOM, var$0, idom);
-		$var($StringArray, var$1, $nc(translet)->getNamesArray());
-		$var($StringArray, var$2, translet->getUrisArray());
-		$var($ints, var$3, translet->getTypesArray());
-		$var($DOMAdapter, domAdapter, $new($DOMAdapter, var$0, var$1, var$2, var$3, $(translet->getNamespaceArray())));
+		$var($StringArray, var$0, $nc(translet)->getNamesArray());
+		$var($StringArray, var$1, translet->getUrisArray());
+		$var($ints, var$2, translet->getTypesArray());
+		$var($DOMAdapter, domAdapter, $new($DOMAdapter, idom, var$0, var$1, var$2, $(translet->getNamespaceArray())));
 		$nc(multiDOM)->addDOMAdapter(domAdapter);
 		$var($DTMAxisIterator, iter1, $nc(idom)->getAxisIterator($Axis::CHILD));
 		$var($DTMAxisIterator, iter2, idom->getAxisIterator($Axis::CHILD));
@@ -1415,34 +1209,23 @@ $DTMAxisIterator* BasisLibrary::nodeList2Iterator($NodeList* nodeList, $Translet
 			dtmHandles->set(n++, proxyNodes->get(i));
 			continue;
 		}
-		$var($Node, node, nodeList->item(i));
+		$var($1Node, node, nodeList->item(i));
 		$var($DTMAxisIterator, iter3, nullptr);
 		int32_t nodeType = $nc(node)->getNodeType();
 		switch (nodeType) {
-		case $Node::ELEMENT_NODE:
-			{}
-		case $Node::TEXT_NODE:
-			{}
-		case $Node::CDATA_SECTION_NODE:
-			{}
-		case $Node::COMMENT_NODE:
-			{}
-		case $Node::ENTITY_REFERENCE_NODE:
-			{}
-		case $Node::PROCESSING_INSTRUCTION_NODE:
-			{
-				$assign(iter3, childIter);
-				break;
-			}
-		case $Node::ATTRIBUTE_NODE:
-			{
-				$assign(iter3, attrIter);
-				break;
-			}
+		case $1Node::ELEMENT_NODE:
+		case $1Node::TEXT_NODE:
+		case $1Node::CDATA_SECTION_NODE:
+		case $1Node::COMMENT_NODE:
+		case $1Node::ENTITY_REFERENCE_NODE:
+		case $1Node::PROCESSING_INSTRUCTION_NODE:
+			$assign(iter3, childIter);
+			break;
+		case $1Node::ATTRIBUTE_NODE:
+			$assign(iter3, attrIter);
+			break;
 		default:
-			{
-				$throwNew($InternalRuntimeError, "Mismatched cases"_s);
-			}
+			$throwNew($InternalRuntimeError, "Mismatched cases"_s);
 		}
 		if (iter3 != nullptr) {
 			iter3->setStartNode($nc(iter)->next());
@@ -1465,7 +1248,7 @@ $DTMAxisIterator* BasisLibrary::nodeList2Iterator($NodeList* nodeList, $Translet
 $DOM* BasisLibrary::referenceToResultTree(Object$* obj) {
 	$init(BasisLibrary);
 	try {
-		return ($cast($DOM, obj));
+		return $cast($DOM, obj);
 	} catch ($IllegalArgumentException& e) {
 		$var($String, className, $nc($of(obj))->getClass()->getName());
 		runTimeError(BasisLibrary::DATA_CONVERSION_ERR, "reference"_s, className);
@@ -1482,16 +1265,16 @@ $DTMAxisIterator* BasisLibrary::getSingleNode($DTMAxisIterator* iterator) {
 
 void BasisLibrary::copy(Object$* obj, $SerializationHandler* handler, int32_t node, $DOM* dom) {
 	$init(BasisLibrary);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if ($instanceOf($DTMAxisIterator, obj)) {
 			$var($DTMAxisIterator, iter, $cast($DTMAxisIterator, obj));
-			$nc(dom)->copy($($nc(iter)->reset()), handler);
-		} else if ($instanceOf($1Node, obj)) {
-			$nc(dom)->copy($nc(($cast($1Node, obj)))->node, handler);
+			$nc(dom)->copy($(iter->reset()), handler);
+		} else if ($instanceOf($Node, obj)) {
+			$nc(dom)->copy($cast($Node, obj)->node, handler);
 		} else if ($instanceOf($DOM, obj)) {
 			$var($DOM, newDom, $cast($DOM, obj));
-			$nc(newDom)->copy(newDom->getDocument(), handler);
+			newDom->copy(newDom->getDocument(), handler);
 		} else {
 			$var($String, string, $nc($of(obj))->toString());
 			int32_t length = $nc(string)->length();
@@ -1508,54 +1291,54 @@ void BasisLibrary::copy(Object$* obj, $SerializationHandler* handler, int32_t no
 
 void BasisLibrary::checkAttribQName($String* name) {
 	$init(BasisLibrary);
-	$useLocalCurrentObjectStackCache();
-	int32_t firstOccur = $nc(name)->indexOf((int32_t)u':');
-	int32_t lastOccur = name->lastIndexOf((int32_t)u':');
+	$useLocalObjectStack();
+	int32_t firstOccur = $nc(name)->indexOf(u':');
+	int32_t lastOccur = name->lastIndexOf(u':');
 	$var($String, localName, name->substring(lastOccur + 1));
 	if (firstOccur > 0) {
 		$var($String, newPrefix, name->substring(0, firstOccur));
 		if (firstOccur != lastOccur) {
 			$var($String, oriPrefix, name->substring(firstOccur + 1, lastOccur));
 			if (!$XML11Char::isXML11ValidNCName(oriPrefix)) {
-				runTimeError(BasisLibrary::INVALID_QNAME_ERR, $of($$str({oriPrefix, ":"_s, localName})));
+				runTimeError(BasisLibrary::INVALID_QNAME_ERR, $$str({oriPrefix, ":"_s, localName}));
 			}
 		}
 		if (!$XML11Char::isXML11ValidNCName(newPrefix)) {
-			runTimeError(BasisLibrary::INVALID_QNAME_ERR, $of($$str({newPrefix, ":"_s, localName})));
+			runTimeError(BasisLibrary::INVALID_QNAME_ERR, $$str({newPrefix, ":"_s, localName}));
 		}
 	}
-	bool var$0 = (!$XML11Char::isXML11ValidNCName(localName));
+	bool var$0 = !$XML11Char::isXML11ValidNCName(localName);
 	$init($Constants);
 	if (var$0 || (localName->equals($Constants::XMLNS_PREFIX))) {
-		runTimeError(BasisLibrary::INVALID_QNAME_ERR, $of(localName));
+		runTimeError(BasisLibrary::INVALID_QNAME_ERR, localName);
 	}
 }
 
 void BasisLibrary::checkNCName($String* name) {
 	$init(BasisLibrary);
 	if (!$XML11Char::isXML11ValidNCName(name)) {
-		runTimeError(BasisLibrary::INVALID_NCNAME_ERR, $of(name));
+		runTimeError(BasisLibrary::INVALID_NCNAME_ERR, name);
 	}
 }
 
 void BasisLibrary::checkQName($String* name) {
 	$init(BasisLibrary);
 	if (!$XML11Char::isXML11ValidQName(name)) {
-		runTimeError(BasisLibrary::INVALID_QNAME_ERR, $of(name));
+		runTimeError(BasisLibrary::INVALID_QNAME_ERR, name);
 	}
 }
 
 $String* BasisLibrary::startXslElement($String* qname$renamed, $String* namespace$$renamed, $SerializationHandler* handler, $DOM* dom, int32_t node) {
 	$init(BasisLibrary);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, qname, qname$renamed);
 	$var($String, namespace$, namespace$$renamed);
 	try {
 		$var($String, prefix, nullptr);
-		int32_t index = $nc(qname)->indexOf((int32_t)u':');
+		int32_t index = $nc(qname)->indexOf(u':');
 		if (index > 0) {
 			$assign(prefix, qname->substring(0, index));
-			if (namespace$ == nullptr || $nc(namespace$)->length() == 0) {
+			if (namespace$ == nullptr || namespace$->length() == 0) {
 				try {
 					$assign(namespace$, $nc(dom)->lookupNamespace(node, prefix));
 				} catch ($RuntimeException& e) {
@@ -1563,7 +1346,7 @@ $String* BasisLibrary::startXslElement($String* qname$renamed, $String* namespac
 					$var($NamespaceMappings, nm, handler->getNamespaceMappings());
 					$assign(namespace$, $nc(nm)->lookupNamespace(prefix));
 					if (namespace$ == nullptr) {
-						runTimeError(BasisLibrary::NAMESPACE_PREFIX_ERR, $of(prefix));
+						runTimeError(BasisLibrary::NAMESPACE_PREFIX_ERR, prefix);
 					}
 				}
 			}
@@ -1585,19 +1368,19 @@ $String* BasisLibrary::startXslElement($String* qname$renamed, $String* namespac
 
 $String* BasisLibrary::getPrefix($String* qname) {
 	$init(BasisLibrary);
-	int32_t index = $nc(qname)->indexOf((int32_t)u':');
+	int32_t index = $nc(qname)->indexOf(u':');
 	return (index > 0) ? qname->substring(0, index) : ($String*)nullptr;
 }
 
 $String* BasisLibrary::generatePrefix() {
 	$init(BasisLibrary);
-	$useLocalCurrentObjectStackCache();
-	return ($str({"ns"_s, $$str($nc(($cast($AtomicInteger, $($nc(BasisLibrary::threadLocalPrefixIndex)->get()))))->getAndIncrement())}));
+	$useLocalObjectStack();
+	return ($str({"ns"_s, $$str($$sure($AtomicInteger, BasisLibrary::threadLocalPrefixIndex->get())->getAndIncrement())}));
 }
 
 void BasisLibrary::resetPrefixIndex() {
 	$init(BasisLibrary);
-	$nc(($cast($AtomicInteger, $($nc(BasisLibrary::threadLocalPrefixIndex)->get()))))->set(0);
+	$$sure($AtomicInteger, BasisLibrary::threadLocalPrefixIndex->get())->set(0);
 }
 
 void BasisLibrary::runTimeError($String* code) {
@@ -1607,7 +1390,7 @@ void BasisLibrary::runTimeError($String* code) {
 
 void BasisLibrary::runTimeError($String* code, $ObjectArray* args) {
 	$init(BasisLibrary);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, message, $MessageFormat::format($($nc(BasisLibrary::m_bundle)->getString(code)), args));
 	$throwNew($RuntimeException, message);
 }
@@ -1632,18 +1415,18 @@ void BasisLibrary::consoleOutput($String* msg) {
 
 $String* BasisLibrary::replace($String* base, char16_t ch, $String* str) {
 	$init(BasisLibrary);
-	$useLocalCurrentObjectStackCache();
-	return ($nc(base)->indexOf((int32_t)ch) < 0) ? base : replace(base, $($String::valueOf(ch)), $$new($StringArray, {str}));
+	$useLocalObjectStack();
+	return ($nc(base)->indexOf(ch) < 0) ? base : replace(base, $($String::valueOf(ch)), $$new($StringArray, {str}));
 }
 
 $String* BasisLibrary::replace($String* base, $String* delim, $StringArray* str) {
 	$init(BasisLibrary);
 	int32_t len = $nc(base)->length();
-	$var($StringBuilder, result, $cast($StringBuilder, $nc(BasisLibrary::threadLocalStringBuilder)->get()));
+	$var($StringBuilder, result, $cast($StringBuilder, BasisLibrary::threadLocalStringBuilder->get()));
 	$nc(result)->setLength(0);
 	for (int32_t i = 0; i < len; ++i) {
 		char16_t ch = base->charAt(i);
-		int32_t k = $nc(delim)->indexOf((int32_t)ch);
+		int32_t k = $nc(delim)->indexOf(ch);
 		if (k >= 0) {
 			result->append($nc(str)->get(k));
 		} else {
@@ -1671,14 +1454,14 @@ $String* BasisLibrary::mapQNameToJavaName($String* base) {
 
 int32_t BasisLibrary::getStringLength($String* str) {
 	$init(BasisLibrary);
-	return $nc(str)->codePointCount(0, str->length());
+	return $nc(str)->codePointCount(0, $nc(str)->length());
 }
 
-void clinit$BasisLibrary($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void BasisLibrary::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(BasisLibrary::EMPTYSTRING, ""_s);
 	BasisLibrary::lowerBounds = 0.001;
-	BasisLibrary::upperBounds = (double)0x00989680;
+	BasisLibrary::upperBounds = 10000000;
 	$assignStatic(BasisLibrary::RUN_TIME_INTERNAL_ERR, "RUN_TIME_INTERNAL_ERR"_s);
 	$assignStatic(BasisLibrary::RUN_TIME_COPY_ERR, "RUN_TIME_COPY_ERR"_s);
 	$assignStatic(BasisLibrary::DATA_CONVERSION_ERR, "DATA_CONVERSION_ERR"_s);
@@ -1711,14 +1494,14 @@ void clinit$BasisLibrary($Class* class$) {
 		$var($NumberFormat, f, $NumberFormat::getInstance($($Locale::getDefault())));
 		$assignStatic(BasisLibrary::defaultFormatter, ($instanceOf($DecimalFormat, f)) ? $cast($DecimalFormat, f) : $new($DecimalFormat));
 		$nc(BasisLibrary::defaultFormatter)->setMaximumFractionDigits(BasisLibrary::DOUBLE_FRACTION_DIGITS);
-		$nc(BasisLibrary::defaultFormatter)->setMinimumFractionDigits(0);
-		$nc(BasisLibrary::defaultFormatter)->setMinimumIntegerDigits(1);
-		$nc(BasisLibrary::defaultFormatter)->setGroupingUsed(false);
+		BasisLibrary::defaultFormatter->setMinimumFractionDigits(0);
+		BasisLibrary::defaultFormatter->setMinimumIntegerDigits(1);
+		BasisLibrary::defaultFormatter->setGroupingUsed(false);
 		$assignStatic(BasisLibrary::xpathFormatter, $new($DecimalFormat, ""_s, $$new($DecimalFormatSymbols, $Locale::US)));
-		$nc(BasisLibrary::xpathFormatter)->setMaximumFractionDigits(BasisLibrary::DOUBLE_FRACTION_DIGITS);
-		$nc(BasisLibrary::xpathFormatter)->setMinimumFractionDigits(0);
-		$nc(BasisLibrary::xpathFormatter)->setMinimumIntegerDigits(1);
-		$nc(BasisLibrary::xpathFormatter)->setGroupingUsed(false);
+		BasisLibrary::xpathFormatter->setMaximumFractionDigits(BasisLibrary::DOUBLE_FRACTION_DIGITS);
+		BasisLibrary::xpathFormatter->setMinimumFractionDigits(0);
+		BasisLibrary::xpathFormatter->setMinimumIntegerDigits(1);
+		BasisLibrary::xpathFormatter->setGroupingUsed(false);
 	}
 	$assignStatic(BasisLibrary::_fieldPosition, $new($FieldPosition, 0));
 	$assignStatic(BasisLibrary::_characterArray, $new($chars, 32));
@@ -1733,7 +1516,150 @@ BasisLibrary::BasisLibrary() {
 }
 
 $Class* BasisLibrary::load$($String* name, bool initialize) {
-	$loadClass(BasisLibrary, name, initialize, &_BasisLibrary_ClassInfo_, clinit$BasisLibrary, allocate$BasisLibrary);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTYSTRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasisLibrary, EMPTYSTRING)},
+		{"threadLocalStringBuilder", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Ljava/lang/StringBuilder;>;", $PRIVATE | $STATIC | $FINAL, $staticField(BasisLibrary, threadLocalStringBuilder)},
+		{"threadLocalStringBuffer", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Ljava/lang/StringBuffer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(BasisLibrary, threadLocalStringBuffer)},
+		{"DOUBLE_FRACTION_DIGITS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasisLibrary, DOUBLE_FRACTION_DIGITS)},
+		{"lowerBounds", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasisLibrary, lowerBounds)},
+		{"upperBounds", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasisLibrary, upperBounds)},
+		{"defaultFormatter", "Ljava/text/DecimalFormat;", nullptr, $PRIVATE | $STATIC, $staticField(BasisLibrary, defaultFormatter)},
+		{"xpathFormatter", "Ljava/text/DecimalFormat;", nullptr, $PRIVATE | $STATIC, $staticField(BasisLibrary, xpathFormatter)},
+		{"defaultPattern", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasisLibrary, defaultPattern)},
+		{"_fieldPosition", "Ljava/text/FieldPosition;", nullptr, $PRIVATE | $STATIC, $staticField(BasisLibrary, _fieldPosition)},
+		{"_characterArray", "[C", nullptr, $PRIVATE | $STATIC, $staticField(BasisLibrary, _characterArray)},
+		{"threadLocalPrefixIndex", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Ljava/util/concurrent/atomic/AtomicInteger;>;", $PRIVATE | $STATIC | $FINAL, $staticField(BasisLibrary, threadLocalPrefixIndex)},
+		{"RUN_TIME_INTERNAL_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, RUN_TIME_INTERNAL_ERR)},
+		{"RUN_TIME_COPY_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, RUN_TIME_COPY_ERR)},
+		{"DATA_CONVERSION_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, DATA_CONVERSION_ERR)},
+		{"EXTERNAL_FUNC_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, EXTERNAL_FUNC_ERR)},
+		{"EQUALITY_EXPR_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, EQUALITY_EXPR_ERR)},
+		{"INVALID_ARGUMENT_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, INVALID_ARGUMENT_ERR)},
+		{"FORMAT_NUMBER_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, FORMAT_NUMBER_ERR)},
+		{"ITERATOR_CLONE_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, ITERATOR_CLONE_ERR)},
+		{"AXIS_SUPPORT_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, AXIS_SUPPORT_ERR)},
+		{"TYPED_AXIS_SUPPORT_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, TYPED_AXIS_SUPPORT_ERR)},
+		{"STRAY_ATTRIBUTE_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, STRAY_ATTRIBUTE_ERR)},
+		{"STRAY_NAMESPACE_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, STRAY_NAMESPACE_ERR)},
+		{"NAMESPACE_PREFIX_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, NAMESPACE_PREFIX_ERR)},
+		{"DOM_ADAPTER_INIT_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, DOM_ADAPTER_INIT_ERR)},
+		{"PARSER_DTD_SUPPORT_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, PARSER_DTD_SUPPORT_ERR)},
+		{"NAMESPACES_SUPPORT_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, NAMESPACES_SUPPORT_ERR)},
+		{"CANT_RESOLVE_RELATIVE_URI_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, CANT_RESOLVE_RELATIVE_URI_ERR)},
+		{"UNSUPPORTED_XSL_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, UNSUPPORTED_XSL_ERR)},
+		{"UNSUPPORTED_EXT_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, UNSUPPORTED_EXT_ERR)},
+		{"UNKNOWN_TRANSLET_VERSION_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, UNKNOWN_TRANSLET_VERSION_ERR)},
+		{"INVALID_QNAME_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, INVALID_QNAME_ERR)},
+		{"INVALID_NCNAME_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, INVALID_NCNAME_ERR)},
+		{"UNALLOWED_EXTENSION_FUNCTION_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, UNALLOWED_EXTENSION_FUNCTION_ERR)},
+		{"UNALLOWED_EXTENSION_ELEMENT_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, UNALLOWED_EXTENSION_ELEMENT_ERR)},
+		{"m_bundle", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticField(BasisLibrary, m_bundle)},
+		{"ERROR_MESSAGES_KEY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasisLibrary, ERROR_MESSAGES_KEY)},
+		{}
+	};
+	$CompoundAttribute positionFmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasisLibrary, init$, void)},
+		{"booleanF", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, booleanF, bool, Object$*)},
+		{"checkAttribQName", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, checkAttribQName, void, $String*)},
+		{"checkNCName", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, checkNCName, void, $String*)},
+		{"checkQName", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, checkQName, void, $String*)},
+		{"compare", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;ILcom/sun/org/apache/xalan/internal/xsltc/DOM;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, compare, bool, $DTMAxisIterator*, $DTMAxisIterator*, int32_t, $DOM*)},
+		{"compare", "(ILcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;ILcom/sun/org/apache/xalan/internal/xsltc/DOM;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, compare, bool, int32_t, $DTMAxisIterator*, int32_t, $DOM*)},
+		{"compare", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;DILcom/sun/org/apache/xalan/internal/xsltc/DOM;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, compare, bool, $DTMAxisIterator*, double, int32_t, $DOM*)},
+		{"compare", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Ljava/lang/String;ILcom/sun/org/apache/xalan/internal/xsltc/DOM;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, compare, bool, $DTMAxisIterator*, $String*, int32_t, $DOM*)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;ILcom/sun/org/apache/xalan/internal/xsltc/DOM;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, compare, bool, Object$*, Object$*, int32_t, $DOM*)},
+		{"compareStrings", "(Ljava/lang/String;Ljava/lang/String;ILcom/sun/org/apache/xalan/internal/xsltc/DOM;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BasisLibrary, compareStrings, bool, $String*, $String*, int32_t, $DOM*)},
+		{"consoleOutput", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, consoleOutput, void, $String*)},
+		{"copy", "(Ljava/lang/Object;Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;ILcom/sun/org/apache/xalan/internal/xsltc/DOM;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, copy, void, Object$*, $SerializationHandler*, int32_t, $DOM*)},
+		{"countF", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, countF, int32_t, $DTMAxisIterator*)},
+		{"formatNumber", "(DLjava/lang/String;Ljava/text/DecimalFormat;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, formatNumber, $String*, double, $String*, $DecimalFormat*)},
+		{"generatePrefix", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, generatePrefix, $String*)},
+		{"generate_idF", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, generate_idF, $String*, int32_t)},
+		{"getLocalName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, getLocalName, $String*, $String*)},
+		{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, getPrefix, $String*, $String*)},
+		{"getSingleNode", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, getSingleNode, $DTMAxisIterator*, $DTMAxisIterator*)},
+		{"getStringLength", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, getStringLength, int32_t, $String*)},
+		{"hasSimpleType", "(Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BasisLibrary, hasSimpleType, bool, Object$*)},
+		{"isWhiteSpace", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BasisLibrary, isWhiteSpace, bool, char16_t)},
+		{"mapQNameToJavaName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, mapQNameToJavaName, $String*, $String*)},
+		{"namespace_uriF", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, namespace_uriF, $String*, $DTMAxisIterator*, $DOM*)},
+		{"namespace_uriF", "(ILcom/sun/org/apache/xalan/internal/xsltc/DOM;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, namespace_uriF, $String*, int32_t, $DOM*)},
+		{"node2Iterator", "(Lorg/w3c/dom/Node;Lcom/sun/org/apache/xalan/internal/xsltc/Translet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, node2Iterator, $DTMAxisIterator*, $1Node*, $Translet*, $DOM*)},
+		{"nodeList2Iterator", "(Lorg/w3c/dom/NodeList;Lcom/sun/org/apache/xalan/internal/xsltc/Translet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, nodeList2Iterator, $DTMAxisIterator*, $NodeList*, $Translet*, $DOM*)},
+		{"nodeList2IteratorUsingHandleFromNode", "(Lorg/w3c/dom/NodeList;Lcom/sun/org/apache/xalan/internal/xsltc/Translet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PRIVATE | $STATIC, $staticMethod(BasisLibrary, nodeList2IteratorUsingHandleFromNode, $DTMAxisIterator*, $NodeList*, $Translet*, $DOM*)},
+		{"nodesetF", "(Ljava/lang/Object;)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, nodesetF, $DTMAxisIterator*, Object$*)},
+		{"normalize_spaceF", "(ILcom/sun/org/apache/xalan/internal/xsltc/DOM;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, normalize_spaceF, $String*, int32_t, $DOM*)},
+		{"normalize_spaceF", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, normalize_spaceF, $String*, $String*)},
+		{"numberF", "(ILcom/sun/org/apache/xalan/internal/xsltc/DOM;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, numberF, double, int32_t, $DOM*)},
+		{"numberF", "(Ljava/lang/Object;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, numberF, double, Object$*, $DOM*)},
+		{"objectTypeF", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, objectTypeF, $String*, Object$*)},
+		{"positionF", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)I", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(BasisLibrary, positionF, int32_t, $DTMAxisIterator*), nullptr, nullptr, positionFmethodAnnotations$$},
+		{"realToInt", "(D)I", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, realToInt, int32_t, double)},
+		{"realToString", "(D)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, realToString, $String*, double)},
+		{"referenceToBoolean", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, referenceToBoolean, bool, Object$*)},
+		{"referenceToDouble", "(Ljava/lang/Object;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, referenceToDouble, double, Object$*)},
+		{"referenceToLong", "(Ljava/lang/Object;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, referenceToLong, int64_t, Object$*)},
+		{"referenceToNode", "(Ljava/lang/Object;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, referenceToNode, $1Node*, Object$*, $DOM*)},
+		{"referenceToNodeList", "(Ljava/lang/Object;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, referenceToNodeList, $NodeList*, Object$*, $DOM*)},
+		{"referenceToNodeSet", "(Ljava/lang/Object;)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, referenceToNodeSet, $DTMAxisIterator*, Object$*)},
+		{"referenceToResultTree", "(Ljava/lang/Object;)Lcom/sun/org/apache/xalan/internal/xsltc/DOM;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, referenceToResultTree, $DOM*, Object$*)},
+		{"referenceToString", "(Ljava/lang/Object;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, referenceToString, $String*, Object$*, $DOM*)},
+		{"replace", "(Ljava/lang/String;CLjava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, replace, $String*, $String*, char16_t, $String*)},
+		{"replace", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, replace, $String*, $String*, $String*, $StringArray*)},
+		{"resetPrefixIndex", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, resetPrefixIndex, void)},
+		{"roundF", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, roundF, double, double)},
+		{"runTimeError", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, runTimeError, void, $String*)},
+		{"runTimeError", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, runTimeError, void, $String*, $ObjectArray*)},
+		{"runTimeError", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, runTimeError, void, $String*, Object$*)},
+		{"runTimeError", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, runTimeError, void, $String*, Object$*, Object$*)},
+		{"startXslElement", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, startXslElement, $String*, $String*, $String*, $SerializationHandler*, $DOM*, int32_t)},
+		{"stringF", "(ILcom/sun/org/apache/xalan/internal/xsltc/DOM;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, stringF, $String*, int32_t, $DOM*)},
+		{"stringF", "(Ljava/lang/Object;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, stringF, $String*, Object$*, $DOM*)},
+		{"stringF", "(Ljava/lang/Object;ILcom/sun/org/apache/xalan/internal/xsltc/DOM;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, stringF, $String*, Object$*, int32_t, $DOM*)},
+		{"stringToInt", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, stringToInt, int32_t, $String*)},
+		{"stringToReal", "(Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, stringToReal, double, $String*)},
+		{"substringF", "(Ljava/lang/String;D)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, substringF, $String*, $String*, double)},
+		{"substringF", "(Ljava/lang/String;DD)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, substringF, $String*, $String*, double, double)},
+		{"substring_afterF", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, substring_afterF, $String*, $String*, $String*)},
+		{"substring_beforeF", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, substring_beforeF, $String*, $String*, $String*)},
+		{"sumF", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, sumF, double, $DTMAxisIterator*, $DOM*)},
+		{"system_propertyF", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, system_propertyF, $String*, $String*)},
+		{"testLanguage", "(Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, testLanguage, bool, $String*, $DOM*, int32_t)},
+		{"translateF", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, translateF, $String*, $String*, $String*, $String*)},
+		{"unallowed_extension_elementF", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, unallowed_extension_elementF, void, $String*)},
+		{"unallowed_extension_functionF", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, unallowed_extension_functionF, void, $String*)},
+		{"unresolved_externalF", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, unresolved_externalF, void, $String*)},
+		{"unsupported_ElementF", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasisLibrary, unsupported_ElementF, void, $String*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary$4", nullptr, nullptr, 0},
+		{"com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary$3", nullptr, nullptr, 0},
+		{"com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary$2", nullptr, nullptr, 0},
+		{"com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary$4,com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary$3,com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary$2,com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary$1"
+	};
+	$loadClass(BasisLibrary, name, initialize, &classInfo$$, BasisLibrary::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasisLibrary);
+	});
 	return class$;
 }
 

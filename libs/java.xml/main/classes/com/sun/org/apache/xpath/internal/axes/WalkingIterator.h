@@ -106,7 +106,7 @@ public:
 	void setLastUsedWalker(::com::sun::org::apache::xpath::internal::axes::AxesWalker* walker);
 	virtual void setRoot(int32_t context, Object$* environment) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x7E6E0639DD78A4F2;
+	static const int64_t serialVersionUID = (int64_t)0x7e6e0639dd78a4f2;
 	::com::sun::org::apache::xpath::internal::axes::AxesWalker* m_lastUsedWalker = nullptr;
 	::com::sun::org::apache::xpath::internal::axes::AxesWalker* m_firstWalker = nullptr;
 };

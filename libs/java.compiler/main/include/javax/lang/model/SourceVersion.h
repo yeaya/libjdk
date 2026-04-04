@@ -58,6 +58,7 @@ class $import SourceVersion : public ::java::lang::Enum {
 public:
 	SourceVersion();
 	static $Array<::javax::lang::model::SourceVersion>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::javax::lang::model::SourceVersion* getLatestSupported();
 	static bool isIdentifier(::java::lang::CharSequence* name);

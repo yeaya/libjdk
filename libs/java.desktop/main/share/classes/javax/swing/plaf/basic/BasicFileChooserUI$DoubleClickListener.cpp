@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicFileChooserUI$DoubleClickListener.h>
-
 #include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseEvent.h>
 #include <javax/swing/JList.h>
@@ -22,44 +21,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicFileChooserUI$DoubleClickListener_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicFileChooserUI$DoubleClickListener, this$0)},
-	{"handler", "Ljavax/swing/plaf/basic/BasicFileChooserUI$Handler;", nullptr, 0, $field(BasicFileChooserUI$DoubleClickListener, handler)},
-	{}
-};
-
-$MethodInfo _BasicFileChooserUI$DoubleClickListener_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicFileChooserUI;Ljavax/swing/JList;)V", "(Ljavax/swing/JList<*>;)V", $PUBLIC, $method(BasicFileChooserUI$DoubleClickListener, init$, void, $BasicFileChooserUI*, $JList*)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI$DoubleClickListener, mouseClicked, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI$DoubleClickListener, mouseEntered, void, $MouseEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicFileChooserUI$DoubleClickListener_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicFileChooserUI$DoubleClickListener", "javax.swing.plaf.basic.BasicFileChooserUI", "DoubleClickListener", $PROTECTED},
-	{}
-};
-
-$ClassInfo _BasicFileChooserUI$DoubleClickListener_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicFileChooserUI$DoubleClickListener",
-	"java.awt.event.MouseAdapter",
-	nullptr,
-	_BasicFileChooserUI$DoubleClickListener_FieldInfo_,
-	_BasicFileChooserUI$DoubleClickListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicFileChooserUI$DoubleClickListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicFileChooserUI"
-};
-
-$Object* allocate$BasicFileChooserUI$DoubleClickListener($Class* clazz) {
-	return $of($alloc(BasicFileChooserUI$DoubleClickListener));
-}
-
 void BasicFileChooserUI$DoubleClickListener::init$($BasicFileChooserUI* this$0, $JList* list) {
 	$set(this, this$0, this$0);
 	$MouseAdapter::init$();
@@ -78,7 +39,39 @@ BasicFileChooserUI$DoubleClickListener::BasicFileChooserUI$DoubleClickListener()
 }
 
 $Class* BasicFileChooserUI$DoubleClickListener::load$($String* name, bool initialize) {
-	$loadClass(BasicFileChooserUI$DoubleClickListener, name, initialize, &_BasicFileChooserUI$DoubleClickListener_ClassInfo_, allocate$BasicFileChooserUI$DoubleClickListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicFileChooserUI$DoubleClickListener, this$0)},
+		{"handler", "Ljavax/swing/plaf/basic/BasicFileChooserUI$Handler;", nullptr, 0, $field(BasicFileChooserUI$DoubleClickListener, handler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicFileChooserUI;Ljavax/swing/JList;)V", "(Ljavax/swing/JList<*>;)V", $PUBLIC, $method(BasicFileChooserUI$DoubleClickListener, init$, void, $BasicFileChooserUI*, $JList*)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI$DoubleClickListener, mouseClicked, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI$DoubleClickListener, mouseEntered, void, $MouseEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicFileChooserUI$DoubleClickListener", "javax.swing.plaf.basic.BasicFileChooserUI", "DoubleClickListener", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicFileChooserUI$DoubleClickListener",
+		"java.awt.event.MouseAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicFileChooserUI"
+	};
+	$loadClass(BasicFileChooserUI$DoubleClickListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicFileChooserUI$DoubleClickListener));
+	});
 	return class$;
 }
 

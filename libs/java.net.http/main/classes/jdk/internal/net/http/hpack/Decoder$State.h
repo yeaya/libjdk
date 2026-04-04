@@ -30,6 +30,7 @@ class Decoder$State : public ::java::lang::Enum {
 public:
 	Decoder$State();
 	static $Array<::jdk::internal::net::http::hpack::Decoder$State>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::jdk::internal::net::http::hpack::Decoder$State* valueOf($String* name);
 	static $Array<::jdk::internal::net::http::hpack::Decoder$State>* values();

@@ -1,5 +1,4 @@
 #include <sun/awt/X11/ColorData.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/ColorEntry.h>
 #include <sun/awt/X11/Native.h>
@@ -12,84 +11,14 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $ColorEntry = ::sun::awt::X11::ColorEntry;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _ColorData_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(ColorData, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(ColorData, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(ColorData, pData)},
-	{}
-};
-
-$MethodInfo _ColorData_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(ColorData, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ColorData, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ColorData, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(ColorData, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(ColorData, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ColorData, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ColorData, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(ColorData, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(ColorData, getSize, int32_t)},
-	{"get_awt_Colors", "(I)Lsun/awt/X11/ColorEntry;", nullptr, $PUBLIC, $virtualMethod(ColorData, get_awt_Colors, $ColorEntry*, int32_t)},
-	{"get_awt_Colors", "()J", nullptr, $PUBLIC, $virtualMethod(ColorData, get_awt_Colors, int64_t)},
-	{"get_awt_icmLUT", "(I)I", nullptr, $PUBLIC, $virtualMethod(ColorData, get_awt_icmLUT, int32_t, int32_t)},
-	{"get_awt_icmLUT", "()J", nullptr, $PUBLIC, $virtualMethod(ColorData, get_awt_icmLUT, int64_t)},
-	{"get_awt_icmLUT2Colors", "(I)B", nullptr, $PUBLIC, $virtualMethod(ColorData, get_awt_icmLUT2Colors, int8_t, int32_t)},
-	{"get_awt_icmLUT2Colors", "()J", nullptr, $PUBLIC, $virtualMethod(ColorData, get_awt_icmLUT2Colors, int64_t)},
-	{"get_awt_numICMcolors", "()I", nullptr, $PUBLIC, $virtualMethod(ColorData, get_awt_numICMcolors, int32_t)},
-	{"get_img_clr_tbl", "(I)B", nullptr, $PUBLIC, $virtualMethod(ColorData, get_img_clr_tbl, int8_t, int32_t)},
-	{"get_img_clr_tbl", "()J", nullptr, $PUBLIC, $virtualMethod(ColorData, get_img_clr_tbl, int64_t)},
-	{"get_img_grays", "(I)B", nullptr, $PUBLIC, $virtualMethod(ColorData, get_img_grays, int8_t, int32_t)},
-	{"get_img_grays", "()J", nullptr, $PUBLIC, $virtualMethod(ColorData, get_img_grays, int64_t)},
-	{"get_img_oda_blue", "(I)B", nullptr, $PUBLIC, $virtualMethod(ColorData, get_img_oda_blue, int8_t, int32_t)},
-	{"get_img_oda_blue", "()J", nullptr, $PUBLIC, $virtualMethod(ColorData, get_img_oda_blue, int64_t)},
-	{"get_img_oda_green", "(I)B", nullptr, $PUBLIC, $virtualMethod(ColorData, get_img_oda_green, int8_t, int32_t)},
-	{"get_img_oda_green", "()J", nullptr, $PUBLIC, $virtualMethod(ColorData, get_img_oda_green, int64_t)},
-	{"get_img_oda_red", "(I)B", nullptr, $PUBLIC, $virtualMethod(ColorData, get_img_oda_red, int8_t, int32_t)},
-	{"get_img_oda_red", "()J", nullptr, $PUBLIC, $virtualMethod(ColorData, get_img_oda_red, int64_t)},
-	{"get_pGrayInverseLutData", "(I)I", nullptr, $PUBLIC, $virtualMethod(ColorData, get_pGrayInverseLutData, int32_t, int32_t)},
-	{"get_pGrayInverseLutData", "()J", nullptr, $PUBLIC, $virtualMethod(ColorData, get_pGrayInverseLutData, int64_t)},
-	{"get_representsPrimaries", "()I", nullptr, $PUBLIC, $virtualMethod(ColorData, get_representsPrimaries, int32_t)},
-	{"get_screendata", "()I", nullptr, $PUBLIC, $virtualMethod(ColorData, get_screendata, int32_t)},
-	{"set_awt_Colors", "(J)V", nullptr, $PUBLIC, $virtualMethod(ColorData, set_awt_Colors, void, int64_t)},
-	{"set_awt_icmLUT", "(J)V", nullptr, $PUBLIC, $virtualMethod(ColorData, set_awt_icmLUT, void, int64_t)},
-	{"set_awt_icmLUT2Colors", "(J)V", nullptr, $PUBLIC, $virtualMethod(ColorData, set_awt_icmLUT2Colors, void, int64_t)},
-	{"set_awt_numICMcolors", "(I)V", nullptr, $PUBLIC, $virtualMethod(ColorData, set_awt_numICMcolors, void, int32_t)},
-	{"set_img_clr_tbl", "(J)V", nullptr, $PUBLIC, $virtualMethod(ColorData, set_img_clr_tbl, void, int64_t)},
-	{"set_img_grays", "(J)V", nullptr, $PUBLIC, $virtualMethod(ColorData, set_img_grays, void, int64_t)},
-	{"set_img_oda_blue", "(J)V", nullptr, $PUBLIC, $virtualMethod(ColorData, set_img_oda_blue, void, int64_t)},
-	{"set_img_oda_green", "(J)V", nullptr, $PUBLIC, $virtualMethod(ColorData, set_img_oda_green, void, int64_t)},
-	{"set_img_oda_red", "(J)V", nullptr, $PUBLIC, $virtualMethod(ColorData, set_img_oda_red, void, int64_t)},
-	{"set_pGrayInverseLutData", "(J)V", nullptr, $PUBLIC, $virtualMethod(ColorData, set_pGrayInverseLutData, void, int64_t)},
-	{"set_representsPrimaries", "(I)V", nullptr, $PUBLIC, $virtualMethod(ColorData, set_representsPrimaries, void, int32_t)},
-	{"set_screendata", "(I)V", nullptr, $PUBLIC, $virtualMethod(ColorData, set_screendata, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ColorData, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ColorData, zero, void)},
-	{}
-};
-
-$ClassInfo _ColorData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.ColorData",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_ColorData_FieldInfo_,
-	_ColorData_MethodInfo_
-};
-
-$Object* allocate$ColorData($Class* clazz) {
-	return $of($alloc(ColorData));
-}
 
 int32_t ColorData::getSize() {
 	$init(ColorData);
@@ -128,7 +57,7 @@ void ColorData::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -353,7 +282,7 @@ $String* ColorData::getFieldsAsString() {
 }
 
 $Object* ColorData::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void ColorData::zero() {
@@ -368,7 +297,70 @@ ColorData::ColorData() {
 }
 
 $Class* ColorData::load$($String* name, bool initialize) {
-	$loadClass(ColorData, name, initialize, &_ColorData_ClassInfo_, allocate$ColorData);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(ColorData, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(ColorData, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(ColorData, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(ColorData, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ColorData, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ColorData, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(ColorData, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(ColorData, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ColorData, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ColorData, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(ColorData, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(ColorData, getSize, int32_t)},
+		{"get_awt_Colors", "(I)Lsun/awt/X11/ColorEntry;", nullptr, $PUBLIC, $virtualMethod(ColorData, get_awt_Colors, $ColorEntry*, int32_t)},
+		{"get_awt_Colors", "()J", nullptr, $PUBLIC, $virtualMethod(ColorData, get_awt_Colors, int64_t)},
+		{"get_awt_icmLUT", "(I)I", nullptr, $PUBLIC, $virtualMethod(ColorData, get_awt_icmLUT, int32_t, int32_t)},
+		{"get_awt_icmLUT", "()J", nullptr, $PUBLIC, $virtualMethod(ColorData, get_awt_icmLUT, int64_t)},
+		{"get_awt_icmLUT2Colors", "(I)B", nullptr, $PUBLIC, $virtualMethod(ColorData, get_awt_icmLUT2Colors, int8_t, int32_t)},
+		{"get_awt_icmLUT2Colors", "()J", nullptr, $PUBLIC, $virtualMethod(ColorData, get_awt_icmLUT2Colors, int64_t)},
+		{"get_awt_numICMcolors", "()I", nullptr, $PUBLIC, $virtualMethod(ColorData, get_awt_numICMcolors, int32_t)},
+		{"get_img_clr_tbl", "(I)B", nullptr, $PUBLIC, $virtualMethod(ColorData, get_img_clr_tbl, int8_t, int32_t)},
+		{"get_img_clr_tbl", "()J", nullptr, $PUBLIC, $virtualMethod(ColorData, get_img_clr_tbl, int64_t)},
+		{"get_img_grays", "(I)B", nullptr, $PUBLIC, $virtualMethod(ColorData, get_img_grays, int8_t, int32_t)},
+		{"get_img_grays", "()J", nullptr, $PUBLIC, $virtualMethod(ColorData, get_img_grays, int64_t)},
+		{"get_img_oda_blue", "(I)B", nullptr, $PUBLIC, $virtualMethod(ColorData, get_img_oda_blue, int8_t, int32_t)},
+		{"get_img_oda_blue", "()J", nullptr, $PUBLIC, $virtualMethod(ColorData, get_img_oda_blue, int64_t)},
+		{"get_img_oda_green", "(I)B", nullptr, $PUBLIC, $virtualMethod(ColorData, get_img_oda_green, int8_t, int32_t)},
+		{"get_img_oda_green", "()J", nullptr, $PUBLIC, $virtualMethod(ColorData, get_img_oda_green, int64_t)},
+		{"get_img_oda_red", "(I)B", nullptr, $PUBLIC, $virtualMethod(ColorData, get_img_oda_red, int8_t, int32_t)},
+		{"get_img_oda_red", "()J", nullptr, $PUBLIC, $virtualMethod(ColorData, get_img_oda_red, int64_t)},
+		{"get_pGrayInverseLutData", "(I)I", nullptr, $PUBLIC, $virtualMethod(ColorData, get_pGrayInverseLutData, int32_t, int32_t)},
+		{"get_pGrayInverseLutData", "()J", nullptr, $PUBLIC, $virtualMethod(ColorData, get_pGrayInverseLutData, int64_t)},
+		{"get_representsPrimaries", "()I", nullptr, $PUBLIC, $virtualMethod(ColorData, get_representsPrimaries, int32_t)},
+		{"get_screendata", "()I", nullptr, $PUBLIC, $virtualMethod(ColorData, get_screendata, int32_t)},
+		{"set_awt_Colors", "(J)V", nullptr, $PUBLIC, $virtualMethod(ColorData, set_awt_Colors, void, int64_t)},
+		{"set_awt_icmLUT", "(J)V", nullptr, $PUBLIC, $virtualMethod(ColorData, set_awt_icmLUT, void, int64_t)},
+		{"set_awt_icmLUT2Colors", "(J)V", nullptr, $PUBLIC, $virtualMethod(ColorData, set_awt_icmLUT2Colors, void, int64_t)},
+		{"set_awt_numICMcolors", "(I)V", nullptr, $PUBLIC, $virtualMethod(ColorData, set_awt_numICMcolors, void, int32_t)},
+		{"set_img_clr_tbl", "(J)V", nullptr, $PUBLIC, $virtualMethod(ColorData, set_img_clr_tbl, void, int64_t)},
+		{"set_img_grays", "(J)V", nullptr, $PUBLIC, $virtualMethod(ColorData, set_img_grays, void, int64_t)},
+		{"set_img_oda_blue", "(J)V", nullptr, $PUBLIC, $virtualMethod(ColorData, set_img_oda_blue, void, int64_t)},
+		{"set_img_oda_green", "(J)V", nullptr, $PUBLIC, $virtualMethod(ColorData, set_img_oda_green, void, int64_t)},
+		{"set_img_oda_red", "(J)V", nullptr, $PUBLIC, $virtualMethod(ColorData, set_img_oda_red, void, int64_t)},
+		{"set_pGrayInverseLutData", "(J)V", nullptr, $PUBLIC, $virtualMethod(ColorData, set_pGrayInverseLutData, void, int64_t)},
+		{"set_representsPrimaries", "(I)V", nullptr, $PUBLIC, $virtualMethod(ColorData, set_representsPrimaries, void, int32_t)},
+		{"set_screendata", "(I)V", nullptr, $PUBLIC, $virtualMethod(ColorData, set_screendata, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ColorData, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ColorData, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.ColorData",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ColorData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ColorData);
+	});
 	return class$;
 }
 

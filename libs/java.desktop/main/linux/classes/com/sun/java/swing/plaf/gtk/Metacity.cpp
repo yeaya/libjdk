@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/Metacity.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKColorType.h>
 #include <com/sun/java/swing/plaf/gtk/GTKConstants$ArrowType.h>
 #include <com/sun/java/swing/plaf/gtk/GTKConstants$ShadowType.h>
@@ -28,7 +27,6 @@
 #include <java/awt/Image.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/Paint.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
@@ -44,7 +42,6 @@
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
@@ -120,7 +117,6 @@ using $AlphaComposite = ::java::awt::AlphaComposite;
 using $BasicStroke = ::java::awt::BasicStroke;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Composite = ::java::awt::Composite;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
@@ -132,7 +128,6 @@ using $Graphics2D = ::java::awt::Graphics2D;
 using $Image = ::java::awt::Image;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $Paint = ::java::awt::Paint;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
@@ -141,7 +136,6 @@ using $ImageObserver = ::java::awt::image::ImageObserver;
 using $FileNotFoundException = ::java::io::FileNotFoundException;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -157,7 +151,6 @@ using $NumberFormatException = ::java::lang::NumberFormatException;
 using $MalformedURLException = ::java::net::MalformedURLException;
 using $URL = ::java::net::URL;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
@@ -189,116 +182,6 @@ namespace com {
 				namespace plaf {
 					namespace gtk {
 
-$FieldInfo _Metacity_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Metacity, $assertionsDisabled)},
-	{"INSTANCE", "Lcom/sun/java/swing/plaf/gtk/Metacity;", nullptr, $STATIC, $staticField(Metacity, INSTANCE)},
-	{"themeNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Metacity, themeNames)},
-	{"errorLogged", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Metacity, errorLogged)},
-	{"documentBuilder", "Ljavax/xml/parsers/DocumentBuilder;", nullptr, $PRIVATE | $STATIC, $staticField(Metacity, documentBuilder)},
-	{"xmlDoc", "Lorg/w3c/dom/Document;", nullptr, $PRIVATE | $STATIC, $staticField(Metacity, xmlDoc)},
-	{"userHome", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(Metacity, userHome)},
-	{"frame_style_set", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(Metacity, frame_style_set)},
-	{"frameGeometry", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(Metacity, frameGeometry)},
-	{"frameGeometries", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;>;", $PRIVATE, $field(Metacity, frameGeometries)},
-	{"titlePaneLayout", "Ljava/awt/LayoutManager;", nullptr, $PRIVATE, $field(Metacity, titlePaneLayout)},
-	{"imageFilter", "Lcom/sun/java/swing/plaf/gtk/Metacity$ColorizeImageFilter;", nullptr, $PRIVATE, $field(Metacity, imageFilter)},
-	{"themeDir", "Ljava/net/URL;", nullptr, $PRIVATE, $field(Metacity, themeDir)},
-	{"context", "Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $field(Metacity, context)},
-	{"themeName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Metacity, themeName)},
-	{"aee", "Lcom/sun/java/swing/plaf/gtk/Metacity$ArithmeticExpressionEvaluator;", nullptr, $PRIVATE, $field(Metacity, aee)},
-	{"variables", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE, $field(Metacity, variables)},
-	{"roundedClipShape", "Lcom/sun/java/swing/plaf/gtk/Metacity$RoundRectClipShape;", nullptr, $PRIVATE, $field(Metacity, roundedClipShape)},
-	{"images", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/awt/Image;>;", $PRIVATE, $field(Metacity, images)},
-	{}
-};
-
-$MethodInfo _Metacity_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(Metacity, init$, void, $String*), "java.io.IOException,javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException"},
-	{"calculateButtonSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(Metacity, calculateButtonSize, $Dimension*, $JComponent*)},
-	{"calculateTitleArea", "(Ljavax/swing/JInternalFrame;)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(Metacity, calculateTitleArea, $Rectangle*, $JInternalFrame*)},
-	{"calculateTitleTextWidth", "(Ljava/awt/Graphics;Ljavax/swing/JInternalFrame;)I", nullptr, $PROTECTED, $virtualMethod(Metacity, calculateTitleTextWidth, int32_t, $Graphics*, $JInternalFrame*)},
-	{"draw", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, draw, void, $Node*, $Graphics*, $JInternalFrame*)},
-	{"drawArc", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawArc, void, $Node*, $Graphics*)},
-	{"drawButton", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;Ljava/awt/Graphics;IILjavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawButton, void, $Node*, $String*, $String*, $Graphics*, int32_t, int32_t, $JInternalFrame*)},
-	{"drawGTKArrow", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawGTKArrow, void, $Node*, $Graphics*)},
-	{"drawGTKBox", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawGTKBox, void, $Node*, $Graphics*)},
-	{"drawGTKVLine", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawGTKVLine, void, $Node*, $Graphics*)},
-	{"drawGradient", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawGradient, void, $Node*, $Graphics*)},
-	{"drawIcon", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawIcon, void, $Node*, $Graphics*, $JInternalFrame*)},
-	{"drawImage", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawImage, void, $Node*, $Graphics*)},
-	{"drawInclude", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawInclude, void, $Node*, $Graphics*, $JInternalFrame*)},
-	{"drawLine", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawLine, void, $Node*, $Graphics*)},
-	{"drawPiece", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;Ljava/lang/String;IIIILjavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawPiece, void, $Node*, $Graphics*, $String*, int32_t, int32_t, int32_t, int32_t, $JInternalFrame*)},
-	{"drawRectangle", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawRectangle, void, $Node*, $Graphics*)},
-	{"drawTile", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawTile, void, $Node*, $Graphics*, $JInternalFrame*)},
-	{"drawTint", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawTint, void, $Node*, $Graphics*)},
-	{"drawTitle", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawTitle, void, $Node*, $Graphics*, $JInternalFrame*)},
-	{"findChild", "(Ljavax/swing/JComponent;Ljava/lang/String;)Ljavax/swing/JComponent;", nullptr, $PROTECTED | $STATIC, $staticMethod(Metacity, findChild, $JComponent*, $JComponent*, $String*)},
-	{"findInternalFrame", "(Ljava/awt/Component;)Ljavax/swing/JInternalFrame;", nullptr, 0, $virtualMethod(Metacity, findInternalFrame, $JInternalFrame*, $Component*)},
-	{"getBoolean", "(Ljava/lang/String;Z)Z", nullptr, $PROTECTED, $virtualMethod(Metacity, getBoolean, bool, $String*, bool)},
-	{"getBooleanAttr", "(Lorg/w3c/dom/Node;Ljava/lang/String;Z)Z", nullptr, $PROTECTED, $virtualMethod(Metacity, getBooleanAttr, bool, $Node*, $String*, bool)},
-	{"getBorderInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, 0, $virtualMethod(Metacity, getBorderInsets, $Insets*, $SynthContext*, $Insets*)},
-	{"getFloatAttr", "(Lorg/w3c/dom/Node;Ljava/lang/String;F)F", nullptr, $PROTECTED, $virtualMethod(Metacity, getFloatAttr, float, $Node*, $String*, float)},
-	{"getFrameGeometry", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PROTECTED, $virtualMethod(Metacity, getFrameGeometry, $Map*)},
-	{"getImage", "(Ljava/lang/String;Ljava/awt/Color;)Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(Metacity, getImage, $Image*, $String*, $Color*)},
-	{"getImage", "(Ljava/lang/String;)Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(Metacity, getImage, $Image*, $String*)},
-	{"getInt", "(Ljava/lang/String;)I", nullptr, $PROTECTED, $virtualMethod(Metacity, getInt, int32_t, $String*)},
-	{"getIntAttr", "(Lorg/w3c/dom/Node;Ljava/lang/String;I)I", nullptr, $PROTECTED, $virtualMethod(Metacity, getIntAttr, int32_t, $Node*, $String*, int32_t)},
-	{"getNode", "(Ljava/lang/String;[Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PROTECTED, $virtualMethod(Metacity, getNode, $Node*, $String*, $StringArray*)},
-	{"getNode", "(Lorg/w3c/dom/Node;Ljava/lang/String;[Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PROTECTED, $virtualMethod(Metacity, getNode, $Node*, $Node*, $String*, $StringArray*)},
-	{"getNode", "(Lorg/w3c/dom/NodeList;Ljava/lang/String;[Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PROTECTED, $virtualMethod(Metacity, getNode, $Node*, $NodeList*, $String*, $StringArray*)},
-	{"getNodesByName", "(Lorg/w3c/dom/Node;Ljava/lang/String;)[Lorg/w3c/dom/Node;", nullptr, $PROTECTED, $virtualMethod(Metacity, getNodesByName, $NodeArray*, $Node*, $String*)},
-	{"getRoundedClipShape", "(IIIIIII)Ljava/awt/Shape;", nullptr, $PRIVATE, $method(Metacity, getRoundedClipShape, $Shape*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"getStringAttr", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Metacity, getStringAttr, $String*, $Node*, $String*)},
-	{"getStringAttr", "(Lorg/w3c/dom/NamedNodeMap;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Metacity, getStringAttr, $String*, $NamedNodeMap*, $String*)},
-	{"getThemeDir", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(Metacity, getThemeDir, $URL*, $String*)},
-	{"getTitlePaneLayout", "()Ljava/awt/LayoutManager;", nullptr, $PUBLIC | $STATIC, $staticMethod(Metacity, getTitlePaneLayout, $LayoutManager*)},
-	{"getUserTheme", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Metacity, getUserTheme, $String*)},
-	{"getXMLDoc", "(Ljava/net/URL;)Lorg/w3c/dom/Document;", nullptr, $PROTECTED | $STATIC, $staticMethod(Metacity, getXMLDoc, $Document*, $URL*), "java.io.IOException,javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException"},
-	{"logError", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(Metacity, logError, void, $String*, $Exception*)},
-	{"logError", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(Metacity, logError, void, $String*, $String*)},
-	{"paintButtonBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, 0, $virtualMethod(Metacity, paintButtonBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintFrameBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, 0, $virtualMethod(Metacity, paintFrameBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"parseColor", "(Ljava/lang/String;)Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(Metacity, parseColor, $Color*, $String*)},
-	{"parseColor2", "(Ljava/lang/String;)Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(Metacity, parseColor2, $Color*, $String*)},
-	{"parseColorString", "(Ljava/lang/String;)Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticMethod(Metacity, parseColorString, $Color*, $String*)},
-	{"setClip", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, setClip, void, $Node*, $Graphics*)},
-	{"setFrameGeometry", "(Ljavax/swing/JComponent;Ljava/util/Map;)V", "(Ljavax/swing/JComponent;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", $PROTECTED, $virtualMethod(Metacity, setFrameGeometry, void, $JComponent*, $Map*)},
-	{"tileImage", "(Ljava/awt/Graphics;Ljava/awt/Image;IIII[F)V", nullptr, $PROTECTED, $virtualMethod(Metacity, tileImage, void, $Graphics*, $Image*, int32_t, int32_t, int32_t, int32_t, $floats*)},
-	{"updateFrameGeometry", "(Ljavax/swing/plaf/synth/SynthContext;)V", nullptr, $PRIVATE, $method(Metacity, updateFrameGeometry, void, $SynthContext*)},
-	{}
-};
-
-$InnerClassInfo _Metacity_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.Metacity$RoundRectClipShape", "com.sun.java.swing.plaf.gtk.Metacity", "RoundRectClipShape", $STATIC},
-	{"com.sun.java.swing.plaf.gtk.Metacity$PeekableStringTokenizer", "com.sun.java.swing.plaf.gtk.Metacity", "PeekableStringTokenizer", $STATIC},
-	{"com.sun.java.swing.plaf.gtk.Metacity$ArithmeticExpressionEvaluator", "com.sun.java.swing.plaf.gtk.Metacity", "ArithmeticExpressionEvaluator", 0},
-	{"com.sun.java.swing.plaf.gtk.Metacity$TitlePaneLayout", "com.sun.java.swing.plaf.gtk.Metacity", "TitlePaneLayout", $PROTECTED},
-	{"com.sun.java.swing.plaf.gtk.Metacity$ColorizeImageFilter", "com.sun.java.swing.plaf.gtk.Metacity", "ColorizeImageFilter", $PRIVATE},
-	{"com.sun.java.swing.plaf.gtk.Metacity$Privileged", "com.sun.java.swing.plaf.gtk.Metacity", "Privileged", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.gtk.Metacity$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Metacity_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.Metacity",
-	"java.lang.Object",
-	"javax.swing.plaf.synth.SynthConstants",
-	_Metacity_FieldInfo_,
-	_Metacity_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Metacity_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.Metacity$RoundRectClipShape,com.sun.java.swing.plaf.gtk.Metacity$RoundRectClipShape$RoundishRectIterator,com.sun.java.swing.plaf.gtk.Metacity$PeekableStringTokenizer,com.sun.java.swing.plaf.gtk.Metacity$ArithmeticExpressionEvaluator,com.sun.java.swing.plaf.gtk.Metacity$TitlePaneLayout,com.sun.java.swing.plaf.gtk.Metacity$ColorizeImageFilter,com.sun.java.swing.plaf.gtk.Metacity$Privileged,com.sun.java.swing.plaf.gtk.Metacity$1"
-};
-
-$Object* allocate$Metacity($Class* clazz) {
-	return $of($alloc(Metacity));
-}
-
 bool Metacity::$assertionsDisabled = false;
 Metacity* Metacity::INSTANCE = nullptr;
 $StringArray* Metacity::themeNames = nullptr;
@@ -308,7 +191,7 @@ $Document* Metacity::xmlDoc = nullptr;
 $String* Metacity::userHome = nullptr;
 
 void Metacity::init$($String* themeName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, titlePaneLayout, $new($Metacity$TitlePaneLayout, this));
 	$set(this, imageFilter, $new($Metacity$ColorizeImageFilter, this));
 	$set(this, themeDir, nullptr);
@@ -337,14 +220,14 @@ void Metacity::init$($String* themeName) {
 				try {
 					$nc(this->variables)->put(name, $($Integer::valueOf($Integer::parseInt(value))));
 				} catch ($NumberFormatException& ex) {
-					logError(themeName, static_cast<$Exception*>(ex));
+					logError(themeName, ex);
 				}
 			}
 		}
 	}
 	$set(this, frameGeometries, $new($HashMap));
 	$assign(nodes, $nc(Metacity::xmlDoc)->getElementsByTagName("frame_geometry"_s));
-	n = nodes->getLength();
+	n = $nc(nodes)->getLength();
 	for (int32_t i = 0; i < n; ++i) {
 		$var($Node, node, nodes->item(i));
 		$var($String, name, getStringAttr(node, "name"_s));
@@ -353,7 +236,7 @@ void Metacity::init$($String* themeName) {
 			$nc(this->frameGeometries)->put(name, gm);
 			$var($String, parentGM, getStringAttr(node, "parent"_s));
 			if (parentGM != nullptr) {
-				gm->putAll($cast($Map, $($nc(this->frameGeometries)->get(parentGM))));
+				gm->putAll($$cast($Map, $nc(this->frameGeometries)->get(parentGM)));
 			}
 			gm->put("has_title"_s, $($Boolean::valueOf(getBooleanAttr(node, "has_title"_s, true))));
 			gm->put("rounded_top_left"_s, $($Boolean::valueOf(getBooleanAttr(node, "rounded_top_left"_s, false))));
@@ -404,7 +287,7 @@ $Shape* Metacity::getRoundedClipShape(int32_t x, int32_t y, int32_t w, int32_t h
 }
 
 void Metacity::paintButtonBackground($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	updateFrameGeometry(context);
 	$set(this, context, context);
 	$var($JButton, button, $cast($JButton, $nc(context)->getComponent()));
@@ -419,9 +302,9 @@ void Metacity::paintButtonBackground($SynthContext* context, $Graphics* g, int32
 	bool active = $nc(jif)->isSelected();
 	button->setOpaque(false);
 	$var($String, state, "normal"_s);
-	if (((int32_t)(buttonState & (uint32_t)$SynthConstants::PRESSED)) != 0) {
+	if ((buttonState & $SynthConstants::PRESSED) != 0) {
 		$assign(state, "pressed"_s);
-	} else if (((int32_t)(buttonState & (uint32_t)$SynthConstants::MOUSE_OVER)) != 0) {
+	} else if ((buttonState & $SynthConstants::MOUSE_OVER) != 0) {
 		$assign(state, "prelight"_s);
 	}
 	$var($String, function, nullptr);
@@ -434,26 +317,20 @@ void Metacity::paintButtonBackground($SynthContext* context, $Graphics* g, int32
 		left_corner = true;
 	} else if (buttonName == "InternalFrameTitlePane.iconifyButton"_s) {
 		$assign(function, "minimize"_s);
-		int32_t var$1 = (jif->isIconifiable() ? 1 : 0);
+		int32_t var$1 = jif->isIconifiable() ? 1 : 0;
 		int32_t var$0 = var$1 + (jif->isMaximizable() ? 1 : 0);
 		int32_t nButtons = (var$0 + (jif->isClosable() ? 1 : 0));
 		right_corner = (nButtons == 1);
 		switch (nButtons) {
 		case 1:
-			{
-				$assign(location, "right_right"_s);
-				break;
-			}
+			$assign(location, "right_right"_s);
+			break;
 		case 2:
-			{
-				$assign(location, "right_middle"_s);
-				break;
-			}
+			$assign(location, "right_middle"_s);
+			break;
 		case 3:
-			{
-				$assign(location, "right_left"_s);
-				break;
-			}
+			$assign(location, "right_left"_s);
+			break;
 		}
 	} else if (buttonName == "InternalFrameTitlePane.maximizeButton"_s) {
 		$assign(function, "maximize"_s);
@@ -477,7 +354,7 @@ void Metacity::paintButtonBackground($SynthContext* context, $Graphics* g, int32
 		})));
 		if (frame_style != nullptr) {
 			$var($Shape, oldClip, $nc(g)->getClip());
-			bool var$2 = (right_corner && getBoolean("rounded_top_right"_s, false));
+			bool var$2 = right_corner && getBoolean("rounded_top_right"_s, false);
 			if (var$2 || (left_corner && getBoolean("rounded_top_left"_s, false))) {
 				$var($Point, buttonLoc, button->getLocation());
 				if (right_corner) {
@@ -486,7 +363,7 @@ void Metacity::paintButtonBackground($SynthContext* context, $Graphics* g, int32
 					g->setClip($(getRoundedClipShape(0, 0, w, h, 11, 11, $Metacity$RoundRectClipShape::TOP_LEFT)));
 				}
 				$var($Rectangle, clipBounds, $nc(oldClip)->getBounds());
-				g->clipRect($nc(clipBounds)->x, clipBounds->y, clipBounds->width, clipBounds->height);
+				g->clipRect($nc(clipBounds)->x, $nc(clipBounds)->y, $nc(clipBounds)->width, $nc(clipBounds)->height);
 			}
 			drawButton(frame_style, $$str({location, "_background"_s}), state, g, w, h, jif);
 			drawButton(frame_style, function, state, g, w, h, jif);
@@ -496,7 +373,7 @@ void Metacity::paintButtonBackground($SynthContext* context, $Graphics* g, int32
 }
 
 void Metacity::drawButton($Node* frame_style, $String* function, $String* state, $Graphics* g, int32_t w, int32_t h, $JInternalFrame* jif) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, buttonNode, getNode(frame_style, "button"_s, $$new($StringArray, {
 		"function"_s,
 		function,
@@ -520,16 +397,16 @@ void Metacity::drawButton($Node* frame_style, $String* function, $String* state,
 				draw_ops_name
 			})));
 		} else {
-			$assign(draw_ops, getNode(buttonNode, "draw_ops"_s, ($StringArray*)nullptr));
+			$assign(draw_ops, getNode(buttonNode, "draw_ops"_s, nullptr));
 		}
 		$nc(this->variables)->put("width"_s, $($Integer::valueOf(w)));
-		$nc(this->variables)->put("height"_s, $($Integer::valueOf(h)));
+		this->variables->put("height"_s, $($Integer::valueOf(h)));
 		draw(draw_ops, g, jif);
 	}
 }
 
 $JInternalFrame* Metacity::findInternalFrame($Component* comp$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, comp, comp$renamed);
 	if ($instanceOf($BasicInternalFrameTitlePane, $($nc(comp)->getParent()))) {
 		$assign(comp, comp->getParent());
@@ -537,7 +414,7 @@ $JInternalFrame* Metacity::findInternalFrame($Component* comp$renamed) {
 	if ($instanceOf($JInternalFrame, comp)) {
 		return $cast($JInternalFrame, comp);
 	} else if ($instanceOf($JInternalFrame$JDesktopIcon, comp)) {
-		return $nc(($cast($JInternalFrame$JDesktopIcon, comp)))->getInternalFrame();
+		return $cast($JInternalFrame$JDesktopIcon, comp)->getInternalFrame();
 	}
 	if (!Metacity::$assertionsDisabled) {
 		$throwNew($AssertionError, $of("cannot find the internal frame"_s));
@@ -546,7 +423,7 @@ $JInternalFrame* Metacity::findInternalFrame($Component* comp$renamed) {
 }
 
 void Metacity::paintFrameBorder($SynthContext* context, $Graphics* g, int32_t x0, int32_t y0, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	updateFrameGeometry(context);
 	$set(this, context, context);
 	$var($JComponent, comp, $nc(context)->getComponent());
@@ -565,14 +442,14 @@ void Metacity::paintFrameBorder($SynthContext* context, $Graphics* g, int32_t x0
 	$var($Rectangle, titleRect, calculateTitleArea(jif));
 	$var($JComponent, menuButton, findChild(titlePane, "InternalFrameTitlePane.menuButton"_s));
 	$var($Icon, frameIcon, jif->getFrameIcon());
-	$nc(this->variables)->put("mini_icon_width"_s, $($Integer::valueOf((frameIcon != nullptr) ? $nc(frameIcon)->getIconWidth() : 0)));
-	$nc(this->variables)->put("mini_icon_height"_s, $($Integer::valueOf((frameIcon != nullptr) ? $nc(frameIcon)->getIconHeight() : 0)));
+	$nc(this->variables)->put("mini_icon_width"_s, $($Integer::valueOf((frameIcon != nullptr) ? frameIcon->getIconWidth() : 0)));
+	$nc(this->variables)->put("mini_icon_height"_s, $($Integer::valueOf((frameIcon != nullptr) ? frameIcon->getIconHeight() : 0)));
 	$nc(this->variables)->put("title_width"_s, $($Integer::valueOf(calculateTitleTextWidth(g, jif))));
-	$var($FontMetrics, fm, $SwingUtilities2::getFontMetrics(static_cast<$JComponent*>(jif), g));
+	$var($FontMetrics, fm, $SwingUtilities2::getFontMetrics(jif, g));
 	int32_t var$0 = $nc(fm)->getAscent();
 	$nc(this->variables)->put("title_height"_s, $($Integer::valueOf(var$0 + fm->getDescent())));
 	$nc(this->variables)->put("icon_width"_s, $($Integer::valueOf(32)));
-	$nc(this->variables)->put("icon_height"_s, $($Integer::valueOf(32)));
+	this->variables->put("icon_height"_s, $($Integer::valueOf(32)));
 	if (this->frame_style_set != nullptr) {
 		$var($Node, frame, getNode(this->frame_style_set, "frame"_s, $$new($StringArray, {
 			"focus"_s,
@@ -596,8 +473,8 @@ void Metacity::paintFrameBorder($SynthContext* context, $Graphics* g, int32_t x0
 					g->setClip($(getRoundedClipShape(0, 0, width, height, 12, 12, (((roundTopLeft ? $Metacity$RoundRectClipShape::TOP_LEFT : 0) | (roundTopRight ? $Metacity$RoundRectClipShape::TOP_RIGHT : 0)) | (roundBottomLeft ? $Metacity$RoundRectClipShape::BOTTOM_LEFT : 0)) | (roundBottomRight ? $Metacity$RoundRectClipShape::BOTTOM_RIGHT : 0))));
 				}
 				$var($Rectangle, clipBounds, $nc(oldClip)->getBounds());
-				g->clipRect($nc(clipBounds)->x, clipBounds->y, clipBounds->width, clipBounds->height);
-				int32_t titleHeight = $nc(titlePane)->getHeight();
+				g->clipRect($nc(clipBounds)->x, $nc(clipBounds)->y, $nc(clipBounds)->width, $nc(clipBounds)->height);
+				int32_t titleHeight = titlePane->getHeight();
 				bool minimized = jif->isIcon();
 				$var($Insets, insets, getBorderInsets(context, nullptr));
 				int32_t leftTitlebarEdge = getInt("left_titlebar_edge"_s);
@@ -613,11 +490,11 @@ void Metacity::paintFrameBorder($SynthContext* context, $Graphics* g, int32_t x0
 				drawPiece(frame_style, g, "right_titlebar_edge"_s, width - rightTitlebarEdge, 0, rightTitlebarEdge, titleHeight, jif);
 				drawPiece(frame_style, g, "top_titlebar_edge"_s, 0, 0, width, topTitlebarEdge, jif);
 				drawPiece(frame_style, g, "bottom_titlebar_edge"_s, 0, titleHeight - bottomTitlebarEdge, width, bottomTitlebarEdge, jif);
-				drawPiece(frame_style, g, "title"_s, $nc(titleRect)->x, titleRect->y, titleRect->width, titleRect->height, jif);
+				drawPiece(frame_style, g, "title"_s, $nc(titleRect)->x, $nc(titleRect)->y, $nc(titleRect)->width, $nc(titleRect)->height, jif);
 				if (!minimized) {
 					drawPiece(frame_style, g, "left_edge"_s, 0, titleHeight, $nc(insets)->left, height - titleHeight, jif);
-					drawPiece(frame_style, g, "right_edge"_s, width - $nc(insets)->right, titleHeight, insets->right, height - titleHeight, jif);
-					drawPiece(frame_style, g, "bottom_edge"_s, 0, height - $nc(insets)->bottom, width, insets->bottom, jif);
+					drawPiece(frame_style, g, "right_edge"_s, width - insets->right, titleHeight, insets->right, height - titleHeight, jif);
+					drawPiece(frame_style, g, "bottom_edge"_s, 0, height - insets->bottom, width, insets->bottom, jif);
 					drawPiece(frame_style, g, "overlay"_s, 0, 0, width, height, jif);
 				}
 				g->setClip(oldClip);
@@ -641,7 +518,7 @@ $String* Metacity::getUserTheme() {
 }
 
 void Metacity::tileImage($Graphics* g, $Image* image, int32_t x0, int32_t y0, int32_t w, int32_t h, $floats* alphas) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Graphics2D, g2, $cast($Graphics2D, g));
 	$var($Composite, oldComp, $nc(g2)->getComposite());
 	int32_t sw = $nc(image)->getWidth(nullptr);
@@ -669,19 +546,19 @@ void Metacity::tileImage($Graphics* g, $Image* image, int32_t x0, int32_t y0, in
 }
 
 $Image* Metacity::getImage($String* key, $Color* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Image, image, $cast($Image, $nc(this->images)->get($$str({key, "-"_s, $$str($nc(c)->getRGB())}))));
 	if (image == nullptr) {
 		$assign(image, $nc(this->imageFilter)->colorize($(getImage(key)), c));
 		if (image != nullptr) {
-			$nc(this->images)->put($$str({key, "-"_s, $$str($nc(c)->getRGB())}), image);
+			$nc(this->images)->put($$str({key, "-"_s, $$str(c->getRGB())}), image);
 		}
 	}
 	return image;
 }
 
 $Image* Metacity::getImage($String* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Image, image, $cast($Image, $nc(this->images)->get(key)));
 	if (image == nullptr) {
 		if (this->themeDir != nullptr) {
@@ -701,7 +578,7 @@ $Image* Metacity::getImage($String* key) {
 
 $JComponent* Metacity::findChild($JComponent* parent, $String* name) {
 	$init(Metacity);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = $nc(parent)->getComponentCount();
 	for (int32_t i = 0; i < n; ++i) {
 		$var($JComponent, c, $cast($JComponent, parent->getComponent(i)));
@@ -728,16 +605,16 @@ int32_t Metacity::getInt($String* key) {
 	if (i == nullptr) {
 		$assign(i, $cast($Integer, $nc(this->variables)->get(key)));
 	}
-	return (i != nullptr) ? $nc(i)->intValue() : 0;
+	return (i != nullptr) ? i->intValue() : 0;
 }
 
 bool Metacity::getBoolean($String* key, bool fallback) {
 	$var($Boolean, b, $cast($Boolean, $nc(this->frameGeometry)->get(key)));
-	return (b != nullptr) ? $nc(b)->booleanValue() : fallback;
+	return (b != nullptr) ? b->booleanValue() : fallback;
 }
 
 void Metacity::drawArc($Node* node, $Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NamedNodeMap, attrs, $nc(node)->getAttributes());
 	$var($Color, color, parseColor($(getStringAttr(attrs, "color"_s))));
 	int32_t x = $nc(this->aee)->evaluate($(getStringAttr(attrs, "x"_s)));
@@ -762,7 +639,7 @@ void Metacity::drawArc($Node* node, $Graphics* g) {
 }
 
 void Metacity::drawLine($Node* node, $Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NamedNodeMap, attrs, $nc(node)->getAttributes());
 	$var($Color, color, parseColor($(getStringAttr(attrs, "color"_s))));
 	int32_t x1 = $nc(this->aee)->evaluate($(getStringAttr(attrs, "x1"_s)));
@@ -783,7 +660,7 @@ void Metacity::drawLine($Node* node, $Graphics* g) {
 }
 
 void Metacity::drawRectangle($Node* node, $Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NamedNodeMap, attrs, $nc(node)->getAttributes());
 	$var($Color, color, parseColor($(getStringAttr(attrs, "color"_s))));
 	bool filled = getBooleanAttr(node, "filled"_s, false);
@@ -806,7 +683,7 @@ void Metacity::drawRectangle($Node* node, $Graphics* g) {
 }
 
 void Metacity::drawTile($Node* node, $Graphics* g, $JInternalFrame* jif) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NamedNodeMap, attrs, $nc(node)->getAttributes());
 	int32_t x0 = $nc(this->aee)->evaluate($(getStringAttr(attrs, "x"_s)));
 	int32_t y0 = $nc(this->aee)->evaluate($(getStringAttr(attrs, "y"_s)));
@@ -824,10 +701,10 @@ void Metacity::drawTile($Node* node, $Graphics* g, $JInternalFrame* jif) {
 	}
 	$var($Shape, oldClip, $nc(g)->getClip());
 	if ($instanceOf($Graphics2D, g)) {
-		$nc(($cast($Graphics2D, g)))->clip($$new($Rectangle, x0, y0, w, h));
+		$cast($Graphics2D, g)->clip($$new($Rectangle, x0, y0, w, h));
 	}
 	$nc(this->variables)->put("width"_s, $($Integer::valueOf(tw)));
-	$nc(this->variables)->put("height"_s, $($Integer::valueOf(th)));
+	this->variables->put("height"_s, $($Integer::valueOf(th)));
 	$var($Node, draw_ops, getNode("draw_ops"_s, $$new($StringArray, {
 		"name"_s,
 		$(getStringAttr(node, "name"_s))
@@ -844,12 +721,12 @@ void Metacity::drawTile($Node* node, $Graphics* g, $JInternalFrame* jif) {
 		y += th;
 	}
 	$nc(this->variables)->put("width"_s, $($Integer::valueOf(width)));
-	$nc(this->variables)->put("height"_s, $($Integer::valueOf(height)));
+	this->variables->put("height"_s, $($Integer::valueOf(height)));
 	g->setClip(oldClip);
 }
 
 void Metacity::drawTint($Node* node, $Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NamedNodeMap, attrs, $nc(node)->getAttributes());
 	$var($Color, color, parseColor($(getStringAttr(attrs, "color"_s))));
 	float alpha = $Float::parseFloat($(getStringAttr(attrs, "alpha"_s)));
@@ -865,7 +742,7 @@ void Metacity::drawTint($Node* node, $Graphics* g) {
 	}
 	if ($instanceOf($Graphics2D, g)) {
 		$var($Graphics2D, g2, $cast($Graphics2D, g));
-		$var($Composite, oldComp, $nc(g2)->getComposite());
+		$var($Composite, oldComp, g2->getComposite());
 		$var($AlphaComposite, ac, $AlphaComposite::getInstance($AlphaComposite::SRC_OVER, alpha));
 		g2->setComposite(ac);
 		g2->setColor(color);
@@ -875,28 +752,31 @@ void Metacity::drawTint($Node* node, $Graphics* g) {
 }
 
 void Metacity::drawTitle($Node* node, $Graphics* g, $JInternalFrame* jif) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NamedNodeMap, attrs, $nc(node)->getAttributes());
 	$var($String, colorStr, getStringAttr(attrs, "color"_s));
 	int32_t i = $nc(colorStr)->indexOf("gtk:fg["_s);
 	if (i > 0) {
-		$var($String, var$0, $$str({$(colorStr->substring(0, i)), "gtk:text["_s}));
-		$assign(colorStr, $concat(var$0, $(colorStr->substring(i + 7))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(colorStr->substring(0, i)));
+		var$0->append("gtk:text["_s);
+		var$0->append($(colorStr->substring(i + 7)));
+		$assign(colorStr, $str(var$0));
 	}
 	$var($Color, color, parseColor(colorStr));
 	int32_t x = $nc(this->aee)->evaluate($(getStringAttr(attrs, "x"_s)));
 	int32_t y = $nc(this->aee)->evaluate($(getStringAttr(attrs, "y"_s)));
 	$var($String, title, $nc(jif)->getTitle());
 	if (title != nullptr) {
-		$var($FontMetrics, fm, $SwingUtilities2::getFontMetrics(static_cast<$JComponent*>(jif), g));
+		$var($FontMetrics, fm, $SwingUtilities2::getFontMetrics(jif, g));
 		$assign(title, $SwingUtilities2::clipStringIfNecessary(jif, fm, title, $nc($(calculateTitleArea(jif)))->width));
 		$nc(g)->setColor(color);
-		$SwingUtilities2::drawString(static_cast<$JComponent*>(jif), g, title, x, y + $nc(fm)->getAscent());
+		$SwingUtilities2::drawString(jif, g, title, x, y + $nc(fm)->getAscent());
 	}
 }
 
 $Dimension* Metacity::calculateButtonSize($JComponent* titlePane) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t buttonHeight = getInt("button_height"_s);
 	if (buttonHeight == 0) {
 		buttonHeight = $nc(titlePane)->getHeight();
@@ -921,11 +801,11 @@ $Dimension* Metacity::calculateButtonSize($JComponent* titlePane) {
 }
 
 $Rectangle* Metacity::calculateTitleArea($JInternalFrame* jif) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, titlePane, findChild(jif, "InternalFrame.northPane"_s));
 	$var($Dimension, buttonDim, calculateButtonSize(titlePane));
 	$var($Insets, title_border, $cast($Insets, $nc(this->frameGeometry)->get("title_border"_s)));
-	$var($Insets, button_border, $cast($Insets, $nc($(getFrameGeometry()))->get("button_border"_s)));
+	$var($Insets, button_border, $cast($Insets, $$nc(getFrameGeometry())->get("button_border"_s)));
 	$var($Rectangle, r, $new($Rectangle));
 	r->x = getInt("left_titlebar_edge"_s);
 	r->y = 0;
@@ -935,7 +815,7 @@ $Rectangle* Metacity::calculateTitleArea($JInternalFrame* jif) {
 		r->y += title_border->top;
 		r->height -= (title_border->top + title_border->bottom);
 	}
-	if ($nc($($nc($(titlePane->getParent()))->getComponentOrientation()))->isLeftToRight()) {
+	if ($$nc($$nc(titlePane->getParent())->getComponentOrientation())->isLeftToRight()) {
 		r->x += $nc(buttonDim)->width;
 		if (button_border != nullptr) {
 			r->x += button_border->left;
@@ -945,20 +825,20 @@ $Rectangle* Metacity::calculateTitleArea($JInternalFrame* jif) {
 		if ($nc(jif)->isClosable()) {
 			r->width -= buttonDim->width;
 		}
-		if ($nc(jif)->isMaximizable()) {
+		if (jif->isMaximizable()) {
 			r->width -= buttonDim->width;
 		}
-		if ($nc(jif)->isIconifiable()) {
+		if (jif->isIconifiable()) {
 			r->width -= buttonDim->width;
 		}
 	} else {
 		if ($nc(jif)->isClosable()) {
 			r->x += $nc(buttonDim)->width;
 		}
-		if ($nc(jif)->isMaximizable()) {
+		if (jif->isMaximizable()) {
 			r->x += $nc(buttonDim)->width;
 		}
-		if ($nc(jif)->isIconifiable()) {
+		if (jif->isIconifiable()) {
 			r->x += $nc(buttonDim)->width;
 		}
 		int32_t var$1 = titlePane->getWidth() - r->x;
@@ -974,17 +854,17 @@ $Rectangle* Metacity::calculateTitleArea($JInternalFrame* jif) {
 }
 
 int32_t Metacity::calculateTitleTextWidth($Graphics* g, $JInternalFrame* jif) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, title, $nc(jif)->getTitle());
 	if (title != nullptr) {
 		$var($Rectangle, r, calculateTitleArea(jif));
-		return $Math::min($SwingUtilities2::stringWidth(jif, $($SwingUtilities2::getFontMetrics(static_cast<$JComponent*>(jif), g)), title), $nc(r)->width);
+		return $Math::min($SwingUtilities2::stringWidth(jif, $($SwingUtilities2::getFontMetrics(jif, g)), title), $nc(r)->width);
 	}
 	return 0;
 }
 
 void Metacity::setClip($Node* node, $Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NamedNodeMap, attrs, $nc(node)->getAttributes());
 	int32_t x = $nc(this->aee)->evaluate($(getStringAttr(attrs, "x"_s)));
 	int32_t y = $nc(this->aee)->evaluate($(getStringAttr(attrs, "y"_s)));
@@ -997,16 +877,16 @@ void Metacity::setClip($Node* node, $Graphics* g) {
 		y -= h;
 	}
 	if ($instanceOf($Graphics2D, g)) {
-		$nc(($cast($Graphics2D, g)))->clip($$new($Rectangle, x, y, w, h));
+		$cast($Graphics2D, g)->clip($$new($Rectangle, x, y, w, h));
 	}
 }
 
 void Metacity::drawGTKArrow($Node* node, $Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NamedNodeMap, attrs, $nc(node)->getAttributes());
 	$var($String, arrow, getStringAttr(attrs, "arrow"_s));
 	$var($String, shadow, getStringAttr(attrs, "shadow"_s));
-	$var($String, stateStr, $nc($(getStringAttr(attrs, "state"_s)))->toUpperCase());
+	$var($String, stateStr, $$nc(getStringAttr(attrs, "state"_s))->toUpperCase());
 	int32_t x = $nc(this->aee)->evaluate($(getStringAttr(attrs, "x"_s)));
 	int32_t y = $nc(this->aee)->evaluate($(getStringAttr(attrs, "y"_s)));
 	int32_t w = $nc(this->aee)->evaluate($(getStringAttr(attrs, "width"_s)));
@@ -1057,10 +937,10 @@ void Metacity::drawGTKArrow($Node* node, $Graphics* g) {
 }
 
 void Metacity::drawGTKBox($Node* node, $Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NamedNodeMap, attrs, $nc(node)->getAttributes());
 	$var($String, shadow, getStringAttr(attrs, "shadow"_s));
-	$var($String, stateStr, $nc($(getStringAttr(attrs, "state"_s)))->toUpperCase());
+	$var($String, stateStr, $$nc(getStringAttr(attrs, "state"_s))->toUpperCase());
 	int32_t x = $nc(this->aee)->evaluate($(getStringAttr(attrs, "x"_s)));
 	int32_t y = $nc(this->aee)->evaluate($(getStringAttr(attrs, "y"_s)));
 	int32_t w = $nc(this->aee)->evaluate($(getStringAttr(attrs, "width"_s)));
@@ -1097,9 +977,9 @@ void Metacity::drawGTKBox($Node* node, $Graphics* g) {
 }
 
 void Metacity::drawGTKVLine($Node* node, $Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NamedNodeMap, attrs, $nc(node)->getAttributes());
-	$var($String, stateStr, $nc($(getStringAttr(attrs, "state"_s)))->toUpperCase());
+	$var($String, stateStr, $$nc(getStringAttr(attrs, "state"_s))->toUpperCase());
 	int32_t x = $nc(this->aee)->evaluate($(getStringAttr(attrs, "x"_s)));
 	int32_t y1 = $nc(this->aee)->evaluate($(getStringAttr(attrs, "y1"_s)));
 	int32_t y2 = $nc(this->aee)->evaluate($(getStringAttr(attrs, "y2"_s)));
@@ -1118,7 +998,7 @@ void Metacity::drawGTKVLine($Node* node, $Graphics* g) {
 }
 
 void Metacity::drawGradient($Node* node, $Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NamedNodeMap, attrs, $nc(node)->getAttributes());
 	$var($String, type, getStringAttr(attrs, "type"_s));
 	float alpha = getFloatAttr(node, "alpha"_s, -1.0f);
@@ -1143,7 +1023,7 @@ void Metacity::drawGradient($Node* node, $Graphics* g) {
 	bool vertical = (var$1 || "vertical"_s->equals(type));
 	if ($instanceOf($Graphics2D, g)) {
 		$var($Graphics2D, g2, $cast($Graphics2D, g));
-		$var($Composite, oldComp, $nc(g2)->getComposite());
+		$var($Composite, oldComp, g2->getComposite());
 		if (alpha >= 0.0f) {
 			g2->setComposite($($AlphaComposite::getInstance($AlphaComposite::SRC_OVER, alpha)));
 		}
@@ -1157,7 +1037,7 @@ void Metacity::drawGradient($Node* node, $Graphics* g) {
 }
 
 void Metacity::drawImage($Node* node, $Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NamedNodeMap, attrs, $nc(node)->getAttributes());
 	$var($String, filename, getStringAttr(attrs, "filename"_s));
 	$var($String, colorizeStr, getStringAttr(attrs, "colorize"_s));
@@ -1165,7 +1045,7 @@ void Metacity::drawImage($Node* node, $Graphics* g) {
 	$var($String, alpha, getStringAttr(attrs, "alpha"_s));
 	$var($Image, object, (colorize != nullptr) ? getImage(filename, colorize) : getImage(filename));
 	$nc(this->variables)->put("object_width"_s, $($Integer::valueOf($nc(object)->getWidth(nullptr))));
-	$nc(this->variables)->put("object_height"_s, $($Integer::valueOf($nc(object)->getHeight(nullptr))));
+	$nc(this->variables)->put("object_height"_s, $($Integer::valueOf(object->getHeight(nullptr))));
 	$var($String, fill_type, getStringAttr(attrs, "fill_type"_s));
 	int32_t x = $nc(this->aee)->evaluate($(getStringAttr(attrs, "x"_s)));
 	int32_t y = $nc(this->aee)->evaluate($(getStringAttr(attrs, "y"_s)));
@@ -1189,7 +1069,7 @@ void Metacity::drawImage($Node* node, $Graphics* g) {
 			float a = $Float::parseFloat(alpha);
 			if ($instanceOf($Graphics2D, g)) {
 				$var($Graphics2D, g2, $cast($Graphics2D, g));
-				$var($Composite, oldComp, $nc(g2)->getComposite());
+				$var($Composite, oldComp, g2->getComposite());
 				g2->setComposite($($AlphaComposite::getInstance($AlphaComposite::SRC_OVER, a)));
 				g2->drawImage(object, x, y, w, h, nullptr);
 				g2->setComposite(oldComp);
@@ -1201,7 +1081,7 @@ void Metacity::drawImage($Node* node, $Graphics* g) {
 }
 
 void Metacity::drawIcon($Node* node, $Graphics* g, $JInternalFrame* jif) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Icon, icon, $nc(jif)->getFrameIcon());
 	if (icon == nullptr) {
 		return;
@@ -1222,7 +1102,7 @@ void Metacity::drawIcon($Node* node, $Graphics* g, $JInternalFrame* jif) {
 		float a = $Float::parseFloat(alpha);
 		if ($instanceOf($Graphics2D, g)) {
 			$var($Graphics2D, g2, $cast($Graphics2D, g));
-			$var($Composite, oldComp, $nc(g2)->getComposite());
+			$var($Composite, oldComp, g2->getComposite());
 			g2->setComposite($($AlphaComposite::getInstance($AlphaComposite::SRC_OVER, a)));
 			$nc(icon)->paintIcon(jif, g, x, y);
 			g2->setComposite(oldComp);
@@ -1233,7 +1113,7 @@ void Metacity::drawIcon($Node* node, $Graphics* g, $JInternalFrame* jif) {
 }
 
 void Metacity::drawInclude($Node* node, $Graphics* g, $JInternalFrame* jif) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t oldWidth = getInt("width"_s);
 	int32_t oldHeight = getInt("height"_s);
 	$var($NamedNodeMap, attrs, $nc(node)->getAttributes());
@@ -1263,7 +1143,7 @@ void Metacity::drawInclude($Node* node, $Graphics* g, $JInternalFrame* jif) {
 }
 
 void Metacity::draw($Node* draw_ops, $Graphics* g, $JInternalFrame* jif) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (draw_ops != nullptr) {
 		$var($NodeList, nodes, draw_ops->getChildNodes());
 		if (nodes != nullptr) {
@@ -1305,7 +1185,7 @@ void Metacity::draw($Node* draw_ops, $Graphics* g, $JInternalFrame* jif) {
 							$nc($System::err)->println($$str({"Unknown Metacity drawing op: "_s, child}));
 						}
 					} catch ($NumberFormatException& ex) {
-						logError(this->themeName, static_cast<$Exception*>(ex));
+						logError(this->themeName, ex);
 					}
 				}
 			}
@@ -1315,7 +1195,7 @@ void Metacity::draw($Node* draw_ops, $Graphics* g, $JInternalFrame* jif) {
 }
 
 void Metacity::drawPiece($Node* frame_style, $Graphics* g, $String* position, int32_t x, int32_t y, int32_t width, int32_t height, $JInternalFrame* jif) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, piece, getNode(frame_style, "piece"_s, $$new($StringArray, {
 		"position"_s,
 		position
@@ -1329,10 +1209,10 @@ void Metacity::drawPiece($Node* frame_style, $Graphics* g, $String* position, in
 				draw_ops_name
 			})));
 		} else {
-			$assign(draw_ops, getNode(piece, "draw_ops"_s, ($StringArray*)nullptr));
+			$assign(draw_ops, getNode(piece, "draw_ops"_s, nullptr));
 		}
 		$nc(this->variables)->put("width"_s, $($Integer::valueOf(width)));
-		$nc(this->variables)->put("height"_s, $($Integer::valueOf(height)));
+		this->variables->put("height"_s, $($Integer::valueOf(height)));
 		$nc(g)->translate(x, y);
 		draw(draw_ops, g, jif);
 		g->translate(-x, -y);
@@ -1340,13 +1220,13 @@ void Metacity::drawPiece($Node* frame_style, $Graphics* g, $String* position, in
 }
 
 $Insets* Metacity::getBorderInsets($SynthContext* context, $Insets* insets$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, insets, insets$renamed);
 	updateFrameGeometry(context);
 	if (insets == nullptr) {
 		$assign(insets, $new($Insets, 0, 0, 0, 0));
 	}
-	$nc(insets)->top = $nc(($cast($Insets, $($nc(this->frameGeometry)->get("title_border"_s)))))->top;
+	$nc(insets)->top = $nc($$cast($Insets, $nc(this->frameGeometry)->get("title_border"_s)))->top;
 	insets->bottom = getInt("bottom_height"_s);
 	insets->left = getInt("left_width"_s);
 	insets->right = getInt("right_width"_s);
@@ -1354,13 +1234,13 @@ $Insets* Metacity::getBorderInsets($SynthContext* context, $Insets* insets$renam
 }
 
 void Metacity::updateFrameGeometry($SynthContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, context, context);
 	$var($JComponent, comp, $nc(context)->getComponent());
 	$var($JComponent, titlePane, findChild(comp, "InternalFrame.northPane"_s));
 	$var($JInternalFrame, jif, nullptr);
 	if ($instanceOf($JButton, comp)) {
-		$var($JComponent, bTitlePane, $cast($JComponent, $nc(comp)->getParent()));
+		$var($JComponent, bTitlePane, $cast($JComponent, comp->getParent()));
 		$var($Container, titlePaneParent, $nc(bTitlePane)->getParent());
 		$assign(jif, findInternalFrame(titlePaneParent));
 	} else {
@@ -1392,7 +1272,7 @@ void Metacity::updateFrameGeometry($SynthContext* context) {
 			"focus"_s,
 			($nc(jif)->isSelected() ? "yes"_s : "no"_s),
 			"state"_s,
-			($nc(jif)->isMaximum() ? "maximized"_s : "normal"_s)
+			(jif->isMaximum() ? "maximized"_s : "normal"_s)
 		})));
 		if (frame != nullptr) {
 			$var($Node, frame_style, getNode("frame_style"_s, $$new($StringArray, {
@@ -1422,12 +1302,12 @@ void Metacity::logError($String* themeName, $String* msg) {
 
 $Document* Metacity::getXMLDoc($URL* xmlFile) {
 	$init(Metacity);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (Metacity::documentBuilder == nullptr) {
-		$assignStatic(Metacity::documentBuilder, $nc($($DocumentBuilderFactory::newInstance()))->newDocumentBuilder());
+		$assignStatic(Metacity::documentBuilder, $$nc($DocumentBuilderFactory::newInstance())->newDocumentBuilder());
 	}
-	$var($InputStream, inputStream, $cast($InputStream, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Metacity$1, xmlFile)))));
+	$var($InputStream, inputStream, $cast($InputStream, $AccessController::doPrivileged($$new($Metacity$1, xmlFile))));
 	$var($Document, doc, nullptr);
 	if (inputStream != nullptr) {
 		$assign(doc, $nc(Metacity::documentBuilder)->parse(inputStream));
@@ -1436,7 +1316,7 @@ $Document* Metacity::getXMLDoc($URL* xmlFile) {
 }
 
 $NodeArray* Metacity::getNodesByName($Node* parent, $String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NodeList, nodes, $nc(parent)->getChildNodes());
 	int32_t n = $nc(nodes)->getLength();
 	$var($ArrayList, list, $new($ArrayList));
@@ -1446,7 +1326,7 @@ $NodeArray* Metacity::getNodesByName($Node* parent, $String* name) {
 			list->add(node);
 		}
 	}
-	return $fcast($NodeArray, list->toArray($$new($NodeArray, list->size())));
+	return $cast($NodeArray, list->toArray($$new($NodeArray, list->size())));
 }
 
 $Node* Metacity::getNode($String* tagName, $StringArray* attrs) {
@@ -1455,7 +1335,7 @@ $Node* Metacity::getNode($String* tagName, $StringArray* attrs) {
 }
 
 $Node* Metacity::getNode($Node* parent, $String* name, $StringArray* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, node, nullptr);
 	$var($NodeList, nodes, $nc(parent)->getChildNodes());
 	if (nodes != nullptr) {
@@ -1478,13 +1358,13 @@ $Node* Metacity::getNode($Node* parent, $String* name, $StringArray* attrs) {
 }
 
 $Node* Metacity::getNode($NodeList* nodes, $String* name, $StringArray* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = $nc(nodes)->getLength();
 	for (int32_t i = 0; i < n; ++i) {
 		$var($Node, node, nodes->item(i));
 		if ($nc(name)->equals($($nc(node)->getNodeName()))) {
 			if (attrs != nullptr) {
-				$var($NamedNodeMap, nodeAttrs, $nc(node)->getAttributes());
+				$var($NamedNodeMap, nodeAttrs, node->getAttributes());
 				if (nodeAttrs != nullptr) {
 					bool matches = true;
 					int32_t nAttrs = attrs->length / 2;
@@ -1492,7 +1372,7 @@ $Node* Metacity::getNode($NodeList* nodes, $String* name, $StringArray* attrs) {
 						$var($String, aName, attrs->get(a * 2));
 						$var($String, aValue, attrs->get(a * 2 + 1));
 						$var($Node, attr, nodeAttrs->getNamedItem(aName));
-						if (attr == nullptr || aValue != nullptr && !aValue->equals($($nc(attr)->getNodeValue()))) {
+						if (attr == nullptr || aValue != nullptr && !aValue->equals($(attr->getNodeValue()))) {
 							matches = false;
 							break;
 						}
@@ -1510,7 +1390,7 @@ $Node* Metacity::getNode($NodeList* nodes, $String* name, $StringArray* attrs) {
 }
 
 $String* Metacity::getStringAttr($Node* node, $String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, value, nullptr);
 	$var($NamedNodeMap, attrs, $nc(node)->getAttributes());
 	if (attrs != nullptr) {
@@ -1534,14 +1414,14 @@ $String* Metacity::getStringAttr($Node* node, $String* name) {
 
 $String* Metacity::getStringAttr($NamedNodeMap* attrs, $String* name) {
 	$var($Node, item, $nc(attrs)->getNamedItem(name));
-	return (item != nullptr) ? $nc(item)->getNodeValue() : ($String*)nullptr;
+	return (item != nullptr) ? item->getNodeValue() : ($String*)nullptr;
 }
 
 bool Metacity::getBooleanAttr($Node* node, $String* name, bool fallback) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, getStringAttr(node, name));
 	if (str != nullptr) {
-		return $nc($($Boolean::valueOf(str)))->booleanValue();
+		return $($Boolean::valueOf(str))->booleanValue();
 	}
 	return fallback;
 }
@@ -1553,7 +1433,7 @@ int32_t Metacity::getIntAttr($Node* node, $String* name, int32_t fallback) {
 		try {
 			value = $Integer::parseInt(str);
 		} catch ($NumberFormatException& ex) {
-			logError(this->themeName, static_cast<$Exception*>(ex));
+			logError(this->themeName, ex);
 		}
 	}
 	return value;
@@ -1566,14 +1446,14 @@ float Metacity::getFloatAttr($Node* node, $String* name, float fallback) {
 		try {
 			value = $Float::parseFloat(str);
 		} catch ($NumberFormatException& ex) {
-			logError(this->themeName, static_cast<$Exception*>(ex));
+			logError(this->themeName, ex);
 		}
 	}
 	return value;
 }
 
 $Color* Metacity::parseColor($String* str) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringTokenizer, tokenizer, $new($StringTokenizer, str, "/"_s));
 	int32_t n = tokenizer->countTokens();
 	if (n > 1) {
@@ -1617,13 +1497,13 @@ $Color* Metacity::parseColor($String* str) {
 }
 
 $Color* Metacity::parseColor2($String* str) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, c, nullptr);
 	if ($nc(str)->startsWith("gtk:"_s)) {
-		int32_t i1 = str->indexOf((int32_t)u'[');
+		int32_t i1 = str->indexOf(u'[');
 		if (i1 > 3) {
 			$var($String, typeStr, $(str->substring(4, i1))->toLowerCase());
-			int32_t i2 = str->indexOf((int32_t)u']');
+			int32_t i2 = str->indexOf(u']');
 			if (i2 > i1 + 1) {
 				$var($String, stateStr, $(str->substring(i1 + 1, i2))->toUpperCase());
 				int32_t state = -1;
@@ -1659,7 +1539,7 @@ $Color* Metacity::parseColor2($String* str) {
 					$assign(type, $GTKColorType::LIGHT);
 				}
 				if (state >= 0 && type != nullptr) {
-					$assign(c, $nc(($cast($GTKStyle, $($nc(this->context)->getStyle()))))->getGTKColor(this->context, state, type));
+					$assign(c, $$sure($GTKStyle, $nc(this->context)->getStyle())->getGTKColor(this->context, state, type));
 				}
 			}
 		}
@@ -1672,7 +1552,7 @@ $Color* Metacity::parseColor2($String* str) {
 
 $Color* Metacity::parseColorString($String* str$renamed) {
 	$init(Metacity);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, str$renamed);
 	if ($nc(str)->charAt(0) == u'#') {
 		$assign(str, str->substring(1));
@@ -1705,8 +1585,8 @@ $Color* Metacity::parseColorString($String* str$renamed) {
 	}
 }
 
-void clinit$Metacity($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Metacity::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	Metacity::$assertionsDisabled = !Metacity::class$->desiredAssertionStatus();
 	$assignStatic(Metacity::themeNames, $new($StringArray, {
 		$(Metacity::getUserTheme()),
@@ -1718,9 +1598,7 @@ void clinit$Metacity($Class* class$) {
 	{
 		{
 			$var($StringArray, arr$, Metacity::themeNames);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, themeName, arr$->get(i$));
 				{
 					if (themeName != nullptr) {
@@ -1728,11 +1606,11 @@ void clinit$Metacity($Class* class$) {
 							$assignStatic(Metacity::INSTANCE, $new(Metacity, themeName));
 						} catch ($FileNotFoundException& ex) {
 						} catch ($IOException& ex) {
-							Metacity::logError(themeName, static_cast<$Exception*>(ex));
+							Metacity::logError(themeName, ex);
 						} catch ($ParserConfigurationException& ex) {
-							Metacity::logError(themeName, static_cast<$Exception*>(ex));
+							Metacity::logError(themeName, ex);
 						} catch ($SAXException& ex) {
-							Metacity::logError(themeName, static_cast<$Exception*>(ex));
+							Metacity::logError(themeName, ex);
 						}
 					}
 					if (Metacity::INSTANCE != nullptr) {
@@ -1752,7 +1630,111 @@ Metacity::Metacity() {
 }
 
 $Class* Metacity::load$($String* name, bool initialize) {
-	$loadClass(Metacity, name, initialize, &_Metacity_ClassInfo_, clinit$Metacity, allocate$Metacity);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Metacity, $assertionsDisabled)},
+		{"INSTANCE", "Lcom/sun/java/swing/plaf/gtk/Metacity;", nullptr, $STATIC, $staticField(Metacity, INSTANCE)},
+		{"themeNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Metacity, themeNames)},
+		{"errorLogged", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Metacity, errorLogged)},
+		{"documentBuilder", "Ljavax/xml/parsers/DocumentBuilder;", nullptr, $PRIVATE | $STATIC, $staticField(Metacity, documentBuilder)},
+		{"xmlDoc", "Lorg/w3c/dom/Document;", nullptr, $PRIVATE | $STATIC, $staticField(Metacity, xmlDoc)},
+		{"userHome", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(Metacity, userHome)},
+		{"frame_style_set", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(Metacity, frame_style_set)},
+		{"frameGeometry", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(Metacity, frameGeometry)},
+		{"frameGeometries", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;>;", $PRIVATE, $field(Metacity, frameGeometries)},
+		{"titlePaneLayout", "Ljava/awt/LayoutManager;", nullptr, $PRIVATE, $field(Metacity, titlePaneLayout)},
+		{"imageFilter", "Lcom/sun/java/swing/plaf/gtk/Metacity$ColorizeImageFilter;", nullptr, $PRIVATE, $field(Metacity, imageFilter)},
+		{"themeDir", "Ljava/net/URL;", nullptr, $PRIVATE, $field(Metacity, themeDir)},
+		{"context", "Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $field(Metacity, context)},
+		{"themeName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Metacity, themeName)},
+		{"aee", "Lcom/sun/java/swing/plaf/gtk/Metacity$ArithmeticExpressionEvaluator;", nullptr, $PRIVATE, $field(Metacity, aee)},
+		{"variables", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE, $field(Metacity, variables)},
+		{"roundedClipShape", "Lcom/sun/java/swing/plaf/gtk/Metacity$RoundRectClipShape;", nullptr, $PRIVATE, $field(Metacity, roundedClipShape)},
+		{"images", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/awt/Image;>;", $PRIVATE, $field(Metacity, images)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(Metacity, init$, void, $String*), "java.io.IOException,javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException"},
+		{"calculateButtonSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(Metacity, calculateButtonSize, $Dimension*, $JComponent*)},
+		{"calculateTitleArea", "(Ljavax/swing/JInternalFrame;)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(Metacity, calculateTitleArea, $Rectangle*, $JInternalFrame*)},
+		{"calculateTitleTextWidth", "(Ljava/awt/Graphics;Ljavax/swing/JInternalFrame;)I", nullptr, $PROTECTED, $virtualMethod(Metacity, calculateTitleTextWidth, int32_t, $Graphics*, $JInternalFrame*)},
+		{"draw", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, draw, void, $Node*, $Graphics*, $JInternalFrame*)},
+		{"drawArc", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawArc, void, $Node*, $Graphics*)},
+		{"drawButton", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;Ljava/awt/Graphics;IILjavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawButton, void, $Node*, $String*, $String*, $Graphics*, int32_t, int32_t, $JInternalFrame*)},
+		{"drawGTKArrow", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawGTKArrow, void, $Node*, $Graphics*)},
+		{"drawGTKBox", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawGTKBox, void, $Node*, $Graphics*)},
+		{"drawGTKVLine", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawGTKVLine, void, $Node*, $Graphics*)},
+		{"drawGradient", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawGradient, void, $Node*, $Graphics*)},
+		{"drawIcon", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawIcon, void, $Node*, $Graphics*, $JInternalFrame*)},
+		{"drawImage", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawImage, void, $Node*, $Graphics*)},
+		{"drawInclude", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawInclude, void, $Node*, $Graphics*, $JInternalFrame*)},
+		{"drawLine", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawLine, void, $Node*, $Graphics*)},
+		{"drawPiece", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;Ljava/lang/String;IIIILjavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawPiece, void, $Node*, $Graphics*, $String*, int32_t, int32_t, int32_t, int32_t, $JInternalFrame*)},
+		{"drawRectangle", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawRectangle, void, $Node*, $Graphics*)},
+		{"drawTile", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawTile, void, $Node*, $Graphics*, $JInternalFrame*)},
+		{"drawTint", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawTint, void, $Node*, $Graphics*)},
+		{"drawTitle", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, drawTitle, void, $Node*, $Graphics*, $JInternalFrame*)},
+		{"findChild", "(Ljavax/swing/JComponent;Ljava/lang/String;)Ljavax/swing/JComponent;", nullptr, $PROTECTED | $STATIC, $staticMethod(Metacity, findChild, $JComponent*, $JComponent*, $String*)},
+		{"findInternalFrame", "(Ljava/awt/Component;)Ljavax/swing/JInternalFrame;", nullptr, 0, $virtualMethod(Metacity, findInternalFrame, $JInternalFrame*, $Component*)},
+		{"getBoolean", "(Ljava/lang/String;Z)Z", nullptr, $PROTECTED, $virtualMethod(Metacity, getBoolean, bool, $String*, bool)},
+		{"getBooleanAttr", "(Lorg/w3c/dom/Node;Ljava/lang/String;Z)Z", nullptr, $PROTECTED, $virtualMethod(Metacity, getBooleanAttr, bool, $Node*, $String*, bool)},
+		{"getBorderInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, 0, $virtualMethod(Metacity, getBorderInsets, $Insets*, $SynthContext*, $Insets*)},
+		{"getFloatAttr", "(Lorg/w3c/dom/Node;Ljava/lang/String;F)F", nullptr, $PROTECTED, $virtualMethod(Metacity, getFloatAttr, float, $Node*, $String*, float)},
+		{"getFrameGeometry", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PROTECTED, $virtualMethod(Metacity, getFrameGeometry, $Map*)},
+		{"getImage", "(Ljava/lang/String;Ljava/awt/Color;)Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(Metacity, getImage, $Image*, $String*, $Color*)},
+		{"getImage", "(Ljava/lang/String;)Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(Metacity, getImage, $Image*, $String*)},
+		{"getInt", "(Ljava/lang/String;)I", nullptr, $PROTECTED, $virtualMethod(Metacity, getInt, int32_t, $String*)},
+		{"getIntAttr", "(Lorg/w3c/dom/Node;Ljava/lang/String;I)I", nullptr, $PROTECTED, $virtualMethod(Metacity, getIntAttr, int32_t, $Node*, $String*, int32_t)},
+		{"getNode", "(Ljava/lang/String;[Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PROTECTED, $virtualMethod(Metacity, getNode, $Node*, $String*, $StringArray*)},
+		{"getNode", "(Lorg/w3c/dom/Node;Ljava/lang/String;[Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PROTECTED, $virtualMethod(Metacity, getNode, $Node*, $Node*, $String*, $StringArray*)},
+		{"getNode", "(Lorg/w3c/dom/NodeList;Ljava/lang/String;[Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PROTECTED, $virtualMethod(Metacity, getNode, $Node*, $NodeList*, $String*, $StringArray*)},
+		{"getNodesByName", "(Lorg/w3c/dom/Node;Ljava/lang/String;)[Lorg/w3c/dom/Node;", nullptr, $PROTECTED, $virtualMethod(Metacity, getNodesByName, $NodeArray*, $Node*, $String*)},
+		{"getRoundedClipShape", "(IIIIIII)Ljava/awt/Shape;", nullptr, $PRIVATE, $method(Metacity, getRoundedClipShape, $Shape*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"getStringAttr", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Metacity, getStringAttr, $String*, $Node*, $String*)},
+		{"getStringAttr", "(Lorg/w3c/dom/NamedNodeMap;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Metacity, getStringAttr, $String*, $NamedNodeMap*, $String*)},
+		{"getThemeDir", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(Metacity, getThemeDir, $URL*, $String*)},
+		{"getTitlePaneLayout", "()Ljava/awt/LayoutManager;", nullptr, $PUBLIC | $STATIC, $staticMethod(Metacity, getTitlePaneLayout, $LayoutManager*)},
+		{"getUserTheme", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Metacity, getUserTheme, $String*)},
+		{"getXMLDoc", "(Ljava/net/URL;)Lorg/w3c/dom/Document;", nullptr, $PROTECTED | $STATIC, $staticMethod(Metacity, getXMLDoc, $Document*, $URL*), "java.io.IOException,javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException"},
+		{"logError", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(Metacity, logError, void, $String*, $Exception*)},
+		{"logError", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(Metacity, logError, void, $String*, $String*)},
+		{"paintButtonBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, 0, $virtualMethod(Metacity, paintButtonBackground, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintFrameBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, 0, $virtualMethod(Metacity, paintFrameBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"parseColor", "(Ljava/lang/String;)Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(Metacity, parseColor, $Color*, $String*)},
+		{"parseColor2", "(Ljava/lang/String;)Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(Metacity, parseColor2, $Color*, $String*)},
+		{"parseColorString", "(Ljava/lang/String;)Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticMethod(Metacity, parseColorString, $Color*, $String*)},
+		{"setClip", "(Lorg/w3c/dom/Node;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(Metacity, setClip, void, $Node*, $Graphics*)},
+		{"setFrameGeometry", "(Ljavax/swing/JComponent;Ljava/util/Map;)V", "(Ljavax/swing/JComponent;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", $PROTECTED, $virtualMethod(Metacity, setFrameGeometry, void, $JComponent*, $Map*)},
+		{"tileImage", "(Ljava/awt/Graphics;Ljava/awt/Image;IIII[F)V", nullptr, $PROTECTED, $virtualMethod(Metacity, tileImage, void, $Graphics*, $Image*, int32_t, int32_t, int32_t, int32_t, $floats*)},
+		{"updateFrameGeometry", "(Ljavax/swing/plaf/synth/SynthContext;)V", nullptr, $PRIVATE, $method(Metacity, updateFrameGeometry, void, $SynthContext*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.Metacity$RoundRectClipShape", "com.sun.java.swing.plaf.gtk.Metacity", "RoundRectClipShape", $STATIC},
+		{"com.sun.java.swing.plaf.gtk.Metacity$PeekableStringTokenizer", "com.sun.java.swing.plaf.gtk.Metacity", "PeekableStringTokenizer", $STATIC},
+		{"com.sun.java.swing.plaf.gtk.Metacity$ArithmeticExpressionEvaluator", "com.sun.java.swing.plaf.gtk.Metacity", "ArithmeticExpressionEvaluator", 0},
+		{"com.sun.java.swing.plaf.gtk.Metacity$TitlePaneLayout", "com.sun.java.swing.plaf.gtk.Metacity", "TitlePaneLayout", $PROTECTED},
+		{"com.sun.java.swing.plaf.gtk.Metacity$ColorizeImageFilter", "com.sun.java.swing.plaf.gtk.Metacity", "ColorizeImageFilter", $PRIVATE},
+		{"com.sun.java.swing.plaf.gtk.Metacity$Privileged", "com.sun.java.swing.plaf.gtk.Metacity", "Privileged", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.gtk.Metacity$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.Metacity",
+		"java.lang.Object",
+		"javax.swing.plaf.synth.SynthConstants",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.Metacity$RoundRectClipShape,com.sun.java.swing.plaf.gtk.Metacity$RoundRectClipShape$RoundishRectIterator,com.sun.java.swing.plaf.gtk.Metacity$PeekableStringTokenizer,com.sun.java.swing.plaf.gtk.Metacity$ArithmeticExpressionEvaluator,com.sun.java.swing.plaf.gtk.Metacity$TitlePaneLayout,com.sun.java.swing.plaf.gtk.Metacity$ColorizeImageFilter,com.sun.java.swing.plaf.gtk.Metacity$Privileged,com.sun.java.swing.plaf.gtk.Metacity$1"
+	};
+	$loadClass(Metacity, name, initialize, &classInfo$$, Metacity::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Metacity);
+	});
 	return class$;
 }
 

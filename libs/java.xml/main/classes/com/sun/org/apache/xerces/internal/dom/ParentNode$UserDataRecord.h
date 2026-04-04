@@ -42,7 +42,7 @@ public:
 	ParentNode$UserDataRecord();
 	void init$(::com::sun::org::apache::xerces::internal::dom::ParentNode* this$0, Object$* data, ::org::w3c::dom::UserDataHandler* handler);
 	::com::sun::org::apache::xerces::internal::dom::ParentNode* this$0 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x2D37313931353437;
+	static const int64_t serialVersionUID = (int64_t)0x2d37313931353437;
 	$Object* fData = nullptr;
 	::org::w3c::dom::UserDataHandler* fHandler = nullptr;
 };

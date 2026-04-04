@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaComboBoxUI$12$4.h>
-
 #include <com/apple/laf/AquaComboBoxUI$12.h>
 #include <com/apple/laf/AquaComboBoxUI.h>
 #include <com/apple/laf/ClientPropertyApplicator$Property.h>
@@ -17,57 +16,10 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JButton = ::javax::swing::JButton;
-using $JList = ::javax::swing::JList;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaComboBoxUI$12$4_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaComboBoxUI$12;", nullptr, $FINAL | $SYNTHETIC, $field(AquaComboBoxUI$12$4, this$0)},
-	{}
-};
-
-$MethodInfo _AquaComboBoxUI$12$4_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaComboBoxUI$12;Ljava/lang/String;)V", nullptr, 0, $method(AquaComboBoxUI$12$4, init$, void, $AquaComboBoxUI$12*, $String*)},
-	{"applyProperty", "(Lcom/apple/laf/AquaComboBoxUI;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AquaComboBoxUI$12$4, applyProperty, void, $AquaComboBoxUI*, Object$*)},
-	{"applyProperty", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AquaComboBoxUI$12$4, applyProperty, void, Object$*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaComboBoxUI$12$4_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaComboBoxUI$12",
-	"getInstance",
-	"()Lcom/apple/laf/ClientPropertyApplicator;"
-};
-
-$InnerClassInfo _AquaComboBoxUI$12$4_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaComboBoxUI$12", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaComboBoxUI$12$4", nullptr, nullptr, 0},
-	{"com.apple.laf.ClientPropertyApplicator$Property", "com.apple.laf.ClientPropertyApplicator", "Property", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaComboBoxUI$12$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaComboBoxUI$12$4",
-	"com.apple.laf.ClientPropertyApplicator$Property",
-	nullptr,
-	_AquaComboBoxUI$12$4_FieldInfo_,
-	_AquaComboBoxUI$12$4_MethodInfo_,
-	"Lcom/apple/laf/ClientPropertyApplicator$Property<Lcom/apple/laf/AquaComboBoxUI;>;",
-	&_AquaComboBoxUI$12$4_EnclosingMethodInfo_,
-	_AquaComboBoxUI$12$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaComboBoxUI"
-};
-
-$Object* allocate$AquaComboBoxUI$12$4($Class* clazz) {
-	return $of($alloc(AquaComboBoxUI$12$4));
-}
 
 void AquaComboBoxUI$12$4::init$($AquaComboBoxUI$12* this$0, $String* name) {
 	$set(this, this$0, this$0);
@@ -75,13 +27,13 @@ void AquaComboBoxUI$12$4::init$($AquaComboBoxUI$12* this$0, $String* name) {
 }
 
 void AquaComboBoxUI$12$4::applyProperty($AquaComboBoxUI* target, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, color, $cast($Color, value));
 	if ($AquaComboBoxUI::access$7700(target) != nullptr) {
-		$nc($($AquaComboBoxUI::access$7800(target)))->setForeground(color);
+		$$nc($AquaComboBoxUI::access$7800(target))->setForeground(color);
 	}
 	if ($AquaComboBoxUI::access$7900(target) != nullptr) {
-		$nc($($AquaComboBoxUI::access$8000(target)))->setForeground(color);
+		$$nc($AquaComboBoxUI::access$8000(target))->setForeground(color);
 	}
 }
 
@@ -93,7 +45,45 @@ AquaComboBoxUI$12$4::AquaComboBoxUI$12$4() {
 }
 
 $Class* AquaComboBoxUI$12$4::load$($String* name, bool initialize) {
-	$loadClass(AquaComboBoxUI$12$4, name, initialize, &_AquaComboBoxUI$12$4_ClassInfo_, allocate$AquaComboBoxUI$12$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaComboBoxUI$12;", nullptr, $FINAL | $SYNTHETIC, $field(AquaComboBoxUI$12$4, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaComboBoxUI$12;Ljava/lang/String;)V", nullptr, 0, $method(AquaComboBoxUI$12$4, init$, void, $AquaComboBoxUI$12*, $String*)},
+		{"applyProperty", "(Lcom/apple/laf/AquaComboBoxUI;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AquaComboBoxUI$12$4, applyProperty, void, $AquaComboBoxUI*, Object$*)},
+		{"applyProperty", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AquaComboBoxUI$12$4, applyProperty, void, Object$*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaComboBoxUI$12",
+		"getInstance",
+		"()Lcom/apple/laf/ClientPropertyApplicator;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaComboBoxUI$12", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaComboBoxUI$12$4", nullptr, nullptr, 0},
+		{"com.apple.laf.ClientPropertyApplicator$Property", "com.apple.laf.ClientPropertyApplicator", "Property", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaComboBoxUI$12$4",
+		"com.apple.laf.ClientPropertyApplicator$Property",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/apple/laf/ClientPropertyApplicator$Property<Lcom/apple/laf/AquaComboBoxUI;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaComboBoxUI"
+	};
+	$loadClass(AquaComboBoxUI$12$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaComboBoxUI$12$4);
+	});
 	return class$;
 }
 

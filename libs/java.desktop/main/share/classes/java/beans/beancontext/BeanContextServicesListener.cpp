@@ -1,5 +1,4 @@
 #include <java/beans/beancontext/BeanContextServicesListener.h>
-
 #include <java/beans/beancontext/BeanContextServiceAvailableEvent.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace java {
 	namespace beans {
 		namespace beancontext {
 
-$MethodInfo _BeanContextServicesListener_MethodInfo_[] = {
-	{"serviceAvailable", "(Ljava/beans/beancontext/BeanContextServiceAvailableEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BeanContextServicesListener, serviceAvailable, void, $BeanContextServiceAvailableEvent*)},
-	{}
-};
-
-$ClassInfo _BeanContextServicesListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.beans.beancontext.BeanContextServicesListener",
-	nullptr,
-	"java.beans.beancontext.BeanContextServiceRevokedListener",
-	nullptr,
-	_BeanContextServicesListener_MethodInfo_
-};
-
-$Object* allocate$BeanContextServicesListener($Class* clazz) {
-	return $of($alloc(BeanContextServicesListener));
-}
-
 $Class* BeanContextServicesListener::load$($String* name, bool initialize) {
-	$loadClass(BeanContextServicesListener, name, initialize, &_BeanContextServicesListener_ClassInfo_, allocate$BeanContextServicesListener);
+	$MethodInfo methodInfos$$[] = {
+		{"serviceAvailable", "(Ljava/beans/beancontext/BeanContextServiceAvailableEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BeanContextServicesListener, serviceAvailable, void, $BeanContextServiceAvailableEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.beans.beancontext.BeanContextServicesListener",
+		nullptr,
+		"java.beans.beancontext.BeanContextServiceRevokedListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BeanContextServicesListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BeanContextServicesListener);
+	});
 	return class$;
 }
 

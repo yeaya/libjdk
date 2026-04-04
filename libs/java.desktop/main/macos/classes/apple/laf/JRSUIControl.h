@@ -51,6 +51,7 @@ class JRSUIControl : public ::java::lang::Object {
 	$class(JRSUIControl, $HAS_FINALIZE, ::java::lang::Object)
 public:
 	JRSUIControl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool flipped);
 	void init$(::apple::laf::JRSUIControl* other);
 	static void disposeCFDictionary(int64_t cfDictionaryPtr);

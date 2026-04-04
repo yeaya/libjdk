@@ -1,5 +1,4 @@
 #include <javax/imageio/spi/ServiceRegistry.h>
-
 #include <java/lang/ClassCastException.h>
 #include <java/lang/ClassLoader.h>
 #include <java/util/ArrayList.h>
@@ -30,11 +29,9 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $ServiceLoader = ::java::util::ServiceLoader;
 using $Set = ::java::util::Set;
 using $FilterIterator = ::javax::imageio::spi::FilterIterator;
@@ -50,71 +47,8 @@ namespace javax {
 	namespace imageio {
 		namespace spi {
 
-$NamedAttribute ServiceRegistry_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _ServiceRegistry_MethodAnnotations_finalize7[] = {
-	{"Ljava/lang/Deprecated;", ServiceRegistry_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _ServiceRegistry_FieldInfo_[] = {
-	{"categoryMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljavax/imageio/spi/SubRegistry;>;", $PRIVATE, $field(ServiceRegistry, categoryMap)},
-	{}
-};
-
-$MethodInfo _ServiceRegistry_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<Ljava/lang/Class<*>;>;)V", $PUBLIC, $method(ServiceRegistry, init$, void, $Iterator*)},
-	{"checkClassAllowed", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(ServiceRegistry, checkClassAllowed, void, $Class*)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ServiceRegistry, contains, bool, Object$*)},
-	{"deregisterAll", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(ServiceRegistry, deregisterAll, void, $Class*)},
-	{"deregisterAll", "()V", nullptr, $PUBLIC, $virtualMethod(ServiceRegistry, deregisterAll, void)},
-	{"deregisterServiceProvider", "(Ljava/lang/Object;Ljava/lang/Class;)Z", "<T:Ljava/lang/Object;>(TT;Ljava/lang/Class<TT;>;)Z", $PUBLIC, $virtualMethod(ServiceRegistry, deregisterServiceProvider, bool, Object$*, $Class*)},
-	{"deregisterServiceProvider", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ServiceRegistry, deregisterServiceProvider, void, Object$*)},
-	{"finalize", "()V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(ServiceRegistry, finalize, void), "java.lang.Throwable", nullptr, _ServiceRegistry_MethodAnnotations_finalize7},
-	{"getCategories", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/Class<*>;>;", $PUBLIC, $virtualMethod(ServiceRegistry, getCategories, $Iterator*)},
-	{"getServiceProviderByClass", "(Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(ServiceRegistry, getServiceProviderByClass, $Object*, $Class*)},
-	{"getServiceProviders", "(Ljava/lang/Class;Z)Ljava/util/Iterator;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;Z)Ljava/util/Iterator<TT;>;", $PUBLIC, $virtualMethod(ServiceRegistry, getServiceProviders, $Iterator*, $Class*, bool)},
-	{"getServiceProviders", "(Ljava/lang/Class;Ljavax/imageio/spi/ServiceRegistry$Filter;Z)Ljava/util/Iterator;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;Ljavax/imageio/spi/ServiceRegistry$Filter;Z)Ljava/util/Iterator<TT;>;", $PUBLIC, $virtualMethod(ServiceRegistry, getServiceProviders, $Iterator*, $Class*, $ServiceRegistry$Filter*, bool)},
-	{"getSubRegistries", "(Ljava/lang/Object;)Ljava/util/Iterator;", "(Ljava/lang/Object;)Ljava/util/Iterator<Ljavax/imageio/spi/SubRegistry;>;", $PRIVATE, $method(ServiceRegistry, getSubRegistries, $Iterator*, Object$*)},
-	{"lookupProviders", "(Ljava/lang/Class;Ljava/lang/ClassLoader;)Ljava/util/Iterator;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;Ljava/lang/ClassLoader;)Ljava/util/Iterator<TT;>;", $PUBLIC | $STATIC, $staticMethod(ServiceRegistry, lookupProviders, $Iterator*, $Class*, $ClassLoader*)},
-	{"lookupProviders", "(Ljava/lang/Class;)Ljava/util/Iterator;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)Ljava/util/Iterator<TT;>;", $PUBLIC | $STATIC, $staticMethod(ServiceRegistry, lookupProviders, $Iterator*, $Class*)},
-	{"registerServiceProvider", "(Ljava/lang/Object;Ljava/lang/Class;)Z", "<T:Ljava/lang/Object;>(TT;Ljava/lang/Class<TT;>;)Z", $PUBLIC, $virtualMethod(ServiceRegistry, registerServiceProvider, bool, Object$*, $Class*)},
-	{"registerServiceProvider", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ServiceRegistry, registerServiceProvider, void, Object$*)},
-	{"registerServiceProviders", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<*>;)V", $PUBLIC, $virtualMethod(ServiceRegistry, registerServiceProviders, void, $Iterator*)},
-	{"setOrdering", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Object;)Z", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;TT;TT;)Z", $PUBLIC, $virtualMethod(ServiceRegistry, setOrdering, bool, $Class*, Object$*, Object$*)},
-	{"unsetOrdering", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Object;)Z", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;TT;TT;)Z", $PUBLIC, $virtualMethod(ServiceRegistry, unsetOrdering, bool, $Class*, Object$*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _ServiceRegistry_InnerClassesInfo_[] = {
-	{"javax.imageio.spi.ServiceRegistry$Filter", "javax.imageio.spi.ServiceRegistry", "Filter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ServiceRegistry_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.imageio.spi.ServiceRegistry",
-	"java.lang.Object",
-	nullptr,
-	_ServiceRegistry_FieldInfo_,
-	_ServiceRegistry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServiceRegistry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.imageio.spi.ServiceRegistry$Filter"
-};
-
-$Object* allocate$ServiceRegistry($Class* clazz) {
-	return $of($alloc(ServiceRegistry));
-}
-
 void ServiceRegistry::init$($Iterator* categories) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, categoryMap, $new($HashMap));
 	if (categories == nullptr) {
 		$throwNew($IllegalArgumentException, "categories == null!"_s);
@@ -134,7 +68,7 @@ $Iterator* ServiceRegistry::lookupProviders($Class* providerClass, $ClassLoader*
 		$throwNew($IllegalArgumentException, "providerClass == null!"_s);
 	}
 	checkClassAllowed(providerClass);
-	return $nc($($ServiceLoader::load(providerClass, loader)))->iterator();
+	return $$nc($ServiceLoader::load(providerClass, loader))->iterator();
 }
 
 $Iterator* ServiceRegistry::lookupProviders($Class* providerClass) {
@@ -144,7 +78,7 @@ $Iterator* ServiceRegistry::lookupProviders($Class* providerClass) {
 		$throwNew($IllegalArgumentException, "providerClass == null!"_s);
 	}
 	checkClassAllowed(providerClass);
-	return $nc($($ServiceLoader::load(providerClass)))->iterator();
+	return $$nc($ServiceLoader::load(providerClass))->iterator();
 }
 
 $Iterator* ServiceRegistry::getCategories() {
@@ -153,16 +87,14 @@ $Iterator* ServiceRegistry::getCategories() {
 }
 
 $Iterator* ServiceRegistry::getSubRegistries(Object$* provider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, l, $new($ArrayList));
 	{
-		$var($Iterator, i$, $nc($($nc(this->categoryMap)->keySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->categoryMap)->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$Class* c = $cast($Class, i$->next());
-			{
-				if ($nc(c)->isAssignableFrom($nc($of(provider))->getClass())) {
-					l->add($cast($SubRegistry, $($nc(this->categoryMap)->get(c))));
-				}
+			if ($nc(c)->isAssignableFrom($nc($of(provider))->getClass())) {
+				l->add($$cast($SubRegistry, this->categoryMap->get(c)));
 			}
 		}
 	}
@@ -184,7 +116,7 @@ bool ServiceRegistry::registerServiceProvider(Object$* provider, $Class* categor
 }
 
 void ServiceRegistry::registerServiceProvider(Object$* provider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (provider == nullptr) {
 		$throwNew($IllegalArgumentException, "provider == null!"_s);
 	}
@@ -196,7 +128,7 @@ void ServiceRegistry::registerServiceProvider(Object$* provider) {
 }
 
 void ServiceRegistry::registerServiceProviders($Iterator* providers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (providers == nullptr) {
 		$throwNew($IllegalArgumentException, "provider == null!"_s);
 	}
@@ -220,7 +152,7 @@ bool ServiceRegistry::deregisterServiceProvider(Object$* provider, $Class* categ
 }
 
 void ServiceRegistry::deregisterServiceProvider(Object$* provider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (provider == nullptr) {
 		$throwNew($IllegalArgumentException, "provider == null!"_s);
 	}
@@ -232,7 +164,7 @@ void ServiceRegistry::deregisterServiceProvider(Object$* provider) {
 }
 
 bool ServiceRegistry::contains(Object$* provider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (provider == nullptr) {
 		$throwNew($IllegalArgumentException, "provider == null!"_s);
 	}
@@ -247,7 +179,7 @@ bool ServiceRegistry::contains(Object$* provider) {
 }
 
 $Iterator* ServiceRegistry::getServiceProviders($Class* category, bool useOrdering) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SubRegistry, reg, $cast($SubRegistry, $nc(this->categoryMap)->get(category)));
 	if (reg == nullptr) {
 		$throwNew($IllegalArgumentException, "category unknown!"_s);
@@ -257,7 +189,7 @@ $Iterator* ServiceRegistry::getServiceProviders($Class* category, bool useOrderi
 }
 
 $Iterator* ServiceRegistry::getServiceProviders($Class* category, $ServiceRegistry$Filter* filter, bool useOrdering) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SubRegistry, reg, $cast($SubRegistry, $nc(this->categoryMap)->get(category)));
 	if (reg == nullptr) {
 		$throwNew($IllegalArgumentException, "category unknown!"_s);
@@ -267,26 +199,24 @@ $Iterator* ServiceRegistry::getServiceProviders($Class* category, $ServiceRegist
 }
 
 $Object* ServiceRegistry::getServiceProviderByClass($Class* providerClass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (providerClass == nullptr) {
 		$throwNew($IllegalArgumentException, "providerClass == null!"_s);
 	}
 	{
-		$var($Iterator, i$, $nc($($nc(this->categoryMap)->keySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->categoryMap)->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$Class* c = $cast($Class, i$->next());
-			{
-				if ($nc(c)->isAssignableFrom(providerClass)) {
-					$var($SubRegistry, reg, $cast($SubRegistry, $nc(this->categoryMap)->get(c)));
-					$var($Object, provider, $nc(reg)->getServiceProviderByClass(providerClass));
-					if (provider != nullptr) {
-						return $of(provider);
-					}
+			if ($nc(c)->isAssignableFrom(providerClass)) {
+				$var($SubRegistry, reg, $cast($SubRegistry, $nc(this->categoryMap)->get(c)));
+				$var($Object, provider, $nc(reg)->getServiceProviderByClass(providerClass));
+				if (provider != nullptr) {
+					return provider;
 				}
 			}
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 bool ServiceRegistry::setOrdering($Class* category, Object$* firstProvider, Object$* secondProvider) {
@@ -334,14 +264,12 @@ void ServiceRegistry::deregisterAll($Class* category) {
 }
 
 void ServiceRegistry::deregisterAll() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($($nc(this->categoryMap)->values()))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($SubRegistry, reg, $cast($SubRegistry, i$->next()));
-			{
-				$nc(reg)->clear();
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$nc($nc(this->categoryMap)->values())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($SubRegistry, reg, $cast($SubRegistry, i$->next()));
+		{
+			$nc(reg)->clear();
 		}
 	}
 }
@@ -352,7 +280,7 @@ void ServiceRegistry::finalize() {
 }
 
 void ServiceRegistry::checkClassAllowed($Class* clazz) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (clazz == nullptr) {
 		$throwNew($IllegalArgumentException, "class must not be null"_s);
 	}
@@ -370,7 +298,62 @@ ServiceRegistry::ServiceRegistry() {
 }
 
 $Class* ServiceRegistry::load$($String* name, bool initialize) {
-	$loadClass(ServiceRegistry, name, initialize, &_ServiceRegistry_ClassInfo_, allocate$ServiceRegistry);
+	$FieldInfo fieldInfos$$[] = {
+		{"categoryMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljavax/imageio/spi/SubRegistry;>;", $PRIVATE, $field(ServiceRegistry, categoryMap)},
+		{}
+	};
+	$NamedAttribute finalizemethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute finalizemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", finalizemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<Ljava/lang/Class<*>;>;)V", $PUBLIC, $method(ServiceRegistry, init$, void, $Iterator*)},
+		{"checkClassAllowed", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(ServiceRegistry, checkClassAllowed, void, $Class*)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ServiceRegistry, contains, bool, Object$*)},
+		{"deregisterAll", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(ServiceRegistry, deregisterAll, void, $Class*)},
+		{"deregisterAll", "()V", nullptr, $PUBLIC, $virtualMethod(ServiceRegistry, deregisterAll, void)},
+		{"deregisterServiceProvider", "(Ljava/lang/Object;Ljava/lang/Class;)Z", "<T:Ljava/lang/Object;>(TT;Ljava/lang/Class<TT;>;)Z", $PUBLIC, $virtualMethod(ServiceRegistry, deregisterServiceProvider, bool, Object$*, $Class*)},
+		{"deregisterServiceProvider", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ServiceRegistry, deregisterServiceProvider, void, Object$*)},
+		{"finalize", "()V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(ServiceRegistry, finalize, void), "java.lang.Throwable", nullptr, finalizemethodAnnotations$$},
+		{"getCategories", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/Class<*>;>;", $PUBLIC, $virtualMethod(ServiceRegistry, getCategories, $Iterator*)},
+		{"getServiceProviderByClass", "(Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(ServiceRegistry, getServiceProviderByClass, $Object*, $Class*)},
+		{"getServiceProviders", "(Ljava/lang/Class;Z)Ljava/util/Iterator;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;Z)Ljava/util/Iterator<TT;>;", $PUBLIC, $virtualMethod(ServiceRegistry, getServiceProviders, $Iterator*, $Class*, bool)},
+		{"getServiceProviders", "(Ljava/lang/Class;Ljavax/imageio/spi/ServiceRegistry$Filter;Z)Ljava/util/Iterator;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;Ljavax/imageio/spi/ServiceRegistry$Filter;Z)Ljava/util/Iterator<TT;>;", $PUBLIC, $virtualMethod(ServiceRegistry, getServiceProviders, $Iterator*, $Class*, $ServiceRegistry$Filter*, bool)},
+		{"getSubRegistries", "(Ljava/lang/Object;)Ljava/util/Iterator;", "(Ljava/lang/Object;)Ljava/util/Iterator<Ljavax/imageio/spi/SubRegistry;>;", $PRIVATE, $method(ServiceRegistry, getSubRegistries, $Iterator*, Object$*)},
+		{"lookupProviders", "(Ljava/lang/Class;Ljava/lang/ClassLoader;)Ljava/util/Iterator;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;Ljava/lang/ClassLoader;)Ljava/util/Iterator<TT;>;", $PUBLIC | $STATIC, $staticMethod(ServiceRegistry, lookupProviders, $Iterator*, $Class*, $ClassLoader*)},
+		{"lookupProviders", "(Ljava/lang/Class;)Ljava/util/Iterator;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)Ljava/util/Iterator<TT;>;", $PUBLIC | $STATIC, $staticMethod(ServiceRegistry, lookupProviders, $Iterator*, $Class*)},
+		{"registerServiceProvider", "(Ljava/lang/Object;Ljava/lang/Class;)Z", "<T:Ljava/lang/Object;>(TT;Ljava/lang/Class<TT;>;)Z", $PUBLIC, $virtualMethod(ServiceRegistry, registerServiceProvider, bool, Object$*, $Class*)},
+		{"registerServiceProvider", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ServiceRegistry, registerServiceProvider, void, Object$*)},
+		{"registerServiceProviders", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<*>;)V", $PUBLIC, $virtualMethod(ServiceRegistry, registerServiceProviders, void, $Iterator*)},
+		{"setOrdering", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Object;)Z", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;TT;TT;)Z", $PUBLIC, $virtualMethod(ServiceRegistry, setOrdering, bool, $Class*, Object$*, Object$*)},
+		{"unsetOrdering", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Object;)Z", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;TT;TT;)Z", $PUBLIC, $virtualMethod(ServiceRegistry, unsetOrdering, bool, $Class*, Object$*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.spi.ServiceRegistry$Filter", "javax.imageio.spi.ServiceRegistry", "Filter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.imageio.spi.ServiceRegistry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.imageio.spi.ServiceRegistry$Filter"
+	};
+	$loadClass(ServiceRegistry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServiceRegistry);
+	});
 	return class$;
 }
 

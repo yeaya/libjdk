@@ -1,5 +1,4 @@
 #include <java/awt/dnd/DragGestureListener.h>
-
 #include <java/awt/dnd/DragGestureEvent.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace java {
 	namespace awt {
 		namespace dnd {
 
-$MethodInfo _DragGestureListener_MethodInfo_[] = {
-	{"dragGestureRecognized", "(Ljava/awt/dnd/DragGestureEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DragGestureListener, dragGestureRecognized, void, $DragGestureEvent*)},
-	{}
-};
-
-$ClassInfo _DragGestureListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.dnd.DragGestureListener",
-	nullptr,
-	"java.util.EventListener",
-	nullptr,
-	_DragGestureListener_MethodInfo_
-};
-
-$Object* allocate$DragGestureListener($Class* clazz) {
-	return $of($alloc(DragGestureListener));
-}
-
 $Class* DragGestureListener::load$($String* name, bool initialize) {
-	$loadClass(DragGestureListener, name, initialize, &_DragGestureListener_ClassInfo_, allocate$DragGestureListener);
+	$MethodInfo methodInfos$$[] = {
+		{"dragGestureRecognized", "(Ljava/awt/dnd/DragGestureEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DragGestureListener, dragGestureRecognized, void, $DragGestureEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.dnd.DragGestureListener",
+		nullptr,
+		"java.util.EventListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DragGestureListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DragGestureListener);
+	});
 	return class$;
 }
 

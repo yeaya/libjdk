@@ -68,6 +68,7 @@ class $import MultiTaskListener : public ::com::sun::source::util::TaskListener 
 	$class(MultiTaskListener, 0, ::com::sun::source::util::TaskListener)
 public:
 	MultiTaskListener();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual void add(::com::sun::source::util::TaskListener* listener);
 	virtual void clear();

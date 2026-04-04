@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaScrollBarUI$ModelListener.h>
-
 #include <com/apple/laf/AquaScrollBarUI.h>
 #include <java/awt/Container.h>
 #include <javax/swing/JScrollBar.h>
@@ -7,7 +6,6 @@
 #include <jcpp.h>
 
 using $AquaScrollBarUI = ::com::apple::laf::AquaScrollBarUI;
-using $Container = ::java::awt::Container;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -17,42 +15,6 @@ using $ChangeEvent = ::javax::swing::event::ChangeEvent;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaScrollBarUI$ModelListener_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaScrollBarUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaScrollBarUI$ModelListener, this$0)},
-	{}
-};
-
-$MethodInfo _AquaScrollBarUI$ModelListener_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaScrollBarUI;)V", nullptr, $PROTECTED, $method(AquaScrollBarUI$ModelListener, init$, void, $AquaScrollBarUI*)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaScrollBarUI$ModelListener, stateChanged, void, $ChangeEvent*)},
-	{}
-};
-
-$InnerClassInfo _AquaScrollBarUI$ModelListener_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaScrollBarUI$ModelListener", "com.apple.laf.AquaScrollBarUI", "ModelListener", $PROTECTED},
-	{}
-};
-
-$ClassInfo _AquaScrollBarUI$ModelListener_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaScrollBarUI$ModelListener",
-	"java.lang.Object",
-	"javax.swing.event.ChangeListener",
-	_AquaScrollBarUI$ModelListener_FieldInfo_,
-	_AquaScrollBarUI$ModelListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaScrollBarUI$ModelListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaScrollBarUI"
-};
-
-$Object* allocate$AquaScrollBarUI$ModelListener($Class* clazz) {
-	return $of($alloc(AquaScrollBarUI$ModelListener));
-}
 
 void AquaScrollBarUI$ModelListener::init$($AquaScrollBarUI* this$0) {
 	$set(this, this$0, this$0);
@@ -66,7 +28,37 @@ AquaScrollBarUI$ModelListener::AquaScrollBarUI$ModelListener() {
 }
 
 $Class* AquaScrollBarUI$ModelListener::load$($String* name, bool initialize) {
-	$loadClass(AquaScrollBarUI$ModelListener, name, initialize, &_AquaScrollBarUI$ModelListener_ClassInfo_, allocate$AquaScrollBarUI$ModelListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaScrollBarUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaScrollBarUI$ModelListener, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaScrollBarUI;)V", nullptr, $PROTECTED, $method(AquaScrollBarUI$ModelListener, init$, void, $AquaScrollBarUI*)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaScrollBarUI$ModelListener, stateChanged, void, $ChangeEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaScrollBarUI$ModelListener", "com.apple.laf.AquaScrollBarUI", "ModelListener", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaScrollBarUI$ModelListener",
+		"java.lang.Object",
+		"javax.swing.event.ChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaScrollBarUI"
+	};
+	$loadClass(AquaScrollBarUI$ModelListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaScrollBarUI$ModelListener);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XTextAreaPeer$XAWTScrollPaneUI$1.h>
-
 #include <java/awt/Component.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <javax/swing/JScrollBar.h>
@@ -10,7 +9,6 @@
 #include <sun/awt/X11/XTextAreaPeer$XAWTScrollPaneUI.h>
 #include <jcpp.h>
 
-using $Component = ::java::awt::Component;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -28,65 +26,22 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XTextAreaPeer$XAWTScrollPaneUI$1_FieldInfo_[] = {
-	{"this$1", "Lsun/awt/X11/XTextAreaPeer$XAWTScrollPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(XTextAreaPeer$XAWTScrollPaneUI$1, this$1)},
-	{}
-};
-
-$MethodInfo _XTextAreaPeer$XAWTScrollPaneUI$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/XTextAreaPeer$XAWTScrollPaneUI;)V", nullptr, 0, $method(XTextAreaPeer$XAWTScrollPaneUI$1, init$, void, $XTextAreaPeer$XAWTScrollPaneUI*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$XAWTScrollPaneUI$1, propertyChange, void, $PropertyChangeEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _XTextAreaPeer$XAWTScrollPaneUI$1_EnclosingMethodInfo_ = {
-	"sun.awt.X11.XTextAreaPeer$XAWTScrollPaneUI",
-	"createPropertyChangeHandler",
-	"()Ljava/beans/PropertyChangeListener;"
-};
-
-$InnerClassInfo _XTextAreaPeer$XAWTScrollPaneUI$1_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XTextAreaPeer$XAWTScrollPaneUI", "sun.awt.X11.XTextAreaPeer", "XAWTScrollPaneUI", $FINAL},
-	{"sun.awt.X11.XTextAreaPeer$XAWTScrollPaneUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XTextAreaPeer$XAWTScrollPaneUI$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XTextAreaPeer$XAWTScrollPaneUI$1",
-	"java.lang.Object",
-	"java.beans.PropertyChangeListener",
-	_XTextAreaPeer$XAWTScrollPaneUI$1_FieldInfo_,
-	_XTextAreaPeer$XAWTScrollPaneUI$1_MethodInfo_,
-	nullptr,
-	&_XTextAreaPeer$XAWTScrollPaneUI$1_EnclosingMethodInfo_,
-	_XTextAreaPeer$XAWTScrollPaneUI$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XTextAreaPeer"
-};
-
-$Object* allocate$XTextAreaPeer$XAWTScrollPaneUI$1($Class* clazz) {
-	return $of($alloc(XTextAreaPeer$XAWTScrollPaneUI$1));
-}
-
 void XTextAreaPeer$XAWTScrollPaneUI$1::init$($XTextAreaPeer$XAWTScrollPaneUI* this$1) {
 	$set(this, this$1, this$1);
 }
 
 void XTextAreaPeer$XAWTScrollPaneUI$1::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, propertyName, $nc(e)->getPropertyName());
 	if ($nc(propertyName)->equals("componentOrientation"_s)) {
 		$var($JScrollPane, pane, $cast($JScrollPane, e->getSource()));
 		$var($JScrollBar, vsb, $nc(pane)->getVerticalScrollBar());
 		if (vsb != nullptr) {
 			if (this->this$1->isLeftToRight(pane)) {
-				$var($Border, var$0, static_cast<$Border*>($new($EmptyBorder, 0, 4, 0, -4)));
+				$var($Border, var$0, $new($EmptyBorder, 0, 4, 0, -4));
 				$set(this->this$1, vsbBorder, $new($CompoundBorder, var$0, $(vsb->getBorder())));
 			} else {
-				$var($Border, var$1, static_cast<$Border*>($new($EmptyBorder, 0, -4, 0, 4)));
+				$var($Border, var$1, $new($EmptyBorder, 0, -4, 0, 4));
 				$set(this->this$1, vsbBorder, $new($CompoundBorder, var$1, $(vsb->getBorder())));
 			}
 			vsb->setBorder(this->this$1->vsbBorder);
@@ -98,7 +53,43 @@ XTextAreaPeer$XAWTScrollPaneUI$1::XTextAreaPeer$XAWTScrollPaneUI$1() {
 }
 
 $Class* XTextAreaPeer$XAWTScrollPaneUI$1::load$($String* name, bool initialize) {
-	$loadClass(XTextAreaPeer$XAWTScrollPaneUI$1, name, initialize, &_XTextAreaPeer$XAWTScrollPaneUI$1_ClassInfo_, allocate$XTextAreaPeer$XAWTScrollPaneUI$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lsun/awt/X11/XTextAreaPeer$XAWTScrollPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(XTextAreaPeer$XAWTScrollPaneUI$1, this$1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XTextAreaPeer$XAWTScrollPaneUI;)V", nullptr, 0, $method(XTextAreaPeer$XAWTScrollPaneUI$1, init$, void, $XTextAreaPeer$XAWTScrollPaneUI*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$XAWTScrollPaneUI$1, propertyChange, void, $PropertyChangeEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.X11.XTextAreaPeer$XAWTScrollPaneUI",
+		"createPropertyChangeHandler",
+		"()Ljava/beans/PropertyChangeListener;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XTextAreaPeer$XAWTScrollPaneUI", "sun.awt.X11.XTextAreaPeer", "XAWTScrollPaneUI", $FINAL},
+		{"sun.awt.X11.XTextAreaPeer$XAWTScrollPaneUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XTextAreaPeer$XAWTScrollPaneUI$1",
+		"java.lang.Object",
+		"java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XTextAreaPeer"
+	};
+	$loadClass(XTextAreaPeer$XAWTScrollPaneUI$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XTextAreaPeer$XAWTScrollPaneUI$1);
+	});
 	return class$;
 }
 

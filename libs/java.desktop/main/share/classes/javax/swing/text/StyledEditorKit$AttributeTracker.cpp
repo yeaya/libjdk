@@ -1,5 +1,4 @@
 #include <javax/swing/text/StyledEditorKit$AttributeTracker.h>
-
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/lang/Math.h>
 #include <javax/swing/event/CaretEvent.h>
@@ -30,49 +29,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _StyledEditorKit$AttributeTracker_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/StyledEditorKit;", nullptr, $FINAL | $SYNTHETIC, $field(StyledEditorKit$AttributeTracker, this$0)},
-	{}
-};
-
-$MethodInfo _StyledEditorKit$AttributeTracker_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/text/StyledEditorKit;)V", nullptr, 0, $method(StyledEditorKit$AttributeTracker, init$, void, $StyledEditorKit*)},
-	{"caretUpdate", "(Ljavax/swing/event/CaretEvent;)V", nullptr, $PUBLIC, $virtualMethod(StyledEditorKit$AttributeTracker, caretUpdate, void, $CaretEvent*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(StyledEditorKit$AttributeTracker, propertyChange, void, $PropertyChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateInputAttributes", "(IILjavax/swing/text/JTextComponent;)V", nullptr, 0, $virtualMethod(StyledEditorKit$AttributeTracker, updateInputAttributes, void, int32_t, int32_t, $JTextComponent*)},
-	{}
-};
-
-$InnerClassInfo _StyledEditorKit$AttributeTracker_InnerClassesInfo_[] = {
-	{"javax.swing.text.StyledEditorKit$AttributeTracker", "javax.swing.text.StyledEditorKit", "AttributeTracker", 0},
-	{}
-};
-
-$ClassInfo _StyledEditorKit$AttributeTracker_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.StyledEditorKit$AttributeTracker",
-	"java.lang.Object",
-	"javax.swing.event.CaretListener,java.beans.PropertyChangeListener,java.io.Serializable",
-	_StyledEditorKit$AttributeTracker_FieldInfo_,
-	_StyledEditorKit$AttributeTracker_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StyledEditorKit$AttributeTracker_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.StyledEditorKit"
-};
-
-$Object* allocate$StyledEditorKit$AttributeTracker($Class* clazz) {
-	return $of($alloc(StyledEditorKit$AttributeTracker));
-}
-
 int32_t StyledEditorKit$AttributeTracker::hashCode() {
 	 return this->$CaretListener::hashCode();
 }
@@ -98,7 +54,7 @@ void StyledEditorKit$AttributeTracker::init$($StyledEditorKit* this$0) {
 }
 
 void StyledEditorKit$AttributeTracker::updateInputAttributes(int32_t dot, int32_t mark, $JTextComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, aDoc, $nc(c)->getDocument());
 	if (!($instanceOf($StyledDocument, aDoc))) {
 		return;
@@ -119,7 +75,7 @@ void StyledEditorKit$AttributeTracker::updateInputAttributes(int32_t dot, int32_
 }
 
 void StyledEditorKit$AttributeTracker::propertyChange($PropertyChangeEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, newValue, $nc(evt)->getNewValue());
 	$var($Object, source, evt->getSource());
 	if (($instanceOf($JTextComponent, source)) && ($instanceOf($Document, newValue))) {
@@ -130,14 +86,51 @@ void StyledEditorKit$AttributeTracker::propertyChange($PropertyChangeEvent* evt)
 void StyledEditorKit$AttributeTracker::caretUpdate($CaretEvent* e) {
 	int32_t var$0 = $nc(e)->getDot();
 	int32_t var$1 = e->getMark();
-	updateInputAttributes(var$0, var$1, $cast($JTextComponent, $(e->getSource())));
+	updateInputAttributes(var$0, var$1, $$cast($JTextComponent, e->getSource()));
 }
 
 StyledEditorKit$AttributeTracker::StyledEditorKit$AttributeTracker() {
 }
 
 $Class* StyledEditorKit$AttributeTracker::load$($String* name, bool initialize) {
-	$loadClass(StyledEditorKit$AttributeTracker, name, initialize, &_StyledEditorKit$AttributeTracker_ClassInfo_, allocate$StyledEditorKit$AttributeTracker);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/StyledEditorKit;", nullptr, $FINAL | $SYNTHETIC, $field(StyledEditorKit$AttributeTracker, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/text/StyledEditorKit;)V", nullptr, 0, $method(StyledEditorKit$AttributeTracker, init$, void, $StyledEditorKit*)},
+		{"caretUpdate", "(Ljavax/swing/event/CaretEvent;)V", nullptr, $PUBLIC, $virtualMethod(StyledEditorKit$AttributeTracker, caretUpdate, void, $CaretEvent*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(StyledEditorKit$AttributeTracker, propertyChange, void, $PropertyChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateInputAttributes", "(IILjavax/swing/text/JTextComponent;)V", nullptr, 0, $virtualMethod(StyledEditorKit$AttributeTracker, updateInputAttributes, void, int32_t, int32_t, $JTextComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.StyledEditorKit$AttributeTracker", "javax.swing.text.StyledEditorKit", "AttributeTracker", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.StyledEditorKit$AttributeTracker",
+		"java.lang.Object",
+		"javax.swing.event.CaretListener,java.beans.PropertyChangeListener,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.StyledEditorKit"
+	};
+	$loadClass(StyledEditorKit$AttributeTracker, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StyledEditorKit$AttributeTracker));
+	});
 	return class$;
 }
 

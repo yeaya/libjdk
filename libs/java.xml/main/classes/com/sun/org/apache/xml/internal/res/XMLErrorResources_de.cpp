@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/res/XMLErrorResources_de.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -97,109 +96,6 @@ namespace com {
 					namespace internal {
 						namespace res {
 
-$FieldInfo _XMLErrorResources_de_FieldInfo_[] = {
-	{"MAX_CODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLErrorResources_de, MAX_CODE)},
-	{"MAX_WARNING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLErrorResources_de, MAX_WARNING)},
-	{"MAX_OTHERS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLErrorResources_de, MAX_OTHERS)},
-	{"MAX_MESSAGES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLErrorResources_de, MAX_MESSAGES)},
-	{"ER_FUNCTION_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_FUNCTION_NOT_SUPPORTED)},
-	{"ER_CANNOT_OVERWRITE_CAUSE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_CANNOT_OVERWRITE_CAUSE)},
-	{"ER_NO_DEFAULT_IMPL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_NO_DEFAULT_IMPL)},
-	{"ER_CHUNKEDINTARRAY_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_CHUNKEDINTARRAY_NOT_SUPPORTED)},
-	{"ER_OFFSET_BIGGER_THAN_SLOT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_OFFSET_BIGGER_THAN_SLOT)},
-	{"ER_COROUTINE_NOT_AVAIL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_COROUTINE_NOT_AVAIL)},
-	{"ER_COROUTINE_CO_EXIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_COROUTINE_CO_EXIT)},
-	{"ER_COJOINROUTINESET_FAILED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_COJOINROUTINESET_FAILED)},
-	{"ER_COROUTINE_PARAM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_COROUTINE_PARAM)},
-	{"ER_PARSER_DOTERMINATE_ANSWERS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_PARSER_DOTERMINATE_ANSWERS)},
-	{"ER_NO_PARSE_CALL_WHILE_PARSING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_NO_PARSE_CALL_WHILE_PARSING)},
-	{"ER_TYPED_ITERATOR_AXIS_NOT_IMPLEMENTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_TYPED_ITERATOR_AXIS_NOT_IMPLEMENTED)},
-	{"ER_ITERATOR_AXIS_NOT_IMPLEMENTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_ITERATOR_AXIS_NOT_IMPLEMENTED)},
-	{"ER_ITERATOR_CLONE_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_ITERATOR_CLONE_NOT_SUPPORTED)},
-	{"ER_UNKNOWN_AXIS_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_UNKNOWN_AXIS_TYPE)},
-	{"ER_AXIS_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_AXIS_NOT_SUPPORTED)},
-	{"ER_NO_DTMIDS_AVAIL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_NO_DTMIDS_AVAIL)},
-	{"ER_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_NOT_SUPPORTED)},
-	{"ER_NODE_NON_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_NODE_NON_NULL)},
-	{"ER_COULD_NOT_RESOLVE_NODE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_COULD_NOT_RESOLVE_NODE)},
-	{"ER_STARTPARSE_WHILE_PARSING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_STARTPARSE_WHILE_PARSING)},
-	{"ER_STARTPARSE_NEEDS_SAXPARSER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_STARTPARSE_NEEDS_SAXPARSER)},
-	{"ER_COULD_NOT_INIT_PARSER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_COULD_NOT_INIT_PARSER)},
-	{"ER_EXCEPTION_CREATING_POOL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_EXCEPTION_CREATING_POOL)},
-	{"ER_PATH_CONTAINS_INVALID_ESCAPE_SEQUENCE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_PATH_CONTAINS_INVALID_ESCAPE_SEQUENCE)},
-	{"ER_SCHEME_REQUIRED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_SCHEME_REQUIRED)},
-	{"ER_NO_SCHEME_IN_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_NO_SCHEME_IN_URI)},
-	{"ER_NO_SCHEME_INURI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_NO_SCHEME_INURI)},
-	{"ER_PATH_INVALID_CHAR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_PATH_INVALID_CHAR)},
-	{"ER_SCHEME_FROM_NULL_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_SCHEME_FROM_NULL_STRING)},
-	{"ER_SCHEME_NOT_CONFORMANT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_SCHEME_NOT_CONFORMANT)},
-	{"ER_HOST_ADDRESS_NOT_WELLFORMED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_HOST_ADDRESS_NOT_WELLFORMED)},
-	{"ER_PORT_WHEN_HOST_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_PORT_WHEN_HOST_NULL)},
-	{"ER_INVALID_PORT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_INVALID_PORT)},
-	{"ER_FRAG_FOR_GENERIC_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_FRAG_FOR_GENERIC_URI)},
-	{"ER_FRAG_WHEN_PATH_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_FRAG_WHEN_PATH_NULL)},
-	{"ER_FRAG_INVALID_CHAR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_FRAG_INVALID_CHAR)},
-	{"ER_PARSER_IN_USE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_PARSER_IN_USE)},
-	{"ER_CANNOT_CHANGE_WHILE_PARSING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_CANNOT_CHANGE_WHILE_PARSING)},
-	{"ER_SELF_CAUSATION_NOT_PERMITTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_SELF_CAUSATION_NOT_PERMITTED)},
-	{"ER_NO_USERINFO_IF_NO_HOST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_NO_USERINFO_IF_NO_HOST)},
-	{"ER_NO_PORT_IF_NO_HOST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_NO_PORT_IF_NO_HOST)},
-	{"ER_NO_QUERY_STRING_IN_PATH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_NO_QUERY_STRING_IN_PATH)},
-	{"ER_NO_FRAGMENT_STRING_IN_PATH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_NO_FRAGMENT_STRING_IN_PATH)},
-	{"ER_CANNOT_INIT_URI_EMPTY_PARMS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_CANNOT_INIT_URI_EMPTY_PARMS)},
-	{"ER_METHOD_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_METHOD_NOT_SUPPORTED)},
-	{"ER_INCRSAXSRCFILTER_NOT_RESTARTABLE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_INCRSAXSRCFILTER_NOT_RESTARTABLE)},
-	{"ER_XMLRDR_NOT_BEFORE_STARTPARSE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_XMLRDR_NOT_BEFORE_STARTPARSE)},
-	{"ER_AXIS_TRAVERSER_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_AXIS_TRAVERSER_NOT_SUPPORTED)},
-	{"ER_ERRORHANDLER_CREATED_WITH_NULL_PRINTWRITER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_ERRORHANDLER_CREATED_WITH_NULL_PRINTWRITER)},
-	{"ER_SYSTEMID_UNKNOWN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_SYSTEMID_UNKNOWN)},
-	{"ER_LOCATION_UNKNOWN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_LOCATION_UNKNOWN)},
-	{"ER_PREFIX_MUST_RESOLVE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_PREFIX_MUST_RESOLVE)},
-	{"ER_CREATEDOCUMENT_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_CREATEDOCUMENT_NOT_SUPPORTED)},
-	{"ER_CHILD_HAS_NO_OWNER_DOCUMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_CHILD_HAS_NO_OWNER_DOCUMENT)},
-	{"ER_CHILD_HAS_NO_OWNER_DOCUMENT_ELEMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_CHILD_HAS_NO_OWNER_DOCUMENT_ELEMENT)},
-	{"ER_CANT_OUTPUT_TEXT_BEFORE_DOC", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_CANT_OUTPUT_TEXT_BEFORE_DOC)},
-	{"ER_CANT_HAVE_MORE_THAN_ONE_ROOT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_CANT_HAVE_MORE_THAN_ONE_ROOT)},
-	{"ER_ARG_LOCALNAME_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_ARG_LOCALNAME_NULL)},
-	{"ER_ARG_LOCALNAME_INVALID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_ARG_LOCALNAME_INVALID)},
-	{"ER_ARG_PREFIX_INVALID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_ARG_PREFIX_INVALID)},
-	{"ER_NAME_CANT_START_WITH_COLON", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_NAME_CANT_START_WITH_COLON)},
-	{"ER_RESOURCE_COULD_NOT_FIND", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_RESOURCE_COULD_NOT_FIND)},
-	{"ER_RESOURCE_COULD_NOT_LOAD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_RESOURCE_COULD_NOT_LOAD)},
-	{"ER_BUFFER_SIZE_LESSTHAN_ZERO", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_BUFFER_SIZE_LESSTHAN_ZERO)},
-	{"ER_INVALID_UTF16_SURROGATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_INVALID_UTF16_SURROGATE)},
-	{"ER_OIERROR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_OIERROR)},
-	{"ER_NAMESPACE_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_NAMESPACE_PREFIX)},
-	{"ER_STRAY_ATTRIBUTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_STRAY_ATTRIBUTE)},
-	{"ER_STRAY_NAMESPACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_STRAY_NAMESPACE)},
-	{"ER_COULD_NOT_LOAD_RESOURCE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_COULD_NOT_LOAD_RESOURCE)},
-	{"ER_COULD_NOT_LOAD_METHOD_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_COULD_NOT_LOAD_METHOD_PROPERTY)},
-	{"ER_SERIALIZER_NOT_CONTENTHANDLER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_SERIALIZER_NOT_CONTENTHANDLER)},
-	{"ER_ILLEGAL_ATTRIBUTE_POSITION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_ILLEGAL_ATTRIBUTE_POSITION)},
-	{"ER_ILLEGAL_CHARACTER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_ILLEGAL_CHARACTER)},
-	{"contents", "[[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLErrorResources_de, contents)},
-	{}
-};
-
-$MethodInfo _XMLErrorResources_de_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLErrorResources_de, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(XMLErrorResources_de, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _XMLErrorResources_de_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.res.XMLErrorResources_de",
-	"java.util.ListResourceBundle",
-	nullptr,
-	_XMLErrorResources_de_FieldInfo_,
-	_XMLErrorResources_de_MethodInfo_
-};
-
-$Object* allocate$XMLErrorResources_de($Class* clazz) {
-	return $of($alloc(XMLErrorResources_de));
-}
-
 $String* XMLErrorResources_de::ER_FUNCTION_NOT_SUPPORTED = nullptr;
 $String* XMLErrorResources_de::ER_CANNOT_OVERWRITE_CAUSE = nullptr;
 $String* XMLErrorResources_de::ER_NO_DEFAULT_IMPL = nullptr;
@@ -285,8 +181,8 @@ $ObjectArray2* XMLErrorResources_de::getContents() {
 	return XMLErrorResources_de::contents;
 }
 
-void clinit$XMLErrorResources_de($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void XMLErrorResources_de::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(XMLErrorResources_de::ER_FUNCTION_NOT_SUPPORTED, "ER_FUNCTION_NOT_SUPPORTED"_s);
 	$assignStatic(XMLErrorResources_de::ER_CANNOT_OVERWRITE_CAUSE, "ER_CANNOT_OVERWRITE_CAUSE"_s);
 	$assignStatic(XMLErrorResources_de::ER_NO_DEFAULT_IMPL, "ER_NO_DEFAULT_IMPL"_s);
@@ -364,324 +260,324 @@ void clinit$XMLErrorResources_de($Class* class$) {
 	$assignStatic(XMLErrorResources_de::ER_ILLEGAL_CHARACTER, "ER_ILLEGAL_CHARACTER"_s);
 	$assignStatic(XMLErrorResources_de::contents, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("ER0000"_s),
-			$of("{0}"_s)
+			"ER0000"_s,
+			"{0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_FUNCTION_NOT_SUPPORTED),
-			$of(u"Funktion nicht unterstützt."_s)
+			XMLErrorResources_de::ER_FUNCTION_NOT_SUPPORTED,
+			u"Funktion nicht unterstützt."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_CANNOT_OVERWRITE_CAUSE),
-			$of(u"Ursache kann nicht überschrieben werden"_s)
+			XMLErrorResources_de::ER_CANNOT_OVERWRITE_CAUSE,
+			u"Ursache kann nicht überschrieben werden"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_NO_DEFAULT_IMPL),
-			$of("Keine Standardimplementierung gefunden "_s)
+			XMLErrorResources_de::ER_NO_DEFAULT_IMPL,
+			"Keine Standardimplementierung gefunden "_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_CHUNKEDINTARRAY_NOT_SUPPORTED),
-			$of(u"ChunkedIntArray({0}) derzeit nicht unterstützt"_s)
+			XMLErrorResources_de::ER_CHUNKEDINTARRAY_NOT_SUPPORTED,
+			u"ChunkedIntArray({0}) derzeit nicht unterstützt"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_OFFSET_BIGGER_THAN_SLOT),
-			$of(u"Offset größer als Slot"_s)
+			XMLErrorResources_de::ER_OFFSET_BIGGER_THAN_SLOT,
+			u"Offset größer als Slot"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_COROUTINE_NOT_AVAIL),
-			$of(u"Coroutine nicht verfügbar; ID={0}"_s)
+			XMLErrorResources_de::ER_COROUTINE_NOT_AVAIL,
+			u"Coroutine nicht verfügbar; ID={0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_COROUTINE_CO_EXIT),
-			$of("CoroutineManager hat co_exit()-Anforderung erhalten"_s)
+			XMLErrorResources_de::ER_COROUTINE_CO_EXIT,
+			"CoroutineManager hat co_exit()-Anforderung erhalten"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_COJOINROUTINESET_FAILED),
-			$of("co_joinCoroutineSet() nicht erfolgreich"_s)
+			XMLErrorResources_de::ER_COJOINROUTINESET_FAILED,
+			"co_joinCoroutineSet() nicht erfolgreich"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_COROUTINE_PARAM),
-			$of("Coroutine-Parameterfehler ({0})"_s)
+			XMLErrorResources_de::ER_COROUTINE_PARAM,
+			"Coroutine-Parameterfehler ({0})"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_PARSER_DOTERMINATE_ANSWERS),
-			$of("\nUNEXPECTED: Parser doTerminate antwortet {0}"_s)
+			XMLErrorResources_de::ER_PARSER_DOTERMINATE_ANSWERS,
+			"\nUNEXPECTED: Parser doTerminate antwortet {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_NO_PARSE_CALL_WHILE_PARSING),
-			$of(u"\"parse\" darf während des Parsing nicht aufgerufen werden"_s)
+			XMLErrorResources_de::ER_NO_PARSE_CALL_WHILE_PARSING,
+			u"\"parse\" darf während des Parsing nicht aufgerufen werden"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_TYPED_ITERATOR_AXIS_NOT_IMPLEMENTED),
-			$of(u"Fehler: Typisierter Iterator für Achse {0} nicht implementiert"_s)
+			XMLErrorResources_de::ER_TYPED_ITERATOR_AXIS_NOT_IMPLEMENTED,
+			u"Fehler: Typisierter Iterator für Achse {0} nicht implementiert"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_ITERATOR_AXIS_NOT_IMPLEMENTED),
-			$of(u"Fehler: Iterator für Achse {0} nicht implementiert "_s)
+			XMLErrorResources_de::ER_ITERATOR_AXIS_NOT_IMPLEMENTED,
+			u"Fehler: Iterator für Achse {0} nicht implementiert "_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_ITERATOR_CLONE_NOT_SUPPORTED),
-			$of(u"Iteratorclone nicht unterstützt"_s)
+			XMLErrorResources_de::ER_ITERATOR_CLONE_NOT_SUPPORTED,
+			u"Iteratorclone nicht unterstützt"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_UNKNOWN_AXIS_TYPE),
-			$of("Unbekannter Achsendurchlauftyp: {0}"_s)
+			XMLErrorResources_de::ER_UNKNOWN_AXIS_TYPE,
+			"Unbekannter Achsendurchlauftyp: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_AXIS_NOT_SUPPORTED),
-			$of(u"Achsen-Traverser nicht unterstützt: {0}"_s)
+			XMLErrorResources_de::ER_AXIS_NOT_SUPPORTED,
+			u"Achsen-Traverser nicht unterstützt: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_NO_DTMIDS_AVAIL),
-			$of(u"Keine weiteren DTM-IDs verfügbar"_s)
+			XMLErrorResources_de::ER_NO_DTMIDS_AVAIL,
+			u"Keine weiteren DTM-IDs verfügbar"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_NOT_SUPPORTED),
-			$of(u"Nicht unterstützt: {0}"_s)
+			XMLErrorResources_de::ER_NOT_SUPPORTED,
+			u"Nicht unterstützt: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_NODE_NON_NULL),
-			$of(u"Knoten darf nicht null sein für getDTMHandleFromNode"_s)
+			XMLErrorResources_de::ER_NODE_NON_NULL,
+			u"Knoten darf nicht null sein für getDTMHandleFromNode"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_COULD_NOT_RESOLVE_NODE),
-			$of(u"Knoten konnte nicht in Handle aufgelöst werden"_s)
+			XMLErrorResources_de::ER_COULD_NOT_RESOLVE_NODE,
+			u"Knoten konnte nicht in Handle aufgelöst werden"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_STARTPARSE_WHILE_PARSING),
-			$of(u"\"startParse\" darf während des Parsing nicht aufgerufen werden"_s)
+			XMLErrorResources_de::ER_STARTPARSE_WHILE_PARSING,
+			u"\"startParse\" darf während des Parsing nicht aufgerufen werden"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_STARTPARSE_NEEDS_SAXPARSER),
-			$of("startParse erfordert einen SAXParser ungleich null"_s)
+			XMLErrorResources_de::ER_STARTPARSE_NEEDS_SAXPARSER,
+			"startParse erfordert einen SAXParser ungleich null"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_COULD_NOT_INIT_PARSER),
-			$of("Parser konnte nicht initialisiert werden mit"_s)
+			XMLErrorResources_de::ER_COULD_NOT_INIT_PARSER,
+			"Parser konnte nicht initialisiert werden mit"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_EXCEPTION_CREATING_POOL),
-			$of(u"Ausnahme beim Erstellen einer neuen Instanz für Pool"_s)
+			XMLErrorResources_de::ER_EXCEPTION_CREATING_POOL,
+			u"Ausnahme beim Erstellen einer neuen Instanz für Pool"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_PATH_CONTAINS_INVALID_ESCAPE_SEQUENCE),
-			$of(u"Pfad enthält eine ungültige Escapesequenz"_s)
+			XMLErrorResources_de::ER_PATH_CONTAINS_INVALID_ESCAPE_SEQUENCE,
+			u"Pfad enthält eine ungültige Escapesequenz"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_SCHEME_REQUIRED),
-			$of("Schema ist erforderlich."_s)
+			XMLErrorResources_de::ER_SCHEME_REQUIRED,
+			"Schema ist erforderlich."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_NO_SCHEME_IN_URI),
-			$of("Kein Schema gefunden in URI: {0}"_s)
+			XMLErrorResources_de::ER_NO_SCHEME_IN_URI,
+			"Kein Schema gefunden in URI: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_NO_SCHEME_INURI),
-			$of("Kein Schema gefunden in URI"_s)
+			XMLErrorResources_de::ER_NO_SCHEME_INURI,
+			"Kein Schema gefunden in URI"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_PATH_INVALID_CHAR),
-			$of(u"Pfad enthält ungültiges Zeichen: {0}"_s)
+			XMLErrorResources_de::ER_PATH_INVALID_CHAR,
+			u"Pfad enthält ungültiges Zeichen: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_SCHEME_FROM_NULL_STRING),
-			$of("Schema kann nicht von Nullzeichenfolge festgelegt werden"_s)
+			XMLErrorResources_de::ER_SCHEME_FROM_NULL_STRING,
+			"Schema kann nicht von Nullzeichenfolge festgelegt werden"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_SCHEME_NOT_CONFORMANT),
-			$of("Schema ist nicht konform."_s)
+			XMLErrorResources_de::ER_SCHEME_NOT_CONFORMANT,
+			"Schema ist nicht konform."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_HOST_ADDRESS_NOT_WELLFORMED),
-			$of("Host ist keine wohlgeformte Adresse"_s)
+			XMLErrorResources_de::ER_HOST_ADDRESS_NOT_WELLFORMED,
+			"Host ist keine wohlgeformte Adresse"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_PORT_WHEN_HOST_NULL),
-			$of("Port kann nicht festgelegt werden, wenn der Host null ist"_s)
+			XMLErrorResources_de::ER_PORT_WHEN_HOST_NULL,
+			"Port kann nicht festgelegt werden, wenn der Host null ist"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_INVALID_PORT),
-			$of(u"Ungültige Portnummer"_s)
+			XMLErrorResources_de::ER_INVALID_PORT,
+			u"Ungültige Portnummer"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_FRAG_FOR_GENERIC_URI),
-			$of(u"Fragment kann nur für einen generischen URI festgelegt werden"_s)
+			XMLErrorResources_de::ER_FRAG_FOR_GENERIC_URI,
+			u"Fragment kann nur für einen generischen URI festgelegt werden"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_FRAG_WHEN_PATH_NULL),
-			$of("Fragment kann nicht festgelegt werden, wenn der Pfad null ist"_s)
+			XMLErrorResources_de::ER_FRAG_WHEN_PATH_NULL,
+			"Fragment kann nicht festgelegt werden, wenn der Pfad null ist"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_FRAG_INVALID_CHAR),
-			$of(u"Fragment enthält ein ungültiges Zeichen"_s)
+			XMLErrorResources_de::ER_FRAG_INVALID_CHAR,
+			u"Fragment enthält ein ungültiges Zeichen"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_PARSER_IN_USE),
-			$of("Parser wird bereits verwendet"_s)
+			XMLErrorResources_de::ER_PARSER_IN_USE,
+			"Parser wird bereits verwendet"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_CANNOT_CHANGE_WHILE_PARSING),
-			$of(u"{0} {1} kann während Parsing nicht geändert werden"_s)
+			XMLErrorResources_de::ER_CANNOT_CHANGE_WHILE_PARSING,
+			u"{0} {1} kann während Parsing nicht geändert werden"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_SELF_CAUSATION_NOT_PERMITTED),
-			$of(u"Selbstkausalität nicht zulässig"_s)
+			XMLErrorResources_de::ER_SELF_CAUSATION_NOT_PERMITTED,
+			u"Selbstkausalität nicht zulässig"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_NO_USERINFO_IF_NO_HOST),
-			$of(u"Benutzerinformationen können nicht angegeben werden, wenn der Host nicht angegeben wurde"_s)
+			XMLErrorResources_de::ER_NO_USERINFO_IF_NO_HOST,
+			u"Benutzerinformationen können nicht angegeben werden, wenn der Host nicht angegeben wurde"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_NO_PORT_IF_NO_HOST),
-			$of("Port kann nicht angegeben werden, wenn der Host nicht angegeben wurde"_s)
+			XMLErrorResources_de::ER_NO_PORT_IF_NO_HOST,
+			"Port kann nicht angegeben werden, wenn der Host nicht angegeben wurde"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_NO_QUERY_STRING_IN_PATH),
-			$of("Abfragezeichenfolge kann nicht im Pfad und in der Abfragezeichenfolge angegeben werden"_s)
+			XMLErrorResources_de::ER_NO_QUERY_STRING_IN_PATH,
+			"Abfragezeichenfolge kann nicht im Pfad und in der Abfragezeichenfolge angegeben werden"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_NO_FRAGMENT_STRING_IN_PATH),
-			$of("Fragment kann nicht im Pfad und im Fragment angegeben werden"_s)
+			XMLErrorResources_de::ER_NO_FRAGMENT_STRING_IN_PATH,
+			"Fragment kann nicht im Pfad und im Fragment angegeben werden"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_CANNOT_INIT_URI_EMPTY_PARMS),
-			$of("URI kann nicht mit leeren Parametern initialisiert werden"_s)
+			XMLErrorResources_de::ER_CANNOT_INIT_URI_EMPTY_PARMS,
+			"URI kann nicht mit leeren Parametern initialisiert werden"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_METHOD_NOT_SUPPORTED),
-			$of(u"Methode noch nicht unterstützt "_s)
+			XMLErrorResources_de::ER_METHOD_NOT_SUPPORTED,
+			u"Methode noch nicht unterstützt "_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_INCRSAXSRCFILTER_NOT_RESTARTABLE),
-			$of("IncrementalSAXSource_Filter kann derzeit nicht neu gestartet werden"_s)
+			XMLErrorResources_de::ER_INCRSAXSRCFILTER_NOT_RESTARTABLE,
+			"IncrementalSAXSource_Filter kann derzeit nicht neu gestartet werden"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_XMLRDR_NOT_BEFORE_STARTPARSE),
-			$of("XMLReader nicht vor startParse-Anforderung"_s)
+			XMLErrorResources_de::ER_XMLRDR_NOT_BEFORE_STARTPARSE,
+			"XMLReader nicht vor startParse-Anforderung"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_AXIS_TRAVERSER_NOT_SUPPORTED),
-			$of(u"Achsen-Traverser nicht unterstützt: {0}"_s)
+			XMLErrorResources_de::ER_AXIS_TRAVERSER_NOT_SUPPORTED,
+			u"Achsen-Traverser nicht unterstützt: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_ERRORHANDLER_CREATED_WITH_NULL_PRINTWRITER),
-			$of("ListingErrorHandler mit Null-PrintWriter erstellt."_s)
+			XMLErrorResources_de::ER_ERRORHANDLER_CREATED_WITH_NULL_PRINTWRITER,
+			"ListingErrorHandler mit Null-PrintWriter erstellt."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_SYSTEMID_UNKNOWN),
-			$of("SystemId unbekannt"_s)
+			XMLErrorResources_de::ER_SYSTEMID_UNKNOWN,
+			"SystemId unbekannt"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_LOCATION_UNKNOWN),
-			$of("Fehlerposition unbekannt"_s)
+			XMLErrorResources_de::ER_LOCATION_UNKNOWN,
+			"Fehlerposition unbekannt"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_PREFIX_MUST_RESOLVE),
-			$of(u"Präfix muss in Namespace aufgelöst werden: {0}"_s)
+			XMLErrorResources_de::ER_PREFIX_MUST_RESOLVE,
+			u"Präfix muss in Namespace aufgelöst werden: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_CREATEDOCUMENT_NOT_SUPPORTED),
-			$of(u"createDocument() nicht in XPathContext unterstützt."_s)
+			XMLErrorResources_de::ER_CREATEDOCUMENT_NOT_SUPPORTED,
+			u"createDocument() nicht in XPathContext unterstützt."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_CHILD_HAS_NO_OWNER_DOCUMENT),
-			$of(u"Untergeordnetes Attribut hat kein Eigentümerdokument."_s)
+			XMLErrorResources_de::ER_CHILD_HAS_NO_OWNER_DOCUMENT,
+			u"Untergeordnetes Attribut hat kein Eigentümerdokument."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_CHILD_HAS_NO_OWNER_DOCUMENT_ELEMENT),
-			$of(u"Untergeordnetes Attribut hat kein Eigentümerdokumentelement."_s)
+			XMLErrorResources_de::ER_CHILD_HAS_NO_OWNER_DOCUMENT_ELEMENT,
+			u"Untergeordnetes Attribut hat kein Eigentümerdokumentelement."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_CANT_OUTPUT_TEXT_BEFORE_DOC),
-			$of("Warnung: Text kann nicht vor Dokumentelement ausgegeben werden. Wird ignoriert..."_s)
+			XMLErrorResources_de::ER_CANT_OUTPUT_TEXT_BEFORE_DOC,
+			"Warnung: Text kann nicht vor Dokumentelement ausgegeben werden. Wird ignoriert..."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_CANT_HAVE_MORE_THAN_ONE_ROOT),
-			$of(u"Mehrere Roots für ein DOM nicht zulässig."_s)
+			XMLErrorResources_de::ER_CANT_HAVE_MORE_THAN_ONE_ROOT,
+			u"Mehrere Roots für ein DOM nicht zulässig."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_ARG_LOCALNAME_NULL),
-			$of("Argument \"localName\" ist null"_s)
+			XMLErrorResources_de::ER_ARG_LOCALNAME_NULL,
+			"Argument \"localName\" ist null"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_ARG_LOCALNAME_INVALID),
-			$of(u"Localname in QNAME muss ein gültiger NCName sein"_s)
+			XMLErrorResources_de::ER_ARG_LOCALNAME_INVALID,
+			u"Localname in QNAME muss ein gültiger NCName sein"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_ARG_PREFIX_INVALID),
-			$of(u"Präfix in QNAME muss ein gültiger NCName sein"_s)
+			XMLErrorResources_de::ER_ARG_PREFIX_INVALID,
+			u"Präfix in QNAME muss ein gültiger NCName sein"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_NAME_CANT_START_WITH_COLON),
-			$of("Name darf nicht mit einem Doppelpunkt beginnen"_s)
+			XMLErrorResources_de::ER_NAME_CANT_START_WITH_COLON,
+			"Name darf nicht mit einem Doppelpunkt beginnen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BAD_CODE"_s),
-			$of(u"Parameter für createMessage war außerhalb des gültigen Bereichs"_s)
+			"BAD_CODE"_s,
+			u"Parameter für createMessage war außerhalb des gültigen Bereichs"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FORMAT_FAILED"_s),
-			$of(u"Ausnahme bei messageFormat-Aufruf ausgelöst"_s)
+			"FORMAT_FAILED"_s,
+			u"Ausnahme bei messageFormat-Aufruf ausgelöst"_s
 		}),
 		$$new($ObjectArray, {
-			$of("line"_s),
-			$of("Zeilennummer"_s)
+			"line"_s,
+			"Zeilennummer"_s
 		}),
 		$$new($ObjectArray, {
-			$of("column"_s),
-			$of("Spaltennummer"_s)
+			"column"_s,
+			"Spaltennummer"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_SERIALIZER_NOT_CONTENTHANDLER),
-			$of("Serializer-Klasse \"{0}\" implementiert org.xml.sax.ContentHandler nicht."_s)
+			XMLErrorResources_de::ER_SERIALIZER_NOT_CONTENTHANDLER,
+			"Serializer-Klasse \"{0}\" implementiert org.xml.sax.ContentHandler nicht."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_RESOURCE_COULD_NOT_FIND),
-			$of("Ressource [ {0} ] konnte nicht gefunden werden.\n {1}"_s)
+			XMLErrorResources_de::ER_RESOURCE_COULD_NOT_FIND,
+			"Ressource [ {0} ] konnte nicht gefunden werden.\n {1}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_RESOURCE_COULD_NOT_LOAD),
-			$of("Ressource [ {0} ] konnte nicht geladen werden: {1} \n {2} \t {3}"_s)
+			XMLErrorResources_de::ER_RESOURCE_COULD_NOT_LOAD,
+			"Ressource [ {0} ] konnte nicht geladen werden: {1} \n {2} \t {3}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_BUFFER_SIZE_LESSTHAN_ZERO),
-			$of(u"Puffergröße <=0"_s)
+			XMLErrorResources_de::ER_BUFFER_SIZE_LESSTHAN_ZERO,
+			u"Puffergröße <=0"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_INVALID_UTF16_SURROGATE),
-			$of(u"Ungültige UTF-16-Ersetzung festgestellt: {0}?"_s)
+			XMLErrorResources_de::ER_INVALID_UTF16_SURROGATE,
+			u"Ungültige UTF-16-Ersetzung festgestellt: {0}?"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_OIERROR),
-			$of("I/O-Fehler"_s)
+			XMLErrorResources_de::ER_OIERROR,
+			"I/O-Fehler"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_ILLEGAL_ATTRIBUTE_POSITION),
-			$of(u"Attribut {0} kann nicht nach untergeordneten Knoten oder vor dem Erstellen eines Elements hinzugefügt werden. Attribut wird ignoriert."_s)
+			XMLErrorResources_de::ER_ILLEGAL_ATTRIBUTE_POSITION,
+			u"Attribut {0} kann nicht nach untergeordneten Knoten oder vor dem Erstellen eines Elements hinzugefügt werden. Attribut wird ignoriert."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_NAMESPACE_PREFIX),
-			$of(u"Namespace für Präfix \"{0}\" wurde nicht deklariert."_s)
+			XMLErrorResources_de::ER_NAMESPACE_PREFIX,
+			u"Namespace für Präfix \"{0}\" wurde nicht deklariert."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_STRAY_ATTRIBUTE),
-			$of(u"Attribut \"{0}\" außerhalb des Elements."_s)
+			XMLErrorResources_de::ER_STRAY_ATTRIBUTE,
+			u"Attribut \"{0}\" außerhalb des Elements."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_STRAY_NAMESPACE),
-			$of(u"Namespace-Deklaration {0}={1} außerhalb des Elements."_s)
+			XMLErrorResources_de::ER_STRAY_NAMESPACE,
+			u"Namespace-Deklaration {0}={1} außerhalb des Elements."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_COULD_NOT_LOAD_RESOURCE),
-			$of(u"\"{0}\" konnte nicht geladen werden (CLASSPATH prüfen). Die Standardwerte werden verwendet"_s)
+			XMLErrorResources_de::ER_COULD_NOT_LOAD_RESOURCE,
+			u"\"{0}\" konnte nicht geladen werden (CLASSPATH prüfen). Die Standardwerte werden verwendet"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_ILLEGAL_CHARACTER),
-			$of("Versuch, Zeichen mit Integralwert {0} auszugeben, das nicht in der speziellen Ausgabecodierung von {1} dargestellt wird."_s)
+			XMLErrorResources_de::ER_ILLEGAL_CHARACTER,
+			"Versuch, Zeichen mit Integralwert {0} auszugeben, das nicht in der speziellen Ausgabecodierung von {1} dargestellt wird."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XMLErrorResources_de::ER_COULD_NOT_LOAD_METHOD_PROPERTY),
-			$of(u"Property-Datei \"{0}\" konnte für Ausgabemethode \"{1}\" nicht geladen werden (CLASSPATH prüfen)"_s)
+			XMLErrorResources_de::ER_COULD_NOT_LOAD_METHOD_PROPERTY,
+			u"Property-Datei \"{0}\" konnte für Ausgabemethode \"{1}\" nicht geladen werden (CLASSPATH prüfen)"_s
 		})
 	}));
 }
@@ -690,7 +586,105 @@ XMLErrorResources_de::XMLErrorResources_de() {
 }
 
 $Class* XMLErrorResources_de::load$($String* name, bool initialize) {
-	$loadClass(XMLErrorResources_de, name, initialize, &_XMLErrorResources_de_ClassInfo_, clinit$XMLErrorResources_de, allocate$XMLErrorResources_de);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_CODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLErrorResources_de, MAX_CODE)},
+		{"MAX_WARNING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLErrorResources_de, MAX_WARNING)},
+		{"MAX_OTHERS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLErrorResources_de, MAX_OTHERS)},
+		{"MAX_MESSAGES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLErrorResources_de, MAX_MESSAGES)},
+		{"ER_FUNCTION_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_FUNCTION_NOT_SUPPORTED)},
+		{"ER_CANNOT_OVERWRITE_CAUSE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_CANNOT_OVERWRITE_CAUSE)},
+		{"ER_NO_DEFAULT_IMPL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_NO_DEFAULT_IMPL)},
+		{"ER_CHUNKEDINTARRAY_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_CHUNKEDINTARRAY_NOT_SUPPORTED)},
+		{"ER_OFFSET_BIGGER_THAN_SLOT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_OFFSET_BIGGER_THAN_SLOT)},
+		{"ER_COROUTINE_NOT_AVAIL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_COROUTINE_NOT_AVAIL)},
+		{"ER_COROUTINE_CO_EXIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_COROUTINE_CO_EXIT)},
+		{"ER_COJOINROUTINESET_FAILED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_COJOINROUTINESET_FAILED)},
+		{"ER_COROUTINE_PARAM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_COROUTINE_PARAM)},
+		{"ER_PARSER_DOTERMINATE_ANSWERS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_PARSER_DOTERMINATE_ANSWERS)},
+		{"ER_NO_PARSE_CALL_WHILE_PARSING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_NO_PARSE_CALL_WHILE_PARSING)},
+		{"ER_TYPED_ITERATOR_AXIS_NOT_IMPLEMENTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_TYPED_ITERATOR_AXIS_NOT_IMPLEMENTED)},
+		{"ER_ITERATOR_AXIS_NOT_IMPLEMENTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_ITERATOR_AXIS_NOT_IMPLEMENTED)},
+		{"ER_ITERATOR_CLONE_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_ITERATOR_CLONE_NOT_SUPPORTED)},
+		{"ER_UNKNOWN_AXIS_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_UNKNOWN_AXIS_TYPE)},
+		{"ER_AXIS_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_AXIS_NOT_SUPPORTED)},
+		{"ER_NO_DTMIDS_AVAIL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_NO_DTMIDS_AVAIL)},
+		{"ER_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_NOT_SUPPORTED)},
+		{"ER_NODE_NON_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_NODE_NON_NULL)},
+		{"ER_COULD_NOT_RESOLVE_NODE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_COULD_NOT_RESOLVE_NODE)},
+		{"ER_STARTPARSE_WHILE_PARSING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_STARTPARSE_WHILE_PARSING)},
+		{"ER_STARTPARSE_NEEDS_SAXPARSER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_STARTPARSE_NEEDS_SAXPARSER)},
+		{"ER_COULD_NOT_INIT_PARSER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_COULD_NOT_INIT_PARSER)},
+		{"ER_EXCEPTION_CREATING_POOL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_EXCEPTION_CREATING_POOL)},
+		{"ER_PATH_CONTAINS_INVALID_ESCAPE_SEQUENCE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_PATH_CONTAINS_INVALID_ESCAPE_SEQUENCE)},
+		{"ER_SCHEME_REQUIRED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_SCHEME_REQUIRED)},
+		{"ER_NO_SCHEME_IN_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_NO_SCHEME_IN_URI)},
+		{"ER_NO_SCHEME_INURI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_NO_SCHEME_INURI)},
+		{"ER_PATH_INVALID_CHAR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_PATH_INVALID_CHAR)},
+		{"ER_SCHEME_FROM_NULL_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_SCHEME_FROM_NULL_STRING)},
+		{"ER_SCHEME_NOT_CONFORMANT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_SCHEME_NOT_CONFORMANT)},
+		{"ER_HOST_ADDRESS_NOT_WELLFORMED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_HOST_ADDRESS_NOT_WELLFORMED)},
+		{"ER_PORT_WHEN_HOST_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_PORT_WHEN_HOST_NULL)},
+		{"ER_INVALID_PORT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_INVALID_PORT)},
+		{"ER_FRAG_FOR_GENERIC_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_FRAG_FOR_GENERIC_URI)},
+		{"ER_FRAG_WHEN_PATH_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_FRAG_WHEN_PATH_NULL)},
+		{"ER_FRAG_INVALID_CHAR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_FRAG_INVALID_CHAR)},
+		{"ER_PARSER_IN_USE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_PARSER_IN_USE)},
+		{"ER_CANNOT_CHANGE_WHILE_PARSING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_CANNOT_CHANGE_WHILE_PARSING)},
+		{"ER_SELF_CAUSATION_NOT_PERMITTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_SELF_CAUSATION_NOT_PERMITTED)},
+		{"ER_NO_USERINFO_IF_NO_HOST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_NO_USERINFO_IF_NO_HOST)},
+		{"ER_NO_PORT_IF_NO_HOST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_NO_PORT_IF_NO_HOST)},
+		{"ER_NO_QUERY_STRING_IN_PATH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_NO_QUERY_STRING_IN_PATH)},
+		{"ER_NO_FRAGMENT_STRING_IN_PATH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_NO_FRAGMENT_STRING_IN_PATH)},
+		{"ER_CANNOT_INIT_URI_EMPTY_PARMS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_CANNOT_INIT_URI_EMPTY_PARMS)},
+		{"ER_METHOD_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_METHOD_NOT_SUPPORTED)},
+		{"ER_INCRSAXSRCFILTER_NOT_RESTARTABLE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_INCRSAXSRCFILTER_NOT_RESTARTABLE)},
+		{"ER_XMLRDR_NOT_BEFORE_STARTPARSE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_XMLRDR_NOT_BEFORE_STARTPARSE)},
+		{"ER_AXIS_TRAVERSER_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_AXIS_TRAVERSER_NOT_SUPPORTED)},
+		{"ER_ERRORHANDLER_CREATED_WITH_NULL_PRINTWRITER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_ERRORHANDLER_CREATED_WITH_NULL_PRINTWRITER)},
+		{"ER_SYSTEMID_UNKNOWN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_SYSTEMID_UNKNOWN)},
+		{"ER_LOCATION_UNKNOWN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_LOCATION_UNKNOWN)},
+		{"ER_PREFIX_MUST_RESOLVE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_PREFIX_MUST_RESOLVE)},
+		{"ER_CREATEDOCUMENT_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_CREATEDOCUMENT_NOT_SUPPORTED)},
+		{"ER_CHILD_HAS_NO_OWNER_DOCUMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_CHILD_HAS_NO_OWNER_DOCUMENT)},
+		{"ER_CHILD_HAS_NO_OWNER_DOCUMENT_ELEMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_CHILD_HAS_NO_OWNER_DOCUMENT_ELEMENT)},
+		{"ER_CANT_OUTPUT_TEXT_BEFORE_DOC", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_CANT_OUTPUT_TEXT_BEFORE_DOC)},
+		{"ER_CANT_HAVE_MORE_THAN_ONE_ROOT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_CANT_HAVE_MORE_THAN_ONE_ROOT)},
+		{"ER_ARG_LOCALNAME_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_ARG_LOCALNAME_NULL)},
+		{"ER_ARG_LOCALNAME_INVALID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_ARG_LOCALNAME_INVALID)},
+		{"ER_ARG_PREFIX_INVALID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_ARG_PREFIX_INVALID)},
+		{"ER_NAME_CANT_START_WITH_COLON", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_NAME_CANT_START_WITH_COLON)},
+		{"ER_RESOURCE_COULD_NOT_FIND", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_RESOURCE_COULD_NOT_FIND)},
+		{"ER_RESOURCE_COULD_NOT_LOAD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_RESOURCE_COULD_NOT_LOAD)},
+		{"ER_BUFFER_SIZE_LESSTHAN_ZERO", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_BUFFER_SIZE_LESSTHAN_ZERO)},
+		{"ER_INVALID_UTF16_SURROGATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_INVALID_UTF16_SURROGATE)},
+		{"ER_OIERROR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_OIERROR)},
+		{"ER_NAMESPACE_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_NAMESPACE_PREFIX)},
+		{"ER_STRAY_ATTRIBUTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_STRAY_ATTRIBUTE)},
+		{"ER_STRAY_NAMESPACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_STRAY_NAMESPACE)},
+		{"ER_COULD_NOT_LOAD_RESOURCE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_COULD_NOT_LOAD_RESOURCE)},
+		{"ER_COULD_NOT_LOAD_METHOD_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_COULD_NOT_LOAD_METHOD_PROPERTY)},
+		{"ER_SERIALIZER_NOT_CONTENTHANDLER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_SERIALIZER_NOT_CONTENTHANDLER)},
+		{"ER_ILLEGAL_ATTRIBUTE_POSITION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_ILLEGAL_ATTRIBUTE_POSITION)},
+		{"ER_ILLEGAL_CHARACTER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLErrorResources_de, ER_ILLEGAL_CHARACTER)},
+		{"contents", "[[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLErrorResources_de, contents)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLErrorResources_de, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(XMLErrorResources_de, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.res.XMLErrorResources_de",
+		"java.util.ListResourceBundle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLErrorResources_de, name, initialize, &classInfo$$, XMLErrorResources_de::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLErrorResources_de);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/InternalFrameTitlePaneCloseButtonWindowNotFocusedState.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <javax/swing/JComponent.h>
@@ -19,26 +18,6 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$MethodInfo _InternalFrameTitlePaneCloseButtonWindowNotFocusedState_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(InternalFrameTitlePaneCloseButtonWindowNotFocusedState, init$, void)},
-	{"isInState", "(Ljavax/swing/JComponent;)Z", nullptr, $PROTECTED, $virtualMethod(InternalFrameTitlePaneCloseButtonWindowNotFocusedState, isInState, bool, $JComponent*)},
-	{}
-};
-
-$ClassInfo _InternalFrameTitlePaneCloseButtonWindowNotFocusedState_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.nimbus.InternalFrameTitlePaneCloseButtonWindowNotFocusedState",
-	"javax.swing.plaf.nimbus.State",
-	nullptr,
-	nullptr,
-	_InternalFrameTitlePaneCloseButtonWindowNotFocusedState_MethodInfo_,
-	"Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;"
-};
-
-$Object* allocate$InternalFrameTitlePaneCloseButtonWindowNotFocusedState($Class* clazz) {
-	return $of($alloc(InternalFrameTitlePaneCloseButtonWindowNotFocusedState));
-}
-
 void InternalFrameTitlePaneCloseButtonWindowNotFocusedState::init$() {
 	$State::init$("WindowNotFocused"_s);
 }
@@ -52,7 +31,7 @@ bool InternalFrameTitlePaneCloseButtonWindowNotFocusedState::isInState($JCompone
 		$assign(parent, parent->getParent());
 	}
 	if ($instanceOf($JInternalFrame, parent)) {
-		return !($nc(($cast($JInternalFrame, parent)))->isSelected());
+		return !($cast($JInternalFrame, parent)->isSelected());
 	}
 	return false;
 }
@@ -61,7 +40,23 @@ InternalFrameTitlePaneCloseButtonWindowNotFocusedState::InternalFrameTitlePaneCl
 }
 
 $Class* InternalFrameTitlePaneCloseButtonWindowNotFocusedState::load$($String* name, bool initialize) {
-	$loadClass(InternalFrameTitlePaneCloseButtonWindowNotFocusedState, name, initialize, &_InternalFrameTitlePaneCloseButtonWindowNotFocusedState_ClassInfo_, allocate$InternalFrameTitlePaneCloseButtonWindowNotFocusedState);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(InternalFrameTitlePaneCloseButtonWindowNotFocusedState, init$, void)},
+		{"isInState", "(Ljavax/swing/JComponent;)Z", nullptr, $PROTECTED, $virtualMethod(InternalFrameTitlePaneCloseButtonWindowNotFocusedState, isInState, bool, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.nimbus.InternalFrameTitlePaneCloseButtonWindowNotFocusedState",
+		"javax.swing.plaf.nimbus.State",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;"
+	};
+	$loadClass(InternalFrameTitlePaneCloseButtonWindowNotFocusedState, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InternalFrameTitlePaneCloseButtonWindowNotFocusedState);
+	});
 	return class$;
 }
 

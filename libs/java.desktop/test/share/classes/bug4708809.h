@@ -22,6 +22,7 @@ class $export bug4708809 : public ::java::lang::Object {
 	$class(bug4708809, 0, ::java::lang::Object)
 public:
 	bug4708809();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createAndShowGUI();
 	static ::java::awt::Point* getClickPoint(double scaleX, double scaleY);

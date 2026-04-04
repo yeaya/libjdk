@@ -70,6 +70,7 @@ class $export CompilerProperties$Notes : public ::java::lang::Object {
 	$class(CompilerProperties$Notes, 0, ::java::lang::Object)
 public:
 	CompilerProperties$Notes();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::com::sun::tools::javac::util::JCDiagnostic$Note* DeferredMethodInst(::com::sun::tools::javac::code::Symbol* arg0, ::com::sun::tools::javac::code::Type* arg1, ::com::sun::tools::javac::code::Type* arg2);
 	static ::com::sun::tools::javac::util::JCDiagnostic$Note* DeprecatedFilename(::java::io::File* arg0);

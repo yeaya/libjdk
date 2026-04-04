@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/ExifParentTIFFTagSet.h>
-
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <javax/imageio/plugins/tiff/ExifParentTIFFTagSet$ExifIFDPointer.h>
@@ -25,55 +24,15 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$FieldInfo _ExifParentTIFFTagSet_FieldInfo_[] = {
-	{"theInstance", "Ljavax/imageio/plugins/tiff/ExifParentTIFFTagSet;", nullptr, $PRIVATE | $STATIC, $staticField(ExifParentTIFFTagSet, theInstance)},
-	{"TAG_EXIF_IFD_POINTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifParentTIFFTagSet, TAG_EXIF_IFD_POINTER)},
-	{"TAG_GPS_INFO_IFD_POINTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifParentTIFFTagSet, TAG_GPS_INFO_IFD_POINTER)},
-	{"tags", "Ljava/util/List;", "Ljava/util/List<Ljavax/imageio/plugins/tiff/TIFFTag;>;", $PRIVATE | $STATIC, $staticField(ExifParentTIFFTagSet, tags)},
-	{}
-};
-
-$MethodInfo _ExifParentTIFFTagSet_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ExifParentTIFFTagSet, init$, void)},
-	{"getInstance", "()Ljavax/imageio/plugins/tiff/ExifParentTIFFTagSet;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(ExifParentTIFFTagSet, getInstance, ExifParentTIFFTagSet*)},
-	{"initTags", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ExifParentTIFFTagSet, initTags, void)},
-	{}
-};
-
-$InnerClassInfo _ExifParentTIFFTagSet_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.ExifParentTIFFTagSet$GPSInfoIFDPointer", "javax.imageio.plugins.tiff.ExifParentTIFFTagSet", "GPSInfoIFDPointer", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifParentTIFFTagSet$ExifIFDPointer", "javax.imageio.plugins.tiff.ExifParentTIFFTagSet", "ExifIFDPointer", $STATIC},
-	{}
-};
-
-$ClassInfo _ExifParentTIFFTagSet_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.imageio.plugins.tiff.ExifParentTIFFTagSet",
-	"javax.imageio.plugins.tiff.TIFFTagSet",
-	nullptr,
-	_ExifParentTIFFTagSet_FieldInfo_,
-	_ExifParentTIFFTagSet_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExifParentTIFFTagSet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.ExifParentTIFFTagSet$GPSInfoIFDPointer,javax.imageio.plugins.tiff.ExifParentTIFFTagSet$ExifIFDPointer"
-};
-
-$Object* allocate$ExifParentTIFFTagSet($Class* clazz) {
-	return $of($alloc(ExifParentTIFFTagSet));
-}
-
 ExifParentTIFFTagSet* ExifParentTIFFTagSet::theInstance = nullptr;
 $List* ExifParentTIFFTagSet::tags = nullptr;
 
 void ExifParentTIFFTagSet::initTags() {
 	$init(ExifParentTIFFTagSet);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(ExifParentTIFFTagSet::tags, $new($ArrayList, 1));
-	$nc(ExifParentTIFFTagSet::tags)->add($$new($ExifParentTIFFTagSet$ExifIFDPointer));
-	$nc(ExifParentTIFFTagSet::tags)->add($$new($ExifParentTIFFTagSet$GPSInfoIFDPointer));
+	ExifParentTIFFTagSet::tags->add($$new($ExifParentTIFFTagSet$ExifIFDPointer));
+	ExifParentTIFFTagSet::tags->add($$new($ExifParentTIFFTagSet$GPSInfoIFDPointer));
 }
 
 void ExifParentTIFFTagSet::init$() {
@@ -81,9 +40,8 @@ void ExifParentTIFFTagSet::init$() {
 }
 
 ExifParentTIFFTagSet* ExifParentTIFFTagSet::getInstance() {
-	$load(ExifParentTIFFTagSet);
+	$init(ExifParentTIFFTagSet);
 	$synchronized(class$) {
-		$init(ExifParentTIFFTagSet);
 		if (ExifParentTIFFTagSet::theInstance == nullptr) {
 			initTags();
 			$assignStatic(ExifParentTIFFTagSet::theInstance, $new(ExifParentTIFFTagSet));
@@ -93,7 +51,7 @@ ExifParentTIFFTagSet* ExifParentTIFFTagSet::getInstance() {
 	}
 }
 
-void clinit$ExifParentTIFFTagSet($Class* class$) {
+void ExifParentTIFFTagSet::clinit$($Class* clazz) {
 	$assignStatic(ExifParentTIFFTagSet::theInstance, nullptr);
 }
 
@@ -101,7 +59,41 @@ ExifParentTIFFTagSet::ExifParentTIFFTagSet() {
 }
 
 $Class* ExifParentTIFFTagSet::load$($String* name, bool initialize) {
-	$loadClass(ExifParentTIFFTagSet, name, initialize, &_ExifParentTIFFTagSet_ClassInfo_, clinit$ExifParentTIFFTagSet, allocate$ExifParentTIFFTagSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"theInstance", "Ljavax/imageio/plugins/tiff/ExifParentTIFFTagSet;", nullptr, $PRIVATE | $STATIC, $staticField(ExifParentTIFFTagSet, theInstance)},
+		{"TAG_EXIF_IFD_POINTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifParentTIFFTagSet, TAG_EXIF_IFD_POINTER)},
+		{"TAG_GPS_INFO_IFD_POINTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifParentTIFFTagSet, TAG_GPS_INFO_IFD_POINTER)},
+		{"tags", "Ljava/util/List;", "Ljava/util/List<Ljavax/imageio/plugins/tiff/TIFFTag;>;", $PRIVATE | $STATIC, $staticField(ExifParentTIFFTagSet, tags)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ExifParentTIFFTagSet, init$, void)},
+		{"getInstance", "()Ljavax/imageio/plugins/tiff/ExifParentTIFFTagSet;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(ExifParentTIFFTagSet, getInstance, ExifParentTIFFTagSet*)},
+		{"initTags", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ExifParentTIFFTagSet, initTags, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.ExifParentTIFFTagSet$GPSInfoIFDPointer", "javax.imageio.plugins.tiff.ExifParentTIFFTagSet", "GPSInfoIFDPointer", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifParentTIFFTagSet$ExifIFDPointer", "javax.imageio.plugins.tiff.ExifParentTIFFTagSet", "ExifIFDPointer", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.imageio.plugins.tiff.ExifParentTIFFTagSet",
+		"javax.imageio.plugins.tiff.TIFFTagSet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.ExifParentTIFFTagSet$GPSInfoIFDPointer,javax.imageio.plugins.tiff.ExifParentTIFFTagSet$ExifIFDPointer"
+	};
+	$loadClass(ExifParentTIFFTagSet, name, initialize, &classInfo$$, ExifParentTIFFTagSet::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ExifParentTIFFTagSet);
+	});
 	return class$;
 }
 

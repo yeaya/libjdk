@@ -16,6 +16,7 @@ class $export TestMemLeakComboBox : public ::java::lang::Object {
 	$class(TestMemLeakComboBox, 0, ::java::lang::Object)
 public:
 	TestMemLeakComboBox();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void lambda$main$0(::javax::swing::UIManager$LookAndFeelInfo* laf);
 	static void lambda$test$1();

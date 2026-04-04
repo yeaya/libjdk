@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/DirectAudioDevice$DirectDL$Gain.h>
-
 #include <com/sun/media/sound/DirectAudioDevice$DirectDL.h>
 #include <com/sun/media/sound/Toolkit.h>
 #include <java/lang/Math.h>
@@ -24,45 +23,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _DirectAudioDevice$DirectDL$Gain_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/media/sound/DirectAudioDevice$DirectDL;", nullptr, $FINAL | $SYNTHETIC, $field(DirectAudioDevice$DirectDL$Gain, this$0)},
-	{"linearGain", "F", nullptr, $PRIVATE, $field(DirectAudioDevice$DirectDL$Gain, linearGain)},
-	{}
-};
-
-$MethodInfo _DirectAudioDevice$DirectDL$Gain_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/DirectAudioDevice$DirectDL;)V", nullptr, $PRIVATE, $method(DirectAudioDevice$DirectDL$Gain, init$, void, $DirectAudioDevice$DirectDL*)},
-	{"getLinearGain", "()F", nullptr, 0, $method(DirectAudioDevice$DirectDL$Gain, getLinearGain, float)},
-	{"setValue", "(F)V", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectDL$Gain, setValue, void, float)},
-	{}
-};
-
-$InnerClassInfo _DirectAudioDevice$DirectDL$Gain_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.DirectAudioDevice$DirectDL", "com.sun.media.sound.DirectAudioDevice", "DirectDL", $PRIVATE | $STATIC},
-	{"com.sun.media.sound.DirectAudioDevice$DirectDL$Gain", "com.sun.media.sound.DirectAudioDevice$DirectDL", "Gain", $PROTECTED | $FINAL},
-	{}
-};
-
-$ClassInfo _DirectAudioDevice$DirectDL$Gain_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.DirectAudioDevice$DirectDL$Gain",
-	"javax.sound.sampled.FloatControl",
-	nullptr,
-	_DirectAudioDevice$DirectDL$Gain_FieldInfo_,
-	_DirectAudioDevice$DirectDL$Gain_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DirectAudioDevice$DirectDL$Gain_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.DirectAudioDevice"
-};
-
-$Object* allocate$DirectAudioDevice$DirectDL$Gain($Class* clazz) {
-	return $of($alloc(DirectAudioDevice$DirectDL$Gain));
-}
 
 void DirectAudioDevice$DirectDL$Gain::init$($DirectAudioDevice$DirectDL* this$0) {
 	$set(this, this$0, this$0);
@@ -90,7 +50,40 @@ DirectAudioDevice$DirectDL$Gain::DirectAudioDevice$DirectDL$Gain() {
 }
 
 $Class* DirectAudioDevice$DirectDL$Gain::load$($String* name, bool initialize) {
-	$loadClass(DirectAudioDevice$DirectDL$Gain, name, initialize, &_DirectAudioDevice$DirectDL$Gain_ClassInfo_, allocate$DirectAudioDevice$DirectDL$Gain);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/media/sound/DirectAudioDevice$DirectDL;", nullptr, $FINAL | $SYNTHETIC, $field(DirectAudioDevice$DirectDL$Gain, this$0)},
+		{"linearGain", "F", nullptr, $PRIVATE, $field(DirectAudioDevice$DirectDL$Gain, linearGain)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/DirectAudioDevice$DirectDL;)V", nullptr, $PRIVATE, $method(DirectAudioDevice$DirectDL$Gain, init$, void, $DirectAudioDevice$DirectDL*)},
+		{"getLinearGain", "()F", nullptr, 0, $method(DirectAudioDevice$DirectDL$Gain, getLinearGain, float)},
+		{"setValue", "(F)V", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectDL$Gain, setValue, void, float)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.DirectAudioDevice$DirectDL", "com.sun.media.sound.DirectAudioDevice", "DirectDL", $PRIVATE | $STATIC},
+		{"com.sun.media.sound.DirectAudioDevice$DirectDL$Gain", "com.sun.media.sound.DirectAudioDevice$DirectDL", "Gain", $PROTECTED | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.DirectAudioDevice$DirectDL$Gain",
+		"javax.sound.sampled.FloatControl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.DirectAudioDevice"
+	};
+	$loadClass(DirectAudioDevice$DirectDL$Gain, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DirectAudioDevice$DirectDL$Gain);
+	});
 	return class$;
 }
 

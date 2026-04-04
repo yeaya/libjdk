@@ -1,5 +1,4 @@
 #include <javax/swing/filechooser/FileSystemView.h>
-
 #include <java/awt/Image.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
@@ -36,7 +35,6 @@ using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $File = ::java::io::File;
 using $FileNotFoundException = ::java::io::FileNotFoundException;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -48,13 +46,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $Cleaner = ::java::lang::ref::Cleaner;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $Icon = ::javax::swing::Icon;
 using $ImageIcon = ::javax::swing::ImageIcon;
-using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIManager = ::javax::swing::UIManager;
 using $FileSystemView$FileSystemRoot = ::javax::swing::filechooser::FileSystemView$FileSystemRoot;
 using $GenericFileSystemView = ::javax::swing::filechooser::GenericFileSystemView;
@@ -76,33 +72,29 @@ public:
 	virtual void propertyChange($PropertyChangeEvent* evt) override {
 		FileSystemView::lambda$new$0(weakReference, evt);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<FileSystemView$$Lambda$lambda$new$0>());
-	}
 	$WeakReference* weakReference = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo FileSystemView$$Lambda$lambda$new$0::fieldInfos[2] = {
-	{"weakReference", "Ljava/lang/ref/WeakReference;", nullptr, $PUBLIC, $field(FileSystemView$$Lambda$lambda$new$0, weakReference)},
-	{}
-};
-$MethodInfo FileSystemView$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/ref/WeakReference;)V", nullptr, $PUBLIC, $method(FileSystemView$$Lambda$lambda$new$0, init$, void, $WeakReference*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(FileSystemView$$Lambda$lambda$new$0, propertyChange, void, $PropertyChangeEvent*)},
-	{}
-};
-$ClassInfo FileSystemView$$Lambda$lambda$new$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.filechooser.FileSystemView$$Lambda$lambda$new$0",
-	"java.lang.Object",
-	"java.beans.PropertyChangeListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* FileSystemView$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
-	$loadClass(FileSystemView$$Lambda$lambda$new$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"weakReference", "Ljava/lang/ref/WeakReference;", nullptr, $PUBLIC, $field(FileSystemView$$Lambda$lambda$new$0, weakReference)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/ref/WeakReference;)V", nullptr, $PUBLIC, $method(FileSystemView$$Lambda$lambda$new$0, init$, void, $WeakReference*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(FileSystemView$$Lambda$lambda$new$0, propertyChange, void, $PropertyChangeEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.filechooser.FileSystemView$$Lambda$lambda$new$0",
+		"java.lang.Object",
+		"java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FileSystemView$$Lambda$lambda$new$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileSystemView$$Lambda$lambda$new$0);
+	});
 	return class$;
 }
 $Class* FileSystemView$$Lambda$lambda$new$0::class$ = nullptr;
@@ -116,104 +108,32 @@ public:
 	virtual void run() override {
 		FileSystemView::lambda$new$1(pcl);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<FileSystemView$$Lambda$lambda$new$1$1>());
-	}
 	$PropertyChangeListener* pcl = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo FileSystemView$$Lambda$lambda$new$1$1::fieldInfos[2] = {
-	{"pcl", "Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC, $field(FileSystemView$$Lambda$lambda$new$1$1, pcl)},
-	{}
-};
-$MethodInfo FileSystemView$$Lambda$lambda$new$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $method(FileSystemView$$Lambda$lambda$new$1$1, init$, void, $PropertyChangeListener*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FileSystemView$$Lambda$lambda$new$1$1, run, void)},
-	{}
-};
-$ClassInfo FileSystemView$$Lambda$lambda$new$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.filechooser.FileSystemView$$Lambda$lambda$new$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* FileSystemView$$Lambda$lambda$new$1$1::load$($String* name, bool initialize) {
-	$loadClass(FileSystemView$$Lambda$lambda$new$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"pcl", "Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC, $field(FileSystemView$$Lambda$lambda$new$1$1, pcl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $method(FileSystemView$$Lambda$lambda$new$1$1, init$, void, $PropertyChangeListener*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FileSystemView$$Lambda$lambda$new$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.filechooser.FileSystemView$$Lambda$lambda$new$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FileSystemView$$Lambda$lambda$new$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileSystemView$$Lambda$lambda$new$1$1);
+	});
 	return class$;
 }
 $Class* FileSystemView$$Lambda$lambda$new$1$1::class$ = nullptr;
-
-$FieldInfo _FileSystemView_FieldInfo_[] = {
-	{"windowsFileSystemView", "Ljavax/swing/filechooser/FileSystemView;", nullptr, $STATIC, $staticField(FileSystemView, windowsFileSystemView)},
-	{"unixFileSystemView", "Ljavax/swing/filechooser/FileSystemView;", nullptr, $STATIC, $staticField(FileSystemView, unixFileSystemView)},
-	{"genericFileSystemView", "Ljavax/swing/filechooser/FileSystemView;", nullptr, $STATIC, $staticField(FileSystemView, genericFileSystemView)},
-	{"useSystemExtensionHiding", "Z", nullptr, $PRIVATE, $field(FileSystemView, useSystemExtensionHiding)},
-	{}
-};
-
-$MethodInfo _FileSystemView_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FileSystemView, init$, void)},
-	{"createFileObject", "(Ljava/io/File;Ljava/lang/String;)Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, createFileObject, $File*, $File*, $String*)},
-	{"createFileObject", "(Ljava/lang/String;)Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, createFileObject, $File*, $String*)},
-	{"createFileSystemRoot", "(Ljava/io/File;)Ljava/io/File;", nullptr, $PROTECTED, $virtualMethod(FileSystemView, createFileSystemRoot, $File*, $File*)},
-	{"createNewFolder", "(Ljava/io/File;)Ljava/io/File;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileSystemView, createNewFolder, $File*, $File*), "java.io.IOException"},
-	{"getChild", "(Ljava/io/File;Ljava/lang/String;)Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, getChild, $File*, $File*, $String*)},
-	{"getChooserComboBoxFiles", "()[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, getChooserComboBoxFiles, $FileArray*)},
-	{"getChooserShortcutPanelFiles", "()[Ljava/io/File;", nullptr, $PUBLIC | $FINAL, $method(FileSystemView, getChooserShortcutPanelFiles, $FileArray*)},
-	{"getDefaultDirectory", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, getDefaultDirectory, $File*)},
-	{"getFileSystemView", "()Ljavax/swing/filechooser/FileSystemView;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileSystemView, getFileSystemView, FileSystemView*)},
-	{"getFiles", "(Ljava/io/File;Z)[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, getFiles, $FileArray*, $File*, bool)},
-	{"getHomeDirectory", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, getHomeDirectory, $File*)},
-	{"getLinkLocation", "(Ljava/io/File;)Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, getLinkLocation, $File*, $File*), "java.io.FileNotFoundException"},
-	{"getParentDirectory", "(Ljava/io/File;)Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, getParentDirectory, $File*, $File*)},
-	{"getRoots", "()[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, getRoots, $FileArray*)},
-	{"getShellFolder", "(Ljava/io/File;)Lsun/awt/shell/ShellFolder;", nullptr, 0, $virtualMethod(FileSystemView, getShellFolder, $ShellFolder*, $File*), "java.io.FileNotFoundException"},
-	{"getSystemDisplayName", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, getSystemDisplayName, $String*, $File*)},
-	{"getSystemIcon", "(Ljava/io/File;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, getSystemIcon, $Icon*, $File*)},
-	{"getSystemIcon", "(Ljava/io/File;II)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, getSystemIcon, $Icon*, $File*, int32_t, int32_t)},
-	{"getSystemTypeDescription", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, getSystemTypeDescription, $String*, $File*)},
-	{"isComputerNode", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(FileSystemView, isComputerNode, bool, $File*)},
-	{"isDrive", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(FileSystemView, isDrive, bool, $File*)},
-	{"isFileSystem", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(FileSystemView, isFileSystem, bool, $File*)},
-	{"isFileSystemRoot", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(FileSystemView, isFileSystemRoot, bool, $File*)},
-	{"isFloppyDrive", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(FileSystemView, isFloppyDrive, bool, $File*)},
-	{"isHiddenFile", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(FileSystemView, isHiddenFile, bool, $File*)},
-	{"isLink", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(FileSystemView, isLink, bool, $File*)},
-	{"isParent", "(Ljava/io/File;Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(FileSystemView, isParent, bool, $File*, $File*)},
-	{"isRoot", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(FileSystemView, isRoot, bool, $File*)},
-	{"isTraversable", "(Ljava/io/File;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, isTraversable, $Boolean*, $File*)},
-	{"lambda$new$0", "(Ljava/lang/ref/WeakReference;Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileSystemView, lambda$new$0, void, $WeakReference*, $PropertyChangeEvent*)},
-	{"lambda$new$1", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileSystemView, lambda$new$1, void, $PropertyChangeListener*)},
-	{}
-};
-
-$InnerClassInfo _FileSystemView_InnerClassesInfo_[] = {
-	{"javax.swing.filechooser.FileSystemView$FileSystemRoot", "javax.swing.filechooser.FileSystemView", "FileSystemRoot", $STATIC},
-	{}
-};
-
-$ClassInfo _FileSystemView_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.filechooser.FileSystemView",
-	"java.lang.Object",
-	nullptr,
-	_FileSystemView_FieldInfo_,
-	_FileSystemView_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FileSystemView_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.filechooser.FileSystemView$FileSystemRoot"
-};
-
-$Object* allocate$FileSystemView($Class* clazz) {
-	return $of($alloc(FileSystemView));
-}
 
 FileSystemView* FileSystemView::windowsFileSystemView = nullptr;
 FileSystemView* FileSystemView::unixFileSystemView = nullptr;
@@ -241,30 +161,26 @@ FileSystemView* FileSystemView::getFileSystemView() {
 }
 
 void FileSystemView::init$() {
-	$useLocalCurrentObjectStackCache();
-	this->useSystemExtensionHiding = $nc($($UIManager::getDefaults()))->getBoolean("FileChooser.useSystemExtensionHiding"_s);
+	$useLocalObjectStack();
+	this->useSystemExtensionHiding = $$nc($UIManager::getDefaults())->getBoolean("FileChooser.useSystemExtensionHiding"_s);
 	$var($WeakReference, weakReference, $new($WeakReference, this));
-	$var($PropertyChangeListener, pcl, static_cast<$PropertyChangeListener*>($new(FileSystemView$$Lambda$lambda$new$0, weakReference)));
+	$var($PropertyChangeListener, pcl, $new(FileSystemView$$Lambda$lambda$new$0, weakReference));
 	$UIManager::addPropertyChangeListener(pcl);
-	$nc($($CleanerFactory::cleaner()))->register$(this, static_cast<$Runnable*>($$new(FileSystemView$$Lambda$lambda$new$1$1, pcl)));
+	$$nc($CleanerFactory::cleaner())->register$(this, $$new(FileSystemView$$Lambda$lambda$new$1$1, pcl));
 }
 
 bool FileSystemView::isRoot($File* f) {
-	$useLocalCurrentObjectStackCache();
-	if (f == nullptr || !$nc(f)->isAbsolute()) {
+	$useLocalObjectStack();
+	if (f == nullptr || !f->isAbsolute()) {
 		return false;
 	}
 	$var($FileArray, roots, getRoots());
 	{
 		$var($FileArray, arr$, roots);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($File, root, arr$->get(i$));
-			{
-				if ($nc(root)->equals(f)) {
-					return true;
-				}
+			if ($nc(root)->equals(f)) {
+				return true;
 			}
 		}
 	}
@@ -276,7 +192,7 @@ $Boolean* FileSystemView::isTraversable($File* f) {
 }
 
 $String* FileSystemView::getSystemDisplayName($File* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (f == nullptr) {
 		return nullptr;
 	}
@@ -285,16 +201,16 @@ $String* FileSystemView::getSystemDisplayName($File* f) {
 	bool var$1 = var$2 && !name->equals("."_s);
 	if (var$1) {
 		bool var$3 = this->useSystemExtensionHiding || !isFileSystem(f);
-		var$1 = (var$3 || isFileSystemRoot(f));
+		var$1 = var$3 || isFileSystemRoot(f);
 	}
 	bool var$0 = var$1;
 	if (var$0 && ($instanceOf($ShellFolder, f) || f->exists())) {
 		try {
-			$assign(name, $nc($(getShellFolder(f)))->getDisplayName());
+			$assign(name, $$nc(getShellFolder(f))->getDisplayName());
 		} catch ($FileNotFoundException& e) {
 			return nullptr;
 		}
-		if (name == nullptr || $nc(name)->length() == 0) {
+		if (name == nullptr || name->length() == 0) {
 			$assign(name, f->getPath());
 		}
 	}
@@ -306,7 +222,7 @@ $String* FileSystemView::getSystemTypeDescription($File* f) {
 }
 
 $Icon* FileSystemView::getSystemIcon($File* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (f == nullptr) {
 		return nullptr;
 	}
@@ -320,12 +236,12 @@ $Icon* FileSystemView::getSystemIcon($File* f) {
 	if (img != nullptr) {
 		return $new($ImageIcon, img, $(sf->getFolderType()));
 	} else {
-		return $UIManager::getIcon($nc(f)->isDirectory() ? $of("FileView.directoryIcon"_s) : $of("FileView.fileIcon"_s));
+		return $UIManager::getIcon($nc(f)->isDirectory() ? "FileView.directoryIcon"_s : "FileView.fileIcon"_s);
 	}
 }
 
 $Icon* FileSystemView::getSystemIcon($File* f, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (height < 1 || width < 1) {
 		$throwNew($IllegalArgumentException, "Icon size can not be below 1"_s);
 	}
@@ -345,53 +261,45 @@ $Icon* FileSystemView::getSystemIcon($File* f, int32_t width, int32_t height) {
 	if (img != nullptr) {
 		return $new($ImageIcon, img, $(sf->getFolderType()));
 	} else {
-		return $UIManager::getIcon($nc(f)->isDirectory() ? $of("FileView.directoryIcon"_s) : $of("FileView.fileIcon"_s));
+		return $UIManager::getIcon(f->isDirectory() ? "FileView.directoryIcon"_s : "FileView.fileIcon"_s);
 	}
 }
 
 bool FileSystemView::isParent($File* folder, $File* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (folder == nullptr || file == nullptr) {
 		return false;
 	} else if ($instanceOf($ShellFolder, folder)) {
-		$var($File, parent, $nc(file)->getParentFile());
+		$var($File, parent, file->getParentFile());
 		if (parent != nullptr && parent->equals(folder)) {
 			return true;
 		}
 		$var($FileArray, children, getFiles(folder, false));
 		{
 			$var($FileArray, arr$, children);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($File, child, arr$->get(i$));
-				{
-					if (file->equals(child)) {
-						return true;
-					}
+				if (file->equals(child)) {
+					return true;
 				}
 			}
 		}
 		return false;
 	} else {
-		return $nc(folder)->equals($($nc(file)->getParentFile()));
+		return folder->equals($(file->getParentFile()));
 	}
 }
 
 $File* FileSystemView::getChild($File* parent, $String* fileName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($ShellFolder, parent)) {
 		$var($FileArray, children, getFiles(parent, false));
 		{
 			$var($FileArray, arr$, children);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($File, child, arr$->get(i$));
-				{
-					if ($nc($($nc(child)->getName()))->equals(fileName)) {
-						return child;
-					}
+				if ($$nc($nc(child)->getName())->equals(fileName)) {
+					return child;
 				}
 			}
 		}
@@ -402,7 +310,7 @@ $File* FileSystemView::getChild($File* parent, $String* fileName) {
 bool FileSystemView::isFileSystem($File* f) {
 	if ($instanceOf($ShellFolder, f)) {
 		$var($ShellFolder, sf, $cast($ShellFolder, f));
-		bool var$0 = $nc(sf)->isFileSystem();
+		bool var$0 = sf->isFileSystem();
 		if (var$0) {
 			bool var$1 = sf->isLink();
 			var$0 = !(var$1 && sf->isDirectory());
@@ -434,7 +342,7 @@ bool FileSystemView::isComputerNode($File* dir) {
 }
 
 $FileArray* FileSystemView::getRoots() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileArray, roots, $cast($FileArray, $ShellFolder::get("roots"_s)));
 	for (int32_t i = 0; i < $nc(roots)->length; ++i) {
 		if (isFileSystemRoot(roots->get(i))) {
@@ -473,7 +381,7 @@ $File* FileSystemView::createFileObject($String* path) {
 }
 
 $FileArray* FileSystemView::getFiles($File* dir$renamed, bool useFileHiding) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, dir, dir$renamed);
 	$var($List, files, $new($ArrayList));
 	if (!($instanceOf($ShellFolder, dir))) {
@@ -483,15 +391,13 @@ $FileArray* FileSystemView::getFiles($File* dir$renamed, bool useFileHiding) {
 			return $new($FileArray, 0);
 		}
 	}
-	$var($FileArray, names, $nc(($cast($ShellFolder, dir)))->listFiles(!useFileHiding));
+	$var($FileArray, names, $nc($cast($ShellFolder, dir))->listFiles(!useFileHiding));
 	if (names == nullptr) {
 		return $new($FileArray, 0);
 	}
 	{
 		$var($FileArray, arr$, names);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($File, f, arr$->get(i$));
 			{
 				if ($($Thread::currentThread())->isInterrupted()) {
@@ -515,12 +421,12 @@ $FileArray* FileSystemView::getFiles($File* dir$renamed, bool useFileHiding) {
 			}
 		}
 	}
-	return $fcast($FileArray, files->toArray($$new($FileArray, files->size())));
+	return $cast($FileArray, files->toArray($$new($FileArray, files->size())));
 }
 
 $File* FileSystemView::getParentDirectory($File* dir) {
-	$useLocalCurrentObjectStackCache();
-	if (dir == nullptr || !$nc(dir)->exists()) {
+	$useLocalObjectStack();
+	if (dir == nullptr || !dir->exists()) {
 		return nullptr;
 	}
 	$var($ShellFolder, sf, nullptr);
@@ -560,7 +466,7 @@ bool FileSystemView::isLink($File* file) {
 		$throwNew($NullPointerException, "file is null"_s);
 	}
 	try {
-		return $nc($($ShellFolder::getShellFolder(file)))->isLink();
+		return $$nc($ShellFolder::getShellFolder(file))->isLink();
 	} catch ($FileNotFoundException& e) {
 		return false;
 	}
@@ -577,11 +483,11 @@ $File* FileSystemView::getLinkLocation($File* file) {
 	} catch ($FileNotFoundException& e) {
 		return nullptr;
 	}
-	return $nc(shellFolder)->isLink() ? static_cast<$File*>($nc(shellFolder)->getLinkLocation()) : ($File*)nullptr;
+	return $nc(shellFolder)->isLink() ? $cast($File, shellFolder->getLinkLocation()) : ($File*)nullptr;
 }
 
 $ShellFolder* FileSystemView::getShellFolder($File* f$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, f, f$renamed);
 	if (!($instanceOf($ShellFolder, f)) && !($instanceOf($FileSystemView$FileSystemRoot, f)) && isFileSystemRoot(f)) {
 		$assign(f, createFileSystemRoot(f));
@@ -607,14 +513,14 @@ void FileSystemView::lambda$new$1($PropertyChangeListener* pcl) {
 
 void FileSystemView::lambda$new$0($WeakReference* weakReference, $PropertyChangeEvent* evt) {
 	$init(FileSystemView);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(FileSystemView, fsv, $cast(FileSystemView, $nc(weakReference)->get()));
-	if (fsv != nullptr && $nc($($nc(evt)->getPropertyName()))->equals("lookAndFeel"_s)) {
-		fsv->useSystemExtensionHiding = $nc($($UIManager::getDefaults()))->getBoolean("FileChooser.useSystemExtensionHiding"_s);
+	if (fsv != nullptr && $$nc($nc(evt)->getPropertyName())->equals("lookAndFeel"_s)) {
+		fsv->useSystemExtensionHiding = $$nc($UIManager::getDefaults())->getBoolean("FileChooser.useSystemExtensionHiding"_s);
 	}
 }
 
-void clinit$FileSystemView($Class* class$) {
+void FileSystemView::clinit$($Class* clazz) {
 	$assignStatic(FileSystemView::windowsFileSystemView, nullptr);
 	$assignStatic(FileSystemView::unixFileSystemView, nullptr);
 	$assignStatic(FileSystemView::genericFileSystemView, nullptr);
@@ -625,14 +531,76 @@ FileSystemView::FileSystemView() {
 
 $Class* FileSystemView::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(FileSystemView$$Lambda$lambda$new$0::classInfo$.name)) {
+		if (name->equals("javax.swing.filechooser.FileSystemView$$Lambda$lambda$new$0")) {
 			return FileSystemView$$Lambda$lambda$new$0::load$(name, initialize);
 		}
-		if (name->equals(FileSystemView$$Lambda$lambda$new$1$1::classInfo$.name)) {
+		if (name->equals("javax.swing.filechooser.FileSystemView$$Lambda$lambda$new$1$1")) {
 			return FileSystemView$$Lambda$lambda$new$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(FileSystemView, name, initialize, &_FileSystemView_ClassInfo_, clinit$FileSystemView, allocate$FileSystemView);
+	$FieldInfo fieldInfos$$[] = {
+		{"windowsFileSystemView", "Ljavax/swing/filechooser/FileSystemView;", nullptr, $STATIC, $staticField(FileSystemView, windowsFileSystemView)},
+		{"unixFileSystemView", "Ljavax/swing/filechooser/FileSystemView;", nullptr, $STATIC, $staticField(FileSystemView, unixFileSystemView)},
+		{"genericFileSystemView", "Ljavax/swing/filechooser/FileSystemView;", nullptr, $STATIC, $staticField(FileSystemView, genericFileSystemView)},
+		{"useSystemExtensionHiding", "Z", nullptr, $PRIVATE, $field(FileSystemView, useSystemExtensionHiding)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FileSystemView, init$, void)},
+		{"createFileObject", "(Ljava/io/File;Ljava/lang/String;)Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, createFileObject, $File*, $File*, $String*)},
+		{"createFileObject", "(Ljava/lang/String;)Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, createFileObject, $File*, $String*)},
+		{"createFileSystemRoot", "(Ljava/io/File;)Ljava/io/File;", nullptr, $PROTECTED, $virtualMethod(FileSystemView, createFileSystemRoot, $File*, $File*)},
+		{"createNewFolder", "(Ljava/io/File;)Ljava/io/File;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileSystemView, createNewFolder, $File*, $File*), "java.io.IOException"},
+		{"getChild", "(Ljava/io/File;Ljava/lang/String;)Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, getChild, $File*, $File*, $String*)},
+		{"getChooserComboBoxFiles", "()[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, getChooserComboBoxFiles, $FileArray*)},
+		{"getChooserShortcutPanelFiles", "()[Ljava/io/File;", nullptr, $PUBLIC | $FINAL, $method(FileSystemView, getChooserShortcutPanelFiles, $FileArray*)},
+		{"getDefaultDirectory", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, getDefaultDirectory, $File*)},
+		{"getFileSystemView", "()Ljavax/swing/filechooser/FileSystemView;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileSystemView, getFileSystemView, FileSystemView*)},
+		{"getFiles", "(Ljava/io/File;Z)[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, getFiles, $FileArray*, $File*, bool)},
+		{"getHomeDirectory", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, getHomeDirectory, $File*)},
+		{"getLinkLocation", "(Ljava/io/File;)Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, getLinkLocation, $File*, $File*), "java.io.FileNotFoundException"},
+		{"getParentDirectory", "(Ljava/io/File;)Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, getParentDirectory, $File*, $File*)},
+		{"getRoots", "()[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, getRoots, $FileArray*)},
+		{"getShellFolder", "(Ljava/io/File;)Lsun/awt/shell/ShellFolder;", nullptr, 0, $virtualMethod(FileSystemView, getShellFolder, $ShellFolder*, $File*), "java.io.FileNotFoundException"},
+		{"getSystemDisplayName", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, getSystemDisplayName, $String*, $File*)},
+		{"getSystemIcon", "(Ljava/io/File;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, getSystemIcon, $Icon*, $File*)},
+		{"getSystemIcon", "(Ljava/io/File;II)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, getSystemIcon, $Icon*, $File*, int32_t, int32_t)},
+		{"getSystemTypeDescription", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, getSystemTypeDescription, $String*, $File*)},
+		{"isComputerNode", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(FileSystemView, isComputerNode, bool, $File*)},
+		{"isDrive", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(FileSystemView, isDrive, bool, $File*)},
+		{"isFileSystem", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(FileSystemView, isFileSystem, bool, $File*)},
+		{"isFileSystemRoot", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(FileSystemView, isFileSystemRoot, bool, $File*)},
+		{"isFloppyDrive", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(FileSystemView, isFloppyDrive, bool, $File*)},
+		{"isHiddenFile", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(FileSystemView, isHiddenFile, bool, $File*)},
+		{"isLink", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(FileSystemView, isLink, bool, $File*)},
+		{"isParent", "(Ljava/io/File;Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(FileSystemView, isParent, bool, $File*, $File*)},
+		{"isRoot", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(FileSystemView, isRoot, bool, $File*)},
+		{"isTraversable", "(Ljava/io/File;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(FileSystemView, isTraversable, $Boolean*, $File*)},
+		{"lambda$new$0", "(Ljava/lang/ref/WeakReference;Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileSystemView, lambda$new$0, void, $WeakReference*, $PropertyChangeEvent*)},
+		{"lambda$new$1", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileSystemView, lambda$new$1, void, $PropertyChangeListener*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.filechooser.FileSystemView$FileSystemRoot", "javax.swing.filechooser.FileSystemView", "FileSystemRoot", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.filechooser.FileSystemView",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.filechooser.FileSystemView$FileSystemRoot"
+	};
+	$loadClass(FileSystemView, name, initialize, &classInfo$$, FileSystemView::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FileSystemView);
+	});
 	return class$;
 }
 

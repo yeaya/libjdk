@@ -25,6 +25,7 @@ class $import Http1Response$State : public ::java::lang::Enum {
 public:
 	Http1Response$State();
 	static $Array<::jdk::internal::net::http::Http1Response$State>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::jdk::internal::net::http::Http1Response$State* valueOf($String* name);
 	static $Array<::jdk::internal::net::http::Http1Response$State>* values();

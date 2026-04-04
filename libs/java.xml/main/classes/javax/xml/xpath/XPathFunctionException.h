@@ -21,10 +21,13 @@ public:
 	XPathFunctionException();
 	void init$($String* message);
 	void init$($Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0xE681613C88777F1C;
+	static const int64_t serialVersionUID = (int64_t)0xe681613c88777f1c;
 	XPathFunctionException(const XPathFunctionException& e);
 	virtual void throw$() override;
-	inline XPathFunctionException* operator ->() {
+	inline XPathFunctionException* operator ->() const {
+		return (XPathFunctionException*)throwing$;
+	}
+	inline operator XPathFunctionException*() const {
 		return (XPathFunctionException*)throwing$;
 	}
 };

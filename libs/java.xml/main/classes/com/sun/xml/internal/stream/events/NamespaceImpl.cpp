@@ -1,5 +1,4 @@
 #include <com/sun/xml/internal/stream/events/NamespaceImpl.h>
-
 #include <com/sun/xml/internal/stream/events/AttributeImpl.h>
 #include <com/sun/xml/internal/stream/events/DummyEvent.h>
 #include <java/io/Writer.h>
@@ -35,57 +34,6 @@ namespace com {
 			namespace internal {
 				namespace stream {
 					namespace events {
-
-$MethodInfo _NamespaceImpl_MethodInfo_[] = {
-	{"*asCharacters", "()Ljavax/xml/stream/events/Characters;", nullptr, $PUBLIC},
-	{"*asEndElement", "()Ljavax/xml/stream/events/EndElement;", nullptr, $PUBLIC},
-	{"*asStartElement", "()Ljavax/xml/stream/events/StartElement;", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getDTDType", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getLocation", "()Ljavax/xml/stream/Location;", nullptr, $PUBLIC},
-	{"*getName", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC},
-	{"*getSchemaType", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC},
-	{"*getValue", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NamespaceImpl, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NamespaceImpl, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NamespaceImpl, init$, void, $String*, $String*)},
-	{"getEventType", "()I", nullptr, $PUBLIC, $virtualMethod(NamespaceImpl, getEventType, int32_t)},
-	{"getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceImpl, getNamespaceURI, $String*)},
-	{"getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceImpl, getPrefix, $String*)},
-	{"init", "()V", nullptr, $PROTECTED, $virtualMethod(NamespaceImpl, init, void)},
-	{"*isAttribute", "()Z", nullptr, $PUBLIC},
-	{"*isCharacters", "()Z", nullptr, $PUBLIC},
-	{"isDefaultNamespaceDeclaration", "()Z", nullptr, $PUBLIC, $virtualMethod(NamespaceImpl, isDefaultNamespaceDeclaration, bool)},
-	{"*isEndDocument", "()Z", nullptr, $PUBLIC},
-	{"*isEndElement", "()Z", nullptr, $PUBLIC},
-	{"*isEntityReference", "()Z", nullptr, $PUBLIC},
-	{"isNamespace", "()Z", nullptr, $PUBLIC, $virtualMethod(NamespaceImpl, isNamespace, bool)},
-	{"*isProcessingInstruction", "()Z", nullptr, $PUBLIC},
-	{"*isSpecified", "()Z", nullptr, $PUBLIC},
-	{"*isStartDocument", "()Z", nullptr, $PUBLIC},
-	{"*isStartElement", "()Z", nullptr, $PUBLIC},
-	{"setNamespaceURI", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(NamespaceImpl, setNamespaceURI, void, $String*)},
-	{"setPrefix", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(NamespaceImpl, setPrefix, void, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*writeAsEncodedUnicode", "(Ljava/io/Writer;)V", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _NamespaceImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.xml.internal.stream.events.NamespaceImpl",
-	"com.sun.xml.internal.stream.events.AttributeImpl",
-	"javax.xml.stream.events.Namespace",
-	nullptr,
-	_NamespaceImpl_MethodInfo_
-};
-
-$Object* allocate$NamespaceImpl($Class* clazz) {
-	return $of($alloc(NamespaceImpl));
-}
 
 $String* NamespaceImpl::toString() {
 	 return this->$AttributeImpl::toString();
@@ -186,28 +134,28 @@ void NamespaceImpl::init$() {
 
 void NamespaceImpl::init$($String* namespaceURI) {
 	$init($XMLConstants);
-	$AttributeImpl::init$($XMLConstants::XMLNS_ATTRIBUTE, $XMLConstants::XMLNS_ATTRIBUTE_NS_URI, $XMLConstants::DEFAULT_NS_PREFIX, namespaceURI, ($String*)nullptr);
+	$AttributeImpl::init$($XMLConstants::XMLNS_ATTRIBUTE, $XMLConstants::XMLNS_ATTRIBUTE_NS_URI, $XMLConstants::DEFAULT_NS_PREFIX, namespaceURI, nullptr);
 	init();
 }
 
 void NamespaceImpl::init$($String* prefix, $String* namespaceURI) {
 	$init($XMLConstants);
-	$AttributeImpl::init$($XMLConstants::XMLNS_ATTRIBUTE, $XMLConstants::XMLNS_ATTRIBUTE_NS_URI, prefix, namespaceURI, ($String*)nullptr);
+	$AttributeImpl::init$($XMLConstants::XMLNS_ATTRIBUTE, $XMLConstants::XMLNS_ATTRIBUTE_NS_URI, prefix, namespaceURI, nullptr);
 	init();
 }
 
 bool NamespaceImpl::isDefaultNamespaceDeclaration() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($QName, name, this->getName());
 	$init($XMLConstants);
-	if (name != nullptr && ($nc($(name->getLocalPart()))->equals($XMLConstants::DEFAULT_NS_PREFIX))) {
+	if (name != nullptr && ($$nc(name->getLocalPart())->equals($XMLConstants::DEFAULT_NS_PREFIX))) {
 		return true;
 	}
 	return false;
 }
 
 void NamespaceImpl::setPrefix($String* prefix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (prefix == nullptr) {
 		$init($XMLConstants);
 		setName($$new($QName, $XMLConstants::XMLNS_ATTRIBUTE_NS_URI, $XMLConstants::DEFAULT_NS_PREFIX, $XMLConstants::XMLNS_ATTRIBUTE));
@@ -249,7 +197,54 @@ NamespaceImpl::NamespaceImpl() {
 }
 
 $Class* NamespaceImpl::load$($String* name, bool initialize) {
-	$loadClass(NamespaceImpl, name, initialize, &_NamespaceImpl_ClassInfo_, allocate$NamespaceImpl);
+	$MethodInfo methodInfos$$[] = {
+		{"*asCharacters", "()Ljavax/xml/stream/events/Characters;", nullptr, $PUBLIC},
+		{"*asEndElement", "()Ljavax/xml/stream/events/EndElement;", nullptr, $PUBLIC},
+		{"*asStartElement", "()Ljavax/xml/stream/events/StartElement;", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getDTDType", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getLocation", "()Ljavax/xml/stream/Location;", nullptr, $PUBLIC},
+		{"*getName", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC},
+		{"*getSchemaType", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC},
+		{"*getValue", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NamespaceImpl, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NamespaceImpl, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NamespaceImpl, init$, void, $String*, $String*)},
+		{"getEventType", "()I", nullptr, $PUBLIC, $virtualMethod(NamespaceImpl, getEventType, int32_t)},
+		{"getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceImpl, getNamespaceURI, $String*)},
+		{"getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceImpl, getPrefix, $String*)},
+		{"init", "()V", nullptr, $PROTECTED, $virtualMethod(NamespaceImpl, init, void)},
+		{"*isAttribute", "()Z", nullptr, $PUBLIC},
+		{"*isCharacters", "()Z", nullptr, $PUBLIC},
+		{"isDefaultNamespaceDeclaration", "()Z", nullptr, $PUBLIC, $virtualMethod(NamespaceImpl, isDefaultNamespaceDeclaration, bool)},
+		{"*isEndDocument", "()Z", nullptr, $PUBLIC},
+		{"*isEndElement", "()Z", nullptr, $PUBLIC},
+		{"*isEntityReference", "()Z", nullptr, $PUBLIC},
+		{"isNamespace", "()Z", nullptr, $PUBLIC, $virtualMethod(NamespaceImpl, isNamespace, bool)},
+		{"*isProcessingInstruction", "()Z", nullptr, $PUBLIC},
+		{"*isSpecified", "()Z", nullptr, $PUBLIC},
+		{"*isStartDocument", "()Z", nullptr, $PUBLIC},
+		{"*isStartElement", "()Z", nullptr, $PUBLIC},
+		{"setNamespaceURI", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(NamespaceImpl, setNamespaceURI, void, $String*)},
+		{"setPrefix", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(NamespaceImpl, setPrefix, void, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*writeAsEncodedUnicode", "(Ljava/io/Writer;)V", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.xml.internal.stream.events.NamespaceImpl",
+		"com.sun.xml.internal.stream.events.AttributeImpl",
+		"javax.xml.stream.events.Namespace",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NamespaceImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NamespaceImpl));
+	});
 	return class$;
 }
 

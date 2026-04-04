@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsMenuBarUI$1.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsMenuBarUI.h>
 #include <java/awt/Component.h>
 #include <java/awt/event/WindowAdapter.h>
@@ -15,7 +14,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JMenuBar = ::javax::swing::JMenuBar;
 
 namespace com {
 	namespace sun {
@@ -24,67 +22,60 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsMenuBarUI$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsMenuBarUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsMenuBarUI$1, this$0)},
-	{}
-};
-
-$MethodInfo _WindowsMenuBarUI$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsMenuBarUI;)V", nullptr, 0, $method(WindowsMenuBarUI$1, init$, void, $WindowsMenuBarUI*)},
-	{"windowActivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsMenuBarUI$1, windowActivated, void, $WindowEvent*)},
-	{"windowDeactivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsMenuBarUI$1, windowDeactivated, void, $WindowEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _WindowsMenuBarUI$1_EnclosingMethodInfo_ = {
-	"com.sun.java.swing.plaf.windows.WindowsMenuBarUI",
-	"installWindowListener",
-	"()V"
-};
-
-$InnerClassInfo _WindowsMenuBarUI$1_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsMenuBarUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WindowsMenuBarUI$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsMenuBarUI$1",
-	"java.awt.event.WindowAdapter",
-	nullptr,
-	_WindowsMenuBarUI$1_FieldInfo_,
-	_WindowsMenuBarUI$1_MethodInfo_,
-	nullptr,
-	&_WindowsMenuBarUI$1_EnclosingMethodInfo_,
-	_WindowsMenuBarUI$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsMenuBarUI"
-};
-
-$Object* allocate$WindowsMenuBarUI$1($Class* clazz) {
-	return $of($alloc(WindowsMenuBarUI$1));
-}
-
 void WindowsMenuBarUI$1::init$($WindowsMenuBarUI* this$0) {
 	$set(this, this$0, this$0);
 	$WindowAdapter::init$();
 }
 
 void WindowsMenuBarUI$1::windowActivated($WindowEvent* e) {
-	$nc($($WindowsMenuBarUI::access$000(this->this$0)))->repaint();
+	$$nc($WindowsMenuBarUI::access$000(this->this$0))->repaint();
 }
 
 void WindowsMenuBarUI$1::windowDeactivated($WindowEvent* e) {
-	$nc($($WindowsMenuBarUI::access$100(this->this$0)))->repaint();
+	$$nc($WindowsMenuBarUI::access$100(this->this$0))->repaint();
 }
 
 WindowsMenuBarUI$1::WindowsMenuBarUI$1() {
 }
 
 $Class* WindowsMenuBarUI$1::load$($String* name, bool initialize) {
-	$loadClass(WindowsMenuBarUI$1, name, initialize, &_WindowsMenuBarUI$1_ClassInfo_, allocate$WindowsMenuBarUI$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsMenuBarUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsMenuBarUI$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsMenuBarUI;)V", nullptr, 0, $method(WindowsMenuBarUI$1, init$, void, $WindowsMenuBarUI*)},
+		{"windowActivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsMenuBarUI$1, windowActivated, void, $WindowEvent*)},
+		{"windowDeactivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsMenuBarUI$1, windowDeactivated, void, $WindowEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.java.swing.plaf.windows.WindowsMenuBarUI",
+		"installWindowListener",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsMenuBarUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsMenuBarUI$1",
+		"java.awt.event.WindowAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsMenuBarUI"
+	};
+	$loadClass(WindowsMenuBarUI$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsMenuBarUI$1));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/gif/GIFImageWriterSpi.h>
-
 #include <com/sun/imageio/plugins/common/PaletteBuilder.h>
 #include <com/sun/imageio/plugins/gif/GIFImageWriter.h>
 #include <com/sun/imageio/plugins/gif/GIFWritableImageMetadata.h>
@@ -37,38 +36,6 @@ namespace com {
 			namespace plugins {
 				namespace gif {
 
-$FieldInfo _GIFImageWriterSpi_FieldInfo_[] = {
-	{"vendorName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GIFImageWriterSpi, vendorName)},
-	{"version", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GIFImageWriterSpi, version)},
-	{"names", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GIFImageWriterSpi, names)},
-	{"suffixes", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GIFImageWriterSpi, suffixes)},
-	{"MIMETypes", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GIFImageWriterSpi, MIMETypes)},
-	{"writerClassName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GIFImageWriterSpi, writerClassName)},
-	{"readerSpiNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GIFImageWriterSpi, readerSpiNames)},
-	{}
-};
-
-$MethodInfo _GIFImageWriterSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GIFImageWriterSpi, init$, void)},
-	{"canEncodeImage", "(Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC, $virtualMethod(GIFImageWriterSpi, canEncodeImage, bool, $ImageTypeSpecifier*)},
-	{"createWriterInstance", "(Ljava/lang/Object;)Ljavax/imageio/ImageWriter;", nullptr, $PUBLIC, $virtualMethod(GIFImageWriterSpi, createWriterInstance, $ImageWriter*, Object$*)},
-	{"getDescription", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GIFImageWriterSpi, getDescription, $String*, $Locale*)},
-	{}
-};
-
-$ClassInfo _GIFImageWriterSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.gif.GIFImageWriterSpi",
-	"javax.imageio.spi.ImageWriterSpi",
-	nullptr,
-	_GIFImageWriterSpi_FieldInfo_,
-	_GIFImageWriterSpi_MethodInfo_
-};
-
-$Object* allocate$GIFImageWriterSpi($Class* clazz) {
-	return $of($alloc(GIFImageWriterSpi));
-}
-
 $String* GIFImageWriterSpi::vendorName = nullptr;
 $String* GIFImageWriterSpi::version = nullptr;
 $StringArray* GIFImageWriterSpi::names = nullptr;
@@ -85,7 +52,7 @@ void GIFImageWriterSpi::init$() {
 }
 
 bool GIFImageWriterSpi::canEncodeImage($ImageTypeSpecifier* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (type == nullptr) {
 		$throwNew($IllegalArgumentException, "type == null!"_s);
 	}
@@ -93,9 +60,9 @@ bool GIFImageWriterSpi::canEncodeImage($ImageTypeSpecifier* type) {
 	$var($ColorModel, cm, type->getColorModel());
 	bool var$3 = $nc(sm)->getNumBands() == 1;
 	bool var$2 = var$3 && sm->getSampleSize(0) <= 8;
-	bool var$1 = var$2 && sm->getWidth() <= 0x0000FFFF;
-	bool var$0 = var$1 && sm->getHeight() <= 0x0000FFFF;
-	bool canEncode = var$0 && (cm == nullptr || $nc($($nc(cm)->getComponentSize()))->get(0) <= 8);
+	bool var$1 = var$2 && sm->getWidth() <= 0x0000ffff;
+	bool var$0 = var$1 && sm->getHeight() <= 0x0000ffff;
+	bool canEncode = var$0 && (cm == nullptr || $nc($(cm->getComponentSize()))->get(0) <= 8);
 	if (canEncode) {
 		return true;
 	} else {
@@ -111,7 +78,7 @@ $ImageWriter* GIFImageWriterSpi::createWriterInstance(Object$* extension) {
 	return $new($GIFImageWriter, this);
 }
 
-void clinit$GIFImageWriterSpi($Class* class$) {
+void GIFImageWriterSpi::clinit$($Class* clazz) {
 	$assignStatic(GIFImageWriterSpi::vendorName, "Oracle Corporation"_s);
 	$assignStatic(GIFImageWriterSpi::version, "1.0"_s);
 	$assignStatic(GIFImageWriterSpi::writerClassName, "com.sun.imageio.plugins.gif.GIFImageWriter"_s);
@@ -128,7 +95,34 @@ GIFImageWriterSpi::GIFImageWriterSpi() {
 }
 
 $Class* GIFImageWriterSpi::load$($String* name, bool initialize) {
-	$loadClass(GIFImageWriterSpi, name, initialize, &_GIFImageWriterSpi_ClassInfo_, clinit$GIFImageWriterSpi, allocate$GIFImageWriterSpi);
+	$FieldInfo fieldInfos$$[] = {
+		{"vendorName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GIFImageWriterSpi, vendorName)},
+		{"version", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GIFImageWriterSpi, version)},
+		{"names", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GIFImageWriterSpi, names)},
+		{"suffixes", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GIFImageWriterSpi, suffixes)},
+		{"MIMETypes", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GIFImageWriterSpi, MIMETypes)},
+		{"writerClassName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GIFImageWriterSpi, writerClassName)},
+		{"readerSpiNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GIFImageWriterSpi, readerSpiNames)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GIFImageWriterSpi, init$, void)},
+		{"canEncodeImage", "(Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC, $virtualMethod(GIFImageWriterSpi, canEncodeImage, bool, $ImageTypeSpecifier*)},
+		{"createWriterInstance", "(Ljava/lang/Object;)Ljavax/imageio/ImageWriter;", nullptr, $PUBLIC, $virtualMethod(GIFImageWriterSpi, createWriterInstance, $ImageWriter*, Object$*)},
+		{"getDescription", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GIFImageWriterSpi, getDescription, $String*, $Locale*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.gif.GIFImageWriterSpi",
+		"javax.imageio.spi.ImageWriterSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GIFImageWriterSpi, name, initialize, &classInfo$$, GIFImageWriterSpi::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GIFImageWriterSpi);
+	});
 	return class$;
 }
 

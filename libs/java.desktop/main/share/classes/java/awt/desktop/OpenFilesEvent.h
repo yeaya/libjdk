@@ -21,7 +21,7 @@ public:
 	OpenFilesEvent();
 	void init$(::java::util::List* files, $String* searchTerm);
 	$String* getSearchTerm();
-	static const int64_t serialVersionUID = (int64_t)0xC8B9FFEC1D0D46D4;
+	static const int64_t serialVersionUID = (int64_t)0xc8b9ffec1d0d46d4;
 	$String* searchTerm = nullptr;
 };
 

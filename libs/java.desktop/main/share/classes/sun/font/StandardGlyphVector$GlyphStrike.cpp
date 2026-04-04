@@ -1,5 +1,4 @@
 #include <sun/font/StandardGlyphVector$GlyphStrike.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/RenderingHints.h>
 #include <java/awt/font/FontRenderContext.h>
@@ -24,9 +23,7 @@
 #undef TYPE_TRANSLATION
 #undef VALUE_TEXT_ANTIALIAS_GASP
 
-using $Font = ::java::awt::Font;
 using $RenderingHints = ::java::awt::RenderingHints;
-using $FontRenderContext = ::java::awt::font::FontRenderContext;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $GeneralPath = ::java::awt::geom::GeneralPath;
 using $PathIterator = ::java::awt::geom::PathIterator;
@@ -49,54 +46,10 @@ using $StrikeMetrics = ::sun::font::StrikeMetrics;
 namespace sun {
 	namespace font {
 
-$FieldInfo _StandardGlyphVector$GlyphStrike_FieldInfo_[] = {
-	{"sgv", "Lsun/font/StandardGlyphVector;", nullptr, 0, $field(StandardGlyphVector$GlyphStrike, sgv)},
-	{"strike", "Lsun/font/FontStrike;", nullptr, 0, $field(StandardGlyphVector$GlyphStrike, strike)},
-	{"dx", "F", nullptr, 0, $field(StandardGlyphVector$GlyphStrike, dx)},
-	{"dy", "F", nullptr, 0, $field(StandardGlyphVector$GlyphStrike, dy)},
-	{}
-};
-
-$MethodInfo _StandardGlyphVector$GlyphStrike_MethodInfo_[] = {
-	{"<init>", "(Lsun/font/StandardGlyphVector;Lsun/font/FontStrike;FF)V", nullptr, $PRIVATE, $method(StandardGlyphVector$GlyphStrike, init$, void, $StandardGlyphVector*, $FontStrike*, float, float)},
-	{"addDefaultGlyphAdvance", "(ILjava/awt/geom/Point2D$Float;)V", nullptr, 0, $method(StandardGlyphVector$GlyphStrike, addDefaultGlyphAdvance, void, int32_t, $Point2D$Float*)},
-	{"appendGlyphOutline", "(ILjava/awt/geom/GeneralPath;FF)V", nullptr, 0, $method(StandardGlyphVector$GlyphStrike, appendGlyphOutline, void, int32_t, $GeneralPath*, float, float)},
-	{"create", "(Lsun/font/StandardGlyphVector;Ljava/awt/geom/AffineTransform;Ljava/awt/geom/AffineTransform;)Lsun/font/StandardGlyphVector$GlyphStrike;", nullptr, $STATIC, $staticMethod(StandardGlyphVector$GlyphStrike, create, StandardGlyphVector$GlyphStrike*, $StandardGlyphVector*, $AffineTransform*, $AffineTransform*)},
-	{"getADL", "(Lsun/font/StandardGlyphVector$ADL;)V", nullptr, 0, $method(StandardGlyphVector$GlyphStrike, getADL, void, $StandardGlyphVector$ADL*)},
-	{"getGlyphOutlineBounds", "(IFF)Ljava/awt/geom/Rectangle2D;", nullptr, 0, $method(StandardGlyphVector$GlyphStrike, getGlyphOutlineBounds, $Rectangle2D*, int32_t, float, float)},
-	{"getGlyphPosition", "(II[F[F)V", nullptr, 0, $method(StandardGlyphVector$GlyphStrike, getGlyphPosition, void, int32_t, int32_t, $floats*, $floats*)},
-	{}
-};
-
-$InnerClassInfo _StandardGlyphVector$GlyphStrike_InnerClassesInfo_[] = {
-	{"sun.font.StandardGlyphVector$GlyphStrike", "sun.font.StandardGlyphVector", "GlyphStrike", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _StandardGlyphVector$GlyphStrike_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.font.StandardGlyphVector$GlyphStrike",
-	"java.lang.Object",
-	nullptr,
-	_StandardGlyphVector$GlyphStrike_FieldInfo_,
-	_StandardGlyphVector$GlyphStrike_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StandardGlyphVector$GlyphStrike_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.font.StandardGlyphVector"
-};
-
-$Object* allocate$StandardGlyphVector$GlyphStrike($Class* clazz) {
-	return $of($alloc(StandardGlyphVector$GlyphStrike));
-}
-
 StandardGlyphVector$GlyphStrike* StandardGlyphVector$GlyphStrike::create($StandardGlyphVector* sgv, $AffineTransform* dtx, $AffineTransform* gtx) {
-	$useLocalCurrentObjectStackCache();
-	float dx = (float)0;
-	float dy = (float)0;
+	$useLocalObjectStack();
+	float dx = 0;
+	float dy = 0;
 	$var($AffineTransform, tx, $nc(sgv)->ftx);
 	if (!$nc(dtx)->isIdentity() || gtx != nullptr) {
 		$assign(tx, $new($AffineTransform, sgv->ftx));
@@ -105,7 +58,7 @@ StandardGlyphVector$GlyphStrike* StandardGlyphVector$GlyphStrike::create($Standa
 			dx = (float)tx->getTranslateX();
 			dy = (float)tx->getTranslateY();
 		}
-		if (!$nc(dtx)->isIdentity()) {
+		if (!dtx->isIdentity()) {
 			tx->preConcatenate(dtx);
 		}
 	}
@@ -114,7 +67,7 @@ StandardGlyphVector$GlyphStrike* StandardGlyphVector$GlyphStrike::create($Standa
 	$init($RenderingHints);
 	if ($equals(aaHint, $RenderingHints::VALUE_TEXT_ANTIALIAS_GASP)) {
 		bool var$0 = !$nc(tx)->isIdentity();
-		if (var$0 && ((int32_t)(tx->getType() & (uint32_t)~$AffineTransform::TYPE_TRANSLATION)) != 0) {
+		if (var$0 && (tx->getType() & ~$AffineTransform::TYPE_TRANSLATION) != 0) {
 			double shearx = tx->getShearX();
 			if (shearx != 0) {
 				double scaley = tx->getScaleY();
@@ -129,7 +82,7 @@ StandardGlyphVector$GlyphStrike* StandardGlyphVector$GlyphStrike::create($Standa
 	$var($FontStrikeDesc, desc, $new($FontStrikeDesc, dtx, tx, $nc(sgv->font)->getStyle(), aa, fm));
 	$var($Font2D, f2d, sgv->font2D);
 	if ($instanceOf($FontSubstitution, f2d)) {
-		$assign(f2d, $nc(($cast($FontSubstitution, f2d)))->getCompositeFont2D());
+		$assign(f2d, $cast($FontSubstitution, f2d)->getCompositeFont2D());
 	}
 	$var($FontStrike, strike, $nc($nc($nc(f2d)->handle)->font2D)->getStrike(desc));
 	return $new(StandardGlyphVector$GlyphStrike, sgv, strike, dx, dy);
@@ -143,13 +96,13 @@ void StandardGlyphVector$GlyphStrike::init$($StandardGlyphVector* sgv, $FontStri
 }
 
 void StandardGlyphVector$GlyphStrike::getADL($StandardGlyphVector$ADL* result) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StrikeMetrics, sm, $nc(this->strike)->getFontMetrics());
 	$var($Point2D$Float, delta, nullptr);
 	if ($nc($nc(this->sgv)->font)->isTransformed()) {
 		$assign(delta, $new($Point2D$Float));
-		delta->x = (float)$nc($($nc($nc(this->sgv)->font)->getTransform()))->getTranslateX();
-		delta->y = (float)$nc($($nc($nc(this->sgv)->font)->getTransform()))->getTranslateY();
+		delta->x = (float)$$nc($nc($nc(this->sgv)->font)->getTransform())->getTranslateX();
+		delta->y = (float)$$nc($nc($nc(this->sgv)->font)->getTransform())->getTranslateY();
 	}
 	$nc(result)->ascentX = -$nc(sm)->ascentX;
 	result->ascentY = -sm->ascentY;
@@ -172,13 +125,13 @@ void StandardGlyphVector$GlyphStrike::addDefaultGlyphAdvance(int32_t glyphID, $P
 }
 
 $Rectangle2D* StandardGlyphVector$GlyphStrike::getGlyphOutlineBounds(int32_t glyphID, float x, float y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, result, nullptr);
 	if ($nc(this->sgv)->invdtx == nullptr) {
 		$assign(result, $new($Rectangle2D$Float));
 		result->setRect($($nc(this->strike)->getGlyphOutlineBounds(glyphID)));
 	} else {
-		$var($GeneralPath, gp, $nc(this->strike)->getGlyphOutline(glyphID, (float)0, (float)0));
+		$var($GeneralPath, gp, $nc(this->strike)->getGlyphOutline(glyphID, 0, 0));
 		$nc(gp)->transform($nc(this->sgv)->invdtx);
 		$assign(result, gp->getBounds2D());
 	}
@@ -192,12 +145,12 @@ $Rectangle2D* StandardGlyphVector$GlyphStrike::getGlyphOutlineBounds(int32_t gly
 }
 
 void StandardGlyphVector$GlyphStrike::appendGlyphOutline(int32_t glyphID, $GeneralPath* result, float x, float y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GeneralPath, gp, nullptr);
 	if ($nc(this->sgv)->invdtx == nullptr) {
 		$assign(gp, $nc(this->strike)->getGlyphOutline(glyphID, x + this->dx, y + this->dy));
 	} else {
-		$assign(gp, $nc(this->strike)->getGlyphOutline(glyphID, (float)0, (float)0));
+		$assign(gp, $nc(this->strike)->getGlyphOutline(glyphID, 0, 0));
 		$nc(gp)->transform($nc(this->sgv)->invdtx);
 		gp->transform($($AffineTransform::getTranslateInstance(x + this->dx, y + this->dy)));
 	}
@@ -209,7 +162,45 @@ StandardGlyphVector$GlyphStrike::StandardGlyphVector$GlyphStrike() {
 }
 
 $Class* StandardGlyphVector$GlyphStrike::load$($String* name, bool initialize) {
-	$loadClass(StandardGlyphVector$GlyphStrike, name, initialize, &_StandardGlyphVector$GlyphStrike_ClassInfo_, allocate$StandardGlyphVector$GlyphStrike);
+	$FieldInfo fieldInfos$$[] = {
+		{"sgv", "Lsun/font/StandardGlyphVector;", nullptr, 0, $field(StandardGlyphVector$GlyphStrike, sgv)},
+		{"strike", "Lsun/font/FontStrike;", nullptr, 0, $field(StandardGlyphVector$GlyphStrike, strike)},
+		{"dx", "F", nullptr, 0, $field(StandardGlyphVector$GlyphStrike, dx)},
+		{"dy", "F", nullptr, 0, $field(StandardGlyphVector$GlyphStrike, dy)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/font/StandardGlyphVector;Lsun/font/FontStrike;FF)V", nullptr, $PRIVATE, $method(StandardGlyphVector$GlyphStrike, init$, void, $StandardGlyphVector*, $FontStrike*, float, float)},
+		{"addDefaultGlyphAdvance", "(ILjava/awt/geom/Point2D$Float;)V", nullptr, 0, $method(StandardGlyphVector$GlyphStrike, addDefaultGlyphAdvance, void, int32_t, $Point2D$Float*)},
+		{"appendGlyphOutline", "(ILjava/awt/geom/GeneralPath;FF)V", nullptr, 0, $method(StandardGlyphVector$GlyphStrike, appendGlyphOutline, void, int32_t, $GeneralPath*, float, float)},
+		{"create", "(Lsun/font/StandardGlyphVector;Ljava/awt/geom/AffineTransform;Ljava/awt/geom/AffineTransform;)Lsun/font/StandardGlyphVector$GlyphStrike;", nullptr, $STATIC, $staticMethod(StandardGlyphVector$GlyphStrike, create, StandardGlyphVector$GlyphStrike*, $StandardGlyphVector*, $AffineTransform*, $AffineTransform*)},
+		{"getADL", "(Lsun/font/StandardGlyphVector$ADL;)V", nullptr, 0, $method(StandardGlyphVector$GlyphStrike, getADL, void, $StandardGlyphVector$ADL*)},
+		{"getGlyphOutlineBounds", "(IFF)Ljava/awt/geom/Rectangle2D;", nullptr, 0, $method(StandardGlyphVector$GlyphStrike, getGlyphOutlineBounds, $Rectangle2D*, int32_t, float, float)},
+		{"getGlyphPosition", "(II[F[F)V", nullptr, 0, $method(StandardGlyphVector$GlyphStrike, getGlyphPosition, void, int32_t, int32_t, $floats*, $floats*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.StandardGlyphVector$GlyphStrike", "sun.font.StandardGlyphVector", "GlyphStrike", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.font.StandardGlyphVector$GlyphStrike",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.font.StandardGlyphVector"
+	};
+	$loadClass(StandardGlyphVector$GlyphStrike, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StandardGlyphVector$GlyphStrike);
+	});
 	return class$;
 }
 

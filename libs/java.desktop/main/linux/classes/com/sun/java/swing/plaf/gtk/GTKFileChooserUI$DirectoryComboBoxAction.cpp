@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKFileChooserUI$DirectoryComboBoxAction.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKFileChooserUI.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/io/File.h>
@@ -17,8 +16,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractAction = ::javax::swing::AbstractAction;
-using $JComboBox = ::javax::swing::JComboBox;
-using $JFileChooser = ::javax::swing::JFileChooser;
 
 namespace com {
 	namespace sun {
@@ -27,58 +24,52 @@ namespace com {
 				namespace plaf {
 					namespace gtk {
 
-$FieldInfo _GTKFileChooserUI$DirectoryComboBoxAction_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(GTKFileChooserUI$DirectoryComboBoxAction, this$0)},
-	{}
-};
-
-$MethodInfo _GTKFileChooserUI$DirectoryComboBoxAction_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;)V", nullptr, $PROTECTED, $method(GTKFileChooserUI$DirectoryComboBoxAction, init$, void, $GTKFileChooserUI*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$DirectoryComboBoxAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _GTKFileChooserUI$DirectoryComboBoxAction_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$DirectoryComboBoxAction", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "DirectoryComboBoxAction", $PROTECTED},
-	{}
-};
-
-$ClassInfo _GTKFileChooserUI$DirectoryComboBoxAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$DirectoryComboBoxAction",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_GTKFileChooserUI$DirectoryComboBoxAction_FieldInfo_,
-	_GTKFileChooserUI$DirectoryComboBoxAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GTKFileChooserUI$DirectoryComboBoxAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKFileChooserUI"
-};
-
-$Object* allocate$GTKFileChooserUI$DirectoryComboBoxAction($Class* clazz) {
-	return $of($alloc(GTKFileChooserUI$DirectoryComboBoxAction));
-}
-
 void GTKFileChooserUI$DirectoryComboBoxAction::init$($GTKFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
 	$AbstractAction::init$("DirectoryComboBoxAction"_s);
 }
 
 void GTKFileChooserUI$DirectoryComboBoxAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, f, $cast($File, $nc(this->this$0->directoryComboBox)->getSelectedItem()));
-	$nc($(this->this$0->getFileChooser()))->setCurrentDirectory(f);
+	$$nc(this->this$0->getFileChooser())->setCurrentDirectory(f);
 }
 
 GTKFileChooserUI$DirectoryComboBoxAction::GTKFileChooserUI$DirectoryComboBoxAction() {
 }
 
 $Class* GTKFileChooserUI$DirectoryComboBoxAction::load$($String* name, bool initialize) {
-	$loadClass(GTKFileChooserUI$DirectoryComboBoxAction, name, initialize, &_GTKFileChooserUI$DirectoryComboBoxAction_ClassInfo_, allocate$GTKFileChooserUI$DirectoryComboBoxAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(GTKFileChooserUI$DirectoryComboBoxAction, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;)V", nullptr, $PROTECTED, $method(GTKFileChooserUI$DirectoryComboBoxAction, init$, void, $GTKFileChooserUI*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$DirectoryComboBoxAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$DirectoryComboBoxAction", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "DirectoryComboBoxAction", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$DirectoryComboBoxAction",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKFileChooserUI"
+	};
+	$loadClass(GTKFileChooserUI$DirectoryComboBoxAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GTKFileChooserUI$DirectoryComboBoxAction));
+	});
 	return class$;
 }
 

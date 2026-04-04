@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/ExifInteroperabilityTagSet.h>
-
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <javax/imageio/plugins/tiff/ExifInteroperabilityTagSet$InteroperabilityIndex.h>
@@ -24,46 +23,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$FieldInfo _ExifInteroperabilityTagSet_FieldInfo_[] = {
-	{"TAG_INTEROPERABILITY_INDEX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifInteroperabilityTagSet, TAG_INTEROPERABILITY_INDEX)},
-	{"INTEROPERABILITY_INDEX_R98", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifInteroperabilityTagSet, INTEROPERABILITY_INDEX_R98)},
-	{"INTEROPERABILITY_INDEX_THM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifInteroperabilityTagSet, INTEROPERABILITY_INDEX_THM)},
-	{"theInstance", "Ljavax/imageio/plugins/tiff/ExifInteroperabilityTagSet;", nullptr, $PRIVATE | $STATIC, $staticField(ExifInteroperabilityTagSet, theInstance)},
-	{"tags", "Ljava/util/List;", "Ljava/util/List<Ljavax/imageio/plugins/tiff/TIFFTag;>;", $PRIVATE | $STATIC, $staticField(ExifInteroperabilityTagSet, tags)},
-	{}
-};
-
-$MethodInfo _ExifInteroperabilityTagSet_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ExifInteroperabilityTagSet, init$, void)},
-	{"getInstance", "()Ljavax/imageio/plugins/tiff/ExifInteroperabilityTagSet;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(ExifInteroperabilityTagSet, getInstance, ExifInteroperabilityTagSet*)},
-	{"initTags", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ExifInteroperabilityTagSet, initTags, void)},
-	{}
-};
-
-$InnerClassInfo _ExifInteroperabilityTagSet_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.ExifInteroperabilityTagSet$InteroperabilityIndex", "javax.imageio.plugins.tiff.ExifInteroperabilityTagSet", "InteroperabilityIndex", $STATIC},
-	{}
-};
-
-$ClassInfo _ExifInteroperabilityTagSet_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.imageio.plugins.tiff.ExifInteroperabilityTagSet",
-	"javax.imageio.plugins.tiff.TIFFTagSet",
-	nullptr,
-	_ExifInteroperabilityTagSet_FieldInfo_,
-	_ExifInteroperabilityTagSet_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExifInteroperabilityTagSet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.ExifInteroperabilityTagSet$InteroperabilityIndex"
-};
-
-$Object* allocate$ExifInteroperabilityTagSet($Class* clazz) {
-	return $of($alloc(ExifInteroperabilityTagSet));
-}
-
 $String* ExifInteroperabilityTagSet::INTEROPERABILITY_INDEX_R98 = nullptr;
 $String* ExifInteroperabilityTagSet::INTEROPERABILITY_INDEX_THM = nullptr;
 ExifInteroperabilityTagSet* ExifInteroperabilityTagSet::theInstance = nullptr;
@@ -72,7 +31,7 @@ $List* ExifInteroperabilityTagSet::tags = nullptr;
 void ExifInteroperabilityTagSet::initTags() {
 	$init(ExifInteroperabilityTagSet);
 	$assignStatic(ExifInteroperabilityTagSet::tags, $new($ArrayList, 42));
-	$nc(ExifInteroperabilityTagSet::tags)->add($$new($ExifInteroperabilityTagSet$InteroperabilityIndex));
+	ExifInteroperabilityTagSet::tags->add($$new($ExifInteroperabilityTagSet$InteroperabilityIndex));
 }
 
 void ExifInteroperabilityTagSet::init$() {
@@ -80,9 +39,8 @@ void ExifInteroperabilityTagSet::init$() {
 }
 
 ExifInteroperabilityTagSet* ExifInteroperabilityTagSet::getInstance() {
-	$load(ExifInteroperabilityTagSet);
+	$init(ExifInteroperabilityTagSet);
 	$synchronized(class$) {
-		$init(ExifInteroperabilityTagSet);
 		if (ExifInteroperabilityTagSet::theInstance == nullptr) {
 			initTags();
 			$assignStatic(ExifInteroperabilityTagSet::theInstance, $new(ExifInteroperabilityTagSet));
@@ -92,7 +50,7 @@ ExifInteroperabilityTagSet* ExifInteroperabilityTagSet::getInstance() {
 	}
 }
 
-void clinit$ExifInteroperabilityTagSet($Class* class$) {
+void ExifInteroperabilityTagSet::clinit$($Class* clazz) {
 	$assignStatic(ExifInteroperabilityTagSet::INTEROPERABILITY_INDEX_R98, "R98"_s);
 	$assignStatic(ExifInteroperabilityTagSet::INTEROPERABILITY_INDEX_THM, "THM"_s);
 	$assignStatic(ExifInteroperabilityTagSet::theInstance, nullptr);
@@ -102,7 +60,41 @@ ExifInteroperabilityTagSet::ExifInteroperabilityTagSet() {
 }
 
 $Class* ExifInteroperabilityTagSet::load$($String* name, bool initialize) {
-	$loadClass(ExifInteroperabilityTagSet, name, initialize, &_ExifInteroperabilityTagSet_ClassInfo_, clinit$ExifInteroperabilityTagSet, allocate$ExifInteroperabilityTagSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"TAG_INTEROPERABILITY_INDEX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifInteroperabilityTagSet, TAG_INTEROPERABILITY_INDEX)},
+		{"INTEROPERABILITY_INDEX_R98", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifInteroperabilityTagSet, INTEROPERABILITY_INDEX_R98)},
+		{"INTEROPERABILITY_INDEX_THM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifInteroperabilityTagSet, INTEROPERABILITY_INDEX_THM)},
+		{"theInstance", "Ljavax/imageio/plugins/tiff/ExifInteroperabilityTagSet;", nullptr, $PRIVATE | $STATIC, $staticField(ExifInteroperabilityTagSet, theInstance)},
+		{"tags", "Ljava/util/List;", "Ljava/util/List<Ljavax/imageio/plugins/tiff/TIFFTag;>;", $PRIVATE | $STATIC, $staticField(ExifInteroperabilityTagSet, tags)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ExifInteroperabilityTagSet, init$, void)},
+		{"getInstance", "()Ljavax/imageio/plugins/tiff/ExifInteroperabilityTagSet;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(ExifInteroperabilityTagSet, getInstance, ExifInteroperabilityTagSet*)},
+		{"initTags", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ExifInteroperabilityTagSet, initTags, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.ExifInteroperabilityTagSet$InteroperabilityIndex", "javax.imageio.plugins.tiff.ExifInteroperabilityTagSet", "InteroperabilityIndex", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.imageio.plugins.tiff.ExifInteroperabilityTagSet",
+		"javax.imageio.plugins.tiff.TIFFTagSet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.ExifInteroperabilityTagSet$InteroperabilityIndex"
+	};
+	$loadClass(ExifInteroperabilityTagSet, name, initialize, &classInfo$$, ExifInteroperabilityTagSet::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ExifInteroperabilityTagSet);
+	});
 	return class$;
 }
 

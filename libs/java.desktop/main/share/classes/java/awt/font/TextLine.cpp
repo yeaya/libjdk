@@ -1,5 +1,4 @@
 #include <java/awt/font/TextLine.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Font.h>
 #include <java/awt/Graphics2D.h>
@@ -29,7 +28,6 @@
 #include <java/awt/image/BufferedImage.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/Math.h>
-#include <java/text/AttributedCharacterIterator$Attribute.h>
 #include <java/text/AttributedCharacterIterator.h>
 #include <java/text/Bidi.h>
 #include <java/text/CharacterIterator.h>
@@ -85,7 +83,6 @@ using $TextLine$Function = ::java::awt::font::TextLine$Function;
 using $TextLine$TextLineMetrics = ::java::awt::font::TextLine$TextLineMetrics;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $GeneralPath = ::java::awt::geom::GeneralPath;
-using $Point2D = ::java::awt::geom::Point2D;
 using $Point2D$Double = ::java::awt::geom::Point2D$Double;
 using $Point2D$Float = ::java::awt::geom::Point2D$Float;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
@@ -101,7 +98,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
-using $AttributedCharacterIterator$Attribute = ::java::text::AttributedCharacterIterator$Attribute;
 using $Bidi = ::java::text::Bidi;
 using $CharacterIterator = ::java::text::CharacterIterator;
 using $Map = ::java::util::Map;
@@ -121,113 +117,6 @@ using $TextLineComponent = ::sun::font::TextLineComponent;
 namespace java {
 	namespace awt {
 		namespace font {
-
-$FieldInfo _TextLine_FieldInfo_[] = {
-	{"fComponents", "[Lsun/font/TextLineComponent;", nullptr, $PRIVATE, $field(TextLine, fComponents)},
-	{"fBaselineOffsets", "[F", nullptr, $PRIVATE, $field(TextLine, fBaselineOffsets)},
-	{"fComponentVisualOrder", "[I", nullptr, $PRIVATE, $field(TextLine, fComponentVisualOrder)},
-	{"locs", "[F", nullptr, $PRIVATE, $field(TextLine, locs)},
-	{"fChars", "[C", nullptr, $PRIVATE, $field(TextLine, fChars)},
-	{"fCharsStart", "I", nullptr, $PRIVATE, $field(TextLine, fCharsStart)},
-	{"fCharsLimit", "I", nullptr, $PRIVATE, $field(TextLine, fCharsLimit)},
-	{"fCharVisualOrder", "[I", nullptr, $PRIVATE, $field(TextLine, fCharVisualOrder)},
-	{"fCharLogicalOrder", "[I", nullptr, $PRIVATE, $field(TextLine, fCharLogicalOrder)},
-	{"fCharLevels", "[B", nullptr, $PRIVATE, $field(TextLine, fCharLevels)},
-	{"fIsDirectionLTR", "Z", nullptr, $PRIVATE, $field(TextLine, fIsDirectionLTR)},
-	{"lp", "Lsun/font/LayoutPathImpl;", nullptr, $PRIVATE, $field(TextLine, lp)},
-	{"isSimple", "Z", nullptr, $PRIVATE, $field(TextLine, isSimple)},
-	{"pixelBounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(TextLine, pixelBounds)},
-	{"frc", "Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE, $field(TextLine, frc)},
-	{"fMetrics", "Ljava/awt/font/TextLine$TextLineMetrics;", nullptr, $PRIVATE, $field(TextLine, fMetrics)},
-	{"fgPosAdvF", "Ljava/awt/font/TextLine$Function;", nullptr, $PRIVATE | $STATIC, $staticField(TextLine, fgPosAdvF)},
-	{"fgAdvanceF", "Ljava/awt/font/TextLine$Function;", nullptr, $PRIVATE | $STATIC, $staticField(TextLine, fgAdvanceF)},
-	{"fgXPositionF", "Ljava/awt/font/TextLine$Function;", nullptr, $PRIVATE | $STATIC, $staticField(TextLine, fgXPositionF)},
-	{"fgYPositionF", "Ljava/awt/font/TextLine$Function;", nullptr, $PRIVATE | $STATIC, $staticField(TextLine, fgYPositionF)},
-	{}
-};
-
-$MethodInfo _TextLine_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/font/FontRenderContext;[Lsun/font/TextLineComponent;[F[CII[I[BZ)V", nullptr, $PUBLIC, $method(TextLine, init$, void, $FontRenderContext*, $TextLineComponentArray*, $floats*, $chars*, int32_t, int32_t, $ints*, $bytes*, bool)},
-	{"advanceToFirstFont", "(Ljava/text/AttributedCharacterIterator;)Z", nullptr, $STATIC, $staticMethod(TextLine, advanceToFirstFont, bool, $AttributedCharacterIterator*)},
-	{"applyFunctionAtIndex", "(ILjava/awt/font/TextLine$Function;)F", nullptr, $PRIVATE, $method(TextLine, applyFunctionAtIndex, float, int32_t, $TextLine$Function*)},
-	{"caretAtOffsetIsValid", "(I)Z", nullptr, $PUBLIC, $method(TextLine, caretAtOffsetIsValid, bool, int32_t)},
-	{"characterCount", "()I", nullptr, $PUBLIC, $method(TextLine, characterCount, int32_t)},
-	{"checkCtorArgs", "()V", nullptr, $PRIVATE, $method(TextLine, checkCtorArgs, void)},
-	{"computeComponentOrder", "([Lsun/font/TextLineComponent;[I)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(TextLine, computeComponentOrder, $ints*, $TextLineComponentArray*, $ints*)},
-	{"computePixelBounds", "(Ljava/awt/image/BufferedImage;)Ljava/awt/Rectangle;", nullptr, $STATIC, $staticMethod(TextLine, computePixelBounds, $Rectangle*, $BufferedImage*)},
-	{"createComponentsOnRun", "(II[C[I[BLsun/font/TextLabelFactory;Ljava/awt/Font;Lsun/font/CoreMetrics;Ljava/awt/font/FontRenderContext;Lsun/font/Decoration;[Lsun/font/TextLineComponent;I)[Lsun/font/TextLineComponent;", nullptr, $PUBLIC | $STATIC, $staticMethod(TextLine, createComponentsOnRun, $TextLineComponentArray*, int32_t, int32_t, $chars*, $ints*, $bytes*, $TextLabelFactory*, $Font*, $CoreMetrics*, $FontRenderContext*, $Decoration*, $TextLineComponentArray*, int32_t)},
-	{"createLineFromText", "([CLjava/awt/font/StyledParagraph;Lsun/font/TextLabelFactory;Z[F)Ljava/awt/font/TextLine;", nullptr, $PUBLIC | $STATIC, $staticMethod(TextLine, createLineFromText, TextLine*, $chars*, $StyledParagraph*, $TextLabelFactory*, bool, $floats*)},
-	{"draw", "(Ljava/awt/Graphics2D;FF)V", nullptr, $PUBLIC, $method(TextLine, draw, void, $Graphics2D*, float, float)},
-	{"expandArray", "([Lsun/font/TextLineComponent;)[Lsun/font/TextLineComponent;", nullptr, $PRIVATE | $STATIC, $staticMethod(TextLine, expandArray, $TextLineComponentArray*, $TextLineComponentArray*)},
-	{"fastCreateTextLine", "(Ljava/awt/font/FontRenderContext;[CLjava/awt/Font;Lsun/font/CoreMetrics;Ljava/util/Map;)Ljava/awt/font/TextLine;", "(Ljava/awt/font/FontRenderContext;[CLjava/awt/Font;Lsun/font/CoreMetrics;Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;)Ljava/awt/font/TextLine;", $PUBLIC | $STATIC, $staticMethod(TextLine, fastCreateTextLine, TextLine*, $FontRenderContext*, $chars*, $Font*, $CoreMetrics*, $Map*)},
-	{"firstVisualChunk", "([I[BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TextLine, firstVisualChunk, int32_t, $ints*, $bytes*, int32_t, int32_t)},
-	{"getAdvanceBetween", "([Lsun/font/TextLineComponent;II)F", nullptr, $PUBLIC | $STATIC, $staticMethod(TextLine, getAdvanceBetween, float, $TextLineComponentArray*, int32_t, int32_t)},
-	{"getCharAdvance", "(I)F", nullptr, $PUBLIC, $method(TextLine, getCharAdvance, float, int32_t)},
-	{"getCharAngle", "(I)F", nullptr, $PUBLIC, $method(TextLine, getCharAngle, float, int32_t)},
-	{"getCharAscent", "(I)F", nullptr, $PUBLIC, $method(TextLine, getCharAscent, float, int32_t)},
-	{"getCharBounds", "(I)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $method(TextLine, getCharBounds, $Rectangle2D*, int32_t)},
-	{"getCharDescent", "(I)F", nullptr, $PUBLIC, $method(TextLine, getCharDescent, float, int32_t)},
-	{"getCharLevel", "(I)B", nullptr, $PUBLIC, $method(TextLine, getCharLevel, int8_t, int32_t)},
-	{"getCharLinePosition", "(I)F", nullptr, $PUBLIC, $method(TextLine, getCharLinePosition, float, int32_t)},
-	{"getCharLinePosition", "(IZ)F", nullptr, $PUBLIC, $method(TextLine, getCharLinePosition, float, int32_t, bool)},
-	{"getCharShift", "(I)F", nullptr, $PUBLIC, $method(TextLine, getCharShift, float, int32_t)},
-	{"getCharType", "(I)I", nullptr, $PUBLIC, $method(TextLine, getCharType, int32_t, int32_t)},
-	{"getCharXPosition", "(I)F", nullptr, $PUBLIC, $method(TextLine, getCharXPosition, float, int32_t)},
-	{"getCharYPosition", "(I)F", nullptr, $PUBLIC, $method(TextLine, getCharYPosition, float, int32_t)},
-	{"getComponentLogicalIndex", "(I)I", nullptr, $PRIVATE, $method(TextLine, getComponentLogicalIndex, int32_t, int32_t)},
-	{"getComponentShift", "(I)F", nullptr, $PRIVATE, $method(TextLine, getComponentShift, float, int32_t)},
-	{"getComponentVisualIndex", "(I)I", nullptr, $PRIVATE, $method(TextLine, getComponentVisualIndex, int32_t, int32_t)},
-	{"getComponents", "(Ljava/awt/font/StyledParagraph;[CII[I[BLsun/font/TextLabelFactory;)[Lsun/font/TextLineComponent;", nullptr, $PUBLIC | $STATIC, $staticMethod(TextLine, getComponents, $TextLineComponentArray*, $StyledParagraph*, $chars*, int32_t, int32_t, $ints*, $bytes*, $TextLabelFactory*)},
-	{"getCoreMetricsAt", "(I)Lsun/font/CoreMetrics;", nullptr, $PUBLIC, $method(TextLine, getCoreMetricsAt, $CoreMetrics*, int32_t)},
-	{"getFontAtCurrentPos", "(Ljava/text/AttributedCharacterIterator;)Ljava/awt/Font;", nullptr, $STATIC, $staticMethod(TextLine, getFontAtCurrentPos, $Font*, $AttributedCharacterIterator*)},
-	{"getItalicBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $method(TextLine, getItalicBounds, $Rectangle2D*)},
-	{"getJustifiedLine", "(FFII)Ljava/awt/font/TextLine;", nullptr, $PUBLIC, $method(TextLine, getJustifiedLine, TextLine*, float, float, int32_t, int32_t)},
-	{"getLayoutPath", "()Lsun/font/LayoutPathImpl;", nullptr, 0, $method(TextLine, getLayoutPath, $LayoutPathImpl*)},
-	{"getMetrics", "()Ljava/awt/font/TextLine$TextLineMetrics;", nullptr, $PUBLIC, $method(TextLine, getMetrics, $TextLine$TextLineMetrics*)},
-	{"getNormalizedOffsets", "([FB)[F", nullptr, $STATIC, $staticMethod(TextLine, getNormalizedOffsets, $floats*, $floats*, int8_t)},
-	{"getOutline", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/Shape;", nullptr, $PUBLIC, $method(TextLine, getOutline, $Shape*, $AffineTransform*)},
-	{"getPixelBounds", "(Ljava/awt/font/FontRenderContext;FF)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $method(TextLine, getPixelBounds, $Rectangle*, $FontRenderContext*, float, float)},
-	{"getVisualBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $method(TextLine, getVisualBounds, $Rectangle2D*)},
-	{"init", "()V", nullptr, $PRIVATE, $method(TextLine, init, void)},
-	{"isCharLTR", "(I)Z", nullptr, $PUBLIC, $method(TextLine, isCharLTR, bool, int32_t)},
-	{"isCharSpace", "(I)Z", nullptr, $PUBLIC, $method(TextLine, isCharSpace, bool, int32_t)},
-	{"isCharWhitespace", "(I)Z", nullptr, $PUBLIC, $method(TextLine, isCharWhitespace, bool, int32_t)},
-	{"isDirectionLTR", "()Z", nullptr, $PUBLIC, $method(TextLine, isDirectionLTR, bool)},
-	{"logicalToVisual", "(I)I", nullptr, $PUBLIC, $method(TextLine, logicalToVisual, int32_t, int32_t)},
-	{"standardCreateTextLine", "(Ljava/awt/font/FontRenderContext;Ljava/text/AttributedCharacterIterator;[C[F)Ljava/awt/font/TextLine;", nullptr, $PUBLIC | $STATIC, $staticMethod(TextLine, standardCreateTextLine, TextLine*, $FontRenderContext*, $AttributedCharacterIterator*, $chars*, $floats*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextLine, toString, $String*)},
-	{"visualToLogical", "(I)I", nullptr, $PUBLIC, $method(TextLine, visualToLogical, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _TextLine_InnerClassesInfo_[] = {
-	{"java.awt.font.TextLine$Function", "java.awt.font.TextLine", "Function", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.awt.font.TextLine$TextLineMetrics", "java.awt.font.TextLine", "TextLineMetrics", $STATIC | $FINAL},
-	{"java.awt.font.TextLine$4", nullptr, nullptr, 0},
-	{"java.awt.font.TextLine$3", nullptr, nullptr, 0},
-	{"java.awt.font.TextLine$2", nullptr, nullptr, 0},
-	{"java.awt.font.TextLine$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TextLine_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.awt.font.TextLine",
-	"java.lang.Object",
-	nullptr,
-	_TextLine_FieldInfo_,
-	_TextLine_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TextLine_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.font.TextLine$Function,java.awt.font.TextLine$TextLineMetrics,java.awt.font.TextLine$4,java.awt.font.TextLine$3,java.awt.font.TextLine$2,java.awt.font.TextLine$1"
-};
-
-$Object* allocate$TextLine($Class* clazz) {
-	return $of($alloc(TextLine));
-}
 
 $TextLine$Function* TextLine::fgPosAdvF = nullptr;
 $TextLine$Function* TextLine::fgAdvanceF = nullptr;
@@ -254,7 +143,7 @@ void TextLine::init$($FontRenderContext* frc, $TextLineComponentArray* component
 void TextLine::checkCtorArgs() {
 	int32_t checkCharCount = 0;
 	for (int32_t i = 0; i < $nc(this->fComponents)->length; ++i) {
-		checkCharCount += $nc($nc(this->fComponents)->get(i))->getNumCharacters();
+		checkCharCount += $nc(this->fComponents->get(i))->getNumCharacters();
 	}
 	if (checkCharCount != this->characterCount()) {
 		$throwNew($IllegalArgumentException, "Invalid TextLine!  char count is different from sum of char counts of components."_s);
@@ -262,18 +151,18 @@ void TextLine::checkCtorArgs() {
 }
 
 void TextLine::init() {
-	$useLocalCurrentObjectStackCache();
-	float ascent = (float)0;
-	float descent = (float)0;
-	float leading = (float)0;
-	float advance = (float)0;
-	float maxGraphicHeight = (float)0;
-	float maxGraphicHeightWithLeading = (float)0;
+	$useLocalObjectStack();
+	float ascent = 0;
+	float descent = 0;
+	float leading = 0;
+	float advance = 0;
+	float maxGraphicHeight = 0;
+	float maxGraphicHeightWithLeading = 0;
 	$var($TextLineComponent, tlc, nullptr);
 	bool fitTopAndBottomGraphics = false;
 	this->isSimple = true;
 	for (int32_t i = 0; i < $nc(this->fComponents)->length; ++i) {
-		$assign(tlc, $nc(this->fComponents)->get(i));
+		$assign(tlc, this->fComponents->get(i));
 		this->isSimple &= $nc(tlc)->isSimple();
 		$var($CoreMetrics, cm, tlc->getCoreMetrics());
 		int8_t baseline = (int8_t)$nc(cm)->baselineIndex;
@@ -309,44 +198,40 @@ void TextLine::init() {
 			-ascent
 		}));
 	}
-	float x = (float)0;
-	float y = (float)0;
+	float x = 0;
+	float y = 0;
 	$var($CoreMetrics, pcm, nullptr);
 	bool needPath = false;
 	$set(this, locs, $new($floats, $nc(this->fComponents)->length * 2 + 2));
-	{
-		int32_t i = 0;
-		int32_t n = 0;
-		for (; i < $nc(this->fComponents)->length; ++i, n += 2) {
-			$assign(tlc, $nc(this->fComponents)->get(getComponentLogicalIndex(i)));
-			$var($CoreMetrics, cm, $nc(tlc)->getCoreMetrics());
-			if ((pcm != nullptr) && (pcm->italicAngle != 0 || $nc(cm)->italicAngle != 0) && ($nc(pcm)->italicAngle != cm->italicAngle || $nc(pcm)->baselineIndex != $nc(cm)->baselineIndex || $nc(pcm)->ssOffset != $nc(cm)->ssOffset)) {
-				float pb = pcm->effectiveBaselineOffset(this->fBaselineOffsets);
-				float pa = pb - pcm->ascent;
-				float pd = pb + pcm->descent;
-				float cb = cm->effectiveBaselineOffset(this->fBaselineOffsets);
-				float ca = cb - cm->ascent;
-				float cd = cb + cm->descent;
-				float a = $Math::max(pa, ca);
-				float d = $Math::min(pd, cd);
-				float pax = pcm->italicAngle * (pb - a);
-				float pdx = pcm->italicAngle * (pb - d);
-				float cax = cm->italicAngle * (cb - a);
-				float cdx = cm->italicAngle * (cb - d);
-				float dax = pax - cax;
-				float ddx = pdx - cdx;
-				float dx = $Math::max(dax, ddx);
-				x += dx;
-				y = cb;
-			} else {
-				y = cm->effectiveBaselineOffset(this->fBaselineOffsets);
-			}
-			$nc(this->locs)->set(n, x);
-			$nc(this->locs)->set(n + 1, y);
-			x += tlc->getAdvance();
-			$assign(pcm, cm);
-			needPath |= tlc->getBaselineTransform() != nullptr;
+	for (int32_t i = 0, n = 0; i < $nc(this->fComponents)->length; ++i, n += 2) {
+		$assign(tlc, this->fComponents->get(getComponentLogicalIndex(i)));
+		$var($CoreMetrics, cm, $nc(tlc)->getCoreMetrics());
+		if ((pcm != nullptr) && (pcm->italicAngle != 0 || $nc(cm)->italicAngle != 0) && (pcm->italicAngle != $nc(cm)->italicAngle || pcm->baselineIndex != cm->baselineIndex || pcm->ssOffset != cm->ssOffset)) {
+			float pb = pcm->effectiveBaselineOffset(this->fBaselineOffsets);
+			float pa = pb - pcm->ascent;
+			float pd = pb + pcm->descent;
+			float cb = cm->effectiveBaselineOffset(this->fBaselineOffsets);
+			float ca = cb - cm->ascent;
+			float cd = cb + cm->descent;
+			float a = $Math::max(pa, ca);
+			float d = $Math::min(pd, cd);
+			float pax = pcm->italicAngle * (pb - a);
+			float pdx = pcm->italicAngle * (pb - d);
+			float cax = cm->italicAngle * (cb - a);
+			float cdx = cm->italicAngle * (cb - d);
+			float dax = pax - cax;
+			float ddx = pdx - cdx;
+			float dx = $Math::max(dax, ddx);
+			x += dx;
+			y = cb;
+		} else {
+			y = $nc(cm)->effectiveBaselineOffset(this->fBaselineOffsets);
 		}
+		$nc(this->locs)->set(n, x);
+		this->locs->set(n + 1, y);
+		x += tlc->getAdvance();
+		$assign(pcm, cm);
+		needPath |= tlc->getBaselineTransform() != nullptr;
 	}
 	if ($nc(pcm)->italicAngle != 0) {
 		float pb = pcm->effectiveBaselineOffset(this->fBaselineOffsets);
@@ -368,28 +253,24 @@ void TextLine::init() {
 	if (needPath) {
 		this->isSimple = false;
 		$var($Point2D$Double, pt, $new($Point2D$Double));
-		double tx = (double)0;
-		double ty = (double)0;
+		double tx = 0;
+		double ty = 0;
 		$var($LayoutPathImpl$SegmentPathBuilder, builder, $new($LayoutPathImpl$SegmentPathBuilder));
-		builder->moveTo($nc(this->locs)->get(0), (double)0);
-		{
-			int32_t i = 0;
-			int32_t n = 0;
-			for (; i < $nc(this->fComponents)->length; ++i, n += 2) {
-				$assign(tlc, $nc(this->fComponents)->get(getComponentLogicalIndex(i)));
-				$var($AffineTransform, at, $nc(tlc)->getBaselineTransform());
-				if (at != nullptr && (((int32_t)(at->getType() & (uint32_t)$AffineTransform::TYPE_TRANSLATION)) != 0)) {
-					double dx = at->getTranslateX();
-					double dy = at->getTranslateY();
-					builder->moveTo(tx += dx, ty += dy);
-				}
-				pt->x = $nc(this->locs)->get(n + 2) - $nc(this->locs)->get(n);
-				pt->y = (double)0;
-				if (at != nullptr) {
-					at->deltaTransform(pt, pt);
-				}
-				builder->lineTo(tx += pt->x, ty += pt->y);
+		builder->moveTo(this->locs->get(0), 0);
+		for (int32_t i = 0, n = 0; i < $nc(this->fComponents)->length; ++i, n += 2) {
+			$assign(tlc, this->fComponents->get(getComponentLogicalIndex(i)));
+			$var($AffineTransform, at, $nc(tlc)->getBaselineTransform());
+			if (at != nullptr && ((at->getType() & $AffineTransform::TYPE_TRANSLATION) != 0)) {
+				double dx = at->getTranslateX();
+				double dy = at->getTranslateY();
+				builder->moveTo(tx += dx, ty += dy);
 			}
+			pt->x = $nc(this->locs)->get(n + 2) - $nc(this->locs)->get(n);
+			pt->y = 0;
+			if (at != nullptr) {
+				at->deltaTransform(pt, pt);
+			}
+			builder->lineTo(tx += pt->x, ty += pt->y);
 		}
 		$set(this, lp, builder->complete());
 		if (this->lp == nullptr) {
@@ -403,7 +284,7 @@ void TextLine::init() {
 }
 
 $Rectangle* TextLine::getPixelBounds($FontRenderContext* frc$renamed, float x, float y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontRenderContext, frc, frc$renamed);
 	$var($Rectangle, result, nullptr);
 	if (frc != nullptr && frc->equals(this->frc)) {
@@ -421,18 +302,14 @@ $Rectangle* TextLine::getPixelBounds($FontRenderContext* frc$renamed, float x, f
 		return result;
 	}
 	if (this->isSimple) {
-		{
-			int32_t i = 0;
-			int32_t n = 0;
-			for (; i < $nc(this->fComponents)->length; ++i, n += 2) {
-				$var($TextLineComponent, tlc, $nc(this->fComponents)->get(getComponentLogicalIndex(i)));
-				$var($Rectangle, pb, $nc(tlc)->getPixelBounds(frc, $nc(this->locs)->get(n) + rx, $nc(this->locs)->get(n + 1) + ry));
-				if (!$nc(pb)->isEmpty()) {
-					if (result == nullptr) {
-						$assign(result, pb);
-					} else {
-						$nc(result)->add(pb);
-					}
+		for (int32_t i = 0, n = 0; i < $nc(this->fComponents)->length; ++i, n += 2) {
+			$var($TextLineComponent, tlc, this->fComponents->get(getComponentLogicalIndex(i)));
+			$var($Rectangle, pb, $nc(tlc)->getPixelBounds(frc, $nc(this->locs)->get(n) + rx, $nc(this->locs)->get(n + 1) + ry));
+			if (!$nc(pb)->isEmpty()) {
+				if (result == nullptr) {
+					$assign(result, pb);
+				} else {
+					result->add(pb);
 				}
 			}
 		}
@@ -443,19 +320,19 @@ $Rectangle* TextLine::getPixelBounds($FontRenderContext* frc$renamed, float x, f
 		int32_t MARGIN = 3;
 		$var($Rectangle2D, r2d, getVisualBounds());
 		if (this->lp != nullptr) {
-			$assign(r2d, $nc($($nc(this->lp)->mapShape(r2d)))->getBounds());
+			$assign(r2d, $$nc(this->lp->mapShape(r2d))->getBounds());
 		}
 		$var($Rectangle, bounds, $nc(r2d)->getBounds());
-		$var($BufferedImage, im, $new($BufferedImage, $nc(bounds)->width + MARGIN * 2, bounds->height + MARGIN * 2, $BufferedImage::TYPE_INT_ARGB));
+		$var($BufferedImage, im, $new($BufferedImage, $nc(bounds)->width + MARGIN * 2, $nc(bounds)->height + MARGIN * 2, $BufferedImage::TYPE_INT_ARGB));
 		$var($Graphics2D, g2d, im->createGraphics());
 		$init($Color);
 		$nc(g2d)->setColor($Color::WHITE);
 		int32_t var$0 = im->getWidth();
 		g2d->fillRect(0, 0, var$0, im->getHeight());
 		g2d->setColor($Color::BLACK);
-		draw(g2d, rx + MARGIN - $nc(bounds)->x, ry + MARGIN - bounds->y);
+		draw(g2d, rx + MARGIN - bounds->x, ry + MARGIN - bounds->y);
 		$assign(result, computePixelBounds(im));
-		$nc(result)->x -= MARGIN - $nc(bounds)->x;
+		$nc(result)->x -= MARGIN - bounds->x;
 		result->y -= MARGIN - bounds->y;
 	}
 	if (canCache) {
@@ -468,7 +345,7 @@ $Rectangle* TextLine::getPixelBounds($FontRenderContext* frc$renamed, float x, f
 
 $Rectangle* TextLine::computePixelBounds($BufferedImage* im) {
 	$init(TextLine);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t w = $nc(im)->getWidth();
 	int32_t h = im->getHeight();
 	int32_t l = -1;
@@ -565,15 +442,15 @@ int32_t TextLine::visualToLogical(int32_t visualIndex) {
 }
 
 int32_t TextLine::logicalToVisual(int32_t logicalIndex) {
-	return (this->fCharLogicalOrder == nullptr) ? logicalIndex : $nc(this->fCharLogicalOrder)->get(logicalIndex);
+	return (this->fCharLogicalOrder == nullptr) ? logicalIndex : this->fCharLogicalOrder->get(logicalIndex);
 }
 
 int8_t TextLine::getCharLevel(int32_t logicalIndex) {
-	return this->fCharLevels == nullptr ? (int8_t)0 : $nc(this->fCharLevels)->get(logicalIndex);
+	return this->fCharLevels == nullptr ? 0 : this->fCharLevels->get(logicalIndex);
 }
 
 bool TextLine::isCharLTR(int32_t logicalIndex) {
-	return ((int32_t)(getCharLevel(logicalIndex) & (uint32_t)1)) == 0;
+	return (getCharLevel(logicalIndex) & 1) == 0;
 }
 
 int32_t TextLine::getCharType(int32_t logicalIndex) {
@@ -631,7 +508,7 @@ float TextLine::applyFunctionAtIndex(int32_t logicalIndex, $TextLine$Function* f
 	}
 	int32_t tlcStart = 0;
 	for (int32_t i = 0; i < $nc(this->fComponents)->length; ++i) {
-		int32_t tlcLimit = tlcStart + $nc($nc(this->fComponents)->get(i))->getNumCharacters();
+		int32_t tlcLimit = tlcStart + $nc(this->fComponents->get(i))->getNumCharacters();
 		if (tlcLimit > logicalIndex) {
 			return $nc(f)->computeFunction(this, i, logicalIndex - tlcStart);
 		} else {
@@ -668,7 +545,7 @@ bool TextLine::caretAtOffsetIsValid(int32_t offset) {
 	}
 	int32_t tlcStart = 0;
 	for (int32_t i = 0; i < $nc(this->fComponents)->length; ++i) {
-		int32_t tlcLimit = tlcStart + $nc($nc(this->fComponents)->get(i))->getNumCharacters();
+		int32_t tlcLimit = tlcStart + $nc(this->fComponents->get(i))->getNumCharacters();
 		if (tlcLimit > offset) {
 			return $nc($nc(this->fComponents)->get(i))->caretAtOffsetIsValid(offset - tlcStart);
 		} else {
@@ -686,12 +563,12 @@ int32_t TextLine::getComponentLogicalIndex(int32_t vi) {
 }
 
 int32_t TextLine::getComponentVisualIndex(int32_t li) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fComponentVisualOrder == nullptr) {
 		return li;
 	}
 	for (int32_t i = 0; i < $nc(this->fComponentVisualOrder)->length; ++i) {
-		if ($nc(this->fComponentVisualOrder)->get(i) == li) {
+		if (this->fComponentVisualOrder->get(i) == li) {
 			return i;
 		}
 	}
@@ -699,20 +576,20 @@ int32_t TextLine::getComponentVisualIndex(int32_t li) {
 }
 
 $Rectangle2D* TextLine::getCharBounds(int32_t logicalIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (logicalIndex < 0) {
 		$throwNew($IllegalArgumentException, "Negative logicalIndex."_s);
 	}
 	int32_t tlcStart = 0;
 	for (int32_t i = 0; i < $nc(this->fComponents)->length; ++i) {
-		int32_t tlcLimit = tlcStart + $nc($nc(this->fComponents)->get(i))->getNumCharacters();
+		int32_t tlcLimit = tlcStart + $nc(this->fComponents->get(i))->getNumCharacters();
 		if (tlcLimit > logicalIndex) {
 			$var($TextLineComponent, tlc, $nc(this->fComponents)->get(i));
 			int32_t indexInTlc = logicalIndex - tlcStart;
 			$var($Rectangle2D, chBounds, $nc(tlc)->getCharVisualBounds(indexInTlc));
 			int32_t vi = getComponentVisualIndex(i);
-			double var$0 = chBounds->getX() + $nc(this->locs)->get(vi * 2);
-			double var$1 = chBounds->getY() + $nc(this->locs)->get(vi * 2 + 1);
+			double var$0 = $nc(chBounds)->getX() + $nc(this->locs)->get(vi * 2);
+			double var$1 = chBounds->getY() + this->locs->get(vi * 2 + 1);
 			double var$2 = chBounds->getWidth();
 			$nc(chBounds)->setRect(var$0, var$1, var$2, chBounds->getHeight());
 			return chBounds;
@@ -729,120 +606,98 @@ float TextLine::getComponentShift(int32_t index) {
 }
 
 void TextLine::draw($Graphics2D* g2, float x, float y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->lp == nullptr) {
-		{
-			int32_t i = 0;
-			int32_t n = 0;
-			for (; i < $nc(this->fComponents)->length; ++i, n += 2) {
-				$var($TextLineComponent, tlc, $nc(this->fComponents)->get(getComponentLogicalIndex(i)));
-				$nc(tlc)->draw(g2, $nc(this->locs)->get(n) + x, $nc(this->locs)->get(n + 1) + y);
-			}
+		for (int32_t i = 0, n = 0; i < $nc(this->fComponents)->length; ++i, n += 2) {
+			$var($TextLineComponent, tlc, this->fComponents->get(getComponentLogicalIndex(i)));
+			$nc(tlc)->draw(g2, $nc(this->locs)->get(n) + x, $nc(this->locs)->get(n + 1) + y);
 		}
 	} else {
 		$var($AffineTransform, oldTx, $nc(g2)->getTransform());
 		$var($Point2D$Float, pt, $new($Point2D$Float));
-		{
-			int32_t i = 0;
-			int32_t n = 0;
-			for (; i < $nc(this->fComponents)->length; ++i, n += 2) {
-				$var($TextLineComponent, tlc, $nc(this->fComponents)->get(getComponentLogicalIndex(i)));
-				$nc(this->lp)->pathToPoint($nc(this->locs)->get(n), $nc(this->locs)->get(n + 1), false, pt);
-				pt->x += x;
-				pt->y += y;
-				$var($AffineTransform, at, $nc(tlc)->getBaselineTransform());
-				if (at != nullptr) {
-					double var$0 = pt->x - at->getTranslateX();
-					g2->translate(var$0, pt->y - at->getTranslateY());
-					g2->transform(at);
-					tlc->draw(g2, (float)0, (float)0);
-					g2->setTransform(oldTx);
-				} else {
-					tlc->draw(g2, pt->x, pt->y);
-				}
+		for (int32_t i = 0, n = 0; i < $nc(this->fComponents)->length; ++i, n += 2) {
+			$var($TextLineComponent, tlc, this->fComponents->get(getComponentLogicalIndex(i)));
+			$nc(this->lp)->pathToPoint($nc(this->locs)->get(n), $nc(this->locs)->get(n + 1), false, pt);
+			pt->x += x;
+			pt->y += y;
+			$var($AffineTransform, at, $nc(tlc)->getBaselineTransform());
+			if (at != nullptr) {
+				double var$0 = pt->x - at->getTranslateX();
+				g2->translate(var$0, pt->y - at->getTranslateY());
+				g2->transform(at);
+				tlc->draw(g2, 0, 0);
+				g2->setTransform(oldTx);
+			} else {
+				tlc->draw(g2, pt->x, pt->y);
 			}
 		}
 	}
 }
 
 $Rectangle2D* TextLine::getVisualBounds() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, result, nullptr);
-	{
-		int32_t i = 0;
-		int32_t n = 0;
-		for (; i < $nc(this->fComponents)->length; ++i, n += 2) {
-			$var($TextLineComponent, tlc, $nc(this->fComponents)->get(getComponentLogicalIndex(i)));
-			$var($Rectangle2D, r, $nc(tlc)->getVisualBounds());
-			$var($Point2D$Float, pt, $new($Point2D$Float, $nc(this->locs)->get(n), $nc(this->locs)->get(n + 1)));
-			if (this->lp == nullptr) {
-				double var$0 = r->getMinX() + pt->x;
-				double var$1 = r->getMinY() + pt->y;
-				double var$2 = r->getWidth();
-				$nc(r)->setRect(var$0, var$1, var$2, r->getHeight());
+	for (int32_t i = 0, n = 0; i < $nc(this->fComponents)->length; ++i, n += 2) {
+		$var($TextLineComponent, tlc, this->fComponents->get(getComponentLogicalIndex(i)));
+		$var($Rectangle2D, r, $nc(tlc)->getVisualBounds());
+		$var($Point2D$Float, pt, $new($Point2D$Float, $nc(this->locs)->get(n), $nc(this->locs)->get(n + 1)));
+		if (this->lp == nullptr) {
+			double var$0 = $nc(r)->getMinX() + pt->x;
+			double var$1 = r->getMinY() + pt->y;
+			double var$2 = r->getWidth();
+			$nc(r)->setRect(var$0, var$1, var$2, r->getHeight());
+		} else {
+			this->lp->pathToPoint(pt, false, pt);
+			$var($AffineTransform, at, tlc->getBaselineTransform());
+			if (at != nullptr) {
+				double var$3 = pt->x - at->getTranslateX();
+				$var($AffineTransform, tx, $AffineTransform::getTranslateInstance(var$3, pt->y - at->getTranslateY()));
+				$nc(tx)->concatenate(at);
+				$assign(r, $$nc(tx->createTransformedShape(r))->getBounds2D());
 			} else {
-				$nc(this->lp)->pathToPoint(pt, false, pt);
-				$var($AffineTransform, at, tlc->getBaselineTransform());
-				if (at != nullptr) {
-					double var$3 = pt->x - at->getTranslateX();
-					$var($AffineTransform, tx, $AffineTransform::getTranslateInstance(var$3, pt->y - at->getTranslateY()));
-					$nc(tx)->concatenate(at);
-					$assign(r, $nc($(tx->createTransformedShape(r)))->getBounds2D());
-				} else {
-					double var$4 = r->getMinX() + pt->x;
-					double var$5 = r->getMinY() + pt->y;
-					double var$6 = r->getWidth();
-					$nc(r)->setRect(var$4, var$5, var$6, r->getHeight());
-				}
+				double var$4 = $nc(r)->getMinX() + pt->x;
+				double var$5 = r->getMinY() + pt->y;
+				double var$6 = r->getWidth();
+				$nc(r)->setRect(var$4, var$5, var$6, r->getHeight());
 			}
-			if (result == nullptr) {
-				$assign(result, r);
-			} else {
-				$nc(result)->add(r);
-			}
+		}
+		if (result == nullptr) {
+			$assign(result, r);
+		} else {
+			result->add(r);
 		}
 	}
 	if (result == nullptr) {
-		$init($Float);
 		$assign(result, $new($Rectangle2D$Float, $Float::MAX_VALUE, $Float::MAX_VALUE, $Float::MIN_VALUE, $Float::MIN_VALUE));
 	}
 	return result;
 }
 
 $Rectangle2D* TextLine::getItalicBounds() {
-	$useLocalCurrentObjectStackCache();
-	$init($Float);
+	$useLocalObjectStack();
 	float left = $Float::MAX_VALUE;
 	float right = -$Float::MAX_VALUE;
 	float top = $Float::MAX_VALUE;
 	float bottom = -$Float::MAX_VALUE;
-	{
-		int32_t i = 0;
-		int32_t n = 0;
-		for (; i < $nc(this->fComponents)->length; ++i, n += 2) {
-			$var($TextLineComponent, tlc, $nc(this->fComponents)->get(getComponentLogicalIndex(i)));
-			$var($Rectangle2D, tlcBounds, $nc(tlc)->getItalicBounds());
-			float x = $nc(this->locs)->get(n);
-			float y = $nc(this->locs)->get(n + 1);
-			left = $Math::min(left, x + (float)$nc(tlcBounds)->getX());
-			right = $Math::max(right, x + (float)$nc(tlcBounds)->getMaxX());
-			top = $Math::min(top, y + (float)$nc(tlcBounds)->getY());
-			bottom = $Math::max(bottom, y + (float)$nc(tlcBounds)->getMaxY());
-		}
+	for (int32_t i = 0, n = 0; i < $nc(this->fComponents)->length; ++i, n += 2) {
+		$var($TextLineComponent, tlc, this->fComponents->get(getComponentLogicalIndex(i)));
+		$var($Rectangle2D, tlcBounds, $nc(tlc)->getItalicBounds());
+		float x = $nc(this->locs)->get(n);
+		float y = this->locs->get(n + 1);
+		left = $Math::min(left, x + (float)$nc(tlcBounds)->getX());
+		right = $Math::max(right, x + (float)tlcBounds->getMaxX());
+		top = $Math::min(top, y + (float)tlcBounds->getY());
+		bottom = $Math::max(bottom, y + (float)tlcBounds->getMaxY());
 	}
 	return $new($Rectangle2D$Float, left, top, right - left, bottom - top);
 }
 
 $Shape* TextLine::getOutline($AffineTransform* tx) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GeneralPath, dstShape, $new($GeneralPath, $GeneralPath::WIND_NON_ZERO));
-	{
-		int32_t i = 0;
-		int32_t n = 0;
-		for (; i < $nc(this->fComponents)->length; ++i, n += 2) {
-			$var($TextLineComponent, tlc, $nc(this->fComponents)->get(getComponentLogicalIndex(i)));
-			dstShape->append($($nc(tlc)->getOutline($nc(this->locs)->get(n), $nc(this->locs)->get(n + 1))), false);
-		}
+	for (int32_t i = 0, n = 0; i < $nc(this->fComponents)->length; ++i, n += 2) {
+		$var($TextLineComponent, tlc, this->fComponents->get(getComponentLogicalIndex(i)));
+		dstShape->append($($nc(tlc)->getOutline($nc(this->locs)->get(n), $nc(this->locs)->get(n + 1))), false);
 	}
 	if (tx != nullptr) {
 		dstShape->transform(tx);
@@ -853,14 +708,14 @@ $Shape* TextLine::getOutline($AffineTransform* tx) {
 $String* TextLine::toString() {
 	$var($StringBuilder, buf, $new($StringBuilder));
 	for (int32_t i = 0; i < $nc(this->fComponents)->length; ++i) {
-		buf->append($of($nc(this->fComponents)->get(i)));
+		buf->append(this->fComponents->get(i));
 	}
 	return buf->toString();
 }
 
 TextLine* TextLine::fastCreateTextLine($FontRenderContext* frc, $chars* chars, $Font* font, $CoreMetrics* lm, $Map* attributes) {
 	$init(TextLine);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool isDirectionLTR = true;
 	$var($bytes, levels, nullptr);
 	$var($ints, charsLtoV, nullptr);
@@ -875,7 +730,7 @@ TextLine* TextLine::fastCreateTextLine($FontRenderContext* frc, $chars* chars, $
 			isDirectionLTR = values->getRunDirection() == 0;
 			requiresBidi = !isDirectionLTR;
 		}
-		if ($nc(values)->getBidiEmbedding() != 0) {
+		if (values->getBidiEmbedding() != 0) {
 			requiresBidi = true;
 			int8_t level = (int8_t)values->getBidiEmbedding();
 			$assign(embs, $new($bytes, characterCount));
@@ -888,7 +743,7 @@ TextLine* TextLine::fastCreateTextLine($FontRenderContext* frc, $chars* chars, $
 		requiresBidi = $Bidi::requiresBidi(chars, 0, chars->length);
 	}
 	if (requiresBidi) {
-		int32_t bidiflags = values == nullptr ? $Bidi::DIRECTION_DEFAULT_LEFT_TO_RIGHT : $nc(values)->getRunDirection();
+		int32_t bidiflags = values == nullptr ? $Bidi::DIRECTION_DEFAULT_LEFT_TO_RIGHT : values->getRunDirection();
 		$assign(bidi, $new($Bidi, chars, 0, embs, 0, chars->length, bidiflags));
 		if (!bidi->isLeftToRight()) {
 			$assign(levels, $BidiUtils::getLevels(bidi));
@@ -923,7 +778,7 @@ $TextLineComponentArray* TextLine::expandArray($TextLineComponentArray* orig) {
 
 $TextLineComponentArray* TextLine::createComponentsOnRun(int32_t runStart, int32_t runLimit, $chars* chars, $ints* charsLtoV, $bytes* levels, $TextLabelFactory* factory, $Font* font, $CoreMetrics* cm$renamed, $FontRenderContext* frc, $Decoration* decorator, $TextLineComponentArray* components$renamed, int32_t numComponents) {
 	$init(TextLine);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TextLineComponentArray, components, components$renamed);
 	$var($CoreMetrics, cm, cm$renamed);
 	int32_t pos = runStart;
@@ -953,14 +808,14 @@ $TextLineComponentArray* TextLine::createComponentsOnRun(int32_t runStart, int32
 
 $TextLineComponentArray* TextLine::getComponents($StyledParagraph* styledParagraph, $chars* chars, int32_t textStart, int32_t textLimit, $ints* charsLtoV, $bytes* levels, $TextLabelFactory* factory) {
 	$init(TextLine);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontRenderContext, frc, $nc(factory)->getFontRenderContext());
 	int32_t numComponents = 0;
 	$var($TextLineComponentArray, tempComponents, $new($TextLineComponentArray, 1));
 	int32_t pos = textStart;
 	do {
 		int32_t runLimit = $Math::min($nc(styledParagraph)->getRunLimit(pos), textLimit);
-		$var($Decoration, decorator, $nc(styledParagraph)->getDecorationAt(pos));
+		$var($Decoration, decorator, styledParagraph->getDecorationAt(pos));
 		$var($Object, graphicOrFont, styledParagraph->getFontOrGraphicAt(pos));
 		if ($instanceOf($GraphicAttribute, graphicOrFont)) {
 			$var($AffineTransform, baseRot, nullptr);
@@ -970,10 +825,10 @@ $TextLineComponentArray* TextLine::getComponents($StyledParagraph* styledParagra
 				$var($GraphicComponent, nextGraphic, $new($GraphicComponent, graphicAttribute, decorator, charsLtoV, levels, pos, chunkLimit, baseRot));
 				pos = chunkLimit;
 				++numComponents;
-				if (numComponents >= tempComponents->length) {
+				if (numComponents >= $nc(tempComponents)->length) {
 					$assign(tempComponents, expandArray(tempComponents));
 				}
-				tempComponents->set(numComponents - 1, nextGraphic);
+				$nc(tempComponents)->set(numComponents - 1, nextGraphic);
 			} while (pos < runLimit);
 		} else {
 			$var($Font, font, $cast($Font, graphicOrFont));
@@ -986,7 +841,7 @@ $TextLineComponentArray* TextLine::getComponents($StyledParagraph* styledParagra
 		}
 	} while (pos < textLimit);
 	$var($TextLineComponentArray, components, nullptr);
-	if (tempComponents->length == numComponents) {
+	if ($nc(tempComponents)->length == numComponents) {
 		$assign(components, tempComponents);
 	} else {
 		$assign(components, $new($TextLineComponentArray, numComponents));
@@ -997,7 +852,7 @@ $TextLineComponentArray* TextLine::getComponents($StyledParagraph* styledParagra
 
 TextLine* TextLine::createLineFromText($chars* chars, $StyledParagraph* styledParagraph, $TextLabelFactory* factory, bool isDirectionLTR, $floats* baselineOffsets) {
 	$init(TextLine);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(factory)->setLineContext(0, $nc(chars)->length);
 	$var($Bidi, lineBidi, factory->getLineBidi());
 	$var($ints, charsLtoV, nullptr);
@@ -1007,8 +862,8 @@ TextLine* TextLine::createLineFromText($chars* chars, $StyledParagraph* styledPa
 		$var($ints, charsVtoL, $BidiUtils::createVisualToLogicalMap(levels));
 		$assign(charsLtoV, $BidiUtils::createInverseMap(charsVtoL));
 	}
-	$var($TextLineComponentArray, components, getComponents(styledParagraph, chars, 0, $nc(chars)->length, charsLtoV, levels, factory));
-	return $new(TextLine, $(factory->getFontRenderContext()), components, baselineOffsets, chars, 0, $nc(chars)->length, charsLtoV, levels, isDirectionLTR);
+	$var($TextLineComponentArray, components, getComponents(styledParagraph, chars, 0, chars->length, charsLtoV, levels, factory));
+	return $new(TextLine, $(factory->getFontRenderContext()), components, baselineOffsets, chars, 0, chars->length, charsLtoV, levels, isDirectionLTR);
 }
 
 $ints* TextLine::computeComponentOrder($TextLineComponentArray* components, $ints* charsLtoV) {
@@ -1029,7 +884,7 @@ $ints* TextLine::computeComponentOrder($TextLineComponentArray* components, $int
 
 TextLine* TextLine::standardCreateTextLine($FontRenderContext* frc, $AttributedCharacterIterator* text, $chars* chars, $floats* baselineOffsets) {
 	$init(TextLine);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StyledParagraph, styledParagraph, $new($StyledParagraph, text, chars));
 	$var($Bidi, bidi, $new($Bidi, text));
 	if (bidi->isLeftToRight()) {
@@ -1057,7 +912,7 @@ bool TextLine::advanceToFirstFont($AttributedCharacterIterator* aci) {
 
 $floats* TextLine::getNormalizedOffsets($floats* baselineOffsets$renamed, int8_t baseline) {
 	$init(TextLine);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($floats, baselineOffsets, baselineOffsets$renamed);
 	if ($nc(baselineOffsets)->get(baseline) != 0) {
 		float base = baselineOffsets->get(baseline);
@@ -1072,7 +927,7 @@ $floats* TextLine::getNormalizedOffsets($floats* baselineOffsets$renamed, int8_t
 
 $Font* TextLine::getFontAtCurrentPos($AttributedCharacterIterator* aci) {
 	$init(TextLine);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TextAttribute);
 	$var($Object, value, $nc(aci)->getAttribute($TextAttribute::FONT));
 	if (value != nullptr) {
@@ -1081,10 +936,10 @@ $Font* TextLine::getFontAtCurrentPos($AttributedCharacterIterator* aci) {
 	if (aci->getAttribute($TextAttribute::FAMILY) != nullptr) {
 		return $Font::getFont($(aci->getAttributes()));
 	}
-	int32_t ch = $nc($($CodePointIterator::create(static_cast<$CharacterIterator*>(aci))))->next();
+	int32_t ch = $$nc($CodePointIterator::create(aci))->next();
 	if (ch != $CodePointIterator::DONE) {
 		$var($FontResolver, resolver, $FontResolver::getInstance());
-		int32_t var$0 = resolver->getFontIndex(ch);
+		int32_t var$0 = $nc(resolver)->getFontIndex(ch);
 		return $nc(resolver)->getFont(var$0, $(aci->getAttributes()));
 	}
 	return nullptr;
@@ -1108,12 +963,12 @@ int32_t TextLine::firstVisualChunk($ints* order, $bytes* direction, int32_t star
 }
 
 TextLine* TextLine::getJustifiedLine(float justificationWidth, float justifyRatio, int32_t justStart, int32_t justLimit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TextLineComponentArray, newComponents, $new($TextLineComponentArray, $nc(this->fComponents)->length));
-	$System::arraycopy(this->fComponents, 0, newComponents, 0, $nc(this->fComponents)->length);
-	float leftHang = (float)0;
-	float adv = (float)0;
-	float justifyDelta = (float)0;
+	$System::arraycopy(this->fComponents, 0, newComponents, 0, this->fComponents->length);
+	float leftHang = 0;
+	float adv = 0;
+	float justifyDelta = 0;
 	bool rejustify = false;
 	do {
 		adv = getAdvanceBetween(newComponents, 0, characterCount());
@@ -1176,8 +1031,8 @@ TextLine* TextLine::getJustifiedLine(float justificationWidth, float justifyRati
 
 float TextLine::getAdvanceBetween($TextLineComponentArray* components, int32_t start, int32_t limit) {
 	$init(TextLine);
-	$useLocalCurrentObjectStackCache();
-	float advance = (float)0;
+	$useLocalObjectStack();
+	float advance = 0;
 	int32_t tlcStart = 0;
 	for (int32_t i = 0; i < $nc(components)->length; ++i) {
 		$var($TextLineComponent, comp, components->get(i));
@@ -1200,7 +1055,7 @@ $LayoutPathImpl* TextLine::getLayoutPath() {
 	return this->lp;
 }
 
-void clinit$TextLine($Class* class$) {
+void TextLine::clinit$($Class* clazz) {
 	$assignStatic(TextLine::fgPosAdvF, $new($TextLine$1));
 	$assignStatic(TextLine::fgAdvanceF, $new($TextLine$2));
 	$assignStatic(TextLine::fgXPositionF, $new($TextLine$3));
@@ -1211,7 +1066,108 @@ TextLine::TextLine() {
 }
 
 $Class* TextLine::load$($String* name, bool initialize) {
-	$loadClass(TextLine, name, initialize, &_TextLine_ClassInfo_, clinit$TextLine, allocate$TextLine);
+	$FieldInfo fieldInfos$$[] = {
+		{"fComponents", "[Lsun/font/TextLineComponent;", nullptr, $PRIVATE, $field(TextLine, fComponents)},
+		{"fBaselineOffsets", "[F", nullptr, $PRIVATE, $field(TextLine, fBaselineOffsets)},
+		{"fComponentVisualOrder", "[I", nullptr, $PRIVATE, $field(TextLine, fComponentVisualOrder)},
+		{"locs", "[F", nullptr, $PRIVATE, $field(TextLine, locs)},
+		{"fChars", "[C", nullptr, $PRIVATE, $field(TextLine, fChars)},
+		{"fCharsStart", "I", nullptr, $PRIVATE, $field(TextLine, fCharsStart)},
+		{"fCharsLimit", "I", nullptr, $PRIVATE, $field(TextLine, fCharsLimit)},
+		{"fCharVisualOrder", "[I", nullptr, $PRIVATE, $field(TextLine, fCharVisualOrder)},
+		{"fCharLogicalOrder", "[I", nullptr, $PRIVATE, $field(TextLine, fCharLogicalOrder)},
+		{"fCharLevels", "[B", nullptr, $PRIVATE, $field(TextLine, fCharLevels)},
+		{"fIsDirectionLTR", "Z", nullptr, $PRIVATE, $field(TextLine, fIsDirectionLTR)},
+		{"lp", "Lsun/font/LayoutPathImpl;", nullptr, $PRIVATE, $field(TextLine, lp)},
+		{"isSimple", "Z", nullptr, $PRIVATE, $field(TextLine, isSimple)},
+		{"pixelBounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(TextLine, pixelBounds)},
+		{"frc", "Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE, $field(TextLine, frc)},
+		{"fMetrics", "Ljava/awt/font/TextLine$TextLineMetrics;", nullptr, $PRIVATE, $field(TextLine, fMetrics)},
+		{"fgPosAdvF", "Ljava/awt/font/TextLine$Function;", nullptr, $PRIVATE | $STATIC, $staticField(TextLine, fgPosAdvF)},
+		{"fgAdvanceF", "Ljava/awt/font/TextLine$Function;", nullptr, $PRIVATE | $STATIC, $staticField(TextLine, fgAdvanceF)},
+		{"fgXPositionF", "Ljava/awt/font/TextLine$Function;", nullptr, $PRIVATE | $STATIC, $staticField(TextLine, fgXPositionF)},
+		{"fgYPositionF", "Ljava/awt/font/TextLine$Function;", nullptr, $PRIVATE | $STATIC, $staticField(TextLine, fgYPositionF)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/font/FontRenderContext;[Lsun/font/TextLineComponent;[F[CII[I[BZ)V", nullptr, $PUBLIC, $method(TextLine, init$, void, $FontRenderContext*, $TextLineComponentArray*, $floats*, $chars*, int32_t, int32_t, $ints*, $bytes*, bool)},
+		{"advanceToFirstFont", "(Ljava/text/AttributedCharacterIterator;)Z", nullptr, $STATIC, $staticMethod(TextLine, advanceToFirstFont, bool, $AttributedCharacterIterator*)},
+		{"applyFunctionAtIndex", "(ILjava/awt/font/TextLine$Function;)F", nullptr, $PRIVATE, $method(TextLine, applyFunctionAtIndex, float, int32_t, $TextLine$Function*)},
+		{"caretAtOffsetIsValid", "(I)Z", nullptr, $PUBLIC, $method(TextLine, caretAtOffsetIsValid, bool, int32_t)},
+		{"characterCount", "()I", nullptr, $PUBLIC, $method(TextLine, characterCount, int32_t)},
+		{"checkCtorArgs", "()V", nullptr, $PRIVATE, $method(TextLine, checkCtorArgs, void)},
+		{"computeComponentOrder", "([Lsun/font/TextLineComponent;[I)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(TextLine, computeComponentOrder, $ints*, $TextLineComponentArray*, $ints*)},
+		{"computePixelBounds", "(Ljava/awt/image/BufferedImage;)Ljava/awt/Rectangle;", nullptr, $STATIC, $staticMethod(TextLine, computePixelBounds, $Rectangle*, $BufferedImage*)},
+		{"createComponentsOnRun", "(II[C[I[BLsun/font/TextLabelFactory;Ljava/awt/Font;Lsun/font/CoreMetrics;Ljava/awt/font/FontRenderContext;Lsun/font/Decoration;[Lsun/font/TextLineComponent;I)[Lsun/font/TextLineComponent;", nullptr, $PUBLIC | $STATIC, $staticMethod(TextLine, createComponentsOnRun, $TextLineComponentArray*, int32_t, int32_t, $chars*, $ints*, $bytes*, $TextLabelFactory*, $Font*, $CoreMetrics*, $FontRenderContext*, $Decoration*, $TextLineComponentArray*, int32_t)},
+		{"createLineFromText", "([CLjava/awt/font/StyledParagraph;Lsun/font/TextLabelFactory;Z[F)Ljava/awt/font/TextLine;", nullptr, $PUBLIC | $STATIC, $staticMethod(TextLine, createLineFromText, TextLine*, $chars*, $StyledParagraph*, $TextLabelFactory*, bool, $floats*)},
+		{"draw", "(Ljava/awt/Graphics2D;FF)V", nullptr, $PUBLIC, $method(TextLine, draw, void, $Graphics2D*, float, float)},
+		{"expandArray", "([Lsun/font/TextLineComponent;)[Lsun/font/TextLineComponent;", nullptr, $PRIVATE | $STATIC, $staticMethod(TextLine, expandArray, $TextLineComponentArray*, $TextLineComponentArray*)},
+		{"fastCreateTextLine", "(Ljava/awt/font/FontRenderContext;[CLjava/awt/Font;Lsun/font/CoreMetrics;Ljava/util/Map;)Ljava/awt/font/TextLine;", "(Ljava/awt/font/FontRenderContext;[CLjava/awt/Font;Lsun/font/CoreMetrics;Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;)Ljava/awt/font/TextLine;", $PUBLIC | $STATIC, $staticMethod(TextLine, fastCreateTextLine, TextLine*, $FontRenderContext*, $chars*, $Font*, $CoreMetrics*, $Map*)},
+		{"firstVisualChunk", "([I[BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TextLine, firstVisualChunk, int32_t, $ints*, $bytes*, int32_t, int32_t)},
+		{"getAdvanceBetween", "([Lsun/font/TextLineComponent;II)F", nullptr, $PUBLIC | $STATIC, $staticMethod(TextLine, getAdvanceBetween, float, $TextLineComponentArray*, int32_t, int32_t)},
+		{"getCharAdvance", "(I)F", nullptr, $PUBLIC, $method(TextLine, getCharAdvance, float, int32_t)},
+		{"getCharAngle", "(I)F", nullptr, $PUBLIC, $method(TextLine, getCharAngle, float, int32_t)},
+		{"getCharAscent", "(I)F", nullptr, $PUBLIC, $method(TextLine, getCharAscent, float, int32_t)},
+		{"getCharBounds", "(I)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $method(TextLine, getCharBounds, $Rectangle2D*, int32_t)},
+		{"getCharDescent", "(I)F", nullptr, $PUBLIC, $method(TextLine, getCharDescent, float, int32_t)},
+		{"getCharLevel", "(I)B", nullptr, $PUBLIC, $method(TextLine, getCharLevel, int8_t, int32_t)},
+		{"getCharLinePosition", "(I)F", nullptr, $PUBLIC, $method(TextLine, getCharLinePosition, float, int32_t)},
+		{"getCharLinePosition", "(IZ)F", nullptr, $PUBLIC, $method(TextLine, getCharLinePosition, float, int32_t, bool)},
+		{"getCharShift", "(I)F", nullptr, $PUBLIC, $method(TextLine, getCharShift, float, int32_t)},
+		{"getCharType", "(I)I", nullptr, $PUBLIC, $method(TextLine, getCharType, int32_t, int32_t)},
+		{"getCharXPosition", "(I)F", nullptr, $PUBLIC, $method(TextLine, getCharXPosition, float, int32_t)},
+		{"getCharYPosition", "(I)F", nullptr, $PUBLIC, $method(TextLine, getCharYPosition, float, int32_t)},
+		{"getComponentLogicalIndex", "(I)I", nullptr, $PRIVATE, $method(TextLine, getComponentLogicalIndex, int32_t, int32_t)},
+		{"getComponentShift", "(I)F", nullptr, $PRIVATE, $method(TextLine, getComponentShift, float, int32_t)},
+		{"getComponentVisualIndex", "(I)I", nullptr, $PRIVATE, $method(TextLine, getComponentVisualIndex, int32_t, int32_t)},
+		{"getComponents", "(Ljava/awt/font/StyledParagraph;[CII[I[BLsun/font/TextLabelFactory;)[Lsun/font/TextLineComponent;", nullptr, $PUBLIC | $STATIC, $staticMethod(TextLine, getComponents, $TextLineComponentArray*, $StyledParagraph*, $chars*, int32_t, int32_t, $ints*, $bytes*, $TextLabelFactory*)},
+		{"getCoreMetricsAt", "(I)Lsun/font/CoreMetrics;", nullptr, $PUBLIC, $method(TextLine, getCoreMetricsAt, $CoreMetrics*, int32_t)},
+		{"getFontAtCurrentPos", "(Ljava/text/AttributedCharacterIterator;)Ljava/awt/Font;", nullptr, $STATIC, $staticMethod(TextLine, getFontAtCurrentPos, $Font*, $AttributedCharacterIterator*)},
+		{"getItalicBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $method(TextLine, getItalicBounds, $Rectangle2D*)},
+		{"getJustifiedLine", "(FFII)Ljava/awt/font/TextLine;", nullptr, $PUBLIC, $method(TextLine, getJustifiedLine, TextLine*, float, float, int32_t, int32_t)},
+		{"getLayoutPath", "()Lsun/font/LayoutPathImpl;", nullptr, 0, $method(TextLine, getLayoutPath, $LayoutPathImpl*)},
+		{"getMetrics", "()Ljava/awt/font/TextLine$TextLineMetrics;", nullptr, $PUBLIC, $method(TextLine, getMetrics, $TextLine$TextLineMetrics*)},
+		{"getNormalizedOffsets", "([FB)[F", nullptr, $STATIC, $staticMethod(TextLine, getNormalizedOffsets, $floats*, $floats*, int8_t)},
+		{"getOutline", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/Shape;", nullptr, $PUBLIC, $method(TextLine, getOutline, $Shape*, $AffineTransform*)},
+		{"getPixelBounds", "(Ljava/awt/font/FontRenderContext;FF)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $method(TextLine, getPixelBounds, $Rectangle*, $FontRenderContext*, float, float)},
+		{"getVisualBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $method(TextLine, getVisualBounds, $Rectangle2D*)},
+		{"init", "()V", nullptr, $PRIVATE, $method(TextLine, init, void)},
+		{"isCharLTR", "(I)Z", nullptr, $PUBLIC, $method(TextLine, isCharLTR, bool, int32_t)},
+		{"isCharSpace", "(I)Z", nullptr, $PUBLIC, $method(TextLine, isCharSpace, bool, int32_t)},
+		{"isCharWhitespace", "(I)Z", nullptr, $PUBLIC, $method(TextLine, isCharWhitespace, bool, int32_t)},
+		{"isDirectionLTR", "()Z", nullptr, $PUBLIC, $method(TextLine, isDirectionLTR, bool)},
+		{"logicalToVisual", "(I)I", nullptr, $PUBLIC, $method(TextLine, logicalToVisual, int32_t, int32_t)},
+		{"standardCreateTextLine", "(Ljava/awt/font/FontRenderContext;Ljava/text/AttributedCharacterIterator;[C[F)Ljava/awt/font/TextLine;", nullptr, $PUBLIC | $STATIC, $staticMethod(TextLine, standardCreateTextLine, TextLine*, $FontRenderContext*, $AttributedCharacterIterator*, $chars*, $floats*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextLine, toString, $String*)},
+		{"visualToLogical", "(I)I", nullptr, $PUBLIC, $method(TextLine, visualToLogical, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.font.TextLine$Function", "java.awt.font.TextLine", "Function", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.awt.font.TextLine$TextLineMetrics", "java.awt.font.TextLine", "TextLineMetrics", $STATIC | $FINAL},
+		{"java.awt.font.TextLine$4", nullptr, nullptr, 0},
+		{"java.awt.font.TextLine$3", nullptr, nullptr, 0},
+		{"java.awt.font.TextLine$2", nullptr, nullptr, 0},
+		{"java.awt.font.TextLine$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.awt.font.TextLine",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.font.TextLine$Function,java.awt.font.TextLine$TextLineMetrics,java.awt.font.TextLine$4,java.awt.font.TextLine$3,java.awt.font.TextLine$2,java.awt.font.TextLine$1"
+	};
+	$loadClass(TextLine, name, initialize, &classInfo$$, TextLine::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TextLine);
+	});
 	return class$;
 }
 

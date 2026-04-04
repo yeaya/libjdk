@@ -72,7 +72,7 @@ public:
 	virtual bool isDocOrdered() override;
 	virtual bool isReverseAxes() override;
 	virtual void setRoot(int32_t root) override;
-	static const int64_t serialVersionUID = (int64_t)0x27829A5F21E481AD;
+	static const int64_t serialVersionUID = (int64_t)0x27829a5f21e481ad;
 	::com::sun::org::apache::xml::internal::dtm::DTMAxisIterator* m_iterator = nullptr;
 };
 

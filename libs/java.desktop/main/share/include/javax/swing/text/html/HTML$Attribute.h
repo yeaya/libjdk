@@ -177,6 +177,7 @@ class $import HTML$Attribute : public ::java::lang::Object {
 	$class(HTML$Attribute, 0, ::java::lang::Object)
 public:
 	HTML$Attribute();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* id);
 	virtual $String* toString() override;
 	$String* name = nullptr;

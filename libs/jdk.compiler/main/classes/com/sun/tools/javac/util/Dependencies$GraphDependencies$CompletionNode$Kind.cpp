@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind.h>
-
 #include <com/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode.h>
 #include <com/sun/tools/javac/util/Dependencies$GraphDependencies.h>
 #include <java/lang/Enum.h>
@@ -20,49 +19,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$FieldInfo _Dependencies$GraphDependencies$CompletionNode$Kind_FieldInfo_[] = {
-	{"SOURCE", "Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dependencies$GraphDependencies$CompletionNode$Kind, SOURCE)},
-	{"CLASS", "Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dependencies$GraphDependencies$CompletionNode$Kind, CLASS)},
-	{"$VALUES", "[Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Dependencies$GraphDependencies$CompletionNode$Kind, $VALUES)},
-	{"dotStyle", "Ljava/lang/String;", nullptr, $FINAL, $field(Dependencies$GraphDependencies$CompletionNode$Kind, dotStyle)},
-	{}
-};
-
-$MethodInfo _Dependencies$GraphDependencies$CompletionNode$Kind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Dependencies$GraphDependencies$CompletionNode$Kind, $values, $Dependencies$GraphDependencies$CompletionNode$KindArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(Dependencies$GraphDependencies$CompletionNode$Kind, init$, void, $String*, int32_t, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Dependencies$GraphDependencies$CompletionNode$Kind, valueOf, Dependencies$GraphDependencies$CompletionNode$Kind*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Dependencies$GraphDependencies$CompletionNode$Kind, values, $Dependencies$GraphDependencies$CompletionNode$KindArray*)},
-	{}
-};
-
-$InnerClassInfo _Dependencies$GraphDependencies$CompletionNode$Kind_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.Dependencies$GraphDependencies", "com.sun.tools.javac.util.Dependencies", "GraphDependencies", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.util.Dependencies$GraphDependencies$CompletionNode", "com.sun.tools.javac.util.Dependencies$GraphDependencies", "CompletionNode", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.util.Dependencies$GraphDependencies$CompletionNode$Kind", "com.sun.tools.javac.util.Dependencies$GraphDependencies$CompletionNode", "Kind", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Dependencies$GraphDependencies$CompletionNode$Kind_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.util.Dependencies$GraphDependencies$CompletionNode$Kind",
-	"java.lang.Enum",
-	nullptr,
-	_Dependencies$GraphDependencies$CompletionNode$Kind_FieldInfo_,
-	_Dependencies$GraphDependencies$CompletionNode$Kind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind;>;",
-	nullptr,
-	_Dependencies$GraphDependencies$CompletionNode$Kind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.Dependencies"
-};
-
-$Object* allocate$Dependencies$GraphDependencies$CompletionNode$Kind($Class* clazz) {
-	return $of($alloc(Dependencies$GraphDependencies$CompletionNode$Kind));
-}
 
 Dependencies$GraphDependencies$CompletionNode$Kind* Dependencies$GraphDependencies$CompletionNode$Kind::SOURCE = nullptr;
 Dependencies$GraphDependencies$CompletionNode$Kind* Dependencies$GraphDependencies$CompletionNode$Kind::CLASS = nullptr;
@@ -91,7 +47,7 @@ void Dependencies$GraphDependencies$CompletionNode$Kind::init$($String* $enum$na
 	$set(this, dotStyle, dotStyle);
 }
 
-void clinit$Dependencies$GraphDependencies$CompletionNode$Kind($Class* class$) {
+void Dependencies$GraphDependencies$CompletionNode$Kind::clinit$($Class* clazz) {
 	$assignStatic(Dependencies$GraphDependencies$CompletionNode$Kind::SOURCE, $new(Dependencies$GraphDependencies$CompletionNode$Kind, "SOURCE"_s, 0, "solid"_s));
 	$assignStatic(Dependencies$GraphDependencies$CompletionNode$Kind::CLASS, $new(Dependencies$GraphDependencies$CompletionNode$Kind, "CLASS"_s, 1, "dotted"_s));
 	$assignStatic(Dependencies$GraphDependencies$CompletionNode$Kind::$VALUES, Dependencies$GraphDependencies$CompletionNode$Kind::$values());
@@ -101,7 +57,44 @@ Dependencies$GraphDependencies$CompletionNode$Kind::Dependencies$GraphDependenci
 }
 
 $Class* Dependencies$GraphDependencies$CompletionNode$Kind::load$($String* name, bool initialize) {
-	$loadClass(Dependencies$GraphDependencies$CompletionNode$Kind, name, initialize, &_Dependencies$GraphDependencies$CompletionNode$Kind_ClassInfo_, clinit$Dependencies$GraphDependencies$CompletionNode$Kind, allocate$Dependencies$GraphDependencies$CompletionNode$Kind);
+	$FieldInfo fieldInfos$$[] = {
+		{"SOURCE", "Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dependencies$GraphDependencies$CompletionNode$Kind, SOURCE)},
+		{"CLASS", "Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dependencies$GraphDependencies$CompletionNode$Kind, CLASS)},
+		{"$VALUES", "[Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Dependencies$GraphDependencies$CompletionNode$Kind, $VALUES)},
+		{"dotStyle", "Ljava/lang/String;", nullptr, $FINAL, $field(Dependencies$GraphDependencies$CompletionNode$Kind, dotStyle)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Dependencies$GraphDependencies$CompletionNode$Kind, $values, $Dependencies$GraphDependencies$CompletionNode$KindArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(Dependencies$GraphDependencies$CompletionNode$Kind, init$, void, $String*, int32_t, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Dependencies$GraphDependencies$CompletionNode$Kind, valueOf, Dependencies$GraphDependencies$CompletionNode$Kind*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Dependencies$GraphDependencies$CompletionNode$Kind, values, $Dependencies$GraphDependencies$CompletionNode$KindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.Dependencies$GraphDependencies", "com.sun.tools.javac.util.Dependencies", "GraphDependencies", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.util.Dependencies$GraphDependencies$CompletionNode", "com.sun.tools.javac.util.Dependencies$GraphDependencies", "CompletionNode", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.util.Dependencies$GraphDependencies$CompletionNode$Kind", "com.sun.tools.javac.util.Dependencies$GraphDependencies$CompletionNode", "Kind", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.util.Dependencies$GraphDependencies$CompletionNode$Kind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.Dependencies"
+	};
+	$loadClass(Dependencies$GraphDependencies$CompletionNode$Kind, name, initialize, &classInfo$$, Dependencies$GraphDependencies$CompletionNode$Kind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Dependencies$GraphDependencies$CompletionNode$Kind));
+	});
 	return class$;
 }
 

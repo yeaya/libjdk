@@ -59,6 +59,7 @@ public:
 	XMLX509IssuerSerial();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::org::w3c::dom::Element* element, $String* baseURI);
 	void init$(::org::w3c::dom::Document* doc, $String* x509IssuerName, ::java::math::BigInteger* x509SerialNumber);
 	void init$(::org::w3c::dom::Document* doc, $String* x509IssuerName, $String* x509SerialNumber);

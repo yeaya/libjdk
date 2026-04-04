@@ -33,6 +33,7 @@ class $export XPathFactory : public ::java::lang::Object {
 	$class(XPathFactory, 0, ::java::lang::Object)
 public:
 	XPathFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool getFeature($String* name) {return false;}
 	virtual bool isObjectModelSupported($String* objectModel) {return false;}

@@ -1,5 +1,4 @@
 #include <TableViewLayoutTest$4.h>
-
 #include <TableViewLayoutTest.h>
 #include <java/lang/Math.h>
 #include <javax/swing/JEditorPane.h>
@@ -12,44 +11,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JEditorPane = ::javax::swing::JEditorPane;
-
-$MethodInfo _TableViewLayoutTest$4_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TableViewLayoutTest$4, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TableViewLayoutTest$4, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _TableViewLayoutTest$4_EnclosingMethodInfo_ = {
-	"TableViewLayoutTest",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _TableViewLayoutTest$4_InnerClassesInfo_[] = {
-	{"TableViewLayoutTest$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TableViewLayoutTest$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"TableViewLayoutTest$4",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_TableViewLayoutTest$4_MethodInfo_,
-	nullptr,
-	&_TableViewLayoutTest$4_EnclosingMethodInfo_,
-	_TableViewLayoutTest$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TableViewLayoutTest"
-};
-
-$Object* allocate$TableViewLayoutTest$4($Class* clazz) {
-	return $of($alloc(TableViewLayoutTest$4));
-}
 
 void TableViewLayoutTest$4::init$() {
 }
@@ -74,7 +35,38 @@ TableViewLayoutTest$4::TableViewLayoutTest$4() {
 }
 
 $Class* TableViewLayoutTest$4::load$($String* name, bool initialize) {
-	$loadClass(TableViewLayoutTest$4, name, initialize, &_TableViewLayoutTest$4_ClassInfo_, allocate$TableViewLayoutTest$4);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TableViewLayoutTest$4, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TableViewLayoutTest$4, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"TableViewLayoutTest",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TableViewLayoutTest$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TableViewLayoutTest$4",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TableViewLayoutTest"
+	};
+	$loadClass(TableViewLayoutTest$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TableViewLayoutTest$4);
+	});
 	return class$;
 }
 

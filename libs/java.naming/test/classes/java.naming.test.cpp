@@ -1,5 +1,4 @@
 #include <java.naming.test.h>
-
 #include <java.naming.h>
 #include <java.base.h>
 #include <java.security.sasl.h>

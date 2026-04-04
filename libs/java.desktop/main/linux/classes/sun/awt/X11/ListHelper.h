@@ -74,6 +74,7 @@ class ListHelper : public ::sun::awt::X11::XScrollbarClient {
 	$class(ListHelper, 0, ::sun::awt::X11::XScrollbarClient)
 public:
 	ListHelper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::X11::XWindow* peer, $Array<::java::awt::Color>* colors, int32_t initialSize, bool multiSelect, bool scrollVert, bool scrollHoriz, ::java::awt::Font* font, int32_t maxVisItems, int32_t SPACE, int32_t MARGIN, int32_t BORDER, int32_t SCROLLBAR);
 	void add($String* item);
 	void add($String* item, int32_t index);

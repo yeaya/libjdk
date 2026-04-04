@@ -1,5 +1,4 @@
 #include <FPMethodCalledTest$PasswordViewMixedAPI.h>
-
 #include <FPMethodCalledTest.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
@@ -15,51 +14,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Element = ::javax::swing::text::Element;
 using $PasswordView = ::javax::swing::text::PasswordView;
-
-$FieldInfo _FPMethodCalledTest$PasswordViewMixedAPI_FieldInfo_[] = {
-	{"isIntMethodCalled", "Z", nullptr, 0, $field(FPMethodCalledTest$PasswordViewMixedAPI, isIntMethodCalled)},
-	{"isFPMethodCalled", "Z", nullptr, 0, $field(FPMethodCalledTest$PasswordViewMixedAPI, isFPMethodCalled)},
-	{}
-};
-
-$MethodInfo _FPMethodCalledTest$PasswordViewMixedAPI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(FPMethodCalledTest$PasswordViewMixedAPI, init$, void, $Element*)},
-	{"drawEchoCharacter", "(Ljava/awt/Graphics;IIC)I", nullptr, $PROTECTED, $virtualMethod(FPMethodCalledTest$PasswordViewMixedAPI, drawEchoCharacter, int32_t, $Graphics*, int32_t, int32_t, char16_t)},
-	{"drawEchoCharacter", "(Ljava/awt/Graphics2D;FFC)F", nullptr, $PROTECTED, $virtualMethod(FPMethodCalledTest$PasswordViewMixedAPI, drawEchoCharacter, float, $Graphics2D*, float, float, char16_t)},
-	{"getResult", "()Z", nullptr, $PUBLIC, $virtualMethod(FPMethodCalledTest$PasswordViewMixedAPI, getResult, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _FPMethodCalledTest$PasswordViewMixedAPI_InnerClassesInfo_[] = {
-	{"FPMethodCalledTest$PasswordViewMixedAPI", "FPMethodCalledTest", "PasswordViewMixedAPI", $STATIC},
-	{"FPMethodCalledTest$Resultable", "FPMethodCalledTest", "Resultable", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _FPMethodCalledTest$PasswordViewMixedAPI_ClassInfo_ = {
-	$ACC_SUPER,
-	"FPMethodCalledTest$PasswordViewMixedAPI",
-	"javax.swing.text.PasswordView",
-	"FPMethodCalledTest$Resultable",
-	_FPMethodCalledTest$PasswordViewMixedAPI_FieldInfo_,
-	_FPMethodCalledTest$PasswordViewMixedAPI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FPMethodCalledTest$PasswordViewMixedAPI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"FPMethodCalledTest"
-};
-
-$Object* allocate$FPMethodCalledTest$PasswordViewMixedAPI($Class* clazz) {
-	return $of($alloc(FPMethodCalledTest$PasswordViewMixedAPI));
-}
 
 int32_t FPMethodCalledTest$PasswordViewMixedAPI::hashCode() {
 	 return this->$PasswordView::hashCode();
@@ -105,7 +59,46 @@ FPMethodCalledTest$PasswordViewMixedAPI::FPMethodCalledTest$PasswordViewMixedAPI
 }
 
 $Class* FPMethodCalledTest$PasswordViewMixedAPI::load$($String* name, bool initialize) {
-	$loadClass(FPMethodCalledTest$PasswordViewMixedAPI, name, initialize, &_FPMethodCalledTest$PasswordViewMixedAPI_ClassInfo_, allocate$FPMethodCalledTest$PasswordViewMixedAPI);
+	$FieldInfo fieldInfos$$[] = {
+		{"isIntMethodCalled", "Z", nullptr, 0, $field(FPMethodCalledTest$PasswordViewMixedAPI, isIntMethodCalled)},
+		{"isFPMethodCalled", "Z", nullptr, 0, $field(FPMethodCalledTest$PasswordViewMixedAPI, isFPMethodCalled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(FPMethodCalledTest$PasswordViewMixedAPI, init$, void, $Element*)},
+		{"drawEchoCharacter", "(Ljava/awt/Graphics;IIC)I", nullptr, $PROTECTED, $virtualMethod(FPMethodCalledTest$PasswordViewMixedAPI, drawEchoCharacter, int32_t, $Graphics*, int32_t, int32_t, char16_t)},
+		{"drawEchoCharacter", "(Ljava/awt/Graphics2D;FFC)F", nullptr, $PROTECTED, $virtualMethod(FPMethodCalledTest$PasswordViewMixedAPI, drawEchoCharacter, float, $Graphics2D*, float, float, char16_t)},
+		{"getResult", "()Z", nullptr, $PUBLIC, $virtualMethod(FPMethodCalledTest$PasswordViewMixedAPI, getResult, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"FPMethodCalledTest$PasswordViewMixedAPI", "FPMethodCalledTest", "PasswordViewMixedAPI", $STATIC},
+		{"FPMethodCalledTest$Resultable", "FPMethodCalledTest", "Resultable", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"FPMethodCalledTest$PasswordViewMixedAPI",
+		"javax.swing.text.PasswordView",
+		"FPMethodCalledTest$Resultable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"FPMethodCalledTest"
+	};
+	$loadClass(FPMethodCalledTest$PasswordViewMixedAPI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FPMethodCalledTest$PasswordViewMixedAPI));
+	});
 	return class$;
 }
 

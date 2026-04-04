@@ -1,5 +1,4 @@
 #include <MissingCharsKorean.h>
-
 #include <MissingCharsKorean$1.h>
 #include <java/awt/AWTException.h>
 #include <java/awt/BorderLayout.h>
@@ -8,7 +7,6 @@
 #include <java/awt/Dimension.h>
 #include <java/awt/FlowLayout.h>
 #include <java/awt/Font.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
@@ -53,13 +51,10 @@ using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Robot = ::java::awt::Robot;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $KeyEvent = ::java::awt::event::KeyEvent;
-using $WindowListener = ::java::awt::event::WindowListener;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -88,27 +83,24 @@ public:
 	virtual void run() override {
 		MissingCharsKorean::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MissingCharsKorean$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MissingCharsKorean$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MissingCharsKorean$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MissingCharsKorean$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo MissingCharsKorean$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"MissingCharsKorean$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* MissingCharsKorean$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(MissingCharsKorean$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MissingCharsKorean$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MissingCharsKorean$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"MissingCharsKorean$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MissingCharsKorean$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MissingCharsKorean$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* MissingCharsKorean$$Lambda$lambda$main$0::class$ = nullptr;
@@ -123,35 +115,31 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		MissingCharsKorean::lambda$setupUI$1(btnStartTest, btnCancelTest, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MissingCharsKorean$$Lambda$lambda$setupUI$1$1>());
-	}
 	$JButton* btnStartTest = nullptr;
 	$JButton* btnCancelTest = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo MissingCharsKorean$$Lambda$lambda$setupUI$1$1::fieldInfos[3] = {
-	{"btnStartTest", "Ljavax/swing/JButton;", nullptr, $PUBLIC, $field(MissingCharsKorean$$Lambda$lambda$setupUI$1$1, btnStartTest)},
-	{"btnCancelTest", "Ljavax/swing/JButton;", nullptr, $PUBLIC, $field(MissingCharsKorean$$Lambda$lambda$setupUI$1$1, btnCancelTest)},
-	{}
-};
-$MethodInfo MissingCharsKorean$$Lambda$lambda$setupUI$1$1::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/JButton;Ljavax/swing/JButton;)V", nullptr, $PUBLIC, $method(MissingCharsKorean$$Lambda$lambda$setupUI$1$1, init$, void, $JButton*, $JButton*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(MissingCharsKorean$$Lambda$lambda$setupUI$1$1, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo MissingCharsKorean$$Lambda$lambda$setupUI$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"MissingCharsKorean$$Lambda$lambda$setupUI$1$1",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* MissingCharsKorean$$Lambda$lambda$setupUI$1$1::load$($String* name, bool initialize) {
-	$loadClass(MissingCharsKorean$$Lambda$lambda$setupUI$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"btnStartTest", "Ljavax/swing/JButton;", nullptr, $PUBLIC, $field(MissingCharsKorean$$Lambda$lambda$setupUI$1$1, btnStartTest)},
+		{"btnCancelTest", "Ljavax/swing/JButton;", nullptr, $PUBLIC, $field(MissingCharsKorean$$Lambda$lambda$setupUI$1$1, btnCancelTest)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JButton;Ljavax/swing/JButton;)V", nullptr, $PUBLIC, $method(MissingCharsKorean$$Lambda$lambda$setupUI$1$1, init$, void, $JButton*, $JButton*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(MissingCharsKorean$$Lambda$lambda$setupUI$1$1, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"MissingCharsKorean$$Lambda$lambda$setupUI$1$1",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MissingCharsKorean$$Lambda$lambda$setupUI$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MissingCharsKorean$$Lambda$lambda$setupUI$1$1);
+	});
 	return class$;
 }
 $Class* MissingCharsKorean$$Lambda$lambda$setupUI$1$1::class$ = nullptr;
@@ -164,27 +152,24 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		MissingCharsKorean::lambda$setupUI$2(e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MissingCharsKorean$$Lambda$lambda$setupUI$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MissingCharsKorean$$Lambda$lambda$setupUI$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MissingCharsKorean$$Lambda$lambda$setupUI$2$2, init$, void)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(MissingCharsKorean$$Lambda$lambda$setupUI$2$2, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo MissingCharsKorean$$Lambda$lambda$setupUI$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"MissingCharsKorean$$Lambda$lambda$setupUI$2$2",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	nullptr,
-	methodInfos
 };
 $Class* MissingCharsKorean$$Lambda$lambda$setupUI$2$2::load$($String* name, bool initialize) {
-	$loadClass(MissingCharsKorean$$Lambda$lambda$setupUI$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MissingCharsKorean$$Lambda$lambda$setupUI$2$2, init$, void)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(MissingCharsKorean$$Lambda$lambda$setupUI$2$2, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"MissingCharsKorean$$Lambda$lambda$setupUI$2$2",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MissingCharsKorean$$Lambda$lambda$setupUI$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MissingCharsKorean$$Lambda$lambda$setupUI$2$2);
+	});
 	return class$;
 }
 $Class* MissingCharsKorean$$Lambda$lambda$setupUI$2$2::class$ = nullptr;
@@ -197,84 +182,27 @@ public:
 	virtual void run() override {
 		MissingCharsKorean::lambda$performTasks$3();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MissingCharsKorean$$Lambda$lambda$performTasks$3$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MissingCharsKorean$$Lambda$lambda$performTasks$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MissingCharsKorean$$Lambda$lambda$performTasks$3$3, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MissingCharsKorean$$Lambda$lambda$performTasks$3$3, run, void)},
-	{}
-};
-$ClassInfo MissingCharsKorean$$Lambda$lambda$performTasks$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"MissingCharsKorean$$Lambda$lambda$performTasks$3$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* MissingCharsKorean$$Lambda$lambda$performTasks$3$3::load$($String* name, bool initialize) {
-	$loadClass(MissingCharsKorean$$Lambda$lambda$performTasks$3$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MissingCharsKorean$$Lambda$lambda$performTasks$3$3, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MissingCharsKorean$$Lambda$lambda$performTasks$3$3, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"MissingCharsKorean$$Lambda$lambda$performTasks$3$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MissingCharsKorean$$Lambda$lambda$performTasks$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MissingCharsKorean$$Lambda$lambda$performTasks$3$3);
+	});
 	return class$;
 }
 $Class* MissingCharsKorean$$Lambda$lambda$performTasks$3$3::class$ = nullptr;
-
-$FieldInfo _MissingCharsKorean_FieldInfo_[] = {
-	{"testPassed", "Z", nullptr, $PRIVATE | $STATIC, $staticField(MissingCharsKorean, testPassed)},
-	{"startTest", "Z", nullptr, $PRIVATE | $STATIC, $staticField(MissingCharsKorean, startTest)},
-	{"expectedResults", "[I", nullptr, $PRIVATE | $STATIC, $staticField(MissingCharsKorean, expectedResults)},
-	{"inKeyCodes", "[[I", nullptr, $PRIVATE | $STATIC, $staticField(MissingCharsKorean, inKeyCodes)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(MissingCharsKorean, frame)},
-	{"lblTestStatus", "Ljavax/swing/JLabel;", nullptr, $PRIVATE | $STATIC, $staticField(MissingCharsKorean, lblTestStatus)},
-	{"textFieldMain", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(MissingCharsKorean, textFieldMain)},
-	{"testResult", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(MissingCharsKorean, testResult)},
-	{"testStartLatch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MissingCharsKorean, testStartLatch)},
-	{}
-};
-
-$MethodInfo _MissingCharsKorean_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MissingCharsKorean, init$, void)},
-	{"enterInput", "(Ljava/awt/Robot;[[I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MissingCharsKorean, enterInput, void, $Robot*, $intArray2*)},
-	{"glyphTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(MissingCharsKorean, glyphTest, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MissingCharsKorean, lambda$main$0, void)},
-	{"lambda$performTasks$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MissingCharsKorean, lambda$performTasks$3, void)},
-	{"lambda$setupUI$1", "(Ljavax/swing/JButton;Ljavax/swing/JButton;Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MissingCharsKorean, lambda$setupUI$1, void, $JButton*, $JButton*, $ActionEvent*)},
-	{"lambda$setupUI$2", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MissingCharsKorean, lambda$setupUI$2, void, $ActionEvent*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MissingCharsKorean, main, void, $StringArray*), "java.lang.Exception"},
-	{"performTasks", "(Ljava/awt/Robot;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MissingCharsKorean, performTasks, void, $Robot*)},
-	{"setKeyInput", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MissingCharsKorean, setKeyInput, bool, int32_t)},
-	{"setTaskStatus", "(ZI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MissingCharsKorean, setTaskStatus, void, bool, int32_t)},
-	{"setupUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(MissingCharsKorean, setupUI, void)},
-	{"validateInput", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(MissingCharsKorean, validateInput, void)},
-	{}
-};
-
-$InnerClassInfo _MissingCharsKorean_InnerClassesInfo_[] = {
-	{"MissingCharsKorean$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MissingCharsKorean_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MissingCharsKorean",
-	"java.lang.Object",
-	nullptr,
-	_MissingCharsKorean_FieldInfo_,
-	_MissingCharsKorean_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MissingCharsKorean_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"MissingCharsKorean$1"
-};
-
-$Object* allocate$MissingCharsKorean($Class* clazz) {
-	return $of($alloc(MissingCharsKorean));
-}
 
 bool MissingCharsKorean::testPassed = false;
 bool MissingCharsKorean::startTest = false;
@@ -291,9 +219,9 @@ void MissingCharsKorean::init$() {
 
 void MissingCharsKorean::main($StringArray* args) {
 	$init(MissingCharsKorean);
-	$useLocalCurrentObjectStackCache();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(MissingCharsKorean$$Lambda$lambda$main$0)));
-	$nc(MissingCharsKorean::testStartLatch)->await();
+	$useLocalObjectStack();
+	$SwingUtilities::invokeAndWait($$new(MissingCharsKorean$$Lambda$lambda$main$0));
+	MissingCharsKorean::testStartLatch->await();
 	if (MissingCharsKorean::startTest) {
 		glyphTest();
 		$nc(MissingCharsKorean::frame)->dispose();
@@ -309,35 +237,34 @@ void MissingCharsKorean::main($StringArray* args) {
 
 void MissingCharsKorean::setupUI() {
 	$init(MissingCharsKorean);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, description, " 1. Go to \"System Preferences -> Keyboard -> Input Sources\" and add \"2-Set Korean\" from Korean language group \n 2. Set current IM to \"2-Set Korean\" \n 3. Try typing in the text field to ensure that Korean keyboard has been successfully selected \n 4. Now click on \"Start Test\" button \n"_s);
 	$var($String, title, "Missing Characters Korean Test (Mac OS)"_s);
 	$assignStatic(MissingCharsKorean::frame, $new($JFrame, title));
-	$var($JPanel, mainPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout))));
-	$var($JPanel, textEditPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($FlowLayout))));
+	$var($JPanel, mainPanel, $new($JPanel, $$new($BorderLayout)));
+	$var($JPanel, textEditPanel, $new($JPanel, $$new($FlowLayout)));
 	$assignStatic(MissingCharsKorean::textFieldMain, $new($JTextField, 20));
 	$var($Font, font, $new($Font, "Source Han Serif K"_s, $Font::BOLD, 12));
-	$nc(MissingCharsKorean::textFieldMain)->setFont(font);
-	textEditPanel->add(static_cast<$Component*>(MissingCharsKorean::textFieldMain));
-	$init($BorderLayout);
-	mainPanel->add(static_cast<$Component*>(textEditPanel), $of($BorderLayout::CENTER));
+	MissingCharsKorean::textFieldMain->setFont(font);
+	textEditPanel->add(MissingCharsKorean::textFieldMain);
+	mainPanel->add(textEditPanel, $BorderLayout::CENTER);
 	$var($JTextArea, textArea, $new($JTextArea, description));
 	textArea->setEditable(false);
 	$var($JButton, btnStartTest, $new($JButton, "Start Test"_s));
 	$var($JButton, btnCancelTest, $new($JButton, "Cancel Test"_s));
-	btnStartTest->addActionListener(static_cast<$ActionListener*>($$new(MissingCharsKorean$$Lambda$lambda$setupUI$1$1, btnStartTest, btnCancelTest)));
-	btnCancelTest->addActionListener(static_cast<$ActionListener*>($$new(MissingCharsKorean$$Lambda$lambda$setupUI$2$2)));
-	mainPanel->add(static_cast<$Component*>(textArea), $of($BorderLayout::NORTH));
-	$var($JPanel, buttonPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($FlowLayout))));
-	buttonPanel->add(static_cast<$Component*>(btnStartTest));
-	buttonPanel->add(static_cast<$Component*>(btnCancelTest));
-	mainPanel->add(static_cast<$Component*>(buttonPanel), $of($BorderLayout::SOUTH));
+	btnStartTest->addActionListener($$new(MissingCharsKorean$$Lambda$lambda$setupUI$1$1, btnStartTest, btnCancelTest));
+	btnCancelTest->addActionListener($$new(MissingCharsKorean$$Lambda$lambda$setupUI$2$2));
+	mainPanel->add(textArea, $BorderLayout::NORTH);
+	$var($JPanel, buttonPanel, $new($JPanel, $$new($FlowLayout)));
+	buttonPanel->add(btnStartTest);
+	buttonPanel->add(btnCancelTest);
+	mainPanel->add(buttonPanel, $BorderLayout::SOUTH);
 	$assignStatic(MissingCharsKorean::lblTestStatus, $new($JLabel, ""_s));
-	$nc(MissingCharsKorean::lblTestStatus)->setMinimumSize($$new($Dimension, 150, 20));
+	MissingCharsKorean::lblTestStatus->setMinimumSize($$new($Dimension, 150, 20));
 	$nc(MissingCharsKorean::lblTestStatus)->setPreferredSize($$new($Dimension, 150, 20));
 	$nc(MissingCharsKorean::lblTestStatus)->setVisible(true);
-	textEditPanel->add(static_cast<$Component*>(MissingCharsKorean::lblTestStatus));
-	$nc(MissingCharsKorean::frame)->add(static_cast<$Component*>(mainPanel));
+	textEditPanel->add(MissingCharsKorean::lblTestStatus);
+	$nc(MissingCharsKorean::frame)->add(mainPanel);
 	$nc(MissingCharsKorean::frame)->setDefaultCloseOperation($WindowConstants::EXIT_ON_CLOSE);
 	$nc(MissingCharsKorean::frame)->pack();
 	$nc(MissingCharsKorean::frame)->setLocationRelativeTo(nullptr);
@@ -347,7 +274,7 @@ void MissingCharsKorean::setupUI() {
 
 void MissingCharsKorean::glyphTest() {
 	$init(MissingCharsKorean);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($Robot, robotKeySimulator, $new($Robot));
 		performTasks(robotKeySimulator);
@@ -359,7 +286,7 @@ void MissingCharsKorean::glyphTest() {
 
 void MissingCharsKorean::performTasks($Robot* robotForKeyInput) {
 	$init(MissingCharsKorean);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t taskCount = 0;
 	$nc(MissingCharsKorean::lblTestStatus)->setText("Running Tests.."_s);
 	$nc(robotForKeyInput)->setAutoDelay(500);
@@ -369,7 +296,7 @@ void MissingCharsKorean::performTasks($Robot* robotForKeyInput) {
 		enterInput(robotForKeyInput, MissingCharsKorean::inKeyCodes);
 		++taskCount;
 		try {
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(MissingCharsKorean$$Lambda$lambda$performTasks$3$3)));
+			$SwingUtilities::invokeAndWait($$new(MissingCharsKorean$$Lambda$lambda$performTasks$3$3));
 		} catch ($Exception& e) {
 			$nc($System::err)->print($$str({"validateInput Failed : "_s, $(e->getMessage())}));
 			MissingCharsKorean::testPassed = false;
@@ -385,107 +312,95 @@ void MissingCharsKorean::performTasks($Robot* robotForKeyInput) {
 
 bool MissingCharsKorean::setKeyInput(int32_t iCount) {
 	$init(MissingCharsKorean);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool inputSet = true;
 	switch (iCount) {
 	case 0:
-		{
-			$assignStatic(MissingCharsKorean::expectedResults, $new($ints, {
-				12610,
-				47
-			}));
-			$assignStatic(MissingCharsKorean::inKeyCodes, $new($intArray2, {
-				$$new($ints, {$KeyEvent::VK_Q}),
-				$$new($ints, {$KeyEvent::VK_SLASH})
-			}));
-			break;
-		}
+		$assignStatic(MissingCharsKorean::expectedResults, $new($ints, {
+			12610,
+			47
+		}));
+		$assignStatic(MissingCharsKorean::inKeyCodes, $new($intArray2, {
+			$$new($ints, {$KeyEvent::VK_Q}),
+			$$new($ints, {$KeyEvent::VK_SLASH})
+		}));
+		break;
 	case 1:
-		{
-			$assignStatic(MissingCharsKorean::expectedResults, $new($ints, {
-				12610,
-				47,
-				0x0000D638,
-				92
-			}));
-			$assignStatic(MissingCharsKorean::inKeyCodes, $new($intArray2, {
-				$$new($ints, {$KeyEvent::VK_Q}),
-				$$new($ints, {$KeyEvent::VK_SLASH}),
-				$$new($ints, {$KeyEvent::VK_G}),
-				$$new($ints, {$KeyEvent::VK_H}),
-				$$new($ints, {$KeyEvent::VK_BACK_SLASH})
-			}));
-			break;
-		}
+		$assignStatic(MissingCharsKorean::expectedResults, $new($ints, {
+			12610,
+			47,
+			0x0000d638,
+			92
+		}));
+		$assignStatic(MissingCharsKorean::inKeyCodes, $new($intArray2, {
+			$$new($ints, {$KeyEvent::VK_Q}),
+			$$new($ints, {$KeyEvent::VK_SLASH}),
+			$$new($ints, {$KeyEvent::VK_G}),
+			$$new($ints, {$KeyEvent::VK_H}),
+			$$new($ints, {$KeyEvent::VK_BACK_SLASH})
+		}));
+		break;
 	case 2:
-		{
-			$assignStatic(MissingCharsKorean::expectedResults, $new($ints, {
-				12610,
-				47,
-				0x0000D649,
-				92
-			}));
-			$assignStatic(MissingCharsKorean::inKeyCodes, $new($intArray2, {
-				$$new($ints, {$KeyEvent::VK_Q}),
-				$$new($ints, {$KeyEvent::VK_SLASH}),
-				$$new($ints, {$KeyEvent::VK_G}),
-				$$new($ints, {$KeyEvent::VK_H}),
-				$$new($ints, {$KeyEvent::VK_Q}),
-				$$new($ints, {$KeyEvent::VK_BACK_SLASH})
-			}));
-			break;
-		}
+		$assignStatic(MissingCharsKorean::expectedResults, $new($ints, {
+			12610,
+			47,
+			0x0000d649,
+			92
+		}));
+		$assignStatic(MissingCharsKorean::inKeyCodes, $new($intArray2, {
+			$$new($ints, {$KeyEvent::VK_Q}),
+			$$new($ints, {$KeyEvent::VK_SLASH}),
+			$$new($ints, {$KeyEvent::VK_G}),
+			$$new($ints, {$KeyEvent::VK_H}),
+			$$new($ints, {$KeyEvent::VK_Q}),
+			$$new($ints, {$KeyEvent::VK_BACK_SLASH})
+		}));
+		break;
 	case 3:
-		{
-			$assignStatic(MissingCharsKorean::expectedResults, $new($ints, {
-				12610,
-				47,
-				0x0000D638,
-				92
-			}));
-			$assignStatic(MissingCharsKorean::inKeyCodes, $new($intArray2, {
-				$$new($ints, {$KeyEvent::VK_Q}),
-				$$new($ints, {$KeyEvent::VK_SLASH}),
-				$$new($ints, {$KeyEvent::VK_G}),
-				$$new($ints, {$KeyEvent::VK_H}),
-				$$new($ints, {$KeyEvent::VK_Q}),
-				$$new($ints, {$KeyEvent::VK_BACK_SPACE}),
-				$$new($ints, {$KeyEvent::VK_BACK_SLASH})
-			}));
-			break;
-		}
+		$assignStatic(MissingCharsKorean::expectedResults, $new($ints, {
+			12610,
+			47,
+			0x0000d638,
+			92
+		}));
+		$assignStatic(MissingCharsKorean::inKeyCodes, $new($intArray2, {
+			$$new($ints, {$KeyEvent::VK_Q}),
+			$$new($ints, {$KeyEvent::VK_SLASH}),
+			$$new($ints, {$KeyEvent::VK_G}),
+			$$new($ints, {$KeyEvent::VK_H}),
+			$$new($ints, {$KeyEvent::VK_Q}),
+			$$new($ints, {$KeyEvent::VK_BACK_SPACE}),
+			$$new($ints, {$KeyEvent::VK_BACK_SLASH})
+		}));
+		break;
 	case 4:
-		{
-			$assignStatic(MissingCharsKorean::expectedResults, $new($ints, {
-				12610,
-				47,
-				12622,
-				92
-			}));
-			$assignStatic(MissingCharsKorean::inKeyCodes, $new($intArray2, {
-				$$new($ints, {$KeyEvent::VK_Q}),
-				$$new($ints, {$KeyEvent::VK_SLASH}),
-				$$new($ints, {$KeyEvent::VK_G}),
-				$$new($ints, {$KeyEvent::VK_H}),
-				$$new($ints, {$KeyEvent::VK_Q}),
-				$$new($ints, {$KeyEvent::VK_BACK_SPACE}),
-				$$new($ints, {$KeyEvent::VK_BACK_SPACE}),
-				$$new($ints, {$KeyEvent::VK_BACK_SLASH})
-			}));
-			break;
-		}
+		$assignStatic(MissingCharsKorean::expectedResults, $new($ints, {
+			12610,
+			47,
+			12622,
+			92
+		}));
+		$assignStatic(MissingCharsKorean::inKeyCodes, $new($intArray2, {
+			$$new($ints, {$KeyEvent::VK_Q}),
+			$$new($ints, {$KeyEvent::VK_SLASH}),
+			$$new($ints, {$KeyEvent::VK_G}),
+			$$new($ints, {$KeyEvent::VK_H}),
+			$$new($ints, {$KeyEvent::VK_Q}),
+			$$new($ints, {$KeyEvent::VK_BACK_SPACE}),
+			$$new($ints, {$KeyEvent::VK_BACK_SPACE}),
+			$$new($ints, {$KeyEvent::VK_BACK_SLASH})
+		}));
+		break;
 	default:
-		{
-			inputSet = false;
-			break;
-		}
+		inputSet = false;
+		break;
 	}
 	return inputSet;
 }
 
 void MissingCharsKorean::enterInput($Robot* robotKeyInput, $intArray2* keyInputs) {
 	$init(MissingCharsKorean);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(keyInputs)->length; ++i) {
 		$var($String, strKeyInput, "KeyPress=>"_s);
 		int32_t noOfKeyInputs = $nc(keyInputs->get(i))->length;
@@ -504,7 +419,7 @@ void MissingCharsKorean::enterInput($Robot* robotKeyInput, $intArray2* keyInputs
 
 void MissingCharsKorean::validateInput() {
 	$init(MissingCharsKorean);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	MissingCharsKorean::testPassed = false;
 	if (MissingCharsKorean::expectedResults != nullptr) {
 		$var($String, strCurr, $nc(MissingCharsKorean::textFieldMain)->getText());
@@ -512,8 +427,8 @@ void MissingCharsKorean::validateInput() {
 			MissingCharsKorean::testPassed = true;
 			for (int32_t i = 0; i < strCurr->length(); ++i) {
 				int32_t charActual = strCurr->charAt(i);
-				if (charActual != $nc(MissingCharsKorean::expectedResults)->get(i)) {
-					$nc($System::err)->println($$str({"<"_s, $$str(i), "> Actual = "_s, $$str(charActual), " Expected = "_s, $$str($nc(MissingCharsKorean::expectedResults)->get(i))}));
+				if (charActual != MissingCharsKorean::expectedResults->get(i)) {
+					$nc($System::err)->println($$str({"<"_s, $$str(i), "> Actual = "_s, $$str(charActual), " Expected = "_s, $$str(MissingCharsKorean::expectedResults->get(i))}));
 					MissingCharsKorean::testPassed = false;
 					break;
 				}
@@ -524,7 +439,7 @@ void MissingCharsKorean::validateInput() {
 
 void MissingCharsKorean::setTaskStatus(bool allTasksPerformed, int32_t taskCount) {
 	$init(MissingCharsKorean);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (MissingCharsKorean::testPassed) {
 		if (allTasksPerformed) {
 			$assignStatic(MissingCharsKorean::testResult, "All Tests Passed"_s);
@@ -545,7 +460,7 @@ void MissingCharsKorean::lambda$performTasks$3() {
 void MissingCharsKorean::lambda$setupUI$2($ActionEvent* e) {
 	$init(MissingCharsKorean);
 	$nc(MissingCharsKorean::frame)->dispose();
-	$nc(MissingCharsKorean::testStartLatch)->countDown();
+	MissingCharsKorean::testStartLatch->countDown();
 }
 
 void MissingCharsKorean::lambda$setupUI$1($JButton* btnStartTest, $JButton* btnCancelTest, $ActionEvent* e) {
@@ -553,7 +468,7 @@ void MissingCharsKorean::lambda$setupUI$1($JButton* btnStartTest, $JButton* btnC
 	$nc(btnStartTest)->setEnabled(false);
 	$nc(btnCancelTest)->setEnabled(false);
 	MissingCharsKorean::startTest = true;
-	$nc(MissingCharsKorean::testStartLatch)->countDown();
+	MissingCharsKorean::testStartLatch->countDown();
 }
 
 void MissingCharsKorean::lambda$main$0() {
@@ -561,7 +476,7 @@ void MissingCharsKorean::lambda$main$0() {
 	setupUI();
 }
 
-void clinit$MissingCharsKorean($Class* class$) {
+void MissingCharsKorean::clinit$($Class* clazz) {
 	MissingCharsKorean::testPassed = false;
 	MissingCharsKorean::startTest = false;
 	$assignStatic(MissingCharsKorean::expectedResults, nullptr);
@@ -577,20 +492,68 @@ MissingCharsKorean::MissingCharsKorean() {
 
 $Class* MissingCharsKorean::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(MissingCharsKorean$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("MissingCharsKorean$$Lambda$lambda$main$0")) {
 			return MissingCharsKorean$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(MissingCharsKorean$$Lambda$lambda$setupUI$1$1::classInfo$.name)) {
+		if (name->equals("MissingCharsKorean$$Lambda$lambda$setupUI$1$1")) {
 			return MissingCharsKorean$$Lambda$lambda$setupUI$1$1::load$(name, initialize);
 		}
-		if (name->equals(MissingCharsKorean$$Lambda$lambda$setupUI$2$2::classInfo$.name)) {
+		if (name->equals("MissingCharsKorean$$Lambda$lambda$setupUI$2$2")) {
 			return MissingCharsKorean$$Lambda$lambda$setupUI$2$2::load$(name, initialize);
 		}
-		if (name->equals(MissingCharsKorean$$Lambda$lambda$performTasks$3$3::classInfo$.name)) {
+		if (name->equals("MissingCharsKorean$$Lambda$lambda$performTasks$3$3")) {
 			return MissingCharsKorean$$Lambda$lambda$performTasks$3$3::load$(name, initialize);
 		}
 	}
-	$loadClass(MissingCharsKorean, name, initialize, &_MissingCharsKorean_ClassInfo_, clinit$MissingCharsKorean, allocate$MissingCharsKorean);
+	$FieldInfo fieldInfos$$[] = {
+		{"testPassed", "Z", nullptr, $PRIVATE | $STATIC, $staticField(MissingCharsKorean, testPassed)},
+		{"startTest", "Z", nullptr, $PRIVATE | $STATIC, $staticField(MissingCharsKorean, startTest)},
+		{"expectedResults", "[I", nullptr, $PRIVATE | $STATIC, $staticField(MissingCharsKorean, expectedResults)},
+		{"inKeyCodes", "[[I", nullptr, $PRIVATE | $STATIC, $staticField(MissingCharsKorean, inKeyCodes)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(MissingCharsKorean, frame)},
+		{"lblTestStatus", "Ljavax/swing/JLabel;", nullptr, $PRIVATE | $STATIC, $staticField(MissingCharsKorean, lblTestStatus)},
+		{"textFieldMain", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(MissingCharsKorean, textFieldMain)},
+		{"testResult", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(MissingCharsKorean, testResult)},
+		{"testStartLatch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MissingCharsKorean, testStartLatch)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MissingCharsKorean, init$, void)},
+		{"enterInput", "(Ljava/awt/Robot;[[I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MissingCharsKorean, enterInput, void, $Robot*, $intArray2*)},
+		{"glyphTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(MissingCharsKorean, glyphTest, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MissingCharsKorean, lambda$main$0, void)},
+		{"lambda$performTasks$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MissingCharsKorean, lambda$performTasks$3, void)},
+		{"lambda$setupUI$1", "(Ljavax/swing/JButton;Ljavax/swing/JButton;Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MissingCharsKorean, lambda$setupUI$1, void, $JButton*, $JButton*, $ActionEvent*)},
+		{"lambda$setupUI$2", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MissingCharsKorean, lambda$setupUI$2, void, $ActionEvent*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MissingCharsKorean, main, void, $StringArray*), "java.lang.Exception"},
+		{"performTasks", "(Ljava/awt/Robot;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MissingCharsKorean, performTasks, void, $Robot*)},
+		{"setKeyInput", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MissingCharsKorean, setKeyInput, bool, int32_t)},
+		{"setTaskStatus", "(ZI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MissingCharsKorean, setTaskStatus, void, bool, int32_t)},
+		{"setupUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(MissingCharsKorean, setupUI, void)},
+		{"validateInput", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(MissingCharsKorean, validateInput, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"MissingCharsKorean$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MissingCharsKorean",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"MissingCharsKorean$1"
+	};
+	$loadClass(MissingCharsKorean, name, initialize, &classInfo$$, MissingCharsKorean::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MissingCharsKorean);
+	});
 	return class$;
 }
 

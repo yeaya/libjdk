@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/processing/JavacProcessingEnvironment$2.h>
-
 #include <com/sun/tools/javac/processing/JavacProcessingEnvironment.h>
 #include <java/lang/NoSuchFieldError.h>
 #include <javax/tools/Diagnostic$Kind.h>
@@ -22,53 +21,17 @@ namespace com {
 			namespace javac {
 				namespace processing {
 
-$FieldInfo _JavacProcessingEnvironment$2_FieldInfo_[] = {
-	{"$SwitchMap$javax$tools$Diagnostic$Kind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JavacProcessingEnvironment$2, $SwitchMap$javax$tools$Diagnostic$Kind)},
-	{}
-};
-
-$EnclosingMethodInfo _JavacProcessingEnvironment$2_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.processing.JavacProcessingEnvironment",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _JavacProcessingEnvironment$2_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.processing.JavacProcessingEnvironment$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _JavacProcessingEnvironment$2_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.tools.javac.processing.JavacProcessingEnvironment$2",
-	"java.lang.Object",
-	nullptr,
-	_JavacProcessingEnvironment$2_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_JavacProcessingEnvironment$2_EnclosingMethodInfo_,
-	_JavacProcessingEnvironment$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.processing.JavacProcessingEnvironment"
-};
-
-$Object* allocate$JavacProcessingEnvironment$2($Class* clazz) {
-	return $of($alloc(JavacProcessingEnvironment$2));
-}
-
 $ints* JavacProcessingEnvironment$2::$SwitchMap$javax$tools$Diagnostic$Kind = nullptr;
 
-void clinit$JavacProcessingEnvironment$2($Class* class$) {
+void JavacProcessingEnvironment$2::clinit$($Class* clazz) {
 	$assignStatic(JavacProcessingEnvironment$2::$SwitchMap$javax$tools$Diagnostic$Kind, $new($ints, $($Diagnostic$Kind::values())->length));
 	{
 		try {
-			$nc(JavacProcessingEnvironment$2::$SwitchMap$javax$tools$Diagnostic$Kind)->set($Diagnostic$Kind::WARNING->ordinal(), 1);
+			JavacProcessingEnvironment$2::$SwitchMap$javax$tools$Diagnostic$Kind->set($Diagnostic$Kind::WARNING->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacProcessingEnvironment$2::$SwitchMap$javax$tools$Diagnostic$Kind)->set($Diagnostic$Kind::ERROR->ordinal(), 2);
+			JavacProcessingEnvironment$2::$SwitchMap$javax$tools$Diagnostic$Kind->set($Diagnostic$Kind::ERROR->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -78,7 +41,37 @@ JavacProcessingEnvironment$2::JavacProcessingEnvironment$2() {
 }
 
 $Class* JavacProcessingEnvironment$2::load$($String* name, bool initialize) {
-	$loadClass(JavacProcessingEnvironment$2, name, initialize, &_JavacProcessingEnvironment$2_ClassInfo_, clinit$JavacProcessingEnvironment$2, allocate$JavacProcessingEnvironment$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$javax$tools$Diagnostic$Kind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JavacProcessingEnvironment$2, $SwitchMap$javax$tools$Diagnostic$Kind)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.processing.JavacProcessingEnvironment",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.processing.JavacProcessingEnvironment$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.tools.javac.processing.JavacProcessingEnvironment$2",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.processing.JavacProcessingEnvironment"
+	};
+	$loadClass(JavacProcessingEnvironment$2, name, initialize, &classInfo$$, JavacProcessingEnvironment$2::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacProcessingEnvironment$2);
+	});
 	return class$;
 }
 

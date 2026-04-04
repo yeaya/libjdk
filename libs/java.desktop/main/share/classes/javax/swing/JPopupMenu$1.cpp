@@ -1,5 +1,4 @@
 #include <javax/swing/JPopupMenu$1.h>
-
 #include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
@@ -20,48 +19,6 @@ using $JPopupMenu = ::javax::swing::JPopupMenu;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _JPopupMenu$1_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JPopupMenu;", nullptr, $FINAL | $SYNTHETIC, $field(JPopupMenu$1, this$0)},
-	{}
-};
-
-$MethodInfo _JPopupMenu$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JPopupMenu;)V", nullptr, 0, $method(JPopupMenu$1, init$, void, $JPopupMenu*)},
-	{"createActionPropertyChangeListener", "(Ljavax/swing/Action;)Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(JPopupMenu$1, createActionPropertyChangeListener, $PropertyChangeListener*, $Action*)},
-	{}
-};
-
-$EnclosingMethodInfo _JPopupMenu$1_EnclosingMethodInfo_ = {
-	"javax.swing.JPopupMenu",
-	"createActionComponent",
-	"(Ljavax/swing/Action;)Ljavax/swing/JMenuItem;"
-};
-
-$InnerClassInfo _JPopupMenu$1_InnerClassesInfo_[] = {
-	{"javax.swing.JPopupMenu$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JPopupMenu$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JPopupMenu$1",
-	"javax.swing.JMenuItem",
-	nullptr,
-	_JPopupMenu$1_FieldInfo_,
-	_JPopupMenu$1_MethodInfo_,
-	nullptr,
-	&_JPopupMenu$1_EnclosingMethodInfo_,
-	_JPopupMenu$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JPopupMenu"
-};
-
-$Object* allocate$JPopupMenu$1($Class* clazz) {
-	return $of($alloc(JPopupMenu$1));
-}
-
 void JPopupMenu$1::init$($JPopupMenu* this$0) {
 	$set(this, this$0, this$0);
 	$JMenuItem::init$();
@@ -79,7 +36,42 @@ JPopupMenu$1::JPopupMenu$1() {
 }
 
 $Class* JPopupMenu$1::load$($String* name, bool initialize) {
-	$loadClass(JPopupMenu$1, name, initialize, &_JPopupMenu$1_ClassInfo_, allocate$JPopupMenu$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JPopupMenu;", nullptr, $FINAL | $SYNTHETIC, $field(JPopupMenu$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JPopupMenu;)V", nullptr, 0, $method(JPopupMenu$1, init$, void, $JPopupMenu*)},
+		{"createActionPropertyChangeListener", "(Ljavax/swing/Action;)Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(JPopupMenu$1, createActionPropertyChangeListener, $PropertyChangeListener*, $Action*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.JPopupMenu",
+		"createActionComponent",
+		"(Ljavax/swing/Action;)Ljavax/swing/JMenuItem;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JPopupMenu$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JPopupMenu$1",
+		"javax.swing.JMenuItem",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JPopupMenu"
+	};
+	$loadClass(JPopupMenu$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JPopupMenu$1));
+	});
 	return class$;
 }
 

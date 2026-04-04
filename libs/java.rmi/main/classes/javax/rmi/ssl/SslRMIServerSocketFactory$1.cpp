@@ -1,5 +1,4 @@
 #include <javax/rmi/ssl/SslRMIServerSocketFactory$1.h>
-
 #include <java/net/InetAddress.h>
 #include <java/net/ServerSocket.h>
 #include <java/net/Socket.h>
@@ -13,7 +12,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $InetAddress = ::java::net::InetAddress;
 using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;
 using $SSLSocket = ::javax::net::ssl::SSLSocket;
@@ -24,49 +22,6 @@ namespace javax {
 	namespace rmi {
 		namespace ssl {
 
-$FieldInfo _SslRMIServerSocketFactory$1_FieldInfo_[] = {
-	{"this$0", "Ljavax/rmi/ssl/SslRMIServerSocketFactory;", nullptr, $FINAL | $SYNTHETIC, $field(SslRMIServerSocketFactory$1, this$0)},
-	{"val$sslSocketFactory", "Ljavax/net/ssl/SSLSocketFactory;", nullptr, $FINAL | $SYNTHETIC, $field(SslRMIServerSocketFactory$1, val$sslSocketFactory)},
-	{}
-};
-
-$MethodInfo _SslRMIServerSocketFactory$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/rmi/ssl/SslRMIServerSocketFactory;ILjavax/net/ssl/SSLSocketFactory;)V", nullptr, 0, $method(SslRMIServerSocketFactory$1, init$, void, $SslRMIServerSocketFactory*, int32_t, $SSLSocketFactory*), "java.io.IOException"},
-	{"accept", "()Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(SslRMIServerSocketFactory$1, accept, $Socket*), "java.io.IOException"},
-	{}
-};
-
-$EnclosingMethodInfo _SslRMIServerSocketFactory$1_EnclosingMethodInfo_ = {
-	"javax.rmi.ssl.SslRMIServerSocketFactory",
-	"createServerSocket",
-	"(I)Ljava/net/ServerSocket;"
-};
-
-$InnerClassInfo _SslRMIServerSocketFactory$1_InnerClassesInfo_[] = {
-	{"javax.rmi.ssl.SslRMIServerSocketFactory$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SslRMIServerSocketFactory$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.rmi.ssl.SslRMIServerSocketFactory$1",
-	"java.net.ServerSocket",
-	nullptr,
-	_SslRMIServerSocketFactory$1_FieldInfo_,
-	_SslRMIServerSocketFactory$1_MethodInfo_,
-	nullptr,
-	&_SslRMIServerSocketFactory$1_EnclosingMethodInfo_,
-	_SslRMIServerSocketFactory$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.rmi.ssl.SslRMIServerSocketFactory"
-};
-
-$Object* allocate$SslRMIServerSocketFactory$1($Class* clazz) {
-	return $of($alloc(SslRMIServerSocketFactory$1));
-}
-
 void SslRMIServerSocketFactory$1::init$($SslRMIServerSocketFactory* this$0, int32_t arg0, $SSLSocketFactory* val$sslSocketFactory) {
 	$set(this, this$0, this$0);
 	$set(this, val$sslSocketFactory, val$sslSocketFactory);
@@ -74,11 +29,10 @@ void SslRMIServerSocketFactory$1::init$($SslRMIServerSocketFactory* this$0, int3
 }
 
 $Socket* SslRMIServerSocketFactory$1::accept() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Socket, socket, $ServerSocket::accept());
-	$var($Socket, var$0, socket);
-	$var($String, var$1, $nc($($nc(socket)->getInetAddress()))->getHostName());
-	$var($SSLSocket, sslSocket, $cast($SSLSocket, $nc(this->val$sslSocketFactory)->createSocket(var$0, var$1, socket->getPort(), true)));
+	$var($String, var$0, $$nc($nc(socket)->getInetAddress())->getHostName());
+	$var($SSLSocket, sslSocket, $cast($SSLSocket, $nc(this->val$sslSocketFactory)->createSocket(socket, var$0, socket->getPort(), true)));
 	$nc(sslSocket)->setUseClientMode(false);
 	if (this->this$0->enabledCipherSuites != nullptr) {
 		sslSocket->setEnabledCipherSuites(this->this$0->enabledCipherSuites);
@@ -94,7 +48,43 @@ SslRMIServerSocketFactory$1::SslRMIServerSocketFactory$1() {
 }
 
 $Class* SslRMIServerSocketFactory$1::load$($String* name, bool initialize) {
-	$loadClass(SslRMIServerSocketFactory$1, name, initialize, &_SslRMIServerSocketFactory$1_ClassInfo_, allocate$SslRMIServerSocketFactory$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/rmi/ssl/SslRMIServerSocketFactory;", nullptr, $FINAL | $SYNTHETIC, $field(SslRMIServerSocketFactory$1, this$0)},
+		{"val$sslSocketFactory", "Ljavax/net/ssl/SSLSocketFactory;", nullptr, $FINAL | $SYNTHETIC, $field(SslRMIServerSocketFactory$1, val$sslSocketFactory)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/rmi/ssl/SslRMIServerSocketFactory;ILjavax/net/ssl/SSLSocketFactory;)V", nullptr, 0, $method(SslRMIServerSocketFactory$1, init$, void, $SslRMIServerSocketFactory*, int32_t, $SSLSocketFactory*), "java.io.IOException"},
+		{"accept", "()Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(SslRMIServerSocketFactory$1, accept, $Socket*), "java.io.IOException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.rmi.ssl.SslRMIServerSocketFactory",
+		"createServerSocket",
+		"(I)Ljava/net/ServerSocket;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.rmi.ssl.SslRMIServerSocketFactory$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.rmi.ssl.SslRMIServerSocketFactory$1",
+		"java.net.ServerSocket",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.rmi.ssl.SslRMIServerSocketFactory"
+	};
+	$loadClass(SslRMIServerSocketFactory$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SslRMIServerSocketFactory$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/http/spnego/NegotiatorImpl.h>
-
 #include <java/io/IOException.h>
 #include <org/ietf/jgss/GSSContext.h>
 #include <org/ietf/jgss/GSSCredential.h>
@@ -10,7 +9,6 @@
 #include <sun/net/www/protocol/http/Negotiator.h>
 #include <sun/security/action/GetBooleanAction.h>
 #include <sun/security/action/GetPropertyAction.h>
-#include <sun/security/jgss/GSSCaller.h>
 #include <sun/security/jgss/GSSContextImpl.h>
 #include <sun/security/jgss/GSSManagerImpl.h>
 #include <sun/security/jgss/GSSUtil.h>
@@ -24,7 +22,6 @@
 #undef NT_HOSTBASED_SERVICE
 
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -37,7 +34,6 @@ using $HttpCallerInfo = ::sun::net::www::protocol::http::HttpCallerInfo;
 using $Negotiator = ::sun::net::www::protocol::http::Negotiator;
 using $GetBooleanAction = ::sun::security::action::GetBooleanAction;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
-using $GSSCaller = ::sun::security::jgss::GSSCaller;
 using $GSSContextImpl = ::sun::security::jgss::GSSContextImpl;
 using $GSSManagerImpl = ::sun::security::jgss::GSSManagerImpl;
 using $GSSUtil = ::sun::security::jgss::GSSUtil;
@@ -50,38 +46,10 @@ namespace sun {
 				namespace http {
 					namespace spnego {
 
-$FieldInfo _NegotiatorImpl_FieldInfo_[] = {
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NegotiatorImpl, DEBUG)},
-	{"context", "Lorg/ietf/jgss/GSSContext;", nullptr, $PRIVATE, $field(NegotiatorImpl, context)},
-	{"oneToken", "[B", nullptr, $PRIVATE, $field(NegotiatorImpl, oneToken)},
-	{}
-};
-
-$MethodInfo _NegotiatorImpl_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/protocol/http/HttpCallerInfo;)V", nullptr, $PUBLIC, $method(NegotiatorImpl, init$, void, $HttpCallerInfo*), "java.io.IOException"},
-	{"firstToken", "()[B", nullptr, $PUBLIC, $virtualMethod(NegotiatorImpl, firstToken, $bytes*)},
-	{"init", "(Lsun/net/www/protocol/http/HttpCallerInfo;)V", nullptr, $PRIVATE, $method(NegotiatorImpl, init, void, $HttpCallerInfo*), "org.ietf.jgss.GSSException"},
-	{"nextToken", "([B)[B", nullptr, $PUBLIC, $virtualMethod(NegotiatorImpl, nextToken, $bytes*, $bytes*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _NegotiatorImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.www.protocol.http.spnego.NegotiatorImpl",
-	"sun.net.www.protocol.http.Negotiator",
-	nullptr,
-	_NegotiatorImpl_FieldInfo_,
-	_NegotiatorImpl_MethodInfo_
-};
-
-$Object* allocate$NegotiatorImpl($Class* clazz) {
-	return $of($alloc(NegotiatorImpl));
-}
-
 bool NegotiatorImpl::DEBUG = false;
 
 void NegotiatorImpl::init($HttpCallerInfo* hci) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Oid, oid, nullptr);
 	if ($nc($nc(hci)->scheme)->equalsIgnoreCase("Kerberos"_s)) {
 		$init($GSSUtil);
@@ -97,12 +65,12 @@ void NegotiatorImpl::init($HttpCallerInfo* hci) {
 		}
 	}
 	$var($GSSManagerImpl, manager, $new($GSSManagerImpl, $$new($HttpCaller, hci)));
-	$var($String, peerName, $str({"HTTP@"_s, $($nc($nc(hci)->host)->toLowerCase())}));
+	$var($String, peerName, $str({"HTTP@"_s, $($nc(hci->host)->toLowerCase())}));
 	$init($GSSName);
 	$var($GSSName, serverName, manager->createName(peerName, $GSSName::NT_HOSTBASED_SERVICE));
 	$set(this, context, manager->createContext(serverName, oid, nullptr, $GSSContext::DEFAULT_LIFETIME));
 	if ($instanceOf($GSSContextImpl, this->context)) {
-		$nc(($cast($GSSContextImpl, this->context)))->requestDelegPolicy(true);
+		$cast($GSSContextImpl, this->context)->requestDelegPolicy(true);
 	}
 	$set(this, oneToken, $nc(this->context)->initSecContext($$new($bytes, 0), 0, 0));
 }
@@ -141,7 +109,7 @@ $bytes* NegotiatorImpl::nextToken($bytes* token) {
 	$shouldNotReachHere();
 }
 
-void clinit$NegotiatorImpl($Class* class$) {
+void NegotiatorImpl::clinit$($Class* clazz) {
 	NegotiatorImpl::DEBUG = $GetBooleanAction::privilegedGetProperty("sun.security.krb5.debug"_s);
 }
 
@@ -149,7 +117,30 @@ NegotiatorImpl::NegotiatorImpl() {
 }
 
 $Class* NegotiatorImpl::load$($String* name, bool initialize) {
-	$loadClass(NegotiatorImpl, name, initialize, &_NegotiatorImpl_ClassInfo_, clinit$NegotiatorImpl, allocate$NegotiatorImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NegotiatorImpl, DEBUG)},
+		{"context", "Lorg/ietf/jgss/GSSContext;", nullptr, $PRIVATE, $field(NegotiatorImpl, context)},
+		{"oneToken", "[B", nullptr, $PRIVATE, $field(NegotiatorImpl, oneToken)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/www/protocol/http/HttpCallerInfo;)V", nullptr, $PUBLIC, $method(NegotiatorImpl, init$, void, $HttpCallerInfo*), "java.io.IOException"},
+		{"firstToken", "()[B", nullptr, $PUBLIC, $virtualMethod(NegotiatorImpl, firstToken, $bytes*)},
+		{"init", "(Lsun/net/www/protocol/http/HttpCallerInfo;)V", nullptr, $PRIVATE, $method(NegotiatorImpl, init, void, $HttpCallerInfo*), "org.ietf.jgss.GSSException"},
+		{"nextToken", "([B)[B", nullptr, $PUBLIC, $virtualMethod(NegotiatorImpl, nextToken, $bytes*, $bytes*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.www.protocol.http.spnego.NegotiatorImpl",
+		"sun.net.www.protocol.http.Negotiator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NegotiatorImpl, name, initialize, &classInfo$$, NegotiatorImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NegotiatorImpl);
+	});
 	return class$;
 }
 

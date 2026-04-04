@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/ToUnknownStream.h>
-
 #include <com/sun/org/apache/xml/internal/serializer/AttributesImplSerializer.h>
 #include <com/sun/org/apache/xml/internal/serializer/DOMSerializer.h>
 #include <com/sun/org/apache/xml/internal/serializer/Method.h>
@@ -68,125 +67,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace serializer {
-
-$FieldInfo _ToUnknownStream_FieldInfo_[] = {
-	{"m_handler", "Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;", nullptr, $PRIVATE, $field(ToUnknownStream, m_handler)},
-	{"EMPTYSTRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ToUnknownStream, EMPTYSTRING)},
-	{"m_wrapped_handler_not_initialized", "Z", nullptr, $PRIVATE, $field(ToUnknownStream, m_wrapped_handler_not_initialized)},
-	{"m_firstElementPrefix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ToUnknownStream, m_firstElementPrefix)},
-	{"m_firstElementName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ToUnknownStream, m_firstElementName)},
-	{"m_firstElementURI", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ToUnknownStream, m_firstElementURI)},
-	{"m_firstElementLocalName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ToUnknownStream, m_firstElementLocalName)},
-	{"m_firstTagNotEmitted", "Z", nullptr, $PRIVATE, $field(ToUnknownStream, m_firstTagNotEmitted)},
-	{"m_namespaceURI", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(ToUnknownStream, m_namespaceURI)},
-	{"m_namespacePrefix", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(ToUnknownStream, m_namespacePrefix)},
-	{"m_needToCallStartDocument", "Z", nullptr, $PRIVATE, $field(ToUnknownStream, m_needToCallStartDocument)},
-	{}
-};
-
-$MethodInfo _ToUnknownStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ToUnknownStream, init$, void)},
-	{"<init>", "(Ljavax/xml/transform/ErrorListener;)V", nullptr, $PUBLIC, $method(ToUnknownStream, init$, void, $ErrorListener*)},
-	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, addAttribute, void, $String*, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, addAttribute, void, $String*, $String*, $String*, $String*, $String*, bool), "org.xml.sax.SAXException"},
-	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, addAttribute, void, $String*, $String*)},
-	{"addAttributes", "(Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, addAttributes, void, $Attributes*), "org.xml.sax.SAXException"},
-	{"addUniqueAttribute", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, addUniqueAttribute, void, $String*, $String*, int32_t), "org.xml.sax.SAXException"},
-	{"asContentHandler", "()Lorg/xml/sax/ContentHandler;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, asContentHandler, $ContentHandler*), "java.io.IOException"},
-	{"asDOM3Serializer", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, asDOM3Serializer, $Object*), "java.io.IOException"},
-	{"asDOMSerializer", "()Lcom/sun/org/apache/xml/internal/serializer/DOMSerializer;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, asDOMSerializer, $DOMSerializer*), "java.io.IOException"},
-	{"attributeDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, attributeDecl, void, $String*, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"characters", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, characters, void, $String*), "org.xml.sax.SAXException"},
-	{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, close, void)},
-	{"comment", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, comment, void, $String*), "org.xml.sax.SAXException"},
-	{"comment", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, comment, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"elementDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, elementDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"emitFirstTag", "()V", nullptr, $PRIVATE, $method(ToUnknownStream, emitFirstTag, void), "org.xml.sax.SAXException"},
-	{"endCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, endCDATA, void), "org.xml.sax.SAXException"},
-	{"endDTD", "()V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, endDTD, void), "org.xml.sax.SAXException"},
-	{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, endDocument, void), "org.xml.sax.SAXException"},
-	{"endElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, endElement, void, $String*), "org.xml.sax.SAXException"},
-	{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"endEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, endEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, endPrefixMapping, void, $String*), "org.xml.sax.SAXException"},
-	{"entityReference", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, entityReference, void, $String*), "org.xml.sax.SAXException"},
-	{"externalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, externalEntityDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"firePseudoElement", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(ToUnknownStream, firePseudoElement, void, $String*)},
-	{"flush", "()V", nullptr, $PRIVATE, $method(ToUnknownStream, flush, void)},
-	{"flushPending", "()V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, flushPending, void), "org.xml.sax.SAXException"},
-	{"getDoctypePublic", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getDoctypePublic, $String*)},
-	{"getDoctypeSystem", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getDoctypeSystem, $String*)},
-	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getEncoding, $String*)},
-	{"getIndent", "()Z", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getIndent, bool)},
-	{"getIndentAmount", "()I", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getIndentAmount, int32_t)},
-	{"getLocalNameUnknown", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ToUnknownStream, getLocalNameUnknown, $String*, $String*)},
-	{"getMediaType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getMediaType, $String*)},
-	{"getNamespaceMappings", "()Lcom/sun/org/apache/xml/internal/serializer/NamespaceMappings;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getNamespaceMappings, $NamespaceMappings*)},
-	{"getNamespaceURI", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getNamespaceURI, $String*, $String*, bool)},
-	{"getNamespaceURIFromPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getNamespaceURIFromPrefix, $String*, $String*)},
-	{"getOmitXMLDeclaration", "()Z", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getOmitXMLDeclaration, bool)},
-	{"getOutputFormat", "()Ljava/util/Properties;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getOutputFormat, $Properties*)},
-	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getOutputStream, $OutputStream*)},
-	{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getPrefix, $String*, $String*)},
-	{"getPrefixPartUnknown", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ToUnknownStream, getPrefixPartUnknown, $String*, $String*)},
-	{"getStandalone", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getStandalone, $String*)},
-	{"getTransformer", "()Ljavax/xml/transform/Transformer;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getTransformer, $Transformer*)},
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getVersion, $String*)},
-	{"getWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getWriter, $Writer*)},
-	{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, ignorableWhitespace, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"initStreamOutput", "()V", nullptr, $PRIVATE, $method(ToUnknownStream, initStreamOutput, void), "org.xml.sax.SAXException"},
-	{"internalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, internalEntityDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"isFirstElemHTML", "()Z", nullptr, $PRIVATE, $method(ToUnknownStream, isFirstElemHTML, bool)},
-	{"namespaceAfterStartElement", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, namespaceAfterStartElement, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, processingInstruction, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"reset", "()Z", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, reset, bool)},
-	{"serialize", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, serialize, void, $Node*), "java.io.IOException"},
-	{"setCdataSectionElements", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(ToUnknownStream, setCdataSectionElements, void, $List*)},
-	{"setContentHandler", "(Lorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setContentHandler, void, $ContentHandler*)},
-	{"setDoctype", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setDoctype, void, $String*, $String*)},
-	{"setDoctypePublic", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setDoctypePublic, void, $String*)},
-	{"setDoctypeSystem", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setDoctypeSystem, void, $String*)},
-	{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setDocumentLocator, void, $Locator*)},
-	{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setEncoding, void, $String*)},
-	{"setEscaping", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setEscaping, bool, bool), "org.xml.sax.SAXException"},
-	{"setIndent", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setIndent, void, bool)},
-	{"setIndentAmount", "(I)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setIndentAmount, void, int32_t)},
-	{"setIsStandalone", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setIsStandalone, void, bool)},
-	{"setMediaType", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setMediaType, void, $String*)},
-	{"setOmitXMLDeclaration", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setOmitXMLDeclaration, void, bool)},
-	{"setOutputFormat", "(Ljava/util/Properties;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setOutputFormat, void, $Properties*)},
-	{"setOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setOutputStream, void, $OutputStream*)},
-	{"setSourceLocator", "(Ljavax/xml/transform/SourceLocator;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setSourceLocator, void, $SourceLocator*)},
-	{"setStandalone", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setStandalone, void, $String*)},
-	{"setTransformer", "(Ljavax/xml/transform/Transformer;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setTransformer, void, $Transformer*)},
-	{"setVersion", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setVersion, void, $String*)},
-	{"setWriter", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setWriter, void, $Writer*)},
-	{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, skippedEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"startCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, startCDATA, void), "org.xml.sax.SAXException"},
-	{"startDTD", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, startDTD, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, startDocument, void), "org.xml.sax.SAXException"},
-	{"startElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, startElement, void, $String*), "org.xml.sax.SAXException"},
-	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, startElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
-	{"startEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, startEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, startPrefixMapping, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;Z)Z", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, startPrefixMapping, bool, $String*, $String*, bool), "org.xml.sax.SAXException"},
-	{}
-};
-
-$ClassInfo _ToUnknownStream_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serializer.ToUnknownStream",
-	"com.sun.org.apache.xml.internal.serializer.SerializerBase",
-	nullptr,
-	_ToUnknownStream_FieldInfo_,
-	_ToUnknownStream_MethodInfo_
-};
-
-$Object* allocate$ToUnknownStream($Class* clazz) {
-	return $of($alloc(ToUnknownStream));
-}
 
 $String* ToUnknownStream::EMPTYSTRING = nullptr;
 
@@ -278,12 +158,12 @@ void ToUnknownStream::addUniqueAttribute($String* rawName, $String* value, int32
 }
 
 void ToUnknownStream::characters($String* chars) {
-	int32_t len = (chars == nullptr) ? 0 : $nc(chars)->length();
+	int32_t len = (chars == nullptr) ? 0 : chars->length();
 	if (len > $nc(this->m_charsBuff)->length) {
 		$set(this, m_charsBuff, $new($chars, len * 2 + 1));
 	}
 	if (len > 0) {
-		chars->getChars(0, len, this->m_charsBuff, 0);
+		$nc(chars)->getChars(0, len, this->m_charsBuff, 0);
 	}
 	this->characters(this->m_charsBuff, 0, len);
 }
@@ -302,7 +182,7 @@ void ToUnknownStream::startPrefixMapping($String* prefix, $String* uri) {
 void ToUnknownStream::namespaceAfterStartElement($String* prefix, $String* uri) {
 	if (this->m_firstTagNotEmitted && this->m_firstElementURI == nullptr && this->m_firstElementName != nullptr) {
 		$var($String, prefix1, getPrefixPart(this->m_firstElementName));
-		if (prefix1 == nullptr && $nc(ToUnknownStream::EMPTYSTRING)->equals(prefix)) {
+		if (prefix1 == nullptr && ToUnknownStream::EMPTYSTRING->equals(prefix)) {
 			$set(this, m_firstElementURI, uri);
 		}
 	}
@@ -508,7 +388,7 @@ void ToUnknownStream::endDocument() {
 }
 
 void ToUnknownStream::endElement($String* namespaceURI$renamed, $String* localName$renamed, $String* qName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, localName, localName$renamed);
 	$var($String, namespaceURI, namespaceURI$renamed);
 	if (this->m_firstTagNotEmitted) {
@@ -585,7 +465,7 @@ void ToUnknownStream::startEntity($String* name) {
 }
 
 void ToUnknownStream::initStreamOutput() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool firstElementIsHTML = isFirstElemHTML();
 	if (firstElementIsHTML) {
 		$var($SerializationHandler, oldHandler, this->m_handler);
@@ -616,7 +496,7 @@ void ToUnknownStream::initStreamOutput() {
 }
 
 void ToUnknownStream::emitFirstTag() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->m_firstElementName != nullptr) {
 		if (this->m_wrapped_handler_not_initialized) {
 			initStreamOutput();
@@ -625,7 +505,7 @@ void ToUnknownStream::emitFirstTag() {
 		$nc(this->m_handler)->startElement(this->m_firstElementURI, nullptr, this->m_firstElementName, this->m_attributes);
 		$set(this, m_attributes, nullptr);
 		if (this->m_namespacePrefix != nullptr) {
-			int32_t n = $nc(this->m_namespacePrefix)->size();
+			int32_t n = this->m_namespacePrefix->size();
 			for (int32_t i = 0; i < n; ++i) {
 				$var($String, prefix, $cast($String, $nc(this->m_namespacePrefix)->get(i)));
 				$var($String, uri, $cast($String, $nc(this->m_namespaceURI)->get(i)));
@@ -640,11 +520,11 @@ void ToUnknownStream::emitFirstTag() {
 
 $String* ToUnknownStream::getLocalNameUnknown($String* value$renamed) {
 	$var($String, value, value$renamed);
-	int32_t idx = $nc(value)->lastIndexOf((int32_t)u':');
+	int32_t idx = $nc(value)->lastIndexOf(u':');
 	if (idx >= 0) {
 		$assign(value, value->substring(idx + 1));
 	}
-	idx = value->lastIndexOf((int32_t)u'@');
+	idx = value->lastIndexOf(u'@');
 	if (idx >= 0) {
 		$assign(value, value->substring(idx + 1));
 	}
@@ -652,24 +532,24 @@ $String* ToUnknownStream::getLocalNameUnknown($String* value$renamed) {
 }
 
 $String* ToUnknownStream::getPrefixPartUnknown($String* qname) {
-	int32_t index = $nc(qname)->indexOf((int32_t)u':');
+	int32_t index = $nc(qname)->indexOf(u':');
 	return (index > 0) ? qname->substring(0, index) : ToUnknownStream::EMPTYSTRING;
 }
 
 bool ToUnknownStream::isFirstElemHTML() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool isHTML = false;
-	isHTML = $nc($(getLocalNameUnknown(this->m_firstElementName)))->equalsIgnoreCase("html"_s);
-	if (isHTML && this->m_firstElementURI != nullptr && !$nc(ToUnknownStream::EMPTYSTRING)->equals(this->m_firstElementURI)) {
+	isHTML = $$nc(getLocalNameUnknown(this->m_firstElementName))->equalsIgnoreCase("html"_s);
+	if (isHTML && this->m_firstElementURI != nullptr && !ToUnknownStream::EMPTYSTRING->equals(this->m_firstElementURI)) {
 		isHTML = false;
 	}
 	if (isHTML && this->m_namespacePrefix != nullptr) {
-		int32_t max = $nc(this->m_namespacePrefix)->size();
+		int32_t max = this->m_namespacePrefix->size();
 		for (int32_t i = 0; i < max; ++i) {
-			$var($String, prefix, $cast($String, $nc(this->m_namespacePrefix)->get(i)));
+			$var($String, prefix, $cast($String, this->m_namespacePrefix->get(i)));
 			$var($String, uri, $cast($String, $nc(this->m_namespaceURI)->get(i)));
-			bool var$0 = this->m_firstElementPrefix != nullptr && $nc(this->m_firstElementPrefix)->equals(prefix);
-			if (var$0 && !$nc(ToUnknownStream::EMPTYSTRING)->equals(uri)) {
+			bool var$0 = this->m_firstElementPrefix != nullptr && this->m_firstElementPrefix->equals(prefix);
+			if (var$0 && !ToUnknownStream::EMPTYSTRING->equals(uri)) {
 				isHTML = false;
 				break;
 			}
@@ -693,7 +573,7 @@ void ToUnknownStream::addAttributes($Attributes* atts) {
 $NamespaceMappings* ToUnknownStream::getNamespaceMappings() {
 	$var($NamespaceMappings, mappings, nullptr);
 	if (this->m_handler != nullptr) {
-		$assign(mappings, $nc(this->m_handler)->getNamespaceMappings());
+		$assign(mappings, this->m_handler->getNamespaceMappings());
 	}
 	return mappings;
 }
@@ -735,7 +615,7 @@ $String* ToUnknownStream::getNamespaceURIFromPrefix($String* prefix) {
 
 void ToUnknownStream::setTransformer($Transformer* t) {
 	$nc(this->m_handler)->setTransformer(t);
-	if (($instanceOf($SerializerTrace, t)) && ($nc(($cast($SerializerTrace, t)))->hasTraceListeners())) {
+	if (($instanceOf($SerializerTrace, t)) && ($cast($SerializerTrace, t)->hasTraceListeners())) {
 		$set(this, m_tracer, $cast($SerializerTrace, t));
 	} else {
 		$set(this, m_tracer, nullptr);
@@ -755,29 +635,143 @@ void ToUnknownStream::setSourceLocator($SourceLocator* locator) {
 }
 
 void ToUnknownStream::firePseudoElement($String* elementName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->m_tracer != nullptr) {
 		$var($StringBuffer, sb, $new($StringBuffer));
 		sb->append(u'<');
 		sb->append(elementName);
-		$var($chars, ch, $nc($(sb->toString()))->toCharArray());
-		$nc(this->m_tracer)->fireGenerateEvent($SerializerTrace::EVENTTYPE_OUTPUT_PSEUDO_CHARACTERS, ch, 0, ch->length);
+		$var($chars, ch, $(sb->toString())->toCharArray());
+		this->m_tracer->fireGenerateEvent($SerializerTrace::EVENTTYPE_OUTPUT_PSEUDO_CHARACTERS, ch, 0, ch->length);
 	}
 }
 
 $Object* ToUnknownStream::asDOM3Serializer() {
-	return $of($nc(this->m_handler)->asDOM3Serializer());
+	return $nc(this->m_handler)->asDOM3Serializer();
 }
 
 ToUnknownStream::ToUnknownStream() {
 }
 
-void clinit$ToUnknownStream($Class* class$) {
+void ToUnknownStream::clinit$($Class* clazz) {
 	$assignStatic(ToUnknownStream::EMPTYSTRING, ""_s);
 }
 
 $Class* ToUnknownStream::load$($String* name, bool initialize) {
-	$loadClass(ToUnknownStream, name, initialize, &_ToUnknownStream_ClassInfo_, clinit$ToUnknownStream, allocate$ToUnknownStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_handler", "Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;", nullptr, $PRIVATE, $field(ToUnknownStream, m_handler)},
+		{"EMPTYSTRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ToUnknownStream, EMPTYSTRING)},
+		{"m_wrapped_handler_not_initialized", "Z", nullptr, $PRIVATE, $field(ToUnknownStream, m_wrapped_handler_not_initialized)},
+		{"m_firstElementPrefix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ToUnknownStream, m_firstElementPrefix)},
+		{"m_firstElementName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ToUnknownStream, m_firstElementName)},
+		{"m_firstElementURI", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ToUnknownStream, m_firstElementURI)},
+		{"m_firstElementLocalName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ToUnknownStream, m_firstElementLocalName)},
+		{"m_firstTagNotEmitted", "Z", nullptr, $PRIVATE, $field(ToUnknownStream, m_firstTagNotEmitted)},
+		{"m_namespaceURI", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(ToUnknownStream, m_namespaceURI)},
+		{"m_namespacePrefix", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(ToUnknownStream, m_namespacePrefix)},
+		{"m_needToCallStartDocument", "Z", nullptr, $PRIVATE, $field(ToUnknownStream, m_needToCallStartDocument)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ToUnknownStream, init$, void)},
+		{"<init>", "(Ljavax/xml/transform/ErrorListener;)V", nullptr, $PUBLIC, $method(ToUnknownStream, init$, void, $ErrorListener*)},
+		{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, addAttribute, void, $String*, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, addAttribute, void, $String*, $String*, $String*, $String*, $String*, bool), "org.xml.sax.SAXException"},
+		{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, addAttribute, void, $String*, $String*)},
+		{"addAttributes", "(Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, addAttributes, void, $Attributes*), "org.xml.sax.SAXException"},
+		{"addUniqueAttribute", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, addUniqueAttribute, void, $String*, $String*, int32_t), "org.xml.sax.SAXException"},
+		{"asContentHandler", "()Lorg/xml/sax/ContentHandler;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, asContentHandler, $ContentHandler*), "java.io.IOException"},
+		{"asDOM3Serializer", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, asDOM3Serializer, $Object*), "java.io.IOException"},
+		{"asDOMSerializer", "()Lcom/sun/org/apache/xml/internal/serializer/DOMSerializer;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, asDOMSerializer, $DOMSerializer*), "java.io.IOException"},
+		{"attributeDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, attributeDecl, void, $String*, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"characters", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, characters, void, $String*), "org.xml.sax.SAXException"},
+		{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, close, void)},
+		{"comment", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, comment, void, $String*), "org.xml.sax.SAXException"},
+		{"comment", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, comment, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"elementDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, elementDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"emitFirstTag", "()V", nullptr, $PRIVATE, $method(ToUnknownStream, emitFirstTag, void), "org.xml.sax.SAXException"},
+		{"endCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, endCDATA, void), "org.xml.sax.SAXException"},
+		{"endDTD", "()V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, endDTD, void), "org.xml.sax.SAXException"},
+		{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, endDocument, void), "org.xml.sax.SAXException"},
+		{"endElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, endElement, void, $String*), "org.xml.sax.SAXException"},
+		{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"endEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, endEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, endPrefixMapping, void, $String*), "org.xml.sax.SAXException"},
+		{"entityReference", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, entityReference, void, $String*), "org.xml.sax.SAXException"},
+		{"externalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, externalEntityDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"firePseudoElement", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(ToUnknownStream, firePseudoElement, void, $String*)},
+		{"flush", "()V", nullptr, $PRIVATE, $method(ToUnknownStream, flush, void)},
+		{"flushPending", "()V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, flushPending, void), "org.xml.sax.SAXException"},
+		{"getDoctypePublic", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getDoctypePublic, $String*)},
+		{"getDoctypeSystem", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getDoctypeSystem, $String*)},
+		{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getEncoding, $String*)},
+		{"getIndent", "()Z", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getIndent, bool)},
+		{"getIndentAmount", "()I", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getIndentAmount, int32_t)},
+		{"getLocalNameUnknown", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ToUnknownStream, getLocalNameUnknown, $String*, $String*)},
+		{"getMediaType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getMediaType, $String*)},
+		{"getNamespaceMappings", "()Lcom/sun/org/apache/xml/internal/serializer/NamespaceMappings;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getNamespaceMappings, $NamespaceMappings*)},
+		{"getNamespaceURI", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getNamespaceURI, $String*, $String*, bool)},
+		{"getNamespaceURIFromPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getNamespaceURIFromPrefix, $String*, $String*)},
+		{"getOmitXMLDeclaration", "()Z", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getOmitXMLDeclaration, bool)},
+		{"getOutputFormat", "()Ljava/util/Properties;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getOutputFormat, $Properties*)},
+		{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getOutputStream, $OutputStream*)},
+		{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getPrefix, $String*, $String*)},
+		{"getPrefixPartUnknown", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ToUnknownStream, getPrefixPartUnknown, $String*, $String*)},
+		{"getStandalone", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getStandalone, $String*)},
+		{"getTransformer", "()Ljavax/xml/transform/Transformer;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getTransformer, $Transformer*)},
+		{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getVersion, $String*)},
+		{"getWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, getWriter, $Writer*)},
+		{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, ignorableWhitespace, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"initStreamOutput", "()V", nullptr, $PRIVATE, $method(ToUnknownStream, initStreamOutput, void), "org.xml.sax.SAXException"},
+		{"internalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, internalEntityDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"isFirstElemHTML", "()Z", nullptr, $PRIVATE, $method(ToUnknownStream, isFirstElemHTML, bool)},
+		{"namespaceAfterStartElement", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, namespaceAfterStartElement, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, processingInstruction, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"reset", "()Z", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, reset, bool)},
+		{"serialize", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, serialize, void, $Node*), "java.io.IOException"},
+		{"setCdataSectionElements", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(ToUnknownStream, setCdataSectionElements, void, $List*)},
+		{"setContentHandler", "(Lorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setContentHandler, void, $ContentHandler*)},
+		{"setDoctype", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setDoctype, void, $String*, $String*)},
+		{"setDoctypePublic", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setDoctypePublic, void, $String*)},
+		{"setDoctypeSystem", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setDoctypeSystem, void, $String*)},
+		{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setDocumentLocator, void, $Locator*)},
+		{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setEncoding, void, $String*)},
+		{"setEscaping", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setEscaping, bool, bool), "org.xml.sax.SAXException"},
+		{"setIndent", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setIndent, void, bool)},
+		{"setIndentAmount", "(I)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setIndentAmount, void, int32_t)},
+		{"setIsStandalone", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setIsStandalone, void, bool)},
+		{"setMediaType", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setMediaType, void, $String*)},
+		{"setOmitXMLDeclaration", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setOmitXMLDeclaration, void, bool)},
+		{"setOutputFormat", "(Ljava/util/Properties;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setOutputFormat, void, $Properties*)},
+		{"setOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setOutputStream, void, $OutputStream*)},
+		{"setSourceLocator", "(Ljavax/xml/transform/SourceLocator;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setSourceLocator, void, $SourceLocator*)},
+		{"setStandalone", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setStandalone, void, $String*)},
+		{"setTransformer", "(Ljavax/xml/transform/Transformer;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setTransformer, void, $Transformer*)},
+		{"setVersion", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setVersion, void, $String*)},
+		{"setWriter", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, setWriter, void, $Writer*)},
+		{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, skippedEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"startCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, startCDATA, void), "org.xml.sax.SAXException"},
+		{"startDTD", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, startDTD, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, startDocument, void), "org.xml.sax.SAXException"},
+		{"startElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, startElement, void, $String*), "org.xml.sax.SAXException"},
+		{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, startElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
+		{"startEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, startEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, startPrefixMapping, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;Z)Z", nullptr, $PUBLIC, $virtualMethod(ToUnknownStream, startPrefixMapping, bool, $String*, $String*, bool), "org.xml.sax.SAXException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serializer.ToUnknownStream",
+		"com.sun.org.apache.xml.internal.serializer.SerializerBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ToUnknownStream, name, initialize, &classInfo$$, ToUnknownStream::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ToUnknownStream));
+	});
 	return class$;
 }
 

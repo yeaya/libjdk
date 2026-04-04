@@ -1,5 +1,4 @@
 #include <HeadlessJInternalFrame$1$1.h>
-
 #include <HeadlessJInternalFrame$1$1$1.h>
 #include <HeadlessJInternalFrame$1.h>
 #include <java/beans/PropertyChangeListener.h>
@@ -18,50 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $BasicInternalFrameTitlePane = ::javax::swing::plaf::basic::BasicInternalFrameTitlePane;
 
-$FieldInfo _HeadlessJInternalFrame$1$1_FieldInfo_[] = {
-	{"this$0", "LHeadlessJInternalFrame$1;", nullptr, $FINAL | $SYNTHETIC, $field(HeadlessJInternalFrame$1$1, this$0)},
-	{}
-};
-
-$MethodInfo _HeadlessJInternalFrame$1$1_MethodInfo_[] = {
-	{"<init>", "(LHeadlessJInternalFrame$1;Ljavax/swing/JInternalFrame;)V", nullptr, 0, $method(HeadlessJInternalFrame$1$1, init$, void, $HeadlessJInternalFrame$1*, $JInternalFrame*)},
-	{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(HeadlessJInternalFrame$1$1, createPropertyChangeListener, $PropertyChangeListener*)},
-	{}
-};
-
-$EnclosingMethodInfo _HeadlessJInternalFrame$1$1_EnclosingMethodInfo_ = {
-	"HeadlessJInternalFrame$1",
-	"createNorthPane",
-	"(Ljavax/swing/JInternalFrame;)Ljavax/swing/JComponent;"
-};
-
-$InnerClassInfo _HeadlessJInternalFrame$1$1_InnerClassesInfo_[] = {
-	{"HeadlessJInternalFrame$1", nullptr, nullptr, 0},
-	{"HeadlessJInternalFrame$1$1", nullptr, nullptr, 0},
-	{"HeadlessJInternalFrame$1$1$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJInternalFrame$1$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"HeadlessJInternalFrame$1$1",
-	"javax.swing.plaf.basic.BasicInternalFrameTitlePane",
-	nullptr,
-	_HeadlessJInternalFrame$1$1_FieldInfo_,
-	_HeadlessJInternalFrame$1$1_MethodInfo_,
-	nullptr,
-	&_HeadlessJInternalFrame$1$1_EnclosingMethodInfo_,
-	_HeadlessJInternalFrame$1$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"HeadlessJInternalFrame"
-};
-
-$Object* allocate$HeadlessJInternalFrame$1$1($Class* clazz) {
-	return $of($alloc(HeadlessJInternalFrame$1$1));
-}
-
 void HeadlessJInternalFrame$1$1::init$($HeadlessJInternalFrame$1* this$0, $JInternalFrame* arg0) {
 	$set(this, this$0, this$0);
 	$BasicInternalFrameTitlePane::init$(arg0);
@@ -75,7 +30,44 @@ HeadlessJInternalFrame$1$1::HeadlessJInternalFrame$1$1() {
 }
 
 $Class* HeadlessJInternalFrame$1$1::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJInternalFrame$1$1, name, initialize, &_HeadlessJInternalFrame$1$1_ClassInfo_, allocate$HeadlessJInternalFrame$1$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LHeadlessJInternalFrame$1;", nullptr, $FINAL | $SYNTHETIC, $field(HeadlessJInternalFrame$1$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LHeadlessJInternalFrame$1;Ljavax/swing/JInternalFrame;)V", nullptr, 0, $method(HeadlessJInternalFrame$1$1, init$, void, $HeadlessJInternalFrame$1*, $JInternalFrame*)},
+		{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(HeadlessJInternalFrame$1$1, createPropertyChangeListener, $PropertyChangeListener*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"HeadlessJInternalFrame$1",
+		"createNorthPane",
+		"(Ljavax/swing/JInternalFrame;)Ljavax/swing/JComponent;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJInternalFrame$1", nullptr, nullptr, 0},
+		{"HeadlessJInternalFrame$1$1", nullptr, nullptr, 0},
+		{"HeadlessJInternalFrame$1$1$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"HeadlessJInternalFrame$1$1",
+		"javax.swing.plaf.basic.BasicInternalFrameTitlePane",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"HeadlessJInternalFrame"
+	};
+	$loadClass(HeadlessJInternalFrame$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HeadlessJInternalFrame$1$1));
+	});
 	return class$;
 }
 

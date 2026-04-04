@@ -63,6 +63,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::sun::swing::plaf::synth::DefaultSynthStyle* style);
 	void init$(::java::awt::Insets* insets, bool opaque, $Array<::sun::swing::plaf::synth::DefaultSynthStyle$StateInfo>* states, ::java::util::Map* data);

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/XMLInputSourceAdaptor.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityManager.h>
 #include <com/sun/org/apache/xerces/internal/util/URI$MalformedURIException.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLInputSource.h>
@@ -20,31 +19,6 @@ namespace com {
 					namespace internal {
 						namespace util {
 
-$FieldInfo _XMLInputSourceAdaptor_FieldInfo_[] = {
-	{"fSource", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;", nullptr, $PUBLIC | $FINAL, $field(XMLInputSourceAdaptor, fSource)},
-	{}
-};
-
-$MethodInfo _XMLInputSourceAdaptor_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V", nullptr, $PUBLIC, $method(XMLInputSourceAdaptor, init$, void, $XMLInputSource*)},
-	{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLInputSourceAdaptor, getSystemId, $String*)},
-	{"setSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLInputSourceAdaptor, setSystemId, void, $String*)},
-	{}
-};
-
-$ClassInfo _XMLInputSourceAdaptor_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.util.XMLInputSourceAdaptor",
-	"java.lang.Object",
-	"javax.xml.transform.Source",
-	_XMLInputSourceAdaptor_FieldInfo_,
-	_XMLInputSourceAdaptor_MethodInfo_
-};
-
-$Object* allocate$XMLInputSourceAdaptor($Class* clazz) {
-	return $of($alloc(XMLInputSourceAdaptor));
-}
-
 void XMLInputSourceAdaptor::init$($XMLInputSource* core) {
 	$set(this, fSource, core);
 }
@@ -54,10 +28,10 @@ void XMLInputSourceAdaptor::setSystemId($String* systemId) {
 }
 
 $String* XMLInputSourceAdaptor::getSystemId() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($String, var$0, $nc(this->fSource)->getSystemId());
-		return $XMLEntityManager::expandSystemId(var$0, $($nc(this->fSource)->getBaseSystemId()), false);
+		return $XMLEntityManager::expandSystemId(var$0, $(this->fSource->getBaseSystemId()), false);
 	} catch ($URI$MalformedURIException& e) {
 		return $nc(this->fSource)->getSystemId();
 	}
@@ -68,7 +42,27 @@ XMLInputSourceAdaptor::XMLInputSourceAdaptor() {
 }
 
 $Class* XMLInputSourceAdaptor::load$($String* name, bool initialize) {
-	$loadClass(XMLInputSourceAdaptor, name, initialize, &_XMLInputSourceAdaptor_ClassInfo_, allocate$XMLInputSourceAdaptor);
+	$FieldInfo fieldInfos$$[] = {
+		{"fSource", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;", nullptr, $PUBLIC | $FINAL, $field(XMLInputSourceAdaptor, fSource)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V", nullptr, $PUBLIC, $method(XMLInputSourceAdaptor, init$, void, $XMLInputSource*)},
+		{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLInputSourceAdaptor, getSystemId, $String*)},
+		{"setSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLInputSourceAdaptor, setSystemId, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.util.XMLInputSourceAdaptor",
+		"java.lang.Object",
+		"javax.xml.transform.Source",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLInputSourceAdaptor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLInputSourceAdaptor);
+	});
 	return class$;
 }
 

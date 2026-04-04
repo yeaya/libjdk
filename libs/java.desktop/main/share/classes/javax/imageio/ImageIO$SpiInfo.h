@@ -29,6 +29,7 @@ class ImageIO$SpiInfo : public ::java::lang::Enum {
 public:
 	ImageIO$SpiInfo();
 	static $Array<::javax::imageio::ImageIO$SpiInfo>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual $StringArray* info(::javax::imageio::spi::ImageReaderWriterSpi* spi) {return nullptr;}
 	static ::javax::imageio::ImageIO$SpiInfo* valueOf($String* name);

@@ -1,17 +1,11 @@
 #include <javax/swing/plaf/nimbus/TreeCellEditorPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics2D.h>
-#include <java/awt/Paint.h>
-#include <java/awt/Shape.h>
 #include <java/awt/geom/Ellipse2D$Float.h>
-#include <java/awt/geom/Ellipse2D.h>
 #include <java/awt/geom/Path2D$Float.h>
 #include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
-#include <java/awt/geom/Rectangle2D.h>
 #include <java/awt/geom/RoundRectangle2D$Float.h>
-#include <java/awt/geom/RoundRectangle2D.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter.h>
@@ -23,15 +17,10 @@
 #undef BACKGROUND_SELECTED
 
 using $Graphics2D = ::java::awt::Graphics2D;
-using $Paint = ::java::awt::Paint;
-using $Shape = ::java::awt::Shape;
-using $Ellipse2D = ::java::awt::geom::Ellipse2D;
 using $Ellipse2D$Float = ::java::awt::geom::Ellipse2D$Float;
 using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RoundRectangle2D = ::java::awt::geom::RoundRectangle2D;
 using $RoundRectangle2D$Float = ::java::awt::geom::RoundRectangle2D$Float;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -46,53 +35,12 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _TreeCellEditorPainter_FieldInfo_[] = {
-	{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(TreeCellEditorPainter, BACKGROUND_DISABLED)},
-	{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(TreeCellEditorPainter, BACKGROUND_ENABLED)},
-	{"BACKGROUND_ENABLED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(TreeCellEditorPainter, BACKGROUND_ENABLED_FOCUSED)},
-	{"BACKGROUND_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(TreeCellEditorPainter, BACKGROUND_SELECTED)},
-	{"state", "I", nullptr, $PRIVATE, $field(TreeCellEditorPainter, state)},
-	{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(TreeCellEditorPainter, ctx)},
-	{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(TreeCellEditorPainter, path)},
-	{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(TreeCellEditorPainter, rect)},
-	{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(TreeCellEditorPainter, roundRect)},
-	{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(TreeCellEditorPainter, ellipse)},
-	{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TreeCellEditorPainter, color1)},
-	{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TreeCellEditorPainter, color2)},
-	{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(TreeCellEditorPainter, componentColors)},
-	{}
-};
-
-$MethodInfo _TreeCellEditorPainter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(TreeCellEditorPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
-	{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(TreeCellEditorPainter, decodePath1, $Path2D*)},
-	{"decodePath2", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(TreeCellEditorPainter, decodePath2, $Path2D*)},
-	{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(TreeCellEditorPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(TreeCellEditorPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
-	{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(TreeCellEditorPainter, paintBackgroundEnabled, void, $Graphics2D*)},
-	{"paintBackgroundEnabledAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(TreeCellEditorPainter, paintBackgroundEnabledAndFocused, void, $Graphics2D*)},
-	{}
-};
-
-$ClassInfo _TreeCellEditorPainter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.TreeCellEditorPainter",
-	"javax.swing.plaf.nimbus.AbstractRegionPainter",
-	nullptr,
-	_TreeCellEditorPainter_FieldInfo_,
-	_TreeCellEditorPainter_MethodInfo_
-};
-
-$Object* allocate$TreeCellEditorPainter($Class* clazz) {
-	return $of($alloc(TreeCellEditorPainter));
-}
-
 void TreeCellEditorPainter::init$($AbstractRegionPainter$PaintContext* ctx, int32_t state) {
 	$AbstractRegionPainter::init$();
 	$set(this, path, $new($Path2D$Float));
-	$set(this, rect, $new($Rectangle2D$Float, (float)0, (float)0, (float)0, (float)0));
-	$set(this, roundRect, $new($RoundRectangle2D$Float, (float)0, (float)0, (float)0, (float)0, (float)0, (float)0));
-	$set(this, ellipse, $new($Ellipse2D$Float, (float)0, (float)0, (float)0, (float)0));
+	$set(this, rect, $new($Rectangle2D$Float, 0, 0, 0, 0));
+	$set(this, roundRect, $new($RoundRectangle2D$Float, 0, 0, 0, 0, 0, 0));
+	$set(this, ellipse, $new($Ellipse2D$Float, 0, 0, 0, 0));
 	$set(this, color1, decodeColor("nimbusBlueGrey"_s, 0.0f, -0.017358616f, -0.11372548f, 0));
 	$set(this, color2, decodeColor("nimbusFocus"_s, 0.0f, 0.0f, 0.0f, 0));
 	this->state = state;
@@ -103,15 +51,11 @@ void TreeCellEditorPainter::doPaint($Graphics2D* g, $JComponent* c, int32_t widt
 	$set(this, componentColors, extendedCacheKeys);
 	switch (this->state) {
 	case TreeCellEditorPainter::BACKGROUND_ENABLED:
-		{
-			paintBackgroundEnabled(g);
-			break;
-		}
+		paintBackgroundEnabled(g);
+		break;
 	case TreeCellEditorPainter::BACKGROUND_ENABLED_FOCUSED:
-		{
-			paintBackgroundEnabledAndFocused(g);
-			break;
-		}
+		paintBackgroundEnabledAndFocused(g);
+		break;
 	}
 }
 
@@ -133,27 +77,27 @@ void TreeCellEditorPainter::paintBackgroundEnabledAndFocused($Graphics2D* g) {
 
 $Path2D* TreeCellEditorPainter::decodePath1() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.0f);
+	double var$0 = decodeX(0.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.0f));
-	double var$1 = (double)decodeX(0.0f);
+	double var$1 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$1, decodeY(3.0f));
-	double var$2 = (double)decodeX(3.0f);
+	double var$2 = decodeX(3.0f);
 	$nc(this->path)->lineTo(var$2, decodeY(3.0f));
-	double var$3 = (double)decodeX(3.0f);
+	double var$3 = decodeX(3.0f);
 	$nc(this->path)->lineTo(var$3, decodeY(0.0f));
-	double var$4 = (double)decodeX(0.2f);
+	double var$4 = decodeX(0.2f);
 	$nc(this->path)->lineTo(var$4, decodeY(0.0f));
-	double var$5 = (double)decodeX(0.2f);
+	double var$5 = decodeX(0.2f);
 	$nc(this->path)->lineTo(var$5, decodeY(0.2f));
-	double var$6 = (double)decodeX(2.8f);
+	double var$6 = decodeX(2.8f);
 	$nc(this->path)->lineTo(var$6, decodeY(0.2f));
-	double var$7 = (double)decodeX(2.8f);
+	double var$7 = decodeX(2.8f);
 	$nc(this->path)->lineTo(var$7, decodeY(2.8f));
-	double var$8 = (double)decodeX(0.2f);
+	double var$8 = decodeX(0.2f);
 	$nc(this->path)->lineTo(var$8, decodeY(2.8f));
-	double var$9 = (double)decodeX(0.2f);
+	double var$9 = decodeX(0.2f);
 	$nc(this->path)->lineTo(var$9, decodeY(0.0f));
-	double var$10 = (double)decodeX(0.0f);
+	double var$10 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$10, decodeY(0.0f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -161,27 +105,27 @@ $Path2D* TreeCellEditorPainter::decodePath1() {
 
 $Path2D* TreeCellEditorPainter::decodePath2() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.0f);
+	double var$0 = decodeX(0.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.0f));
-	double var$1 = (double)decodeX(0.0f);
+	double var$1 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$1, decodeY(3.0f));
-	double var$2 = (double)decodeX(3.0f);
+	double var$2 = decodeX(3.0f);
 	$nc(this->path)->lineTo(var$2, decodeY(3.0f));
-	double var$3 = (double)decodeX(3.0f);
+	double var$3 = decodeX(3.0f);
 	$nc(this->path)->lineTo(var$3, decodeY(0.0f));
-	double var$4 = (double)decodeX(0.24000001f);
+	double var$4 = decodeX(0.24000001f);
 	$nc(this->path)->lineTo(var$4, decodeY(0.0f));
-	double var$5 = (double)decodeX(0.24000001f);
+	double var$5 = decodeX(0.24000001f);
 	$nc(this->path)->lineTo(var$5, decodeY(0.24000001f));
-	double var$6 = (double)decodeX(2.7600007f);
+	double var$6 = decodeX(2.7600007f);
 	$nc(this->path)->lineTo(var$6, decodeY(0.24000001f));
-	double var$7 = (double)decodeX(2.7600007f);
+	double var$7 = decodeX(2.7600007f);
 	$nc(this->path)->lineTo(var$7, decodeY(2.7599998f));
-	double var$8 = (double)decodeX(0.24000001f);
+	double var$8 = decodeX(0.24000001f);
 	$nc(this->path)->lineTo(var$8, decodeY(2.7599998f));
-	double var$9 = (double)decodeX(0.24000001f);
+	double var$9 = decodeX(0.24000001f);
 	$nc(this->path)->lineTo(var$9, decodeY(0.0f));
-	double var$10 = (double)decodeX(0.0f);
+	double var$10 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$10, decodeY(0.0f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -191,7 +135,43 @@ TreeCellEditorPainter::TreeCellEditorPainter() {
 }
 
 $Class* TreeCellEditorPainter::load$($String* name, bool initialize) {
-	$loadClass(TreeCellEditorPainter, name, initialize, &_TreeCellEditorPainter_ClassInfo_, allocate$TreeCellEditorPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(TreeCellEditorPainter, BACKGROUND_DISABLED)},
+		{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(TreeCellEditorPainter, BACKGROUND_ENABLED)},
+		{"BACKGROUND_ENABLED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(TreeCellEditorPainter, BACKGROUND_ENABLED_FOCUSED)},
+		{"BACKGROUND_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(TreeCellEditorPainter, BACKGROUND_SELECTED)},
+		{"state", "I", nullptr, $PRIVATE, $field(TreeCellEditorPainter, state)},
+		{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(TreeCellEditorPainter, ctx)},
+		{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(TreeCellEditorPainter, path)},
+		{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(TreeCellEditorPainter, rect)},
+		{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(TreeCellEditorPainter, roundRect)},
+		{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(TreeCellEditorPainter, ellipse)},
+		{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TreeCellEditorPainter, color1)},
+		{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TreeCellEditorPainter, color2)},
+		{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(TreeCellEditorPainter, componentColors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(TreeCellEditorPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
+		{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(TreeCellEditorPainter, decodePath1, $Path2D*)},
+		{"decodePath2", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(TreeCellEditorPainter, decodePath2, $Path2D*)},
+		{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(TreeCellEditorPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(TreeCellEditorPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
+		{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(TreeCellEditorPainter, paintBackgroundEnabled, void, $Graphics2D*)},
+		{"paintBackgroundEnabledAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(TreeCellEditorPainter, paintBackgroundEnabledAndFocused, void, $Graphics2D*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.TreeCellEditorPainter",
+		"javax.swing.plaf.nimbus.AbstractRegionPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TreeCellEditorPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeCellEditorPainter);
+	});
 	return class$;
 }
 

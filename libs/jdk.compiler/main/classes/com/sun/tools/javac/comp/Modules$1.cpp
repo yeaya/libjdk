@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Modules$1.h>
-
 #include <com/sun/tools/javac/code/Flags.h>
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/ModuleFinder.h>
@@ -19,9 +18,7 @@
 
 using $Flags = ::com::sun::tools::javac::code::Flags;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
-using $ModuleFinder = ::com::sun::tools::javac::code::ModuleFinder;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$CompletionFailure = ::com::sun::tools::javac::code::Symbol$CompletionFailure;
 using $Symbol$ModuleSymbol = ::com::sun::tools::javac::code::Symbol$ModuleSymbol;
 using $Modules = ::com::sun::tools::javac::comp::Modules;
@@ -31,7 +28,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JavaFileObject = ::javax::tools::JavaFileObject;
 using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
 
 namespace com {
@@ -39,51 +35,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Modules$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Modules;", nullptr, $FINAL | $SYNTHETIC, $field(Modules$1, this$0)},
-	{}
-};
-
-$MethodInfo _Modules$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Modules;)V", nullptr, 0, $method(Modules$1, init$, void, $Modules*)},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(Modules$1, complete, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{"initErrModule", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE, $method(Modules$1, initErrModule, void, $Symbol$ModuleSymbol*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Modules$1, toString, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _Modules$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Modules",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Modules$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Modules$1", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Symbol$Completer", "com.sun.tools.javac.code.Symbol", "Completer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Modules$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Modules$1",
-	"java.lang.Object",
-	"com.sun.tools.javac.code.Symbol$Completer",
-	_Modules$1_FieldInfo_,
-	_Modules$1_MethodInfo_,
-	nullptr,
-	&_Modules$1_EnclosingMethodInfo_,
-	_Modules$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Modules"
-};
-
-$Object* allocate$Modules$1($Class* clazz) {
-	return $of($alloc(Modules$1));
-}
 
 void Modules$1::init$($Modules* this$0) {
 	$set(this, this$0, this$0);
@@ -94,7 +45,7 @@ void Modules$1::complete($Symbol* sym) {
 	$init($Kinds$Kind);
 	if ($nc(msym)->kind == $Kinds$Kind::ERR) {
 		initErrModule(msym);
-	} else if (((int64_t)(msym->flags_field & (uint64_t)$Flags::AUTOMATIC_MODULE)) != 0) {
+	} else if ((msym->flags_field & $Flags::AUTOMATIC_MODULE) != 0) {
 		this->this$0->setupAutomaticModule(msym);
 	} else {
 		try {
@@ -107,7 +58,7 @@ void Modules$1::complete($Symbol* sym) {
 		}
 	}
 	$init($JavaFileObject$Kind);
-	if ($nc($nc(msym)->module_info)->classfile == nullptr || $nc($nc($nc(msym)->module_info)->classfile)->getKind() == $JavaFileObject$Kind::CLASS) {
+	if ($nc(msym->module_info)->classfile == nullptr || msym->module_info->classfile->getKind() == $JavaFileObject$Kind::CLASS) {
 		this->this$0->completeModule(msym);
 	}
 }
@@ -128,7 +79,45 @@ Modules$1::Modules$1() {
 }
 
 $Class* Modules$1::load$($String* name, bool initialize) {
-	$loadClass(Modules$1, name, initialize, &_Modules$1_ClassInfo_, allocate$Modules$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Modules;", nullptr, $FINAL | $SYNTHETIC, $field(Modules$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Modules;)V", nullptr, 0, $method(Modules$1, init$, void, $Modules*)},
+		{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(Modules$1, complete, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+		{"initErrModule", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE, $method(Modules$1, initErrModule, void, $Symbol$ModuleSymbol*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Modules$1, toString, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Modules",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Modules$1", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Symbol$Completer", "com.sun.tools.javac.code.Symbol", "Completer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Modules$1",
+		"java.lang.Object",
+		"com.sun.tools.javac.code.Symbol$Completer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Modules"
+	};
+	$loadClass(Modules$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Modules$1);
+	});
 	return class$;
 }
 

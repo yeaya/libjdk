@@ -1,5 +1,4 @@
 #include <sun/security/krb5/KdcComm$KdcCommunication.h>
-
 #include <java/net/SocketTimeoutException.h>
 #include <sun/security/krb5/KdcComm.h>
 #include <sun/security/krb5/internal/NetClient.h>
@@ -7,7 +6,6 @@
 
 #undef DEBUG
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -20,47 +18,6 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 
-$FieldInfo _KdcComm$KdcCommunication_FieldInfo_[] = {
-	{"kdc", "Ljava/lang/String;", nullptr, $PRIVATE, $field(KdcComm$KdcCommunication, kdc)},
-	{"port", "I", nullptr, $PRIVATE, $field(KdcComm$KdcCommunication, port)},
-	{"useTCP", "Z", nullptr, $PRIVATE, $field(KdcComm$KdcCommunication, useTCP)},
-	{"timeout", "I", nullptr, $PRIVATE, $field(KdcComm$KdcCommunication, timeout)},
-	{"retries", "I", nullptr, $PRIVATE, $field(KdcComm$KdcCommunication, retries)},
-	{"obuf", "[B", nullptr, $PRIVATE, $field(KdcComm$KdcCommunication, obuf)},
-	{}
-};
-
-$MethodInfo _KdcComm$KdcCommunication_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;IZII[B)V", nullptr, $PUBLIC, $method(KdcComm$KdcCommunication, init$, void, $String*, int32_t, bool, int32_t, int32_t, $bytes*)},
-	{"run", "()[B", nullptr, $PUBLIC, $virtualMethod(KdcComm$KdcCommunication, run, $Object*), "java.io.IOException,sun.security.krb5.KrbException"},
-	{}
-};
-
-$InnerClassInfo _KdcComm$KdcCommunication_InnerClassesInfo_[] = {
-	{"sun.security.krb5.KdcComm$KdcCommunication", "sun.security.krb5.KdcComm", "KdcCommunication", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _KdcComm$KdcCommunication_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.krb5.KdcComm$KdcCommunication",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	_KdcComm$KdcCommunication_FieldInfo_,
-	_KdcComm$KdcCommunication_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<[B>;",
-	nullptr,
-	_KdcComm$KdcCommunication_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.krb5.KdcComm"
-};
-
-$Object* allocate$KdcComm$KdcCommunication($Class* clazz) {
-	return $of($alloc(KdcComm$KdcCommunication));
-}
-
 void KdcComm$KdcCommunication::init$($String* kdc, int32_t port, bool useTCP, int32_t timeout, int32_t retries, $bytes* obuf) {
 	$set(this, kdc, kdc);
 	this->port = port;
@@ -71,7 +28,7 @@ void KdcComm$KdcCommunication::init$($String* kdc, int32_t port, bool useTCP, in
 }
 
 $Object* KdcComm$KdcCommunication::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, ibuf, nullptr);
 	for (int32_t i = 1; i <= this->retries; ++i) {
 		$var($String, proto, this->useTCP ? "TCP"_s : "UDP"_s);
@@ -81,39 +38,37 @@ $Object* KdcComm$KdcCommunication::run() {
 		}
 		try {
 			$var($NetClient, kdcClient, $NetClient::getInstance(proto, this->kdc, this->port, this->timeout));
-			{
-				$var($Throwable, var$0, nullptr);
-				bool break$1 = false;
+			$var($Throwable, var$0, nullptr);
+			bool break$1 = false;
+			try {
 				try {
-					try {
-						$nc(kdcClient)->send(this->obuf);
-						$assign(ibuf, kdcClient->receive());
-						// break;
-						break$1 = true;
-						goto $finally;
-					} catch ($Throwable& t$) {
-						if (kdcClient != nullptr) {
-							try {
-								kdcClient->close();
-							} catch ($Throwable& x2) {
-								t$->addSuppressed(x2);
-							}
-						}
-						$throw(t$);
-					}
-				} catch ($Throwable& var$2) {
-					$assign(var$0, var$2);
-				} $finally: {
+					$nc(kdcClient)->send(this->obuf);
+					$assign(ibuf, kdcClient->receive());
+					// break;
+					break$1 = true;
+					goto $finally;
+				} catch ($Throwable& t$) {
 					if (kdcClient != nullptr) {
-						kdcClient->close();
+						try {
+							kdcClient->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
 					}
+					$throw(t$);
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
+			} catch ($Throwable& var$2) {
+				$assign(var$0, var$2);
+			} $finally: {
+				if (kdcClient != nullptr) {
+					kdcClient->close();
 				}
-				if (break$1) {
-					break;
-				}
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+			if (break$1) {
+				break;
 			}
 		} catch ($SocketTimeoutException& se) {
 			if ($KdcComm::DEBUG) {
@@ -125,14 +80,49 @@ $Object* KdcComm$KdcCommunication::run() {
 			}
 		}
 	}
-	return $of(ibuf);
+	return ibuf;
 }
 
 KdcComm$KdcCommunication::KdcComm$KdcCommunication() {
 }
 
 $Class* KdcComm$KdcCommunication::load$($String* name, bool initialize) {
-	$loadClass(KdcComm$KdcCommunication, name, initialize, &_KdcComm$KdcCommunication_ClassInfo_, allocate$KdcComm$KdcCommunication);
+	$FieldInfo fieldInfos$$[] = {
+		{"kdc", "Ljava/lang/String;", nullptr, $PRIVATE, $field(KdcComm$KdcCommunication, kdc)},
+		{"port", "I", nullptr, $PRIVATE, $field(KdcComm$KdcCommunication, port)},
+		{"useTCP", "Z", nullptr, $PRIVATE, $field(KdcComm$KdcCommunication, useTCP)},
+		{"timeout", "I", nullptr, $PRIVATE, $field(KdcComm$KdcCommunication, timeout)},
+		{"retries", "I", nullptr, $PRIVATE, $field(KdcComm$KdcCommunication, retries)},
+		{"obuf", "[B", nullptr, $PRIVATE, $field(KdcComm$KdcCommunication, obuf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;IZII[B)V", nullptr, $PUBLIC, $method(KdcComm$KdcCommunication, init$, void, $String*, int32_t, bool, int32_t, int32_t, $bytes*)},
+		{"run", "()[B", nullptr, $PUBLIC, $virtualMethod(KdcComm$KdcCommunication, run, $Object*), "java.io.IOException,sun.security.krb5.KrbException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.krb5.KdcComm$KdcCommunication", "sun.security.krb5.KdcComm", "KdcCommunication", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.krb5.KdcComm$KdcCommunication",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<[B>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.krb5.KdcComm"
+	};
+	$loadClass(KdcComm$KdcCommunication, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KdcComm$KdcCommunication);
+	});
 	return class$;
 }
 

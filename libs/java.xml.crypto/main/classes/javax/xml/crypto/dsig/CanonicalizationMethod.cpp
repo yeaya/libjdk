@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/dsig/CanonicalizationMethod.h>
-
 #include <jcpp.h>
 
 #undef EXCLUSIVE
@@ -18,34 +17,6 @@ namespace javax {
 		namespace crypto {
 			namespace dsig {
 
-$FieldInfo _CanonicalizationMethod_FieldInfo_[] = {
-	{"INCLUSIVE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CanonicalizationMethod, INCLUSIVE)},
-	{"INCLUSIVE_WITH_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CanonicalizationMethod, INCLUSIVE_WITH_COMMENTS)},
-	{"EXCLUSIVE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CanonicalizationMethod, EXCLUSIVE)},
-	{"EXCLUSIVE_WITH_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CanonicalizationMethod, EXCLUSIVE_WITH_COMMENTS)},
-	{"INCLUSIVE_11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CanonicalizationMethod, INCLUSIVE_11)},
-	{"INCLUSIVE_11_WITH_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CanonicalizationMethod, INCLUSIVE_11_WITH_COMMENTS)},
-	{}
-};
-
-$MethodInfo _CanonicalizationMethod_MethodInfo_[] = {
-	{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CanonicalizationMethod_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.xml.crypto.dsig.CanonicalizationMethod",
-	nullptr,
-	"javax.xml.crypto.dsig.Transform",
-	_CanonicalizationMethod_FieldInfo_,
-	_CanonicalizationMethod_MethodInfo_
-};
-
-$Object* allocate$CanonicalizationMethod($Class* clazz) {
-	return $of($alloc(CanonicalizationMethod));
-}
-
 $String* CanonicalizationMethod::INCLUSIVE = nullptr;
 $String* CanonicalizationMethod::INCLUSIVE_WITH_COMMENTS = nullptr;
 $String* CanonicalizationMethod::EXCLUSIVE = nullptr;
@@ -53,7 +24,7 @@ $String* CanonicalizationMethod::EXCLUSIVE_WITH_COMMENTS = nullptr;
 $String* CanonicalizationMethod::INCLUSIVE_11 = nullptr;
 $String* CanonicalizationMethod::INCLUSIVE_11_WITH_COMMENTS = nullptr;
 
-void clinit$CanonicalizationMethod($Class* class$) {
+void CanonicalizationMethod::clinit$($Class* clazz) {
 	$assignStatic(CanonicalizationMethod::INCLUSIVE, "http://www.w3.org/TR/2001/REC-xml-c14n-20010315"_s);
 	$assignStatic(CanonicalizationMethod::INCLUSIVE_WITH_COMMENTS, "http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments"_s);
 	$assignStatic(CanonicalizationMethod::EXCLUSIVE, "http://www.w3.org/2001/10/xml-exc-c14n#"_s);
@@ -63,7 +34,30 @@ void clinit$CanonicalizationMethod($Class* class$) {
 }
 
 $Class* CanonicalizationMethod::load$($String* name, bool initialize) {
-	$loadClass(CanonicalizationMethod, name, initialize, &_CanonicalizationMethod_ClassInfo_, clinit$CanonicalizationMethod, allocate$CanonicalizationMethod);
+	$FieldInfo fieldInfos$$[] = {
+		{"INCLUSIVE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CanonicalizationMethod, INCLUSIVE)},
+		{"INCLUSIVE_WITH_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CanonicalizationMethod, INCLUSIVE_WITH_COMMENTS)},
+		{"EXCLUSIVE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CanonicalizationMethod, EXCLUSIVE)},
+		{"EXCLUSIVE_WITH_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CanonicalizationMethod, EXCLUSIVE_WITH_COMMENTS)},
+		{"INCLUSIVE_11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CanonicalizationMethod, INCLUSIVE_11)},
+		{"INCLUSIVE_11_WITH_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CanonicalizationMethod, INCLUSIVE_11_WITH_COMMENTS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.xml.crypto.dsig.CanonicalizationMethod",
+		nullptr,
+		"javax.xml.crypto.dsig.Transform",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CanonicalizationMethod, name, initialize, &classInfo$$, CanonicalizationMethod::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CanonicalizationMethod));
+	});
 	return class$;
 }
 

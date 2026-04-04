@@ -1,5 +1,4 @@
 #include <java/applet/AppletContext.h>
-
 #include <java/applet/Applet.h>
 #include <java/applet/AudioClip.h>
 #include <java/awt/Image.h>
@@ -24,50 +23,44 @@ using $Iterator = ::java::util::Iterator;
 namespace java {
 	namespace applet {
 
-$NamedAttribute AppletContext_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _AppletContext_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", AppletContext_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _AppletContext_MethodInfo_[] = {
-	{"getApplet", "(Ljava/lang/String;)Ljava/applet/Applet;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AppletContext, getApplet, $Applet*, $String*)},
-	{"getApplets", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/applet/Applet;>;", $PUBLIC | $ABSTRACT, $virtualMethod(AppletContext, getApplets, $Enumeration*)},
-	{"getAudioClip", "(Ljava/net/URL;)Ljava/applet/AudioClip;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AppletContext, getAudioClip, $AudioClip*, $URL*)},
-	{"getImage", "(Ljava/net/URL;)Ljava/awt/Image;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AppletContext, getImage, $Image*, $URL*)},
-	{"getStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AppletContext, getStream, $InputStream*, $String*)},
-	{"getStreamKeys", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(AppletContext, getStreamKeys, $Iterator*)},
-	{"setStream", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AppletContext, setStream, void, $String*, $InputStream*), "java.io.IOException"},
-	{"showDocument", "(Ljava/net/URL;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AppletContext, showDocument, void, $URL*)},
-	{"showDocument", "(Ljava/net/URL;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AppletContext, showDocument, void, $URL*, $String*)},
-	{"showStatus", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AppletContext, showStatus, void, $String*)},
-	{}
-};
-
-$ClassInfo _AppletContext_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.applet.AppletContext",
-	nullptr,
-	nullptr,
-	nullptr,
-	_AppletContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_AppletContext_Annotations_
-};
-
-$Object* allocate$AppletContext($Class* clazz) {
-	return $of($alloc(AppletContext));
-}
-
 $Class* AppletContext::load$($String* name, bool initialize) {
-	$loadClass(AppletContext, name, initialize, &_AppletContext_ClassInfo_, allocate$AppletContext);
+	$MethodInfo methodInfos$$[] = {
+		{"getApplet", "(Ljava/lang/String;)Ljava/applet/Applet;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AppletContext, getApplet, $Applet*, $String*)},
+		{"getApplets", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/applet/Applet;>;", $PUBLIC | $ABSTRACT, $virtualMethod(AppletContext, getApplets, $Enumeration*)},
+		{"getAudioClip", "(Ljava/net/URL;)Ljava/applet/AudioClip;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AppletContext, getAudioClip, $AudioClip*, $URL*)},
+		{"getImage", "(Ljava/net/URL;)Ljava/awt/Image;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AppletContext, getImage, $Image*, $URL*)},
+		{"getStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AppletContext, getStream, $InputStream*, $String*)},
+		{"getStreamKeys", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(AppletContext, getStreamKeys, $Iterator*)},
+		{"setStream", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AppletContext, setStream, void, $String*, $InputStream*), "java.io.IOException"},
+		{"showDocument", "(Ljava/net/URL;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AppletContext, showDocument, void, $URL*)},
+		{"showDocument", "(Ljava/net/URL;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AppletContext, showDocument, void, $URL*, $String*)},
+		{"showStatus", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AppletContext, showStatus, void, $String*)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.applet.AppletContext",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(AppletContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AppletContext);
+	});
 	return class$;
 }
 

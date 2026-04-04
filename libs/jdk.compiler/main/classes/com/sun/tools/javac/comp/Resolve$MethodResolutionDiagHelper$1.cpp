@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper$1.h>
-
 #include <com/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper$Template.h>
 #include <jcpp.h>
 
@@ -16,45 +15,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$MethodInfo _Resolve$MethodResolutionDiagHelper$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[Lcom/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper$Template;)V", nullptr, $TRANSIENT, $method(Resolve$MethodResolutionDiagHelper$1, init$, void, $String*, $Resolve$MethodResolutionDiagHelper$TemplateArray*)},
-	{"matches", "(Ljava/lang/Object;)Z", nullptr, 0, $virtualMethod(Resolve$MethodResolutionDiagHelper$1, matches, bool, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _Resolve$MethodResolutionDiagHelper$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Resolve$MethodResolutionDiagHelper$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper", "com.sun.tools.javac.comp.Resolve", "MethodResolutionDiagHelper", $STATIC},
-	{"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$1", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$Template", "com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper", "Template", $STATIC},
-	{}
-};
-
-$ClassInfo _Resolve$MethodResolutionDiagHelper$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$1",
-	"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$Template",
-	nullptr,
-	nullptr,
-	_Resolve$MethodResolutionDiagHelper$1_MethodInfo_,
-	nullptr,
-	&_Resolve$MethodResolutionDiagHelper$1_EnclosingMethodInfo_,
-	_Resolve$MethodResolutionDiagHelper$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$MethodResolutionDiagHelper$1($Class* clazz) {
-	return $of($alloc(Resolve$MethodResolutionDiagHelper$1));
-}
-
 void Resolve$MethodResolutionDiagHelper$1::init$($String* key, $Resolve$MethodResolutionDiagHelper$TemplateArray* subTemplates) {
 	$Resolve$MethodResolutionDiagHelper$Template::init$(key, subTemplates);
 }
@@ -67,7 +27,40 @@ Resolve$MethodResolutionDiagHelper$1::Resolve$MethodResolutionDiagHelper$1() {
 }
 
 $Class* Resolve$MethodResolutionDiagHelper$1::load$($String* name, bool initialize) {
-	$loadClass(Resolve$MethodResolutionDiagHelper$1, name, initialize, &_Resolve$MethodResolutionDiagHelper$1_ClassInfo_, allocate$Resolve$MethodResolutionDiagHelper$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;[Lcom/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper$Template;)V", nullptr, $TRANSIENT, $method(Resolve$MethodResolutionDiagHelper$1, init$, void, $String*, $Resolve$MethodResolutionDiagHelper$TemplateArray*)},
+		{"matches", "(Ljava/lang/Object;)Z", nullptr, 0, $virtualMethod(Resolve$MethodResolutionDiagHelper$1, matches, bool, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper", "com.sun.tools.javac.comp.Resolve", "MethodResolutionDiagHelper", $STATIC},
+		{"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$1", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$Template", "com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper", "Template", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$1",
+		"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$Template",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$MethodResolutionDiagHelper$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$MethodResolutionDiagHelper$1);
+	});
 	return class$;
 }
 

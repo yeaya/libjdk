@@ -1,5 +1,4 @@
 #include <jdk/xml/internal/JdkConstants.h>
-
 #include <jdk/xml/internal/SecuritySupport.h>
 #include <jcpp.h>
 
@@ -70,231 +69,6 @@ namespace jdk {
 	namespace xml {
 		namespace internal {
 
-$NamedAttribute JdkConstants_Attribute_var$0[] = {
-	{"since", 's', "17"},
-	{}
-};
-
-$CompoundAttribute _JdkConstants_FieldAnnotations_ORACLE_JAXP_PROPERTY_PREFIX[] = {
-	{"Ljava/lang/Deprecated;", JdkConstants_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute JdkConstants_Attribute_var$1[] = {
-	{"since", 's', "17"},
-	{}
-};
-
-$CompoundAttribute _JdkConstants_FieldAnnotations_JDK_ENTITY_EXPANSION_LIMIT[] = {
-	{"Ljava/lang/Deprecated;", JdkConstants_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JdkConstants_Attribute_var$2[] = {
-	{"since", 's', "17"},
-	{}
-};
-
-$CompoundAttribute _JdkConstants_FieldAnnotations_JDK_ELEMENT_ATTRIBUTE_LIMIT[] = {
-	{"Ljava/lang/Deprecated;", JdkConstants_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute JdkConstants_Attribute_var$3[] = {
-	{"since", 's', "17"},
-	{}
-};
-
-$CompoundAttribute _JdkConstants_FieldAnnotations_JDK_MAX_OCCUR_LIMIT[] = {
-	{"Ljava/lang/Deprecated;", JdkConstants_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute JdkConstants_Attribute_var$4[] = {
-	{"since", 's', "17"},
-	{}
-};
-
-$CompoundAttribute _JdkConstants_FieldAnnotations_JDK_TOTAL_ENTITY_SIZE_LIMIT[] = {
-	{"Ljava/lang/Deprecated;", JdkConstants_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute JdkConstants_Attribute_var$5[] = {
-	{"since", 's', "17"},
-	{}
-};
-
-$CompoundAttribute _JdkConstants_FieldAnnotations_JDK_GENERAL_ENTITY_SIZE_LIMIT[] = {
-	{"Ljava/lang/Deprecated;", JdkConstants_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute JdkConstants_Attribute_var$6[] = {
-	{"since", 's', "17"},
-	{}
-};
-
-$CompoundAttribute _JdkConstants_FieldAnnotations_JDK_ENTITY_REPLACEMENT_LIMIT[] = {
-	{"Ljava/lang/Deprecated;", JdkConstants_Attribute_var$6},
-	{}
-};
-
-$NamedAttribute JdkConstants_Attribute_var$7[] = {
-	{"since", 's', "17"},
-	{}
-};
-
-$CompoundAttribute _JdkConstants_FieldAnnotations_JDK_PARAMETER_ENTITY_SIZE_LIMIT[] = {
-	{"Ljava/lang/Deprecated;", JdkConstants_Attribute_var$7},
-	{}
-};
-
-$NamedAttribute JdkConstants_Attribute_var$8[] = {
-	{"since", 's', "17"},
-	{}
-};
-
-$CompoundAttribute _JdkConstants_FieldAnnotations_JDK_XML_NAME_LIMIT[] = {
-	{"Ljava/lang/Deprecated;", JdkConstants_Attribute_var$8},
-	{}
-};
-
-$NamedAttribute JdkConstants_Attribute_var$9[] = {
-	{"since", 's', "17"},
-	{}
-};
-
-$CompoundAttribute _JdkConstants_FieldAnnotations_JDK_MAX_ELEMENT_DEPTH[] = {
-	{"Ljava/lang/Deprecated;", JdkConstants_Attribute_var$9},
-	{}
-};
-
-$NamedAttribute JdkConstants_Attribute_var$10[] = {
-	{"since", 's', "17"},
-	{}
-};
-
-$CompoundAttribute _JdkConstants_FieldAnnotations_JDK_ENTITY_COUNT_INFO[] = {
-	{"Ljava/lang/Deprecated;", JdkConstants_Attribute_var$10},
-	{}
-};
-
-$NamedAttribute JdkConstants_Attribute_var$11[] = {
-	{"since", 's', "17"},
-	{}
-};
-
-$CompoundAttribute _JdkConstants_FieldAnnotations_ORACLE_FEATURE_SERVICE_MECHANISM[] = {
-	{"Ljava/lang/Deprecated;", JdkConstants_Attribute_var$11},
-	{}
-};
-
-$NamedAttribute JdkConstants_Attribute_var$12[] = {
-	{"since", 's', "17"},
-	{}
-};
-
-$CompoundAttribute _JdkConstants_FieldAnnotations_FQ_IS_STANDALONE[] = {
-	{"Ljava/lang/Deprecated;", JdkConstants_Attribute_var$12},
-	{}
-};
-
-$NamedAttribute JdkConstants_Attribute_var$13[] = {
-	{"since", 's', "17"},
-	{}
-};
-
-$CompoundAttribute _JdkConstants_FieldAnnotations_ORACLE_IS_STANDALONE[] = {
-	{"Ljava/lang/Deprecated;", JdkConstants_Attribute_var$13},
-	{}
-};
-
-$NamedAttribute JdkConstants_Attribute_var$14[] = {
-	{"since", 's', "17"},
-	{}
-};
-
-$CompoundAttribute _JdkConstants_FieldAnnotations_JDK_IS_STANDALONE[] = {
-	{"Ljava/lang/Deprecated;", JdkConstants_Attribute_var$14},
-	{}
-};
-
-$FieldInfo _JdkConstants_FieldInfo_[] = {
-	{"SECURITY_MANAGER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SECURITY_MANAGER)},
-	{"ORACLE_JAXP_PROPERTY_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, ORACLE_JAXP_PROPERTY_PREFIX), _JdkConstants_FieldAnnotations_ORACLE_JAXP_PROPERTY_PREFIX},
-	{"JDK_ENTITY_EXPANSION_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, JDK_ENTITY_EXPANSION_LIMIT), _JdkConstants_FieldAnnotations_JDK_ENTITY_EXPANSION_LIMIT},
-	{"JDK_ELEMENT_ATTRIBUTE_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, JDK_ELEMENT_ATTRIBUTE_LIMIT), _JdkConstants_FieldAnnotations_JDK_ELEMENT_ATTRIBUTE_LIMIT},
-	{"JDK_MAX_OCCUR_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, JDK_MAX_OCCUR_LIMIT), _JdkConstants_FieldAnnotations_JDK_MAX_OCCUR_LIMIT},
-	{"JDK_TOTAL_ENTITY_SIZE_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, JDK_TOTAL_ENTITY_SIZE_LIMIT), _JdkConstants_FieldAnnotations_JDK_TOTAL_ENTITY_SIZE_LIMIT},
-	{"JDK_GENERAL_ENTITY_SIZE_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, JDK_GENERAL_ENTITY_SIZE_LIMIT), _JdkConstants_FieldAnnotations_JDK_GENERAL_ENTITY_SIZE_LIMIT},
-	{"JDK_ENTITY_REPLACEMENT_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, JDK_ENTITY_REPLACEMENT_LIMIT), _JdkConstants_FieldAnnotations_JDK_ENTITY_REPLACEMENT_LIMIT},
-	{"JDK_PARAMETER_ENTITY_SIZE_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, JDK_PARAMETER_ENTITY_SIZE_LIMIT), _JdkConstants_FieldAnnotations_JDK_PARAMETER_ENTITY_SIZE_LIMIT},
-	{"JDK_XML_NAME_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, JDK_XML_NAME_LIMIT), _JdkConstants_FieldAnnotations_JDK_XML_NAME_LIMIT},
-	{"JDK_MAX_ELEMENT_DEPTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, JDK_MAX_ELEMENT_DEPTH), _JdkConstants_FieldAnnotations_JDK_MAX_ELEMENT_DEPTH},
-	{"JDK_ENTITY_COUNT_INFO", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, JDK_ENTITY_COUNT_INFO), _JdkConstants_FieldAnnotations_JDK_ENTITY_COUNT_INFO},
-	{"JDK_DEBUG_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, JDK_DEBUG_LIMIT)},
-	{"SP_ENTITY_EXPANSION_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_ENTITY_EXPANSION_LIMIT)},
-	{"SP_ELEMENT_ATTRIBUTE_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_ELEMENT_ATTRIBUTE_LIMIT)},
-	{"SP_MAX_OCCUR_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_MAX_OCCUR_LIMIT)},
-	{"SP_TOTAL_ENTITY_SIZE_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_TOTAL_ENTITY_SIZE_LIMIT)},
-	{"SP_GENERAL_ENTITY_SIZE_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_GENERAL_ENTITY_SIZE_LIMIT)},
-	{"SP_ENTITY_REPLACEMENT_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_ENTITY_REPLACEMENT_LIMIT)},
-	{"SP_PARAMETER_ENTITY_SIZE_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_PARAMETER_ENTITY_SIZE_LIMIT)},
-	{"SP_XML_NAME_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_XML_NAME_LIMIT)},
-	{"SP_MAX_ELEMENT_DEPTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_MAX_ELEMENT_DEPTH)},
-	{"JDK_EXTENSION_CLASSLOADER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, JDK_EXTENSION_CLASSLOADER)},
-	{"JDK_EXT_CLASSLOADER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, JDK_EXT_CLASSLOADER)},
-	{"ENTITY_EXPANSION_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, ENTITY_EXPANSION_LIMIT)},
-	{"ELEMENT_ATTRIBUTE_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, ELEMENT_ATTRIBUTE_LIMIT)},
-	{"MAX_OCCUR_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, MAX_OCCUR_LIMIT)},
-	{"JDK_YES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, JDK_YES)},
-	{"ORACLE_FEATURE_SERVICE_MECHANISM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, ORACLE_FEATURE_SERVICE_MECHANISM), _JdkConstants_FieldAnnotations_ORACLE_FEATURE_SERVICE_MECHANISM},
-	{"SP_ACCESS_EXTERNAL_STYLESHEET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_ACCESS_EXTERNAL_STYLESHEET)},
-	{"SP_ACCESS_EXTERNAL_DTD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_ACCESS_EXTERNAL_DTD)},
-	{"SP_ACCESS_EXTERNAL_SCHEMA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_ACCESS_EXTERNAL_SCHEMA)},
-	{"ACCESS_EXTERNAL_ALL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, ACCESS_EXTERNAL_ALL)},
-	{"EXTERNAL_ACCESS_DEFAULT_FSP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, EXTERNAL_ACCESS_DEFAULT_FSP)},
-	{"EXTERNAL_ACCESS_DEFAULT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, EXTERNAL_ACCESS_DEFAULT)},
-	{"XML_SECURITY_PROPERTY_MANAGER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, XML_SECURITY_PROPERTY_MANAGER)},
-	{"FEATURE_TRUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, FEATURE_TRUE)},
-	{"FEATURE_FALSE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, FEATURE_FALSE)},
-	{"S_IS_STANDALONE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, S_IS_STANDALONE)},
-	{"FQ_IS_STANDALONE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, FQ_IS_STANDALONE), _JdkConstants_FieldAnnotations_FQ_IS_STANDALONE},
-	{"SP_IS_STANDALONE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_IS_STANDALONE)},
-	{"ORACLE_IS_STANDALONE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, ORACLE_IS_STANDALONE), _JdkConstants_FieldAnnotations_ORACLE_IS_STANDALONE},
-	{"JDK_IS_STANDALONE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, JDK_IS_STANDALONE), _JdkConstants_FieldAnnotations_JDK_IS_STANDALONE},
-	{"SP_XSLTC_IS_STANDALONE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_XSLTC_IS_STANDALONE)},
-	{"ORACLE_ENABLE_EXTENSION_FUNCTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, ORACLE_ENABLE_EXTENSION_FUNCTION)},
-	{"SP_ENABLE_EXTENSION_FUNCTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_ENABLE_EXTENSION_FUNCTION)},
-	{"SP_ENABLE_EXTENSION_FUNCTION_SPEC", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_ENABLE_EXTENSION_FUNCTION_SPEC)},
-	{"RESET_SYMBOL_TABLE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, RESET_SYMBOL_TABLE)},
-	{"RESET_SYMBOL_TABLE_DEFAULT", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, RESET_SYMBOL_TABLE_DEFAULT)},
-	{"OVERRIDE_PARSER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, OVERRIDE_PARSER)},
-	{"OVERRIDE_PARSER_DEFAULT", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, OVERRIDE_PARSER_DEFAULT)},
-	{"CDATA_CHUNK_SIZE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, CDATA_CHUNK_SIZE)},
-	{"CDATA_CHUNK_SIZE_DEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, CDATA_CHUNK_SIZE_DEFAULT)},
-	{}
-};
-
-$MethodInfo _JdkConstants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JdkConstants, init$, void)},
-	{}
-};
-
-$ClassInfo _JdkConstants_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.xml.internal.JdkConstants",
-	"java.lang.Object",
-	nullptr,
-	_JdkConstants_FieldInfo_,
-	_JdkConstants_MethodInfo_
-};
-
-$Object* allocate$JdkConstants($Class* clazz) {
-	return $of($alloc(JdkConstants));
-}
-
 $String* JdkConstants::SECURITY_MANAGER = nullptr;
 $String* JdkConstants::ORACLE_JAXP_PROPERTY_PREFIX = nullptr;
 $String* JdkConstants::JDK_ENTITY_EXPANSION_LIMIT = nullptr;
@@ -352,8 +126,8 @@ int32_t JdkConstants::CDATA_CHUNK_SIZE_DEFAULT = 0;
 void JdkConstants::init$() {
 }
 
-void clinit$JdkConstants($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void JdkConstants::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(JdkConstants::SECURITY_MANAGER, "http://apache.org/xml/properties/security-manager"_s);
 	$assignStatic(JdkConstants::ORACLE_JAXP_PROPERTY_PREFIX, "http://www.oracle.com/xml/jaxp/properties/"_s);
 	$assignStatic(JdkConstants::JDK_ENTITY_EXPANSION_LIMIT, $str({JdkConstants::ORACLE_JAXP_PROPERTY_PREFIX, "entityExpansionLimit"_s}));
@@ -404,18 +178,206 @@ void clinit$JdkConstants($Class* class$) {
 	$assignStatic(JdkConstants::RESET_SYMBOL_TABLE, "jdk.xml.resetSymbolTable"_s);
 	$assignStatic(JdkConstants::OVERRIDE_PARSER, "jdk.xml.overrideDefaultParser"_s);
 	$assignStatic(JdkConstants::CDATA_CHUNK_SIZE, "jdk.xml.cdataChunkSize"_s);
-	$load($Boolean);
-	JdkConstants::RESET_SYMBOL_TABLE_DEFAULT = $nc(($cast($Boolean, $($SecuritySupport::getJAXPSystemProperty($Boolean::class$, JdkConstants::RESET_SYMBOL_TABLE, "false"_s)))))->booleanValue();
-	JdkConstants::OVERRIDE_PARSER_DEFAULT = $nc(($cast($Boolean, $($SecuritySupport::getJAXPSystemProperty($Boolean::class$, JdkConstants::OVERRIDE_PARSER, "false"_s)))))->booleanValue();
-	$load($Integer);
-	JdkConstants::CDATA_CHUNK_SIZE_DEFAULT = $nc(($cast($Integer, $($SecuritySupport::getJAXPSystemProperty($Integer::class$, JdkConstants::CDATA_CHUNK_SIZE, "0"_s)))))->intValue();
+	JdkConstants::RESET_SYMBOL_TABLE_DEFAULT = $$sure($Boolean, $SecuritySupport::getJAXPSystemProperty($Boolean::class$, JdkConstants::RESET_SYMBOL_TABLE, "false"_s))->booleanValue();
+	JdkConstants::OVERRIDE_PARSER_DEFAULT = $$sure($Boolean, $SecuritySupport::getJAXPSystemProperty($Boolean::class$, JdkConstants::OVERRIDE_PARSER, "false"_s))->booleanValue();
+	JdkConstants::CDATA_CHUNK_SIZE_DEFAULT = $$sure($Integer, $SecuritySupport::getJAXPSystemProperty($Integer::class$, JdkConstants::CDATA_CHUNK_SIZE, "0"_s))->intValue();
 }
 
 JdkConstants::JdkConstants() {
 }
 
 $Class* JdkConstants::load$($String* name, bool initialize) {
-	$loadClass(JdkConstants, name, initialize, &_JdkConstants_ClassInfo_, clinit$JdkConstants, allocate$JdkConstants);
+	$NamedAttribute ORACLE_JAXP_PROPERTY_PREFIXfieldAnnotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{}
+	};
+	$CompoundAttribute ORACLE_JAXP_PROPERTY_PREFIXfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", ORACLE_JAXP_PROPERTY_PREFIXfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute JDK_ENTITY_EXPANSION_LIMITfieldAnnotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{}
+	};
+	$CompoundAttribute JDK_ENTITY_EXPANSION_LIMITfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", JDK_ENTITY_EXPANSION_LIMITfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute JDK_ELEMENT_ATTRIBUTE_LIMITfieldAnnotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{}
+	};
+	$CompoundAttribute JDK_ELEMENT_ATTRIBUTE_LIMITfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", JDK_ELEMENT_ATTRIBUTE_LIMITfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute JDK_MAX_OCCUR_LIMITfieldAnnotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{}
+	};
+	$CompoundAttribute JDK_MAX_OCCUR_LIMITfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", JDK_MAX_OCCUR_LIMITfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute JDK_TOTAL_ENTITY_SIZE_LIMITfieldAnnotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{}
+	};
+	$CompoundAttribute JDK_TOTAL_ENTITY_SIZE_LIMITfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", JDK_TOTAL_ENTITY_SIZE_LIMITfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute JDK_GENERAL_ENTITY_SIZE_LIMITfieldAnnotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{}
+	};
+	$CompoundAttribute JDK_GENERAL_ENTITY_SIZE_LIMITfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", JDK_GENERAL_ENTITY_SIZE_LIMITfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute JDK_ENTITY_REPLACEMENT_LIMITfieldAnnotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{}
+	};
+	$CompoundAttribute JDK_ENTITY_REPLACEMENT_LIMITfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", JDK_ENTITY_REPLACEMENT_LIMITfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute JDK_PARAMETER_ENTITY_SIZE_LIMITfieldAnnotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{}
+	};
+	$CompoundAttribute JDK_PARAMETER_ENTITY_SIZE_LIMITfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", JDK_PARAMETER_ENTITY_SIZE_LIMITfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute JDK_XML_NAME_LIMITfieldAnnotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{}
+	};
+	$CompoundAttribute JDK_XML_NAME_LIMITfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", JDK_XML_NAME_LIMITfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute JDK_MAX_ELEMENT_DEPTHfieldAnnotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{}
+	};
+	$CompoundAttribute JDK_MAX_ELEMENT_DEPTHfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", JDK_MAX_ELEMENT_DEPTHfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute JDK_ENTITY_COUNT_INFOfieldAnnotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{}
+	};
+	$CompoundAttribute JDK_ENTITY_COUNT_INFOfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", JDK_ENTITY_COUNT_INFOfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute ORACLE_FEATURE_SERVICE_MECHANISMfieldAnnotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{}
+	};
+	$CompoundAttribute ORACLE_FEATURE_SERVICE_MECHANISMfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", ORACLE_FEATURE_SERVICE_MECHANISMfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute FQ_IS_STANDALONEfieldAnnotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{}
+	};
+	$CompoundAttribute FQ_IS_STANDALONEfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", FQ_IS_STANDALONEfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute ORACLE_IS_STANDALONEfieldAnnotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{}
+	};
+	$CompoundAttribute ORACLE_IS_STANDALONEfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", ORACLE_IS_STANDALONEfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute JDK_IS_STANDALONEfieldAnnotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{}
+	};
+	$CompoundAttribute JDK_IS_STANDALONEfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", JDK_IS_STANDALONEfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"SECURITY_MANAGER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SECURITY_MANAGER)},
+		{"ORACLE_JAXP_PROPERTY_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, ORACLE_JAXP_PROPERTY_PREFIX), ORACLE_JAXP_PROPERTY_PREFIXfieldAnnotations$$},
+		{"JDK_ENTITY_EXPANSION_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, JDK_ENTITY_EXPANSION_LIMIT), JDK_ENTITY_EXPANSION_LIMITfieldAnnotations$$},
+		{"JDK_ELEMENT_ATTRIBUTE_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, JDK_ELEMENT_ATTRIBUTE_LIMIT), JDK_ELEMENT_ATTRIBUTE_LIMITfieldAnnotations$$},
+		{"JDK_MAX_OCCUR_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, JDK_MAX_OCCUR_LIMIT), JDK_MAX_OCCUR_LIMITfieldAnnotations$$},
+		{"JDK_TOTAL_ENTITY_SIZE_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, JDK_TOTAL_ENTITY_SIZE_LIMIT), JDK_TOTAL_ENTITY_SIZE_LIMITfieldAnnotations$$},
+		{"JDK_GENERAL_ENTITY_SIZE_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, JDK_GENERAL_ENTITY_SIZE_LIMIT), JDK_GENERAL_ENTITY_SIZE_LIMITfieldAnnotations$$},
+		{"JDK_ENTITY_REPLACEMENT_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, JDK_ENTITY_REPLACEMENT_LIMIT), JDK_ENTITY_REPLACEMENT_LIMITfieldAnnotations$$},
+		{"JDK_PARAMETER_ENTITY_SIZE_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, JDK_PARAMETER_ENTITY_SIZE_LIMIT), JDK_PARAMETER_ENTITY_SIZE_LIMITfieldAnnotations$$},
+		{"JDK_XML_NAME_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, JDK_XML_NAME_LIMIT), JDK_XML_NAME_LIMITfieldAnnotations$$},
+		{"JDK_MAX_ELEMENT_DEPTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, JDK_MAX_ELEMENT_DEPTH), JDK_MAX_ELEMENT_DEPTHfieldAnnotations$$},
+		{"JDK_ENTITY_COUNT_INFO", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, JDK_ENTITY_COUNT_INFO), JDK_ENTITY_COUNT_INFOfieldAnnotations$$},
+		{"JDK_DEBUG_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, JDK_DEBUG_LIMIT)},
+		{"SP_ENTITY_EXPANSION_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_ENTITY_EXPANSION_LIMIT)},
+		{"SP_ELEMENT_ATTRIBUTE_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_ELEMENT_ATTRIBUTE_LIMIT)},
+		{"SP_MAX_OCCUR_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_MAX_OCCUR_LIMIT)},
+		{"SP_TOTAL_ENTITY_SIZE_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_TOTAL_ENTITY_SIZE_LIMIT)},
+		{"SP_GENERAL_ENTITY_SIZE_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_GENERAL_ENTITY_SIZE_LIMIT)},
+		{"SP_ENTITY_REPLACEMENT_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_ENTITY_REPLACEMENT_LIMIT)},
+		{"SP_PARAMETER_ENTITY_SIZE_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_PARAMETER_ENTITY_SIZE_LIMIT)},
+		{"SP_XML_NAME_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_XML_NAME_LIMIT)},
+		{"SP_MAX_ELEMENT_DEPTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_MAX_ELEMENT_DEPTH)},
+		{"JDK_EXTENSION_CLASSLOADER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, JDK_EXTENSION_CLASSLOADER)},
+		{"JDK_EXT_CLASSLOADER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, JDK_EXT_CLASSLOADER)},
+		{"ENTITY_EXPANSION_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, ENTITY_EXPANSION_LIMIT)},
+		{"ELEMENT_ATTRIBUTE_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, ELEMENT_ATTRIBUTE_LIMIT)},
+		{"MAX_OCCUR_LIMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, MAX_OCCUR_LIMIT)},
+		{"JDK_YES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, JDK_YES)},
+		{"ORACLE_FEATURE_SERVICE_MECHANISM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, ORACLE_FEATURE_SERVICE_MECHANISM), ORACLE_FEATURE_SERVICE_MECHANISMfieldAnnotations$$},
+		{"SP_ACCESS_EXTERNAL_STYLESHEET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_ACCESS_EXTERNAL_STYLESHEET)},
+		{"SP_ACCESS_EXTERNAL_DTD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_ACCESS_EXTERNAL_DTD)},
+		{"SP_ACCESS_EXTERNAL_SCHEMA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_ACCESS_EXTERNAL_SCHEMA)},
+		{"ACCESS_EXTERNAL_ALL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, ACCESS_EXTERNAL_ALL)},
+		{"EXTERNAL_ACCESS_DEFAULT_FSP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, EXTERNAL_ACCESS_DEFAULT_FSP)},
+		{"EXTERNAL_ACCESS_DEFAULT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, EXTERNAL_ACCESS_DEFAULT)},
+		{"XML_SECURITY_PROPERTY_MANAGER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, XML_SECURITY_PROPERTY_MANAGER)},
+		{"FEATURE_TRUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, FEATURE_TRUE)},
+		{"FEATURE_FALSE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, FEATURE_FALSE)},
+		{"S_IS_STANDALONE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, S_IS_STANDALONE)},
+		{"FQ_IS_STANDALONE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, FQ_IS_STANDALONE), FQ_IS_STANDALONEfieldAnnotations$$},
+		{"SP_IS_STANDALONE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_IS_STANDALONE)},
+		{"ORACLE_IS_STANDALONE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, ORACLE_IS_STANDALONE), ORACLE_IS_STANDALONEfieldAnnotations$$},
+		{"JDK_IS_STANDALONE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(JdkConstants, JDK_IS_STANDALONE), JDK_IS_STANDALONEfieldAnnotations$$},
+		{"SP_XSLTC_IS_STANDALONE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_XSLTC_IS_STANDALONE)},
+		{"ORACLE_ENABLE_EXTENSION_FUNCTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, ORACLE_ENABLE_EXTENSION_FUNCTION)},
+		{"SP_ENABLE_EXTENSION_FUNCTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_ENABLE_EXTENSION_FUNCTION)},
+		{"SP_ENABLE_EXTENSION_FUNCTION_SPEC", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, SP_ENABLE_EXTENSION_FUNCTION_SPEC)},
+		{"RESET_SYMBOL_TABLE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, RESET_SYMBOL_TABLE)},
+		{"RESET_SYMBOL_TABLE_DEFAULT", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, RESET_SYMBOL_TABLE_DEFAULT)},
+		{"OVERRIDE_PARSER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, OVERRIDE_PARSER)},
+		{"OVERRIDE_PARSER_DEFAULT", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, OVERRIDE_PARSER_DEFAULT)},
+		{"CDATA_CHUNK_SIZE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, CDATA_CHUNK_SIZE)},
+		{"CDATA_CHUNK_SIZE_DEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkConstants, CDATA_CHUNK_SIZE_DEFAULT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JdkConstants, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.xml.internal.JdkConstants",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JdkConstants, name, initialize, &classInfo$$, JdkConstants::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JdkConstants);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/LocatorWrapper.h>
-
 #include <org/xml/sax/Locator.h>
 #include <jcpp.h>
 
@@ -15,38 +14,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace util {
-
-$FieldInfo _LocatorWrapper_FieldInfo_[] = {
-	{"locator", "Lorg/xml/sax/Locator;", nullptr, $PRIVATE | $FINAL, $field(LocatorWrapper, locator)},
-	{}
-};
-
-$MethodInfo _LocatorWrapper_MethodInfo_[] = {
-	{"<init>", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $method(LocatorWrapper, init$, void, $Locator*)},
-	{"getBaseSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocatorWrapper, getBaseSystemId, $String*)},
-	{"getCharacterOffset", "()I", nullptr, $PUBLIC, $virtualMethod(LocatorWrapper, getCharacterOffset, int32_t)},
-	{"getColumnNumber", "()I", nullptr, $PUBLIC, $virtualMethod(LocatorWrapper, getColumnNumber, int32_t)},
-	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocatorWrapper, getEncoding, $String*)},
-	{"getExpandedSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocatorWrapper, getExpandedSystemId, $String*)},
-	{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(LocatorWrapper, getLineNumber, int32_t)},
-	{"getLiteralSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocatorWrapper, getLiteralSystemId, $String*)},
-	{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocatorWrapper, getPublicId, $String*)},
-	{"getXMLVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocatorWrapper, getXMLVersion, $String*)},
-	{}
-};
-
-$ClassInfo _LocatorWrapper_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.util.LocatorWrapper",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.xni.XMLLocator",
-	_LocatorWrapper_FieldInfo_,
-	_LocatorWrapper_MethodInfo_
-};
-
-$Object* allocate$LocatorWrapper($Class* clazz) {
-	return $of($alloc(LocatorWrapper));
-}
 
 void LocatorWrapper::init$($Locator* _loc) {
 	$set(this, locator, _loc);
@@ -92,7 +59,34 @@ LocatorWrapper::LocatorWrapper() {
 }
 
 $Class* LocatorWrapper::load$($String* name, bool initialize) {
-	$loadClass(LocatorWrapper, name, initialize, &_LocatorWrapper_ClassInfo_, allocate$LocatorWrapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"locator", "Lorg/xml/sax/Locator;", nullptr, $PRIVATE | $FINAL, $field(LocatorWrapper, locator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $method(LocatorWrapper, init$, void, $Locator*)},
+		{"getBaseSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocatorWrapper, getBaseSystemId, $String*)},
+		{"getCharacterOffset", "()I", nullptr, $PUBLIC, $virtualMethod(LocatorWrapper, getCharacterOffset, int32_t)},
+		{"getColumnNumber", "()I", nullptr, $PUBLIC, $virtualMethod(LocatorWrapper, getColumnNumber, int32_t)},
+		{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocatorWrapper, getEncoding, $String*)},
+		{"getExpandedSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocatorWrapper, getExpandedSystemId, $String*)},
+		{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(LocatorWrapper, getLineNumber, int32_t)},
+		{"getLiteralSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocatorWrapper, getLiteralSystemId, $String*)},
+		{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocatorWrapper, getPublicId, $String*)},
+		{"getXMLVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocatorWrapper, getXMLVersion, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.util.LocatorWrapper",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.xni.XMLLocator",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LocatorWrapper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocatorWrapper);
+	});
 	return class$;
 }
 

@@ -41,6 +41,7 @@ class XKeysym : public ::java::lang::Object {
 	$class(XKeysym, 0, ::java::lang::Object)
 public:
 	XKeysym();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static char16_t convertKeysym(int64_t ks, int32_t state);
 	static ::sun::awt::X11::XKeysym$Keysym2JavaKeycode* getJavaKeycode(int64_t keysym);

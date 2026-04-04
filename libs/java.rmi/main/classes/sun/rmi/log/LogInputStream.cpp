@@ -1,5 +1,4 @@
 #include <sun/rmi/log/LogInputStream.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <jcpp.h>
@@ -16,37 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace rmi {
 		namespace log {
-
-$FieldInfo _LogInputStream_FieldInfo_[] = {
-	{"in", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(LogInputStream, in)},
-	{"length", "I", nullptr, $PRIVATE, $field(LogInputStream, length)},
-	{}
-};
-
-$MethodInfo _LogInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $method(LogInputStream, init$, void, $InputStream*, int32_t), "java.io.IOException"},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(LogInputStream, available, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(LogInputStream, close, void)},
-	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(LogInputStream, finalize, void), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(LogInputStream, read, int32_t), "java.io.IOException"},
-	{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(LogInputStream, read, int32_t, $bytes*), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(LogInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(LogInputStream, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _LogInputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.rmi.log.LogInputStream",
-	"java.io.InputStream",
-	nullptr,
-	_LogInputStream_FieldInfo_,
-	_LogInputStream_MethodInfo_
-};
-
-$Object* allocate$LogInputStream($Class* clazz) {
-	return $of($alloc(LogInputStream));
-}
 
 void LogInputStream::init$($InputStream* in, int32_t length) {
 	$InputStream::init$();
@@ -78,14 +46,14 @@ int32_t LogInputStream::read($bytes* b, int32_t off, int32_t len) {
 }
 
 int64_t LogInputStream::skip(int64_t n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (n > $Integer::MAX_VALUE) {
 		$throwNew($IOException, $$str({"Too many bytes to skip - "_s, $$str(n)}));
 	}
 	if (this->length == 0) {
 		return 0;
 	}
-	n = (this->length < n) ? (int64_t)this->length : n;
+	n = (this->length < n) ? this->length : n;
 	n = $nc(this->in)->skip(n);
 	this->length -= n;
 	return n;
@@ -108,7 +76,33 @@ LogInputStream::LogInputStream() {
 }
 
 $Class* LogInputStream::load$($String* name, bool initialize) {
-	$loadClass(LogInputStream, name, initialize, &_LogInputStream_ClassInfo_, allocate$LogInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"in", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(LogInputStream, in)},
+		{"length", "I", nullptr, $PRIVATE, $field(LogInputStream, length)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $method(LogInputStream, init$, void, $InputStream*, int32_t), "java.io.IOException"},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(LogInputStream, available, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(LogInputStream, close, void)},
+		{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(LogInputStream, finalize, void), "java.io.IOException"},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(LogInputStream, read, int32_t), "java.io.IOException"},
+		{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(LogInputStream, read, int32_t, $bytes*), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(LogInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(LogInputStream, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.rmi.log.LogInputStream",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LogInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LogInputStream);
+	});
 	return class$;
 }
 

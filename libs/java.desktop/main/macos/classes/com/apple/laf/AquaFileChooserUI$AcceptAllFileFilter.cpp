@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFileChooserUI$AcceptAllFileFilter.h>
-
 #include <com/apple/laf/AquaFileChooserUI.h>
 #include <java/io/File.h>
 #include <javax/swing/UIManager.h>
@@ -17,38 +16,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaFileChooserUI$AcceptAllFileFilter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaFileChooserUI$AcceptAllFileFilter, init$, void)},
-	{"accept", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$AcceptAllFileFilter, accept, bool, $File*)},
-	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$AcceptAllFileFilter, getDescription, $String*)},
-	{}
-};
-
-$InnerClassInfo _AquaFileChooserUI$AcceptAllFileFilter_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFileChooserUI$AcceptAllFileFilter", "com.apple.laf.AquaFileChooserUI", "AcceptAllFileFilter", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AquaFileChooserUI$AcceptAllFileFilter_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaFileChooserUI$AcceptAllFileFilter",
-	"javax.swing.filechooser.FileFilter",
-	nullptr,
-	nullptr,
-	_AquaFileChooserUI$AcceptAllFileFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaFileChooserUI$AcceptAllFileFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFileChooserUI"
-};
-
-$Object* allocate$AquaFileChooserUI$AcceptAllFileFilter($Class* clazz) {
-	return $of($alloc(AquaFileChooserUI$AcceptAllFileFilter));
-}
-
 void AquaFileChooserUI$AcceptAllFileFilter::init$() {
 	$FileFilter::init$();
 }
@@ -65,7 +32,34 @@ AquaFileChooserUI$AcceptAllFileFilter::AquaFileChooserUI$AcceptAllFileFilter() {
 }
 
 $Class* AquaFileChooserUI$AcceptAllFileFilter::load$($String* name, bool initialize) {
-	$loadClass(AquaFileChooserUI$AcceptAllFileFilter, name, initialize, &_AquaFileChooserUI$AcceptAllFileFilter_ClassInfo_, allocate$AquaFileChooserUI$AcceptAllFileFilter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaFileChooserUI$AcceptAllFileFilter, init$, void)},
+		{"accept", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$AcceptAllFileFilter, accept, bool, $File*)},
+		{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$AcceptAllFileFilter, getDescription, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFileChooserUI$AcceptAllFileFilter", "com.apple.laf.AquaFileChooserUI", "AcceptAllFileFilter", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaFileChooserUI$AcceptAllFileFilter",
+		"javax.swing.filechooser.FileFilter",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFileChooserUI"
+	};
+	$loadClass(AquaFileChooserUI$AcceptAllFileFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaFileChooserUI$AcceptAllFileFilter);
+	});
 	return class$;
 }
 

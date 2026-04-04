@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind.h>
-
 #include <com/sun/tools/javac/comp/LambdaToMethod$1.h>
 #include <com/sun/tools/javac/comp/LambdaToMethod.h>
 #include <java/lang/Enum.h>
@@ -24,50 +23,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _LambdaToMethod$LambdaSymbolKind_FieldInfo_[] = {
-	{"PARAM", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaToMethod$LambdaSymbolKind, PARAM)},
-	{"LOCAL_VAR", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaToMethod$LambdaSymbolKind, LOCAL_VAR)},
-	{"CAPTURED_VAR", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaToMethod$LambdaSymbolKind, CAPTURED_VAR)},
-	{"CAPTURED_THIS", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaToMethod$LambdaSymbolKind, CAPTURED_THIS)},
-	{"CAPTURED_OUTER_THIS", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaToMethod$LambdaSymbolKind, CAPTURED_OUTER_THIS)},
-	{"$VALUES", "[Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(LambdaToMethod$LambdaSymbolKind, $VALUES)},
-	{}
-};
-
-$MethodInfo _LambdaToMethod$LambdaSymbolKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LambdaToMethod$LambdaSymbolKind, $values, $LambdaToMethod$LambdaSymbolKindArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(LambdaToMethod$LambdaSymbolKind, init$, void, $String*, int32_t)},
-	{"propagateAnnotations", "()Z", nullptr, 0, $method(LambdaToMethod$LambdaSymbolKind, propagateAnnotations, bool)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaToMethod$LambdaSymbolKind, valueOf, LambdaToMethod$LambdaSymbolKind*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaToMethod$LambdaSymbolKind, values, $LambdaToMethod$LambdaSymbolKindArray*)},
-	{}
-};
-
-$InnerClassInfo _LambdaToMethod$LambdaSymbolKind_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.LambdaToMethod$LambdaSymbolKind", "com.sun.tools.javac.comp.LambdaToMethod", "LambdaSymbolKind", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _LambdaToMethod$LambdaSymbolKind_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.comp.LambdaToMethod$LambdaSymbolKind",
-	"java.lang.Enum",
-	nullptr,
-	_LambdaToMethod$LambdaSymbolKind_FieldInfo_,
-	_LambdaToMethod$LambdaSymbolKind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;>;",
-	nullptr,
-	_LambdaToMethod$LambdaSymbolKind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.LambdaToMethod"
-};
-
-$Object* allocate$LambdaToMethod$LambdaSymbolKind($Class* clazz) {
-	return $of($alloc(LambdaToMethod$LambdaSymbolKind));
-}
 
 LambdaToMethod$LambdaSymbolKind* LambdaToMethod$LambdaSymbolKind::PARAM = nullptr;
 LambdaToMethod$LambdaSymbolKind* LambdaToMethod$LambdaSymbolKind::LOCAL_VAR = nullptr;
@@ -105,21 +60,15 @@ bool LambdaToMethod$LambdaSymbolKind::propagateAnnotations() {
 	$init($LambdaToMethod$1);
 	switch ($nc($LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$comp$LambdaToMethod$LambdaSymbolKind)->get((this)->ordinal())) {
 	case 2:
-		{}
 	case 1:
-		{}
 	case 3:
-		{
-			return false;
-		}
+		return false;
 	default:
-		{
-			return true;
-		}
+		return true;
 	}
 }
 
-void clinit$LambdaToMethod$LambdaSymbolKind($Class* class$) {
+void LambdaToMethod$LambdaSymbolKind::clinit$($Class* clazz) {
 	$assignStatic(LambdaToMethod$LambdaSymbolKind::PARAM, $new(LambdaToMethod$LambdaSymbolKind, "PARAM"_s, 0));
 	$assignStatic(LambdaToMethod$LambdaSymbolKind::LOCAL_VAR, $new(LambdaToMethod$LambdaSymbolKind, "LOCAL_VAR"_s, 1));
 	$assignStatic(LambdaToMethod$LambdaSymbolKind::CAPTURED_VAR, $new(LambdaToMethod$LambdaSymbolKind, "CAPTURED_VAR"_s, 2));
@@ -132,7 +81,45 @@ LambdaToMethod$LambdaSymbolKind::LambdaToMethod$LambdaSymbolKind() {
 }
 
 $Class* LambdaToMethod$LambdaSymbolKind::load$($String* name, bool initialize) {
-	$loadClass(LambdaToMethod$LambdaSymbolKind, name, initialize, &_LambdaToMethod$LambdaSymbolKind_ClassInfo_, clinit$LambdaToMethod$LambdaSymbolKind, allocate$LambdaToMethod$LambdaSymbolKind);
+	$FieldInfo fieldInfos$$[] = {
+		{"PARAM", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaToMethod$LambdaSymbolKind, PARAM)},
+		{"LOCAL_VAR", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaToMethod$LambdaSymbolKind, LOCAL_VAR)},
+		{"CAPTURED_VAR", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaToMethod$LambdaSymbolKind, CAPTURED_VAR)},
+		{"CAPTURED_THIS", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaToMethod$LambdaSymbolKind, CAPTURED_THIS)},
+		{"CAPTURED_OUTER_THIS", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaToMethod$LambdaSymbolKind, CAPTURED_OUTER_THIS)},
+		{"$VALUES", "[Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(LambdaToMethod$LambdaSymbolKind, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LambdaToMethod$LambdaSymbolKind, $values, $LambdaToMethod$LambdaSymbolKindArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(LambdaToMethod$LambdaSymbolKind, init$, void, $String*, int32_t)},
+		{"propagateAnnotations", "()Z", nullptr, 0, $method(LambdaToMethod$LambdaSymbolKind, propagateAnnotations, bool)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaToMethod$LambdaSymbolKind, valueOf, LambdaToMethod$LambdaSymbolKind*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaToMethod$LambdaSymbolKind, values, $LambdaToMethod$LambdaSymbolKindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.LambdaToMethod$LambdaSymbolKind", "com.sun.tools.javac.comp.LambdaToMethod", "LambdaSymbolKind", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.comp.LambdaToMethod$LambdaSymbolKind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.LambdaToMethod"
+	};
+	$loadClass(LambdaToMethod$LambdaSymbolKind, name, initialize, &classInfo$$, LambdaToMethod$LambdaSymbolKind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LambdaToMethod$LambdaSymbolKind));
+	});
 	return class$;
 }
 

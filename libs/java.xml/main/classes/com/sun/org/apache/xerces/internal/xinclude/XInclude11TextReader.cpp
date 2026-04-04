@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xinclude/XInclude11TextReader.h>
-
 #include <com/sun/org/apache/xerces/internal/util/XML11Char.h>
 #include <com/sun/org/apache/xerces/internal/xinclude/XIncludeHandler.h>
 #include <com/sun/org/apache/xerces/internal/xinclude/XIncludeTextReader.h>
@@ -21,25 +20,6 @@ namespace com {
 					namespace internal {
 						namespace xinclude {
 
-$MethodInfo _XInclude11TextReader_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;Lcom/sun/org/apache/xerces/internal/xinclude/XIncludeHandler;I)V", nullptr, $PUBLIC, $method(XInclude11TextReader, init$, void, $XMLInputSource*, $XIncludeHandler*, int32_t), "java.io.IOException"},
-	{"isValid", "(I)Z", nullptr, $PROTECTED, $virtualMethod(XInclude11TextReader, isValid, bool, int32_t)},
-	{}
-};
-
-$ClassInfo _XInclude11TextReader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.xinclude.XInclude11TextReader",
-	"com.sun.org.apache.xerces.internal.xinclude.XIncludeTextReader",
-	nullptr,
-	nullptr,
-	_XInclude11TextReader_MethodInfo_
-};
-
-$Object* allocate$XInclude11TextReader($Class* clazz) {
-	return $of($alloc(XInclude11TextReader));
-}
-
 void XInclude11TextReader::init$($XMLInputSource* source, $XIncludeHandler* handler, int32_t bufferSize) {
 	$XIncludeTextReader::init$(source, handler, bufferSize);
 }
@@ -52,7 +32,22 @@ XInclude11TextReader::XInclude11TextReader() {
 }
 
 $Class* XInclude11TextReader::load$($String* name, bool initialize) {
-	$loadClass(XInclude11TextReader, name, initialize, &_XInclude11TextReader_ClassInfo_, allocate$XInclude11TextReader);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;Lcom/sun/org/apache/xerces/internal/xinclude/XIncludeHandler;I)V", nullptr, $PUBLIC, $method(XInclude11TextReader, init$, void, $XMLInputSource*, $XIncludeHandler*, int32_t), "java.io.IOException"},
+		{"isValid", "(I)Z", nullptr, $PROTECTED, $virtualMethod(XInclude11TextReader, isValid, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.xinclude.XInclude11TextReader",
+		"com.sun.org.apache.xerces.internal.xinclude.XIncludeTextReader",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XInclude11TextReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XInclude11TextReader);
+	});
 	return class$;
 }
 

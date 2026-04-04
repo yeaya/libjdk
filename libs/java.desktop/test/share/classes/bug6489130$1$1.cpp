@@ -1,5 +1,4 @@
 #include <bug6489130$1$1.h>
-
 #include <bug6489130$1.h>
 #include <bug6489130.h>
 #include <java/awt/Component.h>
@@ -13,50 +12,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JFileChooser = ::javax::swing::JFileChooser;
-
-$FieldInfo _bug6489130$1$1_FieldInfo_[] = {
-	{"this$1", "Lbug6489130$1;", nullptr, $FINAL | $SYNTHETIC, $field(bug6489130$1$1, this$1)},
-	{}
-};
-
-$MethodInfo _bug6489130$1$1_MethodInfo_[] = {
-	{"<init>", "(Lbug6489130$1;)V", nullptr, 0, $method(bug6489130$1$1, init$, void, $bug6489130$1*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6489130$1$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug6489130$1$1_EnclosingMethodInfo_ = {
-	"bug6489130$1",
-	"actionPerformed",
-	"(Ljava/awt/event/ActionEvent;)V"
-};
-
-$InnerClassInfo _bug6489130$1$1_InnerClassesInfo_[] = {
-	{"bug6489130$1", nullptr, nullptr, 0},
-	{"bug6489130$1$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6489130$1$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6489130$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_bug6489130$1$1_FieldInfo_,
-	_bug6489130$1$1_MethodInfo_,
-	nullptr,
-	&_bug6489130$1$1_EnclosingMethodInfo_,
-	_bug6489130$1$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6489130"
-};
-
-$Object* allocate$bug6489130$1$1($Class* clazz) {
-	return $of($alloc(bug6489130$1$1));
-}
 
 void bug6489130$1$1::init$($bug6489130$1* this$1) {
 	$set(this, this$1, this$1);
@@ -70,7 +25,43 @@ bug6489130$1$1::bug6489130$1$1() {
 }
 
 $Class* bug6489130$1$1::load$($String* name, bool initialize) {
-	$loadClass(bug6489130$1$1, name, initialize, &_bug6489130$1$1_ClassInfo_, allocate$bug6489130$1$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lbug6489130$1;", nullptr, $FINAL | $SYNTHETIC, $field(bug6489130$1$1, this$1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug6489130$1;)V", nullptr, 0, $method(bug6489130$1$1, init$, void, $bug6489130$1*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6489130$1$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug6489130$1",
+		"actionPerformed",
+		"(Ljava/awt/event/ActionEvent;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6489130$1", nullptr, nullptr, 0},
+		{"bug6489130$1$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6489130$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6489130"
+	};
+	$loadClass(bug6489130$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6489130$1$1);
+	});
 	return class$;
 }
 

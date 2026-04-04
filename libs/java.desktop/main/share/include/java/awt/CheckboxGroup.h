@@ -25,7 +25,7 @@ public:
 	virtual void setSelectedCheckbox(::java::awt::Checkbox* box);
 	virtual $String* toString() override;
 	::java::awt::Checkbox* selectedCheckbox = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x33C2D73B60B5EA17;
+	static const int64_t serialVersionUID = (int64_t)0x33c2d73b60b5ea17;
 };
 
 	} // awt

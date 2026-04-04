@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/XMLErrorReporter.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLErrorReporter$1.h>
 #include <com/sun/org/apache/xerces/internal/util/DefaultErrorHandler.h>
@@ -47,7 +46,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $HashMap = ::java::util::HashMap;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $ErrorHandler = ::org::xml::sax::ErrorHandler;
 
 namespace com {
@@ -57,75 +55,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace impl {
-
-$FieldInfo _XMLErrorReporter_FieldInfo_[] = {
-	{"SEVERITY_WARNING", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLErrorReporter, SEVERITY_WARNING)},
-	{"SEVERITY_ERROR", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLErrorReporter, SEVERITY_ERROR)},
-	{"SEVERITY_FATAL_ERROR", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLErrorReporter, SEVERITY_FATAL_ERROR)},
-	{"CONTINUE_AFTER_FATAL_ERROR", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLErrorReporter, CONTINUE_AFTER_FATAL_ERROR)},
-	{"ERROR_HANDLER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLErrorReporter, ERROR_HANDLER)},
-	{"RECOGNIZED_FEATURES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLErrorReporter, RECOGNIZED_FEATURES)},
-	{"FEATURE_DEFAULTS", "[Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLErrorReporter, FEATURE_DEFAULTS)},
-	{"RECOGNIZED_PROPERTIES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLErrorReporter, RECOGNIZED_PROPERTIES)},
-	{"PROPERTY_DEFAULTS", "[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLErrorReporter, PROPERTY_DEFAULTS)},
-	{"fLocale", "Ljava/util/Locale;", nullptr, $PROTECTED, $field(XMLErrorReporter, fLocale)},
-	{"fMessageFormatters", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/util/MessageFormatter;>;", $PROTECTED, $field(XMLErrorReporter, fMessageFormatters)},
-	{"fErrorHandler", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler;", nullptr, $PROTECTED, $field(XMLErrorReporter, fErrorHandler)},
-	{"fLocator", "Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;", nullptr, $PROTECTED, $field(XMLErrorReporter, fLocator)},
-	{"fContinueAfterFatalError", "Z", nullptr, $PROTECTED, $field(XMLErrorReporter, fContinueAfterFatalError)},
-	{"fDefaultErrorHandler", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler;", nullptr, $PROTECTED, $field(XMLErrorReporter, fDefaultErrorHandler)},
-	{"fSaxProxy", "Lorg/xml/sax/ErrorHandler;", nullptr, $PRIVATE, $field(XMLErrorReporter, fSaxProxy)},
-	{}
-};
-
-$MethodInfo _XMLErrorReporter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLErrorReporter, init$, void)},
-	{"getErrorHandler", "()Lcom/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler;", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, getErrorHandler, $XMLErrorHandler*)},
-	{"getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, getFeature, bool, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"getFeatureDefault", "(Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, getFeatureDefault, $Boolean*, $String*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, getLocale, $Locale*)},
-	{"getMessageFormatter", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/MessageFormatter;", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, getMessageFormatter, $MessageFormatter*, $String*)},
-	{"getPropertyDefault", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, getPropertyDefault, $Object*, $String*)},
-	{"getRecognizedFeatures", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, getRecognizedFeatures, $StringArray*)},
-	{"getRecognizedProperties", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, getRecognizedProperties, $StringArray*)},
-	{"getSAXErrorHandler", "()Lorg/xml/sax/ErrorHandler;", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, getSAXErrorHandler, $ErrorHandler*)},
-	{"putMessageFormatter", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/util/MessageFormatter;)V", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, putMessageFormatter, void, $String*, $MessageFormatter*)},
-	{"removeMessageFormatter", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/MessageFormatter;", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, removeMessageFormatter, $MessageFormatter*, $String*)},
-	{"reportError", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, reportError, $String*, $String*, $String*, $ObjectArray*, int16_t), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"reportError", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;SLjava/lang/Exception;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, reportError, $String*, $String*, $String*, $ObjectArray*, int16_t, $Exception*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"reportError", "(Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, reportError, $String*, $XMLLocator*, $String*, $String*, $ObjectArray*, int16_t), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"reportError", "(Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;SLjava/lang/Exception;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, reportError, $String*, $XMLLocator*, $String*, $String*, $ObjectArray*, int16_t, $Exception*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"reset", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, reset, void, $XMLComponentManager*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"setDocumentLocator", "(Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;)V", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, setDocumentLocator, void, $XMLLocator*)},
-	{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, setFeature, void, $String*, bool), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, setLocale, void, $Locale*)},
-	{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, setProperty, void, $String*, Object$*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{}
-};
-
-$InnerClassInfo _XMLErrorReporter_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.XMLErrorReporter$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XMLErrorReporter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.XMLErrorReporter",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.xni.parser.XMLComponent",
-	_XMLErrorReporter_FieldInfo_,
-	_XMLErrorReporter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XMLErrorReporter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.XMLErrorReporter$1"
-};
-
-$Object* allocate$XMLErrorReporter($Class* clazz) {
-	return $of($alloc(XMLErrorReporter));
-}
 
 $String* XMLErrorReporter::CONTINUE_AFTER_FATAL_ERROR = nullptr;
 $String* XMLErrorReporter::ERROR_HANDLER = nullptr;
@@ -176,7 +105,7 @@ $String* XMLErrorReporter::reportError($XMLLocator* location, $String* domain, $
 }
 
 $String* XMLErrorReporter::reportError($XMLLocator* location, $String* domain, $String* key, $ObjectArray* arguments, int16_t severity, $Exception* exception) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MessageFormatter, messageFormatter, getMessageFormatter(domain));
 	$var($String, message, nullptr);
 	if (messageFormatter != nullptr) {
@@ -186,11 +115,11 @@ $String* XMLErrorReporter::reportError($XMLLocator* location, $String* domain, $
 		str->append(domain);
 		str->append(u'#');
 		str->append(key);
-		int32_t argCount = arguments != nullptr ? $nc(arguments)->length : 0;
+		int32_t argCount = arguments != nullptr ? arguments->length : 0;
 		if (argCount > 0) {
 			str->append(u'?');
 			for (int32_t i = 0; i < argCount; ++i) {
-				str->append(arguments->get(i));
+				str->append($nc(arguments)->get(i));
 				if (i < argCount - 1) {
 					str->append(u'&');
 				}
@@ -209,27 +138,21 @@ $String* XMLErrorReporter::reportError($XMLLocator* location, $String* domain, $
 	switch (severity) {
 	case XMLErrorReporter::SEVERITY_WARNING:
 		{
-			{
-				$nc(errorHandler)->warning(domain, key, parseException);
-				break;
-			}
+			$nc(errorHandler)->warning(domain, key, parseException);
+			break;
 		}
 	case XMLErrorReporter::SEVERITY_ERROR:
 		{
-			{
-				$nc(errorHandler)->error(domain, key, parseException);
-				break;
-			}
+			$nc(errorHandler)->error(domain, key, parseException);
+			break;
 		}
 	case XMLErrorReporter::SEVERITY_FATAL_ERROR:
 		{
-			{
-				$nc(errorHandler)->fatalError(domain, key, parseException);
-				if (!this->fContinueAfterFatalError) {
-					$throw(parseException);
-				}
-				break;
+			$nc(errorHandler)->fatalError(domain, key, parseException);
+			if (!this->fContinueAfterFatalError) {
+				$throw(parseException);
 			}
+			break;
 		}
 	}
 	return message;
@@ -241,7 +164,7 @@ void XMLErrorReporter::reset($XMLComponentManager* componentManager) {
 }
 
 $StringArray* XMLErrorReporter::getRecognizedFeatures() {
-	return $cast($StringArray, $nc(XMLErrorReporter::RECOGNIZED_FEATURES)->clone());
+	return $cast($StringArray, XMLErrorReporter::RECOGNIZED_FEATURES->clone());
 }
 
 void XMLErrorReporter::setFeature($String* featureId, bool state) {
@@ -270,7 +193,7 @@ bool XMLErrorReporter::getFeature($String* featureId) {
 }
 
 $StringArray* XMLErrorReporter::getRecognizedProperties() {
-	return $cast($StringArray, $nc(XMLErrorReporter::RECOGNIZED_PROPERTIES)->clone());
+	return $cast($StringArray, XMLErrorReporter::RECOGNIZED_PROPERTIES->clone());
 }
 
 void XMLErrorReporter::setProperty($String* propertyId, Object$* value) {
@@ -286,21 +209,21 @@ void XMLErrorReporter::setProperty($String* propertyId, Object$* value) {
 }
 
 $Boolean* XMLErrorReporter::getFeatureDefault($String* featureId) {
-	for (int32_t i = 0; i < $nc(XMLErrorReporter::RECOGNIZED_FEATURES)->length; ++i) {
-		if ($nc($nc(XMLErrorReporter::RECOGNIZED_FEATURES)->get(i))->equals(featureId)) {
-			return $nc(XMLErrorReporter::FEATURE_DEFAULTS)->get(i);
+	for (int32_t i = 0; i < XMLErrorReporter::RECOGNIZED_FEATURES->length; ++i) {
+		if ($nc(XMLErrorReporter::RECOGNIZED_FEATURES->get(i))->equals(featureId)) {
+			return XMLErrorReporter::FEATURE_DEFAULTS->get(i);
 		}
 	}
 	return nullptr;
 }
 
 $Object* XMLErrorReporter::getPropertyDefault($String* propertyId) {
-	for (int32_t i = 0; i < $nc(XMLErrorReporter::RECOGNIZED_PROPERTIES)->length; ++i) {
-		if ($nc($nc(XMLErrorReporter::RECOGNIZED_PROPERTIES)->get(i))->equals(propertyId)) {
-			return $of($nc(XMLErrorReporter::PROPERTY_DEFAULTS)->get(i));
+	for (int32_t i = 0; i < XMLErrorReporter::RECOGNIZED_PROPERTIES->length; ++i) {
+		if ($nc(XMLErrorReporter::RECOGNIZED_PROPERTIES->get(i))->equals(propertyId)) {
+			return XMLErrorReporter::PROPERTY_DEFAULTS->get(i);
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $XMLErrorHandler* XMLErrorReporter::getErrorHandler() {
@@ -314,21 +237,84 @@ $ErrorHandler* XMLErrorReporter::getSAXErrorHandler() {
 	return this->fSaxProxy;
 }
 
-void clinit$XMLErrorReporter($Class* class$) {
+void XMLErrorReporter::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(XMLErrorReporter::CONTINUE_AFTER_FATAL_ERROR, $str({$Constants::XERCES_FEATURE_PREFIX, $Constants::CONTINUE_AFTER_FATAL_ERROR_FEATURE}));
 	$assignStatic(XMLErrorReporter::ERROR_HANDLER, $str({$Constants::XERCES_PROPERTY_PREFIX, $Constants::ERROR_HANDLER_PROPERTY}));
 	$assignStatic(XMLErrorReporter::RECOGNIZED_FEATURES, $new($StringArray, {XMLErrorReporter::CONTINUE_AFTER_FATAL_ERROR}));
-	$assignStatic(XMLErrorReporter::FEATURE_DEFAULTS, $new($BooleanArray, {($Boolean*)nullptr}));
+	$assignStatic(XMLErrorReporter::FEATURE_DEFAULTS, $new($BooleanArray, {nullptr}));
 	$assignStatic(XMLErrorReporter::RECOGNIZED_PROPERTIES, $new($StringArray, {XMLErrorReporter::ERROR_HANDLER}));
-	$assignStatic(XMLErrorReporter::PROPERTY_DEFAULTS, $new($ObjectArray, {($Object*)nullptr}));
+	$assignStatic(XMLErrorReporter::PROPERTY_DEFAULTS, $new($ObjectArray, {nullptr}));
 }
 
 XMLErrorReporter::XMLErrorReporter() {
 }
 
 $Class* XMLErrorReporter::load$($String* name, bool initialize) {
-	$loadClass(XMLErrorReporter, name, initialize, &_XMLErrorReporter_ClassInfo_, clinit$XMLErrorReporter, allocate$XMLErrorReporter);
+	$FieldInfo fieldInfos$$[] = {
+		{"SEVERITY_WARNING", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLErrorReporter, SEVERITY_WARNING)},
+		{"SEVERITY_ERROR", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLErrorReporter, SEVERITY_ERROR)},
+		{"SEVERITY_FATAL_ERROR", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLErrorReporter, SEVERITY_FATAL_ERROR)},
+		{"CONTINUE_AFTER_FATAL_ERROR", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLErrorReporter, CONTINUE_AFTER_FATAL_ERROR)},
+		{"ERROR_HANDLER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLErrorReporter, ERROR_HANDLER)},
+		{"RECOGNIZED_FEATURES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLErrorReporter, RECOGNIZED_FEATURES)},
+		{"FEATURE_DEFAULTS", "[Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLErrorReporter, FEATURE_DEFAULTS)},
+		{"RECOGNIZED_PROPERTIES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLErrorReporter, RECOGNIZED_PROPERTIES)},
+		{"PROPERTY_DEFAULTS", "[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLErrorReporter, PROPERTY_DEFAULTS)},
+		{"fLocale", "Ljava/util/Locale;", nullptr, $PROTECTED, $field(XMLErrorReporter, fLocale)},
+		{"fMessageFormatters", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/util/MessageFormatter;>;", $PROTECTED, $field(XMLErrorReporter, fMessageFormatters)},
+		{"fErrorHandler", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler;", nullptr, $PROTECTED, $field(XMLErrorReporter, fErrorHandler)},
+		{"fLocator", "Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;", nullptr, $PROTECTED, $field(XMLErrorReporter, fLocator)},
+		{"fContinueAfterFatalError", "Z", nullptr, $PROTECTED, $field(XMLErrorReporter, fContinueAfterFatalError)},
+		{"fDefaultErrorHandler", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler;", nullptr, $PROTECTED, $field(XMLErrorReporter, fDefaultErrorHandler)},
+		{"fSaxProxy", "Lorg/xml/sax/ErrorHandler;", nullptr, $PRIVATE, $field(XMLErrorReporter, fSaxProxy)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLErrorReporter, init$, void)},
+		{"getErrorHandler", "()Lcom/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler;", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, getErrorHandler, $XMLErrorHandler*)},
+		{"getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, getFeature, bool, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"getFeatureDefault", "(Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, getFeatureDefault, $Boolean*, $String*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, getLocale, $Locale*)},
+		{"getMessageFormatter", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/MessageFormatter;", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, getMessageFormatter, $MessageFormatter*, $String*)},
+		{"getPropertyDefault", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, getPropertyDefault, $Object*, $String*)},
+		{"getRecognizedFeatures", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, getRecognizedFeatures, $StringArray*)},
+		{"getRecognizedProperties", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, getRecognizedProperties, $StringArray*)},
+		{"getSAXErrorHandler", "()Lorg/xml/sax/ErrorHandler;", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, getSAXErrorHandler, $ErrorHandler*)},
+		{"putMessageFormatter", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/util/MessageFormatter;)V", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, putMessageFormatter, void, $String*, $MessageFormatter*)},
+		{"removeMessageFormatter", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/MessageFormatter;", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, removeMessageFormatter, $MessageFormatter*, $String*)},
+		{"reportError", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, reportError, $String*, $String*, $String*, $ObjectArray*, int16_t), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"reportError", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;SLjava/lang/Exception;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, reportError, $String*, $String*, $String*, $ObjectArray*, int16_t, $Exception*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"reportError", "(Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, reportError, $String*, $XMLLocator*, $String*, $String*, $ObjectArray*, int16_t), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"reportError", "(Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;SLjava/lang/Exception;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, reportError, $String*, $XMLLocator*, $String*, $String*, $ObjectArray*, int16_t, $Exception*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"reset", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, reset, void, $XMLComponentManager*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"setDocumentLocator", "(Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;)V", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, setDocumentLocator, void, $XMLLocator*)},
+		{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, setFeature, void, $String*, bool), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, setLocale, void, $Locale*)},
+		{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(XMLErrorReporter, setProperty, void, $String*, Object$*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.XMLErrorReporter$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.XMLErrorReporter",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.xni.parser.XMLComponent",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.XMLErrorReporter$1"
+	};
+	$loadClass(XMLErrorReporter, name, initialize, &classInfo$$, XMLErrorReporter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLErrorReporter);
+	});
 	return class$;
 }
 

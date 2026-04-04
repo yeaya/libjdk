@@ -1,5 +1,4 @@
 #include <javax/swing/JLayeredPane.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -45,110 +44,6 @@ using $SunToolkit = ::sun::awt::SunToolkit;
 namespace javax {
 	namespace swing {
 
-$NamedAttribute JLayeredPane_Attribute_var$0[] = {
-	{"defaultProperty", 's', "accessibleContext"},
-	{}
-};
-
-$CompoundAttribute _JLayeredPane_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", JLayeredPane_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute JLayeredPane_Attribute_var$1[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JLayeredPane_MethodAnnotations_getAccessibleContext2[] = {
-	{"Ljava/beans/BeanProperty;", JLayeredPane_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JLayeredPane_Attribute_var$2[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JLayeredPane_MethodAnnotations_isOptimizedDrawingEnabled15[] = {
-	{"Ljava/beans/BeanProperty;", JLayeredPane_Attribute_var$2},
-	{}
-};
-
-$FieldInfo _JLayeredPane_FieldInfo_[] = {
-	{"DEFAULT_LAYER", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JLayeredPane, DEFAULT_LAYER)},
-	{"PALETTE_LAYER", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JLayeredPane, PALETTE_LAYER)},
-	{"MODAL_LAYER", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JLayeredPane, MODAL_LAYER)},
-	{"POPUP_LAYER", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JLayeredPane, POPUP_LAYER)},
-	{"DRAG_LAYER", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JLayeredPane, DRAG_LAYER)},
-	{"FRAME_CONTENT_LAYER", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JLayeredPane, FRAME_CONTENT_LAYER)},
-	{"LAYER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JLayeredPane, LAYER_PROPERTY)},
-	{"componentToLayer", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/awt/Component;Ljava/lang/Integer;>;", $PRIVATE, $field(JLayeredPane, componentToLayer)},
-	{"optimizedDrawingPossible", "Z", nullptr, $PRIVATE, $field(JLayeredPane, optimizedDrawingPossible)},
-	{}
-};
-
-$MethodInfo _JLayeredPane_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JLayeredPane, init$, void)},
-	{"addImpl", "(Ljava/awt/Component;Ljava/lang/Object;I)V", nullptr, $PROTECTED, $virtualMethod(JLayeredPane, addImpl, void, $Component*, Object$*, int32_t)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, _JLayeredPane_MethodAnnotations_getAccessibleContext2},
-	{"getComponentCountInLayer", "(I)I", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, getComponentCountInLayer, int32_t, int32_t)},
-	{"getComponentToLayer", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<Ljava/awt/Component;Ljava/lang/Integer;>;", $PROTECTED, $virtualMethod(JLayeredPane, getComponentToLayer, $Hashtable*)},
-	{"getComponentsInLayer", "(I)[Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, getComponentsInLayer, $ComponentArray*, int32_t)},
-	{"getIndexOf", "(Ljava/awt/Component;)I", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, getIndexOf, int32_t, $Component*)},
-	{"getLayer", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JLayeredPane, getLayer, int32_t, $JComponent*)},
-	{"getLayer", "(Ljava/awt/Component;)I", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, getLayer, int32_t, $Component*)},
-	{"getLayeredPaneAbove", "(Ljava/awt/Component;)Ljavax/swing/JLayeredPane;", nullptr, $PUBLIC | $STATIC, $staticMethod(JLayeredPane, getLayeredPaneAbove, JLayeredPane*, $Component*)},
-	{"getObjectForLayer", "(I)Ljava/lang/Integer;", nullptr, $PROTECTED, $virtualMethod(JLayeredPane, getObjectForLayer, $Integer*, int32_t)},
-	{"getPosition", "(Ljava/awt/Component;)I", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, getPosition, int32_t, $Component*)},
-	{"highestLayer", "()I", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, highestLayer, int32_t)},
-	{"insertIndexForLayer", "(II)I", nullptr, $PROTECTED, $virtualMethod(JLayeredPane, insertIndexForLayer, int32_t, int32_t, int32_t)},
-	{"insertIndexForLayer", "(Ljava/awt/Component;II)I", nullptr, $PRIVATE, $method(JLayeredPane, insertIndexForLayer, int32_t, $Component*, int32_t, int32_t)},
-	{"isOptimizedDrawingEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, isOptimizedDrawingEnabled, bool), nullptr, nullptr, _JLayeredPane_MethodAnnotations_isOptimizedDrawingEnabled15},
-	{"lowestLayer", "()I", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, lowestLayer, int32_t)},
-	{"moveToBack", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, moveToBack, void, $Component*)},
-	{"moveToFront", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, moveToFront, void, $Component*)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, paint, void, $Graphics*)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JLayeredPane, paramString, $String*)},
-	{"putLayer", "(Ljavax/swing/JComponent;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JLayeredPane, putLayer, void, $JComponent*, int32_t)},
-	{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, remove, void, int32_t)},
-	{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, removeAll, void)},
-	{"setLayer", "(Ljava/awt/Component;I)V", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, setLayer, void, $Component*, int32_t)},
-	{"setLayer", "(Ljava/awt/Component;II)V", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, setLayer, void, $Component*, int32_t, int32_t)},
-	{"setPosition", "(Ljava/awt/Component;I)V", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, setPosition, void, $Component*, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"validateOptimizedDrawing", "()V", nullptr, $PRIVATE, $method(JLayeredPane, validateOptimizedDrawing, void)},
-	{}
-};
-
-$InnerClassInfo _JLayeredPane_InnerClassesInfo_[] = {
-	{"javax.swing.JLayeredPane$AccessibleJLayeredPane", "javax.swing.JLayeredPane", "AccessibleJLayeredPane", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JLayeredPane_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JLayeredPane",
-	"javax.swing.JComponent",
-	"javax.accessibility.Accessible",
-	_JLayeredPane_FieldInfo_,
-	_JLayeredPane_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JLayeredPane_InnerClassesInfo_,
-	_JLayeredPane_Annotations_,
-	nullptr,
-	"javax.swing.JLayeredPane$AccessibleJLayeredPane"
-};
-
-$Object* allocate$JLayeredPane($Class* clazz) {
-	return $of($alloc(JLayeredPane));
-}
-
 $String* JLayeredPane::toString() {
 	 return this->$JComponent::toString();
 }
@@ -184,20 +79,18 @@ void JLayeredPane::init$() {
 }
 
 void JLayeredPane::validateOptimizedDrawing() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool layeredComponentFound = false;
 	$synchronized(getTreeLock()) {
 		$var($Integer, layer, nullptr);
 		{
 			$var($ComponentArray, arr$, getComponents());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Component, c, arr$->get(i$));
 				{
 					$assign(layer, nullptr);
-					bool var$0 = $SunToolkit::isInstanceOf($of(c), "javax.swing.JInternalFrame"_s);
-					if (var$0 || ($instanceOf($JComponent, c) && ($assign(layer, $cast($Integer, $nc(($cast($JComponent, c)))->getClientProperty(JLayeredPane::LAYER_PROPERTY)))) != nullptr)) {
+					bool var$0 = $SunToolkit::isInstanceOf(c, "javax.swing.JInternalFrame"_s);
+					if (var$0 || ($instanceOf($JComponent, c) && ($assign(layer, $cast($Integer, $cast($JComponent, c)->getClientProperty(JLayeredPane::LAYER_PROPERTY)))) != nullptr)) {
 						if (layer != nullptr && layer->equals(JLayeredPane::FRAME_CONTENT_LAYER)) {
 							continue;
 						}
@@ -219,7 +112,7 @@ void JLayeredPane::addImpl($Component* comp, Object$* constraints, int32_t index
 	int32_t layer = 0;
 	int32_t pos = 0;
 	if ($instanceOf($Integer, constraints)) {
-		layer = $nc(($cast($Integer, constraints)))->intValue();
+		layer = $cast($Integer, constraints)->intValue();
 		setLayer(comp, layer);
 	} else {
 		layer = getLayer(comp);
@@ -232,17 +125,17 @@ void JLayeredPane::addImpl($Component* comp, Object$* constraints, int32_t index
 }
 
 void JLayeredPane::remove(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, c, getComponent(index));
 	$JComponent::remove(index);
 	if (c != nullptr && !($instanceOf($JComponent, c))) {
-		$nc($(getComponentToLayer()))->remove(c);
+		$$nc(getComponentToLayer())->remove(c);
 	}
 	validateOptimizedDrawing();
 }
 
 void JLayeredPane::removeAll() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ComponentArray, children, getComponents());
 	$var($Hashtable, cToL, getComponentToLayer());
 	for (int32_t counter = $nc(children)->length - 1; counter >= 0; --counter) {
@@ -269,7 +162,7 @@ int32_t JLayeredPane::getLayer($JComponent* c) {
 	if (($assign(i, $cast($Integer, $nc(c)->getClientProperty(JLayeredPane::LAYER_PROPERTY)))) != nullptr) {
 		return $nc(i)->intValue();
 	}
-	return $nc(JLayeredPane::DEFAULT_LAYER)->intValue();
+	return JLayeredPane::DEFAULT_LAYER->intValue();
 }
 
 JLayeredPane* JLayeredPane::getLayeredPaneAbove($Component* c) {
@@ -289,7 +182,7 @@ void JLayeredPane::setLayer($Component* c, int32_t layer) {
 }
 
 void JLayeredPane::setLayer($Component* c, int32_t layer, int32_t position) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Integer, layerObj, nullptr);
 	$assign(layerObj, getObjectForLayer(layer));
 	bool var$0 = layer == getLayer(c);
@@ -298,30 +191,30 @@ void JLayeredPane::setLayer($Component* c, int32_t layer, int32_t position) {
 		return;
 	}
 	if ($instanceOf($JComponent, c)) {
-		$nc(($cast($JComponent, c)))->putClientProperty(JLayeredPane::LAYER_PROPERTY, layerObj);
+		$cast($JComponent, c)->putClientProperty(JLayeredPane::LAYER_PROPERTY, layerObj);
 	} else {
-		$nc($(getComponentToLayer()))->put(c, layerObj);
+		$$nc(getComponentToLayer())->put(c, layerObj);
 	}
 	bool var$1 = $nc(c)->getParent() == nullptr;
-	if (var$1 || !$equals($nc(c)->getParent(), this)) {
+	if (var$1 || !$equals(c->getParent(), this)) {
 		repaint($(c->getBounds()));
 		return;
 	}
 	int32_t index = insertIndexForLayer(c, layer, position);
 	setComponentZOrder(c, index);
-	repaint($($nc(c)->getBounds()));
+	repaint($(c->getBounds()));
 }
 
 int32_t JLayeredPane::getLayer($Component* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Integer, i, nullptr);
 	if ($instanceOf($JComponent, c)) {
-		$assign(i, $cast($Integer, $nc(($cast($JComponent, c)))->getClientProperty(JLayeredPane::LAYER_PROPERTY)));
+		$assign(i, $cast($Integer, $cast($JComponent, c)->getClientProperty(JLayeredPane::LAYER_PROPERTY)));
 	} else {
-		$assign(i, $cast($Integer, $nc($(getComponentToLayer()))->get(c)));
+		$assign(i, $cast($Integer, $$nc(getComponentToLayer())->get(c)));
 	}
 	if (i == nullptr) {
-		return $nc(JLayeredPane::DEFAULT_LAYER)->intValue();
+		return JLayeredPane::DEFAULT_LAYER->intValue();
 	}
 	return $nc(i)->intValue();
 }
@@ -351,7 +244,7 @@ void JLayeredPane::setPosition($Component* c, int32_t position) {
 }
 
 int32_t JLayeredPane::getPosition($Component* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	int32_t startLayer = 0;
 	int32_t curLayer = 0;
@@ -390,7 +283,7 @@ int32_t JLayeredPane::lowestLayer() {
 }
 
 int32_t JLayeredPane::getComponentCountInLayer(int32_t layer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	int32_t count = 0;
 	int32_t curLayer = 0;
@@ -408,7 +301,7 @@ int32_t JLayeredPane::getComponentCountInLayer(int32_t layer) {
 }
 
 $ComponentArray* JLayeredPane::getComponentsInLayer(int32_t layer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	int32_t count = 0;
 	int32_t curLayer = 0;
@@ -428,7 +321,7 @@ $ComponentArray* JLayeredPane::getComponentsInLayer(int32_t layer) {
 }
 
 void JLayeredPane::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isOpaque()) {
 		$var($Rectangle, r, $nc(g)->getClipBounds());
 		$var($Color, c, getBackground());
@@ -457,29 +350,17 @@ $Hashtable* JLayeredPane::getComponentToLayer() {
 $Integer* JLayeredPane::getObjectForLayer(int32_t layer) {
 	switch (layer) {
 	case 0:
-		{
-			return JLayeredPane::DEFAULT_LAYER;
-		}
+		return JLayeredPane::DEFAULT_LAYER;
 	case 100:
-		{
-			return JLayeredPane::PALETTE_LAYER;
-		}
+		return JLayeredPane::PALETTE_LAYER;
 	case 200:
-		{
-			return JLayeredPane::MODAL_LAYER;
-		}
+		return JLayeredPane::MODAL_LAYER;
 	case 300:
-		{
-			return JLayeredPane::POPUP_LAYER;
-		}
+		return JLayeredPane::POPUP_LAYER;
 	case 400:
-		{
-			return JLayeredPane::DRAG_LAYER;
-		}
+		return JLayeredPane::DRAG_LAYER;
 	default:
-		{
-			return $Integer::valueOf(layer);
-		}
+		return $Integer::valueOf(layer);
 	}
 }
 
@@ -488,7 +369,7 @@ int32_t JLayeredPane::insertIndexForLayer(int32_t layer, int32_t position) {
 }
 
 int32_t JLayeredPane::insertIndexForLayer($Component* comp, int32_t layer, int32_t position) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	int32_t count = 0;
 	int32_t curLayer = 0;
@@ -503,7 +384,7 @@ int32_t JLayeredPane::insertIndexForLayer($Component* comp, int32_t layer, int32
 	}
 	count = compList->size();
 	for (i = 0; i < count; ++i) {
-		curLayer = getLayer($cast($Component, $(compList->get(i))));
+		curLayer = getLayer($$cast($Component, compList->get(i)));
 		if (layerStart == -1 && curLayer == layer) {
 			layerStart = i;
 		}
@@ -536,7 +417,7 @@ int32_t JLayeredPane::insertIndexForLayer($Component* comp, int32_t layer, int32
 }
 
 $String* JLayeredPane::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, optimizedDrawingPossibleString, this->optimizedDrawingPossible ? "true"_s : "false"_s);
 	return $str({$($JComponent::paramString()), ",optimizedDrawingPossible="_s, optimizedDrawingPossibleString});
 }
@@ -548,7 +429,7 @@ $AccessibleContext* JLayeredPane::getAccessibleContext() {
 	return this->accessibleContext;
 }
 
-void clinit$JLayeredPane($Class* class$) {
+void JLayeredPane::clinit$($Class* clazz) {
 	$assignStatic(JLayeredPane::LAYER_PROPERTY, "layeredContainerLayer"_s);
 	$assignStatic(JLayeredPane::DEFAULT_LAYER, $Integer::valueOf(0));
 	$assignStatic(JLayeredPane::PALETTE_LAYER, $Integer::valueOf(100));
@@ -562,7 +443,99 @@ JLayeredPane::JLayeredPane() {
 }
 
 $Class* JLayeredPane::load$($String* name, bool initialize) {
-	$loadClass(JLayeredPane, name, initialize, &_JLayeredPane_ClassInfo_, clinit$JLayeredPane, allocate$JLayeredPane);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_LAYER", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JLayeredPane, DEFAULT_LAYER)},
+		{"PALETTE_LAYER", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JLayeredPane, PALETTE_LAYER)},
+		{"MODAL_LAYER", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JLayeredPane, MODAL_LAYER)},
+		{"POPUP_LAYER", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JLayeredPane, POPUP_LAYER)},
+		{"DRAG_LAYER", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JLayeredPane, DRAG_LAYER)},
+		{"FRAME_CONTENT_LAYER", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JLayeredPane, FRAME_CONTENT_LAYER)},
+		{"LAYER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JLayeredPane, LAYER_PROPERTY)},
+		{"componentToLayer", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/awt/Component;Ljava/lang/Integer;>;", $PRIVATE, $field(JLayeredPane, componentToLayer)},
+		{"optimizedDrawingPossible", "Z", nullptr, $PRIVATE, $field(JLayeredPane, optimizedDrawingPossible)},
+		{}
+	};
+	$NamedAttribute getAccessibleContextmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getAccessibleContextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getAccessibleContextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute isOptimizedDrawingEnabledmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute isOptimizedDrawingEnabledmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", isOptimizedDrawingEnabledmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JLayeredPane, init$, void)},
+		{"addImpl", "(Ljava/awt/Component;Ljava/lang/Object;I)V", nullptr, $PROTECTED, $virtualMethod(JLayeredPane, addImpl, void, $Component*, Object$*, int32_t)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, getAccessibleContextmethodAnnotations$$},
+		{"getComponentCountInLayer", "(I)I", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, getComponentCountInLayer, int32_t, int32_t)},
+		{"getComponentToLayer", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<Ljava/awt/Component;Ljava/lang/Integer;>;", $PROTECTED, $virtualMethod(JLayeredPane, getComponentToLayer, $Hashtable*)},
+		{"getComponentsInLayer", "(I)[Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, getComponentsInLayer, $ComponentArray*, int32_t)},
+		{"getIndexOf", "(Ljava/awt/Component;)I", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, getIndexOf, int32_t, $Component*)},
+		{"getLayer", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JLayeredPane, getLayer, int32_t, $JComponent*)},
+		{"getLayer", "(Ljava/awt/Component;)I", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, getLayer, int32_t, $Component*)},
+		{"getLayeredPaneAbove", "(Ljava/awt/Component;)Ljavax/swing/JLayeredPane;", nullptr, $PUBLIC | $STATIC, $staticMethod(JLayeredPane, getLayeredPaneAbove, JLayeredPane*, $Component*)},
+		{"getObjectForLayer", "(I)Ljava/lang/Integer;", nullptr, $PROTECTED, $virtualMethod(JLayeredPane, getObjectForLayer, $Integer*, int32_t)},
+		{"getPosition", "(Ljava/awt/Component;)I", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, getPosition, int32_t, $Component*)},
+		{"highestLayer", "()I", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, highestLayer, int32_t)},
+		{"insertIndexForLayer", "(II)I", nullptr, $PROTECTED, $virtualMethod(JLayeredPane, insertIndexForLayer, int32_t, int32_t, int32_t)},
+		{"insertIndexForLayer", "(Ljava/awt/Component;II)I", nullptr, $PRIVATE, $method(JLayeredPane, insertIndexForLayer, int32_t, $Component*, int32_t, int32_t)},
+		{"isOptimizedDrawingEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, isOptimizedDrawingEnabled, bool), nullptr, nullptr, isOptimizedDrawingEnabledmethodAnnotations$$},
+		{"lowestLayer", "()I", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, lowestLayer, int32_t)},
+		{"moveToBack", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, moveToBack, void, $Component*)},
+		{"moveToFront", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, moveToFront, void, $Component*)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, paint, void, $Graphics*)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JLayeredPane, paramString, $String*)},
+		{"putLayer", "(Ljavax/swing/JComponent;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JLayeredPane, putLayer, void, $JComponent*, int32_t)},
+		{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, remove, void, int32_t)},
+		{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, removeAll, void)},
+		{"setLayer", "(Ljava/awt/Component;I)V", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, setLayer, void, $Component*, int32_t)},
+		{"setLayer", "(Ljava/awt/Component;II)V", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, setLayer, void, $Component*, int32_t, int32_t)},
+		{"setPosition", "(Ljava/awt/Component;I)V", nullptr, $PUBLIC, $virtualMethod(JLayeredPane, setPosition, void, $Component*, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"validateOptimizedDrawing", "()V", nullptr, $PRIVATE, $method(JLayeredPane, validateOptimizedDrawing, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JLayeredPane$AccessibleJLayeredPane", "javax.swing.JLayeredPane", "AccessibleJLayeredPane", $PROTECTED},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"defaultProperty", 's', "accessibleContext"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JLayeredPane",
+		"javax.swing.JComponent",
+		"javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.JLayeredPane$AccessibleJLayeredPane"
+	};
+	$loadClass(JLayeredPane, name, initialize, &classInfo$$, JLayeredPane::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JLayeredPane));
+	});
 	return class$;
 }
 

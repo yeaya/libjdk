@@ -37,6 +37,7 @@ public:
 	OpenType();
 	virtual bool equals(Object$* obj) override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* className, $String* typeName, $String* description);
 	void init$($String* className, $String* typeName, $String* description, bool isArray);
 	void checkClassNameOverride();
@@ -53,7 +54,7 @@ public:
 	virtual $String* toString() override;
 	static $String* valid($String* argName, $String* argValue);
 	static $String* validClassName($String* className);
-	static const int64_t serialVersionUID = (int64_t)0x80641A91E9EADE3C;
+	static const int64_t serialVersionUID = (int64_t)0x80641a91e9eade3c;
 	static ::java::util::List* ALLOWED_CLASSNAMES_LIST;
 	static $StringArray* ALLOWED_CLASSNAMES;
 	$String* className = nullptr;

@@ -30,6 +30,7 @@ class $import URI : public ::java::io::Serializable {
 	$class(URI, 0, ::java::io::Serializable)
 public:
 	URI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::com::sun::org::apache::xml::internal::utils::URI* p_other);
 	void init$($String* p_uriSpec);
@@ -72,7 +73,7 @@ public:
 	virtual void setScheme($String* p_scheme);
 	virtual void setUserinfo($String* p_userinfo);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x627B00AC4EB312A9;
+	static const int64_t serialVersionUID = (int64_t)0x627b00ac4eb312a9;
 	static $String* RESERVED_CHARACTERS;
 	static $String* MARK_CHARACTERS;
 	static $String* SCHEME_CHARACTERS;

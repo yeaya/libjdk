@@ -1,5 +1,4 @@
 #include <sun/text/resources/cldr/ext/FormatData_ur_IN.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,51 +13,32 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _FormatData_ur_IN_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_ur_IN, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_ur_IN, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _FormatData_ur_IN_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.cldr.ext.FormatData_ur_IN",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_FormatData_ur_IN_MethodInfo_
-};
-
-$Object* allocate$FormatData_ur_IN($Class* clazz) {
-	return $of($alloc(FormatData_ur_IN));
-}
-
 void FormatData_ur_IN::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* FormatData_ur_IN::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("field.era"_s),
-			$of(u"دور"_s)
+			"field.era"_s,
+			u"دور"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.gmtFormat"_s),
-			$of("GMT{0}"_s)
+			"timezone.gmtFormat"_s,
+			"GMT{0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.regionFormat.daylight"_s),
-			$of(u"{0} دن کا وقت"_s)
+			"timezone.regionFormat.daylight"_s,
+			u"{0} دن کا وقت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DefaultNumberingSystem"_s),
-			$of("arabext"_s)
+			"DefaultNumberingSystem"_s,
+			"arabext"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arabext.NumberElements"_s),
-			$of($$new($StringArray, {
+			"arabext.NumberElements"_s,
+			$$new($StringArray, {
 				u"٫"_s,
 				u"٬"_s,
 				";"_s,
@@ -72,16 +52,16 @@ $ObjectArray2* FormatData_ur_IN::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("arabext.NumberPatterns"_s),
-			$of($$new($StringArray, {
+			"arabext.NumberPatterns"_s,
+			$$new($StringArray, {
 				"#,##0.###"_s,
 				u"¤ #,##,##0.00"_s,
 				"#,##0%"_s,
 				u"¤#,##0.00;(¤#,##0.00)"_s
-			}))
+			})
 		})
 	}));
 	return data;
@@ -91,7 +71,22 @@ FormatData_ur_IN::FormatData_ur_IN() {
 }
 
 $Class* FormatData_ur_IN::load$($String* name, bool initialize) {
-	$loadClass(FormatData_ur_IN, name, initialize, &_FormatData_ur_IN_ClassInfo_, allocate$FormatData_ur_IN);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_ur_IN, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_ur_IN, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.cldr.ext.FormatData_ur_IN",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FormatData_ur_IN, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatData_ur_IN);
+	});
 	return class$;
 }
 

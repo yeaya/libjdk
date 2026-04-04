@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Analyzer$DeferredAnalysisHelper.h>
-
 #include <com/sun/tools/javac/comp/Analyzer$RewritingContext.h>
 #include <com/sun/tools/javac/comp/Analyzer.h>
 #include <com/sun/tools/javac/comp/Env.h>
@@ -17,39 +16,34 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$MethodInfo _Analyzer$DeferredAnalysisHelper_MethodInfo_[] = {
-	{"flush", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(Analyzer$DeferredAnalysisHelper, flush, void, $Env*)},
-	{"queue", "(Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Analyzer$DeferredAnalysisHelper, queue, void, $Analyzer$RewritingContext*)},
-	{}
-};
-
-$InnerClassInfo _Analyzer$DeferredAnalysisHelper_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Analyzer$DeferredAnalysisHelper", "com.sun.tools.javac.comp.Analyzer", "DeferredAnalysisHelper", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Analyzer$DeferredAnalysisHelper_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.comp.Analyzer$DeferredAnalysisHelper",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Analyzer$DeferredAnalysisHelper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Analyzer$DeferredAnalysisHelper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Analyzer"
-};
-
-$Object* allocate$Analyzer$DeferredAnalysisHelper($Class* clazz) {
-	return $of($alloc(Analyzer$DeferredAnalysisHelper));
-}
-
 $Class* Analyzer$DeferredAnalysisHelper::load$($String* name, bool initialize) {
-	$loadClass(Analyzer$DeferredAnalysisHelper, name, initialize, &_Analyzer$DeferredAnalysisHelper_ClassInfo_, allocate$Analyzer$DeferredAnalysisHelper);
+	$MethodInfo methodInfos$$[] = {
+		{"flush", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(Analyzer$DeferredAnalysisHelper, flush, void, $Env*)},
+		{"queue", "(Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Analyzer$DeferredAnalysisHelper, queue, void, $Analyzer$RewritingContext*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Analyzer$DeferredAnalysisHelper", "com.sun.tools.javac.comp.Analyzer", "DeferredAnalysisHelper", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.comp.Analyzer$DeferredAnalysisHelper",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Analyzer"
+	};
+	$loadClass(Analyzer$DeferredAnalysisHelper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Analyzer$DeferredAnalysisHelper);
+	});
 	return class$;
 }
 

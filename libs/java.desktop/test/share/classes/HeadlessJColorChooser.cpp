@@ -1,5 +1,4 @@
 #include <HeadlessJColorChooser.h>
-
 #include <HeadlessJColorChooser$1.h>
 #include <HeadlessJColorChooser$2.h>
 #include <HeadlessJColorChooser$3.h>
@@ -49,7 +48,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -60,43 +58,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 using $JColorChooser = ::javax::swing::JColorChooser;
 
-$MethodInfo _HeadlessJColorChooser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJColorChooser, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJColorChooser, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _HeadlessJColorChooser_InnerClassesInfo_[] = {
-	{"HeadlessJColorChooser$3", nullptr, nullptr, 0},
-	{"HeadlessJColorChooser$2", nullptr, nullptr, 0},
-	{"HeadlessJColorChooser$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJColorChooser_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJColorChooser",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJColorChooser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessJColorChooser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadlessJColorChooser$3,HeadlessJColorChooser$2,HeadlessJColorChooser$1"
-};
-
-$Object* allocate$HeadlessJColorChooser($Class* clazz) {
-	return $of($alloc(HeadlessJColorChooser));
-}
-
 void HeadlessJColorChooser::init$() {
 }
 
 void HeadlessJColorChooser::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JColorChooser, cc, nullptr);
 	$assign(cc, $new($JColorChooser));
 	cc->getAccessibleContext();
@@ -109,9 +75,9 @@ void HeadlessJColorChooser::main($StringArray* args) {
 	cc->getMaximumSize();
 	cc->getMinimumSize();
 	cc->contains(1, 2);
-	$var($Component, c1, cc->add(static_cast<$Component*>($$new($HeadlessJColorChooser$1))));
-	$var($Component, c2, cc->add(static_cast<$Component*>($$new($HeadlessJColorChooser$2))));
-	$var($Component, c3, cc->add(static_cast<$Component*>($$new($HeadlessJColorChooser$3))));
+	$var($Component, c1, cc->add($$new($HeadlessJColorChooser$1)));
+	$var($Component, c2, cc->add($$new($HeadlessJColorChooser$2)));
+	$var($Component, c3, cc->add($$new($HeadlessJColorChooser$3)));
 	$var($Insets, ins, cc->getInsets());
 	cc->getAlignmentY();
 	cc->getAlignmentX();
@@ -122,26 +88,22 @@ void HeadlessJColorChooser::main($StringArray* args) {
 	cc->setForeground($Color::red);
 	cc->setBackground($Color::red);
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					cc->setFont(f1);
-					cc->setFont(f2);
-					cc->setFont(f3);
-					cc->setFont(f4);
-					cc->getFontMetrics(f1);
-					cc->getFontMetrics(f2);
-					cc->getFontMetrics(f3);
-					cc->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				cc->setFont(f1);
+				cc->setFont(f2);
+				cc->setFont(f3);
+				cc->setFont(f4);
+				cc->getFontMetrics(f1);
+				cc->getFontMetrics(f2);
+				cc->getFontMetrics(f3);
+				cc->getFontMetrics(f4);
 			}
 		}
 	}
@@ -206,13 +168,11 @@ void HeadlessJColorChooser::main($StringArray* args) {
 	cc->getFont();
 	cc->isFontSet();
 	$var($Container, c, $new($Container));
-	c->add(static_cast<$Component*>(cc));
+	c->add(cc);
 	cc->getLocale();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			cc->setLocale(locale);
 		}
@@ -269,7 +229,34 @@ HeadlessJColorChooser::HeadlessJColorChooser() {
 }
 
 $Class* HeadlessJColorChooser::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJColorChooser, name, initialize, &_HeadlessJColorChooser_ClassInfo_, allocate$HeadlessJColorChooser);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJColorChooser, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJColorChooser, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJColorChooser$3", nullptr, nullptr, 0},
+		{"HeadlessJColorChooser$2", nullptr, nullptr, 0},
+		{"HeadlessJColorChooser$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJColorChooser",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadlessJColorChooser$3,HeadlessJColorChooser$2,HeadlessJColorChooser$1"
+	};
+	$loadClass(HeadlessJColorChooser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJColorChooser);
+	});
 	return class$;
 }
 

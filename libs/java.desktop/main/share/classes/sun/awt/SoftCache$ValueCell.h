@@ -23,6 +23,7 @@ class SoftCache$ValueCell : public ::java::lang::ref::SoftReference {
 	$class(SoftCache$ValueCell, 0, ::java::lang::ref::SoftReference)
 public:
 	SoftCache$ValueCell();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(Object$* key, Object$* value, ::java::lang::ref::ReferenceQueue* queue);
 	static ::sun::awt::SoftCache$ValueCell* create(Object$* key, Object$* value, ::java::lang::ref::ReferenceQueue* queue);
 	void drop();

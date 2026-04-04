@@ -1,5 +1,4 @@
 #include <sun/rmi/transport/ObjectEndpoint.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/rmi/server/ObjID.h>
 #include <sun/rmi/transport/Transport.h>
@@ -19,34 +18,6 @@ namespace sun {
 	namespace rmi {
 		namespace transport {
 
-$FieldInfo _ObjectEndpoint_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ObjectEndpoint, $assertionsDisabled)},
-	{"id", "Ljava/rmi/server/ObjID;", nullptr, $PRIVATE | $FINAL, $field(ObjectEndpoint, id)},
-	{"transport", "Lsun/rmi/transport/Transport;", nullptr, $PRIVATE | $FINAL, $field(ObjectEndpoint, transport)},
-	{}
-};
-
-$MethodInfo _ObjectEndpoint_MethodInfo_[] = {
-	{"<init>", "(Ljava/rmi/server/ObjID;Lsun/rmi/transport/Transport;)V", nullptr, 0, $method(ObjectEndpoint, init$, void, $ObjID*, $Transport*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ObjectEndpoint, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectEndpoint, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectEndpoint, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ObjectEndpoint_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.rmi.transport.ObjectEndpoint",
-	"java.lang.Object",
-	nullptr,
-	_ObjectEndpoint_FieldInfo_,
-	_ObjectEndpoint_MethodInfo_
-};
-
-$Object* allocate$ObjectEndpoint($Class* clazz) {
-	return $of($alloc(ObjectEndpoint));
-}
-
 bool ObjectEndpoint::$assertionsDisabled = false;
 
 void ObjectEndpoint::init$($ObjID* id, $Transport* transport) {
@@ -63,7 +34,7 @@ void ObjectEndpoint::init$($ObjID* id, $Transport* transport) {
 bool ObjectEndpoint::equals(Object$* obj) {
 	if ($instanceOf(ObjectEndpoint, obj)) {
 		$var(ObjectEndpoint, oe, $cast(ObjectEndpoint, obj));
-		return $nc(this->id)->equals($nc(oe)->id) && this->transport == $nc(oe)->transport;
+		return $nc(this->id)->equals(oe->id) && this->transport == oe->transport;
 	} else {
 		return false;
 	}
@@ -71,14 +42,14 @@ bool ObjectEndpoint::equals(Object$* obj) {
 
 int32_t ObjectEndpoint::hashCode() {
 	int32_t var$0 = $nc(this->id)->hashCode();
-	return var$0 ^ (this->transport != nullptr ? $nc($of(this->transport))->hashCode() : 0);
+	return var$0 ^ (this->transport != nullptr ? this->transport->hashCode() : 0);
 }
 
 $String* ObjectEndpoint::toString() {
 	return $nc(this->id)->toString();
 }
 
-void clinit$ObjectEndpoint($Class* class$) {
+void ObjectEndpoint::clinit$($Class* clazz) {
 	ObjectEndpoint::$assertionsDisabled = !ObjectEndpoint::class$->desiredAssertionStatus();
 }
 
@@ -86,7 +57,30 @@ ObjectEndpoint::ObjectEndpoint() {
 }
 
 $Class* ObjectEndpoint::load$($String* name, bool initialize) {
-	$loadClass(ObjectEndpoint, name, initialize, &_ObjectEndpoint_ClassInfo_, clinit$ObjectEndpoint, allocate$ObjectEndpoint);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ObjectEndpoint, $assertionsDisabled)},
+		{"id", "Ljava/rmi/server/ObjID;", nullptr, $PRIVATE | $FINAL, $field(ObjectEndpoint, id)},
+		{"transport", "Lsun/rmi/transport/Transport;", nullptr, $PRIVATE | $FINAL, $field(ObjectEndpoint, transport)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/rmi/server/ObjID;Lsun/rmi/transport/Transport;)V", nullptr, 0, $method(ObjectEndpoint, init$, void, $ObjID*, $Transport*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ObjectEndpoint, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectEndpoint, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectEndpoint, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.rmi.transport.ObjectEndpoint",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ObjectEndpoint, name, initialize, &classInfo$$, ObjectEndpoint::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectEndpoint);
+	});
 	return class$;
 }
 

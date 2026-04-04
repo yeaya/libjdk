@@ -1,5 +1,4 @@
 #include <java/awt/ModalEventFilter$1.h>
-
 #include <java/awt/Dialog$ModalityType.h>
 #include <java/awt/Dialog.h>
 #include <java/awt/ModalEventFilter.h>
@@ -20,57 +19,21 @@ using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
 namespace java {
 	namespace awt {
 
-$FieldInfo _ModalEventFilter$1_FieldInfo_[] = {
-	{"$SwitchMap$java$awt$Dialog$ModalityType", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ModalEventFilter$1, $SwitchMap$java$awt$Dialog$ModalityType)},
-	{}
-};
-
-$EnclosingMethodInfo _ModalEventFilter$1_EnclosingMethodInfo_ = {
-	"java.awt.ModalEventFilter",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ModalEventFilter$1_InnerClassesInfo_[] = {
-	{"java.awt.ModalEventFilter$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _ModalEventFilter$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"java.awt.ModalEventFilter$1",
-	"java.lang.Object",
-	nullptr,
-	_ModalEventFilter$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_ModalEventFilter$1_EnclosingMethodInfo_,
-	_ModalEventFilter$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.ModalEventFilter"
-};
-
-$Object* allocate$ModalEventFilter$1($Class* clazz) {
-	return $of($alloc(ModalEventFilter$1));
-}
-
 $ints* ModalEventFilter$1::$SwitchMap$java$awt$Dialog$ModalityType = nullptr;
 
-void clinit$ModalEventFilter$1($Class* class$) {
+void ModalEventFilter$1::clinit$($Class* clazz) {
 	$assignStatic(ModalEventFilter$1::$SwitchMap$java$awt$Dialog$ModalityType, $new($ints, $($Dialog$ModalityType::values())->length));
 	{
 		try {
-			$nc(ModalEventFilter$1::$SwitchMap$java$awt$Dialog$ModalityType)->set($Dialog$ModalityType::DOCUMENT_MODAL->ordinal(), 1);
+			ModalEventFilter$1::$SwitchMap$java$awt$Dialog$ModalityType->set($Dialog$ModalityType::DOCUMENT_MODAL->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ModalEventFilter$1::$SwitchMap$java$awt$Dialog$ModalityType)->set($Dialog$ModalityType::APPLICATION_MODAL->ordinal(), 2);
+			ModalEventFilter$1::$SwitchMap$java$awt$Dialog$ModalityType->set($Dialog$ModalityType::APPLICATION_MODAL->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ModalEventFilter$1::$SwitchMap$java$awt$Dialog$ModalityType)->set($Dialog$ModalityType::TOOLKIT_MODAL->ordinal(), 3);
+			ModalEventFilter$1::$SwitchMap$java$awt$Dialog$ModalityType->set($Dialog$ModalityType::TOOLKIT_MODAL->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -80,7 +43,37 @@ ModalEventFilter$1::ModalEventFilter$1() {
 }
 
 $Class* ModalEventFilter$1::load$($String* name, bool initialize) {
-	$loadClass(ModalEventFilter$1, name, initialize, &_ModalEventFilter$1_ClassInfo_, clinit$ModalEventFilter$1, allocate$ModalEventFilter$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$awt$Dialog$ModalityType", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ModalEventFilter$1, $SwitchMap$java$awt$Dialog$ModalityType)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.awt.ModalEventFilter",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.ModalEventFilter$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"java.awt.ModalEventFilter$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.ModalEventFilter"
+	};
+	$loadClass(ModalEventFilter$1, name, initialize, &classInfo$$, ModalEventFilter$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ModalEventFilter$1);
+	});
 	return class$;
 }
 

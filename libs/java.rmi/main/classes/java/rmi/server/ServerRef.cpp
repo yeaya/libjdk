@@ -1,5 +1,4 @@
 #include <java/rmi/server/ServerRef.h>
-
 #include <java/rmi/Remote.h>
 #include <java/rmi/server/RemoteStub.h>
 #include <jcpp.h>
@@ -15,46 +14,39 @@ namespace java {
 	namespace rmi {
 		namespace server {
 
-$CompoundAttribute _ServerRef_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ServerRef_FieldAnnotations_serialVersionUID[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _ServerRef_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(ServerRef, serialVersionUID), _ServerRef_FieldAnnotations_serialVersionUID},
-	{}
-};
-
-$MethodInfo _ServerRef_MethodInfo_[] = {
-	{"exportObject", "(Ljava/rmi/Remote;Ljava/lang/Object;)Ljava/rmi/server/RemoteStub;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ServerRef, exportObject, $RemoteStub*, $Remote*, Object$*), "java.rmi.RemoteException"},
-	{"getClientHost", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ServerRef, getClientHost, $String*), "java.rmi.server.ServerNotActiveException"},
-	{}
-};
-
-$ClassInfo _ServerRef_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.rmi.server.ServerRef",
-	nullptr,
-	"java.rmi.server.RemoteRef",
-	_ServerRef_FieldInfo_,
-	_ServerRef_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_ServerRef_Annotations_
-};
-
-$Object* allocate$ServerRef($Class* clazz) {
-	return $of($alloc(ServerRef));
-}
-
 $Class* ServerRef::load$($String* name, bool initialize) {
-	$loadClass(ServerRef, name, initialize, &_ServerRef_ClassInfo_, allocate$ServerRef);
+	$CompoundAttribute serialVersionUIDfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(ServerRef, serialVersionUID), serialVersionUIDfieldAnnotations$$},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"exportObject", "(Ljava/rmi/Remote;Ljava/lang/Object;)Ljava/rmi/server/RemoteStub;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ServerRef, exportObject, $RemoteStub*, $Remote*, Object$*), "java.rmi.RemoteException"},
+		{"getClientHost", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ServerRef, getClientHost, $String*), "java.rmi.server.ServerNotActiveException"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.rmi.server.ServerRef",
+		nullptr,
+		"java.rmi.server.RemoteRef",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(ServerRef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServerRef);
+	});
 	return class$;
 }
 

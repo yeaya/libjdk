@@ -1,5 +1,4 @@
 #include <java/awt/image/ColorModel$1.h>
-
 #include <java/awt/image/ColorModel.h>
 #include <jcpp.h>
 
@@ -12,57 +11,51 @@ namespace java {
 	namespace awt {
 		namespace image {
 
-$MethodInfo _ColorModel$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ColorModel$1, init$, void)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ColorModel$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _ColorModel$1_EnclosingMethodInfo_ = {
-	"java.awt.image.ColorModel",
-	"loadLibraries",
-	"()V"
-};
-
-$InnerClassInfo _ColorModel$1_InnerClassesInfo_[] = {
-	{"java.awt.image.ColorModel$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ColorModel$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.image.ColorModel$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_ColorModel$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
-	&_ColorModel$1_EnclosingMethodInfo_,
-	_ColorModel$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.image.ColorModel"
-};
-
-$Object* allocate$ColorModel$1($Class* clazz) {
-	return $of($alloc(ColorModel$1));
-}
-
 void ColorModel$1::init$() {
 }
 
 $Object* ColorModel$1::run() {
 	$beforeCallerSensitive();
 	$System::loadLibrary("awt"_s);
-	return $of(nullptr);
+	return nullptr;
 }
 
 ColorModel$1::ColorModel$1() {
 }
 
 $Class* ColorModel$1::load$($String* name, bool initialize) {
-	$loadClass(ColorModel$1, name, initialize, &_ColorModel$1_ClassInfo_, allocate$ColorModel$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ColorModel$1, init$, void)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ColorModel$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.awt.image.ColorModel",
+		"loadLibraries",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.image.ColorModel$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.image.ColorModel$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.image.ColorModel"
+	};
+	$loadClass(ColorModel$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ColorModel$1);
+	});
 	return class$;
 }
 

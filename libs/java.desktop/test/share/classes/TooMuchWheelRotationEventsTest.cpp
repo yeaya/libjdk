@@ -1,5 +1,4 @@
 #include <TooMuchWheelRotationEventsTest.h>
-
 #include <TooMuchWheelRotationEventsTest$1.h>
 #include <TooMuchWheelRotationEventsTest$2.h>
 #include <java/awt/Color.h>
@@ -40,13 +39,10 @@ using $TooMuchWheelRotationEventsTest$1 = ::TooMuchWheelRotationEventsTest$1;
 using $TooMuchWheelRotationEventsTest$2 = ::TooMuchWheelRotationEventsTest$2;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $WindowListener = ::java::awt::event::WindowListener;
 using $Serializable = ::java::io::Serializable;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -74,27 +70,24 @@ public:
 	virtual void run() override {
 		TooMuchWheelRotationEventsTest::createUI();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TooMuchWheelRotationEventsTest$$Lambda$createUI>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TooMuchWheelRotationEventsTest$$Lambda$createUI::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TooMuchWheelRotationEventsTest$$Lambda$createUI, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TooMuchWheelRotationEventsTest$$Lambda$createUI, run, void)},
-	{}
-};
-$ClassInfo TooMuchWheelRotationEventsTest$$Lambda$createUI::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TooMuchWheelRotationEventsTest$$Lambda$createUI",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TooMuchWheelRotationEventsTest$$Lambda$createUI::load$($String* name, bool initialize) {
-	$loadClass(TooMuchWheelRotationEventsTest$$Lambda$createUI, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TooMuchWheelRotationEventsTest$$Lambda$createUI, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TooMuchWheelRotationEventsTest$$Lambda$createUI, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TooMuchWheelRotationEventsTest$$Lambda$createUI",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TooMuchWheelRotationEventsTest$$Lambda$createUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TooMuchWheelRotationEventsTest$$Lambda$createUI);
+	});
 	return class$;
 }
 $Class* TooMuchWheelRotationEventsTest$$Lambda$createUI::class$ = nullptr;
@@ -108,79 +101,32 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		TooMuchWheelRotationEventsTest::lambda$createUI$0(mainFrame, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TooMuchWheelRotationEventsTest$$Lambda$lambda$createUI$0$1>());
-	}
 	$JFrame* mainFrame = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TooMuchWheelRotationEventsTest$$Lambda$lambda$createUI$0$1::fieldInfos[2] = {
-	{"mainFrame", "Ljavax/swing/JFrame;", nullptr, $PUBLIC, $field(TooMuchWheelRotationEventsTest$$Lambda$lambda$createUI$0$1, mainFrame)},
-	{}
-};
-$MethodInfo TooMuchWheelRotationEventsTest$$Lambda$lambda$createUI$0$1::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/JFrame;)V", nullptr, $PUBLIC, $method(TooMuchWheelRotationEventsTest$$Lambda$lambda$createUI$0$1, init$, void, $JFrame*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TooMuchWheelRotationEventsTest$$Lambda$lambda$createUI$0$1, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo TooMuchWheelRotationEventsTest$$Lambda$lambda$createUI$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TooMuchWheelRotationEventsTest$$Lambda$lambda$createUI$0$1",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* TooMuchWheelRotationEventsTest$$Lambda$lambda$createUI$0$1::load$($String* name, bool initialize) {
-	$loadClass(TooMuchWheelRotationEventsTest$$Lambda$lambda$createUI$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"mainFrame", "Ljavax/swing/JFrame;", nullptr, $PUBLIC, $field(TooMuchWheelRotationEventsTest$$Lambda$lambda$createUI$0$1, mainFrame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JFrame;)V", nullptr, $PUBLIC, $method(TooMuchWheelRotationEventsTest$$Lambda$lambda$createUI$0$1, init$, void, $JFrame*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TooMuchWheelRotationEventsTest$$Lambda$lambda$createUI$0$1, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TooMuchWheelRotationEventsTest$$Lambda$lambda$createUI$0$1",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TooMuchWheelRotationEventsTest$$Lambda$lambda$createUI$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TooMuchWheelRotationEventsTest$$Lambda$lambda$createUI$0$1);
+	});
 	return class$;
 }
 $Class* TooMuchWheelRotationEventsTest$$Lambda$lambda$createUI$0$1::class$ = nullptr;
-
-$FieldInfo _TooMuchWheelRotationEventsTest_FieldInfo_[] = {
-	{"testResult", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(TooMuchWheelRotationEventsTest, testResult)},
-	{"countDownLatch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(TooMuchWheelRotationEventsTest, countDownLatch)},
-	{"INSTRUCTIONS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TooMuchWheelRotationEventsTest, INSTRUCTIONS)},
-	{}
-};
-
-$MethodInfo _TooMuchWheelRotationEventsTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TooMuchWheelRotationEventsTest, init$, void)},
-	{"createTestPanel", "()Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticMethod(TooMuchWheelRotationEventsTest, createTestPanel, $JPanel*)},
-	{"createUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TooMuchWheelRotationEventsTest, createUI, void)},
-	{"getLongString", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TooMuchWheelRotationEventsTest, getLongString, $String*)},
-	{"getLongString", "(CC)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TooMuchWheelRotationEventsTest, getLongString, $String*, char16_t, char16_t)},
-	{"lambda$createUI$0", "(Ljavax/swing/JFrame;Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TooMuchWheelRotationEventsTest, lambda$createUI$0, void, $JFrame*, $ActionEvent*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TooMuchWheelRotationEventsTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _TooMuchWheelRotationEventsTest_InnerClassesInfo_[] = {
-	{"TooMuchWheelRotationEventsTest$2", nullptr, nullptr, 0},
-	{"TooMuchWheelRotationEventsTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TooMuchWheelRotationEventsTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TooMuchWheelRotationEventsTest",
-	"java.lang.Object",
-	nullptr,
-	_TooMuchWheelRotationEventsTest_FieldInfo_,
-	_TooMuchWheelRotationEventsTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TooMuchWheelRotationEventsTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TooMuchWheelRotationEventsTest$2,TooMuchWheelRotationEventsTest$1"
-};
-
-$Object* allocate$TooMuchWheelRotationEventsTest($Class* clazz) {
-	return $of($alloc(TooMuchWheelRotationEventsTest));
-}
 
 $volatile(bool) TooMuchWheelRotationEventsTest::testResult = false;
 $volatile($CountDownLatch*) TooMuchWheelRotationEventsTest::countDownLatch = nullptr;
@@ -192,7 +138,7 @@ void TooMuchWheelRotationEventsTest::init$() {
 void TooMuchWheelRotationEventsTest::main($StringArray* args) {
 	$init(TooMuchWheelRotationEventsTest);
 	$assignStatic(TooMuchWheelRotationEventsTest::countDownLatch, $new($CountDownLatch, 1));
-	$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(TooMuchWheelRotationEventsTest$$Lambda$createUI)));
+	$SwingUtilities::invokeLater($$new(TooMuchWheelRotationEventsTest$$Lambda$createUI));
 	$init($TimeUnit);
 	$nc(TooMuchWheelRotationEventsTest::countDownLatch)->await(15, $TimeUnit::MINUTES);
 	if (!TooMuchWheelRotationEventsTest::testResult) {
@@ -202,17 +148,17 @@ void TooMuchWheelRotationEventsTest::main($StringArray* args) {
 
 void TooMuchWheelRotationEventsTest::createUI() {
 	$init(TooMuchWheelRotationEventsTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFrame, mainFrame, $new($JFrame, "Trackpad scrolling test"_s));
 	$var($GridBagLayout, layout, $new($GridBagLayout));
-	$var($JPanel, mainControlPanel, $new($JPanel, static_cast<$LayoutManager*>(layout)));
-	$var($JPanel, resultButtonPanel, $new($JPanel, static_cast<$LayoutManager*>(layout)));
+	$var($JPanel, mainControlPanel, $new($JPanel, layout));
+	$var($JPanel, resultButtonPanel, $new($JPanel, layout));
 	$var($GridBagConstraints, gbc, $new($GridBagConstraints));
 	$var($JPanel, testPanel, createTestPanel());
 	gbc->gridx = 0;
 	gbc->gridy = 0;
 	gbc->fill = $GridBagConstraints::HORIZONTAL;
-	mainControlPanel->add(static_cast<$Component*>(testPanel), $of(gbc));
+	mainControlPanel->add(testPanel, gbc);
 	$var($JTextArea, instructionTextArea, $new($JTextArea));
 	instructionTextArea->setText(TooMuchWheelRotationEventsTest::INSTRUCTIONS);
 	instructionTextArea->setEditable(false);
@@ -221,23 +167,23 @@ void TooMuchWheelRotationEventsTest::createUI() {
 	gbc->gridx = 0;
 	gbc->gridy = 1;
 	gbc->fill = $GridBagConstraints::HORIZONTAL;
-	mainControlPanel->add(static_cast<$Component*>(instructionTextArea), $of(gbc));
+	mainControlPanel->add(instructionTextArea, gbc);
 	$var($JButton, passButton, $new($JButton, "Pass"_s));
 	passButton->setActionCommand("Pass"_s);
-	passButton->addActionListener(static_cast<$ActionListener*>($$new(TooMuchWheelRotationEventsTest$$Lambda$lambda$createUI$0$1, mainFrame)));
+	passButton->addActionListener($$new(TooMuchWheelRotationEventsTest$$Lambda$lambda$createUI$0$1, mainFrame));
 	$var($JButton, failButton, $new($JButton, "Fail"_s));
 	failButton->setActionCommand("Fail"_s);
 	failButton->addActionListener($$new($TooMuchWheelRotationEventsTest$1, mainFrame));
 	gbc->gridx = 0;
 	gbc->gridy = 0;
-	resultButtonPanel->add(static_cast<$Component*>(passButton), $of(gbc));
+	resultButtonPanel->add(passButton, gbc);
 	gbc->gridx = 1;
 	gbc->gridy = 0;
-	resultButtonPanel->add(static_cast<$Component*>(failButton), $of(gbc));
+	resultButtonPanel->add(failButton, gbc);
 	gbc->gridx = 0;
 	gbc->gridy = 2;
-	mainControlPanel->add(static_cast<$Component*>(resultButtonPanel), $of(gbc));
-	mainFrame->add(static_cast<$Component*>(mainControlPanel));
+	mainControlPanel->add(resultButtonPanel, gbc);
+	mainFrame->add(mainControlPanel);
 	mainFrame->pack();
 	mainFrame->addWindowListener($$new($TooMuchWheelRotationEventsTest$2, mainFrame));
 	mainFrame->setLocationRelativeTo(nullptr);
@@ -246,19 +192,19 @@ void TooMuchWheelRotationEventsTest::createUI() {
 
 $JPanel* TooMuchWheelRotationEventsTest::createTestPanel() {
 	$init(TooMuchWheelRotationEventsTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JPanel, panel, $new($JPanel));
 	panel->setLayout($$new($BoxLayout, panel, $BoxLayout::Y_AXIS));
 	$var($JTextArea, textArea, $new($JTextArea, 20, 20));
 	textArea->setText($(getLongString()));
 	$var($JScrollPane, scrollPane, $new($JScrollPane, textArea));
-	panel->add(static_cast<$Component*>(scrollPane));
+	panel->add(scrollPane);
 	return panel;
 }
 
 $String* TooMuchWheelRotationEventsTest::getLongString() {
 	$init(TooMuchWheelRotationEventsTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, lowCaseString, getLongString(u'a', u'z'));
 	$var($String, upperCaseString, getLongString(u'A', u'Z'));
 	$var($String, digitsString, getLongString(u'0', u'9'));
@@ -273,7 +219,7 @@ $String* TooMuchWheelRotationEventsTest::getLongString() {
 	}
 	$var($StringBuilder, builder, $new($StringBuilder));
 	for (int32_t i = 0; i < 200; ++i) {
-		builder->append(static_cast<$CharSequence*>(upperCaseBuilder))->append(u'\n')->append(static_cast<$CharSequence*>(lowCaseBuilder))->append(u'\n')->append(static_cast<$CharSequence*>(digitsBuilder))->append("\n\n\n"_s);
+		builder->append($cast($CharSequence, upperCaseBuilder))->append(u'\n')->append($cast($CharSequence, lowCaseBuilder))->append(u'\n')->append($cast($CharSequence, digitsBuilder))->append("\n\n\n"_s);
 	}
 	return builder->toString();
 }
@@ -294,7 +240,7 @@ void TooMuchWheelRotationEventsTest::lambda$createUI$0($JFrame* mainFrame, $Acti
 	$nc(TooMuchWheelRotationEventsTest::countDownLatch)->countDown();
 }
 
-void clinit$TooMuchWheelRotationEventsTest($Class* class$) {
+void TooMuchWheelRotationEventsTest::clinit$($Class* clazz) {
 	$assignStatic(TooMuchWheelRotationEventsTest::INSTRUCTIONS, " INSTRUCTIONS:\n Try to check the issue with trackpad\n\n If the trackpad is not supported, press PASS\n\n Use the trackpad to slightly scroll the JTextArea horizontally and vertically.\n If the text area is scrolled too fast press FAIL, else press PASS."_s);
 	TooMuchWheelRotationEventsTest::testResult = false;
 }
@@ -304,14 +250,51 @@ TooMuchWheelRotationEventsTest::TooMuchWheelRotationEventsTest() {
 
 $Class* TooMuchWheelRotationEventsTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TooMuchWheelRotationEventsTest$$Lambda$createUI::classInfo$.name)) {
+		if (name->equals("TooMuchWheelRotationEventsTest$$Lambda$createUI")) {
 			return TooMuchWheelRotationEventsTest$$Lambda$createUI::load$(name, initialize);
 		}
-		if (name->equals(TooMuchWheelRotationEventsTest$$Lambda$lambda$createUI$0$1::classInfo$.name)) {
+		if (name->equals("TooMuchWheelRotationEventsTest$$Lambda$lambda$createUI$0$1")) {
 			return TooMuchWheelRotationEventsTest$$Lambda$lambda$createUI$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(TooMuchWheelRotationEventsTest, name, initialize, &_TooMuchWheelRotationEventsTest_ClassInfo_, clinit$TooMuchWheelRotationEventsTest, allocate$TooMuchWheelRotationEventsTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"testResult", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(TooMuchWheelRotationEventsTest, testResult)},
+		{"countDownLatch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(TooMuchWheelRotationEventsTest, countDownLatch)},
+		{"INSTRUCTIONS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TooMuchWheelRotationEventsTest, INSTRUCTIONS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TooMuchWheelRotationEventsTest, init$, void)},
+		{"createTestPanel", "()Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticMethod(TooMuchWheelRotationEventsTest, createTestPanel, $JPanel*)},
+		{"createUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TooMuchWheelRotationEventsTest, createUI, void)},
+		{"getLongString", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TooMuchWheelRotationEventsTest, getLongString, $String*)},
+		{"getLongString", "(CC)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TooMuchWheelRotationEventsTest, getLongString, $String*, char16_t, char16_t)},
+		{"lambda$createUI$0", "(Ljavax/swing/JFrame;Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TooMuchWheelRotationEventsTest, lambda$createUI$0, void, $JFrame*, $ActionEvent*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TooMuchWheelRotationEventsTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TooMuchWheelRotationEventsTest$2", nullptr, nullptr, 0},
+		{"TooMuchWheelRotationEventsTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TooMuchWheelRotationEventsTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TooMuchWheelRotationEventsTest$2,TooMuchWheelRotationEventsTest$1"
+	};
+	$loadClass(TooMuchWheelRotationEventsTest, name, initialize, &classInfo$$, TooMuchWheelRotationEventsTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TooMuchWheelRotationEventsTest);
+	});
 	return class$;
 }
 

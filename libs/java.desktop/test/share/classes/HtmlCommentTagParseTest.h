@@ -9,6 +9,7 @@ class $export HtmlCommentTagParseTest : public ::java::lang::Object {
 	$class(HtmlCommentTagParseTest, 0, ::java::lang::Object)
 public:
 	HtmlCommentTagParseTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* getDirURL();
 	static void lambda$main$0();

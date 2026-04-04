@@ -1,5 +1,4 @@
 #include <com/sun/source/util/TreeScanner.h>
-
 #include <com/sun/source/tree/AnnotatedTypeTree.h>
 #include <com/sun/source/tree/AnnotationTree.h>
 #include <com/sun/source/tree/ArrayAccessTree.h>
@@ -60,7 +59,6 @@
 #include <com/sun/source/tree/SynchronizedTree.h>
 #include <com/sun/source/tree/ThrowTree.h>
 #include <com/sun/source/tree/Tree.h>
-#include <com/sun/source/tree/TreeVisitor.h>
 #include <com/sun/source/tree/TryTree.h>
 #include <com/sun/source/tree/TypeCastTree.h>
 #include <com/sun/source/tree/TypeParameterTree.h>
@@ -135,7 +133,6 @@ using $SwitchTree = ::com::sun::source::tree::SwitchTree;
 using $SynchronizedTree = ::com::sun::source::tree::SynchronizedTree;
 using $ThrowTree = ::com::sun::source::tree::ThrowTree;
 using $Tree = ::com::sun::source::tree::Tree;
-using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
 using $TryTree = ::com::sun::source::tree::TryTree;
 using $TypeCastTree = ::com::sun::source::tree::TypeCastTree;
 using $TypeParameterTree = ::com::sun::source::tree::TypeParameterTree;
@@ -151,128 +148,25 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {
 		namespace source {
 			namespace util {
 
-$CompoundAttribute _TreeScanner_MethodAnnotations_visitDefaultCaseLabel23[] = {
-	{}
-};
-
-$CompoundAttribute _TreeScanner_MethodAnnotations_visitGuardedPattern31[] = {
-	{}
-};
-
-$CompoundAttribute _TreeScanner_MethodAnnotations_visitParenthesizedPattern53[] = {
-	{}
-};
-
-$MethodInfo _TreeScanner_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TreeScanner, init$, void)},
-	{"reduce", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TR;TR;)TR;", $PUBLIC, $virtualMethod(TreeScanner, reduce, $Object*, Object$*, Object$*)},
-	{"scan", "(Lcom/sun/source/tree/Tree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/Tree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, scan, $Object*, $Tree*, Object$*)},
-	{"scan", "(Ljava/lang/Iterable;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Iterable<+Lcom/sun/source/tree/Tree;>;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, scan, $Object*, $Iterable*, Object$*)},
-	{"scanAndReduce", "(Lcom/sun/source/tree/Tree;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/Tree;TP;TR;)TR;", $PRIVATE, $method(TreeScanner, scanAndReduce, $Object*, $Tree*, Object$*, Object$*)},
-	{"scanAndReduce", "(Ljava/lang/Iterable;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Iterable<+Lcom/sun/source/tree/Tree;>;TP;TR;)TR;", $PRIVATE, $method(TreeScanner, scanAndReduce, $Object*, $Iterable*, Object$*, Object$*)},
-	{"visitAnnotatedType", "(Lcom/sun/source/tree/AnnotatedTypeTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/AnnotatedTypeTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitAnnotatedType, $Object*, $AnnotatedTypeTree*, Object$*)},
-	{"visitAnnotation", "(Lcom/sun/source/tree/AnnotationTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/AnnotationTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitAnnotation, $Object*, $AnnotationTree*, Object$*)},
-	{"visitArrayAccess", "(Lcom/sun/source/tree/ArrayAccessTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ArrayAccessTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitArrayAccess, $Object*, $ArrayAccessTree*, Object$*)},
-	{"visitArrayType", "(Lcom/sun/source/tree/ArrayTypeTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ArrayTypeTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitArrayType, $Object*, $ArrayTypeTree*, Object$*)},
-	{"visitAssert", "(Lcom/sun/source/tree/AssertTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/AssertTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitAssert, $Object*, $AssertTree*, Object$*)},
-	{"visitAssignment", "(Lcom/sun/source/tree/AssignmentTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/AssignmentTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitAssignment, $Object*, $AssignmentTree*, Object$*)},
-	{"visitBinary", "(Lcom/sun/source/tree/BinaryTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/BinaryTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitBinary, $Object*, $BinaryTree*, Object$*)},
-	{"visitBindingPattern", "(Lcom/sun/source/tree/BindingPatternTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/BindingPatternTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitBindingPattern, $Object*, $BindingPatternTree*, Object$*)},
-	{"visitBlock", "(Lcom/sun/source/tree/BlockTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/BlockTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitBlock, $Object*, $BlockTree*, Object$*)},
-	{"visitBreak", "(Lcom/sun/source/tree/BreakTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/BreakTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitBreak, $Object*, $BreakTree*, Object$*)},
-	{"visitCase", "(Lcom/sun/source/tree/CaseTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/CaseTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitCase, $Object*, $CaseTree*, Object$*)},
-	{"visitCatch", "(Lcom/sun/source/tree/CatchTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/CatchTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitCatch, $Object*, $CatchTree*, Object$*)},
-	{"visitClass", "(Lcom/sun/source/tree/ClassTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ClassTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitClass, $Object*, $ClassTree*, Object$*)},
-	{"visitCompilationUnit", "(Lcom/sun/source/tree/CompilationUnitTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/CompilationUnitTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitCompilationUnit, $Object*, $CompilationUnitTree*, Object$*)},
-	{"visitCompoundAssignment", "(Lcom/sun/source/tree/CompoundAssignmentTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/CompoundAssignmentTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitCompoundAssignment, $Object*, $CompoundAssignmentTree*, Object$*)},
-	{"visitConditionalExpression", "(Lcom/sun/source/tree/ConditionalExpressionTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ConditionalExpressionTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitConditionalExpression, $Object*, $ConditionalExpressionTree*, Object$*)},
-	{"visitContinue", "(Lcom/sun/source/tree/ContinueTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ContinueTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitContinue, $Object*, $ContinueTree*, Object$*)},
-	{"visitDefaultCaseLabel", "(Lcom/sun/source/tree/DefaultCaseLabelTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/DefaultCaseLabelTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitDefaultCaseLabel, $Object*, $DefaultCaseLabelTree*, Object$*), nullptr, nullptr, _TreeScanner_MethodAnnotations_visitDefaultCaseLabel23},
-	{"visitDoWhileLoop", "(Lcom/sun/source/tree/DoWhileLoopTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/DoWhileLoopTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitDoWhileLoop, $Object*, $DoWhileLoopTree*, Object$*)},
-	{"visitEmptyStatement", "(Lcom/sun/source/tree/EmptyStatementTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/EmptyStatementTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitEmptyStatement, $Object*, $EmptyStatementTree*, Object$*)},
-	{"visitEnhancedForLoop", "(Lcom/sun/source/tree/EnhancedForLoopTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/EnhancedForLoopTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitEnhancedForLoop, $Object*, $EnhancedForLoopTree*, Object$*)},
-	{"visitErroneous", "(Lcom/sun/source/tree/ErroneousTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ErroneousTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitErroneous, $Object*, $ErroneousTree*, Object$*)},
-	{"visitExports", "(Lcom/sun/source/tree/ExportsTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ExportsTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitExports, $Object*, $ExportsTree*, Object$*)},
-	{"visitExpressionStatement", "(Lcom/sun/source/tree/ExpressionStatementTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ExpressionStatementTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitExpressionStatement, $Object*, $ExpressionStatementTree*, Object$*)},
-	{"visitForLoop", "(Lcom/sun/source/tree/ForLoopTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ForLoopTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitForLoop, $Object*, $ForLoopTree*, Object$*)},
-	{"visitGuardedPattern", "(Lcom/sun/source/tree/GuardedPatternTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/GuardedPatternTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitGuardedPattern, $Object*, $GuardedPatternTree*, Object$*), nullptr, nullptr, _TreeScanner_MethodAnnotations_visitGuardedPattern31},
-	{"visitIdentifier", "(Lcom/sun/source/tree/IdentifierTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/IdentifierTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitIdentifier, $Object*, $IdentifierTree*, Object$*)},
-	{"visitIf", "(Lcom/sun/source/tree/IfTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/IfTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitIf, $Object*, $IfTree*, Object$*)},
-	{"visitImport", "(Lcom/sun/source/tree/ImportTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ImportTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitImport, $Object*, $ImportTree*, Object$*)},
-	{"visitInstanceOf", "(Lcom/sun/source/tree/InstanceOfTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/InstanceOfTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitInstanceOf, $Object*, $InstanceOfTree*, Object$*)},
-	{"visitIntersectionType", "(Lcom/sun/source/tree/IntersectionTypeTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/IntersectionTypeTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitIntersectionType, $Object*, $IntersectionTypeTree*, Object$*)},
-	{"visitLabeledStatement", "(Lcom/sun/source/tree/LabeledStatementTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/LabeledStatementTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitLabeledStatement, $Object*, $LabeledStatementTree*, Object$*)},
-	{"visitLambdaExpression", "(Lcom/sun/source/tree/LambdaExpressionTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/LambdaExpressionTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitLambdaExpression, $Object*, $LambdaExpressionTree*, Object$*)},
-	{"visitLiteral", "(Lcom/sun/source/tree/LiteralTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/LiteralTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitLiteral, $Object*, $LiteralTree*, Object$*)},
-	{"visitMemberReference", "(Lcom/sun/source/tree/MemberReferenceTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/MemberReferenceTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitMemberReference, $Object*, $MemberReferenceTree*, Object$*)},
-	{"visitMemberSelect", "(Lcom/sun/source/tree/MemberSelectTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/MemberSelectTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitMemberSelect, $Object*, $MemberSelectTree*, Object$*)},
-	{"visitMethod", "(Lcom/sun/source/tree/MethodTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/MethodTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitMethod, $Object*, $MethodTree*, Object$*)},
-	{"visitMethodInvocation", "(Lcom/sun/source/tree/MethodInvocationTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/MethodInvocationTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitMethodInvocation, $Object*, $MethodInvocationTree*, Object$*)},
-	{"visitModifiers", "(Lcom/sun/source/tree/ModifiersTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ModifiersTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitModifiers, $Object*, $ModifiersTree*, Object$*)},
-	{"visitModule", "(Lcom/sun/source/tree/ModuleTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ModuleTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitModule, $Object*, $ModuleTree*, Object$*)},
-	{"visitNewArray", "(Lcom/sun/source/tree/NewArrayTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/NewArrayTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitNewArray, $Object*, $NewArrayTree*, Object$*)},
-	{"visitNewClass", "(Lcom/sun/source/tree/NewClassTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/NewClassTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitNewClass, $Object*, $NewClassTree*, Object$*)},
-	{"visitOpens", "(Lcom/sun/source/tree/OpensTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/OpensTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitOpens, $Object*, $OpensTree*, Object$*)},
-	{"visitOther", "(Lcom/sun/source/tree/Tree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/Tree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitOther, $Object*, $Tree*, Object$*)},
-	{"visitPackage", "(Lcom/sun/source/tree/PackageTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/PackageTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitPackage, $Object*, $PackageTree*, Object$*)},
-	{"visitParameterizedType", "(Lcom/sun/source/tree/ParameterizedTypeTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ParameterizedTypeTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitParameterizedType, $Object*, $ParameterizedTypeTree*, Object$*)},
-	{"visitParenthesized", "(Lcom/sun/source/tree/ParenthesizedTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ParenthesizedTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitParenthesized, $Object*, $ParenthesizedTree*, Object$*)},
-	{"visitParenthesizedPattern", "(Lcom/sun/source/tree/ParenthesizedPatternTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ParenthesizedPatternTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitParenthesizedPattern, $Object*, $ParenthesizedPatternTree*, Object$*), nullptr, nullptr, _TreeScanner_MethodAnnotations_visitParenthesizedPattern53},
-	{"visitPrimitiveType", "(Lcom/sun/source/tree/PrimitiveTypeTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/PrimitiveTypeTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitPrimitiveType, $Object*, $PrimitiveTypeTree*, Object$*)},
-	{"visitProvides", "(Lcom/sun/source/tree/ProvidesTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ProvidesTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitProvides, $Object*, $ProvidesTree*, Object$*)},
-	{"visitRequires", "(Lcom/sun/source/tree/RequiresTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/RequiresTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitRequires, $Object*, $RequiresTree*, Object$*)},
-	{"visitReturn", "(Lcom/sun/source/tree/ReturnTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ReturnTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitReturn, $Object*, $ReturnTree*, Object$*)},
-	{"visitSwitch", "(Lcom/sun/source/tree/SwitchTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/SwitchTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitSwitch, $Object*, $SwitchTree*, Object$*)},
-	{"visitSwitchExpression", "(Lcom/sun/source/tree/SwitchExpressionTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/SwitchExpressionTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitSwitchExpression, $Object*, $SwitchExpressionTree*, Object$*)},
-	{"visitSynchronized", "(Lcom/sun/source/tree/SynchronizedTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/SynchronizedTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitSynchronized, $Object*, $SynchronizedTree*, Object$*)},
-	{"visitThrow", "(Lcom/sun/source/tree/ThrowTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ThrowTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitThrow, $Object*, $ThrowTree*, Object$*)},
-	{"visitTry", "(Lcom/sun/source/tree/TryTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/TryTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitTry, $Object*, $TryTree*, Object$*)},
-	{"visitTypeCast", "(Lcom/sun/source/tree/TypeCastTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/TypeCastTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitTypeCast, $Object*, $TypeCastTree*, Object$*)},
-	{"visitTypeParameter", "(Lcom/sun/source/tree/TypeParameterTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/TypeParameterTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitTypeParameter, $Object*, $TypeParameterTree*, Object$*)},
-	{"visitUnary", "(Lcom/sun/source/tree/UnaryTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/UnaryTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitUnary, $Object*, $UnaryTree*, Object$*)},
-	{"visitUnionType", "(Lcom/sun/source/tree/UnionTypeTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/UnionTypeTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitUnionType, $Object*, $UnionTypeTree*, Object$*)},
-	{"visitUses", "(Lcom/sun/source/tree/UsesTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/UsesTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitUses, $Object*, $UsesTree*, Object$*)},
-	{"visitVariable", "(Lcom/sun/source/tree/VariableTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/VariableTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitVariable, $Object*, $VariableTree*, Object$*)},
-	{"visitWhileLoop", "(Lcom/sun/source/tree/WhileLoopTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/WhileLoopTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitWhileLoop, $Object*, $WhileLoopTree*, Object$*)},
-	{"visitWildcard", "(Lcom/sun/source/tree/WildcardTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/WildcardTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitWildcard, $Object*, $WildcardTree*, Object$*)},
-	{"visitYield", "(Lcom/sun/source/tree/YieldTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/YieldTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitYield, $Object*, $YieldTree*, Object$*)},
-	{}
-};
-
-$ClassInfo _TreeScanner_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.source.util.TreeScanner",
-	"java.lang.Object",
-	"com.sun.source.tree.TreeVisitor",
-	nullptr,
-	_TreeScanner_MethodInfo_,
-	"<R:Ljava/lang/Object;P:Ljava/lang/Object;>Ljava/lang/Object;Lcom/sun/source/tree/TreeVisitor<TR;TP;>;"
-};
-
-$Object* allocate$TreeScanner($Class* clazz) {
-	return $of($alloc(TreeScanner));
-}
-
 void TreeScanner::init$() {
 }
 
 $Object* TreeScanner::scan($Tree* tree, Object$* p) {
-	return $of((tree == nullptr) ? ($Object*)nullptr : $nc(tree)->accept(this, p));
+	return (tree == nullptr) ? ($Object*)nullptr : tree->accept(this, p);
 }
 
 $Object* TreeScanner::scanAndReduce($Tree* node, Object$* p, Object$* r) {
-	return $of(reduce($(scan(node, p)), r));
+	return reduce($(scan(node, p)), r);
 }
 
 $Object* TreeScanner::scan($Iterable* nodes, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, r, nullptr);
 	if (nodes != nullptr) {
 		bool first = true;
@@ -287,11 +181,11 @@ $Object* TreeScanner::scan($Iterable* nodes, Object$* p) {
 			}
 		}
 	}
-	return $of(r);
+	return r;
 }
 
 $Object* TreeScanner::scanAndReduce($Iterable* nodes, Object$* p, Object$* r) {
-	return $of(reduce($(scan(nodes, p)), r));
+	return reduce($(scan(nodes, p)), r);
 }
 
 $Object* TreeScanner::reduce(Object$* r1, Object$* r2) {
@@ -299,219 +193,219 @@ $Object* TreeScanner::reduce(Object$* r1, Object$* r2) {
 }
 
 $Object* TreeScanner::visitCompilationUnit($CompilationUnitTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Tree*>($nc(node)->getPackage())), p));
-	$assign(r, scanAndReduce($(static_cast<$Iterable*>($nc(node)->getImports())), p, r));
-	$assign(r, scanAndReduce($(static_cast<$Iterable*>($nc(node)->getTypeDecls())), p, r));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getModule())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getPackage()), p));
+	$assign(r, scanAndReduce($(node->getImports()), p, r));
+	$assign(r, scanAndReduce($(node->getTypeDecls()), p, r));
+	$assign(r, scanAndReduce($(node->getModule()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitPackage($PackageTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Iterable*>($nc(node)->getAnnotations())), p));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getPackageName())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getAnnotations()), p));
+	$assign(r, scanAndReduce($(node->getPackageName()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitImport($ImportTree* node, Object$* p) {
-	return $of(scan($($nc(node)->getQualifiedIdentifier()), p));
+	return scan($($nc(node)->getQualifiedIdentifier()), p);
 }
 
 $Object* TreeScanner::visitClass($ClassTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Tree*>($nc(node)->getModifiers())), p));
-	$assign(r, scanAndReduce($(static_cast<$Iterable*>($nc(node)->getTypeParameters())), p, r));
-	$assign(r, scanAndReduce($($nc(node)->getExtendsClause()), p, r));
-	$assign(r, scanAndReduce($(static_cast<$Iterable*>($nc(node)->getImplementsClause())), p, r));
-	$assign(r, scanAndReduce($(static_cast<$Iterable*>($nc(node)->getPermitsClause())), p, r));
-	$assign(r, scanAndReduce($(static_cast<$Iterable*>($nc(node)->getMembers())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getModifiers()), p));
+	$assign(r, scanAndReduce($(node->getTypeParameters()), p, r));
+	$assign(r, scanAndReduce($(node->getExtendsClause()), p, r));
+	$assign(r, scanAndReduce($(node->getImplementsClause()), p, r));
+	$assign(r, scanAndReduce($(node->getPermitsClause()), p, r));
+	$assign(r, scanAndReduce($(node->getMembers()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitMethod($MethodTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Tree*>($nc(node)->getModifiers())), p));
-	$assign(r, scanAndReduce($($nc(node)->getReturnType()), p, r));
-	$assign(r, scanAndReduce($(static_cast<$Iterable*>($nc(node)->getTypeParameters())), p, r));
-	$assign(r, scanAndReduce($(static_cast<$Iterable*>($nc(node)->getParameters())), p, r));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getReceiverParameter())), p, r));
-	$assign(r, scanAndReduce($(static_cast<$Iterable*>($nc(node)->getThrows())), p, r));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getBody())), p, r));
-	$assign(r, scanAndReduce($($nc(node)->getDefaultValue()), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getModifiers()), p));
+	$assign(r, scanAndReduce($(node->getReturnType()), p, r));
+	$assign(r, scanAndReduce($(node->getTypeParameters()), p, r));
+	$assign(r, scanAndReduce($(node->getParameters()), p, r));
+	$assign(r, scanAndReduce($(node->getReceiverParameter()), p, r));
+	$assign(r, scanAndReduce($(node->getThrows()), p, r));
+	$assign(r, scanAndReduce($(node->getBody()), p, r));
+	$assign(r, scanAndReduce($(node->getDefaultValue()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitVariable($VariableTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Tree*>($nc(node)->getModifiers())), p));
-	$assign(r, scanAndReduce($($nc(node)->getType()), p, r));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getNameExpression())), p, r));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getInitializer())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getModifiers()), p));
+	$assign(r, scanAndReduce($(node->getType()), p, r));
+	$assign(r, scanAndReduce($(node->getNameExpression()), p, r));
+	$assign(r, scanAndReduce($(node->getInitializer()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitEmptyStatement($EmptyStatementTree* node, Object$* p) {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* TreeScanner::visitBlock($BlockTree* node, Object$* p) {
-	return $of(scan($(static_cast<$Iterable*>($nc(node)->getStatements())), p));
+	return scan($($nc(node)->getStatements()), p);
 }
 
 $Object* TreeScanner::visitDoWhileLoop($DoWhileLoopTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Tree*>($nc(node)->getStatement())), p));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getCondition())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getStatement()), p));
+	$assign(r, scanAndReduce($(node->getCondition()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitWhileLoop($WhileLoopTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Tree*>($nc(node)->getCondition())), p));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getStatement())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getCondition()), p));
+	$assign(r, scanAndReduce($(node->getStatement()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitForLoop($ForLoopTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Iterable*>($nc(node)->getInitializer())), p));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getCondition())), p, r));
-	$assign(r, scanAndReduce($(static_cast<$Iterable*>($nc(node)->getUpdate())), p, r));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getStatement())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getInitializer()), p));
+	$assign(r, scanAndReduce($(node->getCondition()), p, r));
+	$assign(r, scanAndReduce($(node->getUpdate()), p, r));
+	$assign(r, scanAndReduce($(node->getStatement()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitEnhancedForLoop($EnhancedForLoopTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Tree*>($nc(node)->getVariable())), p));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getExpression())), p, r));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getStatement())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getVariable()), p));
+	$assign(r, scanAndReduce($(node->getExpression()), p, r));
+	$assign(r, scanAndReduce($(node->getStatement()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitLabeledStatement($LabeledStatementTree* node, Object$* p) {
-	return $of(scan($(static_cast<$Tree*>($nc(node)->getStatement())), p));
+	return scan($($nc(node)->getStatement()), p);
 }
 
 $Object* TreeScanner::visitSwitch($SwitchTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Tree*>($nc(node)->getExpression())), p));
-	$assign(r, scanAndReduce($(static_cast<$Iterable*>($nc(node)->getCases())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getExpression()), p));
+	$assign(r, scanAndReduce($(node->getCases()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitSwitchExpression($SwitchExpressionTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Tree*>($nc(node)->getExpression())), p));
-	$assign(r, scanAndReduce($(static_cast<$Iterable*>($nc(node)->getCases())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getExpression()), p));
+	$assign(r, scanAndReduce($(node->getCases()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitCase($CaseTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Iterable*>($nc(node)->getExpressions())), p));
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getExpressions()), p));
 	$init($CaseTree$CaseKind);
-	if ($nc(node)->getCaseKind() == $CaseTree$CaseKind::RULE) {
+	if (node->getCaseKind() == $CaseTree$CaseKind::RULE) {
 		$assign(r, scanAndReduce($(node->getBody()), p, r));
 	} else {
-		$assign(r, scanAndReduce($(static_cast<$Iterable*>(node->getStatements())), p, r));
+		$assign(r, scanAndReduce($(node->getStatements()), p, r));
 	}
-	return $of(r);
+	return r;
 }
 
 $Object* TreeScanner::visitSynchronized($SynchronizedTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Tree*>($nc(node)->getExpression())), p));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getBlock())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getExpression()), p));
+	$assign(r, scanAndReduce($(node->getBlock()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitTry($TryTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Iterable*>($nc(node)->getResources())), p));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getBlock())), p, r));
-	$assign(r, scanAndReduce($(static_cast<$Iterable*>($nc(node)->getCatches())), p, r));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getFinallyBlock())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getResources()), p));
+	$assign(r, scanAndReduce($(node->getBlock()), p, r));
+	$assign(r, scanAndReduce($(node->getCatches()), p, r));
+	$assign(r, scanAndReduce($(node->getFinallyBlock()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitCatch($CatchTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Tree*>($nc(node)->getParameter())), p));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getBlock())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getParameter()), p));
+	$assign(r, scanAndReduce($(node->getBlock()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitConditionalExpression($ConditionalExpressionTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Tree*>($nc(node)->getCondition())), p));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getTrueExpression())), p, r));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getFalseExpression())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getCondition()), p));
+	$assign(r, scanAndReduce($(node->getTrueExpression()), p, r));
+	$assign(r, scanAndReduce($(node->getFalseExpression()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitIf($IfTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Tree*>($nc(node)->getCondition())), p));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getThenStatement())), p, r));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getElseStatement())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getCondition()), p));
+	$assign(r, scanAndReduce($(node->getThenStatement()), p, r));
+	$assign(r, scanAndReduce($(node->getElseStatement()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitExpressionStatement($ExpressionStatementTree* node, Object$* p) {
-	return $of(scan($(static_cast<$Tree*>($nc(node)->getExpression())), p));
+	return scan($($nc(node)->getExpression()), p);
 }
 
 $Object* TreeScanner::visitBreak($BreakTree* node, Object$* p) {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* TreeScanner::visitContinue($ContinueTree* node, Object$* p) {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* TreeScanner::visitReturn($ReturnTree* node, Object$* p) {
-	return $of(scan($(static_cast<$Tree*>($nc(node)->getExpression())), p));
+	return scan($($nc(node)->getExpression()), p);
 }
 
 $Object* TreeScanner::visitThrow($ThrowTree* node, Object$* p) {
-	return $of(scan($(static_cast<$Tree*>($nc(node)->getExpression())), p));
+	return scan($($nc(node)->getExpression()), p);
 }
 
 $Object* TreeScanner::visitAssert($AssertTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Tree*>($nc(node)->getCondition())), p));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getDetail())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getCondition()), p));
+	$assign(r, scanAndReduce($(node->getDetail()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitMethodInvocation($MethodInvocationTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Iterable*>($nc(node)->getTypeArguments())), p));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getMethodSelect())), p, r));
-	$assign(r, scanAndReduce($(static_cast<$Iterable*>($nc(node)->getArguments())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getTypeArguments()), p));
+	$assign(r, scanAndReduce($(node->getMethodSelect()), p, r));
+	$assign(r, scanAndReduce($(node->getArguments()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitNewClass($NewClassTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Tree*>($nc(node)->getEnclosingExpression())), p));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getIdentifier())), p, r));
-	$assign(r, scanAndReduce($(static_cast<$Iterable*>($nc(node)->getTypeArguments())), p, r));
-	$assign(r, scanAndReduce($(static_cast<$Iterable*>($nc(node)->getArguments())), p, r));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getClassBody())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getEnclosingExpression()), p));
+	$assign(r, scanAndReduce($(node->getIdentifier()), p, r));
+	$assign(r, scanAndReduce($(node->getTypeArguments()), p, r));
+	$assign(r, scanAndReduce($(node->getArguments()), p, r));
+	$assign(r, scanAndReduce($(node->getClassBody()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitNewArray($NewArrayTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, r, scan($($nc(node)->getType()), p));
-	$assign(r, scanAndReduce($(static_cast<$Iterable*>($nc(node)->getDimensions())), p, r));
-	$assign(r, scanAndReduce($(static_cast<$Iterable*>($nc(node)->getInitializers())), p, r));
-	$assign(r, scanAndReduce($(static_cast<$Iterable*>($nc(node)->getAnnotations())), p, r));
+	$assign(r, scanAndReduce($(node->getDimensions()), p, r));
+	$assign(r, scanAndReduce($(node->getInitializers()), p, r));
+	$assign(r, scanAndReduce($(node->getAnnotations()), p, r));
 	{
-		$var($Iterator, i$, $nc($($nc(node)->getDimAnnotations()))->iterator());
+		$var($Iterator, i$, $$nc(node->getDimAnnotations())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Iterable, dimAnno, $cast($Iterable, i$->next()));
 			{
@@ -519,213 +413,308 @@ $Object* TreeScanner::visitNewArray($NewArrayTree* node, Object$* p) {
 			}
 		}
 	}
-	return $of(r);
+	return r;
 }
 
 $Object* TreeScanner::visitLambdaExpression($LambdaExpressionTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Iterable*>($nc(node)->getParameters())), p));
-	$assign(r, scanAndReduce($($nc(node)->getBody()), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getParameters()), p));
+	$assign(r, scanAndReduce($(node->getBody()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitParenthesized($ParenthesizedTree* node, Object$* p) {
-	return $of(scan($(static_cast<$Tree*>($nc(node)->getExpression())), p));
+	return scan($($nc(node)->getExpression()), p);
 }
 
 $Object* TreeScanner::visitAssignment($AssignmentTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Tree*>($nc(node)->getVariable())), p));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getExpression())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getVariable()), p));
+	$assign(r, scanAndReduce($(node->getExpression()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitCompoundAssignment($CompoundAssignmentTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Tree*>($nc(node)->getVariable())), p));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getExpression())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getVariable()), p));
+	$assign(r, scanAndReduce($(node->getExpression()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitUnary($UnaryTree* node, Object$* p) {
-	return $of(scan($(static_cast<$Tree*>($nc(node)->getExpression())), p));
+	return scan($($nc(node)->getExpression()), p);
 }
 
 $Object* TreeScanner::visitBinary($BinaryTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Tree*>($nc(node)->getLeftOperand())), p));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getRightOperand())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getLeftOperand()), p));
+	$assign(r, scanAndReduce($(node->getRightOperand()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitTypeCast($TypeCastTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, r, scan($($nc(node)->getType()), p));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getExpression())), p, r));
-	return $of(r);
+	$assign(r, scanAndReduce($(node->getExpression()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitInstanceOf($InstanceOfTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Tree*>($nc(node)->getExpression())), p));
-	if ($nc(node)->getPattern() != nullptr) {
-		$assign(r, scanAndReduce($(static_cast<$Tree*>(node->getPattern())), p, r));
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getExpression()), p));
+	if (node->getPattern() != nullptr) {
+		$assign(r, scanAndReduce($(node->getPattern()), p, r));
 	} else {
 		$assign(r, scanAndReduce($(node->getType()), p, r));
 	}
-	return $of(r);
+	return r;
 }
 
 $Object* TreeScanner::visitBindingPattern($BindingPatternTree* node, Object$* p) {
-	return $of(scan($(static_cast<$Tree*>($nc(node)->getVariable())), p));
+	return scan($($nc(node)->getVariable()), p);
 }
 
 $Object* TreeScanner::visitDefaultCaseLabel($DefaultCaseLabelTree* node, Object$* p) {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* TreeScanner::visitArrayAccess($ArrayAccessTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Tree*>($nc(node)->getExpression())), p));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getIndex())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getExpression()), p));
+	$assign(r, scanAndReduce($(node->getIndex()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitMemberSelect($MemberSelectTree* node, Object$* p) {
-	return $of(scan($(static_cast<$Tree*>($nc(node)->getExpression())), p));
+	return scan($($nc(node)->getExpression()), p);
 }
 
 $Object* TreeScanner::visitParenthesizedPattern($ParenthesizedPatternTree* node, Object$* p) {
-	return $of(scan($(static_cast<$Tree*>($nc(node)->getPattern())), p));
+	return scan($($nc(node)->getPattern()), p);
 }
 
 $Object* TreeScanner::visitGuardedPattern($GuardedPatternTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Tree*>($nc(node)->getPattern())), p));
-	return $of(scanAndReduce($(static_cast<$Tree*>($nc(node)->getExpression())), p, r));
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getPattern()), p));
+	return scanAndReduce($(node->getExpression()), p, r);
 }
 
 $Object* TreeScanner::visitMemberReference($MemberReferenceTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Tree*>($nc(node)->getQualifierExpression())), p));
-	$assign(r, scanAndReduce($(static_cast<$Iterable*>($nc(node)->getTypeArguments())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getQualifierExpression()), p));
+	$assign(r, scanAndReduce($(node->getTypeArguments()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitIdentifier($IdentifierTree* node, Object$* p) {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* TreeScanner::visitLiteral($LiteralTree* node, Object$* p) {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* TreeScanner::visitPrimitiveType($PrimitiveTypeTree* node, Object$* p) {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* TreeScanner::visitArrayType($ArrayTypeTree* node, Object$* p) {
-	return $of(scan($($nc(node)->getType()), p));
+	return scan($($nc(node)->getType()), p);
 }
 
 $Object* TreeScanner::visitParameterizedType($ParameterizedTypeTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, r, scan($($nc(node)->getType()), p));
-	$assign(r, scanAndReduce($(static_cast<$Iterable*>($nc(node)->getTypeArguments())), p, r));
-	return $of(r);
+	$assign(r, scanAndReduce($(node->getTypeArguments()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitUnionType($UnionTypeTree* node, Object$* p) {
-	return $of(scan($(static_cast<$Iterable*>($nc(node)->getTypeAlternatives())), p));
+	return scan($($nc(node)->getTypeAlternatives()), p);
 }
 
 $Object* TreeScanner::visitIntersectionType($IntersectionTypeTree* node, Object$* p) {
-	return $of(scan($(static_cast<$Iterable*>($nc(node)->getBounds())), p));
+	return scan($($nc(node)->getBounds()), p);
 }
 
 $Object* TreeScanner::visitTypeParameter($TypeParameterTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Iterable*>($nc(node)->getAnnotations())), p));
-	$assign(r, scanAndReduce($(static_cast<$Iterable*>($nc(node)->getBounds())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getAnnotations()), p));
+	$assign(r, scanAndReduce($(node->getBounds()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitWildcard($WildcardTree* node, Object$* p) {
-	return $of(scan($($nc(node)->getBound()), p));
+	return scan($($nc(node)->getBound()), p);
 }
 
 $Object* TreeScanner::visitModifiers($ModifiersTree* node, Object$* p) {
-	return $of(scan($(static_cast<$Iterable*>($nc(node)->getAnnotations())), p));
+	return scan($($nc(node)->getAnnotations()), p);
 }
 
 $Object* TreeScanner::visitAnnotation($AnnotationTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, r, scan($($nc(node)->getAnnotationType()), p));
-	$assign(r, scanAndReduce($(static_cast<$Iterable*>($nc(node)->getArguments())), p, r));
-	return $of(r);
+	$assign(r, scanAndReduce($(node->getArguments()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitAnnotatedType($AnnotatedTypeTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Iterable*>($nc(node)->getAnnotations())), p));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getUnderlyingType())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getAnnotations()), p));
+	$assign(r, scanAndReduce($(node->getUnderlyingType()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitModule($ModuleTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Iterable*>($nc(node)->getAnnotations())), p));
-	$assign(r, scanAndReduce($(static_cast<$Tree*>($nc(node)->getName())), p, r));
-	$assign(r, scanAndReduce($(static_cast<$Iterable*>($nc(node)->getDirectives())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getAnnotations()), p));
+	$assign(r, scanAndReduce($(node->getName()), p, r));
+	$assign(r, scanAndReduce($(node->getDirectives()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitExports($ExportsTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Tree*>($nc(node)->getPackageName())), p));
-	$assign(r, scanAndReduce($(static_cast<$Iterable*>($nc(node)->getModuleNames())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getPackageName()), p));
+	$assign(r, scanAndReduce($(node->getModuleNames()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitOpens($OpensTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Tree*>($nc(node)->getPackageName())), p));
-	$assign(r, scanAndReduce($(static_cast<$Iterable*>($nc(node)->getModuleNames())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getPackageName()), p));
+	$assign(r, scanAndReduce($(node->getModuleNames()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitProvides($ProvidesTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, r, scan($(static_cast<$Tree*>($nc(node)->getServiceName())), p));
-	$assign(r, scanAndReduce($(static_cast<$Iterable*>($nc(node)->getImplementationNames())), p, r));
-	return $of(r);
+	$useLocalObjectStack();
+	$var($Object, r, scan($($nc(node)->getServiceName()), p));
+	$assign(r, scanAndReduce($(node->getImplementationNames()), p, r));
+	return r;
 }
 
 $Object* TreeScanner::visitRequires($RequiresTree* node, Object$* p) {
-	return $of(scan($(static_cast<$Tree*>($nc(node)->getModuleName())), p));
+	return scan($($nc(node)->getModuleName()), p);
 }
 
 $Object* TreeScanner::visitUses($UsesTree* node, Object$* p) {
-	return $of(scan($(static_cast<$Tree*>($nc(node)->getServiceName())), p));
+	return scan($($nc(node)->getServiceName()), p);
 }
 
 $Object* TreeScanner::visitOther($Tree* node, Object$* p) {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* TreeScanner::visitErroneous($ErroneousTree* node, Object$* p) {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* TreeScanner::visitYield($YieldTree* node, Object$* p) {
-	return $of(scan($(static_cast<$Tree*>($nc(node)->getValue())), p));
+	return scan($($nc(node)->getValue()), p);
 }
 
 TreeScanner::TreeScanner() {
 }
 
 $Class* TreeScanner::load$($String* name, bool initialize) {
-	$loadClass(TreeScanner, name, initialize, &_TreeScanner_ClassInfo_, allocate$TreeScanner);
+	$CompoundAttribute visitDefaultCaseLabelmethodAnnotations$$[] = {
+		{}
+	};
+	$CompoundAttribute visitGuardedPatternmethodAnnotations$$[] = {
+		{}
+	};
+	$CompoundAttribute visitParenthesizedPatternmethodAnnotations$$[] = {
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TreeScanner, init$, void)},
+		{"reduce", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TR;TR;)TR;", $PUBLIC, $virtualMethod(TreeScanner, reduce, $Object*, Object$*, Object$*)},
+		{"scan", "(Lcom/sun/source/tree/Tree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/Tree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, scan, $Object*, $Tree*, Object$*)},
+		{"scan", "(Ljava/lang/Iterable;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Iterable<+Lcom/sun/source/tree/Tree;>;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, scan, $Object*, $Iterable*, Object$*)},
+		{"scanAndReduce", "(Lcom/sun/source/tree/Tree;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/Tree;TP;TR;)TR;", $PRIVATE, $method(TreeScanner, scanAndReduce, $Object*, $Tree*, Object$*, Object$*)},
+		{"scanAndReduce", "(Ljava/lang/Iterable;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Iterable<+Lcom/sun/source/tree/Tree;>;TP;TR;)TR;", $PRIVATE, $method(TreeScanner, scanAndReduce, $Object*, $Iterable*, Object$*, Object$*)},
+		{"visitAnnotatedType", "(Lcom/sun/source/tree/AnnotatedTypeTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/AnnotatedTypeTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitAnnotatedType, $Object*, $AnnotatedTypeTree*, Object$*)},
+		{"visitAnnotation", "(Lcom/sun/source/tree/AnnotationTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/AnnotationTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitAnnotation, $Object*, $AnnotationTree*, Object$*)},
+		{"visitArrayAccess", "(Lcom/sun/source/tree/ArrayAccessTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ArrayAccessTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitArrayAccess, $Object*, $ArrayAccessTree*, Object$*)},
+		{"visitArrayType", "(Lcom/sun/source/tree/ArrayTypeTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ArrayTypeTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitArrayType, $Object*, $ArrayTypeTree*, Object$*)},
+		{"visitAssert", "(Lcom/sun/source/tree/AssertTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/AssertTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitAssert, $Object*, $AssertTree*, Object$*)},
+		{"visitAssignment", "(Lcom/sun/source/tree/AssignmentTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/AssignmentTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitAssignment, $Object*, $AssignmentTree*, Object$*)},
+		{"visitBinary", "(Lcom/sun/source/tree/BinaryTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/BinaryTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitBinary, $Object*, $BinaryTree*, Object$*)},
+		{"visitBindingPattern", "(Lcom/sun/source/tree/BindingPatternTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/BindingPatternTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitBindingPattern, $Object*, $BindingPatternTree*, Object$*)},
+		{"visitBlock", "(Lcom/sun/source/tree/BlockTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/BlockTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitBlock, $Object*, $BlockTree*, Object$*)},
+		{"visitBreak", "(Lcom/sun/source/tree/BreakTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/BreakTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitBreak, $Object*, $BreakTree*, Object$*)},
+		{"visitCase", "(Lcom/sun/source/tree/CaseTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/CaseTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitCase, $Object*, $CaseTree*, Object$*)},
+		{"visitCatch", "(Lcom/sun/source/tree/CatchTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/CatchTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitCatch, $Object*, $CatchTree*, Object$*)},
+		{"visitClass", "(Lcom/sun/source/tree/ClassTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ClassTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitClass, $Object*, $ClassTree*, Object$*)},
+		{"visitCompilationUnit", "(Lcom/sun/source/tree/CompilationUnitTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/CompilationUnitTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitCompilationUnit, $Object*, $CompilationUnitTree*, Object$*)},
+		{"visitCompoundAssignment", "(Lcom/sun/source/tree/CompoundAssignmentTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/CompoundAssignmentTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitCompoundAssignment, $Object*, $CompoundAssignmentTree*, Object$*)},
+		{"visitConditionalExpression", "(Lcom/sun/source/tree/ConditionalExpressionTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ConditionalExpressionTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitConditionalExpression, $Object*, $ConditionalExpressionTree*, Object$*)},
+		{"visitContinue", "(Lcom/sun/source/tree/ContinueTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ContinueTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitContinue, $Object*, $ContinueTree*, Object$*)},
+		{"visitDefaultCaseLabel", "(Lcom/sun/source/tree/DefaultCaseLabelTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/DefaultCaseLabelTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitDefaultCaseLabel, $Object*, $DefaultCaseLabelTree*, Object$*), nullptr, nullptr, visitDefaultCaseLabelmethodAnnotations$$},
+		{"visitDoWhileLoop", "(Lcom/sun/source/tree/DoWhileLoopTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/DoWhileLoopTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitDoWhileLoop, $Object*, $DoWhileLoopTree*, Object$*)},
+		{"visitEmptyStatement", "(Lcom/sun/source/tree/EmptyStatementTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/EmptyStatementTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitEmptyStatement, $Object*, $EmptyStatementTree*, Object$*)},
+		{"visitEnhancedForLoop", "(Lcom/sun/source/tree/EnhancedForLoopTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/EnhancedForLoopTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitEnhancedForLoop, $Object*, $EnhancedForLoopTree*, Object$*)},
+		{"visitErroneous", "(Lcom/sun/source/tree/ErroneousTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ErroneousTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitErroneous, $Object*, $ErroneousTree*, Object$*)},
+		{"visitExports", "(Lcom/sun/source/tree/ExportsTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ExportsTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitExports, $Object*, $ExportsTree*, Object$*)},
+		{"visitExpressionStatement", "(Lcom/sun/source/tree/ExpressionStatementTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ExpressionStatementTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitExpressionStatement, $Object*, $ExpressionStatementTree*, Object$*)},
+		{"visitForLoop", "(Lcom/sun/source/tree/ForLoopTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ForLoopTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitForLoop, $Object*, $ForLoopTree*, Object$*)},
+		{"visitGuardedPattern", "(Lcom/sun/source/tree/GuardedPatternTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/GuardedPatternTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitGuardedPattern, $Object*, $GuardedPatternTree*, Object$*), nullptr, nullptr, visitGuardedPatternmethodAnnotations$$},
+		{"visitIdentifier", "(Lcom/sun/source/tree/IdentifierTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/IdentifierTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitIdentifier, $Object*, $IdentifierTree*, Object$*)},
+		{"visitIf", "(Lcom/sun/source/tree/IfTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/IfTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitIf, $Object*, $IfTree*, Object$*)},
+		{"visitImport", "(Lcom/sun/source/tree/ImportTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ImportTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitImport, $Object*, $ImportTree*, Object$*)},
+		{"visitInstanceOf", "(Lcom/sun/source/tree/InstanceOfTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/InstanceOfTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitInstanceOf, $Object*, $InstanceOfTree*, Object$*)},
+		{"visitIntersectionType", "(Lcom/sun/source/tree/IntersectionTypeTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/IntersectionTypeTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitIntersectionType, $Object*, $IntersectionTypeTree*, Object$*)},
+		{"visitLabeledStatement", "(Lcom/sun/source/tree/LabeledStatementTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/LabeledStatementTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitLabeledStatement, $Object*, $LabeledStatementTree*, Object$*)},
+		{"visitLambdaExpression", "(Lcom/sun/source/tree/LambdaExpressionTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/LambdaExpressionTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitLambdaExpression, $Object*, $LambdaExpressionTree*, Object$*)},
+		{"visitLiteral", "(Lcom/sun/source/tree/LiteralTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/LiteralTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitLiteral, $Object*, $LiteralTree*, Object$*)},
+		{"visitMemberReference", "(Lcom/sun/source/tree/MemberReferenceTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/MemberReferenceTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitMemberReference, $Object*, $MemberReferenceTree*, Object$*)},
+		{"visitMemberSelect", "(Lcom/sun/source/tree/MemberSelectTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/MemberSelectTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitMemberSelect, $Object*, $MemberSelectTree*, Object$*)},
+		{"visitMethod", "(Lcom/sun/source/tree/MethodTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/MethodTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitMethod, $Object*, $MethodTree*, Object$*)},
+		{"visitMethodInvocation", "(Lcom/sun/source/tree/MethodInvocationTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/MethodInvocationTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitMethodInvocation, $Object*, $MethodInvocationTree*, Object$*)},
+		{"visitModifiers", "(Lcom/sun/source/tree/ModifiersTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ModifiersTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitModifiers, $Object*, $ModifiersTree*, Object$*)},
+		{"visitModule", "(Lcom/sun/source/tree/ModuleTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ModuleTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitModule, $Object*, $ModuleTree*, Object$*)},
+		{"visitNewArray", "(Lcom/sun/source/tree/NewArrayTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/NewArrayTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitNewArray, $Object*, $NewArrayTree*, Object$*)},
+		{"visitNewClass", "(Lcom/sun/source/tree/NewClassTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/NewClassTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitNewClass, $Object*, $NewClassTree*, Object$*)},
+		{"visitOpens", "(Lcom/sun/source/tree/OpensTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/OpensTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitOpens, $Object*, $OpensTree*, Object$*)},
+		{"visitOther", "(Lcom/sun/source/tree/Tree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/Tree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitOther, $Object*, $Tree*, Object$*)},
+		{"visitPackage", "(Lcom/sun/source/tree/PackageTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/PackageTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitPackage, $Object*, $PackageTree*, Object$*)},
+		{"visitParameterizedType", "(Lcom/sun/source/tree/ParameterizedTypeTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ParameterizedTypeTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitParameterizedType, $Object*, $ParameterizedTypeTree*, Object$*)},
+		{"visitParenthesized", "(Lcom/sun/source/tree/ParenthesizedTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ParenthesizedTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitParenthesized, $Object*, $ParenthesizedTree*, Object$*)},
+		{"visitParenthesizedPattern", "(Lcom/sun/source/tree/ParenthesizedPatternTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ParenthesizedPatternTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitParenthesizedPattern, $Object*, $ParenthesizedPatternTree*, Object$*), nullptr, nullptr, visitParenthesizedPatternmethodAnnotations$$},
+		{"visitPrimitiveType", "(Lcom/sun/source/tree/PrimitiveTypeTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/PrimitiveTypeTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitPrimitiveType, $Object*, $PrimitiveTypeTree*, Object$*)},
+		{"visitProvides", "(Lcom/sun/source/tree/ProvidesTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ProvidesTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitProvides, $Object*, $ProvidesTree*, Object$*)},
+		{"visitRequires", "(Lcom/sun/source/tree/RequiresTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/RequiresTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitRequires, $Object*, $RequiresTree*, Object$*)},
+		{"visitReturn", "(Lcom/sun/source/tree/ReturnTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ReturnTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitReturn, $Object*, $ReturnTree*, Object$*)},
+		{"visitSwitch", "(Lcom/sun/source/tree/SwitchTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/SwitchTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitSwitch, $Object*, $SwitchTree*, Object$*)},
+		{"visitSwitchExpression", "(Lcom/sun/source/tree/SwitchExpressionTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/SwitchExpressionTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitSwitchExpression, $Object*, $SwitchExpressionTree*, Object$*)},
+		{"visitSynchronized", "(Lcom/sun/source/tree/SynchronizedTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/SynchronizedTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitSynchronized, $Object*, $SynchronizedTree*, Object$*)},
+		{"visitThrow", "(Lcom/sun/source/tree/ThrowTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ThrowTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitThrow, $Object*, $ThrowTree*, Object$*)},
+		{"visitTry", "(Lcom/sun/source/tree/TryTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/TryTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitTry, $Object*, $TryTree*, Object$*)},
+		{"visitTypeCast", "(Lcom/sun/source/tree/TypeCastTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/TypeCastTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitTypeCast, $Object*, $TypeCastTree*, Object$*)},
+		{"visitTypeParameter", "(Lcom/sun/source/tree/TypeParameterTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/TypeParameterTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitTypeParameter, $Object*, $TypeParameterTree*, Object$*)},
+		{"visitUnary", "(Lcom/sun/source/tree/UnaryTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/UnaryTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitUnary, $Object*, $UnaryTree*, Object$*)},
+		{"visitUnionType", "(Lcom/sun/source/tree/UnionTypeTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/UnionTypeTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitUnionType, $Object*, $UnionTypeTree*, Object$*)},
+		{"visitUses", "(Lcom/sun/source/tree/UsesTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/UsesTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitUses, $Object*, $UsesTree*, Object$*)},
+		{"visitVariable", "(Lcom/sun/source/tree/VariableTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/VariableTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitVariable, $Object*, $VariableTree*, Object$*)},
+		{"visitWhileLoop", "(Lcom/sun/source/tree/WhileLoopTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/WhileLoopTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitWhileLoop, $Object*, $WhileLoopTree*, Object$*)},
+		{"visitWildcard", "(Lcom/sun/source/tree/WildcardTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/WildcardTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitWildcard, $Object*, $WildcardTree*, Object$*)},
+		{"visitYield", "(Lcom/sun/source/tree/YieldTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/YieldTree;TP;)TR;", $PUBLIC, $virtualMethod(TreeScanner, visitYield, $Object*, $YieldTree*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.source.util.TreeScanner",
+		"java.lang.Object",
+		"com.sun.source.tree.TreeVisitor",
+		nullptr,
+		methodInfos$$,
+		"<R:Ljava/lang/Object;P:Ljava/lang/Object;>Ljava/lang/Object;Lcom/sun/source/tree/TreeVisitor<TR;TP;>;"
+	};
+	$loadClass(TreeScanner, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeScanner);
+	});
 	return class$;
 }
 

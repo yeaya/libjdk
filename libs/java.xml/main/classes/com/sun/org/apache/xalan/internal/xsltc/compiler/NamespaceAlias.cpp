@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/NamespaceAlias.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Parser.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode.h>
@@ -28,33 +27,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _NamespaceAlias_FieldInfo_[] = {
-	{"sPrefix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NamespaceAlias, sPrefix)},
-	{"rPrefix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NamespaceAlias, rPrefix)},
-	{}
-};
-
-$MethodInfo _NamespaceAlias_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(NamespaceAlias, init$, void)},
-	{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(NamespaceAlias, parseContents, void, $Parser*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(NamespaceAlias, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(NamespaceAlias, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _NamespaceAlias_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.NamespaceAlias",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.TopLevelElement",
-	nullptr,
-	_NamespaceAlias_FieldInfo_,
-	_NamespaceAlias_MethodInfo_
-};
-
-$Object* allocate$NamespaceAlias($Class* clazz) {
-	return $of($alloc(NamespaceAlias));
-}
-
 void NamespaceAlias::init$() {
 	$TopLevelElement::init$();
 }
@@ -62,7 +34,7 @@ void NamespaceAlias::init$() {
 void NamespaceAlias::parseContents($Parser* parser) {
 	$set(this, sPrefix, getAttribute("stylesheet-prefix"_s));
 	$set(this, rPrefix, getAttribute("result-prefix"_s));
-	$nc($($nc(parser)->getSymbolTable()))->addPrefixAlias(this->sPrefix, this->rPrefix);
+	$$nc($nc(parser)->getSymbolTable())->addPrefixAlias(this->sPrefix, this->rPrefix);
 }
 
 $Type* NamespaceAlias::typeCheck($SymbolTable* stable) {
@@ -77,7 +49,29 @@ NamespaceAlias::NamespaceAlias() {
 }
 
 $Class* NamespaceAlias::load$($String* name, bool initialize) {
-	$loadClass(NamespaceAlias, name, initialize, &_NamespaceAlias_ClassInfo_, allocate$NamespaceAlias);
+	$FieldInfo fieldInfos$$[] = {
+		{"sPrefix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NamespaceAlias, sPrefix)},
+		{"rPrefix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NamespaceAlias, rPrefix)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(NamespaceAlias, init$, void)},
+		{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(NamespaceAlias, parseContents, void, $Parser*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(NamespaceAlias, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(NamespaceAlias, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.NamespaceAlias",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.TopLevelElement",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NamespaceAlias, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NamespaceAlias);
+	});
 	return class$;
 }
 

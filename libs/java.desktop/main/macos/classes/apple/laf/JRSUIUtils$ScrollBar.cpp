@@ -1,5 +1,4 @@
 #include <apple/laf/JRSUIUtils$ScrollBar.h>
-
 #include <apple/laf/JRSUIConstants$ScrollBarPart.h>
 #include <apple/laf/JRSUIControl.h>
 #include <apple/laf/JRSUIUtils.h>
@@ -14,50 +13,13 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace apple {
 	namespace laf {
 
-$MethodInfo _JRSUIUtils$ScrollBar_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JRSUIUtils$ScrollBar, init$, void)},
-	{"getNativeOffsetChange", "(Lapple/laf/JRSUIControl;IIIIIII)D", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIUtils$ScrollBar, getNativeOffsetChange, double, $JRSUIControl*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"getPartBounds", "([DLapple/laf/JRSUIControl;IIIILapple/laf/JRSUIConstants$ScrollBarPart;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIUtils$ScrollBar, getPartBounds, void, $doubles*, $JRSUIControl*, int32_t, int32_t, int32_t, int32_t, $JRSUIConstants$ScrollBarPart*)},
-	{"shouldUseScrollToClick", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIUtils$ScrollBar, shouldUseScrollToClick, bool)},
-	{"useScrollToClick", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIUtils$ScrollBar, useScrollToClick, bool)},
-	{}
-};
-
-#define _METHOD_INDEX_shouldUseScrollToClick 3
-
-$InnerClassInfo _JRSUIUtils$ScrollBar_InnerClassesInfo_[] = {
-	{"apple.laf.JRSUIUtils$ScrollBar", "apple.laf.JRSUIUtils", "ScrollBar", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JRSUIUtils$ScrollBar_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"apple.laf.JRSUIUtils$ScrollBar",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_JRSUIUtils$ScrollBar_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JRSUIUtils$ScrollBar_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"apple.laf.JRSUIUtils"
-};
-
-$Object* allocate$JRSUIUtils$ScrollBar($Class* clazz) {
-	return $of($alloc(JRSUIUtils$ScrollBar));
-}
-
 void JRSUIUtils$ScrollBar::init$() {
 }
 
 bool JRSUIUtils$ScrollBar::shouldUseScrollToClick() {
 	$init(JRSUIUtils$ScrollBar);
-	bool $ret = false;
-	$prepareNativeStatic(JRSUIUtils$ScrollBar, shouldUseScrollToClick, bool);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(shouldUseScrollToClick, bool);
+	bool $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -78,7 +40,36 @@ JRSUIUtils$ScrollBar::JRSUIUtils$ScrollBar() {
 }
 
 $Class* JRSUIUtils$ScrollBar::load$($String* name, bool initialize) {
-	$loadClass(JRSUIUtils$ScrollBar, name, initialize, &_JRSUIUtils$ScrollBar_ClassInfo_, allocate$JRSUIUtils$ScrollBar);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JRSUIUtils$ScrollBar, init$, void)},
+		{"getNativeOffsetChange", "(Lapple/laf/JRSUIControl;IIIIIII)D", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIUtils$ScrollBar, getNativeOffsetChange, double, $JRSUIControl*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"getPartBounds", "([DLapple/laf/JRSUIControl;IIIILapple/laf/JRSUIConstants$ScrollBarPart;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIUtils$ScrollBar, getPartBounds, void, $doubles*, $JRSUIControl*, int32_t, int32_t, int32_t, int32_t, $JRSUIConstants$ScrollBarPart*)},
+		{"shouldUseScrollToClick", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIUtils$ScrollBar, shouldUseScrollToClick, bool)},
+		{"useScrollToClick", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIUtils$ScrollBar, useScrollToClick, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"apple.laf.JRSUIUtils$ScrollBar", "apple.laf.JRSUIUtils", "ScrollBar", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"apple.laf.JRSUIUtils$ScrollBar",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"apple.laf.JRSUIUtils"
+	};
+	$loadClass(JRSUIUtils$ScrollBar, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JRSUIUtils$ScrollBar);
+	});
 	return class$;
 }
 

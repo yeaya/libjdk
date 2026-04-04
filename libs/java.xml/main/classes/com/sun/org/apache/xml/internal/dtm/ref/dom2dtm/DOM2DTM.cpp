@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/dom2dtm/DOM2DTM.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMManager.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMWSFilter.h>
@@ -23,7 +22,6 @@
 #include <java/lang/ClassCastException.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
-#include <javax/xml/transform/Source.h>
 #include <javax/xml/transform/SourceLocator.h>
 #include <javax/xml/transform/dom/DOMSource.h>
 #include <org/w3c/dom/Attr.h>
@@ -78,7 +76,6 @@ using $XMLMessages = ::com::sun::org::apache::xml::internal::res::XMLMessages;
 using $FastStringBuffer = ::com::sun::org::apache::xml::internal::utils::FastStringBuffer;
 using $QName = ::com::sun::org::apache::xml::internal::utils::QName;
 using $StringBufferPool = ::com::sun::org::apache::xml::internal::utils::StringBufferPool;
-using $SuballocatedIntVector = ::com::sun::org::apache::xml::internal::utils::SuballocatedIntVector;
 using $TreeWalker = ::com::sun::org::apache::xml::internal::utils::TreeWalker;
 using $XMLCharacterRecognizer = ::com::sun::org::apache::xml::internal::utils::XMLCharacterRecognizer;
 using $XMLString = ::com::sun::org::apache::xml::internal::utils::XMLString;
@@ -89,8 +86,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
-using $List = ::java::util::List;
-using $Source = ::javax::xml::transform::Source;
 using $SourceLocator = ::javax::xml::transform::SourceLocator;
 using $DOMSource = ::javax::xml::transform::dom::DOMSource;
 using $Attr = ::org::w3c::dom::Attr;
@@ -117,108 +112,26 @@ namespace com {
 							namespace ref {
 								namespace dom2dtm {
 
-$FieldInfo _DOM2DTM_FieldInfo_[] = {
-	{"JJK_DEBUG", "Z", nullptr, $STATIC | $FINAL, $constField(DOM2DTM, JJK_DEBUG)},
-	{"JJK_NEWCODE", "Z", nullptr, $STATIC | $FINAL, $constField(DOM2DTM, JJK_NEWCODE)},
-	{"NAMESPACE_DECL_NS", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOM2DTM, NAMESPACE_DECL_NS)},
-	{"m_pos", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE | $TRANSIENT, $field(DOM2DTM, m_pos)},
-	{"m_last_parent", "I", nullptr, $PRIVATE, $field(DOM2DTM, m_last_parent)},
-	{"m_last_kid", "I", nullptr, $PRIVATE, $field(DOM2DTM, m_last_kid)},
-	{"m_root", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE | $TRANSIENT, $field(DOM2DTM, m_root)},
-	{"m_processedFirstElement", "Z", nullptr, 0, $field(DOM2DTM, m_processedFirstElement)},
-	{"m_nodesAreProcessed", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(DOM2DTM, m_nodesAreProcessed)},
-	{"m_nodes", "Ljava/util/List;", "Ljava/util/List<Lorg/w3c/dom/Node;>;", $PROTECTED, $field(DOM2DTM, m_nodes)},
-	{"m_walker", "Lcom/sun/org/apache/xml/internal/utils/TreeWalker;", nullptr, 0, $field(DOM2DTM, m_walker)},
-	{}
-};
-
-$MethodInfo _DOM2DTM_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMManager;Ljavax/xml/transform/dom/DOMSource;ILcom/sun/org/apache/xml/internal/dtm/DTMWSFilter;Lcom/sun/org/apache/xml/internal/utils/XMLStringFactory;Z)V", nullptr, $PUBLIC, $method(DOM2DTM, init$, void, $DTMManager*, $DOMSource*, int32_t, $DTMWSFilter*, $XMLStringFactory*, bool)},
-	{"addNode", "(Lorg/w3c/dom/Node;III)I", nullptr, $PROTECTED, $virtualMethod(DOM2DTM, addNode, int32_t, $Node*, int32_t, int32_t, int32_t)},
-	{"dispatchCharactersEvents", "(ILorg/xml/sax/ContentHandler;Z)V", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, dispatchCharactersEvents, void, int32_t, $ContentHandler*, bool), "org.xml.sax.SAXException"},
-	{"dispatchNodeData", "(Lorg/w3c/dom/Node;Lorg/xml/sax/ContentHandler;I)V", nullptr, $PROTECTED | $STATIC, $staticMethod(DOM2DTM, dispatchNodeData, void, $Node*, $ContentHandler*, int32_t), "org.xml.sax.SAXException"},
-	{"dispatchToEvents", "(ILorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, dispatchToEvents, void, int32_t, $ContentHandler*), "org.xml.sax.SAXException"},
-	{"getAttributeNode", "(ILjava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getAttributeNode, int32_t, int32_t, $String*, $String*)},
-	{"getContentHandler", "()Lorg/xml/sax/ContentHandler;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getContentHandler, $ContentHandler*)},
-	{"getDTDHandler", "()Lorg/xml/sax/DTDHandler;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getDTDHandler, $DTDHandler*)},
-	{"getDeclHandler", "()Lorg/xml/sax/ext/DeclHandler;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getDeclHandler, $DeclHandler*)},
-	{"getDocumentTypeDeclarationPublicIdentifier", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getDocumentTypeDeclarationPublicIdentifier, $String*)},
-	{"getDocumentTypeDeclarationSystemIdentifier", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getDocumentTypeDeclarationSystemIdentifier, $String*)},
-	{"getElementById", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getElementById, int32_t, $String*)},
-	{"getEntityResolver", "()Lorg/xml/sax/EntityResolver;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getEntityResolver, $EntityResolver*)},
-	{"getErrorHandler", "()Lorg/xml/sax/ErrorHandler;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getErrorHandler, $ErrorHandler*)},
-	{"getHandleFromNode", "(Lorg/w3c/dom/Node;)I", nullptr, $PRIVATE, $method(DOM2DTM, getHandleFromNode, int32_t, $Node*)},
-	{"getHandleOfNode", "(Lorg/w3c/dom/Node;)I", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getHandleOfNode, int32_t, $Node*)},
-	{"getLexicalHandler", "()Lorg/xml/sax/ext/LexicalHandler;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getLexicalHandler, $LexicalHandler*)},
-	{"getLocalName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getLocalName, $String*, int32_t)},
-	{"getNamespaceURI", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getNamespaceURI, $String*, int32_t)},
-	{"getNextNodeIdentity", "(I)I", nullptr, $PROTECTED, $virtualMethod(DOM2DTM, getNextNodeIdentity, int32_t, int32_t)},
-	{"getNode", "(I)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getNode, $Node*, int32_t)},
-	{"getNodeData", "(Lorg/w3c/dom/Node;Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(DOM2DTM, getNodeData, void, $Node*, $FastStringBuffer*)},
-	{"getNodeName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getNodeName, $String*, int32_t)},
-	{"getNodeNameX", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getNodeNameX, $String*, int32_t)},
-	{"getNodeValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getNodeValue, $String*, int32_t)},
-	{"getNumberOfNodes", "()I", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getNumberOfNodes, int32_t)},
-	{"getPrefix", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getPrefix, $String*, int32_t)},
-	{"getSourceLocatorFor", "(I)Ljavax/xml/transform/SourceLocator;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getSourceLocatorFor, $SourceLocator*, int32_t)},
-	{"getStringValue", "(I)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getStringValue, $XMLString*, int32_t)},
-	{"getUnparsedEntityURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getUnparsedEntityURI, $String*, $String*)},
-	{"isAttributeSpecified", "(I)Z", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, isAttributeSpecified, bool, int32_t)},
-	{"isSpace", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DOM2DTM, isSpace, bool, char16_t)},
-	{"isWhitespace", "(I)Z", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, isWhitespace, bool, int32_t)},
-	{"logicalNextDOMTextNode", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(DOM2DTM, logicalNextDOMTextNode, $Node*, $Node*)},
-	{"lookupNode", "(I)Lorg/w3c/dom/Node;", nullptr, $PROTECTED, $virtualMethod(DOM2DTM, lookupNode, $Node*, int32_t)},
-	{"needsTwoThreads", "()Z", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, needsTwoThreads, bool)},
-	{"nextNode", "()Z", nullptr, $PROTECTED, $virtualMethod(DOM2DTM, nextNode, bool)},
-	{"setIncrementalSAXSource", "(Lcom/sun/org/apache/xml/internal/dtm/ref/IncrementalSAXSource;)V", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, setIncrementalSAXSource, void, $IncrementalSAXSource*)},
-	{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, setProperty, void, $String*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _DOM2DTM_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.dtm.ref.dom2dtm.DOM2DTM$CharacterNodeHandler", "com.sun.org.apache.xml.internal.dtm.ref.dom2dtm.DOM2DTM", "CharacterNodeHandler", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DOM2DTM_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.dtm.ref.dom2dtm.DOM2DTM",
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators",
-	nullptr,
-	_DOM2DTM_FieldInfo_,
-	_DOM2DTM_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DOM2DTM_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.dtm.ref.dom2dtm.DOM2DTM$CharacterNodeHandler"
-};
-
-$Object* allocate$DOM2DTM($Class* clazz) {
-	return $of($alloc(DOM2DTM));
-}
-
 $String* DOM2DTM::NAMESPACE_DECL_NS = nullptr;
 
 void DOM2DTM::init$($DTMManager* mgr, $DOMSource* domSource, int32_t dtmIdentity, $DTMWSFilter* whiteSpaceFilter, $XMLStringFactory* xstringfactory, bool doIndexing) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DTMDefaultBaseIterators::init$(mgr, domSource, dtmIdentity, whiteSpaceFilter, xstringfactory, doIndexing);
 	this->m_last_parent = 0;
 	this->m_last_kid = $DTM::NULL;
 	this->m_processedFirstElement = false;
 	$set(this, m_nodes, $new($ArrayList));
 	$set(this, m_walker, $new($TreeWalker, nullptr));
-	$set(this, m_pos, ($set(this, m_root, $nc(domSource)->getNode())));
+	$set(this, m_pos, $set(this, m_root, $nc(domSource)->getNode()));
 	this->m_last_parent = (this->m_last_kid = $DTM::NULL);
 	this->m_last_kid = addNode(this->m_root, this->m_last_parent, this->m_last_kid, $DTM::NULL);
 	if ($DTM::ELEMENT_NODE == $nc(this->m_root)->getNodeType()) {
 		$var($NamedNodeMap, attrs, $nc(this->m_root)->getAttributes());
-		int32_t attrsize = (attrs == nullptr) ? 0 : $nc(attrs)->getLength();
+		int32_t attrsize = (attrs == nullptr) ? 0 : attrs->getLength();
 		if (attrsize > 0) {
 			int32_t attrIndex = $DTM::NULL;
 			for (int32_t i = 0; i < attrsize; ++i) {
-				attrIndex = addNode($(attrs->item(i)), 0, attrIndex, $DTM::NULL);
+				attrIndex = addNode($($nc(attrs)->item(i)), 0, attrIndex, $DTM::NULL);
 				$nc(this->m_firstch)->setElementAt($DTM::NULL, attrIndex);
 			}
 			$nc(this->m_nextsib)->setElementAt($DTM::NULL, attrIndex);
@@ -228,7 +141,7 @@ void DOM2DTM::init$($DTMManager* mgr, $DOMSource* domSource, int32_t dtmIdentity
 }
 
 int32_t DOM2DTM::addNode($Node* node, int32_t parentIndex, int32_t previousSibling, int32_t forceNodeType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nodeIndex = $nc(this->m_nodes)->size();
 	if ($nc(this->m_dtmIdent)->size() == ($usr(nodeIndex, $DTMManager::IDENT_DTM_NODE_BITS))) {
 		try {
@@ -254,7 +167,7 @@ int32_t DOM2DTM::addNode($Node* node, int32_t parentIndex, int32_t previousSibli
 	if ($Node::ATTRIBUTE_NODE == type) {
 		$var($String, name, $nc(node)->getNodeName());
 		bool var$0 = $nc(name)->startsWith("xmlns:"_s);
-		if (var$0 || $nc(name)->equals("xmlns"_s)) {
+		if (var$0 || name->equals("xmlns"_s)) {
 			type = $DTM::NAMESPACE_NODE;
 		}
 	}
@@ -276,7 +189,7 @@ int32_t DOM2DTM::addNode($Node* node, int32_t parentIndex, int32_t previousSibli
 	$var($ExpandedNameTable, exnt, this->m_expandedNameTable);
 	if (node->getLocalName() == nullptr && (type == $Node::ELEMENT_NODE || type == $Node::ATTRIBUTE_NODE)) {
 	}
-	int32_t expandedNameID = (nullptr != localName) ? $nc(exnt)->getExpandedTypeID(nsURI, localName, type) : exnt->getExpandedTypeID(type);
+	int32_t expandedNameID = (nullptr != localName) ? $nc(exnt)->getExpandedTypeID(nsURI, localName, type) : $nc(exnt)->getExpandedTypeID(type);
 	$nc(this->m_exptype)->setElementAt(expandedNameID, nodeIndex);
 	indexNode(expandedNameID, nodeIndex);
 	if ($DTM::NULL != previousSibling) {
@@ -293,7 +206,7 @@ int32_t DOM2DTM::getNumberOfNodes() {
 }
 
 bool DOM2DTM::nextNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->m_nodesAreProcessed) {
 		return false;
 	}
@@ -310,7 +223,7 @@ bool DOM2DTM::nextNode() {
 				this->m_last_parent = this->m_last_kid;
 				this->m_last_kid = $DTM::NULL;
 				if (nullptr != this->m_wsfilter) {
-					int16_t wsv = $nc(this->m_wsfilter)->getShouldStripSpace(makeNodeHandle(this->m_last_parent), this);
+					int16_t wsv = this->m_wsfilter->getShouldStripSpace(makeNodeHandle(this->m_last_parent), this);
 					bool shouldStrip = ($DTMWSFilter::INHERIT == wsv) ? getShouldStripWhitespace() : ($DTMWSFilter::STRIP == wsv);
 					pushShouldStripWhitespace(shouldStrip);
 				}
@@ -331,8 +244,10 @@ bool DOM2DTM::nextNode() {
 				}
 				$assign(pos, pos->getParentNode());
 				if (pos == nullptr) {
+					;
 				}
 				if (pos != nullptr && $DTM::ENTITY_REFERENCE_NODE == pos->getNodeType()) {
+					;
 				} else {
 					popShouldStripWhitespace();
 					if (this->m_last_kid == $DTM::NULL) {
@@ -358,6 +273,7 @@ bool DOM2DTM::nextNode() {
 		$nc(this->m_nextsib)->setElementAt($DTM::NULL, 0);
 		this->m_nodesAreProcessed = true;
 		$set(this, m_pos, nullptr);
+		;
 		return false;
 	}
 	bool suppressNode = false;
@@ -375,7 +291,7 @@ bool DOM2DTM::nextNode() {
 			$assign(n, logicalNextDOMTextNode(n));
 		}
 	} else if ($DTM::PROCESSING_INSTRUCTION_NODE == nexttype) {
-		suppressNode = ($($nc($($nc(pos)->getNodeName()))->toLowerCase())->equals("xml"_s));
+		suppressNode = ($($$nc($nc(pos)->getNodeName())->toLowerCase())->equals("xml"_s));
 	}
 	if (!suppressNode) {
 		int32_t nextindex = addNode(next, this->m_last_parent, this->m_last_kid, nexttype);
@@ -383,12 +299,12 @@ bool DOM2DTM::nextNode() {
 		if ($DTM::ELEMENT_NODE == nexttype) {
 			int32_t attrIndex = $DTM::NULL;
 			$var($NamedNodeMap, attrs, next->getAttributes());
-			int32_t attrsize = (attrs == nullptr) ? 0 : $nc(attrs)->getLength();
+			int32_t attrsize = (attrs == nullptr) ? 0 : attrs->getLength();
 			if (attrsize > 0) {
 				for (int32_t i = 0; i < attrsize; ++i) {
-					attrIndex = addNode($(attrs->item(i)), nextindex, attrIndex, $DTM::NULL);
+					attrIndex = addNode($($nc(attrs)->item(i)), nextindex, attrIndex, $DTM::NULL);
 					$nc(this->m_firstch)->setElementAt($DTM::NULL, attrIndex);
-					if (!this->m_processedFirstElement && "xmlns:xml"_s->equals($($nc($(attrs->item(i)))->getNodeName()))) {
+					if (!this->m_processedFirstElement && "xmlns:xml"_s->equals($($$nc(attrs->item(i))->getNodeName()))) {
 						this->m_processedFirstElement = true;
 					}
 				}
@@ -449,26 +365,24 @@ int32_t DOM2DTM::getHandleFromNode($Node* node) {
 
 int32_t DOM2DTM::getHandleOfNode($Node* node) {
 	if (nullptr != node) {
-		bool var$1 = (this->m_root == node);
+		bool var$1 = this->m_root == node;
 		if (!var$1) {
 			bool var$2 = $nc(this->m_root)->getNodeType() == $DTM::DOCUMENT_NODE;
-			var$1 = (var$2 && $equals(this->m_root, node->getOwnerDocument()));
+			var$1 = var$2 && $equals(this->m_root, node->getOwnerDocument());
 		}
 		bool var$0 = var$1;
 		if (!var$0) {
 			bool var$3 = $nc(this->m_root)->getNodeType() != $DTM::DOCUMENT_NODE;
 			if (var$3) {
-				var$3 = $nc(this->m_root)->getOwnerDocument() == node->getOwnerDocument();
+				var$3 = this->m_root->getOwnerDocument() == node->getOwnerDocument();
 			}
-			var$0 = (var$3);
+			var$0 = var$3;
 		}
 		if (var$0) {
-			{
-				$var($Node, cursor, node);
-				for (; cursor != nullptr; $assign(cursor, (cursor->getNodeType() != $DTM::ATTRIBUTE_NODE) ? cursor->getParentNode() : static_cast<$Node*>($nc(($cast($Attr, cursor)))->getOwnerElement()))) {
-					if (cursor == this->m_root) {
-						return getHandleFromNode(node);
-					}
+			$var($Node, cursor, node);
+			for (; cursor != nullptr; $assign(cursor, (cursor->getNodeType() != $DTM::ATTRIBUTE_NODE) ? cursor->getParentNode() : $cast($Node, $cast($Attr, cursor)->getOwnerElement()))) {
+				if (cursor == this->m_root) {
+					return getHandleFromNode(node);
 				}
 			}
 		}
@@ -477,7 +391,7 @@ int32_t DOM2DTM::getHandleOfNode($Node* node) {
 }
 
 int32_t DOM2DTM::getAttributeNode(int32_t nodeHandle, $String* namespaceURI$renamed, $String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, namespaceURI, namespaceURI$renamed);
 	if (nullptr == namespaceURI) {
 		$assign(namespaceURI, ""_s);
@@ -507,25 +421,23 @@ int32_t DOM2DTM::getAttributeNode(int32_t nodeHandle, $String* namespaceURI$rena
 }
 
 $XMLString* DOM2DTM::getStringValue(int32_t nodeHandle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t type = getNodeType(nodeHandle);
 	$var($Node, node, getNode(nodeHandle));
 	if ($DTM::ELEMENT_NODE == type || $DTM::DOCUMENT_NODE == type || $DTM::DOCUMENT_FRAGMENT_NODE == type) {
 		$var($FastStringBuffer, buf, $StringBufferPool::get());
 		$var($String, s, nullptr);
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				getNodeData(node, buf);
-				$assign(s, ($nc(buf)->length() > 0) ? $nc(buf)->toString() : ""_s);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$StringBufferPool::free(buf);
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			getNodeData(node, buf);
+			$assign(s, ($nc(buf)->length() > 0) ? buf->toString() : ""_s);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$StringBufferPool::free(buf);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 		return $nc(this->m_xstrf)->newstr(s);
 	} else if ($DTM::TEXT_NODE == type || $DTM::CDATA_SECTION_NODE == type) {
@@ -534,7 +446,7 @@ $XMLString* DOM2DTM::getStringValue(int32_t nodeHandle) {
 			$nc(buf)->append($(node->getNodeValue()));
 			$assign(node, logicalNextDOMTextNode(node));
 		}
-		$var($String, s, ($nc(buf)->length() > 0) ? $nc(buf)->toString() : ""_s);
+		$var($String, s, ($nc(buf)->length() > 0) ? buf->toString() : ""_s);
 		$StringBufferPool::free(buf);
 		return $nc(this->m_xstrf)->newstr(s);
 	} else {
@@ -543,7 +455,7 @@ $XMLString* DOM2DTM::getStringValue(int32_t nodeHandle) {
 }
 
 bool DOM2DTM::isWhitespace(int32_t nodeHandle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t type = getNodeType(nodeHandle);
 	$var($Node, node, getNode(nodeHandle));
 	if ($DTM::TEXT_NODE == type || $DTM::CDATA_SECTION_NODE == type) {
@@ -552,7 +464,7 @@ bool DOM2DTM::isWhitespace(int32_t nodeHandle) {
 			$nc(buf)->append($(node->getNodeValue()));
 			$assign(node, logicalNextDOMTextNode(node));
 		}
-		bool b = $nc(buf)->isWhitespace(0, buf->length());
+		bool b = $nc(buf)->isWhitespace(0, $nc(buf)->length());
 		$StringBufferPool::free(buf);
 		return b;
 	}
@@ -561,41 +473,27 @@ bool DOM2DTM::isWhitespace(int32_t nodeHandle) {
 
 void DOM2DTM::getNodeData($Node* node, $FastStringBuffer* buf) {
 	$init(DOM2DTM);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch ($nc(node)->getNodeType()) {
 	case $Node::DOCUMENT_FRAGMENT_NODE:
-		{}
 	case $Node::DOCUMENT_NODE:
-		{}
 	case $Node::ELEMENT_NODE:
 		{
-			{
-				{
-					$var($Node, child, node->getFirstChild());
-					for (; nullptr != child; $assign(child, $nc(child)->getNextSibling())) {
-						getNodeData(child, buf);
-					}
-				}
+			$var($Node, child, node->getFirstChild());
+			for (; nullptr != child; $assign(child, child->getNextSibling())) {
+				getNodeData(child, buf);
 			}
-			break;
 		}
+		break;
 	case $Node::TEXT_NODE:
-		{}
 	case $Node::CDATA_SECTION_NODE:
-		{}
 	case $Node::ATTRIBUTE_NODE:
-		{
-			$nc(buf)->append($(node->getNodeValue()));
-			break;
-		}
+		$nc(buf)->append($(node->getNodeValue()));
+		break;
 	case $Node::PROCESSING_INSTRUCTION_NODE:
-		{
-			break;
-		}
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 }
 
@@ -605,47 +503,38 @@ $String* DOM2DTM::getNodeName(int32_t nodeHandle) {
 }
 
 $String* DOM2DTM::getNodeNameX(int32_t nodeHandle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, nullptr);
 	int16_t type = getNodeType(nodeHandle);
 	switch (type) {
 	case $DTM::NAMESPACE_NODE:
 		{
-			{
-				$var($Node, node, getNode(nodeHandle));
-				$assign(name, $nc(node)->getNodeName());
-				if ($nc(name)->startsWith("xmlns:"_s)) {
-					$assign(name, $QName::getLocalPart(name));
-				} else if (name->equals("xmlns"_s)) {
-					$assign(name, ""_s);
-				}
+			$var($Node, node, getNode(nodeHandle));
+			$assign(name, $nc(node)->getNodeName());
+			if ($nc(name)->startsWith("xmlns:"_s)) {
+				$assign(name, $QName::getLocalPart(name));
+			} else if (name->equals("xmlns"_s)) {
+				$assign(name, ""_s);
 			}
-			break;
 		}
+		break;
 	case $DTM::ATTRIBUTE_NODE:
-		{}
 	case $DTM::ELEMENT_NODE:
-		{}
 	case $DTM::ENTITY_REFERENCE_NODE:
-		{}
 	case $DTM::PROCESSING_INSTRUCTION_NODE:
 		{
-			{
-				$var($Node, node, getNode(nodeHandle));
-				$assign(name, $nc(node)->getNodeName());
-			}
-			break;
+			$var($Node, node, getNode(nodeHandle));
+			$assign(name, $nc(node)->getNodeName());
 		}
+		break;
 	default:
-		{
-			$assign(name, ""_s);
-		}
+		$assign(name, ""_s);
 	}
 	return name;
 }
 
 $String* DOM2DTM::getLocalName(int32_t nodeHandle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		int32_t id = makeNodeIdentity(nodeHandle);
 		if ($DTM::NULL == id) {
@@ -658,7 +547,7 @@ $String* DOM2DTM::getLocalName(int32_t nodeHandle) {
 			if (u'#' == $nc(qname)->charAt(0)) {
 				$assign(newname, ""_s);
 			} else {
-				int32_t index = qname->indexOf((int32_t)u':');
+				int32_t index = qname->indexOf(u':');
 				$assign(newname, (index < 0) ? qname : qname->substring(index + 1));
 			}
 		}
@@ -667,36 +556,29 @@ $String* DOM2DTM::getLocalName(int32_t nodeHandle) {
 }
 
 $String* DOM2DTM::getPrefix(int32_t nodeHandle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prefix, nullptr);
 	int16_t type = getNodeType(nodeHandle);
 	switch (type) {
 	case $DTM::NAMESPACE_NODE:
 		{
-			{
-				$var($Node, node, getNode(nodeHandle));
-				$var($String, qname, $nc(node)->getNodeName());
-				int32_t index = $nc(qname)->indexOf((int32_t)u':');
-				$assign(prefix, (index < 0) ? ""_s : qname->substring(index + 1));
-			}
-			break;
+			$var($Node, node, getNode(nodeHandle));
+			$var($String, qname, $nc(node)->getNodeName());
+			int32_t index = $nc(qname)->indexOf(u':');
+			$assign(prefix, (index < 0) ? ""_s : qname->substring(index + 1));
 		}
+		break;
 	case $DTM::ATTRIBUTE_NODE:
-		{}
 	case $DTM::ELEMENT_NODE:
 		{
-			{
-				$var($Node, node, getNode(nodeHandle));
-				$var($String, qname, $nc(node)->getNodeName());
-				int32_t index = $nc(qname)->indexOf((int32_t)u':');
-				$assign(prefix, (index < 0) ? ""_s : qname->substring(0, index));
-			}
-			break;
+			$var($Node, node, getNode(nodeHandle));
+			$var($String, qname, $nc(node)->getNodeName());
+			int32_t index = $nc(qname)->indexOf(u':');
+			$assign(prefix, (index < 0) ? ""_s : qname->substring(0, index));
 		}
+		break;
 	default:
-		{
-			$assign(prefix, ""_s);
-		}
+		$assign(prefix, ""_s);
 	}
 	return prefix;
 }
@@ -713,11 +595,11 @@ $String* DOM2DTM::getNamespaceURI(int32_t nodeHandle) {
 }
 
 $Node* DOM2DTM::logicalNextDOMTextNode($Node* n$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, n, n$renamed);
 	$var($Node, p, $nc(n)->getNextSibling());
 	if (p == nullptr) {
-		for ($assign(n, n->getParentNode()); n != nullptr && $DTM::ENTITY_REFERENCE_NODE == n->getNodeType(); $assign(n, $nc(n)->getParentNode())) {
+		for ($assign(n, n->getParentNode()); n != nullptr && $DTM::ENTITY_REFERENCE_NODE == n->getNodeType(); $assign(n, n->getParentNode())) {
 			$assign(p, n->getNextSibling());
 			if (p != nullptr) {
 				break;
@@ -742,11 +624,11 @@ $Node* DOM2DTM::logicalNextDOMTextNode($Node* n$renamed) {
 }
 
 $String* DOM2DTM::getNodeValue(int32_t nodeHandle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t type = _exptype(makeNodeIdentity(nodeHandle));
 	type = ($DTM::NULL != type) ? getNodeType(nodeHandle) : (int16_t)$DTM::NULL;
 	if ($DTM::TEXT_NODE != type && $DTM::CDATA_SECTION_NODE != type) {
-		return $nc($(getNode(nodeHandle)))->getNodeValue();
+		return $$nc(getNode(nodeHandle))->getNodeValue();
 	}
 	$var($Node, node, getNode(nodeHandle));
 	$var($Node, n, logicalNextDOMTextNode(node));
@@ -765,7 +647,7 @@ $String* DOM2DTM::getNodeValue(int32_t nodeHandle) {
 }
 
 $String* DOM2DTM::getDocumentTypeDeclarationSystemIdentifier() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, nullptr);
 	if ($nc(this->m_root)->getNodeType() == $Node::DOCUMENT_NODE) {
 		$assign(doc, $cast($Document, this->m_root));
@@ -782,7 +664,7 @@ $String* DOM2DTM::getDocumentTypeDeclarationSystemIdentifier() {
 }
 
 $String* DOM2DTM::getDocumentTypeDeclarationPublicIdentifier() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, nullptr);
 	if ($nc(this->m_root)->getNodeType() == $Node::DOCUMENT_NODE) {
 		$assign(doc, $cast($Document, this->m_root));
@@ -799,8 +681,8 @@ $String* DOM2DTM::getDocumentTypeDeclarationPublicIdentifier() {
 }
 
 int32_t DOM2DTM::getElementById($String* elementId) {
-	$useLocalCurrentObjectStackCache();
-	$var($Document, doc, ($nc(this->m_root)->getNodeType() == $Node::DOCUMENT_NODE) ? $cast($Document, this->m_root) : $nc(this->m_root)->getOwnerDocument());
+	$useLocalObjectStack();
+	$var($Document, doc, ($nc(this->m_root)->getNodeType() == $Node::DOCUMENT_NODE) ? $cast($Document, this->m_root) : this->m_root->getOwnerDocument());
 	if (nullptr != doc) {
 		$var($Node, elem, doc->getElementById(elementId));
 		if (nullptr != elem) {
@@ -822,9 +704,9 @@ int32_t DOM2DTM::getElementById($String* elementId) {
 }
 
 $String* DOM2DTM::getUnparsedEntityURI($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, url, ""_s);
-	$var($Document, doc, ($nc(this->m_root)->getNodeType() == $Node::DOCUMENT_NODE) ? $cast($Document, this->m_root) : $nc(this->m_root)->getOwnerDocument());
+	$var($Document, doc, ($nc(this->m_root)->getNodeType() == $Node::DOCUMENT_NODE) ? $cast($Document, this->m_root) : this->m_root->getOwnerDocument());
 	if (nullptr != doc) {
 		$var($DocumentType, doctype, doc->getDoctype());
 		if (nullptr != doctype) {
@@ -895,11 +777,11 @@ bool DOM2DTM::isSpace(char16_t ch) {
 }
 
 void DOM2DTM::dispatchCharactersEvents(int32_t nodeHandle, $ContentHandler* ch, bool normalize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (normalize) {
 		$var($XMLString, str, getStringValue(nodeHandle));
 		$assign(str, $nc(str)->fixWhiteSpace(true, true, false));
-		str->dispatchCharactersEvents(ch);
+		$nc(str)->dispatchCharactersEvents(ch);
 	} else {
 		int32_t type = getNodeType(nodeHandle);
 		$var($Node, node, getNode(nodeHandle));
@@ -914,78 +796,59 @@ void DOM2DTM::dispatchCharactersEvents(int32_t nodeHandle, $ContentHandler* ch, 
 
 void DOM2DTM::dispatchNodeData($Node* node, $ContentHandler* ch, int32_t depth) {
 	$init(DOM2DTM);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($String, str, nullptr)
-		switch ($nc(node)->getNodeType()) {
-		case $Node::DOCUMENT_FRAGMENT_NODE:
-			{}
-		case $Node::DOCUMENT_NODE:
-			{}
-		case $Node::ELEMENT_NODE:
-			{
-				{
-					{
-						$var($Node, child, node->getFirstChild());
-						for (; nullptr != child; $assign(child, $nc(child)->getNextSibling())) {
-							dispatchNodeData(child, ch, depth + 1);
-						}
-					}
-				}
-				break;
-			}
-		case $Node::PROCESSING_INSTRUCTION_NODE:
-			{}
-		case $Node::COMMENT_NODE:
-			{
-				if (0 != depth) {
-					break;
-				}
-			}
-		case $Node::TEXT_NODE:
-			{}
-		case $Node::CDATA_SECTION_NODE:
-			{}
-		case $Node::ATTRIBUTE_NODE:
-			{
-				$assign(str, node->getNodeValue());
-				if ($instanceOf($DOM2DTM$CharacterNodeHandler, ch)) {
-					$nc(($cast($DOM2DTM$CharacterNodeHandler, ch)))->characters(node);
-				} else {
-					$var($chars, var$0, $nc(str)->toCharArray());
-					$nc(ch)->characters(var$0, 0, str->length());
-				}
-				break;
-			}
-		default:
-			{
-				break;
+	$useLocalObjectStack();
+	$var($String, str, nullptr);
+	switch ($nc(node)->getNodeType()) {
+	case $Node::DOCUMENT_FRAGMENT_NODE:
+	case $Node::DOCUMENT_NODE:
+	case $Node::ELEMENT_NODE:
+		{
+			$var($Node, child, node->getFirstChild());
+			for (; nullptr != child; $assign(child, child->getNextSibling())) {
+				dispatchNodeData(child, ch, depth + 1);
 			}
 		}
+		break;
+	case $Node::PROCESSING_INSTRUCTION_NODE:
+	case $Node::COMMENT_NODE:
+		if (0 != depth) {
+			break;
+		}
+	case $Node::TEXT_NODE:
+	case $Node::CDATA_SECTION_NODE:
+	case $Node::ATTRIBUTE_NODE:
+		$assign(str, node->getNodeValue());
+		if ($instanceOf($DOM2DTM$CharacterNodeHandler, ch)) {
+			$cast($DOM2DTM$CharacterNodeHandler, ch)->characters(node);
+		} else {
+			$var($chars, var$0, $nc(str)->toCharArray());
+			$nc(ch)->characters(var$0, 0, str->length());
+		}
+		break;
+	default:
+		break;
 	}
 }
 
 void DOM2DTM::dispatchToEvents(int32_t nodeHandle, $ContentHandler* ch) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreeWalker, treeWalker, this->m_walker);
 	$var($ContentHandler, prevCH, $nc(treeWalker)->getContentHandler());
 	if (nullptr != prevCH) {
 		$assign(treeWalker, $new($TreeWalker, nullptr));
 	}
 	treeWalker->setContentHandler(ch);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Node, node, getNode(nodeHandle));
-			treeWalker->traverseFragment(node);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			treeWalker->setContentHandler(nullptr);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Node, node, getNode(nodeHandle));
+		treeWalker->traverseFragment(node);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		treeWalker->setContentHandler(nullptr);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -999,12 +862,88 @@ $SourceLocator* DOM2DTM::getSourceLocatorFor(int32_t node) {
 DOM2DTM::DOM2DTM() {
 }
 
-void clinit$DOM2DTM($Class* class$) {
+void DOM2DTM::clinit$($Class* clazz) {
 	$assignStatic(DOM2DTM::NAMESPACE_DECL_NS, "http://www.w3.org/XML/1998/namespace"_s);
 }
 
 $Class* DOM2DTM::load$($String* name, bool initialize) {
-	$loadClass(DOM2DTM, name, initialize, &_DOM2DTM_ClassInfo_, clinit$DOM2DTM, allocate$DOM2DTM);
+	$FieldInfo fieldInfos$$[] = {
+		{"JJK_DEBUG", "Z", nullptr, $STATIC | $FINAL, $constField(DOM2DTM, JJK_DEBUG)},
+		{"JJK_NEWCODE", "Z", nullptr, $STATIC | $FINAL, $constField(DOM2DTM, JJK_NEWCODE)},
+		{"NAMESPACE_DECL_NS", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOM2DTM, NAMESPACE_DECL_NS)},
+		{"m_pos", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE | $TRANSIENT, $field(DOM2DTM, m_pos)},
+		{"m_last_parent", "I", nullptr, $PRIVATE, $field(DOM2DTM, m_last_parent)},
+		{"m_last_kid", "I", nullptr, $PRIVATE, $field(DOM2DTM, m_last_kid)},
+		{"m_root", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE | $TRANSIENT, $field(DOM2DTM, m_root)},
+		{"m_processedFirstElement", "Z", nullptr, 0, $field(DOM2DTM, m_processedFirstElement)},
+		{"m_nodesAreProcessed", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(DOM2DTM, m_nodesAreProcessed)},
+		{"m_nodes", "Ljava/util/List;", "Ljava/util/List<Lorg/w3c/dom/Node;>;", $PROTECTED, $field(DOM2DTM, m_nodes)},
+		{"m_walker", "Lcom/sun/org/apache/xml/internal/utils/TreeWalker;", nullptr, 0, $field(DOM2DTM, m_walker)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMManager;Ljavax/xml/transform/dom/DOMSource;ILcom/sun/org/apache/xml/internal/dtm/DTMWSFilter;Lcom/sun/org/apache/xml/internal/utils/XMLStringFactory;Z)V", nullptr, $PUBLIC, $method(DOM2DTM, init$, void, $DTMManager*, $DOMSource*, int32_t, $DTMWSFilter*, $XMLStringFactory*, bool)},
+		{"addNode", "(Lorg/w3c/dom/Node;III)I", nullptr, $PROTECTED, $virtualMethod(DOM2DTM, addNode, int32_t, $Node*, int32_t, int32_t, int32_t)},
+		{"dispatchCharactersEvents", "(ILorg/xml/sax/ContentHandler;Z)V", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, dispatchCharactersEvents, void, int32_t, $ContentHandler*, bool), "org.xml.sax.SAXException"},
+		{"dispatchNodeData", "(Lorg/w3c/dom/Node;Lorg/xml/sax/ContentHandler;I)V", nullptr, $PROTECTED | $STATIC, $staticMethod(DOM2DTM, dispatchNodeData, void, $Node*, $ContentHandler*, int32_t), "org.xml.sax.SAXException"},
+		{"dispatchToEvents", "(ILorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, dispatchToEvents, void, int32_t, $ContentHandler*), "org.xml.sax.SAXException"},
+		{"getAttributeNode", "(ILjava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getAttributeNode, int32_t, int32_t, $String*, $String*)},
+		{"getContentHandler", "()Lorg/xml/sax/ContentHandler;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getContentHandler, $ContentHandler*)},
+		{"getDTDHandler", "()Lorg/xml/sax/DTDHandler;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getDTDHandler, $DTDHandler*)},
+		{"getDeclHandler", "()Lorg/xml/sax/ext/DeclHandler;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getDeclHandler, $DeclHandler*)},
+		{"getDocumentTypeDeclarationPublicIdentifier", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getDocumentTypeDeclarationPublicIdentifier, $String*)},
+		{"getDocumentTypeDeclarationSystemIdentifier", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getDocumentTypeDeclarationSystemIdentifier, $String*)},
+		{"getElementById", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getElementById, int32_t, $String*)},
+		{"getEntityResolver", "()Lorg/xml/sax/EntityResolver;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getEntityResolver, $EntityResolver*)},
+		{"getErrorHandler", "()Lorg/xml/sax/ErrorHandler;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getErrorHandler, $ErrorHandler*)},
+		{"getHandleFromNode", "(Lorg/w3c/dom/Node;)I", nullptr, $PRIVATE, $method(DOM2DTM, getHandleFromNode, int32_t, $Node*)},
+		{"getHandleOfNode", "(Lorg/w3c/dom/Node;)I", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getHandleOfNode, int32_t, $Node*)},
+		{"getLexicalHandler", "()Lorg/xml/sax/ext/LexicalHandler;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getLexicalHandler, $LexicalHandler*)},
+		{"getLocalName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getLocalName, $String*, int32_t)},
+		{"getNamespaceURI", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getNamespaceURI, $String*, int32_t)},
+		{"getNextNodeIdentity", "(I)I", nullptr, $PROTECTED, $virtualMethod(DOM2DTM, getNextNodeIdentity, int32_t, int32_t)},
+		{"getNode", "(I)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getNode, $Node*, int32_t)},
+		{"getNodeData", "(Lorg/w3c/dom/Node;Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(DOM2DTM, getNodeData, void, $Node*, $FastStringBuffer*)},
+		{"getNodeName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getNodeName, $String*, int32_t)},
+		{"getNodeNameX", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getNodeNameX, $String*, int32_t)},
+		{"getNodeValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getNodeValue, $String*, int32_t)},
+		{"getNumberOfNodes", "()I", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getNumberOfNodes, int32_t)},
+		{"getPrefix", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getPrefix, $String*, int32_t)},
+		{"getSourceLocatorFor", "(I)Ljavax/xml/transform/SourceLocator;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getSourceLocatorFor, $SourceLocator*, int32_t)},
+		{"getStringValue", "(I)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getStringValue, $XMLString*, int32_t)},
+		{"getUnparsedEntityURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, getUnparsedEntityURI, $String*, $String*)},
+		{"isAttributeSpecified", "(I)Z", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, isAttributeSpecified, bool, int32_t)},
+		{"isSpace", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DOM2DTM, isSpace, bool, char16_t)},
+		{"isWhitespace", "(I)Z", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, isWhitespace, bool, int32_t)},
+		{"logicalNextDOMTextNode", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(DOM2DTM, logicalNextDOMTextNode, $Node*, $Node*)},
+		{"lookupNode", "(I)Lorg/w3c/dom/Node;", nullptr, $PROTECTED, $virtualMethod(DOM2DTM, lookupNode, $Node*, int32_t)},
+		{"needsTwoThreads", "()Z", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, needsTwoThreads, bool)},
+		{"nextNode", "()Z", nullptr, $PROTECTED, $virtualMethod(DOM2DTM, nextNode, bool)},
+		{"setIncrementalSAXSource", "(Lcom/sun/org/apache/xml/internal/dtm/ref/IncrementalSAXSource;)V", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, setIncrementalSAXSource, void, $IncrementalSAXSource*)},
+		{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DOM2DTM, setProperty, void, $String*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.dtm.ref.dom2dtm.DOM2DTM$CharacterNodeHandler", "com.sun.org.apache.xml.internal.dtm.ref.dom2dtm.DOM2DTM", "CharacterNodeHandler", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.dtm.ref.dom2dtm.DOM2DTM",
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.dtm.ref.dom2dtm.DOM2DTM$CharacterNodeHandler"
+	};
+	$loadClass(DOM2DTM, name, initialize, &classInfo$$, DOM2DTM::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DOM2DTM);
+	});
 	return class$;
 }
 

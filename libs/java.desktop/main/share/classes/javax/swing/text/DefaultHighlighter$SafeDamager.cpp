@@ -1,6 +1,4 @@
 #include <javax/swing/text/DefaultHighlighter$SafeDamager.h>
-
-#include <java/lang/Runnable.h>
 #include <java/util/Vector.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -15,7 +13,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $Vector = ::java::util::Vector;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $TextUI = ::javax::swing::plaf::TextUI;
@@ -28,46 +25,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _DefaultHighlighter$SafeDamager_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/DefaultHighlighter;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultHighlighter$SafeDamager, this$0)},
-	{"p0", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/Position;>;", $PRIVATE, $field(DefaultHighlighter$SafeDamager, p0)},
-	{"p1", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/Position;>;", $PRIVATE, $field(DefaultHighlighter$SafeDamager, p1)},
-	{"lastDoc", "Ljavax/swing/text/Document;", nullptr, $PRIVATE, $field(DefaultHighlighter$SafeDamager, lastDoc)},
-	{}
-};
-
-$MethodInfo _DefaultHighlighter$SafeDamager_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/DefaultHighlighter;)V", nullptr, 0, $method(DefaultHighlighter$SafeDamager, init$, void, $DefaultHighlighter*)},
-	{"damageRange", "(Ljavax/swing/text/Position;Ljavax/swing/text/Position;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DefaultHighlighter$SafeDamager, damageRange, void, $Position*, $Position*)},
-	{"run", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DefaultHighlighter$SafeDamager, run, void)},
-	{}
-};
-
-$InnerClassInfo _DefaultHighlighter$SafeDamager_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultHighlighter$SafeDamager", "javax.swing.text.DefaultHighlighter", "SafeDamager", 0},
-	{}
-};
-
-$ClassInfo _DefaultHighlighter$SafeDamager_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.DefaultHighlighter$SafeDamager",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_DefaultHighlighter$SafeDamager_FieldInfo_,
-	_DefaultHighlighter$SafeDamager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultHighlighter$SafeDamager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultHighlighter"
-};
-
-$Object* allocate$DefaultHighlighter$SafeDamager($Class* clazz) {
-	return $of($alloc(DefaultHighlighter$SafeDamager));
-}
-
 void DefaultHighlighter$SafeDamager::init$($DefaultHighlighter* this$0) {
 	$set(this, this$0, this$0);
 	$set(this, p0, $new($Vector, 10));
@@ -77,15 +34,15 @@ void DefaultHighlighter$SafeDamager::init$($DefaultHighlighter* this$0) {
 
 void DefaultHighlighter$SafeDamager::run() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->this$0->component != nullptr) {
-			$var($TextUI, mapper, $cast($TextUI, $nc(this->this$0->component)->getUI()));
+			$var($TextUI, mapper, $cast($TextUI, this->this$0->component->getUI()));
 			if (mapper != nullptr && this->lastDoc == $nc(this->this$0->component)->getDocument()) {
 				int32_t len = $nc(this->p0)->size();
 				for (int32_t i = 0; i < len; ++i) {
 					$var($JTextComponent, var$0, this->this$0->component);
-					int32_t var$1 = $nc(($cast($Position, $($nc(this->p0)->get(i)))))->getOffset();
-					mapper->damageRange(var$0, var$1, $nc(($cast($Position, $($nc(this->p1)->get(i)))))->getOffset());
+					int32_t var$1 = $$sure($Position, $nc(this->p0)->get(i))->getOffset();
+					mapper->damageRange(var$0, var$1, $$sure($Position, $nc(this->p1)->get(i))->getOffset());
 				}
 			}
 		}
@@ -106,7 +63,7 @@ void DefaultHighlighter$SafeDamager::damageRange($Position* pos0, $Position* pos
 		$var($Document, curDoc, $nc(this->this$0->component)->getDocument());
 		if (curDoc != this->lastDoc) {
 			if (!$nc(this->p0)->isEmpty()) {
-				$nc(this->p0)->clear();
+				this->p0->clear();
 				$nc(this->p1)->clear();
 			}
 			$set(this, lastDoc, curDoc);
@@ -123,7 +80,41 @@ DefaultHighlighter$SafeDamager::DefaultHighlighter$SafeDamager() {
 }
 
 $Class* DefaultHighlighter$SafeDamager::load$($String* name, bool initialize) {
-	$loadClass(DefaultHighlighter$SafeDamager, name, initialize, &_DefaultHighlighter$SafeDamager_ClassInfo_, allocate$DefaultHighlighter$SafeDamager);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/DefaultHighlighter;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultHighlighter$SafeDamager, this$0)},
+		{"p0", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/Position;>;", $PRIVATE, $field(DefaultHighlighter$SafeDamager, p0)},
+		{"p1", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/Position;>;", $PRIVATE, $field(DefaultHighlighter$SafeDamager, p1)},
+		{"lastDoc", "Ljavax/swing/text/Document;", nullptr, $PRIVATE, $field(DefaultHighlighter$SafeDamager, lastDoc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/DefaultHighlighter;)V", nullptr, 0, $method(DefaultHighlighter$SafeDamager, init$, void, $DefaultHighlighter*)},
+		{"damageRange", "(Ljavax/swing/text/Position;Ljavax/swing/text/Position;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DefaultHighlighter$SafeDamager, damageRange, void, $Position*, $Position*)},
+		{"run", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DefaultHighlighter$SafeDamager, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultHighlighter$SafeDamager", "javax.swing.text.DefaultHighlighter", "SafeDamager", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.DefaultHighlighter$SafeDamager",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultHighlighter"
+	};
+	$loadClass(DefaultHighlighter$SafeDamager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultHighlighter$SafeDamager);
+	});
 	return class$;
 }
 

@@ -47,6 +47,7 @@ class $export Resolve$MethodResolutionDiagHelper : public ::java::lang::Object {
 	$class(Resolve$MethodResolutionDiagHelper, 0, ::java::lang::Object)
 public:
 	Resolve$MethodResolutionDiagHelper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::com::sun::tools::javac::util::JCDiagnostic* rewrite(::com::sun::tools::javac::util::JCDiagnostic$Factory* diags, ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition* pos, ::com::sun::tools::javac::util::DiagnosticSource* source, ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticType* dkind, ::com::sun::tools::javac::util::JCDiagnostic* d);
 	static ::com::sun::tools::javac::comp::Resolve$MethodResolutionDiagHelper$Template* skip;

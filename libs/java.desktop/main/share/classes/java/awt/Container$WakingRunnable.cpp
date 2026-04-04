@@ -1,5 +1,4 @@
 #include <java/awt/Container$WakingRunnable.h>
-
 #include <java/awt/Container.h>
 #include <jcpp.h>
 
@@ -9,37 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$MethodInfo _Container$WakingRunnable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Container$WakingRunnable, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Container$WakingRunnable, run, void)},
-	{}
-};
-
-$InnerClassInfo _Container$WakingRunnable_InnerClassesInfo_[] = {
-	{"java.awt.Container$WakingRunnable", "java.awt.Container", "WakingRunnable", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Container$WakingRunnable_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.awt.Container$WakingRunnable",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_Container$WakingRunnable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Container$WakingRunnable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Container"
-};
-
-$Object* allocate$Container$WakingRunnable($Class* clazz) {
-	return $of($alloc(Container$WakingRunnable));
-}
 
 void Container$WakingRunnable::init$() {
 }
@@ -51,7 +19,33 @@ Container$WakingRunnable::Container$WakingRunnable() {
 }
 
 $Class* Container$WakingRunnable::load$($String* name, bool initialize) {
-	$loadClass(Container$WakingRunnable, name, initialize, &_Container$WakingRunnable_ClassInfo_, allocate$Container$WakingRunnable);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Container$WakingRunnable, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Container$WakingRunnable, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Container$WakingRunnable", "java.awt.Container", "WakingRunnable", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.awt.Container$WakingRunnable",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Container"
+	};
+	$loadClass(Container$WakingRunnable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Container$WakingRunnable);
+	});
 	return class$;
 }
 

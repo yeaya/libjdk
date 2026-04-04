@@ -1,5 +1,4 @@
 #include <javax/swing/Box$Filler$AccessibleBoxFiller.h>
-
 #include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
 #include <javax/accessibility/AccessibleRole.h>
@@ -8,7 +7,6 @@
 
 #undef FILLER
 
-using $Component = ::java::awt::Component;
 using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -19,44 +17,6 @@ using $Box$Filler = ::javax::swing::Box$Filler;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _Box$Filler$AccessibleBoxFiller_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/Box$Filler;", nullptr, $FINAL | $SYNTHETIC, $field(Box$Filler$AccessibleBoxFiller, this$0)},
-	{}
-};
-
-$MethodInfo _Box$Filler$AccessibleBoxFiller_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/Box$Filler;)V", nullptr, $PROTECTED, $method(Box$Filler$AccessibleBoxFiller, init$, void, $Box$Filler*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(Box$Filler$AccessibleBoxFiller, getAccessibleRole, $AccessibleRole*)},
-	{}
-};
-
-$InnerClassInfo _Box$Filler$AccessibleBoxFiller_InnerClassesInfo_[] = {
-	{"javax.swing.Box$Filler", "javax.swing.Box", "Filler", $PUBLIC | $STATIC},
-	{"javax.swing.Box$Filler$AccessibleBoxFiller", "javax.swing.Box$Filler", "AccessibleBoxFiller", $PROTECTED},
-	{"java.awt.Component$AccessibleAWTComponent", "java.awt.Component", "AccessibleAWTComponent", $PROTECTED | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Box$Filler$AccessibleBoxFiller_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.Box$Filler$AccessibleBoxFiller",
-	"java.awt.Component$AccessibleAWTComponent",
-	nullptr,
-	_Box$Filler$AccessibleBoxFiller_FieldInfo_,
-	_Box$Filler$AccessibleBoxFiller_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Box$Filler$AccessibleBoxFiller_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.Box"
-};
-
-$Object* allocate$Box$Filler$AccessibleBoxFiller($Class* clazz) {
-	return $of($alloc(Box$Filler$AccessibleBoxFiller));
-}
 
 void Box$Filler$AccessibleBoxFiller::init$($Box$Filler* this$0) {
 	$set(this, this$0, this$0);
@@ -72,7 +32,39 @@ Box$Filler$AccessibleBoxFiller::Box$Filler$AccessibleBoxFiller() {
 }
 
 $Class* Box$Filler$AccessibleBoxFiller::load$($String* name, bool initialize) {
-	$loadClass(Box$Filler$AccessibleBoxFiller, name, initialize, &_Box$Filler$AccessibleBoxFiller_ClassInfo_, allocate$Box$Filler$AccessibleBoxFiller);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/Box$Filler;", nullptr, $FINAL | $SYNTHETIC, $field(Box$Filler$AccessibleBoxFiller, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/Box$Filler;)V", nullptr, $PROTECTED, $method(Box$Filler$AccessibleBoxFiller, init$, void, $Box$Filler*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(Box$Filler$AccessibleBoxFiller, getAccessibleRole, $AccessibleRole*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.Box$Filler", "javax.swing.Box", "Filler", $PUBLIC | $STATIC},
+		{"javax.swing.Box$Filler$AccessibleBoxFiller", "javax.swing.Box$Filler", "AccessibleBoxFiller", $PROTECTED},
+		{"java.awt.Component$AccessibleAWTComponent", "java.awt.Component", "AccessibleAWTComponent", $PROTECTED | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.Box$Filler$AccessibleBoxFiller",
+		"java.awt.Component$AccessibleAWTComponent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.Box"
+	};
+	$loadClass(Box$Filler$AccessibleBoxFiller, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Box$Filler$AccessibleBoxFiller));
+	});
 	return class$;
 }
 

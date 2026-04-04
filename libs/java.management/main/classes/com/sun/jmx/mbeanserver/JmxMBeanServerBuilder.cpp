@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/JmxMBeanServerBuilder.h>
-
 #include <com/sun/jmx/mbeanserver/JmxMBeanServer.h>
 #include <javax/management/MBeanServer.h>
 #include <javax/management/MBeanServerBuilder.h>
@@ -18,26 +17,6 @@ namespace com {
 		namespace jmx {
 			namespace mbeanserver {
 
-$MethodInfo _JmxMBeanServerBuilder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JmxMBeanServerBuilder, init$, void)},
-	{"newMBeanServer", "(Ljava/lang/String;Ljavax/management/MBeanServer;Ljavax/management/MBeanServerDelegate;)Ljavax/management/MBeanServer;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServerBuilder, newMBeanServer, $MBeanServer*, $String*, $MBeanServer*, $MBeanServerDelegate*)},
-	{"newMBeanServerDelegate", "()Ljavax/management/MBeanServerDelegate;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServerBuilder, newMBeanServerDelegate, $MBeanServerDelegate*)},
-	{}
-};
-
-$ClassInfo _JmxMBeanServerBuilder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.jmx.mbeanserver.JmxMBeanServerBuilder",
-	"javax.management.MBeanServerBuilder",
-	nullptr,
-	nullptr,
-	_JmxMBeanServerBuilder_MethodInfo_
-};
-
-$Object* allocate$JmxMBeanServerBuilder($Class* clazz) {
-	return $of($alloc(JmxMBeanServerBuilder));
-}
-
 void JmxMBeanServerBuilder::init$() {
 	$MBeanServerBuilder::init$();
 }
@@ -54,7 +33,23 @@ JmxMBeanServerBuilder::JmxMBeanServerBuilder() {
 }
 
 $Class* JmxMBeanServerBuilder::load$($String* name, bool initialize) {
-	$loadClass(JmxMBeanServerBuilder, name, initialize, &_JmxMBeanServerBuilder_ClassInfo_, allocate$JmxMBeanServerBuilder);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JmxMBeanServerBuilder, init$, void)},
+		{"newMBeanServer", "(Ljava/lang/String;Ljavax/management/MBeanServer;Ljavax/management/MBeanServerDelegate;)Ljavax/management/MBeanServer;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServerBuilder, newMBeanServer, $MBeanServer*, $String*, $MBeanServer*, $MBeanServerDelegate*)},
+		{"newMBeanServerDelegate", "()Ljavax/management/MBeanServerDelegate;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServerBuilder, newMBeanServerDelegate, $MBeanServerDelegate*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.jmx.mbeanserver.JmxMBeanServerBuilder",
+		"javax.management.MBeanServerBuilder",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JmxMBeanServerBuilder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JmxMBeanServerBuilder);
+	});
 	return class$;
 }
 

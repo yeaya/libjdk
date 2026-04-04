@@ -38,6 +38,7 @@ class $import Resolve$ReferenceLookupResult$StaticKind : public ::java::lang::En
 public:
 	Resolve$ReferenceLookupResult$StaticKind();
 	static $Array<::com::sun::tools::javac::comp::Resolve$ReferenceLookupResult$StaticKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::comp::Resolve$ReferenceLookupResult$StaticKind* from(::com::sun::tools::javac::code::Symbol* s);
 	static ::com::sun::tools::javac::comp::Resolve$ReferenceLookupResult$StaticKind* reduce(::com::sun::tools::javac::comp::Resolve$ReferenceLookupResult$StaticKind* sk1, ::com::sun::tools::javac::comp::Resolve$ReferenceLookupResult$StaticKind* sk2);

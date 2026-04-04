@@ -120,7 +120,7 @@ public:
 	virtual $ObjectArray* toArray(::java::util::function::IntFunction* arg0) override;
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* oos);
-	static const int64_t serialVersionUID = (int64_t)0x8A1D88F01D200C9A;
+	static const int64_t serialVersionUID = (int64_t)0x8a1d88f01d200c9a;
 	::java::util::HashMap* services = nullptr;
 	int32_t serializable = 0;
 	::java::beans::beancontext::BeanContextServicesSupport$BCSSProxyServiceProvider* proxy = nullptr;

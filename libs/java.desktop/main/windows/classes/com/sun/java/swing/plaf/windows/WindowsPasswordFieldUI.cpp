@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsPasswordFieldUI.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsTextUI$WindowsCaret.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -22,26 +21,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$MethodInfo _WindowsPasswordFieldUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsPasswordFieldUI, init$, void)},
-	{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(WindowsPasswordFieldUI, createCaret, $Caret*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsPasswordFieldUI, createUI, $ComponentUI*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _WindowsPasswordFieldUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsPasswordFieldUI",
-	"javax.swing.plaf.basic.BasicPasswordFieldUI",
-	nullptr,
-	nullptr,
-	_WindowsPasswordFieldUI_MethodInfo_
-};
-
-$Object* allocate$WindowsPasswordFieldUI($Class* clazz) {
-	return $of($alloc(WindowsPasswordFieldUI));
-}
-
 void WindowsPasswordFieldUI::init$() {
 	$BasicPasswordFieldUI::init$();
 }
@@ -59,7 +38,23 @@ WindowsPasswordFieldUI::WindowsPasswordFieldUI() {
 }
 
 $Class* WindowsPasswordFieldUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsPasswordFieldUI, name, initialize, &_WindowsPasswordFieldUI_ClassInfo_, allocate$WindowsPasswordFieldUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsPasswordFieldUI, init$, void)},
+		{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(WindowsPasswordFieldUI, createCaret, $Caret*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsPasswordFieldUI, createUI, $ComponentUI*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsPasswordFieldUI",
+		"javax.swing.plaf.basic.BasicPasswordFieldUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsPasswordFieldUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsPasswordFieldUI));
+	});
 	return class$;
 }
 

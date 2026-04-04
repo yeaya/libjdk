@@ -1,5 +1,4 @@
 #include <sun/management/counter/perf/PerfLongCounter.h>
-
 #include <java/nio/LongBuffer.h>
 #include <sun/management/counter/AbstractCounter.h>
 #include <sun/management/counter/Units.h>
@@ -21,45 +20,6 @@ namespace sun {
 	namespace management {
 		namespace counter {
 			namespace perf {
-
-$FieldInfo _PerfLongCounter_FieldInfo_[] = {
-	{"lb", "Ljava/nio/LongBuffer;", nullptr, 0, $field(PerfLongCounter, lb)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PerfLongCounter, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _PerfLongCounter_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getFlags", "()I", nullptr, $PUBLIC},
-	{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getUnits", "()Lsun/management/counter/Units;", nullptr, $PUBLIC},
-	{"*getVariability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC},
-	{"*getVectorLength", "()I", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;ILjava/nio/LongBuffer;)V", nullptr, 0, $method(PerfLongCounter, init$, void, $String*, $Units*, $Variability*, int32_t, $LongBuffer*)},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PerfLongCounter, getValue, $Object*)},
-	{"*isInternal", "()Z", nullptr, $PUBLIC},
-	{"*isVector", "()Z", nullptr, $PUBLIC},
-	{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(PerfLongCounter, longValue, int64_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(PerfLongCounter, writeReplace, $Object*), "java.io.ObjectStreamException"},
-	{}
-};
-
-$ClassInfo _PerfLongCounter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.management.counter.perf.PerfLongCounter",
-	"sun.management.counter.AbstractCounter",
-	"sun.management.counter.LongCounter",
-	_PerfLongCounter_FieldInfo_,
-	_PerfLongCounter_MethodInfo_
-};
-
-$Object* allocate$PerfLongCounter($Class* clazz) {
-	return $of($alloc(PerfLongCounter));
-}
 
 $String* PerfLongCounter::getName() {
 	 return this->$AbstractCounter::getName();
@@ -123,7 +83,7 @@ int64_t PerfLongCounter::longValue() {
 }
 
 $Object* PerfLongCounter::writeReplace() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, getName());
 	$var($Units, var$1, getUnits());
 	$var($Variability, var$2, getVariability());
@@ -135,7 +95,41 @@ PerfLongCounter::PerfLongCounter() {
 }
 
 $Class* PerfLongCounter::load$($String* name, bool initialize) {
-	$loadClass(PerfLongCounter, name, initialize, &_PerfLongCounter_ClassInfo_, allocate$PerfLongCounter);
+	$FieldInfo fieldInfos$$[] = {
+		{"lb", "Ljava/nio/LongBuffer;", nullptr, 0, $field(PerfLongCounter, lb)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PerfLongCounter, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getFlags", "()I", nullptr, $PUBLIC},
+		{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getUnits", "()Lsun/management/counter/Units;", nullptr, $PUBLIC},
+		{"*getVariability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC},
+		{"*getVectorLength", "()I", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;ILjava/nio/LongBuffer;)V", nullptr, 0, $method(PerfLongCounter, init$, void, $String*, $Units*, $Variability*, int32_t, $LongBuffer*)},
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PerfLongCounter, getValue, $Object*)},
+		{"*isInternal", "()Z", nullptr, $PUBLIC},
+		{"*isVector", "()Z", nullptr, $PUBLIC},
+		{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(PerfLongCounter, longValue, int64_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(PerfLongCounter, writeReplace, $Object*), "java.io.ObjectStreamException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.management.counter.perf.PerfLongCounter",
+		"sun.management.counter.AbstractCounter",
+		"sun.management.counter.LongCounter",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PerfLongCounter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PerfLongCounter));
+	});
 	return class$;
 }
 

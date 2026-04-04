@@ -1,5 +1,4 @@
 #include <sun/swing/FilePane$4.h>
-
 #include <java/io/File.h>
 #include <javax/swing/JFileChooser.h>
 #include <javax/swing/JList.h>
@@ -24,49 +23,6 @@ using $FilePane = ::sun::swing::FilePane;
 namespace sun {
 	namespace swing {
 
-$FieldInfo _FilePane$4_FieldInfo_[] = {
-	{"this$0", "Lsun/swing/FilePane;", nullptr, $FINAL | $SYNTHETIC, $field(FilePane$4, this$0)},
-	{"val$fileChooser", "Ljavax/swing/JFileChooser;", nullptr, $FINAL | $SYNTHETIC, $field(FilePane$4, val$fileChooser)},
-	{}
-};
-
-$MethodInfo _FilePane$4_MethodInfo_[] = {
-	{"<init>", "(Lsun/swing/FilePane;Ljavax/swing/JFileChooser;)V", nullptr, 0, $method(FilePane$4, init$, void, $FilePane*, $JFileChooser*)},
-	{"getNextMatch", "(Ljava/lang/String;ILjavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(FilePane$4, getNextMatch, int32_t, $String*, int32_t, $Position$Bias*)},
-	{}
-};
-
-$EnclosingMethodInfo _FilePane$4_EnclosingMethodInfo_ = {
-	"sun.swing.FilePane",
-	"createList",
-	"()Ljavax/swing/JPanel;"
-};
-
-$InnerClassInfo _FilePane$4_InnerClassesInfo_[] = {
-	{"sun.swing.FilePane$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FilePane$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.swing.FilePane$4",
-	"javax.swing.JList",
-	nullptr,
-	_FilePane$4_FieldInfo_,
-	_FilePane$4_MethodInfo_,
-	"Ljavax/swing/JList<Ljava/lang/Object;>;",
-	&_FilePane$4_EnclosingMethodInfo_,
-	_FilePane$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.FilePane"
-};
-
-$Object* allocate$FilePane$4($Class* clazz) {
-	return $of($alloc(FilePane$4));
-}
-
 void FilePane$4::init$($FilePane* this$0, $JFileChooser* val$fileChooser) {
 	$set(this, this$0, this$0);
 	$set(this, val$fileChooser, val$fileChooser);
@@ -74,7 +30,7 @@ void FilePane$4::init$($FilePane* this$0, $JFileChooser* val$fileChooser) {
 }
 
 int32_t FilePane$4::getNextMatch($String* prefix, int32_t startIndex, $Position$Bias* bias) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListModel, model, getModel());
 	int32_t max = $nc(model)->getSize();
 	if (prefix == nullptr || startIndex < 0 || startIndex >= max) {
@@ -83,7 +39,7 @@ int32_t FilePane$4::getNextMatch($String* prefix, int32_t startIndex, $Position$
 	$init($Position$Bias);
 	bool backwards = (bias == $Position$Bias::Backward);
 	for (int32_t i = startIndex; backwards ? i >= 0 : i < max; i += (backwards ? -1 : 1)) {
-		$var($String, filename, $nc(this->val$fileChooser)->getName($cast($File, $(model->getElementAt(i)))));
+		$var($String, filename, $nc(this->val$fileChooser)->getName($$cast($File, model->getElementAt(i))));
 		if ($nc(filename)->regionMatches(true, 0, prefix, 0, $nc(prefix)->length())) {
 			return i;
 		}
@@ -95,7 +51,43 @@ FilePane$4::FilePane$4() {
 }
 
 $Class* FilePane$4::load$($String* name, bool initialize) {
-	$loadClass(FilePane$4, name, initialize, &_FilePane$4_ClassInfo_, allocate$FilePane$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/swing/FilePane;", nullptr, $FINAL | $SYNTHETIC, $field(FilePane$4, this$0)},
+		{"val$fileChooser", "Ljavax/swing/JFileChooser;", nullptr, $FINAL | $SYNTHETIC, $field(FilePane$4, val$fileChooser)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/swing/FilePane;Ljavax/swing/JFileChooser;)V", nullptr, 0, $method(FilePane$4, init$, void, $FilePane*, $JFileChooser*)},
+		{"getNextMatch", "(Ljava/lang/String;ILjavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(FilePane$4, getNextMatch, int32_t, $String*, int32_t, $Position$Bias*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.swing.FilePane",
+		"createList",
+		"()Ljavax/swing/JPanel;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.FilePane$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.swing.FilePane$4",
+		"javax.swing.JList",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljavax/swing/JList<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.FilePane"
+	};
+	$loadClass(FilePane$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FilePane$4));
+	});
 	return class$;
 }
 

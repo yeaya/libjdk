@@ -27,6 +27,7 @@ class XbmImageDecoder : public ::sun::awt::image::ImageDecoder {
 	$class(XbmImageDecoder, 0, ::sun::awt::image::ImageDecoder)
 public:
 	XbmImageDecoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::image::InputStreamImageSource* src, ::java::io::InputStream* is);
 	static void error($String* s1);
 	virtual void produceImage() override;

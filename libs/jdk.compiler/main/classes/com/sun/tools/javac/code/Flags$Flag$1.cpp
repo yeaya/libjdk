@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Flags$Flag$1.h>
-
 #include <com/sun/tools/javac/code/Flags$Flag.h>
 #include <jcpp.h>
 
@@ -15,44 +14,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$MethodInfo _Flags$Flag$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;IJ)V", nullptr, $PRIVATE, $method(Flags$Flag$1, init$, void, $String*, int32_t, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Flags$Flag$1, toString, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _Flags$Flag$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Flags$Flag",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Flags$Flag$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Flags$Flag", "com.sun.tools.javac.code.Flags", "Flag", $PUBLIC | $STATIC | $ENUM},
-	{"com.sun.tools.javac.code.Flags$Flag$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Flags$Flag$1_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.code.Flags$Flag$1",
-	"com.sun.tools.javac.code.Flags$Flag",
-	nullptr,
-	nullptr,
-	_Flags$Flag$1_MethodInfo_,
-	nullptr,
-	&_Flags$Flag$1_EnclosingMethodInfo_,
-	_Flags$Flag$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Flags"
-};
-
-$Object* allocate$Flags$Flag$1($Class* clazz) {
-	return $of($alloc(Flags$Flag$1));
-}
-
 void Flags$Flag$1::init$($String* $enum$name, int32_t $enum$ordinal, int64_t flag) {
 	$Flags$Flag::init$($enum$name, $enum$ordinal, flag);
 }
@@ -65,7 +26,39 @@ Flags$Flag$1::Flags$Flag$1() {
 }
 
 $Class* Flags$Flag$1::load$($String* name, bool initialize) {
-	$loadClass(Flags$Flag$1, name, initialize, &_Flags$Flag$1_ClassInfo_, allocate$Flags$Flag$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;IJ)V", nullptr, $PRIVATE, $method(Flags$Flag$1, init$, void, $String*, int32_t, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Flags$Flag$1, toString, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Flags$Flag",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Flags$Flag", "com.sun.tools.javac.code.Flags", "Flag", $PUBLIC | $STATIC | $ENUM},
+		{"com.sun.tools.javac.code.Flags$Flag$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.code.Flags$Flag$1",
+		"com.sun.tools.javac.code.Flags$Flag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Flags"
+	};
+	$loadClass(Flags$Flag$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Flags$Flag$1));
+	});
 	return class$;
 }
 

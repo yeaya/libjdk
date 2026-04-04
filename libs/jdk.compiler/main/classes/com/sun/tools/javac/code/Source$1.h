@@ -15,6 +15,7 @@ class Source$1 : public ::java::lang::Object {
 	$class(Source$1, 0, ::java::lang::Object)
 public:
 	Source$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$code$Source;
 };
 

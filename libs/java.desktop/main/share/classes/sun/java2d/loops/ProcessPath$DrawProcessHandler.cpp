@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/ProcessPath$DrawProcessHandler.h>
-
 #include <sun/java2d/loops/ProcessPath$DrawHandler.h>
 #include <sun/java2d/loops/ProcessPath$EndSubPathHandler.h>
 #include <sun/java2d/loops/ProcessPath$ProcessHandler.h>
@@ -23,46 +22,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _ProcessPath$DrawProcessHandler_FieldInfo_[] = {
-	{"processESP", "Lsun/java2d/loops/ProcessPath$EndSubPathHandler;", nullptr, 0, $field(ProcessPath$DrawProcessHandler, processESP)},
-	{}
-};
-
-$MethodInfo _ProcessPath$DrawProcessHandler_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/ProcessPath$DrawHandler;Lsun/java2d/loops/ProcessPath$EndSubPathHandler;)V", nullptr, $PUBLIC, $method(ProcessPath$DrawProcessHandler, init$, void, $ProcessPath$DrawHandler*, $ProcessPath$EndSubPathHandler*)},
-	{"PROCESS_LINE", "(IIIIZ[I)V", nullptr, 0, $virtualMethod(ProcessPath$DrawProcessHandler, PROCESS_LINE, void, int32_t, int32_t, int32_t, int32_t, bool, $ints*)},
-	{"PROCESS_POINT", "(IIZ[I)V", nullptr, 0, $virtualMethod(ProcessPath$DrawProcessHandler, PROCESS_POINT, void, int32_t, int32_t, bool, $ints*)},
-	{"processEndSubPath", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessPath$DrawProcessHandler, processEndSubPath, void)},
-	{"processFixedLine", "(IIII[IZZ)V", nullptr, $PUBLIC, $virtualMethod(ProcessPath$DrawProcessHandler, processFixedLine, void, int32_t, int32_t, int32_t, int32_t, $ints*, bool, bool)},
-	{}
-};
-
-$InnerClassInfo _ProcessPath$DrawProcessHandler_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.ProcessPath$DrawProcessHandler", "sun.java2d.loops.ProcessPath", "DrawProcessHandler", $PRIVATE | $STATIC},
-	{"sun.java2d.loops.ProcessPath$ProcessHandler", "sun.java2d.loops.ProcessPath", "ProcessHandler", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ProcessPath$DrawProcessHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.ProcessPath$DrawProcessHandler",
-	"sun.java2d.loops.ProcessPath$ProcessHandler",
-	nullptr,
-	_ProcessPath$DrawProcessHandler_FieldInfo_,
-	_ProcessPath$DrawProcessHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ProcessPath$DrawProcessHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.ProcessPath"
-};
-
-$Object* allocate$ProcessPath$DrawProcessHandler($Class* clazz) {
-	return $of($alloc(ProcessPath$DrawProcessHandler));
-}
-
 void ProcessPath$DrawProcessHandler::init$($ProcessPath$DrawHandler* dhnd, $ProcessPath$EndSubPathHandler* processESP) {
 	$ProcessPath$ProcessHandler::init$(dhnd, 0);
 	$set(this, dhnd, dhnd);
@@ -79,7 +38,7 @@ void ProcessPath$DrawProcessHandler::PROCESS_LINE(int32_t fX0, int32_t fY0, int3
 	int32_t X1 = fX1 >> 10;
 	int32_t Y1 = fY1 >> 10;
 	if (((X0 ^ X1) | (Y0 ^ Y1)) == 0) {
-		if (checkBounds && ($nc(this->dhnd)->yMin > Y0 || $nc(this->dhnd)->yMax <= Y0 || $nc(this->dhnd)->xMin > X0 || $nc(this->dhnd)->xMax <= X0)) {
+		if (checkBounds && ($nc(this->dhnd)->yMin > Y0 || this->dhnd->yMax <= Y0 || this->dhnd->xMin > X0 || this->dhnd->xMax <= X0)) {
 			return;
 		}
 		if ($nc(pixelInfo)->get(0) == 0) {
@@ -96,8 +55,8 @@ void ProcessPath$DrawProcessHandler::PROCESS_LINE(int32_t fX0, int32_t fY0, int3
 		}
 		return;
 	}
-	if (!checkBounds || ($nc(this->dhnd)->yMin <= Y0 && $nc(this->dhnd)->yMax > Y0 && $nc(this->dhnd)->xMin <= X0 && $nc(this->dhnd)->xMax > X0)) {
-		if ($nc(pixelInfo)->get(0) == 1 && ((pixelInfo->get(1) == X0 && pixelInfo->get(2) == Y0) || ($nc(pixelInfo)->get(3) == X0 && pixelInfo->get(4) == Y0))) {
+	if (!checkBounds || ($nc(this->dhnd)->yMin <= Y0 && this->dhnd->yMax > Y0 && this->dhnd->xMin <= X0 && this->dhnd->xMax > X0)) {
+		if ($nc(pixelInfo)->get(0) == 1 && ((pixelInfo->get(1) == X0 && pixelInfo->get(2) == Y0) || (pixelInfo->get(3) == X0 && pixelInfo->get(4) == Y0))) {
 			$nc(this->dhnd)->drawPixel(X0, Y0);
 		}
 	}
@@ -109,20 +68,20 @@ void ProcessPath$DrawProcessHandler::PROCESS_LINE(int32_t fX0, int32_t fY0, int3
 		pixelInfo->set(3, X0);
 		pixelInfo->set(4, Y0);
 	}
-	if (($nc(pixelInfo)->get(1) == X1 && pixelInfo->get(2) == Y1) || ($nc(pixelInfo)->get(3) == X1 && pixelInfo->get(4) == Y1)) {
-		if (checkBounds && ($nc(this->dhnd)->yMin > Y1 || $nc(this->dhnd)->yMax <= Y1 || $nc(this->dhnd)->xMin > X1 || $nc(this->dhnd)->xMax <= X1)) {
+	if ((pixelInfo->get(1) == X1 && pixelInfo->get(2) == Y1) || (pixelInfo->get(3) == X1 && pixelInfo->get(4) == Y1)) {
+		if (checkBounds && ($nc(this->dhnd)->yMin > Y1 || this->dhnd->yMax <= Y1 || this->dhnd->xMin > X1 || this->dhnd->xMax <= X1)) {
 			return;
 		}
 		$nc(this->dhnd)->drawPixel(X1, Y1);
 	}
-	$nc(pixelInfo)->set(3, X1);
+	pixelInfo->set(3, X1);
 	pixelInfo->set(4, Y1);
 }
 
 void ProcessPath$DrawProcessHandler::PROCESS_POINT(int32_t fX, int32_t fY, bool checkBounds, $ints* pixelInfo) {
 	int32_t _X = fX >> 10;
 	int32_t _Y = fY >> 10;
-	if (checkBounds && ($nc(this->dhnd)->yMin > _Y || $nc(this->dhnd)->yMax <= _Y || $nc(this->dhnd)->xMin > _X || $nc(this->dhnd)->xMax <= _X)) {
+	if (checkBounds && ($nc(this->dhnd)->yMin > _Y || this->dhnd->yMax <= _Y || this->dhnd->xMin > _X || this->dhnd->xMax <= _X)) {
 		return;
 	}
 	if ($nc(pixelInfo)->get(0) == 0) {
@@ -145,7 +104,7 @@ void ProcessPath$DrawProcessHandler::processFixedLine(int32_t x1, int32_t y1, in
 	int32_t ry1 = 0;
 	int32_t rx2 = 0;
 	int32_t ry2 = 0;
-	if (((int32_t)(c & (uint32_t)-1024)) == 0) {
+	if ((c & -1024) == 0) {
 		if (c == 0) {
 			PROCESS_POINT(x1 + 512, y1 + 512, checkBounds, pixelInfo);
 		}
@@ -159,10 +118,10 @@ void ProcessPath$DrawProcessHandler::processFixedLine(int32_t x1, int32_t y1, in
 	} else {
 		int32_t dx = x2 - x1;
 		int32_t dy = y2 - y1;
-		int32_t fx1 = (int32_t)(x1 & (uint32_t)-1024);
-		int32_t fy1 = (int32_t)(y1 & (uint32_t)-1024);
-		int32_t fx2 = (int32_t)(x2 & (uint32_t)-1024);
-		int32_t fy2 = (int32_t)(y2 & (uint32_t)-1024);
+		int32_t fx1 = x1 & -1024;
+		int32_t fy1 = y1 & -1024;
+		int32_t fx2 = x2 & -1024;
+		int32_t fy2 = y2 & -1024;
 		if (fx1 == x1 || fy1 == y1) {
 			rx1 = x1 + 512;
 			ry1 = y1 + 512;
@@ -203,7 +162,41 @@ ProcessPath$DrawProcessHandler::ProcessPath$DrawProcessHandler() {
 }
 
 $Class* ProcessPath$DrawProcessHandler::load$($String* name, bool initialize) {
-	$loadClass(ProcessPath$DrawProcessHandler, name, initialize, &_ProcessPath$DrawProcessHandler_ClassInfo_, allocate$ProcessPath$DrawProcessHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"processESP", "Lsun/java2d/loops/ProcessPath$EndSubPathHandler;", nullptr, 0, $field(ProcessPath$DrawProcessHandler, processESP)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/ProcessPath$DrawHandler;Lsun/java2d/loops/ProcessPath$EndSubPathHandler;)V", nullptr, $PUBLIC, $method(ProcessPath$DrawProcessHandler, init$, void, $ProcessPath$DrawHandler*, $ProcessPath$EndSubPathHandler*)},
+		{"PROCESS_LINE", "(IIIIZ[I)V", nullptr, 0, $virtualMethod(ProcessPath$DrawProcessHandler, PROCESS_LINE, void, int32_t, int32_t, int32_t, int32_t, bool, $ints*)},
+		{"PROCESS_POINT", "(IIZ[I)V", nullptr, 0, $virtualMethod(ProcessPath$DrawProcessHandler, PROCESS_POINT, void, int32_t, int32_t, bool, $ints*)},
+		{"processEndSubPath", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessPath$DrawProcessHandler, processEndSubPath, void)},
+		{"processFixedLine", "(IIII[IZZ)V", nullptr, $PUBLIC, $virtualMethod(ProcessPath$DrawProcessHandler, processFixedLine, void, int32_t, int32_t, int32_t, int32_t, $ints*, bool, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.ProcessPath$DrawProcessHandler", "sun.java2d.loops.ProcessPath", "DrawProcessHandler", $PRIVATE | $STATIC},
+		{"sun.java2d.loops.ProcessPath$ProcessHandler", "sun.java2d.loops.ProcessPath", "ProcessHandler", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.ProcessPath$DrawProcessHandler",
+		"sun.java2d.loops.ProcessPath$ProcessHandler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.ProcessPath"
+	};
+	$loadClass(ProcessPath$DrawProcessHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProcessPath$DrawProcessHandler);
+	});
 	return class$;
 }
 

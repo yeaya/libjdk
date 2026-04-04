@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicComboPopup$InvocationKeyHandler.h>
-
 #include <java/awt/event/KeyAdapter.h>
 #include <java/awt/event/KeyEvent.h>
 #include <javax/swing/plaf/basic/BasicComboPopup.h>
@@ -18,42 +17,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicComboPopup$InvocationKeyHandler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicComboPopup;", nullptr, $FINAL | $SYNTHETIC, $field(BasicComboPopup$InvocationKeyHandler, this$0)},
-	{}
-};
-
-$MethodInfo _BasicComboPopup$InvocationKeyHandler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicComboPopup;)V", nullptr, $PUBLIC, $method(BasicComboPopup$InvocationKeyHandler, init$, void, $BasicComboPopup*)},
-	{"keyReleased", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$InvocationKeyHandler, keyReleased, void, $KeyEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicComboPopup$InvocationKeyHandler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicComboPopup$InvocationKeyHandler", "javax.swing.plaf.basic.BasicComboPopup", "InvocationKeyHandler", $PUBLIC},
-	{}
-};
-
-$ClassInfo _BasicComboPopup$InvocationKeyHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicComboPopup$InvocationKeyHandler",
-	"java.awt.event.KeyAdapter",
-	nullptr,
-	_BasicComboPopup$InvocationKeyHandler_FieldInfo_,
-	_BasicComboPopup$InvocationKeyHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicComboPopup$InvocationKeyHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicComboPopup"
-};
-
-$Object* allocate$BasicComboPopup$InvocationKeyHandler($Class* clazz) {
-	return $of($alloc(BasicComboPopup$InvocationKeyHandler));
-}
-
 void BasicComboPopup$InvocationKeyHandler::init$($BasicComboPopup* this$0) {
 	$set(this, this$0, this$0);
 	$KeyAdapter::init$();
@@ -66,7 +29,37 @@ BasicComboPopup$InvocationKeyHandler::BasicComboPopup$InvocationKeyHandler() {
 }
 
 $Class* BasicComboPopup$InvocationKeyHandler::load$($String* name, bool initialize) {
-	$loadClass(BasicComboPopup$InvocationKeyHandler, name, initialize, &_BasicComboPopup$InvocationKeyHandler_ClassInfo_, allocate$BasicComboPopup$InvocationKeyHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicComboPopup;", nullptr, $FINAL | $SYNTHETIC, $field(BasicComboPopup$InvocationKeyHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicComboPopup;)V", nullptr, $PUBLIC, $method(BasicComboPopup$InvocationKeyHandler, init$, void, $BasicComboPopup*)},
+		{"keyReleased", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$InvocationKeyHandler, keyReleased, void, $KeyEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicComboPopup$InvocationKeyHandler", "javax.swing.plaf.basic.BasicComboPopup", "InvocationKeyHandler", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicComboPopup$InvocationKeyHandler",
+		"java.awt.event.KeyAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicComboPopup"
+	};
+	$loadClass(BasicComboPopup$InvocationKeyHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicComboPopup$InvocationKeyHandler);
+	});
 	return class$;
 }
 

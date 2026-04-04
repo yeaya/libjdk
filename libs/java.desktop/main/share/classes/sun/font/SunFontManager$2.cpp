@@ -1,12 +1,9 @@
 #include <sun/font/SunFontManager$2.h>
-
 #include <java/io/BufferedReader.h>
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/IOException.h>
-#include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/Reader.h>
 #include <java/util/ArrayList.h>
 #include <java/util/concurrent/ConcurrentHashMap.h>
 #include <sun/awt/FontConfiguration.h>
@@ -21,9 +18,7 @@ using $BufferedReader = ::java::io::BufferedReader;
 using $File = ::java::io::File;
 using $FileInputStream = ::java::io::FileInputStream;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
-using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -31,7 +26,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
-using $FontConfiguration = ::sun::awt::FontConfiguration;
 using $Font2D = ::sun::font::Font2D;
 using $FontUtilities = ::sun::font::FontUtilities;
 using $SunFontManager = ::sun::font::SunFontManager;
@@ -39,54 +33,12 @@ using $SunFontManager = ::sun::font::SunFontManager;
 namespace sun {
 	namespace font {
 
-$FieldInfo _SunFontManager$2_FieldInfo_[] = {
-	{"this$0", "Lsun/font/SunFontManager;", nullptr, $FINAL | $SYNTHETIC, $field(SunFontManager$2, this$0)},
-	{}
-};
-
-$MethodInfo _SunFontManager$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/font/SunFontManager;)V", nullptr, 0, $method(SunFontManager$2, init$, void, $SunFontManager*)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(SunFontManager$2, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _SunFontManager$2_EnclosingMethodInfo_ = {
-	"sun.font.SunFontManager",
-	"<init>",
-	"()V"
-};
-
-$InnerClassInfo _SunFontManager$2_InnerClassesInfo_[] = {
-	{"sun.font.SunFontManager$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SunFontManager$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.font.SunFontManager$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_SunFontManager$2_FieldInfo_,
-	_SunFontManager$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
-	&_SunFontManager$2_EnclosingMethodInfo_,
-	_SunFontManager$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.font.SunFontManager"
-};
-
-$Object* allocate$SunFontManager$2($Class* clazz) {
-	return $of($alloc(SunFontManager$2));
-}
-
 void SunFontManager$2::init$($SunFontManager* this$0) {
 	$set(this, this$0, this$0);
 }
 
 $Object* SunFontManager$2::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($SunFontManager);
 	$init($File);
 	$var($File, badFontFile, $new($File, $$str({$SunFontManager::jreFontDirName, $File::separator, "badfonts.txt"_s})));
@@ -94,59 +46,55 @@ $Object* SunFontManager$2::run() {
 		$set(this->this$0, badFonts, $new($ArrayList));
 		try {
 			$var($FileInputStream, fis, $new($FileInputStream, badFontFile));
-			{
-				$var($Throwable, var$0, nullptr);
+			$var($Throwable, var$0, nullptr);
+			try {
 				try {
+					$var($BufferedReader, br, $new($BufferedReader, $$new($InputStreamReader, fis)));
+					$var($Throwable, var$1, nullptr);
 					try {
-						$var($BufferedReader, br, $new($BufferedReader, $$new($InputStreamReader, fis)));
-						{
-							$var($Throwable, var$1, nullptr);
-							try {
-								try {
-									while (true) {
-										$var($String, name, br->readLine());
-										if (name == nullptr) {
-											break;
-										} else {
-											if ($FontUtilities::debugFonts()) {
-												$FontUtilities::logWarning($$str({"read bad font: "_s, name}));
-											}
-											$nc(this->this$0->badFonts)->add(name);
-										}
-									}
-								} catch ($Throwable& t$) {
-									try {
-										br->close();
-									} catch ($Throwable& x2) {
-										t$->addSuppressed(x2);
-									}
-									$throw(t$);
-								}
-							} catch ($Throwable& var$2) {
-								$assign(var$1, var$2);
-							} /*finally*/ {
-								br->close();
-							}
-							if (var$1 != nullptr) {
-								$throw(var$1);
-							}
-						}
-					} catch ($Throwable& t$) {
 						try {
-							fis->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
+							while (true) {
+								$var($String, name, br->readLine());
+								if (name == nullptr) {
+									break;
+								} else {
+									if ($FontUtilities::debugFonts()) {
+										$FontUtilities::logWarning($$str({"read bad font: "_s, name}));
+									}
+									$nc(this->this$0->badFonts)->add(name);
+								}
+							}
+						} catch ($Throwable& t$) {
+							try {
+								br->close();
+							} catch ($Throwable& x2) {
+								t$->addSuppressed(x2);
+							}
+							$throw(t$);
 						}
-						$throw(t$);
+					} catch ($Throwable& var$2) {
+						$assign(var$1, var$2);
+					} /*finally*/ {
+						br->close();
 					}
-				} catch ($Throwable& var$3) {
-					$assign(var$0, var$3);
-				} /*finally*/ {
-					fis->close();
+					if (var$1 != nullptr) {
+						$throw(var$1);
+					}
+				} catch ($Throwable& t$) {
+					try {
+						fis->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
+					$throw(t$);
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
+			} /*finally*/ {
+				fis->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		} catch ($IOException& e) {
 		}
@@ -198,14 +146,49 @@ $Object* SunFontManager$2::run() {
 		this->this$0->registerFontDirs(extraFontPath);
 	}
 	this->this$0->initCompositeFonts(this->this$0->fontConfig, nullptr);
-	return $of(nullptr);
+	return nullptr;
 }
 
 SunFontManager$2::SunFontManager$2() {
 }
 
 $Class* SunFontManager$2::load$($String* name, bool initialize) {
-	$loadClass(SunFontManager$2, name, initialize, &_SunFontManager$2_ClassInfo_, allocate$SunFontManager$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/font/SunFontManager;", nullptr, $FINAL | $SYNTHETIC, $field(SunFontManager$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/font/SunFontManager;)V", nullptr, 0, $method(SunFontManager$2, init$, void, $SunFontManager*)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(SunFontManager$2, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.font.SunFontManager",
+		"<init>",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.SunFontManager$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.font.SunFontManager$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.font.SunFontManager"
+	};
+	$loadClass(SunFontManager$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SunFontManager$2);
+	});
 	return class$;
 }
 

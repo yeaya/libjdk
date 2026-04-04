@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMNodeProxy.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMDOMException.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMChildIterNodeList.h>
@@ -50,7 +49,6 @@ using $DTMDOMException = ::com::sun::org::apache::xml::internal::dtm::DTMDOMExce
 using $DTMChildIterNodeList = ::com::sun::org::apache::xml::internal::dtm::ref::DTMChildIterNodeList;
 using $DTMNamedNodeMap = ::com::sun::org::apache::xml::internal::dtm::ref::DTMNamedNodeMap;
 using $DTMNodeProxy$DTMNodeProxyImplementation = ::com::sun::org::apache::xml::internal::dtm::ref::DTMNodeProxy$DTMNodeProxyImplementation;
-using $XMLString = ::com::sun::org::apache::xml::internal::utils::XMLString;
 using $NodeSet = ::com::sun::org::apache::xpath::internal::NodeSet;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -87,176 +85,6 @@ namespace com {
 					namespace internal {
 						namespace dtm {
 							namespace ref {
-
-$FieldInfo _DTMNodeProxy_FieldInfo_[] = {
-	{"dtm", "Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $field(DTMNodeProxy, dtm)},
-	{"node", "I", nullptr, 0, $field(DTMNodeProxy, node)},
-	{"EMPTYSTRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DTMNodeProxy, EMPTYSTRING)},
-	{"implementation", "Lorg/w3c/dom/DOMImplementation;", nullptr, $STATIC | $FINAL, $staticField(DTMNodeProxy, implementation)},
-	{"fDocumentURI", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DTMNodeProxy, fDocumentURI)},
-	{"actualEncoding", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DTMNodeProxy, actualEncoding)},
-	{"xmlEncoding", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DTMNodeProxy, xmlEncoding)},
-	{"xmlStandalone", "Z", nullptr, $PRIVATE, $field(DTMNodeProxy, xmlStandalone)},
-	{"xmlVersion", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DTMNodeProxy, xmlVersion)},
-	{}
-};
-
-$MethodInfo _DTMNodeProxy_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTM;I)V", nullptr, $PUBLIC, $method(DTMNodeProxy, init$, void, $DTM*, int32_t)},
-	{"adoptNode", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, adoptNode, $Node*, $Node*), "org.w3c.dom.DOMException"},
-	{"appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, appendChild, $Node*, $Node*), "org.w3c.dom.DOMException"},
-	{"appendData", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, appendData, void, $String*), "org.w3c.dom.DOMException"},
-	{"cloneNode", "(Z)Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, cloneNode, $Node*, bool)},
-	{"compareDocumentPosition", "(Lorg/w3c/dom/Node;)S", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, compareDocumentPosition, int16_t, $Node*), "org.w3c.dom.DOMException"},
-	{"createAttribute", "(Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, createAttribute, $Attr*, $String*), "org.w3c.dom.DOMException"},
-	{"createAttributeNS", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, createAttributeNS, $Attr*, $String*, $String*), "org.w3c.dom.DOMException"},
-	{"createCDATASection", "(Ljava/lang/String;)Lorg/w3c/dom/CDATASection;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, createCDATASection, $CDATASection*, $String*), "org.w3c.dom.DOMException"},
-	{"createComment", "(Ljava/lang/String;)Lorg/w3c/dom/Comment;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, createComment, $Comment*, $String*)},
-	{"createDocumentFragment", "()Lorg/w3c/dom/DocumentFragment;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, createDocumentFragment, $DocumentFragment*)},
-	{"createElement", "(Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, createElement, $Element*, $String*), "org.w3c.dom.DOMException"},
-	{"createElementNS", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, createElementNS, $Element*, $String*, $String*), "org.w3c.dom.DOMException"},
-	{"createEntityReference", "(Ljava/lang/String;)Lorg/w3c/dom/EntityReference;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, createEntityReference, $EntityReference*, $String*), "org.w3c.dom.DOMException"},
-	{"createProcessingInstruction", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/ProcessingInstruction;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, createProcessingInstruction, $ProcessingInstruction*, $String*, $String*), "org.w3c.dom.DOMException"},
-	{"createTextNode", "(Ljava/lang/String;)Lorg/w3c/dom/Text;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, createTextNode, $Text*, $String*)},
-	{"deleteData", "(II)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, deleteData, void, int32_t, int32_t), "org.w3c.dom.DOMException"},
-	{"equals", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC | $FINAL, $method(DTMNodeProxy, equals, bool, $Node*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, equals, bool, Object$*)},
-	{"getActualEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getActualEncoding, $String*)},
-	{"getAttribute", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getAttribute, $String*, $String*)},
-	{"getAttributeNS", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getAttributeNS, $String*, $String*, $String*)},
-	{"getAttributeNode", "(Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getAttributeNode, $Attr*, $String*)},
-	{"getAttributeNodeNS", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getAttributeNodeNS, $Attr*, $String*, $String*)},
-	{"getAttributes", "()Lorg/w3c/dom/NamedNodeMap;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getAttributes, $NamedNodeMap*)},
-	{"getBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getBaseURI, $String*)},
-	{"getChildNodes", "()Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getChildNodes, $NodeList*)},
-	{"getDTM", "()Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC | $FINAL, $method(DTMNodeProxy, getDTM, $DTM*)},
-	{"getDTMNodeNumber", "()I", nullptr, $PUBLIC | $FINAL, $method(DTMNodeProxy, getDTMNodeNumber, int32_t)},
-	{"getData", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getData, $String*), "org.w3c.dom.DOMException"},
-	{"getDoctype", "()Lorg/w3c/dom/DocumentType;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getDoctype, $DocumentType*)},
-	{"getDocumentElement", "()Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getDocumentElement, $Element*)},
-	{"getDocumentURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getDocumentURI, $String*)},
-	{"getDomConfig", "()Lorg/w3c/dom/DOMConfiguration;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getDomConfig, $DOMConfiguration*)},
-	{"getElementById", "(Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getElementById, $Element*, $String*)},
-	{"getElementsByTagName", "(Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getElementsByTagName, $NodeList*, $String*)},
-	{"getElementsByTagNameNS", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getElementsByTagNameNS, $NodeList*, $String*, $String*)},
-	{"getFeature", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getFeature, $Object*, $String*, $String*)},
-	{"getFirstChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getFirstChild, $Node*)},
-	{"getImplementation", "()Lorg/w3c/dom/DOMImplementation;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getImplementation, $DOMImplementation*)},
-	{"getInputEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getInputEncoding, $String*)},
-	{"getLastChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getLastChild, $Node*)},
-	{"getLength", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getLength, int32_t)},
-	{"getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getLocalName, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getName, $String*)},
-	{"getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getNamespaceURI, $String*)},
-	{"getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getNextSibling, $Node*)},
-	{"getNodeName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getNodeName, $String*)},
-	{"getNodeType", "()S", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getNodeType, int16_t)},
-	{"getNodeValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getNodeValue, $String*), "org.w3c.dom.DOMException"},
-	{"getOwnerDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getOwnerDocument, $Document*)},
-	{"getOwnerElement", "()Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getOwnerElement, $Element*)},
-	{"getOwnerNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $method(DTMNodeProxy, getOwnerNode, $Node*)},
-	{"getParentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getParentNode, $Node*)},
-	{"getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getPrefix, $String*)},
-	{"getPreviousSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getPreviousSibling, $Node*)},
-	{"getSchemaTypeInfo", "()Lorg/w3c/dom/TypeInfo;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getSchemaTypeInfo, $TypeInfo*)},
-	{"getSpecified", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getSpecified, bool)},
-	{"getStandalone", "()Z", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getStandalone, bool)},
-	{"getStrictErrorChecking", "()Z", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getStrictErrorChecking, bool)},
-	{"getStringValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(DTMNodeProxy, getStringValue, $String*), "org.w3c.dom.DOMException"},
-	{"getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getTagName, $String*)},
-	{"getTarget", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getTarget, $String*)},
-	{"getTextContent", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getTextContent, $String*), "org.w3c.dom.DOMException"},
-	{"getUserData", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getUserData, $Object*, $String*)},
-	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getValue, $String*)},
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getVersion, $String*)},
-	{"getWholeText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getWholeText, $String*)},
-	{"getXmlEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getXmlEncoding, $String*)},
-	{"getXmlStandalone", "()Z", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getXmlStandalone, bool)},
-	{"getXmlVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getXmlVersion, $String*)},
-	{"hasAttribute", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, hasAttribute, bool, $String*)},
-	{"hasAttributeNS", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, hasAttributeNS, bool, $String*, $String*)},
-	{"hasAttributes", "()Z", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, hasAttributes, bool)},
-	{"hasChildNodes", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, hasChildNodes, bool)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, hashCode, int32_t)},
-	{"importNode", "(Lorg/w3c/dom/Node;Z)Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, importNode, $Node*, $Node*, bool), "org.w3c.dom.DOMException"},
-	{"insertBefore", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, insertBefore, $Node*, $Node*, $Node*), "org.w3c.dom.DOMException"},
-	{"insertData", "(ILjava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, insertData, void, int32_t, $String*), "org.w3c.dom.DOMException"},
-	{"isDefaultNamespace", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, isDefaultNamespace, bool, $String*)},
-	{"isElementContentWhitespace", "()Z", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, isElementContentWhitespace, bool)},
-	{"isEqualNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, isEqualNode, bool, $Node*)},
-	{"isId", "()Z", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, isId, bool)},
-	{"isSameNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, isSameNode, bool, $Node*)},
-	{"isSupported", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, isSupported, bool, $String*, $String*)},
-	{"lookupNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, lookupNamespaceURI, $String*, $String*)},
-	{"lookupPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, lookupPrefix, $String*, $String*)},
-	{"normalize", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, normalize, void)},
-	{"normalizeDocument", "()V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, normalizeDocument, void)},
-	{"removeAttribute", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, removeAttribute, void, $String*), "org.w3c.dom.DOMException"},
-	{"removeAttributeNS", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, removeAttributeNS, void, $String*, $String*), "org.w3c.dom.DOMException"},
-	{"removeAttributeNode", "(Lorg/w3c/dom/Attr;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, removeAttributeNode, $Attr*, $Attr*), "org.w3c.dom.DOMException"},
-	{"removeChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, removeChild, $Node*, $Node*), "org.w3c.dom.DOMException"},
-	{"renameNode", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, renameNode, $Node*, $Node*, $String*, $String*), "org.w3c.dom.DOMException"},
-	{"replaceChild", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, replaceChild, $Node*, $Node*, $Node*), "org.w3c.dom.DOMException"},
-	{"replaceData", "(IILjava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, replaceData, void, int32_t, int32_t, $String*), "org.w3c.dom.DOMException"},
-	{"replaceWholeText", "(Ljava/lang/String;)Lorg/w3c/dom/Text;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, replaceWholeText, $Text*, $String*), "org.w3c.dom.DOMException"},
-	{"sameNodeAs", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC | $FINAL, $method(DTMNodeProxy, sameNodeAs, bool, $Node*)},
-	{"setActualEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setActualEncoding, void, $String*)},
-	{"setAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, setAttribute, void, $String*, $String*), "org.w3c.dom.DOMException"},
-	{"setAttributeNS", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, setAttributeNS, void, $String*, $String*, $String*), "org.w3c.dom.DOMException"},
-	{"setAttributeNode", "(Lorg/w3c/dom/Attr;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, setAttributeNode, $Attr*, $Attr*), "org.w3c.dom.DOMException"},
-	{"setAttributeNodeNS", "(Lorg/w3c/dom/Attr;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, setAttributeNodeNS, $Attr*, $Attr*), "org.w3c.dom.DOMException"},
-	{"setData", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, setData, void, $String*), "org.w3c.dom.DOMException"},
-	{"setDocumentURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setDocumentURI, void, $String*)},
-	{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setEncoding, void, $String*)},
-	{"setIdAttribute", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setIdAttribute, void, bool)},
-	{"setIdAttribute", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setIdAttribute, void, $String*, bool)},
-	{"setIdAttributeNS", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setIdAttributeNS, void, $String*, $String*, bool)},
-	{"setIdAttributeNode", "(Lorg/w3c/dom/Attr;Z)V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setIdAttributeNode, void, $Attr*, bool)},
-	{"setNodeValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, setNodeValue, void, $String*), "org.w3c.dom.DOMException"},
-	{"setPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, setPrefix, void, $String*), "org.w3c.dom.DOMException"},
-	{"setStandalone", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setStandalone, void, bool)},
-	{"setStrictErrorChecking", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setStrictErrorChecking, void, bool)},
-	{"setTextContent", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setTextContent, void, $String*), "org.w3c.dom.DOMException"},
-	{"setUserData", "(Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setUserData, $Object*, $String*, Object$*, $UserDataHandler*)},
-	{"setValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, setValue, void, $String*)},
-	{"setVersion", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setVersion, void, $String*)},
-	{"setXmlEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setXmlEncoding, void, $String*)},
-	{"setXmlStandalone", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setXmlStandalone, void, bool), "org.w3c.dom.DOMException"},
-	{"setXmlVersion", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setXmlVersion, void, $String*), "org.w3c.dom.DOMException"},
-	{"splitText", "(I)Lorg/w3c/dom/Text;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, splitText, $Text*, int32_t), "org.w3c.dom.DOMException"},
-	{"substringData", "(II)Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, substringData, $String*, int32_t, int32_t), "org.w3c.dom.DOMException"},
-	{"supports", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL, $method(DTMNodeProxy, supports, bool, $String*, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"traverseChildren", "(Ljava/util/List;Lorg/w3c/dom/Node;Ljava/lang/String;Z)V", "(Ljava/util/List<Lorg/w3c/dom/Node;>;Lorg/w3c/dom/Node;Ljava/lang/String;Z)V", $PRIVATE | $FINAL, $method(DTMNodeProxy, traverseChildren, void, $List*, $Node*, $String*, bool)},
-	{"traverseChildren", "(Ljava/util/List;Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;ZZ)V", "(Ljava/util/List<Lorg/w3c/dom/Node;>;Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;ZZ)V", $PRIVATE | $FINAL, $method(DTMNodeProxy, traverseChildren, void, $List*, $Node*, $String*, $String*, bool, bool)},
-	{}
-};
-
-$InnerClassInfo _DTMNodeProxy_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.dtm.ref.DTMNodeProxy$DTMNodeProxyImplementation", "com.sun.org.apache.xml.internal.dtm.ref.DTMNodeProxy", "DTMNodeProxyImplementation", $STATIC},
-	{}
-};
-
-$ClassInfo _DTMNodeProxy_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMNodeProxy",
-	"java.lang.Object",
-	"org.w3c.dom.Document,org.w3c.dom.Text,org.w3c.dom.Element,org.w3c.dom.Attr,org.w3c.dom.ProcessingInstruction,org.w3c.dom.Comment,org.w3c.dom.DocumentFragment",
-	_DTMNodeProxy_FieldInfo_,
-	_DTMNodeProxy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DTMNodeProxy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMNodeProxy$DTMNodeProxyImplementation"
-};
-
-$Object* allocate$DTMNodeProxy($Class* clazz) {
-	return $of($alloc(DTMNodeProxy));
-}
 
 $Object* DTMNodeProxy::clone() {
 	 return this->$Document::clone();
@@ -340,11 +168,11 @@ $String* DTMNodeProxy::getNamespaceURI() {
 }
 
 bool DTMNodeProxy::supports($String* feature, $String* version) {
-	return $nc(DTMNodeProxy::implementation)->hasFeature(feature, version);
+	return DTMNodeProxy::implementation->hasFeature(feature, version);
 }
 
 bool DTMNodeProxy::isSupported($String* feature, $String* version) {
-	return $nc(DTMNodeProxy::implementation)->hasFeature(feature, version);
+	return DTMNodeProxy::implementation->hasFeature(feature, version);
 }
 
 $String* DTMNodeProxy::getNodeValue() {
@@ -352,7 +180,7 @@ $String* DTMNodeProxy::getNodeValue() {
 }
 
 $String* DTMNodeProxy::getStringValue() {
-	return $nc($($nc(this->dtm)->getStringValue(this->node)))->toString();
+	return $$nc($nc(this->dtm)->getStringValue(this->node))->toString();
 }
 
 void DTMNodeProxy::setNodeValue($String* nodeValue) {
@@ -416,7 +244,7 @@ bool DTMNodeProxy::hasAttributeNS($String* namespaceURI, $String* localName) {
 }
 
 $Document* DTMNodeProxy::getOwnerDocument() {
-	return ($cast($Document, $nc(this->dtm)->getNode($nc(this->dtm)->getOwnerDocument(this->node))));
+	return $cast($Document, $nc(this->dtm)->getNode($nc(this->dtm)->getOwnerDocument(this->node)));
 }
 
 $Node* DTMNodeProxy::insertBefore($Node* newChild, $Node* refChild) {
@@ -462,35 +290,27 @@ $Element* DTMNodeProxy::getDocumentElement() {
 	for (int32_t kidhandle = $nc(this->dtm)->getFirstChild(dochandle); kidhandle != $DTM::NULL; kidhandle = $nc(this->dtm)->getNextSibling(kidhandle)) {
 		switch ($nc(this->dtm)->getNodeType(kidhandle)) {
 		case $Node::ELEMENT_NODE:
-			{
-				if (elementhandle != $DTM::NULL) {
-					elementhandle = $DTM::NULL;
-					kidhandle = $nc(this->dtm)->getLastChild(dochandle);
-				} else {
-					elementhandle = kidhandle;
-				}
-				break;
-			}
-		case $Node::COMMENT_NODE:
-			{}
-		case $Node::PROCESSING_INSTRUCTION_NODE:
-			{}
-		case $Node::DOCUMENT_TYPE_NODE:
-			{
-				break;
-			}
-		default:
-			{
+			if (elementhandle != $DTM::NULL) {
 				elementhandle = $DTM::NULL;
 				kidhandle = $nc(this->dtm)->getLastChild(dochandle);
-				break;
+			} else {
+				elementhandle = kidhandle;
 			}
+			break;
+		case $Node::COMMENT_NODE:
+		case $Node::PROCESSING_INSTRUCTION_NODE:
+		case $Node::DOCUMENT_TYPE_NODE:
+			break;
+		default:
+			elementhandle = $DTM::NULL;
+			kidhandle = $nc(this->dtm)->getLastChild(dochandle);
+			break;
 		}
 	}
 	if (elementhandle == $DTM::NULL) {
 		$throwNew($DTMDOMException, $DOMException::NOT_SUPPORTED_ERR);
 	} else {
-		return ($cast($Element, $nc(this->dtm)->getNode(elementhandle)));
+		return $cast($Element, $nc(this->dtm)->getNode(elementhandle));
 	}
 }
 
@@ -535,7 +355,7 @@ $EntityReference* DTMNodeProxy::createEntityReference($String* name) {
 }
 
 $NodeList* DTMNodeProxy::getElementsByTagName($String* tagname) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, listVector, $new($ArrayList));
 	$var($Node, retNode, $nc(this->dtm)->getNode(this->node));
 	if (retNode != nullptr) {
@@ -552,21 +372,21 @@ $NodeList* DTMNodeProxy::getElementsByTagName($String* tagname) {
 	int32_t size = listVector->size();
 	$var($NodeSet, nodeSet, $new($NodeSet, size));
 	for (int32_t i = 0; i < size; ++i) {
-		nodeSet->addNode($cast($Node, $(listVector->get(i))));
+		nodeSet->addNode($$cast($Node, listVector->get(i)));
 	}
-	return static_cast<$NodeList*>(nodeSet);
+	return $cast($NodeList, nodeSet);
 }
 
 void DTMNodeProxy::traverseChildren($List* listVector, $Node* tempNode, $String* tagname, bool isTagNameWildCard) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (tempNode == nullptr) {
 		return;
 	} else {
-		bool var$0 = $nc(tempNode)->getNodeType() == $DTM::ELEMENT_NODE;
-		if (var$0 && (isTagNameWildCard || $nc($($nc(tempNode)->getNodeName()))->equals(tagname))) {
+		bool var$0 = tempNode->getNodeType() == $DTM::ELEMENT_NODE;
+		if (var$0 && (isTagNameWildCard || $$nc(tempNode->getNodeName())->equals(tagname))) {
 			$nc(listVector)->add(tempNode);
 		}
-		if ($nc(tempNode)->hasChildNodes()) {
+		if (tempNode->hasChildNodes()) {
 			$var($NodeList, nodeList, tempNode->getChildNodes());
 			for (int32_t i = 0; i < $nc(nodeList)->getLength(); ++i) {
 				traverseChildren(listVector, $(nodeList->item(i)), tagname, isTagNameWildCard);
@@ -591,7 +411,7 @@ $Attr* DTMNodeProxy::createAttributeNS($String* namespaceURI, $String* qualified
 }
 
 $NodeList* DTMNodeProxy::getElementsByTagNameNS($String* namespaceURI, $String* localName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, listVector, $new($ArrayList));
 	$var($Node, retNode, $nc(this->dtm)->getNode(this->node));
 	if (retNode != nullptr) {
@@ -609,24 +429,24 @@ $NodeList* DTMNodeProxy::getElementsByTagNameNS($String* namespaceURI, $String* 
 	int32_t size = listVector->size();
 	$var($NodeSet, nodeSet, $new($NodeSet, size));
 	for (int32_t i = 0; i < size; ++i) {
-		nodeSet->addNode($cast($Node, $(listVector->get(i))));
+		nodeSet->addNode($$cast($Node, listVector->get(i)));
 	}
-	return static_cast<$NodeList*>(nodeSet);
+	return $cast($NodeList, nodeSet);
 }
 
 void DTMNodeProxy::traverseChildren($List* listVector, $Node* tempNode, $String* namespaceURI, $String* localname, bool isNamespaceURIWildCard, bool isLocalNameWildCard) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (tempNode == nullptr) {
 		return;
 	} else {
-		bool var$0 = $nc(tempNode)->getNodeType() == $DTM::ELEMENT_NODE;
-		if (var$0 && (isLocalNameWildCard || $nc($($nc(tempNode)->getLocalName()))->equals(localname))) {
+		bool var$0 = tempNode->getNodeType() == $DTM::ELEMENT_NODE;
+		if (var$0 && (isLocalNameWildCard || $$nc(tempNode->getLocalName())->equals(localname))) {
 			$var($String, nsURI, tempNode->getNamespaceURI());
 			if ((namespaceURI == nullptr && nsURI == nullptr) || isNamespaceURIWildCard || (namespaceURI != nullptr && namespaceURI->equals(nsURI))) {
 				$nc(listVector)->add(tempNode);
 			}
 		}
-		if ($nc(tempNode)->hasChildNodes()) {
+		if (tempNode->hasChildNodes()) {
 			$var($NodeList, nl, tempNode->getChildNodes());
 			for (int32_t i = 0; i < $nc(nl)->getLength(); ++i) {
 				traverseChildren(listVector, $(nl->item(i)), namespaceURI, localname, isNamespaceURIWildCard, isLocalNameWildCard);
@@ -653,11 +473,11 @@ void DTMNodeProxy::setData($String* data) {
 }
 
 int32_t DTMNodeProxy::getLength() {
-	return $nc($($nc(this->dtm)->getNodeValue(this->node)))->length();
+	return $$nc($nc(this->dtm)->getNodeValue(this->node))->length();
 }
 
 $String* DTMNodeProxy::substringData(int32_t offset, int32_t count) {
-	return $nc($(getData()))->substring(offset, offset + count);
+	return $$nc(getData())->substring(offset, offset + count);
 }
 
 void DTMNodeProxy::appendData($String* arg) {
@@ -681,10 +501,10 @@ $String* DTMNodeProxy::getTagName() {
 }
 
 $String* DTMNodeProxy::getAttribute($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DTMNamedNodeMap, map, $new($DTMNamedNodeMap, this->dtm, this->node));
 	$var($Node, n, map->getNamedItem(name));
-	return (nullptr == n) ? DTMNodeProxy::EMPTYSTRING : $nc(n)->getNodeValue();
+	return (nullptr == n) ? DTMNodeProxy::EMPTYSTRING : n->getNodeValue();
 }
 
 void DTMNodeProxy::setAttribute($String* name, $String* value) {
@@ -724,7 +544,7 @@ $String* DTMNodeProxy::getAttributeNS($String* namespaceURI, $String* localName)
 	if (n != $DTM::NULL) {
 		$assign(retNode, $nc(this->dtm)->getNode(n));
 	}
-	return (nullptr == retNode) ? DTMNodeProxy::EMPTYSTRING : $nc(retNode)->getNodeValue();
+	return (nullptr == retNode) ? DTMNodeProxy::EMPTYSTRING : retNode->getNodeValue();
 }
 
 void DTMNodeProxy::setAttributeNS($String* namespaceURI, $String* qualifiedName, $String* value) {
@@ -770,7 +590,7 @@ $Element* DTMNodeProxy::getOwnerElement() {
 		return nullptr;
 	}
 	int32_t newnode = $nc(this->dtm)->getParent(this->node);
-	return (newnode == $DTM::NULL) ? ($Element*)nullptr : ($cast($Element, $nc(this->dtm)->getNode(newnode)));
+	return (newnode == $DTM::NULL) ? ($Element*)nullptr : $cast($Element, $nc(this->dtm)->getNode(newnode));
 }
 
 $Node* DTMNodeProxy::adoptNode($Node* source) {
@@ -815,19 +635,19 @@ void DTMNodeProxy::setVersion($String* version) {
 }
 
 $Object* DTMNodeProxy::setUserData($String* key, Object$* data, $UserDataHandler* handler) {
-	return $of($nc($(getOwnerDocument()))->setUserData(key, data, handler));
+	return $$nc(getOwnerDocument())->setUserData(key, data, handler);
 }
 
 $Object* DTMNodeProxy::getUserData($String* key) {
-	return $of($nc($(getOwnerDocument()))->getUserData(key));
+	return $$nc(getOwnerDocument())->getUserData(key);
 }
 
 $Object* DTMNodeProxy::getFeature($String* feature, $String* version) {
-	return $of(isSupported(feature, version) ? $of(this) : ($Object*)nullptr);
+	return isSupported(feature, version) ? $of(this) : ($Object*)nullptr;
 }
 
 bool DTMNodeProxy::isEqualNode($Node* arg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(arg, this)) {
 		return true;
 	}
@@ -836,106 +656,95 @@ bool DTMNodeProxy::isEqualNode($Node* arg) {
 		return false;
 	}
 	if (getNodeName() == nullptr) {
-		if ($nc(arg)->getNodeName() != nullptr) {
+		if (arg->getNodeName() != nullptr) {
 			return false;
 		}
-	} else if (!$nc($(getNodeName()))->equals($($nc(arg)->getNodeName()))) {
+	} else if (!$$nc(getNodeName())->equals($(arg->getNodeName()))) {
 		return false;
 	}
 	if (getLocalName() == nullptr) {
-		if ($nc(arg)->getLocalName() != nullptr) {
+		if (arg->getLocalName() != nullptr) {
 			return false;
 		}
-	} else if (!$nc($(getLocalName()))->equals($($nc(arg)->getLocalName()))) {
+	} else if (!$$nc(getLocalName())->equals($(arg->getLocalName()))) {
 		return false;
 	}
 	if (getNamespaceURI() == nullptr) {
-		if ($nc(arg)->getNamespaceURI() != nullptr) {
+		if (arg->getNamespaceURI() != nullptr) {
 			return false;
 		}
-	} else if (!$nc($(getNamespaceURI()))->equals($($nc(arg)->getNamespaceURI()))) {
+	} else if (!$$nc(getNamespaceURI())->equals($(arg->getNamespaceURI()))) {
 		return false;
 	}
 	if (getPrefix() == nullptr) {
-		if ($nc(arg)->getPrefix() != nullptr) {
+		if (arg->getPrefix() != nullptr) {
 			return false;
 		}
-	} else if (!$nc($(getPrefix()))->equals($($nc(arg)->getPrefix()))) {
+	} else if (!$$nc(getPrefix())->equals($(arg->getPrefix()))) {
 		return false;
 	}
 	if (getNodeValue() == nullptr) {
-		if ($nc(arg)->getNodeValue() != nullptr) {
+		if (arg->getNodeValue() != nullptr) {
 			return false;
 		}
-	} else if (!$nc($(getNodeValue()))->equals($($nc(arg)->getNodeValue()))) {
+	} else if (!$$nc(getNodeValue())->equals($(arg->getNodeValue()))) {
 		return false;
 	}
 	return true;
 }
 
 $String* DTMNodeProxy::lookupNamespaceURI($String* specifiedPrefix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int16_t type = this->getNodeType();
 	switch (type) {
 	case $Node::ELEMENT_NODE:
 		{
-			{
-				$var($String, namespace$, this->getNamespaceURI());
-				$var($String, prefix, this->getPrefix());
-				if (namespace$ != nullptr) {
-					if (specifiedPrefix == nullptr && prefix == specifiedPrefix) {
-						return namespace$;
-					} else if (prefix != nullptr && prefix->equals(specifiedPrefix)) {
-						return namespace$;
-					}
+			$var($String, namespace$, this->getNamespaceURI());
+			$var($String, prefix, this->getPrefix());
+			if (namespace$ != nullptr) {
+				if (specifiedPrefix == nullptr && prefix == specifiedPrefix) {
+					return namespace$;
+				} else if (prefix != nullptr && prefix->equals(specifiedPrefix)) {
+					return namespace$;
 				}
-				if (this->hasAttributes()) {
-					$var($NamedNodeMap, map, this->getAttributes());
-					int32_t length = $nc(map)->getLength();
-					for (int32_t i = 0; i < length; ++i) {
-						$var($Node, attr, map->item(i));
-						$var($String, attrPrefix, $nc(attr)->getPrefix());
-						$var($String, value, attr->getNodeValue());
-						$assign(namespace$, attr->getNamespaceURI());
-						if (namespace$ != nullptr && namespace$->equals("http://www.w3.org/2000/xmlns/"_s)) {
-							if (specifiedPrefix == nullptr && $nc($(attr->getNodeName()))->equals("xmlns"_s)) {
+			}
+			if (this->hasAttributes()) {
+				$var($NamedNodeMap, map, this->getAttributes());
+				int32_t length = $nc(map)->getLength();
+				for (int32_t i = 0; i < length; ++i) {
+					$var($Node, attr, map->item(i));
+					$var($String, attrPrefix, $nc(attr)->getPrefix());
+					$var($String, value, attr->getNodeValue());
+					$assign(namespace$, attr->getNamespaceURI());
+					if (namespace$ != nullptr && namespace$->equals("http://www.w3.org/2000/xmlns/"_s)) {
+						if (specifiedPrefix == nullptr && $$nc(attr->getNodeName())->equals("xmlns"_s)) {
+							return value;
+						} else {
+							bool var$0 = attrPrefix != nullptr && attrPrefix->equals("xmlns"_s);
+							if (var$0 && $$nc(attr->getLocalName())->equals(specifiedPrefix)) {
 								return value;
-							} else {
-								bool var$1 = attrPrefix != nullptr && attrPrefix->equals("xmlns"_s);
-								if (var$1 && $nc($(attr->getLocalName()))->equals(specifiedPrefix)) {
-									return value;
-								}
 							}
 						}
 					}
 				}
-				return nullptr;
 			}
-		}
-	case $Node::ENTITY_NODE:
-		{}
-	case $Node::NOTATION_NODE:
-		{}
-	case $Node::DOCUMENT_FRAGMENT_NODE:
-		{}
-	case $Node::DOCUMENT_TYPE_NODE:
-		{
 			return nullptr;
 		}
+	case $Node::ENTITY_NODE:
+	case $Node::NOTATION_NODE:
+	case $Node::DOCUMENT_FRAGMENT_NODE:
+	case $Node::DOCUMENT_TYPE_NODE:
+		return nullptr;
 	case $Node::ATTRIBUTE_NODE:
 		{
-			{
-				if ($nc($(this->getOwnerElement()))->getNodeType() == $Node::ELEMENT_NODE) {
-					return $nc($(getOwnerElement()))->lookupNamespaceURI(specifiedPrefix);
-				}
-				return nullptr;
+			if ($$nc(this->getOwnerElement())->getNodeType() == $Node::ELEMENT_NODE) {
+				return $$nc(getOwnerElement())->lookupNamespaceURI(specifiedPrefix);
 			}
+			return nullptr;
 		}
 	default:
 		{
-			{
-				return nullptr;
-			}
+			return nullptr;
 		}
 	}
 }
@@ -945,36 +754,27 @@ bool DTMNodeProxy::isDefaultNamespace($String* namespaceURI) {
 }
 
 $String* DTMNodeProxy::lookupPrefix($String* namespaceURI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (namespaceURI == nullptr) {
 		return nullptr;
 	}
 	int16_t type = this->getNodeType();
 	switch (type) {
 	case $Node::ENTITY_NODE:
-		{}
 	case $Node::NOTATION_NODE:
-		{}
 	case $Node::DOCUMENT_FRAGMENT_NODE:
-		{}
 	case $Node::DOCUMENT_TYPE_NODE:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	case $Node::ATTRIBUTE_NODE:
 		{
-			{
-				if ($nc($(this->getOwnerElement()))->getNodeType() == $Node::ELEMENT_NODE) {
-					return $nc($(getOwnerElement()))->lookupPrefix(namespaceURI);
-				}
-				return nullptr;
+			if ($$nc(this->getOwnerElement())->getNodeType() == $Node::ELEMENT_NODE) {
+				return $$nc(getOwnerElement())->lookupPrefix(namespaceURI);
 			}
+			return nullptr;
 		}
 	default:
 		{
-			{
-				return nullptr;
-			}
+			return nullptr;
 		}
 	}
 }
@@ -988,11 +788,11 @@ void DTMNodeProxy::setTextContent($String* textContent) {
 }
 
 $String* DTMNodeProxy::getTextContent() {
-	return $nc($($nc(this->dtm)->getStringValue(this->node)))->toString();
+	return $$nc($nc(this->dtm)->getStringValue(this->node))->toString();
 }
 
 int16_t DTMNodeProxy::compareDocumentPosition($Node* other) {
-	return (int16_t)0;
+	return 0;
 }
 
 $String* DTMNodeProxy::getBaseURI() {
@@ -1082,7 +882,7 @@ void DTMNodeProxy::setXmlVersion($String* xmlVersion) {
 	$set(this, xmlVersion, xmlVersion);
 }
 
-void clinit$DTMNodeProxy($Class* class$) {
+void DTMNodeProxy::clinit$($Class* clazz) {
 	$assignStatic(DTMNodeProxy::EMPTYSTRING, ""_s);
 	$assignStatic(DTMNodeProxy::implementation, $new($DTMNodeProxy$DTMNodeProxyImplementation));
 }
@@ -1091,7 +891,171 @@ DTMNodeProxy::DTMNodeProxy() {
 }
 
 $Class* DTMNodeProxy::load$($String* name, bool initialize) {
-	$loadClass(DTMNodeProxy, name, initialize, &_DTMNodeProxy_ClassInfo_, clinit$DTMNodeProxy, allocate$DTMNodeProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"dtm", "Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $field(DTMNodeProxy, dtm)},
+		{"node", "I", nullptr, 0, $field(DTMNodeProxy, node)},
+		{"EMPTYSTRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DTMNodeProxy, EMPTYSTRING)},
+		{"implementation", "Lorg/w3c/dom/DOMImplementation;", nullptr, $STATIC | $FINAL, $staticField(DTMNodeProxy, implementation)},
+		{"fDocumentURI", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DTMNodeProxy, fDocumentURI)},
+		{"actualEncoding", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DTMNodeProxy, actualEncoding)},
+		{"xmlEncoding", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DTMNodeProxy, xmlEncoding)},
+		{"xmlStandalone", "Z", nullptr, $PRIVATE, $field(DTMNodeProxy, xmlStandalone)},
+		{"xmlVersion", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DTMNodeProxy, xmlVersion)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTM;I)V", nullptr, $PUBLIC, $method(DTMNodeProxy, init$, void, $DTM*, int32_t)},
+		{"adoptNode", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, adoptNode, $Node*, $Node*), "org.w3c.dom.DOMException"},
+		{"appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, appendChild, $Node*, $Node*), "org.w3c.dom.DOMException"},
+		{"appendData", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, appendData, void, $String*), "org.w3c.dom.DOMException"},
+		{"cloneNode", "(Z)Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, cloneNode, $Node*, bool)},
+		{"compareDocumentPosition", "(Lorg/w3c/dom/Node;)S", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, compareDocumentPosition, int16_t, $Node*), "org.w3c.dom.DOMException"},
+		{"createAttribute", "(Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, createAttribute, $Attr*, $String*), "org.w3c.dom.DOMException"},
+		{"createAttributeNS", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, createAttributeNS, $Attr*, $String*, $String*), "org.w3c.dom.DOMException"},
+		{"createCDATASection", "(Ljava/lang/String;)Lorg/w3c/dom/CDATASection;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, createCDATASection, $CDATASection*, $String*), "org.w3c.dom.DOMException"},
+		{"createComment", "(Ljava/lang/String;)Lorg/w3c/dom/Comment;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, createComment, $Comment*, $String*)},
+		{"createDocumentFragment", "()Lorg/w3c/dom/DocumentFragment;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, createDocumentFragment, $DocumentFragment*)},
+		{"createElement", "(Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, createElement, $Element*, $String*), "org.w3c.dom.DOMException"},
+		{"createElementNS", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, createElementNS, $Element*, $String*, $String*), "org.w3c.dom.DOMException"},
+		{"createEntityReference", "(Ljava/lang/String;)Lorg/w3c/dom/EntityReference;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, createEntityReference, $EntityReference*, $String*), "org.w3c.dom.DOMException"},
+		{"createProcessingInstruction", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/ProcessingInstruction;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, createProcessingInstruction, $ProcessingInstruction*, $String*, $String*), "org.w3c.dom.DOMException"},
+		{"createTextNode", "(Ljava/lang/String;)Lorg/w3c/dom/Text;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, createTextNode, $Text*, $String*)},
+		{"deleteData", "(II)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, deleteData, void, int32_t, int32_t), "org.w3c.dom.DOMException"},
+		{"equals", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC | $FINAL, $method(DTMNodeProxy, equals, bool, $Node*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, equals, bool, Object$*)},
+		{"getActualEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getActualEncoding, $String*)},
+		{"getAttribute", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getAttribute, $String*, $String*)},
+		{"getAttributeNS", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getAttributeNS, $String*, $String*, $String*)},
+		{"getAttributeNode", "(Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getAttributeNode, $Attr*, $String*)},
+		{"getAttributeNodeNS", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getAttributeNodeNS, $Attr*, $String*, $String*)},
+		{"getAttributes", "()Lorg/w3c/dom/NamedNodeMap;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getAttributes, $NamedNodeMap*)},
+		{"getBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getBaseURI, $String*)},
+		{"getChildNodes", "()Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getChildNodes, $NodeList*)},
+		{"getDTM", "()Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC | $FINAL, $method(DTMNodeProxy, getDTM, $DTM*)},
+		{"getDTMNodeNumber", "()I", nullptr, $PUBLIC | $FINAL, $method(DTMNodeProxy, getDTMNodeNumber, int32_t)},
+		{"getData", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getData, $String*), "org.w3c.dom.DOMException"},
+		{"getDoctype", "()Lorg/w3c/dom/DocumentType;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getDoctype, $DocumentType*)},
+		{"getDocumentElement", "()Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getDocumentElement, $Element*)},
+		{"getDocumentURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getDocumentURI, $String*)},
+		{"getDomConfig", "()Lorg/w3c/dom/DOMConfiguration;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getDomConfig, $DOMConfiguration*)},
+		{"getElementById", "(Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getElementById, $Element*, $String*)},
+		{"getElementsByTagName", "(Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getElementsByTagName, $NodeList*, $String*)},
+		{"getElementsByTagNameNS", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getElementsByTagNameNS, $NodeList*, $String*, $String*)},
+		{"getFeature", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getFeature, $Object*, $String*, $String*)},
+		{"getFirstChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getFirstChild, $Node*)},
+		{"getImplementation", "()Lorg/w3c/dom/DOMImplementation;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getImplementation, $DOMImplementation*)},
+		{"getInputEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getInputEncoding, $String*)},
+		{"getLastChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getLastChild, $Node*)},
+		{"getLength", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getLength, int32_t)},
+		{"getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getLocalName, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getName, $String*)},
+		{"getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getNamespaceURI, $String*)},
+		{"getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getNextSibling, $Node*)},
+		{"getNodeName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getNodeName, $String*)},
+		{"getNodeType", "()S", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getNodeType, int16_t)},
+		{"getNodeValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getNodeValue, $String*), "org.w3c.dom.DOMException"},
+		{"getOwnerDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getOwnerDocument, $Document*)},
+		{"getOwnerElement", "()Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getOwnerElement, $Element*)},
+		{"getOwnerNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $method(DTMNodeProxy, getOwnerNode, $Node*)},
+		{"getParentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getParentNode, $Node*)},
+		{"getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getPrefix, $String*)},
+		{"getPreviousSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getPreviousSibling, $Node*)},
+		{"getSchemaTypeInfo", "()Lorg/w3c/dom/TypeInfo;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getSchemaTypeInfo, $TypeInfo*)},
+		{"getSpecified", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getSpecified, bool)},
+		{"getStandalone", "()Z", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getStandalone, bool)},
+		{"getStrictErrorChecking", "()Z", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getStrictErrorChecking, bool)},
+		{"getStringValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(DTMNodeProxy, getStringValue, $String*), "org.w3c.dom.DOMException"},
+		{"getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getTagName, $String*)},
+		{"getTarget", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getTarget, $String*)},
+		{"getTextContent", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getTextContent, $String*), "org.w3c.dom.DOMException"},
+		{"getUserData", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getUserData, $Object*, $String*)},
+		{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, getValue, $String*)},
+		{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getVersion, $String*)},
+		{"getWholeText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getWholeText, $String*)},
+		{"getXmlEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getXmlEncoding, $String*)},
+		{"getXmlStandalone", "()Z", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getXmlStandalone, bool)},
+		{"getXmlVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, getXmlVersion, $String*)},
+		{"hasAttribute", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, hasAttribute, bool, $String*)},
+		{"hasAttributeNS", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, hasAttributeNS, bool, $String*, $String*)},
+		{"hasAttributes", "()Z", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, hasAttributes, bool)},
+		{"hasChildNodes", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, hasChildNodes, bool)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, hashCode, int32_t)},
+		{"importNode", "(Lorg/w3c/dom/Node;Z)Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, importNode, $Node*, $Node*, bool), "org.w3c.dom.DOMException"},
+		{"insertBefore", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, insertBefore, $Node*, $Node*, $Node*), "org.w3c.dom.DOMException"},
+		{"insertData", "(ILjava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, insertData, void, int32_t, $String*), "org.w3c.dom.DOMException"},
+		{"isDefaultNamespace", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, isDefaultNamespace, bool, $String*)},
+		{"isElementContentWhitespace", "()Z", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, isElementContentWhitespace, bool)},
+		{"isEqualNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, isEqualNode, bool, $Node*)},
+		{"isId", "()Z", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, isId, bool)},
+		{"isSameNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, isSameNode, bool, $Node*)},
+		{"isSupported", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, isSupported, bool, $String*, $String*)},
+		{"lookupNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, lookupNamespaceURI, $String*, $String*)},
+		{"lookupPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, lookupPrefix, $String*, $String*)},
+		{"normalize", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, normalize, void)},
+		{"normalizeDocument", "()V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, normalizeDocument, void)},
+		{"removeAttribute", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, removeAttribute, void, $String*), "org.w3c.dom.DOMException"},
+		{"removeAttributeNS", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, removeAttributeNS, void, $String*, $String*), "org.w3c.dom.DOMException"},
+		{"removeAttributeNode", "(Lorg/w3c/dom/Attr;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, removeAttributeNode, $Attr*, $Attr*), "org.w3c.dom.DOMException"},
+		{"removeChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, removeChild, $Node*, $Node*), "org.w3c.dom.DOMException"},
+		{"renameNode", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, renameNode, $Node*, $Node*, $String*, $String*), "org.w3c.dom.DOMException"},
+		{"replaceChild", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, replaceChild, $Node*, $Node*, $Node*), "org.w3c.dom.DOMException"},
+		{"replaceData", "(IILjava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, replaceData, void, int32_t, int32_t, $String*), "org.w3c.dom.DOMException"},
+		{"replaceWholeText", "(Ljava/lang/String;)Lorg/w3c/dom/Text;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, replaceWholeText, $Text*, $String*), "org.w3c.dom.DOMException"},
+		{"sameNodeAs", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC | $FINAL, $method(DTMNodeProxy, sameNodeAs, bool, $Node*)},
+		{"setActualEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setActualEncoding, void, $String*)},
+		{"setAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, setAttribute, void, $String*, $String*), "org.w3c.dom.DOMException"},
+		{"setAttributeNS", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, setAttributeNS, void, $String*, $String*, $String*), "org.w3c.dom.DOMException"},
+		{"setAttributeNode", "(Lorg/w3c/dom/Attr;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, setAttributeNode, $Attr*, $Attr*), "org.w3c.dom.DOMException"},
+		{"setAttributeNodeNS", "(Lorg/w3c/dom/Attr;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, setAttributeNodeNS, $Attr*, $Attr*), "org.w3c.dom.DOMException"},
+		{"setData", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, setData, void, $String*), "org.w3c.dom.DOMException"},
+		{"setDocumentURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setDocumentURI, void, $String*)},
+		{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setEncoding, void, $String*)},
+		{"setIdAttribute", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setIdAttribute, void, bool)},
+		{"setIdAttribute", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setIdAttribute, void, $String*, bool)},
+		{"setIdAttributeNS", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setIdAttributeNS, void, $String*, $String*, bool)},
+		{"setIdAttributeNode", "(Lorg/w3c/dom/Attr;Z)V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setIdAttributeNode, void, $Attr*, bool)},
+		{"setNodeValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, setNodeValue, void, $String*), "org.w3c.dom.DOMException"},
+		{"setPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, setPrefix, void, $String*), "org.w3c.dom.DOMException"},
+		{"setStandalone", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setStandalone, void, bool)},
+		{"setStrictErrorChecking", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setStrictErrorChecking, void, bool)},
+		{"setTextContent", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setTextContent, void, $String*), "org.w3c.dom.DOMException"},
+		{"setUserData", "(Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setUserData, $Object*, $String*, Object$*, $UserDataHandler*)},
+		{"setValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, setValue, void, $String*)},
+		{"setVersion", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setVersion, void, $String*)},
+		{"setXmlEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setXmlEncoding, void, $String*)},
+		{"setXmlStandalone", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setXmlStandalone, void, bool), "org.w3c.dom.DOMException"},
+		{"setXmlVersion", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DTMNodeProxy, setXmlVersion, void, $String*), "org.w3c.dom.DOMException"},
+		{"splitText", "(I)Lorg/w3c/dom/Text;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, splitText, $Text*, int32_t), "org.w3c.dom.DOMException"},
+		{"substringData", "(II)Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMNodeProxy, substringData, $String*, int32_t, int32_t), "org.w3c.dom.DOMException"},
+		{"supports", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL, $method(DTMNodeProxy, supports, bool, $String*, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"traverseChildren", "(Ljava/util/List;Lorg/w3c/dom/Node;Ljava/lang/String;Z)V", "(Ljava/util/List<Lorg/w3c/dom/Node;>;Lorg/w3c/dom/Node;Ljava/lang/String;Z)V", $PRIVATE | $FINAL, $method(DTMNodeProxy, traverseChildren, void, $List*, $Node*, $String*, bool)},
+		{"traverseChildren", "(Ljava/util/List;Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;ZZ)V", "(Ljava/util/List<Lorg/w3c/dom/Node;>;Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;ZZ)V", $PRIVATE | $FINAL, $method(DTMNodeProxy, traverseChildren, void, $List*, $Node*, $String*, $String*, bool, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.dtm.ref.DTMNodeProxy$DTMNodeProxyImplementation", "com.sun.org.apache.xml.internal.dtm.ref.DTMNodeProxy", "DTMNodeProxyImplementation", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMNodeProxy",
+		"java.lang.Object",
+		"org.w3c.dom.Document,org.w3c.dom.Text,org.w3c.dom.Element,org.w3c.dom.Attr,org.w3c.dom.ProcessingInstruction,org.w3c.dom.Comment,org.w3c.dom.DocumentFragment",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMNodeProxy$DTMNodeProxyImplementation"
+	};
+	$loadClass(DTMNodeProxy, name, initialize, &classInfo$$, DTMNodeProxy::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DTMNodeProxy));
+	});
 	return class$;
 }
 

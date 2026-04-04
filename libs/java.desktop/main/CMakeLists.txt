@@ -380,6 +380,7 @@ install(TARGETS ${JCPP_PROJECT_NAME}-main
 	RUNTIME DESTINATION "${JCPP_INSTALL_BIN_DIR}"
 )
 
+jcpp_add_main_app(sun.java2d.loops.GraphicsPrimitiveMgr-app "sun.java2d.loops.GraphicsPrimitiveMgr-app" "share/sun.java2d.loops.GraphicsPrimitiveMgr.cpp")
 
 install(
 	DIRECTORY "share/include/"

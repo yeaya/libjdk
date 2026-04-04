@@ -15,6 +15,7 @@ class MessageQueue$1 : public ::java::lang::Object {
 	$class(MessageQueue$1, 0, ::java::lang::Object)
 public:
 	MessageQueue$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$jdk$internal$net$http$websocket$MessageQueue$Type;
 };
 

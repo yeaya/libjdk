@@ -1,5 +1,4 @@
 #include <sun/security/jgss/krb5/ServiceCreds.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/util/ArrayList.h>
@@ -30,8 +29,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
-using $Set = ::java::util::Set;
 using $Subject = ::javax::security::auth::Subject;
 using $KerberosKey = ::javax::security::auth::kerberos::KerberosKey;
 using $KerberosPrincipal = ::javax::security::auth::kerberos::KerberosPrincipal;
@@ -43,60 +40,24 @@ using $Credentials = ::sun::security::krb5::Credentials;
 using $EncryptionKey = ::sun::security::krb5::EncryptionKey;
 using $KrbException = ::sun::security::krb5::KrbException;
 using $PrincipalName = ::sun::security::krb5::PrincipalName;
-using $1KeyTab = ::sun::security::krb5::internal::ktab::KeyTab;
 
 namespace sun {
 	namespace security {
 		namespace jgss {
 			namespace krb5 {
 
-$FieldInfo _ServiceCreds_FieldInfo_[] = {
-	{"kp", "Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PRIVATE, $field(ServiceCreds, kp)},
-	{"allPrincs", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/security/auth/kerberos/KerberosPrincipal;>;", $PRIVATE, $field(ServiceCreds, allPrincs)},
-	{"ktabs", "Ljava/util/List;", "Ljava/util/List<Ljavax/security/auth/kerberos/KeyTab;>;", $PRIVATE, $field(ServiceCreds, ktabs)},
-	{"kk", "Ljava/util/List;", "Ljava/util/List<Ljavax/security/auth/kerberos/KerberosKey;>;", $PRIVATE, $field(ServiceCreds, kk)},
-	{"tgt", "Ljavax/security/auth/kerberos/KerberosTicket;", nullptr, $PRIVATE, $field(ServiceCreds, tgt)},
-	{"destroyed", "Z", nullptr, $PRIVATE, $field(ServiceCreds, destroyed)},
-	{}
-};
-
-$MethodInfo _ServiceCreds_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ServiceCreds, init$, void)},
-	{"destroy", "()V", nullptr, $PUBLIC, $method(ServiceCreds, destroy, void)},
-	{"getEKeys", "(Lsun/security/krb5/PrincipalName;)[Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC, $method(ServiceCreds, getEKeys, $EncryptionKeyArray*, $PrincipalName*)},
-	{"getInitCred", "()Lsun/security/krb5/Credentials;", nullptr, $PUBLIC, $method(ServiceCreds, getInitCred, $Credentials*)},
-	{"getInstance", "(Ljavax/security/auth/Subject;Ljava/lang/String;)Lsun/security/jgss/krb5/ServiceCreds;", nullptr, $PUBLIC | $STATIC, $staticMethod(ServiceCreds, getInstance, ServiceCreds*, $Subject*, $String*)},
-	{"getKKeys", "()[Ljavax/security/auth/kerberos/KerberosKey;", nullptr, $PUBLIC, $method(ServiceCreds, getKKeys, $KerberosKeyArray*)},
-	{"getKKeys", "(Ljavax/security/auth/kerberos/KerberosPrincipal;)[Ljavax/security/auth/kerberos/KerberosKey;", nullptr, $PUBLIC, $method(ServiceCreds, getKKeys, $KerberosKeyArray*, $KerberosPrincipal*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(ServiceCreds, getName, $String*)},
-	{}
-};
-
-$ClassInfo _ServiceCreds_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.jgss.krb5.ServiceCreds",
-	"java.lang.Object",
-	nullptr,
-	_ServiceCreds_FieldInfo_,
-	_ServiceCreds_MethodInfo_
-};
-
-$Object* allocate$ServiceCreds($Class* clazz) {
-	return $of($alloc(ServiceCreds));
-}
-
 void ServiceCreds::init$() {
 }
 
 ServiceCreds* ServiceCreds::getInstance($Subject* subj, $String* serverPrincipal$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, serverPrincipal, serverPrincipal$renamed);
 	$var(ServiceCreds, sc, $new(ServiceCreds));
 	$load($KerberosPrincipal);
 	$set(sc, allPrincs, $nc(subj)->getPrincipals($KerberosPrincipal::class$));
 	{
 		$load($KerberosKey);
-		$var($Iterator, i$, $nc($($SubjectComber::findMany(subj, serverPrincipal, nullptr, $KerberosKey::class$)))->iterator());
+		$var($Iterator, i$, $$nc($SubjectComber::findMany(subj, serverPrincipal, nullptr, $KerberosKey::class$))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($KerberosKey, key, $cast($KerberosKey, i$->next()));
 			{
@@ -110,25 +71,22 @@ ServiceCreds* ServiceCreds::getInstance($Subject* subj, $String* serverPrincipal
 		bool hasUnbound = false;
 		{
 			$load($KeyTab);
-			$var($Iterator, i$, $nc($($SubjectComber::findMany(subj, nullptr, nullptr, $KeyTab::class$)))->iterator());
+			$var($Iterator, i$, $$nc($SubjectComber::findMany(subj, nullptr, nullptr, $KeyTab::class$))->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($KeyTab, ktab, $cast($KeyTab, i$->next()));
-				{
-					if (!$nc(ktab)->isBound()) {
-						hasUnbound = true;
-						break;
-					}
+				if (!$nc(ktab)->isBound()) {
+					hasUnbound = true;
+					break;
 				}
 			}
 		}
 		if (!hasUnbound) {
-			$set(sc, kp, $cast($KerberosPrincipal, $nc($($nc(sc->allPrincs)->iterator()))->next()));
+			$set(sc, kp, $cast($KerberosPrincipal, $$nc($nc(sc->allPrincs)->iterator())->next()));
 			$assign(serverPrincipal, $nc(sc->kp)->getName());
 		}
 	}
 	$load($KeyTab);
 	$set(sc, ktabs, $SubjectComber::findMany(subj, serverPrincipal, nullptr, $KeyTab::class$));
-	$load($KerberosKey);
 	$set(sc, kk, $SubjectComber::findMany(subj, serverPrincipal, nullptr, $KerberosKey::class$));
 	$load($KerberosTicket);
 	$set(sc, tgt, $cast($KerberosTicket, $SubjectComber::find(subj, nullptr, serverPrincipal, $KerberosTicket::class$)));
@@ -144,29 +102,27 @@ $String* ServiceCreds::getName() {
 	if (this->destroyed) {
 		$throwNew($IllegalStateException, "This object is destroyed"_s);
 	}
-	return this->kp == nullptr ? ($String*)nullptr : $nc(this->kp)->getName();
+	return this->kp == nullptr ? ($String*)nullptr : this->kp->getName();
 }
 
 $KerberosKeyArray* ServiceCreds::getKKeys() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->destroyed) {
 		$throwNew($IllegalStateException, "This object is destroyed"_s);
 	}
 	$var($KerberosPrincipal, one, this->kp);
 	if (one == nullptr && !$nc(this->allPrincs)->isEmpty()) {
-		$assign(one, $cast($KerberosPrincipal, $nc($($nc(this->allPrincs)->iterator()))->next()));
+		$assign(one, $cast($KerberosPrincipal, $$nc(this->allPrincs->iterator())->next()));
 	}
 	if (one == nullptr) {
-		{
-			$var($Iterator, i$, $nc(this->ktabs)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($KeyTab, ktab, $cast($KeyTab, i$->next()));
-				{
-					$var($PrincipalName, pn, $nc($($Krb5Util::snapshotFromJavaxKeyTab(ktab)))->getOneName());
-					if (pn != nullptr) {
-						$assign(one, $new($KerberosPrincipal, $(pn->getName())));
-						break;
-					}
+		$var($Iterator, i$, $nc(this->ktabs)->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($KeyTab, ktab, $cast($KeyTab, i$->next()));
+			{
+				$var($PrincipalName, pn, $$nc($Krb5Util::snapshotFromJavaxKeyTab(ktab))->getOneName());
+				if (pn != nullptr) {
+					$assign(one, $new($KerberosPrincipal, $(pn->getName())));
+					break;
 				}
 			}
 		}
@@ -179,7 +135,7 @@ $KerberosKeyArray* ServiceCreds::getKKeys() {
 }
 
 $KerberosKeyArray* ServiceCreds::getKKeys($KerberosPrincipal* princ) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->destroyed) {
 		$throwNew($IllegalStateException, "This object is destroyed"_s);
 	}
@@ -191,10 +147,8 @@ $KerberosKeyArray* ServiceCreds::getKKeys($KerberosPrincipal* princ) {
 		$var($Iterator, i$, $nc(this->kk)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($KerberosKey, k, $cast($KerberosKey, i$->next()));
-			{
-				if ($nc($($nc(k)->getPrincipal()))->equals(princ)) {
-					keys->add(k);
-				}
+			if ($$nc($nc(k)->getPrincipal())->equals(princ)) {
+				keys->add(k);
 			}
 		}
 	}
@@ -210,10 +164,8 @@ $KerberosKeyArray* ServiceCreds::getKKeys($KerberosPrincipal* princ) {
 					}
 				}
 				{
-					$var($KerberosKeyArray, arr$, $nc(ktab)->getKeys(princ));
-					int32_t len$ = $nc(arr$)->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
+					$var($KerberosKeyArray, arr$, ktab->getKeys(princ));
+					for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 						$var($KerberosKey, k, arr$->get(i$));
 						{
 							keys->add(k);
@@ -223,11 +175,11 @@ $KerberosKeyArray* ServiceCreds::getKKeys($KerberosPrincipal* princ) {
 			}
 		}
 	}
-	return $fcast($KerberosKeyArray, keys->toArray($$new($KerberosKeyArray, keys->size())));
+	return $cast($KerberosKeyArray, keys->toArray($$new($KerberosKeyArray, keys->size())));
 }
 
 $EncryptionKeyArray* ServiceCreds::getEKeys($PrincipalName* princ) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->destroyed) {
 		$throwNew($IllegalStateException, "This object is destroyed"_s);
 	}
@@ -273,7 +225,37 @@ ServiceCreds::ServiceCreds() {
 }
 
 $Class* ServiceCreds::load$($String* name, bool initialize) {
-	$loadClass(ServiceCreds, name, initialize, &_ServiceCreds_ClassInfo_, allocate$ServiceCreds);
+	$FieldInfo fieldInfos$$[] = {
+		{"kp", "Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PRIVATE, $field(ServiceCreds, kp)},
+		{"allPrincs", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/security/auth/kerberos/KerberosPrincipal;>;", $PRIVATE, $field(ServiceCreds, allPrincs)},
+		{"ktabs", "Ljava/util/List;", "Ljava/util/List<Ljavax/security/auth/kerberos/KeyTab;>;", $PRIVATE, $field(ServiceCreds, ktabs)},
+		{"kk", "Ljava/util/List;", "Ljava/util/List<Ljavax/security/auth/kerberos/KerberosKey;>;", $PRIVATE, $field(ServiceCreds, kk)},
+		{"tgt", "Ljavax/security/auth/kerberos/KerberosTicket;", nullptr, $PRIVATE, $field(ServiceCreds, tgt)},
+		{"destroyed", "Z", nullptr, $PRIVATE, $field(ServiceCreds, destroyed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ServiceCreds, init$, void)},
+		{"destroy", "()V", nullptr, $PUBLIC, $method(ServiceCreds, destroy, void)},
+		{"getEKeys", "(Lsun/security/krb5/PrincipalName;)[Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC, $method(ServiceCreds, getEKeys, $EncryptionKeyArray*, $PrincipalName*)},
+		{"getInitCred", "()Lsun/security/krb5/Credentials;", nullptr, $PUBLIC, $method(ServiceCreds, getInitCred, $Credentials*)},
+		{"getInstance", "(Ljavax/security/auth/Subject;Ljava/lang/String;)Lsun/security/jgss/krb5/ServiceCreds;", nullptr, $PUBLIC | $STATIC, $staticMethod(ServiceCreds, getInstance, ServiceCreds*, $Subject*, $String*)},
+		{"getKKeys", "()[Ljavax/security/auth/kerberos/KerberosKey;", nullptr, $PUBLIC, $method(ServiceCreds, getKKeys, $KerberosKeyArray*)},
+		{"getKKeys", "(Ljavax/security/auth/kerberos/KerberosPrincipal;)[Ljavax/security/auth/kerberos/KerberosKey;", nullptr, $PUBLIC, $method(ServiceCreds, getKKeys, $KerberosKeyArray*, $KerberosPrincipal*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(ServiceCreds, getName, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.jgss.krb5.ServiceCreds",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ServiceCreds, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServiceCreds);
+	});
 	return class$;
 }
 

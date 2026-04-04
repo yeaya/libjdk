@@ -1,5 +1,4 @@
 #include <sun/awt/PlatformFont.h>
-
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
@@ -21,16 +20,13 @@
 #undef FONTCACHESIZE
 
 using $CharsetStringArray = $Array<::sun::awt::CharsetString>;
-using $PrintStream = ::java::io::PrintStream;
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
-using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $Locale = ::java::util::Locale;
 using $Vector = ::java::util::Vector;
 using $CharsetString = ::sun::awt::CharsetString;
@@ -44,60 +40,6 @@ using $FontSupport = ::sun::java2d::FontSupport;
 namespace sun {
 	namespace awt {
 
-$FieldInfo _PlatformFont_FieldInfo_[] = {
-	{"componentFonts", "[Lsun/awt/FontDescriptor;", nullptr, $PROTECTED, $field(PlatformFont, componentFonts)},
-	{"defaultChar", "C", nullptr, $PROTECTED, $field(PlatformFont, defaultChar)},
-	{"fontConfig", "Lsun/awt/FontConfiguration;", nullptr, $PROTECTED, $field(PlatformFont, fontConfig)},
-	{"defaultFont", "Lsun/awt/FontDescriptor;", nullptr, $PROTECTED, $field(PlatformFont, defaultFont)},
-	{"familyName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(PlatformFont, familyName)},
-	{"fontCache", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(PlatformFont, fontCache)},
-	{"FONTCACHESIZE", "I", nullptr, $PROTECTED | $STATIC, $staticField(PlatformFont, FONTCACHESIZE)},
-	{"FONTCACHEMASK", "I", nullptr, $PROTECTED | $STATIC, $staticField(PlatformFont, FONTCACHEMASK)},
-	{"osVersion", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticField(PlatformFont, osVersion)},
-	{}
-};
-
-$MethodInfo _PlatformFont_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(PlatformFont, init$, void, $String*, int32_t)},
-	{"getFontCache", "()[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $method(PlatformFont, getFontCache, $ObjectArray*)},
-	{"getMissingGlyphCharacter", "()C", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PlatformFont, getMissingGlyphCharacter, char16_t)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(PlatformFont, initIDs, void)},
-	{"makeConvertedMultiFontChars", "([CII)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PlatformFont, makeConvertedMultiFontChars, $ObjectArray*, $chars*, int32_t, int32_t)},
-	{"makeConvertedMultiFontString", "(Ljava/lang/String;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PlatformFont, makeConvertedMultiFontString, $ObjectArray*, $String*)},
-	{"makeMultiCharsetString", "(Ljava/lang/String;)[Lsun/awt/CharsetString;", nullptr, $PUBLIC, $virtualMethod(PlatformFont, makeMultiCharsetString, $CharsetStringArray*, $String*)},
-	{"makeMultiCharsetString", "(Ljava/lang/String;Z)[Lsun/awt/CharsetString;", nullptr, $PUBLIC, $virtualMethod(PlatformFont, makeMultiCharsetString, $CharsetStringArray*, $String*, bool)},
-	{"makeMultiCharsetString", "([CII)[Lsun/awt/CharsetString;", nullptr, $PUBLIC, $virtualMethod(PlatformFont, makeMultiCharsetString, $CharsetStringArray*, $chars*, int32_t, int32_t)},
-	{"makeMultiCharsetString", "([CIIZ)[Lsun/awt/CharsetString;", nullptr, $PUBLIC, $virtualMethod(PlatformFont, makeMultiCharsetString, $CharsetStringArray*, $chars*, int32_t, int32_t, bool)},
-	{"mightHaveMultiFontMetrics", "()Z", nullptr, $PUBLIC, $virtualMethod(PlatformFont, mightHaveMultiFontMetrics, bool)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 3
-
-$InnerClassInfo _PlatformFont_InnerClassesInfo_[] = {
-	{"sun.awt.PlatformFont$PlatformFontCache", "sun.awt.PlatformFont", "PlatformFontCache", 0},
-	{}
-};
-
-$ClassInfo _PlatformFont_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.awt.PlatformFont",
-	"java.lang.Object",
-	"java.awt.peer.FontPeer",
-	_PlatformFont_FieldInfo_,
-	_PlatformFont_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PlatformFont_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.PlatformFont$PlatformFontCache"
-};
-
-$Object* allocate$PlatformFont($Class* clazz) {
-	return $of($alloc(PlatformFont));
-}
-
 int32_t PlatformFont::FONTCACHESIZE = 0;
 int32_t PlatformFont::FONTCACHEMASK = 0;
 $String* PlatformFont::osVersion = nullptr;
@@ -105,7 +47,7 @@ $String* PlatformFont::osVersion = nullptr;
 void PlatformFont::init$($String* name, int32_t style) {
 	$var($SunFontManager, sfm, $SunFontManager::getInstance());
 	if ($instanceOf($FontSupport, sfm)) {
-		$set(this, fontConfig, $nc((static_cast<$FontSupport*>(sfm)))->getFontConfiguration());
+		$set(this, fontConfig, $cast($FontSupport, sfm)->getFontConfiguration());
 	}
 	if (this->fontConfig == nullptr) {
 		return;
@@ -119,14 +61,14 @@ void PlatformFont::init$($String* name, int32_t style) {
 	char16_t missingGlyphCharacter = getMissingGlyphCharacter();
 	this->defaultChar = u'?';
 	if ($nc(this->componentFonts)->length > 0) {
-		$set(this, defaultFont, $nc(this->componentFonts)->get(0));
+		$set(this, defaultFont, this->componentFonts->get(0));
 	}
 	for (int32_t i = 0; i < $nc(this->componentFonts)->length; ++i) {
-		if ($nc($nc(this->componentFonts)->get(i))->isExcluded(missingGlyphCharacter)) {
+		if ($nc(this->componentFonts->get(i))->isExcluded(missingGlyphCharacter)) {
 			continue;
 		}
 		if ($nc($nc($nc(this->componentFonts)->get(i))->encoder)->canEncode(missingGlyphCharacter)) {
-			$set(this, defaultFont, $nc(this->componentFonts)->get(i));
+			$set(this, defaultFont, this->componentFonts->get(i));
 			this->defaultChar = missingGlyphCharacter;
 			break;
 		}
@@ -148,7 +90,7 @@ $CharsetStringArray* PlatformFont::makeMultiCharsetString($chars* str, int32_t o
 }
 
 $CharsetStringArray* PlatformFont::makeMultiCharsetString($chars* str, int32_t offset, int32_t len, bool allowDefault) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (len < 1) {
 		return $new($CharsetStringArray, 0);
 	}
@@ -158,12 +100,12 @@ $CharsetStringArray* PlatformFont::makeMultiCharsetString($chars* str, int32_t o
 	bool encoded = false;
 	$var($FontDescriptor, currentFont, this->defaultFont);
 	for (int32_t i = 0; i < $nc(this->componentFonts)->length; ++i) {
-		if ($nc($nc(this->componentFonts)->get(i))->isExcluded($nc(str)->get(offset))) {
+		if ($nc(this->componentFonts->get(i))->isExcluded($nc(str)->get(offset))) {
 			continue;
 		}
-		if ($nc($nc($nc(this->componentFonts)->get(i))->encoder)->canEncode($nc(str)->get(offset))) {
-			$assign(currentFont, $nc(this->componentFonts)->get(i));
-			tmpChar = $nc(str)->get(offset);
+		if ($nc($nc($nc(this->componentFonts)->get(i))->encoder)->canEncode(str->get(offset))) {
+			$assign(currentFont, this->componentFonts->get(i));
+			tmpChar = str->get(offset);
 			encoded = true;
 			break;
 		}
@@ -180,11 +122,11 @@ $CharsetStringArray* PlatformFont::makeMultiCharsetString($chars* str, int32_t o
 		tmpChar = this->defaultChar;
 		encoded = false;
 		for (int32_t j = 0; j < $nc(this->componentFonts)->length; ++j) {
-			if ($nc($nc(this->componentFonts)->get(j))->isExcluded(ch)) {
+			if ($nc(this->componentFonts->get(j))->isExcluded(ch)) {
 				continue;
 			}
 			if ($nc($nc($nc(this->componentFonts)->get(j))->encoder)->canEncode(ch)) {
-				$assign(fd, $nc(this->componentFonts)->get(j));
+				$assign(fd, this->componentFonts->get(j));
 				tmpChar = ch;
 				encoded = true;
 				break;
@@ -211,8 +153,8 @@ $CharsetStringArray* PlatformFont::makeMultiCharsetString($chars* str, int32_t o
 		$assign(result, $new($CharsetStringArray, 1));
 		result->set(0, cs);
 	} else {
-		$nc(mcs)->addElement(cs);
-		$assign(result, $fcast($CharsetStringArray, mcs->toArray($$new($CharsetStringArray, mcs->size()))));
+		mcs->addElement(cs);
+		$assign(result, $cast($CharsetStringArray, mcs->toArray($$new($CharsetStringArray, mcs->size()))));
 	}
 	return result;
 }
@@ -227,7 +169,7 @@ $ObjectArray* PlatformFont::makeConvertedMultiFontString($String* str) {
 }
 
 $ObjectArray* PlatformFont::makeConvertedMultiFontChars($chars* data, int32_t start, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, result, $new($ObjectArray, 2));
 	$var($ObjectArray, workingCache, nullptr);
 	$var($bytes, convertedData, nullptr);
@@ -248,9 +190,9 @@ $ObjectArray* PlatformFont::makeConvertedMultiFontChars($chars* data, int32_t st
 	}
 	while (stringIndex < end) {
 		currentDefaultChar = $nc(data)->get(stringIndex);
-		cacheIndex = ((int32_t)(currentDefaultChar & (uint32_t)PlatformFont::FONTCACHEMASK));
+		cacheIndex = (currentDefaultChar & PlatformFont::FONTCACHEMASK);
 		$assign(theChar, $cast($PlatformFont$PlatformFontCache, $nc($(getFontCache()))->get(cacheIndex)));
-		if (theChar == nullptr || $nc(theChar)->uniChar != currentDefaultChar) {
+		if (theChar == nullptr || theChar->uniChar != currentDefaultChar) {
 			$assign(currentFontDescriptor, this->defaultFont);
 			currentDefaultChar = this->defaultChar;
 			char16_t ch = data->get(stringIndex);
@@ -272,13 +214,12 @@ $ObjectArray* PlatformFont::makeConvertedMultiFontChars($chars* data, int32_t st
 				input->set(0, currentDefaultChar);
 				$assign(theChar, $new($PlatformFont$PlatformFontCache, this));
 				if ($nc(currentFontDescriptor)->useUnicode()) {
-					$init($FontDescriptor);
 					if ($FontDescriptor::isLE) {
-						$nc(theChar->bb)->put((int8_t)((int32_t)(input->get(0) & (uint32_t)255)));
+						$nc(theChar->bb)->put((int8_t)(input->get(0) & 0xff));
 						$nc(theChar->bb)->put((int8_t)(input->get(0) >> 8));
 					} else {
 						$nc(theChar->bb)->put((int8_t)(input->get(0) >> 8));
-						$nc(theChar->bb)->put((int8_t)((int32_t)(input->get(0) & (uint32_t)255)));
+						$nc(theChar->bb)->put((int8_t)(input->get(0) & 0xff));
 					}
 				} else {
 					$nc(currentFontDescriptor->encoder)->encode($($CharBuffer::wrap(input)), theChar->bb, true);
@@ -317,7 +258,7 @@ $ObjectArray* PlatformFont::makeConvertedMultiFontChars($chars* data, int32_t st
 			convertedDataIndex = 4;
 			$assign(lastFontDescriptor, theChar->fontDescriptor);
 		}
-		$var($bytes, ba, $cast($bytes, $nc($nc(theChar)->bb)->array()));
+		$var($bytes, ba, $cast($bytes, $nc(theChar->bb)->array()));
 		int32_t size = $nc(theChar->bb)->position();
 		if (size == 1) {
 			$nc(convertedData)->set(convertedDataIndex++, $nc(ba)->get(0));
@@ -357,12 +298,12 @@ $ObjectArray* PlatformFont::getFontCache() {
 
 void PlatformFont::initIDs() {
 	$init(PlatformFont);
-	$prepareNativeStatic(PlatformFont, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
-void clinit$PlatformFont($Class* class$) {
+void PlatformFont::clinit$($Class* clazz) {
 	{
 		$NativeLibLoader::loadLibraries();
 		PlatformFont::initIDs();
@@ -375,7 +316,53 @@ PlatformFont::PlatformFont() {
 }
 
 $Class* PlatformFont::load$($String* name, bool initialize) {
-	$loadClass(PlatformFont, name, initialize, &_PlatformFont_ClassInfo_, clinit$PlatformFont, allocate$PlatformFont);
+	$FieldInfo fieldInfos$$[] = {
+		{"componentFonts", "[Lsun/awt/FontDescriptor;", nullptr, $PROTECTED, $field(PlatformFont, componentFonts)},
+		{"defaultChar", "C", nullptr, $PROTECTED, $field(PlatformFont, defaultChar)},
+		{"fontConfig", "Lsun/awt/FontConfiguration;", nullptr, $PROTECTED, $field(PlatformFont, fontConfig)},
+		{"defaultFont", "Lsun/awt/FontDescriptor;", nullptr, $PROTECTED, $field(PlatformFont, defaultFont)},
+		{"familyName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(PlatformFont, familyName)},
+		{"fontCache", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(PlatformFont, fontCache)},
+		{"FONTCACHESIZE", "I", nullptr, $PROTECTED | $STATIC, $staticField(PlatformFont, FONTCACHESIZE)},
+		{"FONTCACHEMASK", "I", nullptr, $PROTECTED | $STATIC, $staticField(PlatformFont, FONTCACHEMASK)},
+		{"osVersion", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticField(PlatformFont, osVersion)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(PlatformFont, init$, void, $String*, int32_t)},
+		{"getFontCache", "()[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $method(PlatformFont, getFontCache, $ObjectArray*)},
+		{"getMissingGlyphCharacter", "()C", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PlatformFont, getMissingGlyphCharacter, char16_t)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(PlatformFont, initIDs, void)},
+		{"makeConvertedMultiFontChars", "([CII)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PlatformFont, makeConvertedMultiFontChars, $ObjectArray*, $chars*, int32_t, int32_t)},
+		{"makeConvertedMultiFontString", "(Ljava/lang/String;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PlatformFont, makeConvertedMultiFontString, $ObjectArray*, $String*)},
+		{"makeMultiCharsetString", "(Ljava/lang/String;)[Lsun/awt/CharsetString;", nullptr, $PUBLIC, $virtualMethod(PlatformFont, makeMultiCharsetString, $CharsetStringArray*, $String*)},
+		{"makeMultiCharsetString", "(Ljava/lang/String;Z)[Lsun/awt/CharsetString;", nullptr, $PUBLIC, $virtualMethod(PlatformFont, makeMultiCharsetString, $CharsetStringArray*, $String*, bool)},
+		{"makeMultiCharsetString", "([CII)[Lsun/awt/CharsetString;", nullptr, $PUBLIC, $virtualMethod(PlatformFont, makeMultiCharsetString, $CharsetStringArray*, $chars*, int32_t, int32_t)},
+		{"makeMultiCharsetString", "([CIIZ)[Lsun/awt/CharsetString;", nullptr, $PUBLIC, $virtualMethod(PlatformFont, makeMultiCharsetString, $CharsetStringArray*, $chars*, int32_t, int32_t, bool)},
+		{"mightHaveMultiFontMetrics", "()Z", nullptr, $PUBLIC, $virtualMethod(PlatformFont, mightHaveMultiFontMetrics, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.PlatformFont$PlatformFontCache", "sun.awt.PlatformFont", "PlatformFontCache", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.awt.PlatformFont",
+		"java.lang.Object",
+		"java.awt.peer.FontPeer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.PlatformFont$PlatformFontCache"
+	};
+	$loadClass(PlatformFont, name, initialize, &classInfo$$, PlatformFont::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PlatformFont);
+	});
 	return class$;
 }
 

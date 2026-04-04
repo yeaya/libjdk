@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/bmp/BMPImageWriter.h>
-
 #include <com/sun/imageio/plugins/bmp/BMPCompressionTypes.h>
 #include <com/sun/imageio/plugins/bmp/BMPConstants.h>
 #include <com/sun/imageio/plugins/bmp/BMPImageWriter$1.h>
@@ -38,7 +37,6 @@
 #include <javax/imageio/ImageWriteParam.h>
 #include <javax/imageio/ImageWriter.h>
 #include <javax/imageio/event/IIOWriteProgressListener.h>
-#include <javax/imageio/event/IIOWriteWarningListener.h>
 #include <javax/imageio/metadata/IIOMetadata.h>
 #include <javax/imageio/plugins/bmp/BMPImageWriteParam.h>
 #include <javax/imageio/spi/ImageWriterSpi.h>
@@ -105,8 +103,6 @@ using $ImageIO = ::javax::imageio::ImageIO;
 using $ImageTypeSpecifier = ::javax::imageio::ImageTypeSpecifier;
 using $ImageWriteParam = ::javax::imageio::ImageWriteParam;
 using $ImageWriter = ::javax::imageio::ImageWriter;
-using $IIOWriteProgressListener = ::javax::imageio::event::IIOWriteProgressListener;
-using $IIOWriteWarningListener = ::javax::imageio::event::IIOWriteWarningListener;
 using $IIOMetadata = ::javax::imageio::metadata::IIOMetadata;
 using $BMPImageWriteParam = ::javax::imageio::plugins::bmp::BMPImageWriteParam;
 using $ImageWriterSpi = ::javax::imageio::spi::ImageWriterSpi;
@@ -117,86 +113,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace bmp {
-
-$FieldInfo _BMPImageWriter_FieldInfo_[] = {
-	{"stream", "Ljavax/imageio/stream/ImageOutputStream;", nullptr, $PRIVATE, $field(BMPImageWriter, stream)},
-	{"embedded_stream", "Ljava/io/ByteArrayOutputStream;", nullptr, $PRIVATE, $field(BMPImageWriter, embedded_stream)},
-	{"version", "I", nullptr, $PRIVATE, $field(BMPImageWriter, version)},
-	{"compressionType", "I", nullptr, $PRIVATE, $field(BMPImageWriter, compressionType)},
-	{"isTopDown", "Z", nullptr, $PRIVATE, $field(BMPImageWriter, isTopDown)},
-	{"w", "I", nullptr, $PRIVATE, $field(BMPImageWriter, w)},
-	{"h", "I", nullptr, $PRIVATE, $field(BMPImageWriter, h)},
-	{"compImageSize", "I", nullptr, $PRIVATE, $field(BMPImageWriter, compImageSize)},
-	{"bitMasks", "[I", nullptr, $PRIVATE, $field(BMPImageWriter, bitMasks)},
-	{"bitPos", "[I", nullptr, $PRIVATE, $field(BMPImageWriter, bitPos)},
-	{"bpixels", "[B", nullptr, $PRIVATE, $field(BMPImageWriter, bpixels)},
-	{"spixels", "[S", nullptr, $PRIVATE, $field(BMPImageWriter, spixels)},
-	{"ipixels", "[I", nullptr, $PRIVATE, $field(BMPImageWriter, ipixels)},
-	{}
-};
-
-$MethodInfo _BMPImageWriter_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/imageio/spi/ImageWriterSpi;)V", nullptr, $PUBLIC, $method(BMPImageWriter, init$, void, $ImageWriterSpi*)},
-	{"access$000", "(Lcom/sun/imageio/plugins/bmp/BMPImageWriter;F)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(BMPImageWriter, access$000, void, BMPImageWriter*, float)},
-	{"access$100", "(Lcom/sun/imageio/plugins/bmp/BMPImageWriter;ILjava/lang/String;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(BMPImageWriter, access$100, void, BMPImageWriter*, int32_t, $String*)},
-	{"canEncodeImage", "(ILjava/awt/image/ColorModel;Ljava/awt/image/SampleModel;)Z", nullptr, $PROTECTED, $virtualMethod(BMPImageWriter, canEncodeImage, bool, int32_t, $ColorModel*, $SampleModel*)},
-	{"canEncodeImage", "(ILjavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PROTECTED, $virtualMethod(BMPImageWriter, canEncodeImage, bool, int32_t, $ImageTypeSpecifier*)},
-	{"canWriteRasters", "()Z", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter, canWriteRasters, bool)},
-	{"convertImageMetadata", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter, convertImageMetadata, $IIOMetadata*, $IIOMetadata*, $ImageTypeSpecifier*, $ImageWriteParam*)},
-	{"convertStreamMetadata", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter, convertStreamMetadata, $IIOMetadata*, $IIOMetadata*, $ImageWriteParam*)},
-	{"encodeRLE4", "([BI)V", nullptr, $PRIVATE, $method(BMPImageWriter, encodeRLE4, void, $bytes*, int32_t), "java.io.IOException"},
-	{"encodeRLE8", "([BI)V", nullptr, $PRIVATE, $method(BMPImageWriter, encodeRLE8, void, $bytes*, int32_t), "java.io.IOException"},
-	{"firstLowBit", "(I)I", nullptr, $PRIVATE, $method(BMPImageWriter, firstLowBit, int32_t, int32_t)},
-	{"getDefaultImageMetadata", "(Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter, getDefaultImageMetadata, $IIOMetadata*, $ImageTypeSpecifier*, $ImageWriteParam*)},
-	{"getDefaultStreamMetadata", "(Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter, getDefaultStreamMetadata, $IIOMetadata*, $ImageWriteParam*)},
-	{"getDefaultWriteParam", "()Ljavax/imageio/ImageWriteParam;", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter, getDefaultWriteParam, $ImageWriteParam*)},
-	{"getPreferredCompressionType", "(Ljava/awt/image/ColorModel;Ljava/awt/image/SampleModel;)I", nullptr, $PROTECTED, $virtualMethod(BMPImageWriter, getPreferredCompressionType, int32_t, $ColorModel*, $SampleModel*)},
-	{"getPreferredCompressionType", "(Ljavax/imageio/ImageTypeSpecifier;)I", nullptr, $PROTECTED, $virtualMethod(BMPImageWriter, getPreferredCompressionType, int32_t, $ImageTypeSpecifier*)},
-	{"incCompImageSize", "(I)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(BMPImageWriter, incCompImageSize, void, int32_t)},
-	{"isEven", "(I)Z", nullptr, $PRIVATE, $method(BMPImageWriter, isEven, bool, int32_t)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter, reset, void)},
-	{"roundBpp", "(I)I", nullptr, $PRIVATE, $method(BMPImageWriter, roundBpp, int32_t, int32_t)},
-	{"setOutput", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter, setOutput, void, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"write", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter, write, void, $IIOMetadata*, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
-	{"writeEmbedded", "(Ljavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PRIVATE, $method(BMPImageWriter, writeEmbedded, void, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
-	{"writeFileHeader", "(II)V", nullptr, $PRIVATE, $method(BMPImageWriter, writeFileHeader, void, int32_t, int32_t), "java.io.IOException"},
-	{"writeInfoHeader", "(II)V", nullptr, $PRIVATE, $method(BMPImageWriter, writeInfoHeader, void, int32_t, int32_t), "java.io.IOException"},
-	{"writeMaskToPalette", "(II[B[B[B[B)V", nullptr, $PROTECTED, $virtualMethod(BMPImageWriter, writeMaskToPalette, void, int32_t, int32_t, $bytes*, $bytes*, $bytes*, $bytes*)},
-	{"writePixels", "(III[IIILjava/awt/image/IndexColorModel;)V", nullptr, $PRIVATE, $method(BMPImageWriter, writePixels, void, int32_t, int32_t, int32_t, $ints*, int32_t, int32_t, $IndexColorModel*), "java.io.IOException"},
-	{"writeSize", "(II)V", nullptr, $PRIVATE, $method(BMPImageWriter, writeSize, void, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _BMPImageWriter_InnerClassesInfo_[] = {
-	{"com.sun.imageio.plugins.bmp.BMPImageWriter$IIOWriteProgressAdapter", "com.sun.imageio.plugins.bmp.BMPImageWriter", "IIOWriteProgressAdapter", $PRIVATE | $STATIC},
-	{"com.sun.imageio.plugins.bmp.BMPImageWriter$2", nullptr, nullptr, 0},
-	{"com.sun.imageio.plugins.bmp.BMPImageWriter$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BMPImageWriter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.bmp.BMPImageWriter",
-	"javax.imageio.ImageWriter",
-	"com.sun.imageio.plugins.bmp.BMPConstants",
-	_BMPImageWriter_FieldInfo_,
-	_BMPImageWriter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BMPImageWriter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.imageio.plugins.bmp.BMPImageWriter$IIOWriteProgressAdapter,com.sun.imageio.plugins.bmp.BMPImageWriter$2,com.sun.imageio.plugins.bmp.BMPImageWriter$1"
-};
-
-$Object* allocate$BMPImageWriter($Class* clazz) {
-	return $of($alloc(BMPImageWriter));
-}
 
 int32_t BMPImageWriter::hashCode() {
 	 return this->$ImageWriter::hashCode();
@@ -258,7 +174,7 @@ $IIOMetadata* BMPImageWriter::getDefaultStreamMetadata($ImageWriteParam* param) 
 }
 
 $IIOMetadata* BMPImageWriter::getDefaultImageMetadata($ImageTypeSpecifier* imageType, $ImageWriteParam* param) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BMPMetadata, meta, $new($BMPMetadata));
 	$init($BMPConstants);
 	$set(meta, bmpVersion, $BMPConstants::VERSION_3);
@@ -266,7 +182,7 @@ $IIOMetadata* BMPImageWriter::getDefaultImageMetadata($ImageTypeSpecifier* image
 	if (param != nullptr && param->getCompressionMode() == $ImageWriteParam::MODE_EXPLICIT) {
 		meta->compression = $BMPCompressionTypes::getType($(param->getCompressionType()));
 	}
-	meta->bitsPerPixel = (int16_t)$nc($($nc(imageType)->getColorModel()))->getPixelSize();
+	meta->bitsPerPixel = (int16_t)$$nc($nc(imageType)->getColorModel())->getPixelSize();
 	return meta;
 }
 
@@ -283,7 +199,7 @@ bool BMPImageWriter::canWriteRasters() {
 }
 
 void BMPImageWriter::write($IIOMetadata* streamMetadata, $IIOImage* image, $ImageWriteParam* param$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ImageWriteParam, param, param$renamed);
 	if (this->stream == nullptr) {
 		$throwNew($IllegalStateException, $($I18N::getString("BMPImageWriter7"_s)));
@@ -319,7 +235,7 @@ void BMPImageWriter::write($IIOMetadata* streamMetadata, $IIOImage* image, $Imag
 		if (sourceRegion == nullptr) {
 			$assign(sourceRegion, inputRaster->getBounds());
 		} else {
-			$assign(sourceRegion, $nc(sourceRegion)->intersection($(inputRaster->getBounds())));
+			$assign(sourceRegion, sourceRegion->intersection($(inputRaster->getBounds())));
 		}
 	} else {
 		$assign(input, image->getRenderedImage());
@@ -332,7 +248,7 @@ void BMPImageWriter::write($IIOMetadata* streamMetadata, $IIOImage* image, $Imag
 		if (sourceRegion == nullptr) {
 			$assign(sourceRegion, rect);
 		} else {
-			$assign(sourceRegion, $nc(sourceRegion)->intersection(rect));
+			$assign(sourceRegion, sourceRegion->intersection(rect));
 		}
 	}
 	$var($IIOMetadata, imageMetadata, image->getMetadata());
@@ -351,7 +267,7 @@ void BMPImageWriter::write($IIOMetadata* streamMetadata, $IIOImage* image, $Imag
 	int32_t xOffset = param->getSubsamplingXOffset();
 	int32_t yOffset = param->getSubsamplingYOffset();
 	int32_t dataType = $nc(sampleModel)->getDataType();
-	$nc(sourceRegion)->translate(xOffset, yOffset);
+	sourceRegion->translate(xOffset, yOffset);
 	sourceRegion->width -= xOffset;
 	sourceRegion->height -= yOffset;
 	int32_t minX = $div(sourceRegion->x, scaleX);
@@ -379,7 +295,7 @@ void BMPImageWriter::write($IIOMetadata* streamMetadata, $IIOImage* image, $Imag
 	$var($ints, bandOffsets, nullptr);
 	bool bgrOrder = true;
 	if ($instanceOf($ComponentSampleModel, sampleModel)) {
-		$assign(bandOffsets, $nc(($cast($ComponentSampleModel, sampleModel)))->getBandOffsets());
+		$assign(bandOffsets, $cast($ComponentSampleModel, sampleModel)->getBandOffsets());
 		if ($instanceOf($BandedSampleModel, sampleModel)) {
 			bgrOrder = false;
 		} else {
@@ -388,7 +304,7 @@ void BMPImageWriter::write($IIOMetadata* streamMetadata, $IIOImage* image, $Imag
 			}
 		}
 	} else if ($instanceOf($SinglePixelPackedSampleModel, sampleModel)) {
-		$var($ints, bitOffsets, $nc(($cast($SinglePixelPackedSampleModel, sampleModel)))->getBitOffsets());
+		$var($ints, bitOffsets, $cast($SinglePixelPackedSampleModel, sampleModel)->getBitOffsets());
 		for (int32_t i = 0; i < $nc(bitOffsets)->length - 1; ++i) {
 			bgrOrder &= bitOffsets->get(i) > bitOffsets->get(i + 1);
 		}
@@ -404,24 +320,16 @@ void BMPImageWriter::write($IIOMetadata* streamMetadata, $IIOImage* image, $Imag
 	int32_t destScanlineBytes = this->w * numBands;
 	switch ($nc(bmpParam)->getCompressionMode()) {
 	case $ImageWriteParam::MODE_EXPLICIT:
-		{
-			this->compressionType = $BMPCompressionTypes::getType($(bmpParam->getCompressionType()));
-			break;
-		}
+		this->compressionType = $BMPCompressionTypes::getType($(bmpParam->getCompressionType()));
+		break;
 	case $ImageWriteParam::MODE_COPY_FROM_METADATA:
-		{
-			this->compressionType = $nc(bmpImageMetadata)->compression;
-			break;
-		}
+		this->compressionType = $nc(bmpImageMetadata)->compression;
+		break;
 	case $ImageWriteParam::MODE_DEFAULT:
-		{
-			this->compressionType = getPreferredCompressionType(colorModel, sampleModel);
-			break;
-		}
+		this->compressionType = getPreferredCompressionType(colorModel, sampleModel);
+		break;
 	default:
-		{
-			this->compressionType = $BMPConstants::BI_RGB;
-		}
+		this->compressionType = $BMPConstants::BI_RGB;
 	}
 	if (!canEncodeImage(this->compressionType, colorModel, sampleModel)) {
 		$throwNew($IOException, $$str({"Image can not be encoded with compression type "_s, $($BMPCompressionTypes::getName(this->compressionType))}));
@@ -443,13 +351,13 @@ void BMPImageWriter::write($IIOMetadata* streamMetadata, $IIOImage* image, $Imag
 		$assign(g, $new($bytes, paletteEntries));
 		$assign(b, $new($bytes, paletteEntries));
 		$assign(a, $new($bytes, paletteEntries));
-		int32_t rmask = 0x00FF0000;
-		int32_t gmask = 0x0000FF00;
+		int32_t rmask = 0x00ff0000;
+		int32_t gmask = 0x0000ff00;
 		int32_t bmask = 255;
 		if (bitsPerPixel == 16) {
 			if ($instanceOf($DirectColorModel, colorModel)) {
 				$var($DirectColorModel, dcm, $cast($DirectColorModel, colorModel));
-				rmask = $nc(dcm)->getRedMask();
+				rmask = dcm->getRedMask();
 				gmask = dcm->getGreenMask();
 				bmask = dcm->getBlueMask();
 			} else {
@@ -461,11 +369,11 @@ void BMPImageWriter::write($IIOMetadata* streamMetadata, $IIOImage* image, $Imag
 		writeMaskToPalette(bmask, 2, r, g, b, a);
 		if (!noTransform) {
 			$set(this, bitMasks, $new($ints, 3));
-			$nc(this->bitMasks)->set(0, rmask);
-			$nc(this->bitMasks)->set(1, gmask);
-			$nc(this->bitMasks)->set(2, bmask);
+			this->bitMasks->set(0, rmask);
+			this->bitMasks->set(1, gmask);
+			this->bitMasks->set(2, bmask);
 			$set(this, bitPos, $new($ints, 3));
-			$nc(this->bitPos)->set(0, firstLowBit(rmask));
+			this->bitPos->set(0, firstLowBit(rmask));
 			$nc(this->bitPos)->set(1, firstLowBit(gmask));
 			$nc(this->bitPos)->set(2, firstLowBit(bmask));
 		}
@@ -475,7 +383,7 @@ void BMPImageWriter::write($IIOMetadata* streamMetadata, $IIOImage* image, $Imag
 	} else if ($instanceOf($IndexColorModel, colorModel)) {
 		isPalette = true;
 		$assign(icm, $cast($IndexColorModel, colorModel));
-		paletteEntries = $nc(icm)->getMapSize();
+		paletteEntries = icm->getMapSize();
 		if (paletteEntries <= 2) {
 			bitsPerPixel = 1;
 			destScanlineBytes = (this->w + 7) >> 3;
@@ -520,9 +428,7 @@ void BMPImageWriter::write($IIOMetadata* streamMetadata, $IIOImage* image, $Imag
 		bitsPerPixel = 0;
 		{
 			$var($ints, arr$, sample_sizes);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				int32_t size = arr$->get(i$);
 				{
 					bitsPerPixel += size;
@@ -568,7 +474,7 @@ void BMPImageWriter::write($IIOMetadata* streamMetadata, $IIOImage* image, $Imag
 	if (isPalette == true) {
 		if (this->compressionType == $BMPConstants::BI_BITFIELDS) {
 			for (int32_t i = 0; i < 3; ++i) {
-				int32_t mask = ((int32_t)($nc(a)->get(i) & (uint32_t)255)) + (((int32_t)($nc(r)->get(i) & (uint32_t)255)) * 256) + (((int32_t)($nc(g)->get(i) & (uint32_t)255)) * 0x00010000) + (((int32_t)($nc(b)->get(i) & (uint32_t)255)) * 0x01000000);
+				int32_t mask = ($nc(a)->get(i) & 0xff) + (($nc(r)->get(i) & 0xff) * 0x0100) + (($nc(g)->get(i) & 0xff) * 0x00010000) + (($nc(b)->get(i) & 0xff) * 0x01000000);
 				$nc(this->stream)->writeInt(mask);
 			}
 		} else {
@@ -588,7 +494,7 @@ void BMPImageWriter::write($IIOMetadata* streamMetadata, $IIOImage* image, $Imag
 		$set(this, embedded_stream, $new($ByteArrayOutputStream));
 		writeEmbedded(image, bmpParam);
 		$nc(this->embedded_stream)->flush();
-		imageSize = $nc(this->embedded_stream)->size();
+		imageSize = this->embedded_stream->size();
 		int64_t endPos = $nc(this->stream)->getStreamPosition();
 		fileSize = offset + imageSize;
 		$nc(this->stream)->seek(headPos);
@@ -630,7 +536,7 @@ void BMPImageWriter::write($IIOMetadata* streamMetadata, $IIOImage* image, $Imag
 			int32_t startY = srcRect->y - src->getSampleModelTranslateY();
 			if ($instanceOf($ComponentSampleModel, sm)) {
 				$var($ComponentSampleModel, csm, $cast($ComponentSampleModel, sm));
-				pos = $nc(csm)->getOffset(startX, startY, 0);
+				pos = csm->getOffset(startX, startY, 0);
 				for (int32_t nb = 1; nb < csm->getNumBands(); ++nb) {
 					if (pos > csm->getOffset(startX, startY, nb)) {
 						pos = csm->getOffset(startX, startY, nb);
@@ -638,49 +544,41 @@ void BMPImageWriter::write($IIOMetadata* streamMetadata, $IIOImage* image, $Imag
 				}
 			} else if ($instanceOf($MultiPixelPackedSampleModel, sm)) {
 				$var($MultiPixelPackedSampleModel, mppsm, $cast($MultiPixelPackedSampleModel, sm));
-				pos = $nc(mppsm)->getOffset(startX, startY);
+				pos = mppsm->getOffset(startX, startY);
 			} else if ($instanceOf($SinglePixelPackedSampleModel, sm)) {
 				$var($SinglePixelPackedSampleModel, sppsm, $cast($SinglePixelPackedSampleModel, sm));
-				pos = $nc(sppsm)->getOffset(startX, startY);
+				pos = sppsm->getOffset(startX, startY);
 			}
 			if (this->compressionType == $BMPConstants::BI_RGB || this->compressionType == $BMPConstants::BI_BITFIELDS) {
 				{
-					$var($bytes, bdata, nullptr)
-					$var($shorts, sdata, nullptr)
-					$var($shorts, usdata, nullptr)
-					$var($ints, idata, nullptr)
+					$var($bytes, bdata, nullptr);
+					$var($shorts, sdata, nullptr);
+					$var($shorts, usdata, nullptr);
+					$var($ints, idata, nullptr);
 					switch (dataType) {
 					case $DataBuffer::TYPE_BYTE:
-						{
-							$assign(bdata, $nc(($cast($DataBufferByte, $(src->getDataBuffer()))))->getData());
-							$nc(this->stream)->write(bdata, pos, destScanlineLength);
-							break;
-						}
+						$assign(bdata, $$sure($DataBufferByte, src->getDataBuffer())->getData());
+						$nc(this->stream)->write(bdata, pos, destScanlineLength);
+						break;
 					case $DataBuffer::TYPE_SHORT:
-						{
-							$assign(sdata, $nc(($cast($DataBufferShort, $(src->getDataBuffer()))))->getData());
-							$nc(this->stream)->writeShorts(sdata, pos, destScanlineLength);
-							break;
-						}
+						$assign(sdata, $$sure($DataBufferShort, src->getDataBuffer())->getData());
+						$nc(this->stream)->writeShorts(sdata, pos, destScanlineLength);
+						break;
 					case $DataBuffer::TYPE_USHORT:
-						{
-							$assign(usdata, $nc(($cast($DataBufferUShort, $(src->getDataBuffer()))))->getData());
-							$nc(this->stream)->writeShorts(usdata, pos, destScanlineLength);
-							break;
-						}
+						$assign(usdata, $$sure($DataBufferUShort, src->getDataBuffer())->getData());
+						$nc(this->stream)->writeShorts(usdata, pos, destScanlineLength);
+						break;
 					case $DataBuffer::TYPE_INT:
-						{
-							$assign(idata, $nc(($cast($DataBufferInt, $(src->getDataBuffer()))))->getData());
-							$nc(this->stream)->writeInts(idata, pos, destScanlineLength);
-							break;
-						}
+						$assign(idata, $$sure($DataBufferInt, src->getDataBuffer())->getData());
+						$nc(this->stream)->writeInts(idata, pos, destScanlineLength);
+						break;
 					}
 				}
 				for (int32_t k = 0; k < padding; ++k) {
 					$nc(this->stream)->writeByte(0);
 				}
 			} else if (this->compressionType == $BMPConstants::BI_RLE4) {
-				if (this->bpixels == nullptr || $nc(this->bpixels)->length < scanlineBytes) {
+				if (this->bpixels == nullptr || this->bpixels->length < scanlineBytes) {
 					$set(this, bpixels, $new($bytes, scanlineBytes));
 				}
 				src->getPixels(srcRect->x, srcRect->y, srcRect->width, srcRect->height, pixels);
@@ -689,7 +587,7 @@ void BMPImageWriter::write($IIOMetadata* streamMetadata, $IIOImage* image, $Imag
 				}
 				encodeRLE4(this->bpixels, scanlineBytes);
 			} else if (this->compressionType == $BMPConstants::BI_RLE8) {
-				if (this->bpixels == nullptr || $nc(this->bpixels)->length < scanlineBytes) {
+				if (this->bpixels == nullptr || this->bpixels->length < scanlineBytes) {
 					$set(this, bpixels, $new($bytes, scanlineBytes));
 				}
 				src->getPixels(srcRect->x, srcRect->y, srcRect->width, srcRect->height, pixels);
@@ -701,15 +599,10 @@ void BMPImageWriter::write($IIOMetadata* streamMetadata, $IIOImage* image, $Imag
 		} else {
 			$nc(src)->getPixels(srcRect->x, srcRect->y, srcRect->width, srcRect->height, pixels);
 			if (scaleX != 1 || maxBandOffset != numBands - 1) {
-				{
-					int32_t j = 0;
-					int32_t k = 0;
-					int32_t n = 0;
-					for (; j < this->w; ++j, k += scaleX * numBands, n += numBands) {
-						$System::arraycopy(pixels, k, pixel, 0, pixel->length);
-						for (int32_t m = 0; m < numBands; ++m) {
-							pixels->set(n + m, pixel->get($nc(sourceBands)->get(m)));
-						}
+				for (int32_t j = 0, k = 0, n = 0; j < this->w; ++j, k += scaleX * numBands, n += numBands) {
+					$System::arraycopy(pixels, k, pixel, 0, pixel->length);
+					for (int32_t m = 0; m < numBands; ++m) {
+						pixels->set(n + m, pixel->get($nc(sourceBands)->get(m)));
 					}
 				}
 			}
@@ -742,155 +635,135 @@ void BMPImageWriter::write($IIOMetadata* streamMetadata, $IIOImage* image, $Imag
 }
 
 void BMPImageWriter::writePixels(int32_t l, int32_t scanlineBytes, int32_t bitsPerPixel, $ints* pixels, int32_t padding, int32_t numBands, $IndexColorModel* icm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pixel = 0;
 	int32_t k = 0;
 	switch (bitsPerPixel) {
 	case 1:
-		{
-			for (int32_t j = 0; j < scanlineBytes / 8; ++j) {
-				int32_t var$6 = ($nc(pixels)->get(l++) << 7);
-				int32_t var$5 = var$6 | (pixels->get(l++) << 6);
-				int32_t var$4 = var$5 | (pixels->get(l++) << 5);
-				int32_t var$3 = var$4 | (pixels->get(l++) << 4);
-				int32_t var$2 = var$3 | (pixels->get(l++) << 3);
-				int32_t var$1 = var$2 | (pixels->get(l++) << 2);
-				int32_t var$0 = var$1 | (pixels->get(l++) << 1);
-				$nc(this->bpixels)->set(k++, (int8_t)(var$0 | pixels->get(l++)));
+		for (int32_t j = 0; j < scanlineBytes / 8; ++j) {
+			int32_t var$6 = $nc(pixels)->get(l++) << 7;
+			int32_t var$5 = var$6 | (pixels->get(l++) << 6);
+			int32_t var$4 = var$5 | (pixels->get(l++) << 5);
+			int32_t var$3 = var$4 | (pixels->get(l++) << 4);
+			int32_t var$2 = var$3 | (pixels->get(l++) << 3);
+			int32_t var$1 = var$2 | (pixels->get(l++) << 2);
+			int32_t var$0 = var$1 | (pixels->get(l++) << 1);
+			$nc(this->bpixels)->set(k++, (int8_t)(var$0 | pixels->get(l++)));
+		}
+		if (scanlineBytes % 8 > 0) {
+			pixel = 0;
+			for (int32_t j = 0; j < scanlineBytes % 8; ++j) {
+				pixel |= ($sl($nc(pixels)->get(l++), 7 - j));
 			}
-			if (scanlineBytes % 8 > 0) {
-				pixel = 0;
-				for (int32_t j = 0; j < scanlineBytes % 8; ++j) {
-					pixel |= ($sl($nc(pixels)->get(l++), 7 - j));
-				}
+			$nc(this->bpixels)->set(k++, (int8_t)pixel);
+		}
+		$nc(this->stream)->write(this->bpixels, 0, (scanlineBytes + 7) / 8);
+		break;
+	case 4:
+		if (this->compressionType == $BMPConstants::BI_RLE4) {
+			$var($bytes, bipixels, $new($bytes, scanlineBytes));
+			for (int32_t h = 0; h < scanlineBytes; ++h) {
+				bipixels->set(h, (int8_t)$nc(pixels)->get(l++));
+			}
+			encodeRLE4(bipixels, scanlineBytes);
+		} else {
+			for (int32_t j = 0; j < scanlineBytes / 2; ++j) {
+				int32_t var$7 = $nc(pixels)->get(l++) << 4;
+				pixel = var$7 | pixels->get(l++);
 				$nc(this->bpixels)->set(k++, (int8_t)pixel);
 			}
-			$nc(this->stream)->write(this->bpixels, 0, (scanlineBytes + 7) / 8);
-			break;
-		}
-	case 4:
-		{
-			if (this->compressionType == $BMPConstants::BI_RLE4) {
-				$var($bytes, bipixels, $new($bytes, scanlineBytes));
-				for (int32_t h = 0; h < scanlineBytes; ++h) {
-					bipixels->set(h, (int8_t)$nc(pixels)->get(l++));
-				}
-				encodeRLE4(bipixels, scanlineBytes);
-			} else {
-				for (int32_t j = 0; j < scanlineBytes / 2; ++j) {
-					int32_t var$7 = ($nc(pixels)->get(l++) << 4);
-					pixel = var$7 | pixels->get(l++);
-					$nc(this->bpixels)->set(k++, (int8_t)pixel);
-				}
-				if ((scanlineBytes % 2) == 1) {
-					pixel = $nc(pixels)->get(l) << 4;
-					$nc(this->bpixels)->set(k++, (int8_t)pixel);
-				}
-				$nc(this->stream)->write(this->bpixels, 0, (scanlineBytes + 1) / 2);
+			if ((scanlineBytes % 2) == 1) {
+				pixel = $nc(pixels)->get(l) << 4;
+				$nc(this->bpixels)->set(k++, (int8_t)pixel);
 			}
-			break;
+			$nc(this->stream)->write(this->bpixels, 0, (scanlineBytes + 1) / 2);
 		}
+		break;
 	case 8:
-		{
-			if (this->compressionType == $BMPConstants::BI_RLE8) {
-				for (int32_t h = 0; h < scanlineBytes; ++h) {
-					$nc(this->bpixels)->set(h, (int8_t)$nc(pixels)->get(l++));
-				}
-				encodeRLE8(this->bpixels, scanlineBytes);
-			} else {
-				for (int32_t j = 0; j < scanlineBytes; ++j) {
-					$nc(this->bpixels)->set(j, (int8_t)$nc(pixels)->get(l++));
-				}
-				$nc(this->stream)->write(this->bpixels, 0, scanlineBytes);
+		if (this->compressionType == $BMPConstants::BI_RLE8) {
+			for (int32_t h = 0; h < scanlineBytes; ++h) {
+				$nc(this->bpixels)->set(h, (int8_t)$nc(pixels)->get(l++));
 			}
-			break;
+			encodeRLE8(this->bpixels, scanlineBytes);
+		} else {
+			for (int32_t j = 0; j < scanlineBytes; ++j) {
+				$nc(this->bpixels)->set(j, (int8_t)$nc(pixels)->get(l++));
+			}
+			$nc(this->stream)->write(this->bpixels, 0, scanlineBytes);
 		}
+		break;
 	case 16:
-		{
-			if (this->spixels == nullptr) {
-				$set(this, spixels, $new($shorts, $div(scanlineBytes, numBands)));
-			}
-			{
-				int32_t j = 0;
-				int32_t m = 0;
-				for (; j < scanlineBytes; ++m) {
-					$nc(this->spixels)->set(m, (int16_t)0);
-					if (this->compressionType == $BMPConstants::BI_RGB) {
-						$nc(this->spixels)->set(m, (int16_t)(((((int32_t)(31 & (uint32_t)$nc(pixels)->get(j))) << 10) | (((int32_t)(31 & (uint32_t)pixels->get(j + 1))) << 5)) | ((int32_t)(31 & (uint32_t)pixels->get(j + 2)))));
-						j += 3;
-					} else {
-						for (int32_t i = 0; i < numBands; ++i, ++j) {
-							(*$nc(this->spixels))[m] |= ((int32_t)(($sl($nc(pixels)->get(j), $nc(this->bitPos)->get(i))) & (uint32_t)$nc(this->bitMasks)->get(i)));
-						}
-					}
+		if (this->spixels == nullptr) {
+			$set(this, spixels, $new($shorts, $div(scanlineBytes, numBands)));
+		}
+		for (int32_t j = 0, m = 0; j < scanlineBytes; ++m) {
+			$nc(this->spixels)->set(m, 0);
+			if (this->compressionType == $BMPConstants::BI_RGB) {
+				this->spixels->set(m, (int16_t)((((0x1f & $nc(pixels)->get(j)) << 10) | ((0x1f & $nc(pixels)->get(j + 1)) << 5)) | (0x1f & $nc(pixels)->get(j + 2))));
+				j += 3;
+			} else {
+				for (int32_t i = 0; i < numBands; ++i, ++j) {
+					(*this->spixels)[m] |= (($sl($nc(pixels)->get(j), $nc(this->bitPos)->get(i))) & $nc(this->bitMasks)->get(i));
 				}
 			}
-			$nc(this->stream)->writeShorts(this->spixels, 0, $nc(this->spixels)->length);
-			break;
 		}
+		$nc(this->stream)->writeShorts(this->spixels, 0, $nc(this->spixels)->length);
+		break;
 	case 24:
-		{
-			if (numBands == 3) {
-				for (int32_t j = 0; j < scanlineBytes; j += 3) {
-					$nc(this->bpixels)->set(k++, (int8_t)($nc(pixels)->get(l + 2)));
-					$nc(this->bpixels)->set(k++, (int8_t)(pixels->get(l + 1)));
-					$nc(this->bpixels)->set(k++, (int8_t)(pixels->get(l)));
-					l += 3;
-				}
-				$nc(this->stream)->write(this->bpixels, 0, scanlineBytes);
-			} else {
-				int32_t entries = $nc(icm)->getMapSize();
-				$var($bytes, r, $new($bytes, entries));
-				$var($bytes, g, $new($bytes, entries));
-				$var($bytes, b, $new($bytes, entries));
-				icm->getReds(r);
-				icm->getGreens(g);
-				icm->getBlues(b);
-				int32_t index = 0;
-				for (int32_t j = 0; j < scanlineBytes; ++j) {
-					index = $nc(pixels)->get(l);
-					$nc(this->bpixels)->set(k++, b->get(index));
-					$nc(this->bpixels)->set(k++, g->get(index));
-					$nc(this->bpixels)->set(k++, b->get(index));
-					++l;
-				}
-				$nc(this->stream)->write(this->bpixels, 0, scanlineBytes * 3);
+		if (numBands == 3) {
+			for (int32_t j = 0; j < scanlineBytes; j += 3) {
+				$nc(this->bpixels)->set(k++, (int8_t)($nc(pixels)->get(l + 2)));
+				this->bpixels->set(k++, (int8_t)(pixels->get(l + 1)));
+				this->bpixels->set(k++, (int8_t)(pixels->get(l)));
+				l += 3;
 			}
-			break;
+			$nc(this->stream)->write(this->bpixels, 0, scanlineBytes);
+		} else {
+			int32_t entries = $nc(icm)->getMapSize();
+			$var($bytes, r, $new($bytes, entries));
+			$var($bytes, g, $new($bytes, entries));
+			$var($bytes, b, $new($bytes, entries));
+			icm->getReds(r);
+			icm->getGreens(g);
+			icm->getBlues(b);
+			int32_t index = 0;
+			for (int32_t j = 0; j < scanlineBytes; ++j) {
+				index = $nc(pixels)->get(l);
+				$nc(this->bpixels)->set(k++, b->get(index));
+				this->bpixels->set(k++, g->get(index));
+				this->bpixels->set(k++, b->get(index));
+				++l;
+			}
+			$nc(this->stream)->write(this->bpixels, 0, scanlineBytes * 3);
 		}
+		break;
 	case 32:
-		{
-			if (this->ipixels == nullptr) {
-				$set(this, ipixels, $new($ints, $div(scanlineBytes, numBands)));
-			}
-			if (numBands == 3) {
-				{
-					int32_t j = 0;
-					int32_t m = 0;
-					for (; j < scanlineBytes; ++m) {
-						$nc(this->ipixels)->set(m, 0);
-						if (this->compressionType == $BMPConstants::BI_RGB) {
-							$nc(this->ipixels)->set(m, ((((int32_t)(255 & (uint32_t)$nc(pixels)->get(j + 2))) << 16) | (((int32_t)(255 & (uint32_t)pixels->get(j + 1))) << 8)) | ((int32_t)(255 & (uint32_t)pixels->get(j))));
-							j += 3;
-						} else {
-							for (int32_t i = 0; i < numBands; ++i, ++j) {
-								(*$nc(this->ipixels))[m] |= ((int32_t)(($sl($nc(pixels)->get(j), $nc(this->bitPos)->get(i))) & (uint32_t)$nc(this->bitMasks)->get(i)));
-							}
-						}
-					}
-				}
-			} else {
-				for (int32_t j = 0; j < scanlineBytes; ++j) {
-					if (icm != nullptr) {
-						$nc(this->ipixels)->set(j, icm->getRGB($nc(pixels)->get(j)));
-					} else {
-						$nc(this->ipixels)->set(j, (($nc(pixels)->get(j) << 16) | (pixels->get(j) << 8)) | pixels->get(j));
-					}
-				}
-			}
-			$nc(this->stream)->writeInts(this->ipixels, 0, $nc(this->ipixels)->length);
-			break;
+		if (this->ipixels == nullptr) {
+			$set(this, ipixels, $new($ints, $div(scanlineBytes, numBands)));
 		}
+		if (numBands == 3) {
+			for (int32_t j = 0, m = 0; j < scanlineBytes; ++m) {
+				$nc(this->ipixels)->set(m, 0);
+				if (this->compressionType == $BMPConstants::BI_RGB) {
+					this->ipixels->set(m, (((0xff & $nc(pixels)->get(j + 2)) << 16) | ((0xff & $nc(pixels)->get(j + 1)) << 8)) | (0xff & $nc(pixels)->get(j)));
+					j += 3;
+				} else {
+					for (int32_t i = 0; i < numBands; ++i, ++j) {
+						(*this->ipixels)[m] |= (($sl($nc(pixels)->get(j), $nc(this->bitPos)->get(i))) & $nc(this->bitMasks)->get(i));
+					}
+				}
+			}
+		} else {
+			for (int32_t j = 0; j < scanlineBytes; ++j) {
+				if (icm != nullptr) {
+					$nc(this->ipixels)->set(j, icm->getRGB($nc(pixels)->get(j)));
+				} else {
+					$nc(this->ipixels)->set(j, (($nc(pixels)->get(j) << 16) | ($nc(pixels)->get(j) << 8)) | $nc(pixels)->get(j));
+				}
+			}
+		}
+		$nc(this->stream)->writeInts(this->ipixels, 0, $nc(this->ipixels)->length);
+		break;
 	}
 	if (this->compressionType == $BMPConstants::BI_RGB || this->compressionType == $BMPConstants::BI_BITFIELDS) {
 		for (k = 0; k < padding; ++k) {
@@ -903,8 +776,8 @@ void BMPImageWriter::encodeRLE8($bytes* bpixels, int32_t scanlineBytes) {
 	int32_t runCount = 1;
 	int32_t absVal = -1;
 	int32_t j = -1;
-	int8_t runVal = (int8_t)0;
-	int8_t nextVal = (int8_t)0;
+	int8_t runVal = 0;
+	int8_t nextVal = 0;
 	runVal = $nc(bpixels)->get(++j);
 	$var($bytes, absBuf, $new($bytes, 256));
 	while (j < scanlineBytes - 1) {
@@ -1000,10 +873,10 @@ void BMPImageWriter::encodeRLE4($bytes* bipixels, int32_t scanlineBytes) {
 	int32_t j = -1;
 	int32_t pixel = 0;
 	int32_t q = 0;
-	int8_t runVal1 = (int8_t)0;
-	int8_t runVal2 = (int8_t)0;
-	int8_t nextVal1 = (int8_t)0;
-	int8_t nextVal2 = (int8_t)0;
+	int8_t runVal1 = 0;
+	int8_t runVal2 = 0;
+	int8_t nextVal1 = 0;
+	int8_t nextVal2 = 0;
 	$var($bytes, absBuf, $new($bytes, 256));
 	runVal1 = $nc(bipixels)->get(++j);
 	runVal2 = bipixels->get(++j);
@@ -1152,26 +1025,20 @@ void BMPImageWriter::encodeRLE4($bytes* bipixels, int32_t scanlineBytes) {
 						incCompImageSize(1);
 					}
 				} else {
-					{
-						int32_t n = 0;
-						switch (absVal) {
-						case 0:
-							{
-								$nc(this->stream)->writeByte(1);
-								n = (absBuf->get(0) << 4) | 0;
-								$nc(this->stream)->writeByte(n);
-								incCompImageSize(2);
-								break;
-							}
-						case 1:
-							{
-								$nc(this->stream)->writeByte(2);
-								pixel = (absBuf->get(0) << 4) | absBuf->get(1);
-								$nc(this->stream)->writeByte(pixel);
-								incCompImageSize(2);
-								break;
-							}
-						}
+					int32_t n = 0;
+					switch (absVal) {
+					case 0:
+						$nc(this->stream)->writeByte(1);
+						n = (absBuf->get(0) << 4) | 0;
+						$nc(this->stream)->writeByte(n);
+						incCompImageSize(2);
+						break;
+					case 1:
+						$nc(this->stream)->writeByte(2);
+						pixel = (absBuf->get(0) << 4) | absBuf->get(1);
+						$nc(this->stream)->writeByte(pixel);
+						incCompImageSize(2);
+						break;
 					}
 				}
 			}
@@ -1219,7 +1086,7 @@ void BMPImageWriter::reset() {
 }
 
 void BMPImageWriter::writeEmbedded($IIOImage* image, $ImageWriteParam* bmpParam) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, format, this->compressionType == $BMPConstants::BI_JPEG ? "jpeg"_s : "png"_s);
 	$var($Iterator, iterator, $ImageIO::getImageWritersByFormatName(format));
 	$var($ImageWriter, writer, nullptr);
@@ -1235,9 +1102,9 @@ void BMPImageWriter::writeEmbedded($IIOImage* image, $ImageWriteParam* bmpParam)
 		writer->setOutput($($ImageIO::createImageOutputStream(this->embedded_stream)));
 		$var($ImageWriteParam, param, writer->getDefaultWriteParam());
 		$nc(param)->setDestinationOffset($($nc(bmpParam)->getDestinationOffset()));
-		param->setSourceBands($($nc(bmpParam)->getSourceBands()));
-		param->setSourceRegion($($nc(bmpParam)->getSourceRegion()));
-		int32_t var$0 = $nc(bmpParam)->getSourceXSubsampling();
+		param->setSourceBands($(bmpParam->getSourceBands()));
+		param->setSourceRegion($(bmpParam->getSourceRegion()));
+		int32_t var$0 = bmpParam->getSourceXSubsampling();
 		int32_t var$1 = bmpParam->getSourceYSubsampling();
 		int32_t var$2 = bmpParam->getSubsamplingXOffset();
 		param->setSourceSubsampling(var$0, var$1, var$2, bmpParam->getSubsamplingYOffset());
@@ -1249,7 +1116,7 @@ void BMPImageWriter::writeEmbedded($IIOImage* image, $ImageWriteParam* bmpParam)
 
 int32_t BMPImageWriter::firstLowBit(int32_t num) {
 	int32_t count = 0;
-	while (((int32_t)(num & (uint32_t)1)) == 0) {
+	while ((num & 1) == 0) {
 		++count;
 		$usrAssign(num, 1);
 	}
@@ -1274,13 +1141,13 @@ bool BMPImageWriter::canEncodeImage(int32_t compression, $ColorModel* cm, $Sampl
 }
 
 bool BMPImageWriter::canEncodeImage(int32_t compression, $ImageTypeSpecifier* imgType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ImageWriterSpi, spi, this->getOriginatingProvider());
 	if (!$nc(spi)->canEncodeImage(imgType)) {
 		return false;
 	}
 	int32_t biType = $nc(imgType)->getBufferedImageType();
-	int32_t bpp = $nc($(imgType->getColorModel()))->getPixelSize();
+	int32_t bpp = $$nc(imgType->getColorModel())->getPixelSize();
 	if (this->compressionType == $BMPConstants::BI_RLE4 && bpp != 4) {
 		return false;
 	}
@@ -1292,7 +1159,7 @@ bool BMPImageWriter::canEncodeImage(int32_t compression, $ImageTypeSpecifier* im
 		bool canUseBITFIELDS = false;
 		$var($SampleModel, sm, imgType->getSampleModel());
 		if ($instanceOf($SinglePixelPackedSampleModel, sm)) {
-			$var($ints, sizes, $nc(($cast($SinglePixelPackedSampleModel, sm)))->getSampleSize());
+			$var($ints, sizes, $cast($SinglePixelPackedSampleModel, sm)->getSampleSize());
 			canUseRGB = true;
 			canUseBITFIELDS = true;
 			for (int32_t i = 0; i < $nc(sizes)->length; ++i) {
@@ -1306,10 +1173,10 @@ bool BMPImageWriter::canEncodeImage(int32_t compression, $ImageTypeSpecifier* im
 }
 
 void BMPImageWriter::writeMaskToPalette(int32_t mask, int32_t i, $bytes* r, $bytes* g, $bytes* b, $bytes* a) {
-	$nc(b)->set(i, (int8_t)((int32_t)(255 & (uint32_t)(mask >> 24))));
-	$nc(g)->set(i, (int8_t)((int32_t)(255 & (uint32_t)(mask >> 16))));
-	$nc(r)->set(i, (int8_t)((int32_t)(255 & (uint32_t)(mask >> 8))));
-	$nc(a)->set(i, (int8_t)((int32_t)(255 & (uint32_t)mask)));
+	$nc(b)->set(i, (int8_t)(0xff & (mask >> 24)));
+	$nc(g)->set(i, (int8_t)(0xff & (mask >> 16)));
+	$nc(r)->set(i, (int8_t)(0xff & (mask >> 8)));
+	$nc(a)->set(i, (int8_t)(0xff & mask));
 }
 
 int32_t BMPImageWriter::roundBpp(int32_t x) {
@@ -1329,7 +1196,81 @@ BMPImageWriter::BMPImageWriter() {
 }
 
 $Class* BMPImageWriter::load$($String* name, bool initialize) {
-	$loadClass(BMPImageWriter, name, initialize, &_BMPImageWriter_ClassInfo_, allocate$BMPImageWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"stream", "Ljavax/imageio/stream/ImageOutputStream;", nullptr, $PRIVATE, $field(BMPImageWriter, stream)},
+		{"embedded_stream", "Ljava/io/ByteArrayOutputStream;", nullptr, $PRIVATE, $field(BMPImageWriter, embedded_stream)},
+		{"version", "I", nullptr, $PRIVATE, $field(BMPImageWriter, version)},
+		{"compressionType", "I", nullptr, $PRIVATE, $field(BMPImageWriter, compressionType)},
+		{"isTopDown", "Z", nullptr, $PRIVATE, $field(BMPImageWriter, isTopDown)},
+		{"w", "I", nullptr, $PRIVATE, $field(BMPImageWriter, w)},
+		{"h", "I", nullptr, $PRIVATE, $field(BMPImageWriter, h)},
+		{"compImageSize", "I", nullptr, $PRIVATE, $field(BMPImageWriter, compImageSize)},
+		{"bitMasks", "[I", nullptr, $PRIVATE, $field(BMPImageWriter, bitMasks)},
+		{"bitPos", "[I", nullptr, $PRIVATE, $field(BMPImageWriter, bitPos)},
+		{"bpixels", "[B", nullptr, $PRIVATE, $field(BMPImageWriter, bpixels)},
+		{"spixels", "[S", nullptr, $PRIVATE, $field(BMPImageWriter, spixels)},
+		{"ipixels", "[I", nullptr, $PRIVATE, $field(BMPImageWriter, ipixels)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/imageio/spi/ImageWriterSpi;)V", nullptr, $PUBLIC, $method(BMPImageWriter, init$, void, $ImageWriterSpi*)},
+		{"access$000", "(Lcom/sun/imageio/plugins/bmp/BMPImageWriter;F)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(BMPImageWriter, access$000, void, BMPImageWriter*, float)},
+		{"access$100", "(Lcom/sun/imageio/plugins/bmp/BMPImageWriter;ILjava/lang/String;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(BMPImageWriter, access$100, void, BMPImageWriter*, int32_t, $String*)},
+		{"canEncodeImage", "(ILjava/awt/image/ColorModel;Ljava/awt/image/SampleModel;)Z", nullptr, $PROTECTED, $virtualMethod(BMPImageWriter, canEncodeImage, bool, int32_t, $ColorModel*, $SampleModel*)},
+		{"canEncodeImage", "(ILjavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PROTECTED, $virtualMethod(BMPImageWriter, canEncodeImage, bool, int32_t, $ImageTypeSpecifier*)},
+		{"canWriteRasters", "()Z", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter, canWriteRasters, bool)},
+		{"convertImageMetadata", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter, convertImageMetadata, $IIOMetadata*, $IIOMetadata*, $ImageTypeSpecifier*, $ImageWriteParam*)},
+		{"convertStreamMetadata", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter, convertStreamMetadata, $IIOMetadata*, $IIOMetadata*, $ImageWriteParam*)},
+		{"encodeRLE4", "([BI)V", nullptr, $PRIVATE, $method(BMPImageWriter, encodeRLE4, void, $bytes*, int32_t), "java.io.IOException"},
+		{"encodeRLE8", "([BI)V", nullptr, $PRIVATE, $method(BMPImageWriter, encodeRLE8, void, $bytes*, int32_t), "java.io.IOException"},
+		{"firstLowBit", "(I)I", nullptr, $PRIVATE, $method(BMPImageWriter, firstLowBit, int32_t, int32_t)},
+		{"getDefaultImageMetadata", "(Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter, getDefaultImageMetadata, $IIOMetadata*, $ImageTypeSpecifier*, $ImageWriteParam*)},
+		{"getDefaultStreamMetadata", "(Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter, getDefaultStreamMetadata, $IIOMetadata*, $ImageWriteParam*)},
+		{"getDefaultWriteParam", "()Ljavax/imageio/ImageWriteParam;", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter, getDefaultWriteParam, $ImageWriteParam*)},
+		{"getPreferredCompressionType", "(Ljava/awt/image/ColorModel;Ljava/awt/image/SampleModel;)I", nullptr, $PROTECTED, $virtualMethod(BMPImageWriter, getPreferredCompressionType, int32_t, $ColorModel*, $SampleModel*)},
+		{"getPreferredCompressionType", "(Ljavax/imageio/ImageTypeSpecifier;)I", nullptr, $PROTECTED, $virtualMethod(BMPImageWriter, getPreferredCompressionType, int32_t, $ImageTypeSpecifier*)},
+		{"incCompImageSize", "(I)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(BMPImageWriter, incCompImageSize, void, int32_t)},
+		{"isEven", "(I)Z", nullptr, $PRIVATE, $method(BMPImageWriter, isEven, bool, int32_t)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter, reset, void)},
+		{"roundBpp", "(I)I", nullptr, $PRIVATE, $method(BMPImageWriter, roundBpp, int32_t, int32_t)},
+		{"setOutput", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter, setOutput, void, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"write", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter, write, void, $IIOMetadata*, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
+		{"writeEmbedded", "(Ljavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PRIVATE, $method(BMPImageWriter, writeEmbedded, void, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
+		{"writeFileHeader", "(II)V", nullptr, $PRIVATE, $method(BMPImageWriter, writeFileHeader, void, int32_t, int32_t), "java.io.IOException"},
+		{"writeInfoHeader", "(II)V", nullptr, $PRIVATE, $method(BMPImageWriter, writeInfoHeader, void, int32_t, int32_t), "java.io.IOException"},
+		{"writeMaskToPalette", "(II[B[B[B[B)V", nullptr, $PROTECTED, $virtualMethod(BMPImageWriter, writeMaskToPalette, void, int32_t, int32_t, $bytes*, $bytes*, $bytes*, $bytes*)},
+		{"writePixels", "(III[IIILjava/awt/image/IndexColorModel;)V", nullptr, $PRIVATE, $method(BMPImageWriter, writePixels, void, int32_t, int32_t, int32_t, $ints*, int32_t, int32_t, $IndexColorModel*), "java.io.IOException"},
+		{"writeSize", "(II)V", nullptr, $PRIVATE, $method(BMPImageWriter, writeSize, void, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.imageio.plugins.bmp.BMPImageWriter$IIOWriteProgressAdapter", "com.sun.imageio.plugins.bmp.BMPImageWriter", "IIOWriteProgressAdapter", $PRIVATE | $STATIC},
+		{"com.sun.imageio.plugins.bmp.BMPImageWriter$2", nullptr, nullptr, 0},
+		{"com.sun.imageio.plugins.bmp.BMPImageWriter$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.bmp.BMPImageWriter",
+		"javax.imageio.ImageWriter",
+		"com.sun.imageio.plugins.bmp.BMPConstants",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.imageio.plugins.bmp.BMPImageWriter$IIOWriteProgressAdapter,com.sun.imageio.plugins.bmp.BMPImageWriter$2,com.sun.imageio.plugins.bmp.BMPImageWriter$1"
+	};
+	$loadClass(BMPImageWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BMPImageWriter));
+	});
 	return class$;
 }
 

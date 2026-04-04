@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber$SubscriberRef.h>
-
 #include <java/util/concurrent/Flow$Subscriber.h>
 #include <jdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber.h>
 #include <jcpp.h>
@@ -14,44 +13,6 @@ namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$FieldInfo _ResponseSubscribers$PublishingBodySubscriber$SubscriberRef_FieldInfo_[] = {
-	{"ref", "Ljava/util/concurrent/Flow$Subscriber;", "Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;", $VOLATILE, $field(ResponseSubscribers$PublishingBodySubscriber$SubscriberRef, ref)},
-	{}
-};
-
-$MethodInfo _ResponseSubscribers$PublishingBodySubscriber$SubscriberRef_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", 0, $method(ResponseSubscribers$PublishingBodySubscriber$SubscriberRef, init$, void, $Flow$Subscriber*)},
-	{"clear", "()Ljava/util/concurrent/Flow$Subscriber;", "()Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;", 0, $method(ResponseSubscribers$PublishingBodySubscriber$SubscriberRef, clear, $Flow$Subscriber*)},
-	{"get", "()Ljava/util/concurrent/Flow$Subscriber;", "()Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;", 0, $method(ResponseSubscribers$PublishingBodySubscriber$SubscriberRef, get, $Flow$Subscriber*)},
-	{}
-};
-
-$InnerClassInfo _ResponseSubscribers$PublishingBodySubscriber$SubscriberRef_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.ResponseSubscribers$PublishingBodySubscriber", "jdk.internal.net.http.ResponseSubscribers", "PublishingBodySubscriber", $STATIC},
-	{"jdk.internal.net.http.ResponseSubscribers$PublishingBodySubscriber$SubscriberRef", "jdk.internal.net.http.ResponseSubscribers$PublishingBodySubscriber", "SubscriberRef", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ResponseSubscribers$PublishingBodySubscriber$SubscriberRef_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.ResponseSubscribers$PublishingBodySubscriber$SubscriberRef",
-	"java.lang.Object",
-	nullptr,
-	_ResponseSubscribers$PublishingBodySubscriber$SubscriberRef_FieldInfo_,
-	_ResponseSubscribers$PublishingBodySubscriber$SubscriberRef_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ResponseSubscribers$PublishingBodySubscriber$SubscriberRef_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.ResponseSubscribers"
-};
-
-$Object* allocate$ResponseSubscribers$PublishingBodySubscriber$SubscriberRef($Class* clazz) {
-	return $of($alloc(ResponseSubscribers$PublishingBodySubscriber$SubscriberRef));
-}
 
 void ResponseSubscribers$PublishingBodySubscriber$SubscriberRef::init$($Flow$Subscriber* subscriber) {
 	$set(this, ref, subscriber);
@@ -71,7 +32,39 @@ ResponseSubscribers$PublishingBodySubscriber$SubscriberRef::ResponseSubscribers$
 }
 
 $Class* ResponseSubscribers$PublishingBodySubscriber$SubscriberRef::load$($String* name, bool initialize) {
-	$loadClass(ResponseSubscribers$PublishingBodySubscriber$SubscriberRef, name, initialize, &_ResponseSubscribers$PublishingBodySubscriber$SubscriberRef_ClassInfo_, allocate$ResponseSubscribers$PublishingBodySubscriber$SubscriberRef);
+	$FieldInfo fieldInfos$$[] = {
+		{"ref", "Ljava/util/concurrent/Flow$Subscriber;", "Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;", $VOLATILE, $field(ResponseSubscribers$PublishingBodySubscriber$SubscriberRef, ref)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", 0, $method(ResponseSubscribers$PublishingBodySubscriber$SubscriberRef, init$, void, $Flow$Subscriber*)},
+		{"clear", "()Ljava/util/concurrent/Flow$Subscriber;", "()Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;", 0, $method(ResponseSubscribers$PublishingBodySubscriber$SubscriberRef, clear, $Flow$Subscriber*)},
+		{"get", "()Ljava/util/concurrent/Flow$Subscriber;", "()Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;", 0, $method(ResponseSubscribers$PublishingBodySubscriber$SubscriberRef, get, $Flow$Subscriber*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.ResponseSubscribers$PublishingBodySubscriber", "jdk.internal.net.http.ResponseSubscribers", "PublishingBodySubscriber", $STATIC},
+		{"jdk.internal.net.http.ResponseSubscribers$PublishingBodySubscriber$SubscriberRef", "jdk.internal.net.http.ResponseSubscribers$PublishingBodySubscriber", "SubscriberRef", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.ResponseSubscribers$PublishingBodySubscriber$SubscriberRef",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.ResponseSubscribers"
+	};
+	$loadClass(ResponseSubscribers$PublishingBodySubscriber$SubscriberRef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseSubscribers$PublishingBodySubscriber$SubscriberRef);
+	});
 	return class$;
 }
 

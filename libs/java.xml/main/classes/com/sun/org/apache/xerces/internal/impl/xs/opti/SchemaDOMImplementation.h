@@ -28,6 +28,7 @@ class SchemaDOMImplementation : public ::org::w3c::dom::DOMImplementation {
 	$class(SchemaDOMImplementation, 0, ::org::w3c::dom::DOMImplementation)
 public:
 	SchemaDOMImplementation();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::org::w3c::dom::Document* createDocument($String* namespaceURI, $String* qualifiedName, ::org::w3c::dom::DocumentType* doctype) override;
 	virtual ::org::w3c::dom::DocumentType* createDocumentType($String* qualifiedName, $String* publicId, $String* systemId) override;

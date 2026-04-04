@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dtd/models/DFAContentModel.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dtd/XMLContentSpec.h>
 #include <com/sun/org/apache/xerces/internal/impl/dtd/models/CMAny.h>
 #include <com/sun/org/apache/xerces/internal/impl/dtd/models/CMBinOp.h>
@@ -35,7 +34,6 @@ using $CMNode = ::com::sun::org::apache::xerces::internal::impl::dtd::models::CM
 using $CMStateSet = ::com::sun::org::apache::xerces::internal::impl::dtd::models::CMStateSet;
 using $CMUniOp = ::com::sun::org::apache::xerces::internal::impl::dtd::models::CMUniOp;
 using $QName = ::com::sun::org::apache::xerces::internal::xni::QName;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -54,52 +52,6 @@ namespace com {
 						namespace impl {
 							namespace dtd {
 								namespace models {
-
-$FieldInfo _DFAContentModel_FieldInfo_[] = {
-	{"fEpsilonString", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(DFAContentModel, fEpsilonString)},
-	{"fEOCString", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(DFAContentModel, fEOCString)},
-	{"DEBUG_VALIDATE_CONTENT", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DFAContentModel, DEBUG_VALIDATE_CONTENT)},
-	{"fElemMap", "[Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PRIVATE, $field(DFAContentModel, fElemMap)},
-	{"fElemMapType", "[I", nullptr, $PRIVATE, $field(DFAContentModel, fElemMapType)},
-	{"fElemMapSize", "I", nullptr, $PRIVATE, $field(DFAContentModel, fElemMapSize)},
-	{"fMixed", "Z", nullptr, $PRIVATE, $field(DFAContentModel, fMixed)},
-	{"fEOCPos", "I", nullptr, $PRIVATE, $field(DFAContentModel, fEOCPos)},
-	{"fFinalStateFlags", "[Z", nullptr, $PRIVATE, $field(DFAContentModel, fFinalStateFlags)},
-	{"fFollowList", "[Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet;", nullptr, $PRIVATE, $field(DFAContentModel, fFollowList)},
-	{"fHeadNode", "Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $PRIVATE, $field(DFAContentModel, fHeadNode)},
-	{"fLeafCount", "I", nullptr, $PRIVATE, $field(DFAContentModel, fLeafCount)},
-	{"fLeafList", "[Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMLeaf;", nullptr, $PRIVATE, $field(DFAContentModel, fLeafList)},
-	{"fLeafListType", "[I", nullptr, $PRIVATE, $field(DFAContentModel, fLeafListType)},
-	{"fTransTable", "[[I", nullptr, $PRIVATE, $field(DFAContentModel, fTransTable)},
-	{"fTransTableSize", "I", nullptr, $PRIVATE, $field(DFAContentModel, fTransTableSize)},
-	{"fEmptyContentIsValid", "Z", nullptr, $PRIVATE, $field(DFAContentModel, fEmptyContentIsValid)},
-	{"fQName", "Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PRIVATE | $FINAL, $field(DFAContentModel, fQName)},
-	{}
-};
-
-$MethodInfo _DFAContentModel_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;IZ)V", nullptr, $PUBLIC, $method(DFAContentModel, init$, void, $CMNode*, int32_t, bool)},
-	{"buildDFA", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;)V", nullptr, $PRIVATE, $method(DFAContentModel, buildDFA, void, $CMNode*)},
-	{"calcFollowList", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;)V", nullptr, $PRIVATE, $method(DFAContentModel, calcFollowList, void, $CMNode*)},
-	{"dumpTree", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;I)V", nullptr, $PRIVATE, $method(DFAContentModel, dumpTree, void, $CMNode*, int32_t)},
-	{"makeDefStateList", "()[I", nullptr, $PRIVATE, $method(DFAContentModel, makeDefStateList, $ints*)},
-	{"postTreeBuildInit", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;I)I", nullptr, $PRIVATE, $method(DFAContentModel, postTreeBuildInit, int32_t, $CMNode*, int32_t)},
-	{"validate", "([Lcom/sun/org/apache/xerces/internal/xni/QName;II)I", nullptr, $PUBLIC, $virtualMethod(DFAContentModel, validate, int32_t, $QNameArray*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _DFAContentModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dtd.models.DFAContentModel",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.impl.dtd.models.ContentModelValidator",
-	_DFAContentModel_FieldInfo_,
-	_DFAContentModel_MethodInfo_
-};
-
-$Object* allocate$DFAContentModel($Class* clazz) {
-	return $of($alloc(DFAContentModel));
-}
 
 $String* DFAContentModel::fEpsilonString = nullptr;
 $String* DFAContentModel::fEOCString = nullptr;
@@ -125,8 +77,10 @@ void DFAContentModel::init$($CMNode* syntaxTree, int32_t leafCount, bool mixed) 
 }
 
 int32_t DFAContentModel::validate($QNameArray* children, int32_t offset, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	if (length == 0) {
+		;
 		return this->fEmptyContentIsValid ? -1 : 0;
 	}
 	int32_t curState = 0;
@@ -137,7 +91,7 @@ int32_t DFAContentModel::validate($QNameArray* children, int32_t offset, int32_t
 		}
 		int32_t elemIndex = 0;
 		for (; elemIndex < this->fElemMapSize; ++elemIndex) {
-			int32_t type = (int32_t)($nc(this->fElemMapType)->get(elemIndex) & (uint32_t)15);
+			int32_t type = $nc(this->fElemMapType)->get(elemIndex) & 0x0f;
 			if (type == $XMLContentSpec::CONTENTSPECNODE_LEAF) {
 				if ($nc($nc(this->fElemMap)->get(elemIndex))->rawname == $nc(curElem)->rawname) {
 					break;
@@ -158,13 +112,16 @@ int32_t DFAContentModel::validate($QNameArray* children, int32_t offset, int32_t
 			}
 		}
 		if (elemIndex == this->fElemMapSize) {
+			;
 			return childIndex;
 		}
 		curState = $nc($nc(this->fTransTable)->get(curState))->get(elemIndex);
 		if (curState == -1) {
+			;
 			return childIndex;
 		}
 	}
+	;
 	if (!$nc(this->fFinalStateFlags)->get(curState)) {
 		return length;
 	}
@@ -172,8 +129,8 @@ int32_t DFAContentModel::validate($QNameArray* children, int32_t offset, int32_t
 }
 
 void DFAContentModel::buildDFA($CMNode* syntaxTree) {
-	$useLocalCurrentObjectStackCache();
-	$nc(this->fQName)->setValues(nullptr, DFAContentModel::fEOCString, DFAContentModel::fEOCString, nullptr);
+	$useLocalObjectStack();
+	this->fQName->setValues(nullptr, DFAContentModel::fEOCString, DFAContentModel::fEOCString, nullptr);
 	$var($CMLeaf, nodeEOC, $new($CMLeaf, this->fQName));
 	$set(this, fHeadNode, $new($CMBinOp, $XMLContentSpec::CONTENTSPECNODE_SEQ, syntaxTree, nodeEOC));
 	this->fEOCPos = this->fLeafCount;
@@ -183,7 +140,7 @@ void DFAContentModel::buildDFA($CMNode* syntaxTree) {
 	postTreeBuildInit(this->fHeadNode, 0);
 	$set(this, fFollowList, $new($CMStateSetArray, this->fLeafCount));
 	for (int32_t index = 0; index < this->fLeafCount; ++index) {
-		$nc(this->fFollowList)->set(index, $$new($CMStateSet, this->fLeafCount));
+		this->fFollowList->set(index, $$new($CMStateSet, this->fLeafCount));
 	}
 	calcFollowList(this->fHeadNode);
 	$set(this, fElemMap, $new($QNameArray, this->fLeafCount));
@@ -238,7 +195,7 @@ void DFAContentModel::buildDFA($CMNode* syntaxTree) {
 			if (newSet == nullptr) {
 				$assign(newSet, $new($CMStateSet, this->fLeafCount));
 			} else {
-				$nc(newSet)->zeroBits();
+				newSet->zeroBits();
 			}
 			int32_t leafIndex = fLeafSorter->get(sorterIndex++);
 			while (leafIndex != -1) {
@@ -249,9 +206,9 @@ void DFAContentModel::buildDFA($CMNode* syntaxTree) {
 			}
 			if (!$nc(newSet)->isEmpty()) {
 				$var($Integer, stateObj, $cast($Integer, stateTable->get(newSet)));
-				int32_t stateIndex = (stateObj == nullptr ? curState : $nc(stateObj)->intValue());
+				int32_t stateIndex = (stateObj == nullptr ? curState : stateObj->intValue());
 				if (stateIndex == curState) {
-					statesToDo->set(curState, newSet);
+					$nc(statesToDo)->set(curState, newSet);
 					$nc(this->fTransTable)->set(curState, $(makeDefStateList()));
 					stateTable->put(newSet, $($Integer::valueOf(curState)));
 					++curState;
@@ -274,31 +231,32 @@ void DFAContentModel::buildDFA($CMNode* syntaxTree) {
 			}
 		}
 	}
-	this->fEmptyContentIsValid = $nc($($nc(($cast($CMBinOp, this->fHeadNode)))->getLeft()))->isNullable();
+	this->fEmptyContentIsValid = $$nc($nc($cast($CMBinOp, this->fHeadNode))->getLeft())->isNullable();
+	;
 	$set(this, fHeadNode, nullptr);
 	$set(this, fLeafList, nullptr);
 	$set(this, fFollowList, nullptr);
 }
 
 void DFAContentModel::calcFollowList($CMNode* nodeCur) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(nodeCur)->type() == $XMLContentSpec::CONTENTSPECNODE_CHOICE) {
-		calcFollowList($($nc(($cast($CMBinOp, nodeCur)))->getLeft()));
-		calcFollowList($($nc(($cast($CMBinOp, nodeCur)))->getRight()));
+		calcFollowList($($cast($CMBinOp, nodeCur)->getLeft()));
+		calcFollowList($($cast($CMBinOp, nodeCur)->getRight()));
 	} else if (nodeCur->type() == $XMLContentSpec::CONTENTSPECNODE_SEQ) {
-		calcFollowList($($nc(($cast($CMBinOp, nodeCur)))->getLeft()));
-		calcFollowList($($nc(($cast($CMBinOp, nodeCur)))->getRight()));
-		$var($CMStateSet, last, $nc($($nc(($cast($CMBinOp, nodeCur)))->getLeft()))->lastPos());
-		$var($CMStateSet, first, $nc($(($cast($CMBinOp, nodeCur))->getRight()))->firstPos());
+		calcFollowList($($cast($CMBinOp, nodeCur)->getLeft()));
+		calcFollowList($($cast($CMBinOp, nodeCur)->getRight()));
+		$var($CMStateSet, last, $$nc($cast($CMBinOp, nodeCur)->getLeft())->lastPos());
+		$var($CMStateSet, first, $$nc($cast($CMBinOp, nodeCur)->getRight())->firstPos());
 		for (int32_t index = 0; index < this->fLeafCount; ++index) {
 			if ($nc(last)->getBit(index)) {
 				$nc($nc(this->fFollowList)->get(index))->union$(first);
 			}
 		}
 	} else {
-		bool var$1 = nodeCur->type() == $XMLContentSpec::CONTENTSPECNODE_ZERO_OR_MORE;
-		if (var$1 || nodeCur->type() == $XMLContentSpec::CONTENTSPECNODE_ONE_OR_MORE) {
-			calcFollowList($($nc(($cast($CMUniOp, nodeCur)))->getChild()));
+		bool var$0 = nodeCur->type() == $XMLContentSpec::CONTENTSPECNODE_ZERO_OR_MORE;
+		if (var$0 || nodeCur->type() == $XMLContentSpec::CONTENTSPECNODE_ONE_OR_MORE) {
+			calcFollowList($($cast($CMUniOp, nodeCur)->getChild()));
 			$var($CMStateSet, first, nodeCur->firstPos());
 			$var($CMStateSet, last, nodeCur->lastPos());
 			for (int32_t index = 0; index < this->fLeafCount; ++index) {
@@ -307,13 +265,13 @@ void DFAContentModel::calcFollowList($CMNode* nodeCur) {
 				}
 			}
 		} else if (nodeCur->type() == $XMLContentSpec::CONTENTSPECNODE_ZERO_OR_ONE) {
-			calcFollowList($($nc(($cast($CMUniOp, nodeCur)))->getChild()));
+			calcFollowList($($cast($CMUniOp, nodeCur)->getChild()));
 		}
 	}
 }
 
 void DFAContentModel::dumpTree($CMNode* nodeCur, int32_t level) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t index = 0; index < level; ++index) {
 		$nc($System::out)->print("   "_s);
 	}
@@ -328,34 +286,38 @@ void DFAContentModel::dumpTree($CMNode* nodeCur, int32_t level) {
 			$nc($System::out)->print("Nullable "_s);
 		}
 		$nc($System::out)->print("firstPos="_s);
-		$nc($System::out)->print($($nc($(nodeCur->firstPos()))->toString()));
-		$nc($System::out)->print(" lastPos="_s);
-		$nc($System::out)->println($($nc($(nodeCur->lastPos()))->toString()));
-		dumpTree($($nc(($cast($CMBinOp, nodeCur)))->getLeft()), level + 1);
-		dumpTree($($nc(($cast($CMBinOp, nodeCur)))->getRight()), level + 1);
+		$System::out->print($($$nc(nodeCur->firstPos())->toString()));
+		$System::out->print(" lastPos="_s);
+		$System::out->println($($$nc(nodeCur->lastPos())->toString()));
+		dumpTree($($cast($CMBinOp, nodeCur)->getLeft()), level + 1);
+		dumpTree($($cast($CMBinOp, nodeCur)->getRight()), level + 1);
 	} else if (nodeCur->type() == $XMLContentSpec::CONTENTSPECNODE_ZERO_OR_MORE) {
 		$nc($System::out)->print("Rep Node "_s);
 		if (nodeCur->isNullable()) {
-			$nc($System::out)->print("Nullable "_s);
+			$System::out->print("Nullable "_s);
 		}
-		$nc($System::out)->print("firstPos="_s);
-		$nc($System::out)->print($($nc($(nodeCur->firstPos()))->toString()));
-		$nc($System::out)->print(" lastPos="_s);
-		$nc($System::out)->println($($nc($(nodeCur->lastPos()))->toString()));
-		dumpTree($($nc(($cast($CMUniOp, nodeCur)))->getChild()), level + 1);
+		$System::out->print("firstPos="_s);
+		$System::out->print($($$nc(nodeCur->firstPos())->toString()));
+		$System::out->print(" lastPos="_s);
+		$System::out->println($($$nc(nodeCur->lastPos())->toString()));
+		dumpTree($($cast($CMUniOp, nodeCur)->getChild()), level + 1);
 	} else if (nodeCur->type() == $XMLContentSpec::CONTENTSPECNODE_LEAF) {
-		$var($String, var$3, $$str({"Leaf: (pos="_s, $$str($nc(($cast($CMLeaf, nodeCur)))->getPosition()), "), "_s}));
-		$var($String, var$2, $$concat(var$3, $(($cast($CMLeaf, nodeCur))->getElement())));
-		$var($String, var$1, $$concat(var$2, "(elemIndex="_s));
-		$var($String, var$0, $$concat(var$1, $(($cast($CMLeaf, nodeCur))->getElement())));
-		$nc($System::out)->print($$concat(var$0, ") "_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Leaf: (pos="_s);
+		var$0->append($cast($CMLeaf, nodeCur)->getPosition());
+		var$0->append("), "_s);
+		var$0->append($($cast($CMLeaf, nodeCur)->getElement()));
+		var$0->append("(elemIndex="_s);
+		var$0->append($($cast($CMLeaf, nodeCur)->getElement()));
+		var$0->append(") "_s);
+		$nc($System::out)->print($$str(var$0));
 		if (nodeCur->isNullable()) {
-			$nc($System::out)->print(" Nullable "_s);
+			$System::out->print(" Nullable "_s);
 		}
-		$nc($System::out)->print("firstPos="_s);
-		$nc($System::out)->print($($nc($(nodeCur->firstPos()))->toString()));
-		$nc($System::out)->print(" lastPos="_s);
-		$nc($System::out)->println($($nc($(nodeCur->lastPos()))->toString()));
+		$System::out->print("firstPos="_s);
+		$System::out->print($($$nc(nodeCur->firstPos())->toString()));
+		$System::out->print(" lastPos="_s);
+		$System::out->println($($$nc(nodeCur->lastPos())->toString()));
 	} else {
 		$throwNew($RuntimeException, "ImplementationMessages.VAL_NIICM"_s);
 	}
@@ -370,27 +332,27 @@ $ints* DFAContentModel::makeDefStateList() {
 }
 
 int32_t DFAContentModel::postTreeBuildInit($CMNode* nodeCur, int32_t curIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(nodeCur)->setMaxStates(this->fLeafCount);
-	bool var$1 = ((int32_t)(nodeCur->type() & (uint32_t)15)) == $XMLContentSpec::CONTENTSPECNODE_ANY;
-	bool var$0 = var$1 || ((int32_t)(nodeCur->type() & (uint32_t)15)) == $XMLContentSpec::CONTENTSPECNODE_ANY_LOCAL;
-	if (var$0 || ((int32_t)(nodeCur->type() & (uint32_t)15)) == $XMLContentSpec::CONTENTSPECNODE_ANY_OTHER) {
-		$var($QName, qname, $new($QName, nullptr, nullptr, nullptr, $($nc(($cast($CMAny, nodeCur)))->getURI())));
-		$nc(this->fLeafList)->set(curIndex, $$new($CMLeaf, qname, $nc(($cast($CMAny, nodeCur)))->getPosition()));
+	bool var$1 = (nodeCur->type() & 0x0f) == $XMLContentSpec::CONTENTSPECNODE_ANY;
+	bool var$0 = var$1 || (nodeCur->type() & 0x0f) == $XMLContentSpec::CONTENTSPECNODE_ANY_LOCAL;
+	if (var$0 || (nodeCur->type() & 0x0f) == $XMLContentSpec::CONTENTSPECNODE_ANY_OTHER) {
+		$var($QName, qname, $new($QName, nullptr, nullptr, nullptr, $($cast($CMAny, nodeCur)->getURI())));
+		$nc(this->fLeafList)->set(curIndex, $$new($CMLeaf, qname, $cast($CMAny, nodeCur)->getPosition()));
 		$nc(this->fLeafListType)->set(curIndex, nodeCur->type());
 		++curIndex;
 	} else {
-		bool var$3 = (nodeCur->type() == $XMLContentSpec::CONTENTSPECNODE_CHOICE);
-		if (var$3 || (nodeCur->type() == $XMLContentSpec::CONTENTSPECNODE_SEQ)) {
-			curIndex = postTreeBuildInit($($nc(($cast($CMBinOp, nodeCur)))->getLeft()), curIndex);
-			curIndex = postTreeBuildInit($($nc(($cast($CMBinOp, nodeCur)))->getRight()), curIndex);
+		bool var$2 = nodeCur->type() == $XMLContentSpec::CONTENTSPECNODE_CHOICE;
+		if (var$2 || (nodeCur->type() == $XMLContentSpec::CONTENTSPECNODE_SEQ)) {
+			curIndex = postTreeBuildInit($($cast($CMBinOp, nodeCur)->getLeft()), curIndex);
+			curIndex = postTreeBuildInit($($cast($CMBinOp, nodeCur)->getRight()), curIndex);
 		} else {
-			bool var$7 = nodeCur->type() == $XMLContentSpec::CONTENTSPECNODE_ZERO_OR_MORE;
-			bool var$6 = var$7 || nodeCur->type() == $XMLContentSpec::CONTENTSPECNODE_ONE_OR_MORE;
-			if (var$6 || nodeCur->type() == $XMLContentSpec::CONTENTSPECNODE_ZERO_OR_ONE) {
-				curIndex = postTreeBuildInit($($nc(($cast($CMUniOp, nodeCur)))->getChild()), curIndex);
+			bool var$4 = nodeCur->type() == $XMLContentSpec::CONTENTSPECNODE_ZERO_OR_MORE;
+			bool var$3 = var$4 || nodeCur->type() == $XMLContentSpec::CONTENTSPECNODE_ONE_OR_MORE;
+			if (var$3 || nodeCur->type() == $XMLContentSpec::CONTENTSPECNODE_ZERO_OR_ONE) {
+				curIndex = postTreeBuildInit($($cast($CMUniOp, nodeCur)->getChild()), curIndex);
 			} else if (nodeCur->type() == $XMLContentSpec::CONTENTSPECNODE_LEAF) {
-				$var($QName, node, $nc(($cast($CMLeaf, nodeCur)))->getElement());
+				$var($QName, node, $cast($CMLeaf, nodeCur)->getElement());
 				if ($nc(node)->localpart != DFAContentModel::fEpsilonString) {
 					$nc(this->fLeafList)->set(curIndex, $cast($CMLeaf, nodeCur));
 					$nc(this->fLeafListType)->set(curIndex, $XMLContentSpec::CONTENTSPECNODE_LEAF);
@@ -404,12 +366,12 @@ int32_t DFAContentModel::postTreeBuildInit($CMNode* nodeCur, int32_t curIndex) {
 	return curIndex;
 }
 
-void clinit$DFAContentModel($Class* class$) {
+void DFAContentModel::clinit$($Class* clazz) {
 	$assignStatic(DFAContentModel::fEpsilonString, "<<CMNODE_EPSILON>>"_s);
 	$assignStatic(DFAContentModel::fEOCString, "<<CMNODE_EOC>>"_s);
 	{
-		$assignStatic(DFAContentModel::fEpsilonString, $nc(DFAContentModel::fEpsilonString)->intern());
-		$assignStatic(DFAContentModel::fEOCString, $nc(DFAContentModel::fEOCString)->intern());
+		$assignStatic(DFAContentModel::fEpsilonString, DFAContentModel::fEpsilonString->intern());
+		$assignStatic(DFAContentModel::fEOCString, DFAContentModel::fEOCString->intern());
 	}
 }
 
@@ -417,7 +379,48 @@ DFAContentModel::DFAContentModel() {
 }
 
 $Class* DFAContentModel::load$($String* name, bool initialize) {
-	$loadClass(DFAContentModel, name, initialize, &_DFAContentModel_ClassInfo_, clinit$DFAContentModel, allocate$DFAContentModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"fEpsilonString", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(DFAContentModel, fEpsilonString)},
+		{"fEOCString", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(DFAContentModel, fEOCString)},
+		{"DEBUG_VALIDATE_CONTENT", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DFAContentModel, DEBUG_VALIDATE_CONTENT)},
+		{"fElemMap", "[Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PRIVATE, $field(DFAContentModel, fElemMap)},
+		{"fElemMapType", "[I", nullptr, $PRIVATE, $field(DFAContentModel, fElemMapType)},
+		{"fElemMapSize", "I", nullptr, $PRIVATE, $field(DFAContentModel, fElemMapSize)},
+		{"fMixed", "Z", nullptr, $PRIVATE, $field(DFAContentModel, fMixed)},
+		{"fEOCPos", "I", nullptr, $PRIVATE, $field(DFAContentModel, fEOCPos)},
+		{"fFinalStateFlags", "[Z", nullptr, $PRIVATE, $field(DFAContentModel, fFinalStateFlags)},
+		{"fFollowList", "[Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet;", nullptr, $PRIVATE, $field(DFAContentModel, fFollowList)},
+		{"fHeadNode", "Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $PRIVATE, $field(DFAContentModel, fHeadNode)},
+		{"fLeafCount", "I", nullptr, $PRIVATE, $field(DFAContentModel, fLeafCount)},
+		{"fLeafList", "[Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMLeaf;", nullptr, $PRIVATE, $field(DFAContentModel, fLeafList)},
+		{"fLeafListType", "[I", nullptr, $PRIVATE, $field(DFAContentModel, fLeafListType)},
+		{"fTransTable", "[[I", nullptr, $PRIVATE, $field(DFAContentModel, fTransTable)},
+		{"fTransTableSize", "I", nullptr, $PRIVATE, $field(DFAContentModel, fTransTableSize)},
+		{"fEmptyContentIsValid", "Z", nullptr, $PRIVATE, $field(DFAContentModel, fEmptyContentIsValid)},
+		{"fQName", "Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PRIVATE | $FINAL, $field(DFAContentModel, fQName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;IZ)V", nullptr, $PUBLIC, $method(DFAContentModel, init$, void, $CMNode*, int32_t, bool)},
+		{"buildDFA", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;)V", nullptr, $PRIVATE, $method(DFAContentModel, buildDFA, void, $CMNode*)},
+		{"calcFollowList", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;)V", nullptr, $PRIVATE, $method(DFAContentModel, calcFollowList, void, $CMNode*)},
+		{"dumpTree", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;I)V", nullptr, $PRIVATE, $method(DFAContentModel, dumpTree, void, $CMNode*, int32_t)},
+		{"makeDefStateList", "()[I", nullptr, $PRIVATE, $method(DFAContentModel, makeDefStateList, $ints*)},
+		{"postTreeBuildInit", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;I)I", nullptr, $PRIVATE, $method(DFAContentModel, postTreeBuildInit, int32_t, $CMNode*, int32_t)},
+		{"validate", "([Lcom/sun/org/apache/xerces/internal/xni/QName;II)I", nullptr, $PUBLIC, $virtualMethod(DFAContentModel, validate, int32_t, $QNameArray*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dtd.models.DFAContentModel",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.impl.dtd.models.ContentModelValidator",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DFAContentModel, name, initialize, &classInfo$$, DFAContentModel::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DFAContentModel);
+	});
 	return class$;
 }
 

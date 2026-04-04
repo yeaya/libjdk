@@ -1,5 +1,4 @@
 #include <javax/swing/ListCellRenderer.h>
-
 #include <java/awt/Component.h>
 #include <javax/swing/JList.h>
 #include <jcpp.h>
@@ -12,27 +11,23 @@ using $JList = ::javax::swing::JList;
 namespace javax {
 	namespace swing {
 
-$MethodInfo _ListCellRenderer_MethodInfo_[] = {
-	{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<+TE;>;TE;IZZ)Ljava/awt/Component;", $PUBLIC | $ABSTRACT, $virtualMethod(ListCellRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
-	{}
-};
-
-$ClassInfo _ListCellRenderer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.ListCellRenderer",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ListCellRenderer_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/lang/Object;"
-};
-
-$Object* allocate$ListCellRenderer($Class* clazz) {
-	return $of($alloc(ListCellRenderer));
-}
-
 $Class* ListCellRenderer::load$($String* name, bool initialize) {
-	$loadClass(ListCellRenderer, name, initialize, &_ListCellRenderer_ClassInfo_, allocate$ListCellRenderer);
+	$MethodInfo methodInfos$$[] = {
+		{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<+TE;>;TE;IZZ)Ljava/awt/Component;", $PUBLIC | $ABSTRACT, $virtualMethod(ListCellRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.ListCellRenderer",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/lang/Object;"
+	};
+	$loadClass(ListCellRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ListCellRenderer);
+	});
 	return class$;
 }
 

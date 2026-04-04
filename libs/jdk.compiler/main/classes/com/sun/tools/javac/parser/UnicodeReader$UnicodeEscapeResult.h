@@ -24,6 +24,7 @@ class UnicodeReader$UnicodeEscapeResult : public ::java::lang::Enum {
 public:
 	UnicodeReader$UnicodeEscapeResult();
 	static $Array<::com::sun::tools::javac::parser::UnicodeReader$UnicodeEscapeResult>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::parser::UnicodeReader$UnicodeEscapeResult* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::parser::UnicodeReader$UnicodeEscapeResult>* values();

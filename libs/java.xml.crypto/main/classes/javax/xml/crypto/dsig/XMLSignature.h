@@ -52,6 +52,7 @@ namespace javax {
 class $export XMLSignature : public ::javax::xml::crypto::XMLStructure {
 	$interface(XMLSignature, 0, ::javax::xml::crypto::XMLStructure)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $String* getId() {return nullptr;}
 	virtual ::javax::xml::crypto::dsig::keyinfo::KeyInfo* getKeyInfo() {return nullptr;}
 	virtual ::javax::xml::crypto::KeySelectorResult* getKeySelectorResult() {return nullptr;}

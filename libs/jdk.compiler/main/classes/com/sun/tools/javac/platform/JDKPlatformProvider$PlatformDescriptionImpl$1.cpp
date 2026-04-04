@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/platform/JDKPlatformProvider$PlatformDescriptionImpl$1.h>
-
 #include <com/sun/tools/javac/file/JavacFileManager.h>
 #include <com/sun/tools/javac/platform/JDKPlatformProvider$PlatformDescriptionImpl$1$1.h>
 #include <com/sun/tools/javac/platform/JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject.h>
@@ -13,7 +12,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/nio/charset/Charset.h>
-#include <java/util/Collection.h>
 #include <java/util/EnumSet.h>
 #include <java/util/Iterator.h>
 #include <java/util/Set.h>
@@ -40,7 +38,6 @@ using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Charset = ::java::nio::charset::Charset;
-using $Collection = ::java::util::Collection;
 using $EnumSet = ::java::util::EnumSet;
 using $Iterator = ::java::util::Iterator;
 using $Set = ::java::util::Set;
@@ -65,88 +62,36 @@ public:
 	virtual $Iterator* iterator() override {
 		 return $nc(inst$)->lambda$list$0(listed, kinds);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0>());
-	}
 	JDKPlatformProvider$PlatformDescriptionImpl$1* inst$ = nullptr;
 	$Iterable* listed = nullptr;
 	$Set* kinds = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0, inst$)},
-	{"listed", "Ljava/lang/Iterable;", nullptr, $PUBLIC, $field(JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0, listed)},
-	{"kinds", "Ljava/util/Set;", nullptr, $PUBLIC, $field(JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0, kinds)},
-	{}
-};
-$MethodInfo JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/platform/JDKPlatformProvider$PlatformDescriptionImpl$1;Ljava/lang/Iterable;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0, init$, void, JDKPlatformProvider$PlatformDescriptionImpl$1*, $Iterable*, $Set*)},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0, iterator, $Iterator*)},
-	{}
-};
-$ClassInfo JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0",
-	"java.lang.Object",
-	"java.lang.Iterable",
-	fieldInfos,
-	methodInfos
 };
 $Class* JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0::load$($String* name, bool initialize) {
-	$loadClass(JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0, inst$)},
+		{"listed", "Ljava/lang/Iterable;", nullptr, $PUBLIC, $field(JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0, listed)},
+		{"kinds", "Ljava/util/Set;", nullptr, $PUBLIC, $field(JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0, kinds)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/platform/JDKPlatformProvider$PlatformDescriptionImpl$1;Ljava/lang/Iterable;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0, init$, void, JDKPlatformProvider$PlatformDescriptionImpl$1*, $Iterable*, $Set*)},
+		{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0, iterator, $Iterator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0",
+		"java.lang.Object",
+		"java.lang.Iterable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0);
+	});
 	return class$;
 }
 $Class* JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0::class$ = nullptr;
-
-$FieldInfo _JDKPlatformProvider$PlatformDescriptionImpl$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/platform/JDKPlatformProvider$PlatformDescriptionImpl;", nullptr, $FINAL | $SYNTHETIC, $field(JDKPlatformProvider$PlatformDescriptionImpl$1, this$0)},
-	{}
-};
-
-$MethodInfo _JDKPlatformProvider$PlatformDescriptionImpl$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/platform/JDKPlatformProvider$PlatformDescriptionImpl;Lcom/sun/tools/javac/util/Context;ZLjava/nio/charset/Charset;)V", nullptr, 0, $method(JDKPlatformProvider$PlatformDescriptionImpl$1, init$, void, $JDKPlatformProvider$PlatformDescriptionImpl*, $Context*, bool, $Charset*)},
-	{"getJavaFileForInput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$1, getJavaFileForInput, $JavaFileObject*, $JavaFileManager$Location*, $String*, $JavaFileObject$Kind*), "java.io.IOException"},
-	{"hasLocation", "(Ljavax/tools/JavaFileManager$Location;)Z", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$1, hasLocation, bool, $JavaFileManager$Location*)},
-	{"inferBinaryName", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$1, inferBinaryName, $String*, $JavaFileManager$Location*, $JavaFileObject*)},
-	{"lambda$list$0", "(Ljava/lang/Iterable;Ljava/util/Set;)Ljava/util/Iterator;", nullptr, $PRIVATE | $SYNTHETIC, $method(JDKPlatformProvider$PlatformDescriptionImpl$1, lambda$list$0, $Iterator*, $Iterable*, $Set*)},
-	{"list", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set;Z)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;Z)Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$1, list, $Iterable*, $JavaFileManager$Location*, $String*, $Set*, bool), "java.io.IOException"},
-	{}
-};
-
-$EnclosingMethodInfo _JDKPlatformProvider$PlatformDescriptionImpl$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl",
-	"getFileManager",
-	"()Ljavax/tools/JavaFileManager;"
-};
-
-$InnerClassInfo _JDKPlatformProvider$PlatformDescriptionImpl$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl", "com.sun.tools.javac.platform.JDKPlatformProvider", "PlatformDescriptionImpl", $STATIC},
-	{"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$1", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$1$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JDKPlatformProvider$PlatformDescriptionImpl$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$1",
-	"com.sun.tools.javac.file.JavacFileManager",
-	nullptr,
-	_JDKPlatformProvider$PlatformDescriptionImpl$1_FieldInfo_,
-	_JDKPlatformProvider$PlatformDescriptionImpl$1_MethodInfo_,
-	nullptr,
-	&_JDKPlatformProvider$PlatformDescriptionImpl$1_EnclosingMethodInfo_,
-	_JDKPlatformProvider$PlatformDescriptionImpl$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.platform.JDKPlatformProvider"
-};
-
-$Object* allocate$JDKPlatformProvider$PlatformDescriptionImpl$1($Class* clazz) {
-	return $of($alloc(JDKPlatformProvider$PlatformDescriptionImpl$1));
-}
 
 void JDKPlatformProvider$PlatformDescriptionImpl$1::init$($JDKPlatformProvider$PlatformDescriptionImpl* this$0, $Context* context, bool register$, $Charset* charset) {
 	$set(this, this$0, this$0);
@@ -158,7 +103,7 @@ bool JDKPlatformProvider$PlatformDescriptionImpl$1::hasLocation($JavaFileManager
 }
 
 $JavaFileObject* JDKPlatformProvider$PlatformDescriptionImpl$1::getJavaFileForInput($JavaFileManager$Location* location, $String* className, $JavaFileObject$Kind* kind) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JavaFileObject$Kind);
 	if (kind == $JavaFileObject$Kind::CLASS) {
 		$var($String, fileName, $nc(className)->replace(u'.', u'/'));
@@ -176,16 +121,16 @@ $JavaFileObject* JDKPlatformProvider$PlatformDescriptionImpl$1::getJavaFileForIn
 }
 
 $Iterable* JDKPlatformProvider$PlatformDescriptionImpl$1::list($JavaFileManager$Location* location, $String* packageName, $Set* kinds, bool recurse) {
-	$useLocalCurrentObjectStackCache();
-	$var($Set, enhancedKinds, $EnumSet::copyOf(static_cast<$Collection*>(kinds)));
+	$useLocalObjectStack();
+	$var($Set, enhancedKinds, $EnumSet::copyOf(kinds));
 	$init($JavaFileObject$Kind);
 	$nc(enhancedKinds)->add($JavaFileObject$Kind::OTHER);
 	$var($Iterable, listed, $JavacFileManager::list(location, packageName, enhancedKinds, recurse));
-	return static_cast<$Iterable*>($new(JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0, this, listed, kinds));
+	return $new(JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0, this, listed, kinds);
 }
 
 $String* JDKPlatformProvider$PlatformDescriptionImpl$1::inferBinaryName($JavaFileManager$Location* location, $JavaFileObject* file$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JavaFileObject, file, file$renamed);
 	{
 		$var($JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject, sigJavaFileObject, nullptr);
@@ -210,11 +155,52 @@ JDKPlatformProvider$PlatformDescriptionImpl$1::JDKPlatformProvider$PlatformDescr
 
 $Class* JDKPlatformProvider$PlatformDescriptionImpl$1::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0")) {
 			return JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0::load$(name, initialize);
 		}
 	}
-	$loadClass(JDKPlatformProvider$PlatformDescriptionImpl$1, name, initialize, &_JDKPlatformProvider$PlatformDescriptionImpl$1_ClassInfo_, allocate$JDKPlatformProvider$PlatformDescriptionImpl$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/platform/JDKPlatformProvider$PlatformDescriptionImpl;", nullptr, $FINAL | $SYNTHETIC, $field(JDKPlatformProvider$PlatformDescriptionImpl$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/platform/JDKPlatformProvider$PlatformDescriptionImpl;Lcom/sun/tools/javac/util/Context;ZLjava/nio/charset/Charset;)V", nullptr, 0, $method(JDKPlatformProvider$PlatformDescriptionImpl$1, init$, void, $JDKPlatformProvider$PlatformDescriptionImpl*, $Context*, bool, $Charset*)},
+		{"getJavaFileForInput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$1, getJavaFileForInput, $JavaFileObject*, $JavaFileManager$Location*, $String*, $JavaFileObject$Kind*), "java.io.IOException"},
+		{"hasLocation", "(Ljavax/tools/JavaFileManager$Location;)Z", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$1, hasLocation, bool, $JavaFileManager$Location*)},
+		{"inferBinaryName", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$1, inferBinaryName, $String*, $JavaFileManager$Location*, $JavaFileObject*)},
+		{"lambda$list$0", "(Ljava/lang/Iterable;Ljava/util/Set;)Ljava/util/Iterator;", nullptr, $PRIVATE | $SYNTHETIC, $method(JDKPlatformProvider$PlatformDescriptionImpl$1, lambda$list$0, $Iterator*, $Iterable*, $Set*)},
+		{"list", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set;Z)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;Z)Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$1, list, $Iterable*, $JavaFileManager$Location*, $String*, $Set*, bool), "java.io.IOException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl",
+		"getFileManager",
+		"()Ljavax/tools/JavaFileManager;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl", "com.sun.tools.javac.platform.JDKPlatformProvider", "PlatformDescriptionImpl", $STATIC},
+		{"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$1", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$1$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$1",
+		"com.sun.tools.javac.file.JavacFileManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.platform.JDKPlatformProvider"
+	};
+	$loadClass(JDKPlatformProvider$PlatformDescriptionImpl$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JDKPlatformProvider$PlatformDescriptionImpl$1));
+	});
 	return class$;
 }
 

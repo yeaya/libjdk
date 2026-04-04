@@ -32,6 +32,7 @@ class I18n : public ::java::lang::Object {
 	$class(I18n, 0, ::java::lang::Object)
 public:
 	I18n();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* getExceptionMessage($String* msgID);
 	static $String* getExceptionMessage($String* msgID, ::java::lang::Exception* originalException);

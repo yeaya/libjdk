@@ -1,5 +1,4 @@
 #include <org/reactivestreams/Subscription.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -8,27 +7,23 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace org {
 	namespace reactivestreams {
 
-$MethodInfo _Subscription_MethodInfo_[] = {
-	{"cancel", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Subscription, cancel, void)},
-	{"request", "(J)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Subscription, request, void, int64_t)},
-	{}
-};
-
-$ClassInfo _Subscription_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"org.reactivestreams.Subscription",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Subscription_MethodInfo_
-};
-
-$Object* allocate$Subscription($Class* clazz) {
-	return $of($alloc(Subscription));
-}
-
 $Class* Subscription::load$($String* name, bool initialize) {
-	$loadClass(Subscription, name, initialize, &_Subscription_ClassInfo_, allocate$Subscription);
+	$MethodInfo methodInfos$$[] = {
+		{"cancel", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Subscription, cancel, void)},
+		{"request", "(J)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Subscription, request, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"org.reactivestreams.Subscription",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Subscription, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Subscription);
+	});
 	return class$;
 }
 

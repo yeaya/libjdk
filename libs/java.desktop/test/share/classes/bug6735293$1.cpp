@@ -1,5 +1,4 @@
 #include <bug6735293$1.h>
-
 #include <bug6735293.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -11,8 +10,6 @@
 #include <jcpp.h>
 
 using $bug6735293 = ::bug6735293;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -20,43 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JFormattedTextField = ::javax::swing::JFormattedTextField;
 using $JFrame = ::javax::swing::JFrame;
 using $NavigationFilter = ::javax::swing::text::NavigationFilter;
-
-$MethodInfo _bug6735293$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug6735293$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6735293$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug6735293$1_EnclosingMethodInfo_ = {
-	"bug6735293",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug6735293$1_InnerClassesInfo_[] = {
-	{"bug6735293$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6735293$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6735293$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug6735293$1_MethodInfo_,
-	nullptr,
-	&_bug6735293$1_EnclosingMethodInfo_,
-	_bug6735293$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6735293"
-};
-
-$Object* allocate$bug6735293$1($Class* clazz) {
-	return $of($alloc(bug6735293$1));
-}
 
 void bug6735293$1::init$() {
 }
@@ -67,7 +27,7 @@ void bug6735293$1::run() {
 	$assignStatic($bug6735293::nf, $new($NavigationFilter));
 	$nc($bug6735293::jtf)->setText("A text message"_s);
 	$assignStatic($bug6735293::jFrame, $new($JFrame));
-	$nc($($nc($bug6735293::jFrame)->getContentPane()))->add(static_cast<$Component*>($bug6735293::jtf));
+	$$nc($nc($bug6735293::jFrame)->getContentPane())->add($bug6735293::jtf);
 	$nc($bug6735293::jFrame)->pack();
 	$nc($bug6735293::jFrame)->setVisible(true);
 }
@@ -76,7 +36,38 @@ bug6735293$1::bug6735293$1() {
 }
 
 $Class* bug6735293$1::load$($String* name, bool initialize) {
-	$loadClass(bug6735293$1, name, initialize, &_bug6735293$1_ClassInfo_, allocate$bug6735293$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug6735293$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6735293$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug6735293",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6735293$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6735293$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6735293"
+	};
+	$loadClass(bug6735293$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6735293$1);
+	});
 	return class$;
 }
 

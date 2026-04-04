@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/IntArrayCache.h>
-
 #include <java/lang/ref/WeakReference.h>
 #include <java/util/Arrays.h>
 #include <sun/java2d/marlin/ArrayCacheConst$BucketStats.h>
@@ -34,53 +33,8 @@ namespace sun {
 	namespace java2d {
 		namespace marlin {
 
-$FieldInfo _IntArrayCache_FieldInfo_[] = {
-	{"clean", "Z", nullptr, $FINAL, $field(IntArrayCache, clean)},
-	{"bucketCapacity", "I", nullptr, $PRIVATE | $FINAL, $field(IntArrayCache, bucketCapacity)},
-	{"refBuckets", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<[Lsun/java2d/marlin/IntArrayCache$Bucket;>;", $PRIVATE, $field(IntArrayCache, refBuckets)},
-	{"stats", "Lsun/java2d/marlin/ArrayCacheConst$CacheStats;", nullptr, $FINAL, $field(IntArrayCache, stats)},
-	{}
-};
-
-$MethodInfo _IntArrayCache_MethodInfo_[] = {
-	{"<init>", "(ZI)V", nullptr, 0, $method(IntArrayCache, init$, void, bool, int32_t)},
-	{"check", "([IIII)V", nullptr, $STATIC, $staticMethod(IntArrayCache, check, void, $ints*, int32_t, int32_t, int32_t)},
-	{"createArray", "(I)[I", nullptr, $STATIC, $staticMethod(IntArrayCache, createArray, $ints*, int32_t)},
-	{"createRef", "(I)Lsun/java2d/marlin/IntArrayCache$Reference;", nullptr, 0, $method(IntArrayCache, createRef, $IntArrayCache$Reference*, int32_t)},
-	{"fill", "([IIII)V", nullptr, $STATIC, $staticMethod(IntArrayCache, fill, void, $ints*, int32_t, int32_t, int32_t)},
-	{"getBuckets", "()[Lsun/java2d/marlin/IntArrayCache$Bucket;", nullptr, $PRIVATE, $method(IntArrayCache, getBuckets, $IntArrayCache$BucketArray*)},
-	{"getCacheBucket", "(I)Lsun/java2d/marlin/IntArrayCache$Bucket;", nullptr, 0, $method(IntArrayCache, getCacheBucket, $IntArrayCache$Bucket*, int32_t)},
-	{"getLogPrefix", "(Z)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(IntArrayCache, getLogPrefix, $String*, bool)},
-	{}
-};
-
-$InnerClassInfo _IntArrayCache_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.IntArrayCache$Bucket", "sun.java2d.marlin.IntArrayCache", "Bucket", $STATIC | $FINAL},
-	{"sun.java2d.marlin.IntArrayCache$Reference", "sun.java2d.marlin.IntArrayCache", "Reference", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _IntArrayCache_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.IntArrayCache",
-	"java.lang.Object",
-	"sun.java2d.marlin.MarlinConst",
-	_IntArrayCache_FieldInfo_,
-	_IntArrayCache_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IntArrayCache_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.IntArrayCache$Bucket,sun.java2d.marlin.IntArrayCache$Reference"
-};
-
-$Object* allocate$IntArrayCache($Class* clazz) {
-	return $of($alloc(IntArrayCache));
-}
-
 void IntArrayCache::init$(bool clean, int32_t bucketCapacity) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, refBuckets, nullptr);
 	this->clean = clean;
 	this->bucketCapacity = bucketCapacity;
@@ -94,8 +48,8 @@ $IntArrayCache$Bucket* IntArrayCache::getCacheBucket(int32_t length) {
 }
 
 $IntArrayCache$BucketArray* IntArrayCache::getBuckets() {
-	$useLocalCurrentObjectStackCache();
-	$var($IntArrayCache$BucketArray, buckets, (this->refBuckets != nullptr) ? $cast($IntArrayCache$BucketArray, $nc(this->refBuckets)->get()) : ($IntArrayCache$BucketArray*)nullptr);
+	$useLocalObjectStack();
+	$var($IntArrayCache$BucketArray, buckets, (this->refBuckets != nullptr) ? $cast($IntArrayCache$BucketArray, this->refBuckets->get()) : ($IntArrayCache$BucketArray*)nullptr);
 	if (buckets == nullptr) {
 		$assign(buckets, $new($IntArrayCache$BucketArray, 8));
 		for (int32_t i = 0; i < 8; ++i) {
@@ -128,7 +82,7 @@ void IntArrayCache::fill($ints* array, int32_t fromIndex, int32_t toIndex, int32
 
 void IntArrayCache::check($ints* array, int32_t fromIndex, int32_t toIndex, int32_t value) {
 	$init(IntArrayCache);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($MarlinConst);
 	if ($MarlinConst::DO_CHECKS) {
 		for (int32_t i = 0; i < $nc(array)->length; ++i) {
@@ -151,7 +105,46 @@ IntArrayCache::IntArrayCache() {
 }
 
 $Class* IntArrayCache::load$($String* name, bool initialize) {
-	$loadClass(IntArrayCache, name, initialize, &_IntArrayCache_ClassInfo_, allocate$IntArrayCache);
+	$FieldInfo fieldInfos$$[] = {
+		{"clean", "Z", nullptr, $FINAL, $field(IntArrayCache, clean)},
+		{"bucketCapacity", "I", nullptr, $PRIVATE | $FINAL, $field(IntArrayCache, bucketCapacity)},
+		{"refBuckets", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<[Lsun/java2d/marlin/IntArrayCache$Bucket;>;", $PRIVATE, $field(IntArrayCache, refBuckets)},
+		{"stats", "Lsun/java2d/marlin/ArrayCacheConst$CacheStats;", nullptr, $FINAL, $field(IntArrayCache, stats)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZI)V", nullptr, 0, $method(IntArrayCache, init$, void, bool, int32_t)},
+		{"check", "([IIII)V", nullptr, $STATIC, $staticMethod(IntArrayCache, check, void, $ints*, int32_t, int32_t, int32_t)},
+		{"createArray", "(I)[I", nullptr, $STATIC, $staticMethod(IntArrayCache, createArray, $ints*, int32_t)},
+		{"createRef", "(I)Lsun/java2d/marlin/IntArrayCache$Reference;", nullptr, 0, $method(IntArrayCache, createRef, $IntArrayCache$Reference*, int32_t)},
+		{"fill", "([IIII)V", nullptr, $STATIC, $staticMethod(IntArrayCache, fill, void, $ints*, int32_t, int32_t, int32_t)},
+		{"getBuckets", "()[Lsun/java2d/marlin/IntArrayCache$Bucket;", nullptr, $PRIVATE, $method(IntArrayCache, getBuckets, $IntArrayCache$BucketArray*)},
+		{"getCacheBucket", "(I)Lsun/java2d/marlin/IntArrayCache$Bucket;", nullptr, 0, $method(IntArrayCache, getCacheBucket, $IntArrayCache$Bucket*, int32_t)},
+		{"getLogPrefix", "(Z)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(IntArrayCache, getLogPrefix, $String*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.IntArrayCache$Bucket", "sun.java2d.marlin.IntArrayCache", "Bucket", $STATIC | $FINAL},
+		{"sun.java2d.marlin.IntArrayCache$Reference", "sun.java2d.marlin.IntArrayCache", "Reference", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.IntArrayCache",
+		"java.lang.Object",
+		"sun.java2d.marlin.MarlinConst",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.IntArrayCache$Bucket,sun.java2d.marlin.IntArrayCache$Reference"
+	};
+	$loadClass(IntArrayCache, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IntArrayCache);
+	});
 	return class$;
 }
 

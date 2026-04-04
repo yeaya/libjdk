@@ -31,6 +31,7 @@ class $import CGraphicsEnvironment : public ::sun::java2d::SunGraphicsEnvironmen
 	$class(CGraphicsEnvironment, $HAS_FINALIZE, ::sun::java2d::SunGraphicsEnvironment)
 public:
 	CGraphicsEnvironment();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void _displayReconfiguration(int32_t displayId, bool removed);
 	void deregisterDisplayReconfiguration(int64_t context);

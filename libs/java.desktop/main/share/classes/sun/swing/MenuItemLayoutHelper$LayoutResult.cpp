@@ -1,5 +1,4 @@
 #include <sun/swing/MenuItemLayoutHelper$LayoutResult.h>
-
 #include <java/awt/Rectangle.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
@@ -16,60 +15,6 @@ using $Map = ::java::util::Map;
 
 namespace sun {
 	namespace swing {
-
-$FieldInfo _MenuItemLayoutHelper$LayoutResult_FieldInfo_[] = {
-	{"iconRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(MenuItemLayoutHelper$LayoutResult, iconRect)},
-	{"textRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(MenuItemLayoutHelper$LayoutResult, textRect)},
-	{"accRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(MenuItemLayoutHelper$LayoutResult, accRect)},
-	{"checkRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(MenuItemLayoutHelper$LayoutResult, checkRect)},
-	{"arrowRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(MenuItemLayoutHelper$LayoutResult, arrowRect)},
-	{"labelRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(MenuItemLayoutHelper$LayoutResult, labelRect)},
-	{}
-};
-
-$MethodInfo _MenuItemLayoutHelper$LayoutResult_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MenuItemLayoutHelper$LayoutResult, init$, void)},
-	{"<init>", "(Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $method(MenuItemLayoutHelper$LayoutResult, init$, void, $Rectangle*, $Rectangle*, $Rectangle*, $Rectangle*, $Rectangle*, $Rectangle*)},
-	{"getAccRect", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$LayoutResult, getAccRect, $Rectangle*)},
-	{"getAllRects", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/awt/Rectangle;>;", $PUBLIC, $virtualMethod(MenuItemLayoutHelper$LayoutResult, getAllRects, $Map*)},
-	{"getArrowRect", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$LayoutResult, getArrowRect, $Rectangle*)},
-	{"getCheckRect", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$LayoutResult, getCheckRect, $Rectangle*)},
-	{"getIconRect", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$LayoutResult, getIconRect, $Rectangle*)},
-	{"getLabelRect", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$LayoutResult, getLabelRect, $Rectangle*)},
-	{"getTextRect", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$LayoutResult, getTextRect, $Rectangle*)},
-	{"setAccRect", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$LayoutResult, setAccRect, void, $Rectangle*)},
-	{"setArrowRect", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$LayoutResult, setArrowRect, void, $Rectangle*)},
-	{"setCheckRect", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$LayoutResult, setCheckRect, void, $Rectangle*)},
-	{"setIconRect", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$LayoutResult, setIconRect, void, $Rectangle*)},
-	{"setLabelRect", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$LayoutResult, setLabelRect, void, $Rectangle*)},
-	{"setTextRect", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$LayoutResult, setTextRect, void, $Rectangle*)},
-	{}
-};
-
-$InnerClassInfo _MenuItemLayoutHelper$LayoutResult_InnerClassesInfo_[] = {
-	{"sun.swing.MenuItemLayoutHelper$LayoutResult", "sun.swing.MenuItemLayoutHelper", "LayoutResult", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MenuItemLayoutHelper$LayoutResult_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.swing.MenuItemLayoutHelper$LayoutResult",
-	"java.lang.Object",
-	nullptr,
-	_MenuItemLayoutHelper$LayoutResult_FieldInfo_,
-	_MenuItemLayoutHelper$LayoutResult_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MenuItemLayoutHelper$LayoutResult_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.MenuItemLayoutHelper"
-};
-
-$Object* allocate$MenuItemLayoutHelper$LayoutResult($Class* clazz) {
-	return $of($alloc(MenuItemLayoutHelper$LayoutResult));
-}
 
 void MenuItemLayoutHelper$LayoutResult::init$() {
 	$set(this, iconRect, $new($Rectangle));
@@ -152,7 +97,55 @@ MenuItemLayoutHelper$LayoutResult::MenuItemLayoutHelper$LayoutResult() {
 }
 
 $Class* MenuItemLayoutHelper$LayoutResult::load$($String* name, bool initialize) {
-	$loadClass(MenuItemLayoutHelper$LayoutResult, name, initialize, &_MenuItemLayoutHelper$LayoutResult_ClassInfo_, allocate$MenuItemLayoutHelper$LayoutResult);
+	$FieldInfo fieldInfos$$[] = {
+		{"iconRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(MenuItemLayoutHelper$LayoutResult, iconRect)},
+		{"textRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(MenuItemLayoutHelper$LayoutResult, textRect)},
+		{"accRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(MenuItemLayoutHelper$LayoutResult, accRect)},
+		{"checkRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(MenuItemLayoutHelper$LayoutResult, checkRect)},
+		{"arrowRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(MenuItemLayoutHelper$LayoutResult, arrowRect)},
+		{"labelRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(MenuItemLayoutHelper$LayoutResult, labelRect)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MenuItemLayoutHelper$LayoutResult, init$, void)},
+		{"<init>", "(Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $method(MenuItemLayoutHelper$LayoutResult, init$, void, $Rectangle*, $Rectangle*, $Rectangle*, $Rectangle*, $Rectangle*, $Rectangle*)},
+		{"getAccRect", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$LayoutResult, getAccRect, $Rectangle*)},
+		{"getAllRects", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/awt/Rectangle;>;", $PUBLIC, $virtualMethod(MenuItemLayoutHelper$LayoutResult, getAllRects, $Map*)},
+		{"getArrowRect", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$LayoutResult, getArrowRect, $Rectangle*)},
+		{"getCheckRect", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$LayoutResult, getCheckRect, $Rectangle*)},
+		{"getIconRect", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$LayoutResult, getIconRect, $Rectangle*)},
+		{"getLabelRect", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$LayoutResult, getLabelRect, $Rectangle*)},
+		{"getTextRect", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$LayoutResult, getTextRect, $Rectangle*)},
+		{"setAccRect", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$LayoutResult, setAccRect, void, $Rectangle*)},
+		{"setArrowRect", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$LayoutResult, setArrowRect, void, $Rectangle*)},
+		{"setCheckRect", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$LayoutResult, setCheckRect, void, $Rectangle*)},
+		{"setIconRect", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$LayoutResult, setIconRect, void, $Rectangle*)},
+		{"setLabelRect", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$LayoutResult, setLabelRect, void, $Rectangle*)},
+		{"setTextRect", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$LayoutResult, setTextRect, void, $Rectangle*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.MenuItemLayoutHelper$LayoutResult", "sun.swing.MenuItemLayoutHelper", "LayoutResult", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.swing.MenuItemLayoutHelper$LayoutResult",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.MenuItemLayoutHelper"
+	};
+	$loadClass(MenuItemLayoutHelper$LayoutResult, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MenuItemLayoutHelper$LayoutResult);
+	});
 	return class$;
 }
 

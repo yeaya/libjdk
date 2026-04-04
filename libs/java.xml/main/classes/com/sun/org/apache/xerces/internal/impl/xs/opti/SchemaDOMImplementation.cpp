@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/SchemaDOMImplementation.h>
-
 #include <org/w3c/dom/DOMException.h>
 #include <org/w3c/dom/DOMImplementation.h>
 #include <org/w3c/dom/Document.h>
@@ -26,34 +25,6 @@ namespace com {
 							namespace xs {
 								namespace opti {
 
-$FieldInfo _SchemaDOMImplementation_FieldInfo_[] = {
-	{"singleton", "Lcom/sun/org/apache/xerces/internal/impl/xs/opti/SchemaDOMImplementation;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SchemaDOMImplementation, singleton)},
-	{}
-};
-
-$MethodInfo _SchemaDOMImplementation_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SchemaDOMImplementation, init$, void)},
-	{"createDocument", "(Ljava/lang/String;Ljava/lang/String;Lorg/w3c/dom/DocumentType;)Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(SchemaDOMImplementation, createDocument, $Document*, $String*, $String*, $DocumentType*), "org.w3c.dom.DOMException"},
-	{"createDocumentType", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/DocumentType;", nullptr, $PUBLIC, $virtualMethod(SchemaDOMImplementation, createDocumentType, $DocumentType*, $String*, $String*, $String*), "org.w3c.dom.DOMException"},
-	{"getDOMImplementation", "()Lorg/w3c/dom/DOMImplementation;", nullptr, $PUBLIC | $STATIC, $staticMethod(SchemaDOMImplementation, getDOMImplementation, $DOMImplementation*)},
-	{"getFeature", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SchemaDOMImplementation, getFeature, $Object*, $String*, $String*)},
-	{"hasFeature", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(SchemaDOMImplementation, hasFeature, bool, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _SchemaDOMImplementation_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.opti.SchemaDOMImplementation",
-	"java.lang.Object",
-	"org.w3c.dom.DOMImplementation",
-	_SchemaDOMImplementation_FieldInfo_,
-	_SchemaDOMImplementation_MethodInfo_
-};
-
-$Object* allocate$SchemaDOMImplementation($Class* clazz) {
-	return $of($alloc(SchemaDOMImplementation));
-}
-
 SchemaDOMImplementation* SchemaDOMImplementation::singleton = nullptr;
 
 $DOMImplementation* SchemaDOMImplementation::getDOMImplementation() {
@@ -75,25 +46,25 @@ $DocumentType* SchemaDOMImplementation::createDocumentType($String* qualifiedNam
 }
 
 $Object* SchemaDOMImplementation::getFeature($String* feature, $String* version) {
-	if ($nc(SchemaDOMImplementation::singleton)->hasFeature(feature, version)) {
-		return $of(SchemaDOMImplementation::singleton);
+	if (SchemaDOMImplementation::singleton->hasFeature(feature, version)) {
+		return SchemaDOMImplementation::singleton;
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 bool SchemaDOMImplementation::hasFeature($String* feature, $String* version) {
-	bool anyVersion = version == nullptr || $nc(version)->length() == 0;
+	bool anyVersion = version == nullptr || version->length() == 0;
 	bool var$1 = $nc(feature)->equalsIgnoreCase("Core"_s);
-	bool var$0 = (var$1 || $nc(feature)->equalsIgnoreCase("XML"_s));
+	bool var$0 = var$1 || feature->equalsIgnoreCase("XML"_s);
 	if (var$0) {
-		bool var$3 = anyVersion || version->equals("1.0"_s);
-		bool var$2 = var$3 || version->equals("2.0"_s);
-		var$0 = (var$2 || version->equals("3.0"_s));
+		bool var$3 = anyVersion || $nc(version)->equals("1.0"_s);
+		bool var$2 = var$3 || $nc(version)->equals("2.0"_s);
+		var$0 = var$2 || $nc(version)->equals("3.0"_s);
 	}
 	return var$0;
 }
 
-void clinit$SchemaDOMImplementation($Class* class$) {
+void SchemaDOMImplementation::clinit$($Class* clazz) {
 	$assignStatic(SchemaDOMImplementation::singleton, $new(SchemaDOMImplementation));
 }
 
@@ -101,7 +72,30 @@ SchemaDOMImplementation::SchemaDOMImplementation() {
 }
 
 $Class* SchemaDOMImplementation::load$($String* name, bool initialize) {
-	$loadClass(SchemaDOMImplementation, name, initialize, &_SchemaDOMImplementation_ClassInfo_, clinit$SchemaDOMImplementation, allocate$SchemaDOMImplementation);
+	$FieldInfo fieldInfos$$[] = {
+		{"singleton", "Lcom/sun/org/apache/xerces/internal/impl/xs/opti/SchemaDOMImplementation;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SchemaDOMImplementation, singleton)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SchemaDOMImplementation, init$, void)},
+		{"createDocument", "(Ljava/lang/String;Ljava/lang/String;Lorg/w3c/dom/DocumentType;)Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(SchemaDOMImplementation, createDocument, $Document*, $String*, $String*, $DocumentType*), "org.w3c.dom.DOMException"},
+		{"createDocumentType", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/DocumentType;", nullptr, $PUBLIC, $virtualMethod(SchemaDOMImplementation, createDocumentType, $DocumentType*, $String*, $String*, $String*), "org.w3c.dom.DOMException"},
+		{"getDOMImplementation", "()Lorg/w3c/dom/DOMImplementation;", nullptr, $PUBLIC | $STATIC, $staticMethod(SchemaDOMImplementation, getDOMImplementation, $DOMImplementation*)},
+		{"getFeature", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SchemaDOMImplementation, getFeature, $Object*, $String*, $String*)},
+		{"hasFeature", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(SchemaDOMImplementation, hasFeature, bool, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.opti.SchemaDOMImplementation",
+		"java.lang.Object",
+		"org.w3c.dom.DOMImplementation",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SchemaDOMImplementation, name, initialize, &classInfo$$, SchemaDOMImplementation::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SchemaDOMImplementation);
+	});
 	return class$;
 }
 

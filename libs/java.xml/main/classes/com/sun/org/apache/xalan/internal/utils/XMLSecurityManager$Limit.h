@@ -46,6 +46,7 @@ class XMLSecurityManager$Limit : public ::java::lang::Enum {
 public:
 	XMLSecurityManager$Limit();
 	static $Array<::com::sun::org::apache::xalan::internal::utils::XMLSecurityManager$Limit>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* key, $String* apiProperty, $String* systemProperty, int32_t value, int32_t secureValue);
 	virtual $String* apiProperty();
 	virtual int32_t defaultValue();

@@ -12,6 +12,7 @@ class FontManagerNativeLibrary : public ::java::lang::Object {
 	$class(FontManagerNativeLibrary, 0, ::java::lang::Object)
 public:
 	FontManagerNativeLibrary();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void load();
 };

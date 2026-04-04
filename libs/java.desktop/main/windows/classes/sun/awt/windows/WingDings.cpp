@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WingDings.h>
-
 #include <java/lang/Error.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
@@ -19,38 +18,6 @@ using $WingDings$Encoder = ::sun::awt::windows::WingDings$Encoder;
 namespace sun {
 	namespace awt {
 		namespace windows {
-
-$MethodInfo _WingDings_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WingDings, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(WingDings, contains, bool, $Charset*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(WingDings, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(WingDings, newEncoder, $CharsetEncoder*)},
-	{}
-};
-
-$InnerClassInfo _WingDings_InnerClassesInfo_[] = {
-	{"sun.awt.windows.WingDings$Encoder", "sun.awt.windows.WingDings", "Encoder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WingDings_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.windows.WingDings",
-	"java.nio.charset.Charset",
-	nullptr,
-	nullptr,
-	_WingDings_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WingDings_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.windows.WingDings$Encoder"
-};
-
-$Object* allocate$WingDings($Class* clazz) {
-	return $of($alloc(WingDings));
-}
 
 void WingDings::init$() {
 	$Charset::init$("WingDings"_s, nullptr);
@@ -73,7 +40,34 @@ WingDings::WingDings() {
 }
 
 $Class* WingDings::load$($String* name, bool initialize) {
-	$loadClass(WingDings, name, initialize, &_WingDings_ClassInfo_, allocate$WingDings);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WingDings, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(WingDings, contains, bool, $Charset*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(WingDings, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(WingDings, newEncoder, $CharsetEncoder*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.windows.WingDings$Encoder", "sun.awt.windows.WingDings", "Encoder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.windows.WingDings",
+		"java.nio.charset.Charset",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.windows.WingDings$Encoder"
+	};
+	$loadClass(WingDings, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WingDings);
+	});
 	return class$;
 }
 

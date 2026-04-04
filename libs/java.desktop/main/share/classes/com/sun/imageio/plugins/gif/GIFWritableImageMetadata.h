@@ -27,6 +27,7 @@ class GIFWritableImageMetadata : public ::com::sun::imageio::plugins::gif::GIFIm
 	$class(GIFWritableImageMetadata, 0, ::com::sun::imageio::plugins::gif::GIFImageMetadata)
 public:
 	GIFWritableImageMetadata();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	$bytes* fromISO8859($String* data);
 	virtual bool isReadOnly() override;

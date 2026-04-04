@@ -1,9 +1,7 @@
 #include <sun/rmi/runtime/Log$LoggerLog.h>
-
 #include <java/io/OutputStream.h>
 #include <java/lang/StackWalker$StackFrame.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/logging/Handler.h>
 #include <java/util/logging/Level.h>
 #include <java/util/logging/Logger.h>
@@ -24,7 +22,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StackWalker$StackFrame = ::java::lang::StackWalker$StackFrame;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Handler = ::java::util::logging::Handler;
 using $Level = ::java::util::logging::Level;
 using $Logger = ::java::util::logging::Logger;
@@ -38,52 +35,6 @@ namespace sun {
 	namespace rmi {
 		namespace runtime {
 
-$FieldInfo _Log$LoggerLog_FieldInfo_[] = {
-	{"alternateConsole", "Ljava/util/logging/Handler;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Log$LoggerLog, alternateConsole)},
-	{"copyHandler", "Lsun/rmi/runtime/Log$InternalStreamHandler;", nullptr, $PRIVATE, $field(Log$LoggerLog, copyHandler)},
-	{"logger", "Ljava/util/logging/Logger;", nullptr, $PRIVATE | $FINAL, $field(Log$LoggerLog, logger)},
-	{"loggerSandwich", "Lsun/rmi/runtime/Log$LoggerPrintStream;", nullptr, $PRIVATE, $field(Log$LoggerLog, loggerSandwich)},
-	{}
-};
-
-$MethodInfo _Log$LoggerLog_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/logging/Logger;Ljava/util/logging/Level;)V", nullptr, $PRIVATE, $method(Log$LoggerLog, init$, void, $Logger*, $Level*)},
-	{"getPrintStream", "()Ljava/io/PrintStream;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Log$LoggerLog, getPrintStream, $PrintStream*)},
-	{"isLoggable", "(Ljava/util/logging/Level;)Z", nullptr, $PUBLIC, $virtualMethod(Log$LoggerLog, isLoggable, bool, $Level*)},
-	{"log", "(Ljava/util/logging/Level;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Log$LoggerLog, log, void, $Level*, $String*)},
-	{"log", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Log$LoggerLog, log, void, $Level*, $String*, $Throwable*)},
-	{"setOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Log$LoggerLog, setOutputStream, void, $OutputStream*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Log$LoggerLog, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Log$LoggerLog_InnerClassesInfo_[] = {
-	{"sun.rmi.runtime.Log$LoggerLog", "sun.rmi.runtime.Log", "LoggerLog", $PRIVATE | $STATIC},
-	{"sun.rmi.runtime.Log$LoggerLog$2", nullptr, nullptr, 0},
-	{"sun.rmi.runtime.Log$LoggerLog$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Log$LoggerLog_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.rmi.runtime.Log$LoggerLog",
-	"sun.rmi.runtime.Log",
-	nullptr,
-	_Log$LoggerLog_FieldInfo_,
-	_Log$LoggerLog_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Log$LoggerLog_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.rmi.runtime.Log"
-};
-
-$Object* allocate$Log$LoggerLog($Class* clazz) {
-	return $of($alloc(Log$LoggerLog));
-}
-
 $Handler* Log$LoggerLog::alternateConsole = nullptr;
 
 void Log$LoggerLog::init$($Logger* logger, $Level* level) {
@@ -92,7 +43,7 @@ void Log$LoggerLog::init$($Logger* logger, $Level* level) {
 	$set(this, copyHandler, nullptr);
 	$set(this, logger, logger);
 	if (level != nullptr) {
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Log$LoggerLog$2, this, logger, level)));
+		$AccessController::doPrivileged($$new($Log$LoggerLog$2, this, logger, level));
 	}
 }
 
@@ -101,33 +52,34 @@ bool Log$LoggerLog::isLoggable($Level* level) {
 }
 
 void Log$LoggerLog::log($Level* level, $String* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isLoggable(level)) {
 		$var($StackWalker$StackFrame, sourceFrame, $Log::getSource());
-		$var($Level, var$0, level);
-		$var($String, var$1, $nc(sourceFrame)->getClassName());
-		$var($String, var$2, sourceFrame->getMethodName());
-		$nc(this->logger)->logp(var$0, var$1, var$2, $$str({$($($Thread::currentThread())->getName()), ": "_s, message}));
+		$var($String, var$0, $nc(sourceFrame)->getClassName());
+		$var($String, var$1, sourceFrame->getMethodName());
+		$nc(this->logger)->logp(level, var$0, var$1, $$str({$($($Thread::currentThread())->getName()), ": "_s, message}));
 	}
 }
 
 void Log$LoggerLog::log($Level* level, $String* message, $Throwable* thrown) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isLoggable(level)) {
 		$var($StackWalker$StackFrame, sourceFrame, $Log::getSource());
-		$var($Level, var$0, level);
-		$var($String, var$1, $nc(sourceFrame)->getClassName());
-		$var($String, var$2, sourceFrame->getMethodName());
-		$nc(this->logger)->logp(var$0, var$1, var$2, $$str({$($($Thread::currentThread())->getName()), ": "_s, message}), thrown);
+		$var($String, var$0, $nc(sourceFrame)->getClassName());
+		$var($String, var$1, sourceFrame->getMethodName());
+		$nc(this->logger)->logp(level, var$0, var$1, $$str({$($($Thread::currentThread())->getName()), ": "_s, message}), thrown);
 	}
 }
 
 $String* Log$LoggerLog::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$2, $$str({$($nc($of(this->logger))->toString()), ", level: "_s}));
-	$var($String, var$1, $$concat(var$2, $($nc(this->logger)->getLevel())));
-	$var($String, var$0, $$concat(var$1, ", name: "_s));
-	return $concat(var$0, $($nc(this->logger)->getName()));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($nc(this->logger)->toString()));
+	var$0->append(", level: "_s);
+	var$0->append($(this->logger->getLevel()));
+	var$0->append(", name: "_s);
+	var$0->append($(this->logger->getName()));
+	return $str(var$0);
 }
 
 void Log$LoggerLog::setOutputStream($OutputStream* out) {
@@ -135,11 +87,11 @@ void Log$LoggerLog::setOutputStream($OutputStream* out) {
 		if (out != nullptr) {
 			$init($Log);
 			if (!$nc(this->logger)->isLoggable($Log::VERBOSE)) {
-				$nc(this->logger)->setLevel($Log::VERBOSE);
+				this->logger->setLevel($Log::VERBOSE);
 			}
 			$set(this, copyHandler, $new($Log$InternalStreamHandler, out));
-			$nc(this->copyHandler)->setLevel($Log::VERBOSE);
-			$nc(this->logger)->addHandler(this->copyHandler);
+			this->copyHandler->setLevel($Log::VERBOSE);
+			this->logger->addHandler(this->copyHandler);
 		} else {
 			if (this->copyHandler != nullptr) {
 				$nc(this->logger)->removeHandler(this->copyHandler);
@@ -158,16 +110,56 @@ $PrintStream* Log$LoggerLog::getPrintStream() {
 	}
 }
 
-void clinit$Log$LoggerLog($Class* class$) {
+void Log$LoggerLog::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
-	$assignStatic(Log$LoggerLog::alternateConsole, $cast($Handler, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Log$LoggerLog$1)))));
+	$assignStatic(Log$LoggerLog::alternateConsole, $cast($Handler, $AccessController::doPrivileged($$new($Log$LoggerLog$1))));
 }
 
 Log$LoggerLog::Log$LoggerLog() {
 }
 
 $Class* Log$LoggerLog::load$($String* name, bool initialize) {
-	$loadClass(Log$LoggerLog, name, initialize, &_Log$LoggerLog_ClassInfo_, clinit$Log$LoggerLog, allocate$Log$LoggerLog);
+	$FieldInfo fieldInfos$$[] = {
+		{"alternateConsole", "Ljava/util/logging/Handler;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Log$LoggerLog, alternateConsole)},
+		{"copyHandler", "Lsun/rmi/runtime/Log$InternalStreamHandler;", nullptr, $PRIVATE, $field(Log$LoggerLog, copyHandler)},
+		{"logger", "Ljava/util/logging/Logger;", nullptr, $PRIVATE | $FINAL, $field(Log$LoggerLog, logger)},
+		{"loggerSandwich", "Lsun/rmi/runtime/Log$LoggerPrintStream;", nullptr, $PRIVATE, $field(Log$LoggerLog, loggerSandwich)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/logging/Logger;Ljava/util/logging/Level;)V", nullptr, $PRIVATE, $method(Log$LoggerLog, init$, void, $Logger*, $Level*)},
+		{"getPrintStream", "()Ljava/io/PrintStream;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Log$LoggerLog, getPrintStream, $PrintStream*)},
+		{"isLoggable", "(Ljava/util/logging/Level;)Z", nullptr, $PUBLIC, $virtualMethod(Log$LoggerLog, isLoggable, bool, $Level*)},
+		{"log", "(Ljava/util/logging/Level;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Log$LoggerLog, log, void, $Level*, $String*)},
+		{"log", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Log$LoggerLog, log, void, $Level*, $String*, $Throwable*)},
+		{"setOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Log$LoggerLog, setOutputStream, void, $OutputStream*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Log$LoggerLog, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.runtime.Log$LoggerLog", "sun.rmi.runtime.Log", "LoggerLog", $PRIVATE | $STATIC},
+		{"sun.rmi.runtime.Log$LoggerLog$2", nullptr, nullptr, 0},
+		{"sun.rmi.runtime.Log$LoggerLog$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.rmi.runtime.Log$LoggerLog",
+		"sun.rmi.runtime.Log",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.rmi.runtime.Log"
+	};
+	$loadClass(Log$LoggerLog, name, initialize, &classInfo$$, Log$LoggerLog::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Log$LoggerLog);
+	});
 	return class$;
 }
 

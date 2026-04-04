@@ -1,5 +1,4 @@
 #include <jdk/security/jarsigner/JarSignerException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,29 +9,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 namespace jdk {
 	namespace security {
 		namespace jarsigner {
-
-$FieldInfo _JarSignerException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JarSignerException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _JarSignerException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(JarSignerException, init$, void, $String*, $Throwable*)},
-	{}
-};
-
-$ClassInfo _JarSignerException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.security.jarsigner.JarSignerException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_JarSignerException_FieldInfo_,
-	_JarSignerException_MethodInfo_
-};
-
-$Object* allocate$JarSignerException($Class* clazz) {
-	return $of($alloc(JarSignerException));
-}
 
 void JarSignerException::init$($String* message, $Throwable* cause) {
 	$RuntimeException::init$(message, cause);
@@ -49,7 +25,25 @@ void JarSignerException::throw$() {
 }
 
 $Class* JarSignerException::load$($String* name, bool initialize) {
-	$loadClass(JarSignerException, name, initialize, &_JarSignerException_ClassInfo_, allocate$JarSignerException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JarSignerException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(JarSignerException, init$, void, $String*, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.security.jarsigner.JarSignerException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JarSignerException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JarSignerException);
+	});
 	return class$;
 }
 

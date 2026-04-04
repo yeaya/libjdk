@@ -36,6 +36,7 @@ class XPathFactory : public ::java::lang::Object {
 	$class(XPathFactory, 0, ::java::lang::Object)
 public:
 	XPathFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::com::sun::org::apache::xml::internal::security::utils::XPathFactory* newInstance();
 	virtual ::com::sun::org::apache::xml::internal::security::utils::XPathAPI* newXPathAPI() {return nullptr;}

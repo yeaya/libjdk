@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators$NthDescendantIterator.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBase.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators$DescendantIterator.h>
@@ -25,44 +24,6 @@ namespace com {
 						namespace dtm {
 							namespace ref {
 
-$FieldInfo _DTMDefaultBaseIterators$NthDescendantIterator_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators;", nullptr, $FINAL | $SYNTHETIC, $field(DTMDefaultBaseIterators$NthDescendantIterator, this$0)},
-	{"_pos", "I", nullptr, 0, $field(DTMDefaultBaseIterators$NthDescendantIterator, _pos)},
-	{}
-};
-
-$MethodInfo _DTMDefaultBaseIterators$NthDescendantIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators;I)V", nullptr, $PUBLIC, $method(DTMDefaultBaseIterators$NthDescendantIterator, init$, void, $DTMDefaultBaseIterators*, int32_t)},
-	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseIterators$NthDescendantIterator, next, int32_t)},
-	{}
-};
-
-$InnerClassInfo _DTMDefaultBaseIterators$NthDescendantIterator_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$NthDescendantIterator", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators", "NthDescendantIterator", $PUBLIC},
-	{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$DescendantIterator", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators", "DescendantIterator", $PUBLIC},
-	{}
-};
-
-$ClassInfo _DTMDefaultBaseIterators$NthDescendantIterator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$NthDescendantIterator",
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$DescendantIterator",
-	nullptr,
-	_DTMDefaultBaseIterators$NthDescendantIterator_FieldInfo_,
-	_DTMDefaultBaseIterators$NthDescendantIterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DTMDefaultBaseIterators$NthDescendantIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators"
-};
-
-$Object* allocate$DTMDefaultBaseIterators$NthDescendantIterator($Class* clazz) {
-	return $of($alloc(DTMDefaultBaseIterators$NthDescendantIterator));
-}
-
 void DTMDefaultBaseIterators$NthDescendantIterator::init$($DTMDefaultBaseIterators* this$0, int32_t pos) {
 	$set(this, this$0, this$0);
 	$DTMDefaultBaseIterators$DescendantIterator::init$(this$0);
@@ -78,7 +39,7 @@ int32_t DTMDefaultBaseIterators$NthDescendantIterator::next() {
 		int32_t pos = 0;
 		do {
 			int32_t type = this->this$0->_type(child);
-			if ((int16_t)1 == type) {
+			if (1 == type) {
 				++pos;
 			}
 		} while ((pos < this->_pos) && (child = this->this$0->_nextsib(child)) != $DTMAxisIterator::END);
@@ -93,7 +54,39 @@ DTMDefaultBaseIterators$NthDescendantIterator::DTMDefaultBaseIterators$NthDescen
 }
 
 $Class* DTMDefaultBaseIterators$NthDescendantIterator::load$($String* name, bool initialize) {
-	$loadClass(DTMDefaultBaseIterators$NthDescendantIterator, name, initialize, &_DTMDefaultBaseIterators$NthDescendantIterator_ClassInfo_, allocate$DTMDefaultBaseIterators$NthDescendantIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators;", nullptr, $FINAL | $SYNTHETIC, $field(DTMDefaultBaseIterators$NthDescendantIterator, this$0)},
+		{"_pos", "I", nullptr, 0, $field(DTMDefaultBaseIterators$NthDescendantIterator, _pos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators;I)V", nullptr, $PUBLIC, $method(DTMDefaultBaseIterators$NthDescendantIterator, init$, void, $DTMDefaultBaseIterators*, int32_t)},
+		{"next", "()I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseIterators$NthDescendantIterator, next, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$NthDescendantIterator", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators", "NthDescendantIterator", $PUBLIC},
+		{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$DescendantIterator", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators", "DescendantIterator", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$NthDescendantIterator",
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$DescendantIterator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators"
+	};
+	$loadClass(DTMDefaultBaseIterators$NthDescendantIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DTMDefaultBaseIterators$NthDescendantIterator);
+	});
 	return class$;
 }
 

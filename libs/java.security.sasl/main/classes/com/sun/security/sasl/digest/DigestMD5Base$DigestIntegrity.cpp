@@ -1,10 +1,8 @@
 #include <com/sun/security/sasl/digest/DigestMD5Base$DigestIntegrity.h>
-
 #include <com/sun/security/sasl/digest/DigestMD5Base.h>
 #include <java/io/IOException.h>
 #include <java/nio/charset/Charset.h>
 #include <java/security/InvalidKeyException.h>
-#include <java/security/Key.h>
 #include <java/security/MessageDigest.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/util/Arrays.h>
@@ -32,12 +30,10 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
-using $Key = ::java::security::Key;
 using $MessageDigest = ::java::security::MessageDigest;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $Arrays = ::java::util::Arrays;
 using $Level = ::java::util::logging::Level;
-using $Logger = ::java::util::logging::Logger;
 using $Mac = ::javax::crypto::Mac;
 using $SecretKey = ::javax::crypto::SecretKey;
 using $SecretKeySpec = ::javax::crypto::spec::SecretKeySpec;
@@ -48,54 +44,6 @@ namespace com {
 		namespace security {
 			namespace sasl {
 				namespace digest {
-
-$FieldInfo _DigestMD5Base$DigestIntegrity_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/security/sasl/digest/DigestMD5Base;", nullptr, $FINAL | $SYNTHETIC, $field(DigestMD5Base$DigestIntegrity, this$0)},
-	{"CLIENT_INT_MAGIC", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigestMD5Base$DigestIntegrity, CLIENT_INT_MAGIC)},
-	{"SVR_INT_MAGIC", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigestMD5Base$DigestIntegrity, SVR_INT_MAGIC)},
-	{"myKi", "[B", nullptr, $PROTECTED, $field(DigestMD5Base$DigestIntegrity, myKi)},
-	{"peerKi", "[B", nullptr, $PROTECTED, $field(DigestMD5Base$DigestIntegrity, peerKi)},
-	{"mySeqNum", "I", nullptr, $PROTECTED, $field(DigestMD5Base$DigestIntegrity, mySeqNum)},
-	{"peerSeqNum", "I", nullptr, $PROTECTED, $field(DigestMD5Base$DigestIntegrity, peerSeqNum)},
-	{"messageType", "[B", nullptr, $PROTECTED | $FINAL, $field(DigestMD5Base$DigestIntegrity, messageType)},
-	{"sequenceNum", "[B", nullptr, $PROTECTED | $FINAL, $field(DigestMD5Base$DigestIntegrity, sequenceNum)},
-	{}
-};
-
-$MethodInfo _DigestMD5Base$DigestIntegrity_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/security/sasl/digest/DigestMD5Base;Z)V", nullptr, 0, $method(DigestMD5Base$DigestIntegrity, init$, void, $DigestMD5Base*, bool), "javax.security.sasl.SaslException"},
-	{"generateIntegrityKeyPair", "(Z)V", nullptr, $PRIVATE, $method(DigestMD5Base$DigestIntegrity, generateIntegrityKeyPair, void, bool), "java.io.IOException,java.security.NoSuchAlgorithmException"},
-	{"getHMAC", "([B[B[BII)[B", nullptr, $PROTECTED, $virtualMethod(DigestMD5Base$DigestIntegrity, getHMAC, $bytes*, $bytes*, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
-	{"incrementSeqNum", "()V", nullptr, $PROTECTED, $virtualMethod(DigestMD5Base$DigestIntegrity, incrementSeqNum, void)},
-	{"unwrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(DigestMD5Base$DigestIntegrity, unwrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
-	{"wrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(DigestMD5Base$DigestIntegrity, wrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
-	{}
-};
-
-$InnerClassInfo _DigestMD5Base$DigestIntegrity_InnerClassesInfo_[] = {
-	{"com.sun.security.sasl.digest.DigestMD5Base$DigestIntegrity", "com.sun.security.sasl.digest.DigestMD5Base", "DigestIntegrity", 0},
-	{}
-};
-
-$ClassInfo _DigestMD5Base$DigestIntegrity_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.security.sasl.digest.DigestMD5Base$DigestIntegrity",
-	"java.lang.Object",
-	"com.sun.security.sasl.digest.SecurityCtx",
-	_DigestMD5Base$DigestIntegrity_FieldInfo_,
-	_DigestMD5Base$DigestIntegrity_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DigestMD5Base$DigestIntegrity_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.security.sasl.digest.DigestMD5Base"
-};
-
-$Object* allocate$DigestMD5Base$DigestIntegrity($Class* clazz) {
-	return $of($alloc(DigestMD5Base$DigestIntegrity));
-}
 
 $String* DigestMD5Base$DigestIntegrity::CLIENT_INT_MAGIC = nullptr;
 $String* DigestMD5Base$DigestIntegrity::SVR_INT_MAGIC = nullptr;
@@ -117,21 +65,20 @@ void DigestMD5Base$DigestIntegrity::init$($DigestMD5Base* this$0, bool clientMod
 }
 
 void DigestMD5Base$DigestIntegrity::generateIntegrityKeyPair(bool clientMode) {
-	$useLocalCurrentObjectStackCache();
-	$var($bytes, cimagic, $nc(DigestMD5Base$DigestIntegrity::CLIENT_INT_MAGIC)->getBytes(this->this$0->encoding));
-	$var($bytes, simagic, $nc(DigestMD5Base$DigestIntegrity::SVR_INT_MAGIC)->getBytes(this->this$0->encoding));
+	$useLocalObjectStack();
+	$var($bytes, cimagic, DigestMD5Base$DigestIntegrity::CLIENT_INT_MAGIC->getBytes(this->this$0->encoding));
+	$var($bytes, simagic, DigestMD5Base$DigestIntegrity::SVR_INT_MAGIC->getBytes(this->this$0->encoding));
 	$var($MessageDigest, md5, $MessageDigest::getInstance("MD5"_s));
 	$var($bytes, keyBuffer, $new($bytes, $nc(this->this$0->H_A1)->length + cimagic->length));
-	$System::arraycopy(this->this$0->H_A1, 0, keyBuffer, 0, $nc(this->this$0->H_A1)->length);
-	$System::arraycopy(cimagic, 0, keyBuffer, $nc(this->this$0->H_A1)->length, cimagic->length);
+	$System::arraycopy(this->this$0->H_A1, 0, keyBuffer, 0, this->this$0->H_A1->length);
+	$System::arraycopy(cimagic, 0, keyBuffer, this->this$0->H_A1->length, cimagic->length);
 	$nc(md5)->update(keyBuffer);
 	$var($bytes, Kic, md5->digest());
-	$System::arraycopy(simagic, 0, keyBuffer, $nc(this->this$0->H_A1)->length, simagic->length);
+	$System::arraycopy(simagic, 0, keyBuffer, this->this$0->H_A1->length, simagic->length);
 	md5->update(keyBuffer);
 	$var($bytes, Kis, md5->digest());
 	$init($Level);
-	if ($nc($($DigestMD5Base::access$100()))->isLoggable($Level::FINER)) {
-		$init($DigestMD5Base);
+	if ($$nc($DigestMD5Base::access$100())->isLoggable($Level::FINER)) {
 		$DigestMD5Base::access$200($DigestMD5Base::DI_CLASS_NAME, "generateIntegrityKeyPair"_s, "DIGEST12:Kic: "_s, Kic);
 		$DigestMD5Base::access$300($DigestMD5Base::DI_CLASS_NAME, "generateIntegrityKeyPair"_s, "DIGEST13:Kis: "_s, Kis);
 	}
@@ -145,7 +92,7 @@ void DigestMD5Base$DigestIntegrity::generateIntegrityKeyPair(bool clientMode) {
 }
 
 $bytes* DigestMD5Base$DigestIntegrity::wrap($bytes* outgoing, int32_t start, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (len == 0) {
 		$init($DigestMD5Base);
 		return $DigestMD5Base::EMPTY_BYTE_ARRAY;
@@ -155,7 +102,7 @@ $bytes* DigestMD5Base$DigestIntegrity::wrap($bytes* outgoing, int32_t start, int
 	incrementSeqNum();
 	$var($bytes, mac, getHMAC(this->myKi, this->sequenceNum, outgoing, start, len));
 	$init($Level);
-	if ($nc($($DigestMD5Base::access$400()))->isLoggable($Level::FINEST)) {
+	if ($$nc($DigestMD5Base::access$400())->isLoggable($Level::FINEST)) {
 		$init($DigestMD5Base);
 		$DigestMD5Base::access$500($DigestMD5Base::DI_CLASS_NAME, "wrap"_s, "DIGEST14:outgoing: "_s, outgoing, start, len);
 		$DigestMD5Base::access$600($DigestMD5Base::DI_CLASS_NAME, "wrap"_s, "DIGEST15:seqNum: "_s, this->sequenceNum);
@@ -164,7 +111,7 @@ $bytes* DigestMD5Base$DigestIntegrity::wrap($bytes* outgoing, int32_t start, int
 	$System::arraycopy(mac, 0, wrapped, len, 10);
 	$System::arraycopy(this->messageType, 0, wrapped, len + 10, 2);
 	$System::arraycopy(this->sequenceNum, 0, wrapped, len + 12, 4);
-	if ($nc($($DigestMD5Base::access$800()))->isLoggable($Level::FINEST)) {
+	if ($$nc($DigestMD5Base::access$800())->isLoggable($Level::FINEST)) {
 		$init($DigestMD5Base);
 		$DigestMD5Base::access$900($DigestMD5Base::DI_CLASS_NAME, "wrap"_s, "DIGEST17:wrapped: "_s, wrapped);
 	}
@@ -172,7 +119,7 @@ $bytes* DigestMD5Base$DigestIntegrity::wrap($bytes* outgoing, int32_t start, int
 }
 
 $bytes* DigestMD5Base$DigestIntegrity::unwrap($bytes* incoming, int32_t start, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (len == 0) {
 		$init($DigestMD5Base);
 		return $DigestMD5Base::EMPTY_BYTE_ARRAY;
@@ -187,7 +134,7 @@ $bytes* DigestMD5Base$DigestIntegrity::unwrap($bytes* incoming, int32_t start, i
 	$System::arraycopy(incoming, start + msg->length + 12, seqNum, 0, 4);
 	$var($bytes, expectedMac, getHMAC(this->peerKi, seqNum, msg, 0, msg->length));
 	$init($Level);
-	if ($nc($($DigestMD5Base::access$1000()))->isLoggable($Level::FINEST)) {
+	if ($$nc($DigestMD5Base::access$1000())->isLoggable($Level::FINEST)) {
 		$init($DigestMD5Base);
 		$DigestMD5Base::access$1100($DigestMD5Base::DI_CLASS_NAME, "unwrap"_s, "DIGEST18:incoming: "_s, msg);
 		$DigestMD5Base::access$1200($DigestMD5Base::DI_CLASS_NAME, "unwrap"_s, "DIGEST19:MAC: "_s, mac);
@@ -196,7 +143,7 @@ $bytes* DigestMD5Base$DigestIntegrity::unwrap($bytes* incoming, int32_t start, i
 		$DigestMD5Base::access$1500($DigestMD5Base::DI_CLASS_NAME, "unwrap"_s, "DIGEST22:expectedMAC: "_s, expectedMac);
 	}
 	if (!$Arrays::equals(mac, expectedMac)) {
-		$nc($($DigestMD5Base::access$1600()))->log($Level::INFO, "DIGEST23:Unmatched MACs"_s);
+		$$nc($DigestMD5Base::access$1600())->log($Level::INFO, "DIGEST23:Unmatched MACs"_s);
 		$init($DigestMD5Base);
 		return $DigestMD5Base::EMPTY_BYTE_ARRAY;
 	}
@@ -211,7 +158,7 @@ $bytes* DigestMD5Base$DigestIntegrity::unwrap($bytes* incoming, int32_t start, i
 }
 
 $bytes* DigestMD5Base$DigestIntegrity::getHMAC($bytes* Ki, $bytes* seqnum, $bytes* msg, int32_t start, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, seqAndMsg, $new($bytes, 4 + len));
 	$System::arraycopy(seqnum, 0, seqAndMsg, 0, 4);
 	$System::arraycopy(msg, start, seqAndMsg, 4, len);
@@ -239,13 +186,55 @@ void DigestMD5Base$DigestIntegrity::incrementSeqNum() {
 DigestMD5Base$DigestIntegrity::DigestMD5Base$DigestIntegrity() {
 }
 
-void clinit$DigestMD5Base$DigestIntegrity($Class* class$) {
+void DigestMD5Base$DigestIntegrity::clinit$($Class* clazz) {
 	$assignStatic(DigestMD5Base$DigestIntegrity::CLIENT_INT_MAGIC, "Digest session key to client-to-server signing key magic constant"_s);
 	$assignStatic(DigestMD5Base$DigestIntegrity::SVR_INT_MAGIC, "Digest session key to server-to-client signing key magic constant"_s);
 }
 
 $Class* DigestMD5Base$DigestIntegrity::load$($String* name, bool initialize) {
-	$loadClass(DigestMD5Base$DigestIntegrity, name, initialize, &_DigestMD5Base$DigestIntegrity_ClassInfo_, clinit$DigestMD5Base$DigestIntegrity, allocate$DigestMD5Base$DigestIntegrity);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/security/sasl/digest/DigestMD5Base;", nullptr, $FINAL | $SYNTHETIC, $field(DigestMD5Base$DigestIntegrity, this$0)},
+		{"CLIENT_INT_MAGIC", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigestMD5Base$DigestIntegrity, CLIENT_INT_MAGIC)},
+		{"SVR_INT_MAGIC", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigestMD5Base$DigestIntegrity, SVR_INT_MAGIC)},
+		{"myKi", "[B", nullptr, $PROTECTED, $field(DigestMD5Base$DigestIntegrity, myKi)},
+		{"peerKi", "[B", nullptr, $PROTECTED, $field(DigestMD5Base$DigestIntegrity, peerKi)},
+		{"mySeqNum", "I", nullptr, $PROTECTED, $field(DigestMD5Base$DigestIntegrity, mySeqNum)},
+		{"peerSeqNum", "I", nullptr, $PROTECTED, $field(DigestMD5Base$DigestIntegrity, peerSeqNum)},
+		{"messageType", "[B", nullptr, $PROTECTED | $FINAL, $field(DigestMD5Base$DigestIntegrity, messageType)},
+		{"sequenceNum", "[B", nullptr, $PROTECTED | $FINAL, $field(DigestMD5Base$DigestIntegrity, sequenceNum)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/security/sasl/digest/DigestMD5Base;Z)V", nullptr, 0, $method(DigestMD5Base$DigestIntegrity, init$, void, $DigestMD5Base*, bool), "javax.security.sasl.SaslException"},
+		{"generateIntegrityKeyPair", "(Z)V", nullptr, $PRIVATE, $method(DigestMD5Base$DigestIntegrity, generateIntegrityKeyPair, void, bool), "java.io.IOException,java.security.NoSuchAlgorithmException"},
+		{"getHMAC", "([B[B[BII)[B", nullptr, $PROTECTED, $virtualMethod(DigestMD5Base$DigestIntegrity, getHMAC, $bytes*, $bytes*, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
+		{"incrementSeqNum", "()V", nullptr, $PROTECTED, $virtualMethod(DigestMD5Base$DigestIntegrity, incrementSeqNum, void)},
+		{"unwrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(DigestMD5Base$DigestIntegrity, unwrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
+		{"wrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(DigestMD5Base$DigestIntegrity, wrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.security.sasl.digest.DigestMD5Base$DigestIntegrity", "com.sun.security.sasl.digest.DigestMD5Base", "DigestIntegrity", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.security.sasl.digest.DigestMD5Base$DigestIntegrity",
+		"java.lang.Object",
+		"com.sun.security.sasl.digest.SecurityCtx",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.security.sasl.digest.DigestMD5Base"
+	};
+	$loadClass(DigestMD5Base$DigestIntegrity, name, initialize, &classInfo$$, DigestMD5Base$DigestIntegrity::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DigestMD5Base$DigestIntegrity);
+	});
 	return class$;
 }
 

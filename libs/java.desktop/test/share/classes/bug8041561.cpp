@@ -1,5 +1,4 @@
 #include <bug8041561.h>
-
 #include <bug8041561$1.h>
 #include <bug8041561$2.h>
 #include <java/awt/Color.h>
@@ -26,8 +25,6 @@
 using $bug8041561$1 = ::bug8041561$1;
 using $bug8041561$2 = ::bug8041561$2;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Robot = ::java::awt::Robot;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -49,69 +46,27 @@ public:
 	virtual void run() override {
 		bug8041561::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug8041561$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug8041561$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug8041561$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8041561$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo bug8041561$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug8041561$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug8041561$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(bug8041561$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug8041561$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8041561$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug8041561$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug8041561$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8041561$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* bug8041561$$Lambda$lambda$main$0::class$ = nullptr;
-
-$FieldInfo _bug8041561_FieldInfo_[] = {
-	{"radioButton", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE | $STATIC, $staticField(bug8041561, radioButton)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug8041561, frame)},
-	{}
-};
-
-$MethodInfo _bug8041561_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug8041561, init$, void)},
-	{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8041561, createAndShowGUI, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug8041561, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug8041561, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug8041561_InnerClassesInfo_[] = {
-	{"bug8041561$2", nullptr, nullptr, 0},
-	{"bug8041561$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug8041561_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug8041561",
-	"java.lang.Object",
-	nullptr,
-	_bug8041561_FieldInfo_,
-	_bug8041561_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug8041561_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug8041561$2,bug8041561$1"
-};
-
-$Object* allocate$bug8041561($Class* clazz) {
-	return $of($alloc(bug8041561));
-}
 
 $JRadioButton* bug8041561::radioButton = nullptr;
 $JFrame* bug8041561::frame = nullptr;
@@ -120,41 +75,39 @@ void bug8041561::init$() {
 }
 
 void bug8041561::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$SwingUtilities::invokeAndWait($$new($bug8041561$1));
-			$$new($Robot)->waitForIdle();
-			$Thread::sleep(500);
-			$SwingUtilities::invokeAndWait($$new($bug8041561$2));
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$init(bug8041561);
-			if (bug8041561::frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug8041561$$Lambda$lambda$main$0)));
-			}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$SwingUtilities::invokeAndWait($$new($bug8041561$1));
+		$$new($Robot)->waitForIdle();
+		$Thread::sleep(500);
+		$SwingUtilities::invokeAndWait($$new($bug8041561$2));
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$init(bug8041561);
+		if (bug8041561::frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(bug8041561$$Lambda$lambda$main$0));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void bug8041561::createAndShowGUI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(bug8041561);
 	$assignStatic(bug8041561::frame, $new($JFrame));
-	$nc(bug8041561::frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
+	bug8041561::frame->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$init($Color);
 	$nc(bug8041561::frame)->setBackground($Color::BLUE);
 	$assignStatic(bug8041561::radioButton, $new($JRadioButton));
-	$nc(bug8041561::radioButton)->setOpaque(false);
+	bug8041561::radioButton->setOpaque(false);
 	$var($JPanel, panel, $new($JPanel));
 	panel->setBackground($Color::BLUE);
-	panel->add(static_cast<$Component*>(bug8041561::radioButton));
-	$nc($($nc(bug8041561::frame)->getContentPane()))->add(static_cast<$Component*>(panel));
+	panel->add(bug8041561::radioButton);
+	$$nc($nc(bug8041561::frame)->getContentPane())->add(panel);
 	$nc(bug8041561::frame)->pack();
 	$nc(bug8041561::frame)->setVisible(true);
 }
@@ -169,11 +122,44 @@ bug8041561::bug8041561() {
 
 $Class* bug8041561::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug8041561$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("bug8041561$$Lambda$lambda$main$0")) {
 			return bug8041561$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(bug8041561, name, initialize, &_bug8041561_ClassInfo_, allocate$bug8041561);
+	$FieldInfo fieldInfos$$[] = {
+		{"radioButton", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE | $STATIC, $staticField(bug8041561, radioButton)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug8041561, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug8041561, init$, void)},
+		{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8041561, createAndShowGUI, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug8041561, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug8041561, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug8041561$2", nullptr, nullptr, 0},
+		{"bug8041561$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug8041561",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug8041561$2,bug8041561$1"
+	};
+	$loadClass(bug8041561, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8041561);
+	});
 	return class$;
 }
 

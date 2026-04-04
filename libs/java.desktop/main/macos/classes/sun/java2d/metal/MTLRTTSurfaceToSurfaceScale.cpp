@@ -1,5 +1,4 @@
 #include <sun/java2d/metal/MTLRTTSurfaceToSurfaceScale.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/AffineTransformOp.h>
@@ -34,25 +33,6 @@ namespace sun {
 	namespace java2d {
 		namespace metal {
 
-$MethodInfo _MTLRTTSurfaceToSurfaceScale_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MTLRTTSurfaceToSurfaceScale, init$, void)},
-	{"Scale", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIDDDD)V", nullptr, $PUBLIC, $virtualMethod(MTLRTTSurfaceToSurfaceScale, Scale, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
-	{}
-};
-
-$ClassInfo _MTLRTTSurfaceToSurfaceScale_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.metal.MTLRTTSurfaceToSurfaceScale",
-	"sun.java2d.loops.ScaledBlit",
-	nullptr,
-	nullptr,
-	_MTLRTTSurfaceToSurfaceScale_MethodInfo_
-};
-
-$Object* allocate$MTLRTTSurfaceToSurfaceScale($Class* clazz) {
-	return $of($alloc(MTLRTTSurfaceToSurfaceScale));
-}
-
 void MTLRTTSurfaceToSurfaceScale::init$() {
 	$init($MTLSurfaceData);
 	$init($CompositeType);
@@ -67,7 +47,22 @@ MTLRTTSurfaceToSurfaceScale::MTLRTTSurfaceToSurfaceScale() {
 }
 
 $Class* MTLRTTSurfaceToSurfaceScale::load$($String* name, bool initialize) {
-	$loadClass(MTLRTTSurfaceToSurfaceScale, name, initialize, &_MTLRTTSurfaceToSurfaceScale_ClassInfo_, allocate$MTLRTTSurfaceToSurfaceScale);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MTLRTTSurfaceToSurfaceScale, init$, void)},
+		{"Scale", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIDDDD)V", nullptr, $PUBLIC, $virtualMethod(MTLRTTSurfaceToSurfaceScale, Scale, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.metal.MTLRTTSurfaceToSurfaceScale",
+		"sun.java2d.loops.ScaledBlit",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MTLRTTSurfaceToSurfaceScale, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MTLRTTSurfaceToSurfaceScale);
+	});
 	return class$;
 }
 

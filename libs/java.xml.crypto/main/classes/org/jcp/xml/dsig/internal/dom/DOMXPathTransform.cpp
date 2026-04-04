@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMXPathTransform.h>
-
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <java/util/HashMap.h>
@@ -40,10 +39,8 @@ using $XPathFilterParameterSpec = ::javax::xml::crypto::dsig::spec::XPathFilterP
 using $ApacheTransform = ::org::jcp::xml::dsig::internal::dom::ApacheTransform;
 using $DOMUtils = ::org::jcp::xml::dsig::internal::dom::DOMUtils;
 using $Attr = ::org::w3c::dom::Attr;
-using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $NamedNodeMap = ::org::w3c::dom::NamedNodeMap;
-using $Node = ::org::w3c::dom::Node;
 
 namespace org {
 	namespace jcp {
@@ -51,28 +48,6 @@ namespace org {
 			namespace dsig {
 				namespace internal {
 					namespace dom {
-
-$MethodInfo _DOMXPathTransform_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DOMXPathTransform, init$, void)},
-	{"init", "(Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(DOMXPathTransform, init, void, $TransformParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"init", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMXPathTransform, init, void, $XMLStructure*, $XMLCryptoContext*), "java.security.InvalidAlgorithmParameterException"},
-	{"marshalParams", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMXPathTransform, marshalParams, void, $XMLStructure*, $XMLCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"unmarshalParams", "(Lorg/w3c/dom/Element;)V", nullptr, $PRIVATE, $method(DOMXPathTransform, unmarshalParams, void, $Element*)},
-	{}
-};
-
-$ClassInfo _DOMXPathTransform_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMXPathTransform",
-	"org.jcp.xml.dsig.internal.dom.ApacheTransform",
-	nullptr,
-	nullptr,
-	_DOMXPathTransform_MethodInfo_
-};
-
-$Object* allocate$DOMXPathTransform($Class* clazz) {
-	return $of($alloc(DOMXPathTransform));
-}
 
 void DOMXPathTransform::init$() {
 	$ApacheTransform::init$();
@@ -93,8 +68,8 @@ void DOMXPathTransform::init($XMLStructure* parent, $XMLCryptoContext* context) 
 }
 
 void DOMXPathTransform::unmarshalParams($Element* paramsElem) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, xPath, $nc($($nc(paramsElem)->getFirstChild()))->getNodeValue());
+	$useLocalObjectStack();
+	$var($String, xPath, $$nc($nc(paramsElem)->getFirstChild())->getNodeValue());
 	$var($NamedNodeMap, attributes, paramsElem->getAttributes());
 	if (attributes != nullptr) {
 		int32_t length = attributes->getLength();
@@ -103,7 +78,7 @@ void DOMXPathTransform::unmarshalParams($Element* paramsElem) {
 			$var($Attr, attr, $cast($Attr, attributes->item(i)));
 			$var($String, prefix, $nc(attr)->getPrefix());
 			if (prefix != nullptr && "xmlns"_s->equals(prefix)) {
-				$var($Object, var$0, $of(attr->getLocalName()));
+				$var($Object, var$0, attr->getLocalName());
 				namespaceMap->put(var$0, $(attr->getValue()));
 			}
 		}
@@ -114,21 +89,21 @@ void DOMXPathTransform::unmarshalParams($Element* paramsElem) {
 }
 
 void DOMXPathTransform::marshalParams($XMLStructure* parent, $XMLCryptoContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ApacheTransform::marshalParams(parent, context);
 	$var($XPathFilterParameterSpec, xp, $cast($XPathFilterParameterSpec, getParameterSpec()));
 	$init($XMLSignature);
 	$var($Element, xpathElem, $DOMUtils::createElement(this->ownerDoc, "XPath"_s, $XMLSignature::XMLNS, $($DOMUtils::getSignaturePrefix(context))));
 	$nc(xpathElem)->appendChild($($nc(this->ownerDoc)->createTextNode($($nc(xp)->getXPath()))));
-	$var($Set, entries, $nc($($nc(xp)->getNamespaceMap()))->entrySet());
+	$var($Set, entries, $$nc(xp->getNamespaceMap())->entrySet());
 	{
 		$var($Iterator, i$, $nc(entries)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
 				$var($String, var$0, "http://www.w3.org/2000/xmlns/"_s);
-				$var($String, var$1, $str({"xmlns:"_s, $cast($String, $($nc(entry)->getKey()))}));
-				xpathElem->setAttributeNS(var$0, var$1, $cast($String, $(entry->getValue())));
+				$var($String, var$1, $str({"xmlns:"_s, $$cast($String, $nc(entry)->getKey())}));
+				xpathElem->setAttributeNS(var$0, var$1, $$cast($String, entry->getValue()));
 			}
 		}
 	}
@@ -139,7 +114,25 @@ DOMXPathTransform::DOMXPathTransform() {
 }
 
 $Class* DOMXPathTransform::load$($String* name, bool initialize) {
-	$loadClass(DOMXPathTransform, name, initialize, &_DOMXPathTransform_ClassInfo_, allocate$DOMXPathTransform);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DOMXPathTransform, init$, void)},
+		{"init", "(Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(DOMXPathTransform, init, void, $TransformParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"init", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMXPathTransform, init, void, $XMLStructure*, $XMLCryptoContext*), "java.security.InvalidAlgorithmParameterException"},
+		{"marshalParams", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMXPathTransform, marshalParams, void, $XMLStructure*, $XMLCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"unmarshalParams", "(Lorg/w3c/dom/Element;)V", nullptr, $PRIVATE, $method(DOMXPathTransform, unmarshalParams, void, $Element*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMXPathTransform",
+		"org.jcp.xml.dsig.internal.dom.ApacheTransform",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DOMXPathTransform, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMXPathTransform));
+	});
 	return class$;
 }
 

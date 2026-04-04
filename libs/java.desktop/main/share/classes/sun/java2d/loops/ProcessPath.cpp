@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/ProcessPath.h>
-
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/Path2D$Float.h>
 #include <java/awt/geom/PathIterator.h>
@@ -108,113 +107,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _ProcessPath_FieldInfo_[] = {
-	{"PH_MODE_DRAW_CLIP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ProcessPath, PH_MODE_DRAW_CLIP)},
-	{"PH_MODE_FILL_CLIP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ProcessPath, PH_MODE_FILL_CLIP)},
-	{"noopEndSubPathHandler", "Lsun/java2d/loops/ProcessPath$EndSubPathHandler;", nullptr, $PUBLIC | $STATIC, $staticField(ProcessPath, noopEndSubPathHandler)},
-	{"UPPER_BND", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProcessPath, UPPER_BND)},
-	{"LOWER_BND", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProcessPath, LOWER_BND)},
-	{"FWD_PREC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, FWD_PREC)},
-	{"MDP_PREC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, MDP_PREC)},
-	{"MDP_MULT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, MDP_MULT)},
-	{"MDP_HALF_MULT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, MDP_HALF_MULT)},
-	{"UPPER_OUT_BND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, UPPER_OUT_BND)},
-	{"LOWER_OUT_BND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, LOWER_OUT_BND)},
-	{"CALC_UBND", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProcessPath, CALC_UBND)},
-	{"CALC_LBND", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProcessPath, CALC_LBND)},
-	{"EPSFX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ProcessPath, EPSFX)},
-	{"EPSF", "F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ProcessPath, EPSF)},
-	{"MDP_W_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, MDP_W_MASK)},
-	{"MDP_F_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, MDP_F_MASK)},
-	{"MAX_CUB_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, MAX_CUB_SIZE)},
-	{"MAX_QUAD_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, MAX_QUAD_SIZE)},
-	{"DF_CUB_STEPS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, DF_CUB_STEPS)},
-	{"DF_QUAD_STEPS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, DF_QUAD_STEPS)},
-	{"DF_CUB_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, DF_CUB_SHIFT)},
-	{"DF_QUAD_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, DF_QUAD_SHIFT)},
-	{"DF_CUB_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, DF_CUB_COUNT)},
-	{"DF_QUAD_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, DF_QUAD_COUNT)},
-	{"DF_CUB_DEC_BND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, DF_CUB_DEC_BND)},
-	{"DF_CUB_INC_BND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, DF_CUB_INC_BND)},
-	{"DF_QUAD_DEC_BND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, DF_QUAD_DEC_BND)},
-	{"DF_QUAD_INC_BND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, DF_QUAD_INC_BND)},
-	{"CUB_A_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, CUB_A_SHIFT)},
-	{"CUB_B_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, CUB_B_SHIFT)},
-	{"CUB_C_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, CUB_C_SHIFT)},
-	{"CUB_A_MDP_MULT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, CUB_A_MDP_MULT)},
-	{"CUB_B_MDP_MULT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, CUB_B_MDP_MULT)},
-	{"CUB_C_MDP_MULT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, CUB_C_MDP_MULT)},
-	{"QUAD_A_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, QUAD_A_SHIFT)},
-	{"QUAD_B_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, QUAD_B_SHIFT)},
-	{"QUAD_A_MDP_MULT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, QUAD_A_MDP_MULT)},
-	{"QUAD_B_MDP_MULT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, QUAD_B_MDP_MULT)},
-	{"CRES_MIN_CLIPPED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, CRES_MIN_CLIPPED)},
-	{"CRES_MAX_CLIPPED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, CRES_MAX_CLIPPED)},
-	{"CRES_NOT_CLIPPED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, CRES_NOT_CLIPPED)},
-	{"CRES_INVISIBLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, CRES_INVISIBLE)},
-	{"DF_MAX_POINT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, DF_MAX_POINT)},
-	{}
-};
-
-$MethodInfo _ProcessPath_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ProcessPath, init$, void)},
-	{"CLIP", "(FFFFD)F", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, CLIP, float, float, float, float, float, double)},
-	{"CLIP", "(IIIID)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, CLIP, int32_t, int32_t, int32_t, int32_t, int32_t, double)},
-	{"CLIPCLAMP", "(FF[FIIIIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, CLIPCLAMP, int32_t, float, float, $floats*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"CLIPCLAMP", "(II[IIIIIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, CLIPCLAMP, int32_t, int32_t, int32_t, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"DrawMonotonicCubic", "(Lsun/java2d/loops/ProcessPath$ProcessHandler;[FZ[I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, DrawMonotonicCubic, void, $ProcessPath$ProcessHandler*, $floats*, bool, $ints*)},
-	{"DrawMonotonicQuad", "(Lsun/java2d/loops/ProcessPath$ProcessHandler;[FZ[I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, DrawMonotonicQuad, void, $ProcessPath$ProcessHandler*, $floats*, bool, $ints*)},
-	{"FillPolygon", "(Lsun/java2d/loops/ProcessPath$FillProcessHandler;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, FillPolygon, void, $ProcessPath$FillProcessHandler*, int32_t)},
-	{"IS_CLIPPED", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, IS_CLIPPED, bool, int32_t)},
-	{"ProcessCubic", "(Lsun/java2d/loops/ProcessPath$ProcessHandler;[F[I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, ProcessCubic, void, $ProcessPath$ProcessHandler*, $floats*, $ints*)},
-	{"ProcessFirstMonotonicPartOfCubic", "(Lsun/java2d/loops/ProcessPath$ProcessHandler;[F[IF)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, ProcessFirstMonotonicPartOfCubic, void, $ProcessPath$ProcessHandler*, $floats*, $ints*, float)},
-	{"ProcessFirstMonotonicPartOfQuad", "(Lsun/java2d/loops/ProcessPath$ProcessHandler;[F[IF)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, ProcessFirstMonotonicPartOfQuad, void, $ProcessPath$ProcessHandler*, $floats*, $ints*, float)},
-	{"ProcessLine", "(Lsun/java2d/loops/ProcessPath$ProcessHandler;FFFF[I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, ProcessLine, void, $ProcessPath$ProcessHandler*, float, float, float, float, $ints*)},
-	{"ProcessMonotonicCubic", "(Lsun/java2d/loops/ProcessPath$ProcessHandler;[F[I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, ProcessMonotonicCubic, void, $ProcessPath$ProcessHandler*, $floats*, $ints*)},
-	{"ProcessMonotonicQuad", "(Lsun/java2d/loops/ProcessPath$ProcessHandler;[F[I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, ProcessMonotonicQuad, void, $ProcessPath$ProcessHandler*, $floats*, $ints*)},
-	{"ProcessQuad", "(Lsun/java2d/loops/ProcessPath$ProcessHandler;[F[I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, ProcessQuad, void, $ProcessPath$ProcessHandler*, $floats*, $ints*)},
-	{"TESTANDCLIP", "(FF[FIIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, TESTANDCLIP, int32_t, float, float, $floats*, int32_t, int32_t, int32_t, int32_t)},
-	{"TESTANDCLIP", "(II[IIIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, TESTANDCLIP, int32_t, int32_t, int32_t, $ints*, int32_t, int32_t, int32_t, int32_t)},
-	{"doProcessPath", "(Lsun/java2d/loops/ProcessPath$ProcessHandler;Ljava/awt/geom/Path2D$Float;FF)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, doProcessPath, bool, $ProcessPath$ProcessHandler*, $Path2D$Float*, float, float)},
-	{"drawPath", "(Lsun/java2d/loops/ProcessPath$DrawHandler;Lsun/java2d/loops/ProcessPath$EndSubPathHandler;Ljava/awt/geom/Path2D$Float;II)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessPath, drawPath, bool, $ProcessPath$DrawHandler*, $ProcessPath$EndSubPathHandler*, $Path2D$Float*, int32_t, int32_t)},
-	{"drawPath", "(Lsun/java2d/loops/ProcessPath$DrawHandler;Ljava/awt/geom/Path2D$Float;II)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessPath, drawPath, bool, $ProcessPath$DrawHandler*, $Path2D$Float*, int32_t, int32_t)},
-	{"fillPath", "(Lsun/java2d/loops/ProcessPath$DrawHandler;Ljava/awt/geom/Path2D$Float;II)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessPath, fillPath, bool, $ProcessPath$DrawHandler*, $Path2D$Float*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ProcessPath_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.ProcessPath$FillProcessHandler", "sun.java2d.loops.ProcessPath", "FillProcessHandler", $PRIVATE | $STATIC},
-	{"sun.java2d.loops.ProcessPath$ActiveEdgeList", "sun.java2d.loops.ProcessPath", "ActiveEdgeList", $PRIVATE | $STATIC},
-	{"sun.java2d.loops.ProcessPath$FillData", "sun.java2d.loops.ProcessPath", "FillData", $PRIVATE | $STATIC},
-	{"sun.java2d.loops.ProcessPath$Edge", "sun.java2d.loops.ProcessPath", "Edge", $PRIVATE | $STATIC},
-	{"sun.java2d.loops.ProcessPath$Point", "sun.java2d.loops.ProcessPath", "Point", $PRIVATE | $STATIC},
-	{"sun.java2d.loops.ProcessPath$DrawProcessHandler", "sun.java2d.loops.ProcessPath", "DrawProcessHandler", $PRIVATE | $STATIC},
-	{"sun.java2d.loops.ProcessPath$ProcessHandler", "sun.java2d.loops.ProcessPath", "ProcessHandler", $PUBLIC | $STATIC | $ABSTRACT},
-	{"sun.java2d.loops.ProcessPath$EndSubPathHandler", "sun.java2d.loops.ProcessPath", "EndSubPathHandler", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.java2d.loops.ProcessPath$DrawHandler", "sun.java2d.loops.ProcessPath", "DrawHandler", $PUBLIC | $STATIC | $ABSTRACT},
-	{"sun.java2d.loops.ProcessPath$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ProcessPath_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.loops.ProcessPath",
-	"java.lang.Object",
-	nullptr,
-	_ProcessPath_FieldInfo_,
-	_ProcessPath_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ProcessPath_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.ProcessPath$FillProcessHandler,sun.java2d.loops.ProcessPath$ActiveEdgeList,sun.java2d.loops.ProcessPath$FillData,sun.java2d.loops.ProcessPath$Edge,sun.java2d.loops.ProcessPath$Point,sun.java2d.loops.ProcessPath$DrawProcessHandler,sun.java2d.loops.ProcessPath$ProcessHandler,sun.java2d.loops.ProcessPath$EndSubPathHandler,sun.java2d.loops.ProcessPath$DrawHandler,sun.java2d.loops.ProcessPath$1"
-};
-
-$Object* allocate$ProcessPath($Class* clazz) {
-	return $of($alloc(ProcessPath));
-}
-
 $ProcessPath$EndSubPathHandler* ProcessPath::noopEndSubPathHandler = nullptr;
 float ProcessPath::UPPER_BND = 0.0;
 float ProcessPath::LOWER_BND = 0.0;
@@ -264,17 +156,19 @@ int32_t ProcessPath::TESTANDCLIP(float LINE_MIN, float LINE_MAX, $floats* c, int
 	$init(ProcessPath);
 	double t = 0.0;
 	int32_t res = ProcessPath::CRES_NOT_CLIPPED;
-	if ($nc(c)->get(a1) < (LINE_MIN) || $nc(c)->get(a1) > (LINE_MAX)) {
+	if ($nc(c)->get(a1) < (LINE_MIN) || c->get(a1) > (LINE_MAX)) {
 		if (c->get(a1) < (LINE_MIN)) {
 			if (c->get(a2) < (LINE_MIN)) {
 				return ProcessPath::CRES_INVISIBLE;
 			}
+			;
 			res = ProcessPath::CRES_MIN_CLIPPED;
 			t = (LINE_MIN);
 		} else {
 			if (c->get(a2) > (LINE_MAX)) {
 				return ProcessPath::CRES_INVISIBLE;
 			}
+			;
 			res = ProcessPath::CRES_MAX_CLIPPED;
 			t = (LINE_MAX);
 		}
@@ -288,17 +182,19 @@ int32_t ProcessPath::TESTANDCLIP(int32_t LINE_MIN, int32_t LINE_MAX, $ints* c, i
 	$init(ProcessPath);
 	double t = 0.0;
 	int32_t res = ProcessPath::CRES_NOT_CLIPPED;
-	if ($nc(c)->get(a1) < (LINE_MIN) || $nc(c)->get(a1) > (LINE_MAX)) {
+	if ($nc(c)->get(a1) < (LINE_MIN) || c->get(a1) > (LINE_MAX)) {
 		if (c->get(a1) < (LINE_MIN)) {
 			if (c->get(a2) < (LINE_MIN)) {
 				return ProcessPath::CRES_INVISIBLE;
 			}
+			;
 			res = ProcessPath::CRES_MIN_CLIPPED;
 			t = ((double)LINE_MIN);
 		} else {
 			if (c->get(a2) > (LINE_MAX)) {
 				return ProcessPath::CRES_INVISIBLE;
 			}
+			;
 			res = ProcessPath::CRES_MAX_CLIPPED;
 			t = ((double)LINE_MAX);
 		}
@@ -310,7 +206,7 @@ int32_t ProcessPath::TESTANDCLIP(int32_t LINE_MIN, int32_t LINE_MAX, $ints* c, i
 
 int32_t ProcessPath::CLIPCLAMP(float LINE_MIN, float LINE_MAX, $floats* c, int32_t a1, int32_t b1, int32_t a2, int32_t b2, int32_t a3, int32_t b3) {
 	$init(ProcessPath);
-	$nc(c)->set(a3, c->get(a1));
+	$nc(c)->set(a3, $nc(c)->get(a1));
 	c->set(b3, c->get(b1));
 	int32_t res = TESTANDCLIP(LINE_MIN, LINE_MAX, c, a1, b1, a2, b2);
 	if (res == ProcessPath::CRES_MIN_CLIPPED) {
@@ -332,7 +228,7 @@ int32_t ProcessPath::CLIPCLAMP(float LINE_MIN, float LINE_MAX, $floats* c, int32
 
 int32_t ProcessPath::CLIPCLAMP(int32_t LINE_MIN, int32_t LINE_MAX, $ints* c, int32_t a1, int32_t b1, int32_t a2, int32_t b2, int32_t a3, int32_t b3) {
 	$init(ProcessPath);
-	$nc(c)->set(a3, c->get(a1));
+	$nc(c)->set(a3, $nc(c)->get(a1));
 	c->set(b3, c->get(b1));
 	int32_t res = TESTANDCLIP(LINE_MIN, LINE_MAX, c, a1, b1, a2, b2);
 	if (res == ProcessPath::CRES_MIN_CLIPPED) {
@@ -358,8 +254,8 @@ void ProcessPath::DrawMonotonicQuad($ProcessPath$ProcessHandler* hnd, $floats* c
 	int32_t y0 = $cast(int32_t, (coords->get(1) * ProcessPath::MDP_MULT));
 	int32_t xe = $cast(int32_t, (coords->get(4) * ProcessPath::MDP_MULT));
 	int32_t ye = $cast(int32_t, (coords->get(5) * ProcessPath::MDP_MULT));
-	int32_t px = $sl((int32_t)(x0 & (uint32_t)(~ProcessPath::MDP_W_MASK)), ProcessPath::DF_QUAD_SHIFT);
-	int32_t py = $sl((int32_t)(y0 & (uint32_t)(~ProcessPath::MDP_W_MASK)), ProcessPath::DF_QUAD_SHIFT);
+	int32_t px = $sl(x0 & (~ProcessPath::MDP_W_MASK), ProcessPath::DF_QUAD_SHIFT);
+	int32_t py = $sl(y0 & (~ProcessPath::MDP_W_MASK), ProcessPath::DF_QUAD_SHIFT);
 	int32_t count = ProcessPath::DF_QUAD_COUNT;
 	int32_t shift = ProcessPath::DF_QUAD_SHIFT;
 	int32_t ax = $cast(int32_t, ((coords->get(0) - 2 * coords->get(2) + coords->get(4)) * ProcessPath::QUAD_A_MDP_MULT));
@@ -378,8 +274,8 @@ void ProcessPath::DrawMonotonicQuad($ProcessPath$ProcessHandler* hnd, $floats* c
 	int32_t maxDD = $Math::max(var$0, $Math::abs(ddpy));
 	int32_t dx = xe - x0;
 	int32_t dy = ye - y0;
-	int32_t x0w = (int32_t)(x0 & (uint32_t)ProcessPath::MDP_W_MASK);
-	int32_t y0w = (int32_t)(y0 & (uint32_t)ProcessPath::MDP_W_MASK);
+	int32_t x0w = x0 & ProcessPath::MDP_W_MASK;
+	int32_t y0w = y0 & ProcessPath::MDP_W_MASK;
 	while (maxDD > ProcessPath::DF_QUAD_DEC_BND) {
 		dpx = (dpx << 1) - ax;
 		dpy = (dpy << 1) - ay;
@@ -427,15 +323,15 @@ void ProcessPath::ProcessMonotonicQuad($ProcessPath$ProcessHandler* hnd, $floats
 		yMax = (yMax < coords->get(i + 1)) ? coords->get(i + 1) : yMax;
 	}
 	if ($nc(hnd)->clipMode == ProcessPath::PH_MODE_DRAW_CLIP) {
-		if ($nc(hnd->dhnd)->xMaxf < xMin || $nc(hnd->dhnd)->xMinf > xMax || $nc(hnd->dhnd)->yMaxf < yMin || $nc(hnd->dhnd)->yMinf > yMax) {
+		if ($nc(hnd->dhnd)->xMaxf < xMin || hnd->dhnd->xMinf > xMax || hnd->dhnd->yMaxf < yMin || hnd->dhnd->yMinf > yMax) {
 			return;
 		}
 	} else {
-		if ($nc(hnd->dhnd)->yMaxf < yMin || $nc(hnd->dhnd)->yMinf > yMax || $nc(hnd->dhnd)->xMaxf < xMin) {
+		if ($nc(hnd->dhnd)->yMaxf < yMin || hnd->dhnd->yMinf > yMax || hnd->dhnd->xMaxf < xMin) {
 			return;
 		}
-		if ($nc(hnd->dhnd)->xMinf > xMax) {
-			coords->set(0, coords->set(2, coords->set(4, $nc(hnd->dhnd)->xMinf)));
+		if (hnd->dhnd->xMinf > xMax) {
+			coords->set(0, coords->set(2, coords->set(4, hnd->dhnd->xMinf)));
 		}
 	}
 	if (xMax - xMin > ProcessPath::MAX_QUAD_SIZE || yMax - yMin > ProcessPath::MAX_QUAD_SIZE) {
@@ -450,7 +346,7 @@ void ProcessPath::ProcessMonotonicQuad($ProcessPath$ProcessHandler* hnd, $floats
 		ProcessMonotonicQuad(hnd, coords, pixelInfo);
 		ProcessMonotonicQuad(hnd, coords1, pixelInfo);
 	} else {
-		DrawMonotonicQuad(hnd, coords, $nc($nc(hnd)->dhnd)->xMinf >= xMin || $nc($nc(hnd)->dhnd)->xMaxf <= xMax || $nc($nc(hnd)->dhnd)->yMinf >= yMin || $nc($nc(hnd)->dhnd)->yMaxf <= yMax, pixelInfo);
+		DrawMonotonicQuad(hnd, coords, $nc(hnd->dhnd)->xMinf >= xMin || hnd->dhnd->xMaxf <= xMax || hnd->dhnd->yMinf >= yMin || hnd->dhnd->yMaxf <= yMax, pixelInfo);
 	}
 }
 
@@ -459,7 +355,7 @@ void ProcessPath::ProcessQuad($ProcessPath$ProcessHandler* hnd, $floats* coords,
 	$var($doubles, params, $new($doubles, 2));
 	int32_t cnt = 0;
 	double param = 0.0;
-	if (($nc(coords)->get(0) > coords->get(2) || $nc(coords)->get(2) > coords->get(4)) && (coords->get(0) < coords->get(2) || $nc(coords)->get(2) < coords->get(4))) {
+	if (($nc(coords)->get(0) > $nc(coords)->get(2) || coords->get(2) > coords->get(4)) && (coords->get(0) < coords->get(2) || coords->get(2) < coords->get(4))) {
 		double ax = coords->get(0) - 2 * coords->get(2) + coords->get(4);
 		if (ax != 0) {
 			double bx = coords->get(0) - coords->get(2);
@@ -469,7 +365,7 @@ void ProcessPath::ProcessQuad($ProcessPath$ProcessHandler* hnd, $floats* coords,
 			}
 		}
 	}
-	if (($nc(coords)->get(1) > coords->get(3) || $nc(coords)->get(3) > coords->get(5)) && (coords->get(1) < coords->get(3) || $nc(coords)->get(3) < coords->get(5))) {
+	if ((coords->get(1) > coords->get(3) || coords->get(3) > coords->get(5)) && (coords->get(1) < coords->get(3) || coords->get(3) < coords->get(5))) {
 		double ay = coords->get(1) - 2 * coords->get(3) + coords->get(5);
 		if (ay != 0) {
 			double by = coords->get(1) - coords->get(3);
@@ -490,23 +386,17 @@ void ProcessPath::ProcessQuad($ProcessPath$ProcessHandler* hnd, $floats* coords,
 	}
 	switch (cnt) {
 	case 0:
-		{
-			break;
-		}
+		break;
 	case 1:
-		{
-			ProcessFirstMonotonicPartOfQuad(hnd, coords, pixelInfo, (float)params->get(0));
-			break;
-		}
+		ProcessFirstMonotonicPartOfQuad(hnd, coords, pixelInfo, (float)params->get(0));
+		break;
 	case 2:
-		{
-			ProcessFirstMonotonicPartOfQuad(hnd, coords, pixelInfo, (float)params->get(0));
-			param = params->get(1) - params->get(0);
-			if (param > 0) {
-				ProcessFirstMonotonicPartOfQuad(hnd, coords, pixelInfo, (float)(param / (1.0 - params->get(0))));
-			}
-			break;
+		ProcessFirstMonotonicPartOfQuad(hnd, coords, pixelInfo, (float)params->get(0));
+		param = params->get(1) - params->get(0);
+		if (param > 0) {
+			ProcessFirstMonotonicPartOfQuad(hnd, coords, pixelInfo, (float)(param / (1.0 - params->get(0))));
 		}
+		break;
 	}
 	ProcessMonotonicQuad(hnd, coords, pixelInfo);
 }
@@ -531,8 +421,8 @@ void ProcessPath::DrawMonotonicCubic($ProcessPath$ProcessHandler* hnd, $floats* 
 	int32_t y0 = $cast(int32_t, (coords->get(1) * ProcessPath::MDP_MULT));
 	int32_t xe = $cast(int32_t, (coords->get(6) * ProcessPath::MDP_MULT));
 	int32_t ye = $cast(int32_t, (coords->get(7) * ProcessPath::MDP_MULT));
-	int32_t px = $sl((int32_t)(x0 & (uint32_t)(~ProcessPath::MDP_W_MASK)), ProcessPath::DF_CUB_SHIFT);
-	int32_t py = $sl((int32_t)(y0 & (uint32_t)(~ProcessPath::MDP_W_MASK)), ProcessPath::DF_CUB_SHIFT);
+	int32_t px = $sl(x0 & (~ProcessPath::MDP_W_MASK), ProcessPath::DF_CUB_SHIFT);
+	int32_t py = $sl(y0 & (~ProcessPath::MDP_W_MASK), ProcessPath::DF_CUB_SHIFT);
 	int32_t incStepBnd = ProcessPath::DF_CUB_INC_BND;
 	int32_t decStepBnd = ProcessPath::DF_CUB_DEC_BND;
 	int32_t count = ProcessPath::DF_CUB_COUNT;
@@ -553,8 +443,8 @@ void ProcessPath::DrawMonotonicCubic($ProcessPath$ProcessHandler* hnd, $floats* 
 	int32_t y1 = 0;
 	int32_t x2 = x0;
 	int32_t y2 = y0;
-	int32_t x0w = (int32_t)(x0 & (uint32_t)ProcessPath::MDP_W_MASK);
-	int32_t y0w = (int32_t)(y0 & (uint32_t)ProcessPath::MDP_W_MASK);
+	int32_t x0w = x0 & ProcessPath::MDP_W_MASK;
+	int32_t y0w = y0 & ProcessPath::MDP_W_MASK;
 	int32_t dx = xe - x0;
 	int32_t dy = ye - y0;
 	while (count > 0) {
@@ -577,7 +467,7 @@ void ProcessPath::DrawMonotonicCubic($ProcessPath$ProcessHandler* hnd, $floats* 
 			}
 		}
 		while (true) {
-			bool var$1 = ((int32_t)(count & (uint32_t)1)) == 0 && shift > ProcessPath::DF_CUB_SHIFT && $Math::abs(dpx) <= incStepBnd;
+			bool var$1 = (count & 1) == 0 && shift > ProcessPath::DF_CUB_SHIFT && $Math::abs(dpx) <= incStepBnd;
 			if (!(var$1 && $Math::abs(dpy) <= incStepBnd)) {
 				break;
 			}
@@ -637,15 +527,15 @@ void ProcessPath::ProcessMonotonicCubic($ProcessPath$ProcessHandler* hnd, $float
 		yMax = (yMax < coords->get(i + 1)) ? coords->get(i + 1) : yMax;
 	}
 	if ($nc(hnd)->clipMode == ProcessPath::PH_MODE_DRAW_CLIP) {
-		if ($nc(hnd->dhnd)->xMaxf < xMin || $nc(hnd->dhnd)->xMinf > xMax || $nc(hnd->dhnd)->yMaxf < yMin || $nc(hnd->dhnd)->yMinf > yMax) {
+		if ($nc(hnd->dhnd)->xMaxf < xMin || hnd->dhnd->xMinf > xMax || hnd->dhnd->yMaxf < yMin || hnd->dhnd->yMinf > yMax) {
 			return;
 		}
 	} else {
-		if ($nc(hnd->dhnd)->yMaxf < yMin || $nc(hnd->dhnd)->yMinf > yMax || $nc(hnd->dhnd)->xMaxf < xMin) {
+		if ($nc(hnd->dhnd)->yMaxf < yMin || hnd->dhnd->yMinf > yMax || hnd->dhnd->xMaxf < xMin) {
 			return;
 		}
-		if ($nc(hnd->dhnd)->xMinf > xMax) {
-			coords->set(0, coords->set(2, coords->set(4, coords->set(6, $nc(hnd->dhnd)->xMinf))));
+		if (hnd->dhnd->xMinf > xMax) {
+			coords->set(0, coords->set(2, coords->set(4, coords->set(6, hnd->dhnd->xMinf))));
 		}
 	}
 	if (xMax - xMin > ProcessPath::MAX_CUB_SIZE || yMax - yMin > ProcessPath::MAX_CUB_SIZE) {
@@ -666,18 +556,18 @@ void ProcessPath::ProcessMonotonicCubic($ProcessPath$ProcessHandler* hnd, $float
 		ProcessMonotonicCubic(hnd, coords, pixelInfo);
 		ProcessMonotonicCubic(hnd, coords1, pixelInfo);
 	} else {
-		DrawMonotonicCubic(hnd, coords, $nc($nc(hnd)->dhnd)->xMinf > xMin || $nc($nc(hnd)->dhnd)->xMaxf < xMax || $nc($nc(hnd)->dhnd)->yMinf > yMin || $nc($nc(hnd)->dhnd)->yMaxf < yMax, pixelInfo);
+		DrawMonotonicCubic(hnd, coords, $nc(hnd->dhnd)->xMinf > xMin || hnd->dhnd->xMaxf < xMax || hnd->dhnd->yMinf > yMin || hnd->dhnd->yMaxf < yMax, pixelInfo);
 	}
 }
 
 void ProcessPath::ProcessCubic($ProcessPath$ProcessHandler* hnd, $floats* coords, $ints* pixelInfo) {
 	$init(ProcessPath);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($doubles, params, $new($doubles, 4));
 	$var($doubles, eqn, $new($doubles, 3));
 	$var($doubles, res, $new($doubles, 2));
 	int32_t cnt = 0;
-	if (($nc(coords)->get(0) > coords->get(2) || $nc(coords)->get(2) > coords->get(4) || $nc(coords)->get(4) > coords->get(6)) && (coords->get(0) < coords->get(2) || $nc(coords)->get(2) < coords->get(4) || $nc(coords)->get(4) < coords->get(6))) {
+	if (($nc(coords)->get(0) > $nc(coords)->get(2) || coords->get(2) > coords->get(4) || coords->get(4) > coords->get(6)) && (coords->get(0) < coords->get(2) || coords->get(2) < coords->get(4) || coords->get(4) < coords->get(6))) {
 		eqn->set(2, -coords->get(0) + 3 * coords->get(2) - 3 * coords->get(4) + coords->get(6));
 		eqn->set(1, 2 * (coords->get(0) - 2 * coords->get(2) + coords->get(4)));
 		eqn->set(0, -coords->get(0) + coords->get(2));
@@ -688,7 +578,7 @@ void ProcessPath::ProcessCubic($ProcessPath$ProcessHandler* hnd, $floats* coords
 			}
 		}
 	}
-	if (($nc(coords)->get(1) > coords->get(3) || $nc(coords)->get(3) > coords->get(5) || $nc(coords)->get(5) > coords->get(7)) && (coords->get(1) < coords->get(3) || $nc(coords)->get(3) < coords->get(5) || $nc(coords)->get(5) < coords->get(7))) {
+	if ((coords->get(1) > coords->get(3) || coords->get(3) > coords->get(5) || coords->get(5) > coords->get(7)) && (coords->get(1) < coords->get(3) || coords->get(3) < coords->get(5) || coords->get(5) < coords->get(7))) {
 		eqn->set(2, -coords->get(1) + 3 * coords->get(3) - 3 * coords->get(5) + coords->get(7));
 		eqn->set(1, 2 * (coords->get(1) - 2 * coords->get(3) + coords->get(5)));
 		eqn->set(0, -coords->get(1) + coords->get(3));
@@ -755,14 +645,14 @@ void ProcessPath::ProcessLine($ProcessPath$ProcessHandler* hnd, float x1, float 
 		y1,
 		x2,
 		y2,
-		(float)0,
-		(float)0
+		0,
+		0
 	}));
 	bool lastClipped = false;
 	xMin = $nc($nc(hnd)->dhnd)->xMinf;
-	yMin = $nc(hnd->dhnd)->yMinf;
-	xMax = $nc(hnd->dhnd)->xMaxf;
-	yMax = $nc(hnd->dhnd)->yMaxf;
+	yMin = hnd->dhnd->yMinf;
+	xMax = hnd->dhnd->xMaxf;
+	yMax = hnd->dhnd->yMaxf;
 	res = TESTANDCLIP(yMin, yMax, c, 1, 0, 3, 2);
 	if (res == ProcessPath::CRES_INVISIBLE) {
 		return;
@@ -817,7 +707,7 @@ void ProcessPath::ProcessLine($ProcessPath$ProcessHandler* hnd, float x1, float 
 
 bool ProcessPath::doProcessPath($ProcessPath$ProcessHandler* hnd, $Path2D$Float* p2df, float transXf, float transYf) {
 	$init(ProcessPath);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($floats, coords, $new($floats, 8));
 	$var($floats, tCoords, $new($floats, 8));
 	$var($floats, closeCoord, $new($floats, {
@@ -842,109 +732,99 @@ bool ProcessPath::doProcessPath($ProcessPath$ProcessHandler* hnd, $Path2D$Float*
 	while (!$nc(pi)->isDone()) {
 		switch (pi->currentSegment(coords)) {
 		case $PathIterator::SEG_MOVETO:
-			{
-				if (subpathStarted && !skip) {
-					if (hnd->clipMode == ProcessPath::PH_MODE_FILL_CLIP) {
-						if (tCoords->get(0) != closeCoord->get(0) || tCoords->get(1) != closeCoord->get(1)) {
-							ProcessLine(hnd, tCoords->get(0), tCoords->get(1), closeCoord->get(0), closeCoord->get(1), pixelInfo);
-						}
-					}
-					hnd->processEndSubPath();
-				}
-				tCoords->set(0, coords->get(0) + transXf);
-				tCoords->set(1, coords->get(1) + transYf);
-				if (tCoords->get(0) < ProcessPath::UPPER_BND && tCoords->get(0) > ProcessPath::LOWER_BND && tCoords->get(1) < ProcessPath::UPPER_BND && tCoords->get(1) > ProcessPath::LOWER_BND) {
-					subpathStarted = true;
-					skip = false;
-					closeCoord->set(0, tCoords->get(0));
-					closeCoord->set(1, tCoords->get(1));
-				} else {
-					skip = true;
-				}
-				pixelInfo->set(0, 0);
-				break;
-			}
-		case $PathIterator::SEG_LINETO:
-			{
-				lastX = (tCoords->set(2, coords->get(0) + transXf));
-				lastY = (tCoords->set(3, coords->get(1) + transYf));
-				if (lastX < ProcessPath::UPPER_BND && lastX > ProcessPath::LOWER_BND && lastY < ProcessPath::UPPER_BND && lastY > ProcessPath::LOWER_BND) {
-					if (skip) {
-						tCoords->set(0, closeCoord->set(0, lastX));
-						tCoords->set(1, closeCoord->set(1, lastY));
-						subpathStarted = true;
-						skip = false;
-					} else {
-						ProcessLine(hnd, tCoords->get(0), tCoords->get(1), tCoords->get(2), tCoords->get(3), pixelInfo);
-						tCoords->set(0, lastX);
-						tCoords->set(1, lastY);
-					}
-				}
-				break;
-			}
-		case $PathIterator::SEG_QUADTO:
-			{
-				tCoords->set(2, coords->get(0) + transXf);
-				tCoords->set(3, coords->get(1) + transYf);
-				lastX = (tCoords->set(4, coords->get(2) + transXf));
-				lastY = (tCoords->set(5, coords->get(3) + transYf));
-				if (lastX < ProcessPath::UPPER_BND && lastX > ProcessPath::LOWER_BND && lastY < ProcessPath::UPPER_BND && lastY > ProcessPath::LOWER_BND) {
-					if (skip) {
-						tCoords->set(0, closeCoord->set(0, lastX));
-						tCoords->set(1, closeCoord->set(1, lastY));
-						subpathStarted = true;
-						skip = false;
-					} else {
-						if (tCoords->get(2) < ProcessPath::UPPER_BND && tCoords->get(2) > ProcessPath::LOWER_BND && tCoords->get(3) < ProcessPath::UPPER_BND && tCoords->get(3) > ProcessPath::LOWER_BND) {
-							ProcessQuad(hnd, tCoords, pixelInfo);
-						} else {
-							ProcessLine(hnd, tCoords->get(0), tCoords->get(1), tCoords->get(4), tCoords->get(5), pixelInfo);
-						}
-						tCoords->set(0, lastX);
-						tCoords->set(1, lastY);
-					}
-				}
-				break;
-			}
-		case $PathIterator::SEG_CUBICTO:
-			{
-				tCoords->set(2, coords->get(0) + transXf);
-				tCoords->set(3, coords->get(1) + transYf);
-				tCoords->set(4, coords->get(2) + transXf);
-				tCoords->set(5, coords->get(3) + transYf);
-				lastX = (tCoords->set(6, coords->get(4) + transXf));
-				lastY = (tCoords->set(7, coords->get(5) + transYf));
-				if (lastX < ProcessPath::UPPER_BND && lastX > ProcessPath::LOWER_BND && lastY < ProcessPath::UPPER_BND && lastY > ProcessPath::LOWER_BND) {
-					if (skip) {
-						tCoords->set(0, closeCoord->set(0, tCoords->get(6)));
-						tCoords->set(1, closeCoord->set(1, tCoords->get(7)));
-						subpathStarted = true;
-						skip = false;
-					} else {
-						if (tCoords->get(2) < ProcessPath::UPPER_BND && tCoords->get(2) > ProcessPath::LOWER_BND && tCoords->get(3) < ProcessPath::UPPER_BND && tCoords->get(3) > ProcessPath::LOWER_BND && tCoords->get(4) < ProcessPath::UPPER_BND && tCoords->get(4) > ProcessPath::LOWER_BND && tCoords->get(5) < ProcessPath::UPPER_BND && tCoords->get(5) > ProcessPath::LOWER_BND) {
-							ProcessCubic(hnd, tCoords, pixelInfo);
-						} else {
-							ProcessLine(hnd, tCoords->get(0), tCoords->get(1), tCoords->get(6), tCoords->get(7), pixelInfo);
-						}
-						tCoords->set(0, lastX);
-						tCoords->set(1, lastY);
-					}
-				}
-				break;
-			}
-		case $PathIterator::SEG_CLOSE:
-			{
-				if (subpathStarted && !skip) {
-					skip = false;
+			if (subpathStarted && !skip) {
+				if (hnd->clipMode == ProcessPath::PH_MODE_FILL_CLIP) {
 					if (tCoords->get(0) != closeCoord->get(0) || tCoords->get(1) != closeCoord->get(1)) {
 						ProcessLine(hnd, tCoords->get(0), tCoords->get(1), closeCoord->get(0), closeCoord->get(1), pixelInfo);
-						tCoords->set(0, closeCoord->get(0));
-						tCoords->set(1, closeCoord->get(1));
 					}
-					hnd->processEndSubPath();
 				}
-				break;
+				hnd->processEndSubPath();
 			}
+			tCoords->set(0, coords->get(0) + transXf);
+			tCoords->set(1, coords->get(1) + transYf);
+			if (tCoords->get(0) < ProcessPath::UPPER_BND && tCoords->get(0) > ProcessPath::LOWER_BND && tCoords->get(1) < ProcessPath::UPPER_BND && tCoords->get(1) > ProcessPath::LOWER_BND) {
+				subpathStarted = true;
+				skip = false;
+				closeCoord->set(0, tCoords->get(0));
+				closeCoord->set(1, tCoords->get(1));
+			} else {
+				skip = true;
+			}
+			pixelInfo->set(0, 0);
+			break;
+		case $PathIterator::SEG_LINETO:
+			lastX = (tCoords->set(2, coords->get(0) + transXf));
+			lastY = (tCoords->set(3, coords->get(1) + transYf));
+			if (lastX < ProcessPath::UPPER_BND && lastX > ProcessPath::LOWER_BND && lastY < ProcessPath::UPPER_BND && lastY > ProcessPath::LOWER_BND) {
+				if (skip) {
+					tCoords->set(0, closeCoord->set(0, lastX));
+					tCoords->set(1, closeCoord->set(1, lastY));
+					subpathStarted = true;
+					skip = false;
+				} else {
+					ProcessLine(hnd, tCoords->get(0), tCoords->get(1), tCoords->get(2), tCoords->get(3), pixelInfo);
+					tCoords->set(0, lastX);
+					tCoords->set(1, lastY);
+				}
+			}
+			break;
+		case $PathIterator::SEG_QUADTO:
+			tCoords->set(2, coords->get(0) + transXf);
+			tCoords->set(3, coords->get(1) + transYf);
+			lastX = (tCoords->set(4, coords->get(2) + transXf));
+			lastY = (tCoords->set(5, coords->get(3) + transYf));
+			if (lastX < ProcessPath::UPPER_BND && lastX > ProcessPath::LOWER_BND && lastY < ProcessPath::UPPER_BND && lastY > ProcessPath::LOWER_BND) {
+				if (skip) {
+					tCoords->set(0, closeCoord->set(0, lastX));
+					tCoords->set(1, closeCoord->set(1, lastY));
+					subpathStarted = true;
+					skip = false;
+				} else {
+					if (tCoords->get(2) < ProcessPath::UPPER_BND && tCoords->get(2) > ProcessPath::LOWER_BND && tCoords->get(3) < ProcessPath::UPPER_BND && tCoords->get(3) > ProcessPath::LOWER_BND) {
+						ProcessQuad(hnd, tCoords, pixelInfo);
+					} else {
+						ProcessLine(hnd, tCoords->get(0), tCoords->get(1), tCoords->get(4), tCoords->get(5), pixelInfo);
+					}
+					tCoords->set(0, lastX);
+					tCoords->set(1, lastY);
+				}
+			}
+			break;
+		case $PathIterator::SEG_CUBICTO:
+			tCoords->set(2, coords->get(0) + transXf);
+			tCoords->set(3, coords->get(1) + transYf);
+			tCoords->set(4, coords->get(2) + transXf);
+			tCoords->set(5, coords->get(3) + transYf);
+			lastX = (tCoords->set(6, coords->get(4) + transXf));
+			lastY = (tCoords->set(7, coords->get(5) + transYf));
+			if (lastX < ProcessPath::UPPER_BND && lastX > ProcessPath::LOWER_BND && lastY < ProcessPath::UPPER_BND && lastY > ProcessPath::LOWER_BND) {
+				if (skip) {
+					tCoords->set(0, closeCoord->set(0, tCoords->get(6)));
+					tCoords->set(1, closeCoord->set(1, tCoords->get(7)));
+					subpathStarted = true;
+					skip = false;
+				} else {
+					if (tCoords->get(2) < ProcessPath::UPPER_BND && tCoords->get(2) > ProcessPath::LOWER_BND && tCoords->get(3) < ProcessPath::UPPER_BND && tCoords->get(3) > ProcessPath::LOWER_BND && tCoords->get(4) < ProcessPath::UPPER_BND && tCoords->get(4) > ProcessPath::LOWER_BND && tCoords->get(5) < ProcessPath::UPPER_BND && tCoords->get(5) > ProcessPath::LOWER_BND) {
+						ProcessCubic(hnd, tCoords, pixelInfo);
+					} else {
+						ProcessLine(hnd, tCoords->get(0), tCoords->get(1), tCoords->get(6), tCoords->get(7), pixelInfo);
+					}
+					tCoords->set(0, lastX);
+					tCoords->set(1, lastY);
+				}
+			}
+			break;
+		case $PathIterator::SEG_CLOSE:
+			if (subpathStarted && !skip) {
+				skip = false;
+				if (tCoords->get(0) != closeCoord->get(0) || tCoords->get(1) != closeCoord->get(1)) {
+					ProcessLine(hnd, tCoords->get(0), tCoords->get(1), closeCoord->get(0), closeCoord->get(1), pixelInfo);
+					tCoords->set(0, closeCoord->get(0));
+					tCoords->set(1, closeCoord->get(1));
+				}
+				hnd->processEndSubPath();
+			}
+			break;
 		}
 		pi->next();
 	}
@@ -961,7 +841,7 @@ bool ProcessPath::doProcessPath($ProcessPath$ProcessHandler* hnd, $Path2D$Float*
 
 void ProcessPath::FillPolygon($ProcessPath$FillProcessHandler* hnd, int32_t fillRule) {
 	$init(ProcessPath);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t k = 0;
 	int32_t y = 0;
 	int32_t n = 0;
@@ -972,7 +852,7 @@ void ProcessPath::FillPolygon($ProcessPath$FillProcessHandler* hnd, int32_t fill
 	int32_t yMin = $nc(fd)->plgYMin;
 	int32_t yMax = fd->plgYMax;
 	int32_t hashSize = ($sr(yMax - yMin, ProcessPath::MDP_PREC)) + 4;
-	int32_t hashOffset = ((int32_t)((yMin - 1) & (uint32_t)ProcessPath::MDP_W_MASK));
+	int32_t hashOffset = ((yMin - 1) & ProcessPath::MDP_W_MASK);
 	int32_t counter = 0;
 	int32_t counterMask = (fillRule == $PathIterator::WIND_NON_ZERO) ? -1 : 1;
 	int32_t pntOffset = 0;
@@ -1001,17 +881,17 @@ void ProcessPath::FillPolygon($ProcessPath$FillProcessHandler* hnd, int32_t fill
 	for (y = hashOffset + ProcessPath::MDP_MULT, k = 0; y <= yMax && k < hashSize; y += ProcessPath::MDP_MULT, ++k) {
 		{
 			$var($ProcessPath$Point, pt, yHash->get(k));
-			for (; pt != nullptr; $assign(pt, $nc(pt)->nextByY)) {
-				if (pt->prev != nullptr && !$nc(pt->prev)->lastPoint) {
-					if ($nc(pt->prev)->edge != nullptr && $nc(pt->prev)->y <= y) {
-						activeList->delete$($nc(pt->prev)->edge);
+			for (; pt != nullptr; $assign(pt, pt->nextByY)) {
+				if (pt->prev != nullptr && !pt->prev->lastPoint) {
+					if (pt->prev->edge != nullptr && pt->prev->y <= y) {
+						activeList->delete$(pt->prev->edge);
 						$set($nc(pt->prev), edge, nullptr);
 					} else if ($nc(pt->prev)->y > y) {
 						activeList->insert(pt->prev, y);
 					}
 				}
 				if (!pt->lastPoint && pt->next != nullptr) {
-					if (pt->edge != nullptr && $nc(pt->next)->y <= y) {
+					if (pt->edge != nullptr && pt->next->y <= y) {
 						activeList->delete$(pt->edge);
 						$set(pt, edge, nullptr);
 					} else if ($nc(pt->next)->y > y) {
@@ -1032,11 +912,11 @@ void ProcessPath::FillPolygon($ProcessPath$FillProcessHandler* hnd, int32_t fill
 		$var($ProcessPath$Edge, curEdge, activeList->head);
 		while (curEdge != nullptr) {
 			counter += curEdge->dir;
-			if (((int32_t)(counter & (uint32_t)counterMask)) != 0 && !drawing) {
+			if ((counter & counterMask) != 0 && !drawing) {
 				xl = $sr(curEdge->x + ProcessPath::MDP_MULT - 1, ProcessPath::MDP_PREC);
 				drawing = true;
 			}
-			if (((int32_t)(counter & (uint32_t)counterMask)) == 0 && drawing) {
+			if ((counter & counterMask) == 0 && drawing) {
 				xr = $sr(curEdge->x - 1, ProcessPath::MDP_PREC);
 				if (xl <= xr) {
 					$nc(hnd->dhnd)->drawScanline(xl, xr, $sr(y, ProcessPath::MDP_PREC));
@@ -1052,8 +932,7 @@ void ProcessPath::FillPolygon($ProcessPath$FillProcessHandler* hnd, int32_t fill
 	}
 }
 
-void clinit$ProcessPath($Class* class$) {
-	$init($Float);
+void ProcessPath::clinit$($Class* clazz) {
 	ProcessPath::UPPER_BND = $Float::MAX_VALUE / 4.0f;
 	ProcessPath::LOWER_BND = -ProcessPath::UPPER_BND;
 	ProcessPath::CALC_UBND = (float)$sl(1, 30 - ProcessPath::MDP_PREC);
@@ -1066,7 +945,108 @@ ProcessPath::ProcessPath() {
 }
 
 $Class* ProcessPath::load$($String* name, bool initialize) {
-	$loadClass(ProcessPath, name, initialize, &_ProcessPath_ClassInfo_, clinit$ProcessPath, allocate$ProcessPath);
+	$FieldInfo fieldInfos$$[] = {
+		{"PH_MODE_DRAW_CLIP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ProcessPath, PH_MODE_DRAW_CLIP)},
+		{"PH_MODE_FILL_CLIP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ProcessPath, PH_MODE_FILL_CLIP)},
+		{"noopEndSubPathHandler", "Lsun/java2d/loops/ProcessPath$EndSubPathHandler;", nullptr, $PUBLIC | $STATIC, $staticField(ProcessPath, noopEndSubPathHandler)},
+		{"UPPER_BND", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProcessPath, UPPER_BND)},
+		{"LOWER_BND", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProcessPath, LOWER_BND)},
+		{"FWD_PREC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, FWD_PREC)},
+		{"MDP_PREC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, MDP_PREC)},
+		{"MDP_MULT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, MDP_MULT)},
+		{"MDP_HALF_MULT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, MDP_HALF_MULT)},
+		{"UPPER_OUT_BND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, UPPER_OUT_BND)},
+		{"LOWER_OUT_BND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, LOWER_OUT_BND)},
+		{"CALC_UBND", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProcessPath, CALC_UBND)},
+		{"CALC_LBND", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProcessPath, CALC_LBND)},
+		{"EPSFX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ProcessPath, EPSFX)},
+		{"EPSF", "F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ProcessPath, EPSF)},
+		{"MDP_W_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, MDP_W_MASK)},
+		{"MDP_F_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, MDP_F_MASK)},
+		{"MAX_CUB_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, MAX_CUB_SIZE)},
+		{"MAX_QUAD_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, MAX_QUAD_SIZE)},
+		{"DF_CUB_STEPS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, DF_CUB_STEPS)},
+		{"DF_QUAD_STEPS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, DF_QUAD_STEPS)},
+		{"DF_CUB_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, DF_CUB_SHIFT)},
+		{"DF_QUAD_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, DF_QUAD_SHIFT)},
+		{"DF_CUB_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, DF_CUB_COUNT)},
+		{"DF_QUAD_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, DF_QUAD_COUNT)},
+		{"DF_CUB_DEC_BND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, DF_CUB_DEC_BND)},
+		{"DF_CUB_INC_BND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, DF_CUB_INC_BND)},
+		{"DF_QUAD_DEC_BND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, DF_QUAD_DEC_BND)},
+		{"DF_QUAD_INC_BND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, DF_QUAD_INC_BND)},
+		{"CUB_A_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, CUB_A_SHIFT)},
+		{"CUB_B_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, CUB_B_SHIFT)},
+		{"CUB_C_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, CUB_C_SHIFT)},
+		{"CUB_A_MDP_MULT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, CUB_A_MDP_MULT)},
+		{"CUB_B_MDP_MULT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, CUB_B_MDP_MULT)},
+		{"CUB_C_MDP_MULT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, CUB_C_MDP_MULT)},
+		{"QUAD_A_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, QUAD_A_SHIFT)},
+		{"QUAD_B_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, QUAD_B_SHIFT)},
+		{"QUAD_A_MDP_MULT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, QUAD_A_MDP_MULT)},
+		{"QUAD_B_MDP_MULT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, QUAD_B_MDP_MULT)},
+		{"CRES_MIN_CLIPPED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, CRES_MIN_CLIPPED)},
+		{"CRES_MAX_CLIPPED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, CRES_MAX_CLIPPED)},
+		{"CRES_NOT_CLIPPED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, CRES_NOT_CLIPPED)},
+		{"CRES_INVISIBLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, CRES_INVISIBLE)},
+		{"DF_MAX_POINT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProcessPath, DF_MAX_POINT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ProcessPath, init$, void)},
+		{"CLIP", "(FFFFD)F", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, CLIP, float, float, float, float, float, double)},
+		{"CLIP", "(IIIID)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, CLIP, int32_t, int32_t, int32_t, int32_t, int32_t, double)},
+		{"CLIPCLAMP", "(FF[FIIIIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, CLIPCLAMP, int32_t, float, float, $floats*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"CLIPCLAMP", "(II[IIIIIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, CLIPCLAMP, int32_t, int32_t, int32_t, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"DrawMonotonicCubic", "(Lsun/java2d/loops/ProcessPath$ProcessHandler;[FZ[I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, DrawMonotonicCubic, void, $ProcessPath$ProcessHandler*, $floats*, bool, $ints*)},
+		{"DrawMonotonicQuad", "(Lsun/java2d/loops/ProcessPath$ProcessHandler;[FZ[I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, DrawMonotonicQuad, void, $ProcessPath$ProcessHandler*, $floats*, bool, $ints*)},
+		{"FillPolygon", "(Lsun/java2d/loops/ProcessPath$FillProcessHandler;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, FillPolygon, void, $ProcessPath$FillProcessHandler*, int32_t)},
+		{"IS_CLIPPED", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, IS_CLIPPED, bool, int32_t)},
+		{"ProcessCubic", "(Lsun/java2d/loops/ProcessPath$ProcessHandler;[F[I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, ProcessCubic, void, $ProcessPath$ProcessHandler*, $floats*, $ints*)},
+		{"ProcessFirstMonotonicPartOfCubic", "(Lsun/java2d/loops/ProcessPath$ProcessHandler;[F[IF)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, ProcessFirstMonotonicPartOfCubic, void, $ProcessPath$ProcessHandler*, $floats*, $ints*, float)},
+		{"ProcessFirstMonotonicPartOfQuad", "(Lsun/java2d/loops/ProcessPath$ProcessHandler;[F[IF)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, ProcessFirstMonotonicPartOfQuad, void, $ProcessPath$ProcessHandler*, $floats*, $ints*, float)},
+		{"ProcessLine", "(Lsun/java2d/loops/ProcessPath$ProcessHandler;FFFF[I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, ProcessLine, void, $ProcessPath$ProcessHandler*, float, float, float, float, $ints*)},
+		{"ProcessMonotonicCubic", "(Lsun/java2d/loops/ProcessPath$ProcessHandler;[F[I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, ProcessMonotonicCubic, void, $ProcessPath$ProcessHandler*, $floats*, $ints*)},
+		{"ProcessMonotonicQuad", "(Lsun/java2d/loops/ProcessPath$ProcessHandler;[F[I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, ProcessMonotonicQuad, void, $ProcessPath$ProcessHandler*, $floats*, $ints*)},
+		{"ProcessQuad", "(Lsun/java2d/loops/ProcessPath$ProcessHandler;[F[I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, ProcessQuad, void, $ProcessPath$ProcessHandler*, $floats*, $ints*)},
+		{"TESTANDCLIP", "(FF[FIIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, TESTANDCLIP, int32_t, float, float, $floats*, int32_t, int32_t, int32_t, int32_t)},
+		{"TESTANDCLIP", "(II[IIIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, TESTANDCLIP, int32_t, int32_t, int32_t, $ints*, int32_t, int32_t, int32_t, int32_t)},
+		{"doProcessPath", "(Lsun/java2d/loops/ProcessPath$ProcessHandler;Ljava/awt/geom/Path2D$Float;FF)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessPath, doProcessPath, bool, $ProcessPath$ProcessHandler*, $Path2D$Float*, float, float)},
+		{"drawPath", "(Lsun/java2d/loops/ProcessPath$DrawHandler;Lsun/java2d/loops/ProcessPath$EndSubPathHandler;Ljava/awt/geom/Path2D$Float;II)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessPath, drawPath, bool, $ProcessPath$DrawHandler*, $ProcessPath$EndSubPathHandler*, $Path2D$Float*, int32_t, int32_t)},
+		{"drawPath", "(Lsun/java2d/loops/ProcessPath$DrawHandler;Ljava/awt/geom/Path2D$Float;II)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessPath, drawPath, bool, $ProcessPath$DrawHandler*, $Path2D$Float*, int32_t, int32_t)},
+		{"fillPath", "(Lsun/java2d/loops/ProcessPath$DrawHandler;Ljava/awt/geom/Path2D$Float;II)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessPath, fillPath, bool, $ProcessPath$DrawHandler*, $Path2D$Float*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.ProcessPath$FillProcessHandler", "sun.java2d.loops.ProcessPath", "FillProcessHandler", $PRIVATE | $STATIC},
+		{"sun.java2d.loops.ProcessPath$ActiveEdgeList", "sun.java2d.loops.ProcessPath", "ActiveEdgeList", $PRIVATE | $STATIC},
+		{"sun.java2d.loops.ProcessPath$FillData", "sun.java2d.loops.ProcessPath", "FillData", $PRIVATE | $STATIC},
+		{"sun.java2d.loops.ProcessPath$Edge", "sun.java2d.loops.ProcessPath", "Edge", $PRIVATE | $STATIC},
+		{"sun.java2d.loops.ProcessPath$Point", "sun.java2d.loops.ProcessPath", "Point", $PRIVATE | $STATIC},
+		{"sun.java2d.loops.ProcessPath$DrawProcessHandler", "sun.java2d.loops.ProcessPath", "DrawProcessHandler", $PRIVATE | $STATIC},
+		{"sun.java2d.loops.ProcessPath$ProcessHandler", "sun.java2d.loops.ProcessPath", "ProcessHandler", $PUBLIC | $STATIC | $ABSTRACT},
+		{"sun.java2d.loops.ProcessPath$EndSubPathHandler", "sun.java2d.loops.ProcessPath", "EndSubPathHandler", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.java2d.loops.ProcessPath$DrawHandler", "sun.java2d.loops.ProcessPath", "DrawHandler", $PUBLIC | $STATIC | $ABSTRACT},
+		{"sun.java2d.loops.ProcessPath$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.loops.ProcessPath",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.ProcessPath$FillProcessHandler,sun.java2d.loops.ProcessPath$ActiveEdgeList,sun.java2d.loops.ProcessPath$FillData,sun.java2d.loops.ProcessPath$Edge,sun.java2d.loops.ProcessPath$Point,sun.java2d.loops.ProcessPath$DrawProcessHandler,sun.java2d.loops.ProcessPath$ProcessHandler,sun.java2d.loops.ProcessPath$EndSubPathHandler,sun.java2d.loops.ProcessPath$DrawHandler,sun.java2d.loops.ProcessPath$1"
+	};
+	$loadClass(ProcessPath, name, initialize, &classInfo$$, ProcessPath::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ProcessPath);
+	});
 	return class$;
 }
 

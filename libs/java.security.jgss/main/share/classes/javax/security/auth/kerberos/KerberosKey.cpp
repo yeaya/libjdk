@@ -1,5 +1,4 @@
 #include <javax/security/auth/kerberos/KerberosKey.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/Arrays.h>
 #include <javax/security/auth/kerberos/KerberosPrincipal.h>
@@ -18,45 +17,6 @@ namespace javax {
 	namespace security {
 		namespace auth {
 			namespace kerberos {
-
-$FieldInfo _KerberosKey_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KerberosKey, serialVersionUID)},
-	{"principal", "Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PRIVATE, $field(KerberosKey, principal)},
-	{"versionNum", "I", nullptr, $PRIVATE | $FINAL, $field(KerberosKey, versionNum)},
-	{"key", "Ljavax/security/auth/kerberos/KeyImpl;", nullptr, $PRIVATE, $field(KerberosKey, key)},
-	{"destroyed", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(KerberosKey, destroyed)},
-	{}
-};
-
-$MethodInfo _KerberosKey_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/kerberos/KerberosPrincipal;[BII)V", nullptr, $PUBLIC, $method(KerberosKey, init$, void, $KerberosPrincipal*, $bytes*, int32_t, int32_t)},
-	{"<init>", "(Ljavax/security/auth/kerberos/KerberosPrincipal;[CLjava/lang/String;)V", nullptr, $PUBLIC, $method(KerberosKey, init$, void, $KerberosPrincipal*, $chars*, $String*)},
-	{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(KerberosKey, destroy, void), "javax.security.auth.DestroyFailedException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KerberosKey, equals, bool, Object$*)},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(KerberosKey, getAlgorithm, $String*)},
-	{"getEncoded", "()[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(KerberosKey, getEncoded, $bytes*)},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(KerberosKey, getFormat, $String*)},
-	{"getKeyType", "()I", nullptr, $PUBLIC | $FINAL, $method(KerberosKey, getKeyType, int32_t)},
-	{"getPrincipal", "()Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PUBLIC | $FINAL, $method(KerberosKey, getPrincipal, $KerberosPrincipal*)},
-	{"getVersionNumber", "()I", nullptr, $PUBLIC | $FINAL, $method(KerberosKey, getVersionNumber, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KerberosKey, hashCode, int32_t)},
-	{"isDestroyed", "()Z", nullptr, $PUBLIC, $virtualMethod(KerberosKey, isDestroyed, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KerberosKey, toString, $String*)},
-	{}
-};
-
-$ClassInfo _KerberosKey_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.security.auth.kerberos.KerberosKey",
-	"java.lang.Object",
-	"javax.crypto.SecretKey",
-	_KerberosKey_FieldInfo_,
-	_KerberosKey_MethodInfo_
-};
-
-$Object* allocate$KerberosKey($Class* clazz) {
-	return $of($alloc(KerberosKey));
-}
 
 void KerberosKey::init$($KerberosPrincipal* principal, $bytes* keyBytes, int32_t keyType, int32_t versionNum) {
 	this->destroyed = false;
@@ -115,12 +75,18 @@ bool KerberosKey::isDestroyed() {
 }
 
 $String* KerberosKey::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->destroyed) {
 		return "Destroyed KerberosKey"_s;
 	}
-	$var($String, var$0, $$str({"Kerberos Principal "_s, this->principal, "Key Version "_s, $$str(this->versionNum), "key "_s}));
-	return $concat(var$0, $($nc(this->key)->toString()));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("Kerberos Principal "_s);
+	var$0->append(this->principal);
+	var$0->append("Key Version "_s);
+	var$0->append(this->versionNum);
+	var$0->append("key "_s);
+	var$0->append($($nc(this->key)->toString()));
+	return $str(var$0);
 }
 
 int32_t KerberosKey::hashCode() {
@@ -131,13 +97,13 @@ int32_t KerberosKey::hashCode() {
 	result = 37 * result + $Arrays::hashCode($(getEncoded()));
 	result = 37 * result + getKeyType();
 	if (this->principal != nullptr) {
-		result = 37 * result + $nc(this->principal)->hashCode();
+		result = 37 * result + this->principal->hashCode();
 	}
 	return result * 37 + this->versionNum;
 }
 
 bool KerberosKey::equals(Object$* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(other, this)) {
 		return true;
 	}
@@ -152,21 +118,21 @@ bool KerberosKey::equals(Object$* other) {
 	bool var$2 = this->versionNum != $nc(otherKey)->getVersionNumber();
 	if (!var$2) {
 		int32_t var$3 = getKeyType();
-		var$2 = var$3 != $nc(otherKey)->getKeyType();
+		var$2 = var$3 != otherKey->getKeyType();
 	}
 	bool var$1 = var$2;
 	if (!var$1) {
 		$var($bytes, var$4, getEncoded());
-		var$1 = !$Arrays::equals(var$4, $($nc(otherKey)->getEncoded()));
+		var$1 = !$Arrays::equals(var$4, $(otherKey->getEncoded()));
 	}
 	if (var$1) {
 		return false;
 	}
 	if (this->principal == nullptr) {
-		if ($nc(otherKey)->getPrincipal() != nullptr) {
+		if (otherKey->getPrincipal() != nullptr) {
 			return false;
 		}
-	} else if (!$nc(this->principal)->equals($($nc(otherKey)->getPrincipal()))) {
+	} else if (!this->principal->equals($(otherKey->getPrincipal()))) {
 		return false;
 	}
 	return true;
@@ -176,7 +142,41 @@ KerberosKey::KerberosKey() {
 }
 
 $Class* KerberosKey::load$($String* name, bool initialize) {
-	$loadClass(KerberosKey, name, initialize, &_KerberosKey_ClassInfo_, allocate$KerberosKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KerberosKey, serialVersionUID)},
+		{"principal", "Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PRIVATE, $field(KerberosKey, principal)},
+		{"versionNum", "I", nullptr, $PRIVATE | $FINAL, $field(KerberosKey, versionNum)},
+		{"key", "Ljavax/security/auth/kerberos/KeyImpl;", nullptr, $PRIVATE, $field(KerberosKey, key)},
+		{"destroyed", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(KerberosKey, destroyed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/security/auth/kerberos/KerberosPrincipal;[BII)V", nullptr, $PUBLIC, $method(KerberosKey, init$, void, $KerberosPrincipal*, $bytes*, int32_t, int32_t)},
+		{"<init>", "(Ljavax/security/auth/kerberos/KerberosPrincipal;[CLjava/lang/String;)V", nullptr, $PUBLIC, $method(KerberosKey, init$, void, $KerberosPrincipal*, $chars*, $String*)},
+		{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(KerberosKey, destroy, void), "javax.security.auth.DestroyFailedException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KerberosKey, equals, bool, Object$*)},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(KerberosKey, getAlgorithm, $String*)},
+		{"getEncoded", "()[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(KerberosKey, getEncoded, $bytes*)},
+		{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(KerberosKey, getFormat, $String*)},
+		{"getKeyType", "()I", nullptr, $PUBLIC | $FINAL, $method(KerberosKey, getKeyType, int32_t)},
+		{"getPrincipal", "()Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PUBLIC | $FINAL, $method(KerberosKey, getPrincipal, $KerberosPrincipal*)},
+		{"getVersionNumber", "()I", nullptr, $PUBLIC | $FINAL, $method(KerberosKey, getVersionNumber, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KerberosKey, hashCode, int32_t)},
+		{"isDestroyed", "()Z", nullptr, $PUBLIC, $virtualMethod(KerberosKey, isDestroyed, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KerberosKey, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.security.auth.kerberos.KerberosKey",
+		"java.lang.Object",
+		"javax.crypto.SecretKey",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KerberosKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(KerberosKey));
+	});
 	return class$;
 }
 

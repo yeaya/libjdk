@@ -1,5 +1,4 @@
 #include <javax/swing/text/JTextComponent$AccessibleJTextComponent.h>
-
 #include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
 #include <java/awt/EventQueue.h>
@@ -14,7 +13,6 @@
 #include <java/lang/Math.h>
 #include <java/lang/Runnable.h>
 #include <java/text/BreakIterator.h>
-#include <java/text/CharacterIterator.h>
 #include <java/util/Locale.h>
 #include <javax/accessibility/AccessibleAction.h>
 #include <javax/accessibility/AccessibleContext.h>
@@ -27,14 +25,11 @@
 #include <javax/accessibility/AccessibleTextSequence.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/JComponent$AccessibleJComponent.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/event/CaretEvent.h>
-#include <javax/swing/event/CaretListener.h>
 #include <javax/swing/event/DocumentEvent.h>
-#include <javax/swing/event/DocumentListener.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/TextUI.h>
 #include <javax/swing/text/AbstractDocument.h>
@@ -50,7 +45,6 @@
 #include <javax/swing/text/JTextComponent.h>
 #include <javax/swing/text/PlainDocument.h>
 #include <javax/swing/text/Position$Bias.h>
-#include <javax/swing/text/Segment.h>
 #include <javax/swing/text/StyledDocument.h>
 #include <javax/swing/text/Utilities.h>
 #include <javax/swing/text/View.h>
@@ -72,7 +66,6 @@
 #undef WORD
 
 using $ActionArray = $Array<::javax::swing::Action>;
-using $Component = ::java::awt::Component;
 using $EventQueue = ::java::awt::EventQueue;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
@@ -80,7 +73,6 @@ using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ComponentListener = ::java::awt::event::ComponentListener;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -91,7 +83,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $BreakIterator = ::java::text::BreakIterator;
-using $CharacterIterator = ::java::text::CharacterIterator;
 using $AccessibleAction = ::javax::accessibility::AccessibleAction;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AccessibleEditableText = ::javax::accessibility::AccessibleEditableText;
@@ -102,15 +93,11 @@ using $AccessibleStateSet = ::javax::accessibility::AccessibleStateSet;
 using $AccessibleText = ::javax::accessibility::AccessibleText;
 using $AccessibleTextSequence = ::javax::accessibility::AccessibleTextSequence;
 using $Action = ::javax::swing::Action;
-using $JComponent = ::javax::swing::JComponent;
 using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $CaretEvent = ::javax::swing::event::CaretEvent;
-using $CaretListener = ::javax::swing::event::CaretListener;
 using $DocumentEvent = ::javax::swing::event::DocumentEvent;
-using $DocumentListener = ::javax::swing::event::DocumentListener;
 using $TextUI = ::javax::swing::plaf::TextUI;
 using $AbstractDocument = ::javax::swing::text::AbstractDocument;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
@@ -125,7 +112,6 @@ using $JTextComponent$AccessibleJTextComponent$4 = ::javax::swing::text::JTextCo
 using $JTextComponent$AccessibleJTextComponent$IndexedSegment = ::javax::swing::text::JTextComponent$AccessibleJTextComponent$IndexedSegment;
 using $PlainDocument = ::javax::swing::text::PlainDocument;
 using $Position$Bias = ::javax::swing::text::Position$Bias;
-using $Segment = ::javax::swing::text::Segment;
 using $StyledDocument = ::javax::swing::text::StyledDocument;
 using $Utilities = ::javax::swing::text::Utilities;
 using $View = ::javax::swing::text::View;
@@ -133,97 +119,6 @@ using $View = ::javax::swing::text::View;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _JTextComponent$AccessibleJTextComponent_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/JTextComponent;", nullptr, $FINAL | $SYNTHETIC, $field(JTextComponent$AccessibleJTextComponent, this$0)},
-	{"caretPos", "I", nullptr, 0, $field(JTextComponent$AccessibleJTextComponent, caretPos)},
-	{"oldLocationOnScreen", "Ljava/awt/Point;", nullptr, 0, $field(JTextComponent$AccessibleJTextComponent, oldLocationOnScreen)},
-	{}
-};
-
-$MethodInfo _JTextComponent$AccessibleJTextComponent_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC, $method(JTextComponent$AccessibleJTextComponent, init$, void, $JTextComponent*)},
-	{"caretUpdate", "(Ljavax/swing/event/CaretEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, caretUpdate, void, $CaretEvent*)},
-	{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, changedUpdate, void, $DocumentEvent*)},
-	{"cut", "(II)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, cut, void, int32_t, int32_t)},
-	{"delete", "(II)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, delete$, void, int32_t, int32_t)},
-	{"doAccessibleAction", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, doAccessibleAction, bool, int32_t)},
-	{"getAccessibleAction", "()Ljavax/accessibility/AccessibleAction;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getAccessibleAction, $AccessibleAction*)},
-	{"getAccessibleActionCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getAccessibleActionCount, int32_t)},
-	{"getAccessibleActionDescription", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getAccessibleActionDescription, $String*, int32_t)},
-	{"getAccessibleEditableText", "()Ljavax/accessibility/AccessibleEditableText;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getAccessibleEditableText, $AccessibleEditableText*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getAccessibleRole, $AccessibleRole*)},
-	{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getAccessibleStateSet, $AccessibleStateSet*)},
-	{"getAccessibleText", "()Ljavax/accessibility/AccessibleText;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getAccessibleText, $AccessibleText*)},
-	{"getAfterIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getAfterIndex, $String*, int32_t, int32_t)},
-	{"getAtIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getAtIndex, $String*, int32_t, int32_t)},
-	{"getAtIndex", "(III)Ljava/lang/String;", nullptr, $PRIVATE, $method(JTextComponent$AccessibleJTextComponent, getAtIndex, $String*, int32_t, int32_t, int32_t)},
-	{"getBeforeIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getBeforeIndex, $String*, int32_t, int32_t)},
-	{"getCaretPosition", "()I", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getCaretPosition, int32_t)},
-	{"getCharCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getCharCount, int32_t)},
-	{"getCharacterAttribute", "(I)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getCharacterAttribute, $AttributeSet*, int32_t)},
-	{"getCharacterBounds", "(I)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getCharacterBounds, $Rectangle*, int32_t)},
-	{"getIndexAtPoint", "(Ljava/awt/Point;)I", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getIndexAtPoint, int32_t, $Point*)},
-	{"getParagraphElement", "(I)Ljavax/swing/text/Element;", nullptr, $PRIVATE, $method(JTextComponent$AccessibleJTextComponent, getParagraphElement, $Element*, int32_t)},
-	{"getParagraphElementText", "(I)Ljavax/swing/text/JTextComponent$AccessibleJTextComponent$IndexedSegment;", nullptr, $PRIVATE, $method(JTextComponent$AccessibleJTextComponent, getParagraphElementText, $JTextComponent$AccessibleJTextComponent$IndexedSegment*, int32_t), "javax.swing.text.BadLocationException"},
-	{"getRootEditorRect", "()Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(JTextComponent$AccessibleJTextComponent, getRootEditorRect, $Rectangle*)},
-	{"getRunEdge", "(II)I", nullptr, $PRIVATE, $method(JTextComponent$AccessibleJTextComponent, getRunEdge, int32_t, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"getSegmentAt", "(II)Ljavax/swing/text/JTextComponent$AccessibleJTextComponent$IndexedSegment;", nullptr, $PRIVATE, $method(JTextComponent$AccessibleJTextComponent, getSegmentAt, $JTextComponent$AccessibleJTextComponent$IndexedSegment*, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"getSelectedText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getSelectedText, $String*)},
-	{"getSelectionEnd", "()I", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getSelectionEnd, int32_t)},
-	{"getSelectionStart", "()I", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getSelectionStart, int32_t)},
-	{"getSequenceAtIndex", "(III)Ljavax/accessibility/AccessibleTextSequence;", nullptr, $PRIVATE, $method(JTextComponent$AccessibleJTextComponent, getSequenceAtIndex, $AccessibleTextSequence*, int32_t, int32_t, int32_t)},
-	{"getTextBounds", "(II)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getTextBounds, $Rectangle*, int32_t, int32_t)},
-	{"getTextRange", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getTextRange, $String*, int32_t, int32_t)},
-	{"getTextSequenceAfter", "(II)Ljavax/accessibility/AccessibleTextSequence;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getTextSequenceAfter, $AccessibleTextSequence*, int32_t, int32_t)},
-	{"getTextSequenceAt", "(II)Ljavax/accessibility/AccessibleTextSequence;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getTextSequenceAt, $AccessibleTextSequence*, int32_t, int32_t)},
-	{"getTextSequenceBefore", "(II)Ljavax/accessibility/AccessibleTextSequence;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getTextSequenceBefore, $AccessibleTextSequence*, int32_t, int32_t)},
-	{"insertTextAtIndex", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, insertTextAtIndex, void, int32_t, $String*)},
-	{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, insertUpdate, void, $DocumentEvent*)},
-	{"paste", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, paste, void, int32_t)},
-	{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, removeUpdate, void, $DocumentEvent*)},
-	{"replaceText", "(IILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, replaceText, void, int32_t, int32_t, $String*)},
-	{"selectText", "(II)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, selectText, void, int32_t, int32_t)},
-	{"setAttributes", "(IILjavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, setAttributes, void, int32_t, int32_t, $AttributeSet*)},
-	{"setTextContents", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, setTextContents, void, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JTextComponent$AccessibleJTextComponent_InnerClassesInfo_[] = {
-	{"javax.swing.text.JTextComponent$AccessibleJTextComponent", "javax.swing.text.JTextComponent", "AccessibleJTextComponent", $PUBLIC},
-	{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
-	{"javax.swing.text.JTextComponent$AccessibleJTextComponent$IndexedSegment", "javax.swing.text.JTextComponent$AccessibleJTextComponent", "IndexedSegment", $PRIVATE},
-	{"javax.swing.text.JTextComponent$AccessibleJTextComponent$4", nullptr, nullptr, 0},
-	{"javax.swing.text.JTextComponent$AccessibleJTextComponent$3", nullptr, nullptr, 0},
-	{"javax.swing.text.JTextComponent$AccessibleJTextComponent$2", nullptr, nullptr, 0},
-	{"javax.swing.text.JTextComponent$AccessibleJTextComponent$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JTextComponent$AccessibleJTextComponent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.JTextComponent$AccessibleJTextComponent",
-	"javax.swing.JComponent$AccessibleJComponent",
-	"javax.swing.event.CaretListener,javax.swing.event.DocumentListener,javax.accessibility.AccessibleAction,javax.accessibility.AccessibleEditableText,javax.accessibility.AccessibleExtendedText",
-	_JTextComponent$AccessibleJTextComponent_FieldInfo_,
-	_JTextComponent$AccessibleJTextComponent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTextComponent$AccessibleJTextComponent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.JTextComponent"
-};
-
-$Object* allocate$JTextComponent$AccessibleJTextComponent($Class* clazz) {
-	return $of($alloc(JTextComponent$AccessibleJTextComponent));
-}
 
 int32_t JTextComponent$AccessibleJTextComponent::hashCode() {
 	 return this->$JComponent$AccessibleJComponent::hashCode();
@@ -246,7 +141,7 @@ void JTextComponent$AccessibleJTextComponent::finalize() {
 }
 
 void JTextComponent$AccessibleJTextComponent::init$($JTextComponent* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$JComponent$AccessibleJComponent::init$(this$0);
 	$var($Document, doc, this$0->getDocument());
@@ -263,13 +158,13 @@ void JTextComponent$AccessibleJTextComponent::init$($JTextComponent* this$0) {
 }
 
 void JTextComponent$AccessibleJTextComponent::caretUpdate($CaretEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t dot = $nc(e)->getDot();
 	int32_t mark = e->getMark();
 	if (this->caretPos != dot) {
 		$init($AccessibleContext);
 		$var($String, var$0, $AccessibleContext::ACCESSIBLE_CARET_PROPERTY);
-		$var($Object, var$1, $of($Integer::valueOf(this->caretPos)));
+		$var($Object, var$1, $Integer::valueOf(this->caretPos));
 		firePropertyChange(var$0, var$1, $($Integer::valueOf(dot)));
 		this->caretPos = dot;
 		try {
@@ -284,7 +179,7 @@ void JTextComponent$AccessibleJTextComponent::caretUpdate($CaretEvent* e) {
 }
 
 void JTextComponent$AccessibleJTextComponent::insertUpdate($DocumentEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Integer, pos, $Integer::valueOf($nc(e)->getOffset()));
 	if ($SwingUtilities::isEventDispatchThread()) {
 		$init($AccessibleContext);
@@ -296,7 +191,7 @@ void JTextComponent$AccessibleJTextComponent::insertUpdate($DocumentEvent* e) {
 }
 
 void JTextComponent$AccessibleJTextComponent::removeUpdate($DocumentEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Integer, pos, $Integer::valueOf($nc(e)->getOffset()));
 	if ($SwingUtilities::isEventDispatchThread()) {
 		$init($AccessibleContext);
@@ -308,7 +203,7 @@ void JTextComponent$AccessibleJTextComponent::removeUpdate($DocumentEvent* e) {
 }
 
 void JTextComponent$AccessibleJTextComponent::changedUpdate($DocumentEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Integer, pos, $Integer::valueOf($nc(e)->getOffset()));
 	if ($SwingUtilities::isEventDispatchThread()) {
 		$init($AccessibleContext);
@@ -345,7 +240,7 @@ int32_t JTextComponent$AccessibleJTextComponent::getIndexAtPoint($Point* p) {
 }
 
 $Rectangle* JTextComponent$AccessibleJTextComponent::getRootEditorRect() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, alloc, this->this$0->getBounds());
 	if (($nc(alloc)->width > 0) && (alloc->height > 0)) {
 		alloc->x = (alloc->y = 0);
@@ -360,7 +255,7 @@ $Rectangle* JTextComponent$AccessibleJTextComponent::getRootEditorRect() {
 }
 
 $Rectangle* JTextComponent$AccessibleJTextComponent::getCharacterBounds(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (i < 0 || i > $nc(this->this$0->model)->getLength() - 1) {
 		return nullptr;
 	}
@@ -374,31 +269,29 @@ $Rectangle* JTextComponent$AccessibleJTextComponent::getCharacterBounds(int32_t 
 		return nullptr;
 	}
 	if ($instanceOf($AbstractDocument, this->this$0->model)) {
-		$nc(($cast($AbstractDocument, this->this$0->model)))->readLock();
+		$cast($AbstractDocument, this->this$0->model)->readLock();
 	}
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$var($View, rootView, $nc(ui)->getRootView(this->this$0));
-				if (rootView != nullptr) {
-					rootView->setSize((float)$nc(alloc)->width, (float)alloc->height);
-					$init($Position$Bias);
-					$var($Shape, bounds, rootView->modelToView(i, $Position$Bias::Forward, i + 1, $Position$Bias::Backward, alloc));
-					$assign(rect, ($instanceOf($Rectangle, bounds)) ? $cast($Rectangle, bounds) : $nc(bounds)->getBounds());
-				}
-			} catch ($BadLocationException& e) {
+			$var($View, rootView, $nc(ui)->getRootView(this->this$0));
+			if (rootView != nullptr) {
+				rootView->setSize((float)$nc(alloc)->width, (float)$nc(alloc)->height);
+				$init($Position$Bias);
+				$var($Shape, bounds, rootView->modelToView(i, $Position$Bias::Forward, i + 1, $Position$Bias::Backward, alloc));
+				$assign(rect, ($instanceOf($Rectangle, bounds)) ? $cast($Rectangle, bounds) : $nc(bounds)->getBounds());
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if ($instanceOf($AbstractDocument, this->this$0->model)) {
-				$nc(($cast($AbstractDocument, this->this$0->model)))->readUnlock();
-			}
+		} catch ($BadLocationException& e) {
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if ($instanceOf($AbstractDocument, this->this$0->model)) {
+			$cast($AbstractDocument, this->this$0->model)->readUnlock();
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return rect;
 }
@@ -412,28 +305,26 @@ int32_t JTextComponent$AccessibleJTextComponent::getCaretPosition() {
 }
 
 $AttributeSet* JTextComponent$AccessibleJTextComponent::getCharacterAttribute(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, e, nullptr);
 	if ($instanceOf($AbstractDocument, this->this$0->model)) {
-		$nc(($cast($AbstractDocument, this->this$0->model)))->readLock();
+		$cast($AbstractDocument, this->this$0->model)->readLock();
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			for ($assign(e, $nc(this->this$0->model)->getDefaultRootElement()); !$nc(e)->isLeaf();) {
-				int32_t index = $nc(e)->getElementIndex(i);
-				$assign(e, e->getElement(index));
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if ($instanceOf($AbstractDocument, this->this$0->model)) {
-				$nc(($cast($AbstractDocument, this->this$0->model)))->readUnlock();
-			}
+	$var($Throwable, var$0, nullptr);
+	try {
+		for ($assign(e, $nc(this->this$0->model)->getDefaultRootElement()); !$nc(e)->isLeaf();) {
+			int32_t index = e->getElementIndex(i);
+			$assign(e, e->getElement(index));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if ($instanceOf($AbstractDocument, this->this$0->model)) {
+			$cast($AbstractDocument, this->this$0->model)->readUnlock();
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return $nc(e)->getAttributes();
 }
@@ -463,87 +354,78 @@ $String* JTextComponent$AccessibleJTextComponent::getBeforeIndex(int32_t part, i
 }
 
 $String* JTextComponent$AccessibleJTextComponent::getAtIndex(int32_t part, int32_t index, int32_t direction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($AbstractDocument, this->this$0->model)) {
-		$nc(($cast($AbstractDocument, this->this$0->model)))->readLock();
+		$cast($AbstractDocument, this->this$0->model)->readLock();
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($String, var$2, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	$var($String, var$2, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				if (index < 0 || index >= $nc(this->this$0->model)->getLength()) {
-					$assign(var$2, nullptr);
-					return$1 = true;
-					goto $finally;
-				}
-				{
-					$var($JTextComponent$AccessibleJTextComponent$IndexedSegment, seg, nullptr)
-					switch (part) {
-					case $AccessibleText::CHARACTER:
-						{
-							if (index + direction < $nc(this->this$0->model)->getLength() && index + direction >= 0) {
-								$assign(var$2, $nc(this->this$0->model)->getText(index + direction, 1));
-								return$1 = true;
-								goto $finally;
+			if (index < 0 || index >= $nc(this->this$0->model)->getLength()) {
+				$assign(var$2, nullptr);
+				return$1 = true;
+				goto $finally;
+			}
+			{
+				$var($JTextComponent$AccessibleJTextComponent$IndexedSegment, seg, nullptr);
+				switch (part) {
+				case $AccessibleText::CHARACTER:
+					if (index + direction < $nc(this->this$0->model)->getLength() && index + direction >= 0) {
+						$assign(var$2, $nc(this->this$0->model)->getText(index + direction, 1));
+						return$1 = true;
+						goto $finally;
+					}
+					break;
+				case $AccessibleText::WORD:
+				case $AccessibleText::SENTENCE:
+					$assign(seg, getSegmentAt(part, index));
+					if (seg != nullptr) {
+						if (direction != 0) {
+							int32_t next = 0;
+							if (direction < 0) {
+								next = seg->modelOffset - 1;
+							} else {
+								next = seg->modelOffset + direction * seg->count;
 							}
-							break;
-						}
-					case $AccessibleText::WORD:
-						{}
-					case $AccessibleText::SENTENCE:
-						{
-							$assign(seg, getSegmentAt(part, index));
-							if (seg != nullptr) {
-								if (direction != 0) {
-									int32_t next = 0;
-									if (direction < 0) {
-										next = seg->modelOffset - 1;
-									} else {
-										next = seg->modelOffset + direction * seg->count;
-									}
-									if (next >= 0 && next <= $nc(this->this$0->model)->getLength()) {
-										$assign(seg, getSegmentAt(part, next));
-									} else {
-										$assign(seg, nullptr);
-									}
-								}
-								if (seg != nullptr) {
-									$assign(var$2, $new($String, seg->array, seg->offset, seg->count));
-									return$1 = true;
-									goto $finally;
-								}
+							if (next >= 0 && next <= $nc(this->this$0->model)->getLength()) {
+								$assign(seg, getSegmentAt(part, next));
+							} else {
+								$assign(seg, nullptr);
 							}
-							break;
 						}
-					default:
-						{
-							break;
+						if (seg != nullptr) {
+							$assign(var$2, $new($String, seg->array, seg->offset, seg->count));
+							return$1 = true;
+							goto $finally;
 						}
 					}
+					break;
+				default:
+					break;
 				}
-			} catch ($BadLocationException& e) {
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			if ($instanceOf($AbstractDocument, this->this$0->model)) {
-				$nc(($cast($AbstractDocument, this->this$0->model)))->readUnlock();
-			}
+		} catch ($BadLocationException& e) {
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		if ($instanceOf($AbstractDocument, this->this$0->model)) {
+			$cast($AbstractDocument, this->this$0->model)->readUnlock();
 		}
-		if (return$1) {
-			return var$2;
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	return nullptr;
 }
 
 $Element* JTextComponent$AccessibleJTextComponent::getParagraphElement(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($PlainDocument, this->this$0->model)) {
 		$var($PlainDocument, sdoc, $cast($PlainDocument, this->this$0->model));
 		return $nc(sdoc)->getParagraphElement(index);
@@ -553,7 +435,7 @@ $Element* JTextComponent$AccessibleJTextComponent::getParagraphElement(int32_t i
 	} else {
 		$var($Element, para, nullptr);
 		for ($assign(para, $nc(this->this$0->model)->getDefaultRootElement()); !$nc(para)->isLeaf();) {
-			int32_t pos = $nc(para)->getElementIndex(index);
+			int32_t pos = para->getElementIndex(index);
 			$assign(para, para->getElement(pos));
 		}
 		if (para == nullptr) {
@@ -564,7 +446,7 @@ $Element* JTextComponent$AccessibleJTextComponent::getParagraphElement(int32_t i
 }
 
 $JTextComponent$AccessibleJTextComponent$IndexedSegment* JTextComponent$AccessibleJTextComponent::getParagraphElementText(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, para, getParagraphElement(index));
 	if (para != nullptr) {
 		$var($JTextComponent$AccessibleJTextComponent$IndexedSegment, segment, $new($JTextComponent$AccessibleJTextComponent$IndexedSegment, this));
@@ -582,7 +464,7 @@ $JTextComponent$AccessibleJTextComponent$IndexedSegment* JTextComponent$Accessib
 }
 
 $JTextComponent$AccessibleJTextComponent$IndexedSegment* JTextComponent$AccessibleJTextComponent::getSegmentAt(int32_t part, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextComponent$AccessibleJTextComponent$IndexedSegment, seg, getParagraphElementText(index));
 	if (seg == nullptr) {
 		return nullptr;
@@ -590,22 +472,16 @@ $JTextComponent$AccessibleJTextComponent$IndexedSegment* JTextComponent$Accessib
 	$var($BreakIterator, iterator, nullptr);
 	switch (part) {
 	case $AccessibleText::WORD:
-		{
-			$assign(iterator, $BreakIterator::getWordInstance($(getLocale())));
-			break;
-		}
+		$assign(iterator, $BreakIterator::getWordInstance($(getLocale())));
+		break;
 	case $AccessibleText::SENTENCE:
-		{
-			$assign(iterator, $BreakIterator::getSentenceInstance($(getLocale())));
-			break;
-		}
+		$assign(iterator, $BreakIterator::getSentenceInstance($(getLocale())));
+		break;
 	default:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	}
 	$nc(seg)->first();
-	$nc(iterator)->setText(static_cast<$CharacterIterator*>(seg));
+	$nc(iterator)->setText(seg);
 	int32_t end = iterator->following(index - seg->modelOffset + seg->offset);
 	if (end == $BreakIterator::DONE) {
 		return nullptr;
@@ -632,7 +508,7 @@ void JTextComponent$AccessibleJTextComponent::setTextContents($String* s) {
 }
 
 void JTextComponent$AccessibleJTextComponent::insertTextAtIndex(int32_t index, $String* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, this->this$0->getDocument());
 	if (doc != nullptr) {
 		try {
@@ -644,13 +520,13 @@ void JTextComponent$AccessibleJTextComponent::insertTextAtIndex(int32_t index, $
 				}
 			}
 		} catch ($BadLocationException& e) {
-			$nc($($UIManager::getLookAndFeel()))->provideErrorFeedback(this->this$0);
+			$$nc($UIManager::getLookAndFeel())->provideErrorFeedback(this->this$0);
 		}
 	}
 }
 
 $String* JTextComponent$AccessibleJTextComponent::getTextRange(int32_t startIndex, int32_t endIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, txt, nullptr);
 	int32_t p0 = $Math::min(startIndex, endIndex);
 	int32_t p1 = $Math::max(startIndex, endIndex);
@@ -666,7 +542,7 @@ $String* JTextComponent$AccessibleJTextComponent::getTextRange(int32_t startInde
 }
 
 void JTextComponent$AccessibleJTextComponent::delete$(int32_t startIndex, int32_t endIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = this->this$0->isEditable();
 	if (var$0 && isEnabled()) {
 		try {
@@ -679,7 +555,7 @@ void JTextComponent$AccessibleJTextComponent::delete$(int32_t startIndex, int32_
 		} catch ($BadLocationException& e) {
 		}
 	} else {
-		$nc($($UIManager::getLookAndFeel()))->provideErrorFeedback(this->this$0);
+		$$nc($UIManager::getLookAndFeel())->provideErrorFeedback(this->this$0);
 	}
 }
 
@@ -703,7 +579,7 @@ void JTextComponent$AccessibleJTextComponent::selectText(int32_t startIndex, int
 }
 
 void JTextComponent$AccessibleJTextComponent::setAttributes(int32_t startIndex, int32_t endIndex, $AttributeSet* as) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, this->this$0->getDocument());
 	if (doc != nullptr && $instanceOf($StyledDocument, doc)) {
 		$var($StyledDocument, sDoc, $cast($StyledDocument, doc));
@@ -714,7 +590,7 @@ void JTextComponent$AccessibleJTextComponent::setAttributes(int32_t startIndex, 
 }
 
 $AccessibleTextSequence* JTextComponent$AccessibleJTextComponent::getSequenceAtIndex(int32_t part, int32_t index, int32_t direction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (index < 0 || index >= $nc(this->this$0->model)->getLength()) {
 		return nullptr;
 	}
@@ -722,84 +598,79 @@ $AccessibleTextSequence* JTextComponent$AccessibleJTextComponent::getSequenceAtI
 		return nullptr;
 	}
 	{
-		$var($AccessibleTextSequence, charSequence, nullptr)
-		$var($AccessibleTextSequence, rangeSequence, nullptr)
-		$var($AccessibleTextSequence, lineSequence, nullptr)
+		$var($AccessibleTextSequence, charSequence, nullptr);
+		$var($AccessibleTextSequence, rangeSequence, nullptr);
+		$var($AccessibleTextSequence, lineSequence, nullptr);
 		int32_t attributeRunStartIndex = 0;
 		int32_t attributeRunEndIndex = 0;
-		$var($String, runText, nullptr)
+		$var($String, runText, nullptr);
 		switch (part) {
 		case $AccessibleText::CHARACTER:
 			{
 				if ($instanceOf($AbstractDocument, this->this$0->model)) {
-					$nc(($cast($AbstractDocument, this->this$0->model)))->readLock();
+					$cast($AbstractDocument, this->this$0->model)->readLock();
 				}
 				$assign(charSequence, nullptr);
-				{
-					$var($Throwable, var$0, nullptr);
+				$var($Throwable, var$0, nullptr);
+				try {
 					try {
-						try {
-							if (index + direction < $nc(this->this$0->model)->getLength() && index + direction >= 0) {
-								$assign(charSequence, $new($AccessibleTextSequence, index + direction, index + direction + 1, $($nc(this->this$0->model)->getText(index + direction, 1))));
-							}
-						} catch ($BadLocationException& e) {
+						if (index + direction < $nc(this->this$0->model)->getLength() && index + direction >= 0) {
+							$assign(charSequence, $new($AccessibleTextSequence, index + direction, index + direction + 1, $($nc(this->this$0->model)->getText(index + direction, 1))));
 						}
-					} catch ($Throwable& var$1) {
-						$assign(var$0, var$1);
-					} /*finally*/ {
-						if ($instanceOf($AbstractDocument, this->this$0->model)) {
-							$nc(($cast($AbstractDocument, this->this$0->model)))->readUnlock();
-						}
+					} catch ($BadLocationException& e) {
 					}
-					if (var$0 != nullptr) {
-						$throw(var$0);
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
+				} /*finally*/ {
+					if ($instanceOf($AbstractDocument, this->this$0->model)) {
+						$cast($AbstractDocument, this->this$0->model)->readUnlock();
 					}
+				}
+				if (var$0 != nullptr) {
+					$throw(var$0);
 				}
 				return charSequence;
 			}
 		case $AccessibleText::WORD:
-			{}
 		case $AccessibleText::SENTENCE:
 			{
 				if ($instanceOf($AbstractDocument, this->this$0->model)) {
-					$nc(($cast($AbstractDocument, this->this$0->model)))->readLock();
+					$cast($AbstractDocument, this->this$0->model)->readLock();
 				}
 				$assign(rangeSequence, nullptr);
-				{
-					$var($Throwable, var$2, nullptr);
+				$var($Throwable, var$2, nullptr);
+				try {
 					try {
-						try {
-							$var($JTextComponent$AccessibleJTextComponent$IndexedSegment, seg, getSegmentAt(part, index));
-							if (seg != nullptr) {
-								if (direction != 0) {
-									int32_t next = 0;
-									if (direction < 0) {
-										next = seg->modelOffset - 1;
-									} else {
-										next = seg->modelOffset + seg->count;
-									}
-									if (next >= 0 && next <= $nc(this->this$0->model)->getLength()) {
-										$assign(seg, getSegmentAt(part, next));
-									} else {
-										$assign(seg, nullptr);
-									}
+						$var($JTextComponent$AccessibleJTextComponent$IndexedSegment, seg, getSegmentAt(part, index));
+						if (seg != nullptr) {
+							if (direction != 0) {
+								int32_t next = 0;
+								if (direction < 0) {
+									next = seg->modelOffset - 1;
+								} else {
+									next = seg->modelOffset + seg->count;
 								}
-								if (seg != nullptr && (seg->offset + seg->count) <= $nc(this->this$0->model)->getLength()) {
-									$assign(rangeSequence, $new($AccessibleTextSequence, seg->offset, seg->offset + seg->count, $$new($String, seg->array, seg->offset, seg->count)));
+								if (next >= 0 && next <= $nc(this->this$0->model)->getLength()) {
+									$assign(seg, getSegmentAt(part, next));
+								} else {
+									$assign(seg, nullptr);
 								}
 							}
-						} catch ($BadLocationException& e) {
+							if (seg != nullptr && (seg->offset + seg->count) <= $nc(this->this$0->model)->getLength()) {
+								$assign(rangeSequence, $new($AccessibleTextSequence, seg->offset, seg->offset + seg->count, $$new($String, seg->array, seg->offset, seg->count)));
+							}
 						}
-					} catch ($Throwable& var$3) {
-						$assign(var$2, var$3);
-					} /*finally*/ {
-						if ($instanceOf($AbstractDocument, this->this$0->model)) {
-							$nc(($cast($AbstractDocument, this->this$0->model)))->readUnlock();
-						}
+					} catch ($BadLocationException& e) {
 					}
-					if (var$2 != nullptr) {
-						$throw(var$2);
+				} catch ($Throwable& var$3) {
+					$assign(var$2, var$3);
+				} /*finally*/ {
+					if ($instanceOf($AbstractDocument, this->this$0->model)) {
+						$cast($AbstractDocument, this->this$0->model)->readUnlock();
 					}
+				}
+				if (var$2 != nullptr) {
+					$throw(var$2);
 				}
 				return rangeSequence;
 			}
@@ -807,43 +678,41 @@ $AccessibleTextSequence* JTextComponent$AccessibleJTextComponent::getSequenceAtI
 			{
 				$assign(lineSequence, nullptr);
 				if ($instanceOf($AbstractDocument, this->this$0->model)) {
-					$nc(($cast($AbstractDocument, this->this$0->model)))->readLock();
+					$cast($AbstractDocument, this->this$0->model)->readLock();
 				}
-				{
-					$var($Throwable, var$4, nullptr);
+				$var($Throwable, var$4, nullptr);
+				try {
 					try {
-						try {
-							int32_t startIndex = $Utilities::getRowStart(this->this$0, index);
-							int32_t endIndex = $Utilities::getRowEnd(this->this$0, index);
-							if (startIndex >= 0 && endIndex >= startIndex) {
-								if (direction == 0) {
+						int32_t startIndex = $Utilities::getRowStart(this->this$0, index);
+						int32_t endIndex = $Utilities::getRowEnd(this->this$0, index);
+						if (startIndex >= 0 && endIndex >= startIndex) {
+							if (direction == 0) {
+								$assign(lineSequence, $new($AccessibleTextSequence, startIndex, endIndex, $($nc(this->this$0->model)->getText(startIndex, endIndex - startIndex + 1))));
+							} else if (direction == -1 && startIndex > 0) {
+								endIndex = $Utilities::getRowEnd(this->this$0, startIndex - 1);
+								startIndex = $Utilities::getRowStart(this->this$0, startIndex - 1);
+								if (startIndex >= 0 && endIndex >= startIndex) {
 									$assign(lineSequence, $new($AccessibleTextSequence, startIndex, endIndex, $($nc(this->this$0->model)->getText(startIndex, endIndex - startIndex + 1))));
-								} else if (direction == -1 && startIndex > 0) {
-									endIndex = $Utilities::getRowEnd(this->this$0, startIndex - 1);
-									startIndex = $Utilities::getRowStart(this->this$0, startIndex - 1);
-									if (startIndex >= 0 && endIndex >= startIndex) {
-										$assign(lineSequence, $new($AccessibleTextSequence, startIndex, endIndex, $($nc(this->this$0->model)->getText(startIndex, endIndex - startIndex + 1))));
-									}
-								} else if (direction == 1 && endIndex < $nc(this->this$0->model)->getLength()) {
-									startIndex = $Utilities::getRowStart(this->this$0, endIndex + 1);
-									endIndex = $Utilities::getRowEnd(this->this$0, endIndex + 1);
-									if (startIndex >= 0 && endIndex >= startIndex) {
-										$assign(lineSequence, $new($AccessibleTextSequence, startIndex, endIndex, $($nc(this->this$0->model)->getText(startIndex, endIndex - startIndex + 1))));
-									}
+								}
+							} else if (direction == 1 && endIndex < $nc(this->this$0->model)->getLength()) {
+								startIndex = $Utilities::getRowStart(this->this$0, endIndex + 1);
+								endIndex = $Utilities::getRowEnd(this->this$0, endIndex + 1);
+								if (startIndex >= 0 && endIndex >= startIndex) {
+									$assign(lineSequence, $new($AccessibleTextSequence, startIndex, endIndex, $($nc(this->this$0->model)->getText(startIndex, endIndex - startIndex + 1))));
 								}
 							}
-						} catch ($BadLocationException& e) {
 						}
-					} catch ($Throwable& var$5) {
-						$assign(var$4, var$5);
-					} /*finally*/ {
-						if ($instanceOf($AbstractDocument, this->this$0->model)) {
-							$nc(($cast($AbstractDocument, this->this$0->model)))->readUnlock();
-						}
+					} catch ($BadLocationException& e) {
 					}
-					if (var$4 != nullptr) {
-						$throw(var$4);
+				} catch ($Throwable& var$5) {
+					$assign(var$4, var$5);
+				} /*finally*/ {
+					if ($instanceOf($AbstractDocument, this->this$0->model)) {
+						$cast($AbstractDocument, this->this$0->model)->readUnlock();
 					}
+				}
+				if (var$4 != nullptr) {
+					$throw(var$4);
 				}
 				return lineSequence;
 			}
@@ -851,80 +720,68 @@ $AccessibleTextSequence* JTextComponent$AccessibleJTextComponent::getSequenceAtI
 			{
 				$assign(runText, nullptr);
 				if ($instanceOf($AbstractDocument, this->this$0->model)) {
-					$nc(($cast($AbstractDocument, this->this$0->model)))->readLock();
+					$cast($AbstractDocument, this->this$0->model)->readLock();
 				}
-				{
-					$var($Throwable, var$6, nullptr);
-					$var($AccessibleTextSequence, var$8, nullptr);
-					bool return$7 = false;
+				$var($Throwable, var$6, nullptr);
+				$var($AccessibleTextSequence, var$8, nullptr);
+				bool return$7 = false;
+				try {
 					try {
-						try {
-							attributeRunStartIndex = (attributeRunEndIndex = $Integer::MIN_VALUE);
-							int32_t tempIndex = index;
-							switch (direction) {
-							case -1:
-								{
-									attributeRunEndIndex = getRunEdge(index, direction);
-									tempIndex = attributeRunEndIndex - 1;
-									break;
-								}
-							case 1:
-								{
-									attributeRunStartIndex = getRunEdge(index, direction);
-									tempIndex = attributeRunStartIndex;
-									break;
-								}
-							case 0:
-								{
-									break;
-								}
-							default:
-								{
-									$throwNew($AssertionError, direction);
-								}
-							}
-							attributeRunStartIndex = (attributeRunStartIndex != $Integer::MIN_VALUE) ? attributeRunStartIndex : getRunEdge(tempIndex, -1);
-							attributeRunEndIndex = (attributeRunEndIndex != $Integer::MIN_VALUE) ? attributeRunEndIndex : getRunEdge(tempIndex, 1);
-							$assign(runText, $nc(this->this$0->model)->getText(attributeRunStartIndex, attributeRunEndIndex - attributeRunStartIndex));
-						} catch ($BadLocationException& e) {
-							$assign(var$8, nullptr);
-							return$7 = true;
-							goto $finally3;
+						attributeRunStartIndex = (attributeRunEndIndex = $Integer::MIN_VALUE);
+						int32_t tempIndex = index;
+						switch (direction) {
+						case -1:
+							attributeRunEndIndex = getRunEdge(index, direction);
+							tempIndex = attributeRunEndIndex - 1;
+							break;
+						case 1:
+							attributeRunStartIndex = getRunEdge(index, direction);
+							tempIndex = attributeRunStartIndex;
+							break;
+						case 0:
+							break;
+						default:
+							$throwNew($AssertionError, direction);
 						}
-					} catch ($Throwable& var$9) {
-						$assign(var$6, var$9);
-					} $finally3: {
-						if ($instanceOf($AbstractDocument, this->this$0->model)) {
-							$nc(($cast($AbstractDocument, this->this$0->model)))->readUnlock();
-						}
+						attributeRunStartIndex = (attributeRunStartIndex != $Integer::MIN_VALUE) ? attributeRunStartIndex : getRunEdge(tempIndex, -1);
+						attributeRunEndIndex = (attributeRunEndIndex != $Integer::MIN_VALUE) ? attributeRunEndIndex : getRunEdge(tempIndex, 1);
+						$assign(runText, $nc(this->this$0->model)->getText(attributeRunStartIndex, attributeRunEndIndex - attributeRunStartIndex));
+					} catch ($BadLocationException& e) {
+						$assign(var$8, nullptr);
+						return$7 = true;
+						goto $finally3;
 					}
-					if (var$6 != nullptr) {
-						$throw(var$6);
+				} catch ($Throwable& var$9) {
+					$assign(var$6, var$9);
+				} $finally3: {
+					if ($instanceOf($AbstractDocument, this->this$0->model)) {
+						$cast($AbstractDocument, this->this$0->model)->readUnlock();
 					}
-					if (return$7) {
-						return var$8;
-					}
+				}
+				if (var$6 != nullptr) {
+					$throw(var$6);
+				}
+				if (return$7) {
+					return var$8;
 				}
 				return $new($AccessibleTextSequence, attributeRunStartIndex, attributeRunEndIndex, runText);
 			}
 		default:
-			{
-				break;
-			}
+			break;
 		}
 	}
 	return nullptr;
 }
 
 int32_t JTextComponent$AccessibleJTextComponent::getRunEdge(int32_t index, int32_t direction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (index < 0 || index >= $nc(this->this$0->model)->getLength()) {
 		$throwNew($BadLocationException, "Location out of bounds"_s, index);
 	}
 	$var($Element, indexElement, nullptr);
 	int32_t elementIndex = -1;
 	for ($assign(indexElement, $nc(this->this$0->model)->getDefaultRootElement()); !$nc(indexElement)->isLeaf();) {
-		elementIndex = $nc(indexElement)->getElementIndex(index);
+		elementIndex = indexElement->getElementIndex(index);
 		$assign(indexElement, indexElement->getElement(elementIndex));
 	}
 	if (elementIndex == -1) {
@@ -938,36 +795,25 @@ int32_t JTextComponent$AccessibleJTextComponent::getRunEdge(int32_t index, int32
 		int32_t elementCount = 0;
 		switch (direction) {
 		case -1:
-			{}
 		case 1:
-			{
-				edgeElementIndex = elementIndex;
-				elementCount = $nc(parent)->getElementCount();
-				while ((edgeElementIndex + direction) > 0 && ((edgeElementIndex + direction) < elementCount) && $nc($($nc($(parent->getElement(edgeElementIndex + direction)))->getAttributes()))->isEqual(indexAS)) {
-					edgeElementIndex += direction;
-				}
-				$assign(edgeElement, parent->getElement(edgeElementIndex));
-				break;
+			edgeElementIndex = elementIndex;
+			elementCount = $nc(parent)->getElementCount();
+			while ((edgeElementIndex + direction) > 0 && ((edgeElementIndex + direction) < elementCount) && $$nc($$nc(parent->getElement(edgeElementIndex + direction))->getAttributes())->isEqual(indexAS)) {
+				edgeElementIndex += direction;
 			}
+			$assign(edgeElement, parent->getElement(edgeElementIndex));
+			break;
 		default:
-			{
-				$throwNew($AssertionError, direction);
-			}
+			$throwNew($AssertionError, direction);
 		}
 	}
 	switch (direction) {
 	case -1:
-		{
-			return $nc(edgeElement)->getStartOffset();
-		}
+		return $nc(edgeElement)->getStartOffset();
 	case 1:
-		{
-			return $nc(edgeElement)->getEndOffset();
-		}
+		return $nc(edgeElement)->getEndOffset();
 	default:
-		{
-			return $Integer::MIN_VALUE;
-		}
+		return $Integer::MIN_VALUE;
 	}
 }
 
@@ -984,7 +830,7 @@ $AccessibleTextSequence* JTextComponent$AccessibleJTextComponent::getTextSequenc
 }
 
 $Rectangle* JTextComponent$AccessibleJTextComponent::getTextBounds(int32_t startIndex, int32_t endIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = startIndex < 0 || startIndex > $nc(this->this$0->model)->getLength() - 1 || endIndex < 0;
 	if (var$0 || endIndex > $nc(this->this$0->model)->getLength() - 1 || startIndex > endIndex) {
 		return nullptr;
@@ -999,30 +845,28 @@ $Rectangle* JTextComponent$AccessibleJTextComponent::getTextBounds(int32_t start
 		return nullptr;
 	}
 	if ($instanceOf($AbstractDocument, this->this$0->model)) {
-		$nc(($cast($AbstractDocument, this->this$0->model)))->readLock();
+		$cast($AbstractDocument, this->this$0->model)->readLock();
 	}
-	{
-		$var($Throwable, var$1, nullptr);
+	$var($Throwable, var$1, nullptr);
+	try {
 		try {
-			try {
-				$var($View, rootView, $nc(ui)->getRootView(this->this$0));
-				if (rootView != nullptr) {
-					$init($Position$Bias);
-					$var($Shape, bounds, rootView->modelToView(startIndex, $Position$Bias::Forward, endIndex, $Position$Bias::Backward, alloc));
-					$assign(rect, ($instanceOf($Rectangle, bounds)) ? $cast($Rectangle, bounds) : $nc(bounds)->getBounds());
-				}
-			} catch ($BadLocationException& e) {
+			$var($View, rootView, $nc(ui)->getRootView(this->this$0));
+			if (rootView != nullptr) {
+				$init($Position$Bias);
+				$var($Shape, bounds, rootView->modelToView(startIndex, $Position$Bias::Forward, endIndex, $Position$Bias::Backward, alloc));
+				$assign(rect, ($instanceOf($Rectangle, bounds)) ? $cast($Rectangle, bounds) : $nc(bounds)->getBounds());
 			}
-		} catch ($Throwable& var$2) {
-			$assign(var$1, var$2);
-		} /*finally*/ {
-			if ($instanceOf($AbstractDocument, this->this$0->model)) {
-				$nc(($cast($AbstractDocument, this->this$0->model)))->readUnlock();
-			}
+		} catch ($BadLocationException& e) {
 		}
-		if (var$1 != nullptr) {
-			$throw(var$1);
+	} catch ($Throwable& var$2) {
+		$assign(var$1, var$2);
+	} /*finally*/ {
+		if ($instanceOf($AbstractDocument, this->this$0->model)) {
+			$cast($AbstractDocument, this->this$0->model)->readUnlock();
 		}
+	}
+	if (var$1 != nullptr) {
+		$throw(var$1);
 	}
 	return rect;
 }
@@ -1046,12 +890,12 @@ $String* JTextComponent$AccessibleJTextComponent::getAccessibleActionDescription
 }
 
 bool JTextComponent$AccessibleJTextComponent::doAccessibleAction(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ActionArray, actions, this->this$0->getActions());
 	if (i < 0 || i >= $nc(actions)->length) {
 		return false;
 	}
-	$var($Object, var$0, $of(this->this$0));
+	$var($Object, var$0, this->this$0);
 	int64_t var$1 = $EventQueue::getMostRecentEventTime();
 	$var($ActionEvent, ae, $new($ActionEvent, var$0, $ActionEvent::ACTION_PERFORMED, nullptr, var$1, this->this$0->getCurrentEventModifiers()));
 	$nc($nc(actions)->get(i))->actionPerformed(ae);
@@ -1062,7 +906,92 @@ JTextComponent$AccessibleJTextComponent::JTextComponent$AccessibleJTextComponent
 }
 
 $Class* JTextComponent$AccessibleJTextComponent::load$($String* name, bool initialize) {
-	$loadClass(JTextComponent$AccessibleJTextComponent, name, initialize, &_JTextComponent$AccessibleJTextComponent_ClassInfo_, allocate$JTextComponent$AccessibleJTextComponent);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/JTextComponent;", nullptr, $FINAL | $SYNTHETIC, $field(JTextComponent$AccessibleJTextComponent, this$0)},
+		{"caretPos", "I", nullptr, 0, $field(JTextComponent$AccessibleJTextComponent, caretPos)},
+		{"oldLocationOnScreen", "Ljava/awt/Point;", nullptr, 0, $field(JTextComponent$AccessibleJTextComponent, oldLocationOnScreen)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC, $method(JTextComponent$AccessibleJTextComponent, init$, void, $JTextComponent*)},
+		{"caretUpdate", "(Ljavax/swing/event/CaretEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, caretUpdate, void, $CaretEvent*)},
+		{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, changedUpdate, void, $DocumentEvent*)},
+		{"cut", "(II)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, cut, void, int32_t, int32_t)},
+		{"delete", "(II)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, delete$, void, int32_t, int32_t)},
+		{"doAccessibleAction", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, doAccessibleAction, bool, int32_t)},
+		{"getAccessibleAction", "()Ljavax/accessibility/AccessibleAction;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getAccessibleAction, $AccessibleAction*)},
+		{"getAccessibleActionCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getAccessibleActionCount, int32_t)},
+		{"getAccessibleActionDescription", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getAccessibleActionDescription, $String*, int32_t)},
+		{"getAccessibleEditableText", "()Ljavax/accessibility/AccessibleEditableText;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getAccessibleEditableText, $AccessibleEditableText*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getAccessibleRole, $AccessibleRole*)},
+		{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getAccessibleStateSet, $AccessibleStateSet*)},
+		{"getAccessibleText", "()Ljavax/accessibility/AccessibleText;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getAccessibleText, $AccessibleText*)},
+		{"getAfterIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getAfterIndex, $String*, int32_t, int32_t)},
+		{"getAtIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getAtIndex, $String*, int32_t, int32_t)},
+		{"getAtIndex", "(III)Ljava/lang/String;", nullptr, $PRIVATE, $method(JTextComponent$AccessibleJTextComponent, getAtIndex, $String*, int32_t, int32_t, int32_t)},
+		{"getBeforeIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getBeforeIndex, $String*, int32_t, int32_t)},
+		{"getCaretPosition", "()I", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getCaretPosition, int32_t)},
+		{"getCharCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getCharCount, int32_t)},
+		{"getCharacterAttribute", "(I)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getCharacterAttribute, $AttributeSet*, int32_t)},
+		{"getCharacterBounds", "(I)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getCharacterBounds, $Rectangle*, int32_t)},
+		{"getIndexAtPoint", "(Ljava/awt/Point;)I", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getIndexAtPoint, int32_t, $Point*)},
+		{"getParagraphElement", "(I)Ljavax/swing/text/Element;", nullptr, $PRIVATE, $method(JTextComponent$AccessibleJTextComponent, getParagraphElement, $Element*, int32_t)},
+		{"getParagraphElementText", "(I)Ljavax/swing/text/JTextComponent$AccessibleJTextComponent$IndexedSegment;", nullptr, $PRIVATE, $method(JTextComponent$AccessibleJTextComponent, getParagraphElementText, $JTextComponent$AccessibleJTextComponent$IndexedSegment*, int32_t), "javax.swing.text.BadLocationException"},
+		{"getRootEditorRect", "()Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(JTextComponent$AccessibleJTextComponent, getRootEditorRect, $Rectangle*)},
+		{"getRunEdge", "(II)I", nullptr, $PRIVATE, $method(JTextComponent$AccessibleJTextComponent, getRunEdge, int32_t, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"getSegmentAt", "(II)Ljavax/swing/text/JTextComponent$AccessibleJTextComponent$IndexedSegment;", nullptr, $PRIVATE, $method(JTextComponent$AccessibleJTextComponent, getSegmentAt, $JTextComponent$AccessibleJTextComponent$IndexedSegment*, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"getSelectedText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getSelectedText, $String*)},
+		{"getSelectionEnd", "()I", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getSelectionEnd, int32_t)},
+		{"getSelectionStart", "()I", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getSelectionStart, int32_t)},
+		{"getSequenceAtIndex", "(III)Ljavax/accessibility/AccessibleTextSequence;", nullptr, $PRIVATE, $method(JTextComponent$AccessibleJTextComponent, getSequenceAtIndex, $AccessibleTextSequence*, int32_t, int32_t, int32_t)},
+		{"getTextBounds", "(II)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getTextBounds, $Rectangle*, int32_t, int32_t)},
+		{"getTextRange", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getTextRange, $String*, int32_t, int32_t)},
+		{"getTextSequenceAfter", "(II)Ljavax/accessibility/AccessibleTextSequence;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getTextSequenceAfter, $AccessibleTextSequence*, int32_t, int32_t)},
+		{"getTextSequenceAt", "(II)Ljavax/accessibility/AccessibleTextSequence;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getTextSequenceAt, $AccessibleTextSequence*, int32_t, int32_t)},
+		{"getTextSequenceBefore", "(II)Ljavax/accessibility/AccessibleTextSequence;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, getTextSequenceBefore, $AccessibleTextSequence*, int32_t, int32_t)},
+		{"insertTextAtIndex", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, insertTextAtIndex, void, int32_t, $String*)},
+		{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, insertUpdate, void, $DocumentEvent*)},
+		{"paste", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, paste, void, int32_t)},
+		{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, removeUpdate, void, $DocumentEvent*)},
+		{"replaceText", "(IILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, replaceText, void, int32_t, int32_t, $String*)},
+		{"selectText", "(II)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, selectText, void, int32_t, int32_t)},
+		{"setAttributes", "(IILjavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, setAttributes, void, int32_t, int32_t, $AttributeSet*)},
+		{"setTextContents", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent, setTextContents, void, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.JTextComponent$AccessibleJTextComponent", "javax.swing.text.JTextComponent", "AccessibleJTextComponent", $PUBLIC},
+		{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
+		{"javax.swing.text.JTextComponent$AccessibleJTextComponent$IndexedSegment", "javax.swing.text.JTextComponent$AccessibleJTextComponent", "IndexedSegment", $PRIVATE},
+		{"javax.swing.text.JTextComponent$AccessibleJTextComponent$4", nullptr, nullptr, 0},
+		{"javax.swing.text.JTextComponent$AccessibleJTextComponent$3", nullptr, nullptr, 0},
+		{"javax.swing.text.JTextComponent$AccessibleJTextComponent$2", nullptr, nullptr, 0},
+		{"javax.swing.text.JTextComponent$AccessibleJTextComponent$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.JTextComponent$AccessibleJTextComponent",
+		"javax.swing.JComponent$AccessibleJComponent",
+		"javax.swing.event.CaretListener,javax.swing.event.DocumentListener,javax.accessibility.AccessibleAction,javax.accessibility.AccessibleEditableText,javax.accessibility.AccessibleExtendedText",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.JTextComponent"
+	};
+	$loadClass(JTextComponent$AccessibleJTextComponent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JTextComponent$AccessibleJTextComponent));
+	});
 	return class$;
 }
 

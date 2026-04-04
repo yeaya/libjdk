@@ -1,5 +1,4 @@
 #include <sun/security/jgss/spnego/SpNegoMechFactory.h>
-
 #include <java/security/Provider.h>
 #include <java/util/Vector.h>
 #include <org/ietf/jgss/GSSCredential.h>
@@ -61,45 +60,6 @@ namespace sun {
 		namespace jgss {
 			namespace spnego {
 
-$FieldInfo _SpNegoMechFactory_FieldInfo_[] = {
-	{"PROVIDER", "Ljava/security/Provider;", nullptr, $STATIC | $FINAL, $staticField(SpNegoMechFactory, PROVIDER)},
-	{"GSS_SPNEGO_MECH_OID", "Lorg/ietf/jgss/Oid;", nullptr, $STATIC | $FINAL, $staticField(SpNegoMechFactory, GSS_SPNEGO_MECH_OID)},
-	{"nameTypes", "[Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE | $STATIC, $staticField(SpNegoMechFactory, nameTypes)},
-	{"DEFAULT_SPNEGO_MECH_OID", "Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SpNegoMechFactory, DEFAULT_SPNEGO_MECH_OID)},
-	{"manager", "Lsun/security/jgss/GSSManagerImpl;", nullptr, $FINAL, $field(SpNegoMechFactory, manager)},
-	{"availableMechs", "[Lorg/ietf/jgss/Oid;", nullptr, $FINAL, $field(SpNegoMechFactory, availableMechs)},
-	{}
-};
-
-$MethodInfo _SpNegoMechFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SpNegoMechFactory, init$, void)},
-	{"<init>", "(Lsun/security/jgss/GSSCaller;)V", nullptr, $PUBLIC, $method(SpNegoMechFactory, init$, void, $GSSCaller*)},
-	{"getCredFromSubject", "(Lsun/security/jgss/spi/GSSNameSpi;Z)Lsun/security/jgss/spnego/SpNegoCredElement;", nullptr, $PRIVATE | $STATIC, $staticMethod(SpNegoMechFactory, getCredFromSubject, $SpNegoCredElement*, $GSSNameSpi*, bool), "org.ietf.jgss.GSSException"},
-	{"getCredentialElement", "(Lsun/security/jgss/spi/GSSNameSpi;III)Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC, $virtualMethod(SpNegoMechFactory, getCredentialElement, $GSSCredentialSpi*, $GSSNameSpi*, int32_t, int32_t, int32_t), "org.ietf.jgss.GSSException"},
-	{"getMechanismContext", "(Lsun/security/jgss/spi/GSSNameSpi;Lsun/security/jgss/spi/GSSCredentialSpi;I)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC, $virtualMethod(SpNegoMechFactory, getMechanismContext, $GSSContextSpi*, $GSSNameSpi*, $GSSCredentialSpi*, int32_t), "org.ietf.jgss.GSSException"},
-	{"getMechanismContext", "(Lsun/security/jgss/spi/GSSCredentialSpi;)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC, $virtualMethod(SpNegoMechFactory, getMechanismContext, $GSSContextSpi*, $GSSCredentialSpi*), "org.ietf.jgss.GSSException"},
-	{"getMechanismContext", "([B)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC, $virtualMethod(SpNegoMechFactory, getMechanismContext, $GSSContextSpi*, $bytes*), "org.ietf.jgss.GSSException"},
-	{"getMechanismOid", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoMechFactory, getMechanismOid, $Oid*)},
-	{"getNameElement", "(Ljava/lang/String;Lorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC, $virtualMethod(SpNegoMechFactory, getNameElement, $GSSNameSpi*, $String*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"getNameElement", "([BLorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC, $virtualMethod(SpNegoMechFactory, getNameElement, $GSSNameSpi*, $bytes*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"getNameTypes", "()[Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(SpNegoMechFactory, getNameTypes, $OidArray*)},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(SpNegoMechFactory, getProvider, $Provider*)},
-	{}
-};
-
-$ClassInfo _SpNegoMechFactory_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.jgss.spnego.SpNegoMechFactory",
-	"java.lang.Object",
-	"sun.security.jgss.spi.MechanismFactory",
-	_SpNegoMechFactory_FieldInfo_,
-	_SpNegoMechFactory_MethodInfo_
-};
-
-$Object* allocate$SpNegoMechFactory($Class* clazz) {
-	return $of($alloc(SpNegoMechFactory));
-}
-
 $Provider* SpNegoMechFactory::PROVIDER = nullptr;
 $Oid* SpNegoMechFactory::GSS_SPNEGO_MECH_OID = nullptr;
 $OidArray* SpNegoMechFactory::nameTypes = nullptr;
@@ -107,19 +67,19 @@ $Oid* SpNegoMechFactory::DEFAULT_SPNEGO_MECH_OID = nullptr;
 
 $SpNegoCredElement* SpNegoMechFactory::getCredFromSubject($GSSNameSpi* name, bool initiate) {
 	$init(SpNegoMechFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($SpNegoCredElement);
 	$var($Vector, creds, $GSSUtil::searchSubject(name, SpNegoMechFactory::GSS_SPNEGO_MECH_OID, initiate, $SpNegoCredElement::class$));
-	$var($SpNegoCredElement, result, (creds == nullptr || $nc(creds)->isEmpty()) ? ($SpNegoCredElement*)nullptr : $cast($SpNegoCredElement, $nc(creds)->firstElement()));
+	$var($SpNegoCredElement, result, (creds == nullptr || creds->isEmpty()) ? ($SpNegoCredElement*)nullptr : $cast($SpNegoCredElement, creds->firstElement()));
 	if (result != nullptr) {
 		$var($GSSCredentialSpi, cred, result->getInternalCred());
 		if ($GSSUtil::isKerberosMech($($nc(cred)->getMechanism()))) {
 			if (initiate) {
 				$var($Krb5InitCredential, krbCred, $cast($Krb5InitCredential, cred));
-				$Krb5MechFactory::checkInitCredPermission($cast($Krb5NameElement, $($nc(krbCred)->getName())));
+				$Krb5MechFactory::checkInitCredPermission($$cast($Krb5NameElement, krbCred->getName()));
 			} else {
 				$var($Krb5AcceptCredential, krbCred, $cast($Krb5AcceptCredential, cred));
-				$Krb5MechFactory::checkAcceptCredPermission($cast($Krb5NameElement, $($nc(krbCred)->getName())), name);
+				$Krb5MechFactory::checkAcceptCredPermission($$cast($Krb5NameElement, krbCred->getName()), name);
 			}
 		}
 	}
@@ -133,22 +93,18 @@ void SpNegoMechFactory::init$() {
 
 void SpNegoMechFactory::init$($GSSCaller* caller) {
 	$set(this, manager, $new($GSSManagerImpl, caller, false));
-	$var($OidArray, mechs, $nc(this->manager)->getMechs());
+	$var($OidArray, mechs, this->manager->getMechs());
 	$set(this, availableMechs, $new($OidArray, $nc(mechs)->length - 1));
-	{
-		int32_t i = 0;
-		int32_t j = 0;
-		for (; i < mechs->length; ++i) {
-			if (!$nc(mechs->get(i))->equals(SpNegoMechFactory::GSS_SPNEGO_MECH_OID)) {
-				$nc(this->availableMechs)->set(j++, mechs->get(i));
-			}
+	for (int32_t i = 0, j = 0; i < mechs->length; ++i) {
+		if (!$nc(mechs->get(i))->equals(SpNegoMechFactory::GSS_SPNEGO_MECH_OID)) {
+			this->availableMechs->set(j++, mechs->get(i));
 		}
 	}
-	for (int32_t i = 0; i < $nc(this->availableMechs)->length; ++i) {
-		if ($nc($nc(this->availableMechs)->get(i))->equals(SpNegoMechFactory::DEFAULT_SPNEGO_MECH_OID)) {
+	for (int32_t i = 0; i < this->availableMechs->length; ++i) {
+		if ($nc(this->availableMechs->get(i))->equals(SpNegoMechFactory::DEFAULT_SPNEGO_MECH_OID)) {
 			if (i != 0) {
-				$nc(this->availableMechs)->set(i, $nc(this->availableMechs)->get(0));
-				$nc(this->availableMechs)->set(0, SpNegoMechFactory::DEFAULT_SPNEGO_MECH_OID);
+				this->availableMechs->set(i, this->availableMechs->get(0));
+				this->availableMechs->set(0, SpNegoMechFactory::DEFAULT_SPNEGO_MECH_OID);
 			}
 			break;
 		}
@@ -164,7 +120,7 @@ $GSSNameSpi* SpNegoMechFactory::getNameElement($bytes* name, $Oid* nameType) {
 }
 
 $GSSCredentialSpi* SpNegoMechFactory::getCredentialElement($GSSNameSpi* name, int32_t initLifetime, int32_t acceptLifetime, int32_t usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SpNegoCredElement, credElement, getCredFromSubject(name, (usage != $GSSCredential::ACCEPT_ONLY)));
 	if (credElement == nullptr) {
 		$assign(credElement, $new($SpNegoCredElement, $($nc(this->manager)->getCredentialElement(name, initLifetime, acceptLifetime, nullptr, usage))));
@@ -173,7 +129,7 @@ $GSSCredentialSpi* SpNegoMechFactory::getCredentialElement($GSSNameSpi* name, in
 }
 
 $GSSContextSpi* SpNegoMechFactory::getMechanismContext($GSSNameSpi* peer, $GSSCredentialSpi* myInitiatorCred$renamed, int32_t lifetime) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GSSCredentialSpi, myInitiatorCred, myInitiatorCred$renamed);
 	if (myInitiatorCred == nullptr) {
 		$assign(myInitiatorCred, getCredFromSubject(nullptr, true));
@@ -185,13 +141,13 @@ $GSSContextSpi* SpNegoMechFactory::getMechanismContext($GSSNameSpi* peer, $GSSCr
 }
 
 $GSSContextSpi* SpNegoMechFactory::getMechanismContext($GSSCredentialSpi* myAcceptorCred$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GSSCredentialSpi, myAcceptorCred, myAcceptorCred$renamed);
 	if (myAcceptorCred == nullptr) {
 		$assign(myAcceptorCred, getCredFromSubject(nullptr, false));
 	} else if (!($instanceOf($SpNegoCredElement, myAcceptorCred))) {
 		$var($SpNegoCredElement, cred, $new($SpNegoCredElement, myAcceptorCred));
-		return $new($SpNegoContext, this, static_cast<$GSSCredentialSpi*>(cred));
+		return $new($SpNegoContext, this, cred);
 	}
 	return $new($SpNegoContext, this, myAcceptorCred);
 }
@@ -212,7 +168,7 @@ $OidArray* SpNegoMechFactory::getNameTypes() {
 	return SpNegoMechFactory::nameTypes;
 }
 
-void clinit$SpNegoMechFactory($Class* class$) {
+void SpNegoMechFactory::clinit$($Class* clazz) {
 	$assignStatic(SpNegoMechFactory::PROVIDER, $new($SunProvider));
 	$assignStatic(SpNegoMechFactory::GSS_SPNEGO_MECH_OID, $GSSUtil::createOid("1.3.6.1.5.5.2"_s));
 	$init($GSSName);
@@ -229,7 +185,41 @@ SpNegoMechFactory::SpNegoMechFactory() {
 }
 
 $Class* SpNegoMechFactory::load$($String* name, bool initialize) {
-	$loadClass(SpNegoMechFactory, name, initialize, &_SpNegoMechFactory_ClassInfo_, clinit$SpNegoMechFactory, allocate$SpNegoMechFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"PROVIDER", "Ljava/security/Provider;", nullptr, $STATIC | $FINAL, $staticField(SpNegoMechFactory, PROVIDER)},
+		{"GSS_SPNEGO_MECH_OID", "Lorg/ietf/jgss/Oid;", nullptr, $STATIC | $FINAL, $staticField(SpNegoMechFactory, GSS_SPNEGO_MECH_OID)},
+		{"nameTypes", "[Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE | $STATIC, $staticField(SpNegoMechFactory, nameTypes)},
+		{"DEFAULT_SPNEGO_MECH_OID", "Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SpNegoMechFactory, DEFAULT_SPNEGO_MECH_OID)},
+		{"manager", "Lsun/security/jgss/GSSManagerImpl;", nullptr, $FINAL, $field(SpNegoMechFactory, manager)},
+		{"availableMechs", "[Lorg/ietf/jgss/Oid;", nullptr, $FINAL, $field(SpNegoMechFactory, availableMechs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SpNegoMechFactory, init$, void)},
+		{"<init>", "(Lsun/security/jgss/GSSCaller;)V", nullptr, $PUBLIC, $method(SpNegoMechFactory, init$, void, $GSSCaller*)},
+		{"getCredFromSubject", "(Lsun/security/jgss/spi/GSSNameSpi;Z)Lsun/security/jgss/spnego/SpNegoCredElement;", nullptr, $PRIVATE | $STATIC, $staticMethod(SpNegoMechFactory, getCredFromSubject, $SpNegoCredElement*, $GSSNameSpi*, bool), "org.ietf.jgss.GSSException"},
+		{"getCredentialElement", "(Lsun/security/jgss/spi/GSSNameSpi;III)Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC, $virtualMethod(SpNegoMechFactory, getCredentialElement, $GSSCredentialSpi*, $GSSNameSpi*, int32_t, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+		{"getMechanismContext", "(Lsun/security/jgss/spi/GSSNameSpi;Lsun/security/jgss/spi/GSSCredentialSpi;I)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC, $virtualMethod(SpNegoMechFactory, getMechanismContext, $GSSContextSpi*, $GSSNameSpi*, $GSSCredentialSpi*, int32_t), "org.ietf.jgss.GSSException"},
+		{"getMechanismContext", "(Lsun/security/jgss/spi/GSSCredentialSpi;)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC, $virtualMethod(SpNegoMechFactory, getMechanismContext, $GSSContextSpi*, $GSSCredentialSpi*), "org.ietf.jgss.GSSException"},
+		{"getMechanismContext", "([B)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC, $virtualMethod(SpNegoMechFactory, getMechanismContext, $GSSContextSpi*, $bytes*), "org.ietf.jgss.GSSException"},
+		{"getMechanismOid", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoMechFactory, getMechanismOid, $Oid*)},
+		{"getNameElement", "(Ljava/lang/String;Lorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC, $virtualMethod(SpNegoMechFactory, getNameElement, $GSSNameSpi*, $String*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"getNameElement", "([BLorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC, $virtualMethod(SpNegoMechFactory, getNameElement, $GSSNameSpi*, $bytes*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"getNameTypes", "()[Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(SpNegoMechFactory, getNameTypes, $OidArray*)},
+		{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(SpNegoMechFactory, getProvider, $Provider*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.jgss.spnego.SpNegoMechFactory",
+		"java.lang.Object",
+		"sun.security.jgss.spi.MechanismFactory",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SpNegoMechFactory, name, initialize, &classInfo$$, SpNegoMechFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SpNegoMechFactory);
+	});
 	return class$;
 }
 

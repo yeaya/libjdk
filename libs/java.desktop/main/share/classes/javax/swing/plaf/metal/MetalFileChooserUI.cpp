@@ -1,12 +1,9 @@
 #include <javax/swing/plaf/metal/MetalFileChooserUI.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/FocusListener.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/beans/PropertyChangeEvent.h>
@@ -14,13 +11,11 @@
 #include <java/io/File.h>
 #include <java/util/Locale.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/Box.h>
 #include <javax/swing/BoxLayout.h>
 #include <javax/swing/ButtonGroup.h>
-#include <javax/swing/ComboBoxModel.h>
 #include <javax/swing/DefaultListCellRenderer.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/JButton.h>
@@ -32,7 +27,6 @@
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JTextField.h>
 #include <javax/swing/JToggleButton.h>
-#include <javax/swing/ListCellRenderer.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/border/Border.h>
@@ -56,7 +50,6 @@
 #include <javax/swing/plaf/metal/MetalFileChooserUI$FilterComboBoxModel.h>
 #include <javax/swing/plaf/metal/MetalFileChooserUI$FilterComboBoxRenderer.h>
 #include <javax/swing/plaf/metal/MetalFileChooserUI$MetalFileChooserUIAccessor.h>
-#include <sun/swing/FilePane$FileChooserUIAccessor.h>
 #include <sun/swing/FilePane.h>
 #include <sun/swing/SwingUtilities2.h>
 #include <jcpp.h>
@@ -91,13 +84,8 @@
 using $FileArray = $Array<::java::io::File>;
 using $MetalFileChooserUI$AlignedLabelArray = $Array<::javax::swing::plaf::metal::MetalFileChooserUI$AlignedLabel>;
 using $BorderLayout = ::java::awt::BorderLayout;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
-using $ActionListener = ::java::awt::event::ActionListener;
-using $FocusListener = ::java::awt::event::FocusListener;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
@@ -110,13 +98,10 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Locale = ::java::util::Locale;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $AbstractButton = ::javax::swing::AbstractButton;
-using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $Box = ::javax::swing::Box;
 using $BoxLayout = ::javax::swing::BoxLayout;
 using $ButtonGroup = ::javax::swing::ButtonGroup;
-using $ComboBoxModel = ::javax::swing::ComboBoxModel;
 using $DefaultListCellRenderer = ::javax::swing::DefaultListCellRenderer;
 using $JButton = ::javax::swing::JButton;
 using $JComboBox = ::javax::swing::JComboBox;
@@ -127,10 +112,8 @@ using $JList = ::javax::swing::JList;
 using $JPanel = ::javax::swing::JPanel;
 using $JTextField = ::javax::swing::JTextField;
 using $JToggleButton = ::javax::swing::JToggleButton;
-using $ListCellRenderer = ::javax::swing::ListCellRenderer;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $ListSelectionEvent = ::javax::swing::event::ListSelectionEvent;
 using $ListSelectionListener = ::javax::swing::event::ListSelectionListener;
@@ -152,159 +135,12 @@ using $MetalFileChooserUI$FilterComboBoxModel = ::javax::swing::plaf::metal::Met
 using $MetalFileChooserUI$FilterComboBoxRenderer = ::javax::swing::plaf::metal::MetalFileChooserUI$FilterComboBoxRenderer;
 using $MetalFileChooserUI$MetalFileChooserUIAccessor = ::javax::swing::plaf::metal::MetalFileChooserUI$MetalFileChooserUIAccessor;
 using $FilePane = ::sun::swing::FilePane;
-using $FilePane$FileChooserUIAccessor = ::sun::swing::FilePane$FileChooserUIAccessor;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$FieldInfo _MetalFileChooserUI_FieldInfo_[] = {
-	{"lookInLabel", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(MetalFileChooserUI, lookInLabel)},
-	{"directoryComboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljava/lang/Object;>;", $PRIVATE, $field(MetalFileChooserUI, directoryComboBox)},
-	{"directoryComboBoxModel", "Ljavax/swing/plaf/metal/MetalFileChooserUI$DirectoryComboBoxModel;", nullptr, $PRIVATE, $field(MetalFileChooserUI, directoryComboBoxModel)},
-	{"directoryComboBoxAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(MetalFileChooserUI, directoryComboBoxAction)},
-	{"filterComboBoxModel", "Ljavax/swing/plaf/metal/MetalFileChooserUI$FilterComboBoxModel;", nullptr, $PRIVATE, $field(MetalFileChooserUI, filterComboBoxModel)},
-	{"fileNameTextField", "Ljavax/swing/JTextField;", nullptr, $PRIVATE, $field(MetalFileChooserUI, fileNameTextField)},
-	{"filePane", "Lsun/swing/FilePane;", nullptr, $PRIVATE, $field(MetalFileChooserUI, filePane)},
-	{"listViewButton", "Ljavax/swing/JToggleButton;", nullptr, $PRIVATE, $field(MetalFileChooserUI, listViewButton)},
-	{"detailsViewButton", "Ljavax/swing/JToggleButton;", nullptr, $PRIVATE, $field(MetalFileChooserUI, detailsViewButton)},
-	{"approveButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE, $field(MetalFileChooserUI, approveButton)},
-	{"cancelButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE, $field(MetalFileChooserUI, cancelButton)},
-	{"buttonPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(MetalFileChooserUI, buttonPanel)},
-	{"bottomPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(MetalFileChooserUI, bottomPanel)},
-	{"filterComboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<*>;", $PRIVATE, $field(MetalFileChooserUI, filterComboBox)},
-	{"hstrut5", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalFileChooserUI, hstrut5)},
-	{"hstrut11", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalFileChooserUI, hstrut11)},
-	{"vstrut5", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalFileChooserUI, vstrut5)},
-	{"shrinkwrap", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalFileChooserUI, shrinkwrap)},
-	{"PREF_WIDTH", "I", nullptr, $PRIVATE | $STATIC, $staticField(MetalFileChooserUI, PREF_WIDTH)},
-	{"PREF_HEIGHT", "I", nullptr, $PRIVATE | $STATIC, $staticField(MetalFileChooserUI, PREF_HEIGHT)},
-	{"PREF_SIZE", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(MetalFileChooserUI, PREF_SIZE)},
-	{"MIN_WIDTH", "I", nullptr, $PRIVATE | $STATIC, $staticField(MetalFileChooserUI, MIN_WIDTH)},
-	{"MIN_HEIGHT", "I", nullptr, $PRIVATE | $STATIC, $staticField(MetalFileChooserUI, MIN_HEIGHT)},
-	{"LIST_PREF_WIDTH", "I", nullptr, $PRIVATE | $STATIC, $staticField(MetalFileChooserUI, LIST_PREF_WIDTH)},
-	{"LIST_PREF_HEIGHT", "I", nullptr, $PRIVATE | $STATIC, $staticField(MetalFileChooserUI, LIST_PREF_HEIGHT)},
-	{"LIST_PREF_SIZE", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(MetalFileChooserUI, LIST_PREF_SIZE)},
-	{"lookInLabelMnemonic", "I", nullptr, $PRIVATE, $field(MetalFileChooserUI, lookInLabelMnemonic)},
-	{"lookInLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, lookInLabelText)},
-	{"saveInLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, saveInLabelText)},
-	{"fileNameLabelMnemonic", "I", nullptr, $PRIVATE, $field(MetalFileChooserUI, fileNameLabelMnemonic)},
-	{"fileNameLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, fileNameLabelText)},
-	{"folderNameLabelMnemonic", "I", nullptr, $PRIVATE, $field(MetalFileChooserUI, folderNameLabelMnemonic)},
-	{"folderNameLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, folderNameLabelText)},
-	{"filesOfTypeLabelMnemonic", "I", nullptr, $PRIVATE, $field(MetalFileChooserUI, filesOfTypeLabelMnemonic)},
-	{"filesOfTypeLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, filesOfTypeLabelText)},
-	{"upFolderToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, upFolderToolTipText)},
-	{"upFolderAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, upFolderAccessibleName)},
-	{"homeFolderToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, homeFolderToolTipText)},
-	{"homeFolderAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, homeFolderAccessibleName)},
-	{"newFolderToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, newFolderToolTipText)},
-	{"newFolderAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, newFolderAccessibleName)},
-	{"listViewButtonToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, listViewButtonToolTipText)},
-	{"listViewButtonAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, listViewButtonAccessibleName)},
-	{"detailsViewButtonToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, detailsViewButtonToolTipText)},
-	{"detailsViewButtonAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, detailsViewButtonAccessibleName)},
-	{"fileNameLabel", "Ljavax/swing/plaf/metal/MetalFileChooserUI$AlignedLabel;", nullptr, $PRIVATE, $field(MetalFileChooserUI, fileNameLabel)},
-	{"space", "I", nullptr, $STATIC | $FINAL, $constField(MetalFileChooserUI, space)},
-	{}
-};
-
-$MethodInfo _MetalFileChooserUI_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $method(MetalFileChooserUI, init$, void, $JFileChooser*)},
-	{"access$000", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalFileChooserUI, access$000, bool, MetalFileChooserUI*)},
-	{"access$100", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;)Ljava/io/File;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalFileChooserUI, access$100, $File*, MetalFileChooserUI*)},
-	{"access$200", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;Ljavax/swing/JFileChooser;Ljavax/swing/JList;)Ljava/awt/event/MouseListener;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalFileChooserUI, access$200, $MouseListener*, MetalFileChooserUI*, $JFileChooser*, $JList*)},
-	{"addControlButtons", "()V", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, addControlButtons, void)},
-	{"createActionMap", "()Ljavax/swing/ActionMap;", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, createActionMap, $ActionMap*)},
-	{"createDetailsView", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JPanel;", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, createDetailsView, $JPanel*, $JFileChooser*)},
-	{"createDirectoryComboBoxModel", "(Ljavax/swing/JFileChooser;)Ljavax/swing/plaf/metal/MetalFileChooserUI$DirectoryComboBoxModel;", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, createDirectoryComboBoxModel, $MetalFileChooserUI$DirectoryComboBoxModel*, $JFileChooser*)},
-	{"createDirectoryComboBoxRenderer", "(Ljavax/swing/JFileChooser;)Ljavax/swing/DefaultListCellRenderer;", nullptr, $PRIVATE, $method(MetalFileChooserUI, createDirectoryComboBoxRenderer, $DefaultListCellRenderer*, $JFileChooser*)},
-	{"createFilterComboBoxModel", "()Ljavax/swing/plaf/metal/MetalFileChooserUI$FilterComboBoxModel;", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, createFilterComboBoxModel, $MetalFileChooserUI$FilterComboBoxModel*)},
-	{"createFilterComboBoxRenderer", "()Ljavax/swing/plaf/metal/MetalFileChooserUI$FilterComboBoxRenderer;", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, createFilterComboBoxRenderer, $MetalFileChooserUI$FilterComboBoxRenderer*)},
-	{"createList", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JPanel;", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, createList, $JPanel*, $JFileChooser*)},
-	{"createListSelectionListener", "(Ljavax/swing/JFileChooser;)Ljavax/swing/event/ListSelectionListener;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, createListSelectionListener, $ListSelectionListener*, $JFileChooser*)},
-	{"createPropertyChangeListener", "(Ljavax/swing/JFileChooser;)Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, createPropertyChangeListener, $PropertyChangeListener*, $JFileChooser*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalFileChooserUI, createUI, $ComponentUI*, $JComponent*)},
-	{"doAccessoryChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(MetalFileChooserUI, doAccessoryChanged, void, $PropertyChangeEvent*)},
-	{"doApproveButtonMnemonicChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(MetalFileChooserUI, doApproveButtonMnemonicChanged, void, $PropertyChangeEvent*)},
-	{"doApproveButtonTextChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(MetalFileChooserUI, doApproveButtonTextChanged, void, $PropertyChangeEvent*)},
-	{"doControlButtonsChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(MetalFileChooserUI, doControlButtonsChanged, void, $PropertyChangeEvent*)},
-	{"doDialogTypeChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(MetalFileChooserUI, doDialogTypeChanged, void, $PropertyChangeEvent*)},
-	{"doDirectoryChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(MetalFileChooserUI, doDirectoryChanged, void, $PropertyChangeEvent*)},
-	{"doFileSelectionModeChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(MetalFileChooserUI, doFileSelectionModeChanged, void, $PropertyChangeEvent*)},
-	{"doFilterChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(MetalFileChooserUI, doFilterChanged, void, $PropertyChangeEvent*)},
-	{"doSelectedFileChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(MetalFileChooserUI, doSelectedFileChanged, void, $PropertyChangeEvent*)},
-	{"doSelectedFilesChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(MetalFileChooserUI, doSelectedFilesChanged, void, $PropertyChangeEvent*)},
-	{"ensureFileIsVisible", "(Ljavax/swing/JFileChooser;Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, ensureFileIsVisible, void, $JFileChooser*, $File*)},
-	{"fileNameString", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PRIVATE, $method(MetalFileChooserUI, fileNameString, $String*, $File*)},
-	{"fileNameString", "([Ljava/io/File;)Ljava/lang/String;", nullptr, $PRIVATE, $method(MetalFileChooserUI, fileNameString, $String*, $FileArray*)},
-	{"getActionMap", "()Ljavax/swing/ActionMap;", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, getActionMap, $ActionMap*)},
-	{"getApproveButton", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, getApproveButton, $JButton*, $JFileChooser*)},
-	{"getBottomPanel", "()Ljavax/swing/JPanel;", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, getBottomPanel, $JPanel*)},
-	{"getButtonPanel", "()Ljavax/swing/JPanel;", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, getButtonPanel, $JPanel*)},
-	{"getDirectoryName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, getDirectoryName, $String*)},
-	{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, getFileName, $String*)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getMnemonic", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/Integer;", nullptr, $PRIVATE, $method(MetalFileChooserUI, getMnemonic, $Integer*, $String*, $Locale*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"groupLabels", "([Ljavax/swing/plaf/metal/MetalFileChooserUI$AlignedLabel;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MetalFileChooserUI, groupLabels, void, $MetalFileChooserUI$AlignedLabelArray*)},
-	{"installComponents", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, installComponents, void, $JFileChooser*)},
-	{"installListeners", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, installListeners, void, $JFileChooser*)},
-	{"installStrings", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, installStrings, void, $JFileChooser*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, installUI, void, $JComponent*)},
-	{"populateFileNameLabel", "()V", nullptr, $PRIVATE, $method(MetalFileChooserUI, populateFileNameLabel, void)},
-	{"removeControlButtons", "()V", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, removeControlButtons, void)},
-	{"rescanCurrentDirectory", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, rescanCurrentDirectory, void, $JFileChooser*)},
-	{"setDirectoryName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, setDirectoryName, void, $String*)},
-	{"setDirectorySelected", "(Z)V", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, setDirectorySelected, void, bool)},
-	{"setFileName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, setFileName, void, $String*)},
-	{"uninstallComponents", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, uninstallComponents, void, $JFileChooser*)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, uninstallUI, void, $JComponent*)},
-	{"valueChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, valueChanged, void, $ListSelectionEvent*)},
-	{}
-};
-
-$InnerClassInfo _MetalFileChooserUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalFileChooserUI$AlignedLabel", "javax.swing.plaf.metal.MetalFileChooserUI", "AlignedLabel", $PRIVATE},
-	{"javax.swing.plaf.metal.MetalFileChooserUI$ButtonAreaLayout", "javax.swing.plaf.metal.MetalFileChooserUI", "ButtonAreaLayout", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.MetalFileChooserUI$DirectoryComboBoxAction", "javax.swing.plaf.metal.MetalFileChooserUI", "DirectoryComboBoxAction", $PROTECTED},
-	{"javax.swing.plaf.metal.MetalFileChooserUI$FilterComboBoxModel", "javax.swing.plaf.metal.MetalFileChooserUI", "FilterComboBoxModel", $PROTECTED},
-	{"javax.swing.plaf.metal.MetalFileChooserUI$FilterComboBoxRenderer", "javax.swing.plaf.metal.MetalFileChooserUI", "FilterComboBoxRenderer", $PUBLIC},
-	{"javax.swing.plaf.metal.MetalFileChooserUI$DirectoryComboBoxModel", "javax.swing.plaf.metal.MetalFileChooserUI", "DirectoryComboBoxModel", $PROTECTED},
-	{"javax.swing.plaf.metal.MetalFileChooserUI$IndentIcon", "javax.swing.plaf.metal.MetalFileChooserUI", "IndentIcon", 0},
-	{"javax.swing.plaf.metal.MetalFileChooserUI$DirectoryComboBoxRenderer", "javax.swing.plaf.metal.MetalFileChooserUI", "DirectoryComboBoxRenderer", 0},
-	{"javax.swing.plaf.metal.MetalFileChooserUI$FileRenderer", "javax.swing.plaf.metal.MetalFileChooserUI", "FileRenderer", $PROTECTED},
-	{"javax.swing.plaf.metal.MetalFileChooserUI$SingleClickListener", "javax.swing.plaf.metal.MetalFileChooserUI", "SingleClickListener", $PROTECTED},
-	{"javax.swing.plaf.metal.MetalFileChooserUI$MetalFileChooserUIAccessor", "javax.swing.plaf.metal.MetalFileChooserUI", "MetalFileChooserUIAccessor", $PRIVATE},
-	{"javax.swing.plaf.metal.MetalFileChooserUI$5", nullptr, nullptr, 0},
-	{"javax.swing.plaf.metal.MetalFileChooserUI$4", nullptr, nullptr, 0},
-	{"javax.swing.plaf.metal.MetalFileChooserUI$3", nullptr, nullptr, 0},
-	{"javax.swing.plaf.metal.MetalFileChooserUI$2", nullptr, nullptr, 0},
-	{"javax.swing.plaf.metal.MetalFileChooserUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MetalFileChooserUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalFileChooserUI",
-	"javax.swing.plaf.basic.BasicFileChooserUI",
-	nullptr,
-	_MetalFileChooserUI_FieldInfo_,
-	_MetalFileChooserUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalFileChooserUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalFileChooserUI$AlignedLabel,javax.swing.plaf.metal.MetalFileChooserUI$ButtonAreaLayout,javax.swing.plaf.metal.MetalFileChooserUI$DirectoryComboBoxAction,javax.swing.plaf.metal.MetalFileChooserUI$FilterComboBoxModel,javax.swing.plaf.metal.MetalFileChooserUI$FilterComboBoxRenderer,javax.swing.plaf.metal.MetalFileChooserUI$DirectoryComboBoxModel,javax.swing.plaf.metal.MetalFileChooserUI$IndentIcon,javax.swing.plaf.metal.MetalFileChooserUI$DirectoryComboBoxRenderer,javax.swing.plaf.metal.MetalFileChooserUI$FileRenderer,javax.swing.plaf.metal.MetalFileChooserUI$SingleClickListener,javax.swing.plaf.metal.MetalFileChooserUI$MetalFileChooserUIAccessor,javax.swing.plaf.metal.MetalFileChooserUI$5,javax.swing.plaf.metal.MetalFileChooserUI$4,javax.swing.plaf.metal.MetalFileChooserUI$3,javax.swing.plaf.metal.MetalFileChooserUI$2,javax.swing.plaf.metal.MetalFileChooserUI$1"
-};
-
-$Object* allocate$MetalFileChooserUI($Class* clazz) {
-	return $of($alloc(MetalFileChooserUI));
-}
 
 $Dimension* MetalFileChooserUI::hstrut5 = nullptr;
 $Dimension* MetalFileChooserUI::hstrut11 = nullptr;
@@ -335,7 +171,7 @@ bool MetalFileChooserUI::access$000(MetalFileChooserUI* x0) {
 }
 
 void MetalFileChooserUI::populateFileNameLabel() {
-	if ($nc($(getFileChooser()))->getFileSelectionMode() == $JFileChooser::DIRECTORIES_ONLY) {
+	if ($$nc(getFileChooser())->getFileSelectionMode() == $JFileChooser::DIRECTORIES_ONLY) {
 		$nc(this->fileNameLabel)->setText(this->folderNameLabelText);
 		$nc(this->fileNameLabel)->setDisplayedMnemonic(this->folderNameLabelMnemonic);
 	} else {
@@ -384,26 +220,24 @@ void MetalFileChooserUI::uninstallComponents($JFileChooser* fc) {
 }
 
 void MetalFileChooserUI::installComponents($JFileChooser* fc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileSystemView, fsv, $nc(fc)->getFileSystemView());
 	fc->setBorder($$new($EmptyBorder, 12, 12, 11, 11));
 	fc->setLayout($$new($BorderLayout, 0, 11));
 	$set(this, filePane, $new($FilePane, $$new($MetalFileChooserUI$MetalFileChooserUIAccessor, this)));
 	fc->addPropertyChangeListener(this->filePane);
-	$var($JPanel, topPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout, 11, 0))));
+	$var($JPanel, topPanel, $new($JPanel, $$new($BorderLayout, 11, 0)));
 	$var($JPanel, topButtonPanel, $new($JPanel));
 	topButtonPanel->setLayout($$new($BoxLayout, topButtonPanel, $BoxLayout::LINE_AXIS));
-	$init($BorderLayout);
-	topPanel->add(static_cast<$Component*>(topButtonPanel), $of($BorderLayout::AFTER_LINE_ENDS));
-	fc->add(static_cast<$Component*>(topPanel), $of($BorderLayout::NORTH));
+	topPanel->add(topButtonPanel, $BorderLayout::AFTER_LINE_ENDS);
+	fc->add(topPanel, $BorderLayout::NORTH);
 	$set(this, lookInLabel, $new($JLabel, this->lookInLabelText));
-	$nc(this->lookInLabel)->setDisplayedMnemonic(this->lookInLabelMnemonic);
-	topPanel->add(static_cast<$Component*>(this->lookInLabel), $of($BorderLayout::BEFORE_LINE_BEGINS));
+	this->lookInLabel->setDisplayedMnemonic(this->lookInLabelMnemonic);
+	topPanel->add(this->lookInLabel, $BorderLayout::BEFORE_LINE_BEGINS);
 	$var($JComboBox, tmp1, $new($MetalFileChooserUI$1, this));
 	$set(this, directoryComboBox, tmp1);
 	$init($AccessibleContext);
-	$nc(this->directoryComboBox)->putClientProperty($AccessibleContext::ACCESSIBLE_DESCRIPTION_PROPERTY, this->lookInLabelText);
-	$init($Boolean);
+	this->directoryComboBox->putClientProperty($AccessibleContext::ACCESSIBLE_DESCRIPTION_PROPERTY, this->lookInLabelText);
 	$nc(this->directoryComboBox)->putClientProperty("JComboBox.isTableCellEditor"_s, $Boolean::TRUE);
 	$nc(this->lookInLabel)->setLabelFor(this->directoryComboBox);
 	$set(this, directoryComboBoxModel, createDirectoryComboBoxModel(fc));
@@ -414,7 +248,7 @@ void MetalFileChooserUI::installComponents($JFileChooser* fc) {
 	$nc(this->directoryComboBox)->setAlignmentX($JComponent::LEFT_ALIGNMENT);
 	$nc(this->directoryComboBox)->setAlignmentY($JComponent::TOP_ALIGNMENT);
 	$nc(this->directoryComboBox)->setMaximumRowCount(8);
-	topPanel->add(static_cast<$Component*>(this->directoryComboBox), $of($BorderLayout::CENTER));
+	topPanel->add(this->directoryComboBox, $BorderLayout::CENTER);
 	$var($JButton, upFolderButton, $new($JButton, $(getChangeToParentDirectoryAction())));
 	upFolderButton->setText(nullptr);
 	upFolderButton->setIcon(this->upFolderIcon);
@@ -423,7 +257,7 @@ void MetalFileChooserUI::installComponents($JFileChooser* fc) {
 	upFolderButton->setAlignmentX($JComponent::LEFT_ALIGNMENT);
 	upFolderButton->setAlignmentY($JComponent::CENTER_ALIGNMENT);
 	upFolderButton->setMargin(MetalFileChooserUI::shrinkwrap);
-	topButtonPanel->add(static_cast<$Component*>(upFolderButton));
+	topButtonPanel->add(upFolderButton);
 	topButtonPanel->add($($Box::createRigidArea(MetalFileChooserUI::hstrut5)));
 	$var($File, homeDir, $nc(fsv)->getHomeDirectory());
 	$var($String, toolTipText, this->homeFolderToolTipText);
@@ -434,7 +268,7 @@ void MetalFileChooserUI::installComponents($JFileChooser* fc) {
 	b->setAlignmentY($JComponent::CENTER_ALIGNMENT);
 	b->setMargin(MetalFileChooserUI::shrinkwrap);
 	b->addActionListener($(getGoHomeAction()));
-	topButtonPanel->add(static_cast<$Component*>(b));
+	topButtonPanel->add(b);
 	topButtonPanel->add($($Box::createRigidArea(MetalFileChooserUI::hstrut5)));
 	if (!$UIManager::getBoolean("FileChooser.readOnly"_s)) {
 		$assign(b, $new($JButton, $($nc(this->filePane)->getNewFolderAction())));
@@ -446,49 +280,49 @@ void MetalFileChooserUI::installComponents($JFileChooser* fc) {
 		b->setAlignmentY($JComponent::CENTER_ALIGNMENT);
 		b->setMargin(MetalFileChooserUI::shrinkwrap);
 	}
-	topButtonPanel->add(static_cast<$Component*>(b));
+	topButtonPanel->add(b);
 	topButtonPanel->add($($Box::createRigidArea(MetalFileChooserUI::hstrut5)));
 	$var($ButtonGroup, viewButtonGroup, $new($ButtonGroup));
 	$set(this, listViewButton, $new($JToggleButton, this->listViewIcon));
-	$nc(this->listViewButton)->setToolTipText(this->listViewButtonToolTipText);
+	this->listViewButton->setToolTipText(this->listViewButtonToolTipText);
 	$nc(this->listViewButton)->putClientProperty($AccessibleContext::ACCESSIBLE_NAME_PROPERTY, this->listViewButtonAccessibleName);
 	$nc(this->listViewButton)->setSelected(true);
 	$nc(this->listViewButton)->setAlignmentX($JComponent::LEFT_ALIGNMENT);
 	$nc(this->listViewButton)->setAlignmentY($JComponent::CENTER_ALIGNMENT);
 	$nc(this->listViewButton)->setMargin(MetalFileChooserUI::shrinkwrap);
 	$nc(this->listViewButton)->addActionListener($($nc(this->filePane)->getViewTypeAction($FilePane::VIEWTYPE_LIST)));
-	topButtonPanel->add(static_cast<$Component*>(this->listViewButton));
+	topButtonPanel->add(this->listViewButton);
 	viewButtonGroup->add(this->listViewButton);
 	$set(this, detailsViewButton, $new($JToggleButton, this->detailsViewIcon));
-	$nc(this->detailsViewButton)->setToolTipText(this->detailsViewButtonToolTipText);
+	this->detailsViewButton->setToolTipText(this->detailsViewButtonToolTipText);
 	$nc(this->detailsViewButton)->putClientProperty($AccessibleContext::ACCESSIBLE_NAME_PROPERTY, this->detailsViewButtonAccessibleName);
 	$nc(this->detailsViewButton)->setAlignmentX($JComponent::LEFT_ALIGNMENT);
 	$nc(this->detailsViewButton)->setAlignmentY($JComponent::CENTER_ALIGNMENT);
 	$nc(this->detailsViewButton)->setMargin(MetalFileChooserUI::shrinkwrap);
 	$nc(this->detailsViewButton)->addActionListener($($nc(this->filePane)->getViewTypeAction($FilePane::VIEWTYPE_DETAILS)));
-	topButtonPanel->add(static_cast<$Component*>(this->detailsViewButton));
+	topButtonPanel->add(this->detailsViewButton);
 	viewButtonGroup->add(this->detailsViewButton);
 	$nc(this->filePane)->addPropertyChangeListener($$new($MetalFileChooserUI$2, this));
-	fc->add($(static_cast<$Component*>(getAccessoryPanel())), $of($BorderLayout::AFTER_LINE_ENDS));
+	fc->add($(getAccessoryPanel()), $BorderLayout::AFTER_LINE_ENDS);
 	$var($JComponent, accessory, fc->getAccessory());
 	if (accessory != nullptr) {
-		$nc($(getAccessoryPanel()))->add(static_cast<$Component*>(accessory));
+		$$nc(getAccessoryPanel())->add(accessory);
 	}
 	$nc(this->filePane)->setPreferredSize(MetalFileChooserUI::LIST_PREF_SIZE);
-	fc->add(static_cast<$Component*>(this->filePane), $of($BorderLayout::CENTER));
+	fc->add(this->filePane, $BorderLayout::CENTER);
 	$var($JPanel, bottomPanel, getBottomPanel());
 	$nc(bottomPanel)->setLayout($$new($BoxLayout, bottomPanel, $BoxLayout::Y_AXIS));
-	fc->add(static_cast<$Component*>(bottomPanel), $of($BorderLayout::SOUTH));
+	fc->add(bottomPanel, $BorderLayout::SOUTH);
 	$var($JPanel, fileNamePanel, $new($JPanel));
 	fileNamePanel->setLayout($$new($BoxLayout, fileNamePanel, $BoxLayout::LINE_AXIS));
-	bottomPanel->add(static_cast<$Component*>(fileNamePanel));
+	bottomPanel->add(fileNamePanel);
 	bottomPanel->add($($Box::createRigidArea(MetalFileChooserUI::vstrut5)));
 	$set(this, fileNameLabel, $new($MetalFileChooserUI$AlignedLabel, this));
 	populateFileNameLabel();
-	fileNamePanel->add(static_cast<$Component*>(this->fileNameLabel));
+	fileNamePanel->add(this->fileNameLabel);
 	$var($JTextField, tmp2, $new($MetalFileChooserUI$3, this, 35));
 	$set(this, fileNameTextField, tmp2);
-	fileNamePanel->add(static_cast<$Component*>(this->fileNameTextField));
+	fileNamePanel->add(this->fileNameTextField);
 	$nc(this->fileNameLabel)->setLabelFor(this->fileNameTextField);
 	$nc(this->fileNameTextField)->addFocusListener($$new($MetalFileChooserUI$4, this));
 	if (fc->isMultiSelectionEnabled()) {
@@ -498,26 +332,26 @@ void MetalFileChooserUI::installComponents($JFileChooser* fc) {
 	}
 	$var($JPanel, filesOfTypePanel, $new($JPanel));
 	filesOfTypePanel->setLayout($$new($BoxLayout, filesOfTypePanel, $BoxLayout::LINE_AXIS));
-	bottomPanel->add(static_cast<$Component*>(filesOfTypePanel));
+	bottomPanel->add(filesOfTypePanel);
 	$var($MetalFileChooserUI$AlignedLabel, filesOfTypeLabel, $new($MetalFileChooserUI$AlignedLabel, this, this->filesOfTypeLabelText));
 	filesOfTypeLabel->setDisplayedMnemonic(this->filesOfTypeLabelMnemonic);
-	filesOfTypePanel->add(static_cast<$Component*>(filesOfTypeLabel));
+	filesOfTypePanel->add(filesOfTypeLabel);
 	$set(this, filterComboBoxModel, createFilterComboBoxModel());
 	fc->addPropertyChangeListener(this->filterComboBoxModel);
-	$set(this, filterComboBox, $new($JComboBox, static_cast<$ComboBoxModel*>(this->filterComboBoxModel)));
-	$nc(this->filterComboBox)->putClientProperty($AccessibleContext::ACCESSIBLE_DESCRIPTION_PROPERTY, this->filesOfTypeLabelText);
+	$set(this, filterComboBox, $new($JComboBox, this->filterComboBoxModel));
+	this->filterComboBox->putClientProperty($AccessibleContext::ACCESSIBLE_DESCRIPTION_PROPERTY, this->filesOfTypeLabelText);
 	filesOfTypeLabel->setLabelFor(this->filterComboBox);
 	$nc(this->filterComboBox)->setRenderer($(createFilterComboBoxRenderer()));
-	filesOfTypePanel->add(static_cast<$Component*>(this->filterComboBox));
-	$nc($(getButtonPanel()))->setLayout($$new($MetalFileChooserUI$ButtonAreaLayout));
+	filesOfTypePanel->add(this->filterComboBox);
+	$$nc(getButtonPanel())->setLayout($$new($MetalFileChooserUI$ButtonAreaLayout));
 	$set(this, approveButton, $new($JButton, $(getApproveButtonText(fc))));
 	$nc(this->approveButton)->addActionListener($(getApproveSelectionAction()));
 	$nc(this->approveButton)->setToolTipText($(getApproveButtonToolTipText(fc)));
-	$nc($(getButtonPanel()))->add(static_cast<$Component*>(this->approveButton));
+	$$nc(getButtonPanel())->add(this->approveButton);
 	$set(this, cancelButton, $new($JButton, this->cancelButtonText));
-	$nc(this->cancelButton)->setToolTipText(this->cancelButtonToolTipText);
+	this->cancelButton->setToolTipText(this->cancelButtonToolTipText);
 	$nc(this->cancelButton)->addActionListener($(getCancelSelectionAction()));
-	$nc($(getButtonPanel()))->add(static_cast<$Component*>(this->cancelButton));
+	$$nc(getButtonPanel())->add(this->cancelButton);
 	if (fc->getControlButtonsAreShown()) {
 		addControlButtons();
 	}
@@ -542,32 +376,32 @@ $JPanel* MetalFileChooserUI::getBottomPanel() {
 }
 
 void MetalFileChooserUI::installStrings($JFileChooser* fc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicFileChooserUI::installStrings(fc);
 	$var($Locale, l, $nc(fc)->getLocale());
-	this->lookInLabelMnemonic = $nc($(getMnemonic("FileChooser.lookInLabelMnemonic"_s, l)))->intValue();
-	$set(this, lookInLabelText, $UIManager::getString($of("FileChooser.lookInLabelText"_s), l));
-	$set(this, saveInLabelText, $UIManager::getString($of("FileChooser.saveInLabelText"_s), l));
-	this->fileNameLabelMnemonic = $nc($(getMnemonic("FileChooser.fileNameLabelMnemonic"_s, l)))->intValue();
-	$set(this, fileNameLabelText, $UIManager::getString($of("FileChooser.fileNameLabelText"_s), l));
-	this->folderNameLabelMnemonic = $nc($(getMnemonic("FileChooser.folderNameLabelMnemonic"_s, l)))->intValue();
-	$set(this, folderNameLabelText, $UIManager::getString($of("FileChooser.folderNameLabelText"_s), l));
-	this->filesOfTypeLabelMnemonic = $nc($(getMnemonic("FileChooser.filesOfTypeLabelMnemonic"_s, l)))->intValue();
-	$set(this, filesOfTypeLabelText, $UIManager::getString($of("FileChooser.filesOfTypeLabelText"_s), l));
-	$set(this, upFolderToolTipText, $UIManager::getString($of("FileChooser.upFolderToolTipText"_s), l));
-	$set(this, upFolderAccessibleName, $UIManager::getString($of("FileChooser.upFolderAccessibleName"_s), l));
-	$set(this, homeFolderToolTipText, $UIManager::getString($of("FileChooser.homeFolderToolTipText"_s), l));
-	$set(this, homeFolderAccessibleName, $UIManager::getString($of("FileChooser.homeFolderAccessibleName"_s), l));
-	$set(this, newFolderToolTipText, $UIManager::getString($of("FileChooser.newFolderToolTipText"_s), l));
-	$set(this, newFolderAccessibleName, $UIManager::getString($of("FileChooser.newFolderAccessibleName"_s), l));
-	$set(this, listViewButtonToolTipText, $UIManager::getString($of("FileChooser.listViewButtonToolTipText"_s), l));
-	$set(this, listViewButtonAccessibleName, $UIManager::getString($of("FileChooser.listViewButtonAccessibleName"_s), l));
-	$set(this, detailsViewButtonToolTipText, $UIManager::getString($of("FileChooser.detailsViewButtonToolTipText"_s), l));
-	$set(this, detailsViewButtonAccessibleName, $UIManager::getString($of("FileChooser.detailsViewButtonAccessibleName"_s), l));
+	this->lookInLabelMnemonic = $$nc(getMnemonic("FileChooser.lookInLabelMnemonic"_s, l))->intValue();
+	$set(this, lookInLabelText, $UIManager::getString("FileChooser.lookInLabelText"_s, l));
+	$set(this, saveInLabelText, $UIManager::getString("FileChooser.saveInLabelText"_s, l));
+	this->fileNameLabelMnemonic = $$nc(getMnemonic("FileChooser.fileNameLabelMnemonic"_s, l))->intValue();
+	$set(this, fileNameLabelText, $UIManager::getString("FileChooser.fileNameLabelText"_s, l));
+	this->folderNameLabelMnemonic = $$nc(getMnemonic("FileChooser.folderNameLabelMnemonic"_s, l))->intValue();
+	$set(this, folderNameLabelText, $UIManager::getString("FileChooser.folderNameLabelText"_s, l));
+	this->filesOfTypeLabelMnemonic = $$nc(getMnemonic("FileChooser.filesOfTypeLabelMnemonic"_s, l))->intValue();
+	$set(this, filesOfTypeLabelText, $UIManager::getString("FileChooser.filesOfTypeLabelText"_s, l));
+	$set(this, upFolderToolTipText, $UIManager::getString("FileChooser.upFolderToolTipText"_s, l));
+	$set(this, upFolderAccessibleName, $UIManager::getString("FileChooser.upFolderAccessibleName"_s, l));
+	$set(this, homeFolderToolTipText, $UIManager::getString("FileChooser.homeFolderToolTipText"_s, l));
+	$set(this, homeFolderAccessibleName, $UIManager::getString("FileChooser.homeFolderAccessibleName"_s, l));
+	$set(this, newFolderToolTipText, $UIManager::getString("FileChooser.newFolderToolTipText"_s, l));
+	$set(this, newFolderAccessibleName, $UIManager::getString("FileChooser.newFolderAccessibleName"_s, l));
+	$set(this, listViewButtonToolTipText, $UIManager::getString("FileChooser.listViewButtonToolTipText"_s, l));
+	$set(this, listViewButtonAccessibleName, $UIManager::getString("FileChooser.listViewButtonAccessibleName"_s, l));
+	$set(this, detailsViewButtonToolTipText, $UIManager::getString("FileChooser.detailsViewButtonToolTipText"_s, l));
+	$set(this, detailsViewButtonAccessibleName, $UIManager::getString("FileChooser.detailsViewButtonAccessibleName"_s, l));
 }
 
 $Integer* MetalFileChooserUI::getMnemonic($String* key, $Locale* l) {
-	return $Integer::valueOf($SwingUtilities2::getUIDefaultsInt($of(key), l));
+	return $Integer::valueOf($SwingUtilities2::getUIDefaultsInt(key, l));
 }
 
 void MetalFileChooserUI::installListeners($JFileChooser* fc) {
@@ -581,7 +415,7 @@ $ActionMap* MetalFileChooserUI::getActionMap() {
 }
 
 $ActionMap* MetalFileChooserUI::createActionMap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ActionMap, map, $new($ActionMapUIResource));
 	$FilePane::addActionsToMap(map, $($nc(this->filePane)->getActions()));
 	return map;
@@ -600,25 +434,25 @@ $ListSelectionListener* MetalFileChooserUI::createListSelectionListener($JFileCh
 }
 
 void MetalFileChooserUI::uninstallUI($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(c)->removePropertyChangeListener(this->filterComboBoxModel);
 	c->removePropertyChangeListener(this->filePane);
 	$nc(this->cancelButton)->removeActionListener($(getCancelSelectionAction()));
 	$nc(this->approveButton)->removeActionListener($(getApproveSelectionAction()));
 	$nc(this->fileNameTextField)->removeActionListener($(getApproveSelectionAction()));
 	if (this->filePane != nullptr) {
-		$nc(this->filePane)->uninstallUI();
+		this->filePane->uninstallUI();
 		$set(this, filePane, nullptr);
 	}
 	$BasicFileChooserUI::uninstallUI(c);
 }
 
 $Dimension* MetalFileChooserUI::getPreferredSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t prefWidth = $nc(MetalFileChooserUI::PREF_SIZE)->width;
-	$var($Dimension, d, $nc($($nc(c)->getLayout()))->preferredLayoutSize(c));
+	$var($Dimension, d, $$nc($nc(c)->getLayout())->preferredLayoutSize(c));
 	if (d != nullptr) {
-		return $new($Dimension, d->width < prefWidth ? prefWidth : d->width, d->height < $nc(MetalFileChooserUI::PREF_SIZE)->height ? $nc(MetalFileChooserUI::PREF_SIZE)->height : d->height);
+		return $new($Dimension, d->width < prefWidth ? prefWidth : d->width, d->height < $nc(MetalFileChooserUI::PREF_SIZE)->height ? MetalFileChooserUI::PREF_SIZE->height : d->height);
 	} else {
 		return $new($Dimension, prefWidth, $nc(MetalFileChooserUI::PREF_SIZE)->height);
 	}
@@ -633,28 +467,28 @@ $Dimension* MetalFileChooserUI::getMaximumSize($JComponent* c) {
 }
 
 $String* MetalFileChooserUI::fileNameString($File* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (file == nullptr) {
 		return nullptr;
 	} else {
 		$var($JFileChooser, fc, getFileChooser());
 		bool var$1 = $nc(fc)->isDirectorySelectionEnabled();
-		bool var$0 = (var$1 && !fc->isFileSelectionEnabled());
+		bool var$0 = var$1 && !fc->isFileSelectionEnabled();
 		if (!var$0) {
-			bool var$3 = $nc(fc)->isDirectorySelectionEnabled();
+			bool var$3 = fc->isDirectorySelectionEnabled();
 			bool var$2 = var$3 && fc->isFileSelectionEnabled();
-			var$0 = (var$2 && $nc($(fc->getFileSystemView()))->isFileSystemRoot(file));
+			var$0 = var$2 && $$nc(fc->getFileSystemView())->isFileSystemRoot(file);
 		}
 		if (var$0) {
-			return $nc(file)->getPath();
+			return file->getPath();
 		} else {
-			return $nc(file)->getName();
+			return file->getName();
 		}
 	}
 }
 
 $String* MetalFileChooserUI::fileNameString($FileArray* files) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	for (int32_t i = 0; files != nullptr && i < files->length; ++i) {
 		if (i > 0) {
@@ -672,18 +506,18 @@ $String* MetalFileChooserUI::fileNameString($FileArray* files) {
 }
 
 void MetalFileChooserUI::doSelectedFileChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, f, $cast($File, $nc(e)->getNewValue()));
 	$var($JFileChooser, fc, getFileChooser());
 	bool var$0 = f != nullptr;
 	if (var$0) {
 		bool var$2 = $nc(fc)->isFileSelectionEnabled();
-		bool var$1 = (var$2 && !f->isDirectory());
+		bool var$1 = var$2 && !f->isDirectory();
 		if (!var$1) {
-			bool var$3 = $nc(f)->isDirectory();
-			var$1 = (var$3 && $nc(fc)->isDirectorySelectionEnabled());
+			bool var$3 = f->isDirectory();
+			var$1 = var$3 && fc->isDirectorySelectionEnabled();
 		}
-		var$0 = (var$1);
+		var$0 = var$1;
 	}
 	if (var$0) {
 		setFileName($(fileNameString(f)));
@@ -691,13 +525,13 @@ void MetalFileChooserUI::doSelectedFileChanged($PropertyChangeEvent* e) {
 }
 
 void MetalFileChooserUI::doSelectedFilesChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileArray, files, $cast($FileArray, $nc(e)->getNewValue()));
 	$var($JFileChooser, fc, getFileChooser());
 	bool var$0 = files != nullptr && files->length > 0;
 	if (var$0) {
 		bool var$1 = files->length > 1 || $nc(fc)->isDirectorySelectionEnabled();
-		var$0 = (var$1 || !$nc(files->get(0))->isDirectory());
+		var$0 = var$1 || !$nc(files->get(0))->isDirectory();
 	}
 	if (var$0) {
 		setFileName($(fileNameString(files)));
@@ -705,7 +539,7 @@ void MetalFileChooserUI::doSelectedFilesChanged($PropertyChangeEvent* e) {
 }
 
 void MetalFileChooserUI::doDirectoryChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFileChooser, fc, getFileChooser());
 	$var($FileSystemView, fsv, $nc(fc)->getFileSystemView());
 	clearIconCache();
@@ -728,7 +562,7 @@ void MetalFileChooserUI::doFilterChanged($PropertyChangeEvent* e) {
 }
 
 void MetalFileChooserUI::doFileSelectionModeChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fileNameLabel != nullptr) {
 		populateFileNameLabel();
 	}
@@ -737,7 +571,7 @@ void MetalFileChooserUI::doFileSelectionModeChanged($PropertyChangeEvent* e) {
 	$var($File, currentDirectory, $nc(fc)->getCurrentDirectory());
 	bool var$1 = currentDirectory != nullptr && fc->isDirectorySelectionEnabled();
 	bool var$0 = var$1 && !fc->isFileSelectionEnabled();
-	if (var$0 && $nc($(fc->getFileSystemView()))->isFileSystem(currentDirectory)) {
+	if (var$0 && $$nc(fc->getFileSystemView())->isFileSystem(currentDirectory)) {
 		setFileName($(currentDirectory->getPath()));
 	} else {
 		setFileName(nullptr);
@@ -745,28 +579,28 @@ void MetalFileChooserUI::doFileSelectionModeChanged($PropertyChangeEvent* e) {
 }
 
 void MetalFileChooserUI::doAccessoryChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getAccessoryPanel() != nullptr) {
 		if ($nc(e)->getOldValue() != nullptr) {
-			$nc($(getAccessoryPanel()))->remove($cast($JComponent, $(e->getOldValue())));
+			$$nc(getAccessoryPanel())->remove($$cast($JComponent, e->getOldValue()));
 		}
-		$var($JComponent, accessory, $cast($JComponent, $nc(e)->getNewValue()));
+		$var($JComponent, accessory, $cast($JComponent, e->getNewValue()));
 		if (accessory != nullptr) {
 			$init($BorderLayout);
-			$nc($(getAccessoryPanel()))->add(static_cast<$Component*>(accessory), $of($BorderLayout::CENTER));
+			$$nc(getAccessoryPanel())->add(accessory, $BorderLayout::CENTER);
 		}
 	}
 }
 
 void MetalFileChooserUI::doApproveButtonTextChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFileChooser, chooser, getFileChooser());
 	$nc(this->approveButton)->setText($(getApproveButtonText(chooser)));
 	$nc(this->approveButton)->setToolTipText($(getApproveButtonToolTipText(chooser)));
 }
 
 void MetalFileChooserUI::doDialogTypeChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFileChooser, chooser, getFileChooser());
 	$nc(this->approveButton)->setText($(getApproveButtonText(chooser)));
 	$nc(this->approveButton)->setToolTipText($(getApproveButtonToolTipText(chooser)));
@@ -781,7 +615,7 @@ void MetalFileChooserUI::doApproveButtonMnemonicChanged($PropertyChangeEvent* e)
 }
 
 void MetalFileChooserUI::doControlButtonsChanged($PropertyChangeEvent* e) {
-	if ($nc($(getFileChooser()))->getControlButtonsAreShown()) {
+	if ($$nc(getFileChooser())->getControlButtonsAreShown()) {
 		addControlButtons();
 	} else {
 		removeControlButtons();
@@ -793,13 +627,13 @@ $PropertyChangeListener* MetalFileChooserUI::createPropertyChangeListener($JFile
 }
 
 void MetalFileChooserUI::removeControlButtons() {
-	$useLocalCurrentObjectStackCache();
-	$nc($(getBottomPanel()))->remove($(static_cast<$Component*>(getButtonPanel())));
+	$useLocalObjectStack();
+	$$nc(getBottomPanel())->remove($(getButtonPanel()));
 }
 
 void MetalFileChooserUI::addControlButtons() {
-	$useLocalCurrentObjectStackCache();
-	$nc($(getBottomPanel()))->add($(static_cast<$Component*>(getButtonPanel())));
+	$useLocalObjectStack();
+	$$nc(getBottomPanel())->add($(getButtonPanel()));
 }
 
 void MetalFileChooserUI::ensureFileIsVisible($JFileChooser* fc, $File* f) {
@@ -812,7 +646,7 @@ void MetalFileChooserUI::rescanCurrentDirectory($JFileChooser* fc) {
 
 $String* MetalFileChooserUI::getFileName() {
 	if (this->fileNameTextField != nullptr) {
-		return $nc(this->fileNameTextField)->getText();
+		return this->fileNameTextField->getText();
 	} else {
 		return nullptr;
 	}
@@ -820,21 +654,21 @@ $String* MetalFileChooserUI::getFileName() {
 
 void MetalFileChooserUI::setFileName($String* filename) {
 	if (this->fileNameTextField != nullptr) {
-		$nc(this->fileNameTextField)->setText(filename);
+		this->fileNameTextField->setText(filename);
 	}
 }
 
 void MetalFileChooserUI::setDirectorySelected(bool directorySelected) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicFileChooserUI::setDirectorySelected(directorySelected);
 	$var($JFileChooser, chooser, getFileChooser());
 	if (directorySelected) {
 		if (this->approveButton != nullptr) {
-			$nc(this->approveButton)->setText(this->directoryOpenButtonText);
+			this->approveButton->setText(this->directoryOpenButtonText);
 			$nc(this->approveButton)->setToolTipText(this->directoryOpenButtonToolTipText);
 		}
 	} else if (this->approveButton != nullptr) {
-		$nc(this->approveButton)->setText($(getApproveButtonText(chooser)));
+		this->approveButton->setText($(getApproveButtonText(chooser)));
 		$nc(this->approveButton)->setToolTipText($(getApproveButtonToolTipText(chooser)));
 	}
 }
@@ -863,11 +697,11 @@ $MetalFileChooserUI$FilterComboBoxModel* MetalFileChooserUI::createFilterComboBo
 }
 
 void MetalFileChooserUI::valueChanged($ListSelectionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFileChooser, fc, getFileChooser());
 	$var($File, f, $nc(fc)->getSelectedFile());
 	bool var$0 = !$nc(e)->getValueIsAdjusting() && f != nullptr;
-	if (var$0 && !$nc($(getFileChooser()))->isTraversable(f)) {
+	if (var$0 && !$$nc(getFileChooser())->isTraversable(f)) {
 		setFileName($(fileNameString(f)));
 	}
 }
@@ -883,7 +717,7 @@ void MetalFileChooserUI::groupLabels($MetalFileChooserUI$AlignedLabelArray* grou
 	}
 }
 
-void clinit$MetalFileChooserUI($Class* class$) {
+void MetalFileChooserUI::clinit$($Class* clazz) {
 	$assignStatic(MetalFileChooserUI::hstrut5, $new($Dimension, 5, 1));
 	$assignStatic(MetalFileChooserUI::hstrut11, $new($Dimension, 11, 1));
 	$assignStatic(MetalFileChooserUI::vstrut5, $new($Dimension, 1, 5));
@@ -902,7 +736,147 @@ MetalFileChooserUI::MetalFileChooserUI() {
 }
 
 $Class* MetalFileChooserUI::load$($String* name, bool initialize) {
-	$loadClass(MetalFileChooserUI, name, initialize, &_MetalFileChooserUI_ClassInfo_, clinit$MetalFileChooserUI, allocate$MetalFileChooserUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"lookInLabel", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(MetalFileChooserUI, lookInLabel)},
+		{"directoryComboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljava/lang/Object;>;", $PRIVATE, $field(MetalFileChooserUI, directoryComboBox)},
+		{"directoryComboBoxModel", "Ljavax/swing/plaf/metal/MetalFileChooserUI$DirectoryComboBoxModel;", nullptr, $PRIVATE, $field(MetalFileChooserUI, directoryComboBoxModel)},
+		{"directoryComboBoxAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(MetalFileChooserUI, directoryComboBoxAction)},
+		{"filterComboBoxModel", "Ljavax/swing/plaf/metal/MetalFileChooserUI$FilterComboBoxModel;", nullptr, $PRIVATE, $field(MetalFileChooserUI, filterComboBoxModel)},
+		{"fileNameTextField", "Ljavax/swing/JTextField;", nullptr, $PRIVATE, $field(MetalFileChooserUI, fileNameTextField)},
+		{"filePane", "Lsun/swing/FilePane;", nullptr, $PRIVATE, $field(MetalFileChooserUI, filePane)},
+		{"listViewButton", "Ljavax/swing/JToggleButton;", nullptr, $PRIVATE, $field(MetalFileChooserUI, listViewButton)},
+		{"detailsViewButton", "Ljavax/swing/JToggleButton;", nullptr, $PRIVATE, $field(MetalFileChooserUI, detailsViewButton)},
+		{"approveButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE, $field(MetalFileChooserUI, approveButton)},
+		{"cancelButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE, $field(MetalFileChooserUI, cancelButton)},
+		{"buttonPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(MetalFileChooserUI, buttonPanel)},
+		{"bottomPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(MetalFileChooserUI, bottomPanel)},
+		{"filterComboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<*>;", $PRIVATE, $field(MetalFileChooserUI, filterComboBox)},
+		{"hstrut5", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalFileChooserUI, hstrut5)},
+		{"hstrut11", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalFileChooserUI, hstrut11)},
+		{"vstrut5", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalFileChooserUI, vstrut5)},
+		{"shrinkwrap", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalFileChooserUI, shrinkwrap)},
+		{"PREF_WIDTH", "I", nullptr, $PRIVATE | $STATIC, $staticField(MetalFileChooserUI, PREF_WIDTH)},
+		{"PREF_HEIGHT", "I", nullptr, $PRIVATE | $STATIC, $staticField(MetalFileChooserUI, PREF_HEIGHT)},
+		{"PREF_SIZE", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(MetalFileChooserUI, PREF_SIZE)},
+		{"MIN_WIDTH", "I", nullptr, $PRIVATE | $STATIC, $staticField(MetalFileChooserUI, MIN_WIDTH)},
+		{"MIN_HEIGHT", "I", nullptr, $PRIVATE | $STATIC, $staticField(MetalFileChooserUI, MIN_HEIGHT)},
+		{"LIST_PREF_WIDTH", "I", nullptr, $PRIVATE | $STATIC, $staticField(MetalFileChooserUI, LIST_PREF_WIDTH)},
+		{"LIST_PREF_HEIGHT", "I", nullptr, $PRIVATE | $STATIC, $staticField(MetalFileChooserUI, LIST_PREF_HEIGHT)},
+		{"LIST_PREF_SIZE", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(MetalFileChooserUI, LIST_PREF_SIZE)},
+		{"lookInLabelMnemonic", "I", nullptr, $PRIVATE, $field(MetalFileChooserUI, lookInLabelMnemonic)},
+		{"lookInLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, lookInLabelText)},
+		{"saveInLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, saveInLabelText)},
+		{"fileNameLabelMnemonic", "I", nullptr, $PRIVATE, $field(MetalFileChooserUI, fileNameLabelMnemonic)},
+		{"fileNameLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, fileNameLabelText)},
+		{"folderNameLabelMnemonic", "I", nullptr, $PRIVATE, $field(MetalFileChooserUI, folderNameLabelMnemonic)},
+		{"folderNameLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, folderNameLabelText)},
+		{"filesOfTypeLabelMnemonic", "I", nullptr, $PRIVATE, $field(MetalFileChooserUI, filesOfTypeLabelMnemonic)},
+		{"filesOfTypeLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, filesOfTypeLabelText)},
+		{"upFolderToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, upFolderToolTipText)},
+		{"upFolderAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, upFolderAccessibleName)},
+		{"homeFolderToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, homeFolderToolTipText)},
+		{"homeFolderAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, homeFolderAccessibleName)},
+		{"newFolderToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, newFolderToolTipText)},
+		{"newFolderAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, newFolderAccessibleName)},
+		{"listViewButtonToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, listViewButtonToolTipText)},
+		{"listViewButtonAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, listViewButtonAccessibleName)},
+		{"detailsViewButtonToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, detailsViewButtonToolTipText)},
+		{"detailsViewButtonAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MetalFileChooserUI, detailsViewButtonAccessibleName)},
+		{"fileNameLabel", "Ljavax/swing/plaf/metal/MetalFileChooserUI$AlignedLabel;", nullptr, $PRIVATE, $field(MetalFileChooserUI, fileNameLabel)},
+		{"space", "I", nullptr, $STATIC | $FINAL, $constField(MetalFileChooserUI, space)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $method(MetalFileChooserUI, init$, void, $JFileChooser*)},
+		{"access$000", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalFileChooserUI, access$000, bool, MetalFileChooserUI*)},
+		{"access$100", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;)Ljava/io/File;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalFileChooserUI, access$100, $File*, MetalFileChooserUI*)},
+		{"access$200", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;Ljavax/swing/JFileChooser;Ljavax/swing/JList;)Ljava/awt/event/MouseListener;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalFileChooserUI, access$200, $MouseListener*, MetalFileChooserUI*, $JFileChooser*, $JList*)},
+		{"addControlButtons", "()V", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, addControlButtons, void)},
+		{"createActionMap", "()Ljavax/swing/ActionMap;", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, createActionMap, $ActionMap*)},
+		{"createDetailsView", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JPanel;", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, createDetailsView, $JPanel*, $JFileChooser*)},
+		{"createDirectoryComboBoxModel", "(Ljavax/swing/JFileChooser;)Ljavax/swing/plaf/metal/MetalFileChooserUI$DirectoryComboBoxModel;", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, createDirectoryComboBoxModel, $MetalFileChooserUI$DirectoryComboBoxModel*, $JFileChooser*)},
+		{"createDirectoryComboBoxRenderer", "(Ljavax/swing/JFileChooser;)Ljavax/swing/DefaultListCellRenderer;", nullptr, $PRIVATE, $method(MetalFileChooserUI, createDirectoryComboBoxRenderer, $DefaultListCellRenderer*, $JFileChooser*)},
+		{"createFilterComboBoxModel", "()Ljavax/swing/plaf/metal/MetalFileChooserUI$FilterComboBoxModel;", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, createFilterComboBoxModel, $MetalFileChooserUI$FilterComboBoxModel*)},
+		{"createFilterComboBoxRenderer", "()Ljavax/swing/plaf/metal/MetalFileChooserUI$FilterComboBoxRenderer;", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, createFilterComboBoxRenderer, $MetalFileChooserUI$FilterComboBoxRenderer*)},
+		{"createList", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JPanel;", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, createList, $JPanel*, $JFileChooser*)},
+		{"createListSelectionListener", "(Ljavax/swing/JFileChooser;)Ljavax/swing/event/ListSelectionListener;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, createListSelectionListener, $ListSelectionListener*, $JFileChooser*)},
+		{"createPropertyChangeListener", "(Ljavax/swing/JFileChooser;)Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, createPropertyChangeListener, $PropertyChangeListener*, $JFileChooser*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalFileChooserUI, createUI, $ComponentUI*, $JComponent*)},
+		{"doAccessoryChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(MetalFileChooserUI, doAccessoryChanged, void, $PropertyChangeEvent*)},
+		{"doApproveButtonMnemonicChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(MetalFileChooserUI, doApproveButtonMnemonicChanged, void, $PropertyChangeEvent*)},
+		{"doApproveButtonTextChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(MetalFileChooserUI, doApproveButtonTextChanged, void, $PropertyChangeEvent*)},
+		{"doControlButtonsChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(MetalFileChooserUI, doControlButtonsChanged, void, $PropertyChangeEvent*)},
+		{"doDialogTypeChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(MetalFileChooserUI, doDialogTypeChanged, void, $PropertyChangeEvent*)},
+		{"doDirectoryChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(MetalFileChooserUI, doDirectoryChanged, void, $PropertyChangeEvent*)},
+		{"doFileSelectionModeChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(MetalFileChooserUI, doFileSelectionModeChanged, void, $PropertyChangeEvent*)},
+		{"doFilterChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(MetalFileChooserUI, doFilterChanged, void, $PropertyChangeEvent*)},
+		{"doSelectedFileChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(MetalFileChooserUI, doSelectedFileChanged, void, $PropertyChangeEvent*)},
+		{"doSelectedFilesChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(MetalFileChooserUI, doSelectedFilesChanged, void, $PropertyChangeEvent*)},
+		{"ensureFileIsVisible", "(Ljavax/swing/JFileChooser;Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, ensureFileIsVisible, void, $JFileChooser*, $File*)},
+		{"fileNameString", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PRIVATE, $method(MetalFileChooserUI, fileNameString, $String*, $File*)},
+		{"fileNameString", "([Ljava/io/File;)Ljava/lang/String;", nullptr, $PRIVATE, $method(MetalFileChooserUI, fileNameString, $String*, $FileArray*)},
+		{"getActionMap", "()Ljavax/swing/ActionMap;", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, getActionMap, $ActionMap*)},
+		{"getApproveButton", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, getApproveButton, $JButton*, $JFileChooser*)},
+		{"getBottomPanel", "()Ljavax/swing/JPanel;", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, getBottomPanel, $JPanel*)},
+		{"getButtonPanel", "()Ljavax/swing/JPanel;", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, getButtonPanel, $JPanel*)},
+		{"getDirectoryName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, getDirectoryName, $String*)},
+		{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, getFileName, $String*)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getMnemonic", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/Integer;", nullptr, $PRIVATE, $method(MetalFileChooserUI, getMnemonic, $Integer*, $String*, $Locale*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"groupLabels", "([Ljavax/swing/plaf/metal/MetalFileChooserUI$AlignedLabel;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MetalFileChooserUI, groupLabels, void, $MetalFileChooserUI$AlignedLabelArray*)},
+		{"installComponents", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, installComponents, void, $JFileChooser*)},
+		{"installListeners", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, installListeners, void, $JFileChooser*)},
+		{"installStrings", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, installStrings, void, $JFileChooser*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, installUI, void, $JComponent*)},
+		{"populateFileNameLabel", "()V", nullptr, $PRIVATE, $method(MetalFileChooserUI, populateFileNameLabel, void)},
+		{"removeControlButtons", "()V", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, removeControlButtons, void)},
+		{"rescanCurrentDirectory", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, rescanCurrentDirectory, void, $JFileChooser*)},
+		{"setDirectoryName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, setDirectoryName, void, $String*)},
+		{"setDirectorySelected", "(Z)V", nullptr, $PROTECTED, $virtualMethod(MetalFileChooserUI, setDirectorySelected, void, bool)},
+		{"setFileName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, setFileName, void, $String*)},
+		{"uninstallComponents", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, uninstallComponents, void, $JFileChooser*)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, uninstallUI, void, $JComponent*)},
+		{"valueChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI, valueChanged, void, $ListSelectionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalFileChooserUI$AlignedLabel", "javax.swing.plaf.metal.MetalFileChooserUI", "AlignedLabel", $PRIVATE},
+		{"javax.swing.plaf.metal.MetalFileChooserUI$ButtonAreaLayout", "javax.swing.plaf.metal.MetalFileChooserUI", "ButtonAreaLayout", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.MetalFileChooserUI$DirectoryComboBoxAction", "javax.swing.plaf.metal.MetalFileChooserUI", "DirectoryComboBoxAction", $PROTECTED},
+		{"javax.swing.plaf.metal.MetalFileChooserUI$FilterComboBoxModel", "javax.swing.plaf.metal.MetalFileChooserUI", "FilterComboBoxModel", $PROTECTED},
+		{"javax.swing.plaf.metal.MetalFileChooserUI$FilterComboBoxRenderer", "javax.swing.plaf.metal.MetalFileChooserUI", "FilterComboBoxRenderer", $PUBLIC},
+		{"javax.swing.plaf.metal.MetalFileChooserUI$DirectoryComboBoxModel", "javax.swing.plaf.metal.MetalFileChooserUI", "DirectoryComboBoxModel", $PROTECTED},
+		{"javax.swing.plaf.metal.MetalFileChooserUI$IndentIcon", "javax.swing.plaf.metal.MetalFileChooserUI", "IndentIcon", 0},
+		{"javax.swing.plaf.metal.MetalFileChooserUI$DirectoryComboBoxRenderer", "javax.swing.plaf.metal.MetalFileChooserUI", "DirectoryComboBoxRenderer", 0},
+		{"javax.swing.plaf.metal.MetalFileChooserUI$FileRenderer", "javax.swing.plaf.metal.MetalFileChooserUI", "FileRenderer", $PROTECTED},
+		{"javax.swing.plaf.metal.MetalFileChooserUI$SingleClickListener", "javax.swing.plaf.metal.MetalFileChooserUI", "SingleClickListener", $PROTECTED},
+		{"javax.swing.plaf.metal.MetalFileChooserUI$MetalFileChooserUIAccessor", "javax.swing.plaf.metal.MetalFileChooserUI", "MetalFileChooserUIAccessor", $PRIVATE},
+		{"javax.swing.plaf.metal.MetalFileChooserUI$5", nullptr, nullptr, 0},
+		{"javax.swing.plaf.metal.MetalFileChooserUI$4", nullptr, nullptr, 0},
+		{"javax.swing.plaf.metal.MetalFileChooserUI$3", nullptr, nullptr, 0},
+		{"javax.swing.plaf.metal.MetalFileChooserUI$2", nullptr, nullptr, 0},
+		{"javax.swing.plaf.metal.MetalFileChooserUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalFileChooserUI",
+		"javax.swing.plaf.basic.BasicFileChooserUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalFileChooserUI$AlignedLabel,javax.swing.plaf.metal.MetalFileChooserUI$ButtonAreaLayout,javax.swing.plaf.metal.MetalFileChooserUI$DirectoryComboBoxAction,javax.swing.plaf.metal.MetalFileChooserUI$FilterComboBoxModel,javax.swing.plaf.metal.MetalFileChooserUI$FilterComboBoxRenderer,javax.swing.plaf.metal.MetalFileChooserUI$DirectoryComboBoxModel,javax.swing.plaf.metal.MetalFileChooserUI$IndentIcon,javax.swing.plaf.metal.MetalFileChooserUI$DirectoryComboBoxRenderer,javax.swing.plaf.metal.MetalFileChooserUI$FileRenderer,javax.swing.plaf.metal.MetalFileChooserUI$SingleClickListener,javax.swing.plaf.metal.MetalFileChooserUI$MetalFileChooserUIAccessor,javax.swing.plaf.metal.MetalFileChooserUI$5,javax.swing.plaf.metal.MetalFileChooserUI$4,javax.swing.plaf.metal.MetalFileChooserUI$3,javax.swing.plaf.metal.MetalFileChooserUI$2,javax.swing.plaf.metal.MetalFileChooserUI$1"
+	};
+	$loadClass(MetalFileChooserUI, name, initialize, &classInfo$$, MetalFileChooserUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalFileChooserUI);
+	});
 	return class$;
 }
 

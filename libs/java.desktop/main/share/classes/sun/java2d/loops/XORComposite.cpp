@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/XORComposite.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/CompositeContext.h>
 #include <java/awt/RenderingHints.h>
@@ -23,35 +22,6 @@ using $SurfaceType = ::sun::java2d::loops::SurfaceType;
 namespace sun {
 	namespace java2d {
 		namespace loops {
-
-$FieldInfo _XORComposite_FieldInfo_[] = {
-	{"xorColor", "Ljava/awt/Color;", nullptr, 0, $field(XORComposite, xorColor)},
-	{"xorPixel", "I", nullptr, 0, $field(XORComposite, xorPixel)},
-	{"alphaMask", "I", nullptr, 0, $field(XORComposite, alphaMask)},
-	{}
-};
-
-$MethodInfo _XORComposite_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Color;Lsun/java2d/SurfaceData;)V", nullptr, $PUBLIC, $method(XORComposite, init$, void, $Color*, $SurfaceData*)},
-	{"createContext", "(Ljava/awt/image/ColorModel;Ljava/awt/image/ColorModel;Ljava/awt/RenderingHints;)Ljava/awt/CompositeContext;", nullptr, $PUBLIC, $virtualMethod(XORComposite, createContext, $CompositeContext*, $ColorModel*, $ColorModel*, $RenderingHints*)},
-	{"getAlphaMask", "()I", nullptr, $PUBLIC, $method(XORComposite, getAlphaMask, int32_t)},
-	{"getXorColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $method(XORComposite, getXorColor, $Color*)},
-	{"getXorPixel", "()I", nullptr, $PUBLIC, $method(XORComposite, getXorPixel, int32_t)},
-	{}
-};
-
-$ClassInfo _XORComposite_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.java2d.loops.XORComposite",
-	"java.lang.Object",
-	"java.awt.Composite",
-	_XORComposite_FieldInfo_,
-	_XORComposite_MethodInfo_
-};
-
-$Object* allocate$XORComposite($Class* clazz) {
-	return $of($alloc(XORComposite));
-}
 
 void XORComposite::init$($Color* xorColor, $SurfaceData* sd) {
 	$set(this, xorColor, xorColor);
@@ -80,7 +50,31 @@ XORComposite::XORComposite() {
 }
 
 $Class* XORComposite::load$($String* name, bool initialize) {
-	$loadClass(XORComposite, name, initialize, &_XORComposite_ClassInfo_, allocate$XORComposite);
+	$FieldInfo fieldInfos$$[] = {
+		{"xorColor", "Ljava/awt/Color;", nullptr, 0, $field(XORComposite, xorColor)},
+		{"xorPixel", "I", nullptr, 0, $field(XORComposite, xorPixel)},
+		{"alphaMask", "I", nullptr, 0, $field(XORComposite, alphaMask)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Color;Lsun/java2d/SurfaceData;)V", nullptr, $PUBLIC, $method(XORComposite, init$, void, $Color*, $SurfaceData*)},
+		{"createContext", "(Ljava/awt/image/ColorModel;Ljava/awt/image/ColorModel;Ljava/awt/RenderingHints;)Ljava/awt/CompositeContext;", nullptr, $PUBLIC, $virtualMethod(XORComposite, createContext, $CompositeContext*, $ColorModel*, $ColorModel*, $RenderingHints*)},
+		{"getAlphaMask", "()I", nullptr, $PUBLIC, $method(XORComposite, getAlphaMask, int32_t)},
+		{"getXorColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $method(XORComposite, getXorColor, $Color*)},
+		{"getXorPixel", "()I", nullptr, $PUBLIC, $method(XORComposite, getXorPixel, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.java2d.loops.XORComposite",
+		"java.lang.Object",
+		"java.awt.Composite",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XORComposite, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XORComposite);
+	});
 	return class$;
 }
 

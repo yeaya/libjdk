@@ -1,9 +1,7 @@
 #include <javax/swing/KeyStroke.h>
-
 #include <java/awt/AWTKeyStroke.h>
 #include <java/awt/event/KeyEvent.h>
 #include <javax/swing/KeyStroke$1.h>
-#include <sun/swing/SwingAccessor$KeyStrokeAccessor.h>
 #include <sun/swing/SwingAccessor.h>
 #include <jcpp.h>
 
@@ -20,57 +18,9 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $KeyStroke$1 = ::javax::swing::KeyStroke$1;
 using $SwingAccessor = ::sun::swing::SwingAccessor;
-using $SwingAccessor$KeyStrokeAccessor = ::sun::swing::SwingAccessor$KeyStrokeAccessor;
 
 namespace javax {
 	namespace swing {
-
-$CompoundAttribute _KeyStroke_MethodAnnotations_getKeyStroke3[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _KeyStroke_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KeyStroke, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _KeyStroke_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(KeyStroke, init$, void)},
-	{"<init>", "(CIIZ)V", nullptr, $PRIVATE, $method(KeyStroke, init$, void, char16_t, int32_t, int32_t, bool)},
-	{"getKeyStroke", "(C)Ljavax/swing/KeyStroke;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStroke, getKeyStroke, KeyStroke*, char16_t)},
-	{"getKeyStroke", "(CZ)Ljavax/swing/KeyStroke;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(KeyStroke, getKeyStroke, KeyStroke*, char16_t, bool), nullptr, nullptr, _KeyStroke_MethodAnnotations_getKeyStroke3},
-	{"getKeyStroke", "(Ljava/lang/Character;I)Ljavax/swing/KeyStroke;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStroke, getKeyStroke, KeyStroke*, $Character*, int32_t)},
-	{"getKeyStroke", "(IIZ)Ljavax/swing/KeyStroke;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStroke, getKeyStroke, KeyStroke*, int32_t, int32_t, bool)},
-	{"getKeyStroke", "(II)Ljavax/swing/KeyStroke;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStroke, getKeyStroke, KeyStroke*, int32_t, int32_t)},
-	{"getKeyStroke", "(Ljava/lang/String;)Ljavax/swing/KeyStroke;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStroke, getKeyStroke, KeyStroke*, $String*)},
-	{"getKeyStrokeForEvent", "(Ljava/awt/event/KeyEvent;)Ljavax/swing/KeyStroke;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStroke, getKeyStrokeForEvent, KeyStroke*, $KeyEvent*)},
-	{}
-};
-
-$InnerClassInfo _KeyStroke_InnerClassesInfo_[] = {
-	{"javax.swing.KeyStroke$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _KeyStroke_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.KeyStroke",
-	"java.awt.AWTKeyStroke",
-	nullptr,
-	_KeyStroke_FieldInfo_,
-	_KeyStroke_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeyStroke_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.KeyStroke$1"
-};
-
-$Object* allocate$KeyStroke($Class* clazz) {
-	return $of($alloc(KeyStroke));
-}
 
 void KeyStroke::init$() {
 	$AWTKeyStroke::init$();
@@ -127,7 +77,7 @@ KeyStroke* KeyStroke::getKeyStrokeForEvent($KeyEvent* anEvent) {
 
 KeyStroke* KeyStroke::getKeyStroke($String* s) {
 	$init(KeyStroke);
-	if (s == nullptr || $nc(s)->length() == 0) {
+	if (s == nullptr || s->length() == 0) {
 		return nullptr;
 	}
 	$load($AWTKeyStroke);
@@ -141,7 +91,7 @@ KeyStroke* KeyStroke::getKeyStroke($String* s) {
 	$shouldNotReachHere();
 }
 
-void clinit$KeyStroke($Class* class$) {
+void KeyStroke::clinit$($Class* clazz) {
 	{
 		$SwingAccessor::setKeyStrokeAccessor($$new($KeyStroke$1));
 	}
@@ -151,7 +101,47 @@ KeyStroke::KeyStroke() {
 }
 
 $Class* KeyStroke::load$($String* name, bool initialize) {
-	$loadClass(KeyStroke, name, initialize, &_KeyStroke_ClassInfo_, clinit$KeyStroke, allocate$KeyStroke);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KeyStroke, serialVersionUID)},
+		{}
+	};
+	$CompoundAttribute getKeyStrokemethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(KeyStroke, init$, void)},
+		{"<init>", "(CIIZ)V", nullptr, $PRIVATE, $method(KeyStroke, init$, void, char16_t, int32_t, int32_t, bool)},
+		{"getKeyStroke", "(C)Ljavax/swing/KeyStroke;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStroke, getKeyStroke, KeyStroke*, char16_t)},
+		{"getKeyStroke", "(CZ)Ljavax/swing/KeyStroke;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(KeyStroke, getKeyStroke, KeyStroke*, char16_t, bool), nullptr, nullptr, getKeyStrokemethodAnnotations$$$1},
+		{"getKeyStroke", "(Ljava/lang/Character;I)Ljavax/swing/KeyStroke;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStroke, getKeyStroke, KeyStroke*, $Character*, int32_t)},
+		{"getKeyStroke", "(IIZ)Ljavax/swing/KeyStroke;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStroke, getKeyStroke, KeyStroke*, int32_t, int32_t, bool)},
+		{"getKeyStroke", "(II)Ljavax/swing/KeyStroke;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStroke, getKeyStroke, KeyStroke*, int32_t, int32_t)},
+		{"getKeyStroke", "(Ljava/lang/String;)Ljavax/swing/KeyStroke;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStroke, getKeyStroke, KeyStroke*, $String*)},
+		{"getKeyStrokeForEvent", "(Ljava/awt/event/KeyEvent;)Ljavax/swing/KeyStroke;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStroke, getKeyStrokeForEvent, KeyStroke*, $KeyEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.KeyStroke$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.KeyStroke",
+		"java.awt.AWTKeyStroke",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.KeyStroke$1"
+	};
+	$loadClass(KeyStroke, name, initialize, &classInfo$$, KeyStroke::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyStroke);
+	});
 	return class$;
 }
 

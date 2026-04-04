@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/axes/AttributeIterator.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/Axis.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xpath/internal/axes/ChildTestIterator.h>
@@ -26,31 +25,6 @@ namespace com {
 					namespace internal {
 						namespace axes {
 
-$FieldInfo _AttributeIterator_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(AttributeIterator, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AttributeIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;II)V", nullptr, 0, $method(AttributeIterator, init$, void, $Compiler*, int32_t, int32_t), "javax.xml.transform.TransformerException"},
-	{"getAxis", "()I", nullptr, $PUBLIC, $virtualMethod(AttributeIterator, getAxis, int32_t)},
-	{"getNextNode", "()I", nullptr, $PROTECTED, $virtualMethod(AttributeIterator, getNextNode, int32_t)},
-	{}
-};
-
-$ClassInfo _AttributeIterator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.axes.AttributeIterator",
-	"com.sun.org.apache.xpath.internal.axes.ChildTestIterator",
-	nullptr,
-	_AttributeIterator_FieldInfo_,
-	_AttributeIterator_MethodInfo_
-};
-
-$Object* allocate$AttributeIterator($Class* clazz) {
-	return $of($alloc(AttributeIterator));
-}
-
 void AttributeIterator::init$($Compiler* compiler, int32_t opPos, int32_t analysis) {
 	$ChildTestIterator::init$(compiler, opPos, analysis);
 }
@@ -68,7 +42,27 @@ AttributeIterator::AttributeIterator() {
 }
 
 $Class* AttributeIterator::load$($String* name, bool initialize) {
-	$loadClass(AttributeIterator, name, initialize, &_AttributeIterator_ClassInfo_, allocate$AttributeIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(AttributeIterator, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;II)V", nullptr, 0, $method(AttributeIterator, init$, void, $Compiler*, int32_t, int32_t), "javax.xml.transform.TransformerException"},
+		{"getAxis", "()I", nullptr, $PUBLIC, $virtualMethod(AttributeIterator, getAxis, int32_t)},
+		{"getNextNode", "()I", nullptr, $PROTECTED, $virtualMethod(AttributeIterator, getNextNode, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.axes.AttributeIterator",
+		"com.sun.org.apache.xpath.internal.axes.ChildTestIterator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AttributeIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AttributeIterator));
+	});
 	return class$;
 }
 

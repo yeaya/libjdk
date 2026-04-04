@@ -46,6 +46,7 @@ class $import RelationNotification : public ::javax::management::Notification {
 	$class(RelationNotification, 0, ::javax::management::Notification)
 public:
 	RelationNotification();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* notifType, Object$* sourceObj, int64_t sequence, int64_t timeStamp, $String* message, $String* id, $String* typeName, ::javax::management::ObjectName* objectName, ::java::util::List* unregMBeanList);
 	void init$($String* notifType, Object$* sourceObj, int64_t sequence, int64_t timeStamp, $String* message, $String* id, $String* typeName, ::javax::management::ObjectName* objectName, $String* name, ::java::util::List* newValue, ::java::util::List* oldValue);
 	virtual ::java::util::List* getMBeansToUnregister();
@@ -63,8 +64,8 @@ public:
 	::javax::management::ObjectName* safeGetObjectName(::javax::management::ObjectName* src);
 	::java::util::ArrayList* safeGetObjectNameList(::java::util::List* src);
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t oldSerialVersionUID = (int64_t)0xE27D47BE45FBA895;
-	static const int64_t newSerialVersionUID = (int64_t)0xA0A4E2B1F46318C1;
+	static const int64_t oldSerialVersionUID = (int64_t)0xe27d47be45fba895;
+	static const int64_t newSerialVersionUID = (int64_t)0xa0a4e2b1f46318c1;
 	static $Array<::java::io::ObjectStreamField>* oldSerialPersistentFields;
 	static $Array<::java::io::ObjectStreamField>* newSerialPersistentFields;
 	static int64_t serialVersionUID;

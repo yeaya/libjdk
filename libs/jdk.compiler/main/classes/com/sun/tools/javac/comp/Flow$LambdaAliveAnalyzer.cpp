@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Flow$LambdaAliveAnalyzer.h>
-
 #include <com/sun/source/tree/LambdaExpressionTree$BodyKind.h>
 #include <com/sun/tools/javac/comp/Flow$AliveAnalyzer.h>
 #include <com/sun/tools/javac/comp/Flow$BaseAnalyzer$PendingExit.h>
@@ -17,7 +16,6 @@ using $LambdaExpressionTree$BodyKind = ::com::sun::source::tree::LambdaExpressio
 using $Flow = ::com::sun::tools::javac::comp::Flow;
 using $Flow$AliveAnalyzer = ::com::sun::tools::javac::comp::Flow$AliveAnalyzer;
 using $Flow$BaseAnalyzer$PendingExit = ::com::sun::tools::javac::comp::Flow$BaseAnalyzer$PendingExit;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCLambda = ::com::sun::tools::javac::tree::JCTree$JCLambda;
 using $JCTree$JCReturn = ::com::sun::tools::javac::tree::JCTree$JCReturn;
@@ -31,46 +29,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Flow$LambdaAliveAnalyzer_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Flow;", nullptr, $FINAL | $SYNTHETIC, $field(Flow$LambdaAliveAnalyzer, this$0)},
-	{"inLambda", "Z", nullptr, 0, $field(Flow$LambdaAliveAnalyzer, inLambda)},
-	{}
-};
-
-$MethodInfo _Flow$LambdaAliveAnalyzer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Flow;)V", nullptr, 0, $method(Flow$LambdaAliveAnalyzer, init$, void, $Flow*)},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$LambdaAliveAnalyzer, visitClassDef, void, $JCTree$JCClassDecl*)},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Flow$LambdaAliveAnalyzer, visitLambda, void, $JCTree$JCLambda*)},
-	{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $virtualMethod(Flow$LambdaAliveAnalyzer, visitReturn, void, $JCTree$JCReturn*)},
-	{}
-};
-
-$InnerClassInfo _Flow$LambdaAliveAnalyzer_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Flow$LambdaAliveAnalyzer", "com.sun.tools.javac.comp.Flow", "LambdaAliveAnalyzer", 0},
-	{"com.sun.tools.javac.comp.Flow$AliveAnalyzer", "com.sun.tools.javac.comp.Flow", "AliveAnalyzer", 0},
-	{}
-};
-
-$ClassInfo _Flow$LambdaAliveAnalyzer_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Flow$LambdaAliveAnalyzer",
-	"com.sun.tools.javac.comp.Flow$AliveAnalyzer",
-	nullptr,
-	_Flow$LambdaAliveAnalyzer_FieldInfo_,
-	_Flow$LambdaAliveAnalyzer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Flow$LambdaAliveAnalyzer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Flow"
-};
-
-$Object* allocate$Flow$LambdaAliveAnalyzer($Class* clazz) {
-	return $of($alloc(Flow$LambdaAliveAnalyzer));
-}
 
 void Flow$LambdaAliveAnalyzer::init$($Flow* this$0) {
 	$set(this, this$0, this$0);
@@ -87,18 +45,16 @@ void Flow$LambdaAliveAnalyzer::visitLambda($JCTree$JCLambda* tree) {
 		return;
 	}
 	this->inLambda = true;
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$Flow$AliveAnalyzer::visitLambda(tree);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			this->inLambda = false;
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$Flow$AliveAnalyzer::visitLambda(tree);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->inLambda = false;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -109,7 +65,41 @@ Flow$LambdaAliveAnalyzer::Flow$LambdaAliveAnalyzer() {
 }
 
 $Class* Flow$LambdaAliveAnalyzer::load$($String* name, bool initialize) {
-	$loadClass(Flow$LambdaAliveAnalyzer, name, initialize, &_Flow$LambdaAliveAnalyzer_ClassInfo_, allocate$Flow$LambdaAliveAnalyzer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Flow;", nullptr, $FINAL | $SYNTHETIC, $field(Flow$LambdaAliveAnalyzer, this$0)},
+		{"inLambda", "Z", nullptr, 0, $field(Flow$LambdaAliveAnalyzer, inLambda)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Flow;)V", nullptr, 0, $method(Flow$LambdaAliveAnalyzer, init$, void, $Flow*)},
+		{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$LambdaAliveAnalyzer, visitClassDef, void, $JCTree$JCClassDecl*)},
+		{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Flow$LambdaAliveAnalyzer, visitLambda, void, $JCTree$JCLambda*)},
+		{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $virtualMethod(Flow$LambdaAliveAnalyzer, visitReturn, void, $JCTree$JCReturn*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Flow$LambdaAliveAnalyzer", "com.sun.tools.javac.comp.Flow", "LambdaAliveAnalyzer", 0},
+		{"com.sun.tools.javac.comp.Flow$AliveAnalyzer", "com.sun.tools.javac.comp.Flow", "AliveAnalyzer", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Flow$LambdaAliveAnalyzer",
+		"com.sun.tools.javac.comp.Flow$AliveAnalyzer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Flow"
+	};
+	$loadClass(Flow$LambdaAliveAnalyzer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Flow$LambdaAliveAnalyzer);
+	});
 	return class$;
 }
 

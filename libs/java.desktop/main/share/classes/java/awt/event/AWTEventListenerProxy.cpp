@@ -1,5 +1,4 @@
 #include <java/awt/event/AWTEventListenerProxy.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/event/AWTEventListener.h>
 #include <java/util/EventListener.h>
@@ -11,43 +10,11 @@ using $AWTEventListener = ::java::awt::event::AWTEventListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $EventListener = ::java::util::EventListener;
 using $EventListenerProxy = ::java::util::EventListenerProxy;
 
 namespace java {
 	namespace awt {
 		namespace event {
-
-$FieldInfo _AWTEventListenerProxy_FieldInfo_[] = {
-	{"eventMask", "J", nullptr, $PRIVATE | $FINAL, $field(AWTEventListenerProxy, eventMask)},
-	{}
-};
-
-$MethodInfo _AWTEventListenerProxy_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(JLjava/awt/event/AWTEventListener;)V", nullptr, $PUBLIC, $method(AWTEventListenerProxy, init$, void, int64_t, $AWTEventListener*)},
-	{"eventDispatched", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(AWTEventListenerProxy, eventDispatched, void, $AWTEvent*)},
-	{"getEventMask", "()J", nullptr, $PUBLIC, $virtualMethod(AWTEventListenerProxy, getEventMask, int64_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _AWTEventListenerProxy_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.event.AWTEventListenerProxy",
-	"java.util.EventListenerProxy",
-	"java.awt.event.AWTEventListener",
-	_AWTEventListenerProxy_FieldInfo_,
-	_AWTEventListenerProxy_MethodInfo_,
-	"Ljava/util/EventListenerProxy<Ljava/awt/event/AWTEventListener;>;Ljava/awt/event/AWTEventListener;"
-};
-
-$Object* allocate$AWTEventListenerProxy($Class* clazz) {
-	return $of($alloc(AWTEventListenerProxy));
-}
 
 int32_t AWTEventListenerProxy::hashCode() {
 	 return this->$EventListenerProxy::hashCode();
@@ -75,7 +42,7 @@ void AWTEventListenerProxy::init$(int64_t eventMask, $AWTEventListener* listener
 }
 
 void AWTEventListenerProxy::eventDispatched($AWTEvent* event) {
-	$nc(($cast($AWTEventListener, $(getListener()))))->eventDispatched(event);
+	$$sure($AWTEventListener, getListener())->eventDispatched(event);
 }
 
 int64_t AWTEventListenerProxy::getEventMask() {
@@ -86,7 +53,33 @@ AWTEventListenerProxy::AWTEventListenerProxy() {
 }
 
 $Class* AWTEventListenerProxy::load$($String* name, bool initialize) {
-	$loadClass(AWTEventListenerProxy, name, initialize, &_AWTEventListenerProxy_ClassInfo_, allocate$AWTEventListenerProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"eventMask", "J", nullptr, $PRIVATE | $FINAL, $field(AWTEventListenerProxy, eventMask)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(JLjava/awt/event/AWTEventListener;)V", nullptr, $PUBLIC, $method(AWTEventListenerProxy, init$, void, int64_t, $AWTEventListener*)},
+		{"eventDispatched", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(AWTEventListenerProxy, eventDispatched, void, $AWTEvent*)},
+		{"getEventMask", "()J", nullptr, $PUBLIC, $virtualMethod(AWTEventListenerProxy, getEventMask, int64_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.event.AWTEventListenerProxy",
+		"java.util.EventListenerProxy",
+		"java.awt.event.AWTEventListener",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/EventListenerProxy<Ljava/awt/event/AWTEventListener;>;Ljava/awt/event/AWTEventListener;"
+	};
+	$loadClass(AWTEventListenerProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AWTEventListenerProxy));
+	});
 	return class$;
 }
 

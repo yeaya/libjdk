@@ -1,10 +1,7 @@
 #include <sun/security/krb5/internal/crypto/dk/ArcFourCrypto.h>
-
 #include <java/security/GeneralSecurityException.h>
-#include <java/security/Key.h>
 #include <java/security/MessageDigest.h>
 #include <java/security/NoSuchAlgorithmException.h>
-#include <java/security/spec/AlgorithmParameterSpec.h>
 #include <java/util/Arrays.h>
 #include <javax/crypto/Cipher.h>
 #include <javax/crypto/Mac.h>
@@ -27,10 +24,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
-using $Key = ::java::security::Key;
 using $MessageDigest = ::java::security::MessageDigest;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
-using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $Arrays = ::java::util::Arrays;
 using $Cipher = ::javax::crypto::Cipher;
 using $Mac = ::javax::crypto::Mac;
@@ -48,49 +43,6 @@ namespace sun {
 			namespace internal {
 				namespace crypto {
 					namespace dk {
-
-$FieldInfo _ArcFourCrypto_FieldInfo_[] = {
-	{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArcFourCrypto, debug)},
-	{"confounderSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArcFourCrypto, confounderSize)},
-	{"ZERO_IV", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ArcFourCrypto, ZERO_IV)},
-	{"hashSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArcFourCrypto, hashSize)},
-	{"keyLength", "I", nullptr, $PRIVATE | $FINAL, $field(ArcFourCrypto, keyLength)},
-	{}
-};
-
-$MethodInfo _ArcFourCrypto_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ArcFourCrypto, init$, void, int32_t)},
-	{"arcfour_translate_usage", "(I)I", nullptr, $PRIVATE, $method(ArcFourCrypto, arcfour_translate_usage, int32_t, int32_t)},
-	{"calculateChecksum", "([BI[BII)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourCrypto, calculateChecksum, $bytes*, $bytes*, int32_t, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
-	{"decrypt", "([BI[B[BII)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourCrypto, decrypt, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
-	{"decryptRaw", "([BI[B[BII[B)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourCrypto, decryptRaw, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t, $bytes*), "java.security.GeneralSecurityException"},
-	{"decryptSeq", "([BI[B[BII)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourCrypto, decryptSeq, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
-	{"encrypt", "([BI[B[B[BII)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourCrypto, encrypt, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
-	{"encryptRaw", "([BI[B[BII)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourCrypto, encryptRaw, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
-	{"encryptSeq", "([BI[B[BII)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourCrypto, encryptSeq, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
-	{"getChecksumLength", "()I", nullptr, $PUBLIC, $virtualMethod(ArcFourCrypto, getChecksumLength, int32_t)},
-	{"getCipher", "([B[BI)Ljavax/crypto/Cipher;", nullptr, $PROTECTED, $virtualMethod(ArcFourCrypto, getCipher, $Cipher*, $bytes*, $bytes*, int32_t), "java.security.GeneralSecurityException"},
-	{"getHmac", "([B[B)[B", nullptr, $PROTECTED, $virtualMethod(ArcFourCrypto, getHmac, $bytes*, $bytes*, $bytes*), "java.security.GeneralSecurityException"},
-	{"getKeySeedLength", "()I", nullptr, $PROTECTED, $virtualMethod(ArcFourCrypto, getKeySeedLength, int32_t)},
-	{"getSalt", "(I)[B", nullptr, $PRIVATE, $method(ArcFourCrypto, getSalt, $bytes*, int32_t)},
-	{"randomToKey", "([B)[B", nullptr, $PROTECTED, $virtualMethod(ArcFourCrypto, randomToKey, $bytes*, $bytes*)},
-	{"stringToKey", "([C)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourCrypto, stringToKey, $bytes*, $chars*), "java.security.GeneralSecurityException"},
-	{"stringToKey", "([C[B)[B", nullptr, $PRIVATE, $method(ArcFourCrypto, stringToKey, $bytes*, $chars*, $bytes*), "java.security.GeneralSecurityException"},
-	{}
-};
-
-$ClassInfo _ArcFourCrypto_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.crypto.dk.ArcFourCrypto",
-	"sun.security.krb5.internal.crypto.dk.DkCrypto",
-	nullptr,
-	_ArcFourCrypto_FieldInfo_,
-	_ArcFourCrypto_MethodInfo_
-};
-
-$Object* allocate$ArcFourCrypto($Class* clazz) {
-	return $of($alloc(ArcFourCrypto));
-}
 
 $bytes* ArcFourCrypto::ZERO_IV = nullptr;
 
@@ -112,46 +64,44 @@ $bytes* ArcFourCrypto::stringToKey($chars* passwd) {
 }
 
 $bytes* ArcFourCrypto::stringToKey($chars* secret, $bytes* opaque) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (opaque != nullptr && opaque->length > 0) {
 		$throwNew($RuntimeException, "Invalid parameter to stringToKey"_s);
 	}
 	$var($bytes, passwd, nullptr);
 	$var($bytes, digest, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($bytes, var$2, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	$var($bytes, var$2, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				$assign(passwd, charToUtf16(secret));
-				$var($MessageDigest, md, $MD4::getInstance());
-				$nc(md)->update(passwd);
-				$assign(digest, md->digest());
-			} catch ($Exception& e) {
-				$assign(var$2, nullptr);
-				return$1 = true;
-				goto $finally;
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			if (passwd != nullptr) {
-				$Arrays::fill(passwd, (int8_t)0);
-			}
+			$assign(passwd, charToUtf16(secret));
+			$var($MessageDigest, md, $MD4::getInstance());
+			$nc(md)->update(passwd);
+			$assign(digest, md->digest());
+		} catch ($Exception& e) {
+			$assign(var$2, nullptr);
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		if (passwd != nullptr) {
+			$Arrays::fill(passwd, (int8_t)0);
 		}
-		if (return$1) {
-			return var$2;
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	return digest;
 }
 
 $Cipher* ArcFourCrypto::getCipher($bytes* key, $bytes* ivec$renamed, int32_t mode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, ivec, ivec$renamed);
 	if (ivec == nullptr) {
 		$assign(ivec, ArcFourCrypto::ZERO_IV);
@@ -159,7 +109,7 @@ $Cipher* ArcFourCrypto::getCipher($bytes* key, $bytes* ivec$renamed, int32_t mod
 	$var($SecretKeySpec, secretKey, $new($SecretKeySpec, key, "ARCFOUR"_s));
 	$var($Cipher, cipher, $Cipher::getInstance("ARCFOUR"_s));
 	$var($IvParameterSpec, encIv, $new($IvParameterSpec, ivec, 0, $nc(ivec)->length));
-	$nc(cipher)->init(mode, static_cast<$Key*>(secretKey), static_cast<$AlgorithmParameterSpec*>(encIv));
+	$nc(cipher)->init(mode, secretKey, encIv);
 	return cipher;
 }
 
@@ -168,7 +118,7 @@ int32_t ArcFourCrypto::getChecksumLength() {
 }
 
 $bytes* ArcFourCrypto::getHmac($bytes* key, $bytes* msg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecretKey, keyKi, $new($SecretKeySpec, key, "HmacMD5"_s));
 	$var($Mac, m, $Mac::getInstance("HmacMD5"_s));
 	$nc(m)->init(keyKi);
@@ -177,7 +127,8 @@ $bytes* ArcFourCrypto::getHmac($bytes* key, $bytes* msg) {
 }
 
 $bytes* ArcFourCrypto::calculateChecksum($bytes* baseKey, int32_t usage, $bytes* input, int32_t start, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	if (!$KeyUsage::isValid(usage)) {
 		$throwNew($GeneralSecurityException, $$str({"Invalid key usage number: "_s, $$str(usage)}));
 	}
@@ -205,6 +156,7 @@ $bytes* ArcFourCrypto::calculateChecksum($bytes* baseKey, int32_t usage, $bytes*
 	messageDigest->update(input, start, len);
 	$var($bytes, md5tmp, messageDigest->digest());
 	$var($bytes, hmac, getHmac(Ksign, md5tmp));
+	;
 	if ($nc(hmac)->length == getChecksumLength()) {
 		return hmac;
 	} else if (hmac->length > getChecksumLength()) {
@@ -217,7 +169,7 @@ $bytes* ArcFourCrypto::calculateChecksum($bytes* baseKey, int32_t usage, $bytes*
 }
 
 $bytes* ArcFourCrypto::encryptSeq($bytes* baseKey, int32_t usage, $bytes* checksum, $bytes* plaintext, int32_t start, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$KeyUsage::isValid(usage)) {
 		$throwNew($GeneralSecurityException, $$str({"Invalid key usage number: "_s, $$str(usage)}));
 	}
@@ -226,13 +178,13 @@ $bytes* ArcFourCrypto::encryptSeq($bytes* baseKey, int32_t usage, $bytes* checks
 	$assign(kSeq, getHmac(kSeq, checksum));
 	$var($Cipher, cipher, $Cipher::getInstance("ARCFOUR"_s));
 	$var($SecretKeySpec, secretKey, $new($SecretKeySpec, kSeq, "ARCFOUR"_s));
-	$nc(cipher)->init($Cipher::ENCRYPT_MODE, static_cast<$Key*>(secretKey));
+	$nc(cipher)->init($Cipher::ENCRYPT_MODE, secretKey);
 	$var($bytes, output, cipher->doFinal(plaintext, start, len));
 	return output;
 }
 
 $bytes* ArcFourCrypto::decryptSeq($bytes* baseKey, int32_t usage, $bytes* checksum, $bytes* ciphertext, int32_t start, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$KeyUsage::isValid(usage)) {
 		$throwNew($GeneralSecurityException, $$str({"Invalid key usage number: "_s, $$str(usage)}));
 	}
@@ -241,21 +193,22 @@ $bytes* ArcFourCrypto::decryptSeq($bytes* baseKey, int32_t usage, $bytes* checks
 	$assign(kSeq, getHmac(kSeq, checksum));
 	$var($Cipher, cipher, $Cipher::getInstance("ARCFOUR"_s));
 	$var($SecretKeySpec, secretKey, $new($SecretKeySpec, kSeq, "ARCFOUR"_s));
-	$nc(cipher)->init($Cipher::DECRYPT_MODE, static_cast<$Key*>(secretKey));
+	$nc(cipher)->init($Cipher::DECRYPT_MODE, secretKey);
 	$var($bytes, output, cipher->doFinal(ciphertext, start, len));
 	return output;
 }
 
 $bytes* ArcFourCrypto::encrypt($bytes* baseKey, int32_t usage, $bytes* ivec, $bytes* new_ivec, $bytes* plaintext, int32_t start, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$KeyUsage::isValid(usage)) {
 		$throwNew($GeneralSecurityException, $$str({"Invalid key usage number: "_s, $$str(usage)}));
 	}
+	;
 	$var($bytes, confounder, $Confounder::bytes(ArcFourCrypto::confounderSize));
 	int32_t plainSize = roundup($nc(confounder)->length + len, 1);
 	$var($bytes, toBeEncrypted, $new($bytes, plainSize));
-	$System::arraycopy(confounder, 0, toBeEncrypted, 0, $nc(confounder)->length);
-	$System::arraycopy(plaintext, start, toBeEncrypted, $nc(confounder)->length, len);
+	$System::arraycopy(confounder, 0, toBeEncrypted, 0, confounder->length);
+	$System::arraycopy(plaintext, start, toBeEncrypted, confounder->length, len);
 	$var($bytes, k1, $new($bytes, $nc(baseKey)->length));
 	$System::arraycopy(baseKey, 0, k1, 0, baseKey->length);
 	$var($bytes, salt, getSalt(usage));
@@ -264,7 +217,7 @@ $bytes* ArcFourCrypto::encrypt($bytes* baseKey, int32_t usage, $bytes* ivec, $by
 	$var($bytes, k3, getHmac(k2, checksum));
 	$var($Cipher, cipher, $Cipher::getInstance("ARCFOUR"_s));
 	$var($SecretKeySpec, secretKey, $new($SecretKeySpec, k3, "ARCFOUR"_s));
-	$nc(cipher)->init($Cipher::ENCRYPT_MODE, static_cast<$Key*>(secretKey));
+	$nc(cipher)->init($Cipher::ENCRYPT_MODE, secretKey);
 	$var($bytes, output, cipher->doFinal(toBeEncrypted, 0, toBeEncrypted->length));
 	$var($bytes, result, $new($bytes, ArcFourCrypto::hashSize + $nc(output)->length));
 	$System::arraycopy(checksum, 0, result, 0, ArcFourCrypto::hashSize);
@@ -273,29 +226,31 @@ $bytes* ArcFourCrypto::encrypt($bytes* baseKey, int32_t usage, $bytes* ivec, $by
 }
 
 $bytes* ArcFourCrypto::encryptRaw($bytes* baseKey, int32_t usage, $bytes* seqNum, $bytes* plaintext, int32_t start, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$KeyUsage::isValid(usage)) {
 		$throwNew($GeneralSecurityException, $$str({"Invalid key usage number: "_s, $$str(usage)}));
 	}
+	;
 	$var($bytes, klocal, $new($bytes, $nc(baseKey)->length));
 	for (int32_t i = 0; i <= 15; ++i) {
-		klocal->set(i, (int8_t)(baseKey->get(i) ^ 240));
+		klocal->set(i, (int8_t)(baseKey->get(i) ^ 0xf0));
 	}
 	$var($bytes, salt, $new($bytes, 4));
 	$var($bytes, kcrypt, getHmac(klocal, salt));
 	$assign(kcrypt, getHmac(kcrypt, seqNum));
 	$var($Cipher, cipher, $Cipher::getInstance("ARCFOUR"_s));
 	$var($SecretKeySpec, secretKey, $new($SecretKeySpec, kcrypt, "ARCFOUR"_s));
-	$nc(cipher)->init($Cipher::ENCRYPT_MODE, static_cast<$Key*>(secretKey));
+	$nc(cipher)->init($Cipher::ENCRYPT_MODE, secretKey);
 	$var($bytes, output, cipher->doFinal(plaintext, start, len));
 	return output;
 }
 
 $bytes* ArcFourCrypto::decrypt($bytes* baseKey, int32_t usage, $bytes* ivec, $bytes* ciphertext, int32_t start, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$KeyUsage::isValid(usage)) {
 		$throwNew($GeneralSecurityException, $$str({"Invalid key usage number: "_s, $$str(usage)}));
 	}
+	;
 	$var($bytes, k1, $new($bytes, $nc(baseKey)->length));
 	$System::arraycopy(baseKey, 0, k1, 0, baseKey->length);
 	$var($bytes, salt, getSalt(usage));
@@ -305,14 +260,16 @@ $bytes* ArcFourCrypto::decrypt($bytes* baseKey, int32_t usage, $bytes* ivec, $by
 	$var($bytes, k3, getHmac(k2, checksum));
 	$var($Cipher, cipher, $Cipher::getInstance("ARCFOUR"_s));
 	$var($SecretKeySpec, secretKey, $new($SecretKeySpec, k3, "ARCFOUR"_s));
-	$nc(cipher)->init($Cipher::DECRYPT_MODE, static_cast<$Key*>(secretKey));
+	$nc(cipher)->init($Cipher::DECRYPT_MODE, secretKey);
 	$var($bytes, plaintext, cipher->doFinal(ciphertext, start + ArcFourCrypto::hashSize, len - ArcFourCrypto::hashSize));
 	$var($bytes, calculatedHmac, getHmac(k2, plaintext));
+	;
 	bool cksumFailed = false;
 	if ($nc(calculatedHmac)->length >= ArcFourCrypto::hashSize) {
 		for (int32_t i = 0; i < ArcFourCrypto::hashSize; ++i) {
 			if (calculatedHmac->get(i) != $nc(ciphertext)->get(i)) {
 				cksumFailed = true;
+				;
 				break;
 			}
 		}
@@ -326,13 +283,14 @@ $bytes* ArcFourCrypto::decrypt($bytes* baseKey, int32_t usage, $bytes* ivec, $by
 }
 
 $bytes* ArcFourCrypto::decryptRaw($bytes* baseKey, int32_t usage, $bytes* ivec, $bytes* ciphertext, int32_t start, int32_t len, $bytes* seqNum) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$KeyUsage::isValid(usage)) {
 		$throwNew($GeneralSecurityException, $$str({"Invalid key usage number: "_s, $$str(usage)}));
 	}
+	;
 	$var($bytes, klocal, $new($bytes, $nc(baseKey)->length));
 	for (int32_t i = 0; i <= 15; ++i) {
-		klocal->set(i, (int8_t)(baseKey->get(i) ^ 240));
+		klocal->set(i, (int8_t)(baseKey->get(i) ^ 0xf0));
 	}
 	$var($bytes, salt, $new($bytes, 4));
 	$var($bytes, kcrypt, getHmac(klocal, salt));
@@ -341,7 +299,7 @@ $bytes* ArcFourCrypto::decryptRaw($bytes* baseKey, int32_t usage, $bytes* ivec, 
 	$assign(kcrypt, getHmac(kcrypt, sequenceNum));
 	$var($Cipher, cipher, $Cipher::getInstance("ARCFOUR"_s));
 	$var($SecretKeySpec, secretKey, $new($SecretKeySpec, kcrypt, "ARCFOUR"_s));
-	$nc(cipher)->init($Cipher::DECRYPT_MODE, static_cast<$Key*>(secretKey));
+	$nc(cipher)->init($Cipher::DECRYPT_MODE, secretKey);
 	$var($bytes, output, cipher->doFinal(ciphertext, start, len));
 	return output;
 }
@@ -349,44 +307,36 @@ $bytes* ArcFourCrypto::decryptRaw($bytes* baseKey, int32_t usage, $bytes* ivec, 
 $bytes* ArcFourCrypto::getSalt(int32_t usage) {
 	int32_t ms_usage = arcfour_translate_usage(usage);
 	$var($bytes, salt, $new($bytes, 4));
-	salt->set(0, (int8_t)((int32_t)(ms_usage & (uint32_t)255)));
-	salt->set(1, (int8_t)((int32_t)((ms_usage >> 8) & (uint32_t)255)));
-	salt->set(2, (int8_t)((int32_t)((ms_usage >> 16) & (uint32_t)255)));
-	salt->set(3, (int8_t)((int32_t)((ms_usage >> 24) & (uint32_t)255)));
+	salt->set(0, (int8_t)(ms_usage & 0xff));
+	salt->set(1, (int8_t)((ms_usage >> 8) & 0xff));
+	salt->set(2, (int8_t)((ms_usage >> 16) & 0xff));
+	salt->set(3, (int8_t)((ms_usage >> 24) & 0xff));
 	return salt;
 }
 
 int32_t ArcFourCrypto::arcfour_translate_usage(int32_t usage) {
 	switch (usage) {
 	case 3:
-		{
-			return 8;
-		}
+		return 8;
 	case 9:
-		{
-			return 8;
-		}
+		return 8;
 	case 23:
-		{
-			return 13;
-		}
+		return 13;
 	default:
-		{
-			return usage;
-		}
+		return usage;
 	}
 }
 
-void clinit$ArcFourCrypto($Class* class$) {
+void ArcFourCrypto::clinit$($Class* clazz) {
 	$assignStatic(ArcFourCrypto::ZERO_IV, $new($bytes, {
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0
 	}));
 }
 
@@ -394,7 +344,45 @@ ArcFourCrypto::ArcFourCrypto() {
 }
 
 $Class* ArcFourCrypto::load$($String* name, bool initialize) {
-	$loadClass(ArcFourCrypto, name, initialize, &_ArcFourCrypto_ClassInfo_, clinit$ArcFourCrypto, allocate$ArcFourCrypto);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArcFourCrypto, debug)},
+		{"confounderSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArcFourCrypto, confounderSize)},
+		{"ZERO_IV", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ArcFourCrypto, ZERO_IV)},
+		{"hashSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArcFourCrypto, hashSize)},
+		{"keyLength", "I", nullptr, $PRIVATE | $FINAL, $field(ArcFourCrypto, keyLength)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(ArcFourCrypto, init$, void, int32_t)},
+		{"arcfour_translate_usage", "(I)I", nullptr, $PRIVATE, $method(ArcFourCrypto, arcfour_translate_usage, int32_t, int32_t)},
+		{"calculateChecksum", "([BI[BII)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourCrypto, calculateChecksum, $bytes*, $bytes*, int32_t, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
+		{"decrypt", "([BI[B[BII)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourCrypto, decrypt, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
+		{"decryptRaw", "([BI[B[BII[B)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourCrypto, decryptRaw, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t, $bytes*), "java.security.GeneralSecurityException"},
+		{"decryptSeq", "([BI[B[BII)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourCrypto, decryptSeq, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
+		{"encrypt", "([BI[B[B[BII)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourCrypto, encrypt, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
+		{"encryptRaw", "([BI[B[BII)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourCrypto, encryptRaw, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
+		{"encryptSeq", "([BI[B[BII)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourCrypto, encryptSeq, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
+		{"getChecksumLength", "()I", nullptr, $PUBLIC, $virtualMethod(ArcFourCrypto, getChecksumLength, int32_t)},
+		{"getCipher", "([B[BI)Ljavax/crypto/Cipher;", nullptr, $PROTECTED, $virtualMethod(ArcFourCrypto, getCipher, $Cipher*, $bytes*, $bytes*, int32_t), "java.security.GeneralSecurityException"},
+		{"getHmac", "([B[B)[B", nullptr, $PROTECTED, $virtualMethod(ArcFourCrypto, getHmac, $bytes*, $bytes*, $bytes*), "java.security.GeneralSecurityException"},
+		{"getKeySeedLength", "()I", nullptr, $PROTECTED, $virtualMethod(ArcFourCrypto, getKeySeedLength, int32_t)},
+		{"getSalt", "(I)[B", nullptr, $PRIVATE, $method(ArcFourCrypto, getSalt, $bytes*, int32_t)},
+		{"randomToKey", "([B)[B", nullptr, $PROTECTED, $virtualMethod(ArcFourCrypto, randomToKey, $bytes*, $bytes*)},
+		{"stringToKey", "([C)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourCrypto, stringToKey, $bytes*, $chars*), "java.security.GeneralSecurityException"},
+		{"stringToKey", "([C[B)[B", nullptr, $PRIVATE, $method(ArcFourCrypto, stringToKey, $bytes*, $chars*, $bytes*), "java.security.GeneralSecurityException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.crypto.dk.ArcFourCrypto",
+		"sun.security.krb5.internal.crypto.dk.DkCrypto",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ArcFourCrypto, name, initialize, &classInfo$$, ArcFourCrypto::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ArcFourCrypto);
+	});
 	return class$;
 }
 

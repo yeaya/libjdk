@@ -1,9 +1,7 @@
 #include <jdk/internal/net/http/common/Utils.h>
-
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/Closeable.h>
 #include <java/io/IOException.h>
-#include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
 #include <java/io/UncheckedIOException.h>
 #include <java/lang/Appendable.h>
@@ -124,11 +122,9 @@ using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $Closeable = ::java::io::Closeable;
 using $IOException = ::java::io::IOException;
-using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $UncheckedIOException = ::java::io::UncheckedIOException;
-using $Appendable = ::java::lang::Appendable;
 using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
 using $CharSequence = ::java::lang::CharSequence;
@@ -155,7 +151,6 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $CharacterCodingException = ::java::nio::charset::CharacterCodingException;
 using $Charset = ::java::nio::charset::Charset;
-using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $CodingErrorAction = ::java::nio::charset::CodingErrorAction;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $AccessController = ::java::security::AccessController;
@@ -169,7 +164,6 @@ using $Collections = ::java::util::Collections;
 using $HexFormat = ::java::util::HexFormat;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Optional = ::java::util::Optional;
 using $Set = ::java::util::Set;
 using $TreeSet = ::java::util::TreeSet;
 using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
@@ -213,27 +207,24 @@ public:
 	virtual bool test(Object$* x, Object$* y) override {
 		 return Utils::lambda$static$0($cast($String, x), $cast($String, y));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Utils$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Utils$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$0, init$, void)},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$0, test, bool, Object$*, Object$*)},
-	{}
-};
-$ClassInfo Utils$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.Utils$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.util.function.BiPredicate",
-	nullptr,
-	methodInfos
 };
 $Class* Utils$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(Utils$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$0, init$, void)},
+		{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$0, test, bool, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.Utils$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.util.function.BiPredicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Utils$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Utils$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* Utils$$Lambda$lambda$static$0::class$ = nullptr;
@@ -246,27 +237,24 @@ public:
 	virtual bool test(Object$* header, Object$* unused) override {
 		 return Utils::lambda$static$1($cast($String, header), $cast($String, unused));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Utils$$Lambda$lambda$static$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Utils$$Lambda$lambda$static$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$1$1, init$, void)},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$1$1, test, bool, Object$*, Object$*)},
-	{}
-};
-$ClassInfo Utils$$Lambda$lambda$static$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.Utils$$Lambda$lambda$static$1$1",
-	"java.lang.Object",
-	"java.util.function.BiPredicate",
-	nullptr,
-	methodInfos
 };
 $Class* Utils$$Lambda$lambda$static$1$1::load$($String* name, bool initialize) {
-	$loadClass(Utils$$Lambda$lambda$static$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$1$1, init$, void)},
+		{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$1$1, test, bool, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.Utils$$Lambda$lambda$static$1$1",
+		"java.lang.Object",
+		"java.util.function.BiPredicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Utils$$Lambda$lambda$static$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Utils$$Lambda$lambda$static$1$1);
+	});
 	return class$;
 }
 $Class* Utils$$Lambda$lambda$static$1$1::class$ = nullptr;
@@ -279,27 +267,24 @@ public:
 	virtual bool test(Object$* name, Object$* value) override {
 		 return Utils::lambda$static$2($cast($String, name), $cast($String, value));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Utils$$Lambda$lambda$static$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Utils$$Lambda$lambda$static$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$2$2, init$, void)},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$2$2, test, bool, Object$*, Object$*)},
-	{}
-};
-$ClassInfo Utils$$Lambda$lambda$static$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.Utils$$Lambda$lambda$static$2$2",
-	"java.lang.Object",
-	"java.util.function.BiPredicate",
-	nullptr,
-	methodInfos
 };
 $Class* Utils$$Lambda$lambda$static$2$2::load$($String* name, bool initialize) {
-	$loadClass(Utils$$Lambda$lambda$static$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$2$2, init$, void)},
+		{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$2$2, test, bool, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.Utils$$Lambda$lambda$static$2$2",
+		"java.lang.Object",
+		"java.util.function.BiPredicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Utils$$Lambda$lambda$static$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Utils$$Lambda$lambda$static$2$2);
+	});
 	return class$;
 }
 $Class* Utils$$Lambda$lambda$static$2$2::class$ = nullptr;
@@ -312,27 +297,24 @@ public:
 	virtual bool test(Object$* k, Object$* v) override {
 		 return Utils::lambda$static$4($cast($String, k), $cast($String, v));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Utils$$Lambda$lambda$static$4$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Utils$$Lambda$lambda$static$4$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$4$3, init$, void)},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$4$3, test, bool, Object$*, Object$*)},
-	{}
-};
-$ClassInfo Utils$$Lambda$lambda$static$4$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.Utils$$Lambda$lambda$static$4$3",
-	"java.lang.Object",
-	"java.util.function.BiPredicate",
-	nullptr,
-	methodInfos
 };
 $Class* Utils$$Lambda$lambda$static$4$3::load$($String* name, bool initialize) {
-	$loadClass(Utils$$Lambda$lambda$static$4$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$4$3, init$, void)},
+		{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$4$3, test, bool, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.Utils$$Lambda$lambda$static$4$3",
+		"java.lang.Object",
+		"java.util.function.BiPredicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Utils$$Lambda$lambda$static$4$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Utils$$Lambda$lambda$static$4$3);
+	});
 	return class$;
 }
 $Class* Utils$$Lambda$lambda$static$4$3::class$ = nullptr;
@@ -346,33 +328,29 @@ public:
 	virtual bool test(Object$* arg0) override {
 		 return $nc(inst$)->equalsIgnoreCase($cast($String, arg0));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Utils$$Lambda$equalsIgnoreCase$4>());
-	}
 	$String* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Utils$$Lambda$equalsIgnoreCase$4::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Utils$$Lambda$equalsIgnoreCase$4, inst$)},
-	{}
-};
-$MethodInfo Utils$$Lambda$equalsIgnoreCase$4::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Utils$$Lambda$equalsIgnoreCase$4, init$, void, $String*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$equalsIgnoreCase$4, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Utils$$Lambda$equalsIgnoreCase$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.Utils$$Lambda$equalsIgnoreCase$4",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Utils$$Lambda$equalsIgnoreCase$4::load$($String* name, bool initialize) {
-	$loadClass(Utils$$Lambda$equalsIgnoreCase$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Utils$$Lambda$equalsIgnoreCase$4, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Utils$$Lambda$equalsIgnoreCase$4, init$, void, $String*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$equalsIgnoreCase$4, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.Utils$$Lambda$equalsIgnoreCase$4",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Utils$$Lambda$equalsIgnoreCase$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Utils$$Lambda$equalsIgnoreCase$4);
+	});
 	return class$;
 }
 $Class* Utils$$Lambda$equalsIgnoreCase$4::class$ = nullptr;
@@ -385,27 +363,24 @@ public:
 	virtual bool test(Object$* k) override {
 		 return Utils::lambda$static$5($cast($String, k));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Utils$$Lambda$lambda$static$5$5>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Utils$$Lambda$lambda$static$5$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$5$5, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$5$5, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Utils$$Lambda$lambda$static$5$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.Utils$$Lambda$lambda$static$5$5",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* Utils$$Lambda$lambda$static$5$5::load$($String* name, bool initialize) {
-	$loadClass(Utils$$Lambda$lambda$static$5$5, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$5$5, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$5$5, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.Utils$$Lambda$lambda$static$5$5",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Utils$$Lambda$lambda$static$5$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Utils$$Lambda$lambda$static$5$5);
+	});
 	return class$;
 }
 $Class* Utils$$Lambda$lambda$static$5$5::class$ = nullptr;
@@ -418,27 +393,24 @@ public:
 	virtual bool test(Object$* s) override {
 		 return Utils::lambda$static$6($cast($String, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Utils$$Lambda$lambda$static$6$6>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Utils$$Lambda$lambda$static$6$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$6$6, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$6$6, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Utils$$Lambda$lambda$static$6$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.Utils$$Lambda$lambda$static$6$6",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* Utils$$Lambda$lambda$static$6$6::load$($String* name, bool initialize) {
-	$loadClass(Utils$$Lambda$lambda$static$6$6, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$6$6, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$6$6, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.Utils$$Lambda$lambda$static$6$6",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Utils$$Lambda$lambda$static$6$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Utils$$Lambda$lambda$static$6$6);
+	});
 	return class$;
 }
 $Class* Utils$$Lambda$lambda$static$6$6::class$ = nullptr;
@@ -451,27 +423,24 @@ public:
 	virtual bool test(Object$* s, Object$* v) override {
 		 return Utils::lambda$static$10($cast($String, s), $cast($String, v));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Utils$$Lambda$lambda$static$10$7>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Utils$$Lambda$lambda$static$10$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$10$7, init$, void)},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$10$7, test, bool, Object$*, Object$*)},
-	{}
-};
-$ClassInfo Utils$$Lambda$lambda$static$10$7::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.Utils$$Lambda$lambda$static$10$7",
-	"java.lang.Object",
-	"java.util.function.BiPredicate",
-	nullptr,
-	methodInfos
 };
 $Class* Utils$$Lambda$lambda$static$10$7::load$($String* name, bool initialize) {
-	$loadClass(Utils$$Lambda$lambda$static$10$7, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$10$7, init$, void)},
+		{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$10$7, test, bool, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.Utils$$Lambda$lambda$static$10$7",
+		"java.lang.Object",
+		"java.util.function.BiPredicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Utils$$Lambda$lambda$static$10$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Utils$$Lambda$lambda$static$10$7);
+	});
 	return class$;
 }
 $Class* Utils$$Lambda$lambda$static$10$7::class$ = nullptr;
@@ -484,27 +453,24 @@ public:
 	virtual bool test(Object$* s, Object$* v) override {
 		 return Utils::lambda$static$11($cast($String, s), $cast($String, v));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Utils$$Lambda$lambda$static$11$8>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Utils$$Lambda$lambda$static$11$8::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$11$8, init$, void)},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$11$8, test, bool, Object$*, Object$*)},
-	{}
-};
-$ClassInfo Utils$$Lambda$lambda$static$11$8::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.Utils$$Lambda$lambda$static$11$8",
-	"java.lang.Object",
-	"java.util.function.BiPredicate",
-	nullptr,
-	methodInfos
 };
 $Class* Utils$$Lambda$lambda$static$11$8::load$($String* name, bool initialize) {
-	$loadClass(Utils$$Lambda$lambda$static$11$8, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$11$8, init$, void)},
+		{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$11$8, test, bool, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.Utils$$Lambda$lambda$static$11$8",
+		"java.lang.Object",
+		"java.util.function.BiPredicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Utils$$Lambda$lambda$static$11$8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Utils$$Lambda$lambda$static$11$8);
+	});
 	return class$;
 }
 $Class* Utils$$Lambda$lambda$static$11$8::class$ = nullptr;
@@ -517,27 +483,24 @@ public:
 	virtual bool test(Object$* n, Object$* v) override {
 		 return Utils::lambda$static$12($cast($String, n), $cast($String, v));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Utils$$Lambda$lambda$static$12$9>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Utils$$Lambda$lambda$static$12$9::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$12$9, init$, void)},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$12$9, test, bool, Object$*, Object$*)},
-	{}
-};
-$ClassInfo Utils$$Lambda$lambda$static$12$9::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.Utils$$Lambda$lambda$static$12$9",
-	"java.lang.Object",
-	"java.util.function.BiPredicate",
-	nullptr,
-	methodInfos
 };
 $Class* Utils$$Lambda$lambda$static$12$9::load$($String* name, bool initialize) {
-	$loadClass(Utils$$Lambda$lambda$static$12$9, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$12$9, init$, void)},
+		{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$12$9, test, bool, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.Utils$$Lambda$lambda$static$12$9",
+		"java.lang.Object",
+		"java.util.function.BiPredicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Utils$$Lambda$lambda$static$12$9, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Utils$$Lambda$lambda$static$12$9);
+	});
 	return class$;
 }
 $Class* Utils$$Lambda$lambda$static$12$9::class$ = nullptr;
@@ -551,33 +514,29 @@ public:
 	virtual bool test(Object$* k, Object$* v) override {
 		 return Utils::lambda$CONTEXT_RESTRICTED$3(client, $cast($String, k), $cast($String, v));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10>());
-	}
 	$HttpClient* client = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10::fieldInfos[2] = {
-	{"client", "Ljava/net/http/HttpClient;", nullptr, $PUBLIC, $field(Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10, client)},
-	{}
-};
-$MethodInfo Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10::methodInfos[3] = {
-	{"<init>", "(Ljava/net/http/HttpClient;)V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10, init$, void, $HttpClient*)},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10, test, bool, Object$*, Object$*)},
-	{}
-};
-$ClassInfo Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10",
-	"java.lang.Object",
-	"java.util.function.BiPredicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10::load$($String* name, bool initialize) {
-	$loadClass(Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"client", "Ljava/net/http/HttpClient;", nullptr, $PUBLIC, $field(Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10, client)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/http/HttpClient;)V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10, init$, void, $HttpClient*)},
+		{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10, test, bool, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10",
+		"java.lang.Object",
+		"java.util.function.BiPredicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10);
+	});
 	return class$;
 }
 $Class* Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10::class$ = nullptr;
@@ -593,37 +552,33 @@ public:
 	virtual $Object* apply(Object$* r, Object$* t) override {
 		 return $of(Utils::lambda$wrapForDebug$9(logger, name, cf, r, $cast($Throwable, t)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Utils$$Lambda$lambda$wrapForDebug$9$11>());
-	}
 	$Logger* logger = nullptr;
 	$String* name = nullptr;
 	$CompletableFuture* cf = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Utils$$Lambda$lambda$wrapForDebug$9$11::fieldInfos[4] = {
-	{"logger", "Ljdk/internal/net/http/common/Logger;", nullptr, $PUBLIC, $field(Utils$$Lambda$lambda$wrapForDebug$9$11, logger)},
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Utils$$Lambda$lambda$wrapForDebug$9$11, name)},
-	{"cf", "Ljava/util/concurrent/CompletableFuture;", nullptr, $PUBLIC, $field(Utils$$Lambda$lambda$wrapForDebug$9$11, cf)},
-	{}
-};
-$MethodInfo Utils$$Lambda$lambda$wrapForDebug$9$11::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/common/Logger;Ljava/lang/String;Ljava/util/concurrent/CompletableFuture;)V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$wrapForDebug$9$11, init$, void, $Logger*, $String*, $CompletableFuture*)},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$wrapForDebug$9$11, apply, $Object*, Object$*, Object$*)},
-	{}
-};
-$ClassInfo Utils$$Lambda$lambda$wrapForDebug$9$11::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.Utils$$Lambda$lambda$wrapForDebug$9$11",
-	"java.lang.Object",
-	"java.util.function.BiFunction",
-	fieldInfos,
-	methodInfos
 };
 $Class* Utils$$Lambda$lambda$wrapForDebug$9$11::load$($String* name, bool initialize) {
-	$loadClass(Utils$$Lambda$lambda$wrapForDebug$9$11, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"logger", "Ljdk/internal/net/http/common/Logger;", nullptr, $PUBLIC, $field(Utils$$Lambda$lambda$wrapForDebug$9$11, logger)},
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Utils$$Lambda$lambda$wrapForDebug$9$11, name)},
+		{"cf", "Ljava/util/concurrent/CompletableFuture;", nullptr, $PUBLIC, $field(Utils$$Lambda$lambda$wrapForDebug$9$11, cf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/common/Logger;Ljava/lang/String;Ljava/util/concurrent/CompletableFuture;)V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$wrapForDebug$9$11, init$, void, $Logger*, $String*, $CompletableFuture*)},
+		{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$wrapForDebug$9$11, apply, $Object*, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.Utils$$Lambda$lambda$wrapForDebug$9$11",
+		"java.lang.Object",
+		"java.util.function.BiFunction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Utils$$Lambda$lambda$wrapForDebug$9$11, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Utils$$Lambda$lambda$wrapForDebug$9$11);
+	});
 	return class$;
 }
 $Class* Utils$$Lambda$lambda$wrapForDebug$9$11::class$ = nullptr;
@@ -638,35 +593,31 @@ public:
 	virtual $Object* run() override {
 		 return $of(Utils::lambda$getIntegerNetProperty$13(name, defaultValue));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Utils$$Lambda$lambda$getIntegerNetProperty$13$12>());
-	}
 	$String* name = nullptr;
 	int32_t defaultValue = 0;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Utils$$Lambda$lambda$getIntegerNetProperty$13$12::fieldInfos[3] = {
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Utils$$Lambda$lambda$getIntegerNetProperty$13$12, name)},
-	{"defaultValue", "I", nullptr, $PUBLIC, $field(Utils$$Lambda$lambda$getIntegerNetProperty$13$12, defaultValue)},
-	{}
-};
-$MethodInfo Utils$$Lambda$lambda$getIntegerNetProperty$13$12::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$getIntegerNetProperty$13$12, init$, void, $String*, int32_t)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$getIntegerNetProperty$13$12, run, $Object*)},
-	{}
-};
-$ClassInfo Utils$$Lambda$lambda$getIntegerNetProperty$13$12::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.Utils$$Lambda$lambda$getIntegerNetProperty$13$12",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* Utils$$Lambda$lambda$getIntegerNetProperty$13$12::load$($String* name, bool initialize) {
-	$loadClass(Utils$$Lambda$lambda$getIntegerNetProperty$13$12, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Utils$$Lambda$lambda$getIntegerNetProperty$13$12, name)},
+		{"defaultValue", "I", nullptr, $PUBLIC, $field(Utils$$Lambda$lambda$getIntegerNetProperty$13$12, defaultValue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$getIntegerNetProperty$13$12, init$, void, $String*, int32_t)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$getIntegerNetProperty$13$12, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.Utils$$Lambda$lambda$getIntegerNetProperty$13$12",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Utils$$Lambda$lambda$getIntegerNetProperty$13$12, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Utils$$Lambda$lambda$getIntegerNetProperty$13$12);
+	});
 	return class$;
 }
 $Class* Utils$$Lambda$lambda$getIntegerNetProperty$13$12::class$ = nullptr;
@@ -680,33 +631,29 @@ public:
 	virtual $Object* run() override {
 		 return $of(Utils::lambda$getNetProperty$14(name));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Utils$$Lambda$lambda$getNetProperty$14$13>());
-	}
 	$String* name = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Utils$$Lambda$lambda$getNetProperty$14$13::fieldInfos[2] = {
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Utils$$Lambda$lambda$getNetProperty$14$13, name)},
-	{}
-};
-$MethodInfo Utils$$Lambda$lambda$getNetProperty$14$13::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$getNetProperty$14$13, init$, void, $String*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$getNetProperty$14$13, run, $Object*)},
-	{}
-};
-$ClassInfo Utils$$Lambda$lambda$getNetProperty$14$13::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.Utils$$Lambda$lambda$getNetProperty$14$13",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* Utils$$Lambda$lambda$getNetProperty$14$13::load$($String* name, bool initialize) {
-	$loadClass(Utils$$Lambda$lambda$getNetProperty$14$13, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Utils$$Lambda$lambda$getNetProperty$14$13, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$getNetProperty$14$13, init$, void, $String*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$getNetProperty$14$13, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.Utils$$Lambda$lambda$getNetProperty$14$13",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Utils$$Lambda$lambda$getNetProperty$14$13, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Utils$$Lambda$lambda$getNetProperty$14$13);
+	});
 	return class$;
 }
 $Class* Utils$$Lambda$lambda$getNetProperty$14$13::class$ = nullptr;
@@ -721,35 +668,31 @@ public:
 	virtual $Object* run() override {
 		 return $of(Utils::lambda$getBooleanProperty$15(name, def));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Utils$$Lambda$lambda$getBooleanProperty$15$14>());
-	}
 	$String* name = nullptr;
 	bool def = false;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Utils$$Lambda$lambda$getBooleanProperty$15$14::fieldInfos[3] = {
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Utils$$Lambda$lambda$getBooleanProperty$15$14, name)},
-	{"def", "Z", nullptr, $PUBLIC, $field(Utils$$Lambda$lambda$getBooleanProperty$15$14, def)},
-	{}
-};
-$MethodInfo Utils$$Lambda$lambda$getBooleanProperty$15$14::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$getBooleanProperty$15$14, init$, void, $String*, bool)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$getBooleanProperty$15$14, run, $Object*)},
-	{}
-};
-$ClassInfo Utils$$Lambda$lambda$getBooleanProperty$15$14::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.Utils$$Lambda$lambda$getBooleanProperty$15$14",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* Utils$$Lambda$lambda$getBooleanProperty$15$14::load$($String* name, bool initialize) {
-	$loadClass(Utils$$Lambda$lambda$getBooleanProperty$15$14, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Utils$$Lambda$lambda$getBooleanProperty$15$14, name)},
+		{"def", "Z", nullptr, $PUBLIC, $field(Utils$$Lambda$lambda$getBooleanProperty$15$14, def)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$getBooleanProperty$15$14, init$, void, $String*, bool)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$getBooleanProperty$15$14, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.Utils$$Lambda$lambda$getBooleanProperty$15$14",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Utils$$Lambda$lambda$getBooleanProperty$15$14, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Utils$$Lambda$lambda$getBooleanProperty$15$14);
+	});
 	return class$;
 }
 $Class* Utils$$Lambda$lambda$getBooleanProperty$15$14::class$ = nullptr;
@@ -763,33 +706,29 @@ public:
 	virtual $Object* run() override {
 		 return $of(Utils::lambda$getProperty$16(name));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Utils$$Lambda$lambda$getProperty$16$15>());
-	}
 	$String* name = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Utils$$Lambda$lambda$getProperty$16$15::fieldInfos[2] = {
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Utils$$Lambda$lambda$getProperty$16$15, name)},
-	{}
-};
-$MethodInfo Utils$$Lambda$lambda$getProperty$16$15::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$getProperty$16$15, init$, void, $String*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$getProperty$16$15, run, $Object*)},
-	{}
-};
-$ClassInfo Utils$$Lambda$lambda$getProperty$16$15::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.Utils$$Lambda$lambda$getProperty$16$15",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* Utils$$Lambda$lambda$getProperty$16$15::load$($String* name, bool initialize) {
-	$loadClass(Utils$$Lambda$lambda$getProperty$16$15, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Utils$$Lambda$lambda$getProperty$16$15, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$getProperty$16$15, init$, void, $String*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$getProperty$16$15, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.Utils$$Lambda$lambda$getProperty$16$15",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Utils$$Lambda$lambda$getProperty$16$15, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Utils$$Lambda$lambda$getProperty$16$15);
+	});
 	return class$;
 }
 $Class* Utils$$Lambda$lambda$getProperty$16$15::class$ = nullptr;
@@ -804,35 +743,31 @@ public:
 	virtual $Object* run() override {
 		 return $of(Utils::lambda$getIntegerProperty$17(name, defaultValue));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Utils$$Lambda$lambda$getIntegerProperty$17$16>());
-	}
 	$String* name = nullptr;
 	int32_t defaultValue = 0;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Utils$$Lambda$lambda$getIntegerProperty$17$16::fieldInfos[3] = {
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Utils$$Lambda$lambda$getIntegerProperty$17$16, name)},
-	{"defaultValue", "I", nullptr, $PUBLIC, $field(Utils$$Lambda$lambda$getIntegerProperty$17$16, defaultValue)},
-	{}
-};
-$MethodInfo Utils$$Lambda$lambda$getIntegerProperty$17$16::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$getIntegerProperty$17$16, init$, void, $String*, int32_t)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$getIntegerProperty$17$16, run, $Object*)},
-	{}
-};
-$ClassInfo Utils$$Lambda$lambda$getIntegerProperty$17$16::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.Utils$$Lambda$lambda$getIntegerProperty$17$16",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* Utils$$Lambda$lambda$getIntegerProperty$17$16::load$($String* name, bool initialize) {
-	$loadClass(Utils$$Lambda$lambda$getIntegerProperty$17$16, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Utils$$Lambda$lambda$getIntegerProperty$17$16, name)},
+		{"defaultValue", "I", nullptr, $PUBLIC, $field(Utils$$Lambda$lambda$getIntegerProperty$17$16, defaultValue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$getIntegerProperty$17$16, init$, void, $String*, int32_t)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$getIntegerProperty$17$16, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.Utils$$Lambda$lambda$getIntegerProperty$17$16",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Utils$$Lambda$lambda$getIntegerProperty$17$16, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Utils$$Lambda$lambda$getIntegerProperty$17$16);
+	});
 	return class$;
 }
 $Class* Utils$$Lambda$lambda$getIntegerProperty$17$16::class$ = nullptr;
@@ -845,27 +780,24 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $of($sure($String, inst$)->trim());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Utils$$Lambda$trim$17>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Utils$$Lambda$trim$17::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$trim$17, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$trim$17, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Utils$$Lambda$trim$17::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.Utils$$Lambda$trim$17",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Utils$$Lambda$trim$17::load$($String* name, bool initialize) {
-	$loadClass(Utils$$Lambda$trim$17, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$trim$17, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$trim$17, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.Utils$$Lambda$trim$17",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Utils$$Lambda$trim$17, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Utils$$Lambda$trim$17);
+	});
 	return class$;
 }
 $Class* Utils$$Lambda$trim$17::class$ = nullptr;
@@ -878,171 +810,27 @@ public:
 	virtual bool test(Object$* s) override {
 		 return Utils::lambda$static$7($cast($String, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Utils$$Lambda$lambda$static$7$18>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Utils$$Lambda$lambda$static$7$18::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$7$18, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$7$18, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Utils$$Lambda$lambda$static$7$18::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.Utils$$Lambda$lambda$static$7$18",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* Utils$$Lambda$lambda$static$7$18::load$($String* name, bool initialize) {
-	$loadClass(Utils$$Lambda$lambda$static$7$18, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$7$18, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$7$18, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.Utils$$Lambda$lambda$static$7$18",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Utils$$Lambda$lambda$static$7$18, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Utils$$Lambda$lambda$static$7$18);
+	});
 	return class$;
 }
 $Class* Utils$$Lambda$lambda$static$7$18::class$ = nullptr;
-
-$FieldInfo _Utils_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Utils, $assertionsDisabled)},
-	{"ASSERTIONSENABLED", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Utils, ASSERTIONSENABLED)},
-	{"DEBUG", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Utils, DEBUG)},
-	{"DEBUG_WS", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Utils, DEBUG_WS)},
-	{"DEBUG_HPACK", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Utils, DEBUG_HPACK)},
-	{"TESTING", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Utils, TESTING)},
-	{"isHostnameVerificationDisabled", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Utils, isHostnameVerificationDisabled$)},
-	{"DEFAULT_BUFSIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Utils, DEFAULT_BUFSIZE)},
-	{"BUFSIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Utils, BUFSIZE)},
-	{"ACCEPT_ALL", "Ljava/util/function/BiPredicate;", "Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Utils, ACCEPT_ALL)},
-	{"DISALLOWED_HEADERS_SET", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Utils, DISALLOWED_HEADERS_SET)},
-	{"ALLOWED_HEADERS", "Ljava/util/function/BiPredicate;", "Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Utils, ALLOWED_HEADERS)},
-	{"VALIDATE_USER_HEADER", "Ljava/util/function/BiPredicate;", "Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Utils, VALIDATE_USER_HEADER)},
-	{"HOST_RESTRICTED", "Ljava/util/function/BiPredicate;", "Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Utils, HOST_RESTRICTED)},
-	{"IS_HOST", "Ljava/util/function/Predicate;", "Ljava/util/function/Predicate<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Utils, IS_HOST)},
-	{"IS_PROXY_HEADER", "Ljava/util/function/Predicate;", "Ljava/util/function/Predicate<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Utils, IS_PROXY_HEADER)},
-	{"NO_PROXY_HEADER", "Ljava/util/function/Predicate;", "Ljava/util/function/Predicate<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Utils, NO_PROXY_HEADER)},
-	{"ALL_HEADERS", "Ljava/util/function/Predicate;", "Ljava/util/function/Predicate<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Utils, ALL_HEADERS)},
-	{"PROXY_AUTH_DISABLED_SCHEMES", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Utils, PROXY_AUTH_DISABLED_SCHEMES)},
-	{"PROXY_AUTH_TUNNEL_DISABLED_SCHEMES", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Utils, PROXY_AUTH_TUNNEL_DISABLED_SCHEMES)},
-	{"WSPACES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Utils, WSPACES)},
-	{"PROXY_TUNNEL_FILTER", "Ljava/util/function/BiPredicate;", "Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Utils, PROXY_TUNNEL_FILTER)},
-	{"PROXY_FILTER", "Ljava/util/function/BiPredicate;", "Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Utils, PROXY_FILTER)},
-	{"NO_PROXY_HEADERS_FILTER", "Ljava/util/function/BiPredicate;", "Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Utils, NO_PROXY_HEADERS_FILTER)},
-	{"HEADER_CONNECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Utils, HEADER_CONNECTION)},
-	{"HEADER_UPGRADE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Utils, HEADER_UPGRADE)},
-	{"tchar", "[Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Utils, tchar)},
-	{"fieldvchar", "[Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Utils, fieldvchar)},
-	{"COPY_THRESHOLD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Utils, COPY_THRESHOLD)},
-	{"EMPTY_BYTEBUFFER", "Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Utils, EMPTY_BYTEBUFFER)},
-	{"EMPTY_BB_ARRAY", "[Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Utils, EMPTY_BB_ARRAY)},
-	{"EMPTY_BB_LIST", "Ljava/util/List;", "Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Utils, EMPTY_BB_LIST)},
-	{}
-};
-
-$MethodInfo _Utils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Utils, init$, void)},
-	{"CONTEXT_RESTRICTED", "(Ljava/net/http/HttpClient;)Ljava/util/function/BiPredicate;", "(Ljava/net/http/HttpClient;)Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC | $FINAL, $staticMethod(Utils, CONTEXT_RESTRICTED, $BiPredicate*, $HttpClient*)},
-	{"PROXY_TUNNEL_RESTRICTED", "(Ljava/net/http/HttpClient;)Ljava/util/function/BiPredicate;", "(Ljava/net/http/HttpClient;)Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC | $FINAL, $staticMethod(Utils, PROXY_TUNNEL_RESTRICTED, $BiPredicate*, $HttpClient*)},
-	{"accumulateBuffers", "(Ljava/util/List;Ljava/util/List;)J", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Ljava/util/List<Ljava/nio/ByteBuffer;>;)J", $PUBLIC | $STATIC, $staticMethod(Utils, accumulateBuffers, int64_t, $List*, $List*)},
-	{"charsetFrom", "(Ljava/net/http/HttpHeaders;)Ljava/nio/charset/Charset;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, charsetFrom, $Charset*, $HttpHeaders*)},
-	{"close", "([Ljava/io/Closeable;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Utils, close, void, $CloseableArray*)},
-	{"copy", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, copy, int32_t, $ByteBuffer*, $ByteBuffer*)},
-	{"copy", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, copy, $ByteBuffer*, $ByteBuffer*)},
-	{"copyAligned", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, copyAligned, $ByteBuffer*, $ByteBuffer*)},
-	{"copySSLParameters", "(Ljavax/net/ssl/SSLParameters;)Ljavax/net/ssl/SSLParameters;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, copySSLParameters, $SSLParameters*, $SSLParameters*)},
-	{"dump", "([Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Utils, dump, $String*, $ObjectArray*)},
-	{"encode", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, encode, $String*, $String*)},
-	{"flipToMark", "(Ljava/nio/ByteBuffer;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, flipToMark, void, $ByteBuffer*, int32_t)},
-	{"getBooleanProperty", "(Ljava/lang/String;Z)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getBooleanProperty, bool, $String*, bool)},
-	{"getBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getBuffer, $ByteBuffer*)},
-	{"getCancelCause", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getCancelCause, $Throwable*, $Throwable*)},
-	{"getCompletionCause", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getCompletionCause, $Throwable*, $Throwable*)},
-	{"getDebugLogger", "(Ljava/util/function/Supplier;)Ljdk/internal/net/http/common/Logger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;)Ljdk/internal/net/http/common/Logger;", $PUBLIC | $STATIC, $staticMethod(Utils, getDebugLogger, $Logger*, $Supplier*)},
-	{"getDebugLogger", "(Ljava/util/function/Supplier;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/Logger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/Logger;", $STATIC, $staticMethod(Utils, getDebugLogger, $Logger*, $Supplier*, $System$Logger$Level*)},
-	{"getDebugLogger", "(Ljava/util/function/Supplier;Z)Ljdk/internal/net/http/common/Logger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Z)Ljdk/internal/net/http/common/Logger;", $PUBLIC | $STATIC, $staticMethod(Utils, getDebugLogger, $Logger*, $Supplier*, bool)},
-	{"getDisallowedHeaders", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(Utils, getDisallowedHeaders, $Set*)},
-	{"getHpackLogger", "(Ljava/util/function/Supplier;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/Logger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/Logger;", $PUBLIC | $STATIC, $staticMethod(Utils, getHpackLogger, $Logger*, $Supplier*, $System$Logger$Level*)},
-	{"getHpackLogger", "(Ljava/util/function/Supplier;Z)Ljdk/internal/net/http/common/Logger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Z)Ljdk/internal/net/http/common/Logger;", $PUBLIC | $STATIC, $staticMethod(Utils, getHpackLogger, $Logger*, $Supplier*, bool)},
-	{"getIOException", "(Ljava/lang/Throwable;)Ljava/io/IOException;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getIOException, $IOException*, $Throwable*)},
-	{"getIntegerNetProperty", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getIntegerNetProperty, int32_t, $String*, int32_t)},
-	{"getIntegerProperty", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getIntegerProperty, int32_t, $String*, int32_t)},
-	{"getNetProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getNetProperty, $String*, $String*)},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getProperty, $String*, $String*)},
-	{"getServerName", "(Ljava/net/InetSocketAddress;)Ljdk/internal/net/http/common/Utils$ServerName;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getServerName, $Utils$ServerName*, $InetSocketAddress*)},
-	{"getWebSocketLogger", "(Ljava/util/function/Supplier;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/Logger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/Logger;", $PUBLIC | $STATIC, $staticMethod(Utils, getWebSocketLogger, $Logger*, $Supplier*, $System$Logger$Level*)},
-	{"getWebSocketLogger", "(Ljava/util/function/Supplier;Z)Ljdk/internal/net/http/common/Logger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Z)Ljdk/internal/net/http/common/Logger;", $PUBLIC | $STATIC, $staticMethod(Utils, getWebSocketLogger, $Logger*, $Supplier*, bool)},
-	{"hasRemaining", "(Ljava/util/List;)Z", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)Z", $PUBLIC | $STATIC, $staticMethod(Utils, hasRemaining, bool, $List*)},
-	{"hostString", "(Ljdk/internal/net/http/HttpRequestImpl;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, hostString, $String*, $HttpRequestImpl*)},
-	{"hostnameVerificationDisabledValue", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Utils, hostnameVerificationDisabledValue, bool)},
-	{"immutableSession", "(Ljavax/net/ssl/SSLSession;)Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, immutableSession, $SSLSession*, $SSLSession*)},
-	{"isAllowedForProxy", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Ljava/util/function/Predicate;)Z", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;Ljava/util/function/Predicate<Ljava/lang/String;>;)Z", $PRIVATE | $STATIC | $FINAL, $staticMethod(Utils, isAllowedForProxy, bool, $String*, $String*, $Set*, $Predicate*)},
-	{"isHostnameVerificationDisabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, isHostnameVerificationDisabled, bool)},
-	{"isLoopbackLiteral", "([B)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Utils, isLoopbackLiteral, bool, $bytes*)},
-	{"isValidName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, isValidName, bool, $String*)},
-	{"isValidValue", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, isValidValue, bool, $String*)},
-	{"lambda$CONTEXT_RESTRICTED$3", "(Ljava/net/http/HttpClient;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$CONTEXT_RESTRICTED$3, bool, $HttpClient*, $String*, $String*)},
-	{"lambda$getBooleanProperty$15", "(Ljava/lang/String;Z)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$getBooleanProperty$15, $Boolean*, $String*, bool)},
-	{"lambda$getIntegerNetProperty$13", "(Ljava/lang/String;I)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$getIntegerNetProperty$13, $Integer*, $String*, int32_t)},
-	{"lambda$getIntegerProperty$17", "(Ljava/lang/String;I)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$getIntegerProperty$17, $Integer*, $String*, int32_t)},
-	{"lambda$getNetProperty$14", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$getNetProperty$14, $String*, $String*)},
-	{"lambda$getProperty$16", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$getProperty$16, $String*, $String*)},
-	{"lambda$static$0", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$0, bool, $String*, $String*)},
-	{"lambda$static$1", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$1, bool, $String*, $String*)},
-	{"lambda$static$10", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$10, bool, $String*, $String*)},
-	{"lambda$static$11", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$11, bool, $String*, $String*)},
-	{"lambda$static$12", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$12, bool, $String*, $String*)},
-	{"lambda$static$2", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$2, bool, $String*, $String*)},
-	{"lambda$static$4", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$4, bool, $String*, $String*)},
-	{"lambda$static$5", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$5, bool, $String*)},
-	{"lambda$static$6", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$6, bool, $String*)},
-	{"lambda$static$7", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$7, bool, $String*)},
-	{"lambda$wrapForDebug$9", "(Ljdk/internal/net/http/common/Logger;Ljava/lang/String;Ljava/util/concurrent/CompletableFuture;Ljava/lang/Object;Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$wrapForDebug$9, $CompletableFuture*, $Logger*, $String*, $CompletableFuture*, Object$*, $Throwable*)},
-	{"newIAE", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/IllegalArgumentException;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Utils, newIAE, $IllegalArgumentException*, $String*, $ObjectArray*)},
-	{"permissionForProxy", "(Ljava/net/InetSocketAddress;)Ljava/net/URLPermission;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, permissionForProxy, $URLPermission*, $InetSocketAddress*)},
-	{"permissionForServer", "(Ljava/net/URI;Ljava/lang/String;Ljava/util/stream/Stream;)Ljava/net/URLPermission;", "(Ljava/net/URI;Ljava/lang/String;Ljava/util/stream/Stream<Ljava/lang/String;>;)Ljava/net/URLPermission;", $PUBLIC | $STATIC, $staticMethod(Utils, permissionForServer, $URLPermission*, $URI*, $String*, $Stream*)},
-	{"pow2Size", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, pow2Size, int32_t, int32_t)},
-	{"proxyHasDisabledSchemes", "(Z)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, proxyHasDisabledSchemes, bool, bool)},
-	{"remaining", "([Ljava/nio/ByteBuffer;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, remaining, int64_t, $ByteBufferArray*)},
-	{"remaining", "(Ljava/util/List;)J", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)J", $PUBLIC | $STATIC, $staticMethod(Utils, remaining, int64_t, $List*)},
-	{"remaining", "(Ljava/util/List;I)I", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;I)I", $PUBLIC | $STATIC, $staticMethod(Utils, remaining, int32_t, $List*, int32_t)},
-	{"remaining", "([Ljava/nio/ByteBuffer;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, remaining, int32_t, $ByteBufferArray*, int32_t)},
-	{"resolveAddress", "(Ljava/net/InetSocketAddress;)Ljava/net/InetSocketAddress;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, resolveAddress, $InetSocketAddress*, $InetSocketAddress*)},
-	{"setWebSocketUpgradeHeaders", "(Ljdk/internal/net/http/HttpRequestImpl;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utils, setWebSocketUpgradeHeaders, void, $HttpRequestImpl*)},
-	{"sliceWithLimitedCapacity", "(Ljava/nio/ByteBuffer;I)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, sliceWithLimitedCapacity, $ByteBuffer*, $ByteBuffer*, int32_t)},
-	{"stackTrace", "(Ljava/lang/Throwable;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, stackTrace, $String*, $Throwable*)},
-	{"stringOf", "(Ljava/util/Collection;)Ljava/lang/String;", "(Ljava/util/Collection<*>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(Utils, stringOf, $String*, $Collection*)},
-	{"synchronizedRemaining", "(Ljava/util/List;)J", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)J", $PUBLIC | $STATIC, $staticMethod(Utils, synchronizedRemaining, int64_t, $List*)},
-	{"toConnectException", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, toConnectException, $Throwable*, $Throwable*)},
-	{"unchecked", "(Ljava/io/IOException;)Ljava/io/UncheckedIOException;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, unchecked, $UncheckedIOException*, $IOException*)},
-	{"wrapForDebug", "(Ljdk/internal/net/http/common/Logger;Ljava/lang/String;Ljava/util/concurrent/CompletableFuture;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljdk/internal/net/http/common/Logger;Ljava/lang/String;Ljava/util/concurrent/CompletableFuture<TT;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC | $STATIC, $staticMethod(Utils, wrapForDebug, $CompletableFuture*, $Logger*, $String*, $CompletableFuture*)},
-	{"wrapWithExtraDetail", "(Ljava/lang/Throwable;Ljava/util/function/Supplier;)Ljava/lang/Throwable;", "(Ljava/lang/Throwable;Ljava/util/function/Supplier<Ljava/lang/String;>;)Ljava/lang/Throwable;", $PUBLIC | $STATIC, $staticMethod(Utils, wrapWithExtraDetail, $Throwable*, $Throwable*, $Supplier*)},
-	{}
-};
-
-$InnerClassInfo _Utils_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.common.Utils$ServerName", "jdk.internal.net.http.common.Utils", "ServerName", $PUBLIC | $STATIC},
-	{"jdk.internal.net.http.common.Utils$ProxyHeaders", "jdk.internal.net.http.common.Utils", "ProxyHeaders", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Utils_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.common.Utils",
-	"java.lang.Object",
-	nullptr,
-	_Utils_FieldInfo_,
-	_Utils_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Utils_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.common.Utils$ServerName,jdk.internal.net.http.common.Utils$ProxyHeaders"
-};
-
-$Object* allocate$Utils($Class* clazz) {
-	return $of($alloc(Utils));
-}
 
 bool Utils::$assertionsDisabled = false;
 bool Utils::ASSERTIONSENABLED = false;
@@ -1086,17 +874,15 @@ bool Utils::hostnameVerificationDisabledValue() {
 
 $Set* Utils::getDisallowedHeaders() {
 	$init(Utils);
-	$useLocalCurrentObjectStackCache();
-	$var($Set, headers, static_cast<$Set*>(static_cast<$AbstractSet*>($new($TreeSet, $String::CASE_INSENSITIVE_ORDER))));
+	$useLocalObjectStack();
+	$var($Set, headers, $cast($AbstractSet, $new($TreeSet, $String::CASE_INSENSITIVE_ORDER)));
 	headers->addAll($($Set::of("connection"_s, "content-length"_s, "expect"_s, "host"_s, "upgrade"_s)));
 	$var($String, v, getNetProperty("jdk.httpclient.allowRestrictedHeaders"_s));
 	if (v != nullptr) {
 		$var($StringArray, tokens, $(v->trim())->split(","_s));
 		{
 			$var($StringArray, arr$, tokens);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, token, arr$->get(i$));
 				{
 					headers->remove(token);
@@ -1111,19 +897,19 @@ $Set* Utils::getDisallowedHeaders() {
 
 $BiPredicate* Utils::CONTEXT_RESTRICTED($HttpClient* client) {
 	$init(Utils);
-	return static_cast<$BiPredicate*>($new(Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10, client));
+	return $new(Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10, client);
 }
 
 $BiPredicate* Utils::PROXY_TUNNEL_RESTRICTED($HttpClient* client) {
 	$init(Utils);
-	return $nc($(CONTEXT_RESTRICTED(client)))->and$(Utils::HOST_RESTRICTED);
+	return $$nc(CONTEXT_RESTRICTED(client))->and$(Utils::HOST_RESTRICTED);
 }
 
 $CompletableFuture* Utils::wrapForDebug($Logger* logger, $String* name, $CompletableFuture* cf) {
 	$init(Utils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(logger)->on()) {
-		return $cast($CompletableFuture, $nc($($cast($CompletableFuture, $nc(cf)->handle(static_cast<$BiFunction*>($$new(Utils$$Lambda$lambda$wrapForDebug$9$11, logger, name, cf))))))->thenCompose($($Function::identity())));
+		return $cast($CompletableFuture, $$sure($CompletableFuture, $nc(cf)->handle($$new(Utils$$Lambda$lambda$wrapForDebug$9$11, logger, name, cf)))->thenCompose($($Function::identity())));
 	} else {
 		return cf;
 	}
@@ -1131,7 +917,7 @@ $CompletableFuture* Utils::wrapForDebug($Logger* logger, $String* name, $Complet
 
 bool Utils::isAllowedForProxy($String* name, $String* value, $Set* disabledSchemes, $Predicate* allowedKeys) {
 	$init(Utils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(allowedKeys)->test(name)) {
 		return false;
 	}
@@ -1143,12 +929,12 @@ bool Utils::isAllowedForProxy($String* name, $String* value, $Set* disabledSchem
 			return false;
 		}
 		{
-			$var($Iterator, i$, $nc(disabledSchemes)->iterator());
+			$var($Iterator, i$, disabledSchemes->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($String, scheme, $cast($String, i$->next()));
 				{
 					int32_t slen = $nc(scheme)->length();
-					int32_t vlen = $nc(value)->length();
+					int32_t vlen = value->length();
 					if (vlen == slen) {
 						if (value->equalsIgnoreCase(scheme)) {
 							return false;
@@ -1156,7 +942,7 @@ bool Utils::isAllowedForProxy($String* name, $String* value, $Set* disabledSchem
 					} else if (vlen > slen) {
 						if ($(value->substring(0, slen))->equalsIgnoreCase(scheme)) {
 							int32_t c = value->codePointAt(slen);
-							bool var$1 = $nc(Utils::WSPACES)->indexOf(c) > -1;
+							bool var$1 = Utils::WSPACES->indexOf(c) > -1;
 							bool var$0 = var$1 || $Character::isSpaceChar(c);
 							if (var$0 || $Character::isWhitespace(c)) {
 								return false;
@@ -1207,7 +993,7 @@ $Throwable* Utils::getCancelCause($Throwable* x) {
 	$init(Utils);
 	$var($Throwable, cause, getCompletionCause(x));
 	if ($instanceOf($ConnectionExpiredException, cause)) {
-		$assign(cause, $nc(cause)->getCause());
+		$assign(cause, cause->getCause());
 	}
 	return cause;
 }
@@ -1226,7 +1012,7 @@ $IOException* Utils::getIOException($Throwable* t) {
 
 $Throwable* Utils::wrapWithExtraDetail($Throwable* t$renamed, $Supplier* messageSupplier) {
 	$init(Utils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Throwable, t, t$renamed);
 	if (!($instanceOf($IOException, t))) {
 		return t;
@@ -1239,10 +1025,10 @@ $Throwable* Utils::wrapWithExtraDetail($Throwable* t$renamed, $Supplier* message
 		return t;
 	}
 	if ($instanceOf($ConnectionExpiredException, t)) {
-		if ($instanceOf($SSLHandshakeException, $($nc(t)->getCause()))) {
+		if ($instanceOf($SSLHandshakeException, $(t->getCause()))) {
 			return t;
 		}
-		$var($IOException, ioe, $new($IOException, msg, $($nc(t)->getCause())));
+		$var($IOException, ioe, $new($IOException, msg, $(t->getCause())));
 		$assign(t, $new($ConnectionExpiredException, ioe));
 	} else {
 		$var($IOException, ioe, $new($IOException, msg, t));
@@ -1256,7 +1042,7 @@ void Utils::init$() {
 
 $URLPermission* Utils::permissionForProxy($InetSocketAddress* proxyAddress) {
 	$init(Utils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (proxyAddress == nullptr) {
 		return nullptr;
 	}
@@ -1268,7 +1054,7 @@ $URLPermission* Utils::permissionForProxy($InetSocketAddress* proxyAddress) {
 
 $URLPermission* Utils::permissionForServer($URI* uri, $String* method, $Stream* headers) {
 	$init(Utils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, urlString, $$new($StringBuilder)->append($($nc(uri)->getScheme()))->append("://"_s)->append($($nc(uri)->getRawAuthority()))->append($($nc(uri)->getRawPath()))->toString());
 	$var($StringBuilder, actionStringBuilder, $new($StringBuilder, method));
 	$var($String, collected, $cast($String, $nc(headers)->collect($($Collectors::joining(","_s)))));
@@ -1282,16 +1068,16 @@ bool Utils::isValidName($String* token) {
 	$init(Utils);
 	for (int32_t i = 0; i < $nc(token)->length(); ++i) {
 		char16_t c = token->charAt(i);
-		if (c > 255 || !$nc(Utils::tchar)->get(c)) {
+		if (c > 255 || !Utils::tchar->get(c)) {
 			return false;
 		}
 	}
-	return !$nc(token)->isEmpty();
+	return !token->isEmpty();
 }
 
 $Utils$ServerName* Utils::getServerName($InetSocketAddress* addr) {
 	$init(Utils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, host, $nc(addr)->getHostString());
 	$var($bytes, literal, $IPAddressUtil::textToNumericFormatV4(host));
 	if (literal == nullptr) {
@@ -1330,10 +1116,8 @@ bool Utils::isValidValue($String* token) {
 		}
 		if (c == u' ' || c == u'\t') {
 			continue;
-		} else {
-			if (!$nc(Utils::fieldvchar)->get(c)) {
-				return false;
-			}
+		} else if (!Utils::fieldvchar->get(c)) {
+			return false;
 		}
 	}
 	return true;
@@ -1341,50 +1125,50 @@ bool Utils::isValidValue($String* token) {
 
 int32_t Utils::getIntegerNetProperty($String* name, int32_t defaultValue) {
 	$init(Utils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	return $nc(($cast($Integer, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(Utils$$Lambda$lambda$getIntegerNetProperty$13$12, name, defaultValue)))))))->intValue();
+	return $$sure($Integer, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(Utils$$Lambda$lambda$getIntegerNetProperty$13$12, name, defaultValue))))->intValue();
 }
 
 $String* Utils::getNetProperty($String* name) {
 	$init(Utils);
 	$beforeCallerSensitive();
-	return $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(Utils$$Lambda$lambda$getNetProperty$14$13, name))));
+	return $cast($String, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(Utils$$Lambda$lambda$getNetProperty$14$13, name))));
 }
 
 bool Utils::getBooleanProperty($String* name, bool def) {
 	$init(Utils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	return $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(Utils$$Lambda$lambda$getBooleanProperty$15$14, name, def)))))))->booleanValue();
+	return $$sure($Boolean, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(Utils$$Lambda$lambda$getBooleanProperty$15$14, name, def))))->booleanValue();
 }
 
 $String* Utils::getProperty($String* name) {
 	$init(Utils);
 	$beforeCallerSensitive();
-	return $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(Utils$$Lambda$lambda$getProperty$16$15, name))));
+	return $cast($String, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(Utils$$Lambda$lambda$getProperty$16$15, name))));
 }
 
 int32_t Utils::getIntegerProperty($String* name, int32_t defaultValue) {
 	$init(Utils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	return $nc(($cast($Integer, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(Utils$$Lambda$lambda$getIntegerProperty$17$16, name, defaultValue)))))))->intValue();
+	return $$sure($Integer, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(Utils$$Lambda$lambda$getIntegerProperty$17$16, name, defaultValue))))->intValue();
 }
 
 $SSLParameters* Utils::copySSLParameters($SSLParameters* p) {
 	$init(Utils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SSLParameters, p1, $new($SSLParameters));
 	p1->setAlgorithmConstraints($($nc(p)->getAlgorithmConstraints()));
-	p1->setCipherSuites($($nc(p)->getCipherSuites()));
-	p1->setEnableRetransmissions($nc(p)->getEnableRetransmissions());
-	p1->setMaximumPacketSize($nc(p)->getMaximumPacketSize());
-	p1->setEndpointIdentificationAlgorithm($($nc(p)->getEndpointIdentificationAlgorithm()));
-	p1->setNeedClientAuth($nc(p)->getNeedClientAuth());
-	$var($StringArray, protocols, $nc(p)->getProtocols());
+	p1->setCipherSuites($(p->getCipherSuites()));
+	p1->setEnableRetransmissions(p->getEnableRetransmissions());
+	p1->setMaximumPacketSize(p->getMaximumPacketSize());
+	p1->setEndpointIdentificationAlgorithm($(p->getEndpointIdentificationAlgorithm()));
+	p1->setNeedClientAuth(p->getNeedClientAuth());
+	$var($StringArray, protocols, p->getProtocols());
 	if (protocols != nullptr) {
-		p1->setProtocols($cast($StringArray, $(protocols->clone())));
+		p1->setProtocols($$cast($StringArray, protocols->clone()));
 	}
 	p1->setSNIMatchers($(p->getSNIMatchers()));
 	p1->setServerNames($(p->getServerNames()));
@@ -1395,16 +1179,16 @@ $SSLParameters* Utils::copySSLParameters($SSLParameters* p) {
 
 void Utils::flipToMark($ByteBuffer* buffer, int32_t mark) {
 	$init(Utils);
-	$nc(buffer)->limit(buffer->position());
+	$nc(buffer)->limit($nc(buffer)->position());
 	buffer->position(mark);
 }
 
 $String* Utils::stackTrace($Throwable* t) {
 	$init(Utils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteArrayOutputStream, bos, $new($ByteArrayOutputStream));
 	$init($StandardCharsets);
-	$var($PrintStream, p, $new($PrintStream, static_cast<$OutputStream*>(bos), true, $StandardCharsets::US_ASCII));
+	$var($PrintStream, p, $new($PrintStream, bos, true, $StandardCharsets::US_ASCII));
 	$nc(t)->printStackTrace(p);
 	return bos->toString($StandardCharsets::US_ASCII);
 }
@@ -1427,7 +1211,7 @@ int32_t Utils::copy($ByteBuffer* src, $ByteBuffer* dst) {
 
 int64_t Utils::accumulateBuffers($List* currentList, $List* buffersToAdd) {
 	$init(Utils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t accumulatedBytes = 0;
 	{
 		$var($Iterator, i$, $nc(buffersToAdd)->iterator());
@@ -1497,13 +1281,11 @@ $String* Utils::stringOf($Collection* source) {
 
 int64_t Utils::remaining($ByteBufferArray* bufs) {
 	$init(Utils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t remain = 0;
 	{
 		$var($ByteBufferArray, arr$, bufs);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($ByteBuffer, buf, arr$->get(i$));
 			{
 				remain += $nc(buf)->remaining();
@@ -1515,16 +1297,12 @@ int64_t Utils::remaining($ByteBufferArray* bufs) {
 
 bool Utils::hasRemaining($List* bufs) {
 	$init(Utils);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(bufs)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($ByteBuffer, buf, $cast($ByteBuffer, i$->next()));
-			{
-				if ($nc(buf)->hasRemaining()) {
-					return true;
-				}
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(bufs)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($ByteBuffer, buf, $cast($ByteBuffer, i$->next()));
+		if ($nc(buf)->hasRemaining()) {
+			return true;
 		}
 	}
 	return false;
@@ -1532,7 +1310,7 @@ bool Utils::hasRemaining($List* bufs) {
 
 int64_t Utils::remaining($List* bufs) {
 	$init(Utils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t remain = 0;
 	{
 		$var($Iterator, i$, $nc(bufs)->iterator());
@@ -1555,7 +1333,7 @@ int64_t Utils::synchronizedRemaining($List* bufs) {
 
 int32_t Utils::remaining($List* bufs, int32_t max) {
 	$init(Utils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t remain = 0;
 	{
 		$var($Iterator, i$, $nc(bufs)->iterator());
@@ -1574,13 +1352,11 @@ int32_t Utils::remaining($List* bufs, int32_t max) {
 
 int32_t Utils::remaining($ByteBufferArray* refs, int32_t max) {
 	$init(Utils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t remain = 0;
 	{
 		$var($ByteBufferArray, arr$, refs);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($ByteBuffer, b, arr$->get(i$));
 			{
 				remain += $nc(b)->remaining();
@@ -1595,19 +1371,13 @@ int32_t Utils::remaining($ByteBufferArray* refs, int32_t max) {
 
 void Utils::close($CloseableArray* closeables) {
 	$init(Utils);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($CloseableArray, arr$, closeables);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($Closeable, c, arr$->get(i$));
-			{
-				try {
-					$nc(c)->close();
-				} catch ($IOException& ignored) {
-				}
-			}
+	$useLocalObjectStack();
+	$var($CloseableArray, arr$, closeables);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($Closeable, c, arr$->get(i$));
+		try {
+			$nc(c)->close();
+		} catch ($IOException& ignored) {
 		}
 	}
 }
@@ -1630,8 +1400,8 @@ $ByteBuffer* Utils::sliceWithLimitedCapacity($ByteBuffer* buffer, int32_t amount
 
 $Charset* Utils::charsetFrom($HttpHeaders* headers) {
 	$init(Utils);
-	$useLocalCurrentObjectStackCache();
-	$var($String, type, $cast($String, $nc($($nc(headers)->firstValue("Content-type"_s)))->orElse("text/html; charset=utf-8"_s)));
+	$useLocalObjectStack();
+	$var($String, type, $cast($String, $$nc($nc(headers)->firstValue("Content-type"_s))->orElse("text/html; charset=utf-8"_s)));
 	int32_t i = $nc(type)->indexOf(";"_s);
 	if (i >= 0) {
 		$assign(type, type->substring(i + 1));
@@ -1646,8 +1416,8 @@ $Charset* Utils::charsetFrom($HttpHeaders* headers) {
 		return $Charset::forName(value);
 	} catch ($Throwable& x) {
 		$Log::logTrace("Can\'t find charset in \"{0}\" ({1})"_s, $$new($ObjectArray, {
-			$of(type),
-			$of(x)
+			type,
+			x
 		}));
 		$init($StandardCharsets);
 		return $StandardCharsets::UTF_8;
@@ -1680,14 +1450,14 @@ $Logger* Utils::getDebugLogger($Supplier* dbgTag, bool on) {
 
 $String* Utils::hostString($HttpRequestImpl* request) {
 	$init(Utils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URI, uri, $nc(request)->uri());
 	int32_t port = $nc(uri)->getPort();
 	$var($String, host, uri->getHost());
 	bool defaultPort = false;
 	if (port == -1) {
 		defaultPort = true;
-	} else if ($nc($(uri->getScheme()))->equalsIgnoreCase("https"_s)) {
+	} else if ($$nc(uri->getScheme())->equalsIgnoreCase("https"_s)) {
 		defaultPort = port == 443;
 	} else {
 		defaultPort = port == 80;
@@ -1743,7 +1513,7 @@ bool Utils::isHostnameVerificationDisabled() {
 
 $InetSocketAddress* Utils::resolveAddress($InetSocketAddress* address$renamed) {
 	$init(Utils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InetSocketAddress, address, address$renamed);
 	if (address != nullptr && address->isUnresolved()) {
 		$var($String, var$0, address->getHostString());
@@ -1754,7 +1524,7 @@ $InetSocketAddress* Utils::resolveAddress($InetSocketAddress* address$renamed) {
 
 $Throwable* Utils::toConnectException($Throwable* e$renamed) {
 	$init(Utils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Throwable, e, e$renamed);
 	if (e == nullptr) {
 		return nullptr;
@@ -1796,7 +1566,7 @@ int32_t Utils::pow2Size(int32_t n) {
 
 $String* Utils::encode($String* s) {
 	$init(Utils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = $nc(s)->length();
 	if (n == 0) {
 		return s;
@@ -1815,19 +1585,19 @@ $String* Utils::encode($String* s) {
 	try {
 		$init($StandardCharsets);
 		$init($CodingErrorAction);
-		$assign(bb, $nc($($nc($($nc($($nc($StandardCharsets::UTF_8)->newEncoder()))->onMalformedInput($CodingErrorAction::REPORT)))->onUnmappableCharacter($CodingErrorAction::REPORT)))->encode($($CharBuffer::wrap(static_cast<$CharSequence*>(ns)))));
+		$assign(bb, $$nc($$nc($$nc($nc($StandardCharsets::UTF_8)->newEncoder())->onMalformedInput($CodingErrorAction::REPORT))->onUnmappableCharacter($CodingErrorAction::REPORT))->encode($($CharBuffer::wrap(ns))));
 	} catch ($CharacterCodingException& x) {
 		if (!Utils::$assertionsDisabled) {
 			$throwNew($AssertionError, $of(x));
 		}
 	}
-	$var($HexFormat, format, $nc($($HexFormat::of()))->withUpperCase());
+	$var($HexFormat, format, $$nc($HexFormat::of())->withUpperCase());
 	$var($StringBuilder, sb, $new($StringBuilder));
 	while ($nc(bb)->hasRemaining()) {
-		int32_t b = (int32_t)(bb->get() & (uint32_t)255);
+		int32_t b = bb->get() & 0xff;
 		if (b >= 128) {
 			sb->append(u'%');
-			$nc(format)->toHexDigits(static_cast<$Appendable*>(sb), (int8_t)b);
+			$nc(format)->toHexDigits(sb, (int8_t)b);
 		} else {
 			sb->append((char16_t)b);
 		}
@@ -1837,7 +1607,7 @@ $String* Utils::encode($String* s) {
 
 $Integer* Utils::lambda$getIntegerProperty$17($String* name, int32_t defaultValue) {
 	$init(Utils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $Integer::valueOf($Integer::parseInt($($System::getProperty(name, $($String::valueOf(defaultValue))))));
 }
 
@@ -1848,7 +1618,7 @@ $String* Utils::lambda$getProperty$16($String* name) {
 
 $Boolean* Utils::lambda$getBooleanProperty$15($String* name, bool def) {
 	$init(Utils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $Boolean::valueOf($Boolean::parseBoolean($($System::getProperty(name, $($String::valueOf(def))))));
 }
 
@@ -1880,7 +1650,7 @@ bool Utils::lambda$static$10($String* s, $String* v) {
 $CompletableFuture* Utils::lambda$wrapForDebug$9($Logger* logger, $String* name, $CompletableFuture* cf, Object$* r, $Throwable* t) {
 	$init(Utils);
 	$nc(logger)->log("%s completed %s"_s, $$new($ObjectArray, {
-		$of(name),
+		name,
 		t == nullptr ? $of("successfully"_s) : $of(t)
 	}));
 	return cf;
@@ -1909,17 +1679,17 @@ bool Utils::lambda$static$4($String* k, $String* v) {
 
 bool Utils::lambda$CONTEXT_RESTRICTED$3($HttpClient* client, $String* k, $String* v) {
 	$init(Utils);
-	bool var$0 = !$nc($($nc(client)->authenticator()))->isPresent();
+	bool var$0 = !$$nc($nc(client)->authenticator())->isPresent();
 	if (!var$0) {
 		bool var$1 = !$nc(k)->equalsIgnoreCase("Authorization"_s);
-		var$0 = (var$1 && !k->equalsIgnoreCase("Proxy-Authorization"_s));
+		var$0 = var$1 && !k->equalsIgnoreCase("Proxy-Authorization"_s);
 	}
 	return var$0;
 }
 
 bool Utils::lambda$static$2($String* name, $String* value) {
 	$init(Utils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!Utils::$assertionsDisabled && !(name != nullptr)) {
 		$throwNew($AssertionError, $of("null header name"_s));
 	}
@@ -1927,15 +1697,15 @@ bool Utils::lambda$static$2($String* name, $String* value) {
 		$throwNew($AssertionError, $of("null header value"_s));
 	}
 	if (!isValidName(name)) {
-		$throw($(newIAE("invalid header name: \"%s\""_s, $$new($ObjectArray, {$of(name)}))));
+		$throw($(newIAE("invalid header name: \"%s\""_s, $$new($ObjectArray, {name}))));
 	}
 	if (!$nc(Utils::ALLOWED_HEADERS)->test(name, nullptr)) {
-		$throw($(newIAE("restricted header name: \"%s\""_s, $$new($ObjectArray, {$of(name)}))));
+		$throw($(newIAE("restricted header name: \"%s\""_s, $$new($ObjectArray, {name}))));
 	}
 	if (!isValidValue(value)) {
 		$throw($(newIAE("invalid header value for %s: \"%s\""_s, $$new($ObjectArray, {
-			$of(name),
-			$of(value)
+			name,
+			value
 		}))));
 	}
 	return true;
@@ -1951,8 +1721,8 @@ bool Utils::lambda$static$0($String* x, $String* y) {
 	return true;
 }
 
-void clinit$Utils($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Utils::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Utils::WSPACES, " \t\r\n"_s);
 	$assignStatic(Utils::HEADER_CONNECTION, "Connection"_s);
 	$assignStatic(Utils::HEADER_UPGRADE, "Upgrade"_s);
@@ -1971,43 +1741,41 @@ void clinit$Utils($Class* class$) {
 	Utils::TESTING = Utils::DEBUG;
 	Utils::isHostnameVerificationDisabled$ = Utils::hostnameVerificationDisabledValue();
 	Utils::BUFSIZE = Utils::getIntegerNetProperty("jdk.httpclient.bufsize"_s, Utils::DEFAULT_BUFSIZE);
-	$assignStatic(Utils::ACCEPT_ALL, static_cast<$BiPredicate*>($new(Utils$$Lambda$lambda$static$0)));
+	$assignStatic(Utils::ACCEPT_ALL, $new(Utils$$Lambda$lambda$static$0));
 	$assignStatic(Utils::DISALLOWED_HEADERS_SET, Utils::getDisallowedHeaders());
-	$assignStatic(Utils::ALLOWED_HEADERS, static_cast<$BiPredicate*>($new(Utils$$Lambda$lambda$static$1$1)));
-	$assignStatic(Utils::VALIDATE_USER_HEADER, static_cast<$BiPredicate*>($new(Utils$$Lambda$lambda$static$2$2)));
-	$assignStatic(Utils::HOST_RESTRICTED, static_cast<$BiPredicate*>($new(Utils$$Lambda$lambda$static$4$3)));
-	$assignStatic(Utils::IS_HOST, static_cast<$Predicate*>($new(Utils$$Lambda$equalsIgnoreCase$4, static_cast<$String*>("host"_s))));
-	$assignStatic(Utils::IS_PROXY_HEADER, static_cast<$Predicate*>($new(Utils$$Lambda$lambda$static$5$5)));
+	$assignStatic(Utils::ALLOWED_HEADERS, $new(Utils$$Lambda$lambda$static$1$1));
+	$assignStatic(Utils::VALIDATE_USER_HEADER, $new(Utils$$Lambda$lambda$static$2$2));
+	$assignStatic(Utils::HOST_RESTRICTED, $new(Utils$$Lambda$lambda$static$4$3));
+	$assignStatic(Utils::IS_HOST, $new(Utils$$Lambda$equalsIgnoreCase$4, "host"_s));
+	$assignStatic(Utils::IS_PROXY_HEADER, $new(Utils$$Lambda$lambda$static$5$5));
 	$assignStatic(Utils::NO_PROXY_HEADER, $nc(Utils::IS_PROXY_HEADER)->negate());
-	$assignStatic(Utils::ALL_HEADERS, static_cast<$Predicate*>($new(Utils$$Lambda$lambda$static$6$6)));
+	$assignStatic(Utils::ALL_HEADERS, $new(Utils$$Lambda$lambda$static$6$6));
 	{
 		$var($String, proxyAuthDisabled, Utils::getNetProperty("jdk.http.auth.proxying.disabledSchemes"_s));
 		$var($String, proxyAuthTunnelDisabled, Utils::getNetProperty("jdk.http.auth.tunneling.disabledSchemes"_s));
-		$assignStatic(Utils::PROXY_AUTH_DISABLED_SCHEMES, proxyAuthDisabled == nullptr ? $Set::of() : $cast($Set, $nc($($nc($($nc($($Stream::of($($nc(proxyAuthDisabled)->split(","_s)))))->map(static_cast<$Function*>($$new(Utils$$Lambda$trim$17)))))->filter(static_cast<$Predicate*>($$new(Utils$$Lambda$lambda$static$7$18)))))->collect($($Collectors::toUnmodifiableSet()))));
-		$assignStatic(Utils::PROXY_AUTH_TUNNEL_DISABLED_SCHEMES, proxyAuthTunnelDisabled == nullptr ? $Set::of() : $cast($Set, $nc($($nc($($nc($($Stream::of($($nc(proxyAuthTunnelDisabled)->split(","_s)))))->map(static_cast<$Function*>($$new(Utils$$Lambda$trim$17)))))->filter(static_cast<$Predicate*>($$new(Utils$$Lambda$lambda$static$7$18)))))->collect($($Collectors::toUnmodifiableSet()))));
+		$assignStatic(Utils::PROXY_AUTH_DISABLED_SCHEMES, proxyAuthDisabled == nullptr ? $Set::of() : $cast($Set, $$nc($$nc($$nc($Stream::of($(proxyAuthDisabled->split(","_s))))->map($$new(Utils$$Lambda$trim$17)))->filter($$new(Utils$$Lambda$lambda$static$7$18)))->collect($($Collectors::toUnmodifiableSet()))));
+		$assignStatic(Utils::PROXY_AUTH_TUNNEL_DISABLED_SCHEMES, proxyAuthTunnelDisabled == nullptr ? $Set::of() : $cast($Set, $$nc($$nc($$nc($Stream::of($(proxyAuthTunnelDisabled->split(","_s))))->map($$new(Utils$$Lambda$trim$17)))->filter($$new(Utils$$Lambda$lambda$static$7$18)))->collect($($Collectors::toUnmodifiableSet()))));
 	}
-	$assignStatic(Utils::PROXY_TUNNEL_FILTER, static_cast<$BiPredicate*>($new(Utils$$Lambda$lambda$static$10$7)));
-	$assignStatic(Utils::PROXY_FILTER, static_cast<$BiPredicate*>($new(Utils$$Lambda$lambda$static$11$8)));
-	$assignStatic(Utils::NO_PROXY_HEADERS_FILTER, static_cast<$BiPredicate*>($new(Utils$$Lambda$lambda$static$12$9)));
+	$assignStatic(Utils::PROXY_TUNNEL_FILTER, $new(Utils$$Lambda$lambda$static$10$7));
+	$assignStatic(Utils::PROXY_FILTER, $new(Utils$$Lambda$lambda$static$11$8));
+	$assignStatic(Utils::NO_PROXY_HEADERS_FILTER, $new(Utils$$Lambda$lambda$static$12$9));
 	$assignStatic(Utils::tchar, $new($booleans, 256));
 	$assignStatic(Utils::fieldvchar, $new($booleans, 256));
 	{
 		$var($chars, allowedTokenChars, ("!#$%&\'*+-.^_`|~0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"_s)->toCharArray());
 		{
 			$var($chars, arr$, allowedTokenChars);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				char16_t c = arr$->get(i$);
 				{
-					$nc(Utils::tchar)->set(c, true);
+					Utils::tchar->set(c, true);
 				}
 			}
 		}
-		for (char16_t c = (char16_t)33; c <= 255; ++c) {
-			$nc(Utils::fieldvchar)->set(c, true);
+		for (char16_t c = 33; c <= 255; ++c) {
+			Utils::fieldvchar->set(c, true);
 		}
-		$nc(Utils::fieldvchar)->set(127, false);
+		Utils::fieldvchar->set(127, false);
 	}
 	$assignStatic(Utils::EMPTY_BYTEBUFFER, $ByteBuffer::allocate(0));
 	$assignStatic(Utils::EMPTY_BB_ARRAY, $new($ByteBufferArray, 0));
@@ -2019,65 +1787,200 @@ Utils::Utils() {
 
 $Class* Utils::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Utils$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.Utils$$Lambda$lambda$static$0")) {
 			return Utils$$Lambda$lambda$static$0::load$(name, initialize);
 		}
-		if (name->equals(Utils$$Lambda$lambda$static$1$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.Utils$$Lambda$lambda$static$1$1")) {
 			return Utils$$Lambda$lambda$static$1$1::load$(name, initialize);
 		}
-		if (name->equals(Utils$$Lambda$lambda$static$2$2::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.Utils$$Lambda$lambda$static$2$2")) {
 			return Utils$$Lambda$lambda$static$2$2::load$(name, initialize);
 		}
-		if (name->equals(Utils$$Lambda$lambda$static$4$3::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.Utils$$Lambda$lambda$static$4$3")) {
 			return Utils$$Lambda$lambda$static$4$3::load$(name, initialize);
 		}
-		if (name->equals(Utils$$Lambda$equalsIgnoreCase$4::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.Utils$$Lambda$equalsIgnoreCase$4")) {
 			return Utils$$Lambda$equalsIgnoreCase$4::load$(name, initialize);
 		}
-		if (name->equals(Utils$$Lambda$lambda$static$5$5::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.Utils$$Lambda$lambda$static$5$5")) {
 			return Utils$$Lambda$lambda$static$5$5::load$(name, initialize);
 		}
-		if (name->equals(Utils$$Lambda$lambda$static$6$6::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.Utils$$Lambda$lambda$static$6$6")) {
 			return Utils$$Lambda$lambda$static$6$6::load$(name, initialize);
 		}
-		if (name->equals(Utils$$Lambda$lambda$static$10$7::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.Utils$$Lambda$lambda$static$10$7")) {
 			return Utils$$Lambda$lambda$static$10$7::load$(name, initialize);
 		}
-		if (name->equals(Utils$$Lambda$lambda$static$11$8::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.Utils$$Lambda$lambda$static$11$8")) {
 			return Utils$$Lambda$lambda$static$11$8::load$(name, initialize);
 		}
-		if (name->equals(Utils$$Lambda$lambda$static$12$9::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.Utils$$Lambda$lambda$static$12$9")) {
 			return Utils$$Lambda$lambda$static$12$9::load$(name, initialize);
 		}
-		if (name->equals(Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10")) {
 			return Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10::load$(name, initialize);
 		}
-		if (name->equals(Utils$$Lambda$lambda$wrapForDebug$9$11::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.Utils$$Lambda$lambda$wrapForDebug$9$11")) {
 			return Utils$$Lambda$lambda$wrapForDebug$9$11::load$(name, initialize);
 		}
-		if (name->equals(Utils$$Lambda$lambda$getIntegerNetProperty$13$12::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.Utils$$Lambda$lambda$getIntegerNetProperty$13$12")) {
 			return Utils$$Lambda$lambda$getIntegerNetProperty$13$12::load$(name, initialize);
 		}
-		if (name->equals(Utils$$Lambda$lambda$getNetProperty$14$13::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.Utils$$Lambda$lambda$getNetProperty$14$13")) {
 			return Utils$$Lambda$lambda$getNetProperty$14$13::load$(name, initialize);
 		}
-		if (name->equals(Utils$$Lambda$lambda$getBooleanProperty$15$14::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.Utils$$Lambda$lambda$getBooleanProperty$15$14")) {
 			return Utils$$Lambda$lambda$getBooleanProperty$15$14::load$(name, initialize);
 		}
-		if (name->equals(Utils$$Lambda$lambda$getProperty$16$15::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.Utils$$Lambda$lambda$getProperty$16$15")) {
 			return Utils$$Lambda$lambda$getProperty$16$15::load$(name, initialize);
 		}
-		if (name->equals(Utils$$Lambda$lambda$getIntegerProperty$17$16::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.Utils$$Lambda$lambda$getIntegerProperty$17$16")) {
 			return Utils$$Lambda$lambda$getIntegerProperty$17$16::load$(name, initialize);
 		}
-		if (name->equals(Utils$$Lambda$trim$17::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.Utils$$Lambda$trim$17")) {
 			return Utils$$Lambda$trim$17::load$(name, initialize);
 		}
-		if (name->equals(Utils$$Lambda$lambda$static$7$18::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.Utils$$Lambda$lambda$static$7$18")) {
 			return Utils$$Lambda$lambda$static$7$18::load$(name, initialize);
 		}
 	}
-	$loadClass(Utils, name, initialize, &_Utils_ClassInfo_, clinit$Utils, allocate$Utils);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Utils, $assertionsDisabled)},
+		{"ASSERTIONSENABLED", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Utils, ASSERTIONSENABLED)},
+		{"DEBUG", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Utils, DEBUG)},
+		{"DEBUG_WS", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Utils, DEBUG_WS)},
+		{"DEBUG_HPACK", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Utils, DEBUG_HPACK)},
+		{"TESTING", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Utils, TESTING)},
+		{"isHostnameVerificationDisabled", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Utils, isHostnameVerificationDisabled$)},
+		{"DEFAULT_BUFSIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Utils, DEFAULT_BUFSIZE)},
+		{"BUFSIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Utils, BUFSIZE)},
+		{"ACCEPT_ALL", "Ljava/util/function/BiPredicate;", "Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Utils, ACCEPT_ALL)},
+		{"DISALLOWED_HEADERS_SET", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Utils, DISALLOWED_HEADERS_SET)},
+		{"ALLOWED_HEADERS", "Ljava/util/function/BiPredicate;", "Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Utils, ALLOWED_HEADERS)},
+		{"VALIDATE_USER_HEADER", "Ljava/util/function/BiPredicate;", "Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Utils, VALIDATE_USER_HEADER)},
+		{"HOST_RESTRICTED", "Ljava/util/function/BiPredicate;", "Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Utils, HOST_RESTRICTED)},
+		{"IS_HOST", "Ljava/util/function/Predicate;", "Ljava/util/function/Predicate<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Utils, IS_HOST)},
+		{"IS_PROXY_HEADER", "Ljava/util/function/Predicate;", "Ljava/util/function/Predicate<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Utils, IS_PROXY_HEADER)},
+		{"NO_PROXY_HEADER", "Ljava/util/function/Predicate;", "Ljava/util/function/Predicate<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Utils, NO_PROXY_HEADER)},
+		{"ALL_HEADERS", "Ljava/util/function/Predicate;", "Ljava/util/function/Predicate<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Utils, ALL_HEADERS)},
+		{"PROXY_AUTH_DISABLED_SCHEMES", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Utils, PROXY_AUTH_DISABLED_SCHEMES)},
+		{"PROXY_AUTH_TUNNEL_DISABLED_SCHEMES", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Utils, PROXY_AUTH_TUNNEL_DISABLED_SCHEMES)},
+		{"WSPACES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Utils, WSPACES)},
+		{"PROXY_TUNNEL_FILTER", "Ljava/util/function/BiPredicate;", "Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Utils, PROXY_TUNNEL_FILTER)},
+		{"PROXY_FILTER", "Ljava/util/function/BiPredicate;", "Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Utils, PROXY_FILTER)},
+		{"NO_PROXY_HEADERS_FILTER", "Ljava/util/function/BiPredicate;", "Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Utils, NO_PROXY_HEADERS_FILTER)},
+		{"HEADER_CONNECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Utils, HEADER_CONNECTION)},
+		{"HEADER_UPGRADE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Utils, HEADER_UPGRADE)},
+		{"tchar", "[Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Utils, tchar)},
+		{"fieldvchar", "[Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Utils, fieldvchar)},
+		{"COPY_THRESHOLD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Utils, COPY_THRESHOLD)},
+		{"EMPTY_BYTEBUFFER", "Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Utils, EMPTY_BYTEBUFFER)},
+		{"EMPTY_BB_ARRAY", "[Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Utils, EMPTY_BB_ARRAY)},
+		{"EMPTY_BB_LIST", "Ljava/util/List;", "Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Utils, EMPTY_BB_LIST)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Utils, init$, void)},
+		{"CONTEXT_RESTRICTED", "(Ljava/net/http/HttpClient;)Ljava/util/function/BiPredicate;", "(Ljava/net/http/HttpClient;)Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC | $FINAL, $staticMethod(Utils, CONTEXT_RESTRICTED, $BiPredicate*, $HttpClient*)},
+		{"PROXY_TUNNEL_RESTRICTED", "(Ljava/net/http/HttpClient;)Ljava/util/function/BiPredicate;", "(Ljava/net/http/HttpClient;)Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC | $FINAL, $staticMethod(Utils, PROXY_TUNNEL_RESTRICTED, $BiPredicate*, $HttpClient*)},
+		{"accumulateBuffers", "(Ljava/util/List;Ljava/util/List;)J", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Ljava/util/List<Ljava/nio/ByteBuffer;>;)J", $PUBLIC | $STATIC, $staticMethod(Utils, accumulateBuffers, int64_t, $List*, $List*)},
+		{"charsetFrom", "(Ljava/net/http/HttpHeaders;)Ljava/nio/charset/Charset;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, charsetFrom, $Charset*, $HttpHeaders*)},
+		{"close", "([Ljava/io/Closeable;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Utils, close, void, $CloseableArray*)},
+		{"copy", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, copy, int32_t, $ByteBuffer*, $ByteBuffer*)},
+		{"copy", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, copy, $ByteBuffer*, $ByteBuffer*)},
+		{"copyAligned", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, copyAligned, $ByteBuffer*, $ByteBuffer*)},
+		{"copySSLParameters", "(Ljavax/net/ssl/SSLParameters;)Ljavax/net/ssl/SSLParameters;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, copySSLParameters, $SSLParameters*, $SSLParameters*)},
+		{"dump", "([Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Utils, dump, $String*, $ObjectArray*)},
+		{"encode", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, encode, $String*, $String*)},
+		{"flipToMark", "(Ljava/nio/ByteBuffer;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, flipToMark, void, $ByteBuffer*, int32_t)},
+		{"getBooleanProperty", "(Ljava/lang/String;Z)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getBooleanProperty, bool, $String*, bool)},
+		{"getBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getBuffer, $ByteBuffer*)},
+		{"getCancelCause", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getCancelCause, $Throwable*, $Throwable*)},
+		{"getCompletionCause", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getCompletionCause, $Throwable*, $Throwable*)},
+		{"getDebugLogger", "(Ljava/util/function/Supplier;)Ljdk/internal/net/http/common/Logger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;)Ljdk/internal/net/http/common/Logger;", $PUBLIC | $STATIC, $staticMethod(Utils, getDebugLogger, $Logger*, $Supplier*)},
+		{"getDebugLogger", "(Ljava/util/function/Supplier;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/Logger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/Logger;", $STATIC, $staticMethod(Utils, getDebugLogger, $Logger*, $Supplier*, $System$Logger$Level*)},
+		{"getDebugLogger", "(Ljava/util/function/Supplier;Z)Ljdk/internal/net/http/common/Logger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Z)Ljdk/internal/net/http/common/Logger;", $PUBLIC | $STATIC, $staticMethod(Utils, getDebugLogger, $Logger*, $Supplier*, bool)},
+		{"getDisallowedHeaders", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(Utils, getDisallowedHeaders, $Set*)},
+		{"getHpackLogger", "(Ljava/util/function/Supplier;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/Logger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/Logger;", $PUBLIC | $STATIC, $staticMethod(Utils, getHpackLogger, $Logger*, $Supplier*, $System$Logger$Level*)},
+		{"getHpackLogger", "(Ljava/util/function/Supplier;Z)Ljdk/internal/net/http/common/Logger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Z)Ljdk/internal/net/http/common/Logger;", $PUBLIC | $STATIC, $staticMethod(Utils, getHpackLogger, $Logger*, $Supplier*, bool)},
+		{"getIOException", "(Ljava/lang/Throwable;)Ljava/io/IOException;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getIOException, $IOException*, $Throwable*)},
+		{"getIntegerNetProperty", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getIntegerNetProperty, int32_t, $String*, int32_t)},
+		{"getIntegerProperty", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getIntegerProperty, int32_t, $String*, int32_t)},
+		{"getNetProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getNetProperty, $String*, $String*)},
+		{"getProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getProperty, $String*, $String*)},
+		{"getServerName", "(Ljava/net/InetSocketAddress;)Ljdk/internal/net/http/common/Utils$ServerName;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getServerName, $Utils$ServerName*, $InetSocketAddress*)},
+		{"getWebSocketLogger", "(Ljava/util/function/Supplier;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/Logger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/Logger;", $PUBLIC | $STATIC, $staticMethod(Utils, getWebSocketLogger, $Logger*, $Supplier*, $System$Logger$Level*)},
+		{"getWebSocketLogger", "(Ljava/util/function/Supplier;Z)Ljdk/internal/net/http/common/Logger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Z)Ljdk/internal/net/http/common/Logger;", $PUBLIC | $STATIC, $staticMethod(Utils, getWebSocketLogger, $Logger*, $Supplier*, bool)},
+		{"hasRemaining", "(Ljava/util/List;)Z", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)Z", $PUBLIC | $STATIC, $staticMethod(Utils, hasRemaining, bool, $List*)},
+		{"hostString", "(Ljdk/internal/net/http/HttpRequestImpl;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, hostString, $String*, $HttpRequestImpl*)},
+		{"hostnameVerificationDisabledValue", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Utils, hostnameVerificationDisabledValue, bool)},
+		{"immutableSession", "(Ljavax/net/ssl/SSLSession;)Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, immutableSession, $SSLSession*, $SSLSession*)},
+		{"isAllowedForProxy", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Ljava/util/function/Predicate;)Z", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;Ljava/util/function/Predicate<Ljava/lang/String;>;)Z", $PRIVATE | $STATIC | $FINAL, $staticMethod(Utils, isAllowedForProxy, bool, $String*, $String*, $Set*, $Predicate*)},
+		{"isHostnameVerificationDisabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, isHostnameVerificationDisabled, bool)},
+		{"isLoopbackLiteral", "([B)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Utils, isLoopbackLiteral, bool, $bytes*)},
+		{"isValidName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, isValidName, bool, $String*)},
+		{"isValidValue", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, isValidValue, bool, $String*)},
+		{"lambda$CONTEXT_RESTRICTED$3", "(Ljava/net/http/HttpClient;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$CONTEXT_RESTRICTED$3, bool, $HttpClient*, $String*, $String*)},
+		{"lambda$getBooleanProperty$15", "(Ljava/lang/String;Z)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$getBooleanProperty$15, $Boolean*, $String*, bool)},
+		{"lambda$getIntegerNetProperty$13", "(Ljava/lang/String;I)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$getIntegerNetProperty$13, $Integer*, $String*, int32_t)},
+		{"lambda$getIntegerProperty$17", "(Ljava/lang/String;I)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$getIntegerProperty$17, $Integer*, $String*, int32_t)},
+		{"lambda$getNetProperty$14", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$getNetProperty$14, $String*, $String*)},
+		{"lambda$getProperty$16", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$getProperty$16, $String*, $String*)},
+		{"lambda$static$0", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$0, bool, $String*, $String*)},
+		{"lambda$static$1", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$1, bool, $String*, $String*)},
+		{"lambda$static$10", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$10, bool, $String*, $String*)},
+		{"lambda$static$11", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$11, bool, $String*, $String*)},
+		{"lambda$static$12", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$12, bool, $String*, $String*)},
+		{"lambda$static$2", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$2, bool, $String*, $String*)},
+		{"lambda$static$4", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$4, bool, $String*, $String*)},
+		{"lambda$static$5", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$5, bool, $String*)},
+		{"lambda$static$6", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$6, bool, $String*)},
+		{"lambda$static$7", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$7, bool, $String*)},
+		{"lambda$wrapForDebug$9", "(Ljdk/internal/net/http/common/Logger;Ljava/lang/String;Ljava/util/concurrent/CompletableFuture;Ljava/lang/Object;Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$wrapForDebug$9, $CompletableFuture*, $Logger*, $String*, $CompletableFuture*, Object$*, $Throwable*)},
+		{"newIAE", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/IllegalArgumentException;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Utils, newIAE, $IllegalArgumentException*, $String*, $ObjectArray*)},
+		{"permissionForProxy", "(Ljava/net/InetSocketAddress;)Ljava/net/URLPermission;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, permissionForProxy, $URLPermission*, $InetSocketAddress*)},
+		{"permissionForServer", "(Ljava/net/URI;Ljava/lang/String;Ljava/util/stream/Stream;)Ljava/net/URLPermission;", "(Ljava/net/URI;Ljava/lang/String;Ljava/util/stream/Stream<Ljava/lang/String;>;)Ljava/net/URLPermission;", $PUBLIC | $STATIC, $staticMethod(Utils, permissionForServer, $URLPermission*, $URI*, $String*, $Stream*)},
+		{"pow2Size", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, pow2Size, int32_t, int32_t)},
+		{"proxyHasDisabledSchemes", "(Z)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, proxyHasDisabledSchemes, bool, bool)},
+		{"remaining", "([Ljava/nio/ByteBuffer;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, remaining, int64_t, $ByteBufferArray*)},
+		{"remaining", "(Ljava/util/List;)J", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)J", $PUBLIC | $STATIC, $staticMethod(Utils, remaining, int64_t, $List*)},
+		{"remaining", "(Ljava/util/List;I)I", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;I)I", $PUBLIC | $STATIC, $staticMethod(Utils, remaining, int32_t, $List*, int32_t)},
+		{"remaining", "([Ljava/nio/ByteBuffer;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, remaining, int32_t, $ByteBufferArray*, int32_t)},
+		{"resolveAddress", "(Ljava/net/InetSocketAddress;)Ljava/net/InetSocketAddress;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, resolveAddress, $InetSocketAddress*, $InetSocketAddress*)},
+		{"setWebSocketUpgradeHeaders", "(Ljdk/internal/net/http/HttpRequestImpl;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utils, setWebSocketUpgradeHeaders, void, $HttpRequestImpl*)},
+		{"sliceWithLimitedCapacity", "(Ljava/nio/ByteBuffer;I)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, sliceWithLimitedCapacity, $ByteBuffer*, $ByteBuffer*, int32_t)},
+		{"stackTrace", "(Ljava/lang/Throwable;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, stackTrace, $String*, $Throwable*)},
+		{"stringOf", "(Ljava/util/Collection;)Ljava/lang/String;", "(Ljava/util/Collection<*>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(Utils, stringOf, $String*, $Collection*)},
+		{"synchronizedRemaining", "(Ljava/util/List;)J", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)J", $PUBLIC | $STATIC, $staticMethod(Utils, synchronizedRemaining, int64_t, $List*)},
+		{"toConnectException", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, toConnectException, $Throwable*, $Throwable*)},
+		{"unchecked", "(Ljava/io/IOException;)Ljava/io/UncheckedIOException;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, unchecked, $UncheckedIOException*, $IOException*)},
+		{"wrapForDebug", "(Ljdk/internal/net/http/common/Logger;Ljava/lang/String;Ljava/util/concurrent/CompletableFuture;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljdk/internal/net/http/common/Logger;Ljava/lang/String;Ljava/util/concurrent/CompletableFuture<TT;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC | $STATIC, $staticMethod(Utils, wrapForDebug, $CompletableFuture*, $Logger*, $String*, $CompletableFuture*)},
+		{"wrapWithExtraDetail", "(Ljava/lang/Throwable;Ljava/util/function/Supplier;)Ljava/lang/Throwable;", "(Ljava/lang/Throwable;Ljava/util/function/Supplier<Ljava/lang/String;>;)Ljava/lang/Throwable;", $PUBLIC | $STATIC, $staticMethod(Utils, wrapWithExtraDetail, $Throwable*, $Throwable*, $Supplier*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.common.Utils$ServerName", "jdk.internal.net.http.common.Utils", "ServerName", $PUBLIC | $STATIC},
+		{"jdk.internal.net.http.common.Utils$ProxyHeaders", "jdk.internal.net.http.common.Utils", "ProxyHeaders", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.common.Utils",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.common.Utils$ServerName,jdk.internal.net.http.common.Utils$ProxyHeaders"
+	};
+	$loadClass(Utils, name, initialize, &classInfo$$, Utils::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Utils);
+	});
 	return class$;
 }
 

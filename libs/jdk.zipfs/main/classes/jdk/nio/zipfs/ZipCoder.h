@@ -28,6 +28,7 @@ class ZipCoder : public ::java::lang::Object {
 	$class(ZipCoder, 0, ::java::lang::Object)
 public:
 	ZipCoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	::java::nio::charset::CharsetDecoder* decoder();
 	::java::nio::charset::CharsetEncoder* encoder();

@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/KDCOptions.h>
-
 #include <sun/security/krb5/Asn1Exception.h>
 #include <sun/security/krb5/Config.h>
 #include <sun/security/krb5/KrbException.h>
@@ -38,7 +37,6 @@
 #undef UNUSED9
 #undef VALIDATE
 
-using $PrintStream = ::java::io::PrintStream;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -48,7 +46,6 @@ using $Config = ::sun::security::krb5::Config;
 using $KrbException = ::sun::security::krb5::KrbException;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;
 using $KerberosFlags = ::sun::security::krb5::internal::util::KerberosFlags;
-using $BitArray = ::sun::security::util::BitArray;
 using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerValue = ::sun::security::util::DerValue;
 
@@ -57,72 +54,15 @@ namespace sun {
 		namespace krb5 {
 			namespace internal {
 
-$FieldInfo _KDCOptions_FieldInfo_[] = {
-	{"KDC_OPT_PROXIABLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KDCOptions, KDC_OPT_PROXIABLE)},
-	{"KDC_OPT_RENEWABLE_OK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KDCOptions, KDC_OPT_RENEWABLE_OK)},
-	{"KDC_OPT_FORWARDABLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KDCOptions, KDC_OPT_FORWARDABLE)},
-	{"RESERVED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, RESERVED)},
-	{"FORWARDABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, FORWARDABLE)},
-	{"FORWARDED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, FORWARDED)},
-	{"PROXIABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, PROXIABLE)},
-	{"PROXY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, PROXY)},
-	{"ALLOW_POSTDATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, ALLOW_POSTDATE)},
-	{"POSTDATED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, POSTDATED)},
-	{"UNUSED7", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, UNUSED7)},
-	{"RENEWABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, RENEWABLE)},
-	{"UNUSED9", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, UNUSED9)},
-	{"UNUSED10", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, UNUSED10)},
-	{"UNUSED11", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, UNUSED11)},
-	{"CNAME_IN_ADDL_TKT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, CNAME_IN_ADDL_TKT)},
-	{"CANONICALIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, CANONICALIZE)},
-	{"RENEWABLE_OK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, RENEWABLE_OK)},
-	{"ENC_TKT_IN_SKEY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, ENC_TKT_IN_SKEY)},
-	{"RENEW", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, RENEW)},
-	{"VALIDATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, VALIDATE)},
-	{"names", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KDCOptions, names)},
-	{"DEBUG", "Z", nullptr, $PRIVATE, $field(KDCOptions, DEBUG)},
-	{}
-};
-
-$MethodInfo _KDCOptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(KDCOptions, init$, void)},
-	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(KDCOptions, init$, void, int32_t, $bytes*), "sun.security.krb5.Asn1Exception"},
-	{"<init>", "([Z)V", nullptr, $PUBLIC, $method(KDCOptions, init$, void, $booleans*), "sun.security.krb5.Asn1Exception"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(KDCOptions, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(KDCOptions, init$, void, $bytes*)},
-	{"get", "(I)Z", nullptr, $PUBLIC, $virtualMethod(KDCOptions, get, bool, int32_t), "java.lang.ArrayIndexOutOfBoundsException"},
-	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/internal/KDCOptions;", nullptr, $PUBLIC | $STATIC, $staticMethod(KDCOptions, parse, KDCOptions*, $DerInputStream*, int8_t, bool), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"set", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(KDCOptions, set, void, int32_t, bool), "java.lang.ArrayIndexOutOfBoundsException"},
-	{"setDefault", "()V", nullptr, $PRIVATE, $method(KDCOptions, setDefault, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KDCOptions, toString, $String*)},
-	{"with", "([I)Lsun/security/krb5/internal/KDCOptions;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(KDCOptions, with, KDCOptions*, $ints*)},
-	{}
-};
-
-$ClassInfo _KDCOptions_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.KDCOptions",
-	"sun.security.krb5.internal.util.KerberosFlags",
-	nullptr,
-	_KDCOptions_FieldInfo_,
-	_KDCOptions_MethodInfo_
-};
-
-$Object* allocate$KDCOptions($Class* clazz) {
-	return $of($alloc(KDCOptions));
-}
-
 $StringArray* KDCOptions::names = nullptr;
 
 KDCOptions* KDCOptions::with($ints* flags) {
 	$init(KDCOptions);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(KDCOptions, options, $new(KDCOptions));
 	{
 		$var($ints, arr$, flags);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int32_t flag = arr$->get(i$);
 			{
 				options->set(flag, true);
@@ -158,8 +98,8 @@ void KDCOptions::init$($booleans* data) {
 }
 
 void KDCOptions::init$($DerValue* encoding) {
-	$useLocalCurrentObjectStackCache();
-	KDCOptions::init$($($nc($($nc(encoding)->getUnalignedBitString(true)))->toBooleanArray()));
+	$useLocalObjectStack();
+	KDCOptions::init$($($$nc($nc(encoding)->getUnalignedBitString(true))->toBooleanArray()));
 }
 
 void KDCOptions::init$($bytes* options) {
@@ -170,15 +110,15 @@ void KDCOptions::init$($bytes* options) {
 
 KDCOptions* KDCOptions::parse($DerInputStream* data, int8_t explicitTag, bool optional) {
 	$init(KDCOptions);
-	$useLocalCurrentObjectStackCache();
-	if ((optional) && (((int32_t)((int8_t)$nc(data)->peekByte() & (uint32_t)(int32_t)(int8_t)31)) != explicitTag)) {
+	$useLocalObjectStack();
+	if ((optional) && (((int8_t)$nc(data)->peekByte() & (int8_t)31) != explicitTag)) {
 		return nullptr;
 	}
 	$var($DerValue, der, $nc(data)->getDerValue());
-	if (explicitTag != ((int32_t)($nc(der)->getTag() & (uint32_t)(int32_t)(int8_t)31))) {
+	if (explicitTag != ($nc(der)->getTag() & (int8_t)31)) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	} else {
-		$var($DerValue, subDer, $nc($(der->getData()))->getDerValue());
+		$var($DerValue, subDer, $$nc(der->getData())->getDerValue());
 		return $new(KDCOptions, subDer);
 	}
 }
@@ -196,8 +136,8 @@ $String* KDCOptions::toString() {
 	sb->append("KDCOptions: "_s);
 	for (int32_t i = 0; i < $Krb5::KDC_OPTS_MAX + 1; ++i) {
 		if (get(i)) {
-			if ($nc(KDCOptions::names)->get(i) != nullptr) {
-				sb->append($nc(KDCOptions::names)->get(i))->append(","_s);
+			if (KDCOptions::names->get(i) != nullptr) {
+				sb->append(KDCOptions::names->get(i))->append(","_s);
 			} else {
 				sb->append(i)->append(","_s);
 			}
@@ -207,45 +147,36 @@ $String* KDCOptions::toString() {
 }
 
 void KDCOptions::setDefault() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($Config, config, $Config::getInstance());
 		int32_t options = $nc(config)->getIntValue($$new($StringArray, {
 			"libdefaults"_s,
 			"kdc_default_options"_s
 		}));
-		if (((int32_t)(options & (uint32_t)KDCOptions::KDC_OPT_RENEWABLE_OK)) == KDCOptions::KDC_OPT_RENEWABLE_OK) {
+		if ((options & KDCOptions::KDC_OPT_RENEWABLE_OK) == KDCOptions::KDC_OPT_RENEWABLE_OK) {
 			set(KDCOptions::RENEWABLE_OK, true);
-		} else {
-			$init($Boolean);
-			if (config->getBooleanObject($$new($StringArray, {
-				"libdefaults"_s,
-				"renewable"_s
-			})) == $Boolean::TRUE) {
-				set(KDCOptions::RENEWABLE_OK, true);
-			}
+		} else if (config->getBooleanObject($$new($StringArray, {
+			"libdefaults"_s,
+			"renewable"_s
+		})) == $Boolean::TRUE) {
+			set(KDCOptions::RENEWABLE_OK, true);
 		}
-		if (((int32_t)(options & (uint32_t)KDCOptions::KDC_OPT_PROXIABLE)) == KDCOptions::KDC_OPT_PROXIABLE) {
+		if ((options & KDCOptions::KDC_OPT_PROXIABLE) == KDCOptions::KDC_OPT_PROXIABLE) {
 			set(KDCOptions::PROXIABLE, true);
-		} else {
-			$init($Boolean);
-			if (config->getBooleanObject($$new($StringArray, {
-				"libdefaults"_s,
-				"proxiable"_s
-			})) == $Boolean::TRUE) {
-				set(KDCOptions::PROXIABLE, true);
-			}
+		} else if (config->getBooleanObject($$new($StringArray, {
+			"libdefaults"_s,
+			"proxiable"_s
+		})) == $Boolean::TRUE) {
+			set(KDCOptions::PROXIABLE, true);
 		}
-		if (((int32_t)(options & (uint32_t)KDCOptions::KDC_OPT_FORWARDABLE)) == KDCOptions::KDC_OPT_FORWARDABLE) {
+		if ((options & KDCOptions::KDC_OPT_FORWARDABLE) == KDCOptions::KDC_OPT_FORWARDABLE) {
 			set(KDCOptions::FORWARDABLE, true);
-		} else {
-			$init($Boolean);
-			if (config->getBooleanObject($$new($StringArray, {
-				"libdefaults"_s,
-				"forwardable"_s
-			})) == $Boolean::TRUE) {
-				set(KDCOptions::FORWARDABLE, true);
-			}
+		} else if (config->getBooleanObject($$new($StringArray, {
+			"libdefaults"_s,
+			"forwardable"_s
+		})) == $Boolean::TRUE) {
+			set(KDCOptions::FORWARDABLE, true);
 		}
 	} catch ($KrbException& e) {
 		if (this->DEBUG) {
@@ -255,7 +186,7 @@ void KDCOptions::setDefault() {
 	}
 }
 
-void clinit$KDCOptions($Class* class$) {
+void KDCOptions::clinit$($Class* clazz) {
 	$assignStatic(KDCOptions::names, $new($StringArray, {
 		"RESERVED"_s,
 		"FORWARDABLE"_s,
@@ -269,24 +200,24 @@ void clinit$KDCOptions($Class* class$) {
 		"UNUSED9"_s,
 		"UNUSED10"_s,
 		"UNUSED11"_s,
-		($String*)nullptr,
-		($String*)nullptr,
+		nullptr,
+		nullptr,
 		"CNAME_IN_ADDL_TKT"_s,
 		"CANONICALIZE"_s,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
 		"RENEWABLE_OK"_s,
 		"ENC_TKT_IN_SKEY"_s,
-		($String*)nullptr,
+		nullptr,
 		"RENEW"_s,
 		"VALIDATE"_s
 	}));
@@ -296,7 +227,57 @@ KDCOptions::KDCOptions() {
 }
 
 $Class* KDCOptions::load$($String* name, bool initialize) {
-	$loadClass(KDCOptions, name, initialize, &_KDCOptions_ClassInfo_, clinit$KDCOptions, allocate$KDCOptions);
+	$FieldInfo fieldInfos$$[] = {
+		{"KDC_OPT_PROXIABLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KDCOptions, KDC_OPT_PROXIABLE)},
+		{"KDC_OPT_RENEWABLE_OK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KDCOptions, KDC_OPT_RENEWABLE_OK)},
+		{"KDC_OPT_FORWARDABLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KDCOptions, KDC_OPT_FORWARDABLE)},
+		{"RESERVED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, RESERVED)},
+		{"FORWARDABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, FORWARDABLE)},
+		{"FORWARDED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, FORWARDED)},
+		{"PROXIABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, PROXIABLE)},
+		{"PROXY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, PROXY)},
+		{"ALLOW_POSTDATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, ALLOW_POSTDATE)},
+		{"POSTDATED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, POSTDATED)},
+		{"UNUSED7", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, UNUSED7)},
+		{"RENEWABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, RENEWABLE)},
+		{"UNUSED9", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, UNUSED9)},
+		{"UNUSED10", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, UNUSED10)},
+		{"UNUSED11", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, UNUSED11)},
+		{"CNAME_IN_ADDL_TKT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, CNAME_IN_ADDL_TKT)},
+		{"CANONICALIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, CANONICALIZE)},
+		{"RENEWABLE_OK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, RENEWABLE_OK)},
+		{"ENC_TKT_IN_SKEY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, ENC_TKT_IN_SKEY)},
+		{"RENEW", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, RENEW)},
+		{"VALIDATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KDCOptions, VALIDATE)},
+		{"names", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KDCOptions, names)},
+		{"DEBUG", "Z", nullptr, $PRIVATE, $field(KDCOptions, DEBUG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(KDCOptions, init$, void)},
+		{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(KDCOptions, init$, void, int32_t, $bytes*), "sun.security.krb5.Asn1Exception"},
+		{"<init>", "([Z)V", nullptr, $PUBLIC, $method(KDCOptions, init$, void, $booleans*), "sun.security.krb5.Asn1Exception"},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(KDCOptions, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(KDCOptions, init$, void, $bytes*)},
+		{"get", "(I)Z", nullptr, $PUBLIC, $virtualMethod(KDCOptions, get, bool, int32_t), "java.lang.ArrayIndexOutOfBoundsException"},
+		{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/internal/KDCOptions;", nullptr, $PUBLIC | $STATIC, $staticMethod(KDCOptions, parse, KDCOptions*, $DerInputStream*, int8_t, bool), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"set", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(KDCOptions, set, void, int32_t, bool), "java.lang.ArrayIndexOutOfBoundsException"},
+		{"setDefault", "()V", nullptr, $PRIVATE, $method(KDCOptions, setDefault, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KDCOptions, toString, $String*)},
+		{"with", "([I)Lsun/security/krb5/internal/KDCOptions;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(KDCOptions, with, KDCOptions*, $ints*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.KDCOptions",
+		"sun.security.krb5.internal.util.KerberosFlags",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KDCOptions, name, initialize, &classInfo$$, KDCOptions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KDCOptions);
+	});
 	return class$;
 }
 

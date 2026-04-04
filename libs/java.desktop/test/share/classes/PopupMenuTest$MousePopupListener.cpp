@@ -1,5 +1,4 @@
 #include <PopupMenuTest$MousePopupListener.h>
-
 #include <PopupMenuTest.h>
 #include <java/awt/Component.h>
 #include <java/awt/event/MouseAdapter.h>
@@ -16,46 +15,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JPopupMenu = ::javax::swing::JPopupMenu;
-
-$FieldInfo _PopupMenuTest$MousePopupListener_FieldInfo_[] = {
-	{"this$0", "LPopupMenuTest;", nullptr, $FINAL | $SYNTHETIC, $field(PopupMenuTest$MousePopupListener, this$0)},
-	{}
-};
-
-$MethodInfo _PopupMenuTest$MousePopupListener_MethodInfo_[] = {
-	{"<init>", "(LPopupMenuTest;)V", nullptr, 0, $method(PopupMenuTest$MousePopupListener, init$, void, $PopupMenuTest*)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(PopupMenuTest$MousePopupListener, mouseClicked, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(PopupMenuTest$MousePopupListener, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(PopupMenuTest$MousePopupListener, mouseReleased, void, $MouseEvent*)},
-	{"showPopup", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(PopupMenuTest$MousePopupListener, showPopup, void, $MouseEvent*)},
-	{}
-};
-
-$InnerClassInfo _PopupMenuTest$MousePopupListener_InnerClassesInfo_[] = {
-	{"PopupMenuTest$MousePopupListener", "PopupMenuTest", "MousePopupListener", 0},
-	{}
-};
-
-$ClassInfo _PopupMenuTest$MousePopupListener_ClassInfo_ = {
-	$ACC_SUPER,
-	"PopupMenuTest$MousePopupListener",
-	"java.awt.event.MouseAdapter",
-	nullptr,
-	_PopupMenuTest$MousePopupListener_FieldInfo_,
-	_PopupMenuTest$MousePopupListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PopupMenuTest$MousePopupListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"PopupMenuTest"
-};
-
-$Object* allocate$PopupMenuTest$MousePopupListener($Class* clazz) {
-	return $of($alloc(PopupMenuTest$MousePopupListener));
-}
 
 void PopupMenuTest$MousePopupListener::init$($PopupMenuTest* this$0) {
 	$set(this, this$0, this$0);
@@ -76,7 +35,7 @@ void PopupMenuTest$MousePopupListener::mouseReleased($MouseEvent* e) {
 
 void PopupMenuTest$MousePopupListener::showPopup($MouseEvent* e) {
 	$init($PopupMenuTest);
-	$var($Component, var$0, static_cast<$Component*>($PopupMenuTest::panel));
+	$var($Component, var$0, $PopupMenuTest::panel);
 	int32_t var$1 = $nc(e)->getX();
 	$nc(this->this$0->jpopup)->show(var$0, var$1, e->getY());
 }
@@ -85,7 +44,40 @@ PopupMenuTest$MousePopupListener::PopupMenuTest$MousePopupListener() {
 }
 
 $Class* PopupMenuTest$MousePopupListener::load$($String* name, bool initialize) {
-	$loadClass(PopupMenuTest$MousePopupListener, name, initialize, &_PopupMenuTest$MousePopupListener_ClassInfo_, allocate$PopupMenuTest$MousePopupListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LPopupMenuTest;", nullptr, $FINAL | $SYNTHETIC, $field(PopupMenuTest$MousePopupListener, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LPopupMenuTest;)V", nullptr, 0, $method(PopupMenuTest$MousePopupListener, init$, void, $PopupMenuTest*)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(PopupMenuTest$MousePopupListener, mouseClicked, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(PopupMenuTest$MousePopupListener, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(PopupMenuTest$MousePopupListener, mouseReleased, void, $MouseEvent*)},
+		{"showPopup", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(PopupMenuTest$MousePopupListener, showPopup, void, $MouseEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"PopupMenuTest$MousePopupListener", "PopupMenuTest", "MousePopupListener", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"PopupMenuTest$MousePopupListener",
+		"java.awt.event.MouseAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"PopupMenuTest"
+	};
+	$loadClass(PopupMenuTest$MousePopupListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PopupMenuTest$MousePopupListener));
+	});
 	return class$;
 }
 

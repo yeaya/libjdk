@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKFileChooserUI$SelectionListener.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKFileChooserUI.h>
 #include <java/io/File.h>
 #include <java/util/ArrayList.h>
@@ -24,7 +23,6 @@ using $ArrayList = ::java::util::ArrayList;
 using $JFileChooser = ::javax::swing::JFileChooser;
 using $JList = ::javax::swing::JList;
 using $ListSelectionEvent = ::javax::swing::event::ListSelectionEvent;
-using $FileSystemView = ::javax::swing::filechooser::FileSystemView;
 
 namespace com {
 	namespace sun {
@@ -33,48 +31,12 @@ namespace com {
 				namespace plaf {
 					namespace gtk {
 
-$FieldInfo _GTKFileChooserUI$SelectionListener_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(GTKFileChooserUI$SelectionListener, this$0)},
-	{}
-};
-
-$MethodInfo _GTKFileChooserUI$SelectionListener_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;)V", nullptr, $PROTECTED, $method(GTKFileChooserUI$SelectionListener, init$, void, $GTKFileChooserUI*)},
-	{"valueChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$SelectionListener, valueChanged, void, $ListSelectionEvent*)},
-	{}
-};
-
-$InnerClassInfo _GTKFileChooserUI$SelectionListener_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$SelectionListener", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "SelectionListener", $PROTECTED},
-	{}
-};
-
-$ClassInfo _GTKFileChooserUI$SelectionListener_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$SelectionListener",
-	"java.lang.Object",
-	"javax.swing.event.ListSelectionListener",
-	_GTKFileChooserUI$SelectionListener_FieldInfo_,
-	_GTKFileChooserUI$SelectionListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GTKFileChooserUI$SelectionListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKFileChooserUI"
-};
-
-$Object* allocate$GTKFileChooserUI$SelectionListener($Class* clazz) {
-	return $of($alloc(GTKFileChooserUI$SelectionListener));
-}
-
 void GTKFileChooserUI$SelectionListener::init$($GTKFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void GTKFileChooserUI$SelectionListener::valueChanged($ListSelectionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(e)->getValueIsAdjusting()) {
 		$var($JFileChooser, chooser, this->this$0->getFileChooser());
 		$var($JList, list, $cast($JList, e->getSource()));
@@ -82,30 +44,28 @@ void GTKFileChooserUI$SelectionListener::valueChanged($ListSelectionEvent* e) {
 			$var($FileArray, files, nullptr);
 			$var($ObjectArray, objects, $nc(list)->getSelectedValues());
 			if (objects != nullptr) {
-				bool var$1 = objects->length == 1 && $nc(($cast($File, objects->get(0))))->isDirectory();
-				bool var$0 = var$1 && chooser->isTraversable(($cast($File, objects->get(0))));
+				bool var$1 = objects->length == 1 && $nc($cast($File, objects->get(0)))->isDirectory();
+				bool var$0 = var$1 && chooser->isTraversable($cast($File, objects->get(0)));
 				if (var$0) {
 					bool var$2 = chooser->getFileSelectionMode() != $JFileChooser::DIRECTORIES_ONLY;
-					var$0 = (var$2 || !$nc($(chooser->getFileSystemView()))->isFileSystem(($cast($File, objects->get(0)))));
+					var$0 = var$2 || !$$nc(chooser->getFileSystemView())->isFileSystem($cast($File, objects->get(0)));
 				}
 				if (var$0) {
 					$GTKFileChooserUI::access$200(this->this$0, true);
-					$GTKFileChooserUI::access$300(this->this$0, ($cast($File, objects->get(0))));
+					$GTKFileChooserUI::access$300(this->this$0, $cast($File, objects->get(0)));
 				} else {
 					$var($ArrayList, fList, $new($ArrayList, objects->length));
 					{
 						$var($ObjectArray, arr$, objects);
-						int32_t len$ = arr$->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
+						for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 							$var($Object0, object, arr$->get(i$));
 							{
 								$var($File, f, $cast($File, object));
 								bool var$4 = chooser->isFileSelectionEnabled();
-								bool var$3 = (var$4 && $nc(f)->isFile());
+								bool var$3 = var$4 && $nc(f)->isFile();
 								if (!var$3) {
 									bool var$5 = chooser->isDirectorySelectionEnabled();
-									var$3 = (var$5 && $nc(f)->isDirectory());
+									var$3 = var$5 && $nc(f)->isDirectory();
 								}
 								if (var$3) {
 									fList->add(f);
@@ -114,7 +74,7 @@ void GTKFileChooserUI$SelectionListener::valueChanged($ListSelectionEvent* e) {
 						}
 					}
 					if (fList->size() > 0) {
-						$assign(files, $fcast($FileArray, fList->toArray($$new($FileArray, fList->size()))));
+						$assign(files, $cast($FileArray, fList->toArray($$new($FileArray, fList->size()))));
 					}
 					$GTKFileChooserUI::access$400(this->this$0, false);
 				}
@@ -126,7 +86,7 @@ void GTKFileChooserUI$SelectionListener::valueChanged($ListSelectionEvent* e) {
 			bool var$6 = var$7 && chooser->isTraversable(file);
 			if (var$6) {
 				bool var$8 = chooser->getFileSelectionMode() == $JFileChooser::FILES_ONLY;
-				var$6 = (var$8 || !$nc($(chooser->getFileSystemView()))->isFileSystem(file));
+				var$6 = var$8 || !$$nc(chooser->getFileSystemView())->isFileSystem(file);
 			}
 			if (var$6) {
 				$GTKFileChooserUI::access$500(this->this$0, true);
@@ -145,7 +105,37 @@ GTKFileChooserUI$SelectionListener::GTKFileChooserUI$SelectionListener() {
 }
 
 $Class* GTKFileChooserUI$SelectionListener::load$($String* name, bool initialize) {
-	$loadClass(GTKFileChooserUI$SelectionListener, name, initialize, &_GTKFileChooserUI$SelectionListener_ClassInfo_, allocate$GTKFileChooserUI$SelectionListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(GTKFileChooserUI$SelectionListener, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;)V", nullptr, $PROTECTED, $method(GTKFileChooserUI$SelectionListener, init$, void, $GTKFileChooserUI*)},
+		{"valueChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$SelectionListener, valueChanged, void, $ListSelectionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$SelectionListener", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "SelectionListener", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$SelectionListener",
+		"java.lang.Object",
+		"javax.swing.event.ListSelectionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKFileChooserUI"
+	};
+	$loadClass(GTKFileChooserUI$SelectionListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GTKFileChooserUI$SelectionListener);
+	});
 	return class$;
 }
 

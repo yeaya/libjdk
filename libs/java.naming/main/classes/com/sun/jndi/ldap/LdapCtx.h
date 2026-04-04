@@ -210,6 +210,7 @@ public:
 	virtual ::javax::naming::NamingEnumeration* list(::javax::naming::Name* name) override;
 	virtual ::javax::naming::NamingEnumeration* listBindings($String* name) override;
 	virtual ::javax::naming::NamingEnumeration* listBindings(::javax::naming::Name* name) override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* dn, $String* host, int32_t port_number, ::java::util::Hashtable* props, bool useSsl);
 	void init$(::com::sun::jndi::ldap::LdapCtx* existing, $String* newDN);
 	static $Array<::javax::naming::ldap::Control>* addControl($Array<::javax::naming::ldap::Control>* prevCtls, ::javax::naming::ldap::Control* addition);

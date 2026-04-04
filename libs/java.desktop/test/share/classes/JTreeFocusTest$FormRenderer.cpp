@@ -1,5 +1,4 @@
 #include <JTreeFocusTest$FormRenderer.h>
-
 #include <JTreeFocusTest.h>
 #include <java/awt/Component.h>
 #include <javax/swing/JTree.h>
@@ -17,51 +16,15 @@ using $JTree = ::javax::swing::JTree;
 using $DefaultMutableTreeNode = ::javax::swing::tree::DefaultMutableTreeNode;
 using $DefaultTreeCellRenderer = ::javax::swing::tree::DefaultTreeCellRenderer;
 
-$FieldInfo _JTreeFocusTest$FormRenderer_FieldInfo_[] = {
-	{"this$0", "LJTreeFocusTest;", nullptr, $FINAL | $SYNTHETIC, $field(JTreeFocusTest$FormRenderer, this$0)},
-	{}
-};
-
-$MethodInfo _JTreeFocusTest$FormRenderer_MethodInfo_[] = {
-	{"<init>", "(LJTreeFocusTest;)V", nullptr, 0, $method(JTreeFocusTest$FormRenderer, init$, void, $JTreeFocusTest*)},
-	{"getTreeCellRendererComponent", "(Ljavax/swing/JTree;Ljava/lang/Object;ZZZIZ)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JTreeFocusTest$FormRenderer, getTreeCellRendererComponent, $Component*, $JTree*, Object$*, bool, bool, bool, int32_t, bool)},
-	{}
-};
-
-$InnerClassInfo _JTreeFocusTest$FormRenderer_InnerClassesInfo_[] = {
-	{"JTreeFocusTest$FormRenderer", "JTreeFocusTest", "FormRenderer", 0},
-	{}
-};
-
-$ClassInfo _JTreeFocusTest$FormRenderer_ClassInfo_ = {
-	$ACC_SUPER,
-	"JTreeFocusTest$FormRenderer",
-	"javax.swing.tree.DefaultTreeCellRenderer",
-	nullptr,
-	_JTreeFocusTest$FormRenderer_FieldInfo_,
-	_JTreeFocusTest$FormRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTreeFocusTest$FormRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"JTreeFocusTest"
-};
-
-$Object* allocate$JTreeFocusTest$FormRenderer($Class* clazz) {
-	return $of($alloc(JTreeFocusTest$FormRenderer));
-}
-
 void JTreeFocusTest$FormRenderer::init$($JTreeFocusTest* this$0) {
 	$set(this, this$0, this$0);
 	$DefaultTreeCellRenderer::init$();
 }
 
 $Component* JTreeFocusTest$FormRenderer::getTreeCellRendererComponent($JTree* tree, Object$* value, bool sel, bool expanded, bool leaf, int32_t row, bool hasFocus) {
-	$var($Object, obj, $nc(($cast($DefaultMutableTreeNode, value)))->getUserObject());
+	$var($Object, obj, $nc($cast($DefaultMutableTreeNode, value))->getUserObject());
 	if ($instanceOf($Component, obj)) {
-		return $cast($Component, ($cast($DefaultMutableTreeNode, value))->getUserObject());
+		return $cast($Component, $cast($DefaultMutableTreeNode, value)->getUserObject());
 	}
 	return $DefaultTreeCellRenderer::getTreeCellRendererComponent(tree, value, sel, expanded, leaf, row, hasFocus);
 }
@@ -70,7 +33,37 @@ JTreeFocusTest$FormRenderer::JTreeFocusTest$FormRenderer() {
 }
 
 $Class* JTreeFocusTest$FormRenderer::load$($String* name, bool initialize) {
-	$loadClass(JTreeFocusTest$FormRenderer, name, initialize, &_JTreeFocusTest$FormRenderer_ClassInfo_, allocate$JTreeFocusTest$FormRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LJTreeFocusTest;", nullptr, $FINAL | $SYNTHETIC, $field(JTreeFocusTest$FormRenderer, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LJTreeFocusTest;)V", nullptr, 0, $method(JTreeFocusTest$FormRenderer, init$, void, $JTreeFocusTest*)},
+		{"getTreeCellRendererComponent", "(Ljavax/swing/JTree;Ljava/lang/Object;ZZZIZ)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JTreeFocusTest$FormRenderer, getTreeCellRendererComponent, $Component*, $JTree*, Object$*, bool, bool, bool, int32_t, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"JTreeFocusTest$FormRenderer", "JTreeFocusTest", "FormRenderer", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"JTreeFocusTest$FormRenderer",
+		"javax.swing.tree.DefaultTreeCellRenderer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"JTreeFocusTest"
+	};
+	$loadClass(JTreeFocusTest$FormRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JTreeFocusTest$FormRenderer));
+	});
 	return class$;
 }
 

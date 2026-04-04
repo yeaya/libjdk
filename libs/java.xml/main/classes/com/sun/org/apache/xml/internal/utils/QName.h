@@ -48,6 +48,7 @@ class $export QName : public ::java::io::Serializable {
 	$class(QName, 0, ::java::io::Serializable)
 public:
 	QName();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* namespaceURI, $String* localName);
 	void init$($String* namespaceURI, $String* localName, bool validate);
@@ -76,7 +77,7 @@ public:
 	static bool isXMLNSDecl($String* attRawName);
 	virtual $String* toNamespacedString();
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x067CA946832676E0;
+	static const int64_t serialVersionUID = (int64_t)0x067ca946832676e0;
 	$String* _localName = nullptr;
 	$String* _namespaceURI = nullptr;
 	$String* _prefix = nullptr;

@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XkbEvent.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -23,7 +22,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XEvent = ::sun::awt::X11::XEvent;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
@@ -40,61 +38,10 @@ using $XkbNamesNotifyEvent = ::sun::awt::X11::XkbNamesNotifyEvent;
 using $XkbNewKeyboardNotifyEvent = ::sun::awt::X11::XkbNewKeyboardNotifyEvent;
 using $XkbStateNotifyEvent = ::sun::awt::X11::XkbStateNotifyEvent;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XkbEvent_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XkbEvent, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XkbEvent, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XkbEvent, pData)},
-	{}
-};
-
-$MethodInfo _XkbEvent_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XkbEvent, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XkbEvent, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbEvent, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XkbEvent, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XkbEvent, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbEvent, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbEvent, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XkbEvent, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XkbEvent, getSize, int32_t)},
-	{"get_accessx", "()Lsun/awt/X11/XkbAccessXNotifyEvent;", nullptr, $PUBLIC, $virtualMethod(XkbEvent, get_accessx, $XkbAccessXNotifyEvent*)},
-	{"get_any", "()Lsun/awt/X11/XkbAnyEvent;", nullptr, $PUBLIC, $virtualMethod(XkbEvent, get_any, $XkbAnyEvent*)},
-	{"get_bell", "()Lsun/awt/X11/XkbBellNotifyEvent;", nullptr, $PUBLIC, $virtualMethod(XkbEvent, get_bell, $XkbBellNotifyEvent*)},
-	{"get_compat", "()Lsun/awt/X11/XkbCompatMapNotifyEvent;", nullptr, $PUBLIC, $virtualMethod(XkbEvent, get_compat, $XkbCompatMapNotifyEvent*)},
-	{"get_core", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC, $virtualMethod(XkbEvent, get_core, $XEvent*)},
-	{"get_ctrls", "()Lsun/awt/X11/XkbControlsNotifyEvent;", nullptr, $PUBLIC, $virtualMethod(XkbEvent, get_ctrls, $XkbControlsNotifyEvent*)},
-	{"get_device", "()Lsun/awt/X11/XkbExtensionDeviceNotifyEvent;", nullptr, $PUBLIC, $virtualMethod(XkbEvent, get_device, $XkbExtensionDeviceNotifyEvent*)},
-	{"get_indicators", "()Lsun/awt/X11/XkbIndicatorNotifyEvent;", nullptr, $PUBLIC, $virtualMethod(XkbEvent, get_indicators, $XkbIndicatorNotifyEvent*)},
-	{"get_map", "()Lsun/awt/X11/XkbMapNotifyEvent;", nullptr, $PUBLIC, $virtualMethod(XkbEvent, get_map, $XkbMapNotifyEvent*)},
-	{"get_message", "()Lsun/awt/X11/XkbActionMessageEvent;", nullptr, $PUBLIC, $virtualMethod(XkbEvent, get_message, $XkbActionMessageEvent*)},
-	{"get_names", "()Lsun/awt/X11/XkbNamesNotifyEvent;", nullptr, $PUBLIC, $virtualMethod(XkbEvent, get_names, $XkbNamesNotifyEvent*)},
-	{"get_new_kbd", "()Lsun/awt/X11/XkbNewKeyboardNotifyEvent;", nullptr, $PUBLIC, $virtualMethod(XkbEvent, get_new_kbd, $XkbNewKeyboardNotifyEvent*)},
-	{"get_state", "()Lsun/awt/X11/XkbStateNotifyEvent;", nullptr, $PUBLIC, $virtualMethod(XkbEvent, get_state, $XkbStateNotifyEvent*)},
-	{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbEvent, get_type, int32_t)},
-	{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbEvent, set_type, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbEvent, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbEvent, zero, void)},
-	{}
-};
-
-$ClassInfo _XkbEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XkbEvent",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XkbEvent_FieldInfo_,
-	_XkbEvent_MethodInfo_
-};
-
-$Object* allocate$XkbEvent($Class* clazz) {
-	return $of($alloc(XkbEvent));
-}
 
 int32_t XkbEvent::getSize() {
 	$init(XkbEvent);
@@ -133,7 +80,7 @@ void XkbEvent::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -233,28 +180,28 @@ $String* XkbEvent::getName() {
 }
 
 $String* XkbEvent::getFieldsAsString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, ret, $new($StringBuilder, 560));
 	$init($XlibWrapper);
 	ret->append("type = "_s)->append($nc($XlibWrapper::eventToString)->get(get_type()))->append(", "_s);
-	ret->append("any = "_s)->append($($of(get_any())))->append(", "_s);
-	ret->append("new_kbd = "_s)->append($($of(get_new_kbd())))->append(", "_s);
-	ret->append("map = "_s)->append($($of(get_map())))->append(", "_s);
-	ret->append("state = "_s)->append($($of(get_state())))->append(", "_s);
-	ret->append("ctrls = "_s)->append($($of(get_ctrls())))->append(", "_s);
-	ret->append("indicators = "_s)->append($($of(get_indicators())))->append(", "_s);
-	ret->append("names = "_s)->append($($of(get_names())))->append(", "_s);
-	ret->append("compat = "_s)->append($($of(get_compat())))->append(", "_s);
-	ret->append("bell = "_s)->append($($of(get_bell())))->append(", "_s);
-	ret->append("message = "_s)->append($($of(get_message())))->append(", "_s);
-	ret->append("accessx = "_s)->append($($of(get_accessx())))->append(", "_s);
-	ret->append("device = "_s)->append($($of(get_device())))->append(", "_s);
-	ret->append("core = "_s)->append($($of(get_core())))->append(", "_s);
+	ret->append("any = "_s)->append($(get_any()))->append(", "_s);
+	ret->append("new_kbd = "_s)->append($(get_new_kbd()))->append(", "_s);
+	ret->append("map = "_s)->append($(get_map()))->append(", "_s);
+	ret->append("state = "_s)->append($(get_state()))->append(", "_s);
+	ret->append("ctrls = "_s)->append($(get_ctrls()))->append(", "_s);
+	ret->append("indicators = "_s)->append($(get_indicators()))->append(", "_s);
+	ret->append("names = "_s)->append($(get_names()))->append(", "_s);
+	ret->append("compat = "_s)->append($(get_compat()))->append(", "_s);
+	ret->append("bell = "_s)->append($(get_bell()))->append(", "_s);
+	ret->append("message = "_s)->append($(get_message()))->append(", "_s);
+	ret->append("accessx = "_s)->append($(get_accessx()))->append(", "_s);
+	ret->append("device = "_s)->append($(get_device()))->append(", "_s);
+	ret->append("core = "_s)->append($(get_core()))->append(", "_s);
 	return ret->toString();
 }
 
 $Object* XkbEvent::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XkbEvent::zero() {
@@ -269,7 +216,52 @@ XkbEvent::XkbEvent() {
 }
 
 $Class* XkbEvent::load$($String* name, bool initialize) {
-	$loadClass(XkbEvent, name, initialize, &_XkbEvent_ClassInfo_, allocate$XkbEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XkbEvent, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XkbEvent, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XkbEvent, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XkbEvent, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XkbEvent, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbEvent, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XkbEvent, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XkbEvent, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbEvent, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbEvent, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XkbEvent, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XkbEvent, getSize, int32_t)},
+		{"get_accessx", "()Lsun/awt/X11/XkbAccessXNotifyEvent;", nullptr, $PUBLIC, $virtualMethod(XkbEvent, get_accessx, $XkbAccessXNotifyEvent*)},
+		{"get_any", "()Lsun/awt/X11/XkbAnyEvent;", nullptr, $PUBLIC, $virtualMethod(XkbEvent, get_any, $XkbAnyEvent*)},
+		{"get_bell", "()Lsun/awt/X11/XkbBellNotifyEvent;", nullptr, $PUBLIC, $virtualMethod(XkbEvent, get_bell, $XkbBellNotifyEvent*)},
+		{"get_compat", "()Lsun/awt/X11/XkbCompatMapNotifyEvent;", nullptr, $PUBLIC, $virtualMethod(XkbEvent, get_compat, $XkbCompatMapNotifyEvent*)},
+		{"get_core", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC, $virtualMethod(XkbEvent, get_core, $XEvent*)},
+		{"get_ctrls", "()Lsun/awt/X11/XkbControlsNotifyEvent;", nullptr, $PUBLIC, $virtualMethod(XkbEvent, get_ctrls, $XkbControlsNotifyEvent*)},
+		{"get_device", "()Lsun/awt/X11/XkbExtensionDeviceNotifyEvent;", nullptr, $PUBLIC, $virtualMethod(XkbEvent, get_device, $XkbExtensionDeviceNotifyEvent*)},
+		{"get_indicators", "()Lsun/awt/X11/XkbIndicatorNotifyEvent;", nullptr, $PUBLIC, $virtualMethod(XkbEvent, get_indicators, $XkbIndicatorNotifyEvent*)},
+		{"get_map", "()Lsun/awt/X11/XkbMapNotifyEvent;", nullptr, $PUBLIC, $virtualMethod(XkbEvent, get_map, $XkbMapNotifyEvent*)},
+		{"get_message", "()Lsun/awt/X11/XkbActionMessageEvent;", nullptr, $PUBLIC, $virtualMethod(XkbEvent, get_message, $XkbActionMessageEvent*)},
+		{"get_names", "()Lsun/awt/X11/XkbNamesNotifyEvent;", nullptr, $PUBLIC, $virtualMethod(XkbEvent, get_names, $XkbNamesNotifyEvent*)},
+		{"get_new_kbd", "()Lsun/awt/X11/XkbNewKeyboardNotifyEvent;", nullptr, $PUBLIC, $virtualMethod(XkbEvent, get_new_kbd, $XkbNewKeyboardNotifyEvent*)},
+		{"get_state", "()Lsun/awt/X11/XkbStateNotifyEvent;", nullptr, $PUBLIC, $virtualMethod(XkbEvent, get_state, $XkbStateNotifyEvent*)},
+		{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbEvent, get_type, int32_t)},
+		{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbEvent, set_type, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbEvent, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbEvent, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XkbEvent",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XkbEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XkbEvent);
+	});
 	return class$;
 }
 

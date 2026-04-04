@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XEmbeddedFrame.h>
-
 #include <java/awt/AWTKeyStroke.h>
 #include <java/awt/Component.h>
 #include <java/awt/Toolkit.h>
@@ -8,78 +7,31 @@
 #include <sun/awt/AWTAccessor$ComponentAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <sun/awt/EmbeddedFrame.h>
-#include <sun/awt/X11/XCanvasPeer.h>
 #include <sun/awt/X11/XComponentPeer.h>
-#include <sun/awt/X11/XDecoratedPeer.h>
 #include <sun/awt/X11/XEmbeddedFramePeer.h>
-#include <sun/awt/X11/XFramePeer.h>
-#include <sun/awt/X11/XPanelPeer.h>
 #include <sun/awt/X11/XToolkit.h>
 #include <sun/awt/X11/XTrayIconPeer.h>
-#include <sun/awt/X11/XWindowPeer.h>
 #include <sun/util/logging/PlatformLogger.h>
 #include <jcpp.h>
 
 #undef FORWARD
 
 using $AWTKeyStroke = ::java::awt::AWTKeyStroke;
-using $Component = ::java::awt::Component;
 using $Toolkit = ::java::awt::Toolkit;
-using $Window = ::java::awt::Window;
-using $ComponentPeer = ::java::awt::peer::ComponentPeer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $EmbeddedFrame = ::sun::awt::EmbeddedFrame;
-using $XCanvasPeer = ::sun::awt::X11::XCanvasPeer;
 using $XComponentPeer = ::sun::awt::X11::XComponentPeer;
-using $XDecoratedPeer = ::sun::awt::X11::XDecoratedPeer;
 using $XEmbeddedFramePeer = ::sun::awt::X11::XEmbeddedFramePeer;
-using $XFramePeer = ::sun::awt::X11::XFramePeer;
-using $XPanelPeer = ::sun::awt::X11::XPanelPeer;
 using $XToolkit = ::sun::awt::X11::XToolkit;
 using $XTrayIconPeer = ::sun::awt::X11::XTrayIconPeer;
-using $XWindowPeer = ::sun::awt::X11::XWindowPeer;
 using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XEmbeddedFrame_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XEmbeddedFrame, log)},
-	{"handle", "J", nullptr, 0, $field(XEmbeddedFrame, handle)},
-	{}
-};
-
-$MethodInfo _XEmbeddedFrame_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XEmbeddedFrame, init$, void)},
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XEmbeddedFrame, init$, void, int64_t)},
-	{"<init>", "(JZZ)V", nullptr, $PUBLIC, $method(XEmbeddedFrame, init$, void, int64_t, bool, bool)},
-	{"<init>", "(JZ)V", nullptr, $PUBLIC, $method(XEmbeddedFrame, init$, void, int64_t, bool)},
-	{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbeddedFrame, addNotify, void)},
-	{"registerAccelerator", "(Ljava/awt/AWTKeyStroke;)V", nullptr, $PUBLIC, $virtualMethod(XEmbeddedFrame, registerAccelerator, void, $AWTKeyStroke*)},
-	{"synthesizeWindowActivation", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XEmbeddedFrame, synthesizeWindowActivation, void, bool)},
-	{"traverseIn", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(XEmbeddedFrame, traverseIn, bool, bool)},
-	{"traverseOut", "(Z)Z", nullptr, $PROTECTED, $virtualMethod(XEmbeddedFrame, traverseOut, bool, bool)},
-	{"unregisterAccelerator", "(Ljava/awt/AWTKeyStroke;)V", nullptr, $PUBLIC, $virtualMethod(XEmbeddedFrame, unregisterAccelerator, void, $AWTKeyStroke*)},
-	{}
-};
-
-$ClassInfo _XEmbeddedFrame_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XEmbeddedFrame",
-	"sun.awt.EmbeddedFrame",
-	nullptr,
-	_XEmbeddedFrame_FieldInfo_,
-	_XEmbeddedFrame_MethodInfo_
-};
-
-$Object* allocate$XEmbeddedFrame($Class* clazz) {
-	return $of($alloc(XEmbeddedFrame));
-}
 
 $PlatformLogger* XEmbeddedFrame::log = nullptr;
 
@@ -106,10 +58,10 @@ void XEmbeddedFrame::init$(int64_t handle, bool supportsXEmbed, bool isTrayIconW
 }
 
 void XEmbeddedFrame::addNotify() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isDisplayable()) {
 		$var($XToolkit, toolkit, $cast($XToolkit, $Toolkit::getDefaultToolkit()));
-		setPeer($(static_cast<$ComponentPeer*>(static_cast<$XComponentPeer*>(static_cast<$XCanvasPeer*>(static_cast<$XPanelPeer*>(static_cast<$XWindowPeer*>(static_cast<$XDecoratedPeer*>(static_cast<$XFramePeer*>($nc(toolkit)->createEmbeddedFrame(this))))))))));
+		setPeer($$cast($XComponentPeer, $nc(toolkit)->createEmbeddedFrame(this)));
 	}
 	$EmbeddedFrame::addNotify();
 }
@@ -119,8 +71,8 @@ void XEmbeddedFrame::init$(int64_t handle, bool supportsXEmbed) {
 }
 
 bool XEmbeddedFrame::traverseIn(bool direction) {
-	$useLocalCurrentObjectStackCache();
-	$var($XEmbeddedFramePeer, peer, $cast($XEmbeddedFramePeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(this)));
+	$useLocalObjectStack();
+	$var($XEmbeddedFramePeer, peer, $cast($XEmbeddedFramePeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(this)));
 	if (peer != nullptr) {
 		bool var$0 = peer->supportsXEmbed();
 		if (var$0 && peer->isXEmbedActive()) {
@@ -133,8 +85,8 @@ bool XEmbeddedFrame::traverseIn(bool direction) {
 }
 
 bool XEmbeddedFrame::traverseOut(bool direction) {
-	$useLocalCurrentObjectStackCache();
-	$var($XEmbeddedFramePeer, xefp, $cast($XEmbeddedFramePeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(this)));
+	$useLocalObjectStack();
+	$var($XEmbeddedFramePeer, xefp, $cast($XEmbeddedFramePeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(this)));
 	if (direction == $EmbeddedFrame::FORWARD) {
 		$nc(xefp)->traverseOutForward();
 	} else {
@@ -144,8 +96,8 @@ bool XEmbeddedFrame::traverseOut(bool direction) {
 }
 
 void XEmbeddedFrame::synthesizeWindowActivation(bool doActivate) {
-	$useLocalCurrentObjectStackCache();
-	$var($XEmbeddedFramePeer, peer, $cast($XEmbeddedFramePeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(this)));
+	$useLocalObjectStack();
+	$var($XEmbeddedFramePeer, peer, $cast($XEmbeddedFramePeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(this)));
 	if (peer != nullptr) {
 		bool var$0 = peer->supportsXEmbed();
 		if (var$0 && peer->isXEmbedActive()) {
@@ -157,22 +109,22 @@ void XEmbeddedFrame::synthesizeWindowActivation(bool doActivate) {
 }
 
 void XEmbeddedFrame::registerAccelerator($AWTKeyStroke* stroke) {
-	$useLocalCurrentObjectStackCache();
-	$var($XEmbeddedFramePeer, xefp, $cast($XEmbeddedFramePeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(this)));
+	$useLocalObjectStack();
+	$var($XEmbeddedFramePeer, xefp, $cast($XEmbeddedFramePeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(this)));
 	if (xefp != nullptr) {
 		xefp->registerAccelerator(stroke);
 	}
 }
 
 void XEmbeddedFrame::unregisterAccelerator($AWTKeyStroke* stroke) {
-	$useLocalCurrentObjectStackCache();
-	$var($XEmbeddedFramePeer, xefp, $cast($XEmbeddedFramePeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(this)));
+	$useLocalObjectStack();
+	$var($XEmbeddedFramePeer, xefp, $cast($XEmbeddedFramePeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(this)));
 	if (xefp != nullptr) {
 		xefp->unregisterAccelerator(stroke);
 	}
 }
 
-void clinit$XEmbeddedFrame($Class* class$) {
+void XEmbeddedFrame::clinit$($Class* clazz) {
 	$assignStatic(XEmbeddedFrame::log, $PlatformLogger::getLogger($(XEmbeddedFrame::class$->getName())));
 }
 
@@ -180,7 +132,35 @@ XEmbeddedFrame::XEmbeddedFrame() {
 }
 
 $Class* XEmbeddedFrame::load$($String* name, bool initialize) {
-	$loadClass(XEmbeddedFrame, name, initialize, &_XEmbeddedFrame_ClassInfo_, clinit$XEmbeddedFrame, allocate$XEmbeddedFrame);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XEmbeddedFrame, log)},
+		{"handle", "J", nullptr, 0, $field(XEmbeddedFrame, handle)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XEmbeddedFrame, init$, void)},
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XEmbeddedFrame, init$, void, int64_t)},
+		{"<init>", "(JZZ)V", nullptr, $PUBLIC, $method(XEmbeddedFrame, init$, void, int64_t, bool, bool)},
+		{"<init>", "(JZ)V", nullptr, $PUBLIC, $method(XEmbeddedFrame, init$, void, int64_t, bool)},
+		{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbeddedFrame, addNotify, void)},
+		{"registerAccelerator", "(Ljava/awt/AWTKeyStroke;)V", nullptr, $PUBLIC, $virtualMethod(XEmbeddedFrame, registerAccelerator, void, $AWTKeyStroke*)},
+		{"synthesizeWindowActivation", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XEmbeddedFrame, synthesizeWindowActivation, void, bool)},
+		{"traverseIn", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(XEmbeddedFrame, traverseIn, bool, bool)},
+		{"traverseOut", "(Z)Z", nullptr, $PROTECTED, $virtualMethod(XEmbeddedFrame, traverseOut, bool, bool)},
+		{"unregisterAccelerator", "(Ljava/awt/AWTKeyStroke;)V", nullptr, $PUBLIC, $virtualMethod(XEmbeddedFrame, unregisterAccelerator, void, $AWTKeyStroke*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XEmbeddedFrame",
+		"sun.awt.EmbeddedFrame",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XEmbeddedFrame, name, initialize, &classInfo$$, XEmbeddedFrame::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XEmbeddedFrame));
+	});
 	return class$;
 }
 

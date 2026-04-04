@@ -44,7 +44,7 @@ public:
 	$bytes* extensionValue = nullptr;
 	::javax::naming::NamingException* exception = nullptr;
 	$Array<::javax::naming::ldap::Control>* controls = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x5211F693577073C7;
+	static const int64_t serialVersionUID = (int64_t)0x5211f693577073c7;
 };
 
 			} // ldap

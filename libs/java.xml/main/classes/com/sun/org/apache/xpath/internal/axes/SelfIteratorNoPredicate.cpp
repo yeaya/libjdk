@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/axes/SelfIteratorNoPredicate.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/utils/PrefixResolver.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
@@ -26,33 +25,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 						namespace axes {
-
-$FieldInfo _SelfIteratorNoPredicate_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SelfIteratorNoPredicate, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SelfIteratorNoPredicate_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;II)V", nullptr, 0, $method(SelfIteratorNoPredicate, init$, void, $Compiler*, int32_t, int32_t), "javax.xml.transform.TransformerException"},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SelfIteratorNoPredicate, init$, void), "javax.xml.transform.TransformerException"},
-	{"asNode", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC, $virtualMethod(SelfIteratorNoPredicate, asNode, int32_t, $XPathContext*), "javax.xml.transform.TransformerException"},
-	{"getLastPos", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC, $virtualMethod(SelfIteratorNoPredicate, getLastPos, int32_t, $XPathContext*)},
-	{"nextNode", "()I", nullptr, $PUBLIC, $virtualMethod(SelfIteratorNoPredicate, nextNode, int32_t)},
-	{}
-};
-
-$ClassInfo _SelfIteratorNoPredicate_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.axes.SelfIteratorNoPredicate",
-	"com.sun.org.apache.xpath.internal.axes.LocPathIterator",
-	nullptr,
-	_SelfIteratorNoPredicate_FieldInfo_,
-	_SelfIteratorNoPredicate_MethodInfo_
-};
-
-$Object* allocate$SelfIteratorNoPredicate($Class* clazz) {
-	return $of($alloc(SelfIteratorNoPredicate));
-}
 
 void SelfIteratorNoPredicate::init$($Compiler* compiler, int32_t opPos, int32_t analysis) {
 	$LocPathIterator::init$(compiler, opPos, analysis, false);
@@ -90,7 +62,29 @@ SelfIteratorNoPredicate::SelfIteratorNoPredicate() {
 }
 
 $Class* SelfIteratorNoPredicate::load$($String* name, bool initialize) {
-	$loadClass(SelfIteratorNoPredicate, name, initialize, &_SelfIteratorNoPredicate_ClassInfo_, allocate$SelfIteratorNoPredicate);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SelfIteratorNoPredicate, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;II)V", nullptr, 0, $method(SelfIteratorNoPredicate, init$, void, $Compiler*, int32_t, int32_t), "javax.xml.transform.TransformerException"},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SelfIteratorNoPredicate, init$, void), "javax.xml.transform.TransformerException"},
+		{"asNode", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC, $virtualMethod(SelfIteratorNoPredicate, asNode, int32_t, $XPathContext*), "javax.xml.transform.TransformerException"},
+		{"getLastPos", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC, $virtualMethod(SelfIteratorNoPredicate, getLastPos, int32_t, $XPathContext*)},
+		{"nextNode", "()I", nullptr, $PUBLIC, $virtualMethod(SelfIteratorNoPredicate, nextNode, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.axes.SelfIteratorNoPredicate",
+		"com.sun.org.apache.xpath.internal.axes.LocPathIterator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SelfIteratorNoPredicate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SelfIteratorNoPredicate));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/PrinterLocation.h>
-
 #include <java/util/Locale.h>
 #include <javax/print/attribute/TextSyntax.h>
 #include <jcpp.h>
@@ -14,36 +13,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _PrinterLocation_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrinterLocation, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _PrinterLocation_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/lang/String;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(PrinterLocation, init$, void, $String*, $Locale*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PrinterLocation, equals, bool, Object$*)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(PrinterLocation, getCategory, $Class*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(PrinterLocation, getName, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _PrinterLocation_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.PrinterLocation",
-	"javax.print.attribute.TextSyntax",
-	"javax.print.attribute.PrintServiceAttribute",
-	_PrinterLocation_FieldInfo_,
-	_PrinterLocation_MethodInfo_
-};
-
-$Object* allocate$PrinterLocation($Class* clazz) {
-	return $of($alloc(PrinterLocation));
-}
 
 int32_t PrinterLocation::hashCode() {
 	 return this->$TextSyntax::hashCode();
@@ -81,7 +50,32 @@ PrinterLocation::PrinterLocation() {
 }
 
 $Class* PrinterLocation::load$($String* name, bool initialize) {
-	$loadClass(PrinterLocation, name, initialize, &_PrinterLocation_ClassInfo_, allocate$PrinterLocation);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrinterLocation, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/lang/String;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(PrinterLocation, init$, void, $String*, $Locale*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PrinterLocation, equals, bool, Object$*)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(PrinterLocation, getCategory, $Class*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(PrinterLocation, getName, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.PrinterLocation",
+		"javax.print.attribute.TextSyntax",
+		"javax.print.attribute.PrintServiceAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PrinterLocation, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PrinterLocation));
+	});
 	return class$;
 }
 

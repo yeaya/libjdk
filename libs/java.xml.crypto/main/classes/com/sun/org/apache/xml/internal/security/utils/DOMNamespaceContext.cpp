@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/utils/DOMNamespaceContext.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/Iterator.h>
 #include <java/util/Objects.h>
@@ -24,33 +23,6 @@ namespace com {
 						namespace security {
 							namespace utils {
 
-$FieldInfo _DOMNamespaceContext_FieldInfo_[] = {
-	{"context", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(DOMNamespaceContext, context)},
-	{}
-};
-
-$MethodInfo _DOMNamespaceContext_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMNamespaceContext, init$, void, $Node*)},
-	{"getNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMNamespaceContext, getNamespaceURI, $String*, $String*)},
-	{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMNamespaceContext, getPrefix, $String*, $String*)},
-	{"getPrefixes", "(Ljava/lang/String;)Ljava/util/Iterator;", "(Ljava/lang/String;)Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(DOMNamespaceContext, getPrefixes, $Iterator*, $String*)},
-	{"setContext", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(DOMNamespaceContext, setContext, void, $Node*)},
-	{}
-};
-
-$ClassInfo _DOMNamespaceContext_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.utils.DOMNamespaceContext",
-	"java.lang.Object",
-	"javax.xml.namespace.NamespaceContext",
-	_DOMNamespaceContext_FieldInfo_,
-	_DOMNamespaceContext_MethodInfo_
-};
-
-$Object* allocate$DOMNamespaceContext($Class* clazz) {
-	return $of($alloc(DOMNamespaceContext));
-}
-
 void DOMNamespaceContext::init$($Node* context) {
 	setContext(context);
 }
@@ -60,7 +32,7 @@ void DOMNamespaceContext::setContext($Node* context) {
 }
 
 $String* DOMNamespaceContext::getNamespaceURI($String* prefix$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prefix, prefix$renamed);
 	if (prefix == nullptr) {
 		$throwNew($IllegalArgumentException, "prefix is null"_s);
@@ -69,14 +41,14 @@ $String* DOMNamespaceContext::getNamespaceURI($String* prefix$renamed) {
 		$assign(prefix, nullptr);
 	}
 	if (this->context != nullptr) {
-		$var($String, namespaceURI, $nc(this->context)->lookupNamespaceURI(prefix));
+		$var($String, namespaceURI, this->context->lookupNamespaceURI(prefix));
 		if (namespaceURI != nullptr) {
 			return namespaceURI;
 		}
 	}
 	if (prefix == nullptr) {
 		return ""_s;
-	} else if ($nc(prefix)->equals("xml"_s)) {
+	} else if (prefix->equals("xml"_s)) {
 		return "http://www.w3.org/XML/1998/namespace"_s;
 	} else if (prefix->equals("xmlns"_s)) {
 		return "http://www.w3.org/2000/xmlns/"_s;
@@ -85,7 +57,7 @@ $String* DOMNamespaceContext::getNamespaceURI($String* prefix$renamed) {
 }
 
 $String* DOMNamespaceContext::getPrefix($String* namespaceURI$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, namespaceURI, namespaceURI$renamed);
 	if (namespaceURI == nullptr) {
 		$throwNew($IllegalArgumentException, "namespace URI is null"_s);
@@ -94,7 +66,7 @@ $String* DOMNamespaceContext::getPrefix($String* namespaceURI$renamed) {
 		$assign(namespaceURI, nullptr);
 	}
 	if (this->context != nullptr) {
-		$var($String, prefix, $nc(this->context)->lookupPrefix(namespaceURI));
+		$var($String, prefix, this->context->lookupPrefix(namespaceURI));
 		if (prefix != nullptr) {
 			return prefix;
 		} else if ($Objects::equals($($nc(this->context)->lookupNamespaceURI(nullptr)), namespaceURI)) {
@@ -103,7 +75,7 @@ $String* DOMNamespaceContext::getPrefix($String* namespaceURI$renamed) {
 	}
 	if (namespaceURI == nullptr) {
 		return $nc(this->context)->lookupNamespaceURI(nullptr) != nullptr ? ($String*)nullptr : ""_s;
-	} else if ($nc(namespaceURI)->equals("http://www.w3.org/XML/1998/namespace"_s)) {
+	} else if (namespaceURI->equals("http://www.w3.org/XML/1998/namespace"_s)) {
 		return "xml"_s;
 	} else if (namespaceURI->equals("http://www.w3.org/2000/xmlns/"_s)) {
 		return "xmlns"_s;
@@ -120,7 +92,29 @@ DOMNamespaceContext::DOMNamespaceContext() {
 }
 
 $Class* DOMNamespaceContext::load$($String* name, bool initialize) {
-	$loadClass(DOMNamespaceContext, name, initialize, &_DOMNamespaceContext_ClassInfo_, allocate$DOMNamespaceContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"context", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(DOMNamespaceContext, context)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMNamespaceContext, init$, void, $Node*)},
+		{"getNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMNamespaceContext, getNamespaceURI, $String*, $String*)},
+		{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMNamespaceContext, getPrefix, $String*, $String*)},
+		{"getPrefixes", "(Ljava/lang/String;)Ljava/util/Iterator;", "(Ljava/lang/String;)Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(DOMNamespaceContext, getPrefixes, $Iterator*, $String*)},
+		{"setContext", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(DOMNamespaceContext, setContext, void, $Node*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.utils.DOMNamespaceContext",
+		"java.lang.Object",
+		"javax.xml.namespace.NamespaceContext",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMNamespaceContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMNamespaceContext);
+	});
 	return class$;
 }
 

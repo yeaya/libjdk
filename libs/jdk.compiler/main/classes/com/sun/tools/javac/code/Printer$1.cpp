@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Printer$1.h>
-
 #include <com/sun/tools/javac/api/Messages.h>
 #include <com/sun/tools/javac/code/Printer.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
@@ -60,68 +59,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Printer$1_FieldInfo_[] = {
-	{"val$messages", "Lcom/sun/tools/javac/api/Messages;", nullptr, $FINAL | $SYNTHETIC, $field(Printer$1, val$messages)},
-	{}
-};
-
-$MethodInfo _Printer$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/Messages;)V", nullptr, 0, $method(Printer$1, init$, void, $Messages*)},
-	{"capturedVarId", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Printer$1, capturedVarId, $String*, $Type$CapturedType*, $Locale*)},
-	{"localize", "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PROTECTED | $TRANSIENT, $virtualMethod(Printer$1, localize, $String*, $Locale*, $String*, $ObjectArray*)},
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitArrayType, $Object*, $Type$ArrayType*, Object$*)},
-	{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitCapturedType, $Object*, $Type$CapturedType*, Object$*)},
-	{"visitClassSymbol", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitClassSymbol, $Object*, $Symbol$ClassSymbol*, Object$*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitClassType, $Object*, $Type$ClassType*, Object$*)},
-	{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitErrorType, $Object*, $Type$ErrorType*, Object$*)},
-	{"visitForAll", "(Lcom/sun/tools/javac/code/Type$ForAll;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitForAll, $Object*, $Type$ForAll*, Object$*)},
-	{"visitMethodSymbol", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitMethodSymbol, $Object*, $Symbol$MethodSymbol*, Object$*)},
-	{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitMethodType, $Object*, $Type$MethodType*, Object$*)},
-	{"visitModuleType", "(Lcom/sun/tools/javac/code/Type$ModuleType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitModuleType, $Object*, $Type$ModuleType*, Object$*)},
-	{"visitOperatorSymbol", "(Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitOperatorSymbol, $Object*, $Symbol$OperatorSymbol*, Object$*)},
-	{"visitPackageSymbol", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitPackageSymbol, $Object*, $Symbol$PackageSymbol*, Object$*)},
-	{"visitPackageType", "(Lcom/sun/tools/javac/code/Type$PackageType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitPackageType, $Object*, $Type$PackageType*, Object$*)},
-	{"visitSymbol", "(Lcom/sun/tools/javac/code/Symbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitSymbol, $Object*, $Symbol*, Object$*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitType, $Object*, $Type*, Object$*)},
-	{"visitTypeSymbol", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitTypeSymbol, $Object*, $Symbol$TypeSymbol*, Object$*)},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
-	{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitUndetVar, $Object*, $Type$UndetVar*, Object$*)},
-	{"visitVarSymbol", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitVarSymbol, $Object*, $Symbol$VarSymbol*, Object$*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _Printer$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Printer",
-	"createStandardPrinter",
-	"(Lcom/sun/tools/javac/api/Messages;)Lcom/sun/tools/javac/code/Printer;"
-};
-
-$InnerClassInfo _Printer$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Printer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Printer$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Printer$1",
-	"com.sun.tools.javac.code.Printer",
-	nullptr,
-	_Printer$1_FieldInfo_,
-	_Printer$1_MethodInfo_,
-	nullptr,
-	&_Printer$1_EnclosingMethodInfo_,
-	_Printer$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Printer"
-};
-
-$Object* allocate$Printer$1($Class* clazz) {
-	return $of($alloc(Printer$1));
-}
-
 void Printer$1::init$($Messages* val$messages) {
 	$set(this, val$messages, val$messages);
 	$Printer::init$();
@@ -132,7 +69,7 @@ $String* Printer$1::localize($Locale* locale, $String* key, $ObjectArray* args) 
 }
 
 $String* Printer$1::capturedVarId($Type$CapturedType* t, $Locale* locale) {
-	return $str({$$str($mod(((int64_t)($nc(t)->hashCode() & (uint64_t)(int64_t)0x00000000FFFFFFFF)), $Printer::PRIME)), ""_s});
+	return $str({$$str($mod(($nc(t)->hashCode() & (int64_t)0xffffffff), $Printer::PRIME)), ""_s});
 }
 
 $Object* Printer$1::visitType($Type* t, Object$* locale) {
@@ -215,7 +152,62 @@ Printer$1::Printer$1() {
 }
 
 $Class* Printer$1::load$($String* name, bool initialize) {
-	$loadClass(Printer$1, name, initialize, &_Printer$1_ClassInfo_, allocate$Printer$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$messages", "Lcom/sun/tools/javac/api/Messages;", nullptr, $FINAL | $SYNTHETIC, $field(Printer$1, val$messages)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/api/Messages;)V", nullptr, 0, $method(Printer$1, init$, void, $Messages*)},
+		{"capturedVarId", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Printer$1, capturedVarId, $String*, $Type$CapturedType*, $Locale*)},
+		{"localize", "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PROTECTED | $TRANSIENT, $virtualMethod(Printer$1, localize, $String*, $Locale*, $String*, $ObjectArray*)},
+		{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitArrayType, $Object*, $Type$ArrayType*, Object$*)},
+		{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitCapturedType, $Object*, $Type$CapturedType*, Object$*)},
+		{"visitClassSymbol", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitClassSymbol, $Object*, $Symbol$ClassSymbol*, Object$*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitClassType, $Object*, $Type$ClassType*, Object$*)},
+		{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitErrorType, $Object*, $Type$ErrorType*, Object$*)},
+		{"visitForAll", "(Lcom/sun/tools/javac/code/Type$ForAll;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitForAll, $Object*, $Type$ForAll*, Object$*)},
+		{"visitMethodSymbol", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitMethodSymbol, $Object*, $Symbol$MethodSymbol*, Object$*)},
+		{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitMethodType, $Object*, $Type$MethodType*, Object$*)},
+		{"visitModuleType", "(Lcom/sun/tools/javac/code/Type$ModuleType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitModuleType, $Object*, $Type$ModuleType*, Object$*)},
+		{"visitOperatorSymbol", "(Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitOperatorSymbol, $Object*, $Symbol$OperatorSymbol*, Object$*)},
+		{"visitPackageSymbol", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitPackageSymbol, $Object*, $Symbol$PackageSymbol*, Object$*)},
+		{"visitPackageType", "(Lcom/sun/tools/javac/code/Type$PackageType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitPackageType, $Object*, $Type$PackageType*, Object$*)},
+		{"visitSymbol", "(Lcom/sun/tools/javac/code/Symbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitSymbol, $Object*, $Symbol*, Object$*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitType, $Object*, $Type*, Object$*)},
+		{"visitTypeSymbol", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitTypeSymbol, $Object*, $Symbol$TypeSymbol*, Object$*)},
+		{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
+		{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitUndetVar, $Object*, $Type$UndetVar*, Object$*)},
+		{"visitVarSymbol", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitVarSymbol, $Object*, $Symbol$VarSymbol*, Object$*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer$1, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Printer",
+		"createStandardPrinter",
+		"(Lcom/sun/tools/javac/api/Messages;)Lcom/sun/tools/javac/code/Printer;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Printer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Printer$1",
+		"com.sun.tools.javac.code.Printer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Printer"
+	};
+	$loadClass(Printer$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Printer$1));
+	});
 	return class$;
 }
 

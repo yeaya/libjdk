@@ -1,5 +1,4 @@
 #include <sun/awt/PlatformGraphicsInfo.h>
-
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Toolkit.h>
 #include <java/io/Serializable.h>
@@ -35,58 +34,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(PlatformGraphicsInfo::lambda$static$0());
+		 return PlatformGraphicsInfo::lambda$static$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<PlatformGraphicsInfo$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo PlatformGraphicsInfo$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PlatformGraphicsInfo$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PlatformGraphicsInfo$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo PlatformGraphicsInfo$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.PlatformGraphicsInfo$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* PlatformGraphicsInfo$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(PlatformGraphicsInfo$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PlatformGraphicsInfo$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PlatformGraphicsInfo$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.PlatformGraphicsInfo$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PlatformGraphicsInfo$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PlatformGraphicsInfo$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* PlatformGraphicsInfo$$Lambda$lambda$static$0::class$ = nullptr;
-
-$MethodInfo _PlatformGraphicsInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PlatformGraphicsInfo, init$, void)},
-	{"createGE", "()Ljava/awt/GraphicsEnvironment;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlatformGraphicsInfo, createGE, $GraphicsEnvironment*)},
-	{"createToolkit", "()Ljava/awt/Toolkit;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlatformGraphicsInfo, createToolkit, $Toolkit*)},
-	{"getDefaultHeadlessMessage", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlatformGraphicsInfo, getDefaultHeadlessMessage, $String*)},
-	{"getDefaultHeadlessProperty", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(PlatformGraphicsInfo, getDefaultHeadlessProperty, bool)},
-	{"isInAquaSession", "()Z", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(PlatformGraphicsInfo, isInAquaSession, bool)},
-	{"lambda$static$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PlatformGraphicsInfo, lambda$static$0, $Void*)},
-	{}
-};
-
-#define _METHOD_INDEX_isInAquaSession 5
-
-$ClassInfo _PlatformGraphicsInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.PlatformGraphicsInfo",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_PlatformGraphicsInfo_MethodInfo_
-};
-
-$Object* allocate$PlatformGraphicsInfo($Class* clazz) {
-	return $of($alloc(PlatformGraphicsInfo));
-}
 
 void PlatformGraphicsInfo::init$() {
 }
@@ -103,9 +73,8 @@ $Toolkit* PlatformGraphicsInfo::createToolkit() {
 
 bool PlatformGraphicsInfo::isInAquaSession() {
 	$init(PlatformGraphicsInfo);
-	bool $ret = false;
-	$prepareNativeStatic(PlatformGraphicsInfo, isInAquaSession, bool);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(isInAquaSession, bool);
+	bool $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -127,10 +96,10 @@ $Void* PlatformGraphicsInfo::lambda$static$0() {
 	return nullptr;
 }
 
-void clinit$PlatformGraphicsInfo($Class* class$) {
+void PlatformGraphicsInfo::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(PlatformGraphicsInfo$$Lambda$lambda$static$0)));
+		$AccessController::doPrivileged($cast($PrivilegedAction, $$new(PlatformGraphicsInfo$$Lambda$lambda$static$0)));
 	}
 }
 
@@ -139,11 +108,31 @@ PlatformGraphicsInfo::PlatformGraphicsInfo() {
 
 $Class* PlatformGraphicsInfo::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(PlatformGraphicsInfo$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("sun.awt.PlatformGraphicsInfo$$Lambda$lambda$static$0")) {
 			return PlatformGraphicsInfo$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(PlatformGraphicsInfo, name, initialize, &_PlatformGraphicsInfo_ClassInfo_, clinit$PlatformGraphicsInfo, allocate$PlatformGraphicsInfo);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PlatformGraphicsInfo, init$, void)},
+		{"createGE", "()Ljava/awt/GraphicsEnvironment;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlatformGraphicsInfo, createGE, $GraphicsEnvironment*)},
+		{"createToolkit", "()Ljava/awt/Toolkit;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlatformGraphicsInfo, createToolkit, $Toolkit*)},
+		{"getDefaultHeadlessMessage", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlatformGraphicsInfo, getDefaultHeadlessMessage, $String*)},
+		{"getDefaultHeadlessProperty", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(PlatformGraphicsInfo, getDefaultHeadlessProperty, bool)},
+		{"isInAquaSession", "()Z", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(PlatformGraphicsInfo, isInAquaSession, bool)},
+		{"lambda$static$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PlatformGraphicsInfo, lambda$static$0, $Void*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.PlatformGraphicsInfo",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PlatformGraphicsInfo, name, initialize, &classInfo$$, PlatformGraphicsInfo::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PlatformGraphicsInfo);
+	});
 	return class$;
 }
 

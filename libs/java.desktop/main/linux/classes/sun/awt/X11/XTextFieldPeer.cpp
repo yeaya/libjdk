@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XTextFieldPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -33,7 +32,6 @@
 #include <java/util/HashMap.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JTextField.h>
-#include <javax/swing/event/DocumentListener.h>
 #include <javax/swing/text/Caret.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/JTextComponent.h>
@@ -92,10 +90,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $HashMap = ::java::util::HashMap;
-using $DocumentListener = ::javax::swing::event::DocumentListener;
-using $Caret = ::javax::swing::text::Caret;
-using $Document = ::javax::swing::text::Document;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
 using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $XComponentPeer = ::sun::awt::X11::XComponentPeer;
@@ -108,111 +102,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XTextFieldPeer_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XTextFieldPeer, log)},
-	{"text", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XTextFieldPeer, text)},
-	{"xtext", "Lsun/awt/X11/XTextFieldPeer$XAWTTextField;", nullptr, $PRIVATE | $FINAL, $field(XTextFieldPeer, xtext)},
-	{"firstChangeSkipped", "Z", nullptr, $PRIVATE | $FINAL, $field(XTextFieldPeer, firstChangeSkipped)},
-	{"PADDING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XTextFieldPeer, PADDING)},
-	{}
-};
-
-$MethodInfo _XTextFieldPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/TextField;)V", nullptr, 0, $method(XTextFieldPeer, init$, void, $TextField*)},
-	{"action", "(JI)V", nullptr, $PUBLIC, $method(XTextFieldPeer, action, void, int64_t, int32_t)},
-	{"deselect", "()V", nullptr, $PUBLIC, $method(XTextFieldPeer, deselect, void)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, dispose, void)},
-	{"disposeImpl", "()V", nullptr, $PROTECTED, $method(XTextFieldPeer, disposeImpl, void)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, focusLost, void, $FocusEvent*)},
-	{"getCaretPosition", "()I", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, getCaretPosition, int32_t)},
-	{"getInputMethodRequests", "()Ljava/awt/im/InputMethodRequests;", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, getInputMethodRequests, $InputMethodRequests*)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, getMinimumSize, $Dimension*)},
-	{"getMinimumSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, getMinimumSize, $Dimension*, int32_t)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, getPreferredSize, $Dimension*)},
-	{"getPreferredSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, getPreferredSize, $Dimension*, int32_t)},
-	{"getSelectionEnd", "()I", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, getSelectionEnd, int32_t)},
-	{"getSelectionStart", "()I", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, getSelectionStart, int32_t)},
-	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, getText, $String*)},
-	{"handleJavaInputMethodEvent", "(Ljava/awt/event/InputMethodEvent;)V", nullptr, 0, $virtualMethod(XTextFieldPeer, handleJavaInputMethodEvent, void, $InputMethodEvent*)},
-	{"handleJavaKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(XTextFieldPeer, handleJavaKeyEvent, void, $KeyEvent*)},
-	{"handleJavaMouseEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, handleJavaMouseEvent, void, $MouseEvent*)},
-	{"initTextField", "()V", nullptr, 0, $method(XTextFieldPeer, initTextField, void)},
-	{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, isFocusable, bool)},
-	{"*isObscured", "()Z", nullptr, $PUBLIC},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"paintPeer", "(Ljava/awt/Graphics;)V", nullptr, 0, $virtualMethod(XTextFieldPeer, paintPeer, void, $Graphics*)},
-	{"print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, print, void, $Graphics*)},
-	{"repaint", "()V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, repaint, void)},
-	{"repaintText", "()V", nullptr, 0, $method(XTextFieldPeer, repaintText, void)},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $FINAL},
-	{"select", "(II)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, select, void, int32_t, int32_t)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, setBackground, void, $Color*)},
-	{"setBounds", "(IIIII)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, setBounds, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"setCaretPosition", "(I)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, setCaretPosition, void, int32_t)},
-	{"setEchoChar", "(C)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, setEchoChar, void, char16_t)},
-	{"setEditable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, setEditable, void, bool)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, setEnabled, void, bool)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, setFont, void, $Font*)},
-	{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, setForeground, void, $Color*)},
-	{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, setText, void, $String*)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, setVisible, void, bool)},
-	{"setXAWTTextField", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XTextFieldPeer, setXAWTTextField, void, $String*)},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _XTextFieldPeer_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XTextFieldPeer$XAWTTextField", "sun.awt.X11.XTextFieldPeer", "XAWTTextField", $FINAL},
-	{"sun.awt.X11.XTextFieldPeer$AWTTextFieldUI", "sun.awt.X11.XTextFieldPeer", "AWTTextFieldUI", $FINAL},
-	{}
-};
-
-$ClassInfo _XTextFieldPeer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.X11.XTextFieldPeer",
-	"sun.awt.X11.XComponentPeer",
-	"java.awt.peer.TextFieldPeer",
-	_XTextFieldPeer_FieldInfo_,
-	_XTextFieldPeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XTextFieldPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XTextFieldPeer$XAWTTextField,sun.awt.X11.XTextFieldPeer$AWTTextFieldUI"
-};
-
-$Object* allocate$XTextFieldPeer($Class* clazz) {
-	return $of($alloc(XTextFieldPeer));
-}
 
 void XTextFieldPeer::reparent($ContainerPeer* newNativeParent) {
 	this->$XComponentPeer::reparent(newNativeParent);
@@ -337,12 +226,12 @@ void XTextFieldPeer::finalize() {
 $PlatformLogger* XTextFieldPeer::log = nullptr;
 
 void XTextFieldPeer::init$($TextField* target) {
-	$useLocalCurrentObjectStackCache();
-	$XComponentPeer::init$(static_cast<$Component*>(target));
+	$useLocalObjectStack();
+	$XComponentPeer::init$(target);
 	$set(this, text, $nc(target)->getText());
 	$set(this, xtext, $new($XTextFieldPeer$XAWTTextField, this, this->text, this, $(target->getParent())));
-	$nc($($nc(this->xtext)->getDocument()))->addDocumentListener(this->xtext);
-	$nc(this->xtext)->setCursor($(target->getCursor()));
+	$$nc(this->xtext->getDocument())->addDocumentListener(this->xtext);
+	this->xtext->setCursor($(target->getCursor()));
 	$init($XToolkit);
 	$nc($XToolkit::specialPeerMap)->put(this->xtext, this);
 	initTextField();
@@ -360,13 +249,13 @@ void XTextFieldPeer::init$($TextField* target) {
 	}
 	setEditable(target->isEditable());
 	this->firstChangeSkipped = true;
-	$nc($($AWTAccessor::getComponentAccessor()))->setPeer(this->xtext, static_cast<$ComponentPeer*>(static_cast<$XComponentPeer*>(this)));
+	$$nc($AWTAccessor::getComponentAccessor())->setPeer(this->xtext, $cast($XComponentPeer, this));
 }
 
 void XTextFieldPeer::dispose() {
 	$init($XToolkit);
 	$nc($XToolkit::specialPeerMap)->remove(this->xtext);
-	$nc($($nc(this->xtext)->getCaret()))->setVisible(false);
+	$$nc(this->xtext->getCaret())->setVisible(false);
 	$XComponentPeer::dispose();
 }
 
@@ -382,7 +271,7 @@ void XTextFieldPeer::initTextField() {
 	setForeground(this->foreground);
 	$set(this, background, compAccessor->getBackground(this->target));
 	if (this->background == nullptr) {
-		if ($nc(($cast($TextField, this->target)))->isEditable()) {
+		if ($nc($cast($TextField, this->target))->isEditable()) {
 			$init($SystemColor);
 			$set(this, background, $SystemColor::text);
 		} else {
@@ -403,22 +292,22 @@ void XTextFieldPeer::initTextField() {
 
 void XTextFieldPeer::setEditable(bool editable) {
 	if (this->xtext != nullptr) {
-		$nc(this->xtext)->setEditable(editable);
-		$nc(this->xtext)->repaint();
+		this->xtext->setEditable(editable);
+		this->xtext->repaint();
 	}
 }
 
 void XTextFieldPeer::setEnabled(bool enabled) {
 	$XComponentPeer::setEnabled(enabled);
 	if (this->xtext != nullptr) {
-		$nc(this->xtext)->setEnabled(enabled);
-		$nc(this->xtext)->repaint();
+		this->xtext->setEnabled(enabled);
+		this->xtext->repaint();
 	}
 }
 
 $InputMethodRequests* XTextFieldPeer::getInputMethodRequests() {
 	if (this->xtext != nullptr) {
-		return $nc(this->xtext)->getInputMethodRequests();
+		return this->xtext->getInputMethodRequests();
 	} else {
 		return nullptr;
 	}
@@ -426,28 +315,27 @@ $InputMethodRequests* XTextFieldPeer::getInputMethodRequests() {
 
 void XTextFieldPeer::handleJavaInputMethodEvent($InputMethodEvent* e) {
 	if (this->xtext != nullptr) {
-		$nc(this->xtext)->processInputMethodEventImpl(e);
+		this->xtext->processInputMethodEventImpl(e);
 	}
 }
 
 void XTextFieldPeer::setEchoChar(char16_t c) {
 	if (this->xtext != nullptr) {
-		$nc(this->xtext)->setEchoChar(c);
-		$init($Boolean);
-		$nc(this->xtext)->putClientProperty("JPasswordField.cutCopyAllowed"_s, $nc(this->xtext)->echoCharIsSet() ? $Boolean::FALSE : $Boolean::TRUE);
+		this->xtext->setEchoChar(c);
+		this->xtext->putClientProperty("JPasswordField.cutCopyAllowed"_s, this->xtext->echoCharIsSet() ? $Boolean::FALSE : $Boolean::TRUE);
 	}
 }
 
 int32_t XTextFieldPeer::getSelectionStart() {
-	return $nc(this->xtext)->getSelectionStart();
+	return this->xtext->getSelectionStart();
 }
 
 int32_t XTextFieldPeer::getSelectionEnd() {
-	return $nc(this->xtext)->getSelectionEnd();
+	return this->xtext->getSelectionEnd();
 }
 
 $String* XTextFieldPeer::getText() {
-	return $nc(this->xtext)->getText();
+	return this->xtext->getText();
 }
 
 void XTextFieldPeer::setText($String* text) {
@@ -456,40 +344,40 @@ void XTextFieldPeer::setText($String* text) {
 }
 
 void XTextFieldPeer::setXAWTTextField($String* txt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, text, txt);
 	if (this->xtext != nullptr) {
-		$nc($($nc(this->xtext)->getDocument()))->removeDocumentListener(this->xtext);
-		$nc(this->xtext)->setText(txt);
+		$$nc(this->xtext->getDocument())->removeDocumentListener(this->xtext);
+		this->xtext->setText(txt);
 		if (this->firstChangeSkipped) {
 			postEvent($$new($TextEvent, this->target, $TextEvent::TEXT_VALUE_CHANGED));
 		}
-		$nc($($nc(this->xtext)->getDocument()))->addDocumentListener(this->xtext);
-		$nc(this->xtext)->setCaretPosition(0);
+		$$nc(this->xtext->getDocument())->addDocumentListener(this->xtext);
+		this->xtext->setCaretPosition(0);
 	}
 }
 
 void XTextFieldPeer::setCaretPosition(int32_t position) {
 	if (this->xtext != nullptr) {
-		$nc(this->xtext)->setCaretPosition(position);
+		this->xtext->setCaretPosition(position);
 	}
 }
 
 void XTextFieldPeer::repaintText() {
-	$nc(this->xtext)->repaintNow();
+	this->xtext->repaintNow();
 }
 
 void XTextFieldPeer::setBackground($Color* c) {
 	$init($PlatformLogger$Level);
 	if ($nc(XTextFieldPeer::log)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XTextFieldPeer::log)->fine($$str({"target="_s, this->target, ", old="_s, this->background, ", new="_s, c}));
+		XTextFieldPeer::log->fine($$str({"target="_s, this->target, ", old="_s, this->background, ", new="_s, c}));
 	}
 	$set(this, background, c);
 	if (this->xtext != nullptr) {
-		if ($nc(this->xtext)->getBackground() != c) {
-			$nc(this->xtext)->setBackground(c);
+		if (this->xtext->getBackground() != c) {
+			this->xtext->setBackground(c);
 		}
-		$nc(this->xtext)->setSelectedTextColor(c);
+		this->xtext->setSelectedTextColor(c);
 	}
 	repaintText();
 }
@@ -497,11 +385,11 @@ void XTextFieldPeer::setBackground($Color* c) {
 void XTextFieldPeer::setForeground($Color* c) {
 	$set(this, foreground, c);
 	if (this->xtext != nullptr) {
-		if ($nc(this->xtext)->getForeground() != c) {
-			$nc(this->xtext)->setForeground(this->foreground);
+		if (this->xtext->getForeground() != c) {
+			this->xtext->setForeground(this->foreground);
 		}
-		$nc(this->xtext)->setSelectionColor(this->foreground);
-		$nc(this->xtext)->setCaretColor(this->foreground);
+		this->xtext->setSelectionColor(this->foreground);
+		this->xtext->setCaretColor(this->foreground);
 	}
 	repaintText();
 }
@@ -510,39 +398,39 @@ void XTextFieldPeer::setFont($Font* f) {
 	bool isChanged = false;
 	$synchronized(getStateLock()) {
 		$set(this, font, f);
-		if (this->xtext != nullptr && $nc(this->xtext)->getFont() != f) {
-			$nc(this->xtext)->setFont(this->font);
+		if (this->xtext != nullptr && this->xtext->getFont() != f) {
+			this->xtext->setFont(this->font);
 			isChanged = true;
 		}
 	}
 	if (isChanged) {
-		$nc(this->xtext)->validate();
+		this->xtext->validate();
 	}
 }
 
 void XTextFieldPeer::deselect() {
-	int32_t selStart = $nc(this->xtext)->getSelectionStart();
-	int32_t selEnd = $nc(this->xtext)->getSelectionEnd();
+	int32_t selStart = this->xtext->getSelectionStart();
+	int32_t selEnd = this->xtext->getSelectionEnd();
 	if (selStart != selEnd) {
-		$nc(this->xtext)->select(selStart, selStart);
+		this->xtext->select(selStart, selStart);
 	}
 }
 
 int32_t XTextFieldPeer::getCaretPosition() {
-	return $nc(this->xtext)->getCaretPosition();
+	return this->xtext->getCaretPosition();
 }
 
 void XTextFieldPeer::select(int32_t s, int32_t e) {
-	$nc(this->xtext)->select(s, e);
-	$nc(this->xtext)->repaint();
+	this->xtext->select(s, e);
+	this->xtext->repaint();
 }
 
 $Dimension* XTextFieldPeer::getMinimumSize() {
-	return $nc(this->xtext)->getMinimumSize();
+	return this->xtext->getMinimumSize();
 }
 
 $Dimension* XTextFieldPeer::getPreferredSize() {
-	return $nc(this->xtext)->getPreferredSize();
+	return this->xtext->getPreferredSize();
 }
 
 $Dimension* XTextFieldPeer::getPreferredSize(int32_t cols) {
@@ -550,9 +438,9 @@ $Dimension* XTextFieldPeer::getPreferredSize(int32_t cols) {
 }
 
 $Dimension* XTextFieldPeer::getMinimumSize(int32_t cols) {
-	$useLocalCurrentObjectStackCache();
-	$var($Font, f, $nc(this->xtext)->getFont());
-	$var($FontMetrics, fm, $nc(this->xtext)->getFontMetrics(f));
+	$useLocalObjectStack();
+	$var($Font, f, this->xtext->getFont());
+	$var($FontMetrics, fm, this->xtext->getFontMetrics(f));
 	int32_t var$0 = $nc(fm)->charWidth(u'0') * cols + 10;
 	int32_t var$1 = fm->getMaxDescent();
 	return $new($Dimension, var$0, var$1 + fm->getMaxAscent() + XTextFieldPeer::PADDING);
@@ -571,34 +459,34 @@ void XTextFieldPeer::disposeImpl() {
 
 void XTextFieldPeer::repaint() {
 	if (this->xtext != nullptr) {
-		$nc(this->xtext)->repaint();
+		this->xtext->repaint();
 	}
 }
 
 void XTextFieldPeer::paintPeer($Graphics* g) {
 	if (this->xtext != nullptr) {
-		$nc(this->xtext)->paint(g);
+		this->xtext->paint(g);
 	}
 }
 
 void XTextFieldPeer::print($Graphics* g) {
 	if (this->xtext != nullptr) {
-		$nc(this->xtext)->print(g);
+		this->xtext->print(g);
 	}
 }
 
 void XTextFieldPeer::focusLost($FocusEvent* e) {
 	$XComponentPeer::focusLost(e);
-	$nc(this->xtext)->forwardFocusLost(e);
+	this->xtext->forwardFocusLost(e);
 }
 
 void XTextFieldPeer::focusGained($FocusEvent* e) {
 	$XComponentPeer::focusGained(e);
-	$nc(this->xtext)->forwardFocusGained(e);
+	this->xtext->forwardFocusGained(e);
 }
 
 void XTextFieldPeer::handleJavaKeyEvent($KeyEvent* e) {
-	$nc($($AWTAccessor::getComponentAccessor()))->processEvent(this->xtext, e);
+	$$nc($AWTAccessor::getComponentAccessor())->processEvent(this->xtext, e);
 }
 
 void XTextFieldPeer::handleJavaMouseEvent($MouseEvent* mouseEvent) {
@@ -607,9 +495,9 @@ void XTextFieldPeer::handleJavaMouseEvent($MouseEvent* mouseEvent) {
 		$nc(mouseEvent)->setSource(this->xtext);
 		int32_t id = mouseEvent->getID();
 		if (id == $MouseEvent::MOUSE_DRAGGED || id == $MouseEvent::MOUSE_MOVED) {
-			$nc(this->xtext)->processMouseMotionEventImpl(mouseEvent);
+			this->xtext->processMouseMotionEventImpl(mouseEvent);
 		} else {
-			$nc(this->xtext)->processMouseEventImpl(mouseEvent);
+			this->xtext->processMouseEventImpl(mouseEvent);
 		}
 	}
 }
@@ -617,7 +505,7 @@ void XTextFieldPeer::handleJavaMouseEvent($MouseEvent* mouseEvent) {
 void XTextFieldPeer::setVisible(bool b) {
 	$XComponentPeer::setVisible(b);
 	if (this->xtext != nullptr) {
-		$nc(this->xtext)->setVisible(b);
+		this->xtext->setVisible(b);
 	}
 }
 
@@ -632,12 +520,12 @@ void XTextFieldPeer::setBounds(int32_t x, int32_t y, int32_t width, int32_t heig
 			childY -= parent->getY();
 			$assign(parent, parent->getParent());
 		}
-		$nc(this->xtext)->setBounds(childX, childY, width, height);
-		$nc(this->xtext)->validate();
+		this->xtext->setBounds(childX, childY, width, height);
+		this->xtext->validate();
 	}
 }
 
-void clinit$XTextFieldPeer($Class* class$) {
+void XTextFieldPeer::clinit$($Class* clazz) {
 	$assignStatic(XTextFieldPeer::log, $PlatformLogger::getLogger("sun.awt.X11.XTextField"_s));
 }
 
@@ -645,7 +533,106 @@ XTextFieldPeer::XTextFieldPeer() {
 }
 
 $Class* XTextFieldPeer::load$($String* name, bool initialize) {
-	$loadClass(XTextFieldPeer, name, initialize, &_XTextFieldPeer_ClassInfo_, clinit$XTextFieldPeer, allocate$XTextFieldPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XTextFieldPeer, log)},
+		{"text", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XTextFieldPeer, text)},
+		{"xtext", "Lsun/awt/X11/XTextFieldPeer$XAWTTextField;", nullptr, $PRIVATE | $FINAL, $field(XTextFieldPeer, xtext)},
+		{"firstChangeSkipped", "Z", nullptr, $PRIVATE | $FINAL, $field(XTextFieldPeer, firstChangeSkipped)},
+		{"PADDING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XTextFieldPeer, PADDING)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/TextField;)V", nullptr, 0, $method(XTextFieldPeer, init$, void, $TextField*)},
+		{"action", "(JI)V", nullptr, $PUBLIC, $method(XTextFieldPeer, action, void, int64_t, int32_t)},
+		{"deselect", "()V", nullptr, $PUBLIC, $method(XTextFieldPeer, deselect, void)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, dispose, void)},
+		{"disposeImpl", "()V", nullptr, $PROTECTED, $method(XTextFieldPeer, disposeImpl, void)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, focusLost, void, $FocusEvent*)},
+		{"getCaretPosition", "()I", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, getCaretPosition, int32_t)},
+		{"getInputMethodRequests", "()Ljava/awt/im/InputMethodRequests;", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, getInputMethodRequests, $InputMethodRequests*)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, getMinimumSize, $Dimension*)},
+		{"getMinimumSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, getMinimumSize, $Dimension*, int32_t)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, getPreferredSize, $Dimension*)},
+		{"getPreferredSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, getPreferredSize, $Dimension*, int32_t)},
+		{"getSelectionEnd", "()I", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, getSelectionEnd, int32_t)},
+		{"getSelectionStart", "()I", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, getSelectionStart, int32_t)},
+		{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, getText, $String*)},
+		{"handleJavaInputMethodEvent", "(Ljava/awt/event/InputMethodEvent;)V", nullptr, 0, $virtualMethod(XTextFieldPeer, handleJavaInputMethodEvent, void, $InputMethodEvent*)},
+		{"handleJavaKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(XTextFieldPeer, handleJavaKeyEvent, void, $KeyEvent*)},
+		{"handleJavaMouseEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, handleJavaMouseEvent, void, $MouseEvent*)},
+		{"initTextField", "()V", nullptr, 0, $method(XTextFieldPeer, initTextField, void)},
+		{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, isFocusable, bool)},
+		{"*isObscured", "()Z", nullptr, $PUBLIC},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"paintPeer", "(Ljava/awt/Graphics;)V", nullptr, 0, $virtualMethod(XTextFieldPeer, paintPeer, void, $Graphics*)},
+		{"print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, print, void, $Graphics*)},
+		{"repaint", "()V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, repaint, void)},
+		{"repaintText", "()V", nullptr, 0, $method(XTextFieldPeer, repaintText, void)},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $FINAL},
+		{"select", "(II)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, select, void, int32_t, int32_t)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, setBackground, void, $Color*)},
+		{"setBounds", "(IIIII)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, setBounds, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"setCaretPosition", "(I)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, setCaretPosition, void, int32_t)},
+		{"setEchoChar", "(C)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, setEchoChar, void, char16_t)},
+		{"setEditable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, setEditable, void, bool)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, setEnabled, void, bool)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, setFont, void, $Font*)},
+		{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, setForeground, void, $Color*)},
+		{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, setText, void, $String*)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer, setVisible, void, bool)},
+		{"setXAWTTextField", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XTextFieldPeer, setXAWTTextField, void, $String*)},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XTextFieldPeer$XAWTTextField", "sun.awt.X11.XTextFieldPeer", "XAWTTextField", $FINAL},
+		{"sun.awt.X11.XTextFieldPeer$AWTTextFieldUI", "sun.awt.X11.XTextFieldPeer", "AWTTextFieldUI", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.X11.XTextFieldPeer",
+		"sun.awt.X11.XComponentPeer",
+		"java.awt.peer.TextFieldPeer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XTextFieldPeer$XAWTTextField,sun.awt.X11.XTextFieldPeer$AWTTextFieldUI"
+	};
+	$loadClass(XTextFieldPeer, name, initialize, &classInfo$$, XTextFieldPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XTextFieldPeer));
+	});
 	return class$;
 }
 

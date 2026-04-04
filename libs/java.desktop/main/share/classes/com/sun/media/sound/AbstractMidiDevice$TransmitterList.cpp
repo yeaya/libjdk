@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/AbstractMidiDevice$TransmitterList.h>
-
 #include <com/sun/media/sound/AbstractMidiDevice$BasicTransmitter.h>
 #include <com/sun/media/sound/AbstractMidiDevice.h>
 #include <com/sun/media/sound/FastShortMessage.h>
@@ -32,51 +31,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _AbstractMidiDevice$TransmitterList_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/media/sound/AbstractMidiDevice;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractMidiDevice$TransmitterList, this$0)},
-	{"transmitters", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljavax/sound/midi/Transmitter;>;", $PRIVATE | $FINAL, $field(AbstractMidiDevice$TransmitterList, transmitters)},
-	{"midiOutReceiver", "Lcom/sun/media/sound/MidiOutDevice$MidiOutReceiver;", nullptr, $PRIVATE, $field(AbstractMidiDevice$TransmitterList, midiOutReceiver)},
-	{"optimizedReceiverCount", "I", nullptr, $PRIVATE, $field(AbstractMidiDevice$TransmitterList, optimizedReceiverCount)},
-	{}
-};
-
-$MethodInfo _AbstractMidiDevice$TransmitterList_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/AbstractMidiDevice;)V", nullptr, 0, $method(AbstractMidiDevice$TransmitterList, init$, void, $AbstractMidiDevice*)},
-	{"add", "(Ljavax/sound/midi/Transmitter;)V", nullptr, $PRIVATE, $method(AbstractMidiDevice$TransmitterList, add, void, $Transmitter*)},
-	{"close", "()V", nullptr, 0, $method(AbstractMidiDevice$TransmitterList, close, void)},
-	{"receiverChanged", "(Lcom/sun/media/sound/AbstractMidiDevice$BasicTransmitter;Ljavax/sound/midi/Receiver;Ljavax/sound/midi/Receiver;)V", nullptr, $PRIVATE, $method(AbstractMidiDevice$TransmitterList, receiverChanged, void, $AbstractMidiDevice$BasicTransmitter*, $Receiver*, $Receiver*)},
-	{"remove", "(Ljavax/sound/midi/Transmitter;)V", nullptr, $PRIVATE, $method(AbstractMidiDevice$TransmitterList, remove, void, $Transmitter*)},
-	{"sendMessage", "(IJ)V", nullptr, 0, $method(AbstractMidiDevice$TransmitterList, sendMessage, void, int32_t, int64_t)},
-	{"sendMessage", "([BJ)V", nullptr, 0, $method(AbstractMidiDevice$TransmitterList, sendMessage, void, $bytes*, int64_t)},
-	{"sendMessage", "(Ljavax/sound/midi/MidiMessage;J)V", nullptr, 0, $method(AbstractMidiDevice$TransmitterList, sendMessage, void, $MidiMessage*, int64_t)},
-	{}
-};
-
-$InnerClassInfo _AbstractMidiDevice$TransmitterList_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.AbstractMidiDevice$TransmitterList", "com.sun.media.sound.AbstractMidiDevice", "TransmitterList", $FINAL},
-	{}
-};
-
-$ClassInfo _AbstractMidiDevice$TransmitterList_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.AbstractMidiDevice$TransmitterList",
-	"java.lang.Object",
-	nullptr,
-	_AbstractMidiDevice$TransmitterList_FieldInfo_,
-	_AbstractMidiDevice$TransmitterList_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractMidiDevice$TransmitterList_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.AbstractMidiDevice"
-};
-
-$Object* allocate$AbstractMidiDevice$TransmitterList($Class* clazz) {
-	return $of($alloc(AbstractMidiDevice$TransmitterList));
-}
-
 void AbstractMidiDevice$TransmitterList::init$($AbstractMidiDevice* this$0) {
 	$set(this, this$0, this$0);
 	$set(this, transmitters, $new($ArrayList));
@@ -85,18 +39,18 @@ void AbstractMidiDevice$TransmitterList::init$($AbstractMidiDevice* this$0) {
 
 void AbstractMidiDevice$TransmitterList::add($Transmitter* t) {
 	$synchronized(this->transmitters) {
-		$nc(this->transmitters)->add(t);
+		this->transmitters->add(t);
 	}
 	if ($instanceOf($AbstractMidiDevice$BasicTransmitter, t)) {
-		$nc(($cast($AbstractMidiDevice$BasicTransmitter, t)))->setTransmitterList(this);
+		$cast($AbstractMidiDevice$BasicTransmitter, t)->setTransmitterList(this);
 	}
 }
 
 void AbstractMidiDevice$TransmitterList::remove($Transmitter* t) {
 	$synchronized(this->transmitters) {
-		int32_t index = $nc(this->transmitters)->indexOf(t);
+		int32_t index = this->transmitters->indexOf(t);
 		if (index >= 0) {
-			$nc(this->transmitters)->remove(index);
+			this->transmitters->remove(index);
 		}
 	}
 }
@@ -116,31 +70,31 @@ void AbstractMidiDevice$TransmitterList::receiverChanged($AbstractMidiDevice$Bas
 }
 
 void AbstractMidiDevice$TransmitterList::close() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->transmitters) {
-		for (int32_t i = 0; i < $nc(this->transmitters)->size(); ++i) {
-			$nc(($cast($Transmitter, $($nc(this->transmitters)->get(i)))))->close();
+		for (int32_t i = 0; i < this->transmitters->size(); ++i) {
+			$$sure($Transmitter, this->transmitters->get(i))->close();
 		}
-		$nc(this->transmitters)->clear();
+		this->transmitters->clear();
 	}
 }
 
 void AbstractMidiDevice$TransmitterList::sendMessage(int32_t packedMessage, int64_t timeStamp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$synchronized(this->transmitters) {
-			int32_t size = $nc(this->transmitters)->size();
+			int32_t size = this->transmitters->size();
 			if (this->optimizedReceiverCount == size) {
 				if (this->midiOutReceiver != nullptr) {
-					$nc(this->midiOutReceiver)->sendPackedMidiMessage(packedMessage, timeStamp);
+					this->midiOutReceiver->sendPackedMidiMessage(packedMessage, timeStamp);
 				}
 			} else {
 				for (int32_t i = 0; i < size; ++i) {
-					$var($Receiver, receiver, $nc(($cast($Transmitter, $($nc(this->transmitters)->get(i)))))->getReceiver());
+					$var($Receiver, receiver, $$sure($Transmitter, this->transmitters->get(i))->getReceiver());
 					if (receiver != nullptr) {
 						if (this->optimizedReceiverCount > 0) {
 							if ($instanceOf($MidiOutDevice$MidiOutReceiver, receiver)) {
-								$nc(($cast($MidiOutDevice$MidiOutReceiver, receiver)))->sendPackedMidiMessage(packedMessage, timeStamp);
+								$cast($MidiOutDevice$MidiOutReceiver, receiver)->sendPackedMidiMessage(packedMessage, timeStamp);
 							} else {
 								receiver->send($$new($FastShortMessage, packedMessage), timeStamp);
 							}
@@ -156,12 +110,12 @@ void AbstractMidiDevice$TransmitterList::sendMessage(int32_t packedMessage, int6
 }
 
 void AbstractMidiDevice$TransmitterList::sendMessage($bytes* data, int64_t timeStamp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$synchronized(this->transmitters) {
-			int32_t size = $nc(this->transmitters)->size();
+			int32_t size = this->transmitters->size();
 			for (int32_t i = 0; i < size; ++i) {
-				$var($Receiver, receiver, $nc(($cast($Transmitter, $($nc(this->transmitters)->get(i)))))->getReceiver());
+				$var($Receiver, receiver, $$sure($Transmitter, this->transmitters->get(i))->getReceiver());
 				if (receiver != nullptr) {
 					receiver->send($$new($FastSysexMessage, data), timeStamp);
 				}
@@ -173,20 +127,20 @@ void AbstractMidiDevice$TransmitterList::sendMessage($bytes* data, int64_t timeS
 }
 
 void AbstractMidiDevice$TransmitterList::sendMessage($MidiMessage* message, int64_t timeStamp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($FastShortMessage, message)) {
-		sendMessage($nc(($cast($FastShortMessage, message)))->getPackedMsg(), timeStamp);
+		sendMessage($cast($FastShortMessage, message)->getPackedMsg(), timeStamp);
 		return;
 	}
 	$synchronized(this->transmitters) {
-		int32_t size = $nc(this->transmitters)->size();
+		int32_t size = this->transmitters->size();
 		if (this->optimizedReceiverCount == size) {
 			if (this->midiOutReceiver != nullptr) {
-				$nc(this->midiOutReceiver)->send(message, timeStamp);
+				this->midiOutReceiver->send(message, timeStamp);
 			}
 		} else {
 			for (int32_t i = 0; i < size; ++i) {
-				$var($Receiver, receiver, $nc(($cast($Transmitter, $($nc(this->transmitters)->get(i)))))->getReceiver());
+				$var($Receiver, receiver, $$sure($Transmitter, this->transmitters->get(i))->getReceiver());
 				if (receiver != nullptr) {
 					receiver->send(message, timeStamp);
 				}
@@ -199,7 +153,46 @@ AbstractMidiDevice$TransmitterList::AbstractMidiDevice$TransmitterList() {
 }
 
 $Class* AbstractMidiDevice$TransmitterList::load$($String* name, bool initialize) {
-	$loadClass(AbstractMidiDevice$TransmitterList, name, initialize, &_AbstractMidiDevice$TransmitterList_ClassInfo_, allocate$AbstractMidiDevice$TransmitterList);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/media/sound/AbstractMidiDevice;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractMidiDevice$TransmitterList, this$0)},
+		{"transmitters", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljavax/sound/midi/Transmitter;>;", $PRIVATE | $FINAL, $field(AbstractMidiDevice$TransmitterList, transmitters)},
+		{"midiOutReceiver", "Lcom/sun/media/sound/MidiOutDevice$MidiOutReceiver;", nullptr, $PRIVATE, $field(AbstractMidiDevice$TransmitterList, midiOutReceiver)},
+		{"optimizedReceiverCount", "I", nullptr, $PRIVATE, $field(AbstractMidiDevice$TransmitterList, optimizedReceiverCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/AbstractMidiDevice;)V", nullptr, 0, $method(AbstractMidiDevice$TransmitterList, init$, void, $AbstractMidiDevice*)},
+		{"add", "(Ljavax/sound/midi/Transmitter;)V", nullptr, $PRIVATE, $method(AbstractMidiDevice$TransmitterList, add, void, $Transmitter*)},
+		{"close", "()V", nullptr, 0, $method(AbstractMidiDevice$TransmitterList, close, void)},
+		{"receiverChanged", "(Lcom/sun/media/sound/AbstractMidiDevice$BasicTransmitter;Ljavax/sound/midi/Receiver;Ljavax/sound/midi/Receiver;)V", nullptr, $PRIVATE, $method(AbstractMidiDevice$TransmitterList, receiverChanged, void, $AbstractMidiDevice$BasicTransmitter*, $Receiver*, $Receiver*)},
+		{"remove", "(Ljavax/sound/midi/Transmitter;)V", nullptr, $PRIVATE, $method(AbstractMidiDevice$TransmitterList, remove, void, $Transmitter*)},
+		{"sendMessage", "(IJ)V", nullptr, 0, $method(AbstractMidiDevice$TransmitterList, sendMessage, void, int32_t, int64_t)},
+		{"sendMessage", "([BJ)V", nullptr, 0, $method(AbstractMidiDevice$TransmitterList, sendMessage, void, $bytes*, int64_t)},
+		{"sendMessage", "(Ljavax/sound/midi/MidiMessage;J)V", nullptr, 0, $method(AbstractMidiDevice$TransmitterList, sendMessage, void, $MidiMessage*, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.AbstractMidiDevice$TransmitterList", "com.sun.media.sound.AbstractMidiDevice", "TransmitterList", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.AbstractMidiDevice$TransmitterList",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.AbstractMidiDevice"
+	};
+	$loadClass(AbstractMidiDevice$TransmitterList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractMidiDevice$TransmitterList);
+	});
 	return class$;
 }
 

@@ -33,6 +33,7 @@ class $export WindowsClassicHiDPIIconsTest : public ::java::lang::Object {
 	$class(WindowsClassicHiDPIIconsTest, 0, ::java::lang::Object)
 public:
 	WindowsClassicHiDPIIconsTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::JPanel* createJPanel();
 	static void createUI();

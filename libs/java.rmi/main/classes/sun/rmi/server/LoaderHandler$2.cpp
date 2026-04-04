@@ -1,5 +1,4 @@
 #include <sun/rmi/server/LoaderHandler$2.h>
-
 #include <java/net/URL.h>
 #include <java/security/CodeSource.h>
 #include <java/security/PermissionCollection.h>
@@ -23,54 +22,17 @@ namespace sun {
 	namespace rmi {
 		namespace server {
 
-$MethodInfo _LoaderHandler$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(LoaderHandler$2, init$, void)},
-	{"run", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(LoaderHandler$2, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _LoaderHandler$2_EnclosingMethodInfo_ = {
-	"sun.rmi.server.LoaderHandler",
-	"getLoaderAccessControlContext",
-	"([Ljava/net/URL;)Ljava/security/AccessControlContext;"
-};
-
-$InnerClassInfo _LoaderHandler$2_InnerClassesInfo_[] = {
-	{"sun.rmi.server.LoaderHandler$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LoaderHandler$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.rmi.server.LoaderHandler$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_LoaderHandler$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/security/PermissionCollection;>;",
-	&_LoaderHandler$2_EnclosingMethodInfo_,
-	_LoaderHandler$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.rmi.server.LoaderHandler"
-};
-
-$Object* allocate$LoaderHandler$2($Class* clazz) {
-	return $of($alloc(LoaderHandler$2));
-}
-
 void LoaderHandler$2::init$() {
 }
 
 $Object* LoaderHandler$2::run() {
-	$useLocalCurrentObjectStackCache();
-	$var($CodeSource, codesource, $new($CodeSource, ($URL*)nullptr, ($CertificateArray*)nullptr));
+	$useLocalObjectStack();
+	$var($CodeSource, codesource, $new($CodeSource, nullptr, ($CertificateArray*)nullptr));
 	$var($Policy, p, $Policy::getPolicy());
 	if (p != nullptr) {
-		return $of(p->getPermissions(codesource));
+		return p->getPermissions(codesource);
 	} else {
-		return $of($new($Permissions));
+		return $new($Permissions);
 	}
 }
 
@@ -78,7 +40,38 @@ LoaderHandler$2::LoaderHandler$2() {
 }
 
 $Class* LoaderHandler$2::load$($String* name, bool initialize) {
-	$loadClass(LoaderHandler$2, name, initialize, &_LoaderHandler$2_ClassInfo_, allocate$LoaderHandler$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(LoaderHandler$2, init$, void)},
+		{"run", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(LoaderHandler$2, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.rmi.server.LoaderHandler",
+		"getLoaderAccessControlContext",
+		"([Ljava/net/URL;)Ljava/security/AccessControlContext;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.server.LoaderHandler$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.rmi.server.LoaderHandler$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/security/PermissionCollection;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.rmi.server.LoaderHandler"
+	};
+	$loadClass(LoaderHandler$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LoaderHandler$2);
+	});
 	return class$;
 }
 

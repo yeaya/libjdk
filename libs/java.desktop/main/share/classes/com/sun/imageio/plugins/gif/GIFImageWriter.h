@@ -86,6 +86,7 @@ class GIFImageWriter : public ::javax::imageio::ImageWriter {
 	$class(GIFImageWriter, 0, ::javax::imageio::ImageWriter)
 public:
 	GIFImageWriter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::imageio::plugins::gif::GIFImageWriterSpi* originatingProvider);
 	virtual bool canWriteSequence() override;
 	static void computeRegions(::java::awt::Rectangle* sourceBounds, ::java::awt::Dimension* destSize, ::javax::imageio::ImageWriteParam* p);

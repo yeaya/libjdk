@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/SocketTube$InternalWriteSubscriber.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
@@ -14,7 +13,6 @@
 #include <java/util/concurrent/Flow$Subscription.h>
 #include <java/util/function/Consumer.h>
 #include <java/util/function/Supplier.h>
-#include <jdk/internal/net/http/AsyncEvent.h>
 #include <jdk/internal/net/http/AsyncTriggerEvent.h>
 #include <jdk/internal/net/http/HttpClientImpl$DelegatingExecutor.h>
 #include <jdk/internal/net/http/HttpClientImpl.h>
@@ -22,7 +20,6 @@
 #include <jdk/internal/net/http/SocketTube$InternalReadPublisher.h>
 #include <jdk/internal/net/http/SocketTube$InternalWriteSubscriber$WriteEvent.h>
 #include <jdk/internal/net/http/SocketTube$InternalWriteSubscriber$WriteSubscription.h>
-#include <jdk/internal/net/http/SocketTube$SocketFlowEvent.h>
 #include <jdk/internal/net/http/SocketTube.h>
 #include <jdk/internal/net/http/common/Demand.h>
 #include <jdk/internal/net/http/common/Log.h>
@@ -43,19 +40,12 @@ using $List = ::java::util::List;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $Consumer = ::java::util::function::Consumer;
 using $Supplier = ::java::util::function::Supplier;
-using $AsyncEvent = ::jdk::internal::net::http::AsyncEvent;
 using $AsyncTriggerEvent = ::jdk::internal::net::http::AsyncTriggerEvent;
-using $HttpClientImpl = ::jdk::internal::net::http::HttpClientImpl;
-using $HttpClientImpl$DelegatingExecutor = ::jdk::internal::net::http::HttpClientImpl$DelegatingExecutor;
 using $SocketTube = ::jdk::internal::net::http::SocketTube;
-using $SocketTube$InternalReadPublisher = ::jdk::internal::net::http::SocketTube$InternalReadPublisher;
-using $SocketTube$InternalReadPublisher$InternalReadSubscription = ::jdk::internal::net::http::SocketTube$InternalReadPublisher$InternalReadSubscription;
 using $SocketTube$InternalWriteSubscriber$WriteEvent = ::jdk::internal::net::http::SocketTube$InternalWriteSubscriber$WriteEvent;
 using $SocketTube$InternalWriteSubscriber$WriteSubscription = ::jdk::internal::net::http::SocketTube$InternalWriteSubscriber$WriteSubscription;
-using $SocketTube$SocketFlowEvent = ::jdk::internal::net::http::SocketTube$SocketFlowEvent;
 using $Demand = ::jdk::internal::net::http::common::Demand;
 using $Log = ::jdk::internal::net::http::common::Log;
-using $Logger = ::jdk::internal::net::http::common::Logger;
 using $Utils = ::jdk::internal::net::http::common::Utils;
 
 namespace jdk {
@@ -72,33 +62,29 @@ public:
 	virtual void accept(Object$* error) override {
 		$nc(inst$)->signalError($cast($Throwable, error));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SocketTube$InternalWriteSubscriber$$Lambda$signalError>());
-	}
 	SocketTube$InternalWriteSubscriber* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SocketTube$InternalWriteSubscriber$$Lambda$signalError::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SocketTube$InternalWriteSubscriber$$Lambda$signalError, inst$)},
-	{}
-};
-$MethodInfo SocketTube$InternalWriteSubscriber$$Lambda$signalError::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalWriteSubscriber;)V", nullptr, $PUBLIC, $method(SocketTube$InternalWriteSubscriber$$Lambda$signalError, init$, void, SocketTube$InternalWriteSubscriber*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalWriteSubscriber$$Lambda$signalError, accept, void, Object$*)},
-	{}
-};
-$ClassInfo SocketTube$InternalWriteSubscriber$$Lambda$signalError::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.SocketTube$InternalWriteSubscriber$$Lambda$signalError",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* SocketTube$InternalWriteSubscriber$$Lambda$signalError::load$($String* name, bool initialize) {
-	$loadClass(SocketTube$InternalWriteSubscriber$$Lambda$signalError, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SocketTube$InternalWriteSubscriber$$Lambda$signalError, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalWriteSubscriber;)V", nullptr, $PUBLIC, $method(SocketTube$InternalWriteSubscriber$$Lambda$signalError, init$, void, SocketTube$InternalWriteSubscriber*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalWriteSubscriber$$Lambda$signalError, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.SocketTube$InternalWriteSubscriber$$Lambda$signalError",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SocketTube$InternalWriteSubscriber$$Lambda$signalError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketTube$InternalWriteSubscriber$$Lambda$signalError);
+	});
 	return class$;
 }
 $Class* SocketTube$InternalWriteSubscriber$$Lambda$signalError::class$ = nullptr;
@@ -112,33 +98,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->startSubscription();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1>());
-	}
 	SocketTube$InternalWriteSubscriber* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1, inst$)},
-	{}
-};
-$MethodInfo SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalWriteSubscriber;)V", nullptr, $PUBLIC, $method(SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1, init$, void, SocketTube$InternalWriteSubscriber*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1, run, void)},
-	{}
-};
-$ClassInfo SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1::load$($String* name, bool initialize) {
-	$loadClass(SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalWriteSubscriber;)V", nullptr, $PUBLIC, $method(SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1, init$, void, SocketTube$InternalWriteSubscriber*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1);
+	});
 	return class$;
 }
 $Class* SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1::class$ = nullptr;
@@ -152,33 +134,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->requestMore();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2>());
-	}
 	SocketTube$InternalWriteSubscriber* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2, inst$)},
-	{}
-};
-$MethodInfo SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalWriteSubscriber;)V", nullptr, $PUBLIC, $method(SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2, init$, void, SocketTube$InternalWriteSubscriber*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2, run, void)},
-	{}
-};
-$ClassInfo SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2::load$($String* name, bool initialize) {
-	$loadClass(SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalWriteSubscriber;)V", nullptr, $PUBLIC, $method(SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2, init$, void, SocketTube$InternalWriteSubscriber*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2);
+	});
 	return class$;
 }
 $Class* SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2::class$ = nullptr;
@@ -192,101 +170,40 @@ public:
 	virtual $Object* get() override {
 		 return $of(SocketTube$InternalWriteSubscriber::lambda$signalError$0(error));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3>());
-	}
 	$Throwable* error = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3::fieldInfos[2] = {
-	{"error", "Ljava/lang/Throwable;", nullptr, $PUBLIC, $field(SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3, error)},
-	{}
-};
-$MethodInfo SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3, init$, void, $Throwable*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3, get, $Object*)},
-	{}
-};
-$ClassInfo SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3::load$($String* name, bool initialize) {
-	$loadClass(SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"error", "Ljava/lang/Throwable;", nullptr, $PUBLIC, $field(SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3, error)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3, init$, void, $Throwable*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3);
+	});
 	return class$;
 }
 $Class* SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3::class$ = nullptr;
 
-$FieldInfo _SocketTube$InternalWriteSubscriber_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/net/http/SocketTube;", nullptr, $FINAL | $SYNTHETIC, $field(SocketTube$InternalWriteSubscriber, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SocketTube$InternalWriteSubscriber, $assertionsDisabled)},
-	{"subscription", "Ljdk/internal/net/http/SocketTube$InternalWriteSubscriber$WriteSubscription;", nullptr, $VOLATILE, $field(SocketTube$InternalWriteSubscriber, subscription)},
-	{"current", "Ljava/util/List;", "Ljava/util/List<Ljava/nio/ByteBuffer;>;", $VOLATILE, $field(SocketTube$InternalWriteSubscriber, current)},
-	{"completed", "Z", nullptr, $VOLATILE, $field(SocketTube$InternalWriteSubscriber, completed)},
-	{"startSubscription", "Ljdk/internal/net/http/AsyncTriggerEvent;", nullptr, $FINAL, $field(SocketTube$InternalWriteSubscriber, startSubscription$)},
-	{"writeEvent", "Ljdk/internal/net/http/SocketTube$InternalWriteSubscriber$WriteEvent;", nullptr, $FINAL, $field(SocketTube$InternalWriteSubscriber, writeEvent)},
-	{"writeDemand", "Ljdk/internal/net/http/common/Demand;", nullptr, $FINAL, $field(SocketTube$InternalWriteSubscriber, writeDemand)},
-	{}
-};
-
-$MethodInfo _SocketTube$InternalWriteSubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/SocketTube;)V", nullptr, $PRIVATE, $method(SocketTube$InternalWriteSubscriber, init$, void, $SocketTube*)},
-	{"lambda$signalError$0", "(Ljava/lang/Throwable;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SocketTube$InternalWriteSubscriber, lambda$signalError$0, $String*, $Throwable*)},
-	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalWriteSubscriber, onComplete, void)},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalWriteSubscriber, onError, void, $Throwable*)},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(SocketTube$InternalWriteSubscriber, onNext, void, $List*)},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SocketTube$InternalWriteSubscriber, onNext, void, Object$*)},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalWriteSubscriber, onSubscribe, void, $Flow$Subscription*)},
-	{"requestMore", "()V", nullptr, 0, $method(SocketTube$InternalWriteSubscriber, requestMore, void)},
-	{"resumeWriteEvent", "(Z)V", nullptr, 0, $method(SocketTube$InternalWriteSubscriber, resumeWriteEvent, void, bool)},
-	{"signalError", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(SocketTube$InternalWriteSubscriber, signalError, void, $Throwable*)},
-	{"signalWritable", "()V", nullptr, 0, $method(SocketTube$InternalWriteSubscriber, signalWritable, void)},
-	{"startSubscription", "()V", nullptr, 0, $method(SocketTube$InternalWriteSubscriber, startSubscription, void)},
-	{"tryFlushCurrent", "(Z)V", nullptr, 0, $method(SocketTube$InternalWriteSubscriber, tryFlushCurrent, void, bool)},
-	{}
-};
-
-$InnerClassInfo _SocketTube$InternalWriteSubscriber_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.SocketTube$InternalWriteSubscriber", "jdk.internal.net.http.SocketTube", "InternalWriteSubscriber", $PRIVATE | $FINAL},
-	{"java.util.concurrent.Flow$Subscriber", "java.util.concurrent.Flow", "Subscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.net.http.SocketTube$InternalWriteSubscriber$WriteSubscription", "jdk.internal.net.http.SocketTube$InternalWriteSubscriber", "WriteSubscription", $FINAL},
-	{"jdk.internal.net.http.SocketTube$InternalWriteSubscriber$WriteEvent", "jdk.internal.net.http.SocketTube$InternalWriteSubscriber", "WriteEvent", $FINAL},
-	{}
-};
-
-$ClassInfo _SocketTube$InternalWriteSubscriber_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.SocketTube$InternalWriteSubscriber",
-	"java.lang.Object",
-	"java.util.concurrent.Flow$Subscriber",
-	_SocketTube$InternalWriteSubscriber_FieldInfo_,
-	_SocketTube$InternalWriteSubscriber_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Flow$Subscriber<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;",
-	nullptr,
-	_SocketTube$InternalWriteSubscriber_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.SocketTube"
-};
-
-$Object* allocate$SocketTube$InternalWriteSubscriber($Class* clazz) {
-	return $of($alloc(SocketTube$InternalWriteSubscriber));
-}
-
 bool SocketTube$InternalWriteSubscriber::$assertionsDisabled = false;
 
 void SocketTube$InternalWriteSubscriber::init$($SocketTube* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
-	$var($Consumer, var$0, static_cast<$Consumer*>($new(SocketTube$InternalWriteSubscriber$$Lambda$signalError, this)));
-	$set(this, startSubscription$, $new($AsyncTriggerEvent, var$0, static_cast<$Runnable*>($$new(SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1, this))));
+	$var($Consumer, var$0, $new(SocketTube$InternalWriteSubscriber$$Lambda$signalError, this));
+	$set(this, startSubscription$, $new($AsyncTriggerEvent, var$0, $$new(SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1, this)));
 	$set(this, writeEvent, $new($SocketTube$InternalWriteSubscriber$WriteEvent, this, this->this$0->channel, this));
 	$set(this, writeDemand, $new($Demand));
 }
@@ -294,7 +211,7 @@ void SocketTube$InternalWriteSubscriber::init$($SocketTube* this$0) {
 void SocketTube$InternalWriteSubscriber::onSubscribe($Flow$Subscription* subscription) {
 	$var($SocketTube$InternalWriteSubscriber$WriteSubscription, previous, this->subscription);
 	if ($nc(this->this$0->debug)->on()) {
-		$nc(this->this$0->debug)->log("subscribed for writing"_s);
+		this->this$0->debug->log("subscribed for writing"_s);
 	}
 	try {
 		bool needEvent = this->current == nullptr;
@@ -305,8 +222,8 @@ void SocketTube$InternalWriteSubscriber::onSubscribe($Flow$Subscription* subscri
 		}
 		$set(this, subscription, $new($SocketTube$InternalWriteSubscriber$WriteSubscription, this, subscription));
 		if (needEvent) {
-			if ($nc(this->this$0->debug)->on()) {
-				$nc(this->this$0->debug)->log("write: registering startSubscription event"_s);
+			if (this->this$0->debug->on()) {
+				this->this$0->debug->log("write: registering startSubscription event"_s);
 			}
 			$nc(this->this$0->client)->registerEvent(this->startSubscription$);
 		}
@@ -316,12 +233,12 @@ void SocketTube$InternalWriteSubscriber::onSubscribe($Flow$Subscription* subscri
 }
 
 void SocketTube$InternalWriteSubscriber::onNext($List* bufs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!SocketTube$InternalWriteSubscriber::$assertionsDisabled && !(this->current == nullptr)) {
-		$throwNew($AssertionError, $of($$str({$(this->this$0->dbgString()), "w.onNext current: "_s, this->current})));
+		$throwNew($AssertionError, $$of($str({$(this->this$0->dbgString()), "w.onNext current: "_s, this->current})));
 	}
 	if (!SocketTube$InternalWriteSubscriber::$assertionsDisabled && !(this->subscription != nullptr)) {
-		$throwNew($AssertionError, $of($$str({$(this->this$0->dbgString()), "w.onNext: subscription is null"_s})));
+		$throwNew($AssertionError, $$of($str({$(this->this$0->dbgString()), "w.onNext: subscription is null"_s})));
 	}
 	$set(this, current, bufs);
 	tryFlushCurrent($nc(this->this$0->client)->isSelectorThread());
@@ -329,38 +246,38 @@ void SocketTube$InternalWriteSubscriber::onNext($List* bufs) {
 }
 
 void SocketTube$InternalWriteSubscriber::tryFlushCurrent(bool inSelectorThread) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, bufs, this->current);
 	if (bufs == nullptr) {
 		return;
 	}
 	try {
 		if (!SocketTube$InternalWriteSubscriber::$assertionsDisabled && !(inSelectorThread == $nc(this->this$0->client)->isSelectorThread())) {
-			$throwNew($AssertionError, $of($$str({"should "_s, (inSelectorThread ? ""_s : "not "_s), " be in the selector thread"_s})));
+			$throwNew($AssertionError, $$of($str({"should "_s, (inSelectorThread ? ""_s : "not "_s), " be in the selector thread"_s})));
 		}
 		int64_t remaining = $Utils::remaining(bufs);
 		if ($nc(this->this$0->debug)->on()) {
-			$nc(this->this$0->debug)->log("trying to write: %d"_s, $$new($ObjectArray, {$($of($Long::valueOf(remaining)))}));
+			this->this$0->debug->log("trying to write: %d"_s, $$new($ObjectArray, {$($Long::valueOf(remaining))}));
 		}
 		int64_t written = this->this$0->writeAvailable(bufs);
-		if ($nc(this->this$0->debug)->on()) {
-			$nc(this->this$0->debug)->log("wrote: %d"_s, $$new($ObjectArray, {$($of($Long::valueOf(written)))}));
+		if (this->this$0->debug->on()) {
+			this->this$0->debug->log("wrote: %d"_s, $$new($ObjectArray, {$($Long::valueOf(written))}));
 		}
 		if (!SocketTube$InternalWriteSubscriber::$assertionsDisabled && !(written >= 0)) {
-			$throwNew($AssertionError, $of($$str({"negative number of bytes written:"_s, $$str(written)})));
+			$throwNew($AssertionError, $$of($str({"negative number of bytes written:"_s, $$str(written)})));
 		}
 		if (!SocketTube$InternalWriteSubscriber::$assertionsDisabled && !(written <= remaining)) {
 			$throwNew($AssertionError);
 		}
 		if (remaining - written == 0) {
 			$set(this, current, nullptr);
-			if ($nc(this->writeDemand)->tryDecrement()) {
-				$var($Runnable, requestMore, static_cast<$Runnable*>($new(SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2, this)));
+			if (this->writeDemand->tryDecrement()) {
+				$var($Runnable, requestMore, $new(SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2, this));
 				if (inSelectorThread) {
 					if (!SocketTube$InternalWriteSubscriber::$assertionsDisabled && !$nc(this->this$0->client)->isSelectorThread()) {
 						$throwNew($AssertionError);
 					}
-					$nc($($nc(this->this$0->client)->theExecutor()))->execute(requestMore);
+					$$nc($nc(this->this$0->client)->theExecutor())->execute(requestMore);
 				} else {
 					if (!SocketTube$InternalWriteSubscriber::$assertionsDisabled && ! !$nc(this->this$0->client)->isSelectorThread()) {
 						$throwNew($AssertionError);
@@ -377,22 +294,22 @@ void SocketTube$InternalWriteSubscriber::tryFlushCurrent(bool inSelectorThread) 
 }
 
 void SocketTube$InternalWriteSubscriber::startSubscription() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if ($nc(this->this$0->debug)->on()) {
-			$nc(this->this$0->debug)->log("write: starting subscription"_s);
+			this->this$0->debug->log("write: starting subscription"_s);
 		}
 		if ($Log::channel()) {
-			$Log::logChannel("Start requesting bytes for writing to channel: {0}"_s, $$new($ObjectArray, {$($of(this->this$0->channelDescr()))}));
+			$Log::logChannel("Start requesting bytes for writing to channel: {0}"_s, $$new($ObjectArray, {$(this->this$0->channelDescr())}));
 		}
 		if (!SocketTube$InternalWriteSubscriber::$assertionsDisabled && !$nc(this->this$0->client)->isSelectorThread()) {
 			$throwNew($AssertionError);
 		}
 		$nc($nc(this->this$0->readPublisher)->subscriptionImpl)->handlePending();
-		if ($nc(this->this$0->debug)->on()) {
-			$nc(this->this$0->debug)->log("write: offloading requestMore"_s);
+		if (this->this$0->debug->on()) {
+			this->this$0->debug->log("write: offloading requestMore"_s);
 		}
-		$nc($($nc(this->this$0->client)->theExecutor()))->execute(static_cast<$Runnable*>($$new(SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2, this)));
+		$$nc($nc(this->this$0->client)->theExecutor())->execute($$new(SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2, this));
 	} catch ($Throwable& t) {
 		signalError(t);
 	}
@@ -408,37 +325,37 @@ void SocketTube$InternalWriteSubscriber::onError($Throwable* throwable) {
 }
 
 void SocketTube$InternalWriteSubscriber::onComplete() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->completed = true;
 	$var($List, bufs, this->current);
-	int64_t remaining = bufs == nullptr ? (int64_t)0 : $Utils::remaining(bufs);
+	int64_t remaining = bufs == nullptr ? 0 : $Utils::remaining(bufs);
 	if ($nc(this->this$0->debug)->on()) {
-		$nc(this->this$0->debug)->log("write completed, %d yet to send"_s, $$new($ObjectArray, {$($of($Long::valueOf(remaining)))}));
+		this->this$0->debug->log("write completed, %d yet to send"_s, $$new($ObjectArray, {$($Long::valueOf(remaining))}));
 	}
 	this->this$0->debugState("InternalWriteSubscriber::onComplete"_s);
 }
 
 void SocketTube$InternalWriteSubscriber::resumeWriteEvent(bool inSelectorThread) {
 	if ($nc(this->this$0->debug)->on()) {
-		$nc(this->this$0->debug)->log("scheduling write event"_s);
+		this->this$0->debug->log("scheduling write event"_s);
 	}
-	this->this$0->resumeEvent(this->writeEvent, static_cast<$Consumer*>($$new(SocketTube$InternalWriteSubscriber$$Lambda$signalError, this)));
+	this->this$0->resumeEvent(this->writeEvent, $$new(SocketTube$InternalWriteSubscriber$$Lambda$signalError, this));
 }
 
 void SocketTube$InternalWriteSubscriber::signalWritable() {
 	if ($nc(this->this$0->debug)->on()) {
-		$nc(this->this$0->debug)->log("channel is writable"_s);
+		this->this$0->debug->log("channel is writable"_s);
 	}
 	tryFlushCurrent(true);
 }
 
 void SocketTube$InternalWriteSubscriber::signalError($Throwable* error) {
-	$useLocalCurrentObjectStackCache();
-	$nc(this->this$0->debug)->log(static_cast<$Supplier*>($$new(SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3, error)));
+	$useLocalObjectStack();
+	$nc(this->this$0->debug)->log($$new(SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3, error));
 	if ($Log::channel()) {
 		$Log::logChannel("Failed to write to channel ({0}: {1})"_s, $$new($ObjectArray, {
-			$($of(this->this$0->channelDescr())),
-			$of(error)
+			$(this->this$0->channelDescr()),
+			error
 		}));
 	}
 	this->completed = true;
@@ -458,7 +375,7 @@ $String* SocketTube$InternalWriteSubscriber::lambda$signalError$0($Throwable* er
 	return $str({"write error: "_s, error});
 }
 
-void clinit$SocketTube$InternalWriteSubscriber($Class* class$) {
+void SocketTube$InternalWriteSubscriber::clinit$($Class* clazz) {
 	$load($SocketTube);
 	SocketTube$InternalWriteSubscriber::$assertionsDisabled = !$SocketTube::class$->desiredAssertionStatus();
 }
@@ -468,20 +385,71 @@ SocketTube$InternalWriteSubscriber::SocketTube$InternalWriteSubscriber() {
 
 $Class* SocketTube$InternalWriteSubscriber::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SocketTube$InternalWriteSubscriber$$Lambda$signalError::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.SocketTube$InternalWriteSubscriber$$Lambda$signalError")) {
 			return SocketTube$InternalWriteSubscriber$$Lambda$signalError::load$(name, initialize);
 		}
-		if (name->equals(SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1")) {
 			return SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1::load$(name, initialize);
 		}
-		if (name->equals(SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2")) {
 			return SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2::load$(name, initialize);
 		}
-		if (name->equals(SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3")) {
 			return SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3::load$(name, initialize);
 		}
 	}
-	$loadClass(SocketTube$InternalWriteSubscriber, name, initialize, &_SocketTube$InternalWriteSubscriber_ClassInfo_, clinit$SocketTube$InternalWriteSubscriber, allocate$SocketTube$InternalWriteSubscriber);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/net/http/SocketTube;", nullptr, $FINAL | $SYNTHETIC, $field(SocketTube$InternalWriteSubscriber, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SocketTube$InternalWriteSubscriber, $assertionsDisabled)},
+		{"subscription", "Ljdk/internal/net/http/SocketTube$InternalWriteSubscriber$WriteSubscription;", nullptr, $VOLATILE, $field(SocketTube$InternalWriteSubscriber, subscription)},
+		{"current", "Ljava/util/List;", "Ljava/util/List<Ljava/nio/ByteBuffer;>;", $VOLATILE, $field(SocketTube$InternalWriteSubscriber, current)},
+		{"completed", "Z", nullptr, $VOLATILE, $field(SocketTube$InternalWriteSubscriber, completed)},
+		{"startSubscription", "Ljdk/internal/net/http/AsyncTriggerEvent;", nullptr, $FINAL, $field(SocketTube$InternalWriteSubscriber, startSubscription$)},
+		{"writeEvent", "Ljdk/internal/net/http/SocketTube$InternalWriteSubscriber$WriteEvent;", nullptr, $FINAL, $field(SocketTube$InternalWriteSubscriber, writeEvent)},
+		{"writeDemand", "Ljdk/internal/net/http/common/Demand;", nullptr, $FINAL, $field(SocketTube$InternalWriteSubscriber, writeDemand)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/SocketTube;)V", nullptr, $PRIVATE, $method(SocketTube$InternalWriteSubscriber, init$, void, $SocketTube*)},
+		{"lambda$signalError$0", "(Ljava/lang/Throwable;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SocketTube$InternalWriteSubscriber, lambda$signalError$0, $String*, $Throwable*)},
+		{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalWriteSubscriber, onComplete, void)},
+		{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalWriteSubscriber, onError, void, $Throwable*)},
+		{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(SocketTube$InternalWriteSubscriber, onNext, void, $List*)},
+		{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SocketTube$InternalWriteSubscriber, onNext, void, Object$*)},
+		{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalWriteSubscriber, onSubscribe, void, $Flow$Subscription*)},
+		{"requestMore", "()V", nullptr, 0, $method(SocketTube$InternalWriteSubscriber, requestMore, void)},
+		{"resumeWriteEvent", "(Z)V", nullptr, 0, $method(SocketTube$InternalWriteSubscriber, resumeWriteEvent, void, bool)},
+		{"signalError", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(SocketTube$InternalWriteSubscriber, signalError, void, $Throwable*)},
+		{"signalWritable", "()V", nullptr, 0, $method(SocketTube$InternalWriteSubscriber, signalWritable, void)},
+		{"startSubscription", "()V", nullptr, 0, $method(SocketTube$InternalWriteSubscriber, startSubscription, void)},
+		{"tryFlushCurrent", "(Z)V", nullptr, 0, $method(SocketTube$InternalWriteSubscriber, tryFlushCurrent, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.SocketTube$InternalWriteSubscriber", "jdk.internal.net.http.SocketTube", "InternalWriteSubscriber", $PRIVATE | $FINAL},
+		{"java.util.concurrent.Flow$Subscriber", "java.util.concurrent.Flow", "Subscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.net.http.SocketTube$InternalWriteSubscriber$WriteSubscription", "jdk.internal.net.http.SocketTube$InternalWriteSubscriber", "WriteSubscription", $FINAL},
+		{"jdk.internal.net.http.SocketTube$InternalWriteSubscriber$WriteEvent", "jdk.internal.net.http.SocketTube$InternalWriteSubscriber", "WriteEvent", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.SocketTube$InternalWriteSubscriber",
+		"java.lang.Object",
+		"java.util.concurrent.Flow$Subscriber",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Flow$Subscriber<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.SocketTube"
+	};
+	$loadClass(SocketTube$InternalWriteSubscriber, name, initialize, &classInfo$$, SocketTube$InternalWriteSubscriber::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketTube$InternalWriteSubscriber);
+	});
 	return class$;
 }
 

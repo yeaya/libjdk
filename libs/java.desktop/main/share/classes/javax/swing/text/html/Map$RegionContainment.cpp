@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/Map$RegionContainment.h>
-
 #include <javax/swing/text/html/Map.h>
 #include <jcpp.h>
 
@@ -12,38 +11,33 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$MethodInfo _Map$RegionContainment_MethodInfo_[] = {
-	{"contains", "(IIII)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Map$RegionContainment, contains, bool, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Map$RegionContainment_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.Map$RegionContainment", "javax.swing.text.html.Map", "RegionContainment", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Map$RegionContainment_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"javax.swing.text.html.Map$RegionContainment",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Map$RegionContainment_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Map$RegionContainment_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.Map"
-};
-
-$Object* allocate$Map$RegionContainment($Class* clazz) {
-	return $of($alloc(Map$RegionContainment));
-}
-
 $Class* Map$RegionContainment::load$($String* name, bool initialize) {
-	$loadClass(Map$RegionContainment, name, initialize, &_Map$RegionContainment_ClassInfo_, allocate$Map$RegionContainment);
+	$MethodInfo methodInfos$$[] = {
+		{"contains", "(IIII)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Map$RegionContainment, contains, bool, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.Map$RegionContainment", "javax.swing.text.html.Map", "RegionContainment", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"javax.swing.text.html.Map$RegionContainment",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.Map"
+	};
+	$loadClass(Map$RegionContainment, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Map$RegionContainment);
+	});
 	return class$;
 }
 

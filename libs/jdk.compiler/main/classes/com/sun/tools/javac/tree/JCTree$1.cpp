@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$1.h>
-
 #include <com/sun/tools/javac/code/BoundKind.h>
 #include <com/sun/tools/javac/code/TypeTag.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
@@ -26,71 +25,34 @@ namespace com {
 			namespace javac {
 				namespace tree {
 
-$FieldInfo _JCTree$1_FieldInfo_[] = {
-	{"$SwitchMap$com$sun$tools$javac$code$BoundKind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JCTree$1, $SwitchMap$com$sun$tools$javac$code$BoundKind)},
-	{"$SwitchMap$com$sun$tools$javac$code$TypeTag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JCTree$1, $SwitchMap$com$sun$tools$javac$code$TypeTag)},
-	{}
-};
-
-$EnclosingMethodInfo _JCTree$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.tree.JCTree",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _JCTree$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _JCTree$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.tools.javac.tree.JCTree$1",
-	"java.lang.Object",
-	nullptr,
-	_JCTree$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_JCTree$1_EnclosingMethodInfo_,
-	_JCTree$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$1($Class* clazz) {
-	return $of($alloc(JCTree$1));
-}
-
 $ints* JCTree$1::$SwitchMap$com$sun$tools$javac$code$BoundKind = nullptr;
 $ints* JCTree$1::$SwitchMap$com$sun$tools$javac$code$TypeTag = nullptr;
 
-void clinit$JCTree$1($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void JCTree$1::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(JCTree$1::$SwitchMap$com$sun$tools$javac$code$BoundKind, $new($ints, $($BoundKind::values())->length));
 	{
 		try {
-			$nc(JCTree$1::$SwitchMap$com$sun$tools$javac$code$BoundKind)->set($BoundKind::UNBOUND->ordinal(), 1);
+			JCTree$1::$SwitchMap$com$sun$tools$javac$code$BoundKind->set($BoundKind::UNBOUND->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JCTree$1::$SwitchMap$com$sun$tools$javac$code$BoundKind)->set($BoundKind::EXTENDS->ordinal(), 2);
+			JCTree$1::$SwitchMap$com$sun$tools$javac$code$BoundKind->set($BoundKind::EXTENDS->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JCTree$1::$SwitchMap$com$sun$tools$javac$code$BoundKind)->set($BoundKind::SUPER->ordinal(), 3);
+			JCTree$1::$SwitchMap$com$sun$tools$javac$code$BoundKind->set($BoundKind::SUPER->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(JCTree$1::$SwitchMap$com$sun$tools$javac$code$TypeTag, $new($ints, $($TypeTag::values())->length));
 	{
 		try {
-			$nc(JCTree$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::BOOLEAN->ordinal(), 1);
+			JCTree$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::BOOLEAN->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JCTree$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::CHAR->ordinal(), 2);
+			JCTree$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::CHAR->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -100,7 +62,38 @@ JCTree$1::JCTree$1() {
 }
 
 $Class* JCTree$1::load$($String* name, bool initialize) {
-	$loadClass(JCTree$1, name, initialize, &_JCTree$1_ClassInfo_, clinit$JCTree$1, allocate$JCTree$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$com$sun$tools$javac$code$BoundKind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JCTree$1, $SwitchMap$com$sun$tools$javac$code$BoundKind)},
+		{"$SwitchMap$com$sun$tools$javac$code$TypeTag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JCTree$1, $SwitchMap$com$sun$tools$javac$code$TypeTag)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.tree.JCTree",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.tools.javac.tree.JCTree$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$1, name, initialize, &classInfo$$, JCTree$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JCTree$1);
+	});
 	return class$;
 }
 

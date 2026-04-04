@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/server/log/LoggingOutputStream.h>
-
 #include <com/sun/tools/sjavac/Log$Level.h>
 #include <com/sun/tools/sjavac/Log.h>
 #include <com/sun/tools/sjavac/server/log/LoggingOutputStream$EolTrackingByteArrayOutputStream.h>
@@ -26,44 +25,6 @@ namespace com {
 				namespace server {
 					namespace log {
 
-$FieldInfo _LoggingOutputStream_FieldInfo_[] = {
-	{"LINE_SEP", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LoggingOutputStream, LINE_SEP)},
-	{"level", "Lcom/sun/tools/sjavac/Log$Level;", nullptr, $PRIVATE | $FINAL, $field(LoggingOutputStream, level)},
-	{"linePrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(LoggingOutputStream, linePrefix)},
-	{"buf", "Lcom/sun/tools/sjavac/server/log/LoggingOutputStream$EolTrackingByteArrayOutputStream;", nullptr, $PRIVATE, $field(LoggingOutputStream, buf)},
-	{}
-};
-
-$MethodInfo _LoggingOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;Lcom/sun/tools/sjavac/Log$Level;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LoggingOutputStream, init$, void, $OutputStream*, $Log$Level*, $String*)},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(LoggingOutputStream, write, void, int32_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _LoggingOutputStream_InnerClassesInfo_[] = {
-	{"com.sun.tools.sjavac.server.log.LoggingOutputStream$EolTrackingByteArrayOutputStream", "com.sun.tools.sjavac.server.log.LoggingOutputStream", "EolTrackingByteArrayOutputStream", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _LoggingOutputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.server.log.LoggingOutputStream",
-	"java.io.FilterOutputStream",
-	nullptr,
-	_LoggingOutputStream_FieldInfo_,
-	_LoggingOutputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LoggingOutputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.sjavac.server.log.LoggingOutputStream$EolTrackingByteArrayOutputStream"
-};
-
-$Object* allocate$LoggingOutputStream($Class* clazz) {
-	return $of($alloc(LoggingOutputStream));
-}
-
 $bytes* LoggingOutputStream::LINE_SEP = nullptr;
 
 void LoggingOutputStream::init$($OutputStream* out, $Log$Level* level, $String* linePrefix) {
@@ -74,26 +35,58 @@ void LoggingOutputStream::init$($OutputStream* out, $Log$Level* level, $String* 
 }
 
 void LoggingOutputStream::write(int32_t b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$FilterOutputStream::write(b);
 	$nc(this->buf)->write(b);
-	if ($nc(this->buf)->isLineComplete()) {
+	if (this->buf->isLineComplete()) {
 		$var($bytes, var$0, $nc(this->buf)->toByteArray());
-		$var($String, line, $new($String, var$0, 0, $nc(this->buf)->size() - $nc(LoggingOutputStream::LINE_SEP)->length));
+		$var($String, line, $new($String, var$0, 0, this->buf->size() - LoggingOutputStream::LINE_SEP->length));
 		$Log::log(this->level, $$str({this->linePrefix, line}));
 		$set(this, buf, $new($LoggingOutputStream$EolTrackingByteArrayOutputStream));
 	}
 }
 
-void clinit$LoggingOutputStream($Class* class$) {
-	$assignStatic(LoggingOutputStream::LINE_SEP, $nc($($System::lineSeparator()))->getBytes());
+void LoggingOutputStream::clinit$($Class* clazz) {
+	$assignStatic(LoggingOutputStream::LINE_SEP, $$nc($System::lineSeparator())->getBytes());
 }
 
 LoggingOutputStream::LoggingOutputStream() {
 }
 
 $Class* LoggingOutputStream::load$($String* name, bool initialize) {
-	$loadClass(LoggingOutputStream, name, initialize, &_LoggingOutputStream_ClassInfo_, clinit$LoggingOutputStream, allocate$LoggingOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"LINE_SEP", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LoggingOutputStream, LINE_SEP)},
+		{"level", "Lcom/sun/tools/sjavac/Log$Level;", nullptr, $PRIVATE | $FINAL, $field(LoggingOutputStream, level)},
+		{"linePrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(LoggingOutputStream, linePrefix)},
+		{"buf", "Lcom/sun/tools/sjavac/server/log/LoggingOutputStream$EolTrackingByteArrayOutputStream;", nullptr, $PRIVATE, $field(LoggingOutputStream, buf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/OutputStream;Lcom/sun/tools/sjavac/Log$Level;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LoggingOutputStream, init$, void, $OutputStream*, $Log$Level*, $String*)},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(LoggingOutputStream, write, void, int32_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.sjavac.server.log.LoggingOutputStream$EolTrackingByteArrayOutputStream", "com.sun.tools.sjavac.server.log.LoggingOutputStream", "EolTrackingByteArrayOutputStream", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.server.log.LoggingOutputStream",
+		"java.io.FilterOutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.sjavac.server.log.LoggingOutputStream$EolTrackingByteArrayOutputStream"
+	};
+	$loadClass(LoggingOutputStream, name, initialize, &classInfo$$, LoggingOutputStream::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LoggingOutputStream));
+	});
 	return class$;
 }
 

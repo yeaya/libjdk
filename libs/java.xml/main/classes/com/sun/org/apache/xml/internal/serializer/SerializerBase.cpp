@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/SerializerBase.h>
-
 #include <com/sun/org/apache/xml/internal/serializer/AttributesImplSerializer.h>
 #include <com/sun/org/apache/xml/internal/serializer/DOMSerializer.h>
 #include <com/sun/org/apache/xml/internal/serializer/ElemContext.h>
@@ -59,11 +58,9 @@ using $SerializationHandler = ::com::sun::org::apache::xml::internal::serializer
 using $SerializerConstants = ::com::sun::org::apache::xml::internal::serializer::SerializerConstants;
 using $SerializerTrace = ::com::sun::org::apache::xml::internal::serializer::SerializerTrace;
 using $DOM3SerializerImpl = ::com::sun::org::apache::xml::internal::serializer::dom3::DOM3SerializerImpl;
-using $Messages = ::com::sun::org::apache::xml::internal::serializer::utils::Messages;
 using $MsgKey = ::com::sun::org::apache::xml::internal::serializer::utils::MsgKey;
 using $Utils = ::com::sun::org::apache::xml::internal::serializer::utils::Utils;
 using $IOException = ::java::io::IOException;
-using $Writer = ::java::io::Writer;
 using $Character = ::java::lang::Character;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -89,155 +86,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace serializer {
-
-$FieldInfo _SerializerBase_FieldInfo_[] = {
-	{"m_errListener", "Ljavax/xml/transform/ErrorListener;", nullptr, $PROTECTED, $field(SerializerBase, m_errListener)},
-	{"m_needToCallStartDocument", "Z", nullptr, $PROTECTED, $field(SerializerBase, m_needToCallStartDocument)},
-	{"m_cdataTagOpen", "Z", nullptr, $PROTECTED, $field(SerializerBase, m_cdataTagOpen)},
-	{"m_attributes", "Lcom/sun/org/apache/xml/internal/serializer/AttributesImplSerializer;", nullptr, $PROTECTED, $field(SerializerBase, m_attributes)},
-	{"m_inEntityRef", "I", nullptr, $PROTECTED, $field(SerializerBase, m_inEntityRef)},
-	{"m_inExternalDTD", "Z", nullptr, $PROTECTED, $field(SerializerBase, m_inExternalDTD)},
-	{"m_doctypeSystem", "Ljava/lang/String;", nullptr, $PROTECTED, $field(SerializerBase, m_doctypeSystem)},
-	{"m_doctypePublic", "Ljava/lang/String;", nullptr, $PROTECTED, $field(SerializerBase, m_doctypePublic)},
-	{"m_needToOutputDocTypeDecl", "Z", nullptr, 0, $field(SerializerBase, m_needToOutputDocTypeDecl)},
-	{"m_shouldNotWriteXMLHeader", "Z", nullptr, $PROTECTED, $field(SerializerBase, m_shouldNotWriteXMLHeader)},
-	{"m_standalone", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SerializerBase, m_standalone)},
-	{"m_standaloneWasSpecified", "Z", nullptr, $PROTECTED, $field(SerializerBase, m_standaloneWasSpecified)},
-	{"m_isStandalone", "Z", nullptr, $PROTECTED, $field(SerializerBase, m_isStandalone)},
-	{"m_doIndent", "Z", nullptr, $PROTECTED, $field(SerializerBase, m_doIndent)},
-	{"m_indentAmount", "I", nullptr, $PROTECTED, $field(SerializerBase, m_indentAmount)},
-	{"m_version", "Ljava/lang/String;", nullptr, $PROTECTED, $field(SerializerBase, m_version)},
-	{"m_mediatype", "Ljava/lang/String;", nullptr, $PROTECTED, $field(SerializerBase, m_mediatype)},
-	{"m_transformer", "Ljavax/xml/transform/Transformer;", nullptr, $PRIVATE, $field(SerializerBase, m_transformer)},
-	{"m_prefixMap", "Lcom/sun/org/apache/xml/internal/serializer/NamespaceMappings;", nullptr, $PROTECTED, $field(SerializerBase, m_prefixMap)},
-	{"m_tracer", "Lcom/sun/org/apache/xml/internal/serializer/SerializerTrace;", nullptr, $PROTECTED, $field(SerializerBase, m_tracer)},
-	{"m_sourceLocator", "Ljavax/xml/transform/SourceLocator;", nullptr, $PROTECTED, $field(SerializerBase, m_sourceLocator)},
-	{"m_writer", "Ljava/io/Writer;", nullptr, $PROTECTED, $field(SerializerBase, m_writer)},
-	{"m_elemContext", "Lcom/sun/org/apache/xml/internal/serializer/ElemContext;", nullptr, $PROTECTED, $field(SerializerBase, m_elemContext)},
-	{"m_charsBuff", "[C", nullptr, $PROTECTED, $field(SerializerBase, m_charsBuff)},
-	{"m_attrBuff", "[C", nullptr, $PROTECTED, $field(SerializerBase, m_attrBuff)},
-	{"m_locator", "Lorg/xml/sax/Locator;", nullptr, $PRIVATE, $field(SerializerBase, m_locator)},
-	{"m_needToCallSetDocumentInfo", "Z", nullptr, $PROTECTED, $field(SerializerBase, m_needToCallSetDocumentInfo)},
-	{"m_StringOfCDATASections", "Ljava/lang/String;", nullptr, $PROTECTED, $field(SerializerBase, m_StringOfCDATASections)},
-	{"m_docIsEmpty", "Z", nullptr, 0, $field(SerializerBase, m_docIsEmpty)},
-	{"m_CdataElems", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;>;", $PROTECTED, $field(SerializerBase, m_CdataElems)},
-	{"m_OutputProps", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(SerializerBase, m_OutputProps)},
-	{"m_OutputPropsDefault", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(SerializerBase, m_OutputPropsDefault)},
-	{}
-};
-
-$MethodInfo _SerializerBase_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SerializerBase, init$, void)},
-	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, addAttribute, void, $String*, $String*, $String*, $String*, $String*, bool), "org.xml.sax.SAXException"},
-	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, addAttribute, void, $String*, $String*)},
-	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, addAttribute, void, $String*, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"addAttributeAlways", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Z", nullptr, $PUBLIC, $virtualMethod(SerializerBase, addAttributeAlways, bool, $String*, $String*, $String*, $String*, $String*, bool)},
-	{"addAttributes", "(Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, addAttributes, void, $Attributes*), "org.xml.sax.SAXException"},
-	{"addCDATAElement", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SerializerBase, addCDATAElement, void, $String*, $String*)},
-	{"addXSLAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, addXSLAttribute, void, $String*, $String*, $String*)},
-	{"asContentHandler", "()Lorg/xml/sax/ContentHandler;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, asContentHandler, $ContentHandler*), "java.io.IOException"},
-	{"asDOM3Serializer", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, asDOM3Serializer, $Object*), "java.io.IOException"},
-	{"asDOMSerializer", "()Lcom/sun/org/apache/xml/internal/serializer/DOMSerializer;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, asDOMSerializer, $DOMSerializer*), "java.io.IOException"},
-	{"characters", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, characters, void, $Node*), "org.xml.sax.SAXException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, close, void)},
-	{"comment", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, comment, void, $String*), "org.xml.sax.SAXException"},
-	{"documentIsEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(SerializerBase, documentIsEmpty, bool)},
-	{"endEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, endEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"entityReference", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, entityReference, void, $String*), "org.xml.sax.SAXException"},
-	{"error", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, error, void, $SAXParseException*), "org.xml.sax.SAXException"},
-	{"fatalError", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, fatalError, void, $SAXParseException*), "org.xml.sax.SAXException"},
-	{"fireCDATAEvent", "([CII)V", nullptr, $PROTECTED, $virtualMethod(SerializerBase, fireCDATAEvent, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"fireCharEvent", "([CII)V", nullptr, $PROTECTED, $virtualMethod(SerializerBase, fireCharEvent, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"fireCommentEvent", "([CII)V", nullptr, $PROTECTED, $virtualMethod(SerializerBase, fireCommentEvent, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"fireEndDoc", "()V", nullptr, $PROTECTED, $virtualMethod(SerializerBase, fireEndDoc, void), "org.xml.sax.SAXException"},
-	{"fireEndElem", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SerializerBase, fireEndElem, void, $String*), "org.xml.sax.SAXException"},
-	{"fireEndEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, fireEndEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"fireEntityReference", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SerializerBase, fireEntityReference, void, $String*), "org.xml.sax.SAXException"},
-	{"fireEscapingEvent", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SerializerBase, fireEscapingEvent, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"fireStartDoc", "()V", nullptr, $PROTECTED, $virtualMethod(SerializerBase, fireStartDoc, void), "org.xml.sax.SAXException"},
-	{"fireStartElem", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SerializerBase, fireStartElem, void, $String*), "org.xml.sax.SAXException"},
-	{"fireStartEntity", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SerializerBase, fireStartEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"flushMyWriter", "()V", nullptr, $PRIVATE, $method(SerializerBase, flushMyWriter, void)},
-	{"getDoctypePublic", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getDoctypePublic, $String*)},
-	{"getDoctypeSystem", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getDoctypeSystem, $String*)},
-	{"getElementURI", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(SerializerBase, getElementURI, $String*)},
-	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getEncoding, $String*)},
-	{"getFirstCharLocName", "(Ljava/lang/String;)C", nullptr, $STATIC, $staticMethod(SerializerBase, getFirstCharLocName, char16_t, $String*)},
-	{"getIndent", "()Z", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getIndent, bool)},
-	{"getIndentAmount", "()I", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getIndentAmount, int32_t)},
-	{"getLocalName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(SerializerBase, getLocalName, $String*, $String*)},
-	{"getMediaType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getMediaType, $String*)},
-	{"getNamespaceMappings", "()Lcom/sun/org/apache/xml/internal/serializer/NamespaceMappings;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getNamespaceMappings, $NamespaceMappings*)},
-	{"getNamespaceURI", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getNamespaceURI, $String*, $String*, bool)},
-	{"getNamespaceURIFromPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getNamespaceURIFromPrefix, $String*, $String*)},
-	{"getOmitXMLDeclaration", "()Z", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getOmitXMLDeclaration, bool)},
-	{"getOutputPropDefaultKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", 0, $virtualMethod(SerializerBase, getOutputPropDefaultKeys, $Set*)},
-	{"getOutputPropKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", 0, $virtualMethod(SerializerBase, getOutputPropKeys, $Set*)},
-	{"getOutputProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getOutputProperty, $String*, $String*)},
-	{"getOutputPropertyDefault", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getOutputPropertyDefault, $String*, $String*)},
-	{"getOutputPropertyNonDefault", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getOutputPropertyNonDefault, $String*, $String*)},
-	{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getPrefix, $String*, $String*)},
-	{"getPrefixPart", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(SerializerBase, getPrefixPart, $String*, $String*)},
-	{"getProp", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE, $method(SerializerBase, getProp, $String*, $String*, bool)},
-	{"getStandalone", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getStandalone, $String*)},
-	{"getTransformer", "()Ljavax/xml/transform/Transformer;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getTransformer, $Transformer*)},
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getVersion, $String*)},
-	{"inTemporaryOutputState", "()Z", nullptr, $FINAL, $method(SerializerBase, inTemporaryOutputState, bool)},
-	{"initCDATA", "()V", nullptr, $PROTECTED, $virtualMethod(SerializerBase, initCDATA, void)},
-	{"initCdataElems", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(SerializerBase, initCdataElems, void, $String*)},
-	{"isCdataSection", "()Z", nullptr, $PROTECTED, $virtualMethod(SerializerBase, isCdataSection, bool)},
-	{"isInEntityRef", "()Z", nullptr, $PROTECTED, $virtualMethod(SerializerBase, isInEntityRef, bool)},
-	{"namespaceAfterStartElement", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, namespaceAfterStartElement, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"notationDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, notationDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"patchName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SerializerBase, patchName, $String*, $String*)},
-	{"reset", "()Z", nullptr, $PUBLIC, $virtualMethod(SerializerBase, reset, bool)},
-	{"resetSerializerBase", "()V", nullptr, $PRIVATE, $method(SerializerBase, resetSerializerBase, void)},
-	{"setDTDEntityExpansion", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setDTDEntityExpansion, void, bool)},
-	{"setDoctype", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setDoctype, void, $String*, $String*)},
-	{"setDoctypePublic", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setDoctypePublic, void, $String*)},
-	{"setDoctypeSystem", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setDoctypeSystem, void, $String*)},
-	{"setDocumentInfo", "()V", nullptr, $PROTECTED, $virtualMethod(SerializerBase, setDocumentInfo, void)},
-	{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setDocumentLocator, void, $Locator*)},
-	{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setEncoding, void, $String*)},
-	{"setIndent", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setIndent, void, bool)},
-	{"setIndentAmount", "(I)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setIndentAmount, void, int32_t)},
-	{"setIsStandalone", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setIsStandalone, void, bool)},
-	{"setMediaType", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setMediaType, void, $String*)},
-	{"setNamespaceMappings", "(Lcom/sun/org/apache/xml/internal/serializer/NamespaceMappings;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setNamespaceMappings, void, $NamespaceMappings*)},
-	{"setOmitXMLDeclaration", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setOmitXMLDeclaration, void, bool)},
-	{"setOutputProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setOutputProperty, void, $String*, $String*)},
-	{"setOutputPropertyDefault", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setOutputPropertyDefault, void, $String*, $String*)},
-	{"setProp", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, 0, $virtualMethod(SerializerBase, setProp, void, $String*, $String*, bool)},
-	{"setSourceLocator", "(Ljavax/xml/transform/SourceLocator;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setSourceLocator, void, $SourceLocator*)},
-	{"setStandalone", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setStandalone, void, $String*)},
-	{"setStandaloneInternal", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SerializerBase, setStandaloneInternal, void, $String*)},
-	{"setTransformer", "(Ljavax/xml/transform/Transformer;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setTransformer, void, $Transformer*)},
-	{"setVersion", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setVersion, void, $String*)},
-	{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, startDocument, void), "org.xml.sax.SAXException"},
-	{"startDocumentInternal", "()V", nullptr, $PROTECTED, $virtualMethod(SerializerBase, startDocumentInternal, void), "org.xml.sax.SAXException"},
-	{"subPartMatch", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(SerializerBase, subPartMatch, bool, $String*, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unparsedEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, unparsedEntityDecl, void, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"warning", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, warning, void, $SAXParseException*), "org.xml.sax.SAXException"},
-	{}
-};
-
-$ClassInfo _SerializerBase_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.serializer.SerializerBase",
-	"java.lang.Object",
-	"com.sun.org.apache.xml.internal.serializer.SerializationHandler,com.sun.org.apache.xml.internal.serializer.SerializerConstants",
-	_SerializerBase_FieldInfo_,
-	_SerializerBase_MethodInfo_
-};
-
-$Object* allocate$SerializerBase($Class* clazz) {
-	return $of($alloc(SerializerBase));
-}
 
 int32_t SerializerBase::hashCode() {
 	 return this->$SerializationHandler::hashCode();
@@ -307,10 +155,10 @@ void SerializerBase::comment($String* data) {
 }
 
 $String* SerializerBase::patchName($String* qname) {
-	$useLocalCurrentObjectStackCache();
-	int32_t lastColon = $nc(qname)->lastIndexOf((int32_t)u':');
+	$useLocalObjectStack();
+	int32_t lastColon = $nc(qname)->lastIndexOf(u':');
 	if (lastColon > 0) {
-		int32_t firstColon = qname->indexOf((int32_t)u':');
+		int32_t firstColon = qname->indexOf(u':');
 		$var($String, prefix, qname->substring(0, firstColon));
 		$var($String, localName, qname->substring(lastColon + 1));
 		$var($String, uri, $nc(this->m_prefixMap)->lookupNamespace(prefix));
@@ -325,7 +173,7 @@ $String* SerializerBase::patchName($String* qname) {
 
 $String* SerializerBase::getLocalName($String* qname) {
 	$init(SerializerBase);
-	int32_t col = $nc(qname)->lastIndexOf((int32_t)u':');
+	int32_t col = $nc(qname)->lastIndexOf(u':');
 	return (col > 0) ? qname->substring(col + 1) : qname;
 }
 
@@ -342,7 +190,7 @@ void SerializerBase::addAttribute($String* uri, $String* localName, $String* raw
 bool SerializerBase::addAttributeAlways($String* uri, $String* localName, $String* rawName, $String* type, $String* value, bool XSLAttribute) {
 	bool was_added = false;
 	int32_t index = 0;
-	if (localName == nullptr || uri == nullptr || $nc(uri)->length() == 0) {
+	if (localName == nullptr || uri == nullptr || uri->length() == 0) {
 		index = $nc(this->m_attributes)->getIndex(rawName);
 	} else {
 		index = $nc(this->m_attributes)->getIndex(uri, localName);
@@ -358,7 +206,7 @@ bool SerializerBase::addAttributeAlways($String* uri, $String* localName, $Strin
 }
 
 void SerializerBase::addAttribute($String* name, $String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->m_elemContext)->m_startTagOpen) {
 		$var($String, patchedName, patchName(name));
 		$var($String, localName, getLocalName(patchedName));
@@ -368,7 +216,7 @@ void SerializerBase::addAttribute($String* name, $String* value) {
 }
 
 void SerializerBase::addXSLAttribute($String* name, $String* value, $String* uri) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->m_elemContext)->m_startTagOpen) {
 		$var($String, patchedName, patchName(name));
 		$var($String, localName, getLocalName(patchedName));
@@ -377,18 +225,17 @@ void SerializerBase::addXSLAttribute($String* name, $String* value, $String* uri
 }
 
 void SerializerBase::addAttributes($Attributes* atts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nAtts = $nc(atts)->getLength();
 	for (int32_t i = 0; i < nAtts; ++i) {
 		$var($String, uri, atts->getURI(i));
 		if (nullptr == uri) {
 			$assign(uri, ""_s);
 		}
-		$var($String, var$0, uri);
-		$var($String, var$1, atts->getLocalName(i));
-		$var($String, var$2, atts->getQName(i));
-		$var($String, var$3, atts->getType(i));
-		addAttributeAlways(var$0, var$1, var$2, var$3, $(atts->getValue(i)), false);
+		$var($String, var$0, atts->getLocalName(i));
+		$var($String, var$1, atts->getQName(i));
+		$var($String, var$2, atts->getType(i));
+		addAttributeAlways(uri, var$0, var$1, var$2, $(atts->getValue(i)), false);
 	}
 }
 
@@ -533,7 +380,7 @@ bool SerializerBase::subPartMatch($String* p, $String* t) {
 
 $String* SerializerBase::getPrefixPart($String* qname) {
 	$init(SerializerBase);
-	int32_t col = $nc(qname)->indexOf((int32_t)u':');
+	int32_t col = $nc(qname)->indexOf(u':');
 	return (col > 0) ? qname->substring(0, col) : ($String*)nullptr;
 }
 
@@ -547,18 +394,18 @@ $String* SerializerBase::getPrefix($String* namespaceURI) {
 }
 
 $String* SerializerBase::getNamespaceURI($String* qname, bool isElement) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($SerializerConstants);
 	$var($String, uri, $SerializerConstants::EMPTYSTRING);
-	int32_t col = $nc(qname)->lastIndexOf((int32_t)u':');
+	int32_t col = $nc(qname)->lastIndexOf(u':');
 	$var($String, prefix, (col > 0) ? qname->substring(0, col) : $SerializerConstants::EMPTYSTRING);
 	if (!$nc($SerializerConstants::EMPTYSTRING)->equals(prefix) || isElement) {
 		if (this->m_prefixMap != nullptr) {
-			$assign(uri, $nc(this->m_prefixMap)->lookupNamespace(prefix));
+			$assign(uri, this->m_prefixMap->lookupNamespace(prefix));
 			if (uri == nullptr && !$nc(prefix)->equals($SerializerConstants::XMLNS_PREFIX)) {
 				$init($Utils);
 				$init($MsgKey);
-				$throwNew($RuntimeException, $($nc($Utils::messages)->createMessage($MsgKey::ER_NAMESPACE_PREFIX, $$new($ObjectArray, {$($of(qname->substring(0, col)))}))));
+				$throwNew($RuntimeException, $($nc($Utils::messages)->createMessage($MsgKey::ER_NAMESPACE_PREFIX, $$new($ObjectArray, {$(qname->substring(0, col))}))));
 			}
 		}
 	}
@@ -568,7 +415,7 @@ $String* SerializerBase::getNamespaceURI($String* qname, bool isElement) {
 $String* SerializerBase::getNamespaceURIFromPrefix($String* prefix) {
 	$var($String, uri, nullptr);
 	if (this->m_prefixMap != nullptr) {
-		$assign(uri, $nc(this->m_prefixMap)->lookupNamespace(prefix));
+		$assign(uri, this->m_prefixMap->lookupNamespace(prefix));
 	}
 	return uri;
 }
@@ -584,7 +431,7 @@ void SerializerBase::entityReference($String* name) {
 
 void SerializerBase::setTransformer($Transformer* t) {
 	$set(this, m_transformer, t);
-	if (($instanceOf($SerializerTrace, this->m_transformer)) && ($nc(($cast($SerializerTrace, this->m_transformer)))->hasTraceListeners())) {
+	if (($instanceOf($SerializerTrace, this->m_transformer)) && ($cast($SerializerTrace, this->m_transformer)->hasTraceListeners())) {
 		$set(this, m_tracer, $cast($SerializerTrace, this->m_transformer));
 	} else {
 		$set(this, m_tracer, nullptr);
@@ -628,7 +475,7 @@ void SerializerBase::fireStartEntity($String* name) {
 void SerializerBase::flushMyWriter() {
 	if (this->m_writer != nullptr) {
 		try {
-			$nc(this->m_writer)->flush();
+			this->m_writer->flush();
 		} catch ($IOException& ioe) {
 		}
 	}
@@ -671,7 +518,7 @@ void SerializerBase::fireEndDoc() {
 void SerializerBase::fireStartElem($String* elemName) {
 	if (this->m_tracer != nullptr) {
 		flushMyWriter();
-		$nc(this->m_tracer)->fireGenerateEvent($SerializerTrace::EVENTTYPE_STARTELEMENT, elemName, static_cast<$Attributes*>(this->m_attributes));
+		$nc(this->m_tracer)->fireGenerateEvent($SerializerTrace::EVENTTYPE_STARTELEMENT, elemName, this->m_attributes);
 	}
 }
 
@@ -706,7 +553,7 @@ void SerializerBase::setDocumentInfo() {
 		return;
 	}
 	try {
-		$var($String, strVersion, $nc(($cast($Locator2, this->m_locator)))->getXMLVersion());
+		$var($String, strVersion, $nc($cast($Locator2, this->m_locator))->getXMLVersion());
 		if (strVersion != nullptr) {
 			setVersion(strVersion);
 		}
@@ -741,7 +588,7 @@ void SerializerBase::resetSerializerBase() {
 	this->m_needToCallStartDocument = true;
 	this->m_needToOutputDocTypeDecl = false;
 	if (this->m_prefixMap != nullptr) {
-		$nc(this->m_prefixMap)->reset();
+		this->m_prefixMap->reset();
 	}
 	this->m_shouldNotWriteXMLHeader = false;
 	$set(this, m_sourceLocator, nullptr);
@@ -772,7 +619,7 @@ void SerializerBase::setDTDEntityExpansion(bool expand) {
 }
 
 void SerializerBase::initCdataElems($String* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (s != nullptr) {
 		int32_t max = s->length();
 		bool inCurly = false;
@@ -825,7 +672,7 @@ void SerializerBase::addCDATAElement($String* uri, $String* localName) {
 	$var($HashMap, h, $cast($HashMap, $nc(this->m_CdataElems)->get(localName)));
 	if (h == nullptr) {
 		$assign(h, $new($HashMap));
-		$nc(this->m_CdataElems)->put(localName, h);
+		this->m_CdataElems->put(localName, h);
 	}
 	$nc(h)->put(uri, uri);
 }
@@ -835,28 +682,28 @@ bool SerializerBase::documentIsEmpty() {
 }
 
 bool SerializerBase::isCdataSection() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool b = false;
 	if (nullptr != this->m_StringOfCDATASections) {
 		if ($nc(this->m_elemContext)->m_elementLocalName == nullptr) {
-			$var($String, localName, getLocalName($nc(this->m_elemContext)->m_elementName));
+			$var($String, localName, getLocalName(this->m_elemContext->m_elementName));
 			$set($nc(this->m_elemContext), m_elementLocalName, localName);
 		}
 		if ($nc(this->m_elemContext)->m_elementURI == nullptr) {
-			$set($nc(this->m_elemContext), m_elementURI, getElementURI());
-		} else if ($nc($nc(this->m_elemContext)->m_elementURI)->length() == 0) {
-			if ($nc(this->m_elemContext)->m_elementName == nullptr) {
-				$set($nc(this->m_elemContext), m_elementName, $nc(this->m_elemContext)->m_elementLocalName);
+			$set(this->m_elemContext, m_elementURI, getElementURI());
+		} else if (this->m_elemContext->m_elementURI->length() == 0) {
+			if (this->m_elemContext->m_elementName == nullptr) {
+				$set(this->m_elemContext, m_elementName, this->m_elemContext->m_elementLocalName);
 			} else {
-				int32_t var$1 = $nc($nc(this->m_elemContext)->m_elementLocalName)->length();
-				if (var$1 < $nc($nc(this->m_elemContext)->m_elementName)->length()) {
-					$set($nc(this->m_elemContext), m_elementURI, getElementURI());
+				int32_t var$0 = $nc(this->m_elemContext->m_elementLocalName)->length();
+				if (var$0 < this->m_elemContext->m_elementName->length()) {
+					$set(this->m_elemContext, m_elementURI, getElementURI());
 				}
 			}
 		}
 		$var($HashMap, h, nullptr);
 		if (this->m_CdataElems != nullptr) {
-			$assign(h, $cast($HashMap, $nc(this->m_CdataElems)->get($nc(this->m_elemContext)->m_elementLocalName)));
+			$assign(h, $cast($HashMap, this->m_CdataElems->get($nc(this->m_elemContext)->m_elementLocalName)));
 		}
 		if (h != nullptr) {
 			$var($Object, obj, h->get($nc(this->m_elemContext)->m_elementURI));
@@ -869,7 +716,7 @@ bool SerializerBase::isCdataSection() {
 }
 
 $String* SerializerBase::getElementURI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, uri, nullptr);
 	$var($String, prefix, getPrefixPart($nc(this->m_elemContext)->m_elementName));
 	if (prefix == nullptr) {
@@ -897,7 +744,7 @@ $String* SerializerBase::getOutputPropertyNonDefault($String* name) {
 }
 
 $Object* SerializerBase::asDOM3Serializer() {
-	return $of($new($DOM3SerializerImpl, this));
+	return $new($DOM3SerializerImpl, this);
 }
 
 $String* SerializerBase::getOutputPropertyDefault($String* name) {
@@ -935,7 +782,7 @@ $String* SerializerBase::getProp($String* name, bool defaultVal) {
 }
 
 void SerializerBase::setProp($String* name, $String* val, bool defaultVal) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->m_OutputProps == nullptr) {
 		$set(this, m_OutputProps, $new($HashMap));
 		$set(this, m_OutputPropsDefault, $new($HashMap));
@@ -953,7 +800,7 @@ void SerializerBase::setProp($String* name, $String* val, bool defaultVal) {
 			} else {
 				$assign(newVal, val);
 			}
-			$nc(this->m_OutputProps)->put(name, newVal);
+			this->m_OutputProps->put(name, newVal);
 		} else {
 			$nc(this->m_OutputProps)->put(name, val);
 		}
@@ -963,7 +810,7 @@ void SerializerBase::setProp($String* name, $String* val, bool defaultVal) {
 char16_t SerializerBase::getFirstCharLocName($String* name) {
 	$init(SerializerBase);
 	char16_t first = 0;
-	int32_t i = $nc(name)->indexOf((int32_t)u'}');
+	int32_t i = $nc(name)->indexOf(u'}');
 	if (i < 0) {
 		first = name->charAt(0);
 	} else {
@@ -976,7 +823,151 @@ SerializerBase::SerializerBase() {
 }
 
 $Class* SerializerBase::load$($String* name, bool initialize) {
-	$loadClass(SerializerBase, name, initialize, &_SerializerBase_ClassInfo_, allocate$SerializerBase);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_errListener", "Ljavax/xml/transform/ErrorListener;", nullptr, $PROTECTED, $field(SerializerBase, m_errListener)},
+		{"m_needToCallStartDocument", "Z", nullptr, $PROTECTED, $field(SerializerBase, m_needToCallStartDocument)},
+		{"m_cdataTagOpen", "Z", nullptr, $PROTECTED, $field(SerializerBase, m_cdataTagOpen)},
+		{"m_attributes", "Lcom/sun/org/apache/xml/internal/serializer/AttributesImplSerializer;", nullptr, $PROTECTED, $field(SerializerBase, m_attributes)},
+		{"m_inEntityRef", "I", nullptr, $PROTECTED, $field(SerializerBase, m_inEntityRef)},
+		{"m_inExternalDTD", "Z", nullptr, $PROTECTED, $field(SerializerBase, m_inExternalDTD)},
+		{"m_doctypeSystem", "Ljava/lang/String;", nullptr, $PROTECTED, $field(SerializerBase, m_doctypeSystem)},
+		{"m_doctypePublic", "Ljava/lang/String;", nullptr, $PROTECTED, $field(SerializerBase, m_doctypePublic)},
+		{"m_needToOutputDocTypeDecl", "Z", nullptr, 0, $field(SerializerBase, m_needToOutputDocTypeDecl)},
+		{"m_shouldNotWriteXMLHeader", "Z", nullptr, $PROTECTED, $field(SerializerBase, m_shouldNotWriteXMLHeader)},
+		{"m_standalone", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SerializerBase, m_standalone)},
+		{"m_standaloneWasSpecified", "Z", nullptr, $PROTECTED, $field(SerializerBase, m_standaloneWasSpecified)},
+		{"m_isStandalone", "Z", nullptr, $PROTECTED, $field(SerializerBase, m_isStandalone)},
+		{"m_doIndent", "Z", nullptr, $PROTECTED, $field(SerializerBase, m_doIndent)},
+		{"m_indentAmount", "I", nullptr, $PROTECTED, $field(SerializerBase, m_indentAmount)},
+		{"m_version", "Ljava/lang/String;", nullptr, $PROTECTED, $field(SerializerBase, m_version)},
+		{"m_mediatype", "Ljava/lang/String;", nullptr, $PROTECTED, $field(SerializerBase, m_mediatype)},
+		{"m_transformer", "Ljavax/xml/transform/Transformer;", nullptr, $PRIVATE, $field(SerializerBase, m_transformer)},
+		{"m_prefixMap", "Lcom/sun/org/apache/xml/internal/serializer/NamespaceMappings;", nullptr, $PROTECTED, $field(SerializerBase, m_prefixMap)},
+		{"m_tracer", "Lcom/sun/org/apache/xml/internal/serializer/SerializerTrace;", nullptr, $PROTECTED, $field(SerializerBase, m_tracer)},
+		{"m_sourceLocator", "Ljavax/xml/transform/SourceLocator;", nullptr, $PROTECTED, $field(SerializerBase, m_sourceLocator)},
+		{"m_writer", "Ljava/io/Writer;", nullptr, $PROTECTED, $field(SerializerBase, m_writer)},
+		{"m_elemContext", "Lcom/sun/org/apache/xml/internal/serializer/ElemContext;", nullptr, $PROTECTED, $field(SerializerBase, m_elemContext)},
+		{"m_charsBuff", "[C", nullptr, $PROTECTED, $field(SerializerBase, m_charsBuff)},
+		{"m_attrBuff", "[C", nullptr, $PROTECTED, $field(SerializerBase, m_attrBuff)},
+		{"m_locator", "Lorg/xml/sax/Locator;", nullptr, $PRIVATE, $field(SerializerBase, m_locator)},
+		{"m_needToCallSetDocumentInfo", "Z", nullptr, $PROTECTED, $field(SerializerBase, m_needToCallSetDocumentInfo)},
+		{"m_StringOfCDATASections", "Ljava/lang/String;", nullptr, $PROTECTED, $field(SerializerBase, m_StringOfCDATASections)},
+		{"m_docIsEmpty", "Z", nullptr, 0, $field(SerializerBase, m_docIsEmpty)},
+		{"m_CdataElems", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;>;", $PROTECTED, $field(SerializerBase, m_CdataElems)},
+		{"m_OutputProps", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(SerializerBase, m_OutputProps)},
+		{"m_OutputPropsDefault", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(SerializerBase, m_OutputPropsDefault)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SerializerBase, init$, void)},
+		{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, addAttribute, void, $String*, $String*, $String*, $String*, $String*, bool), "org.xml.sax.SAXException"},
+		{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, addAttribute, void, $String*, $String*)},
+		{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, addAttribute, void, $String*, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"addAttributeAlways", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Z", nullptr, $PUBLIC, $virtualMethod(SerializerBase, addAttributeAlways, bool, $String*, $String*, $String*, $String*, $String*, bool)},
+		{"addAttributes", "(Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, addAttributes, void, $Attributes*), "org.xml.sax.SAXException"},
+		{"addCDATAElement", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SerializerBase, addCDATAElement, void, $String*, $String*)},
+		{"addXSLAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, addXSLAttribute, void, $String*, $String*, $String*)},
+		{"asContentHandler", "()Lorg/xml/sax/ContentHandler;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, asContentHandler, $ContentHandler*), "java.io.IOException"},
+		{"asDOM3Serializer", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, asDOM3Serializer, $Object*), "java.io.IOException"},
+		{"asDOMSerializer", "()Lcom/sun/org/apache/xml/internal/serializer/DOMSerializer;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, asDOMSerializer, $DOMSerializer*), "java.io.IOException"},
+		{"characters", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, characters, void, $Node*), "org.xml.sax.SAXException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, close, void)},
+		{"comment", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, comment, void, $String*), "org.xml.sax.SAXException"},
+		{"documentIsEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(SerializerBase, documentIsEmpty, bool)},
+		{"endEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, endEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"entityReference", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, entityReference, void, $String*), "org.xml.sax.SAXException"},
+		{"error", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, error, void, $SAXParseException*), "org.xml.sax.SAXException"},
+		{"fatalError", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, fatalError, void, $SAXParseException*), "org.xml.sax.SAXException"},
+		{"fireCDATAEvent", "([CII)V", nullptr, $PROTECTED, $virtualMethod(SerializerBase, fireCDATAEvent, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"fireCharEvent", "([CII)V", nullptr, $PROTECTED, $virtualMethod(SerializerBase, fireCharEvent, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"fireCommentEvent", "([CII)V", nullptr, $PROTECTED, $virtualMethod(SerializerBase, fireCommentEvent, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"fireEndDoc", "()V", nullptr, $PROTECTED, $virtualMethod(SerializerBase, fireEndDoc, void), "org.xml.sax.SAXException"},
+		{"fireEndElem", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SerializerBase, fireEndElem, void, $String*), "org.xml.sax.SAXException"},
+		{"fireEndEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, fireEndEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"fireEntityReference", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SerializerBase, fireEntityReference, void, $String*), "org.xml.sax.SAXException"},
+		{"fireEscapingEvent", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SerializerBase, fireEscapingEvent, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"fireStartDoc", "()V", nullptr, $PROTECTED, $virtualMethod(SerializerBase, fireStartDoc, void), "org.xml.sax.SAXException"},
+		{"fireStartElem", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SerializerBase, fireStartElem, void, $String*), "org.xml.sax.SAXException"},
+		{"fireStartEntity", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SerializerBase, fireStartEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"flushMyWriter", "()V", nullptr, $PRIVATE, $method(SerializerBase, flushMyWriter, void)},
+		{"getDoctypePublic", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getDoctypePublic, $String*)},
+		{"getDoctypeSystem", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getDoctypeSystem, $String*)},
+		{"getElementURI", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(SerializerBase, getElementURI, $String*)},
+		{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getEncoding, $String*)},
+		{"getFirstCharLocName", "(Ljava/lang/String;)C", nullptr, $STATIC, $staticMethod(SerializerBase, getFirstCharLocName, char16_t, $String*)},
+		{"getIndent", "()Z", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getIndent, bool)},
+		{"getIndentAmount", "()I", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getIndentAmount, int32_t)},
+		{"getLocalName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(SerializerBase, getLocalName, $String*, $String*)},
+		{"getMediaType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getMediaType, $String*)},
+		{"getNamespaceMappings", "()Lcom/sun/org/apache/xml/internal/serializer/NamespaceMappings;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getNamespaceMappings, $NamespaceMappings*)},
+		{"getNamespaceURI", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getNamespaceURI, $String*, $String*, bool)},
+		{"getNamespaceURIFromPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getNamespaceURIFromPrefix, $String*, $String*)},
+		{"getOmitXMLDeclaration", "()Z", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getOmitXMLDeclaration, bool)},
+		{"getOutputPropDefaultKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", 0, $virtualMethod(SerializerBase, getOutputPropDefaultKeys, $Set*)},
+		{"getOutputPropKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", 0, $virtualMethod(SerializerBase, getOutputPropKeys, $Set*)},
+		{"getOutputProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getOutputProperty, $String*, $String*)},
+		{"getOutputPropertyDefault", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getOutputPropertyDefault, $String*, $String*)},
+		{"getOutputPropertyNonDefault", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getOutputPropertyNonDefault, $String*, $String*)},
+		{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getPrefix, $String*, $String*)},
+		{"getPrefixPart", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(SerializerBase, getPrefixPart, $String*, $String*)},
+		{"getProp", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE, $method(SerializerBase, getProp, $String*, $String*, bool)},
+		{"getStandalone", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getStandalone, $String*)},
+		{"getTransformer", "()Ljavax/xml/transform/Transformer;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getTransformer, $Transformer*)},
+		{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerializerBase, getVersion, $String*)},
+		{"inTemporaryOutputState", "()Z", nullptr, $FINAL, $method(SerializerBase, inTemporaryOutputState, bool)},
+		{"initCDATA", "()V", nullptr, $PROTECTED, $virtualMethod(SerializerBase, initCDATA, void)},
+		{"initCdataElems", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(SerializerBase, initCdataElems, void, $String*)},
+		{"isCdataSection", "()Z", nullptr, $PROTECTED, $virtualMethod(SerializerBase, isCdataSection, bool)},
+		{"isInEntityRef", "()Z", nullptr, $PROTECTED, $virtualMethod(SerializerBase, isInEntityRef, bool)},
+		{"namespaceAfterStartElement", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, namespaceAfterStartElement, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"notationDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, notationDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"patchName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SerializerBase, patchName, $String*, $String*)},
+		{"reset", "()Z", nullptr, $PUBLIC, $virtualMethod(SerializerBase, reset, bool)},
+		{"resetSerializerBase", "()V", nullptr, $PRIVATE, $method(SerializerBase, resetSerializerBase, void)},
+		{"setDTDEntityExpansion", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setDTDEntityExpansion, void, bool)},
+		{"setDoctype", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setDoctype, void, $String*, $String*)},
+		{"setDoctypePublic", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setDoctypePublic, void, $String*)},
+		{"setDoctypeSystem", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setDoctypeSystem, void, $String*)},
+		{"setDocumentInfo", "()V", nullptr, $PROTECTED, $virtualMethod(SerializerBase, setDocumentInfo, void)},
+		{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setDocumentLocator, void, $Locator*)},
+		{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setEncoding, void, $String*)},
+		{"setIndent", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setIndent, void, bool)},
+		{"setIndentAmount", "(I)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setIndentAmount, void, int32_t)},
+		{"setIsStandalone", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setIsStandalone, void, bool)},
+		{"setMediaType", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setMediaType, void, $String*)},
+		{"setNamespaceMappings", "(Lcom/sun/org/apache/xml/internal/serializer/NamespaceMappings;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setNamespaceMappings, void, $NamespaceMappings*)},
+		{"setOmitXMLDeclaration", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setOmitXMLDeclaration, void, bool)},
+		{"setOutputProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setOutputProperty, void, $String*, $String*)},
+		{"setOutputPropertyDefault", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setOutputPropertyDefault, void, $String*, $String*)},
+		{"setProp", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, 0, $virtualMethod(SerializerBase, setProp, void, $String*, $String*, bool)},
+		{"setSourceLocator", "(Ljavax/xml/transform/SourceLocator;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setSourceLocator, void, $SourceLocator*)},
+		{"setStandalone", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setStandalone, void, $String*)},
+		{"setStandaloneInternal", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SerializerBase, setStandaloneInternal, void, $String*)},
+		{"setTransformer", "(Ljavax/xml/transform/Transformer;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setTransformer, void, $Transformer*)},
+		{"setVersion", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, setVersion, void, $String*)},
+		{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, startDocument, void), "org.xml.sax.SAXException"},
+		{"startDocumentInternal", "()V", nullptr, $PROTECTED, $virtualMethod(SerializerBase, startDocumentInternal, void), "org.xml.sax.SAXException"},
+		{"subPartMatch", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(SerializerBase, subPartMatch, bool, $String*, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unparsedEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, unparsedEntityDecl, void, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"warning", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(SerializerBase, warning, void, $SAXParseException*), "org.xml.sax.SAXException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.serializer.SerializerBase",
+		"java.lang.Object",
+		"com.sun.org.apache.xml.internal.serializer.SerializationHandler,com.sun.org.apache.xml.internal.serializer.SerializerConstants",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SerializerBase, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SerializerBase));
+	});
 	return class$;
 }
 

@@ -62,6 +62,7 @@ class $import DefaultTreeSelectionModel : public ::java::lang::Cloneable, public
 	$class(DefaultTreeSelectionModel, 0, ::java::lang::Cloneable, ::java::io::Serializable, ::javax::swing::tree::TreeSelectionModel)
 public:
 	DefaultTreeSelectionModel();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;

@@ -1,5 +1,4 @@
 #include <javax/swing/tree/TreePath.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -15,64 +14,11 @@ namespace javax {
 	namespace swing {
 		namespace tree {
 
-$Attribute TreePath_Attribute_var$1[] = {
-	{'s', "path"},
-	{'-'}
-};
-
-$NamedAttribute TreePath_Attribute_var$0[] = {
-	{"value", '[', TreePath_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _TreePath_MethodAnnotations_init$0[] = {
-	{"Ljava/beans/ConstructorProperties;", TreePath_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _TreePath_FieldInfo_[] = {
-	{"parentPath", "Ljavax/swing/tree/TreePath;", nullptr, $PRIVATE, $field(TreePath, parentPath)},
-	{"lastPathComponent", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(TreePath, lastPathComponent)},
-	{}
-};
-
-$MethodInfo _TreePath_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TreePath, init$, void, $ObjectArray*), nullptr, nullptr, _TreePath_MethodAnnotations_init$0},
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TreePath, init$, void, Object$*)},
-	{"<init>", "(Ljavax/swing/tree/TreePath;Ljava/lang/Object;)V", nullptr, $PROTECTED, $method(TreePath, init$, void, TreePath*, Object$*)},
-	{"<init>", "([Ljava/lang/Object;I)V", nullptr, $PROTECTED, $method(TreePath, init$, void, $ObjectArray*, int32_t)},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(TreePath, init$, void)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreePath, equals, bool, Object$*)},
-	{"getLastPathComponent", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TreePath, getLastPathComponent, $Object*)},
-	{"getParentPath", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(TreePath, getParentPath, TreePath*)},
-	{"getPath", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TreePath, getPath, $ObjectArray*)},
-	{"getPathComponent", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TreePath, getPathComponent, $Object*, int32_t)},
-	{"getPathCount", "()I", nullptr, $PUBLIC, $virtualMethod(TreePath, getPathCount, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TreePath, hashCode, int32_t)},
-	{"isDescendant", "(Ljavax/swing/tree/TreePath;)Z", nullptr, $PUBLIC, $virtualMethod(TreePath, isDescendant, bool, TreePath*)},
-	{"pathByAddingChild", "(Ljava/lang/Object;)Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(TreePath, pathByAddingChild, TreePath*, Object$*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TreePath, toString, $String*)},
-	{}
-};
-
-$ClassInfo _TreePath_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.tree.TreePath",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_TreePath_FieldInfo_,
-	_TreePath_MethodInfo_
-};
-
-$Object* allocate$TreePath($Class* clazz) {
-	return $of($alloc(TreePath));
-}
-
 void TreePath::init$($ObjectArray* path) {
-	if (path == nullptr || $nc(path)->length == 0) {
+	if (path == nullptr || path->length == 0) {
 		$throwNew($IllegalArgumentException, "path in TreePath must be non null and not empty."_s);
 	}
-	$set(this, lastPathComponent, $nc(path)->get(path->length - 1));
+	$set(this, lastPathComponent, $nc(path)->get($nc(path)->length - 1));
 	if (this->lastPathComponent == nullptr) {
 		$throwNew($IllegalArgumentException, "Last path component must be non-null"_s);
 	}
@@ -111,20 +57,20 @@ void TreePath::init$() {
 }
 
 $ObjectArray* TreePath::getPath() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = getPathCount();
 	$var($ObjectArray, result, $new($ObjectArray, i--));
 	{
 		$var(TreePath, path, this);
 		for (; path != nullptr; $assign(path, path->getParentPath())) {
-			result->set(i--, $($nc(path)->getLastPathComponent()));
+			result->set(i--, $(path->getLastPathComponent()));
 		}
 	}
 	return result;
 }
 
 $Object* TreePath::getLastPathComponent() {
-	return $of(this->lastPathComponent);
+	return this->lastPathComponent;
 }
 
 int32_t TreePath::getPathCount() {
@@ -139,7 +85,7 @@ int32_t TreePath::getPathCount() {
 }
 
 $Object* TreePath::getPathComponent(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pathLength = getPathCount();
 	if (index < 0 || index >= pathLength) {
 		$throwNew($IllegalArgumentException, $$str({"Index "_s, $$str(index), " is out of the specified range"_s}));
@@ -148,27 +94,27 @@ $Object* TreePath::getPathComponent(int32_t index) {
 	for (int32_t i = pathLength - 1; i != index; --i) {
 		$assign(path, $nc(path)->getParentPath());
 	}
-	return $of($nc(path)->getLastPathComponent());
+	return $nc(path)->getLastPathComponent();
 }
 
 bool TreePath::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(o, this)) {
 		return true;
 	}
 	if ($instanceOf(TreePath, o)) {
 		$var(TreePath, oTreePath, $cast(TreePath, o));
 		int32_t var$0 = getPathCount();
-		if (var$0 != $nc(oTreePath)->getPathCount()) {
+		if (var$0 != oTreePath->getPathCount()) {
 			return false;
 		}
 		{
 			$var(TreePath, path, this);
 			for (; path != nullptr; $assign(path, path->getParentPath())) {
-				if (!($nc($of($($nc(path)->getLastPathComponent())))->equals($($nc(oTreePath)->getLastPathComponent())))) {
+				if (!($$nc(path->getLastPathComponent())->equals($($nc(oTreePath)->getLastPathComponent())))) {
 					return false;
 				}
-				$assign(oTreePath, $nc(oTreePath)->getParentPath());
+				$assign(oTreePath, oTreePath->getParentPath());
 			}
 		}
 		return true;
@@ -177,7 +123,7 @@ bool TreePath::equals(Object$* o) {
 }
 
 int32_t TreePath::hashCode() {
-	return $nc($of($(getLastPathComponent())))->hashCode();
+	return $$nc(getLastPathComponent())->hashCode();
 }
 
 bool TreePath::isDescendant(TreePath* aTreePath$renamed) {
@@ -211,17 +157,13 @@ TreePath* TreePath::getParentPath() {
 }
 
 $String* TreePath::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, tempSpot, $new($StringBuilder, "["_s));
-	{
-		int32_t counter = 0;
-		int32_t maxCounter = getPathCount();
-		for (; counter < maxCounter; ++counter) {
-			if (counter > 0) {
-				tempSpot->append(", "_s);
-			}
-			tempSpot->append($(getPathComponent(counter)));
+	for (int32_t counter = 0, maxCounter = getPathCount(); counter < maxCounter; ++counter) {
+		if (counter > 0) {
+			tempSpot->append(", "_s);
 		}
+		tempSpot->append($(getPathComponent(counter)));
 	}
 	tempSpot->append("]"_s);
 	return tempSpot->toString();
@@ -231,7 +173,52 @@ TreePath::TreePath() {
 }
 
 $Class* TreePath::load$($String* name, bool initialize) {
-	$loadClass(TreePath, name, initialize, &_TreePath_ClassInfo_, allocate$TreePath);
+	$FieldInfo fieldInfos$$[] = {
+		{"parentPath", "Ljavax/swing/tree/TreePath;", nullptr, $PRIVATE, $field(TreePath, parentPath)},
+		{"lastPathComponent", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(TreePath, lastPathComponent)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "path"},
+		{'-'}
+	};
+	$NamedAttribute init$methodAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/beans/ConstructorProperties;", init$methodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TreePath, init$, void, $ObjectArray*), nullptr, nullptr, init$methodAnnotations$$},
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TreePath, init$, void, Object$*)},
+		{"<init>", "(Ljavax/swing/tree/TreePath;Ljava/lang/Object;)V", nullptr, $PROTECTED, $method(TreePath, init$, void, TreePath*, Object$*)},
+		{"<init>", "([Ljava/lang/Object;I)V", nullptr, $PROTECTED, $method(TreePath, init$, void, $ObjectArray*, int32_t)},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(TreePath, init$, void)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreePath, equals, bool, Object$*)},
+		{"getLastPathComponent", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TreePath, getLastPathComponent, $Object*)},
+		{"getParentPath", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(TreePath, getParentPath, TreePath*)},
+		{"getPath", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TreePath, getPath, $ObjectArray*)},
+		{"getPathComponent", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TreePath, getPathComponent, $Object*, int32_t)},
+		{"getPathCount", "()I", nullptr, $PUBLIC, $virtualMethod(TreePath, getPathCount, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TreePath, hashCode, int32_t)},
+		{"isDescendant", "(Ljavax/swing/tree/TreePath;)Z", nullptr, $PUBLIC, $virtualMethod(TreePath, isDescendant, bool, TreePath*)},
+		{"pathByAddingChild", "(Ljava/lang/Object;)Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(TreePath, pathByAddingChild, TreePath*, Object$*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TreePath, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.tree.TreePath",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TreePath, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreePath);
+	});
 	return class$;
 }
 

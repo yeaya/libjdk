@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicListUI$ListDataHandler.h>
-
 #include <javax/swing/event/ListDataEvent.h>
 #include <javax/swing/plaf/basic/BasicListUI$Handler.h>
 #include <javax/swing/plaf/basic/BasicListUI.h>
@@ -11,72 +10,65 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ListDataEvent = ::javax::swing::event::ListDataEvent;
 using $BasicListUI = ::javax::swing::plaf::basic::BasicListUI;
-using $BasicListUI$Handler = ::javax::swing::plaf::basic::BasicListUI$Handler;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicListUI$ListDataHandler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicListUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicListUI$ListDataHandler, this$0)},
-	{}
-};
-
-$MethodInfo _BasicListUI$ListDataHandler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicListUI;)V", nullptr, $PUBLIC, $method(BasicListUI$ListDataHandler, init$, void, $BasicListUI*)},
-	{"contentsChanged", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$ListDataHandler, contentsChanged, void, $ListDataEvent*)},
-	{"intervalAdded", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$ListDataHandler, intervalAdded, void, $ListDataEvent*)},
-	{"intervalRemoved", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$ListDataHandler, intervalRemoved, void, $ListDataEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicListUI$ListDataHandler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicListUI$ListDataHandler", "javax.swing.plaf.basic.BasicListUI", "ListDataHandler", $PUBLIC},
-	{}
-};
-
-$ClassInfo _BasicListUI$ListDataHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicListUI$ListDataHandler",
-	"java.lang.Object",
-	"javax.swing.event.ListDataListener",
-	_BasicListUI$ListDataHandler_FieldInfo_,
-	_BasicListUI$ListDataHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicListUI$ListDataHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicListUI"
-};
-
-$Object* allocate$BasicListUI$ListDataHandler($Class* clazz) {
-	return $of($alloc(BasicListUI$ListDataHandler));
-}
-
 void BasicListUI$ListDataHandler::init$($BasicListUI* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void BasicListUI$ListDataHandler::intervalAdded($ListDataEvent* e) {
-	$nc($(this->this$0->getHandler()))->intervalAdded(e);
+	$$nc(this->this$0->getHandler())->intervalAdded(e);
 }
 
 void BasicListUI$ListDataHandler::intervalRemoved($ListDataEvent* e) {
-	$nc($(this->this$0->getHandler()))->intervalRemoved(e);
+	$$nc(this->this$0->getHandler())->intervalRemoved(e);
 }
 
 void BasicListUI$ListDataHandler::contentsChanged($ListDataEvent* e) {
-	$nc($(this->this$0->getHandler()))->contentsChanged(e);
+	$$nc(this->this$0->getHandler())->contentsChanged(e);
 }
 
 BasicListUI$ListDataHandler::BasicListUI$ListDataHandler() {
 }
 
 $Class* BasicListUI$ListDataHandler::load$($String* name, bool initialize) {
-	$loadClass(BasicListUI$ListDataHandler, name, initialize, &_BasicListUI$ListDataHandler_ClassInfo_, allocate$BasicListUI$ListDataHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicListUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicListUI$ListDataHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicListUI;)V", nullptr, $PUBLIC, $method(BasicListUI$ListDataHandler, init$, void, $BasicListUI*)},
+		{"contentsChanged", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$ListDataHandler, contentsChanged, void, $ListDataEvent*)},
+		{"intervalAdded", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$ListDataHandler, intervalAdded, void, $ListDataEvent*)},
+		{"intervalRemoved", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$ListDataHandler, intervalRemoved, void, $ListDataEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicListUI$ListDataHandler", "javax.swing.plaf.basic.BasicListUI", "ListDataHandler", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicListUI$ListDataHandler",
+		"java.lang.Object",
+		"javax.swing.event.ListDataListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicListUI"
+	};
+	$loadClass(BasicListUI$ListDataHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicListUI$ListDataHandler);
+	});
 	return class$;
 }
 

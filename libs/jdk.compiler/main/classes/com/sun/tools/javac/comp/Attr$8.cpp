@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Attr$8.h>
-
 #include <com/sun/tools/javac/code/Type$JCNoType.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/comp/Attr$PostAttrAnalyzer.h>
@@ -27,52 +26,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Attr$8_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Attr;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$8, this$0)},
-	{}
-};
-
-$MethodInfo _Attr$8_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;)V", nullptr, 0, $method(Attr$8, init$, void, $Attr*)},
-	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Attr$8, scan, void, $JCTree*)},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Attr$8, visitClassDef, void, $JCTree$JCClassDecl*)},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Attr$8, visitLambda, void, $JCTree$JCLambda*)},
-	{}
-};
-
-$EnclosingMethodInfo _Attr$8_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Attr",
-	"preFlow",
-	"(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V"
-};
-
-$InnerClassInfo _Attr$8_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Attr$8", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.Attr$PostAttrAnalyzer", "com.sun.tools.javac.comp.Attr", "PostAttrAnalyzer", 0},
-	{"com.sun.tools.javac.tree.JCTree$JCLambda", "com.sun.tools.javac.tree.JCTree", "JCLambda", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Attr$8_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Attr$8",
-	"com.sun.tools.javac.comp.Attr$PostAttrAnalyzer",
-	nullptr,
-	_Attr$8_FieldInfo_,
-	_Attr$8_MethodInfo_,
-	nullptr,
-	&_Attr$8_EnclosingMethodInfo_,
-	_Attr$8_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Attr"
-};
-
-$Object* allocate$Attr$8($Class* clazz) {
-	return $of($alloc(Attr$8));
-}
-
 void Attr$8::init$($Attr* this$0) {
 	$set(this, this$0, this$0);
 	$Attr$PostAttrAnalyzer::init$(this$0);
@@ -80,7 +33,7 @@ void Attr$8::init$($Attr* this$0) {
 
 void Attr$8::scan($JCTree* tree) {
 	$init($Type);
-	if (tree == nullptr || ($nc(tree)->type != nullptr && $equals(tree->type, $Type::stuckType))) {
+	if (tree == nullptr || (tree->type != nullptr && $equals(tree->type, $Type::stuckType))) {
 		return;
 	}
 	$Attr$PostAttrAnalyzer::scan(tree);
@@ -96,7 +49,46 @@ Attr$8::Attr$8() {
 }
 
 $Class* Attr$8::load$($String* name, bool initialize) {
-	$loadClass(Attr$8, name, initialize, &_Attr$8_ClassInfo_, allocate$Attr$8);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Attr;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$8, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Attr;)V", nullptr, 0, $method(Attr$8, init$, void, $Attr*)},
+		{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Attr$8, scan, void, $JCTree*)},
+		{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Attr$8, visitClassDef, void, $JCTree$JCClassDecl*)},
+		{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Attr$8, visitLambda, void, $JCTree$JCLambda*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Attr",
+		"preFlow",
+		"(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Attr$8", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.Attr$PostAttrAnalyzer", "com.sun.tools.javac.comp.Attr", "PostAttrAnalyzer", 0},
+		{"com.sun.tools.javac.tree.JCTree$JCLambda", "com.sun.tools.javac.tree.JCTree", "JCLambda", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Attr$8",
+		"com.sun.tools.javac.comp.Attr$PostAttrAnalyzer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Attr"
+	};
+	$loadClass(Attr$8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Attr$8);
+	});
 	return class$;
 }
 

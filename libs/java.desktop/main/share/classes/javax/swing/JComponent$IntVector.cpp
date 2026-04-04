@@ -1,5 +1,4 @@
 #include <javax/swing/JComponent$IntVector.h>
-
 #include <javax/swing/JComponent.h>
 #include <jcpp.h>
 
@@ -10,47 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JComponent$IntVector_FieldInfo_[] = {
-	{"array", "[I", nullptr, 0, $field(JComponent$IntVector, array)},
-	{"count", "I", nullptr, 0, $field(JComponent$IntVector, count)},
-	{"capacity", "I", nullptr, 0, $field(JComponent$IntVector, capacity)},
-	{}
-};
-
-$MethodInfo _JComponent$IntVector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(JComponent$IntVector, init$, void)},
-	{"addElement", "(I)V", nullptr, 0, $method(JComponent$IntVector, addElement, void, int32_t)},
-	{"elementAt", "(I)I", nullptr, 0, $method(JComponent$IntVector, elementAt, int32_t, int32_t)},
-	{"setElementAt", "(II)V", nullptr, 0, $method(JComponent$IntVector, setElementAt, void, int32_t, int32_t)},
-	{"size", "()I", nullptr, 0, $method(JComponent$IntVector, size, int32_t)},
-	{}
-};
-
-$InnerClassInfo _JComponent$IntVector_InnerClassesInfo_[] = {
-	{"javax.swing.JComponent$IntVector", "javax.swing.JComponent", "IntVector", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _JComponent$IntVector_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.JComponent$IntVector",
-	"java.lang.Object",
-	nullptr,
-	_JComponent$IntVector_FieldInfo_,
-	_JComponent$IntVector_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JComponent$IntVector_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JComponent"
-};
-
-$Object* allocate$JComponent$IntVector($Class* clazz) {
-	return $of($alloc(JComponent$IntVector));
-}
 
 void JComponent$IntVector::init$() {
 	$set(this, array, nullptr);
@@ -86,7 +44,42 @@ JComponent$IntVector::JComponent$IntVector() {
 }
 
 $Class* JComponent$IntVector::load$($String* name, bool initialize) {
-	$loadClass(JComponent$IntVector, name, initialize, &_JComponent$IntVector_ClassInfo_, allocate$JComponent$IntVector);
+	$FieldInfo fieldInfos$$[] = {
+		{"array", "[I", nullptr, 0, $field(JComponent$IntVector, array)},
+		{"count", "I", nullptr, 0, $field(JComponent$IntVector, count)},
+		{"capacity", "I", nullptr, 0, $field(JComponent$IntVector, capacity)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(JComponent$IntVector, init$, void)},
+		{"addElement", "(I)V", nullptr, 0, $method(JComponent$IntVector, addElement, void, int32_t)},
+		{"elementAt", "(I)I", nullptr, 0, $method(JComponent$IntVector, elementAt, int32_t, int32_t)},
+		{"setElementAt", "(II)V", nullptr, 0, $method(JComponent$IntVector, setElementAt, void, int32_t, int32_t)},
+		{"size", "()I", nullptr, 0, $method(JComponent$IntVector, size, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JComponent$IntVector", "javax.swing.JComponent", "IntVector", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.JComponent$IntVector",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JComponent"
+	};
+	$loadClass(JComponent$IntVector, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JComponent$IntVector);
+	});
 	return class$;
 }
 

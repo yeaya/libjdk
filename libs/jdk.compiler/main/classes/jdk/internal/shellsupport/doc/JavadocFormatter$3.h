@@ -14,6 +14,7 @@ class JavadocFormatter$3 : public ::java::lang::Object {
 	$class(JavadocFormatter$3, 0, ::java::lang::Object)
 public:
 	JavadocFormatter$3();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag;
 };
 

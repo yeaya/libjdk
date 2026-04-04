@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/CRTable$SourceRange.h>
-
 #include <com/sun/tools/javac/jvm/CRTable.h>
 #include <com/sun/tools/javac/util/Position.h>
 #include <jcpp.h>
@@ -17,44 +16,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$FieldInfo _CRTable$SourceRange_FieldInfo_[] = {
-	{"startPos", "I", nullptr, 0, $field(CRTable$SourceRange, startPos)},
-	{"endPos", "I", nullptr, 0, $field(CRTable$SourceRange, endPos)},
-	{}
-};
-
-$MethodInfo _CRTable$SourceRange_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CRTable$SourceRange, init$, void)},
-	{"<init>", "(II)V", nullptr, 0, $method(CRTable$SourceRange, init$, void, int32_t, int32_t)},
-	{"mergeWith", "(Lcom/sun/tools/javac/jvm/CRTable$SourceRange;)Lcom/sun/tools/javac/jvm/CRTable$SourceRange;", nullptr, 0, $virtualMethod(CRTable$SourceRange, mergeWith, CRTable$SourceRange*, CRTable$SourceRange*)},
-	{}
-};
-
-$InnerClassInfo _CRTable$SourceRange_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.CRTable$SourceRange", "com.sun.tools.javac.jvm.CRTable", "SourceRange", $STATIC},
-	{}
-};
-
-$ClassInfo _CRTable$SourceRange_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.CRTable$SourceRange",
-	"java.lang.Object",
-	nullptr,
-	_CRTable$SourceRange_FieldInfo_,
-	_CRTable$SourceRange_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CRTable$SourceRange_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.CRTable"
-};
-
-$Object* allocate$CRTable$SourceRange($Class* clazz) {
-	return $of($alloc(CRTable$SourceRange));
-}
 
 void CRTable$SourceRange::init$() {
 	this->startPos = $Position::NOPOS;
@@ -87,7 +48,39 @@ CRTable$SourceRange::CRTable$SourceRange() {
 }
 
 $Class* CRTable$SourceRange::load$($String* name, bool initialize) {
-	$loadClass(CRTable$SourceRange, name, initialize, &_CRTable$SourceRange_ClassInfo_, allocate$CRTable$SourceRange);
+	$FieldInfo fieldInfos$$[] = {
+		{"startPos", "I", nullptr, 0, $field(CRTable$SourceRange, startPos)},
+		{"endPos", "I", nullptr, 0, $field(CRTable$SourceRange, endPos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CRTable$SourceRange, init$, void)},
+		{"<init>", "(II)V", nullptr, 0, $method(CRTable$SourceRange, init$, void, int32_t, int32_t)},
+		{"mergeWith", "(Lcom/sun/tools/javac/jvm/CRTable$SourceRange;)Lcom/sun/tools/javac/jvm/CRTable$SourceRange;", nullptr, 0, $virtualMethod(CRTable$SourceRange, mergeWith, CRTable$SourceRange*, CRTable$SourceRange*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.CRTable$SourceRange", "com.sun.tools.javac.jvm.CRTable", "SourceRange", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.CRTable$SourceRange",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.CRTable"
+	};
+	$loadClass(CRTable$SourceRange, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CRTable$SourceRange);
+	});
 	return class$;
 }
 

@@ -43,7 +43,7 @@ public:
 	virtual void setRows(int32_t rows);
 	virtual void setVgap(int32_t vgap);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x9923FAEB4BDC16EB;
+	static const int64_t serialVersionUID = (int64_t)0x9923faeb4bdc16eb;
 	int32_t hgap = 0;
 	int32_t vgap = 0;
 	int32_t rows = 0;

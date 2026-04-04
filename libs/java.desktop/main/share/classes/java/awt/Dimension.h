@@ -16,6 +16,7 @@ public:
 	Dimension();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::awt::Dimension* d);
 	void init$(int32_t width, int32_t height);
@@ -32,7 +33,7 @@ public:
 	virtual $String* toString() override;
 	int32_t width = 0;
 	int32_t height = 0;
-	static const int64_t serialVersionUID = (int64_t)0x418ED9D7AC5F4414;
+	static const int64_t serialVersionUID = (int64_t)0x418ed9d7ac5f4414;
 };
 
 	} // awt

@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/Http1Exchange$State.h>
-
 #include <java/lang/Enum.h>
 #include <jdk/internal/net/http/Http1Exchange.h>
 #include <jcpp.h>
@@ -22,50 +21,6 @@ namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$FieldInfo _Http1Exchange$State_FieldInfo_[] = {
-	{"INITIAL", "Ljdk/internal/net/http/Http1Exchange$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1Exchange$State, INITIAL)},
-	{"HEADERS", "Ljdk/internal/net/http/Http1Exchange$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1Exchange$State, HEADERS)},
-	{"BODY", "Ljdk/internal/net/http/Http1Exchange$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1Exchange$State, BODY)},
-	{"ERROR", "Ljdk/internal/net/http/Http1Exchange$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1Exchange$State, ERROR)},
-	{"COMPLETING", "Ljdk/internal/net/http/Http1Exchange$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1Exchange$State, COMPLETING)},
-	{"COMPLETED", "Ljdk/internal/net/http/Http1Exchange$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1Exchange$State, COMPLETED)},
-	{"$VALUES", "[Ljdk/internal/net/http/Http1Exchange$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Http1Exchange$State, $VALUES)},
-	{}
-};
-
-$MethodInfo _Http1Exchange$State_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/net/http/Http1Exchange$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http1Exchange$State, $values, $Http1Exchange$StateArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Http1Exchange$State, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/Http1Exchange$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Http1Exchange$State, valueOf, Http1Exchange$State*, $String*)},
-	{"values", "()[Ljdk/internal/net/http/Http1Exchange$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Http1Exchange$State, values, $Http1Exchange$StateArray*)},
-	{}
-};
-
-$InnerClassInfo _Http1Exchange$State_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.Http1Exchange$State", "jdk.internal.net.http.Http1Exchange", "State", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Http1Exchange$State_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"jdk.internal.net.http.Http1Exchange$State",
-	"java.lang.Enum",
-	nullptr,
-	_Http1Exchange$State_FieldInfo_,
-	_Http1Exchange$State_MethodInfo_,
-	"Ljava/lang/Enum<Ljdk/internal/net/http/Http1Exchange$State;>;",
-	nullptr,
-	_Http1Exchange$State_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.Http1Exchange"
-};
-
-$Object* allocate$Http1Exchange$State($Class* clazz) {
-	return $of($alloc(Http1Exchange$State));
-}
 
 Http1Exchange$State* Http1Exchange$State::INITIAL = nullptr;
 Http1Exchange$State* Http1Exchange$State::HEADERS = nullptr;
@@ -101,7 +56,7 @@ void Http1Exchange$State::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Http1Exchange$State($Class* class$) {
+void Http1Exchange$State::clinit$($Class* clazz) {
 	$assignStatic(Http1Exchange$State::INITIAL, $new(Http1Exchange$State, "INITIAL"_s, 0));
 	$assignStatic(Http1Exchange$State::HEADERS, $new(Http1Exchange$State, "HEADERS"_s, 1));
 	$assignStatic(Http1Exchange$State::BODY, $new(Http1Exchange$State, "BODY"_s, 2));
@@ -115,7 +70,45 @@ Http1Exchange$State::Http1Exchange$State() {
 }
 
 $Class* Http1Exchange$State::load$($String* name, bool initialize) {
-	$loadClass(Http1Exchange$State, name, initialize, &_Http1Exchange$State_ClassInfo_, clinit$Http1Exchange$State, allocate$Http1Exchange$State);
+	$FieldInfo fieldInfos$$[] = {
+		{"INITIAL", "Ljdk/internal/net/http/Http1Exchange$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1Exchange$State, INITIAL)},
+		{"HEADERS", "Ljdk/internal/net/http/Http1Exchange$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1Exchange$State, HEADERS)},
+		{"BODY", "Ljdk/internal/net/http/Http1Exchange$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1Exchange$State, BODY)},
+		{"ERROR", "Ljdk/internal/net/http/Http1Exchange$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1Exchange$State, ERROR)},
+		{"COMPLETING", "Ljdk/internal/net/http/Http1Exchange$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1Exchange$State, COMPLETING)},
+		{"COMPLETED", "Ljdk/internal/net/http/Http1Exchange$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1Exchange$State, COMPLETED)},
+		{"$VALUES", "[Ljdk/internal/net/http/Http1Exchange$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Http1Exchange$State, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljdk/internal/net/http/Http1Exchange$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http1Exchange$State, $values, $Http1Exchange$StateArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Http1Exchange$State, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/Http1Exchange$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Http1Exchange$State, valueOf, Http1Exchange$State*, $String*)},
+		{"values", "()[Ljdk/internal/net/http/Http1Exchange$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Http1Exchange$State, values, $Http1Exchange$StateArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.Http1Exchange$State", "jdk.internal.net.http.Http1Exchange", "State", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"jdk.internal.net.http.Http1Exchange$State",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljdk/internal/net/http/Http1Exchange$State;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.Http1Exchange"
+	};
+	$loadClass(Http1Exchange$State, name, initialize, &classInfo$$, Http1Exchange$State::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Http1Exchange$State));
+	});
 	return class$;
 }
 

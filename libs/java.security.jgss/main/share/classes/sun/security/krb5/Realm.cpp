@@ -1,5 +1,4 @@
 #include <sun/security/krb5/Realm.h>
-
 #include <java/util/LinkedList.h>
 #include <sun/security/action/GetBooleanAction.h>
 #include <sun/security/krb5/Asn1Exception.h>
@@ -42,46 +41,6 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 
-$FieldInfo _Realm_FieldInfo_[] = {
-	{"AUTODEDUCEREALM", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Realm, AUTODEDUCEREALM)},
-	{"realm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Realm, realm)},
-	{}
-};
-
-$MethodInfo _Realm_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Realm, init$, void, $String*), "sun.security.krb5.RealmException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(Realm, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(Realm, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Realm, clone, $Object*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Realm, equals, bool, Object$*)},
-	{"getDefault", "()Lsun/security/krb5/Realm;", nullptr, $PUBLIC | $STATIC, $staticMethod(Realm, getDefault, Realm*), "sun.security.krb5.RealmException"},
-	{"getRealmsList", "(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Realm, getRealmsList, $StringArray*, $String*, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Realm, hashCode, int32_t)},
-	{"isValidRealmString", "(Ljava/lang/String;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(Realm, isValidRealmString, bool, $String*)},
-	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/Realm;", nullptr, $PUBLIC | $STATIC, $staticMethod(Realm, parse, Realm*, $DerInputStream*, int8_t, bool), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException"},
-	{"parseCapaths", "(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Realm, parseCapaths, $StringArray*, $String*, $String*), "sun.security.krb5.KrbException"},
-	{"parseHierarchy", "(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Realm, parseHierarchy, $StringArray*, $String*, $String*)},
-	{"parseRealm", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(Realm, parseRealm, $String*, $String*), "sun.security.krb5.RealmException"},
-	{"parseRealmAtSeparator", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Realm, parseRealmAtSeparator, $String*, $String*), "sun.security.krb5.RealmException"},
-	{"parseRealmComponent", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Realm, parseRealmComponent, $String*, $String*)},
-	{"subStringFrom", "([Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Realm, subStringFrom, $String*, $StringArray*, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Realm, toString, $String*)},
-	{}
-};
-
-$ClassInfo _Realm_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.Realm",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_Realm_FieldInfo_,
-	_Realm_MethodInfo_
-};
-
-$Object* allocate$Realm($Class* clazz) {
-	return $of($alloc(Realm));
-}
-
 bool Realm::AUTODEDUCEREALM = false;
 
 void Realm::init$($String* name) {
@@ -90,19 +49,19 @@ void Realm::init$($String* name) {
 
 Realm* Realm::getDefault() {
 	$init(Realm);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		return $new(Realm, $($nc($($Config::getInstance()))->getDefaultRealm()));
+		return $new(Realm, $($$nc($Config::getInstance())->getDefaultRealm()));
 	} catch ($RealmException& re) {
 		$throw(re);
 	} catch ($KrbException& ke) {
-		$throwNew($RealmException, static_cast<$Throwable*>(ke));
+		$throwNew($RealmException, ke);
 	}
 	$shouldNotReachHere();
 }
 
 $Object* Realm::clone() {
-	return $of(this);
+	return this;
 }
 
 bool Realm::equals(Object$* obj) {
@@ -125,7 +84,7 @@ void Realm::init$($DerValue* encoding) {
 		$throwNew($IllegalArgumentException, "encoding can not be null"_s);
 	}
 	$set(this, realm, $$new($KerberosString, encoding)->toString());
-	if (this->realm == nullptr || $nc(this->realm)->length() == 0) {
+	if (this->realm == nullptr || this->realm->length() == 0) {
 		$throwNew($RealmException, $Krb5::REALM_NULL);
 	}
 	if (!isValidRealmString(this->realm)) {
@@ -139,7 +98,7 @@ $String* Realm::toString() {
 
 $String* Realm::parseRealmAtSeparator($String* name) {
 	$init(Realm);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == nullptr) {
 		$throwNew($IllegalArgumentException, "null input name is not allowed"_s);
 	}
@@ -172,7 +131,7 @@ $String* Realm::parseRealmAtSeparator($String* name) {
 
 $String* Realm::parseRealmComponent($String* name) {
 	$init(Realm);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == nullptr) {
 		$throwNew($IllegalArgumentException, "null input name is not allowed"_s);
 	}
@@ -199,7 +158,7 @@ $String* Realm::parseRealm($String* name) {
 	if (result == nullptr) {
 		$assign(result, name);
 	}
-	if (result == nullptr || $nc(result)->length() == 0) {
+	if (result == nullptr || result->length() == 0) {
 		$throwNew($RealmException, $Krb5::REALM_NULL);
 	}
 	if (!isValidRealmString(result)) {
@@ -216,7 +175,7 @@ bool Realm::isValidRealmString($String* name) {
 	if ($nc(name)->length() == 0) {
 		return false;
 	}
-	for (int32_t i = 0; i < $nc(name)->length(); ++i) {
+	for (int32_t i = 0; i < name->length(); ++i) {
 		bool var$0 = name->charAt(i) == u'/';
 		if (var$0 || name->charAt(i) == u'\0') {
 			return false;
@@ -226,7 +185,7 @@ bool Realm::isValidRealmString($String* name) {
 }
 
 $bytes* Realm::asn1Encode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, out, $new($DerOutputStream));
 	out->putDerValue($($$new($KerberosString, this->realm)->toDerValue()));
 	return out->toByteArray();
@@ -234,15 +193,15 @@ $bytes* Realm::asn1Encode() {
 
 Realm* Realm::parse($DerInputStream* data, int8_t explicitTag, bool optional) {
 	$init(Realm);
-	$useLocalCurrentObjectStackCache();
-	if ((optional) && (((int32_t)((int8_t)$nc(data)->peekByte() & (uint32_t)(int32_t)(int8_t)31)) != explicitTag)) {
+	$useLocalObjectStack();
+	if ((optional) && (((int8_t)$nc(data)->peekByte() & (int8_t)31) != explicitTag)) {
 		return nullptr;
 	}
 	$var($DerValue, der, $nc(data)->getDerValue());
-	if (explicitTag != ((int32_t)($nc(der)->getTag() & (uint32_t)(int32_t)(int8_t)31))) {
+	if (explicitTag != ($nc(der)->getTag() & (int8_t)31)) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	} else {
-		$var($DerValue, subDer, $nc($(der->getData()))->getDerValue());
+		$var($DerValue, subDer, $$nc(der->getData())->getDerValue());
 		return $new(Realm, subDer);
 	}
 }
@@ -259,7 +218,7 @@ $StringArray* Realm::getRealmsList($String* cRealm, $String* sRealm) {
 
 $StringArray* Realm::parseCapaths($String* cRealm, $String* sRealm) {
 	$init(Realm);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Config, cfg, $Config::getInstance());
 	if (!$nc(cfg)->exists($$new($StringArray, {
 		"capaths"_s,
@@ -271,7 +230,7 @@ $StringArray* Realm::parseCapaths($String* cRealm, $String* sRealm) {
 	$var($LinkedList, path, $new($LinkedList));
 	$var($String, head, sRealm);
 	while (true) {
-		$var($String, value, $nc(cfg)->getAll($$new($StringArray, {
+		$var($String, value, cfg->getAll($$new($StringArray, {
 			"capaths"_s,
 			cRealm,
 			head
@@ -298,12 +257,12 @@ $StringArray* Realm::parseCapaths($String* cRealm, $String* sRealm) {
 		$assign(head, $cast($String, path->getFirst()));
 	}
 	path->addFirst(cRealm);
-	return $fcast($StringArray, path->toArray($$new($StringArray, path->size())));
+	return $cast($StringArray, path->toArray($$new($StringArray, path->size())));
 }
 
 $StringArray* Realm::parseHierarchy($String* cRealm, $String* sRealm) {
 	$init(Realm);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, cComponents, $nc(cRealm)->split("\\."_s));
 	$var($StringArray, sComponents, $nc(sRealm)->split("\\."_s));
 	int32_t cPos = cComponents->length;
@@ -323,7 +282,7 @@ $StringArray* Realm::parseHierarchy($String* cRealm, $String* sRealm) {
 		path->addLast($(subStringFrom(sComponents, i)));
 	}
 	path->removeLast();
-	return $fcast($StringArray, path->toArray($$new($StringArray, path->size())));
+	return $cast($StringArray, path->toArray($$new($StringArray, path->size())));
 }
 
 $String* Realm::subStringFrom($StringArray* components, int32_t from) {
@@ -338,7 +297,7 @@ $String* Realm::subStringFrom($StringArray* components, int32_t from) {
 	return sb->toString();
 }
 
-void clinit$Realm($Class* class$) {
+void Realm::clinit$($Class* clazz) {
 	Realm::AUTODEDUCEREALM = $GetBooleanAction::privilegedGetProperty("sun.security.krb5.autodeducerealm"_s);
 }
 
@@ -346,7 +305,42 @@ Realm::Realm() {
 }
 
 $Class* Realm::load$($String* name, bool initialize) {
-	$loadClass(Realm, name, initialize, &_Realm_ClassInfo_, clinit$Realm, allocate$Realm);
+	$FieldInfo fieldInfos$$[] = {
+		{"AUTODEDUCEREALM", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Realm, AUTODEDUCEREALM)},
+		{"realm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Realm, realm)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Realm, init$, void, $String*), "sun.security.krb5.RealmException"},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(Realm, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,java.io.IOException"},
+		{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(Realm, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Realm, clone, $Object*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Realm, equals, bool, Object$*)},
+		{"getDefault", "()Lsun/security/krb5/Realm;", nullptr, $PUBLIC | $STATIC, $staticMethod(Realm, getDefault, Realm*), "sun.security.krb5.RealmException"},
+		{"getRealmsList", "(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Realm, getRealmsList, $StringArray*, $String*, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Realm, hashCode, int32_t)},
+		{"isValidRealmString", "(Ljava/lang/String;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(Realm, isValidRealmString, bool, $String*)},
+		{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/Realm;", nullptr, $PUBLIC | $STATIC, $staticMethod(Realm, parse, Realm*, $DerInputStream*, int8_t, bool), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException"},
+		{"parseCapaths", "(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Realm, parseCapaths, $StringArray*, $String*, $String*), "sun.security.krb5.KrbException"},
+		{"parseHierarchy", "(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Realm, parseHierarchy, $StringArray*, $String*, $String*)},
+		{"parseRealm", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(Realm, parseRealm, $String*, $String*), "sun.security.krb5.RealmException"},
+		{"parseRealmAtSeparator", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Realm, parseRealmAtSeparator, $String*, $String*), "sun.security.krb5.RealmException"},
+		{"parseRealmComponent", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Realm, parseRealmComponent, $String*, $String*)},
+		{"subStringFrom", "([Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Realm, subStringFrom, $String*, $StringArray*, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Realm, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.Realm",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Realm, name, initialize, &classInfo$$, Realm::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Realm);
+	});
 	return class$;
 }
 

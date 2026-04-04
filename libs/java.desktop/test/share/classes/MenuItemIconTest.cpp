@@ -1,12 +1,10 @@
 #include <MenuItemIconTest.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
-#include <java/awt/Image.h>
 #include <java/awt/Point.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
@@ -21,7 +19,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <javax/swing/Icon.h>
 #include <javax/swing/ImageIcon.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JMenuBar.h>
@@ -41,7 +38,6 @@ using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
-using $Image = ::java::awt::Image;
 using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
 using $BufferedImage = ::java::awt::image::BufferedImage;
@@ -55,7 +51,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $Icon = ::javax::swing::Icon;
 using $ImageIcon = ::javax::swing::ImageIcon;
 using $JFrame = ::javax::swing::JFrame;
 using $JMenuBar = ::javax::swing::JMenuBar;
@@ -73,63 +68,27 @@ public:
 	virtual void run() override {
 		MenuItemIconTest::lambda$createUI$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MenuItemIconTest$$Lambda$lambda$createUI$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MenuItemIconTest$$Lambda$lambda$createUI$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MenuItemIconTest$$Lambda$lambda$createUI$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MenuItemIconTest$$Lambda$lambda$createUI$0, run, void)},
-	{}
-};
-$ClassInfo MenuItemIconTest$$Lambda$lambda$createUI$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"MenuItemIconTest$$Lambda$lambda$createUI$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* MenuItemIconTest$$Lambda$lambda$createUI$0::load$($String* name, bool initialize) {
-	$loadClass(MenuItemIconTest$$Lambda$lambda$createUI$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MenuItemIconTest$$Lambda$lambda$createUI$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MenuItemIconTest$$Lambda$lambda$createUI$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"MenuItemIconTest$$Lambda$lambda$createUI$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MenuItemIconTest$$Lambda$lambda$createUI$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MenuItemIconTest$$Lambda$lambda$createUI$0);
+	});
 	return class$;
 }
 $Class* MenuItemIconTest$$Lambda$lambda$createUI$0::class$ = nullptr;
-
-$FieldInfo _MenuItemIconTest_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(MenuItemIconTest, frame)},
-	{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(MenuItemIconTest, robot)},
-	{"errorMessage", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(MenuItemIconTest, errorMessage)},
-	{"menuItem", "Ljavax/swing/JMenuItem;", nullptr, $PRIVATE | $STATIC, $staticField(MenuItemIconTest, menuItem)},
-	{"IMAGE_WIDTH_AND_HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MenuItemIconTest, IMAGE_WIDTH_AND_HEIGHT)},
-	{}
-};
-
-$MethodInfo _MenuItemIconTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MenuItemIconTest, init$, void)},
-	{"checkPixeclColor", "(II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MenuItemIconTest, checkPixeclColor, void, int32_t, int32_t)},
-	{"createIcon", "()Ljavax/swing/ImageIcon;", nullptr, $PROTECTED | $STATIC, $staticMethod(MenuItemIconTest, createIcon, $ImageIcon*)},
-	{"createUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(MenuItemIconTest, createUI, void), "java.lang.Exception"},
-	{"executeTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(MenuItemIconTest, executeTest, void), "java.lang.Exception"},
-	{"lambda$createUI$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MenuItemIconTest, lambda$createUI$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MenuItemIconTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _MenuItemIconTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MenuItemIconTest",
-	"java.lang.Object",
-	nullptr,
-	_MenuItemIconTest_FieldInfo_,
-	_MenuItemIconTest_MethodInfo_
-};
-
-$Object* allocate$MenuItemIconTest($Class* clazz) {
-	return $of($alloc(MenuItemIconTest));
-}
 
 $JFrame* MenuItemIconTest::frame = nullptr;
 $Robot* MenuItemIconTest::robot = nullptr;
@@ -164,7 +123,7 @@ void MenuItemIconTest::main($StringArray* args) {
 
 void MenuItemIconTest::createUI() {
 	$init(MenuItemIconTest);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(MenuItemIconTest$$Lambda$lambda$createUI$0)));
+	$SwingUtilities::invokeAndWait($$new(MenuItemIconTest$$Lambda$lambda$createUI$0));
 }
 
 void MenuItemIconTest::checkPixeclColor(int32_t x, int32_t y) {
@@ -182,31 +141,31 @@ void MenuItemIconTest::checkPixeclColor(int32_t x, int32_t y) {
 
 $ImageIcon* MenuItemIconTest::createIcon() {
 	$init(MenuItemIconTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, bi, $new($BufferedImage, MenuItemIconTest::IMAGE_WIDTH_AND_HEIGHT, MenuItemIconTest::IMAGE_WIDTH_AND_HEIGHT, $BufferedImage::TYPE_INT_ARGB));
 	$var($Graphics, g, bi->createGraphics());
 	$init($Color);
 	$nc(g)->setColor($Color::RED);
 	g->fillOval(0, 0, MenuItemIconTest::IMAGE_WIDTH_AND_HEIGHT, MenuItemIconTest::IMAGE_WIDTH_AND_HEIGHT);
-	return $new($ImageIcon, static_cast<$Image*>(bi));
+	return $new($ImageIcon, bi);
 }
 
 void MenuItemIconTest::executeTest() {
 	$init(MenuItemIconTest);
 	$var($Point, point, $nc(MenuItemIconTest::menuItem)->getLocationOnScreen());
-	checkPixeclColor($nc(point)->x + MenuItemIconTest::IMAGE_WIDTH_AND_HEIGHT / 2, point->y + MenuItemIconTest::IMAGE_WIDTH_AND_HEIGHT / 2);
+	checkPixeclColor($nc(point)->x + MenuItemIconTest::IMAGE_WIDTH_AND_HEIGHT / 2, $nc(point)->y + MenuItemIconTest::IMAGE_WIDTH_AND_HEIGHT / 2);
 }
 
 void MenuItemIconTest::lambda$createUI$0() {
 	$init(MenuItemIconTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(MenuItemIconTest::frame, $new($JFrame));
-	$nc(MenuItemIconTest::frame)->setTitle("Test"_s);
+	MenuItemIconTest::frame->setTitle("Test"_s);
 	$var($JMenuBar, menuBar, $new($JMenuBar));
 	$var($ImageIcon, icon, createIcon());
-	$assignStatic(MenuItemIconTest::menuItem, $new($JMenuItem, "Command"_s, static_cast<$Icon*>(icon)));
-	$nc(MenuItemIconTest::menuItem)->setHorizontalTextPosition($SwingConstants::LEFT);
-	menuBar->add(static_cast<$Component*>(MenuItemIconTest::menuItem));
+	$assignStatic(MenuItemIconTest::menuItem, $new($JMenuItem, "Command"_s, icon));
+	MenuItemIconTest::menuItem->setHorizontalTextPosition($SwingConstants::LEFT);
+	menuBar->add(MenuItemIconTest::menuItem);
 	$nc(MenuItemIconTest::frame)->setJMenuBar(menuBar);
 	$nc(MenuItemIconTest::frame)->setPreferredSize($$new($Dimension, 500, 500));
 	$nc(MenuItemIconTest::frame)->pack();
@@ -214,7 +173,7 @@ void MenuItemIconTest::lambda$createUI$0() {
 	$nc(MenuItemIconTest::frame)->setLocationRelativeTo(nullptr);
 }
 
-void clinit$MenuItemIconTest($Class* class$) {
+void MenuItemIconTest::clinit$($Class* clazz) {
 	$assignStatic(MenuItemIconTest::errorMessage, ""_s);
 }
 
@@ -223,11 +182,39 @@ MenuItemIconTest::MenuItemIconTest() {
 
 $Class* MenuItemIconTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(MenuItemIconTest$$Lambda$lambda$createUI$0::classInfo$.name)) {
+		if (name->equals("MenuItemIconTest$$Lambda$lambda$createUI$0")) {
 			return MenuItemIconTest$$Lambda$lambda$createUI$0::load$(name, initialize);
 		}
 	}
-	$loadClass(MenuItemIconTest, name, initialize, &_MenuItemIconTest_ClassInfo_, clinit$MenuItemIconTest, allocate$MenuItemIconTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(MenuItemIconTest, frame)},
+		{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(MenuItemIconTest, robot)},
+		{"errorMessage", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(MenuItemIconTest, errorMessage)},
+		{"menuItem", "Ljavax/swing/JMenuItem;", nullptr, $PRIVATE | $STATIC, $staticField(MenuItemIconTest, menuItem)},
+		{"IMAGE_WIDTH_AND_HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MenuItemIconTest, IMAGE_WIDTH_AND_HEIGHT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MenuItemIconTest, init$, void)},
+		{"checkPixeclColor", "(II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MenuItemIconTest, checkPixeclColor, void, int32_t, int32_t)},
+		{"createIcon", "()Ljavax/swing/ImageIcon;", nullptr, $PROTECTED | $STATIC, $staticMethod(MenuItemIconTest, createIcon, $ImageIcon*)},
+		{"createUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(MenuItemIconTest, createUI, void), "java.lang.Exception"},
+		{"executeTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(MenuItemIconTest, executeTest, void), "java.lang.Exception"},
+		{"lambda$createUI$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MenuItemIconTest, lambda$createUI$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MenuItemIconTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MenuItemIconTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MenuItemIconTest, name, initialize, &classInfo$$, MenuItemIconTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MenuItemIconTest);
+	});
 	return class$;
 }
 

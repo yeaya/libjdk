@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XWM$1.h>
-
 #include <sun/awt/X11/XConstants.h>
 #include <sun/awt/X11/XErrorEvent.h>
 #include <sun/awt/X11/XErrorHandler$XBaseErrorHandler.h>
@@ -22,50 +21,12 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$MethodInfo _XWM$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(XWM$1, init$, void)},
-	{"handleError", "(JLsun/awt/X11/XErrorEvent;)I", nullptr, $PUBLIC, $virtualMethod(XWM$1, handleError, int32_t, int64_t, $XErrorEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _XWM$1_EnclosingMethodInfo_ = {
-	"sun.awt.X11.XWM",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _XWM$1_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XWM$1", nullptr, nullptr, 0},
-	{"sun.awt.X11.XErrorHandler$XBaseErrorHandler", "sun.awt.X11.XErrorHandler", "XBaseErrorHandler", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _XWM$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XWM$1",
-	"sun.awt.X11.XErrorHandler$XBaseErrorHandler",
-	nullptr,
-	nullptr,
-	_XWM$1_MethodInfo_,
-	nullptr,
-	&_XWM$1_EnclosingMethodInfo_,
-	_XWM$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XWM"
-};
-
-$Object* allocate$XWM$1($Class* clazz) {
-	return $of($alloc(XWM$1));
-}
-
 void XWM$1::init$() {
 	$XErrorHandler$XBaseErrorHandler::init$();
 }
 
 int32_t XWM$1::handleError(int64_t display, $XErrorEvent* err) {
-	bool var$0 = ($nc(err)->get_request_code() == $XProtocolConstants::X_ChangeWindowAttributes);
+	bool var$0 = $nc(err)->get_request_code() == $XProtocolConstants::X_ChangeWindowAttributes;
 	if (var$0 && (err->get_error_code() == $XConstants::BadAccess)) {
 		$init($XWM);
 		$XWM::winmgr_running = true;
@@ -78,7 +39,39 @@ XWM$1::XWM$1() {
 }
 
 $Class* XWM$1::load$($String* name, bool initialize) {
-	$loadClass(XWM$1, name, initialize, &_XWM$1_ClassInfo_, allocate$XWM$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(XWM$1, init$, void)},
+		{"handleError", "(JLsun/awt/X11/XErrorEvent;)I", nullptr, $PUBLIC, $virtualMethod(XWM$1, handleError, int32_t, int64_t, $XErrorEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.X11.XWM",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XWM$1", nullptr, nullptr, 0},
+		{"sun.awt.X11.XErrorHandler$XBaseErrorHandler", "sun.awt.X11.XErrorHandler", "XBaseErrorHandler", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XWM$1",
+		"sun.awt.X11.XErrorHandler$XBaseErrorHandler",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XWM"
+	};
+	$loadClass(XWM$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XWM$1);
+	});
 	return class$;
 }
 

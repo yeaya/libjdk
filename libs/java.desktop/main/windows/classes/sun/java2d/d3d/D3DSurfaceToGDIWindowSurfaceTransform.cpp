@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DSurfaceToGDIWindowSurfaceTransform.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <sun/java2d/SurfaceData.h>
@@ -28,25 +27,6 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$MethodInfo _D3DSurfaceToGDIWindowSurfaceTransform_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(D3DSurfaceToGDIWindowSurfaceTransform, init$, void)},
-	{"Transform", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIII)V", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceToGDIWindowSurfaceTransform, Transform, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _D3DSurfaceToGDIWindowSurfaceTransform_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.d3d.D3DSurfaceToGDIWindowSurfaceTransform",
-	"sun.java2d.loops.TransformBlit",
-	nullptr,
-	nullptr,
-	_D3DSurfaceToGDIWindowSurfaceTransform_MethodInfo_
-};
-
-$Object* allocate$D3DSurfaceToGDIWindowSurfaceTransform($Class* clazz) {
-	return $of($alloc(D3DSurfaceToGDIWindowSurfaceTransform));
-}
-
 void D3DSurfaceToGDIWindowSurfaceTransform::init$() {
 	$init($D3DSurfaceData);
 	$init($CompositeType);
@@ -62,7 +42,22 @@ D3DSurfaceToGDIWindowSurfaceTransform::D3DSurfaceToGDIWindowSurfaceTransform() {
 }
 
 $Class* D3DSurfaceToGDIWindowSurfaceTransform::load$($String* name, bool initialize) {
-	$loadClass(D3DSurfaceToGDIWindowSurfaceTransform, name, initialize, &_D3DSurfaceToGDIWindowSurfaceTransform_ClassInfo_, allocate$D3DSurfaceToGDIWindowSurfaceTransform);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(D3DSurfaceToGDIWindowSurfaceTransform, init$, void)},
+		{"Transform", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIII)V", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceToGDIWindowSurfaceTransform, Transform, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.d3d.D3DSurfaceToGDIWindowSurfaceTransform",
+		"sun.java2d.loops.TransformBlit",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(D3DSurfaceToGDIWindowSurfaceTransform, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DSurfaceToGDIWindowSurfaceTransform);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java.logging.test.h>
-
 #include <java.logging.h>
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>

@@ -1,5 +1,4 @@
 #include <javax/management/AttributeNotFoundException.h>
-
 #include <javax/management/OperationsException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $OperationsException = ::javax::management::OperationsException;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _AttributeNotFoundException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttributeNotFoundException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AttributeNotFoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AttributeNotFoundException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AttributeNotFoundException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _AttributeNotFoundException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.AttributeNotFoundException",
-	"javax.management.OperationsException",
-	nullptr,
-	_AttributeNotFoundException_FieldInfo_,
-	_AttributeNotFoundException_MethodInfo_
-};
-
-$Object* allocate$AttributeNotFoundException($Class* clazz) {
-	return $of($alloc(AttributeNotFoundException));
-}
 
 void AttributeNotFoundException::init$() {
 	$OperationsException::init$();
@@ -54,7 +29,26 @@ void AttributeNotFoundException::throw$() {
 }
 
 $Class* AttributeNotFoundException::load$($String* name, bool initialize) {
-	$loadClass(AttributeNotFoundException, name, initialize, &_AttributeNotFoundException_ClassInfo_, allocate$AttributeNotFoundException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttributeNotFoundException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AttributeNotFoundException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AttributeNotFoundException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.AttributeNotFoundException",
+		"javax.management.OperationsException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AttributeNotFoundException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AttributeNotFoundException);
+	});
 	return class$;
 }
 

@@ -39,6 +39,7 @@ class AquaButtonExtendedTypes : public ::java::lang::Object {
 	$class(AquaButtonExtendedTypes, 0, ::java::lang::Object)
 public:
 	AquaButtonExtendedTypes();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Map* getAllTypes();
 	static ::javax::swing::border::Border* getBorderForPosition(::javax::swing::AbstractButton* c, Object$* type, Object$* logicalPosition);

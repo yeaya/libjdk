@@ -22,6 +22,7 @@ class $import AreaAveragingScaleFilter : public ::java::awt::image::ReplicateSca
 	$class(AreaAveragingScaleFilter, 0, ::java::awt::image::ReplicateScaleFilter)
 public:
 	AreaAveragingScaleFilter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t width, int32_t height);
 	void accumPixels(int32_t x, int32_t y, int32_t w, int32_t h, ::java::awt::image::ColorModel* model, Object$* pixels, int32_t off, int32_t scansize);
 	$ints* calcRow();

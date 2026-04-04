@@ -21,6 +21,7 @@ class XErrorHandler$VerifyChangePropertyHandler : public ::sun::awt::X11::XError
 	$class(XErrorHandler$VerifyChangePropertyHandler, 0, ::sun::awt::X11::XErrorHandler$XBaseErrorHandler)
 public:
 	XErrorHandler$VerifyChangePropertyHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::awt::X11::XErrorHandler$VerifyChangePropertyHandler* getInstance();
 	virtual int32_t handleError(int64_t display, ::sun::awt::X11::XErrorEvent* err) override;

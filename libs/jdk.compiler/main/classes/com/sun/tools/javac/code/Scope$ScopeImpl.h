@@ -68,6 +68,7 @@ public:
 	using ::com::sun::tools::javac::code::Scope$WriteableScope::getSymbolsByName;
 	using ::com::sun::tools::javac::code::Scope$WriteableScope::findFirst;
 	using ::com::sun::tools::javac::code::Scope$WriteableScope::includes;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::code::Scope$ScopeImpl* next, ::com::sun::tools::javac::code::Symbol* owner, $Array<::com::sun::tools::javac::code::Scope$Entry>* table);
 	void init$(::com::sun::tools::javac::code::Scope$ScopeImpl* next, ::com::sun::tools::javac::code::Symbol* owner, $Array<::com::sun::tools::javac::code::Scope$Entry>* table, int32_t nelems);
 	void init$(::com::sun::tools::javac::code::Symbol* owner);

@@ -36,6 +36,7 @@ class DigestClientId : public ::com::sun::jndi::ldap::SimpleClientId {
 	$class(DigestClientId, 0, ::com::sun::jndi::ldap::SimpleClientId)
 public:
 	DigestClientId();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t version, $String* hostname, int32_t port, $String* protocol, $Array<::javax::naming::ldap::Control>* bindCtls, ::java::io::OutputStream* trace, $String* socketFactory, $String* username, Object$* passwd, ::java::util::Hashtable* env);
 	virtual bool equals(Object$* obj) override;
 	virtual int32_t hashCode() override;

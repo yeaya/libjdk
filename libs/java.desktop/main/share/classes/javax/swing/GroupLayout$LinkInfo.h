@@ -23,6 +23,7 @@ class GroupLayout$LinkInfo : public ::java::lang::Object {
 	$class(GroupLayout$LinkInfo, 0, ::java::lang::Object)
 public:
 	GroupLayout$LinkInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t axis);
 	virtual void add(::javax::swing::GroupLayout$ComponentInfo* child);
 	int32_t calculateLinkedSize(int32_t axis);

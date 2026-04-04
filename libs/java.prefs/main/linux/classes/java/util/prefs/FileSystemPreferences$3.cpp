@@ -1,5 +1,4 @@
 #include <java/util/prefs/FileSystemPreferences$3.h>
-
 #include <java/util/TimerTask.h>
 #include <java/util/prefs/FileSystemPreferences.h>
 #include <jcpp.h>
@@ -15,43 +14,6 @@ namespace java {
 	namespace util {
 		namespace prefs {
 
-$MethodInfo _FileSystemPreferences$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(FileSystemPreferences$3, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferences$3, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _FileSystemPreferences$3_EnclosingMethodInfo_ = {
-	"java.util.prefs.FileSystemPreferences",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _FileSystemPreferences$3_InnerClassesInfo_[] = {
-	{"java.util.prefs.FileSystemPreferences$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FileSystemPreferences$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.prefs.FileSystemPreferences$3",
-	"java.util.TimerTask",
-	nullptr,
-	nullptr,
-	_FileSystemPreferences$3_MethodInfo_,
-	nullptr,
-	&_FileSystemPreferences$3_EnclosingMethodInfo_,
-	_FileSystemPreferences$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.prefs.FileSystemPreferences"
-};
-
-$Object* allocate$FileSystemPreferences$3($Class* clazz) {
-	return $of($alloc(FileSystemPreferences$3));
-}
-
 void FileSystemPreferences$3::init$() {
 	$TimerTask::init$();
 }
@@ -64,7 +26,38 @@ FileSystemPreferences$3::FileSystemPreferences$3() {
 }
 
 $Class* FileSystemPreferences$3::load$($String* name, bool initialize) {
-	$loadClass(FileSystemPreferences$3, name, initialize, &_FileSystemPreferences$3_ClassInfo_, allocate$FileSystemPreferences$3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(FileSystemPreferences$3, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferences$3, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.prefs.FileSystemPreferences",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.prefs.FileSystemPreferences$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.prefs.FileSystemPreferences$3",
+		"java.util.TimerTask",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.prefs.FileSystemPreferences"
+	};
+	$loadClass(FileSystemPreferences$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileSystemPreferences$3);
+	});
 	return class$;
 }
 

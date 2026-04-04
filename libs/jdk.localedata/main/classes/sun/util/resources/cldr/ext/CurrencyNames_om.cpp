@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/CurrencyNames_om.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,71 +13,52 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _CurrencyNames_om_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_om, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_om, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_om_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.CurrencyNames_om",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_om_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_om($Class* clazz) {
-	return $of($alloc(CurrencyNames_om));
-}
-
 void CurrencyNames_om::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_om::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("ETB"_s),
-			$of("Br"_s)
+			"ETB"_s,
+			"Br"_s
 		}),
 		$$new($ObjectArray, {
-			$of("brl"_s),
-			$of("Brazilian Real"_s)
+			"brl"_s,
+			"Brazilian Real"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cny"_s),
-			$of("Chinese Yuan Renminbi"_s)
+			"cny"_s,
+			"Chinese Yuan Renminbi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("etb"_s),
-			$of("Itoophiyaa Birrii"_s)
+			"etb"_s,
+			"Itoophiyaa Birrii"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eur"_s),
-			$of("Euro"_s)
+			"eur"_s,
+			"Euro"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gbp"_s),
-			$of("British Pound"_s)
+			"gbp"_s,
+			"British Pound"_s
 		}),
 		$$new($ObjectArray, {
-			$of("inr"_s),
-			$of("Indian Rupee"_s)
+			"inr"_s,
+			"Indian Rupee"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jpy"_s),
-			$of("Japanese Yen"_s)
+			"jpy"_s,
+			"Japanese Yen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rub"_s),
-			$of("Russian Ruble"_s)
+			"rub"_s,
+			"Russian Ruble"_s
 		}),
 		$$new($ObjectArray, {
-			$of("usd"_s),
-			$of("US Dollar"_s)
+			"usd"_s,
+			"US Dollar"_s
 		})
 	}));
 	return data;
@@ -88,7 +68,22 @@ CurrencyNames_om::CurrencyNames_om() {
 }
 
 $Class* CurrencyNames_om::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_om, name, initialize, &_CurrencyNames_om_ClassInfo_, allocate$CurrencyNames_om);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_om, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_om, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.CurrencyNames_om",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_om, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_om);
+	});
 	return class$;
 }
 

@@ -78,6 +78,7 @@ class $export JavacTypes : public ::javax::lang::model::util::Types {
 	$class(JavacTypes, 0, ::javax::lang::model::util::Types)
 public:
 	JavacTypes();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual ::javax::lang::model::element::Element* asElement(::javax::lang::model::type::TypeMirror* t) override;
 	virtual ::javax::lang::model::type::TypeMirror* asMemberOf(::javax::lang::model::type::DeclaredType* containing, ::javax::lang::model::element::Element* element) override;

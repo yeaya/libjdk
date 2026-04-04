@@ -26,10 +26,13 @@ public:
 	void init$();
 	void init$(::java::lang::Exception* e);
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0xF3CD75CCDD4678F3;
+	static const int64_t serialVersionUID = (int64_t)0xf3cd75ccdd4678f3;
 	TransletException(const TransletException& e);
 	virtual void throw$() override;
-	inline TransletException* operator ->() {
+	inline TransletException* operator ->() const {
+		return (TransletException*)throwing$;
+	}
+	inline operator TransletException*() const {
 		return (TransletException*)throwing$;
 	}
 };

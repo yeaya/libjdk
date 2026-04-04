@@ -1,5 +1,4 @@
 #include <sun/awt/image/FetcherInfo.h>
-
 #include <java/lang/StringBuffer.h>
 #include <java/util/Vector.h>
 #include <sun/awt/AppContext.h>
@@ -19,35 +18,6 @@ namespace sun {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _FetcherInfo_FieldInfo_[] = {
-	{"MAX_NUM_FETCHERS_PER_APPCONTEXT", "I", nullptr, $STATIC | $FINAL, $constField(FetcherInfo, MAX_NUM_FETCHERS_PER_APPCONTEXT)},
-	{"fetchers", "[Ljava/lang/Thread;", nullptr, 0, $field(FetcherInfo, fetchers)},
-	{"numFetchers", "I", nullptr, 0, $field(FetcherInfo, numFetchers)},
-	{"numWaiting", "I", nullptr, 0, $field(FetcherInfo, numWaiting)},
-	{"waitList", "Ljava/util/Vector;", "Ljava/util/Vector<Lsun/awt/image/ImageFetchable;>;", 0, $field(FetcherInfo, waitList)},
-	{"FETCHER_INFO_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FetcherInfo, FETCHER_INFO_KEY)},
-	{}
-};
-
-$MethodInfo _FetcherInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(FetcherInfo, init$, void)},
-	{"getFetcherInfo", "()Lsun/awt/image/FetcherInfo;", nullptr, $STATIC, $staticMethod(FetcherInfo, getFetcherInfo, FetcherInfo*)},
-	{}
-};
-
-$ClassInfo _FetcherInfo_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.image.FetcherInfo",
-	"java.lang.Object",
-	nullptr,
-	_FetcherInfo_FieldInfo_,
-	_FetcherInfo_MethodInfo_
-};
-
-$Object* allocate$FetcherInfo($Class* clazz) {
-	return $of($alloc(FetcherInfo));
-}
-
 $Object* FetcherInfo::FETCHER_INFO_KEY = nullptr;
 
 void FetcherInfo::init$() {
@@ -59,10 +29,10 @@ void FetcherInfo::init$() {
 
 FetcherInfo* FetcherInfo::getFetcherInfo() {
 	$init(FetcherInfo);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, appContext, $AppContext::getAppContext());
 	$synchronized(appContext) {
-		$var(FetcherInfo, info, $cast(FetcherInfo, $nc(appContext)->get(FetcherInfo::FETCHER_INFO_KEY)));
+		$var(FetcherInfo, info, $cast(FetcherInfo, appContext->get(FetcherInfo::FETCHER_INFO_KEY)));
 		if (info == nullptr) {
 			$assign(info, $new(FetcherInfo));
 			appContext->put(FetcherInfo::FETCHER_INFO_KEY, info);
@@ -71,7 +41,7 @@ FetcherInfo* FetcherInfo::getFetcherInfo() {
 	}
 }
 
-void clinit$FetcherInfo($Class* class$) {
+void FetcherInfo::clinit$($Class* clazz) {
 	$assignStatic(FetcherInfo::FETCHER_INFO_KEY, $new($StringBuffer, "FetcherInfo"_s));
 }
 
@@ -79,7 +49,31 @@ FetcherInfo::FetcherInfo() {
 }
 
 $Class* FetcherInfo::load$($String* name, bool initialize) {
-	$loadClass(FetcherInfo, name, initialize, &_FetcherInfo_ClassInfo_, clinit$FetcherInfo, allocate$FetcherInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_NUM_FETCHERS_PER_APPCONTEXT", "I", nullptr, $STATIC | $FINAL, $constField(FetcherInfo, MAX_NUM_FETCHERS_PER_APPCONTEXT)},
+		{"fetchers", "[Ljava/lang/Thread;", nullptr, 0, $field(FetcherInfo, fetchers)},
+		{"numFetchers", "I", nullptr, 0, $field(FetcherInfo, numFetchers)},
+		{"numWaiting", "I", nullptr, 0, $field(FetcherInfo, numWaiting)},
+		{"waitList", "Ljava/util/Vector;", "Ljava/util/Vector<Lsun/awt/image/ImageFetchable;>;", 0, $field(FetcherInfo, waitList)},
+		{"FETCHER_INFO_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FetcherInfo, FETCHER_INFO_KEY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(FetcherInfo, init$, void)},
+		{"getFetcherInfo", "()Lsun/awt/image/FetcherInfo;", nullptr, $STATIC, $staticMethod(FetcherInfo, getFetcherInfo, FetcherInfo*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.image.FetcherInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FetcherInfo, name, initialize, &classInfo$$, FetcherInfo::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FetcherInfo);
+	});
 	return class$;
 }
 

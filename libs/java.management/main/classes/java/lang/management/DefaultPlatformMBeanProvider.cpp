@@ -1,5 +1,4 @@
 #include <java/lang/management/DefaultPlatformMBeanProvider.h>
-
 #include <java/lang/management/DefaultPlatformMBeanProvider$1.h>
 #include <java/lang/management/DefaultPlatformMBeanProvider$10.h>
 #include <java/lang/management/DefaultPlatformMBeanProvider$11.h>
@@ -43,52 +42,6 @@ namespace java {
 	namespace lang {
 		namespace management {
 
-$FieldInfo _DefaultPlatformMBeanProvider_FieldInfo_[] = {
-	{"mxbeanList", "Ljava/util/List;", "Ljava/util/List<Lsun/management/spi/PlatformMBeanProvider$PlatformComponent<*>;>;", $PRIVATE | $FINAL, $field(DefaultPlatformMBeanProvider, mxbeanList)},
-	{}
-};
-
-$MethodInfo _DefaultPlatformMBeanProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DefaultPlatformMBeanProvider, init$, void)},
-	{"getPlatformComponentList", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/spi/PlatformMBeanProvider$PlatformComponent<*>;>;", $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider, getPlatformComponentList, $List*)},
-	{"init", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/spi/PlatformMBeanProvider$PlatformComponent<*>;>;", $PRIVATE, $method(DefaultPlatformMBeanProvider, init, $List*)},
-	{}
-};
-
-$InnerClassInfo _DefaultPlatformMBeanProvider_InnerClassesInfo_[] = {
-	{"java.lang.management.DefaultPlatformMBeanProvider$11", nullptr, nullptr, 0},
-	{"java.lang.management.DefaultPlatformMBeanProvider$10", nullptr, nullptr, 0},
-	{"java.lang.management.DefaultPlatformMBeanProvider$9", nullptr, nullptr, 0},
-	{"java.lang.management.DefaultPlatformMBeanProvider$8", nullptr, nullptr, 0},
-	{"java.lang.management.DefaultPlatformMBeanProvider$7", nullptr, nullptr, 0},
-	{"java.lang.management.DefaultPlatformMBeanProvider$6", nullptr, nullptr, 0},
-	{"java.lang.management.DefaultPlatformMBeanProvider$5", nullptr, nullptr, 0},
-	{"java.lang.management.DefaultPlatformMBeanProvider$4", nullptr, nullptr, 0},
-	{"java.lang.management.DefaultPlatformMBeanProvider$3", nullptr, nullptr, 0},
-	{"java.lang.management.DefaultPlatformMBeanProvider$2", nullptr, nullptr, 0},
-	{"java.lang.management.DefaultPlatformMBeanProvider$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DefaultPlatformMBeanProvider_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.management.DefaultPlatformMBeanProvider",
-	"sun.management.spi.PlatformMBeanProvider",
-	nullptr,
-	_DefaultPlatformMBeanProvider_FieldInfo_,
-	_DefaultPlatformMBeanProvider_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultPlatformMBeanProvider_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.management.DefaultPlatformMBeanProvider$11,java.lang.management.DefaultPlatformMBeanProvider$10,java.lang.management.DefaultPlatformMBeanProvider$9,java.lang.management.DefaultPlatformMBeanProvider$8,java.lang.management.DefaultPlatformMBeanProvider$7,java.lang.management.DefaultPlatformMBeanProvider$6,java.lang.management.DefaultPlatformMBeanProvider$5,java.lang.management.DefaultPlatformMBeanProvider$4,java.lang.management.DefaultPlatformMBeanProvider$3,java.lang.management.DefaultPlatformMBeanProvider$2,java.lang.management.DefaultPlatformMBeanProvider$1"
-};
-
-$Object* allocate$DefaultPlatformMBeanProvider($Class* clazz) {
-	return $of($alloc(DefaultPlatformMBeanProvider));
-}
-
 void DefaultPlatformMBeanProvider::init$() {
 	$PlatformMBeanProvider::init$();
 	$set(this, mxbeanList, $Collections::unmodifiableList($(init())));
@@ -99,7 +52,7 @@ $List* DefaultPlatformMBeanProvider::getPlatformComponentList() {
 }
 
 $List* DefaultPlatformMBeanProvider::init() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, initMBeanList, $new($ArrayList));
 	initMBeanList->add($$new($DefaultPlatformMBeanProvider$1, this));
 	initMBeanList->add($$new($DefaultPlatformMBeanProvider$2, this));
@@ -122,7 +75,47 @@ DefaultPlatformMBeanProvider::DefaultPlatformMBeanProvider() {
 }
 
 $Class* DefaultPlatformMBeanProvider::load$($String* name, bool initialize) {
-	$loadClass(DefaultPlatformMBeanProvider, name, initialize, &_DefaultPlatformMBeanProvider_ClassInfo_, allocate$DefaultPlatformMBeanProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"mxbeanList", "Ljava/util/List;", "Ljava/util/List<Lsun/management/spi/PlatformMBeanProvider$PlatformComponent<*>;>;", $PRIVATE | $FINAL, $field(DefaultPlatformMBeanProvider, mxbeanList)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DefaultPlatformMBeanProvider, init$, void)},
+		{"getPlatformComponentList", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/spi/PlatformMBeanProvider$PlatformComponent<*>;>;", $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider, getPlatformComponentList, $List*)},
+		{"init", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/spi/PlatformMBeanProvider$PlatformComponent<*>;>;", $PRIVATE, $method(DefaultPlatformMBeanProvider, init, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.management.DefaultPlatformMBeanProvider$11", nullptr, nullptr, 0},
+		{"java.lang.management.DefaultPlatformMBeanProvider$10", nullptr, nullptr, 0},
+		{"java.lang.management.DefaultPlatformMBeanProvider$9", nullptr, nullptr, 0},
+		{"java.lang.management.DefaultPlatformMBeanProvider$8", nullptr, nullptr, 0},
+		{"java.lang.management.DefaultPlatformMBeanProvider$7", nullptr, nullptr, 0},
+		{"java.lang.management.DefaultPlatformMBeanProvider$6", nullptr, nullptr, 0},
+		{"java.lang.management.DefaultPlatformMBeanProvider$5", nullptr, nullptr, 0},
+		{"java.lang.management.DefaultPlatformMBeanProvider$4", nullptr, nullptr, 0},
+		{"java.lang.management.DefaultPlatformMBeanProvider$3", nullptr, nullptr, 0},
+		{"java.lang.management.DefaultPlatformMBeanProvider$2", nullptr, nullptr, 0},
+		{"java.lang.management.DefaultPlatformMBeanProvider$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.management.DefaultPlatformMBeanProvider",
+		"sun.management.spi.PlatformMBeanProvider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.management.DefaultPlatformMBeanProvider$11,java.lang.management.DefaultPlatformMBeanProvider$10,java.lang.management.DefaultPlatformMBeanProvider$9,java.lang.management.DefaultPlatformMBeanProvider$8,java.lang.management.DefaultPlatformMBeanProvider$7,java.lang.management.DefaultPlatformMBeanProvider$6,java.lang.management.DefaultPlatformMBeanProvider$5,java.lang.management.DefaultPlatformMBeanProvider$4,java.lang.management.DefaultPlatformMBeanProvider$3,java.lang.management.DefaultPlatformMBeanProvider$2,java.lang.management.DefaultPlatformMBeanProvider$1"
+	};
+	$loadClass(DefaultPlatformMBeanProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultPlatformMBeanProvider);
+	});
 	return class$;
 }
 

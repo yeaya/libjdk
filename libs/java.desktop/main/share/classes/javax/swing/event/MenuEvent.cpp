@@ -1,5 +1,4 @@
 #include <javax/swing/event/MenuEvent.h>
-
 #include <java/util/EventObject.h>
 #include <jcpp.h>
 
@@ -11,24 +10,6 @@ namespace javax {
 	namespace swing {
 		namespace event {
 
-$MethodInfo _MenuEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(MenuEvent, init$, void, Object$*)},
-	{}
-};
-
-$ClassInfo _MenuEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.event.MenuEvent",
-	"java.util.EventObject",
-	nullptr,
-	nullptr,
-	_MenuEvent_MethodInfo_
-};
-
-$Object* allocate$MenuEvent($Class* clazz) {
-	return $of($alloc(MenuEvent));
-}
-
 void MenuEvent::init$(Object$* source) {
 	$EventObject::init$(source);
 }
@@ -37,7 +18,21 @@ MenuEvent::MenuEvent() {
 }
 
 $Class* MenuEvent::load$($String* name, bool initialize) {
-	$loadClass(MenuEvent, name, initialize, &_MenuEvent_ClassInfo_, allocate$MenuEvent);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(MenuEvent, init$, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.event.MenuEvent",
+		"java.util.EventObject",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MenuEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MenuEvent);
+	});
 	return class$;
 }
 

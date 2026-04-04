@@ -1,5 +1,4 @@
 #include <com/sun/beans/introspect/PropertyInfo.h>
-
 #include <com/sun/beans/finder/ClassFinder.h>
 #include <com/sun/beans/introspect/ClassInfo.h>
 #include <com/sun/beans/introspect/MethodInfo.h>
@@ -29,18 +28,18 @@
 #undef VETO_EXCEPTION_NAME
 
 using $ClassFinder = ::com::sun::beans::finder::ClassFinder;
-using $1ClassInfo = ::com::sun::beans::introspect::ClassInfo;
-using $1MethodInfo = ::com::sun::beans::introspect::MethodInfo;
+using $ClassInfo = ::com::sun::beans::introspect::ClassInfo;
+using $MethodInfo = ::com::sun::beans::introspect::MethodInfo;
 using $PropertyInfo$Name = ::com::sun::beans::introspect::PropertyInfo$Name;
 using $BeanProperty = ::java::beans::BeanProperty;
 using $Boolean = ::java::lang::Boolean;
-using $ClassInfo = ::java::lang::ClassInfo;
+using $1ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
-using $MethodInfo = ::java::lang::MethodInfo;
+using $1MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
 using $Field = ::java::lang::reflect::Field;
 using $Method = ::java::lang::reflect::Method;
@@ -48,7 +47,6 @@ using $Modifier = ::java::lang::reflect::Modifier;
 using $Type = ::java::lang::reflect::Type;
 using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $EnumMap = ::java::util::EnumMap;
 using $Iterator = ::java::util::Iterator;
@@ -61,64 +59,6 @@ namespace com {
 		namespace beans {
 			namespace introspect {
 
-$FieldInfo _PropertyInfo_FieldInfo_[] = {
-	{"VETO_EXCEPTION_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PropertyInfo, VETO_EXCEPTION_NAME)},
-	{"VETO_EXCEPTION", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(PropertyInfo, VETO_EXCEPTION)},
-	{"type", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(PropertyInfo, type)},
-	{"read", "Lcom/sun/beans/introspect/MethodInfo;", nullptr, $PRIVATE, $field(PropertyInfo, read)},
-	{"write", "Lcom/sun/beans/introspect/MethodInfo;", nullptr, $PRIVATE, $field(PropertyInfo, write)},
-	{"indexed", "Lcom/sun/beans/introspect/PropertyInfo;", nullptr, $PRIVATE, $field(PropertyInfo, indexed)},
-	{"readList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/beans/introspect/MethodInfo;>;", $PRIVATE, $field(PropertyInfo, readList)},
-	{"writeList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/beans/introspect/MethodInfo;>;", $PRIVATE, $field(PropertyInfo, writeList)},
-	{"map", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/beans/introspect/PropertyInfo$Name;Ljava/lang/Object;>;", $PRIVATE, $field(PropertyInfo, map)},
-	{}
-};
-
-$MethodInfo _PropertyInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(PropertyInfo, init$, void)},
-	{"add", "(Ljava/util/List;Ljava/lang/reflect/Method;Ljava/lang/reflect/Type;)Ljava/util/List;", "(Ljava/util/List<Lcom/sun/beans/introspect/MethodInfo;>;Ljava/lang/reflect/Method;Ljava/lang/reflect/Type;)Ljava/util/List<Lcom/sun/beans/introspect/MethodInfo;>;", $PRIVATE | $STATIC, $staticMethod(PropertyInfo, add, $List*, $List*, $Method*, $Type*)},
-	{"get", "(Lcom/sun/beans/introspect/PropertyInfo$Name;)Ljava/lang/Object;", nullptr, $PUBLIC, $method(PropertyInfo, get, $Object*, $PropertyInfo$Name*)},
-	{"get", "(Ljava/lang/Class;)Ljava/util/Map;", "(Ljava/lang/Class<*>;)Ljava/util/Map<Ljava/lang/String;Lcom/sun/beans/introspect/PropertyInfo;>;", $PUBLIC | $STATIC, $staticMethod(PropertyInfo, get, $Map*, $Class*)},
-	{"getIndexed", "()Lcom/sun/beans/introspect/PropertyInfo;", nullptr, $PUBLIC, $method(PropertyInfo, getIndexed, PropertyInfo*)},
-	{"getInfo", "(Ljava/util/Map;Ljava/lang/String;Z)Lcom/sun/beans/introspect/PropertyInfo;", "(Ljava/util/Map<Ljava/lang/String;Lcom/sun/beans/introspect/PropertyInfo;>;Ljava/lang/String;Z)Lcom/sun/beans/introspect/PropertyInfo;", $PRIVATE | $STATIC, $staticMethod(PropertyInfo, getInfo, PropertyInfo*, $Map*, $String*, bool)},
-	{"getPropertyType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(PropertyInfo, getPropertyType, $Class*)},
-	{"getReadMethod", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $method(PropertyInfo, getReadMethod, $Method*)},
-	{"getWriteMethod", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $method(PropertyInfo, getWriteMethod, $Method*)},
-	{"initialize", "()Z", nullptr, $PRIVATE, $method(PropertyInfo, initialize, bool)},
-	{"initialize", "(Lcom/sun/beans/introspect/MethodInfo;)Z", nullptr, $PRIVATE, $method(PropertyInfo, initialize, bool, $1MethodInfo*)},
-	{"is", "(Lcom/sun/beans/introspect/PropertyInfo$Name;)Z", nullptr, $PUBLIC, $method(PropertyInfo, is, bool, $PropertyInfo$Name*)},
-	{"isConstrained", "()Z", nullptr, $PUBLIC, $method(PropertyInfo, isConstrained, bool)},
-	{"isPrefix", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(PropertyInfo, isPrefix, bool, $String*, $String*)},
-	{"put", "(Lcom/sun/beans/introspect/PropertyInfo$Name;Z)V", nullptr, $PRIVATE, $method(PropertyInfo, put, void, $PropertyInfo$Name*, bool)},
-	{"put", "(Lcom/sun/beans/introspect/PropertyInfo$Name;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(PropertyInfo, put, void, $PropertyInfo$Name*, $String*)},
-	{"put", "(Lcom/sun/beans/introspect/PropertyInfo$Name;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(PropertyInfo, put, void, $PropertyInfo$Name*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _PropertyInfo_InnerClassesInfo_[] = {
-	{"com.sun.beans.introspect.PropertyInfo$Name", "com.sun.beans.introspect.PropertyInfo", "Name", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _PropertyInfo_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.beans.introspect.PropertyInfo",
-	"java.lang.Object",
-	nullptr,
-	_PropertyInfo_FieldInfo_,
-	_PropertyInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PropertyInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.beans.introspect.PropertyInfo$Name"
-};
-
-$Object* allocate$PropertyInfo($Class* clazz) {
-	return $of($alloc(PropertyInfo));
-}
-
 $String* PropertyInfo::VETO_EXCEPTION_NAME = nullptr;
 $Class* PropertyInfo::VETO_EXCEPTION = nullptr;
 
@@ -126,22 +66,20 @@ void PropertyInfo::init$() {
 }
 
 bool PropertyInfo::initialize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool isInitedToIsGetter = false;
 	if (this->read != nullptr) {
-		$set(this, type, $nc(this->read)->type);
-		isInitedToIsGetter = isPrefix($($nc($nc(this->read)->method)->getName()), "is"_s);
+		$set(this, type, this->read->type);
+		isInitedToIsGetter = isPrefix($($nc(this->read->method)->getName()), "is"_s);
 	}
 	if (!isInitedToIsGetter && this->readList != nullptr) {
 		{
-			$var($Iterator, i$, $nc(this->readList)->iterator());
+			$var($Iterator, i$, this->readList->iterator());
 			for (; $nc(i$)->hasNext();) {
-				$var($1MethodInfo, info, $cast($1MethodInfo, i$->next()));
-				{
-					if ((this->read == nullptr) || $nc($nc(this->read)->type)->isAssignableFrom($nc(info)->type)) {
-						$set(this, read, info);
-						$set(this, type, $nc(info)->type);
-					}
+				$var($MethodInfo, info, $cast($MethodInfo, i$->next()));
+				if ((this->read == nullptr) || $nc(this->read->type)->isAssignableFrom($nc(info)->type)) {
+					$set(this, read, info);
+					$set(this, type, $nc(info)->type);
 				}
 			}
 		}
@@ -150,18 +88,16 @@ bool PropertyInfo::initialize() {
 	$Class* writeType = this->type;
 	if (this->writeList != nullptr) {
 		{
-			$var($Iterator, i$, $nc(this->writeList)->iterator());
+			$var($Iterator, i$, this->writeList->iterator());
 			for (; $nc(i$)->hasNext();) {
-				$var($1MethodInfo, info, $cast($1MethodInfo, i$->next()));
-				{
-					if (writeType == nullptr) {
+				$var($MethodInfo, info, $cast($MethodInfo, i$->next()));
+				if (writeType == nullptr) {
+					$set(this, write, info);
+					writeType = $nc(info)->type;
+				} else if (writeType->isAssignableFrom($nc(info)->type)) {
+					if ((this->write == nullptr) || $nc(this->write->type)->isAssignableFrom(info->type)) {
 						$set(this, write, info);
-						writeType = $nc(info)->type;
-					} else if ($nc(writeType)->isAssignableFrom($nc(info)->type)) {
-						if ((this->write == nullptr) || $nc($nc(this->write)->type)->isAssignableFrom($nc(info)->type)) {
-							$set(this, write, info);
-							writeType = $nc(info)->type;
-						}
+						writeType = info->type;
 					}
 				}
 			}
@@ -172,15 +108,15 @@ bool PropertyInfo::initialize() {
 		$set(this, type, writeType);
 	}
 	if (this->indexed != nullptr) {
-		if ((this->type != nullptr) && !$nc(this->type)->isArray()) {
+		if ((this->type != nullptr) && !this->type->isArray()) {
 			$set(this, indexed, nullptr);
-		} else if (!$nc(this->indexed)->initialize()) {
+		} else if (!this->indexed->initialize()) {
 			$set(this, indexed, nullptr);
-		} else if ((this->type != nullptr) && ($nc(this->indexed)->type != $nc(this->type)->getComponentType())) {
+		} else if ((this->type != nullptr) && ($nc(this->indexed)->type != this->type->getComponentType())) {
 			$set(this, indexed, nullptr);
 		} else {
 			$set(this, map, $nc(this->indexed)->map);
-			$set($nc(this->indexed), map, nullptr);
+			$set(this->indexed, map, nullptr);
 		}
 	}
 	if ((this->type == nullptr) && (this->indexed == nullptr)) {
@@ -193,8 +129,8 @@ bool PropertyInfo::initialize() {
 	return true;
 }
 
-bool PropertyInfo::initialize($1MethodInfo* info) {
-	$useLocalCurrentObjectStackCache();
+bool PropertyInfo::initialize($MethodInfo* info) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (info != nullptr) {
 		$load($BeanProperty);
@@ -202,8 +138,7 @@ bool PropertyInfo::initialize($1MethodInfo* info) {
 		if (annotation != nullptr) {
 			if (!annotation->bound()) {
 				$init($PropertyInfo$Name);
-				$init($Boolean);
-				put($PropertyInfo$Name::bound, $of($Boolean::FALSE));
+				put($PropertyInfo$Name::bound, $Boolean::FALSE);
 			}
 			$init($PropertyInfo$Name);
 			put($PropertyInfo$Name::expert, annotation->expert());
@@ -218,39 +153,39 @@ bool PropertyInfo::initialize($1MethodInfo* info) {
 				int32_t index = 0;
 				{
 					$var($StringArray, arr$, values);
-					int32_t len$ = arr$->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
+					for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 						$var($String, value, arr$->get(i$));
 						{
-							$Class* type = $nc(info->method)->getDeclaringClass();
+							$Class* type = info->method->getDeclaringClass();
 							$var($String, name, value);
-							int32_t pos = $nc(value)->lastIndexOf((int32_t)u'.');
+							int32_t pos = $nc(value)->lastIndexOf(u'.');
 							if (pos > 0) {
 								$assign(name, value->substring(0, pos));
-								if (name->indexOf((int32_t)u'.') < 0) {
+								if (name->indexOf(u'.') < 0) {
 									$var($String, pkg, $nc(type)->getName());
+									$var($StringBuilder, var$0, $new($StringBuilder));
 									int32_t var$1 = 1;
-									int32_t var$3 = pkg->lastIndexOf((int32_t)u'.');
-									int32_t var$2 = $Math::max(var$3, pkg->lastIndexOf((int32_t)u'$'));
-									$var($String, var$0, $($nc(pkg)->substring(0, var$1 + var$2)));
-									$assign(name, $concat(var$0, name));
+									int32_t var$3 = $nc(pkg)->lastIndexOf(u'.');
+									int32_t var$2 = $Math::max(var$3, pkg->lastIndexOf(u'$'));
+									var$0->append($($nc(pkg)->substring(0, var$1 + var$2)));
+									var$0->append(name);
+									$assign(name, $str(var$0));
 								}
 								type = $ClassFinder::findClass(name);
 								$assign(name, value->substring(pos + 1));
 							}
 							$var($Field, field, $nc(type)->getField(name));
 							bool var$4 = $Modifier::isStatic($nc(field)->getModifiers());
-							if (var$4 && $nc(info->type)->isAssignableFrom($nc(field)->getType())) {
+							if (var$4 && $nc(info->type)->isAssignableFrom(field->getType())) {
 								array->set(index++, name);
-								array->set(index++, $($nc(field)->get(nullptr)));
+								array->set(index++, $(field->get(nullptr)));
 								array->set(index++, value);
 							}
 						}
 					}
 				}
 				if (index == array->length) {
-					put($PropertyInfo$Name::enumerationValues, $of(array));
+					put($PropertyInfo$Name::enumerationValues, array);
 				}
 			} catch ($Exception& ignored) {
 				ignored->printStackTrace();
@@ -266,11 +201,11 @@ $Class* PropertyInfo::getPropertyType() {
 }
 
 $Method* PropertyInfo::getReadMethod() {
-	return (this->read == nullptr) ? ($Method*)nullptr : $nc(this->read)->method;
+	return (this->read == nullptr) ? ($Method*)nullptr : this->read->method;
 }
 
 $Method* PropertyInfo::getWriteMethod() {
-	return (this->write == nullptr) ? ($Method*)nullptr : $nc(this->write)->method;
+	return (this->write == nullptr) ? ($Method*)nullptr : this->write->method;
 }
 
 PropertyInfo* PropertyInfo::getIndexed() {
@@ -278,43 +213,36 @@ PropertyInfo* PropertyInfo::getIndexed() {
 }
 
 bool PropertyInfo::isConstrained() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->write != nullptr) {
 		if (PropertyInfo::VETO_EXCEPTION == nullptr) {
-			{
-				$var($ClassArray, arr$, $nc($nc(this->write)->method)->getExceptionTypes());
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					$Class* type = arr$->get(i$);
-					{
-						if ($nc($($nc(type)->getName()))->equals(PropertyInfo::VETO_EXCEPTION_NAME)) {
-							return true;
-						}
-					}
+			$var($ClassArray, arr$, $nc(this->write->method)->getExceptionTypes());
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+				$Class* type = arr$->get(i$);
+				if ($$nc($nc(type)->getName())->equals(PropertyInfo::VETO_EXCEPTION_NAME)) {
+					return true;
 				}
 			}
-		} else if ($nc(this->write)->isThrow(PropertyInfo::VETO_EXCEPTION)) {
+		} else if (this->write->isThrow(PropertyInfo::VETO_EXCEPTION)) {
 			return true;
 		}
 	}
-	return (this->indexed != nullptr) && $nc(this->indexed)->isConstrained();
+	return (this->indexed != nullptr) && this->indexed->isConstrained();
 }
 
 bool PropertyInfo::is($PropertyInfo$Name* name) {
 	$var($Object, value, get(name));
 	$init($PropertyInfo$Name);
-	return ($instanceOf($Boolean, value)) ? $nc(($cast($Boolean, value)))->booleanValue() : $PropertyInfo$Name::bound->equals(name);
+	return ($instanceOf($Boolean, value)) ? $cast($Boolean, value)->booleanValue() : $PropertyInfo$Name::bound->equals(name);
 }
 
 $Object* PropertyInfo::get($PropertyInfo$Name* name) {
-	return $of(this->map == nullptr ? ($Object*)nullptr : $nc(this->map)->get(name));
+	return this->map == nullptr ? ($Object*)nullptr : this->map->get(name);
 }
 
 void PropertyInfo::put($PropertyInfo$Name* name, bool value) {
 	if (value) {
-		$init($Boolean);
-		put(name, $of($Boolean::TRUE));
+		put(name, $Boolean::TRUE);
 	}
 }
 
@@ -334,12 +262,12 @@ void PropertyInfo::put($PropertyInfo$Name* name, Object$* value) {
 
 $List* PropertyInfo::add($List* list$renamed, $Method* method, $Type* type) {
 	$init(PropertyInfo);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, list, list$renamed);
 	if (list == nullptr) {
 		$assign(list, $new($ArrayList));
 	}
-	$nc(list)->add($$new($1MethodInfo, method, type));
+	$nc(list)->add($$new($MethodInfo, method, type));
 	return list;
 }
 
@@ -363,88 +291,80 @@ PropertyInfo* PropertyInfo::getInfo($Map* map, $String* key, bool indexed) {
 	if ($nc(info)->indexed == nullptr) {
 		$set(info, indexed, $new(PropertyInfo));
 	}
-	return $nc(info)->indexed;
+	return info->indexed;
 }
 
 $Map* PropertyInfo::get($Class* type) {
 	$init(PropertyInfo);
-	$useLocalCurrentObjectStackCache();
-	$var($List, methods, $nc($($1ClassInfo::get(type)))->getMethods());
+	$useLocalObjectStack();
+	$var($List, methods, $$nc($ClassInfo::get(type))->getMethods());
 	if ($nc(methods)->isEmpty()) {
 		return $Collections::emptyMap();
 	}
-	$var($Map, map, static_cast<$Map*>(static_cast<$AbstractMap*>($new($TreeMap))));
+	$var($Map, map, $cast($AbstractMap, $new($TreeMap)));
 	{
-		$var($Iterator, i$, $nc(methods)->iterator());
+		$var($Iterator, i$, methods->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Method, method, $cast($Method, i$->next()));
-			{
-				if (!$Modifier::isStatic($nc(method)->getModifiers())) {
-					$Class* returnType = $nc(method)->getReturnType();
-					$var($String, name, method->getName());
-					switch (method->getParameterCount()) {
-					case 0:
-						{
-							$init($Boolean);
-							bool var$0 = $nc($of(returnType))->equals($Boolean::TYPE);
-							if (var$0 && isPrefix(name, "is"_s)) {
-								$var(PropertyInfo, info, getInfo(map, $($nc(name)->substring(2)), false));
-								$set($nc(info), read, $new($1MethodInfo, method, $Boolean::TYPE));
-							} else {
-								$init($Void);
-								bool var$2 = !$of(returnType)->equals($Void::TYPE);
-								if (var$2 && isPrefix(name, "get"_s)) {
-									$var(PropertyInfo, info, getInfo(map, $($nc(name)->substring(3)), false));
-									$set($nc(info), readList, add(info->readList, method, $(method->getGenericReturnType())));
-								}
-							}
-							break;
-						}
-					case 1:
-						{
-							$init($Void);
-							bool var$3 = $nc($of(returnType))->equals($Void::TYPE);
-							if (var$3 && isPrefix(name, "set"_s)) {
+			if (!$Modifier::isStatic($nc(method)->getModifiers())) {
+				$Class* returnType = method->getReturnType();
+				$var($String, name, method->getName());
+				switch (method->getParameterCount()) {
+				case 0:
+					{
+						bool var$0 = $nc(returnType)->equals($Boolean::TYPE);
+						if (var$0 && isPrefix(name, "is"_s)) {
+							$var(PropertyInfo, info, getInfo(map, $($nc(name)->substring(2)), false));
+							$set($nc(info), read, $new($MethodInfo, method, $Boolean::TYPE));
+						} else {
+							bool var$1 = !returnType->equals($Void::TYPE);
+							if (var$1 && isPrefix(name, "get"_s)) {
 								$var(PropertyInfo, info, getInfo(map, $($nc(name)->substring(3)), false));
-								$set($nc(info), writeList, add(info->writeList, method, $nc($(method->getGenericParameterTypes()))->get(0)));
-							} else {
-								bool var$7 = !$of(returnType)->equals($Void::TYPE);
-								$init($Integer);
-								bool var$6 = var$7 && $nc($of($nc($(method->getParameterTypes()))->get(0)))->equals($Integer::TYPE);
-								if (var$6 && isPrefix(name, "get"_s)) {
-									$var(PropertyInfo, info, getInfo(map, $($nc(name)->substring(3)), true));
-									$set($nc(info), readList, add(info->readList, method, $(method->getGenericReturnType())));
-								}
+								$set($nc(info), readList, add($nc(info)->readList, method, $(method->getGenericReturnType())));
 							}
-							break;
 						}
-					case 2:
-						{
-							$init($Void);
-							bool var$9 = $nc($of(returnType))->equals($Void::TYPE);
-							$init($Integer);
-							bool var$8 = var$9 && $nc($of($nc($(method->getParameterTypes()))->get(0)))->equals($Integer::TYPE);
-							if (var$8 && isPrefix(name, "set"_s)) {
+						break;
+					}
+				case 1:
+					{
+						bool var$2 = $nc(returnType)->equals($Void::TYPE);
+						if (var$2 && isPrefix(name, "set"_s)) {
+							$var(PropertyInfo, info, getInfo(map, $($nc(name)->substring(3)), false));
+							$set($nc(info), writeList, add($nc(info)->writeList, method, $nc($(method->getGenericParameterTypes()))->get(0)));
+						} else {
+							bool var$4 = !returnType->equals($Void::TYPE);
+							bool var$3 = var$4 && $nc($nc($(method->getParameterTypes()))->get(0))->equals($Integer::TYPE);
+							if (var$3 && isPrefix(name, "get"_s)) {
 								$var(PropertyInfo, info, getInfo(map, $($nc(name)->substring(3)), true));
-								$set($nc(info), writeList, add(info->writeList, method, $nc($(method->getGenericParameterTypes()))->get(1)));
+								$set($nc(info), readList, add($nc(info)->readList, method, $(method->getGenericReturnType())));
 							}
-							break;
 						}
+						break;
+					}
+				case 2:
+					{
+						bool var$6 = $nc(returnType)->equals($Void::TYPE);
+						bool var$5 = var$6 && $nc($nc($(method->getParameterTypes()))->get(0))->equals($Integer::TYPE);
+						if (var$5 && isPrefix(name, "set"_s)) {
+							$var(PropertyInfo, info, getInfo(map, $($nc(name)->substring(3)), true));
+							$set($nc(info), writeList, add($nc(info)->writeList, method, $nc($(method->getGenericParameterTypes()))->get(1)));
+						}
+						break;
 					}
 				}
 			}
 		}
 	}
-	$var($Iterator, iterator, $nc($(map->values()))->iterator());
+	$var($Iterator, iterator, $$nc(map->values())->iterator());
 	while ($nc(iterator)->hasNext()) {
-		if (!$nc(($cast(PropertyInfo, $(iterator->next()))))->initialize()) {
+		if (!$$sure(PropertyInfo, iterator->next())->initialize()) {
 			iterator->remove();
 		}
 	}
 	return !map->isEmpty() ? $Collections::unmodifiableMap(map) : $Collections::emptyMap();
 }
 
-void clinit$PropertyInfo($Class* class$) {
+void PropertyInfo::clinit$($Class* clazz) {
 	$assignStatic(PropertyInfo::VETO_EXCEPTION_NAME, "java.beans.PropertyVetoException"_s);
 	$beforeCallerSensitive();
 	{
@@ -462,7 +382,59 @@ PropertyInfo::PropertyInfo() {
 }
 
 $Class* PropertyInfo::load$($String* name, bool initialize) {
-	$loadClass(PropertyInfo, name, initialize, &_PropertyInfo_ClassInfo_, clinit$PropertyInfo, allocate$PropertyInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"VETO_EXCEPTION_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PropertyInfo, VETO_EXCEPTION_NAME)},
+		{"VETO_EXCEPTION", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(PropertyInfo, VETO_EXCEPTION)},
+		{"type", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(PropertyInfo, type)},
+		{"read", "Lcom/sun/beans/introspect/MethodInfo;", nullptr, $PRIVATE, $field(PropertyInfo, read)},
+		{"write", "Lcom/sun/beans/introspect/MethodInfo;", nullptr, $PRIVATE, $field(PropertyInfo, write)},
+		{"indexed", "Lcom/sun/beans/introspect/PropertyInfo;", nullptr, $PRIVATE, $field(PropertyInfo, indexed)},
+		{"readList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/beans/introspect/MethodInfo;>;", $PRIVATE, $field(PropertyInfo, readList)},
+		{"writeList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/beans/introspect/MethodInfo;>;", $PRIVATE, $field(PropertyInfo, writeList)},
+		{"map", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/beans/introspect/PropertyInfo$Name;Ljava/lang/Object;>;", $PRIVATE, $field(PropertyInfo, map)},
+		{}
+	};
+	$1MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(PropertyInfo, init$, void)},
+		{"add", "(Ljava/util/List;Ljava/lang/reflect/Method;Ljava/lang/reflect/Type;)Ljava/util/List;", "(Ljava/util/List<Lcom/sun/beans/introspect/MethodInfo;>;Ljava/lang/reflect/Method;Ljava/lang/reflect/Type;)Ljava/util/List<Lcom/sun/beans/introspect/MethodInfo;>;", $PRIVATE | $STATIC, $staticMethod(PropertyInfo, add, $List*, $List*, $Method*, $Type*)},
+		{"get", "(Lcom/sun/beans/introspect/PropertyInfo$Name;)Ljava/lang/Object;", nullptr, $PUBLIC, $method(PropertyInfo, get, $Object*, $PropertyInfo$Name*)},
+		{"get", "(Ljava/lang/Class;)Ljava/util/Map;", "(Ljava/lang/Class<*>;)Ljava/util/Map<Ljava/lang/String;Lcom/sun/beans/introspect/PropertyInfo;>;", $PUBLIC | $STATIC, $staticMethod(PropertyInfo, get, $Map*, $Class*)},
+		{"getIndexed", "()Lcom/sun/beans/introspect/PropertyInfo;", nullptr, $PUBLIC, $method(PropertyInfo, getIndexed, PropertyInfo*)},
+		{"getInfo", "(Ljava/util/Map;Ljava/lang/String;Z)Lcom/sun/beans/introspect/PropertyInfo;", "(Ljava/util/Map<Ljava/lang/String;Lcom/sun/beans/introspect/PropertyInfo;>;Ljava/lang/String;Z)Lcom/sun/beans/introspect/PropertyInfo;", $PRIVATE | $STATIC, $staticMethod(PropertyInfo, getInfo, PropertyInfo*, $Map*, $String*, bool)},
+		{"getPropertyType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(PropertyInfo, getPropertyType, $Class*)},
+		{"getReadMethod", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $method(PropertyInfo, getReadMethod, $Method*)},
+		{"getWriteMethod", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $method(PropertyInfo, getWriteMethod, $Method*)},
+		{"initialize", "()Z", nullptr, $PRIVATE, $method(PropertyInfo, initialize, bool)},
+		{"initialize", "(Lcom/sun/beans/introspect/MethodInfo;)Z", nullptr, $PRIVATE, $method(PropertyInfo, initialize, bool, $MethodInfo*)},
+		{"is", "(Lcom/sun/beans/introspect/PropertyInfo$Name;)Z", nullptr, $PUBLIC, $method(PropertyInfo, is, bool, $PropertyInfo$Name*)},
+		{"isConstrained", "()Z", nullptr, $PUBLIC, $method(PropertyInfo, isConstrained, bool)},
+		{"isPrefix", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(PropertyInfo, isPrefix, bool, $String*, $String*)},
+		{"put", "(Lcom/sun/beans/introspect/PropertyInfo$Name;Z)V", nullptr, $PRIVATE, $method(PropertyInfo, put, void, $PropertyInfo$Name*, bool)},
+		{"put", "(Lcom/sun/beans/introspect/PropertyInfo$Name;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(PropertyInfo, put, void, $PropertyInfo$Name*, $String*)},
+		{"put", "(Lcom/sun/beans/introspect/PropertyInfo$Name;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(PropertyInfo, put, void, $PropertyInfo$Name*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.beans.introspect.PropertyInfo$Name", "com.sun.beans.introspect.PropertyInfo", "Name", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$1ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.beans.introspect.PropertyInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.beans.introspect.PropertyInfo$Name"
+	};
+	$loadClass(PropertyInfo, name, initialize, &classInfo$$, PropertyInfo::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PropertyInfo);
+	});
 	return class$;
 }
 

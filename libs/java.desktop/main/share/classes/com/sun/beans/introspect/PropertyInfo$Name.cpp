@@ -1,5 +1,4 @@
 #include <com/sun/beans/introspect/PropertyInfo$Name.h>
-
 #include <com/sun/beans/introspect/PropertyInfo.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -15,52 +14,6 @@ namespace com {
 	namespace sun {
 		namespace beans {
 			namespace introspect {
-
-$FieldInfo _PropertyInfo$Name_FieldInfo_[] = {
-	{"bound", "Lcom/sun/beans/introspect/PropertyInfo$Name;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PropertyInfo$Name, bound)},
-	{"expert", "Lcom/sun/beans/introspect/PropertyInfo$Name;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PropertyInfo$Name, expert)},
-	{"hidden", "Lcom/sun/beans/introspect/PropertyInfo$Name;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PropertyInfo$Name, hidden)},
-	{"preferred", "Lcom/sun/beans/introspect/PropertyInfo$Name;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PropertyInfo$Name, preferred)},
-	{"required", "Lcom/sun/beans/introspect/PropertyInfo$Name;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PropertyInfo$Name, required)},
-	{"visualUpdate", "Lcom/sun/beans/introspect/PropertyInfo$Name;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PropertyInfo$Name, visualUpdate)},
-	{"description", "Lcom/sun/beans/introspect/PropertyInfo$Name;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PropertyInfo$Name, description)},
-	{"enumerationValues", "Lcom/sun/beans/introspect/PropertyInfo$Name;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PropertyInfo$Name, enumerationValues)},
-	{"$VALUES", "[Lcom/sun/beans/introspect/PropertyInfo$Name;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(PropertyInfo$Name, $VALUES)},
-	{}
-};
-
-$MethodInfo _PropertyInfo$Name_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/beans/introspect/PropertyInfo$Name;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PropertyInfo$Name, $values, $PropertyInfo$NameArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(PropertyInfo$Name, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/beans/introspect/PropertyInfo$Name;", nullptr, $PUBLIC | $STATIC, $staticMethod(PropertyInfo$Name, valueOf, PropertyInfo$Name*, $String*)},
-	{"values", "()[Lcom/sun/beans/introspect/PropertyInfo$Name;", nullptr, $PUBLIC | $STATIC, $staticMethod(PropertyInfo$Name, values, $PropertyInfo$NameArray*)},
-	{}
-};
-
-$InnerClassInfo _PropertyInfo$Name_InnerClassesInfo_[] = {
-	{"com.sun.beans.introspect.PropertyInfo$Name", "com.sun.beans.introspect.PropertyInfo", "Name", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _PropertyInfo$Name_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.beans.introspect.PropertyInfo$Name",
-	"java.lang.Enum",
-	nullptr,
-	_PropertyInfo$Name_FieldInfo_,
-	_PropertyInfo$Name_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/beans/introspect/PropertyInfo$Name;>;",
-	nullptr,
-	_PropertyInfo$Name_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.beans.introspect.PropertyInfo"
-};
-
-$Object* allocate$PropertyInfo$Name($Class* clazz) {
-	return $of($alloc(PropertyInfo$Name));
-}
 
 PropertyInfo$Name* PropertyInfo$Name::bound = nullptr;
 PropertyInfo$Name* PropertyInfo$Name::expert = nullptr;
@@ -100,7 +53,7 @@ void PropertyInfo$Name::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$PropertyInfo$Name($Class* class$) {
+void PropertyInfo$Name::clinit$($Class* clazz) {
 	$assignStatic(PropertyInfo$Name::bound, $new(PropertyInfo$Name, "bound"_s, 0));
 	$assignStatic(PropertyInfo$Name::expert, $new(PropertyInfo$Name, "expert"_s, 1));
 	$assignStatic(PropertyInfo$Name::hidden, $new(PropertyInfo$Name, "hidden"_s, 2));
@@ -116,7 +69,47 @@ PropertyInfo$Name::PropertyInfo$Name() {
 }
 
 $Class* PropertyInfo$Name::load$($String* name, bool initialize) {
-	$loadClass(PropertyInfo$Name, name, initialize, &_PropertyInfo$Name_ClassInfo_, clinit$PropertyInfo$Name, allocate$PropertyInfo$Name);
+	$FieldInfo fieldInfos$$[] = {
+		{"bound", "Lcom/sun/beans/introspect/PropertyInfo$Name;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PropertyInfo$Name, bound)},
+		{"expert", "Lcom/sun/beans/introspect/PropertyInfo$Name;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PropertyInfo$Name, expert)},
+		{"hidden", "Lcom/sun/beans/introspect/PropertyInfo$Name;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PropertyInfo$Name, hidden)},
+		{"preferred", "Lcom/sun/beans/introspect/PropertyInfo$Name;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PropertyInfo$Name, preferred)},
+		{"required", "Lcom/sun/beans/introspect/PropertyInfo$Name;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PropertyInfo$Name, required)},
+		{"visualUpdate", "Lcom/sun/beans/introspect/PropertyInfo$Name;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PropertyInfo$Name, visualUpdate)},
+		{"description", "Lcom/sun/beans/introspect/PropertyInfo$Name;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PropertyInfo$Name, description)},
+		{"enumerationValues", "Lcom/sun/beans/introspect/PropertyInfo$Name;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PropertyInfo$Name, enumerationValues)},
+		{"$VALUES", "[Lcom/sun/beans/introspect/PropertyInfo$Name;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(PropertyInfo$Name, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/beans/introspect/PropertyInfo$Name;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PropertyInfo$Name, $values, $PropertyInfo$NameArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(PropertyInfo$Name, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/beans/introspect/PropertyInfo$Name;", nullptr, $PUBLIC | $STATIC, $staticMethod(PropertyInfo$Name, valueOf, PropertyInfo$Name*, $String*)},
+		{"values", "()[Lcom/sun/beans/introspect/PropertyInfo$Name;", nullptr, $PUBLIC | $STATIC, $staticMethod(PropertyInfo$Name, values, $PropertyInfo$NameArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.beans.introspect.PropertyInfo$Name", "com.sun.beans.introspect.PropertyInfo", "Name", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.beans.introspect.PropertyInfo$Name",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/beans/introspect/PropertyInfo$Name;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.beans.introspect.PropertyInfo"
+	};
+	$loadClass(PropertyInfo$Name, name, initialize, &classInfo$$, PropertyInfo$Name::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PropertyInfo$Name));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/TypeAnnotations$TypeAnnotationPositions$1.h>
-
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type$ArrayType.h>
 #include <com/sun/tools/javac/code/Type$CapturedType.h>
@@ -12,7 +11,6 @@
 #include <com/sun/tools/javac/code/Type$PackageType.h>
 #include <com/sun/tools/javac/code/Type$TypeVar.h>
 #include <com/sun/tools/javac/code/Type$UndetVar.h>
-#include <com/sun/tools/javac/code/Type$Visitor.h>
 #include <com/sun/tools/javac/code/Type$WildcardType.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/TypeAnnotations$TypeAnnotationPositions.h>
@@ -32,7 +30,6 @@ using $Type$ModuleType = ::com::sun::tools::javac::code::Type$ModuleType;
 using $Type$PackageType = ::com::sun::tools::javac::code::Type$PackageType;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
-using $Type$Visitor = ::com::sun::tools::javac::code::Type$Visitor;
 using $Type$WildcardType = ::com::sun::tools::javac::code::Type$WildcardType;
 using $TypeAnnotations$TypeAnnotationPositions = ::com::sun::tools::javac::code::TypeAnnotations$TypeAnnotationPositions;
 using $List = ::com::sun::tools::javac::util::List;
@@ -48,87 +45,18 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _TypeAnnotations$TypeAnnotationPositions$1_FieldInfo_[] = {
-	{"this$1", "Lcom/sun/tools/javac/code/TypeAnnotations$TypeAnnotationPositions;", nullptr, $FINAL | $SYNTHETIC, $field(TypeAnnotations$TypeAnnotationPositions$1, this$1)},
-	{"val$stopAt", "Lcom/sun/tools/javac/code/Type;", nullptr, $FINAL | $SYNTHETIC, $field(TypeAnnotations$TypeAnnotationPositions$1, val$stopAt)},
-	{}
-};
-
-$MethodInfo _TypeAnnotations$TypeAnnotationPositions$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/TypeAnnotations$TypeAnnotationPositions;Lcom/sun/tools/javac/code/Type;)V", "()V", 0, $method(TypeAnnotations$TypeAnnotationPositions$1, init$, void, $TypeAnnotations$TypeAnnotationPositions*, $Type*)},
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$ArrayType;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitArrayType, $Type*, $Type$ArrayType*, $List*)},
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitArrayType, $Object*, $Type$ArrayType*, Object$*)},
-	{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$CapturedType;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitCapturedType, $Type*, $Type$CapturedType*, $List*)},
-	{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitCapturedType, $Object*, $Type$CapturedType*, Object$*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$ClassType;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitClassType, $Type*, $Type$ClassType*, $List*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitClassType, $Object*, $Type$ClassType*, Object$*)},
-	{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$ErrorType;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitErrorType, $Type*, $Type$ErrorType*, $List*)},
-	{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitErrorType, $Object*, $Type$ErrorType*, Object$*)},
-	{"visitForAll", "(Lcom/sun/tools/javac/code/Type$ForAll;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$ForAll;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitForAll, $Type*, $Type$ForAll*, $List*)},
-	{"visitForAll", "(Lcom/sun/tools/javac/code/Type$ForAll;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitForAll, $Object*, $Type$ForAll*, Object$*)},
-	{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$MethodType;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitMethodType, $Type*, $Type$MethodType*, $List*)},
-	{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitMethodType, $Object*, $Type$MethodType*, Object$*)},
-	{"visitModuleType", "(Lcom/sun/tools/javac/code/Type$ModuleType;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$ModuleType;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitModuleType, $Type*, $Type$ModuleType*, $List*)},
-	{"visitModuleType", "(Lcom/sun/tools/javac/code/Type$ModuleType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitModuleType, $Object*, $Type$ModuleType*, Object$*)},
-	{"visitPackageType", "(Lcom/sun/tools/javac/code/Type$PackageType;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$PackageType;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitPackageType, $Type*, $Type$PackageType*, $List*)},
-	{"visitPackageType", "(Lcom/sun/tools/javac/code/Type$PackageType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitPackageType, $Object*, $Type$PackageType*, Object$*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitType, $Type*, $Type*, $List*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitType, $Object*, $Type*, Object$*)},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$TypeVar;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitTypeVar, $Type*, $Type$TypeVar*, $List*)},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
-	{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitUndetVar, $Type*, $Type$UndetVar*, $List*)},
-	{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitUndetVar, $Object*, $Type$UndetVar*, Object$*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$WildcardType;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitWildcardType, $Type*, $Type$WildcardType*, $List*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _TypeAnnotations$TypeAnnotationPositions$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.TypeAnnotations$TypeAnnotationPositions",
-	"typeWithAnnotations",
-	"(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;"
-};
-
-$InnerClassInfo _TypeAnnotations$TypeAnnotationPositions$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.TypeAnnotations$TypeAnnotationPositions", "com.sun.tools.javac.code.TypeAnnotations", "TypeAnnotationPositions", $PRIVATE},
-	{"com.sun.tools.javac.code.TypeAnnotations$TypeAnnotationPositions$1", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Type$Visitor", "com.sun.tools.javac.code.Type", "Visitor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.code.Attribute$TypeCompound", "com.sun.tools.javac.code.Attribute", "TypeCompound", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _TypeAnnotations$TypeAnnotationPositions$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.TypeAnnotations$TypeAnnotationPositions$1",
-	"java.lang.Object",
-	"com.sun.tools.javac.code.Type$Visitor",
-	_TypeAnnotations$TypeAnnotationPositions$1_FieldInfo_,
-	_TypeAnnotations$TypeAnnotationPositions$1_MethodInfo_,
-	"Ljava/lang/Object;Lcom/sun/tools/javac/code/Type$Visitor<Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;>;",
-	&_TypeAnnotations$TypeAnnotationPositions$1_EnclosingMethodInfo_,
-	_TypeAnnotations$TypeAnnotationPositions$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.TypeAnnotations"
-};
-
-$Object* allocate$TypeAnnotations$TypeAnnotationPositions$1($Class* clazz) {
-	return $of($alloc(TypeAnnotations$TypeAnnotationPositions$1));
-}
-
 void TypeAnnotations$TypeAnnotationPositions$1::init$($TypeAnnotations$TypeAnnotationPositions* this$1, $Type* val$stopAt) {
 	$set(this, this$1, this$1);
 	$set(this, val$stopAt, val$stopAt);
 }
 
 $Type* TypeAnnotations$TypeAnnotationPositions$1::visitClassType($Type$ClassType* t, $List* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Type);
 	if ($equals(t, this->val$stopAt) || $equals($nc(t)->getEnclosingType(), $Type::noType)) {
-		return t->annotatedType(s);
+		return $nc(t)->annotatedType(s);
 	} else {
-		$var($Type, var$0, $cast($Type, $nc($(t->getEnclosingType()))->accept(static_cast<$Type$Visitor*>(this), $of(s))));
+		$var($Type, var$0, $cast($Type, $$nc($nc(t)->getEnclosingType())->accept(this, s)));
 		$var($List, var$1, t->typarams_field);
 		$var($Symbol$TypeSymbol, var$2, t->tsym);
 		$var($Type$ClassType, ret, $new($Type$ClassType, var$0, var$1, var$2, $(t->getMetadata())));
@@ -146,8 +74,8 @@ $Type* TypeAnnotations$TypeAnnotationPositions$1::visitWildcardType($Type$Wildca
 }
 
 $Type* TypeAnnotations$TypeAnnotationPositions$1::visitArrayType($Type$ArrayType* t, $List* s) {
-	$useLocalCurrentObjectStackCache();
-	$var($Type, var$0, $cast($Type, $nc($nc(t)->elemtype)->accept(static_cast<$Type$Visitor*>(this), $of(s))));
+	$useLocalObjectStack();
+	$var($Type, var$0, $cast($Type, $nc($nc(t)->elemtype)->accept(this, s)));
 	$var($Symbol$TypeSymbol, var$1, t->tsym);
 	$var($Type$ArrayType, ret, $new($Type$ArrayType, var$0, var$1, $(t->getMetadata())));
 	return ret;
@@ -241,7 +169,69 @@ TypeAnnotations$TypeAnnotationPositions$1::TypeAnnotations$TypeAnnotationPositio
 }
 
 $Class* TypeAnnotations$TypeAnnotationPositions$1::load$($String* name, bool initialize) {
-	$loadClass(TypeAnnotations$TypeAnnotationPositions$1, name, initialize, &_TypeAnnotations$TypeAnnotationPositions$1_ClassInfo_, allocate$TypeAnnotations$TypeAnnotationPositions$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lcom/sun/tools/javac/code/TypeAnnotations$TypeAnnotationPositions;", nullptr, $FINAL | $SYNTHETIC, $field(TypeAnnotations$TypeAnnotationPositions$1, this$1)},
+		{"val$stopAt", "Lcom/sun/tools/javac/code/Type;", nullptr, $FINAL | $SYNTHETIC, $field(TypeAnnotations$TypeAnnotationPositions$1, val$stopAt)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/TypeAnnotations$TypeAnnotationPositions;Lcom/sun/tools/javac/code/Type;)V", "()V", 0, $method(TypeAnnotations$TypeAnnotationPositions$1, init$, void, $TypeAnnotations$TypeAnnotationPositions*, $Type*)},
+		{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$ArrayType;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitArrayType, $Type*, $Type$ArrayType*, $List*)},
+		{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitArrayType, $Object*, $Type$ArrayType*, Object$*)},
+		{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$CapturedType;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitCapturedType, $Type*, $Type$CapturedType*, $List*)},
+		{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitCapturedType, $Object*, $Type$CapturedType*, Object$*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$ClassType;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitClassType, $Type*, $Type$ClassType*, $List*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitClassType, $Object*, $Type$ClassType*, Object$*)},
+		{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$ErrorType;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitErrorType, $Type*, $Type$ErrorType*, $List*)},
+		{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitErrorType, $Object*, $Type$ErrorType*, Object$*)},
+		{"visitForAll", "(Lcom/sun/tools/javac/code/Type$ForAll;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$ForAll;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitForAll, $Type*, $Type$ForAll*, $List*)},
+		{"visitForAll", "(Lcom/sun/tools/javac/code/Type$ForAll;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitForAll, $Object*, $Type$ForAll*, Object$*)},
+		{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$MethodType;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitMethodType, $Type*, $Type$MethodType*, $List*)},
+		{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitMethodType, $Object*, $Type$MethodType*, Object$*)},
+		{"visitModuleType", "(Lcom/sun/tools/javac/code/Type$ModuleType;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$ModuleType;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitModuleType, $Type*, $Type$ModuleType*, $List*)},
+		{"visitModuleType", "(Lcom/sun/tools/javac/code/Type$ModuleType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitModuleType, $Object*, $Type$ModuleType*, Object$*)},
+		{"visitPackageType", "(Lcom/sun/tools/javac/code/Type$PackageType;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$PackageType;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitPackageType, $Type*, $Type$PackageType*, $List*)},
+		{"visitPackageType", "(Lcom/sun/tools/javac/code/Type$PackageType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitPackageType, $Object*, $Type$PackageType*, Object$*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitType, $Type*, $Type*, $List*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitType, $Object*, $Type*, Object$*)},
+		{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$TypeVar;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitTypeVar, $Type*, $Type$TypeVar*, $List*)},
+		{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
+		{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitUndetVar, $Type*, $Type$UndetVar*, $List*)},
+		{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitUndetVar, $Object*, $Type$UndetVar*, Object$*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$WildcardType;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitWildcardType, $Type*, $Type$WildcardType*, $List*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeAnnotations$TypeAnnotationPositions$1, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.TypeAnnotations$TypeAnnotationPositions",
+		"typeWithAnnotations",
+		"(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.TypeAnnotations$TypeAnnotationPositions", "com.sun.tools.javac.code.TypeAnnotations", "TypeAnnotationPositions", $PRIVATE},
+		{"com.sun.tools.javac.code.TypeAnnotations$TypeAnnotationPositions$1", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Type$Visitor", "com.sun.tools.javac.code.Type", "Visitor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.code.Attribute$TypeCompound", "com.sun.tools.javac.code.Attribute", "TypeCompound", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.TypeAnnotations$TypeAnnotationPositions$1",
+		"java.lang.Object",
+		"com.sun.tools.javac.code.Type$Visitor",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Lcom/sun/tools/javac/code/Type$Visitor<Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.TypeAnnotations"
+	};
+	$loadClass(TypeAnnotations$TypeAnnotationPositions$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeAnnotations$TypeAnnotationPositions$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/SimpleClientId.h>
-
 #include <com/sun/jndi/ldap/ClientId.h>
 #include <java/io/OutputStream.h>
 #include <java/util/Arrays.h>
@@ -19,34 +18,6 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$FieldInfo _SimpleClientId_FieldInfo_[] = {
-	{"username", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SimpleClientId, username)},
-	{"passwd", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(SimpleClientId, passwd)},
-	{"myHash", "I", nullptr, $PRIVATE | $FINAL, $field(SimpleClientId, myHash)},
-	{}
-};
-
-$MethodInfo _SimpleClientId_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/String;ILjava/lang/String;[Ljavax/naming/ldap/Control;Ljava/io/OutputStream;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, 0, $method(SimpleClientId, init$, void, int32_t, $String*, int32_t, $String*, $ControlArray*, $OutputStream*, $String*, $String*, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SimpleClientId, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleClientId, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SimpleClientId, toString, $String*)},
-	{}
-};
-
-$ClassInfo _SimpleClientId_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jndi.ldap.SimpleClientId",
-	"com.sun.jndi.ldap.ClientId",
-	nullptr,
-	_SimpleClientId_FieldInfo_,
-	_SimpleClientId_MethodInfo_
-};
-
-$Object* allocate$SimpleClientId($Class* clazz) {
-	return $of($alloc(SimpleClientId));
-}
-
 void SimpleClientId::init$(int32_t version, $String* hostname, int32_t port, $String* protocol, $ControlArray* bindCtls, $OutputStream* trace, $String* socketFactory, $String* username, Object$* passwd) {
 	$ClientId::init$(version, hostname, port, protocol, bindCtls, trace, socketFactory);
 	$set(this, username, username);
@@ -54,17 +25,17 @@ void SimpleClientId::init$(int32_t version, $String* hostname, int32_t port, $St
 	if (passwd == nullptr) {
 		$set(this, passwd, nullptr);
 	} else if ($instanceOf($bytes, passwd)) {
-		$set(this, passwd, $nc(($cast($bytes, passwd)))->clone());
+		$set(this, passwd, $cast($bytes, passwd)->clone());
 		pwdHashCode = $Arrays::hashCode($cast($bytes, passwd));
 	} else if ($instanceOf($chars, passwd)) {
-		$set(this, passwd, $nc(($cast($chars, passwd)))->clone());
+		$set(this, passwd, $cast($chars, passwd)->clone());
 		pwdHashCode = $Arrays::hashCode($cast($chars, passwd));
 	} else {
 		$set(this, passwd, passwd);
-		pwdHashCode = $nc($of(passwd))->hashCode();
+		pwdHashCode = $of(passwd)->hashCode();
 	}
 	int32_t var$0 = $ClientId::hashCode();
-	this->myHash = (var$0 ^ (username != nullptr ? $nc(username)->hashCode() : 0)) ^ pwdHashCode;
+	this->myHash = (var$0 ^ (username != nullptr ? username->hashCode() : 0)) ^ pwdHashCode;
 }
 
 bool SimpleClientId::equals(Object$* obj) {
@@ -73,19 +44,19 @@ bool SimpleClientId::equals(Object$* obj) {
 	}
 	$var(SimpleClientId, other, $cast(SimpleClientId, obj));
 	bool var$1 = $ClientId::equals(obj);
-	bool var$0 = var$1 && (this->username == $nc(other)->username || (this->username != nullptr && $nc(this->username)->equals($nc(other)->username)));
+	bool var$0 = var$1 && (this->username == $nc(other)->username || (this->username != nullptr && this->username->equals(other->username)));
 	if (var$0) {
-		bool var$2 = ($equals(this->passwd, $nc(other)->passwd));
+		bool var$2 = $equals(this->passwd, other->passwd);
 		if (!var$2) {
-			bool var$3 = this->passwd != nullptr && $nc(other)->passwd != nullptr;
+			bool var$3 = this->passwd != nullptr && other->passwd != nullptr;
 			if (var$3) {
-				bool var$5 = (($instanceOf($String, this->passwd)) && $nc($of(this->passwd))->equals(other->passwd));
-				bool var$4 = var$5 || (($instanceOf($bytes, this->passwd)) && ($instanceOf($bytes, $nc(other)->passwd)) && $Arrays::equals($cast($bytes, this->passwd), $cast($bytes, other->passwd)));
-				var$3 = (var$4 || (($instanceOf($chars, this->passwd)) && ($instanceOf($chars, other->passwd)) && $Arrays::equals($cast($chars, this->passwd), $cast($chars, other->passwd))));
+				bool var$5 = ($instanceOf($String, this->passwd)) && this->passwd->equals(other->passwd);
+				bool var$4 = var$5 || (($instanceOf($bytes, this->passwd)) && ($instanceOf($bytes, other->passwd)) && $Arrays::equals($cast($bytes, this->passwd), $cast($bytes, other->passwd)));
+				var$3 = var$4 || (($instanceOf($chars, this->passwd)) && ($instanceOf($chars, other->passwd)) && $Arrays::equals($cast($chars, this->passwd), $cast($chars, other->passwd)));
 			}
-			var$2 = (var$3);
+			var$2 = var$3;
 		}
-		var$0 = (var$2);
+		var$0 = var$2;
 	}
 	return var$0;
 }
@@ -102,7 +73,30 @@ SimpleClientId::SimpleClientId() {
 }
 
 $Class* SimpleClientId::load$($String* name, bool initialize) {
-	$loadClass(SimpleClientId, name, initialize, &_SimpleClientId_ClassInfo_, allocate$SimpleClientId);
+	$FieldInfo fieldInfos$$[] = {
+		{"username", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SimpleClientId, username)},
+		{"passwd", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(SimpleClientId, passwd)},
+		{"myHash", "I", nullptr, $PRIVATE | $FINAL, $field(SimpleClientId, myHash)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/lang/String;ILjava/lang/String;[Ljavax/naming/ldap/Control;Ljava/io/OutputStream;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, 0, $method(SimpleClientId, init$, void, int32_t, $String*, int32_t, $String*, $ControlArray*, $OutputStream*, $String*, $String*, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SimpleClientId, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleClientId, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SimpleClientId, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jndi.ldap.SimpleClientId",
+		"com.sun.jndi.ldap.ClientId",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SimpleClientId, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SimpleClientId);
+	});
 	return class$;
 }
 

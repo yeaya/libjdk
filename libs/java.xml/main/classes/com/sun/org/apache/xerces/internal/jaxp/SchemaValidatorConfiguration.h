@@ -100,6 +100,7 @@ class SchemaValidatorConfiguration : public ::com::sun::org::apache::xerces::int
 	$class(SchemaValidatorConfiguration, 0, ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager)
 public:
 	SchemaValidatorConfiguration();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager* parentManager, ::com::sun::org::apache::xerces::internal::jaxp::validation::XSGrammarPoolContainer* grammarContainer, ::com::sun::org::apache::xerces::internal::impl::validation::ValidationManager* validationManager);
 	virtual bool getFeature($String* featureId) override;
 	virtual bool getFeature($String* featureId, bool defaultValue) override;

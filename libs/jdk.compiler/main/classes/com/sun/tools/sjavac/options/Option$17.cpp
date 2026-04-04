@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/options/Option$17.h>
-
 #include <com/sun/tools/sjavac/options/ArgumentIterator.h>
 #include <com/sun/tools/sjavac/options/Option.h>
 #include <com/sun/tools/sjavac/options/OptionHelper.h>
@@ -19,57 +18,51 @@ namespace com {
 			namespace sjavac {
 				namespace options {
 
-$MethodInfo _Option$17_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Option$17, init$, void, $String*, int32_t, $String*, $String*)},
-	{"processMatching", "(Lcom/sun/tools/sjavac/options/ArgumentIterator;Lcom/sun/tools/sjavac/options/OptionHelper;)V", nullptr, $PROTECTED, $virtualMethod(Option$17, processMatching, void, $ArgumentIterator*, $OptionHelper*)},
-	{}
-};
-
-$EnclosingMethodInfo _Option$17_EnclosingMethodInfo_ = {
-	"com.sun.tools.sjavac.options.Option",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Option$17_InnerClassesInfo_[] = {
-	{"com.sun.tools.sjavac.options.Option$17", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Option$17_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.sjavac.options.Option$17",
-	"com.sun.tools.sjavac.options.Option",
-	nullptr,
-	nullptr,
-	_Option$17_MethodInfo_,
-	nullptr,
-	&_Option$17_EnclosingMethodInfo_,
-	_Option$17_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.sjavac.options.Option"
-};
-
-$Object* allocate$Option$17($Class* clazz) {
-	return $of($alloc(Option$17));
-}
-
 void Option$17::init$($String* $enum$name, int32_t $enum$ordinal, $String* arg, $String* description) {
 	$Option::init$($enum$name, $enum$ordinal, arg, description);
 }
 
 void Option$17::processMatching($ArgumentIterator* iter, $OptionHelper* helper) {
-	$useLocalCurrentObjectStackCache();
-	$nc(helper)->logLevel($($nc($($nc(iter)->current()))->substring($nc(this->arg)->length())));
+	$useLocalObjectStack();
+	$nc(helper)->logLevel($($$nc($nc(iter)->current())->substring($nc(this->arg)->length())));
 }
 
 Option$17::Option$17() {
 }
 
 $Class* Option$17::load$($String* name, bool initialize) {
-	$loadClass(Option$17, name, initialize, &_Option$17_ClassInfo_, allocate$Option$17);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Option$17, init$, void, $String*, int32_t, $String*, $String*)},
+		{"processMatching", "(Lcom/sun/tools/sjavac/options/ArgumentIterator;Lcom/sun/tools/sjavac/options/OptionHelper;)V", nullptr, $PROTECTED, $virtualMethod(Option$17, processMatching, void, $ArgumentIterator*, $OptionHelper*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.sjavac.options.Option",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.sjavac.options.Option$17", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.sjavac.options.Option$17",
+		"com.sun.tools.sjavac.options.Option",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.sjavac.options.Option"
+	};
+	$loadClass(Option$17, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Option$17));
+	});
 	return class$;
 }
 

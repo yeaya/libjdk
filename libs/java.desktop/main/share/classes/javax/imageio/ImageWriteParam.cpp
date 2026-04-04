@@ -1,5 +1,4 @@
 #include <javax/imageio/ImageWriteParam.h>
-
 #include <java/awt/Dimension.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -27,81 +26,6 @@ using $IIOParam = ::javax::imageio::IIOParam;
 
 namespace javax {
 	namespace imageio {
-
-$FieldInfo _ImageWriteParam_FieldInfo_[] = {
-	{"MODE_DISABLED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageWriteParam, MODE_DISABLED)},
-	{"MODE_DEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageWriteParam, MODE_DEFAULT)},
-	{"MODE_EXPLICIT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageWriteParam, MODE_EXPLICIT)},
-	{"MODE_COPY_FROM_METADATA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageWriteParam, MODE_COPY_FROM_METADATA)},
-	{"MAX_MODE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageWriteParam, MAX_MODE)},
-	{"canWriteTiles", "Z", nullptr, $PROTECTED, $field(ImageWriteParam, canWriteTiles$)},
-	{"tilingMode", "I", nullptr, $PROTECTED, $field(ImageWriteParam, tilingMode)},
-	{"preferredTileSizes", "[Ljava/awt/Dimension;", nullptr, $PROTECTED, $field(ImageWriteParam, preferredTileSizes)},
-	{"tilingSet", "Z", nullptr, $PROTECTED, $field(ImageWriteParam, tilingSet)},
-	{"tileWidth", "I", nullptr, $PROTECTED, $field(ImageWriteParam, tileWidth)},
-	{"tileHeight", "I", nullptr, $PROTECTED, $field(ImageWriteParam, tileHeight)},
-	{"canOffsetTiles", "Z", nullptr, $PROTECTED, $field(ImageWriteParam, canOffsetTiles$)},
-	{"tileGridXOffset", "I", nullptr, $PROTECTED, $field(ImageWriteParam, tileGridXOffset)},
-	{"tileGridYOffset", "I", nullptr, $PROTECTED, $field(ImageWriteParam, tileGridYOffset)},
-	{"canWriteProgressive", "Z", nullptr, $PROTECTED, $field(ImageWriteParam, canWriteProgressive$)},
-	{"progressiveMode", "I", nullptr, $PROTECTED, $field(ImageWriteParam, progressiveMode)},
-	{"canWriteCompressed", "Z", nullptr, $PROTECTED, $field(ImageWriteParam, canWriteCompressed$)},
-	{"compressionMode", "I", nullptr, $PROTECTED, $field(ImageWriteParam, compressionMode)},
-	{"compressionTypes", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageWriteParam, compressionTypes)},
-	{"compressionType", "Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageWriteParam, compressionType)},
-	{"compressionQuality", "F", nullptr, $PROTECTED, $field(ImageWriteParam, compressionQuality)},
-	{"locale", "Ljava/util/Locale;", nullptr, $PROTECTED, $field(ImageWriteParam, locale)},
-	{}
-};
-
-$MethodInfo _ImageWriteParam_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(ImageWriteParam, init$, void)},
-	{"<init>", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(ImageWriteParam, init$, void, $Locale*)},
-	{"canOffsetTiles", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, canOffsetTiles, bool)},
-	{"canWriteCompressed", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, canWriteCompressed, bool)},
-	{"canWriteProgressive", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, canWriteProgressive, bool)},
-	{"canWriteTiles", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, canWriteTiles, bool)},
-	{"clonePreferredTileSizes", "([Ljava/awt/Dimension;)[Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticMethod(ImageWriteParam, clonePreferredTileSizes, $DimensionArray*, $DimensionArray*)},
-	{"getBitRate", "(F)F", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getBitRate, float, float)},
-	{"getCompressionMode", "()I", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getCompressionMode, int32_t)},
-	{"getCompressionQuality", "()F", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getCompressionQuality, float)},
-	{"getCompressionQualityDescriptions", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getCompressionQualityDescriptions, $StringArray*)},
-	{"getCompressionQualityValues", "()[F", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getCompressionQualityValues, $floats*)},
-	{"getCompressionType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getCompressionType, $String*)},
-	{"getCompressionTypes", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getCompressionTypes, $StringArray*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getLocale, $Locale*)},
-	{"getLocalizedCompressionTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getLocalizedCompressionTypeName, $String*)},
-	{"getPreferredTileSizes", "()[Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getPreferredTileSizes, $DimensionArray*)},
-	{"getProgressiveMode", "()I", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getProgressiveMode, int32_t)},
-	{"getTileGridXOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getTileGridXOffset, int32_t)},
-	{"getTileGridYOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getTileGridYOffset, int32_t)},
-	{"getTileHeight", "()I", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getTileHeight, int32_t)},
-	{"getTileWidth", "()I", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getTileWidth, int32_t)},
-	{"getTilingMode", "()I", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getTilingMode, int32_t)},
-	{"isCompressionLossless", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, isCompressionLossless, bool)},
-	{"setCompressionMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, setCompressionMode, void, int32_t)},
-	{"setCompressionQuality", "(F)V", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, setCompressionQuality, void, float)},
-	{"setCompressionType", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, setCompressionType, void, $String*)},
-	{"setProgressiveMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, setProgressiveMode, void, int32_t)},
-	{"setTiling", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, setTiling, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setTilingMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, setTilingMode, void, int32_t)},
-	{"unsetCompression", "()V", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, unsetCompression, void)},
-	{"unsetTiling", "()V", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, unsetTiling, void)},
-	{}
-};
-
-$ClassInfo _ImageWriteParam_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.imageio.ImageWriteParam",
-	"javax.imageio.IIOParam",
-	nullptr,
-	_ImageWriteParam_FieldInfo_,
-	_ImageWriteParam_MethodInfo_
-};
-
-$Object* allocate$ImageWriteParam($Class* clazz) {
-	return $of($alloc(ImageWriteParam));
-}
 
 void ImageWriteParam::init$() {
 	$IIOParam::init$();
@@ -148,7 +72,7 @@ void ImageWriteParam::init$($Locale* locale) {
 
 $DimensionArray* ImageWriteParam::clonePreferredTileSizes($DimensionArray* sizes) {
 	$init(ImageWriteParam);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (sizes == nullptr) {
 		return nullptr;
 	}
@@ -199,7 +123,7 @@ $DimensionArray* ImageWriteParam::getPreferredTileSizes() {
 }
 
 void ImageWriteParam::setTiling(int32_t tileWidth, int32_t tileHeight, int32_t tileGridXOffset, int32_t tileGridYOffset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!canWriteTiles()) {
 		$throwNew($UnsupportedOperationException, "Tiling not supported!"_s);
 	}
@@ -215,10 +139,10 @@ void ImageWriteParam::setTiling(int32_t tileWidth, int32_t tileHeight, int32_t t
 	}
 	if (this->preferredTileSizes != nullptr) {
 		bool ok = true;
-		for (int32_t i = 0; i < $nc(this->preferredTileSizes)->length; i += 2) {
-			$var($Dimension, min, $nc(this->preferredTileSizes)->get(i));
-			$var($Dimension, max, $nc(this->preferredTileSizes)->get(i + 1));
-			if ((tileWidth < $nc(min)->width) || (tileWidth > $nc(max)->width) || (tileHeight < $nc(min)->height) || (tileHeight > $nc(max)->height)) {
+		for (int32_t i = 0; i < this->preferredTileSizes->length; i += 2) {
+			$var($Dimension, min, this->preferredTileSizes->get(i));
+			$var($Dimension, max, this->preferredTileSizes->get(i + 1));
+			if ((tileWidth < $nc(min)->width) || (tileWidth > $nc(max)->width) || (tileHeight < min->height) || (tileHeight > $nc(max)->height)) {
 				ok = false;
 				break;
 			}
@@ -427,7 +351,7 @@ bool ImageWriteParam::isCompressionLossless() {
 	if (getCompressionMode() != ImageWriteParam::MODE_EXPLICIT) {
 		$throwNew($IllegalStateException, "Compression mode not MODE_EXPLICIT!"_s);
 	}
-	bool var$0 = (getCompressionTypes() != nullptr);
+	bool var$0 = getCompressionTypes() != nullptr;
 	if (var$0 && (getCompressionType() == nullptr)) {
 		$throwNew($IllegalStateException, "No compression type set!"_s);
 	}
@@ -458,7 +382,7 @@ float ImageWriteParam::getCompressionQuality() {
 	if (getCompressionMode() != ImageWriteParam::MODE_EXPLICIT) {
 		$throwNew($IllegalStateException, "Compression mode not MODE_EXPLICIT!"_s);
 	}
-	bool var$0 = (getCompressionTypes() != nullptr);
+	bool var$0 = getCompressionTypes() != nullptr;
 	if (var$0 && (getCompressionType() == nullptr)) {
 		$throwNew($IllegalStateException, "No compression type set!"_s);
 	}
@@ -472,7 +396,7 @@ float ImageWriteParam::getBitRate(float quality) {
 	if (getCompressionMode() != ImageWriteParam::MODE_EXPLICIT) {
 		$throwNew($IllegalStateException, "Compression mode not MODE_EXPLICIT!"_s);
 	}
-	bool var$0 = (getCompressionTypes() != nullptr);
+	bool var$0 = getCompressionTypes() != nullptr;
 	if (var$0 && (getCompressionType() == nullptr)) {
 		$throwNew($IllegalStateException, "No compression type set!"_s);
 	}
@@ -489,7 +413,7 @@ $StringArray* ImageWriteParam::getCompressionQualityDescriptions() {
 	if (getCompressionMode() != ImageWriteParam::MODE_EXPLICIT) {
 		$throwNew($IllegalStateException, "Compression mode not MODE_EXPLICIT!"_s);
 	}
-	bool var$0 = (getCompressionTypes() != nullptr);
+	bool var$0 = getCompressionTypes() != nullptr;
 	if (var$0 && (getCompressionType() == nullptr)) {
 		$throwNew($IllegalStateException, "No compression type set!"_s);
 	}
@@ -503,7 +427,7 @@ $floats* ImageWriteParam::getCompressionQualityValues() {
 	if (getCompressionMode() != ImageWriteParam::MODE_EXPLICIT) {
 		$throwNew($IllegalStateException, "Compression mode not MODE_EXPLICIT!"_s);
 	}
-	bool var$0 = (getCompressionTypes() != nullptr);
+	bool var$0 = getCompressionTypes() != nullptr;
 	if (var$0 && (getCompressionType() == nullptr)) {
 		$throwNew($IllegalStateException, "No compression type set!"_s);
 	}
@@ -514,7 +438,77 @@ ImageWriteParam::ImageWriteParam() {
 }
 
 $Class* ImageWriteParam::load$($String* name, bool initialize) {
-	$loadClass(ImageWriteParam, name, initialize, &_ImageWriteParam_ClassInfo_, allocate$ImageWriteParam);
+	$FieldInfo fieldInfos$$[] = {
+		{"MODE_DISABLED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageWriteParam, MODE_DISABLED)},
+		{"MODE_DEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageWriteParam, MODE_DEFAULT)},
+		{"MODE_EXPLICIT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageWriteParam, MODE_EXPLICIT)},
+		{"MODE_COPY_FROM_METADATA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageWriteParam, MODE_COPY_FROM_METADATA)},
+		{"MAX_MODE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageWriteParam, MAX_MODE)},
+		{"canWriteTiles", "Z", nullptr, $PROTECTED, $field(ImageWriteParam, canWriteTiles$)},
+		{"tilingMode", "I", nullptr, $PROTECTED, $field(ImageWriteParam, tilingMode)},
+		{"preferredTileSizes", "[Ljava/awt/Dimension;", nullptr, $PROTECTED, $field(ImageWriteParam, preferredTileSizes)},
+		{"tilingSet", "Z", nullptr, $PROTECTED, $field(ImageWriteParam, tilingSet)},
+		{"tileWidth", "I", nullptr, $PROTECTED, $field(ImageWriteParam, tileWidth)},
+		{"tileHeight", "I", nullptr, $PROTECTED, $field(ImageWriteParam, tileHeight)},
+		{"canOffsetTiles", "Z", nullptr, $PROTECTED, $field(ImageWriteParam, canOffsetTiles$)},
+		{"tileGridXOffset", "I", nullptr, $PROTECTED, $field(ImageWriteParam, tileGridXOffset)},
+		{"tileGridYOffset", "I", nullptr, $PROTECTED, $field(ImageWriteParam, tileGridYOffset)},
+		{"canWriteProgressive", "Z", nullptr, $PROTECTED, $field(ImageWriteParam, canWriteProgressive$)},
+		{"progressiveMode", "I", nullptr, $PROTECTED, $field(ImageWriteParam, progressiveMode)},
+		{"canWriteCompressed", "Z", nullptr, $PROTECTED, $field(ImageWriteParam, canWriteCompressed$)},
+		{"compressionMode", "I", nullptr, $PROTECTED, $field(ImageWriteParam, compressionMode)},
+		{"compressionTypes", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageWriteParam, compressionTypes)},
+		{"compressionType", "Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageWriteParam, compressionType)},
+		{"compressionQuality", "F", nullptr, $PROTECTED, $field(ImageWriteParam, compressionQuality)},
+		{"locale", "Ljava/util/Locale;", nullptr, $PROTECTED, $field(ImageWriteParam, locale)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(ImageWriteParam, init$, void)},
+		{"<init>", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(ImageWriteParam, init$, void, $Locale*)},
+		{"canOffsetTiles", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, canOffsetTiles, bool)},
+		{"canWriteCompressed", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, canWriteCompressed, bool)},
+		{"canWriteProgressive", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, canWriteProgressive, bool)},
+		{"canWriteTiles", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, canWriteTiles, bool)},
+		{"clonePreferredTileSizes", "([Ljava/awt/Dimension;)[Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticMethod(ImageWriteParam, clonePreferredTileSizes, $DimensionArray*, $DimensionArray*)},
+		{"getBitRate", "(F)F", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getBitRate, float, float)},
+		{"getCompressionMode", "()I", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getCompressionMode, int32_t)},
+		{"getCompressionQuality", "()F", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getCompressionQuality, float)},
+		{"getCompressionQualityDescriptions", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getCompressionQualityDescriptions, $StringArray*)},
+		{"getCompressionQualityValues", "()[F", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getCompressionQualityValues, $floats*)},
+		{"getCompressionType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getCompressionType, $String*)},
+		{"getCompressionTypes", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getCompressionTypes, $StringArray*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getLocale, $Locale*)},
+		{"getLocalizedCompressionTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getLocalizedCompressionTypeName, $String*)},
+		{"getPreferredTileSizes", "()[Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getPreferredTileSizes, $DimensionArray*)},
+		{"getProgressiveMode", "()I", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getProgressiveMode, int32_t)},
+		{"getTileGridXOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getTileGridXOffset, int32_t)},
+		{"getTileGridYOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getTileGridYOffset, int32_t)},
+		{"getTileHeight", "()I", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getTileHeight, int32_t)},
+		{"getTileWidth", "()I", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getTileWidth, int32_t)},
+		{"getTilingMode", "()I", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, getTilingMode, int32_t)},
+		{"isCompressionLossless", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, isCompressionLossless, bool)},
+		{"setCompressionMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, setCompressionMode, void, int32_t)},
+		{"setCompressionQuality", "(F)V", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, setCompressionQuality, void, float)},
+		{"setCompressionType", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, setCompressionType, void, $String*)},
+		{"setProgressiveMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, setProgressiveMode, void, int32_t)},
+		{"setTiling", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, setTiling, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setTilingMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, setTilingMode, void, int32_t)},
+		{"unsetCompression", "()V", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, unsetCompression, void)},
+		{"unsetTiling", "()V", nullptr, $PUBLIC, $virtualMethod(ImageWriteParam, unsetTiling, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.imageio.ImageWriteParam",
+		"javax.imageio.IIOParam",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ImageWriteParam, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageWriteParam);
+	});
 	return class$;
 }
 

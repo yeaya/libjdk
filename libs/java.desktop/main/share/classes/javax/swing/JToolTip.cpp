@@ -1,5 +1,4 @@
 #include <javax/swing/JToolTip.h>
-
 #include <java/awt/Component.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/util/Objects.h>
@@ -28,79 +27,6 @@ using $ToolTipUI = ::javax::swing::plaf::ToolTipUI;
 
 namespace javax {
 	namespace swing {
-
-$NamedAttribute JToolTip_Attribute_var$0[] = {
-	{"description", 's', "Sets the component that the tooltip describes."},
-	{}
-};
-
-$CompoundAttribute _JToolTip_MethodAnnotations_setComponent8[] = {
-	{"Ljava/beans/BeanProperty;", JToolTip_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute JToolTip_Attribute_var$1[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "Sets the text of the tooltip"},
-	{}
-};
-
-$CompoundAttribute _JToolTip_MethodAnnotations_setTipText9[] = {
-	{"Ljava/beans/BeanProperty;", JToolTip_Attribute_var$1},
-	{}
-};
-
-$FieldInfo _JToolTip_FieldInfo_[] = {
-	{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JToolTip, uiClassID)},
-	{"tipText", "Ljava/lang/String;", nullptr, 0, $field(JToolTip, tipText)},
-	{"component", "Ljavax/swing/JComponent;", nullptr, 0, $field(JToolTip, component)},
-	{}
-};
-
-$MethodInfo _JToolTip_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JToolTip, init$, void)},
-	{"alwaysOnTop", "()Z", nullptr, 0, $virtualMethod(JToolTip, alwaysOnTop, bool)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JToolTip, getAccessibleContext, $AccessibleContext*)},
-	{"getComponent", "()Ljavax/swing/JComponent;", nullptr, $PUBLIC, $virtualMethod(JToolTip, getComponent, $JComponent*)},
-	{"getTipText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JToolTip, getTipText, $String*)},
-	{"getUI", "()Ljavax/swing/plaf/ToolTipUI;", nullptr, $PUBLIC, $virtualMethod(JToolTip, getUI, $ComponentUI*)},
-	{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JToolTip, getUIClassID, $String*)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JToolTip, paramString, $String*)},
-	{"setComponent", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(JToolTip, setComponent, void, $JComponent*), nullptr, nullptr, _JToolTip_MethodAnnotations_setComponent8},
-	{"setTipText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JToolTip, setTipText, void, $String*), nullptr, nullptr, _JToolTip_MethodAnnotations_setTipText9},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JToolTip, updateUI, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JToolTip, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JToolTip_InnerClassesInfo_[] = {
-	{"javax.swing.JToolTip$AccessibleJToolTip", "javax.swing.JToolTip", "AccessibleJToolTip", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JToolTip_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JToolTip",
-	"javax.swing.JComponent",
-	"javax.accessibility.Accessible",
-	_JToolTip_FieldInfo_,
-	_JToolTip_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JToolTip_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.JToolTip$AccessibleJToolTip"
-};
-
-$Object* allocate$JToolTip($Class* clazz) {
-	return $of($alloc(JToolTip));
-}
 
 $String* JToolTip::toString() {
 	 return this->$JComponent::toString();
@@ -134,7 +60,7 @@ $ComponentUI* JToolTip::getUI() {
 }
 
 void JToolTip::updateUI() {
-	setUI($cast($ToolTipUI, $($UIManager::getUI(this))));
+	setUI($$cast($ToolTipUI, $UIManager::getUI(this)));
 }
 
 $String* JToolTip::getUIClassID() {
@@ -144,7 +70,7 @@ $String* JToolTip::getUIClassID() {
 void JToolTip::setTipText($String* tipText) {
 	$var($String, oldValue, this->tipText);
 	$set(this, tipText, tipText);
-	firePropertyChange("tiptext"_s, $of(oldValue), $of(tipText));
+	firePropertyChange("tiptext"_s, oldValue, tipText);
 	if (!$Objects::equals(oldValue, tipText)) {
 		revalidate();
 		repaint();
@@ -158,7 +84,7 @@ $String* JToolTip::getTipText() {
 void JToolTip::setComponent($JComponent* c) {
 	$var($JComponent, oldValue, this->component);
 	$set(this, component, c);
-	firePropertyChange("component"_s, $of(oldValue), $of(c));
+	firePropertyChange("component"_s, oldValue, c);
 }
 
 $JComponent* JToolTip::getComponent() {
@@ -171,17 +97,17 @@ bool JToolTip::alwaysOnTop() {
 
 void JToolTip::writeObject($ObjectOutputStream* s) {
 	$nc(s)->defaultWriteObject();
-	if ($nc($(getUIClassID()))->equals(JToolTip::uiClassID)) {
+	if ($$nc(getUIClassID())->equals(JToolTip::uiClassID)) {
 		int8_t count = $JComponent::getWriteObjCounter(this);
 		$JComponent::setWriteObjCounter(this, --count);
 		if (count == 0 && this->ui != nullptr) {
-			$nc(this->ui)->installUI(this);
+			this->ui->installUI(this);
 		}
 	}
 }
 
 $String* JToolTip::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, tipTextString, this->tipText != nullptr ? this->tipText : ""_s);
 	return $str({$($JComponent::paramString()), ",tipText="_s, tipTextString});
 }
@@ -196,12 +122,75 @@ $AccessibleContext* JToolTip::getAccessibleContext() {
 JToolTip::JToolTip() {
 }
 
-void clinit$JToolTip($Class* class$) {
+void JToolTip::clinit$($Class* clazz) {
 	$assignStatic(JToolTip::uiClassID, "ToolTipUI"_s);
 }
 
 $Class* JToolTip::load$($String* name, bool initialize) {
-	$loadClass(JToolTip, name, initialize, &_JToolTip_ClassInfo_, clinit$JToolTip, allocate$JToolTip);
+	$FieldInfo fieldInfos$$[] = {
+		{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JToolTip, uiClassID)},
+		{"tipText", "Ljava/lang/String;", nullptr, 0, $field(JToolTip, tipText)},
+		{"component", "Ljavax/swing/JComponent;", nullptr, 0, $field(JToolTip, component)},
+		{}
+	};
+	$NamedAttribute setComponentmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "Sets the component that the tooltip describes."},
+		{}
+	};
+	$CompoundAttribute setComponentmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setComponentmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setTipTextmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "Sets the text of the tooltip"},
+		{}
+	};
+	$CompoundAttribute setTipTextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setTipTextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JToolTip, init$, void)},
+		{"alwaysOnTop", "()Z", nullptr, 0, $virtualMethod(JToolTip, alwaysOnTop, bool)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JToolTip, getAccessibleContext, $AccessibleContext*)},
+		{"getComponent", "()Ljavax/swing/JComponent;", nullptr, $PUBLIC, $virtualMethod(JToolTip, getComponent, $JComponent*)},
+		{"getTipText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JToolTip, getTipText, $String*)},
+		{"getUI", "()Ljavax/swing/plaf/ToolTipUI;", nullptr, $PUBLIC, $virtualMethod(JToolTip, getUI, $ComponentUI*)},
+		{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JToolTip, getUIClassID, $String*)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JToolTip, paramString, $String*)},
+		{"setComponent", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(JToolTip, setComponent, void, $JComponent*), nullptr, nullptr, setComponentmethodAnnotations$$},
+		{"setTipText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JToolTip, setTipText, void, $String*), nullptr, nullptr, setTipTextmethodAnnotations$$},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JToolTip, updateUI, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JToolTip, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JToolTip$AccessibleJToolTip", "javax.swing.JToolTip", "AccessibleJToolTip", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JToolTip",
+		"javax.swing.JComponent",
+		"javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.JToolTip$AccessibleJToolTip"
+	};
+	$loadClass(JToolTip, name, initialize, &classInfo$$, JToolTip::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JToolTip));
+	});
 	return class$;
 }
 

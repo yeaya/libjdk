@@ -1,9 +1,7 @@
 #include <com/sun/tools/javac/tree/DCTree$DCParam.h>
-
 #include <com/sun/source/doctree/DocTree$Kind.h>
 #include <com/sun/source/doctree/DocTreeVisitor.h>
 #include <com/sun/source/doctree/IdentifierTree.h>
-#include <com/sun/source/doctree/ParamTree.h>
 #include <com/sun/tools/javac/tree/DCTree$DCBlockTag.h>
 #include <com/sun/tools/javac/tree/DCTree$DCIdentifier.h>
 #include <java/util/List.h>
@@ -14,7 +12,6 @@
 using $DocTree$Kind = ::com::sun::source::doctree::DocTree$Kind;
 using $DocTreeVisitor = ::com::sun::source::doctree::DocTreeVisitor;
 using $IdentifierTree = ::com::sun::source::doctree::IdentifierTree;
-using $ParamTree = ::com::sun::source::doctree::ParamTree;
 using $DCTree$DCBlockTag = ::com::sun::tools::javac::tree::DCTree$DCBlockTag;
 using $DCTree$DCIdentifier = ::com::sun::tools::javac::tree::DCTree$DCIdentifier;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -28,55 +25,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _DCTree$DCParam_FieldInfo_[] = {
-	{"isTypeParameter", "Z", nullptr, $PUBLIC | $FINAL, $field(DCTree$DCParam, isTypeParameter$)},
-	{"name", "Lcom/sun/tools/javac/tree/DCTree$DCIdentifier;", nullptr, $PUBLIC | $FINAL, $field(DCTree$DCParam, name)},
-	{"description", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PUBLIC | $FINAL, $field(DCTree$DCParam, description)},
-	{}
-};
-
-$MethodInfo _DCTree$DCParam_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(ZLcom/sun/tools/javac/tree/DCTree$DCIdentifier;Ljava/util/List;)V", "(ZLcom/sun/tools/javac/tree/DCTree$DCIdentifier;Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;)V", 0, $method(DCTree$DCParam, init$, void, bool, $DCTree$DCIdentifier*, $List*)},
-	{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(DCTree$DCParam, accept, $Object*, $DocTreeVisitor*, Object$*)},
-	{"getDescription", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DCTree$DCParam, getDescription, $List*)},
-	{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCParam, getKind, $DocTree$Kind*)},
-	{"getName", "()Lcom/sun/source/doctree/IdentifierTree;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCParam, getName, $IdentifierTree*)},
-	{"isTypeParameter", "()Z", nullptr, $PUBLIC, $virtualMethod(DCTree$DCParam, isTypeParameter, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DCTree$DCParam_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.DCTree$DCParam", "com.sun.tools.javac.tree.DCTree", "DCParam", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.DCTree$DCBlockTag", "com.sun.tools.javac.tree.DCTree", "DCBlockTag", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DCTree$DCParam_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.DCTree$DCParam",
-	"com.sun.tools.javac.tree.DCTree$DCBlockTag",
-	"com.sun.source.doctree.ParamTree",
-	_DCTree$DCParam_FieldInfo_,
-	_DCTree$DCParam_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DCTree$DCParam_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.DCTree"
-};
-
-$Object* allocate$DCTree$DCParam($Class* clazz) {
-	return $of($alloc(DCTree$DCParam));
-}
 
 $String* DCTree$DCParam::getTagName() {
 	 return this->$DCTree$DCBlockTag::getTagName();
@@ -115,7 +63,7 @@ $DocTree$Kind* DCTree$DCParam::getKind() {
 }
 
 $Object* DCTree$DCParam::accept($DocTreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitParam(this, d));
+	return $nc(v)->visitParam(this, d);
 }
 
 bool DCTree$DCParam::isTypeParameter() {
@@ -134,7 +82,50 @@ DCTree$DCParam::DCTree$DCParam() {
 }
 
 $Class* DCTree$DCParam::load$($String* name, bool initialize) {
-	$loadClass(DCTree$DCParam, name, initialize, &_DCTree$DCParam_ClassInfo_, allocate$DCTree$DCParam);
+	$FieldInfo fieldInfos$$[] = {
+		{"isTypeParameter", "Z", nullptr, $PUBLIC | $FINAL, $field(DCTree$DCParam, isTypeParameter$)},
+		{"name", "Lcom/sun/tools/javac/tree/DCTree$DCIdentifier;", nullptr, $PUBLIC | $FINAL, $field(DCTree$DCParam, name)},
+		{"description", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PUBLIC | $FINAL, $field(DCTree$DCParam, description)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(ZLcom/sun/tools/javac/tree/DCTree$DCIdentifier;Ljava/util/List;)V", "(ZLcom/sun/tools/javac/tree/DCTree$DCIdentifier;Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;)V", 0, $method(DCTree$DCParam, init$, void, bool, $DCTree$DCIdentifier*, $List*)},
+		{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(DCTree$DCParam, accept, $Object*, $DocTreeVisitor*, Object$*)},
+		{"getDescription", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DCTree$DCParam, getDescription, $List*)},
+		{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCParam, getKind, $DocTree$Kind*)},
+		{"getName", "()Lcom/sun/source/doctree/IdentifierTree;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCParam, getName, $IdentifierTree*)},
+		{"isTypeParameter", "()Z", nullptr, $PUBLIC, $virtualMethod(DCTree$DCParam, isTypeParameter, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.DCTree$DCParam", "com.sun.tools.javac.tree.DCTree", "DCParam", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.DCTree$DCBlockTag", "com.sun.tools.javac.tree.DCTree", "DCBlockTag", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.DCTree$DCParam",
+		"com.sun.tools.javac.tree.DCTree$DCBlockTag",
+		"com.sun.source.doctree.ParamTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.DCTree"
+	};
+	$loadClass(DCTree$DCParam, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DCTree$DCParam));
+	});
 	return class$;
 }
 

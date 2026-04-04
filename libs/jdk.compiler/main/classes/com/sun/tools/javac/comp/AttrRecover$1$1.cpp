@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/AttrRecover$1$1.h>
-
 #include <com/sun/tools/javac/comp/AttrRecover$1.h>
 #include <com/sun/tools/javac/tree/JCTree$JCErroneous.h>
 #include <com/sun/tools/javac/tree/JCTree$JCReturn.h>
@@ -24,52 +23,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _AttrRecover$1$1_FieldInfo_[] = {
-	{"this$1", "Lcom/sun/tools/javac/comp/AttrRecover$1;", nullptr, $FINAL | $SYNTHETIC, $field(AttrRecover$1$1, this$1)},
-	{"val$tree", "Lcom/sun/tools/javac/tree/JCTree$JCReturn;", nullptr, $FINAL | $SYNTHETIC, $field(AttrRecover$1$1, val$tree)},
-	{"val$err", "Lcom/sun/tools/javac/tree/JCTree$JCErroneous;", nullptr, $FINAL | $SYNTHETIC, $field(AttrRecover$1$1, val$err)},
-	{}
-};
-
-$MethodInfo _AttrRecover$1$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/AttrRecover$1;Lcom/sun/tools/javac/tree/JCTree$JCErroneous;Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, 0, $method(AttrRecover$1$1, init$, void, $AttrRecover$1*, $JCTree$JCErroneous*, $JCTree$JCReturn*)},
-	{"translate", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;)TT;", $PUBLIC, $virtualMethod(AttrRecover$1$1, translate, $JCTree*, $JCTree*)},
-	{}
-};
-
-$EnclosingMethodInfo _AttrRecover$1$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.AttrRecover$1",
-	"visitReturn",
-	"(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V"
-};
-
-$InnerClassInfo _AttrRecover$1$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.AttrRecover$1", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.AttrRecover$1$1", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.tree.JCTree$JCReturn", "com.sun.tools.javac.tree.JCTree", "JCReturn", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _AttrRecover$1$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.AttrRecover$1$1",
-	"com.sun.tools.javac.tree.TreeTranslator",
-	nullptr,
-	_AttrRecover$1$1_FieldInfo_,
-	_AttrRecover$1$1_MethodInfo_,
-	nullptr,
-	&_AttrRecover$1$1_EnclosingMethodInfo_,
-	_AttrRecover$1$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.AttrRecover"
-};
-
-$Object* allocate$AttrRecover$1$1($Class* clazz) {
-	return $of($alloc(AttrRecover$1$1));
-}
-
 void AttrRecover$1$1::init$($AttrRecover$1* this$1, $JCTree$JCErroneous* val$err, $JCTree$JCReturn* val$tree) {
 	$set(this, this$1, this$1);
 	$set(this, val$err, val$err);
@@ -79,7 +32,7 @@ void AttrRecover$1$1::init$($AttrRecover$1* this$1, $JCTree$JCErroneous* val$err
 
 $JCTree* AttrRecover$1$1::translate($JCTree* t) {
 	if ($equals(t, this->val$err)) {
-		return static_cast<$JCTree*>(this->val$tree);
+		return $cast($JCTree, this->val$tree);
 	} else {
 		return $TreeTranslator::translate(t);
 	}
@@ -89,7 +42,46 @@ AttrRecover$1$1::AttrRecover$1$1() {
 }
 
 $Class* AttrRecover$1$1::load$($String* name, bool initialize) {
-	$loadClass(AttrRecover$1$1, name, initialize, &_AttrRecover$1$1_ClassInfo_, allocate$AttrRecover$1$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lcom/sun/tools/javac/comp/AttrRecover$1;", nullptr, $FINAL | $SYNTHETIC, $field(AttrRecover$1$1, this$1)},
+		{"val$tree", "Lcom/sun/tools/javac/tree/JCTree$JCReturn;", nullptr, $FINAL | $SYNTHETIC, $field(AttrRecover$1$1, val$tree)},
+		{"val$err", "Lcom/sun/tools/javac/tree/JCTree$JCErroneous;", nullptr, $FINAL | $SYNTHETIC, $field(AttrRecover$1$1, val$err)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/AttrRecover$1;Lcom/sun/tools/javac/tree/JCTree$JCErroneous;Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, 0, $method(AttrRecover$1$1, init$, void, $AttrRecover$1*, $JCTree$JCErroneous*, $JCTree$JCReturn*)},
+		{"translate", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;)TT;", $PUBLIC, $virtualMethod(AttrRecover$1$1, translate, $JCTree*, $JCTree*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.AttrRecover$1",
+		"visitReturn",
+		"(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.AttrRecover$1", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.AttrRecover$1$1", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.tree.JCTree$JCReturn", "com.sun.tools.javac.tree.JCTree", "JCReturn", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.AttrRecover$1$1",
+		"com.sun.tools.javac.tree.TreeTranslator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.AttrRecover"
+	};
+	$loadClass(AttrRecover$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AttrRecover$1$1);
+	});
 	return class$;
 }
 

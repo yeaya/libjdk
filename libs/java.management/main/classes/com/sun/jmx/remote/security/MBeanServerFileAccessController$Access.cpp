@@ -1,5 +1,4 @@
 #include <com/sun/jmx/remote/security/MBeanServerFileAccessController$Access.h>
-
 #include <com/sun/jmx/remote/security/MBeanServerFileAccessController.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -18,52 +17,14 @@ namespace com {
 			namespace remote {
 				namespace security {
 
-$FieldInfo _MBeanServerFileAccessController$Access_FieldInfo_[] = {
-	{"write", "Z", nullptr, $FINAL, $field(MBeanServerFileAccessController$Access, write)},
-	{"createPatterns", "[Ljava/lang/String;", nullptr, $FINAL, $field(MBeanServerFileAccessController$Access, createPatterns)},
-	{"unregister", "Z", nullptr, $PRIVATE, $field(MBeanServerFileAccessController$Access, unregister)},
-	{"NO_STRINGS", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MBeanServerFileAccessController$Access, NO_STRINGS)},
-	{}
-};
-
-$MethodInfo _MBeanServerFileAccessController$Access_MethodInfo_[] = {
-	{"<init>", "(ZZLjava/util/List;)V", "(ZZLjava/util/List<Ljava/lang/String;>;)V", 0, $method(MBeanServerFileAccessController$Access, init$, void, bool, bool, $List*)},
-	{}
-};
-
-$InnerClassInfo _MBeanServerFileAccessController$Access_InnerClassesInfo_[] = {
-	{"com.sun.jmx.remote.security.MBeanServerFileAccessController$Access", "com.sun.jmx.remote.security.MBeanServerFileAccessController", "Access", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MBeanServerFileAccessController$Access_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jmx.remote.security.MBeanServerFileAccessController$Access",
-	"java.lang.Object",
-	nullptr,
-	_MBeanServerFileAccessController$Access_FieldInfo_,
-	_MBeanServerFileAccessController$Access_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MBeanServerFileAccessController$Access_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.remote.security.MBeanServerFileAccessController"
-};
-
-$Object* allocate$MBeanServerFileAccessController$Access($Class* clazz) {
-	return $of($alloc(MBeanServerFileAccessController$Access));
-}
-
 void MBeanServerFileAccessController$Access::init$(bool write, bool unregister, $List* createPatternList) {
 	$set(this, NO_STRINGS, $new($StringArray, 0));
 	this->write = write;
-	int32_t npats = (createPatternList == nullptr) ? 0 : $nc(createPatternList)->size();
+	int32_t npats = (createPatternList == nullptr) ? 0 : createPatternList->size();
 	if (npats == 0) {
 		$set(this, createPatterns, this->NO_STRINGS);
 	} else {
-		$set(this, createPatterns, $fcast($StringArray, createPatternList->toArray($$new($StringArray, npats))));
+		$set(this, createPatterns, $cast($StringArray, $nc(createPatternList)->toArray($$new($StringArray, npats))));
 	}
 	this->unregister = unregister;
 }
@@ -72,7 +33,39 @@ MBeanServerFileAccessController$Access::MBeanServerFileAccessController$Access()
 }
 
 $Class* MBeanServerFileAccessController$Access::load$($String* name, bool initialize) {
-	$loadClass(MBeanServerFileAccessController$Access, name, initialize, &_MBeanServerFileAccessController$Access_ClassInfo_, allocate$MBeanServerFileAccessController$Access);
+	$FieldInfo fieldInfos$$[] = {
+		{"write", "Z", nullptr, $FINAL, $field(MBeanServerFileAccessController$Access, write)},
+		{"createPatterns", "[Ljava/lang/String;", nullptr, $FINAL, $field(MBeanServerFileAccessController$Access, createPatterns)},
+		{"unregister", "Z", nullptr, $PRIVATE, $field(MBeanServerFileAccessController$Access, unregister)},
+		{"NO_STRINGS", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MBeanServerFileAccessController$Access, NO_STRINGS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZZLjava/util/List;)V", "(ZZLjava/util/List<Ljava/lang/String;>;)V", 0, $method(MBeanServerFileAccessController$Access, init$, void, bool, bool, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.remote.security.MBeanServerFileAccessController$Access", "com.sun.jmx.remote.security.MBeanServerFileAccessController", "Access", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jmx.remote.security.MBeanServerFileAccessController$Access",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.remote.security.MBeanServerFileAccessController"
+	};
+	$loadClass(MBeanServerFileAccessController$Access, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MBeanServerFileAccessController$Access);
+	});
 	return class$;
 }
 

@@ -56,7 +56,7 @@ public:
 	virtual int32_t remoteHashCode() override;
 	virtual $String* remoteToString() override;
 	virtual void writeExternal(::java::io::ObjectOutput* out) override;
-	static const int64_t serialVersionUID = (int64_t)0xA5C07C245C1EAE7D;
+	static const int64_t serialVersionUID = (int64_t)0xa5c07c245c1eae7d;
 	::java::rmi::server::RemoteRef* ref = nullptr;
 };
 

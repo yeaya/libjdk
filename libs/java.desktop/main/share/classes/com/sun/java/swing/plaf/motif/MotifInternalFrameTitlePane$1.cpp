@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane$1.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane$SystemButton.h>
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane.h>
 #include <java/awt/Component.h>
@@ -8,14 +7,12 @@
 #include <jcpp.h>
 
 using $MotifInternalFrameTitlePane = ::com::sun::java::swing::plaf::motif::MotifInternalFrameTitlePane;
-using $Component = ::java::awt::Component;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JPopupMenu = ::javax::swing::JPopupMenu;
 
 namespace com {
 	namespace sun {
@@ -23,48 +20,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace motif {
-
-$FieldInfo _MotifInternalFrameTitlePane$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(MotifInternalFrameTitlePane$1, this$0)},
-	{}
-};
-
-$MethodInfo _MotifInternalFrameTitlePane$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;)V", nullptr, 0, $method(MotifInternalFrameTitlePane$1, init$, void, $MotifInternalFrameTitlePane*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameTitlePane$1, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _MotifInternalFrameTitlePane$1_EnclosingMethodInfo_ = {
-	"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane",
-	"assembleSystemMenu",
-	"()V"
-};
-
-$InnerClassInfo _MotifInternalFrameTitlePane$1_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MotifInternalFrameTitlePane$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$1",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	_MotifInternalFrameTitlePane$1_FieldInfo_,
-	_MotifInternalFrameTitlePane$1_MethodInfo_,
-	nullptr,
-	&_MotifInternalFrameTitlePane$1_EnclosingMethodInfo_,
-	_MotifInternalFrameTitlePane$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane"
-};
-
-$Object* allocate$MotifInternalFrameTitlePane$1($Class* clazz) {
-	return $of($alloc(MotifInternalFrameTitlePane$1));
-}
 
 void MotifInternalFrameTitlePane$1::init$($MotifInternalFrameTitlePane* this$0) {
 	$set(this, this$0, this$0);
@@ -78,7 +33,42 @@ MotifInternalFrameTitlePane$1::MotifInternalFrameTitlePane$1() {
 }
 
 $Class* MotifInternalFrameTitlePane$1::load$($String* name, bool initialize) {
-	$loadClass(MotifInternalFrameTitlePane$1, name, initialize, &_MotifInternalFrameTitlePane$1_ClassInfo_, allocate$MotifInternalFrameTitlePane$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(MotifInternalFrameTitlePane$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;)V", nullptr, 0, $method(MotifInternalFrameTitlePane$1, init$, void, $MotifInternalFrameTitlePane*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameTitlePane$1, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane",
+		"assembleSystemMenu",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$1",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane"
+	};
+	$loadClass(MotifInternalFrameTitlePane$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MotifInternalFrameTitlePane$1);
+	});
 	return class$;
 }
 

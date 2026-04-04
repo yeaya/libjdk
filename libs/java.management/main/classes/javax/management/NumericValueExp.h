@@ -38,6 +38,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::lang::Number* val);
 	virtual ::javax::management::ValueExp* apply(::javax::management::ObjectName* name) override;
@@ -48,8 +49,8 @@ public:
 	virtual void setMBeanServer(::javax::management::MBeanServer* s) override;
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t oldSerialVersionUID = (int64_t)0xA99223860C6D2A40;
-	static const int64_t newSerialVersionUID = (int64_t)0xBF0E39BB8D1ABDC0;
+	static const int64_t oldSerialVersionUID = (int64_t)0xa99223860c6d2a40;
+	static const int64_t newSerialVersionUID = (int64_t)0xbf0e39bb8d1abdc0;
 	static $Array<::java::io::ObjectStreamField>* oldSerialPersistentFields;
 	static $Array<::java::io::ObjectStreamField>* newSerialPersistentFields;
 	static int64_t serialVersionUID;

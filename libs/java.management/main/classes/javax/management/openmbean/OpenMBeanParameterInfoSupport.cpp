@@ -1,5 +1,4 @@
 #include <javax/management/openmbean/OpenMBeanParameterInfoSupport.h>
-
 #include <java/lang/Comparable.h>
 #include <java/util/Set.h>
 #include <javax/management/Descriptor.h>
@@ -32,59 +31,6 @@ namespace javax {
 	namespace management {
 		namespace openmbean {
 
-$FieldInfo _OpenMBeanParameterInfoSupport_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(OpenMBeanParameterInfoSupport, serialVersionUID)},
-	{"openType", "Ljavax/management/openmbean/OpenType;", "Ljavax/management/openmbean/OpenType<*>;", $PRIVATE, $field(OpenMBeanParameterInfoSupport, openType)},
-	{"defaultValue", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(OpenMBeanParameterInfoSupport, defaultValue)},
-	{"legalValues", "Ljava/util/Set;", "Ljava/util/Set<*>;", $PRIVATE, $field(OpenMBeanParameterInfoSupport, legalValues)},
-	{"minValue", "Ljava/lang/Comparable;", "Ljava/lang/Comparable<*>;", $PRIVATE, $field(OpenMBeanParameterInfoSupport, minValue)},
-	{"maxValue", "Ljava/lang/Comparable;", "Ljava/lang/Comparable<*>;", $PRIVATE, $field(OpenMBeanParameterInfoSupport, maxValue)},
-	{"myHashCode", "Ljava/lang/Integer;", nullptr, $PRIVATE | $TRANSIENT, $field(OpenMBeanParameterInfoSupport, myHashCode)},
-	{"myToString", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(OpenMBeanParameterInfoSupport, myToString)},
-	{}
-};
-
-$MethodInfo _OpenMBeanParameterInfoSupport_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType;)V", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType<*>;)V", $PUBLIC, $method(OpenMBeanParameterInfoSupport, init$, void, $String*, $String*, $OpenType*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType;Ljavax/management/Descriptor;)V", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType<*>;Ljavax/management/Descriptor;)V", $PUBLIC, $method(OpenMBeanParameterInfoSupport, init$, void, $String*, $String*, $OpenType*, $Descriptor*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType<TT;>;TT;)V", $PUBLIC, $method(OpenMBeanParameterInfoSupport, init$, void, $String*, $String*, $OpenType*, Object$*), "javax.management.openmbean.OpenDataException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType;Ljava/lang/Object;[Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType<TT;>;TT;[TT;)V", $PUBLIC, $method(OpenMBeanParameterInfoSupport, init$, void, $String*, $String*, $OpenType*, Object$*, $ObjectArray*), "javax.management.openmbean.OpenDataException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType;Ljava/lang/Object;Ljava/lang/Comparable;Ljava/lang/Comparable;)V", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType<TT;>;TT;Ljava/lang/Comparable<TT;>;Ljava/lang/Comparable<TT;>;)V", $PUBLIC, $method(OpenMBeanParameterInfoSupport, init$, void, $String*, $String*, $OpenType*, Object$*, $Comparable*, $Comparable*), "javax.management.openmbean.OpenDataException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType;Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Comparable;Ljava/lang/Comparable;)V", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType<TT;>;TT;[TT;Ljava/lang/Comparable<TT;>;Ljava/lang/Comparable<TT;>;)V", $PRIVATE, $method(OpenMBeanParameterInfoSupport, init$, void, $String*, $String*, $OpenType*, Object$*, $ObjectArray*, $Comparable*, $Comparable*), "javax.management.openmbean.OpenDataException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanParameterInfoSupport, equals, bool, Object$*)},
-	{"getDefaultValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(OpenMBeanParameterInfoSupport, getDefaultValue, $Object*)},
-	{"getLegalValues", "()Ljava/util/Set;", "()Ljava/util/Set<*>;", $PUBLIC, $virtualMethod(OpenMBeanParameterInfoSupport, getLegalValues, $Set*)},
-	{"getMaxValue", "()Ljava/lang/Comparable;", "()Ljava/lang/Comparable<*>;", $PUBLIC, $virtualMethod(OpenMBeanParameterInfoSupport, getMaxValue, $Comparable*)},
-	{"getMinValue", "()Ljava/lang/Comparable;", "()Ljava/lang/Comparable<*>;", $PUBLIC, $virtualMethod(OpenMBeanParameterInfoSupport, getMinValue, $Comparable*)},
-	{"getOpenType", "()Ljavax/management/openmbean/OpenType;", "()Ljavax/management/openmbean/OpenType<*>;", $PUBLIC, $virtualMethod(OpenMBeanParameterInfoSupport, getOpenType, $OpenType*)},
-	{"hasDefaultValue", "()Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanParameterInfoSupport, hasDefaultValue, bool)},
-	{"hasLegalValues", "()Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanParameterInfoSupport, hasLegalValues, bool)},
-	{"hasMaxValue", "()Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanParameterInfoSupport, hasMaxValue, bool)},
-	{"hasMinValue", "()Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanParameterInfoSupport, hasMinValue, bool)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(OpenMBeanParameterInfoSupport, hashCode, int32_t)},
-	{"isValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanParameterInfoSupport, isValue, bool, Object$*)},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(OpenMBeanParameterInfoSupport, readResolve, $Object*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OpenMBeanParameterInfoSupport, toString, $String*)},
-	{}
-};
-
-$ClassInfo _OpenMBeanParameterInfoSupport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.openmbean.OpenMBeanParameterInfoSupport",
-	"javax.management.MBeanParameterInfo",
-	"javax.management.openmbean.OpenMBeanParameterInfo",
-	_OpenMBeanParameterInfoSupport_FieldInfo_,
-	_OpenMBeanParameterInfoSupport_MethodInfo_
-};
-
-$Object* allocate$OpenMBeanParameterInfoSupport($Class* clazz) {
-	return $of($alloc(OpenMBeanParameterInfoSupport));
-}
-
 $Object* OpenMBeanParameterInfoSupport::clone() {
 	 return this->$MBeanParameterInfo::clone();
 }
@@ -106,12 +52,10 @@ void OpenMBeanParameterInfoSupport::init$($String* name, $String* description, $
 }
 
 void OpenMBeanParameterInfoSupport::init$($String* name, $String* description, $OpenType* openType, $Descriptor* descriptor$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Descriptor, descriptor, descriptor$renamed);
-	$var($String, var$0, name);
-	$var($String, var$1, (openType == nullptr) ? ($String*)nullptr : $nc(openType)->getClassName());
-	$var($String, var$2, description);
-	$MBeanParameterInfo::init$(var$0, var$1, var$2, $($ImmutableDescriptor::union$($$new($DescriptorArray, {
+	$var($String, var$0, (openType == nullptr) ? ($String*)nullptr : openType->getClassName());
+	$MBeanParameterInfo::init$(name, var$0, description, $($ImmutableDescriptor::union$($$new($DescriptorArray, {
 		descriptor,
 		(openType == nullptr) ? ($Descriptor*)nullptr : $(openType->getDescriptor())
 	}))));
@@ -147,11 +91,9 @@ void OpenMBeanParameterInfoSupport::init$($String* name, $String* description, $
 }
 
 void OpenMBeanParameterInfoSupport::init$($String* name, $String* description, $OpenType* openType, Object$* defaultValue, $ObjectArray* legalValues, $Comparable* minValue, $Comparable* maxValue) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, name);
-	$var($String, var$1, (openType == nullptr) ? ($String*)nullptr : $nc(openType)->getClassName());
-	$var($String, var$2, description);
-	$MBeanParameterInfo::init$(var$0, var$1, var$2, $($OpenMBeanAttributeInfoSupport::makeDescriptor(openType, defaultValue, legalValues, minValue, maxValue)));
+	$useLocalObjectStack();
+	$var($String, var$0, (openType == nullptr) ? ($String*)nullptr : openType->getClassName());
+	$MBeanParameterInfo::init$(name, var$0, description, $($OpenMBeanAttributeInfoSupport::makeDescriptor(openType, defaultValue, legalValues, minValue, maxValue)));
 	$set(this, defaultValue, nullptr);
 	$set(this, legalValues, nullptr);
 	$set(this, minValue, nullptr);
@@ -168,8 +110,8 @@ void OpenMBeanParameterInfoSupport::init$($String* name, $String* description, $
 }
 
 $Object* OpenMBeanParameterInfoSupport::readResolve() {
-	$useLocalCurrentObjectStackCache();
-	if ($nc($($nc($(getDescriptor()))->getFieldNames()))->length == 0) {
+	$useLocalObjectStack();
+	if ($nc($($$nc(getDescriptor())->getFieldNames()))->length == 0) {
 		$var($OpenType, xopenType, $cast($OpenType, $OpenMBeanAttributeInfoSupport::cast(this->openType)));
 		$var($Set, xlegalValues, $cast($Set, $OpenMBeanAttributeInfoSupport::cast(this->legalValues)));
 		$var($Comparable, xminValue, $cast($Comparable, $OpenMBeanAttributeInfoSupport::cast(this->minValue)));
@@ -185,7 +127,7 @@ $OpenType* OpenMBeanParameterInfoSupport::getOpenType() {
 }
 
 $Object* OpenMBeanParameterInfoSupport::getDefaultValue() {
-	return $of(this->defaultValue);
+	return this->defaultValue;
 }
 
 $Set* OpenMBeanParameterInfoSupport::getLegalValues() {
@@ -246,7 +188,55 @@ OpenMBeanParameterInfoSupport::OpenMBeanParameterInfoSupport() {
 }
 
 $Class* OpenMBeanParameterInfoSupport::load$($String* name, bool initialize) {
-	$loadClass(OpenMBeanParameterInfoSupport, name, initialize, &_OpenMBeanParameterInfoSupport_ClassInfo_, allocate$OpenMBeanParameterInfoSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(OpenMBeanParameterInfoSupport, serialVersionUID)},
+		{"openType", "Ljavax/management/openmbean/OpenType;", "Ljavax/management/openmbean/OpenType<*>;", $PRIVATE, $field(OpenMBeanParameterInfoSupport, openType)},
+		{"defaultValue", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(OpenMBeanParameterInfoSupport, defaultValue)},
+		{"legalValues", "Ljava/util/Set;", "Ljava/util/Set<*>;", $PRIVATE, $field(OpenMBeanParameterInfoSupport, legalValues)},
+		{"minValue", "Ljava/lang/Comparable;", "Ljava/lang/Comparable<*>;", $PRIVATE, $field(OpenMBeanParameterInfoSupport, minValue)},
+		{"maxValue", "Ljava/lang/Comparable;", "Ljava/lang/Comparable<*>;", $PRIVATE, $field(OpenMBeanParameterInfoSupport, maxValue)},
+		{"myHashCode", "Ljava/lang/Integer;", nullptr, $PRIVATE | $TRANSIENT, $field(OpenMBeanParameterInfoSupport, myHashCode)},
+		{"myToString", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(OpenMBeanParameterInfoSupport, myToString)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType;)V", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType<*>;)V", $PUBLIC, $method(OpenMBeanParameterInfoSupport, init$, void, $String*, $String*, $OpenType*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType;Ljavax/management/Descriptor;)V", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType<*>;Ljavax/management/Descriptor;)V", $PUBLIC, $method(OpenMBeanParameterInfoSupport, init$, void, $String*, $String*, $OpenType*, $Descriptor*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType<TT;>;TT;)V", $PUBLIC, $method(OpenMBeanParameterInfoSupport, init$, void, $String*, $String*, $OpenType*, Object$*), "javax.management.openmbean.OpenDataException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType;Ljava/lang/Object;[Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType<TT;>;TT;[TT;)V", $PUBLIC, $method(OpenMBeanParameterInfoSupport, init$, void, $String*, $String*, $OpenType*, Object$*, $ObjectArray*), "javax.management.openmbean.OpenDataException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType;Ljava/lang/Object;Ljava/lang/Comparable;Ljava/lang/Comparable;)V", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType<TT;>;TT;Ljava/lang/Comparable<TT;>;Ljava/lang/Comparable<TT;>;)V", $PUBLIC, $method(OpenMBeanParameterInfoSupport, init$, void, $String*, $String*, $OpenType*, Object$*, $Comparable*, $Comparable*), "javax.management.openmbean.OpenDataException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType;Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Comparable;Ljava/lang/Comparable;)V", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/OpenType<TT;>;TT;[TT;Ljava/lang/Comparable<TT;>;Ljava/lang/Comparable<TT;>;)V", $PRIVATE, $method(OpenMBeanParameterInfoSupport, init$, void, $String*, $String*, $OpenType*, Object$*, $ObjectArray*, $Comparable*, $Comparable*), "javax.management.openmbean.OpenDataException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanParameterInfoSupport, equals, bool, Object$*)},
+		{"getDefaultValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(OpenMBeanParameterInfoSupport, getDefaultValue, $Object*)},
+		{"getLegalValues", "()Ljava/util/Set;", "()Ljava/util/Set<*>;", $PUBLIC, $virtualMethod(OpenMBeanParameterInfoSupport, getLegalValues, $Set*)},
+		{"getMaxValue", "()Ljava/lang/Comparable;", "()Ljava/lang/Comparable<*>;", $PUBLIC, $virtualMethod(OpenMBeanParameterInfoSupport, getMaxValue, $Comparable*)},
+		{"getMinValue", "()Ljava/lang/Comparable;", "()Ljava/lang/Comparable<*>;", $PUBLIC, $virtualMethod(OpenMBeanParameterInfoSupport, getMinValue, $Comparable*)},
+		{"getOpenType", "()Ljavax/management/openmbean/OpenType;", "()Ljavax/management/openmbean/OpenType<*>;", $PUBLIC, $virtualMethod(OpenMBeanParameterInfoSupport, getOpenType, $OpenType*)},
+		{"hasDefaultValue", "()Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanParameterInfoSupport, hasDefaultValue, bool)},
+		{"hasLegalValues", "()Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanParameterInfoSupport, hasLegalValues, bool)},
+		{"hasMaxValue", "()Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanParameterInfoSupport, hasMaxValue, bool)},
+		{"hasMinValue", "()Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanParameterInfoSupport, hasMinValue, bool)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(OpenMBeanParameterInfoSupport, hashCode, int32_t)},
+		{"isValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanParameterInfoSupport, isValue, bool, Object$*)},
+		{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(OpenMBeanParameterInfoSupport, readResolve, $Object*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OpenMBeanParameterInfoSupport, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.openmbean.OpenMBeanParameterInfoSupport",
+		"javax.management.MBeanParameterInfo",
+		"javax.management.openmbean.OpenMBeanParameterInfo",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OpenMBeanParameterInfoSupport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(OpenMBeanParameterInfoSupport));
+	});
 	return class$;
 }
 

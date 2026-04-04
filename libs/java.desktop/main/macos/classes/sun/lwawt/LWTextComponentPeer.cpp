@@ -1,5 +1,4 @@
 #include <sun/lwawt/LWTextComponentPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -17,7 +16,6 @@
 #include <java/awt/TextComponent.h>
 #include <java/awt/event/FocusEvent$Cause.h>
 #include <java/awt/event/InputMethodEvent.h>
-#include <java/awt/event/InputMethodListener.h>
 #include <java/awt/event/PaintEvent.h>
 #include <java/awt/event/TextEvent.h>
 #include <java/awt/im/InputMethodRequests.h>
@@ -27,7 +25,6 @@
 #include <java/awt/peer/ContainerPeer.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/event/DocumentEvent.h>
-#include <javax/swing/event/DocumentListener.h>
 #include <javax/swing/text/Caret.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/JTextComponent.h>
@@ -58,7 +55,6 @@ using $SystemColor = ::java::awt::SystemColor;
 using $TextComponent = ::java::awt::TextComponent;
 using $FocusEvent$Cause = ::java::awt::event::FocusEvent$Cause;
 using $InputMethodEvent = ::java::awt::event::InputMethodEvent;
-using $InputMethodListener = ::java::awt::event::InputMethodListener;
 using $PaintEvent = ::java::awt::event::PaintEvent;
 using $TextEvent = ::java::awt::event::TextEvent;
 using $InputMethodRequests = ::java::awt::im::InputMethodRequests;
@@ -69,105 +65,16 @@ using $ContainerPeer = ::java::awt::peer::ContainerPeer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $DocumentEvent = ::javax::swing::event::DocumentEvent;
-using $DocumentListener = ::javax::swing::event::DocumentListener;
-using $Caret = ::javax::swing::text::Caret;
 using $Document = ::javax::swing::text::Document;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $Region = ::sun::java2d::pipe::Region;
 using $LWComponentPeer = ::sun::lwawt::LWComponentPeer;
 using $PlatformComponent = ::sun::lwawt::PlatformComponent;
 
 namespace sun {
 	namespace lwawt {
-
-$FieldInfo _LWTextComponentPeer_FieldInfo_[] = {
-	{"firstChangeSkipped", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LWTextComponentPeer, firstChangeSkipped)},
-	{}
-};
-
-$MethodInfo _LWTextComponentPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC | $FINAL},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC | $FINAL},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC | $FINAL},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC | $FINAL},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
-	{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/TextComponent;Lsun/lwawt/PlatformComponent;)V", "(TT;Lsun/lwawt/PlatformComponent;)V", 0, $method(LWTextComponentPeer, init$, void, $TextComponent*, $PlatformComponent*)},
-	{"caretPositionChanged", "(Ljava/awt/event/InputMethodEvent;)V", nullptr, $PUBLIC, $virtualMethod(LWTextComponentPeer, caretPositionChanged, void, $InputMethodEvent*)},
-	{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWTextComponentPeer, changedUpdate, void, $DocumentEvent*)},
-	{"disposeImpl", "()V", nullptr, $PROTECTED | $FINAL, $virtualMethod(LWTextComponentPeer, disposeImpl, void)},
-	{"getCaretPosition", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWTextComponentPeer, getCaretPosition, int32_t)},
-	{"getInputMethodRequests", "()Ljava/awt/im/InputMethodRequests;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWTextComponentPeer, getInputMethodRequests, $InputMethodRequests*)},
-	{"getMinimumSize", "(II)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LWTextComponentPeer, getMinimumSize, $Dimension*, int32_t, int32_t)},
-	{"getSelectionEnd", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWTextComponentPeer, getSelectionEnd, int32_t)},
-	{"getSelectionStart", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWTextComponentPeer, getSelectionStart, int32_t)},
-	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWTextComponentPeer, getText, $String*)},
-	{"getTextComponent", "()Ljavax/swing/text/JTextComponent;", nullptr, $ABSTRACT, $virtualMethod(LWTextComponentPeer, getTextComponent, $JTextComponent*)},
-	{"initializeImpl", "()V", nullptr, 0, $virtualMethod(LWTextComponentPeer, initializeImpl, void)},
-	{"inputMethodTextChanged", "(Ljava/awt/event/InputMethodEvent;)V", nullptr, $PUBLIC, $virtualMethod(LWTextComponentPeer, inputMethodTextChanged, void, $InputMethodEvent*)},
-	{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWTextComponentPeer, insertUpdate, void, $DocumentEvent*)},
-	{"isFocusable", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWTextComponentPeer, isFocusable, bool)},
-	{"*isObscured", "()Z", nullptr, $PUBLIC},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"postTextEvent", "()V", nullptr, $PROTECTED | $FINAL, $method(LWTextComponentPeer, postTextEvent, void)},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWTextComponentPeer, removeUpdate, void, $DocumentEvent*)},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
-	{"revalidate", "()V", nullptr, $PROTECTED | $FINAL, $method(LWTextComponentPeer, revalidate, void)},
-	{"select", "(II)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWTextComponentPeer, select, void, int32_t, int32_t)},
-	{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"setCaretPosition", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWTextComponentPeer, setCaretPosition, void, int32_t)},
-	{"setEditable", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWTextComponentPeer, setEditable, void, bool)},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWTextComponentPeer, setText, void, $String*)},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _LWTextComponentPeer_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.lwawt.LWTextComponentPeer",
-	"sun.lwawt.LWComponentPeer",
-	"javax.swing.event.DocumentListener,java.awt.peer.TextComponentPeer,java.awt.event.InputMethodListener",
-	_LWTextComponentPeer_FieldInfo_,
-	_LWTextComponentPeer_MethodInfo_,
-	"<T:Ljava/awt/TextComponent;D:Ljavax/swing/JComponent;>Lsun/lwawt/LWComponentPeer<TT;TD;>;Ljavax/swing/event/DocumentListener;Ljava/awt/peer/TextComponentPeer;Ljava/awt/event/InputMethodListener;"
-};
-
-$Object* allocate$LWTextComponentPeer($Class* clazz) {
-	return $of($alloc(LWTextComponentPeer));
-}
 
 void LWTextComponentPeer::dispose() {
 	this->$LWComponentPeer::dispose();
@@ -330,26 +237,26 @@ void LWTextComponentPeer::finalize() {
 }
 
 void LWTextComponentPeer::init$($TextComponent* target, $PlatformComponent* platformComponent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LWComponentPeer::init$(target, platformComponent);
-	if (!$nc(($cast($TextComponent, $(getTarget()))))->isBackgroundSet()) {
+	if (!$$sure($TextComponent, getTarget())->isBackgroundSet()) {
 		$init($SystemColor);
-		$nc(($cast($TextComponent, $(getTarget()))))->setBackground($SystemColor::text);
+		$$sure($TextComponent, getTarget())->setBackground($SystemColor::text);
 	}
 }
 
 void LWTextComponentPeer::initializeImpl() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LWComponentPeer::initializeImpl();
 	$synchronized(getDelegateLock()) {
-		$nc($($nc($(getTextComponent()))->getDocument()))->addDocumentListener(this);
+		$$nc($$nc(getTextComponent())->getDocument())->addDocumentListener(this);
 	}
-	setEditable($nc(($cast($TextComponent, $(getTarget()))))->isEditable());
-	setText($($nc(($cast($TextComponent, $(getTarget()))))->getText()));
-	setCaretPosition($nc(($cast($TextComponent, $(getTarget()))))->getCaretPosition());
-	$nc(($cast($TextComponent, $(getTarget()))))->addInputMethodListener(this);
-	int32_t start = $nc(($cast($TextComponent, $(getTarget()))))->getSelectionStart();
-	int32_t end = $nc(($cast($TextComponent, $(getTarget()))))->getSelectionEnd();
+	setEditable($$sure($TextComponent, getTarget())->isEditable());
+	setText($($$sure($TextComponent, getTarget())->getText()));
+	setCaretPosition($$sure($TextComponent, getTarget())->getCaretPosition());
+	$$sure($TextComponent, getTarget())->addInputMethodListener(this);
+	int32_t start = $$sure($TextComponent, getTarget())->getSelectionStart();
+	int32_t end = $$sure($TextComponent, getTarget())->getSelectionEnd();
 	if (end > start) {
 		select(start, end);
 	}
@@ -357,20 +264,20 @@ void LWTextComponentPeer::initializeImpl() {
 }
 
 void LWTextComponentPeer::disposeImpl() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getDelegateLock()) {
-		$nc($($nc($(getTextComponent()))->getCaret()))->setVisible(false);
+		$$nc($$nc(getTextComponent())->getCaret())->setVisible(false);
 	}
 	$LWComponentPeer::disposeImpl();
 }
 
 $Dimension* LWTextComponentPeer::getMinimumSize(int32_t rows, int32_t columns) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, insets, nullptr);
 	$synchronized(getDelegateLock()) {
-		$assign(insets, $nc($(getTextComponent()))->getInsets());
+		$assign(insets, $$nc(getTextComponent())->getInsets());
 	}
-	int32_t borderHeight = $nc(insets)->top + insets->bottom;
+	int32_t borderHeight = $nc(insets)->top + $nc(insets)->bottom;
 	int32_t borderWidth = insets->left + insets->right;
 	$var($FontMetrics, fm, getFontMetrics($(getFont())));
 	int32_t var$0 = $nc(fm)->charWidth($LWComponentPeer::WIDE_CHAR) * columns + borderWidth;
@@ -379,22 +286,22 @@ $Dimension* LWTextComponentPeer::getMinimumSize(int32_t rows, int32_t columns) {
 
 void LWTextComponentPeer::setEditable(bool editable) {
 	$synchronized(getDelegateLock()) {
-		$nc($(getTextComponent()))->setEditable(editable);
+		$$nc(getTextComponent())->setEditable(editable);
 	}
 }
 
 $String* LWTextComponentPeer::getText() {
 	$synchronized(getDelegateLock()) {
-		return $nc($(getTextComponent()))->getText();
+		return $$nc(getTextComponent())->getText();
 	}
 }
 
 void LWTextComponentPeer::setText($String* text) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getDelegateLock()) {
-		$var($Document, document, $nc($(getTextComponent()))->getDocument());
+		$var($Document, document, $$nc(getTextComponent())->getDocument());
 		$nc(document)->removeDocumentListener(this);
-		$nc($(getTextComponent()))->setText(text);
+		$$nc(getTextComponent())->setText(text);
 		revalidate();
 		if (this->firstChangeSkipped) {
 			postEvent($$new($TextEvent, $(getTarget()), $TextEvent::TEXT_VALUE_CHANGED));
@@ -406,56 +313,56 @@ void LWTextComponentPeer::setText($String* text) {
 
 int32_t LWTextComponentPeer::getSelectionStart() {
 	$synchronized(getDelegateLock()) {
-		return $nc($(getTextComponent()))->getSelectionStart();
+		return $$nc(getTextComponent())->getSelectionStart();
 	}
 }
 
 int32_t LWTextComponentPeer::getSelectionEnd() {
 	$synchronized(getDelegateLock()) {
-		return $nc($(getTextComponent()))->getSelectionEnd();
+		return $$nc(getTextComponent())->getSelectionEnd();
 	}
 }
 
 void LWTextComponentPeer::select(int32_t selStart, int32_t selEnd) {
 	$synchronized(getDelegateLock()) {
-		$nc($(getTextComponent()))->select(selStart, selEnd);
+		$$nc(getTextComponent())->select(selStart, selEnd);
 	}
 	repaintPeer();
 }
 
 void LWTextComponentPeer::setCaretPosition(int32_t pos) {
 	$synchronized(getDelegateLock()) {
-		$nc($(getTextComponent()))->setCaretPosition(pos);
+		$$nc(getTextComponent())->setCaretPosition(pos);
 	}
 	repaintPeer();
 }
 
 int32_t LWTextComponentPeer::getCaretPosition() {
 	$synchronized(getDelegateLock()) {
-		return $nc($(getTextComponent()))->getCaretPosition();
+		return $$nc(getTextComponent())->getCaretPosition();
 	}
 }
 
 $InputMethodRequests* LWTextComponentPeer::getInputMethodRequests() {
 	$synchronized(getDelegateLock()) {
-		return $nc($(getTextComponent()))->getInputMethodRequests();
+		return $$nc(getTextComponent())->getInputMethodRequests();
 	}
 }
 
 bool LWTextComponentPeer::isFocusable() {
-	return $nc(($cast($TextComponent, $(getTarget()))))->isFocusable();
+	return $$sure($TextComponent, getTarget())->isFocusable();
 }
 
 void LWTextComponentPeer::revalidate() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getDelegateLock()) {
-		$nc($(getTextComponent()))->invalidate();
-		$nc($(getDelegate()))->validate();
+		$$nc(getTextComponent())->invalidate();
+		$$nc(getDelegate())->validate();
 	}
 }
 
 void LWTextComponentPeer::postTextEvent() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	postEvent($$new($TextEvent, $(getTarget()), $TextEvent::TEXT_VALUE_CHANGED));
 	$synchronized(getDelegateLock()) {
 		revalidate();
@@ -475,16 +382,16 @@ void LWTextComponentPeer::removeUpdate($DocumentEvent* e) {
 }
 
 void LWTextComponentPeer::inputMethodTextChanged($InputMethodEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getDelegateLock()) {
-		$nc($($AWTAccessor::getComponentAccessor()))->processEvent($(getTextComponent()), event);
+		$$nc($AWTAccessor::getComponentAccessor())->processEvent($(getTextComponent()), event);
 	}
 }
 
 void LWTextComponentPeer::caretPositionChanged($InputMethodEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getDelegateLock()) {
-		$nc($($AWTAccessor::getComponentAccessor()))->processEvent($(getTextComponent()), event);
+		$$nc($AWTAccessor::getComponentAccessor())->processEvent($(getTextComponent()), event);
 	}
 }
 
@@ -492,7 +399,87 @@ LWTextComponentPeer::LWTextComponentPeer() {
 }
 
 $Class* LWTextComponentPeer::load$($String* name, bool initialize) {
-	$loadClass(LWTextComponentPeer, name, initialize, &_LWTextComponentPeer_ClassInfo_, allocate$LWTextComponentPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"firstChangeSkipped", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LWTextComponentPeer, firstChangeSkipped)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC | $FINAL},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC | $FINAL},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC | $FINAL},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC | $FINAL},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
+		{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/TextComponent;Lsun/lwawt/PlatformComponent;)V", "(TT;Lsun/lwawt/PlatformComponent;)V", 0, $method(LWTextComponentPeer, init$, void, $TextComponent*, $PlatformComponent*)},
+		{"caretPositionChanged", "(Ljava/awt/event/InputMethodEvent;)V", nullptr, $PUBLIC, $virtualMethod(LWTextComponentPeer, caretPositionChanged, void, $InputMethodEvent*)},
+		{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWTextComponentPeer, changedUpdate, void, $DocumentEvent*)},
+		{"disposeImpl", "()V", nullptr, $PROTECTED | $FINAL, $virtualMethod(LWTextComponentPeer, disposeImpl, void)},
+		{"getCaretPosition", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWTextComponentPeer, getCaretPosition, int32_t)},
+		{"getInputMethodRequests", "()Ljava/awt/im/InputMethodRequests;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWTextComponentPeer, getInputMethodRequests, $InputMethodRequests*)},
+		{"getMinimumSize", "(II)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LWTextComponentPeer, getMinimumSize, $Dimension*, int32_t, int32_t)},
+		{"getSelectionEnd", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWTextComponentPeer, getSelectionEnd, int32_t)},
+		{"getSelectionStart", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWTextComponentPeer, getSelectionStart, int32_t)},
+		{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWTextComponentPeer, getText, $String*)},
+		{"getTextComponent", "()Ljavax/swing/text/JTextComponent;", nullptr, $ABSTRACT, $virtualMethod(LWTextComponentPeer, getTextComponent, $JTextComponent*)},
+		{"initializeImpl", "()V", nullptr, 0, $virtualMethod(LWTextComponentPeer, initializeImpl, void)},
+		{"inputMethodTextChanged", "(Ljava/awt/event/InputMethodEvent;)V", nullptr, $PUBLIC, $virtualMethod(LWTextComponentPeer, inputMethodTextChanged, void, $InputMethodEvent*)},
+		{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWTextComponentPeer, insertUpdate, void, $DocumentEvent*)},
+		{"isFocusable", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWTextComponentPeer, isFocusable, bool)},
+		{"*isObscured", "()Z", nullptr, $PUBLIC},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"postTextEvent", "()V", nullptr, $PROTECTED | $FINAL, $method(LWTextComponentPeer, postTextEvent, void)},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWTextComponentPeer, removeUpdate, void, $DocumentEvent*)},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
+		{"revalidate", "()V", nullptr, $PROTECTED | $FINAL, $method(LWTextComponentPeer, revalidate, void)},
+		{"select", "(II)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWTextComponentPeer, select, void, int32_t, int32_t)},
+		{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"setCaretPosition", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWTextComponentPeer, setCaretPosition, void, int32_t)},
+		{"setEditable", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWTextComponentPeer, setEditable, void, bool)},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWTextComponentPeer, setText, void, $String*)},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.lwawt.LWTextComponentPeer",
+		"sun.lwawt.LWComponentPeer",
+		"javax.swing.event.DocumentListener,java.awt.peer.TextComponentPeer,java.awt.event.InputMethodListener",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/awt/TextComponent;D:Ljavax/swing/JComponent;>Lsun/lwawt/LWComponentPeer<TT;TD;>;Ljavax/swing/event/DocumentListener;Ljava/awt/peer/TextComponentPeer;Ljava/awt/event/InputMethodListener;"
+	};
+	$loadClass(LWTextComponentPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LWTextComponentPeer));
+	});
 	return class$;
 }
 

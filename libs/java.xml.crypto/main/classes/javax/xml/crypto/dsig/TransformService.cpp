@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/dsig/TransformService.h>
-
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/NoSuchProviderException.h>
 #include <java/security/Provider$Service.h>
@@ -30,57 +29,12 @@ namespace javax {
 		namespace crypto {
 			namespace dsig {
 
-$FieldInfo _TransformService_FieldInfo_[] = {
-	{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TransformService, algorithm)},
-	{"mechanism", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TransformService, mechanism)},
-	{"provider", "Ljava/security/Provider;", nullptr, $PRIVATE, $field(TransformService, provider)},
-	{}
-};
-
-$MethodInfo _TransformService_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(TransformService, init$, void)},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(TransformService, getAlgorithm, $String*)},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/TransformService;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransformService, getInstance, TransformService*, $String*, $String*), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/Provider;)Ljavax/xml/crypto/dsig/TransformService;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransformService, getInstance, TransformService*, $String*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/TransformService;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransformService, getInstance, TransformService*, $String*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getMechanismType", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(TransformService, getMechanismType, $String*)},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(TransformService, getProvider, $Provider*)},
-	{"init", "(Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransformService, init, void, $TransformParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"init", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransformService, init, void, $XMLStructure*, $XMLCryptoContext*), "java.security.InvalidAlgorithmParameterException"},
-	{"marshalParams", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransformService, marshalParams, void, $XMLStructure*, $XMLCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{}
-};
-
-$InnerClassInfo _TransformService_InnerClassesInfo_[] = {
-	{"javax.xml.crypto.dsig.TransformService$MechanismMapEntry", "javax.xml.crypto.dsig.TransformService", "MechanismMapEntry", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _TransformService_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.xml.crypto.dsig.TransformService",
-	"java.lang.Object",
-	"javax.xml.crypto.dsig.Transform",
-	_TransformService_FieldInfo_,
-	_TransformService_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TransformService_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.xml.crypto.dsig.TransformService$MechanismMapEntry"
-};
-
-$Object* allocate$TransformService($Class* clazz) {
-	return $of($alloc(TransformService));
-}
-
 void TransformService::init$() {
 }
 
 TransformService* TransformService::getInstance($String* algorithm, $String* mechanismType) {
 	$init(TransformService);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (mechanismType == nullptr || algorithm == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -91,9 +45,7 @@ TransformService* TransformService::getInstance($String* algorithm, $String* mec
 	$var($ProviderArray, provs, $Security::getProviders());
 	{
 		$var($ProviderArray, arr$, provs);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Provider, p, arr$->get(i$));
 			{
 				$var($Provider$Service, s, $nc(p)->getService("TransformService"_s, algorithm));
@@ -103,7 +55,7 @@ TransformService* TransformService::getInstance($String* algorithm, $String* mec
 						$var($Object, obj, s->newInstance(nullptr));
 						if ($instanceOf(TransformService, obj)) {
 							$var(TransformService, ts, $cast(TransformService, obj));
-							$set($nc(ts), algorithm, algorithm);
+							$set(ts, algorithm, algorithm);
 							$set(ts, mechanism, mechanismType);
 							$set(ts, provider, p);
 							return ts;
@@ -118,7 +70,7 @@ TransformService* TransformService::getInstance($String* algorithm, $String* mec
 
 TransformService* TransformService::getInstance($String* algorithm, $String* mechanismType, $Provider* provider) {
 	$init(TransformService);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (mechanismType == nullptr || algorithm == nullptr || provider == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -133,7 +85,7 @@ TransformService* TransformService::getInstance($String* algorithm, $String* mec
 			$var($Object, obj, s->newInstance(nullptr));
 			if ($instanceOf(TransformService, obj)) {
 				$var(TransformService, ts, $cast(TransformService, obj));
-				$set($nc(ts), algorithm, algorithm);
+				$set(ts, algorithm, algorithm);
 				$set(ts, mechanism, mechanismType);
 				$set(ts, provider, provider);
 				return ts;
@@ -145,10 +97,10 @@ TransformService* TransformService::getInstance($String* algorithm, $String* mec
 
 TransformService* TransformService::getInstance($String* algorithm, $String* mechanismType, $String* provider) {
 	$init(TransformService);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (mechanismType == nullptr || algorithm == nullptr || provider == nullptr) {
 		$throwNew($NullPointerException);
-	} else if ($nc(provider)->length() == 0) {
+	} else if (provider->length() == 0) {
 		$throwNew($NoSuchProviderException);
 	}
 	bool dom = false;
@@ -166,7 +118,7 @@ TransformService* TransformService::getInstance($String* algorithm, $String* mec
 			$var($Object, obj, s->newInstance(nullptr));
 			if ($instanceOf(TransformService, obj)) {
 				$var(TransformService, ts, $cast(TransformService, obj));
-				$set($nc(ts), algorithm, algorithm);
+				$set(ts, algorithm, algorithm);
 				$set(ts, mechanism, mechanismType);
 				$set(ts, provider, p);
 				return ts;
@@ -192,7 +144,46 @@ TransformService::TransformService() {
 }
 
 $Class* TransformService::load$($String* name, bool initialize) {
-	$loadClass(TransformService, name, initialize, &_TransformService_ClassInfo_, allocate$TransformService);
+	$FieldInfo fieldInfos$$[] = {
+		{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TransformService, algorithm)},
+		{"mechanism", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TransformService, mechanism)},
+		{"provider", "Ljava/security/Provider;", nullptr, $PRIVATE, $field(TransformService, provider)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(TransformService, init$, void)},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(TransformService, getAlgorithm, $String*)},
+		{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/TransformService;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransformService, getInstance, TransformService*, $String*, $String*), "java.security.NoSuchAlgorithmException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/Provider;)Ljavax/xml/crypto/dsig/TransformService;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransformService, getInstance, TransformService*, $String*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/TransformService;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransformService, getInstance, TransformService*, $String*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+		{"getMechanismType", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(TransformService, getMechanismType, $String*)},
+		{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(TransformService, getProvider, $Provider*)},
+		{"init", "(Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransformService, init, void, $TransformParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"init", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransformService, init, void, $XMLStructure*, $XMLCryptoContext*), "java.security.InvalidAlgorithmParameterException"},
+		{"marshalParams", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransformService, marshalParams, void, $XMLStructure*, $XMLCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.xml.crypto.dsig.TransformService$MechanismMapEntry", "javax.xml.crypto.dsig.TransformService", "MechanismMapEntry", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.xml.crypto.dsig.TransformService",
+		"java.lang.Object",
+		"javax.xml.crypto.dsig.Transform",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.xml.crypto.dsig.TransformService$MechanismMapEntry"
+	};
+	$loadClass(TransformService, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TransformService));
+	});
 	return class$;
 }
 

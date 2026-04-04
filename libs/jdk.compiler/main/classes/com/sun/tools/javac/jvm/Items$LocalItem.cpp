@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/Items$LocalItem.h>
-
 #include <com/sun/tools/javac/code/Symtab.h>
 #include <com/sun/tools/javac/code/Type$JCPrimitiveType.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -25,48 +24,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$FieldInfo _Items$LocalItem_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/jvm/Items;", nullptr, $FINAL | $SYNTHETIC, $field(Items$LocalItem, this$0)},
-	{"reg", "I", nullptr, 0, $field(Items$LocalItem, reg)},
-	{"type", "Lcom/sun/tools/javac/code/Type;", nullptr, 0, $field(Items$LocalItem, type)},
-	{}
-};
-
-$MethodInfo _Items$LocalItem_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;Lcom/sun/tools/javac/code/Type;I)V", nullptr, 0, $method(Items$LocalItem, init$, void, $Items*, $Type*, int32_t)},
-	{"incr", "(I)V", nullptr, 0, $virtualMethod(Items$LocalItem, incr, void, int32_t)},
-	{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$LocalItem, load, $Items$Item*)},
-	{"store", "()V", nullptr, 0, $virtualMethod(Items$LocalItem, store, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Items$LocalItem, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Items$LocalItem_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.Items$LocalItem", "com.sun.tools.javac.jvm.Items", "LocalItem", 0},
-	{"com.sun.tools.javac.jvm.Items$Item", "com.sun.tools.javac.jvm.Items", "Item", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Items$LocalItem_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.Items$LocalItem",
-	"com.sun.tools.javac.jvm.Items$Item",
-	nullptr,
-	_Items$LocalItem_FieldInfo_,
-	_Items$LocalItem_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Items$LocalItem_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.Items"
-};
-
-$Object* allocate$Items$LocalItem($Class* clazz) {
-	return $of($alloc(Items$LocalItem));
-}
 
 void Items$LocalItem::init$($Items* this$0, $Type* type, int32_t reg) {
 	$set(this, this$0, this$0);
@@ -95,19 +52,19 @@ void Items$LocalItem::store() {
 }
 
 void Items$LocalItem::incr(int32_t x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->typecode == 0 && x >= -32768 && x <= 32767) {
 		$nc(this->this$0->code)->emitop1w(132, this->reg, x);
 	} else {
 		load();
 		if (x >= 0) {
-			$nc($(this->this$0->makeImmediateItem($nc(this->this$0->syms)->intType, $($Integer::valueOf(x)))))->load();
+			$$nc(this->this$0->makeImmediateItem($nc(this->this$0->syms)->intType, $($Integer::valueOf(x))))->load();
 			$nc(this->this$0->code)->emitop0(96);
 		} else {
-			$nc($(this->this$0->makeImmediateItem($nc(this->this$0->syms)->intType, $($Integer::valueOf(-x)))))->load();
+			$$nc(this->this$0->makeImmediateItem($nc(this->this$0->syms)->intType, $($Integer::valueOf(-x))))->load();
 			$nc(this->this$0->code)->emitop0(100);
 		}
-		$nc($(this->this$0->makeStackItem($nc(this->this$0->syms)->intType)))->coerce(this->typecode);
+		$$nc(this->this$0->makeStackItem($nc(this->this$0->syms)->intType))->coerce(this->typecode);
 		store();
 	}
 }
@@ -120,7 +77,43 @@ Items$LocalItem::Items$LocalItem() {
 }
 
 $Class* Items$LocalItem::load$($String* name, bool initialize) {
-	$loadClass(Items$LocalItem, name, initialize, &_Items$LocalItem_ClassInfo_, allocate$Items$LocalItem);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/jvm/Items;", nullptr, $FINAL | $SYNTHETIC, $field(Items$LocalItem, this$0)},
+		{"reg", "I", nullptr, 0, $field(Items$LocalItem, reg)},
+		{"type", "Lcom/sun/tools/javac/code/Type;", nullptr, 0, $field(Items$LocalItem, type)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/jvm/Items;Lcom/sun/tools/javac/code/Type;I)V", nullptr, 0, $method(Items$LocalItem, init$, void, $Items*, $Type*, int32_t)},
+		{"incr", "(I)V", nullptr, 0, $virtualMethod(Items$LocalItem, incr, void, int32_t)},
+		{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$LocalItem, load, $Items$Item*)},
+		{"store", "()V", nullptr, 0, $virtualMethod(Items$LocalItem, store, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Items$LocalItem, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.Items$LocalItem", "com.sun.tools.javac.jvm.Items", "LocalItem", 0},
+		{"com.sun.tools.javac.jvm.Items$Item", "com.sun.tools.javac.jvm.Items", "Item", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.Items$LocalItem",
+		"com.sun.tools.javac.jvm.Items$Item",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.Items"
+	};
+	$loadClass(Items$LocalItem, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Items$LocalItem);
+	});
 	return class$;
 }
 

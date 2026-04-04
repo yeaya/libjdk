@@ -14,6 +14,7 @@ class MacCroatian$Holder : public ::java::lang::Object {
 	$class(MacCroatian$Holder, 0, ::java::lang::Object)
 public:
 	MacCroatian$Holder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* b2cTable;
 	static $chars* b2c;

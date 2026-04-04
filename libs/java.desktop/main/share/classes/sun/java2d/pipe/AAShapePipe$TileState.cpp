@@ -1,5 +1,4 @@
 #include <sun/java2d/pipe/AAShapePipe$TileState.h>
-
 #include <java/awt/Rectangle.h>
 #include <java/awt/geom/Rectangle2D$Double.h>
 #include <java/awt/geom/Rectangle2D.h>
@@ -21,47 +20,6 @@ namespace sun {
 	namespace java2d {
 		namespace pipe {
 
-$FieldInfo _AAShapePipe$TileState_FieldInfo_[] = {
-	{"theTile", "[B", nullptr, $PRIVATE, $field(AAShapePipe$TileState, theTile)},
-	{"abox", "[I", nullptr, $FINAL, $field(AAShapePipe$TileState, abox)},
-	{"dev", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $FINAL, $field(AAShapePipe$TileState, dev)},
-	{"bbox2D", "Ljava/awt/geom/Rectangle2D$Double;", nullptr, $PRIVATE | $FINAL, $field(AAShapePipe$TileState, bbox2D)},
-	{}
-};
-
-$MethodInfo _AAShapePipe$TileState_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AAShapePipe$TileState, init$, void)},
-	{"computeBBox", "(DDDD)Ljava/awt/geom/Rectangle2D;", nullptr, 0, $method(AAShapePipe$TileState, computeBBox, $Rectangle2D*, double, double, double, double)},
-	{"computeDevBox", "([I)Ljava/awt/Rectangle;", nullptr, 0, $method(AAShapePipe$TileState, computeDevBox, $Rectangle*, $ints*)},
-	{"getAlphaTile", "(I)[B", nullptr, 0, $method(AAShapePipe$TileState, getAlphaTile, $bytes*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AAShapePipe$TileState_InnerClassesInfo_[] = {
-	{"sun.java2d.pipe.AAShapePipe$TileState", "sun.java2d.pipe.AAShapePipe", "TileState", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _AAShapePipe$TileState_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.pipe.AAShapePipe$TileState",
-	"sun.java2d.ReentrantContext",
-	nullptr,
-	_AAShapePipe$TileState_FieldInfo_,
-	_AAShapePipe$TileState_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AAShapePipe$TileState_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.pipe.AAShapePipe"
-};
-
-$Object* allocate$AAShapePipe$TileState($Class* clazz) {
-	return $of($alloc(AAShapePipe$TileState));
-}
-
 void AAShapePipe$TileState::init$() {
 	$ReentrantContext::init$();
 	$set(this, theTile, $new($bytes, 32 * 32));
@@ -73,7 +31,7 @@ void AAShapePipe$TileState::init$() {
 $bytes* AAShapePipe$TileState::getAlphaTile(int32_t len) {
 	$var($bytes, t, this->theTile);
 	if ($nc(t)->length < len) {
-		$set(this, theTile, ($assign(t, $new($bytes, len))));
+		$set(this, theTile, $assign(t, $new($bytes, len)));
 	}
 	return t;
 }
@@ -108,7 +66,42 @@ AAShapePipe$TileState::AAShapePipe$TileState() {
 }
 
 $Class* AAShapePipe$TileState::load$($String* name, bool initialize) {
-	$loadClass(AAShapePipe$TileState, name, initialize, &_AAShapePipe$TileState_ClassInfo_, allocate$AAShapePipe$TileState);
+	$FieldInfo fieldInfos$$[] = {
+		{"theTile", "[B", nullptr, $PRIVATE, $field(AAShapePipe$TileState, theTile)},
+		{"abox", "[I", nullptr, $FINAL, $field(AAShapePipe$TileState, abox)},
+		{"dev", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $FINAL, $field(AAShapePipe$TileState, dev)},
+		{"bbox2D", "Ljava/awt/geom/Rectangle2D$Double;", nullptr, $PRIVATE | $FINAL, $field(AAShapePipe$TileState, bbox2D)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AAShapePipe$TileState, init$, void)},
+		{"computeBBox", "(DDDD)Ljava/awt/geom/Rectangle2D;", nullptr, 0, $method(AAShapePipe$TileState, computeBBox, $Rectangle2D*, double, double, double, double)},
+		{"computeDevBox", "([I)Ljava/awt/Rectangle;", nullptr, 0, $method(AAShapePipe$TileState, computeDevBox, $Rectangle*, $ints*)},
+		{"getAlphaTile", "(I)[B", nullptr, 0, $method(AAShapePipe$TileState, getAlphaTile, $bytes*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.pipe.AAShapePipe$TileState", "sun.java2d.pipe.AAShapePipe", "TileState", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.pipe.AAShapePipe$TileState",
+		"sun.java2d.ReentrantContext",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.pipe.AAShapePipe"
+	};
+	$loadClass(AAShapePipe$TileState, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AAShapePipe$TileState);
+	});
 	return class$;
 }
 

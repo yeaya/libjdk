@@ -27,6 +27,7 @@ class $export TestJTextPaneBackgroundColor : public ::java::lang::Object {
 	$class(TestJTextPaneBackgroundColor, 0, ::java::lang::Object)
 public:
 	TestJTextPaneBackgroundColor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void blockTillDisplayed(::java::awt::Component* comp);
 	static void lambda$main$0();

@@ -1,8 +1,6 @@
 #include <javax/swing/JList$AccessibleJList.h>
-
 #include <java/awt/Point.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <javax/accessibility/Accessible.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/accessibility/AccessibleRole.h>
@@ -10,15 +8,12 @@
 #include <javax/accessibility/AccessibleState.h>
 #include <javax/accessibility/AccessibleStateSet.h>
 #include <javax/swing/JComponent$AccessibleJComponent.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JList$AccessibleJList$AccessibleJListChild.h>
 #include <javax/swing/JList.h>
 #include <javax/swing/ListModel.h>
 #include <javax/swing/ListSelectionModel.h>
 #include <javax/swing/event/ListDataEvent.h>
-#include <javax/swing/event/ListDataListener.h>
 #include <javax/swing/event/ListSelectionEvent.h>
-#include <javax/swing/event/ListSelectionListener.h>
 #include <jcpp.h>
 
 #undef ACCESSIBLE_ACTIVE_DESCENDANT_PROPERTY
@@ -31,7 +26,6 @@
 
 using $Point = ::java::awt::Point;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -43,80 +37,16 @@ using $AccessibleRole = ::javax::accessibility::AccessibleRole;
 using $AccessibleSelection = ::javax::accessibility::AccessibleSelection;
 using $AccessibleState = ::javax::accessibility::AccessibleState;
 using $AccessibleStateSet = ::javax::accessibility::AccessibleStateSet;
-using $JComponent = ::javax::swing::JComponent;
 using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JList = ::javax::swing::JList;
 using $JList$AccessibleJList$AccessibleJListChild = ::javax::swing::JList$AccessibleJList$AccessibleJListChild;
 using $ListModel = ::javax::swing::ListModel;
 using $ListSelectionModel = ::javax::swing::ListSelectionModel;
 using $ListDataEvent = ::javax::swing::event::ListDataEvent;
-using $ListDataListener = ::javax::swing::event::ListDataListener;
 using $ListSelectionEvent = ::javax::swing::event::ListSelectionEvent;
-using $ListSelectionListener = ::javax::swing::event::ListSelectionListener;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JList$AccessibleJList_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JList;", nullptr, $FINAL | $SYNTHETIC, $field(JList$AccessibleJList, this$0)},
-	{"leadSelectionIndex", "I", nullptr, 0, $field(JList$AccessibleJList, leadSelectionIndex)},
-	{}
-};
-
-$MethodInfo _JList$AccessibleJList_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JList;)V", nullptr, $PUBLIC, $method(JList$AccessibleJList, init$, void, $JList*)},
-	{"addAccessibleSelection", "(I)V", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, addAccessibleSelection, void, int32_t)},
-	{"clearAccessibleSelection", "()V", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, clearAccessibleSelection, void)},
-	{"contentsChanged", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, contentsChanged, void, $ListDataEvent*)},
-	{"getAccessibleAt", "(Ljava/awt/Point;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, getAccessibleAt, $Accessible*, $Point*)},
-	{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, getAccessibleChild, $Accessible*, int32_t)},
-	{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, getAccessibleChildrenCount, int32_t)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, getAccessibleRole, $AccessibleRole*)},
-	{"getAccessibleSelection", "()Ljavax/accessibility/AccessibleSelection;", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, getAccessibleSelection, $AccessibleSelection*)},
-	{"getAccessibleSelection", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, getAccessibleSelection, $Accessible*, int32_t)},
-	{"getAccessibleSelectionCount", "()I", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, getAccessibleSelectionCount, int32_t)},
-	{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, getAccessibleStateSet, $AccessibleStateSet*)},
-	{"intervalAdded", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, intervalAdded, void, $ListDataEvent*)},
-	{"intervalRemoved", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, intervalRemoved, void, $ListDataEvent*)},
-	{"isAccessibleChildSelected", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, isAccessibleChildSelected, bool, int32_t)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, propertyChange, void, $PropertyChangeEvent*)},
-	{"removeAccessibleSelection", "(I)V", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, removeAccessibleSelection, void, int32_t)},
-	{"selectAllAccessibleSelection", "()V", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, selectAllAccessibleSelection, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, valueChanged, void, $ListSelectionEvent*)},
-	{}
-};
-
-$InnerClassInfo _JList$AccessibleJList_InnerClassesInfo_[] = {
-	{"javax.swing.JList$AccessibleJList", "javax.swing.JList", "AccessibleJList", $PROTECTED},
-	{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
-	{"javax.swing.JList$AccessibleJList$AccessibleJListChild", "javax.swing.JList$AccessibleJList", "AccessibleJListChild", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JList$AccessibleJList_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JList$AccessibleJList",
-	"javax.swing.JComponent$AccessibleJComponent",
-	"javax.accessibility.AccessibleSelection,java.beans.PropertyChangeListener,javax.swing.event.ListSelectionListener,javax.swing.event.ListDataListener",
-	_JList$AccessibleJList_FieldInfo_,
-	_JList$AccessibleJList_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JList$AccessibleJList_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JList"
-};
-
-$Object* allocate$JList$AccessibleJList($Class* clazz) {
-	return $of($alloc(JList$AccessibleJList));
-}
 
 int32_t JList$AccessibleJList::hashCode() {
 	 return this->$JComponent$AccessibleJComponent::hashCode();
@@ -139,43 +69,43 @@ void JList$AccessibleJList::finalize() {
 }
 
 void JList$AccessibleJList::init$($JList* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$JComponent$AccessibleJComponent::init$(this$0);
 	this$0->addPropertyChangeListener(this);
-	$nc($(this$0->getSelectionModel()))->addListSelectionListener(this);
-	$nc($(this$0->getModel()))->addListDataListener(this);
+	$$nc(this$0->getSelectionModel())->addListSelectionListener(this);
+	$$nc(this$0->getModel())->addListDataListener(this);
 	this->leadSelectionIndex = this$0->getLeadSelectionIndex();
 }
 
 void JList$AccessibleJList::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, $nc(e)->getPropertyName());
 	$var($Object, oldValue, e->getOldValue());
 	$var($Object, newValue, e->getNewValue());
 	if ($nc(name)->compareTo("model"_s) == 0) {
 		if (oldValue != nullptr && $instanceOf($ListModel, oldValue)) {
-			$nc(($cast($ListModel, oldValue)))->removeListDataListener(this);
+			$cast($ListModel, oldValue)->removeListDataListener(this);
 		}
 		if (newValue != nullptr && $instanceOf($ListModel, newValue)) {
-			$nc(($cast($ListModel, newValue)))->addListDataListener(this);
+			$cast($ListModel, newValue)->addListDataListener(this);
 		}
 	} else if (name->compareTo("selectionModel"_s) == 0) {
 		if (oldValue != nullptr && $instanceOf($ListSelectionModel, oldValue)) {
-			$nc(($cast($ListSelectionModel, oldValue)))->removeListSelectionListener(this);
+			$cast($ListSelectionModel, oldValue)->removeListSelectionListener(this);
 		}
 		if (newValue != nullptr && $instanceOf($ListSelectionModel, newValue)) {
-			$nc(($cast($ListSelectionModel, newValue)))->addListSelectionListener(this);
+			$cast($ListSelectionModel, newValue)->addListSelectionListener(this);
 		}
 		$init($AccessibleContext);
 		$var($String, var$0, $AccessibleContext::ACCESSIBLE_SELECTION_PROPERTY);
-		$var($Object, var$1, $of($Boolean::valueOf(false)));
+		$var($Object, var$1, $Boolean::valueOf(false));
 		firePropertyChange(var$0, var$1, $($Boolean::valueOf(true)));
 	}
 }
 
 void JList$AccessibleJList::valueChanged($ListSelectionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t oldLeadSelectionIndex = this->leadSelectionIndex;
 	this->leadSelectionIndex = this->this$0->getLeadSelectionIndex();
 	if (oldLeadSelectionIndex != this->leadSelectionIndex) {
@@ -188,10 +118,10 @@ void JList$AccessibleJList::valueChanged($ListSelectionEvent* e) {
 	}
 	$init($AccessibleContext);
 	$var($String, var$0, $AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY);
-	$var($Object, var$1, $of($Boolean::valueOf(false)));
+	$var($Object, var$1, $Boolean::valueOf(false));
 	firePropertyChange(var$0, var$1, $($Boolean::valueOf(true)));
 	$var($String, var$2, $AccessibleContext::ACCESSIBLE_SELECTION_PROPERTY);
-	$var($Object, var$3, $of($Boolean::valueOf(false)));
+	$var($Object, var$3, $Boolean::valueOf(false));
 	firePropertyChange(var$2, var$3, $($Boolean::valueOf(true)));
 	$var($AccessibleStateSet, s, getAccessibleStateSet());
 	$var($ListSelectionModel, lsm, this->this$0->getSelectionModel());
@@ -211,26 +141,26 @@ void JList$AccessibleJList::valueChanged($ListSelectionEvent* e) {
 }
 
 void JList$AccessibleJList::intervalAdded($ListDataEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($AccessibleContext);
 	$var($String, var$0, $AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY);
-	$var($Object, var$1, $of($Boolean::valueOf(false)));
+	$var($Object, var$1, $Boolean::valueOf(false));
 	firePropertyChange(var$0, var$1, $($Boolean::valueOf(true)));
 }
 
 void JList$AccessibleJList::intervalRemoved($ListDataEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($AccessibleContext);
 	$var($String, var$0, $AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY);
-	$var($Object, var$1, $of($Boolean::valueOf(false)));
+	$var($Object, var$1, $Boolean::valueOf(false));
 	firePropertyChange(var$0, var$1, $($Boolean::valueOf(true)));
 }
 
 void JList$AccessibleJList::contentsChanged($ListDataEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($AccessibleContext);
 	$var($String, var$0, $AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY);
-	$var($Object, var$1, $of($Boolean::valueOf(false)));
+	$var($Object, var$1, $Boolean::valueOf(false));
 	firePropertyChange(var$0, var$1, $($Boolean::valueOf(true)));
 }
 
@@ -258,11 +188,11 @@ $Accessible* JList$AccessibleJList::getAccessibleAt($Point* p) {
 }
 
 int32_t JList$AccessibleJList::getAccessibleChildrenCount() {
-	return $nc($(this->this$0->getModel()))->getSize();
+	return $$nc(this->this$0->getModel())->getSize();
 }
 
 $Accessible* JList$AccessibleJList::getAccessibleChild(int32_t i) {
-	if (i >= $nc($(this->this$0->getModel()))->getSize()) {
+	if (i >= $$nc(this->this$0->getModel())->getSize()) {
 		return nullptr;
 	} else {
 		return $new($JList$AccessibleJList$AccessibleJListChild, this, this->this$0, i);
@@ -310,7 +240,62 @@ JList$AccessibleJList::JList$AccessibleJList() {
 }
 
 $Class* JList$AccessibleJList::load$($String* name, bool initialize) {
-	$loadClass(JList$AccessibleJList, name, initialize, &_JList$AccessibleJList_ClassInfo_, allocate$JList$AccessibleJList);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JList;", nullptr, $FINAL | $SYNTHETIC, $field(JList$AccessibleJList, this$0)},
+		{"leadSelectionIndex", "I", nullptr, 0, $field(JList$AccessibleJList, leadSelectionIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JList;)V", nullptr, $PUBLIC, $method(JList$AccessibleJList, init$, void, $JList*)},
+		{"addAccessibleSelection", "(I)V", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, addAccessibleSelection, void, int32_t)},
+		{"clearAccessibleSelection", "()V", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, clearAccessibleSelection, void)},
+		{"contentsChanged", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, contentsChanged, void, $ListDataEvent*)},
+		{"getAccessibleAt", "(Ljava/awt/Point;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, getAccessibleAt, $Accessible*, $Point*)},
+		{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, getAccessibleChild, $Accessible*, int32_t)},
+		{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, getAccessibleChildrenCount, int32_t)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, getAccessibleRole, $AccessibleRole*)},
+		{"getAccessibleSelection", "()Ljavax/accessibility/AccessibleSelection;", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, getAccessibleSelection, $AccessibleSelection*)},
+		{"getAccessibleSelection", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, getAccessibleSelection, $Accessible*, int32_t)},
+		{"getAccessibleSelectionCount", "()I", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, getAccessibleSelectionCount, int32_t)},
+		{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, getAccessibleStateSet, $AccessibleStateSet*)},
+		{"intervalAdded", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, intervalAdded, void, $ListDataEvent*)},
+		{"intervalRemoved", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, intervalRemoved, void, $ListDataEvent*)},
+		{"isAccessibleChildSelected", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, isAccessibleChildSelected, bool, int32_t)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, propertyChange, void, $PropertyChangeEvent*)},
+		{"removeAccessibleSelection", "(I)V", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, removeAccessibleSelection, void, int32_t)},
+		{"selectAllAccessibleSelection", "()V", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, selectAllAccessibleSelection, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JList$AccessibleJList, valueChanged, void, $ListSelectionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JList$AccessibleJList", "javax.swing.JList", "AccessibleJList", $PROTECTED},
+		{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
+		{"javax.swing.JList$AccessibleJList$AccessibleJListChild", "javax.swing.JList$AccessibleJList", "AccessibleJListChild", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JList$AccessibleJList",
+		"javax.swing.JComponent$AccessibleJComponent",
+		"javax.accessibility.AccessibleSelection,java.beans.PropertyChangeListener,javax.swing.event.ListSelectionListener,javax.swing.event.ListDataListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JList"
+	};
+	$loadClass(JList$AccessibleJList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JList$AccessibleJList));
+	});
 	return class$;
 }
 

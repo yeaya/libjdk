@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/InnerClass.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Constant.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
@@ -32,51 +31,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace classfile {
-
-$FieldInfo _InnerClass_FieldInfo_[] = {
-	{"innerClassIndex", "I", nullptr, $PRIVATE, $field(InnerClass, innerClassIndex)},
-	{"outerClassIndex", "I", nullptr, $PRIVATE, $field(InnerClass, outerClassIndex)},
-	{"innerNameIndex", "I", nullptr, $PRIVATE, $field(InnerClass, innerNameIndex)},
-	{"innerAccessFlags", "I", nullptr, $PRIVATE, $field(InnerClass, innerAccessFlags)},
-	{}
-};
-
-$MethodInfo _InnerClass_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/InnerClass;)V", nullptr, $PUBLIC, $method(InnerClass, init$, void, InnerClass*)},
-	{"<init>", "(Ljava/io/DataInput;)V", nullptr, 0, $method(InnerClass, init$, void, $DataInput*), "java.io.IOException"},
-	{"<init>", "(IIII)V", nullptr, $PUBLIC, $method(InnerClass, init$, void, int32_t, int32_t, int32_t, int32_t)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(InnerClass, accept, void, $Visitor*)},
-	{"copy", "()Lcom/sun/org/apache/bcel/internal/classfile/InnerClass;", nullptr, $PUBLIC, $method(InnerClass, copy, InnerClass*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $method(InnerClass, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getInnerAccessFlags", "()I", nullptr, $PUBLIC, $method(InnerClass, getInnerAccessFlags, int32_t)},
-	{"getInnerClassIndex", "()I", nullptr, $PUBLIC, $method(InnerClass, getInnerClassIndex, int32_t)},
-	{"getInnerNameIndex", "()I", nullptr, $PUBLIC, $method(InnerClass, getInnerNameIndex, int32_t)},
-	{"getOuterClassIndex", "()I", nullptr, $PUBLIC, $method(InnerClass, getOuterClassIndex, int32_t)},
-	{"setInnerAccessFlags", "(I)V", nullptr, $PUBLIC, $method(InnerClass, setInnerAccessFlags, void, int32_t)},
-	{"setInnerClassIndex", "(I)V", nullptr, $PUBLIC, $method(InnerClass, setInnerClassIndex, void, int32_t)},
-	{"setInnerNameIndex", "(I)V", nullptr, $PUBLIC, $method(InnerClass, setInnerNameIndex, void, int32_t)},
-	{"setOuterClassIndex", "(I)V", nullptr, $PUBLIC, $method(InnerClass, setOuterClassIndex, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InnerClass, toString, $String*)},
-	{"toString", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Ljava/lang/String;", nullptr, $PUBLIC, $method(InnerClass, toString, $String*, $ConstantPool*)},
-	{}
-};
-
-$ClassInfo _InnerClass_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.InnerClass",
-	"java.lang.Object",
-	"java.lang.Cloneable,com.sun.org.apache.bcel.internal.classfile.Node",
-	_InnerClass_FieldInfo_,
-	_InnerClass_MethodInfo_
-};
-
-$Object* allocate$InnerClass($Class* clazz) {
-	return $of($alloc(InnerClass));
-}
 
 int32_t InnerClass::hashCode() {
 	 return this->$Cloneable::hashCode();
@@ -159,12 +113,12 @@ void InnerClass::setOuterClassIndex(int32_t outerClassIndex) {
 }
 
 $String* InnerClass::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"InnerClass("_s, $$str(this->innerClassIndex), ", "_s, $$str(this->outerClassIndex), ", "_s, $$str(this->innerNameIndex), ", "_s, $$str(this->innerAccessFlags), ")"_s});
 }
 
 $String* InnerClass::toString($ConstantPool* constantPool) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, outer_class_name, nullptr);
 	$var($String, inner_name, nullptr);
 	$var($String, inner_class_name, $nc(constantPool)->getConstantString(this->innerClassIndex, $Const::CONSTANT_Class));
@@ -176,7 +130,7 @@ $String* InnerClass::toString($ConstantPool* constantPool) {
 		$assign(outer_class_name, ""_s);
 	}
 	if (this->innerNameIndex != 0) {
-		$assign(inner_name, $nc(($cast($ConstantUtf8, $(constantPool->getConstant(this->innerNameIndex, $Const::CONSTANT_Utf8)))))->getBytes());
+		$assign(inner_name, $$sure($ConstantUtf8, constantPool->getConstant(this->innerNameIndex, $Const::CONSTANT_Utf8))->getBytes());
 	} else {
 		$assign(inner_name, "(anonymous)"_s);
 	}
@@ -197,7 +151,47 @@ InnerClass::InnerClass() {
 }
 
 $Class* InnerClass::load$($String* name, bool initialize) {
-	$loadClass(InnerClass, name, initialize, &_InnerClass_ClassInfo_, allocate$InnerClass);
+	$FieldInfo fieldInfos$$[] = {
+		{"innerClassIndex", "I", nullptr, $PRIVATE, $field(InnerClass, innerClassIndex)},
+		{"outerClassIndex", "I", nullptr, $PRIVATE, $field(InnerClass, outerClassIndex)},
+		{"innerNameIndex", "I", nullptr, $PRIVATE, $field(InnerClass, innerNameIndex)},
+		{"innerAccessFlags", "I", nullptr, $PRIVATE, $field(InnerClass, innerAccessFlags)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/InnerClass;)V", nullptr, $PUBLIC, $method(InnerClass, init$, void, InnerClass*)},
+		{"<init>", "(Ljava/io/DataInput;)V", nullptr, 0, $method(InnerClass, init$, void, $DataInput*), "java.io.IOException"},
+		{"<init>", "(IIII)V", nullptr, $PUBLIC, $method(InnerClass, init$, void, int32_t, int32_t, int32_t, int32_t)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(InnerClass, accept, void, $Visitor*)},
+		{"copy", "()Lcom/sun/org/apache/bcel/internal/classfile/InnerClass;", nullptr, $PUBLIC, $method(InnerClass, copy, InnerClass*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $method(InnerClass, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getInnerAccessFlags", "()I", nullptr, $PUBLIC, $method(InnerClass, getInnerAccessFlags, int32_t)},
+		{"getInnerClassIndex", "()I", nullptr, $PUBLIC, $method(InnerClass, getInnerClassIndex, int32_t)},
+		{"getInnerNameIndex", "()I", nullptr, $PUBLIC, $method(InnerClass, getInnerNameIndex, int32_t)},
+		{"getOuterClassIndex", "()I", nullptr, $PUBLIC, $method(InnerClass, getOuterClassIndex, int32_t)},
+		{"setInnerAccessFlags", "(I)V", nullptr, $PUBLIC, $method(InnerClass, setInnerAccessFlags, void, int32_t)},
+		{"setInnerClassIndex", "(I)V", nullptr, $PUBLIC, $method(InnerClass, setInnerClassIndex, void, int32_t)},
+		{"setInnerNameIndex", "(I)V", nullptr, $PUBLIC, $method(InnerClass, setInnerNameIndex, void, int32_t)},
+		{"setOuterClassIndex", "(I)V", nullptr, $PUBLIC, $method(InnerClass, setOuterClassIndex, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InnerClass, toString, $String*)},
+		{"toString", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Ljava/lang/String;", nullptr, $PUBLIC, $method(InnerClass, toString, $String*, $ConstantPool*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.InnerClass",
+		"java.lang.Object",
+		"java.lang.Cloneable,com.sun.org.apache.bcel.internal.classfile.Node",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InnerClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(InnerClass));
+	});
 	return class$;
 }
 

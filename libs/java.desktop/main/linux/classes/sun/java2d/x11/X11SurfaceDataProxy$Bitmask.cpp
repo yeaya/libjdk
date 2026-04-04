@@ -1,5 +1,4 @@
 #include <sun/java2d/x11/X11SurfaceDataProxy$Bitmask.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Transparency.h>
 #include <sun/awt/X11GraphicsConfig.h>
@@ -28,38 +27,6 @@ namespace sun {
 	namespace java2d {
 		namespace x11 {
 
-$MethodInfo _X11SurfaceDataProxy$Bitmask_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11GraphicsConfig;)V", nullptr, $PUBLIC, $method(X11SurfaceDataProxy$Bitmask, init$, void, $X11GraphicsConfig*)},
-	{"getTransparency", "()I", nullptr, $PUBLIC, $virtualMethod(X11SurfaceDataProxy$Bitmask, getTransparency, int32_t)},
-	{"isSupportedOperation", "(Lsun/java2d/SurfaceData;ILsun/java2d/loops/CompositeType;Ljava/awt/Color;)Z", nullptr, $PUBLIC, $virtualMethod(X11SurfaceDataProxy$Bitmask, isSupportedOperation, bool, $SurfaceData*, int32_t, $CompositeType*, $Color*)},
-	{}
-};
-
-$InnerClassInfo _X11SurfaceDataProxy$Bitmask_InnerClassesInfo_[] = {
-	{"sun.java2d.x11.X11SurfaceDataProxy$Bitmask", "sun.java2d.x11.X11SurfaceDataProxy", "Bitmask", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _X11SurfaceDataProxy$Bitmask_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.x11.X11SurfaceDataProxy$Bitmask",
-	"sun.java2d.x11.X11SurfaceDataProxy",
-	nullptr,
-	nullptr,
-	_X11SurfaceDataProxy$Bitmask_MethodInfo_,
-	nullptr,
-	nullptr,
-	_X11SurfaceDataProxy$Bitmask_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.x11.X11SurfaceDataProxy"
-};
-
-$Object* allocate$X11SurfaceDataProxy$Bitmask($Class* clazz) {
-	return $of($alloc(X11SurfaceDataProxy$Bitmask));
-}
-
 void X11SurfaceDataProxy$Bitmask::init$($X11GraphicsConfig* x11gc) {
 	$X11SurfaceDataProxy::init$(x11gc);
 }
@@ -87,7 +54,34 @@ X11SurfaceDataProxy$Bitmask::X11SurfaceDataProxy$Bitmask() {
 }
 
 $Class* X11SurfaceDataProxy$Bitmask::load$($String* name, bool initialize) {
-	$loadClass(X11SurfaceDataProxy$Bitmask, name, initialize, &_X11SurfaceDataProxy$Bitmask_ClassInfo_, allocate$X11SurfaceDataProxy$Bitmask);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11GraphicsConfig;)V", nullptr, $PUBLIC, $method(X11SurfaceDataProxy$Bitmask, init$, void, $X11GraphicsConfig*)},
+		{"getTransparency", "()I", nullptr, $PUBLIC, $virtualMethod(X11SurfaceDataProxy$Bitmask, getTransparency, int32_t)},
+		{"isSupportedOperation", "(Lsun/java2d/SurfaceData;ILsun/java2d/loops/CompositeType;Ljava/awt/Color;)Z", nullptr, $PUBLIC, $virtualMethod(X11SurfaceDataProxy$Bitmask, isSupportedOperation, bool, $SurfaceData*, int32_t, $CompositeType*, $Color*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.x11.X11SurfaceDataProxy$Bitmask", "sun.java2d.x11.X11SurfaceDataProxy", "Bitmask", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.x11.X11SurfaceDataProxy$Bitmask",
+		"sun.java2d.x11.X11SurfaceDataProxy",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.x11.X11SurfaceDataProxy"
+	};
+	$loadClass(X11SurfaceDataProxy$Bitmask, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(X11SurfaceDataProxy$Bitmask));
+	});
 	return class$;
 }
 

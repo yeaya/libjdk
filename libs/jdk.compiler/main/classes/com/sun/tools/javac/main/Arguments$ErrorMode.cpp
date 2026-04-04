@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/main/Arguments$ErrorMode.h>
-
 #include <com/sun/tools/javac/main/Arguments.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -20,47 +19,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace main {
-
-$FieldInfo _Arguments$ErrorMode_FieldInfo_[] = {
-	{"ILLEGAL_ARGUMENT", "Lcom/sun/tools/javac/main/Arguments$ErrorMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Arguments$ErrorMode, ILLEGAL_ARGUMENT)},
-	{"ILLEGAL_STATE", "Lcom/sun/tools/javac/main/Arguments$ErrorMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Arguments$ErrorMode, ILLEGAL_STATE)},
-	{"LOG", "Lcom/sun/tools/javac/main/Arguments$ErrorMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Arguments$ErrorMode, LOG)},
-	{"$VALUES", "[Lcom/sun/tools/javac/main/Arguments$ErrorMode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Arguments$ErrorMode, $VALUES)},
-	{}
-};
-
-$MethodInfo _Arguments$ErrorMode_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/main/Arguments$ErrorMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Arguments$ErrorMode, $values, $Arguments$ErrorModeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Arguments$ErrorMode, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/Arguments$ErrorMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arguments$ErrorMode, valueOf, Arguments$ErrorMode*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/main/Arguments$ErrorMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arguments$ErrorMode, values, $Arguments$ErrorModeArray*)},
-	{}
-};
-
-$InnerClassInfo _Arguments$ErrorMode_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.main.Arguments$ErrorMode", "com.sun.tools.javac.main.Arguments", "ErrorMode", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Arguments$ErrorMode_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.main.Arguments$ErrorMode",
-	"java.lang.Enum",
-	nullptr,
-	_Arguments$ErrorMode_FieldInfo_,
-	_Arguments$ErrorMode_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/main/Arguments$ErrorMode;>;",
-	nullptr,
-	_Arguments$ErrorMode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.main.Arguments"
-};
-
-$Object* allocate$Arguments$ErrorMode($Class* clazz) {
-	return $of($alloc(Arguments$ErrorMode));
-}
 
 Arguments$ErrorMode* Arguments$ErrorMode::ILLEGAL_ARGUMENT = nullptr;
 Arguments$ErrorMode* Arguments$ErrorMode::ILLEGAL_STATE = nullptr;
@@ -90,7 +48,7 @@ void Arguments$ErrorMode::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Arguments$ErrorMode($Class* class$) {
+void Arguments$ErrorMode::clinit$($Class* clazz) {
 	$assignStatic(Arguments$ErrorMode::ILLEGAL_ARGUMENT, $new(Arguments$ErrorMode, "ILLEGAL_ARGUMENT"_s, 0));
 	$assignStatic(Arguments$ErrorMode::ILLEGAL_STATE, $new(Arguments$ErrorMode, "ILLEGAL_STATE"_s, 1));
 	$assignStatic(Arguments$ErrorMode::LOG, $new(Arguments$ErrorMode, "LOG"_s, 2));
@@ -101,7 +59,42 @@ Arguments$ErrorMode::Arguments$ErrorMode() {
 }
 
 $Class* Arguments$ErrorMode::load$($String* name, bool initialize) {
-	$loadClass(Arguments$ErrorMode, name, initialize, &_Arguments$ErrorMode_ClassInfo_, clinit$Arguments$ErrorMode, allocate$Arguments$ErrorMode);
+	$FieldInfo fieldInfos$$[] = {
+		{"ILLEGAL_ARGUMENT", "Lcom/sun/tools/javac/main/Arguments$ErrorMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Arguments$ErrorMode, ILLEGAL_ARGUMENT)},
+		{"ILLEGAL_STATE", "Lcom/sun/tools/javac/main/Arguments$ErrorMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Arguments$ErrorMode, ILLEGAL_STATE)},
+		{"LOG", "Lcom/sun/tools/javac/main/Arguments$ErrorMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Arguments$ErrorMode, LOG)},
+		{"$VALUES", "[Lcom/sun/tools/javac/main/Arguments$ErrorMode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Arguments$ErrorMode, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/main/Arguments$ErrorMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Arguments$ErrorMode, $values, $Arguments$ErrorModeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Arguments$ErrorMode, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/Arguments$ErrorMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arguments$ErrorMode, valueOf, Arguments$ErrorMode*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/main/Arguments$ErrorMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arguments$ErrorMode, values, $Arguments$ErrorModeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.main.Arguments$ErrorMode", "com.sun.tools.javac.main.Arguments", "ErrorMode", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.main.Arguments$ErrorMode",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/main/Arguments$ErrorMode;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.main.Arguments"
+	};
+	$loadClass(Arguments$ErrorMode, name, initialize, &classInfo$$, Arguments$ErrorMode::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Arguments$ErrorMode));
+	});
 	return class$;
 }
 

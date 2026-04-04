@@ -31,7 +31,7 @@ public:
 	virtual bool apply(::javax::management::ObjectName* name) override;
 	virtual void setMBeanServer(::javax::management::MBeanServer* s) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x6665A76F34ED2970;
+	static const int64_t serialVersionUID = (int64_t)0x6665a76f34ed2970;
 };
 
 				} // internal

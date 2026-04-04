@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPushInstruction.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/PushInstruction.h>
 #include <java/lang/Number.h>
 #include <jcpp.h>
@@ -16,29 +15,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$MethodInfo _ConstantPushInstruction_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getValue", "()Ljava/lang/Number;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConstantPushInstruction, getValue, $Number*)},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ConstantPushInstruction_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.generic.ConstantPushInstruction",
-	nullptr,
-	"com.sun.org.apache.bcel.internal.generic.PushInstruction,com.sun.org.apache.bcel.internal.generic.TypedInstruction",
-	nullptr,
-	_ConstantPushInstruction_MethodInfo_
-};
-
-$Object* allocate$ConstantPushInstruction($Class* clazz) {
-	return $of($alloc(ConstantPushInstruction));
-}
 
 int32_t ConstantPushInstruction::hashCode() {
 	 return this->$PushInstruction::hashCode();
@@ -61,7 +37,26 @@ void ConstantPushInstruction::finalize() {
 }
 
 $Class* ConstantPushInstruction::load$($String* name, bool initialize) {
-	$loadClass(ConstantPushInstruction, name, initialize, &_ConstantPushInstruction_ClassInfo_, allocate$ConstantPushInstruction);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"getValue", "()Ljava/lang/Number;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConstantPushInstruction, getValue, $Number*)},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.generic.ConstantPushInstruction",
+		nullptr,
+		"com.sun.org.apache.bcel.internal.generic.PushInstruction,com.sun.org.apache.bcel.internal.generic.TypedInstruction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ConstantPushInstruction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ConstantPushInstruction));
+	});
 	return class$;
 }
 

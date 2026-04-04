@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFileChooserUI$NewFolderAction.h>
-
 #include <com/apple/laf/AquaFileChooserUI.h>
 #include <java/awt/Component.h>
 #include <java/awt/Window.h>
@@ -33,48 +32,10 @@ using $Icon = ::javax::swing::Icon;
 using $JDialog = ::javax::swing::JDialog;
 using $JFileChooser = ::javax::swing::JFileChooser;
 using $JOptionPane = ::javax::swing::JOptionPane;
-using $FileSystemView = ::javax::swing::filechooser::FileSystemView;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaFileChooserUI$NewFolderAction_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$NewFolderAction, this$0)},
-	{}
-};
-
-$MethodInfo _AquaFileChooserUI$NewFolderAction_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;)V", nullptr, $PROTECTED, $method(AquaFileChooserUI$NewFolderAction, init$, void, $AquaFileChooserUI*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$NewFolderAction, actionPerformed, void, $ActionEvent*)},
-	{"showNewFolderDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;ILjavax/swing/Icon;[Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(AquaFileChooserUI$NewFolderAction, showNewFolderDialog, $Object*, $Component*, Object$*, $String*, int32_t, $Icon*, $ObjectArray*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _AquaFileChooserUI$NewFolderAction_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFileChooserUI$NewFolderAction", "com.apple.laf.AquaFileChooserUI", "NewFolderAction", $PROTECTED},
-	{}
-};
-
-$ClassInfo _AquaFileChooserUI$NewFolderAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaFileChooserUI$NewFolderAction",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_AquaFileChooserUI$NewFolderAction_FieldInfo_,
-	_AquaFileChooserUI$NewFolderAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaFileChooserUI$NewFolderAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFileChooserUI"
-};
-
-$Object* allocate$AquaFileChooserUI$NewFolderAction($Class* clazz) {
-	return $of($alloc(AquaFileChooserUI$NewFolderAction));
-}
 
 void AquaFileChooserUI$NewFolderAction::init$($AquaFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
@@ -83,7 +44,7 @@ void AquaFileChooserUI$NewFolderAction::init$($AquaFileChooserUI* this$0) {
 }
 
 $Object* AquaFileChooserUI$NewFolderAction::showNewFolderDialog($Component* parentComponent, Object$* message, $String* title, int32_t messageType, $Icon* icon, $ObjectArray* options, Object$* initialSelectionValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JOptionPane, pane, $new($JOptionPane, message, messageType, $JOptionPane::OK_CANCEL_OPTION, icon, options, nullptr));
 	pane->setWantsInput(true);
 	pane->setInitialSelectionValue(initialSelectionValue);
@@ -92,15 +53,15 @@ $Object* AquaFileChooserUI$NewFolderAction::showNewFolderDialog($Component* pare
 	$nc(dialog)->setVisible(true);
 	dialog->dispose();
 	$var($Object, value, pane->getValue());
-	bool var$0 = value == nullptr || $nc($of(value))->equals(this->this$0->cancelButtonText);
-	if (var$0 || $nc($of(value))->equals($($Integer::valueOf($JOptionPane::CLOSED_OPTION)))) {
-		return $of(nullptr);
+	bool var$0 = value == nullptr || value->equals(this->this$0->cancelButtonText);
+	if (var$0 || value->equals($($Integer::valueOf($JOptionPane::CLOSED_OPTION)))) {
+		return nullptr;
 	}
-	return $of(pane->getInputValue());
+	return pane->getInputValue();
 }
 
 void AquaFileChooserUI$NewFolderAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFileChooser, fc, this->this$0->getFileChooser());
 	$var($File, currentDirectory, $nc(fc)->getCurrentDirectory());
 	$var($File, newFolder, nullptr);
@@ -111,12 +72,12 @@ void AquaFileChooserUI$NewFolderAction::actionPerformed($ActionEvent* e) {
 	$var($String, filename, $cast($String, showNewFolderDialog(fc, this->this$0->newFolderDialogPrompt, this->this$0->newFolderTitleText, $JOptionPane::PLAIN_MESSAGE, nullptr, options, this->this$0->newFolderDefaultName)));
 	if (filename != nullptr) {
 		try {
-			$assign(newFolder, $nc($(fc->getFileSystemView()))->createFileObject(currentDirectory, filename));
+			$assign(newFolder, $$nc(fc->getFileSystemView())->createFileObject(currentDirectory, filename));
 			if ($nc(newFolder)->exists()) {
 				$JOptionPane::showMessageDialog(fc, this->this$0->newFolderExistsErrorText, ""_s, $JOptionPane::ERROR_MESSAGE);
 				return;
 			}
-			$nc(newFolder)->mkdirs();
+			newFolder->mkdirs();
 		} catch ($Exception& exc) {
 			$JOptionPane::showMessageDialog(fc, this->this$0->newFolderErrorText, ""_s, $JOptionPane::ERROR_MESSAGE);
 			return;
@@ -129,7 +90,38 @@ AquaFileChooserUI$NewFolderAction::AquaFileChooserUI$NewFolderAction() {
 }
 
 $Class* AquaFileChooserUI$NewFolderAction::load$($String* name, bool initialize) {
-	$loadClass(AquaFileChooserUI$NewFolderAction, name, initialize, &_AquaFileChooserUI$NewFolderAction_ClassInfo_, allocate$AquaFileChooserUI$NewFolderAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$NewFolderAction, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;)V", nullptr, $PROTECTED, $method(AquaFileChooserUI$NewFolderAction, init$, void, $AquaFileChooserUI*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$NewFolderAction, actionPerformed, void, $ActionEvent*)},
+		{"showNewFolderDialog", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;ILjavax/swing/Icon;[Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(AquaFileChooserUI$NewFolderAction, showNewFolderDialog, $Object*, $Component*, Object$*, $String*, int32_t, $Icon*, $ObjectArray*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFileChooserUI$NewFolderAction", "com.apple.laf.AquaFileChooserUI", "NewFolderAction", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaFileChooserUI$NewFolderAction",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFileChooserUI"
+	};
+	$loadClass(AquaFileChooserUI$NewFolderAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaFileChooserUI$NewFolderAction));
+	});
 	return class$;
 }
 

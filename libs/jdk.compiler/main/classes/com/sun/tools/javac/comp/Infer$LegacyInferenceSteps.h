@@ -28,6 +28,7 @@ class $export Infer$LegacyInferenceSteps : public ::java::lang::Enum {
 public:
 	Infer$LegacyInferenceSteps();
 	static $Array<::com::sun::tools::javac::comp::Infer$LegacyInferenceSteps>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, ::java::util::EnumSet* steps);
 	static ::com::sun::tools::javac::comp::Infer$LegacyInferenceSteps* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::comp::Infer$LegacyInferenceSteps>* values();

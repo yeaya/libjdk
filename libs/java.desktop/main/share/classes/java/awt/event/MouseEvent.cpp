@@ -1,5 +1,4 @@
 #include <java/awt/event/MouseEvent.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/GraphicsEnvironment.h>
@@ -10,7 +9,6 @@
 #include <java/awt/event/MouseEvent$1.h>
 #include <java/awt/event/NativeLibLoader.h>
 #include <java/io/ObjectInputStream.h>
-#include <sun/awt/AWTAccessor$MouseEventAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <sun/awt/SunToolkit.h>
 #include <jcpp.h>
@@ -62,97 +60,17 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$MouseEventAccessor = ::sun::awt::AWTAccessor$MouseEventAccessor;
 using $SunToolkit = ::sun::awt::SunToolkit;
 
 namespace java {
 	namespace awt {
 		namespace event {
 
-$FieldInfo _MouseEvent_FieldInfo_[] = {
-	{"MOUSE_FIRST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseEvent, MOUSE_FIRST)},
-	{"MOUSE_LAST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseEvent, MOUSE_LAST)},
-	{"MOUSE_CLICKED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseEvent, MOUSE_CLICKED)},
-	{"MOUSE_PRESSED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseEvent, MOUSE_PRESSED)},
-	{"MOUSE_RELEASED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseEvent, MOUSE_RELEASED)},
-	{"MOUSE_MOVED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseEvent, MOUSE_MOVED)},
-	{"MOUSE_ENTERED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseEvent, MOUSE_ENTERED)},
-	{"MOUSE_EXITED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseEvent, MOUSE_EXITED)},
-	{"MOUSE_DRAGGED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseEvent, MOUSE_DRAGGED)},
-	{"MOUSE_WHEEL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseEvent, MOUSE_WHEEL)},
-	{"NOBUTTON", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseEvent, NOBUTTON)},
-	{"BUTTON1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseEvent, BUTTON1)},
-	{"BUTTON2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseEvent, BUTTON2)},
-	{"BUTTON3", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseEvent, BUTTON3)},
-	{"x", "I", nullptr, 0, $field(MouseEvent, x)},
-	{"y", "I", nullptr, 0, $field(MouseEvent, y)},
-	{"xAbs", "I", nullptr, $PRIVATE, $field(MouseEvent, xAbs)},
-	{"yAbs", "I", nullptr, $PRIVATE, $field(MouseEvent, yAbs)},
-	{"clickCount", "I", nullptr, 0, $field(MouseEvent, clickCount)},
-	{"causedByTouchEvent", "Z", nullptr, $PRIVATE, $field(MouseEvent, causedByTouchEvent)},
-	{"button", "I", nullptr, 0, $field(MouseEvent, button)},
-	{"popupTrigger", "Z", nullptr, 0, $field(MouseEvent, popupTrigger)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MouseEvent, serialVersionUID)},
-	{"cachedNumberOfButtons", "I", nullptr, $PRIVATE | $STATIC, $staticField(MouseEvent, cachedNumberOfButtons)},
-	{"shouldExcludeButtonFromExtModifiers", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(MouseEvent, shouldExcludeButtonFromExtModifiers)},
-	{}
-};
-
-$MethodInfo _MouseEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Component;IJIIIIZI)V", nullptr, $PUBLIC, $method(MouseEvent, init$, void, $Component*, int32_t, int64_t, int32_t, int32_t, int32_t, int32_t, bool, int32_t)},
-	{"<init>", "(Ljava/awt/Component;IJIIIIZ)V", nullptr, $PUBLIC, $method(MouseEvent, init$, void, $Component*, int32_t, int64_t, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"<init>", "(Ljava/awt/Component;IJIIIIIIZI)V", nullptr, $PUBLIC, $method(MouseEvent, init$, void, $Component*, int32_t, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool, int32_t)},
-	{"getButton", "()I", nullptr, $PUBLIC, $virtualMethod(MouseEvent, getButton, int32_t)},
-	{"getClickCount", "()I", nullptr, $PUBLIC, $virtualMethod(MouseEvent, getClickCount, int32_t)},
-	{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(MouseEvent, getLocationOnScreen, $Point*)},
-	{"getModifiersEx", "()I", nullptr, $PUBLIC, $virtualMethod(MouseEvent, getModifiersEx, int32_t)},
-	{"getMouseModifiersText", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(MouseEvent, getMouseModifiersText, $String*, int32_t)},
-	{"getPoint", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(MouseEvent, getPoint, $Point*)},
-	{"getX", "()I", nullptr, $PUBLIC, $virtualMethod(MouseEvent, getX, int32_t)},
-	{"getXOnScreen", "()I", nullptr, $PUBLIC, $virtualMethod(MouseEvent, getXOnScreen, int32_t)},
-	{"getY", "()I", nullptr, $PUBLIC, $virtualMethod(MouseEvent, getY, int32_t)},
-	{"getYOnScreen", "()I", nullptr, $PUBLIC, $virtualMethod(MouseEvent, getYOnScreen, int32_t)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MouseEvent, initIDs, void)},
-	{"isPopupTrigger", "()Z", nullptr, $PUBLIC, $virtualMethod(MouseEvent, isPopupTrigger, bool)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MouseEvent, paramString, $String*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MouseEvent, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setNewModifiers", "()V", nullptr, $PRIVATE, $method(MouseEvent, setNewModifiers, void)},
-	{"setOldModifiers", "()V", nullptr, $PRIVATE, $method(MouseEvent, setOldModifiers, void)},
-	{"translatePoint", "(II)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MouseEvent, translatePoint, void, int32_t, int32_t)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 13
-
-$InnerClassInfo _MouseEvent_InnerClassesInfo_[] = {
-	{"java.awt.event.MouseEvent$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MouseEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.event.MouseEvent",
-	"java.awt.event.InputEvent",
-	nullptr,
-	_MouseEvent_FieldInfo_,
-	_MouseEvent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MouseEvent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.event.MouseEvent$1"
-};
-
-$Object* allocate$MouseEvent($Class* clazz) {
-	return $of($alloc(MouseEvent));
-}
-
 int32_t MouseEvent::cachedNumberOfButtons = 0;
 
 void MouseEvent::initIDs() {
 	$init(MouseEvent);
-	$prepareNativeStatic(MouseEvent, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -191,11 +109,11 @@ int32_t MouseEvent::getModifiersEx() {
 	if (this->shouldExcludeButtonFromExtModifiers) {
 		tmpModifiers &= (uint32_t)~($InputEvent::getMaskForButton(getButton()));
 	}
-	return (int32_t)(tmpModifiers & (uint32_t)~$InputEvent::JDK_1_3_MODIFIERS);
+	return tmpModifiers & ~$InputEvent::JDK_1_3_MODIFIERS;
 }
 
 void MouseEvent::init$($Component* source, int32_t id, int64_t when, int32_t modifiers, int32_t x, int32_t y, int32_t xAbs, int32_t yAbs, int32_t clickCount, bool popupTrigger, int32_t button) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$InputEvent::init$(source, id, when, modifiers);
 	this->popupTrigger = false;
 	this->shouldExcludeButtonFromExtModifiers = false;
@@ -209,7 +127,7 @@ void MouseEvent::init$($Component* source, int32_t id, int64_t when, int32_t mod
 		$throwNew($IllegalArgumentException, $$str({"Invalid button value :"_s, $$str(button)}));
 	}
 	if (button > MouseEvent::BUTTON3) {
-		if (!$nc($($Toolkit::getDefaultToolkit()))->areExtraMouseButtonsEnabled()) {
+		if (!$$nc($Toolkit::getDefaultToolkit())->areExtraMouseButtonsEnabled()) {
 			$throwNew($IllegalArgumentException, $$str({"Extra mouse events are disabled "_s, $$str(button)}));
 		} else if (button > MouseEvent::cachedNumberOfButtons) {
 			$throwNew($IllegalArgumentException, $$str({"Nonexistent button "_s, $$str(button)}));
@@ -221,12 +139,12 @@ void MouseEvent::init$($Component* source, int32_t id, int64_t when, int32_t mod
 		}
 	}
 	this->button = button;
-	bool var$0 = (getModifiers() != 0);
+	bool var$0 = getModifiers() != 0;
 	if (var$0 && (getModifiersEx() == 0)) {
 		setNewModifiers();
 	} else {
-		bool var$2 = (getModifiers() == 0);
-		if (var$2 && (getModifiersEx() != 0 || button != MouseEvent::NOBUTTON) && (button <= MouseEvent::BUTTON3)) {
+		bool var$1 = getModifiers() == 0;
+		if (var$1 && (getModifiersEx() != 0 || button != MouseEvent::NOBUTTON) && (button <= MouseEvent::BUTTON3)) {
 			setOldModifiers();
 		}
 	}
@@ -271,44 +189,44 @@ bool MouseEvent::isPopupTrigger() {
 
 $String* MouseEvent::getMouseModifiersText(int32_t modifiers) {
 	$init(MouseEvent);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder));
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::ALT_MASK)) != 0) {
+	if ((modifiers & $InputEvent::ALT_MASK) != 0) {
 		buf->append($($Toolkit::getProperty("AWT.alt"_s, "Alt"_s)));
 		buf->append("+"_s);
 	}
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::META_MASK)) != 0) {
+	if ((modifiers & $InputEvent::META_MASK) != 0) {
 		buf->append($($Toolkit::getProperty("AWT.meta"_s, "Meta"_s)));
 		buf->append("+"_s);
 	}
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::CTRL_MASK)) != 0) {
+	if ((modifiers & $InputEvent::CTRL_MASK) != 0) {
 		buf->append($($Toolkit::getProperty("AWT.control"_s, "Ctrl"_s)));
 		buf->append("+"_s);
 	}
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::SHIFT_MASK)) != 0) {
+	if ((modifiers & $InputEvent::SHIFT_MASK) != 0) {
 		buf->append($($Toolkit::getProperty("AWT.shift"_s, "Shift"_s)));
 		buf->append("+"_s);
 	}
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::ALT_GRAPH_MASK)) != 0) {
+	if ((modifiers & $InputEvent::ALT_GRAPH_MASK) != 0) {
 		buf->append($($Toolkit::getProperty("AWT.altGraph"_s, "Alt Graph"_s)));
 		buf->append("+"_s);
 	}
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::BUTTON1_MASK)) != 0) {
+	if ((modifiers & $InputEvent::BUTTON1_MASK) != 0) {
 		buf->append($($Toolkit::getProperty("AWT.button1"_s, "Button1"_s)));
 		buf->append("+"_s);
 	}
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::BUTTON2_MASK)) != 0) {
+	if ((modifiers & $InputEvent::BUTTON2_MASK) != 0) {
 		buf->append($($Toolkit::getProperty("AWT.button2"_s, "Button2"_s)));
 		buf->append("+"_s);
 	}
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::BUTTON3_MASK)) != 0) {
+	if ((modifiers & $InputEvent::BUTTON3_MASK) != 0) {
 		buf->append($($Toolkit::getProperty("AWT.button3"_s, "Button3"_s)));
 		buf->append("+"_s);
 	}
 	int32_t mask = 0;
 	for (int32_t i = 1; i <= MouseEvent::cachedNumberOfButtons; ++i) {
 		mask = $InputEvent::getMaskForButton(i);
-		if (((int32_t)(modifiers & (uint32_t)mask)) != 0 && buf->indexOf($($Toolkit::getProperty($$str({"AWT.button"_s, $$str(i)}), $$str({"Button"_s, $$str(i)})))) == -1) {
+		if ((modifiers & mask) != 0 && buf->indexOf($($Toolkit::getProperty($$str({"AWT.button"_s, $$str(i)}), $$str({"Button"_s, $$str(i)})))) == -1) {
 			buf->append($($Toolkit::getProperty($$str({"AWT.button"_s, $$str(i)}), $$str({"Button"_s, $$str(i)}))));
 			buf->append("+"_s);
 		}
@@ -320,53 +238,35 @@ $String* MouseEvent::getMouseModifiersText(int32_t modifiers) {
 }
 
 $String* MouseEvent::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, str, $new($StringBuilder, 80));
 	switch (this->id) {
 	case MouseEvent::MOUSE_PRESSED:
-		{
-			str->append("MOUSE_PRESSED"_s);
-			break;
-		}
+		str->append("MOUSE_PRESSED"_s);
+		break;
 	case MouseEvent::MOUSE_RELEASED:
-		{
-			str->append("MOUSE_RELEASED"_s);
-			break;
-		}
+		str->append("MOUSE_RELEASED"_s);
+		break;
 	case MouseEvent::MOUSE_CLICKED:
-		{
-			str->append("MOUSE_CLICKED"_s);
-			break;
-		}
+		str->append("MOUSE_CLICKED"_s);
+		break;
 	case MouseEvent::MOUSE_ENTERED:
-		{
-			str->append("MOUSE_ENTERED"_s);
-			break;
-		}
+		str->append("MOUSE_ENTERED"_s);
+		break;
 	case MouseEvent::MOUSE_EXITED:
-		{
-			str->append("MOUSE_EXITED"_s);
-			break;
-		}
+		str->append("MOUSE_EXITED"_s);
+		break;
 	case MouseEvent::MOUSE_MOVED:
-		{
-			str->append("MOUSE_MOVED"_s);
-			break;
-		}
+		str->append("MOUSE_MOVED"_s);
+		break;
 	case MouseEvent::MOUSE_DRAGGED:
-		{
-			str->append("MOUSE_DRAGGED"_s);
-			break;
-		}
+		str->append("MOUSE_DRAGGED"_s);
+		break;
 	case MouseEvent::MOUSE_WHEEL:
-		{
-			str->append("MOUSE_WHEEL"_s);
-			break;
-		}
+		str->append("MOUSE_WHEEL"_s);
+		break;
 	default:
-		{
-			str->append("unknown type"_s);
-		}
+		str->append("unknown type"_s);
 	}
 	str->append(",("_s)->append(this->x)->append(","_s)->append(this->y)->append(")"_s);
 	str->append(",absolute("_s)->append(this->xAbs)->append(","_s)->append(this->yAbs)->append(")"_s);
@@ -384,49 +284,49 @@ $String* MouseEvent::paramString() {
 }
 
 void MouseEvent::setNewModifiers() {
-	if (((int32_t)(this->modifiers & (uint32_t)$InputEvent::BUTTON1_MASK)) != 0) {
+	if ((this->modifiers & $InputEvent::BUTTON1_MASK) != 0) {
 		this->modifiers |= $InputEvent::BUTTON1_DOWN_MASK;
 	}
-	if (((int32_t)(this->modifiers & (uint32_t)$InputEvent::BUTTON2_MASK)) != 0) {
+	if ((this->modifiers & $InputEvent::BUTTON2_MASK) != 0) {
 		this->modifiers |= $InputEvent::BUTTON2_DOWN_MASK;
 	}
-	if (((int32_t)(this->modifiers & (uint32_t)$InputEvent::BUTTON3_MASK)) != 0) {
+	if ((this->modifiers & $InputEvent::BUTTON3_MASK) != 0) {
 		this->modifiers |= $InputEvent::BUTTON3_DOWN_MASK;
 	}
 	if (this->id == MouseEvent::MOUSE_PRESSED || this->id == MouseEvent::MOUSE_RELEASED || this->id == MouseEvent::MOUSE_CLICKED) {
-		if (((int32_t)(this->modifiers & (uint32_t)$InputEvent::BUTTON1_MASK)) != 0) {
+		if ((this->modifiers & $InputEvent::BUTTON1_MASK) != 0) {
 			this->button = MouseEvent::BUTTON1;
-			this->modifiers &= (uint32_t)((int32_t)(~$InputEvent::BUTTON2_MASK & (uint32_t)~$InputEvent::BUTTON3_MASK));
+			this->modifiers &= (uint32_t)(~$InputEvent::BUTTON2_MASK & ~$InputEvent::BUTTON3_MASK);
 			if (this->id != MouseEvent::MOUSE_PRESSED) {
 				this->modifiers &= (uint32_t)~$InputEvent::BUTTON1_DOWN_MASK;
 			}
-		} else if (((int32_t)(this->modifiers & (uint32_t)$InputEvent::BUTTON2_MASK)) != 0) {
+		} else if ((this->modifiers & $InputEvent::BUTTON2_MASK) != 0) {
 			this->button = MouseEvent::BUTTON2;
-			this->modifiers &= (uint32_t)((int32_t)(~$InputEvent::BUTTON1_MASK & (uint32_t)~$InputEvent::BUTTON3_MASK));
+			this->modifiers &= (uint32_t)(~$InputEvent::BUTTON1_MASK & ~$InputEvent::BUTTON3_MASK);
 			if (this->id != MouseEvent::MOUSE_PRESSED) {
 				this->modifiers &= (uint32_t)~$InputEvent::BUTTON2_DOWN_MASK;
 			}
-		} else if (((int32_t)(this->modifiers & (uint32_t)$InputEvent::BUTTON3_MASK)) != 0) {
+		} else if ((this->modifiers & $InputEvent::BUTTON3_MASK) != 0) {
 			this->button = MouseEvent::BUTTON3;
-			this->modifiers &= (uint32_t)((int32_t)(~$InputEvent::BUTTON1_MASK & (uint32_t)~$InputEvent::BUTTON2_MASK));
+			this->modifiers &= (uint32_t)(~$InputEvent::BUTTON1_MASK & ~$InputEvent::BUTTON2_MASK);
 			if (this->id != MouseEvent::MOUSE_PRESSED) {
 				this->modifiers &= (uint32_t)~$InputEvent::BUTTON3_DOWN_MASK;
 			}
 		}
 	}
-	if (((int32_t)(this->modifiers & (uint32_t)$InputEvent::ALT_MASK)) != 0) {
+	if ((this->modifiers & $InputEvent::ALT_MASK) != 0) {
 		this->modifiers |= $InputEvent::ALT_DOWN_MASK;
 	}
-	if (((int32_t)(this->modifiers & (uint32_t)$InputEvent::META_MASK)) != 0) {
+	if ((this->modifiers & $InputEvent::META_MASK) != 0) {
 		this->modifiers |= $InputEvent::META_DOWN_MASK;
 	}
-	if (((int32_t)(this->modifiers & (uint32_t)$InputEvent::SHIFT_MASK)) != 0) {
+	if ((this->modifiers & $InputEvent::SHIFT_MASK) != 0) {
 		this->modifiers |= $InputEvent::SHIFT_DOWN_MASK;
 	}
-	if (((int32_t)(this->modifiers & (uint32_t)$InputEvent::CTRL_MASK)) != 0) {
+	if ((this->modifiers & $InputEvent::CTRL_MASK) != 0) {
 		this->modifiers |= $InputEvent::CTRL_DOWN_MASK;
 	}
-	if (((int32_t)(this->modifiers & (uint32_t)$InputEvent::ALT_GRAPH_MASK)) != 0) {
+	if ((this->modifiers & $InputEvent::ALT_GRAPH_MASK) != 0) {
 		this->modifiers |= $InputEvent::ALT_GRAPH_DOWN_MASK;
 	}
 }
@@ -435,45 +335,39 @@ void MouseEvent::setOldModifiers() {
 	if (this->id == MouseEvent::MOUSE_PRESSED || this->id == MouseEvent::MOUSE_RELEASED || this->id == MouseEvent::MOUSE_CLICKED) {
 		switch (this->button) {
 		case MouseEvent::BUTTON1:
-			{
-				this->modifiers |= $InputEvent::BUTTON1_MASK;
-				break;
-			}
+			this->modifiers |= $InputEvent::BUTTON1_MASK;
+			break;
 		case MouseEvent::BUTTON2:
-			{
-				this->modifiers |= $InputEvent::BUTTON2_MASK;
-				break;
-			}
+			this->modifiers |= $InputEvent::BUTTON2_MASK;
+			break;
 		case MouseEvent::BUTTON3:
-			{
-				this->modifiers |= $InputEvent::BUTTON3_MASK;
-				break;
-			}
+			this->modifiers |= $InputEvent::BUTTON3_MASK;
+			break;
 		}
 	} else {
-		if (((int32_t)(this->modifiers & (uint32_t)$InputEvent::BUTTON1_DOWN_MASK)) != 0) {
+		if ((this->modifiers & $InputEvent::BUTTON1_DOWN_MASK) != 0) {
 			this->modifiers |= $InputEvent::BUTTON1_MASK;
 		}
-		if (((int32_t)(this->modifiers & (uint32_t)$InputEvent::BUTTON2_DOWN_MASK)) != 0) {
+		if ((this->modifiers & $InputEvent::BUTTON2_DOWN_MASK) != 0) {
 			this->modifiers |= $InputEvent::BUTTON2_MASK;
 		}
-		if (((int32_t)(this->modifiers & (uint32_t)$InputEvent::BUTTON3_DOWN_MASK)) != 0) {
+		if ((this->modifiers & $InputEvent::BUTTON3_DOWN_MASK) != 0) {
 			this->modifiers |= $InputEvent::BUTTON3_MASK;
 		}
 	}
-	if (((int32_t)(this->modifiers & (uint32_t)$InputEvent::ALT_DOWN_MASK)) != 0) {
+	if ((this->modifiers & $InputEvent::ALT_DOWN_MASK) != 0) {
 		this->modifiers |= $InputEvent::ALT_MASK;
 	}
-	if (((int32_t)(this->modifiers & (uint32_t)$InputEvent::META_DOWN_MASK)) != 0) {
+	if ((this->modifiers & $InputEvent::META_DOWN_MASK) != 0) {
 		this->modifiers |= $InputEvent::META_MASK;
 	}
-	if (((int32_t)(this->modifiers & (uint32_t)$InputEvent::SHIFT_DOWN_MASK)) != 0) {
+	if ((this->modifiers & $InputEvent::SHIFT_DOWN_MASK) != 0) {
 		this->modifiers |= $InputEvent::SHIFT_MASK;
 	}
-	if (((int32_t)(this->modifiers & (uint32_t)$InputEvent::CTRL_DOWN_MASK)) != 0) {
+	if ((this->modifiers & $InputEvent::CTRL_DOWN_MASK) != 0) {
 		this->modifiers |= $InputEvent::CTRL_MASK;
 	}
-	if (((int32_t)(this->modifiers & (uint32_t)$InputEvent::ALT_GRAPH_DOWN_MASK)) != 0) {
+	if ((this->modifiers & $InputEvent::ALT_GRAPH_DOWN_MASK) != 0) {
 		this->modifiers |= $InputEvent::ALT_GRAPH_MASK;
 	}
 }
@@ -486,8 +380,8 @@ void MouseEvent::readObject($ObjectInputStream* s) {
 	}
 }
 
-void clinit$MouseEvent($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void MouseEvent::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		$NativeLibLoader::loadLibraries();
 		if (!$GraphicsEnvironment::isHeadless()) {
@@ -495,7 +389,7 @@ void clinit$MouseEvent($Class* class$) {
 		}
 		$var($Toolkit, tk, $Toolkit::getDefaultToolkit());
 		if ($instanceOf($SunToolkit, tk)) {
-			MouseEvent::cachedNumberOfButtons = $nc(($cast($SunToolkit, tk)))->getNumberOfButtons();
+			MouseEvent::cachedNumberOfButtons = $cast($SunToolkit, tk)->getNumberOfButtons();
 		} else {
 			MouseEvent::cachedNumberOfButtons = 3;
 		}
@@ -507,7 +401,78 @@ MouseEvent::MouseEvent() {
 }
 
 $Class* MouseEvent::load$($String* name, bool initialize) {
-	$loadClass(MouseEvent, name, initialize, &_MouseEvent_ClassInfo_, clinit$MouseEvent, allocate$MouseEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"MOUSE_FIRST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseEvent, MOUSE_FIRST)},
+		{"MOUSE_LAST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseEvent, MOUSE_LAST)},
+		{"MOUSE_CLICKED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseEvent, MOUSE_CLICKED)},
+		{"MOUSE_PRESSED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseEvent, MOUSE_PRESSED)},
+		{"MOUSE_RELEASED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseEvent, MOUSE_RELEASED)},
+		{"MOUSE_MOVED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseEvent, MOUSE_MOVED)},
+		{"MOUSE_ENTERED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseEvent, MOUSE_ENTERED)},
+		{"MOUSE_EXITED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseEvent, MOUSE_EXITED)},
+		{"MOUSE_DRAGGED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseEvent, MOUSE_DRAGGED)},
+		{"MOUSE_WHEEL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseEvent, MOUSE_WHEEL)},
+		{"NOBUTTON", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseEvent, NOBUTTON)},
+		{"BUTTON1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseEvent, BUTTON1)},
+		{"BUTTON2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseEvent, BUTTON2)},
+		{"BUTTON3", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseEvent, BUTTON3)},
+		{"x", "I", nullptr, 0, $field(MouseEvent, x)},
+		{"y", "I", nullptr, 0, $field(MouseEvent, y)},
+		{"xAbs", "I", nullptr, $PRIVATE, $field(MouseEvent, xAbs)},
+		{"yAbs", "I", nullptr, $PRIVATE, $field(MouseEvent, yAbs)},
+		{"clickCount", "I", nullptr, 0, $field(MouseEvent, clickCount)},
+		{"causedByTouchEvent", "Z", nullptr, $PRIVATE, $field(MouseEvent, causedByTouchEvent)},
+		{"button", "I", nullptr, 0, $field(MouseEvent, button)},
+		{"popupTrigger", "Z", nullptr, 0, $field(MouseEvent, popupTrigger)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MouseEvent, serialVersionUID)},
+		{"cachedNumberOfButtons", "I", nullptr, $PRIVATE | $STATIC, $staticField(MouseEvent, cachedNumberOfButtons)},
+		{"shouldExcludeButtonFromExtModifiers", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(MouseEvent, shouldExcludeButtonFromExtModifiers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Component;IJIIIIZI)V", nullptr, $PUBLIC, $method(MouseEvent, init$, void, $Component*, int32_t, int64_t, int32_t, int32_t, int32_t, int32_t, bool, int32_t)},
+		{"<init>", "(Ljava/awt/Component;IJIIIIZ)V", nullptr, $PUBLIC, $method(MouseEvent, init$, void, $Component*, int32_t, int64_t, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"<init>", "(Ljava/awt/Component;IJIIIIIIZI)V", nullptr, $PUBLIC, $method(MouseEvent, init$, void, $Component*, int32_t, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool, int32_t)},
+		{"getButton", "()I", nullptr, $PUBLIC, $virtualMethod(MouseEvent, getButton, int32_t)},
+		{"getClickCount", "()I", nullptr, $PUBLIC, $virtualMethod(MouseEvent, getClickCount, int32_t)},
+		{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(MouseEvent, getLocationOnScreen, $Point*)},
+		{"getModifiersEx", "()I", nullptr, $PUBLIC, $virtualMethod(MouseEvent, getModifiersEx, int32_t)},
+		{"getMouseModifiersText", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(MouseEvent, getMouseModifiersText, $String*, int32_t)},
+		{"getPoint", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(MouseEvent, getPoint, $Point*)},
+		{"getX", "()I", nullptr, $PUBLIC, $virtualMethod(MouseEvent, getX, int32_t)},
+		{"getXOnScreen", "()I", nullptr, $PUBLIC, $virtualMethod(MouseEvent, getXOnScreen, int32_t)},
+		{"getY", "()I", nullptr, $PUBLIC, $virtualMethod(MouseEvent, getY, int32_t)},
+		{"getYOnScreen", "()I", nullptr, $PUBLIC, $virtualMethod(MouseEvent, getYOnScreen, int32_t)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MouseEvent, initIDs, void)},
+		{"isPopupTrigger", "()Z", nullptr, $PUBLIC, $virtualMethod(MouseEvent, isPopupTrigger, bool)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MouseEvent, paramString, $String*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MouseEvent, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"setNewModifiers", "()V", nullptr, $PRIVATE, $method(MouseEvent, setNewModifiers, void)},
+		{"setOldModifiers", "()V", nullptr, $PRIVATE, $method(MouseEvent, setOldModifiers, void)},
+		{"translatePoint", "(II)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MouseEvent, translatePoint, void, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.event.MouseEvent$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.event.MouseEvent",
+		"java.awt.event.InputEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.event.MouseEvent$1"
+	};
+	$loadClass(MouseEvent, name, initialize, &classInfo$$, MouseEvent::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MouseEvent);
+	});
 	return class$;
 }
 

@@ -46,6 +46,7 @@ class $export XMLOutputFactory : public ::java::lang::Object {
 	$class(XMLOutputFactory, 0, ::java::lang::Object)
 public:
 	XMLOutputFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::xml::stream::XMLEventWriter* createXMLEventWriter(::javax::xml::transform::Result* result) {return nullptr;}
 	virtual ::javax::xml::stream::XMLEventWriter* createXMLEventWriter(::java::io::OutputStream* stream) {return nullptr;}

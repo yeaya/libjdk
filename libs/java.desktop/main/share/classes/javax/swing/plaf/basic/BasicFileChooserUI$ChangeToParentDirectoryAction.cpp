@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicFileChooserUI$ChangeToParentDirectoryAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
@@ -18,7 +17,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
-using $JFileChooser = ::javax::swing::JFileChooser;
 using $BasicFileChooserUI = ::javax::swing::plaf::basic::BasicFileChooserUI;
 using $FilePane = ::sun::swing::FilePane;
 
@@ -26,42 +24,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicFileChooserUI$ChangeToParentDirectoryAction_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicFileChooserUI$ChangeToParentDirectoryAction, this$0)},
-	{}
-};
-
-$MethodInfo _BasicFileChooserUI$ChangeToParentDirectoryAction_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicFileChooserUI;)V", nullptr, $PROTECTED, $method(BasicFileChooserUI$ChangeToParentDirectoryAction, init$, void, $BasicFileChooserUI*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI$ChangeToParentDirectoryAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicFileChooserUI$ChangeToParentDirectoryAction_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicFileChooserUI$ChangeToParentDirectoryAction", "javax.swing.plaf.basic.BasicFileChooserUI", "ChangeToParentDirectoryAction", $PROTECTED},
-	{}
-};
-
-$ClassInfo _BasicFileChooserUI$ChangeToParentDirectoryAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicFileChooserUI$ChangeToParentDirectoryAction",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_BasicFileChooserUI$ChangeToParentDirectoryAction_FieldInfo_,
-	_BasicFileChooserUI$ChangeToParentDirectoryAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicFileChooserUI$ChangeToParentDirectoryAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicFileChooserUI"
-};
-
-$Object* allocate$BasicFileChooserUI$ChangeToParentDirectoryAction($Class* clazz) {
-	return $of($alloc(BasicFileChooserUI$ChangeToParentDirectoryAction));
-}
 
 void BasicFileChooserUI$ChangeToParentDirectoryAction::init$($BasicFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
@@ -72,14 +34,44 @@ void BasicFileChooserUI$ChangeToParentDirectoryAction::init$($BasicFileChooserUI
 }
 
 void BasicFileChooserUI$ChangeToParentDirectoryAction::actionPerformed($ActionEvent* e) {
-	$nc($(this->this$0->getFileChooser()))->changeToParentDirectory();
+	$$nc(this->this$0->getFileChooser())->changeToParentDirectory();
 }
 
 BasicFileChooserUI$ChangeToParentDirectoryAction::BasicFileChooserUI$ChangeToParentDirectoryAction() {
 }
 
 $Class* BasicFileChooserUI$ChangeToParentDirectoryAction::load$($String* name, bool initialize) {
-	$loadClass(BasicFileChooserUI$ChangeToParentDirectoryAction, name, initialize, &_BasicFileChooserUI$ChangeToParentDirectoryAction_ClassInfo_, allocate$BasicFileChooserUI$ChangeToParentDirectoryAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicFileChooserUI$ChangeToParentDirectoryAction, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicFileChooserUI;)V", nullptr, $PROTECTED, $method(BasicFileChooserUI$ChangeToParentDirectoryAction, init$, void, $BasicFileChooserUI*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI$ChangeToParentDirectoryAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicFileChooserUI$ChangeToParentDirectoryAction", "javax.swing.plaf.basic.BasicFileChooserUI", "ChangeToParentDirectoryAction", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicFileChooserUI$ChangeToParentDirectoryAction",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicFileChooserUI"
+	};
+	$loadClass(BasicFileChooserUI$ChangeToParentDirectoryAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicFileChooserUI$ChangeToParentDirectoryAction));
+	});
 	return class$;
 }
 

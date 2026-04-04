@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/Constants.h>
-
 #include <jcpp.h>
 
 #undef S_BUILTIN_EXTENSIONS_URL
@@ -38,50 +37,6 @@ namespace com {
 					namespace internal {
 						namespace utils {
 
-$FieldInfo _Constants_FieldInfo_[] = {
-	{"S_XMLNAMESPACEURI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_XMLNAMESPACEURI)},
-	{"S_XSLNAMESPACEURL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_XSLNAMESPACEURL)},
-	{"S_OLDXSLNAMESPACEURL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_OLDXSLNAMESPACEURL)},
-	{"S_VENDOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_VENDOR)},
-	{"S_VENDORURL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_VENDORURL)},
-	{"S_BUILTIN_EXTENSIONS_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_BUILTIN_EXTENSIONS_URL)},
-	{"S_BUILTIN_OLD_EXTENSIONS_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_BUILTIN_OLD_EXTENSIONS_URL)},
-	{"S_EXTENSIONS_OLD_JAVA_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_EXTENSIONS_OLD_JAVA_URL)},
-	{"S_EXTENSIONS_JAVA_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_EXTENSIONS_JAVA_URL)},
-	{"S_EXTENSIONS_LOTUSXSL_JAVA_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_EXTENSIONS_LOTUSXSL_JAVA_URL)},
-	{"S_EXTENSIONS_XALANLIB_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_EXTENSIONS_XALANLIB_URL)},
-	{"S_EXTENSIONS_REDIRECT_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_EXTENSIONS_REDIRECT_URL)},
-	{"S_EXTENSIONS_PIPE_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_EXTENSIONS_PIPE_URL)},
-	{"S_EXTENSIONS_SQL_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_EXTENSIONS_SQL_URL)},
-	{"S_EXSLT_COMMON_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_EXSLT_COMMON_URL)},
-	{"S_EXSLT_MATH_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_EXSLT_MATH_URL)},
-	{"S_EXSLT_SETS_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_EXSLT_SETS_URL)},
-	{"S_EXSLT_DATETIME_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_EXSLT_DATETIME_URL)},
-	{"S_EXSLT_FUNCTIONS_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_EXSLT_FUNCTIONS_URL)},
-	{"S_EXSLT_DYNAMIC_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_EXSLT_DYNAMIC_URL)},
-	{"S_EXSLT_STRINGS_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_EXSLT_STRINGS_URL)},
-	{"XSLTVERSUPPORTED", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XSLTVERSUPPORTED)},
-	{}
-};
-
-$MethodInfo _Constants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Constants, init$, void)},
-	{}
-};
-
-$ClassInfo _Constants_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.Constants",
-	"java.lang.Object",
-	nullptr,
-	_Constants_FieldInfo_,
-	_Constants_MethodInfo_
-};
-
-$Object* allocate$Constants($Class* clazz) {
-	return $of($alloc(Constants));
-}
-
 $String* Constants::S_XMLNAMESPACEURI = nullptr;
 $String* Constants::S_XSLNAMESPACEURL = nullptr;
 $String* Constants::S_OLDXSLNAMESPACEURL = nullptr;
@@ -111,7 +66,7 @@ void Constants::init$() {
 Constants::Constants() {
 }
 
-void clinit$Constants($Class* class$) {
+void Constants::clinit$($Class* clazz) {
 	$assignStatic(Constants::S_XMLNAMESPACEURI, "http://www.w3.org/XML/1998/namespace"_s);
 	$assignStatic(Constants::S_XSLNAMESPACEURL, "http://www.w3.org/1999/XSL/Transform"_s);
 	$assignStatic(Constants::S_OLDXSLNAMESPACEURL, "http://www.w3.org/XSL/Transform/1.0"_s);
@@ -137,7 +92,46 @@ void clinit$Constants($Class* class$) {
 }
 
 $Class* Constants::load$($String* name, bool initialize) {
-	$loadClass(Constants, name, initialize, &_Constants_ClassInfo_, clinit$Constants, allocate$Constants);
+	$FieldInfo fieldInfos$$[] = {
+		{"S_XMLNAMESPACEURI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_XMLNAMESPACEURI)},
+		{"S_XSLNAMESPACEURL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_XSLNAMESPACEURL)},
+		{"S_OLDXSLNAMESPACEURL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_OLDXSLNAMESPACEURL)},
+		{"S_VENDOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_VENDOR)},
+		{"S_VENDORURL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_VENDORURL)},
+		{"S_BUILTIN_EXTENSIONS_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_BUILTIN_EXTENSIONS_URL)},
+		{"S_BUILTIN_OLD_EXTENSIONS_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_BUILTIN_OLD_EXTENSIONS_URL)},
+		{"S_EXTENSIONS_OLD_JAVA_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_EXTENSIONS_OLD_JAVA_URL)},
+		{"S_EXTENSIONS_JAVA_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_EXTENSIONS_JAVA_URL)},
+		{"S_EXTENSIONS_LOTUSXSL_JAVA_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_EXTENSIONS_LOTUSXSL_JAVA_URL)},
+		{"S_EXTENSIONS_XALANLIB_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_EXTENSIONS_XALANLIB_URL)},
+		{"S_EXTENSIONS_REDIRECT_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_EXTENSIONS_REDIRECT_URL)},
+		{"S_EXTENSIONS_PIPE_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_EXTENSIONS_PIPE_URL)},
+		{"S_EXTENSIONS_SQL_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_EXTENSIONS_SQL_URL)},
+		{"S_EXSLT_COMMON_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_EXSLT_COMMON_URL)},
+		{"S_EXSLT_MATH_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_EXSLT_MATH_URL)},
+		{"S_EXSLT_SETS_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_EXSLT_SETS_URL)},
+		{"S_EXSLT_DATETIME_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_EXSLT_DATETIME_URL)},
+		{"S_EXSLT_FUNCTIONS_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_EXSLT_FUNCTIONS_URL)},
+		{"S_EXSLT_DYNAMIC_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_EXSLT_DYNAMIC_URL)},
+		{"S_EXSLT_STRINGS_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, S_EXSLT_STRINGS_URL)},
+		{"XSLTVERSUPPORTED", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XSLTVERSUPPORTED)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Constants, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.Constants",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Constants, name, initialize, &classInfo$$, Constants::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Constants);
+	});
 	return class$;
 }
 

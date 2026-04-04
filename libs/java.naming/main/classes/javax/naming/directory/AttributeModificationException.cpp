@@ -1,5 +1,4 @@
 #include <javax/naming/directory/AttributeModificationException.h>
-
 #include <javax/naming/NamingException.h>
 #include <javax/naming/directory/ModificationItem.h>
 #include <jcpp.h>
@@ -9,39 +8,10 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamingException = ::javax::naming::NamingException;
-using $ModificationItem = ::javax::naming::directory::ModificationItem;
 
 namespace javax {
 	namespace naming {
 		namespace directory {
-
-$FieldInfo _AttributeModificationException_FieldInfo_[] = {
-	{"unexecs", "[Ljavax/naming/directory/ModificationItem;", nullptr, $PRIVATE, $field(AttributeModificationException, unexecs)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttributeModificationException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AttributeModificationException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AttributeModificationException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AttributeModificationException, init$, void)},
-	{"getUnexecutedModifications", "()[Ljavax/naming/directory/ModificationItem;", nullptr, $PUBLIC, $virtualMethod(AttributeModificationException, getUnexecutedModifications, $ModificationItemArray*)},
-	{"setUnexecutedModifications", "([Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC, $virtualMethod(AttributeModificationException, setUnexecutedModifications, void, $ModificationItemArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeModificationException, toString, $String*)},
-	{}
-};
-
-$ClassInfo _AttributeModificationException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.directory.AttributeModificationException",
-	"javax.naming.NamingException",
-	nullptr,
-	_AttributeModificationException_FieldInfo_,
-	_AttributeModificationException_MethodInfo_
-};
-
-$Object* allocate$AttributeModificationException($Class* clazz) {
-	return $of($alloc(AttributeModificationException));
-}
 
 void AttributeModificationException::init$($String* explanation) {
 	$NamingException::init$(explanation);
@@ -62,10 +32,10 @@ $ModificationItemArray* AttributeModificationException::getUnexecutedModificatio
 }
 
 $String* AttributeModificationException::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, orig, $NamingException::toString());
 	if (this->unexecs != nullptr) {
-		$plusAssign(orig, ($$str({"First unexecuted modification: "_s, $($nc($nc(this->unexecs)->get(0))->toString())})));
+		$plusAssign(orig, ($$str({"First unexecuted modification: "_s, $($nc(this->unexecs->get(0))->toString())})));
 	}
 	return orig;
 }
@@ -81,7 +51,30 @@ void AttributeModificationException::throw$() {
 }
 
 $Class* AttributeModificationException::load$($String* name, bool initialize) {
-	$loadClass(AttributeModificationException, name, initialize, &_AttributeModificationException_ClassInfo_, allocate$AttributeModificationException);
+	$FieldInfo fieldInfos$$[] = {
+		{"unexecs", "[Ljavax/naming/directory/ModificationItem;", nullptr, $PRIVATE, $field(AttributeModificationException, unexecs)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttributeModificationException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AttributeModificationException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AttributeModificationException, init$, void)},
+		{"getUnexecutedModifications", "()[Ljavax/naming/directory/ModificationItem;", nullptr, $PUBLIC, $virtualMethod(AttributeModificationException, getUnexecutedModifications, $ModificationItemArray*)},
+		{"setUnexecutedModifications", "([Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC, $virtualMethod(AttributeModificationException, setUnexecutedModifications, void, $ModificationItemArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeModificationException, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.directory.AttributeModificationException",
+		"javax.naming.NamingException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AttributeModificationException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AttributeModificationException);
+	});
 	return class$;
 }
 

@@ -36,7 +36,7 @@ public:
 	virtual ::java::security::PermissionCollection* newPermissionCollection() override;
 	void readObject(::java::io::ObjectInputStream* s);
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0x0C418503874A6612;
+	static const int64_t serialVersionUID = (int64_t)0x0c418503874a6612;
 	$String* subordinate = nullptr;
 	$String* service = nullptr;
 };

@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/TMSchema$Control.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -34,60 +33,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _TMSchema$Control_FieldInfo_[] = {
-	{"BUTTON", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, BUTTON)},
-	{"COMBOBOX", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, COMBOBOX)},
-	{"EDIT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, EDIT)},
-	{"HEADER", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, HEADER)},
-	{"LISTBOX", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, LISTBOX)},
-	{"LISTVIEW", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, LISTVIEW)},
-	{"MENU", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, MENU)},
-	{"PROGRESS", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, PROGRESS)},
-	{"REBAR", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, REBAR)},
-	{"SCROLLBAR", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, SCROLLBAR)},
-	{"SPIN", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, SPIN)},
-	{"TAB", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, TAB)},
-	{"TOOLBAR", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, TOOLBAR)},
-	{"TRACKBAR", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, TRACKBAR)},
-	{"TREEVIEW", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, TREEVIEW)},
-	{"WINDOW", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, WINDOW)},
-	{"$VALUES", "[Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TMSchema$Control, $VALUES)},
-	{}
-};
-
-$MethodInfo _TMSchema$Control_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TMSchema$Control, $values, $TMSchema$ControlArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TMSchema$Control, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC, $staticMethod(TMSchema$Control, valueOf, TMSchema$Control*, $String*)},
-	{"values", "()[Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC, $staticMethod(TMSchema$Control, values, $TMSchema$ControlArray*)},
-	{}
-};
-
-$InnerClassInfo _TMSchema$Control_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.TMSchema$Control", "com.sun.java.swing.plaf.windows.TMSchema", "Control", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _TMSchema$Control_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.java.swing.plaf.windows.TMSchema$Control",
-	"java.lang.Enum",
-	nullptr,
-	_TMSchema$Control_FieldInfo_,
-	_TMSchema$Control_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/windows/TMSchema$Control;>;",
-	nullptr,
-	_TMSchema$Control_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.TMSchema"
-};
-
-$Object* allocate$TMSchema$Control($Class* clazz) {
-	return $of($alloc(TMSchema$Control));
-}
 
 TMSchema$Control* TMSchema$Control::BUTTON = nullptr;
 TMSchema$Control* TMSchema$Control::COMBOBOX = nullptr;
@@ -143,7 +88,7 @@ void TMSchema$Control::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$TMSchema$Control($Class* class$) {
+void TMSchema$Control::clinit$($Class* clazz) {
 	$assignStatic(TMSchema$Control::BUTTON, $new(TMSchema$Control, "BUTTON"_s, 0));
 	$assignStatic(TMSchema$Control::COMBOBOX, $new(TMSchema$Control, "COMBOBOX"_s, 1));
 	$assignStatic(TMSchema$Control::EDIT, $new(TMSchema$Control, "EDIT"_s, 2));
@@ -167,7 +112,55 @@ TMSchema$Control::TMSchema$Control() {
 }
 
 $Class* TMSchema$Control::load$($String* name, bool initialize) {
-	$loadClass(TMSchema$Control, name, initialize, &_TMSchema$Control_ClassInfo_, clinit$TMSchema$Control, allocate$TMSchema$Control);
+	$FieldInfo fieldInfos$$[] = {
+		{"BUTTON", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, BUTTON)},
+		{"COMBOBOX", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, COMBOBOX)},
+		{"EDIT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, EDIT)},
+		{"HEADER", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, HEADER)},
+		{"LISTBOX", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, LISTBOX)},
+		{"LISTVIEW", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, LISTVIEW)},
+		{"MENU", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, MENU)},
+		{"PROGRESS", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, PROGRESS)},
+		{"REBAR", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, REBAR)},
+		{"SCROLLBAR", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, SCROLLBAR)},
+		{"SPIN", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, SPIN)},
+		{"TAB", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, TAB)},
+		{"TOOLBAR", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, TOOLBAR)},
+		{"TRACKBAR", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, TRACKBAR)},
+		{"TREEVIEW", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, TREEVIEW)},
+		{"WINDOW", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Control, WINDOW)},
+		{"$VALUES", "[Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TMSchema$Control, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TMSchema$Control, $values, $TMSchema$ControlArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TMSchema$Control, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC, $staticMethod(TMSchema$Control, valueOf, TMSchema$Control*, $String*)},
+		{"values", "()[Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PUBLIC | $STATIC, $staticMethod(TMSchema$Control, values, $TMSchema$ControlArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.TMSchema$Control", "com.sun.java.swing.plaf.windows.TMSchema", "Control", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.java.swing.plaf.windows.TMSchema$Control",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/windows/TMSchema$Control;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.TMSchema"
+	};
+	$loadClass(TMSchema$Control, name, initialize, &classInfo$$, TMSchema$Control::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TMSchema$Control));
+	});
 	return class$;
 }
 

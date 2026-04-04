@@ -55,6 +55,7 @@ class XMLParserImpl : public ::com::sun::org::apache::xml::internal::security::p
 	$class(XMLParserImpl, 0, ::com::sun::org::apache::xml::internal::security::parser::XMLParser)
 public:
 	XMLParserImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::xml::parsers::DocumentBuilder* createDocumentBuilder(bool disallowDocTypeDeclarations);
 	static ::java::lang::ClassLoader* getClassLoader($Class* clazz);

@@ -1,5 +1,4 @@
 #include <java/beans/MetaData$java_awt_BorderLayout_PersistenceDelegate.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
 #include <java/beans/DefaultPersistenceDelegate.h>
@@ -29,42 +28,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace beans {
 
-$FieldInfo _MetaData$java_awt_BorderLayout_PersistenceDelegate_FieldInfo_[] = {
-	{"CONSTRAINTS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetaData$java_awt_BorderLayout_PersistenceDelegate, CONSTRAINTS)},
-	{}
-};
-
-$MethodInfo _MetaData$java_awt_BorderLayout_PersistenceDelegate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MetaData$java_awt_BorderLayout_PersistenceDelegate, init$, void)},
-	{"initialize", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", $PROTECTED, $virtualMethod(MetaData$java_awt_BorderLayout_PersistenceDelegate, initialize, void, $Class*, Object$*, Object$*, $Encoder*)},
-	{}
-};
-
-$InnerClassInfo _MetaData$java_awt_BorderLayout_PersistenceDelegate_InnerClassesInfo_[] = {
-	{"java.beans.MetaData$java_awt_BorderLayout_PersistenceDelegate", "java.beans.MetaData", "java_awt_BorderLayout_PersistenceDelegate", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MetaData$java_awt_BorderLayout_PersistenceDelegate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.beans.MetaData$java_awt_BorderLayout_PersistenceDelegate",
-	"java.beans.DefaultPersistenceDelegate",
-	nullptr,
-	_MetaData$java_awt_BorderLayout_PersistenceDelegate_FieldInfo_,
-	_MetaData$java_awt_BorderLayout_PersistenceDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetaData$java_awt_BorderLayout_PersistenceDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.beans.MetaData"
-};
-
-$Object* allocate$MetaData$java_awt_BorderLayout_PersistenceDelegate($Class* clazz) {
-	return $of($alloc(MetaData$java_awt_BorderLayout_PersistenceDelegate));
-}
-
 $StringArray* MetaData$java_awt_BorderLayout_PersistenceDelegate::CONSTRAINTS = nullptr;
 
 void MetaData$java_awt_BorderLayout_PersistenceDelegate::init$() {
@@ -72,15 +35,13 @@ void MetaData$java_awt_BorderLayout_PersistenceDelegate::init$() {
 }
 
 void MetaData$java_awt_BorderLayout_PersistenceDelegate::initialize($Class* type, Object$* oldInstance, Object$* newInstance, $Encoder* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DefaultPersistenceDelegate::initialize(type, oldInstance, newInstance, out);
 	$var($BorderLayout, oldLayout, $cast($BorderLayout, oldInstance));
 	$var($BorderLayout, newLayout, $cast($BorderLayout, newInstance));
 	{
 		$var($StringArray, arr$, MetaData$java_awt_BorderLayout_PersistenceDelegate::CONSTRAINTS);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, constraints, arr$->get(i$));
 			{
 				$var($Object, oldC, $nc(oldLayout)->getLayoutComponent(constraints));
@@ -88,7 +49,7 @@ void MetaData$java_awt_BorderLayout_PersistenceDelegate::initialize($Class* type
 				if (oldC != nullptr && newC == nullptr) {
 					invokeStatement(oldInstance, "addLayoutComponent"_s, $$new($ObjectArray, {
 						oldC,
-						$of(constraints)
+						constraints
 					}), out);
 				}
 			}
@@ -96,7 +57,7 @@ void MetaData$java_awt_BorderLayout_PersistenceDelegate::initialize($Class* type
 	}
 }
 
-void clinit$MetaData$java_awt_BorderLayout_PersistenceDelegate($Class* class$) {
+void MetaData$java_awt_BorderLayout_PersistenceDelegate::clinit$($Class* clazz) {
 	$init($BorderLayout);
 	$assignStatic(MetaData$java_awt_BorderLayout_PersistenceDelegate::CONSTRAINTS, $new($StringArray, {
 		$BorderLayout::NORTH,
@@ -115,7 +76,37 @@ MetaData$java_awt_BorderLayout_PersistenceDelegate::MetaData$java_awt_BorderLayo
 }
 
 $Class* MetaData$java_awt_BorderLayout_PersistenceDelegate::load$($String* name, bool initialize) {
-	$loadClass(MetaData$java_awt_BorderLayout_PersistenceDelegate, name, initialize, &_MetaData$java_awt_BorderLayout_PersistenceDelegate_ClassInfo_, clinit$MetaData$java_awt_BorderLayout_PersistenceDelegate, allocate$MetaData$java_awt_BorderLayout_PersistenceDelegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"CONSTRAINTS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetaData$java_awt_BorderLayout_PersistenceDelegate, CONSTRAINTS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MetaData$java_awt_BorderLayout_PersistenceDelegate, init$, void)},
+		{"initialize", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", $PROTECTED, $virtualMethod(MetaData$java_awt_BorderLayout_PersistenceDelegate, initialize, void, $Class*, Object$*, Object$*, $Encoder*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.MetaData$java_awt_BorderLayout_PersistenceDelegate", "java.beans.MetaData", "java_awt_BorderLayout_PersistenceDelegate", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.beans.MetaData$java_awt_BorderLayout_PersistenceDelegate",
+		"java.beans.DefaultPersistenceDelegate",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.beans.MetaData"
+	};
+	$loadClass(MetaData$java_awt_BorderLayout_PersistenceDelegate, name, initialize, &classInfo$$, MetaData$java_awt_BorderLayout_PersistenceDelegate::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MetaData$java_awt_BorderLayout_PersistenceDelegate);
+	});
 	return class$;
 }
 

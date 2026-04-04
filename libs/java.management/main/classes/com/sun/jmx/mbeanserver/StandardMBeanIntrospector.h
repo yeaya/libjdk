@@ -47,6 +47,7 @@ class StandardMBeanIntrospector : public ::com::sun::jmx::mbeanserver::MBeanIntr
 	$class(StandardMBeanIntrospector, 0, ::com::sun::jmx::mbeanserver::MBeanIntrospector)
 public:
 	StandardMBeanIntrospector();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void checkMethod(::java::lang::reflect::Method* m);
 	virtual void checkMethod(Object$* m) override;

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/ElementValuePair.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Constant.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
@@ -25,36 +24,6 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$FieldInfo _ElementValuePair_FieldInfo_[] = {
-	{"elementValue", "Lcom/sun/org/apache/bcel/internal/classfile/ElementValue;", nullptr, $PRIVATE | $FINAL, $field(ElementValuePair, elementValue)},
-	{"constantPool", "Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;", nullptr, $PRIVATE | $FINAL, $field(ElementValuePair, constantPool)},
-	{"elementNameIndex", "I", nullptr, $PRIVATE | $FINAL, $field(ElementValuePair, elementNameIndex)},
-	{}
-};
-
-$MethodInfo _ElementValuePair_MethodInfo_[] = {
-	{"<init>", "(ILcom/sun/org/apache/bcel/internal/classfile/ElementValue;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(ElementValuePair, init$, void, int32_t, $ElementValue*, $ConstantPool*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PROTECTED, $virtualMethod(ElementValuePair, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getNameIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ElementValuePair, getNameIndex, int32_t)},
-	{"getNameString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ElementValuePair, getNameString, $String*)},
-	{"getValue", "()Lcom/sun/org/apache/bcel/internal/classfile/ElementValue;", nullptr, $PUBLIC | $FINAL, $method(ElementValuePair, getValue, $ElementValue*)},
-	{"toShortString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ElementValuePair, toShortString, $String*)},
-	{}
-};
-
-$ClassInfo _ElementValuePair_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.ElementValuePair",
-	"java.lang.Object",
-	nullptr,
-	_ElementValuePair_FieldInfo_,
-	_ElementValuePair_MethodInfo_
-};
-
-$Object* allocate$ElementValuePair($Class* clazz) {
-	return $of($alloc(ElementValuePair));
-}
-
 void ElementValuePair::init$(int32_t elementNameIndex, $ElementValue* elementValue, $ConstantPool* constantPool) {
 	$set(this, elementValue, elementValue);
 	this->elementNameIndex = elementNameIndex;
@@ -75,9 +44,9 @@ int32_t ElementValuePair::getNameIndex() {
 }
 
 $String* ElementValuePair::toShortString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, result, $new($StringBuilder));
-	result->append($(getNameString()))->append("="_s)->append($($nc($(getValue()))->toShortString()));
+	result->append($(getNameString()))->append("="_s)->append($($$nc(getValue())->toShortString()));
 	return result->toString();
 }
 
@@ -90,7 +59,32 @@ ElementValuePair::ElementValuePair() {
 }
 
 $Class* ElementValuePair::load$($String* name, bool initialize) {
-	$loadClass(ElementValuePair, name, initialize, &_ElementValuePair_ClassInfo_, allocate$ElementValuePair);
+	$FieldInfo fieldInfos$$[] = {
+		{"elementValue", "Lcom/sun/org/apache/bcel/internal/classfile/ElementValue;", nullptr, $PRIVATE | $FINAL, $field(ElementValuePair, elementValue)},
+		{"constantPool", "Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;", nullptr, $PRIVATE | $FINAL, $field(ElementValuePair, constantPool)},
+		{"elementNameIndex", "I", nullptr, $PRIVATE | $FINAL, $field(ElementValuePair, elementNameIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILcom/sun/org/apache/bcel/internal/classfile/ElementValue;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(ElementValuePair, init$, void, int32_t, $ElementValue*, $ConstantPool*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PROTECTED, $virtualMethod(ElementValuePair, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getNameIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ElementValuePair, getNameIndex, int32_t)},
+		{"getNameString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ElementValuePair, getNameString, $String*)},
+		{"getValue", "()Lcom/sun/org/apache/bcel/internal/classfile/ElementValue;", nullptr, $PUBLIC | $FINAL, $method(ElementValuePair, getValue, $ElementValue*)},
+		{"toShortString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ElementValuePair, toShortString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.ElementValuePair",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ElementValuePair, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ElementValuePair);
+	});
 	return class$;
 }
 

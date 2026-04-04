@@ -39,6 +39,7 @@ class $export MetalRadioButtonUI : public ::javax::swing::plaf::basic::BasicRadi
 	$class(MetalRadioButtonUI, 0, ::javax::swing::plaf::basic::BasicRadioButtonUI)
 public:
 	MetalRadioButtonUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* c);
 	virtual ::java::awt::Color* getDisabledTextColor();

@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/wbmp/WBMPImageWriter.h>
-
 #include <com/sun/imageio/plugins/common/I18N.h>
 #include <com/sun/imageio/plugins/wbmp/WBMPMetadata.h>
 #include <java/awt/Point.h>
@@ -59,45 +58,11 @@ namespace com {
 			namespace plugins {
 				namespace wbmp {
 
-$FieldInfo _WBMPImageWriter_FieldInfo_[] = {
-	{"stream", "Ljavax/imageio/stream/ImageOutputStream;", nullptr, $PRIVATE, $field(WBMPImageWriter, stream)},
-	{}
-};
-
-$MethodInfo _WBMPImageWriter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/imageio/spi/ImageWriterSpi;)V", nullptr, $PUBLIC, $method(WBMPImageWriter, init$, void, $ImageWriterSpi*)},
-	{"canWriteRasters", "()Z", nullptr, $PUBLIC, $virtualMethod(WBMPImageWriter, canWriteRasters, bool)},
-	{"checkSampleModel", "(Ljava/awt/image/SampleModel;)V", nullptr, $PRIVATE, $method(WBMPImageWriter, checkSampleModel, void, $SampleModel*)},
-	{"convertImageMetadata", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(WBMPImageWriter, convertImageMetadata, $IIOMetadata*, $IIOMetadata*, $ImageTypeSpecifier*, $ImageWriteParam*)},
-	{"convertStreamMetadata", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(WBMPImageWriter, convertStreamMetadata, $IIOMetadata*, $IIOMetadata*, $ImageWriteParam*)},
-	{"getDefaultImageMetadata", "(Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(WBMPImageWriter, getDefaultImageMetadata, $IIOMetadata*, $ImageTypeSpecifier*, $ImageWriteParam*)},
-	{"getDefaultStreamMetadata", "(Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(WBMPImageWriter, getDefaultStreamMetadata, $IIOMetadata*, $ImageWriteParam*)},
-	{"getNumBits", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(WBMPImageWriter, getNumBits, int32_t, int32_t)},
-	{"intToMultiByte", "(I)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(WBMPImageWriter, intToMultiByte, $bytes*, int32_t)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(WBMPImageWriter, reset, void)},
-	{"setOutput", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(WBMPImageWriter, setOutput, void, Object$*)},
-	{"write", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(WBMPImageWriter, write, void, $IIOMetadata*, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _WBMPImageWriter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.wbmp.WBMPImageWriter",
-	"javax.imageio.ImageWriter",
-	nullptr,
-	_WBMPImageWriter_FieldInfo_,
-	_WBMPImageWriter_MethodInfo_
-};
-
-$Object* allocate$WBMPImageWriter($Class* clazz) {
-	return $of($alloc(WBMPImageWriter));
-}
-
 int32_t WBMPImageWriter::getNumBits(int32_t intValue) {
 	$init(WBMPImageWriter);
 	int32_t numBits = 32;
 	int32_t mask = (int32_t)0x80000000;
-	while (mask != 0 && ((int32_t)(intValue & (uint32_t)mask)) == 0) {
+	while (mask != 0 && (intValue & mask) == 0) {
 		--numBits;
 		$usrAssign(mask, 1);
 	}
@@ -110,7 +75,7 @@ $bytes* WBMPImageWriter::intToMultiByte(int32_t intValue) {
 	$var($bytes, multiBytes, $new($bytes, (numBitsLeft + 6) / 7));
 	int32_t maxIndex = multiBytes->length - 1;
 	for (int32_t b = 0; b <= maxIndex; ++b) {
-		multiBytes->set(b, (int8_t)((int32_t)(($usr(intValue, (maxIndex - b) * 7)) & (uint32_t)127)));
+		multiBytes->set(b, (int8_t)(($usr(intValue, (maxIndex - b) * 7)) & 0x7f));
 		if (b != maxIndex) {
 			(*multiBytes)[b] |= (int8_t)128;
 		}
@@ -158,7 +123,7 @@ bool WBMPImageWriter::canWriteRasters() {
 }
 
 void WBMPImageWriter::write($IIOMetadata* streamMetadata, $IIOImage* image, $ImageWriteParam* param$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ImageWriteParam, param, param$renamed);
 	if (this->stream == nullptr) {
 		$throwNew($IllegalStateException, $($I18N::getString("WBMPImageWriter3"_s)));
@@ -188,7 +153,7 @@ void WBMPImageWriter::write($IIOMetadata* streamMetadata, $IIOImage* image, $Ima
 	if (sourceRegion == nullptr) {
 		$assign(sourceRegion, $nc(inputRaster)->getBounds());
 	} else {
-		$assign(sourceRegion, $nc(sourceRegion)->intersection($($nc(inputRaster)->getBounds())));
+		$assign(sourceRegion, sourceRegion->intersection($($nc(inputRaster)->getBounds())));
 	}
 	if ($nc(sourceRegion)->isEmpty()) {
 		$throwNew($RuntimeException, $($I18N::getString("WBMPImageWriter1"_s)));
@@ -197,7 +162,7 @@ void WBMPImageWriter::write($IIOMetadata* streamMetadata, $IIOImage* image, $Ima
 	int32_t scaleY = param->getSourceYSubsampling();
 	int32_t xOffset = param->getSubsamplingXOffset();
 	int32_t yOffset = param->getSubsamplingYOffset();
-	$nc(sourceRegion)->translate(xOffset, yOffset);
+	sourceRegion->translate(xOffset, yOffset);
 	sourceRegion->width -= xOffset;
 	sourceRegion->height -= yOffset;
 	int32_t minX = $div(sourceRegion->x, scaleX);
@@ -207,38 +172,29 @@ void WBMPImageWriter::write($IIOMetadata* streamMetadata, $IIOImage* image, $Ima
 	$var($Rectangle, destinationRegion, $new($Rectangle, minX, minY, w, h));
 	$assign(sampleModel, $nc(sampleModel)->createCompatibleSampleModel(w, h));
 	$var($SampleModel, destSM, sampleModel);
-	bool var$0 = sampleModel->getDataType() != $DataBuffer::TYPE_BYTE || !($instanceOf($MultiPixelPackedSampleModel, sampleModel));
-	if (var$0 || $nc(($cast($MultiPixelPackedSampleModel, sampleModel)))->getDataBitOffset() != 0) {
+	bool var$0 = $nc(sampleModel)->getDataType() != $DataBuffer::TYPE_BYTE || !($instanceOf($MultiPixelPackedSampleModel, sampleModel));
+	if (var$0 || $cast($MultiPixelPackedSampleModel, sampleModel)->getDataBitOffset() != 0) {
 		$assign(destSM, $new($MultiPixelPackedSampleModel, $DataBuffer::TYPE_BYTE, w, h, 1, (w + 7) >> 3, 0));
 	}
 	if (!destinationRegion->equals(sourceRegion)) {
 		if (scaleX == 1 && scaleY == 1) {
-			int32_t var$1 = inputRaster->getMinX();
+			int32_t var$1 = $nc(inputRaster)->getMinX();
 			$assign(inputRaster, $nc(inputRaster)->createChild(var$1, inputRaster->getMinY(), w, h, minX, minY, nullptr));
 		} else {
 			$var($WritableRaster, ras, $Raster::createWritableRaster(destSM, $$new($Point, minX, minY)));
-			$var($bytes, data, $nc(($cast($DataBufferByte, $($nc(ras)->getDataBuffer()))))->getData());
-			{
-				int32_t j = minY;
-				int32_t y = sourceRegion->y;
-				int32_t k = 0;
-				for (; j < minY + h; ++j, y += scaleY) {
-					{
-						int32_t i = 0;
-						int32_t x = sourceRegion->x;
-						for (; i < w; ++i, x += scaleX) {
-							int32_t v = $nc(inputRaster)->getSample(x, y, 0);
-							(*$nc(data))[k + (i >> 3)] |= $sl(v, 7 - ((int32_t)(i & (uint32_t)7)));
-						}
-					}
-					k += (w + 7) >> 3;
+			$var($bytes, data, $$sure($DataBufferByte, $nc(ras)->getDataBuffer())->getData());
+			for (int32_t j = minY, y = sourceRegion->y, k = 0; j < minY + h; ++j, y += scaleY) {
+				for (int32_t i = 0, x = sourceRegion->x; i < w; ++i, x += scaleX) {
+					int32_t v = $nc(inputRaster)->getSample(x, y, 0);
+					(*$nc(data))[k + (i >> 3)] |= $sl(v, 7 - (i & 7));
 				}
+				k += (w + 7) >> 3;
 			}
 			$assign(inputRaster, ras);
 		}
 	}
-	if (!$of(destSM)->equals($($nc(inputRaster)->getSampleModel()))) {
-		int32_t var$2 = $nc(inputRaster)->getMinX();
+	if (!$nc(destSM)->equals($($nc(inputRaster)->getSampleModel()))) {
+		int32_t var$2 = inputRaster->getMinX();
 		$var($WritableRaster, raster, $Raster::createWritableRaster(destSM, $$new($Point, var$2, inputRaster->getMinY())));
 		$nc(raster)->setRect(inputRaster);
 		$assign(inputRaster, raster);
@@ -249,9 +205,9 @@ void WBMPImageWriter::write($IIOMetadata* streamMetadata, $IIOImage* image, $Ima
 		int32_t var$3 = $nc(icm)->getRed(0);
 		isWhiteZero = var$3 > icm->getRed(1);
 	}
-	int32_t lineStride = $nc(($cast($MultiPixelPackedSampleModel, destSM)))->getScanlineStride();
+	int32_t lineStride = $cast($MultiPixelPackedSampleModel, destSM)->getScanlineStride();
 	int32_t bytesPerRow = (w + 7) / 8;
-	$var($bytes, bdata, $nc(($cast($DataBufferByte, $($nc(inputRaster)->getDataBuffer()))))->getData());
+	$var($bytes, bdata, $$sure($DataBufferByte, inputRaster->getDataBuffer())->getData());
 	$nc(this->stream)->write(0);
 	$nc(this->stream)->write(0);
 	$nc(this->stream)->write($(intToMultiByte(w)));
@@ -310,7 +266,36 @@ WBMPImageWriter::WBMPImageWriter() {
 }
 
 $Class* WBMPImageWriter::load$($String* name, bool initialize) {
-	$loadClass(WBMPImageWriter, name, initialize, &_WBMPImageWriter_ClassInfo_, allocate$WBMPImageWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"stream", "Ljavax/imageio/stream/ImageOutputStream;", nullptr, $PRIVATE, $field(WBMPImageWriter, stream)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/imageio/spi/ImageWriterSpi;)V", nullptr, $PUBLIC, $method(WBMPImageWriter, init$, void, $ImageWriterSpi*)},
+		{"canWriteRasters", "()Z", nullptr, $PUBLIC, $virtualMethod(WBMPImageWriter, canWriteRasters, bool)},
+		{"checkSampleModel", "(Ljava/awt/image/SampleModel;)V", nullptr, $PRIVATE, $method(WBMPImageWriter, checkSampleModel, void, $SampleModel*)},
+		{"convertImageMetadata", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(WBMPImageWriter, convertImageMetadata, $IIOMetadata*, $IIOMetadata*, $ImageTypeSpecifier*, $ImageWriteParam*)},
+		{"convertStreamMetadata", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(WBMPImageWriter, convertStreamMetadata, $IIOMetadata*, $IIOMetadata*, $ImageWriteParam*)},
+		{"getDefaultImageMetadata", "(Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(WBMPImageWriter, getDefaultImageMetadata, $IIOMetadata*, $ImageTypeSpecifier*, $ImageWriteParam*)},
+		{"getDefaultStreamMetadata", "(Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(WBMPImageWriter, getDefaultStreamMetadata, $IIOMetadata*, $ImageWriteParam*)},
+		{"getNumBits", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(WBMPImageWriter, getNumBits, int32_t, int32_t)},
+		{"intToMultiByte", "(I)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(WBMPImageWriter, intToMultiByte, $bytes*, int32_t)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(WBMPImageWriter, reset, void)},
+		{"setOutput", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(WBMPImageWriter, setOutput, void, Object$*)},
+		{"write", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(WBMPImageWriter, write, void, $IIOMetadata*, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.wbmp.WBMPImageWriter",
+		"javax.imageio.ImageWriter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WBMPImageWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WBMPImageWriter);
+	});
 	return class$;
 }
 

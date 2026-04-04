@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/XSNamedMapImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/XSNamedMapImpl$1.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/XSNamedMapImpl$XSNamedMapEntry.h>
 #include <com/sun/org/apache/xerces/internal/util/SymbolHash.h>
@@ -48,81 +47,6 @@ namespace com {
 						namespace impl {
 							namespace xs {
 								namespace util {
-
-$FieldInfo _XSNamedMapImpl_FieldInfo_[] = {
-	{"EMPTY_MAP", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XSNamedMapImpl;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSNamedMapImpl, EMPTY_MAP)},
-	{"fNamespaces", "[Ljava/lang/String;", nullptr, $FINAL, $field(XSNamedMapImpl, fNamespaces)},
-	{"fNSNum", "I", nullptr, $FINAL, $field(XSNamedMapImpl, fNSNum)},
-	{"fMaps", "[Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, $FINAL, $field(XSNamedMapImpl, fMaps)},
-	{"fArray", "[Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, 0, $field(XSNamedMapImpl, fArray)},
-	{"fLength", "I", nullptr, 0, $field(XSNamedMapImpl, fLength)},
-	{"fEntrySet", "Ljava/util/Set;", "Ljava/util/Set<Ljava/util/Map$Entry<Ljavax/xml/namespace/QName;Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;>;", $PRIVATE, $field(XSNamedMapImpl, fEntrySet)},
-	{}
-};
-
-$MethodInfo _XSNamedMapImpl_MethodInfo_[] = {
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
-	{"*compute", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*computeIfAbsent", "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*computeIfPresent", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getOrDefault", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/util/SymbolHash;)V", nullptr, $PUBLIC, $method(XSNamedMapImpl, init$, void, $String*, $SymbolHash*)},
-	{"<init>", "([Ljava/lang/String;[Lcom/sun/org/apache/xerces/internal/util/SymbolHash;I)V", nullptr, $PUBLIC, $method(XSNamedMapImpl, init$, void, $StringArray*, $SymbolHashArray*, int32_t)},
-	{"<init>", "([Lcom/sun/org/apache/xerces/internal/xs/XSObject;I)V", nullptr, $PUBLIC, $method(XSNamedMapImpl, init$, void, $XSObjectArray*, int32_t)},
-	{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XSNamedMapImpl, containsKey, bool, Object$*)},
-	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljavax/xml/namespace/QName;Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(XSNamedMapImpl, entrySet, $Set*)},
-	{"get", "(Ljava/lang/Object;)Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, $PUBLIC, $virtualMethod(XSNamedMapImpl, get, $Object*, Object$*)},
-	{"getLength", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XSNamedMapImpl, getLength, int32_t)},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"isEqual", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(XSNamedMapImpl, isEqual, bool, $String*, $String*)},
-	{"item", "(I)Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XSNamedMapImpl, item, $XSObject*, int32_t)},
-	{"itemByName", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, $PUBLIC, $virtualMethod(XSNamedMapImpl, itemByName, $XSObject*, $String*, $String*)},
-	{"*keySet", "()Ljava/util/Set;", nullptr, $PUBLIC},
-	{"*merge", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*putAll", "(Ljava/util/Map;)V", nullptr, $PUBLIC},
-	{"*putIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*remove", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*replace", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*replace", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*replaceAll", "(Ljava/util/function/BiFunction;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(XSNamedMapImpl, size, int32_t)},
-	{"*values", "()Ljava/util/Collection;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _XSNamedMapImpl_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xs.util.XSNamedMapImpl$XSNamedMapEntry", "com.sun.org.apache.xerces.internal.impl.xs.util.XSNamedMapImpl", "XSNamedMapEntry", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.org.apache.xerces.internal.impl.xs.util.XSNamedMapImpl$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XSNamedMapImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.util.XSNamedMapImpl",
-	"java.util.AbstractMap",
-	"com.sun.org.apache.xerces.internal.xs.XSNamedMap",
-	_XSNamedMapImpl_FieldInfo_,
-	_XSNamedMapImpl_MethodInfo_,
-	"Ljava/util/AbstractMap<Ljavax/xml/namespace/QName;Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Lcom/sun/org/apache/xerces/internal/xs/XSNamedMap;",
-	nullptr,
-	_XSNamedMapImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xs.util.XSNamedMapImpl$XSNamedMapEntry,com.sun.org.apache.xerces.internal.impl.xs.util.XSNamedMapImpl$1,com.sun.org.apache.xerces.internal.impl.xs.util.XSNamedMapImpl$1$1"
-};
-
-$Object* allocate$XSNamedMapImpl($Class* clazz) {
-	return $of($alloc(XSNamedMapImpl));
-}
 
 bool XSNamedMapImpl::isEmpty() {
 	 return this->$AbstractMap::isEmpty();
@@ -275,16 +199,16 @@ int32_t XSNamedMapImpl::getLength() {
 }
 
 $XSObject* XSNamedMapImpl::itemByName($String* namespace$, $String* localName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < this->fNSNum; ++i) {
 		if (isEqual(namespace$, $nc(this->fNamespaces)->get(i))) {
 			if (this->fMaps != nullptr) {
-				return $cast($XSObject, $nc($nc(this->fMaps)->get(i))->get(localName));
+				return $cast($XSObject, $nc(this->fMaps->get(i))->get(localName));
 			}
 			$var($XSObject, ret, nullptr);
 			for (int32_t j = 0; j < this->fLength; ++j) {
 				$assign(ret, $nc(this->fArray)->get(j));
-				if ($nc($($nc(ret)->getName()))->equals(localName)) {
+				if ($$nc($nc(ret)->getName())->equals(localName)) {
 					return ret;
 				}
 			}
@@ -313,7 +237,7 @@ $XSObject* XSNamedMapImpl::item(int32_t index) {
 
 bool XSNamedMapImpl::isEqual($String* one, $String* two) {
 	$init(XSNamedMapImpl);
-	return (one != nullptr) ? $nc(one)->equals(two) : (two == nullptr);
+	return (one != nullptr) ? one->equals(two) : (two == nullptr);
 }
 
 bool XSNamedMapImpl::containsKey(Object$* key) {
@@ -321,18 +245,18 @@ bool XSNamedMapImpl::containsKey(Object$* key) {
 }
 
 $Object* XSNamedMapImpl::get(Object$* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($QName, key)) {
 		$var($QName, name, $cast($QName, key));
-		$var($String, namespaceURI, $nc(name)->getNamespaceURI());
+		$var($String, namespaceURI, name->getNamespaceURI());
 		$init($XMLConstants);
 		if ($nc($XMLConstants::NULL_NS_URI)->equals(namespaceURI)) {
 			$assign(namespaceURI, nullptr);
 		}
 		$var($String, localPart, name->getLocalPart());
-		return $of(itemByName(namespaceURI, localPart));
+		return itemByName(namespaceURI, localPart);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 int32_t XSNamedMapImpl::size() {
@@ -341,7 +265,7 @@ int32_t XSNamedMapImpl::size() {
 
 $Set* XSNamedMapImpl::entrySet() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->fEntrySet == nullptr) {
 			int32_t length = getLength();
 			$var($XSNamedMapImpl$XSNamedMapEntryArray, entries, $new($XSNamedMapImpl$XSNamedMapEntryArray, length));
@@ -356,7 +280,7 @@ $Set* XSNamedMapImpl::entrySet() {
 	}
 }
 
-void clinit$XSNamedMapImpl($Class* class$) {
+void XSNamedMapImpl::clinit$($Class* clazz) {
 	$assignStatic(XSNamedMapImpl::EMPTY_MAP, $new(XSNamedMapImpl, $$new($XSObjectArray, 0), 0));
 }
 
@@ -364,7 +288,76 @@ XSNamedMapImpl::XSNamedMapImpl() {
 }
 
 $Class* XSNamedMapImpl::load$($String* name, bool initialize) {
-	$loadClass(XSNamedMapImpl, name, initialize, &_XSNamedMapImpl_ClassInfo_, clinit$XSNamedMapImpl, allocate$XSNamedMapImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY_MAP", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XSNamedMapImpl;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSNamedMapImpl, EMPTY_MAP)},
+		{"fNamespaces", "[Ljava/lang/String;", nullptr, $FINAL, $field(XSNamedMapImpl, fNamespaces)},
+		{"fNSNum", "I", nullptr, $FINAL, $field(XSNamedMapImpl, fNSNum)},
+		{"fMaps", "[Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, $FINAL, $field(XSNamedMapImpl, fMaps)},
+		{"fArray", "[Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, 0, $field(XSNamedMapImpl, fArray)},
+		{"fLength", "I", nullptr, 0, $field(XSNamedMapImpl, fLength)},
+		{"fEntrySet", "Ljava/util/Set;", "Ljava/util/Set<Ljava/util/Map$Entry<Ljavax/xml/namespace/QName;Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;>;", $PRIVATE, $field(XSNamedMapImpl, fEntrySet)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
+		{"*compute", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*computeIfAbsent", "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*computeIfPresent", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getOrDefault", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/util/SymbolHash;)V", nullptr, $PUBLIC, $method(XSNamedMapImpl, init$, void, $String*, $SymbolHash*)},
+		{"<init>", "([Ljava/lang/String;[Lcom/sun/org/apache/xerces/internal/util/SymbolHash;I)V", nullptr, $PUBLIC, $method(XSNamedMapImpl, init$, void, $StringArray*, $SymbolHashArray*, int32_t)},
+		{"<init>", "([Lcom/sun/org/apache/xerces/internal/xs/XSObject;I)V", nullptr, $PUBLIC, $method(XSNamedMapImpl, init$, void, $XSObjectArray*, int32_t)},
+		{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XSNamedMapImpl, containsKey, bool, Object$*)},
+		{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljavax/xml/namespace/QName;Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(XSNamedMapImpl, entrySet, $Set*)},
+		{"get", "(Ljava/lang/Object;)Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, $PUBLIC, $virtualMethod(XSNamedMapImpl, get, $Object*, Object$*)},
+		{"getLength", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XSNamedMapImpl, getLength, int32_t)},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"isEqual", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(XSNamedMapImpl, isEqual, bool, $String*, $String*)},
+		{"item", "(I)Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XSNamedMapImpl, item, $XSObject*, int32_t)},
+		{"itemByName", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, $PUBLIC, $virtualMethod(XSNamedMapImpl, itemByName, $XSObject*, $String*, $String*)},
+		{"*keySet", "()Ljava/util/Set;", nullptr, $PUBLIC},
+		{"*merge", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*putAll", "(Ljava/util/Map;)V", nullptr, $PUBLIC},
+		{"*putIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*remove", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*replace", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*replace", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*replaceAll", "(Ljava/util/function/BiFunction;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(XSNamedMapImpl, size, int32_t)},
+		{"*values", "()Ljava/util/Collection;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xs.util.XSNamedMapImpl$XSNamedMapEntry", "com.sun.org.apache.xerces.internal.impl.xs.util.XSNamedMapImpl", "XSNamedMapEntry", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.org.apache.xerces.internal.impl.xs.util.XSNamedMapImpl$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.util.XSNamedMapImpl",
+		"java.util.AbstractMap",
+		"com.sun.org.apache.xerces.internal.xs.XSNamedMap",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractMap<Ljavax/xml/namespace/QName;Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Lcom/sun/org/apache/xerces/internal/xs/XSNamedMap;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xs.util.XSNamedMapImpl$XSNamedMapEntry,com.sun.org.apache.xerces.internal.impl.xs.util.XSNamedMapImpl$1,com.sun.org.apache.xerces.internal.impl.xs.util.XSNamedMapImpl$1$1"
+	};
+	$loadClass(XSNamedMapImpl, name, initialize, &classInfo$$, XSNamedMapImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XSNamedMapImpl));
+	});
 	return class$;
 }
 

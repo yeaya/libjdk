@@ -1,5 +1,4 @@
 #include <javax/naming/event/EventContext.h>
-
 #include <javax/naming/Name.h>
 #include <javax/naming/event/NamingListener.h>
 #include <jcpp.h>
@@ -18,36 +17,31 @@ namespace javax {
 	namespace naming {
 		namespace event {
 
-$FieldInfo _EventContext_FieldInfo_[] = {
-	{"OBJECT_SCOPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(EventContext, OBJECT_SCOPE)},
-	{"ONELEVEL_SCOPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(EventContext, ONELEVEL_SCOPE)},
-	{"SUBTREE_SCOPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(EventContext, SUBTREE_SCOPE)},
-	{}
-};
-
-$MethodInfo _EventContext_MethodInfo_[] = {
-	{"addNamingListener", "(Ljavax/naming/Name;ILjavax/naming/event/NamingListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EventContext, addNamingListener, void, $Name*, int32_t, $NamingListener*), "javax.naming.NamingException"},
-	{"addNamingListener", "(Ljava/lang/String;ILjavax/naming/event/NamingListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EventContext, addNamingListener, void, $String*, int32_t, $NamingListener*), "javax.naming.NamingException"},
-	{"removeNamingListener", "(Ljavax/naming/event/NamingListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EventContext, removeNamingListener, void, $NamingListener*), "javax.naming.NamingException"},
-	{"targetMustExist", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EventContext, targetMustExist, bool), "javax.naming.NamingException"},
-	{}
-};
-
-$ClassInfo _EventContext_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.naming.event.EventContext",
-	nullptr,
-	"javax.naming.Context",
-	_EventContext_FieldInfo_,
-	_EventContext_MethodInfo_
-};
-
-$Object* allocate$EventContext($Class* clazz) {
-	return $of($alloc(EventContext));
-}
-
 $Class* EventContext::load$($String* name, bool initialize) {
-	$loadClass(EventContext, name, initialize, &_EventContext_ClassInfo_, allocate$EventContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"OBJECT_SCOPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(EventContext, OBJECT_SCOPE)},
+		{"ONELEVEL_SCOPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(EventContext, ONELEVEL_SCOPE)},
+		{"SUBTREE_SCOPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(EventContext, SUBTREE_SCOPE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"addNamingListener", "(Ljavax/naming/Name;ILjavax/naming/event/NamingListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EventContext, addNamingListener, void, $Name*, int32_t, $NamingListener*), "javax.naming.NamingException"},
+		{"addNamingListener", "(Ljava/lang/String;ILjavax/naming/event/NamingListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EventContext, addNamingListener, void, $String*, int32_t, $NamingListener*), "javax.naming.NamingException"},
+		{"removeNamingListener", "(Ljavax/naming/event/NamingListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EventContext, removeNamingListener, void, $NamingListener*), "javax.naming.NamingException"},
+		{"targetMustExist", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EventContext, targetMustExist, bool), "javax.naming.NamingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.naming.event.EventContext",
+		nullptr,
+		"javax.naming.Context",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EventContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EventContext);
+	});
 	return class$;
 }
 

@@ -170,6 +170,7 @@ class KeyInfo : public ::com::sun::org::apache::xml::internal::security::utils::
 	$class(KeyInfo, 0, ::com::sun::org::apache::xml::internal::security::utils::SignatureElementProxy)
 public:
 	KeyInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::org::w3c::dom::Document* doc);
 	void init$(::org::w3c::dom::Element* element, $String* baseURI);
 	virtual void add(::com::sun::org::apache::xml::internal::security::keys::content::KeyName* keyname);

@@ -57,7 +57,7 @@ public:
 	int32_t port = 0;
 	::java::rmi::server::RMIClientSocketFactory* csf = nullptr;
 	::java::rmi::server::RMIServerSocketFactory* ssf = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x45091215F5E27E31;
+	static const int64_t serialVersionUID = (int64_t)0x45091215f5e27e31;
 };
 
 		} // server

@@ -1,5 +1,4 @@
 #include <javax/swing/KeyboardManager$ComponentKeyStrokePair.h>
-
 #include <javax/swing/KeyboardManager.h>
 #include <jcpp.h>
 
@@ -12,45 +11,6 @@ using $KeyboardManager = ::javax::swing::KeyboardManager;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _KeyboardManager$ComponentKeyStrokePair_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/KeyboardManager;", nullptr, $FINAL | $SYNTHETIC, $field(KeyboardManager$ComponentKeyStrokePair, this$0)},
-	{"component", "Ljava/lang/Object;", nullptr, 0, $field(KeyboardManager$ComponentKeyStrokePair, component)},
-	{"keyStroke", "Ljava/lang/Object;", nullptr, 0, $field(KeyboardManager$ComponentKeyStrokePair, keyStroke)},
-	{}
-};
-
-$MethodInfo _KeyboardManager$ComponentKeyStrokePair_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/KeyboardManager;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(KeyboardManager$ComponentKeyStrokePair, init$, void, $KeyboardManager*, Object$*, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KeyboardManager$ComponentKeyStrokePair, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KeyboardManager$ComponentKeyStrokePair, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _KeyboardManager$ComponentKeyStrokePair_InnerClassesInfo_[] = {
-	{"javax.swing.KeyboardManager$ComponentKeyStrokePair", "javax.swing.KeyboardManager", "ComponentKeyStrokePair", 0},
-	{}
-};
-
-$ClassInfo _KeyboardManager$ComponentKeyStrokePair_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.KeyboardManager$ComponentKeyStrokePair",
-	"java.lang.Object",
-	nullptr,
-	_KeyboardManager$ComponentKeyStrokePair_FieldInfo_,
-	_KeyboardManager$ComponentKeyStrokePair_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeyboardManager$ComponentKeyStrokePair_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.KeyboardManager"
-};
-
-$Object* allocate$KeyboardManager$ComponentKeyStrokePair($Class* clazz) {
-	return $of($alloc(KeyboardManager$ComponentKeyStrokePair));
-}
-
 void KeyboardManager$ComponentKeyStrokePair::init$($KeyboardManager* this$0, Object$* comp, Object$* key) {
 	$set(this, this$0, this$0);
 	$set(this, component, comp);
@@ -62,20 +22,53 @@ bool KeyboardManager$ComponentKeyStrokePair::equals(Object$* o) {
 		return false;
 	}
 	$var(KeyboardManager$ComponentKeyStrokePair, ckp, $cast(KeyboardManager$ComponentKeyStrokePair, o));
-	bool var$0 = ($nc($of(this->component))->equals($nc(ckp)->component));
-	return (var$0 && ($nc($of(this->keyStroke))->equals($nc(ckp)->keyStroke)));
+	bool var$0 = $nc(this->component)->equals($nc(ckp)->component);
+	return (var$0 && ($nc(this->keyStroke)->equals(ckp->keyStroke)));
 }
 
 int32_t KeyboardManager$ComponentKeyStrokePair::hashCode() {
-	int32_t var$0 = $nc($of(this->component))->hashCode();
-	return var$0 * $nc($of(this->keyStroke))->hashCode();
+	int32_t var$0 = $nc(this->component)->hashCode();
+	return var$0 * $nc(this->keyStroke)->hashCode();
 }
 
 KeyboardManager$ComponentKeyStrokePair::KeyboardManager$ComponentKeyStrokePair() {
 }
 
 $Class* KeyboardManager$ComponentKeyStrokePair::load$($String* name, bool initialize) {
-	$loadClass(KeyboardManager$ComponentKeyStrokePair, name, initialize, &_KeyboardManager$ComponentKeyStrokePair_ClassInfo_, allocate$KeyboardManager$ComponentKeyStrokePair);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/KeyboardManager;", nullptr, $FINAL | $SYNTHETIC, $field(KeyboardManager$ComponentKeyStrokePair, this$0)},
+		{"component", "Ljava/lang/Object;", nullptr, 0, $field(KeyboardManager$ComponentKeyStrokePair, component)},
+		{"keyStroke", "Ljava/lang/Object;", nullptr, 0, $field(KeyboardManager$ComponentKeyStrokePair, keyStroke)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/KeyboardManager;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(KeyboardManager$ComponentKeyStrokePair, init$, void, $KeyboardManager*, Object$*, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KeyboardManager$ComponentKeyStrokePair, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KeyboardManager$ComponentKeyStrokePair, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.KeyboardManager$ComponentKeyStrokePair", "javax.swing.KeyboardManager", "ComponentKeyStrokePair", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.KeyboardManager$ComponentKeyStrokePair",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.KeyboardManager"
+	};
+	$loadClass(KeyboardManager$ComponentKeyStrokePair, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyboardManager$ComponentKeyStrokePair);
+	});
 	return class$;
 }
 

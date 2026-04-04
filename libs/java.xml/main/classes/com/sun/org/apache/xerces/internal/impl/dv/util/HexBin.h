@@ -24,6 +24,7 @@ class HexBin : public ::java::lang::Object {
 	$class(HexBin, 0, ::java::lang::Object)
 public:
 	HexBin();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $bytes* decode($String* encoded);
 	static $String* encode($bytes* binaryData);

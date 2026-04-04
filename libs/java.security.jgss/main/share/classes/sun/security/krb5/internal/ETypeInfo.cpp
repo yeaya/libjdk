@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/ETypeInfo.h>
-
 #include <java/math/BigInteger.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
@@ -21,12 +20,10 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BigInteger = ::java::math::BigInteger;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $Asn1Exception = ::sun::security::krb5::Asn1Exception;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;
 using $KerberosString = ::sun::security::krb5::internal::util::KerberosString;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 
@@ -34,38 +31,6 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 			namespace internal {
-
-$FieldInfo _ETypeInfo_FieldInfo_[] = {
-	{"etype", "I", nullptr, $PRIVATE, $field(ETypeInfo, etype)},
-	{"salt", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ETypeInfo, salt)},
-	{"TAG_TYPE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ETypeInfo, TAG_TYPE)},
-	{"TAG_VALUE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ETypeInfo, TAG_VALUE)},
-	{}
-};
-
-$MethodInfo _ETypeInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ETypeInfo, init$, void)},
-	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(ETypeInfo, init$, void, int32_t, $String*)},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(ETypeInfo, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(ETypeInfo, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ETypeInfo, clone, $Object*)},
-	{"getEType", "()I", nullptr, $PUBLIC, $virtualMethod(ETypeInfo, getEType, int32_t)},
-	{"getSalt", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ETypeInfo, getSalt, $String*)},
-	{}
-};
-
-$ClassInfo _ETypeInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.ETypeInfo",
-	"java.lang.Object",
-	nullptr,
-	_ETypeInfo_FieldInfo_,
-	_ETypeInfo_MethodInfo_
-};
-
-$Object* allocate$ETypeInfo($Class* clazz) {
-	return $of($alloc(ETypeInfo));
-}
 
 void ETypeInfo::init$() {
 	$set(this, salt, nullptr);
@@ -78,26 +43,26 @@ void ETypeInfo::init$(int32_t etype, $String* salt) {
 }
 
 $Object* ETypeInfo::clone() {
-	return $of($new(ETypeInfo, this->etype, this->salt));
+	return $new(ETypeInfo, this->etype, this->salt);
 }
 
 void ETypeInfo::init$($DerValue* encoding) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, salt, nullptr);
 	$var($DerValue, der, nullptr);
 	if ($nc(encoding)->getTag() != $DerValue::tag_Sequence) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$assign(der, $nc($($nc(encoding)->getData()))->getDerValue());
-	if (((int32_t)($nc(der)->getTag() & (uint32_t)31)) == 0) {
-		this->etype = $nc($($nc($(der->getData()))->getBigInteger()))->intValue();
+	$assign(der, $$nc(encoding->getData())->getDerValue());
+	if (($nc(der)->getTag() & 0x1f) == 0) {
+		this->etype = $$nc($$nc(der->getData())->getBigInteger())->intValue();
 	} else {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	if ($nc($(encoding->getData()))->available() > 0) {
-		$assign(der, $nc($(encoding->getData()))->getDerValue());
-		if (((int32_t)($nc(der)->getTag() & (uint32_t)31)) == 1) {
-			$var($bytes, saltBytes, $nc($(der->getData()))->getOctetString());
+	if ($$nc(encoding->getData())->available() > 0) {
+		$assign(der, $$nc(encoding->getData())->getDerValue());
+		if (($nc(der)->getTag() & 0x1f) == 1) {
+			$var($bytes, saltBytes, $$nc(der->getData())->getOctetString());
 			$init($KerberosString);
 			if ($KerberosString::MSNAME) {
 				$init($StandardCharsets);
@@ -107,13 +72,13 @@ void ETypeInfo::init$($DerValue* encoding) {
 			}
 		}
 	}
-	if ($nc($(encoding->getData()))->available() > 0) {
+	if ($$nc(encoding->getData())->available() > 0) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
 }
 
 $bytes* ETypeInfo::asn1Encode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, bytes, $new($DerOutputStream));
 	$var($DerOutputStream, temp, $new($DerOutputStream));
 	temp->putInteger(this->etype);
@@ -123,9 +88,9 @@ $bytes* ETypeInfo::asn1Encode() {
 		$init($KerberosString);
 		if ($KerberosString::MSNAME) {
 			$init($StandardCharsets);
-			temp->putOctetString($($nc(this->salt)->getBytes($StandardCharsets::UTF_8)));
+			temp->putOctetString($(this->salt->getBytes($StandardCharsets::UTF_8)));
 		} else {
-			temp->putOctetString($($nc(this->salt)->getBytes()));
+			temp->putOctetString($(this->salt->getBytes()));
 		}
 		bytes->write($DerValue::createTag($DerValue::TAG_CONTEXT, true, ETypeInfo::TAG_VALUE), temp);
 	}
@@ -146,7 +111,34 @@ ETypeInfo::ETypeInfo() {
 }
 
 $Class* ETypeInfo::load$($String* name, bool initialize) {
-	$loadClass(ETypeInfo, name, initialize, &_ETypeInfo_ClassInfo_, allocate$ETypeInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"etype", "I", nullptr, $PRIVATE, $field(ETypeInfo, etype)},
+		{"salt", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ETypeInfo, salt)},
+		{"TAG_TYPE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ETypeInfo, TAG_TYPE)},
+		{"TAG_VALUE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ETypeInfo, TAG_VALUE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ETypeInfo, init$, void)},
+		{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(ETypeInfo, init$, void, int32_t, $String*)},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(ETypeInfo, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(ETypeInfo, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ETypeInfo, clone, $Object*)},
+		{"getEType", "()I", nullptr, $PUBLIC, $virtualMethod(ETypeInfo, getEType, int32_t)},
+		{"getSalt", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ETypeInfo, getSalt, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.ETypeInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ETypeInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ETypeInfo);
+	});
 	return class$;
 }
 

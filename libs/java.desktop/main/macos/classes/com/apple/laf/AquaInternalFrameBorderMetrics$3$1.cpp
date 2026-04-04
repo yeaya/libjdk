@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaInternalFrameBorderMetrics$3$1.h>
-
 #include <com/apple/laf/AquaInternalFrameBorderMetrics$3.h>
 #include <com/apple/laf/AquaInternalFrameBorderMetrics.h>
 #include <java/awt/Font.h>
@@ -20,49 +19,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaInternalFrameBorderMetrics$3$1_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaInternalFrameBorderMetrics$3;", nullptr, $FINAL | $SYNTHETIC, $field(AquaInternalFrameBorderMetrics$3$1, this$0)},
-	{}
-};
-
-$MethodInfo _AquaInternalFrameBorderMetrics$3$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaInternalFrameBorderMetrics$3;)V", nullptr, 0, $method(AquaInternalFrameBorderMetrics$3$1, init$, void, $AquaInternalFrameBorderMetrics$3*)},
-	{"initialize", "()V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameBorderMetrics$3$1, initialize, void)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaInternalFrameBorderMetrics$3$1_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaInternalFrameBorderMetrics$3",
-	"getInstance",
-	"()Lcom/apple/laf/AquaInternalFrameBorderMetrics;"
-};
-
-$InnerClassInfo _AquaInternalFrameBorderMetrics$3$1_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaInternalFrameBorderMetrics$3", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaInternalFrameBorderMetrics$3$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaInternalFrameBorderMetrics$3$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaInternalFrameBorderMetrics$3$1",
-	"com.apple.laf.AquaInternalFrameBorderMetrics",
-	nullptr,
-	_AquaInternalFrameBorderMetrics$3$1_FieldInfo_,
-	_AquaInternalFrameBorderMetrics$3$1_MethodInfo_,
-	nullptr,
-	&_AquaInternalFrameBorderMetrics$3$1_EnclosingMethodInfo_,
-	_AquaInternalFrameBorderMetrics$3$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaInternalFrameBorderMetrics"
-};
-
-$Object* allocate$AquaInternalFrameBorderMetrics$3$1($Class* clazz) {
-	return $of($alloc(AquaInternalFrameBorderMetrics$3$1));
-}
-
 void AquaInternalFrameBorderMetrics$3$1::init$($AquaInternalFrameBorderMetrics$3* this$0) {
 	$set(this, this$0, this$0);
 	$AquaInternalFrameBorderMetrics::init$();
@@ -82,7 +38,43 @@ AquaInternalFrameBorderMetrics$3$1::AquaInternalFrameBorderMetrics$3$1() {
 }
 
 $Class* AquaInternalFrameBorderMetrics$3$1::load$($String* name, bool initialize) {
-	$loadClass(AquaInternalFrameBorderMetrics$3$1, name, initialize, &_AquaInternalFrameBorderMetrics$3$1_ClassInfo_, allocate$AquaInternalFrameBorderMetrics$3$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaInternalFrameBorderMetrics$3;", nullptr, $FINAL | $SYNTHETIC, $field(AquaInternalFrameBorderMetrics$3$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaInternalFrameBorderMetrics$3;)V", nullptr, 0, $method(AquaInternalFrameBorderMetrics$3$1, init$, void, $AquaInternalFrameBorderMetrics$3*)},
+		{"initialize", "()V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameBorderMetrics$3$1, initialize, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaInternalFrameBorderMetrics$3",
+		"getInstance",
+		"()Lcom/apple/laf/AquaInternalFrameBorderMetrics;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaInternalFrameBorderMetrics$3", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaInternalFrameBorderMetrics$3$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaInternalFrameBorderMetrics$3$1",
+		"com.apple.laf.AquaInternalFrameBorderMetrics",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaInternalFrameBorderMetrics"
+	};
+	$loadClass(AquaInternalFrameBorderMetrics$3$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaInternalFrameBorderMetrics$3$1);
+	});
 	return class$;
 }
 

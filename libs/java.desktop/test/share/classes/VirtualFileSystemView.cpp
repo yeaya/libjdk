@@ -1,5 +1,4 @@
 #include <VirtualFileSystemView.h>
-
 #include <VirtualFile.h>
 #include <bug6698013.h>
 #include <java/io/File.h>
@@ -14,35 +13,6 @@ using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $FileSystemView = ::javax::swing::filechooser::FileSystemView;
-
-$MethodInfo _VirtualFileSystemView_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(VirtualFileSystemView, init$, void)},
-	{"createNewFolder", "(Ljava/io/File;)Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(VirtualFileSystemView, createNewFolder, $File*, $File*)},
-	{"getDefaultDirectory", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(VirtualFileSystemView, getDefaultDirectory, $File*)},
-	{"getFiles", "(Ljava/io/File;Z)[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(VirtualFileSystemView, getFiles, $FileArray*, $File*, bool)},
-	{"getHomeDirectory", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(VirtualFileSystemView, getHomeDirectory, $File*)},
-	{"getParentDirectory", "(Ljava/io/File;)Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(VirtualFileSystemView, getParentDirectory, $File*, $File*)},
-	{"getRoots", "()[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(VirtualFileSystemView, getRoots, $FileArray*)},
-	{"getSystemDisplayName", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(VirtualFileSystemView, getSystemDisplayName, $String*, $File*)},
-	{"isDrive", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(VirtualFileSystemView, isDrive, bool, $File*)},
-	{"isFloppyDrive", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(VirtualFileSystemView, isFloppyDrive, bool, $File*)},
-	{"isRoot", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(VirtualFileSystemView, isRoot, bool, $File*)},
-	{"isTraversable", "(Ljava/io/File;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(VirtualFileSystemView, isTraversable, $Boolean*, $File*)},
-	{}
-};
-
-$ClassInfo _VirtualFileSystemView_ClassInfo_ = {
-	$ACC_SUPER,
-	"VirtualFileSystemView",
-	"javax.swing.filechooser.FileSystemView",
-	nullptr,
-	nullptr,
-	_VirtualFileSystemView_MethodInfo_
-};
-
-$Object* allocate$VirtualFileSystemView($Class* clazz) {
-	return $of($alloc(VirtualFileSystemView));
-}
 
 void VirtualFileSystemView::init$() {
 	$FileSystemView::init$();
@@ -59,7 +29,7 @@ $File* VirtualFileSystemView::createNewFolder($File* dir) {
 
 $FileArray* VirtualFileSystemView::getRoots() {
 	$init($bug6698013);
-	return $new($FileArray, {static_cast<$File*>($bug6698013::root)});
+	return $new($FileArray, {$bug6698013::root});
 }
 
 bool VirtualFileSystemView::isDrive($File* dir) {
@@ -71,7 +41,7 @@ bool VirtualFileSystemView::isFloppyDrive($File* dir) {
 }
 
 $File* VirtualFileSystemView::getParentDirectory($File* dir) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (dir == nullptr) {
 		return nullptr;
 	}
@@ -82,12 +52,12 @@ $FileArray* VirtualFileSystemView::getFiles($File* dir, bool hide_hidden) {
 	$init($bug6698013);
 	if ($nc(dir)->equals($bug6698013::root)) {
 		return $new($FileArray, {
-			static_cast<$File*>($bug6698013::rootFile),
-			static_cast<$File*>($bug6698013::subdir)
+			$bug6698013::rootFile,
+			$bug6698013::subdir
 		});
 	}
-	if ($nc(dir)->equals($bug6698013::subdir)) {
-		return $new($FileArray, {static_cast<$File*>($bug6698013::subdirFile)});
+	if (dir->equals($bug6698013::subdir)) {
+		return $new($FileArray, {$bug6698013::subdirFile});
 	}
 	return nullptr;
 }
@@ -113,7 +83,32 @@ VirtualFileSystemView::VirtualFileSystemView() {
 }
 
 $Class* VirtualFileSystemView::load$($String* name, bool initialize) {
-	$loadClass(VirtualFileSystemView, name, initialize, &_VirtualFileSystemView_ClassInfo_, allocate$VirtualFileSystemView);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(VirtualFileSystemView, init$, void)},
+		{"createNewFolder", "(Ljava/io/File;)Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(VirtualFileSystemView, createNewFolder, $File*, $File*)},
+		{"getDefaultDirectory", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(VirtualFileSystemView, getDefaultDirectory, $File*)},
+		{"getFiles", "(Ljava/io/File;Z)[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(VirtualFileSystemView, getFiles, $FileArray*, $File*, bool)},
+		{"getHomeDirectory", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(VirtualFileSystemView, getHomeDirectory, $File*)},
+		{"getParentDirectory", "(Ljava/io/File;)Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(VirtualFileSystemView, getParentDirectory, $File*, $File*)},
+		{"getRoots", "()[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(VirtualFileSystemView, getRoots, $FileArray*)},
+		{"getSystemDisplayName", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(VirtualFileSystemView, getSystemDisplayName, $String*, $File*)},
+		{"isDrive", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(VirtualFileSystemView, isDrive, bool, $File*)},
+		{"isFloppyDrive", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(VirtualFileSystemView, isFloppyDrive, bool, $File*)},
+		{"isRoot", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(VirtualFileSystemView, isRoot, bool, $File*)},
+		{"isTraversable", "(Ljava/io/File;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(VirtualFileSystemView, isTraversable, $Boolean*, $File*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"VirtualFileSystemView",
+		"javax.swing.filechooser.FileSystemView",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(VirtualFileSystemView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VirtualFileSystemView);
+	});
 	return class$;
 }
 

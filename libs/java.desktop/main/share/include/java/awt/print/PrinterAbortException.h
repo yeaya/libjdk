@@ -15,10 +15,13 @@ public:
 	PrinterAbortException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0x41932C31C3078DF8;
+	static const int64_t serialVersionUID = (int64_t)0x41932c31c3078df8;
 	PrinterAbortException(const PrinterAbortException& e);
 	virtual void throw$() override;
-	inline PrinterAbortException* operator ->() {
+	inline PrinterAbortException* operator ->() const {
+		return (PrinterAbortException*)throwing$;
+	}
+	inline operator PrinterAbortException*() const {
 		return (PrinterAbortException*)throwing$;
 	}
 };

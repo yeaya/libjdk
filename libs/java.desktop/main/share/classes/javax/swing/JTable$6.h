@@ -12,6 +12,7 @@ class JTable$6 : public ::java::lang::Object {
 	$class(JTable$6, 0, ::java::lang::Object)
 public:
 	JTable$6();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$swing$DropMode;
 };
 

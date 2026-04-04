@@ -1,5 +1,4 @@
 #include <sun/awt/HKSCS.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -16,32 +15,6 @@ using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 
 namespace sun {
 	namespace awt {
-
-$FieldInfo _HKSCS_FieldInfo_[] = {
-	{"cs", "Ljava/nio/charset/Charset;", nullptr, $PRIVATE | $STATIC, $staticField(HKSCS, cs)},
-	{}
-};
-
-$MethodInfo _HKSCS_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HKSCS, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(HKSCS, contains, bool, $Charset*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(HKSCS, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(HKSCS, newEncoder, $CharsetEncoder*)},
-	{}
-};
-
-$ClassInfo _HKSCS_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.HKSCS",
-	"java.nio.charset.Charset",
-	nullptr,
-	_HKSCS_FieldInfo_,
-	_HKSCS_MethodInfo_
-};
-
-$Object* allocate$HKSCS($Class* clazz) {
-	return $of($alloc(HKSCS));
-}
 
 $Charset* HKSCS::cs = nullptr;
 
@@ -61,7 +34,7 @@ $CharsetEncoder* HKSCS::newEncoder() {
 	return $nc(HKSCS::cs)->newEncoder();
 }
 
-void clinit$HKSCS($Class* class$) {
+void HKSCS::clinit$($Class* clazz) {
 	$assignStatic(HKSCS::cs, $Charset::forName("x-MS950-HKSCS-XP"_s));
 }
 
@@ -69,7 +42,28 @@ HKSCS::HKSCS() {
 }
 
 $Class* HKSCS::load$($String* name, bool initialize) {
-	$loadClass(HKSCS, name, initialize, &_HKSCS_ClassInfo_, clinit$HKSCS, allocate$HKSCS);
+	$FieldInfo fieldInfos$$[] = {
+		{"cs", "Ljava/nio/charset/Charset;", nullptr, $PRIVATE | $STATIC, $staticField(HKSCS, cs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HKSCS, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(HKSCS, contains, bool, $Charset*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(HKSCS, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(HKSCS, newEncoder, $CharsetEncoder*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.HKSCS",
+		"java.nio.charset.Charset",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HKSCS, name, initialize, &classInfo$$, HKSCS::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HKSCS);
+	});
 	return class$;
 }
 

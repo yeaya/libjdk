@@ -1,5 +1,4 @@
 #include <java/beans/beancontext/BeanContextChildSupport.h>
-
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/beans/PropertyChangeSupport.h>
@@ -38,57 +37,6 @@ namespace java {
 	namespace beans {
 		namespace beancontext {
 
-$FieldInfo _BeanContextChildSupport_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BeanContextChildSupport, serialVersionUID)},
-	{"beanContextChildPeer", "Ljava/beans/beancontext/BeanContextChild;", nullptr, $PUBLIC, $field(BeanContextChildSupport, beanContextChildPeer)},
-	{"pcSupport", "Ljava/beans/PropertyChangeSupport;", nullptr, $PROTECTED, $field(BeanContextChildSupport, pcSupport)},
-	{"vcSupport", "Ljava/beans/VetoableChangeSupport;", nullptr, $PROTECTED, $field(BeanContextChildSupport, vcSupport)},
-	{"beanContext", "Ljava/beans/beancontext/BeanContext;", nullptr, $PROTECTED | $TRANSIENT, $field(BeanContextChildSupport, beanContext)},
-	{"rejectedSetBCOnce", "Z", nullptr, $PROTECTED | $TRANSIENT, $field(BeanContextChildSupport, rejectedSetBCOnce)},
-	{}
-};
-
-$MethodInfo _BeanContextChildSupport_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BeanContextChildSupport, init$, void)},
-	{"<init>", "(Ljava/beans/beancontext/BeanContextChild;)V", nullptr, $PUBLIC, $method(BeanContextChildSupport, init$, void, $BeanContextChild*)},
-	{"addPropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(BeanContextChildSupport, addPropertyChangeListener, void, $String*, $PropertyChangeListener*)},
-	{"addVetoableChangeListener", "(Ljava/lang/String;Ljava/beans/VetoableChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(BeanContextChildSupport, addVetoableChangeListener, void, $String*, $VetoableChangeListener*)},
-	{"firePropertyChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BeanContextChildSupport, firePropertyChange, void, $String*, Object$*, Object$*)},
-	{"fireVetoableChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BeanContextChildSupport, fireVetoableChange, void, $String*, Object$*, Object$*), "java.beans.PropertyVetoException"},
-	{"getBeanContext", "()Ljava/beans/beancontext/BeanContext;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BeanContextChildSupport, getBeanContext, $BeanContext*)},
-	{"getBeanContextChildPeer", "()Ljava/beans/beancontext/BeanContextChild;", nullptr, $PUBLIC, $virtualMethod(BeanContextChildSupport, getBeanContextChildPeer, $BeanContextChild*)},
-	{"initializeBeanContextResources", "()V", nullptr, $PROTECTED, $virtualMethod(BeanContextChildSupport, initializeBeanContextResources, void)},
-	{"isDelegated", "()Z", nullptr, $PUBLIC, $virtualMethod(BeanContextChildSupport, isDelegated, bool)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(BeanContextChildSupport, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"releaseBeanContextResources", "()V", nullptr, $PROTECTED, $virtualMethod(BeanContextChildSupport, releaseBeanContextResources, void)},
-	{"removePropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(BeanContextChildSupport, removePropertyChangeListener, void, $String*, $PropertyChangeListener*)},
-	{"removeVetoableChangeListener", "(Ljava/lang/String;Ljava/beans/VetoableChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(BeanContextChildSupport, removeVetoableChangeListener, void, $String*, $VetoableChangeListener*)},
-	{"serviceAvailable", "(Ljava/beans/beancontext/BeanContextServiceAvailableEvent;)V", nullptr, $PUBLIC, $virtualMethod(BeanContextChildSupport, serviceAvailable, void, $BeanContextServiceAvailableEvent*)},
-	{"serviceRevoked", "(Ljava/beans/beancontext/BeanContextServiceRevokedEvent;)V", nullptr, $PUBLIC, $virtualMethod(BeanContextChildSupport, serviceRevoked, void, $BeanContextServiceRevokedEvent*)},
-	{"setBeanContext", "(Ljava/beans/beancontext/BeanContext;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BeanContextChildSupport, setBeanContext, void, $BeanContext*), "java.beans.PropertyVetoException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"validatePendingSetBeanContext", "(Ljava/beans/beancontext/BeanContext;)Z", nullptr, $PUBLIC, $virtualMethod(BeanContextChildSupport, validatePendingSetBeanContext, bool, $BeanContext*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(BeanContextChildSupport, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _BeanContextChildSupport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.beans.beancontext.BeanContextChildSupport",
-	"java.lang.Object",
-	"java.beans.beancontext.BeanContextChild,java.beans.beancontext.BeanContextServicesListener,java.io.Serializable",
-	_BeanContextChildSupport_FieldInfo_,
-	_BeanContextChildSupport_MethodInfo_
-};
-
-$Object* allocate$BeanContextChildSupport($Class* clazz) {
-	return $of($alloc(BeanContextChildSupport));
-}
-
 int32_t BeanContextChildSupport::hashCode() {
 	 return this->$BeanContextChild::hashCode();
 }
@@ -116,14 +64,14 @@ void BeanContextChildSupport::init$() {
 }
 
 void BeanContextChildSupport::init$($BeanContextChild* bcc) {
-	$set(this, beanContextChildPeer, (bcc != nullptr) ? bcc : static_cast<$BeanContextChild*>(this));
+	$set(this, beanContextChildPeer, (bcc != nullptr) ? bcc : $cast($BeanContextChild, this));
 	$set(this, pcSupport, $new($PropertyChangeSupport, this->beanContextChildPeer));
 	$set(this, vcSupport, $new($VetoableChangeSupport, this->beanContextChildPeer));
 }
 
 void BeanContextChildSupport::setBeanContext($BeanContext* bc) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (bc == this->beanContext) {
 			return;
 		}
@@ -185,7 +133,7 @@ $BeanContextChild* BeanContextChildSupport::getBeanContextChildPeer() {
 }
 
 bool BeanContextChildSupport::isDelegated() {
-	return !$of(this)->equals(this->beanContextChildPeer);
+	return !this->equals(this->beanContextChildPeer);
 }
 
 void BeanContextChildSupport::firePropertyChange($String* name, Object$* oldValue, Object$* newValue) {
@@ -222,7 +170,53 @@ BeanContextChildSupport::BeanContextChildSupport() {
 }
 
 $Class* BeanContextChildSupport::load$($String* name, bool initialize) {
-	$loadClass(BeanContextChildSupport, name, initialize, &_BeanContextChildSupport_ClassInfo_, allocate$BeanContextChildSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BeanContextChildSupport, serialVersionUID)},
+		{"beanContextChildPeer", "Ljava/beans/beancontext/BeanContextChild;", nullptr, $PUBLIC, $field(BeanContextChildSupport, beanContextChildPeer)},
+		{"pcSupport", "Ljava/beans/PropertyChangeSupport;", nullptr, $PROTECTED, $field(BeanContextChildSupport, pcSupport)},
+		{"vcSupport", "Ljava/beans/VetoableChangeSupport;", nullptr, $PROTECTED, $field(BeanContextChildSupport, vcSupport)},
+		{"beanContext", "Ljava/beans/beancontext/BeanContext;", nullptr, $PROTECTED | $TRANSIENT, $field(BeanContextChildSupport, beanContext)},
+		{"rejectedSetBCOnce", "Z", nullptr, $PROTECTED | $TRANSIENT, $field(BeanContextChildSupport, rejectedSetBCOnce)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BeanContextChildSupport, init$, void)},
+		{"<init>", "(Ljava/beans/beancontext/BeanContextChild;)V", nullptr, $PUBLIC, $method(BeanContextChildSupport, init$, void, $BeanContextChild*)},
+		{"addPropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(BeanContextChildSupport, addPropertyChangeListener, void, $String*, $PropertyChangeListener*)},
+		{"addVetoableChangeListener", "(Ljava/lang/String;Ljava/beans/VetoableChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(BeanContextChildSupport, addVetoableChangeListener, void, $String*, $VetoableChangeListener*)},
+		{"firePropertyChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BeanContextChildSupport, firePropertyChange, void, $String*, Object$*, Object$*)},
+		{"fireVetoableChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BeanContextChildSupport, fireVetoableChange, void, $String*, Object$*, Object$*), "java.beans.PropertyVetoException"},
+		{"getBeanContext", "()Ljava/beans/beancontext/BeanContext;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BeanContextChildSupport, getBeanContext, $BeanContext*)},
+		{"getBeanContextChildPeer", "()Ljava/beans/beancontext/BeanContextChild;", nullptr, $PUBLIC, $virtualMethod(BeanContextChildSupport, getBeanContextChildPeer, $BeanContextChild*)},
+		{"initializeBeanContextResources", "()V", nullptr, $PROTECTED, $virtualMethod(BeanContextChildSupport, initializeBeanContextResources, void)},
+		{"isDelegated", "()Z", nullptr, $PUBLIC, $virtualMethod(BeanContextChildSupport, isDelegated, bool)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(BeanContextChildSupport, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"releaseBeanContextResources", "()V", nullptr, $PROTECTED, $virtualMethod(BeanContextChildSupport, releaseBeanContextResources, void)},
+		{"removePropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(BeanContextChildSupport, removePropertyChangeListener, void, $String*, $PropertyChangeListener*)},
+		{"removeVetoableChangeListener", "(Ljava/lang/String;Ljava/beans/VetoableChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(BeanContextChildSupport, removeVetoableChangeListener, void, $String*, $VetoableChangeListener*)},
+		{"serviceAvailable", "(Ljava/beans/beancontext/BeanContextServiceAvailableEvent;)V", nullptr, $PUBLIC, $virtualMethod(BeanContextChildSupport, serviceAvailable, void, $BeanContextServiceAvailableEvent*)},
+		{"serviceRevoked", "(Ljava/beans/beancontext/BeanContextServiceRevokedEvent;)V", nullptr, $PUBLIC, $virtualMethod(BeanContextChildSupport, serviceRevoked, void, $BeanContextServiceRevokedEvent*)},
+		{"setBeanContext", "(Ljava/beans/beancontext/BeanContext;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BeanContextChildSupport, setBeanContext, void, $BeanContext*), "java.beans.PropertyVetoException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"validatePendingSetBeanContext", "(Ljava/beans/beancontext/BeanContext;)Z", nullptr, $PUBLIC, $virtualMethod(BeanContextChildSupport, validatePendingSetBeanContext, bool, $BeanContext*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(BeanContextChildSupport, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.beans.beancontext.BeanContextChildSupport",
+		"java.lang.Object",
+		"java.beans.beancontext.BeanContextChild,java.beans.beancontext.BeanContextServicesListener,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BeanContextChildSupport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BeanContextChildSupport));
+	});
 	return class$;
 }
 

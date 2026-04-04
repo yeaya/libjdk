@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/DirectAudioDevice$DirectDL$Pan.h>
-
 #include <com/sun/media/sound/DirectAudioDevice$DirectDL$Balance.h>
 #include <com/sun/media/sound/DirectAudioDevice$DirectDL.h>
 #include <javax/sound/sampled/FloatControl$Type.h>
@@ -9,7 +8,6 @@
 #undef PAN
 
 using $DirectAudioDevice$DirectDL = ::com::sun::media::sound::DirectAudioDevice$DirectDL;
-using $DirectAudioDevice$DirectDL$Balance = ::com::sun::media::sound::DirectAudioDevice$DirectDL$Balance;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
@@ -22,44 +20,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _DirectAudioDevice$DirectDL$Pan_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/media/sound/DirectAudioDevice$DirectDL;", nullptr, $FINAL | $SYNTHETIC, $field(DirectAudioDevice$DirectDL$Pan, this$0)},
-	{}
-};
-
-$MethodInfo _DirectAudioDevice$DirectDL$Pan_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/DirectAudioDevice$DirectDL;)V", nullptr, $PRIVATE, $method(DirectAudioDevice$DirectDL$Pan, init$, void, $DirectAudioDevice$DirectDL*)},
-	{"setValue", "(F)V", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectDL$Pan, setValue, void, float)},
-	{"setValueImpl", "(F)V", nullptr, 0, $method(DirectAudioDevice$DirectDL$Pan, setValueImpl, void, float)},
-	{}
-};
-
-$InnerClassInfo _DirectAudioDevice$DirectDL$Pan_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.DirectAudioDevice$DirectDL", "com.sun.media.sound.DirectAudioDevice", "DirectDL", $PRIVATE | $STATIC},
-	{"com.sun.media.sound.DirectAudioDevice$DirectDL$Pan", "com.sun.media.sound.DirectAudioDevice$DirectDL", "Pan", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _DirectAudioDevice$DirectDL$Pan_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.DirectAudioDevice$DirectDL$Pan",
-	"javax.sound.sampled.FloatControl",
-	nullptr,
-	_DirectAudioDevice$DirectDL$Pan_FieldInfo_,
-	_DirectAudioDevice$DirectDL$Pan_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DirectAudioDevice$DirectDL$Pan_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.DirectAudioDevice"
-};
-
-$Object* allocate$DirectAudioDevice$DirectDL$Pan($Class* clazz) {
-	return $of($alloc(DirectAudioDevice$DirectDL$Pan));
-}
 
 void DirectAudioDevice$DirectDL$Pan::init$($DirectAudioDevice$DirectDL* this$0) {
 	$set(this, this$0, this$0);
@@ -81,7 +41,39 @@ DirectAudioDevice$DirectDL$Pan::DirectAudioDevice$DirectDL$Pan() {
 }
 
 $Class* DirectAudioDevice$DirectDL$Pan::load$($String* name, bool initialize) {
-	$loadClass(DirectAudioDevice$DirectDL$Pan, name, initialize, &_DirectAudioDevice$DirectDL$Pan_ClassInfo_, allocate$DirectAudioDevice$DirectDL$Pan);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/media/sound/DirectAudioDevice$DirectDL;", nullptr, $FINAL | $SYNTHETIC, $field(DirectAudioDevice$DirectDL$Pan, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/DirectAudioDevice$DirectDL;)V", nullptr, $PRIVATE, $method(DirectAudioDevice$DirectDL$Pan, init$, void, $DirectAudioDevice$DirectDL*)},
+		{"setValue", "(F)V", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectDL$Pan, setValue, void, float)},
+		{"setValueImpl", "(F)V", nullptr, 0, $method(DirectAudioDevice$DirectDL$Pan, setValueImpl, void, float)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.DirectAudioDevice$DirectDL", "com.sun.media.sound.DirectAudioDevice", "DirectDL", $PRIVATE | $STATIC},
+		{"com.sun.media.sound.DirectAudioDevice$DirectDL$Pan", "com.sun.media.sound.DirectAudioDevice$DirectDL", "Pan", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.DirectAudioDevice$DirectDL$Pan",
+		"javax.sound.sampled.FloatControl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.DirectAudioDevice"
+	};
+	$loadClass(DirectAudioDevice$DirectDL$Pan, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DirectAudioDevice$DirectDL$Pan);
+	});
 	return class$;
 }
 

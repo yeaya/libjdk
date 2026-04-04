@@ -1,14 +1,11 @@
 #include <com/sun/tools/javac/tree/DCTree$DCErroneous.h>
-
 #include <com/sun/source/doctree/DocTree$Kind.h>
 #include <com/sun/source/doctree/DocTreeVisitor.h>
-#include <com/sun/source/doctree/ErroneousTree.h>
 #include <com/sun/tools/javac/tree/DCTree.h>
 #include <com/sun/tools/javac/tree/EndPosTable.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <com/sun/tools/javac/util/DiagnosticSource.h>
 #include <com/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag.h>
-#include <com/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition.h>
 #include <com/sun/tools/javac/util/JCDiagnostic$Factory.h>
 #include <com/sun/tools/javac/util/JCDiagnostic.h>
 #include <javax/tools/Diagnostic.h>
@@ -18,14 +15,12 @@
 
 using $DocTree$Kind = ::com::sun::source::doctree::DocTree$Kind;
 using $DocTreeVisitor = ::com::sun::source::doctree::DocTreeVisitor;
-using $ErroneousTree = ::com::sun::source::doctree::ErroneousTree;
 using $DCTree = ::com::sun::tools::javac::tree::DCTree;
 using $EndPosTable = ::com::sun::tools::javac::tree::EndPosTable;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $DiagnosticSource = ::com::sun::tools::javac::util::DiagnosticSource;
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$DiagnosticFlag = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticFlag;
-using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $JCDiagnostic$Factory = ::com::sun::tools::javac::util::JCDiagnostic$Factory;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -38,57 +33,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _DCTree$DCErroneous_FieldInfo_[] = {
-	{"body", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(DCTree$DCErroneous, body)},
-	{"diag", "Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PUBLIC | $FINAL, $field(DCTree$DCErroneous, diag)},
-	{}
-};
-
-$MethodInfo _DCTree$DCErroneous_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Lcom/sun/tools/javac/util/JCDiagnostic$Factory;Lcom/sun/tools/javac/util/DiagnosticSource;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $TRANSIENT, $method(DCTree$DCErroneous, init$, void, $String*, $JCDiagnostic$Factory*, $DiagnosticSource*, $String*, $ObjectArray*)},
-	{"<init>", "(Ljava/lang/String;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, 0, $method(DCTree$DCErroneous, init$, void, $String*, $JCDiagnostic*)},
-	{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(DCTree$DCErroneous, accept, $Object*, $DocTreeVisitor*, Object$*)},
-	{"getBody", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCErroneous, getBody, $String*)},
-	{"getDiagnostic", "()Ljavax/tools/Diagnostic;", "()Ljavax/tools/Diagnostic<Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(DCTree$DCErroneous, getDiagnostic, $Diagnostic*)},
-	{"getEndPosition", "(Lcom/sun/tools/javac/tree/EndPosTable;)I", nullptr, $PUBLIC, $virtualMethod(DCTree$DCErroneous, getEndPosition, int32_t, $EndPosTable*)},
-	{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCErroneous, getKind, $DocTree$Kind*)},
-	{"getPreferredPosition", "()I", nullptr, $PUBLIC, $virtualMethod(DCTree$DCErroneous, getPreferredPosition, int32_t)},
-	{"getStartPosition", "()I", nullptr, $PUBLIC, $virtualMethod(DCTree$DCErroneous, getStartPosition, int32_t)},
-	{"getTree", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCErroneous, getTree, $JCTree*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DCTree$DCErroneous_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.DCTree$DCErroneous", "com.sun.tools.javac.tree.DCTree", "DCErroneous", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticPosition", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticPosition", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DCTree$DCErroneous_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.DCTree$DCErroneous",
-	"com.sun.tools.javac.tree.DCTree",
-	"com.sun.source.doctree.ErroneousTree,com.sun.tools.javac.util.JCDiagnostic$DiagnosticPosition",
-	_DCTree$DCErroneous_FieldInfo_,
-	_DCTree$DCErroneous_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DCTree$DCErroneous_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.DCTree"
-};
-
-$Object* allocate$DCTree$DCErroneous($Class* clazz) {
-	return $of($alloc(DCTree$DCErroneous));
-}
 
 $String* DCTree$DCErroneous::toString() {
 	 return this->$DCTree::toString();
@@ -128,7 +72,7 @@ $DocTree$Kind* DCTree$DCErroneous::getKind() {
 }
 
 $Object* DCTree$DCErroneous::accept($DocTreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitErroneous(this, d));
+	return $nc(v)->visitErroneous(this, d);
 }
 
 $String* DCTree$DCErroneous::getBody() {
@@ -159,7 +103,52 @@ DCTree$DCErroneous::DCTree$DCErroneous() {
 }
 
 $Class* DCTree$DCErroneous::load$($String* name, bool initialize) {
-	$loadClass(DCTree$DCErroneous, name, initialize, &_DCTree$DCErroneous_ClassInfo_, allocate$DCTree$DCErroneous);
+	$FieldInfo fieldInfos$$[] = {
+		{"body", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(DCTree$DCErroneous, body)},
+		{"diag", "Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PUBLIC | $FINAL, $field(DCTree$DCErroneous, diag)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;Lcom/sun/tools/javac/util/JCDiagnostic$Factory;Lcom/sun/tools/javac/util/DiagnosticSource;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $TRANSIENT, $method(DCTree$DCErroneous, init$, void, $String*, $JCDiagnostic$Factory*, $DiagnosticSource*, $String*, $ObjectArray*)},
+		{"<init>", "(Ljava/lang/String;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, 0, $method(DCTree$DCErroneous, init$, void, $String*, $JCDiagnostic*)},
+		{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(DCTree$DCErroneous, accept, $Object*, $DocTreeVisitor*, Object$*)},
+		{"getBody", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCErroneous, getBody, $String*)},
+		{"getDiagnostic", "()Ljavax/tools/Diagnostic;", "()Ljavax/tools/Diagnostic<Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(DCTree$DCErroneous, getDiagnostic, $Diagnostic*)},
+		{"getEndPosition", "(Lcom/sun/tools/javac/tree/EndPosTable;)I", nullptr, $PUBLIC, $virtualMethod(DCTree$DCErroneous, getEndPosition, int32_t, $EndPosTable*)},
+		{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCErroneous, getKind, $DocTree$Kind*)},
+		{"getPreferredPosition", "()I", nullptr, $PUBLIC, $virtualMethod(DCTree$DCErroneous, getPreferredPosition, int32_t)},
+		{"getStartPosition", "()I", nullptr, $PUBLIC, $virtualMethod(DCTree$DCErroneous, getStartPosition, int32_t)},
+		{"getTree", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCErroneous, getTree, $JCTree*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.DCTree$DCErroneous", "com.sun.tools.javac.tree.DCTree", "DCErroneous", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticPosition", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticPosition", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.DCTree$DCErroneous",
+		"com.sun.tools.javac.tree.DCTree",
+		"com.sun.source.doctree.ErroneousTree,com.sun.tools.javac.util.JCDiagnostic$DiagnosticPosition",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.DCTree"
+	};
+	$loadClass(DCTree$DCErroneous, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DCTree$DCErroneous));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/apple/eawt/Application.h>
-
 #include <com/apple/eawt/_AppDockIconHandler.h>
 #include <com/apple/eawt/_AppEventHandler$_AboutDispatcher.h>
 #include <com/apple/eawt/_AppEventHandler$_AppEventDispatcher.h>
@@ -40,15 +39,8 @@
 
 using $_AppDockIconHandler = ::com::apple::eawt::_AppDockIconHandler;
 using $_AppEventHandler = ::com::apple::eawt::_AppEventHandler;
-using $_AppEventHandler$_AboutDispatcher = ::com::apple::eawt::_AppEventHandler$_AboutDispatcher;
-using $_AppEventHandler$_OpenFileDispatcher = ::com::apple::eawt::_AppEventHandler$_OpenFileDispatcher;
-using $_AppEventHandler$_OpenURIDispatcher = ::com::apple::eawt::_AppEventHandler$_OpenURIDispatcher;
-using $_AppEventHandler$_PreferencesDispatcher = ::com::apple::eawt::_AppEventHandler$_PreferencesDispatcher;
-using $_AppEventHandler$_PrintFileDispatcher = ::com::apple::eawt::_AppEventHandler$_PrintFileDispatcher;
-using $_AppEventHandler$_QuitDispatcher = ::com::apple::eawt::_AppEventHandler$_QuitDispatcher;
 using $_AppMenuBarHandler = ::com::apple::eawt::_AppMenuBarHandler;
 using $_AppMiscHandlers = ::com::apple::eawt::_AppMiscHandlers;
-using $Component = ::java::awt::Component;
 using $Image = ::java::awt::Image;
 using $PopupMenu = ::java::awt::PopupMenu;
 using $Toolkit = ::java::awt::Toolkit;
@@ -68,10 +60,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $Permission = ::java::security::Permission;
 using $JMenuBar = ::javax::swing::JMenuBar;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $LWWindowPeer = ::sun::lwawt::LWWindowPeer;
 using $CPlatformWindow = ::sun::lwawt::macosx::CPlatformWindow;
 
@@ -79,76 +69,18 @@ namespace com {
 	namespace apple {
 		namespace eawt {
 
-$CompoundAttribute _Application_MethodAnnotations_init$0[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _Application_FieldInfo_[] = {
-	{"sApplication", "Lcom/apple/eawt/Application;", nullptr, $STATIC, $staticField(Application, sApplication)},
-	{"eventHandler", "Lcom/apple/eawt/_AppEventHandler;", nullptr, $FINAL, $field(Application, eventHandler)},
-	{"menuBarHandler", "Lcom/apple/eawt/_AppMenuBarHandler;", nullptr, $FINAL, $field(Application, menuBarHandler)},
-	{"iconHandler", "Lcom/apple/eawt/_AppDockIconHandler;", nullptr, $FINAL, $field(Application, iconHandler)},
-	{}
-};
-
-$MethodInfo _Application_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC | $DEPRECATED, $method(Application, init$, void), nullptr, nullptr, _Application_MethodAnnotations_init$0},
-	{"addAppEventListener", "(Ljava/awt/desktop/SystemEventListener;)V", nullptr, $PUBLIC, $virtualMethod(Application, addAppEventListener, void, $SystemEventListener*)},
-	{"checkSecurity", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Application, checkSecurity, void)},
-	{"disableSuddenTermination", "()V", nullptr, $PUBLIC, $virtualMethod(Application, disableSuddenTermination, void)},
-	{"enableSuddenTermination", "()V", nullptr, $PUBLIC, $virtualMethod(Application, enableSuddenTermination, void)},
-	{"getApplication", "()Lcom/apple/eawt/Application;", nullptr, $PUBLIC | $STATIC, $staticMethod(Application, getApplication, Application*)},
-	{"getDockIconImage", "()Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(Application, getDockIconImage, $Image*)},
-	{"getDockMenu", "()Ljava/awt/PopupMenu;", nullptr, $PUBLIC, $virtualMethod(Application, getDockMenu, $PopupMenu*)},
-	{"nativeInitializeApplicationDelegate", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Application, nativeInitializeApplicationDelegate, void)},
-	{"openHelpViewer", "()V", nullptr, $PUBLIC, $virtualMethod(Application, openHelpViewer, void)},
-	{"removeAppEventListener", "(Ljava/awt/desktop/SystemEventListener;)V", nullptr, $PUBLIC, $virtualMethod(Application, removeAppEventListener, void, $SystemEventListener*)},
-	{"requestForeground", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Application, requestForeground, void, bool)},
-	{"requestToggleFullScreen", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $virtualMethod(Application, requestToggleFullScreen, void, $Window*)},
-	{"requestUserAttention", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Application, requestUserAttention, void, bool)},
-	{"setAboutHandler", "(Ljava/awt/desktop/AboutHandler;)V", nullptr, $PUBLIC, $virtualMethod(Application, setAboutHandler, void, $AboutHandler*)},
-	{"setDefaultMenuBar", "(Ljavax/swing/JMenuBar;)V", nullptr, $PUBLIC, $virtualMethod(Application, setDefaultMenuBar, void, $JMenuBar*)},
-	{"setDockIconBadge", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Application, setDockIconBadge, void, $String*)},
-	{"setDockIconImage", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(Application, setDockIconImage, void, $Image*)},
-	{"setDockIconProgress", "(I)V", nullptr, $PUBLIC, $virtualMethod(Application, setDockIconProgress, void, int32_t)},
-	{"setDockMenu", "(Ljava/awt/PopupMenu;)V", nullptr, $PUBLIC, $virtualMethod(Application, setDockMenu, void, $PopupMenu*)},
-	{"setOpenFileHandler", "(Ljava/awt/desktop/OpenFilesHandler;)V", nullptr, $PUBLIC, $virtualMethod(Application, setOpenFileHandler, void, $OpenFilesHandler*)},
-	{"setOpenURIHandler", "(Ljava/awt/desktop/OpenURIHandler;)V", nullptr, $PUBLIC, $virtualMethod(Application, setOpenURIHandler, void, $OpenURIHandler*)},
-	{"setPreferencesHandler", "(Ljava/awt/desktop/PreferencesHandler;)V", nullptr, $PUBLIC, $virtualMethod(Application, setPreferencesHandler, void, $PreferencesHandler*)},
-	{"setPrintFileHandler", "(Ljava/awt/desktop/PrintFilesHandler;)V", nullptr, $PUBLIC, $virtualMethod(Application, setPrintFileHandler, void, $PrintFilesHandler*)},
-	{"setQuitHandler", "(Ljava/awt/desktop/QuitHandler;)V", nullptr, $PUBLIC, $virtualMethod(Application, setQuitHandler, void, $QuitHandler*)},
-	{"setQuitStrategy", "(Ljava/awt/desktop/QuitStrategy;)V", nullptr, $PUBLIC, $virtualMethod(Application, setQuitStrategy, void, $QuitStrategy*)},
-	{}
-};
-
-#define _METHOD_INDEX_nativeInitializeApplicationDelegate 8
-
-$ClassInfo _Application_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.eawt.Application",
-	"java.lang.Object",
-	nullptr,
-	_Application_FieldInfo_,
-	_Application_MethodInfo_
-};
-
-$Object* allocate$Application($Class* clazz) {
-	return $of($alloc(Application));
-}
-
 Application* Application::sApplication = nullptr;
 
 void Application::nativeInitializeApplicationDelegate() {
 	$init(Application);
-	$prepareNativeStatic(Application, nativeInitializeApplicationDelegate, void);
+	$prepareNativeStatic(nativeInitializeApplicationDelegate, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void Application::checkSecurity() {
 	$init(Application);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security == nullptr) {
 		return;
@@ -226,27 +158,27 @@ void Application::openHelpViewer() {
 }
 
 void Application::setDockMenu($PopupMenu* menu) {
-	$nc(this->iconHandler)->setDockMenu(menu);
+	this->iconHandler->setDockMenu(menu);
 }
 
 $PopupMenu* Application::getDockMenu() {
-	return $nc(this->iconHandler)->getDockMenu();
+	return this->iconHandler->getDockMenu();
 }
 
 void Application::setDockIconImage($Image* image) {
-	$nc(this->iconHandler)->setDockIconImage(image);
+	this->iconHandler->setDockIconImage(image);
 }
 
 $Image* Application::getDockIconImage() {
-	return $nc(this->iconHandler)->getDockIconImage();
+	return this->iconHandler->getDockIconImage();
 }
 
 void Application::setDockIconBadge($String* badge) {
-	$nc(this->iconHandler)->setDockIconBadge(badge);
+	this->iconHandler->setDockIconBadge(badge);
 }
 
 void Application::setDockIconProgress(int32_t value) {
-	$nc(this->iconHandler)->setDockIconProgress(value);
+	this->iconHandler->setDockIconProgress(value);
 }
 
 void Application::setDefaultMenuBar($JMenuBar* menuBar) {
@@ -254,19 +186,19 @@ void Application::setDefaultMenuBar($JMenuBar* menuBar) {
 }
 
 void Application::requestToggleFullScreen($Window* window) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, peer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(window));
+	$useLocalObjectStack();
+	$var($Object, peer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(window));
 	if (!($instanceOf($LWWindowPeer, peer))) {
 		return;
 	}
-	$var($Object, platformWindow, $nc(($cast($LWWindowPeer, peer)))->getPlatformWindow());
+	$var($Object, platformWindow, $nc($cast($LWWindowPeer, peer))->getPlatformWindow());
 	if (!($instanceOf($CPlatformWindow, platformWindow))) {
 		return;
 	}
-	$nc(($cast($CPlatformWindow, platformWindow)))->toggleFullScreen();
+	$nc($cast($CPlatformWindow, platformWindow))->toggleFullScreen();
 }
 
-void clinit$Application($Class* class$) {
+void Application::clinit$($Class* clazz) {
 	$assignStatic(Application::sApplication, nullptr);
 	{
 		Application::checkSecurity();
@@ -282,7 +214,57 @@ Application::Application() {
 }
 
 $Class* Application::load$($String* name, bool initialize) {
-	$loadClass(Application, name, initialize, &_Application_ClassInfo_, clinit$Application, allocate$Application);
+	$FieldInfo fieldInfos$$[] = {
+		{"sApplication", "Lcom/apple/eawt/Application;", nullptr, $STATIC, $staticField(Application, sApplication)},
+		{"eventHandler", "Lcom/apple/eawt/_AppEventHandler;", nullptr, $FINAL, $field(Application, eventHandler)},
+		{"menuBarHandler", "Lcom/apple/eawt/_AppMenuBarHandler;", nullptr, $FINAL, $field(Application, menuBarHandler)},
+		{"iconHandler", "Lcom/apple/eawt/_AppDockIconHandler;", nullptr, $FINAL, $field(Application, iconHandler)},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC | $DEPRECATED, $method(Application, init$, void), nullptr, nullptr, init$methodAnnotations$$},
+		{"addAppEventListener", "(Ljava/awt/desktop/SystemEventListener;)V", nullptr, $PUBLIC, $virtualMethod(Application, addAppEventListener, void, $SystemEventListener*)},
+		{"checkSecurity", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Application, checkSecurity, void)},
+		{"disableSuddenTermination", "()V", nullptr, $PUBLIC, $virtualMethod(Application, disableSuddenTermination, void)},
+		{"enableSuddenTermination", "()V", nullptr, $PUBLIC, $virtualMethod(Application, enableSuddenTermination, void)},
+		{"getApplication", "()Lcom/apple/eawt/Application;", nullptr, $PUBLIC | $STATIC, $staticMethod(Application, getApplication, Application*)},
+		{"getDockIconImage", "()Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(Application, getDockIconImage, $Image*)},
+		{"getDockMenu", "()Ljava/awt/PopupMenu;", nullptr, $PUBLIC, $virtualMethod(Application, getDockMenu, $PopupMenu*)},
+		{"nativeInitializeApplicationDelegate", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Application, nativeInitializeApplicationDelegate, void)},
+		{"openHelpViewer", "()V", nullptr, $PUBLIC, $virtualMethod(Application, openHelpViewer, void)},
+		{"removeAppEventListener", "(Ljava/awt/desktop/SystemEventListener;)V", nullptr, $PUBLIC, $virtualMethod(Application, removeAppEventListener, void, $SystemEventListener*)},
+		{"requestForeground", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Application, requestForeground, void, bool)},
+		{"requestToggleFullScreen", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $virtualMethod(Application, requestToggleFullScreen, void, $Window*)},
+		{"requestUserAttention", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Application, requestUserAttention, void, bool)},
+		{"setAboutHandler", "(Ljava/awt/desktop/AboutHandler;)V", nullptr, $PUBLIC, $virtualMethod(Application, setAboutHandler, void, $AboutHandler*)},
+		{"setDefaultMenuBar", "(Ljavax/swing/JMenuBar;)V", nullptr, $PUBLIC, $virtualMethod(Application, setDefaultMenuBar, void, $JMenuBar*)},
+		{"setDockIconBadge", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Application, setDockIconBadge, void, $String*)},
+		{"setDockIconImage", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(Application, setDockIconImage, void, $Image*)},
+		{"setDockIconProgress", "(I)V", nullptr, $PUBLIC, $virtualMethod(Application, setDockIconProgress, void, int32_t)},
+		{"setDockMenu", "(Ljava/awt/PopupMenu;)V", nullptr, $PUBLIC, $virtualMethod(Application, setDockMenu, void, $PopupMenu*)},
+		{"setOpenFileHandler", "(Ljava/awt/desktop/OpenFilesHandler;)V", nullptr, $PUBLIC, $virtualMethod(Application, setOpenFileHandler, void, $OpenFilesHandler*)},
+		{"setOpenURIHandler", "(Ljava/awt/desktop/OpenURIHandler;)V", nullptr, $PUBLIC, $virtualMethod(Application, setOpenURIHandler, void, $OpenURIHandler*)},
+		{"setPreferencesHandler", "(Ljava/awt/desktop/PreferencesHandler;)V", nullptr, $PUBLIC, $virtualMethod(Application, setPreferencesHandler, void, $PreferencesHandler*)},
+		{"setPrintFileHandler", "(Ljava/awt/desktop/PrintFilesHandler;)V", nullptr, $PUBLIC, $virtualMethod(Application, setPrintFileHandler, void, $PrintFilesHandler*)},
+		{"setQuitHandler", "(Ljava/awt/desktop/QuitHandler;)V", nullptr, $PUBLIC, $virtualMethod(Application, setQuitHandler, void, $QuitHandler*)},
+		{"setQuitStrategy", "(Ljava/awt/desktop/QuitStrategy;)V", nullptr, $PUBLIC, $virtualMethod(Application, setQuitStrategy, void, $QuitStrategy*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.eawt.Application",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Application, name, initialize, &classInfo$$, Application::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Application);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/swing/SwingUtilities2.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTPermission.h>
 #include <java/awt/Color.h>
@@ -54,7 +53,6 @@
 #include <java/security/AccessController.h>
 #include <java/security/Permission.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/text/AttributedCharacterIterator$Attribute.h>
 #include <java/text/AttributedCharacterIterator.h>
 #include <java/text/AttributedString.h>
 #include <java/text/BreakIterator.h>
@@ -149,7 +147,6 @@ using $SwingUtilities2$LSBCacheEntryArray = $Array<::sun::swing::SwingUtilities2
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $EventQueue = ::java::awt::EventQueue;
@@ -181,7 +178,6 @@ using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
@@ -201,10 +197,8 @@ using $StringBuffer = ::java::lang::StringBuffer;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Modifier = ::java::lang::reflect::Modifier;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
-using $AttributedCharacterIterator$Attribute = ::java::text::AttributedCharacterIterator$Attribute;
 using $AttributedString = ::java::text::AttributedString;
 using $BreakIterator = ::java::text::BreakIterator;
 using $CharacterIterator = ::java::text::CharacterIterator;
@@ -219,7 +213,6 @@ using $JComponent = ::javax::swing::JComponent;
 using $JList = ::javax::swing::JList;
 using $JTable = ::javax::swing::JTable;
 using $ListCellRenderer = ::javax::swing::ListCellRenderer;
-using $ListModel = ::javax::swing::ListModel;
 using $ListSelectionModel = ::javax::swing::ListSelectionModel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIDefaults = ::javax::swing::UIDefaults;
@@ -227,7 +220,6 @@ using $UIDefaults$LazyValue = ::javax::swing::UIDefaults$LazyValue;
 using $UIManager = ::javax::swing::UIManager;
 using $TreeModelEvent = ::javax::swing::event::TreeModelEvent;
 using $TableCellRenderer = ::javax::swing::table::TableCellRenderer;
-using $TableColumn = ::javax::swing::table::TableColumn;
 using $TableColumnModel = ::javax::swing::table::TableColumnModel;
 using $DefaultCaret = ::javax::swing::text::DefaultCaret;
 using $DefaultHighlighter$DefaultHighlightPainter = ::javax::swing::text::DefaultHighlighter$DefaultHighlightPainter;
@@ -237,7 +229,6 @@ using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $TreeModel = ::javax::swing::tree::TreeModel;
 using $TreePath = ::javax::swing::tree::TreePath;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$InputEventAccessor = ::sun::awt::AWTAccessor$InputEventAccessor;
 using $AWTPermissions = ::sun::awt::AWTPermissions;
 using $AppContext = ::sun::awt::AppContext;
 using $SunToolkit = ::sun::awt::SunToolkit;
@@ -267,39 +258,35 @@ public:
 	virtual $Object* createValue($UIDefaults* table) override {
 		 return SwingUtilities2::lambda$makeIcon$1(enablePrivileges, baseClass, rootClass, imageFile, table);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SwingUtilities2$$Lambda$lambda$makeIcon$1>());
-	}
 	bool enablePrivileges = false;
 	$Class* baseClass = nullptr;
 	$Class* rootClass = nullptr;
 	$String* imageFile = nullptr;
-	static $FieldInfo fieldInfos[5];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SwingUtilities2$$Lambda$lambda$makeIcon$1::fieldInfos[5] = {
-	{"enablePrivileges", "Z", nullptr, $PUBLIC, $field(SwingUtilities2$$Lambda$lambda$makeIcon$1, enablePrivileges)},
-	{"baseClass", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(SwingUtilities2$$Lambda$lambda$makeIcon$1, baseClass)},
-	{"rootClass", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(SwingUtilities2$$Lambda$lambda$makeIcon$1, rootClass)},
-	{"imageFile", "Ljava/lang/String;", nullptr, $PUBLIC, $field(SwingUtilities2$$Lambda$lambda$makeIcon$1, imageFile)},
-	{}
-};
-$MethodInfo SwingUtilities2$$Lambda$lambda$makeIcon$1::methodInfos[3] = {
-	{"<init>", "(ZLjava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SwingUtilities2$$Lambda$lambda$makeIcon$1, init$, void, bool, $Class*, $Class*, $String*)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SwingUtilities2$$Lambda$lambda$makeIcon$1, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo SwingUtilities2$$Lambda$lambda$makeIcon$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.swing.SwingUtilities2$$Lambda$lambda$makeIcon$1",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	fieldInfos,
-	methodInfos
 };
 $Class* SwingUtilities2$$Lambda$lambda$makeIcon$1::load$($String* name, bool initialize) {
-	$loadClass(SwingUtilities2$$Lambda$lambda$makeIcon$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"enablePrivileges", "Z", nullptr, $PUBLIC, $field(SwingUtilities2$$Lambda$lambda$makeIcon$1, enablePrivileges)},
+		{"baseClass", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(SwingUtilities2$$Lambda$lambda$makeIcon$1, baseClass)},
+		{"rootClass", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(SwingUtilities2$$Lambda$lambda$makeIcon$1, rootClass)},
+		{"imageFile", "Ljava/lang/String;", nullptr, $PUBLIC, $field(SwingUtilities2$$Lambda$lambda$makeIcon$1, imageFile)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZLjava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SwingUtilities2$$Lambda$lambda$makeIcon$1, init$, void, bool, $Class*, $Class*, $String*)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SwingUtilities2$$Lambda$lambda$makeIcon$1, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.swing.SwingUtilities2$$Lambda$lambda$makeIcon$1",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SwingUtilities2$$Lambda$lambda$makeIcon$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SwingUtilities2$$Lambda$lambda$makeIcon$1);
+	});
 	return class$;
 }
 $Class* SwingUtilities2$$Lambda$lambda$makeIcon$1::class$ = nullptr;
@@ -313,183 +300,38 @@ public:
 		$set(this, imageFile, imageFile);
 	}
 	virtual $Object* run() override {
-		 return $of(SwingUtilities2::lambda$makeIcon$0(baseClass, rootClass, imageFile));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SwingUtilities2$$Lambda$lambda$makeIcon$0$1>());
+		 return SwingUtilities2::lambda$makeIcon$0(baseClass, rootClass, imageFile);
 	}
 	$Class* baseClass = nullptr;
 	$Class* rootClass = nullptr;
 	$String* imageFile = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SwingUtilities2$$Lambda$lambda$makeIcon$0$1::fieldInfos[4] = {
-	{"baseClass", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(SwingUtilities2$$Lambda$lambda$makeIcon$0$1, baseClass)},
-	{"rootClass", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(SwingUtilities2$$Lambda$lambda$makeIcon$0$1, rootClass)},
-	{"imageFile", "Ljava/lang/String;", nullptr, $PUBLIC, $field(SwingUtilities2$$Lambda$lambda$makeIcon$0$1, imageFile)},
-	{}
-};
-$MethodInfo SwingUtilities2$$Lambda$lambda$makeIcon$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SwingUtilities2$$Lambda$lambda$makeIcon$0$1, init$, void, $Class*, $Class*, $String*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SwingUtilities2$$Lambda$lambda$makeIcon$0$1, run, $Object*)},
-	{}
-};
-$ClassInfo SwingUtilities2$$Lambda$lambda$makeIcon$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.swing.SwingUtilities2$$Lambda$lambda$makeIcon$0$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* SwingUtilities2$$Lambda$lambda$makeIcon$0$1::load$($String* name, bool initialize) {
-	$loadClass(SwingUtilities2$$Lambda$lambda$makeIcon$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"baseClass", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(SwingUtilities2$$Lambda$lambda$makeIcon$0$1, baseClass)},
+		{"rootClass", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(SwingUtilities2$$Lambda$lambda$makeIcon$0$1, rootClass)},
+		{"imageFile", "Ljava/lang/String;", nullptr, $PUBLIC, $field(SwingUtilities2$$Lambda$lambda$makeIcon$0$1, imageFile)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SwingUtilities2$$Lambda$lambda$makeIcon$0$1, init$, void, $Class*, $Class*, $String*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SwingUtilities2$$Lambda$lambda$makeIcon$0$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.swing.SwingUtilities2$$Lambda$lambda$makeIcon$0$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SwingUtilities2$$Lambda$lambda$makeIcon$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SwingUtilities2$$Lambda$lambda$makeIcon$0$1);
+	});
 	return class$;
 }
 $Class* SwingUtilities2$$Lambda$lambda$makeIcon$0$1::class$ = nullptr;
-
-$FieldInfo _SwingUtilities2_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SwingUtilities2, $assertionsDisabled)},
-	{"LAF_STATE_KEY", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SwingUtilities2, LAF_STATE_KEY)},
-	{"MENU_SELECTION_MANAGER_LISTENER_KEY", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SwingUtilities2, MENU_SELECTION_MANAGER_LISTENER_KEY)},
-	{"fontCache", "[Lsun/swing/SwingUtilities2$LSBCacheEntry;", nullptr, $PRIVATE | $STATIC, $staticField(SwingUtilities2, fontCache)},
-	{"CACHE_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SwingUtilities2, CACHE_SIZE)},
-	{"nextIndex", "I", nullptr, $PRIVATE | $STATIC, $staticField(SwingUtilities2, nextIndex)},
-	{"searchKey", "Lsun/swing/SwingUtilities2$LSBCacheEntry;", nullptr, $PRIVATE | $STATIC, $staticField(SwingUtilities2, searchKey)},
-	{"MIN_CHAR_INDEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SwingUtilities2, MIN_CHAR_INDEX)},
-	{"MAX_CHAR_INDEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SwingUtilities2, MAX_CHAR_INDEX)},
-	{"DEFAULT_FRC", "Ljava/awt/font/FontRenderContext;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SwingUtilities2, DEFAULT_FRC)},
-	{"IMPLIED_CR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SwingUtilities2, IMPLIED_CR)},
-	{"SKIP_CLICK_COUNT", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SwingUtilities2, SKIP_CLICK_COUNT)},
-	{"BASICMENUITEMUI_MAX_TEXT_OFFSET", "Lsun/swing/StringUIClientPropertyKey;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SwingUtilities2, BASICMENUITEMUI_MAX_TEXT_OFFSET)},
-	{"UntrustedClipboardAccess", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SwingUtilities2, UntrustedClipboardAccess)},
-	{"CHAR_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SwingUtilities2, CHAR_BUFFER_SIZE)},
-	{"charsBufferLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SwingUtilities2, charsBufferLock)},
-	{"charsBuffer", "[C", nullptr, $PRIVATE | $STATIC, $staticField(SwingUtilities2, charsBuffer)},
-	{"APP_CONTEXT_FRC_CACHE_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SwingUtilities2, APP_CONTEXT_FRC_CACHE_KEY)},
-	{}
-};
-
-$MethodInfo _SwingUtilities2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SwingUtilities2, init$, void)},
-	{"adjustFocus", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, adjustFocus, void, $JComponent*)},
-	{"canAccessSystemClipboard", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, canAccessSystemClipboard, bool)},
-	{"canCurrentEventAccessSystemClipboard", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, canCurrentEventAccessSystemClipboard, bool)},
-	{"canCurrentEventAccessSystemClipboard", "(Z)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, canCurrentEventAccessSystemClipboard, bool, bool)},
-	{"canEventAccessSystemClipboard", "(Ljava/awt/AWTEvent;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, canEventAccessSystemClipboard, bool, $AWTEvent*)},
-	{"canEventAccessSystemClipboard", "(Ljava/awt/AWTEvent;Z)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, canEventAccessSystemClipboard, bool, $AWTEvent*, bool)},
-	{"checkAccess", "(I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, checkAccess, void, int32_t)},
-	{"clipString", "(Ljavax/swing/JComponent;Ljava/awt/FontMetrics;Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, clipString, $String*, $JComponent*, $FontMetrics*, $String*, int32_t)},
-	{"clipStringIfNecessary", "(Ljavax/swing/JComponent;Ljava/awt/FontMetrics;Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, clipStringIfNecessary, $String*, $JComponent*, $FontMetrics*, $String*, int32_t)},
-	{"compositeRequestFocus", "(Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, compositeRequestFocus, $Component*, $Component*)},
-	{"convertColumnIndexToModel", "(Ljavax/swing/table/TableColumnModel;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, convertColumnIndexToModel, int32_t, $TableColumnModel*, int32_t)},
-	{"convertColumnIndexToView", "(Ljavax/swing/table/TableColumnModel;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, convertColumnIndexToView, int32_t, $TableColumnModel*, int32_t)},
-	{"createTextLayout", "(Ljavax/swing/JComponent;Ljava/lang/String;Ljava/awt/Font;Ljava/awt/font/FontRenderContext;)Ljava/awt/font/TextLayout;", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, createTextLayout, $TextLayout*, $JComponent*, $String*, $Font*, $FontRenderContext*)},
-	{"displayPropertiesToCSS", "(Ljava/awt/Font;Ljava/awt/Color;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, displayPropertiesToCSS, $String*, $Font*, $Color*)},
-	{"drawChars", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;[CIIII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, drawChars, int32_t, $JComponent*, $Graphics*, $chars*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawChars", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;[CIIFF)F", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, drawChars, float, $JComponent*, $Graphics*, $chars*, int32_t, int32_t, float, float)},
-	{"drawChars", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;[CIIFFZ)F", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, drawChars, float, $JComponent*, $Graphics*, $chars*, int32_t, int32_t, float, float, bool)},
-	{"drawHLine", "(Ljava/awt/Graphics;III)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, drawHLine, void, $Graphics*, int32_t, int32_t, int32_t)},
-	{"drawRect", "(Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, drawRect, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawString", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;Ljava/lang/String;II)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, drawString, void, $JComponent*, $Graphics*, $String*, int32_t, int32_t)},
-	{"drawString", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;Ljava/lang/String;FFZ)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, drawString, void, $JComponent*, $Graphics*, $String*, float, float, bool)},
-	{"drawString", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;Ljava/text/AttributedCharacterIterator;II)F", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, drawString, float, $JComponent*, $Graphics*, $AttributedCharacterIterator*, int32_t, int32_t)},
-	{"drawString", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;Ljava/text/AttributedCharacterIterator;FF)F", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, drawString, float, $JComponent*, $Graphics*, $AttributedCharacterIterator*, float, float)},
-	{"drawStringImpl", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;Ljava/text/AttributedCharacterIterator;FF)F", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, drawStringImpl, float, $JComponent*, $Graphics*, $AttributedCharacterIterator*, float, float)},
-	{"drawStringUnderlineCharAt", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;Ljava/lang/String;III)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, drawStringUnderlineCharAt, void, $JComponent*, $Graphics*, $String*, int32_t, int32_t, int32_t)},
-	{"drawStringUnderlineCharAt", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;Ljava/lang/String;IFFZ)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, drawStringUnderlineCharAt, void, $JComponent*, $Graphics*, $String*, int32_t, float, float, bool)},
-	{"drawVLine", "(Ljava/awt/Graphics;III)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, drawVLine, void, $Graphics*, int32_t, int32_t, int32_t)},
-	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, execute, void, $Runnable*)},
-	{"getAdjustedClickCount", "(Ljavax/swing/text/JTextComponent;Ljava/awt/event/MouseEvent;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getAdjustedClickCount, int32_t, $JTextComponent*, $MouseEvent*)},
-	{"getAndSetAntialisingHintForScaledGraphics", "(Ljava/awt/Graphics;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getAndSetAntialisingHintForScaledGraphics, $Object*, $Graphics*)},
-	{"getBoolean", "(Ljavax/swing/JComponent;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getBoolean, bool, $JComponent*, $String*)},
-	{"getFRCFromCache", "(Ljava/awt/geom/AffineTransform;Ljava/lang/Object;)Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, getFRCFromCache, $FontRenderContext*, $AffineTransform*, Object$*)},
-	{"getFRCProperty", "(Ljavax/swing/JComponent;)Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, getFRCProperty, $FontRenderContext*, $JComponent*)},
-	{"getFontCharWidth", "(CLjava/awt/FontMetrics;Z)F", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getFontCharWidth, float, char16_t, $FontMetrics*, bool)},
-	{"getFontCharsWidth", "([CIILjava/awt/FontMetrics;Z)F", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getFontCharsWidth, float, $chars*, int32_t, int32_t, $FontMetrics*, bool)},
-	{"getFontMetrics", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getFontMetrics, $FontMetrics*, $JComponent*, $Graphics*)},
-	{"getFontMetrics", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getFontMetrics, $FontMetrics*, $JComponent*, $Graphics*, $Font*)},
-	{"getFontMetrics", "(Ljavax/swing/JComponent;Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getFontMetrics, $FontMetrics*, $JComponent*, $Font*)},
-	{"getFontRenderContext", "(Ljava/awt/Component;)Ljava/awt/font/FontRenderContext;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getFontRenderContext, $FontRenderContext*, $Component*)},
-	{"getFontRenderContext", "(Ljava/awt/Component;Ljava/awt/FontMetrics;)Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, getFontRenderContext, $FontRenderContext*, $Component*, $FontMetrics*)},
-	{"getFontStringWidth", "(Ljava/lang/String;Ljava/awt/FontMetrics;Z)F", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getFontStringWidth, float, $String*, $FontMetrics*, bool)},
-	{"getGraphics2D", "(Ljava/awt/Graphics;)Ljava/awt/Graphics2D;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getGraphics2D, $Graphics2D*, $Graphics*)},
-	{"getIconBytes", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)[B", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/String;)[B", $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, getIconBytes, $bytes*, $Class*, $Class*, $String*)},
-	{"getLeftSideBearing", "(Ljavax/swing/JComponent;Ljava/awt/FontMetrics;Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getLeftSideBearing, int32_t, $JComponent*, $FontMetrics*, $String*)},
-	{"getLeftSideBearing", "(Ljavax/swing/JComponent;Ljava/awt/FontMetrics;C)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getLeftSideBearing, int32_t, $JComponent*, $FontMetrics*, char16_t)},
-	{"getSystemMnemonicKeyMask", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getSystemMnemonicKeyMask, int32_t)},
-	{"getTreePath", "(Ljavax/swing/event/TreeModelEvent;Ljavax/swing/tree/TreeModel;)Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getTreePath, $TreePath*, $TreeModelEvent*, $TreeModel*)},
-	{"getTrimmedTrailingSpacesIterator", "(Ljava/text/AttributedCharacterIterator;)Ljava/text/AttributedCharacterIterator;", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, getTrimmedTrailingSpacesIterator, $AttributedCharacterIterator*, $AttributedCharacterIterator*)},
-	{"getUIDefaultsInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getUIDefaultsInt, int32_t, Object$*)},
-	{"getUIDefaultsInt", "(Ljava/lang/Object;Ljava/util/Locale;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getUIDefaultsInt, int32_t, Object$*, $Locale*)},
-	{"getUIDefaultsInt", "(Ljava/lang/Object;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getUIDefaultsInt, int32_t, Object$*, int32_t)},
-	{"getUIDefaultsInt", "(Ljava/lang/Object;Ljava/util/Locale;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getUIDefaultsInt, int32_t, Object$*, $Locale*, int32_t)},
-	{"isAccessClipboardGesture", "(Ljava/awt/event/InputEvent;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, isAccessClipboardGesture, bool, $InputEvent*)},
-	{"isComplexLayout", "([CII)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SwingUtilities2, isComplexLayout, bool, $chars*, int32_t, int32_t)},
-	{"isFloatingPointScale", "(Ljava/awt/geom/AffineTransform;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, isFloatingPointScale, bool, $AffineTransform*)},
-	{"isFontRenderContextPrintCompatible", "(Ljava/awt/font/FontRenderContext;Ljava/awt/font/FontRenderContext;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, isFontRenderContextPrintCompatible, bool, $FontRenderContext*, $FontRenderContext*)},
-	{"isLocalDisplay", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, isLocalDisplay, bool)},
-	{"isPrinting", "(Ljava/awt/Graphics;)Z", nullptr, $STATIC, $staticMethod(SwingUtilities2, isPrinting, bool, $Graphics*)},
-	{"isScaleChanged", "(Ljava/beans/PropertyChangeEvent;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, isScaleChanged, bool, $PropertyChangeEvent*)},
-	{"isScaleChanged", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, isScaleChanged, bool, $String*, Object$*, Object$*)},
-	{"isScaledGraphics", "(Ljava/awt/Graphics;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, isScaledGraphics, bool, $Graphics*)},
-	{"isTrustedContext", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, isTrustedContext, bool)},
-	{"lambda$makeIcon$0", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SwingUtilities2, lambda$makeIcon$0, $bytes*, $Class*, $Class*, $String*)},
-	{"lambda$makeIcon$1", "(ZLjava/lang/Class;Ljava/lang/Class;Ljava/lang/String;Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SwingUtilities2, lambda$makeIcon$1, $Object*, bool, $Class*, $Class*, $String*, $UIDefaults*)},
-	{"liesIn", "(Ljava/awt/Rectangle;Ljava/awt/Point;ZZZ)Lsun/swing/SwingUtilities2$Section;", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, liesIn, $SwingUtilities2$Section*, $Rectangle*, $Point*, bool, bool, bool)},
-	{"liesInHorizontal", "(Ljava/awt/Rectangle;Ljava/awt/Point;ZZ)Lsun/swing/SwingUtilities2$Section;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, liesInHorizontal, $SwingUtilities2$Section*, $Rectangle*, $Point*, bool, bool)},
-	{"liesInVertical", "(Ljava/awt/Rectangle;Ljava/awt/Point;Z)Lsun/swing/SwingUtilities2$Section;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, liesInVertical, $SwingUtilities2$Section*, $Rectangle*, $Point*, bool)},
-	{"loc2IndexFileList", "(Ljavax/swing/JList;Ljava/awt/Point;)I", "(Ljavax/swing/JList<*>;Ljava/awt/Point;)I", $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, loc2IndexFileList, int32_t, $JList*, $Point*)},
-	{"makeIcon", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/lang/Object;", $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, makeIcon, $Object*, $Class*, $Class*, $String*)},
-	{"makeIcon", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;Z)Ljava/lang/Object;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/String;Z)Ljava/lang/Object;", $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, makeIcon, $Object*, $Class*, $Class*, $String*, bool)},
-	{"makeIcon_Unprivileged", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/lang/Object;", $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, makeIcon_Unprivileged, $Object*, $Class*, $Class*, $String*)},
-	{"pointIsInActualBounds", "(Ljavax/swing/JList;ILjava/awt/Point;)Z", "<T:Ljava/lang/Object;>(Ljavax/swing/JList<TT;>;ILjava/awt/Point;)Z", $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, pointIsInActualBounds, bool, $JList*, int32_t, $Point*)},
-	{"pointOutsidePrefSize", "(Ljavax/swing/JTable;IILjava/awt/Point;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, pointOutsidePrefSize, bool, $JTable*, int32_t, int32_t, $Point*)},
-	{"putAATextInfo", "(ZLjava/util/Map;)V", "(ZLjava/util/Map<Ljava/lang/Object;Ljava/lang/Object;>;)V", $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, putAATextInfo, void, bool, $Map*)},
-	{"setAltGraphMask", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, setAltGraphMask, int32_t, int32_t)},
-	{"setAntialiasingHintForScaledGraphics", "(Ljava/awt/Graphics;Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, setAntialiasingHintForScaledGraphics, void, $Graphics*, Object$*)},
-	{"setLeadAnchorWithoutSelection", "(Ljavax/swing/ListSelectionModel;II)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, setLeadAnchorWithoutSelection, void, $ListSelectionModel*, int32_t, int32_t)},
-	{"setSkipClickCount", "(Ljava/awt/Component;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, setSkipClickCount, void, $Component*, int32_t)},
-	{"shouldIgnore", "(Ljava/awt/event/MouseEvent;Ljavax/swing/JComponent;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, shouldIgnore, bool, $MouseEvent*, $JComponent*)},
-	{"stringWidth", "(Ljavax/swing/JComponent;Ljava/awt/FontMetrics;Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, stringWidth, int32_t, $JComponent*, $FontMetrics*, $String*)},
-	{"stringWidth", "(Ljavax/swing/JComponent;Ljava/awt/FontMetrics;Ljava/lang/String;Z)F", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, stringWidth, float, $JComponent*, $FontMetrics*, $String*, bool)},
-	{"submit", "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;", "<V:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TV;>;)Ljava/util/concurrent/Future<TV;>;", $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, submit, $Future*, $Callable*)},
-	{"submit", "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;", "<V:Ljava/lang/Object;>(Ljava/lang/Runnable;TV;)Ljava/util/concurrent/Future<TV;>;", $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, submit, $Future*, $Runnable*, Object$*)},
-	{"syncCharsBuffer", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, syncCharsBuffer, int32_t, $String*)},
-	{"tabbedPaneChangeFocusTo", "(Ljava/awt/Component;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, tabbedPaneChangeFocusTo, bool, $Component*)},
-	{"trimTrailingSpaces", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, trimTrailingSpaces, $String*, $String*)},
-	{"useSelectedTextColor", "(Ljavax/swing/text/Highlighter$Highlight;Ljavax/swing/text/JTextComponent;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, useSelectedTextColor, bool, $Highlighter$Highlight*, $JTextComponent*)},
-	{}
-};
-
-$InnerClassInfo _SwingUtilities2_InnerClassesInfo_[] = {
-	{"sun.swing.SwingUtilities2$RepaintListener", "sun.swing.SwingUtilities2", "RepaintListener", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.swing.SwingUtilities2$Section", "sun.swing.SwingUtilities2", "Section", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"sun.swing.SwingUtilities2$LSBCacheEntry", "sun.swing.SwingUtilities2", "LSBCacheEntry", $PRIVATE | $STATIC},
-	{"sun.swing.SwingUtilities2$KeyPair", "sun.swing.SwingUtilities2", "KeyPair", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SwingUtilities2_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.swing.SwingUtilities2",
-	"java.lang.Object",
-	nullptr,
-	_SwingUtilities2_FieldInfo_,
-	_SwingUtilities2_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SwingUtilities2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.swing.SwingUtilities2$RepaintListener,sun.swing.SwingUtilities2$Section,sun.swing.SwingUtilities2$LSBCacheEntry,sun.swing.SwingUtilities2$KeyPair"
-};
-
-$Object* allocate$SwingUtilities2($Class* clazz) {
-	return $of($alloc(SwingUtilities2));
-}
 
 bool SwingUtilities2::$assertionsDisabled = false;
 $Object* SwingUtilities2::LAF_STATE_KEY = nullptr;
@@ -511,14 +353,14 @@ void SwingUtilities2::init$() {
 
 void SwingUtilities2::putAATextInfo(bool lafCondition, $Map* map) {
 	$init(SwingUtilities2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SunToolkit::setAAFontSettingsCondition(lafCondition);
 	$var($Toolkit, tk, $Toolkit::getDefaultToolkit());
 	$var($Object, desktopHints, $nc(tk)->getDesktopProperty($SunToolkit::DESKTOPFONTHINTS));
 	if ($instanceOf($Map, desktopHints)) {
 		$var($Map, hints, $cast($Map, desktopHints));
 		$init($RenderingHints);
-		$var($Object, aaHint, $nc(hints)->get($RenderingHints::KEY_TEXT_ANTIALIASING));
+		$var($Object, aaHint, hints->get($RenderingHints::KEY_TEXT_ANTIALIASING));
 		if (aaHint == nullptr || $equals(aaHint, $RenderingHints::VALUE_TEXT_ANTIALIAS_OFF) || $equals(aaHint, $RenderingHints::VALUE_TEXT_ANTIALIAS_DEFAULT)) {
 			return;
 		}
@@ -530,7 +372,7 @@ void SwingUtilities2::putAATextInfo(bool lafCondition, $Map* map) {
 int32_t SwingUtilities2::syncCharsBuffer($String* s) {
 	$init(SwingUtilities2);
 	int32_t length = $nc(s)->length();
-	if ((SwingUtilities2::charsBuffer == nullptr) || ($nc(SwingUtilities2::charsBuffer)->length < length)) {
+	if ((SwingUtilities2::charsBuffer == nullptr) || (SwingUtilities2::charsBuffer->length < length)) {
 		$assignStatic(SwingUtilities2::charsBuffer, s->toCharArray());
 	} else {
 		s->getChars(0, length, SwingUtilities2::charsBuffer, 0);
@@ -545,7 +387,7 @@ bool SwingUtilities2::isComplexLayout($chars* text, int32_t start, int32_t limit
 
 int32_t SwingUtilities2::getLeftSideBearing($JComponent* c, $FontMetrics* fm, $String* string) {
 	$init(SwingUtilities2);
-	if ((string == nullptr) || ($nc(string)->length() == 0)) {
+	if ((string == nullptr) || (string->length() == 0)) {
 		return 0;
 	}
 	return getLeftSideBearing(c, fm, $nc(string)->charAt(0));
@@ -553,7 +395,7 @@ int32_t SwingUtilities2::getLeftSideBearing($JComponent* c, $FontMetrics* fm, $S
 
 int32_t SwingUtilities2::getLeftSideBearing($JComponent* c, $FontMetrics* fm, char16_t firstChar) {
 	$init(SwingUtilities2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t charIndex = (int32_t)firstChar;
 	if (charIndex < SwingUtilities2::MAX_CHAR_INDEX && charIndex >= SwingUtilities2::MIN_CHAR_INDEX) {
 		$var($bytes, lsbs, nullptr);
@@ -564,19 +406,15 @@ int32_t SwingUtilities2::getLeftSideBearing($JComponent* c, $FontMetrics* fm, ch
 			if (SwingUtilities2::searchKey == nullptr) {
 				$assignStatic(SwingUtilities2::searchKey, $new($SwingUtilities2$LSBCacheEntry, frc, font));
 			} else {
-				$nc(SwingUtilities2::searchKey)->reset(frc, font);
+				SwingUtilities2::searchKey->reset(frc, font);
 			}
 			{
 				$var($SwingUtilities2$LSBCacheEntryArray, arr$, SwingUtilities2::fontCache);
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
+				for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 					$var($SwingUtilities2$LSBCacheEntry, cacheEntry, arr$->get(i$));
-					{
-						if ($nc(SwingUtilities2::searchKey)->equals(cacheEntry)) {
-							$assign(entry, cacheEntry);
-							break;
-						}
+					if ($nc(SwingUtilities2::searchKey)->equals(cacheEntry)) {
+						$assign(entry, cacheEntry);
+						break;
 					}
 				}
 			}
@@ -602,7 +440,7 @@ $FontMetrics* SwingUtilities2::getFontMetrics($JComponent* c, $Graphics* g, $Fon
 	if (c != nullptr) {
 		return c->getFontMetrics(font);
 	}
-	return $nc($($Toolkit::getDefaultToolkit()))->getFontMetrics(font);
+	return $$nc($Toolkit::getDefaultToolkit())->getFontMetrics(font);
 }
 
 int32_t SwingUtilities2::stringWidth($JComponent* c, $FontMetrics* fm, $String* string) {
@@ -612,9 +450,9 @@ int32_t SwingUtilities2::stringWidth($JComponent* c, $FontMetrics* fm, $String* 
 
 float SwingUtilities2::stringWidth($JComponent* c, $FontMetrics* fm, $String* string, bool useFPAPI) {
 	$init(SwingUtilities2);
-	$useLocalCurrentObjectStackCache();
-	if (string == nullptr || $nc(string)->isEmpty()) {
-		return (float)0;
+	$useLocalObjectStack();
+	if (string == nullptr || string->isEmpty()) {
+		return 0;
 	}
 	$init($TextAttribute);
 	bool needsTextLayout = ((c != nullptr) && (c->getClientProperty($TextAttribute::NUMERIC_SHAPING) != nullptr));
@@ -625,10 +463,8 @@ float SwingUtilities2::stringWidth($JComponent* c, $FontMetrics* fm, $String* st
 		}
 	}
 	if (needsTextLayout) {
-		$var($JComponent, var$0, c);
-		$var($String, var$1, string);
-		$var($Font, var$2, $nc(fm)->getFont());
-		$var($TextLayout, layout, createTextLayout(var$0, var$1, var$2, $(fm->getFontRenderContext())));
+		$var($Font, var$0, $nc(fm)->getFont());
+		$var($TextLayout, layout, createTextLayout(c, string, var$0, $(fm->getFontRenderContext())));
 		return $nc(layout)->getAdvance();
 	} else {
 		return getFontStringWidth(string, fm, useFPAPI);
@@ -637,7 +473,7 @@ float SwingUtilities2::stringWidth($JComponent* c, $FontMetrics* fm, $String* st
 
 $String* SwingUtilities2::clipStringIfNecessary($JComponent* c, $FontMetrics* fm, $String* string, int32_t availTextWidth) {
 	$init(SwingUtilities2);
-	if (string == nullptr || $nc(string)->isEmpty()) {
+	if (string == nullptr || string->isEmpty()) {
 		return ""_s;
 	}
 	int32_t textWidth = SwingUtilities2::stringWidth(c, fm, string);
@@ -649,7 +485,7 @@ $String* SwingUtilities2::clipStringIfNecessary($JComponent* c, $FontMetrics* fm
 
 $String* SwingUtilities2::clipString($JComponent* c, $FontMetrics* fm, $String* string$renamed, int32_t availTextWidth) {
 	$init(SwingUtilities2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, string, string$renamed);
 	$var($String, clipString, "..."_s);
 	availTextWidth -= SwingUtilities2::stringWidth(c, fm, clipString);
@@ -692,8 +528,8 @@ void SwingUtilities2::drawString($JComponent* c, $Graphics* g, $String* text, in
 
 void SwingUtilities2::drawString($JComponent* c, $Graphics* g, $String* text, float x, float y, bool useFPAPI) {
 	$init(SwingUtilities2);
-	$useLocalCurrentObjectStackCache();
-	if (text == nullptr || $nc(text)->length() <= 0) {
+	$useLocalObjectStack();
+	if (text == nullptr || text->length() <= 0) {
 		return;
 	}
 	if (isPrinting(g)) {
@@ -701,17 +537,15 @@ void SwingUtilities2::drawString($JComponent* c, $Graphics* g, $String* text, fl
 		if (g2d != nullptr) {
 			$var($String, trimmedText, trimTrailingSpaces(text));
 			if (!$nc(trimmedText)->isEmpty()) {
-				float screenWidth = (float)$nc($($nc($(g2d->getFont()))->getStringBounds(trimmedText, $(getFontRenderContext(c)))))->getWidth();
-				$var($JComponent, var$0, c);
-				$var($String, var$1, text);
-				$var($Font, var$2, g2d->getFont());
-				$var($TextLayout, layout, createTextLayout(var$0, var$1, var$2, $(g2d->getFontRenderContext())));
+				float screenWidth = (float)$$nc($$nc(g2d->getFont())->getStringBounds(trimmedText, $(getFontRenderContext(c))))->getWidth();
+				$var($Font, var$0, g2d->getFont());
+				$var($TextLayout, layout, createTextLayout(c, text, var$0, $(g2d->getFontRenderContext())));
 				if (SwingUtilities2::stringWidth(c, $(g2d->getFontMetrics()), trimmedText) > screenWidth) {
 					$assign(layout, $nc(layout)->getJustifiedLayout(screenWidth));
 				}
 				$var($Color, col, g2d->getColor());
 				if ($instanceOf($PrintColorUIResource, col)) {
-					g2d->setColor($($nc(($cast($PrintColorUIResource, col)))->getPrintColor()));
+					g2d->setColor($($cast($PrintColorUIResource, col)->getPrintColor()));
 				}
 				$nc(layout)->draw(g2d, x, y);
 				g2d->setColor(col);
@@ -733,26 +567,24 @@ void SwingUtilities2::drawString($JComponent* c, $Graphics* g, $String* text, fl
 		$var($Object, aaHint, (c == nullptr) ? ($Object*)nullptr : c->getClientProperty($RenderingHints::KEY_TEXT_ANTIALIASING));
 		if (aaHint != nullptr) {
 			$var($Object, oldContrast, nullptr);
-			$var($Object, oldAAValue, $nc(g2)->getRenderingHint($RenderingHints::KEY_TEXT_ANTIALIASING));
+			$var($Object, oldAAValue, g2->getRenderingHint($RenderingHints::KEY_TEXT_ANTIALIASING));
 			if (!$equals(aaHint, oldAAValue)) {
 				g2->setRenderingHint($RenderingHints::KEY_TEXT_ANTIALIASING, aaHint);
 			} else {
 				$assign(oldAAValue, nullptr);
 			}
-			$var($Object, lcdContrastHint, c->getClientProperty($RenderingHints::KEY_TEXT_LCD_CONTRAST));
+			$var($Object, lcdContrastHint, $nc(c)->getClientProperty($RenderingHints::KEY_TEXT_LCD_CONTRAST));
 			if (lcdContrastHint != nullptr) {
 				$assign(oldContrast, g2->getRenderingHint($RenderingHints::KEY_TEXT_LCD_CONTRAST));
-				if ($of(lcdContrastHint)->equals(oldContrast)) {
+				if (lcdContrastHint->equals(oldContrast)) {
 					$assign(oldContrast, nullptr);
 				} else {
 					g2->setRenderingHint($RenderingHints::KEY_TEXT_LCD_CONTRAST, lcdContrastHint);
 				}
 			}
 			if (needsTextLayout) {
-				$var($JComponent, var$3, c);
-				$var($String, var$4, text);
-				$var($Font, var$5, g2->getFont());
-				$var($TextLayout, layout, createTextLayout(var$3, var$4, var$5, $(g2->getFontRenderContext())));
+				$var($Font, var$1, g2->getFont());
+				$var($TextLayout, layout, createTextLayout(c, text, var$1, $(g2->getFontRenderContext())));
 				$nc(layout)->draw(g2, x, y);
 			} else {
 				g2->drawString(text, x, y);
@@ -766,10 +598,8 @@ void SwingUtilities2::drawString($JComponent* c, $Graphics* g, $String* text, fl
 			return;
 		}
 		if (needsTextLayout) {
-			$var($JComponent, var$6, c);
-			$var($String, var$7, text);
-			$var($Font, var$8, $nc(g2)->getFont());
-			$var($TextLayout, layout, createTextLayout(var$6, var$7, var$8, $(g2->getFontRenderContext())));
+			$var($Font, var$2, g2->getFont());
+			$var($TextLayout, layout, createTextLayout(c, text, var$2, $(g2->getFontRenderContext())));
 			$nc(layout)->draw(g2, x, y);
 			return;
 		}
@@ -784,8 +614,8 @@ void SwingUtilities2::drawStringUnderlineCharAt($JComponent* c, $Graphics* g, $S
 
 void SwingUtilities2::drawStringUnderlineCharAt($JComponent* c, $Graphics* g, $String* text, int32_t underlinedIndex, float x, float y, bool useFPAPI) {
 	$init(SwingUtilities2);
-	$useLocalCurrentObjectStackCache();
-	if (text == nullptr || $nc(text)->length() <= 0) {
+	$useLocalObjectStack();
+	if (text == nullptr || text->length() <= 0) {
 		return;
 	}
 	SwingUtilities2::drawString(c, g, text, x, y, useFPAPI);
@@ -793,7 +623,7 @@ void SwingUtilities2::drawStringUnderlineCharAt($JComponent* c, $Graphics* g, $S
 	if (underlinedIndex >= 0 && underlinedIndex < textLength) {
 		float underlineRectY = y;
 		int32_t underlineRectHeight = 1;
-		float underlineRectX = (float)0;
+		float underlineRectX = 0;
 		int32_t underlineRectWidth = 0;
 		bool isPrinting = SwingUtilities2::isPrinting(g);
 		bool needsTextLayout = isPrinting;
@@ -810,12 +640,10 @@ void SwingUtilities2::drawStringUnderlineCharAt($JComponent* c, $Graphics* g, $S
 		} else {
 			$var($Graphics2D, g2d, getGraphics2D(g));
 			if (g2d != nullptr) {
-				$var($JComponent, var$0, c);
-				$var($String, var$1, text);
-				$var($Font, var$2, g2d->getFont());
-				$var($TextLayout, layout, createTextLayout(var$0, var$1, var$2, $(g2d->getFontRenderContext())));
+				$var($Font, var$0, g2d->getFont());
+				$var($TextLayout, layout, createTextLayout(c, text, var$0, $(g2d->getFontRenderContext())));
 				if (isPrinting) {
-					float screenWidth = (float)$nc($($nc($(g2d->getFont()))->getStringBounds(text, $(getFontRenderContext(c)))))->getWidth();
+					float screenWidth = (float)$$nc($$nc(g2d->getFont())->getStringBounds(text, $(getFontRenderContext(c))))->getWidth();
 					if (SwingUtilities2::stringWidth(c, $(g2d->getFontMetrics()), text) > screenWidth) {
 						$assign(layout, $nc(layout)->getJustifiedLayout(screenWidth));
 					}
@@ -837,7 +665,7 @@ int32_t SwingUtilities2::loc2IndexFileList($JList* list, $Point* point) {
 	int32_t index = $nc(list)->locationToIndex(point);
 	if (index != -1) {
 		$var($Object, bySize, list->getClientProperty("List.isFileList"_s));
-		bool var$0 = $instanceOf($Boolean, bySize) && $nc(($cast($Boolean, bySize)))->booleanValue();
+		bool var$0 = $instanceOf($Boolean, bySize) && $cast($Boolean, bySize)->booleanValue();
 		if (var$0 && !pointIsInActualBounds(list, index, point)) {
 			index = -1;
 		}
@@ -847,14 +675,14 @@ int32_t SwingUtilities2::loc2IndexFileList($JList* list, $Point* point) {
 
 bool SwingUtilities2::pointIsInActualBounds($JList* list, int32_t index, $Point* point) {
 	$init(SwingUtilities2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListCellRenderer, renderer, $nc(list)->getCellRenderer());
-	$var($Object, value, $nc($(list->getModel()))->getElementAt(index));
+	$var($Object, value, $$nc(list->getModel())->getElementAt(index));
 	$var($Component, item, $nc(renderer)->getListCellRendererComponent(list, value, index, false, false));
 	$var($Dimension, itemSize, $nc(item)->getPreferredSize());
 	$var($Rectangle, cellBounds, list->getCellBounds(index, index));
-	if (!$nc($(item->getComponentOrientation()))->isLeftToRight()) {
-		$nc(cellBounds)->x += (cellBounds->width - $nc(itemSize)->width);
+	if (!$$nc(item->getComponentOrientation())->isLeftToRight()) {
+		$nc(cellBounds)->x += ($nc(cellBounds)->width - $nc(itemSize)->width);
 	}
 	$nc(cellBounds)->width = $nc(itemSize)->width;
 	return cellBounds->contains(point);
@@ -862,11 +690,11 @@ bool SwingUtilities2::pointIsInActualBounds($JList* list, int32_t index, $Point*
 
 bool SwingUtilities2::pointOutsidePrefSize($JTable* table, int32_t row, int32_t column, $Point* p) {
 	$init(SwingUtilities2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(table)->convertColumnIndexToModel(column) != 0 || row == -1) {
 		return true;
 	}
-	$var($TableCellRenderer, tcr, $nc(table)->getCellRenderer(row, column));
+	$var($TableCellRenderer, tcr, table->getCellRenderer(row, column));
 	$var($Object, value, table->getValueAt(row, column));
 	$var($Component, cell, $nc(tcr)->getTableCellRendererComponent(table, value, false, false, row, column));
 	$var($Dimension, itemSize, $nc(cell)->getPreferredSize());
@@ -876,7 +704,7 @@ bool SwingUtilities2::pointOutsidePrefSize($JTable* table, int32_t row, int32_t 
 	if (!SwingUtilities2::$assertionsDisabled && !($nc(p)->x >= cellBounds->x && p->y >= cellBounds->y)) {
 		$throwNew($AssertionError);
 	}
-	return $nc(p)->x > cellBounds->x + cellBounds->width || $nc(p)->y > cellBounds->y + cellBounds->height;
+	return $nc(p)->x > cellBounds->x + cellBounds->width || p->y > cellBounds->y + cellBounds->height;
 }
 
 void SwingUtilities2::setLeadAnchorWithoutSelection($ListSelectionModel* model, int32_t lead, int32_t anchor) {
@@ -893,13 +721,13 @@ void SwingUtilities2::setLeadAnchorWithoutSelection($ListSelectionModel* model, 
 		} else {
 			model->removeSelectionInterval(lead, lead);
 		}
-		$nc(model)->setAnchorSelectionIndex(anchor);
+		model->setAnchorSelectionIndex(anchor);
 	}
 }
 
 bool SwingUtilities2::shouldIgnore($MouseEvent* me, $JComponent* c) {
 	$init(SwingUtilities2);
-	bool var$1 = c == nullptr || !$nc(c)->isEnabled();
+	bool var$1 = c == nullptr || !c->isEnabled();
 	bool var$0 = var$1 || !$SwingUtilities::isLeftMouseButton(me);
 	return var$0 || $nc(me)->isConsumed();
 }
@@ -924,7 +752,7 @@ float SwingUtilities2::drawChars($JComponent* c, $Graphics* g, $chars* data, int
 
 float SwingUtilities2::drawChars($JComponent* c, $Graphics* g, $chars* data, int32_t offset, int32_t length, float x, float y, bool useFPAPI) {
 	$init(SwingUtilities2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (length <= 0) {
 		return x;
 	}
@@ -939,15 +767,15 @@ float SwingUtilities2::drawChars($JComponent* c, $Graphics* g, $chars* data, int
 				$var($TextLayout, layout, $new($TextLayout, text, $(g2d->getFont()), deviceFontRenderContext));
 				$var($String, trimmedText, trimTrailingSpaces(text));
 				if (!$nc(trimmedText)->isEmpty()) {
-					float screenWidth = (float)$nc($($nc($(g2d->getFont()))->getStringBounds(trimmedText, frc)))->getWidth();
+					float screenWidth = (float)$$nc($$nc(g2d->getFont())->getStringBounds(trimmedText, frc))->getWidth();
 					if (SwingUtilities2::stringWidth(c, $(g2d->getFontMetrics()), trimmedText) > screenWidth) {
 						$assign(layout, layout->getJustifiedLayout(screenWidth));
 					}
 					$var($Color, col, g2d->getColor());
 					if ($instanceOf($PrintColorUIResource, col)) {
-						g2d->setColor($($nc(($cast($PrintColorUIResource, col)))->getPrintColor()));
+						g2d->setColor($($cast($PrintColorUIResource, col)->getPrintColor()));
 					}
-					layout->draw(g2d, x, y);
+					$nc(layout)->draw(g2d, x, y);
 					g2d->setColor(col);
 				}
 				return nextX;
@@ -955,7 +783,7 @@ float SwingUtilities2::drawChars($JComponent* c, $Graphics* g, $chars* data, int
 		}
 	}
 	$init($RenderingHints);
-	$var($Object, aaHint, (c == nullptr) ? ($Object*)nullptr : $nc(c)->getClientProperty($RenderingHints::KEY_TEXT_ANTIALIASING));
+	$var($Object, aaHint, (c == nullptr) ? ($Object*)nullptr : c->getClientProperty($RenderingHints::KEY_TEXT_ANTIALIASING));
 	if (!($instanceOf($Graphics2D, g))) {
 		$nc(g)->drawChars(data, offset, length, $cast(int32_t, x), $cast(int32_t, y));
 		return nextX;
@@ -969,10 +797,10 @@ float SwingUtilities2::drawChars($JComponent* c, $Graphics* g, $chars* data, int
 		} else {
 			$assign(oldAAValue, nullptr);
 		}
-		$var($Object, lcdContrastHint, c->getClientProperty($RenderingHints::KEY_TEXT_LCD_CONTRAST));
+		$var($Object, lcdContrastHint, $nc(c)->getClientProperty($RenderingHints::KEY_TEXT_LCD_CONTRAST));
 		if (lcdContrastHint != nullptr) {
 			$assign(oldContrast, g2->getRenderingHint($RenderingHints::KEY_TEXT_LCD_CONTRAST));
-			if ($of(lcdContrastHint)->equals(oldContrast)) {
+			if (lcdContrastHint->equals(oldContrast)) {
 				$assign(oldContrast, nullptr);
 			} else {
 				g2->setRenderingHint($RenderingHints::KEY_TEXT_LCD_CONTRAST, lcdContrastHint);
@@ -998,12 +826,12 @@ float SwingUtilities2::getFontCharWidth(char16_t c, $FontMetrics* fm, bool useFP
 
 float SwingUtilities2::getFontCharsWidth($chars* data, int32_t offset, int32_t len, $FontMetrics* fm, bool useFPAPI) {
 	$init(SwingUtilities2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (len == 0) {
-		return (float)0;
+		return 0;
 	}
 	if (useFPAPI) {
-		$var($Rectangle2D, bounds, $nc($($nc(fm)->getFont()))->getStringBounds(data, offset, offset + len, $(fm->getFontRenderContext())));
+		$var($Rectangle2D, bounds, $$nc($nc(fm)->getFont())->getStringBounds(data, offset, offset + len, $($nc(fm)->getFontRenderContext())));
 		return (float)$nc(bounds)->getWidth();
 	} else {
 		return (float)$nc(fm)->charsWidth(data, offset, len);
@@ -1012,9 +840,9 @@ float SwingUtilities2::getFontCharsWidth($chars* data, int32_t offset, int32_t l
 
 float SwingUtilities2::getFontStringWidth($String* data, $FontMetrics* fm, bool useFPAPI) {
 	$init(SwingUtilities2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (useFPAPI) {
-		$var($Rectangle2D, bounds, $nc($($nc(fm)->getFont()))->getStringBounds(data, $(fm->getFontRenderContext())));
+		$var($Rectangle2D, bounds, $$nc($nc(fm)->getFont())->getStringBounds(data, $($nc(fm)->getFontRenderContext())));
 		return (float)$nc(bounds)->getWidth();
 	} else {
 		return (float)$nc(fm)->stringWidth(data);
@@ -1033,13 +861,13 @@ float SwingUtilities2::drawString($JComponent* c, $Graphics* g, $AttributedChara
 
 float SwingUtilities2::drawStringImpl($JComponent* c, $Graphics* g, $AttributedCharacterIterator* iterator, float x, float y) {
 	$init(SwingUtilities2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	float retVal = 0.0;
 	bool isPrinting = SwingUtilities2::isPrinting(g);
 	$var($Color, col, $nc(g)->getColor());
 	if (isPrinting) {
 		if ($instanceOf($PrintColorUIResource, col)) {
-			g->setColor($($nc(($cast($PrintColorUIResource, col)))->getPrintColor()));
+			g->setColor($($cast($PrintColorUIResource, col)->getPrintColor()));
 		}
 	}
 	$var($Graphics2D, g2d, getGraphics2D(g));
@@ -1051,16 +879,16 @@ float SwingUtilities2::drawStringImpl($JComponent* c, $Graphics* g, $AttributedC
 		if (isPrinting) {
 			$assign(frc, getFontRenderContext(c));
 			bool var$0 = $nc(frc)->isAntiAliased();
-			if (var$0 || $nc(frc)->usesFractionalMetrics()) {
+			if (var$0 || frc->usesFractionalMetrics()) {
 				$assign(frc, $new($FontRenderContext, $(frc->getTransform()), false, false));
 			}
 		} else if (($assign(frc, getFRCProperty(c))) != nullptr) {
 		} else {
-			$assign(frc, $nc(g2d)->getFontRenderContext());
+			$assign(frc, g2d->getFontRenderContext());
 		}
 		$var($TextLayout, layout, nullptr);
 		if (isPrinting) {
-			$var($FontRenderContext, deviceFRC, $nc(g2d)->getFontRenderContext());
+			$var($FontRenderContext, deviceFRC, g2d->getFontRenderContext());
 			if (!isFontRenderContextPrintCompatible(frc, deviceFRC)) {
 				$assign(layout, $new($TextLayout, iterator, deviceFRC));
 				$var($AttributedCharacterIterator, trimmedIt, getTrimmedTrailingSpacesIterator(iterator));
@@ -1120,9 +948,9 @@ void SwingUtilities2::drawRect($Graphics* g, int32_t x, int32_t y, int32_t w, in
 
 $TextLayout* SwingUtilities2::createTextLayout($JComponent* c, $String* s, $Font* f, $FontRenderContext* frc) {
 	$init(SwingUtilities2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TextAttribute);
-	$var($Object, shaper, c == nullptr ? ($Object*)nullptr : $nc(c)->getClientProperty($TextAttribute::NUMERIC_SHAPING));
+	$var($Object, shaper, c == nullptr ? ($Object*)nullptr : c->getClientProperty($TextAttribute::NUMERIC_SHAPING));
 	if (shaper == nullptr) {
 		return $new($TextLayout, s, f, frc);
 	} else {
@@ -1135,7 +963,7 @@ $TextLayout* SwingUtilities2::createTextLayout($JComponent* c, $String* s, $Font
 
 bool SwingUtilities2::isFontRenderContextPrintCompatible($FontRenderContext* frc1, $FontRenderContext* frc2) {
 	$init(SwingUtilities2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (frc1 == frc2) {
 		return true;
 	}
@@ -1145,14 +973,14 @@ bool SwingUtilities2::isFontRenderContextPrintCompatible($FontRenderContext* frc
 	if (!$equals($nc(frc1)->getFractionalMetricsHint(), $nc(frc2)->getFractionalMetricsHint())) {
 		return false;
 	}
-	bool var$0 = !$nc(frc1)->isTransformed();
-	if (var$0 && !$nc(frc2)->isTransformed()) {
+	bool var$0 = !frc1->isTransformed();
+	if (var$0 && !frc2->isTransformed()) {
 		return true;
 	}
 	$var($doubles, mat1, $new($doubles, 4));
 	$var($doubles, mat2, $new($doubles, 4));
-	$nc($($nc(frc1)->getTransform()))->getMatrix(mat1);
-	$nc($($nc(frc2)->getTransform()))->getMatrix(mat2);
+	$$nc(frc1->getTransform())->getMatrix(mat1);
+	$$nc(frc2->getTransform())->getMatrix(mat2);
 	return mat1->get(0) == mat2->get(0) && mat1->get(1) == mat2->get(1) && mat1->get(2) == mat2->get(2) && mat1->get(3) == mat2->get(3);
 }
 
@@ -1161,7 +989,7 @@ $Graphics2D* SwingUtilities2::getGraphics2D($Graphics* g) {
 	if ($instanceOf($Graphics2D, g)) {
 		return $cast($Graphics2D, g);
 	} else if ($instanceOf($ProxyPrintGraphics, g)) {
-		return ($cast($Graphics2D, $nc(($cast($ProxyPrintGraphics, g)))->getGraphics()));
+		return $cast($Graphics2D, $cast($ProxyPrintGraphics, g)->getGraphics());
 	} else {
 		return nullptr;
 	}
@@ -1169,14 +997,14 @@ $Graphics2D* SwingUtilities2::getGraphics2D($Graphics* g) {
 
 $FontRenderContext* SwingUtilities2::getFontRenderContext($Component* c) {
 	$init(SwingUtilities2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!SwingUtilities2::$assertionsDisabled && !(c != nullptr)) {
 		$throwNew($AssertionError);
 	}
 	if (c == nullptr) {
 		return SwingUtilities2::DEFAULT_FRC;
 	} else {
-		return $nc($($nc(c)->getFontMetrics($(c->getFont()))))->getFontRenderContext();
+		return $$nc(c->getFontMetrics($(c->getFont())))->getFontRenderContext();
 	}
 }
 
@@ -1185,7 +1013,7 @@ $FontRenderContext* SwingUtilities2::getFontRenderContext($Component* c, $FontMe
 	if (!SwingUtilities2::$assertionsDisabled && !(fm != nullptr || c != nullptr)) {
 		$throwNew($AssertionError);
 	}
-	return (fm != nullptr) ? $nc(fm)->getFontRenderContext() : getFontRenderContext(c);
+	return (fm != nullptr) ? fm->getFontRenderContext() : getFontRenderContext(c);
 }
 
 $FontMetrics* SwingUtilities2::getFontMetrics($JComponent* c, $Font* font) {
@@ -1199,10 +1027,10 @@ $FontMetrics* SwingUtilities2::getFontMetrics($JComponent* c, $Font* font) {
 
 $FontRenderContext* SwingUtilities2::getFRCProperty($JComponent* c) {
 	$init(SwingUtilities2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (c != nullptr) {
 		$var($GraphicsConfiguration, gc, c->getGraphicsConfiguration());
-		$var($AffineTransform, tx, (gc == nullptr) ? ($AffineTransform*)nullptr : $nc(gc)->getDefaultTransform());
+		$var($AffineTransform, tx, (gc == nullptr) ? ($AffineTransform*)nullptr : gc->getDefaultTransform());
 		$init($RenderingHints);
 		$var($Object, aaHint, c->getClientProperty($RenderingHints::KEY_TEXT_ANTIALIASING));
 		return getFRCFromCache(tx, aaHint);
@@ -1212,15 +1040,15 @@ $FontRenderContext* SwingUtilities2::getFRCProperty($JComponent* c) {
 
 $FontRenderContext* SwingUtilities2::getFRCFromCache($AffineTransform* tx, Object$* aaHint$renamed) {
 	$init(SwingUtilities2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, aaHint, aaHint$renamed);
 	if (tx == nullptr && aaHint == nullptr) {
 		return nullptr;
 	}
-	$var($Map, cache, $cast($Map, $nc($($AppContext::getAppContext()))->get(SwingUtilities2::APP_CONTEXT_FRC_CACHE_KEY)));
+	$var($Map, cache, $cast($Map, $$nc($AppContext::getAppContext())->get(SwingUtilities2::APP_CONTEXT_FRC_CACHE_KEY)));
 	if (cache == nullptr) {
 		$assign(cache, $new($HashMap));
-		$nc($($AppContext::getAppContext()))->put(SwingUtilities2::APP_CONTEXT_FRC_CACHE_KEY, cache);
+		$$nc($AppContext::getAppContext())->put(SwingUtilities2::APP_CONTEXT_FRC_CACHE_KEY, cache);
 	}
 	$var($Object, key, (tx == nullptr) ? $of(aaHint) : (aaHint == nullptr ? $of(tx) : $of($new($SwingUtilities2$KeyPair, tx, aaHint))));
 	$var($FontRenderContext, frc, $cast($FontRenderContext, $nc(cache)->get(key)));
@@ -1270,9 +1098,9 @@ $AttributedCharacterIterator* SwingUtilities2::getTrimmedTrailingSpacesIterator(
 
 bool SwingUtilities2::useSelectedTextColor($Highlighter$Highlight* h, $JTextComponent* c) {
 	$init(SwingUtilities2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Highlighter$HighlightPainter, painter, $nc(h)->getPainter());
-	$var($String, painterClass, $nc($of(painter))->getClass()->getName());
+	$var($String, painterClass, $nc(painter)->getClass()->getName());
 	bool var$0 = $nc(painterClass)->indexOf("javax.swing.text.DefaultHighlighter"_s) != 0;
 	if (var$0 && painterClass->indexOf("com.sun.java.swing.plaf.windows.WindowsTextUI"_s) != 0) {
 		return false;
@@ -1280,7 +1108,7 @@ bool SwingUtilities2::useSelectedTextColor($Highlighter$Highlight* h, $JTextComp
 	try {
 		$var($DefaultHighlighter$DefaultHighlightPainter, defPainter, $cast($DefaultHighlighter$DefaultHighlightPainter, painter));
 		bool var$1 = defPainter->getColor() != nullptr;
-		if (var$1 && !$nc($(defPainter->getColor()))->equals($($nc(c)->getSelectionColor()))) {
+		if (var$1 && !$$nc(defPainter->getColor())->equals($($nc(c)->getSelectionColor()))) {
 			return false;
 		}
 	} catch ($ClassCastException& e) {
@@ -1299,7 +1127,7 @@ bool SwingUtilities2::canAccessSystemClipboard() {
 		} else {
 			try {
 				$init($AWTPermissions);
-				$nc(sm)->checkPermission($AWTPermissions::ACCESS_CLIPBOARD_PERMISSION);
+				sm->checkPermission($AWTPermissions::ACCESS_CLIPBOARD_PERMISSION);
 				canAccess = true;
 			} catch ($SecurityException& e) {
 			}
@@ -1328,37 +1156,25 @@ bool SwingUtilities2::isAccessClipboardGesture($InputEvent* ie) {
 	bool allowedGesture = false;
 	if ($instanceOf($KeyEvent, ie)) {
 		$var($KeyEvent, ke, $cast($KeyEvent, ie));
-		int32_t keyCode = $nc(ke)->getKeyCode();
+		int32_t keyCode = ke->getKeyCode();
 		int32_t keyModifiers = ke->getModifiers();
 		switch (keyCode) {
 		case $KeyEvent::VK_C:
-			{}
 		case $KeyEvent::VK_V:
-			{}
 		case $KeyEvent::VK_X:
-			{
-				allowedGesture = (keyModifiers == $InputEvent::CTRL_MASK);
-				break;
-			}
+			allowedGesture = (keyModifiers == $InputEvent::CTRL_MASK);
+			break;
 		case $KeyEvent::VK_INSERT:
-			{
-				allowedGesture = (keyModifiers == $InputEvent::CTRL_MASK || keyModifiers == $InputEvent::SHIFT_MASK);
-				break;
-			}
+			allowedGesture = (keyModifiers == $InputEvent::CTRL_MASK || keyModifiers == $InputEvent::SHIFT_MASK);
+			break;
 		case $KeyEvent::VK_COPY:
-			{}
 		case $KeyEvent::VK_PASTE:
-			{}
 		case $KeyEvent::VK_CUT:
-			{
-				allowedGesture = true;
-				break;
-			}
+			allowedGesture = true;
+			break;
 		case $KeyEvent::VK_DELETE:
-			{
-				allowedGesture = (keyModifiers == $InputEvent::SHIFT_MASK);
-				break;
-			}
+			allowedGesture = (keyModifiers == $InputEvent::SHIFT_MASK);
+			break;
 		}
 	}
 	return allowedGesture;
@@ -1368,7 +1184,7 @@ bool SwingUtilities2::canEventAccessSystemClipboard($AWTEvent* e, bool checkGest
 	$init(SwingUtilities2);
 	if ($EventQueue::isDispatchThread()) {
 		if ($instanceOf($InputEvent, e) && (!checkGesture || isAccessClipboardGesture($cast($InputEvent, e)))) {
-			return $nc($($AWTAccessor::getInputEventAccessor()))->canAccessSystemClipboard($cast($InputEvent, e));
+			return $$nc($AWTAccessor::getInputEventAccessor())->canAccessSystemClipboard($cast($InputEvent, e));
 		} else {
 			return false;
 		}
@@ -1393,13 +1209,13 @@ bool SwingUtilities2::canCurrentEventAccessSystemClipboard(bool checkGesture) {
 
 bool SwingUtilities2::isTrustedContext() {
 	$init(SwingUtilities2);
-	bool var$0 = ($System::getSecurityManager() == nullptr);
-	return var$0 || ($nc($($AppContext::getAppContext()))->get(SwingUtilities2::UntrustedClipboardAccess) == nullptr);
+	bool var$0 = $System::getSecurityManager() == nullptr;
+	return var$0 || ($$nc($AppContext::getAppContext())->get(SwingUtilities2::UntrustedClipboardAccess) == nullptr);
 }
 
 $String* SwingUtilities2::displayPropertiesToCSS($Font* font, $Color* fg) {
 	$init(SwingUtilities2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, rule, $new($StringBuilder, "body {"_s));
 	if (font != nullptr) {
 		rule->append(" font-family: "_s);
@@ -1437,109 +1253,105 @@ $String* SwingUtilities2::displayPropertiesToCSS($Font* font, $Color* fg) {
 
 $Object* SwingUtilities2::makeIcon($Class* baseClass, $Class* rootClass, $String* imageFile) {
 	$init(SwingUtilities2);
-	return $of(makeIcon(baseClass, rootClass, imageFile, true));
+	return makeIcon(baseClass, rootClass, imageFile, true);
 }
 
 $Object* SwingUtilities2::makeIcon_Unprivileged($Class* baseClass, $Class* rootClass, $String* imageFile) {
 	$init(SwingUtilities2);
-	return $of(makeIcon(baseClass, rootClass, imageFile, false));
+	return makeIcon(baseClass, rootClass, imageFile, false);
 }
 
 $Object* SwingUtilities2::makeIcon($Class* baseClass, $Class* rootClass, $String* imageFile, bool enablePrivileges) {
 	$init(SwingUtilities2);
-	return $of(static_cast<$UIDefaults$LazyValue*>($new(SwingUtilities2$$Lambda$lambda$makeIcon$1, enablePrivileges, baseClass, rootClass, imageFile)));
+	return $cast($UIDefaults$LazyValue, $new(SwingUtilities2$$Lambda$lambda$makeIcon$1, enablePrivileges, baseClass, rootClass, imageFile));
 }
 
 $bytes* SwingUtilities2::getIconBytes($Class* baseClass, $Class* rootClass, $String* imageFile) {
 	$init(SwingUtilities2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Class* srchClass = baseClass;
 	while (srchClass != nullptr) {
 		try {
 			$var($InputStream, resource, srchClass->getResourceAsStream(imageFile));
-			{
-				$var($Throwable, var$0, nullptr);
-				$var($bytes, var$2, nullptr);
-				bool return$1 = false;
-				bool break$3 = false;
-				bool continue$4 = false;
+			$var($Throwable, var$0, nullptr);
+			$var($bytes, var$2, nullptr);
+			bool return$1 = false;
+			bool break$3 = false;
+			bool continue$4 = false;
+			try {
 				try {
-					try {
-						if (resource == nullptr) {
-							if (srchClass == rootClass) {
-								// break;
-								break$3 = true;
-								goto $finally;
-							}
-							srchClass = srchClass->getSuperclass();
-							// continue;
-							continue$4 = true;
+					if (resource == nullptr) {
+						if (srchClass == rootClass) {
+							// break;
+							break$3 = true;
 							goto $finally;
 						}
-						{
-							$var($BufferedInputStream, in, $new($BufferedInputStream, resource));
-							{
-								$var($Throwable, var$5, nullptr);
-								$var($bytes, var$7, nullptr);
-								bool return$6 = false;
-								try {
-									try {
-										$assign(var$7, in->readAllBytes());
-										return$6 = true;
-										goto $finally1;
-									} catch ($Throwable& t$) {
-										try {
-											in->close();
-										} catch ($Throwable& x2) {
-											t$->addSuppressed(x2);
-										}
-										$throw(t$);
-									}
-								} catch ($Throwable& var$8) {
-									$assign(var$5, var$8);
-								} $finally1: {
-									in->close();
-								}
-								if (var$5 != nullptr) {
-									$throw(var$5);
-								}
-								if (return$6) {
-									$assign(var$2, var$7);
-									return$1 = true;
-									goto $finally;
-								}
-							}
-						}
-					} catch ($Throwable& t$) {
-						if (resource != nullptr) {
+						srchClass = srchClass->getSuperclass();
+						// continue;
+						continue$4 = true;
+						goto $finally;
+					}
+					{
+						$var($BufferedInputStream, in, $new($BufferedInputStream, resource));
+						$var($Throwable, var$5, nullptr);
+						$var($bytes, var$7, nullptr);
+						bool return$6 = false;
+						try {
 							try {
-								resource->close();
-							} catch ($Throwable& x2) {
-								t$->addSuppressed(x2);
+								$assign(var$7, in->readAllBytes());
+								return$6 = true;
+								goto $finally1;
+							} catch ($Throwable& t$) {
+								try {
+									in->close();
+								} catch ($Throwable& x2) {
+									t$->addSuppressed(x2);
+								}
+								$throw(t$);
 							}
+						} catch ($Throwable& var$8) {
+							$assign(var$5, var$8);
+						} $finally1: {
+							in->close();
 						}
-						$throw(t$);
+						if (var$5 != nullptr) {
+							$throw(var$5);
+						}
+						if (return$6) {
+							$assign(var$2, var$7);
+							return$1 = true;
+							goto $finally;
+						}
 					}
-				} catch ($Throwable& var$9) {
-					$assign(var$0, var$9);
-				} $finally: {
+				} catch ($Throwable& t$) {
 					if (resource != nullptr) {
-						resource->close();
+						try {
+							resource->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
 					}
+					$throw(t$);
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
+			} catch ($Throwable& var$9) {
+				$assign(var$0, var$9);
+			} $finally: {
+				if (resource != nullptr) {
+					resource->close();
 				}
-				if (break$3) {
-					break;
-				}
-				if (continue$4) {
-					continue;
-				}
-				if (return$1) {
-					return var$2;
-				}
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+			if (break$3) {
+				break;
+			}
+			if (continue$4) {
+				continue;
+			}
+			if (return$1) {
+				return var$2;
 			}
 		} catch ($IOException& ioe) {
 			$nc($System::err)->println($(ioe->toString()));
@@ -1553,7 +1365,7 @@ bool SwingUtilities2::isLocalDisplay() {
 	bool isLocal = false;
 	$var($GraphicsEnvironment, ge, $GraphicsEnvironment::getLocalGraphicsEnvironment());
 	if ($instanceOf($SunGraphicsEnvironment, ge)) {
-		isLocal = $nc(($cast($SunGraphicsEnvironment, ge)))->isDisplayLocal();
+		isLocal = $cast($SunGraphicsEnvironment, ge)->isDisplayLocal();
 	} else {
 		isLocal = true;
 	}
@@ -1579,7 +1391,7 @@ int32_t SwingUtilities2::getUIDefaultsInt(Object$* key, $Locale* l, int32_t defa
 	$init(SwingUtilities2);
 	$var($Object, value, $UIManager::get(key, l));
 	if ($instanceOf($Integer, value)) {
-		return $nc(($cast($Integer, value)))->intValue();
+		return $cast($Integer, value)->intValue();
 	}
 	if ($instanceOf($String, value)) {
 		try {
@@ -1592,10 +1404,10 @@ int32_t SwingUtilities2::getUIDefaultsInt(Object$* key, $Locale* l, int32_t defa
 
 $Component* SwingUtilities2::compositeRequestFocus($Component* component) {
 	$init(SwingUtilities2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Container, component)) {
 		$var($Container, container, $cast($Container, component));
-		if ($nc(container)->isFocusCycleRoot()) {
+		if (container->isFocusCycleRoot()) {
 			$var($FocusTraversalPolicy, policy, container->getFocusTraversalPolicy());
 			$var($Component, comp, $nc(policy)->getDefaultComponent(container));
 			if (comp != nullptr) {
@@ -1603,7 +1415,7 @@ $Component* SwingUtilities2::compositeRequestFocus($Component* component) {
 				return comp;
 			}
 		}
-		$var($Container, rootAncestor, $nc(container)->getFocusCycleRootAncestor());
+		$var($Container, rootAncestor, container->getFocusCycleRootAncestor());
 		if (rootAncestor != nullptr) {
 			$var($FocusTraversalPolicy, policy, rootAncestor->getFocusTraversalPolicy());
 			$var($Component, comp, $nc(policy)->getComponentAfter(rootAncestor, container));
@@ -1626,7 +1438,7 @@ bool SwingUtilities2::tabbedPaneChangeFocusTo($Component* comp) {
 		if (comp->isFocusTraversable()) {
 			SwingUtilities2::compositeRequestFocus(comp);
 			return true;
-		} else if ($instanceOf($JComponent, comp) && $nc(($cast($JComponent, comp)))->requestDefaultFocus()) {
+		} else if ($instanceOf($JComponent, comp) && $cast($JComponent, comp)->requestDefaultFocus()) {
 			return true;
 		}
 	}
@@ -1660,9 +1472,9 @@ void SwingUtilities2::execute($Runnable* command) {
 
 void SwingUtilities2::setSkipClickCount($Component* comp, int32_t count) {
 	$init(SwingUtilities2);
-	$useLocalCurrentObjectStackCache();
-	if ($instanceOf($JTextComponent, comp) && $instanceOf($DefaultCaret, $($nc(($cast($JTextComponent, comp)))->getCaret()))) {
-		($cast($JTextComponent, comp))->putClientProperty(SwingUtilities2::SKIP_CLICK_COUNT, $($Integer::valueOf(count)));
+	$useLocalObjectStack();
+	if ($instanceOf($JTextComponent, comp) && $instanceOf($DefaultCaret, $($cast($JTextComponent, comp)->getCaret()))) {
+		$cast($JTextComponent, comp)->putClientProperty(SwingUtilities2::SKIP_CLICK_COUNT, $($Integer::valueOf(count)));
 	}
 }
 
@@ -1735,17 +1547,17 @@ int32_t SwingUtilities2::convertColumnIndexToModel($TableColumnModel* cm, int32_
 	if (viewColumnIndex < 0) {
 		return viewColumnIndex;
 	}
-	return $nc($($nc(cm)->getColumn(viewColumnIndex)))->getModelIndex();
+	return $$nc($nc(cm)->getColumn(viewColumnIndex))->getModelIndex();
 }
 
 int32_t SwingUtilities2::convertColumnIndexToView($TableColumnModel* cm, int32_t modelColumnIndex) {
 	$init(SwingUtilities2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (modelColumnIndex < 0) {
 		return modelColumnIndex;
 	}
 	for (int32_t column = 0; column < $nc(cm)->getColumnCount(); ++column) {
-		if ($nc($(cm->getColumn(column)))->getModelIndex() == modelColumnIndex) {
+		if ($$nc(cm->getColumn(column))->getModelIndex() == modelColumnIndex) {
 			return column;
 		}
 	}
@@ -1761,14 +1573,14 @@ int32_t SwingUtilities2::getSystemMnemonicKeyMask() {
 	$init(SwingUtilities2);
 	$var($Toolkit, toolkit, $Toolkit::getDefaultToolkit());
 	if ($instanceOf($SunToolkit, toolkit)) {
-		return $nc(($cast($SunToolkit, toolkit)))->getFocusAcceleratorKeyMask();
+		return $cast($SunToolkit, toolkit)->getFocusAcceleratorKeyMask();
 	}
 	return $InputEvent::ALT_MASK;
 }
 
 $TreePath* SwingUtilities2::getTreePath($TreeModelEvent* event, $TreeModel* model) {
 	$init(SwingUtilities2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreePath, path, $nc(event)->getTreePath());
 	if ((path == nullptr) && (model != nullptr)) {
 		$var($Object, root, model->getRoot());
@@ -1782,40 +1594,40 @@ $TreePath* SwingUtilities2::getTreePath($TreeModelEvent* event, $TreeModel* mode
 bool SwingUtilities2::isScaledGraphics($Graphics* g) {
 	$init(SwingUtilities2);
 	if ($instanceOf($Graphics2D, g)) {
-		$var($AffineTransform, tx, $nc(($cast($Graphics2D, g)))->getTransform());
-		return ((int32_t)($nc(tx)->getType() & (uint32_t)~(1 | 64))) != 0;
+		$var($AffineTransform, tx, $cast($Graphics2D, g)->getTransform());
+		return ($nc(tx)->getType() & ~(1 | 0x40)) != 0;
 	}
 	return false;
 }
 
 $Object* SwingUtilities2::getAndSetAntialisingHintForScaledGraphics($Graphics* g) {
 	$init(SwingUtilities2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = isScaledGraphics(g);
 	if (var$0 && isLocalDisplay()) {
 		$var($Graphics2D, g2d, $cast($Graphics2D, g));
 		$init($RenderingHints);
 		$var($Object, hint, $nc(g2d)->getRenderingHint($RenderingHints::KEY_ANTIALIASING));
 		g2d->setRenderingHint($RenderingHints::KEY_ANTIALIASING, $RenderingHints::VALUE_ANTIALIAS_ON);
-		return $of(hint);
+		return hint;
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 void SwingUtilities2::setAntialiasingHintForScaledGraphics($Graphics* g, Object$* hint) {
 	$init(SwingUtilities2);
 	if (hint != nullptr) {
 		$init($RenderingHints);
-		$nc(($cast($Graphics2D, g)))->setRenderingHint($RenderingHints::KEY_ANTIALIASING, hint);
+		$nc($cast($Graphics2D, g))->setRenderingHint($RenderingHints::KEY_ANTIALIASING, hint);
 	}
 }
 
 bool SwingUtilities2::isFloatingPointScale($AffineTransform* tx) {
 	$init(SwingUtilities2);
-	int32_t type = (int32_t)($nc(tx)->getType() & (uint32_t)~(64 | 1));
+	int32_t type = $nc(tx)->getType() & ~(0x40 | 1);
 	if (type == 0) {
 		return false;
-	} else if (((int32_t)(type & (uint32_t)~6)) == 0) {
+	} else if ((type & ~6) == 0) {
 		double scaleX = tx->getScaleX();
 		double scaleY = tx->getScaleY();
 		return (scaleX != $cast(int32_t, scaleX)) || (scaleY != $cast(int32_t, scaleY));
@@ -1828,7 +1640,6 @@ bool SwingUtilities2::getBoolean($JComponent* component, $String* key) {
 	$init(SwingUtilities2);
 	$var($Object, clientProperty, $nc(component)->getClientProperty(key));
 	if ($instanceOf($Boolean, clientProperty)) {
-		$init($Boolean);
 		return $nc($Boolean::TRUE)->equals(clientProperty);
 	}
 	return $UIManager::getBoolean(key);
@@ -1836,7 +1647,7 @@ bool SwingUtilities2::getBoolean($JComponent* component, $String* key) {
 
 bool SwingUtilities2::isScaleChanged($PropertyChangeEvent* ev) {
 	$init(SwingUtilities2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, $nc(ev)->getPropertyName());
 	$var($Object, var$1, ev->getOldValue());
 	return isScaleChanged(var$0, var$1, $(ev->getNewValue()));
@@ -1844,28 +1655,28 @@ bool SwingUtilities2::isScaleChanged($PropertyChangeEvent* ev) {
 
 bool SwingUtilities2::isScaleChanged($String* name, Object$* oldValue, Object$* newValue) {
 	$init(SwingUtilities2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(oldValue, newValue) || !"graphicsConfiguration"_s->equals(name)) {
 		return false;
 	}
 	$var($GraphicsConfiguration, newGC, $cast($GraphicsConfiguration, oldValue));
 	$var($GraphicsConfiguration, oldGC, $cast($GraphicsConfiguration, newValue));
-	$var($AffineTransform, newTx, newGC != nullptr ? $nc(newGC)->getDefaultTransform() : ($AffineTransform*)nullptr);
-	$var($AffineTransform, oldTx, oldGC != nullptr ? $nc(oldGC)->getDefaultTransform() : ($AffineTransform*)nullptr);
+	$var($AffineTransform, newTx, newGC != nullptr ? newGC->getDefaultTransform() : ($AffineTransform*)nullptr);
+	$var($AffineTransform, oldTx, oldGC != nullptr ? oldGC->getDefaultTransform() : ($AffineTransform*)nullptr);
 	return !$Objects::equals(newTx, oldTx);
 }
 
 $Object* SwingUtilities2::lambda$makeIcon$1(bool enablePrivileges, $Class* baseClass, $Class* rootClass, $String* imageFile, $UIDefaults* table) {
 	$init(SwingUtilities2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($bytes, buffer, enablePrivileges ? $cast($bytes, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(SwingUtilities2$$Lambda$lambda$makeIcon$0$1, baseClass, rootClass, imageFile)))) : getIconBytes(baseClass, rootClass, imageFile));
+	$var($bytes, buffer, enablePrivileges ? $cast($bytes, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(SwingUtilities2$$Lambda$lambda$makeIcon$0$1, baseClass, rootClass, imageFile)))) : getIconBytes(baseClass, rootClass, imageFile));
 	if (buffer == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	if ($nc(buffer)->length == 0) {
 		$nc($System::err)->println($$str({"warning: "_s, imageFile, " is zero-length"_s}));
-		return $of(nullptr);
+		return nullptr;
 	}
 	return $of($new($ImageIconUIResource, buffer));
 }
@@ -1875,13 +1686,13 @@ $bytes* SwingUtilities2::lambda$makeIcon$0($Class* baseClass, $Class* rootClass,
 	return getIconBytes(baseClass, rootClass, imageFile);
 }
 
-void clinit$SwingUtilities2($Class* class$) {
+void SwingUtilities2::clinit$($Class* clazz) {
 	$assignStatic(SwingUtilities2::IMPLIED_CR, "CR"_s);
 	$assignStatic(SwingUtilities2::UntrustedClipboardAccess, "UNTRUSTED_CLIPBOARD_ACCESS_KEY"_s);
 	SwingUtilities2::$assertionsDisabled = !SwingUtilities2::class$->desiredAssertionStatus();
 	$assignStatic(SwingUtilities2::LAF_STATE_KEY, $new($StringBuffer, "LookAndFeel State"_s));
 	$assignStatic(SwingUtilities2::MENU_SELECTION_MANAGER_LISTENER_KEY, $new($StringBuffer, "MenuSelectionManager listener key"_s));
-	$assignStatic(SwingUtilities2::DEFAULT_FRC, $new($FontRenderContext, ($AffineTransform*)nullptr, false, false));
+	$assignStatic(SwingUtilities2::DEFAULT_FRC, $new($FontRenderContext, nullptr, false, false));
 	$assignStatic(SwingUtilities2::SKIP_CLICK_COUNT, $new($StringBuilder, "skipClickCount"_s));
 	$assignStatic(SwingUtilities2::BASICMENUITEMUI_MAX_TEXT_OFFSET, $new($StringUIClientPropertyKey, "maxTextOffset"_s));
 	$assignStatic(SwingUtilities2::charsBufferLock, $new($Object));
@@ -1897,14 +1708,149 @@ SwingUtilities2::SwingUtilities2() {
 
 $Class* SwingUtilities2::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SwingUtilities2$$Lambda$lambda$makeIcon$1::classInfo$.name)) {
+		if (name->equals("sun.swing.SwingUtilities2$$Lambda$lambda$makeIcon$1")) {
 			return SwingUtilities2$$Lambda$lambda$makeIcon$1::load$(name, initialize);
 		}
-		if (name->equals(SwingUtilities2$$Lambda$lambda$makeIcon$0$1::classInfo$.name)) {
+		if (name->equals("sun.swing.SwingUtilities2$$Lambda$lambda$makeIcon$0$1")) {
 			return SwingUtilities2$$Lambda$lambda$makeIcon$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(SwingUtilities2, name, initialize, &_SwingUtilities2_ClassInfo_, clinit$SwingUtilities2, allocate$SwingUtilities2);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SwingUtilities2, $assertionsDisabled)},
+		{"LAF_STATE_KEY", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SwingUtilities2, LAF_STATE_KEY)},
+		{"MENU_SELECTION_MANAGER_LISTENER_KEY", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SwingUtilities2, MENU_SELECTION_MANAGER_LISTENER_KEY)},
+		{"fontCache", "[Lsun/swing/SwingUtilities2$LSBCacheEntry;", nullptr, $PRIVATE | $STATIC, $staticField(SwingUtilities2, fontCache)},
+		{"CACHE_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SwingUtilities2, CACHE_SIZE)},
+		{"nextIndex", "I", nullptr, $PRIVATE | $STATIC, $staticField(SwingUtilities2, nextIndex)},
+		{"searchKey", "Lsun/swing/SwingUtilities2$LSBCacheEntry;", nullptr, $PRIVATE | $STATIC, $staticField(SwingUtilities2, searchKey)},
+		{"MIN_CHAR_INDEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SwingUtilities2, MIN_CHAR_INDEX)},
+		{"MAX_CHAR_INDEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SwingUtilities2, MAX_CHAR_INDEX)},
+		{"DEFAULT_FRC", "Ljava/awt/font/FontRenderContext;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SwingUtilities2, DEFAULT_FRC)},
+		{"IMPLIED_CR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SwingUtilities2, IMPLIED_CR)},
+		{"SKIP_CLICK_COUNT", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SwingUtilities2, SKIP_CLICK_COUNT)},
+		{"BASICMENUITEMUI_MAX_TEXT_OFFSET", "Lsun/swing/StringUIClientPropertyKey;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SwingUtilities2, BASICMENUITEMUI_MAX_TEXT_OFFSET)},
+		{"UntrustedClipboardAccess", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SwingUtilities2, UntrustedClipboardAccess)},
+		{"CHAR_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SwingUtilities2, CHAR_BUFFER_SIZE)},
+		{"charsBufferLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SwingUtilities2, charsBufferLock)},
+		{"charsBuffer", "[C", nullptr, $PRIVATE | $STATIC, $staticField(SwingUtilities2, charsBuffer)},
+		{"APP_CONTEXT_FRC_CACHE_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SwingUtilities2, APP_CONTEXT_FRC_CACHE_KEY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SwingUtilities2, init$, void)},
+		{"adjustFocus", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, adjustFocus, void, $JComponent*)},
+		{"canAccessSystemClipboard", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, canAccessSystemClipboard, bool)},
+		{"canCurrentEventAccessSystemClipboard", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, canCurrentEventAccessSystemClipboard, bool)},
+		{"canCurrentEventAccessSystemClipboard", "(Z)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, canCurrentEventAccessSystemClipboard, bool, bool)},
+		{"canEventAccessSystemClipboard", "(Ljava/awt/AWTEvent;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, canEventAccessSystemClipboard, bool, $AWTEvent*)},
+		{"canEventAccessSystemClipboard", "(Ljava/awt/AWTEvent;Z)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, canEventAccessSystemClipboard, bool, $AWTEvent*, bool)},
+		{"checkAccess", "(I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, checkAccess, void, int32_t)},
+		{"clipString", "(Ljavax/swing/JComponent;Ljava/awt/FontMetrics;Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, clipString, $String*, $JComponent*, $FontMetrics*, $String*, int32_t)},
+		{"clipStringIfNecessary", "(Ljavax/swing/JComponent;Ljava/awt/FontMetrics;Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, clipStringIfNecessary, $String*, $JComponent*, $FontMetrics*, $String*, int32_t)},
+		{"compositeRequestFocus", "(Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, compositeRequestFocus, $Component*, $Component*)},
+		{"convertColumnIndexToModel", "(Ljavax/swing/table/TableColumnModel;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, convertColumnIndexToModel, int32_t, $TableColumnModel*, int32_t)},
+		{"convertColumnIndexToView", "(Ljavax/swing/table/TableColumnModel;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, convertColumnIndexToView, int32_t, $TableColumnModel*, int32_t)},
+		{"createTextLayout", "(Ljavax/swing/JComponent;Ljava/lang/String;Ljava/awt/Font;Ljava/awt/font/FontRenderContext;)Ljava/awt/font/TextLayout;", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, createTextLayout, $TextLayout*, $JComponent*, $String*, $Font*, $FontRenderContext*)},
+		{"displayPropertiesToCSS", "(Ljava/awt/Font;Ljava/awt/Color;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, displayPropertiesToCSS, $String*, $Font*, $Color*)},
+		{"drawChars", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;[CIIII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, drawChars, int32_t, $JComponent*, $Graphics*, $chars*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawChars", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;[CIIFF)F", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, drawChars, float, $JComponent*, $Graphics*, $chars*, int32_t, int32_t, float, float)},
+		{"drawChars", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;[CIIFFZ)F", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, drawChars, float, $JComponent*, $Graphics*, $chars*, int32_t, int32_t, float, float, bool)},
+		{"drawHLine", "(Ljava/awt/Graphics;III)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, drawHLine, void, $Graphics*, int32_t, int32_t, int32_t)},
+		{"drawRect", "(Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, drawRect, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawString", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;Ljava/lang/String;II)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, drawString, void, $JComponent*, $Graphics*, $String*, int32_t, int32_t)},
+		{"drawString", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;Ljava/lang/String;FFZ)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, drawString, void, $JComponent*, $Graphics*, $String*, float, float, bool)},
+		{"drawString", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;Ljava/text/AttributedCharacterIterator;II)F", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, drawString, float, $JComponent*, $Graphics*, $AttributedCharacterIterator*, int32_t, int32_t)},
+		{"drawString", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;Ljava/text/AttributedCharacterIterator;FF)F", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, drawString, float, $JComponent*, $Graphics*, $AttributedCharacterIterator*, float, float)},
+		{"drawStringImpl", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;Ljava/text/AttributedCharacterIterator;FF)F", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, drawStringImpl, float, $JComponent*, $Graphics*, $AttributedCharacterIterator*, float, float)},
+		{"drawStringUnderlineCharAt", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;Ljava/lang/String;III)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, drawStringUnderlineCharAt, void, $JComponent*, $Graphics*, $String*, int32_t, int32_t, int32_t)},
+		{"drawStringUnderlineCharAt", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;Ljava/lang/String;IFFZ)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, drawStringUnderlineCharAt, void, $JComponent*, $Graphics*, $String*, int32_t, float, float, bool)},
+		{"drawVLine", "(Ljava/awt/Graphics;III)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, drawVLine, void, $Graphics*, int32_t, int32_t, int32_t)},
+		{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, execute, void, $Runnable*)},
+		{"getAdjustedClickCount", "(Ljavax/swing/text/JTextComponent;Ljava/awt/event/MouseEvent;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getAdjustedClickCount, int32_t, $JTextComponent*, $MouseEvent*)},
+		{"getAndSetAntialisingHintForScaledGraphics", "(Ljava/awt/Graphics;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getAndSetAntialisingHintForScaledGraphics, $Object*, $Graphics*)},
+		{"getBoolean", "(Ljavax/swing/JComponent;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getBoolean, bool, $JComponent*, $String*)},
+		{"getFRCFromCache", "(Ljava/awt/geom/AffineTransform;Ljava/lang/Object;)Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, getFRCFromCache, $FontRenderContext*, $AffineTransform*, Object$*)},
+		{"getFRCProperty", "(Ljavax/swing/JComponent;)Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, getFRCProperty, $FontRenderContext*, $JComponent*)},
+		{"getFontCharWidth", "(CLjava/awt/FontMetrics;Z)F", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getFontCharWidth, float, char16_t, $FontMetrics*, bool)},
+		{"getFontCharsWidth", "([CIILjava/awt/FontMetrics;Z)F", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getFontCharsWidth, float, $chars*, int32_t, int32_t, $FontMetrics*, bool)},
+		{"getFontMetrics", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getFontMetrics, $FontMetrics*, $JComponent*, $Graphics*)},
+		{"getFontMetrics", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getFontMetrics, $FontMetrics*, $JComponent*, $Graphics*, $Font*)},
+		{"getFontMetrics", "(Ljavax/swing/JComponent;Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getFontMetrics, $FontMetrics*, $JComponent*, $Font*)},
+		{"getFontRenderContext", "(Ljava/awt/Component;)Ljava/awt/font/FontRenderContext;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getFontRenderContext, $FontRenderContext*, $Component*)},
+		{"getFontRenderContext", "(Ljava/awt/Component;Ljava/awt/FontMetrics;)Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, getFontRenderContext, $FontRenderContext*, $Component*, $FontMetrics*)},
+		{"getFontStringWidth", "(Ljava/lang/String;Ljava/awt/FontMetrics;Z)F", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getFontStringWidth, float, $String*, $FontMetrics*, bool)},
+		{"getGraphics2D", "(Ljava/awt/Graphics;)Ljava/awt/Graphics2D;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getGraphics2D, $Graphics2D*, $Graphics*)},
+		{"getIconBytes", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)[B", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/String;)[B", $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, getIconBytes, $bytes*, $Class*, $Class*, $String*)},
+		{"getLeftSideBearing", "(Ljavax/swing/JComponent;Ljava/awt/FontMetrics;Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getLeftSideBearing, int32_t, $JComponent*, $FontMetrics*, $String*)},
+		{"getLeftSideBearing", "(Ljavax/swing/JComponent;Ljava/awt/FontMetrics;C)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getLeftSideBearing, int32_t, $JComponent*, $FontMetrics*, char16_t)},
+		{"getSystemMnemonicKeyMask", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getSystemMnemonicKeyMask, int32_t)},
+		{"getTreePath", "(Ljavax/swing/event/TreeModelEvent;Ljavax/swing/tree/TreeModel;)Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getTreePath, $TreePath*, $TreeModelEvent*, $TreeModel*)},
+		{"getTrimmedTrailingSpacesIterator", "(Ljava/text/AttributedCharacterIterator;)Ljava/text/AttributedCharacterIterator;", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, getTrimmedTrailingSpacesIterator, $AttributedCharacterIterator*, $AttributedCharacterIterator*)},
+		{"getUIDefaultsInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getUIDefaultsInt, int32_t, Object$*)},
+		{"getUIDefaultsInt", "(Ljava/lang/Object;Ljava/util/Locale;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getUIDefaultsInt, int32_t, Object$*, $Locale*)},
+		{"getUIDefaultsInt", "(Ljava/lang/Object;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getUIDefaultsInt, int32_t, Object$*, int32_t)},
+		{"getUIDefaultsInt", "(Ljava/lang/Object;Ljava/util/Locale;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, getUIDefaultsInt, int32_t, Object$*, $Locale*, int32_t)},
+		{"isAccessClipboardGesture", "(Ljava/awt/event/InputEvent;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, isAccessClipboardGesture, bool, $InputEvent*)},
+		{"isComplexLayout", "([CII)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SwingUtilities2, isComplexLayout, bool, $chars*, int32_t, int32_t)},
+		{"isFloatingPointScale", "(Ljava/awt/geom/AffineTransform;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, isFloatingPointScale, bool, $AffineTransform*)},
+		{"isFontRenderContextPrintCompatible", "(Ljava/awt/font/FontRenderContext;Ljava/awt/font/FontRenderContext;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, isFontRenderContextPrintCompatible, bool, $FontRenderContext*, $FontRenderContext*)},
+		{"isLocalDisplay", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, isLocalDisplay, bool)},
+		{"isPrinting", "(Ljava/awt/Graphics;)Z", nullptr, $STATIC, $staticMethod(SwingUtilities2, isPrinting, bool, $Graphics*)},
+		{"isScaleChanged", "(Ljava/beans/PropertyChangeEvent;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, isScaleChanged, bool, $PropertyChangeEvent*)},
+		{"isScaleChanged", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, isScaleChanged, bool, $String*, Object$*, Object$*)},
+		{"isScaledGraphics", "(Ljava/awt/Graphics;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, isScaledGraphics, bool, $Graphics*)},
+		{"isTrustedContext", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, isTrustedContext, bool)},
+		{"lambda$makeIcon$0", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SwingUtilities2, lambda$makeIcon$0, $bytes*, $Class*, $Class*, $String*)},
+		{"lambda$makeIcon$1", "(ZLjava/lang/Class;Ljava/lang/Class;Ljava/lang/String;Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SwingUtilities2, lambda$makeIcon$1, $Object*, bool, $Class*, $Class*, $String*, $UIDefaults*)},
+		{"liesIn", "(Ljava/awt/Rectangle;Ljava/awt/Point;ZZZ)Lsun/swing/SwingUtilities2$Section;", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, liesIn, $SwingUtilities2$Section*, $Rectangle*, $Point*, bool, bool, bool)},
+		{"liesInHorizontal", "(Ljava/awt/Rectangle;Ljava/awt/Point;ZZ)Lsun/swing/SwingUtilities2$Section;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, liesInHorizontal, $SwingUtilities2$Section*, $Rectangle*, $Point*, bool, bool)},
+		{"liesInVertical", "(Ljava/awt/Rectangle;Ljava/awt/Point;Z)Lsun/swing/SwingUtilities2$Section;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, liesInVertical, $SwingUtilities2$Section*, $Rectangle*, $Point*, bool)},
+		{"loc2IndexFileList", "(Ljavax/swing/JList;Ljava/awt/Point;)I", "(Ljavax/swing/JList<*>;Ljava/awt/Point;)I", $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, loc2IndexFileList, int32_t, $JList*, $Point*)},
+		{"makeIcon", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/lang/Object;", $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, makeIcon, $Object*, $Class*, $Class*, $String*)},
+		{"makeIcon", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;Z)Ljava/lang/Object;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/String;Z)Ljava/lang/Object;", $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, makeIcon, $Object*, $Class*, $Class*, $String*, bool)},
+		{"makeIcon_Unprivileged", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/lang/Object;", $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, makeIcon_Unprivileged, $Object*, $Class*, $Class*, $String*)},
+		{"pointIsInActualBounds", "(Ljavax/swing/JList;ILjava/awt/Point;)Z", "<T:Ljava/lang/Object;>(Ljavax/swing/JList<TT;>;ILjava/awt/Point;)Z", $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, pointIsInActualBounds, bool, $JList*, int32_t, $Point*)},
+		{"pointOutsidePrefSize", "(Ljavax/swing/JTable;IILjava/awt/Point;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, pointOutsidePrefSize, bool, $JTable*, int32_t, int32_t, $Point*)},
+		{"putAATextInfo", "(ZLjava/util/Map;)V", "(ZLjava/util/Map<Ljava/lang/Object;Ljava/lang/Object;>;)V", $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, putAATextInfo, void, bool, $Map*)},
+		{"setAltGraphMask", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, setAltGraphMask, int32_t, int32_t)},
+		{"setAntialiasingHintForScaledGraphics", "(Ljava/awt/Graphics;Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, setAntialiasingHintForScaledGraphics, void, $Graphics*, Object$*)},
+		{"setLeadAnchorWithoutSelection", "(Ljavax/swing/ListSelectionModel;II)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, setLeadAnchorWithoutSelection, void, $ListSelectionModel*, int32_t, int32_t)},
+		{"setSkipClickCount", "(Ljava/awt/Component;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, setSkipClickCount, void, $Component*, int32_t)},
+		{"shouldIgnore", "(Ljava/awt/event/MouseEvent;Ljavax/swing/JComponent;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, shouldIgnore, bool, $MouseEvent*, $JComponent*)},
+		{"stringWidth", "(Ljavax/swing/JComponent;Ljava/awt/FontMetrics;Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, stringWidth, int32_t, $JComponent*, $FontMetrics*, $String*)},
+		{"stringWidth", "(Ljavax/swing/JComponent;Ljava/awt/FontMetrics;Ljava/lang/String;Z)F", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, stringWidth, float, $JComponent*, $FontMetrics*, $String*, bool)},
+		{"submit", "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;", "<V:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TV;>;)Ljava/util/concurrent/Future<TV;>;", $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, submit, $Future*, $Callable*)},
+		{"submit", "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;", "<V:Ljava/lang/Object;>(Ljava/lang/Runnable;TV;)Ljava/util/concurrent/Future<TV;>;", $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, submit, $Future*, $Runnable*, Object$*)},
+		{"syncCharsBuffer", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, syncCharsBuffer, int32_t, $String*)},
+		{"tabbedPaneChangeFocusTo", "(Ljava/awt/Component;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, tabbedPaneChangeFocusTo, bool, $Component*)},
+		{"trimTrailingSpaces", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities2, trimTrailingSpaces, $String*, $String*)},
+		{"useSelectedTextColor", "(Ljavax/swing/text/Highlighter$Highlight;Ljavax/swing/text/JTextComponent;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2, useSelectedTextColor, bool, $Highlighter$Highlight*, $JTextComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.SwingUtilities2$RepaintListener", "sun.swing.SwingUtilities2", "RepaintListener", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.swing.SwingUtilities2$Section", "sun.swing.SwingUtilities2", "Section", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"sun.swing.SwingUtilities2$LSBCacheEntry", "sun.swing.SwingUtilities2", "LSBCacheEntry", $PRIVATE | $STATIC},
+		{"sun.swing.SwingUtilities2$KeyPair", "sun.swing.SwingUtilities2", "KeyPair", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.swing.SwingUtilities2",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.swing.SwingUtilities2$RepaintListener,sun.swing.SwingUtilities2$Section,sun.swing.SwingUtilities2$LSBCacheEntry,sun.swing.SwingUtilities2$KeyPair"
+	};
+	$loadClass(SwingUtilities2, name, initialize, &classInfo$$, SwingUtilities2::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SwingUtilities2);
+	});
 	return class$;
 }
 

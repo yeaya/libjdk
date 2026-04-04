@@ -1,12 +1,10 @@
 #include <javax/management/relation/RelationService.h>
-
 #include <com/sun/jmx/defaults/JmxProperties.h>
 #include <com/sun/jmx/mbeanserver/Util.h>
 #include <java/lang/NoSuchMethodException.h>
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$Logger.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Date.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
@@ -27,7 +25,6 @@
 #include <javax/management/Notification.h>
 #include <javax/management/NotificationBroadcasterSupport.h>
 #include <javax/management/NotificationFilter.h>
-#include <javax/management/NotificationListener.h>
 #include <javax/management/ObjectName.h>
 #include <javax/management/ReflectionException.h>
 #include <javax/management/relation/InvalidRelationIdException.h>
@@ -84,10 +81,8 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Date = ::java::util::Date;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
@@ -107,8 +102,6 @@ using $MBeanServerDelegate = ::javax::management::MBeanServerDelegate;
 using $MBeanServerNotification = ::javax::management::MBeanServerNotification;
 using $Notification = ::javax::management::Notification;
 using $NotificationBroadcasterSupport = ::javax::management::NotificationBroadcasterSupport;
-using $NotificationFilter = ::javax::management::NotificationFilter;
-using $NotificationListener = ::javax::management::NotificationListener;
 using $ObjectName = ::javax::management::ObjectName;
 using $ReflectionException = ::javax::management::ReflectionException;
 using $InvalidRelationIdException = ::javax::management::relation::InvalidRelationIdException;
@@ -134,97 +127,6 @@ using $RoleStatus = ::javax::management::relation::RoleStatus;
 namespace javax {
 	namespace management {
 		namespace relation {
-
-$FieldInfo _RelationService_FieldInfo_[] = {
-	{"myRelId2ObjMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(RelationService, myRelId2ObjMap)},
-	{"myRelId2RelTypeMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(RelationService, myRelId2RelTypeMap)},
-	{"myRelMBeanObjName2RelIdMap", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/management/ObjectName;Ljava/lang/String;>;", $PRIVATE, $field(RelationService, myRelMBeanObjName2RelIdMap)},
-	{"myRelType2ObjMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljavax/management/relation/RelationType;>;", $PRIVATE, $field(RelationService, myRelType2ObjMap)},
-	{"myRelType2RelIdsMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PRIVATE, $field(RelationService, myRelType2RelIdsMap)},
-	{"myRefedMBeanObjName2RelIdsMap", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/management/ObjectName;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;>;", $PRIVATE | $FINAL, $field(RelationService, myRefedMBeanObjName2RelIdsMap)},
-	{"myPurgeFlag", "Z", nullptr, $PRIVATE, $field(RelationService, myPurgeFlag)},
-	{"atomicSeqNo", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $FINAL, $field(RelationService, atomicSeqNo)},
-	{"myObjName", "Ljavax/management/ObjectName;", nullptr, $PRIVATE, $field(RelationService, myObjName)},
-	{"myMBeanServer", "Ljavax/management/MBeanServer;", nullptr, $PRIVATE, $field(RelationService, myMBeanServer)},
-	{"myUnregNtfFilter", "Ljavax/management/relation/MBeanServerNotificationFilter;", nullptr, $PRIVATE, $field(RelationService, myUnregNtfFilter)},
-	{"myUnregNtfList", "Ljava/util/List;", "Ljava/util/List<Ljavax/management/MBeanServerNotification;>;", $PRIVATE, $field(RelationService, myUnregNtfList)},
-	{}
-};
-
-$MethodInfo _RelationService_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(RelationService, init$, void, bool)},
-	{"addNewMBeanReference", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(RelationService, addNewMBeanReference, bool, $ObjectName*, $String*, $String*), "java.lang.IllegalArgumentException"},
-	{"addRelation", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $virtualMethod(RelationService, addRelation, void, $ObjectName*), "java.lang.IllegalArgumentException,javax.management.relation.RelationServiceNotRegisteredException,java.lang.NoSuchMethodException,javax.management.relation.InvalidRelationIdException,javax.management.InstanceNotFoundException,javax.management.relation.InvalidRelationServiceException,javax.management.relation.RelationTypeNotFoundException,javax.management.relation.RoleNotFoundException,javax.management.relation.InvalidRoleValueException"},
-	{"addRelationInt", "(ZLjavax/management/relation/RelationSupport;Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/String;Ljavax/management/relation/RoleList;)V", nullptr, $PRIVATE, $method(RelationService, addRelationInt, void, bool, $RelationSupport*, $ObjectName*, $String*, $String*, $RoleList*), "java.lang.IllegalArgumentException,javax.management.relation.RelationServiceNotRegisteredException,javax.management.relation.RoleNotFoundException,javax.management.relation.InvalidRelationIdException,javax.management.relation.RelationTypeNotFoundException,javax.management.relation.InvalidRoleValueException"},
-	{"addRelationType", "(Ljavax/management/relation/RelationType;)V", nullptr, $PUBLIC, $virtualMethod(RelationService, addRelationType, void, $RelationType*), "java.lang.IllegalArgumentException,javax.management.relation.InvalidRelationTypeException"},
-	{"addRelationTypeInt", "(Ljavax/management/relation/RelationType;)V", nullptr, $PRIVATE, $method(RelationService, addRelationTypeInt, void, $RelationType*), "java.lang.IllegalArgumentException,javax.management.relation.InvalidRelationTypeException"},
-	{"checkRoleInt", "(ILjava/lang/String;Ljava/util/List;Ljavax/management/relation/RoleInfo;Z)Ljava/lang/Integer;", "(ILjava/lang/String;Ljava/util/List<Ljavax/management/ObjectName;>;Ljavax/management/relation/RoleInfo;Z)Ljava/lang/Integer;", $PRIVATE, $method(RelationService, checkRoleInt, $Integer*, int32_t, $String*, $List*, $RoleInfo*, bool), "java.lang.IllegalArgumentException"},
-	{"checkRoleReading", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(RelationService, checkRoleReading, $Integer*, $String*, $String*), "java.lang.IllegalArgumentException,javax.management.relation.RelationTypeNotFoundException"},
-	{"checkRoleWriting", "(Ljavax/management/relation/Role;Ljava/lang/String;Ljava/lang/Boolean;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(RelationService, checkRoleWriting, $Integer*, $Role*, $String*, $Boolean*), "java.lang.IllegalArgumentException,javax.management.relation.RelationTypeNotFoundException"},
-	{"createRelation", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/relation/RoleList;)V", nullptr, $PUBLIC, $virtualMethod(RelationService, createRelation, void, $String*, $String*, $RoleList*), "javax.management.relation.RelationServiceNotRegisteredException,java.lang.IllegalArgumentException,javax.management.relation.RoleNotFoundException,javax.management.relation.InvalidRelationIdException,javax.management.relation.RelationTypeNotFoundException,javax.management.relation.InvalidRoleValueException"},
-	{"createRelationType", "(Ljava/lang/String;[Ljavax/management/relation/RoleInfo;)V", nullptr, $PUBLIC, $virtualMethod(RelationService, createRelationType, void, $String*, $RoleInfoArray*), "java.lang.IllegalArgumentException,javax.management.relation.InvalidRelationTypeException"},
-	{"findAssociatedMBeans", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Map;", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Map<Ljavax/management/ObjectName;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(RelationService, findAssociatedMBeans, $Map*, $ObjectName*, $String*, $String*), "java.lang.IllegalArgumentException"},
-	{"findReferencingRelations", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Map;", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(RelationService, findReferencingRelations, $Map*, $ObjectName*, $String*, $String*), "java.lang.IllegalArgumentException"},
-	{"findRelationsOfType", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(RelationService, findRelationsOfType, $List*, $String*), "java.lang.IllegalArgumentException,javax.management.relation.RelationTypeNotFoundException"},
-	{"getAllRelationIds", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(RelationService, getAllRelationIds, $List*)},
-	{"getAllRelationTypeNames", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(RelationService, getAllRelationTypeNames, $List*)},
-	{"getAllRoles", "(Ljava/lang/String;)Ljavax/management/relation/RoleResult;", nullptr, $PUBLIC, $virtualMethod(RelationService, getAllRoles, $RoleResult*, $String*), "java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException,javax.management.relation.RelationServiceNotRegisteredException"},
-	{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC, $virtualMethod(RelationService, getNotificationInfo, $MBeanNotificationInfoArray*)},
-	{"getPurgeFlag", "()Z", nullptr, $PUBLIC, $virtualMethod(RelationService, getPurgeFlag, bool)},
-	{"getReferencedMBeans", "(Ljava/lang/String;)Ljava/util/Map;", "(Ljava/lang/String;)Ljava/util/Map<Ljavax/management/ObjectName;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(RelationService, getReferencedMBeans, $Map*, $String*), "java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException"},
-	{"getRelation", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(RelationService, getRelation, $Object*, $String*), "java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException"},
-	{"getRelationType", "(Ljava/lang/String;)Ljavax/management/relation/RelationType;", nullptr, 0, $virtualMethod(RelationService, getRelationType, $RelationType*, $String*), "java.lang.IllegalArgumentException,javax.management.relation.RelationTypeNotFoundException"},
-	{"getRelationTypeName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RelationService, getRelationTypeName, $String*, $String*), "java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException"},
-	{"getRole", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List<Ljavax/management/ObjectName;>;", $PUBLIC, $virtualMethod(RelationService, getRole, $List*, $String*, $String*), "javax.management.relation.RelationServiceNotRegisteredException,java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException,javax.management.relation.RoleNotFoundException"},
-	{"getRoleCardinality", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(RelationService, getRoleCardinality, $Integer*, $String*, $String*), "java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException,javax.management.relation.RoleNotFoundException"},
-	{"getRoleInfo", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/management/relation/RoleInfo;", nullptr, $PUBLIC, $virtualMethod(RelationService, getRoleInfo, $RoleInfo*, $String*, $String*), "java.lang.IllegalArgumentException,javax.management.relation.RelationTypeNotFoundException,javax.management.relation.RoleInfoNotFoundException"},
-	{"getRoleInfos", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljavax/management/relation/RoleInfo;>;", $PUBLIC, $virtualMethod(RelationService, getRoleInfos, $List*, $String*), "java.lang.IllegalArgumentException,javax.management.relation.RelationTypeNotFoundException"},
-	{"getRoles", "(Ljava/lang/String;[Ljava/lang/String;)Ljavax/management/relation/RoleResult;", nullptr, $PUBLIC, $virtualMethod(RelationService, getRoles, $RoleResult*, $String*, $StringArray*), "javax.management.relation.RelationServiceNotRegisteredException,java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException"},
-	{"handleNotification", "(Ljavax/management/Notification;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(RelationService, handleNotification, void, $Notification*, Object$*)},
-	{"handleReferenceUnregistration", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljava/util/List;)V", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE, $method(RelationService, handleReferenceUnregistration, void, $String*, $ObjectName*, $List*), "java.lang.IllegalArgumentException,javax.management.relation.RelationServiceNotRegisteredException,javax.management.relation.RelationNotFoundException,javax.management.relation.RoleNotFoundException"},
-	{"hasRelation", "(Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(RelationService, hasRelation, $Boolean*, $String*), "java.lang.IllegalArgumentException"},
-	{"initializeMissingRoles", "(ZLjavax/management/relation/RelationSupport;Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V", "(ZLjavax/management/relation/RelationSupport;Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljavax/management/relation/RoleInfo;>;)V", $PRIVATE, $method(RelationService, initializeMissingRoles, void, bool, $RelationSupport*, $ObjectName*, $String*, $String*, $List*), "java.lang.IllegalArgumentException,javax.management.relation.RelationServiceNotRegisteredException,javax.management.relation.InvalidRoleValueException"},
-	{"isActive", "()V", nullptr, $PUBLIC, $virtualMethod(RelationService, isActive, void), "javax.management.relation.RelationServiceNotRegisteredException"},
-	{"isRelation", "(Ljavax/management/ObjectName;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RelationService, isRelation, $String*, $ObjectName*), "java.lang.IllegalArgumentException"},
-	{"isRelationMBean", "(Ljava/lang/String;)Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(RelationService, isRelationMBean, $ObjectName*, $String*), "java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException"},
-	{"postDeregister", "()V", nullptr, $PUBLIC, $virtualMethod(RelationService, postDeregister, void)},
-	{"postRegister", "(Ljava/lang/Boolean;)V", nullptr, $PUBLIC, $virtualMethod(RelationService, postRegister, void, $Boolean*)},
-	{"preDeregister", "()V", nullptr, $PUBLIC, $virtualMethod(RelationService, preDeregister, void), "java.lang.Exception"},
-	{"preRegister", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(RelationService, preRegister, $ObjectName*, $MBeanServer*, $ObjectName*), "java.lang.Exception"},
-	{"purgeRelations", "()V", nullptr, $PUBLIC, $virtualMethod(RelationService, purgeRelations, void), "javax.management.relation.RelationServiceNotRegisteredException"},
-	{"removeMBeanReference", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/String;Z)Z", nullptr, $PRIVATE, $method(RelationService, removeMBeanReference, bool, $ObjectName*, $String*, $String*, bool), "java.lang.IllegalArgumentException"},
-	{"removeRelation", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RelationService, removeRelation, void, $String*), "javax.management.relation.RelationServiceNotRegisteredException,java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException"},
-	{"removeRelationType", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RelationService, removeRelationType, void, $String*), "javax.management.relation.RelationServiceNotRegisteredException,java.lang.IllegalArgumentException,javax.management.relation.RelationTypeNotFoundException"},
-	{"sendNotificationInt", "(ILjava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/util/List;)V", "(ILjava/lang/String;Ljava/lang/String;Ljava/util/List<Ljavax/management/ObjectName;>;Ljava/lang/String;Ljava/util/List<Ljavax/management/ObjectName;>;Ljava/util/List<Ljavax/management/ObjectName;>;)V", $PRIVATE, $method(RelationService, sendNotificationInt, void, int32_t, $String*, $String*, $List*, $String*, $List*, $List*), "java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException"},
-	{"sendRelationCreationNotification", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RelationService, sendRelationCreationNotification, void, $String*), "java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException"},
-	{"sendRelationRemovalNotification", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljavax/management/ObjectName;>;)V", $PUBLIC, $virtualMethod(RelationService, sendRelationRemovalNotification, void, $String*, $List*), "java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException"},
-	{"sendRoleUpdateNotification", "(Ljava/lang/String;Ljavax/management/relation/Role;Ljava/util/List;)V", "(Ljava/lang/String;Ljavax/management/relation/Role;Ljava/util/List<Ljavax/management/ObjectName;>;)V", $PUBLIC, $virtualMethod(RelationService, sendRoleUpdateNotification, void, $String*, $Role*, $List*), "java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException"},
-	{"setPurgeFlag", "(Z)V", nullptr, $PUBLIC, $virtualMethod(RelationService, setPurgeFlag, void, bool)},
-	{"setRole", "(Ljava/lang/String;Ljavax/management/relation/Role;)V", nullptr, $PUBLIC, $virtualMethod(RelationService, setRole, void, $String*, $Role*), "javax.management.relation.RelationServiceNotRegisteredException,java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException,javax.management.relation.RoleNotFoundException,javax.management.relation.InvalidRoleValueException"},
-	{"setRoles", "(Ljava/lang/String;Ljavax/management/relation/RoleList;)Ljavax/management/relation/RoleResult;", nullptr, $PUBLIC, $virtualMethod(RelationService, setRoles, $RoleResult*, $String*, $RoleList*), "javax.management.relation.RelationServiceNotRegisteredException,java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException"},
-	{"throwRoleProblemException", "(ILjava/lang/String;)V", nullptr, $STATIC, $staticMethod(RelationService, throwRoleProblemException, void, int32_t, $String*), "java.lang.IllegalArgumentException,javax.management.relation.RoleNotFoundException,javax.management.relation.InvalidRoleValueException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateRoleMap", "(Ljava/lang/String;Ljavax/management/relation/Role;Ljava/util/List;)V", "(Ljava/lang/String;Ljavax/management/relation/Role;Ljava/util/List<Ljavax/management/ObjectName;>;)V", $PUBLIC, $virtualMethod(RelationService, updateRoleMap, void, $String*, $Role*, $List*), "java.lang.IllegalArgumentException,javax.management.relation.RelationServiceNotRegisteredException,javax.management.relation.RelationNotFoundException"},
-	{"updateUnregistrationListener", "(Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/List<Ljavax/management/ObjectName;>;Ljava/util/List<Ljavax/management/ObjectName;>;)V", $PRIVATE, $method(RelationService, updateUnregistrationListener, void, $List*, $List*), "javax.management.relation.RelationServiceNotRegisteredException"},
-	{}
-};
-
-$ClassInfo _RelationService_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.relation.RelationService",
-	"javax.management.NotificationBroadcasterSupport",
-	"javax.management.relation.RelationServiceMBean,javax.management.MBeanRegistration,javax.management.NotificationListener",
-	_RelationService_FieldInfo_,
-	_RelationService_MethodInfo_
-};
-
-$Object* allocate$RelationService($Class* clazz) {
-	return $of($alloc(RelationService));
-}
 
 int32_t RelationService::hashCode() {
 	 return this->$NotificationBroadcasterSupport::hashCode();
@@ -264,7 +166,7 @@ void RelationService::init$(bool immediatePurgeFlag) {
 	$init($System$Logger$Level);
 	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY"_s);
 	setPurgeFlag(immediatePurgeFlag);
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return;
 }
 
@@ -304,22 +206,22 @@ void RelationService::setPurgeFlag(bool purgeFlag) {
 }
 
 void RelationService::createRelationType($String* relationTypeName, $RoleInfoArray* roleInfoArray) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (relationTypeName == nullptr || roleInfoArray == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
 	}
 	$init($JmxProperties);
 	$init($System$Logger$Level);
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {$of(relationTypeName)}));
+	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {relationTypeName}));
 	$var($RelationType, relType, $new($RelationTypeSupport, relationTypeName, roleInfoArray));
 	addRelationTypeInt(relType);
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return;
 }
 
 void RelationService::addRelationType($RelationType* relationTypeObj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (relationTypeObj == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
@@ -346,35 +248,35 @@ void RelationService::addRelationType($RelationType* relationTypeObj) {
 	}
 	$RelationTypeSupport::checkRoleInfos(roleInfoArray);
 	addRelationTypeInt(relationTypeObj);
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return;
 }
 
 $List* RelationService::getAllRelationTypeNames() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, result, nullptr);
 	$synchronized(this->myRelType2ObjMap) {
-		$assign(result, $new($ArrayList, $(static_cast<$Collection*>($nc(this->myRelType2ObjMap)->keySet()))));
+		$assign(result, $new($ArrayList, $(this->myRelType2ObjMap->keySet())));
 	}
 	return result;
 }
 
 $List* RelationService::getRoleInfos($String* relationTypeName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (relationTypeName == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
 	}
 	$init($JmxProperties);
 	$init($System$Logger$Level);
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {$of(relationTypeName)}));
+	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {relationTypeName}));
 	$var($RelationType, relType, getRelationType(relationTypeName));
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return $nc(relType)->getRoleInfos();
 }
 
 $RoleInfo* RelationService::getRoleInfo($String* relationTypeName, $String* roleInfoName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (relationTypeName == nullptr || roleInfoName == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
@@ -382,17 +284,17 @@ $RoleInfo* RelationService::getRoleInfo($String* relationTypeName, $String* role
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0} {1}"_s, $$new($ObjectArray, {
-		$of(relationTypeName),
-		$of(roleInfoName)
+		relationTypeName,
+		roleInfoName
 	}));
 	$var($RelationType, relType, getRelationType(relationTypeName));
 	$var($RoleInfo, roleInfo, $nc(relType)->getRoleInfo(roleInfoName));
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return roleInfo;
 }
 
 void RelationService::removeRelationType($String* relationTypeName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	isActive();
 	if (relationTypeName == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
@@ -400,42 +302,38 @@ void RelationService::removeRelationType($String* relationTypeName) {
 	}
 	$init($JmxProperties);
 	$init($System$Logger$Level);
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {$of(relationTypeName)}));
+	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {relationTypeName}));
 	$var($RelationType, relType, getRelationType(relationTypeName));
 	$var($List, relIdList, nullptr);
 	$synchronized(this->myRelType2RelIdsMap) {
-		$var($List, relIdList1, $cast($List, $nc(this->myRelType2RelIdsMap)->get(relationTypeName)));
+		$var($List, relIdList1, $cast($List, this->myRelType2RelIdsMap->get(relationTypeName)));
 		if (relIdList1 != nullptr) {
-			$assign(relIdList, $new($ArrayList, static_cast<$Collection*>(relIdList1)));
+			$assign(relIdList, $new($ArrayList, relIdList1));
 		}
 	}
 	$synchronized(this->myRelType2ObjMap) {
-		$nc(this->myRelType2ObjMap)->remove(relationTypeName);
+		this->myRelType2ObjMap->remove(relationTypeName);
 	}
 	$synchronized(this->myRelType2RelIdsMap) {
-		$nc(this->myRelType2RelIdsMap)->remove(relationTypeName);
+		this->myRelType2RelIdsMap->remove(relationTypeName);
 	}
 	if (relIdList != nullptr) {
-		{
-			$var($Iterator, i$, relIdList->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($String, currRelId, $cast($String, i$->next()));
-				{
-					try {
-						removeRelation(currRelId);
-					} catch ($RelationNotFoundException& exc1) {
-						$throwNew($RuntimeException, $(exc1->getMessage()));
-					}
-				}
+		$var($Iterator, i$, relIdList->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($String, currRelId, $cast($String, i$->next()));
+			try {
+				removeRelation(currRelId);
+			} catch ($RelationNotFoundException& exc1) {
+				$throwNew($RuntimeException, $(exc1->getMessage()));
 			}
 		}
 	}
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return;
 }
 
 void RelationService::createRelation($String* relationId, $String* relationTypeName, $RoleList* roleList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	isActive();
 	if (relationId == nullptr || relationTypeName == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
@@ -444,25 +342,25 @@ void RelationService::createRelation($String* relationId, $String* relationTypeN
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0} {1} {2}"_s, $$new($ObjectArray, {
-		$of(relationId),
-		$of(relationTypeName),
-		$of(roleList)
+		relationId,
+		relationTypeName,
+		roleList
 	}));
 	$var($RelationSupport, relObj, $new($RelationSupport, relationId, this->myObjName, relationTypeName, roleList));
 	addRelationInt(true, relObj, nullptr, relationId, relationTypeName, roleList);
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return;
 }
 
 void RelationService::addRelation($ObjectName* relationObjectName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (relationObjectName == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
 	}
 	$init($JmxProperties);
 	$init($System$Logger$Level);
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {$of(relationObjectName)}));
+	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {relationObjectName}));
 	isActive();
 	if (!($nc(this->myMBeanServer)->isInstanceOf(relationObjectName, "javax.management.relation.Relation"_s))) {
 		$var($String, excMsg, "This MBean does not implement the Relation interface."_s);
@@ -470,9 +368,9 @@ void RelationService::addRelation($ObjectName* relationObjectName) {
 	}
 	$var($String, relId, nullptr);
 	try {
-		$assign(relId, ($cast($String, $nc(this->myMBeanServer)->getAttribute(relationObjectName, "RelationId"_s))));
+		$assign(relId, $cast($String, $nc(this->myMBeanServer)->getAttribute(relationObjectName, "RelationId"_s)));
 	} catch ($MBeanException& exc1) {
-		$throwNew($RuntimeException, $($nc(($(exc1->getTargetException())))->getMessage()));
+		$throwNew($RuntimeException, $(($$nc(exc1->getTargetException()))->getMessage()));
 	} catch ($ReflectionException& exc2) {
 		$throwNew($RuntimeException, $(exc2->getMessage()));
 	} catch ($AttributeNotFoundException& exc3) {
@@ -484,9 +382,9 @@ void RelationService::addRelation($ObjectName* relationObjectName) {
 	}
 	$var($ObjectName, relServObjName, nullptr);
 	try {
-		$assign(relServObjName, ($cast($ObjectName, $nc(this->myMBeanServer)->getAttribute(relationObjectName, "RelationServiceName"_s))));
+		$assign(relServObjName, $cast($ObjectName, $nc(this->myMBeanServer)->getAttribute(relationObjectName, "RelationServiceName"_s)));
 	} catch ($MBeanException& exc1) {
-		$throwNew($RuntimeException, $($nc(($(exc1->getTargetException())))->getMessage()));
+		$throwNew($RuntimeException, $(($$nc(exc1->getTargetException()))->getMessage()));
 	} catch ($ReflectionException& exc2) {
 		$throwNew($RuntimeException, $(exc2->getMessage()));
 	} catch ($AttributeNotFoundException& exc3) {
@@ -495,7 +393,7 @@ void RelationService::addRelation($ObjectName* relationObjectName) {
 	bool badRelServFlag = false;
 	if (relServObjName == nullptr) {
 		badRelServFlag = true;
-	} else if (!($nc(relServObjName)->equals(this->myObjName))) {
+	} else if (!(relServObjName->equals(this->myObjName))) {
 		badRelServFlag = true;
 	}
 	if (badRelServFlag) {
@@ -504,9 +402,9 @@ void RelationService::addRelation($ObjectName* relationObjectName) {
 	}
 	$var($String, relTypeName, nullptr);
 	try {
-		$assign(relTypeName, ($cast($String, $nc(this->myMBeanServer)->getAttribute(relationObjectName, "RelationTypeName"_s))));
+		$assign(relTypeName, $cast($String, $nc(this->myMBeanServer)->getAttribute(relationObjectName, "RelationTypeName"_s)));
 	} catch ($MBeanException& exc1) {
-		$throwNew($RuntimeException, $($nc(($(exc1->getTargetException())))->getMessage()));
+		$throwNew($RuntimeException, $(($$nc(exc1->getTargetException()))->getMessage()));
 	} catch ($ReflectionException& exc2) {
 		$throwNew($RuntimeException, $(exc2->getMessage()));
 	} catch ($AttributeNotFoundException& exc3) {
@@ -518,57 +416,56 @@ void RelationService::addRelation($ObjectName* relationObjectName) {
 	}
 	$var($RoleList, roleList, nullptr);
 	try {
-		$assign(roleList, ($cast($RoleList, $nc(this->myMBeanServer)->invoke(relationObjectName, "retrieveAllRoles"_s, nullptr, nullptr))));
+		$assign(roleList, $cast($RoleList, $nc(this->myMBeanServer)->invoke(relationObjectName, "retrieveAllRoles"_s, nullptr, nullptr)));
 	} catch ($MBeanException& exc1) {
-		$throwNew($RuntimeException, $($nc(($(exc1->getTargetException())))->getMessage()));
+		$throwNew($RuntimeException, $(($$nc(exc1->getTargetException()))->getMessage()));
 	} catch ($ReflectionException& exc2) {
 		$throwNew($RuntimeException, $(exc2->getMessage()));
 	}
 	addRelationInt(false, nullptr, relationObjectName, relId, relTypeName, roleList);
 	$synchronized(this->myRelMBeanObjName2RelIdMap) {
-		$nc(this->myRelMBeanObjName2RelIdMap)->put(relationObjectName, relId);
+		this->myRelMBeanObjName2RelIdMap->put(relationObjectName, relId);
 	}
 	try {
-		$init($Boolean);
 		$nc(this->myMBeanServer)->setAttribute(relationObjectName, $$new($Attribute, "RelationServiceManagementFlag"_s, $Boolean::TRUE));
 	} catch ($Exception& exc) {
 	}
 	$var($List, newRefList, $new($ArrayList));
 	newRefList->add(relationObjectName);
 	updateUnregistrationListener(newRefList, nullptr);
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return;
 }
 
 $ObjectName* RelationService::isRelationMBean($String* relationId) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (relationId == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
 	}
 	$init($JmxProperties);
 	$init($System$Logger$Level);
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {$of(relationId)}));
+	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {relationId}));
 	$var($Object, result, getRelation(relationId));
 	if ($instanceOf($ObjectName, result)) {
-		return ($cast($ObjectName, result));
+		return $cast($ObjectName, result);
 	} else {
 		return nullptr;
 	}
 }
 
 $String* RelationService::isRelation($ObjectName* objectName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (objectName == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
 	}
 	$init($JmxProperties);
 	$init($System$Logger$Level);
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {$of(objectName)}));
+	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {objectName}));
 	$var($String, result, nullptr);
 	$synchronized(this->myRelMBeanObjName2RelIdMap) {
-		$var($String, relId, $cast($String, $nc(this->myRelMBeanObjName2RelIdMap)->get(objectName)));
+		$var($String, relId, $cast($String, this->myRelMBeanObjName2RelIdMap->get(objectName)));
 		if (relId != nullptr) {
 			$assign(result, relId);
 		}
@@ -577,14 +474,14 @@ $String* RelationService::isRelation($ObjectName* objectName) {
 }
 
 $Boolean* RelationService::hasRelation($String* relationId) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (relationId == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
 	}
 	$init($JmxProperties);
 	$init($System$Logger$Level);
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {$of(relationId)}));
+	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {relationId}));
 	try {
 		$var($Object, result, getRelation(relationId));
 		return $Boolean::valueOf(true);
@@ -595,16 +492,16 @@ $Boolean* RelationService::hasRelation($String* relationId) {
 }
 
 $List* RelationService::getAllRelationIds() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, result, nullptr);
 	$synchronized(this->myRelId2ObjMap) {
-		$assign(result, $new($ArrayList, $(static_cast<$Collection*>($nc(this->myRelId2ObjMap)->keySet()))));
+		$assign(result, $new($ArrayList, $(this->myRelId2ObjMap->keySet())));
 	}
 	return result;
 }
 
 $Integer* RelationService::checkRoleReading($String* roleName, $String* relationTypeName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (roleName == nullptr || relationTypeName == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
@@ -612,8 +509,8 @@ $Integer* RelationService::checkRoleReading($String* roleName, $String* relation
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0} {1}"_s, $$new($ObjectArray, {
-		$of(roleName),
-		$of(relationTypeName)
+		roleName,
+		relationTypeName
 	}));
 	$var($Integer, result, nullptr);
 	$var($RelationType, relType, getRelationType(relationTypeName));
@@ -623,12 +520,12 @@ $Integer* RelationService::checkRoleReading($String* roleName, $String* relation
 	} catch ($RoleInfoNotFoundException& exc) {
 		$assign(result, $Integer::valueOf($RoleStatus::NO_ROLE_WITH_NAME));
 	}
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return result;
 }
 
 $Integer* RelationService::checkRoleWriting($Role* role, $String* relationTypeName, $Boolean* initFlag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (role == nullptr || relationTypeName == nullptr || initFlag == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
@@ -636,9 +533,9 @@ $Integer* RelationService::checkRoleWriting($Role* role, $String* relationTypeNa
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0} {1} {2}"_s, $$new($ObjectArray, {
-		$of(role),
-		$of(relationTypeName),
-		$of(initFlag)
+		role,
+		relationTypeName,
+		initFlag
 	}));
 	$var($RelationType, relType, getRelationType(relationTypeName));
 	$var($String, roleName, $nc(role)->getRoleName());
@@ -651,46 +548,46 @@ $Integer* RelationService::checkRoleWriting($Role* role, $String* relationTypeNa
 	try {
 		$assign(roleInfo, $nc(relType)->getRoleInfo(roleName));
 	} catch ($RoleInfoNotFoundException& exc) {
-		$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+		$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 		return $Integer::valueOf($RoleStatus::NO_ROLE_WITH_NAME);
 	}
 	$var($Integer, result, checkRoleInt(2, roleName, roleValue, roleInfo, writeChkFlag));
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return result;
 }
 
 void RelationService::sendRelationCreationNotification($String* relationId) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (relationId == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
 	}
 	$init($JmxProperties);
 	$init($System$Logger$Level);
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {$of(relationId)}));
+	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {relationId}));
 	$var($StringBuilder, ntfMsg, $new($StringBuilder, "Creation of relation "_s));
 	ntfMsg->append(relationId);
 	sendNotificationInt(1, $(ntfMsg->toString()), relationId, nullptr, nullptr, nullptr, nullptr);
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return;
 }
 
 void RelationService::sendRoleUpdateNotification($String* relationId, $Role* newRole, $List* oldValue$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, oldValue, oldValue$renamed);
 	if (relationId == nullptr || newRole == nullptr || oldValue == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
 	}
 	if (!($instanceOf($ArrayList, oldValue))) {
-		$assign(oldValue, $new($ArrayList, static_cast<$Collection*>(oldValue)));
+		$assign(oldValue, $new($ArrayList, oldValue));
 	}
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0} {1} {2}"_s, $$new($ObjectArray, {
-		$of(relationId),
-		$of(newRole),
-		$of(oldValue)
+		relationId,
+		newRole,
+		oldValue
 	}));
 	$var($String, roleName, $nc(newRole)->getRoleName());
 	$var($List, newRoleVal, newRole->getRoleValue());
@@ -703,11 +600,11 @@ void RelationService::sendRoleUpdateNotification($String* relationId, $Role* new
 	ntfMsg->append("\nNew value:\n"_s);
 	ntfMsg->append(newRoleValString);
 	sendNotificationInt(2, $(ntfMsg->toString()), relationId, nullptr, roleName, newRoleVal, oldValue);
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 }
 
 void RelationService::sendRelationRemovalNotification($String* relationId, $List* unregMBeanList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (relationId == nullptr) {
 		$var($String, excMsg, "Invalid parameter"_s);
 		$throwNew($IllegalArgumentException, excMsg);
@@ -715,16 +612,16 @@ void RelationService::sendRelationRemovalNotification($String* relationId, $List
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0} {1}"_s, $$new($ObjectArray, {
-		$of(relationId),
-		$of(unregMBeanList)
+		relationId,
+		unregMBeanList
 	}));
 	sendNotificationInt(3, $$str({"Removal of relation "_s, relationId}), relationId, unregMBeanList, nullptr, nullptr, nullptr);
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return;
 }
 
 void RelationService::updateRoleMap($String* relationId, $Role* newRole, $List* oldValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (relationId == nullptr || newRole == nullptr || oldValue == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
@@ -732,15 +629,15 @@ void RelationService::updateRoleMap($String* relationId, $Role* newRole, $List* 
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0} {1} {2}"_s, $$new($ObjectArray, {
-		$of(relationId),
-		$of(newRole),
-		$of(oldValue)
+		relationId,
+		newRole,
+		oldValue
 	}));
 	isActive();
 	$var($Object, result, getRelation(relationId));
 	$var($String, roleName, $nc(newRole)->getRoleName());
 	$var($List, newRoleValue, newRole->getRoleValue());
-	$var($List, oldRoleValue, $new($ArrayList, static_cast<$Collection*>(oldValue)));
+	$var($List, oldRoleValue, $new($ArrayList, oldValue));
 	$var($List, newRefList, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc(newRoleValue)->iterator());
@@ -773,12 +670,12 @@ void RelationService::updateRoleMap($String* relationId, $Role* newRole, $List* 
 		}
 	}
 	updateUnregistrationListener(newRefList, obsRefList);
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return;
 }
 
 void RelationService::removeRelation($String* relationId) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	isActive();
 	if (relationId == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
@@ -786,7 +683,7 @@ void RelationService::removeRelation($String* relationId) {
 	}
 	$init($JmxProperties);
 	$init($System$Logger$Level);
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {$of(relationId)}));
+	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {relationId}));
 	$var($Object, result, getRelation(relationId));
 	if ($instanceOf($ObjectName, result)) {
 		$var($List, obsRefList, $new($ArrayList));
@@ -798,16 +695,16 @@ void RelationService::removeRelation($String* relationId) {
 	$var($List, nonRefObjNameList, $new($ArrayList));
 	$synchronized(this->myRefedMBeanObjName2RelIdsMap) {
 		{
-			$var($Iterator, i$, $nc($($nc(this->myRefedMBeanObjName2RelIdsMap)->keySet()))->iterator());
+			$var($Iterator, i$, $$nc(this->myRefedMBeanObjName2RelIdsMap->keySet())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($ObjectName, currRefObjName, $cast($ObjectName, i$->next()));
 				{
-					$var($Map, relIdMap, $cast($Map, $nc(this->myRefedMBeanObjName2RelIdsMap)->get(currRefObjName)));
+					$var($Map, relIdMap, $cast($Map, this->myRefedMBeanObjName2RelIdsMap->get(currRefObjName)));
 					if ($nc(relIdMap)->containsKey(relationId)) {
 						relIdMap->remove(relationId);
 						refMBeanList->add(currRefObjName);
 					}
-					if ($nc(relIdMap)->isEmpty()) {
+					if (relIdMap->isEmpty()) {
 						nonRefObjNameList->add(currRefObjName);
 					}
 				}
@@ -818,75 +715,73 @@ void RelationService::removeRelation($String* relationId) {
 			for (; $nc(i$)->hasNext();) {
 				$var($ObjectName, currRefObjName, $cast($ObjectName, i$->next()));
 				{
-					$nc(this->myRefedMBeanObjName2RelIdsMap)->remove(currRefObjName);
+					this->myRefedMBeanObjName2RelIdsMap->remove(currRefObjName);
 				}
 			}
 		}
 	}
 	$synchronized(this->myRelId2ObjMap) {
-		$nc(this->myRelId2ObjMap)->remove(relationId);
+		this->myRelId2ObjMap->remove(relationId);
 	}
 	if ($instanceOf($ObjectName, result)) {
 		$synchronized(this->myRelMBeanObjName2RelIdMap) {
-			$nc(this->myRelMBeanObjName2RelIdMap)->remove($cast($ObjectName, result));
+			this->myRelMBeanObjName2RelIdMap->remove($cast($ObjectName, result));
 		}
 	}
 	$var($String, relTypeName, nullptr);
 	$synchronized(this->myRelId2RelTypeMap) {
-		$assign(relTypeName, $cast($String, $nc(this->myRelId2RelTypeMap)->get(relationId)));
-		$nc(this->myRelId2RelTypeMap)->remove(relationId);
+		$assign(relTypeName, $cast($String, this->myRelId2RelTypeMap->get(relationId)));
+		this->myRelId2RelTypeMap->remove(relationId);
 	}
 	$synchronized(this->myRelType2RelIdsMap) {
-		$var($List, relIdList, $cast($List, $nc(this->myRelType2RelIdsMap)->get(relTypeName)));
+		$var($List, relIdList, $cast($List, this->myRelType2RelIdsMap->get(relTypeName)));
 		if (relIdList != nullptr) {
-			relIdList->remove($of(relationId));
+			relIdList->remove(relationId);
 			if (relIdList->isEmpty()) {
-				$nc(this->myRelType2RelIdsMap)->remove(relTypeName);
+				this->myRelType2RelIdsMap->remove(relTypeName);
 			}
 		}
 	}
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return;
 }
 
 void RelationService::purgeRelations() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY"_s);
 	isActive();
 	$var($List, localUnregNtfList, nullptr);
 	$synchronized(this->myRefedMBeanObjName2RelIdsMap) {
-		$assign(localUnregNtfList, $new($ArrayList, static_cast<$Collection*>(this->myUnregNtfList)));
+		$assign(localUnregNtfList, $new($ArrayList, this->myUnregNtfList));
 		$set(this, myUnregNtfList, $new($ArrayList));
 	}
 	$var($List, obsRefList, $new($ArrayList));
 	$var($Map, localMBean2RelIdMap, $new($HashMap));
 	$synchronized(this->myRefedMBeanObjName2RelIdsMap) {
-		{
-			$var($Iterator, i$, $nc(localUnregNtfList)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($MBeanServerNotification, currNtf, $cast($MBeanServerNotification, i$->next()));
-				{
-					$var($ObjectName, unregMBeanName, $nc(currNtf)->getMBeanName());
-					obsRefList->add(unregMBeanName);
-					$var($Map, relIdMap, $cast($Map, $nc(this->myRefedMBeanObjName2RelIdsMap)->get(unregMBeanName)));
-					localMBean2RelIdMap->put(unregMBeanName, relIdMap);
-					$nc(this->myRefedMBeanObjName2RelIdsMap)->remove(unregMBeanName);
-				}
+		$var($Iterator, i$, localUnregNtfList->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($MBeanServerNotification, currNtf, $cast($MBeanServerNotification, i$->next()));
+			{
+				$var($ObjectName, unregMBeanName, $nc(currNtf)->getMBeanName());
+				obsRefList->add(unregMBeanName);
+				$var($Map, relIdMap, $cast($Map, this->myRefedMBeanObjName2RelIdsMap->get(unregMBeanName)));
+				localMBean2RelIdMap->put(unregMBeanName, relIdMap);
+				this->myRefedMBeanObjName2RelIdsMap->remove(unregMBeanName);
 			}
 		}
 	}
 	updateUnregistrationListener(nullptr, obsRefList);
 	{
-		$var($Iterator, i$, $nc(localUnregNtfList)->iterator());
+		$var($Iterator, i$, localUnregNtfList->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($MBeanServerNotification, currNtf, $cast($MBeanServerNotification, i$->next()));
 			{
 				$var($ObjectName, unregMBeanName, $nc(currNtf)->getMBeanName());
 				$var($Map, localRelIdMap, $cast($Map, localMBean2RelIdMap->get(unregMBeanName)));
 				{
-					$var($Iterator, i$, $nc($($nc(localRelIdMap)->entrySet()))->iterator());
+					$var($Iterator, i$, $$nc($nc(localRelIdMap)->entrySet())->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($Map$Entry, currRel, $cast($Map$Entry, i$->next()));
 						{
@@ -905,12 +800,12 @@ void RelationService::purgeRelations() {
 			}
 		}
 	}
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return;
 }
 
 $Map* RelationService::findReferencingRelations($ObjectName* mbeanName, $String* relationTypeName, $String* roleName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (mbeanName == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
@@ -918,18 +813,18 @@ $Map* RelationService::findReferencingRelations($ObjectName* mbeanName, $String*
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0} {1} {2}"_s, $$new($ObjectArray, {
-		$of(mbeanName),
-		$of(relationTypeName),
-		$of(roleName)
+		mbeanName,
+		relationTypeName,
+		roleName
 	}));
 	$var($Map, result, $new($HashMap));
 	$synchronized(this->myRefedMBeanObjName2RelIdsMap) {
-		$var($Map, relId2RoleNamesMap, $cast($Map, $nc(this->myRefedMBeanObjName2RelIdsMap)->get(mbeanName)));
+		$var($Map, relId2RoleNamesMap, $cast($Map, this->myRefedMBeanObjName2RelIdsMap->get(mbeanName)));
 		if (relId2RoleNamesMap != nullptr) {
 			$var($Set, allRelIdSet, relId2RoleNamesMap->keySet());
 			$var($List, relIdList, nullptr);
 			if (relationTypeName == nullptr) {
-				$assign(relIdList, $new($ArrayList, static_cast<$Collection*>(allRelIdSet)));
+				$assign(relIdList, $new($ArrayList, allRelIdSet));
 			} else {
 				$assign(relIdList, $new($ArrayList));
 				{
@@ -939,7 +834,7 @@ $Map* RelationService::findReferencingRelations($ObjectName* mbeanName, $String*
 						{
 							$var($String, currRelTypeName, nullptr);
 							$synchronized(this->myRelId2RelTypeMap) {
-								$assign(currRelTypeName, $cast($String, $nc(this->myRelId2RelTypeMap)->get(currRelId)));
+								$assign(currRelTypeName, $cast($String, this->myRelId2RelTypeMap->get(currRelId)));
 							}
 							if ($nc(currRelTypeName)->equals(relationTypeName)) {
 								relIdList->add(currRelId);
@@ -955,7 +850,7 @@ $Map* RelationService::findReferencingRelations($ObjectName* mbeanName, $String*
 					{
 						$var($List, currRoleNameList, $cast($List, relId2RoleNamesMap->get(currRelId)));
 						if (roleName == nullptr) {
-							result->put(currRelId, $$new($ArrayList, static_cast<$Collection*>(currRoleNameList)));
+							result->put(currRelId, $$new($ArrayList, currRoleNameList));
 						} else if ($nc(currRoleNameList)->contains(roleName)) {
 							$var($List, dummyList, $new($ArrayList));
 							dummyList->add(roleName);
@@ -966,12 +861,12 @@ $Map* RelationService::findReferencingRelations($ObjectName* mbeanName, $String*
 			}
 		}
 	}
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return result;
 }
 
 $Map* RelationService::findAssociatedMBeans($ObjectName* mbeanName, $String* relationTypeName, $String* roleName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (mbeanName == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
@@ -979,14 +874,14 @@ $Map* RelationService::findAssociatedMBeans($ObjectName* mbeanName, $String* rel
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0} {1} {2}"_s, $$new($ObjectArray, {
-		$of(mbeanName),
-		$of(relationTypeName),
-		$of(roleName)
+		mbeanName,
+		relationTypeName,
+		roleName
 	}));
 	$var($Map, relId2RoleNamesMap, findReferencingRelations(mbeanName, relationTypeName, roleName));
 	$var($Map, result, $new($HashMap));
 	{
-		$var($Iterator, i$, $nc($($nc(relId2RoleNamesMap)->keySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(relId2RoleNamesMap)->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, currRelId, $cast($String, i$->next()));
 			{
@@ -997,19 +892,17 @@ $Map* RelationService::findAssociatedMBeans($ObjectName* mbeanName, $String* rel
 					$throwNew($RuntimeException, $(exc->getMessage()));
 				}
 				{
-					$var($Iterator, i$, $nc($($nc(objName2RoleNamesMap)->keySet()))->iterator());
+					$var($Iterator, i$, $$nc($nc(objName2RoleNamesMap)->keySet())->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($ObjectName, currObjName, $cast($ObjectName, i$->next()));
-						{
-							if (!($nc(currObjName)->equals(mbeanName))) {
-								$var($List, currRelIdList, $cast($List, result->get(currObjName)));
-								if (currRelIdList == nullptr) {
-									$assign(currRelIdList, $new($ArrayList));
-									currRelIdList->add(currRelId);
-									result->put(currObjName, currRelIdList);
-								} else {
-									$nc(currRelIdList)->add(currRelId);
-								}
+						if (!($nc(currObjName)->equals(mbeanName))) {
+							$var($List, currRelIdList, $cast($List, result->get(currObjName)));
+							if (currRelIdList == nullptr) {
+								$assign(currRelIdList, $new($ArrayList));
+								currRelIdList->add(currRelId);
+								result->put(currObjName, currRelIdList);
+							} else {
+								currRelIdList->add(currRelId);
 							}
 						}
 					}
@@ -1017,12 +910,12 @@ $Map* RelationService::findAssociatedMBeans($ObjectName* mbeanName, $String* rel
 			}
 		}
 	}
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return result;
 }
 
 $List* RelationService::findRelationsOfType($String* relationTypeName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (relationTypeName == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
@@ -1033,19 +926,19 @@ $List* RelationService::findRelationsOfType($String* relationTypeName) {
 	$var($RelationType, relType, getRelationType(relationTypeName));
 	$var($List, result, nullptr);
 	$synchronized(this->myRelType2RelIdsMap) {
-		$var($List, result1, $cast($List, $nc(this->myRelType2RelIdsMap)->get(relationTypeName)));
+		$var($List, result1, $cast($List, this->myRelType2RelIdsMap->get(relationTypeName)));
 		if (result1 == nullptr) {
 			$assign(result, $new($ArrayList));
 		} else {
-			$assign(result, $new($ArrayList, static_cast<$Collection*>(result1)));
+			$assign(result, $new($ArrayList, result1));
 		}
 	}
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return result;
 }
 
 $List* RelationService::getRole($String* relationId, $String* roleName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (relationId == nullptr || roleName == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
@@ -1053,25 +946,25 @@ $List* RelationService::getRole($String* relationId, $String* roleName) {
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0} {1}"_s, $$new($ObjectArray, {
-		$of(relationId),
-		$of(roleName)
+		relationId,
+		roleName
 	}));
 	isActive();
 	$var($Object, relObj, getRelation(relationId));
 	$var($List, result, nullptr);
 	if ($instanceOf($RelationSupport, relObj)) {
-		$assign(result, $cast($List, $Util::cast($($nc(($cast($RelationSupport, relObj)))->getRoleInt(roleName, true, this, false)))));
+		$assign(result, $cast($List, $Util::cast($($cast($RelationSupport, relObj)->getRoleInt(roleName, true, this, false)))));
 	} else {
 		$var($ObjectArray, params, $new($ObjectArray, 1));
 		params->set(0, roleName);
 		$var($StringArray, signature, $new($StringArray, 1));
 		signature->set(0, "java.lang.String"_s);
 		try {
-			$var($List, invokeResult, $cast($List, $Util::cast($($nc(this->myMBeanServer)->invoke(($cast($ObjectName, relObj)), "getRole"_s, params, signature)))));
+			$var($List, invokeResult, $cast($List, $Util::cast($($nc(this->myMBeanServer)->invoke($cast($ObjectName, relObj), "getRole"_s, params, signature)))));
 			if (invokeResult == nullptr || $instanceOf($ArrayList, invokeResult)) {
 				$assign(result, invokeResult);
 			} else {
-				$assign(result, $new($ArrayList, static_cast<$Collection*>(invokeResult)));
+				$assign(result, $new($ArrayList, invokeResult));
 			}
 		} catch ($InstanceNotFoundException& exc1) {
 			$throwNew($RuntimeException, $(exc1->getMessage()));
@@ -1086,24 +979,24 @@ $List* RelationService::getRole($String* relationId, $String* roleName) {
 			}
 		}
 	}
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return result;
 }
 
 $RoleResult* RelationService::getRoles($String* relationId, $StringArray* roleNameArray) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (relationId == nullptr || roleNameArray == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
 	}
 	$init($JmxProperties);
 	$init($System$Logger$Level);
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {$of(relationId)}));
+	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {relationId}));
 	isActive();
 	$var($Object, relObj, getRelation(relationId));
 	$var($RoleResult, result, nullptr);
 	if ($instanceOf($RelationSupport, relObj)) {
-		$assign(result, $nc(($cast($RelationSupport, relObj)))->getRolesInt(roleNameArray, true, this));
+		$assign(result, $cast($RelationSupport, relObj)->getRolesInt(roleNameArray, true, this));
 	} else {
 		$var($ObjectArray, params, $new($ObjectArray, 1));
 		params->set(0, roleNameArray);
@@ -1113,45 +1006,45 @@ $RoleResult* RelationService::getRoles($String* relationId, $StringArray* roleNa
 		} catch ($Exception& exc) {
 		}
 		try {
-			$assign(result, ($cast($RoleResult, $nc(this->myMBeanServer)->invoke(($cast($ObjectName, relObj)), "getRoles"_s, params, signature))));
+			$assign(result, $cast($RoleResult, $nc(this->myMBeanServer)->invoke($cast($ObjectName, relObj), "getRoles"_s, params, signature)));
 		} catch ($InstanceNotFoundException& exc1) {
 			$throwNew($RuntimeException, $(exc1->getMessage()));
 		} catch ($ReflectionException& exc2) {
 			$throwNew($RuntimeException, $(exc2->getMessage()));
 		} catch ($MBeanException& exc3) {
-			$throwNew($RuntimeException, $($nc(($(exc3->getTargetException())))->getMessage()));
+			$throwNew($RuntimeException, $(($$nc(exc3->getTargetException()))->getMessage()));
 		}
 	}
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return result;
 }
 
 $RoleResult* RelationService::getAllRoles($String* relationId) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (relationId == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
 	}
 	$init($JmxProperties);
 	$init($System$Logger$Level);
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {$of(relationId)}));
+	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {relationId}));
 	$var($Object, relObj, getRelation(relationId));
 	$var($RoleResult, result, nullptr);
 	if ($instanceOf($RelationSupport, relObj)) {
-		$assign(result, $nc(($cast($RelationSupport, relObj)))->getAllRolesInt(true, this));
+		$assign(result, $cast($RelationSupport, relObj)->getAllRolesInt(true, this));
 	} else {
 		try {
-			$assign(result, ($cast($RoleResult, $nc(this->myMBeanServer)->getAttribute(($cast($ObjectName, relObj)), "AllRoles"_s))));
+			$assign(result, $cast($RoleResult, $nc(this->myMBeanServer)->getAttribute($cast($ObjectName, relObj), "AllRoles"_s)));
 		} catch ($Exception& exc) {
 			$throwNew($RuntimeException, $(exc->getMessage()));
 		}
 	}
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return result;
 }
 
 $Integer* RelationService::getRoleCardinality($String* relationId, $String* roleName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (relationId == nullptr || roleName == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
@@ -1159,20 +1052,20 @@ $Integer* RelationService::getRoleCardinality($String* relationId, $String* role
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0} {1}"_s, $$new($ObjectArray, {
-		$of(relationId),
-		$of(roleName)
+		relationId,
+		roleName
 	}));
 	$var($Object, relObj, getRelation(relationId));
 	$var($Integer, result, nullptr);
 	if ($instanceOf($RelationSupport, relObj)) {
-		$assign(result, $nc(($cast($RelationSupport, relObj)))->getRoleCardinality(roleName));
+		$assign(result, $cast($RelationSupport, relObj)->getRoleCardinality(roleName));
 	} else {
 		$var($ObjectArray, params, $new($ObjectArray, 1));
 		params->set(0, roleName);
 		$var($StringArray, signature, $new($StringArray, 1));
 		signature->set(0, "java.lang.String"_s);
 		try {
-			$assign(result, ($cast($Integer, $nc(this->myMBeanServer)->invoke(($cast($ObjectName, relObj)), "getRoleCardinality"_s, params, signature))));
+			$assign(result, $cast($Integer, $nc(this->myMBeanServer)->invoke($cast($ObjectName, relObj), "getRoleCardinality"_s, params, signature)));
 		} catch ($InstanceNotFoundException& exc1) {
 			$throwNew($RuntimeException, $(exc1->getMessage()));
 		} catch ($ReflectionException& exc2) {
@@ -1186,12 +1079,12 @@ $Integer* RelationService::getRoleCardinality($String* relationId, $String* role
 			}
 		}
 	}
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return result;
 }
 
 void RelationService::setRole($String* relationId, $Role* role) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (relationId == nullptr || role == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
@@ -1199,14 +1092,14 @@ void RelationService::setRole($String* relationId, $Role* role) {
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0} {1}"_s, $$new($ObjectArray, {
-		$of(relationId),
-		$of(role)
+		relationId,
+		role
 	}));
 	isActive();
 	$var($Object, relObj, getRelation(relationId));
 	if ($instanceOf($RelationSupport, relObj)) {
 		try {
-			$nc(($cast($RelationSupport, relObj)))->setRoleInt(role, true, this, false);
+			$cast($RelationSupport, relObj)->setRoleInt(role, true, this, false);
 		} catch ($RelationTypeNotFoundException& exc) {
 			$throwNew($RuntimeException, $(exc->getMessage()));
 		}
@@ -1216,7 +1109,7 @@ void RelationService::setRole($String* relationId, $Role* role) {
 		$var($StringArray, signature, $new($StringArray, 1));
 		signature->set(0, "javax.management.relation.Role"_s);
 		try {
-			$nc(this->myMBeanServer)->setAttribute(($cast($ObjectName, relObj)), $$new($Attribute, "Role"_s, role));
+			$nc(this->myMBeanServer)->setAttribute($cast($ObjectName, relObj), $$new($Attribute, "Role"_s, role));
 		} catch ($InstanceNotFoundException& exc1) {
 			$throwNew($RuntimeException, $(exc1->getMessage()));
 		} catch ($ReflectionException& exc3) {
@@ -1236,12 +1129,12 @@ void RelationService::setRole($String* relationId, $Role* role) {
 			$throwNew($RuntimeException, $(exc5->getMessage()));
 		}
 	}
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return;
 }
 
 $RoleResult* RelationService::setRoles($String* relationId, $RoleList* roleList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (relationId == nullptr || roleList == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
@@ -1249,15 +1142,15 @@ $RoleResult* RelationService::setRoles($String* relationId, $RoleList* roleList)
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0} {1}"_s, $$new($ObjectArray, {
-		$of(relationId),
-		$of(roleList)
+		relationId,
+		roleList
 	}));
 	isActive();
 	$var($Object, relObj, getRelation(relationId));
 	$var($RoleResult, result, nullptr);
 	if ($instanceOf($RelationSupport, relObj)) {
 		try {
-			$assign(result, $nc(($cast($RelationSupport, relObj)))->setRolesInt(roleList, true, this));
+			$assign(result, $cast($RelationSupport, relObj)->setRolesInt(roleList, true, this));
 		} catch ($RelationTypeNotFoundException& exc) {
 			$throwNew($RuntimeException, $(exc->getMessage()));
 		}
@@ -1267,87 +1160,87 @@ $RoleResult* RelationService::setRoles($String* relationId, $RoleList* roleList)
 		$var($StringArray, signature, $new($StringArray, 1));
 		signature->set(0, "javax.management.relation.RoleList"_s);
 		try {
-			$assign(result, ($cast($RoleResult, $nc(this->myMBeanServer)->invoke(($cast($ObjectName, relObj)), "setRoles"_s, params, signature))));
+			$assign(result, $cast($RoleResult, $nc(this->myMBeanServer)->invoke($cast($ObjectName, relObj), "setRoles"_s, params, signature)));
 		} catch ($InstanceNotFoundException& exc1) {
 			$throwNew($RuntimeException, $(exc1->getMessage()));
 		} catch ($ReflectionException& exc3) {
 			$throwNew($RuntimeException, $(exc3->getMessage()));
 		} catch ($MBeanException& exc2) {
-			$throwNew($RuntimeException, $($nc(($(exc2->getTargetException())))->getMessage()));
+			$throwNew($RuntimeException, $(($$nc(exc2->getTargetException()))->getMessage()));
 		}
 	}
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return result;
 }
 
 $Map* RelationService::getReferencedMBeans($String* relationId) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (relationId == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
 	}
 	$init($JmxProperties);
 	$init($System$Logger$Level);
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {$of(relationId)}));
+	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {relationId}));
 	$var($Object, relObj, getRelation(relationId));
 	$var($Map, result, nullptr);
 	if ($instanceOf($RelationSupport, relObj)) {
-		$assign(result, $nc(($cast($RelationSupport, relObj)))->getReferencedMBeans());
+		$assign(result, $cast($RelationSupport, relObj)->getReferencedMBeans());
 	} else {
 		try {
-			$assign(result, $cast($Map, $Util::cast($($nc(this->myMBeanServer)->getAttribute(($cast($ObjectName, relObj)), "ReferencedMBeans"_s)))));
+			$assign(result, $cast($Map, $Util::cast($($nc(this->myMBeanServer)->getAttribute($cast($ObjectName, relObj), "ReferencedMBeans"_s)))));
 		} catch ($Exception& exc) {
 			$throwNew($RuntimeException, $(exc->getMessage()));
 		}
 	}
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return result;
 }
 
 $String* RelationService::getRelationTypeName($String* relationId) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (relationId == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
 	}
 	$init($JmxProperties);
 	$init($System$Logger$Level);
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {$of(relationId)}));
+	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {relationId}));
 	$var($Object, relObj, getRelation(relationId));
 	$var($String, result, nullptr);
 	if ($instanceOf($RelationSupport, relObj)) {
-		$assign(result, $nc(($cast($RelationSupport, relObj)))->getRelationTypeName());
+		$assign(result, $cast($RelationSupport, relObj)->getRelationTypeName());
 	} else {
 		try {
-			$assign(result, ($cast($String, $nc(this->myMBeanServer)->getAttribute(($cast($ObjectName, relObj)), "RelationTypeName"_s))));
+			$assign(result, $cast($String, $nc(this->myMBeanServer)->getAttribute($cast($ObjectName, relObj), "RelationTypeName"_s)));
 		} catch ($Exception& exc) {
 			$throwNew($RuntimeException, $(exc->getMessage()));
 		}
 	}
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return result;
 }
 
 void RelationService::handleNotification($Notification* notif, Object$* handback) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (notif == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
 	}
 	$init($JmxProperties);
 	$init($System$Logger$Level);
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {$of(notif)}));
+	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {notif}));
 	if ($instanceOf($MBeanServerNotification, notif)) {
 		$var($MBeanServerNotification, mbsNtf, $cast($MBeanServerNotification, notif));
-		$var($String, ntfType, $nc(notif)->getType());
+		$var($String, ntfType, notif->getType());
 		$init($MBeanServerNotification);
 		if ($nc(ntfType)->equals($MBeanServerNotification::UNREGISTRATION_NOTIFICATION)) {
-			$var($ObjectName, mbeanName, $nc(($cast($MBeanServerNotification, notif)))->getMBeanName());
+			$var($ObjectName, mbeanName, $cast($MBeanServerNotification, notif)->getMBeanName());
 			bool isRefedMBeanFlag = false;
 			$synchronized(this->myRefedMBeanObjName2RelIdsMap) {
-				if ($nc(this->myRefedMBeanObjName2RelIdsMap)->containsKey(mbeanName)) {
+				if (this->myRefedMBeanObjName2RelIdsMap->containsKey(mbeanName)) {
 					$synchronized(this->myUnregNtfList) {
-						$nc(this->myUnregNtfList)->add(mbsNtf);
+						this->myUnregNtfList->add(mbsNtf);
 					}
 					isRefedMBeanFlag = true;
 				}
@@ -1361,7 +1254,7 @@ void RelationService::handleNotification($Notification* notif, Object$* handback
 			}
 			$var($String, relId, nullptr);
 			$synchronized(this->myRelMBeanObjName2RelIdMap) {
-				$assign(relId, $cast($String, $nc(this->myRelMBeanObjName2RelIdMap)->get(mbeanName)));
+				$assign(relId, $cast($String, this->myRelMBeanObjName2RelIdMap->get(mbeanName)));
 			}
 			if (relId != nullptr) {
 				try {
@@ -1372,12 +1265,12 @@ void RelationService::handleNotification($Notification* notif, Object$* handback
 			}
 		}
 	}
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return;
 }
 
 $MBeanNotificationInfoArray* RelationService::getNotificationInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY"_s);
@@ -1393,12 +1286,12 @@ $MBeanNotificationInfoArray* RelationService::getNotificationInfo() {
 	}));
 	$var($String, ntfDesc, "Sent when a relation is created, updated or deleted."_s);
 	$var($MBeanNotificationInfo, ntfInfo, $new($MBeanNotificationInfo, ntfTypes, ntfClass, ntfDesc));
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return $new($MBeanNotificationInfoArray, {ntfInfo});
 }
 
 void RelationService::addRelationTypeInt($RelationType* relationTypeObj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (relationTypeObj == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
@@ -1418,27 +1311,27 @@ void RelationService::addRelationTypeInt($RelationType* relationTypeObj) {
 	} catch ($RelationTypeNotFoundException& exc) {
 	}
 	$synchronized(this->myRelType2ObjMap) {
-		$nc(this->myRelType2ObjMap)->put(relTypeName, relationTypeObj);
+		this->myRelType2ObjMap->put(relTypeName, relationTypeObj);
 	}
 	if ($instanceOf($RelationTypeSupport, relationTypeObj)) {
-		$nc(($cast($RelationTypeSupport, relationTypeObj)))->setRelationServiceFlag(true);
+		$cast($RelationTypeSupport, relationTypeObj)->setRelationServiceFlag(true);
 	}
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return;
 }
 
 $RelationType* RelationService::getRelationType($String* relationTypeName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (relationTypeName == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
 	}
 	$init($JmxProperties);
 	$init($System$Logger$Level);
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {$of(relationTypeName)}));
+	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {relationTypeName}));
 	$var($RelationType, relType, nullptr);
 	$synchronized(this->myRelType2ObjMap) {
-		$assign(relType, $cast($RelationType, $nc(this->myRelType2ObjMap)->get(relationTypeName)));
+		$assign(relType, $cast($RelationType, this->myRelType2ObjMap->get(relationTypeName)));
 	}
 	if (relType == nullptr) {
 		$var($String, excMsg, "No relation type created in the Relation Service with the name "_s);
@@ -1446,33 +1339,33 @@ $RelationType* RelationService::getRelationType($String* relationTypeName) {
 		excMsgStrB->append(relationTypeName);
 		$throwNew($RelationTypeNotFoundException, $(excMsgStrB->toString()));
 	}
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return relType;
 }
 
 $Object* RelationService::getRelation($String* relationId) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (relationId == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
 	}
 	$init($JmxProperties);
 	$init($System$Logger$Level);
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {$of(relationId)}));
+	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {relationId}));
 	$var($Object, rel, nullptr);
 	$synchronized(this->myRelId2ObjMap) {
-		$assign(rel, $nc(this->myRelId2ObjMap)->get(relationId));
+		$assign(rel, this->myRelId2ObjMap->get(relationId));
 	}
 	if (rel == nullptr) {
 		$var($String, excMsg, $str({"No relation associated to relation id "_s, relationId}));
 		$throwNew($RelationNotFoundException, excMsg);
 	}
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
-	return $of(rel);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
+	return rel;
 }
 
 bool RelationService::addNewMBeanReference($ObjectName* objectName, $String* relationId, $String* roleName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (objectName == nullptr || relationId == nullptr || roleName == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
@@ -1480,37 +1373,37 @@ bool RelationService::addNewMBeanReference($ObjectName* objectName, $String* rel
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0} {1} {2}"_s, $$new($ObjectArray, {
-		$of(objectName),
-		$of(relationId),
-		$of(roleName)
+		objectName,
+		relationId,
+		roleName
 	}));
 	bool isNewFlag = false;
 	$synchronized(this->myRefedMBeanObjName2RelIdsMap) {
-		$var($Map, mbeanRefMap, $cast($Map, $nc(this->myRefedMBeanObjName2RelIdsMap)->get(objectName)));
+		$var($Map, mbeanRefMap, $cast($Map, this->myRefedMBeanObjName2RelIdsMap->get(objectName)));
 		if (mbeanRefMap == nullptr) {
 			isNewFlag = true;
 			$var($List, roleNames, $new($ArrayList));
 			roleNames->add(roleName);
 			$assign(mbeanRefMap, $new($HashMap));
 			mbeanRefMap->put(relationId, roleNames);
-			$nc(this->myRefedMBeanObjName2RelIdsMap)->put(objectName, mbeanRefMap);
+			this->myRefedMBeanObjName2RelIdsMap->put(objectName, mbeanRefMap);
 		} else {
-			$var($List, roleNames, $cast($List, $nc(mbeanRefMap)->get(relationId)));
+			$var($List, roleNames, $cast($List, mbeanRefMap->get(relationId)));
 			if (roleNames == nullptr) {
 				$assign(roleNames, $new($ArrayList));
 				roleNames->add(roleName);
 				mbeanRefMap->put(relationId, roleNames);
 			} else {
-				$nc(roleNames)->add(roleName);
+				roleNames->add(roleName);
 			}
 		}
 	}
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return isNewFlag;
 }
 
 bool RelationService::removeMBeanReference($ObjectName* objectName, $String* relationId, $String* roleName, bool allRolesFlag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (objectName == nullptr || relationId == nullptr || roleName == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
@@ -1518,16 +1411,16 @@ bool RelationService::removeMBeanReference($ObjectName* objectName, $String* rel
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0} {1} {2} {3}"_s, $$new($ObjectArray, {
-		$of(objectName),
-		$of(relationId),
-		$of(roleName),
-		$($of($Boolean::valueOf(allRolesFlag)))
+		objectName,
+		relationId,
+		roleName,
+		$($Boolean::valueOf(allRolesFlag))
 	}));
 	bool noLongerRefFlag = false;
 	$synchronized(this->myRefedMBeanObjName2RelIdsMap) {
-		$var($Map, mbeanRefMap, $cast($Map, $nc(this->myRefedMBeanObjName2RelIdsMap)->get(objectName)));
+		$var($Map, mbeanRefMap, $cast($Map, this->myRefedMBeanObjName2RelIdsMap->get(objectName)));
 		if (mbeanRefMap == nullptr) {
-			$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+			$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 			return true;
 		}
 		$var($List, roleNames, nullptr);
@@ -1542,16 +1435,16 @@ bool RelationService::removeMBeanReference($ObjectName* objectName, $String* rel
 			$nc(mbeanRefMap)->remove(relationId);
 		}
 		if ($nc(mbeanRefMap)->isEmpty()) {
-			$nc(this->myRefedMBeanObjName2RelIdsMap)->remove(objectName);
+			this->myRefedMBeanObjName2RelIdsMap->remove(objectName);
 			noLongerRefFlag = true;
 		}
 	}
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return noLongerRefFlag;
 }
 
 void RelationService::updateUnregistrationListener($List* newRefList, $List* obsoleteRefList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (newRefList != nullptr && obsoleteRefList != nullptr) {
 		bool var$0 = newRefList->isEmpty();
 		if (var$0 && obsoleteRefList->isEmpty()) {
@@ -1561,8 +1454,8 @@ void RelationService::updateUnregistrationListener($List* newRefList, $List* obs
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0} {1}"_s, $$new($ObjectArray, {
-		$of(newRefList),
-		$of(obsoleteRefList)
+		newRefList,
+		obsoleteRefList
 	}));
 	isActive();
 	if (newRefList != nullptr || obsoleteRefList != nullptr) {
@@ -1573,39 +1466,35 @@ void RelationService::updateUnregistrationListener($List* newRefList, $List* obs
 		}
 		$synchronized(this->myUnregNtfFilter) {
 			if (newRefList != nullptr) {
-				{
-					$var($Iterator, i$, newRefList->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($ObjectName, newObjName, $cast($ObjectName, i$->next()));
-						$nc(this->myUnregNtfFilter)->enableObjectName(newObjName);
-					}
+				$var($Iterator, i$, newRefList->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($ObjectName, newObjName, $cast($ObjectName, i$->next()));
+					$nc(this->myUnregNtfFilter)->enableObjectName(newObjName);
 				}
 			}
 			if (obsoleteRefList != nullptr) {
-				{
-					$var($Iterator, i$, obsoleteRefList->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($ObjectName, obsObjName, $cast($ObjectName, i$->next()));
-						$nc(this->myUnregNtfFilter)->disableObjectName(obsObjName);
-					}
+				$var($Iterator, i$, obsoleteRefList->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($ObjectName, obsObjName, $cast($ObjectName, i$->next()));
+					$nc(this->myUnregNtfFilter)->disableObjectName(obsObjName);
 				}
 			}
 			if (newListenerFlag) {
 				try {
 					$init($MBeanServerDelegate);
-					$nc(this->myMBeanServer)->addNotificationListener($MBeanServerDelegate::DELEGATE_NAME, static_cast<$NotificationListener*>(this), static_cast<$NotificationFilter*>(this->myUnregNtfFilter), ($Object*)nullptr);
+					$nc(this->myMBeanServer)->addNotificationListener($MBeanServerDelegate::DELEGATE_NAME, this, this->myUnregNtfFilter, nullptr);
 				} catch ($InstanceNotFoundException& exc) {
 					$throwNew($RelationServiceNotRegisteredException, $(exc->getMessage()));
 				}
 			}
 		}
 	}
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return;
 }
 
 void RelationService::addRelationInt(bool relationBaseFlag, $RelationSupport* relationObj, $ObjectName* relationObjName, $String* relationId, $String* relationTypeName, $RoleList* roleList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (relationId == nullptr || relationTypeName == nullptr || (relationBaseFlag && (relationObj == nullptr || relationObjName != nullptr)) || (!relationBaseFlag && (relationObjName == nullptr || relationObj != nullptr))) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
@@ -1613,12 +1502,12 @@ void RelationService::addRelationInt(bool relationBaseFlag, $RelationSupport* re
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0} {1} {2} {3} {4} {5}"_s, $$new($ObjectArray, {
-		$($of($Boolean::valueOf(relationBaseFlag))),
-		$of(relationObj),
-		$of(relationObjName),
-		$of(relationId),
-		$of(relationTypeName),
-		$of(roleList)
+		$($Boolean::valueOf(relationBaseFlag)),
+		relationObj,
+		relationObjName,
+		relationId,
+		relationTypeName,
+		roleList
 	}));
 	isActive();
 	try {
@@ -1632,45 +1521,43 @@ void RelationService::addRelationInt(bool relationBaseFlag, $RelationSupport* re
 	} catch ($RelationNotFoundException& exc) {
 	}
 	$var($RelationType, relType, getRelationType(relationTypeName));
-	$var($List, roleInfoList, $new($ArrayList, $(static_cast<$Collection*>($nc(relType)->getRoleInfos()))));
+	$var($List, roleInfoList, $new($ArrayList, $($nc(relType)->getRoleInfos())));
 	if (roleList != nullptr) {
-		{
-			$var($Iterator, i$, $nc($(roleList->asList()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Role, currRole, $cast($Role, i$->next()));
-				{
-					$var($String, currRoleName, $nc(currRole)->getRoleName());
-					$var($List, currRoleValue, currRole->getRoleValue());
-					$var($RoleInfo, roleInfo, nullptr);
-					try {
-						$assign(roleInfo, $nc(relType)->getRoleInfo(currRoleName));
-					} catch ($RoleInfoNotFoundException& exc) {
-						$throwNew($RoleNotFoundException, $(exc->getMessage()));
-					}
-					$var($Integer, status, checkRoleInt(2, currRoleName, currRoleValue, roleInfo, false));
-					int32_t pbType = $nc(status)->intValue();
-					if (pbType != 0) {
-						throwRoleProblemException(pbType, currRoleName);
-					}
-					int32_t roleInfoIdx = roleInfoList->indexOf(roleInfo);
-					roleInfoList->remove(roleInfoIdx);
+		$var($Iterator, i$, $$nc(roleList->asList())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Role, currRole, $cast($Role, i$->next()));
+			{
+				$var($String, currRoleName, $nc(currRole)->getRoleName());
+				$var($List, currRoleValue, currRole->getRoleValue());
+				$var($RoleInfo, roleInfo, nullptr);
+				try {
+					$assign(roleInfo, relType->getRoleInfo(currRoleName));
+				} catch ($RoleInfoNotFoundException& exc) {
+					$throwNew($RoleNotFoundException, $(exc->getMessage()));
 				}
+				$var($Integer, status, checkRoleInt(2, currRoleName, currRoleValue, roleInfo, false));
+				int32_t pbType = $nc(status)->intValue();
+				if (pbType != 0) {
+					throwRoleProblemException(pbType, currRoleName);
+				}
+				int32_t roleInfoIdx = roleInfoList->indexOf(roleInfo);
+				roleInfoList->remove(roleInfoIdx);
 			}
 		}
 	}
 	initializeMissingRoles(relationBaseFlag, relationObj, relationObjName, relationId, relationTypeName, roleInfoList);
 	$synchronized(this->myRelId2ObjMap) {
 		if (relationBaseFlag) {
-			$nc(this->myRelId2ObjMap)->put(relationId, relationObj);
+			this->myRelId2ObjMap->put(relationId, relationObj);
 		} else {
-			$nc(this->myRelId2ObjMap)->put(relationId, relationObjName);
+			this->myRelId2ObjMap->put(relationId, relationObjName);
 		}
 	}
 	$synchronized(this->myRelId2RelTypeMap) {
-		$nc(this->myRelId2RelTypeMap)->put(relationId, relationTypeName);
+		this->myRelId2RelTypeMap->put(relationId, relationTypeName);
 	}
 	$synchronized(this->myRelType2RelIdsMap) {
-		$var($List, relIdList, $cast($List, $nc(this->myRelType2RelIdsMap)->get(relationTypeName)));
+		$var($List, relIdList, $cast($List, this->myRelType2RelIdsMap->get(relationTypeName)));
 		bool firstRelFlag = false;
 		if (relIdList == nullptr) {
 			firstRelFlag = true;
@@ -1678,11 +1565,11 @@ void RelationService::addRelationInt(bool relationBaseFlag, $RelationSupport* re
 		}
 		$nc(relIdList)->add(relationId);
 		if (firstRelFlag) {
-			$nc(this->myRelType2RelIdsMap)->put(relationTypeName, relIdList);
+			this->myRelType2RelIdsMap->put(relationTypeName, relIdList);
 		}
 	}
 	{
-		$var($Iterator, i$, $nc($($nc(roleList)->asList()))->iterator());
+		$var($Iterator, i$, $$nc($nc(roleList)->asList())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Role, currRole, $cast($Role, i$->next()));
 			{
@@ -1698,12 +1585,12 @@ void RelationService::addRelationInt(bool relationBaseFlag, $RelationSupport* re
 		sendRelationCreationNotification(relationId);
 	} catch ($RelationNotFoundException& exc) {
 	}
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return;
 }
 
 $Integer* RelationService::checkRoleInt(int32_t chkType, $String* roleName, $List* roleValue, $RoleInfo* roleInfo, bool writeChkFlag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (roleName == nullptr || roleInfo == nullptr || (chkType == 2 && roleValue == nullptr)) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
@@ -1711,43 +1598,43 @@ $Integer* RelationService::checkRoleInt(int32_t chkType, $String* roleName, $Lis
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0} {1} {2} {3} {4}"_s, $$new($ObjectArray, {
-		$($of($Integer::valueOf(chkType))),
-		$of(roleName),
-		$of(roleValue),
-		$of(roleInfo),
-		$($of($Boolean::valueOf(writeChkFlag)))
+		$($Integer::valueOf(chkType)),
+		roleName,
+		roleValue,
+		roleInfo,
+		$($Boolean::valueOf(writeChkFlag))
 	}));
 	$var($String, expName, $nc(roleInfo)->getName());
 	if (!($nc(roleName)->equals(expName))) {
-		$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+		$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 		return $Integer::valueOf($RoleStatus::NO_ROLE_WITH_NAME);
 	}
 	if (chkType == 1) {
 		bool isReadable = roleInfo->isReadable();
 		if (!isReadable) {
-			$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+			$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 			return $Integer::valueOf($RoleStatus::ROLE_NOT_READABLE);
 		} else {
-			$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+			$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 			return $Integer::valueOf(0);
 		}
 	}
 	if (writeChkFlag) {
 		bool isWritable = roleInfo->isWritable();
 		if (!isWritable) {
-			$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+			$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 			return $Integer::valueOf($RoleStatus::ROLE_NOT_WRITABLE);
 		}
 	}
 	int32_t refNbr = $nc(roleValue)->size();
 	bool chkMinFlag = roleInfo->checkMinDegree(refNbr);
 	if (!chkMinFlag) {
-		$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+		$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 		return $Integer::valueOf($RoleStatus::LESS_THAN_MIN_ROLE_DEGREE);
 	}
 	bool chkMaxFlag = roleInfo->checkMaxDegree(refNbr);
 	if (!chkMaxFlag) {
-		$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+		$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 		return $Integer::valueOf($RoleStatus::MORE_THAN_MAX_ROLE_DEGREE);
 	}
 	$var($String, expClassName, roleInfo->getRefMBeanClassName());
@@ -1757,28 +1644,28 @@ $Integer* RelationService::checkRoleInt(int32_t chkType, $String* roleName, $Lis
 			$var($ObjectName, currObjName, $cast($ObjectName, i$->next()));
 			{
 				if (currObjName == nullptr) {
-					$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+					$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 					return $Integer::valueOf($RoleStatus::REF_MBEAN_NOT_REGISTERED);
 				}
 				try {
 					bool classSts = $nc(this->myMBeanServer)->isInstanceOf(currObjName, expClassName);
 					if (!classSts) {
-						$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+						$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 						return $Integer::valueOf($RoleStatus::REF_MBEAN_OF_INCORRECT_CLASS);
 					}
 				} catch ($InstanceNotFoundException& exc) {
-					$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+					$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 					return $Integer::valueOf($RoleStatus::REF_MBEAN_NOT_REGISTERED);
 				}
 			}
 		}
 	}
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return $Integer::valueOf(0);
 }
 
 void RelationService::initializeMissingRoles(bool relationBaseFlag, $RelationSupport* relationObj, $ObjectName* relationObjName, $String* relationId, $String* relationTypeName, $List* roleInfoList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((relationBaseFlag && (relationObj == nullptr || relationObjName != nullptr)) || (!relationBaseFlag && (relationObjName == nullptr || relationObj != nullptr)) || relationId == nullptr || relationTypeName == nullptr || roleInfoList == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
@@ -1786,12 +1673,12 @@ void RelationService::initializeMissingRoles(bool relationBaseFlag, $RelationSup
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0} {1} {2} {3} {4} {5}"_s, $$new($ObjectArray, {
-		$($of($Boolean::valueOf(relationBaseFlag))),
-		$of(relationObj),
-		$of(relationObjName),
-		$of(relationId),
-		$of(relationTypeName),
-		$of(roleInfoList)
+		$($Boolean::valueOf(relationBaseFlag)),
+		relationObj,
+		relationObjName,
+		relationId,
+		relationTypeName,
+		roleInfoList
 	}));
 	isActive();
 	{
@@ -1839,13 +1726,13 @@ void RelationService::initializeMissingRoles(bool relationBaseFlag, $RelationSup
 			}
 		}
 	}
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return;
 }
 
 void RelationService::throwRoleProblemException(int32_t pbType, $String* roleName) {
 	$init(RelationService);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (roleName == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
@@ -1854,47 +1741,33 @@ void RelationService::throwRoleProblemException(int32_t pbType, $String* roleNam
 	$var($String, excMsgPart, nullptr);
 	switch (pbType) {
 	case $RoleStatus::NO_ROLE_WITH_NAME:
-		{
-			$assign(excMsgPart, " does not exist in relation."_s);
-			excType = 1;
-			break;
-		}
+		$assign(excMsgPart, " does not exist in relation."_s);
+		excType = 1;
+		break;
 	case $RoleStatus::ROLE_NOT_READABLE:
-		{
-			$assign(excMsgPart, " is not readable."_s);
-			excType = 1;
-			break;
-		}
+		$assign(excMsgPart, " is not readable."_s);
+		excType = 1;
+		break;
 	case $RoleStatus::ROLE_NOT_WRITABLE:
-		{
-			$assign(excMsgPart, " is not writable."_s);
-			excType = 1;
-			break;
-		}
+		$assign(excMsgPart, " is not writable."_s);
+		excType = 1;
+		break;
 	case $RoleStatus::LESS_THAN_MIN_ROLE_DEGREE:
-		{
-			$assign(excMsgPart, " has a number of MBean references less than the expected minimum degree."_s);
-			excType = 2;
-			break;
-		}
+		$assign(excMsgPart, " has a number of MBean references less than the expected minimum degree."_s);
+		excType = 2;
+		break;
 	case $RoleStatus::MORE_THAN_MAX_ROLE_DEGREE:
-		{
-			$assign(excMsgPart, " has a number of MBean references greater than the expected maximum degree."_s);
-			excType = 2;
-			break;
-		}
+		$assign(excMsgPart, " has a number of MBean references greater than the expected maximum degree."_s);
+		excType = 2;
+		break;
 	case $RoleStatus::REF_MBEAN_OF_INCORRECT_CLASS:
-		{
-			$assign(excMsgPart, " has an MBean reference to an MBean not of the expected class of references for that role."_s);
-			excType = 2;
-			break;
-		}
+		$assign(excMsgPart, " has an MBean reference to an MBean not of the expected class of references for that role."_s);
+		excType = 2;
+		break;
 	case $RoleStatus::REF_MBEAN_NOT_REGISTERED:
-		{
-			$assign(excMsgPart, " has a reference to null or to an MBean not registered."_s);
-			excType = 2;
-			break;
-		}
+		$assign(excMsgPart, " has a reference to null or to an MBean not registered."_s);
+		excType = 2;
+		break;
 	}
 	$var($StringBuilder, excMsgStrB, $new($StringBuilder, roleName));
 	excMsgStrB->append(excMsgPart);
@@ -1907,7 +1780,7 @@ void RelationService::throwRoleProblemException(int32_t pbType, $String* roleNam
 }
 
 void RelationService::sendNotificationInt(int32_t intNtfType, $String* message, $String* relationId, $List* unregMBeanList, $String* roleName, $List* roleNewValue, $List* oldValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (message == nullptr || relationId == nullptr || (intNtfType != 3 && unregMBeanList != nullptr) || (intNtfType == 2 && (roleName == nullptr || roleNewValue == nullptr || oldValue == nullptr))) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
@@ -1915,86 +1788,74 @@ void RelationService::sendNotificationInt(int32_t intNtfType, $String* message, 
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0} {1} {2} {3} {4} {5} {6}"_s, $$new($ObjectArray, {
-		$($of($Integer::valueOf(intNtfType))),
-		$of(message),
-		$of(relationId),
-		$of(unregMBeanList),
-		$of(roleName),
-		$of(roleNewValue),
-		$of(oldValue)
+		$($Integer::valueOf(intNtfType)),
+		message,
+		relationId,
+		unregMBeanList,
+		roleName,
+		roleNewValue,
+		oldValue
 	}));
 	$var($String, relTypeName, nullptr);
 	$synchronized(this->myRelId2RelTypeMap) {
-		$assign(relTypeName, $cast($String, $nc(this->myRelId2RelTypeMap)->get(relationId)));
+		$assign(relTypeName, $cast($String, this->myRelId2RelTypeMap->get(relationId)));
 	}
 	$var($ObjectName, relObjName, isRelationMBean(relationId));
 	$var($String, ntfType, nullptr);
 	if (relObjName != nullptr) {
 		switch (intNtfType) {
 		case 1:
-			{
-				$init($RelationNotification);
-				$assign(ntfType, $RelationNotification::RELATION_MBEAN_CREATION);
-				break;
-			}
+			$init($RelationNotification);
+			$assign(ntfType, $RelationNotification::RELATION_MBEAN_CREATION);
+			break;
 		case 2:
-			{
-				$init($RelationNotification);
-				$assign(ntfType, $RelationNotification::RELATION_MBEAN_UPDATE);
-				break;
-			}
+			$init($RelationNotification);
+			$assign(ntfType, $RelationNotification::RELATION_MBEAN_UPDATE);
+			break;
 		case 3:
-			{
-				$init($RelationNotification);
-				$assign(ntfType, $RelationNotification::RELATION_MBEAN_REMOVAL);
-				break;
-			}
+			$init($RelationNotification);
+			$assign(ntfType, $RelationNotification::RELATION_MBEAN_REMOVAL);
+			break;
 		}
 	} else {
 		switch (intNtfType) {
 		case 1:
-			{
-				$init($RelationNotification);
-				$assign(ntfType, $RelationNotification::RELATION_BASIC_CREATION);
-				break;
-			}
+			$init($RelationNotification);
+			$assign(ntfType, $RelationNotification::RELATION_BASIC_CREATION);
+			break;
 		case 2:
-			{
-				$init($RelationNotification);
-				$assign(ntfType, $RelationNotification::RELATION_BASIC_UPDATE);
-				break;
-			}
+			$init($RelationNotification);
+			$assign(ntfType, $RelationNotification::RELATION_BASIC_UPDATE);
+			break;
 		case 3:
-			{
-				$init($RelationNotification);
-				$assign(ntfType, $RelationNotification::RELATION_BASIC_REMOVAL);
-				break;
-			}
+			$init($RelationNotification);
+			$assign(ntfType, $RelationNotification::RELATION_BASIC_REMOVAL);
+			break;
 		}
 	}
-	$var($Long, seqNo, $Long::valueOf($nc(this->atomicSeqNo)->incrementAndGet()));
+	$var($Long, seqNo, $Long::valueOf(this->atomicSeqNo->incrementAndGet()));
 	$var($Date, currDate, $new($Date));
 	int64_t timeStamp = currDate->getTime();
 	$var($RelationNotification, ntf, nullptr);
 	$init($RelationNotification);
 	bool var$2 = $nc(ntfType)->equals($RelationNotification::RELATION_BASIC_CREATION);
-	bool var$1 = var$2 || $nc(ntfType)->equals($RelationNotification::RELATION_MBEAN_CREATION);
-	bool var$0 = var$1 || $nc(ntfType)->equals($RelationNotification::RELATION_BASIC_REMOVAL);
-	if (var$0 || $nc(ntfType)->equals($RelationNotification::RELATION_MBEAN_REMOVAL)) {
-		$assign(ntf, $new($RelationNotification, ntfType, this, $nc(seqNo)->longValue(), timeStamp, message, relationId, relTypeName, relObjName, unregMBeanList));
+	bool var$1 = var$2 || ntfType->equals($RelationNotification::RELATION_MBEAN_CREATION);
+	bool var$0 = var$1 || ntfType->equals($RelationNotification::RELATION_BASIC_REMOVAL);
+	if (var$0 || ntfType->equals($RelationNotification::RELATION_MBEAN_REMOVAL)) {
+		$assign(ntf, $new($RelationNotification, ntfType, this, seqNo->longValue(), timeStamp, message, relationId, relTypeName, relObjName, unregMBeanList));
 	} else {
-		bool var$4 = ntfType->equals($RelationNotification::RELATION_BASIC_UPDATE);
-		if (var$4 || ntfType->equals($RelationNotification::RELATION_MBEAN_UPDATE)) {
-			$assign(ntf, $new($RelationNotification, ntfType, this, $nc(seqNo)->longValue(), timeStamp, message, relationId, relTypeName, relObjName, roleName, roleNewValue, oldValue));
+		bool var$3 = ntfType->equals($RelationNotification::RELATION_BASIC_UPDATE);
+		if (var$3 || ntfType->equals($RelationNotification::RELATION_MBEAN_UPDATE)) {
+			$assign(ntf, $new($RelationNotification, ntfType, this, seqNo->longValue(), timeStamp, message, relationId, relTypeName, relObjName, roleName, roleNewValue, oldValue));
 		}
 	}
 	sendNotification(ntf);
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return;
 }
 
 void RelationService::handleReferenceUnregistration($String* relationId, $ObjectName* objectName, $List* roleNameList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (relationId == nullptr || roleNameList == nullptr || objectName == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
@@ -2002,9 +1863,9 @@ void RelationService::handleReferenceUnregistration($String* relationId, $Object
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0} {1} {2}"_s, $$new($ObjectArray, {
-		$of(relationId),
-		$of(objectName),
-		$of(roleNameList)
+		relationId,
+		objectName,
+		roleNameList
 	}));
 	isActive();
 	$var($String, currRelTypeName, getRelationTypeName(relationId));
@@ -2018,7 +1879,7 @@ void RelationService::handleReferenceUnregistration($String* relationId, $Object
 				if (deleteRelFlag) {
 					break;
 				}
-				int32_t currRoleRefNbr = $nc(($(getRoleCardinality(relationId, currRoleName))))->intValue();
+				int32_t currRoleRefNbr = ($$nc(getRoleCardinality(relationId, currRoleName)))->intValue();
 				int32_t currRoleNewRefNbr = currRoleRefNbr - 1;
 				$var($RoleInfo, currRoleInfo, nullptr);
 				try {
@@ -2038,42 +1899,38 @@ void RelationService::handleReferenceUnregistration($String* relationId, $Object
 	if (deleteRelFlag) {
 		removeRelation(relationId);
 	} else {
-		{
-			$var($Iterator, i$, roleNameList->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($String, currRoleName, $cast($String, i$->next()));
-				{
-					if ($instanceOf($RelationSupport, relObj)) {
-						try {
-							$nc(($cast($RelationSupport, relObj)))->handleMBeanUnregistrationInt(objectName, currRoleName, true, this);
-						} catch ($RelationTypeNotFoundException& exc3) {
-							$throwNew($RuntimeException, $(exc3->getMessage()));
-						} catch ($InvalidRoleValueException& exc4) {
-							$throwNew($RuntimeException, $(exc4->getMessage()));
-						}
-					} else {
-						$var($ObjectArray, params, $new($ObjectArray, 2));
-						params->set(0, objectName);
-						params->set(1, currRoleName);
-						$var($StringArray, signature, $new($StringArray, 2));
-						signature->set(0, "javax.management.ObjectName"_s);
-						signature->set(1, "java.lang.String"_s);
-						try {
-							$nc(this->myMBeanServer)->invoke(($cast($ObjectName, relObj)), "handleMBeanUnregistration"_s, params, signature);
-						} catch ($InstanceNotFoundException& exc1) {
-							$throwNew($RuntimeException, $(exc1->getMessage()));
-						} catch ($ReflectionException& exc3) {
-							$throwNew($RuntimeException, $(exc3->getMessage()));
-						} catch ($MBeanException& exc2) {
-							$var($Exception, wrappedExc, exc2->getTargetException());
-							$throwNew($RuntimeException, $($nc(wrappedExc)->getMessage()));
-						}
-					}
+		$var($Iterator, i$, roleNameList->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($String, currRoleName, $cast($String, i$->next()));
+			if ($instanceOf($RelationSupport, relObj)) {
+				try {
+					$cast($RelationSupport, relObj)->handleMBeanUnregistrationInt(objectName, currRoleName, true, this);
+				} catch ($RelationTypeNotFoundException& exc3) {
+					$throwNew($RuntimeException, $(exc3->getMessage()));
+				} catch ($InvalidRoleValueException& exc4) {
+					$throwNew($RuntimeException, $(exc4->getMessage()));
+				}
+			} else {
+				$var($ObjectArray, params, $new($ObjectArray, 2));
+				params->set(0, objectName);
+				params->set(1, currRoleName);
+				$var($StringArray, signature, $new($StringArray, 2));
+				signature->set(0, "javax.management.ObjectName"_s);
+				signature->set(1, "java.lang.String"_s);
+				try {
+					$nc(this->myMBeanServer)->invoke($cast($ObjectName, relObj), "handleMBeanUnregistration"_s, params, signature);
+				} catch ($InstanceNotFoundException& exc1) {
+					$throwNew($RuntimeException, $(exc1->getMessage()));
+				} catch ($ReflectionException& exc3) {
+					$throwNew($RuntimeException, $(exc3->getMessage()));
+				} catch ($MBeanException& exc2) {
+					$var($Exception, wrappedExc, exc2->getTargetException());
+					$throwNew($RuntimeException, $($nc(wrappedExc)->getMessage()));
 				}
 			}
 		}
 	}
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return;
 }
 
@@ -2081,7 +1938,93 @@ RelationService::RelationService() {
 }
 
 $Class* RelationService::load$($String* name, bool initialize) {
-	$loadClass(RelationService, name, initialize, &_RelationService_ClassInfo_, allocate$RelationService);
+	$FieldInfo fieldInfos$$[] = {
+		{"myRelId2ObjMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(RelationService, myRelId2ObjMap)},
+		{"myRelId2RelTypeMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(RelationService, myRelId2RelTypeMap)},
+		{"myRelMBeanObjName2RelIdMap", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/management/ObjectName;Ljava/lang/String;>;", $PRIVATE, $field(RelationService, myRelMBeanObjName2RelIdMap)},
+		{"myRelType2ObjMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljavax/management/relation/RelationType;>;", $PRIVATE, $field(RelationService, myRelType2ObjMap)},
+		{"myRelType2RelIdsMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PRIVATE, $field(RelationService, myRelType2RelIdsMap)},
+		{"myRefedMBeanObjName2RelIdsMap", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/management/ObjectName;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;>;", $PRIVATE | $FINAL, $field(RelationService, myRefedMBeanObjName2RelIdsMap)},
+		{"myPurgeFlag", "Z", nullptr, $PRIVATE, $field(RelationService, myPurgeFlag)},
+		{"atomicSeqNo", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $FINAL, $field(RelationService, atomicSeqNo)},
+		{"myObjName", "Ljavax/management/ObjectName;", nullptr, $PRIVATE, $field(RelationService, myObjName)},
+		{"myMBeanServer", "Ljavax/management/MBeanServer;", nullptr, $PRIVATE, $field(RelationService, myMBeanServer)},
+		{"myUnregNtfFilter", "Ljavax/management/relation/MBeanServerNotificationFilter;", nullptr, $PRIVATE, $field(RelationService, myUnregNtfFilter)},
+		{"myUnregNtfList", "Ljava/util/List;", "Ljava/util/List<Ljavax/management/MBeanServerNotification;>;", $PRIVATE, $field(RelationService, myUnregNtfList)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(RelationService, init$, void, bool)},
+		{"addNewMBeanReference", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(RelationService, addNewMBeanReference, bool, $ObjectName*, $String*, $String*), "java.lang.IllegalArgumentException"},
+		{"addRelation", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $virtualMethod(RelationService, addRelation, void, $ObjectName*), "java.lang.IllegalArgumentException,javax.management.relation.RelationServiceNotRegisteredException,java.lang.NoSuchMethodException,javax.management.relation.InvalidRelationIdException,javax.management.InstanceNotFoundException,javax.management.relation.InvalidRelationServiceException,javax.management.relation.RelationTypeNotFoundException,javax.management.relation.RoleNotFoundException,javax.management.relation.InvalidRoleValueException"},
+		{"addRelationInt", "(ZLjavax/management/relation/RelationSupport;Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/String;Ljavax/management/relation/RoleList;)V", nullptr, $PRIVATE, $method(RelationService, addRelationInt, void, bool, $RelationSupport*, $ObjectName*, $String*, $String*, $RoleList*), "java.lang.IllegalArgumentException,javax.management.relation.RelationServiceNotRegisteredException,javax.management.relation.RoleNotFoundException,javax.management.relation.InvalidRelationIdException,javax.management.relation.RelationTypeNotFoundException,javax.management.relation.InvalidRoleValueException"},
+		{"addRelationType", "(Ljavax/management/relation/RelationType;)V", nullptr, $PUBLIC, $virtualMethod(RelationService, addRelationType, void, $RelationType*), "java.lang.IllegalArgumentException,javax.management.relation.InvalidRelationTypeException"},
+		{"addRelationTypeInt", "(Ljavax/management/relation/RelationType;)V", nullptr, $PRIVATE, $method(RelationService, addRelationTypeInt, void, $RelationType*), "java.lang.IllegalArgumentException,javax.management.relation.InvalidRelationTypeException"},
+		{"checkRoleInt", "(ILjava/lang/String;Ljava/util/List;Ljavax/management/relation/RoleInfo;Z)Ljava/lang/Integer;", "(ILjava/lang/String;Ljava/util/List<Ljavax/management/ObjectName;>;Ljavax/management/relation/RoleInfo;Z)Ljava/lang/Integer;", $PRIVATE, $method(RelationService, checkRoleInt, $Integer*, int32_t, $String*, $List*, $RoleInfo*, bool), "java.lang.IllegalArgumentException"},
+		{"checkRoleReading", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(RelationService, checkRoleReading, $Integer*, $String*, $String*), "java.lang.IllegalArgumentException,javax.management.relation.RelationTypeNotFoundException"},
+		{"checkRoleWriting", "(Ljavax/management/relation/Role;Ljava/lang/String;Ljava/lang/Boolean;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(RelationService, checkRoleWriting, $Integer*, $Role*, $String*, $Boolean*), "java.lang.IllegalArgumentException,javax.management.relation.RelationTypeNotFoundException"},
+		{"createRelation", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/relation/RoleList;)V", nullptr, $PUBLIC, $virtualMethod(RelationService, createRelation, void, $String*, $String*, $RoleList*), "javax.management.relation.RelationServiceNotRegisteredException,java.lang.IllegalArgumentException,javax.management.relation.RoleNotFoundException,javax.management.relation.InvalidRelationIdException,javax.management.relation.RelationTypeNotFoundException,javax.management.relation.InvalidRoleValueException"},
+		{"createRelationType", "(Ljava/lang/String;[Ljavax/management/relation/RoleInfo;)V", nullptr, $PUBLIC, $virtualMethod(RelationService, createRelationType, void, $String*, $RoleInfoArray*), "java.lang.IllegalArgumentException,javax.management.relation.InvalidRelationTypeException"},
+		{"findAssociatedMBeans", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Map;", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Map<Ljavax/management/ObjectName;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(RelationService, findAssociatedMBeans, $Map*, $ObjectName*, $String*, $String*), "java.lang.IllegalArgumentException"},
+		{"findReferencingRelations", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Map;", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(RelationService, findReferencingRelations, $Map*, $ObjectName*, $String*, $String*), "java.lang.IllegalArgumentException"},
+		{"findRelationsOfType", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(RelationService, findRelationsOfType, $List*, $String*), "java.lang.IllegalArgumentException,javax.management.relation.RelationTypeNotFoundException"},
+		{"getAllRelationIds", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(RelationService, getAllRelationIds, $List*)},
+		{"getAllRelationTypeNames", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(RelationService, getAllRelationTypeNames, $List*)},
+		{"getAllRoles", "(Ljava/lang/String;)Ljavax/management/relation/RoleResult;", nullptr, $PUBLIC, $virtualMethod(RelationService, getAllRoles, $RoleResult*, $String*), "java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException,javax.management.relation.RelationServiceNotRegisteredException"},
+		{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC, $virtualMethod(RelationService, getNotificationInfo, $MBeanNotificationInfoArray*)},
+		{"getPurgeFlag", "()Z", nullptr, $PUBLIC, $virtualMethod(RelationService, getPurgeFlag, bool)},
+		{"getReferencedMBeans", "(Ljava/lang/String;)Ljava/util/Map;", "(Ljava/lang/String;)Ljava/util/Map<Ljavax/management/ObjectName;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(RelationService, getReferencedMBeans, $Map*, $String*), "java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException"},
+		{"getRelation", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(RelationService, getRelation, $Object*, $String*), "java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException"},
+		{"getRelationType", "(Ljava/lang/String;)Ljavax/management/relation/RelationType;", nullptr, 0, $virtualMethod(RelationService, getRelationType, $RelationType*, $String*), "java.lang.IllegalArgumentException,javax.management.relation.RelationTypeNotFoundException"},
+		{"getRelationTypeName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RelationService, getRelationTypeName, $String*, $String*), "java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException"},
+		{"getRole", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List<Ljavax/management/ObjectName;>;", $PUBLIC, $virtualMethod(RelationService, getRole, $List*, $String*, $String*), "javax.management.relation.RelationServiceNotRegisteredException,java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException,javax.management.relation.RoleNotFoundException"},
+		{"getRoleCardinality", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(RelationService, getRoleCardinality, $Integer*, $String*, $String*), "java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException,javax.management.relation.RoleNotFoundException"},
+		{"getRoleInfo", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/management/relation/RoleInfo;", nullptr, $PUBLIC, $virtualMethod(RelationService, getRoleInfo, $RoleInfo*, $String*, $String*), "java.lang.IllegalArgumentException,javax.management.relation.RelationTypeNotFoundException,javax.management.relation.RoleInfoNotFoundException"},
+		{"getRoleInfos", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljavax/management/relation/RoleInfo;>;", $PUBLIC, $virtualMethod(RelationService, getRoleInfos, $List*, $String*), "java.lang.IllegalArgumentException,javax.management.relation.RelationTypeNotFoundException"},
+		{"getRoles", "(Ljava/lang/String;[Ljava/lang/String;)Ljavax/management/relation/RoleResult;", nullptr, $PUBLIC, $virtualMethod(RelationService, getRoles, $RoleResult*, $String*, $StringArray*), "javax.management.relation.RelationServiceNotRegisteredException,java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException"},
+		{"handleNotification", "(Ljavax/management/Notification;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(RelationService, handleNotification, void, $Notification*, Object$*)},
+		{"handleReferenceUnregistration", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljava/util/List;)V", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE, $method(RelationService, handleReferenceUnregistration, void, $String*, $ObjectName*, $List*), "java.lang.IllegalArgumentException,javax.management.relation.RelationServiceNotRegisteredException,javax.management.relation.RelationNotFoundException,javax.management.relation.RoleNotFoundException"},
+		{"hasRelation", "(Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(RelationService, hasRelation, $Boolean*, $String*), "java.lang.IllegalArgumentException"},
+		{"initializeMissingRoles", "(ZLjavax/management/relation/RelationSupport;Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V", "(ZLjavax/management/relation/RelationSupport;Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljavax/management/relation/RoleInfo;>;)V", $PRIVATE, $method(RelationService, initializeMissingRoles, void, bool, $RelationSupport*, $ObjectName*, $String*, $String*, $List*), "java.lang.IllegalArgumentException,javax.management.relation.RelationServiceNotRegisteredException,javax.management.relation.InvalidRoleValueException"},
+		{"isActive", "()V", nullptr, $PUBLIC, $virtualMethod(RelationService, isActive, void), "javax.management.relation.RelationServiceNotRegisteredException"},
+		{"isRelation", "(Ljavax/management/ObjectName;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RelationService, isRelation, $String*, $ObjectName*), "java.lang.IllegalArgumentException"},
+		{"isRelationMBean", "(Ljava/lang/String;)Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(RelationService, isRelationMBean, $ObjectName*, $String*), "java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException"},
+		{"postDeregister", "()V", nullptr, $PUBLIC, $virtualMethod(RelationService, postDeregister, void)},
+		{"postRegister", "(Ljava/lang/Boolean;)V", nullptr, $PUBLIC, $virtualMethod(RelationService, postRegister, void, $Boolean*)},
+		{"preDeregister", "()V", nullptr, $PUBLIC, $virtualMethod(RelationService, preDeregister, void), "java.lang.Exception"},
+		{"preRegister", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(RelationService, preRegister, $ObjectName*, $MBeanServer*, $ObjectName*), "java.lang.Exception"},
+		{"purgeRelations", "()V", nullptr, $PUBLIC, $virtualMethod(RelationService, purgeRelations, void), "javax.management.relation.RelationServiceNotRegisteredException"},
+		{"removeMBeanReference", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/String;Z)Z", nullptr, $PRIVATE, $method(RelationService, removeMBeanReference, bool, $ObjectName*, $String*, $String*, bool), "java.lang.IllegalArgumentException"},
+		{"removeRelation", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RelationService, removeRelation, void, $String*), "javax.management.relation.RelationServiceNotRegisteredException,java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException"},
+		{"removeRelationType", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RelationService, removeRelationType, void, $String*), "javax.management.relation.RelationServiceNotRegisteredException,java.lang.IllegalArgumentException,javax.management.relation.RelationTypeNotFoundException"},
+		{"sendNotificationInt", "(ILjava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/util/List;)V", "(ILjava/lang/String;Ljava/lang/String;Ljava/util/List<Ljavax/management/ObjectName;>;Ljava/lang/String;Ljava/util/List<Ljavax/management/ObjectName;>;Ljava/util/List<Ljavax/management/ObjectName;>;)V", $PRIVATE, $method(RelationService, sendNotificationInt, void, int32_t, $String*, $String*, $List*, $String*, $List*, $List*), "java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException"},
+		{"sendRelationCreationNotification", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RelationService, sendRelationCreationNotification, void, $String*), "java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException"},
+		{"sendRelationRemovalNotification", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljavax/management/ObjectName;>;)V", $PUBLIC, $virtualMethod(RelationService, sendRelationRemovalNotification, void, $String*, $List*), "java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException"},
+		{"sendRoleUpdateNotification", "(Ljava/lang/String;Ljavax/management/relation/Role;Ljava/util/List;)V", "(Ljava/lang/String;Ljavax/management/relation/Role;Ljava/util/List<Ljavax/management/ObjectName;>;)V", $PUBLIC, $virtualMethod(RelationService, sendRoleUpdateNotification, void, $String*, $Role*, $List*), "java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException"},
+		{"setPurgeFlag", "(Z)V", nullptr, $PUBLIC, $virtualMethod(RelationService, setPurgeFlag, void, bool)},
+		{"setRole", "(Ljava/lang/String;Ljavax/management/relation/Role;)V", nullptr, $PUBLIC, $virtualMethod(RelationService, setRole, void, $String*, $Role*), "javax.management.relation.RelationServiceNotRegisteredException,java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException,javax.management.relation.RoleNotFoundException,javax.management.relation.InvalidRoleValueException"},
+		{"setRoles", "(Ljava/lang/String;Ljavax/management/relation/RoleList;)Ljavax/management/relation/RoleResult;", nullptr, $PUBLIC, $virtualMethod(RelationService, setRoles, $RoleResult*, $String*, $RoleList*), "javax.management.relation.RelationServiceNotRegisteredException,java.lang.IllegalArgumentException,javax.management.relation.RelationNotFoundException"},
+		{"throwRoleProblemException", "(ILjava/lang/String;)V", nullptr, $STATIC, $staticMethod(RelationService, throwRoleProblemException, void, int32_t, $String*), "java.lang.IllegalArgumentException,javax.management.relation.RoleNotFoundException,javax.management.relation.InvalidRoleValueException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateRoleMap", "(Ljava/lang/String;Ljavax/management/relation/Role;Ljava/util/List;)V", "(Ljava/lang/String;Ljavax/management/relation/Role;Ljava/util/List<Ljavax/management/ObjectName;>;)V", $PUBLIC, $virtualMethod(RelationService, updateRoleMap, void, $String*, $Role*, $List*), "java.lang.IllegalArgumentException,javax.management.relation.RelationServiceNotRegisteredException,javax.management.relation.RelationNotFoundException"},
+		{"updateUnregistrationListener", "(Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/List<Ljavax/management/ObjectName;>;Ljava/util/List<Ljavax/management/ObjectName;>;)V", $PRIVATE, $method(RelationService, updateUnregistrationListener, void, $List*, $List*), "javax.management.relation.RelationServiceNotRegisteredException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.relation.RelationService",
+		"javax.management.NotificationBroadcasterSupport",
+		"javax.management.relation.RelationServiceMBean,javax.management.MBeanRegistration,javax.management.NotificationListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RelationService, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RelationService));
+	});
 	return class$;
 }
 

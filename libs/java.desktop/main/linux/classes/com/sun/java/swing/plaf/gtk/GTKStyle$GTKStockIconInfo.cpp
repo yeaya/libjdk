@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKStyle$GTKStockIconInfo.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKStyle.h>
 #include <java/awt/Dimension.h>
 #include <java/lang/StringBuffer.h>
@@ -30,47 +29,6 @@ namespace com {
 				namespace plaf {
 					namespace gtk {
 
-$FieldInfo _GTKStyle$GTKStockIconInfo_FieldInfo_[] = {
-	{"ICON_TYPE_MAP", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE | $STATIC, $staticField(GTKStyle$GTKStockIconInfo, ICON_TYPE_MAP)},
-	{"ICON_SIZE_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKStyle$GTKStockIconInfo, ICON_SIZE_KEY)},
-	{}
-};
-
-$MethodInfo _GTKStyle$GTKStockIconInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(GTKStyle$GTKStockIconInfo, init$, void)},
-	{"getIconSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKStyle$GTKStockIconInfo, getIconSize, $Dimension*, int32_t)},
-	{"getIconSizesMap", "()[Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticMethod(GTKStyle$GTKStockIconInfo, getIconSizesMap, $DimensionArray*)},
-	{"getIconType", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKStyle$GTKStockIconInfo, getIconType, int32_t, $String*)},
-	{"initIconTypeMap", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(GTKStyle$GTKStockIconInfo, initIconTypeMap, void)},
-	{"setIconSize", "(III)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKStyle$GTKStockIconInfo, setIconSize, void, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _GTKStyle$GTKStockIconInfo_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKStyle$GTKStockIconInfo", "com.sun.java.swing.plaf.gtk.GTKStyle", "GTKStockIconInfo", $STATIC},
-	{}
-};
-
-$ClassInfo _GTKStyle$GTKStockIconInfo_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.GTKStyle$GTKStockIconInfo",
-	"java.lang.Object",
-	nullptr,
-	_GTKStyle$GTKStockIconInfo_FieldInfo_,
-	_GTKStyle$GTKStockIconInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GTKStyle$GTKStockIconInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKStyle"
-};
-
-$Object* allocate$GTKStyle$GTKStockIconInfo($Class* clazz) {
-	return $of($alloc(GTKStyle$GTKStockIconInfo));
-}
-
 $Map* GTKStyle$GTKStockIconInfo::ICON_TYPE_MAP = nullptr;
 $Object* GTKStyle$GTKStockIconInfo::ICON_SIZE_KEY = nullptr;
 
@@ -79,7 +37,7 @@ void GTKStyle$GTKStockIconInfo::init$() {
 
 $DimensionArray* GTKStyle$GTKStockIconInfo::getIconSizesMap() {
 	$init(GTKStyle$GTKStockIconInfo);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, appContext, $AppContext::getAppContext());
 	$var($DimensionArray, iconSizes, $cast($DimensionArray, $nc(appContext)->get(GTKStyle$GTKStockIconInfo::ICON_SIZE_KEY)));
 	if (iconSizes == nullptr) {
@@ -99,12 +57,12 @@ $DimensionArray* GTKStyle$GTKStockIconInfo::getIconSizesMap() {
 $Dimension* GTKStyle$GTKStockIconInfo::getIconSize(int32_t type) {
 	$init(GTKStyle$GTKStockIconInfo);
 	$var($DimensionArray, iconSizes, getIconSizesMap());
-	return type >= 0 && type < $nc(iconSizes)->length ? $nc(iconSizes)->get(type) : ($Dimension*)nullptr;
+	return type >= 0 && type < $nc(iconSizes)->length ? iconSizes->get(type) : ($Dimension*)nullptr;
 }
 
 void GTKStyle$GTKStockIconInfo::setIconSize(int32_t type, int32_t w, int32_t h) {
 	$init(GTKStyle$GTKStockIconInfo);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DimensionArray, iconSizes, getIconSizesMap());
 	if (type >= 0 && type < $nc(iconSizes)->length) {
 		iconSizes->set(type, $$new($Dimension, w, h));
@@ -120,22 +78,22 @@ int32_t GTKStyle$GTKStockIconInfo::getIconType($String* size) {
 		initIconTypeMap();
 	}
 	$var($Integer, n, $cast($Integer, $nc(GTKStyle$GTKStockIconInfo::ICON_TYPE_MAP)->get(size)));
-	return n != nullptr ? $nc(n)->intValue() : -100;
+	return n != nullptr ? n->intValue() : -100;
 }
 
 void GTKStyle$GTKStockIconInfo::initIconTypeMap() {
 	$init(GTKStyle$GTKStockIconInfo);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(GTKStyle$GTKStockIconInfo::ICON_TYPE_MAP, $new($HashMap));
-	$nc(GTKStyle$GTKStockIconInfo::ICON_TYPE_MAP)->put("gtk-menu"_s, $($Integer::valueOf(1)));
-	$nc(GTKStyle$GTKStockIconInfo::ICON_TYPE_MAP)->put("gtk-small-toolbar"_s, $($Integer::valueOf(2)));
-	$nc(GTKStyle$GTKStockIconInfo::ICON_TYPE_MAP)->put("gtk-large-toolbar"_s, $($Integer::valueOf(3)));
-	$nc(GTKStyle$GTKStockIconInfo::ICON_TYPE_MAP)->put("gtk-button"_s, $($Integer::valueOf(4)));
-	$nc(GTKStyle$GTKStockIconInfo::ICON_TYPE_MAP)->put("gtk-dnd"_s, $($Integer::valueOf(5)));
-	$nc(GTKStyle$GTKStockIconInfo::ICON_TYPE_MAP)->put("gtk-dialog"_s, $($Integer::valueOf(6)));
+	GTKStyle$GTKStockIconInfo::ICON_TYPE_MAP->put("gtk-menu"_s, $($Integer::valueOf(1)));
+	GTKStyle$GTKStockIconInfo::ICON_TYPE_MAP->put("gtk-small-toolbar"_s, $($Integer::valueOf(2)));
+	GTKStyle$GTKStockIconInfo::ICON_TYPE_MAP->put("gtk-large-toolbar"_s, $($Integer::valueOf(3)));
+	GTKStyle$GTKStockIconInfo::ICON_TYPE_MAP->put("gtk-button"_s, $($Integer::valueOf(4)));
+	GTKStyle$GTKStockIconInfo::ICON_TYPE_MAP->put("gtk-dnd"_s, $($Integer::valueOf(5)));
+	GTKStyle$GTKStockIconInfo::ICON_TYPE_MAP->put("gtk-dialog"_s, $($Integer::valueOf(6)));
 }
 
-void clinit$GTKStyle$GTKStockIconInfo($Class* class$) {
+void GTKStyle$GTKStockIconInfo::clinit$($Class* clazz) {
 	$assignStatic(GTKStyle$GTKStockIconInfo::ICON_SIZE_KEY, $new($StringBuffer, "IconSize"_s));
 }
 
@@ -143,7 +101,42 @@ GTKStyle$GTKStockIconInfo::GTKStyle$GTKStockIconInfo() {
 }
 
 $Class* GTKStyle$GTKStockIconInfo::load$($String* name, bool initialize) {
-	$loadClass(GTKStyle$GTKStockIconInfo, name, initialize, &_GTKStyle$GTKStockIconInfo_ClassInfo_, clinit$GTKStyle$GTKStockIconInfo, allocate$GTKStyle$GTKStockIconInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"ICON_TYPE_MAP", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE | $STATIC, $staticField(GTKStyle$GTKStockIconInfo, ICON_TYPE_MAP)},
+		{"ICON_SIZE_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKStyle$GTKStockIconInfo, ICON_SIZE_KEY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(GTKStyle$GTKStockIconInfo, init$, void)},
+		{"getIconSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKStyle$GTKStockIconInfo, getIconSize, $Dimension*, int32_t)},
+		{"getIconSizesMap", "()[Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticMethod(GTKStyle$GTKStockIconInfo, getIconSizesMap, $DimensionArray*)},
+		{"getIconType", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKStyle$GTKStockIconInfo, getIconType, int32_t, $String*)},
+		{"initIconTypeMap", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(GTKStyle$GTKStockIconInfo, initIconTypeMap, void)},
+		{"setIconSize", "(III)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKStyle$GTKStockIconInfo, setIconSize, void, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKStyle$GTKStockIconInfo", "com.sun.java.swing.plaf.gtk.GTKStyle", "GTKStockIconInfo", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.GTKStyle$GTKStockIconInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKStyle"
+	};
+	$loadClass(GTKStyle$GTKStockIconInfo, name, initialize, &classInfo$$, GTKStyle$GTKStockIconInfo::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GTKStyle$GTKStockIconInfo);
+	});
 	return class$;
 }
 

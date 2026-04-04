@@ -1,5 +1,4 @@
 #include <sun/java2d/IntegerNIORaster.h>
-
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/image/DataBuffer.h>
@@ -33,39 +32,9 @@ using $DataBufferNIOInt = ::sun::java2d::DataBufferNIOInt;
 namespace sun {
 	namespace java2d {
 
-$FieldInfo _IntegerNIORaster_FieldInfo_[] = {
-	{"data", "Ljava/nio/IntBuffer;", nullptr, $PROTECTED, $field(IntegerNIORaster, data)},
-	{}
-};
-
-$MethodInfo _IntegerNIORaster_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/image/SampleModel;Lsun/java2d/DataBufferNIOInt;Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(IntegerNIORaster, init$, void, $SampleModel*, $DataBufferNIOInt*, $Point*)},
-	{"createCompatibleWritableRaster", "()Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(IntegerNIORaster, createCompatibleWritableRaster, $WritableRaster*)},
-	{"createCompatibleWritableRaster", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(IntegerNIORaster, createCompatibleWritableRaster, $WritableRaster*, int32_t, int32_t)},
-	{"createCompatibleWritableRaster", "(Ljava/awt/Rectangle;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(IntegerNIORaster, createCompatibleWritableRaster, $WritableRaster*, $Rectangle*)},
-	{"createCompatibleWritableRaster", "(IIII)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(IntegerNIORaster, createCompatibleWritableRaster, $WritableRaster*, int32_t, int32_t, int32_t, int32_t)},
-	{"createNIORaster", "(II[ILjava/awt/Point;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $STATIC, $staticMethod(IntegerNIORaster, createNIORaster, $WritableRaster*, int32_t, int32_t, $ints*, $Point*)},
-	{"getBuffer", "()Ljava/nio/IntBuffer;", nullptr, $PUBLIC, $virtualMethod(IntegerNIORaster, getBuffer, $IntBuffer*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IntegerNIORaster, toString, $String*)},
-	{}
-};
-
-$ClassInfo _IntegerNIORaster_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.IntegerNIORaster",
-	"sun.awt.image.SunWritableRaster",
-	nullptr,
-	_IntegerNIORaster_FieldInfo_,
-	_IntegerNIORaster_MethodInfo_
-};
-
-$Object* allocate$IntegerNIORaster($Class* clazz) {
-	return $of($alloc(IntegerNIORaster));
-}
-
 $WritableRaster* IntegerNIORaster::createNIORaster(int32_t w, int32_t h, $ints* bandMasks, $Point* location$renamed) {
 	$init(IntegerNIORaster);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Point, location, location$renamed);
 	if ((w <= 0) || (h <= 0)) {
 		$throwNew($IllegalArgumentException, $$str({"Width ("_s, $$str(w), ") and height ("_s, $$str(h), ") cannot be <= 0"_s}));
@@ -87,29 +56,28 @@ void IntegerNIORaster::init$($SampleModel* sampleModel, $DataBufferNIOInt* dataB
 }
 
 $WritableRaster* IntegerNIORaster::createCompatibleWritableRaster() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SampleModel, var$0, this->sampleModel);
 	int32_t var$2 = $nc(this->sampleModel)->getWidth();
-	$var($DataBufferNIOInt, var$1, $new($DataBufferNIOInt, var$2 * $nc(this->sampleModel)->getHeight()));
+	$var($DataBufferNIOInt, var$1, $new($DataBufferNIOInt, var$2 * this->sampleModel->getHeight()));
 	return $new(IntegerNIORaster, var$0, var$1, $$new($Point, 0, 0));
 }
 
 $WritableRaster* IntegerNIORaster::createCompatibleWritableRaster(int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (w <= 0 || h <= 0) {
 		$throwNew($RasterFormatException, $$str({"negative "_s, ((w <= 0) ? "width"_s : "height"_s)}));
 	}
 	$var($SampleModel, sm, $nc(this->sampleModel)->createCompatibleSampleModel(w, h));
-	$var($SampleModel, var$0, sm);
-	$var($DataBufferNIOInt, var$1, $new($DataBufferNIOInt, w * h));
-	return $new(IntegerNIORaster, var$0, var$1, $$new($Point, 0, 0));
+	$var($DataBufferNIOInt, var$0, $new($DataBufferNIOInt, w * h));
+	return $new(IntegerNIORaster, sm, var$0, $$new($Point, 0, 0));
 }
 
 $WritableRaster* IntegerNIORaster::createCompatibleWritableRaster($Rectangle* rect) {
 	if (rect == nullptr) {
 		$throwNew($NullPointerException, "Rect cannot be null"_s);
 	}
-	return createCompatibleWritableRaster($nc(rect)->x, rect->y, rect->width, rect->height);
+	return createCompatibleWritableRaster($nc(rect)->x, $nc(rect)->y, $nc(rect)->width, $nc(rect)->height);
 }
 
 $WritableRaster* IntegerNIORaster::createCompatibleWritableRaster(int32_t x, int32_t y, int32_t w, int32_t h) {
@@ -122,7 +90,7 @@ $IntBuffer* IntegerNIORaster::getBuffer() {
 }
 
 $String* IntegerNIORaster::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($String, $$str({"IntegerNIORaster: width = "_s, $$str(this->width), " height = "_s, $$str(this->height), " #Bands = "_s, $$str(this->numBands), " xOff = "_s, $$str(this->sampleModelTranslateX), " yOff = "_s, $$str(this->sampleModelTranslateY)}));
 }
 
@@ -130,7 +98,32 @@ IntegerNIORaster::IntegerNIORaster() {
 }
 
 $Class* IntegerNIORaster::load$($String* name, bool initialize) {
-	$loadClass(IntegerNIORaster, name, initialize, &_IntegerNIORaster_ClassInfo_, allocate$IntegerNIORaster);
+	$FieldInfo fieldInfos$$[] = {
+		{"data", "Ljava/nio/IntBuffer;", nullptr, $PROTECTED, $field(IntegerNIORaster, data)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/image/SampleModel;Lsun/java2d/DataBufferNIOInt;Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(IntegerNIORaster, init$, void, $SampleModel*, $DataBufferNIOInt*, $Point*)},
+		{"createCompatibleWritableRaster", "()Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(IntegerNIORaster, createCompatibleWritableRaster, $WritableRaster*)},
+		{"createCompatibleWritableRaster", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(IntegerNIORaster, createCompatibleWritableRaster, $WritableRaster*, int32_t, int32_t)},
+		{"createCompatibleWritableRaster", "(Ljava/awt/Rectangle;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(IntegerNIORaster, createCompatibleWritableRaster, $WritableRaster*, $Rectangle*)},
+		{"createCompatibleWritableRaster", "(IIII)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(IntegerNIORaster, createCompatibleWritableRaster, $WritableRaster*, int32_t, int32_t, int32_t, int32_t)},
+		{"createNIORaster", "(II[ILjava/awt/Point;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $STATIC, $staticMethod(IntegerNIORaster, createNIORaster, $WritableRaster*, int32_t, int32_t, $ints*, $Point*)},
+		{"getBuffer", "()Ljava/nio/IntBuffer;", nullptr, $PUBLIC, $virtualMethod(IntegerNIORaster, getBuffer, $IntBuffer*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IntegerNIORaster, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.IntegerNIORaster",
+		"sun.awt.image.SunWritableRaster",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IntegerNIORaster, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IntegerNIORaster);
+	});
 	return class$;
 }
 

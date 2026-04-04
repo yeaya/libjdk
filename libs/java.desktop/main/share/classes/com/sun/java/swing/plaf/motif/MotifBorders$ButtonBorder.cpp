@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifBorders$ButtonBorder.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifBorders.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -33,51 +32,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$FieldInfo _MotifBorders$ButtonBorder_FieldInfo_[] = {
-	{"focus", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MotifBorders$ButtonBorder, focus)},
-	{"shadow", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MotifBorders$ButtonBorder, shadow)},
-	{"highlight", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MotifBorders$ButtonBorder, highlight)},
-	{"darkShadow", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MotifBorders$ButtonBorder, darkShadow)},
-	{}
-};
-
-$MethodInfo _MotifBorders$ButtonBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(MotifBorders$ButtonBorder, init$, void, $Color*, $Color*, $Color*, $Color*)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MotifBorders$ButtonBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MotifBorders$ButtonBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MotifBorders$ButtonBorder_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifBorders$ButtonBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "ButtonBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MotifBorders$ButtonBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifBorders$ButtonBorder",
-	"javax.swing.border.AbstractBorder",
-	"javax.swing.plaf.UIResource",
-	_MotifBorders$ButtonBorder_FieldInfo_,
-	_MotifBorders$ButtonBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifBorders$ButtonBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifBorders"
-};
-
-$Object* allocate$MotifBorders$ButtonBorder($Class* clazz) {
-	return $of($alloc(MotifBorders$ButtonBorder));
-}
-
 int32_t MotifBorders$ButtonBorder::hashCode() {
 	 return this->$AbstractBorder::hashCode();
 }
@@ -110,25 +64,25 @@ void MotifBorders$ButtonBorder::init$($Color* shadow, $Color* highlight, $Color*
 }
 
 void MotifBorders$ButtonBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool isPressed = false;
 	bool hasFocus = false;
 	bool canBeDefault = false;
 	bool isDefault = false;
 	if ($instanceOf($AbstractButton, c)) {
 		$var($AbstractButton, b, $cast($AbstractButton, c));
-		$var($ButtonModel, model, $nc(b)->getModel());
+		$var($ButtonModel, model, b->getModel());
 		bool var$0 = $nc(model)->isArmed();
 		isPressed = (var$0 && model->isPressed());
-		bool var$1 = (model->isArmed() && isPressed);
+		bool var$1 = model->isArmed() && isPressed;
 		if (!var$1) {
 			bool var$2 = b->isFocusPainted();
-			var$1 = (var$2 && b->hasFocus());
+			var$1 = var$2 && b->hasFocus();
 		}
 		hasFocus = var$1;
 		if ($instanceOf($JButton, b)) {
-			canBeDefault = $nc(($cast($JButton, b)))->isDefaultCapable();
-			isDefault = $nc(($cast($JButton, b)))->isDefaultButton();
+			canBeDefault = $cast($JButton, b)->isDefaultCapable();
+			isDefault = $cast($JButton, b)->isDefaultButton();
 		}
 	}
 	int32_t bx1 = x + 1;
@@ -166,7 +120,7 @@ void MotifBorders$ButtonBorder::paintBorder($Component* c, $Graphics* g, int32_t
 }
 
 $Insets* MotifBorders$ButtonBorder::getBorderInsets($Component* c, $Insets* insets) {
-	int32_t thickness = ($instanceOf($JButton, c) && $nc(($cast($JButton, c)))->isDefaultCapable()) ? 8 : 2;
+	int32_t thickness = ($instanceOf($JButton, c) && $cast($JButton, c)->isDefaultCapable()) ? 8 : 2;
 	$nc(insets)->set(thickness, thickness, thickness, thickness);
 	return insets;
 }
@@ -175,7 +129,46 @@ MotifBorders$ButtonBorder::MotifBorders$ButtonBorder() {
 }
 
 $Class* MotifBorders$ButtonBorder::load$($String* name, bool initialize) {
-	$loadClass(MotifBorders$ButtonBorder, name, initialize, &_MotifBorders$ButtonBorder_ClassInfo_, allocate$MotifBorders$ButtonBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"focus", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MotifBorders$ButtonBorder, focus)},
+		{"shadow", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MotifBorders$ButtonBorder, shadow)},
+		{"highlight", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MotifBorders$ButtonBorder, highlight)},
+		{"darkShadow", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MotifBorders$ButtonBorder, darkShadow)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(MotifBorders$ButtonBorder, init$, void, $Color*, $Color*, $Color*, $Color*)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MotifBorders$ButtonBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MotifBorders$ButtonBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifBorders$ButtonBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "ButtonBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifBorders$ButtonBorder",
+		"javax.swing.border.AbstractBorder",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifBorders"
+	};
+	$loadClass(MotifBorders$ButtonBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifBorders$ButtonBorder));
+	});
 	return class$;
 }
 

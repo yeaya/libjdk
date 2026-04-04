@@ -1,5 +1,4 @@
 #include <java/beans/PropertyVetoException.h>
-
 #include <java/beans/PropertyChangeEvent.h>
 #include <jcpp.h>
 
@@ -11,31 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace beans {
-
-$FieldInfo _PropertyVetoException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PropertyVetoException, serialVersionUID)},
-	{"evt", "Ljava/beans/PropertyChangeEvent;", nullptr, $PRIVATE, $field(PropertyVetoException, evt)},
-	{}
-};
-
-$MethodInfo _PropertyVetoException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $method(PropertyVetoException, init$, void, $String*, $PropertyChangeEvent*)},
-	{"getPropertyChangeEvent", "()Ljava/beans/PropertyChangeEvent;", nullptr, $PUBLIC, $virtualMethod(PropertyVetoException, getPropertyChangeEvent, $PropertyChangeEvent*)},
-	{}
-};
-
-$ClassInfo _PropertyVetoException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.beans.PropertyVetoException",
-	"java.lang.Exception",
-	nullptr,
-	_PropertyVetoException_FieldInfo_,
-	_PropertyVetoException_MethodInfo_
-};
-
-$Object* allocate$PropertyVetoException($Class* clazz) {
-	return $of($alloc(PropertyVetoException));
-}
 
 void PropertyVetoException::init$($String* mess, $PropertyChangeEvent* evt) {
 	$Exception::init$(mess);
@@ -57,7 +31,27 @@ void PropertyVetoException::throw$() {
 }
 
 $Class* PropertyVetoException::load$($String* name, bool initialize) {
-	$loadClass(PropertyVetoException, name, initialize, &_PropertyVetoException_ClassInfo_, allocate$PropertyVetoException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PropertyVetoException, serialVersionUID)},
+		{"evt", "Ljava/beans/PropertyChangeEvent;", nullptr, $PRIVATE, $field(PropertyVetoException, evt)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $method(PropertyVetoException, init$, void, $String*, $PropertyChangeEvent*)},
+		{"getPropertyChangeEvent", "()Ljava/beans/PropertyChangeEvent;", nullptr, $PUBLIC, $virtualMethod(PropertyVetoException, getPropertyChangeEvent, $PropertyChangeEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.beans.PropertyVetoException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PropertyVetoException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PropertyVetoException);
+	});
 	return class$;
 }
 

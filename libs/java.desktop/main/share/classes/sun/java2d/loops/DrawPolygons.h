@@ -29,6 +29,7 @@ class DrawPolygons : public ::sun::java2d::loops::GraphicsPrimitive {
 	$class(DrawPolygons, 0, ::sun::java2d::loops::GraphicsPrimitive)
 public:
 	DrawPolygons();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::java2d::loops::SurfaceType* srctype, ::sun::java2d::loops::CompositeType* comptype, ::sun::java2d::loops::SurfaceType* dsttype);
 	void init$(int64_t pNativePrim, ::sun::java2d::loops::SurfaceType* srctype, ::sun::java2d::loops::CompositeType* comptype, ::sun::java2d::loops::SurfaceType* dsttype);
 	virtual void DrawPolygons$(::sun::java2d::SunGraphics2D* sg2d, ::sun::java2d::SurfaceData* sData, $ints* xPoints, $ints* yPoints, $ints* nPoints, int32_t numPolys, int32_t transX, int32_t transY, bool close);

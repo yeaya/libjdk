@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$1.h>
-
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -31,7 +30,6 @@ using $Types$SimpleVisitor = ::com::sun::tools::javac::code::Types$SimpleVisitor
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Resolve$AccessError = ::com::sun::tools::javac::comp::Resolve$AccessError;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -47,73 +45,18 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Resolve$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$1, this$0)},
-	{}
-};
-
-$MethodInfo _Resolve$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;)V", nullptr, 0, $method(Resolve$1, init$, void, $Resolve*)},
-	{"visit", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $virtualMethod(Resolve$1, visit, void, $List*, $Env*)},
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Lcom/sun/tools/javac/comp/Env;)Ljava/lang/Void;", "(Lcom/sun/tools/javac/code/Type$ArrayType;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Ljava/lang/Void;", $PUBLIC, $virtualMethod(Resolve$1, visitArrayType, $Void*, $Type$ArrayType*, $Env*)},
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Resolve$1, visitArrayType, $Object*, $Type$ArrayType*, Object$*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Lcom/sun/tools/javac/comp/Env;)Ljava/lang/Void;", "(Lcom/sun/tools/javac/code/Type$ClassType;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Ljava/lang/Void;", $PUBLIC, $virtualMethod(Resolve$1, visitClassType, $Void*, $Type$ClassType*, $Env*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Resolve$1, visitClassType, $Object*, $Type$ClassType*, Object$*)},
-	{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Lcom/sun/tools/javac/comp/Env;)Ljava/lang/Void;", "(Lcom/sun/tools/javac/code/Type$MethodType;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Ljava/lang/Void;", $PUBLIC, $virtualMethod(Resolve$1, visitMethodType, $Void*, $Type$MethodType*, $Env*)},
-	{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Resolve$1, visitMethodType, $Object*, $Type$MethodType*, Object$*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Env;)Ljava/lang/Void;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Ljava/lang/Void;", $PUBLIC, $virtualMethod(Resolve$1, visitType, $Void*, $Type*, $Env*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Resolve$1, visitType, $Object*, $Type*, Object$*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Lcom/sun/tools/javac/comp/Env;)Ljava/lang/Void;", "(Lcom/sun/tools/javac/code/Type$WildcardType;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Ljava/lang/Void;", $PUBLIC, $virtualMethod(Resolve$1, visitWildcardType, $Void*, $Type$WildcardType*, $Env*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Resolve$1, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _Resolve$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Resolve",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Resolve$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$1", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Types$SimpleVisitor", "com.sun.tools.javac.code.Types", "SimpleVisitor", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Resolve$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Resolve$1",
-	"com.sun.tools.javac.code.Types$SimpleVisitor",
-	nullptr,
-	_Resolve$1_FieldInfo_,
-	_Resolve$1_MethodInfo_,
-	"Lcom/sun/tools/javac/code/Types$SimpleVisitor<Ljava/lang/Void;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;",
-	&_Resolve$1_EnclosingMethodInfo_,
-	_Resolve$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$1($Class* clazz) {
-	return $of($alloc(Resolve$1));
-}
-
 void Resolve$1::init$($Resolve* this$0) {
 	$set(this, this$0, this$0);
 	$Types$SimpleVisitor::init$();
 }
 
 void Resolve$1::visit($List* ts, $Env* env) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(ts)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Type, t, $cast($Type, i$->next()));
-			{
-				visit(t, env);
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(ts)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Type, t, $cast($Type, i$->next()));
+		{
+			visit(t, env);
 		}
 	}
 }
@@ -128,11 +71,11 @@ $Void* Resolve$1::visitArrayType($Type$ArrayType* t, $Env* env) {
 }
 
 $Void* Resolve$1::visitClassType($Type$ClassType* t, $Env* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	visit($($nc(t)->getTypeArguments()), env);
-	if (!this->this$0->isAccessible(env, static_cast<$Type*>(t), true)) {
-		$var($Symbol, var$0, static_cast<$Symbol*>($new($Resolve$AccessError, this->this$0, env, nullptr, $nc(t)->tsym)));
-		this->this$0->accessBase(var$0, $($nc($nc(env)->tree)->pos()), $nc(env->enclClass)->sym, t, $nc($nc(t)->tsym)->name, true);
+	if (!this->this$0->isAccessible(env, t, true)) {
+		$var($Symbol, var$0, $new($Resolve$AccessError, this->this$0, env, nullptr, t->tsym));
+		this->this$0->accessBase(var$0, $($nc($nc(env)->tree)->pos()), $nc($nc(env)->enclClass)->sym, t, $nc(t->tsym)->name, true);
 	}
 	return nullptr;
 }
@@ -143,38 +86,84 @@ $Void* Resolve$1::visitWildcardType($Type$WildcardType* t, $Env* env) {
 }
 
 $Void* Resolve$1::visitMethodType($Type$MethodType* t, $Env* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	visit($($nc(t)->getParameterTypes()), env);
-	visit($($nc(t)->getReturnType()), env);
-	visit($($nc(t)->getThrownTypes()), env);
+	visit($(t->getReturnType()), env);
+	visit($(t->getThrownTypes()), env);
 	return nullptr;
 }
 
 $Object* Resolve$1::visitMethodType($Type$MethodType* t, Object$* env) {
-	return $of(this->visitMethodType(t, $cast($Env, env)));
+	return this->visitMethodType(t, $cast($Env, env));
 }
 
 $Object* Resolve$1::visitArrayType($Type$ArrayType* t, Object$* env) {
-	return $of(this->visitArrayType(t, $cast($Env, env)));
+	return this->visitArrayType(t, $cast($Env, env));
 }
 
 $Object* Resolve$1::visitWildcardType($Type$WildcardType* t, Object$* env) {
-	return $of(this->visitWildcardType(t, $cast($Env, env)));
+	return this->visitWildcardType(t, $cast($Env, env));
 }
 
 $Object* Resolve$1::visitClassType($Type$ClassType* t, Object$* env) {
-	return $of(this->visitClassType(t, $cast($Env, env)));
+	return this->visitClassType(t, $cast($Env, env));
 }
 
 $Object* Resolve$1::visitType($Type* t, Object$* env) {
-	return $of(this->visitType(t, $cast($Env, env)));
+	return this->visitType(t, $cast($Env, env));
 }
 
 Resolve$1::Resolve$1() {
 }
 
 $Class* Resolve$1::load$($String* name, bool initialize) {
-	$loadClass(Resolve$1, name, initialize, &_Resolve$1_ClassInfo_, allocate$Resolve$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;)V", nullptr, 0, $method(Resolve$1, init$, void, $Resolve*)},
+		{"visit", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $virtualMethod(Resolve$1, visit, void, $List*, $Env*)},
+		{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Lcom/sun/tools/javac/comp/Env;)Ljava/lang/Void;", "(Lcom/sun/tools/javac/code/Type$ArrayType;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Ljava/lang/Void;", $PUBLIC, $virtualMethod(Resolve$1, visitArrayType, $Void*, $Type$ArrayType*, $Env*)},
+		{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Resolve$1, visitArrayType, $Object*, $Type$ArrayType*, Object$*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Lcom/sun/tools/javac/comp/Env;)Ljava/lang/Void;", "(Lcom/sun/tools/javac/code/Type$ClassType;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Ljava/lang/Void;", $PUBLIC, $virtualMethod(Resolve$1, visitClassType, $Void*, $Type$ClassType*, $Env*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Resolve$1, visitClassType, $Object*, $Type$ClassType*, Object$*)},
+		{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Lcom/sun/tools/javac/comp/Env;)Ljava/lang/Void;", "(Lcom/sun/tools/javac/code/Type$MethodType;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Ljava/lang/Void;", $PUBLIC, $virtualMethod(Resolve$1, visitMethodType, $Void*, $Type$MethodType*, $Env*)},
+		{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Resolve$1, visitMethodType, $Object*, $Type$MethodType*, Object$*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Env;)Ljava/lang/Void;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Ljava/lang/Void;", $PUBLIC, $virtualMethod(Resolve$1, visitType, $Void*, $Type*, $Env*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Resolve$1, visitType, $Object*, $Type*, Object$*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Lcom/sun/tools/javac/comp/Env;)Ljava/lang/Void;", "(Lcom/sun/tools/javac/code/Type$WildcardType;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Ljava/lang/Void;", $PUBLIC, $virtualMethod(Resolve$1, visitWildcardType, $Void*, $Type$WildcardType*, $Env*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Resolve$1, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Resolve",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$1", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Types$SimpleVisitor", "com.sun.tools.javac.code.Types", "SimpleVisitor", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Resolve$1",
+		"com.sun.tools.javac.code.Types$SimpleVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/code/Types$SimpleVisitor<Ljava/lang/Void;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$1);
+	});
 	return class$;
 }
 

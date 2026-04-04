@@ -27,6 +27,7 @@ class $import Bits : public ::java::lang::Object {
 	$class(Bits, 0, ::java::lang::Object)
 public:
 	Bits();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::com::sun::tools::javac::util::Bits* someBits);
 	void init$(bool reset);

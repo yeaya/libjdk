@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/XMLSchemaFactory$XMLGrammarPoolImplExtension.h>
-
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/XMLSchemaFactory.h>
 #include <com/sun/org/apache/xerces/internal/util/XMLGrammarPoolImpl.h>
 #include <jcpp.h>
@@ -18,38 +17,6 @@ namespace com {
 						namespace jaxp {
 							namespace validation {
 
-$MethodInfo _XMLSchemaFactory$XMLGrammarPoolImplExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLSchemaFactory$XMLGrammarPoolImplExtension, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(XMLSchemaFactory$XMLGrammarPoolImplExtension, init$, void, int32_t)},
-	{"getGrammarCount", "()I", nullptr, 0, $virtualMethod(XMLSchemaFactory$XMLGrammarPoolImplExtension, getGrammarCount, int32_t)},
-	{}
-};
-
-$InnerClassInfo _XMLSchemaFactory$XMLGrammarPoolImplExtension_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.jaxp.validation.XMLSchemaFactory$XMLGrammarPoolImplExtension", "com.sun.org.apache.xerces.internal.jaxp.validation.XMLSchemaFactory", "XMLGrammarPoolImplExtension", $STATIC},
-	{}
-};
-
-$ClassInfo _XMLSchemaFactory$XMLGrammarPoolImplExtension_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.jaxp.validation.XMLSchemaFactory$XMLGrammarPoolImplExtension",
-	"com.sun.org.apache.xerces.internal.util.XMLGrammarPoolImpl",
-	nullptr,
-	nullptr,
-	_XMLSchemaFactory$XMLGrammarPoolImplExtension_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XMLSchemaFactory$XMLGrammarPoolImplExtension_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.jaxp.validation.XMLSchemaFactory"
-};
-
-$Object* allocate$XMLSchemaFactory$XMLGrammarPoolImplExtension($Class* clazz) {
-	return $of($alloc(XMLSchemaFactory$XMLGrammarPoolImplExtension));
-}
-
 void XMLSchemaFactory$XMLGrammarPoolImplExtension::init$() {
 	$XMLGrammarPoolImpl::init$();
 }
@@ -66,7 +33,34 @@ XMLSchemaFactory$XMLGrammarPoolImplExtension::XMLSchemaFactory$XMLGrammarPoolImp
 }
 
 $Class* XMLSchemaFactory$XMLGrammarPoolImplExtension::load$($String* name, bool initialize) {
-	$loadClass(XMLSchemaFactory$XMLGrammarPoolImplExtension, name, initialize, &_XMLSchemaFactory$XMLGrammarPoolImplExtension_ClassInfo_, allocate$XMLSchemaFactory$XMLGrammarPoolImplExtension);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLSchemaFactory$XMLGrammarPoolImplExtension, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(XMLSchemaFactory$XMLGrammarPoolImplExtension, init$, void, int32_t)},
+		{"getGrammarCount", "()I", nullptr, 0, $virtualMethod(XMLSchemaFactory$XMLGrammarPoolImplExtension, getGrammarCount, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.jaxp.validation.XMLSchemaFactory$XMLGrammarPoolImplExtension", "com.sun.org.apache.xerces.internal.jaxp.validation.XMLSchemaFactory", "XMLGrammarPoolImplExtension", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.jaxp.validation.XMLSchemaFactory$XMLGrammarPoolImplExtension",
+		"com.sun.org.apache.xerces.internal.util.XMLGrammarPoolImpl",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.jaxp.validation.XMLSchemaFactory"
+	};
+	$loadClass(XMLSchemaFactory$XMLGrammarPoolImplExtension, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLSchemaFactory$XMLGrammarPoolImplExtension);
+	});
 	return class$;
 }
 

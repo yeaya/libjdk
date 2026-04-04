@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsTreeUI.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsTreeUI$WindowsTreeCellRenderer.h>
 #include <java/awt/Rectangle.h>
 #include <javax/swing/JComponent.h>
@@ -20,7 +19,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
-using $JTree = ::javax::swing::JTree;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $BasicTreeUI = ::javax::swing::plaf::basic::BasicTreeUI;
 using $TreeCellRenderer = ::javax::swing::tree::TreeCellRenderer;
@@ -32,46 +30,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsTreeUI_FieldInfo_[] = {
-	{"HALF_SIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(WindowsTreeUI, HALF_SIZE)},
-	{"SIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(WindowsTreeUI, SIZE)},
-	{}
-};
-
-$MethodInfo _WindowsTreeUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsTreeUI, init$, void)},
-	{"createDefaultCellRenderer", "()Ljavax/swing/tree/TreeCellRenderer;", nullptr, $PROTECTED, $virtualMethod(WindowsTreeUI, createDefaultCellRenderer, $TreeCellRenderer*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsTreeUI, createUI, $ComponentUI*, $JComponent*)},
-	{"ensureRowsAreVisible", "(II)V", nullptr, $PROTECTED, $virtualMethod(WindowsTreeUI, ensureRowsAreVisible, void, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _WindowsTreeUI_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsTreeUI$WindowsTreeCellRenderer", "com.sun.java.swing.plaf.windows.WindowsTreeUI", "WindowsTreeCellRenderer", $PUBLIC},
-	{"com.sun.java.swing.plaf.windows.WindowsTreeUI$CollapsedIcon", "com.sun.java.swing.plaf.windows.WindowsTreeUI", "CollapsedIcon", $PUBLIC | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsTreeUI$ExpandedIcon", "com.sun.java.swing.plaf.windows.WindowsTreeUI", "ExpandedIcon", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsTreeUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsTreeUI",
-	"javax.swing.plaf.basic.BasicTreeUI",
-	nullptr,
-	_WindowsTreeUI_FieldInfo_,
-	_WindowsTreeUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsTreeUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsTreeUI$WindowsTreeCellRenderer,com.sun.java.swing.plaf.windows.WindowsTreeUI$CollapsedIcon,com.sun.java.swing.plaf.windows.WindowsTreeUI$ExpandedIcon"
-};
-
-$Object* allocate$WindowsTreeUI($Class* clazz) {
-	return $of($alloc(WindowsTreeUI));
-}
-
 void WindowsTreeUI::init$() {
 	$BasicTreeUI::init$();
 }
@@ -82,9 +40,9 @@ $ComponentUI* WindowsTreeUI::createUI($JComponent* c) {
 }
 
 void WindowsTreeUI::ensureRowsAreVisible(int32_t beginRow, int32_t endRow) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->tree != nullptr && beginRow >= 0 && endRow < getRowCount(this->tree)) {
-		$var($Rectangle, visRect, $nc(this->tree)->getVisibleRect());
+		$var($Rectangle, visRect, this->tree->getVisibleRect());
 		if (beginRow == endRow) {
 			$var($Rectangle, scrollBounds, getPathBounds(this->tree, $(getPathForRow(this->tree, beginRow))));
 			if (scrollBounds != nullptr) {
@@ -107,7 +65,7 @@ void WindowsTreeUI::ensureRowsAreVisible(int32_t beginRow, int32_t endRow) {
 				if (testRect == nullptr) {
 					return;
 				}
-				$nc(this->tree)->scrollRectToVisible($$new($Rectangle, visRect->x, beginY, 1, $nc(testRect)->y + testRect->height - beginY));
+				$nc(this->tree)->scrollRectToVisible($$new($Rectangle, visRect->x, beginY, 1, $nc(testRect)->y + $nc(testRect)->height - beginY));
 			}
 		}
 	}
@@ -121,7 +79,41 @@ WindowsTreeUI::WindowsTreeUI() {
 }
 
 $Class* WindowsTreeUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsTreeUI, name, initialize, &_WindowsTreeUI_ClassInfo_, allocate$WindowsTreeUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"HALF_SIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(WindowsTreeUI, HALF_SIZE)},
+		{"SIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(WindowsTreeUI, SIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsTreeUI, init$, void)},
+		{"createDefaultCellRenderer", "()Ljavax/swing/tree/TreeCellRenderer;", nullptr, $PROTECTED, $virtualMethod(WindowsTreeUI, createDefaultCellRenderer, $TreeCellRenderer*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsTreeUI, createUI, $ComponentUI*, $JComponent*)},
+		{"ensureRowsAreVisible", "(II)V", nullptr, $PROTECTED, $virtualMethod(WindowsTreeUI, ensureRowsAreVisible, void, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsTreeUI$WindowsTreeCellRenderer", "com.sun.java.swing.plaf.windows.WindowsTreeUI", "WindowsTreeCellRenderer", $PUBLIC},
+		{"com.sun.java.swing.plaf.windows.WindowsTreeUI$CollapsedIcon", "com.sun.java.swing.plaf.windows.WindowsTreeUI", "CollapsedIcon", $PUBLIC | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsTreeUI$ExpandedIcon", "com.sun.java.swing.plaf.windows.WindowsTreeUI", "ExpandedIcon", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsTreeUI",
+		"javax.swing.plaf.basic.BasicTreeUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsTreeUI$WindowsTreeCellRenderer,com.sun.java.swing.plaf.windows.WindowsTreeUI$CollapsedIcon,com.sun.java.swing.plaf.windows.WindowsTreeUI$ExpandedIcon"
+	};
+	$loadClass(WindowsTreeUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsTreeUI);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/LocaleNames_bm.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,1103 +13,1084 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _LocaleNames_bm_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_bm, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_bm, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _LocaleNames_bm_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.LocaleNames_bm",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_LocaleNames_bm_MethodInfo_
-};
-
-$Object* allocate$LocaleNames_bm($Class* clazz) {
-	return $of($alloc(LocaleNames_bm));
-}
-
 void LocaleNames_bm::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* LocaleNames_bm::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("AD"_s),
-			$of(u"Andɔr"_s)
+			"AD"_s,
+			u"Andɔr"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AE"_s),
-			$of("Arabu mara kafoli"_s)
+			"AE"_s,
+			"Arabu mara kafoli"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AF"_s),
-			$of(u"Afiganistaŋ"_s)
+			"AF"_s,
+			u"Afiganistaŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AG"_s),
-			$of("Antiga-ni-Barbuda"_s)
+			"AG"_s,
+			"Antiga-ni-Barbuda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AI"_s),
-			$of("Angiya"_s)
+			"AI"_s,
+			"Angiya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AL"_s),
-			$of("Alibani"_s)
+			"AL"_s,
+			"Alibani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AM"_s),
-			$of("Arimeni"_s)
+			"AM"_s,
+			"Arimeni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AO"_s),
-			$of("Angola"_s)
+			"AO"_s,
+			"Angola"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AR"_s),
-			$of("Arizantin"_s)
+			"AR"_s,
+			"Arizantin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AS"_s),
-			$of("Samowa amerikani"_s)
+			"AS"_s,
+			"Samowa amerikani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AT"_s),
-			$of("Otirisi"_s)
+			"AT"_s,
+			"Otirisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AU"_s),
-			$of("Ositirali"_s)
+			"AU"_s,
+			"Ositirali"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AW"_s),
-			$of("Aruba"_s)
+			"AW"_s,
+			"Aruba"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AZ"_s),
-			$of(u"Azɛrbayjaŋ"_s)
+			"AZ"_s,
+			u"Azɛrbayjaŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BA"_s),
-			$of(u"Bozni-Ɛrizigovini"_s)
+			"BA"_s,
+			u"Bozni-Ɛrizigovini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BB"_s),
-			$of("Barbadi"_s)
+			"BB"_s,
+			"Barbadi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BD"_s),
-			$of(u"Bɛngiladɛsi"_s)
+			"BD"_s,
+			u"Bɛngiladɛsi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BE"_s),
-			$of(u"Bɛliziki"_s)
+			"BE"_s,
+			u"Bɛliziki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BF"_s),
-			$of("Burukina Faso"_s)
+			"BF"_s,
+			"Burukina Faso"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BG"_s),
-			$of("Buligari"_s)
+			"BG"_s,
+			"Buligari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BH"_s),
-			$of("Bareyini"_s)
+			"BH"_s,
+			"Bareyini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BI"_s),
-			$of("Burundi"_s)
+			"BI"_s,
+			"Burundi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BJ"_s),
-			$of(u"Benɛn"_s)
+			"BJ"_s,
+			u"Benɛn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BM"_s),
-			$of("Bermudi"_s)
+			"BM"_s,
+			"Bermudi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BN"_s),
-			$of(u"Burinɛyi"_s)
+			"BN"_s,
+			u"Burinɛyi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BO"_s),
-			$of("Bolivi"_s)
+			"BO"_s,
+			"Bolivi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BR"_s),
-			$of("Berezili"_s)
+			"BR"_s,
+			"Berezili"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BS"_s),
-			$of("Bahamasi"_s)
+			"BS"_s,
+			"Bahamasi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BT"_s),
-			$of(u"Butaŋ"_s)
+			"BT"_s,
+			u"Butaŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BW"_s),
-			$of(u"Bɔtisiwana"_s)
+			"BW"_s,
+			u"Bɔtisiwana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BY"_s),
-			$of("Belarusi"_s)
+			"BY"_s,
+			"Belarusi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BZ"_s),
-			$of("Belizi"_s)
+			"BZ"_s,
+			"Belizi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CA"_s),
-			$of("Kanada"_s)
+			"CA"_s,
+			"Kanada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CD"_s),
-			$of(u"Kongo ka republiki demɔkratiki"_s)
+			"CD"_s,
+			u"Kongo ka republiki demɔkratiki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CF"_s),
-			$of("Santarafiriki"_s)
+			"CF"_s,
+			"Santarafiriki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CG"_s),
-			$of("Kongo"_s)
+			"CG"_s,
+			"Kongo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CH"_s),
-			$of("Suwisi"_s)
+			"CH"_s,
+			"Suwisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CI"_s),
-			$of("Kodiwari"_s)
+			"CI"_s,
+			"Kodiwari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CK"_s),
-			$of("Kuki Gun"_s)
+			"CK"_s,
+			"Kuki Gun"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CL"_s),
-			$of("Sili"_s)
+			"CL"_s,
+			"Sili"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CM"_s),
-			$of("Kameruni"_s)
+			"CM"_s,
+			"Kameruni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CN"_s),
-			$of("Siniwajamana"_s)
+			"CN"_s,
+			"Siniwajamana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CO"_s),
-			$of("Kolombi"_s)
+			"CO"_s,
+			"Kolombi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CR"_s),
-			$of(u"Kɔsitarika"_s)
+			"CR"_s,
+			u"Kɔsitarika"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CU"_s),
-			$of("Kuba"_s)
+			"CU"_s,
+			"Kuba"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CV"_s),
-			$of(u"Capivɛrdi"_s)
+			"CV"_s,
+			u"Capivɛrdi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CY"_s),
-			$of("Cipri"_s)
+			"CY"_s,
+			"Cipri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CZ"_s),
-			$of("Ceki republiki"_s)
+			"CZ"_s,
+			"Ceki republiki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DE"_s),
-			$of(u"Alimaɲi"_s)
+			"DE"_s,
+			u"Alimaɲi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DJ"_s),
-			$of("Jibuti"_s)
+			"DJ"_s,
+			"Jibuti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DK"_s),
-			$of("Danemarki"_s)
+			"DK"_s,
+			"Danemarki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DM"_s),
-			$of(u"Dɔminiki"_s)
+			"DM"_s,
+			u"Dɔminiki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DO"_s),
-			$of(u"Dɔmimiki republiki"_s)
+			"DO"_s,
+			u"Dɔmimiki republiki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DZ"_s),
-			$of("Alizeri"_s)
+			"DZ"_s,
+			"Alizeri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EC"_s),
-			$of(u"Ekwatɔr"_s)
+			"EC"_s,
+			u"Ekwatɔr"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EE"_s),
-			$of("Esetoni"_s)
+			"EE"_s,
+			"Esetoni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EG"_s),
-			$of("Eziputi"_s)
+			"EG"_s,
+			"Eziputi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ER"_s),
-			$of("Eritere"_s)
+			"ER"_s,
+			"Eritere"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ES"_s),
-			$of(u"Esipaɲi"_s)
+			"ES"_s,
+			u"Esipaɲi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ET"_s),
-			$of("Etiopi"_s)
+			"ET"_s,
+			"Etiopi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FI"_s),
-			$of("Finilandi"_s)
+			"FI"_s,
+			"Finilandi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FJ"_s),
-			$of("Fiji"_s)
+			"FJ"_s,
+			"Fiji"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FK"_s),
-			$of("Maluwini Gun"_s)
+			"FK"_s,
+			"Maluwini Gun"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FM"_s),
-			$of("Mikironesi"_s)
+			"FM"_s,
+			"Mikironesi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FR"_s),
-			$of("Faransi"_s)
+			"FR"_s,
+			"Faransi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GA"_s),
-			$of(u"Gabɔŋ"_s)
+			"GA"_s,
+			u"Gabɔŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GB"_s),
-			$of(u"Angilɛtɛri"_s)
+			"GB"_s,
+			u"Angilɛtɛri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GD"_s),
-			$of("Granadi"_s)
+			"GD"_s,
+			"Granadi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GE"_s),
-			$of(u"Zeyɔrzi"_s)
+			"GE"_s,
+			u"Zeyɔrzi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GF"_s),
-			$of("Faransi ka gwiyani"_s)
+			"GF"_s,
+			"Faransi ka gwiyani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GH"_s),
-			$of("Gana"_s)
+			"GH"_s,
+			"Gana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GI"_s),
-			$of("Zibralitari"_s)
+			"GI"_s,
+			"Zibralitari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GL"_s),
-			$of(u"Gɔrɔhenelandi"_s)
+			"GL"_s,
+			u"Gɔrɔhenelandi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GM"_s),
-			$of("Ganbi"_s)
+			"GM"_s,
+			"Ganbi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GN"_s),
-			$of("Gine"_s)
+			"GN"_s,
+			"Gine"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GP"_s),
-			$of("Gwadelup"_s)
+			"GP"_s,
+			"Gwadelup"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GQ"_s),
-			$of(u"Gine ekwatɔri"_s)
+			"GQ"_s,
+			u"Gine ekwatɔri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GR"_s),
-			$of(u"Gɛrɛsi"_s)
+			"GR"_s,
+			u"Gɛrɛsi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GT"_s),
-			$of("Gwatemala"_s)
+			"GT"_s,
+			"Gwatemala"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GU"_s),
-			$of("Gwam"_s)
+			"GU"_s,
+			"Gwam"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GW"_s),
-			$of("Gine Bisawo"_s)
+			"GW"_s,
+			"Gine Bisawo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GY"_s),
-			$of("Gwiyana"_s)
+			"GY"_s,
+			"Gwiyana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HN"_s),
-			$of(u"Hɔndirasi"_s)
+			"HN"_s,
+			u"Hɔndirasi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HR"_s),
-			$of("Kroasi"_s)
+			"HR"_s,
+			"Kroasi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HT"_s),
-			$of("Ayiti"_s)
+			"HT"_s,
+			"Ayiti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HU"_s),
-			$of(u"Hɔngri"_s)
+			"HU"_s,
+			u"Hɔngri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ID"_s),
-			$of(u"Ɛndonezi"_s)
+			"ID"_s,
+			u"Ɛndonezi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IE"_s),
-			$of("Irilandi"_s)
+			"IE"_s,
+			"Irilandi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IL"_s),
-			$of("Isirayeli"_s)
+			"IL"_s,
+			"Isirayeli"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IN"_s),
-			$of(u"Ɛndujamana"_s)
+			"IN"_s,
+			u"Ɛndujamana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IO"_s),
-			$of(u"Angilɛ ka ɛndu dugukolo"_s)
+			"IO"_s,
+			u"Angilɛ ka ɛndu dugukolo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IQ"_s),
-			$of("Iraki"_s)
+			"IQ"_s,
+			"Iraki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IR"_s),
-			$of(u"Iraŋ"_s)
+			"IR"_s,
+			u"Iraŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IS"_s),
-			$of("Isilandi"_s)
+			"IS"_s,
+			"Isilandi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IT"_s),
-			$of("Itali"_s)
+			"IT"_s,
+			"Itali"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JM"_s),
-			$of("Zamayiki"_s)
+			"JM"_s,
+			"Zamayiki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JO"_s),
-			$of(u"Zɔrdani"_s)
+			"JO"_s,
+			u"Zɔrdani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JP"_s),
-			$of(u"Zapɔn"_s)
+			"JP"_s,
+			u"Zapɔn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KE"_s),
-			$of("Keniya"_s)
+			"KE"_s,
+			"Keniya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KG"_s),
-			$of(u"Kirigizisitaŋ"_s)
+			"KG"_s,
+			u"Kirigizisitaŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KH"_s),
-			$of("Kamboji"_s)
+			"KH"_s,
+			"Kamboji"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KI"_s),
-			$of("Kiribati"_s)
+			"KI"_s,
+			"Kiribati"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KM"_s),
-			$of(u"Komɔri"_s)
+			"KM"_s,
+			u"Komɔri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KN"_s),
-			$of(u"Kristɔfo-Senu-ni-Ɲevɛs"_s)
+			"KN"_s,
+			u"Kristɔfo-Senu-ni-Ɲevɛs"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KP"_s),
-			$of(u"Kɛɲɛka Kore"_s)
+			"KP"_s,
+			u"Kɛɲɛka Kore"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KR"_s),
-			$of("Worodugu Kore"_s)
+			"KR"_s,
+			"Worodugu Kore"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KW"_s),
-			$of(u"Kowɛti"_s)
+			"KW"_s,
+			u"Kowɛti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KY"_s),
-			$of("Bama Gun"_s)
+			"KY"_s,
+			"Bama Gun"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KZ"_s),
-			$of(u"Kazakistaŋ"_s)
+			"KZ"_s,
+			u"Kazakistaŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LA"_s),
-			$of("Layosi"_s)
+			"LA"_s,
+			"Layosi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LB"_s),
-			$of(u"Libaŋ"_s)
+			"LB"_s,
+			u"Libaŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LC"_s),
-			$of("Lusi-Senu"_s)
+			"LC"_s,
+			"Lusi-Senu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LI"_s),
-			$of(u"Lisɛnsitayini"_s)
+			"LI"_s,
+			u"Lisɛnsitayini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LK"_s),
-			$of("Sirilanka"_s)
+			"LK"_s,
+			"Sirilanka"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LR"_s),
-			$of("Liberiya"_s)
+			"LR"_s,
+			"Liberiya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LS"_s),
-			$of("Lesoto"_s)
+			"LS"_s,
+			"Lesoto"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LT"_s),
-			$of("Lituyani"_s)
+			"LT"_s,
+			"Lituyani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LU"_s),
-			$of("Likisanburu"_s)
+			"LU"_s,
+			"Likisanburu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LV"_s),
-			$of("Letoni"_s)
+			"LV"_s,
+			"Letoni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LY"_s),
-			$of("Libi"_s)
+			"LY"_s,
+			"Libi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MA"_s),
-			$of(u"Marɔku"_s)
+			"MA"_s,
+			u"Marɔku"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MC"_s),
-			$of("Monako"_s)
+			"MC"_s,
+			"Monako"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MD"_s),
-			$of("Molidavi"_s)
+			"MD"_s,
+			"Molidavi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MG"_s),
-			$of("Madagasikari"_s)
+			"MG"_s,
+			"Madagasikari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MH"_s),
-			$of("Marisali Gun"_s)
+			"MH"_s,
+			"Marisali Gun"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ML"_s),
-			$of("Mali"_s)
+			"ML"_s,
+			"Mali"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MM"_s),
-			$of("Myanimari"_s)
+			"MM"_s,
+			"Myanimari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MN"_s),
-			$of(u"Moŋoli"_s)
+			"MN"_s,
+			u"Moŋoli"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MP"_s),
-			$of(u"Kɛɲɛka Mariyani Gun"_s)
+			"MP"_s,
+			u"Kɛɲɛka Mariyani Gun"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MQ"_s),
-			$of("Maritiniki"_s)
+			"MQ"_s,
+			"Maritiniki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MR"_s),
-			$of(u"Mɔritani"_s)
+			"MR"_s,
+			u"Mɔritani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MS"_s),
-			$of(u"Moŋsera"_s)
+			"MS"_s,
+			u"Moŋsera"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MT"_s),
-			$of("Malti"_s)
+			"MT"_s,
+			"Malti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MU"_s),
-			$of("Morisi"_s)
+			"MU"_s,
+			"Morisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MV"_s),
-			$of("Maldivi"_s)
+			"MV"_s,
+			"Maldivi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MW"_s),
-			$of("Malawi"_s)
+			"MW"_s,
+			"Malawi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MX"_s),
-			$of("Meksiki"_s)
+			"MX"_s,
+			"Meksiki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MY"_s),
-			$of(u"Malɛzi"_s)
+			"MY"_s,
+			u"Malɛzi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MZ"_s),
-			$of("Mozanbiki"_s)
+			"MZ"_s,
+			"Mozanbiki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NA"_s),
-			$of("Namibi"_s)
+			"NA"_s,
+			"Namibi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NC"_s),
-			$of("Kaledoni Koura"_s)
+			"NC"_s,
+			"Kaledoni Koura"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NE"_s),
-			$of(u"Nizɛri"_s)
+			"NE"_s,
+			u"Nizɛri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NF"_s),
-			$of(u"Nɔrofoliki Gun"_s)
+			"NF"_s,
+			u"Nɔrofoliki Gun"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NG"_s),
-			$of("Nizeriya"_s)
+			"NG"_s,
+			"Nizeriya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NI"_s),
-			$of("Nikaragwa"_s)
+			"NI"_s,
+			"Nikaragwa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NL"_s),
-			$of("Peyiba"_s)
+			"NL"_s,
+			"Peyiba"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NO"_s),
-			$of(u"Nɔriwɛzi"_s)
+			"NO"_s,
+			u"Nɔriwɛzi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NP"_s),
-			$of("Nepali"_s)
+			"NP"_s,
+			"Nepali"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NR"_s),
-			$of("Nawuru"_s)
+			"NR"_s,
+			"Nawuru"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NU"_s),
-			$of("Nyuwe"_s)
+			"NU"_s,
+			"Nyuwe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NZ"_s),
-			$of("Zelandi Koura"_s)
+			"NZ"_s,
+			"Zelandi Koura"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OM"_s),
-			$of(u"Omaŋ"_s)
+			"OM"_s,
+			u"Omaŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PA"_s),
-			$of("Panama"_s)
+			"PA"_s,
+			"Panama"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PE"_s),
-			$of("Peru"_s)
+			"PE"_s,
+			"Peru"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PF"_s),
-			$of("Faransi ka polinezi"_s)
+			"PF"_s,
+			"Faransi ka polinezi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PG"_s),
-			$of("Papuwasi-Gine-Koura"_s)
+			"PG"_s,
+			"Papuwasi-Gine-Koura"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PH"_s),
-			$of("Filipini"_s)
+			"PH"_s,
+			"Filipini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PK"_s),
-			$of(u"Pakisitaŋ"_s)
+			"PK"_s,
+			u"Pakisitaŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PL"_s),
-			$of(u"Poloɲi"_s)
+			"PL"_s,
+			u"Poloɲi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PM"_s),
-			$of(u"Piyɛri-Senu-ni-Mikelɔŋ"_s)
+			"PM"_s,
+			u"Piyɛri-Senu-ni-Mikelɔŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PN"_s),
-			$of("Pitikarini"_s)
+			"PN"_s,
+			"Pitikarini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PR"_s),
-			$of(u"Pɔrotoriko"_s)
+			"PR"_s,
+			u"Pɔrotoriko"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PS"_s),
-			$of("Palesitini"_s)
+			"PS"_s,
+			"Palesitini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PT"_s),
-			$of(u"Pɔritigali"_s)
+			"PT"_s,
+			u"Pɔritigali"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PW"_s),
-			$of("Palawu"_s)
+			"PW"_s,
+			"Palawu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PY"_s),
-			$of("Paraguwayi"_s)
+			"PY"_s,
+			"Paraguwayi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("QA"_s),
-			$of("Katari"_s)
+			"QA"_s,
+			"Katari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RE"_s),
-			$of(u"Reyuɲɔŋ"_s)
+			"RE"_s,
+			u"Reyuɲɔŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RO"_s),
-			$of("Rumani"_s)
+			"RO"_s,
+			"Rumani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RU"_s),
-			$of("Irisi"_s)
+			"RU"_s,
+			"Irisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RW"_s),
-			$of("Ruwanda"_s)
+			"RW"_s,
+			"Ruwanda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SA"_s),
-			$of("Arabiya Sawudiya"_s)
+			"SA"_s,
+			"Arabiya Sawudiya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SB"_s),
-			$of("Salomo Gun"_s)
+			"SB"_s,
+			"Salomo Gun"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SC"_s),
-			$of(u"Sesɛli"_s)
+			"SC"_s,
+			u"Sesɛli"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SD"_s),
-			$of(u"Sudaŋ"_s)
+			"SD"_s,
+			u"Sudaŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SE"_s),
-			$of(u"Suwɛdi"_s)
+			"SE"_s,
+			u"Suwɛdi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SG"_s),
-			$of(u"Sɛngapuri"_s)
+			"SG"_s,
+			u"Sɛngapuri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SH"_s),
-			$of(u"Ɛlɛni Senu"_s)
+			"SH"_s,
+			u"Ɛlɛni Senu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SI"_s),
-			$of("Sloveni"_s)
+			"SI"_s,
+			"Sloveni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SK"_s),
-			$of("Slowaki"_s)
+			"SK"_s,
+			"Slowaki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SL"_s),
-			$of(u"Siyera Lewɔni"_s)
+			"SL"_s,
+			u"Siyera Lewɔni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SM"_s),
-			$of("Marini-Senu"_s)
+			"SM"_s,
+			"Marini-Senu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SN"_s),
-			$of("Senegali"_s)
+			"SN"_s,
+			"Senegali"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SO"_s),
-			$of("Somali"_s)
+			"SO"_s,
+			"Somali"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SR"_s),
-			$of("Surinami"_s)
+			"SR"_s,
+			"Surinami"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ST"_s),
-			$of("Sawo Tome-ni-Prinicipe"_s)
+			"ST"_s,
+			"Sawo Tome-ni-Prinicipe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SV"_s),
-			$of(u"Salivadɔr"_s)
+			"SV"_s,
+			u"Salivadɔr"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SY"_s),
-			$of("Siri"_s)
+			"SY"_s,
+			"Siri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SZ"_s),
-			$of("Swazilandi"_s)
+			"SZ"_s,
+			"Swazilandi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TC"_s),
-			$of("Turiki Gun ni Kayiki"_s)
+			"TC"_s,
+			"Turiki Gun ni Kayiki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TD"_s),
-			$of("Cadi"_s)
+			"TD"_s,
+			"Cadi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TG"_s),
-			$of("Togo"_s)
+			"TG"_s,
+			"Togo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TH"_s),
-			$of("Tayilandi"_s)
+			"TH"_s,
+			"Tayilandi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TJ"_s),
-			$of("Tajikisitani"_s)
+			"TJ"_s,
+			"Tajikisitani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TK"_s),
-			$of("Tokelo"_s)
+			"TK"_s,
+			"Tokelo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TL"_s),
-			$of(u"Kɔrɔn Timɔr"_s)
+			"TL"_s,
+			u"Kɔrɔn Timɔr"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TM"_s),
-			$of("Turikimenisitani"_s)
+			"TM"_s,
+			"Turikimenisitani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TN"_s),
-			$of("Tunizi"_s)
+			"TN"_s,
+			"Tunizi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TO"_s),
-			$of("Tonga"_s)
+			"TO"_s,
+			"Tonga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TR"_s),
-			$of("Turiki"_s)
+			"TR"_s,
+			"Turiki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TT"_s),
-			$of("Trinite-ni-Tobago"_s)
+			"TT"_s,
+			"Trinite-ni-Tobago"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TV"_s),
-			$of("Tuvalu"_s)
+			"TV"_s,
+			"Tuvalu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TW"_s),
-			$of("Tayiwani"_s)
+			"TW"_s,
+			"Tayiwani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TZ"_s),
-			$of("Tanzani"_s)
+			"TZ"_s,
+			"Tanzani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UA"_s),
-			$of(u"Ukɛrɛni"_s)
+			"UA"_s,
+			u"Ukɛrɛni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UG"_s),
-			$of("Uganda"_s)
+			"UG"_s,
+			"Uganda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("US"_s),
-			$of("Ameriki"_s)
+			"US"_s,
+			"Ameriki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UY"_s),
-			$of("Urugwayi"_s)
+			"UY"_s,
+			"Urugwayi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UZ"_s),
-			$of("Uzebekisitani"_s)
+			"UZ"_s,
+			"Uzebekisitani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VA"_s),
-			$of(u"Vatikaŋ"_s)
+			"VA"_s,
+			u"Vatikaŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VC"_s),
-			$of(u"Vinisɛn-Senu-ni-Grenadini"_s)
+			"VC"_s,
+			u"Vinisɛn-Senu-ni-Grenadini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VE"_s),
-			$of("Venezuwela"_s)
+			"VE"_s,
+			"Venezuwela"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VG"_s),
-			$of(u"Angilɛ ka Sungurunnin Gun"_s)
+			"VG"_s,
+			u"Angilɛ ka Sungurunnin Gun"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VI"_s),
-			$of("Ameriki ka Sungurunnin Gun"_s)
+			"VI"_s,
+			"Ameriki ka Sungurunnin Gun"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VN"_s),
-			$of(u"Wiyɛtinamu"_s)
+			"VN"_s,
+			u"Wiyɛtinamu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VU"_s),
-			$of("Vanuwatu"_s)
+			"VU"_s,
+			"Vanuwatu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WF"_s),
-			$of("Walisi-ni-Futuna"_s)
+			"WF"_s,
+			"Walisi-ni-Futuna"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WS"_s),
-			$of("Samowa"_s)
+			"WS"_s,
+			"Samowa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("YE"_s),
-			$of(u"Yemɛni"_s)
+			"YE"_s,
+			u"Yemɛni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("YT"_s),
-			$of("Mayoti"_s)
+			"YT"_s,
+			"Mayoti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZA"_s),
-			$of("Worodugu Afriki"_s)
+			"ZA"_s,
+			"Worodugu Afriki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZM"_s),
-			$of("Zanbi"_s)
+			"ZM"_s,
+			"Zanbi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZW"_s),
-			$of("Zimbabuwe"_s)
+			"ZW"_s,
+			"Zimbabuwe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ak"_s),
-			$of("akankan"_s)
+			"ak"_s,
+			"akankan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("am"_s),
-			$of("amarikikan"_s)
+			"am"_s,
+			"amarikikan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ar"_s),
-			$of("larabukan"_s)
+			"ar"_s,
+			"larabukan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("be"_s),
-			$of("biyelorisikan"_s)
+			"be"_s,
+			"biyelorisikan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bg"_s),
-			$of("buligarikan"_s)
+			"bg"_s,
+			"buligarikan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bm"_s),
-			$of("bamanakan"_s)
+			"bm"_s,
+			"bamanakan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bn"_s),
-			$of(u"bɛngalikan"_s)
+			"bn"_s,
+			u"bɛngalikan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cs"_s),
-			$of(u"cɛkikan"_s)
+			"cs"_s,
+			u"cɛkikan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de"_s),
-			$of(u"alimaɲikan"_s)
+			"de"_s,
+			u"alimaɲikan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("el"_s),
-			$of(u"gɛrɛsikan"_s)
+			"el"_s,
+			u"gɛrɛsikan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en"_s),
-			$of(u"angilɛkan"_s)
+			"en"_s,
+			u"angilɛkan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es"_s),
-			$of(u"esipaɲolkan"_s)
+			"es"_s,
+			u"esipaɲolkan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fa"_s),
-			$of("perisanikan"_s)
+			"fa"_s,
+			"perisanikan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr"_s),
-			$of("tubabukan"_s)
+			"fr"_s,
+			"tubabukan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ha"_s),
-			$of("awusakan"_s)
+			"ha"_s,
+			"awusakan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hi"_s),
-			$of("inidikan"_s)
+			"hi"_s,
+			"inidikan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hu"_s),
-			$of(u"oŋirikan"_s)
+			"hu"_s,
+			u"oŋirikan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("id"_s),
-			$of(u"Ɛndonezikan"_s)
+			"id"_s,
+			u"Ɛndonezikan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ig"_s),
-			$of("igibokan"_s)
+			"ig"_s,
+			"igibokan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("it"_s),
-			$of("italikan"_s)
+			"it"_s,
+			"italikan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ja"_s),
-			$of(u"zapɔnekan"_s)
+			"ja"_s,
+			u"zapɔnekan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jv"_s),
-			$of("javanekan"_s)
+			"jv"_s,
+			"javanekan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("km"_s),
-			$of("kambojikan"_s)
+			"km"_s,
+			"kambojikan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ko"_s),
-			$of("korekan"_s)
+			"ko"_s,
+			"korekan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ms"_s),
-			$of(u"malɛzikan"_s)
+			"ms"_s,
+			u"malɛzikan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("my"_s),
-			$of("birimanikan"_s)
+			"my"_s,
+			"birimanikan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ne"_s),
-			$of("nepalekan"_s)
+			"ne"_s,
+			"nepalekan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nl"_s),
-			$of("olandekan"_s)
+			"nl"_s,
+			"olandekan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pa"_s),
-			$of(u"pɛnijabikan"_s)
+			"pa"_s,
+			u"pɛnijabikan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pl"_s),
-			$of("polonekan"_s)
+			"pl"_s,
+			"polonekan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt"_s),
-			$of(u"pɔritigalikan"_s)
+			"pt"_s,
+			u"pɔritigalikan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ro"_s),
-			$of("rumanikan"_s)
+			"ro"_s,
+			"rumanikan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ru"_s),
-			$of("irisikan"_s)
+			"ru"_s,
+			"irisikan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rw"_s),
-			$of("ruwandakan"_s)
+			"rw"_s,
+			"ruwandakan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("so"_s),
-			$of("somalikan"_s)
+			"so"_s,
+			"somalikan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sv"_s),
-			$of(u"suwɛdikan"_s)
+			"sv"_s,
+			u"suwɛdikan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ta"_s),
-			$of("tamulikan"_s)
+			"ta"_s,
+			"tamulikan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("th"_s),
-			$of("tayikan"_s)
+			"th"_s,
+			"tayikan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tr"_s),
-			$of("turikikan"_s)
+			"tr"_s,
+			"turikikan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uk"_s),
-			$of(u"ukɛrɛnikan"_s)
+			"uk"_s,
+			u"ukɛrɛnikan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ur"_s),
-			$of("urudukan"_s)
+			"ur"_s,
+			"urudukan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vi"_s),
-			$of(u"wiyɛtinamukan"_s)
+			"vi"_s,
+			u"wiyɛtinamukan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yo"_s),
-			$of("yorubakan"_s)
+			"yo"_s,
+			"yorubakan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh"_s),
-			$of("siniwakan"_s)
+			"zh"_s,
+			"siniwakan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zu"_s),
-			$of("zulukan"_s)
+			"zu"_s,
+			"zulukan"_s
 		})
 	}));
 	return data;
@@ -1120,7 +1100,22 @@ LocaleNames_bm::LocaleNames_bm() {
 }
 
 $Class* LocaleNames_bm::load$($String* name, bool initialize) {
-	$loadClass(LocaleNames_bm, name, initialize, &_LocaleNames_bm_ClassInfo_, allocate$LocaleNames_bm);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_bm, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_bm, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.LocaleNames_bm",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNames_bm, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNames_bm);
+	});
 	return class$;
 }
 

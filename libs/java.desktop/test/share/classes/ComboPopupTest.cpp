@@ -1,10 +1,8 @@
 #include <ComboPopupTest.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/FlowLayout.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/Point.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
@@ -30,10 +28,8 @@
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $FlowLayout = ::java::awt::FlowLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Robot = ::java::awt::Robot;
 using $InputEvent = ::java::awt::event::InputEvent;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -58,35 +54,31 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$blockTillDisplayed$0(comp);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ComboPopupTest$$Lambda$lambda$blockTillDisplayed$0>());
-	}
 	ComboPopupTest* inst$ = nullptr;
 	$JComponent* comp = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ComboPopupTest$$Lambda$lambda$blockTillDisplayed$0::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ComboPopupTest$$Lambda$lambda$blockTillDisplayed$0, inst$)},
-	{"comp", "Ljavax/swing/JComponent;", nullptr, $PUBLIC, $field(ComboPopupTest$$Lambda$lambda$blockTillDisplayed$0, comp)},
-	{}
-};
-$MethodInfo ComboPopupTest$$Lambda$lambda$blockTillDisplayed$0::methodInfos[3] = {
-	{"<init>", "(LComboPopupTest;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $method(ComboPopupTest$$Lambda$lambda$blockTillDisplayed$0, init$, void, ComboPopupTest*, $JComponent*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ComboPopupTest$$Lambda$lambda$blockTillDisplayed$0, run, void)},
-	{}
-};
-$ClassInfo ComboPopupTest$$Lambda$lambda$blockTillDisplayed$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ComboPopupTest$$Lambda$lambda$blockTillDisplayed$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* ComboPopupTest$$Lambda$lambda$blockTillDisplayed$0::load$($String* name, bool initialize) {
-	$loadClass(ComboPopupTest$$Lambda$lambda$blockTillDisplayed$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ComboPopupTest$$Lambda$lambda$blockTillDisplayed$0, inst$)},
+		{"comp", "Ljavax/swing/JComponent;", nullptr, $PUBLIC, $field(ComboPopupTest$$Lambda$lambda$blockTillDisplayed$0, comp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LComboPopupTest;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $method(ComboPopupTest$$Lambda$lambda$blockTillDisplayed$0, init$, void, ComboPopupTest*, $JComponent*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ComboPopupTest$$Lambda$lambda$blockTillDisplayed$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ComboPopupTest$$Lambda$lambda$blockTillDisplayed$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ComboPopupTest$$Lambda$lambda$blockTillDisplayed$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ComboPopupTest$$Lambda$lambda$blockTillDisplayed$0);
+	});
 	return class$;
 }
 $Class* ComboPopupTest$$Lambda$lambda$blockTillDisplayed$0::class$ = nullptr;
@@ -100,33 +92,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$new$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ComboPopupTest$$Lambda$lambda$new$1$1>());
-	}
 	ComboPopupTest* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ComboPopupTest$$Lambda$lambda$new$1$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ComboPopupTest$$Lambda$lambda$new$1$1, inst$)},
-	{}
-};
-$MethodInfo ComboPopupTest$$Lambda$lambda$new$1$1::methodInfos[3] = {
-	{"<init>", "(LComboPopupTest;)V", nullptr, $PUBLIC, $method(ComboPopupTest$$Lambda$lambda$new$1$1, init$, void, ComboPopupTest*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ComboPopupTest$$Lambda$lambda$new$1$1, run, void)},
-	{}
-};
-$ClassInfo ComboPopupTest$$Lambda$lambda$new$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ComboPopupTest$$Lambda$lambda$new$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* ComboPopupTest$$Lambda$lambda$new$1$1::load$($String* name, bool initialize) {
-	$loadClass(ComboPopupTest$$Lambda$lambda$new$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ComboPopupTest$$Lambda$lambda$new$1$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LComboPopupTest;)V", nullptr, $PUBLIC, $method(ComboPopupTest$$Lambda$lambda$new$1$1, init$, void, ComboPopupTest*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ComboPopupTest$$Lambda$lambda$new$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ComboPopupTest$$Lambda$lambda$new$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ComboPopupTest$$Lambda$lambda$new$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ComboPopupTest$$Lambda$lambda$new$1$1);
+	});
 	return class$;
 }
 $Class* ComboPopupTest$$Lambda$lambda$new$1$1::class$ = nullptr;
@@ -140,74 +128,38 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$new$2();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ComboPopupTest$$Lambda$lambda$new$2$2>());
-	}
 	ComboPopupTest* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ComboPopupTest$$Lambda$lambda$new$2$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ComboPopupTest$$Lambda$lambda$new$2$2, inst$)},
-	{}
-};
-$MethodInfo ComboPopupTest$$Lambda$lambda$new$2$2::methodInfos[3] = {
-	{"<init>", "(LComboPopupTest;)V", nullptr, $PUBLIC, $method(ComboPopupTest$$Lambda$lambda$new$2$2, init$, void, ComboPopupTest*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ComboPopupTest$$Lambda$lambda$new$2$2, run, void)},
-	{}
-};
-$ClassInfo ComboPopupTest$$Lambda$lambda$new$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ComboPopupTest$$Lambda$lambda$new$2$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* ComboPopupTest$$Lambda$lambda$new$2$2::load$($String* name, bool initialize) {
-	$loadClass(ComboPopupTest$$Lambda$lambda$new$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ComboPopupTest$$Lambda$lambda$new$2$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LComboPopupTest;)V", nullptr, $PUBLIC, $method(ComboPopupTest$$Lambda$lambda$new$2$2, init$, void, ComboPopupTest*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ComboPopupTest$$Lambda$lambda$new$2$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ComboPopupTest$$Lambda$lambda$new$2$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ComboPopupTest$$Lambda$lambda$new$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ComboPopupTest$$Lambda$lambda$new$2$2);
+	});
 	return class$;
 }
 $Class* ComboPopupTest$$Lambda$lambda$new$2$2::class$ = nullptr;
 
-$FieldInfo _ComboPopupTest_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, 0, $field(ComboPopupTest, frame)},
-	{"comboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljava/lang/String;>;", 0, $field(ComboPopupTest, comboBox)},
-	{"p", "Ljava/awt/Point;", nullptr, $PRIVATE | $VOLATILE, $field(ComboPopupTest, p)},
-	{"d", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $VOLATILE, $field(ComboPopupTest, d)},
-	{}
-};
-
-$MethodInfo _ComboPopupTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ComboPopupTest, init$, void), "java.lang.Exception"},
-	{"blockTillDisplayed", "(Ljavax/swing/JComponent;)V", nullptr, 0, $virtualMethod(ComboPopupTest, blockTillDisplayed, void, $JComponent*), "java.lang.Exception"},
-	{"lambda$blockTillDisplayed$0", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ComboPopupTest, lambda$blockTillDisplayed$0, void, $JComponent*)},
-	{"lambda$new$1", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(ComboPopupTest, lambda$new$1, void)},
-	{"lambda$new$2", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(ComboPopupTest, lambda$new$2, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ComboPopupTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"start", "()V", nullptr, $PUBLIC, $virtualMethod(ComboPopupTest, start, void)},
-	{}
-};
-
-$ClassInfo _ComboPopupTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ComboPopupTest",
-	"java.lang.Object",
-	nullptr,
-	_ComboPopupTest_FieldInfo_,
-	_ComboPopupTest_MethodInfo_
-};
-
-$Object* allocate$ComboPopupTest($Class* clazz) {
-	return $of($alloc(ComboPopupTest));
-}
-
 void ComboPopupTest::blockTillDisplayed($JComponent* comp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (this->p == nullptr) {
 		try {
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(ComboPopupTest$$Lambda$lambda$blockTillDisplayed$0, this, comp)));
+			$SwingUtilities::invokeAndWait($$new(ComboPopupTest$$Lambda$lambda$blockTillDisplayed$0, this, comp));
 		} catch ($IllegalStateException& e) {
 			try {
 				$Thread::sleep(1000);
@@ -222,44 +174,42 @@ void ComboPopupTest::main($StringArray* args) {
 }
 
 void ComboPopupTest::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, frame, nullptr);
 	$set(this, comboBox, nullptr);
 	$set(this, p, nullptr);
 	$set(this, d, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Robot, robot, $new($Robot));
-			robot->setAutoDelay(200);
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(ComboPopupTest$$Lambda$lambda$new$1$1, this)));
-			blockTillDisplayed(this->comboBox);
-			robot->waitForIdle();
-			robot->mouseMove($nc(this->p)->x + $nc(this->d)->width - 1, $nc(this->p)->y + $nc(this->d)->height / 2);
-			robot->mousePress($InputEvent::BUTTON1_MASK);
-			robot->mouseRelease($InputEvent::BUTTON1_MASK);
-			robot->waitForIdle();
-			$nc($System::out)->println($$str({"popmenu visible "_s, $$str($nc(this->comboBox)->isPopupVisible())}));
-			if (!$nc(this->comboBox)->isPopupVisible()) {
-				$throwNew($RuntimeException, "combobox popup is not visible"_s);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (this->frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(ComboPopupTest$$Lambda$lambda$new$2$2, this)));
-			}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Robot, robot, $new($Robot));
+		robot->setAutoDelay(200);
+		$SwingUtilities::invokeAndWait($$new(ComboPopupTest$$Lambda$lambda$new$1$1, this));
+		blockTillDisplayed(this->comboBox);
+		robot->waitForIdle();
+		robot->mouseMove($nc(this->p)->x + $nc(this->d)->width - 1, $nc(this->p)->y + $nc(this->d)->height / 2);
+		robot->mousePress($InputEvent::BUTTON1_MASK);
+		robot->mouseRelease($InputEvent::BUTTON1_MASK);
+		robot->waitForIdle();
+		$nc($System::out)->println($$str({"popmenu visible "_s, $$str($nc(this->comboBox)->isPopupVisible())}));
+		if (!$nc(this->comboBox)->isPopupVisible()) {
+			$throwNew($RuntimeException, "combobox popup is not visible"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (this->frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(ComboPopupTest$$Lambda$lambda$new$2$2, this));
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void ComboPopupTest::start() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, frame, $new($JFrame));
-	$nc(this->frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
+	this->frame->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$var($Container, contentPane, $nc(this->frame)->getContentPane());
 	$set(this, comboBox, $new($JComboBox, $$new($StringArray, {
 		"Item 1"_s,
@@ -268,7 +218,7 @@ void ComboPopupTest::start() {
 		"Item 4"_s
 	})));
 	$nc(contentPane)->setLayout($$new($FlowLayout));
-	contentPane->add(static_cast<$Component*>(this->comboBox));
+	contentPane->add(this->comboBox);
 	$nc(this->frame)->setLocationRelativeTo(nullptr);
 	$nc(this->frame)->pack();
 	$nc(this->frame)->setVisible(true);
@@ -292,17 +242,44 @@ ComboPopupTest::ComboPopupTest() {
 
 $Class* ComboPopupTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ComboPopupTest$$Lambda$lambda$blockTillDisplayed$0::classInfo$.name)) {
+		if (name->equals("ComboPopupTest$$Lambda$lambda$blockTillDisplayed$0")) {
 			return ComboPopupTest$$Lambda$lambda$blockTillDisplayed$0::load$(name, initialize);
 		}
-		if (name->equals(ComboPopupTest$$Lambda$lambda$new$1$1::classInfo$.name)) {
+		if (name->equals("ComboPopupTest$$Lambda$lambda$new$1$1")) {
 			return ComboPopupTest$$Lambda$lambda$new$1$1::load$(name, initialize);
 		}
-		if (name->equals(ComboPopupTest$$Lambda$lambda$new$2$2::classInfo$.name)) {
+		if (name->equals("ComboPopupTest$$Lambda$lambda$new$2$2")) {
 			return ComboPopupTest$$Lambda$lambda$new$2$2::load$(name, initialize);
 		}
 	}
-	$loadClass(ComboPopupTest, name, initialize, &_ComboPopupTest_ClassInfo_, allocate$ComboPopupTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, 0, $field(ComboPopupTest, frame)},
+		{"comboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljava/lang/String;>;", 0, $field(ComboPopupTest, comboBox)},
+		{"p", "Ljava/awt/Point;", nullptr, $PRIVATE | $VOLATILE, $field(ComboPopupTest, p)},
+		{"d", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $VOLATILE, $field(ComboPopupTest, d)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ComboPopupTest, init$, void), "java.lang.Exception"},
+		{"blockTillDisplayed", "(Ljavax/swing/JComponent;)V", nullptr, 0, $virtualMethod(ComboPopupTest, blockTillDisplayed, void, $JComponent*), "java.lang.Exception"},
+		{"lambda$blockTillDisplayed$0", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ComboPopupTest, lambda$blockTillDisplayed$0, void, $JComponent*)},
+		{"lambda$new$1", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(ComboPopupTest, lambda$new$1, void)},
+		{"lambda$new$2", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(ComboPopupTest, lambda$new$2, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ComboPopupTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"start", "()V", nullptr, $PUBLIC, $virtualMethod(ComboPopupTest, start, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ComboPopupTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ComboPopupTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ComboPopupTest);
+	});
 	return class$;
 }
 

@@ -9,6 +9,7 @@ class $export TestUIDefaultsErrorHandling : public ::java::lang::Object {
 	$class(TestUIDefaultsErrorHandling, 0, ::java::lang::Object)
 public:
 	TestUIDefaultsErrorHandling();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static $String* erroutput;

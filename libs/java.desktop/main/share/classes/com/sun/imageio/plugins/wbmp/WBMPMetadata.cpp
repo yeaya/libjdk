@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/wbmp/WBMPMetadata.h>
-
 #include <com/sun/imageio/plugins/common/I18N.h>
 #include <com/sun/imageio/plugins/common/ImageUtil.h>
 #include <java/lang/IllegalStateException.h>
@@ -28,41 +27,6 @@ namespace com {
 			namespace plugins {
 				namespace wbmp {
 
-$FieldInfo _WBMPMetadata_FieldInfo_[] = {
-	{"nativeMetadataFormatName", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(WBMPMetadata, nativeMetadataFormatName)},
-	{"wbmpType", "I", nullptr, $PUBLIC, $field(WBMPMetadata, wbmpType)},
-	{"width", "I", nullptr, $PUBLIC, $field(WBMPMetadata, width)},
-	{"height", "I", nullptr, $PUBLIC, $field(WBMPMetadata, height)},
-	{}
-};
-
-$MethodInfo _WBMPMetadata_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WBMPMetadata, init$, void)},
-	{"addChildNode", "(Ljavax/imageio/metadata/IIOMetadataNode;Ljava/lang/String;Ljava/lang/Object;)Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PRIVATE, $method(WBMPMetadata, addChildNode, $IIOMetadataNode*, $IIOMetadataNode*, $String*, Object$*)},
-	{"getAsTree", "(Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(WBMPMetadata, getAsTree, $Node*, $String*)},
-	{"getNativeTree", "()Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(WBMPMetadata, getNativeTree, $Node*)},
-	{"getStandardChromaNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(WBMPMetadata, getStandardChromaNode, $IIOMetadataNode*)},
-	{"getStandardDimensionNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(WBMPMetadata, getStandardDimensionNode, $IIOMetadataNode*)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(WBMPMetadata, isReadOnly, bool)},
-	{"mergeTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(WBMPMetadata, mergeTree, void, $String*, $Node*)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(WBMPMetadata, reset, void)},
-	{"setFromTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(WBMPMetadata, setFromTree, void, $String*, $Node*)},
-	{}
-};
-
-$ClassInfo _WBMPMetadata_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.wbmp.WBMPMetadata",
-	"javax.imageio.metadata.IIOMetadata",
-	nullptr,
-	_WBMPMetadata_FieldInfo_,
-	_WBMPMetadata_MethodInfo_
-};
-
-$Object* allocate$WBMPMetadata($Class* clazz) {
-	return $of($alloc(WBMPMetadata));
-}
-
 $String* WBMPMetadata::nativeMetadataFormatName = nullptr;
 
 void WBMPMetadata::init$() {
@@ -87,7 +51,7 @@ $Node* WBMPMetadata::getAsTree($String* formatName) {
 }
 
 $Node* WBMPMetadata::getNativeTree() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, root, $new($IIOMetadataNode, WBMPMetadata::nativeMetadataFormatName));
 	addChildNode(root, "WBMPType"_s, $($Integer::valueOf(this->wbmpType)));
 	addChildNode(root, "Width"_s, $($Integer::valueOf(this->width)));
@@ -108,7 +72,7 @@ void WBMPMetadata::reset() {
 }
 
 $IIOMetadataNode* WBMPMetadata::addChildNode($IIOMetadataNode* root, $String* name, Object$* object) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, child, $new($IIOMetadataNode, name));
 	if (object != nullptr) {
 		child->setUserObject(object);
@@ -119,7 +83,7 @@ $IIOMetadataNode* WBMPMetadata::addChildNode($IIOMetadataNode* root, $String* na
 }
 
 $IIOMetadataNode* WBMPMetadata::getStandardChromaNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, node, $new($IIOMetadataNode, "Chroma"_s));
 	$var($IIOMetadataNode, subNode, $new($IIOMetadataNode, "BlackIsZero"_s));
 	subNode->setAttribute("value"_s, "TRUE"_s);
@@ -128,7 +92,7 @@ $IIOMetadataNode* WBMPMetadata::getStandardChromaNode() {
 }
 
 $IIOMetadataNode* WBMPMetadata::getStandardDimensionNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, dimension_node, $new($IIOMetadataNode, "Dimension"_s));
 	$var($IIOMetadataNode, node, nullptr);
 	$assign(node, $new($IIOMetadataNode, "ImageOrientation"_s));
@@ -140,12 +104,42 @@ $IIOMetadataNode* WBMPMetadata::getStandardDimensionNode() {
 WBMPMetadata::WBMPMetadata() {
 }
 
-void clinit$WBMPMetadata($Class* class$) {
+void WBMPMetadata::clinit$($Class* clazz) {
 	$assignStatic(WBMPMetadata::nativeMetadataFormatName, "javax_imageio_wbmp_1.0"_s);
 }
 
 $Class* WBMPMetadata::load$($String* name, bool initialize) {
-	$loadClass(WBMPMetadata, name, initialize, &_WBMPMetadata_ClassInfo_, clinit$WBMPMetadata, allocate$WBMPMetadata);
+	$FieldInfo fieldInfos$$[] = {
+		{"nativeMetadataFormatName", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(WBMPMetadata, nativeMetadataFormatName)},
+		{"wbmpType", "I", nullptr, $PUBLIC, $field(WBMPMetadata, wbmpType)},
+		{"width", "I", nullptr, $PUBLIC, $field(WBMPMetadata, width)},
+		{"height", "I", nullptr, $PUBLIC, $field(WBMPMetadata, height)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WBMPMetadata, init$, void)},
+		{"addChildNode", "(Ljavax/imageio/metadata/IIOMetadataNode;Ljava/lang/String;Ljava/lang/Object;)Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PRIVATE, $method(WBMPMetadata, addChildNode, $IIOMetadataNode*, $IIOMetadataNode*, $String*, Object$*)},
+		{"getAsTree", "(Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(WBMPMetadata, getAsTree, $Node*, $String*)},
+		{"getNativeTree", "()Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(WBMPMetadata, getNativeTree, $Node*)},
+		{"getStandardChromaNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(WBMPMetadata, getStandardChromaNode, $IIOMetadataNode*)},
+		{"getStandardDimensionNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(WBMPMetadata, getStandardDimensionNode, $IIOMetadataNode*)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(WBMPMetadata, isReadOnly, bool)},
+		{"mergeTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(WBMPMetadata, mergeTree, void, $String*, $Node*)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(WBMPMetadata, reset, void)},
+		{"setFromTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(WBMPMetadata, setFromTree, void, $String*, $Node*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.wbmp.WBMPMetadata",
+		"javax.imageio.metadata.IIOMetadata",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WBMPMetadata, name, initialize, &classInfo$$, WBMPMetadata::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WBMPMetadata);
+	});
 	return class$;
 }
 

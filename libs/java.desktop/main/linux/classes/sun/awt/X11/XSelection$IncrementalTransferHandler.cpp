@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XSelection$IncrementalTransferHandler.h>
-
 #include <sun/awt/SunToolkit.h>
 #include <sun/awt/X11/WindowPropertyGetter.h>
 #include <sun/awt/X11/XAtom.h>
@@ -13,8 +12,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $WindowPropertyGetter = ::sun::awt::X11::WindowPropertyGetter;
-using $XAtom = ::sun::awt::X11::XAtom;
 using $XConstants = ::sun::awt::X11::XConstants;
 using $XEvent = ::sun::awt::X11::XEvent;
 using $XPropertyEvent = ::sun::awt::X11::XPropertyEvent;
@@ -25,77 +22,42 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$MethodInfo _XSelection$IncrementalTransferHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(XSelection$IncrementalTransferHandler, init$, void)},
-	{"dispatchEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XSelection$IncrementalTransferHandler, dispatchEvent, void, $XEvent*)},
-	{}
-};
-
-$InnerClassInfo _XSelection$IncrementalTransferHandler_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XSelection$IncrementalTransferHandler", "sun.awt.X11.XSelection", "IncrementalTransferHandler", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _XSelection$IncrementalTransferHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XSelection$IncrementalTransferHandler",
-	"java.lang.Object",
-	"sun.awt.X11.XEventDispatcher",
-	nullptr,
-	_XSelection$IncrementalTransferHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XSelection$IncrementalTransferHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XSelection"
-};
-
-$Object* allocate$XSelection$IncrementalTransferHandler($Class* clazz) {
-	return $of($alloc(XSelection$IncrementalTransferHandler));
-}
-
 void XSelection$IncrementalTransferHandler::init$() {
 }
 
 void XSelection$IncrementalTransferHandler::dispatchEvent($XEvent* ev) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($XPropertyEvent, xpe, nullptr)
-		switch ($nc(ev)->get_type()) {
-		case $XConstants::PropertyNotify:
-			{
-				$assign(xpe, ev->get_xproperty());
-				bool var$0 = $nc(xpe)->get_state() == $XConstants::PropertyNewValue;
-				if (var$0) {
-					int64_t var$1 = xpe->get_atom();
-					$init($XSelection);
-					var$0 = var$1 == $nc($XSelection::selectionPropertyAtom)->getAtom();
-				}
-				if (var$0) {
-					$XToolkit::awtLock();
-					{
-						$var($Throwable, var$2, nullptr);
-						try {
-							$init($XSelection);
-							if ($XSelection::propertyGetter != nullptr) {
-								$nc($XSelection::propertyGetter)->execute();
-								$assignStatic($XSelection::propertyGetter, nullptr);
-							}
-							$XToolkit::awtLockNotifyAll();
-						} catch ($Throwable& var$3) {
-							$assign(var$2, var$3);
-						} /*finally*/ {
-							$XToolkit::awtUnlock();
-						}
-						if (var$2 != nullptr) {
-							$throw(var$2);
-						}
-					}
-				}
-				break;
+	$useLocalObjectStack();
+	$var($XPropertyEvent, xpe, nullptr);
+	switch ($nc(ev)->get_type()) {
+	case $XConstants::PropertyNotify:
+		{
+			$assign(xpe, ev->get_xproperty());
+			bool var$0 = $nc(xpe)->get_state() == $XConstants::PropertyNewValue;
+			if (var$0) {
+				int64_t var$1 = xpe->get_atom();
+				$init($XSelection);
+				var$0 = var$1 == $nc($XSelection::selectionPropertyAtom)->getAtom();
 			}
+			if (var$0) {
+				$XToolkit::awtLock();
+				$var($Throwable, var$2, nullptr);
+				try {
+					$init($XSelection);
+					if ($XSelection::propertyGetter != nullptr) {
+						$XSelection::propertyGetter->execute();
+						$assignStatic($XSelection::propertyGetter, nullptr);
+					}
+					$XToolkit::awtLockNotifyAll();
+				} catch ($Throwable& var$3) {
+					$assign(var$2, var$3);
+				} /*finally*/ {
+					$XToolkit::awtUnlock();
+				}
+				if (var$2 != nullptr) {
+					$throw(var$2);
+				}
+			}
+			break;
 		}
 	}
 }
@@ -104,7 +66,33 @@ XSelection$IncrementalTransferHandler::XSelection$IncrementalTransferHandler() {
 }
 
 $Class* XSelection$IncrementalTransferHandler::load$($String* name, bool initialize) {
-	$loadClass(XSelection$IncrementalTransferHandler, name, initialize, &_XSelection$IncrementalTransferHandler_ClassInfo_, allocate$XSelection$IncrementalTransferHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(XSelection$IncrementalTransferHandler, init$, void)},
+		{"dispatchEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XSelection$IncrementalTransferHandler, dispatchEvent, void, $XEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XSelection$IncrementalTransferHandler", "sun.awt.X11.XSelection", "IncrementalTransferHandler", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XSelection$IncrementalTransferHandler",
+		"java.lang.Object",
+		"sun.awt.X11.XEventDispatcher",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XSelection"
+	};
+	$loadClass(XSelection$IncrementalTransferHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSelection$IncrementalTransferHandler);
+	});
 	return class$;
 }
 

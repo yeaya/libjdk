@@ -73,7 +73,7 @@ public:
 	virtual $ObjectArray* toArray();
 	virtual $ObjectArray* toArray($ObjectArray* array);
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0x7E0340EA64CCF82A;
+	static const int64_t serialVersionUID = (int64_t)0x7e0340ea64ccf82a;
 	::java::util::List* events = nullptr;
 	::java::awt::dnd::DragSource* dragSource = nullptr;
 	::java::awt::Component* component = nullptr;

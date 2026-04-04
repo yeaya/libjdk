@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalLookAndFeel$AATextListener$1.h>
-
 #include <javax/swing/plaf/metal/MetalLookAndFeel$AATextListener.h>
 #include <jcpp.h>
 
@@ -15,49 +14,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalLookAndFeel$AATextListener$1_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/metal/MetalLookAndFeel$AATextListener;", nullptr, $FINAL | $SYNTHETIC, $field(MetalLookAndFeel$AATextListener$1, this$0)},
-	{}
-};
-
-$MethodInfo _MetalLookAndFeel$AATextListener$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/metal/MetalLookAndFeel$AATextListener;)V", nullptr, 0, $method(MetalLookAndFeel$AATextListener$1, init$, void, $MetalLookAndFeel$AATextListener*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$AATextListener$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _MetalLookAndFeel$AATextListener$1_EnclosingMethodInfo_ = {
-	"javax.swing.plaf.metal.MetalLookAndFeel$AATextListener",
-	"updateUI",
-	"()V"
-};
-
-$InnerClassInfo _MetalLookAndFeel$AATextListener$1_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalLookAndFeel$AATextListener", "javax.swing.plaf.metal.MetalLookAndFeel", "AATextListener", $STATIC},
-	{"javax.swing.plaf.metal.MetalLookAndFeel$AATextListener$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MetalLookAndFeel$AATextListener$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalLookAndFeel$AATextListener$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_MetalLookAndFeel$AATextListener$1_FieldInfo_,
-	_MetalLookAndFeel$AATextListener$1_MethodInfo_,
-	nullptr,
-	&_MetalLookAndFeel$AATextListener$1_EnclosingMethodInfo_,
-	_MetalLookAndFeel$AATextListener$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalLookAndFeel"
-};
-
-$Object* allocate$MetalLookAndFeel$AATextListener$1($Class* clazz) {
-	return $of($alloc(MetalLookAndFeel$AATextListener$1));
-}
-
 void MetalLookAndFeel$AATextListener$1::init$($MetalLookAndFeel$AATextListener* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -71,7 +27,43 @@ MetalLookAndFeel$AATextListener$1::MetalLookAndFeel$AATextListener$1() {
 }
 
 $Class* MetalLookAndFeel$AATextListener$1::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$AATextListener$1, name, initialize, &_MetalLookAndFeel$AATextListener$1_ClassInfo_, allocate$MetalLookAndFeel$AATextListener$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/metal/MetalLookAndFeel$AATextListener;", nullptr, $FINAL | $SYNTHETIC, $field(MetalLookAndFeel$AATextListener$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/metal/MetalLookAndFeel$AATextListener;)V", nullptr, 0, $method(MetalLookAndFeel$AATextListener$1, init$, void, $MetalLookAndFeel$AATextListener*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$AATextListener$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.plaf.metal.MetalLookAndFeel$AATextListener",
+		"updateUI",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalLookAndFeel$AATextListener", "javax.swing.plaf.metal.MetalLookAndFeel", "AATextListener", $STATIC},
+		{"javax.swing.plaf.metal.MetalLookAndFeel$AATextListener$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalLookAndFeel$AATextListener$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalLookAndFeel"
+	};
+	$loadClass(MetalLookAndFeel$AATextListener$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$AATextListener$1);
+	});
 	return class$;
 }
 

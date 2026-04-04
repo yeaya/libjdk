@@ -1,5 +1,4 @@
 #include <bug8071705$FrameListener.h>
-
 #include <bug8071705.h>
 #include <java/awt/Component.h>
 #include <java/awt/GraphicsDevice.h>
@@ -21,44 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 using $JFrame = ::javax::swing::JFrame;
 
-$FieldInfo _bug8071705$FrameListener_FieldInfo_[] = {
-	{"device", "Ljava/awt/GraphicsDevice;", nullptr, $PRIVATE, $field(bug8071705$FrameListener, device)},
-	{"latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE, $field(bug8071705$FrameListener, latch)},
-	{"result", "[Z", nullptr, $PRIVATE, $field(bug8071705$FrameListener, result)},
-	{}
-};
-
-$MethodInfo _bug8071705$FrameListener_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/GraphicsDevice;Ljava/util/concurrent/CountDownLatch;[Z)V", nullptr, $PUBLIC, $method(bug8071705$FrameListener, init$, void, $GraphicsDevice*, $CountDownLatch*, $booleans*)},
-	{"componentShown", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(bug8071705$FrameListener, componentShown, void, $ComponentEvent*)},
-	{}
-};
-
-$InnerClassInfo _bug8071705$FrameListener_InnerClassesInfo_[] = {
-	{"bug8071705$FrameListener", "bug8071705", "FrameListener", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _bug8071705$FrameListener_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug8071705$FrameListener",
-	"java.awt.event.ComponentAdapter",
-	nullptr,
-	_bug8071705$FrameListener_FieldInfo_,
-	_bug8071705$FrameListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug8071705$FrameListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug8071705"
-};
-
-$Object* allocate$bug8071705$FrameListener($Class* clazz) {
-	return $of($alloc(bug8071705$FrameListener));
-}
-
 void bug8071705$FrameListener::init$($GraphicsDevice* device, $CountDownLatch* latch, $booleans* result) {
 	$ComponentAdapter::init$();
 	$set(this, device, device);
@@ -78,7 +39,39 @@ bug8071705$FrameListener::bug8071705$FrameListener() {
 }
 
 $Class* bug8071705$FrameListener::load$($String* name, bool initialize) {
-	$loadClass(bug8071705$FrameListener, name, initialize, &_bug8071705$FrameListener_ClassInfo_, allocate$bug8071705$FrameListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"device", "Ljava/awt/GraphicsDevice;", nullptr, $PRIVATE, $field(bug8071705$FrameListener, device)},
+		{"latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE, $field(bug8071705$FrameListener, latch)},
+		{"result", "[Z", nullptr, $PRIVATE, $field(bug8071705$FrameListener, result)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/GraphicsDevice;Ljava/util/concurrent/CountDownLatch;[Z)V", nullptr, $PUBLIC, $method(bug8071705$FrameListener, init$, void, $GraphicsDevice*, $CountDownLatch*, $booleans*)},
+		{"componentShown", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(bug8071705$FrameListener, componentShown, void, $ComponentEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug8071705$FrameListener", "bug8071705", "FrameListener", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug8071705$FrameListener",
+		"java.awt.event.ComponentAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug8071705"
+	};
+	$loadClass(bug8071705$FrameListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8071705$FrameListener);
+	});
 	return class$;
 }
 

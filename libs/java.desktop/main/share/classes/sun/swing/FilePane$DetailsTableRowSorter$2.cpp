@@ -1,5 +1,4 @@
 #include <sun/swing/FilePane$DetailsTableRowSorter$2.h>
-
 #include <sun/swing/FilePane$DetailsTableRowSorter.h>
 #include <sun/swing/FilePane.h>
 #include <jcpp.h>
@@ -14,63 +13,56 @@ using $FilePane$DetailsTableRowSorter = ::sun::swing::FilePane$DetailsTableRowSo
 namespace sun {
 	namespace swing {
 
-$FieldInfo _FilePane$DetailsTableRowSorter$2_FieldInfo_[] = {
-	{"this$1", "Lsun/swing/FilePane$DetailsTableRowSorter;", nullptr, $FINAL | $SYNTHETIC, $field(FilePane$DetailsTableRowSorter$2, this$1)},
-	{}
-};
-
-$MethodInfo _FilePane$DetailsTableRowSorter$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/swing/FilePane$DetailsTableRowSorter;)V", nullptr, 0, $method(FilePane$DetailsTableRowSorter$2, init$, void, $FilePane$DetailsTableRowSorter*)},
-	{"call", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableRowSorter$2, call, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _FilePane$DetailsTableRowSorter$2_EnclosingMethodInfo_ = {
-	"sun.swing.FilePane$DetailsTableRowSorter",
-	"sort",
-	"()V"
-};
-
-$InnerClassInfo _FilePane$DetailsTableRowSorter$2_InnerClassesInfo_[] = {
-	{"sun.swing.FilePane$DetailsTableRowSorter", "sun.swing.FilePane", "DetailsTableRowSorter", $PRIVATE},
-	{"sun.swing.FilePane$DetailsTableRowSorter$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FilePane$DetailsTableRowSorter$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.swing.FilePane$DetailsTableRowSorter$2",
-	"java.lang.Object",
-	"java.util.concurrent.Callable",
-	_FilePane$DetailsTableRowSorter$2_FieldInfo_,
-	_FilePane$DetailsTableRowSorter$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljava/lang/Void;>;",
-	&_FilePane$DetailsTableRowSorter$2_EnclosingMethodInfo_,
-	_FilePane$DetailsTableRowSorter$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.FilePane"
-};
-
-$Object* allocate$FilePane$DetailsTableRowSorter$2($Class* clazz) {
-	return $of($alloc(FilePane$DetailsTableRowSorter$2));
-}
-
 void FilePane$DetailsTableRowSorter$2::init$($FilePane$DetailsTableRowSorter* this$1) {
 	$set(this, this$1, this$1);
 }
 
 $Object* FilePane$DetailsTableRowSorter$2::call() {
 	$FilePane$DetailsTableRowSorter::access$001(this->this$1);
-	return $of(nullptr);
+	return nullptr;
 }
 
 FilePane$DetailsTableRowSorter$2::FilePane$DetailsTableRowSorter$2() {
 }
 
 $Class* FilePane$DetailsTableRowSorter$2::load$($String* name, bool initialize) {
-	$loadClass(FilePane$DetailsTableRowSorter$2, name, initialize, &_FilePane$DetailsTableRowSorter$2_ClassInfo_, allocate$FilePane$DetailsTableRowSorter$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lsun/swing/FilePane$DetailsTableRowSorter;", nullptr, $FINAL | $SYNTHETIC, $field(FilePane$DetailsTableRowSorter$2, this$1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/swing/FilePane$DetailsTableRowSorter;)V", nullptr, 0, $method(FilePane$DetailsTableRowSorter$2, init$, void, $FilePane$DetailsTableRowSorter*)},
+		{"call", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableRowSorter$2, call, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.swing.FilePane$DetailsTableRowSorter",
+		"sort",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.FilePane$DetailsTableRowSorter", "sun.swing.FilePane", "DetailsTableRowSorter", $PRIVATE},
+		{"sun.swing.FilePane$DetailsTableRowSorter$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.swing.FilePane$DetailsTableRowSorter$2",
+		"java.lang.Object",
+		"java.util.concurrent.Callable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.FilePane"
+	};
+	$loadClass(FilePane$DetailsTableRowSorter$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FilePane$DetailsTableRowSorter$2);
+	});
 	return class$;
 }
 

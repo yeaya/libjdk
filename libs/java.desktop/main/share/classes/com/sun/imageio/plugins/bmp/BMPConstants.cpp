@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/bmp/BMPConstants.h>
-
 #include <jcpp.h>
 
 #undef BI_BITFIELDS
@@ -28,39 +27,6 @@ namespace com {
 			namespace plugins {
 				namespace bmp {
 
-$FieldInfo _BMPConstants_FieldInfo_[] = {
-	{"VERSION_2", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BMPConstants, VERSION_2)},
-	{"VERSION_3", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BMPConstants, VERSION_3)},
-	{"VERSION_3_NT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BMPConstants, VERSION_3_NT)},
-	{"VERSION_3_EXT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BMPConstants, VERSION_3_EXT)},
-	{"VERSION_4", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BMPConstants, VERSION_4)},
-	{"VERSION_5", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BMPConstants, VERSION_5)},
-	{"LCS_CALIBRATED_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BMPConstants, LCS_CALIBRATED_RGB)},
-	{"LCS_sRGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BMPConstants, LCS_sRGB)},
-	{"LCS_WINDOWS_COLOR_SPACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BMPConstants, LCS_WINDOWS_COLOR_SPACE)},
-	{"PROFILE_LINKED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BMPConstants, PROFILE_LINKED)},
-	{"PROFILE_EMBEDDED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BMPConstants, PROFILE_EMBEDDED)},
-	{"BI_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BMPConstants, BI_RGB)},
-	{"BI_RLE8", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BMPConstants, BI_RLE8)},
-	{"BI_RLE4", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BMPConstants, BI_RLE4)},
-	{"BI_BITFIELDS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BMPConstants, BI_BITFIELDS)},
-	{"BI_JPEG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BMPConstants, BI_JPEG)},
-	{"BI_PNG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BMPConstants, BI_PNG)},
-	{}
-};
-
-$ClassInfo _BMPConstants_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.imageio.plugins.bmp.BMPConstants",
-	nullptr,
-	nullptr,
-	_BMPConstants_FieldInfo_
-};
-
-$Object* allocate$BMPConstants($Class* clazz) {
-	return $of($alloc(BMPConstants));
-}
-
 $String* BMPConstants::VERSION_2 = nullptr;
 $String* BMPConstants::VERSION_3 = nullptr;
 $String* BMPConstants::VERSION_3_NT = nullptr;
@@ -68,7 +34,7 @@ $String* BMPConstants::VERSION_3_EXT = nullptr;
 $String* BMPConstants::VERSION_4 = nullptr;
 $String* BMPConstants::VERSION_5 = nullptr;
 
-void clinit$BMPConstants($Class* class$) {
+void BMPConstants::clinit$($Class* clazz) {
 	$assignStatic(BMPConstants::VERSION_2, "BMP v. 2.x"_s);
 	$assignStatic(BMPConstants::VERSION_3, "BMP v. 3.x"_s);
 	$assignStatic(BMPConstants::VERSION_3_NT, "BMP v. 3.x NT"_s);
@@ -78,7 +44,36 @@ void clinit$BMPConstants($Class* class$) {
 }
 
 $Class* BMPConstants::load$($String* name, bool initialize) {
-	$loadClass(BMPConstants, name, initialize, &_BMPConstants_ClassInfo_, clinit$BMPConstants, allocate$BMPConstants);
+	$FieldInfo fieldInfos$$[] = {
+		{"VERSION_2", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BMPConstants, VERSION_2)},
+		{"VERSION_3", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BMPConstants, VERSION_3)},
+		{"VERSION_3_NT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BMPConstants, VERSION_3_NT)},
+		{"VERSION_3_EXT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BMPConstants, VERSION_3_EXT)},
+		{"VERSION_4", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BMPConstants, VERSION_4)},
+		{"VERSION_5", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BMPConstants, VERSION_5)},
+		{"LCS_CALIBRATED_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BMPConstants, LCS_CALIBRATED_RGB)},
+		{"LCS_sRGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BMPConstants, LCS_sRGB)},
+		{"LCS_WINDOWS_COLOR_SPACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BMPConstants, LCS_WINDOWS_COLOR_SPACE)},
+		{"PROFILE_LINKED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BMPConstants, PROFILE_LINKED)},
+		{"PROFILE_EMBEDDED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BMPConstants, PROFILE_EMBEDDED)},
+		{"BI_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BMPConstants, BI_RGB)},
+		{"BI_RLE8", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BMPConstants, BI_RLE8)},
+		{"BI_RLE4", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BMPConstants, BI_RLE4)},
+		{"BI_BITFIELDS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BMPConstants, BI_BITFIELDS)},
+		{"BI_JPEG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BMPConstants, BI_JPEG)},
+		{"BI_PNG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BMPConstants, BI_PNG)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.imageio.plugins.bmp.BMPConstants",
+		nullptr,
+		nullptr,
+		fieldInfos$$
+	};
+	$loadClass(BMPConstants, name, initialize, &classInfo$$, BMPConstants::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BMPConstants);
+	});
 	return class$;
 }
 

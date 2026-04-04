@@ -83,7 +83,7 @@ public:
 	virtual $String* toString() override;
 	void updateLeadAnchorIndices(int32_t anchorIndex, int32_t leadIndex);
 	static const int32_t MIN = (-1);
-	static const int32_t MAX = 0x7FFFFFFF; // Integer.MAX_VALUE
+	static const int32_t MAX = 0x7fffffff; // Integer.MAX_VALUE
 	int32_t selectionMode = 0;
 	int32_t minIndex = 0;
 	int32_t maxIndex = 0;

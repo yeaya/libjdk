@@ -112,6 +112,7 @@ class XMLGrammarCachingConfiguration : public ::com::sun::org::apache::xerces::i
 	$class(XMLGrammarCachingConfiguration, 0, ::com::sun::org::apache::xerces::internal::parsers::XIncludeAwareParserConfiguration)
 public:
 	XMLGrammarCachingConfiguration();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::com::sun::org::apache::xerces::internal::util::SymbolTable* symbolTable);
 	void init$(::com::sun::org::apache::xerces::internal::util::SymbolTable* symbolTable, ::com::sun::org::apache::xerces::internal::xni::grammars::XMLGrammarPool* grammarPool);

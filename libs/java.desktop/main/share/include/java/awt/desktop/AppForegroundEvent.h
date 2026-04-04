@@ -14,7 +14,7 @@ class $import AppForegroundEvent : public ::java::awt::desktop::AppEvent {
 public:
 	AppForegroundEvent();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xB37BD1E0B54B8B69;
+	static const int64_t serialVersionUID = (int64_t)0xb37bd1e0b54b8b69;
 };
 
 		} // desktop

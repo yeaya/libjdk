@@ -1,5 +1,4 @@
 #include <HeadlessJDesktopPane$3.h>
-
 #include <HeadlessJDesktopPane.h>
 #include <java/awt/Component.h>
 #include <jcpp.h>
@@ -10,42 +9,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _HeadlessJDesktopPane$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HeadlessJDesktopPane$3, init$, void)},
-	{}
-};
-
-$EnclosingMethodInfo _HeadlessJDesktopPane$3_EnclosingMethodInfo_ = {
-	"HeadlessJDesktopPane",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _HeadlessJDesktopPane$3_InnerClassesInfo_[] = {
-	{"HeadlessJDesktopPane$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJDesktopPane$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"HeadlessJDesktopPane$3",
-	"java.awt.Component",
-	nullptr,
-	nullptr,
-	_HeadlessJDesktopPane$3_MethodInfo_,
-	nullptr,
-	&_HeadlessJDesktopPane$3_EnclosingMethodInfo_,
-	_HeadlessJDesktopPane$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"HeadlessJDesktopPane"
-};
-
-$Object* allocate$HeadlessJDesktopPane$3($Class* clazz) {
-	return $of($alloc(HeadlessJDesktopPane$3));
-}
-
 void HeadlessJDesktopPane$3::init$() {
 	$Component::init$();
 }
@@ -54,7 +17,37 @@ HeadlessJDesktopPane$3::HeadlessJDesktopPane$3() {
 }
 
 $Class* HeadlessJDesktopPane$3::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJDesktopPane$3, name, initialize, &_HeadlessJDesktopPane$3_ClassInfo_, allocate$HeadlessJDesktopPane$3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HeadlessJDesktopPane$3, init$, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"HeadlessJDesktopPane",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJDesktopPane$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"HeadlessJDesktopPane$3",
+		"java.awt.Component",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"HeadlessJDesktopPane"
+	};
+	$loadClass(HeadlessJDesktopPane$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HeadlessJDesktopPane$3));
+	});
 	return class$;
 }
 

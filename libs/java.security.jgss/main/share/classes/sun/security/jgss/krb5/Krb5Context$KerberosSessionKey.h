@@ -28,7 +28,7 @@ public:
 	virtual $bytes* getEncoded() override;
 	virtual $String* getFormat() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x09B4705B275EBA5D;
+	static const int64_t serialVersionUID = (int64_t)0x09b4705b275eba5d;
 	::sun::security::krb5::EncryptionKey* key = nullptr;
 };
 

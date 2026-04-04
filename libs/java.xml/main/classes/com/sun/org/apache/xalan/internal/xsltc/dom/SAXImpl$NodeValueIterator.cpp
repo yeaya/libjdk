@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/SAXImpl$NodeValueIterator.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/SAXImpl.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/BasisLibrary.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisIterator.h>
@@ -16,7 +15,6 @@
 using $SAXImpl = ::com::sun::org::apache::xalan::internal::xsltc::dom::SAXImpl;
 using $BasisLibrary = ::com::sun::org::apache::xalan::internal::xsltc::runtime::BasisLibrary;
 using $DTMAxisIterator = ::com::sun::org::apache::xml::internal::dtm::DTMAxisIterator;
-using $DTMDefaultBaseIterators = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators;
 using $DTMDefaultBaseIterators$InternalAxisIteratorBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators$InternalAxisIteratorBase;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CloneNotSupportedException = ::java::lang::CloneNotSupportedException;
@@ -32,55 +30,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace dom {
-
-$FieldInfo _SAXImpl$NodeValueIterator_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xalan/internal/xsltc/dom/SAXImpl;", nullptr, $FINAL | $SYNTHETIC, $field(SAXImpl$NodeValueIterator, this$0)},
-	{"_source", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PRIVATE, $field(SAXImpl$NodeValueIterator, _source)},
-	{"_value", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SAXImpl$NodeValueIterator, _value)},
-	{"_op", "Z", nullptr, $PRIVATE, $field(SAXImpl$NodeValueIterator, _op)},
-	{"_isReverse", "Z", nullptr, $PRIVATE | $FINAL, $field(SAXImpl$NodeValueIterator, _isReverse)},
-	{"_returnType", "I", nullptr, $PRIVATE, $field(SAXImpl$NodeValueIterator, _returnType)},
-	{}
-};
-
-$MethodInfo _SAXImpl$NodeValueIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/dom/SAXImpl;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;ILjava/lang/String;Z)V", nullptr, $PUBLIC, $method(SAXImpl$NodeValueIterator, init$, void, $SAXImpl*, $DTMAxisIterator*, int32_t, $String*, bool)},
-	{"cloneIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NodeValueIterator, cloneIterator, $DTMAxisIterator*)},
-	{"gotoMark", "()V", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NodeValueIterator, gotoMark, void)},
-	{"isReverse", "()Z", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NodeValueIterator, isReverse, bool)},
-	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NodeValueIterator, next, int32_t)},
-	{"reset", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NodeValueIterator, reset, $DTMAxisIterator*)},
-	{"setMark", "()V", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NodeValueIterator, setMark, void)},
-	{"setRestartable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NodeValueIterator, setRestartable, void, bool)},
-	{"setStartNode", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NodeValueIterator, setStartNode, $DTMAxisIterator*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _SAXImpl$NodeValueIterator_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xalan.internal.xsltc.dom.SAXImpl$NodeValueIterator", "com.sun.org.apache.xalan.internal.xsltc.dom.SAXImpl", "NodeValueIterator", $PRIVATE | $FINAL},
-	{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$InternalAxisIteratorBase", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators", "InternalAxisIteratorBase", $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SAXImpl$NodeValueIterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.SAXImpl$NodeValueIterator",
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$InternalAxisIteratorBase",
-	nullptr,
-	_SAXImpl$NodeValueIterator_FieldInfo_,
-	_SAXImpl$NodeValueIterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SAXImpl$NodeValueIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.SAXImpl"
-};
-
-$Object* allocate$SAXImpl$NodeValueIterator($Class* clazz) {
-	return $of($alloc(SAXImpl$NodeValueIterator));
-}
 
 void SAXImpl$NodeValueIterator::init$($SAXImpl* this$0, $DTMAxisIterator* source, int32_t returnType, $String* value, bool op) {
 	$set(this, this$0, this$0);
@@ -98,7 +47,7 @@ bool SAXImpl$NodeValueIterator::isReverse() {
 }
 
 $DTMAxisIterator* SAXImpl$NodeValueIterator::cloneIterator() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var(SAXImpl$NodeValueIterator, clone, $cast(SAXImpl$NodeValueIterator, $DTMDefaultBaseIterators$InternalAxisIteratorBase::clone()));
 		$nc(clone)->_isRestartable = false;
@@ -108,7 +57,7 @@ $DTMAxisIterator* SAXImpl$NodeValueIterator::cloneIterator() {
 		return clone->reset();
 	} catch ($CloneNotSupportedException& e) {
 		$init($BasisLibrary);
-		$BasisLibrary::runTimeError($BasisLibrary::ITERATOR_CLONE_ERR, $($of(e->toString())));
+		$BasisLibrary::runTimeError($BasisLibrary::ITERATOR_CLONE_ERR, $(e->toString()));
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -125,7 +74,7 @@ $DTMAxisIterator* SAXImpl$NodeValueIterator::reset() {
 }
 
 int32_t SAXImpl$NodeValueIterator::next() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t node = 0;
 	while ((node = $nc(this->_source)->next()) != $DTMAxisIterator::END) {
 		$var($String, val, this->this$0->getStringValueX(node));
@@ -160,7 +109,50 @@ SAXImpl$NodeValueIterator::SAXImpl$NodeValueIterator() {
 }
 
 $Class* SAXImpl$NodeValueIterator::load$($String* name, bool initialize) {
-	$loadClass(SAXImpl$NodeValueIterator, name, initialize, &_SAXImpl$NodeValueIterator_ClassInfo_, allocate$SAXImpl$NodeValueIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xalan/internal/xsltc/dom/SAXImpl;", nullptr, $FINAL | $SYNTHETIC, $field(SAXImpl$NodeValueIterator, this$0)},
+		{"_source", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PRIVATE, $field(SAXImpl$NodeValueIterator, _source)},
+		{"_value", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SAXImpl$NodeValueIterator, _value)},
+		{"_op", "Z", nullptr, $PRIVATE, $field(SAXImpl$NodeValueIterator, _op)},
+		{"_isReverse", "Z", nullptr, $PRIVATE | $FINAL, $field(SAXImpl$NodeValueIterator, _isReverse)},
+		{"_returnType", "I", nullptr, $PRIVATE, $field(SAXImpl$NodeValueIterator, _returnType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/dom/SAXImpl;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;ILjava/lang/String;Z)V", nullptr, $PUBLIC, $method(SAXImpl$NodeValueIterator, init$, void, $SAXImpl*, $DTMAxisIterator*, int32_t, $String*, bool)},
+		{"cloneIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NodeValueIterator, cloneIterator, $DTMAxisIterator*)},
+		{"gotoMark", "()V", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NodeValueIterator, gotoMark, void)},
+		{"isReverse", "()Z", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NodeValueIterator, isReverse, bool)},
+		{"next", "()I", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NodeValueIterator, next, int32_t)},
+		{"reset", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NodeValueIterator, reset, $DTMAxisIterator*)},
+		{"setMark", "()V", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NodeValueIterator, setMark, void)},
+		{"setRestartable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NodeValueIterator, setRestartable, void, bool)},
+		{"setStartNode", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NodeValueIterator, setStartNode, $DTMAxisIterator*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xalan.internal.xsltc.dom.SAXImpl$NodeValueIterator", "com.sun.org.apache.xalan.internal.xsltc.dom.SAXImpl", "NodeValueIterator", $PRIVATE | $FINAL},
+		{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$InternalAxisIteratorBase", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators", "InternalAxisIteratorBase", $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.SAXImpl$NodeValueIterator",
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$InternalAxisIteratorBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.SAXImpl"
+	};
+	$loadClass(SAXImpl$NodeValueIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SAXImpl$NodeValueIterator);
+	});
 	return class$;
 }
 

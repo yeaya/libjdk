@@ -25,6 +25,7 @@ class $export Test6657026MetalBorders : public ::java::lang::Object {
 	$class(Test6657026MetalBorders, 0, ::java::lang::Object)
 public:
 	Test6657026MetalBorders();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::border::Border* create($String* name);
 	static void main($StringArray* args);

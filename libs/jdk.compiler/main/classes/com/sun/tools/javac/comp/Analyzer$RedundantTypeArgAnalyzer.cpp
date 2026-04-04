@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Analyzer$RedundantTypeArgAnalyzer.h>
-
 #include <com/sun/tools/javac/comp/Analyzer$AnalyzerCopier.h>
 #include <com/sun/tools/javac/comp/Analyzer$AnalyzerMode.h>
 #include <com/sun/tools/javac/comp/Analyzer$StatementAnalyzer.h>
@@ -10,7 +9,6 @@
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <com/sun/tools/javac/tree/TreeCopier.h>
 #include <com/sun/tools/javac/util/AbstractLog.h>
-#include <com/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition.h>
 #include <com/sun/tools/javac/util/JCDiagnostic$Warning.h>
 #include <com/sun/tools/javac/util/List.h>
 #include <com/sun/tools/javac/util/Log.h>
@@ -20,16 +18,13 @@
 #undef METHOD
 
 using $Analyzer = ::com::sun::tools::javac::comp::Analyzer;
-using $Analyzer$AnalyzerCopier = ::com::sun::tools::javac::comp::Analyzer$AnalyzerCopier;
 using $Analyzer$AnalyzerMode = ::com::sun::tools::javac::comp::Analyzer$AnalyzerMode;
 using $Analyzer$StatementAnalyzer = ::com::sun::tools::javac::comp::Analyzer$StatementAnalyzer;
 using $CompilerProperties$Warnings = ::com::sun::tools::javac::resources::CompilerProperties$Warnings;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCMethodInvocation = ::com::sun::tools::javac::tree::JCTree$JCMethodInvocation;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
-using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $List = ::com::sun::tools::javac::util::List;
-using $Log = ::com::sun::tools::javac::util::Log;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -41,49 +36,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Analyzer$RedundantTypeArgAnalyzer_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Analyzer;", nullptr, $FINAL | $SYNTHETIC, $field(Analyzer$RedundantTypeArgAnalyzer, this$0)},
-	{}
-};
-
-$MethodInfo _Analyzer$RedundantTypeArgAnalyzer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;)V", nullptr, 0, $method(Analyzer$RedundantTypeArgAnalyzer, init$, void, $Analyzer*)},
-	{"match", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)Z", nullptr, 0, $virtualMethod(Analyzer$RedundantTypeArgAnalyzer, match, bool, $JCTree$JCMethodInvocation*)},
-	{"match", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$RedundantTypeArgAnalyzer, match, bool, $JCTree*)},
-	{"process", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;Z)V", nullptr, 0, $virtualMethod(Analyzer$RedundantTypeArgAnalyzer, process, void, $JCTree$JCMethodInvocation*, $JCTree$JCMethodInvocation*, bool)},
-	{"process", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Z)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$RedundantTypeArgAnalyzer, process, void, $JCTree*, $JCTree*, bool)},
-	{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;>;", 0, $virtualMethod(Analyzer$RedundantTypeArgAnalyzer, rewrite, $List*, $JCTree$JCMethodInvocation*)},
-	{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$RedundantTypeArgAnalyzer, rewrite, $List*, $JCTree*)},
-	{}
-};
-
-$InnerClassInfo _Analyzer$RedundantTypeArgAnalyzer_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Analyzer$RedundantTypeArgAnalyzer", "com.sun.tools.javac.comp.Analyzer", "RedundantTypeArgAnalyzer", 0},
-	{"com.sun.tools.javac.comp.Analyzer$StatementAnalyzer", "com.sun.tools.javac.comp.Analyzer", "StatementAnalyzer", $ABSTRACT},
-	{"com.sun.tools.javac.tree.JCTree$JCMethodInvocation", "com.sun.tools.javac.tree.JCTree", "JCMethodInvocation", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Analyzer$RedundantTypeArgAnalyzer_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Analyzer$RedundantTypeArgAnalyzer",
-	"com.sun.tools.javac.comp.Analyzer$StatementAnalyzer",
-	nullptr,
-	_Analyzer$RedundantTypeArgAnalyzer_FieldInfo_,
-	_Analyzer$RedundantTypeArgAnalyzer_MethodInfo_,
-	"Lcom/sun/tools/javac/comp/Analyzer$StatementAnalyzer<Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;>;",
-	nullptr,
-	_Analyzer$RedundantTypeArgAnalyzer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Analyzer"
-};
-
-$Object* allocate$Analyzer$RedundantTypeArgAnalyzer($Class* clazz) {
-	return $of($alloc(Analyzer$RedundantTypeArgAnalyzer));
-}
-
 void Analyzer$RedundantTypeArgAnalyzer::init$($Analyzer* this$0) {
 	$set(this, this$0, this$0);
 	$init($Analyzer$AnalyzerMode);
@@ -92,11 +44,11 @@ void Analyzer$RedundantTypeArgAnalyzer::init$($Analyzer* this$0) {
 }
 
 bool Analyzer$RedundantTypeArgAnalyzer::match($JCTree$JCMethodInvocation* tree) {
-	return $nc(tree)->typeargs != nullptr && $nc(tree->typeargs)->nonEmpty();
+	return $nc(tree)->typeargs != nullptr && tree->typeargs->nonEmpty();
 }
 
 $List* Analyzer$RedundantTypeArgAnalyzer::rewrite($JCTree$JCMethodInvocation* oldTree) {
-	$var($JCTree$JCMethodInvocation, app, $cast($JCTree$JCMethodInvocation, $nc(this->this$0->copier)->copy(static_cast<$JCTree*>(oldTree))));
+	$var($JCTree$JCMethodInvocation, app, $cast($JCTree$JCMethodInvocation, $nc(this->this$0->copier)->copy(oldTree)));
 	$set($nc(app), typeargs, $List::nil());
 	return $List::of(app);
 }
@@ -104,7 +56,7 @@ $List* Analyzer$RedundantTypeArgAnalyzer::rewrite($JCTree$JCMethodInvocation* ol
 void Analyzer$RedundantTypeArgAnalyzer::process($JCTree$JCMethodInvocation* oldTree, $JCTree$JCMethodInvocation* newTree, bool hasErrors) {
 	if (!hasErrors) {
 		$init($CompilerProperties$Warnings);
-		$nc(this->this$0->log)->warning(static_cast<$JCDiagnostic$DiagnosticPosition*>(oldTree), $CompilerProperties$Warnings::MethodRedundantTypeargs);
+		$nc(this->this$0->log)->warning(oldTree, $CompilerProperties$Warnings::MethodRedundantTypeargs);
 	}
 }
 
@@ -124,7 +76,44 @@ Analyzer$RedundantTypeArgAnalyzer::Analyzer$RedundantTypeArgAnalyzer() {
 }
 
 $Class* Analyzer$RedundantTypeArgAnalyzer::load$($String* name, bool initialize) {
-	$loadClass(Analyzer$RedundantTypeArgAnalyzer, name, initialize, &_Analyzer$RedundantTypeArgAnalyzer_ClassInfo_, allocate$Analyzer$RedundantTypeArgAnalyzer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Analyzer;", nullptr, $FINAL | $SYNTHETIC, $field(Analyzer$RedundantTypeArgAnalyzer, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;)V", nullptr, 0, $method(Analyzer$RedundantTypeArgAnalyzer, init$, void, $Analyzer*)},
+		{"match", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)Z", nullptr, 0, $virtualMethod(Analyzer$RedundantTypeArgAnalyzer, match, bool, $JCTree$JCMethodInvocation*)},
+		{"match", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$RedundantTypeArgAnalyzer, match, bool, $JCTree*)},
+		{"process", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;Z)V", nullptr, 0, $virtualMethod(Analyzer$RedundantTypeArgAnalyzer, process, void, $JCTree$JCMethodInvocation*, $JCTree$JCMethodInvocation*, bool)},
+		{"process", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Z)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$RedundantTypeArgAnalyzer, process, void, $JCTree*, $JCTree*, bool)},
+		{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;>;", 0, $virtualMethod(Analyzer$RedundantTypeArgAnalyzer, rewrite, $List*, $JCTree$JCMethodInvocation*)},
+		{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$RedundantTypeArgAnalyzer, rewrite, $List*, $JCTree*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Analyzer$RedundantTypeArgAnalyzer", "com.sun.tools.javac.comp.Analyzer", "RedundantTypeArgAnalyzer", 0},
+		{"com.sun.tools.javac.comp.Analyzer$StatementAnalyzer", "com.sun.tools.javac.comp.Analyzer", "StatementAnalyzer", $ABSTRACT},
+		{"com.sun.tools.javac.tree.JCTree$JCMethodInvocation", "com.sun.tools.javac.tree.JCTree", "JCMethodInvocation", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Analyzer$RedundantTypeArgAnalyzer",
+		"com.sun.tools.javac.comp.Analyzer$StatementAnalyzer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/comp/Analyzer$StatementAnalyzer<Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Analyzer"
+	};
+	$loadClass(Analyzer$RedundantTypeArgAnalyzer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Analyzer$RedundantTypeArgAnalyzer);
+	});
 	return class$;
 }
 

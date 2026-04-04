@@ -1,6 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$JCImport.h>
-
-#include <com/sun/source/tree/ImportTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
 #include <com/sun/tools/javac/code/Scope.h>
@@ -11,7 +9,6 @@
 
 #undef IMPORT
 
-using $ImportTree = ::com::sun::source::tree::ImportTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
@@ -27,54 +24,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$JCImport_FieldInfo_[] = {
-	{"staticImport", "Z", nullptr, $PUBLIC, $field(JCTree$JCImport, staticImport)},
-	{"qualid", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $field(JCTree$JCImport, qualid)},
-	{"importScope", "Lcom/sun/tools/javac/code/Scope;", nullptr, $PUBLIC, $field(JCTree$JCImport, importScope)},
-	{}
-};
-
-$MethodInfo _JCTree$JCImport_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;Z)V", nullptr, $PROTECTED, $method(JCTree$JCImport, init$, void, $JCTree*, bool)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCImport, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCImport, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCImport, getKind, $Tree$Kind*)},
-	{"getQualifiedIdentifier", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCImport, getQualifiedIdentifier, $JCTree*)},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCImport, getTag, $JCTree$Tag*)},
-	{"isStatic", "()Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCImport, isStatic, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCImport_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCImport", "com.sun.tools.javac.tree.JCTree", "JCImport", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JCTree$JCImport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$JCImport",
-	"com.sun.tools.javac.tree.JCTree",
-	"com.sun.source.tree.ImportTree",
-	_JCTree$JCImport_FieldInfo_,
-	_JCTree$JCImport_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCImport_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCImport($Class* clazz) {
-	return $of($alloc(JCTree$JCImport));
-}
 
 $String* JCTree$JCImport::toString() {
 	 return this->$JCTree::toString();
@@ -120,7 +69,7 @@ $Tree$Kind* JCTree$JCImport::getKind() {
 }
 
 $Object* JCTree$JCImport::accept($TreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitImport(this, d));
+	return $nc(v)->visitImport(this, d);
 }
 
 $JCTree$Tag* JCTree$JCImport::getTag() {
@@ -132,7 +81,49 @@ JCTree$JCImport::JCTree$JCImport() {
 }
 
 $Class* JCTree$JCImport::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCImport, name, initialize, &_JCTree$JCImport_ClassInfo_, allocate$JCTree$JCImport);
+	$FieldInfo fieldInfos$$[] = {
+		{"staticImport", "Z", nullptr, $PUBLIC, $field(JCTree$JCImport, staticImport)},
+		{"qualid", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $field(JCTree$JCImport, qualid)},
+		{"importScope", "Lcom/sun/tools/javac/code/Scope;", nullptr, $PUBLIC, $field(JCTree$JCImport, importScope)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;Z)V", nullptr, $PROTECTED, $method(JCTree$JCImport, init$, void, $JCTree*, bool)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCImport, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCImport, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCImport, getKind, $Tree$Kind*)},
+		{"getQualifiedIdentifier", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCImport, getQualifiedIdentifier, $JCTree*)},
+		{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCImport, getTag, $JCTree$Tag*)},
+		{"isStatic", "()Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCImport, isStatic, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCImport", "com.sun.tools.javac.tree.JCTree", "JCImport", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$JCImport",
+		"com.sun.tools.javac.tree.JCTree",
+		"com.sun.source.tree.ImportTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCImport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCImport));
+	});
 	return class$;
 }
 

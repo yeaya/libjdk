@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/jpeg/JPEGImageWriter.h>
-
 #include <com/sun/imageio/plugins/common/ImageUtil.h>
 #include <com/sun/imageio/plugins/jpeg/AdobeMarkerSegment.h>
 #include <com/sun/imageio/plugins/jpeg/DHTMarkerSegment$Htable.h>
@@ -29,7 +28,6 @@
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/ColorConvertOp.h>
 #include <java/awt/image/ColorModel.h>
-#include <java/awt/image/DataBuffer.h>
 #include <java/awt/image/DataBufferByte.h>
 #include <java/awt/image/IndexColorModel.h>
 #include <java/awt/image/Raster.h>
@@ -39,9 +37,7 @@
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/InternalError.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <java/util/Locale.h>
@@ -129,16 +125,12 @@ using $Transparency = ::java::awt::Transparency;
 using $ColorSpace = ::java::awt::color::ColorSpace;
 using $ICC_ColorSpace = ::java::awt::color::ICC_ColorSpace;
 using $BufferedImage = ::java::awt::image::BufferedImage;
-using $ColorConvertOp = ::java::awt::image::ColorConvertOp;
 using $ColorModel = ::java::awt::image::ColorModel;
-using $DataBuffer = ::java::awt::image::DataBuffer;
 using $DataBufferByte = ::java::awt::image::DataBufferByte;
 using $IndexColorModel = ::java::awt::image::IndexColorModel;
 using $Raster = ::java::awt::image::Raster;
 using $RenderedImage = ::java::awt::image::RenderedImage;
-using $SampleModel = ::java::awt::image::SampleModel;
 using $WritableRaster = ::java::awt::image::WritableRaster;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
@@ -149,9 +141,7 @@ using $Integer = ::java::lang::Integer;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
@@ -170,7 +160,6 @@ using $ImageWriterSpi = ::javax::imageio::spi::ImageWriterSpi;
 using $ImageOutputStream = ::javax::imageio::stream::ImageOutputStream;
 using $Node = ::org::w3c::dom::Node;
 using $Disposer = ::sun::java2d::Disposer;
-using $DisposerRecord = ::sun::java2d::DisposerRecord;
 
 namespace com {
 	namespace sun {
@@ -178,167 +167,12 @@ namespace com {
 			namespace plugins {
 				namespace jpeg {
 
-$FieldInfo _JPEGImageWriter_FieldInfo_[] = {
-	{"debug", "Z", nullptr, $PRIVATE, $field(JPEGImageWriter, debug)},
-	{"structPointer", "J", nullptr, $PRIVATE, $field(JPEGImageWriter, structPointer)},
-	{"ios", "Ljavax/imageio/stream/ImageOutputStream;", nullptr, $PRIVATE, $field(JPEGImageWriter, ios)},
-	{"srcRas", "Ljava/awt/image/Raster;", nullptr, $PRIVATE, $field(JPEGImageWriter, srcRas)},
-	{"raster", "Ljava/awt/image/WritableRaster;", nullptr, $PRIVATE, $field(JPEGImageWriter, raster)},
-	{"indexed", "Z", nullptr, $PRIVATE, $field(JPEGImageWriter, indexed)},
-	{"indexCM", "Ljava/awt/image/IndexColorModel;", nullptr, $PRIVATE, $field(JPEGImageWriter, indexCM)},
-	{"convertTosRGB", "Z", nullptr, $PRIVATE, $field(JPEGImageWriter, convertTosRGB)},
-	{"converted", "Ljava/awt/image/WritableRaster;", nullptr, $PRIVATE, $field(JPEGImageWriter, converted)},
-	{"isAlphaPremultiplied", "Z", nullptr, $PRIVATE, $field(JPEGImageWriter, isAlphaPremultiplied)},
-	{"srcCM", "Ljava/awt/image/ColorModel;", nullptr, $PRIVATE, $field(JPEGImageWriter, srcCM)},
-	{"thumbnails", "Ljava/util/List;", "Ljava/util/List<+Ljava/awt/image/BufferedImage;>;", $PRIVATE, $field(JPEGImageWriter, thumbnails)},
-	{"iccProfile", "Ljava/awt/color/ICC_Profile;", nullptr, $PRIVATE, $field(JPEGImageWriter, iccProfile)},
-	{"sourceXOffset", "I", nullptr, $PRIVATE, $field(JPEGImageWriter, sourceXOffset)},
-	{"sourceYOffset", "I", nullptr, $PRIVATE, $field(JPEGImageWriter, sourceYOffset)},
-	{"sourceWidth", "I", nullptr, $PRIVATE, $field(JPEGImageWriter, sourceWidth)},
-	{"srcBands", "[I", nullptr, $PRIVATE, $field(JPEGImageWriter, srcBands)},
-	{"sourceHeight", "I", nullptr, $PRIVATE, $field(JPEGImageWriter, sourceHeight)},
-	{"currentImage", "I", nullptr, $PRIVATE, $field(JPEGImageWriter, currentImage)},
-	{"convertOp", "Ljava/awt/image/ColorConvertOp;", nullptr, $PRIVATE, $field(JPEGImageWriter, convertOp)},
-	{"streamQTables", "[Ljavax/imageio/plugins/jpeg/JPEGQTable;", nullptr, $PRIVATE, $field(JPEGImageWriter, streamQTables)},
-	{"streamDCHuffmanTables", "[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;", nullptr, $PRIVATE, $field(JPEGImageWriter, streamDCHuffmanTables)},
-	{"streamACHuffmanTables", "[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;", nullptr, $PRIVATE, $field(JPEGImageWriter, streamACHuffmanTables)},
-	{"ignoreJFIF", "Z", nullptr, $PRIVATE, $field(JPEGImageWriter, ignoreJFIF)},
-	{"forceJFIF", "Z", nullptr, $PRIVATE, $field(JPEGImageWriter, forceJFIF)},
-	{"ignoreAdobe", "Z", nullptr, $PRIVATE, $field(JPEGImageWriter, ignoreAdobe)},
-	{"newAdobeTransform", "I", nullptr, $PRIVATE, $field(JPEGImageWriter, newAdobeTransform)},
-	{"writeDefaultJFIF", "Z", nullptr, $PRIVATE, $field(JPEGImageWriter, writeDefaultJFIF)},
-	{"writeAdobe", "Z", nullptr, $PRIVATE, $field(JPEGImageWriter, writeAdobe)},
-	{"metadata", "Lcom/sun/imageio/plugins/jpeg/JPEGMetadata;", nullptr, $PRIVATE, $field(JPEGImageWriter, metadata)},
-	{"sequencePrepared", "Z", nullptr, $PRIVATE, $field(JPEGImageWriter, sequencePrepared)},
-	{"numScans", "I", nullptr, $PRIVATE, $field(JPEGImageWriter, numScans)},
-	{"disposerReferent", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(JPEGImageWriter, disposerReferent)},
-	{"disposerRecord", "Lsun/java2d/DisposerRecord;", nullptr, $PRIVATE, $field(JPEGImageWriter, disposerRecord)},
-	{"WARNING_DEST_IGNORED", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_DEST_IGNORED)},
-	{"WARNING_STREAM_METADATA_IGNORED", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_STREAM_METADATA_IGNORED)},
-	{"WARNING_DEST_METADATA_COMP_MISMATCH", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_DEST_METADATA_COMP_MISMATCH)},
-	{"WARNING_DEST_METADATA_JFIF_MISMATCH", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_DEST_METADATA_JFIF_MISMATCH)},
-	{"WARNING_DEST_METADATA_ADOBE_MISMATCH", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_DEST_METADATA_ADOBE_MISMATCH)},
-	{"WARNING_IMAGE_METADATA_JFIF_MISMATCH", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_IMAGE_METADATA_JFIF_MISMATCH)},
-	{"WARNING_IMAGE_METADATA_ADOBE_MISMATCH", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_IMAGE_METADATA_ADOBE_MISMATCH)},
-	{"WARNING_METADATA_NOT_JPEG_FOR_RASTER", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_METADATA_NOT_JPEG_FOR_RASTER)},
-	{"WARNING_NO_BANDS_ON_INDEXED", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_NO_BANDS_ON_INDEXED)},
-	{"WARNING_ILLEGAL_THUMBNAIL", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_ILLEGAL_THUMBNAIL)},
-	{"WARNING_IGNORING_THUMBS", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_IGNORING_THUMBS)},
-	{"WARNING_FORCING_JFIF", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_FORCING_JFIF)},
-	{"WARNING_THUMB_CLIPPED", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_THUMB_CLIPPED)},
-	{"WARNING_METADATA_ADJUSTED_FOR_THUMB", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_METADATA_ADJUSTED_FOR_THUMB)},
-	{"WARNING_NO_RGB_THUMB_AS_INDEXED", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_NO_RGB_THUMB_AS_INDEXED)},
-	{"WARNING_NO_GRAY_THUMB_AS_INDEXED", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_NO_GRAY_THUMB_AS_INDEXED)},
-	{"MAX_WARNING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JPEGImageWriter, MAX_WARNING)},
-	{"preferredThumbSizes", "[Ljava/awt/Dimension;", nullptr, $STATIC | $FINAL, $staticField(JPEGImageWriter, preferredThumbSizes)},
-	{"theThread", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(JPEGImageWriter, theThread)},
-	{"theLockCount", "I", nullptr, $PRIVATE, $field(JPEGImageWriter, theLockCount)},
-	{"cbLock", "Lcom/sun/imageio/plugins/jpeg/JPEGImageWriter$CallBackLock;", nullptr, $PRIVATE, $field(JPEGImageWriter, cbLock)},
-	{}
-};
-
-$MethodInfo _JPEGImageWriter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/imageio/spi/ImageWriterSpi;)V", nullptr, $PUBLIC, $method(JPEGImageWriter, init$, void, $ImageWriterSpi*)},
-	{"abort", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JPEGImageWriter, abort, void)},
-	{"abortWrite", "(J)V", nullptr, $PRIVATE | $NATIVE, $method(JPEGImageWriter, abortWrite, void, int64_t)},
-	{"canWriteRasters", "()Z", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, canWriteRasters, bool)},
-	{"canWriteSequence", "()Z", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, canWriteSequence, bool)},
-	{"checkAdobe", "(Lcom/sun/imageio/plugins/jpeg/AdobeMarkerSegment;Ljavax/imageio/ImageTypeSpecifier;Z)V", nullptr, $PRIVATE, $method(JPEGImageWriter, checkAdobe, void, $AdobeMarkerSegment*, $ImageTypeSpecifier*, bool)},
-	{"checkJFIF", "(Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;Ljavax/imageio/ImageTypeSpecifier;Z)V", nullptr, $PRIVATE, $method(JPEGImageWriter, checkJFIF, void, $JFIFMarkerSegment*, $ImageTypeSpecifier*, bool)},
-	{"checkSOFBands", "(Lcom/sun/imageio/plugins/jpeg/SOFMarkerSegment;I)V", nullptr, $PRIVATE, $method(JPEGImageWriter, checkSOFBands, void, $SOFMarkerSegment*, int32_t), "javax.imageio.IIOException"},
-	{"clearAbortRequest", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(JPEGImageWriter, clearAbortRequest, void)},
-	{"clearThreadLock", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(JPEGImageWriter, clearThreadLock, void)},
-	{"collectHTablesFromMetadata", "(Lcom/sun/imageio/plugins/jpeg/JPEGMetadata;Z)[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;", nullptr, $PRIVATE, $method(JPEGImageWriter, collectHTablesFromMetadata, $JPEGHuffmanTableArray*, $JPEGMetadata*, bool), "javax.imageio.IIOException"},
-	{"collectQTablesFromMetadata", "(Lcom/sun/imageio/plugins/jpeg/JPEGMetadata;)[Ljavax/imageio/plugins/jpeg/JPEGQTable;", nullptr, $PRIVATE, $method(JPEGImageWriter, collectQTablesFromMetadata, $JPEGQTableArray*, $JPEGMetadata*)},
-	{"collectScans", "(Lcom/sun/imageio/plugins/jpeg/JPEGMetadata;Lcom/sun/imageio/plugins/jpeg/SOFMarkerSegment;)[I", nullptr, $PRIVATE, $method(JPEGImageWriter, collectScans, $ints*, $JPEGMetadata*, $SOFMarkerSegment*)},
-	{"convertImageMetadata", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, convertImageMetadata, $IIOMetadata*, $IIOMetadata*, $ImageTypeSpecifier*, $ImageWriteParam*)},
-	{"convertImageMetadataOnThread", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PRIVATE, $method(JPEGImageWriter, convertImageMetadataOnThread, $IIOMetadata*, $IIOMetadata*, $ImageTypeSpecifier*, $ImageWriteParam*)},
-	{"convertStreamMetadata", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, convertStreamMetadata, $IIOMetadata*, $IIOMetadata*, $ImageWriteParam*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, dispose, void)},
-	{"disposeWriter", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JPEGImageWriter, disposeWriter, void, int64_t)},
-	{"endWriteSequence", "()V", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, endWriteSequence, void), "java.io.IOException"},
-	{"getDefaultDestCSType", "(Ljavax/imageio/ImageTypeSpecifier;)I", nullptr, $PRIVATE, $method(JPEGImageWriter, getDefaultDestCSType, int32_t, $ImageTypeSpecifier*)},
-	{"getDefaultDestCSType", "(Ljava/awt/image/RenderedImage;)I", nullptr, $PRIVATE, $method(JPEGImageWriter, getDefaultDestCSType, int32_t, $RenderedImage*)},
-	{"getDefaultDestCSType", "(Ljava/awt/image/ColorModel;)I", nullptr, $PRIVATE, $method(JPEGImageWriter, getDefaultDestCSType, int32_t, $ColorModel*)},
-	{"getDefaultImageMetadata", "(Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, getDefaultImageMetadata, $IIOMetadata*, $ImageTypeSpecifier*, $ImageWriteParam*)},
-	{"getDefaultStreamMetadata", "(Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, getDefaultStreamMetadata, $IIOMetadata*, $ImageWriteParam*)},
-	{"getDefaultWriteParam", "()Ljavax/imageio/ImageWriteParam;", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, getDefaultWriteParam, $ImageWriteParam*)},
-	{"getDestCSType", "(Ljavax/imageio/ImageTypeSpecifier;)I", nullptr, $PRIVATE, $method(JPEGImageWriter, getDestCSType, int32_t, $ImageTypeSpecifier*)},
-	{"getNumThumbnailsSupported", "(Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/metadata/IIOMetadata;)I", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, getNumThumbnailsSupported, int32_t, $ImageTypeSpecifier*, $ImageWriteParam*, $IIOMetadata*, $IIOMetadata*)},
-	{"getPreferredThumbnailSizes", "(Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/metadata/IIOMetadata;)[Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, getPreferredThumbnailSizes, $DimensionArray*, $ImageTypeSpecifier*, $ImageWriteParam*, $IIOMetadata*, $IIOMetadata*)},
-	{"getSrcCSType", "(Ljavax/imageio/ImageTypeSpecifier;)I", nullptr, $PRIVATE, $method(JPEGImageWriter, getSrcCSType, int32_t, $ImageTypeSpecifier*)},
-	{"getSrcCSType", "(Ljava/awt/image/RenderedImage;)I", nullptr, $PRIVATE, $method(JPEGImageWriter, getSrcCSType, int32_t, $RenderedImage*)},
-	{"getSrcCSType", "(Ljava/awt/image/ColorModel;)I", nullptr, $PRIVATE, $method(JPEGImageWriter, getSrcCSType, int32_t, $ColorModel*)},
-	{"grabPixels", "(I)V", nullptr, $PRIVATE, $method(JPEGImageWriter, grabPixels, void, int32_t)},
-	{"initJPEGImageWriter", "()J", nullptr, $PRIVATE | $NATIVE, $method(JPEGImageWriter, initJPEGImageWriter, int64_t)},
-	{"initStatic", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JPEGImageWriter, initStatic, void)},
-	{"initWriterIDs", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC | $NATIVE, $staticMethod(JPEGImageWriter, initWriterIDs, void, $Class*, $Class*)},
-	{"isSubsampled", "([Lcom/sun/imageio/plugins/jpeg/SOFMarkerSegment$ComponentSpec;)Z", nullptr, $PRIVATE, $method(JPEGImageWriter, isSubsampled, bool, $SOFMarkerSegment$ComponentSpecArray*)},
-	{"jfifOK", "(Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/metadata/IIOMetadata;)Z", nullptr, $PRIVATE, $method(JPEGImageWriter, jfifOK, bool, $ImageTypeSpecifier*, $ImageWriteParam*, $IIOMetadata*, $IIOMetadata*)},
-	{"prepareWriteSequence", "(Ljavax/imageio/metadata/IIOMetadata;)V", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, prepareWriteSequence, void, $IIOMetadata*), "java.io.IOException"},
-	{"prepareWriteSequenceOnThread", "(Ljavax/imageio/metadata/IIOMetadata;)V", nullptr, $PRIVATE, $method(JPEGImageWriter, prepareWriteSequenceOnThread, void, $IIOMetadata*), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, reset, void)},
-	{"resetInternalState", "()V", nullptr, $PRIVATE, $method(JPEGImageWriter, resetInternalState, void)},
-	{"resetWriter", "(J)V", nullptr, $PRIVATE | $NATIVE, $method(JPEGImageWriter, resetWriter, void, int64_t)},
-	{"setDest", "(J)V", nullptr, $PRIVATE | $NATIVE, $method(JPEGImageWriter, setDest, void, int64_t)},
-	{"setOutput", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, setOutput, void, Object$*)},
-	{"setThreadLock", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(JPEGImageWriter, setThreadLock, void)},
-	{"thumbnailComplete", "()V", nullptr, 0, $virtualMethod(JPEGImageWriter, thumbnailComplete, void)},
-	{"thumbnailProgress", "(F)V", nullptr, 0, $virtualMethod(JPEGImageWriter, thumbnailProgress, void, float)},
-	{"thumbnailStarted", "(I)V", nullptr, 0, $virtualMethod(JPEGImageWriter, thumbnailStarted, void, int32_t)},
-	{"warningOccurred", "(I)V", nullptr, 0, $virtualMethod(JPEGImageWriter, warningOccurred, void, int32_t)},
-	{"warningWithMessage", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(JPEGImageWriter, warningWithMessage, void, $String*)},
-	{"write", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, write, void, $IIOMetadata*, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
-	{"writeImage", "(J[BIII[IIIIII[Ljavax/imageio/plugins/jpeg/JPEGQTable;Z[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;ZZZI[I[I[I[I[IZI)Z", nullptr, $PRIVATE | $NATIVE, $method(JPEGImageWriter, writeImage, bool, int64_t, $bytes*, int32_t, int32_t, int32_t, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t, $JPEGQTableArray*, bool, $JPEGHuffmanTableArray*, $JPEGHuffmanTableArray*, bool, bool, bool, int32_t, $ints*, $ints*, $ints*, $ints*, $ints*, bool, int32_t)},
-	{"writeMetadata", "()V", nullptr, $PRIVATE, $method(JPEGImageWriter, writeMetadata, void), "java.io.IOException"},
-	{"writeOnThread", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PRIVATE, $method(JPEGImageWriter, writeOnThread, void, $IIOMetadata*, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
-	{"writeOutputData", "([BII)V", nullptr, $PRIVATE, $method(JPEGImageWriter, writeOutputData, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"writeTables", "(J[Ljavax/imageio/plugins/jpeg/JPEGQTable;[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;)V", nullptr, $PRIVATE | $NATIVE, $method(JPEGImageWriter, writeTables, void, int64_t, $JPEGQTableArray*, $JPEGHuffmanTableArray*, $JPEGHuffmanTableArray*)},
-	{"writeToSequence", "(Ljavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, writeToSequence, void, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
-	{}
-};
-
-#define _METHOD_INDEX_abortWrite 2
-#define _METHOD_INDEX_disposeWriter 17
-#define _METHOD_INDEX_initJPEGImageWriter 32
-#define _METHOD_INDEX_initWriterIDs 34
-#define _METHOD_INDEX_resetWriter 41
-#define _METHOD_INDEX_setDest 42
-#define _METHOD_INDEX_writeImage 51
-#define _METHOD_INDEX_writeTables 55
-
-$InnerClassInfo _JPEGImageWriter_InnerClassesInfo_[] = {
-	{"com.sun.imageio.plugins.jpeg.JPEGImageWriter$CallBackLock", "com.sun.imageio.plugins.jpeg.JPEGImageWriter", "CallBackLock", $PRIVATE | $STATIC},
-	{"com.sun.imageio.plugins.jpeg.JPEGImageWriter$JPEGWriterDisposerRecord", "com.sun.imageio.plugins.jpeg.JPEGImageWriter", "JPEGWriterDisposerRecord", $PRIVATE | $STATIC},
-	{"com.sun.imageio.plugins.jpeg.JPEGImageWriter$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JPEGImageWriter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.jpeg.JPEGImageWriter",
-	"javax.imageio.ImageWriter",
-	nullptr,
-	_JPEGImageWriter_FieldInfo_,
-	_JPEGImageWriter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JPEGImageWriter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.imageio.plugins.jpeg.JPEGImageWriter$CallBackLock,com.sun.imageio.plugins.jpeg.JPEGImageWriter$CallBackLock$State,com.sun.imageio.plugins.jpeg.JPEGImageWriter$JPEGWriterDisposerRecord,com.sun.imageio.plugins.jpeg.JPEGImageWriter$1"
-};
-
-$Object* allocate$JPEGImageWriter($Class* clazz) {
-	return $of($alloc(JPEGImageWriter));
-}
-
 $DimensionArray* JPEGImageWriter::preferredThumbSizes = nullptr;
 
 void JPEGImageWriter::initStatic() {
 	$init(JPEGImageWriter);
 	$beforeCallerSensitive();
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($JPEGImageWriter$1)));
+	$AccessController::doPrivileged($$new($JPEGImageWriter$1));
 	$load($JPEGQTable);
 	$load($JPEGHuffmanTable);
 	initWriterIDs($JPEGQTable::class$, $JPEGHuffmanTable::class$);
@@ -389,22 +223,20 @@ void JPEGImageWriter::init$($ImageWriterSpi* originator) {
 
 void JPEGImageWriter::setOutput(Object$* output) {
 	setThreadLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(this->cbLock)->check();
-			$ImageWriter::setOutput(output);
-			resetInternalState();
-			$set(this, ios, $cast($ImageOutputStream, output));
-			setDest(this->structPointer);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			clearThreadLock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(this->cbLock)->check();
+		$ImageWriter::setOutput(output);
+		resetInternalState();
+		$set(this, ios, $cast($ImageOutputStream, output));
+		setDest(this->structPointer);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		clearThreadLock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -413,53 +245,49 @@ $ImageWriteParam* JPEGImageWriter::getDefaultWriteParam() {
 }
 
 $IIOMetadata* JPEGImageWriter::getDefaultStreamMetadata($ImageWriteParam* param) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setThreadLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($IIOMetadata, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, $new($JPEGMetadata, param, this));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			clearThreadLock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($IIOMetadata, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $new($JPEGMetadata, param, this));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		clearThreadLock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $IIOMetadata* JPEGImageWriter::getDefaultImageMetadata($ImageTypeSpecifier* imageType, $ImageWriteParam* param) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setThreadLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($IIOMetadata, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, $new($JPEGMetadata, imageType, param, this));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			clearThreadLock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($IIOMetadata, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $new($JPEGMetadata, imageType, param, this));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		clearThreadLock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -467,7 +295,7 @@ $IIOMetadata* JPEGImageWriter::getDefaultImageMetadata($ImageTypeSpecifier* imag
 $IIOMetadata* JPEGImageWriter::convertStreamMetadata($IIOMetadata* inData, $ImageWriteParam* param) {
 	if ($instanceOf($JPEGMetadata, inData)) {
 		$var($JPEGMetadata, jpegData, $cast($JPEGMetadata, inData));
-		if ($nc(jpegData)->isStream) {
+		if (jpegData->isStream) {
 			return inData;
 		}
 	}
@@ -475,36 +303,34 @@ $IIOMetadata* JPEGImageWriter::convertStreamMetadata($IIOMetadata* inData, $Imag
 }
 
 $IIOMetadata* JPEGImageWriter::convertImageMetadata($IIOMetadata* inData, $ImageTypeSpecifier* imageType, $ImageWriteParam* param) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setThreadLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($IIOMetadata, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, convertImageMetadataOnThread(inData, imageType, param));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			clearThreadLock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($IIOMetadata, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, convertImageMetadataOnThread(inData, imageType, param));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		clearThreadLock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $IIOMetadata* JPEGImageWriter::convertImageMetadataOnThread($IIOMetadata* inData, $ImageTypeSpecifier* imageType, $ImageWriteParam* param) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JPEGMetadata, inData)) {
 		$var($JPEGMetadata, jpegData, $cast($JPEGMetadata, inData));
-		if (!$nc(jpegData)->isStream) {
+		if (!jpegData->isStream) {
 			return inData;
 		} else {
 			return nullptr;
@@ -539,7 +365,7 @@ int32_t JPEGImageWriter::getNumThumbnailsSupported($ImageTypeSpecifier* imageTyp
 
 $DimensionArray* JPEGImageWriter::getPreferredThumbnailSizes($ImageTypeSpecifier* imageType, $ImageWriteParam* param, $IIOMetadata* streamMetadata, $IIOMetadata* imageMetadata) {
 	if (jfifOK(imageType, param, streamMetadata, imageMetadata)) {
-		return $cast($DimensionArray, $nc(JPEGImageWriter::preferredThumbSizes)->clone());
+		return $cast($DimensionArray, JPEGImageWriter::preferredThumbSizes->clone());
 	}
 	return nullptr;
 }
@@ -569,24 +395,22 @@ bool JPEGImageWriter::canWriteRasters() {
 
 void JPEGImageWriter::write($IIOMetadata* streamMetadata, $IIOImage* image, $ImageWriteParam* param) {
 	setThreadLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(this->cbLock)->check();
-			writeOnThread(streamMetadata, image, param);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			clearThreadLock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(this->cbLock)->check();
+		writeOnThread(streamMetadata, image, param);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		clearThreadLock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void JPEGImageWriter::writeOnThread($IIOMetadata* streamMetadata, $IIOImage* image, $ImageWriteParam* param) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->ios == nullptr) {
 		$throwNew($IllegalStateException, "Output has not been set!"_s);
 	}
@@ -603,25 +427,25 @@ void JPEGImageWriter::writeOnThread($IIOMetadata* streamMetadata, $IIOImage* ima
 	} else {
 		$assign(rimage, image->getRenderedImage());
 		if ($instanceOf($BufferedImage, rimage)) {
-			$set(this, srcRas, $nc(($cast($BufferedImage, rimage)))->getRaster());
+			$set(this, srcRas, $cast($BufferedImage, rimage)->getRaster());
 		} else {
-			bool var$1 = $nc(rimage)->getNumXTiles() == 1;
-			if (var$1 && rimage->getNumYTiles() == 1) {
-				int32_t var$2 = rimage->getMinTileX();
-				$set(this, srcRas, rimage->getTile(var$2, rimage->getMinTileY()));
-				int32_t var$4 = $nc(this->srcRas)->getWidth();
-				bool var$3 = var$4 != rimage->getWidth();
-				if (!var$3) {
-					int32_t var$5 = $nc(this->srcRas)->getHeight();
-					var$3 = var$5 != rimage->getHeight();
+			bool var$0 = $nc(rimage)->getNumXTiles() == 1;
+			if (var$0 && rimage->getNumYTiles() == 1) {
+				int32_t var$1 = rimage->getMinTileX();
+				$set(this, srcRas, rimage->getTile(var$1, rimage->getMinTileY()));
+				int32_t var$3 = $nc(this->srcRas)->getWidth();
+				bool var$2 = var$3 != rimage->getWidth();
+				if (!var$2) {
+					int32_t var$4 = this->srcRas->getHeight();
+					var$2 = var$4 != rimage->getHeight();
 				}
-				if (var$3) {
-					int32_t var$6 = $nc(this->srcRas)->getMinX();
-					int32_t var$7 = $nc(this->srcRas)->getMinY();
-					int32_t var$8 = rimage->getWidth();
-					int32_t var$9 = rimage->getHeight();
-					int32_t var$10 = $nc(this->srcRas)->getMinX();
-					$set(this, srcRas, $nc(this->srcRas)->createChild(var$6, var$7, var$8, var$9, var$10, $nc(this->srcRas)->getMinY(), nullptr));
+				if (var$2) {
+					int32_t var$5 = $nc(this->srcRas)->getMinX();
+					int32_t var$6 = this->srcRas->getMinY();
+					int32_t var$7 = rimage->getWidth();
+					int32_t var$8 = rimage->getHeight();
+					int32_t var$9 = this->srcRas->getMinX();
+					$set(this, srcRas, $nc(this->srcRas)->createChild(var$5, var$6, var$7, var$8, var$9, this->srcRas->getMinY(), nullptr));
 				}
 			} else {
 				$set(this, srcRas, rimage->getData());
@@ -660,7 +484,7 @@ void JPEGImageWriter::writeOnThread($IIOMetadata* streamMetadata, $IIOImage* ima
 				warningOccurred(JPEGImageWriter::WARNING_NO_BANDS_ON_INDEXED);
 			} else {
 				$set(this, srcBands, sBands);
-				numBandsUsed = $nc(this->srcBands)->length;
+				numBandsUsed = this->srcBands->length;
 				if (numBandsUsed > numSrcBands) {
 					$throwNew($IIOException, "ImageWriteParam specifies too many source bands"_s);
 				}
@@ -671,7 +495,7 @@ void JPEGImageWriter::writeOnThread($IIOMetadata* streamMetadata, $IIOImage* ima
 	bool fullImage = ((!rasterOnly) && (!usingBandSubset));
 	$var($ints, bandSizes, nullptr);
 	if (!this->indexed) {
-		$assign(bandSizes, $nc($($nc(this->srcRas)->getSampleModel()))->getSampleSize());
+		$assign(bandSizes, $$nc($nc(this->srcRas)->getSampleModel())->getSampleSize());
 		if (usingBandSubset) {
 			$var($ints, temp, $new($ints, numBandsUsed));
 			for (int32_t i = 0; i < numBandsUsed; ++i) {
@@ -680,7 +504,7 @@ void JPEGImageWriter::writeOnThread($IIOMetadata* streamMetadata, $IIOImage* ima
 			$assign(bandSizes, temp);
 		}
 	} else {
-		$var($ints, tempSize, $nc($($nc(this->srcRas)->getSampleModel()))->getSampleSize());
+		$var($ints, tempSize, $$nc($nc(this->srcRas)->getSampleModel())->getSampleSize());
 		$assign(bandSizes, $new($ints, numSrcBands));
 		for (int32_t i = 0; i < numSrcBands; ++i) {
 			bandSizes->set(i, $nc(tempSize)->get(0));
@@ -696,14 +520,14 @@ void JPEGImageWriter::writeOnThread($IIOMetadata* streamMetadata, $IIOImage* ima
 	}
 	if (this->debug) {
 		$nc($System::out)->println($$str({"numSrcBands is "_s, $$str(numSrcBands)}));
-		$nc($System::out)->println($$str({"numBandsUsed is "_s, $$str(numBandsUsed)}));
-		$nc($System::out)->println($$str({"usingBandSubset is "_s, $$str(usingBandSubset)}));
-		$nc($System::out)->println($$str({"fullImage is "_s, $$str(fullImage)}));
-		$nc($System::out)->print("Band sizes:"_s);
-		for (int32_t i = 0; i < $nc(bandSizes)->length; ++i) {
-			$nc($System::out)->print($$str({" "_s, $$str(bandSizes->get(i))}));
+		$System::out->println($$str({"numBandsUsed is "_s, $$str(numBandsUsed)}));
+		$System::out->println($$str({"usingBandSubset is "_s, $$str(usingBandSubset)}));
+		$System::out->println($$str({"fullImage is "_s, $$str(fullImage)}));
+		$System::out->print("Band sizes:"_s);
+		for (int32_t i = 0; i < bandSizes->length; ++i) {
+			$System::out->print($$str({" "_s, $$str(bandSizes->get(i))}));
 		}
-		$nc($System::out)->println();
+		$System::out->println();
 	}
 	$var($ImageTypeSpecifier, destType, nullptr);
 	if (param != nullptr) {
@@ -753,29 +577,19 @@ void JPEGImageWriter::writeOnThread($IIOMetadata* streamMetadata, $IIOImage* ima
 			float quality = 0;
 			switch (param->getCompressionMode()) {
 			case $ImageWriteParam::MODE_DISABLED:
-				{
-					$throwNew($IIOException, "JPEG compression cannot be disabled"_s);
-				}
+				$throwNew($IIOException, "JPEG compression cannot be disabled"_s);
 			case $ImageWriteParam::MODE_EXPLICIT:
-				{
-					quality = param->getCompressionQuality();
-					quality = $JPEG::convertToLinearQuality(quality);
-					$assign(qTables, $new($JPEGQTableArray, 2));
-					$init($JPEGQTable);
-					$nc(qTables)->set(0, $($nc($JPEGQTable::K1Luminance)->getScaledInstance(quality, true)));
-					$init($JPEGQTable);
-					$nc(qTables)->set(1, $($nc($JPEGQTable::K2Chrominance)->getScaledInstance(quality, true)));
-					break;
-				}
+				quality = param->getCompressionQuality();
+				quality = $JPEG::convertToLinearQuality(quality);
+				$assign(qTables, $new($JPEGQTableArray, 2));
+				qTables->set(0, $($nc($JPEGQTable::K1Luminance)->getScaledInstance(quality, true)));
+				qTables->set(1, $($nc($JPEGQTable::K2Chrominance)->getScaledInstance(quality, true)));
+				break;
 			case $ImageWriteParam::MODE_DEFAULT:
-				{
-					$assign(qTables, $new($JPEGQTableArray, 2));
-					$init($JPEGQTable);
-					$nc(qTables)->set(0, $JPEGQTable::K1Div2Luminance);
-					$init($JPEGQTable);
-					$nc(qTables)->set(1, $JPEGQTable::K2Div2Chrominance);
-					break;
-				}
+				$assign(qTables, $new($JPEGQTableArray, 2));
+				qTables->set(0, $JPEGQTable::K1Div2Luminance);
+				qTables->set(1, $JPEGQTable::K2Div2Chrominance);
+				break;
 			}
 		}
 		progressiveMode = param->getProgressiveMode();
@@ -813,7 +627,7 @@ void JPEGImageWriter::writeOnThread($IIOMetadata* streamMetadata, $IIOImage* ima
 	$var($SOFMarkerSegment, sof, nullptr);
 	if (this->metadata != nullptr) {
 		$load($JFIFMarkerSegment);
-		$assign(jfif, $cast($JFIFMarkerSegment, $nc(this->metadata)->findMarkerSegment($JFIFMarkerSegment::class$, true)));
+		$assign(jfif, $cast($JFIFMarkerSegment, this->metadata->findMarkerSegment($JFIFMarkerSegment::class$, true)));
 		$load($AdobeMarkerSegment);
 		$assign(adobe, $cast($AdobeMarkerSegment, $nc(this->metadata)->findMarkerSegment($AdobeMarkerSegment::class$, true)));
 		$load($SOFMarkerSegment);
@@ -826,13 +640,13 @@ void JPEGImageWriter::writeOnThread($IIOMetadata* streamMetadata, $IIOImage* ima
 		if (numBandsUsed != destType->getNumBands()) {
 			$throwNew($IIOException, "Number of source bands != number of destination bands"_s);
 		}
-		$assign(cs, $nc($(destType->getColorModel()))->getColorSpace());
+		$assign(cs, $$nc(destType->getColorModel())->getColorSpace());
 		if (this->metadata != nullptr) {
 			checkSOFBands(sof, numBandsUsed);
 			checkJFIF(jfif, destType, false);
 			if ((jfif != nullptr) && (this->ignoreJFIF == false)) {
 				if ($ImageUtil::isNonStandardICCColorSpace(cs)) {
-					$set(this, iccProfile, $nc(($cast($ICC_ColorSpace, cs)))->getProfile());
+					$set(this, iccProfile, $nc($cast($ICC_ColorSpace, cs))->getProfile());
 				}
 			}
 			checkAdobe(adobe, destType, false);
@@ -840,7 +654,7 @@ void JPEGImageWriter::writeOnThread($IIOMetadata* streamMetadata, $IIOImage* ima
 			if ($JPEG::isJFIFcompliant(destType, false)) {
 				this->writeDefaultJFIF = true;
 				if ($ImageUtil::isNonStandardICCColorSpace(cs)) {
-					$set(this, iccProfile, $nc(($cast($ICC_ColorSpace, cs)))->getProfile());
+					$set(this, iccProfile, $nc($cast($ICC_ColorSpace, cs))->getProfile());
 				}
 			} else {
 				int32_t transform = $JPEG::transformForType(destType, false);
@@ -857,10 +671,10 @@ void JPEGImageWriter::writeOnThread($IIOMetadata* streamMetadata, $IIOImage* ima
 		if (fullImage) {
 			$set(this, metadata, $new($JPEGMetadata, $$new($ImageTypeSpecifier, rimage), param, this));
 			$load($JFIFMarkerSegment);
-			if ($nc(this->metadata)->findMarkerSegment($JFIFMarkerSegment::class$, true) != nullptr) {
-				$assign(cs, $nc($($nc(rimage)->getColorModel()))->getColorSpace());
+			if (this->metadata->findMarkerSegment($JFIFMarkerSegment::class$, true) != nullptr) {
+				$assign(cs, $$nc($nc(rimage)->getColorModel())->getColorSpace());
 				if ($ImageUtil::isNonStandardICCColorSpace(cs)) {
-					$set(this, iccProfile, $nc(($cast($ICC_ColorSpace, cs)))->getProfile());
+					$set(this, iccProfile, $nc($cast($ICC_ColorSpace, cs))->getProfile());
 				}
 			}
 			inCsType = getSrcCSType(rimage);
@@ -875,61 +689,51 @@ void JPEGImageWriter::writeOnThread($IIOMetadata* streamMetadata, $IIOImage* ima
 				bool alpha = cm->hasAlpha();
 				switch ($nc(cs)->getType()) {
 				case $ColorSpace::TYPE_GRAY:
-					{
-						if (!alpha) {
-							outCsType = $JPEG::JCS_GRAYSCALE;
-						} else if (jfif != nullptr) {
-							this->ignoreJFIF = true;
-							warningOccurred(JPEGImageWriter::WARNING_IMAGE_METADATA_JFIF_MISMATCH);
-						}
-						if ((adobe != nullptr) && (adobe->transform != $JPEG::ADOBE_UNKNOWN)) {
-							this->newAdobeTransform = $JPEG::ADOBE_UNKNOWN;
-							warningOccurred(JPEGImageWriter::WARNING_IMAGE_METADATA_ADOBE_MISMATCH);
-						}
-						break;
+					if (!alpha) {
+						outCsType = $JPEG::JCS_GRAYSCALE;
+					} else if (jfif != nullptr) {
+						this->ignoreJFIF = true;
+						warningOccurred(JPEGImageWriter::WARNING_IMAGE_METADATA_JFIF_MISMATCH);
 					}
+					if ((adobe != nullptr) && (adobe->transform != $JPEG::ADOBE_UNKNOWN)) {
+						this->newAdobeTransform = $JPEG::ADOBE_UNKNOWN;
+						warningOccurred(JPEGImageWriter::WARNING_IMAGE_METADATA_ADOBE_MISMATCH);
+					}
+					break;
 				case $ColorSpace::TYPE_RGB:
-					{
-						if (jfif != nullptr) {
+					if (jfif != nullptr) {
+						outCsType = $JPEG::JCS_YCbCr;
+						if ($ImageUtil::isNonStandardICCColorSpace(cs) || (($instanceOf($ICC_ColorSpace, cs)) && (jfif->iccSegment != nullptr))) {
+							$set(this, iccProfile, $cast($ICC_ColorSpace, cs)->getProfile());
+						}
+					} else if (adobe != nullptr) {
+						switch (adobe->transform) {
+						case $JPEG::ADOBE_UNKNOWN:
+							outCsType = $JPEG::JCS_RGB;
+							break;
+						case $JPEG::ADOBE_YCC:
 							outCsType = $JPEG::JCS_YCbCr;
-							if ($ImageUtil::isNonStandardICCColorSpace(cs) || (($instanceOf($ICC_ColorSpace, cs)) && (jfif->iccSegment != nullptr))) {
-								$set(this, iccProfile, $nc(($cast($ICC_ColorSpace, cs)))->getProfile());
-							}
-						} else if (adobe != nullptr) {
-							switch (adobe->transform) {
-							case $JPEG::ADOBE_UNKNOWN:
-								{
-									outCsType = $JPEG::JCS_RGB;
-									break;
-								}
-							case $JPEG::ADOBE_YCC:
-								{
-									outCsType = $JPEG::JCS_YCbCr;
-									break;
-								}
-							default:
-								{
-									warningOccurred(JPEGImageWriter::WARNING_IMAGE_METADATA_ADOBE_MISMATCH);
-									this->newAdobeTransform = $JPEG::ADOBE_UNKNOWN;
-									outCsType = $JPEG::JCS_RGB;
-									break;
-								}
-							}
+							break;
+						default:
+							warningOccurred(JPEGImageWriter::WARNING_IMAGE_METADATA_ADOBE_MISMATCH);
+							this->newAdobeTransform = $JPEG::ADOBE_UNKNOWN;
+							outCsType = $JPEG::JCS_RGB;
+							break;
+						}
+					} else {
+						int32_t outCS = $nc(sof)->getIDencodedCSType();
+						if (outCS != $JPEG::JCS_UNKNOWN) {
+							outCsType = outCS;
 						} else {
-							int32_t outCS = $nc(sof)->getIDencodedCSType();
-							if (outCS != $JPEG::JCS_UNKNOWN) {
-								outCsType = outCS;
+							bool subsampled = isSubsampled(sof->componentSpecs);
+							if (subsampled) {
+								outCsType = $JPEG::JCS_YCbCr;
 							} else {
-								bool subsampled = isSubsampled(sof->componentSpecs);
-								if (subsampled) {
-									outCsType = $JPEG::JCS_YCbCr;
-								} else {
-									outCsType = $JPEG::JCS_RGB;
-								}
+								outCsType = $JPEG::JCS_RGB;
 							}
 						}
-						break;
 					}
+					break;
 				}
 			}
 		}
@@ -939,7 +743,7 @@ void JPEGImageWriter::writeOnThread($IIOMetadata* streamMetadata, $IIOImage* ima
 	if (this->metadata != nullptr) {
 		if (sof == nullptr) {
 			$load($SOFMarkerSegment);
-			$assign(sof, $cast($SOFMarkerSegment, $nc(this->metadata)->findMarkerSegment($SOFMarkerSegment::class$, true)));
+			$assign(sof, $cast($SOFMarkerSegment, this->metadata->findMarkerSegment($SOFMarkerSegment::class$, true)));
 		}
 		if ((sof != nullptr) && (sof->tag == $JPEG::SOF2)) {
 			metadataProgressive = true;
@@ -992,7 +796,7 @@ void JPEGImageWriter::writeOnThread($IIOMetadata* streamMetadata, $IIOImage* ima
 	int32_t restartInterval = 0;
 	if (this->metadata != nullptr) {
 		$load($DQTMarkerSegment);
-		$assign(dqt, $cast($DQTMarkerSegment, $nc(this->metadata)->findMarkerSegment($DQTMarkerSegment::class$, true)));
+		$assign(dqt, $cast($DQTMarkerSegment, this->metadata->findMarkerSegment($DQTMarkerSegment::class$, true)));
 		$load($DHTMarkerSegment);
 		$assign(dht, $cast($DHTMarkerSegment, $nc(this->metadata)->findMarkerSegment($DHTMarkerSegment::class$, true)));
 		$load($DRIMarkerSegment);
@@ -1049,8 +853,8 @@ void JPEGImageWriter::writeOnThread($IIOMetadata* streamMetadata, $IIOImage* ima
 				componentIds->set(i, $nc($nc(sof->componentSpecs)->get(i))->componentId);
 			}
 			HsamplingFactors->set(i, $nc($nc(sof->componentSpecs)->get(i))->HsamplingFactor);
-			VsamplingFactors->set(i, $nc($nc(sof->componentSpecs)->get(i))->VsamplingFactor);
-			QtableSelectors->set(i, $nc($nc(sof->componentSpecs)->get(i))->QtableSelector);
+			VsamplingFactors->set(i, $nc(sof->componentSpecs->get(i))->VsamplingFactor);
+			QtableSelectors->set(i, $nc(sof->componentSpecs->get(i))->QtableSelector);
 		}
 	}
 	this->sourceXOffset += gridX;
@@ -1061,47 +865,43 @@ void JPEGImageWriter::writeOnThread($IIOMetadata* streamMetadata, $IIOImage* ima
 	int32_t destHeight = $div((this->sourceHeight + periodY - 1), periodY);
 	int32_t lineSize = this->sourceWidth * numBandsUsed;
 	$var($DataBufferByte, buffer, $new($DataBufferByte, lineSize));
-	$var($ints, bandOffs, $nc($JPEG::bandOffsets)->get(numBandsUsed - 1));
-	$set(this, raster, $Raster::createInterleavedRaster(static_cast<$DataBuffer*>(buffer), this->sourceWidth, 1, lineSize, numBandsUsed, bandOffs, ($Point*)nullptr));
+	$var($ints, bandOffs, $JPEG::bandOffsets->get(numBandsUsed - 1));
+	$set(this, raster, $Raster::createInterleavedRaster(buffer, this->sourceWidth, 1, lineSize, numBandsUsed, bandOffs, nullptr));
 	clearAbortRequest();
 	$nc(this->cbLock)->lock();
-	{
-		$var($Throwable, var$11, nullptr);
-		try {
-			processImageStarted(this->currentImage);
-		} catch ($Throwable& var$12) {
-			$assign(var$11, var$12);
-		} /*finally*/ {
-			$nc(this->cbLock)->unlock();
-		}
-		if (var$11 != nullptr) {
-			$throw(var$11);
-		}
+	$var($Throwable, var$10, nullptr);
+	try {
+		processImageStarted(this->currentImage);
+	} catch ($Throwable& var$11) {
+		$assign(var$10, var$11);
+	} /*finally*/ {
+		$nc(this->cbLock)->unlock();
+	}
+	if (var$10 != nullptr) {
+		$throw(var$10);
 	}
 	bool aborted = false;
 	if (this->debug) {
 		$nc($System::out)->println($$str({"inCsType: "_s, $$str(inCsType)}));
-		$nc($System::out)->println($$str({"outCsType: "_s, $$str(outCsType)}));
+		$System::out->println($$str({"outCsType: "_s, $$str(outCsType)}));
 	}
 	aborted = writeImage(this->structPointer, $(buffer->getData()), inCsType, outCsType, numBandsUsed, bandSizes, this->sourceWidth, destWidth, destHeight, periodX, periodY, qTables, writeDQT, DCHuffmanTables, ACHuffmanTables, writeDHT, optimizeHuffman, (progressiveMode != $ImageWriteParam::MODE_DISABLED), this->numScans, scans, componentIds, HsamplingFactors, VsamplingFactors, QtableSelectors, haveMetadata, restartInterval);
 	$nc(this->cbLock)->lock();
-	{
-		$var($Throwable, var$13, nullptr);
-		try {
-			if (aborted) {
-				processWriteAborted();
-			} else {
-				processImageComplete();
-			}
-			$nc(this->ios)->flush();
-		} catch ($Throwable& var$14) {
-			$assign(var$13, var$14);
-		} /*finally*/ {
-			$nc(this->cbLock)->unlock();
+	$var($Throwable, var$12, nullptr);
+	try {
+		if (aborted) {
+			processWriteAborted();
+		} else {
+			processImageComplete();
 		}
-		if (var$13 != nullptr) {
-			$throw(var$13);
-		}
+		$nc(this->ios)->flush();
+	} catch ($Throwable& var$13) {
+		$assign(var$12, var$13);
+	} /*finally*/ {
+		$nc(this->cbLock)->unlock();
+	}
+	if (var$12 != nullptr) {
+		$throw(var$12);
 	}
 	++this->currentImage;
 }
@@ -1112,24 +912,22 @@ bool JPEGImageWriter::canWriteSequence() {
 
 void JPEGImageWriter::prepareWriteSequence($IIOMetadata* streamMetadata) {
 	setThreadLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(this->cbLock)->check();
-			prepareWriteSequenceOnThread(streamMetadata);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			clearThreadLock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(this->cbLock)->check();
+		prepareWriteSequenceOnThread(streamMetadata);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		clearThreadLock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void JPEGImageWriter::prepareWriteSequenceOnThread($IIOMetadata* streamMetadata) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->ios == nullptr) {
 		$throwNew($IllegalStateException, "Output has not been set!"_s);
 	}
@@ -1170,62 +968,56 @@ void JPEGImageWriter::prepareWriteSequenceOnThread($IIOMetadata* streamMetadata)
 
 void JPEGImageWriter::writeToSequence($IIOImage* image, $ImageWriteParam* param) {
 	setThreadLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(this->cbLock)->check();
-			if (this->sequencePrepared == false) {
-				$throwNew($IllegalStateException, "sequencePrepared not called!"_s);
-			}
-			write(nullptr, image, param);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			clearThreadLock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(this->cbLock)->check();
+		if (this->sequencePrepared == false) {
+			$throwNew($IllegalStateException, "sequencePrepared not called!"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		write(nullptr, image, param);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		clearThreadLock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void JPEGImageWriter::endWriteSequence() {
 	setThreadLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(this->cbLock)->check();
-			if (this->sequencePrepared == false) {
-				$throwNew($IllegalStateException, "sequencePrepared not called!"_s);
-			}
-			this->sequencePrepared = false;
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			clearThreadLock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(this->cbLock)->check();
+		if (this->sequencePrepared == false) {
+			$throwNew($IllegalStateException, "sequencePrepared not called!"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		this->sequencePrepared = false;
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		clearThreadLock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void JPEGImageWriter::abort() {
 	$synchronized(this) {
 		setThreadLock();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$ImageWriter::abort();
-				abortWrite(this->structPointer);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				clearThreadLock();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			$ImageWriter::abort();
+			abortWrite(this->structPointer);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			clearThreadLock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -1233,23 +1025,21 @@ void JPEGImageWriter::abort() {
 void JPEGImageWriter::clearAbortRequest() {
 	$synchronized(this) {
 		setThreadLock();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$nc(this->cbLock)->check();
-				if (abortRequested()) {
-					$ImageWriter::clearAbortRequest();
-					resetWriter(this->structPointer);
-					setDest(this->structPointer);
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				clearThreadLock();
+		$var($Throwable, var$0, nullptr);
+		try {
+			$nc(this->cbLock)->check();
+			if (abortRequested()) {
+				$ImageWriter::clearAbortRequest();
+				resetWriter(this->structPointer);
+				setDest(this->structPointer);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			clearThreadLock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -1266,129 +1056,115 @@ void JPEGImageWriter::resetInternalState() {
 
 void JPEGImageWriter::reset() {
 	setThreadLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(this->cbLock)->check();
-			$ImageWriter::reset();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			clearThreadLock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(this->cbLock)->check();
+		$ImageWriter::reset();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		clearThreadLock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void JPEGImageWriter::dispose() {
 	setThreadLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(this->cbLock)->check();
-			if (this->structPointer != 0) {
-				$nc(this->disposerRecord)->dispose();
-				this->structPointer = 0;
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			clearThreadLock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(this->cbLock)->check();
+		if (this->structPointer != 0) {
+			$nc(this->disposerRecord)->dispose();
+			this->structPointer = 0;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		clearThreadLock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void JPEGImageWriter::warningOccurred(int32_t code) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->cbLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if ((code < 0) || (code > JPEGImageWriter::MAX_WARNING)) {
-				$throwNew($InternalError, "Invalid warning index"_s);
-			}
-			processWarningOccurred(this->currentImage, "com.sun.imageio.plugins.jpeg.JPEGImageWriterResources"_s, $($Integer::toString(code)));
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->cbLock)->unlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		if ((code < 0) || (code > JPEGImageWriter::MAX_WARNING)) {
+			$throwNew($InternalError, "Invalid warning index"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		processWarningOccurred(this->currentImage, "com.sun.imageio.plugins.jpeg.JPEGImageWriterResources"_s, $($Integer::toString(code)));
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->cbLock)->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void JPEGImageWriter::warningWithMessage($String* msg) {
 	$nc(this->cbLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			processWarningOccurred(this->currentImage, msg);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->cbLock)->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		processWarningOccurred(this->currentImage, msg);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->cbLock)->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void JPEGImageWriter::thumbnailStarted(int32_t thumbnailIndex) {
 	$nc(this->cbLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			processThumbnailStarted(this->currentImage, thumbnailIndex);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->cbLock)->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		processThumbnailStarted(this->currentImage, thumbnailIndex);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->cbLock)->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void JPEGImageWriter::thumbnailProgress(float percentageDone) {
 	$nc(this->cbLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			processThumbnailProgress(percentageDone);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->cbLock)->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		processThumbnailProgress(percentageDone);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->cbLock)->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void JPEGImageWriter::thumbnailComplete() {
 	$nc(this->cbLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			processThumbnailComplete();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->cbLock)->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		processThumbnailComplete();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->cbLock)->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -1424,7 +1200,7 @@ void JPEGImageWriter::checkAdobe($AdobeMarkerSegment* adobe, $ImageTypeSpecifier
 }
 
 $ints* JPEGImageWriter::collectScans($JPEGMetadata* metadata, $SOFMarkerSegment* sof) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, segments, $new($ArrayList));
 	int32_t SCAN_SIZE = 9;
 	int32_t MAX_COMPS_PER_SCAN = 4;
@@ -1447,10 +1223,10 @@ $ints* JPEGImageWriter::collectScans($JPEGMetadata* metadata, $SOFMarkerSegment*
 			$var($SOSMarkerSegment, sos, $cast($SOSMarkerSegment, segments->get(i)));
 			retval->set(index++, $nc($nc(sos)->componentSpecs)->length);
 			for (int32_t j = 0; j < MAX_COMPS_PER_SCAN; ++j) {
-				if (j < $nc(sos->componentSpecs)->length) {
-					int32_t compSel = $nc($nc(sos->componentSpecs)->get(j))->componentSelector;
+				if (j < sos->componentSpecs->length) {
+					int32_t compSel = $nc(sos->componentSpecs->get(j))->componentSelector;
 					for (int32_t k = 0; k < $nc($nc(sof)->componentSpecs)->length; ++k) {
-						if (compSel == $nc($nc(sof->componentSpecs)->get(k))->componentId) {
+						if (compSel == $nc(sof->componentSpecs->get(k))->componentId) {
 							retval->set(index++, k);
 							break;
 						}
@@ -1469,17 +1245,15 @@ $ints* JPEGImageWriter::collectScans($JPEGMetadata* metadata, $SOFMarkerSegment*
 }
 
 $JPEGQTableArray* JPEGImageWriter::collectQTablesFromMetadata($JPEGMetadata* metadata) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, tables, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc($nc(metadata)->markerSequence)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($MarkerSegment, seg, $cast($MarkerSegment, i$->next()));
-			{
-				if ($instanceOf($DQTMarkerSegment, seg)) {
-					$var($DQTMarkerSegment, dqt, $cast($DQTMarkerSegment, seg));
-					tables->addAll($nc(dqt)->tables);
-				}
+			if ($instanceOf($DQTMarkerSegment, seg)) {
+				$var($DQTMarkerSegment, dqt, $cast($DQTMarkerSegment, seg));
+				tables->addAll(dqt->tables);
 			}
 		}
 	}
@@ -1487,27 +1261,25 @@ $JPEGQTableArray* JPEGImageWriter::collectQTablesFromMetadata($JPEGMetadata* met
 	if (tables->size() != 0) {
 		$assign(retval, $new($JPEGQTableArray, tables->size()));
 		for (int32_t i = 0; i < retval->length; ++i) {
-			retval->set(i, $$new($JPEGQTable, $nc(($cast($DQTMarkerSegment$Qtable, $(tables->get(i)))))->data));
+			retval->set(i, $$new($JPEGQTable, $nc(($$cast($DQTMarkerSegment$Qtable, tables->get(i))))->data));
 		}
 	}
 	return retval;
 }
 
 $JPEGHuffmanTableArray* JPEGImageWriter::collectHTablesFromMetadata($JPEGMetadata* metadata, bool wantDC) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, tables, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc($nc(metadata)->markerSequence)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($MarkerSegment, seg, $cast($MarkerSegment, i$->next()));
-			{
-				if ($instanceOf($DHTMarkerSegment, seg)) {
-					$var($DHTMarkerSegment, dht, $cast($DHTMarkerSegment, seg));
-					for (int32_t i = 0; i < $nc($nc(dht)->tables)->size(); ++i) {
-						$var($DHTMarkerSegment$Htable, htable, $cast($DHTMarkerSegment$Htable, $nc(dht->tables)->get(i)));
-						if ($nc(htable)->tableClass == (wantDC ? 0 : 1)) {
-							tables->add(htable);
-						}
+			if ($instanceOf($DHTMarkerSegment, seg)) {
+				$var($DHTMarkerSegment, dht, $cast($DHTMarkerSegment, seg));
+				for (int32_t i = 0; i < $nc(dht->tables)->size(); ++i) {
+					$var($DHTMarkerSegment$Htable, htable, $cast($DHTMarkerSegment$Htable, dht->tables->get(i)));
+					if ($nc(htable)->tableClass == (wantDC ? 0 : 1)) {
+						tables->add(htable);
 					}
 				}
 			}
@@ -1548,57 +1320,41 @@ int32_t JPEGImageWriter::getSrcCSType($ColorModel* cm) {
 		$var($ColorSpace, cs, cm->getColorSpace());
 		switch ($nc(cs)->getType()) {
 		case $ColorSpace::TYPE_GRAY:
-			{
-				retval = $JPEG::JCS_GRAYSCALE;
-				break;
-			}
+			retval = $JPEG::JCS_GRAYSCALE;
+			break;
 		case $ColorSpace::TYPE_RGB:
-			{
-				retval = $JPEG::JCS_RGB;
-				break;
-			}
+			retval = $JPEG::JCS_RGB;
+			break;
 		case $ColorSpace::TYPE_YCbCr:
-			{
-				retval = $JPEG::JCS_YCbCr;
-				break;
-			}
+			retval = $JPEG::JCS_YCbCr;
+			break;
 		case $ColorSpace::TYPE_CMYK:
-			{
-				retval = $JPEG::JCS_CMYK;
-				break;
-			}
+			retval = $JPEG::JCS_CMYK;
+			break;
 		}
 	}
 	return retval;
 }
 
 int32_t JPEGImageWriter::getDestCSType($ImageTypeSpecifier* destType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorModel, cm, $nc(destType)->getColorModel());
 	bool alpha = $nc(cm)->hasAlpha();
 	$var($ColorSpace, cs, cm->getColorSpace());
 	int32_t retval = $JPEG::JCS_UNKNOWN;
 	switch ($nc(cs)->getType()) {
 	case $ColorSpace::TYPE_GRAY:
-		{
-			retval = $JPEG::JCS_GRAYSCALE;
-			break;
-		}
+		retval = $JPEG::JCS_GRAYSCALE;
+		break;
 	case $ColorSpace::TYPE_RGB:
-		{
-			retval = $JPEG::JCS_RGB;
-			break;
-		}
+		retval = $JPEG::JCS_RGB;
+		break;
 	case $ColorSpace::TYPE_YCbCr:
-		{
-			retval = $JPEG::JCS_YCbCr;
-			break;
-		}
+		retval = $JPEG::JCS_YCbCr;
+		break;
 	case $ColorSpace::TYPE_CMYK:
-		{
-			retval = $JPEG::JCS_CMYK;
-			break;
-		}
+		retval = $JPEG::JCS_CMYK;
+		break;
 	}
 	return retval;
 }
@@ -1618,25 +1374,17 @@ int32_t JPEGImageWriter::getDefaultDestCSType($ColorModel* cm) {
 		$var($ColorSpace, cs, cm->getColorSpace());
 		switch ($nc(cs)->getType()) {
 		case $ColorSpace::TYPE_GRAY:
-			{
-				retval = $JPEG::JCS_GRAYSCALE;
-				break;
-			}
+			retval = $JPEG::JCS_GRAYSCALE;
+			break;
 		case $ColorSpace::TYPE_RGB:
-			{
-				retval = $JPEG::JCS_YCbCr;
-				break;
-			}
+			retval = $JPEG::JCS_YCbCr;
+			break;
 		case $ColorSpace::TYPE_YCbCr:
-			{
-				retval = $JPEG::JCS_YCbCr;
-				break;
-			}
+			retval = $JPEG::JCS_YCbCr;
+			break;
 		case $ColorSpace::TYPE_CMYK:
-			{
-				retval = $JPEG::JCS_YCCK;
-				break;
-			}
+			retval = $JPEG::JCS_YCCK;
+			break;
 		}
 	}
 	return retval;
@@ -1655,29 +1403,27 @@ bool JPEGImageWriter::isSubsampled($SOFMarkerSegment$ComponentSpecArray* specs) 
 
 void JPEGImageWriter::initWriterIDs($Class* qTableClass, $Class* huffClass) {
 	$init(JPEGImageWriter);
-	$prepareNativeStatic(JPEGImageWriter, initWriterIDs, void, $Class* qTableClass, $Class* huffClass);
+	$prepareNativeStatic(initWriterIDs, void, $Class* qTableClass, $Class* huffClass);
 	$invokeNativeStatic(qTableClass, huffClass);
 	$finishNativeStatic();
 }
 
 int64_t JPEGImageWriter::initJPEGImageWriter() {
-	int64_t $ret = 0;
-	$prepareNative(JPEGImageWriter, initJPEGImageWriter, int64_t);
-	$ret = $invokeNative();
+	$prepareNative(initJPEGImageWriter, int64_t);
+	int64_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 void JPEGImageWriter::setDest(int64_t structPointer) {
-	$prepareNative(JPEGImageWriter, setDest, void, int64_t structPointer);
+	$prepareNative(setDest, void, int64_t structPointer);
 	$invokeNative(structPointer);
 	$finishNative();
 }
 
 bool JPEGImageWriter::writeImage(int64_t structPointer, $bytes* data, int32_t inCsType, int32_t outCsType, int32_t numBands, $ints* bandSizes, int32_t srcWidth, int32_t destWidth, int32_t destHeight, int32_t stepX, int32_t stepY, $JPEGQTableArray* qtables, bool writeDQT, $JPEGHuffmanTableArray* DCHuffmanTables, $JPEGHuffmanTableArray* ACHuffmanTables, bool writeDHT, bool optimizeHuffman, bool progressive, int32_t numScans, $ints* scans, $ints* componentIds, $ints* HsamplingFactors, $ints* VsamplingFactors, $ints* QtableSelectors, bool haveMetadata, int32_t restartInterval) {
-	bool $ret = false;
-	$prepareNative(JPEGImageWriter, writeImage, bool, int64_t structPointer, $bytes* data, int32_t inCsType, int32_t outCsType, int32_t numBands, $ints* bandSizes, int32_t srcWidth, int32_t destWidth, int32_t destHeight, int32_t stepX, int32_t stepY, $JPEGQTableArray* qtables, bool writeDQT, $JPEGHuffmanTableArray* DCHuffmanTables, $JPEGHuffmanTableArray* ACHuffmanTables, bool writeDHT, bool optimizeHuffman, bool progressive, int32_t numScans, $ints* scans, $ints* componentIds, $ints* HsamplingFactors, $ints* VsamplingFactors, $ints* QtableSelectors, bool haveMetadata, int32_t restartInterval);
-	$ret = $invokeNative(structPointer, data, inCsType, outCsType, numBands, bandSizes, srcWidth, destWidth, destHeight, stepX, stepY, qtables, writeDQT, DCHuffmanTables, ACHuffmanTables, writeDHT, optimizeHuffman, progressive, numScans, scans, componentIds, HsamplingFactors, VsamplingFactors, QtableSelectors, haveMetadata, restartInterval);
+	$prepareNative(writeImage, bool, int64_t structPointer, $bytes* data, int32_t inCsType, int32_t outCsType, int32_t numBands, $ints* bandSizes, int32_t srcWidth, int32_t destWidth, int32_t destHeight, int32_t stepX, int32_t stepY, $JPEGQTableArray* qtables, bool writeDQT, $JPEGHuffmanTableArray* DCHuffmanTables, $JPEGHuffmanTableArray* ACHuffmanTables, bool writeDHT, bool optimizeHuffman, bool progressive, int32_t numScans, $ints* scans, $ints* componentIds, $ints* HsamplingFactors, $ints* VsamplingFactors, $ints* QtableSelectors, bool haveMetadata, int32_t restartInterval);
+	bool $ret = $invokeNative(structPointer, data, inCsType, outCsType, numBands, bandSizes, srcWidth, destWidth, destHeight, stepX, stepY, qtables, writeDQT, DCHuffmanTables, ACHuffmanTables, writeDHT, optimizeHuffman, progressive, numScans, scans, componentIds, HsamplingFactors, VsamplingFactors, QtableSelectors, haveMetadata, restartInterval);
 	$finishNative();
 	return $ret;
 }
@@ -1691,18 +1437,18 @@ void JPEGImageWriter::writeMetadata() {
 			$AdobeMarkerSegment::writeAdobeSegment(this->ios, this->newAdobeTransform);
 		}
 	} else {
-		$nc(this->metadata)->writeToStream(this->ios, this->ignoreJFIF, this->forceJFIF, this->thumbnails, this->iccProfile, this->ignoreAdobe, this->newAdobeTransform, this);
+		this->metadata->writeToStream(this->ios, this->ignoreJFIF, this->forceJFIF, this->thumbnails, this->iccProfile, this->ignoreAdobe, this->newAdobeTransform, this);
 	}
 }
 
 void JPEGImageWriter::writeTables(int64_t structPointer, $JPEGQTableArray* qtables, $JPEGHuffmanTableArray* DCHuffmanTables, $JPEGHuffmanTableArray* ACHuffmanTables) {
-	$prepareNative(JPEGImageWriter, writeTables, void, int64_t structPointer, $JPEGQTableArray* qtables, $JPEGHuffmanTableArray* DCHuffmanTables, $JPEGHuffmanTableArray* ACHuffmanTables);
+	$prepareNative(writeTables, void, int64_t structPointer, $JPEGQTableArray* qtables, $JPEGHuffmanTableArray* DCHuffmanTables, $JPEGHuffmanTableArray* ACHuffmanTables);
 	$invokeNative(structPointer, qtables, DCHuffmanTables, ACHuffmanTables);
 	$finishNative();
 }
 
 void JPEGImageWriter::grabPixels(int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Raster, sourceLine, nullptr);
 	if (this->indexed) {
 		$assign(sourceLine, $nc(this->srcRas)->createChild(this->sourceXOffset, this->sourceYOffset + y, this->sourceWidth, 1, 0, 0, $$new($ints, {0})));
@@ -1731,69 +1477,65 @@ void JPEGImageWriter::grabPixels(int32_t y) {
 		int32_t var$5 = sourceLine->getWidth();
 		$nc(wr)->setPixels(var$3, var$4, var$5, sourceLine->getHeight(), data);
 		$nc(this->srcCM)->coerceData(wr, false);
-		int32_t var$6 = wr->getMinX();
+		int32_t var$6 = $nc(wr)->getMinX();
 		int32_t var$7 = wr->getMinY();
 		int32_t var$8 = wr->getWidth();
-		$assign(sourceLine, wr->createChild(var$6, var$7, var$8, wr->getHeight(), 0, 0, this->srcBands));
+		$assign(sourceLine, $nc(wr)->createChild(var$6, var$7, var$8, wr->getHeight(), 0, 0, this->srcBands));
 	}
 	$nc(this->raster)->setRect(sourceLine);
 	if ((y > 7) && (y % 8 == 0)) {
 		$nc(this->cbLock)->lock();
-		{
-			$var($Throwable, var$9, nullptr);
-			try {
-				processImageProgress((float)y / (float)this->sourceHeight * 100.0f);
-			} catch ($Throwable& var$10) {
-				$assign(var$9, var$10);
-			} /*finally*/ {
-				$nc(this->cbLock)->unlock();
-			}
-			if (var$9 != nullptr) {
-				$throw(var$9);
-			}
+		$var($Throwable, var$9, nullptr);
+		try {
+			processImageProgress((float)y / (float)this->sourceHeight * 100.0f);
+		} catch ($Throwable& var$10) {
+			$assign(var$9, var$10);
+		} /*finally*/ {
+			$nc(this->cbLock)->unlock();
+		}
+		if (var$9 != nullptr) {
+			$throw(var$9);
 		}
 	}
 }
 
 void JPEGImageWriter::abortWrite(int64_t structPointer) {
-	$prepareNative(JPEGImageWriter, abortWrite, void, int64_t structPointer);
+	$prepareNative(abortWrite, void, int64_t structPointer);
 	$invokeNative(structPointer);
 	$finishNative();
 }
 
 void JPEGImageWriter::resetWriter(int64_t structPointer) {
-	$prepareNative(JPEGImageWriter, resetWriter, void, int64_t structPointer);
+	$prepareNative(resetWriter, void, int64_t structPointer);
 	$invokeNative(structPointer);
 	$finishNative();
 }
 
 void JPEGImageWriter::disposeWriter(int64_t structPointer) {
 	$init(JPEGImageWriter);
-	$prepareNativeStatic(JPEGImageWriter, disposeWriter, void, int64_t structPointer);
+	$prepareNativeStatic(disposeWriter, void, int64_t structPointer);
 	$invokeNativeStatic(structPointer);
 	$finishNativeStatic();
 }
 
 void JPEGImageWriter::writeOutputData($bytes* data, int32_t offset, int32_t len) {
 	$nc(this->cbLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(this->ios)->write(data, offset, len);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->cbLock)->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(this->ios)->write(data, offset, len);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->cbLock)->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void JPEGImageWriter::setThreadLock() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($Thread, currThread, $Thread::currentThread());
 		if (this->theThread != nullptr) {
 			if (this->theThread != currThread) {
@@ -1810,7 +1552,7 @@ void JPEGImageWriter::setThreadLock() {
 
 void JPEGImageWriter::clearThreadLock() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($Thread, currThread, $Thread::currentThread());
 		if (this->theThread == nullptr || this->theThread != currThread) {
 			$throwNew($IllegalStateException, $$str({"Attempt to clear thread lock form wrong thread. Locked thread: "_s, this->theThread, "; current thread: "_s, currThread}));
@@ -1822,8 +1564,8 @@ void JPEGImageWriter::clearThreadLock() {
 	}
 }
 
-void clinit$JPEGImageWriter($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void JPEGImageWriter::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		JPEGImageWriter::initStatic();
 	}
@@ -1837,7 +1579,147 @@ JPEGImageWriter::JPEGImageWriter() {
 }
 
 $Class* JPEGImageWriter::load$($String* name, bool initialize) {
-	$loadClass(JPEGImageWriter, name, initialize, &_JPEGImageWriter_ClassInfo_, clinit$JPEGImageWriter, allocate$JPEGImageWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Z", nullptr, $PRIVATE, $field(JPEGImageWriter, debug)},
+		{"structPointer", "J", nullptr, $PRIVATE, $field(JPEGImageWriter, structPointer)},
+		{"ios", "Ljavax/imageio/stream/ImageOutputStream;", nullptr, $PRIVATE, $field(JPEGImageWriter, ios)},
+		{"srcRas", "Ljava/awt/image/Raster;", nullptr, $PRIVATE, $field(JPEGImageWriter, srcRas)},
+		{"raster", "Ljava/awt/image/WritableRaster;", nullptr, $PRIVATE, $field(JPEGImageWriter, raster)},
+		{"indexed", "Z", nullptr, $PRIVATE, $field(JPEGImageWriter, indexed)},
+		{"indexCM", "Ljava/awt/image/IndexColorModel;", nullptr, $PRIVATE, $field(JPEGImageWriter, indexCM)},
+		{"convertTosRGB", "Z", nullptr, $PRIVATE, $field(JPEGImageWriter, convertTosRGB)},
+		{"converted", "Ljava/awt/image/WritableRaster;", nullptr, $PRIVATE, $field(JPEGImageWriter, converted)},
+		{"isAlphaPremultiplied", "Z", nullptr, $PRIVATE, $field(JPEGImageWriter, isAlphaPremultiplied)},
+		{"srcCM", "Ljava/awt/image/ColorModel;", nullptr, $PRIVATE, $field(JPEGImageWriter, srcCM)},
+		{"thumbnails", "Ljava/util/List;", "Ljava/util/List<+Ljava/awt/image/BufferedImage;>;", $PRIVATE, $field(JPEGImageWriter, thumbnails)},
+		{"iccProfile", "Ljava/awt/color/ICC_Profile;", nullptr, $PRIVATE, $field(JPEGImageWriter, iccProfile)},
+		{"sourceXOffset", "I", nullptr, $PRIVATE, $field(JPEGImageWriter, sourceXOffset)},
+		{"sourceYOffset", "I", nullptr, $PRIVATE, $field(JPEGImageWriter, sourceYOffset)},
+		{"sourceWidth", "I", nullptr, $PRIVATE, $field(JPEGImageWriter, sourceWidth)},
+		{"srcBands", "[I", nullptr, $PRIVATE, $field(JPEGImageWriter, srcBands)},
+		{"sourceHeight", "I", nullptr, $PRIVATE, $field(JPEGImageWriter, sourceHeight)},
+		{"currentImage", "I", nullptr, $PRIVATE, $field(JPEGImageWriter, currentImage)},
+		{"convertOp", "Ljava/awt/image/ColorConvertOp;", nullptr, $PRIVATE, $field(JPEGImageWriter, convertOp)},
+		{"streamQTables", "[Ljavax/imageio/plugins/jpeg/JPEGQTable;", nullptr, $PRIVATE, $field(JPEGImageWriter, streamQTables)},
+		{"streamDCHuffmanTables", "[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;", nullptr, $PRIVATE, $field(JPEGImageWriter, streamDCHuffmanTables)},
+		{"streamACHuffmanTables", "[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;", nullptr, $PRIVATE, $field(JPEGImageWriter, streamACHuffmanTables)},
+		{"ignoreJFIF", "Z", nullptr, $PRIVATE, $field(JPEGImageWriter, ignoreJFIF)},
+		{"forceJFIF", "Z", nullptr, $PRIVATE, $field(JPEGImageWriter, forceJFIF)},
+		{"ignoreAdobe", "Z", nullptr, $PRIVATE, $field(JPEGImageWriter, ignoreAdobe)},
+		{"newAdobeTransform", "I", nullptr, $PRIVATE, $field(JPEGImageWriter, newAdobeTransform)},
+		{"writeDefaultJFIF", "Z", nullptr, $PRIVATE, $field(JPEGImageWriter, writeDefaultJFIF)},
+		{"writeAdobe", "Z", nullptr, $PRIVATE, $field(JPEGImageWriter, writeAdobe)},
+		{"metadata", "Lcom/sun/imageio/plugins/jpeg/JPEGMetadata;", nullptr, $PRIVATE, $field(JPEGImageWriter, metadata)},
+		{"sequencePrepared", "Z", nullptr, $PRIVATE, $field(JPEGImageWriter, sequencePrepared)},
+		{"numScans", "I", nullptr, $PRIVATE, $field(JPEGImageWriter, numScans)},
+		{"disposerReferent", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(JPEGImageWriter, disposerReferent)},
+		{"disposerRecord", "Lsun/java2d/DisposerRecord;", nullptr, $PRIVATE, $field(JPEGImageWriter, disposerRecord)},
+		{"WARNING_DEST_IGNORED", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_DEST_IGNORED)},
+		{"WARNING_STREAM_METADATA_IGNORED", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_STREAM_METADATA_IGNORED)},
+		{"WARNING_DEST_METADATA_COMP_MISMATCH", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_DEST_METADATA_COMP_MISMATCH)},
+		{"WARNING_DEST_METADATA_JFIF_MISMATCH", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_DEST_METADATA_JFIF_MISMATCH)},
+		{"WARNING_DEST_METADATA_ADOBE_MISMATCH", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_DEST_METADATA_ADOBE_MISMATCH)},
+		{"WARNING_IMAGE_METADATA_JFIF_MISMATCH", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_IMAGE_METADATA_JFIF_MISMATCH)},
+		{"WARNING_IMAGE_METADATA_ADOBE_MISMATCH", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_IMAGE_METADATA_ADOBE_MISMATCH)},
+		{"WARNING_METADATA_NOT_JPEG_FOR_RASTER", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_METADATA_NOT_JPEG_FOR_RASTER)},
+		{"WARNING_NO_BANDS_ON_INDEXED", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_NO_BANDS_ON_INDEXED)},
+		{"WARNING_ILLEGAL_THUMBNAIL", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_ILLEGAL_THUMBNAIL)},
+		{"WARNING_IGNORING_THUMBS", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_IGNORING_THUMBS)},
+		{"WARNING_FORCING_JFIF", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_FORCING_JFIF)},
+		{"WARNING_THUMB_CLIPPED", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_THUMB_CLIPPED)},
+		{"WARNING_METADATA_ADJUSTED_FOR_THUMB", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_METADATA_ADJUSTED_FOR_THUMB)},
+		{"WARNING_NO_RGB_THUMB_AS_INDEXED", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_NO_RGB_THUMB_AS_INDEXED)},
+		{"WARNING_NO_GRAY_THUMB_AS_INDEXED", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JPEGImageWriter, WARNING_NO_GRAY_THUMB_AS_INDEXED)},
+		{"MAX_WARNING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JPEGImageWriter, MAX_WARNING)},
+		{"preferredThumbSizes", "[Ljava/awt/Dimension;", nullptr, $STATIC | $FINAL, $staticField(JPEGImageWriter, preferredThumbSizes)},
+		{"theThread", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(JPEGImageWriter, theThread)},
+		{"theLockCount", "I", nullptr, $PRIVATE, $field(JPEGImageWriter, theLockCount)},
+		{"cbLock", "Lcom/sun/imageio/plugins/jpeg/JPEGImageWriter$CallBackLock;", nullptr, $PRIVATE, $field(JPEGImageWriter, cbLock)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/imageio/spi/ImageWriterSpi;)V", nullptr, $PUBLIC, $method(JPEGImageWriter, init$, void, $ImageWriterSpi*)},
+		{"abort", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JPEGImageWriter, abort, void)},
+		{"abortWrite", "(J)V", nullptr, $PRIVATE | $NATIVE, $method(JPEGImageWriter, abortWrite, void, int64_t)},
+		{"canWriteRasters", "()Z", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, canWriteRasters, bool)},
+		{"canWriteSequence", "()Z", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, canWriteSequence, bool)},
+		{"checkAdobe", "(Lcom/sun/imageio/plugins/jpeg/AdobeMarkerSegment;Ljavax/imageio/ImageTypeSpecifier;Z)V", nullptr, $PRIVATE, $method(JPEGImageWriter, checkAdobe, void, $AdobeMarkerSegment*, $ImageTypeSpecifier*, bool)},
+		{"checkJFIF", "(Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;Ljavax/imageio/ImageTypeSpecifier;Z)V", nullptr, $PRIVATE, $method(JPEGImageWriter, checkJFIF, void, $JFIFMarkerSegment*, $ImageTypeSpecifier*, bool)},
+		{"checkSOFBands", "(Lcom/sun/imageio/plugins/jpeg/SOFMarkerSegment;I)V", nullptr, $PRIVATE, $method(JPEGImageWriter, checkSOFBands, void, $SOFMarkerSegment*, int32_t), "javax.imageio.IIOException"},
+		{"clearAbortRequest", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(JPEGImageWriter, clearAbortRequest, void)},
+		{"clearThreadLock", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(JPEGImageWriter, clearThreadLock, void)},
+		{"collectHTablesFromMetadata", "(Lcom/sun/imageio/plugins/jpeg/JPEGMetadata;Z)[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;", nullptr, $PRIVATE, $method(JPEGImageWriter, collectHTablesFromMetadata, $JPEGHuffmanTableArray*, $JPEGMetadata*, bool), "javax.imageio.IIOException"},
+		{"collectQTablesFromMetadata", "(Lcom/sun/imageio/plugins/jpeg/JPEGMetadata;)[Ljavax/imageio/plugins/jpeg/JPEGQTable;", nullptr, $PRIVATE, $method(JPEGImageWriter, collectQTablesFromMetadata, $JPEGQTableArray*, $JPEGMetadata*)},
+		{"collectScans", "(Lcom/sun/imageio/plugins/jpeg/JPEGMetadata;Lcom/sun/imageio/plugins/jpeg/SOFMarkerSegment;)[I", nullptr, $PRIVATE, $method(JPEGImageWriter, collectScans, $ints*, $JPEGMetadata*, $SOFMarkerSegment*)},
+		{"convertImageMetadata", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, convertImageMetadata, $IIOMetadata*, $IIOMetadata*, $ImageTypeSpecifier*, $ImageWriteParam*)},
+		{"convertImageMetadataOnThread", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PRIVATE, $method(JPEGImageWriter, convertImageMetadataOnThread, $IIOMetadata*, $IIOMetadata*, $ImageTypeSpecifier*, $ImageWriteParam*)},
+		{"convertStreamMetadata", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, convertStreamMetadata, $IIOMetadata*, $IIOMetadata*, $ImageWriteParam*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, dispose, void)},
+		{"disposeWriter", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JPEGImageWriter, disposeWriter, void, int64_t)},
+		{"endWriteSequence", "()V", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, endWriteSequence, void), "java.io.IOException"},
+		{"getDefaultDestCSType", "(Ljavax/imageio/ImageTypeSpecifier;)I", nullptr, $PRIVATE, $method(JPEGImageWriter, getDefaultDestCSType, int32_t, $ImageTypeSpecifier*)},
+		{"getDefaultDestCSType", "(Ljava/awt/image/RenderedImage;)I", nullptr, $PRIVATE, $method(JPEGImageWriter, getDefaultDestCSType, int32_t, $RenderedImage*)},
+		{"getDefaultDestCSType", "(Ljava/awt/image/ColorModel;)I", nullptr, $PRIVATE, $method(JPEGImageWriter, getDefaultDestCSType, int32_t, $ColorModel*)},
+		{"getDefaultImageMetadata", "(Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, getDefaultImageMetadata, $IIOMetadata*, $ImageTypeSpecifier*, $ImageWriteParam*)},
+		{"getDefaultStreamMetadata", "(Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, getDefaultStreamMetadata, $IIOMetadata*, $ImageWriteParam*)},
+		{"getDefaultWriteParam", "()Ljavax/imageio/ImageWriteParam;", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, getDefaultWriteParam, $ImageWriteParam*)},
+		{"getDestCSType", "(Ljavax/imageio/ImageTypeSpecifier;)I", nullptr, $PRIVATE, $method(JPEGImageWriter, getDestCSType, int32_t, $ImageTypeSpecifier*)},
+		{"getNumThumbnailsSupported", "(Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/metadata/IIOMetadata;)I", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, getNumThumbnailsSupported, int32_t, $ImageTypeSpecifier*, $ImageWriteParam*, $IIOMetadata*, $IIOMetadata*)},
+		{"getPreferredThumbnailSizes", "(Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/metadata/IIOMetadata;)[Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, getPreferredThumbnailSizes, $DimensionArray*, $ImageTypeSpecifier*, $ImageWriteParam*, $IIOMetadata*, $IIOMetadata*)},
+		{"getSrcCSType", "(Ljavax/imageio/ImageTypeSpecifier;)I", nullptr, $PRIVATE, $method(JPEGImageWriter, getSrcCSType, int32_t, $ImageTypeSpecifier*)},
+		{"getSrcCSType", "(Ljava/awt/image/RenderedImage;)I", nullptr, $PRIVATE, $method(JPEGImageWriter, getSrcCSType, int32_t, $RenderedImage*)},
+		{"getSrcCSType", "(Ljava/awt/image/ColorModel;)I", nullptr, $PRIVATE, $method(JPEGImageWriter, getSrcCSType, int32_t, $ColorModel*)},
+		{"grabPixels", "(I)V", nullptr, $PRIVATE, $method(JPEGImageWriter, grabPixels, void, int32_t)},
+		{"initJPEGImageWriter", "()J", nullptr, $PRIVATE | $NATIVE, $method(JPEGImageWriter, initJPEGImageWriter, int64_t)},
+		{"initStatic", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JPEGImageWriter, initStatic, void)},
+		{"initWriterIDs", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC | $NATIVE, $staticMethod(JPEGImageWriter, initWriterIDs, void, $Class*, $Class*)},
+		{"isSubsampled", "([Lcom/sun/imageio/plugins/jpeg/SOFMarkerSegment$ComponentSpec;)Z", nullptr, $PRIVATE, $method(JPEGImageWriter, isSubsampled, bool, $SOFMarkerSegment$ComponentSpecArray*)},
+		{"jfifOK", "(Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/metadata/IIOMetadata;)Z", nullptr, $PRIVATE, $method(JPEGImageWriter, jfifOK, bool, $ImageTypeSpecifier*, $ImageWriteParam*, $IIOMetadata*, $IIOMetadata*)},
+		{"prepareWriteSequence", "(Ljavax/imageio/metadata/IIOMetadata;)V", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, prepareWriteSequence, void, $IIOMetadata*), "java.io.IOException"},
+		{"prepareWriteSequenceOnThread", "(Ljavax/imageio/metadata/IIOMetadata;)V", nullptr, $PRIVATE, $method(JPEGImageWriter, prepareWriteSequenceOnThread, void, $IIOMetadata*), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, reset, void)},
+		{"resetInternalState", "()V", nullptr, $PRIVATE, $method(JPEGImageWriter, resetInternalState, void)},
+		{"resetWriter", "(J)V", nullptr, $PRIVATE | $NATIVE, $method(JPEGImageWriter, resetWriter, void, int64_t)},
+		{"setDest", "(J)V", nullptr, $PRIVATE | $NATIVE, $method(JPEGImageWriter, setDest, void, int64_t)},
+		{"setOutput", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, setOutput, void, Object$*)},
+		{"setThreadLock", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(JPEGImageWriter, setThreadLock, void)},
+		{"thumbnailComplete", "()V", nullptr, 0, $virtualMethod(JPEGImageWriter, thumbnailComplete, void)},
+		{"thumbnailProgress", "(F)V", nullptr, 0, $virtualMethod(JPEGImageWriter, thumbnailProgress, void, float)},
+		{"thumbnailStarted", "(I)V", nullptr, 0, $virtualMethod(JPEGImageWriter, thumbnailStarted, void, int32_t)},
+		{"warningOccurred", "(I)V", nullptr, 0, $virtualMethod(JPEGImageWriter, warningOccurred, void, int32_t)},
+		{"warningWithMessage", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(JPEGImageWriter, warningWithMessage, void, $String*)},
+		{"write", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, write, void, $IIOMetadata*, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
+		{"writeImage", "(J[BIII[IIIIII[Ljavax/imageio/plugins/jpeg/JPEGQTable;Z[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;ZZZI[I[I[I[I[IZI)Z", nullptr, $PRIVATE | $NATIVE, $method(JPEGImageWriter, writeImage, bool, int64_t, $bytes*, int32_t, int32_t, int32_t, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t, $JPEGQTableArray*, bool, $JPEGHuffmanTableArray*, $JPEGHuffmanTableArray*, bool, bool, bool, int32_t, $ints*, $ints*, $ints*, $ints*, $ints*, bool, int32_t)},
+		{"writeMetadata", "()V", nullptr, $PRIVATE, $method(JPEGImageWriter, writeMetadata, void), "java.io.IOException"},
+		{"writeOnThread", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PRIVATE, $method(JPEGImageWriter, writeOnThread, void, $IIOMetadata*, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
+		{"writeOutputData", "([BII)V", nullptr, $PRIVATE, $method(JPEGImageWriter, writeOutputData, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"writeTables", "(J[Ljavax/imageio/plugins/jpeg/JPEGQTable;[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;)V", nullptr, $PRIVATE | $NATIVE, $method(JPEGImageWriter, writeTables, void, int64_t, $JPEGQTableArray*, $JPEGHuffmanTableArray*, $JPEGHuffmanTableArray*)},
+		{"writeToSequence", "(Ljavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriter, writeToSequence, void, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.imageio.plugins.jpeg.JPEGImageWriter$CallBackLock", "com.sun.imageio.plugins.jpeg.JPEGImageWriter", "CallBackLock", $PRIVATE | $STATIC},
+		{"com.sun.imageio.plugins.jpeg.JPEGImageWriter$JPEGWriterDisposerRecord", "com.sun.imageio.plugins.jpeg.JPEGImageWriter", "JPEGWriterDisposerRecord", $PRIVATE | $STATIC},
+		{"com.sun.imageio.plugins.jpeg.JPEGImageWriter$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.jpeg.JPEGImageWriter",
+		"javax.imageio.ImageWriter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.imageio.plugins.jpeg.JPEGImageWriter$CallBackLock,com.sun.imageio.plugins.jpeg.JPEGImageWriter$CallBackLock$State,com.sun.imageio.plugins.jpeg.JPEGImageWriter$JPEGWriterDisposerRecord,com.sun.imageio.plugins.jpeg.JPEGImageWriter$1"
+	};
+	$loadClass(JPEGImageWriter, name, initialize, &classInfo$$, JPEGImageWriter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JPEGImageWriter);
+	});
 	return class$;
 }
 

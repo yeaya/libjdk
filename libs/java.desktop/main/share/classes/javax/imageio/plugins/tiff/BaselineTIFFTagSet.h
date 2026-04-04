@@ -307,6 +307,7 @@ class $export BaselineTIFFTagSet : public ::javax::imageio::plugins::tiff::TIFFT
 	$class(BaselineTIFFTagSet, 0, ::javax::imageio::plugins::tiff::TIFFTagSet)
 public:
 	BaselineTIFFTagSet();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::imageio::plugins::tiff::BaselineTIFFTagSet* getInstance();
 	static void initTags();
@@ -332,7 +333,7 @@ public:
 	static const int32_t COMPRESSION_JPEG = 7;
 	static const int32_t COMPRESSION_ZLIB = 8;
 	static const int32_t COMPRESSION_PACKBITS = 0x00008005;
-	static const int32_t COMPRESSION_DEFLATE = 0x000080B2;
+	static const int32_t COMPRESSION_DEFLATE = 0x000080b2;
 	static const int32_t TAG_PHOTOMETRIC_INTERPRETATION = 262;
 	static const int32_t PHOTOMETRIC_INTERPRETATION_WHITE_IS_ZERO = 0;
 	static const int32_t PHOTOMETRIC_INTERPRETATION_BLACK_IS_ZERO = 1;

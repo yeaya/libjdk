@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/CSS$Value.h>
-
 #include <javax/swing/text/html/CSS.h>
 #include <jcpp.h>
 
@@ -40,68 +39,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _CSS$Value_FieldInfo_[] = {
-	{"INHERITED", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, INHERITED)},
-	{"NONE", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, NONE)},
-	{"HIDDEN", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, HIDDEN)},
-	{"DOTTED", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, DOTTED)},
-	{"DASHED", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, DASHED)},
-	{"SOLID", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, SOLID)},
-	{"DOUBLE", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, DOUBLE)},
-	{"GROOVE", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, GROOVE)},
-	{"RIDGE", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, RIDGE)},
-	{"INSET", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, INSET)},
-	{"OUTSET", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, OUTSET)},
-	{"DISC", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, DISC)},
-	{"CIRCLE", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, CIRCLE)},
-	{"SQUARE", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, SQUARE)},
-	{"DECIMAL", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, DECIMAL)},
-	{"LOWER_ROMAN", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, LOWER_ROMAN)},
-	{"UPPER_ROMAN", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, UPPER_ROMAN)},
-	{"LOWER_ALPHA", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, LOWER_ALPHA)},
-	{"UPPER_ALPHA", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, UPPER_ALPHA)},
-	{"BACKGROUND_NO_REPEAT", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, BACKGROUND_NO_REPEAT)},
-	{"BACKGROUND_REPEAT", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, BACKGROUND_REPEAT)},
-	{"BACKGROUND_REPEAT_X", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, BACKGROUND_REPEAT_X)},
-	{"BACKGROUND_REPEAT_Y", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, BACKGROUND_REPEAT_Y)},
-	{"BACKGROUND_SCROLL", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, BACKGROUND_SCROLL)},
-	{"BACKGROUND_FIXED", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, BACKGROUND_FIXED)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CSS$Value, name)},
-	{"allValues", "[Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, allValues)},
-	{}
-};
-
-$MethodInfo _CSS$Value_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(CSS$Value, init$, void, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CSS$Value, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _CSS$Value_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.CSS$Value", "javax.swing.text.html.CSS", "Value", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CSS$Value_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.text.html.CSS$Value",
-	"java.lang.Object",
-	nullptr,
-	_CSS$Value_FieldInfo_,
-	_CSS$Value_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CSS$Value_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.CSS"
-};
-
-$Object* allocate$CSS$Value($Class* clazz) {
-	return $of($alloc(CSS$Value));
-}
-
 CSS$Value* CSS$Value::INHERITED = nullptr;
 CSS$Value* CSS$Value::NONE = nullptr;
 CSS$Value* CSS$Value::HIDDEN = nullptr;
@@ -137,7 +74,7 @@ $String* CSS$Value::toString() {
 	return this->name;
 }
 
-void clinit$CSS$Value($Class* class$) {
+void CSS$Value::clinit$($Class* clazz) {
 	$assignStatic(CSS$Value::INHERITED, $new(CSS$Value, "inherited"_s));
 	$assignStatic(CSS$Value::NONE, $new(CSS$Value, "none"_s));
 	$assignStatic(CSS$Value::HIDDEN, $new(CSS$Value, "hidden"_s));
@@ -195,7 +132,63 @@ CSS$Value::CSS$Value() {
 }
 
 $Class* CSS$Value::load$($String* name, bool initialize) {
-	$loadClass(CSS$Value, name, initialize, &_CSS$Value_ClassInfo_, clinit$CSS$Value, allocate$CSS$Value);
+	$FieldInfo fieldInfos$$[] = {
+		{"INHERITED", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, INHERITED)},
+		{"NONE", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, NONE)},
+		{"HIDDEN", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, HIDDEN)},
+		{"DOTTED", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, DOTTED)},
+		{"DASHED", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, DASHED)},
+		{"SOLID", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, SOLID)},
+		{"DOUBLE", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, DOUBLE)},
+		{"GROOVE", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, GROOVE)},
+		{"RIDGE", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, RIDGE)},
+		{"INSET", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, INSET)},
+		{"OUTSET", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, OUTSET)},
+		{"DISC", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, DISC)},
+		{"CIRCLE", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, CIRCLE)},
+		{"SQUARE", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, SQUARE)},
+		{"DECIMAL", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, DECIMAL)},
+		{"LOWER_ROMAN", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, LOWER_ROMAN)},
+		{"UPPER_ROMAN", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, UPPER_ROMAN)},
+		{"LOWER_ALPHA", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, LOWER_ALPHA)},
+		{"UPPER_ALPHA", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, UPPER_ALPHA)},
+		{"BACKGROUND_NO_REPEAT", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, BACKGROUND_NO_REPEAT)},
+		{"BACKGROUND_REPEAT", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, BACKGROUND_REPEAT)},
+		{"BACKGROUND_REPEAT_X", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, BACKGROUND_REPEAT_X)},
+		{"BACKGROUND_REPEAT_Y", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, BACKGROUND_REPEAT_Y)},
+		{"BACKGROUND_SCROLL", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, BACKGROUND_SCROLL)},
+		{"BACKGROUND_FIXED", "Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, BACKGROUND_FIXED)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CSS$Value, name)},
+		{"allValues", "[Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticField(CSS$Value, allValues)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(CSS$Value, init$, void, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CSS$Value, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.CSS$Value", "javax.swing.text.html.CSS", "Value", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.text.html.CSS$Value",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.CSS"
+	};
+	$loadClass(CSS$Value, name, initialize, &classInfo$$, CSS$Value::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CSS$Value);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/InternalFrameTitlePaneMenuButtonWindowNotFocusedState.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <javax/swing/JComponent.h>
@@ -19,26 +18,6 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$MethodInfo _InternalFrameTitlePaneMenuButtonWindowNotFocusedState_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(InternalFrameTitlePaneMenuButtonWindowNotFocusedState, init$, void)},
-	{"isInState", "(Ljavax/swing/JComponent;)Z", nullptr, $PROTECTED, $virtualMethod(InternalFrameTitlePaneMenuButtonWindowNotFocusedState, isInState, bool, $JComponent*)},
-	{}
-};
-
-$ClassInfo _InternalFrameTitlePaneMenuButtonWindowNotFocusedState_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.nimbus.InternalFrameTitlePaneMenuButtonWindowNotFocusedState",
-	"javax.swing.plaf.nimbus.State",
-	nullptr,
-	nullptr,
-	_InternalFrameTitlePaneMenuButtonWindowNotFocusedState_MethodInfo_,
-	"Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;"
-};
-
-$Object* allocate$InternalFrameTitlePaneMenuButtonWindowNotFocusedState($Class* clazz) {
-	return $of($alloc(InternalFrameTitlePaneMenuButtonWindowNotFocusedState));
-}
-
 void InternalFrameTitlePaneMenuButtonWindowNotFocusedState::init$() {
 	$State::init$("WindowNotFocused"_s);
 }
@@ -52,7 +31,7 @@ bool InternalFrameTitlePaneMenuButtonWindowNotFocusedState::isInState($JComponen
 		$assign(parent, parent->getParent());
 	}
 	if ($instanceOf($JInternalFrame, parent)) {
-		return !($nc(($cast($JInternalFrame, parent)))->isSelected());
+		return !($cast($JInternalFrame, parent)->isSelected());
 	}
 	return false;
 }
@@ -61,7 +40,23 @@ InternalFrameTitlePaneMenuButtonWindowNotFocusedState::InternalFrameTitlePaneMen
 }
 
 $Class* InternalFrameTitlePaneMenuButtonWindowNotFocusedState::load$($String* name, bool initialize) {
-	$loadClass(InternalFrameTitlePaneMenuButtonWindowNotFocusedState, name, initialize, &_InternalFrameTitlePaneMenuButtonWindowNotFocusedState_ClassInfo_, allocate$InternalFrameTitlePaneMenuButtonWindowNotFocusedState);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(InternalFrameTitlePaneMenuButtonWindowNotFocusedState, init$, void)},
+		{"isInState", "(Ljavax/swing/JComponent;)Z", nullptr, $PROTECTED, $virtualMethod(InternalFrameTitlePaneMenuButtonWindowNotFocusedState, isInState, bool, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.nimbus.InternalFrameTitlePaneMenuButtonWindowNotFocusedState",
+		"javax.swing.plaf.nimbus.State",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;"
+	};
+	$loadClass(InternalFrameTitlePaneMenuButtonWindowNotFocusedState, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InternalFrameTitlePaneMenuButtonWindowNotFocusedState);
+	});
 	return class$;
 }
 

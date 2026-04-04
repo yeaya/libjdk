@@ -35,6 +35,7 @@ class $export Types$MostSpecificReturnCheck : public ::java::lang::Enum {
 public:
 	Types$MostSpecificReturnCheck();
 	static $Array<::com::sun::tools::javac::code::Types$MostSpecificReturnCheck>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual bool test(::com::sun::tools::javac::code::Type* mt1, ::com::sun::tools::javac::code::Type* mt2, ::com::sun::tools::javac::code::Types* types) {return false;}
 	static ::com::sun::tools::javac::code::Types$MostSpecificReturnCheck* valueOf($String* name);

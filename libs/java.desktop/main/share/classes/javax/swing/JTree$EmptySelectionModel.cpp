@@ -1,5 +1,4 @@
 #include <javax/swing/JTree$EmptySelectionModel.h>
-
 #include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/JTree.h>
 #include <javax/swing/event/TreeSelectionListener.h>
@@ -20,51 +19,6 @@ using $RowMapper = ::javax::swing::tree::RowMapper;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JTree$EmptySelectionModel_FieldInfo_[] = {
-	{"sharedInstance", "Ljavax/swing/JTree$EmptySelectionModel;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(JTree$EmptySelectionModel, sharedInstance$)},
-	{}
-};
-
-$MethodInfo _JTree$EmptySelectionModel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(JTree$EmptySelectionModel, init$, void)},
-	{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JTree$EmptySelectionModel, addPropertyChangeListener, void, $PropertyChangeListener*)},
-	{"addSelectionPaths", "([Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree$EmptySelectionModel, addSelectionPaths, void, $TreePathArray*)},
-	{"addTreeSelectionListener", "(Ljavax/swing/event/TreeSelectionListener;)V", nullptr, $PUBLIC, $virtualMethod(JTree$EmptySelectionModel, addTreeSelectionListener, void, $TreeSelectionListener*)},
-	{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JTree$EmptySelectionModel, removePropertyChangeListener, void, $PropertyChangeListener*)},
-	{"removeSelectionPaths", "([Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree$EmptySelectionModel, removeSelectionPaths, void, $TreePathArray*)},
-	{"removeTreeSelectionListener", "(Ljavax/swing/event/TreeSelectionListener;)V", nullptr, $PUBLIC, $virtualMethod(JTree$EmptySelectionModel, removeTreeSelectionListener, void, $TreeSelectionListener*)},
-	{"setRowMapper", "(Ljavax/swing/tree/RowMapper;)V", nullptr, $PUBLIC, $virtualMethod(JTree$EmptySelectionModel, setRowMapper, void, $RowMapper*)},
-	{"setSelectionMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTree$EmptySelectionModel, setSelectionMode, void, int32_t)},
-	{"setSelectionPaths", "([Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree$EmptySelectionModel, setSelectionPaths, void, $TreePathArray*)},
-	{"sharedInstance", "()Ljavax/swing/JTree$EmptySelectionModel;", nullptr, $PUBLIC | $STATIC, $staticMethod(JTree$EmptySelectionModel, sharedInstance, JTree$EmptySelectionModel*)},
-	{}
-};
-
-$InnerClassInfo _JTree$EmptySelectionModel_InnerClassesInfo_[] = {
-	{"javax.swing.JTree$EmptySelectionModel", "javax.swing.JTree", "EmptySelectionModel", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _JTree$EmptySelectionModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JTree$EmptySelectionModel",
-	"javax.swing.tree.DefaultTreeSelectionModel",
-	nullptr,
-	_JTree$EmptySelectionModel_FieldInfo_,
-	_JTree$EmptySelectionModel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTree$EmptySelectionModel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JTree"
-};
-
-$Object* allocate$JTree$EmptySelectionModel($Class* clazz) {
-	return $of($alloc(JTree$EmptySelectionModel));
-}
 
 JTree$EmptySelectionModel* JTree$EmptySelectionModel::sharedInstance$ = nullptr;
 
@@ -104,7 +58,7 @@ void JTree$EmptySelectionModel::addPropertyChangeListener($PropertyChangeListene
 void JTree$EmptySelectionModel::removePropertyChangeListener($PropertyChangeListener* listener) {
 }
 
-void clinit$JTree$EmptySelectionModel($Class* class$) {
+void JTree$EmptySelectionModel::clinit$($Class* clazz) {
 	$assignStatic(JTree$EmptySelectionModel::sharedInstance$, $new(JTree$EmptySelectionModel));
 }
 
@@ -112,7 +66,46 @@ JTree$EmptySelectionModel::JTree$EmptySelectionModel() {
 }
 
 $Class* JTree$EmptySelectionModel::load$($String* name, bool initialize) {
-	$loadClass(JTree$EmptySelectionModel, name, initialize, &_JTree$EmptySelectionModel_ClassInfo_, clinit$JTree$EmptySelectionModel, allocate$JTree$EmptySelectionModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"sharedInstance", "Ljavax/swing/JTree$EmptySelectionModel;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(JTree$EmptySelectionModel, sharedInstance$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(JTree$EmptySelectionModel, init$, void)},
+		{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JTree$EmptySelectionModel, addPropertyChangeListener, void, $PropertyChangeListener*)},
+		{"addSelectionPaths", "([Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree$EmptySelectionModel, addSelectionPaths, void, $TreePathArray*)},
+		{"addTreeSelectionListener", "(Ljavax/swing/event/TreeSelectionListener;)V", nullptr, $PUBLIC, $virtualMethod(JTree$EmptySelectionModel, addTreeSelectionListener, void, $TreeSelectionListener*)},
+		{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JTree$EmptySelectionModel, removePropertyChangeListener, void, $PropertyChangeListener*)},
+		{"removeSelectionPaths", "([Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree$EmptySelectionModel, removeSelectionPaths, void, $TreePathArray*)},
+		{"removeTreeSelectionListener", "(Ljavax/swing/event/TreeSelectionListener;)V", nullptr, $PUBLIC, $virtualMethod(JTree$EmptySelectionModel, removeTreeSelectionListener, void, $TreeSelectionListener*)},
+		{"setRowMapper", "(Ljavax/swing/tree/RowMapper;)V", nullptr, $PUBLIC, $virtualMethod(JTree$EmptySelectionModel, setRowMapper, void, $RowMapper*)},
+		{"setSelectionMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTree$EmptySelectionModel, setSelectionMode, void, int32_t)},
+		{"setSelectionPaths", "([Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree$EmptySelectionModel, setSelectionPaths, void, $TreePathArray*)},
+		{"sharedInstance", "()Ljavax/swing/JTree$EmptySelectionModel;", nullptr, $PUBLIC | $STATIC, $staticMethod(JTree$EmptySelectionModel, sharedInstance, JTree$EmptySelectionModel*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JTree$EmptySelectionModel", "javax.swing.JTree", "EmptySelectionModel", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JTree$EmptySelectionModel",
+		"javax.swing.tree.DefaultTreeSelectionModel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JTree"
+	};
+	$loadClass(JTree$EmptySelectionModel, name, initialize, &classInfo$$, JTree$EmptySelectionModel::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JTree$EmptySelectionModel));
+	});
 	return class$;
 }
 

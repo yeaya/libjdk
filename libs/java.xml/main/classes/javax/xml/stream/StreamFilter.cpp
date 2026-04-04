@@ -1,5 +1,4 @@
 #include <javax/xml/stream/StreamFilter.h>
-
 #include <javax/xml/stream/XMLStreamReader.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace javax {
 	namespace xml {
 		namespace stream {
 
-$MethodInfo _StreamFilter_MethodInfo_[] = {
-	{"accept", "(Ljavax/xml/stream/XMLStreamReader;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StreamFilter, accept, bool, $XMLStreamReader*)},
-	{}
-};
-
-$ClassInfo _StreamFilter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.xml.stream.StreamFilter",
-	nullptr,
-	nullptr,
-	nullptr,
-	_StreamFilter_MethodInfo_
-};
-
-$Object* allocate$StreamFilter($Class* clazz) {
-	return $of($alloc(StreamFilter));
-}
-
 $Class* StreamFilter::load$($String* name, bool initialize) {
-	$loadClass(StreamFilter, name, initialize, &_StreamFilter_ClassInfo_, allocate$StreamFilter);
+	$MethodInfo methodInfos$$[] = {
+		{"accept", "(Ljavax/xml/stream/XMLStreamReader;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StreamFilter, accept, bool, $XMLStreamReader*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.xml.stream.StreamFilter",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StreamFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StreamFilter);
+	});
 	return class$;
 }
 

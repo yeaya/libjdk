@@ -1,9 +1,7 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ANEWARRAY.h>
 #include <com/sun/org/apache/bcel/internal/generic/BasicType.h>
 #include <com/sun/org/apache/bcel/internal/generic/CHECKCAST.h>
-#include <com/sun/org/apache/bcel/internal/generic/CompoundInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/DUP_X1.h>
 #include <com/sun/org/apache/bcel/internal/generic/GETFIELD.h>
@@ -101,7 +99,6 @@
 using $ANEWARRAY = ::com::sun::org::apache::bcel::internal::generic::ANEWARRAY;
 using $BasicType = ::com::sun::org::apache::bcel::internal::generic::BasicType;
 using $CHECKCAST = ::com::sun::org::apache::bcel::internal::generic::CHECKCAST;
-using $CompoundInstruction = ::com::sun::org::apache::bcel::internal::generic::CompoundInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $DUP_X1 = ::com::sun::org::apache::bcel::internal::generic::DUP_X1;
 using $GETFIELD = ::com::sun::org::apache::bcel::internal::generic::GETFIELD;
@@ -109,7 +106,6 @@ using $ICONST = ::com::sun::org::apache::bcel::internal::generic::ICONST;
 using $INVOKEINTERFACE = ::com::sun::org::apache::bcel::internal::generic::INVOKEINTERFACE;
 using $INVOKESPECIAL = ::com::sun::org::apache::bcel::internal::generic::INVOKESPECIAL;
 using $INVOKEVIRTUAL = ::com::sun::org::apache::bcel::internal::generic::INVOKEVIRTUAL;
-using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $NEW = ::com::sun::org::apache::bcel::internal::generic::NEW;
 using $NEWARRAY = ::com::sun::org::apache::bcel::internal::generic::NEWARRAY;
@@ -141,7 +137,6 @@ using $ErrorMsg = ::com::sun::org::apache::xalan::internal::xsltc::compiler::uti
 using $MethodGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::MethodGenerator;
 using $Type = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::Type;
 using $Util = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::Util;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -154,9 +149,7 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $Predicate = ::java::util::function::Predicate;
-using $Stream = ::java::util::stream::Stream;
 using $Attributes = ::org::xml::sax::Attributes;
 using $AttributesImpl = ::org::xml::sax::helpers::AttributesImpl;
 
@@ -178,127 +171,32 @@ public:
 	virtual bool test(Object$* item) override {
 		 return $nc(inst$)->lambda$isSimpleRTF$0($cast(SyntaxTreeNode, item));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SyntaxTreeNode$$Lambda$lambda$isSimpleRTF$0>());
-	}
 	SyntaxTreeNode* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SyntaxTreeNode$$Lambda$lambda$isSimpleRTF$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SyntaxTreeNode$$Lambda$lambda$isSimpleRTF$0, inst$)},
-	{}
-};
-$MethodInfo SyntaxTreeNode$$Lambda$lambda$isSimpleRTF$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)V", nullptr, $PUBLIC, $method(SyntaxTreeNode$$Lambda$lambda$isSimpleRTF$0, init$, void, SyntaxTreeNode*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SyntaxTreeNode$$Lambda$lambda$isSimpleRTF$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo SyntaxTreeNode$$Lambda$lambda$isSimpleRTF$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.SyntaxTreeNode$$Lambda$lambda$isSimpleRTF$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* SyntaxTreeNode$$Lambda$lambda$isSimpleRTF$0::load$($String* name, bool initialize) {
-	$loadClass(SyntaxTreeNode$$Lambda$lambda$isSimpleRTF$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SyntaxTreeNode$$Lambda$lambda$isSimpleRTF$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)V", nullptr, $PUBLIC, $method(SyntaxTreeNode$$Lambda$lambda$isSimpleRTF$0, init$, void, SyntaxTreeNode*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SyntaxTreeNode$$Lambda$lambda$isSimpleRTF$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.SyntaxTreeNode$$Lambda$lambda$isSimpleRTF$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SyntaxTreeNode$$Lambda$lambda$isSimpleRTF$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SyntaxTreeNode$$Lambda$lambda$isSimpleRTF$0);
+	});
 	return class$;
 }
 $Class* SyntaxTreeNode$$Lambda$lambda$isSimpleRTF$0::class$ = nullptr;
-
-$FieldInfo _SyntaxTreeNode_FieldInfo_[] = {
-	{"_parser", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;", nullptr, $PRIVATE, $field(SyntaxTreeNode, _parser)},
-	{"_parent", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PROTECTED, $field(SyntaxTreeNode, _parent)},
-	{"_stylesheet", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PRIVATE, $field(SyntaxTreeNode, _stylesheet)},
-	{"_template", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;", nullptr, $PRIVATE, $field(SyntaxTreeNode, _template)},
-	{"_contents", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;>;", $PRIVATE | $FINAL, $field(SyntaxTreeNode, _contents)},
-	{"_qname", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PROTECTED, $field(SyntaxTreeNode, _qname)},
-	{"_line", "I", nullptr, $PRIVATE, $field(SyntaxTreeNode, _line)},
-	{"_attributes", "Lorg/xml/sax/helpers/AttributesImpl;", nullptr, $PROTECTED, $field(SyntaxTreeNode, _attributes)},
-	{"_prefixMapping", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(SyntaxTreeNode, _prefixMapping)},
-	{"Dummy", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SyntaxTreeNode, Dummy)},
-	{"IndentIncrement", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SyntaxTreeNode, IndentIncrement)},
-	{"_spaces", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SyntaxTreeNode, _spaces)},
-	{}
-};
-
-$MethodInfo _SyntaxTreeNode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SyntaxTreeNode, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(SyntaxTreeNode, init$, void, int32_t)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SyntaxTreeNode, init$, void, $String*, $String*, $String*)},
-	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, addAttribute, void, $String*, $String*)},
-	{"addElement", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)V", nullptr, $PROTECTED | $FINAL, $method(SyntaxTreeNode, addElement, void, SyntaxTreeNode*)},
-	{"addPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, addPrefixMapping, void, $String*, $String*)},
-	{"compileResultTree", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, compileResultTree, void, $ClassGenerator*, $MethodGenerator*)},
-	{"contextDependent", "()Z", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, contextDependent, bool)},
-	{"dependentContents", "()Z", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, dependentContents, bool)},
-	{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(SyntaxTreeNode, display, void, int32_t)},
-	{"displayContents", "(I)V", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, displayContents, void, int32_t)},
-	{"elementAt", "(I)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PROTECTED | $FINAL, $method(SyntaxTreeNode, elementAt, SyntaxTreeNode*, int32_t)},
-	{"elementCount", "()I", nullptr, $PROTECTED | $FINAL, $method(SyntaxTreeNode, elementCount, int32_t)},
-	{"elements", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;>;", $PROTECTED | $FINAL, $method(SyntaxTreeNode, elements, $Iterator*)},
-	{"getAttribute", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, getAttribute, $String*, $String*)},
-	{"getAttribute", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, getAttribute, $String*, $String*, $String*)},
-	{"getAttributes", "()Lorg/xml/sax/Attributes;", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, getAttributes, $Attributes*)},
-	{"getContents", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;>;", $PROTECTED | $FINAL, $method(SyntaxTreeNode, getContents, $List*)},
-	{"getImportPrecedence", "()I", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, getImportPrecedence, int32_t)},
-	{"getLineNumber", "()I", nullptr, $PUBLIC | $FINAL, $method(SyntaxTreeNode, getLineNumber, int32_t)},
-	{"getParent", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PROTECTED | $FINAL, $method(SyntaxTreeNode, getParent, SyntaxTreeNode*)},
-	{"getParser", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;", nullptr, $PUBLIC | $FINAL, $method(SyntaxTreeNode, getParser, $Parser*)},
-	{"getPrefixMapping", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PROTECTED, $virtualMethod(SyntaxTreeNode, getPrefixMapping, $Map*)},
-	{"getQName", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, getQName, $QName*)},
-	{"getStylesheet", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PUBLIC, $virtualMethod(SyntaxTreeNode, getStylesheet, $Stylesheet*)},
-	{"getSymbolTable", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;", nullptr, $PROTECTED | $FINAL, $method(SyntaxTreeNode, getSymbolTable, $SymbolTable*)},
-	{"getTemplate", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, getTemplate, $Template*)},
-	{"getXSLTC", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/XSLTC;", nullptr, $PROTECTED | $FINAL, $method(SyntaxTreeNode, getXSLTC, $XSLTC*)},
-	{"hasAttribute", "(Ljava/lang/String;)Z", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, hasAttribute, bool, $String*)},
-	{"hasContents", "()Z", nullptr, $PROTECTED | $FINAL, $method(SyntaxTreeNode, hasContents, bool)},
-	{"indent", "(I)V", nullptr, $PROTECTED | $FINAL, $method(SyntaxTreeNode, indent, void, int32_t)},
-	{"isAdaptiveRTF", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)Z", nullptr, $PRIVATE, $method(SyntaxTreeNode, isAdaptiveRTF, bool, SyntaxTreeNode*)},
-	{"isDummy", "()Z", nullptr, $PROTECTED | $FINAL, $method(SyntaxTreeNode, isDummy, bool)},
-	{"isSimpleRTF", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)Z", nullptr, $PRIVATE, $method(SyntaxTreeNode, isSimpleRTF, bool, SyntaxTreeNode*)},
-	{"isTextElement", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;Z)Z", nullptr, $PRIVATE, $method(SyntaxTreeNode, isTextElement, bool, SyntaxTreeNode*, bool)},
-	{"lambda$isSimpleRTF$0", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(SyntaxTreeNode, lambda$isSimpleRTF$0, bool, SyntaxTreeNode*)},
-	{"lastChild", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PROTECTED | $FINAL, $method(SyntaxTreeNode, lastChild, SyntaxTreeNode*)},
-	{"lookupNamespace", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, lookupNamespace, $String*, $String*)},
-	{"lookupPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, lookupPrefix, $String*, $String*)},
-	{"notTypeOf", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC, $virtualMethod(SyntaxTreeNode, notTypeOf, bool, $Class*)},
-	{"parseChildren", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PROTECTED | $FINAL, $method(SyntaxTreeNode, parseChildren, void, $Parser*)},
-	{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(SyntaxTreeNode, parseContents, void, $Parser*)},
-	{"removeElement", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)V", nullptr, $PROTECTED | $FINAL, $method(SyntaxTreeNode, removeElement, void, SyntaxTreeNode*)},
-	{"reportError", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, reportError, void, SyntaxTreeNode*, $Parser*, $String*, $String*)},
-	{"reportWarning", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, reportWarning, void, SyntaxTreeNode*, $Parser*, $String*, $String*)},
-	{"setAttributes", "(Lorg/xml/sax/helpers/AttributesImpl;)V", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, setAttributes, void, $AttributesImpl*)},
-	{"setFirstElement", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)V", nullptr, $PROTECTED | $FINAL, $method(SyntaxTreeNode, setFirstElement, void, SyntaxTreeNode*)},
-	{"setLineNumber", "(I)V", nullptr, $PROTECTED | $FINAL, $method(SyntaxTreeNode, setLineNumber, void, int32_t)},
-	{"setParent", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)V", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, setParent, void, SyntaxTreeNode*)},
-	{"setParser", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, setParser, void, $Parser*)},
-	{"setPrefixMapping", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PROTECTED, $virtualMethod(SyntaxTreeNode, setPrefixMapping, void, $Map*)},
-	{"setQName", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)V", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, setQName, void, $QName*)},
-	{"setQName", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, setQName, void, $String*, $String*, $String*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyntaxTreeNode, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"translateContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, translateContents, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyntaxTreeNode, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{"typeCheckContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, typeCheckContents, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{"updateScope", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, updateScope, $QName*, $Parser*, SyntaxTreeNode*)},
-	{}
-};
-
-$ClassInfo _SyntaxTreeNode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.SyntaxTreeNode",
-	"java.lang.Object",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Constants",
-	_SyntaxTreeNode_FieldInfo_,
-	_SyntaxTreeNode_MethodInfo_
-};
-
-$Object* allocate$SyntaxTreeNode($Class* clazz) {
-	return $of($alloc(SyntaxTreeNode));
-}
 
 SyntaxTreeNode* SyntaxTreeNode::Dummy = nullptr;
 $chars* SyntaxTreeNode::_spaces = nullptr;
@@ -336,7 +234,7 @@ int32_t SyntaxTreeNode::getLineNumber() {
 		return this->_line;
 	}
 	$var(SyntaxTreeNode, parent, getParent());
-	return (parent != nullptr) ? $nc(parent)->getLineNumber() : 0;
+	return (parent != nullptr) ? parent->getLineNumber() : 0;
 }
 
 void SyntaxTreeNode::setQName($QName* qname) {
@@ -362,20 +260,20 @@ $String* SyntaxTreeNode::getAttribute($String* qname) {
 	}
 	$var($String, value, $nc(this->_attributes)->getValue(qname));
 	$init($Constants);
-	return (value == nullptr || $nc(value)->equals($Constants::EMPTYSTRING)) ? $Constants::EMPTYSTRING : value;
+	return (value == nullptr || value->equals($Constants::EMPTYSTRING)) ? $Constants::EMPTYSTRING : value;
 }
 
 $String* SyntaxTreeNode::getAttribute($String* prefix, $String* localName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return getAttribute($$str({prefix, $$str(u':'), localName}));
 }
 
 bool SyntaxTreeNode::hasAttribute($String* qname) {
-	return (this->_attributes != nullptr && $nc(this->_attributes)->getValue(qname) != nullptr);
+	return (this->_attributes != nullptr && this->_attributes->getValue(qname) != nullptr);
 }
 
 void SyntaxTreeNode::addAttribute($String* qname, $String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t index = $nc(this->_attributes)->getIndex(qname);
 	if (index != -1) {
 		$nc(this->_attributes)->setAttribute(index, ""_s, $($Util::getLocalName(qname)), qname, "CDATA"_s, value);
@@ -406,10 +304,10 @@ void SyntaxTreeNode::addPrefixMapping($String* prefix, $String* uri) {
 $String* SyntaxTreeNode::lookupNamespace($String* prefix) {
 	$var($String, uri, nullptr);
 	if (this->_prefixMapping != nullptr) {
-		$assign(uri, $cast($String, $nc(this->_prefixMapping)->get(prefix)));
+		$assign(uri, $cast($String, this->_prefixMapping->get(prefix)));
 	}
 	if ((uri == nullptr) && (this->_parent != nullptr)) {
-		$assign(uri, $nc(this->_parent)->lookupNamespace(prefix));
+		$assign(uri, this->_parent->lookupNamespace(prefix));
 		$init($Constants);
 		if ((prefix == $Constants::EMPTYSTRING) && (uri == nullptr)) {
 			$assign(uri, $Constants::EMPTYSTRING);
@@ -419,24 +317,22 @@ $String* SyntaxTreeNode::lookupNamespace($String* prefix) {
 }
 
 $String* SyntaxTreeNode::lookupPrefix($String* uri) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prefix, nullptr);
-	if ((this->_prefixMapping != nullptr) && ($nc(this->_prefixMapping)->containsValue(uri))) {
-		{
-			$var($Iterator, i$, $nc($($nc(this->_prefixMapping)->entrySet()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
-				{
-					$assign(prefix, $cast($String, $nc(entry)->getKey()));
-					$var($String, mapsTo, $cast($String, entry->getValue()));
-					if ($nc(mapsTo)->equals(uri)) {
-						return (prefix);
-					}
+	if ((this->_prefixMapping != nullptr) && (this->_prefixMapping->containsValue(uri))) {
+		$var($Iterator, i$, $$nc(this->_prefixMapping->entrySet())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
+			{
+				$assign(prefix, $cast($String, $nc(entry)->getKey()));
+				$var($String, mapsTo, $cast($String, entry->getValue()));
+				if ($nc(mapsTo)->equals(uri)) {
+					return (prefix);
 				}
 			}
 		}
 	} else if (this->_parent != nullptr) {
-		$assign(prefix, $nc(this->_parent)->lookupPrefix(uri));
+		$assign(prefix, this->_parent->lookupPrefix(uri));
 		$init($Constants);
 		if ((uri == $Constants::EMPTYSTRING) && (prefix == nullptr)) {
 			$assign(prefix, $Constants::EMPTYSTRING);
@@ -480,7 +376,7 @@ $Stylesheet* SyntaxTreeNode::getStylesheet() {
 		$var(SyntaxTreeNode, parent, this);
 		while (parent != nullptr) {
 			if ($instanceOf($Stylesheet, parent)) {
-				return ($cast($Stylesheet, parent));
+				return $cast($Stylesheet, parent);
 			}
 			$assign(parent, parent->getParent());
 		}
@@ -505,7 +401,7 @@ $XSLTC* SyntaxTreeNode::getXSLTC() {
 }
 
 $SymbolTable* SyntaxTreeNode::getSymbolTable() {
-	return (this->_parser == nullptr) ? ($SymbolTable*)nullptr : $nc(this->_parser)->getSymbolTable();
+	return (this->_parser == nullptr) ? ($SymbolTable*)nullptr : this->_parser->getSymbolTable();
 }
 
 void SyntaxTreeNode::parseContents($Parser* parser) {
@@ -513,14 +409,14 @@ void SyntaxTreeNode::parseContents($Parser* parser) {
 }
 
 void SyntaxTreeNode::parseChildren($Parser* parser) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, locals, nullptr);
 	{
 		$var($Iterator, i$, $nc(this->_contents)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var(SyntaxTreeNode, child, $cast(SyntaxTreeNode, i$->next()));
 			{
-				$nc($($nc(parser)->getSymbolTable()))->setCurrentNode(child);
+				$$nc($nc(parser)->getSymbolTable())->setCurrentNode(child);
 				$nc(child)->parseContents(parser);
 				$var($QName, varOrParamName, updateScope(parser, child));
 				if (varOrParamName != nullptr) {
@@ -532,37 +428,35 @@ void SyntaxTreeNode::parseChildren($Parser* parser) {
 			}
 		}
 	}
-	$nc($($nc(parser)->getSymbolTable()))->setCurrentNode(this);
+	$$nc($nc(parser)->getSymbolTable())->setCurrentNode(this);
 	if (locals != nullptr) {
-		{
-			$var($Iterator, i$, locals->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($QName, varOrParamName, $cast($QName, i$->next()));
-				{
-					parser->removeVariable(varOrParamName);
-				}
+		$var($Iterator, i$, locals->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($QName, varOrParamName, $cast($QName, i$->next()));
+			{
+				parser->removeVariable(varOrParamName);
 			}
 		}
 	}
 }
 
 $QName* SyntaxTreeNode::updateScope($Parser* parser, SyntaxTreeNode* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Variable, node)) {
 		$var($Variable, var, $cast($Variable, node));
 		$nc(parser)->addVariable(var);
-		return $nc(var)->getName();
+		return var->getName();
 	} else if ($instanceOf($Param, node)) {
 		$var($Param, param, $cast($Param, node));
 		$nc(parser)->addParameter(param);
-		return $nc(param)->getName();
+		return param->getName();
 	} else {
 		return nullptr;
 	}
 }
 
 $Type* SyntaxTreeNode::typeCheckContents($SymbolTable* stable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Iterator, i$, $nc(this->_contents)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -577,7 +471,7 @@ $Type* SyntaxTreeNode::typeCheckContents($SymbolTable* stable) {
 }
 
 void SyntaxTreeNode::translateContents($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = elementCount();
 	{
 		$var($Iterator, i$, $nc(this->_contents)->iterator());
@@ -591,25 +485,21 @@ void SyntaxTreeNode::translateContents($ClassGenerator* classGen, $MethodGenerat
 		}
 	}
 	for (int32_t i = 0; i < n; ++i) {
-		if ($instanceOf($VariableBase, $($nc(this->_contents)->get(i)))) {
-			$var($VariableBase, var, $cast($VariableBase, $nc(this->_contents)->get(i)));
+		if ($instanceOf($VariableBase, $(this->_contents->get(i)))) {
+			$var($VariableBase, var, $cast($VariableBase, this->_contents->get(i)));
 			$nc(var)->unmapRegister(classGen, methodGen);
 		}
 	}
 }
 
 bool SyntaxTreeNode::notTypeOf($Class* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->_contents)->size() > 0) {
-		{
-			$var($Iterator, i$, $nc(this->_contents)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var(SyntaxTreeNode, item, $cast(SyntaxTreeNode, i$->next()));
-				{
-					if (!$nc($of(item))->getClass()->isAssignableFrom(type)) {
-						return true;
-					}
-				}
+		$var($Iterator, i$, this->_contents->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var(SyntaxTreeNode, item, $cast(SyntaxTreeNode, i$->next()));
+			if (!$nc(item)->getClass()->isAssignableFrom(type)) {
+				return true;
 			}
 		}
 	}
@@ -617,25 +507,23 @@ bool SyntaxTreeNode::notTypeOf($Class* type) {
 }
 
 bool SyntaxTreeNode::isSimpleRTF(SyntaxTreeNode* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, contents, $nc(node)->getContents());
-	if (!$nc($($nc(contents)->stream()))->noneMatch(static_cast<$Predicate*>($$new(SyntaxTreeNode$$Lambda$lambda$isSimpleRTF$0, this)))) {
+	if (!$$nc($nc(contents)->stream())->noneMatch($$new(SyntaxTreeNode$$Lambda$lambda$isSimpleRTF$0, this))) {
 		return false;
 	}
 	return true;
 }
 
 bool SyntaxTreeNode::isAdaptiveRTF(SyntaxTreeNode* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, contents, $nc(node)->getContents());
 	{
 		$var($Iterator, i$, $nc(contents)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var(SyntaxTreeNode, item, $cast(SyntaxTreeNode, i$->next()));
-			{
-				if (!isTextElement(item, true)) {
-					return false;
-				}
+			if (!isTextElement(item, true)) {
+				return false;
 			}
 		}
 	}
@@ -643,13 +531,13 @@ bool SyntaxTreeNode::isAdaptiveRTF(SyntaxTreeNode* node) {
 }
 
 bool SyntaxTreeNode::isTextElement(SyntaxTreeNode* node, bool doExtendedCheck) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($ValueOf, node) || $instanceOf($Number, node) || $instanceOf($Text, node)) {
 		return true;
 	} else if ($instanceOf($If, node)) {
 		return doExtendedCheck ? isAdaptiveRTF(node) : isSimpleRTF(node);
 	} else if ($instanceOf($Choose, node)) {
-		$var($List, contents, $nc(node)->getContents());
+		$var($List, contents, node->getContents());
 		{
 			$var($Iterator, i$, $nc(contents)->iterator());
 			for (; $nc(i$)->hasNext();) {
@@ -657,12 +545,12 @@ bool SyntaxTreeNode::isTextElement(SyntaxTreeNode* node, bool doExtendedCheck) {
 				{
 					bool var$0 = $instanceOf($Text, item);
 					if (!var$0) {
-						bool var$1 = ($instanceOf($When, item) || $instanceOf($Otherwise, item));
+						bool var$1 = $instanceOf($When, item) || $instanceOf($Otherwise, item);
 						if (var$1) {
-							bool var$2 = (doExtendedCheck && isAdaptiveRTF(item));
-							var$1 = (var$2 || (!doExtendedCheck && isSimpleRTF(item)));
+							bool var$2 = doExtendedCheck && isAdaptiveRTF(item);
+							var$1 = var$2 || (!doExtendedCheck && isSimpleRTF(item));
 						}
-						var$0 = (var$1);
+						var$0 = var$1;
 					}
 					if (var$0) {
 						continue;
@@ -681,7 +569,7 @@ bool SyntaxTreeNode::isTextElement(SyntaxTreeNode* node, bool doExtendedCheck) {
 }
 
 void SyntaxTreeNode::compileResultTree($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	$var($Stylesheet, stylesheet, classGen->getStylesheet());
@@ -696,55 +584,55 @@ void SyntaxTreeNode::compileResultTree($ClassGenerator* classGen, $MethodGenerat
 	il->append($(methodGen->loadDOM()));
 	$init($Constants);
 	int32_t index = $nc(cpg)->addInterfaceMethodref($Constants::DOM_INTF, "getResultTreeFrag"_s, $$str({"(IIZ)"_s, $Constants::DOM_INTF_SIG}));
-	il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, $Constants::RTF_INITIAL_SIZE)));
-	il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, rtfType)));
-	il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, $nc(stylesheet)->callsNodeset())));
-	il->append(static_cast<$Instruction*>($$new($INVOKEINTERFACE, index, 4)));
-	il->append(static_cast<$Instruction*>($Constants::DUP));
+	il->append($$new($PUSH, cpg, $Constants::RTF_INITIAL_SIZE));
+	il->append($$new($PUSH, cpg, rtfType));
+	il->append($$new($PUSH, cpg, $nc(stylesheet)->callsNodeset()));
+	il->append($$new($INVOKEINTERFACE, index, 4));
+	il->append($Constants::DUP);
 	index = cpg->addInterfaceMethodref($Constants::DOM_INTF, "getOutputDomBuilder"_s, $$str({"()"_s, $Constants::TRANSLET_OUTPUT_SIG}));
-	il->append(static_cast<$Instruction*>($$new($INVOKEINTERFACE, index, 1)));
-	il->append(static_cast<$Instruction*>($Constants::DUP));
+	il->append($$new($INVOKEINTERFACE, index, 1));
+	il->append($Constants::DUP);
 	il->append($(methodGen->storeHandler()));
 	il->append($(methodGen->startDocument()));
 	translateContents(classGen, methodGen);
 	il->append($(methodGen->loadHandler()));
 	il->append($(methodGen->endDocument()));
-	bool var$0 = $nc(stylesheet)->callsNodeset();
+	bool var$0 = stylesheet->callsNodeset();
 	if (var$0 && !$nc(DOM_CLASS)->equals($Constants::DOM_IMPL_CLASS)) {
 		index = cpg->addMethodref($Constants::DOM_ADAPTER_CLASS, "<init>"_s, $$str({"("_s, $Constants::DOM_INTF_SIG, "["_s, $Constants::STRING_SIG, "["_s, $Constants::STRING_SIG, "[I["_s, $Constants::STRING_SIG, ")V"_s}));
-		il->append(static_cast<$Instruction*>($$new($NEW, cpg->addClass($Constants::DOM_ADAPTER_CLASS))));
-		il->append(static_cast<$Instruction*>($$new($DUP_X1)));
-		il->append(static_cast<$Instruction*>($Constants::SWAP));
+		il->append($$new($NEW, cpg->addClass($Constants::DOM_ADAPTER_CLASS)));
+		il->append($$new($DUP_X1));
+		il->append($Constants::SWAP);
 		if (!stylesheet->callsNodeset()) {
-			il->append(static_cast<$Instruction*>($$new($ICONST, 0)));
-			il->append(static_cast<$Instruction*>($$new($ANEWARRAY, cpg->addClass($Constants::STRING))));
-			il->append(static_cast<$Instruction*>($Constants::DUP));
-			il->append(static_cast<$Instruction*>($Constants::DUP));
-			il->append(static_cast<$Instruction*>($$new($ICONST, 0)));
+			il->append($$new($ICONST, 0));
+			il->append($$new($ANEWARRAY, cpg->addClass($Constants::STRING)));
+			il->append($Constants::DUP);
+			il->append($Constants::DUP);
+			il->append($$new($ICONST, 0));
 			$init($BasicType);
-			il->append(static_cast<$Instruction*>($$new($NEWARRAY, $BasicType::INT)));
-			il->append(static_cast<$Instruction*>($Constants::SWAP));
-			il->append(static_cast<$Instruction*>($$new($INVOKESPECIAL, index)));
+			il->append($$new($NEWARRAY, $BasicType::INT));
+			il->append($Constants::SWAP);
+			il->append($$new($INVOKESPECIAL, index));
 		} else {
-			il->append(static_cast<$Instruction*>($Constants::ALOAD_0));
-			il->append(static_cast<$Instruction*>($$new($GETFIELD, cpg->addFieldref($Constants::TRANSLET_CLASS, $Constants::NAMES_INDEX, $Constants::NAMES_INDEX_SIG))));
-			il->append(static_cast<$Instruction*>($Constants::ALOAD_0));
-			il->append(static_cast<$Instruction*>($$new($GETFIELD, cpg->addFieldref($Constants::TRANSLET_CLASS, $Constants::URIS_INDEX, $Constants::URIS_INDEX_SIG))));
-			il->append(static_cast<$Instruction*>($Constants::ALOAD_0));
-			il->append(static_cast<$Instruction*>($$new($GETFIELD, cpg->addFieldref($Constants::TRANSLET_CLASS, $Constants::TYPES_INDEX, $Constants::TYPES_INDEX_SIG))));
-			il->append(static_cast<$Instruction*>($Constants::ALOAD_0));
-			il->append(static_cast<$Instruction*>($$new($GETFIELD, cpg->addFieldref($Constants::TRANSLET_CLASS, $Constants::NAMESPACE_INDEX, $Constants::NAMESPACE_INDEX_SIG))));
-			il->append(static_cast<$Instruction*>($$new($INVOKESPECIAL, index)));
-			il->append(static_cast<$Instruction*>($Constants::DUP));
+			il->append($Constants::ALOAD_0);
+			il->append($$new($GETFIELD, cpg->addFieldref($Constants::TRANSLET_CLASS, $Constants::NAMES_INDEX, $Constants::NAMES_INDEX_SIG)));
+			il->append($Constants::ALOAD_0);
+			il->append($$new($GETFIELD, cpg->addFieldref($Constants::TRANSLET_CLASS, $Constants::URIS_INDEX, $Constants::URIS_INDEX_SIG)));
+			il->append($Constants::ALOAD_0);
+			il->append($$new($GETFIELD, cpg->addFieldref($Constants::TRANSLET_CLASS, $Constants::TYPES_INDEX, $Constants::TYPES_INDEX_SIG)));
+			il->append($Constants::ALOAD_0);
+			il->append($$new($GETFIELD, cpg->addFieldref($Constants::TRANSLET_CLASS, $Constants::NAMESPACE_INDEX, $Constants::NAMESPACE_INDEX_SIG)));
+			il->append($$new($INVOKESPECIAL, index));
+			il->append($Constants::DUP);
 			il->append($(methodGen->loadDOM()));
-			il->append(static_cast<$Instruction*>($$new($CHECKCAST, cpg->addClass($(classGen->getDOMClass())))));
-			il->append(static_cast<$Instruction*>($Constants::SWAP));
+			il->append($$new($CHECKCAST, cpg->addClass($(classGen->getDOMClass()))));
+			il->append($Constants::SWAP);
 			index = cpg->addMethodref($Constants::MULTI_DOM_CLASS, "addDOMAdapter"_s, $$str({"("_s, $Constants::DOM_ADAPTER_SIG, ")I"_s}));
-			il->append(static_cast<$Instruction*>($$new($INVOKEVIRTUAL, index)));
-			il->append(static_cast<$Instruction*>($Constants::POP));
+			il->append($$new($INVOKEVIRTUAL, index));
+			il->append($Constants::POP);
 		}
 	}
-	il->append(static_cast<$Instruction*>($Constants::SWAP));
+	il->append($Constants::SWAP);
 	il->append($(methodGen->storeHandler()));
 }
 
@@ -753,16 +641,12 @@ bool SyntaxTreeNode::contextDependent() {
 }
 
 bool SyntaxTreeNode::dependentContents() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(this->_contents)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var(SyntaxTreeNode, item, $cast(SyntaxTreeNode, i$->next()));
-			{
-				if ($nc(item)->contextDependent()) {
-					return true;
-				}
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(this->_contents)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var(SyntaxTreeNode, item, $cast(SyntaxTreeNode, i$->next()));
+		if ($nc(item)->contextDependent()) {
+			return true;
 		}
 	}
 	return false;
@@ -779,7 +663,7 @@ void SyntaxTreeNode::setFirstElement(SyntaxTreeNode* element) {
 }
 
 void SyntaxTreeNode::removeElement(SyntaxTreeNode* element) {
-	$nc(this->_contents)->remove($of(element));
+	$nc(this->_contents)->remove(element);
 	$nc(element)->setParent(nullptr);
 }
 
@@ -807,7 +691,7 @@ SyntaxTreeNode* SyntaxTreeNode::lastChild() {
 	if ($nc(this->_contents)->isEmpty()) {
 		return nullptr;
 	}
-	return $cast(SyntaxTreeNode, $nc(this->_contents)->get($nc(this->_contents)->size() - 1));
+	return $cast(SyntaxTreeNode, this->_contents->get(this->_contents->size() - 1));
 }
 
 void SyntaxTreeNode::display(int32_t indent) {
@@ -815,14 +699,12 @@ void SyntaxTreeNode::display(int32_t indent) {
 }
 
 void SyntaxTreeNode::displayContents(int32_t indent) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(this->_contents)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var(SyntaxTreeNode, item, $cast(SyntaxTreeNode, i$->next()));
-			{
-				$nc(item)->display(indent);
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(this->_contents)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var(SyntaxTreeNode, item, $cast(SyntaxTreeNode, i$->next()));
+		{
+			$nc(item)->display(indent);
 		}
 	}
 }
@@ -832,12 +714,12 @@ void SyntaxTreeNode::indent(int32_t indent) {
 }
 
 void SyntaxTreeNode::reportError(SyntaxTreeNode* element, $Parser* parser, $String* errorCode, $String* message) {
-	$var($ErrorMsg, error, $new($ErrorMsg, errorCode, $of(message), element));
+	$var($ErrorMsg, error, $new($ErrorMsg, errorCode, message, element));
 	$nc(parser)->reportError($Constants::ERROR, error);
 }
 
 void SyntaxTreeNode::reportWarning(SyntaxTreeNode* element, $Parser* parser, $String* errorCode, $String* message) {
-	$var($ErrorMsg, error, $new($ErrorMsg, errorCode, $of(message), element));
+	$var($ErrorMsg, error, $new($ErrorMsg, errorCode, message, element));
 	$nc(parser)->reportError($Constants::WARNING, error);
 }
 
@@ -845,7 +727,7 @@ bool SyntaxTreeNode::lambda$isSimpleRTF$0(SyntaxTreeNode* item) {
 	return (!isTextElement(item, false));
 }
 
-void clinit$SyntaxTreeNode($Class* class$) {
+void SyntaxTreeNode::clinit$($Class* clazz) {
 	$assignStatic(SyntaxTreeNode::Dummy, $new($AbsolutePathPattern, nullptr));
 	$assignStatic(SyntaxTreeNode::_spaces, "                                                       "_s->toCharArray());
 }
@@ -855,11 +737,97 @@ SyntaxTreeNode::SyntaxTreeNode() {
 
 $Class* SyntaxTreeNode::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SyntaxTreeNode$$Lambda$lambda$isSimpleRTF$0::classInfo$.name)) {
+		if (name->equals("com.sun.org.apache.xalan.internal.xsltc.compiler.SyntaxTreeNode$$Lambda$lambda$isSimpleRTF$0")) {
 			return SyntaxTreeNode$$Lambda$lambda$isSimpleRTF$0::load$(name, initialize);
 		}
 	}
-	$loadClass(SyntaxTreeNode, name, initialize, &_SyntaxTreeNode_ClassInfo_, clinit$SyntaxTreeNode, allocate$SyntaxTreeNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"_parser", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;", nullptr, $PRIVATE, $field(SyntaxTreeNode, _parser)},
+		{"_parent", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PROTECTED, $field(SyntaxTreeNode, _parent)},
+		{"_stylesheet", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PRIVATE, $field(SyntaxTreeNode, _stylesheet)},
+		{"_template", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;", nullptr, $PRIVATE, $field(SyntaxTreeNode, _template)},
+		{"_contents", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;>;", $PRIVATE | $FINAL, $field(SyntaxTreeNode, _contents)},
+		{"_qname", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PROTECTED, $field(SyntaxTreeNode, _qname)},
+		{"_line", "I", nullptr, $PRIVATE, $field(SyntaxTreeNode, _line)},
+		{"_attributes", "Lorg/xml/sax/helpers/AttributesImpl;", nullptr, $PROTECTED, $field(SyntaxTreeNode, _attributes)},
+		{"_prefixMapping", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(SyntaxTreeNode, _prefixMapping)},
+		{"Dummy", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SyntaxTreeNode, Dummy)},
+		{"IndentIncrement", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SyntaxTreeNode, IndentIncrement)},
+		{"_spaces", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SyntaxTreeNode, _spaces)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SyntaxTreeNode, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(SyntaxTreeNode, init$, void, int32_t)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SyntaxTreeNode, init$, void, $String*, $String*, $String*)},
+		{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, addAttribute, void, $String*, $String*)},
+		{"addElement", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)V", nullptr, $PROTECTED | $FINAL, $method(SyntaxTreeNode, addElement, void, SyntaxTreeNode*)},
+		{"addPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, addPrefixMapping, void, $String*, $String*)},
+		{"compileResultTree", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, compileResultTree, void, $ClassGenerator*, $MethodGenerator*)},
+		{"contextDependent", "()Z", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, contextDependent, bool)},
+		{"dependentContents", "()Z", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, dependentContents, bool)},
+		{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(SyntaxTreeNode, display, void, int32_t)},
+		{"displayContents", "(I)V", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, displayContents, void, int32_t)},
+		{"elementAt", "(I)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PROTECTED | $FINAL, $method(SyntaxTreeNode, elementAt, SyntaxTreeNode*, int32_t)},
+		{"elementCount", "()I", nullptr, $PROTECTED | $FINAL, $method(SyntaxTreeNode, elementCount, int32_t)},
+		{"elements", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;>;", $PROTECTED | $FINAL, $method(SyntaxTreeNode, elements, $Iterator*)},
+		{"getAttribute", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, getAttribute, $String*, $String*)},
+		{"getAttribute", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, getAttribute, $String*, $String*, $String*)},
+		{"getAttributes", "()Lorg/xml/sax/Attributes;", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, getAttributes, $Attributes*)},
+		{"getContents", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;>;", $PROTECTED | $FINAL, $method(SyntaxTreeNode, getContents, $List*)},
+		{"getImportPrecedence", "()I", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, getImportPrecedence, int32_t)},
+		{"getLineNumber", "()I", nullptr, $PUBLIC | $FINAL, $method(SyntaxTreeNode, getLineNumber, int32_t)},
+		{"getParent", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PROTECTED | $FINAL, $method(SyntaxTreeNode, getParent, SyntaxTreeNode*)},
+		{"getParser", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;", nullptr, $PUBLIC | $FINAL, $method(SyntaxTreeNode, getParser, $Parser*)},
+		{"getPrefixMapping", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PROTECTED, $virtualMethod(SyntaxTreeNode, getPrefixMapping, $Map*)},
+		{"getQName", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, getQName, $QName*)},
+		{"getStylesheet", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PUBLIC, $virtualMethod(SyntaxTreeNode, getStylesheet, $Stylesheet*)},
+		{"getSymbolTable", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;", nullptr, $PROTECTED | $FINAL, $method(SyntaxTreeNode, getSymbolTable, $SymbolTable*)},
+		{"getTemplate", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, getTemplate, $Template*)},
+		{"getXSLTC", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/XSLTC;", nullptr, $PROTECTED | $FINAL, $method(SyntaxTreeNode, getXSLTC, $XSLTC*)},
+		{"hasAttribute", "(Ljava/lang/String;)Z", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, hasAttribute, bool, $String*)},
+		{"hasContents", "()Z", nullptr, $PROTECTED | $FINAL, $method(SyntaxTreeNode, hasContents, bool)},
+		{"indent", "(I)V", nullptr, $PROTECTED | $FINAL, $method(SyntaxTreeNode, indent, void, int32_t)},
+		{"isAdaptiveRTF", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)Z", nullptr, $PRIVATE, $method(SyntaxTreeNode, isAdaptiveRTF, bool, SyntaxTreeNode*)},
+		{"isDummy", "()Z", nullptr, $PROTECTED | $FINAL, $method(SyntaxTreeNode, isDummy, bool)},
+		{"isSimpleRTF", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)Z", nullptr, $PRIVATE, $method(SyntaxTreeNode, isSimpleRTF, bool, SyntaxTreeNode*)},
+		{"isTextElement", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;Z)Z", nullptr, $PRIVATE, $method(SyntaxTreeNode, isTextElement, bool, SyntaxTreeNode*, bool)},
+		{"lambda$isSimpleRTF$0", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(SyntaxTreeNode, lambda$isSimpleRTF$0, bool, SyntaxTreeNode*)},
+		{"lastChild", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PROTECTED | $FINAL, $method(SyntaxTreeNode, lastChild, SyntaxTreeNode*)},
+		{"lookupNamespace", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, lookupNamespace, $String*, $String*)},
+		{"lookupPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, lookupPrefix, $String*, $String*)},
+		{"notTypeOf", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC, $virtualMethod(SyntaxTreeNode, notTypeOf, bool, $Class*)},
+		{"parseChildren", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PROTECTED | $FINAL, $method(SyntaxTreeNode, parseChildren, void, $Parser*)},
+		{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(SyntaxTreeNode, parseContents, void, $Parser*)},
+		{"removeElement", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)V", nullptr, $PROTECTED | $FINAL, $method(SyntaxTreeNode, removeElement, void, SyntaxTreeNode*)},
+		{"reportError", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, reportError, void, SyntaxTreeNode*, $Parser*, $String*, $String*)},
+		{"reportWarning", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, reportWarning, void, SyntaxTreeNode*, $Parser*, $String*, $String*)},
+		{"setAttributes", "(Lorg/xml/sax/helpers/AttributesImpl;)V", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, setAttributes, void, $AttributesImpl*)},
+		{"setFirstElement", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)V", nullptr, $PROTECTED | $FINAL, $method(SyntaxTreeNode, setFirstElement, void, SyntaxTreeNode*)},
+		{"setLineNumber", "(I)V", nullptr, $PROTECTED | $FINAL, $method(SyntaxTreeNode, setLineNumber, void, int32_t)},
+		{"setParent", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)V", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, setParent, void, SyntaxTreeNode*)},
+		{"setParser", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, setParser, void, $Parser*)},
+		{"setPrefixMapping", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PROTECTED, $virtualMethod(SyntaxTreeNode, setPrefixMapping, void, $Map*)},
+		{"setQName", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)V", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, setQName, void, $QName*)},
+		{"setQName", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, setQName, void, $String*, $String*, $String*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyntaxTreeNode, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"translateContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, translateContents, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyntaxTreeNode, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{"typeCheckContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, typeCheckContents, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{"updateScope", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PROTECTED, $virtualMethod(SyntaxTreeNode, updateScope, $QName*, $Parser*, SyntaxTreeNode*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.SyntaxTreeNode",
+		"java.lang.Object",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Constants",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SyntaxTreeNode, name, initialize, &classInfo$$, SyntaxTreeNode::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SyntaxTreeNode);
+	});
 	return class$;
 }
 

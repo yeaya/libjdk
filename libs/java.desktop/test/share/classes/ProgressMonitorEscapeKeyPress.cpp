@@ -1,5 +1,4 @@
 #include <ProgressMonitorEscapeKeyPress.h>
-
 #include <ProgressMonitorEscapeKeyPress$1.h>
 #include <ProgressMonitorEscapeKeyPress$2.h>
 #include <TestThread.h>
@@ -21,7 +20,6 @@
 using $ProgressMonitorEscapeKeyPress$1 = ::ProgressMonitorEscapeKeyPress$1;
 using $ProgressMonitorEscapeKeyPress$2 = ::ProgressMonitorEscapeKeyPress$2;
 using $TestThread = ::TestThread;
-using $Component = ::java::awt::Component;
 using $EventQueue = ::java::awt::EventQueue;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -43,72 +41,27 @@ public:
 	virtual void run() override {
 		ProgressMonitorEscapeKeyPress::lambda$disposeTestUI$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ProgressMonitorEscapeKeyPress$$Lambda$lambda$disposeTestUI$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ProgressMonitorEscapeKeyPress$$Lambda$lambda$disposeTestUI$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ProgressMonitorEscapeKeyPress$$Lambda$lambda$disposeTestUI$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitorEscapeKeyPress$$Lambda$lambda$disposeTestUI$0, run, void)},
-	{}
-};
-$ClassInfo ProgressMonitorEscapeKeyPress$$Lambda$lambda$disposeTestUI$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ProgressMonitorEscapeKeyPress$$Lambda$lambda$disposeTestUI$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* ProgressMonitorEscapeKeyPress$$Lambda$lambda$disposeTestUI$0::load$($String* name, bool initialize) {
-	$loadClass(ProgressMonitorEscapeKeyPress$$Lambda$lambda$disposeTestUI$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ProgressMonitorEscapeKeyPress$$Lambda$lambda$disposeTestUI$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitorEscapeKeyPress$$Lambda$lambda$disposeTestUI$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ProgressMonitorEscapeKeyPress$$Lambda$lambda$disposeTestUI$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ProgressMonitorEscapeKeyPress$$Lambda$lambda$disposeTestUI$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProgressMonitorEscapeKeyPress$$Lambda$lambda$disposeTestUI$0);
+	});
 	return class$;
 }
 $Class* ProgressMonitorEscapeKeyPress$$Lambda$lambda$disposeTestUI$0::class$ = nullptr;
-
-$FieldInfo _ProgressMonitorEscapeKeyPress_FieldInfo_[] = {
-	{"monitor", "Ljavax/swing/ProgressMonitor;", nullptr, $STATIC, $staticField(ProgressMonitorEscapeKeyPress, monitor)},
-	{"counter", "I", nullptr, $STATIC, $staticField(ProgressMonitorEscapeKeyPress, counter)},
-	{"robotThread", "LTestThread;", nullptr, $STATIC, $staticField(ProgressMonitorEscapeKeyPress, robotThread)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(ProgressMonitorEscapeKeyPress, frame)},
-	{}
-};
-
-$MethodInfo _ProgressMonitorEscapeKeyPress_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ProgressMonitorEscapeKeyPress, init$, void)},
-	{"createTestUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ProgressMonitorEscapeKeyPress, createTestUI, void), "java.lang.Exception"},
-	{"disposeTestUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ProgressMonitorEscapeKeyPress, disposeTestUI, void), "java.lang.Exception"},
-	{"lambda$disposeTestUI$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProgressMonitorEscapeKeyPress, lambda$disposeTestUI$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ProgressMonitorEscapeKeyPress, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _ProgressMonitorEscapeKeyPress_InnerClassesInfo_[] = {
-	{"ProgressMonitorEscapeKeyPress$2", nullptr, nullptr, 0},
-	{"ProgressMonitorEscapeKeyPress$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ProgressMonitorEscapeKeyPress_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ProgressMonitorEscapeKeyPress",
-	"java.lang.Object",
-	nullptr,
-	_ProgressMonitorEscapeKeyPress_FieldInfo_,
-	_ProgressMonitorEscapeKeyPress_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ProgressMonitorEscapeKeyPress_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"ProgressMonitorEscapeKeyPress$2,ProgressMonitorEscapeKeyPress$1"
-};
-
-$Object* allocate$ProgressMonitorEscapeKeyPress($Class* clazz) {
-	return $of($alloc(ProgressMonitorEscapeKeyPress));
-}
 
 $ProgressMonitor* ProgressMonitorEscapeKeyPress::monitor = nullptr;
 int32_t ProgressMonitorEscapeKeyPress::counter = 0;
@@ -120,11 +73,11 @@ void ProgressMonitorEscapeKeyPress::init$() {
 
 void ProgressMonitorEscapeKeyPress::main($StringArray* args) {
 	$init(ProgressMonitorEscapeKeyPress);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	createTestUI();
 	$assignStatic(ProgressMonitorEscapeKeyPress::monitor, $new($ProgressMonitor, ProgressMonitorEscapeKeyPress::frame, "Progress"_s, nullptr, 0, 100));
 	$assignStatic(ProgressMonitorEscapeKeyPress::robotThread, $new($TestThread));
-	$nc(ProgressMonitorEscapeKeyPress::robotThread)->start();
+	ProgressMonitorEscapeKeyPress::robotThread->start();
 	for (ProgressMonitorEscapeKeyPress::counter = 0; ProgressMonitorEscapeKeyPress::counter <= 100; ProgressMonitorEscapeKeyPress::counter += 10) {
 		$Thread::sleep(1000);
 		$EventQueue::invokeAndWait($$new($ProgressMonitorEscapeKeyPress$1));
@@ -145,7 +98,7 @@ void ProgressMonitorEscapeKeyPress::createTestUI() {
 
 void ProgressMonitorEscapeKeyPress::disposeTestUI() {
 	$init(ProgressMonitorEscapeKeyPress);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(ProgressMonitorEscapeKeyPress$$Lambda$lambda$disposeTestUI$0)));
+	$SwingUtilities::invokeAndWait($$new(ProgressMonitorEscapeKeyPress$$Lambda$lambda$disposeTestUI$0));
 }
 
 void ProgressMonitorEscapeKeyPress::lambda$disposeTestUI$0() {
@@ -153,7 +106,7 @@ void ProgressMonitorEscapeKeyPress::lambda$disposeTestUI$0() {
 	$nc(ProgressMonitorEscapeKeyPress::frame)->dispose();
 }
 
-void clinit$ProgressMonitorEscapeKeyPress($Class* class$) {
+void ProgressMonitorEscapeKeyPress::clinit$($Class* clazz) {
 	ProgressMonitorEscapeKeyPress::counter = 0;
 }
 
@@ -162,11 +115,47 @@ ProgressMonitorEscapeKeyPress::ProgressMonitorEscapeKeyPress() {
 
 $Class* ProgressMonitorEscapeKeyPress::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ProgressMonitorEscapeKeyPress$$Lambda$lambda$disposeTestUI$0::classInfo$.name)) {
+		if (name->equals("ProgressMonitorEscapeKeyPress$$Lambda$lambda$disposeTestUI$0")) {
 			return ProgressMonitorEscapeKeyPress$$Lambda$lambda$disposeTestUI$0::load$(name, initialize);
 		}
 	}
-	$loadClass(ProgressMonitorEscapeKeyPress, name, initialize, &_ProgressMonitorEscapeKeyPress_ClassInfo_, clinit$ProgressMonitorEscapeKeyPress, allocate$ProgressMonitorEscapeKeyPress);
+	$FieldInfo fieldInfos$$[] = {
+		{"monitor", "Ljavax/swing/ProgressMonitor;", nullptr, $STATIC, $staticField(ProgressMonitorEscapeKeyPress, monitor)},
+		{"counter", "I", nullptr, $STATIC, $staticField(ProgressMonitorEscapeKeyPress, counter)},
+		{"robotThread", "LTestThread;", nullptr, $STATIC, $staticField(ProgressMonitorEscapeKeyPress, robotThread)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(ProgressMonitorEscapeKeyPress, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ProgressMonitorEscapeKeyPress, init$, void)},
+		{"createTestUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ProgressMonitorEscapeKeyPress, createTestUI, void), "java.lang.Exception"},
+		{"disposeTestUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ProgressMonitorEscapeKeyPress, disposeTestUI, void), "java.lang.Exception"},
+		{"lambda$disposeTestUI$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProgressMonitorEscapeKeyPress, lambda$disposeTestUI$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ProgressMonitorEscapeKeyPress, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ProgressMonitorEscapeKeyPress$2", nullptr, nullptr, 0},
+		{"ProgressMonitorEscapeKeyPress$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ProgressMonitorEscapeKeyPress",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"ProgressMonitorEscapeKeyPress$2,ProgressMonitorEscapeKeyPress$1"
+	};
+	$loadClass(ProgressMonitorEscapeKeyPress, name, initialize, &classInfo$$, ProgressMonitorEscapeKeyPress::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ProgressMonitorEscapeKeyPress);
+	});
 	return class$;
 }
 

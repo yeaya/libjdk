@@ -13,11 +13,14 @@ class $export InvalidApplicationException : public ::java::lang::Exception {
 public:
 	InvalidApplicationException();
 	void init$(Object$* val);
-	static const int64_t serialVersionUID = (int64_t)0xD5B33FE3EA7C8A8B;
+	static const int64_t serialVersionUID = (int64_t)0xd5b33fe3ea7c8a8b;
 	$Object* val = nullptr;
 	InvalidApplicationException(const InvalidApplicationException& e);
 	virtual void throw$() override;
-	inline InvalidApplicationException* operator ->() {
+	inline InvalidApplicationException* operator ->() const {
+		return (InvalidApplicationException*)throwing$;
+	}
+	inline operator InvalidApplicationException*() const {
 		return (InvalidApplicationException*)throwing$;
 	}
 };

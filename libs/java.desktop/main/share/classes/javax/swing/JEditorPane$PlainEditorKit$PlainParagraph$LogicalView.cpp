@@ -1,5 +1,4 @@
 #include <javax/swing/JEditorPane$PlainEditorKit$PlainParagraph$LogicalView.h>
-
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
@@ -32,48 +31,6 @@ using $ViewFactory = ::javax::swing::text::ViewFactory;
 namespace javax {
 	namespace swing {
 
-$MethodInfo _JEditorPane$PlainEditorKit$PlainParagraph$LogicalView_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, 0, $method(JEditorPane$PlainEditorKit$PlainParagraph$LogicalView, init$, void, $Element*)},
-	{"childAllocation", "(ILjava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(JEditorPane$PlainEditorKit$PlainParagraph$LogicalView, childAllocation, void, int32_t, $Rectangle*)},
-	{"forwardUpdateToView", "(Ljavax/swing/text/View;Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(JEditorPane$PlainEditorKit$PlainParagraph$LogicalView, forwardUpdateToView, void, $View*, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"getPreferredSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(JEditorPane$PlainEditorKit$PlainParagraph$LogicalView, getPreferredSpan, float, int32_t)},
-	{"getViewAtPoint", "(IILjava/awt/Rectangle;)Ljavax/swing/text/View;", nullptr, $PROTECTED, $virtualMethod(JEditorPane$PlainEditorKit$PlainParagraph$LogicalView, getViewAtPoint, $View*, int32_t, int32_t, $Rectangle*)},
-	{"getViewIndexAtPosition", "(I)I", nullptr, $PROTECTED, $virtualMethod(JEditorPane$PlainEditorKit$PlainParagraph$LogicalView, getViewIndexAtPosition, int32_t, int32_t)},
-	{"isAfter", "(IILjava/awt/Rectangle;)Z", nullptr, $PROTECTED, $virtualMethod(JEditorPane$PlainEditorKit$PlainParagraph$LogicalView, isAfter, bool, int32_t, int32_t, $Rectangle*)},
-	{"isBefore", "(IILjava/awt/Rectangle;)Z", nullptr, $PROTECTED, $virtualMethod(JEditorPane$PlainEditorKit$PlainParagraph$LogicalView, isBefore, bool, int32_t, int32_t, $Rectangle*)},
-	{"loadChildren", "(Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(JEditorPane$PlainEditorKit$PlainParagraph$LogicalView, loadChildren, void, $ViewFactory*)},
-	{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(JEditorPane$PlainEditorKit$PlainParagraph$LogicalView, paint, void, $Graphics*, $Shape*)},
-	{"updateChildren", "(Ljavax/swing/event/DocumentEvent$ElementChange;Ljavax/swing/event/DocumentEvent;Ljavax/swing/text/ViewFactory;)Z", nullptr, $PROTECTED, $virtualMethod(JEditorPane$PlainEditorKit$PlainParagraph$LogicalView, updateChildren, bool, $DocumentEvent$ElementChange*, $DocumentEvent*, $ViewFactory*)},
-	{}
-};
-
-$InnerClassInfo _JEditorPane$PlainEditorKit$PlainParagraph$LogicalView_InnerClassesInfo_[] = {
-	{"javax.swing.JEditorPane$PlainEditorKit", "javax.swing.JEditorPane", "PlainEditorKit", $STATIC},
-	{"javax.swing.JEditorPane$PlainEditorKit$PlainParagraph", "javax.swing.JEditorPane$PlainEditorKit", "PlainParagraph", $STATIC},
-	{"javax.swing.JEditorPane$PlainEditorKit$PlainParagraph$LogicalView", "javax.swing.JEditorPane$PlainEditorKit$PlainParagraph", "LogicalView", $STATIC},
-	{}
-};
-
-$ClassInfo _JEditorPane$PlainEditorKit$PlainParagraph$LogicalView_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JEditorPane$PlainEditorKit$PlainParagraph$LogicalView",
-	"javax.swing.text.CompositeView",
-	nullptr,
-	nullptr,
-	_JEditorPane$PlainEditorKit$PlainParagraph$LogicalView_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JEditorPane$PlainEditorKit$PlainParagraph$LogicalView_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JEditorPane"
-};
-
-$Object* allocate$JEditorPane$PlainEditorKit$PlainParagraph$LogicalView($Class* clazz) {
-	return $of($alloc(JEditorPane$PlainEditorKit$PlainParagraph$LogicalView));
-}
-
 void JEditorPane$PlainEditorKit$PlainParagraph$LogicalView::init$($Element* elem) {
 	$CompositeView::init$(elem);
 }
@@ -91,7 +48,7 @@ bool JEditorPane$PlainEditorKit$PlainParagraph$LogicalView::updateChildren($Docu
 }
 
 void JEditorPane$PlainEditorKit$PlainParagraph$LogicalView::loadChildren($ViewFactory* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, elem, getElement());
 	if ($nc(elem)->getElementCount() > 0) {
 		$CompositeView::loadChildren(f);
@@ -136,7 +93,44 @@ JEditorPane$PlainEditorKit$PlainParagraph$LogicalView::JEditorPane$PlainEditorKi
 }
 
 $Class* JEditorPane$PlainEditorKit$PlainParagraph$LogicalView::load$($String* name, bool initialize) {
-	$loadClass(JEditorPane$PlainEditorKit$PlainParagraph$LogicalView, name, initialize, &_JEditorPane$PlainEditorKit$PlainParagraph$LogicalView_ClassInfo_, allocate$JEditorPane$PlainEditorKit$PlainParagraph$LogicalView);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, 0, $method(JEditorPane$PlainEditorKit$PlainParagraph$LogicalView, init$, void, $Element*)},
+		{"childAllocation", "(ILjava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(JEditorPane$PlainEditorKit$PlainParagraph$LogicalView, childAllocation, void, int32_t, $Rectangle*)},
+		{"forwardUpdateToView", "(Ljavax/swing/text/View;Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(JEditorPane$PlainEditorKit$PlainParagraph$LogicalView, forwardUpdateToView, void, $View*, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"getPreferredSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(JEditorPane$PlainEditorKit$PlainParagraph$LogicalView, getPreferredSpan, float, int32_t)},
+		{"getViewAtPoint", "(IILjava/awt/Rectangle;)Ljavax/swing/text/View;", nullptr, $PROTECTED, $virtualMethod(JEditorPane$PlainEditorKit$PlainParagraph$LogicalView, getViewAtPoint, $View*, int32_t, int32_t, $Rectangle*)},
+		{"getViewIndexAtPosition", "(I)I", nullptr, $PROTECTED, $virtualMethod(JEditorPane$PlainEditorKit$PlainParagraph$LogicalView, getViewIndexAtPosition, int32_t, int32_t)},
+		{"isAfter", "(IILjava/awt/Rectangle;)Z", nullptr, $PROTECTED, $virtualMethod(JEditorPane$PlainEditorKit$PlainParagraph$LogicalView, isAfter, bool, int32_t, int32_t, $Rectangle*)},
+		{"isBefore", "(IILjava/awt/Rectangle;)Z", nullptr, $PROTECTED, $virtualMethod(JEditorPane$PlainEditorKit$PlainParagraph$LogicalView, isBefore, bool, int32_t, int32_t, $Rectangle*)},
+		{"loadChildren", "(Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(JEditorPane$PlainEditorKit$PlainParagraph$LogicalView, loadChildren, void, $ViewFactory*)},
+		{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(JEditorPane$PlainEditorKit$PlainParagraph$LogicalView, paint, void, $Graphics*, $Shape*)},
+		{"updateChildren", "(Ljavax/swing/event/DocumentEvent$ElementChange;Ljavax/swing/event/DocumentEvent;Ljavax/swing/text/ViewFactory;)Z", nullptr, $PROTECTED, $virtualMethod(JEditorPane$PlainEditorKit$PlainParagraph$LogicalView, updateChildren, bool, $DocumentEvent$ElementChange*, $DocumentEvent*, $ViewFactory*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JEditorPane$PlainEditorKit", "javax.swing.JEditorPane", "PlainEditorKit", $STATIC},
+		{"javax.swing.JEditorPane$PlainEditorKit$PlainParagraph", "javax.swing.JEditorPane$PlainEditorKit", "PlainParagraph", $STATIC},
+		{"javax.swing.JEditorPane$PlainEditorKit$PlainParagraph$LogicalView", "javax.swing.JEditorPane$PlainEditorKit$PlainParagraph", "LogicalView", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JEditorPane$PlainEditorKit$PlainParagraph$LogicalView",
+		"javax.swing.text.CompositeView",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JEditorPane"
+	};
+	$loadClass(JEditorPane$PlainEditorKit$PlainParagraph$LogicalView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JEditorPane$PlainEditorKit$PlainParagraph$LogicalView);
+	});
 	return class$;
 }
 

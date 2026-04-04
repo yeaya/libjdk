@@ -28,6 +28,7 @@ class $import Directive$OpensFlag : public ::java::lang::Enum {
 public:
 	Directive$OpensFlag();
 	static $Array<::com::sun::tools::javac::code::Directive$OpensFlag>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t value);
 	static int32_t value(::java::util::Set* s);
 	static ::com::sun::tools::javac::code::Directive$OpensFlag* valueOf($String* name);

@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/HttpClientBuilderImpl.h>
-
 #include <java/net/Authenticator.h>
 #include <java/net/CookieHandler.h>
 #include <java/net/ProxySelector.h>
@@ -41,57 +40,6 @@ namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$FieldInfo _HttpClientBuilderImpl_FieldInfo_[] = {
-	{"cookieHandler", "Ljava/net/CookieHandler;", nullptr, 0, $field(HttpClientBuilderImpl, cookieHandler$)},
-	{"connectTimeout", "Ljava/time/Duration;", nullptr, 0, $field(HttpClientBuilderImpl, connectTimeout$)},
-	{"followRedirects", "Ljava/net/http/HttpClient$Redirect;", nullptr, 0, $field(HttpClientBuilderImpl, followRedirects$)},
-	{"proxy", "Ljava/net/ProxySelector;", nullptr, 0, $field(HttpClientBuilderImpl, proxy$)},
-	{"authenticator", "Ljava/net/Authenticator;", nullptr, 0, $field(HttpClientBuilderImpl, authenticator$)},
-	{"version", "Ljava/net/http/HttpClient$Version;", nullptr, 0, $field(HttpClientBuilderImpl, version$)},
-	{"executor", "Ljava/util/concurrent/Executor;", nullptr, 0, $field(HttpClientBuilderImpl, executor$)},
-	{"sslContext", "Ljavax/net/ssl/SSLContext;", nullptr, 0, $field(HttpClientBuilderImpl, sslContext$)},
-	{"sslParams", "Ljavax/net/ssl/SSLParameters;", nullptr, 0, $field(HttpClientBuilderImpl, sslParams)},
-	{"priority", "I", nullptr, 0, $field(HttpClientBuilderImpl, priority$)},
-	{}
-};
-
-$MethodInfo _HttpClientBuilderImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpClientBuilderImpl, init$, void)},
-	{"authenticator", "(Ljava/net/Authenticator;)Ljdk/internal/net/http/HttpClientBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpClientBuilderImpl, authenticator, HttpClientBuilderImpl*, $Authenticator*)},
-	{"build", "()Ljava/net/http/HttpClient;", nullptr, $PUBLIC, $virtualMethod(HttpClientBuilderImpl, build, $HttpClient*)},
-	{"connectTimeout", "(Ljava/time/Duration;)Ljdk/internal/net/http/HttpClientBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpClientBuilderImpl, connectTimeout, HttpClientBuilderImpl*, $Duration*)},
-	{"cookieHandler", "(Ljava/net/CookieHandler;)Ljdk/internal/net/http/HttpClientBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpClientBuilderImpl, cookieHandler, HttpClientBuilderImpl*, $CookieHandler*)},
-	{"executor", "(Ljava/util/concurrent/Executor;)Ljdk/internal/net/http/HttpClientBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpClientBuilderImpl, executor, HttpClientBuilderImpl*, $Executor*)},
-	{"followRedirects", "(Ljava/net/http/HttpClient$Redirect;)Ljdk/internal/net/http/HttpClientBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpClientBuilderImpl, followRedirects, HttpClientBuilderImpl*, $HttpClient$Redirect*)},
-	{"priority", "(I)Ljdk/internal/net/http/HttpClientBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpClientBuilderImpl, priority, HttpClientBuilderImpl*, int32_t)},
-	{"proxy", "(Ljava/net/ProxySelector;)Ljdk/internal/net/http/HttpClientBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpClientBuilderImpl, proxy, HttpClientBuilderImpl*, $ProxySelector*)},
-	{"sslContext", "(Ljavax/net/ssl/SSLContext;)Ljdk/internal/net/http/HttpClientBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpClientBuilderImpl, sslContext, HttpClientBuilderImpl*, $SSLContext*)},
-	{"sslParameters", "(Ljavax/net/ssl/SSLParameters;)Ljdk/internal/net/http/HttpClientBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpClientBuilderImpl, sslParameters, HttpClientBuilderImpl*, $SSLParameters*)},
-	{"version", "(Ljava/net/http/HttpClient$Version;)Ljdk/internal/net/http/HttpClientBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpClientBuilderImpl, version, HttpClientBuilderImpl*, $HttpClient$Version*)},
-	{}
-};
-
-$InnerClassInfo _HttpClientBuilderImpl_InnerClassesInfo_[] = {
-	{"java.net.http.HttpClient$Builder", "java.net.http.HttpClient", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _HttpClientBuilderImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.HttpClientBuilderImpl",
-	"java.lang.Object",
-	"java.net.http.HttpClient$Builder",
-	_HttpClientBuilderImpl_FieldInfo_,
-	_HttpClientBuilderImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HttpClientBuilderImpl_InnerClassesInfo_
-};
-
-$Object* allocate$HttpClientBuilderImpl($Class* clazz) {
-	return $of($alloc(HttpClientBuilderImpl));
-}
 
 void HttpClientBuilderImpl::init$() {
 	this->priority$ = -1;
@@ -171,7 +119,52 @@ HttpClientBuilderImpl::HttpClientBuilderImpl() {
 }
 
 $Class* HttpClientBuilderImpl::load$($String* name, bool initialize) {
-	$loadClass(HttpClientBuilderImpl, name, initialize, &_HttpClientBuilderImpl_ClassInfo_, allocate$HttpClientBuilderImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"cookieHandler", "Ljava/net/CookieHandler;", nullptr, 0, $field(HttpClientBuilderImpl, cookieHandler$)},
+		{"connectTimeout", "Ljava/time/Duration;", nullptr, 0, $field(HttpClientBuilderImpl, connectTimeout$)},
+		{"followRedirects", "Ljava/net/http/HttpClient$Redirect;", nullptr, 0, $field(HttpClientBuilderImpl, followRedirects$)},
+		{"proxy", "Ljava/net/ProxySelector;", nullptr, 0, $field(HttpClientBuilderImpl, proxy$)},
+		{"authenticator", "Ljava/net/Authenticator;", nullptr, 0, $field(HttpClientBuilderImpl, authenticator$)},
+		{"version", "Ljava/net/http/HttpClient$Version;", nullptr, 0, $field(HttpClientBuilderImpl, version$)},
+		{"executor", "Ljava/util/concurrent/Executor;", nullptr, 0, $field(HttpClientBuilderImpl, executor$)},
+		{"sslContext", "Ljavax/net/ssl/SSLContext;", nullptr, 0, $field(HttpClientBuilderImpl, sslContext$)},
+		{"sslParams", "Ljavax/net/ssl/SSLParameters;", nullptr, 0, $field(HttpClientBuilderImpl, sslParams)},
+		{"priority", "I", nullptr, 0, $field(HttpClientBuilderImpl, priority$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HttpClientBuilderImpl, init$, void)},
+		{"authenticator", "(Ljava/net/Authenticator;)Ljdk/internal/net/http/HttpClientBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpClientBuilderImpl, authenticator, HttpClientBuilderImpl*, $Authenticator*)},
+		{"build", "()Ljava/net/http/HttpClient;", nullptr, $PUBLIC, $virtualMethod(HttpClientBuilderImpl, build, $HttpClient*)},
+		{"connectTimeout", "(Ljava/time/Duration;)Ljdk/internal/net/http/HttpClientBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpClientBuilderImpl, connectTimeout, HttpClientBuilderImpl*, $Duration*)},
+		{"cookieHandler", "(Ljava/net/CookieHandler;)Ljdk/internal/net/http/HttpClientBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpClientBuilderImpl, cookieHandler, HttpClientBuilderImpl*, $CookieHandler*)},
+		{"executor", "(Ljava/util/concurrent/Executor;)Ljdk/internal/net/http/HttpClientBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpClientBuilderImpl, executor, HttpClientBuilderImpl*, $Executor*)},
+		{"followRedirects", "(Ljava/net/http/HttpClient$Redirect;)Ljdk/internal/net/http/HttpClientBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpClientBuilderImpl, followRedirects, HttpClientBuilderImpl*, $HttpClient$Redirect*)},
+		{"priority", "(I)Ljdk/internal/net/http/HttpClientBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpClientBuilderImpl, priority, HttpClientBuilderImpl*, int32_t)},
+		{"proxy", "(Ljava/net/ProxySelector;)Ljdk/internal/net/http/HttpClientBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpClientBuilderImpl, proxy, HttpClientBuilderImpl*, $ProxySelector*)},
+		{"sslContext", "(Ljavax/net/ssl/SSLContext;)Ljdk/internal/net/http/HttpClientBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpClientBuilderImpl, sslContext, HttpClientBuilderImpl*, $SSLContext*)},
+		{"sslParameters", "(Ljavax/net/ssl/SSLParameters;)Ljdk/internal/net/http/HttpClientBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpClientBuilderImpl, sslParameters, HttpClientBuilderImpl*, $SSLParameters*)},
+		{"version", "(Ljava/net/http/HttpClient$Version;)Ljdk/internal/net/http/HttpClientBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpClientBuilderImpl, version, HttpClientBuilderImpl*, $HttpClient$Version*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.http.HttpClient$Builder", "java.net.http.HttpClient", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.HttpClientBuilderImpl",
+		"java.lang.Object",
+		"java.net.http.HttpClient$Builder",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(HttpClientBuilderImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpClientBuilderImpl);
+	});
 	return class$;
 }
 

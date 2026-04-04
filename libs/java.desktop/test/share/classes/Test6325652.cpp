@@ -1,5 +1,4 @@
 #include <Test6325652.h>
-
 #include <SwingTest.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -20,8 +19,6 @@
 #undef WIDTH
 
 using $SwingTest = ::SwingTest;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Robot = ::java::awt::Robot;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -33,40 +30,6 @@ using $JFrame = ::javax::swing::JFrame;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $JTextArea = ::javax::swing::JTextArea;
 
-$FieldInfo _Test6325652_FieldInfo_[] = {
-	{"WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Test6325652, WIDTH)},
-	{"HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Test6325652, HEIGHT)},
-	{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(Test6325652, robot)},
-	{"internal", "Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE, $field(Test6325652, internal)},
-	{}
-};
-
-$MethodInfo _Test6325652_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JFrame;)V", nullptr, $PUBLIC, $method(Test6325652, init$, void, $JFrame*)},
-	{"click", "([I)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(Test6325652, click, void, $ints*)},
-	{"create", "(I)Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE | $STATIC, $staticMethod(Test6325652, create, $JInternalFrame*, int32_t)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6325652, main, void, $StringArray*), "java.lang.Throwable"},
-	{"select", "()V", nullptr, $PUBLIC, $virtualMethod(Test6325652, select, void), "java.beans.PropertyVetoException"},
-	{"stepFirst", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6325652, stepFirst, void), "java.awt.AWTException"},
-	{"stepFirstValidate", "()V", nullptr, $PUBLIC, $virtualMethod(Test6325652, stepFirstValidate, void)},
-	{"stepSecond", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6325652, stepSecond, void)},
-	{"stepSecondValidate", "()V", nullptr, $PUBLIC, $virtualMethod(Test6325652, stepSecondValidate, void)},
-	{}
-};
-
-$ClassInfo _Test6325652_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Test6325652",
-	"java.lang.Object",
-	nullptr,
-	_Test6325652_FieldInfo_,
-	_Test6325652_MethodInfo_
-};
-
-$Object* allocate$Test6325652($Class* clazz) {
-	return $of($alloc(Test6325652));
-}
-
 $Robot* Test6325652::robot = nullptr;
 
 void Test6325652::main($StringArray* args) {
@@ -75,11 +38,11 @@ void Test6325652::main($StringArray* args) {
 }
 
 void Test6325652::init$($JFrame* frame) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JDesktopPane, desktop, $new($JDesktopPane));
-	desktop->add($(static_cast<$Component*>(create(0))));
-	desktop->add(static_cast<$Component*>(($set(this, internal, create(1)))));
-	$nc(frame)->add(static_cast<$Component*>(desktop));
+	desktop->add($(create(0)));
+	desktop->add($set(this, internal, create(1)));
+	$nc(frame)->add(desktop);
 }
 
 void Test6325652::select() {
@@ -89,7 +52,7 @@ void Test6325652::select() {
 void Test6325652::stepFirst() {
 	$init(Test6325652);
 	$assignStatic(Test6325652::robot, $new($Robot));
-	$nc(Test6325652::robot)->setAutoDelay(50);
+	Test6325652::robot->setAutoDelay(50);
 	click($$new($ints, {
 		$KeyEvent::VK_CONTROL,
 		$KeyEvent::VK_F9
@@ -103,7 +66,7 @@ void Test6325652::stepFirstValidate() {
 }
 
 void Test6325652::stepSecond() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	click($$new($ints, {
 		$KeyEvent::VK_CONTROL,
 		$KeyEvent::VK_F6
@@ -121,12 +84,10 @@ void Test6325652::stepSecondValidate() {
 }
 
 void Test6325652::click($ints* keys) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($ints, arr$, keys);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int32_t key = arr$->get(i$);
 			{
 				$init(Test6325652);
@@ -136,9 +97,7 @@ void Test6325652::click($ints* keys) {
 	}
 	{
 		$var($ints, arr$, keys);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int32_t key = arr$->get(i$);
 			{
 				$init(Test6325652);
@@ -149,11 +108,11 @@ void Test6325652::click($ints* keys) {
 }
 
 $JInternalFrame* Test6325652::create(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, text, $str({"test"_s, $$str(index)}));
 	index = index * 3 + 1;
 	$var($JInternalFrame, internal, $new($JInternalFrame, text, true, true, true, true));
-	$nc($(internal->getContentPane()))->add(static_cast<$Component*>($$new($JTextArea, text)));
+	$$nc(internal->getContentPane())->add($$new($JTextArea, text));
 	internal->setBounds(10 * index, 10 * index, Test6325652::WIDTH, Test6325652::HEIGHT);
 	internal->setVisible(true);
 	return internal;
@@ -163,7 +122,36 @@ Test6325652::Test6325652() {
 }
 
 $Class* Test6325652::load$($String* name, bool initialize) {
-	$loadClass(Test6325652, name, initialize, &_Test6325652_ClassInfo_, allocate$Test6325652);
+	$FieldInfo fieldInfos$$[] = {
+		{"WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Test6325652, WIDTH)},
+		{"HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Test6325652, HEIGHT)},
+		{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(Test6325652, robot)},
+		{"internal", "Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE, $field(Test6325652, internal)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JFrame;)V", nullptr, $PUBLIC, $method(Test6325652, init$, void, $JFrame*)},
+		{"click", "([I)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(Test6325652, click, void, $ints*)},
+		{"create", "(I)Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE | $STATIC, $staticMethod(Test6325652, create, $JInternalFrame*, int32_t)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6325652, main, void, $StringArray*), "java.lang.Throwable"},
+		{"select", "()V", nullptr, $PUBLIC, $virtualMethod(Test6325652, select, void), "java.beans.PropertyVetoException"},
+		{"stepFirst", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6325652, stepFirst, void), "java.awt.AWTException"},
+		{"stepFirstValidate", "()V", nullptr, $PUBLIC, $virtualMethod(Test6325652, stepFirstValidate, void)},
+		{"stepSecond", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6325652, stepSecond, void)},
+		{"stepSecondValidate", "()V", nullptr, $PUBLIC, $virtualMethod(Test6325652, stepSecondValidate, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Test6325652",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Test6325652, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test6325652);
+	});
 	return class$;
 }
 

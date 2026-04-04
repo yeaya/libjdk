@@ -29,7 +29,7 @@ public:
 	$String* pop();
 	void push($String* s);
 	int32_t size();
-	static const int64_t serialVersionUID = (int64_t)0x4552A3BDBDA168C4;
+	static const int64_t serialVersionUID = (int64_t)0x4552a3bdbda168c4;
 	int32_t m_blocksize = 0;
 	$StringArray* m_map = nullptr;
 	int32_t m_firstFree = 0;

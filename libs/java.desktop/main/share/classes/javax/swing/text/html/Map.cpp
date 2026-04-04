@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/Map.h>
-
 #include <java/lang/NumberFormatException.h>
 #include <java/util/StringTokenizer.h>
 #include <java/util/Vector.h>
@@ -37,54 +36,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _Map_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Map, name)},
-	{"areaAttributes", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/AttributeSet;>;", $PRIVATE, $field(Map, areaAttributes)},
-	{"areas", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/html/Map$RegionContainment;>;", $PRIVATE, $field(Map, areas)},
-	{}
-};
-
-$MethodInfo _Map_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Map, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Map, init$, void, $String*)},
-	{"addArea", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(Map, addArea, void, $AttributeSet*)},
-	{"createRegionContainment", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/html/Map$RegionContainment;", nullptr, $PROTECTED, $virtualMethod(Map, createRegionContainment, $Map$RegionContainment*, $AttributeSet*)},
-	{"extractCoords", "(Ljava/lang/Object;)[I", nullptr, $PROTECTED | $STATIC, $staticMethod(Map, extractCoords, $ints*, Object$*)},
-	{"getArea", "(IIII)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(Map, getArea, $AttributeSet*, int32_t, int32_t, int32_t, int32_t)},
-	{"getAreas", "()[Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(Map, getAreas, $AttributeSetArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Map, getName, $String*)},
-	{"removeArea", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(Map, removeArea, void, $AttributeSet*)},
-	{}
-};
-
-$InnerClassInfo _Map_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.Map$DefaultRegionContainment", "javax.swing.text.html.Map", "DefaultRegionContainment", $STATIC},
-	{"javax.swing.text.html.Map$CircleRegionContainment", "javax.swing.text.html.Map", "CircleRegionContainment", $STATIC},
-	{"javax.swing.text.html.Map$PolygonRegionContainment", "javax.swing.text.html.Map", "PolygonRegionContainment", $STATIC},
-	{"javax.swing.text.html.Map$RectangleRegionContainment", "javax.swing.text.html.Map", "RectangleRegionContainment", $STATIC},
-	{"javax.swing.text.html.Map$RegionContainment", "javax.swing.text.html.Map", "RegionContainment", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Map_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.Map",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_Map_FieldInfo_,
-	_Map_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Map_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.Map$DefaultRegionContainment,javax.swing.text.html.Map$CircleRegionContainment,javax.swing.text.html.Map$PolygonRegionContainment,javax.swing.text.html.Map$RectangleRegionContainment,javax.swing.text.html.Map$RegionContainment"
-};
-
-$Object* allocate$Map($Class* clazz) {
-	return $of($alloc(Map));
-}
-
 void Map::init$() {
 }
 
@@ -107,11 +58,11 @@ void Map::addArea($AttributeSet* as) {
 }
 
 void Map::removeArea($AttributeSet* as) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (as != nullptr && this->areaAttributes != nullptr) {
-		int32_t numAreas = (this->areas != nullptr) ? $nc(this->areas)->size() : 0;
-		for (int32_t counter = $nc(this->areaAttributes)->size() - 1; counter >= 0; --counter) {
-			if ($nc(($cast($AttributeSet, $($nc(this->areaAttributes)->elementAt(counter)))))->isEqual(as)) {
+		int32_t numAreas = (this->areas != nullptr) ? this->areas->size() : 0;
+		for (int32_t counter = this->areaAttributes->size() - 1; counter >= 0; --counter) {
+			if ($$sure($AttributeSet, $nc(this->areaAttributes)->elementAt(counter))->isEqual(as)) {
 				$nc(this->areaAttributes)->removeElementAt(counter);
 				if (counter < numAreas) {
 					$nc(this->areas)->removeElementAt(counter);
@@ -122,7 +73,7 @@ void Map::removeArea($AttributeSet* as) {
 }
 
 $AttributeSetArray* Map::getAreas() {
-	int32_t numAttributes = (this->areaAttributes != nullptr) ? $nc(this->areaAttributes)->size() : 0;
+	int32_t numAttributes = (this->areaAttributes != nullptr) ? this->areaAttributes->size() : 0;
 	if (numAttributes != 0) {
 		$var($AttributeSetArray, retValue, $new($AttributeSetArray, numAttributes));
 		$nc(this->areaAttributes)->copyInto(retValue);
@@ -132,16 +83,16 @@ $AttributeSetArray* Map::getAreas() {
 }
 
 $AttributeSet* Map::getArea(int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
-	int32_t numAttributes = (this->areaAttributes != nullptr) ? $nc(this->areaAttributes)->size() : 0;
+	$useLocalObjectStack();
+	int32_t numAttributes = (this->areaAttributes != nullptr) ? this->areaAttributes->size() : 0;
 	if (numAttributes > 0) {
-		int32_t numAreas = (this->areas != nullptr) ? $nc(this->areas)->size() : 0;
+		int32_t numAreas = (this->areas != nullptr) ? this->areas->size() : 0;
 		if (this->areas == nullptr) {
 			$set(this, areas, $new($Vector, numAttributes));
 		}
 		for (int32_t counter = 0; counter < numAttributes; ++counter) {
 			if (counter >= numAreas) {
-				$nc(this->areas)->addElement($(createRegionContainment($cast($AttributeSet, $($nc(this->areaAttributes)->elementAt(counter))))));
+				$nc(this->areas)->addElement($(createRegionContainment($$cast($AttributeSet, $nc(this->areaAttributes)->elementAt(counter)))));
 			}
 			$var($Map$RegionContainment, rc, $cast($Map$RegionContainment, $nc(this->areas)->elementAt(counter)));
 			if (rc != nullptr && rc->contains(x, y, width, height)) {
@@ -153,14 +104,14 @@ $AttributeSet* Map::getArea(int32_t x, int32_t y, int32_t width, int32_t height)
 }
 
 $Map$RegionContainment* Map::createRegionContainment($AttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($HTML$Attribute);
 	$var($Object, shape, $nc(attributes)->getAttribute($HTML$Attribute::SHAPE));
 	if (shape == nullptr) {
 		$assign(shape, "rect"_s);
 	}
 	if ($instanceOf($String, shape)) {
-		$var($String, shapeString, $nc(($cast($String, shape)))->toLowerCase());
+		$var($String, shapeString, $cast($String, shape)->toLowerCase());
 		$var($Map$RegionContainment, rc, nullptr);
 		try {
 			if (shapeString->equals("rect"_s)) {
@@ -182,7 +133,7 @@ $Map$RegionContainment* Map::createRegionContainment($AttributeSet* attributes) 
 
 $ints* Map::extractCoords(Object$* stringCoords) {
 	$init(Map);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (stringCoords == nullptr || !($instanceOf($String, stringCoords))) {
 		return nullptr;
 	}
@@ -202,7 +153,7 @@ $ints* Map::extractCoords(Object$* stringCoords) {
 			int32_t intValue = $Integer::parseInt(token);
 			if (retValue == nullptr) {
 				$assign(retValue, $new($ints, 4));
-			} else if (numCoords == $nc(retValue)->length) {
+			} else if (numCoords == retValue->length) {
 				$var($ints, temp, $new($ints, retValue->length * 2));
 				$System::arraycopy(retValue, 0, temp, 0, retValue->length);
 				$assign(retValue, temp);
@@ -224,7 +175,49 @@ Map::Map() {
 }
 
 $Class* Map::load$($String* name, bool initialize) {
-	$loadClass(Map, name, initialize, &_Map_ClassInfo_, allocate$Map);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Map, name)},
+		{"areaAttributes", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/AttributeSet;>;", $PRIVATE, $field(Map, areaAttributes)},
+		{"areas", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/html/Map$RegionContainment;>;", $PRIVATE, $field(Map, areas)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Map, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Map, init$, void, $String*)},
+		{"addArea", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(Map, addArea, void, $AttributeSet*)},
+		{"createRegionContainment", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/html/Map$RegionContainment;", nullptr, $PROTECTED, $virtualMethod(Map, createRegionContainment, $Map$RegionContainment*, $AttributeSet*)},
+		{"extractCoords", "(Ljava/lang/Object;)[I", nullptr, $PROTECTED | $STATIC, $staticMethod(Map, extractCoords, $ints*, Object$*)},
+		{"getArea", "(IIII)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(Map, getArea, $AttributeSet*, int32_t, int32_t, int32_t, int32_t)},
+		{"getAreas", "()[Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(Map, getAreas, $AttributeSetArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Map, getName, $String*)},
+		{"removeArea", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(Map, removeArea, void, $AttributeSet*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.Map$DefaultRegionContainment", "javax.swing.text.html.Map", "DefaultRegionContainment", $STATIC},
+		{"javax.swing.text.html.Map$CircleRegionContainment", "javax.swing.text.html.Map", "CircleRegionContainment", $STATIC},
+		{"javax.swing.text.html.Map$PolygonRegionContainment", "javax.swing.text.html.Map", "PolygonRegionContainment", $STATIC},
+		{"javax.swing.text.html.Map$RectangleRegionContainment", "javax.swing.text.html.Map", "RectangleRegionContainment", $STATIC},
+		{"javax.swing.text.html.Map$RegionContainment", "javax.swing.text.html.Map", "RegionContainment", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.Map",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.Map$DefaultRegionContainment,javax.swing.text.html.Map$CircleRegionContainment,javax.swing.text.html.Map$PolygonRegionContainment,javax.swing.text.html.Map$RectangleRegionContainment,javax.swing.text.html.Map$RegionContainment"
+	};
+	$loadClass(Map, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Map);
+	});
 	return class$;
 }
 

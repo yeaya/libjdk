@@ -26,6 +26,7 @@ class $export bug4310381 : public ::java::lang::Object {
 	$class(bug4310381, 0, ::java::lang::Object)
 public:
 	bug4310381();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createContentPane();
 	static void disposeUI();

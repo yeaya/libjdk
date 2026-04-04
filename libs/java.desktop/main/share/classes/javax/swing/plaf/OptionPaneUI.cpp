@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/OptionPaneUI.h>
-
 #include <javax/swing/JOptionPane.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <jcpp.h>
@@ -13,26 +12,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 
-$MethodInfo _OptionPaneUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(OptionPaneUI, init$, void)},
-	{"containsCustomComponents", "(Ljavax/swing/JOptionPane;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OptionPaneUI, containsCustomComponents, bool, $JOptionPane*)},
-	{"selectInitialValue", "(Ljavax/swing/JOptionPane;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OptionPaneUI, selectInitialValue, void, $JOptionPane*)},
-	{}
-};
-
-$ClassInfo _OptionPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.plaf.OptionPaneUI",
-	"javax.swing.plaf.ComponentUI",
-	nullptr,
-	nullptr,
-	_OptionPaneUI_MethodInfo_
-};
-
-$Object* allocate$OptionPaneUI($Class* clazz) {
-	return $of($alloc(OptionPaneUI));
-}
-
 void OptionPaneUI::init$() {
 	$ComponentUI::init$();
 }
@@ -41,7 +20,23 @@ OptionPaneUI::OptionPaneUI() {
 }
 
 $Class* OptionPaneUI::load$($String* name, bool initialize) {
-	$loadClass(OptionPaneUI, name, initialize, &_OptionPaneUI_ClassInfo_, allocate$OptionPaneUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(OptionPaneUI, init$, void)},
+		{"containsCustomComponents", "(Ljavax/swing/JOptionPane;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OptionPaneUI, containsCustomComponents, bool, $JOptionPane*)},
+		{"selectInitialValue", "(Ljavax/swing/JOptionPane;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OptionPaneUI, selectInitialValue, void, $JOptionPane*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.plaf.OptionPaneUI",
+		"javax.swing.plaf.ComponentUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(OptionPaneUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OptionPaneUI);
+	});
 	return class$;
 }
 

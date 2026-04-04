@@ -1,5 +1,4 @@
 #include <com/sun/security/sasl/ExternalClient.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
@@ -19,38 +18,6 @@ namespace com {
 	namespace sun {
 		namespace security {
 			namespace sasl {
-
-$FieldInfo _ExternalClient_FieldInfo_[] = {
-	{"username", "[B", nullptr, $PRIVATE, $field(ExternalClient, username)},
-	{"completed", "Z", nullptr, $PRIVATE, $field(ExternalClient, completed)},
-	{}
-};
-
-$MethodInfo _ExternalClient_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(ExternalClient, init$, void, $String*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(ExternalClient, dispose, void), "javax.security.sasl.SaslException"},
-	{"evaluateChallenge", "([B)[B", nullptr, $PUBLIC, $virtualMethod(ExternalClient, evaluateChallenge, $bytes*, $bytes*)},
-	{"getMechanismName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ExternalClient, getMechanismName, $String*)},
-	{"getNegotiatedProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ExternalClient, getNegotiatedProperty, $Object*, $String*)},
-	{"hasInitialResponse", "()Z", nullptr, $PUBLIC, $virtualMethod(ExternalClient, hasInitialResponse, bool)},
-	{"isComplete", "()Z", nullptr, $PUBLIC, $virtualMethod(ExternalClient, isComplete, bool)},
-	{"unwrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(ExternalClient, unwrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
-	{"wrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(ExternalClient, wrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
-	{}
-};
-
-$ClassInfo _ExternalClient_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.security.sasl.ExternalClient",
-	"java.lang.Object",
-	"javax.security.sasl.SaslClient",
-	_ExternalClient_FieldInfo_,
-	_ExternalClient_MethodInfo_
-};
-
-$Object* allocate$ExternalClient($Class* clazz) {
-	return $of($alloc(ExternalClient));
-}
 
 void ExternalClient::init$($String* authorizationID) {
 	this->completed = false;
@@ -105,7 +72,7 @@ $bytes* ExternalClient::wrap($bytes* outgoing, int32_t offset, int32_t len) {
 
 $Object* ExternalClient::getNegotiatedProperty($String* propName) {
 	if (this->completed) {
-		return $of(nullptr);
+		return nullptr;
 	} else {
 		$throwNew($IllegalStateException, "EXTERNAL authentication not completed"_s);
 	}
@@ -115,7 +82,34 @@ ExternalClient::ExternalClient() {
 }
 
 $Class* ExternalClient::load$($String* name, bool initialize) {
-	$loadClass(ExternalClient, name, initialize, &_ExternalClient_ClassInfo_, allocate$ExternalClient);
+	$FieldInfo fieldInfos$$[] = {
+		{"username", "[B", nullptr, $PRIVATE, $field(ExternalClient, username)},
+		{"completed", "Z", nullptr, $PRIVATE, $field(ExternalClient, completed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(ExternalClient, init$, void, $String*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(ExternalClient, dispose, void), "javax.security.sasl.SaslException"},
+		{"evaluateChallenge", "([B)[B", nullptr, $PUBLIC, $virtualMethod(ExternalClient, evaluateChallenge, $bytes*, $bytes*)},
+		{"getMechanismName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ExternalClient, getMechanismName, $String*)},
+		{"getNegotiatedProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ExternalClient, getNegotiatedProperty, $Object*, $String*)},
+		{"hasInitialResponse", "()Z", nullptr, $PUBLIC, $virtualMethod(ExternalClient, hasInitialResponse, bool)},
+		{"isComplete", "()Z", nullptr, $PUBLIC, $virtualMethod(ExternalClient, isComplete, bool)},
+		{"unwrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(ExternalClient, unwrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
+		{"wrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(ExternalClient, wrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.security.sasl.ExternalClient",
+		"java.lang.Object",
+		"javax.security.sasl.SaslClient",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ExternalClient, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExternalClient);
+	});
 	return class$;
 }
 

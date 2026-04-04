@@ -1,5 +1,4 @@
 #include <B6277794.h>
-
 #include <java/net/CookieManager.h>
 #include <java/net/CookieStore.h>
 #include <java/net/HttpCookie.h>
@@ -16,27 +15,6 @@ using $HttpCookie = ::java::net::HttpCookie;
 using $URI = ::java::net::URI;
 using $List = ::java::util::List;
 
-$MethodInfo _B6277794_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(B6277794, init$, void)},
-	{"fail", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(B6277794, fail, void, $String*), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B6277794, main, void, $StringArray*), "java.lang.Exception"},
-	{"testCookieStore", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(B6277794, testCookieStore, void), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _B6277794_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"B6277794",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_B6277794_MethodInfo_
-};
-
-$Object* allocate$B6277794($Class* clazz) {
-	return $of($alloc(B6277794));
-}
-
 void B6277794::init$() {
 }
 
@@ -45,7 +23,7 @@ void B6277794::main($StringArray* args) {
 }
 
 void B6277794::testCookieStore() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CookieManager, cm, $new($CookieManager));
 	$var($CookieStore, cs, cm->getCookieStore());
 	$var($HttpCookie, c1, $new($HttpCookie, "COOKIE1"_s, "COOKIE1"_s));
@@ -54,7 +32,7 @@ void B6277794::testCookieStore() {
 	cs->add($$new($URI, "http://www.sun.com/java"_s), c2);
 	$var($List, uris, cs->getURIs());
 	bool var$0 = $nc(uris)->size() != 1;
-	if (var$0 || !$nc(($cast($URI, $($nc(uris)->get(0)))))->equals($$new($URI, "http://www.sun.com"_s))) {
+	if (var$0 || !$$sure($URI, uris->get(0))->equals($$new($URI, "http://www.sun.com"_s))) {
 		fail("CookieStore.getURIs() fail."_s);
 	}
 }
@@ -67,7 +45,24 @@ B6277794::B6277794() {
 }
 
 $Class* B6277794::load$($String* name, bool initialize) {
-	$loadClass(B6277794, name, initialize, &_B6277794_ClassInfo_, allocate$B6277794);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(B6277794, init$, void)},
+		{"fail", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(B6277794, fail, void, $String*), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B6277794, main, void, $StringArray*), "java.lang.Exception"},
+		{"testCookieStore", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(B6277794, testCookieStore, void), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"B6277794",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(B6277794, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(B6277794);
+	});
 	return class$;
 }
 

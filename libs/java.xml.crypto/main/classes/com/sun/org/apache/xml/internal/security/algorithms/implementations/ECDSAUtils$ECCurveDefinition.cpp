@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/ECDSAUtils$ECCurveDefinition.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/ECDSAUtils.h>
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
@@ -20,59 +19,6 @@ namespace com {
 							namespace algorithms {
 								namespace implementations {
 
-$FieldInfo _ECDSAUtils$ECCurveDefinition_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ECDSAUtils$ECCurveDefinition, name)},
-	{"oid", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ECDSAUtils$ECCurveDefinition, oid)},
-	{"field", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ECDSAUtils$ECCurveDefinition, field)},
-	{"a", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ECDSAUtils$ECCurveDefinition, a)},
-	{"b", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ECDSAUtils$ECCurveDefinition, b)},
-	{"x", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ECDSAUtils$ECCurveDefinition, x)},
-	{"y", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ECDSAUtils$ECCurveDefinition, y)},
-	{"n", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ECDSAUtils$ECCurveDefinition, n)},
-	{"h", "I", nullptr, $PRIVATE | $FINAL, $field(ECDSAUtils$ECCurveDefinition, h)},
-	{}
-};
-
-$MethodInfo _ECDSAUtils$ECCurveDefinition_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(ECDSAUtils$ECCurveDefinition, init$, void, $String*, $String*, $String*, $String*, $String*, $String*, $String*, $String*, int32_t)},
-	{"equals", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, equals, $String*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, int32_t)},
-	{"getA", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, getA, $String*)},
-	{"getB", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, getB, $String*)},
-	{"getField", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, getField, $String*)},
-	{"getH", "()I", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, getH, int32_t)},
-	{"getN", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, getN, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, getName, $String*)},
-	{"getOid", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, getOid, $String*)},
-	{"getX", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, getX, $String*)},
-	{"getY", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, getY, $String*)},
-	{}
-};
-
-$InnerClassInfo _ECDSAUtils$ECCurveDefinition_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.ECDSAUtils$ECCurveDefinition", "com.sun.org.apache.xml.internal.security.algorithms.implementations.ECDSAUtils", "ECCurveDefinition", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _ECDSAUtils$ECCurveDefinition_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.ECDSAUtils$ECCurveDefinition",
-	"java.lang.Object",
-	nullptr,
-	_ECDSAUtils$ECCurveDefinition_FieldInfo_,
-	_ECDSAUtils$ECCurveDefinition_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ECDSAUtils$ECCurveDefinition_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.ECDSAUtils"
-};
-
-$Object* allocate$ECDSAUtils$ECCurveDefinition($Class* clazz) {
-	return $of($alloc(ECDSAUtils$ECCurveDefinition));
-}
-
 void ECDSAUtils$ECCurveDefinition::init$($String* name, $String* oid, $String* field, $String* a, $String* b, $String* x, $String* y, $String* n, int32_t h) {
 	$set(this, name, name);
 	$set(this, oid, oid);
@@ -86,7 +32,7 @@ void ECDSAUtils$ECCurveDefinition::init$($String* name, $String* oid, $String* f
 }
 
 $String* ECDSAUtils$ECCurveDefinition::equals($BigInteger* field, $BigInteger* a, $BigInteger* b, $BigInteger* x, $BigInteger* y, $BigInteger* n, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$4 = $nc(this->field)->equals($($nc(field)->toString(16)));
 	bool var$3 = var$4 && $nc(this->a)->equals($($nc(a)->toString(16)));
 	bool var$2 = var$3 && $nc(this->b)->equals($($nc(b)->toString(16)));
@@ -138,7 +84,54 @@ ECDSAUtils$ECCurveDefinition::ECDSAUtils$ECCurveDefinition() {
 }
 
 $Class* ECDSAUtils$ECCurveDefinition::load$($String* name, bool initialize) {
-	$loadClass(ECDSAUtils$ECCurveDefinition, name, initialize, &_ECDSAUtils$ECCurveDefinition_ClassInfo_, allocate$ECDSAUtils$ECCurveDefinition);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ECDSAUtils$ECCurveDefinition, name)},
+		{"oid", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ECDSAUtils$ECCurveDefinition, oid)},
+		{"field", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ECDSAUtils$ECCurveDefinition, field)},
+		{"a", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ECDSAUtils$ECCurveDefinition, a)},
+		{"b", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ECDSAUtils$ECCurveDefinition, b)},
+		{"x", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ECDSAUtils$ECCurveDefinition, x)},
+		{"y", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ECDSAUtils$ECCurveDefinition, y)},
+		{"n", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ECDSAUtils$ECCurveDefinition, n)},
+		{"h", "I", nullptr, $PRIVATE | $FINAL, $field(ECDSAUtils$ECCurveDefinition, h)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(ECDSAUtils$ECCurveDefinition, init$, void, $String*, $String*, $String*, $String*, $String*, $String*, $String*, $String*, int32_t)},
+		{"equals", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, equals, $String*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, int32_t)},
+		{"getA", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, getA, $String*)},
+		{"getB", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, getB, $String*)},
+		{"getField", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, getField, $String*)},
+		{"getH", "()I", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, getH, int32_t)},
+		{"getN", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, getN, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, getName, $String*)},
+		{"getOid", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, getOid, $String*)},
+		{"getX", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, getX, $String*)},
+		{"getY", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, getY, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.ECDSAUtils$ECCurveDefinition", "com.sun.org.apache.xml.internal.security.algorithms.implementations.ECDSAUtils", "ECCurveDefinition", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.ECDSAUtils$ECCurveDefinition",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.ECDSAUtils"
+	};
+	$loadClass(ECDSAUtils$ECCurveDefinition, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ECDSAUtils$ECCurveDefinition);
+	});
 	return class$;
 }
 

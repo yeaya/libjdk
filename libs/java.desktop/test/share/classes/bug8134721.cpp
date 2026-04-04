@@ -1,5 +1,4 @@
 #include <bug8134721.h>
-
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/image/BufferedImage.h>
@@ -38,80 +37,55 @@ public:
 	virtual void run() override {
 		bug8134721::testNPE();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug8134721$$Lambda$testNPE>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug8134721$$Lambda$testNPE::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug8134721$$Lambda$testNPE, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8134721$$Lambda$testNPE, run, void)},
-	{}
-};
-$ClassInfo bug8134721$$Lambda$testNPE::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug8134721$$Lambda$testNPE",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug8134721$$Lambda$testNPE::load$($String* name, bool initialize) {
-	$loadClass(bug8134721$$Lambda$testNPE, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug8134721$$Lambda$testNPE, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8134721$$Lambda$testNPE, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug8134721$$Lambda$testNPE",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug8134721$$Lambda$testNPE, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8134721$$Lambda$testNPE);
+	});
 	return class$;
 }
 $Class* bug8134721$$Lambda$testNPE::class$ = nullptr;
-
-$MethodInfo _bug8134721_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug8134721, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug8134721, main, void, $StringArray*), "java.lang.Exception"},
-	{"testNPE", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8134721, testNPE, void)},
-	{}
-};
-
-$ClassInfo _bug8134721_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug8134721",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_bug8134721_MethodInfo_
-};
-
-$Object* allocate$bug8134721($Class* clazz) {
-	return $of($alloc(bug8134721));
-}
 
 void bug8134721::init$() {
 }
 
 void bug8134721::main($StringArray* args) {
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug8134721$$Lambda$testNPE)));
+	$SwingUtilities::invokeAndWait($$new(bug8134721$$Lambda$testNPE));
 }
 
 void bug8134721::testNPE() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Graphics, g, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($String, test, "\ttest\ttest2"_s);
-			$var($BufferedImage, buffImage, $new($BufferedImage, 100, 100, $BufferedImage::TYPE_INT_RGB));
-			$assign(g, buffImage->createGraphics());
-			$var($chars, var$1, test->toCharArray());
-			$var($Segment, segment, $new($Segment, var$1, 0, test->length()));
-			$Utilities::drawTabbedText(segment, 0, 0, g, ($TabExpander*)nullptr, 0);
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} /*finally*/ {
-			if (g != nullptr) {
-				g->dispose();
-			}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($String, test, "\ttest\ttest2"_s);
+		$var($BufferedImage, buffImage, $new($BufferedImage, 100, 100, $BufferedImage::TYPE_INT_RGB));
+		$assign(g, buffImage->createGraphics());
+		$var($chars, var$1, test->toCharArray());
+		$var($Segment, segment, $new($Segment, var$1, 0, test->length()));
+		$Utilities::drawTabbedText(segment, 0, 0, g, nullptr, 0);
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		if (g != nullptr) {
+			g->dispose();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -120,11 +94,27 @@ bug8134721::bug8134721() {
 
 $Class* bug8134721::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug8134721$$Lambda$testNPE::classInfo$.name)) {
+		if (name->equals("bug8134721$$Lambda$testNPE")) {
 			return bug8134721$$Lambda$testNPE::load$(name, initialize);
 		}
 	}
-	$loadClass(bug8134721, name, initialize, &_bug8134721_ClassInfo_, allocate$bug8134721);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug8134721, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug8134721, main, void, $StringArray*), "java.lang.Exception"},
+		{"testNPE", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8134721, testNPE, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug8134721",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug8134721, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8134721);
+	});
 	return class$;
 }
 

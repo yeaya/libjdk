@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WingDings$Encoder.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
@@ -29,45 +28,6 @@ namespace sun {
 	namespace awt {
 		namespace windows {
 
-$FieldInfo _WingDings$Encoder_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(WingDings$Encoder, $assertionsDisabled)},
-	{"table", "[B", nullptr, $PRIVATE | $STATIC, $staticField(WingDings$Encoder, table)},
-	{}
-};
-
-$MethodInfo _WingDings$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(WingDings$Encoder, init$, void, $Charset*)},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(WingDings$Encoder, canEncode, bool, char16_t)},
-	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(WingDings$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC, $virtualMethod(WingDings$Encoder, isLegalReplacement, bool, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _WingDings$Encoder_InnerClassesInfo_[] = {
-	{"sun.awt.windows.WingDings$Encoder", "sun.awt.windows.WingDings", "Encoder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WingDings$Encoder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.windows.WingDings$Encoder",
-	"java.nio.charset.CharsetEncoder",
-	nullptr,
-	_WingDings$Encoder_FieldInfo_,
-	_WingDings$Encoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WingDings$Encoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.windows.WingDings"
-};
-
-$Object* allocate$WingDings$Encoder($Class* clazz) {
-	return $of($alloc(WingDings$Encoder));
-}
-
 bool WingDings$Encoder::$assertionsDisabled = false;
 $bytes* WingDings$Encoder::table = nullptr;
 
@@ -87,7 +47,7 @@ bool WingDings$Encoder::canEncode(char16_t c) {
 }
 
 $CoderResult* WingDings$Encoder::encodeLoop($CharBuffer* src, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, sa, $cast($chars, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -106,43 +66,41 @@ $CoderResult* WingDings$Encoder::encodeLoop($CharBuffer* src, $ByteBuffer* dst) 
 		$throwNew($AssertionError);
 	}
 	dp = (dp <= dl ? dp : dl);
-	{
-		$var($Throwable, var$4, nullptr);
-		$var($CoderResult, var$6, nullptr);
-		bool return$5 = false;
-		try {
-			while (sp < sl) {
-				char16_t c = $nc(sa)->get(sp);
-				if (dl - dp < 1) {
-					$init($CoderResult);
-					$assign(var$6, $CoderResult::OVERFLOW);
-					return$5 = true;
-					goto $finally;
-				}
-				if (!canEncode(c)) {
-					$assign(var$6, $CoderResult::unmappableForLength(1));
-					return$5 = true;
-					goto $finally;
-				}
-				++sp;
-				$nc(da)->set(dp++, $nc(WingDings$Encoder::table)->get(c - 9984));
+	$var($Throwable, var$4, nullptr);
+	$var($CoderResult, var$6, nullptr);
+	bool return$5 = false;
+	try {
+		while (sp < sl) {
+			char16_t c = $nc(sa)->get(sp);
+			if (dl - dp < 1) {
+				$init($CoderResult);
+				$assign(var$6, $CoderResult::OVERFLOW);
+				return$5 = true;
+				goto $finally;
 			}
-			$init($CoderResult);
-			$assign(var$6, $CoderResult::UNDERFLOW);
-			return$5 = true;
-			goto $finally;
-		} catch ($Throwable& var$7) {
-			$assign(var$4, var$7);
-		} $finally: {
-			src->position(sp - src->arrayOffset());
-			dst->position(dp - dst->arrayOffset());
+			if (!canEncode(c)) {
+				$assign(var$6, $CoderResult::unmappableForLength(1));
+				return$5 = true;
+				goto $finally;
+			}
+			++sp;
+			$nc(da)->set(dp++, $nc(WingDings$Encoder::table)->get(c - 9984));
 		}
-		if (var$4 != nullptr) {
-			$throw(var$4);
-		}
-		if (return$5) {
-			return var$6;
-		}
+		$init($CoderResult);
+		$assign(var$6, $CoderResult::UNDERFLOW);
+		return$5 = true;
+		goto $finally;
+	} catch ($Throwable& var$7) {
+		$assign(var$4, var$7);
+	} $finally: {
+		src->position(sp - src->arrayOffset());
+		dst->position(dp - dst->arrayOffset());
+	}
+	if (var$4 != nullptr) {
+		$throw(var$4);
+	}
+	if (return$5) {
+		return var$6;
 	}
 	$shouldNotReachHere();
 }
@@ -151,7 +109,7 @@ bool WingDings$Encoder::isLegalReplacement($bytes* repl) {
 	return true;
 }
 
-void clinit$WingDings$Encoder($Class* class$) {
+void WingDings$Encoder::clinit$($Class* clazz) {
 	$load($WingDings);
 	WingDings$Encoder::$assertionsDisabled = !$WingDings::class$->desiredAssertionStatus();
 	$assignStatic(WingDings$Encoder::table, $new($bytes, {
@@ -353,7 +311,40 @@ WingDings$Encoder::WingDings$Encoder() {
 }
 
 $Class* WingDings$Encoder::load$($String* name, bool initialize) {
-	$loadClass(WingDings$Encoder, name, initialize, &_WingDings$Encoder_ClassInfo_, clinit$WingDings$Encoder, allocate$WingDings$Encoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(WingDings$Encoder, $assertionsDisabled)},
+		{"table", "[B", nullptr, $PRIVATE | $STATIC, $staticField(WingDings$Encoder, table)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(WingDings$Encoder, init$, void, $Charset*)},
+		{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(WingDings$Encoder, canEncode, bool, char16_t)},
+		{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(WingDings$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC, $virtualMethod(WingDings$Encoder, isLegalReplacement, bool, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.windows.WingDings$Encoder", "sun.awt.windows.WingDings", "Encoder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.windows.WingDings$Encoder",
+		"java.nio.charset.CharsetEncoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.windows.WingDings"
+	};
+	$loadClass(WingDings$Encoder, name, initialize, &classInfo$$, WingDings$Encoder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WingDings$Encoder);
+	});
 	return class$;
 }
 

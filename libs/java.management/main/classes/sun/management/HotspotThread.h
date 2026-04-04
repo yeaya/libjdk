@@ -34,6 +34,7 @@ class HotspotThread : public ::sun::management::HotspotThreadMBean {
 	$class(HotspotThread, 0, ::sun::management::HotspotThreadMBean)
 public:
 	HotspotThread();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::management::VMManagement* vm);
 	virtual int32_t getInternalThreadCount() override;
 	virtual ::java::util::Map* getInternalThreadCpuTimes() override;

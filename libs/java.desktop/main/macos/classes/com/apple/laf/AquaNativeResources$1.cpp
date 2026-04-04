@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaNativeResources$1.h>
-
 #include <com/apple/laf/AquaNativeResources.h>
 #include <jcpp.h>
 
@@ -12,57 +11,51 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaNativeResources$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AquaNativeResources$1, init$, void)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(AquaNativeResources$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaNativeResources$1_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaNativeResources",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _AquaNativeResources$1_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaNativeResources$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaNativeResources$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaNativeResources$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_AquaNativeResources$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
-	&_AquaNativeResources$1_EnclosingMethodInfo_,
-	_AquaNativeResources$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaNativeResources"
-};
-
-$Object* allocate$AquaNativeResources$1($Class* clazz) {
-	return $of($alloc(AquaNativeResources$1));
-}
-
 void AquaNativeResources$1::init$() {
 }
 
 $Object* AquaNativeResources$1::run() {
 	$beforeCallerSensitive();
 	$System::loadLibrary("osxui"_s);
-	return $of(nullptr);
+	return nullptr;
 }
 
 AquaNativeResources$1::AquaNativeResources$1() {
 }
 
 $Class* AquaNativeResources$1::load$($String* name, bool initialize) {
-	$loadClass(AquaNativeResources$1, name, initialize, &_AquaNativeResources$1_ClassInfo_, allocate$AquaNativeResources$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AquaNativeResources$1, init$, void)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(AquaNativeResources$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaNativeResources",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaNativeResources$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaNativeResources$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaNativeResources"
+	};
+	$loadClass(AquaNativeResources$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaNativeResources$1);
+	});
 	return class$;
 }
 

@@ -25,6 +25,7 @@ class $export DOMResult : public ::javax::xml::transform::Result {
 	$class(DOMResult, 0, ::javax::xml::transform::Result)
 public:
 	DOMResult();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::org::w3c::dom::Node* node);
 	void init$(::org::w3c::dom::Node* node, $String* systemId);

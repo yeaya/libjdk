@@ -22,6 +22,7 @@ class AbstractFilter : public ::java::io::OutputStream {
 	$class(AbstractFilter, 0, ::java::io::OutputStream)
 public:
 	AbstractFilter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void readFromReader(::java::io::Reader* in);
 	virtual void readFromStream(::java::io::InputStream* in);

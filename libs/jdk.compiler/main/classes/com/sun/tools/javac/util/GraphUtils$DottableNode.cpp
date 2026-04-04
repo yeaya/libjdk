@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/GraphUtils$DottableNode.h>
-
 #include <com/sun/tools/javac/util/GraphUtils$DependencyKind.h>
 #include <com/sun/tools/javac/util/GraphUtils.h>
 #include <java/util/Properties.h>
@@ -17,40 +16,35 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$MethodInfo _GraphUtils$DottableNode_MethodInfo_[] = {
-	{"dependencyAttributes", "(Lcom/sun/tools/javac/util/GraphUtils$DottableNode;Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Properties;", "(TN;Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Properties;", $PUBLIC | $ABSTRACT, $virtualMethod(GraphUtils$DottableNode, dependencyAttributes, $Properties*, GraphUtils$DottableNode*, $GraphUtils$DependencyKind*)},
-	{"nodeAttributes", "()Ljava/util/Properties;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphUtils$DottableNode, nodeAttributes, $Properties*)},
-	{}
-};
-
-$InnerClassInfo _GraphUtils$DottableNode_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.GraphUtils$DottableNode", "com.sun.tools.javac.util.GraphUtils", "DottableNode", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.util.GraphUtils$Node", "com.sun.tools.javac.util.GraphUtils", "Node", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _GraphUtils$DottableNode_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.util.GraphUtils$DottableNode",
-	nullptr,
-	"com.sun.tools.javac.util.GraphUtils$Node",
-	nullptr,
-	_GraphUtils$DottableNode_MethodInfo_,
-	"<D:Ljava/lang/Object;N::Lcom/sun/tools/javac/util/GraphUtils$DottableNode<TD;TN;>;>Ljava/lang/Object;Lcom/sun/tools/javac/util/GraphUtils$Node<TD;TN;>;",
-	nullptr,
-	_GraphUtils$DottableNode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.GraphUtils"
-};
-
-$Object* allocate$GraphUtils$DottableNode($Class* clazz) {
-	return $of($alloc(GraphUtils$DottableNode));
-}
-
 $Class* GraphUtils$DottableNode::load$($String* name, bool initialize) {
-	$loadClass(GraphUtils$DottableNode, name, initialize, &_GraphUtils$DottableNode_ClassInfo_, allocate$GraphUtils$DottableNode);
+	$MethodInfo methodInfos$$[] = {
+		{"dependencyAttributes", "(Lcom/sun/tools/javac/util/GraphUtils$DottableNode;Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Properties;", "(TN;Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Properties;", $PUBLIC | $ABSTRACT, $virtualMethod(GraphUtils$DottableNode, dependencyAttributes, $Properties*, GraphUtils$DottableNode*, $GraphUtils$DependencyKind*)},
+		{"nodeAttributes", "()Ljava/util/Properties;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphUtils$DottableNode, nodeAttributes, $Properties*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.GraphUtils$DottableNode", "com.sun.tools.javac.util.GraphUtils", "DottableNode", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.util.GraphUtils$Node", "com.sun.tools.javac.util.GraphUtils", "Node", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.util.GraphUtils$DottableNode",
+		nullptr,
+		"com.sun.tools.javac.util.GraphUtils$Node",
+		nullptr,
+		methodInfos$$,
+		"<D:Ljava/lang/Object;N::Lcom/sun/tools/javac/util/GraphUtils$DottableNode<TD;TN;>;>Ljava/lang/Object;Lcom/sun/tools/javac/util/GraphUtils$Node<TD;TN;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.GraphUtils"
+	};
+	$loadClass(GraphUtils$DottableNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GraphUtils$DottableNode);
+	});
 	return class$;
 }
 

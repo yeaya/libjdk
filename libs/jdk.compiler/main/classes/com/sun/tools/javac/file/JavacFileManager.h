@@ -131,6 +131,7 @@ public:
 	virtual bool handleOption($String* current, ::java::util::Iterator* remaining) override;
 	virtual int32_t hashCode() override;
 	virtual int32_t isSupportedOption($String* option) override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context, bool register$, ::java::nio::charset::Charset* charset);
 	static ::java::lang::Iterable* asFiles(::java::lang::Iterable* paths);
 	virtual ::java::nio::file::Path* asPath(::javax::tools::FileObject* file) override;

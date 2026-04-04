@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/TextAreaDocument.h>
-
 #include <javax/swing/text/AbstractDocument.h>
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/BadLocationException.h>
@@ -17,31 +16,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _TextAreaDocument_FieldInfo_[] = {
-	{"initialText", "Ljava/lang/String;", nullptr, 0, $field(TextAreaDocument, initialText)},
-	{}
-};
-
-$MethodInfo _TextAreaDocument_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TextAreaDocument, init$, void)},
-	{"reset", "()V", nullptr, 0, $virtualMethod(TextAreaDocument, reset, void)},
-	{"storeInitialText", "()V", nullptr, 0, $virtualMethod(TextAreaDocument, storeInitialText, void)},
-	{}
-};
-
-$ClassInfo _TextAreaDocument_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.TextAreaDocument",
-	"javax.swing.text.PlainDocument",
-	nullptr,
-	_TextAreaDocument_FieldInfo_,
-	_TextAreaDocument_MethodInfo_
-};
-
-$Object* allocate$TextAreaDocument($Class* clazz) {
-	return $of($alloc(TextAreaDocument));
-}
 
 void TextAreaDocument::init$() {
 	$PlainDocument::init$();
@@ -68,7 +42,27 @@ TextAreaDocument::TextAreaDocument() {
 }
 
 $Class* TextAreaDocument::load$($String* name, bool initialize) {
-	$loadClass(TextAreaDocument, name, initialize, &_TextAreaDocument_ClassInfo_, allocate$TextAreaDocument);
+	$FieldInfo fieldInfos$$[] = {
+		{"initialText", "Ljava/lang/String;", nullptr, 0, $field(TextAreaDocument, initialText)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TextAreaDocument, init$, void)},
+		{"reset", "()V", nullptr, 0, $virtualMethod(TextAreaDocument, reset, void)},
+		{"storeInitialText", "()V", nullptr, 0, $virtualMethod(TextAreaDocument, storeInitialText, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.TextAreaDocument",
+		"javax.swing.text.PlainDocument",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TextAreaDocument, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TextAreaDocument));
+	});
 	return class$;
 }
 

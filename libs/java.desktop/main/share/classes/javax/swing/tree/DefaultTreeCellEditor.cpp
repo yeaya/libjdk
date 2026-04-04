@@ -1,5 +1,4 @@
 #include <javax/swing/tree/DefaultTreeCellEditor.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -13,7 +12,6 @@
 #include <javax/swing/CellEditor.h>
 #include <javax/swing/DefaultCellEditor.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JTextField.h>
 #include <javax/swing/JTree.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/Timer.h>
@@ -21,7 +19,6 @@
 #include <javax/swing/border/Border.h>
 #include <javax/swing/event/CellEditorListener.h>
 #include <javax/swing/event/TreeSelectionEvent.h>
-#include <javax/swing/event/TreeSelectionListener.h>
 #include <javax/swing/tree/DefaultTreeCellEditor$1.h>
 #include <javax/swing/tree/DefaultTreeCellEditor$DefaultTextField.h>
 #include <javax/swing/tree/DefaultTreeCellEditor$EditorContainer.h>
@@ -47,8 +44,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $EventObject = ::java::util::EventObject;
 using $DefaultCellEditor = ::javax::swing::DefaultCellEditor;
-using $Icon = ::javax::swing::Icon;
-using $JTextField = ::javax::swing::JTextField;
 using $JTree = ::javax::swing::JTree;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $Timer = ::javax::swing::Timer;
@@ -56,7 +51,6 @@ using $UIManager = ::javax::swing::UIManager;
 using $Border = ::javax::swing::border::Border;
 using $CellEditorListener = ::javax::swing::event::CellEditorListener;
 using $TreeSelectionEvent = ::javax::swing::event::TreeSelectionEvent;
-using $TreeSelectionListener = ::javax::swing::event::TreeSelectionListener;
 using $DefaultTreeCellEditor$1 = ::javax::swing::tree::DefaultTreeCellEditor$1;
 using $DefaultTreeCellEditor$DefaultTextField = ::javax::swing::tree::DefaultTreeCellEditor$DefaultTextField;
 using $DefaultTreeCellEditor$EditorContainer = ::javax::swing::tree::DefaultTreeCellEditor$EditorContainer;
@@ -68,85 +62,6 @@ using $TreePath = ::javax::swing::tree::TreePath;
 namespace javax {
 	namespace swing {
 		namespace tree {
-
-$FieldInfo _DefaultTreeCellEditor_FieldInfo_[] = {
-	{"realEditor", "Ljavax/swing/tree/TreeCellEditor;", nullptr, $PROTECTED, $field(DefaultTreeCellEditor, realEditor)},
-	{"renderer", "Ljavax/swing/tree/DefaultTreeCellRenderer;", nullptr, $PROTECTED, $field(DefaultTreeCellEditor, renderer)},
-	{"editingContainer", "Ljava/awt/Container;", nullptr, $PROTECTED, $field(DefaultTreeCellEditor, editingContainer)},
-	{"editingComponent", "Ljava/awt/Component;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultTreeCellEditor, editingComponent)},
-	{"canEdit", "Z", nullptr, $PROTECTED, $field(DefaultTreeCellEditor, canEdit)},
-	{"offset", "I", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultTreeCellEditor, offset)},
-	{"tree", "Ljavax/swing/JTree;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultTreeCellEditor, tree)},
-	{"lastPath", "Ljavax/swing/tree/TreePath;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultTreeCellEditor, lastPath)},
-	{"timer", "Ljavax/swing/Timer;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultTreeCellEditor, timer)},
-	{"lastRow", "I", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultTreeCellEditor, lastRow)},
-	{"borderSelectionColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(DefaultTreeCellEditor, borderSelectionColor)},
-	{"editingIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultTreeCellEditor, editingIcon)},
-	{"font", "Ljava/awt/Font;", nullptr, $PROTECTED, $field(DefaultTreeCellEditor, font)},
-	{}
-};
-
-$MethodInfo _DefaultTreeCellEditor_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JTree;Ljavax/swing/tree/DefaultTreeCellRenderer;)V", nullptr, $PUBLIC, $method(DefaultTreeCellEditor, init$, void, $JTree*, $DefaultTreeCellRenderer*)},
-	{"<init>", "(Ljavax/swing/JTree;Ljavax/swing/tree/DefaultTreeCellRenderer;Ljavax/swing/tree/TreeCellEditor;)V", nullptr, $PUBLIC, $method(DefaultTreeCellEditor, init$, void, $JTree*, $DefaultTreeCellRenderer*, $TreeCellEditor*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, actionPerformed, void, $ActionEvent*)},
-	{"addCellEditorListener", "(Ljavax/swing/event/CellEditorListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, addCellEditorListener, void, $CellEditorListener*)},
-	{"canEditImmediately", "(Ljava/util/EventObject;)Z", nullptr, $PROTECTED, $virtualMethod(DefaultTreeCellEditor, canEditImmediately, bool, $EventObject*)},
-	{"cancelCellEditing", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, cancelCellEditing, void)},
-	{"cleanupAfterEditing", "()V", nullptr, $PRIVATE, $method(DefaultTreeCellEditor, cleanupAfterEditing, void)},
-	{"createContainer", "()Ljava/awt/Container;", nullptr, $PROTECTED, $virtualMethod(DefaultTreeCellEditor, createContainer, $Container*)},
-	{"createTreeCellEditor", "()Ljavax/swing/tree/TreeCellEditor;", nullptr, $PROTECTED, $virtualMethod(DefaultTreeCellEditor, createTreeCellEditor, $TreeCellEditor*)},
-	{"determineOffset", "(Ljavax/swing/JTree;Ljava/lang/Object;ZZZI)V", nullptr, $PROTECTED, $virtualMethod(DefaultTreeCellEditor, determineOffset, void, $JTree*, Object$*, bool, bool, bool, int32_t)},
-	{"getBorderSelectionColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, getBorderSelectionColor, $Color*)},
-	{"getCellEditorListeners", "()[Ljavax/swing/event/CellEditorListener;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, getCellEditorListeners, $CellEditorListenerArray*)},
-	{"getCellEditorValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, getCellEditorValue, $Object*)},
-	{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, getFont, $Font*)},
-	{"getTreeCellEditorComponent", "(Ljavax/swing/JTree;Ljava/lang/Object;ZZZI)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, getTreeCellEditorComponent, $Component*, $JTree*, Object$*, bool, bool, bool, int32_t)},
-	{"inHitRegion", "(II)Z", nullptr, $PROTECTED, $virtualMethod(DefaultTreeCellEditor, inHitRegion, bool, int32_t, int32_t)},
-	{"isCellEditable", "(Ljava/util/EventObject;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, isCellEditable, bool, $EventObject*)},
-	{"prepareForEditing", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultTreeCellEditor, prepareForEditing, void)},
-	{"removeCellEditorListener", "(Ljavax/swing/event/CellEditorListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, removeCellEditorListener, void, $CellEditorListener*)},
-	{"setBorderSelectionColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, setBorderSelectionColor, void, $Color*)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, setFont, void, $Font*)},
-	{"setTree", "(Ljavax/swing/JTree;)V", nullptr, $PROTECTED, $virtualMethod(DefaultTreeCellEditor, setTree, void, $JTree*)},
-	{"shouldSelectCell", "(Ljava/util/EventObject;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, shouldSelectCell, bool, $EventObject*)},
-	{"shouldStartEditingTimer", "(Ljava/util/EventObject;)Z", nullptr, $PROTECTED, $virtualMethod(DefaultTreeCellEditor, shouldStartEditingTimer, bool, $EventObject*)},
-	{"startEditingTimer", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultTreeCellEditor, startEditingTimer, void)},
-	{"stopCellEditing", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, stopCellEditing, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueChanged", "(Ljavax/swing/event/TreeSelectionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, valueChanged, void, $TreeSelectionEvent*)},
-	{}
-};
-
-$InnerClassInfo _DefaultTreeCellEditor_InnerClassesInfo_[] = {
-	{"javax.swing.tree.DefaultTreeCellEditor$EditorContainer", "javax.swing.tree.DefaultTreeCellEditor", "EditorContainer", $PUBLIC},
-	{"javax.swing.tree.DefaultTreeCellEditor$DefaultTextField", "javax.swing.tree.DefaultTreeCellEditor", "DefaultTextField", $PUBLIC},
-	{"javax.swing.tree.DefaultTreeCellEditor$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DefaultTreeCellEditor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.tree.DefaultTreeCellEditor",
-	"java.lang.Object",
-	"java.awt.event.ActionListener,javax.swing.tree.TreeCellEditor,javax.swing.event.TreeSelectionListener",
-	_DefaultTreeCellEditor_FieldInfo_,
-	_DefaultTreeCellEditor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultTreeCellEditor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.tree.DefaultTreeCellEditor$EditorContainer,javax.swing.tree.DefaultTreeCellEditor$DefaultTextField,javax.swing.tree.DefaultTreeCellEditor$1"
-};
-
-$Object* allocate$DefaultTreeCellEditor($Class* clazz) {
-	return $of($alloc(DefaultTreeCellEditor));
-}
 
 int32_t DefaultTreeCellEditor::hashCode() {
 	 return this->$ActionListener::hashCode();
@@ -200,7 +115,7 @@ $Font* DefaultTreeCellEditor::getFont() {
 }
 
 $Component* DefaultTreeCellEditor::getTreeCellEditorComponent($JTree* tree, Object$* value, bool isSelected, bool expanded, bool leaf, int32_t row) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setTree(tree);
 	this->lastRow = row;
 	determineOffset(tree, value, isSelected, expanded, leaf, row);
@@ -209,11 +124,11 @@ $Component* DefaultTreeCellEditor::getTreeCellEditorComponent($JTree* tree, Obje
 	}
 	$set(this, editingComponent, $nc(this->realEditor)->getTreeCellEditorComponent(tree, value, isSelected, expanded, leaf, row));
 	$var($TreePath, newPath, $nc(tree)->getPathForRow(row));
-	this->canEdit = (this->lastPath != nullptr && newPath != nullptr && $nc(this->lastPath)->equals(newPath));
+	this->canEdit = (this->lastPath != nullptr && newPath != nullptr && this->lastPath->equals(newPath));
 	$var($Font, font, getFont());
 	if (font == nullptr) {
 		if (this->renderer != nullptr) {
-			$assign(font, $nc(this->renderer)->getFont());
+			$assign(font, this->renderer->getFont());
 		}
 		if (font == nullptr) {
 			$assign(font, tree->getFont());
@@ -225,20 +140,20 @@ $Component* DefaultTreeCellEditor::getTreeCellEditorComponent($JTree* tree, Obje
 }
 
 $Object* DefaultTreeCellEditor::getCellEditorValue() {
-	return $of($nc(this->realEditor)->getCellEditorValue());
+	return $nc(this->realEditor)->getCellEditorValue();
 }
 
 bool DefaultTreeCellEditor::isCellEditable($EventObject* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool retValue = false;
 	bool editable = false;
 	if (event != nullptr) {
 		if ($instanceOf($JTree, $(event->getSource()))) {
-			setTree($cast($JTree, $(event->getSource())));
+			setTree($$cast($JTree, event->getSource()));
 			if ($instanceOf($MouseEvent, event)) {
-				int32_t var$0 = $nc(($cast($MouseEvent, event)))->getX();
-				$var($TreePath, path, $nc(this->tree)->getPathForLocation(var$0, ($cast($MouseEvent, event))->getY()));
-				editable = (this->lastPath != nullptr && path != nullptr && $nc(this->lastPath)->equals(path));
+				int32_t var$0 = $cast($MouseEvent, event)->getX();
+				$var($TreePath, path, $nc(this->tree)->getPathForLocation(var$0, $cast($MouseEvent, event)->getY()));
+				editable = (this->lastPath != nullptr && path != nullptr && this->lastPath->equals(path));
 				if (path != nullptr) {
 					this->lastRow = $nc(this->tree)->getRowForPath(path);
 					$var($Object, value, path->getLastPathComponent());
@@ -258,8 +173,8 @@ bool DefaultTreeCellEditor::isCellEditable($EventObject* event) {
 		retValue = true;
 	} else if (editable && shouldStartEditingTimer(event)) {
 		startEditingTimer();
-	} else if (this->timer != nullptr && $nc(this->timer)->isRunning()) {
-		$nc(this->timer)->stop();
+	} else if (this->timer != nullptr && this->timer->isRunning()) {
+		this->timer->stop();
 	}
 	if (retValue) {
 		prepareForEditing();
@@ -293,39 +208,39 @@ void DefaultTreeCellEditor::removeCellEditorListener($CellEditorListener* l) {
 }
 
 $CellEditorListenerArray* DefaultTreeCellEditor::getCellEditorListeners() {
-	return $nc(($cast($DefaultCellEditor, this->realEditor)))->getCellEditorListeners();
+	return $nc($cast($DefaultCellEditor, this->realEditor))->getCellEditorListeners();
 }
 
 void DefaultTreeCellEditor::valueChanged($TreeSelectionEvent* e) {
 	if (this->tree != nullptr) {
-		if ($nc(this->tree)->getSelectionCount() == 1) {
+		if (this->tree->getSelectionCount() == 1) {
 			$set(this, lastPath, $nc(this->tree)->getSelectionPath());
 		} else {
 			$set(this, lastPath, nullptr);
 		}
 	}
 	if (this->timer != nullptr) {
-		$nc(this->timer)->stop();
+		this->timer->stop();
 	}
 }
 
 void DefaultTreeCellEditor::actionPerformed($ActionEvent* e) {
 	if (this->tree != nullptr && this->lastPath != nullptr) {
-		$nc(this->tree)->startEditingAtPath(this->lastPath);
+		this->tree->startEditingAtPath(this->lastPath);
 	}
 }
 
 void DefaultTreeCellEditor::setTree($JTree* newTree) {
 	if (this->tree != newTree) {
 		if (this->tree != nullptr) {
-			$nc(this->tree)->removeTreeSelectionListener(this);
+			this->tree->removeTreeSelectionListener(this);
 		}
 		$set(this, tree, newTree);
 		if (this->tree != nullptr) {
-			$nc(this->tree)->addTreeSelectionListener(this);
+			this->tree->addTreeSelectionListener(this);
 		}
 		if (this->timer != nullptr) {
-			$nc(this->timer)->stop();
+			this->timer->stop();
 		}
 	}
 }
@@ -333,7 +248,7 @@ void DefaultTreeCellEditor::setTree($JTree* newTree) {
 bool DefaultTreeCellEditor::shouldStartEditingTimer($EventObject* event) {
 	if (($instanceOf($MouseEvent, event)) && $SwingUtilities::isLeftMouseButton($cast($MouseEvent, event))) {
 		$var($MouseEvent, me, $cast($MouseEvent, event));
-		bool var$0 = $nc(me)->getClickCount() == 1;
+		bool var$0 = me->getClickCount() == 1;
 		if (var$0) {
 			int32_t var$1 = me->getX();
 			var$0 = inHitRegion(var$1, me->getY());
@@ -346,7 +261,7 @@ bool DefaultTreeCellEditor::shouldStartEditingTimer($EventObject* event) {
 void DefaultTreeCellEditor::startEditingTimer() {
 	if (this->timer == nullptr) {
 		$set(this, timer, $new($Timer, 1200, this));
-		$nc(this->timer)->setRepeats(false);
+		this->timer->setRepeats(false);
 	}
 	$nc(this->timer)->start();
 }
@@ -354,7 +269,7 @@ void DefaultTreeCellEditor::startEditingTimer() {
 bool DefaultTreeCellEditor::canEditImmediately($EventObject* event) {
 	if (($instanceOf($MouseEvent, event)) && $SwingUtilities::isLeftMouseButton($cast($MouseEvent, event))) {
 		$var($MouseEvent, me, $cast($MouseEvent, event));
-		bool var$0 = ($nc(me)->getClickCount() > 2);
+		bool var$0 = me->getClickCount() > 2;
 		if (var$0) {
 			int32_t var$1 = me->getX();
 			var$0 = inHitRegion(var$1, me->getY());
@@ -365,15 +280,15 @@ bool DefaultTreeCellEditor::canEditImmediately($EventObject* event) {
 }
 
 bool DefaultTreeCellEditor::inHitRegion(int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->lastRow != -1 && this->tree != nullptr) {
-		$var($Rectangle, bounds, $nc(this->tree)->getRowBounds(this->lastRow));
+		$var($Rectangle, bounds, this->tree->getRowBounds(this->lastRow));
 		$var($ComponentOrientation, treeOrientation, $nc(this->tree)->getComponentOrientation());
 		if ($nc(treeOrientation)->isLeftToRight()) {
 			if (bounds != nullptr && x <= (bounds->x + this->offset) && this->offset < (bounds->width - 5)) {
 				return false;
 			}
-		} else if (bounds != nullptr && (x >= (bounds->x + bounds->width - this->offset + 5) || x <= ($nc(bounds)->x + 5)) && this->offset < (bounds->width - 5)) {
+		} else if (bounds != nullptr && (x >= (bounds->x + bounds->width - this->offset + 5) || x <= (bounds->x + 5)) && this->offset < (bounds->width - 5)) {
 			return false;
 		}
 	}
@@ -383,7 +298,7 @@ bool DefaultTreeCellEditor::inHitRegion(int32_t x, int32_t y) {
 void DefaultTreeCellEditor::determineOffset($JTree* tree, Object$* value, bool isSelected, bool expanded, bool leaf, int32_t row) {
 	if (this->renderer != nullptr) {
 		if (leaf) {
-			$set(this, editingIcon, $nc(this->renderer)->getLeafIcon());
+			$set(this, editingIcon, this->renderer->getLeafIcon());
 		} else if (expanded) {
 			$set(this, editingIcon, $nc(this->renderer)->getOpenIcon());
 		} else {
@@ -391,7 +306,7 @@ void DefaultTreeCellEditor::determineOffset($JTree* tree, Object$* value, bool i
 		}
 		if (this->editingIcon != nullptr) {
 			int32_t var$0 = $nc(this->renderer)->getIconTextGap();
-			this->offset = var$0 + $nc(this->editingIcon)->getIconWidth();
+			this->offset = var$0 + this->editingIcon->getIconWidth();
 		} else {
 			this->offset = $nc(this->renderer)->getIconTextGap();
 		}
@@ -412,7 +327,7 @@ $Container* DefaultTreeCellEditor::createContainer() {
 }
 
 $TreeCellEditor* DefaultTreeCellEditor::createTreeCellEditor() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Border, aBorder, $UIManager::getBorder("Tree.editorBorder"_s));
 	$var($DefaultCellEditor, editor, $new($DefaultTreeCellEditor$1, this, $$new($DefaultTreeCellEditor$DefaultTextField, this, aBorder)));
 	editor->setClickCountToStart(1);
@@ -430,7 +345,80 @@ DefaultTreeCellEditor::DefaultTreeCellEditor() {
 }
 
 $Class* DefaultTreeCellEditor::load$($String* name, bool initialize) {
-	$loadClass(DefaultTreeCellEditor, name, initialize, &_DefaultTreeCellEditor_ClassInfo_, allocate$DefaultTreeCellEditor);
+	$FieldInfo fieldInfos$$[] = {
+		{"realEditor", "Ljavax/swing/tree/TreeCellEditor;", nullptr, $PROTECTED, $field(DefaultTreeCellEditor, realEditor)},
+		{"renderer", "Ljavax/swing/tree/DefaultTreeCellRenderer;", nullptr, $PROTECTED, $field(DefaultTreeCellEditor, renderer)},
+		{"editingContainer", "Ljava/awt/Container;", nullptr, $PROTECTED, $field(DefaultTreeCellEditor, editingContainer)},
+		{"editingComponent", "Ljava/awt/Component;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultTreeCellEditor, editingComponent)},
+		{"canEdit", "Z", nullptr, $PROTECTED, $field(DefaultTreeCellEditor, canEdit)},
+		{"offset", "I", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultTreeCellEditor, offset)},
+		{"tree", "Ljavax/swing/JTree;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultTreeCellEditor, tree)},
+		{"lastPath", "Ljavax/swing/tree/TreePath;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultTreeCellEditor, lastPath)},
+		{"timer", "Ljavax/swing/Timer;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultTreeCellEditor, timer)},
+		{"lastRow", "I", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultTreeCellEditor, lastRow)},
+		{"borderSelectionColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(DefaultTreeCellEditor, borderSelectionColor)},
+		{"editingIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultTreeCellEditor, editingIcon)},
+		{"font", "Ljava/awt/Font;", nullptr, $PROTECTED, $field(DefaultTreeCellEditor, font)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JTree;Ljavax/swing/tree/DefaultTreeCellRenderer;)V", nullptr, $PUBLIC, $method(DefaultTreeCellEditor, init$, void, $JTree*, $DefaultTreeCellRenderer*)},
+		{"<init>", "(Ljavax/swing/JTree;Ljavax/swing/tree/DefaultTreeCellRenderer;Ljavax/swing/tree/TreeCellEditor;)V", nullptr, $PUBLIC, $method(DefaultTreeCellEditor, init$, void, $JTree*, $DefaultTreeCellRenderer*, $TreeCellEditor*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, actionPerformed, void, $ActionEvent*)},
+		{"addCellEditorListener", "(Ljavax/swing/event/CellEditorListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, addCellEditorListener, void, $CellEditorListener*)},
+		{"canEditImmediately", "(Ljava/util/EventObject;)Z", nullptr, $PROTECTED, $virtualMethod(DefaultTreeCellEditor, canEditImmediately, bool, $EventObject*)},
+		{"cancelCellEditing", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, cancelCellEditing, void)},
+		{"cleanupAfterEditing", "()V", nullptr, $PRIVATE, $method(DefaultTreeCellEditor, cleanupAfterEditing, void)},
+		{"createContainer", "()Ljava/awt/Container;", nullptr, $PROTECTED, $virtualMethod(DefaultTreeCellEditor, createContainer, $Container*)},
+		{"createTreeCellEditor", "()Ljavax/swing/tree/TreeCellEditor;", nullptr, $PROTECTED, $virtualMethod(DefaultTreeCellEditor, createTreeCellEditor, $TreeCellEditor*)},
+		{"determineOffset", "(Ljavax/swing/JTree;Ljava/lang/Object;ZZZI)V", nullptr, $PROTECTED, $virtualMethod(DefaultTreeCellEditor, determineOffset, void, $JTree*, Object$*, bool, bool, bool, int32_t)},
+		{"getBorderSelectionColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, getBorderSelectionColor, $Color*)},
+		{"getCellEditorListeners", "()[Ljavax/swing/event/CellEditorListener;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, getCellEditorListeners, $CellEditorListenerArray*)},
+		{"getCellEditorValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, getCellEditorValue, $Object*)},
+		{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, getFont, $Font*)},
+		{"getTreeCellEditorComponent", "(Ljavax/swing/JTree;Ljava/lang/Object;ZZZI)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, getTreeCellEditorComponent, $Component*, $JTree*, Object$*, bool, bool, bool, int32_t)},
+		{"inHitRegion", "(II)Z", nullptr, $PROTECTED, $virtualMethod(DefaultTreeCellEditor, inHitRegion, bool, int32_t, int32_t)},
+		{"isCellEditable", "(Ljava/util/EventObject;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, isCellEditable, bool, $EventObject*)},
+		{"prepareForEditing", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultTreeCellEditor, prepareForEditing, void)},
+		{"removeCellEditorListener", "(Ljavax/swing/event/CellEditorListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, removeCellEditorListener, void, $CellEditorListener*)},
+		{"setBorderSelectionColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, setBorderSelectionColor, void, $Color*)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, setFont, void, $Font*)},
+		{"setTree", "(Ljavax/swing/JTree;)V", nullptr, $PROTECTED, $virtualMethod(DefaultTreeCellEditor, setTree, void, $JTree*)},
+		{"shouldSelectCell", "(Ljava/util/EventObject;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, shouldSelectCell, bool, $EventObject*)},
+		{"shouldStartEditingTimer", "(Ljava/util/EventObject;)Z", nullptr, $PROTECTED, $virtualMethod(DefaultTreeCellEditor, shouldStartEditingTimer, bool, $EventObject*)},
+		{"startEditingTimer", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultTreeCellEditor, startEditingTimer, void)},
+		{"stopCellEditing", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, stopCellEditing, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueChanged", "(Ljavax/swing/event/TreeSelectionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor, valueChanged, void, $TreeSelectionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.tree.DefaultTreeCellEditor$EditorContainer", "javax.swing.tree.DefaultTreeCellEditor", "EditorContainer", $PUBLIC},
+		{"javax.swing.tree.DefaultTreeCellEditor$DefaultTextField", "javax.swing.tree.DefaultTreeCellEditor", "DefaultTextField", $PUBLIC},
+		{"javax.swing.tree.DefaultTreeCellEditor$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.tree.DefaultTreeCellEditor",
+		"java.lang.Object",
+		"java.awt.event.ActionListener,javax.swing.tree.TreeCellEditor,javax.swing.event.TreeSelectionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.tree.DefaultTreeCellEditor$EditorContainer,javax.swing.tree.DefaultTreeCellEditor$DefaultTextField,javax.swing.tree.DefaultTreeCellEditor$1"
+	};
+	$loadClass(DefaultTreeCellEditor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultTreeCellEditor));
+	});
 	return class$;
 }
 

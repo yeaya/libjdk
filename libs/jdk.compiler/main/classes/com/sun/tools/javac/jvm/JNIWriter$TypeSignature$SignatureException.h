@@ -19,7 +19,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)1;
 	JNIWriter$TypeSignature$SignatureException(const JNIWriter$TypeSignature$SignatureException& e);
 	virtual void throw$() override;
-	inline JNIWriter$TypeSignature$SignatureException* operator ->() {
+	inline JNIWriter$TypeSignature$SignatureException* operator ->() const {
+		return (JNIWriter$TypeSignature$SignatureException*)throwing$;
+	}
+	inline operator JNIWriter$TypeSignature$SignatureException*() const {
 		return (JNIWriter$TypeSignature$SignatureException*)throwing$;
 	}
 };

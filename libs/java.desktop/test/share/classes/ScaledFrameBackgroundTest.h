@@ -24,6 +24,7 @@ class $export ScaledFrameBackgroundTest : public ::java::lang::Object {
 	$class(ScaledFrameBackgroundTest, 0, ::java::lang::Object)
 public:
 	ScaledFrameBackgroundTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void lambda$main$0();
 	static void lambda$main$1($Array<::java::awt::Rectangle>* rects);

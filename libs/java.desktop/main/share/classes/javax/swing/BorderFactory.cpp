@@ -1,5 +1,4 @@
 #include <javax/swing/BorderFactory.h>
-
 #include <java/awt/BasicStroke.h>
 #include <java/awt/Color.h>
 #include <java/awt/Font.h>
@@ -47,71 +46,6 @@ using $TitledBorder = ::javax::swing::border::TitledBorder;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _BorderFactory_FieldInfo_[] = {
-	{"sharedRaisedBevel", "Ljavax/swing/border/Border;", nullptr, $STATIC | $FINAL, $staticField(BorderFactory, sharedRaisedBevel)},
-	{"sharedLoweredBevel", "Ljavax/swing/border/Border;", nullptr, $STATIC | $FINAL, $staticField(BorderFactory, sharedLoweredBevel)},
-	{"sharedSoftRaisedBevel", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticField(BorderFactory, sharedSoftRaisedBevel)},
-	{"sharedSoftLoweredBevel", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticField(BorderFactory, sharedSoftLoweredBevel)},
-	{"sharedEtchedBorder", "Ljavax/swing/border/Border;", nullptr, $STATIC | $FINAL, $staticField(BorderFactory, sharedEtchedBorder)},
-	{"sharedRaisedEtchedBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticField(BorderFactory, sharedRaisedEtchedBorder)},
-	{"emptyBorder", "Ljavax/swing/border/Border;", nullptr, $STATIC | $FINAL, $staticField(BorderFactory, emptyBorder)},
-	{"sharedDashedBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticField(BorderFactory, sharedDashedBorder)},
-	{}
-};
-
-$MethodInfo _BorderFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(BorderFactory, init$, void)},
-	{"createBevelBorder", "(I)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createBevelBorder, $Border*, int32_t)},
-	{"createBevelBorder", "(ILjava/awt/Color;Ljava/awt/Color;)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createBevelBorder, $Border*, int32_t, $Color*, $Color*)},
-	{"createBevelBorder", "(ILjava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createBevelBorder, $Border*, int32_t, $Color*, $Color*, $Color*, $Color*)},
-	{"createCompoundBorder", "()Ljavax/swing/border/CompoundBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createCompoundBorder, $CompoundBorder*)},
-	{"createCompoundBorder", "(Ljavax/swing/border/Border;Ljavax/swing/border/Border;)Ljavax/swing/border/CompoundBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createCompoundBorder, $CompoundBorder*, $Border*, $Border*)},
-	{"createDashedBorder", "(Ljava/awt/Paint;)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createDashedBorder, $Border*, $Paint*)},
-	{"createDashedBorder", "(Ljava/awt/Paint;FF)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createDashedBorder, $Border*, $Paint*, float, float)},
-	{"createDashedBorder", "(Ljava/awt/Paint;FFFZ)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createDashedBorder, $Border*, $Paint*, float, float, float, bool)},
-	{"createEmptyBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createEmptyBorder, $Border*)},
-	{"createEmptyBorder", "(IIII)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createEmptyBorder, $Border*, int32_t, int32_t, int32_t, int32_t)},
-	{"createEtchedBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createEtchedBorder, $Border*)},
-	{"createEtchedBorder", "(Ljava/awt/Color;Ljava/awt/Color;)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createEtchedBorder, $Border*, $Color*, $Color*)},
-	{"createEtchedBorder", "(I)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createEtchedBorder, $Border*, int32_t)},
-	{"createEtchedBorder", "(ILjava/awt/Color;Ljava/awt/Color;)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createEtchedBorder, $Border*, int32_t, $Color*, $Color*)},
-	{"createLineBorder", "(Ljava/awt/Color;)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createLineBorder, $Border*, $Color*)},
-	{"createLineBorder", "(Ljava/awt/Color;I)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createLineBorder, $Border*, $Color*, int32_t)},
-	{"createLineBorder", "(Ljava/awt/Color;IZ)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createLineBorder, $Border*, $Color*, int32_t, bool)},
-	{"createLoweredBevelBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createLoweredBevelBorder, $Border*)},
-	{"createLoweredSoftBevelBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createLoweredSoftBevelBorder, $Border*)},
-	{"createMatteBorder", "(IIIILjava/awt/Color;)Ljavax/swing/border/MatteBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createMatteBorder, $MatteBorder*, int32_t, int32_t, int32_t, int32_t, $Color*)},
-	{"createMatteBorder", "(IIIILjavax/swing/Icon;)Ljavax/swing/border/MatteBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createMatteBorder, $MatteBorder*, int32_t, int32_t, int32_t, int32_t, $Icon*)},
-	{"createRaisedBevelBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createRaisedBevelBorder, $Border*)},
-	{"createRaisedSoftBevelBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createRaisedSoftBevelBorder, $Border*)},
-	{"createSharedBevel", "(I)Ljavax/swing/border/Border;", nullptr, $STATIC, $staticMethod(BorderFactory, createSharedBevel, $Border*, int32_t)},
-	{"createSoftBevelBorder", "(I)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createSoftBevelBorder, $Border*, int32_t)},
-	{"createSoftBevelBorder", "(ILjava/awt/Color;Ljava/awt/Color;)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createSoftBevelBorder, $Border*, int32_t, $Color*, $Color*)},
-	{"createSoftBevelBorder", "(ILjava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createSoftBevelBorder, $Border*, int32_t, $Color*, $Color*, $Color*, $Color*)},
-	{"createStrokeBorder", "(Ljava/awt/BasicStroke;)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createStrokeBorder, $Border*, $BasicStroke*)},
-	{"createStrokeBorder", "(Ljava/awt/BasicStroke;Ljava/awt/Paint;)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createStrokeBorder, $Border*, $BasicStroke*, $Paint*)},
-	{"createTitledBorder", "(Ljava/lang/String;)Ljavax/swing/border/TitledBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createTitledBorder, $TitledBorder*, $String*)},
-	{"createTitledBorder", "(Ljavax/swing/border/Border;)Ljavax/swing/border/TitledBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createTitledBorder, $TitledBorder*, $Border*)},
-	{"createTitledBorder", "(Ljavax/swing/border/Border;Ljava/lang/String;)Ljavax/swing/border/TitledBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createTitledBorder, $TitledBorder*, $Border*, $String*)},
-	{"createTitledBorder", "(Ljavax/swing/border/Border;Ljava/lang/String;II)Ljavax/swing/border/TitledBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createTitledBorder, $TitledBorder*, $Border*, $String*, int32_t, int32_t)},
-	{"createTitledBorder", "(Ljavax/swing/border/Border;Ljava/lang/String;IILjava/awt/Font;)Ljavax/swing/border/TitledBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createTitledBorder, $TitledBorder*, $Border*, $String*, int32_t, int32_t, $Font*)},
-	{"createTitledBorder", "(Ljavax/swing/border/Border;Ljava/lang/String;IILjava/awt/Font;Ljava/awt/Color;)Ljavax/swing/border/TitledBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createTitledBorder, $TitledBorder*, $Border*, $String*, int32_t, int32_t, $Font*, $Color*)},
-	{}
-};
-
-$ClassInfo _BorderFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.BorderFactory",
-	"java.lang.Object",
-	nullptr,
-	_BorderFactory_FieldInfo_,
-	_BorderFactory_MethodInfo_
-};
-
-$Object* allocate$BorderFactory($Class* clazz) {
-	return $of($alloc(BorderFactory));
-}
 
 $Border* BorderFactory::sharedRaisedBevel = nullptr;
 $Border* BorderFactory::sharedLoweredBevel = nullptr;
@@ -226,20 +160,14 @@ $Border* BorderFactory::createEtchedBorder(int32_t type) {
 	$init(BorderFactory);
 	switch (type) {
 	case $EtchedBorder::RAISED:
-		{
-			if (BorderFactory::sharedRaisedEtchedBorder == nullptr) {
-				$assignStatic(BorderFactory::sharedRaisedEtchedBorder, $new($EtchedBorder, $EtchedBorder::RAISED));
-			}
-			return BorderFactory::sharedRaisedEtchedBorder;
+		if (BorderFactory::sharedRaisedEtchedBorder == nullptr) {
+			$assignStatic(BorderFactory::sharedRaisedEtchedBorder, $new($EtchedBorder, $EtchedBorder::RAISED));
 		}
+		return BorderFactory::sharedRaisedEtchedBorder;
 	case $EtchedBorder::LOWERED:
-		{
-			return BorderFactory::sharedEtchedBorder;
-		}
+		return BorderFactory::sharedEtchedBorder;
 	default:
-		{
-			$throwNew($IllegalArgumentException, "type must be one of EtchedBorder.RAISED or EtchedBorder.LOWERED"_s);
-		}
+		$throwNew($IllegalArgumentException, "type must be one of EtchedBorder.RAISED or EtchedBorder.LOWERED"_s);
 	}
 }
 
@@ -330,7 +258,7 @@ $Border* BorderFactory::createDashedBorder($Paint* paint, float length, float sp
 
 $Border* BorderFactory::createDashedBorder($Paint* paint, float thickness, float length, float spacing, bool rounded) {
 	$init(BorderFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool shared = !rounded && (paint == nullptr) && (thickness == 1.0f) && (length == 1.0f) && (spacing == 1.0f);
 	if (shared && (BorderFactory::sharedDashedBorder != nullptr)) {
 		return BorderFactory::sharedDashedBorder;
@@ -357,7 +285,7 @@ $Border* BorderFactory::createDashedBorder($Paint* paint, float thickness, float
 	return border;
 }
 
-void clinit$BorderFactory($Class* class$) {
+void BorderFactory::clinit$($Class* clazz) {
 	$assignStatic(BorderFactory::sharedRaisedBevel, $new($BevelBorder, $BevelBorder::RAISED));
 	$assignStatic(BorderFactory::sharedLoweredBevel, $new($BevelBorder, $BevelBorder::LOWERED));
 	$assignStatic(BorderFactory::sharedEtchedBorder, $new($EtchedBorder));
@@ -368,7 +296,67 @@ BorderFactory::BorderFactory() {
 }
 
 $Class* BorderFactory::load$($String* name, bool initialize) {
-	$loadClass(BorderFactory, name, initialize, &_BorderFactory_ClassInfo_, clinit$BorderFactory, allocate$BorderFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"sharedRaisedBevel", "Ljavax/swing/border/Border;", nullptr, $STATIC | $FINAL, $staticField(BorderFactory, sharedRaisedBevel)},
+		{"sharedLoweredBevel", "Ljavax/swing/border/Border;", nullptr, $STATIC | $FINAL, $staticField(BorderFactory, sharedLoweredBevel)},
+		{"sharedSoftRaisedBevel", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticField(BorderFactory, sharedSoftRaisedBevel)},
+		{"sharedSoftLoweredBevel", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticField(BorderFactory, sharedSoftLoweredBevel)},
+		{"sharedEtchedBorder", "Ljavax/swing/border/Border;", nullptr, $STATIC | $FINAL, $staticField(BorderFactory, sharedEtchedBorder)},
+		{"sharedRaisedEtchedBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticField(BorderFactory, sharedRaisedEtchedBorder)},
+		{"emptyBorder", "Ljavax/swing/border/Border;", nullptr, $STATIC | $FINAL, $staticField(BorderFactory, emptyBorder)},
+		{"sharedDashedBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticField(BorderFactory, sharedDashedBorder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(BorderFactory, init$, void)},
+		{"createBevelBorder", "(I)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createBevelBorder, $Border*, int32_t)},
+		{"createBevelBorder", "(ILjava/awt/Color;Ljava/awt/Color;)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createBevelBorder, $Border*, int32_t, $Color*, $Color*)},
+		{"createBevelBorder", "(ILjava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createBevelBorder, $Border*, int32_t, $Color*, $Color*, $Color*, $Color*)},
+		{"createCompoundBorder", "()Ljavax/swing/border/CompoundBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createCompoundBorder, $CompoundBorder*)},
+		{"createCompoundBorder", "(Ljavax/swing/border/Border;Ljavax/swing/border/Border;)Ljavax/swing/border/CompoundBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createCompoundBorder, $CompoundBorder*, $Border*, $Border*)},
+		{"createDashedBorder", "(Ljava/awt/Paint;)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createDashedBorder, $Border*, $Paint*)},
+		{"createDashedBorder", "(Ljava/awt/Paint;FF)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createDashedBorder, $Border*, $Paint*, float, float)},
+		{"createDashedBorder", "(Ljava/awt/Paint;FFFZ)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createDashedBorder, $Border*, $Paint*, float, float, float, bool)},
+		{"createEmptyBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createEmptyBorder, $Border*)},
+		{"createEmptyBorder", "(IIII)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createEmptyBorder, $Border*, int32_t, int32_t, int32_t, int32_t)},
+		{"createEtchedBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createEtchedBorder, $Border*)},
+		{"createEtchedBorder", "(Ljava/awt/Color;Ljava/awt/Color;)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createEtchedBorder, $Border*, $Color*, $Color*)},
+		{"createEtchedBorder", "(I)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createEtchedBorder, $Border*, int32_t)},
+		{"createEtchedBorder", "(ILjava/awt/Color;Ljava/awt/Color;)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createEtchedBorder, $Border*, int32_t, $Color*, $Color*)},
+		{"createLineBorder", "(Ljava/awt/Color;)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createLineBorder, $Border*, $Color*)},
+		{"createLineBorder", "(Ljava/awt/Color;I)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createLineBorder, $Border*, $Color*, int32_t)},
+		{"createLineBorder", "(Ljava/awt/Color;IZ)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createLineBorder, $Border*, $Color*, int32_t, bool)},
+		{"createLoweredBevelBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createLoweredBevelBorder, $Border*)},
+		{"createLoweredSoftBevelBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createLoweredSoftBevelBorder, $Border*)},
+		{"createMatteBorder", "(IIIILjava/awt/Color;)Ljavax/swing/border/MatteBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createMatteBorder, $MatteBorder*, int32_t, int32_t, int32_t, int32_t, $Color*)},
+		{"createMatteBorder", "(IIIILjavax/swing/Icon;)Ljavax/swing/border/MatteBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createMatteBorder, $MatteBorder*, int32_t, int32_t, int32_t, int32_t, $Icon*)},
+		{"createRaisedBevelBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createRaisedBevelBorder, $Border*)},
+		{"createRaisedSoftBevelBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createRaisedSoftBevelBorder, $Border*)},
+		{"createSharedBevel", "(I)Ljavax/swing/border/Border;", nullptr, $STATIC, $staticMethod(BorderFactory, createSharedBevel, $Border*, int32_t)},
+		{"createSoftBevelBorder", "(I)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createSoftBevelBorder, $Border*, int32_t)},
+		{"createSoftBevelBorder", "(ILjava/awt/Color;Ljava/awt/Color;)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createSoftBevelBorder, $Border*, int32_t, $Color*, $Color*)},
+		{"createSoftBevelBorder", "(ILjava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createSoftBevelBorder, $Border*, int32_t, $Color*, $Color*, $Color*, $Color*)},
+		{"createStrokeBorder", "(Ljava/awt/BasicStroke;)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createStrokeBorder, $Border*, $BasicStroke*)},
+		{"createStrokeBorder", "(Ljava/awt/BasicStroke;Ljava/awt/Paint;)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createStrokeBorder, $Border*, $BasicStroke*, $Paint*)},
+		{"createTitledBorder", "(Ljava/lang/String;)Ljavax/swing/border/TitledBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createTitledBorder, $TitledBorder*, $String*)},
+		{"createTitledBorder", "(Ljavax/swing/border/Border;)Ljavax/swing/border/TitledBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createTitledBorder, $TitledBorder*, $Border*)},
+		{"createTitledBorder", "(Ljavax/swing/border/Border;Ljava/lang/String;)Ljavax/swing/border/TitledBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createTitledBorder, $TitledBorder*, $Border*, $String*)},
+		{"createTitledBorder", "(Ljavax/swing/border/Border;Ljava/lang/String;II)Ljavax/swing/border/TitledBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createTitledBorder, $TitledBorder*, $Border*, $String*, int32_t, int32_t)},
+		{"createTitledBorder", "(Ljavax/swing/border/Border;Ljava/lang/String;IILjava/awt/Font;)Ljavax/swing/border/TitledBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createTitledBorder, $TitledBorder*, $Border*, $String*, int32_t, int32_t, $Font*)},
+		{"createTitledBorder", "(Ljavax/swing/border/Border;Ljava/lang/String;IILjava/awt/Font;Ljava/awt/Color;)Ljavax/swing/border/TitledBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderFactory, createTitledBorder, $TitledBorder*, $Border*, $String*, int32_t, int32_t, $Font*, $Color*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.BorderFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BorderFactory, name, initialize, &classInfo$$, BorderFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BorderFactory);
+	});
 	return class$;
 }
 

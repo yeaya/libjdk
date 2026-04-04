@@ -32,6 +32,7 @@ class ShortComponentRaster : public ::sun::awt::image::SunWritableRaster {
 public:
 	ShortComponentRaster();
 	using ::sun::awt::image::SunWritableRaster::createCompatibleWritableRaster;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::image::SampleModel* sampleModel, ::java::awt::Point* origin);
 	void init$(::java::awt::image::SampleModel* sampleModel, ::java::awt::image::DataBufferUShort* dataBuffer, ::java::awt::Point* origin);
 	void init$(::java::awt::image::SampleModel* sampleModel, ::java::awt::image::DataBufferUShort* dataBuffer, ::java::awt::Rectangle* aRegion, ::java::awt::Point* origin, ::sun::awt::image::ShortComponentRaster* parent);

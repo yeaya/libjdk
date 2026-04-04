@@ -25,6 +25,7 @@ class $import MetalBorders : public ::java::lang::Object {
 	$class(MetalBorders, 0, ::java::lang::Object)
 public:
 	MetalBorders();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::border::Border* getButtonBorder();
 	static ::javax::swing::border::Border* getDesktopIconBorder();

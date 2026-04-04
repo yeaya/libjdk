@@ -1,5 +1,4 @@
 #include <java/awt/GridBagLayout.h>
-
 #include <java/awt/Component$BaselineResizeBehavior.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -60,7 +59,6 @@ using $doubleArray2 = $Array<double, 2>;
 using $intArray2 = $Array<int32_t, 2>;
 using $Component = ::java::awt::Component;
 using $Component$BaselineResizeBehavior = ::java::awt::Component$BaselineResizeBehavior;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
@@ -85,90 +83,6 @@ using $Hashtable = ::java::util::Hashtable;
 namespace java {
 	namespace awt {
 
-$FieldInfo _GridBagLayout_FieldInfo_[] = {
-	{"EMPIRICMULTIPLIER", "I", nullptr, $STATIC | $FINAL, $constField(GridBagLayout, EMPIRICMULTIPLIER)},
-	{"MAXGRIDSIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(GridBagLayout, MAXGRIDSIZE)},
-	{"MINSIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(GridBagLayout, MINSIZE)},
-	{"PREFERREDSIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(GridBagLayout, PREFERREDSIZE)},
-	{"comptable", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/awt/Component;Ljava/awt/GridBagConstraints;>;", $PROTECTED, $field(GridBagLayout, comptable)},
-	{"defaultConstraints", "Ljava/awt/GridBagConstraints;", nullptr, $PROTECTED, $field(GridBagLayout, defaultConstraints)},
-	{"layoutInfo", "Ljava/awt/GridBagLayoutInfo;", nullptr, $PROTECTED, $field(GridBagLayout, layoutInfo)},
-	{"columnWidths", "[I", nullptr, $PUBLIC, $field(GridBagLayout, columnWidths)},
-	{"rowHeights", "[I", nullptr, $PUBLIC, $field(GridBagLayout, rowHeights)},
-	{"columnWeights", "[D", nullptr, $PUBLIC, $field(GridBagLayout, columnWeights)},
-	{"rowWeights", "[D", nullptr, $PUBLIC, $field(GridBagLayout, rowWeights)},
-	{"componentAdjusting", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(GridBagLayout, componentAdjusting)},
-	{"rightToLeft", "Z", nullptr, $TRANSIENT, $field(GridBagLayout, rightToLeft)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GridBagLayout, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _GridBagLayout_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GridBagLayout, init$, void)},
-	{"AdjustForGravity", "(Ljava/awt/GridBagConstraints;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(GridBagLayout, AdjustForGravity, void, $GridBagConstraints*, $Rectangle*)},
-	{"ArrangeGrid", "(Ljava/awt/Container;)V", nullptr, $PROTECTED, $virtualMethod(GridBagLayout, ArrangeGrid, void, $Container*)},
-	{"GetLayoutInfo", "(Ljava/awt/Container;I)Ljava/awt/GridBagLayoutInfo;", nullptr, $PROTECTED, $virtualMethod(GridBagLayout, GetLayoutInfo, $GridBagLayoutInfo*, $Container*, int32_t)},
-	{"GetMinSize", "(Ljava/awt/Container;Ljava/awt/GridBagLayoutInfo;)Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(GridBagLayout, GetMinSize, $Dimension*, $Container*, $GridBagLayoutInfo*)},
-	{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, addLayoutComponent, void, $String*, $Component*)},
-	{"addLayoutComponent", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, addLayoutComponent, void, $Component*, Object$*)},
-	{"adjustForGravity", "(Ljava/awt/GridBagConstraints;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(GridBagLayout, adjustForGravity, void, $GridBagConstraints*, $Rectangle*)},
-	{"alignAboveBaseline", "(Ljava/awt/GridBagConstraints;Ljava/awt/Rectangle;II)V", nullptr, $PRIVATE, $method(GridBagLayout, alignAboveBaseline, void, $GridBagConstraints*, $Rectangle*, int32_t, int32_t)},
-	{"alignBelowBaseline", "(Ljava/awt/GridBagConstraints;Ljava/awt/Rectangle;II)V", nullptr, $PRIVATE, $method(GridBagLayout, alignBelowBaseline, void, $GridBagConstraints*, $Rectangle*, int32_t, int32_t)},
-	{"alignOnBaseline", "(Ljava/awt/GridBagConstraints;Ljava/awt/Rectangle;II)V", nullptr, $PRIVATE, $method(GridBagLayout, alignOnBaseline, void, $GridBagConstraints*, $Rectangle*, int32_t, int32_t)},
-	{"arrangeGrid", "(Ljava/awt/Container;)V", nullptr, $PROTECTED, $virtualMethod(GridBagLayout, arrangeGrid, void, $Container*)},
-	{"calculateBaseline", "(Ljava/awt/Component;Ljava/awt/GridBagConstraints;Ljava/awt/Dimension;)Z", nullptr, $PRIVATE, $method(GridBagLayout, calculateBaseline, bool, $Component*, $GridBagConstraints*, $Dimension*)},
-	{"centerVertically", "(Ljava/awt/GridBagConstraints;Ljava/awt/Rectangle;I)V", nullptr, $PRIVATE, $method(GridBagLayout, centerVertically, void, $GridBagConstraints*, $Rectangle*, int32_t)},
-	{"getConstraints", "(Ljava/awt/Component;)Ljava/awt/GridBagConstraints;", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, getConstraints, $GridBagConstraints*, $Component*)},
-	{"getLayoutAlignmentX", "(Ljava/awt/Container;)F", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, getLayoutAlignmentX, float, $Container*)},
-	{"getLayoutAlignmentY", "(Ljava/awt/Container;)F", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, getLayoutAlignmentY, float, $Container*)},
-	{"getLayoutDimensions", "()[[I", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, getLayoutDimensions, $intArray2*)},
-	{"getLayoutInfo", "(Ljava/awt/Container;I)Ljava/awt/GridBagLayoutInfo;", nullptr, $PROTECTED, $virtualMethod(GridBagLayout, getLayoutInfo, $GridBagLayoutInfo*, $Container*, int32_t)},
-	{"getLayoutOrigin", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, getLayoutOrigin, $Point*)},
-	{"getLayoutWeights", "()[[D", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, getLayoutWeights, $doubleArray2*)},
-	{"getMinSize", "(Ljava/awt/Container;Ljava/awt/GridBagLayoutInfo;)Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(GridBagLayout, getMinSize, $Dimension*, $Container*, $GridBagLayoutInfo*)},
-	{"invalidateLayout", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, invalidateLayout, void, $Container*)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, layoutContainer, void, $Container*)},
-	{"location", "(II)Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, location, $Point*, int32_t, int32_t)},
-	{"lookupConstraints", "(Ljava/awt/Component;)Ljava/awt/GridBagConstraints;", nullptr, $PROTECTED, $virtualMethod(GridBagLayout, lookupConstraints, $GridBagConstraints*, $Component*)},
-	{"maximumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, maximumLayoutSize, $Dimension*, $Container*)},
-	{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, minimumLayoutSize, $Dimension*, $Container*)},
-	{"preInitMaximumArraySizes", "(Ljava/awt/Container;)[J", nullptr, $PRIVATE, $method(GridBagLayout, preInitMaximumArraySizes, $longs*, $Container*)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, preferredLayoutSize, $Dimension*, $Container*)},
-	{"removeConstraints", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(GridBagLayout, removeConstraints, void, $Component*)},
-	{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, removeLayoutComponent, void, $Component*)},
-	{"setConstraints", "(Ljava/awt/Component;Ljava/awt/GridBagConstraints;)V", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, setConstraints, void, $Component*, $GridBagConstraints*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _GridBagLayout_InnerClassesInfo_[] = {
-	{"java.awt.GridBagLayout$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _GridBagLayout_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.GridBagLayout",
-	"java.lang.Object",
-	"java.awt.LayoutManager2,java.io.Serializable",
-	_GridBagLayout_FieldInfo_,
-	_GridBagLayout_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GridBagLayout_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.GridBagLayout$1"
-};
-
-$Object* allocate$GridBagLayout($Class* clazz) {
-	return $of($alloc(GridBagLayout));
-}
-
 int32_t GridBagLayout::hashCode() {
 	 return this->$LayoutManager2::hashCode();
 }
@@ -192,7 +106,7 @@ void GridBagLayout::init$() {
 }
 
 void GridBagLayout::setConstraints($Component* comp, $GridBagConstraints* constraints) {
-	$nc(this->comptable)->put(comp, $cast($GridBagConstraints, $($nc(constraints)->clone())));
+	$nc(this->comptable)->put(comp, $$cast($GridBagConstraints, $nc(constraints)->clone()));
 }
 
 $GridBagConstraints* GridBagLayout::getConstraints($Component* comp) {
@@ -220,35 +134,35 @@ void GridBagLayout::removeConstraints($Component* comp) {
 $Point* GridBagLayout::getLayoutOrigin() {
 	$var($Point, origin, $new($Point, 0, 0));
 	if (this->layoutInfo != nullptr) {
-		origin->x = $nc(this->layoutInfo)->startx;
-		origin->y = $nc(this->layoutInfo)->starty;
+		origin->x = this->layoutInfo->startx;
+		origin->y = this->layoutInfo->starty;
 	}
 	return origin;
 }
 
 $intArray2* GridBagLayout::getLayoutDimensions() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->layoutInfo == nullptr) {
 		return $new($intArray2, 2, 0);
 	}
 	$var($intArray2, dim, $new($intArray2, 2));
 	dim->set(0, $$new($ints, $nc(this->layoutInfo)->width));
-	dim->set(1, $$new($ints, $nc(this->layoutInfo)->height));
-	$System::arraycopy($nc(this->layoutInfo)->minWidth, 0, dim->get(0), 0, $nc(this->layoutInfo)->width);
-	$System::arraycopy($nc(this->layoutInfo)->minHeight, 0, dim->get(1), 0, $nc(this->layoutInfo)->height);
+	dim->set(1, $$new($ints, this->layoutInfo->height));
+	$System::arraycopy(this->layoutInfo->minWidth, 0, dim->get(0), 0, this->layoutInfo->width);
+	$System::arraycopy(this->layoutInfo->minHeight, 0, dim->get(1), 0, this->layoutInfo->height);
 	return dim;
 }
 
 $doubleArray2* GridBagLayout::getLayoutWeights() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->layoutInfo == nullptr) {
 		return $new($doubleArray2, 2, 0);
 	}
 	$var($doubleArray2, weights, $new($doubleArray2, 2));
 	weights->set(0, $$new($doubles, $nc(this->layoutInfo)->width));
-	weights->set(1, $$new($doubles, $nc(this->layoutInfo)->height));
-	$System::arraycopy($nc(this->layoutInfo)->weightX, 0, weights->get(0), 0, $nc(this->layoutInfo)->width);
-	$System::arraycopy($nc(this->layoutInfo)->weightY, 0, weights->get(1), 0, $nc(this->layoutInfo)->height);
+	weights->set(1, $$new($doubles, this->layoutInfo->height));
+	$System::arraycopy(this->layoutInfo->weightX, 0, weights->get(0), 0, this->layoutInfo->width);
+	$System::arraycopy(this->layoutInfo->weightY, 0, weights->get(1), 0, this->layoutInfo->height);
 	return weights;
 }
 
@@ -261,25 +175,25 @@ $Point* GridBagLayout::location(int32_t x, int32_t y) {
 	}
 	d = $nc(this->layoutInfo)->startx;
 	if (!this->rightToLeft) {
-		for (i = 0; i < $nc(this->layoutInfo)->width; ++i) {
-			d += $nc($nc(this->layoutInfo)->minWidth)->get(i);
+		for (i = 0; i < this->layoutInfo->width; ++i) {
+			d += $nc(this->layoutInfo->minWidth)->get(i);
 			if (d > x) {
 				break;
 			}
 		}
 	} else {
-		for (i = $nc(this->layoutInfo)->width - 1; i >= 0; --i) {
+		for (i = this->layoutInfo->width - 1; i >= 0; --i) {
 			if (d > x) {
 				break;
 			}
-			d += $nc($nc(this->layoutInfo)->minWidth)->get(i);
+			d += $nc(this->layoutInfo->minWidth)->get(i);
 		}
 		++i;
 	}
 	loc->x = i;
-	d = $nc(this->layoutInfo)->starty;
-	for (i = 0; i < $nc(this->layoutInfo)->height; ++i) {
-		d += $nc($nc(this->layoutInfo)->minHeight)->get(i);
+	d = this->layoutInfo->starty;
+	for (i = 0; i < this->layoutInfo->height; ++i) {
+		d += $nc(this->layoutInfo->minHeight)->get(i);
 		if (d > y) {
 			break;
 		}
@@ -341,7 +255,7 @@ $GridBagLayoutInfo* GridBagLayout::getLayoutInfo($Container* parent, int32_t siz
 }
 
 $longs* GridBagLayout::preInitMaximumArraySizes($Container* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ComponentArray, components, $nc(parent)->getComponents());
 	$var($Component, comp, nullptr);
 	$var($GridBagConstraints, constraints, nullptr);
@@ -383,7 +297,7 @@ $longs* GridBagLayout::preInitMaximumArraySizes($Container* parent) {
 }
 
 $GridBagLayoutInfo* GridBagLayout::GetLayoutInfo($Container* parent, int32_t sizeflag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized($nc(parent)->getTreeLock()) {
 		$var($GridBagLayoutInfo, r, nullptr);
 		$var($Component, comp, nullptr);
@@ -415,13 +329,13 @@ $GridBagLayoutInfo* GridBagLayout::GetLayoutInfo($Container* parent, int32_t siz
 		layoutWidth = (layoutHeight = 0);
 		curRow = (curCol = -1);
 		$var($longs, arraySizes, preInitMaximumArraySizes(parent));
-		maximumArrayXIndex = (GridBagLayout::EMPIRICMULTIPLIER * $nc(arraySizes)->get(0) > $Integer::MAX_VALUE) ? $Integer::MAX_VALUE : GridBagLayout::EMPIRICMULTIPLIER * (int32_t)$nc(arraySizes)->get(0);
+		maximumArrayXIndex = (GridBagLayout::EMPIRICMULTIPLIER * $nc(arraySizes)->get(0) > $Integer::MAX_VALUE) ? $Integer::MAX_VALUE : GridBagLayout::EMPIRICMULTIPLIER * (int32_t)arraySizes->get(0);
 		maximumArrayYIndex = (GridBagLayout::EMPIRICMULTIPLIER * arraySizes->get(1) > $Integer::MAX_VALUE) ? $Integer::MAX_VALUE : GridBagLayout::EMPIRICMULTIPLIER * (int32_t)arraySizes->get(1);
 		if (this->rowHeights != nullptr) {
-			maximumArrayXIndex = $Math::max(maximumArrayXIndex, $nc(this->rowHeights)->length);
+			maximumArrayXIndex = $Math::max(maximumArrayXIndex, this->rowHeights->length);
 		}
 		if (this->columnWidths != nullptr) {
-			maximumArrayYIndex = $Math::max(maximumArrayYIndex, $nc(this->columnWidths)->length);
+			maximumArrayYIndex = $Math::max(maximumArrayYIndex, this->columnWidths->length);
 		}
 		$assign(xMaxArray, $new($ints, maximumArrayXIndex));
 		$assign(yMaxArray, $new($ints, maximumArrayYIndex));
@@ -485,9 +399,9 @@ $GridBagLayoutInfo* GridBagLayout::GetLayoutInfo($Container* parent, int32_t siz
 				xMaxArray->set(i, px);
 			}
 			if (sizeflag == GridBagLayout::PREFERREDSIZE) {
-				$assign(d, $nc(comp)->getPreferredSize());
+				$assign(d, comp->getPreferredSize());
 			} else {
-				$assign(d, $nc(comp)->getMinimumSize());
+				$assign(d, comp->getMinimumSize());
 			}
 			constraints->minWidth = $nc(d)->width;
 			constraints->minHeight = d->height;
@@ -503,11 +417,11 @@ $GridBagLayoutInfo* GridBagLayout::GetLayoutInfo($Container* parent, int32_t siz
 				curRow = curY + curHeight;
 			}
 		}
-		if (this->columnWidths != nullptr && layoutWidth < $nc(this->columnWidths)->length) {
-			layoutWidth = $nc(this->columnWidths)->length;
+		if (this->columnWidths != nullptr && layoutWidth < this->columnWidths->length) {
+			layoutWidth = this->columnWidths->length;
 		}
-		if (this->rowHeights != nullptr && layoutHeight < $nc(this->rowHeights)->length) {
-			layoutHeight = $nc(this->rowHeights)->length;
+		if (this->rowHeights != nullptr && layoutHeight < this->rowHeights->length) {
+			layoutHeight = this->rowHeights->length;
 		}
 		$assign(r, $new($GridBagLayoutInfo, layoutWidth, layoutHeight));
 		curRow = (curCol = -1);
@@ -517,12 +431,12 @@ $GridBagLayoutInfo* GridBagLayout::GetLayoutInfo($Container* parent, int32_t siz
 		$var($ints, maxDescent, nullptr);
 		$var($shorts, baselineType, nullptr);
 		if (hasBaseline) {
-			$set(r, maxAscent, ($assign(maxAscent, $new($ints, layoutHeight))));
-			$set(r, maxDescent, ($assign(maxDescent, $new($ints, layoutHeight))));
-			$set(r, baselineType, ($assign(baselineType, $new($shorts, layoutHeight))));
+			$set(r, maxAscent, $assign(maxAscent, $new($ints, layoutHeight)));
+			$set(r, maxDescent, $assign(maxDescent, $new($ints, layoutHeight)));
+			$set(r, baselineType, $assign(baselineType, $new($shorts, layoutHeight)));
 			r->hasBaseline$ = true;
 		}
-		for (compindex = 0; compindex < $nc(components)->length; ++compindex) {
+		for (compindex = 0; compindex < components->length; ++compindex) {
 			$assign(comp, components->get(compindex));
 			if (!$nc(comp)->isVisible()) {
 				continue;
@@ -608,54 +522,42 @@ $GridBagLayoutInfo* GridBagLayout::GetLayoutInfo($Container* parent, int32_t siz
 			if (hasBaseline) {
 				switch (anchor) {
 				case $GridBagConstraints::BASELINE:
-					{}
 				case $GridBagConstraints::BASELINE_LEADING:
-					{}
 				case $GridBagConstraints::BASELINE_TRAILING:
-					{
-						if (constraints->ascent >= 0) {
-							if (curHeight == 1) {
-								$nc(maxAscent)->set(curY, $Math::max(maxAscent->get(curY), constraints->ascent));
-								$nc(maxDescent)->set(curY, $Math::max(maxDescent->get(curY), constraints->descent));
-							} else {
-								$init($Component$BaselineResizeBehavior);
-								if (constraints->baselineResizeBehavior == $Component$BaselineResizeBehavior::CONSTANT_DESCENT) {
-									$nc(maxDescent)->set(curY + curHeight - 1, $Math::max(maxDescent->get(curY + curHeight - 1), constraints->descent));
-								} else {
-									$nc(maxAscent)->set(curY, $Math::max(maxAscent->get(curY), constraints->ascent));
-								}
-							}
+					if (constraints->ascent >= 0) {
+						if (curHeight == 1) {
+							$nc(maxAscent)->set(curY, $Math::max($nc(maxAscent)->get(curY), constraints->ascent));
+							$nc(maxDescent)->set(curY, $Math::max($nc(maxDescent)->get(curY), constraints->descent));
+						} else {
 							$init($Component$BaselineResizeBehavior);
 							if (constraints->baselineResizeBehavior == $Component$BaselineResizeBehavior::CONSTANT_DESCENT) {
-								(*$nc(baselineType))[curY + curHeight - 1] |= ($sl(1, $nc(constraints->baselineResizeBehavior)->ordinal()));
+								$nc(maxDescent)->set(curY + curHeight - 1, $Math::max($nc(maxDescent)->get(curY + curHeight - 1), constraints->descent));
 							} else {
-								(*$nc(baselineType))[curY] |= ($sl(1, $nc(constraints->baselineResizeBehavior)->ordinal()));
+								$nc(maxAscent)->set(curY, $Math::max($nc(maxAscent)->get(curY), constraints->ascent));
 							}
 						}
-						break;
+						$init($Component$BaselineResizeBehavior);
+						if (constraints->baselineResizeBehavior == $Component$BaselineResizeBehavior::CONSTANT_DESCENT) {
+							(*$nc(baselineType))[curY + curHeight - 1] |= ($sl(1, constraints->baselineResizeBehavior->ordinal()));
+						} else {
+							(*$nc(baselineType))[curY] |= ($sl(1, $nc(constraints->baselineResizeBehavior)->ordinal()));
+						}
 					}
+					break;
 				case $GridBagConstraints::ABOVE_BASELINE:
-					{}
 				case $GridBagConstraints::ABOVE_BASELINE_LEADING:
-					{}
 				case $GridBagConstraints::ABOVE_BASELINE_TRAILING:
-					{
-						pixels_diff = constraints->minHeight + $nc(constraints->insets)->top + constraints->ipady;
-						$nc(maxAscent)->set(curY, $Math::max(maxAscent->get(curY), pixels_diff));
-						$nc(maxDescent)->set(curY, $Math::max(maxDescent->get(curY), $nc(constraints->insets)->bottom));
-						break;
-					}
+					pixels_diff = constraints->minHeight + $nc(constraints->insets)->top + constraints->ipady;
+					$nc(maxAscent)->set(curY, $Math::max($nc(maxAscent)->get(curY), pixels_diff));
+					$nc(maxDescent)->set(curY, $Math::max($nc(maxDescent)->get(curY), constraints->insets->bottom));
+					break;
 				case $GridBagConstraints::BELOW_BASELINE:
-					{}
 				case $GridBagConstraints::BELOW_BASELINE_LEADING:
-					{}
 				case $GridBagConstraints::BELOW_BASELINE_TRAILING:
-					{
-						pixels_diff = constraints->minHeight + $nc(constraints->insets)->bottom + constraints->ipady;
-						$nc(maxDescent)->set(curY, $Math::max(maxDescent->get(curY), pixels_diff));
-						$nc(maxAscent)->set(curY, $Math::max(maxAscent->get(curY), $nc(constraints->insets)->top));
-						break;
-					}
+					pixels_diff = constraints->minHeight + $nc(constraints->insets)->bottom + constraints->ipady;
+					$nc(maxDescent)->set(curY, $Math::max($nc(maxDescent)->get(curY), pixels_diff));
+					$nc(maxAscent)->set(curY, $Math::max($nc(maxAscent)->get(curY), constraints->insets->top));
+					break;
 				}
 			}
 		}
@@ -664,20 +566,20 @@ $GridBagLayoutInfo* GridBagLayout::GetLayoutInfo($Container* parent, int32_t siz
 		$set(r, minWidth, $new($ints, maximumArrayYIndex));
 		$set(r, minHeight, $new($ints, maximumArrayXIndex));
 		if (this->columnWidths != nullptr) {
-			$System::arraycopy(this->columnWidths, 0, r->minWidth, 0, $nc(this->columnWidths)->length);
+			$System::arraycopy(this->columnWidths, 0, r->minWidth, 0, this->columnWidths->length);
 		}
 		if (this->rowHeights != nullptr) {
-			$System::arraycopy(this->rowHeights, 0, r->minHeight, 0, $nc(this->rowHeights)->length);
+			$System::arraycopy(this->rowHeights, 0, r->minHeight, 0, this->rowHeights->length);
 		}
 		if (this->columnWeights != nullptr) {
-			$System::arraycopy(this->columnWeights, 0, r->weightX, 0, $Math::min($nc(r->weightX)->length, $nc(this->columnWeights)->length));
+			$System::arraycopy(this->columnWeights, 0, r->weightX, 0, $Math::min(r->weightX->length, this->columnWeights->length));
 		}
 		if (this->rowWeights != nullptr) {
-			$System::arraycopy(this->rowWeights, 0, r->weightY, 0, $Math::min($nc(r->weightY)->length, $nc(this->rowWeights)->length));
+			$System::arraycopy(this->rowWeights, 0, r->weightY, 0, $Math::min(r->weightY->length, this->rowWeights->length));
 		}
 		nextSize = $Integer::MAX_VALUE;
 		for (i = 1; i != $Integer::MAX_VALUE; i = nextSize, nextSize = $Integer::MAX_VALUE) {
-			for (compindex = 0; compindex < $nc(components)->length; ++compindex) {
+			for (compindex = 0; compindex < components->length; ++compindex) {
 				$assign(comp, components->get(compindex));
 				if (!$nc(comp)->isVisible()) {
 					continue;
@@ -697,7 +599,7 @@ $GridBagLayoutInfo* GridBagLayout::GetLayoutInfo($Container* parent, int32_t siz
 						for (k = constraints->tempX; weight > 0.0 && k < px; ++k) {
 							double wt = $nc(r->weightX)->get(k);
 							double dx = (wt * weight_diff) / weight;
-							(*$nc(r->weightX))[k] += dx;
+							(*r->weightX)[k] += dx;
 							weight_diff -= dx;
 							weight -= wt;
 						}
@@ -724,7 +626,7 @@ $GridBagLayoutInfo* GridBagLayout::GetLayoutInfo($Container* parent, int32_t siz
 				} else if (constraints->tempWidth > i && constraints->tempWidth < nextSize) {
 					nextSize = constraints->tempWidth;
 				}
-				if ($nc(constraints)->tempHeight == i) {
+				if (constraints->tempHeight == i) {
 					py = constraints->tempY + constraints->tempHeight;
 					weight_diff = constraints->weighty;
 					for (k = constraints->tempY; k < py; ++k) {
@@ -738,7 +640,7 @@ $GridBagLayoutInfo* GridBagLayout::GetLayoutInfo($Container* parent, int32_t siz
 						for (k = constraints->tempY; weight > 0.0 && k < py; ++k) {
 							double wt = $nc(r->weightY)->get(k);
 							double dy = (wt * weight_diff) / weight;
-							(*$nc(r->weightY))[k] += dy;
+							(*r->weightY)[k] += dy;
 							weight_diff -= dy;
 							weight -= wt;
 						}
@@ -748,43 +650,31 @@ $GridBagLayoutInfo* GridBagLayout::GetLayoutInfo($Container* parent, int32_t siz
 					if (hasBaseline) {
 						switch (constraints->anchor) {
 						case $GridBagConstraints::BASELINE:
-							{}
 						case $GridBagConstraints::BASELINE_LEADING:
-							{}
 						case $GridBagConstraints::BASELINE_TRAILING:
-							{
-								if (constraints->ascent >= 0) {
-									if (constraints->tempHeight == 1) {
-										pixels_diff = $nc(maxAscent)->get(constraints->tempY) + $nc(maxDescent)->get(constraints->tempY);
+							if (constraints->ascent >= 0) {
+								if (constraints->tempHeight == 1) {
+									pixels_diff = $nc(maxAscent)->get(constraints->tempY) + $nc(maxDescent)->get(constraints->tempY);
+								} else {
+									$init($Component$BaselineResizeBehavior);
+									if (constraints->baselineResizeBehavior != $Component$BaselineResizeBehavior::CONSTANT_DESCENT) {
+										pixels_diff = $nc(maxAscent)->get(constraints->tempY) + constraints->descent;
 									} else {
-										$init($Component$BaselineResizeBehavior);
-										if (constraints->baselineResizeBehavior != $Component$BaselineResizeBehavior::CONSTANT_DESCENT) {
-											pixels_diff = $nc(maxAscent)->get(constraints->tempY) + constraints->descent;
-										} else {
-											pixels_diff = constraints->ascent + $nc(maxDescent)->get(constraints->tempY + constraints->tempHeight - 1);
-										}
+										pixels_diff = constraints->ascent + $nc(maxDescent)->get(constraints->tempY + constraints->tempHeight - 1);
 									}
 								}
-								break;
 							}
+							break;
 						case $GridBagConstraints::ABOVE_BASELINE:
-							{}
 						case $GridBagConstraints::ABOVE_BASELINE_LEADING:
-							{}
 						case $GridBagConstraints::ABOVE_BASELINE_TRAILING:
-							{
-								pixels_diff = $nc(constraints->insets)->top + constraints->minHeight + constraints->ipady + $nc(maxDescent)->get(constraints->tempY);
-								break;
-							}
+							pixels_diff = $nc(constraints->insets)->top + constraints->minHeight + constraints->ipady + $nc(maxDescent)->get(constraints->tempY);
+							break;
 						case $GridBagConstraints::BELOW_BASELINE:
-							{}
 						case $GridBagConstraints::BELOW_BASELINE_LEADING:
-							{}
 						case $GridBagConstraints::BELOW_BASELINE_TRAILING:
-							{
-								pixels_diff = $nc(maxAscent)->get(constraints->tempY) + constraints->minHeight + $nc(constraints->insets)->bottom + constraints->ipady;
-								break;
-							}
+							pixels_diff = $nc(maxAscent)->get(constraints->tempY) + constraints->minHeight + $nc(constraints->insets)->bottom + constraints->ipady;
+							break;
 						}
 					}
 					if (pixels_diff == -1) {
@@ -825,7 +715,7 @@ bool GridBagLayout::calculateBaseline($Component* c, $GridBagConstraints* constr
 		if (constraints->ascent >= 0) {
 			int32_t baseline = constraints->ascent;
 			constraints->descent = h - constraints->ascent + $nc(constraints->insets)->bottom;
-			constraints->ascent += $nc(constraints->insets)->top;
+			constraints->ascent += constraints->insets->top;
 			$set(constraints, baselineResizeBehavior, c->getBaselineResizeBehavior());
 			constraints->centerPadding = 0;
 			$init($Component$BaselineResizeBehavior);
@@ -863,9 +753,9 @@ void GridBagLayout::AdjustForGravity($GridBagConstraints* constraints, $Rectangl
 	} else {
 		r->x -= r->width - $nc($nc(constraints)->insets)->right;
 	}
-	r->width -= ($nc($nc(constraints)->insets)->left + $nc(constraints->insets)->right);
-	r->y += $nc(constraints->insets)->top;
-	r->height -= ($nc(constraints->insets)->top + $nc(constraints->insets)->bottom);
+	r->width -= ($nc($nc(constraints)->insets)->left + $nc($nc(constraints)->insets)->right);
+	r->y += constraints->insets->top;
+	r->height -= (constraints->insets->top + constraints->insets->bottom);
 	diffx = 0;
 	if ((constraints->fill != $GridBagConstraints::HORIZONTAL && constraints->fill != $GridBagConstraints::BOTH) && (r->width > (constraints->minWidth + constraints->ipadx))) {
 		diffx = r->width - (constraints->minWidth + constraints->ipadx);
@@ -878,173 +768,121 @@ void GridBagLayout::AdjustForGravity($GridBagConstraints* constraints, $Rectangl
 	}
 	switch (constraints->anchor) {
 	case $GridBagConstraints::BASELINE:
-		{
-			r->x += diffx / 2;
-			alignOnBaseline(constraints, r, cellY, cellHeight);
-			break;
-		}
+		r->x += diffx / 2;
+		alignOnBaseline(constraints, r, cellY, cellHeight);
+		break;
 	case $GridBagConstraints::BASELINE_LEADING:
-		{
-			if (this->rightToLeft) {
-				r->x += diffx;
-			}
-			alignOnBaseline(constraints, r, cellY, cellHeight);
-			break;
+		if (this->rightToLeft) {
+			r->x += diffx;
 		}
+		alignOnBaseline(constraints, r, cellY, cellHeight);
+		break;
 	case $GridBagConstraints::BASELINE_TRAILING:
-		{
-			if (!this->rightToLeft) {
-				r->x += diffx;
-			}
-			alignOnBaseline(constraints, r, cellY, cellHeight);
-			break;
+		if (!this->rightToLeft) {
+			r->x += diffx;
 		}
+		alignOnBaseline(constraints, r, cellY, cellHeight);
+		break;
 	case $GridBagConstraints::ABOVE_BASELINE:
-		{
-			r->x += diffx / 2;
-			alignAboveBaseline(constraints, r, cellY, cellHeight);
-			break;
-		}
+		r->x += diffx / 2;
+		alignAboveBaseline(constraints, r, cellY, cellHeight);
+		break;
 	case $GridBagConstraints::ABOVE_BASELINE_LEADING:
-		{
-			if (this->rightToLeft) {
-				r->x += diffx;
-			}
-			alignAboveBaseline(constraints, r, cellY, cellHeight);
-			break;
+		if (this->rightToLeft) {
+			r->x += diffx;
 		}
+		alignAboveBaseline(constraints, r, cellY, cellHeight);
+		break;
 	case $GridBagConstraints::ABOVE_BASELINE_TRAILING:
-		{
-			if (!this->rightToLeft) {
-				r->x += diffx;
-			}
-			alignAboveBaseline(constraints, r, cellY, cellHeight);
-			break;
+		if (!this->rightToLeft) {
+			r->x += diffx;
 		}
+		alignAboveBaseline(constraints, r, cellY, cellHeight);
+		break;
 	case $GridBagConstraints::BELOW_BASELINE:
-		{
-			r->x += diffx / 2;
-			alignBelowBaseline(constraints, r, cellY, cellHeight);
-			break;
-		}
+		r->x += diffx / 2;
+		alignBelowBaseline(constraints, r, cellY, cellHeight);
+		break;
 	case $GridBagConstraints::BELOW_BASELINE_LEADING:
-		{
-			if (this->rightToLeft) {
-				r->x += diffx;
-			}
-			alignBelowBaseline(constraints, r, cellY, cellHeight);
-			break;
+		if (this->rightToLeft) {
+			r->x += diffx;
 		}
+		alignBelowBaseline(constraints, r, cellY, cellHeight);
+		break;
 	case $GridBagConstraints::BELOW_BASELINE_TRAILING:
-		{
-			if (!this->rightToLeft) {
-				r->x += diffx;
-			}
-			alignBelowBaseline(constraints, r, cellY, cellHeight);
-			break;
+		if (!this->rightToLeft) {
+			r->x += diffx;
 		}
+		alignBelowBaseline(constraints, r, cellY, cellHeight);
+		break;
 	case $GridBagConstraints::CENTER:
-		{
-			r->x += diffx / 2;
-			r->y += diffy / 2;
-			break;
-		}
+		r->x += diffx / 2;
+		r->y += diffy / 2;
+		break;
 	case $GridBagConstraints::PAGE_START:
-		{}
 	case $GridBagConstraints::NORTH:
-		{
-			r->x += diffx / 2;
-			break;
-		}
+		r->x += diffx / 2;
+		break;
 	case $GridBagConstraints::NORTHEAST:
-		{
-			r->x += diffx;
-			break;
-		}
+		r->x += diffx;
+		break;
 	case $GridBagConstraints::EAST:
-		{
-			r->x += diffx;
-			r->y += diffy / 2;
-			break;
-		}
+		r->x += diffx;
+		r->y += diffy / 2;
+		break;
 	case $GridBagConstraints::SOUTHEAST:
-		{
-			r->x += diffx;
-			r->y += diffy;
-			break;
-		}
+		r->x += diffx;
+		r->y += diffy;
+		break;
 	case $GridBagConstraints::PAGE_END:
-		{}
 	case $GridBagConstraints::SOUTH:
-		{
-			r->x += diffx / 2;
-			r->y += diffy;
-			break;
-		}
+		r->x += diffx / 2;
+		r->y += diffy;
+		break;
 	case $GridBagConstraints::SOUTHWEST:
-		{
-			r->y += diffy;
-			break;
-		}
+		r->y += diffy;
+		break;
 	case $GridBagConstraints::WEST:
-		{
-			r->y += diffy / 2;
-			break;
-		}
+		r->y += diffy / 2;
+		break;
 	case $GridBagConstraints::NORTHWEST:
-		{
-			break;
-		}
+		break;
 	case $GridBagConstraints::LINE_START:
-		{
-			if (this->rightToLeft) {
-				r->x += diffx;
-			}
-			r->y += diffy / 2;
-			break;
+		if (this->rightToLeft) {
+			r->x += diffx;
 		}
+		r->y += diffy / 2;
+		break;
 	case $GridBagConstraints::LINE_END:
-		{
-			if (!this->rightToLeft) {
-				r->x += diffx;
-			}
-			r->y += diffy / 2;
-			break;
+		if (!this->rightToLeft) {
+			r->x += diffx;
 		}
+		r->y += diffy / 2;
+		break;
 	case $GridBagConstraints::FIRST_LINE_START:
-		{
-			if (this->rightToLeft) {
-				r->x += diffx;
-			}
-			break;
+		if (this->rightToLeft) {
+			r->x += diffx;
 		}
+		break;
 	case $GridBagConstraints::FIRST_LINE_END:
-		{
-			if (!this->rightToLeft) {
-				r->x += diffx;
-			}
-			break;
+		if (!this->rightToLeft) {
+			r->x += diffx;
 		}
+		break;
 	case $GridBagConstraints::LAST_LINE_START:
-		{
-			if (this->rightToLeft) {
-				r->x += diffx;
-			}
-			r->y += diffy;
-			break;
+		if (this->rightToLeft) {
+			r->x += diffx;
 		}
+		r->y += diffy;
+		break;
 	case $GridBagConstraints::LAST_LINE_END:
-		{
-			if (!this->rightToLeft) {
-				r->x += diffx;
-			}
-			r->y += diffy;
-			break;
+		if (!this->rightToLeft) {
+			r->x += diffx;
 		}
+		r->y += diffy;
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, "illegal anchor value"_s);
-		}
+		$throwNew($IllegalArgumentException, "illegal anchor value"_s);
 	}
 }
 
@@ -1069,12 +907,12 @@ void GridBagLayout::alignOnBaseline($GridBagConstraints* cons, $Rectangle* r, in
 			}
 			if (cons->baselineResizeBehavior == $Component$BaselineResizeBehavior::OTHER) {
 				bool fits = false;
-				ascent = $nc(this->componentAdjusting)->getBaseline($nc(r)->width, r->height);
+				ascent = $nc(this->componentAdjusting)->getBaseline($nc(r)->width, $nc(r)->height);
 				if (ascent >= 0) {
 					ascent += $nc(cons->insets)->top;
 				}
 				if (ascent >= 0 && ascent <= baseline) {
-					if (baseline + ($nc(r)->height - ascent - $nc(cons->insets)->top) <= cellHeight - $nc(cons->insets)->bottom) {
+					if (baseline + (r->height - ascent - $nc(cons->insets)->top) <= cellHeight - $nc(cons->insets)->bottom) {
 						fits = true;
 					} else if (cons->isVerticallyResizable()) {
 						int32_t ascent2 = $nc(this->componentAdjusting)->getBaseline(r->width, cellHeight - $nc(cons->insets)->bottom - baseline + ascent);
@@ -1090,7 +928,7 @@ void GridBagLayout::alignOnBaseline($GridBagConstraints* cons, $Rectangle* r, in
 				}
 				if (!fits) {
 					ascent = cons->ascent;
-					$nc(r)->width = cons->minWidth;
+					r->width = cons->minWidth;
 					r->height = cons->minHeight;
 				}
 			}
@@ -1099,33 +937,25 @@ void GridBagLayout::alignOnBaseline($GridBagConstraints* cons, $Rectangle* r, in
 				$init($GridBagLayout$1);
 				switch ($nc($GridBagLayout$1::$SwitchMap$java$awt$Component$BaselineResizeBehavior)->get($nc((cons->baselineResizeBehavior))->ordinal())) {
 				case 1:
-					{
-						r->height = $Math::max(cons->minHeight, cellY + cellHeight - r->y - $nc(cons->insets)->bottom);
-						break;
-					}
+					r->height = $Math::max(cons->minHeight, cellY + cellHeight - r->y - $nc(cons->insets)->bottom);
+					break;
 				case 2:
 					{
-						{
-							int32_t upper = r->y - cellY - $nc(cons->insets)->top;
-							int32_t lower = cellY + cellHeight - r->y - cons->minHeight - $nc(cons->insets)->bottom;
-							int32_t delta = $Math::min(upper, lower);
-							delta += delta;
-							if (delta > 0 && (cons->minHeight + cons->centerPadding + delta) / 2 + cons->centerOffset != baseline) {
-								--delta;
-							}
-							r->height = cons->minHeight + delta;
-							r->y = cellY + baseline - (r->height + cons->centerPadding) / 2 - cons->centerOffset;
+						int32_t upper = r->y - cellY - $nc(cons->insets)->top;
+						int32_t lower = cellY + cellHeight - r->y - cons->minHeight - cons->insets->bottom;
+						int32_t delta = $Math::min(upper, lower);
+						delta += delta;
+						if (delta > 0 && (cons->minHeight + cons->centerPadding + delta) / 2 + cons->centerOffset != baseline) {
+							--delta;
 						}
-						break;
+						r->height = cons->minHeight + delta;
+						r->y = cellY + baseline - (r->height + cons->centerPadding) / 2 - cons->centerOffset;
 					}
+					break;
 				case 3:
-					{
-						break;
-					}
+					break;
 				default:
-					{
-						break;
-					}
+					break;
 				}
 			}
 		}
@@ -1137,12 +967,12 @@ void GridBagLayout::alignOnBaseline($GridBagConstraints* cons, $Rectangle* r, in
 void GridBagLayout::alignAboveBaseline($GridBagConstraints* cons, $Rectangle* r, int32_t cellY, int32_t cellHeight) {
 	if ($nc(this->layoutInfo)->hasBaseline($nc(cons)->tempY)) {
 		int32_t maxY = 0;
-		if ($nc(this->layoutInfo)->hasConstantDescent($nc(cons)->tempY)) {
-			maxY = cellY + cellHeight - $nc($nc(this->layoutInfo)->maxDescent)->get($nc(cons)->tempY);
+		if ($nc(this->layoutInfo)->hasConstantDescent(cons->tempY)) {
+			maxY = cellY + cellHeight - $nc($nc(this->layoutInfo)->maxDescent)->get(cons->tempY);
 		} else {
-			maxY = cellY + $nc($nc(this->layoutInfo)->maxAscent)->get($nc(cons)->tempY);
+			maxY = cellY + $nc($nc(this->layoutInfo)->maxAscent)->get(cons->tempY);
 		}
-		if ($nc(cons)->isVerticallyResizable()) {
+		if (cons->isVerticallyResizable()) {
 			$nc(r)->y = cellY + $nc(cons->insets)->top;
 			r->height = maxY - r->y;
 		} else {
@@ -1156,13 +986,13 @@ void GridBagLayout::alignAboveBaseline($GridBagConstraints* cons, $Rectangle* r,
 
 void GridBagLayout::alignBelowBaseline($GridBagConstraints* cons, $Rectangle* r, int32_t cellY, int32_t cellHeight) {
 	if ($nc(this->layoutInfo)->hasBaseline($nc(cons)->tempY)) {
-		if ($nc(this->layoutInfo)->hasConstantDescent($nc(cons)->tempY)) {
-			$nc(r)->y = cellY + cellHeight - $nc($nc(this->layoutInfo)->maxDescent)->get($nc(cons)->tempY);
+		if ($nc(this->layoutInfo)->hasConstantDescent(cons->tempY)) {
+			$nc(r)->y = cellY + cellHeight - $nc($nc(this->layoutInfo)->maxDescent)->get(cons->tempY);
 		} else {
-			$nc(r)->y = cellY + $nc($nc(this->layoutInfo)->maxAscent)->get($nc(cons)->tempY);
+			$nc(r)->y = cellY + $nc($nc(this->layoutInfo)->maxAscent)->get(cons->tempY);
 		}
-		if ($nc(cons)->isVerticallyResizable()) {
-			$nc(r)->height = cellY + cellHeight - r->y - $nc(cons->insets)->bottom;
+		if (cons->isVerticallyResizable()) {
+			$nc(r)->height = cellY + cellHeight - $nc(r)->y - $nc(cons->insets)->bottom;
 		}
 	} else {
 		centerVertically(cons, r, cellHeight);
@@ -1180,7 +1010,7 @@ $Dimension* GridBagLayout::getMinSize($Container* parent, $GridBagLayoutInfo* in
 }
 
 $Dimension* GridBagLayout::GetMinSize($Container* parent, $GridBagLayoutInfo* info) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, d, $new($Dimension));
 	int32_t i = 0;
 	int32_t t = 0;
@@ -1189,9 +1019,9 @@ $Dimension* GridBagLayout::GetMinSize($Container* parent, $GridBagLayoutInfo* in
 	for (i = 0; i < $nc(info)->width; ++i) {
 		t += $nc(info->minWidth)->get(i);
 	}
-	d->width = t + $nc(insets)->left + insets->right;
+	d->width = t + $nc(insets)->left + $nc(insets)->right;
 	t = 0;
-	for (i = 0; i < $nc(info)->height; ++i) {
+	for (i = 0; i < info->height; ++i) {
 		t += $nc(info->minHeight)->get(i);
 	}
 	d->height = t + insets->top + insets->bottom;
@@ -1203,7 +1033,7 @@ void GridBagLayout::arrangeGrid($Container* parent) {
 }
 
 void GridBagLayout::ArrangeGrid($Container* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, comp, nullptr);
 	int32_t compindex = 0;
 	$var($GridBagConstraints, constraints, nullptr);
@@ -1216,13 +1046,13 @@ void GridBagLayout::ArrangeGrid($Container* parent) {
 	int32_t diffh = 0;
 	double weight = 0.0;
 	$var($GridBagLayoutInfo, info, nullptr);
-	this->rightToLeft = !$nc($(parent->getComponentOrientation()))->isLeftToRight();
-	if ($nc(components)->length == 0 && (this->columnWidths == nullptr || $nc(this->columnWidths)->length == 0) && (this->rowHeights == nullptr || $nc(this->rowHeights)->length == 0)) {
+	this->rightToLeft = !$$nc(parent->getComponentOrientation())->isLeftToRight();
+	if ($nc(components)->length == 0 && (this->columnWidths == nullptr || this->columnWidths->length == 0) && (this->rowHeights == nullptr || this->rowHeights->length == 0)) {
 		return;
 	}
 	$assign(info, getLayoutInfo(parent, GridBagLayout::PREFERREDSIZE));
 	$assign(d, getMinSize(parent, info));
-	if (parent->width < $nc(d)->width || parent->height < $nc(d)->height) {
+	if (parent->width < $nc(d)->width || parent->height < d->height) {
 		$assign(info, getLayoutInfo(parent, GridBagLayout::MINSIZE));
 		$assign(d, getMinSize(parent, info));
 	}
@@ -1236,13 +1066,13 @@ void GridBagLayout::ArrangeGrid($Container* parent) {
 			weight += $nc(info->weightX)->get(i);
 		}
 		if (weight > 0.0) {
-			for (i = 0; i < $nc(info)->width; ++i) {
+			for (i = 0; i < info->width; ++i) {
 				int32_t dx = $cast(int32_t, ((((double)diffw) * $nc(info->weightX)->get(i)) / weight));
 				(*$nc(info->minWidth))[i] += dx;
 				r->width += dx;
-				if ($nc(info->minWidth)->get(i) < 0) {
-					r->width -= $nc(info->minWidth)->get(i);
-					$nc(info->minWidth)->set(i, 0);
+				if (info->minWidth->get(i) < 0) {
+					r->width -= info->minWidth->get(i);
+					info->minWidth->set(i, 0);
 				}
 			}
 		}
@@ -1257,13 +1087,13 @@ void GridBagLayout::ArrangeGrid($Container* parent) {
 			weight += $nc(info->weightY)->get(i);
 		}
 		if (weight > 0.0) {
-			for (i = 0; i < $nc(info)->height; ++i) {
+			for (i = 0; i < info->height; ++i) {
 				int32_t dy = $cast(int32_t, ((((double)diffh) * $nc(info->weightY)->get(i)) / weight));
 				(*$nc(info->minHeight))[i] += dy;
 				r->height += dy;
-				if ($nc(info->minHeight)->get(i) < 0) {
-					r->height -= $nc(info->minHeight)->get(i);
-					$nc(info->minHeight)->set(i, 0);
+				if (info->minHeight->get(i) < 0) {
+					r->height -= info->minHeight->get(i);
+					info->minHeight->set(i, 0);
 				}
 			}
 		}
@@ -1273,7 +1103,7 @@ void GridBagLayout::ArrangeGrid($Container* parent) {
 	}
 	$nc(info)->startx = diffw / 2 + $nc(insets)->left;
 	info->starty = diffh / 2 + insets->top;
-	for (compindex = 0; compindex < $nc(components)->length; ++compindex) {
+	for (compindex = 0; compindex < components->length; ++compindex) {
 		$assign(comp, components->get(compindex));
 		if (!$nc(comp)->isVisible()) {
 			continue;
@@ -1295,7 +1125,7 @@ void GridBagLayout::ArrangeGrid($Container* parent) {
 			r->y += $nc(info->minHeight)->get(i);
 		}
 		r->width = 0;
-		for (i = $nc(constraints)->tempX; i < (constraints->tempX + constraints->tempWidth); ++i) {
+		for (i = constraints->tempX; i < (constraints->tempX + constraints->tempWidth); ++i) {
 			r->width += $nc(info->minWidth)->get(i);
 		}
 		r->height = 0;
@@ -1313,8 +1143,8 @@ void GridBagLayout::ArrangeGrid($Container* parent) {
 			r->y = 0;
 		}
 		if ((r->width <= 0) || (r->height <= 0)) {
-			$nc(comp)->setBounds(0, 0, 0, 0);
-		} else if ($nc(comp)->x != r->x || $nc(comp)->y != r->y || $nc(comp)->width != r->width || $nc(comp)->height != r->height) {
+			comp->setBounds(0, 0, 0, 0);
+		} else if (comp->x != r->x || comp->y != r->y || comp->width != r->width || comp->height != r->height) {
 			comp->setBounds(r->x, r->y, r->width, r->height);
 		}
 	}
@@ -1324,7 +1154,85 @@ GridBagLayout::GridBagLayout() {
 }
 
 $Class* GridBagLayout::load$($String* name, bool initialize) {
-	$loadClass(GridBagLayout, name, initialize, &_GridBagLayout_ClassInfo_, allocate$GridBagLayout);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPIRICMULTIPLIER", "I", nullptr, $STATIC | $FINAL, $constField(GridBagLayout, EMPIRICMULTIPLIER)},
+		{"MAXGRIDSIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(GridBagLayout, MAXGRIDSIZE)},
+		{"MINSIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(GridBagLayout, MINSIZE)},
+		{"PREFERREDSIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(GridBagLayout, PREFERREDSIZE)},
+		{"comptable", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/awt/Component;Ljava/awt/GridBagConstraints;>;", $PROTECTED, $field(GridBagLayout, comptable)},
+		{"defaultConstraints", "Ljava/awt/GridBagConstraints;", nullptr, $PROTECTED, $field(GridBagLayout, defaultConstraints)},
+		{"layoutInfo", "Ljava/awt/GridBagLayoutInfo;", nullptr, $PROTECTED, $field(GridBagLayout, layoutInfo)},
+		{"columnWidths", "[I", nullptr, $PUBLIC, $field(GridBagLayout, columnWidths)},
+		{"rowHeights", "[I", nullptr, $PUBLIC, $field(GridBagLayout, rowHeights)},
+		{"columnWeights", "[D", nullptr, $PUBLIC, $field(GridBagLayout, columnWeights)},
+		{"rowWeights", "[D", nullptr, $PUBLIC, $field(GridBagLayout, rowWeights)},
+		{"componentAdjusting", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(GridBagLayout, componentAdjusting)},
+		{"rightToLeft", "Z", nullptr, $TRANSIENT, $field(GridBagLayout, rightToLeft)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GridBagLayout, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GridBagLayout, init$, void)},
+		{"AdjustForGravity", "(Ljava/awt/GridBagConstraints;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(GridBagLayout, AdjustForGravity, void, $GridBagConstraints*, $Rectangle*)},
+		{"ArrangeGrid", "(Ljava/awt/Container;)V", nullptr, $PROTECTED, $virtualMethod(GridBagLayout, ArrangeGrid, void, $Container*)},
+		{"GetLayoutInfo", "(Ljava/awt/Container;I)Ljava/awt/GridBagLayoutInfo;", nullptr, $PROTECTED, $virtualMethod(GridBagLayout, GetLayoutInfo, $GridBagLayoutInfo*, $Container*, int32_t)},
+		{"GetMinSize", "(Ljava/awt/Container;Ljava/awt/GridBagLayoutInfo;)Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(GridBagLayout, GetMinSize, $Dimension*, $Container*, $GridBagLayoutInfo*)},
+		{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, addLayoutComponent, void, $String*, $Component*)},
+		{"addLayoutComponent", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, addLayoutComponent, void, $Component*, Object$*)},
+		{"adjustForGravity", "(Ljava/awt/GridBagConstraints;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(GridBagLayout, adjustForGravity, void, $GridBagConstraints*, $Rectangle*)},
+		{"alignAboveBaseline", "(Ljava/awt/GridBagConstraints;Ljava/awt/Rectangle;II)V", nullptr, $PRIVATE, $method(GridBagLayout, alignAboveBaseline, void, $GridBagConstraints*, $Rectangle*, int32_t, int32_t)},
+		{"alignBelowBaseline", "(Ljava/awt/GridBagConstraints;Ljava/awt/Rectangle;II)V", nullptr, $PRIVATE, $method(GridBagLayout, alignBelowBaseline, void, $GridBagConstraints*, $Rectangle*, int32_t, int32_t)},
+		{"alignOnBaseline", "(Ljava/awt/GridBagConstraints;Ljava/awt/Rectangle;II)V", nullptr, $PRIVATE, $method(GridBagLayout, alignOnBaseline, void, $GridBagConstraints*, $Rectangle*, int32_t, int32_t)},
+		{"arrangeGrid", "(Ljava/awt/Container;)V", nullptr, $PROTECTED, $virtualMethod(GridBagLayout, arrangeGrid, void, $Container*)},
+		{"calculateBaseline", "(Ljava/awt/Component;Ljava/awt/GridBagConstraints;Ljava/awt/Dimension;)Z", nullptr, $PRIVATE, $method(GridBagLayout, calculateBaseline, bool, $Component*, $GridBagConstraints*, $Dimension*)},
+		{"centerVertically", "(Ljava/awt/GridBagConstraints;Ljava/awt/Rectangle;I)V", nullptr, $PRIVATE, $method(GridBagLayout, centerVertically, void, $GridBagConstraints*, $Rectangle*, int32_t)},
+		{"getConstraints", "(Ljava/awt/Component;)Ljava/awt/GridBagConstraints;", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, getConstraints, $GridBagConstraints*, $Component*)},
+		{"getLayoutAlignmentX", "(Ljava/awt/Container;)F", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, getLayoutAlignmentX, float, $Container*)},
+		{"getLayoutAlignmentY", "(Ljava/awt/Container;)F", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, getLayoutAlignmentY, float, $Container*)},
+		{"getLayoutDimensions", "()[[I", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, getLayoutDimensions, $intArray2*)},
+		{"getLayoutInfo", "(Ljava/awt/Container;I)Ljava/awt/GridBagLayoutInfo;", nullptr, $PROTECTED, $virtualMethod(GridBagLayout, getLayoutInfo, $GridBagLayoutInfo*, $Container*, int32_t)},
+		{"getLayoutOrigin", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, getLayoutOrigin, $Point*)},
+		{"getLayoutWeights", "()[[D", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, getLayoutWeights, $doubleArray2*)},
+		{"getMinSize", "(Ljava/awt/Container;Ljava/awt/GridBagLayoutInfo;)Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(GridBagLayout, getMinSize, $Dimension*, $Container*, $GridBagLayoutInfo*)},
+		{"invalidateLayout", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, invalidateLayout, void, $Container*)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, layoutContainer, void, $Container*)},
+		{"location", "(II)Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, location, $Point*, int32_t, int32_t)},
+		{"lookupConstraints", "(Ljava/awt/Component;)Ljava/awt/GridBagConstraints;", nullptr, $PROTECTED, $virtualMethod(GridBagLayout, lookupConstraints, $GridBagConstraints*, $Component*)},
+		{"maximumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, maximumLayoutSize, $Dimension*, $Container*)},
+		{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, minimumLayoutSize, $Dimension*, $Container*)},
+		{"preInitMaximumArraySizes", "(Ljava/awt/Container;)[J", nullptr, $PRIVATE, $method(GridBagLayout, preInitMaximumArraySizes, $longs*, $Container*)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, preferredLayoutSize, $Dimension*, $Container*)},
+		{"removeConstraints", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(GridBagLayout, removeConstraints, void, $Component*)},
+		{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, removeLayoutComponent, void, $Component*)},
+		{"setConstraints", "(Ljava/awt/Component;Ljava/awt/GridBagConstraints;)V", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, setConstraints, void, $Component*, $GridBagConstraints*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GridBagLayout, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.GridBagLayout$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.GridBagLayout",
+		"java.lang.Object",
+		"java.awt.LayoutManager2,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.GridBagLayout$1"
+	};
+	$loadClass(GridBagLayout, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GridBagLayout));
+	});
 	return class$;
 }
 

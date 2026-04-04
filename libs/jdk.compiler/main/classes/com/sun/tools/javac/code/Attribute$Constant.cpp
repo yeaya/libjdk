@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Attribute$Constant.h>
-
 #include <com/sun/tools/javac/code/Attribute$1.h>
 #include <com/sun/tools/javac/code/Attribute$Visitor.h>
 #include <com/sun/tools/javac/code/Attribute.h>
@@ -14,7 +13,6 @@ using $Attribute = ::com::sun::tools::javac::code::Attribute;
 using $Attribute$1 = ::com::sun::tools::javac::code::Attribute$1;
 using $Attribute$Visitor = ::com::sun::tools::javac::code::Attribute$Visitor;
 using $Type = ::com::sun::tools::javac::code::Type;
-using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Constants = ::com::sun::tools::javac::util::Constants;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -33,45 +31,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Attribute$Constant_FieldInfo_[] = {
-	{"value", "Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $field(Attribute$Constant, value)},
-	{}
-};
-
-$MethodInfo _Attribute$Constant_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Attribute$Constant, init$, void, $Type*, Object$*)},
-	{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Attribute$Constant, accept, void, $Attribute$Visitor*)},
-	{"accept", "(Ljavax/lang/model/element/AnnotationValueVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/AnnotationValueVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Attribute$Constant, accept, $Object*, $AnnotationValueVisitor*, Object$*)},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Attribute$Constant, getValue, $Object*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attribute$Constant, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Attribute$Constant_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Attribute$Constant", "com.sun.tools.javac.code.Attribute", "Constant", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Attribute$Constant_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Attribute$Constant",
-	"com.sun.tools.javac.code.Attribute",
-	nullptr,
-	_Attribute$Constant_FieldInfo_,
-	_Attribute$Constant_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Attribute$Constant_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Attribute"
-};
-
-$Object* allocate$Attribute$Constant($Class* clazz) {
-	return $of($alloc(Attribute$Constant));
-}
-
 void Attribute$Constant::accept($Attribute$Visitor* v) {
 	$nc(v)->visitConstant(this);
 }
@@ -86,11 +45,11 @@ $String* Attribute$Constant::toString() {
 }
 
 $Object* Attribute$Constant::getValue() {
-	return $of($Constants::decode(this->value, this->type));
+	return $Constants::decode(this->value, this->type);
 }
 
 $Object* Attribute$Constant::accept($AnnotationValueVisitor* v, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($String, str, nullptr);
 		$var($Object, patt3284$temp, this->value);
@@ -100,58 +59,75 @@ $Object* Attribute$Constant::accept($AnnotationValueVisitor* v, Object$* p) {
 			var$0 = true;
 		}
 		if (var$0) {
-			return $of($nc(v)->visitString(str, p));
+			return $nc(v)->visitString(str, p);
 		}
 	}
 	if ($instanceOf($Integer, this->value)) {
-		int32_t i = $nc(($cast($Integer, this->value)))->intValue();
+		int32_t i = $cast($Integer, this->value)->intValue();
 		$init($Attribute$1);
-		switch ($nc($Attribute$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get($nc(($($nc(this->type)->getTag())))->ordinal())) {
+		switch ($nc($Attribute$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get(($$nc($nc(this->type)->getTag()))->ordinal())) {
 		case 1:
-			{
-				return $of($nc(v)->visitBoolean(i != 0, p));
-			}
+			return $nc(v)->visitBoolean(i != 0, p);
 		case 2:
-			{
-				return $of($nc(v)->visitChar((char16_t)i, p));
-			}
+			return $nc(v)->visitChar((char16_t)i, p);
 		case 3:
-			{
-				return $of($nc(v)->visitByte((int8_t)i, p));
-			}
+			return $nc(v)->visitByte((int8_t)i, p);
 		case 4:
-			{
-				return $of($nc(v)->visitShort((int16_t)i, p));
-			}
+			return $nc(v)->visitShort((int16_t)i, p);
 		case 5:
-			{
-				return $of($nc(v)->visitInt(i, p));
-			}
+			return $nc(v)->visitInt(i, p);
 		}
 	}
 	$init($Attribute$1);
-	switch ($nc($Attribute$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get($nc(($($nc(this->type)->getTag())))->ordinal())) {
+	switch ($nc($Attribute$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get(($$nc($nc(this->type)->getTag()))->ordinal())) {
 	case 6:
-		{
-			return $of($nc(v)->visitLong($nc(($cast($Long, this->value)))->longValue(), p));
-		}
+		return $nc(v)->visitLong($nc($cast($Long, this->value))->longValue(), p);
 	case 7:
-		{
-			return $of($nc(v)->visitFloat($nc(($cast($Float, this->value)))->floatValue(), p));
-		}
+		return $nc(v)->visitFloat($nc($cast($Float, this->value))->floatValue(), p);
 	case 8:
-		{
-			return $of($nc(v)->visitDouble($nc(($cast($Double, this->value)))->doubleValue(), p));
-		}
+		return $nc(v)->visitDouble($nc($cast($Double, this->value))->doubleValue(), p);
 	}
-	$throwNew($AssertionError, $of($$str({"Bad annotation element value: "_s, this->value})));
+	$throwNew($AssertionError, $$of($str({"Bad annotation element value: "_s, this->value})));
 }
 
 Attribute$Constant::Attribute$Constant() {
 }
 
 $Class* Attribute$Constant::load$($String* name, bool initialize) {
-	$loadClass(Attribute$Constant, name, initialize, &_Attribute$Constant_ClassInfo_, allocate$Attribute$Constant);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $field(Attribute$Constant, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Attribute$Constant, init$, void, $Type*, Object$*)},
+		{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Attribute$Constant, accept, void, $Attribute$Visitor*)},
+		{"accept", "(Ljavax/lang/model/element/AnnotationValueVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/AnnotationValueVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Attribute$Constant, accept, $Object*, $AnnotationValueVisitor*, Object$*)},
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Attribute$Constant, getValue, $Object*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attribute$Constant, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Attribute$Constant", "com.sun.tools.javac.code.Attribute", "Constant", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Attribute$Constant",
+		"com.sun.tools.javac.code.Attribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Attribute"
+	};
+	$loadClass(Attribute$Constant, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Attribute$Constant);
+	});
 	return class$;
 }
 

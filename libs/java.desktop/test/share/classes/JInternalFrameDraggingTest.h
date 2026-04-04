@@ -31,6 +31,7 @@ class $export JInternalFrameDraggingTest : public ::java::lang::Object {
 	$class(JInternalFrameDraggingTest, 0, ::java::lang::Object)
 public:
 	JInternalFrameDraggingTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createAndShowGUI();
 	static ::java::awt::Point* getDesktopPaneLocation();

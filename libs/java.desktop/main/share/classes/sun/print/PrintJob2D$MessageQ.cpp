@@ -1,5 +1,4 @@
 #include <sun/print/PrintJob2D$MessageQ.h>
-
 #include <java/awt/Graphics2D.h>
 #include <java/lang/InterruptedException.h>
 #include <java/util/ArrayList.h>
@@ -18,48 +17,6 @@ using $PrintJob2D = ::sun::print::PrintJob2D;
 namespace sun {
 	namespace print {
 
-$FieldInfo _PrintJob2D$MessageQ_FieldInfo_[] = {
-	{"this$0", "Lsun/print/PrintJob2D;", nullptr, $FINAL | $SYNTHETIC, $field(PrintJob2D$MessageQ, this$0)},
-	{"qid", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PrintJob2D$MessageQ, qid)},
-	{"queue", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/awt/Graphics2D;>;", $PRIVATE, $field(PrintJob2D$MessageQ, queue)},
-	{}
-};
-
-$MethodInfo _PrintJob2D$MessageQ_MethodInfo_[] = {
-	{"<init>", "(Lsun/print/PrintJob2D;Ljava/lang/String;)V", nullptr, 0, $method(PrintJob2D$MessageQ, init$, void, $PrintJob2D*, $String*)},
-	{"append", "(Ljava/awt/Graphics2D;)Z", nullptr, $SYNCHRONIZED, $virtualMethod(PrintJob2D$MessageQ, append, bool, $Graphics2D*)},
-	{"close", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(PrintJob2D$MessageQ, close, void)},
-	{"closeWhenEmpty", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(PrintJob2D$MessageQ, closeWhenEmpty, void)},
-	{"isClosed", "()Z", nullptr, $SYNCHRONIZED, $virtualMethod(PrintJob2D$MessageQ, isClosed, bool)},
-	{"pop", "()Ljava/awt/Graphics2D;", nullptr, $SYNCHRONIZED, $virtualMethod(PrintJob2D$MessageQ, pop, $Graphics2D*)},
-	{}
-};
-
-$InnerClassInfo _PrintJob2D$MessageQ_InnerClassesInfo_[] = {
-	{"sun.print.PrintJob2D$MessageQ", "sun.print.PrintJob2D", "MessageQ", $PRIVATE},
-	{}
-};
-
-$ClassInfo _PrintJob2D$MessageQ_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.print.PrintJob2D$MessageQ",
-	"java.lang.Object",
-	nullptr,
-	_PrintJob2D$MessageQ_FieldInfo_,
-	_PrintJob2D$MessageQ_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PrintJob2D$MessageQ_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.print.PrintJob2D"
-};
-
-$Object* allocate$PrintJob2D$MessageQ($Class* clazz) {
-	return $of($alloc(PrintJob2D$MessageQ));
-}
-
 void PrintJob2D$MessageQ::init$($PrintJob2D* this$0, $String* id) {
 	$set(this, this$0, this$0);
 	$set(this, qid, "noname"_s);
@@ -69,7 +26,7 @@ void PrintJob2D$MessageQ::init$($PrintJob2D* this$0, $String* id) {
 
 void PrintJob2D$MessageQ::closeWhenEmpty() {
 	$synchronized(this) {
-		while (this->queue != nullptr && $nc(this->queue)->size() > 0) {
+		while (this->queue != nullptr && this->queue->size() > 0) {
 			try {
 				$of(this)->wait(1000);
 			} catch ($InterruptedException& e) {
@@ -91,7 +48,7 @@ bool PrintJob2D$MessageQ::append($Graphics2D* g) {
 	$synchronized(this) {
 		bool queued = false;
 		if (this->queue != nullptr) {
-			$nc(this->queue)->add(g);
+			this->queue->add(g);
 			queued = true;
 			$of(this)->notify();
 		}
@@ -103,8 +60,8 @@ $Graphics2D* PrintJob2D$MessageQ::pop() {
 	$synchronized(this) {
 		$var($Graphics2D, g, nullptr);
 		while (g == nullptr && this->queue != nullptr) {
-			if ($nc(this->queue)->size() > 0) {
-				$assign(g, $cast($Graphics2D, $nc(this->queue)->remove(0)));
+			if (this->queue->size() > 0) {
+				$assign(g, $cast($Graphics2D, this->queue->remove(0)));
 				$of(this)->notify();
 			} else {
 				try {
@@ -127,7 +84,43 @@ PrintJob2D$MessageQ::PrintJob2D$MessageQ() {
 }
 
 $Class* PrintJob2D$MessageQ::load$($String* name, bool initialize) {
-	$loadClass(PrintJob2D$MessageQ, name, initialize, &_PrintJob2D$MessageQ_ClassInfo_, allocate$PrintJob2D$MessageQ);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/print/PrintJob2D;", nullptr, $FINAL | $SYNTHETIC, $field(PrintJob2D$MessageQ, this$0)},
+		{"qid", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PrintJob2D$MessageQ, qid)},
+		{"queue", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/awt/Graphics2D;>;", $PRIVATE, $field(PrintJob2D$MessageQ, queue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/print/PrintJob2D;Ljava/lang/String;)V", nullptr, 0, $method(PrintJob2D$MessageQ, init$, void, $PrintJob2D*, $String*)},
+		{"append", "(Ljava/awt/Graphics2D;)Z", nullptr, $SYNCHRONIZED, $virtualMethod(PrintJob2D$MessageQ, append, bool, $Graphics2D*)},
+		{"close", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(PrintJob2D$MessageQ, close, void)},
+		{"closeWhenEmpty", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(PrintJob2D$MessageQ, closeWhenEmpty, void)},
+		{"isClosed", "()Z", nullptr, $SYNCHRONIZED, $virtualMethod(PrintJob2D$MessageQ, isClosed, bool)},
+		{"pop", "()Ljava/awt/Graphics2D;", nullptr, $SYNCHRONIZED, $virtualMethod(PrintJob2D$MessageQ, pop, $Graphics2D*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.PrintJob2D$MessageQ", "sun.print.PrintJob2D", "MessageQ", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.print.PrintJob2D$MessageQ",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.print.PrintJob2D"
+	};
+	$loadClass(PrintJob2D$MessageQ, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrintJob2D$MessageQ);
+	});
 	return class$;
 }
 

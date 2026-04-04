@@ -44,6 +44,7 @@ class TexturePaintContext : public ::java::awt::PaintContext {
 	$class(TexturePaintContext, 0, ::java::awt::PaintContext)
 public:
 	TexturePaintContext();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::image::ColorModel* cm, ::java::awt::geom::AffineTransform* xform, int32_t bWidth, int32_t bHeight, int32_t maxw);
 	static int32_t blend($ints* rgbs, int32_t xmul, int32_t ymul);
 	virtual void dispose() override;

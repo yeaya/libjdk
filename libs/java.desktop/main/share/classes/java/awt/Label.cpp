@@ -1,5 +1,4 @@
 #include <java/awt/Label.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Label$AccessibleAWTLabel.h>
@@ -19,7 +18,6 @@ using $Component = ::java::awt::Component;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Label$AccessibleAWTLabel = ::java::awt::Label$AccessibleAWTLabel;
 using $Toolkit = ::java::awt::Toolkit;
-using $ComponentPeer = ::java::awt::peer::ComponentPeer;
 using $LabelPeer = ::java::awt::peer::LabelPeer;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -28,70 +26,9 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $ComponentFactory = ::sun::awt::ComponentFactory;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _Label_FieldInfo_[] = {
-	{"LEFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Label, LEFT)},
-	{"CENTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Label, CENTER)},
-	{"RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Label, RIGHT)},
-	{"text", "Ljava/lang/String;", nullptr, 0, $field(Label, text)},
-	{"alignment", "I", nullptr, 0, $field(Label, alignment)},
-	{"base", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Label, base)},
-	{"nameCounter", "I", nullptr, $PRIVATE | $STATIC, $staticField(Label, nameCounter)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Label, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Label_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Label, init$, void), "java.awt.HeadlessException"},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Label, init$, void, $String*), "java.awt.HeadlessException"},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(Label, init$, void, $String*, int32_t), "java.awt.HeadlessException"},
-	{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(Label, addNotify, void)},
-	{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Label, constructComponentName, $String*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(Label, getAccessibleContext, $AccessibleContext*)},
-	{"getAlignment", "()I", nullptr, $PUBLIC, $virtualMethod(Label, getAlignment, int32_t)},
-	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Label, getText, $String*)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Label, initIDs, void)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Label, paramString, $String*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Label, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException,java.awt.HeadlessException"},
-	{"setAlignment", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Label, setAlignment, void, int32_t)},
-	{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Label, setText, void, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 12
-
-$InnerClassInfo _Label_InnerClassesInfo_[] = {
-	{"java.awt.Label$AccessibleAWTLabel", "java.awt.Label", "AccessibleAWTLabel", $PROTECTED},
-	{}
-};
-
-$ClassInfo _Label_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Label",
-	"java.awt.Component",
-	"javax.accessibility.Accessible",
-	_Label_FieldInfo_,
-	_Label_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Label_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.Label$AccessibleAWTLabel"
-};
-
-$Object* allocate$Label($Class* clazz) {
-	return $of($alloc(Label));
-}
 
 $String* Label::toString() {
 	 return this->$Component::toString();
@@ -138,17 +75,18 @@ void Label::readObject($ObjectInputStream* s) {
 }
 
 $String* Label::constructComponentName() {
-	$useLocalCurrentObjectStackCache();
 	$synchronized(Label::class$) {
-		$var($String, var$0, Label::base);
-		return $concat(var$0, $$str(Label::nameCounter++));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append(Label::base);
+		var$0->append(Label::nameCounter++);
+		return $str(var$0);
 	}
 }
 
 void Label::addNotify() {
 	$synchronized(getTreeLock()) {
 		if (this->peer == nullptr) {
-			$set(this, peer, $nc($(getComponentFactory()))->createLabel(this));
+			$set(this, peer, $$nc(getComponentFactory())->createLabel(this));
 		}
 		$Component::addNotify();
 	}
@@ -160,23 +98,19 @@ int32_t Label::getAlignment() {
 
 void Label::setAlignment(int32_t alignment) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		{
-			$var($LabelPeer, peer, nullptr)
+			$var($LabelPeer, peer, nullptr);
 			switch (alignment) {
 			case Label::LEFT:
-				{}
 			case Label::CENTER:
-				{}
 			case Label::RIGHT:
-				{
-					this->alignment = alignment;
-					$assign(peer, $cast($LabelPeer, this->peer));
-					if (peer != nullptr) {
-						peer->setAlignment(alignment);
-					}
-					return;
+				this->alignment = alignment;
+				$assign(peer, $cast($LabelPeer, this->peer));
+				if (peer != nullptr) {
+					peer->setAlignment(alignment);
 				}
+				return;
 			}
 		}
 		$throwNew($IllegalArgumentException, $$str({"improper alignment: "_s, $$str(alignment)}));
@@ -190,7 +124,7 @@ $String* Label::getText() {
 void Label::setText($String* text) {
 	bool testvalid = false;
 	$synchronized(this) {
-		if (text != this->text && (this->text == nullptr || !$nc(this->text)->equals(text))) {
+		if (text != this->text && (this->text == nullptr || !this->text->equals(text))) {
 			$set(this, text, text);
 			$var($LabelPeer, peer, $cast($LabelPeer, this->peer));
 			if (peer != nullptr) {
@@ -205,31 +139,25 @@ void Label::setText($String* text) {
 }
 
 $String* Label::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, align, ""_s);
 	switch (this->alignment) {
 	case Label::LEFT:
-		{
-			$assign(align, "left"_s);
-			break;
-		}
+		$assign(align, "left"_s);
+		break;
 	case Label::CENTER:
-		{
-			$assign(align, "center"_s);
-			break;
-		}
+		$assign(align, "center"_s);
+		break;
 	case Label::RIGHT:
-		{
-			$assign(align, "right"_s);
-			break;
-		}
+		$assign(align, "right"_s);
+		break;
 	}
 	return $str({$($Component::paramString()), ",align="_s, align, ",text="_s, this->text});
 }
 
 void Label::initIDs() {
 	$init(Label);
-	$prepareNativeStatic(Label, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -241,7 +169,7 @@ $AccessibleContext* Label::getAccessibleContext() {
 	return this->accessibleContext;
 }
 
-void clinit$Label($Class* class$) {
+void Label::clinit$($Class* clazz) {
 	$assignStatic(Label::base, "label"_s);
 	{
 		$Toolkit::loadLibraries();
@@ -256,7 +184,59 @@ Label::Label() {
 }
 
 $Class* Label::load$($String* name, bool initialize) {
-	$loadClass(Label, name, initialize, &_Label_ClassInfo_, clinit$Label, allocate$Label);
+	$FieldInfo fieldInfos$$[] = {
+		{"LEFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Label, LEFT)},
+		{"CENTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Label, CENTER)},
+		{"RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Label, RIGHT)},
+		{"text", "Ljava/lang/String;", nullptr, 0, $field(Label, text)},
+		{"alignment", "I", nullptr, 0, $field(Label, alignment)},
+		{"base", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Label, base)},
+		{"nameCounter", "I", nullptr, $PRIVATE | $STATIC, $staticField(Label, nameCounter)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Label, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Label, init$, void), "java.awt.HeadlessException"},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Label, init$, void, $String*), "java.awt.HeadlessException"},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(Label, init$, void, $String*, int32_t), "java.awt.HeadlessException"},
+		{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(Label, addNotify, void)},
+		{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Label, constructComponentName, $String*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(Label, getAccessibleContext, $AccessibleContext*)},
+		{"getAlignment", "()I", nullptr, $PUBLIC, $virtualMethod(Label, getAlignment, int32_t)},
+		{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Label, getText, $String*)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Label, initIDs, void)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Label, paramString, $String*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Label, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException,java.awt.HeadlessException"},
+		{"setAlignment", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Label, setAlignment, void, int32_t)},
+		{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Label, setText, void, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Label$AccessibleAWTLabel", "java.awt.Label", "AccessibleAWTLabel", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Label",
+		"java.awt.Component",
+		"javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.Label$AccessibleAWTLabel"
+	};
+	$loadClass(Label, name, initialize, &classInfo$$, Label::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Label));
+	});
 	return class$;
 }
 

@@ -1,15 +1,11 @@
 #include <com/sun/jndi/ldap/LdapCtxFactory.h>
-
 #include <com/sun/jndi/ldap/LdapCtx.h>
 #include <com/sun/jndi/ldap/LdapDnsProviderService.h>
 #include <com/sun/jndi/ldap/LdapReferralException.h>
 #include <com/sun/jndi/ldap/LdapURL.h>
 #include <com/sun/jndi/ldap/Obj.h>
 #include <com/sun/jndi/toolkit/ctx/AtomicContext.h>
-#include <com/sun/jndi/toolkit/ctx/ComponentContext.h>
 #include <com/sun/jndi/toolkit/ctx/ComponentDirContext.h>
-#include <com/sun/jndi/toolkit/ctx/PartialCompositeContext.h>
-#include <com/sun/jndi/toolkit/ctx/PartialCompositeDirContext.h>
 #include <com/sun/jndi/url/ldap/ldapURLContextFactory.h>
 #include <java/util/Enumeration.h>
 #include <java/util/Hashtable.h>
@@ -47,10 +43,7 @@ using $LdapReferralException = ::com::sun::jndi::ldap::LdapReferralException;
 using $LdapURL = ::com::sun::jndi::ldap::LdapURL;
 using $Obj = ::com::sun::jndi::ldap::Obj;
 using $AtomicContext = ::com::sun::jndi::toolkit::ctx::AtomicContext;
-using $ComponentContext = ::com::sun::jndi::toolkit::ctx::ComponentContext;
 using $ComponentDirContext = ::com::sun::jndi::toolkit::ctx::ComponentDirContext;
-using $PartialCompositeContext = ::com::sun::jndi::toolkit::ctx::PartialCompositeContext;
-using $PartialCompositeDirContext = ::com::sun::jndi::toolkit::ctx::PartialCompositeDirContext;
 using $ldapURLContextFactory = ::com::sun::jndi::url::ldap::ldapURLContextFactory;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -60,7 +53,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Enumeration = ::java::util::Enumeration;
 using $Hashtable = ::java::util::Hashtable;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Vector = ::java::util::Vector;
 using $ConfigurationException = ::javax::naming::ConfigurationException;
 using $Context = ::javax::naming::Context;
@@ -79,45 +71,6 @@ namespace com {
 	namespace sun {
 		namespace jndi {
 			namespace ldap {
-
-$FieldInfo _LdapCtxFactory_FieldInfo_[] = {
-	{"ADDRESS_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LdapCtxFactory, ADDRESS_TYPE)},
-	{}
-};
-
-$MethodInfo _LdapCtxFactory_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LdapCtxFactory, init$, void)},
-	{"createTypeNameAttr", "(Ljava/lang/Class;)Ljavax/naming/directory/Attribute;", "(Ljava/lang/Class<*>;)Ljavax/naming/directory/Attribute;", $PUBLIC | $STATIC, $staticMethod(LdapCtxFactory, createTypeNameAttr, $Attribute*, $Class*)},
-	{"getClassesAux", "(Ljava/lang/Class;Ljava/util/Vector;)V", "(Ljava/lang/Class<*>;Ljava/util/Vector<Ljava/lang/String;>;)V", $PRIVATE | $STATIC, $staticMethod(LdapCtxFactory, getClassesAux, void, $Class*, $Vector*)},
-	{"getInitialContext", "(Ljava/util/Hashtable;)Ljavax/naming/Context;", "(Ljava/util/Hashtable<**>;)Ljavax/naming/Context;", $PUBLIC, $virtualMethod(LdapCtxFactory, getInitialContext, $Context*, $Hashtable*), "javax.naming.NamingException"},
-	{"getLdapCtxFromUrl", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/jndi/ldap/LdapURL;Ljava/util/Hashtable;)Lcom/sun/jndi/ldap/LdapCtx;", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/jndi/ldap/LdapURL;Ljava/util/Hashtable<**>;)Lcom/sun/jndi/ldap/LdapCtx;", $PRIVATE | $STATIC, $staticMethod(LdapCtxFactory, getLdapCtxFromUrl, $LdapCtx*, $String*, $String*, $LdapURL*, $Hashtable*), "javax.naming.NamingException"},
-	{"getLdapCtxInstance", "(Ljava/lang/Object;Ljava/util/Hashtable;)Ljavax/naming/directory/DirContext;", "(Ljava/lang/Object;Ljava/util/Hashtable<**>;)Ljavax/naming/directory/DirContext;", $PUBLIC | $STATIC, $staticMethod(LdapCtxFactory, getLdapCtxInstance, $DirContext*, Object$*, $Hashtable*), "javax.naming.NamingException"},
-	{"getObjectInstance", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(LdapCtxFactory, getObjectInstance, $Object*, Object$*, $Name*, $Context*, $Hashtable*), "java.lang.Exception"},
-	{"getTypeNames", "(Ljava/lang/Class;Ljava/util/Vector;)[Ljava/lang/String;", "(Ljava/lang/Class<*>;Ljava/util/Vector<Ljava/lang/String;>;)[Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(LdapCtxFactory, getTypeNames, $StringArray*, $Class*, $Vector*)},
-	{"getURLs", "(Ljavax/naming/Reference;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapCtxFactory, getURLs, $StringArray*, $Reference*), "javax.naming.NamingException"},
-	{"getUsingURL", "(Ljava/lang/String;Ljava/util/Hashtable;)Ljavax/naming/directory/DirContext;", "(Ljava/lang/String;Ljava/util/Hashtable<**>;)Ljavax/naming/directory/DirContext;", $PRIVATE | $STATIC, $staticMethod(LdapCtxFactory, getUsingURL, $DirContext*, $String*, $Hashtable*), "javax.naming.NamingException"},
-	{"getUsingURLs", "([Ljava/lang/String;Ljava/util/Hashtable;)Ljavax/naming/directory/DirContext;", "([Ljava/lang/String;Ljava/util/Hashtable<**>;)Ljavax/naming/directory/DirContext;", $PRIVATE | $STATIC, $staticMethod(LdapCtxFactory, getUsingURLs, $DirContext*, $StringArray*, $Hashtable*), "javax.naming.NamingException"},
-	{"isLdapRef", "(Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapCtxFactory, isLdapRef, bool, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _LdapCtxFactory_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.LdapCtxFactory",
-	"java.lang.Object",
-	"javax.naming.spi.ObjectFactory,javax.naming.spi.InitialContextFactory",
-	_LdapCtxFactory_FieldInfo_,
-	_LdapCtxFactory_MethodInfo_
-};
-
-$Object* allocate$LdapCtxFactory($Class* clazz) {
-	return $of($alloc(LdapCtxFactory));
-}
 
 int32_t LdapCtxFactory::hashCode() {
 	 return this->$ObjectFactory::hashCode();
@@ -145,23 +98,23 @@ void LdapCtxFactory::init$() {
 }
 
 $Object* LdapCtxFactory::getObjectInstance(Object$* ref, $Name* name, $Context* nameCtx, $Hashtable* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isLdapRef(ref)) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$var($ObjectFactory, factory, $new($ldapURLContextFactory));
 	$var($StringArray, urls, getURLs($cast($Reference, ref)));
-	return $of(factory->getObjectInstance(urls, name, nameCtx, env));
+	return factory->getObjectInstance(urls, name, nameCtx, env);
 }
 
 $Context* LdapCtxFactory::getInitialContext($Hashtable* envprops) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($Context);
-		$var($String, providerUrl, (envprops != nullptr) ? $cast($String, $nc(envprops)->get($Context::PROVIDER_URL)) : ($String*)nullptr);
+		$var($String, providerUrl, (envprops != nullptr) ? $cast($String, envprops->get($Context::PROVIDER_URL)) : ($String*)nullptr);
 		if (providerUrl == nullptr) {
 			$init($LdapCtx);
-			return static_cast<$Context*>(static_cast<$PartialCompositeContext*>(static_cast<$ComponentContext*>(static_cast<$AtomicContext*>(static_cast<$PartialCompositeDirContext*>(static_cast<$ComponentDirContext*>($new($LdapCtx, ""_s, $LdapCtx::DEFAULT_HOST, $LdapCtx::DEFAULT_PORT, envprops, false)))))));
+			return $cast($AtomicContext, $new($LdapCtx, ""_s, $LdapCtx::DEFAULT_HOST, $LdapCtx::DEFAULT_PORT, envprops, false));
 		}
 		$var($StringArray, urls, $LdapURL::fromList(providerUrl));
 		if ($nc(urls)->length == 0) {
@@ -174,15 +127,15 @@ $Context* LdapCtxFactory::getInitialContext($Hashtable* envprops) {
 			$throw(e);
 		}
 		$init($LdapCtx);
-		$var($ControlArray, bindCtls, (envprops != nullptr) ? $cast($ControlArray, $nc(envprops)->get($LdapCtx::BIND_CONTROLS)) : ($ControlArray*)nullptr);
-		return static_cast<$Context*>(static_cast<$PartialCompositeContext*>(static_cast<$ComponentContext*>(static_cast<$AtomicContext*>(static_cast<$PartialCompositeDirContext*>(static_cast<$ComponentDirContext*>($cast($LdapCtx, e->getReferralContext(envprops, bindCtls))))))));
+		$var($ControlArray, bindCtls, (envprops != nullptr) ? $cast($ControlArray, envprops->get($LdapCtx::BIND_CONTROLS)) : ($ControlArray*)nullptr);
+		return $cast($AtomicContext, $cast($LdapCtx, e->getReferralContext(envprops, bindCtls)));
 	}
 	$shouldNotReachHere();
 }
 
 bool LdapCtxFactory::isLdapRef(Object$* obj) {
 	$init(LdapCtxFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($Reference, obj))) {
 		return false;
 	}
@@ -193,14 +146,14 @@ bool LdapCtxFactory::isLdapRef(Object$* obj) {
 
 $StringArray* LdapCtxFactory::getURLs($Reference* ref) {
 	$init(LdapCtxFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = 0;
 	$var($StringArray, urls, $new($StringArray, $nc(ref)->size()));
 	$var($Enumeration, addrs, ref->getAll());
 	while ($nc(addrs)->hasMoreElements()) {
 		$var($RefAddr, addr, $cast($RefAddr, addrs->nextElement()));
-		if (($instanceOf($StringRefAddr, addr)) && $nc($($nc(addr)->getType()))->equals(LdapCtxFactory::ADDRESS_TYPE)) {
-			urls->set(size++, $cast($String, $(addr->getContent())));
+		if (($instanceOf($StringRefAddr, addr)) && $$nc(addr->getType())->equals(LdapCtxFactory::ADDRESS_TYPE)) {
+			urls->set(size++, $$cast($String, addr->getContent()));
 		}
 	}
 	if (size == 0) {
@@ -227,24 +180,21 @@ $DirContext* LdapCtxFactory::getLdapCtxInstance(Object$* urlInfo, $Hashtable* en
 
 $DirContext* LdapCtxFactory::getUsingURL($String* url, $Hashtable* env) {
 	$init(LdapCtxFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($LdapDnsProviderResult, r, $nc($($LdapDnsProviderService::getInstance()))->lookupEndpoints(url, env));
+		$var($LdapDnsProviderResult, r, $$nc($LdapDnsProviderService::getInstance())->lookupEndpoints(url, env));
 		$var($LdapCtx, ctx, nullptr);
 		$var($NamingException, lastException, nullptr);
 		{
-			$var($Iterator, i$, $nc($($nc(r)->getEndpoints()))->iterator());
+			$var($Iterator, i$, $$nc($nc(r)->getEndpoints())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($String, u, $cast($String, i$->next()));
-				{
-					try {
-						$var($String, var$0, r->getDomainName());
-						$var($String, var$1, url);
-						$assign(ctx, getLdapCtxFromUrl(var$0, var$1, $$new($LdapURL, u), env));
-						return static_cast<$DirContext*>(static_cast<$PartialCompositeDirContext*>(static_cast<$ComponentDirContext*>(ctx)));
-					} catch ($NamingException& e) {
-						$assign(lastException, e);
-					}
+				try {
+					$var($String, var$0, r->getDomainName());
+					$assign(ctx, getLdapCtxFromUrl(var$0, url, $$new($LdapURL, u), env));
+					return $cast($ComponentDirContext, ctx);
+				} catch ($NamingException& e) {
+					$assign(lastException, e);
 				}
 			}
 		}
@@ -264,7 +214,7 @@ $DirContext* LdapCtxFactory::getUsingURL($String* url, $Hashtable* env) {
 
 $LdapCtx* LdapCtxFactory::getLdapCtxFromUrl($String* domain, $String* url, $LdapURL* u, $Hashtable* env) {
 	$init(LdapCtxFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, dn, $nc(u)->getDN());
 	$var($String, host, u->getHost());
 	int32_t port = u->getPort();
@@ -276,20 +226,16 @@ $LdapCtx* LdapCtxFactory::getLdapCtxFromUrl($String* domain, $String* url, $Ldap
 
 $DirContext* LdapCtxFactory::getUsingURLs($StringArray* urls, $Hashtable* env) {
 	$init(LdapCtxFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NamingException, ex, nullptr);
 	{
 		$var($StringArray, arr$, urls);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, u, arr$->get(i$));
-			{
-				try {
-					return getUsingURL(u, env);
-				} catch ($NamingException& e) {
-					$assign(ex, e);
-				}
+			try {
+				return getUsingURL(u, env);
+			} catch ($NamingException& e) {
+				$assign(ex, e);
 			}
 		}
 	}
@@ -299,7 +245,7 @@ $DirContext* LdapCtxFactory::getUsingURLs($StringArray* urls, $Hashtable* env) {
 
 $Attribute* LdapCtxFactory::createTypeNameAttr($Class* cl) {
 	$init(LdapCtxFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, v, $new($Vector, 10));
 	$var($StringArray, types, getTypeNames(cl, v));
 	if ($nc(types)->length > 0) {
@@ -315,7 +261,7 @@ $Attribute* LdapCtxFactory::createTypeNameAttr($Class* cl) {
 
 $StringArray* LdapCtxFactory::getTypeNames($Class* currentClass, $Vector* v) {
 	$init(LdapCtxFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	getClassesAux(currentClass, v);
 	$var($ClassArray, members, $nc(currentClass)->getInterfaces());
 	for (int32_t i = 0; i < members->length; ++i) {
@@ -337,11 +283,11 @@ $StringArray* LdapCtxFactory::getTypeNames($Class* currentClass, $Vector* v) {
 
 void LdapCtxFactory::getClassesAux($Class* currentClass, $Vector* v) {
 	$init(LdapCtxFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(v)->contains($($nc(currentClass)->getName()))) {
-		v->addElement($($nc(currentClass)->getName()));
+		v->addElement($(currentClass->getName()));
 	}
-	currentClass = $nc(currentClass)->getSuperclass();
+	currentClass = currentClass->getSuperclass();
 	while (currentClass != nullptr) {
 		getTypeNames(currentClass, v);
 		currentClass = currentClass->getSuperclass();
@@ -351,12 +297,46 @@ void LdapCtxFactory::getClassesAux($Class* currentClass, $Vector* v) {
 LdapCtxFactory::LdapCtxFactory() {
 }
 
-void clinit$LdapCtxFactory($Class* class$) {
+void LdapCtxFactory::clinit$($Class* clazz) {
 	$assignStatic(LdapCtxFactory::ADDRESS_TYPE, "URL"_s);
 }
 
 $Class* LdapCtxFactory::load$($String* name, bool initialize) {
-	$loadClass(LdapCtxFactory, name, initialize, &_LdapCtxFactory_ClassInfo_, clinit$LdapCtxFactory, allocate$LdapCtxFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"ADDRESS_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LdapCtxFactory, ADDRESS_TYPE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LdapCtxFactory, init$, void)},
+		{"createTypeNameAttr", "(Ljava/lang/Class;)Ljavax/naming/directory/Attribute;", "(Ljava/lang/Class<*>;)Ljavax/naming/directory/Attribute;", $PUBLIC | $STATIC, $staticMethod(LdapCtxFactory, createTypeNameAttr, $Attribute*, $Class*)},
+		{"getClassesAux", "(Ljava/lang/Class;Ljava/util/Vector;)V", "(Ljava/lang/Class<*>;Ljava/util/Vector<Ljava/lang/String;>;)V", $PRIVATE | $STATIC, $staticMethod(LdapCtxFactory, getClassesAux, void, $Class*, $Vector*)},
+		{"getInitialContext", "(Ljava/util/Hashtable;)Ljavax/naming/Context;", "(Ljava/util/Hashtable<**>;)Ljavax/naming/Context;", $PUBLIC, $virtualMethod(LdapCtxFactory, getInitialContext, $Context*, $Hashtable*), "javax.naming.NamingException"},
+		{"getLdapCtxFromUrl", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/jndi/ldap/LdapURL;Ljava/util/Hashtable;)Lcom/sun/jndi/ldap/LdapCtx;", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/jndi/ldap/LdapURL;Ljava/util/Hashtable<**>;)Lcom/sun/jndi/ldap/LdapCtx;", $PRIVATE | $STATIC, $staticMethod(LdapCtxFactory, getLdapCtxFromUrl, $LdapCtx*, $String*, $String*, $LdapURL*, $Hashtable*), "javax.naming.NamingException"},
+		{"getLdapCtxInstance", "(Ljava/lang/Object;Ljava/util/Hashtable;)Ljavax/naming/directory/DirContext;", "(Ljava/lang/Object;Ljava/util/Hashtable<**>;)Ljavax/naming/directory/DirContext;", $PUBLIC | $STATIC, $staticMethod(LdapCtxFactory, getLdapCtxInstance, $DirContext*, Object$*, $Hashtable*), "javax.naming.NamingException"},
+		{"getObjectInstance", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(LdapCtxFactory, getObjectInstance, $Object*, Object$*, $Name*, $Context*, $Hashtable*), "java.lang.Exception"},
+		{"getTypeNames", "(Ljava/lang/Class;Ljava/util/Vector;)[Ljava/lang/String;", "(Ljava/lang/Class<*>;Ljava/util/Vector<Ljava/lang/String;>;)[Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(LdapCtxFactory, getTypeNames, $StringArray*, $Class*, $Vector*)},
+		{"getURLs", "(Ljavax/naming/Reference;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapCtxFactory, getURLs, $StringArray*, $Reference*), "javax.naming.NamingException"},
+		{"getUsingURL", "(Ljava/lang/String;Ljava/util/Hashtable;)Ljavax/naming/directory/DirContext;", "(Ljava/lang/String;Ljava/util/Hashtable<**>;)Ljavax/naming/directory/DirContext;", $PRIVATE | $STATIC, $staticMethod(LdapCtxFactory, getUsingURL, $DirContext*, $String*, $Hashtable*), "javax.naming.NamingException"},
+		{"getUsingURLs", "([Ljava/lang/String;Ljava/util/Hashtable;)Ljavax/naming/directory/DirContext;", "([Ljava/lang/String;Ljava/util/Hashtable<**>;)Ljavax/naming/directory/DirContext;", $PRIVATE | $STATIC, $staticMethod(LdapCtxFactory, getUsingURLs, $DirContext*, $StringArray*, $Hashtable*), "javax.naming.NamingException"},
+		{"isLdapRef", "(Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapCtxFactory, isLdapRef, bool, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.LdapCtxFactory",
+		"java.lang.Object",
+		"javax.naming.spi.ObjectFactory,javax.naming.spi.InitialContextFactory",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LdapCtxFactory, name, initialize, &classInfo$$, LdapCtxFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LdapCtxFactory));
+	});
 	return class$;
 }
 

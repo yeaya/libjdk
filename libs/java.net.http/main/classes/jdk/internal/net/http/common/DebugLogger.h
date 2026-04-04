@@ -63,6 +63,7 @@ class $export DebugLogger : public ::jdk::internal::net::http::common::Logger {
 	$class(DebugLogger, 0, ::jdk::internal::net::http::common::Logger)
 public:
 	DebugLogger();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::System$Logger* logger, ::java::util::function::Supplier* dbgTag, ::java::lang::System$Logger$Level* outLevel, ::java::lang::System$Logger$Level* errLevel);
 	static ::jdk::internal::net::http::common::DebugLogger* createHpackLogger(::java::util::function::Supplier* dbgTag, ::java::lang::System$Logger$Level* outLevel, ::java::lang::System$Logger$Level* errLevel);
 	static ::jdk::internal::net::http::common::DebugLogger* createHttpLogger(::java::util::function::Supplier* dbgTag, ::java::lang::System$Logger$Level* outLevel, ::java::lang::System$Logger$Level* errLevel);

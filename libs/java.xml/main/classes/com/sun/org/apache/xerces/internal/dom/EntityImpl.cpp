@@ -1,6 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/dom/EntityImpl.h>
-
-#include <com/sun/org/apache/xerces/internal/dom/ChildNode.h>
 #include <com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DOMMessageFormatter.h>
 #include <com/sun/org/apache/xerces/internal/dom/NodeImpl.h>
@@ -17,10 +15,8 @@
 #undef ENTITY_NODE
 #undef NO_MODIFICATION_ALLOWED_ERR
 
-using $ChildNode = ::com::sun::org::apache::xerces::internal::dom::ChildNode;
 using $CoreDocumentImpl = ::com::sun::org::apache::xerces::internal::dom::CoreDocumentImpl;
 using $DOMMessageFormatter = ::com::sun::org::apache::xerces::internal::dom::DOMMessageFormatter;
-using $NodeImpl = ::com::sun::org::apache::xerces::internal::dom::NodeImpl;
 using $ParentNode = ::com::sun::org::apache::xerces::internal::dom::ParentNode;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -39,92 +35,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace dom {
-
-$FieldInfo _EntityImpl_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(EntityImpl, serialVersionUID)},
-	{"name", "Ljava/lang/String;", nullptr, $PROTECTED, $field(EntityImpl, name)},
-	{"publicId", "Ljava/lang/String;", nullptr, $PROTECTED, $field(EntityImpl, publicId)},
-	{"systemId", "Ljava/lang/String;", nullptr, $PROTECTED, $field(EntityImpl, systemId)},
-	{"encoding", "Ljava/lang/String;", nullptr, $PROTECTED, $field(EntityImpl, encoding)},
-	{"inputEncoding", "Ljava/lang/String;", nullptr, $PROTECTED, $field(EntityImpl, inputEncoding)},
-	{"version", "Ljava/lang/String;", nullptr, $PROTECTED, $field(EntityImpl, version)},
-	{"notationName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(EntityImpl, notationName)},
-	{"baseURI", "Ljava/lang/String;", nullptr, $PROTECTED, $field(EntityImpl, baseURI)},
-	{}
-};
-
-$MethodInfo _EntityImpl_MethodInfo_[] = {
-	{"*appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*compareDocumentPosition", "(Lorg/w3c/dom/Node;)S", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getAttributes", "()Lorg/w3c/dom/NamedNodeMap;", nullptr, $PUBLIC},
-	{"*getChildNodes", "()Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC},
-	{"*getFeature", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*getFirstChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getLastChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getNodeValue", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getOwnerDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC},
-	{"*getParentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getPreviousSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getTextContent", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getUserData", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*hasAttributes", "()Z", nullptr, $PUBLIC},
-	{"*hasChildNodes", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/dom/CoreDocumentImpl;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(EntityImpl, init$, void, $CoreDocumentImpl*, $String*)},
-	{"cloneNode", "(Z)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(EntityImpl, cloneNode, $Node*, bool)},
-	{"getBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EntityImpl, getBaseURI, $String*)},
-	{"getInputEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EntityImpl, getInputEncoding, $String*)},
-	{"getNodeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EntityImpl, getNodeName, $String*)},
-	{"getNodeType", "()S", nullptr, $PUBLIC, $virtualMethod(EntityImpl, getNodeType, int16_t)},
-	{"getNotationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EntityImpl, getNotationName, $String*)},
-	{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EntityImpl, getPublicId, $String*)},
-	{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EntityImpl, getSystemId, $String*)},
-	{"getXmlEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EntityImpl, getXmlEncoding, $String*)},
-	{"getXmlVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EntityImpl, getXmlVersion, $String*)},
-	{"*insertBefore", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*isDefaultNamespace", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"*isEqualNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC},
-	{"*isSameNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC},
-	{"*isSupported", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"*lookupNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*lookupPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*normalize", "()V", nullptr, $PUBLIC},
-	{"*removeChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*replaceChild", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"setBaseURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EntityImpl, setBaseURI, void, $String*)},
-	{"setInputEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EntityImpl, setInputEncoding, void, $String*)},
-	{"setNodeValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EntityImpl, setNodeValue, void, $String*), "org.w3c.dom.DOMException"},
-	{"setNotationName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EntityImpl, setNotationName, void, $String*)},
-	{"setPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EntityImpl, setPrefix, void, $String*), "org.w3c.dom.DOMException"},
-	{"setPublicId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EntityImpl, setPublicId, void, $String*)},
-	{"setSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EntityImpl, setSystemId, void, $String*)},
-	{"*setTextContent", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setUserData", "(Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"setXmlEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EntityImpl, setXmlEncoding, void, $String*)},
-	{"setXmlVersion", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EntityImpl, setXmlVersion, void, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _EntityImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.dom.EntityImpl",
-	"com.sun.org.apache.xerces.internal.dom.ParentNode",
-	"org.w3c.dom.Entity",
-	_EntityImpl_FieldInfo_,
-	_EntityImpl_MethodInfo_
-};
-
-$Object* allocate$EntityImpl($Class* clazz) {
-	return $of($alloc(EntityImpl));
-}
 
 $Document* EntityImpl::getOwnerDocument() {
 	 return this->$ParentNode::getOwnerDocument();
@@ -305,7 +215,7 @@ void EntityImpl::setPrefix($String* prefix) {
 $Node* EntityImpl::cloneNode(bool deep) {
 	$var(EntityImpl, newentity, $cast(EntityImpl, $ParentNode::cloneNode(deep)));
 	$nc(newentity)->setReadOnly(true, deep);
-	return static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$ChildNode*>(static_cast<$ParentNode*>(newentity))));
+	return $cast($ParentNode, newentity);
 }
 
 $String* EntityImpl::getPublicId() {
@@ -396,7 +306,7 @@ $String* EntityImpl::getBaseURI() {
 	if (needsSyncData()) {
 		synchronizeData();
 	}
-	return (this->baseURI != nullptr) ? this->baseURI : $nc(($cast($CoreDocumentImpl, $(getOwnerDocument()))))->getBaseURI();
+	return (this->baseURI != nullptr) ? this->baseURI : $$sure($CoreDocumentImpl, getOwnerDocument())->getBaseURI();
 }
 
 void EntityImpl::setBaseURI($String* uri) {
@@ -410,7 +320,88 @@ EntityImpl::EntityImpl() {
 }
 
 $Class* EntityImpl::load$($String* name, bool initialize) {
-	$loadClass(EntityImpl, name, initialize, &_EntityImpl_ClassInfo_, allocate$EntityImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(EntityImpl, serialVersionUID)},
+		{"name", "Ljava/lang/String;", nullptr, $PROTECTED, $field(EntityImpl, name)},
+		{"publicId", "Ljava/lang/String;", nullptr, $PROTECTED, $field(EntityImpl, publicId)},
+		{"systemId", "Ljava/lang/String;", nullptr, $PROTECTED, $field(EntityImpl, systemId)},
+		{"encoding", "Ljava/lang/String;", nullptr, $PROTECTED, $field(EntityImpl, encoding)},
+		{"inputEncoding", "Ljava/lang/String;", nullptr, $PROTECTED, $field(EntityImpl, inputEncoding)},
+		{"version", "Ljava/lang/String;", nullptr, $PROTECTED, $field(EntityImpl, version)},
+		{"notationName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(EntityImpl, notationName)},
+		{"baseURI", "Ljava/lang/String;", nullptr, $PROTECTED, $field(EntityImpl, baseURI)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*compareDocumentPosition", "(Lorg/w3c/dom/Node;)S", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getAttributes", "()Lorg/w3c/dom/NamedNodeMap;", nullptr, $PUBLIC},
+		{"*getChildNodes", "()Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC},
+		{"*getFeature", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*getFirstChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getLastChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getNodeValue", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getOwnerDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC},
+		{"*getParentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getPreviousSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getTextContent", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getUserData", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*hasAttributes", "()Z", nullptr, $PUBLIC},
+		{"*hasChildNodes", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/dom/CoreDocumentImpl;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(EntityImpl, init$, void, $CoreDocumentImpl*, $String*)},
+		{"cloneNode", "(Z)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(EntityImpl, cloneNode, $Node*, bool)},
+		{"getBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EntityImpl, getBaseURI, $String*)},
+		{"getInputEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EntityImpl, getInputEncoding, $String*)},
+		{"getNodeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EntityImpl, getNodeName, $String*)},
+		{"getNodeType", "()S", nullptr, $PUBLIC, $virtualMethod(EntityImpl, getNodeType, int16_t)},
+		{"getNotationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EntityImpl, getNotationName, $String*)},
+		{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EntityImpl, getPublicId, $String*)},
+		{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EntityImpl, getSystemId, $String*)},
+		{"getXmlEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EntityImpl, getXmlEncoding, $String*)},
+		{"getXmlVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EntityImpl, getXmlVersion, $String*)},
+		{"*insertBefore", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*isDefaultNamespace", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
+		{"*isEqualNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC},
+		{"*isSameNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC},
+		{"*isSupported", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC},
+		{"*lookupNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*lookupPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*normalize", "()V", nullptr, $PUBLIC},
+		{"*removeChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*replaceChild", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"setBaseURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EntityImpl, setBaseURI, void, $String*)},
+		{"setInputEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EntityImpl, setInputEncoding, void, $String*)},
+		{"setNodeValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EntityImpl, setNodeValue, void, $String*), "org.w3c.dom.DOMException"},
+		{"setNotationName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EntityImpl, setNotationName, void, $String*)},
+		{"setPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EntityImpl, setPrefix, void, $String*), "org.w3c.dom.DOMException"},
+		{"setPublicId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EntityImpl, setPublicId, void, $String*)},
+		{"setSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EntityImpl, setSystemId, void, $String*)},
+		{"*setTextContent", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setUserData", "(Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"setXmlEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EntityImpl, setXmlEncoding, void, $String*)},
+		{"setXmlVersion", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EntityImpl, setXmlVersion, void, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.dom.EntityImpl",
+		"com.sun.org.apache.xerces.internal.dom.ParentNode",
+		"org.w3c.dom.Entity",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EntityImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(EntityImpl));
+	});
 	return class$;
 }
 

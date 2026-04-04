@@ -1,5 +1,4 @@
 #include <sun/print/ServiceNotifier.h>
-
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/SecurityException.h>
@@ -33,40 +32,8 @@ using $AttributeUpdater = ::sun::print::AttributeUpdater;
 namespace sun {
 	namespace print {
 
-$FieldInfo _ServiceNotifier_FieldInfo_[] = {
-	{"service", "Ljavax/print/PrintService;", nullptr, $PRIVATE, $field(ServiceNotifier, service)},
-	{"listeners", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/print/event/PrintServiceAttributeListener;>;", $PRIVATE, $field(ServiceNotifier, listeners)},
-	{"stop", "Z", nullptr, $PRIVATE, $field(ServiceNotifier, stop$)},
-	{"lastSet", "Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PRIVATE, $field(ServiceNotifier, lastSet)},
-	{}
-};
-
-$MethodInfo _ServiceNotifier_MethodInfo_[] = {
-	{"<init>", "(Ljavax/print/PrintService;)V", nullptr, 0, $method(ServiceNotifier, init$, void, $PrintService*)},
-	{"addListener", "(Ljavax/print/event/PrintServiceAttributeListener;)V", nullptr, 0, $virtualMethod(ServiceNotifier, addListener, void, $PrintServiceAttributeListener*)},
-	{"isEmpty", "()Z", nullptr, 0, $virtualMethod(ServiceNotifier, isEmpty, bool)},
-	{"removeListener", "(Ljavax/print/event/PrintServiceAttributeListener;)V", nullptr, 0, $virtualMethod(ServiceNotifier, removeListener, void, $PrintServiceAttributeListener*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ServiceNotifier, run, void)},
-	{"stopNotifier", "()V", nullptr, 0, $virtualMethod(ServiceNotifier, stopNotifier, void)},
-	{"wake", "()V", nullptr, 0, $virtualMethod(ServiceNotifier, wake, void)},
-	{}
-};
-
-$ClassInfo _ServiceNotifier_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.print.ServiceNotifier",
-	"java.lang.Thread",
-	nullptr,
-	_ServiceNotifier_FieldInfo_,
-	_ServiceNotifier_MethodInfo_
-};
-
-$Object* allocate$ServiceNotifier($Class* clazz) {
-	return $of($alloc(ServiceNotifier));
-}
-
 void ServiceNotifier::init$($PrintService* service) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Thread::init$(nullptr, nullptr, $$str({$($nc(service)->getName()), " notifier"_s}), 0, false);
 	this->stop$ = false;
 	$set(this, service, service);
@@ -93,12 +60,12 @@ void ServiceNotifier::removeListener($PrintServiceAttributeListener* listener) {
 		if (listener == nullptr || this->listeners == nullptr) {
 			return;
 		}
-		$nc(this->listeners)->remove($of(listener));
+		$nc(this->listeners)->remove(listener);
 	}
 }
 
 bool ServiceNotifier::isEmpty() {
-	return (this->listeners == nullptr || $nc(this->listeners)->isEmpty());
+	return (this->listeners == nullptr || this->listeners->isEmpty());
 }
 
 void ServiceNotifier::stopNotifier() {
@@ -113,7 +80,7 @@ void ServiceNotifier::wake() {
 }
 
 void ServiceNotifier::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t minSleepTime = 15000;
 	int64_t sleepTime = 2000;
 	$var($HashPrintServiceAttributeSet, attrs, nullptr);
@@ -132,13 +99,13 @@ void ServiceNotifier::run() {
 			int64_t startTime = $System::currentTimeMillis();
 			if (this->listeners != nullptr) {
 				if ($instanceOf($AttributeUpdater, this->service)) {
-					$assign(psa, $nc(($cast($AttributeUpdater, this->service)))->getUpdatedAttributes());
+					$assign(psa, $cast($AttributeUpdater, this->service)->getUpdatedAttributes());
 				} else {
 					$assign(psa, $nc(this->service)->getAttributes());
 				}
 				if (psa != nullptr && !psa->isEmpty()) {
 					for (int32_t i = 0; i < $nc(this->listeners)->size(); ++i) {
-						$assign(listener, $cast($PrintServiceAttributeListener, $nc(this->listeners)->elementAt(i)));
+						$assign(listener, $cast($PrintServiceAttributeListener, this->listeners->elementAt(i)));
 						$assign(attrs, $new($HashPrintServiceAttributeSet, psa));
 						$assign(attrEvent, $new($PrintServiceAttributeEvent, this->service, attrs));
 						$nc(listener)->attributeUpdate(attrEvent);
@@ -157,7 +124,34 @@ ServiceNotifier::ServiceNotifier() {
 }
 
 $Class* ServiceNotifier::load$($String* name, bool initialize) {
-	$loadClass(ServiceNotifier, name, initialize, &_ServiceNotifier_ClassInfo_, allocate$ServiceNotifier);
+	$FieldInfo fieldInfos$$[] = {
+		{"service", "Ljavax/print/PrintService;", nullptr, $PRIVATE, $field(ServiceNotifier, service)},
+		{"listeners", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/print/event/PrintServiceAttributeListener;>;", $PRIVATE, $field(ServiceNotifier, listeners)},
+		{"stop", "Z", nullptr, $PRIVATE, $field(ServiceNotifier, stop$)},
+		{"lastSet", "Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PRIVATE, $field(ServiceNotifier, lastSet)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/print/PrintService;)V", nullptr, 0, $method(ServiceNotifier, init$, void, $PrintService*)},
+		{"addListener", "(Ljavax/print/event/PrintServiceAttributeListener;)V", nullptr, 0, $virtualMethod(ServiceNotifier, addListener, void, $PrintServiceAttributeListener*)},
+		{"isEmpty", "()Z", nullptr, 0, $virtualMethod(ServiceNotifier, isEmpty, bool)},
+		{"removeListener", "(Ljavax/print/event/PrintServiceAttributeListener;)V", nullptr, 0, $virtualMethod(ServiceNotifier, removeListener, void, $PrintServiceAttributeListener*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ServiceNotifier, run, void)},
+		{"stopNotifier", "()V", nullptr, 0, $virtualMethod(ServiceNotifier, stopNotifier, void)},
+		{"wake", "()V", nullptr, 0, $virtualMethod(ServiceNotifier, wake, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.print.ServiceNotifier",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ServiceNotifier, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServiceNotifier);
+	});
 	return class$;
 }
 

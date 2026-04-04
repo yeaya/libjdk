@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit.h>
-
 #include <com/sun/tools/javac/api/DiagnosticFormatter$Configuration.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -19,47 +18,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace api {
-
-$FieldInfo _DiagnosticFormatter$Configuration$MultilineLimit_FieldInfo_[] = {
-	{"DEPTH", "Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DiagnosticFormatter$Configuration$MultilineLimit, DEPTH)},
-	{"LENGTH", "Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DiagnosticFormatter$Configuration$MultilineLimit, LENGTH)},
-	{"$VALUES", "[Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(DiagnosticFormatter$Configuration$MultilineLimit, $VALUES)},
-	{}
-};
-
-$MethodInfo _DiagnosticFormatter$Configuration$MultilineLimit_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DiagnosticFormatter$Configuration$MultilineLimit, $values, $DiagnosticFormatter$Configuration$MultilineLimitArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DiagnosticFormatter$Configuration$MultilineLimit, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;", nullptr, $PUBLIC | $STATIC, $staticMethod(DiagnosticFormatter$Configuration$MultilineLimit, valueOf, DiagnosticFormatter$Configuration$MultilineLimit*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;", nullptr, $PUBLIC | $STATIC, $staticMethod(DiagnosticFormatter$Configuration$MultilineLimit, values, $DiagnosticFormatter$Configuration$MultilineLimitArray*)},
-	{}
-};
-
-$InnerClassInfo _DiagnosticFormatter$Configuration$MultilineLimit_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.api.DiagnosticFormatter$Configuration", "com.sun.tools.javac.api.DiagnosticFormatter", "Configuration", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.api.DiagnosticFormatter$Configuration$MultilineLimit", "com.sun.tools.javac.api.DiagnosticFormatter$Configuration", "MultilineLimit", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _DiagnosticFormatter$Configuration$MultilineLimit_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.api.DiagnosticFormatter$Configuration$MultilineLimit",
-	"java.lang.Enum",
-	nullptr,
-	_DiagnosticFormatter$Configuration$MultilineLimit_FieldInfo_,
-	_DiagnosticFormatter$Configuration$MultilineLimit_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;>;",
-	nullptr,
-	_DiagnosticFormatter$Configuration$MultilineLimit_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.api.DiagnosticFormatter"
-};
-
-$Object* allocate$DiagnosticFormatter$Configuration$MultilineLimit($Class* clazz) {
-	return $of($alloc(DiagnosticFormatter$Configuration$MultilineLimit));
-}
 
 DiagnosticFormatter$Configuration$MultilineLimit* DiagnosticFormatter$Configuration$MultilineLimit::DEPTH = nullptr;
 DiagnosticFormatter$Configuration$MultilineLimit* DiagnosticFormatter$Configuration$MultilineLimit::LENGTH = nullptr;
@@ -87,7 +45,7 @@ void DiagnosticFormatter$Configuration$MultilineLimit::init$($String* $enum$name
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$DiagnosticFormatter$Configuration$MultilineLimit($Class* class$) {
+void DiagnosticFormatter$Configuration$MultilineLimit::clinit$($Class* clazz) {
 	$assignStatic(DiagnosticFormatter$Configuration$MultilineLimit::DEPTH, $new(DiagnosticFormatter$Configuration$MultilineLimit, "DEPTH"_s, 0));
 	$assignStatic(DiagnosticFormatter$Configuration$MultilineLimit::LENGTH, $new(DiagnosticFormatter$Configuration$MultilineLimit, "LENGTH"_s, 1));
 	$assignStatic(DiagnosticFormatter$Configuration$MultilineLimit::$VALUES, DiagnosticFormatter$Configuration$MultilineLimit::$values());
@@ -97,7 +55,42 @@ DiagnosticFormatter$Configuration$MultilineLimit::DiagnosticFormatter$Configurat
 }
 
 $Class* DiagnosticFormatter$Configuration$MultilineLimit::load$($String* name, bool initialize) {
-	$loadClass(DiagnosticFormatter$Configuration$MultilineLimit, name, initialize, &_DiagnosticFormatter$Configuration$MultilineLimit_ClassInfo_, clinit$DiagnosticFormatter$Configuration$MultilineLimit, allocate$DiagnosticFormatter$Configuration$MultilineLimit);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEPTH", "Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DiagnosticFormatter$Configuration$MultilineLimit, DEPTH)},
+		{"LENGTH", "Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DiagnosticFormatter$Configuration$MultilineLimit, LENGTH)},
+		{"$VALUES", "[Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(DiagnosticFormatter$Configuration$MultilineLimit, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DiagnosticFormatter$Configuration$MultilineLimit, $values, $DiagnosticFormatter$Configuration$MultilineLimitArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DiagnosticFormatter$Configuration$MultilineLimit, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;", nullptr, $PUBLIC | $STATIC, $staticMethod(DiagnosticFormatter$Configuration$MultilineLimit, valueOf, DiagnosticFormatter$Configuration$MultilineLimit*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;", nullptr, $PUBLIC | $STATIC, $staticMethod(DiagnosticFormatter$Configuration$MultilineLimit, values, $DiagnosticFormatter$Configuration$MultilineLimitArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.api.DiagnosticFormatter$Configuration", "com.sun.tools.javac.api.DiagnosticFormatter", "Configuration", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.api.DiagnosticFormatter$Configuration$MultilineLimit", "com.sun.tools.javac.api.DiagnosticFormatter$Configuration", "MultilineLimit", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.api.DiagnosticFormatter$Configuration$MultilineLimit",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.api.DiagnosticFormatter"
+	};
+	$loadClass(DiagnosticFormatter$Configuration$MultilineLimit, name, initialize, &classInfo$$, DiagnosticFormatter$Configuration$MultilineLimit::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DiagnosticFormatter$Configuration$MultilineLimit));
+	});
 	return class$;
 }
 

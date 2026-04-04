@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFocus.h>
-
 #include <com/apple/laf/AquaFocus$Drawable.h>
 #include <com/apple/laf/AquaFocus$FocusedIcon.h>
 #include <java/awt/Component.h>
@@ -20,38 +19,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaFocus_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaFocus, init$, void)},
-	{"createFocusedIcon", "(Ljavax/swing/Icon;Ljava/awt/Component;I)Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaFocus, createFocusedIcon, $Icon*, $Icon*, $Component*, int32_t)},
-	{"paintFocus", "(Ljava/awt/Graphics;Lcom/apple/laf/AquaFocus$Drawable;)Z", nullptr, $STATIC, $staticMethod(AquaFocus, paintFocus, bool, $Graphics*, $AquaFocus$Drawable*)},
-	{}
-};
-
-$InnerClassInfo _AquaFocus_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFocus$FocusedIcon", "com.apple.laf.AquaFocus", "FocusedIcon", $STATIC},
-	{"com.apple.laf.AquaFocus$Drawable", "com.apple.laf.AquaFocus", "Drawable", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaFocus_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaFocus",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_AquaFocus_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaFocus_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFocus$FocusedIcon,com.apple.laf.AquaFocus$FocusedIcon$2,com.apple.laf.AquaFocus$FocusedIcon$1,com.apple.laf.AquaFocus$Drawable"
-};
-
-$Object* allocate$AquaFocus($Class* clazz) {
-	return $of($alloc(AquaFocus));
-}
-
 void AquaFocus::init$() {
 }
 
@@ -67,7 +34,34 @@ AquaFocus::AquaFocus() {
 }
 
 $Class* AquaFocus::load$($String* name, bool initialize) {
-	$loadClass(AquaFocus, name, initialize, &_AquaFocus_ClassInfo_, allocate$AquaFocus);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaFocus, init$, void)},
+		{"createFocusedIcon", "(Ljavax/swing/Icon;Ljava/awt/Component;I)Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaFocus, createFocusedIcon, $Icon*, $Icon*, $Component*, int32_t)},
+		{"paintFocus", "(Ljava/awt/Graphics;Lcom/apple/laf/AquaFocus$Drawable;)Z", nullptr, $STATIC, $staticMethod(AquaFocus, paintFocus, bool, $Graphics*, $AquaFocus$Drawable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFocus$FocusedIcon", "com.apple.laf.AquaFocus", "FocusedIcon", $STATIC},
+		{"com.apple.laf.AquaFocus$Drawable", "com.apple.laf.AquaFocus", "Drawable", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaFocus",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFocus$FocusedIcon,com.apple.laf.AquaFocus$FocusedIcon$2,com.apple.laf.AquaFocus$FocusedIcon$1,com.apple.laf.AquaFocus$Drawable"
+	};
+	$loadClass(AquaFocus, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaFocus);
+	});
 	return class$;
 }
 

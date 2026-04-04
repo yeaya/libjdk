@@ -22,7 +22,7 @@ public:
 	void init$($String* name, $String* actions);
 	void readObject(::java::io::ObjectInputStream* in);
 	static void validate($String* name, $String* actions);
-	static const int64_t serialVersionUID = (int64_t)0xD707C1AE24FD55E4;
+	static const int64_t serialVersionUID = (int64_t)0xd707c1ae24fd55e4;
 };
 
 	} // management

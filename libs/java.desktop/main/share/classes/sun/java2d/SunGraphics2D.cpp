@@ -1,5 +1,4 @@
 #include <sun/java2d/SunGraphics2D.h>
-
 #include <java/awt/AlphaComposite.h>
 #include <java/awt/BasicStroke.h>
 #include <java/awt/Color.h>
@@ -87,7 +86,6 @@
 #include <sun/java2d/pipe/RenderingEngine.h>
 #include <sun/java2d/pipe/ShapeDrawPipe.h>
 #include <sun/java2d/pipe/ShapeSpanIterator.h>
-#include <sun/java2d/pipe/SpanIterator.h>
 #include <sun/java2d/pipe/TextPipe.h>
 #include <sun/java2d/pipe/ValidatePipe.h>
 #include <jcpp.h>
@@ -247,7 +245,6 @@ using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
 using $Hashtable = ::java::util::Hashtable;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $SunHints = ::sun::awt::SunHints;
 using $SunHints$Key = ::sun::awt::SunHints$Key;
 using $SunHints$Value = ::sun::awt::SunHints$Value;
@@ -255,7 +252,6 @@ using $MultiResolutionToolkitImage = ::sun::awt::image::MultiResolutionToolkitIm
 using $SurfaceManager = ::sun::awt::image::SurfaceManager;
 using $ToolkitImage = ::sun::awt::image::ToolkitImage;
 using $PerformanceLogger = ::sun::awt::util::PerformanceLogger;
-using $Font2D = ::sun::font::Font2D;
 using $FontDesignMetrics = ::sun::font::FontDesignMetrics;
 using $FontUtilities = ::sun::font::FontUtilities;
 using $InvalidPipeException = ::sun::java2d::InvalidPipeException;
@@ -267,257 +263,14 @@ using $CompositeType = ::sun::java2d::loops::CompositeType;
 using $FontInfo = ::sun::java2d::loops::FontInfo;
 using $SurfaceType = ::sun::java2d::loops::SurfaceType;
 using $XORComposite = ::sun::java2d::loops::XORComposite;
-using $DrawImagePipe = ::sun::java2d::pipe::DrawImagePipe;
 using $LoopPipe = ::sun::java2d::pipe::LoopPipe;
-using $PixelDrawPipe = ::sun::java2d::pipe::PixelDrawPipe;
-using $PixelFillPipe = ::sun::java2d::pipe::PixelFillPipe;
 using $Region = ::sun::java2d::pipe::Region;
 using $RenderingEngine = ::sun::java2d::pipe::RenderingEngine;
-using $ShapeDrawPipe = ::sun::java2d::pipe::ShapeDrawPipe;
 using $ShapeSpanIterator = ::sun::java2d::pipe::ShapeSpanIterator;
-using $SpanIterator = ::sun::java2d::pipe::SpanIterator;
-using $TextPipe = ::sun::java2d::pipe::TextPipe;
 using $ValidatePipe = ::sun::java2d::pipe::ValidatePipe;
 
 namespace sun {
 	namespace java2d {
-
-$FieldInfo _SunGraphics2D_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SunGraphics2D, $assertionsDisabled)},
-	{"PAINT_CUSTOM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, PAINT_CUSTOM)},
-	{"PAINT_TEXTURE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, PAINT_TEXTURE)},
-	{"PAINT_RAD_GRADIENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, PAINT_RAD_GRADIENT)},
-	{"PAINT_LIN_GRADIENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, PAINT_LIN_GRADIENT)},
-	{"PAINT_GRADIENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, PAINT_GRADIENT)},
-	{"PAINT_ALPHACOLOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, PAINT_ALPHACOLOR)},
-	{"PAINT_OPAQUECOLOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, PAINT_OPAQUECOLOR)},
-	{"COMP_CUSTOM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, COMP_CUSTOM)},
-	{"COMP_XOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, COMP_XOR)},
-	{"COMP_ALPHA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, COMP_ALPHA)},
-	{"COMP_ISCOPY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, COMP_ISCOPY)},
-	{"STROKE_CUSTOM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, STROKE_CUSTOM)},
-	{"STROKE_WIDE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, STROKE_WIDE)},
-	{"STROKE_THINDASHED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, STROKE_THINDASHED)},
-	{"STROKE_THIN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, STROKE_THIN)},
-	{"TRANSFORM_GENERIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, TRANSFORM_GENERIC)},
-	{"TRANSFORM_TRANSLATESCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, TRANSFORM_TRANSLATESCALE)},
-	{"TRANSFORM_ANY_TRANSLATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, TRANSFORM_ANY_TRANSLATE)},
-	{"TRANSFORM_INT_TRANSLATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, TRANSFORM_INT_TRANSLATE)},
-	{"TRANSFORM_ISIDENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, TRANSFORM_ISIDENT)},
-	{"CLIP_SHAPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, CLIP_SHAPE)},
-	{"CLIP_RECTANGULAR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, CLIP_RECTANGULAR)},
-	{"CLIP_DEVICE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, CLIP_DEVICE)},
-	{"eargb", "I", nullptr, $PUBLIC, $field(SunGraphics2D, eargb)},
-	{"pixel", "I", nullptr, $PUBLIC, $field(SunGraphics2D, pixel)},
-	{"surfaceData", "Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $field(SunGraphics2D, surfaceData)},
-	{"drawpipe", "Lsun/java2d/pipe/PixelDrawPipe;", nullptr, $PUBLIC, $field(SunGraphics2D, drawpipe)},
-	{"fillpipe", "Lsun/java2d/pipe/PixelFillPipe;", nullptr, $PUBLIC, $field(SunGraphics2D, fillpipe)},
-	{"imagepipe", "Lsun/java2d/pipe/DrawImagePipe;", nullptr, $PUBLIC, $field(SunGraphics2D, imagepipe)},
-	{"shapepipe", "Lsun/java2d/pipe/ShapeDrawPipe;", nullptr, $PUBLIC, $field(SunGraphics2D, shapepipe)},
-	{"textpipe", "Lsun/java2d/pipe/TextPipe;", nullptr, $PUBLIC, $field(SunGraphics2D, textpipe)},
-	{"alphafill", "Lsun/java2d/loops/MaskFill;", nullptr, $PUBLIC, $field(SunGraphics2D, alphafill)},
-	{"loops", "Lsun/java2d/loops/RenderLoops;", nullptr, $PUBLIC, $field(SunGraphics2D, loops)},
-	{"imageComp", "Lsun/java2d/loops/CompositeType;", nullptr, $PUBLIC, $field(SunGraphics2D, imageComp)},
-	{"paintState", "I", nullptr, $PUBLIC, $field(SunGraphics2D, paintState)},
-	{"compositeState", "I", nullptr, $PUBLIC, $field(SunGraphics2D, compositeState)},
-	{"strokeState", "I", nullptr, $PUBLIC, $field(SunGraphics2D, strokeState)},
-	{"transformState", "I", nullptr, $PUBLIC, $field(SunGraphics2D, transformState)},
-	{"clipState", "I", nullptr, $PUBLIC, $field(SunGraphics2D, clipState)},
-	{"foregroundColor", "Ljava/awt/Color;", nullptr, $PUBLIC, $field(SunGraphics2D, foregroundColor)},
-	{"backgroundColor", "Ljava/awt/Color;", nullptr, $PUBLIC, $field(SunGraphics2D, backgroundColor)},
-	{"transform", "Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $field(SunGraphics2D, transform$)},
-	{"transX", "I", nullptr, $PUBLIC, $field(SunGraphics2D, transX)},
-	{"transY", "I", nullptr, $PUBLIC, $field(SunGraphics2D, transY)},
-	{"defaultStroke", "Ljava/awt/Stroke;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SunGraphics2D, defaultStroke)},
-	{"defaultComposite", "Ljava/awt/Composite;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SunGraphics2D, defaultComposite)},
-	{"defaultFont", "Ljava/awt/Font;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunGraphics2D, defaultFont)},
-	{"paint", "Ljava/awt/Paint;", nullptr, $PUBLIC, $field(SunGraphics2D, paint)},
-	{"stroke", "Ljava/awt/Stroke;", nullptr, $PUBLIC, $field(SunGraphics2D, stroke)},
-	{"composite", "Ljava/awt/Composite;", nullptr, $PUBLIC, $field(SunGraphics2D, composite)},
-	{"font", "Ljava/awt/Font;", nullptr, $PROTECTED, $field(SunGraphics2D, font)},
-	{"fontMetrics", "Ljava/awt/FontMetrics;", nullptr, $PROTECTED, $field(SunGraphics2D, fontMetrics)},
-	{"renderHint", "I", nullptr, $PUBLIC, $field(SunGraphics2D, renderHint)},
-	{"antialiasHint", "I", nullptr, $PUBLIC, $field(SunGraphics2D, antialiasHint)},
-	{"textAntialiasHint", "I", nullptr, $PUBLIC, $field(SunGraphics2D, textAntialiasHint)},
-	{"fractionalMetricsHint", "I", nullptr, $PROTECTED, $field(SunGraphics2D, fractionalMetricsHint)},
-	{"lcdTextContrast", "I", nullptr, $PUBLIC, $field(SunGraphics2D, lcdTextContrast)},
-	{"lcdTextContrastDefaultValue", "I", nullptr, $PRIVATE | $STATIC, $staticField(SunGraphics2D, lcdTextContrastDefaultValue)},
-	{"interpolationHint", "I", nullptr, $PRIVATE, $field(SunGraphics2D, interpolationHint)},
-	{"strokeHint", "I", nullptr, $PUBLIC, $field(SunGraphics2D, strokeHint)},
-	{"interpolationType", "I", nullptr, $PUBLIC, $field(SunGraphics2D, interpolationType)},
-	{"hints", "Ljava/awt/RenderingHints;", nullptr, $PUBLIC, $field(SunGraphics2D, hints)},
-	{"constrainClip", "Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $field(SunGraphics2D, constrainClip)},
-	{"constrainX", "I", nullptr, $PUBLIC, $field(SunGraphics2D, constrainX)},
-	{"constrainY", "I", nullptr, $PUBLIC, $field(SunGraphics2D, constrainY)},
-	{"clipRegion", "Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $field(SunGraphics2D, clipRegion)},
-	{"usrClip", "Ljava/awt/Shape;", nullptr, $PUBLIC, $field(SunGraphics2D, usrClip)},
-	{"devClip", "Lsun/java2d/pipe/Region;", nullptr, $PROTECTED, $field(SunGraphics2D, devClip)},
-	{"resolutionVariantHint", "I", nullptr, $PRIVATE, $field(SunGraphics2D, resolutionVariantHint)},
-	{"validFontInfo", "Z", nullptr, $PRIVATE, $field(SunGraphics2D, validFontInfo)},
-	{"fontInfo", "Lsun/java2d/loops/FontInfo;", nullptr, $PRIVATE, $field(SunGraphics2D, fontInfo)},
-	{"glyphVectorFontInfo", "Lsun/java2d/loops/FontInfo;", nullptr, $PRIVATE, $field(SunGraphics2D, glyphVectorFontInfo)},
-	{"glyphVectorFRC", "Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE, $field(SunGraphics2D, glyphVectorFRC)},
-	{"slowTextTransformMask", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SunGraphics2D, slowTextTransformMask)},
-	{"invalidpipe", "Lsun/java2d/pipe/ValidatePipe;", nullptr, $PROTECTED | $STATIC, $staticField(SunGraphics2D, invalidpipe)},
-	{"IDENT_MATRIX", "[D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunGraphics2D, IDENT_MATRIX)},
-	{"IDENT_ATX", "Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunGraphics2D, IDENT_ATX)},
-	{"MINALLOCATED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SunGraphics2D, MINALLOCATED)},
-	{"TEXTARRSIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SunGraphics2D, TEXTARRSIZE)},
-	{"textTxArr", "[[D", nullptr, $PRIVATE | $STATIC, $staticField(SunGraphics2D, textTxArr)},
-	{"textAtArr", "[Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE | $STATIC, $staticField(SunGraphics2D, textAtArr)},
-	{"NON_UNIFORM_SCALE_MASK", "I", nullptr, $STATIC | $FINAL, $constField(SunGraphics2D, NON_UNIFORM_SCALE_MASK)},
-	{"MinPenSizeAA", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SunGraphics2D, MinPenSizeAA)},
-	{"MinPenSizeAASquared", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SunGraphics2D, MinPenSizeAASquared)},
-	{"MinPenSizeSquared", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SunGraphics2D, MinPenSizeSquared)},
-	{"NON_RECTILINEAR_TRANSFORM_MASK", "I", nullptr, $STATIC | $FINAL, $constField(SunGraphics2D, NON_RECTILINEAR_TRANSFORM_MASK)},
-	{"lastCAblit", "Lsun/java2d/loops/Blit;", nullptr, 0, $field(SunGraphics2D, lastCAblit)},
-	{"lastCAcomp", "Ljava/awt/Composite;", nullptr, 0, $field(SunGraphics2D, lastCAcomp)},
-	{"cachedFRC", "Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE, $field(SunGraphics2D, cachedFRC)},
-	{}
-};
-
-$MethodInfo _SunGraphics2D_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/java2d/SurfaceData;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Font;)V", nullptr, $PUBLIC, $method(SunGraphics2D, init$, void, $SurfaceData*, $Color*, $Color*, $Font*)},
-	{"addRenderingHints", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PUBLIC, $virtualMethod(SunGraphics2D, addRenderingHints, void, $Map*)},
-	{"checkFontInfo", "(Lsun/java2d/loops/FontInfo;Ljava/awt/Font;Ljava/awt/font/FontRenderContext;)Lsun/java2d/loops/FontInfo;", nullptr, $PUBLIC, $method(SunGraphics2D, checkFontInfo, $FontInfo*, $FontInfo*, $Font*, $FontRenderContext*)},
-	{"clearRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, clearRect, void, int32_t, int32_t, int32_t, int32_t)},
-	{"clip", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, clip, void, $Shape*)},
-	{"clipRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, clipRect, void, int32_t, int32_t, int32_t, int32_t)},
-	{"clipTo", "(Ljava/awt/Rectangle;Ljava/awt/Rectangle;)Z", nullptr, $PRIVATE, $method(SunGraphics2D, clipTo, bool, $Rectangle*, $Rectangle*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(SunGraphics2D, clone, $Object*)},
-	{"cloneShape", "(Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PROTECTED | $STATIC, $staticMethod(SunGraphics2D, cloneShape, $Shape*, $Shape*)},
-	{"cloneTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $method(SunGraphics2D, cloneTransform, $AffineTransform*)},
-	{"constrain", "(IIIILsun/java2d/pipe/Region;)V", nullptr, $PUBLIC, $method(SunGraphics2D, constrain, void, int32_t, int32_t, int32_t, int32_t, $Region*)},
-	{"constrain", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, constrain, void, int32_t, int32_t, int32_t, int32_t)},
-	{"copyArea", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, copyArea, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"copyImage", "(Ljava/awt/Image;IIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $method(SunGraphics2D, copyImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"create", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, create, $Graphics*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, dispose, void)},
-	{"doCopyArea", "(IIIIII)V", nullptr, $PRIVATE, $method(SunGraphics2D, doCopyArea, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"draw", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, draw, void, $Shape*)},
-	{"drawArc", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawArc, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"drawBytes", "([BIIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawBytes, void, $bytes*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawChars", "([CIIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawChars, void, $chars*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawGlyphVector", "(Ljava/awt/font/GlyphVector;FF)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawGlyphVector, void, $GlyphVector*, float, float)},
-	{"drawHiDPIImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;Ljava/awt/geom/AffineTransform;)Ljava/lang/Boolean;", nullptr, $PRIVATE, $method(SunGraphics2D, drawHiDPIImage, $Boolean*, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*, $AffineTransform*)},
-	{"drawImage", "(Ljava/awt/Image;IIIILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawImage, bool, $Image*, int32_t, int32_t, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawImage, bool, $Image*, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;Ljava/awt/geom/AffineTransform;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawImage, bool, $Image*, $AffineTransform*, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImageOp;II)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawImage, void, $BufferedImage*, $BufferedImageOp*, int32_t, int32_t)},
-	{"drawLine", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawLine, void, int32_t, int32_t, int32_t, int32_t)},
-	{"drawOval", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawOval, void, int32_t, int32_t, int32_t, int32_t)},
-	{"drawPolygon", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawPolygon, void, $ints*, $ints*, int32_t)},
-	{"drawPolyline", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawPolyline, void, $ints*, $ints*, int32_t)},
-	{"drawRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawRect, void, int32_t, int32_t, int32_t, int32_t)},
-	{"drawRenderableImage", "(Ljava/awt/image/renderable/RenderableImage;Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawRenderableImage, void, $RenderableImage*, $AffineTransform*)},
-	{"drawRenderedImage", "(Ljava/awt/image/RenderedImage;Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawRenderedImage, void, $RenderedImage*, $AffineTransform*)},
-	{"drawRoundRect", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawRoundRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"drawString", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawString, void, $String*, int32_t, int32_t)},
-	{"drawString", "(Ljava/lang/String;FF)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawString, void, $String*, float, float)},
-	{"drawString", "(Ljava/text/AttributedCharacterIterator;II)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawString, void, $AttributedCharacterIterator*, int32_t, int32_t)},
-	{"drawString", "(Ljava/text/AttributedCharacterIterator;FF)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawString, void, $AttributedCharacterIterator*, float, float)},
-	{"drawTranslatedRenderedImage", "(Ljava/awt/image/RenderedImage;Ljava/awt/Rectangle;II)V", nullptr, $PRIVATE, $method(SunGraphics2D, drawTranslatedRenderedImage, void, $RenderedImage*, $Rectangle*, int32_t, int32_t)},
-	{"fill", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, fill, void, $Shape*)},
-	{"fillArc", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, fillArc, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"fillOval", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, fillOval, void, int32_t, int32_t, int32_t, int32_t)},
-	{"fillPolygon", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, fillPolygon, void, $ints*, $ints*, int32_t)},
-	{"fillRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, fillRect, void, int32_t, int32_t, int32_t, int32_t)},
-	{"fillRoundRect", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, fillRoundRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"finalize", "()V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, finalize, void)},
-	{"fixRectangleOrientation", "([DLjava/awt/geom/Rectangle2D;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SunGraphics2D, fixRectangleOrientation, void, $doubles*, $Rectangle2D*)},
-	{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getBackground, $Color*)},
-	{"getClip", "()Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getClip, $Shape*)},
-	{"getClipBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getClipBounds, $Rectangle*)},
-	{"getClipBounds", "(Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getClipBounds, $Rectangle*, $Rectangle*)},
-	{"getColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getColor, $Color*)},
-	{"getCompClip", "()Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(SunGraphics2D, getCompClip, $Region*)},
-	{"getComposite", "()Ljava/awt/Composite;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getComposite, $Composite*)},
-	{"getDefaultTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE, $method(SunGraphics2D, getDefaultTransform, $AffineTransform*)},
-	{"getDestSurface", "()Lsun/java2d/Surface;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getDestSurface, $Surface*)},
-	{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(SunGraphics2D, getDestination, $Object*)},
-	{"getDeviceColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $method(SunGraphics2D, getDeviceColorModel, $ColorModel*)},
-	{"getDeviceConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getDeviceConfiguration, $GraphicsConfiguration*)},
-	{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getFont, $Font*)},
-	{"getFontInfo", "()Lsun/java2d/loops/FontInfo;", nullptr, $PUBLIC, $method(SunGraphics2D, getFontInfo, $FontInfo*)},
-	{"getFontMetrics", "()Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getFontMetrics, $FontMetrics*)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getFontMetrics, $FontMetrics*, $Font*)},
-	{"getFontRenderContext", "()Ljava/awt/font/FontRenderContext;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getFontRenderContext, $FontRenderContext*)},
-	{"getGVFontInfo", "(Ljava/awt/Font;Ljava/awt/font/FontRenderContext;)Lsun/java2d/loops/FontInfo;", nullptr, $PUBLIC, $method(SunGraphics2D, getGVFontInfo, $FontInfo*, $Font*, $FontRenderContext*)},
-	{"getImageRegion", "(Ljava/awt/image/RenderedImage;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;Ljava/awt/geom/AffineTransform;II)Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticMethod(SunGraphics2D, getImageRegion, $Rectangle*, $RenderedImage*, $Region*, $AffineTransform*, $AffineTransform*, int32_t, int32_t)},
-	{"getPaint", "()Ljava/awt/Paint;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getPaint, $Paint*)},
-	{"getRenderingHint", "(Ljava/awt/RenderingHints$Key;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getRenderingHint, $Object*, $RenderingHints$Key*)},
-	{"getRenderingHints", "()Ljava/awt/RenderingHints;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getRenderingHints, $RenderingHints*)},
-	{"getResolutionVariant", "(Ljava/awt/image/MultiResolutionImage;IIIIIIIIIILjava/awt/geom/AffineTransform;)Ljava/awt/Image;", nullptr, $PRIVATE, $method(SunGraphics2D, getResolutionVariant, $Image*, $MultiResolutionImage*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $AffineTransform*)},
-	{"getStroke", "()Ljava/awt/Stroke;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getStroke, $Stroke*)},
-	{"getSurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $method(SunGraphics2D, getSurfaceData, $SurfaceData*)},
-	{"getTileIndex", "(III)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SunGraphics2D, getTileIndex, int32_t, int32_t, int32_t, int32_t)},
-	{"getTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getTransform, $AffineTransform*)},
-	{"hit", "(Ljava/awt/Rectangle;Ljava/awt/Shape;Z)Z", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, hit, bool, $Rectangle*, $Shape*, bool)},
-	{"hitClip", "(IIII)Z", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, hitClip, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"intersectByArea", "(Ljava/awt/Shape;Ljava/awt/Shape;ZZ)Ljava/awt/Shape;", nullptr, 0, $method(SunGraphics2D, intersectByArea, $Shape*, $Shape*, $Shape*, bool, bool)},
-	{"intersectRectShape", "(Ljava/awt/geom/Rectangle2D;Ljava/awt/Shape;ZZ)Ljava/awt/Shape;", nullptr, 0, $method(SunGraphics2D, intersectRectShape, $Shape*, $Rectangle2D*, $Shape*, bool, bool)},
-	{"intersectShapes", "(Ljava/awt/Shape;Ljava/awt/Shape;ZZ)Ljava/awt/Shape;", nullptr, 0, $method(SunGraphics2D, intersectShapes, $Shape*, $Shape*, $Shape*, bool, bool)},
-	{"invalidatePipe", "()V", nullptr, $PROTECTED, $method(SunGraphics2D, invalidatePipe, void)},
-	{"invalidateTransform", "()V", nullptr, $PROTECTED, $method(SunGraphics2D, invalidateTransform, void)},
-	{"isIntegerTranslation", "(Ljava/awt/geom/AffineTransform;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SunGraphics2D, isIntegerTranslation, bool, $AffineTransform*)},
-	{"isRotated", "([D)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SunGraphics2D, isRotated, bool, $doubles*)},
-	{"makeHints", "(Ljava/util/Map;)Ljava/awt/RenderingHints;", "(Ljava/util/Map<**>;)Ljava/awt/RenderingHints;", 0, $method(SunGraphics2D, makeHints, $RenderingHints*, $Map*)},
-	{"revalidateAll", "()V", nullptr, $PRIVATE, $method(SunGraphics2D, revalidateAll, void)},
-	{"rotate", "(D)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, rotate, void, double)},
-	{"rotate", "(DDD)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, rotate, void, double, double, double)},
-	{"scale", "(DD)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, scale, void, double, double)},
-	{"scaleImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PRIVATE, $method(SunGraphics2D, scaleImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, setBackground, void, $Color*)},
-	{"setClip", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, setClip, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setClip", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, setClip, void, $Shape*)},
-	{"setColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, setColor, void, $Color*)},
-	{"setComposite", "(Ljava/awt/Composite;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, setComposite, void, $Composite*)},
-	{"setDevClip", "(IIII)V", nullptr, $PUBLIC, $method(SunGraphics2D, setDevClip, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setDevClip", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $method(SunGraphics2D, setDevClip, void, $Rectangle*)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, setFont, void, $Font*)},
-	{"setPaint", "(Ljava/awt/Paint;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, setPaint, void, $Paint*)},
-	{"setPaintMode", "()V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, setPaintMode, void)},
-	{"setRenderingHint", "(Ljava/awt/RenderingHints$Key;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, setRenderingHint, void, $RenderingHints$Key*, Object$*)},
-	{"setRenderingHints", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PUBLIC, $virtualMethod(SunGraphics2D, setRenderingHints, void, $Map*)},
-	{"setStroke", "(Ljava/awt/Stroke;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, setStroke, void, $Stroke*)},
-	{"setTransform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, setTransform, void, $AffineTransform*)},
-	{"setXORMode", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, setXORMode, void, $Color*)},
-	{"shear", "(DD)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, shear, void, double, double)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"transform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, transform, void, $AffineTransform*)},
-	{"transformBounds", "(Ljava/awt/Rectangle;Ljava/awt/geom/AffineTransform;)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $method(SunGraphics2D, transformBounds, $Rectangle*, $Rectangle*, $AffineTransform*)},
-	{"transformImage", "(Ljava/awt/Image;Ljava/awt/geom/AffineTransform;Ljava/awt/image/ImageObserver;)Z", nullptr, $PRIVATE, $method(SunGraphics2D, transformImage, bool, $Image*, $AffineTransform*, $ImageObserver*)},
-	{"transformShape", "(Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PROTECTED, $method(SunGraphics2D, transformShape, $Shape*, $Shape*)},
-	{"transformShape", "(IILjava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PROTECTED | $STATIC, $staticMethod(SunGraphics2D, transformShape, $Shape*, int32_t, int32_t, $Shape*)},
-	{"transformShape", "(Ljava/awt/geom/AffineTransform;Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PROTECTED | $STATIC, $staticMethod(SunGraphics2D, transformShape, $Shape*, $AffineTransform*, $Shape*)},
-	{"translate", "(DD)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, translate, void, double, double)},
-	{"translate", "(II)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, translate, void, int32_t, int32_t)},
-	{"untransformShape", "(Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC, $method(SunGraphics2D, untransformShape, $Shape*, $Shape*)},
-	{"validateBasicStroke", "(Ljava/awt/BasicStroke;)V", nullptr, $PRIVATE, $method(SunGraphics2D, validateBasicStroke, void, $BasicStroke*)},
-	{"validateColor", "()V", nullptr, 0, $method(SunGraphics2D, validateColor, void)},
-	{"validateCompClip", "()V", nullptr, $PROTECTED, $method(SunGraphics2D, validateCompClip, void)},
-	{"validatePipe", "()V", nullptr, $PUBLIC, $method(SunGraphics2D, validatePipe, void)},
-	{}
-};
-
-$ClassInfo _SunGraphics2D_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.java2d.SunGraphics2D",
-	"java.awt.Graphics2D",
-	"sun.awt.ConstrainableGraphics,java.lang.Cloneable,sun.java2d.DestSurfaceProvider",
-	_SunGraphics2D_FieldInfo_,
-	_SunGraphics2D_MethodInfo_
-};
-
-$Object* allocate$SunGraphics2D($Class* clazz) {
-	return $of($alloc(SunGraphics2D));
-}
 
 $String* SunGraphics2D::toString() {
 	 return this->$Graphics2D::toString();
@@ -579,7 +332,7 @@ void SunGraphics2D::init$($SurfaceData* sd, $Color* fg, $Color* bg, $Font* f) {
 
 $AffineTransform* SunGraphics2D::getDefaultTransform() {
 	$var($GraphicsConfiguration, gc, getDeviceConfiguration());
-	return (gc == nullptr) ? $new($AffineTransform) : $nc(gc)->getDefaultTransform();
+	return (gc == nullptr) ? $new($AffineTransform) : gc->getDefaultTransform();
 }
 
 $Object* SunGraphics2D::clone() {
@@ -591,19 +344,19 @@ $Object* SunGraphics2D::clone() {
 		}
 		if (this->fontInfo != nullptr) {
 			if (this->validFontInfo) {
-				$set(g, fontInfo, $cast($FontInfo, $nc(this->fontInfo)->clone()));
+				$set(g, fontInfo, $cast($FontInfo, this->fontInfo->clone()));
 			} else {
 				$set(g, fontInfo, nullptr);
 			}
 		}
 		if (this->glyphVectorFontInfo != nullptr) {
-			$set(g, glyphVectorFontInfo, $cast($FontInfo, $nc(this->glyphVectorFontInfo)->clone()));
+			$set(g, glyphVectorFontInfo, $cast($FontInfo, this->glyphVectorFontInfo->clone()));
 			$set(g, glyphVectorFRC, this->glyphVectorFRC);
 		}
 		return $of(g);
 	} catch ($CloneNotSupportedException& e) {
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Graphics* SunGraphics2D::create() {
@@ -615,17 +368,17 @@ void SunGraphics2D::setDevClip(int32_t x, int32_t y, int32_t w, int32_t h) {
 	if (c == nullptr) {
 		$set(this, devClip, $Region::getInstanceXYWH(x, y, w, h));
 	} else {
-		$set(this, devClip, $nc(c)->getIntersectionXYWH(x, y, w, h));
+		$set(this, devClip, c->getIntersectionXYWH(x, y, w, h));
 	}
 	validateCompClip();
 }
 
 void SunGraphics2D::setDevClip($Rectangle* r) {
-	setDevClip($nc(r)->x, r->y, r->width, r->height);
+	setDevClip($nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 }
 
 void SunGraphics2D::constrain(int32_t x, int32_t y, int32_t w, int32_t h, $Region* region$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, region, region$renamed);
 	if ((x | y) != 0) {
 		translate(x, y);
@@ -644,7 +397,7 @@ void SunGraphics2D::constrain(int32_t x, int32_t y, int32_t w, int32_t h, $Regio
 	if (c == nullptr) {
 		$assign(c, $Region::getInstanceXYXY(x, y, w, h));
 	} else {
-		$assign(c, $nc(c)->getIntersectionXYXY(x, y, w, h));
+		$assign(c, c->getIntersectionXYXY(x, y, w, h));
 	}
 	if (region != nullptr) {
 		$assign(region, region->getScaledRegion(scaleX, scaleY));
@@ -683,7 +436,7 @@ void SunGraphics2D::validatePipe() {
 
 $Shape* SunGraphics2D::intersectShapes($Shape* s1, $Shape* s2, bool keep1, bool keep2) {
 	if ($instanceOf($Rectangle, s1) && $instanceOf($Rectangle, s2)) {
-		return $nc(($cast($Rectangle, s1)))->intersection($cast($Rectangle, s2));
+		return $cast($Rectangle, s1)->intersection($cast($Rectangle, s2));
 	}
 	if ($instanceOf($Rectangle2D, s1)) {
 		return intersectRectShape($cast($Rectangle2D, s1), s2, keep1, keep2);
@@ -694,7 +447,7 @@ $Shape* SunGraphics2D::intersectShapes($Shape* s1, $Shape* s2, bool keep1, bool 
 }
 
 $Shape* SunGraphics2D::intersectRectShape($Rectangle2D* r, $Shape* s$renamed, bool keep1, bool keep2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Shape, s, s$renamed);
 	if ($instanceOf($Rectangle2D, s)) {
 		$var($Rectangle2D, r2, $cast($Rectangle2D, s));
@@ -707,19 +460,19 @@ $Shape* SunGraphics2D::intersectRectShape($Rectangle2D* r, $Shape* s$renamed, bo
 			$assign(outrect, $new($Rectangle2D$Float));
 		}
 		double var$0 = $nc(r)->getX();
-		double x1 = $Math::max(var$0, $nc(r2)->getX());
-		double var$2 = $nc(r)->getX();
+		double x1 = $Math::max(var$0, r2->getX());
+		double var$2 = r->getX();
 		double var$1 = var$2 + r->getWidth();
-		double var$3 = $nc(r2)->getX();
+		double var$3 = r2->getX();
 		double x2 = $Math::min(var$1, var$3 + r2->getWidth());
-		double var$4 = $nc(r)->getY();
-		double y1 = $Math::max(var$4, $nc(r2)->getY());
-		double var$6 = $nc(r)->getY();
+		double var$4 = r->getY();
+		double y1 = $Math::max(var$4, r2->getY());
+		double var$6 = r->getY();
 		double var$5 = var$6 + r->getHeight();
-		double var$7 = $nc(r2)->getY();
+		double var$7 = r2->getY();
 		double y2 = $Math::min(var$5, var$7 + r2->getHeight());
 		if (((x2 - x1) < 0) || ((y2 - y1) < 0)) {
-			$nc(outrect)->setFrameFromDiagonal((double)0, (double)0, (double)0, (double)0);
+			$nc(outrect)->setFrameFromDiagonal(0, 0, 0, 0);
 		} else {
 			$nc(outrect)->setFrameFromDiagonal(x1, y1, x2, y2);
 		}
@@ -740,7 +493,7 @@ $Shape* SunGraphics2D::cloneShape($Shape* s) {
 }
 
 $Shape* SunGraphics2D::intersectByArea($Shape* s1, $Shape* s2$renamed, bool keep1, bool keep2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Shape, s2, s2$renamed);
 	$var($Area, a1, nullptr);
 	$var($Area, a2, nullptr);
@@ -779,7 +532,7 @@ $Font* SunGraphics2D::getFont() {
 }
 
 $FontInfo* SunGraphics2D::checkFontInfo($FontInfo* info$renamed, $Font* font, $FontRenderContext* frc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontInfo, info, info$renamed);
 	if (info == nullptr) {
 		$assign(info, $new($FontInfo));
@@ -812,13 +565,13 @@ $FontInfo* SunGraphics2D::checkFontInfo($FontInfo* info$renamed, $Font* font, $F
 		info->pixelHeight = $cast(int32_t, ($Math::abs(scaley) + 0.5));
 	} else {
 		txFontType = $AffineTransform::TYPE_IDENTITY;
-		$nc(info)->originX = (info->originY = (float)0);
+		$nc(info)->originX = ($nc(info)->originY = 0);
 		if (this->transformState >= SunGraphics2D::TRANSFORM_TRANSLATESCALE) {
 			$nc(this->transform$)->getMatrix($set(info, devTx, $new($doubles, 4)));
 			$assign(devAt, $new($AffineTransform, info->devTx));
 			$set(info, glyphTx, $new($doubles, 4));
 			for (int32_t i = 0; i < 4; ++i) {
-				$nc(info->glyphTx)->set(i, $nc(info->devTx)->get(i) * ptSize);
+				info->glyphTx->set(i, $nc(info->devTx)->get(i) * ptSize);
 			}
 			$assign(textAt, $new($AffineTransform, info->glyphTx));
 			double shearx = $nc(this->transform$)->getShearX();
@@ -838,10 +591,10 @@ $FontInfo* SunGraphics2D::checkFontInfo($FontInfo* info$renamed, $Font* font, $F
 			}
 			if (textAt == nullptr) {
 				$set(info, glyphTx, $new($doubles, {
-					(double)ptSize,
-					(double)0,
-					(double)0,
-					(double)ptSize
+					ptSize,
+					0,
+					0,
+					ptSize
 				}));
 				$assign(textAt, $new($AffineTransform, info->glyphTx));
 			}
@@ -849,7 +602,6 @@ $FontInfo* SunGraphics2D::checkFontInfo($FontInfo* info$renamed, $Font* font, $F
 			$assign(devAt, SunGraphics2D::IDENT_ATX);
 		}
 	}
-	$init($Double);
 	$nc(info)->nonInvertibleTx = ($Math::abs($nc(textAt)->getDeterminant()) <= $Double::MIN_VALUE);
 	$set(info, font2D, $FontUtilities::getFont2D(font));
 	int32_t fmhint = this->fractionalMetricsHint;
@@ -861,7 +613,7 @@ $FontInfo* SunGraphics2D::checkFontInfo($FontInfo* info$renamed, $Font* font, $F
 	if (frc == nullptr) {
 		aahint = this->textAntialiasHint;
 	} else {
-		aahint = $nc(($cast($SunHints$Value, $($nc(frc)->getAntiAliasingHint()))))->getIndex();
+		aahint = $$sure($SunHints$Value, frc->getAntiAliasingHint())->getIndex();
 	}
 	if (aahint == $SunHints::INTVAL_TEXT_ANTIALIAS_DEFAULT) {
 		if (this->antialiasHint == $SunHints::INTVAL_ANTIALIAS_ON) {
@@ -900,7 +652,7 @@ $FontInfo* SunGraphics2D::checkFontInfo($FontInfo* info$renamed, $Font* font, $F
 
 bool SunGraphics2D::isRotated($doubles* mtx) {
 	$init(SunGraphics2D);
-	if (($nc(mtx)->get(0) == mtx->get(3)) && (mtx->get(1) == 0.0) && (mtx->get(2) == 0.0) && (mtx->get(0) > 0.0)) {
+	if (($nc(mtx)->get(0) == $nc(mtx)->get(3)) && (mtx->get(1) == 0.0) && (mtx->get(2) == 0.0) && (mtx->get(0) > 0.0)) {
 		return false;
 	}
 	return true;
@@ -911,7 +663,7 @@ void SunGraphics2D::setFont($Font* font) {
 		bool var$0 = this->textAntialiasHint == $SunHints::INTVAL_TEXT_ANTIALIAS_GASP && !$equals(this->textpipe, SunGraphics2D::invalidpipe);
 		if (var$0) {
 			bool var$1 = this->transformState > SunGraphics2D::TRANSFORM_ANY_TRANSLATE || font->isTransformed() || this->fontInfo == nullptr;
-			var$0 = (var$1 || ($nc(this->fontInfo)->aaHint == $SunHints::INTVAL_TEXT_ANTIALIAS_ON) != $nc($($FontUtilities::getFont2D(font)))->useAAForPtSize(font->getSize()));
+			var$0 = var$1 || (this->fontInfo->aaHint == $SunHints::INTVAL_TEXT_ANTIALIAS_ON) != $$nc($FontUtilities::getFont2D(font))->useAAForPtSize(font->getSize());
 		}
 		if (var$0) {
 			$set(this, textpipe, SunGraphics2D::invalidpipe);
@@ -931,7 +683,7 @@ $FontInfo* SunGraphics2D::getFontInfo() {
 }
 
 $FontInfo* SunGraphics2D::getGVFontInfo($Font* font, $FontRenderContext* frc) {
-	if (this->glyphVectorFontInfo != nullptr && $nc(this->glyphVectorFontInfo)->font == font && this->glyphVectorFRC == frc) {
+	if (this->glyphVectorFontInfo != nullptr && this->glyphVectorFontInfo->font == font && this->glyphVectorFRC == frc) {
 		return this->glyphVectorFontInfo;
 	} else {
 		$set(this, glyphVectorFRC, frc);
@@ -947,7 +699,7 @@ $FontMetrics* SunGraphics2D::getFontMetrics() {
 }
 
 $FontMetrics* SunGraphics2D::getFontMetrics($Font* font) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((this->fontMetrics != nullptr) && (font == this->font)) {
 		return this->fontMetrics;
 	}
@@ -959,7 +711,7 @@ $FontMetrics* SunGraphics2D::getFontMetrics($Font* font) {
 }
 
 bool SunGraphics2D::hit($Rectangle* rect$renamed, $Shape* s$renamed, bool onStroke) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, rect, rect$renamed);
 	$var($Shape, s, s$renamed);
 	if (onStroke) {
@@ -986,7 +738,7 @@ $SurfaceData* SunGraphics2D::getSurfaceData() {
 }
 
 void SunGraphics2D::setComposite($Composite* comp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->composite == comp) {
 		return;
 	}
@@ -1001,16 +753,12 @@ void SunGraphics2D::setComposite($Composite* comp) {
 			} else {
 				newCompState = SunGraphics2D::COMP_ALPHA;
 			}
+		} else if (newCompType == $CompositeType::SrcNoEa || newCompType == $CompositeType::Src || newCompType == $CompositeType::Clear) {
+			newCompState = SunGraphics2D::COMP_ISCOPY;
+		} else if ($nc(this->surfaceData)->getTransparency() == $Transparency::OPAQUE && newCompType == $CompositeType::SrcIn) {
+			newCompState = SunGraphics2D::COMP_ISCOPY;
 		} else {
-			if (newCompType == $CompositeType::SrcNoEa || newCompType == $CompositeType::Src || newCompType == $CompositeType::Clear) {
-				newCompState = SunGraphics2D::COMP_ISCOPY;
-			} else {
-				if ($nc(this->surfaceData)->getTransparency() == $Transparency::OPAQUE && newCompType == $CompositeType::SrcIn) {
-					newCompState = SunGraphics2D::COMP_ISCOPY;
-				} else {
-					newCompState = SunGraphics2D::COMP_ALPHA;
-				}
-			}
+			newCompState = SunGraphics2D::COMP_ALPHA;
 		}
 	} else if ($instanceOf($XORComposite, comp)) {
 		newCompState = SunGraphics2D::COMP_XOR;
@@ -1107,7 +855,7 @@ void SunGraphics2D::validateBasicStroke($BasicStroke* bs) {
 		}
 	} else {
 		double widthsquared = 0.0;
-		if (((int32_t)($nc(this->transform$)->getType() & (uint32_t)SunGraphics2D::NON_UNIFORM_SCALE_MASK)) == 0) {
+		if (($nc(this->transform$)->getType() & SunGraphics2D::NON_UNIFORM_SCALE_MASK) == 0) {
 			widthsquared = $Math::abs($nc(this->transform$)->getDeterminant());
 		} else {
 			double A = $nc(this->transform$)->getScaleX();
@@ -1153,7 +901,7 @@ void SunGraphics2D::setStroke($Stroke* s) {
 }
 
 void SunGraphics2D::setRenderingHint($RenderingHints$Key* hintKey, Object$* hintValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(hintKey)->isCompatibleValue(hintValue)) {
 		$throwNew($IllegalArgumentException, $$str({hintValue, " is not compatible with "_s, hintKey}));
 	}
@@ -1165,98 +913,73 @@ void SunGraphics2D::setRenderingHint($RenderingHints$Key* hintKey, Object$* hint
 		int32_t newHint = 0;
 		$init($SunHints);
 		if ($equals(sunKey, $SunHints::KEY_TEXT_ANTIALIAS_LCD_CONTRAST)) {
-			newHint = $nc(($cast($Integer, hintValue)))->intValue();
+			newHint = $nc($cast($Integer, hintValue))->intValue();
 		} else {
-			newHint = $nc(($cast($SunHints$Value, hintValue)))->getIndex();
+			newHint = $nc($cast($SunHints$Value, hintValue))->getIndex();
 		}
-		switch ($nc(sunKey)->getIndex()) {
+		switch (sunKey->getIndex()) {
 		case $SunHints::INTKEY_RENDERING:
-			{
-				stateChanged = (this->renderHint != newHint);
-				if (stateChanged) {
-					this->renderHint = newHint;
-					if (this->interpolationHint == -1) {
-						this->interpolationType = (newHint == $SunHints::INTVAL_RENDER_QUALITY ? $AffineTransformOp::TYPE_BILINEAR : $AffineTransformOp::TYPE_NEAREST_NEIGHBOR);
-					}
+			stateChanged = (this->renderHint != newHint);
+			if (stateChanged) {
+				this->renderHint = newHint;
+				if (this->interpolationHint == -1) {
+					this->interpolationType = (newHint == $SunHints::INTVAL_RENDER_QUALITY ? $AffineTransformOp::TYPE_BILINEAR : $AffineTransformOp::TYPE_NEAREST_NEIGHBOR);
 				}
-				break;
 			}
+			break;
 		case $SunHints::INTKEY_ANTIALIASING:
-			{
-				stateChanged = (this->antialiasHint != newHint);
-				this->antialiasHint = newHint;
-				if (stateChanged) {
-					textStateChanged = (this->textAntialiasHint == $SunHints::INTVAL_TEXT_ANTIALIAS_DEFAULT);
-					if (this->strokeState != SunGraphics2D::STROKE_CUSTOM) {
-						validateBasicStroke($cast($BasicStroke, this->stroke));
-					}
+			stateChanged = (this->antialiasHint != newHint);
+			this->antialiasHint = newHint;
+			if (stateChanged) {
+				textStateChanged = (this->textAntialiasHint == $SunHints::INTVAL_TEXT_ANTIALIAS_DEFAULT);
+				if (this->strokeState != SunGraphics2D::STROKE_CUSTOM) {
+					validateBasicStroke($cast($BasicStroke, this->stroke));
 				}
-				break;
 			}
+			break;
 		case $SunHints::INTKEY_TEXT_ANTIALIASING:
-			{
-				stateChanged = (this->textAntialiasHint != newHint);
-				textStateChanged = stateChanged;
-				this->textAntialiasHint = newHint;
-				break;
-			}
+			stateChanged = (this->textAntialiasHint != newHint);
+			textStateChanged = stateChanged;
+			this->textAntialiasHint = newHint;
+			break;
 		case $SunHints::INTKEY_FRACTIONALMETRICS:
-			{
-				stateChanged = (this->fractionalMetricsHint != newHint);
-				textStateChanged = stateChanged;
-				this->fractionalMetricsHint = newHint;
-				break;
-			}
+			stateChanged = (this->fractionalMetricsHint != newHint);
+			textStateChanged = stateChanged;
+			this->fractionalMetricsHint = newHint;
+			break;
 		case $SunHints::INTKEY_AATEXT_LCD_CONTRAST:
-			{
-				stateChanged = false;
-				this->lcdTextContrast = newHint;
-				break;
-			}
+			stateChanged = false;
+			this->lcdTextContrast = newHint;
+			break;
 		case $SunHints::INTKEY_INTERPOLATION:
-			{
-				this->interpolationHint = newHint;
-				switch (newHint) {
-				case $SunHints::INTVAL_INTERPOLATION_BICUBIC:
-					{
-						newHint = $AffineTransformOp::TYPE_BICUBIC;
-						break;
-					}
-				case $SunHints::INTVAL_INTERPOLATION_BILINEAR:
-					{
-						newHint = $AffineTransformOp::TYPE_BILINEAR;
-						break;
-					}
-				default:
-					{}
-				case $SunHints::INTVAL_INTERPOLATION_NEAREST_NEIGHBOR:
-					{
-						newHint = $AffineTransformOp::TYPE_NEAREST_NEIGHBOR;
-						break;
-					}
-				}
-				stateChanged = (this->interpolationType != newHint);
-				this->interpolationType = newHint;
+			this->interpolationHint = newHint;
+			switch (newHint) {
+			case $SunHints::INTVAL_INTERPOLATION_BICUBIC:
+				newHint = $AffineTransformOp::TYPE_BICUBIC;
+				break;
+			case $SunHints::INTVAL_INTERPOLATION_BILINEAR:
+				newHint = $AffineTransformOp::TYPE_BILINEAR;
+				break;
+			default:
+			case $SunHints::INTVAL_INTERPOLATION_NEAREST_NEIGHBOR:
+				newHint = $AffineTransformOp::TYPE_NEAREST_NEIGHBOR;
 				break;
 			}
+			stateChanged = (this->interpolationType != newHint);
+			this->interpolationType = newHint;
+			break;
 		case $SunHints::INTKEY_STROKE_CONTROL:
-			{
-				stateChanged = (this->strokeHint != newHint);
-				this->strokeHint = newHint;
-				break;
-			}
+			stateChanged = (this->strokeHint != newHint);
+			this->strokeHint = newHint;
+			break;
 		case $SunHints::INTKEY_RESOLUTION_VARIANT:
-			{
-				stateChanged = (this->resolutionVariantHint != newHint);
-				this->resolutionVariantHint = newHint;
-				break;
-			}
+			stateChanged = (this->resolutionVariantHint != newHint);
+			this->resolutionVariantHint = newHint;
+			break;
 		default:
-			{
-				recognized = false;
-				stateChanged = false;
-				break;
-			}
+			recognized = false;
+			stateChanged = false;
+			break;
 		}
 		if (recognized) {
 			if (stateChanged) {
@@ -1269,7 +992,7 @@ void SunGraphics2D::setRenderingHint($RenderingHints$Key* hintKey, Object$* hint
 				}
 			}
 			if (this->hints != nullptr) {
-				$nc(this->hints)->put(hintKey, hintValue);
+				this->hints->put(hintKey, hintValue);
 			}
 			return;
 		}
@@ -1282,68 +1005,46 @@ void SunGraphics2D::setRenderingHint($RenderingHints$Key* hintKey, Object$* hint
 
 $Object* SunGraphics2D::getRenderingHint($RenderingHints$Key* hintKey) {
 	if (this->hints != nullptr) {
-		return $of($nc(this->hints)->get(hintKey));
+		return this->hints->get(hintKey);
 	}
 	if (!($instanceOf($SunHints$Key, hintKey))) {
-		return $of(nullptr);
+		return nullptr;
 	}
-	int32_t keyindex = $nc(($cast($SunHints$Key, hintKey)))->getIndex();
+	int32_t keyindex = $nc($cast($SunHints$Key, hintKey))->getIndex();
 	switch (keyindex) {
 	case $SunHints::INTKEY_RENDERING:
-		{
-			return $of($SunHints$Value::get($SunHints::INTKEY_RENDERING, this->renderHint));
-		}
+		return $SunHints$Value::get($SunHints::INTKEY_RENDERING, this->renderHint);
 	case $SunHints::INTKEY_ANTIALIASING:
-		{
-			return $of($SunHints$Value::get($SunHints::INTKEY_ANTIALIASING, this->antialiasHint));
-		}
+		return $SunHints$Value::get($SunHints::INTKEY_ANTIALIASING, this->antialiasHint);
 	case $SunHints::INTKEY_TEXT_ANTIALIASING:
-		{
-			return $of($SunHints$Value::get($SunHints::INTKEY_TEXT_ANTIALIASING, this->textAntialiasHint));
-		}
+		return $SunHints$Value::get($SunHints::INTKEY_TEXT_ANTIALIASING, this->textAntialiasHint);
 	case $SunHints::INTKEY_FRACTIONALMETRICS:
-		{
-			return $of($SunHints$Value::get($SunHints::INTKEY_FRACTIONALMETRICS, this->fractionalMetricsHint));
-		}
+		return $SunHints$Value::get($SunHints::INTKEY_FRACTIONALMETRICS, this->fractionalMetricsHint);
 	case $SunHints::INTKEY_AATEXT_LCD_CONTRAST:
-		{
-			return $of($Integer::valueOf(this->lcdTextContrast));
-		}
+		return $of($Integer::valueOf(this->lcdTextContrast));
 	case $SunHints::INTKEY_INTERPOLATION:
-		{
-			switch (this->interpolationHint) {
-			case $SunHints::INTVAL_INTERPOLATION_NEAREST_NEIGHBOR:
-				{
-					$init($SunHints);
-					return $of($SunHints::VALUE_INTERPOLATION_NEAREST_NEIGHBOR);
-				}
-			case $SunHints::INTVAL_INTERPOLATION_BILINEAR:
-				{
-					$init($SunHints);
-					return $of($SunHints::VALUE_INTERPOLATION_BILINEAR);
-				}
-			case $SunHints::INTVAL_INTERPOLATION_BICUBIC:
-				{
-					$init($SunHints);
-					return $of($SunHints::VALUE_INTERPOLATION_BICUBIC);
-				}
-			}
-			return $of(nullptr);
+		switch (this->interpolationHint) {
+		case $SunHints::INTVAL_INTERPOLATION_NEAREST_NEIGHBOR:
+			$init($SunHints);
+			return $SunHints::VALUE_INTERPOLATION_NEAREST_NEIGHBOR;
+		case $SunHints::INTVAL_INTERPOLATION_BILINEAR:
+			$init($SunHints);
+			return $SunHints::VALUE_INTERPOLATION_BILINEAR;
+		case $SunHints::INTVAL_INTERPOLATION_BICUBIC:
+			$init($SunHints);
+			return $SunHints::VALUE_INTERPOLATION_BICUBIC;
 		}
+		return nullptr;
 	case $SunHints::INTKEY_STROKE_CONTROL:
-		{
-			return $of($SunHints$Value::get($SunHints::INTKEY_STROKE_CONTROL, this->strokeHint));
-		}
+		return $SunHints$Value::get($SunHints::INTKEY_STROKE_CONTROL, this->strokeHint);
 	case $SunHints::INTKEY_RESOLUTION_VARIANT:
-		{
-			return $of($SunHints$Value::get($SunHints::INTKEY_RESOLUTION_VARIANT, this->resolutionVariantHint));
-		}
+		return $SunHints$Value::get($SunHints::INTKEY_RESOLUTION_VARIANT, this->resolutionVariantHint);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 void SunGraphics2D::setRenderingHints($Map* hints) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, hints, nullptr);
 	this->renderHint = $SunHints::INTVAL_RENDER_DEFAULT;
 	this->antialiasHint = $SunHints::INTVAL_ANTIALIAS_OFF;
@@ -1354,16 +1055,14 @@ void SunGraphics2D::setRenderingHints($Map* hints) {
 	this->interpolationType = $AffineTransformOp::TYPE_NEAREST_NEIGHBOR;
 	bool customHintPresent = false;
 	{
-		$var($Iterator, i$, $nc($($nc(hints)->keySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(hints)->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Object, key, i$->next());
-			{
-				$init($SunHints);
-				if ($equals(key, $SunHints::KEY_RENDERING) || $equals(key, $SunHints::KEY_ANTIALIASING) || $equals(key, $SunHints::KEY_TEXT_ANTIALIASING) || $equals(key, $SunHints::KEY_FRACTIONALMETRICS) || $equals(key, $SunHints::KEY_TEXT_ANTIALIAS_LCD_CONTRAST) || $equals(key, $SunHints::KEY_STROKE_CONTROL) || $equals(key, $SunHints::KEY_INTERPOLATION)) {
-					setRenderingHint($cast($RenderingHints$Key, key), $(hints->get(key)));
-				} else {
-					customHintPresent = true;
-				}
+			$init($SunHints);
+			if ($equals(key, $SunHints::KEY_RENDERING) || $equals(key, $SunHints::KEY_ANTIALIASING) || $equals(key, $SunHints::KEY_TEXT_ANTIALIASING) || $equals(key, $SunHints::KEY_FRACTIONALMETRICS) || $equals(key, $SunHints::KEY_TEXT_ANTIALIAS_LCD_CONTRAST) || $equals(key, $SunHints::KEY_STROKE_CONTROL) || $equals(key, $SunHints::KEY_INTERPOLATION)) {
+				setRenderingHint($cast($RenderingHints$Key, key), $(hints->get(key)));
+			} else {
+				customHintPresent = true;
 			}
 		}
 	}
@@ -1374,19 +1073,17 @@ void SunGraphics2D::setRenderingHints($Map* hints) {
 }
 
 void SunGraphics2D::addRenderingHints($Map* hints) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool customHintPresent = false;
 	{
-		$var($Iterator, i$, $nc($($nc(hints)->keySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(hints)->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Object, key, i$->next());
-			{
-				$init($SunHints);
-				if ($equals(key, $SunHints::KEY_RENDERING) || $equals(key, $SunHints::KEY_ANTIALIASING) || $equals(key, $SunHints::KEY_TEXT_ANTIALIASING) || $equals(key, $SunHints::KEY_FRACTIONALMETRICS) || $equals(key, $SunHints::KEY_TEXT_ANTIALIAS_LCD_CONTRAST) || $equals(key, $SunHints::KEY_STROKE_CONTROL) || $equals(key, $SunHints::KEY_INTERPOLATION)) {
-					setRenderingHint($cast($RenderingHints$Key, key), $(hints->get(key)));
-				} else {
-					customHintPresent = true;
-				}
+			$init($SunHints);
+			if ($equals(key, $SunHints::KEY_RENDERING) || $equals(key, $SunHints::KEY_ANTIALIASING) || $equals(key, $SunHints::KEY_TEXT_ANTIALIASING) || $equals(key, $SunHints::KEY_FRACTIONALMETRICS) || $equals(key, $SunHints::KEY_TEXT_ANTIALIAS_LCD_CONTRAST) || $equals(key, $SunHints::KEY_STROKE_CONTROL) || $equals(key, $SunHints::KEY_INTERPOLATION)) {
+				setRenderingHint($cast($RenderingHints$Key, key), $(hints->get(key)));
+			} else {
+				customHintPresent = true;
 			}
 		}
 	}
@@ -1394,7 +1091,7 @@ void SunGraphics2D::addRenderingHints($Map* hints) {
 		if (this->hints == nullptr) {
 			$set(this, hints, makeHints(hints));
 		} else {
-			$nc(this->hints)->putAll(hints);
+			this->hints->putAll(hints);
 		}
 	}
 }
@@ -1403,12 +1100,12 @@ $RenderingHints* SunGraphics2D::getRenderingHints() {
 	if (this->hints == nullptr) {
 		return makeHints(nullptr);
 	} else {
-		return $cast($RenderingHints, $nc(this->hints)->clone());
+		return $cast($RenderingHints, this->hints->clone());
 	}
 }
 
 $RenderingHints* SunGraphics2D::makeHints($Map* hints) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($RenderingHints, model, $new($RenderingHints, nullptr));
 	if (hints != nullptr) {
 		model->putAll(hints);
@@ -1422,25 +1119,17 @@ $RenderingHints* SunGraphics2D::makeHints($Map* hints) {
 	$var($Object, value, nullptr);
 	switch (this->interpolationHint) {
 	case $SunHints::INTVAL_INTERPOLATION_NEAREST_NEIGHBOR:
-		{
-			$assign(value, $SunHints::VALUE_INTERPOLATION_NEAREST_NEIGHBOR);
-			break;
-		}
+		$assign(value, $SunHints::VALUE_INTERPOLATION_NEAREST_NEIGHBOR);
+		break;
 	case $SunHints::INTVAL_INTERPOLATION_BILINEAR:
-		{
-			$assign(value, $SunHints::VALUE_INTERPOLATION_BILINEAR);
-			break;
-		}
+		$assign(value, $SunHints::VALUE_INTERPOLATION_BILINEAR);
+		break;
 	case $SunHints::INTVAL_INTERPOLATION_BICUBIC:
-		{
-			$assign(value, $SunHints::VALUE_INTERPOLATION_BICUBIC);
-			break;
-		}
+		$assign(value, $SunHints::VALUE_INTERPOLATION_BICUBIC);
+		break;
 	default:
-		{
-			$assign(value, nullptr);
-			break;
-		}
+		$assign(value, nullptr);
+		break;
 	}
 	if (value != nullptr) {
 		model->put($SunHints::KEY_INTERPOLATION, value);
@@ -1516,7 +1205,7 @@ void SunGraphics2D::invalidateTransform() {
 		} else {
 			this->transformState = SunGraphics2D::TRANSFORM_ANY_TRANSLATE;
 		}
-	} else if (((int32_t)(type & (uint32_t)(($AffineTransform::TYPE_FLIP | $AffineTransform::TYPE_MASK_ROTATION) | $AffineTransform::TYPE_GENERAL_TRANSFORM))) == 0) {
+	} else if ((type & (($AffineTransform::TYPE_FLIP | $AffineTransform::TYPE_MASK_ROTATION) | $AffineTransform::TYPE_GENERAL_TRANSFORM)) == 0) {
 		this->transformState = SunGraphics2D::TRANSFORM_TRANSLATESCALE;
 		this->transX = (this->transY = 0);
 	} else {
@@ -1541,7 +1230,7 @@ $AffineTransform* SunGraphics2D::getTransform() {
 	if ((this->constrainX | this->constrainY) == 0) {
 		return $new($AffineTransform, this->transform$);
 	}
-	$var($AffineTransform, tx, $AffineTransform::getTranslateInstance((double)(-this->constrainX), (double)(-this->constrainY)));
+	$var($AffineTransform, tx, $AffineTransform::getTranslateInstance((double)-this->constrainX, (double)-this->constrainY));
 	$nc(tx)->concatenate(this->transform$);
 	return tx;
 }
@@ -1572,7 +1261,7 @@ void SunGraphics2D::validateColor() {
 		if (this->compositeState <= SunGraphics2D::COMP_ALPHA && this->imageComp != $CompositeType::SrcNoEa && this->imageComp != $CompositeType::SrcOverNoEa) {
 			$var($AlphaComposite, alphacomp, $cast($AlphaComposite, this->composite));
 			int32_t a = $Math::round($nc(alphacomp)->getAlpha() * ((int32_t)((uint32_t)eargb >> 24)));
-			eargb = ((int32_t)(eargb & (uint32_t)0x00FFFFFF)) | (a << 24);
+			eargb = (eargb & 0x00ffffff) | (a << 24);
 		}
 	}
 	this->eargb = eargb;
@@ -1583,7 +1272,7 @@ void SunGraphics2D::setColor($Color* color) {
 	if (color == nullptr || $equals(color, this->paint)) {
 		return;
 	}
-	$set(this, paint, ($set(this, foregroundColor, color)));
+	$set(this, paint, $set(this, foregroundColor, color));
 	validateColor();
 	if ((this->eargb >> 24) == -1) {
 		if (this->paintState == SunGraphics2D::PAINT_OPAQUECOLOR) {
@@ -1628,7 +1317,7 @@ $Rectangle* SunGraphics2D::getClipBounds() {
 }
 
 $Rectangle* SunGraphics2D::getClipBounds($Rectangle* r) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->clipState != SunGraphics2D::CLIP_DEVICE) {
 		if (this->transformState <= SunGraphics2D::TRANSFORM_INT_TRANSLATE) {
 			if ($instanceOf($Rectangle, this->usrClip)) {
@@ -1638,7 +1327,7 @@ $Rectangle* SunGraphics2D::getClipBounds($Rectangle* r) {
 			}
 			$nc(r)->translate(-this->transX, -this->transY);
 		} else {
-			$nc(r)->setFrame($($nc($(getClip()))->getBounds2D()));
+			$nc(r)->setFrame($($$nc(getClip())->getBounds2D()));
 		}
 	} else if (r == nullptr) {
 		$throwNew($NullPointerException, "null rectangle parameter"_s);
@@ -1647,7 +1336,7 @@ $Rectangle* SunGraphics2D::getClipBounds($Rectangle* r) {
 }
 
 bool SunGraphics2D::hitClip(int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (width <= 0 || height <= 0) {
 		return false;
 	}
@@ -1678,7 +1367,7 @@ bool SunGraphics2D::hitClip(int32_t x, int32_t y, int32_t width, int32_t height)
 		height += y;
 	}
 	try {
-		if (!$nc($(getCompClip()))->intersectsQuickCheckXYXY(x, y, width, height)) {
+		if (!$$nc(getCompClip())->intersectsQuickCheckXYXY(x, y, width, height)) {
 			return false;
 		}
 	} catch ($InvalidPipeException& e) {
@@ -1688,7 +1377,7 @@ bool SunGraphics2D::hitClip(int32_t x, int32_t y, int32_t width, int32_t height)
 }
 
 void SunGraphics2D::validateCompClip() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t origClipState = this->clipState;
 	if (this->usrClip == nullptr) {
 		this->clipState = SunGraphics2D::CLIP_DEVICE;
@@ -1700,23 +1389,21 @@ void SunGraphics2D::validateCompClip() {
 		$var($PathIterator, cpi, $nc(this->usrClip)->getPathIterator(nullptr));
 		$var($ints, box, $new($ints, 4));
 		$var($ShapeSpanIterator, sr, $LoopPipe::getFillSSI(this));
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$nc(sr)->setOutputArea(this->devClip);
-				sr->appendPath(cpi);
-				sr->getPathBox(box);
-				$var($Region, r, $Region::getInstance(box, static_cast<$SpanIterator*>(sr)));
-				$set(this, clipRegion, r);
-				this->clipState = $nc(r)->isRectangular() ? SunGraphics2D::CLIP_RECTANGULAR : SunGraphics2D::CLIP_SHAPE;
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(sr)->dispose();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			$nc(sr)->setOutputArea(this->devClip);
+			sr->appendPath(cpi);
+			sr->getPathBox(box);
+			$var($Region, r, $Region::getInstance(box, sr));
+			$set(this, clipRegion, r);
+			this->clipState = $nc(r)->isRectangular() ? SunGraphics2D::CLIP_RECTANGULAR : SunGraphics2D::CLIP_SHAPE;
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$nc(sr)->dispose();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	if (origClipState != this->clipState && (this->clipState == SunGraphics2D::CLIP_SHAPE || origClipState == SunGraphics2D::CLIP_SHAPE)) {
@@ -1753,18 +1440,18 @@ $Shape* SunGraphics2D::untransformShape($Shape* s) {
 
 $Shape* SunGraphics2D::transformShape(int32_t tx, int32_t ty, $Shape* s) {
 	$init(SunGraphics2D);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (s == nullptr) {
 		return nullptr;
 	}
 	if ($instanceOf($Rectangle, s)) {
-		$var($Rectangle, r, $nc(s)->getBounds());
+		$var($Rectangle, r, s->getBounds());
 		$nc(r)->translate(tx, ty);
 		return r;
 	}
 	if ($instanceOf($Rectangle2D, s)) {
 		$var($Rectangle2D, rect, $cast($Rectangle2D, s));
-		double var$0 = $nc(rect)->getX() + tx;
+		double var$0 = rect->getX() + tx;
 		double var$1 = rect->getY() + ty;
 		double var$2 = rect->getWidth();
 		return $new($Rectangle2D$Double, var$0, var$1, var$2, rect->getHeight());
@@ -1778,14 +1465,14 @@ $Shape* SunGraphics2D::transformShape(int32_t tx, int32_t ty, $Shape* s) {
 
 $Shape* SunGraphics2D::transformShape($AffineTransform* tx, $Shape* clip) {
 	$init(SunGraphics2D);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (clip == nullptr) {
 		return nullptr;
 	}
-	if ($instanceOf($Rectangle2D, clip) && ((int32_t)($nc(tx)->getType() & (uint32_t)SunGraphics2D::NON_RECTILINEAR_TRANSFORM_MASK)) == 0) {
+	if ($instanceOf($Rectangle2D, clip) && ($nc(tx)->getType() & SunGraphics2D::NON_RECTILINEAR_TRANSFORM_MASK) == 0) {
 		$var($Rectangle2D, rect, $cast($Rectangle2D, clip));
 		$var($doubles, matrix, $new($doubles, 4));
-		matrix->set(0, $nc(rect)->getX());
+		matrix->set(0, rect->getX());
 		matrix->set(1, rect->getY());
 		matrix->set(2, matrix->get(0) + rect->getWidth());
 		matrix->set(3, matrix->get(1) + rect->getHeight());
@@ -1796,17 +1483,17 @@ $Shape* SunGraphics2D::transformShape($AffineTransform* tx, $Shape* clip) {
 	if ($nc(tx)->isIdentity()) {
 		return cloneShape(clip);
 	}
-	return $nc(tx)->createTransformedShape(clip);
+	return tx->createTransformedShape(clip);
 }
 
 void SunGraphics2D::fixRectangleOrientation($doubles* m, $Rectangle2D* clip) {
 	$init(SunGraphics2D);
-	if ($nc(clip)->getWidth() > 0 != ($nc(m)->get(2) - m->get(0) > 0)) {
+	if ($nc(clip)->getWidth() > 0 != ($nc(m)->get(2) - $nc(m)->get(0) > 0)) {
 		double t = m->get(0);
 		m->set(0, m->get(2));
 		m->set(2, t);
 	}
-	if ($nc(clip)->getHeight() > 0 != ($nc(m)->get(3) - m->get(1) > 0)) {
+	if (clip->getHeight() > 0 != (m->get(3) - m->get(1) > 0)) {
 		double t = m->get(1);
 		m->set(1, m->get(3));
 		m->set(3, t);
@@ -1853,31 +1540,29 @@ void SunGraphics2D::setXORMode($Color* c) {
 }
 
 void SunGraphics2D::copyArea(int32_t x, int32_t y, int32_t w, int32_t h, int32_t dx, int32_t dy) {
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
+			doCopyArea(x, y, w, h, dx, dy);
+		} catch ($InvalidPipeException& e) {
 			try {
+				revalidateAll();
 				doCopyArea(x, y, w, h, dx, dy);
-			} catch ($InvalidPipeException& e) {
-				try {
-					revalidateAll();
-					doCopyArea(x, y, w, h, dx, dy);
-				} catch ($InvalidPipeException& e2) {
-				}
+			} catch ($InvalidPipeException& e2) {
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->surfaceData)->markDirty();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->surfaceData)->markDirty();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void SunGraphics2D::doCopyArea(int32_t x, int32_t y, int32_t w, int32_t h, int32_t dx, int32_t dy) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (w <= 0 || h <= 0) {
 		return;
 	}
@@ -1919,7 +1604,7 @@ void SunGraphics2D::doCopyArea(int32_t x, int32_t y, int32_t w, int32_t h, int32
 	$var($Region, clip, getCompClip());
 	$var($Composite, comp, this->composite);
 	if (this->lastCAcomp != comp) {
-		$var($SurfaceType, dsttype, $nc(theData)->getSurfaceType());
+		$var($SurfaceType, dsttype, theData->getSurfaceType());
 		$var($CompositeType, comptype, this->imageComp);
 		$init($CompositeType);
 		bool var$0 = $nc($CompositeType::SrcOverNoEa)->equals(comptype);
@@ -1952,295 +1637,271 @@ void SunGraphics2D::doCopyArea(int32_t x, int32_t y, int32_t w, int32_t h, int32
 }
 
 void SunGraphics2D::drawLine(int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
+			$nc(this->drawpipe)->drawLine(this, x1, y1, x2, y2);
+		} catch ($InvalidPipeException& e) {
 			try {
+				revalidateAll();
 				$nc(this->drawpipe)->drawLine(this, x1, y1, x2, y2);
-			} catch ($InvalidPipeException& e) {
-				try {
-					revalidateAll();
-					$nc(this->drawpipe)->drawLine(this, x1, y1, x2, y2);
-				} catch ($InvalidPipeException& e2) {
-				}
+			} catch ($InvalidPipeException& e2) {
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->surfaceData)->markDirty();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->surfaceData)->markDirty();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void SunGraphics2D::drawRoundRect(int32_t x, int32_t y, int32_t w, int32_t h, int32_t arcW, int32_t arcH) {
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
+			$nc(this->drawpipe)->drawRoundRect(this, x, y, w, h, arcW, arcH);
+		} catch ($InvalidPipeException& e) {
 			try {
+				revalidateAll();
 				$nc(this->drawpipe)->drawRoundRect(this, x, y, w, h, arcW, arcH);
-			} catch ($InvalidPipeException& e) {
-				try {
-					revalidateAll();
-					$nc(this->drawpipe)->drawRoundRect(this, x, y, w, h, arcW, arcH);
-				} catch ($InvalidPipeException& e2) {
-				}
+			} catch ($InvalidPipeException& e2) {
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->surfaceData)->markDirty();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->surfaceData)->markDirty();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void SunGraphics2D::fillRoundRect(int32_t x, int32_t y, int32_t w, int32_t h, int32_t arcW, int32_t arcH) {
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
+			$nc(this->fillpipe)->fillRoundRect(this, x, y, w, h, arcW, arcH);
+		} catch ($InvalidPipeException& e) {
 			try {
+				revalidateAll();
 				$nc(this->fillpipe)->fillRoundRect(this, x, y, w, h, arcW, arcH);
-			} catch ($InvalidPipeException& e) {
-				try {
-					revalidateAll();
-					$nc(this->fillpipe)->fillRoundRect(this, x, y, w, h, arcW, arcH);
-				} catch ($InvalidPipeException& e2) {
-				}
+			} catch ($InvalidPipeException& e2) {
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->surfaceData)->markDirty();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->surfaceData)->markDirty();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void SunGraphics2D::drawOval(int32_t x, int32_t y, int32_t w, int32_t h) {
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
+			$nc(this->drawpipe)->drawOval(this, x, y, w, h);
+		} catch ($InvalidPipeException& e) {
 			try {
+				revalidateAll();
 				$nc(this->drawpipe)->drawOval(this, x, y, w, h);
-			} catch ($InvalidPipeException& e) {
-				try {
-					revalidateAll();
-					$nc(this->drawpipe)->drawOval(this, x, y, w, h);
-				} catch ($InvalidPipeException& e2) {
-				}
+			} catch ($InvalidPipeException& e2) {
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->surfaceData)->markDirty();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->surfaceData)->markDirty();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void SunGraphics2D::fillOval(int32_t x, int32_t y, int32_t w, int32_t h) {
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
+			$nc(this->fillpipe)->fillOval(this, x, y, w, h);
+		} catch ($InvalidPipeException& e) {
 			try {
+				revalidateAll();
 				$nc(this->fillpipe)->fillOval(this, x, y, w, h);
-			} catch ($InvalidPipeException& e) {
-				try {
-					revalidateAll();
-					$nc(this->fillpipe)->fillOval(this, x, y, w, h);
-				} catch ($InvalidPipeException& e2) {
-				}
+			} catch ($InvalidPipeException& e2) {
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->surfaceData)->markDirty();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->surfaceData)->markDirty();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void SunGraphics2D::drawArc(int32_t x, int32_t y, int32_t w, int32_t h, int32_t startAngl, int32_t arcAngl) {
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
+			$nc(this->drawpipe)->drawArc(this, x, y, w, h, startAngl, arcAngl);
+		} catch ($InvalidPipeException& e) {
 			try {
+				revalidateAll();
 				$nc(this->drawpipe)->drawArc(this, x, y, w, h, startAngl, arcAngl);
-			} catch ($InvalidPipeException& e) {
-				try {
-					revalidateAll();
-					$nc(this->drawpipe)->drawArc(this, x, y, w, h, startAngl, arcAngl);
-				} catch ($InvalidPipeException& e2) {
-				}
+			} catch ($InvalidPipeException& e2) {
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->surfaceData)->markDirty();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->surfaceData)->markDirty();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void SunGraphics2D::fillArc(int32_t x, int32_t y, int32_t w, int32_t h, int32_t startAngl, int32_t arcAngl) {
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
+			$nc(this->fillpipe)->fillArc(this, x, y, w, h, startAngl, arcAngl);
+		} catch ($InvalidPipeException& e) {
 			try {
+				revalidateAll();
 				$nc(this->fillpipe)->fillArc(this, x, y, w, h, startAngl, arcAngl);
-			} catch ($InvalidPipeException& e) {
-				try {
-					revalidateAll();
-					$nc(this->fillpipe)->fillArc(this, x, y, w, h, startAngl, arcAngl);
-				} catch ($InvalidPipeException& e2) {
-				}
+			} catch ($InvalidPipeException& e2) {
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->surfaceData)->markDirty();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->surfaceData)->markDirty();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void SunGraphics2D::drawPolyline($ints* xPoints, $ints* yPoints, int32_t nPoints) {
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
+			$nc(this->drawpipe)->drawPolyline(this, xPoints, yPoints, nPoints);
+		} catch ($InvalidPipeException& e) {
 			try {
+				revalidateAll();
 				$nc(this->drawpipe)->drawPolyline(this, xPoints, yPoints, nPoints);
-			} catch ($InvalidPipeException& e) {
-				try {
-					revalidateAll();
-					$nc(this->drawpipe)->drawPolyline(this, xPoints, yPoints, nPoints);
-				} catch ($InvalidPipeException& e2) {
-				}
+			} catch ($InvalidPipeException& e2) {
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->surfaceData)->markDirty();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->surfaceData)->markDirty();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void SunGraphics2D::drawPolygon($ints* xPoints, $ints* yPoints, int32_t nPoints) {
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
+			$nc(this->drawpipe)->drawPolygon(this, xPoints, yPoints, nPoints);
+		} catch ($InvalidPipeException& e) {
 			try {
+				revalidateAll();
 				$nc(this->drawpipe)->drawPolygon(this, xPoints, yPoints, nPoints);
-			} catch ($InvalidPipeException& e) {
-				try {
-					revalidateAll();
-					$nc(this->drawpipe)->drawPolygon(this, xPoints, yPoints, nPoints);
-				} catch ($InvalidPipeException& e2) {
-				}
+			} catch ($InvalidPipeException& e2) {
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->surfaceData)->markDirty();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->surfaceData)->markDirty();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void SunGraphics2D::fillPolygon($ints* xPoints, $ints* yPoints, int32_t nPoints) {
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
+			$nc(this->fillpipe)->fillPolygon(this, xPoints, yPoints, nPoints);
+		} catch ($InvalidPipeException& e) {
 			try {
+				revalidateAll();
 				$nc(this->fillpipe)->fillPolygon(this, xPoints, yPoints, nPoints);
-			} catch ($InvalidPipeException& e) {
-				try {
-					revalidateAll();
-					$nc(this->fillpipe)->fillPolygon(this, xPoints, yPoints, nPoints);
-				} catch ($InvalidPipeException& e2) {
-				}
+			} catch ($InvalidPipeException& e2) {
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->surfaceData)->markDirty();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->surfaceData)->markDirty();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void SunGraphics2D::drawRect(int32_t x, int32_t y, int32_t w, int32_t h) {
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
+			$nc(this->drawpipe)->drawRect(this, x, y, w, h);
+		} catch ($InvalidPipeException& e) {
 			try {
+				revalidateAll();
 				$nc(this->drawpipe)->drawRect(this, x, y, w, h);
-			} catch ($InvalidPipeException& e) {
-				try {
-					revalidateAll();
-					$nc(this->drawpipe)->drawRect(this, x, y, w, h);
-				} catch ($InvalidPipeException& e2) {
-				}
+			} catch ($InvalidPipeException& e2) {
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->surfaceData)->markDirty();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->surfaceData)->markDirty();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void SunGraphics2D::fillRect(int32_t x, int32_t y, int32_t w, int32_t h) {
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
+			$nc(this->fillpipe)->fillRect(this, x, y, w, h);
+		} catch ($InvalidPipeException& e) {
 			try {
+				revalidateAll();
 				$nc(this->fillpipe)->fillRect(this, x, y, w, h);
-			} catch ($InvalidPipeException& e) {
-				try {
-					revalidateAll();
-					$nc(this->fillpipe)->fillRect(this, x, y, w, h);
-				} catch ($InvalidPipeException& e2) {
-				}
+			} catch ($InvalidPipeException& e2) {
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->surfaceData)->markDirty();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->surfaceData)->markDirty();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void SunGraphics2D::revalidateAll() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$set(this, surfaceData, $nc(this->surfaceData)->getReplacement());
 		if (this->surfaceData == nullptr) {
@@ -2253,7 +1914,7 @@ void SunGraphics2D::revalidateAll() {
 			validateColor();
 		}
 		if ($instanceOf($XORComposite, this->composite)) {
-			$var($Color, c, $nc(($cast($XORComposite, this->composite)))->getXorColor());
+			$var($Color, c, $cast($XORComposite, this->composite)->getXorColor());
 			setComposite($$new($XORComposite, c, this->surfaceData));
 		}
 		validatePipe();
@@ -2261,7 +1922,7 @@ void SunGraphics2D::revalidateAll() {
 }
 
 void SunGraphics2D::clearRect(int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Composite, c, this->composite);
 	$var($Paint, p, this->paint);
 	$init($AlphaComposite);
@@ -2273,50 +1934,46 @@ void SunGraphics2D::clearRect(int32_t x, int32_t y, int32_t w, int32_t h) {
 }
 
 void SunGraphics2D::draw($Shape* s) {
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
+			$nc(this->shapepipe)->draw(this, s);
+		} catch ($InvalidPipeException& e) {
 			try {
+				revalidateAll();
 				$nc(this->shapepipe)->draw(this, s);
-			} catch ($InvalidPipeException& e) {
-				try {
-					revalidateAll();
-					$nc(this->shapepipe)->draw(this, s);
-				} catch ($InvalidPipeException& e2) {
-				}
+			} catch ($InvalidPipeException& e2) {
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->surfaceData)->markDirty();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->surfaceData)->markDirty();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void SunGraphics2D::fill($Shape* s) {
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
+			$nc(this->shapepipe)->fill(this, s);
+		} catch ($InvalidPipeException& e) {
 			try {
+				revalidateAll();
 				$nc(this->shapepipe)->fill(this, s);
-			} catch ($InvalidPipeException& e) {
-				try {
-					revalidateAll();
-					$nc(this->shapepipe)->fill(this, s);
-				} catch ($InvalidPipeException& e2) {
-				}
+			} catch ($InvalidPipeException& e2) {
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->surfaceData)->markDirty();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->surfaceData)->markDirty();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -2325,7 +1982,7 @@ bool SunGraphics2D::isIntegerTranslation($AffineTransform* xform) {
 	if ($nc(xform)->isIdentity()) {
 		return true;
 	}
-	if ($nc(xform)->getType() == $AffineTransform::TYPE_TRANSLATION) {
+	if (xform->getType() == $AffineTransform::TYPE_TRANSLATION) {
 		double tx = xform->getTranslateX();
 		double ty = xform->getTranslateY();
 		return (tx == $cast(int32_t, tx) && ty == $cast(int32_t, ty));
@@ -2344,7 +2001,7 @@ int32_t SunGraphics2D::getTileIndex(int32_t p, int32_t tileGridOffset, int32_t t
 
 $Rectangle* SunGraphics2D::getImageRegion($RenderedImage* img, $Region* compClip, $AffineTransform* transform, $AffineTransform* xform, int32_t padX, int32_t padY) {
 	$init(SunGraphics2D);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(img)->getMinX();
 	int32_t var$1 = img->getMinY();
 	int32_t var$2 = img->getWidth();
@@ -2391,7 +2048,7 @@ $Rectangle* SunGraphics2D::getImageRegion($RenderedImage* img, $Region* compClip
 }
 
 void SunGraphics2D::drawRenderedImage($RenderedImage* img, $AffineTransform* xform) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (img == nullptr) {
 		return;
 	}
@@ -2409,47 +2066,45 @@ void SunGraphics2D::drawRenderedImage($RenderedImage* img, $AffineTransform* xfo
 		return;
 	}
 	$var($Rectangle, region, getImageRegion(img, clip, this->transform$, xform, pad, pad));
-	if ($nc(region)->width <= 0 || $nc(region)->height <= 0) {
+	if ($nc(region)->width <= 0 || region->height <= 0) {
 		return;
 	}
 	if (isIntegerTranslate) {
-		$var($RenderedImage, var$0, img);
-		$var($Rectangle, var$1, region);
-		int32_t var$2 = $cast(int32_t, $nc(xform)->getTranslateX());
-		drawTranslatedRenderedImage(var$0, var$1, var$2, $cast(int32_t, xform->getTranslateY()));
+		int32_t var$0 = $cast(int32_t, $nc(xform)->getTranslateX());
+		drawTranslatedRenderedImage(img, region, var$0, $cast(int32_t, xform->getTranslateY()));
 		return;
 	}
 	$var($Raster, raster, $nc(img)->getData(region));
-	$var($SampleModel, var$3, $nc(raster)->getSampleModel());
-	$var($WritableRaster, wRaster, $Raster::createWritableRaster(var$3, $(raster->getDataBuffer()), nullptr));
-	int32_t minX = $nc(raster)->getMinX();
+	$var($SampleModel, var$1, $nc(raster)->getSampleModel());
+	$var($WritableRaster, wRaster, $Raster::createWritableRaster(var$1, $(raster->getDataBuffer()), nullptr));
+	int32_t minX = raster->getMinX();
 	int32_t minY = raster->getMinY();
 	int32_t width = raster->getWidth();
 	int32_t height = raster->getHeight();
 	int32_t px = minX - raster->getSampleModelTranslateX();
 	int32_t py = minY - raster->getSampleModelTranslateY();
-	bool var$4 = px != 0 || py != 0 || width != $nc(wRaster)->getWidth();
-	if (var$4 || height != $nc(wRaster)->getHeight()) {
-		$assign(wRaster, wRaster->createWritableChild(px, py, width, height, 0, 0, nullptr));
+	bool var$2 = px != 0 || py != 0 || width != $nc(wRaster)->getWidth();
+	if (var$2 || height != $nc(wRaster)->getHeight()) {
+		$assign(wRaster, $nc(wRaster)->createWritableChild(px, py, width, height, 0, 0, nullptr));
 	}
 	$var($AffineTransform, transXform, $cast($AffineTransform, $nc(xform)->clone()));
 	$nc(transXform)->translate((double)minX, (double)minY);
 	$var($ColorModel, cm, img->getColorModel());
-	$var($BufferedImage, bufImg, $new($BufferedImage, cm, wRaster, $nc(cm)->isAlphaPremultiplied(), ($Hashtable*)nullptr));
+	$var($BufferedImage, bufImg, $new($BufferedImage, cm, wRaster, $nc(cm)->isAlphaPremultiplied(), nullptr));
 	drawImage(bufImg, transXform, nullptr);
 }
 
 bool SunGraphics2D::clipTo($Rectangle* destRect, $Rectangle* clip) {
 	int32_t x1 = $Math::max($nc(destRect)->x, $nc(clip)->x);
-	int32_t x2 = $Math::min($nc(destRect)->x + destRect->width, $nc(clip)->x + clip->width);
-	int32_t y1 = $Math::max($nc(destRect)->y, $nc(clip)->y);
-	int32_t y2 = $Math::min($nc(destRect)->y + destRect->height, $nc(clip)->y + clip->height);
+	int32_t x2 = $Math::min(destRect->x + destRect->width, clip->x + clip->width);
+	int32_t y1 = $Math::max(destRect->y, clip->y);
+	int32_t y2 = $Math::min(destRect->y + destRect->height, clip->y + clip->height);
 	if (((x2 - x1) < 0) || ((y2 - y1) < 0)) {
-		$nc(destRect)->width = -1;
+		destRect->width = -1;
 		destRect->height = -1;
 		return false;
 	} else {
-		$nc(destRect)->x = x1;
+		destRect->x = x1;
 		destRect->y = y1;
 		destRect->width = x2 - x1;
 		destRect->height = y2 - y1;
@@ -2458,15 +2113,15 @@ bool SunGraphics2D::clipTo($Rectangle* destRect, $Rectangle* clip) {
 }
 
 void SunGraphics2D::drawTranslatedRenderedImage($RenderedImage* img, $Rectangle* region, int32_t i2uTransX, int32_t i2uTransY) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t tileGridXOffset = $nc(img)->getTileGridXOffset();
 	int32_t tileGridYOffset = img->getTileGridYOffset();
 	int32_t tileWidth = img->getTileWidth();
 	int32_t tileHeight = img->getTileHeight();
 	int32_t minTileX = getTileIndex($nc(region)->x, tileGridXOffset, tileWidth);
-	int32_t minTileY = getTileIndex($nc(region)->y, tileGridYOffset, tileHeight);
-	int32_t maxTileX = getTileIndex($nc(region)->x + region->width - 1, tileGridXOffset, tileWidth);
-	int32_t maxTileY = getTileIndex($nc(region)->y + region->height - 1, tileGridYOffset, tileHeight);
+	int32_t minTileY = getTileIndex(region->y, tileGridYOffset, tileHeight);
+	int32_t maxTileX = getTileIndex(region->x + region->width - 1, tileGridXOffset, tileWidth);
+	int32_t maxTileY = getTileIndex(region->y + region->height - 1, tileGridYOffset, tileHeight);
 	$var($ColorModel, colorModel, img->getColorModel());
 	$var($Rectangle, tileRect, $new($Rectangle));
 	for (int32_t ty = minTileY; ty <= maxTileY; ++ty) {
@@ -2485,14 +2140,14 @@ void SunGraphics2D::drawTranslatedRenderedImage($RenderedImage* img, $Rectangle*
 				$assign(wRaster, $Raster::createWritableRaster(var$0, $(raster->getDataBuffer()), nullptr));
 			}
 			$assign(wRaster, $nc(wRaster)->createWritableChild(tileRect->x, tileRect->y, tileRect->width, tileRect->height, 0, 0, nullptr));
-			$var($BufferedImage, bufImg, $new($BufferedImage, colorModel, wRaster, $nc(colorModel)->isAlphaPremultiplied(), ($Hashtable*)nullptr));
+			$var($BufferedImage, bufImg, $new($BufferedImage, colorModel, wRaster, $nc(colorModel)->isAlphaPremultiplied(), nullptr));
 			copyImage(bufImg, tileRect->x + i2uTransX, tileRect->y + i2uTransY, 0, 0, tileRect->width, tileRect->height, nullptr, nullptr);
 		}
 	}
 }
 
 void SunGraphics2D::drawRenderableImage($RenderableImage* img, $AffineTransform* xform) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (img == nullptr) {
 		return;
 	}
@@ -2520,7 +2175,7 @@ $Rectangle* SunGraphics2D::transformBounds($Rectangle* rect, $AffineTransform* t
 }
 
 void SunGraphics2D::drawString($String* str, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (str == nullptr) {
 		$throwNew($NullPointerException, "String is null"_s);
 	}
@@ -2531,31 +2186,29 @@ void SunGraphics2D::drawString($String* str, int32_t x, int32_t y) {
 		$$new($TextLayout, str, this->font, $(getFontRenderContext()))->draw(this, (float)x, (float)y);
 		return;
 	}
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
+			$nc(this->textpipe)->drawString(this, str, (double)x, (double)y);
+		} catch ($InvalidPipeException& e) {
 			try {
+				revalidateAll();
 				$nc(this->textpipe)->drawString(this, str, (double)x, (double)y);
-			} catch ($InvalidPipeException& e) {
-				try {
-					revalidateAll();
-					$nc(this->textpipe)->drawString(this, str, (double)x, (double)y);
-				} catch ($InvalidPipeException& e2) {
-				}
+			} catch ($InvalidPipeException& e2) {
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->surfaceData)->markDirty();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->surfaceData)->markDirty();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void SunGraphics2D::drawString($String* str, float x, float y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (str == nullptr) {
 		$throwNew($NullPointerException, "String is null"_s);
 	}
@@ -2566,31 +2219,29 @@ void SunGraphics2D::drawString($String* str, float x, float y) {
 		$$new($TextLayout, str, this->font, $(getFontRenderContext()))->draw(this, x, y);
 		return;
 	}
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
+			$nc(this->textpipe)->drawString(this, str, x, y);
+		} catch ($InvalidPipeException& e) {
 			try {
+				revalidateAll();
 				$nc(this->textpipe)->drawString(this, str, x, y);
-			} catch ($InvalidPipeException& e) {
-				try {
-					revalidateAll();
-					$nc(this->textpipe)->drawString(this, str, x, y);
-				} catch ($InvalidPipeException& e2) {
-				}
+			} catch ($InvalidPipeException& e2) {
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->surfaceData)->markDirty();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->surfaceData)->markDirty();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void SunGraphics2D::drawString($AttributedCharacterIterator* iterator, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (iterator == nullptr) {
 		$throwNew($NullPointerException, "AttributedCharacterIterator is null"_s);
 	}
@@ -2603,7 +2254,7 @@ void SunGraphics2D::drawString($AttributedCharacterIterator* iterator, int32_t x
 }
 
 void SunGraphics2D::drawString($AttributedCharacterIterator* iterator, float x, float y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (iterator == nullptr) {
 		$throwNew($NullPointerException, "AttributedCharacterIterator is null"_s);
 	}
@@ -2619,31 +2270,29 @@ void SunGraphics2D::drawGlyphVector($GlyphVector* gv, float x, float y) {
 	if (gv == nullptr) {
 		$throwNew($NullPointerException, "GlyphVector is null"_s);
 	}
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
+			$nc(this->textpipe)->drawGlyphVector(this, gv, x, y);
+		} catch ($InvalidPipeException& e) {
 			try {
+				revalidateAll();
 				$nc(this->textpipe)->drawGlyphVector(this, gv, x, y);
-			} catch ($InvalidPipeException& e) {
-				try {
-					revalidateAll();
-					$nc(this->textpipe)->drawGlyphVector(this, gv, x, y);
-				} catch ($InvalidPipeException& e2) {
-				}
+			} catch ($InvalidPipeException& e2) {
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->surfaceData)->markDirty();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->surfaceData)->markDirty();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void SunGraphics2D::drawChars($chars* data, int32_t offset, int32_t length, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (data == nullptr) {
 		$throwNew($NullPointerException, "char data is null"_s);
 	}
@@ -2659,31 +2308,29 @@ void SunGraphics2D::drawChars($chars* data, int32_t offset, int32_t length, int3
 		$$new($TextLayout, var$0, var$1, $(getFontRenderContext()))->draw(this, (float)x, (float)y);
 		return;
 	}
-	{
-		$var($Throwable, var$2, nullptr);
+	$var($Throwable, var$2, nullptr);
+	try {
 		try {
+			$nc(this->textpipe)->drawChars(this, data, offset, length, x, y);
+		} catch ($InvalidPipeException& e) {
 			try {
+				revalidateAll();
 				$nc(this->textpipe)->drawChars(this, data, offset, length, x, y);
-			} catch ($InvalidPipeException& e) {
-				try {
-					revalidateAll();
-					$nc(this->textpipe)->drawChars(this, data, offset, length, x, y);
-				} catch ($InvalidPipeException& e2) {
-				}
+			} catch ($InvalidPipeException& e2) {
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$2, var$3);
-		} /*finally*/ {
-			$nc(this->surfaceData)->markDirty();
 		}
-		if (var$2 != nullptr) {
-			$throw(var$2);
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$2, var$3);
+	} /*finally*/ {
+		$nc(this->surfaceData)->markDirty();
+	}
+	if (var$2 != nullptr) {
+		$throw(var$2);
 	}
 }
 
 void SunGraphics2D::drawBytes($bytes* data, int32_t offset, int32_t length, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (data == nullptr) {
 		$throwNew($NullPointerException, "byte data is null"_s);
 	}
@@ -2692,7 +2339,7 @@ void SunGraphics2D::drawBytes($bytes* data, int32_t offset, int32_t length, int3
 	}
 	$var($chars, chData, $new($chars, length));
 	for (int32_t i = length; i-- > 0;) {
-		chData->set(i, (char16_t)((int32_t)($nc(data)->get(i + offset) & (uint32_t)255)));
+		chData->set(i, (char16_t)($nc(data)->get(i + offset) & 0xff));
 	}
 	if ($nc(this->font)->hasLayoutAttributes()) {
 		if ($nc(data)->length == 0) {
@@ -2703,36 +2350,34 @@ void SunGraphics2D::drawBytes($bytes* data, int32_t offset, int32_t length, int3
 		$$new($TextLayout, var$0, var$1, $(getFontRenderContext()))->draw(this, (float)x, (float)y);
 		return;
 	}
-	{
-		$var($Throwable, var$2, nullptr);
+	$var($Throwable, var$2, nullptr);
+	try {
 		try {
+			$nc(this->textpipe)->drawChars(this, chData, 0, length, x, y);
+		} catch ($InvalidPipeException& e) {
 			try {
+				revalidateAll();
 				$nc(this->textpipe)->drawChars(this, chData, 0, length, x, y);
-			} catch ($InvalidPipeException& e) {
-				try {
-					revalidateAll();
-					$nc(this->textpipe)->drawChars(this, chData, 0, length, x, y);
-				} catch ($InvalidPipeException& e2) {
-				}
+			} catch ($InvalidPipeException& e2) {
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$2, var$3);
-		} /*finally*/ {
-			$nc(this->surfaceData)->markDirty();
 		}
-		if (var$2 != nullptr) {
-			$throw(var$2);
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$2, var$3);
+	} /*finally*/ {
+		$nc(this->surfaceData)->markDirty();
+	}
+	if (var$2 != nullptr) {
+		$throw(var$2);
 	}
 }
 
 $Boolean* SunGraphics2D::drawHiDPIImage($Image* img$renamed, int32_t dx1, int32_t dy1, int32_t dx2, int32_t dy2, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, $Color* bgcolor, $ImageObserver* observer$renamed, $AffineTransform* xform) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ImageObserver, observer, observer$renamed);
 	$var($Image, img, img$renamed);
 	try {
 		if ($instanceOf($VolatileImage, img)) {
-			$var($SurfaceData, sd, $nc($($SurfaceManager::getManager(img)))->getPrimarySurfaceData());
+			$var($SurfaceData, sd, $$nc($SurfaceManager::getManager(img))->getPrimarySurfaceData());
 			double scaleX = $nc(sd)->getDefaultScaleX();
 			double scaleY = sd->getDefaultScaleY();
 			if (scaleX == 1 && scaleY == 1) {
@@ -2754,7 +2399,7 @@ $Boolean* SunGraphics2D::drawHiDPIImage($Image* img$renamed, int32_t dx1, int32_
 			}
 			return $Boolean::valueOf(result);
 		} else if ($instanceOf($MultiResolutionImage, img)) {
-			int32_t width = $nc(img)->getWidth(observer);
+			int32_t width = img->getWidth(observer);
 			int32_t height = img->getHeight(observer);
 			$var($MultiResolutionImage, mrImage, $cast($MultiResolutionImage, img));
 			$var($Image, resolutionVariant, getResolutionVariant(mrImage, width, height, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, xform));
@@ -2771,7 +2416,7 @@ $Boolean* SunGraphics2D::drawHiDPIImage($Image* img$renamed, int32_t dx1, int32_
 					double widthScale = ((double)rvWidth) / width;
 					double heightScale = ((double)rvHeight) / height;
 					if ($instanceOf($VolatileImage, resolutionVariant)) {
-						$var($SurfaceData, sd, $nc($($SurfaceManager::getManager(resolutionVariant)))->getPrimarySurfaceData());
+						$var($SurfaceData, sd, $$nc($SurfaceManager::getManager(resolutionVariant))->getPrimarySurfaceData());
 						widthScale *= $nc(sd)->getDefaultScaleX();
 						heightScale *= sd->getDefaultScaleY();
 					}
@@ -2802,81 +2447,77 @@ $Boolean* SunGraphics2D::drawHiDPIImage($Image* img$renamed, int32_t dx1, int32_
 }
 
 bool SunGraphics2D::scaleImage($Image* img, int32_t dx1, int32_t dy1, int32_t dx2, int32_t dy2, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, $Color* bgcolor, $ImageObserver* observer) {
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
 		try {
+			var$2 = $nc(this->imagepipe)->scaleImage(this, img, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, bgcolor, observer);
+			return$1 = true;
+			goto $finally;
+		} catch ($InvalidPipeException& e) {
 			try {
+				revalidateAll();
 				var$2 = $nc(this->imagepipe)->scaleImage(this, img, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, bgcolor, observer);
 				return$1 = true;
 				goto $finally;
-			} catch ($InvalidPipeException& e) {
-				try {
-					revalidateAll();
-					var$2 = $nc(this->imagepipe)->scaleImage(this, img, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, bgcolor, observer);
-					return$1 = true;
-					goto $finally;
-				} catch ($InvalidPipeException& e2) {
-					var$2 = false;
-					return$1 = true;
-					goto $finally;
-				}
+			} catch ($InvalidPipeException& e2) {
+				var$2 = false;
+				return$1 = true;
+				goto $finally;
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(this->surfaceData)->markDirty();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(this->surfaceData)->markDirty();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 bool SunGraphics2D::transformImage($Image* img, $AffineTransform* xform, $ImageObserver* observer) {
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
 		try {
+			var$2 = $nc(this->imagepipe)->transformImage(this, img, xform, observer);
+			return$1 = true;
+			goto $finally;
+		} catch ($InvalidPipeException& e) {
 			try {
+				revalidateAll();
 				var$2 = $nc(this->imagepipe)->transformImage(this, img, xform, observer);
 				return$1 = true;
 				goto $finally;
-			} catch ($InvalidPipeException& e) {
-				try {
-					revalidateAll();
-					var$2 = $nc(this->imagepipe)->transformImage(this, img, xform, observer);
-					return$1 = true;
-					goto $finally;
-				} catch ($InvalidPipeException& e2) {
-					var$2 = false;
-					return$1 = true;
-					goto $finally;
-				}
+			} catch ($InvalidPipeException& e2) {
+				var$2 = false;
+				return$1 = true;
+				goto $finally;
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(this->surfaceData)->markDirty();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(this->surfaceData)->markDirty();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $Image* SunGraphics2D::getResolutionVariant($MultiResolutionImage* img, int32_t srcWidth, int32_t srcHeight, int32_t dx1, int32_t dy1, int32_t dx2, int32_t dy2, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, $AffineTransform* xform) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (srcWidth <= 0 || srcHeight <= 0) {
 		return nullptr;
 	}
@@ -2912,10 +2553,10 @@ $Image* SunGraphics2D::getResolutionVariant($MultiResolutionImage* img, int32_t 
 	} else {
 		double destRegionWidth = 0.0;
 		double destRegionHeight = 0.0;
-		if (((int32_t)(type & (uint32_t)~(1 | 64))) == 0) {
+		if ((type & ~(1 | 0x40)) == 0) {
 			destRegionWidth = (double)dw;
 			destRegionHeight = (double)dh;
-		} else if (((int32_t)(type & (uint32_t)~((1 | 64) | 6))) == 0) {
+		} else if ((type & ~((1 | 0x40) | 6)) == 0) {
 			destRegionWidth = dw * tx->getScaleX();
 			destRegionHeight = dh * tx->getScaleY();
 		} else {
@@ -2932,7 +2573,7 @@ $Image* SunGraphics2D::getResolutionVariant($MultiResolutionImage* img, int32_t 
 		destImageHeight = $Math::abs(srcHeight * destRegionHeight / sh);
 	}
 	$var($Image, resolutionVariant, $nc(img)->getResolutionVariant(destImageWidth, destImageHeight));
-	if ($instanceOf($ToolkitImage, resolutionVariant) && $nc(($cast($ToolkitImage, resolutionVariant)))->hasError()) {
+	if ($instanceOf($ToolkitImage, resolutionVariant) && $cast($ToolkitImage, resolutionVariant)->hasError()) {
 		return nullptr;
 	}
 	return resolutionVariant;
@@ -2943,44 +2584,42 @@ bool SunGraphics2D::drawImage($Image* img, int32_t x, int32_t y, int32_t width, 
 }
 
 bool SunGraphics2D::copyImage($Image* img, int32_t dx, int32_t dy, int32_t sx, int32_t sy, int32_t width, int32_t height, $Color* bgcolor, $ImageObserver* observer) {
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
 		try {
+			var$2 = $nc(this->imagepipe)->copyImage(this, img, dx, dy, sx, sy, width, height, bgcolor, observer);
+			return$1 = true;
+			goto $finally;
+		} catch ($InvalidPipeException& e) {
 			try {
+				revalidateAll();
 				var$2 = $nc(this->imagepipe)->copyImage(this, img, dx, dy, sx, sy, width, height, bgcolor, observer);
 				return$1 = true;
 				goto $finally;
-			} catch ($InvalidPipeException& e) {
-				try {
-					revalidateAll();
-					var$2 = $nc(this->imagepipe)->copyImage(this, img, dx, dy, sx, sy, width, height, bgcolor, observer);
-					return$1 = true;
-					goto $finally;
-				} catch ($InvalidPipeException& e2) {
-					var$2 = false;
-					return$1 = true;
-					goto $finally;
-				}
+			} catch ($InvalidPipeException& e2) {
+				var$2 = false;
+				return$1 = true;
+				goto $finally;
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(this->surfaceData)->markDirty();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(this->surfaceData)->markDirty();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 bool SunGraphics2D::drawImage($Image* img, int32_t x, int32_t y, int32_t width, int32_t height, $Color* bg, $ImageObserver* observer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (img == nullptr) {
 		return true;
 	}
@@ -2996,38 +2635,36 @@ bool SunGraphics2D::drawImage($Image* img, int32_t x, int32_t y, int32_t width, 
 	if (width == imgW && height == imgH) {
 		return copyImage(img, x, y, 0, 0, width, height, bg, observer);
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
 		try {
+			var$2 = $nc(this->imagepipe)->scaleImage(this, img, x, y, width, height, bg, observer);
+			return$1 = true;
+			goto $finally;
+		} catch ($InvalidPipeException& e) {
 			try {
+				revalidateAll();
 				var$2 = $nc(this->imagepipe)->scaleImage(this, img, x, y, width, height, bg, observer);
 				return$1 = true;
 				goto $finally;
-			} catch ($InvalidPipeException& e) {
-				try {
-					revalidateAll();
-					var$2 = $nc(this->imagepipe)->scaleImage(this, img, x, y, width, height, bg, observer);
-					return$1 = true;
-					goto $finally;
-				} catch ($InvalidPipeException& e2) {
-					var$2 = false;
-					return$1 = true;
-					goto $finally;
-				}
+			} catch ($InvalidPipeException& e2) {
+				var$2 = false;
+				return$1 = true;
+				goto $finally;
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(this->surfaceData)->markDirty();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(this->surfaceData)->markDirty();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -3037,7 +2674,7 @@ bool SunGraphics2D::drawImage($Image* img, int32_t x, int32_t y, $ImageObserver*
 }
 
 bool SunGraphics2D::drawImage($Image* img, int32_t x, int32_t y, $Color* bg, $ImageObserver* observer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (img == nullptr) {
 		return true;
 	}
@@ -3047,38 +2684,36 @@ bool SunGraphics2D::drawImage($Image* img, int32_t x, int32_t y, $Color* bg, $Im
 	if (hidpiImageDrawn != nullptr) {
 		return hidpiImageDrawn->booleanValue();
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
 		try {
+			var$2 = $nc(this->imagepipe)->copyImage(this, img, x, y, bg, observer);
+			return$1 = true;
+			goto $finally;
+		} catch ($InvalidPipeException& e) {
 			try {
+				revalidateAll();
 				var$2 = $nc(this->imagepipe)->copyImage(this, img, x, y, bg, observer);
 				return$1 = true;
 				goto $finally;
-			} catch ($InvalidPipeException& e) {
-				try {
-					revalidateAll();
-					var$2 = $nc(this->imagepipe)->copyImage(this, img, x, y, bg, observer);
-					return$1 = true;
-					goto $finally;
-				} catch ($InvalidPipeException& e2) {
-					var$2 = false;
-					return$1 = true;
-					goto $finally;
-				}
+			} catch ($InvalidPipeException& e2) {
+				var$2 = false;
+				return$1 = true;
+				goto $finally;
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(this->surfaceData)->markDirty();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(this->surfaceData)->markDirty();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -3088,7 +2723,7 @@ bool SunGraphics2D::drawImage($Image* img, int32_t dx1, int32_t dy1, int32_t dx2
 }
 
 bool SunGraphics2D::drawImage($Image* img, int32_t dx1, int32_t dy1, int32_t dx2, int32_t dy2, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, $Color* bgcolor, $ImageObserver* observer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (img == nullptr) {
 		return true;
 	}
@@ -3126,38 +2761,36 @@ bool SunGraphics2D::drawImage($Image* img, int32_t dx1, int32_t dy1, int32_t dx2
 		}
 		return copyImage(img, dstX, dstY, srcX, srcY, width, height, bgcolor, observer);
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
 		try {
+			var$2 = $nc(this->imagepipe)->scaleImage(this, img, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, bgcolor, observer);
+			return$1 = true;
+			goto $finally;
+		} catch ($InvalidPipeException& e) {
 			try {
+				revalidateAll();
 				var$2 = $nc(this->imagepipe)->scaleImage(this, img, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, bgcolor, observer);
 				return$1 = true;
 				goto $finally;
-			} catch ($InvalidPipeException& e) {
-				try {
-					revalidateAll();
-					var$2 = $nc(this->imagepipe)->scaleImage(this, img, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, bgcolor, observer);
-					return$1 = true;
-					goto $finally;
-				} catch ($InvalidPipeException& e2) {
-					var$2 = false;
-					return$1 = true;
-					goto $finally;
-				}
+			} catch ($InvalidPipeException& e2) {
+				var$2 = false;
+				return$1 = true;
+				goto $finally;
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(this->surfaceData)->markDirty();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(this->surfaceData)->markDirty();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -3166,7 +2799,7 @@ bool SunGraphics2D::drawImage($Image* img, $AffineTransform* xform, $ImageObserv
 	if (img == nullptr) {
 		return true;
 	}
-	if (xform == nullptr || $nc(xform)->isIdentity()) {
+	if (xform == nullptr || xform->isIdentity()) {
 		return drawImage(img, 0, 0, nullptr, observer);
 	}
 	int32_t w = $nc(img)->getWidth(nullptr);
@@ -3182,31 +2815,29 @@ void SunGraphics2D::drawImage($BufferedImage* bImg, $BufferedImageOp* op, int32_
 	if (bImg == nullptr) {
 		return;
 	}
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
+			$nc(this->imagepipe)->transformImage(this, bImg, op, x, y);
+		} catch ($InvalidPipeException& e) {
 			try {
+				revalidateAll();
 				$nc(this->imagepipe)->transformImage(this, bImg, op, x, y);
-			} catch ($InvalidPipeException& e) {
-				try {
-					revalidateAll();
-					$nc(this->imagepipe)->transformImage(this, bImg, op, x, y);
-				} catch ($InvalidPipeException& e2) {
-				}
+			} catch ($InvalidPipeException& e2) {
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->surfaceData)->markDirty();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->surfaceData)->markDirty();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 $FontRenderContext* SunGraphics2D::getFontRenderContext() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->cachedFRC == nullptr) {
 		int32_t aahint = this->textAntialiasHint;
 		if (aahint == $SunHints::INTVAL_TEXT_ANTIALIAS_DEFAULT && this->antialiasHint == $SunHints::INTVAL_ANTIALIAS_ON) {
@@ -3215,18 +2846,17 @@ $FontRenderContext* SunGraphics2D::getFontRenderContext() {
 		$var($AffineTransform, tx, nullptr);
 		if (this->transformState >= SunGraphics2D::TRANSFORM_TRANSLATESCALE) {
 			bool var$0 = $nc(this->transform$)->getTranslateX() == 0;
-			if (var$0 && $nc(this->transform$)->getTranslateY() == 0) {
+			if (var$0 && this->transform$->getTranslateY() == 0) {
 				$assign(tx, this->transform$);
 			} else {
 				double var$1 = $nc(this->transform$)->getScaleX();
-				double var$2 = $nc(this->transform$)->getShearY();
-				double var$3 = $nc(this->transform$)->getShearX();
-				$assign(tx, $new($AffineTransform, var$1, var$2, var$3, $nc(this->transform$)->getScaleY(), (double)0, (double)0));
+				double var$2 = this->transform$->getShearY();
+				double var$3 = this->transform$->getShearX();
+				$assign(tx, $new($AffineTransform, var$1, var$2, var$3, this->transform$->getScaleY(), 0, 0));
 			}
 		}
-		$var($AffineTransform, var$4, tx);
-		$var($Object, var$5, $of($SunHints$Value::get($SunHints::INTKEY_TEXT_ANTIALIASING, aahint)));
-		$set(this, cachedFRC, $new($FontRenderContext, var$4, var$5, $($of($SunHints$Value::get($SunHints::INTKEY_FRACTIONALMETRICS, this->fractionalMetricsHint)))));
+		$var($Object, var$4, $SunHints$Value::get($SunHints::INTKEY_TEXT_ANTIALIASING, aahint));
+		$set(this, cachedFRC, $new($FontRenderContext, tx, var$4, $($SunHints$Value::get($SunHints::INTKEY_FRACTIONALMETRICS, this->fractionalMetricsHint))));
 	}
 	return this->cachedFRC;
 }
@@ -3241,15 +2871,15 @@ void SunGraphics2D::finalize() {
 }
 
 $Object* SunGraphics2D::getDestination() {
-	return $of($nc(this->surfaceData)->getDestination());
+	return $nc(this->surfaceData)->getDestination();
 }
 
 $Surface* SunGraphics2D::getDestSurface() {
 	return this->surfaceData;
 }
 
-void clinit$SunGraphics2D($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void SunGraphics2D::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	SunGraphics2D::MinPenSizeSquared = 1.000000001;
 	SunGraphics2D::$assertionsDisabled = !SunGraphics2D::class$->desiredAssertionStatus();
 	$assignStatic(SunGraphics2D::defaultStroke, $new($BasicStroke));
@@ -3265,26 +2895,26 @@ void clinit$SunGraphics2D($Class* class$) {
 	}
 	$assignStatic(SunGraphics2D::invalidpipe, $new($ValidatePipe));
 	$assignStatic(SunGraphics2D::IDENT_MATRIX, $new($doubles, {
-		(double)1,
-		(double)0,
-		(double)0,
-		(double)1
+		1,
+		0,
+		0,
+		1
 	}));
 	$assignStatic(SunGraphics2D::IDENT_ATX, $new($AffineTransform));
 	$assignStatic(SunGraphics2D::textTxArr, $new($doubleArray2, SunGraphics2D::TEXTARRSIZE));
 	$assignStatic(SunGraphics2D::textAtArr, $new($AffineTransformArray, SunGraphics2D::TEXTARRSIZE));
 	{
 		for (int32_t i = SunGraphics2D::MINALLOCATED; i < SunGraphics2D::TEXTARRSIZE; ++i) {
-			$nc(SunGraphics2D::textTxArr)->set(i, $$new($doubles, {
+			SunGraphics2D::textTxArr->set(i, $$new($doubles, {
 				(double)i,
-				(double)0,
-				(double)0,
+				0,
+				0,
 				(double)i
 			}));
-			$nc(SunGraphics2D::textAtArr)->set(i, $$new($AffineTransform, $nc(SunGraphics2D::textTxArr)->get(i)));
+			SunGraphics2D::textAtArr->set(i, $$new($AffineTransform, SunGraphics2D::textTxArr->get(i)));
 		}
 	}
-	SunGraphics2D::MinPenSizeAA = $nc($($RenderingEngine::getInstance()))->getMinimumAAPenSize();
+	SunGraphics2D::MinPenSizeAA = $$nc($RenderingEngine::getInstance())->getMinimumAAPenSize();
 	SunGraphics2D::MinPenSizeAASquared = (SunGraphics2D::MinPenSizeAA * SunGraphics2D::MinPenSizeAA);
 }
 
@@ -3292,7 +2922,239 @@ SunGraphics2D::SunGraphics2D() {
 }
 
 $Class* SunGraphics2D::load$($String* name, bool initialize) {
-	$loadClass(SunGraphics2D, name, initialize, &_SunGraphics2D_ClassInfo_, clinit$SunGraphics2D, allocate$SunGraphics2D);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SunGraphics2D, $assertionsDisabled)},
+		{"PAINT_CUSTOM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, PAINT_CUSTOM)},
+		{"PAINT_TEXTURE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, PAINT_TEXTURE)},
+		{"PAINT_RAD_GRADIENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, PAINT_RAD_GRADIENT)},
+		{"PAINT_LIN_GRADIENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, PAINT_LIN_GRADIENT)},
+		{"PAINT_GRADIENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, PAINT_GRADIENT)},
+		{"PAINT_ALPHACOLOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, PAINT_ALPHACOLOR)},
+		{"PAINT_OPAQUECOLOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, PAINT_OPAQUECOLOR)},
+		{"COMP_CUSTOM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, COMP_CUSTOM)},
+		{"COMP_XOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, COMP_XOR)},
+		{"COMP_ALPHA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, COMP_ALPHA)},
+		{"COMP_ISCOPY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, COMP_ISCOPY)},
+		{"STROKE_CUSTOM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, STROKE_CUSTOM)},
+		{"STROKE_WIDE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, STROKE_WIDE)},
+		{"STROKE_THINDASHED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, STROKE_THINDASHED)},
+		{"STROKE_THIN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, STROKE_THIN)},
+		{"TRANSFORM_GENERIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, TRANSFORM_GENERIC)},
+		{"TRANSFORM_TRANSLATESCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, TRANSFORM_TRANSLATESCALE)},
+		{"TRANSFORM_ANY_TRANSLATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, TRANSFORM_ANY_TRANSLATE)},
+		{"TRANSFORM_INT_TRANSLATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, TRANSFORM_INT_TRANSLATE)},
+		{"TRANSFORM_ISIDENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, TRANSFORM_ISIDENT)},
+		{"CLIP_SHAPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, CLIP_SHAPE)},
+		{"CLIP_RECTANGULAR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, CLIP_RECTANGULAR)},
+		{"CLIP_DEVICE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunGraphics2D, CLIP_DEVICE)},
+		{"eargb", "I", nullptr, $PUBLIC, $field(SunGraphics2D, eargb)},
+		{"pixel", "I", nullptr, $PUBLIC, $field(SunGraphics2D, pixel)},
+		{"surfaceData", "Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $field(SunGraphics2D, surfaceData)},
+		{"drawpipe", "Lsun/java2d/pipe/PixelDrawPipe;", nullptr, $PUBLIC, $field(SunGraphics2D, drawpipe)},
+		{"fillpipe", "Lsun/java2d/pipe/PixelFillPipe;", nullptr, $PUBLIC, $field(SunGraphics2D, fillpipe)},
+		{"imagepipe", "Lsun/java2d/pipe/DrawImagePipe;", nullptr, $PUBLIC, $field(SunGraphics2D, imagepipe)},
+		{"shapepipe", "Lsun/java2d/pipe/ShapeDrawPipe;", nullptr, $PUBLIC, $field(SunGraphics2D, shapepipe)},
+		{"textpipe", "Lsun/java2d/pipe/TextPipe;", nullptr, $PUBLIC, $field(SunGraphics2D, textpipe)},
+		{"alphafill", "Lsun/java2d/loops/MaskFill;", nullptr, $PUBLIC, $field(SunGraphics2D, alphafill)},
+		{"loops", "Lsun/java2d/loops/RenderLoops;", nullptr, $PUBLIC, $field(SunGraphics2D, loops)},
+		{"imageComp", "Lsun/java2d/loops/CompositeType;", nullptr, $PUBLIC, $field(SunGraphics2D, imageComp)},
+		{"paintState", "I", nullptr, $PUBLIC, $field(SunGraphics2D, paintState)},
+		{"compositeState", "I", nullptr, $PUBLIC, $field(SunGraphics2D, compositeState)},
+		{"strokeState", "I", nullptr, $PUBLIC, $field(SunGraphics2D, strokeState)},
+		{"transformState", "I", nullptr, $PUBLIC, $field(SunGraphics2D, transformState)},
+		{"clipState", "I", nullptr, $PUBLIC, $field(SunGraphics2D, clipState)},
+		{"foregroundColor", "Ljava/awt/Color;", nullptr, $PUBLIC, $field(SunGraphics2D, foregroundColor)},
+		{"backgroundColor", "Ljava/awt/Color;", nullptr, $PUBLIC, $field(SunGraphics2D, backgroundColor)},
+		{"transform", "Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $field(SunGraphics2D, transform$)},
+		{"transX", "I", nullptr, $PUBLIC, $field(SunGraphics2D, transX)},
+		{"transY", "I", nullptr, $PUBLIC, $field(SunGraphics2D, transY)},
+		{"defaultStroke", "Ljava/awt/Stroke;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SunGraphics2D, defaultStroke)},
+		{"defaultComposite", "Ljava/awt/Composite;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SunGraphics2D, defaultComposite)},
+		{"defaultFont", "Ljava/awt/Font;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunGraphics2D, defaultFont)},
+		{"paint", "Ljava/awt/Paint;", nullptr, $PUBLIC, $field(SunGraphics2D, paint)},
+		{"stroke", "Ljava/awt/Stroke;", nullptr, $PUBLIC, $field(SunGraphics2D, stroke)},
+		{"composite", "Ljava/awt/Composite;", nullptr, $PUBLIC, $field(SunGraphics2D, composite)},
+		{"font", "Ljava/awt/Font;", nullptr, $PROTECTED, $field(SunGraphics2D, font)},
+		{"fontMetrics", "Ljava/awt/FontMetrics;", nullptr, $PROTECTED, $field(SunGraphics2D, fontMetrics)},
+		{"renderHint", "I", nullptr, $PUBLIC, $field(SunGraphics2D, renderHint)},
+		{"antialiasHint", "I", nullptr, $PUBLIC, $field(SunGraphics2D, antialiasHint)},
+		{"textAntialiasHint", "I", nullptr, $PUBLIC, $field(SunGraphics2D, textAntialiasHint)},
+		{"fractionalMetricsHint", "I", nullptr, $PROTECTED, $field(SunGraphics2D, fractionalMetricsHint)},
+		{"lcdTextContrast", "I", nullptr, $PUBLIC, $field(SunGraphics2D, lcdTextContrast)},
+		{"lcdTextContrastDefaultValue", "I", nullptr, $PRIVATE | $STATIC, $staticField(SunGraphics2D, lcdTextContrastDefaultValue)},
+		{"interpolationHint", "I", nullptr, $PRIVATE, $field(SunGraphics2D, interpolationHint)},
+		{"strokeHint", "I", nullptr, $PUBLIC, $field(SunGraphics2D, strokeHint)},
+		{"interpolationType", "I", nullptr, $PUBLIC, $field(SunGraphics2D, interpolationType)},
+		{"hints", "Ljava/awt/RenderingHints;", nullptr, $PUBLIC, $field(SunGraphics2D, hints)},
+		{"constrainClip", "Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $field(SunGraphics2D, constrainClip)},
+		{"constrainX", "I", nullptr, $PUBLIC, $field(SunGraphics2D, constrainX)},
+		{"constrainY", "I", nullptr, $PUBLIC, $field(SunGraphics2D, constrainY)},
+		{"clipRegion", "Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $field(SunGraphics2D, clipRegion)},
+		{"usrClip", "Ljava/awt/Shape;", nullptr, $PUBLIC, $field(SunGraphics2D, usrClip)},
+		{"devClip", "Lsun/java2d/pipe/Region;", nullptr, $PROTECTED, $field(SunGraphics2D, devClip)},
+		{"resolutionVariantHint", "I", nullptr, $PRIVATE, $field(SunGraphics2D, resolutionVariantHint)},
+		{"validFontInfo", "Z", nullptr, $PRIVATE, $field(SunGraphics2D, validFontInfo)},
+		{"fontInfo", "Lsun/java2d/loops/FontInfo;", nullptr, $PRIVATE, $field(SunGraphics2D, fontInfo)},
+		{"glyphVectorFontInfo", "Lsun/java2d/loops/FontInfo;", nullptr, $PRIVATE, $field(SunGraphics2D, glyphVectorFontInfo)},
+		{"glyphVectorFRC", "Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE, $field(SunGraphics2D, glyphVectorFRC)},
+		{"slowTextTransformMask", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SunGraphics2D, slowTextTransformMask)},
+		{"invalidpipe", "Lsun/java2d/pipe/ValidatePipe;", nullptr, $PROTECTED | $STATIC, $staticField(SunGraphics2D, invalidpipe)},
+		{"IDENT_MATRIX", "[D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunGraphics2D, IDENT_MATRIX)},
+		{"IDENT_ATX", "Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunGraphics2D, IDENT_ATX)},
+		{"MINALLOCATED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SunGraphics2D, MINALLOCATED)},
+		{"TEXTARRSIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SunGraphics2D, TEXTARRSIZE)},
+		{"textTxArr", "[[D", nullptr, $PRIVATE | $STATIC, $staticField(SunGraphics2D, textTxArr)},
+		{"textAtArr", "[Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE | $STATIC, $staticField(SunGraphics2D, textAtArr)},
+		{"NON_UNIFORM_SCALE_MASK", "I", nullptr, $STATIC | $FINAL, $constField(SunGraphics2D, NON_UNIFORM_SCALE_MASK)},
+		{"MinPenSizeAA", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SunGraphics2D, MinPenSizeAA)},
+		{"MinPenSizeAASquared", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SunGraphics2D, MinPenSizeAASquared)},
+		{"MinPenSizeSquared", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SunGraphics2D, MinPenSizeSquared)},
+		{"NON_RECTILINEAR_TRANSFORM_MASK", "I", nullptr, $STATIC | $FINAL, $constField(SunGraphics2D, NON_RECTILINEAR_TRANSFORM_MASK)},
+		{"lastCAblit", "Lsun/java2d/loops/Blit;", nullptr, 0, $field(SunGraphics2D, lastCAblit)},
+		{"lastCAcomp", "Ljava/awt/Composite;", nullptr, 0, $field(SunGraphics2D, lastCAcomp)},
+		{"cachedFRC", "Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE, $field(SunGraphics2D, cachedFRC)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/java2d/SurfaceData;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Font;)V", nullptr, $PUBLIC, $method(SunGraphics2D, init$, void, $SurfaceData*, $Color*, $Color*, $Font*)},
+		{"addRenderingHints", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PUBLIC, $virtualMethod(SunGraphics2D, addRenderingHints, void, $Map*)},
+		{"checkFontInfo", "(Lsun/java2d/loops/FontInfo;Ljava/awt/Font;Ljava/awt/font/FontRenderContext;)Lsun/java2d/loops/FontInfo;", nullptr, $PUBLIC, $method(SunGraphics2D, checkFontInfo, $FontInfo*, $FontInfo*, $Font*, $FontRenderContext*)},
+		{"clearRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, clearRect, void, int32_t, int32_t, int32_t, int32_t)},
+		{"clip", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, clip, void, $Shape*)},
+		{"clipRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, clipRect, void, int32_t, int32_t, int32_t, int32_t)},
+		{"clipTo", "(Ljava/awt/Rectangle;Ljava/awt/Rectangle;)Z", nullptr, $PRIVATE, $method(SunGraphics2D, clipTo, bool, $Rectangle*, $Rectangle*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(SunGraphics2D, clone, $Object*)},
+		{"cloneShape", "(Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PROTECTED | $STATIC, $staticMethod(SunGraphics2D, cloneShape, $Shape*, $Shape*)},
+		{"cloneTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $method(SunGraphics2D, cloneTransform, $AffineTransform*)},
+		{"constrain", "(IIIILsun/java2d/pipe/Region;)V", nullptr, $PUBLIC, $method(SunGraphics2D, constrain, void, int32_t, int32_t, int32_t, int32_t, $Region*)},
+		{"constrain", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, constrain, void, int32_t, int32_t, int32_t, int32_t)},
+		{"copyArea", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, copyArea, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"copyImage", "(Ljava/awt/Image;IIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $method(SunGraphics2D, copyImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"create", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, create, $Graphics*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, dispose, void)},
+		{"doCopyArea", "(IIIIII)V", nullptr, $PRIVATE, $method(SunGraphics2D, doCopyArea, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"draw", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, draw, void, $Shape*)},
+		{"drawArc", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawArc, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"drawBytes", "([BIIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawBytes, void, $bytes*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawChars", "([CIIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawChars, void, $chars*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawGlyphVector", "(Ljava/awt/font/GlyphVector;FF)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawGlyphVector, void, $GlyphVector*, float, float)},
+		{"drawHiDPIImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;Ljava/awt/geom/AffineTransform;)Ljava/lang/Boolean;", nullptr, $PRIVATE, $method(SunGraphics2D, drawHiDPIImage, $Boolean*, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*, $AffineTransform*)},
+		{"drawImage", "(Ljava/awt/Image;IIIILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawImage, bool, $Image*, int32_t, int32_t, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawImage, bool, $Image*, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;Ljava/awt/geom/AffineTransform;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawImage, bool, $Image*, $AffineTransform*, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImageOp;II)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawImage, void, $BufferedImage*, $BufferedImageOp*, int32_t, int32_t)},
+		{"drawLine", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawLine, void, int32_t, int32_t, int32_t, int32_t)},
+		{"drawOval", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawOval, void, int32_t, int32_t, int32_t, int32_t)},
+		{"drawPolygon", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawPolygon, void, $ints*, $ints*, int32_t)},
+		{"drawPolyline", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawPolyline, void, $ints*, $ints*, int32_t)},
+		{"drawRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawRect, void, int32_t, int32_t, int32_t, int32_t)},
+		{"drawRenderableImage", "(Ljava/awt/image/renderable/RenderableImage;Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawRenderableImage, void, $RenderableImage*, $AffineTransform*)},
+		{"drawRenderedImage", "(Ljava/awt/image/RenderedImage;Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawRenderedImage, void, $RenderedImage*, $AffineTransform*)},
+		{"drawRoundRect", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawRoundRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"drawString", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawString, void, $String*, int32_t, int32_t)},
+		{"drawString", "(Ljava/lang/String;FF)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawString, void, $String*, float, float)},
+		{"drawString", "(Ljava/text/AttributedCharacterIterator;II)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawString, void, $AttributedCharacterIterator*, int32_t, int32_t)},
+		{"drawString", "(Ljava/text/AttributedCharacterIterator;FF)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, drawString, void, $AttributedCharacterIterator*, float, float)},
+		{"drawTranslatedRenderedImage", "(Ljava/awt/image/RenderedImage;Ljava/awt/Rectangle;II)V", nullptr, $PRIVATE, $method(SunGraphics2D, drawTranslatedRenderedImage, void, $RenderedImage*, $Rectangle*, int32_t, int32_t)},
+		{"fill", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, fill, void, $Shape*)},
+		{"fillArc", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, fillArc, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"fillOval", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, fillOval, void, int32_t, int32_t, int32_t, int32_t)},
+		{"fillPolygon", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, fillPolygon, void, $ints*, $ints*, int32_t)},
+		{"fillRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, fillRect, void, int32_t, int32_t, int32_t, int32_t)},
+		{"fillRoundRect", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, fillRoundRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"finalize", "()V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, finalize, void)},
+		{"fixRectangleOrientation", "([DLjava/awt/geom/Rectangle2D;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SunGraphics2D, fixRectangleOrientation, void, $doubles*, $Rectangle2D*)},
+		{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getBackground, $Color*)},
+		{"getClip", "()Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getClip, $Shape*)},
+		{"getClipBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getClipBounds, $Rectangle*)},
+		{"getClipBounds", "(Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getClipBounds, $Rectangle*, $Rectangle*)},
+		{"getColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getColor, $Color*)},
+		{"getCompClip", "()Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(SunGraphics2D, getCompClip, $Region*)},
+		{"getComposite", "()Ljava/awt/Composite;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getComposite, $Composite*)},
+		{"getDefaultTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE, $method(SunGraphics2D, getDefaultTransform, $AffineTransform*)},
+		{"getDestSurface", "()Lsun/java2d/Surface;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getDestSurface, $Surface*)},
+		{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(SunGraphics2D, getDestination, $Object*)},
+		{"getDeviceColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $method(SunGraphics2D, getDeviceColorModel, $ColorModel*)},
+		{"getDeviceConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getDeviceConfiguration, $GraphicsConfiguration*)},
+		{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getFont, $Font*)},
+		{"getFontInfo", "()Lsun/java2d/loops/FontInfo;", nullptr, $PUBLIC, $method(SunGraphics2D, getFontInfo, $FontInfo*)},
+		{"getFontMetrics", "()Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getFontMetrics, $FontMetrics*)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getFontMetrics, $FontMetrics*, $Font*)},
+		{"getFontRenderContext", "()Ljava/awt/font/FontRenderContext;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getFontRenderContext, $FontRenderContext*)},
+		{"getGVFontInfo", "(Ljava/awt/Font;Ljava/awt/font/FontRenderContext;)Lsun/java2d/loops/FontInfo;", nullptr, $PUBLIC, $method(SunGraphics2D, getGVFontInfo, $FontInfo*, $Font*, $FontRenderContext*)},
+		{"getImageRegion", "(Ljava/awt/image/RenderedImage;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;Ljava/awt/geom/AffineTransform;II)Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticMethod(SunGraphics2D, getImageRegion, $Rectangle*, $RenderedImage*, $Region*, $AffineTransform*, $AffineTransform*, int32_t, int32_t)},
+		{"getPaint", "()Ljava/awt/Paint;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getPaint, $Paint*)},
+		{"getRenderingHint", "(Ljava/awt/RenderingHints$Key;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getRenderingHint, $Object*, $RenderingHints$Key*)},
+		{"getRenderingHints", "()Ljava/awt/RenderingHints;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getRenderingHints, $RenderingHints*)},
+		{"getResolutionVariant", "(Ljava/awt/image/MultiResolutionImage;IIIIIIIIIILjava/awt/geom/AffineTransform;)Ljava/awt/Image;", nullptr, $PRIVATE, $method(SunGraphics2D, getResolutionVariant, $Image*, $MultiResolutionImage*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $AffineTransform*)},
+		{"getStroke", "()Ljava/awt/Stroke;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getStroke, $Stroke*)},
+		{"getSurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $method(SunGraphics2D, getSurfaceData, $SurfaceData*)},
+		{"getTileIndex", "(III)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SunGraphics2D, getTileIndex, int32_t, int32_t, int32_t, int32_t)},
+		{"getTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, getTransform, $AffineTransform*)},
+		{"hit", "(Ljava/awt/Rectangle;Ljava/awt/Shape;Z)Z", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, hit, bool, $Rectangle*, $Shape*, bool)},
+		{"hitClip", "(IIII)Z", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, hitClip, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"intersectByArea", "(Ljava/awt/Shape;Ljava/awt/Shape;ZZ)Ljava/awt/Shape;", nullptr, 0, $method(SunGraphics2D, intersectByArea, $Shape*, $Shape*, $Shape*, bool, bool)},
+		{"intersectRectShape", "(Ljava/awt/geom/Rectangle2D;Ljava/awt/Shape;ZZ)Ljava/awt/Shape;", nullptr, 0, $method(SunGraphics2D, intersectRectShape, $Shape*, $Rectangle2D*, $Shape*, bool, bool)},
+		{"intersectShapes", "(Ljava/awt/Shape;Ljava/awt/Shape;ZZ)Ljava/awt/Shape;", nullptr, 0, $method(SunGraphics2D, intersectShapes, $Shape*, $Shape*, $Shape*, bool, bool)},
+		{"invalidatePipe", "()V", nullptr, $PROTECTED, $method(SunGraphics2D, invalidatePipe, void)},
+		{"invalidateTransform", "()V", nullptr, $PROTECTED, $method(SunGraphics2D, invalidateTransform, void)},
+		{"isIntegerTranslation", "(Ljava/awt/geom/AffineTransform;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SunGraphics2D, isIntegerTranslation, bool, $AffineTransform*)},
+		{"isRotated", "([D)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SunGraphics2D, isRotated, bool, $doubles*)},
+		{"makeHints", "(Ljava/util/Map;)Ljava/awt/RenderingHints;", "(Ljava/util/Map<**>;)Ljava/awt/RenderingHints;", 0, $method(SunGraphics2D, makeHints, $RenderingHints*, $Map*)},
+		{"revalidateAll", "()V", nullptr, $PRIVATE, $method(SunGraphics2D, revalidateAll, void)},
+		{"rotate", "(D)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, rotate, void, double)},
+		{"rotate", "(DDD)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, rotate, void, double, double, double)},
+		{"scale", "(DD)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, scale, void, double, double)},
+		{"scaleImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PRIVATE, $method(SunGraphics2D, scaleImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, setBackground, void, $Color*)},
+		{"setClip", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, setClip, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setClip", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, setClip, void, $Shape*)},
+		{"setColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, setColor, void, $Color*)},
+		{"setComposite", "(Ljava/awt/Composite;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, setComposite, void, $Composite*)},
+		{"setDevClip", "(IIII)V", nullptr, $PUBLIC, $method(SunGraphics2D, setDevClip, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setDevClip", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $method(SunGraphics2D, setDevClip, void, $Rectangle*)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, setFont, void, $Font*)},
+		{"setPaint", "(Ljava/awt/Paint;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, setPaint, void, $Paint*)},
+		{"setPaintMode", "()V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, setPaintMode, void)},
+		{"setRenderingHint", "(Ljava/awt/RenderingHints$Key;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, setRenderingHint, void, $RenderingHints$Key*, Object$*)},
+		{"setRenderingHints", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PUBLIC, $virtualMethod(SunGraphics2D, setRenderingHints, void, $Map*)},
+		{"setStroke", "(Ljava/awt/Stroke;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, setStroke, void, $Stroke*)},
+		{"setTransform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, setTransform, void, $AffineTransform*)},
+		{"setXORMode", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, setXORMode, void, $Color*)},
+		{"shear", "(DD)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, shear, void, double, double)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"transform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, transform, void, $AffineTransform*)},
+		{"transformBounds", "(Ljava/awt/Rectangle;Ljava/awt/geom/AffineTransform;)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $method(SunGraphics2D, transformBounds, $Rectangle*, $Rectangle*, $AffineTransform*)},
+		{"transformImage", "(Ljava/awt/Image;Ljava/awt/geom/AffineTransform;Ljava/awt/image/ImageObserver;)Z", nullptr, $PRIVATE, $method(SunGraphics2D, transformImage, bool, $Image*, $AffineTransform*, $ImageObserver*)},
+		{"transformShape", "(Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PROTECTED, $method(SunGraphics2D, transformShape, $Shape*, $Shape*)},
+		{"transformShape", "(IILjava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PROTECTED | $STATIC, $staticMethod(SunGraphics2D, transformShape, $Shape*, int32_t, int32_t, $Shape*)},
+		{"transformShape", "(Ljava/awt/geom/AffineTransform;Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PROTECTED | $STATIC, $staticMethod(SunGraphics2D, transformShape, $Shape*, $AffineTransform*, $Shape*)},
+		{"translate", "(DD)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, translate, void, double, double)},
+		{"translate", "(II)V", nullptr, $PUBLIC, $virtualMethod(SunGraphics2D, translate, void, int32_t, int32_t)},
+		{"untransformShape", "(Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC, $method(SunGraphics2D, untransformShape, $Shape*, $Shape*)},
+		{"validateBasicStroke", "(Ljava/awt/BasicStroke;)V", nullptr, $PRIVATE, $method(SunGraphics2D, validateBasicStroke, void, $BasicStroke*)},
+		{"validateColor", "()V", nullptr, 0, $method(SunGraphics2D, validateColor, void)},
+		{"validateCompClip", "()V", nullptr, $PROTECTED, $method(SunGraphics2D, validateCompClip, void)},
+		{"validatePipe", "()V", nullptr, $PUBLIC, $method(SunGraphics2D, validatePipe, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.java2d.SunGraphics2D",
+		"java.awt.Graphics2D",
+		"sun.awt.ConstrainableGraphics,java.lang.Cloneable,sun.java2d.DestSurfaceProvider",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SunGraphics2D, name, initialize, &classInfo$$, SunGraphics2D::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SunGraphics2D));
+	});
 	return class$;
 }
 

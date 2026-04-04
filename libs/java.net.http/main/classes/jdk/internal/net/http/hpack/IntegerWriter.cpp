@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/hpack/IntegerWriter.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/InternalError.h>
 #include <java/nio/ByteBuffer.h>
@@ -28,46 +27,12 @@ namespace jdk {
 			namespace http {
 				namespace hpack {
 
-$FieldInfo _IntegerWriter_FieldInfo_[] = {
-	{"NEW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerWriter, NEW)},
-	{"CONFIGURED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerWriter, CONFIGURED)},
-	{"FIRST_BYTE_WRITTEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerWriter, FIRST_BYTE_WRITTEN)},
-	{"DONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerWriter, DONE)},
-	{"state", "I", nullptr, $PRIVATE, $field(IntegerWriter, state)},
-	{"payload", "I", nullptr, $PRIVATE, $field(IntegerWriter, payload)},
-	{"N", "I", nullptr, $PRIVATE, $field(IntegerWriter, N)},
-	{"value", "I", nullptr, $PRIVATE, $field(IntegerWriter, value)},
-	{}
-};
-
-$MethodInfo _IntegerWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(IntegerWriter, init$, void)},
-	{"checkPrefix", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(IntegerWriter, checkPrefix, void, int32_t)},
-	{"configure", "(III)Ljdk/internal/net/http/hpack/IntegerWriter;", nullptr, $PUBLIC, $method(IntegerWriter, configure, IntegerWriter*, int32_t, int32_t, int32_t)},
-	{"reset", "()Ljdk/internal/net/http/hpack/IntegerWriter;", nullptr, $PUBLIC, $method(IntegerWriter, reset, IntegerWriter*)},
-	{"write", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $method(IntegerWriter, write, bool, $ByteBuffer*)},
-	{}
-};
-
-$ClassInfo _IntegerWriter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.hpack.IntegerWriter",
-	"java.lang.Object",
-	nullptr,
-	_IntegerWriter_FieldInfo_,
-	_IntegerWriter_MethodInfo_
-};
-
-$Object* allocate$IntegerWriter($Class* clazz) {
-	return $of($alloc(IntegerWriter));
-}
-
 void IntegerWriter::init$() {
 	this->state = IntegerWriter::NEW;
 }
 
 IntegerWriter* IntegerWriter::configure(int32_t value, int32_t N, int32_t payload) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->state != IntegerWriter::NEW) {
 		$throwNew($IllegalStateException, "Already configured"_s);
 	}
@@ -77,13 +42,13 @@ IntegerWriter* IntegerWriter::configure(int32_t value, int32_t N, int32_t payloa
 	checkPrefix(N);
 	this->value = value;
 	this->N = N;
-	this->payload = (int32_t)(((int32_t)(payload & (uint32_t)255)) & (uint32_t)($sl(-1, N)));
+	this->payload = (payload & 0xff) & ($sl(-1, N));
 	this->state = IntegerWriter::CONFIGURED;
 	return this;
 }
 
 bool IntegerWriter::write($ByteBuffer* output) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->state == IntegerWriter::NEW) {
 		$throwNew($IllegalStateException, "Configure first"_s);
 	}
@@ -96,36 +61,36 @@ bool IntegerWriter::write($ByteBuffer* output) {
 	if (this->state == IntegerWriter::CONFIGURED) {
 		int32_t max = ($sl(2, this->N - 1)) - 1;
 		if (this->value < max) {
-			$nc(output)->put((int8_t)(this->payload | this->value));
+			output->put((int8_t)(this->payload | this->value));
 			this->state = IntegerWriter::DONE;
 			return true;
 		}
-		$nc(output)->put((int8_t)(this->payload | max));
+		output->put((int8_t)(this->payload | max));
 		this->value -= max;
 		this->state = IntegerWriter::FIRST_BYTE_WRITTEN;
 	}
 	if (this->state == IntegerWriter::FIRST_BYTE_WRITTEN) {
-		while (this->value >= 128 && $nc(output)->hasRemaining()) {
-			output->put((int8_t)(((int32_t)(this->value & (uint32_t)127)) + 128));
+		while (this->value >= 128 && output->hasRemaining()) {
+			output->put((int8_t)((this->value & 0x7f) + 0x80));
 			this->value /= 128;
 		}
-		if (!$nc(output)->hasRemaining()) {
+		if (!output->hasRemaining()) {
 			return false;
 		}
-		$nc(output)->put((int8_t)this->value);
+		output->put((int8_t)this->value);
 		this->state = IntegerWriter::DONE;
 		return true;
 	}
 	$throwNew($InternalError, $($Arrays::toString($$new($ObjectArray, {
-		$($of($Integer::valueOf(this->state))),
-		$($of($Integer::valueOf(this->payload))),
-		$($of($Integer::valueOf(this->N))),
-		$($of($Integer::valueOf(this->value)))
+		$($Integer::valueOf(this->state)),
+		$($Integer::valueOf(this->payload)),
+		$($Integer::valueOf(this->N)),
+		$($Integer::valueOf(this->value))
 	}))));
 }
 
 void IntegerWriter::checkPrefix(int32_t N) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (N < 1 || N > 8) {
 		$throwNew($IllegalArgumentException, $$str({"1 <= N <= 8: N= "_s, $$str(N)}));
 	}
@@ -140,7 +105,36 @@ IntegerWriter::IntegerWriter() {
 }
 
 $Class* IntegerWriter::load$($String* name, bool initialize) {
-	$loadClass(IntegerWriter, name, initialize, &_IntegerWriter_ClassInfo_, allocate$IntegerWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"NEW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerWriter, NEW)},
+		{"CONFIGURED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerWriter, CONFIGURED)},
+		{"FIRST_BYTE_WRITTEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerWriter, FIRST_BYTE_WRITTEN)},
+		{"DONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerWriter, DONE)},
+		{"state", "I", nullptr, $PRIVATE, $field(IntegerWriter, state)},
+		{"payload", "I", nullptr, $PRIVATE, $field(IntegerWriter, payload)},
+		{"N", "I", nullptr, $PRIVATE, $field(IntegerWriter, N)},
+		{"value", "I", nullptr, $PRIVATE, $field(IntegerWriter, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(IntegerWriter, init$, void)},
+		{"checkPrefix", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(IntegerWriter, checkPrefix, void, int32_t)},
+		{"configure", "(III)Ljdk/internal/net/http/hpack/IntegerWriter;", nullptr, $PUBLIC, $method(IntegerWriter, configure, IntegerWriter*, int32_t, int32_t, int32_t)},
+		{"reset", "()Ljdk/internal/net/http/hpack/IntegerWriter;", nullptr, $PUBLIC, $method(IntegerWriter, reset, IntegerWriter*)},
+		{"write", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $method(IntegerWriter, write, bool, $ByteBuffer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.hpack.IntegerWriter",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IntegerWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IntegerWriter);
+	});
 	return class$;
 }
 

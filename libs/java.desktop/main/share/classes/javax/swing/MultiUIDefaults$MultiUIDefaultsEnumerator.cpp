@@ -1,5 +1,4 @@
 #include <javax/swing/MultiUIDefaults$MultiUIDefaultsEnumerator.h>
-
 #include <java/util/Iterator.h>
 #include <java/util/Map$Entry.h>
 #include <java/util/Set.h>
@@ -12,7 +11,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Iterator = ::java::util::Iterator;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Set = ::java::util::Set;
 using $MultiUIDefaults$1 = ::javax::swing::MultiUIDefaults$1;
@@ -20,45 +18,6 @@ using $MultiUIDefaults$MultiUIDefaultsEnumerator$Type = ::javax::swing::MultiUID
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _MultiUIDefaults$MultiUIDefaultsEnumerator_FieldInfo_[] = {
-	{"iterator", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;>;", $PRIVATE, $field(MultiUIDefaults$MultiUIDefaultsEnumerator, iterator)},
-	{"type", "Ljavax/swing/MultiUIDefaults$MultiUIDefaultsEnumerator$Type;", nullptr, $PRIVATE, $field(MultiUIDefaults$MultiUIDefaultsEnumerator, type)},
-	{}
-};
-
-$MethodInfo _MultiUIDefaults$MultiUIDefaultsEnumerator_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/MultiUIDefaults$MultiUIDefaultsEnumerator$Type;Ljava/util/Set;)V", "(Ljavax/swing/MultiUIDefaults$MultiUIDefaultsEnumerator$Type;Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;>;)V", 0, $method(MultiUIDefaults$MultiUIDefaultsEnumerator, init$, void, $MultiUIDefaults$MultiUIDefaultsEnumerator$Type*, $Set*)},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(MultiUIDefaults$MultiUIDefaultsEnumerator, hasMoreElements, bool)},
-	{"nextElement", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MultiUIDefaults$MultiUIDefaultsEnumerator, nextElement, $Object*)},
-	{}
-};
-
-$InnerClassInfo _MultiUIDefaults$MultiUIDefaultsEnumerator_InnerClassesInfo_[] = {
-	{"javax.swing.MultiUIDefaults$MultiUIDefaultsEnumerator", "javax.swing.MultiUIDefaults", "MultiUIDefaultsEnumerator", $PRIVATE | $STATIC},
-	{"javax.swing.MultiUIDefaults$MultiUIDefaultsEnumerator$Type", "javax.swing.MultiUIDefaults$MultiUIDefaultsEnumerator", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _MultiUIDefaults$MultiUIDefaultsEnumerator_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.MultiUIDefaults$MultiUIDefaultsEnumerator",
-	"java.lang.Object",
-	"java.util.Enumeration",
-	_MultiUIDefaults$MultiUIDefaultsEnumerator_FieldInfo_,
-	_MultiUIDefaults$MultiUIDefaultsEnumerator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/lang/Object;>;",
-	nullptr,
-	_MultiUIDefaults$MultiUIDefaultsEnumerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.MultiUIDefaults"
-};
-
-$Object* allocate$MultiUIDefaults$MultiUIDefaultsEnumerator($Class* clazz) {
-	return $of($alloc(MultiUIDefaults$MultiUIDefaultsEnumerator));
-}
 
 void MultiUIDefaults$MultiUIDefaultsEnumerator::init$($MultiUIDefaults$MultiUIDefaultsEnumerator$Type* type, $Set* entries) {
 	$set(this, type, type);
@@ -70,21 +29,15 @@ bool MultiUIDefaults$MultiUIDefaultsEnumerator::hasMoreElements() {
 }
 
 $Object* MultiUIDefaults$MultiUIDefaultsEnumerator::nextElement() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($MultiUIDefaults$1);
 	switch ($nc($MultiUIDefaults$1::$SwitchMap$javax$swing$MultiUIDefaults$MultiUIDefaultsEnumerator$Type)->get($nc((this->type))->ordinal())) {
 	case 1:
-		{
-			return $of($nc(($cast($Map$Entry, $($nc(this->iterator)->next()))))->getKey());
-		}
+		return $$sure($Map$Entry, $nc(this->iterator)->next())->getKey();
 	case 2:
-		{
-			return $of($nc(($cast($Map$Entry, $($nc(this->iterator)->next()))))->getValue());
-		}
+		return $$sure($Map$Entry, $nc(this->iterator)->next())->getValue();
 	default:
-		{
-			return $of(nullptr);
-		}
+		return nullptr;
 	}
 }
 
@@ -92,7 +45,40 @@ MultiUIDefaults$MultiUIDefaultsEnumerator::MultiUIDefaults$MultiUIDefaultsEnumer
 }
 
 $Class* MultiUIDefaults$MultiUIDefaultsEnumerator::load$($String* name, bool initialize) {
-	$loadClass(MultiUIDefaults$MultiUIDefaultsEnumerator, name, initialize, &_MultiUIDefaults$MultiUIDefaultsEnumerator_ClassInfo_, allocate$MultiUIDefaults$MultiUIDefaultsEnumerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"iterator", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;>;", $PRIVATE, $field(MultiUIDefaults$MultiUIDefaultsEnumerator, iterator)},
+		{"type", "Ljavax/swing/MultiUIDefaults$MultiUIDefaultsEnumerator$Type;", nullptr, $PRIVATE, $field(MultiUIDefaults$MultiUIDefaultsEnumerator, type)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/MultiUIDefaults$MultiUIDefaultsEnumerator$Type;Ljava/util/Set;)V", "(Ljavax/swing/MultiUIDefaults$MultiUIDefaultsEnumerator$Type;Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;>;)V", 0, $method(MultiUIDefaults$MultiUIDefaultsEnumerator, init$, void, $MultiUIDefaults$MultiUIDefaultsEnumerator$Type*, $Set*)},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(MultiUIDefaults$MultiUIDefaultsEnumerator, hasMoreElements, bool)},
+		{"nextElement", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MultiUIDefaults$MultiUIDefaultsEnumerator, nextElement, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.MultiUIDefaults$MultiUIDefaultsEnumerator", "javax.swing.MultiUIDefaults", "MultiUIDefaultsEnumerator", $PRIVATE | $STATIC},
+		{"javax.swing.MultiUIDefaults$MultiUIDefaultsEnumerator$Type", "javax.swing.MultiUIDefaults$MultiUIDefaultsEnumerator", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.MultiUIDefaults$MultiUIDefaultsEnumerator",
+		"java.lang.Object",
+		"java.util.Enumeration",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/lang/Object;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.MultiUIDefaults"
+	};
+	$loadClass(MultiUIDefaults$MultiUIDefaultsEnumerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiUIDefaults$MultiUIDefaultsEnumerator);
+	});
 	return class$;
 }
 

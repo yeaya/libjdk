@@ -1,5 +1,4 @@
 #include <javax/swing/text/MaskFormatter$DigitMaskCharacter.h>
-
 #include <javax/swing/text/MaskFormatter$MaskCharacter.h>
 #include <javax/swing/text/MaskFormatter.h>
 #include <jcpp.h>
@@ -16,43 +15,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _MaskFormatter$DigitMaskCharacter_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/MaskFormatter;", nullptr, $FINAL | $SYNTHETIC, $field(MaskFormatter$DigitMaskCharacter, this$0)},
-	{}
-};
-
-$MethodInfo _MaskFormatter$DigitMaskCharacter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/MaskFormatter;)V", nullptr, $PRIVATE, $method(MaskFormatter$DigitMaskCharacter, init$, void, $MaskFormatter*)},
-	{"isValidCharacter", "(C)Z", nullptr, $PUBLIC, $virtualMethod(MaskFormatter$DigitMaskCharacter, isValidCharacter, bool, char16_t)},
-	{}
-};
-
-$InnerClassInfo _MaskFormatter$DigitMaskCharacter_InnerClassesInfo_[] = {
-	{"javax.swing.text.MaskFormatter$DigitMaskCharacter", "javax.swing.text.MaskFormatter", "DigitMaskCharacter", $PRIVATE},
-	{"javax.swing.text.MaskFormatter$MaskCharacter", "javax.swing.text.MaskFormatter", "MaskCharacter", $PRIVATE},
-	{}
-};
-
-$ClassInfo _MaskFormatter$DigitMaskCharacter_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.MaskFormatter$DigitMaskCharacter",
-	"javax.swing.text.MaskFormatter$MaskCharacter",
-	nullptr,
-	_MaskFormatter$DigitMaskCharacter_FieldInfo_,
-	_MaskFormatter$DigitMaskCharacter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MaskFormatter$DigitMaskCharacter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.MaskFormatter"
-};
-
-$Object* allocate$MaskFormatter$DigitMaskCharacter($Class* clazz) {
-	return $of($alloc(MaskFormatter$DigitMaskCharacter));
-}
-
 void MaskFormatter$DigitMaskCharacter::init$($MaskFormatter* this$0) {
 	$set(this, this$0, this$0);
 	$MaskFormatter$MaskCharacter::init$(this$0);
@@ -67,7 +29,38 @@ MaskFormatter$DigitMaskCharacter::MaskFormatter$DigitMaskCharacter() {
 }
 
 $Class* MaskFormatter$DigitMaskCharacter::load$($String* name, bool initialize) {
-	$loadClass(MaskFormatter$DigitMaskCharacter, name, initialize, &_MaskFormatter$DigitMaskCharacter_ClassInfo_, allocate$MaskFormatter$DigitMaskCharacter);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/MaskFormatter;", nullptr, $FINAL | $SYNTHETIC, $field(MaskFormatter$DigitMaskCharacter, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/MaskFormatter;)V", nullptr, $PRIVATE, $method(MaskFormatter$DigitMaskCharacter, init$, void, $MaskFormatter*)},
+		{"isValidCharacter", "(C)Z", nullptr, $PUBLIC, $virtualMethod(MaskFormatter$DigitMaskCharacter, isValidCharacter, bool, char16_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.MaskFormatter$DigitMaskCharacter", "javax.swing.text.MaskFormatter", "DigitMaskCharacter", $PRIVATE},
+		{"javax.swing.text.MaskFormatter$MaskCharacter", "javax.swing.text.MaskFormatter", "MaskCharacter", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.MaskFormatter$DigitMaskCharacter",
+		"javax.swing.text.MaskFormatter$MaskCharacter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.MaskFormatter"
+	};
+	$loadClass(MaskFormatter$DigitMaskCharacter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MaskFormatter$DigitMaskCharacter);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/security/jarsigner/JarSigner.h>
-
 #include <com/sun/jarsigner/ContentSigner.h>
 #include <com/sun/jarsigner/ContentSignerParameters.h>
 #include <java/io/ByteArrayInputStream.h>
@@ -31,7 +30,6 @@
 #include <java/net/URLClassLoader.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidKeyException.h>
-#include <java/security/Key.h>
 #include <java/security/MessageDigest.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/PrivateKey.h>
@@ -70,7 +68,6 @@
 #include <sun/security/pkcs/PKCS9Attribute.h>
 #include <sun/security/pkcs/PKCS9Attributes.h>
 #include <sun/security/timestamp/HttpTimestamper.h>
-#include <sun/security/timestamp/Timestamper.h>
 #include <sun/security/tools/PathList.h>
 #include <sun/security/util/Event$ReporterCategory.h>
 #include <sun/security/util/Event.h>
@@ -111,7 +108,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -123,31 +119,24 @@ using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $Constructor = ::java::lang::reflect::Constructor;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $SocketTimeoutException = ::java::net::SocketTimeoutException;
 using $URI = ::java::net::URI;
 using $URLClassLoader = ::java::net::URLClassLoader;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
-using $Key = ::java::security::Key;
 using $MessageDigest = ::java::security::MessageDigest;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
-using $PrivateKey = ::java::security::PrivateKey;
 using $Signature = ::java::security::Signature;
 using $SignatureException = ::java::security::SignatureException;
 using $CertificateException = ::java::security::cert::CertificateException;
 using $InvalidParameterSpecException = ::java::security::spec::InvalidParameterSpecException;
 using $Base64 = ::java::util::Base64;
-using $Base64$Encoder = ::java::util::Base64$Encoder;
 using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Objects = ::java::util::Objects;
-using $Set = ::java::util::Set;
 using $Vector = ::java::util::Vector;
-using $BiConsumer = ::java::util::function::BiConsumer;
 using $Function = ::java::util::function::Function;
 using $Attributes = ::java::util::jar::Attributes;
 using $Attributes$Name = ::java::util::jar::Attributes$Name;
@@ -166,12 +155,10 @@ using $PKCS7 = ::sun::security::pkcs::PKCS7;
 using $PKCS9Attribute = ::sun::security::pkcs::PKCS9Attribute;
 using $PKCS9Attributes = ::sun::security::pkcs::PKCS9Attributes;
 using $HttpTimestamper = ::sun::security::timestamp::HttpTimestamper;
-using $Timestamper = ::sun::security::timestamp::Timestamper;
 using $PathList = ::sun::security::tools::PathList;
 using $Event = ::sun::security::util::Event;
 using $Event$ReporterCategory = ::sun::security::util::Event$ReporterCategory;
 using $ManifestDigester = ::sun::security::util::ManifestDigester;
-using $ManifestDigester$Entry = ::sun::security::util::ManifestDigester$Entry;
 using $SignatureFileVerifier = ::sun::security::util::SignatureFileVerifier;
 using $SignatureUtil = ::sun::security::util::SignatureUtil;
 using $AlgorithmId = ::sun::security::x509::AlgorithmId;
@@ -187,134 +174,40 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of($nc(inst$)->lambda$sign0$0($cast($bytes, s)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JarSigner$$Lambda$lambda$sign0$0>());
+		 return $nc(inst$)->lambda$sign0$0($cast($bytes, s));
 	}
 	JarSigner* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JarSigner$$Lambda$lambda$sign0$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JarSigner$$Lambda$lambda$sign0$0, inst$)},
-	{}
-};
-$MethodInfo JarSigner$$Lambda$lambda$sign0$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/security/jarsigner/JarSigner;)V", nullptr, $PUBLIC, $method(JarSigner$$Lambda$lambda$sign0$0, init$, void, JarSigner*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JarSigner$$Lambda$lambda$sign0$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo JarSigner$$Lambda$lambda$sign0$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.security.jarsigner.JarSigner$$Lambda$lambda$sign0$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* JarSigner$$Lambda$lambda$sign0$0::load$($String* name, bool initialize) {
-	$loadClass(JarSigner$$Lambda$lambda$sign0$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JarSigner$$Lambda$lambda$sign0$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/security/jarsigner/JarSigner;)V", nullptr, $PUBLIC, $method(JarSigner$$Lambda$lambda$sign0$0, init$, void, JarSigner*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JarSigner$$Lambda$lambda$sign0$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.security.jarsigner.JarSigner$$Lambda$lambda$sign0$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JarSigner$$Lambda$lambda$sign0$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JarSigner$$Lambda$lambda$sign0$0);
+	});
 	return class$;
 }
 $Class* JarSigner$$Lambda$lambda$sign0$0::class$ = nullptr;
-
-$NamedAttribute JarSigner_Attribute_var$0[] = {
-	{"since", 's', "16"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _JarSigner_FieldAnnotations_altSignerPath[] = {
-	{"Ljava/lang/Deprecated;", JarSigner_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute JarSigner_Attribute_var$1[] = {
-	{"since", 's', "16"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _JarSigner_FieldAnnotations_altSigner[] = {
-	{"Ljava/lang/Deprecated;", JarSigner_Attribute_var$1},
-	{}
-};
-
-$FieldInfo _JarSigner_FieldInfo_[] = {
-	{"JUZFA", "Ljdk/internal/access/JavaUtilZipFileAccess;", nullptr, $STATIC | $FINAL, $staticField(JarSigner, JUZFA)},
-	{"META_INF", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarSigner, META_INF)},
-	{"privateKey", "Ljava/security/PrivateKey;", nullptr, $PRIVATE | $FINAL, $field(JarSigner, privateKey)},
-	{"certChain", "[Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE | $FINAL, $field(JarSigner, certChain)},
-	{"digestalg", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JarSigner, digestalg)},
-	{"sigalg", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JarSigner, sigalg)},
-	{"digestProvider", "Ljava/security/Provider;", nullptr, $PRIVATE | $FINAL, $field(JarSigner, digestProvider)},
-	{"sigProvider", "Ljava/security/Provider;", nullptr, $PRIVATE | $FINAL, $field(JarSigner, sigProvider)},
-	{"tsaUrl", "Ljava/net/URI;", nullptr, $PRIVATE | $FINAL, $field(JarSigner, tsaUrl)},
-	{"signerName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JarSigner, signerName)},
-	{"handler", "Ljava/util/function/BiConsumer;", "Ljava/util/function/BiConsumer<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(JarSigner, handler)},
-	{"tSAPolicyID", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JarSigner, tSAPolicyID)},
-	{"tSADigestAlg", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JarSigner, tSADigestAlg)},
-	{"sectionsonly", "Z", nullptr, $PRIVATE | $FINAL, $field(JarSigner, sectionsonly)},
-	{"internalsf", "Z", nullptr, $PRIVATE | $FINAL, $field(JarSigner, internalsf)},
-	{"altSignerPath", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL | $DEPRECATED, $field(JarSigner, altSignerPath), _JarSigner_FieldAnnotations_altSignerPath},
-	{"altSigner", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL | $DEPRECATED, $field(JarSigner, altSigner), _JarSigner_FieldAnnotations_altSigner},
-	{"extraAttrsDetected", "Z", nullptr, $PRIVATE, $field(JarSigner, extraAttrsDetected)},
-	{}
-};
-
-$MethodInfo _JarSigner_MethodInfo_[] = {
-	{"<init>", "(Ljdk/security/jarsigner/JarSigner$Builder;)V", nullptr, $PRIVATE, $method(JarSigner, init$, void, $JarSigner$Builder*)},
-	{"getDigestAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(JarSigner, getDigestAlgorithm, $String*)},
-	{"getDigestAttributes", "(Ljava/util/zip/ZipEntry;Ljava/util/zip/ZipFile;[Ljava/security/MessageDigest;)Ljava/util/jar/Attributes;", nullptr, $PRIVATE, $method(JarSigner, getDigestAttributes, $Attributes*, $ZipEntry*, $ZipFile*, $MessageDigestArray*), "java.io.IOException"},
-	{"getDigests", "(Ljava/util/zip/ZipEntry;Ljava/util/zip/ZipFile;[Ljava/security/MessageDigest;)[Ljava/lang/String;", nullptr, $PRIVATE, $method(JarSigner, getDigests, $StringArray*, $ZipEntry*, $ZipFile*, $MessageDigestArray*), "java.io.IOException"},
-	{"getManifestFile", "(Ljava/util/zip/ZipFile;)Ljava/util/zip/ZipEntry;", nullptr, $PRIVATE, $method(JarSigner, getManifestFile, $ZipEntry*, $ZipFile*)},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $method(JarSigner, getProperty, $String*, $String*)},
-	{"getSignatureAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(JarSigner, getSignatureAlgorithm, $String*)},
-	{"getSignerName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(JarSigner, getSignerName, $String*)},
-	{"getTsa", "()Ljava/net/URI;", nullptr, $PUBLIC, $method(JarSigner, getTsa, $URI*)},
-	{"lambda$sign0$0", "([B)Lsun/security/pkcs/PKCS9Attributes;", nullptr, $PRIVATE | $SYNTHETIC, $method(JarSigner, lambda$sign0$0, $PKCS9Attributes*, $bytes*)},
-	{"loadSigningMechanism", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/jarsigner/ContentSigner;", nullptr, $PRIVATE, $method(JarSigner, loadSigningMechanism, $ContentSigner*, $String*, $String*)},
-	{"sign", "(Ljava/util/zip/ZipFile;Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(JarSigner, sign, void, $ZipFile*, $OutputStream*)},
-	{"sign0", "(Ljava/util/zip/ZipFile;Ljava/io/OutputStream;)V", nullptr, $PRIVATE, $method(JarSigner, sign0, void, $ZipFile*, $OutputStream*), "java.io.IOException,java.security.cert.CertificateException,java.security.NoSuchAlgorithmException,java.security.SignatureException,java.security.InvalidKeyException,java.security.spec.InvalidParameterSpecException"},
-	{"updateDigests", "(Ljava/util/zip/ZipEntry;Ljava/util/zip/ZipFile;[Ljava/security/MessageDigest;Ljava/util/jar/Manifest;)V", nullptr, $PRIVATE, $method(JarSigner, updateDigests, void, $ZipEntry*, $ZipFile*, $MessageDigestArray*, $Manifest*), "java.io.IOException"},
-	{"writeBytes", "(Ljava/util/zip/ZipFile;Ljava/util/zip/ZipEntry;Ljava/util/zip/ZipOutputStream;)V", nullptr, $PRIVATE, $method(JarSigner, writeBytes, void, $ZipFile*, $ZipEntry*, $ZipOutputStream*), "java.io.IOException"},
-	{"writeEntry", "(Ljava/util/zip/ZipFile;Ljava/util/zip/ZipOutputStream;Ljava/util/zip/ZipEntry;)V", nullptr, $PRIVATE, $method(JarSigner, writeEntry, void, $ZipFile*, $ZipOutputStream*, $ZipEntry*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JarSigner_InnerClassesInfo_[] = {
-	{"jdk.security.jarsigner.JarSigner$JarSignerParameters", "jdk.security.jarsigner.JarSigner", "JarSignerParameters", 0},
-	{"jdk.security.jarsigner.JarSigner$SignatureFile", "jdk.security.jarsigner.JarSigner", "SignatureFile", $STATIC},
-	{"jdk.security.jarsigner.JarSigner$Builder", "jdk.security.jarsigner.JarSigner", "Builder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JarSigner_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.security.jarsigner.JarSigner",
-	"java.lang.Object",
-	nullptr,
-	_JarSigner_FieldInfo_,
-	_JarSigner_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JarSigner_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.security.jarsigner.JarSigner$JarSignerParameters,jdk.security.jarsigner.JarSigner$SignatureFile,jdk.security.jarsigner.JarSigner$Builder"
-};
-
-$Object* allocate$JarSigner($Class* clazz) {
-	return $of($alloc(JarSigner));
-}
 
 $JavaUtilZipFileAccess* JarSigner::JUZFA = nullptr;
 $String* JarSigner::META_INF = nullptr;
 
 void JarSigner::init$($JarSigner$Builder* builder) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, privateKey, $nc(builder)->privateKey);
 	$set(this, certChain, builder->certChain);
 	if (builder->digestalg != nullptr) {
@@ -393,99 +286,73 @@ $String* JarSigner::getSignerName() {
 }
 
 $String* JarSigner::getProperty($String* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(key);
 	{
 		$init($Locale);
 		$var($String, s26647$, key->toLowerCase($Locale::US));
 		int32_t tmp26647$ = -1;
 		switch (s26647$->hashCode()) {
-		case 0x70ABEDD6:
-			{
-				if (s26647$->equals("tsadigestalg"_s)) {
-					tmp26647$ = 0;
-				}
-				break;
+		case 0x70abedd6:
+			if (s26647$->equals("tsadigestalg"_s)) {
+				tmp26647$ = 0;
 			}
-		case (int32_t)0x83260D8F:
-			{
-				if (s26647$->equals("tsapolicyid"_s)) {
-					tmp26647$ = 1;
-				}
-				break;
+			break;
+		case (int32_t)0x83260d8f:
+			if (s26647$->equals("tsapolicyid"_s)) {
+				tmp26647$ = 1;
 			}
-		case (int32_t)0xA12919D0:
-			{
-				if (s26647$->equals("internalsf"_s)) {
-					tmp26647$ = 2;
-				}
-				break;
+			break;
+		case (int32_t)0xa12919d0:
+			if (s26647$->equals("internalsf"_s)) {
+				tmp26647$ = 2;
 			}
-		case 0x27DDB6DA:
-			{
-				if (s26647$->equals("sectionsonly"_s)) {
-					tmp26647$ = 3;
-				}
-				break;
+			break;
+		case 0x27ddb6da:
+			if (s26647$->equals("sectionsonly"_s)) {
+				tmp26647$ = 3;
 			}
-		case (int32_t)0xDCA268B8:
-			{
-				if (s26647$->equals("altsignerpath"_s)) {
-					tmp26647$ = 4;
-				}
-				break;
+			break;
+		case (int32_t)0xdca268b8:
+			if (s26647$->equals("altsignerpath"_s)) {
+				tmp26647$ = 4;
 			}
-		case (int32_t)0xC3754613:
-			{
-				if (s26647$->equals("altsigner"_s)) {
-					tmp26647$ = 5;
-				}
-				break;
+			break;
+		case (int32_t)0xc3754613:
+			if (s26647$->equals("altsigner"_s)) {
+				tmp26647$ = 5;
 			}
+			break;
 		}
 		switch (tmp26647$) {
 		case 0:
-			{
-				return this->tSADigestAlg;
-			}
+			return this->tSADigestAlg;
 		case 1:
-			{
-				return this->tSAPolicyID;
-			}
+			return this->tSAPolicyID;
 		case 2:
-			{
-				return $Boolean::toString(this->internalsf);
-			}
+			return $Boolean::toString(this->internalsf);
 		case 3:
-			{
-				return $Boolean::toString(this->sectionsonly);
-			}
+			return $Boolean::toString(this->sectionsonly);
 		case 4:
-			{
-				return this->altSignerPath;
-			}
+			return this->altSignerPath;
 		case 5:
-			{
-				return this->altSigner;
-			}
+			return this->altSigner;
 		default:
-			{
-				$throwNew($UnsupportedOperationException, $$str({"Unsupported key "_s, key}));
-			}
+			$throwNew($UnsupportedOperationException, $$str({"Unsupported key "_s, key}));
 		}
 	}
 }
 
 void JarSigner::sign0($ZipFile* zipFile, $OutputStream* os) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MessageDigestArray, digests, nullptr);
 	try {
 		$assign(digests, $new($MessageDigestArray, $nc(this->digestalg)->length));
-		for (int32_t i = 0; i < $nc(this->digestalg)->length; ++i) {
+		for (int32_t i = 0; i < this->digestalg->length; ++i) {
 			if (this->digestProvider == nullptr) {
-				digests->set(i, $($MessageDigest::getInstance($nc(this->digestalg)->get(i))));
+				digests->set(i, $($MessageDigest::getInstance(this->digestalg->get(i))));
 			} else {
-				digests->set(i, $($MessageDigest::getInstance($nc(this->digestalg)->get(i), this->digestProvider)));
+				digests->set(i, $($MessageDigest::getInstance(this->digestalg->get(i), this->digestProvider)));
 			}
 		}
 	} catch ($NoSuchAlgorithmException& asae) {
@@ -497,7 +364,7 @@ void JarSigner::sign0($ZipFile* zipFile, $OutputStream* os) {
 	$var($ZipEntry, mfFile, getManifestFile(zipFile));
 	bool mfCreated = mfFile == nullptr;
 	if (!mfCreated) {
-		$assign(mfRawBytes, $nc($($nc(zipFile)->getInputStream(mfFile)))->readAllBytes());
+		$assign(mfRawBytes, $$nc($nc(zipFile)->getInputStream(mfFile))->readAllBytes());
 		manifest->read($$new($ByteArrayInputStream, mfRawBytes));
 	} else {
 		$var($Attributes, mattr, manifest->getMainAttributes());
@@ -515,10 +382,10 @@ void JarSigner::sign0($ZipFile* zipFile, $OutputStream* os) {
 		$var($Enumeration, enum_, $nc(zipFile)->entries());
 		for (; $nc(enum_)->hasMoreElements();) {
 			$var($ZipEntry, ze, $cast($ZipEntry, enum_->nextElement()));
-			if ($nc($($nc(ze)->getName()))->startsWith(JarSigner::META_INF)) {
+			if ($$nc($nc(ze)->getName())->startsWith(JarSigner::META_INF)) {
 				mfFiles->addElement(ze);
 				$init($Locale);
-				$var($String, zeNameUp, $nc($(ze->getName()))->toUpperCase($Locale::ENGLISH));
+				$var($String, zeNameUp, $$nc(ze->getName())->toUpperCase($Locale::ENGLISH));
 				bool var$0 = $SignatureFileVerifier::isBlockOrSF(zeNameUp);
 				if (var$0 && !zeNameUp->startsWith($($JarSigner$SignatureFile::getBaseSignatureFilesName(this->signerName)))) {
 					wasSigned = true;
@@ -527,11 +394,11 @@ void JarSigner::sign0($ZipFile* zipFile, $OutputStream* os) {
 					continue;
 				}
 			}
-			if (manifest->getAttributes($($nc(ze)->getName())) != nullptr) {
+			if (manifest->getAttributes($(ze->getName())) != nullptr) {
 				updateDigests(ze, zipFile, digests, manifest);
-			} else if (!$nc(ze)->isDirectory()) {
+			} else if (!ze->isDirectory()) {
 				$var($Attributes, attrs, getDigestAttributes(ze, zipFile, digests));
-				$nc($(manifest->getEntries()))->put($(ze->getName()), attrs);
+				$$nc(manifest->getEntries())->put($(ze->getName()), attrs);
 			}
 		}
 	}
@@ -542,7 +409,7 @@ void JarSigner::sign0($ZipFile* zipFile, $OutputStream* os) {
 		manifest->write(baos);
 		$assign(mfRawBytes, baos->toByteArray());
 	} else {
-		$var($Manifest, oldManifest, $new($Manifest, static_cast<$InputStream*>($$new($ByteArrayInputStream, mfRawBytes))));
+		$var($Manifest, oldManifest, $new($Manifest, $$new($ByteArrayInputStream, mfRawBytes)));
 		mfModified = !oldManifest->equals(manifest);
 		if (!mfModified) {
 		} else {
@@ -551,28 +418,28 @@ void JarSigner::sign0($ZipFile* zipFile, $OutputStream* os) {
 			baos->reset();
 			$var($ManifestDigester, oldMd, $new($ManifestDigester, mfRawBytes));
 			$var($ManifestDigester, newMd, $new($ManifestDigester, mfNewRawBytes));
-			bool var$1 = $nc($(manifest->getMainAttributes()))->equals($(oldManifest->getMainAttributes()));
+			bool var$1 = $$nc(manifest->getMainAttributes())->equals($(oldManifest->getMainAttributes()));
 			if (var$1) {
-				bool var$2 = $nc($(manifest->getEntries()))->isEmpty();
-				var$1 = (var$2 || $nc($(oldMd->getMainAttsEntry()))->isProperlyDelimited());
+				bool var$2 = $$nc(manifest->getEntries())->isEmpty();
+				var$1 = var$2 || $$nc(oldMd->getMainAttsEntry())->isProperlyDelimited();
 			}
 			if (var$1) {
-				$nc($(oldMd->getMainAttsEntry()))->reproduceRaw(baos);
+				$$nc(oldMd->getMainAttsEntry())->reproduceRaw(baos);
 			} else {
-				$nc($(newMd->getMainAttsEntry()))->reproduceRaw(baos);
+				$$nc(newMd->getMainAttsEntry())->reproduceRaw(baos);
 			}
 			{
-				$var($Iterator, i$, $nc($($nc($(manifest->getEntries()))->entrySet()))->iterator());
+				$var($Iterator, i$, $$nc($$nc(manifest->getEntries())->entrySet())->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 					{
 						$var($String, sectionName, $cast($String, $nc(entry)->getKey()));
 						$var($Attributes, entryAtts, $cast($Attributes, entry->getValue()));
 						bool var$3 = $nc(entryAtts)->equals($(oldManifest->getAttributes(sectionName)));
-						if (var$3 && $nc($(oldMd->get(sectionName)))->isProperlyDelimited()) {
-							$nc($(oldMd->get(sectionName)))->reproduceRaw(baos);
+						if (var$3 && $$nc(oldMd->get(sectionName))->isProperlyDelimited()) {
+							$$nc(oldMd->get(sectionName))->reproduceRaw(baos);
 						} else {
-							$nc($(newMd->get(sectionName)))->reproduceRaw(baos);
+							$$nc(newMd->get(sectionName))->reproduceRaw(baos);
 						}
 					}
 				}
@@ -586,9 +453,9 @@ void JarSigner::sign0($ZipFile* zipFile, $OutputStream* os) {
 	}
 	if (this->handler != nullptr) {
 		if (mfCreated || !mfModified) {
-			$nc(this->handler)->accept("adding"_s, $($nc(mfFile)->getName()));
+			this->handler->accept("adding"_s, $($nc(mfFile)->getName()));
 		} else {
-			$nc(this->handler)->accept("updating"_s, $($nc(mfFile)->getName()));
+			this->handler->accept("updating"_s, $($nc(mfFile)->getName()));
 		}
 	}
 	zos->putNextEntry(mfFile);
@@ -602,11 +469,11 @@ void JarSigner::sign0($ZipFile* zipFile, $OutputStream* os) {
 	if (this->altSigner == nullptr) {
 		$var($Function, timestamper, nullptr);
 		if (this->tsaUrl != nullptr) {
-			$assign(timestamper, static_cast<$Function*>($new(JarSigner$$Lambda$lambda$sign0$0, this)));
+			$assign(timestamper, $new(JarSigner$$Lambda$lambda$sign0$0, this));
 		}
 		$assign(block, $PKCS7::generateNewSignedData(this->sigalg, this->sigProvider, this->privateKey, this->certChain, content, this->internalsf, false, timestamper));
 	} else {
-		$var($Signature, signer, $SignatureUtil::fromKey(this->sigalg, static_cast<$Key*>(this->privateKey), this->sigProvider));
+		$var($Signature, signer, $SignatureUtil::fromKey(this->sigalg, this->privateKey, this->sigProvider));
 		$nc(signer)->update(content);
 		$var($bytes, signature, signer->sign());
 		$var($ContentSignerParameters, params, $new($JarSigner$JarSignerParameters, this, nullptr, this->tsaUrl, this->tSAPolicyID, this->tSADigestAlg, signature, $(signer->getAlgorithm()), this->certChain, content, zipFile));
@@ -625,38 +492,38 @@ void JarSigner::sign0($ZipFile* zipFile, $OutputStream* os) {
 	sf->write(zos);
 	if (this->handler != nullptr) {
 		if (zipFile->getEntry(sfFilename) != nullptr) {
-			$nc(this->handler)->accept("updating"_s, sfFilename);
+			this->handler->accept("updating"_s, sfFilename);
 		} else {
-			$nc(this->handler)->accept("adding"_s, sfFilename);
+			this->handler->accept("adding"_s, sfFilename);
 		}
 	}
 	zos->putNextEntry(bkFile);
 	zos->write(block);
 	if (this->handler != nullptr) {
 		if (zipFile->getEntry(bkFilename) != nullptr) {
-			$nc(this->handler)->accept("updating"_s, bkFilename);
+			this->handler->accept("updating"_s, bkFilename);
 		} else {
-			$nc(this->handler)->accept("adding"_s, bkFilename);
+			this->handler->accept("adding"_s, bkFilename);
 		}
 	}
 	for (int32_t i = 0; i < mfFiles->size(); ++i) {
 		$var($ZipEntry, ze, $cast($ZipEntry, mfFiles->elementAt(i)));
 		$init($JarFile);
-		bool var$6 = !$nc($($nc(ze)->getName()))->equalsIgnoreCase($JarFile::MANIFEST_NAME);
-		bool var$5 = var$6 && !$nc($(ze->getName()))->equalsIgnoreCase(sfFilename);
-		if (var$5 && !$nc($(ze->getName()))->equalsIgnoreCase(bkFilename)) {
-			bool var$7 = $nc($(ze->getName()))->startsWith($($JarSigner$SignatureFile::getBaseSignatureFilesName(this->signerName)));
+		bool var$6 = !$$nc($nc(ze)->getName())->equalsIgnoreCase($JarFile::MANIFEST_NAME);
+		bool var$5 = var$6 && !$$nc(ze->getName())->equalsIgnoreCase(sfFilename);
+		if (var$5 && !$$nc(ze->getName())->equalsIgnoreCase(bkFilename)) {
+			bool var$7 = $$nc(ze->getName())->startsWith($($JarSigner$SignatureFile::getBaseSignatureFilesName(this->signerName)));
 			if (var$7 && $SignatureFileVerifier::isBlockOrSF($(ze->getName()))) {
 				if (this->handler != nullptr) {
-					$nc(this->handler)->accept("updating"_s, $(ze->getName()));
+					this->handler->accept("updating"_s, $(ze->getName()));
 				}
 				continue;
 			}
 			if (this->handler != nullptr) {
 				if (manifest->getAttributes($(ze->getName())) != nullptr) {
-					$nc(this->handler)->accept("signing"_s, $(ze->getName()));
+					this->handler->accept("signing"_s, $(ze->getName()));
 				} else if (!ze->isDirectory()) {
-					$nc(this->handler)->accept("adding"_s, $(ze->getName()));
+					this->handler->accept("adding"_s, $(ze->getName()));
 				}
 			}
 			writeEntry(zipFile, zos, ze);
@@ -666,12 +533,12 @@ void JarSigner::sign0($ZipFile* zipFile, $OutputStream* os) {
 		$var($Enumeration, enum_, zipFile->entries());
 		for (; $nc(enum_)->hasMoreElements();) {
 			$var($ZipEntry, ze, $cast($ZipEntry, enum_->nextElement()));
-			if (!$nc($($nc(ze)->getName()))->startsWith(JarSigner::META_INF)) {
+			if (!$$nc($nc(ze)->getName())->startsWith(JarSigner::META_INF)) {
 				if (this->handler != nullptr) {
 					if (manifest->getAttributes($(ze->getName())) != nullptr) {
-						$nc(this->handler)->accept("signing"_s, $(ze->getName()));
+						this->handler->accept("signing"_s, $(ze->getName()));
 					} else {
-						$nc(this->handler)->accept("adding"_s, $(ze->getName()));
+						this->handler->accept("adding"_s, $(ze->getName()));
 					}
 				}
 				writeEntry(zipFile, zos, ze);
@@ -683,20 +550,20 @@ void JarSigner::sign0($ZipFile* zipFile, $OutputStream* os) {
 }
 
 void JarSigner::writeEntry($ZipFile* zf, $ZipOutputStream* os, $ZipEntry* ze) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ZipEntry, ze2, $new($ZipEntry, $($nc(ze)->getName())));
-	ze2->setMethod($nc(ze)->getMethod());
-	ze2->setTime($nc(ze)->getTime());
-	ze2->setComment($($nc(ze)->getComment()));
-	ze2->setExtra($($nc(ze)->getExtra()));
+	ze2->setMethod(ze->getMethod());
+	ze2->setTime(ze->getTime());
+	ze2->setComment($(ze->getComment()));
+	ze2->setExtra($(ze->getExtra()));
 	int32_t extraAttrs = $nc(JarSigner::JUZFA)->getExtraAttributes(ze);
 	if (!this->extraAttrsDetected && extraAttrs != -1) {
 		this->extraAttrsDetected = true;
 		$init($Event$ReporterCategory);
 		$Event::report($Event$ReporterCategory::ZIPFILEATTRS, "detected"_s, $$new($ObjectArray, 0));
 	}
-	$nc(JarSigner::JUZFA)->setExtraAttributes(ze2, extraAttrs);
-	if ($nc(ze)->getMethod() == $ZipEntry::STORED) {
+	JarSigner::JUZFA->setExtraAttributes(ze2, extraAttrs);
+	if (ze->getMethod() == $ZipEntry::STORED) {
 		ze2->setSize(ze->getSize());
 		ze2->setCrc(ze->getCrc());
 	}
@@ -705,40 +572,38 @@ void JarSigner::writeEntry($ZipFile* zf, $ZipOutputStream* os, $ZipEntry* ze) {
 }
 
 void JarSigner::writeBytes($ZipFile* zf, $ZipEntry* ze, $ZipOutputStream* os) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($InputStream, is, $nc(zf)->getInputStream(ze));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$nc(is)->transferTo(os);
-				} catch ($Throwable& t$) {
-					if (is != nullptr) {
-						try {
-							is->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
+				$nc(is)->transferTo(os);
+			} catch ($Throwable& t$) {
 				if (is != nullptr) {
-					is->close();
+					try {
+						is->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			if (is != nullptr) {
+				is->close();
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void JarSigner::updateDigests($ZipEntry* ze, $ZipFile* zf, $MessageDigestArray* digests, $Manifest* mf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Attributes, attrs, $nc(mf)->getAttributes($($nc(ze)->getName())));
 	$var($StringArray, base64Digests, getDigests(ze, zf, digests));
 	for (int32_t i = 0; i < $nc(digests)->length; ++i) {
@@ -746,19 +611,17 @@ void JarSigner::updateDigests($ZipEntry* ze, $ZipFile* zf, $MessageDigestArray* 
 		try {
 			$var($AlgorithmId, aid, $AlgorithmId::get($($nc(digests->get(i))->getAlgorithm())));
 			{
-				$var($Iterator, i$, $nc($($nc(attrs)->keySet()))->iterator());
+				$var($Iterator, i$, $$nc($nc(attrs)->keySet())->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($Object, key, i$->next());
-					{
-						if ($instanceOf($Attributes$Name, key)) {
-							$var($String, n, $nc($of(key))->toString());
-							$init($Locale);
-							if ($($nc(n)->toUpperCase($Locale::ENGLISH))->endsWith("-DIGEST"_s)) {
-								$var($String, tmp, n->substring(0, n->length() - 7));
-								if ($nc($($AlgorithmId::get(tmp)))->equals(aid)) {
-									$assign(name, n);
-									break;
-								}
+					if ($instanceOf($Attributes$Name, key)) {
+						$var($String, n, key->toString());
+						$init($Locale);
+						if ($($nc(n)->toUpperCase($Locale::ENGLISH))->endsWith("-DIGEST"_s)) {
+							$var($String, tmp, n->substring(0, n->length() - 7));
+							if ($$nc($AlgorithmId::get(tmp))->equals(aid)) {
+								$assign(name, n);
+								break;
 							}
 						}
 					}
@@ -774,7 +637,7 @@ void JarSigner::updateDigests($ZipEntry* ze, $ZipFile* zf, $MessageDigestArray* 
 }
 
 $Attributes* JarSigner::getDigestAttributes($ZipEntry* ze, $ZipFile* zf, $MessageDigestArray* digests) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, base64Digests, getDigests(ze, zf, digests));
 	$var($Attributes, attrs, $new($Attributes));
 	for (int32_t i = 0; i < $nc(digests)->length; ++i) {
@@ -784,7 +647,7 @@ $Attributes* JarSigner::getDigestAttributes($ZipEntry* ze, $ZipFile* zf, $Messag
 }
 
 $ZipEntry* JarSigner::getManifestFile($ZipFile* zf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JarFile);
 	$var($ZipEntry, ze, $nc(zf)->getEntry($JarFile::MANIFEST_NAME));
 	if (ze == nullptr) {
@@ -800,54 +663,52 @@ $ZipEntry* JarSigner::getManifestFile($ZipFile* zf) {
 }
 
 $StringArray* JarSigner::getDigests($ZipEntry* ze, $ZipFile* zf, $MessageDigestArray* digests) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = 0;
 	int32_t i = 0;
 	{
 		$var($InputStream, is, $nc(zf)->getInputStream(ze));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					int64_t left = $nc(ze)->getSize();
-					$var($bytes, buffer, $new($bytes, 8192));
-					while ((left > 0) && (n = $nc(is)->read(buffer, 0, buffer->length)) != -1) {
-						for (i = 0; i < $nc(digests)->length; ++i) {
-							$nc(digests->get(i))->update(buffer, 0, n);
-						}
-						left -= n;
+				int64_t left = $nc(ze)->getSize();
+				$var($bytes, buffer, $new($bytes, 8192));
+				while ((left > 0) && (n = $nc(is)->read(buffer, 0, buffer->length)) != -1) {
+					for (i = 0; i < $nc(digests)->length; ++i) {
+						$nc(digests->get(i))->update(buffer, 0, n);
 					}
-				} catch ($Throwable& t$) {
-					if (is != nullptr) {
-						try {
-							is->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
+					left -= n;
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
+			} catch ($Throwable& t$) {
 				if (is != nullptr) {
-					is->close();
+					try {
+						is->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			if (is != nullptr) {
+				is->close();
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	$var($StringArray, base64Digests, $new($StringArray, $nc(digests)->length));
 	for (i = 0; i < digests->length; ++i) {
-		base64Digests->set(i, $($nc($($Base64::getEncoder()))->encodeToString($($nc(digests->get(i))->digest()))));
+		base64Digests->set(i, $($$nc($Base64::getEncoder())->encodeToString($($nc(digests->get(i))->digest()))));
 	}
 	return base64Digests;
 }
 
 $ContentSigner* JarSigner::loadSigningMechanism($String* signerClassName, $String* signerClassPath$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, signerClassPath, signerClassPath$renamed);
 	$beforeCallerSensitive();
 	if (signerClassPath == nullptr) {
@@ -861,7 +722,7 @@ $ContentSigner* JarSigner::loadSigningMechanism($String* signerClassName, $Strin
 	$var($ClassLoader, appClassLoader, $new($URLClassLoader, urls));
 	try {
 		$Class* signerClass = appClassLoader->loadClass(signerClassName);
-		$var($Object, signer, $nc($($nc(signerClass)->getDeclaredConstructor($$new($ClassArray, 0))))->newInstance($$new($ObjectArray, 0)));
+		$var($Object, signer, $$nc($nc(signerClass)->getDeclaredConstructor($$new($ClassArray, 0)))->newInstance($$new($ObjectArray, 0)));
 		return $cast($ContentSigner, signer);
 	} catch ($ClassNotFoundException& e) {
 		$throwNew($IllegalArgumentException, "Invalid altSigner or altSignerPath"_s, e);
@@ -880,21 +741,21 @@ $ContentSigner* JarSigner::loadSigningMechanism($String* signerClassName, $Strin
 }
 
 $PKCS9Attributes* JarSigner::lambda$sign0$0($bytes* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($HttpTimestamper, tsa, $new($HttpTimestamper, this->tsaUrl));
 		$var($bytes, tsToken, $PKCS7::generateTimestampToken(tsa, this->tSAPolicyID, this->tSADigestAlg, s));
 		$init($PKCS9Attribute);
 		return $new($PKCS9Attributes, $$new($PKCS9AttributeArray, {$$new($PKCS9Attribute, $PKCS9Attribute::SIGNATURE_TIMESTAMP_TOKEN_OID, tsToken)}));
 	} catch ($IOException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($CertificateException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 	$shouldNotReachHere();
 }
 
-void clinit$JarSigner($Class* class$) {
+void JarSigner::clinit$($Class* clazz) {
 	$assignStatic(JarSigner::META_INF, "META-INF/"_s);
 	$assignStatic(JarSigner::JUZFA, $SharedSecrets::getJavaUtilZipFileAccess());
 }
@@ -904,11 +765,91 @@ JarSigner::JarSigner() {
 
 $Class* JarSigner::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JarSigner$$Lambda$lambda$sign0$0::classInfo$.name)) {
+		if (name->equals("jdk.security.jarsigner.JarSigner$$Lambda$lambda$sign0$0")) {
 			return JarSigner$$Lambda$lambda$sign0$0::load$(name, initialize);
 		}
 	}
-	$loadClass(JarSigner, name, initialize, &_JarSigner_ClassInfo_, clinit$JarSigner, allocate$JarSigner);
+	$NamedAttribute altSignerPathfieldAnnotations$$$namedAttribute[] = {
+		{"since", 's', "16"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute altSignerPathfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", altSignerPathfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute altSignerfieldAnnotations$$$namedAttribute[] = {
+		{"since", 's', "16"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute altSignerfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", altSignerfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"JUZFA", "Ljdk/internal/access/JavaUtilZipFileAccess;", nullptr, $STATIC | $FINAL, $staticField(JarSigner, JUZFA)},
+		{"META_INF", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarSigner, META_INF)},
+		{"privateKey", "Ljava/security/PrivateKey;", nullptr, $PRIVATE | $FINAL, $field(JarSigner, privateKey)},
+		{"certChain", "[Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE | $FINAL, $field(JarSigner, certChain)},
+		{"digestalg", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JarSigner, digestalg)},
+		{"sigalg", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JarSigner, sigalg)},
+		{"digestProvider", "Ljava/security/Provider;", nullptr, $PRIVATE | $FINAL, $field(JarSigner, digestProvider)},
+		{"sigProvider", "Ljava/security/Provider;", nullptr, $PRIVATE | $FINAL, $field(JarSigner, sigProvider)},
+		{"tsaUrl", "Ljava/net/URI;", nullptr, $PRIVATE | $FINAL, $field(JarSigner, tsaUrl)},
+		{"signerName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JarSigner, signerName)},
+		{"handler", "Ljava/util/function/BiConsumer;", "Ljava/util/function/BiConsumer<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(JarSigner, handler)},
+		{"tSAPolicyID", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JarSigner, tSAPolicyID)},
+		{"tSADigestAlg", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JarSigner, tSADigestAlg)},
+		{"sectionsonly", "Z", nullptr, $PRIVATE | $FINAL, $field(JarSigner, sectionsonly)},
+		{"internalsf", "Z", nullptr, $PRIVATE | $FINAL, $field(JarSigner, internalsf)},
+		{"altSignerPath", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL | $DEPRECATED, $field(JarSigner, altSignerPath), altSignerPathfieldAnnotations$$},
+		{"altSigner", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL | $DEPRECATED, $field(JarSigner, altSigner), altSignerfieldAnnotations$$},
+		{"extraAttrsDetected", "Z", nullptr, $PRIVATE, $field(JarSigner, extraAttrsDetected)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/security/jarsigner/JarSigner$Builder;)V", nullptr, $PRIVATE, $method(JarSigner, init$, void, $JarSigner$Builder*)},
+		{"getDigestAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(JarSigner, getDigestAlgorithm, $String*)},
+		{"getDigestAttributes", "(Ljava/util/zip/ZipEntry;Ljava/util/zip/ZipFile;[Ljava/security/MessageDigest;)Ljava/util/jar/Attributes;", nullptr, $PRIVATE, $method(JarSigner, getDigestAttributes, $Attributes*, $ZipEntry*, $ZipFile*, $MessageDigestArray*), "java.io.IOException"},
+		{"getDigests", "(Ljava/util/zip/ZipEntry;Ljava/util/zip/ZipFile;[Ljava/security/MessageDigest;)[Ljava/lang/String;", nullptr, $PRIVATE, $method(JarSigner, getDigests, $StringArray*, $ZipEntry*, $ZipFile*, $MessageDigestArray*), "java.io.IOException"},
+		{"getManifestFile", "(Ljava/util/zip/ZipFile;)Ljava/util/zip/ZipEntry;", nullptr, $PRIVATE, $method(JarSigner, getManifestFile, $ZipEntry*, $ZipFile*)},
+		{"getProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $method(JarSigner, getProperty, $String*, $String*)},
+		{"getSignatureAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(JarSigner, getSignatureAlgorithm, $String*)},
+		{"getSignerName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(JarSigner, getSignerName, $String*)},
+		{"getTsa", "()Ljava/net/URI;", nullptr, $PUBLIC, $method(JarSigner, getTsa, $URI*)},
+		{"lambda$sign0$0", "([B)Lsun/security/pkcs/PKCS9Attributes;", nullptr, $PRIVATE | $SYNTHETIC, $method(JarSigner, lambda$sign0$0, $PKCS9Attributes*, $bytes*)},
+		{"loadSigningMechanism", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/jarsigner/ContentSigner;", nullptr, $PRIVATE, $method(JarSigner, loadSigningMechanism, $ContentSigner*, $String*, $String*)},
+		{"sign", "(Ljava/util/zip/ZipFile;Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(JarSigner, sign, void, $ZipFile*, $OutputStream*)},
+		{"sign0", "(Ljava/util/zip/ZipFile;Ljava/io/OutputStream;)V", nullptr, $PRIVATE, $method(JarSigner, sign0, void, $ZipFile*, $OutputStream*), "java.io.IOException,java.security.cert.CertificateException,java.security.NoSuchAlgorithmException,java.security.SignatureException,java.security.InvalidKeyException,java.security.spec.InvalidParameterSpecException"},
+		{"updateDigests", "(Ljava/util/zip/ZipEntry;Ljava/util/zip/ZipFile;[Ljava/security/MessageDigest;Ljava/util/jar/Manifest;)V", nullptr, $PRIVATE, $method(JarSigner, updateDigests, void, $ZipEntry*, $ZipFile*, $MessageDigestArray*, $Manifest*), "java.io.IOException"},
+		{"writeBytes", "(Ljava/util/zip/ZipFile;Ljava/util/zip/ZipEntry;Ljava/util/zip/ZipOutputStream;)V", nullptr, $PRIVATE, $method(JarSigner, writeBytes, void, $ZipFile*, $ZipEntry*, $ZipOutputStream*), "java.io.IOException"},
+		{"writeEntry", "(Ljava/util/zip/ZipFile;Ljava/util/zip/ZipOutputStream;Ljava/util/zip/ZipEntry;)V", nullptr, $PRIVATE, $method(JarSigner, writeEntry, void, $ZipFile*, $ZipOutputStream*, $ZipEntry*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.security.jarsigner.JarSigner$JarSignerParameters", "jdk.security.jarsigner.JarSigner", "JarSignerParameters", 0},
+		{"jdk.security.jarsigner.JarSigner$SignatureFile", "jdk.security.jarsigner.JarSigner", "SignatureFile", $STATIC},
+		{"jdk.security.jarsigner.JarSigner$Builder", "jdk.security.jarsigner.JarSigner", "Builder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.security.jarsigner.JarSigner",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.security.jarsigner.JarSigner$JarSignerParameters,jdk.security.jarsigner.JarSigner$SignatureFile,jdk.security.jarsigner.JarSigner$Builder"
+	};
+	$loadClass(JarSigner, name, initialize, &classInfo$$, JarSigner::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JarSigner);
+	});
 	return class$;
 }
 

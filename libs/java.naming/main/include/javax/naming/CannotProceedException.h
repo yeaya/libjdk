@@ -38,10 +38,13 @@ public:
 	::java::util::Hashtable* environment = nullptr;
 	::javax::naming::Name* altName = nullptr;
 	::javax::naming::Context* altNameCtx = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x10ED554208D3DAED;
+	static const int64_t serialVersionUID = (int64_t)0x10ed554208d3daed;
 	CannotProceedException(const CannotProceedException& e);
 	virtual void throw$() override;
-	inline CannotProceedException* operator ->() {
+	inline CannotProceedException* operator ->() const {
+		return (CannotProceedException*)throwing$;
+	}
+	inline operator CannotProceedException*() const {
 		return (CannotProceedException*)throwing$;
 	}
 };

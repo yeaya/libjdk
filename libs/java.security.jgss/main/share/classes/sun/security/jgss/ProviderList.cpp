@@ -1,5 +1,4 @@
 #include <sun/security/jgss/ProviderList.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/IllegalAccessException.h>
@@ -71,65 +70,13 @@ namespace sun {
 	namespace security {
 		namespace jgss {
 
-$FieldInfo _ProviderList_FieldInfo_[] = {
-	{"PROV_PROP_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProviderList, PROV_PROP_PREFIX)},
-	{"PROV_PROP_PREFIX_LEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProviderList, PROV_PROP_PREFIX_LEN)},
-	{"SPI_MECH_FACTORY_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProviderList, SPI_MECH_FACTORY_TYPE)},
-	{"DEFAULT_MECH_OID", "Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ProviderList, DEFAULT_MECH_OID)},
-	{"preferences", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lsun/security/jgss/ProviderList$PreferencesEntry;>;", $PRIVATE, $field(ProviderList, preferences)},
-	{"factories", "Ljava/util/HashMap;", "Ljava/util/HashMap<Lsun/security/jgss/ProviderList$PreferencesEntry;Lsun/security/jgss/spi/MechanismFactory;>;", $PRIVATE, $field(ProviderList, factories)},
-	{"mechs", "Ljava/util/HashSet;", "Ljava/util/HashSet<Lorg/ietf/jgss/Oid;>;", $PRIVATE, $field(ProviderList, mechs)},
-	{"caller", "Lsun/security/jgss/GSSCaller;", nullptr, $PRIVATE | $FINAL, $field(ProviderList, caller)},
-	{}
-};
-
-$MethodInfo _ProviderList_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/GSSCaller;Z)V", nullptr, $PUBLIC, $method(ProviderList, init$, void, $GSSCaller*, bool)},
-	{"addAllMechsFromProvider", "(Ljava/security/Provider;)Z", nullptr, $PRIVATE, $method(ProviderList, addAllMechsFromProvider, bool, $Provider*)},
-	{"addProviderAtEnd", "(Ljava/security/Provider;Lorg/ietf/jgss/Oid;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(ProviderList, addProviderAtEnd, void, $Provider*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"addProviderAtFront", "(Ljava/security/Provider;Lorg/ietf/jgss/Oid;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(ProviderList, addProviderAtFront, void, $Provider*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"createGSSException", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)Lorg/ietf/jgss/GSSException;", nullptr, $PRIVATE | $STATIC, $staticMethod(ProviderList, createGSSException, $GSSException*, $Provider*, $String*, $String*, $Exception*)},
-	{"getMechFactory", "(Lorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/MechanismFactory;", nullptr, $PUBLIC | $SYNCHRONIZED, $method(ProviderList, getMechFactory, $MechanismFactory*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"getMechFactory", "(Lorg/ietf/jgss/Oid;Ljava/security/Provider;)Lsun/security/jgss/spi/MechanismFactory;", nullptr, $PUBLIC | $SYNCHRONIZED, $method(ProviderList, getMechFactory, $MechanismFactory*, $Oid*, $Provider*), "org.ietf.jgss.GSSException"},
-	{"getMechFactory", "(Lsun/security/jgss/ProviderList$PreferencesEntry;Lorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/MechanismFactory;", nullptr, $PRIVATE, $method(ProviderList, getMechFactory, $MechanismFactory*, $ProviderList$PreferencesEntry*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"getMechFactoryImpl", "(Ljava/security/Provider;Ljava/lang/String;Lorg/ietf/jgss/Oid;Lsun/security/jgss/GSSCaller;)Lsun/security/jgss/spi/MechanismFactory;", nullptr, $PRIVATE | $STATIC, $staticMethod(ProviderList, getMechFactoryImpl, $MechanismFactory*, $Provider*, $String*, $Oid*, $GSSCaller*), "org.ietf.jgss.GSSException"},
-	{"getMechs", "()[Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $method(ProviderList, getMechs, $OidArray*)},
-	{"getOidFromMechFactoryProperty", "(Ljava/lang/String;)Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE, $method(ProviderList, getOidFromMechFactoryProperty, $Oid*, $String*), "org.ietf.jgss.GSSException"},
-	{"isMechFactoryProperty", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(ProviderList, isMechFactoryProperty, bool, $String*)},
-	{}
-};
-
-$InnerClassInfo _ProviderList_InnerClassesInfo_[] = {
-	{"sun.security.jgss.ProviderList$PreferencesEntry", "sun.security.jgss.ProviderList", "PreferencesEntry", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ProviderList_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.jgss.ProviderList",
-	"java.lang.Object",
-	nullptr,
-	_ProviderList_FieldInfo_,
-	_ProviderList_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ProviderList_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.jgss.ProviderList$PreferencesEntry"
-};
-
-$Object* allocate$ProviderList($Class* clazz) {
-	return $of($alloc(ProviderList));
-}
-
 $String* ProviderList::PROV_PROP_PREFIX = nullptr;
 int32_t ProviderList::PROV_PROP_PREFIX_LEN = 0;
 $String* ProviderList::SPI_MECH_FACTORY_TYPE = nullptr;
 $Oid* ProviderList::DEFAULT_MECH_OID = nullptr;
 
 void ProviderList::init$($GSSCaller* caller, bool useNative) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, preferences, $new($ArrayList, 5));
 	$set(this, factories, $new($HashMap, 5));
 	$set(this, mechs, $new($HashSet, 5));
@@ -153,7 +100,7 @@ void ProviderList::init$($GSSCaller* caller, bool useNative) {
 
 bool ProviderList::isMechFactoryProperty($String* prop) {
 	bool var$0 = $nc(prop)->startsWith(ProviderList::PROV_PROP_PREFIX);
-	return (var$0 || $nc(prop)->regionMatches(true, 0, ProviderList::PROV_PROP_PREFIX, 0, ProviderList::PROV_PROP_PREFIX_LEN));
+	return (var$0 || prop->regionMatches(true, 0, ProviderList::PROV_PROP_PREFIX, 0, ProviderList::PROV_PROP_PREFIX_LEN));
 }
 
 $Oid* ProviderList::getOidFromMechFactoryProperty($String* prop) {
@@ -167,13 +114,13 @@ $MechanismFactory* ProviderList::getMechFactory($Oid* mechOid$renamed) {
 		if (mechOid == nullptr) {
 			$assign(mechOid, ProviderList::DEFAULT_MECH_OID);
 		}
-		return getMechFactory(mechOid, ($Provider*)nullptr);
+		return getMechFactory(mechOid, nullptr);
 	}
 }
 
 $MechanismFactory* ProviderList::getMechFactory($Oid* mechOid$renamed, $Provider* p) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($Oid, mechOid, mechOid$renamed);
 		if (mechOid == nullptr) {
 			$assign(mechOid, ProviderList::DEFAULT_MECH_OID);
@@ -200,7 +147,7 @@ $MechanismFactory* ProviderList::getMechFactory($Oid* mechOid$renamed, $Provider
 }
 
 $MechanismFactory* ProviderList::getMechFactory($ProviderList$PreferencesEntry* e, $Oid* mechOid) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Provider, p, $nc(e)->getProvider());
 	$var($ProviderList$PreferencesEntry, searchEntry, $new($ProviderList$PreferencesEntry, p, mechOid));
 	$var($MechanismFactory, retVal, $cast($MechanismFactory, $nc(this->factories)->get(searchEntry)));
@@ -219,7 +166,7 @@ $MechanismFactory* ProviderList::getMechFactory($ProviderList$PreferencesEntry* 
 
 $MechanismFactory* ProviderList::getMechFactoryImpl($Provider* p, $String* className, $Oid* mechOid, $GSSCaller* caller) {
 	$init(ProviderList);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		$Class* baseClass = $Class::forName(ProviderList::SPI_MECH_FACTORY_TYPE);
@@ -230,12 +177,12 @@ $MechanismFactory* ProviderList::getMechFactoryImpl($Provider* p, $String* class
 		} else {
 			implClass = $Class::forName(className);
 		}
-		if ($nc(baseClass)->isAssignableFrom(implClass)) {
+		if (baseClass->isAssignableFrom(implClass)) {
 			$load($GSSCaller);
 			$var($Constructor, c, $nc(implClass)->getConstructor($$new($ClassArray, {$GSSCaller::class$})));
-			$var($MechanismFactory, mf, ($cast($MechanismFactory, $nc(c)->newInstance($$new($ObjectArray, {$of(caller)})))));
+			$var($MechanismFactory, mf, $cast($MechanismFactory, $nc(c)->newInstance($$new($ObjectArray, {caller}))));
 			if ($instanceOf($NativeGSSFactory, mf)) {
-				$nc(($cast($NativeGSSFactory, mf)))->setMech(mechOid);
+				$cast($NativeGSSFactory, mf)->setMech(mechOid);
 			}
 			return mf;
 		} else {
@@ -259,18 +206,18 @@ $MechanismFactory* ProviderList::getMechFactoryImpl($Provider* p, $String* class
 
 $GSSException* ProviderList::createGSSException($Provider* p, $String* className, $String* trailingMsg, $Exception* cause) {
 	$init(ProviderList);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, errClassInfo, $str({className, " configured by "_s, $($nc(p)->getName()), " for GSS-API Mechanism Factory "_s}));
 	return $new($GSSExceptionImpl, $GSSException::BAD_MECH, $$str({errClassInfo, trailingMsg}), cause);
 }
 
 $OidArray* ProviderList::getMechs() {
-	return $fcast($OidArray, $nc(this->mechs)->toArray($$new($OidArray, 0)));
+	return $cast($OidArray, $nc(this->mechs)->toArray($$new($OidArray, 0)));
 }
 
 void ProviderList::addProviderAtFront($Provider* p, $Oid* mechOid) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($ProviderList$PreferencesEntry, newEntry, $new($ProviderList$PreferencesEntry, p, mechOid));
 		$var($ProviderList$PreferencesEntry, oldEntry, nullptr);
 		bool foundSomeMech = false;
@@ -284,7 +231,7 @@ void ProviderList::addProviderAtFront($Provider* p, $Oid* mechOid) {
 		if (mechOid == nullptr) {
 			foundSomeMech = addAllMechsFromProvider(p);
 		} else {
-			$var($String, oidStr, $nc(mechOid)->toString());
+			$var($String, oidStr, mechOid->toString());
 			if ($nc(p)->getProperty($$str({ProviderList::PROV_PROP_PREFIX, oidStr})) == nullptr) {
 				$throwNew($GSSExceptionImpl, $GSSException::BAD_MECH, $$str({"Provider "_s, $(p->getName()), " does not support "_s, oidStr}));
 			}
@@ -299,7 +246,7 @@ void ProviderList::addProviderAtFront($Provider* p, $Oid* mechOid) {
 
 void ProviderList::addProviderAtEnd($Provider* p, $Oid* mechOid) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($ProviderList$PreferencesEntry, newEntry, $new($ProviderList$PreferencesEntry, p, mechOid));
 		$var($ProviderList$PreferencesEntry, oldEntry, nullptr);
 		bool foundSomeMech = false;
@@ -313,7 +260,7 @@ void ProviderList::addProviderAtEnd($Provider* p, $Oid* mechOid) {
 		if (mechOid == nullptr) {
 			foundSomeMech = addAllMechsFromProvider(p);
 		} else {
-			$var($String, oidStr, $nc(mechOid)->toString());
+			$var($String, oidStr, mechOid->toString());
 			if ($nc(p)->getProperty($$str({ProviderList::PROV_PROP_PREFIX, oidStr})) == nullptr) {
 				$throwNew($GSSExceptionImpl, $GSSException::BAD_MECH, $$str({"Provider "_s, $(p->getName()), " does not support "_s, oidStr}));
 			}
@@ -327,7 +274,7 @@ void ProviderList::addProviderAtEnd($Provider* p, $Oid* mechOid) {
 }
 
 bool ProviderList::addAllMechsFromProvider($Provider* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prop, nullptr);
 	bool retVal = false;
 	$var($Enumeration, props, $nc(p)->keys());
@@ -346,11 +293,11 @@ bool ProviderList::addAllMechsFromProvider($Provider* p) {
 	return retVal;
 }
 
-void clinit$ProviderList($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ProviderList::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(ProviderList::PROV_PROP_PREFIX, "GssApiMechanism."_s);
 	$assignStatic(ProviderList::SPI_MECH_FACTORY_TYPE, "sun.security.jgss.spi.MechanismFactory"_s);
-	ProviderList::PROV_PROP_PREFIX_LEN = $nc(ProviderList::PROV_PROP_PREFIX)->length();
+	ProviderList::PROV_PROP_PREFIX_LEN = ProviderList::PROV_PROP_PREFIX->length();
 	{
 		$var($Oid, defOid, nullptr);
 		$var($String, defaultOidStr, $GetPropertyAction::privilegedGetProperty("sun.security.jgss.mechanism"_s));
@@ -366,7 +313,53 @@ ProviderList::ProviderList() {
 }
 
 $Class* ProviderList::load$($String* name, bool initialize) {
-	$loadClass(ProviderList, name, initialize, &_ProviderList_ClassInfo_, clinit$ProviderList, allocate$ProviderList);
+	$FieldInfo fieldInfos$$[] = {
+		{"PROV_PROP_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProviderList, PROV_PROP_PREFIX)},
+		{"PROV_PROP_PREFIX_LEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProviderList, PROV_PROP_PREFIX_LEN)},
+		{"SPI_MECH_FACTORY_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProviderList, SPI_MECH_FACTORY_TYPE)},
+		{"DEFAULT_MECH_OID", "Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ProviderList, DEFAULT_MECH_OID)},
+		{"preferences", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lsun/security/jgss/ProviderList$PreferencesEntry;>;", $PRIVATE, $field(ProviderList, preferences)},
+		{"factories", "Ljava/util/HashMap;", "Ljava/util/HashMap<Lsun/security/jgss/ProviderList$PreferencesEntry;Lsun/security/jgss/spi/MechanismFactory;>;", $PRIVATE, $field(ProviderList, factories)},
+		{"mechs", "Ljava/util/HashSet;", "Ljava/util/HashSet<Lorg/ietf/jgss/Oid;>;", $PRIVATE, $field(ProviderList, mechs)},
+		{"caller", "Lsun/security/jgss/GSSCaller;", nullptr, $PRIVATE | $FINAL, $field(ProviderList, caller)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/jgss/GSSCaller;Z)V", nullptr, $PUBLIC, $method(ProviderList, init$, void, $GSSCaller*, bool)},
+		{"addAllMechsFromProvider", "(Ljava/security/Provider;)Z", nullptr, $PRIVATE, $method(ProviderList, addAllMechsFromProvider, bool, $Provider*)},
+		{"addProviderAtEnd", "(Ljava/security/Provider;Lorg/ietf/jgss/Oid;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(ProviderList, addProviderAtEnd, void, $Provider*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"addProviderAtFront", "(Ljava/security/Provider;Lorg/ietf/jgss/Oid;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(ProviderList, addProviderAtFront, void, $Provider*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"createGSSException", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)Lorg/ietf/jgss/GSSException;", nullptr, $PRIVATE | $STATIC, $staticMethod(ProviderList, createGSSException, $GSSException*, $Provider*, $String*, $String*, $Exception*)},
+		{"getMechFactory", "(Lorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/MechanismFactory;", nullptr, $PUBLIC | $SYNCHRONIZED, $method(ProviderList, getMechFactory, $MechanismFactory*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"getMechFactory", "(Lorg/ietf/jgss/Oid;Ljava/security/Provider;)Lsun/security/jgss/spi/MechanismFactory;", nullptr, $PUBLIC | $SYNCHRONIZED, $method(ProviderList, getMechFactory, $MechanismFactory*, $Oid*, $Provider*), "org.ietf.jgss.GSSException"},
+		{"getMechFactory", "(Lsun/security/jgss/ProviderList$PreferencesEntry;Lorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/MechanismFactory;", nullptr, $PRIVATE, $method(ProviderList, getMechFactory, $MechanismFactory*, $ProviderList$PreferencesEntry*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"getMechFactoryImpl", "(Ljava/security/Provider;Ljava/lang/String;Lorg/ietf/jgss/Oid;Lsun/security/jgss/GSSCaller;)Lsun/security/jgss/spi/MechanismFactory;", nullptr, $PRIVATE | $STATIC, $staticMethod(ProviderList, getMechFactoryImpl, $MechanismFactory*, $Provider*, $String*, $Oid*, $GSSCaller*), "org.ietf.jgss.GSSException"},
+		{"getMechs", "()[Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $method(ProviderList, getMechs, $OidArray*)},
+		{"getOidFromMechFactoryProperty", "(Ljava/lang/String;)Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE, $method(ProviderList, getOidFromMechFactoryProperty, $Oid*, $String*), "org.ietf.jgss.GSSException"},
+		{"isMechFactoryProperty", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(ProviderList, isMechFactoryProperty, bool, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jgss.ProviderList$PreferencesEntry", "sun.security.jgss.ProviderList", "PreferencesEntry", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.jgss.ProviderList",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.jgss.ProviderList$PreferencesEntry"
+	};
+	$loadClass(ProviderList, name, initialize, &classInfo$$, ProviderList::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ProviderList);
+	});
 	return class$;
 }
 

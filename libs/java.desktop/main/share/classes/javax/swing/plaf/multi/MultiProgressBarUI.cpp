@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/multi/MultiProgressBarUI.h>
-
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/util/Vector.h>
@@ -28,41 +27,6 @@ namespace javax {
 		namespace plaf {
 			namespace multi {
 
-$FieldInfo _MultiProgressBarUI_FieldInfo_[] = {
-	{"uis", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/plaf/ComponentUI;>;", $PROTECTED, $field(MultiProgressBarUI, uis)},
-	{}
-};
-
-$MethodInfo _MultiProgressBarUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MultiProgressBarUI, init$, void)},
-	{"contains", "(Ljavax/swing/JComponent;II)Z", nullptr, $PUBLIC, $virtualMethod(MultiProgressBarUI, contains, bool, $JComponent*, int32_t, int32_t)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MultiProgressBarUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getAccessibleChild", "(Ljavax/swing/JComponent;I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(MultiProgressBarUI, getAccessibleChild, $Accessible*, $JComponent*, int32_t)},
-	{"getAccessibleChildrenCount", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(MultiProgressBarUI, getAccessibleChildrenCount, int32_t, $JComponent*)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiProgressBarUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiProgressBarUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiProgressBarUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getUIs", "()[Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC, $virtualMethod(MultiProgressBarUI, getUIs, $ComponentUIArray*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiProgressBarUI, installUI, void, $JComponent*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiProgressBarUI, paint, void, $Graphics*, $JComponent*)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiProgressBarUI, uninstallUI, void, $JComponent*)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiProgressBarUI, update, void, $Graphics*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _MultiProgressBarUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.multi.MultiProgressBarUI",
-	"javax.swing.plaf.ProgressBarUI",
-	nullptr,
-	_MultiProgressBarUI_FieldInfo_,
-	_MultiProgressBarUI_MethodInfo_
-};
-
-$Object* allocate$MultiProgressBarUI($Class* clazz) {
-	return $of($alloc(MultiProgressBarUI));
-}
-
 void MultiProgressBarUI::init$() {
 	$ProgressBarUI::init$();
 	$set(this, uis, $new($Vector));
@@ -73,18 +37,18 @@ $ComponentUIArray* MultiProgressBarUI::getUIs() {
 }
 
 bool MultiProgressBarUI::contains($JComponent* a, int32_t b, int32_t c) {
-	$useLocalCurrentObjectStackCache();
-	bool returnValue = $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->contains(a, b, c);
+	$useLocalObjectStack();
+	bool returnValue = $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->contains(a, b, c);
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->contains(a, b, c);
+		$$sure($ComponentUI, this->uis->elementAt(i))->contains(a, b, c);
 	}
 	return returnValue;
 }
 
 void MultiProgressBarUI::update($Graphics* a, $JComponent* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->update(a, b);
+		$$sure($ComponentUI, this->uis->elementAt(i))->update(a, b);
 	}
 }
 
@@ -95,67 +59,67 @@ $ComponentUI* MultiProgressBarUI::createUI($JComponent* a) {
 }
 
 void MultiProgressBarUI::installUI($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->installUI(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->installUI(a);
 	}
 }
 
 void MultiProgressBarUI::uninstallUI($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->uninstallUI(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->uninstallUI(a);
 	}
 }
 
 void MultiProgressBarUI::paint($Graphics* a, $JComponent* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->paint(a, b);
+		$$sure($ComponentUI, this->uis->elementAt(i))->paint(a, b);
 	}
 }
 
 $Dimension* MultiProgressBarUI::getPreferredSize($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
-	$var($Dimension, returnValue, $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getPreferredSize(a));
+	$useLocalObjectStack();
+	$var($Dimension, returnValue, $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->getPreferredSize(a));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getPreferredSize(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->getPreferredSize(a);
 	}
 	return returnValue;
 }
 
 $Dimension* MultiProgressBarUI::getMinimumSize($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
-	$var($Dimension, returnValue, $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getMinimumSize(a));
+	$useLocalObjectStack();
+	$var($Dimension, returnValue, $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->getMinimumSize(a));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getMinimumSize(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->getMinimumSize(a);
 	}
 	return returnValue;
 }
 
 $Dimension* MultiProgressBarUI::getMaximumSize($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
-	$var($Dimension, returnValue, $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getMaximumSize(a));
+	$useLocalObjectStack();
+	$var($Dimension, returnValue, $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->getMaximumSize(a));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getMaximumSize(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->getMaximumSize(a);
 	}
 	return returnValue;
 }
 
 int32_t MultiProgressBarUI::getAccessibleChildrenCount($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
-	int32_t returnValue = $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getAccessibleChildrenCount(a);
+	$useLocalObjectStack();
+	int32_t returnValue = $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->getAccessibleChildrenCount(a);
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getAccessibleChildrenCount(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->getAccessibleChildrenCount(a);
 	}
 	return returnValue;
 }
 
 $Accessible* MultiProgressBarUI::getAccessibleChild($JComponent* a, int32_t b) {
-	$useLocalCurrentObjectStackCache();
-	$var($Accessible, returnValue, $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getAccessibleChild(a, b));
+	$useLocalObjectStack();
+	$var($Accessible, returnValue, $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->getAccessibleChild(a, b));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getAccessibleChild(a, b);
+		$$sure($ComponentUI, this->uis->elementAt(i))->getAccessibleChild(a, b);
 	}
 	return returnValue;
 }
@@ -164,7 +128,37 @@ MultiProgressBarUI::MultiProgressBarUI() {
 }
 
 $Class* MultiProgressBarUI::load$($String* name, bool initialize) {
-	$loadClass(MultiProgressBarUI, name, initialize, &_MultiProgressBarUI_ClassInfo_, allocate$MultiProgressBarUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"uis", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/plaf/ComponentUI;>;", $PROTECTED, $field(MultiProgressBarUI, uis)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MultiProgressBarUI, init$, void)},
+		{"contains", "(Ljavax/swing/JComponent;II)Z", nullptr, $PUBLIC, $virtualMethod(MultiProgressBarUI, contains, bool, $JComponent*, int32_t, int32_t)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MultiProgressBarUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getAccessibleChild", "(Ljavax/swing/JComponent;I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(MultiProgressBarUI, getAccessibleChild, $Accessible*, $JComponent*, int32_t)},
+		{"getAccessibleChildrenCount", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(MultiProgressBarUI, getAccessibleChildrenCount, int32_t, $JComponent*)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiProgressBarUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiProgressBarUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiProgressBarUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getUIs", "()[Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC, $virtualMethod(MultiProgressBarUI, getUIs, $ComponentUIArray*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiProgressBarUI, installUI, void, $JComponent*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiProgressBarUI, paint, void, $Graphics*, $JComponent*)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiProgressBarUI, uninstallUI, void, $JComponent*)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiProgressBarUI, update, void, $Graphics*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.multi.MultiProgressBarUI",
+		"javax.swing.plaf.ProgressBarUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MultiProgressBarUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiProgressBarUI);
+	});
 	return class$;
 }
 

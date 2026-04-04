@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTabbedPaneUI$ScrollableTabButton.h>
-
 #include <java/awt/Color.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/plaf/basic/BasicArrowButton.h>
@@ -19,46 +18,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicTabbedPaneUI$ScrollableTabButton_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicTabbedPaneUI$ScrollableTabButton, this$0)},
-	{}
-};
-
-$MethodInfo _BasicTabbedPaneUI$ScrollableTabButton_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicTabbedPaneUI;I)V", nullptr, $PUBLIC, $method(BasicTabbedPaneUI$ScrollableTabButton, init$, void, $BasicTabbedPaneUI*, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicTabbedPaneUI$ScrollableTabButton_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTabbedPaneUI$ScrollableTabButton", "javax.swing.plaf.basic.BasicTabbedPaneUI", "ScrollableTabButton", $PRIVATE},
-	{}
-};
-
-$ClassInfo _BasicTabbedPaneUI$ScrollableTabButton_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTabbedPaneUI$ScrollableTabButton",
-	"javax.swing.plaf.basic.BasicArrowButton",
-	"javax.swing.plaf.UIResource",
-	_BasicTabbedPaneUI$ScrollableTabButton_FieldInfo_,
-	_BasicTabbedPaneUI$ScrollableTabButton_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTabbedPaneUI$ScrollableTabButton_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTabbedPaneUI"
-};
-
-$Object* allocate$BasicTabbedPaneUI$ScrollableTabButton($Class* clazz) {
-	return $of($alloc(BasicTabbedPaneUI$ScrollableTabButton));
-}
 
 $String* BasicTabbedPaneUI$ScrollableTabButton::toString() {
 	 return this->$BasicArrowButton::toString();
@@ -81,20 +40,53 @@ void BasicTabbedPaneUI$ScrollableTabButton::finalize() {
 }
 
 void BasicTabbedPaneUI$ScrollableTabButton::init$($BasicTabbedPaneUI* this$0, int32_t direction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
-	int32_t var$0 = direction;
-	$var($Color, var$1, $UIManager::getColor("TabbedPane.selected"_s));
-	$var($Color, var$2, $UIManager::getColor("TabbedPane.shadow"_s));
-	$var($Color, var$3, $UIManager::getColor("TabbedPane.darkShadow"_s));
-	$BasicArrowButton::init$(var$0, var$1, var$2, var$3, $($UIManager::getColor("TabbedPane.highlight"_s)));
+	$var($Color, var$0, $UIManager::getColor("TabbedPane.selected"_s));
+	$var($Color, var$1, $UIManager::getColor("TabbedPane.shadow"_s));
+	$var($Color, var$2, $UIManager::getColor("TabbedPane.darkShadow"_s));
+	$BasicArrowButton::init$(direction, var$0, var$1, var$2, $($UIManager::getColor("TabbedPane.highlight"_s)));
 }
 
 BasicTabbedPaneUI$ScrollableTabButton::BasicTabbedPaneUI$ScrollableTabButton() {
 }
 
 $Class* BasicTabbedPaneUI$ScrollableTabButton::load$($String* name, bool initialize) {
-	$loadClass(BasicTabbedPaneUI$ScrollableTabButton, name, initialize, &_BasicTabbedPaneUI$ScrollableTabButton_ClassInfo_, allocate$BasicTabbedPaneUI$ScrollableTabButton);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicTabbedPaneUI$ScrollableTabButton, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicTabbedPaneUI;I)V", nullptr, $PUBLIC, $method(BasicTabbedPaneUI$ScrollableTabButton, init$, void, $BasicTabbedPaneUI*, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTabbedPaneUI$ScrollableTabButton", "javax.swing.plaf.basic.BasicTabbedPaneUI", "ScrollableTabButton", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTabbedPaneUI$ScrollableTabButton",
+		"javax.swing.plaf.basic.BasicArrowButton",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTabbedPaneUI"
+	};
+	$loadClass(BasicTabbedPaneUI$ScrollableTabButton, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicTabbedPaneUI$ScrollableTabButton));
+	});
 	return class$;
 }
 

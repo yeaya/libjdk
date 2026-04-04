@@ -55,6 +55,7 @@ class $import SSLTube$SSLSubscriberWrapper : public ::jdk::internal::net::http::
 	$class(SSLTube$SSLSubscriberWrapper, 0, ::jdk::internal::net::http::common::FlowTube$TubeSubscriber)
 public:
 	SSLTube$SSLSubscriberWrapper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::common::SSLTube* this$0);
 	void complete(::jdk::internal::net::http::common::SSLTube$DelegateWrapper* subscriberImpl, $Throwable* t);
 	virtual void dropSubscription() override;

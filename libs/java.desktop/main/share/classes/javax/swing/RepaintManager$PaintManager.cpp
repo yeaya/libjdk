@@ -1,8 +1,6 @@
 #include <javax/swing/RepaintManager$PaintManager.h>
-
 #include <java/awt/AlphaComposite.h>
 #include <java/awt/Color.h>
-#include <java/awt/Component.h>
 #include <java/awt/Composite.h>
 #include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
@@ -29,7 +27,6 @@
 
 using $AlphaComposite = ::java::awt::AlphaComposite;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Composite = ::java::awt::Composite;
 using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
@@ -56,71 +53,19 @@ using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _RepaintManager$PaintManager_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(RepaintManager$PaintManager, $assertionsDisabled)},
-	{"repaintManager", "Ljavax/swing/RepaintManager;", nullptr, $PROTECTED, $field(RepaintManager$PaintManager, repaintManager)},
-	{"isRepaintingRoot", "Z", nullptr, 0, $field(RepaintManager$PaintManager, isRepaintingRoot$)},
-	{}
-};
-
-$MethodInfo _RepaintManager$PaintManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(RepaintManager$PaintManager, init$, void)},
-	{"beginPaint", "()V", nullptr, $PUBLIC, $virtualMethod(RepaintManager$PaintManager, beginPaint, void)},
-	{"copyArea", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;IIIIIIZ)V", nullptr, $PUBLIC, $virtualMethod(RepaintManager$PaintManager, copyArea, void, $JComponent*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"dispose", "()V", nullptr, $PROTECTED, $virtualMethod(RepaintManager$PaintManager, dispose, void)},
-	{"doubleBufferingChanged", "(Ljavax/swing/JRootPane;)V", nullptr, $PUBLIC, $virtualMethod(RepaintManager$PaintManager, doubleBufferingChanged, void, $JRootPane*)},
-	{"endPaint", "()V", nullptr, $PUBLIC, $virtualMethod(RepaintManager$PaintManager, endPaint, void)},
-	{"getTransform", "(Ljava/awt/Graphics;)Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE | $STATIC, $staticMethod(RepaintManager$PaintManager, getTransform, $AffineTransform*, $Graphics*)},
-	{"getValidImage", "(Ljava/awt/Image;)Ljava/awt/Image;", nullptr, $PRIVATE, $method(RepaintManager$PaintManager, getValidImage, $Image*, $Image*)},
-	{"isPixelsCopying", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;)Z", nullptr, $PRIVATE, $method(RepaintManager$PaintManager, isPixelsCopying, bool, $JComponent*, $Graphics*)},
-	{"isRepaintingRoot", "()Z", nullptr, $PROTECTED, $virtualMethod(RepaintManager$PaintManager, isRepaintingRoot, bool)},
-	{"paint", "(Ljavax/swing/JComponent;Ljavax/swing/JComponent;Ljava/awt/Graphics;IIII)Z", nullptr, $PUBLIC, $virtualMethod(RepaintManager$PaintManager, paint, bool, $JComponent*, $JComponent*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintDoubleBuffered", "(Ljavax/swing/JComponent;Ljava/awt/Image;Ljava/awt/Graphics;IIII)V", nullptr, $PROTECTED, $virtualMethod(RepaintManager$PaintManager, paintDoubleBuffered, void, $JComponent*, $Image*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintDoubleBufferedFPScales", "(Ljavax/swing/JComponent;Ljava/awt/Image;Ljava/awt/Graphics;IIII)V", nullptr, $PRIVATE, $method(RepaintManager$PaintManager, paintDoubleBufferedFPScales, void, $JComponent*, $Image*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintDoubleBufferedImpl", "(Ljavax/swing/JComponent;Ljava/awt/Image;Ljava/awt/Graphics;IIII)V", nullptr, $PRIVATE, $method(RepaintManager$PaintManager, paintDoubleBufferedImpl, void, $JComponent*, $Image*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"repaintRoot", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(RepaintManager$PaintManager, repaintRoot, void, $JComponent*)},
-	{"show", "(Ljava/awt/Container;IIII)Z", nullptr, $PUBLIC, $virtualMethod(RepaintManager$PaintManager, show, bool, $Container*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _RepaintManager$PaintManager_InnerClassesInfo_[] = {
-	{"javax.swing.RepaintManager$PaintManager", "javax.swing.RepaintManager", "PaintManager", $STATIC},
-	{}
-};
-
-$ClassInfo _RepaintManager$PaintManager_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.RepaintManager$PaintManager",
-	"java.lang.Object",
-	nullptr,
-	_RepaintManager$PaintManager_FieldInfo_,
-	_RepaintManager$PaintManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RepaintManager$PaintManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.RepaintManager"
-};
-
-$Object* allocate$RepaintManager$PaintManager($Class* clazz) {
-	return $of($alloc(RepaintManager$PaintManager));
-}
-
 bool RepaintManager$PaintManager::$assertionsDisabled = false;
 
 void RepaintManager$PaintManager::init$() {
 }
 
 bool RepaintManager$PaintManager::paint($JComponent* paintingComponent, $JComponent* bufferComponent, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool paintCompleted = false;
 	$var($Image, offscreen, nullptr);
 	int32_t sw = w + 1;
 	int32_t sh = h + 1;
 	bool var$0 = $nc(this->repaintManager)->useVolatileDoubleBuffer();
-	if (var$0 && ($assign(offscreen, getValidImage($($nc(this->repaintManager)->getVolatileOffscreenBuffer(bufferComponent, sw, sh))))) != nullptr) {
+	if (var$0 && ($assign(offscreen, getValidImage($(this->repaintManager->getVolatileOffscreenBuffer(bufferComponent, sw, sh))))) != nullptr) {
 		$var($VolatileImage, vImage, $cast($VolatileImage, offscreen));
 		$var($GraphicsConfiguration, gc, $nc(bufferComponent)->getGraphicsConfiguration());
 		for (int32_t i = 0; !paintCompleted && i < $RepaintManager::VOLATILE_LOOP_MAX; ++i) {
@@ -166,7 +111,7 @@ void RepaintManager$PaintManager::paintDoubleBuffered($JComponent* c, $Image* im
 }
 
 void RepaintManager$PaintManager::paintDoubleBufferedImpl($JComponent* c, $Image* image, $Graphics* g, int32_t clipX, int32_t clipY, int32_t clipW, int32_t clipH) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Graphics, osg, $nc(image)->getGraphics());
 	int32_t bw = $Math::min(clipW, image->getWidth(nullptr));
 	int32_t bh = $Math::min(clipH, image->getHeight(nullptr));
@@ -174,49 +119,47 @@ void RepaintManager$PaintManager::paintDoubleBufferedImpl($JComponent* c, $Image
 	int32_t y = 0;
 	int32_t maxx = 0;
 	int32_t maxy = 0;
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			for (x = clipX, maxx = clipX + clipW; x < maxx; x += bw) {
-				for (y = clipY, maxy = clipY + clipH; y < maxy; y += bh) {
-					$nc(osg)->translate(-x, -y);
-					osg->setClip(x, y, bw, bh);
-					$init($RepaintManager);
-					if ($RepaintManager::volatileBufferType != $Transparency::OPAQUE && $instanceOf($Graphics2D, osg)) {
-						$var($Graphics2D, g2d, $cast($Graphics2D, osg));
-						$var($Color, oldBg, g2d->getBackground());
-						g2d->setBackground($($nc(c)->getBackground()));
-						g2d->clearRect(x, y, bw, bh);
-						g2d->setBackground(oldBg);
-					}
-					$nc(c)->paintToOffscreen(osg, x, y, bw, bh, maxx, maxy);
-					$nc(g)->setClip(x, y, bw, bh);
-					if ($RepaintManager::volatileBufferType != $Transparency::OPAQUE && $instanceOf($Graphics2D, g)) {
-						$var($Graphics2D, g2d, $cast($Graphics2D, g));
-						$var($Composite, oldComposite, g2d->getComposite());
-						$init($AlphaComposite);
-						g2d->setComposite($AlphaComposite::Src);
-						g2d->drawImage(image, x, y, c);
-						g2d->setComposite(oldComposite);
-					} else {
-						g->drawImage(image, x, y, c);
-					}
-					osg->translate(x, y);
+	$var($Throwable, var$0, nullptr);
+	try {
+		for (x = clipX, maxx = clipX + clipW; x < maxx; x += bw) {
+			for (y = clipY, maxy = clipY + clipH; y < maxy; y += bh) {
+				$nc(osg)->translate(-x, -y);
+				osg->setClip(x, y, bw, bh);
+				$init($RepaintManager);
+				if ($RepaintManager::volatileBufferType != $Transparency::OPAQUE && $instanceOf($Graphics2D, osg)) {
+					$var($Graphics2D, g2d, $cast($Graphics2D, osg));
+					$var($Color, oldBg, g2d->getBackground());
+					g2d->setBackground($($nc(c)->getBackground()));
+					g2d->clearRect(x, y, bw, bh);
+					g2d->setBackground(oldBg);
 				}
+				$nc(c)->paintToOffscreen(osg, x, y, bw, bh, maxx, maxy);
+				$nc(g)->setClip(x, y, bw, bh);
+				if ($RepaintManager::volatileBufferType != $Transparency::OPAQUE && $instanceOf($Graphics2D, g)) {
+					$var($Graphics2D, g2d, $cast($Graphics2D, g));
+					$var($Composite, oldComposite, g2d->getComposite());
+					$init($AlphaComposite);
+					g2d->setComposite($AlphaComposite::Src);
+					g2d->drawImage(image, x, y, c);
+					g2d->setComposite(oldComposite);
+				} else {
+					g->drawImage(image, x, y, c);
+				}
+				osg->translate(x, y);
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(osg)->dispose();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(osg)->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void RepaintManager$PaintManager::paintDoubleBufferedFPScales($JComponent* c, $Image* image, $Graphics* g, int32_t clipX, int32_t clipY, int32_t clipW, int32_t clipH) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Graphics, osg, $nc(image)->getGraphics());
 	$var($Graphics2D, g2d, $cast($Graphics2D, g));
 	$var($Graphics2D, osg2d, $cast($Graphics2D, osg));
@@ -235,53 +178,51 @@ void RepaintManager$PaintManager::paintDoubleBufferedFPScales($JComponent* c, $I
 	$init($RepaintManager);
 	bool translucent = $RepaintManager::volatileBufferType != $Transparency::OPAQUE;
 	$var($Composite, oldComposite, g2d->getComposite());
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			for (x = clipX, maxx = clipX + clipW; x < maxx; x += bw) {
-				for (y = clipY, maxy = clipY + clipH; y < maxy; y += bh) {
-					int32_t pixelx1 = $Region::clipRound(x * scaleX + trX);
-					int32_t pixely1 = $Region::clipRound(y * scaleY + trY);
-					int32_t pixelx2 = $Region::clipRound((x + bw) * scaleX + trX);
-					int32_t pixely2 = $Region::clipRound((y + bh) * scaleY + trY);
-					int32_t pixelw = pixelx2 - pixelx1;
-					int32_t pixelh = pixely2 - pixely1;
-					$nc(osg2d)->setTransform(identity);
-					if (translucent) {
-						$var($Color, oldBg, g2d->getBackground());
-						g2d->setBackground($($nc(c)->getBackground()));
-						g2d->clearRect(pixelx1, pixely1, pixelw, pixelh);
-						g2d->setBackground(oldBg);
-					}
-					osg2d->setClip(0, 0, pixelw, pixelh);
-					osg2d->translate(trX - pixelx1, trY - pixely1);
-					osg2d->scale(scaleX, scaleY);
-					$nc(c)->paintToOffscreen(osg, x, y, bw, bh, maxx, maxy);
-					g2d->setTransform(identity);
-					g2d->setClip(pixelx1, pixely1, pixelw, pixelh);
-					$var($AffineTransform, stx, $new($AffineTransform));
-					stx->translate((double)pixelx1, (double)pixely1);
-					stx->scale(scaleX, scaleY);
-					g2d->setTransform(stx);
-					if (translucent) {
-						$init($AlphaComposite);
-						g2d->setComposite($AlphaComposite::Src);
-					}
-					g2d->drawImage(image, 0, 0, c);
-					if (translucent) {
-						g2d->setComposite(oldComposite);
-					}
-					g2d->setTransform(tx);
+	$var($Throwable, var$0, nullptr);
+	try {
+		for (x = clipX, maxx = clipX + clipW; x < maxx; x += bw) {
+			for (y = clipY, maxy = clipY + clipH; y < maxy; y += bh) {
+				int32_t pixelx1 = $Region::clipRound(x * scaleX + trX);
+				int32_t pixely1 = $Region::clipRound(y * scaleY + trY);
+				int32_t pixelx2 = $Region::clipRound((x + bw) * scaleX + trX);
+				int32_t pixely2 = $Region::clipRound((y + bh) * scaleY + trY);
+				int32_t pixelw = pixelx2 - pixelx1;
+				int32_t pixelh = pixely2 - pixely1;
+				$nc(osg2d)->setTransform(identity);
+				if (translucent) {
+					$var($Color, oldBg, g2d->getBackground());
+					g2d->setBackground($($nc(c)->getBackground()));
+					g2d->clearRect(pixelx1, pixely1, pixelw, pixelh);
+					g2d->setBackground(oldBg);
 				}
+				osg2d->setClip(0, 0, pixelw, pixelh);
+				osg2d->translate(trX - pixelx1, trY - pixely1);
+				osg2d->scale(scaleX, scaleY);
+				$nc(c)->paintToOffscreen(osg, x, y, bw, bh, maxx, maxy);
+				g2d->setTransform(identity);
+				g2d->setClip(pixelx1, pixely1, pixelw, pixelh);
+				$var($AffineTransform, stx, $new($AffineTransform));
+				stx->translate((double)pixelx1, (double)pixely1);
+				stx->scale(scaleX, scaleY);
+				g2d->setTransform(stx);
+				if (translucent) {
+					$init($AlphaComposite);
+					g2d->setComposite($AlphaComposite::Src);
+				}
+				g2d->drawImage(image, 0, 0, c);
+				if (translucent) {
+					g2d->setComposite(oldComposite);
+				}
+				g2d->setTransform(tx);
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(osg)->dispose();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(osg)->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -298,7 +239,7 @@ void RepaintManager$PaintManager::repaintRoot($JComponent* root) {
 		$throwNew($AssertionError);
 	}
 	if ($nc(this->repaintManager)->painting) {
-		$set($nc(this->repaintManager), repaintRoot, root);
+		$set(this->repaintManager, repaintRoot, root);
 	} else {
 		$nc(root)->repaint();
 	}
@@ -312,7 +253,7 @@ void RepaintManager$PaintManager::dispose() {
 }
 
 bool RepaintManager$PaintManager::isPixelsCopying($JComponent* c, $Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AffineTransform, tx, getTransform(g));
 	$var($GraphicsConfiguration, gc, $nc(c)->getGraphicsConfiguration());
 	if (tx == nullptr || gc == nullptr || !$SwingUtilities2::isFloatingPointScale(tx)) {
@@ -331,14 +272,14 @@ bool RepaintManager$PaintManager::isPixelsCopying($JComponent* c, $Graphics* g) 
 $AffineTransform* RepaintManager$PaintManager::getTransform($Graphics* g) {
 	$init(RepaintManager$PaintManager);
 	if ($instanceOf($SunGraphics2D, g)) {
-		return $nc(($cast($SunGraphics2D, g)))->transform$;
+		return $cast($SunGraphics2D, g)->transform$;
 	} else if ($instanceOf($Graphics2D, g)) {
-		return $nc(($cast($Graphics2D, g)))->getTransform();
+		return $cast($Graphics2D, g)->getTransform();
 	}
 	return nullptr;
 }
 
-void clinit$RepaintManager$PaintManager($Class* class$) {
+void RepaintManager$PaintManager::clinit$($Class* clazz) {
 	$load($RepaintManager);
 	RepaintManager$PaintManager::$assertionsDisabled = !$RepaintManager::class$->desiredAssertionStatus();
 }
@@ -347,7 +288,53 @@ RepaintManager$PaintManager::RepaintManager$PaintManager() {
 }
 
 $Class* RepaintManager$PaintManager::load$($String* name, bool initialize) {
-	$loadClass(RepaintManager$PaintManager, name, initialize, &_RepaintManager$PaintManager_ClassInfo_, clinit$RepaintManager$PaintManager, allocate$RepaintManager$PaintManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(RepaintManager$PaintManager, $assertionsDisabled)},
+		{"repaintManager", "Ljavax/swing/RepaintManager;", nullptr, $PROTECTED, $field(RepaintManager$PaintManager, repaintManager)},
+		{"isRepaintingRoot", "Z", nullptr, 0, $field(RepaintManager$PaintManager, isRepaintingRoot$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(RepaintManager$PaintManager, init$, void)},
+		{"beginPaint", "()V", nullptr, $PUBLIC, $virtualMethod(RepaintManager$PaintManager, beginPaint, void)},
+		{"copyArea", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;IIIIIIZ)V", nullptr, $PUBLIC, $virtualMethod(RepaintManager$PaintManager, copyArea, void, $JComponent*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"dispose", "()V", nullptr, $PROTECTED, $virtualMethod(RepaintManager$PaintManager, dispose, void)},
+		{"doubleBufferingChanged", "(Ljavax/swing/JRootPane;)V", nullptr, $PUBLIC, $virtualMethod(RepaintManager$PaintManager, doubleBufferingChanged, void, $JRootPane*)},
+		{"endPaint", "()V", nullptr, $PUBLIC, $virtualMethod(RepaintManager$PaintManager, endPaint, void)},
+		{"getTransform", "(Ljava/awt/Graphics;)Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE | $STATIC, $staticMethod(RepaintManager$PaintManager, getTransform, $AffineTransform*, $Graphics*)},
+		{"getValidImage", "(Ljava/awt/Image;)Ljava/awt/Image;", nullptr, $PRIVATE, $method(RepaintManager$PaintManager, getValidImage, $Image*, $Image*)},
+		{"isPixelsCopying", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;)Z", nullptr, $PRIVATE, $method(RepaintManager$PaintManager, isPixelsCopying, bool, $JComponent*, $Graphics*)},
+		{"isRepaintingRoot", "()Z", nullptr, $PROTECTED, $virtualMethod(RepaintManager$PaintManager, isRepaintingRoot, bool)},
+		{"paint", "(Ljavax/swing/JComponent;Ljavax/swing/JComponent;Ljava/awt/Graphics;IIII)Z", nullptr, $PUBLIC, $virtualMethod(RepaintManager$PaintManager, paint, bool, $JComponent*, $JComponent*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintDoubleBuffered", "(Ljavax/swing/JComponent;Ljava/awt/Image;Ljava/awt/Graphics;IIII)V", nullptr, $PROTECTED, $virtualMethod(RepaintManager$PaintManager, paintDoubleBuffered, void, $JComponent*, $Image*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintDoubleBufferedFPScales", "(Ljavax/swing/JComponent;Ljava/awt/Image;Ljava/awt/Graphics;IIII)V", nullptr, $PRIVATE, $method(RepaintManager$PaintManager, paintDoubleBufferedFPScales, void, $JComponent*, $Image*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintDoubleBufferedImpl", "(Ljavax/swing/JComponent;Ljava/awt/Image;Ljava/awt/Graphics;IIII)V", nullptr, $PRIVATE, $method(RepaintManager$PaintManager, paintDoubleBufferedImpl, void, $JComponent*, $Image*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"repaintRoot", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(RepaintManager$PaintManager, repaintRoot, void, $JComponent*)},
+		{"show", "(Ljava/awt/Container;IIII)Z", nullptr, $PUBLIC, $virtualMethod(RepaintManager$PaintManager, show, bool, $Container*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.RepaintManager$PaintManager", "javax.swing.RepaintManager", "PaintManager", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.RepaintManager$PaintManager",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.RepaintManager"
+	};
+	$loadClass(RepaintManager$PaintManager, name, initialize, &classInfo$$, RepaintManager$PaintManager::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RepaintManager$PaintManager);
+	});
 	return class$;
 }
 

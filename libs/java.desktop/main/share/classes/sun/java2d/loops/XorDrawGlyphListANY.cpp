@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/XorDrawGlyphListANY.h>
-
 #include <sun/font/GlyphList.h>
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
@@ -26,25 +25,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$MethodInfo _XorDrawGlyphListANY_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(XorDrawGlyphListANY, init$, void)},
-	{"DrawGlyphList", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Lsun/font/GlyphList;II)V", nullptr, $PUBLIC, $virtualMethod(XorDrawGlyphListANY, DrawGlyphList$, void, $SunGraphics2D*, $SurfaceData*, $GlyphList*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _XorDrawGlyphListANY_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.XorDrawGlyphListANY",
-	"sun.java2d.loops.DrawGlyphList",
-	nullptr,
-	nullptr,
-	_XorDrawGlyphListANY_MethodInfo_
-};
-
-$Object* allocate$XorDrawGlyphListANY($Class* clazz) {
-	return $of($alloc(XorDrawGlyphListANY));
-}
-
 void XorDrawGlyphListANY::init$() {
 	$init($SurfaceType);
 	$init($CompositeType);
@@ -52,7 +32,7 @@ void XorDrawGlyphListANY::init$() {
 }
 
 void XorDrawGlyphListANY::DrawGlyphList$($SunGraphics2D* sg2d, $SurfaceData* sData, $GlyphList* gl, int32_t fromGlyph, int32_t toGlyph) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PixelWriter, pw, $GeneralRenderer::createXorPixelWriter(sg2d, sData));
 	$GeneralRenderer::doDrawGlyphList(sData, pw, gl, fromGlyph, toGlyph, $($nc(sg2d)->getCompClip()));
 }
@@ -61,7 +41,22 @@ XorDrawGlyphListANY::XorDrawGlyphListANY() {
 }
 
 $Class* XorDrawGlyphListANY::load$($String* name, bool initialize) {
-	$loadClass(XorDrawGlyphListANY, name, initialize, &_XorDrawGlyphListANY_ClassInfo_, allocate$XorDrawGlyphListANY);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(XorDrawGlyphListANY, init$, void)},
+		{"DrawGlyphList", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Lsun/font/GlyphList;II)V", nullptr, $PUBLIC, $virtualMethod(XorDrawGlyphListANY, DrawGlyphList$, void, $SunGraphics2D*, $SurfaceData*, $GlyphList*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.XorDrawGlyphListANY",
+		"sun.java2d.loops.DrawGlyphList",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XorDrawGlyphListANY, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XorDrawGlyphListANY);
+	});
 	return class$;
 }
 

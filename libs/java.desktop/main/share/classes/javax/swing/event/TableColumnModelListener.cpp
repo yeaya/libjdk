@@ -1,5 +1,4 @@
 #include <javax/swing/event/TableColumnModelListener.h>
-
 #include <javax/swing/event/ChangeEvent.h>
 #include <javax/swing/event/ListSelectionEvent.h>
 #include <javax/swing/event/TableColumnModelEvent.h>
@@ -15,30 +14,26 @@ namespace javax {
 	namespace swing {
 		namespace event {
 
-$MethodInfo _TableColumnModelListener_MethodInfo_[] = {
-	{"columnAdded", "(Ljavax/swing/event/TableColumnModelEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TableColumnModelListener, columnAdded, void, $TableColumnModelEvent*)},
-	{"columnMarginChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TableColumnModelListener, columnMarginChanged, void, $ChangeEvent*)},
-	{"columnMoved", "(Ljavax/swing/event/TableColumnModelEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TableColumnModelListener, columnMoved, void, $TableColumnModelEvent*)},
-	{"columnRemoved", "(Ljavax/swing/event/TableColumnModelEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TableColumnModelListener, columnRemoved, void, $TableColumnModelEvent*)},
-	{"columnSelectionChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TableColumnModelListener, columnSelectionChanged, void, $ListSelectionEvent*)},
-	{}
-};
-
-$ClassInfo _TableColumnModelListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.event.TableColumnModelListener",
-	nullptr,
-	"java.util.EventListener",
-	nullptr,
-	_TableColumnModelListener_MethodInfo_
-};
-
-$Object* allocate$TableColumnModelListener($Class* clazz) {
-	return $of($alloc(TableColumnModelListener));
-}
-
 $Class* TableColumnModelListener::load$($String* name, bool initialize) {
-	$loadClass(TableColumnModelListener, name, initialize, &_TableColumnModelListener_ClassInfo_, allocate$TableColumnModelListener);
+	$MethodInfo methodInfos$$[] = {
+		{"columnAdded", "(Ljavax/swing/event/TableColumnModelEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TableColumnModelListener, columnAdded, void, $TableColumnModelEvent*)},
+		{"columnMarginChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TableColumnModelListener, columnMarginChanged, void, $ChangeEvent*)},
+		{"columnMoved", "(Ljavax/swing/event/TableColumnModelEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TableColumnModelListener, columnMoved, void, $TableColumnModelEvent*)},
+		{"columnRemoved", "(Ljavax/swing/event/TableColumnModelEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TableColumnModelListener, columnRemoved, void, $TableColumnModelEvent*)},
+		{"columnSelectionChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TableColumnModelListener, columnSelectionChanged, void, $ListSelectionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.event.TableColumnModelListener",
+		nullptr,
+		"java.util.EventListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TableColumnModelListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TableColumnModelListener);
+	});
 	return class$;
 }
 

@@ -1,14 +1,9 @@
 #include <sun/print/ServiceDialog$CopiesPanel.h>
-
-#include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/GridBagConstraints.h>
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ActionListener.h>
-#include <java/lang/Comparable.h>
 #include <java/lang/Number.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/print/DocFlavor.h>
@@ -36,7 +31,6 @@
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/TitledBorder.h>
 #include <javax/swing/event/ChangeEvent.h>
-#include <javax/swing/event/ChangeListener.h>
 #include <sun/print/ServiceDialog.h>
 #include <jcpp.h>
 
@@ -48,98 +42,33 @@
 #undef UNCOLLATED
 
 using $intArray2 = $Array<int32_t, 2>;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Comparable = ::java::lang::Comparable;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Number = ::java::lang::Number;
-using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $DocFlavor = ::javax::print::DocFlavor;
-using $PrintService = ::javax::print::PrintService;
-using $Attribute = ::javax::print::attribute::Attribute;
 using $AttributeSet = ::javax::print::attribute::AttributeSet;
 using $DocAttribute = ::javax::print::attribute::DocAttribute;
 using $HashAttributeSet = ::javax::print::attribute::HashAttributeSet;
-using $HashPrintRequestAttributeSet = ::javax::print::attribute::HashPrintRequestAttributeSet;
 using $PrintRequestAttribute = ::javax::print::attribute::PrintRequestAttribute;
 using $Copies = ::javax::print::attribute::standard::Copies;
 using $CopiesSupported = ::javax::print::attribute::standard::CopiesSupported;
 using $SheetCollate = ::javax::print::attribute::standard::SheetCollate;
 using $BorderFactory = ::javax::swing::BorderFactory;
-using $JCheckBox = ::javax::swing::JCheckBox;
-using $JFormattedTextField = ::javax::swing::JFormattedTextField;
 using $JLabel = ::javax::swing::JLabel;
 using $JPanel = ::javax::swing::JPanel;
 using $JSpinner = ::javax::swing::JSpinner;
 using $JSpinner$NumberEditor = ::javax::swing::JSpinner$NumberEditor;
-using $SpinnerModel = ::javax::swing::SpinnerModel;
 using $SpinnerNumberModel = ::javax::swing::SpinnerNumberModel;
-using $Border = ::javax::swing::border::Border;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
-using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $ServiceDialog = ::sun::print::ServiceDialog;
 
 namespace sun {
 	namespace print {
-
-$FieldInfo _ServiceDialog$CopiesPanel_FieldInfo_[] = {
-	{"this$0", "Lsun/print/ServiceDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$CopiesPanel, this$0)},
-	{"strTitle", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ServiceDialog$CopiesPanel, strTitle)},
-	{"snModel", "Ljavax/swing/SpinnerNumberModel;", nullptr, $PRIVATE, $field(ServiceDialog$CopiesPanel, snModel)},
-	{"spinCopies", "Ljavax/swing/JSpinner;", nullptr, $PRIVATE, $field(ServiceDialog$CopiesPanel, spinCopies)},
-	{"lblCopies", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$CopiesPanel, lblCopies)},
-	{"cbCollate", "Ljavax/swing/JCheckBox;", nullptr, $PRIVATE, $field(ServiceDialog$CopiesPanel, cbCollate)},
-	{"scSupported", "Z", nullptr, $PRIVATE, $field(ServiceDialog$CopiesPanel, scSupported)},
-	{}
-};
-
-$MethodInfo _ServiceDialog$CopiesPanel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/print/ServiceDialog;)V", nullptr, $PUBLIC, $method(ServiceDialog$CopiesPanel, init$, void, $ServiceDialog*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$CopiesPanel, actionPerformed, void, $ActionEvent*)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$CopiesPanel, stateChanged, void, $ChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateCollateCB", "()V", nullptr, $PRIVATE, $method(ServiceDialog$CopiesPanel, updateCollateCB, void)},
-	{"updateInfo", "()V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$CopiesPanel, updateInfo, void)},
-	{}
-};
-
-$InnerClassInfo _ServiceDialog$CopiesPanel_InnerClassesInfo_[] = {
-	{"sun.print.ServiceDialog$CopiesPanel", "sun.print.ServiceDialog", "CopiesPanel", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ServiceDialog$CopiesPanel_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.print.ServiceDialog$CopiesPanel",
-	"javax.swing.JPanel",
-	"java.awt.event.ActionListener,javax.swing.event.ChangeListener",
-	_ServiceDialog$CopiesPanel_FieldInfo_,
-	_ServiceDialog$CopiesPanel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServiceDialog$CopiesPanel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.print.ServiceDialog"
-};
-
-$Object* allocate$ServiceDialog$CopiesPanel($Class* clazz) {
-	return $of($alloc(ServiceDialog$CopiesPanel));
-}
 
 $String* ServiceDialog$CopiesPanel::toString() {
 	 return this->$JPanel::toString();
@@ -162,7 +91,7 @@ void ServiceDialog$CopiesPanel::finalize() {
 }
 
 void ServiceDialog$CopiesPanel::init$($ServiceDialog* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$JPanel::init$();
 	$set(this, strTitle, $ServiceDialog::getMsg("border.copies"_s));
@@ -174,12 +103,12 @@ void ServiceDialog$CopiesPanel::init$($ServiceDialog* this$0) {
 	$set(c, insets, $ServiceDialog::compInsets);
 	$set(this, lblCopies, $new($JLabel, $($ServiceDialog::getMsg("label.numcopies"_s)), $JLabel::TRAILING));
 	$nc(this->lblCopies)->setDisplayedMnemonic($ServiceDialog::getMnemonic("label.numcopies"_s));
-	$nc($($nc(this->lblCopies)->getAccessibleContext()))->setAccessibleName($($ServiceDialog::getMsg("label.numcopies"_s)));
+	$$nc($nc(this->lblCopies)->getAccessibleContext())->setAccessibleName($($ServiceDialog::getMsg("label.numcopies"_s)));
 	$ServiceDialog::addToGB(this->lblCopies, this, gridbag, c);
 	$set(this, snModel, $new($SpinnerNumberModel, 1, 1, 999, 1));
 	$set(this, spinCopies, $new($JSpinner, this->snModel));
 	$nc(this->lblCopies)->setLabelFor(this->spinCopies);
-	$nc($($nc(($cast($JSpinner$NumberEditor, $($nc(this->spinCopies)->getEditor()))))->getTextField()))->setColumns(3);
+	$$nc($$sure($JSpinner$NumberEditor, $nc(this->spinCopies)->getEditor())->getTextField())->setColumns(3);
 	$nc(this->spinCopies)->addChangeListener(this);
 	c->gridwidth = $GridBagConstraints::REMAINDER;
 	$ServiceDialog::addToGB(this->spinCopies, this, gridbag, c);
@@ -191,21 +120,21 @@ void ServiceDialog$CopiesPanel::init$($ServiceDialog* this$0) {
 void ServiceDialog$CopiesPanel::actionPerformed($ActionEvent* e) {
 	if ($nc(this->cbCollate)->isSelected()) {
 		$init($SheetCollate);
-		$nc(this->this$0->asCurrent)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>($SheetCollate::COLLATED)));
+		$nc(this->this$0->asCurrent)->add($cast($DocAttribute, $SheetCollate::COLLATED));
 	} else {
 		$init($SheetCollate);
-		$nc(this->this$0->asCurrent)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>($SheetCollate::UNCOLLATED)));
+		$nc(this->this$0->asCurrent)->add($cast($DocAttribute, $SheetCollate::UNCOLLATED));
 	}
 }
 
 void ServiceDialog$CopiesPanel::stateChanged($ChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	updateCollateCB();
-	$nc(this->this$0->asCurrent)->add(static_cast<$Attribute*>(static_cast<$PrintRequestAttribute*>($$new($Copies, $nc($($nc(this->snModel)->getNumber()))->intValue()))));
+	$nc(this->this$0->asCurrent)->add($$cast($PrintRequestAttribute, $new($Copies, $$nc($nc(this->snModel)->getNumber())->intValue())));
 }
 
 void ServiceDialog$CopiesPanel::updateCollateCB() {
-	int32_t num = $nc($($nc(this->snModel)->getNumber()))->intValue();
+	int32_t num = $$nc($nc(this->snModel)->getNumber())->intValue();
 	if (this->this$0->isAWT) {
 		$nc(this->cbCollate)->setEnabled(true);
 	} else {
@@ -214,7 +143,7 @@ void ServiceDialog$CopiesPanel::updateCollateCB() {
 }
 
 void ServiceDialog$CopiesPanel::updateInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($Copies);
 	$Class* cpCategory = $Copies::class$;
 	$load($SheetCollate);
@@ -264,10 +193,10 @@ void ServiceDialog$CopiesPanel::updateInfo() {
 			$init($SheetCollate);
 			$assign(sc, $SheetCollate::UNCOLLATED);
 		}
-		if (sc != nullptr && !$nc(this->this$0->psCurrent)->isAttributeValueSupported(static_cast<$Attribute*>(static_cast<$DocAttribute*>(sc)), this->this$0->docFlavor, static_cast<$AttributeSet*>(static_cast<$HashAttributeSet*>(this->this$0->asCurrent)))) {
+		if (sc != nullptr && !$nc(this->this$0->psCurrent)->isAttributeValueSupported($cast($DocAttribute, sc), this->this$0->docFlavor, $cast($HashAttributeSet, this->this$0->asCurrent))) {
 			this->scSupported = false;
 		}
-	} else if (!$nc(this->this$0->psCurrent)->isAttributeValueSupported(static_cast<$Attribute*>(static_cast<$DocAttribute*>(sc)), this->this$0->docFlavor, static_cast<$AttributeSet*>(static_cast<$HashAttributeSet*>(this->this$0->asCurrent)))) {
+	} else if (!$nc(this->this$0->psCurrent)->isAttributeValueSupported($cast($DocAttribute, sc), this->this$0->docFlavor, $cast($HashAttributeSet, this->this$0->asCurrent))) {
 		this->scSupported = false;
 	}
 	$init($SheetCollate);
@@ -279,7 +208,51 @@ ServiceDialog$CopiesPanel::ServiceDialog$CopiesPanel() {
 }
 
 $Class* ServiceDialog$CopiesPanel::load$($String* name, bool initialize) {
-	$loadClass(ServiceDialog$CopiesPanel, name, initialize, &_ServiceDialog$CopiesPanel_ClassInfo_, allocate$ServiceDialog$CopiesPanel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/print/ServiceDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$CopiesPanel, this$0)},
+		{"strTitle", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ServiceDialog$CopiesPanel, strTitle)},
+		{"snModel", "Ljavax/swing/SpinnerNumberModel;", nullptr, $PRIVATE, $field(ServiceDialog$CopiesPanel, snModel)},
+		{"spinCopies", "Ljavax/swing/JSpinner;", nullptr, $PRIVATE, $field(ServiceDialog$CopiesPanel, spinCopies)},
+		{"lblCopies", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$CopiesPanel, lblCopies)},
+		{"cbCollate", "Ljavax/swing/JCheckBox;", nullptr, $PRIVATE, $field(ServiceDialog$CopiesPanel, cbCollate)},
+		{"scSupported", "Z", nullptr, $PRIVATE, $field(ServiceDialog$CopiesPanel, scSupported)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/print/ServiceDialog;)V", nullptr, $PUBLIC, $method(ServiceDialog$CopiesPanel, init$, void, $ServiceDialog*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$CopiesPanel, actionPerformed, void, $ActionEvent*)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$CopiesPanel, stateChanged, void, $ChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateCollateCB", "()V", nullptr, $PRIVATE, $method(ServiceDialog$CopiesPanel, updateCollateCB, void)},
+		{"updateInfo", "()V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$CopiesPanel, updateInfo, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.ServiceDialog$CopiesPanel", "sun.print.ServiceDialog", "CopiesPanel", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.print.ServiceDialog$CopiesPanel",
+		"javax.swing.JPanel",
+		"java.awt.event.ActionListener,javax.swing.event.ChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.print.ServiceDialog"
+	};
+	$loadClass(ServiceDialog$CopiesPanel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ServiceDialog$CopiesPanel));
+	});
 	return class$;
 }
 

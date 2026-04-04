@@ -234,6 +234,7 @@ class ValidatorHandlerImpl : public ::javax::xml::validation::ValidatorHandler, 
 	$class(ValidatorHandlerImpl, 0, ::javax::xml::validation::ValidatorHandler, ::org::xml::sax::DTDHandler, ::com::sun::org::apache::xerces::internal::impl::validation::EntityState, ::com::sun::org::apache::xerces::internal::xs::PSVIProvider, ::com::sun::org::apache::xerces::internal::jaxp::validation::ValidatorHelper, ::com::sun::org::apache::xerces::internal::xni::XMLDocumentHandler)
 public:
 	ValidatorHandlerImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

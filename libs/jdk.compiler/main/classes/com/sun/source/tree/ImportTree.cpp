@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/ImportTree.h>
-
 #include <com/sun/source/tree/Tree.h>
 #include <jcpp.h>
 
@@ -12,27 +11,23 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _ImportTree_MethodInfo_[] = {
-	{"getQualifiedIdentifier", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImportTree, getQualifiedIdentifier, $Tree*)},
-	{"isStatic", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImportTree, isStatic, bool)},
-	{}
-};
-
-$ClassInfo _ImportTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.ImportTree",
-	nullptr,
-	"com.sun.source.tree.Tree",
-	nullptr,
-	_ImportTree_MethodInfo_
-};
-
-$Object* allocate$ImportTree($Class* clazz) {
-	return $of($alloc(ImportTree));
-}
-
 $Class* ImportTree::load$($String* name, bool initialize) {
-	$loadClass(ImportTree, name, initialize, &_ImportTree_ClassInfo_, allocate$ImportTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getQualifiedIdentifier", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImportTree, getQualifiedIdentifier, $Tree*)},
+		{"isStatic", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImportTree, isStatic, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.ImportTree",
+		nullptr,
+		"com.sun.source.tree.Tree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ImportTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImportTree);
+	});
 	return class$;
 }
 

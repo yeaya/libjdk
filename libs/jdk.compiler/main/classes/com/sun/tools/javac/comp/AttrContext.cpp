@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/AttrContext.h>
-
 #include <com/sun/tools/javac/code/Lint.h>
 #include <com/sun/tools/javac/code/Scope$WriteableScope.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -11,72 +10,24 @@
 #include <com/sun/tools/javac/util/List.h>
 #include <java/lang/Iterable.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/Collection.h>
 #include <jcpp.h>
 
 #undef FULL
 
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $DeferredAttr$AttributionMode = ::com::sun::tools::javac::comp::DeferredAttr$AttributionMode;
-using $Resolve$MethodResolutionPhase = ::com::sun::tools::javac::comp::Resolve$MethodResolutionPhase;
 using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $Collection = ::java::util::Collection;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _AttrContext_FieldInfo_[] = {
-	{"scope", "Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, 0, $field(AttrContext, scope)},
-	{"staticLevel", "I", nullptr, 0, $field(AttrContext, staticLevel)},
-	{"isSelfCall", "Z", nullptr, 0, $field(AttrContext, isSelfCall)},
-	{"selectSuper", "Z", nullptr, 0, $field(AttrContext, selectSuper)},
-	{"isSerializable", "Z", nullptr, 0, $field(AttrContext, isSerializable)},
-	{"isSerializableLambda", "Z", nullptr, 0, $field(AttrContext, isSerializableLambda)},
-	{"isLambda", "Z", nullptr, 0, $field(AttrContext, isLambda)},
-	{"attributionMode", "Lcom/sun/tools/javac/comp/DeferredAttr$AttributionMode;", nullptr, 0, $field(AttrContext, attributionMode)},
-	{"isAnonymousDiamond", "Z", nullptr, 0, $field(AttrContext, isAnonymousDiamond)},
-	{"isNewClass", "Z", nullptr, 0, $field(AttrContext, isNewClass)},
-	{"visitingServiceImplementation", "Z", nullptr, 0, $field(AttrContext, visitingServiceImplementation)},
-	{"pendingResolutionPhase", "Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;", nullptr, 0, $field(AttrContext, pendingResolutionPhase)},
-	{"lint", "Lcom/sun/tools/javac/code/Lint;", nullptr, 0, $field(AttrContext, lint)},
-	{"enclVar", "Lcom/sun/tools/javac/code/Symbol;", nullptr, 0, $field(AttrContext, enclVar)},
-	{"returnResult", "Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, 0, $field(AttrContext, returnResult)},
-	{"yieldResult", "Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, 0, $field(AttrContext, yieldResult)},
-	{"defaultSuperCallSite", "Lcom/sun/tools/javac/code/Type;", nullptr, 0, $field(AttrContext, defaultSuperCallSite)},
-	{"preferredTreeForDiagnostics", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $field(AttrContext, preferredTreeForDiagnostics)},
-	{}
-};
-
-$MethodInfo _AttrContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AttrContext, init$, void)},
-	{"dup", "(Lcom/sun/tools/javac/code/Scope$WriteableScope;)Lcom/sun/tools/javac/comp/AttrContext;", nullptr, 0, $virtualMethod(AttrContext, dup, AttrContext*, $Scope$WriteableScope*)},
-	{"dup", "()Lcom/sun/tools/javac/comp/AttrContext;", nullptr, 0, $virtualMethod(AttrContext, dup, AttrContext*)},
-	{"getLocalElements", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC, $virtualMethod(AttrContext, getLocalElements, $Iterable*)},
-	{"lastResolveVarargs", "()Z", nullptr, 0, $virtualMethod(AttrContext, lastResolveVarargs, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttrContext, toString, $String*)},
-	{}
-};
-
-$ClassInfo _AttrContext_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.comp.AttrContext",
-	"java.lang.Object",
-	nullptr,
-	_AttrContext_FieldInfo_,
-	_AttrContext_MethodInfo_
-};
-
-$Object* allocate$AttrContext($Class* clazz) {
-	return $of($alloc(AttrContext));
-}
 
 void AttrContext::init$() {
 	$set(this, scope, nullptr);
@@ -127,24 +78,64 @@ AttrContext* AttrContext::dup() {
 
 $Iterable* AttrContext::getLocalElements() {
 	if (this->scope == nullptr) {
-		return static_cast<$Iterable*>(static_cast<$Collection*>(static_cast<$AbstractCollection*>($List::nil())));
+		return $cast($AbstractCollection, $List::nil());
 	}
 	return $nc(this->scope)->getSymbols();
 }
 
 bool AttrContext::lastResolveVarargs() {
-	return this->pendingResolutionPhase != nullptr && $nc(this->pendingResolutionPhase)->isVarargsRequired();
+	return this->pendingResolutionPhase != nullptr && this->pendingResolutionPhase->isVarargsRequired();
 }
 
 $String* AttrContext::toString() {
-	return $str({"AttrContext["_s, $($nc($of(this->scope))->toString()), "]"_s});
+	return $str({"AttrContext["_s, $($nc(this->scope)->toString()), "]"_s});
 }
 
 AttrContext::AttrContext() {
 }
 
 $Class* AttrContext::load$($String* name, bool initialize) {
-	$loadClass(AttrContext, name, initialize, &_AttrContext_ClassInfo_, allocate$AttrContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"scope", "Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, 0, $field(AttrContext, scope)},
+		{"staticLevel", "I", nullptr, 0, $field(AttrContext, staticLevel)},
+		{"isSelfCall", "Z", nullptr, 0, $field(AttrContext, isSelfCall)},
+		{"selectSuper", "Z", nullptr, 0, $field(AttrContext, selectSuper)},
+		{"isSerializable", "Z", nullptr, 0, $field(AttrContext, isSerializable)},
+		{"isSerializableLambda", "Z", nullptr, 0, $field(AttrContext, isSerializableLambda)},
+		{"isLambda", "Z", nullptr, 0, $field(AttrContext, isLambda)},
+		{"attributionMode", "Lcom/sun/tools/javac/comp/DeferredAttr$AttributionMode;", nullptr, 0, $field(AttrContext, attributionMode)},
+		{"isAnonymousDiamond", "Z", nullptr, 0, $field(AttrContext, isAnonymousDiamond)},
+		{"isNewClass", "Z", nullptr, 0, $field(AttrContext, isNewClass)},
+		{"visitingServiceImplementation", "Z", nullptr, 0, $field(AttrContext, visitingServiceImplementation)},
+		{"pendingResolutionPhase", "Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;", nullptr, 0, $field(AttrContext, pendingResolutionPhase)},
+		{"lint", "Lcom/sun/tools/javac/code/Lint;", nullptr, 0, $field(AttrContext, lint)},
+		{"enclVar", "Lcom/sun/tools/javac/code/Symbol;", nullptr, 0, $field(AttrContext, enclVar)},
+		{"returnResult", "Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, 0, $field(AttrContext, returnResult)},
+		{"yieldResult", "Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, 0, $field(AttrContext, yieldResult)},
+		{"defaultSuperCallSite", "Lcom/sun/tools/javac/code/Type;", nullptr, 0, $field(AttrContext, defaultSuperCallSite)},
+		{"preferredTreeForDiagnostics", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $field(AttrContext, preferredTreeForDiagnostics)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AttrContext, init$, void)},
+		{"dup", "(Lcom/sun/tools/javac/code/Scope$WriteableScope;)Lcom/sun/tools/javac/comp/AttrContext;", nullptr, 0, $virtualMethod(AttrContext, dup, AttrContext*, $Scope$WriteableScope*)},
+		{"dup", "()Lcom/sun/tools/javac/comp/AttrContext;", nullptr, 0, $virtualMethod(AttrContext, dup, AttrContext*)},
+		{"getLocalElements", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC, $virtualMethod(AttrContext, getLocalElements, $Iterable*)},
+		{"lastResolveVarargs", "()Z", nullptr, 0, $virtualMethod(AttrContext, lastResolveVarargs, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttrContext, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.comp.AttrContext",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AttrContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AttrContext);
+	});
 	return class$;
 }
 

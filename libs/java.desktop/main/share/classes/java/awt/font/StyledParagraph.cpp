@@ -1,5 +1,4 @@
 #include <java/awt/font/StyledParagraph.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/font/TextAttribute.h>
@@ -48,54 +47,10 @@ namespace java {
 	namespace awt {
 		namespace font {
 
-$FieldInfo _StyledParagraph_FieldInfo_[] = {
-	{"length", "I", nullptr, $PRIVATE, $field(StyledParagraph, length)},
-	{"decoration", "Lsun/font/Decoration;", nullptr, $PRIVATE, $field(StyledParagraph, decoration)},
-	{"font", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(StyledParagraph, font)},
-	{"decorations", "Ljava/util/Vector;", "Ljava/util/Vector<Lsun/font/Decoration;>;", $PRIVATE, $field(StyledParagraph, decorations)},
-	{"decorationStarts", "[I", nullptr, 0, $field(StyledParagraph, decorationStarts)},
-	{"fonts", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/Object;>;", $PRIVATE, $field(StyledParagraph, fonts)},
-	{"fontStarts", "[I", nullptr, 0, $field(StyledParagraph, fontStarts)},
-	{"INITIAL_SIZE", "I", nullptr, $PRIVATE | $STATIC, $staticField(StyledParagraph, INITIAL_SIZE)},
-	{}
-};
-
-$MethodInfo _StyledParagraph_MethodInfo_[] = {
-	{"<init>", "(Ljava/text/AttributedCharacterIterator;[C)V", nullptr, $PUBLIC, $method(StyledParagraph, init$, void, $AttributedCharacterIterator*, $chars*)},
-	{"addDecoration", "(Lsun/font/Decoration;I)V", nullptr, $PRIVATE, $method(StyledParagraph, addDecoration, void, $Decoration*, int32_t)},
-	{"addFont", "(Ljava/lang/Object;I)V", nullptr, $PRIVATE, $method(StyledParagraph, addFont, void, Object$*, int32_t)},
-	{"addFonts", "([CLjava/util/Map;II)V", "([CLjava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;II)V", $PRIVATE, $method(StyledParagraph, addFonts, void, $chars*, $Map*, int32_t, int32_t)},
-	{"addInputMethodAttrs", "(Ljava/util/Map;)Ljava/util/Map;", "(Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;)Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;", $STATIC, $staticMethod(StyledParagraph, addInputMethodAttrs, $Map*, $Map*)},
-	{"addToVector", "(Ljava/lang/Object;ILjava/util/Vector;[I)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(StyledParagraph, addToVector, $ints*, Object$*, int32_t, $Vector*, $ints*)},
-	{"deleteChar", "(Ljava/text/AttributedCharacterIterator;[CILjava/awt/font/StyledParagraph;)Ljava/awt/font/StyledParagraph;", nullptr, $PUBLIC | $STATIC, $staticMethod(StyledParagraph, deleteChar, StyledParagraph*, $AttributedCharacterIterator*, $chars*, int32_t, StyledParagraph*)},
-	{"deleteFrom", "(I[II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(StyledParagraph, deleteFrom, void, int32_t, $ints*, int32_t)},
-	{"findRunContaining", "(I[I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StyledParagraph, findRunContaining, int32_t, int32_t, $ints*)},
-	{"getDecorationAt", "(I)Lsun/font/Decoration;", nullptr, $PUBLIC, $method(StyledParagraph, getDecorationAt, $Decoration*, int32_t)},
-	{"getFontOrGraphicAt", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $method(StyledParagraph, getFontOrGraphicAt, $Object*, int32_t)},
-	{"getGraphicOrFont", "(Ljava/util/Map;)Ljava/lang/Object;", "(Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;)Ljava/lang/Object;", $PRIVATE | $STATIC, $staticMethod(StyledParagraph, getGraphicOrFont, $Object*, $Map*)},
-	{"getRunLimit", "(I)I", nullptr, $PUBLIC, $method(StyledParagraph, getRunLimit, int32_t, int32_t)},
-	{"insertChar", "(Ljava/text/AttributedCharacterIterator;[CILjava/awt/font/StyledParagraph;)Ljava/awt/font/StyledParagraph;", nullptr, $PUBLIC | $STATIC, $staticMethod(StyledParagraph, insertChar, StyledParagraph*, $AttributedCharacterIterator*, $chars*, int32_t, StyledParagraph*)},
-	{"insertInto", "(I[II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(StyledParagraph, insertInto, void, int32_t, $ints*, int32_t)},
-	{}
-};
-
-$ClassInfo _StyledParagraph_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.awt.font.StyledParagraph",
-	"java.lang.Object",
-	nullptr,
-	_StyledParagraph_FieldInfo_,
-	_StyledParagraph_MethodInfo_
-};
-
-$Object* allocate$StyledParagraph($Class* clazz) {
-	return $of($alloc(StyledParagraph));
-}
-
 int32_t StyledParagraph::INITIAL_SIZE = 0;
 
 void StyledParagraph::init$($AttributedCharacterIterator* aci, $chars* chars) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t start = $nc(aci)->getBeginIndex();
 	int32_t end = aci->getEndIndex();
 	this->length = end - start;
@@ -134,12 +89,12 @@ void StyledParagraph::insertInto(int32_t pos, $ints* starts, int32_t numStarts) 
 
 StyledParagraph* StyledParagraph::insertChar($AttributedCharacterIterator* aci, $chars* chars, int32_t insertPos, StyledParagraph* oldParagraph) {
 	$init(StyledParagraph);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	char16_t ch = $nc(aci)->setIndex(insertPos);
 	int32_t relativePos = $Math::max(insertPos - aci->getBeginIndex() - 1, 0);
 	$var($Map, attributes, addInputMethodAttrs($(aci->getAttributes())));
 	$var($Decoration, d, $Decoration::getDecoration(attributes));
-	if (!$nc($of($($nc(oldParagraph)->getDecorationAt(relativePos))))->equals(d)) {
+	if (!$$nc($nc(oldParagraph)->getDecorationAt(relativePos))->equals(d)) {
 		return $new(StyledParagraph, aci, chars);
 	}
 	$var($Object, f, getGraphicOrFont(attributes));
@@ -148,15 +103,15 @@ StyledParagraph* StyledParagraph::insertChar($AttributedCharacterIterator* aci, 
 		int32_t fontIndex = $nc(resolver)->getFontIndex(ch);
 		$assign(f, resolver->getFont(fontIndex, attributes));
 	}
-	if (!$nc($of($($nc(oldParagraph)->getFontOrGraphicAt(relativePos))))->equals(f)) {
+	if (!$$nc(oldParagraph->getFontOrGraphicAt(relativePos))->equals(f)) {
 		return $new(StyledParagraph, aci, chars);
 	}
-	$nc(oldParagraph)->length += 1;
+	oldParagraph->length += 1;
 	if (oldParagraph->decorations != nullptr) {
-		insertInto(relativePos, oldParagraph->decorationStarts, $nc(oldParagraph->decorations)->size());
+		insertInto(relativePos, oldParagraph->decorationStarts, oldParagraph->decorations->size());
 	}
 	if (oldParagraph->fonts != nullptr) {
-		insertInto(relativePos, oldParagraph->fontStarts, $nc(oldParagraph->fonts)->size());
+		insertInto(relativePos, oldParagraph->fontStarts, oldParagraph->fonts->size());
 	}
 	return oldParagraph;
 }
@@ -175,17 +130,17 @@ StyledParagraph* StyledParagraph::deleteChar($AttributedCharacterIterator* aci, 
 		oldParagraph->length -= 1;
 		return oldParagraph;
 	}
-	if ($nc(oldParagraph)->getRunLimit(deletePos) == deletePos + 1) {
+	if (oldParagraph->getRunLimit(deletePos) == deletePos + 1) {
 		if (deletePos == 0 || oldParagraph->getRunLimit(deletePos - 1) == deletePos) {
 			return $new(StyledParagraph, aci, chars);
 		}
 	}
-	$nc(oldParagraph)->length -= 1;
+	oldParagraph->length -= 1;
 	if (oldParagraph->decorations != nullptr) {
-		deleteFrom(deletePos, oldParagraph->decorationStarts, $nc(oldParagraph->decorations)->size());
+		deleteFrom(deletePos, oldParagraph->decorationStarts, oldParagraph->decorations->size());
 	}
 	if (oldParagraph->fonts != nullptr) {
-		deleteFrom(deletePos, oldParagraph->fontStarts, $nc(oldParagraph->fonts)->size());
+		deleteFrom(deletePos, oldParagraph->fontStarts, oldParagraph->fonts->size());
 	}
 	return oldParagraph;
 }
@@ -223,10 +178,10 @@ $Object* StyledParagraph::getFontOrGraphicAt(int32_t index) {
 		$throwNew($IllegalArgumentException, "index out of range"_s);
 	}
 	if (this->fonts == nullptr) {
-		return $of(this->font);
+		return this->font;
 	}
 	int32_t run = findRunContaining(index, this->fontStarts);
-	return $of($nc(this->fonts)->elementAt(run));
+	return $nc(this->fonts)->elementAt(run);
 }
 
 int32_t StyledParagraph::findRunContaining(int32_t index, $ints* starts) {
@@ -240,9 +195,9 @@ int32_t StyledParagraph::findRunContaining(int32_t index, $ints* starts) {
 
 $ints* StyledParagraph::addToVector(Object$* obj, int32_t index, $Vector* v, $ints* starts$renamed) {
 	$init(StyledParagraph);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, starts, starts$renamed);
-	if (!$nc($of($($nc(v)->lastElement())))->equals(obj)) {
+	if (!$$nc($nc(v)->lastElement())->equals(obj)) {
 		v->addElement(obj);
 		int32_t count = v->size();
 		if ($nc(starts)->length == count) {
@@ -250,7 +205,7 @@ $ints* StyledParagraph::addToVector(Object$* obj, int32_t index, $Vector* v, $in
 			$System::arraycopy(starts, 0, temp, 0, starts->length);
 			$assign(starts, temp);
 		}
-		$nc(starts)->set(count - 1, index);
+		starts->set(count - 1, index);
 	}
 	return starts;
 }
@@ -260,13 +215,13 @@ void StyledParagraph::addDecoration($Decoration* d, int32_t index) {
 		$set(this, decorationStarts, addToVector(d, index, this->decorations, this->decorationStarts));
 	} else if (this->decoration == nullptr) {
 		$set(this, decoration, d);
-	} else if (!$nc($of(this->decoration))->equals(d)) {
+	} else if (!this->decoration->equals(d)) {
 		$set(this, decorations, $new($Vector, StyledParagraph::INITIAL_SIZE));
-		$nc(this->decorations)->addElement(this->decoration);
-		$nc(this->decorations)->addElement(d);
+		this->decorations->addElement(this->decoration);
+		this->decorations->addElement(d);
 		$set(this, decorationStarts, $new($ints, StyledParagraph::INITIAL_SIZE));
-		$nc(this->decorationStarts)->set(0, 0);
-		$nc(this->decorationStarts)->set(1, index);
+		this->decorationStarts->set(0, 0);
+		this->decorationStarts->set(1, index);
 	}
 }
 
@@ -275,18 +230,18 @@ void StyledParagraph::addFont(Object$* f, int32_t index) {
 		$set(this, fontStarts, addToVector(f, index, this->fonts, this->fontStarts));
 	} else if (this->font == nullptr) {
 		$set(this, font, f);
-	} else if (!$nc($of(this->font))->equals(f)) {
+	} else if (!this->font->equals(f)) {
 		$set(this, fonts, $new($Vector, StyledParagraph::INITIAL_SIZE));
-		$nc(this->fonts)->addElement(this->font);
-		$nc(this->fonts)->addElement(f);
+		this->fonts->addElement(this->font);
+		this->fonts->addElement(f);
 		$set(this, fontStarts, $new($ints, StyledParagraph::INITIAL_SIZE));
-		$nc(this->fontStarts)->set(0, 0);
-		$nc(this->fontStarts)->set(1, index);
+		this->fontStarts->set(0, 0);
+		this->fontStarts->set(1, index);
 	}
 }
 
 void StyledParagraph::addFonts($chars* chars, $Map* attributes, int32_t start, int32_t limit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontResolver, resolver, $FontResolver::getInstance());
 	$var($CodePointIterator, iter, $CodePointIterator::create(chars, start, limit));
 	for (int32_t runStart = $nc(iter)->charIndex(); runStart < limit; runStart = iter->charIndex()) {
@@ -297,19 +252,19 @@ void StyledParagraph::addFonts($chars* chars, $Map* attributes, int32_t start, i
 
 $Map* StyledParagraph::addInputMethodAttrs($Map* oldStyles) {
 	$init(StyledParagraph);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TextAttribute);
 	$var($Object, value, $nc(oldStyles)->get($TextAttribute::INPUT_METHOD_HIGHLIGHT));
 	try {
 		if (value != nullptr) {
 			if ($instanceOf($Annotation, value)) {
-				$assign(value, $nc(($cast($Annotation, value)))->getValue());
+				$assign(value, $cast($Annotation, value)->getValue());
 			}
 			$var($InputMethodHighlight, hl, nullptr);
 			$assign(hl, $cast($InputMethodHighlight, value));
 			$var($Map, imStyles, nullptr);
 			try {
-				$assign(imStyles, hl->getStyle());
+				$assign(imStyles, $nc(hl)->getStyle());
 			} catch ($NoSuchMethodError& e) {
 			}
 			if (imStyles == nullptr) {
@@ -333,20 +288,20 @@ $Object* StyledParagraph::getGraphicOrFont($Map* attributes) {
 	$init($TextAttribute);
 	$var($Object, value, $nc(attributes)->get($TextAttribute::CHAR_REPLACEMENT));
 	if (value != nullptr) {
-		return $of(value);
+		return value;
 	}
 	$assign(value, attributes->get($TextAttribute::FONT));
 	if (value != nullptr) {
-		return $of(value);
+		return value;
 	}
 	if (attributes->get($TextAttribute::FAMILY) != nullptr) {
-		return $of($Font::getFont(attributes));
+		return $Font::getFont(attributes);
 	} else {
-		return $of(nullptr);
+		return nullptr;
 	}
 }
 
-void clinit$StyledParagraph($Class* class$) {
+void StyledParagraph::clinit$($Class* clazz) {
 	StyledParagraph::INITIAL_SIZE = 8;
 }
 
@@ -354,7 +309,46 @@ StyledParagraph::StyledParagraph() {
 }
 
 $Class* StyledParagraph::load$($String* name, bool initialize) {
-	$loadClass(StyledParagraph, name, initialize, &_StyledParagraph_ClassInfo_, clinit$StyledParagraph, allocate$StyledParagraph);
+	$FieldInfo fieldInfos$$[] = {
+		{"length", "I", nullptr, $PRIVATE, $field(StyledParagraph, length)},
+		{"decoration", "Lsun/font/Decoration;", nullptr, $PRIVATE, $field(StyledParagraph, decoration)},
+		{"font", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(StyledParagraph, font)},
+		{"decorations", "Ljava/util/Vector;", "Ljava/util/Vector<Lsun/font/Decoration;>;", $PRIVATE, $field(StyledParagraph, decorations)},
+		{"decorationStarts", "[I", nullptr, 0, $field(StyledParagraph, decorationStarts)},
+		{"fonts", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/Object;>;", $PRIVATE, $field(StyledParagraph, fonts)},
+		{"fontStarts", "[I", nullptr, 0, $field(StyledParagraph, fontStarts)},
+		{"INITIAL_SIZE", "I", nullptr, $PRIVATE | $STATIC, $staticField(StyledParagraph, INITIAL_SIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/text/AttributedCharacterIterator;[C)V", nullptr, $PUBLIC, $method(StyledParagraph, init$, void, $AttributedCharacterIterator*, $chars*)},
+		{"addDecoration", "(Lsun/font/Decoration;I)V", nullptr, $PRIVATE, $method(StyledParagraph, addDecoration, void, $Decoration*, int32_t)},
+		{"addFont", "(Ljava/lang/Object;I)V", nullptr, $PRIVATE, $method(StyledParagraph, addFont, void, Object$*, int32_t)},
+		{"addFonts", "([CLjava/util/Map;II)V", "([CLjava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;II)V", $PRIVATE, $method(StyledParagraph, addFonts, void, $chars*, $Map*, int32_t, int32_t)},
+		{"addInputMethodAttrs", "(Ljava/util/Map;)Ljava/util/Map;", "(Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;)Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;", $STATIC, $staticMethod(StyledParagraph, addInputMethodAttrs, $Map*, $Map*)},
+		{"addToVector", "(Ljava/lang/Object;ILjava/util/Vector;[I)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(StyledParagraph, addToVector, $ints*, Object$*, int32_t, $Vector*, $ints*)},
+		{"deleteChar", "(Ljava/text/AttributedCharacterIterator;[CILjava/awt/font/StyledParagraph;)Ljava/awt/font/StyledParagraph;", nullptr, $PUBLIC | $STATIC, $staticMethod(StyledParagraph, deleteChar, StyledParagraph*, $AttributedCharacterIterator*, $chars*, int32_t, StyledParagraph*)},
+		{"deleteFrom", "(I[II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(StyledParagraph, deleteFrom, void, int32_t, $ints*, int32_t)},
+		{"findRunContaining", "(I[I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StyledParagraph, findRunContaining, int32_t, int32_t, $ints*)},
+		{"getDecorationAt", "(I)Lsun/font/Decoration;", nullptr, $PUBLIC, $method(StyledParagraph, getDecorationAt, $Decoration*, int32_t)},
+		{"getFontOrGraphicAt", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $method(StyledParagraph, getFontOrGraphicAt, $Object*, int32_t)},
+		{"getGraphicOrFont", "(Ljava/util/Map;)Ljava/lang/Object;", "(Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;)Ljava/lang/Object;", $PRIVATE | $STATIC, $staticMethod(StyledParagraph, getGraphicOrFont, $Object*, $Map*)},
+		{"getRunLimit", "(I)I", nullptr, $PUBLIC, $method(StyledParagraph, getRunLimit, int32_t, int32_t)},
+		{"insertChar", "(Ljava/text/AttributedCharacterIterator;[CILjava/awt/font/StyledParagraph;)Ljava/awt/font/StyledParagraph;", nullptr, $PUBLIC | $STATIC, $staticMethod(StyledParagraph, insertChar, StyledParagraph*, $AttributedCharacterIterator*, $chars*, int32_t, StyledParagraph*)},
+		{"insertInto", "(I[II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(StyledParagraph, insertInto, void, int32_t, $ints*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.awt.font.StyledParagraph",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StyledParagraph, name, initialize, &classInfo$$, StyledParagraph::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StyledParagraph);
+	});
 	return class$;
 }
 

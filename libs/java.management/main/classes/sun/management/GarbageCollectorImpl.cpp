@@ -1,5 +1,4 @@
 #include <sun/management/GarbageCollectorImpl.h>
-
 #include <java/lang/management/ManagementFactory.h>
 #include <javax/management/MBeanNotificationInfo.h>
 #include <javax/management/ObjectName.h>
@@ -19,39 +18,6 @@ using $Util = ::sun::management::Util;
 
 namespace sun {
 	namespace management {
-
-$MethodInfo _GarbageCollectorImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(GarbageCollectorImpl, init$, void, $String*)},
-	{"getCollectionCount", "()J", nullptr, $PUBLIC | $NATIVE, $virtualMethod(GarbageCollectorImpl, getCollectionCount, int64_t)},
-	{"getCollectionTime", "()J", nullptr, $PUBLIC | $NATIVE, $virtualMethod(GarbageCollectorImpl, getCollectionTime, int64_t)},
-	{"getMemoryPoolNames", "()[Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GarbageCollectorImpl, getMemoryPoolNames, $StringArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GarbageCollectorImpl, getName, $String*)},
-	{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GarbageCollectorImpl, getNotificationInfo, $MBeanNotificationInfoArray*)},
-	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(GarbageCollectorImpl, getObjectName, $ObjectName*)},
-	{"isValid", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GarbageCollectorImpl, isValid, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-#define _METHOD_INDEX_getCollectionCount 5
-#define _METHOD_INDEX_getCollectionTime 6
-
-$ClassInfo _GarbageCollectorImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.management.GarbageCollectorImpl",
-	"sun.management.MemoryManagerImpl",
-	"java.lang.management.GarbageCollectorMXBean",
-	nullptr,
-	_GarbageCollectorImpl_MethodInfo_
-};
-
-$Object* allocate$GarbageCollectorImpl($Class* clazz) {
-	return $of($alloc(GarbageCollectorImpl));
-}
 
 int32_t GarbageCollectorImpl::hashCode() {
 	 return this->$MemoryManagerImpl::hashCode();
@@ -78,17 +44,15 @@ void GarbageCollectorImpl::init$($String* name) {
 }
 
 int64_t GarbageCollectorImpl::getCollectionCount() {
-	int64_t $ret = 0;
-	$prepareNative(GarbageCollectorImpl, getCollectionCount, int64_t);
-	$ret = $invokeNative();
+	$prepareNative(getCollectionCount, int64_t);
+	int64_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 int64_t GarbageCollectorImpl::getCollectionTime() {
-	int64_t $ret = 0;
-	$prepareNative(GarbageCollectorImpl, getCollectionTime, int64_t);
-	$ret = $invokeNative();
+	$prepareNative(getCollectionTime, int64_t);
+	int64_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -118,7 +82,33 @@ GarbageCollectorImpl::GarbageCollectorImpl() {
 }
 
 $Class* GarbageCollectorImpl::load$($String* name, bool initialize) {
-	$loadClass(GarbageCollectorImpl, name, initialize, &_GarbageCollectorImpl_ClassInfo_, allocate$GarbageCollectorImpl);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(GarbageCollectorImpl, init$, void, $String*)},
+		{"getCollectionCount", "()J", nullptr, $PUBLIC | $NATIVE, $virtualMethod(GarbageCollectorImpl, getCollectionCount, int64_t)},
+		{"getCollectionTime", "()J", nullptr, $PUBLIC | $NATIVE, $virtualMethod(GarbageCollectorImpl, getCollectionTime, int64_t)},
+		{"getMemoryPoolNames", "()[Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GarbageCollectorImpl, getMemoryPoolNames, $StringArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GarbageCollectorImpl, getName, $String*)},
+		{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GarbageCollectorImpl, getNotificationInfo, $MBeanNotificationInfoArray*)},
+		{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(GarbageCollectorImpl, getObjectName, $ObjectName*)},
+		{"isValid", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GarbageCollectorImpl, isValid, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.management.GarbageCollectorImpl",
+		"sun.management.MemoryManagerImpl",
+		"java.lang.management.GarbageCollectorMXBean",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GarbageCollectorImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GarbageCollectorImpl));
+	});
 	return class$;
 }
 

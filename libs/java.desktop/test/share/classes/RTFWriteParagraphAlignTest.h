@@ -40,6 +40,7 @@ class $export RTFWriteParagraphAlignTest : public ::java::lang::Object {
 	$class(RTFWriteParagraphAlignTest, 0, ::java::lang::Object)
 public:
 	RTFWriteParagraphAlignTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void lambda$main$0();
 	static void lambda$main$1();

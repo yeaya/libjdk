@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/ClassFile.h>
-
 #include <com/sun/tools/javac/util/Name.h>
 #include <jcpp.h>
 
@@ -22,77 +21,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$FieldInfo _ClassFile_FieldInfo_[] = {
-	{"JAVA_MAGIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, JAVA_MAGIC)},
-	{"CONSTANT_Utf8", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_Utf8)},
-	{"CONSTANT_Unicode", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_Unicode)},
-	{"CONSTANT_Integer", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_Integer)},
-	{"CONSTANT_Float", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_Float)},
-	{"CONSTANT_Long", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_Long)},
-	{"CONSTANT_Double", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_Double)},
-	{"CONSTANT_Class", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_Class)},
-	{"CONSTANT_String", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_String)},
-	{"CONSTANT_Fieldref", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_Fieldref)},
-	{"CONSTANT_Methodref", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_Methodref)},
-	{"CONSTANT_InterfaceMethodref", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_InterfaceMethodref)},
-	{"CONSTANT_NameandType", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_NameandType)},
-	{"CONSTANT_MethodHandle", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_MethodHandle)},
-	{"CONSTANT_MethodType", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_MethodType)},
-	{"CONSTANT_Dynamic", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_Dynamic)},
-	{"CONSTANT_InvokeDynamic", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_InvokeDynamic)},
-	{"CONSTANT_Module", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_Module)},
-	{"CONSTANT_Package", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_Package)},
-	{"REF_getField", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, REF_getField)},
-	{"REF_getStatic", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, REF_getStatic)},
-	{"REF_putField", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, REF_putField)},
-	{"REF_putStatic", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, REF_putStatic)},
-	{"REF_invokeVirtual", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, REF_invokeVirtual)},
-	{"REF_invokeStatic", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, REF_invokeStatic)},
-	{"REF_invokeSpecial", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, REF_invokeSpecial)},
-	{"REF_newInvokeSpecial", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, REF_newInvokeSpecial)},
-	{"REF_invokeInterface", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, REF_invokeInterface)},
-	{"MAX_PARAMETERS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, MAX_PARAMETERS)},
-	{"MAX_DIMENSIONS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, MAX_DIMENSIONS)},
-	{"MAX_CODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, MAX_CODE)},
-	{"MAX_LOCALS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, MAX_LOCALS)},
-	{"MAX_STACK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, MAX_STACK)},
-	{"PREVIEW_MINOR_VERSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, PREVIEW_MINOR_VERSION)},
-	{}
-};
-
-$MethodInfo _ClassFile_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassFile, init$, void)},
-	{"externalize", "([BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassFile, externalize, $bytes*, $bytes*, int32_t, int32_t)},
-	{"externalize", "(Lcom/sun/tools/javac/util/Name;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassFile, externalize, $bytes*, $Name*)},
-	{"internalize", "([BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassFile, internalize, $bytes*, $bytes*, int32_t, int32_t)},
-	{"internalize", "(Lcom/sun/tools/javac/util/Name;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassFile, internalize, $bytes*, $Name*)},
-	{}
-};
-
-$InnerClassInfo _ClassFile_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.ClassFile$Version", "com.sun.tools.javac.jvm.ClassFile", "Version", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _ClassFile_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.jvm.ClassFile",
-	"java.lang.Object",
-	nullptr,
-	_ClassFile_FieldInfo_,
-	_ClassFile_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClassFile_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.ClassFile$Version"
-};
-
-$Object* allocate$ClassFile($Class* clazz) {
-	return $of($alloc(ClassFile));
-}
 
 void ClassFile::init$() {
 }
@@ -139,7 +67,72 @@ ClassFile::ClassFile() {
 }
 
 $Class* ClassFile::load$($String* name, bool initialize) {
-	$loadClass(ClassFile, name, initialize, &_ClassFile_ClassInfo_, allocate$ClassFile);
+	$FieldInfo fieldInfos$$[] = {
+		{"JAVA_MAGIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, JAVA_MAGIC)},
+		{"CONSTANT_Utf8", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_Utf8)},
+		{"CONSTANT_Unicode", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_Unicode)},
+		{"CONSTANT_Integer", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_Integer)},
+		{"CONSTANT_Float", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_Float)},
+		{"CONSTANT_Long", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_Long)},
+		{"CONSTANT_Double", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_Double)},
+		{"CONSTANT_Class", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_Class)},
+		{"CONSTANT_String", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_String)},
+		{"CONSTANT_Fieldref", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_Fieldref)},
+		{"CONSTANT_Methodref", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_Methodref)},
+		{"CONSTANT_InterfaceMethodref", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_InterfaceMethodref)},
+		{"CONSTANT_NameandType", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_NameandType)},
+		{"CONSTANT_MethodHandle", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_MethodHandle)},
+		{"CONSTANT_MethodType", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_MethodType)},
+		{"CONSTANT_Dynamic", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_Dynamic)},
+		{"CONSTANT_InvokeDynamic", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_InvokeDynamic)},
+		{"CONSTANT_Module", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_Module)},
+		{"CONSTANT_Package", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, CONSTANT_Package)},
+		{"REF_getField", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, REF_getField)},
+		{"REF_getStatic", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, REF_getStatic)},
+		{"REF_putField", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, REF_putField)},
+		{"REF_putStatic", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, REF_putStatic)},
+		{"REF_invokeVirtual", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, REF_invokeVirtual)},
+		{"REF_invokeStatic", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, REF_invokeStatic)},
+		{"REF_invokeSpecial", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, REF_invokeSpecial)},
+		{"REF_newInvokeSpecial", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, REF_newInvokeSpecial)},
+		{"REF_invokeInterface", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, REF_invokeInterface)},
+		{"MAX_PARAMETERS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, MAX_PARAMETERS)},
+		{"MAX_DIMENSIONS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, MAX_DIMENSIONS)},
+		{"MAX_CODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, MAX_CODE)},
+		{"MAX_LOCALS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, MAX_LOCALS)},
+		{"MAX_STACK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, MAX_STACK)},
+		{"PREVIEW_MINOR_VERSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFile, PREVIEW_MINOR_VERSION)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ClassFile, init$, void)},
+		{"externalize", "([BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassFile, externalize, $bytes*, $bytes*, int32_t, int32_t)},
+		{"externalize", "(Lcom/sun/tools/javac/util/Name;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassFile, externalize, $bytes*, $Name*)},
+		{"internalize", "([BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassFile, internalize, $bytes*, $bytes*, int32_t, int32_t)},
+		{"internalize", "(Lcom/sun/tools/javac/util/Name;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassFile, internalize, $bytes*, $Name*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.ClassFile$Version", "com.sun.tools.javac.jvm.ClassFile", "Version", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.jvm.ClassFile",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.ClassFile$Version"
+	};
+	$loadClass(ClassFile, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassFile);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/java2d/metal/MTLSurfaceDataProxy.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Transparency.h>
 #include <java/lang/OutOfMemoryError.h>
@@ -28,33 +27,6 @@ using $MTLSurfaceData = ::sun::java2d::metal::MTLSurfaceData;
 namespace sun {
 	namespace java2d {
 		namespace metal {
-
-$FieldInfo _MTLSurfaceDataProxy_FieldInfo_[] = {
-	{"mtlgc", "Lsun/java2d/metal/MTLGraphicsConfig;", nullptr, 0, $field(MTLSurfaceDataProxy, mtlgc)},
-	{"transparency", "I", nullptr, 0, $field(MTLSurfaceDataProxy, transparency)},
-	{}
-};
-
-$MethodInfo _MTLSurfaceDataProxy_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/metal/MTLGraphicsConfig;I)V", nullptr, $PUBLIC, $method(MTLSurfaceDataProxy, init$, void, $MTLGraphicsConfig*, int32_t)},
-	{"createProxy", "(Lsun/java2d/SurfaceData;Lsun/java2d/metal/MTLGraphicsConfig;)Lsun/java2d/SurfaceDataProxy;", nullptr, $PUBLIC | $STATIC, $staticMethod(MTLSurfaceDataProxy, createProxy, $SurfaceDataProxy*, $SurfaceData*, $MTLGraphicsConfig*)},
-	{"isSupportedOperation", "(Lsun/java2d/SurfaceData;ILsun/java2d/loops/CompositeType;Ljava/awt/Color;)Z", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceDataProxy, isSupportedOperation, bool, $SurfaceData*, int32_t, $CompositeType*, $Color*)},
-	{"validateSurfaceData", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;II)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceDataProxy, validateSurfaceData, $SurfaceData*, $SurfaceData*, $SurfaceData*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _MTLSurfaceDataProxy_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.metal.MTLSurfaceDataProxy",
-	"sun.java2d.SurfaceDataProxy",
-	nullptr,
-	_MTLSurfaceDataProxy_FieldInfo_,
-	_MTLSurfaceDataProxy_MethodInfo_
-};
-
-$Object* allocate$MTLSurfaceDataProxy($Class* clazz) {
-	return $of($alloc(MTLSurfaceDataProxy));
-}
 
 $SurfaceDataProxy* MTLSurfaceDataProxy::createProxy($SurfaceData* srcData, $MTLGraphicsConfig* dstConfig) {
 	$init(MTLSurfaceDataProxy);
@@ -92,7 +64,29 @@ MTLSurfaceDataProxy::MTLSurfaceDataProxy() {
 }
 
 $Class* MTLSurfaceDataProxy::load$($String* name, bool initialize) {
-	$loadClass(MTLSurfaceDataProxy, name, initialize, &_MTLSurfaceDataProxy_ClassInfo_, allocate$MTLSurfaceDataProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"mtlgc", "Lsun/java2d/metal/MTLGraphicsConfig;", nullptr, 0, $field(MTLSurfaceDataProxy, mtlgc)},
+		{"transparency", "I", nullptr, 0, $field(MTLSurfaceDataProxy, transparency)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/metal/MTLGraphicsConfig;I)V", nullptr, $PUBLIC, $method(MTLSurfaceDataProxy, init$, void, $MTLGraphicsConfig*, int32_t)},
+		{"createProxy", "(Lsun/java2d/SurfaceData;Lsun/java2d/metal/MTLGraphicsConfig;)Lsun/java2d/SurfaceDataProxy;", nullptr, $PUBLIC | $STATIC, $staticMethod(MTLSurfaceDataProxy, createProxy, $SurfaceDataProxy*, $SurfaceData*, $MTLGraphicsConfig*)},
+		{"isSupportedOperation", "(Lsun/java2d/SurfaceData;ILsun/java2d/loops/CompositeType;Ljava/awt/Color;)Z", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceDataProxy, isSupportedOperation, bool, $SurfaceData*, int32_t, $CompositeType*, $Color*)},
+		{"validateSurfaceData", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;II)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceDataProxy, validateSurfaceData, $SurfaceData*, $SurfaceData*, $SurfaceData*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.metal.MTLSurfaceDataProxy",
+		"sun.java2d.SurfaceDataProxy",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MTLSurfaceDataProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MTLSurfaceDataProxy));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/awt/UNIXToolkit.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKConstants$TextDirection.h>
 #include <java/awt/Point.h>
 #include <java/awt/RenderingHints$Key.h>
@@ -14,7 +13,6 @@
 #include <java/awt/image/Raster.h>
 #include <java/awt/image/WritableRaster.h>
 #include <java/io/Serializable.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/Number.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/invoke/CallSite.h>
@@ -66,7 +64,6 @@ using $Raster = ::java::awt::image::Raster;
 using $WritableRaster = ::java::awt::image::WritableRaster;
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -78,7 +75,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Hashtable = ::java::util::Hashtable;
-using $Map = ::java::util::Map;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $UNIXToolkit$GtkVersions = ::sun::awt::UNIXToolkit$GtkVersions;
 using $OGLRenderQueue = ::sun::java2d::opengl::OGLRenderQueue;
@@ -96,27 +92,24 @@ public:
 	virtual $Object* run() override {
 		 return $of(UNIXToolkit::lambda$getDesktop$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<UNIXToolkit$$Lambda$lambda$getDesktop$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo UNIXToolkit$$Lambda$lambda$getDesktop$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UNIXToolkit$$Lambda$lambda$getDesktop$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UNIXToolkit$$Lambda$lambda$getDesktop$0, run, $Object*)},
-	{}
-};
-$ClassInfo UNIXToolkit$$Lambda$lambda$getDesktop$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.UNIXToolkit$$Lambda$lambda$getDesktop$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* UNIXToolkit$$Lambda$lambda$getDesktop$0::load$($String* name, bool initialize) {
-	$loadClass(UNIXToolkit$$Lambda$lambda$getDesktop$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UNIXToolkit$$Lambda$lambda$getDesktop$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UNIXToolkit$$Lambda$lambda$getDesktop$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.UNIXToolkit$$Lambda$lambda$getDesktop$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UNIXToolkit$$Lambda$lambda$getDesktop$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UNIXToolkit$$Lambda$lambda$getDesktop$0);
+	});
 	return class$;
 }
 $Class* UNIXToolkit$$Lambda$lambda$getDesktop$0::class$ = nullptr;
@@ -129,27 +122,24 @@ public:
 	virtual $Object* run() override {
 		 return $of(UNIXToolkit::lambda$getDesktop$1());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<UNIXToolkit$$Lambda$lambda$getDesktop$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo UNIXToolkit$$Lambda$lambda$getDesktop$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UNIXToolkit$$Lambda$lambda$getDesktop$1$1, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UNIXToolkit$$Lambda$lambda$getDesktop$1$1, run, $Object*)},
-	{}
-};
-$ClassInfo UNIXToolkit$$Lambda$lambda$getDesktop$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.UNIXToolkit$$Lambda$lambda$getDesktop$1$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* UNIXToolkit$$Lambda$lambda$getDesktop$1$1::load$($String* name, bool initialize) {
-	$loadClass(UNIXToolkit$$Lambda$lambda$getDesktop$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UNIXToolkit$$Lambda$lambda$getDesktop$1$1, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UNIXToolkit$$Lambda$lambda$getDesktop$1$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.UNIXToolkit$$Lambda$lambda$getDesktop$1$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UNIXToolkit$$Lambda$lambda$getDesktop$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UNIXToolkit$$Lambda$lambda$getDesktop$1$1);
+	});
 	return class$;
 }
 $Class* UNIXToolkit$$Lambda$lambda$getDesktop$1$1::class$ = nullptr;
@@ -162,106 +152,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(UNIXToolkit::lambda$isGtkVerbose$2());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<UNIXToolkit$$Lambda$lambda$isGtkVerbose$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo UNIXToolkit$$Lambda$lambda$isGtkVerbose$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UNIXToolkit$$Lambda$lambda$isGtkVerbose$2$2, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UNIXToolkit$$Lambda$lambda$isGtkVerbose$2$2, run, $Object*)},
-	{}
-};
-$ClassInfo UNIXToolkit$$Lambda$lambda$isGtkVerbose$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.UNIXToolkit$$Lambda$lambda$isGtkVerbose$2$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* UNIXToolkit$$Lambda$lambda$isGtkVerbose$2$2::load$($String* name, bool initialize) {
-	$loadClass(UNIXToolkit$$Lambda$lambda$isGtkVerbose$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UNIXToolkit$$Lambda$lambda$isGtkVerbose$2$2, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UNIXToolkit$$Lambda$lambda$isGtkVerbose$2$2, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.UNIXToolkit$$Lambda$lambda$isGtkVerbose$2$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UNIXToolkit$$Lambda$lambda$isGtkVerbose$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UNIXToolkit$$Lambda$lambda$isGtkVerbose$2$2);
+	});
 	return class$;
 }
 $Class* UNIXToolkit$$Lambda$lambda$isGtkVerbose$2$2::class$ = nullptr;
-
-$FieldInfo _UNIXToolkit_FieldInfo_[] = {
-	{"GTK_LOCK", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(UNIXToolkit, GTK_LOCK)},
-	{"BAND_OFFSETS", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UNIXToolkit, BAND_OFFSETS)},
-	{"BAND_OFFSETS_ALPHA", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UNIXToolkit, BAND_OFFSETS_ALPHA)},
-	{"DEFAULT_DATATRANSFER_TIMEOUT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UNIXToolkit, DEFAULT_DATATRANSFER_TIMEOUT)},
-	{"nativeGTKAvailable", "Ljava/lang/Boolean;", nullptr, $PRIVATE, $field(UNIXToolkit, nativeGTKAvailable)},
-	{"nativeGTKLoaded", "Ljava/lang/Boolean;", nullptr, $PRIVATE, $field(UNIXToolkit, nativeGTKLoaded)},
-	{"tmpImage", "Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $field(UNIXToolkit, tmpImage)},
-	{"FONTCONFIGAAHINT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(UNIXToolkit, FONTCONFIGAAHINT)},
-	{}
-};
-
-$MethodInfo _UNIXToolkit_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UNIXToolkit, init$, void)},
-	{"checkGtkVersion", "(III)Z", nullptr, $PUBLIC, $virtualMethod(UNIXToolkit, checkGtkVersion, bool, int32_t, int32_t, int32_t)},
-	{"check_gtk", "(I)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(UNIXToolkit, check_gtk, bool, int32_t)},
-	{"getDatatransferTimeout", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(UNIXToolkit, getDatatransferTimeout, int32_t)},
-	{"getDesktop", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UNIXToolkit, getDesktop, $String*)},
-	{"getDesktopAAHints", "()Ljava/awt/RenderingHints;", nullptr, $PROTECTED, $virtualMethod(UNIXToolkit, getDesktopAAHints, $RenderingHints*)},
-	{"getEnabledGtkVersion", "()Lsun/awt/UNIXToolkit$GtkVersions;", nullptr, $PUBLIC | $STATIC, $staticMethod(UNIXToolkit, getEnabledGtkVersion, $UNIXToolkit$GtkVersions*)},
-	{"getGTKIcon", "(Ljava/lang/String;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(UNIXToolkit, getGTKIcon, $BufferedImage*, $String*)},
-	{"getGtkVersion", "()Lsun/awt/UNIXToolkit$GtkVersions;", nullptr, $PUBLIC | $STATIC, $staticMethod(UNIXToolkit, getGtkVersion, $UNIXToolkit$GtkVersions*)},
-	{"getStockIcon", "(ILjava/lang/String;IILjava/lang/String;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(UNIXToolkit, getStockIcon, $BufferedImage*, int32_t, $String*, int32_t, int32_t, $String*)},
-	{"get_gtk_version", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(UNIXToolkit, get_gtk_version, int32_t)},
-	{"gtkCheckVersionImpl", "(III)Z", nullptr, $PRIVATE | $NATIVE, $method(UNIXToolkit, gtkCheckVersionImpl, bool, int32_t, int32_t, int32_t)},
-	{"isGtkVerbose", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(UNIXToolkit, isGtkVerbose, bool)},
-	{"isNativeGTKAvailable", "()Z", nullptr, $PUBLIC, $virtualMethod(UNIXToolkit, isNativeGTKAvailable, bool)},
-	{"lambda$getDesktop$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UNIXToolkit, lambda$getDesktop$0, $String*)},
-	{"lambda$getDesktop$1", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UNIXToolkit, lambda$getDesktop$1, $String*)},
-	{"lambda$isGtkVerbose$2", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UNIXToolkit, lambda$isGtkVerbose$2, $Boolean*)},
-	{"lazilyLoadDesktopProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(UNIXToolkit, lazilyLoadDesktopProperty, $Object*, $String*)},
-	{"lazilyLoadGTKIcon", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(UNIXToolkit, lazilyLoadGTKIcon, $Object*, $String*)},
-	{"loadGTK", "()Z", nullptr, $PUBLIC, $virtualMethod(UNIXToolkit, loadGTK, bool)},
-	{"loadIconCallback", "([BIIIIIZ)V", nullptr, $PUBLIC, $virtualMethod(UNIXToolkit, loadIconCallback, void, $bytes*, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"load_gtk", "(IZ)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(UNIXToolkit, load_gtk, bool, int32_t, bool)},
-	{"load_gtk_icon", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $NATIVE, $method(UNIXToolkit, load_gtk_icon, bool, $String*)},
-	{"load_stock_icon", "(ILjava/lang/String;IILjava/lang/String;)Z", nullptr, $PRIVATE | $NATIVE, $method(UNIXToolkit, load_stock_icon, bool, int32_t, $String*, int32_t, int32_t, $String*)},
-	{"nativeSync", "()V", nullptr, $PRIVATE | $NATIVE, $method(UNIXToolkit, nativeSync, void)},
-	{"sync", "()V", nullptr, $PUBLIC, $virtualMethod(UNIXToolkit, sync, void)},
-	{"unload_gtk", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(UNIXToolkit, unload_gtk, bool)},
-	{}
-};
-
-#define _METHOD_INDEX_check_gtk 2
-#define _METHOD_INDEX_get_gtk_version 10
-#define _METHOD_INDEX_gtkCheckVersionImpl 11
-#define _METHOD_INDEX_load_gtk 21
-#define _METHOD_INDEX_load_gtk_icon 22
-#define _METHOD_INDEX_load_stock_icon 23
-#define _METHOD_INDEX_nativeSync 24
-#define _METHOD_INDEX_unload_gtk 26
-
-$InnerClassInfo _UNIXToolkit_InnerClassesInfo_[] = {
-	{"sun.awt.UNIXToolkit$GtkVersions", "sun.awt.UNIXToolkit", "GtkVersions", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _UNIXToolkit_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.awt.UNIXToolkit",
-	"sun.awt.SunToolkit",
-	nullptr,
-	_UNIXToolkit_FieldInfo_,
-	_UNIXToolkit_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UNIXToolkit_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.UNIXToolkit$GtkVersions,sun.awt.UNIXToolkit$GtkVersions$Constants"
-};
-
-$Object* allocate$UNIXToolkit($Class* clazz) {
-	return $of($alloc(UNIXToolkit));
-}
 
 $Object* UNIXToolkit::GTK_LOCK = nullptr;
 $ints* UNIXToolkit::BAND_OFFSETS = nullptr;
@@ -275,10 +186,10 @@ void UNIXToolkit::init$() {
 
 int32_t UNIXToolkit::getDatatransferTimeout() {
 	$init(UNIXToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($Integer, dt, $cast($Integer, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetIntegerAction, "sun.awt.datatransfer.timeout"_s)))));
-	if (dt == nullptr || $nc(dt)->intValue() <= 0) {
+	$var($Integer, dt, $cast($Integer, $AccessController::doPrivileged($$new($GetIntegerAction, "sun.awt.datatransfer.timeout"_s))));
+	if (dt == nullptr || dt->intValue() <= 0) {
 		return UNIXToolkit::DEFAULT_DATATRANSFER_TIMEOUT;
 	} else {
 		return dt->intValue();
@@ -286,25 +197,25 @@ int32_t UNIXToolkit::getDatatransferTimeout() {
 }
 
 $String* UNIXToolkit::getDesktop() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, gnome, "gnome"_s);
-	$var($String, gsi, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(UNIXToolkit$$Lambda$lambda$getDesktop$0)))));
+	$var($String, gsi, $cast($String, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(UNIXToolkit$$Lambda$lambda$getDesktop$0)))));
 	if (gsi != nullptr) {
 		return gnome;
 	}
-	$var($String, desktop, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(UNIXToolkit$$Lambda$lambda$getDesktop$1$1)))));
+	$var($String, desktop, $cast($String, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(UNIXToolkit$$Lambda$lambda$getDesktop$1$1)))));
 	return (desktop != nullptr && $(desktop->toLowerCase())->contains(gnome)) ? gnome : ($String*)nullptr;
 }
 
 bool UNIXToolkit::isNativeGTKAvailable() {
 	$synchronized(UNIXToolkit::GTK_LOCK) {
 		if (this->nativeGTKLoaded != nullptr) {
-			return $nc(this->nativeGTKLoaded)->booleanValue();
+			return this->nativeGTKLoaded->booleanValue();
 		} else if (this->nativeGTKAvailable != nullptr) {
-			return $nc(this->nativeGTKAvailable)->booleanValue();
+			return this->nativeGTKAvailable->booleanValue();
 		} else {
-			bool success = check_gtk($nc($(getEnabledGtkVersion()))->getNumber());
+			bool success = check_gtk($$nc(getEnabledGtkVersion())->getNumber());
 			$set(this, nativeGTKAvailable, $Boolean::valueOf(success));
 			return success;
 		}
@@ -314,7 +225,7 @@ bool UNIXToolkit::isNativeGTKAvailable() {
 bool UNIXToolkit::loadGTK() {
 	$synchronized(UNIXToolkit::GTK_LOCK) {
 		if (this->nativeGTKLoaded == nullptr) {
-			int32_t var$0 = $nc($(getEnabledGtkVersion()))->getNumber();
+			int32_t var$0 = $$nc(getEnabledGtkVersion())->getNumber();
 			$set(this, nativeGTKLoaded, $Boolean::valueOf(load_gtk(var$0, isGtkVerbose())));
 		}
 	}
@@ -323,26 +234,26 @@ bool UNIXToolkit::loadGTK() {
 
 $Object* UNIXToolkit::lazilyLoadDesktopProperty($String* name) {
 	if ($nc(name)->startsWith("gtk.icon."_s)) {
-		return $of(lazilyLoadGTKIcon(name));
+		return lazilyLoadGTKIcon(name);
 	}
-	return $of($SunToolkit::lazilyLoadDesktopProperty(name));
+	return $SunToolkit::lazilyLoadDesktopProperty(name);
 }
 
 $Object* UNIXToolkit::lazilyLoadGTKIcon($String* longname) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, result, $nc(this->desktopProperties)->get(longname));
 	if (result != nullptr) {
-		return $of(result);
+		return result;
 	}
 	$var($StringArray, str, $nc(longname)->split("\\."_s));
 	if (str->length != 5) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	int32_t size = 0;
 	try {
 		size = $Integer::parseInt(str->get(3));
 	} catch ($NumberFormatException& nfe) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$init($GTKConstants$TextDirection);
 	$GTKConstants$TextDirection* dir = ("ltr"_s->equals(str->get(4)) ? $GTKConstants$TextDirection::LTR : $GTKConstants$TextDirection::RTL);
@@ -380,68 +291,62 @@ $BufferedImage* UNIXToolkit::getStockIcon(int32_t widgetType, $String* stockId, 
 }
 
 void UNIXToolkit::loadIconCallback($bytes* data, int32_t width, int32_t height, int32_t rowStride, int32_t bps, int32_t channels, bool alpha) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, tmpImage, nullptr);
 	$var($DataBuffer, dataBuf, $new($DataBufferByte, data, (rowStride * height)));
-	$var($WritableRaster, raster, $Raster::createInterleavedRaster(dataBuf, width, height, rowStride, channels, (alpha ? UNIXToolkit::BAND_OFFSETS_ALPHA : UNIXToolkit::BAND_OFFSETS), ($Point*)nullptr));
+	$var($WritableRaster, raster, $Raster::createInterleavedRaster(dataBuf, width, height, rowStride, channels, (alpha ? UNIXToolkit::BAND_OFFSETS_ALPHA : UNIXToolkit::BAND_OFFSETS), nullptr));
 	$var($ColorModel, colorModel, $new($ComponentColorModel, $($ColorSpace::getInstance($ColorSpace::CS_sRGB)), alpha, false, $ColorModel::TRANSLUCENT, $DataBuffer::TYPE_BYTE));
-	$set(this, tmpImage, $new($BufferedImage, colorModel, raster, false, ($Hashtable*)nullptr));
+	$set(this, tmpImage, $new($BufferedImage, colorModel, raster, false, nullptr));
 }
 
 bool UNIXToolkit::check_gtk(int32_t version) {
 	$init(UNIXToolkit);
-	bool $ret = false;
-	$prepareNativeStatic(UNIXToolkit, check_gtk, bool, int32_t version);
-	$ret = $invokeNativeStatic(version);
+	$prepareNativeStatic(check_gtk, bool, int32_t version);
+	bool $ret = $invokeNativeStatic(version);
 	$finishNativeStatic();
 	return $ret;
 }
 
 bool UNIXToolkit::load_gtk(int32_t version, bool verbose) {
 	$init(UNIXToolkit);
-	bool $ret = false;
-	$prepareNativeStatic(UNIXToolkit, load_gtk, bool, int32_t version, bool verbose);
-	$ret = $invokeNativeStatic(version, verbose);
+	$prepareNativeStatic(load_gtk, bool, int32_t version, bool verbose);
+	bool $ret = $invokeNativeStatic(version, verbose);
 	$finishNativeStatic();
 	return $ret;
 }
 
 bool UNIXToolkit::unload_gtk() {
 	$init(UNIXToolkit);
-	bool $ret = false;
-	$prepareNativeStatic(UNIXToolkit, unload_gtk, bool);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(unload_gtk, bool);
+	bool $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 bool UNIXToolkit::load_gtk_icon($String* filename) {
-	bool $ret = false;
-	$prepareNative(UNIXToolkit, load_gtk_icon, bool, $String* filename);
-	$ret = $invokeNative(filename);
+	$prepareNative(load_gtk_icon, bool, $String* filename);
+	bool $ret = $invokeNative(filename);
 	$finishNative();
 	return $ret;
 }
 
 bool UNIXToolkit::load_stock_icon(int32_t widget_type, $String* stock_id, int32_t iconSize, int32_t textDirection, $String* detail) {
-	bool $ret = false;
-	$prepareNative(UNIXToolkit, load_stock_icon, bool, int32_t widget_type, $String* stock_id, int32_t iconSize, int32_t textDirection, $String* detail);
-	$ret = $invokeNative(widget_type, stock_id, iconSize, textDirection, detail);
+	$prepareNative(load_stock_icon, bool, int32_t widget_type, $String* stock_id, int32_t iconSize, int32_t textDirection, $String* detail);
+	bool $ret = $invokeNative(widget_type, stock_id, iconSize, textDirection, detail);
 	$finishNative();
 	return $ret;
 }
 
 void UNIXToolkit::nativeSync() {
-	$prepareNative(UNIXToolkit, nativeSync, void);
+	$prepareNative(nativeSync, void);
 	$invokeNative();
 	$finishNative();
 }
 
 int32_t UNIXToolkit::get_gtk_version() {
 	$init(UNIXToolkit);
-	int32_t $ret = 0;
-	$prepareNativeStatic(UNIXToolkit, get_gtk_version, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(get_gtk_version, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -452,7 +357,7 @@ void UNIXToolkit::sync() {
 }
 
 $RenderingHints* UNIXToolkit::getDesktopAAHints() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, aaValue, getDesktopProperty("gnome.Xft/Antialias"_s));
 	if (aaValue == nullptr) {
 		$assign(aaValue, getDesktopProperty(UNIXToolkit::FONTCONFIGAAHINT));
@@ -463,11 +368,11 @@ $RenderingHints* UNIXToolkit::getDesktopAAHints() {
 			return nullptr;
 		}
 	}
-	bool aa = (($instanceOf($Number, aaValue)) && $nc(($cast($Number, aaValue)))->intValue() != 0);
+	bool aa = (($instanceOf($Number, aaValue)) && $cast($Number, aaValue)->intValue() != 0);
 	$var($Object, aaHint, nullptr);
 	if (aa) {
 		$var($String, subpixOrder, $cast($String, getDesktopProperty("gnome.Xft/RGBA"_s)));
-		if (subpixOrder == nullptr || $nc(subpixOrder)->equals("none"_s)) {
+		if (subpixOrder == nullptr || subpixOrder->equals("none"_s)) {
 			$init($RenderingHints);
 			$assign(aaHint, $RenderingHints::VALUE_TEXT_ANTIALIAS_ON);
 		} else if (subpixOrder->equals("rgb"_s)) {
@@ -495,9 +400,8 @@ $RenderingHints* UNIXToolkit::getDesktopAAHints() {
 }
 
 bool UNIXToolkit::gtkCheckVersionImpl(int32_t major, int32_t minor, int32_t micro) {
-	bool $ret = false;
-	$prepareNative(UNIXToolkit, gtkCheckVersionImpl, bool, int32_t major, int32_t minor, int32_t micro);
-	$ret = $invokeNative(major, minor, micro);
+	$prepareNative(gtkCheckVersionImpl, bool, int32_t major, int32_t minor, int32_t micro);
+	bool $ret = $invokeNative(major, minor, micro);
 	$finishNative();
 	return $ret;
 }
@@ -511,13 +415,13 @@ bool UNIXToolkit::checkGtkVersion(int32_t major, int32_t minor, int32_t micro) {
 
 $UNIXToolkit$GtkVersions* UNIXToolkit::getEnabledGtkVersion() {
 	$init(UNIXToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($String, version, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "jdk.gtk.version"_s)))));
+	$var($String, version, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "jdk.gtk.version"_s))));
 	if (version == nullptr) {
 		$init($UNIXToolkit$GtkVersions);
 		return $UNIXToolkit$GtkVersions::ANY;
-	} else if ($nc(version)->startsWith("2"_s)) {
+	} else if (version->startsWith("2"_s)) {
 		$init($UNIXToolkit$GtkVersions);
 		return $UNIXToolkit$GtkVersions::GTK2;
 	} else if ("3"_s->equals(version)) {
@@ -535,9 +439,9 @@ $UNIXToolkit$GtkVersions* UNIXToolkit::getGtkVersion() {
 
 bool UNIXToolkit::isGtkVerbose() {
 	$init(UNIXToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	return $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(UNIXToolkit$$Lambda$lambda$isGtkVerbose$2$2)))))))->booleanValue();
+	return $$sure($Boolean, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(UNIXToolkit$$Lambda$lambda$isGtkVerbose$2$2))))->booleanValue();
 }
 
 $Boolean* UNIXToolkit::lambda$isGtkVerbose$2() {
@@ -555,7 +459,7 @@ $String* UNIXToolkit::lambda$getDesktop$0() {
 	return $System::getenv("GNOME_DESKTOP_SESSION_ID"_s);
 }
 
-void clinit$UNIXToolkit($Class* class$) {
+void UNIXToolkit::clinit$($Class* clazz) {
 	$assignStatic(UNIXToolkit::FONTCONFIGAAHINT, "fontconfig/Antialias"_s);
 	$assignStatic(UNIXToolkit::GTK_LOCK, $new($Object));
 	$assignStatic(UNIXToolkit::BAND_OFFSETS, $new($ints, {
@@ -576,17 +480,78 @@ UNIXToolkit::UNIXToolkit() {
 
 $Class* UNIXToolkit::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(UNIXToolkit$$Lambda$lambda$getDesktop$0::classInfo$.name)) {
+		if (name->equals("sun.awt.UNIXToolkit$$Lambda$lambda$getDesktop$0")) {
 			return UNIXToolkit$$Lambda$lambda$getDesktop$0::load$(name, initialize);
 		}
-		if (name->equals(UNIXToolkit$$Lambda$lambda$getDesktop$1$1::classInfo$.name)) {
+		if (name->equals("sun.awt.UNIXToolkit$$Lambda$lambda$getDesktop$1$1")) {
 			return UNIXToolkit$$Lambda$lambda$getDesktop$1$1::load$(name, initialize);
 		}
-		if (name->equals(UNIXToolkit$$Lambda$lambda$isGtkVerbose$2$2::classInfo$.name)) {
+		if (name->equals("sun.awt.UNIXToolkit$$Lambda$lambda$isGtkVerbose$2$2")) {
 			return UNIXToolkit$$Lambda$lambda$isGtkVerbose$2$2::load$(name, initialize);
 		}
 	}
-	$loadClass(UNIXToolkit, name, initialize, &_UNIXToolkit_ClassInfo_, clinit$UNIXToolkit, allocate$UNIXToolkit);
+	$FieldInfo fieldInfos$$[] = {
+		{"GTK_LOCK", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(UNIXToolkit, GTK_LOCK)},
+		{"BAND_OFFSETS", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UNIXToolkit, BAND_OFFSETS)},
+		{"BAND_OFFSETS_ALPHA", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UNIXToolkit, BAND_OFFSETS_ALPHA)},
+		{"DEFAULT_DATATRANSFER_TIMEOUT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UNIXToolkit, DEFAULT_DATATRANSFER_TIMEOUT)},
+		{"nativeGTKAvailable", "Ljava/lang/Boolean;", nullptr, $PRIVATE, $field(UNIXToolkit, nativeGTKAvailable)},
+		{"nativeGTKLoaded", "Ljava/lang/Boolean;", nullptr, $PRIVATE, $field(UNIXToolkit, nativeGTKLoaded)},
+		{"tmpImage", "Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $field(UNIXToolkit, tmpImage)},
+		{"FONTCONFIGAAHINT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(UNIXToolkit, FONTCONFIGAAHINT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UNIXToolkit, init$, void)},
+		{"checkGtkVersion", "(III)Z", nullptr, $PUBLIC, $virtualMethod(UNIXToolkit, checkGtkVersion, bool, int32_t, int32_t, int32_t)},
+		{"check_gtk", "(I)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(UNIXToolkit, check_gtk, bool, int32_t)},
+		{"getDatatransferTimeout", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(UNIXToolkit, getDatatransferTimeout, int32_t)},
+		{"getDesktop", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UNIXToolkit, getDesktop, $String*)},
+		{"getDesktopAAHints", "()Ljava/awt/RenderingHints;", nullptr, $PROTECTED, $virtualMethod(UNIXToolkit, getDesktopAAHints, $RenderingHints*)},
+		{"getEnabledGtkVersion", "()Lsun/awt/UNIXToolkit$GtkVersions;", nullptr, $PUBLIC | $STATIC, $staticMethod(UNIXToolkit, getEnabledGtkVersion, $UNIXToolkit$GtkVersions*)},
+		{"getGTKIcon", "(Ljava/lang/String;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(UNIXToolkit, getGTKIcon, $BufferedImage*, $String*)},
+		{"getGtkVersion", "()Lsun/awt/UNIXToolkit$GtkVersions;", nullptr, $PUBLIC | $STATIC, $staticMethod(UNIXToolkit, getGtkVersion, $UNIXToolkit$GtkVersions*)},
+		{"getStockIcon", "(ILjava/lang/String;IILjava/lang/String;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(UNIXToolkit, getStockIcon, $BufferedImage*, int32_t, $String*, int32_t, int32_t, $String*)},
+		{"get_gtk_version", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(UNIXToolkit, get_gtk_version, int32_t)},
+		{"gtkCheckVersionImpl", "(III)Z", nullptr, $PRIVATE | $NATIVE, $method(UNIXToolkit, gtkCheckVersionImpl, bool, int32_t, int32_t, int32_t)},
+		{"isGtkVerbose", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(UNIXToolkit, isGtkVerbose, bool)},
+		{"isNativeGTKAvailable", "()Z", nullptr, $PUBLIC, $virtualMethod(UNIXToolkit, isNativeGTKAvailable, bool)},
+		{"lambda$getDesktop$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UNIXToolkit, lambda$getDesktop$0, $String*)},
+		{"lambda$getDesktop$1", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UNIXToolkit, lambda$getDesktop$1, $String*)},
+		{"lambda$isGtkVerbose$2", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UNIXToolkit, lambda$isGtkVerbose$2, $Boolean*)},
+		{"lazilyLoadDesktopProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(UNIXToolkit, lazilyLoadDesktopProperty, $Object*, $String*)},
+		{"lazilyLoadGTKIcon", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(UNIXToolkit, lazilyLoadGTKIcon, $Object*, $String*)},
+		{"loadGTK", "()Z", nullptr, $PUBLIC, $virtualMethod(UNIXToolkit, loadGTK, bool)},
+		{"loadIconCallback", "([BIIIIIZ)V", nullptr, $PUBLIC, $virtualMethod(UNIXToolkit, loadIconCallback, void, $bytes*, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"load_gtk", "(IZ)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(UNIXToolkit, load_gtk, bool, int32_t, bool)},
+		{"load_gtk_icon", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $NATIVE, $method(UNIXToolkit, load_gtk_icon, bool, $String*)},
+		{"load_stock_icon", "(ILjava/lang/String;IILjava/lang/String;)Z", nullptr, $PRIVATE | $NATIVE, $method(UNIXToolkit, load_stock_icon, bool, int32_t, $String*, int32_t, int32_t, $String*)},
+		{"nativeSync", "()V", nullptr, $PRIVATE | $NATIVE, $method(UNIXToolkit, nativeSync, void)},
+		{"sync", "()V", nullptr, $PUBLIC, $virtualMethod(UNIXToolkit, sync, void)},
+		{"unload_gtk", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(UNIXToolkit, unload_gtk, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.UNIXToolkit$GtkVersions", "sun.awt.UNIXToolkit", "GtkVersions", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.awt.UNIXToolkit",
+		"sun.awt.SunToolkit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.UNIXToolkit$GtkVersions,sun.awt.UNIXToolkit$GtkVersions$Constants"
+	};
+	$loadClass(UNIXToolkit, name, initialize, &classInfo$$, UNIXToolkit::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UNIXToolkit));
+	});
 	return class$;
 }
 

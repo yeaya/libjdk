@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory$CompositeBuilderViaFrom.h>
-
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory$CompositeBuilder.h>
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory.h>
 #include <com/sun/jmx/mbeanserver/MXBeanIntrospector.h>
@@ -7,7 +6,6 @@
 #include <java/io/InvalidObjectException.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
-#include <java/lang/reflect/Type.h>
 #include <javax/management/openmbean/CompositeData.h>
 #include <sun/reflect/misc/MethodUtil.h>
 #include <jcpp.h>
@@ -25,7 +23,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Method = ::java::lang::reflect::Method;
 using $Modifier = ::java::lang::reflect::Modifier;
-using $Type = ::java::lang::reflect::Type;
 using $CompositeData = ::javax::management::openmbean::CompositeData;
 using $MethodUtil = ::sun::reflect::misc::MethodUtil;
 
@@ -34,50 +31,12 @@ namespace com {
 		namespace jmx {
 			namespace mbeanserver {
 
-$FieldInfo _DefaultMXBeanMappingFactory$CompositeBuilderViaFrom_FieldInfo_[] = {
-	{"fromMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $field(DefaultMXBeanMappingFactory$CompositeBuilderViaFrom, fromMethod)},
-	{}
-};
-
-$MethodInfo _DefaultMXBeanMappingFactory$CompositeBuilderViaFrom_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;[Ljava/lang/String;)V", "(Ljava/lang/Class<*>;[Ljava/lang/String;)V", 0, $method(DefaultMXBeanMappingFactory$CompositeBuilderViaFrom, init$, void, $Class*, $StringArray*)},
-	{"applicable", "([Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$CompositeBuilderViaFrom, applicable, $String*, $MethodArray*), "java.io.InvalidObjectException"},
-	{"fromCompositeData", "(Ljavax/management/openmbean/CompositeData;[Ljava/lang/String;[Lcom/sun/jmx/mbeanserver/MXBeanMapping;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$CompositeBuilderViaFrom, fromCompositeData, $Object*, $CompositeData*, $StringArray*, $MXBeanMappingArray*), "java.io.InvalidObjectException"},
-	{}
-};
-
-$InnerClassInfo _DefaultMXBeanMappingFactory$CompositeBuilderViaFrom_InnerClassesInfo_[] = {
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaFrom", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilderViaFrom", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilder", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilder", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DefaultMXBeanMappingFactory$CompositeBuilderViaFrom_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaFrom",
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilder",
-	nullptr,
-	_DefaultMXBeanMappingFactory$CompositeBuilderViaFrom_FieldInfo_,
-	_DefaultMXBeanMappingFactory$CompositeBuilderViaFrom_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultMXBeanMappingFactory$CompositeBuilderViaFrom_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory"
-};
-
-$Object* allocate$DefaultMXBeanMappingFactory$CompositeBuilderViaFrom($Class* clazz) {
-	return $of($alloc(DefaultMXBeanMappingFactory$CompositeBuilderViaFrom));
-}
-
 void DefaultMXBeanMappingFactory$CompositeBuilderViaFrom::init$($Class* targetClass, $StringArray* itemNames) {
 	$DefaultMXBeanMappingFactory$CompositeBuilder::init$(targetClass, itemNames);
 }
 
 $String* DefaultMXBeanMappingFactory$CompositeBuilderViaFrom::applicable($MethodArray* getters) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Class* targetClass = getTargetClass();
 	try {
@@ -87,9 +46,13 @@ $String* DefaultMXBeanMappingFactory$CompositeBuilderViaFrom::applicable($Method
 			$var($String, msg, "Method from(CompositeData) is not static"_s);
 			$throwNew($InvalidObjectException, msg);
 		}
-		if ($nc(fromMethod)->getReturnType() != getTargetClass()) {
-			$var($String, var$0, $$str({"Method from(CompositeData) returns "_s, $($MXBeanIntrospector::typeName(fromMethod->getReturnType())), " not "_s}));
-			$var($String, msg, $concat(var$0, $($MXBeanIntrospector::typeName(targetClass))));
+		if (fromMethod->getReturnType() != getTargetClass()) {
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("Method from(CompositeData) returns "_s);
+			var$0->append($($MXBeanIntrospector::typeName(fromMethod->getReturnType())));
+			var$0->append(" not "_s);
+			var$0->append($($MXBeanIntrospector::typeName(targetClass)));
+			$var($String, msg, $str(var$0));
 			$throwNew($InvalidObjectException, msg);
 		}
 		$set(this, fromMethod, fromMethod);
@@ -103,9 +66,9 @@ $String* DefaultMXBeanMappingFactory$CompositeBuilderViaFrom::applicable($Method
 }
 
 $Object* DefaultMXBeanMappingFactory$CompositeBuilderViaFrom::fromCompositeData($CompositeData* cd, $StringArray* itemNames, $MXBeanMappingArray* converters) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		return $of($MethodUtil::invoke(this->fromMethod, nullptr, $$new($ObjectArray, {$of(cd)})));
+		return $MethodUtil::invoke(this->fromMethod, nullptr, $$new($ObjectArray, {cd}));
 	} catch ($Exception& e) {
 		$var($String, msg, "Failed to invoke from(CompositeData)"_s);
 		$throw($($DefaultMXBeanMappingFactory::invalidObjectException(msg, e)));
@@ -117,7 +80,39 @@ DefaultMXBeanMappingFactory$CompositeBuilderViaFrom::DefaultMXBeanMappingFactory
 }
 
 $Class* DefaultMXBeanMappingFactory$CompositeBuilderViaFrom::load$($String* name, bool initialize) {
-	$loadClass(DefaultMXBeanMappingFactory$CompositeBuilderViaFrom, name, initialize, &_DefaultMXBeanMappingFactory$CompositeBuilderViaFrom_ClassInfo_, allocate$DefaultMXBeanMappingFactory$CompositeBuilderViaFrom);
+	$FieldInfo fieldInfos$$[] = {
+		{"fromMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $field(DefaultMXBeanMappingFactory$CompositeBuilderViaFrom, fromMethod)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;[Ljava/lang/String;)V", "(Ljava/lang/Class<*>;[Ljava/lang/String;)V", 0, $method(DefaultMXBeanMappingFactory$CompositeBuilderViaFrom, init$, void, $Class*, $StringArray*)},
+		{"applicable", "([Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$CompositeBuilderViaFrom, applicable, $String*, $MethodArray*), "java.io.InvalidObjectException"},
+		{"fromCompositeData", "(Ljavax/management/openmbean/CompositeData;[Ljava/lang/String;[Lcom/sun/jmx/mbeanserver/MXBeanMapping;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$CompositeBuilderViaFrom, fromCompositeData, $Object*, $CompositeData*, $StringArray*, $MXBeanMappingArray*), "java.io.InvalidObjectException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaFrom", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilderViaFrom", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilder", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilder", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaFrom",
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory"
+	};
+	$loadClass(DefaultMXBeanMappingFactory$CompositeBuilderViaFrom, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultMXBeanMappingFactory$CompositeBuilderViaFrom);
+	});
 	return class$;
 }
 

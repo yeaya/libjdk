@@ -1,5 +1,4 @@
 #include <sun/awt/www/content/image/jpeg.h>
-
 #include <java/awt/Image.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/image/ImageProducer.h>
@@ -10,7 +9,6 @@
 
 using $Image = ::java::awt::Image;
 using $Toolkit = ::java::awt::Toolkit;
-using $ImageProducer = ::java::awt::image::ImageProducer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ContentHandler = ::java::net::ContentHandler;
@@ -23,26 +21,6 @@ namespace sun {
 			namespace content {
 				namespace image {
 
-$MethodInfo _jpeg_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(jpeg, init$, void)},
-	{"getContent", "(Ljava/net/URLConnection;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(jpeg, getContent, $Object*, $URLConnection*), "java.io.IOException"},
-	{"getContent", "(Ljava/net/URLConnection;[Ljava/lang/Class;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(jpeg, getContent, $Object*, $URLConnection*, $ClassArray*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _jpeg_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.www.content.image.jpeg",
-	"java.net.ContentHandler",
-	nullptr,
-	nullptr,
-	_jpeg_MethodInfo_
-};
-
-$Object* allocate$jpeg($Class* clazz) {
-	return $of($alloc(jpeg));
-}
-
 void jpeg::init$() {
 	$ContentHandler::init$();
 }
@@ -52,7 +30,7 @@ $Object* jpeg::getContent($URLConnection* urlc) {
 }
 
 $Object* jpeg::getContent($URLConnection* urlc, $ClassArray* classes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClassArray, cls, classes);
 	for (int32_t i = 0; i < $nc(cls)->length; ++i) {
 		$load($URLImageSource);
@@ -62,17 +40,33 @@ $Object* jpeg::getContent($URLConnection* urlc, $ClassArray* classes) {
 		$load($Image);
 		if ($nc(cls->get(i))->isAssignableFrom($Image::class$)) {
 			$var($Toolkit, tk, $Toolkit::getDefaultToolkit());
-			return $of($nc(tk)->createImage(static_cast<$ImageProducer*>($$new($URLImageSource, urlc))));
+			return $nc(tk)->createImage($$new($URLImageSource, urlc));
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 jpeg::jpeg() {
 }
 
 $Class* jpeg::load$($String* name, bool initialize) {
-	$loadClass(jpeg, name, initialize, &_jpeg_ClassInfo_, allocate$jpeg);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(jpeg, init$, void)},
+		{"getContent", "(Ljava/net/URLConnection;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(jpeg, getContent, $Object*, $URLConnection*), "java.io.IOException"},
+		{"getContent", "(Ljava/net/URLConnection;[Ljava/lang/Class;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(jpeg, getContent, $Object*, $URLConnection*, $ClassArray*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.www.content.image.jpeg",
+		"java.net.ContentHandler",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(jpeg, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(jpeg);
+	});
 	return class$;
 }
 

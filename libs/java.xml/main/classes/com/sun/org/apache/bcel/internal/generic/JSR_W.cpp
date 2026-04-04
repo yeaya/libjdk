@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/JSR_W.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
@@ -13,10 +12,8 @@
 #undef JSR_W
 
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
-using $BranchInstruction = ::com::sun::org::apache::bcel::internal::generic::BranchInstruction;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
 using $JsrInstruction = ::com::sun::org::apache::bcel::internal::generic::JsrInstruction;
-using $StackProducer = ::com::sun::org::apache::bcel::internal::generic::StackProducer;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ByteSequence = ::com::sun::org::apache::bcel::internal::util::ByteSequence;
 using $DataOutputStream = ::java::io::DataOutputStream;
@@ -30,28 +27,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$MethodInfo _JSR_W_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(JSR_W, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $method(JSR_W, init$, void, $InstructionHandle*)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JSR_W, accept, void, $Visitor*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(JSR_W, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"initFromFile", "(Lcom/sun/org/apache/bcel/internal/util/ByteSequence;Z)V", nullptr, $PROTECTED, $virtualMethod(JSR_W, initFromFile, void, $ByteSequence*, bool), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _JSR_W_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.JSR_W",
-	"com.sun.org.apache.bcel.internal.generic.JsrInstruction",
-	nullptr,
-	nullptr,
-	_JSR_W_MethodInfo_
-};
-
-$Object* allocate$JSR_W($Class* clazz) {
-	return $of($alloc(JSR_W));
-}
 
 void JSR_W::init$() {
 	$JsrInstruction::init$();
@@ -84,7 +59,25 @@ JSR_W::JSR_W() {
 }
 
 $Class* JSR_W::load$($String* name, bool initialize) {
-	$loadClass(JSR_W, name, initialize, &_JSR_W_ClassInfo_, allocate$JSR_W);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(JSR_W, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $method(JSR_W, init$, void, $InstructionHandle*)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JSR_W, accept, void, $Visitor*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(JSR_W, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"initFromFile", "(Lcom/sun/org/apache/bcel/internal/util/ByteSequence;Z)V", nullptr, $PROTECTED, $virtualMethod(JSR_W, initFromFile, void, $ByteSequence*, bool), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.JSR_W",
+		"com.sun.org.apache.bcel.internal.generic.JsrInstruction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JSR_W, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JSR_W));
+	});
 	return class$;
 }
 

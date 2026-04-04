@@ -80,6 +80,7 @@ class $export SynthFileChooserUIImpl : public ::sun::swing::plaf::synth::SynthFi
 	$class(SynthFileChooserUIImpl, 0, ::sun::swing::plaf::synth::SynthFileChooserUI)
 public:
 	SynthFileChooserUIImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::JFileChooser* b);
 	static bool access$000(::sun::swing::plaf::synth::SynthFileChooserUIImpl* x0);
 	static ::java::io::File* access$100(::sun::swing::plaf::synth::SynthFileChooserUIImpl* x0);

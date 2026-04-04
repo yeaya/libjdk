@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XHorizontalScrollbar.h>
-
 #include <java/awt/Polygon.h>
 #include <java/awt/Rectangle.h>
 #include <sun/awt/X11/XScrollbar.h>
@@ -17,28 +16,6 @@ using $XScrollbarClient = ::sun::awt::X11::XScrollbarClient;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$MethodInfo _XHorizontalScrollbar_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/XScrollbarClient;)V", nullptr, $PUBLIC, $method(XHorizontalScrollbar, init$, void, $XScrollbarClient*)},
-	{"beforeThumb", "(II)Z", nullptr, 0, $virtualMethod(XHorizontalScrollbar, beforeThumb, bool, int32_t, int32_t)},
-	{"getThumbArea", "()Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(XHorizontalScrollbar, getThumbArea, $Rectangle*)},
-	{"rebuildArrows", "()V", nullptr, $PROTECTED, $virtualMethod(XHorizontalScrollbar, rebuildArrows, void)},
-	{"setSize", "(II)V", nullptr, $PUBLIC, $virtualMethod(XHorizontalScrollbar, setSize, void, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _XHorizontalScrollbar_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XHorizontalScrollbar",
-	"sun.awt.X11.XScrollbar",
-	nullptr,
-	nullptr,
-	_XHorizontalScrollbar_MethodInfo_
-};
-
-$Object* allocate$XHorizontalScrollbar($Class* clazz) {
-	return $of($alloc(XHorizontalScrollbar));
-}
 
 void XHorizontalScrollbar::init$($XScrollbarClient* sb) {
 	$XScrollbar::init$($XScrollbar::ALIGNMENT_HORIZONTAL, sb);
@@ -71,7 +48,25 @@ XHorizontalScrollbar::XHorizontalScrollbar() {
 }
 
 $Class* XHorizontalScrollbar::load$($String* name, bool initialize) {
-	$loadClass(XHorizontalScrollbar, name, initialize, &_XHorizontalScrollbar_ClassInfo_, allocate$XHorizontalScrollbar);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XScrollbarClient;)V", nullptr, $PUBLIC, $method(XHorizontalScrollbar, init$, void, $XScrollbarClient*)},
+		{"beforeThumb", "(II)Z", nullptr, 0, $virtualMethod(XHorizontalScrollbar, beforeThumb, bool, int32_t, int32_t)},
+		{"getThumbArea", "()Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(XHorizontalScrollbar, getThumbArea, $Rectangle*)},
+		{"rebuildArrows", "()V", nullptr, $PROTECTED, $virtualMethod(XHorizontalScrollbar, rebuildArrows, void)},
+		{"setSize", "(II)V", nullptr, $PUBLIC, $virtualMethod(XHorizontalScrollbar, setSize, void, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XHorizontalScrollbar",
+		"sun.awt.X11.XScrollbar",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XHorizontalScrollbar, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XHorizontalScrollbar);
+	});
 	return class$;
 }
 

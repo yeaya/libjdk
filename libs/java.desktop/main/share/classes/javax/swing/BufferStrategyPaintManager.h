@@ -49,6 +49,7 @@ class BufferStrategyPaintManager : public ::javax::swing::RepaintManager$PaintMa
 	$class(BufferStrategyPaintManager, 0, ::javax::swing::RepaintManager$PaintManager)
 public:
 	BufferStrategyPaintManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void accumulate(int32_t x, int32_t y, int32_t w, int32_t h);
 	virtual void beginPaint() override;

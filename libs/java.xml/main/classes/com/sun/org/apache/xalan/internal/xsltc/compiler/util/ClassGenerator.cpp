@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator.h>
-
 #include <com/sun/org/apache/bcel/internal/classfile/Method.h>
 #include <com/sun/org/apache/bcel/internal/generic/ALOAD.h>
 #include <com/sun/org/apache/bcel/internal/generic/ClassGen.h>
@@ -38,47 +37,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 								namespace util {
-
-$FieldInfo _ClassGenerator_FieldInfo_[] = {
-	{"TRANSLET_INDEX", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(ClassGenerator, TRANSLET_INDEX)},
-	{"INVALID_INDEX", "I", nullptr, $PROTECTED | $STATIC, $staticField(ClassGenerator, INVALID_INDEX)},
-	{"_stylesheet", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PRIVATE, $field(ClassGenerator, _stylesheet)},
-	{"_parser", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;", nullptr, $PRIVATE | $FINAL, $field(ClassGenerator, _parser)},
-	{"_aloadTranslet", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(ClassGenerator, _aloadTranslet)},
-	{"_domClass", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ClassGenerator, _domClass)},
-	{"_domClassSig", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ClassGenerator, _domClassSig)},
-	{"_applyTemplatesSig", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ClassGenerator, _applyTemplatesSig)},
-	{"_applyTemplatesSigForImport", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ClassGenerator, _applyTemplatesSigForImport)},
-	{}
-};
-
-$MethodInfo _ClassGenerator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;)V", nullptr, $PUBLIC, $method(ClassGenerator, init$, void, $String*, $String*, $String*, int32_t, $StringArray*, $Stylesheet*)},
-	{"addMethod", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(ClassGenerator, addMethod, void, $MethodGenerator*)},
-	{"getApplyTemplatesSig", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(ClassGenerator, getApplyTemplatesSig, $String*)},
-	{"getApplyTemplatesSigForImport", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(ClassGenerator, getApplyTemplatesSigForImport, $String*)},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ClassGenerator, getClassName, $String*)},
-	{"getDOMClass", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(ClassGenerator, getDOMClass, $String*)},
-	{"getDOMClassSig", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(ClassGenerator, getDOMClassSig, $String*)},
-	{"getParser", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;", nullptr, $PUBLIC | $FINAL, $method(ClassGenerator, getParser, $Parser*)},
-	{"getStylesheet", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PUBLIC | $FINAL, $method(ClassGenerator, getStylesheet, $Stylesheet*)},
-	{"isExternal", "()Z", nullptr, $PUBLIC, $virtualMethod(ClassGenerator, isExternal, bool)},
-	{"loadTranslet", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(ClassGenerator, loadTranslet, $Instruction*)},
-	{}
-};
-
-$ClassInfo _ClassGenerator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.ClassGenerator",
-	"com.sun.org.apache.bcel.internal.generic.ClassGen",
-	nullptr,
-	_ClassGenerator_FieldInfo_,
-	_ClassGenerator_MethodInfo_
-};
-
-$Object* allocate$ClassGenerator($Class* clazz) {
-	return $of($alloc(ClassGenerator));
-}
 
 int32_t ClassGenerator::INVALID_INDEX = 0;
 
@@ -142,7 +100,7 @@ void ClassGenerator::addMethod($MethodGenerator* methodGen) {
 	}
 }
 
-void clinit$ClassGenerator($Class* class$) {
+void ClassGenerator::clinit$($Class* clazz) {
 	ClassGenerator::INVALID_INDEX = -1;
 }
 
@@ -150,7 +108,43 @@ ClassGenerator::ClassGenerator() {
 }
 
 $Class* ClassGenerator::load$($String* name, bool initialize) {
-	$loadClass(ClassGenerator, name, initialize, &_ClassGenerator_ClassInfo_, clinit$ClassGenerator, allocate$ClassGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"TRANSLET_INDEX", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(ClassGenerator, TRANSLET_INDEX)},
+		{"INVALID_INDEX", "I", nullptr, $PROTECTED | $STATIC, $staticField(ClassGenerator, INVALID_INDEX)},
+		{"_stylesheet", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PRIVATE, $field(ClassGenerator, _stylesheet)},
+		{"_parser", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;", nullptr, $PRIVATE | $FINAL, $field(ClassGenerator, _parser)},
+		{"_aloadTranslet", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(ClassGenerator, _aloadTranslet)},
+		{"_domClass", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ClassGenerator, _domClass)},
+		{"_domClassSig", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ClassGenerator, _domClassSig)},
+		{"_applyTemplatesSig", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ClassGenerator, _applyTemplatesSig)},
+		{"_applyTemplatesSigForImport", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ClassGenerator, _applyTemplatesSigForImport)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;)V", nullptr, $PUBLIC, $method(ClassGenerator, init$, void, $String*, $String*, $String*, int32_t, $StringArray*, $Stylesheet*)},
+		{"addMethod", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(ClassGenerator, addMethod, void, $MethodGenerator*)},
+		{"getApplyTemplatesSig", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(ClassGenerator, getApplyTemplatesSig, $String*)},
+		{"getApplyTemplatesSigForImport", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(ClassGenerator, getApplyTemplatesSigForImport, $String*)},
+		{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ClassGenerator, getClassName, $String*)},
+		{"getDOMClass", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(ClassGenerator, getDOMClass, $String*)},
+		{"getDOMClassSig", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(ClassGenerator, getDOMClassSig, $String*)},
+		{"getParser", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;", nullptr, $PUBLIC | $FINAL, $method(ClassGenerator, getParser, $Parser*)},
+		{"getStylesheet", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PUBLIC | $FINAL, $method(ClassGenerator, getStylesheet, $Stylesheet*)},
+		{"isExternal", "()Z", nullptr, $PUBLIC, $virtualMethod(ClassGenerator, isExternal, bool)},
+		{"loadTranslet", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(ClassGenerator, loadTranslet, $Instruction*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.ClassGenerator",
+		"com.sun.org.apache.bcel.internal.generic.ClassGen",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ClassGenerator, name, initialize, &classInfo$$, ClassGenerator::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ClassGenerator));
+	});
 	return class$;
 }
 

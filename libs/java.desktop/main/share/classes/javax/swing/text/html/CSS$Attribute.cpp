@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/CSS$Attribute.h>
-
 #include <javax/swing/text/html/CSS.h>
 #include <jcpp.h>
 
@@ -88,119 +87,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _CSS$Attribute_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CSS$Attribute, name)},
-	{"defaultValue", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CSS$Attribute, defaultValue)},
-	{"inherited", "Z", nullptr, $PRIVATE, $field(CSS$Attribute, inherited)},
-	{"BACKGROUND", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BACKGROUND)},
-	{"BACKGROUND_ATTACHMENT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BACKGROUND_ATTACHMENT)},
-	{"BACKGROUND_COLOR", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BACKGROUND_COLOR)},
-	{"BACKGROUND_IMAGE", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BACKGROUND_IMAGE)},
-	{"BACKGROUND_POSITION", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BACKGROUND_POSITION)},
-	{"BACKGROUND_REPEAT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BACKGROUND_REPEAT)},
-	{"BORDER", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER)},
-	{"BORDER_BOTTOM", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_BOTTOM)},
-	{"BORDER_BOTTOM_COLOR", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_BOTTOM_COLOR)},
-	{"BORDER_BOTTOM_STYLE", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_BOTTOM_STYLE)},
-	{"BORDER_BOTTOM_WIDTH", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_BOTTOM_WIDTH)},
-	{"BORDER_COLOR", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_COLOR)},
-	{"BORDER_LEFT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_LEFT)},
-	{"BORDER_LEFT_COLOR", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_LEFT_COLOR)},
-	{"BORDER_LEFT_STYLE", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_LEFT_STYLE)},
-	{"BORDER_LEFT_WIDTH", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_LEFT_WIDTH)},
-	{"BORDER_RIGHT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_RIGHT)},
-	{"BORDER_RIGHT_COLOR", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_RIGHT_COLOR)},
-	{"BORDER_RIGHT_STYLE", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_RIGHT_STYLE)},
-	{"BORDER_RIGHT_WIDTH", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_RIGHT_WIDTH)},
-	{"BORDER_STYLE", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_STYLE)},
-	{"BORDER_TOP", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_TOP)},
-	{"BORDER_TOP_COLOR", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_TOP_COLOR)},
-	{"BORDER_TOP_STYLE", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_TOP_STYLE)},
-	{"BORDER_TOP_WIDTH", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_TOP_WIDTH)},
-	{"BORDER_WIDTH", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_WIDTH)},
-	{"CLEAR", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, CLEAR)},
-	{"COLOR", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, COLOR)},
-	{"DISPLAY", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, DISPLAY)},
-	{"FLOAT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, FLOAT)},
-	{"FONT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, FONT)},
-	{"FONT_FAMILY", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, FONT_FAMILY)},
-	{"FONT_SIZE", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, FONT_SIZE)},
-	{"FONT_STYLE", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, FONT_STYLE)},
-	{"FONT_VARIANT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, FONT_VARIANT)},
-	{"FONT_WEIGHT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, FONT_WEIGHT)},
-	{"HEIGHT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, HEIGHT)},
-	{"LETTER_SPACING", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, LETTER_SPACING)},
-	{"LINE_HEIGHT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, LINE_HEIGHT)},
-	{"LIST_STYLE", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, LIST_STYLE)},
-	{"LIST_STYLE_IMAGE", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, LIST_STYLE_IMAGE)},
-	{"LIST_STYLE_POSITION", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, LIST_STYLE_POSITION)},
-	{"LIST_STYLE_TYPE", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, LIST_STYLE_TYPE)},
-	{"MARGIN", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, MARGIN)},
-	{"MARGIN_BOTTOM", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, MARGIN_BOTTOM)},
-	{"MARGIN_LEFT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, MARGIN_LEFT)},
-	{"MARGIN_RIGHT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, MARGIN_RIGHT)},
-	{"MARGIN_LEFT_LTR", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $STATIC | $FINAL, $staticField(CSS$Attribute, MARGIN_LEFT_LTR)},
-	{"MARGIN_LEFT_RTL", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $STATIC | $FINAL, $staticField(CSS$Attribute, MARGIN_LEFT_RTL)},
-	{"MARGIN_RIGHT_LTR", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $STATIC | $FINAL, $staticField(CSS$Attribute, MARGIN_RIGHT_LTR)},
-	{"MARGIN_RIGHT_RTL", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $STATIC | $FINAL, $staticField(CSS$Attribute, MARGIN_RIGHT_RTL)},
-	{"MARGIN_TOP", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, MARGIN_TOP)},
-	{"PADDING", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, PADDING)},
-	{"PADDING_BOTTOM", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, PADDING_BOTTOM)},
-	{"PADDING_LEFT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, PADDING_LEFT)},
-	{"PADDING_RIGHT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, PADDING_RIGHT)},
-	{"PADDING_TOP", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, PADDING_TOP)},
-	{"TEXT_ALIGN", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, TEXT_ALIGN)},
-	{"TEXT_DECORATION", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, TEXT_DECORATION)},
-	{"TEXT_INDENT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, TEXT_INDENT)},
-	{"TEXT_TRANSFORM", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, TEXT_TRANSFORM)},
-	{"VERTICAL_ALIGN", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, VERTICAL_ALIGN)},
-	{"WORD_SPACING", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, WORD_SPACING)},
-	{"WHITE_SPACE", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, WHITE_SPACE)},
-	{"WIDTH", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, WIDTH)},
-	{"BORDER_SPACING", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_SPACING)},
-	{"CAPTION_SIDE", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $STATIC | $FINAL, $staticField(CSS$Attribute, CAPTION_SIDE)},
-	{"allAttributes", "[Ljavax/swing/text/html/CSS$Attribute;", nullptr, $STATIC | $FINAL, $staticField(CSS$Attribute, allAttributes)},
-	{"ALL_MARGINS", "[Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CSS$Attribute, ALL_MARGINS)},
-	{"ALL_PADDING", "[Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CSS$Attribute, ALL_PADDING)},
-	{"ALL_BORDER_WIDTHS", "[Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CSS$Attribute, ALL_BORDER_WIDTHS)},
-	{"ALL_BORDER_STYLES", "[Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CSS$Attribute, ALL_BORDER_STYLES)},
-	{"ALL_BORDER_COLORS", "[Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CSS$Attribute, ALL_BORDER_COLORS)},
-	{}
-};
-
-$MethodInfo _CSS$Attribute_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(CSS$Attribute, init$, void, $String*, $String*, bool)},
-	{"getDefaultValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(CSS$Attribute, getDefaultValue, $String*)},
-	{"isInherited", "()Z", nullptr, $PUBLIC, $method(CSS$Attribute, isInherited, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CSS$Attribute, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _CSS$Attribute_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.CSS$Attribute", "javax.swing.text.html.CSS", "Attribute", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CSS$Attribute_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.swing.text.html.CSS$Attribute",
-	"java.lang.Object",
-	nullptr,
-	_CSS$Attribute_FieldInfo_,
-	_CSS$Attribute_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CSS$Attribute_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.CSS"
-};
-
-$Object* allocate$CSS$Attribute($Class* clazz) {
-	return $of($alloc(CSS$Attribute));
-}
 
 CSS$Attribute* CSS$Attribute::BACKGROUND = nullptr;
 CSS$Attribute* CSS$Attribute::BACKGROUND_ATTACHMENT = nullptr;
@@ -294,8 +180,8 @@ bool CSS$Attribute::isInherited() {
 	return this->inherited;
 }
 
-void clinit$CSS$Attribute($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void CSS$Attribute::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(CSS$Attribute::BACKGROUND, $new(CSS$Attribute, "background"_s, nullptr, false));
 	$assignStatic(CSS$Attribute::BACKGROUND_ATTACHMENT, $new(CSS$Attribute, "background-attachment"_s, "scroll"_s, false));
 	$assignStatic(CSS$Attribute::BACKGROUND_COLOR, $new(CSS$Attribute, "background-color"_s, "transparent"_s, false));
@@ -468,7 +354,114 @@ CSS$Attribute::CSS$Attribute() {
 }
 
 $Class* CSS$Attribute::load$($String* name, bool initialize) {
-	$loadClass(CSS$Attribute, name, initialize, &_CSS$Attribute_ClassInfo_, clinit$CSS$Attribute, allocate$CSS$Attribute);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CSS$Attribute, name)},
+		{"defaultValue", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CSS$Attribute, defaultValue)},
+		{"inherited", "Z", nullptr, $PRIVATE, $field(CSS$Attribute, inherited)},
+		{"BACKGROUND", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BACKGROUND)},
+		{"BACKGROUND_ATTACHMENT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BACKGROUND_ATTACHMENT)},
+		{"BACKGROUND_COLOR", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BACKGROUND_COLOR)},
+		{"BACKGROUND_IMAGE", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BACKGROUND_IMAGE)},
+		{"BACKGROUND_POSITION", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BACKGROUND_POSITION)},
+		{"BACKGROUND_REPEAT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BACKGROUND_REPEAT)},
+		{"BORDER", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER)},
+		{"BORDER_BOTTOM", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_BOTTOM)},
+		{"BORDER_BOTTOM_COLOR", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_BOTTOM_COLOR)},
+		{"BORDER_BOTTOM_STYLE", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_BOTTOM_STYLE)},
+		{"BORDER_BOTTOM_WIDTH", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_BOTTOM_WIDTH)},
+		{"BORDER_COLOR", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_COLOR)},
+		{"BORDER_LEFT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_LEFT)},
+		{"BORDER_LEFT_COLOR", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_LEFT_COLOR)},
+		{"BORDER_LEFT_STYLE", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_LEFT_STYLE)},
+		{"BORDER_LEFT_WIDTH", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_LEFT_WIDTH)},
+		{"BORDER_RIGHT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_RIGHT)},
+		{"BORDER_RIGHT_COLOR", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_RIGHT_COLOR)},
+		{"BORDER_RIGHT_STYLE", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_RIGHT_STYLE)},
+		{"BORDER_RIGHT_WIDTH", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_RIGHT_WIDTH)},
+		{"BORDER_STYLE", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_STYLE)},
+		{"BORDER_TOP", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_TOP)},
+		{"BORDER_TOP_COLOR", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_TOP_COLOR)},
+		{"BORDER_TOP_STYLE", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_TOP_STYLE)},
+		{"BORDER_TOP_WIDTH", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_TOP_WIDTH)},
+		{"BORDER_WIDTH", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_WIDTH)},
+		{"CLEAR", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, CLEAR)},
+		{"COLOR", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, COLOR)},
+		{"DISPLAY", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, DISPLAY)},
+		{"FLOAT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, FLOAT)},
+		{"FONT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, FONT)},
+		{"FONT_FAMILY", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, FONT_FAMILY)},
+		{"FONT_SIZE", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, FONT_SIZE)},
+		{"FONT_STYLE", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, FONT_STYLE)},
+		{"FONT_VARIANT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, FONT_VARIANT)},
+		{"FONT_WEIGHT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, FONT_WEIGHT)},
+		{"HEIGHT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, HEIGHT)},
+		{"LETTER_SPACING", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, LETTER_SPACING)},
+		{"LINE_HEIGHT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, LINE_HEIGHT)},
+		{"LIST_STYLE", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, LIST_STYLE)},
+		{"LIST_STYLE_IMAGE", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, LIST_STYLE_IMAGE)},
+		{"LIST_STYLE_POSITION", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, LIST_STYLE_POSITION)},
+		{"LIST_STYLE_TYPE", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, LIST_STYLE_TYPE)},
+		{"MARGIN", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, MARGIN)},
+		{"MARGIN_BOTTOM", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, MARGIN_BOTTOM)},
+		{"MARGIN_LEFT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, MARGIN_LEFT)},
+		{"MARGIN_RIGHT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, MARGIN_RIGHT)},
+		{"MARGIN_LEFT_LTR", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $STATIC | $FINAL, $staticField(CSS$Attribute, MARGIN_LEFT_LTR)},
+		{"MARGIN_LEFT_RTL", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $STATIC | $FINAL, $staticField(CSS$Attribute, MARGIN_LEFT_RTL)},
+		{"MARGIN_RIGHT_LTR", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $STATIC | $FINAL, $staticField(CSS$Attribute, MARGIN_RIGHT_LTR)},
+		{"MARGIN_RIGHT_RTL", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $STATIC | $FINAL, $staticField(CSS$Attribute, MARGIN_RIGHT_RTL)},
+		{"MARGIN_TOP", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, MARGIN_TOP)},
+		{"PADDING", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, PADDING)},
+		{"PADDING_BOTTOM", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, PADDING_BOTTOM)},
+		{"PADDING_LEFT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, PADDING_LEFT)},
+		{"PADDING_RIGHT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, PADDING_RIGHT)},
+		{"PADDING_TOP", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, PADDING_TOP)},
+		{"TEXT_ALIGN", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, TEXT_ALIGN)},
+		{"TEXT_DECORATION", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, TEXT_DECORATION)},
+		{"TEXT_INDENT", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, TEXT_INDENT)},
+		{"TEXT_TRANSFORM", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, TEXT_TRANSFORM)},
+		{"VERTICAL_ALIGN", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, VERTICAL_ALIGN)},
+		{"WORD_SPACING", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, WORD_SPACING)},
+		{"WHITE_SPACE", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, WHITE_SPACE)},
+		{"WIDTH", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CSS$Attribute, WIDTH)},
+		{"BORDER_SPACING", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $STATIC | $FINAL, $staticField(CSS$Attribute, BORDER_SPACING)},
+		{"CAPTION_SIDE", "Ljavax/swing/text/html/CSS$Attribute;", nullptr, $STATIC | $FINAL, $staticField(CSS$Attribute, CAPTION_SIDE)},
+		{"allAttributes", "[Ljavax/swing/text/html/CSS$Attribute;", nullptr, $STATIC | $FINAL, $staticField(CSS$Attribute, allAttributes)},
+		{"ALL_MARGINS", "[Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CSS$Attribute, ALL_MARGINS)},
+		{"ALL_PADDING", "[Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CSS$Attribute, ALL_PADDING)},
+		{"ALL_BORDER_WIDTHS", "[Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CSS$Attribute, ALL_BORDER_WIDTHS)},
+		{"ALL_BORDER_STYLES", "[Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CSS$Attribute, ALL_BORDER_STYLES)},
+		{"ALL_BORDER_COLORS", "[Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CSS$Attribute, ALL_BORDER_COLORS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(CSS$Attribute, init$, void, $String*, $String*, bool)},
+		{"getDefaultValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(CSS$Attribute, getDefaultValue, $String*)},
+		{"isInherited", "()Z", nullptr, $PUBLIC, $method(CSS$Attribute, isInherited, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CSS$Attribute, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.CSS$Attribute", "javax.swing.text.html.CSS", "Attribute", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.swing.text.html.CSS$Attribute",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.CSS"
+	};
+	$loadClass(CSS$Attribute, name, initialize, &classInfo$$, CSS$Attribute::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CSS$Attribute);
+	});
 	return class$;
 }
 

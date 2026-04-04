@@ -1,5 +1,4 @@
 #include <NimbusGlueTest$2.h>
-
 #include <NimbusGlueTest.h>
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
@@ -16,7 +15,6 @@
 
 using $NimbusGlueTest = ::NimbusGlueTest;
 using $BorderLayout = ::java::awt::BorderLayout;
-using $Component = ::java::awt::Component;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -25,57 +23,20 @@ using $Box = ::javax::swing::Box;
 using $JFrame = ::javax::swing::JFrame;
 using $JToolBar = ::javax::swing::JToolBar;
 
-$MethodInfo _NimbusGlueTest$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(NimbusGlueTest$2, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NimbusGlueTest$2, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _NimbusGlueTest$2_EnclosingMethodInfo_ = {
-	"NimbusGlueTest",
-	"createUI",
-	"()V"
-};
-
-$InnerClassInfo _NimbusGlueTest$2_InnerClassesInfo_[] = {
-	{"NimbusGlueTest$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NimbusGlueTest$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"NimbusGlueTest$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_NimbusGlueTest$2_MethodInfo_,
-	nullptr,
-	&_NimbusGlueTest$2_EnclosingMethodInfo_,
-	_NimbusGlueTest$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"NimbusGlueTest"
-};
-
-$Object* allocate$NimbusGlueTest$2($Class* clazz) {
-	return $of($alloc(NimbusGlueTest$2));
-}
-
 void NimbusGlueTest$2::init$() {
 }
 
 void NimbusGlueTest$2::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($NimbusGlueTest);
 	$assignStatic($NimbusGlueTest::frame, $new($JFrame));
 	$assignStatic($NimbusGlueTest::bar, $new($JToolBar));
-	$nc($NimbusGlueTest::bar)->add($(static_cast<$Component*>($NimbusGlueTest::createButton(1))));
-	$nc($NimbusGlueTest::bar)->add($(static_cast<$Component*>($NimbusGlueTest::createButton(2))));
+	$NimbusGlueTest::bar->add($($NimbusGlueTest::createButton(1)));
+	$nc($NimbusGlueTest::bar)->add($($NimbusGlueTest::createButton(2)));
 	$nc($NimbusGlueTest::bar)->add($($Box::createHorizontalGlue()));
-	$nc($NimbusGlueTest::bar)->add($(static_cast<$Component*>($NimbusGlueTest::createButton(3))));
+	$nc($NimbusGlueTest::bar)->add($($NimbusGlueTest::createButton(3)));
 	$init($BorderLayout);
-	$nc($NimbusGlueTest::frame)->add(static_cast<$Component*>($NimbusGlueTest::bar), $of($BorderLayout::NORTH));
+	$nc($NimbusGlueTest::frame)->add($NimbusGlueTest::bar, $BorderLayout::NORTH);
 	$nc($NimbusGlueTest::frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$nc($NimbusGlueTest::frame)->setSize(600, 400);
 	$nc($NimbusGlueTest::frame)->setVisible(true);
@@ -85,7 +46,38 @@ NimbusGlueTest$2::NimbusGlueTest$2() {
 }
 
 $Class* NimbusGlueTest$2::load$($String* name, bool initialize) {
-	$loadClass(NimbusGlueTest$2, name, initialize, &_NimbusGlueTest$2_ClassInfo_, allocate$NimbusGlueTest$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(NimbusGlueTest$2, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NimbusGlueTest$2, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"NimbusGlueTest",
+		"createUI",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"NimbusGlueTest$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"NimbusGlueTest$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"NimbusGlueTest"
+	};
+	$loadClass(NimbusGlueTest$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NimbusGlueTest$2);
+	});
 	return class$;
 }
 

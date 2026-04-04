@@ -1,14 +1,11 @@
 #include <javax/swing/plaf/nimbus/SplitPaneDividerPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/LinearGradientPaint.h>
 #include <java/awt/Paint.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/Ellipse2D$Float.h>
-#include <java/awt/geom/Ellipse2D.h>
 #include <java/awt/geom/Path2D$Float.h>
-#include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
 #include <java/awt/geom/RoundRectangle2D$Float.h>
@@ -27,9 +24,7 @@ using $ColorArray = $Array<::java::awt::Color>;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Paint = ::java::awt::Paint;
 using $Shape = ::java::awt::Shape;
-using $Ellipse2D = ::java::awt::geom::Ellipse2D;
 using $Ellipse2D$Float = ::java::awt::geom::Ellipse2D$Float;
-using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
@@ -48,77 +43,12 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _SplitPaneDividerPainter_FieldInfo_[] = {
-	{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(SplitPaneDividerPainter, BACKGROUND_ENABLED)},
-	{"BACKGROUND_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(SplitPaneDividerPainter, BACKGROUND_FOCUSED)},
-	{"FOREGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(SplitPaneDividerPainter, FOREGROUND_ENABLED)},
-	{"FOREGROUND_ENABLED_VERTICAL", "I", nullptr, $STATIC | $FINAL, $constField(SplitPaneDividerPainter, FOREGROUND_ENABLED_VERTICAL)},
-	{"state", "I", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, state)},
-	{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, ctx)},
-	{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, path)},
-	{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, rect)},
-	{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, roundRect)},
-	{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, ellipse)},
-	{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color1)},
-	{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color2)},
-	{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color3)},
-	{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color4)},
-	{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color5)},
-	{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color6)},
-	{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color7)},
-	{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color8)},
-	{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color9)},
-	{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color10)},
-	{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color11)},
-	{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color12)},
-	{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color13)},
-	{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color14)},
-	{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color15)},
-	{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, componentColors)},
-	{}
-};
-
-$MethodInfo _SplitPaneDividerPainter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(SplitPaneDividerPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
-	{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, decodeGradient1, $Paint*, $Shape*)},
-	{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, decodeGradient2, $Paint*, $Shape*)},
-	{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, decodeGradient3, $Paint*, $Shape*)},
-	{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, decodeGradient4, $Paint*, $Shape*)},
-	{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, decodeGradient5, $Paint*, $Shape*)},
-	{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, decodeGradient6, $Paint*, $Shape*)},
-	{"decodeRect1", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, decodeRect1, $Rectangle2D*)},
-	{"decodeRect2", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, decodeRect2, $Rectangle2D*)},
-	{"decodeRoundRect1", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, decodeRoundRect1, $RoundRectangle2D*)},
-	{"decodeRoundRect2", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, decodeRoundRect2, $RoundRectangle2D*)},
-	{"decodeRoundRect3", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, decodeRoundRect3, $RoundRectangle2D*)},
-	{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(SplitPaneDividerPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(SplitPaneDividerPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
-	{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, paintBackgroundEnabled, void, $Graphics2D*)},
-	{"paintBackgroundFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, paintBackgroundFocused, void, $Graphics2D*)},
-	{"paintForegroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, paintForegroundEnabled, void, $Graphics2D*)},
-	{"paintForegroundEnabledAndVertical", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, paintForegroundEnabledAndVertical, void, $Graphics2D*)},
-	{}
-};
-
-$ClassInfo _SplitPaneDividerPainter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.SplitPaneDividerPainter",
-	"javax.swing.plaf.nimbus.AbstractRegionPainter",
-	nullptr,
-	_SplitPaneDividerPainter_FieldInfo_,
-	_SplitPaneDividerPainter_MethodInfo_
-};
-
-$Object* allocate$SplitPaneDividerPainter($Class* clazz) {
-	return $of($alloc(SplitPaneDividerPainter));
-}
-
 void SplitPaneDividerPainter::init$($AbstractRegionPainter$PaintContext* ctx, int32_t state) {
 	$AbstractRegionPainter::init$();
 	$set(this, path, $new($Path2D$Float));
-	$set(this, rect, $new($Rectangle2D$Float, (float)0, (float)0, (float)0, (float)0));
-	$set(this, roundRect, $new($RoundRectangle2D$Float, (float)0, (float)0, (float)0, (float)0, (float)0, (float)0));
-	$set(this, ellipse, $new($Ellipse2D$Float, (float)0, (float)0, (float)0, (float)0));
+	$set(this, rect, $new($Rectangle2D$Float, 0, 0, 0, 0));
+	$set(this, roundRect, $new($RoundRectangle2D$Float, 0, 0, 0, 0, 0, 0));
+	$set(this, ellipse, $new($Ellipse2D$Float, 0, 0, 0, 0));
 	$set(this, color1, decodeColor("nimbusBlueGrey"_s, 0.0f, -0.017358616f, -0.11372548f, 0));
 	$set(this, color2, decodeColor("nimbusBlueGrey"_s, 0.055555582f, -0.102396235f, 0.21960783f, 0));
 	$set(this, color3, decodeColor("nimbusBlueGrey"_s, 0.0f, -0.07016757f, 0.12941176f, 0));
@@ -142,25 +72,17 @@ void SplitPaneDividerPainter::doPaint($Graphics2D* g, $JComponent* c, int32_t wi
 	$set(this, componentColors, extendedCacheKeys);
 	switch (this->state) {
 	case SplitPaneDividerPainter::BACKGROUND_ENABLED:
-		{
-			paintBackgroundEnabled(g);
-			break;
-		}
+		paintBackgroundEnabled(g);
+		break;
 	case SplitPaneDividerPainter::BACKGROUND_FOCUSED:
-		{
-			paintBackgroundFocused(g);
-			break;
-		}
+		paintBackgroundFocused(g);
+		break;
 	case SplitPaneDividerPainter::FOREGROUND_ENABLED:
-		{
-			paintForegroundEnabled(g);
-			break;
-		}
+		paintForegroundEnabled(g);
+		break;
 	case SplitPaneDividerPainter::FOREGROUND_ENABLED_VERTICAL:
-		{
-			paintForegroundEnabledAndVertical(g);
-			break;
-		}
+		paintForegroundEnabledAndVertical(g);
+		break;
 	}
 }
 
@@ -181,7 +103,7 @@ void SplitPaneDividerPainter::paintBackgroundFocused($Graphics2D* g) {
 }
 
 void SplitPaneDividerPainter::paintForegroundEnabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect1());
 	$nc(g)->setPaint($(decodeGradient3(this->roundRect)));
 	g->fill(this->roundRect);
@@ -191,7 +113,7 @@ void SplitPaneDividerPainter::paintForegroundEnabled($Graphics2D* g) {
 }
 
 void SplitPaneDividerPainter::paintForegroundEnabledAndVertical($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect3());
 	$nc(g)->setPaint($(decodeGradient5(this->roundRect)));
 	g->fill(this->roundRect);
@@ -201,57 +123,57 @@ void SplitPaneDividerPainter::paintForegroundEnabledAndVertical($Graphics2D* g) 
 }
 
 $Rectangle2D* SplitPaneDividerPainter::decodeRect1() {
-	double var$0 = (double)decodeX(1.0f);
-	double var$1 = (double)decodeY(0.0f);
+	double var$0 = decodeX(1.0f);
+	double var$1 = decodeY(0.0f);
 	float var$3 = decodeX(2.0f);
-	double var$2 = (double)(var$3 - decodeX(1.0f));
+	double var$2 = var$3 - decodeX(1.0f);
 	float var$4 = decodeY(3.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.0f));
 	return this->rect;
 }
 
 $RoundRectangle2D* SplitPaneDividerPainter::decodeRoundRect1() {
-	double var$0 = (double)decodeX(1.05f);
-	double var$1 = (double)decodeY(1.3f);
+	double var$0 = decodeX(1.05f);
+	double var$1 = decodeY(1.3f);
 	float var$3 = decodeX(1.95f);
-	double var$2 = (double)(var$3 - decodeX(1.05f));
+	double var$2 = var$3 - decodeX(1.05f);
 	float var$4 = decodeY(1.8f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(1.3f), 3.6666667f, 3.6666667f);
 	return this->roundRect;
 }
 
 $RoundRectangle2D* SplitPaneDividerPainter::decodeRoundRect2() {
-	double var$0 = (double)decodeX(1.1f);
-	double var$1 = (double)decodeY(1.4f);
+	double var$0 = decodeX(1.1f);
+	double var$1 = decodeY(1.4f);
 	float var$3 = decodeX(1.9f);
-	double var$2 = (double)(var$3 - decodeX(1.1f));
+	double var$2 = var$3 - decodeX(1.1f);
 	float var$4 = decodeY(1.7f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(1.4f), 4.0f, 4.0f);
 	return this->roundRect;
 }
 
 $RoundRectangle2D* SplitPaneDividerPainter::decodeRoundRect3() {
-	double var$0 = (double)decodeX(1.3f);
-	double var$1 = (double)decodeY(1.1428572f);
+	double var$0 = decodeX(1.3f);
+	double var$1 = decodeY(1.1428572f);
 	float var$3 = decodeX(1.7f);
-	double var$2 = (double)(var$3 - decodeX(1.3f));
+	double var$2 = var$3 - decodeX(1.3f);
 	float var$4 = decodeY(1.8214285f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(1.1428572f), 4.0f, 4.0f);
 	return this->roundRect;
 }
 
 $Rectangle2D* SplitPaneDividerPainter::decodeRect2() {
-	double var$0 = (double)decodeX(1.4f);
-	double var$1 = (double)decodeY(1.1785715f);
+	double var$0 = decodeX(1.4f);
+	double var$1 = decodeY(1.1785715f);
 	float var$3 = decodeX(1.6f);
-	double var$2 = (double)(var$3 - decodeX(1.4f));
+	double var$2 = var$3 - decodeX(1.4f);
 	float var$4 = decodeY(1.7678571f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.1785715f));
 	return this->rect;
 }
 
 $Paint* SplitPaneDividerPainter::decodeGradient1($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -285,7 +207,7 @@ $Paint* SplitPaneDividerPainter::decodeGradient1($Shape* s) {
 }
 
 $Paint* SplitPaneDividerPainter::decodeGradient2($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -319,7 +241,7 @@ $Paint* SplitPaneDividerPainter::decodeGradient2($Shape* s) {
 }
 
 $Paint* SplitPaneDividerPainter::decodeGradient3($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -337,7 +259,7 @@ $Paint* SplitPaneDividerPainter::decodeGradient3($Shape* s) {
 }
 
 $Paint* SplitPaneDividerPainter::decodeGradient4($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -359,7 +281,7 @@ $Paint* SplitPaneDividerPainter::decodeGradient4($Shape* s) {
 }
 
 $Paint* SplitPaneDividerPainter::decodeGradient5($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -381,7 +303,7 @@ $Paint* SplitPaneDividerPainter::decodeGradient5($Shape* s) {
 }
 
 $Paint* SplitPaneDividerPainter::decodeGradient6($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -410,7 +332,67 @@ SplitPaneDividerPainter::SplitPaneDividerPainter() {
 }
 
 $Class* SplitPaneDividerPainter::load$($String* name, bool initialize) {
-	$loadClass(SplitPaneDividerPainter, name, initialize, &_SplitPaneDividerPainter_ClassInfo_, allocate$SplitPaneDividerPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(SplitPaneDividerPainter, BACKGROUND_ENABLED)},
+		{"BACKGROUND_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(SplitPaneDividerPainter, BACKGROUND_FOCUSED)},
+		{"FOREGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(SplitPaneDividerPainter, FOREGROUND_ENABLED)},
+		{"FOREGROUND_ENABLED_VERTICAL", "I", nullptr, $STATIC | $FINAL, $constField(SplitPaneDividerPainter, FOREGROUND_ENABLED_VERTICAL)},
+		{"state", "I", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, state)},
+		{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, ctx)},
+		{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, path)},
+		{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, rect)},
+		{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, roundRect)},
+		{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, ellipse)},
+		{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color1)},
+		{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color2)},
+		{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color3)},
+		{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color4)},
+		{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color5)},
+		{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color6)},
+		{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color7)},
+		{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color8)},
+		{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color9)},
+		{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color10)},
+		{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color11)},
+		{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color12)},
+		{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color13)},
+		{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color14)},
+		{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, color15)},
+		{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(SplitPaneDividerPainter, componentColors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(SplitPaneDividerPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
+		{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, decodeGradient1, $Paint*, $Shape*)},
+		{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, decodeGradient2, $Paint*, $Shape*)},
+		{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, decodeGradient3, $Paint*, $Shape*)},
+		{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, decodeGradient4, $Paint*, $Shape*)},
+		{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, decodeGradient5, $Paint*, $Shape*)},
+		{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, decodeGradient6, $Paint*, $Shape*)},
+		{"decodeRect1", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, decodeRect1, $Rectangle2D*)},
+		{"decodeRect2", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, decodeRect2, $Rectangle2D*)},
+		{"decodeRoundRect1", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, decodeRoundRect1, $RoundRectangle2D*)},
+		{"decodeRoundRect2", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, decodeRoundRect2, $RoundRectangle2D*)},
+		{"decodeRoundRect3", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, decodeRoundRect3, $RoundRectangle2D*)},
+		{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(SplitPaneDividerPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(SplitPaneDividerPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
+		{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, paintBackgroundEnabled, void, $Graphics2D*)},
+		{"paintBackgroundFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, paintBackgroundFocused, void, $Graphics2D*)},
+		{"paintForegroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, paintForegroundEnabled, void, $Graphics2D*)},
+		{"paintForegroundEnabledAndVertical", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SplitPaneDividerPainter, paintForegroundEnabledAndVertical, void, $Graphics2D*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.SplitPaneDividerPainter",
+		"javax.swing.plaf.nimbus.AbstractRegionPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SplitPaneDividerPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SplitPaneDividerPainter);
+	});
 	return class$;
 }
 

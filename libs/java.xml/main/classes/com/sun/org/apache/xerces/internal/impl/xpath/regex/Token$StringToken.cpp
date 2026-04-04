@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/Token$StringToken.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/REUtil.h>
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/Token.h>
 #include <jcpp.h>
@@ -22,46 +21,6 @@ namespace com {
 						namespace impl {
 							namespace xpath {
 								namespace regex {
-
-$FieldInfo _Token$StringToken_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Token$StringToken, serialVersionUID)},
-	{"string", "Ljava/lang/String;", nullptr, 0, $field(Token$StringToken, string)},
-	{"refNumber", "I", nullptr, $FINAL, $field(Token$StringToken, refNumber)},
-	{}
-};
-
-$MethodInfo _Token$StringToken_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/String;I)V", nullptr, 0, $method(Token$StringToken, init$, void, int32_t, $String*, int32_t)},
-	{"getReferenceNumber", "()I", nullptr, 0, $virtualMethod(Token$StringToken, getReferenceNumber, int32_t)},
-	{"getString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Token$StringToken, getString, $String*)},
-	{"toString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Token$StringToken, toString, $String*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Token$StringToken_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$StringToken", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Token", "StringToken", $STATIC},
-	{}
-};
-
-$ClassInfo _Token$StringToken_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$StringToken",
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token",
-	nullptr,
-	_Token$StringToken_FieldInfo_,
-	_Token$StringToken_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Token$StringToken_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token"
-};
-
-$Object* allocate$Token$StringToken($Class* clazz) {
-	return $of($alloc(Token$StringToken));
-}
 
 void Token$StringToken::init$(int32_t type, $String* str, int32_t n) {
 	$Token::init$(type);
@@ -89,7 +48,41 @@ Token$StringToken::Token$StringToken() {
 }
 
 $Class* Token$StringToken::load$($String* name, bool initialize) {
-	$loadClass(Token$StringToken, name, initialize, &_Token$StringToken_ClassInfo_, allocate$Token$StringToken);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Token$StringToken, serialVersionUID)},
+		{"string", "Ljava/lang/String;", nullptr, 0, $field(Token$StringToken, string)},
+		{"refNumber", "I", nullptr, $FINAL, $field(Token$StringToken, refNumber)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/lang/String;I)V", nullptr, 0, $method(Token$StringToken, init$, void, int32_t, $String*, int32_t)},
+		{"getReferenceNumber", "()I", nullptr, 0, $virtualMethod(Token$StringToken, getReferenceNumber, int32_t)},
+		{"getString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Token$StringToken, getString, $String*)},
+		{"toString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Token$StringToken, toString, $String*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$StringToken", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Token", "StringToken", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$StringToken",
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token"
+	};
+	$loadClass(Token$StringToken, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Token$StringToken);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/ExtendedCharsets.h>
-
 #include <sun/nio/cs/ext/AbstractCharsetProvider.h>
 #include <jcpp.h>
 
@@ -13,34 +12,10 @@ namespace sun {
 		namespace cs {
 			namespace ext {
 
-$FieldInfo _ExtendedCharsets_FieldInfo_[] = {
-	{"instance", "Lsun/nio/cs/ext/ExtendedCharsets;", nullptr, $STATIC | $VOLATILE, $staticField(ExtendedCharsets, instance)},
-	{}
-};
-
-$MethodInfo _ExtendedCharsets_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExtendedCharsets, init$, void)},
-	{"aliasesFor", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExtendedCharsets, aliasesFor, $StringArray*, $String*)},
-	{}
-};
-
-$ClassInfo _ExtendedCharsets_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.ext.ExtendedCharsets",
-	"sun.nio.cs.ext.AbstractCharsetProvider",
-	nullptr,
-	_ExtendedCharsets_FieldInfo_,
-	_ExtendedCharsets_MethodInfo_
-};
-
-$Object* allocate$ExtendedCharsets($Class* clazz) {
-	return $of($alloc(ExtendedCharsets));
-}
-
 $volatile(ExtendedCharsets*) ExtendedCharsets::instance = nullptr;
 
 void ExtendedCharsets::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AbstractCharsetProvider::init$("sun.nio.cs.ext"_s);
 	charset("x-MS950-HKSCS-XP"_s, "MS950_HKSCS_XP"_s, $$new($StringArray, {"MS950_HKSCS_XP"_s}));
 	charset("x-MS950-HKSCS"_s, "MS950_HKSCS"_s, $$new($StringArray, {"MS950_HKSCS"_s}));
@@ -686,7 +661,7 @@ $StringArray* ExtendedCharsets::aliasesFor($String* charsetName) {
 	return $nc(ExtendedCharsets::instance)->aliases(charsetName);
 }
 
-void clinit$ExtendedCharsets($Class* class$) {
+void ExtendedCharsets::clinit$($Class* clazz) {
 	$assignStatic(ExtendedCharsets::instance, nullptr);
 }
 
@@ -694,7 +669,26 @@ ExtendedCharsets::ExtendedCharsets() {
 }
 
 $Class* ExtendedCharsets::load$($String* name, bool initialize) {
-	$loadClass(ExtendedCharsets, name, initialize, &_ExtendedCharsets_ClassInfo_, clinit$ExtendedCharsets, allocate$ExtendedCharsets);
+	$FieldInfo fieldInfos$$[] = {
+		{"instance", "Lsun/nio/cs/ext/ExtendedCharsets;", nullptr, $STATIC | $VOLATILE, $staticField(ExtendedCharsets, instance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExtendedCharsets, init$, void)},
+		{"aliasesFor", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExtendedCharsets, aliasesFor, $StringArray*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.ext.ExtendedCharsets",
+		"sun.nio.cs.ext.AbstractCharsetProvider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ExtendedCharsets, name, initialize, &classInfo$$, ExtendedCharsets::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ExtendedCharsets);
+	});
 	return class$;
 }
 

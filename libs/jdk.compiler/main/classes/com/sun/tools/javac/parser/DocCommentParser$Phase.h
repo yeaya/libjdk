@@ -24,6 +24,7 @@ class DocCommentParser$Phase : public ::java::lang::Enum {
 public:
 	DocCommentParser$Phase();
 	static $Array<::com::sun::tools::javac::parser::DocCommentParser$Phase>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::parser::DocCommentParser$Phase* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::parser::DocCommentParser$Phase>* values();

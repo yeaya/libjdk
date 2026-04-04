@@ -1,5 +1,4 @@
 #include <java/awt/AWTKeyStroke.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/VKCollection.h>
@@ -61,7 +60,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchFieldException = ::java::lang::NoSuchFieldException;
-using $Field = ::java::lang::reflect::Field;
 using $Modifier = ::java::lang::reflect::Modifier;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
@@ -69,71 +67,9 @@ using $Map = ::java::util::Map;
 using $StringTokenizer = ::java::util::StringTokenizer;
 using $AppContext = ::sun::awt::AppContext;
 using $SwingAccessor = ::sun::swing::SwingAccessor;
-using $SwingAccessor$KeyStrokeAccessor = ::sun::swing::SwingAccessor$KeyStrokeAccessor;
 
 namespace java {
 	namespace awt {
-
-$CompoundAttribute _AWTKeyStroke_MethodAnnotations_registerSubclass23[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _AWTKeyStroke_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(AWTKeyStroke, $assertionsDisabled)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AWTKeyStroke, serialVersionUID)},
-	{"modifierKeywords", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE | $STATIC, $staticField(AWTKeyStroke, modifierKeywords)},
-	{"vks", "Ljava/awt/VKCollection;", nullptr, $PRIVATE | $STATIC, $staticField(AWTKeyStroke, vks)},
-	{"APP_CONTEXT_CACHE_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(AWTKeyStroke, APP_CONTEXT_CACHE_KEY)},
-	{"APP_CONTEXT_KEYSTROKE_KEY", "Ljava/awt/AWTKeyStroke;", nullptr, $PRIVATE | $STATIC, $staticField(AWTKeyStroke, APP_CONTEXT_KEYSTROKE_KEY)},
-	{"keyChar", "C", nullptr, $PRIVATE, $field(AWTKeyStroke, keyChar)},
-	{"keyCode", "I", nullptr, $PRIVATE, $field(AWTKeyStroke, keyCode)},
-	{"modifiers", "I", nullptr, $PRIVATE, $field(AWTKeyStroke, modifiers)},
-	{"onKeyRelease", "Z", nullptr, $PRIVATE, $field(AWTKeyStroke, onKeyRelease)},
-	{}
-};
-
-$MethodInfo _AWTKeyStroke_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AWTKeyStroke, init$, void)},
-	{"<init>", "(CIIZ)V", nullptr, $PROTECTED, $method(AWTKeyStroke, init$, void, char16_t, int32_t, int32_t, bool)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AWTKeyStroke, equals, bool, Object$*)},
-	{"getAWTKeyStroke", "(C)Ljava/awt/AWTKeyStroke;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTKeyStroke, getAWTKeyStroke, AWTKeyStroke*, char16_t)},
-	{"getAWTKeyStroke", "(Ljava/lang/Character;I)Ljava/awt/AWTKeyStroke;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTKeyStroke, getAWTKeyStroke, AWTKeyStroke*, $Character*, int32_t)},
-	{"getAWTKeyStroke", "(IIZ)Ljava/awt/AWTKeyStroke;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTKeyStroke, getAWTKeyStroke, AWTKeyStroke*, int32_t, int32_t, bool)},
-	{"getAWTKeyStroke", "(II)Ljava/awt/AWTKeyStroke;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTKeyStroke, getAWTKeyStroke, AWTKeyStroke*, int32_t, int32_t)},
-	{"getAWTKeyStroke", "(Ljava/lang/String;)Ljava/awt/AWTKeyStroke;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTKeyStroke, getAWTKeyStroke, AWTKeyStroke*, $String*)},
-	{"getAWTKeyStrokeForEvent", "(Ljava/awt/event/KeyEvent;)Ljava/awt/AWTKeyStroke;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTKeyStroke, getAWTKeyStrokeForEvent, AWTKeyStroke*, $KeyEvent*)},
-	{"getCachedStroke", "(CIIZ)Ljava/awt/AWTKeyStroke;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(AWTKeyStroke, getCachedStroke, AWTKeyStroke*, char16_t, int32_t, int32_t, bool)},
-	{"getKeyChar", "()C", nullptr, $PUBLIC | $FINAL, $method(AWTKeyStroke, getKeyChar, char16_t)},
-	{"getKeyCode", "()I", nullptr, $PUBLIC | $FINAL, $method(AWTKeyStroke, getKeyCode, int32_t)},
-	{"getKeyEventType", "()I", nullptr, $PUBLIC | $FINAL, $method(AWTKeyStroke, getKeyEventType, int32_t)},
-	{"getModifiers", "()I", nullptr, $PUBLIC | $FINAL, $method(AWTKeyStroke, getModifiers, int32_t)},
-	{"getModifiersText", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(AWTKeyStroke, getModifiersText, $String*, int32_t)},
-	{"getVKCollection", "()Ljava/awt/VKCollection;", nullptr, $PRIVATE | $STATIC, $staticMethod(AWTKeyStroke, getVKCollection, $VKCollection*)},
-	{"getVKText", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(AWTKeyStroke, getVKText, $String*, int32_t)},
-	{"getVKValue", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AWTKeyStroke, getVKValue, int32_t, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AWTKeyStroke, hashCode, int32_t)},
-	{"isOnKeyRelease", "()Z", nullptr, $PUBLIC | $FINAL, $method(AWTKeyStroke, isOnKeyRelease, bool)},
-	{"mapNewModifiers", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AWTKeyStroke, mapNewModifiers, int32_t, int32_t)},
-	{"mapOldModifiers", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AWTKeyStroke, mapOldModifiers, int32_t, int32_t)},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(AWTKeyStroke, readResolve, $Object*), "java.io.ObjectStreamException"},
-	{"registerSubclass", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PROTECTED | $STATIC | $DEPRECATED, $staticMethod(AWTKeyStroke, registerSubclass, void, $Class*), nullptr, nullptr, _AWTKeyStroke_MethodAnnotations_registerSubclass23},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AWTKeyStroke, toString, $String*)},
-	{}
-};
-
-$ClassInfo _AWTKeyStroke_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.AWTKeyStroke",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_AWTKeyStroke_FieldInfo_,
-	_AWTKeyStroke_MethodInfo_
-};
-
-$Object* allocate$AWTKeyStroke($Class* clazz) {
-	return $of($alloc(AWTKeyStroke));
-}
 
 bool AWTKeyStroke::$assertionsDisabled = false;
 $Map* AWTKeyStroke::modifierKeywords = nullptr;
@@ -160,19 +96,18 @@ void AWTKeyStroke::registerSubclass($Class* subclass) {
 }
 
 AWTKeyStroke* AWTKeyStroke::getCachedStroke(char16_t keyChar, int32_t keyCode, int32_t modifiers, bool onKeyRelease) {
-	$load(AWTKeyStroke);
+	$init(AWTKeyStroke);
 	$synchronized(class$) {
-		$init(AWTKeyStroke);
-		$useLocalCurrentObjectStackCache();
-		$var($Map, cache, $cast($Map, $nc($($AppContext::getAppContext()))->get(AWTKeyStroke::APP_CONTEXT_CACHE_KEY)));
-		$var(AWTKeyStroke, cacheKey, $cast(AWTKeyStroke, $nc($($AppContext::getAppContext()))->get(AWTKeyStroke::APP_CONTEXT_KEYSTROKE_KEY)));
+		$useLocalObjectStack();
+		$var($Map, cache, $cast($Map, $$nc($AppContext::getAppContext())->get(AWTKeyStroke::APP_CONTEXT_CACHE_KEY)));
+		$var(AWTKeyStroke, cacheKey, $cast(AWTKeyStroke, $$nc($AppContext::getAppContext())->get(AWTKeyStroke::APP_CONTEXT_KEYSTROKE_KEY)));
 		if (cache == nullptr) {
 			$assign(cache, $new($HashMap));
-			$nc($($AppContext::getAppContext()))->put(AWTKeyStroke::APP_CONTEXT_CACHE_KEY, cache);
+			$$nc($AppContext::getAppContext())->put(AWTKeyStroke::APP_CONTEXT_CACHE_KEY, cache);
 		}
 		if (cacheKey == nullptr) {
-			$assign(cacheKey, $nc($($SwingAccessor::getKeyStrokeAccessor()))->create());
-			$nc($($AppContext::getAppContext()))->put(AWTKeyStroke::APP_CONTEXT_KEYSTROKE_KEY, cacheKey);
+			$assign(cacheKey, $$nc($SwingAccessor::getKeyStrokeAccessor())->create());
+			$$nc($AppContext::getAppContext())->put(AWTKeyStroke::APP_CONTEXT_KEYSTROKE_KEY, cacheKey);
 		}
 		$nc(cacheKey)->keyChar = keyChar;
 		cacheKey->keyCode = keyCode;
@@ -182,7 +117,7 @@ AWTKeyStroke* AWTKeyStroke::getCachedStroke(char16_t keyChar, int32_t keyCode, i
 		if (stroke == nullptr) {
 			$assign(stroke, cacheKey);
 			cache->put(stroke, stroke);
-			$nc($($AppContext::getAppContext()))->remove(AWTKeyStroke::APP_CONTEXT_KEYSTROKE_KEY);
+			$$nc($AppContext::getAppContext())->remove(AWTKeyStroke::APP_CONTEXT_KEYSTROKE_KEY);
 		}
 		return stroke;
 	}
@@ -216,7 +151,6 @@ AWTKeyStroke* AWTKeyStroke::getAWTKeyStrokeForEvent($KeyEvent* anEvent) {
 	int32_t id = $nc(anEvent)->getID();
 	switch (id) {
 	case $KeyEvent::KEY_PRESSED:
-		{}
 	case $KeyEvent::KEY_RELEASED:
 		{
 			int32_t var$0 = anEvent->getKeyCode();
@@ -228,15 +162,13 @@ AWTKeyStroke* AWTKeyStroke::getAWTKeyStrokeForEvent($KeyEvent* anEvent) {
 			return getCachedStroke(var$1, $KeyEvent::VK_UNDEFINED, anEvent->getModifiers(), false);
 		}
 	default:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	}
 }
 
 AWTKeyStroke* AWTKeyStroke::getAWTKeyStroke($String* s) {
 	$init(AWTKeyStroke);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (s == nullptr) {
 		$throwNew($IllegalArgumentException, "String cannot be null"_s);
 	}
@@ -268,7 +200,7 @@ AWTKeyStroke* AWTKeyStroke::getAWTKeyStroke($String* s) {
 			if ($nc(token)->length() != 1 || i != count) {
 				$throwNew($IllegalArgumentException, errmsg);
 			}
-			return getCachedStroke($nc(token)->charAt(0), $KeyEvent::VK_UNDEFINED, mask, false);
+			return getCachedStroke(token->charAt(0), $KeyEvent::VK_UNDEFINED, mask, false);
 		}
 		if (pressed || released || i == count) {
 			if (i != count) {
@@ -282,11 +214,11 @@ AWTKeyStroke* AWTKeyStroke::getAWTKeyStroke($String* s) {
 			released = true;
 			continue;
 		}
-		if ($nc(token)->equals("pressed"_s)) {
+		if (token->equals("pressed"_s)) {
 			pressed = true;
 			continue;
 		}
-		if ($nc(token)->equals("typed"_s)) {
+		if (token->equals("typed"_s)) {
 			typed = true;
 			continue;
 		}
@@ -310,7 +242,7 @@ $VKCollection* AWTKeyStroke::getVKCollection() {
 
 int32_t AWTKeyStroke::getVKValue($String* key) {
 	$init(AWTKeyStroke);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($VKCollection, vkCollect, getVKCollection());
 	$var($Integer, value, $nc(vkCollect)->findCode(key));
@@ -319,7 +251,7 @@ int32_t AWTKeyStroke::getVKValue($String* key) {
 		$var($String, errmsg, "String formatted incorrectly"_s);
 		try {
 			$load($KeyEvent);
-			keyCode = $nc($($KeyEvent::class$->getField(key)))->getInt($KeyEvent::class$);
+			keyCode = $$nc($KeyEvent::class$->getField(key))->getInt($KeyEvent::class$);
 		} catch ($NoSuchFieldException& nsfe) {
 			$throwNew($IllegalArgumentException, errmsg);
 		} catch ($IllegalAccessException& iae) {
@@ -362,46 +294,50 @@ int32_t AWTKeyStroke::hashCode() {
 bool AWTKeyStroke::equals(Object$* anObject) {
 	if ($instanceOf(AWTKeyStroke, anObject)) {
 		$var(AWTKeyStroke, ks, $cast(AWTKeyStroke, anObject));
-		return ($nc(ks)->keyChar == this->keyChar && ks->keyCode == this->keyCode && ks->onKeyRelease == this->onKeyRelease && ks->modifiers == this->modifiers);
+		return (ks->keyChar == this->keyChar && ks->keyCode == this->keyCode && ks->onKeyRelease == this->onKeyRelease && ks->modifiers == this->modifiers);
 	}
 	return false;
 }
 
 $String* AWTKeyStroke::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->keyCode == $KeyEvent::VK_UNDEFINED) {
 		return $str({$(getModifiersText(this->modifiers)), "typed "_s, $$str(this->keyChar)});
 	} else {
-		$var($String, var$0, $$str({$(getModifiersText(this->modifiers)), (this->onKeyRelease ? "released"_s : "pressed"_s), " "_s}));
-		return $concat(var$0, $(getVKText(this->keyCode)));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(getModifiersText(this->modifiers)));
+		var$0->append(this->onKeyRelease ? "released"_s : "pressed"_s);
+		var$0->append(" "_s);
+		var$0->append($(getVKText(this->keyCode)));
+		return $str(var$0);
 	}
 }
 
 $String* AWTKeyStroke::getModifiersText(int32_t modifiers) {
 	$init(AWTKeyStroke);
 	$var($StringBuilder, buf, $new($StringBuilder));
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::SHIFT_DOWN_MASK)) != 0) {
+	if ((modifiers & $InputEvent::SHIFT_DOWN_MASK) != 0) {
 		buf->append("shift "_s);
 	}
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::CTRL_DOWN_MASK)) != 0) {
+	if ((modifiers & $InputEvent::CTRL_DOWN_MASK) != 0) {
 		buf->append("ctrl "_s);
 	}
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::META_DOWN_MASK)) != 0) {
+	if ((modifiers & $InputEvent::META_DOWN_MASK) != 0) {
 		buf->append("meta "_s);
 	}
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::ALT_DOWN_MASK)) != 0) {
+	if ((modifiers & $InputEvent::ALT_DOWN_MASK) != 0) {
 		buf->append("alt "_s);
 	}
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::ALT_GRAPH_DOWN_MASK)) != 0) {
+	if ((modifiers & $InputEvent::ALT_GRAPH_DOWN_MASK) != 0) {
 		buf->append("altGraph "_s);
 	}
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::BUTTON1_DOWN_MASK)) != 0) {
+	if ((modifiers & $InputEvent::BUTTON1_DOWN_MASK) != 0) {
 		buf->append("button1 "_s);
 	}
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::BUTTON2_DOWN_MASK)) != 0) {
+	if ((modifiers & $InputEvent::BUTTON2_DOWN_MASK) != 0) {
 		buf->append("button2 "_s);
 	}
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::BUTTON3_DOWN_MASK)) != 0) {
+	if ((modifiers & $InputEvent::BUTTON3_DOWN_MASK) != 0) {
 		buf->append("button3 "_s);
 	}
 	return buf->toString();
@@ -409,7 +345,7 @@ $String* AWTKeyStroke::getModifiersText(int32_t modifiers) {
 
 $String* AWTKeyStroke::getVKText(int32_t keyCode) {
 	$init(AWTKeyStroke);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($VKCollection, vkCollect, getVKCollection());
 	$var($Integer, key, $Integer::valueOf(keyCode));
@@ -424,7 +360,7 @@ $String* AWTKeyStroke::getVKText(int32_t keyCode) {
 		try {
 			bool var$2 = $nc(fields->get(i))->getModifiers() == expected_modifiers;
 			bool var$1 = var$2 && $nc(fields->get(i))->getType() == $Integer::TYPE;
-			bool var$0 = var$1 && $nc($($nc(fields->get(i))->getName()))->startsWith("VK_"_s);
+			bool var$0 = var$1 && $$nc($nc(fields->get(i))->getName())->startsWith("VK_"_s);
 			if (var$0 && $nc(fields->get(i))->getInt($KeyEvent::class$) == keyCode) {
 				$assign(name, $nc(fields->get(i))->getName());
 				vkCollect->put(name, key);
@@ -441,25 +377,25 @@ $String* AWTKeyStroke::getVKText(int32_t keyCode) {
 
 $Object* AWTKeyStroke::readResolve() {
 	$synchronized(AWTKeyStroke::class$) {
-		return $of(getCachedStroke(this->keyChar, this->keyCode, this->modifiers, this->onKeyRelease));
+		return getCachedStroke(this->keyChar, this->keyCode, this->modifiers, this->onKeyRelease);
 	}
 }
 
 int32_t AWTKeyStroke::mapOldModifiers(int32_t modifiers) {
 	$init(AWTKeyStroke);
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::SHIFT_MASK)) != 0) {
+	if ((modifiers & $InputEvent::SHIFT_MASK) != 0) {
 		modifiers |= $InputEvent::SHIFT_DOWN_MASK;
 	}
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::ALT_MASK)) != 0) {
+	if ((modifiers & $InputEvent::ALT_MASK) != 0) {
 		modifiers |= $InputEvent::ALT_DOWN_MASK;
 	}
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::ALT_GRAPH_MASK)) != 0) {
+	if ((modifiers & $InputEvent::ALT_GRAPH_MASK) != 0) {
 		modifiers |= $InputEvent::ALT_GRAPH_DOWN_MASK;
 	}
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::CTRL_MASK)) != 0) {
+	if ((modifiers & $InputEvent::CTRL_MASK) != 0) {
 		modifiers |= $InputEvent::CTRL_DOWN_MASK;
 	}
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::META_MASK)) != 0) {
+	if ((modifiers & $InputEvent::META_MASK) != 0) {
 		modifiers |= $InputEvent::META_DOWN_MASK;
 	}
 	modifiers &= (uint32_t)((((((($InputEvent::SHIFT_DOWN_MASK | $InputEvent::ALT_DOWN_MASK) | $InputEvent::ALT_GRAPH_DOWN_MASK) | $InputEvent::CTRL_DOWN_MASK) | $InputEvent::META_DOWN_MASK) | $InputEvent::BUTTON1_DOWN_MASK) | $InputEvent::BUTTON2_DOWN_MASK) | $InputEvent::BUTTON3_DOWN_MASK);
@@ -468,25 +404,25 @@ int32_t AWTKeyStroke::mapOldModifiers(int32_t modifiers) {
 
 int32_t AWTKeyStroke::mapNewModifiers(int32_t modifiers) {
 	$init(AWTKeyStroke);
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::SHIFT_DOWN_MASK)) != 0) {
+	if ((modifiers & $InputEvent::SHIFT_DOWN_MASK) != 0) {
 		modifiers |= $InputEvent::SHIFT_MASK;
 	}
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::ALT_DOWN_MASK)) != 0) {
+	if ((modifiers & $InputEvent::ALT_DOWN_MASK) != 0) {
 		modifiers |= $InputEvent::ALT_MASK;
 	}
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::ALT_GRAPH_DOWN_MASK)) != 0) {
+	if ((modifiers & $InputEvent::ALT_GRAPH_DOWN_MASK) != 0) {
 		modifiers |= $InputEvent::ALT_GRAPH_MASK;
 	}
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::CTRL_DOWN_MASK)) != 0) {
+	if ((modifiers & $InputEvent::CTRL_DOWN_MASK) != 0) {
 		modifiers |= $InputEvent::CTRL_MASK;
 	}
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::META_DOWN_MASK)) != 0) {
+	if ((modifiers & $InputEvent::META_DOWN_MASK) != 0) {
 		modifiers |= $InputEvent::META_MASK;
 	}
 	return modifiers;
 }
 
-void clinit$AWTKeyStroke($Class* class$) {
+void AWTKeyStroke::clinit$($Class* clazz) {
 	AWTKeyStroke::$assertionsDisabled = !AWTKeyStroke::class$->desiredAssertionStatus();
 	$assignStatic(AWTKeyStroke::APP_CONTEXT_CACHE_KEY, $new($Object));
 	$assignStatic(AWTKeyStroke::APP_CONTEXT_KEYSTROKE_KEY, $new(AWTKeyStroke));
@@ -499,7 +435,62 @@ AWTKeyStroke::AWTKeyStroke() {
 }
 
 $Class* AWTKeyStroke::load$($String* name, bool initialize) {
-	$loadClass(AWTKeyStroke, name, initialize, &_AWTKeyStroke_ClassInfo_, clinit$AWTKeyStroke, allocate$AWTKeyStroke);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(AWTKeyStroke, $assertionsDisabled)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AWTKeyStroke, serialVersionUID)},
+		{"modifierKeywords", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE | $STATIC, $staticField(AWTKeyStroke, modifierKeywords)},
+		{"vks", "Ljava/awt/VKCollection;", nullptr, $PRIVATE | $STATIC, $staticField(AWTKeyStroke, vks)},
+		{"APP_CONTEXT_CACHE_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(AWTKeyStroke, APP_CONTEXT_CACHE_KEY)},
+		{"APP_CONTEXT_KEYSTROKE_KEY", "Ljava/awt/AWTKeyStroke;", nullptr, $PRIVATE | $STATIC, $staticField(AWTKeyStroke, APP_CONTEXT_KEYSTROKE_KEY)},
+		{"keyChar", "C", nullptr, $PRIVATE, $field(AWTKeyStroke, keyChar)},
+		{"keyCode", "I", nullptr, $PRIVATE, $field(AWTKeyStroke, keyCode)},
+		{"modifiers", "I", nullptr, $PRIVATE, $field(AWTKeyStroke, modifiers)},
+		{"onKeyRelease", "Z", nullptr, $PRIVATE, $field(AWTKeyStroke, onKeyRelease)},
+		{}
+	};
+	$CompoundAttribute registerSubclassmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AWTKeyStroke, init$, void)},
+		{"<init>", "(CIIZ)V", nullptr, $PROTECTED, $method(AWTKeyStroke, init$, void, char16_t, int32_t, int32_t, bool)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AWTKeyStroke, equals, bool, Object$*)},
+		{"getAWTKeyStroke", "(C)Ljava/awt/AWTKeyStroke;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTKeyStroke, getAWTKeyStroke, AWTKeyStroke*, char16_t)},
+		{"getAWTKeyStroke", "(Ljava/lang/Character;I)Ljava/awt/AWTKeyStroke;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTKeyStroke, getAWTKeyStroke, AWTKeyStroke*, $Character*, int32_t)},
+		{"getAWTKeyStroke", "(IIZ)Ljava/awt/AWTKeyStroke;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTKeyStroke, getAWTKeyStroke, AWTKeyStroke*, int32_t, int32_t, bool)},
+		{"getAWTKeyStroke", "(II)Ljava/awt/AWTKeyStroke;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTKeyStroke, getAWTKeyStroke, AWTKeyStroke*, int32_t, int32_t)},
+		{"getAWTKeyStroke", "(Ljava/lang/String;)Ljava/awt/AWTKeyStroke;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTKeyStroke, getAWTKeyStroke, AWTKeyStroke*, $String*)},
+		{"getAWTKeyStrokeForEvent", "(Ljava/awt/event/KeyEvent;)Ljava/awt/AWTKeyStroke;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTKeyStroke, getAWTKeyStrokeForEvent, AWTKeyStroke*, $KeyEvent*)},
+		{"getCachedStroke", "(CIIZ)Ljava/awt/AWTKeyStroke;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(AWTKeyStroke, getCachedStroke, AWTKeyStroke*, char16_t, int32_t, int32_t, bool)},
+		{"getKeyChar", "()C", nullptr, $PUBLIC | $FINAL, $method(AWTKeyStroke, getKeyChar, char16_t)},
+		{"getKeyCode", "()I", nullptr, $PUBLIC | $FINAL, $method(AWTKeyStroke, getKeyCode, int32_t)},
+		{"getKeyEventType", "()I", nullptr, $PUBLIC | $FINAL, $method(AWTKeyStroke, getKeyEventType, int32_t)},
+		{"getModifiers", "()I", nullptr, $PUBLIC | $FINAL, $method(AWTKeyStroke, getModifiers, int32_t)},
+		{"getModifiersText", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(AWTKeyStroke, getModifiersText, $String*, int32_t)},
+		{"getVKCollection", "()Ljava/awt/VKCollection;", nullptr, $PRIVATE | $STATIC, $staticMethod(AWTKeyStroke, getVKCollection, $VKCollection*)},
+		{"getVKText", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(AWTKeyStroke, getVKText, $String*, int32_t)},
+		{"getVKValue", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AWTKeyStroke, getVKValue, int32_t, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AWTKeyStroke, hashCode, int32_t)},
+		{"isOnKeyRelease", "()Z", nullptr, $PUBLIC | $FINAL, $method(AWTKeyStroke, isOnKeyRelease, bool)},
+		{"mapNewModifiers", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AWTKeyStroke, mapNewModifiers, int32_t, int32_t)},
+		{"mapOldModifiers", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AWTKeyStroke, mapOldModifiers, int32_t, int32_t)},
+		{"readResolve", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(AWTKeyStroke, readResolve, $Object*), "java.io.ObjectStreamException"},
+		{"registerSubclass", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PROTECTED | $STATIC | $DEPRECATED, $staticMethod(AWTKeyStroke, registerSubclass, void, $Class*), nullptr, nullptr, registerSubclassmethodAnnotations$$},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AWTKeyStroke, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.AWTKeyStroke",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AWTKeyStroke, name, initialize, &classInfo$$, AWTKeyStroke::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AWTKeyStroke);
+	});
 	return class$;
 }
 

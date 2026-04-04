@@ -1,5 +1,4 @@
 #include <java/awt/font/GraphicAttribute.h>
-
 #include <java/awt/Graphics2D.h>
 #include <java/awt/Shape.h>
 #include <java/awt/font/GlyphJustificationInfo.h>
@@ -29,42 +28,6 @@ namespace java {
 	namespace awt {
 		namespace font {
 
-$FieldInfo _GraphicAttribute_FieldInfo_[] = {
-	{"fAlignment", "I", nullptr, $PRIVATE, $field(GraphicAttribute, fAlignment)},
-	{"TOP_ALIGNMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GraphicAttribute, TOP_ALIGNMENT)},
-	{"BOTTOM_ALIGNMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GraphicAttribute, BOTTOM_ALIGNMENT)},
-	{"ROMAN_BASELINE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GraphicAttribute, ROMAN_BASELINE)},
-	{"CENTER_BASELINE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GraphicAttribute, CENTER_BASELINE)},
-	{"HANGING_BASELINE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GraphicAttribute, HANGING_BASELINE)},
-	{}
-};
-
-$MethodInfo _GraphicAttribute_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(GraphicAttribute, init$, void, int32_t)},
-	{"draw", "(Ljava/awt/Graphics2D;FF)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicAttribute, draw, void, $Graphics2D*, float, float)},
-	{"getAdvance", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicAttribute, getAdvance, float)},
-	{"getAlignment", "()I", nullptr, $PUBLIC | $FINAL, $method(GraphicAttribute, getAlignment, int32_t)},
-	{"getAscent", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicAttribute, getAscent, float)},
-	{"getBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(GraphicAttribute, getBounds, $Rectangle2D*)},
-	{"getDescent", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicAttribute, getDescent, float)},
-	{"getJustificationInfo", "()Ljava/awt/font/GlyphJustificationInfo;", nullptr, $PUBLIC, $virtualMethod(GraphicAttribute, getJustificationInfo, $GlyphJustificationInfo*)},
-	{"getOutline", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(GraphicAttribute, getOutline, $Shape*, $AffineTransform*)},
-	{}
-};
-
-$ClassInfo _GraphicAttribute_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.font.GraphicAttribute",
-	"java.lang.Object",
-	nullptr,
-	_GraphicAttribute_FieldInfo_,
-	_GraphicAttribute_MethodInfo_
-};
-
-$Object* allocate$GraphicAttribute($Class* clazz) {
-	return $of($alloc(GraphicAttribute));
-}
-
 void GraphicAttribute::init$(int32_t alignment) {
 	if (alignment < GraphicAttribute::BOTTOM_ALIGNMENT || alignment > GraphicAttribute::HANGING_BASELINE) {
 		$throwNew($IllegalArgumentException, "bad alignment"_s);
@@ -76,7 +39,7 @@ $Rectangle2D* GraphicAttribute::getBounds() {
 	float ascent = getAscent();
 	float var$0 = -ascent;
 	float var$1 = getAdvance();
-	return $new($Rectangle2D$Float, (float)0, var$0, var$1, ascent + getDescent());
+	return $new($Rectangle2D$Float, 0, var$0, var$1, ascent + getDescent());
 }
 
 $Shape* GraphicAttribute::getOutline($AffineTransform* tx) {
@@ -93,14 +56,45 @@ int32_t GraphicAttribute::getAlignment() {
 
 $GlyphJustificationInfo* GraphicAttribute::getJustificationInfo() {
 	float advance = getAdvance();
-	return $new($GlyphJustificationInfo, advance, false, 2, advance / 3, advance / 3, false, 1, (float)0, (float)0);
+	return $new($GlyphJustificationInfo, advance, false, 2, advance / 3, advance / 3, false, 1, 0, 0);
 }
 
 GraphicAttribute::GraphicAttribute() {
 }
 
 $Class* GraphicAttribute::load$($String* name, bool initialize) {
-	$loadClass(GraphicAttribute, name, initialize, &_GraphicAttribute_ClassInfo_, allocate$GraphicAttribute);
+	$FieldInfo fieldInfos$$[] = {
+		{"fAlignment", "I", nullptr, $PRIVATE, $field(GraphicAttribute, fAlignment)},
+		{"TOP_ALIGNMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GraphicAttribute, TOP_ALIGNMENT)},
+		{"BOTTOM_ALIGNMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GraphicAttribute, BOTTOM_ALIGNMENT)},
+		{"ROMAN_BASELINE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GraphicAttribute, ROMAN_BASELINE)},
+		{"CENTER_BASELINE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GraphicAttribute, CENTER_BASELINE)},
+		{"HANGING_BASELINE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GraphicAttribute, HANGING_BASELINE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(GraphicAttribute, init$, void, int32_t)},
+		{"draw", "(Ljava/awt/Graphics2D;FF)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicAttribute, draw, void, $Graphics2D*, float, float)},
+		{"getAdvance", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicAttribute, getAdvance, float)},
+		{"getAlignment", "()I", nullptr, $PUBLIC | $FINAL, $method(GraphicAttribute, getAlignment, int32_t)},
+		{"getAscent", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicAttribute, getAscent, float)},
+		{"getBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(GraphicAttribute, getBounds, $Rectangle2D*)},
+		{"getDescent", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicAttribute, getDescent, float)},
+		{"getJustificationInfo", "()Ljava/awt/font/GlyphJustificationInfo;", nullptr, $PUBLIC, $virtualMethod(GraphicAttribute, getJustificationInfo, $GlyphJustificationInfo*)},
+		{"getOutline", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(GraphicAttribute, getOutline, $Shape*, $AffineTransform*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.font.GraphicAttribute",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GraphicAttribute, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GraphicAttribute);
+	});
 	return class$;
 }
 

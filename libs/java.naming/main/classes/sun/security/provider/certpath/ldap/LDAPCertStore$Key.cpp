@@ -1,5 +1,4 @@
 #include <sun/security/provider/certpath/ldap/LDAPCertStore$Key.h>
-
 #include <java/util/Locale.h>
 #include <sun/security/provider/certpath/ldap/LDAPCertStore.h>
 #include <jcpp.h>
@@ -17,45 +16,6 @@ namespace sun {
 		namespace provider {
 			namespace certpath {
 				namespace ldap {
-
-$FieldInfo _LDAPCertStore$Key_FieldInfo_[] = {
-	{"hashCode", "I", nullptr, $VOLATILE, $field(LDAPCertStore$Key, hashCode$)},
-	{"serverName", "Ljava/lang/String;", nullptr, 0, $field(LDAPCertStore$Key, serverName)},
-	{"port", "I", nullptr, 0, $field(LDAPCertStore$Key, port)},
-	{}
-};
-
-$MethodInfo _LDAPCertStore$Key_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(LDAPCertStore$Key, init$, void, $String*, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LDAPCertStore$Key, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LDAPCertStore$Key, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _LDAPCertStore$Key_InnerClassesInfo_[] = {
-	{"sun.security.provider.certpath.ldap.LDAPCertStore$Key", "sun.security.provider.certpath.ldap.LDAPCertStore", "Key", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _LDAPCertStore$Key_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.provider.certpath.ldap.LDAPCertStore$Key",
-	"java.lang.Object",
-	nullptr,
-	_LDAPCertStore$Key_FieldInfo_,
-	_LDAPCertStore$Key_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LDAPCertStore$Key_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.certpath.ldap.LDAPCertStore"
-};
-
-$Object* allocate$LDAPCertStore$Key($Class* clazz) {
-	return $of($alloc(LDAPCertStore$Key));
-}
 
 void LDAPCertStore$Key::init$($String* serverName, int32_t port) {
 	$set(this, serverName, serverName);
@@ -85,7 +45,40 @@ LDAPCertStore$Key::LDAPCertStore$Key() {
 }
 
 $Class* LDAPCertStore$Key::load$($String* name, bool initialize) {
-	$loadClass(LDAPCertStore$Key, name, initialize, &_LDAPCertStore$Key_ClassInfo_, allocate$LDAPCertStore$Key);
+	$FieldInfo fieldInfos$$[] = {
+		{"hashCode", "I", nullptr, $VOLATILE, $field(LDAPCertStore$Key, hashCode$)},
+		{"serverName", "Ljava/lang/String;", nullptr, 0, $field(LDAPCertStore$Key, serverName)},
+		{"port", "I", nullptr, 0, $field(LDAPCertStore$Key, port)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(LDAPCertStore$Key, init$, void, $String*, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LDAPCertStore$Key, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LDAPCertStore$Key, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.certpath.ldap.LDAPCertStore$Key", "sun.security.provider.certpath.ldap.LDAPCertStore", "Key", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.provider.certpath.ldap.LDAPCertStore$Key",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.certpath.ldap.LDAPCertStore"
+	};
+	$loadClass(LDAPCertStore$Key, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LDAPCertStore$Key);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Log.h>
-
 #include <com/sun/tools/javac/api/DiagnosticFormatter.h>
 #include <com/sun/tools/javac/code/Lint$LintCategory.h>
 #include <com/sun/tools/javac/main/Main.h>
@@ -53,7 +52,6 @@
 #include <java/util/Locale.h>
 #include <java/util/Map.h>
 #include <java/util/Set.h>
-#include <javax/tools/Diagnostic.h>
 #include <javax/tools/DiagnosticListener.h>
 #include <javax/tools/JavaFileObject.h>
 #include <jcpp.h>
@@ -85,7 +83,6 @@ using $BasicDiagnosticFormatter = ::com::sun::tools::javac::util::BasicDiagnosti
 using $Context = ::com::sun::tools::javac::util::Context;
 using $Context$Factory = ::com::sun::tools::javac::util::Context$Factory;
 using $Context$Key = ::com::sun::tools::javac::util::Context$Key;
-using $DiagnosticSource = ::com::sun::tools::javac::util::DiagnosticSource;
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$DiagnosticFlag = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticFlag;
 using $JCDiagnostic$DiagnosticInfo = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticInfo;
@@ -105,9 +102,6 @@ using $Pair = ::com::sun::tools::javac::util::Pair;
 using $Position = ::com::sun::tools::javac::util::Position;
 using $RawDiagnosticFormatter = ::com::sun::tools::javac::util::RawDiagnosticFormatter;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $PrintWriter = ::java::io::PrintWriter;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
@@ -123,14 +117,11 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $EnumMap = ::java::util::EnumMap;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
-using $Diagnostic = ::javax::tools::Diagnostic;
 using $DiagnosticListener = ::javax::tools::DiagnosticListener;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 
@@ -147,35 +138,31 @@ public:
 		$set(this, w, w);
 	}
 	virtual $Object* make($Context* c) override {
-		 return $of(Log::lambda$preRegister$0(w, c));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Log$$Lambda$lambda$preRegister$0>());
+		 return Log::lambda$preRegister$0(w, c);
 	}
 	$PrintWriter* w = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Log$$Lambda$lambda$preRegister$0::fieldInfos[2] = {
-	{"w", "Ljava/io/PrintWriter;", nullptr, $PUBLIC, $field(Log$$Lambda$lambda$preRegister$0, w)},
-	{}
-};
-$MethodInfo Log$$Lambda$lambda$preRegister$0::methodInfos[3] = {
-	{"<init>", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(Log$$Lambda$lambda$preRegister$0, init$, void, $PrintWriter*)},
-	{"make", "(Lcom/sun/tools/javac/util/Context;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Log$$Lambda$lambda$preRegister$0, make, $Object*, $Context*)},
-	{}
-};
-$ClassInfo Log$$Lambda$lambda$preRegister$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.util.Log$$Lambda$lambda$preRegister$0",
-	"java.lang.Object",
-	"com.sun.tools.javac.util.Context$Factory",
-	fieldInfos,
-	methodInfos
 };
 $Class* Log$$Lambda$lambda$preRegister$0::load$($String* name, bool initialize) {
-	$loadClass(Log$$Lambda$lambda$preRegister$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"w", "Ljava/io/PrintWriter;", nullptr, $PUBLIC, $field(Log$$Lambda$lambda$preRegister$0, w)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(Log$$Lambda$lambda$preRegister$0, init$, void, $PrintWriter*)},
+		{"make", "(Lcom/sun/tools/javac/util/Context;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Log$$Lambda$lambda$preRegister$0, make, $Object*, $Context*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.util.Log$$Lambda$lambda$preRegister$0",
+		"java.lang.Object",
+		"com.sun.tools.javac.util.Context$Factory",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Log$$Lambda$lambda$preRegister$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Log$$Lambda$lambda$preRegister$0);
+	});
 	return class$;
 }
 $Class* Log$$Lambda$lambda$preRegister$0::class$ = nullptr;
@@ -190,155 +177,34 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$new$1(options);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Log$$Lambda$lambda$new$1$1>());
-	}
 	Log* inst$ = nullptr;
 	$Options* options = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Log$$Lambda$lambda$new$1$1::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Log$$Lambda$lambda$new$1$1, inst$)},
-	{"options", "Lcom/sun/tools/javac/util/Options;", nullptr, $PUBLIC, $field(Log$$Lambda$lambda$new$1$1, options)},
-	{}
-};
-$MethodInfo Log$$Lambda$lambda$new$1$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Log;Lcom/sun/tools/javac/util/Options;)V", nullptr, $PUBLIC, $method(Log$$Lambda$lambda$new$1$1, init$, void, Log*, $Options*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Log$$Lambda$lambda$new$1$1, run, void)},
-	{}
-};
-$ClassInfo Log$$Lambda$lambda$new$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.util.Log$$Lambda$lambda$new$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* Log$$Lambda$lambda$new$1$1::load$($String* name, bool initialize) {
-	$loadClass(Log$$Lambda$lambda$new$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Log$$Lambda$lambda$new$1$1, inst$)},
+		{"options", "Lcom/sun/tools/javac/util/Options;", nullptr, $PUBLIC, $field(Log$$Lambda$lambda$new$1$1, options)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Log;Lcom/sun/tools/javac/util/Options;)V", nullptr, $PUBLIC, $method(Log$$Lambda$lambda$new$1$1, init$, void, Log*, $Options*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Log$$Lambda$lambda$new$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.util.Log$$Lambda$lambda$new$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Log$$Lambda$lambda$new$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Log$$Lambda$lambda$new$1$1);
+	});
 	return class$;
 }
 $Class* Log$$Lambda$lambda$new$1$1::class$ = nullptr;
-
-$FieldInfo _Log_FieldInfo_[] = {
-	{"logKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/util/Log;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Log, logKey)},
-	{"outKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Ljava/io/PrintWriter;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Log, outKey)},
-	{"errKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Ljava/io/PrintWriter;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Log, errKey)},
-	{"writers", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/util/Log$WriterKind;Ljava/io/PrintWriter;>;", $PRIVATE | $FINAL, $field(Log, writers)},
-	{"MaxErrors", "I", nullptr, $PROTECTED, $field(Log, MaxErrors)},
-	{"MaxWarnings", "I", nullptr, $PROTECTED, $field(Log, MaxWarnings)},
-	{"promptOnError", "Z", nullptr, $PUBLIC, $field(Log, promptOnError)},
-	{"emitWarnings", "Z", nullptr, $PUBLIC, $field(Log, emitWarnings)},
-	{"suppressNotes", "Z", nullptr, $PUBLIC, $field(Log, suppressNotes)},
-	{"dumpOnError", "Z", nullptr, $PUBLIC, $field(Log, dumpOnError)},
-	{"diagListener", "Ljavax/tools/DiagnosticListener;", "Ljavax/tools/DiagnosticListener<-Ljavax/tools/JavaFileObject;>;", $PROTECTED, $field(Log, diagListener)},
-	{"diagFormatter", "Lcom/sun/tools/javac/api/DiagnosticFormatter;", "Lcom/sun/tools/javac/api/DiagnosticFormatter<Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PRIVATE, $field(Log, diagFormatter)},
-	{"expectDiagKeys", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $field(Log, expectDiagKeys)},
-	{"compressedOutput", "Z", nullptr, $PUBLIC, $field(Log, compressedOutput)},
-	{"messages", "Lcom/sun/tools/javac/util/JavacMessages;", nullptr, $PRIVATE, $field(Log, messages)},
-	{"diagnosticHandler", "Lcom/sun/tools/javac/util/Log$DiagnosticHandler;", nullptr, $PRIVATE, $field(Log, diagnosticHandler)},
-	{"nerrors", "I", nullptr, $PUBLIC, $field(Log, nerrors)},
-	{"nwarnings", "I", nullptr, $PUBLIC, $field(Log, nwarnings)},
-	{"nsuppressederrors", "I", nullptr, $PUBLIC, $field(Log, nsuppressederrors)},
-	{"nsuppressedwarns", "I", nullptr, $PUBLIC, $field(Log, nsuppressedwarns)},
-	{"recorded", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/util/Pair<Ljavax/tools/JavaFileObject;Ljava/lang/Integer;>;>;", $PROTECTED, $field(Log, recorded)},
-	{"recordedSourceLevelErrors", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/util/Pair<Ljavax/tools/JavaFileObject;Lcom/sun/tools/javac/util/List<Ljava/lang/String;>;>;>;", $PROTECTED, $field(Log, recordedSourceLevelErrors)},
-	{"useRawMessages", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Log, useRawMessages)},
-	{}
-};
-
-$MethodInfo _Log_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(Log, init$, void, $Context*)},
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;Ljava/io/PrintWriter;)V", nullptr, $PROTECTED, $method(Log, init$, void, $Context*, $PrintWriter*)},
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;Ljava/io/PrintWriter;Ljava/io/PrintWriter;)V", nullptr, $PROTECTED, $method(Log, init$, void, $Context*, $PrintWriter*, $PrintWriter*)},
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/util/Context;Ljava/util/Map<Lcom/sun/tools/javac/util/Log$WriterKind;Ljava/io/PrintWriter;>;)V", $PRIVATE, $method(Log, init$, void, $Context*, $Map*)},
-	{"currentSourceFile", "()Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(Log, currentSourceFile, $JavaFileObject*)},
-	{"directError", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PROTECTED | $TRANSIENT, $virtualMethod(Log, directError, void, $String*, $ObjectArray*)},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(Log, flush, void)},
-	{"flush", "(Lcom/sun/tools/javac/util/Log$WriterKind;)V", nullptr, $PUBLIC, $virtualMethod(Log, flush, void, $Log$WriterKind*)},
-	{"format", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Log, format, $String*, $String*, $ObjectArray*)},
-	{"getCode", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Lcom/sun/tools/javac/util/List<Ljava/lang/String;>;", $PRIVATE, $method(Log, getCode, $List*, $JCDiagnostic*)},
-	{"getCodeRecursive", "(Lcom/sun/tools/javac/util/ListBuffer;Lcom/sun/tools/javac/util/JCDiagnostic;)V", "(Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/String;>;Lcom/sun/tools/javac/util/JCDiagnostic;)V", $PRIVATE, $method(Log, getCodeRecursive, void, $ListBuffer*, $JCDiagnostic*)},
-	{"getDefaultMaxErrors", "()I", nullptr, $PROTECTED, $virtualMethod(Log, getDefaultMaxErrors, int32_t)},
-	{"getDefaultMaxWarnings", "()I", nullptr, $PROTECTED, $virtualMethod(Log, getDefaultMaxWarnings, int32_t)},
-	{"getDiagnosticFormatter", "()Lcom/sun/tools/javac/api/DiagnosticFormatter;", "()Lcom/sun/tools/javac/api/DiagnosticFormatter<Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PUBLIC, $virtualMethod(Log, getDiagnosticFormatter, $DiagnosticFormatter*)},
-	{"getIntOption", "(Lcom/sun/tools/javac/util/Options;Lcom/sun/tools/javac/main/Option;I)I", nullptr, $PRIVATE, $method(Log, getIntOption, int32_t, $Options*, $Option*, int32_t)},
-	{"getLocalizedString", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Log, getLocalizedString, $String*, $String*, $ObjectArray*)},
-	{"getWriter", "(Lcom/sun/tools/javac/util/Log$WriterKind;)Ljava/io/PrintWriter;", nullptr, $PUBLIC, $virtualMethod(Log, getWriter, $PrintWriter*, $Log$WriterKind*)},
-	{"getWriterForDiagnosticType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;)Ljava/io/PrintWriter;", nullptr, $PROTECTED, $virtualMethod(Log, getWriterForDiagnosticType, $PrintWriter*, $JCDiagnostic$DiagnosticType*)},
-	{"hasDiagnosticListener", "()Z", nullptr, $PUBLIC, $virtualMethod(Log, hasDiagnosticListener, bool)},
-	{"hasErrorOn", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)Z", nullptr, $PUBLIC, $virtualMethod(Log, hasErrorOn, bool, $JCDiagnostic$DiagnosticPosition*)},
-	{"initOptions", "(Lcom/sun/tools/javac/util/Options;)V", nullptr, $PRIVATE, $method(Log, initOptions, void, $Options*)},
-	{"initWriters", "(Lcom/sun/tools/javac/util/Context;)Ljava/util/Map;", "(Lcom/sun/tools/javac/util/Context;)Ljava/util/Map<Lcom/sun/tools/javac/util/Log$WriterKind;Ljava/io/PrintWriter;>;", $PRIVATE | $STATIC, $staticMethod(Log, initWriters, $Map*, $Context*)},
-	{"initWriters", "(Ljava/io/PrintWriter;Ljava/io/PrintWriter;)Ljava/util/Map;", "(Ljava/io/PrintWriter;Ljava/io/PrintWriter;)Ljava/util/Map<Lcom/sun/tools/javac/util/Log$WriterKind;Ljava/io/PrintWriter;>;", $PRIVATE | $STATIC, $staticMethod(Log, initWriters, $Map*, $PrintWriter*, $PrintWriter*)},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/util/Log;", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, instance, Log*, $Context*)},
-	{"lambda$new$1", "(Lcom/sun/tools/javac/util/Options;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Log, lambda$new$1, void, $Options*)},
-	{"lambda$preRegister$0", "(Ljava/io/PrintWriter;Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Log, lambda$preRegister$0, Log*, $PrintWriter*, $Context*)},
-	{"localize", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Log, localize, $String*, $String*, $ObjectArray*)},
-	{"localize", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Log, localize, $String*, $JCDiagnostic$DiagnosticInfo*)},
-	{"localize", "(Lcom/sun/tools/javac/util/Log$PrefixKind;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Log, localize, $String*, $Log$PrefixKind*, $String*, $ObjectArray*)},
-	{"popDiagnosticHandler", "(Lcom/sun/tools/javac/util/Log$DiagnosticHandler;)V", nullptr, $PUBLIC, $virtualMethod(Log, popDiagnosticHandler, void, $Log$DiagnosticHandler*)},
-	{"preRegister", "(Lcom/sun/tools/javac/util/Context;Ljava/io/PrintWriter;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, preRegister, void, $Context*, $PrintWriter*)},
-	{"printErrLine", "(ILjava/io/PrintWriter;)V", nullptr, $PRIVATE, $method(Log, printErrLine, void, int32_t, $PrintWriter*)},
-	{"printLines", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Log, printLines, void, $String*, $ObjectArray*)},
-	{"printLines", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;)V", nullptr, $PUBLIC, $virtualMethod(Log, printLines, void, $JCDiagnostic$DiagnosticInfo*)},
-	{"printLines", "(Lcom/sun/tools/javac/util/Log$PrefixKind;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Log, printLines, void, $Log$PrefixKind*, $String*, $ObjectArray*)},
-	{"printLines", "(Lcom/sun/tools/javac/util/Log$WriterKind;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Log, printLines, void, $Log$WriterKind*, $String*, $ObjectArray*)},
-	{"printLines", "(Lcom/sun/tools/javac/util/Log$WriterKind;Lcom/sun/tools/javac/util/Log$PrefixKind;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Log, printLines, void, $Log$WriterKind*, $Log$PrefixKind*, $String*, $ObjectArray*)},
-	{"printNewline", "()V", nullptr, $PUBLIC, $virtualMethod(Log, printNewline, void)},
-	{"printNewline", "(Lcom/sun/tools/javac/util/Log$WriterKind;)V", nullptr, $PUBLIC, $virtualMethod(Log, printNewline, void, $Log$WriterKind*)},
-	{"printRawDiag", "(Ljava/io/PrintWriter;Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PRIVATE, $method(Log, printRawDiag, void, $PrintWriter*, $String*, int32_t, $String*)},
-	{"printRawLines", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Log, printRawLines, void, $String*)},
-	{"printRawLines", "(Lcom/sun/tools/javac/util/Log$WriterKind;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Log, printRawLines, void, $Log$WriterKind*, $String*)},
-	{"printRawLines", "(Ljava/io/PrintWriter;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, printRawLines, void, $PrintWriter*, $String*)},
-	{"printVerbose", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Log, printVerbose, void, $String*, $ObjectArray*)},
-	{"prompt", "()V", nullptr, $PUBLIC, $virtualMethod(Log, prompt, void)},
-	{"rawError", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Log, rawError, void, int32_t, $String*)},
-	{"rawWarning", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Log, rawWarning, void, int32_t, $String*)},
-	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC, $virtualMethod(Log, report, void, $JCDiagnostic*)},
-	{"setDiagnosticFormatter", "(Lcom/sun/tools/javac/api/DiagnosticFormatter;)V", "(Lcom/sun/tools/javac/api/DiagnosticFormatter<Lcom/sun/tools/javac/util/JCDiagnostic;>;)V", $PUBLIC, $virtualMethod(Log, setDiagnosticFormatter, void, $DiagnosticFormatter*)},
-	{"setEndPosTable", "(Ljavax/tools/JavaFileObject;Lcom/sun/tools/javac/tree/EndPosTable;)V", nullptr, $PUBLIC, $virtualMethod(Log, setEndPosTable, void, $JavaFileObject*, $EndPosTable*)},
-	{"setWriter", "(Lcom/sun/tools/javac/util/Log$WriterKind;Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(Log, setWriter, void, $Log$WriterKind*, $PrintWriter*)},
-	{"setWriters", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(Log, setWriters, void, $PrintWriter*)},
-	{"shouldReport", "(Ljavax/tools/JavaFileObject;I)Z", nullptr, $PROTECTED, $virtualMethod(Log, shouldReport, bool, $JavaFileObject*, int32_t)},
-	{"shouldReport", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Z", nullptr, $PRIVATE, $method(Log, shouldReport, bool, $JCDiagnostic*)},
-	{"strictWarning", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Log, strictWarning, void, $JCDiagnostic$DiagnosticPosition*, $String*, $ObjectArray*)},
-	{"writeDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PROTECTED, $virtualMethod(Log, writeDiagnostic, void, $JCDiagnostic*)},
-	{}
-};
-
-$InnerClassInfo _Log_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.Log$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.util.Log$DefaultDiagnosticHandler", "com.sun.tools.javac.util.Log", "DefaultDiagnosticHandler", $PRIVATE},
-	{"com.sun.tools.javac.util.Log$WriterKind", "com.sun.tools.javac.util.Log", "WriterKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"com.sun.tools.javac.util.Log$DeferredDiagnosticHandler", "com.sun.tools.javac.util.Log", "DeferredDiagnosticHandler", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.util.Log$DiscardDiagnosticHandler", "com.sun.tools.javac.util.Log", "DiscardDiagnosticHandler", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.util.Log$DiagnosticHandler", "com.sun.tools.javac.util.Log", "DiagnosticHandler", $PUBLIC | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.util.Log$PrefixKind", "com.sun.tools.javac.util.Log", "PrefixKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Log_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.Log",
-	"com.sun.tools.javac.util.AbstractLog",
-	nullptr,
-	_Log_FieldInfo_,
-	_Log_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Log_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.Log$1,com.sun.tools.javac.util.Log$DefaultDiagnosticHandler,com.sun.tools.javac.util.Log$WriterKind,com.sun.tools.javac.util.Log$DeferredDiagnosticHandler,com.sun.tools.javac.util.Log$DiscardDiagnosticHandler,com.sun.tools.javac.util.Log$DiagnosticHandler,com.sun.tools.javac.util.Log$PrefixKind"
-};
-
-$Object* allocate$Log($Class* clazz) {
-	return $of($alloc(Log));
-}
 
 $Context$Key* Log::logKey = nullptr;
 $Context$Key* Log::outKey = nullptr;
@@ -356,7 +222,7 @@ Log* Log::instance($Context* context) {
 
 void Log::preRegister($Context* context, $PrintWriter* w) {
 	$init(Log);
-	$nc(context)->put(Log::class$, (static_cast<$Context$Factory*>($$new(Log$$Lambda$lambda$preRegister$0, w))));
+	$nc(context)->put(Log::class$, ($cast($Context$Factory, $$new(Log$$Lambda$lambda$preRegister$0, w))));
 }
 
 void Log::init$($Context* context) {
@@ -365,12 +231,12 @@ void Log::init$($Context* context) {
 
 $Map* Log::initWriters($Context* context) {
 	$init(Log);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PrintWriter, out, $cast($PrintWriter, $nc(context)->get(Log::outKey)));
 	$var($PrintWriter, err, $cast($PrintWriter, context->get(Log::errKey)));
 	if (out == nullptr && err == nullptr) {
-		$assign(out, $new($PrintWriter, static_cast<$OutputStream*>($System::out), true));
-		$assign(err, $new($PrintWriter, static_cast<$OutputStream*>($System::err), true));
+		$assign(out, $new($PrintWriter, $System::out, true));
+		$assign(err, $new($PrintWriter, $System::err, true));
 		return initWriters(out, err);
 	} else if (out == nullptr || err == nullptr) {
 		$var($PrintWriter, pw, (out != nullptr) ? out : err);
@@ -402,7 +268,7 @@ $Map* Log::initWriters($PrintWriter* out, $PrintWriter* err) {
 }
 
 void Log::init$($Context* context, $Map* writers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AbstractLog::init$($($JCDiagnostic$Factory::instance(context)));
 	this->nerrors = 0;
 	this->nwarnings = 0;
@@ -410,7 +276,7 @@ void Log::init$($Context* context, $Map* writers) {
 	this->nsuppressedwarns = 0;
 	$set(this, recorded, $new($HashSet));
 	$set(this, recordedSourceLevelErrors, $new($HashSet));
-	$nc(context)->put(Log::logKey, $of(this));
+	$nc(context)->put(Log::logKey, this);
 	$set(this, writers, writers);
 	$load($DiagnosticListener);
 	$var($DiagnosticListener, dl, $cast($DiagnosticListener, context->get($DiagnosticListener::class$)));
@@ -421,11 +287,11 @@ void Log::init$($Context* context, $Map* writers) {
 	$nc(this->messages)->add($Main::javacBundleName);
 	$var($Options, options, $Options::instance(context));
 	initOptions(options);
-	$nc(options)->addListener(static_cast<$Runnable*>($$new(Log$$Lambda$lambda$new$1$1, this, options)));
+	$nc(options)->addListener($$new(Log$$Lambda$lambda$new$1$1, this, options));
 }
 
 void Log::initOptions($Options* options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Option);
 	this->dumpOnError = $nc(options)->isSet($Option::DOE);
 	this->promptOnError = options->isSet($Option::PROMPT);
@@ -434,10 +300,10 @@ void Log::initOptions($Options* options) {
 	this->MaxErrors = getIntOption(options, $Option::XMAXERRS, getDefaultMaxErrors());
 	this->MaxWarnings = getIntOption(options, $Option::XMAXWARNS, getDefaultMaxWarnings());
 	bool rawDiagnostics = options->isSet("rawDiagnostics"_s);
-	$set(this, diagFormatter, rawDiagnostics ? static_cast<$DiagnosticFormatter*>($new($RawDiagnosticFormatter, options)) : static_cast<$DiagnosticFormatter*>($new($BasicDiagnosticFormatter, options, this->messages)));
+	$set(this, diagFormatter, rawDiagnostics ? $cast($DiagnosticFormatter, $new($RawDiagnosticFormatter, options)) : $cast($DiagnosticFormatter, $new($BasicDiagnosticFormatter, options, this->messages)));
 	$var($String, ek, options->get("expectKeys"_s));
 	if (ek != nullptr) {
-		$set(this, expectDiagKeys, $new($HashSet, $(static_cast<$Collection*>($Arrays::asList($(ek->split(", *"_s)))))));
+		$set(this, expectDiagKeys, $new($HashSet, $($Arrays::asList($(ek->split(", *"_s))))));
 	}
 }
 
@@ -467,11 +333,11 @@ bool Log::hasDiagnosticListener() {
 
 void Log::setEndPosTable($JavaFileObject* name, $EndPosTable* endPosTable) {
 	$Assert::checkNonNull(name);
-	$nc($(getSource(name)))->setEndPosTable(endPosTable);
+	$$nc(getSource(name))->setEndPosTable(endPosTable);
 }
 
 $JavaFileObject* Log::currentSourceFile() {
-	return this->source == nullptr ? ($JavaFileObject*)nullptr : $nc(this->source)->getFile();
+	return this->source == nullptr ? ($JavaFileObject*)nullptr : this->source->getFile();
 }
 
 $DiagnosticFormatter* Log::getDiagnosticFormatter() {
@@ -495,9 +361,7 @@ void Log::setWriters($PrintWriter* pw) {
 	$Assert::checkNonNull(pw);
 	{
 		$var($Log$WriterKindArray, arr$, $Log$WriterKind::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$Log$WriterKind* k = arr$->get(i$);
 			$nc(this->writers)->put(k, pw);
 		}
@@ -510,37 +374,35 @@ void Log::popDiagnosticHandler($Log$DiagnosticHandler* h) {
 }
 
 void Log::flush() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($($nc(this->writers)->values()))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($PrintWriter, pw, $cast($PrintWriter, i$->next()));
-			{
-				$nc(pw)->flush();
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$nc($nc(this->writers)->values())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($PrintWriter, pw, $cast($PrintWriter, i$->next()));
+		{
+			$nc(pw)->flush();
 		}
 	}
 }
 
 void Log::flush($Log$WriterKind* kind) {
-	$nc($(getWriter(kind)))->flush();
+	$$nc(getWriter(kind))->flush();
 }
 
 bool Log::shouldReport($JavaFileObject* file, int32_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (file == nullptr) {
 		return true;
 	}
 	$var($Pair, coords, $new($Pair, file, $($Integer::valueOf(pos))));
 	bool shouldReport = !$nc(this->recorded)->contains(coords);
 	if (shouldReport) {
-		$nc(this->recorded)->add(coords);
+		this->recorded->add(coords);
 	}
 	return shouldReport;
 }
 
 bool Log::shouldReport($JCDiagnostic* d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JavaFileObject, file, $cast($JavaFileObject, $nc(d)->getSource()));
 	if (file == nullptr) {
 		return true;
@@ -555,7 +417,7 @@ bool Log::shouldReport($JCDiagnostic* d) {
 	$var($Pair, coords, $new($Pair, file, $(getCode(d))));
 	bool shouldReport = !$nc(this->recordedSourceLevelErrors)->contains(coords);
 	if (shouldReport) {
-		$nc(this->recordedSourceLevelErrors)->add(coords);
+		this->recordedSourceLevelErrors->add(coords);
 	}
 	return shouldReport;
 }
@@ -567,25 +429,21 @@ $List* Log::getCode($JCDiagnostic* d) {
 }
 
 void Log::getCodeRecursive($ListBuffer* buf, $JCDiagnostic* d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(buf)->add($($nc(d)->getCode()));
 	{
-		$var($ObjectArray, arr$, $nc(d)->getArgs());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($ObjectArray, arr$, d->getArgs());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Object0, o, arr$->get(i$));
 			{
-				{
-					$var($JCDiagnostic, diagnostic, nullptr);
-					bool var$0 = $instanceOf($JCDiagnostic, o);
-					if (var$0) {
-						$assign(diagnostic, $cast($JCDiagnostic, o));
-						var$0 = true;
-					}
-					if (var$0) {
-						getCodeRecursive(buf, diagnostic);
-					}
+				$var($JCDiagnostic, diagnostic, nullptr);
+				bool var$0 = $instanceOf($JCDiagnostic, o);
+				if (var$0) {
+					$assign(diagnostic, $cast($JCDiagnostic, o));
+					var$0 = true;
+				}
+				if (var$0) {
+					getCodeRecursive(buf, diagnostic);
 				}
 			}
 		}
@@ -593,39 +451,30 @@ void Log::getCodeRecursive($ListBuffer* buf, $JCDiagnostic* d) {
 }
 
 bool Log::hasErrorOn($JCDiagnostic$DiagnosticPosition* pos) {
-	$useLocalCurrentObjectStackCache();
-	$var($JavaFileObject, file, this->source != nullptr ? $nc(this->source)->fileObject : ($JavaFileObject*)nullptr);
+	$useLocalObjectStack();
+	$var($JavaFileObject, file, this->source != nullptr ? this->source->fileObject : ($JavaFileObject*)nullptr);
 	return file != nullptr && $nc(this->recorded)->contains($$new($Pair, file, $($Integer::valueOf($nc(pos)->getPreferredPosition()))));
 }
 
 void Log::prompt() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->promptOnError) {
 		$nc($System::err)->println($(localize("resume.abort"_s, $$new($ObjectArray, 0))));
 		try {
 			while (true) {
 				switch ($nc($System::in)->read()) {
 				case u'a':
-					{}
 				case u'A':
-					{
-						$System::exit(-1);
-						return;
-					}
+					$System::exit(-1);
+					return;
 				case u'r':
-					{}
 				case u'R':
-					{
-						return;
-					}
+					return;
 				case u'x':
-					{}
 				case u'X':
-					{
-						$throwNew($AssertionError, $of("user abort"_s));
-					}
+					$throwNew($AssertionError, $of("user abort"_s));
 				default:
-					{}
+					break;
 				}
 			}
 		} catch ($IOException& e) {
@@ -634,7 +483,7 @@ void Log::prompt() {
 }
 
 void Log::printErrLine(int32_t pos, $PrintWriter* writer) {
-	$var($String, line, this->source == nullptr ? ($String*)nullptr : $nc(this->source)->getLine(pos));
+	$var($String, line, this->source == nullptr ? ($String*)nullptr : this->source->getLine(pos));
 	if (line == nullptr) {
 		return;
 	}
@@ -654,38 +503,38 @@ void Log::printNewline() {
 }
 
 void Log::printNewline($Log$WriterKind* wk) {
-	$nc($(getWriter(wk)))->println();
+	$$nc(getWriter(wk))->println();
 }
 
 void Log::printLines($String* key, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Log$WriterKind);
 	$var($PrintWriter, noticeWriter, $cast($PrintWriter, $nc(this->writers)->get($Log$WriterKind::NOTICE)));
 	printRawLines(noticeWriter, $(localize(key, args)));
 }
 
 void Log::printLines($JCDiagnostic$DiagnosticInfo* diag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Log$WriterKind);
 	$var($PrintWriter, noticeWriter, $cast($PrintWriter, $nc(this->writers)->get($Log$WriterKind::NOTICE)));
 	printRawLines(noticeWriter, $(localize(diag)));
 }
 
 void Log::printLines($Log$PrefixKind* pk, $String* key, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Log$WriterKind);
 	$var($PrintWriter, noticeWriter, $cast($PrintWriter, $nc(this->writers)->get($Log$WriterKind::NOTICE)));
 	printRawLines(noticeWriter, $(localize(pk, key, args)));
 }
 
 void Log::printLines($Log$WriterKind* wk, $String* key, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PrintWriter, var$0, getWriter(wk));
 	printRawLines(var$0, $(localize(key, args)));
 }
 
 void Log::printLines($Log$WriterKind* wk, $Log$PrefixKind* pk, $String* key, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PrintWriter, var$0, getWriter(wk));
 	printRawLines(var$0, $(localize(pk, key, args)));
 }
@@ -702,27 +551,27 @@ void Log::printRawLines($Log$WriterKind* kind, $String* msg) {
 
 void Log::printRawLines($PrintWriter* writer, $String* msg$renamed) {
 	$init(Log);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, msg, msg$renamed);
 	int32_t nl = 0;
-	while ((nl = $nc(msg)->indexOf((int32_t)u'\n')) != -1) {
+	while ((nl = $nc(msg)->indexOf(u'\n')) != -1) {
 		$nc(writer)->println($(msg->substring(0, nl)));
 		$assign(msg, msg->substring(nl + 1));
 	}
-	if ($nc(msg)->length() != 0) {
+	if (msg->length() != 0) {
 		$nc(writer)->println(msg);
 	}
 }
 
 void Log::printVerbose($String* key, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Log$WriterKind);
 	$var($PrintWriter, noticeWriter, $cast($PrintWriter, $nc(this->writers)->get($Log$WriterKind::NOTICE)));
 	printRawLines(noticeWriter, $(localize($$str({"verbose."_s, key}), args)));
 }
 
 void Log::directError($String* key, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Log$WriterKind);
 	$var($PrintWriter, errWriter, $cast($PrintWriter, $nc(this->writers)->get($Log$WriterKind::ERROR)));
 	printRawLines(errWriter, $(localize(key, args)));
@@ -739,22 +588,19 @@ void Log::report($JCDiagnostic* diagnostic) {
 }
 
 void Log::writeDiagnostic($JCDiagnostic* diag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->diagListener != nullptr) {
-		$nc(this->diagListener)->report(diag);
+		this->diagListener->report(diag);
 		return;
 	}
 	$var($PrintWriter, writer, getWriterForDiagnosticType($($nc(diag)->getType())));
 	printRawLines(writer, $($nc(this->diagFormatter)->format(diag, $($nc(this->messages)->getCurrentLocale()))));
 	if (this->promptOnError) {
 		$init($Log$1);
-		switch ($nc($Log$1::$SwitchMap$com$sun$tools$javac$util$JCDiagnostic$DiagnosticType)->get($nc(($($nc(diag)->getType())))->ordinal())) {
+		switch ($nc($Log$1::$SwitchMap$com$sun$tools$javac$util$JCDiagnostic$DiagnosticType)->get(($$nc(diag->getType()))->ordinal())) {
 		case 4:
-			{}
 		case 3:
-			{
-				prompt();
-			}
+			prompt();
 		}
 	}
 	if (this->dumpOnError) {
@@ -767,28 +613,18 @@ $PrintWriter* Log::getWriterForDiagnosticType($JCDiagnostic$DiagnosticType* dt) 
 	$init($Log$1);
 	switch ($nc($Log$1::$SwitchMap$com$sun$tools$javac$util$JCDiagnostic$DiagnosticType)->get($nc((dt))->ordinal())) {
 	case 1:
-		{
-			$throwNew($IllegalArgumentException);
-		}
+		$throwNew($IllegalArgumentException);
 	case 2:
-		{
-			$init($Log$WriterKind);
-			return $cast($PrintWriter, $nc(this->writers)->get($Log$WriterKind::NOTICE));
-		}
+		$init($Log$WriterKind);
+		return $cast($PrintWriter, $nc(this->writers)->get($Log$WriterKind::NOTICE));
 	case 3:
-		{
-			$init($Log$WriterKind);
-			return $cast($PrintWriter, $nc(this->writers)->get($Log$WriterKind::WARNING));
-		}
+		$init($Log$WriterKind);
+		return $cast($PrintWriter, $nc(this->writers)->get($Log$WriterKind::WARNING));
 	case 4:
-		{
-			$init($Log$WriterKind);
-			return $cast($PrintWriter, $nc(this->writers)->get($Log$WriterKind::ERROR));
-		}
+		$init($Log$WriterKind);
+		return $cast($PrintWriter, $nc(this->writers)->get($Log$WriterKind::ERROR));
 	default:
-		{
-			$throwNew($Error);
-		}
+		$throwNew($Error);
 	}
 }
 
@@ -820,11 +656,11 @@ $String* Log::localize($Log$PrefixKind* pk, $String* key, $ObjectArray* args) {
 }
 
 void Log::printRawDiag($PrintWriter* pw, $String* prefix, int32_t pos, $String* msg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->source == nullptr || pos == $Position::NOPOS) {
 		printRawLines(pw, $$str({prefix, msg}));
 	} else {
-		int32_t line = $nc(this->source)->getLineNumber(pos);
+		int32_t line = this->source->getLineNumber(pos);
 		$var($JavaFileObject, file, $nc(this->source)->getFile());
 		if (file != nullptr) {
 			printRawLines(pw, $$str({$(file->getName()), ":"_s, $$str(line), ": "_s, msg}));
@@ -835,7 +671,7 @@ void Log::printRawDiag($PrintWriter* pw, $String* prefix, int32_t pos, $String* 
 }
 
 void Log::rawError(int32_t pos, $String* msg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Log$WriterKind);
 	$var($PrintWriter, errWriter, $cast($PrintWriter, $nc(this->writers)->get($Log$WriterKind::ERROR)));
 	if (this->nerrors < this->MaxErrors && shouldReport($(currentSourceFile()), pos)) {
@@ -877,7 +713,7 @@ Log* Log::lambda$preRegister$0($PrintWriter* w, $Context* c) {
 	return $new(Log, c, w);
 }
 
-void clinit$Log($Class* class$) {
+void Log::clinit$($Class* clazz) {
 	$assignStatic(Log::logKey, $new($Context$Key));
 	$assignStatic(Log::outKey, $new($Context$Key));
 	$assignStatic(Log::errKey, $new($Context$Key));
@@ -889,14 +725,125 @@ Log::Log() {
 
 $Class* Log::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Log$$Lambda$lambda$preRegister$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.util.Log$$Lambda$lambda$preRegister$0")) {
 			return Log$$Lambda$lambda$preRegister$0::load$(name, initialize);
 		}
-		if (name->equals(Log$$Lambda$lambda$new$1$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.util.Log$$Lambda$lambda$new$1$1")) {
 			return Log$$Lambda$lambda$new$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(Log, name, initialize, &_Log_ClassInfo_, clinit$Log, allocate$Log);
+	$FieldInfo fieldInfos$$[] = {
+		{"logKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/util/Log;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Log, logKey)},
+		{"outKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Ljava/io/PrintWriter;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Log, outKey)},
+		{"errKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Ljava/io/PrintWriter;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Log, errKey)},
+		{"writers", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/util/Log$WriterKind;Ljava/io/PrintWriter;>;", $PRIVATE | $FINAL, $field(Log, writers)},
+		{"MaxErrors", "I", nullptr, $PROTECTED, $field(Log, MaxErrors)},
+		{"MaxWarnings", "I", nullptr, $PROTECTED, $field(Log, MaxWarnings)},
+		{"promptOnError", "Z", nullptr, $PUBLIC, $field(Log, promptOnError)},
+		{"emitWarnings", "Z", nullptr, $PUBLIC, $field(Log, emitWarnings)},
+		{"suppressNotes", "Z", nullptr, $PUBLIC, $field(Log, suppressNotes)},
+		{"dumpOnError", "Z", nullptr, $PUBLIC, $field(Log, dumpOnError)},
+		{"diagListener", "Ljavax/tools/DiagnosticListener;", "Ljavax/tools/DiagnosticListener<-Ljavax/tools/JavaFileObject;>;", $PROTECTED, $field(Log, diagListener)},
+		{"diagFormatter", "Lcom/sun/tools/javac/api/DiagnosticFormatter;", "Lcom/sun/tools/javac/api/DiagnosticFormatter<Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PRIVATE, $field(Log, diagFormatter)},
+		{"expectDiagKeys", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $field(Log, expectDiagKeys)},
+		{"compressedOutput", "Z", nullptr, $PUBLIC, $field(Log, compressedOutput)},
+		{"messages", "Lcom/sun/tools/javac/util/JavacMessages;", nullptr, $PRIVATE, $field(Log, messages)},
+		{"diagnosticHandler", "Lcom/sun/tools/javac/util/Log$DiagnosticHandler;", nullptr, $PRIVATE, $field(Log, diagnosticHandler)},
+		{"nerrors", "I", nullptr, $PUBLIC, $field(Log, nerrors)},
+		{"nwarnings", "I", nullptr, $PUBLIC, $field(Log, nwarnings)},
+		{"nsuppressederrors", "I", nullptr, $PUBLIC, $field(Log, nsuppressederrors)},
+		{"nsuppressedwarns", "I", nullptr, $PUBLIC, $field(Log, nsuppressedwarns)},
+		{"recorded", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/util/Pair<Ljavax/tools/JavaFileObject;Ljava/lang/Integer;>;>;", $PROTECTED, $field(Log, recorded)},
+		{"recordedSourceLevelErrors", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/util/Pair<Ljavax/tools/JavaFileObject;Lcom/sun/tools/javac/util/List<Ljava/lang/String;>;>;>;", $PROTECTED, $field(Log, recordedSourceLevelErrors)},
+		{"useRawMessages", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Log, useRawMessages)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(Log, init$, void, $Context*)},
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;Ljava/io/PrintWriter;)V", nullptr, $PROTECTED, $method(Log, init$, void, $Context*, $PrintWriter*)},
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;Ljava/io/PrintWriter;Ljava/io/PrintWriter;)V", nullptr, $PROTECTED, $method(Log, init$, void, $Context*, $PrintWriter*, $PrintWriter*)},
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/util/Context;Ljava/util/Map<Lcom/sun/tools/javac/util/Log$WriterKind;Ljava/io/PrintWriter;>;)V", $PRIVATE, $method(Log, init$, void, $Context*, $Map*)},
+		{"currentSourceFile", "()Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(Log, currentSourceFile, $JavaFileObject*)},
+		{"directError", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PROTECTED | $TRANSIENT, $virtualMethod(Log, directError, void, $String*, $ObjectArray*)},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(Log, flush, void)},
+		{"flush", "(Lcom/sun/tools/javac/util/Log$WriterKind;)V", nullptr, $PUBLIC, $virtualMethod(Log, flush, void, $Log$WriterKind*)},
+		{"format", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Log, format, $String*, $String*, $ObjectArray*)},
+		{"getCode", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Lcom/sun/tools/javac/util/List<Ljava/lang/String;>;", $PRIVATE, $method(Log, getCode, $List*, $JCDiagnostic*)},
+		{"getCodeRecursive", "(Lcom/sun/tools/javac/util/ListBuffer;Lcom/sun/tools/javac/util/JCDiagnostic;)V", "(Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/String;>;Lcom/sun/tools/javac/util/JCDiagnostic;)V", $PRIVATE, $method(Log, getCodeRecursive, void, $ListBuffer*, $JCDiagnostic*)},
+		{"getDefaultMaxErrors", "()I", nullptr, $PROTECTED, $virtualMethod(Log, getDefaultMaxErrors, int32_t)},
+		{"getDefaultMaxWarnings", "()I", nullptr, $PROTECTED, $virtualMethod(Log, getDefaultMaxWarnings, int32_t)},
+		{"getDiagnosticFormatter", "()Lcom/sun/tools/javac/api/DiagnosticFormatter;", "()Lcom/sun/tools/javac/api/DiagnosticFormatter<Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PUBLIC, $virtualMethod(Log, getDiagnosticFormatter, $DiagnosticFormatter*)},
+		{"getIntOption", "(Lcom/sun/tools/javac/util/Options;Lcom/sun/tools/javac/main/Option;I)I", nullptr, $PRIVATE, $method(Log, getIntOption, int32_t, $Options*, $Option*, int32_t)},
+		{"getLocalizedString", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Log, getLocalizedString, $String*, $String*, $ObjectArray*)},
+		{"getWriter", "(Lcom/sun/tools/javac/util/Log$WriterKind;)Ljava/io/PrintWriter;", nullptr, $PUBLIC, $virtualMethod(Log, getWriter, $PrintWriter*, $Log$WriterKind*)},
+		{"getWriterForDiagnosticType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;)Ljava/io/PrintWriter;", nullptr, $PROTECTED, $virtualMethod(Log, getWriterForDiagnosticType, $PrintWriter*, $JCDiagnostic$DiagnosticType*)},
+		{"hasDiagnosticListener", "()Z", nullptr, $PUBLIC, $virtualMethod(Log, hasDiagnosticListener, bool)},
+		{"hasErrorOn", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)Z", nullptr, $PUBLIC, $virtualMethod(Log, hasErrorOn, bool, $JCDiagnostic$DiagnosticPosition*)},
+		{"initOptions", "(Lcom/sun/tools/javac/util/Options;)V", nullptr, $PRIVATE, $method(Log, initOptions, void, $Options*)},
+		{"initWriters", "(Lcom/sun/tools/javac/util/Context;)Ljava/util/Map;", "(Lcom/sun/tools/javac/util/Context;)Ljava/util/Map<Lcom/sun/tools/javac/util/Log$WriterKind;Ljava/io/PrintWriter;>;", $PRIVATE | $STATIC, $staticMethod(Log, initWriters, $Map*, $Context*)},
+		{"initWriters", "(Ljava/io/PrintWriter;Ljava/io/PrintWriter;)Ljava/util/Map;", "(Ljava/io/PrintWriter;Ljava/io/PrintWriter;)Ljava/util/Map<Lcom/sun/tools/javac/util/Log$WriterKind;Ljava/io/PrintWriter;>;", $PRIVATE | $STATIC, $staticMethod(Log, initWriters, $Map*, $PrintWriter*, $PrintWriter*)},
+		{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/util/Log;", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, instance, Log*, $Context*)},
+		{"lambda$new$1", "(Lcom/sun/tools/javac/util/Options;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Log, lambda$new$1, void, $Options*)},
+		{"lambda$preRegister$0", "(Ljava/io/PrintWriter;Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Log, lambda$preRegister$0, Log*, $PrintWriter*, $Context*)},
+		{"localize", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Log, localize, $String*, $String*, $ObjectArray*)},
+		{"localize", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Log, localize, $String*, $JCDiagnostic$DiagnosticInfo*)},
+		{"localize", "(Lcom/sun/tools/javac/util/Log$PrefixKind;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Log, localize, $String*, $Log$PrefixKind*, $String*, $ObjectArray*)},
+		{"popDiagnosticHandler", "(Lcom/sun/tools/javac/util/Log$DiagnosticHandler;)V", nullptr, $PUBLIC, $virtualMethod(Log, popDiagnosticHandler, void, $Log$DiagnosticHandler*)},
+		{"preRegister", "(Lcom/sun/tools/javac/util/Context;Ljava/io/PrintWriter;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, preRegister, void, $Context*, $PrintWriter*)},
+		{"printErrLine", "(ILjava/io/PrintWriter;)V", nullptr, $PRIVATE, $method(Log, printErrLine, void, int32_t, $PrintWriter*)},
+		{"printLines", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Log, printLines, void, $String*, $ObjectArray*)},
+		{"printLines", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;)V", nullptr, $PUBLIC, $virtualMethod(Log, printLines, void, $JCDiagnostic$DiagnosticInfo*)},
+		{"printLines", "(Lcom/sun/tools/javac/util/Log$PrefixKind;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Log, printLines, void, $Log$PrefixKind*, $String*, $ObjectArray*)},
+		{"printLines", "(Lcom/sun/tools/javac/util/Log$WriterKind;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Log, printLines, void, $Log$WriterKind*, $String*, $ObjectArray*)},
+		{"printLines", "(Lcom/sun/tools/javac/util/Log$WriterKind;Lcom/sun/tools/javac/util/Log$PrefixKind;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Log, printLines, void, $Log$WriterKind*, $Log$PrefixKind*, $String*, $ObjectArray*)},
+		{"printNewline", "()V", nullptr, $PUBLIC, $virtualMethod(Log, printNewline, void)},
+		{"printNewline", "(Lcom/sun/tools/javac/util/Log$WriterKind;)V", nullptr, $PUBLIC, $virtualMethod(Log, printNewline, void, $Log$WriterKind*)},
+		{"printRawDiag", "(Ljava/io/PrintWriter;Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PRIVATE, $method(Log, printRawDiag, void, $PrintWriter*, $String*, int32_t, $String*)},
+		{"printRawLines", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Log, printRawLines, void, $String*)},
+		{"printRawLines", "(Lcom/sun/tools/javac/util/Log$WriterKind;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Log, printRawLines, void, $Log$WriterKind*, $String*)},
+		{"printRawLines", "(Ljava/io/PrintWriter;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, printRawLines, void, $PrintWriter*, $String*)},
+		{"printVerbose", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Log, printVerbose, void, $String*, $ObjectArray*)},
+		{"prompt", "()V", nullptr, $PUBLIC, $virtualMethod(Log, prompt, void)},
+		{"rawError", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Log, rawError, void, int32_t, $String*)},
+		{"rawWarning", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Log, rawWarning, void, int32_t, $String*)},
+		{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC, $virtualMethod(Log, report, void, $JCDiagnostic*)},
+		{"setDiagnosticFormatter", "(Lcom/sun/tools/javac/api/DiagnosticFormatter;)V", "(Lcom/sun/tools/javac/api/DiagnosticFormatter<Lcom/sun/tools/javac/util/JCDiagnostic;>;)V", $PUBLIC, $virtualMethod(Log, setDiagnosticFormatter, void, $DiagnosticFormatter*)},
+		{"setEndPosTable", "(Ljavax/tools/JavaFileObject;Lcom/sun/tools/javac/tree/EndPosTable;)V", nullptr, $PUBLIC, $virtualMethod(Log, setEndPosTable, void, $JavaFileObject*, $EndPosTable*)},
+		{"setWriter", "(Lcom/sun/tools/javac/util/Log$WriterKind;Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(Log, setWriter, void, $Log$WriterKind*, $PrintWriter*)},
+		{"setWriters", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(Log, setWriters, void, $PrintWriter*)},
+		{"shouldReport", "(Ljavax/tools/JavaFileObject;I)Z", nullptr, $PROTECTED, $virtualMethod(Log, shouldReport, bool, $JavaFileObject*, int32_t)},
+		{"shouldReport", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Z", nullptr, $PRIVATE, $method(Log, shouldReport, bool, $JCDiagnostic*)},
+		{"strictWarning", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Log, strictWarning, void, $JCDiagnostic$DiagnosticPosition*, $String*, $ObjectArray*)},
+		{"writeDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PROTECTED, $virtualMethod(Log, writeDiagnostic, void, $JCDiagnostic*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.Log$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.util.Log$DefaultDiagnosticHandler", "com.sun.tools.javac.util.Log", "DefaultDiagnosticHandler", $PRIVATE},
+		{"com.sun.tools.javac.util.Log$WriterKind", "com.sun.tools.javac.util.Log", "WriterKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"com.sun.tools.javac.util.Log$DeferredDiagnosticHandler", "com.sun.tools.javac.util.Log", "DeferredDiagnosticHandler", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.util.Log$DiscardDiagnosticHandler", "com.sun.tools.javac.util.Log", "DiscardDiagnosticHandler", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.util.Log$DiagnosticHandler", "com.sun.tools.javac.util.Log", "DiagnosticHandler", $PUBLIC | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.util.Log$PrefixKind", "com.sun.tools.javac.util.Log", "PrefixKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.Log",
+		"com.sun.tools.javac.util.AbstractLog",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.Log$1,com.sun.tools.javac.util.Log$DefaultDiagnosticHandler,com.sun.tools.javac.util.Log$WriterKind,com.sun.tools.javac.util.Log$DeferredDiagnosticHandler,com.sun.tools.javac.util.Log$DiscardDiagnosticHandler,com.sun.tools.javac.util.Log$DiagnosticHandler,com.sun.tools.javac.util.Log$PrefixKind"
+	};
+	$loadClass(Log, name, initialize, &classInfo$$, Log::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Log);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/MatchingIterator.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/BasisLibrary.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMAxisIteratorBase.h>
@@ -26,39 +25,6 @@ namespace com {
 						namespace xsltc {
 							namespace dom {
 
-$FieldInfo _MatchingIterator_FieldInfo_[] = {
-	{"_source", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PRIVATE, $field(MatchingIterator, _source)},
-	{"_match", "I", nullptr, $PRIVATE | $FINAL, $field(MatchingIterator, _match)},
-	{}
-};
-
-$MethodInfo _MatchingIterator_MethodInfo_[] = {
-	{"<init>", "(ILcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)V", nullptr, $PUBLIC, $method(MatchingIterator, init$, void, int32_t, $DTMAxisIterator*)},
-	{"cloneIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(MatchingIterator, cloneIterator, $DTMAxisIterator*)},
-	{"getLast", "()I", nullptr, $PUBLIC, $virtualMethod(MatchingIterator, getLast, int32_t)},
-	{"getPosition", "()I", nullptr, $PUBLIC, $virtualMethod(MatchingIterator, getPosition, int32_t)},
-	{"gotoMark", "()V", nullptr, $PUBLIC, $virtualMethod(MatchingIterator, gotoMark, void)},
-	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(MatchingIterator, next, int32_t)},
-	{"reset", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(MatchingIterator, reset, $DTMAxisIterator*)},
-	{"setMark", "()V", nullptr, $PUBLIC, $virtualMethod(MatchingIterator, setMark, void)},
-	{"setRestartable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(MatchingIterator, setRestartable, void, bool)},
-	{"setStartNode", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(MatchingIterator, setStartNode, $DTMAxisIterator*, int32_t)},
-	{}
-};
-
-$ClassInfo _MatchingIterator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.MatchingIterator",
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMAxisIteratorBase",
-	nullptr,
-	_MatchingIterator_FieldInfo_,
-	_MatchingIterator_MethodInfo_
-};
-
-$Object* allocate$MatchingIterator($Class* clazz) {
-	return $of($alloc(MatchingIterator));
-}
-
 void MatchingIterator::init$(int32_t match, $DTMAxisIterator* source) {
 	$DTMAxisIteratorBase::init$();
 	$set(this, _source, source);
@@ -71,7 +37,7 @@ void MatchingIterator::setRestartable(bool isRestartable) {
 }
 
 $DTMAxisIterator* MatchingIterator::cloneIterator() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var(MatchingIterator, clone, $cast(MatchingIterator, $DTMAxisIteratorBase::clone()));
 		$set($nc(clone), _source, $nc(this->_source)->cloneIterator());
@@ -79,7 +45,7 @@ $DTMAxisIterator* MatchingIterator::cloneIterator() {
 		return clone->reset();
 	} catch ($CloneNotSupportedException& e) {
 		$init($BasisLibrary);
-		$BasisLibrary::runTimeError($BasisLibrary::ITERATOR_CLONE_ERR, $($of(e->toString())));
+		$BasisLibrary::runTimeError($BasisLibrary::ITERATOR_CLONE_ERR, $(e->toString()));
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -134,7 +100,35 @@ MatchingIterator::MatchingIterator() {
 }
 
 $Class* MatchingIterator::load$($String* name, bool initialize) {
-	$loadClass(MatchingIterator, name, initialize, &_MatchingIterator_ClassInfo_, allocate$MatchingIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"_source", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PRIVATE, $field(MatchingIterator, _source)},
+		{"_match", "I", nullptr, $PRIVATE | $FINAL, $field(MatchingIterator, _match)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)V", nullptr, $PUBLIC, $method(MatchingIterator, init$, void, int32_t, $DTMAxisIterator*)},
+		{"cloneIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(MatchingIterator, cloneIterator, $DTMAxisIterator*)},
+		{"getLast", "()I", nullptr, $PUBLIC, $virtualMethod(MatchingIterator, getLast, int32_t)},
+		{"getPosition", "()I", nullptr, $PUBLIC, $virtualMethod(MatchingIterator, getPosition, int32_t)},
+		{"gotoMark", "()V", nullptr, $PUBLIC, $virtualMethod(MatchingIterator, gotoMark, void)},
+		{"next", "()I", nullptr, $PUBLIC, $virtualMethod(MatchingIterator, next, int32_t)},
+		{"reset", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(MatchingIterator, reset, $DTMAxisIterator*)},
+		{"setMark", "()V", nullptr, $PUBLIC, $virtualMethod(MatchingIterator, setMark, void)},
+		{"setRestartable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(MatchingIterator, setRestartable, void, bool)},
+		{"setStartNode", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(MatchingIterator, setStartNode, $DTMAxisIterator*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.MatchingIterator",
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMAxisIteratorBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MatchingIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MatchingIterator);
+	});
 	return class$;
 }
 

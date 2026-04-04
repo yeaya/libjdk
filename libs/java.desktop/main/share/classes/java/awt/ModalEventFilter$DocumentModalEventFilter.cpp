@@ -1,5 +1,4 @@
 #include <java/awt/ModalEventFilter$DocumentModalEventFilter.h>
-
 #include <java/awt/Dialog$ModalExclusionType.h>
 #include <java/awt/Dialog.h>
 #include <java/awt/EventFilter$FilterAction.h>
@@ -25,49 +24,13 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 
-$FieldInfo _ModalEventFilter$DocumentModalEventFilter_FieldInfo_[] = {
-	{"documentRoot", "Ljava/awt/Window;", nullptr, $PRIVATE, $field(ModalEventFilter$DocumentModalEventFilter, documentRoot)},
-	{}
-};
-
-$MethodInfo _ModalEventFilter$DocumentModalEventFilter_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Dialog;)V", nullptr, 0, $method(ModalEventFilter$DocumentModalEventFilter, init$, void, $Dialog*)},
-	{"acceptWindow", "(Ljava/awt/Window;)Ljava/awt/EventFilter$FilterAction;", nullptr, $PROTECTED, $virtualMethod(ModalEventFilter$DocumentModalEventFilter, acceptWindow, $EventFilter$FilterAction*, $Window*)},
-	{}
-};
-
-$InnerClassInfo _ModalEventFilter$DocumentModalEventFilter_InnerClassesInfo_[] = {
-	{"java.awt.ModalEventFilter$DocumentModalEventFilter", "java.awt.ModalEventFilter", "DocumentModalEventFilter", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ModalEventFilter$DocumentModalEventFilter_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.ModalEventFilter$DocumentModalEventFilter",
-	"java.awt.ModalEventFilter",
-	nullptr,
-	_ModalEventFilter$DocumentModalEventFilter_FieldInfo_,
-	_ModalEventFilter$DocumentModalEventFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ModalEventFilter$DocumentModalEventFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.ModalEventFilter"
-};
-
-$Object* allocate$ModalEventFilter$DocumentModalEventFilter($Class* clazz) {
-	return $of($alloc(ModalEventFilter$DocumentModalEventFilter));
-}
-
 void ModalEventFilter$DocumentModalEventFilter::init$($Dialog* modalDialog) {
 	$ModalEventFilter::init$(modalDialog);
 	$set(this, documentRoot, $nc(modalDialog)->getDocumentRoot());
 }
 
 $EventFilter$FilterAction* ModalEventFilter$DocumentModalEventFilter::acceptWindow($Window* w$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Window, w, w$renamed);
 	$init($Dialog$ModalExclusionType);
 	if ($nc(w)->isModalExcluded($Dialog$ModalExclusionType::APPLICATION_EXCLUDE)) {
@@ -101,7 +64,37 @@ ModalEventFilter$DocumentModalEventFilter::ModalEventFilter$DocumentModalEventFi
 }
 
 $Class* ModalEventFilter$DocumentModalEventFilter::load$($String* name, bool initialize) {
-	$loadClass(ModalEventFilter$DocumentModalEventFilter, name, initialize, &_ModalEventFilter$DocumentModalEventFilter_ClassInfo_, allocate$ModalEventFilter$DocumentModalEventFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"documentRoot", "Ljava/awt/Window;", nullptr, $PRIVATE, $field(ModalEventFilter$DocumentModalEventFilter, documentRoot)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Dialog;)V", nullptr, 0, $method(ModalEventFilter$DocumentModalEventFilter, init$, void, $Dialog*)},
+		{"acceptWindow", "(Ljava/awt/Window;)Ljava/awt/EventFilter$FilterAction;", nullptr, $PROTECTED, $virtualMethod(ModalEventFilter$DocumentModalEventFilter, acceptWindow, $EventFilter$FilterAction*, $Window*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.ModalEventFilter$DocumentModalEventFilter", "java.awt.ModalEventFilter", "DocumentModalEventFilter", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.ModalEventFilter$DocumentModalEventFilter",
+		"java.awt.ModalEventFilter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.ModalEventFilter"
+	};
+	$loadClass(ModalEventFilter$DocumentModalEventFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModalEventFilter$DocumentModalEventFilter);
+	});
 	return class$;
 }
 

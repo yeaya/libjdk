@@ -58,7 +58,7 @@ public:
 	bool userCon = false;
 	int32_t startPosition = 0;
 	::com::sun::rowset::JdbcRowSetResourceBundle* resBundle = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x46144620156A7159;
+	static const int64_t serialVersionUID = (int64_t)0x46144620156a7159;
 };
 
 			} // internal

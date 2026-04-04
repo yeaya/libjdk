@@ -1,5 +1,4 @@
 #include <javax/swing/JTree.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -18,7 +17,6 @@
 #include <java/lang/Error.h>
 #include <java/lang/Math.h>
 #include <java/lang/Number.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Enumeration.h>
 #include <java/util/EventListener.h>
@@ -58,7 +56,6 @@
 #include <javax/swing/tree/DefaultTreeModel.h>
 #include <javax/swing/tree/DefaultTreeSelectionModel.h>
 #include <javax/swing/tree/ExpandVetoException.h>
-#include <javax/swing/tree/MutableTreeNode.h>
 #include <javax/swing/tree/TreeCellEditor.h>
 #include <javax/swing/tree/TreeCellRenderer.h>
 #include <javax/swing/tree/TreeModel.h>
@@ -131,10 +128,8 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $Number = ::java::lang::Number;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Enumeration = ::java::util::Enumeration;
-using $EventListener = ::java::util::EventListener;
 using $Hashtable = ::java::util::Hashtable;
 using $Set = ::java::util::Set;
 using $Stack = ::java::util::Stack;
@@ -156,7 +151,6 @@ using $SwingConstants = ::javax::swing::SwingConstants;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $TransferHandler$DropLocation = ::javax::swing::TransferHandler$DropLocation;
 using $UIManager = ::javax::swing::UIManager;
-using $EventListenerList = ::javax::swing::event::EventListenerList;
 using $TreeExpansionEvent = ::javax::swing::event::TreeExpansionEvent;
 using $TreeExpansionListener = ::javax::swing::event::TreeExpansionListener;
 using $TreeModelEvent = ::javax::swing::event::TreeModelEvent;
@@ -171,7 +165,6 @@ using $DefaultMutableTreeNode = ::javax::swing::tree::DefaultMutableTreeNode;
 using $DefaultTreeModel = ::javax::swing::tree::DefaultTreeModel;
 using $DefaultTreeSelectionModel = ::javax::swing::tree::DefaultTreeSelectionModel;
 using $ExpandVetoException = ::javax::swing::tree::ExpandVetoException;
-using $MutableTreeNode = ::javax::swing::tree::MutableTreeNode;
 using $TreeCellEditor = ::javax::swing::tree::TreeCellEditor;
 using $TreeCellRenderer = ::javax::swing::tree::TreeCellRenderer;
 using $TreeModel = ::javax::swing::tree::TreeModel;
@@ -185,671 +178,6 @@ using $SwingUtilities2$Section = ::sun::swing::SwingUtilities2$Section;
 
 namespace javax {
 	namespace swing {
-
-$NamedAttribute JTree_Attribute_var$0[] = {
-	{"defaultProperty", 's', "UI"},
-	{"description", 's', "A component that displays a set of hierarchical data as an outline."},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$1[] = {
-	{"value", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTree_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", JTree_Attribute_var$0},
-	{"Ljavax/swing/SwingContainer;", JTree_Attribute_var$1},
-	{}
-};
-
-$Attribute JTree_Attribute_var$3[] = {
-	{'s', "model"},
-	{'-'}
-};
-
-$NamedAttribute JTree_Attribute_var$2[] = {
-	{"value", '[', JTree_Attribute_var$3},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_init$6[] = {
-	{"Ljava/beans/ConstructorProperties;", JTree_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$4[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_getAccessibleContext36[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$5[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_getDropLocation47[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$6[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_getEditingPath49[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$6},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$7[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_getLastSelectedPathComponent53[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$7},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$8[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_getLeadSelectionRow55[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$8},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$9[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_getMaxSelectionRow56[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$9},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$10[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_getMinSelectionRow57[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$10},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$11[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_getPathForRow65[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$11},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$12[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_getPreferredScrollableViewportSize66[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$12},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$13[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_getRowCount68[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$13},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$14[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_getScrollableTracksViewportHeight73[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$14},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$15[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_getScrollableTracksViewportWidth74[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$15},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$16[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_getSelectionCount77[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$16},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$17[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_getTreeExpansionListeners85[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$17},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$18[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_getTreeSelectionListeners86[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$18},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$19[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_getTreeWillExpandListeners87[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$19},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$20[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_getUIClassID89[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$20},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$21[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_isEditing95[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$21},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$22[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_isFixedRowHeight98[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$22},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$23[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_isSelectionEmpty104[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$23},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$24[] = {
-	{"description", 's', "Anchor selection path"},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_setAnchorSelectionPath122[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$24},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$25[] = {
-	{"description", 's', "The cell editor. A null value implies the tree cannot be edited."},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_setCellEditor123[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$25},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$26[] = {
-	{"description", 's', "The TreeCellRenderer that will be used to draw each cell."},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_setCellRenderer124[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$26},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$27[] = {
-	{"bound", 'Z', "false"},
-	{"description", 's', "determines whether automatic drag handling is enabled"},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_setDragEnabled125[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$27},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$28[] = {
-	{"description", 's', "Whether the tree is editable."},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_setEditable128[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$28},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$29[] = {
-	{"description", 's', "Indicates whether changes to the selection should make the parent of the path visible."},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_setExpandsSelectedPaths130[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$29},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$30[] = {
-	{"description", 's', "Determines what happens when editing is interrupted, selecting another node in the tree, a change in the tree\'s data, or some other means."},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_setInvokesStopCellEditing131[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$30},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$31[] = {
-	{"description", 's', "Whether the UI should use a large model."},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_setLargeModel132[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$31},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$32[] = {
-	{"description", 's', "Lead selection path"},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_setLeadSelectionPath133[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$32},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$33[] = {
-	{"description", 's', "The TreeModel that will provide the data."},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_setModel134[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$33},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$34[] = {
-	{"description", 's', "Whether or not the root node from the TreeModel is visible."},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_setRootVisible135[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$34},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$35[] = {
-	{"description", 's', "The height of each cell."},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_setRowHeight136[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$35},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$36[] = {
-	{"description", 's', "Indicates if a node descendant should be scrolled when expanded."},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_setScrollsOnExpand137[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$36},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$37[] = {
-	{"description", 's', "The tree\'s selection model."},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_setSelectionModel139[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$37},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$38[] = {
-	{"description", 's', "Whether the node handles are to be displayed."},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_setShowsRootHandles144[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$38},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$39[] = {
-	{"description", 's', "Number of clicks before a node will expand/collapse."},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_setToggleClickCount145[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$39},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$40[] = {
-	{"hidden", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The UI object that implements the Component\'s LookAndFeel."},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_setUI146[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$40},
-	{}
-};
-
-$NamedAttribute JTree_Attribute_var$41[] = {
-	{"description", 's', "The number of rows that are to be displayed."},
-	{}
-};
-
-$CompoundAttribute _JTree_MethodAnnotations_setVisibleRowCount148[] = {
-	{"Ljava/beans/BeanProperty;", JTree_Attribute_var$41},
-	{}
-};
-
-$FieldInfo _JTree_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JTree, $assertionsDisabled)},
-	{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JTree, uiClassID)},
-	{"treeModel", "Ljavax/swing/tree/TreeModel;", nullptr, $PROTECTED | $TRANSIENT, $field(JTree, treeModel)},
-	{"selectionModel", "Ljavax/swing/tree/TreeSelectionModel;", nullptr, $PROTECTED | $TRANSIENT, $field(JTree, selectionModel)},
-	{"rootVisible", "Z", nullptr, $PROTECTED, $field(JTree, rootVisible)},
-	{"cellRenderer", "Ljavax/swing/tree/TreeCellRenderer;", nullptr, $PROTECTED | $TRANSIENT, $field(JTree, cellRenderer)},
-	{"rowHeight", "I", nullptr, $PROTECTED, $field(JTree, rowHeight)},
-	{"rowHeightSet", "Z", nullptr, $PRIVATE, $field(JTree, rowHeightSet)},
-	{"expandedState", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljavax/swing/tree/TreePath;Ljava/lang/Boolean;>;", $PRIVATE | $TRANSIENT, $field(JTree, expandedState)},
-	{"showsRootHandles", "Z", nullptr, $PROTECTED, $field(JTree, showsRootHandles)},
-	{"showsRootHandlesSet", "Z", nullptr, $PRIVATE, $field(JTree, showsRootHandlesSet)},
-	{"selectionRedirector", "Ljavax/swing/JTree$TreeSelectionRedirector;", nullptr, $PROTECTED | $TRANSIENT, $field(JTree, selectionRedirector)},
-	{"cellEditor", "Ljavax/swing/tree/TreeCellEditor;", nullptr, $PROTECTED | $TRANSIENT, $field(JTree, cellEditor)},
-	{"editable", "Z", nullptr, $PROTECTED, $field(JTree, editable)},
-	{"largeModel", "Z", nullptr, $PROTECTED, $field(JTree, largeModel)},
-	{"visibleRowCount", "I", nullptr, $PROTECTED, $field(JTree, visibleRowCount)},
-	{"invokesStopCellEditing", "Z", nullptr, $PROTECTED, $field(JTree, invokesStopCellEditing)},
-	{"scrollsOnExpand", "Z", nullptr, $PROTECTED, $field(JTree, scrollsOnExpand)},
-	{"scrollsOnExpandSet", "Z", nullptr, $PRIVATE, $field(JTree, scrollsOnExpandSet)},
-	{"toggleClickCount", "I", nullptr, $PROTECTED, $field(JTree, toggleClickCount)},
-	{"treeModelListener", "Ljavax/swing/event/TreeModelListener;", nullptr, $PROTECTED | $TRANSIENT, $field(JTree, treeModelListener)},
-	{"expandedStack", "Ljava/util/Stack;", "Ljava/util/Stack<Ljava/util/Stack<Ljavax/swing/tree/TreePath;>;>;", $PRIVATE | $TRANSIENT, $field(JTree, expandedStack)},
-	{"leadPath", "Ljavax/swing/tree/TreePath;", nullptr, $PRIVATE, $field(JTree, leadPath)},
-	{"anchorPath", "Ljavax/swing/tree/TreePath;", nullptr, $PRIVATE, $field(JTree, anchorPath)},
-	{"expandsSelectedPaths", "Z", nullptr, $PRIVATE, $field(JTree, expandsSelectedPaths)},
-	{"settingUI", "Z", nullptr, $PRIVATE, $field(JTree, settingUI)},
-	{"dragEnabled", "Z", nullptr, $PRIVATE, $field(JTree, dragEnabled)},
-	{"dropMode", "Ljavax/swing/DropMode;", nullptr, $PRIVATE, $field(JTree, dropMode)},
-	{"dropLocation", "Ljavax/swing/JTree$DropLocation;", nullptr, $PRIVATE | $TRANSIENT, $field(JTree, dropLocation)},
-	{"updateInProgress", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(JTree, updateInProgress)},
-	{"expandRow", "I", nullptr, $PRIVATE, $field(JTree, expandRow$)},
-	{"dropTimer", "Ljavax/swing/JTree$TreeTimer;", nullptr, $PRIVATE, $field(JTree, dropTimer)},
-	{"uiTreeExpansionListener", "Ljavax/swing/event/TreeExpansionListener;", nullptr, $PRIVATE | $TRANSIENT, $field(JTree, uiTreeExpansionListener)},
-	{"TEMP_STACK_SIZE", "I", nullptr, $PRIVATE | $STATIC, $staticField(JTree, TEMP_STACK_SIZE)},
-	{"CELL_RENDERER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, CELL_RENDERER_PROPERTY)},
-	{"TREE_MODEL_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, TREE_MODEL_PROPERTY)},
-	{"ROOT_VISIBLE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, ROOT_VISIBLE_PROPERTY)},
-	{"SHOWS_ROOT_HANDLES_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, SHOWS_ROOT_HANDLES_PROPERTY)},
-	{"ROW_HEIGHT_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, ROW_HEIGHT_PROPERTY)},
-	{"CELL_EDITOR_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, CELL_EDITOR_PROPERTY)},
-	{"EDITABLE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, EDITABLE_PROPERTY)},
-	{"LARGE_MODEL_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, LARGE_MODEL_PROPERTY)},
-	{"SELECTION_MODEL_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, SELECTION_MODEL_PROPERTY)},
-	{"VISIBLE_ROW_COUNT_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, VISIBLE_ROW_COUNT_PROPERTY)},
-	{"INVOKES_STOP_CELL_EDITING_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, INVOKES_STOP_CELL_EDITING_PROPERTY)},
-	{"SCROLLS_ON_EXPAND_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, SCROLLS_ON_EXPAND_PROPERTY)},
-	{"TOGGLE_CLICK_COUNT_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, TOGGLE_CLICK_COUNT_PROPERTY)},
-	{"LEAD_SELECTION_PATH_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, LEAD_SELECTION_PATH_PROPERTY)},
-	{"ANCHOR_SELECTION_PATH_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, ANCHOR_SELECTION_PATH_PROPERTY)},
-	{"EXPANDS_SELECTED_PATHS_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, EXPANDS_SELECTED_PATHS_PROPERTY)},
-	{}
-};
-
-$MethodInfo _JTree_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JTree, init$, void)},
-	{"<init>", "([Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(JTree, init$, void, $ObjectArray*)},
-	{"<init>", "(Ljava/util/Vector;)V", "(Ljava/util/Vector<*>;)V", $PUBLIC, $method(JTree, init$, void, $Vector*)},
-	{"<init>", "(Ljava/util/Hashtable;)V", "(Ljava/util/Hashtable<**>;)V", $PUBLIC, $method(JTree, init$, void, $Hashtable*)},
-	{"<init>", "(Ljavax/swing/tree/TreeNode;)V", nullptr, $PUBLIC, $method(JTree, init$, void, $TreeNode*)},
-	{"<init>", "(Ljavax/swing/tree/TreeNode;Z)V", nullptr, $PUBLIC, $method(JTree, init$, void, $TreeNode*, bool)},
-	{"<init>", "(Ljavax/swing/tree/TreeModel;)V", nullptr, $PUBLIC, $method(JTree, init$, void, $TreeModel*), nullptr, nullptr, _JTree_MethodAnnotations_init$6},
-	{"addSelectionInterval", "(II)V", nullptr, $PUBLIC, $virtualMethod(JTree, addSelectionInterval, void, int32_t, int32_t)},
-	{"addSelectionPath", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, addSelectionPath, void, $TreePath*)},
-	{"addSelectionPaths", "([Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, addSelectionPaths, void, $TreePathArray*)},
-	{"addSelectionRow", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTree, addSelectionRow, void, int32_t)},
-	{"addSelectionRows", "([I)V", nullptr, $PUBLIC, $virtualMethod(JTree, addSelectionRows, void, $ints*)},
-	{"addTreeExpansionListener", "(Ljavax/swing/event/TreeExpansionListener;)V", nullptr, $PUBLIC, $virtualMethod(JTree, addTreeExpansionListener, void, $TreeExpansionListener*)},
-	{"addTreeSelectionListener", "(Ljavax/swing/event/TreeSelectionListener;)V", nullptr, $PUBLIC, $virtualMethod(JTree, addTreeSelectionListener, void, $TreeSelectionListener*)},
-	{"addTreeWillExpandListener", "(Ljavax/swing/event/TreeWillExpandListener;)V", nullptr, $PUBLIC, $virtualMethod(JTree, addTreeWillExpandListener, void, $TreeWillExpandListener*)},
-	{"cancelDropTimer", "()V", nullptr, $PRIVATE, $method(JTree, cancelDropTimer, void)},
-	{"cancelEditing", "()V", nullptr, $PUBLIC, $virtualMethod(JTree, cancelEditing, void)},
-	{"checkDragEnabled", "(Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JTree, checkDragEnabled, void, bool)},
-	{"checkDropMode", "(Ljavax/swing/DropMode;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JTree, checkDropMode, void, $DropMode*)},
-	{"clearSelection", "()V", nullptr, $PUBLIC, $virtualMethod(JTree, clearSelection, void)},
-	{"clearToggledPaths", "()V", nullptr, $PROTECTED, $virtualMethod(JTree, clearToggledPaths, void)},
-	{"collapsePath", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, collapsePath, void, $TreePath*)},
-	{"collapseRow", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTree, collapseRow, void, int32_t)},
-	{"convertValueToText", "(Ljava/lang/Object;ZZZIZ)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTree, convertValueToText, $String*, Object$*, bool, bool, bool, int32_t, bool)},
-	{"createTreeModel", "(Ljava/lang/Object;)Ljavax/swing/tree/TreeModel;", nullptr, $PROTECTED | $STATIC, $staticMethod(JTree, createTreeModel, $TreeModel*, Object$*)},
-	{"createTreeModelListener", "()Ljavax/swing/event/TreeModelListener;", nullptr, $PROTECTED, $virtualMethod(JTree, createTreeModelListener, $TreeModelListener*)},
-	{"dndDone", "()V", nullptr, 0, $virtualMethod(JTree, dndDone, void)},
-	{"dropLocationForPoint", "(Ljava/awt/Point;)Ljavax/swing/JTree$DropLocation;", nullptr, 0, $virtualMethod(JTree, dropLocationForPoint, $TransferHandler$DropLocation*, $Point*)},
-	{"expandPath", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, expandPath, void, $TreePath*)},
-	{"expandRoot", "()V", nullptr, $PRIVATE, $method(JTree, expandRoot, void)},
-	{"expandRow", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTree, expandRow, void, int32_t)},
-	{"fireTreeCollapsed", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, fireTreeCollapsed, void, $TreePath*)},
-	{"fireTreeExpanded", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, fireTreeExpanded, void, $TreePath*)},
-	{"fireTreeWillCollapse", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, fireTreeWillCollapse, void, $TreePath*), "javax.swing.tree.ExpandVetoException"},
-	{"fireTreeWillExpand", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, fireTreeWillExpand, void, $TreePath*), "javax.swing.tree.ExpandVetoException"},
-	{"fireValueChanged", "(Ljavax/swing/event/TreeSelectionEvent;)V", nullptr, $PROTECTED, $virtualMethod(JTree, fireValueChanged, void, $TreeSelectionEvent*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JTree, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, _JTree_MethodAnnotations_getAccessibleContext36},
-	{"getAnchorSelectionPath", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(JTree, getAnchorSelectionPath, $TreePath*)},
-	{"getArchivableExpandedState", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(JTree, getArchivableExpandedState, $Object*)},
-	{"getCellEditor", "()Ljavax/swing/tree/TreeCellEditor;", nullptr, $PUBLIC, $virtualMethod(JTree, getCellEditor, $TreeCellEditor*)},
-	{"getCellRenderer", "()Ljavax/swing/tree/TreeCellRenderer;", nullptr, $PUBLIC, $virtualMethod(JTree, getCellRenderer, $TreeCellRenderer*)},
-	{"getClosestPathForLocation", "(II)Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(JTree, getClosestPathForLocation, $TreePath*, int32_t, int32_t)},
-	{"getClosestRowForLocation", "(II)I", nullptr, $PUBLIC, $virtualMethod(JTree, getClosestRowForLocation, int32_t, int32_t, int32_t)},
-	{"getDefaultTreeModel", "()Ljavax/swing/tree/TreeModel;", nullptr, $PROTECTED | $STATIC, $staticMethod(JTree, getDefaultTreeModel, $TreeModel*)},
-	{"getDescendantSelectedPaths", "(Ljavax/swing/tree/TreePath;Z)[Ljavax/swing/tree/TreePath;", nullptr, $PRIVATE, $method(JTree, getDescendantSelectedPaths, $TreePathArray*, $TreePath*, bool)},
-	{"getDescendantToggledPaths", "(Ljavax/swing/tree/TreePath;)Ljava/util/Enumeration;", "(Ljavax/swing/tree/TreePath;)Ljava/util/Enumeration<Ljavax/swing/tree/TreePath;>;", $PROTECTED, $virtualMethod(JTree, getDescendantToggledPaths, $Enumeration*, $TreePath*)},
-	{"getDragEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree, getDragEnabled, bool)},
-	{"getDropLocation", "()Ljavax/swing/JTree$DropLocation;", nullptr, $PUBLIC | $FINAL, $method(JTree, getDropLocation, $JTree$DropLocation*), nullptr, nullptr, _JTree_MethodAnnotations_getDropLocation47},
-	{"getDropMode", "()Ljavax/swing/DropMode;", nullptr, $PUBLIC | $FINAL, $method(JTree, getDropMode, $DropMode*)},
-	{"getEditingPath", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(JTree, getEditingPath, $TreePath*), nullptr, nullptr, _JTree_MethodAnnotations_getEditingPath49},
-	{"getExpandedDescendants", "(Ljavax/swing/tree/TreePath;)Ljava/util/Enumeration;", "(Ljavax/swing/tree/TreePath;)Ljava/util/Enumeration<Ljavax/swing/tree/TreePath;>;", $PUBLIC, $virtualMethod(JTree, getExpandedDescendants, $Enumeration*, $TreePath*)},
-	{"getExpandsSelectedPaths", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree, getExpandsSelectedPaths, bool)},
-	{"getInvokesStopCellEditing", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree, getInvokesStopCellEditing, bool)},
-	{"getLastSelectedPathComponent", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JTree, getLastSelectedPathComponent, $Object*), nullptr, nullptr, _JTree_MethodAnnotations_getLastSelectedPathComponent53},
-	{"getLeadSelectionPath", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(JTree, getLeadSelectionPath, $TreePath*)},
-	{"getLeadSelectionRow", "()I", nullptr, $PUBLIC, $virtualMethod(JTree, getLeadSelectionRow, int32_t), nullptr, nullptr, _JTree_MethodAnnotations_getLeadSelectionRow55},
-	{"getMaxSelectionRow", "()I", nullptr, $PUBLIC, $virtualMethod(JTree, getMaxSelectionRow, int32_t), nullptr, nullptr, _JTree_MethodAnnotations_getMaxSelectionRow56},
-	{"getMinSelectionRow", "()I", nullptr, $PUBLIC, $virtualMethod(JTree, getMinSelectionRow, int32_t), nullptr, nullptr, _JTree_MethodAnnotations_getMinSelectionRow57},
-	{"getModel", "()Ljavax/swing/tree/TreeModel;", nullptr, $PUBLIC, $virtualMethod(JTree, getModel, $TreeModel*)},
-	{"getModelIndexsForPath", "(Ljavax/swing/tree/TreePath;)[I", nullptr, $PRIVATE, $method(JTree, getModelIndexsForPath, $ints*, $TreePath*)},
-	{"getNextMatch", "(Ljava/lang/String;ILjavax/swing/text/Position$Bias;)Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(JTree, getNextMatch, $TreePath*, $String*, int32_t, $Position$Bias*)},
-	{"getPathBetweenRows", "(II)[Ljavax/swing/tree/TreePath;", nullptr, $PROTECTED, $virtualMethod(JTree, getPathBetweenRows, $TreePathArray*, int32_t, int32_t)},
-	{"getPathBounds", "(Ljavax/swing/tree/TreePath;)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(JTree, getPathBounds, $Rectangle*, $TreePath*)},
-	{"getPathForIndexs", "([I)Ljavax/swing/tree/TreePath;", nullptr, $PRIVATE, $method(JTree, getPathForIndexs, $TreePath*, $ints*)},
-	{"getPathForLocation", "(II)Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(JTree, getPathForLocation, $TreePath*, int32_t, int32_t)},
-	{"getPathForRow", "(I)Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(JTree, getPathForRow, $TreePath*, int32_t), nullptr, nullptr, _JTree_MethodAnnotations_getPathForRow65},
-	{"getPreferredScrollableViewportSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JTree, getPreferredScrollableViewportSize, $Dimension*), nullptr, nullptr, _JTree_MethodAnnotations_getPreferredScrollableViewportSize66},
-	{"getRowBounds", "(I)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(JTree, getRowBounds, $Rectangle*, int32_t)},
-	{"getRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTree, getRowCount, int32_t), nullptr, nullptr, _JTree_MethodAnnotations_getRowCount68},
-	{"getRowForLocation", "(II)I", nullptr, $PUBLIC, $virtualMethod(JTree, getRowForLocation, int32_t, int32_t, int32_t)},
-	{"getRowForPath", "(Ljavax/swing/tree/TreePath;)I", nullptr, $PUBLIC, $virtualMethod(JTree, getRowForPath, int32_t, $TreePath*)},
-	{"getRowHeight", "()I", nullptr, $PUBLIC, $virtualMethod(JTree, getRowHeight, int32_t)},
-	{"getScrollableBlockIncrement", "(Ljava/awt/Rectangle;II)I", nullptr, $PUBLIC, $virtualMethod(JTree, getScrollableBlockIncrement, int32_t, $Rectangle*, int32_t, int32_t)},
-	{"getScrollableTracksViewportHeight", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree, getScrollableTracksViewportHeight, bool), nullptr, nullptr, _JTree_MethodAnnotations_getScrollableTracksViewportHeight73},
-	{"getScrollableTracksViewportWidth", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree, getScrollableTracksViewportWidth, bool), nullptr, nullptr, _JTree_MethodAnnotations_getScrollableTracksViewportWidth74},
-	{"getScrollableUnitIncrement", "(Ljava/awt/Rectangle;II)I", nullptr, $PUBLIC, $virtualMethod(JTree, getScrollableUnitIncrement, int32_t, $Rectangle*, int32_t, int32_t)},
-	{"getScrollsOnExpand", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree, getScrollsOnExpand, bool)},
-	{"getSelectionCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTree, getSelectionCount, int32_t), nullptr, nullptr, _JTree_MethodAnnotations_getSelectionCount77},
-	{"getSelectionModel", "()Ljavax/swing/tree/TreeSelectionModel;", nullptr, $PUBLIC, $virtualMethod(JTree, getSelectionModel, $TreeSelectionModel*)},
-	{"getSelectionPath", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(JTree, getSelectionPath, $TreePath*)},
-	{"getSelectionPaths", "()[Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(JTree, getSelectionPaths, $TreePathArray*)},
-	{"getSelectionRows", "()[I", nullptr, $PUBLIC, $virtualMethod(JTree, getSelectionRows, $ints*)},
-	{"getShowsRootHandles", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree, getShowsRootHandles, bool)},
-	{"getToggleClickCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTree, getToggleClickCount, int32_t)},
-	{"getToolTipText", "(Ljava/awt/event/MouseEvent;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTree, getToolTipText, $String*, $MouseEvent*)},
-	{"getTreeExpansionListeners", "()[Ljavax/swing/event/TreeExpansionListener;", nullptr, $PUBLIC, $virtualMethod(JTree, getTreeExpansionListeners, $TreeExpansionListenerArray*), nullptr, nullptr, _JTree_MethodAnnotations_getTreeExpansionListeners85},
-	{"getTreeSelectionListeners", "()[Ljavax/swing/event/TreeSelectionListener;", nullptr, $PUBLIC, $virtualMethod(JTree, getTreeSelectionListeners, $TreeSelectionListenerArray*), nullptr, nullptr, _JTree_MethodAnnotations_getTreeSelectionListeners86},
-	{"getTreeWillExpandListeners", "()[Ljavax/swing/event/TreeWillExpandListener;", nullptr, $PUBLIC, $virtualMethod(JTree, getTreeWillExpandListeners, $TreeWillExpandListenerArray*), nullptr, nullptr, _JTree_MethodAnnotations_getTreeWillExpandListeners87},
-	{"getUI", "()Ljavax/swing/plaf/TreeUI;", nullptr, $PUBLIC, $virtualMethod(JTree, getUI, $ComponentUI*)},
-	{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTree, getUIClassID, $String*), nullptr, nullptr, _JTree_MethodAnnotations_getUIClassID89},
-	{"getVisibleRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTree, getVisibleRowCount, int32_t)},
-	{"hasBeenExpanded", "(Ljavax/swing/tree/TreePath;)Z", nullptr, $PUBLIC, $virtualMethod(JTree, hasBeenExpanded, bool, $TreePath*)},
-	{"isCollapsed", "(Ljavax/swing/tree/TreePath;)Z", nullptr, $PUBLIC, $virtualMethod(JTree, isCollapsed, bool, $TreePath*)},
-	{"isCollapsed", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JTree, isCollapsed, bool, int32_t)},
-	{"isEditable", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree, isEditable, bool)},
-	{"isEditing", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree, isEditing, bool), nullptr, nullptr, _JTree_MethodAnnotations_isEditing95},
-	{"isExpanded", "(Ljavax/swing/tree/TreePath;)Z", nullptr, $PUBLIC, $virtualMethod(JTree, isExpanded, bool, $TreePath*)},
-	{"isExpanded", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JTree, isExpanded, bool, int32_t)},
-	{"isFixedRowHeight", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree, isFixedRowHeight, bool), nullptr, nullptr, _JTree_MethodAnnotations_isFixedRowHeight98},
-	{"isLargeModel", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree, isLargeModel, bool)},
-	{"isPathEditable", "(Ljavax/swing/tree/TreePath;)Z", nullptr, $PUBLIC, $virtualMethod(JTree, isPathEditable, bool, $TreePath*)},
-	{"isPathSelected", "(Ljavax/swing/tree/TreePath;)Z", nullptr, $PUBLIC, $virtualMethod(JTree, isPathSelected, bool, $TreePath*)},
-	{"isRootVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree, isRootVisible, bool)},
-	{"isRowSelected", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JTree, isRowSelected, bool, int32_t)},
-	{"isSelectionEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree, isSelectionEmpty, bool), nullptr, nullptr, _JTree_MethodAnnotations_isSelectionEmpty104},
-	{"isVisible", "(Ljavax/swing/tree/TreePath;)Z", nullptr, $PUBLIC, $virtualMethod(JTree, isVisible, bool, $TreePath*)},
-	{"makeVisible", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, makeVisible, void, $TreePath*)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JTree, paramString, $String*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(JTree, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"removeDescendantSelectedPaths", "(Ljavax/swing/tree/TreePath;Z)Z", nullptr, $PROTECTED, $virtualMethod(JTree, removeDescendantSelectedPaths, bool, $TreePath*, bool)},
-	{"removeDescendantSelectedPaths", "(Ljavax/swing/event/TreeModelEvent;)V", nullptr, 0, $virtualMethod(JTree, removeDescendantSelectedPaths, void, $TreeModelEvent*)},
-	{"removeDescendantToggledPaths", "(Ljava/util/Enumeration;)V", "(Ljava/util/Enumeration<Ljavax/swing/tree/TreePath;>;)V", $PROTECTED, $virtualMethod(JTree, removeDescendantToggledPaths, void, $Enumeration*)},
-	{"removeSelectionInterval", "(II)V", nullptr, $PUBLIC, $virtualMethod(JTree, removeSelectionInterval, void, int32_t, int32_t)},
-	{"removeSelectionPath", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, removeSelectionPath, void, $TreePath*)},
-	{"removeSelectionPaths", "([Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, removeSelectionPaths, void, $TreePathArray*)},
-	{"removeSelectionRow", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTree, removeSelectionRow, void, int32_t)},
-	{"removeSelectionRows", "([I)V", nullptr, $PUBLIC, $virtualMethod(JTree, removeSelectionRows, void, $ints*)},
-	{"removeTreeExpansionListener", "(Ljavax/swing/event/TreeExpansionListener;)V", nullptr, $PUBLIC, $virtualMethod(JTree, removeTreeExpansionListener, void, $TreeExpansionListener*)},
-	{"removeTreeSelectionListener", "(Ljavax/swing/event/TreeSelectionListener;)V", nullptr, $PUBLIC, $virtualMethod(JTree, removeTreeSelectionListener, void, $TreeSelectionListener*)},
-	{"removeTreeWillExpandListener", "(Ljavax/swing/event/TreeWillExpandListener;)V", nullptr, $PUBLIC, $virtualMethod(JTree, removeTreeWillExpandListener, void, $TreeWillExpandListener*)},
-	{"scrollPathToVisible", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, scrollPathToVisible, void, $TreePath*)},
-	{"scrollRowToVisible", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTree, scrollRowToVisible, void, int32_t)},
-	{"setAnchorSelectionPath", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, setAnchorSelectionPath, void, $TreePath*), nullptr, nullptr, _JTree_MethodAnnotations_setAnchorSelectionPath122},
-	{"setCellEditor", "(Ljavax/swing/tree/TreeCellEditor;)V", nullptr, $PUBLIC, $virtualMethod(JTree, setCellEditor, void, $TreeCellEditor*), nullptr, nullptr, _JTree_MethodAnnotations_setCellEditor123},
-	{"setCellRenderer", "(Ljavax/swing/tree/TreeCellRenderer;)V", nullptr, $PUBLIC, $virtualMethod(JTree, setCellRenderer, void, $TreeCellRenderer*), nullptr, nullptr, _JTree_MethodAnnotations_setCellRenderer124},
-	{"setDragEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTree, setDragEnabled, void, bool), nullptr, nullptr, _JTree_MethodAnnotations_setDragEnabled125},
-	{"setDropLocation", "(Ljavax/swing/TransferHandler$DropLocation;Ljava/lang/Object;Z)Ljava/lang/Object;", nullptr, 0, $virtualMethod(JTree, setDropLocation, $Object*, $TransferHandler$DropLocation*, Object$*, bool)},
-	{"setDropMode", "(Ljavax/swing/DropMode;)V", nullptr, $PUBLIC | $FINAL, $method(JTree, setDropMode, void, $DropMode*)},
-	{"setEditable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTree, setEditable, void, bool), nullptr, nullptr, _JTree_MethodAnnotations_setEditable128},
-	{"setExpandedState", "(Ljavax/swing/tree/TreePath;Z)V", nullptr, $PROTECTED, $virtualMethod(JTree, setExpandedState, void, $TreePath*, bool)},
-	{"setExpandsSelectedPaths", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTree, setExpandsSelectedPaths, void, bool), nullptr, nullptr, _JTree_MethodAnnotations_setExpandsSelectedPaths130},
-	{"setInvokesStopCellEditing", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTree, setInvokesStopCellEditing, void, bool), nullptr, nullptr, _JTree_MethodAnnotations_setInvokesStopCellEditing131},
-	{"setLargeModel", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTree, setLargeModel, void, bool), nullptr, nullptr, _JTree_MethodAnnotations_setLargeModel132},
-	{"setLeadSelectionPath", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, setLeadSelectionPath, void, $TreePath*), nullptr, nullptr, _JTree_MethodAnnotations_setLeadSelectionPath133},
-	{"setModel", "(Ljavax/swing/tree/TreeModel;)V", nullptr, $PUBLIC, $virtualMethod(JTree, setModel, void, $TreeModel*), nullptr, nullptr, _JTree_MethodAnnotations_setModel134},
-	{"setRootVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTree, setRootVisible, void, bool), nullptr, nullptr, _JTree_MethodAnnotations_setRootVisible135},
-	{"setRowHeight", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTree, setRowHeight, void, int32_t), nullptr, nullptr, _JTree_MethodAnnotations_setRowHeight136},
-	{"setScrollsOnExpand", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTree, setScrollsOnExpand, void, bool), nullptr, nullptr, _JTree_MethodAnnotations_setScrollsOnExpand137},
-	{"setSelectionInterval", "(II)V", nullptr, $PUBLIC, $virtualMethod(JTree, setSelectionInterval, void, int32_t, int32_t)},
-	{"setSelectionModel", "(Ljavax/swing/tree/TreeSelectionModel;)V", nullptr, $PUBLIC, $virtualMethod(JTree, setSelectionModel, void, $TreeSelectionModel*), nullptr, nullptr, _JTree_MethodAnnotations_setSelectionModel139},
-	{"setSelectionPath", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, setSelectionPath, void, $TreePath*)},
-	{"setSelectionPaths", "([Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, setSelectionPaths, void, $TreePathArray*)},
-	{"setSelectionRow", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTree, setSelectionRow, void, int32_t)},
-	{"setSelectionRows", "([I)V", nullptr, $PUBLIC, $virtualMethod(JTree, setSelectionRows, void, $ints*)},
-	{"setShowsRootHandles", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTree, setShowsRootHandles, void, bool), nullptr, nullptr, _JTree_MethodAnnotations_setShowsRootHandles144},
-	{"setToggleClickCount", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTree, setToggleClickCount, void, int32_t), nullptr, nullptr, _JTree_MethodAnnotations_setToggleClickCount145},
-	{"setUI", "(Ljavax/swing/plaf/TreeUI;)V", nullptr, $PUBLIC, $virtualMethod(JTree, setUI, void, $TreeUI*), nullptr, nullptr, _JTree_MethodAnnotations_setUI146},
-	{"setUIProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(JTree, setUIProperty, void, $String*, Object$*)},
-	{"setVisibleRowCount", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTree, setVisibleRowCount, void, int32_t), nullptr, nullptr, _JTree_MethodAnnotations_setVisibleRowCount148},
-	{"startDropTimer", "()V", nullptr, $PRIVATE, $method(JTree, startDropTimer, void)},
-	{"startEditingAtPath", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, startEditingAtPath, void, $TreePath*)},
-	{"stopEditing", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree, stopEditing, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"treeDidChange", "()V", nullptr, $PUBLIC, $virtualMethod(JTree, treeDidChange, void)},
-	{"unarchiveExpandedState", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(JTree, unarchiveExpandedState, void, Object$*)},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JTree, updateUI, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JTree, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JTree_InnerClassesInfo_[] = {
-	{"javax.swing.JTree$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"javax.swing.JTree$AccessibleJTree", "javax.swing.JTree", "AccessibleJTree", $PROTECTED},
-	{"javax.swing.JTree$DynamicUtilTreeNode", "javax.swing.JTree", "DynamicUtilTreeNode", $PUBLIC | $STATIC},
-	{"javax.swing.JTree$TreeModelHandler", "javax.swing.JTree", "TreeModelHandler", $PROTECTED},
-	{"javax.swing.JTree$TreeSelectionRedirector", "javax.swing.JTree", "TreeSelectionRedirector", $PROTECTED},
-	{"javax.swing.JTree$EmptySelectionModel", "javax.swing.JTree", "EmptySelectionModel", $PROTECTED | $STATIC},
-	{"javax.swing.JTree$TreeTimer", "javax.swing.JTree", "TreeTimer", $PRIVATE},
-	{"javax.swing.JTree$DropLocation", "javax.swing.JTree", "DropLocation", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _JTree_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JTree",
-	"javax.swing.JComponent",
-	"javax.swing.Scrollable,javax.accessibility.Accessible",
-	_JTree_FieldInfo_,
-	_JTree_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTree_InnerClassesInfo_,
-	_JTree_Annotations_,
-	nullptr,
-	"javax.swing.JTree$1,javax.swing.JTree$AccessibleJTree,javax.swing.JTree$AccessibleJTree$AccessibleJTreeNode,javax.swing.JTree$DynamicUtilTreeNode,javax.swing.JTree$TreeModelHandler,javax.swing.JTree$TreeSelectionRedirector,javax.swing.JTree$EmptySelectionModel,javax.swing.JTree$TreeTimer,javax.swing.JTree$DropLocation"
-};
-
-$Object* allocate$JTree($Class* clazz) {
-	return $of($alloc(JTree));
-}
 
 $String* JTree::toString() {
 	 return this->$JComponent::toString();
@@ -893,7 +221,7 @@ $String* JTree::EXPANDS_SELECTED_PATHS_PROPERTY = nullptr;
 
 $TreeModel* JTree::getDefaultTreeModel() {
 	$init(JTree);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DefaultMutableTreeNode, root, $new($DefaultMutableTreeNode, "JTree"_s));
 	$var($DefaultMutableTreeNode, parent, nullptr);
 	$assign(parent, $new($DefaultMutableTreeNode, "colors"_s));
@@ -959,7 +287,7 @@ void JTree::init$($TreeNode* root) {
 }
 
 void JTree::init$($TreeNode* root, bool asksAllowsChildren) {
-	JTree::init$(static_cast<$TreeModel*>($$new($DefaultTreeModel, root, asksAllowsChildren)));
+	JTree::init$($$new($DefaultTreeModel, root, asksAllowsChildren));
 }
 
 void JTree::init$($TreeModel* newModel) {
@@ -993,40 +321,36 @@ void JTree::setUI($TreeUI* ui) {
 	if (!$equals(this->ui, ui)) {
 		this->settingUI = true;
 		$set(this, uiTreeExpansionListener, nullptr);
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$JComponent::setUI(ui);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				this->settingUI = false;
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			$JComponent::setUI(ui);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			this->settingUI = false;
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void JTree::updateUI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->updateInProgress) {
 		this->updateInProgress = true;
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				setUI($cast($TreeUI, $($UIManager::getUI(this))));
-				$SwingUtilities::updateRendererOrEditorUI($(getCellRenderer()));
-				$SwingUtilities::updateRendererOrEditorUI($(getCellEditor()));
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				this->updateInProgress = false;
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			setUI($$cast($TreeUI, $UIManager::getUI(this)));
+			$SwingUtilities::updateRendererOrEditorUI($(getCellRenderer()));
+			$SwingUtilities::updateRendererOrEditorUI($(getCellEditor()));
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			this->updateInProgress = false;
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -1042,7 +366,7 @@ $TreeCellRenderer* JTree::getCellRenderer() {
 void JTree::setCellRenderer($TreeCellRenderer* x) {
 	$var($TreeCellRenderer, oldValue, this->cellRenderer);
 	$set(this, cellRenderer, x);
-	firePropertyChange(JTree::CELL_RENDERER_PROPERTY, $of(oldValue), $of(this->cellRenderer));
+	firePropertyChange(JTree::CELL_RENDERER_PROPERTY, oldValue, this->cellRenderer);
 	invalidate();
 }
 
@@ -1053,7 +377,7 @@ void JTree::setEditable(bool flag) {
 	if (this->accessibleContext != nullptr) {
 		$init($AccessibleContext);
 		$init($AccessibleState);
-		$nc(this->accessibleContext)->firePropertyChange($AccessibleContext::ACCESSIBLE_STATE_PROPERTY, (oldValue ? $of($AccessibleState::EDITABLE) : ($Object*)nullptr), (flag ? $of($AccessibleState::EDITABLE) : ($Object*)nullptr));
+		this->accessibleContext->firePropertyChange($AccessibleContext::ACCESSIBLE_STATE_PROPERTY, (oldValue ? $of($AccessibleState::EDITABLE) : ($Object*)nullptr), (flag ? $of($AccessibleState::EDITABLE) : ($Object*)nullptr));
 	}
 }
 
@@ -1064,7 +388,7 @@ bool JTree::isEditable() {
 void JTree::setCellEditor($TreeCellEditor* cellEditor) {
 	$var($TreeCellEditor, oldEditor, this->cellEditor);
 	$set(this, cellEditor, cellEditor);
-	firePropertyChange(JTree::CELL_EDITOR_PROPERTY, $of(oldEditor), $of(cellEditor));
+	firePropertyChange(JTree::CELL_EDITOR_PROPERTY, oldEditor, cellEditor);
 	invalidate();
 }
 
@@ -1077,15 +401,15 @@ $TreeModel* JTree::getModel() {
 }
 
 void JTree::setModel($TreeModel* newModel) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	clearSelection();
 	$var($TreeModel, oldModel, this->treeModel);
 	if (this->treeModel != nullptr && this->treeModelListener != nullptr) {
-		$nc(this->treeModel)->removeTreeModelListener(this->treeModelListener);
+		this->treeModel->removeTreeModelListener(this->treeModelListener);
 	}
 	if (this->accessibleContext != nullptr) {
 		if (this->treeModel != nullptr) {
-			$nc(this->treeModel)->removeTreeModelListener($cast($TreeModelListener, this->accessibleContext));
+			this->treeModel->removeTreeModelListener($cast($TreeModelListener, this->accessibleContext));
 		}
 		if (newModel != nullptr) {
 			newModel->addTreeModelListener($cast($TreeModelListener, this->accessibleContext));
@@ -1102,11 +426,10 @@ void JTree::setModel($TreeModel* newModel) {
 		}
 		$var($Object, treeRoot, $nc(this->treeModel)->getRoot());
 		if (treeRoot != nullptr && !$nc(this->treeModel)->isLeaf(treeRoot)) {
-			$init($Boolean);
 			$nc(this->expandedState)->put($$new($TreePath, treeRoot), $Boolean::TRUE);
 		}
 	}
-	firePropertyChange(JTree::TREE_MODEL_PROPERTY, $of(oldModel), $of(this->treeModel));
+	firePropertyChange(JTree::TREE_MODEL_PROPERTY, oldModel, this->treeModel);
 	invalidate();
 }
 
@@ -1119,7 +442,7 @@ void JTree::setRootVisible(bool rootVisible) {
 	this->rootVisible = rootVisible;
 	firePropertyChange(JTree::ROOT_VISIBLE_PROPERTY, oldValue, this->rootVisible);
 	if (this->accessibleContext != nullptr) {
-		$nc(($cast($JTree$AccessibleJTree, this->accessibleContext)))->fireVisibleDataPropertyChange();
+		$cast($JTree$AccessibleJTree, this->accessibleContext)->fireVisibleDataPropertyChange();
 	}
 }
 
@@ -1130,7 +453,7 @@ void JTree::setShowsRootHandles(bool newValue) {
 	this->showsRootHandlesSet = true;
 	firePropertyChange(JTree::SHOWS_ROOT_HANDLES_PROPERTY, oldValue, this->showsRootHandles);
 	if (this->accessibleContext != nullptr) {
-		$nc(($cast($JTree$AccessibleJTree, this->accessibleContext)))->fireVisibleDataPropertyChange();
+		$cast($JTree$AccessibleJTree, this->accessibleContext)->fireVisibleDataPropertyChange();
 	}
 	invalidate();
 }
@@ -1233,15 +556,10 @@ void JTree::checkDropMode($DropMode* dropMode) {
 		$init($JTree$1);
 		switch ($nc($JTree$1::$SwitchMap$javax$swing$DropMode)->get((dropMode)->ordinal())) {
 		case 1:
-			{}
 		case 2:
-			{}
 		case 3:
-			{}
 		case 4:
-			{
-				return;
-			}
+			return;
 		}
 	}
 	$throwNew($IllegalArgumentException, $$str({dropMode, ": Unsupported drop mode for tree"_s}));
@@ -1252,96 +570,85 @@ $DropMode* JTree::getDropMode() {
 }
 
 $TransferHandler$DropLocation* JTree::dropLocationForPoint($Point* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTree$DropLocation, location, nullptr);
-	int32_t row = getClosestRowForLocation($nc(p)->x, p->y);
+	int32_t row = getClosestRowForLocation($nc(p)->x, $nc(p)->y);
 	$var($Rectangle, bounds, getRowBounds(row));
 	$var($TreeModel, model, getModel());
-	$var($Object, root, (model == nullptr) ? ($Object*)nullptr : $nc(model)->getRoot());
+	$var($Object, root, (model == nullptr) ? ($Object*)nullptr : model->getRoot());
 	$var($TreePath, rootPath, (root == nullptr) ? ($TreePath*)nullptr : $new($TreePath, root));
 	$var($TreePath, child, nullptr);
 	$var($TreePath, parent, nullptr);
-	bool outside = row == -1 || $nc(p)->y < $nc(bounds)->y || $nc(p)->y >= $nc(bounds)->y + bounds->height;
-	$init($JTree$1);
+	bool outside = row == -1 || p->y < $nc(bounds)->y || p->y >= $nc(bounds)->y + $nc(bounds)->height;
 	{
+		$init($JTree$1);
 		bool checkOn = false;
-		$var($SwingUtilities2$Section, section, nullptr)
+		$var($SwingUtilities2$Section, section, nullptr);
 		switch ($nc($JTree$1::$SwitchMap$javax$swing$DropMode)->get($nc((this->dropMode))->ordinal())) {
 		case 1:
-			{}
 		case 2:
-			{
-				if (outside) {
-					$assign(location, $new($JTree$DropLocation, p, nullptr, -1));
+			if (outside) {
+				$assign(location, $new($JTree$DropLocation, p, nullptr, -1));
+			} else {
+				$assign(location, $new($JTree$DropLocation, p, $(getPathForRow(row)), -1));
+			}
+			break;
+		case 3:
+		case 4:
+			if (row == -1) {
+				bool var$0 = root != nullptr && !$nc(model)->isLeaf(root);
+				if (var$0 && isExpanded(rootPath)) {
+					$assign(location, $new($JTree$DropLocation, p, rootPath, 0));
 				} else {
-					$assign(location, $new($JTree$DropLocation, p, $(getPathForRow(row)), -1));
+					$assign(location, $new($JTree$DropLocation, p, nullptr, -1));
 				}
 				break;
 			}
-		case 3:
-			{}
-		case 4:
-			{
-				if (row == -1) {
-					bool var$0 = root != nullptr && !model->isLeaf(root);
-					if (var$0 && isExpanded(rootPath)) {
-						$assign(location, $new($JTree$DropLocation, p, rootPath, 0));
-					} else {
+			checkOn = this->dropMode == $DropMode::ON_OR_INSERT || !$nc(model)->isLeaf($($$nc(getPathForRow(row))->getLastPathComponent()));
+			$assign(section, $SwingUtilities2::liesInVertical(bounds, p, checkOn));
+			$init($SwingUtilities2$Section);
+			if (section == $SwingUtilities2$Section::LEADING) {
+				$assign(child, getPathForRow(row));
+				$assign(parent, $nc(child)->getParentPath());
+			} else if (section == $SwingUtilities2$Section::TRAILING) {
+				int32_t index = row + 1;
+				if (index >= getRowCount()) {
+					bool var$1 = $nc(model)->isLeaf(root);
+					if (var$1 || !isExpanded(rootPath)) {
 						$assign(location, $new($JTree$DropLocation, p, nullptr, -1));
+					} else {
+						$assign(parent, rootPath);
+						index = model->getChildCount(root);
+						$assign(location, $new($JTree$DropLocation, p, parent, index));
 					}
 					break;
 				}
-				$init($DropMode);
-				checkOn = this->dropMode == $DropMode::ON_OR_INSERT || !model->isLeaf($($nc($(getPathForRow(row)))->getLastPathComponent()));
-				$assign(section, $SwingUtilities2::liesInVertical(bounds, p, checkOn));
-				$init($SwingUtilities2$Section);
-				if (section == $SwingUtilities2$Section::LEADING) {
-					$assign(child, getPathForRow(row));
-					$assign(parent, $nc(child)->getParentPath());
-				} else {
-					if (section == $SwingUtilities2$Section::TRAILING) {
-						int32_t index = row + 1;
-						if (index >= getRowCount()) {
-							bool var$1 = model->isLeaf(root);
-							if (var$1 || !isExpanded(rootPath)) {
-								$assign(location, $new($JTree$DropLocation, p, nullptr, -1));
-							} else {
-								$assign(parent, rootPath);
-								index = model->getChildCount(root);
-								$assign(location, $new($JTree$DropLocation, p, parent, index));
-							}
-							break;
-						}
-						$assign(child, getPathForRow(index));
-						$assign(parent, $nc(child)->getParentPath());
-						$var($TreePath, prev, $nc($(getPathForRow(row)))->getParentPath());
-						if (prev != nullptr && !prev->equals(parent)) {
-							$assign(location, $new($JTree$DropLocation, p, prev, model->getChildCount($(prev->getLastPathComponent()))));
-							break;
-						}
-					} else {
-						if (!JTree::$assertionsDisabled && !checkOn) {
-							$throwNew($AssertionError);
-						}
-						$assign(location, $new($JTree$DropLocation, p, $(getPathForRow(row)), -1));
-						break;
-					}
+				$assign(child, getPathForRow(index));
+				$assign(parent, $nc(child)->getParentPath());
+				$var($TreePath, prev, $$nc(getPathForRow(row))->getParentPath());
+				if (prev != nullptr && !prev->equals(parent)) {
+					$assign(location, $new($JTree$DropLocation, p, prev, $nc(model)->getChildCount($(prev->getLastPathComponent()))));
+					break;
 				}
-				if (parent != nullptr) {
-					$var($Object, var$2, parent->getLastPathComponent());
-					$assign(location, $new($JTree$DropLocation, p, parent, model->getIndexOfChild(var$2, $($nc(child)->getLastPathComponent()))));
-				} else if (checkOn || !model->isLeaf(root)) {
-					$assign(location, $new($JTree$DropLocation, p, rootPath, -1));
-				} else {
-					$assign(location, $new($JTree$DropLocation, p, nullptr, -1));
+			} else {
+				if (!JTree::$assertionsDisabled && !checkOn) {
+					$throwNew($AssertionError);
 				}
+				$assign(location, $new($JTree$DropLocation, p, $(getPathForRow(row)), -1));
 				break;
 			}
+			if (parent != nullptr) {
+				$var($Object, var$2, parent->getLastPathComponent());
+				$assign(location, $new($JTree$DropLocation, p, parent, $nc(model)->getIndexOfChild(var$2, $($nc(child)->getLastPathComponent()))));
+			} else if (checkOn || !$nc(model)->isLeaf(root)) {
+				$assign(location, $new($JTree$DropLocation, p, rootPath, -1));
+			} else {
+				$assign(location, $new($JTree$DropLocation, p, nullptr, -1));
+			}
+			break;
 		default:
-			{
-				if (!JTree::$assertionsDisabled) {
-					$throwNew($AssertionError, $of("Unexpected drop mode"_s));
-				}
+			if (!JTree::$assertionsDisabled) {
+				$throwNew($AssertionError, $of("Unexpected drop mode"_s));
 			}
 		}
 	}
@@ -1358,16 +665,16 @@ $TransferHandler$DropLocation* JTree::dropLocationForPoint($Point* p) {
 }
 
 $Object* JTree::setDropLocation($TransferHandler$DropLocation* location, Object$* state, bool forDrop) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, retVal, nullptr);
 	$var($JTree$DropLocation, treeLocation, $cast($JTree$DropLocation, location));
 	$init($DropMode);
 	if (this->dropMode == $DropMode::USE_SELECTION) {
 		if (treeLocation == nullptr) {
 			if (!forDrop && state != nullptr) {
-				setSelectionPaths($nc(($cast($TreePathArray2, state)))->get(0));
-				setAnchorSelectionPath($nc($nc(($cast($TreePathArray2, state)))->get(1))->get(0));
-				setLeadSelectionPath($nc($nc(($cast($TreePathArray2, state)))->get(1))->get(1));
+				setSelectionPaths($cast($TreePathArray2, state)->get(0));
+				setAnchorSelectionPath($nc($cast($TreePathArray2, state)->get(1))->get(0));
+				setLeadSelectionPath($nc($cast($TreePathArray2, state)->get(1))->get(1));
 			}
 		} else {
 			if (this->dropLocation == nullptr) {
@@ -1385,13 +692,13 @@ $Object* JTree::setDropLocation($TransferHandler$DropLocation* location, Object$
 			} else {
 				$assign(retVal, state);
 			}
-			setSelectionPath($($nc(treeLocation)->getPath()));
+			setSelectionPath($(treeLocation->getPath()));
 		}
 	}
 	$var($JTree$DropLocation, old, this->dropLocation);
 	$set(this, dropLocation, treeLocation);
-	firePropertyChange("dropLocation"_s, $of(old), $of(this->dropLocation));
-	return $of(retVal);
+	firePropertyChange("dropLocation"_s, old, this->dropLocation);
+	return retVal;
 }
 
 void JTree::dndDone() {
@@ -1411,9 +718,9 @@ void JTree::startDropTimer() {
 }
 
 void JTree::cancelDropTimer() {
-	if (this->dropTimer != nullptr && $nc(this->dropTimer)->isRunning()) {
+	if (this->dropTimer != nullptr && this->dropTimer->isRunning()) {
 		this->expandRow$ = -1;
-		$nc(this->dropTimer)->stop();
+		this->dropTimer->stop();
 	}
 }
 
@@ -1422,37 +729,34 @@ bool JTree::isPathEditable($TreePath* path) {
 }
 
 $String* JTree::getToolTipText($MouseEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, tip, nullptr);
 	if (event != nullptr) {
 		$var($Point, p, event->getPoint());
-		int32_t selRow = getRowForLocation($nc(p)->x, p->y);
+		int32_t selRow = getRowForLocation($nc(p)->x, $nc(p)->y);
 		$var($TreeCellRenderer, r, getCellRenderer());
 		if (selRow != -1 && r != nullptr) {
 			$var($TreePath, path, getPathForRow(selRow));
 			$var($Object, lastPath, $nc(path)->getLastPathComponent());
-			$var($Object, var$0, lastPath);
-			bool var$1 = isRowSelected(selRow);
-			bool var$2 = isExpanded(selRow);
-			$var($Component, rComponent, r->getTreeCellRendererComponent(this, var$0, var$1, var$2, $nc($(getModel()))->isLeaf(lastPath), selRow, true));
+			bool var$0 = isRowSelected(selRow);
+			bool var$1 = isExpanded(selRow);
+			$var($Component, rComponent, r->getTreeCellRendererComponent(this, lastPath, var$0, var$1, $$nc(getModel())->isLeaf(lastPath), selRow, true));
 			if ($instanceOf($JComponent, rComponent)) {
 				$var($MouseEvent, newEvent, nullptr);
 				$var($Rectangle, pathBounds, getPathBounds(path));
-				$nc(p)->translate(-$nc(pathBounds)->x, -pathBounds->y);
+				p->translate(-$nc(pathBounds)->x, -$nc(pathBounds)->y);
 				int32_t modifiers = event->getModifiers();
-				$var($Component, var$3, rComponent);
-				int32_t var$4 = event->getID();
-				int64_t var$5 = event->getWhen();
-				int32_t var$6 = modifiers;
-				int32_t var$7 = p->x;
-				int32_t var$8 = p->y;
-				int32_t var$9 = event->getXOnScreen();
-				int32_t var$10 = event->getYOnScreen();
-				int32_t var$11 = event->getClickCount();
-				$assign(newEvent, $new($MouseEvent, var$3, var$4, var$5, var$6, var$7, var$8, var$9, var$10, var$11, event->isPopupTrigger(), $MouseEvent::NOBUTTON));
+				int32_t var$2 = event->getID();
+				int64_t var$3 = event->getWhen();
+				int32_t var$4 = p->x;
+				int32_t var$5 = p->y;
+				int32_t var$6 = event->getXOnScreen();
+				int32_t var$7 = event->getYOnScreen();
+				int32_t var$8 = event->getClickCount();
+				$assign(newEvent, $new($MouseEvent, rComponent, var$2, var$3, modifiers, var$4, var$5, var$6, var$7, var$8, event->isPopupTrigger(), $MouseEvent::NOBUTTON));
 				$var($AWTAccessor$MouseEventAccessor, meAccessor, $AWTAccessor::getMouseEventAccessor());
-				$nc(meAccessor)->setCausedByTouchEvent(newEvent, meAccessor->isCausedByTouchEvent(event));
-				$assign(tip, $nc(($cast($JComponent, rComponent)))->getToolTipText(newEvent));
+				$nc(meAccessor)->setCausedByTouchEvent(newEvent, $nc(meAccessor)->isCausedByTouchEvent(event));
+				$assign(tip, $cast($JComponent, rComponent)->getToolTipText(newEvent));
 			}
 		}
 	}
@@ -1481,26 +785,26 @@ int32_t JTree::getRowCount() {
 }
 
 void JTree::setSelectionPath($TreePath* path) {
-	$nc($(getSelectionModel()))->setSelectionPath(path);
+	$$nc(getSelectionModel())->setSelectionPath(path);
 }
 
 void JTree::setSelectionPaths($TreePathArray* paths) {
-	$nc($(getSelectionModel()))->setSelectionPaths(paths);
+	$$nc(getSelectionModel())->setSelectionPaths(paths);
 }
 
 void JTree::setLeadSelectionPath($TreePath* newPath) {
 	$var($TreePath, oldValue, this->leadPath);
 	$set(this, leadPath, newPath);
-	firePropertyChange(JTree::LEAD_SELECTION_PATH_PROPERTY, $of(oldValue), $of(newPath));
+	firePropertyChange(JTree::LEAD_SELECTION_PATH_PROPERTY, oldValue, newPath);
 	if (this->accessibleContext != nullptr) {
-		$nc(($cast($JTree$AccessibleJTree, this->accessibleContext)))->fireActiveDescendantPropertyChange(oldValue, newPath);
+		$cast($JTree$AccessibleJTree, this->accessibleContext)->fireActiveDescendantPropertyChange(oldValue, newPath);
 	}
 }
 
 void JTree::setAnchorSelectionPath($TreePath* newPath) {
 	$var($TreePath, oldValue, this->anchorPath);
 	$set(this, anchorPath, newPath);
-	firePropertyChange(JTree::ANCHOR_SELECTION_PATH_PROPERTY, $of(oldValue), $of(newPath));
+	firePropertyChange(JTree::ANCHOR_SELECTION_PATH_PROPERTY, oldValue, newPath);
 }
 
 void JTree::setSelectionRow(int32_t row) {
@@ -1509,7 +813,7 @@ void JTree::setSelectionRow(int32_t row) {
 }
 
 void JTree::setSelectionRows($ints* rows) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreeUI, ui, $cast($TreeUI, getUI()));
 	if (ui != nullptr && rows != nullptr) {
 		int32_t numRows = rows->length;
@@ -1522,11 +826,11 @@ void JTree::setSelectionRows($ints* rows) {
 }
 
 void JTree::addSelectionPath($TreePath* path) {
-	$nc($(getSelectionModel()))->addSelectionPath(path);
+	$$nc(getSelectionModel())->addSelectionPath(path);
 }
 
 void JTree::addSelectionPaths($TreePathArray* paths) {
-	$nc($(getSelectionModel()))->addSelectionPaths(paths);
+	$$nc(getSelectionModel())->addSelectionPaths(paths);
 }
 
 void JTree::addSelectionRow(int32_t row) {
@@ -1535,7 +839,7 @@ void JTree::addSelectionRow(int32_t row) {
 }
 
 void JTree::addSelectionRows($ints* rows) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreeUI, ui, $cast($TreeUI, getUI()));
 	if (ui != nullptr && rows != nullptr) {
 		int32_t numRows = rows->length;
@@ -1548,12 +852,12 @@ void JTree::addSelectionRows($ints* rows) {
 }
 
 $Object* JTree::getLastSelectedPathComponent() {
-	$useLocalCurrentObjectStackCache();
-	$var($TreePath, selPath, $nc($(getSelectionModel()))->getSelectionPath());
+	$useLocalObjectStack();
+	$var($TreePath, selPath, $$nc(getSelectionModel())->getSelectionPath());
 	if (selPath != nullptr) {
-		return $of(selPath->getLastPathComponent());
+		return selPath->getLastPathComponent();
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $TreePath* JTree::getLeadSelectionPath() {
@@ -1565,17 +869,17 @@ $TreePath* JTree::getAnchorSelectionPath() {
 }
 
 $TreePath* JTree::getSelectionPath() {
-	return $nc($(getSelectionModel()))->getSelectionPath();
+	return $$nc(getSelectionModel())->getSelectionPath();
 }
 
 $TreePathArray* JTree::getSelectionPaths() {
-	$useLocalCurrentObjectStackCache();
-	$var($TreePathArray, selectionPaths, $nc($(getSelectionModel()))->getSelectionPaths());
+	$useLocalObjectStack();
+	$var($TreePathArray, selectionPaths, $$nc(getSelectionModel())->getSelectionPaths());
 	return (selectionPaths != nullptr && selectionPaths->length > 0) ? selectionPaths : ($TreePathArray*)nullptr;
 }
 
 $ints* JTree::getSelectionRows() {
-	return $nc($(getSelectionModel()))->getSelectionRows();
+	return $$nc(getSelectionModel())->getSelectionRows();
 }
 
 int32_t JTree::getSelectionCount() {
@@ -1583,11 +887,11 @@ int32_t JTree::getSelectionCount() {
 }
 
 int32_t JTree::getMinSelectionRow() {
-	return $nc($(getSelectionModel()))->getMinSelectionRow();
+	return $$nc(getSelectionModel())->getMinSelectionRow();
 }
 
 int32_t JTree::getMaxSelectionRow() {
-	return $nc($(getSelectionModel()))->getMaxSelectionRow();
+	return $$nc(getSelectionModel())->getMaxSelectionRow();
 }
 
 int32_t JTree::getLeadSelectionRow() {
@@ -1599,15 +903,15 @@ int32_t JTree::getLeadSelectionRow() {
 }
 
 bool JTree::isPathSelected($TreePath* path) {
-	return $nc($(getSelectionModel()))->isPathSelected(path);
+	return $$nc(getSelectionModel())->isPathSelected(path);
 }
 
 bool JTree::isRowSelected(int32_t row) {
-	return $nc($(getSelectionModel()))->isRowSelected(row);
+	return $$nc(getSelectionModel())->isRowSelected(row);
 }
 
 $Enumeration* JTree::getExpandedDescendants($TreePath* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isExpanded(parent)) {
 		return nullptr;
 	}
@@ -1619,7 +923,7 @@ $Enumeration* JTree::getExpandedDescendants($TreePath* parent) {
 		while (toggledPaths->hasMoreElements()) {
 			$assign(path, $cast($TreePath, toggledPaths->nextElement()));
 			$assign(value, $nc(this->expandedState)->get(path));
-			bool var$1 = path != parent && value != nullptr && $nc(($cast($Boolean, value)))->booleanValue();
+			bool var$1 = path != parent && value != nullptr && $cast($Boolean, value)->booleanValue();
 			bool var$0 = var$1 && $nc(parent)->isDescendant(path);
 			if (var$0 && isVisible(path)) {
 				if (elements == nullptr) {
@@ -1641,7 +945,7 @@ bool JTree::hasBeenExpanded($TreePath* path) {
 }
 
 bool JTree::isExpanded($TreePath* path$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreePath, path, path$renamed);
 	if (path == nullptr) {
 		return false;
@@ -1649,7 +953,7 @@ bool JTree::isExpanded($TreePath* path$renamed) {
 	$var($Object, value, nullptr);
 	do {
 		$assign(value, $nc(this->expandedState)->get(path));
-		if (value == nullptr || !$nc(($cast($Boolean, value)))->booleanValue()) {
+		if (value == nullptr || !$cast($Boolean, value)->booleanValue()) {
 			return false;
 		}
 	} while (($assign(path, $nc(path)->getParentPath())) != nullptr);
@@ -1657,7 +961,7 @@ bool JTree::isExpanded($TreePath* path$renamed) {
 }
 
 bool JTree::isExpanded(int32_t row) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreeUI, tree, $cast($TreeUI, getUI()));
 	if (tree != nullptr) {
 		$var($TreePath, path, tree->getPathForRow(this, row));
@@ -1716,7 +1020,7 @@ void JTree::scrollPathToVisible($TreePath* path) {
 		if (bounds != nullptr) {
 			scrollRectToVisible(bounds);
 			if (this->accessibleContext != nullptr) {
-				$nc(($cast($JTree$AccessibleJTree, this->accessibleContext)))->fireVisibleDataPropertyChange();
+				$cast($JTree$AccessibleJTree, this->accessibleContext)->fireVisibleDataPropertyChange();
 			}
 		}
 	}
@@ -1743,7 +1047,7 @@ int32_t JTree::getRowForPath($TreePath* path) {
 }
 
 void JTree::expandPath($TreePath* path) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreeModel, model, getModel());
 	if (path != nullptr && model != nullptr && !model->isLeaf($(path->getLastPathComponent()))) {
 		setExpandedState(path, true);
@@ -1763,7 +1067,7 @@ void JTree::collapseRow(int32_t row) {
 }
 
 $TreePath* JTree::getPathForLocation(int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreePath, closestPath, getClosestPathForLocation(x, y));
 	if (closestPath != nullptr) {
 		$var($Rectangle, pathBounds, getPathBounds(closestPath));
@@ -1829,14 +1133,14 @@ $TreePath* JTree::getEditingPath() {
 }
 
 void JTree::setSelectionModel($TreeSelectionModel* selectionModel$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreeSelectionModel, selectionModel, selectionModel$renamed);
 	if (selectionModel == nullptr) {
 		$assign(selectionModel, $JTree$EmptySelectionModel::sharedInstance());
 	}
 	$var($TreeSelectionModel, oldValue, this->selectionModel);
 	if (this->selectionModel != nullptr && this->selectionRedirector != nullptr) {
-		$nc(this->selectionModel)->removeTreeSelectionListener(this->selectionRedirector);
+		this->selectionModel->removeTreeSelectionListener(this->selectionRedirector);
 	}
 	if (this->accessibleContext != nullptr) {
 		$nc(this->selectionModel)->removeTreeSelectionListener($cast($TreeSelectionListener, this->accessibleContext));
@@ -1846,12 +1150,12 @@ void JTree::setSelectionModel($TreeSelectionModel* selectionModel$renamed) {
 	if (this->selectionRedirector != nullptr) {
 		$nc(this->selectionModel)->addTreeSelectionListener(this->selectionRedirector);
 	}
-	firePropertyChange(JTree::SELECTION_MODEL_PROPERTY, $of(oldValue), $of(this->selectionModel));
+	firePropertyChange(JTree::SELECTION_MODEL_PROPERTY, oldValue, this->selectionModel);
 	if (this->accessibleContext != nullptr) {
 		$init($AccessibleContext);
 		$var($String, var$0, $AccessibleContext::ACCESSIBLE_SELECTION_PROPERTY);
-		$var($Object, var$1, $of($Boolean::valueOf(false)));
-		$nc(this->accessibleContext)->firePropertyChange(var$0, var$1, $($Boolean::valueOf(true)));
+		$var($Object, var$1, $Boolean::valueOf(false));
+		this->accessibleContext->firePropertyChange(var$0, var$1, $($Boolean::valueOf(true)));
 	}
 }
 
@@ -1860,7 +1164,7 @@ $TreeSelectionModel* JTree::getSelectionModel() {
 }
 
 $TreePathArray* JTree::getPathBetweenRows(int32_t index0, int32_t index1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreeUI, tree, $cast($TreeUI, getUI()));
 	if (tree != nullptr) {
 		int32_t rowCount = getRowCount();
@@ -1880,33 +1184,33 @@ $TreePathArray* JTree::getPathBetweenRows(int32_t index0, int32_t index1) {
 }
 
 void JTree::setSelectionInterval(int32_t index0, int32_t index1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreePathArray, paths, getPathBetweenRows(index0, index1));
-	$nc($(this->getSelectionModel()))->setSelectionPaths(paths);
+	$$nc(this->getSelectionModel())->setSelectionPaths(paths);
 }
 
 void JTree::addSelectionInterval(int32_t index0, int32_t index1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreePathArray, paths, getPathBetweenRows(index0, index1));
 	if (paths != nullptr && paths->length > 0) {
-		$nc($(this->getSelectionModel()))->addSelectionPaths(paths);
+		$$nc(this->getSelectionModel())->addSelectionPaths(paths);
 	}
 }
 
 void JTree::removeSelectionInterval(int32_t index0, int32_t index1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreePathArray, paths, getPathBetweenRows(index0, index1));
 	if (paths != nullptr && paths->length > 0) {
-		$nc($(this->getSelectionModel()))->removeSelectionPaths(paths);
+		$$nc(this->getSelectionModel())->removeSelectionPaths(paths);
 	}
 }
 
 void JTree::removeSelectionPath($TreePath* path) {
-	$nc($(this->getSelectionModel()))->removeSelectionPath(path);
+	$$nc(this->getSelectionModel())->removeSelectionPath(path);
 }
 
 void JTree::removeSelectionPaths($TreePathArray* paths) {
-	$nc($(this->getSelectionModel()))->removeSelectionPaths(paths);
+	$$nc(this->getSelectionModel())->removeSelectionPaths(paths);
 }
 
 void JTree::removeSelectionRow(int32_t row) {
@@ -1915,7 +1219,7 @@ void JTree::removeSelectionRow(int32_t row) {
 }
 
 void JTree::removeSelectionRows($ints* rows) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreeUI, ui, $cast($TreeUI, getUI()));
 	if (ui != nullptr && rows != nullptr) {
 		int32_t numRows = rows->length;
@@ -1928,11 +1232,11 @@ void JTree::removeSelectionRows($ints* rows) {
 }
 
 void JTree::clearSelection() {
-	$nc($(getSelectionModel()))->clearSelection();
+	$$nc(getSelectionModel())->clearSelection();
 }
 
 bool JTree::isSelectionEmpty() {
-	return $nc($(getSelectionModel()))->isSelectionEmpty();
+	return $$nc(getSelectionModel())->isSelectionEmpty();
 }
 
 void JTree::addTreeExpansionListener($TreeExpansionListener* tel) {
@@ -1953,7 +1257,7 @@ void JTree::removeTreeExpansionListener($TreeExpansionListener* tel) {
 
 $TreeExpansionListenerArray* JTree::getTreeExpansionListeners() {
 	$load($TreeExpansionListener);
-	return $fcast($TreeExpansionListenerArray, $nc(this->listenerList)->getListeners($TreeExpansionListener::class$));
+	return $cast($TreeExpansionListenerArray, $nc(this->listenerList)->getListeners($TreeExpansionListener::class$));
 }
 
 void JTree::addTreeWillExpandListener($TreeWillExpandListener* tel) {
@@ -1968,16 +1272,16 @@ void JTree::removeTreeWillExpandListener($TreeWillExpandListener* tel) {
 
 $TreeWillExpandListenerArray* JTree::getTreeWillExpandListeners() {
 	$load($TreeWillExpandListener);
-	return $fcast($TreeWillExpandListenerArray, $nc(this->listenerList)->getListeners($TreeWillExpandListener::class$));
+	return $cast($TreeWillExpandListenerArray, $nc(this->listenerList)->getListeners($TreeWillExpandListener::class$));
 }
 
 void JTree::fireTreeExpanded($TreePath* path) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, listeners, $nc(this->listenerList)->getListenerList());
 	$var($TreeExpansionEvent, e, nullptr);
 	if (this->uiTreeExpansionListener != nullptr) {
 		$assign(e, $new($TreeExpansionEvent, this, path));
-		$nc(this->uiTreeExpansionListener)->treeExpanded(e);
+		this->uiTreeExpansionListener->treeExpanded(e);
 	}
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
 		$load($TreeExpansionListener);
@@ -1985,18 +1289,18 @@ void JTree::fireTreeExpanded($TreePath* path) {
 			if (e == nullptr) {
 				$assign(e, $new($TreeExpansionEvent, this, path));
 			}
-			$nc(($cast($TreeExpansionListener, listeners->get(i + 1))))->treeExpanded(e);
+			$nc($cast($TreeExpansionListener, listeners->get(i + 1)))->treeExpanded(e);
 		}
 	}
 }
 
 void JTree::fireTreeCollapsed($TreePath* path) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, listeners, $nc(this->listenerList)->getListenerList());
 	$var($TreeExpansionEvent, e, nullptr);
 	if (this->uiTreeExpansionListener != nullptr) {
 		$assign(e, $new($TreeExpansionEvent, this, path));
-		$nc(this->uiTreeExpansionListener)->treeCollapsed(e);
+		this->uiTreeExpansionListener->treeCollapsed(e);
 	}
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
 		$load($TreeExpansionListener);
@@ -2004,13 +1308,13 @@ void JTree::fireTreeCollapsed($TreePath* path) {
 			if (e == nullptr) {
 				$assign(e, $new($TreeExpansionEvent, this, path));
 			}
-			$nc(($cast($TreeExpansionListener, listeners->get(i + 1))))->treeCollapsed(e);
+			$nc($cast($TreeExpansionListener, listeners->get(i + 1)))->treeCollapsed(e);
 		}
 	}
 }
 
 void JTree::fireTreeWillExpand($TreePath* path) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, listeners, $nc(this->listenerList)->getListenerList());
 	$var($TreeExpansionEvent, e, nullptr);
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
@@ -2019,13 +1323,13 @@ void JTree::fireTreeWillExpand($TreePath* path) {
 			if (e == nullptr) {
 				$assign(e, $new($TreeExpansionEvent, this, path));
 			}
-			$nc(($cast($TreeWillExpandListener, listeners->get(i + 1))))->treeWillExpand(e);
+			$nc($cast($TreeWillExpandListener, listeners->get(i + 1)))->treeWillExpand(e);
 		}
 	}
 }
 
 void JTree::fireTreeWillCollapse($TreePath* path) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, listeners, $nc(this->listenerList)->getListenerList());
 	$var($TreeExpansionEvent, e, nullptr);
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
@@ -2034,7 +1338,7 @@ void JTree::fireTreeWillCollapse($TreePath* path) {
 			if (e == nullptr) {
 				$assign(e, $new($TreeExpansionEvent, this, path));
 			}
-			$nc(($cast($TreeWillExpandListener, listeners->get(i + 1))))->treeWillCollapse(e);
+			$nc($cast($TreeWillExpandListener, listeners->get(i + 1)))->treeWillCollapse(e);
 		}
 	}
 }
@@ -2059,7 +1363,7 @@ void JTree::removeTreeSelectionListener($TreeSelectionListener* tsl) {
 
 $TreeSelectionListenerArray* JTree::getTreeSelectionListeners() {
 	$load($TreeSelectionListener);
-	return $fcast($TreeSelectionListenerArray, $nc(this->listenerList)->getListeners($TreeSelectionListener::class$));
+	return $cast($TreeSelectionListenerArray, $nc(this->listenerList)->getListeners($TreeSelectionListener::class$));
 }
 
 void JTree::fireValueChanged($TreeSelectionEvent* e) {
@@ -2067,7 +1371,7 @@ void JTree::fireValueChanged($TreeSelectionEvent* e) {
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
 		$load($TreeSelectionListener);
 		if ($equals(listeners->get(i), $TreeSelectionListener::class$)) {
-			$nc(($cast($TreeSelectionListener, listeners->get(i + 1))))->valueChanged(e);
+			$nc($cast($TreeSelectionListener, listeners->get(i + 1)))->valueChanged(e);
 		}
 	}
 }
@@ -2083,7 +1387,7 @@ void JTree::setVisibleRowCount(int32_t newCount) {
 	firePropertyChange(JTree::VISIBLE_ROW_COUNT_PROPERTY, oldCount, this->visibleRowCount);
 	invalidate();
 	if (this->accessibleContext != nullptr) {
-		$nc(($cast($JTree$AccessibleJTree, this->accessibleContext)))->fireVisibleDataPropertyChange();
+		$cast($JTree$AccessibleJTree, this->accessibleContext)->fireVisibleDataPropertyChange();
 	}
 }
 
@@ -2092,7 +1396,7 @@ int32_t JTree::getVisibleRowCount() {
 }
 
 void JTree::expandRoot() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreeModel, model, getModel());
 	if (model != nullptr && model->getRoot() != nullptr) {
 		expandPath($$new($TreePath, $(model->getRoot())));
@@ -2100,7 +1404,7 @@ void JTree::expandRoot() {
 }
 
 $TreePath* JTree::getNextMatch($String* prefix$renamed, int32_t startingRow, $Position$Bias* bias) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prefix, prefix$renamed);
 	int32_t max = getRowCount();
 	if (prefix == nullptr) {
@@ -2127,7 +1431,7 @@ $TreePath* JTree::getNextMatch($String* prefix$renamed, int32_t startingRow, $Po
 }
 
 void JTree::writeObject($ObjectOutputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, values, $new($Vector));
 	$nc(s)->defaultWriteObject();
 	if (this->cellRenderer != nullptr && $instanceOf($Serializable, this->cellRenderer)) {
@@ -2152,17 +1456,17 @@ void JTree::writeObject($ObjectOutputStream* s) {
 		values->addElement(expandedData);
 	}
 	s->writeObject(values);
-	if ($nc($(getUIClassID()))->equals(JTree::uiClassID)) {
+	if ($$nc(getUIClassID())->equals(JTree::uiClassID)) {
 		int8_t count = $JComponent::getWriteObjCounter(this);
 		$JComponent::setWriteObjCounter(this, --count);
 		if (count == 0 && this->ui != nullptr) {
-			$nc(this->ui)->installUI(this);
+			this->ui->installUI(this);
 		}
 	}
 }
 
 void JTree::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, f, $nc(s)->readFields());
 	this->rootVisible = $nc(f)->get("rootVisible"_s, false);
 	this->rowHeight = f->get("rowHeight"_s, 0);
@@ -2176,41 +1480,41 @@ void JTree::readObject($ObjectInputStream* s) {
 	this->scrollsOnExpand = f->get("scrollsOnExpand"_s, false);
 	this->scrollsOnExpandSet = f->get("scrollsOnExpandSet"_s, false);
 	this->toggleClickCount = f->get("toggleClickCount"_s, 0);
-	$set(this, leadPath, $cast($TreePath, f->get("leadPath"_s, ($Object*)nullptr)));
-	$set(this, anchorPath, $cast($TreePath, f->get("anchorPath"_s, ($Object*)nullptr)));
+	$set(this, leadPath, $cast($TreePath, f->get("leadPath"_s, nullptr)));
+	$set(this, anchorPath, $cast($TreePath, f->get("anchorPath"_s, nullptr)));
 	this->expandsSelectedPaths = f->get("expandsSelectedPaths"_s, false);
 	this->settingUI = f->get("settingUI"_s, false);
 	bool newDragEnabled = f->get("dragEnabled"_s, false);
 	checkDragEnabled(newDragEnabled);
 	this->dragEnabled = newDragEnabled;
 	$init($DropMode);
-	$DropMode* newDropMode = $cast($DropMode, f->get("dropMode"_s, $of($DropMode::USE_SELECTION)));
+	$DropMode* newDropMode = $cast($DropMode, f->get("dropMode"_s, $DropMode::USE_SELECTION));
 	checkDropMode(newDropMode);
 	$set(this, dropMode, newDropMode);
 	this->expandRow$ = f->get("expandRow"_s, -1);
-	$set(this, dropTimer, $cast($JTree$TreeTimer, f->get("dropTimer"_s, ($Object*)nullptr)));
+	$set(this, dropTimer, $cast($JTree$TreeTimer, f->get("dropTimer"_s, nullptr)));
 	$set(this, expandedState, $new($Hashtable));
 	$set(this, expandedStack, $new($Stack));
 	$var($Vector, values, $cast($Vector, s->readObject()));
 	int32_t indexCounter = 0;
 	int32_t maxCounter = $nc(values)->size();
-	if (indexCounter < maxCounter && $nc($of($(values->elementAt(indexCounter))))->equals("cellRenderer"_s)) {
+	if (indexCounter < maxCounter && $$nc(values->elementAt(indexCounter))->equals("cellRenderer"_s)) {
 		$set(this, cellRenderer, $cast($TreeCellRenderer, values->elementAt(++indexCounter)));
 		++indexCounter;
 	}
-	if (indexCounter < maxCounter && $nc($of($(values->elementAt(indexCounter))))->equals("cellEditor"_s)) {
+	if (indexCounter < maxCounter && $$nc(values->elementAt(indexCounter))->equals("cellEditor"_s)) {
 		$set(this, cellEditor, $cast($TreeCellEditor, values->elementAt(++indexCounter)));
 		++indexCounter;
 	}
-	if (indexCounter < maxCounter && $nc($of($(values->elementAt(indexCounter))))->equals("treeModel"_s)) {
+	if (indexCounter < maxCounter && $$nc(values->elementAt(indexCounter))->equals("treeModel"_s)) {
 		$set(this, treeModel, $cast($TreeModel, values->elementAt(++indexCounter)));
 		++indexCounter;
 	}
-	if (indexCounter < maxCounter && $nc($of($(values->elementAt(indexCounter))))->equals("selectionModel"_s)) {
+	if (indexCounter < maxCounter && $$nc(values->elementAt(indexCounter))->equals("selectionModel"_s)) {
 		$set(this, selectionModel, $cast($TreeSelectionModel, values->elementAt(++indexCounter)));
 		++indexCounter;
 	}
-	if (indexCounter < maxCounter && $nc($of($(values->elementAt(indexCounter))))->equals("expandedState"_s)) {
+	if (indexCounter < maxCounter && $$nc(values->elementAt(indexCounter))->equals("expandedState"_s)) {
 		unarchiveExpandedState($(values->elementAt(++indexCounter)));
 		++indexCounter;
 	}
@@ -2228,7 +1532,7 @@ void JTree::readObject($ObjectInputStream* s) {
 }
 
 $Object* JTree::getArchivableExpandedState() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreeModel, model, getModel());
 	if (model != nullptr) {
 		$var($Enumeration, paths, $nc(this->expandedState)->keys());
@@ -2250,18 +1554,18 @@ $Object* JTree::getArchivableExpandedState() {
 			return $of(state);
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 void JTree::unarchiveExpandedState(Object$* state) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Vector, state)) {
 		$var($Vector, paths, $cast($Vector, state));
-		for (int32_t counter = $nc(paths)->size() - 1; counter >= 0; --counter) {
+		for (int32_t counter = paths->size() - 1; counter >= 0; --counter) {
 			$var($Boolean, eState, $cast($Boolean, paths->elementAt(counter--)));
 			$var($TreePath, path, nullptr);
 			try {
-				$assign(path, getPathForIndexs($cast($ints, $(paths->elementAt(counter)))));
+				$assign(path, getPathForIndexs($$cast($ints, paths->elementAt(counter))));
 				if (path != nullptr) {
 					$nc(this->expandedState)->put(path, eState);
 				}
@@ -2272,7 +1576,7 @@ void JTree::unarchiveExpandedState(Object$* state) {
 }
 
 $ints* JTree::getModelIndexsForPath($TreePath* path) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (path != nullptr) {
 		$var($TreeModel, model, getModel());
 		int32_t count = path->getPathCount();
@@ -2291,7 +1595,7 @@ $ints* JTree::getModelIndexsForPath($TreePath* path) {
 }
 
 $TreePath* JTree::getPathForIndexs($ints* indexs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (indexs == nullptr) {
 		return nullptr;
 	}
@@ -2316,7 +1620,7 @@ $TreePath* JTree::getPathForIndexs($ints* indexs) {
 }
 
 $Dimension* JTree::getPreferredScrollableViewportSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t width = $nc($(getPreferredSize()))->width;
 	int32_t visRows = getVisibleRowCount();
 	int32_t height = -1;
@@ -2351,7 +1655,7 @@ int32_t JTree::getScrollableUnitIncrement($Rectangle* visibleRect, int32_t orien
 		int32_t firstIndex = getClosestRowForLocation(0, $nc(visibleRect)->y);
 		if (firstIndex != -1) {
 			$assign(rowBounds, getRowBounds(firstIndex));
-			if ($nc(rowBounds)->y != $nc(visibleRect)->y) {
+			if ($nc(rowBounds)->y != visibleRect->y) {
 				if (direction < 0) {
 					return $Math::max(0, (visibleRect->y - rowBounds->y));
 				}
@@ -2363,7 +1667,7 @@ int32_t JTree::getScrollableUnitIncrement($Rectangle* visibleRect, int32_t orien
 					return $nc(rowBounds)->height;
 				}
 			} else {
-				return $nc(rowBounds)->height;
+				return rowBounds->height;
 			}
 		}
 		return 0;
@@ -2372,92 +1676,88 @@ int32_t JTree::getScrollableUnitIncrement($Rectangle* visibleRect, int32_t orien
 }
 
 int32_t JTree::getScrollableBlockIncrement($Rectangle* visibleRect, int32_t orientation, int32_t direction) {
-	return (orientation == $SwingConstants::VERTICAL) ? $nc(visibleRect)->height : visibleRect->width;
+	return (orientation == $SwingConstants::VERTICAL) ? $nc(visibleRect)->height : $nc(visibleRect)->width;
 }
 
 bool JTree::getScrollableTracksViewportWidth() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, parent, $SwingUtilities::getUnwrappedParent(this));
 	if ($instanceOf($JViewport, parent)) {
-		int32_t var$0 = $nc(parent)->getWidth();
+		int32_t var$0 = parent->getWidth();
 		return var$0 > $nc($(getPreferredSize()))->width;
 	}
 	return false;
 }
 
 bool JTree::getScrollableTracksViewportHeight() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, parent, $SwingUtilities::getUnwrappedParent(this));
 	if ($instanceOf($JViewport, parent)) {
-		int32_t var$0 = $nc(parent)->getHeight();
+		int32_t var$0 = parent->getHeight();
 		return var$0 > $nc($(getPreferredSize()))->height;
 	}
 	return false;
 }
 
 void JTree::setExpandedState($TreePath* path, bool state) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (path != nullptr) {
 		$var($Stack, stack, nullptr);
 		$var($TreePath, parentPath, path->getParentPath());
 		if ($nc(this->expandedStack)->size() == 0) {
 			$assign(stack, $new($Stack));
 		} else {
-			$assign(stack, $cast($Stack, $nc(this->expandedStack)->pop()));
+			$assign(stack, $cast($Stack, this->expandedStack->pop()));
 		}
-		{
-			$var($Throwable, var$0, nullptr);
-			bool return$1 = false;
-			try {
-				while (parentPath != nullptr) {
-					if (isExpanded(parentPath)) {
-						$assign(parentPath, nullptr);
-					} else {
-						$nc(stack)->push(parentPath);
-						$assign(parentPath, parentPath->getParentPath());
+		$var($Throwable, var$0, nullptr);
+		bool return$1 = false;
+		try {
+			while (parentPath != nullptr) {
+				if (isExpanded(parentPath)) {
+					$assign(parentPath, nullptr);
+				} else {
+					$nc(stack)->push(parentPath);
+					$assign(parentPath, parentPath->getParentPath());
+				}
+			}
+			for (int32_t counter = $nc(stack)->size() - 1; counter >= 0; --counter) {
+				$assign(parentPath, $cast($TreePath, stack->pop()));
+				if (!isExpanded(parentPath)) {
+					try {
+						fireTreeWillExpand(parentPath);
+					} catch ($ExpandVetoException& eve) {
+						return$1 = true;
+						goto $finally;
+					}
+					$nc(this->expandedState)->put(parentPath, $Boolean::TRUE);
+					fireTreeExpanded(parentPath);
+					if (this->accessibleContext != nullptr) {
+						$cast($JTree$AccessibleJTree, this->accessibleContext)->fireVisibleDataPropertyChange();
 					}
 				}
-				for (int32_t counter = $nc(stack)->size() - 1; counter >= 0; --counter) {
-					$assign(parentPath, $cast($TreePath, stack->pop()));
-					if (!isExpanded(parentPath)) {
-						try {
-							fireTreeWillExpand(parentPath);
-						} catch ($ExpandVetoException& eve) {
-							return$1 = true;
-							goto $finally;
-						}
-						$init($Boolean);
-						$nc(this->expandedState)->put(parentPath, $Boolean::TRUE);
-						fireTreeExpanded(parentPath);
-						if (this->accessibleContext != nullptr) {
-							$nc(($cast($JTree$AccessibleJTree, this->accessibleContext)))->fireVisibleDataPropertyChange();
-						}
-					}
-				}
-			} catch ($Throwable& var$2) {
-				$assign(var$0, var$2);
-			} $finally: {
-				if ($nc(this->expandedStack)->size() < JTree::TEMP_STACK_SIZE) {
-					$nc(stack)->removeAllElements();
-					$nc(this->expandedStack)->push(stack);
-				}
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
+		} $finally: {
+			if ($nc(this->expandedStack)->size() < JTree::TEMP_STACK_SIZE) {
+				$nc(stack)->removeAllElements();
+				this->expandedStack->push(stack);
 			}
-			if (return$1) {
-				return;
-			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return;
 		}
 		if (!state) {
 			$var($Object, cValue, $nc(this->expandedState)->get(path));
-			if (cValue != nullptr && $nc(($cast($Boolean, cValue)))->booleanValue()) {
+			if (cValue != nullptr && $cast($Boolean, cValue)->booleanValue()) {
 				try {
 					fireTreeWillCollapse(path);
 				} catch ($ExpandVetoException& eve) {
 					return;
 				}
-				$init($Boolean);
 				$nc(this->expandedState)->put(path, $Boolean::FALSE);
 				fireTreeCollapsed(path);
 				bool var$3 = removeDescendantSelectedPaths(path, false);
@@ -2465,22 +1765,21 @@ void JTree::setExpandedState($TreePath* path, bool state) {
 					addSelectionPath(path);
 				}
 				if (this->accessibleContext != nullptr) {
-					$nc(($cast($JTree$AccessibleJTree, this->accessibleContext)))->fireVisibleDataPropertyChange();
+					$cast($JTree$AccessibleJTree, this->accessibleContext)->fireVisibleDataPropertyChange();
 				}
 			}
 		} else {
 			$var($Object, cValue, $nc(this->expandedState)->get(path));
-			if (cValue == nullptr || !$nc(($cast($Boolean, cValue)))->booleanValue()) {
+			if (cValue == nullptr || !$cast($Boolean, cValue)->booleanValue()) {
 				try {
 					fireTreeWillExpand(path);
 				} catch ($ExpandVetoException& eve) {
 					return;
 				}
-				$init($Boolean);
 				$nc(this->expandedState)->put(path, $Boolean::TRUE);
 				fireTreeExpanded(path);
 				if (this->accessibleContext != nullptr) {
-					$nc(($cast($JTree$AccessibleJTree, this->accessibleContext)))->fireVisibleDataPropertyChange();
+					$cast($JTree$AccessibleJTree, this->accessibleContext)->fireVisibleDataPropertyChange();
 				}
 			}
 		}
@@ -2488,7 +1787,7 @@ void JTree::setExpandedState($TreePath* path, bool state) {
 }
 
 $Enumeration* JTree::getDescendantToggledPaths($TreePath* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (parent == nullptr) {
 		return nullptr;
 	}
@@ -2504,10 +1803,10 @@ $Enumeration* JTree::getDescendantToggledPaths($TreePath* parent) {
 }
 
 void JTree::removeDescendantToggledPaths($Enumeration* toRemove) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (toRemove != nullptr) {
 		while (toRemove->hasMoreElements()) {
-			$var($Enumeration, descendants, getDescendantToggledPaths($cast($TreePath, $(toRemove->nextElement()))));
+			$var($Enumeration, descendants, getDescendantToggledPaths($$cast($TreePath, toRemove->nextElement())));
 			if (descendants != nullptr) {
 				while (descendants->hasMoreElements()) {
 					$nc(this->expandedState)->remove($(descendants->nextElement()));
@@ -2526,19 +1825,19 @@ $TreeModelListener* JTree::createTreeModelListener() {
 }
 
 bool JTree::removeDescendantSelectedPaths($TreePath* path, bool includePath) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreePathArray, toRemove, getDescendantSelectedPaths(path, includePath));
 	if (toRemove != nullptr) {
-		$nc($(getSelectionModel()))->removeSelectionPaths(toRemove);
+		$$nc(getSelectionModel())->removeSelectionPaths(toRemove);
 		return true;
 	}
 	return false;
 }
 
 $TreePathArray* JTree::getDescendantSelectedPaths($TreePath* path, bool includePath) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreeSelectionModel, sm, getSelectionModel());
-	$var($TreePathArray, selPaths, (sm != nullptr) ? $nc(sm)->getSelectionPaths() : ($TreePathArray*)nullptr);
+	$var($TreePathArray, selPaths, (sm != nullptr) ? sm->getSelectionPaths() : ($TreePathArray*)nullptr);
 	if (selPaths != nullptr) {
 		bool shouldRemove = false;
 		for (int32_t counter = selPaths->length - 1; counter >= 0; --counter) {
@@ -2558,7 +1857,7 @@ $TreePathArray* JTree::getDescendantSelectedPaths($TreePath* path, bool includeP
 }
 
 void JTree::removeDescendantSelectedPaths($TreeModelEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreePath, pPath, $SwingUtilities2::getTreePath(e, $(getModel())));
 	$var($ObjectArray, oldChildren, $nc(e)->getChildren());
 	$var($TreeSelectionModel, sm, getSelectionModel());
@@ -2572,17 +1871,17 @@ void JTree::removeDescendantSelectedPaths($TreeModelEvent* e) {
 void JTree::setUIProperty($String* propertyName, Object$* value) {
 	if (propertyName == "rowHeight"_s) {
 		if (!this->rowHeightSet) {
-			setRowHeight($nc(($cast($Number, value)))->intValue());
+			setRowHeight($nc($cast($Number, value))->intValue());
 			this->rowHeightSet = false;
 		}
 	} else if (propertyName == "scrollsOnExpand"_s) {
 		if (!this->scrollsOnExpandSet) {
-			setScrollsOnExpand($nc(($cast($Boolean, value)))->booleanValue());
+			setScrollsOnExpand($nc($cast($Boolean, value))->booleanValue());
 			this->scrollsOnExpandSet = false;
 		}
 	} else if (propertyName == "showsRootHandles"_s) {
 		if (!this->showsRootHandlesSet) {
-			setShowsRootHandles($nc(($cast($Boolean, value)))->booleanValue());
+			setShowsRootHandles($nc($cast($Boolean, value))->booleanValue());
 			this->showsRootHandlesSet = false;
 		}
 	} else {
@@ -2591,7 +1890,7 @@ void JTree::setUIProperty($String* propertyName, Object$* value) {
 }
 
 $String* JTree::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, rootVisibleString, this->rootVisible ? "true"_s : "false"_s);
 	$var($String, showsRootHandlesString, this->showsRootHandles ? "true"_s : "false"_s);
 	$var($String, editableString, this->editable ? "true"_s : "false"_s);
@@ -2609,7 +1908,7 @@ $AccessibleContext* JTree::getAccessibleContext() {
 	return this->accessibleContext;
 }
 
-void clinit$JTree($Class* class$) {
+void JTree::clinit$($Class* clazz) {
 	$assignStatic(JTree::uiClassID, "TreeUI"_s);
 	$assignStatic(JTree::CELL_RENDERER_PROPERTY, "cellRenderer"_s);
 	$assignStatic(JTree::TREE_MODEL_PROPERTY, "model"_s);
@@ -2635,7 +1934,584 @@ JTree::JTree() {
 }
 
 $Class* JTree::load$($String* name, bool initialize) {
-	$loadClass(JTree, name, initialize, &_JTree_ClassInfo_, clinit$JTree, allocate$JTree);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JTree, $assertionsDisabled)},
+		{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JTree, uiClassID)},
+		{"treeModel", "Ljavax/swing/tree/TreeModel;", nullptr, $PROTECTED | $TRANSIENT, $field(JTree, treeModel)},
+		{"selectionModel", "Ljavax/swing/tree/TreeSelectionModel;", nullptr, $PROTECTED | $TRANSIENT, $field(JTree, selectionModel)},
+		{"rootVisible", "Z", nullptr, $PROTECTED, $field(JTree, rootVisible)},
+		{"cellRenderer", "Ljavax/swing/tree/TreeCellRenderer;", nullptr, $PROTECTED | $TRANSIENT, $field(JTree, cellRenderer)},
+		{"rowHeight", "I", nullptr, $PROTECTED, $field(JTree, rowHeight)},
+		{"rowHeightSet", "Z", nullptr, $PRIVATE, $field(JTree, rowHeightSet)},
+		{"expandedState", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljavax/swing/tree/TreePath;Ljava/lang/Boolean;>;", $PRIVATE | $TRANSIENT, $field(JTree, expandedState)},
+		{"showsRootHandles", "Z", nullptr, $PROTECTED, $field(JTree, showsRootHandles)},
+		{"showsRootHandlesSet", "Z", nullptr, $PRIVATE, $field(JTree, showsRootHandlesSet)},
+		{"selectionRedirector", "Ljavax/swing/JTree$TreeSelectionRedirector;", nullptr, $PROTECTED | $TRANSIENT, $field(JTree, selectionRedirector)},
+		{"cellEditor", "Ljavax/swing/tree/TreeCellEditor;", nullptr, $PROTECTED | $TRANSIENT, $field(JTree, cellEditor)},
+		{"editable", "Z", nullptr, $PROTECTED, $field(JTree, editable)},
+		{"largeModel", "Z", nullptr, $PROTECTED, $field(JTree, largeModel)},
+		{"visibleRowCount", "I", nullptr, $PROTECTED, $field(JTree, visibleRowCount)},
+		{"invokesStopCellEditing", "Z", nullptr, $PROTECTED, $field(JTree, invokesStopCellEditing)},
+		{"scrollsOnExpand", "Z", nullptr, $PROTECTED, $field(JTree, scrollsOnExpand)},
+		{"scrollsOnExpandSet", "Z", nullptr, $PRIVATE, $field(JTree, scrollsOnExpandSet)},
+		{"toggleClickCount", "I", nullptr, $PROTECTED, $field(JTree, toggleClickCount)},
+		{"treeModelListener", "Ljavax/swing/event/TreeModelListener;", nullptr, $PROTECTED | $TRANSIENT, $field(JTree, treeModelListener)},
+		{"expandedStack", "Ljava/util/Stack;", "Ljava/util/Stack<Ljava/util/Stack<Ljavax/swing/tree/TreePath;>;>;", $PRIVATE | $TRANSIENT, $field(JTree, expandedStack)},
+		{"leadPath", "Ljavax/swing/tree/TreePath;", nullptr, $PRIVATE, $field(JTree, leadPath)},
+		{"anchorPath", "Ljavax/swing/tree/TreePath;", nullptr, $PRIVATE, $field(JTree, anchorPath)},
+		{"expandsSelectedPaths", "Z", nullptr, $PRIVATE, $field(JTree, expandsSelectedPaths)},
+		{"settingUI", "Z", nullptr, $PRIVATE, $field(JTree, settingUI)},
+		{"dragEnabled", "Z", nullptr, $PRIVATE, $field(JTree, dragEnabled)},
+		{"dropMode", "Ljavax/swing/DropMode;", nullptr, $PRIVATE, $field(JTree, dropMode)},
+		{"dropLocation", "Ljavax/swing/JTree$DropLocation;", nullptr, $PRIVATE | $TRANSIENT, $field(JTree, dropLocation)},
+		{"updateInProgress", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(JTree, updateInProgress)},
+		{"expandRow", "I", nullptr, $PRIVATE, $field(JTree, expandRow$)},
+		{"dropTimer", "Ljavax/swing/JTree$TreeTimer;", nullptr, $PRIVATE, $field(JTree, dropTimer)},
+		{"uiTreeExpansionListener", "Ljavax/swing/event/TreeExpansionListener;", nullptr, $PRIVATE | $TRANSIENT, $field(JTree, uiTreeExpansionListener)},
+		{"TEMP_STACK_SIZE", "I", nullptr, $PRIVATE | $STATIC, $staticField(JTree, TEMP_STACK_SIZE)},
+		{"CELL_RENDERER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, CELL_RENDERER_PROPERTY)},
+		{"TREE_MODEL_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, TREE_MODEL_PROPERTY)},
+		{"ROOT_VISIBLE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, ROOT_VISIBLE_PROPERTY)},
+		{"SHOWS_ROOT_HANDLES_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, SHOWS_ROOT_HANDLES_PROPERTY)},
+		{"ROW_HEIGHT_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, ROW_HEIGHT_PROPERTY)},
+		{"CELL_EDITOR_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, CELL_EDITOR_PROPERTY)},
+		{"EDITABLE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, EDITABLE_PROPERTY)},
+		{"LARGE_MODEL_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, LARGE_MODEL_PROPERTY)},
+		{"SELECTION_MODEL_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, SELECTION_MODEL_PROPERTY)},
+		{"VISIBLE_ROW_COUNT_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, VISIBLE_ROW_COUNT_PROPERTY)},
+		{"INVOKES_STOP_CELL_EDITING_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, INVOKES_STOP_CELL_EDITING_PROPERTY)},
+		{"SCROLLS_ON_EXPAND_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, SCROLLS_ON_EXPAND_PROPERTY)},
+		{"TOGGLE_CLICK_COUNT_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, TOGGLE_CLICK_COUNT_PROPERTY)},
+		{"LEAD_SELECTION_PATH_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, LEAD_SELECTION_PATH_PROPERTY)},
+		{"ANCHOR_SELECTION_PATH_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, ANCHOR_SELECTION_PATH_PROPERTY)},
+		{"EXPANDS_SELECTED_PATHS_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTree, EXPANDS_SELECTED_PATHS_PROPERTY)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "model"},
+		{'-'}
+	};
+	$NamedAttribute init$methodAnnotations$$$6$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$6[] = {
+		{"Ljava/beans/ConstructorProperties;", init$methodAnnotations$$$6$namedAttribute},
+		{}
+	};
+	$NamedAttribute getAccessibleContextmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getAccessibleContextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getAccessibleContextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getDropLocationmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getDropLocationmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getDropLocationmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getEditingPathmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getEditingPathmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getEditingPathmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getLastSelectedPathComponentmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getLastSelectedPathComponentmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getLastSelectedPathComponentmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getLeadSelectionRowmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getLeadSelectionRowmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getLeadSelectionRowmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getMaxSelectionRowmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getMaxSelectionRowmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getMaxSelectionRowmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getMinSelectionRowmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getMinSelectionRowmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getMinSelectionRowmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getPathForRowmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getPathForRowmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getPathForRowmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getPreferredScrollableViewportSizemethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getPreferredScrollableViewportSizemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getPreferredScrollableViewportSizemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getRowCountmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getRowCountmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getRowCountmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getScrollableTracksViewportHeightmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getScrollableTracksViewportHeightmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getScrollableTracksViewportHeightmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getScrollableTracksViewportWidthmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getScrollableTracksViewportWidthmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getScrollableTracksViewportWidthmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getSelectionCountmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getSelectionCountmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getSelectionCountmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getTreeExpansionListenersmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getTreeExpansionListenersmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getTreeExpansionListenersmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getTreeSelectionListenersmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getTreeSelectionListenersmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getTreeSelectionListenersmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getTreeWillExpandListenersmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getTreeWillExpandListenersmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getTreeWillExpandListenersmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getUIClassIDmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getUIClassIDmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getUIClassIDmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute isEditingmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute isEditingmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", isEditingmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute isFixedRowHeightmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute isFixedRowHeightmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", isFixedRowHeightmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute isSelectionEmptymethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute isSelectionEmptymethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", isSelectionEmptymethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setAnchorSelectionPathmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "Anchor selection path"},
+		{}
+	};
+	$CompoundAttribute setAnchorSelectionPathmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setAnchorSelectionPathmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setCellEditormethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The cell editor. A null value implies the tree cannot be edited."},
+		{}
+	};
+	$CompoundAttribute setCellEditormethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setCellEditormethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setCellRenderermethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The TreeCellRenderer that will be used to draw each cell."},
+		{}
+	};
+	$CompoundAttribute setCellRenderermethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setCellRenderermethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setDragEnabledmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"description", 's', "determines whether automatic drag handling is enabled"},
+		{}
+	};
+	$CompoundAttribute setDragEnabledmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setDragEnabledmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setEditablemethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "Whether the tree is editable."},
+		{}
+	};
+	$CompoundAttribute setEditablemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setEditablemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setExpandsSelectedPathsmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "Indicates whether changes to the selection should make the parent of the path visible."},
+		{}
+	};
+	$CompoundAttribute setExpandsSelectedPathsmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setExpandsSelectedPathsmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setInvokesStopCellEditingmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "Determines what happens when editing is interrupted, selecting another node in the tree, a change in the tree\'s data, or some other means."},
+		{}
+	};
+	$CompoundAttribute setInvokesStopCellEditingmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setInvokesStopCellEditingmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setLargeModelmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "Whether the UI should use a large model."},
+		{}
+	};
+	$CompoundAttribute setLargeModelmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setLargeModelmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setLeadSelectionPathmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "Lead selection path"},
+		{}
+	};
+	$CompoundAttribute setLeadSelectionPathmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setLeadSelectionPathmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setModelmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The TreeModel that will provide the data."},
+		{}
+	};
+	$CompoundAttribute setModelmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setModelmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setRootVisiblemethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "Whether or not the root node from the TreeModel is visible."},
+		{}
+	};
+	$CompoundAttribute setRootVisiblemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setRootVisiblemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setRowHeightmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The height of each cell."},
+		{}
+	};
+	$CompoundAttribute setRowHeightmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setRowHeightmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setScrollsOnExpandmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "Indicates if a node descendant should be scrolled when expanded."},
+		{}
+	};
+	$CompoundAttribute setScrollsOnExpandmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setScrollsOnExpandmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setSelectionModelmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The tree\'s selection model."},
+		{}
+	};
+	$CompoundAttribute setSelectionModelmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setSelectionModelmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setShowsRootHandlesmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "Whether the node handles are to be displayed."},
+		{}
+	};
+	$CompoundAttribute setShowsRootHandlesmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setShowsRootHandlesmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setToggleClickCountmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "Number of clicks before a node will expand/collapse."},
+		{}
+	};
+	$CompoundAttribute setToggleClickCountmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setToggleClickCountmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setUImethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The UI object that implements the Component\'s LookAndFeel."},
+		{}
+	};
+	$CompoundAttribute setUImethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setUImethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setVisibleRowCountmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The number of rows that are to be displayed."},
+		{}
+	};
+	$CompoundAttribute setVisibleRowCountmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setVisibleRowCountmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JTree, init$, void)},
+		{"<init>", "([Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(JTree, init$, void, $ObjectArray*)},
+		{"<init>", "(Ljava/util/Vector;)V", "(Ljava/util/Vector<*>;)V", $PUBLIC, $method(JTree, init$, void, $Vector*)},
+		{"<init>", "(Ljava/util/Hashtable;)V", "(Ljava/util/Hashtable<**>;)V", $PUBLIC, $method(JTree, init$, void, $Hashtable*)},
+		{"<init>", "(Ljavax/swing/tree/TreeNode;)V", nullptr, $PUBLIC, $method(JTree, init$, void, $TreeNode*)},
+		{"<init>", "(Ljavax/swing/tree/TreeNode;Z)V", nullptr, $PUBLIC, $method(JTree, init$, void, $TreeNode*, bool)},
+		{"<init>", "(Ljavax/swing/tree/TreeModel;)V", nullptr, $PUBLIC, $method(JTree, init$, void, $TreeModel*), nullptr, nullptr, init$methodAnnotations$$$6},
+		{"addSelectionInterval", "(II)V", nullptr, $PUBLIC, $virtualMethod(JTree, addSelectionInterval, void, int32_t, int32_t)},
+		{"addSelectionPath", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, addSelectionPath, void, $TreePath*)},
+		{"addSelectionPaths", "([Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, addSelectionPaths, void, $TreePathArray*)},
+		{"addSelectionRow", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTree, addSelectionRow, void, int32_t)},
+		{"addSelectionRows", "([I)V", nullptr, $PUBLIC, $virtualMethod(JTree, addSelectionRows, void, $ints*)},
+		{"addTreeExpansionListener", "(Ljavax/swing/event/TreeExpansionListener;)V", nullptr, $PUBLIC, $virtualMethod(JTree, addTreeExpansionListener, void, $TreeExpansionListener*)},
+		{"addTreeSelectionListener", "(Ljavax/swing/event/TreeSelectionListener;)V", nullptr, $PUBLIC, $virtualMethod(JTree, addTreeSelectionListener, void, $TreeSelectionListener*)},
+		{"addTreeWillExpandListener", "(Ljavax/swing/event/TreeWillExpandListener;)V", nullptr, $PUBLIC, $virtualMethod(JTree, addTreeWillExpandListener, void, $TreeWillExpandListener*)},
+		{"cancelDropTimer", "()V", nullptr, $PRIVATE, $method(JTree, cancelDropTimer, void)},
+		{"cancelEditing", "()V", nullptr, $PUBLIC, $virtualMethod(JTree, cancelEditing, void)},
+		{"checkDragEnabled", "(Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JTree, checkDragEnabled, void, bool)},
+		{"checkDropMode", "(Ljavax/swing/DropMode;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JTree, checkDropMode, void, $DropMode*)},
+		{"clearSelection", "()V", nullptr, $PUBLIC, $virtualMethod(JTree, clearSelection, void)},
+		{"clearToggledPaths", "()V", nullptr, $PROTECTED, $virtualMethod(JTree, clearToggledPaths, void)},
+		{"collapsePath", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, collapsePath, void, $TreePath*)},
+		{"collapseRow", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTree, collapseRow, void, int32_t)},
+		{"convertValueToText", "(Ljava/lang/Object;ZZZIZ)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTree, convertValueToText, $String*, Object$*, bool, bool, bool, int32_t, bool)},
+		{"createTreeModel", "(Ljava/lang/Object;)Ljavax/swing/tree/TreeModel;", nullptr, $PROTECTED | $STATIC, $staticMethod(JTree, createTreeModel, $TreeModel*, Object$*)},
+		{"createTreeModelListener", "()Ljavax/swing/event/TreeModelListener;", nullptr, $PROTECTED, $virtualMethod(JTree, createTreeModelListener, $TreeModelListener*)},
+		{"dndDone", "()V", nullptr, 0, $virtualMethod(JTree, dndDone, void)},
+		{"dropLocationForPoint", "(Ljava/awt/Point;)Ljavax/swing/JTree$DropLocation;", nullptr, 0, $virtualMethod(JTree, dropLocationForPoint, $TransferHandler$DropLocation*, $Point*)},
+		{"expandPath", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, expandPath, void, $TreePath*)},
+		{"expandRoot", "()V", nullptr, $PRIVATE, $method(JTree, expandRoot, void)},
+		{"expandRow", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTree, expandRow, void, int32_t)},
+		{"fireTreeCollapsed", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, fireTreeCollapsed, void, $TreePath*)},
+		{"fireTreeExpanded", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, fireTreeExpanded, void, $TreePath*)},
+		{"fireTreeWillCollapse", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, fireTreeWillCollapse, void, $TreePath*), "javax.swing.tree.ExpandVetoException"},
+		{"fireTreeWillExpand", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, fireTreeWillExpand, void, $TreePath*), "javax.swing.tree.ExpandVetoException"},
+		{"fireValueChanged", "(Ljavax/swing/event/TreeSelectionEvent;)V", nullptr, $PROTECTED, $virtualMethod(JTree, fireValueChanged, void, $TreeSelectionEvent*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JTree, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, getAccessibleContextmethodAnnotations$$},
+		{"getAnchorSelectionPath", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(JTree, getAnchorSelectionPath, $TreePath*)},
+		{"getArchivableExpandedState", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(JTree, getArchivableExpandedState, $Object*)},
+		{"getCellEditor", "()Ljavax/swing/tree/TreeCellEditor;", nullptr, $PUBLIC, $virtualMethod(JTree, getCellEditor, $TreeCellEditor*)},
+		{"getCellRenderer", "()Ljavax/swing/tree/TreeCellRenderer;", nullptr, $PUBLIC, $virtualMethod(JTree, getCellRenderer, $TreeCellRenderer*)},
+		{"getClosestPathForLocation", "(II)Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(JTree, getClosestPathForLocation, $TreePath*, int32_t, int32_t)},
+		{"getClosestRowForLocation", "(II)I", nullptr, $PUBLIC, $virtualMethod(JTree, getClosestRowForLocation, int32_t, int32_t, int32_t)},
+		{"getDefaultTreeModel", "()Ljavax/swing/tree/TreeModel;", nullptr, $PROTECTED | $STATIC, $staticMethod(JTree, getDefaultTreeModel, $TreeModel*)},
+		{"getDescendantSelectedPaths", "(Ljavax/swing/tree/TreePath;Z)[Ljavax/swing/tree/TreePath;", nullptr, $PRIVATE, $method(JTree, getDescendantSelectedPaths, $TreePathArray*, $TreePath*, bool)},
+		{"getDescendantToggledPaths", "(Ljavax/swing/tree/TreePath;)Ljava/util/Enumeration;", "(Ljavax/swing/tree/TreePath;)Ljava/util/Enumeration<Ljavax/swing/tree/TreePath;>;", $PROTECTED, $virtualMethod(JTree, getDescendantToggledPaths, $Enumeration*, $TreePath*)},
+		{"getDragEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree, getDragEnabled, bool)},
+		{"getDropLocation", "()Ljavax/swing/JTree$DropLocation;", nullptr, $PUBLIC | $FINAL, $method(JTree, getDropLocation, $JTree$DropLocation*), nullptr, nullptr, getDropLocationmethodAnnotations$$},
+		{"getDropMode", "()Ljavax/swing/DropMode;", nullptr, $PUBLIC | $FINAL, $method(JTree, getDropMode, $DropMode*)},
+		{"getEditingPath", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(JTree, getEditingPath, $TreePath*), nullptr, nullptr, getEditingPathmethodAnnotations$$},
+		{"getExpandedDescendants", "(Ljavax/swing/tree/TreePath;)Ljava/util/Enumeration;", "(Ljavax/swing/tree/TreePath;)Ljava/util/Enumeration<Ljavax/swing/tree/TreePath;>;", $PUBLIC, $virtualMethod(JTree, getExpandedDescendants, $Enumeration*, $TreePath*)},
+		{"getExpandsSelectedPaths", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree, getExpandsSelectedPaths, bool)},
+		{"getInvokesStopCellEditing", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree, getInvokesStopCellEditing, bool)},
+		{"getLastSelectedPathComponent", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JTree, getLastSelectedPathComponent, $Object*), nullptr, nullptr, getLastSelectedPathComponentmethodAnnotations$$},
+		{"getLeadSelectionPath", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(JTree, getLeadSelectionPath, $TreePath*)},
+		{"getLeadSelectionRow", "()I", nullptr, $PUBLIC, $virtualMethod(JTree, getLeadSelectionRow, int32_t), nullptr, nullptr, getLeadSelectionRowmethodAnnotations$$},
+		{"getMaxSelectionRow", "()I", nullptr, $PUBLIC, $virtualMethod(JTree, getMaxSelectionRow, int32_t), nullptr, nullptr, getMaxSelectionRowmethodAnnotations$$},
+		{"getMinSelectionRow", "()I", nullptr, $PUBLIC, $virtualMethod(JTree, getMinSelectionRow, int32_t), nullptr, nullptr, getMinSelectionRowmethodAnnotations$$},
+		{"getModel", "()Ljavax/swing/tree/TreeModel;", nullptr, $PUBLIC, $virtualMethod(JTree, getModel, $TreeModel*)},
+		{"getModelIndexsForPath", "(Ljavax/swing/tree/TreePath;)[I", nullptr, $PRIVATE, $method(JTree, getModelIndexsForPath, $ints*, $TreePath*)},
+		{"getNextMatch", "(Ljava/lang/String;ILjavax/swing/text/Position$Bias;)Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(JTree, getNextMatch, $TreePath*, $String*, int32_t, $Position$Bias*)},
+		{"getPathBetweenRows", "(II)[Ljavax/swing/tree/TreePath;", nullptr, $PROTECTED, $virtualMethod(JTree, getPathBetweenRows, $TreePathArray*, int32_t, int32_t)},
+		{"getPathBounds", "(Ljavax/swing/tree/TreePath;)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(JTree, getPathBounds, $Rectangle*, $TreePath*)},
+		{"getPathForIndexs", "([I)Ljavax/swing/tree/TreePath;", nullptr, $PRIVATE, $method(JTree, getPathForIndexs, $TreePath*, $ints*)},
+		{"getPathForLocation", "(II)Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(JTree, getPathForLocation, $TreePath*, int32_t, int32_t)},
+		{"getPathForRow", "(I)Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(JTree, getPathForRow, $TreePath*, int32_t), nullptr, nullptr, getPathForRowmethodAnnotations$$},
+		{"getPreferredScrollableViewportSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JTree, getPreferredScrollableViewportSize, $Dimension*), nullptr, nullptr, getPreferredScrollableViewportSizemethodAnnotations$$},
+		{"getRowBounds", "(I)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(JTree, getRowBounds, $Rectangle*, int32_t)},
+		{"getRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTree, getRowCount, int32_t), nullptr, nullptr, getRowCountmethodAnnotations$$},
+		{"getRowForLocation", "(II)I", nullptr, $PUBLIC, $virtualMethod(JTree, getRowForLocation, int32_t, int32_t, int32_t)},
+		{"getRowForPath", "(Ljavax/swing/tree/TreePath;)I", nullptr, $PUBLIC, $virtualMethod(JTree, getRowForPath, int32_t, $TreePath*)},
+		{"getRowHeight", "()I", nullptr, $PUBLIC, $virtualMethod(JTree, getRowHeight, int32_t)},
+		{"getScrollableBlockIncrement", "(Ljava/awt/Rectangle;II)I", nullptr, $PUBLIC, $virtualMethod(JTree, getScrollableBlockIncrement, int32_t, $Rectangle*, int32_t, int32_t)},
+		{"getScrollableTracksViewportHeight", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree, getScrollableTracksViewportHeight, bool), nullptr, nullptr, getScrollableTracksViewportHeightmethodAnnotations$$},
+		{"getScrollableTracksViewportWidth", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree, getScrollableTracksViewportWidth, bool), nullptr, nullptr, getScrollableTracksViewportWidthmethodAnnotations$$},
+		{"getScrollableUnitIncrement", "(Ljava/awt/Rectangle;II)I", nullptr, $PUBLIC, $virtualMethod(JTree, getScrollableUnitIncrement, int32_t, $Rectangle*, int32_t, int32_t)},
+		{"getScrollsOnExpand", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree, getScrollsOnExpand, bool)},
+		{"getSelectionCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTree, getSelectionCount, int32_t), nullptr, nullptr, getSelectionCountmethodAnnotations$$},
+		{"getSelectionModel", "()Ljavax/swing/tree/TreeSelectionModel;", nullptr, $PUBLIC, $virtualMethod(JTree, getSelectionModel, $TreeSelectionModel*)},
+		{"getSelectionPath", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(JTree, getSelectionPath, $TreePath*)},
+		{"getSelectionPaths", "()[Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(JTree, getSelectionPaths, $TreePathArray*)},
+		{"getSelectionRows", "()[I", nullptr, $PUBLIC, $virtualMethod(JTree, getSelectionRows, $ints*)},
+		{"getShowsRootHandles", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree, getShowsRootHandles, bool)},
+		{"getToggleClickCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTree, getToggleClickCount, int32_t)},
+		{"getToolTipText", "(Ljava/awt/event/MouseEvent;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTree, getToolTipText, $String*, $MouseEvent*)},
+		{"getTreeExpansionListeners", "()[Ljavax/swing/event/TreeExpansionListener;", nullptr, $PUBLIC, $virtualMethod(JTree, getTreeExpansionListeners, $TreeExpansionListenerArray*), nullptr, nullptr, getTreeExpansionListenersmethodAnnotations$$},
+		{"getTreeSelectionListeners", "()[Ljavax/swing/event/TreeSelectionListener;", nullptr, $PUBLIC, $virtualMethod(JTree, getTreeSelectionListeners, $TreeSelectionListenerArray*), nullptr, nullptr, getTreeSelectionListenersmethodAnnotations$$},
+		{"getTreeWillExpandListeners", "()[Ljavax/swing/event/TreeWillExpandListener;", nullptr, $PUBLIC, $virtualMethod(JTree, getTreeWillExpandListeners, $TreeWillExpandListenerArray*), nullptr, nullptr, getTreeWillExpandListenersmethodAnnotations$$},
+		{"getUI", "()Ljavax/swing/plaf/TreeUI;", nullptr, $PUBLIC, $virtualMethod(JTree, getUI, $ComponentUI*)},
+		{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTree, getUIClassID, $String*), nullptr, nullptr, getUIClassIDmethodAnnotations$$},
+		{"getVisibleRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTree, getVisibleRowCount, int32_t)},
+		{"hasBeenExpanded", "(Ljavax/swing/tree/TreePath;)Z", nullptr, $PUBLIC, $virtualMethod(JTree, hasBeenExpanded, bool, $TreePath*)},
+		{"isCollapsed", "(Ljavax/swing/tree/TreePath;)Z", nullptr, $PUBLIC, $virtualMethod(JTree, isCollapsed, bool, $TreePath*)},
+		{"isCollapsed", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JTree, isCollapsed, bool, int32_t)},
+		{"isEditable", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree, isEditable, bool)},
+		{"isEditing", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree, isEditing, bool), nullptr, nullptr, isEditingmethodAnnotations$$},
+		{"isExpanded", "(Ljavax/swing/tree/TreePath;)Z", nullptr, $PUBLIC, $virtualMethod(JTree, isExpanded, bool, $TreePath*)},
+		{"isExpanded", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JTree, isExpanded, bool, int32_t)},
+		{"isFixedRowHeight", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree, isFixedRowHeight, bool), nullptr, nullptr, isFixedRowHeightmethodAnnotations$$},
+		{"isLargeModel", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree, isLargeModel, bool)},
+		{"isPathEditable", "(Ljavax/swing/tree/TreePath;)Z", nullptr, $PUBLIC, $virtualMethod(JTree, isPathEditable, bool, $TreePath*)},
+		{"isPathSelected", "(Ljavax/swing/tree/TreePath;)Z", nullptr, $PUBLIC, $virtualMethod(JTree, isPathSelected, bool, $TreePath*)},
+		{"isRootVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree, isRootVisible, bool)},
+		{"isRowSelected", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JTree, isRowSelected, bool, int32_t)},
+		{"isSelectionEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree, isSelectionEmpty, bool), nullptr, nullptr, isSelectionEmptymethodAnnotations$$},
+		{"isVisible", "(Ljavax/swing/tree/TreePath;)Z", nullptr, $PUBLIC, $virtualMethod(JTree, isVisible, bool, $TreePath*)},
+		{"makeVisible", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, makeVisible, void, $TreePath*)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JTree, paramString, $String*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(JTree, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"removeDescendantSelectedPaths", "(Ljavax/swing/tree/TreePath;Z)Z", nullptr, $PROTECTED, $virtualMethod(JTree, removeDescendantSelectedPaths, bool, $TreePath*, bool)},
+		{"removeDescendantSelectedPaths", "(Ljavax/swing/event/TreeModelEvent;)V", nullptr, 0, $virtualMethod(JTree, removeDescendantSelectedPaths, void, $TreeModelEvent*)},
+		{"removeDescendantToggledPaths", "(Ljava/util/Enumeration;)V", "(Ljava/util/Enumeration<Ljavax/swing/tree/TreePath;>;)V", $PROTECTED, $virtualMethod(JTree, removeDescendantToggledPaths, void, $Enumeration*)},
+		{"removeSelectionInterval", "(II)V", nullptr, $PUBLIC, $virtualMethod(JTree, removeSelectionInterval, void, int32_t, int32_t)},
+		{"removeSelectionPath", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, removeSelectionPath, void, $TreePath*)},
+		{"removeSelectionPaths", "([Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, removeSelectionPaths, void, $TreePathArray*)},
+		{"removeSelectionRow", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTree, removeSelectionRow, void, int32_t)},
+		{"removeSelectionRows", "([I)V", nullptr, $PUBLIC, $virtualMethod(JTree, removeSelectionRows, void, $ints*)},
+		{"removeTreeExpansionListener", "(Ljavax/swing/event/TreeExpansionListener;)V", nullptr, $PUBLIC, $virtualMethod(JTree, removeTreeExpansionListener, void, $TreeExpansionListener*)},
+		{"removeTreeSelectionListener", "(Ljavax/swing/event/TreeSelectionListener;)V", nullptr, $PUBLIC, $virtualMethod(JTree, removeTreeSelectionListener, void, $TreeSelectionListener*)},
+		{"removeTreeWillExpandListener", "(Ljavax/swing/event/TreeWillExpandListener;)V", nullptr, $PUBLIC, $virtualMethod(JTree, removeTreeWillExpandListener, void, $TreeWillExpandListener*)},
+		{"scrollPathToVisible", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, scrollPathToVisible, void, $TreePath*)},
+		{"scrollRowToVisible", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTree, scrollRowToVisible, void, int32_t)},
+		{"setAnchorSelectionPath", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, setAnchorSelectionPath, void, $TreePath*), nullptr, nullptr, setAnchorSelectionPathmethodAnnotations$$},
+		{"setCellEditor", "(Ljavax/swing/tree/TreeCellEditor;)V", nullptr, $PUBLIC, $virtualMethod(JTree, setCellEditor, void, $TreeCellEditor*), nullptr, nullptr, setCellEditormethodAnnotations$$},
+		{"setCellRenderer", "(Ljavax/swing/tree/TreeCellRenderer;)V", nullptr, $PUBLIC, $virtualMethod(JTree, setCellRenderer, void, $TreeCellRenderer*), nullptr, nullptr, setCellRenderermethodAnnotations$$},
+		{"setDragEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTree, setDragEnabled, void, bool), nullptr, nullptr, setDragEnabledmethodAnnotations$$},
+		{"setDropLocation", "(Ljavax/swing/TransferHandler$DropLocation;Ljava/lang/Object;Z)Ljava/lang/Object;", nullptr, 0, $virtualMethod(JTree, setDropLocation, $Object*, $TransferHandler$DropLocation*, Object$*, bool)},
+		{"setDropMode", "(Ljavax/swing/DropMode;)V", nullptr, $PUBLIC | $FINAL, $method(JTree, setDropMode, void, $DropMode*)},
+		{"setEditable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTree, setEditable, void, bool), nullptr, nullptr, setEditablemethodAnnotations$$},
+		{"setExpandedState", "(Ljavax/swing/tree/TreePath;Z)V", nullptr, $PROTECTED, $virtualMethod(JTree, setExpandedState, void, $TreePath*, bool)},
+		{"setExpandsSelectedPaths", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTree, setExpandsSelectedPaths, void, bool), nullptr, nullptr, setExpandsSelectedPathsmethodAnnotations$$},
+		{"setInvokesStopCellEditing", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTree, setInvokesStopCellEditing, void, bool), nullptr, nullptr, setInvokesStopCellEditingmethodAnnotations$$},
+		{"setLargeModel", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTree, setLargeModel, void, bool), nullptr, nullptr, setLargeModelmethodAnnotations$$},
+		{"setLeadSelectionPath", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, setLeadSelectionPath, void, $TreePath*), nullptr, nullptr, setLeadSelectionPathmethodAnnotations$$},
+		{"setModel", "(Ljavax/swing/tree/TreeModel;)V", nullptr, $PUBLIC, $virtualMethod(JTree, setModel, void, $TreeModel*), nullptr, nullptr, setModelmethodAnnotations$$},
+		{"setRootVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTree, setRootVisible, void, bool), nullptr, nullptr, setRootVisiblemethodAnnotations$$},
+		{"setRowHeight", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTree, setRowHeight, void, int32_t), nullptr, nullptr, setRowHeightmethodAnnotations$$},
+		{"setScrollsOnExpand", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTree, setScrollsOnExpand, void, bool), nullptr, nullptr, setScrollsOnExpandmethodAnnotations$$},
+		{"setSelectionInterval", "(II)V", nullptr, $PUBLIC, $virtualMethod(JTree, setSelectionInterval, void, int32_t, int32_t)},
+		{"setSelectionModel", "(Ljavax/swing/tree/TreeSelectionModel;)V", nullptr, $PUBLIC, $virtualMethod(JTree, setSelectionModel, void, $TreeSelectionModel*), nullptr, nullptr, setSelectionModelmethodAnnotations$$},
+		{"setSelectionPath", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, setSelectionPath, void, $TreePath*)},
+		{"setSelectionPaths", "([Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, setSelectionPaths, void, $TreePathArray*)},
+		{"setSelectionRow", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTree, setSelectionRow, void, int32_t)},
+		{"setSelectionRows", "([I)V", nullptr, $PUBLIC, $virtualMethod(JTree, setSelectionRows, void, $ints*)},
+		{"setShowsRootHandles", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTree, setShowsRootHandles, void, bool), nullptr, nullptr, setShowsRootHandlesmethodAnnotations$$},
+		{"setToggleClickCount", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTree, setToggleClickCount, void, int32_t), nullptr, nullptr, setToggleClickCountmethodAnnotations$$},
+		{"setUI", "(Ljavax/swing/plaf/TreeUI;)V", nullptr, $PUBLIC, $virtualMethod(JTree, setUI, void, $TreeUI*), nullptr, nullptr, setUImethodAnnotations$$},
+		{"setUIProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(JTree, setUIProperty, void, $String*, Object$*)},
+		{"setVisibleRowCount", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTree, setVisibleRowCount, void, int32_t), nullptr, nullptr, setVisibleRowCountmethodAnnotations$$},
+		{"startDropTimer", "()V", nullptr, $PRIVATE, $method(JTree, startDropTimer, void)},
+		{"startEditingAtPath", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(JTree, startEditingAtPath, void, $TreePath*)},
+		{"stopEditing", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree, stopEditing, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"treeDidChange", "()V", nullptr, $PUBLIC, $virtualMethod(JTree, treeDidChange, void)},
+		{"unarchiveExpandedState", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(JTree, unarchiveExpandedState, void, Object$*)},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JTree, updateUI, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JTree, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JTree$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"javax.swing.JTree$AccessibleJTree", "javax.swing.JTree", "AccessibleJTree", $PROTECTED},
+		{"javax.swing.JTree$DynamicUtilTreeNode", "javax.swing.JTree", "DynamicUtilTreeNode", $PUBLIC | $STATIC},
+		{"javax.swing.JTree$TreeModelHandler", "javax.swing.JTree", "TreeModelHandler", $PROTECTED},
+		{"javax.swing.JTree$TreeSelectionRedirector", "javax.swing.JTree", "TreeSelectionRedirector", $PROTECTED},
+		{"javax.swing.JTree$EmptySelectionModel", "javax.swing.JTree", "EmptySelectionModel", $PROTECTED | $STATIC},
+		{"javax.swing.JTree$TreeTimer", "javax.swing.JTree", "TreeTimer", $PRIVATE},
+		{"javax.swing.JTree$DropLocation", "javax.swing.JTree", "DropLocation", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"defaultProperty", 's', "UI"},
+		{"description", 's', "A component that displays a set of hierarchical data as an outline."},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{"Ljavax/swing/SwingContainer;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JTree",
+		"javax.swing.JComponent",
+		"javax.swing.Scrollable,javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.JTree$1,javax.swing.JTree$AccessibleJTree,javax.swing.JTree$AccessibleJTree$AccessibleJTreeNode,javax.swing.JTree$DynamicUtilTreeNode,javax.swing.JTree$TreeModelHandler,javax.swing.JTree$TreeSelectionRedirector,javax.swing.JTree$EmptySelectionModel,javax.swing.JTree$TreeTimer,javax.swing.JTree$DropLocation"
+	};
+	$loadClass(JTree, name, initialize, &classInfo$$, JTree::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JTree));
+	});
 	return class$;
 }
 

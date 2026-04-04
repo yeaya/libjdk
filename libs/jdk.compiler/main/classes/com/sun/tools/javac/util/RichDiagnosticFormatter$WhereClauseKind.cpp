@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind.h>
-
 #include <com/sun/tools/javac/util/RichDiagnosticFormatter.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -20,49 +19,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$FieldInfo _RichDiagnosticFormatter$WhereClauseKind_FieldInfo_[] = {
-	{"TYPEVAR", "Lcom/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RichDiagnosticFormatter$WhereClauseKind, TYPEVAR)},
-	{"CAPTURED", "Lcom/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RichDiagnosticFormatter$WhereClauseKind, CAPTURED)},
-	{"INTERSECTION", "Lcom/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RichDiagnosticFormatter$WhereClauseKind, INTERSECTION)},
-	{"$VALUES", "[Lcom/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(RichDiagnosticFormatter$WhereClauseKind, $VALUES)},
-	{"key", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(RichDiagnosticFormatter$WhereClauseKind, key$)},
-	{}
-};
-
-$MethodInfo _RichDiagnosticFormatter$WhereClauseKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RichDiagnosticFormatter$WhereClauseKind, $values, $RichDiagnosticFormatter$WhereClauseKindArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(RichDiagnosticFormatter$WhereClauseKind, init$, void, $String*, int32_t, $String*)},
-	{"key", "()Ljava/lang/String;", nullptr, 0, $method(RichDiagnosticFormatter$WhereClauseKind, key, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(RichDiagnosticFormatter$WhereClauseKind, valueOf, RichDiagnosticFormatter$WhereClauseKind*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(RichDiagnosticFormatter$WhereClauseKind, values, $RichDiagnosticFormatter$WhereClauseKindArray*)},
-	{}
-};
-
-$InnerClassInfo _RichDiagnosticFormatter$WhereClauseKind_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.RichDiagnosticFormatter$WhereClauseKind", "com.sun.tools.javac.util.RichDiagnosticFormatter", "WhereClauseKind", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _RichDiagnosticFormatter$WhereClauseKind_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.util.RichDiagnosticFormatter$WhereClauseKind",
-	"java.lang.Enum",
-	nullptr,
-	_RichDiagnosticFormatter$WhereClauseKind_FieldInfo_,
-	_RichDiagnosticFormatter$WhereClauseKind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind;>;",
-	nullptr,
-	_RichDiagnosticFormatter$WhereClauseKind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.RichDiagnosticFormatter"
-};
-
-$Object* allocate$RichDiagnosticFormatter$WhereClauseKind($Class* clazz) {
-	return $of($alloc(RichDiagnosticFormatter$WhereClauseKind));
-}
 
 RichDiagnosticFormatter$WhereClauseKind* RichDiagnosticFormatter$WhereClauseKind::TYPEVAR = nullptr;
 RichDiagnosticFormatter$WhereClauseKind* RichDiagnosticFormatter$WhereClauseKind::CAPTURED = nullptr;
@@ -97,7 +53,7 @@ $String* RichDiagnosticFormatter$WhereClauseKind::key() {
 	return this->key$;
 }
 
-void clinit$RichDiagnosticFormatter$WhereClauseKind($Class* class$) {
+void RichDiagnosticFormatter$WhereClauseKind::clinit$($Class* clazz) {
 	$assignStatic(RichDiagnosticFormatter$WhereClauseKind::TYPEVAR, $new(RichDiagnosticFormatter$WhereClauseKind, "TYPEVAR"_s, 0, "where.description.typevar"_s));
 	$assignStatic(RichDiagnosticFormatter$WhereClauseKind::CAPTURED, $new(RichDiagnosticFormatter$WhereClauseKind, "CAPTURED"_s, 1, "where.description.captured"_s));
 	$assignStatic(RichDiagnosticFormatter$WhereClauseKind::INTERSECTION, $new(RichDiagnosticFormatter$WhereClauseKind, "INTERSECTION"_s, 2, "where.description.intersection"_s));
@@ -108,7 +64,44 @@ RichDiagnosticFormatter$WhereClauseKind::RichDiagnosticFormatter$WhereClauseKind
 }
 
 $Class* RichDiagnosticFormatter$WhereClauseKind::load$($String* name, bool initialize) {
-	$loadClass(RichDiagnosticFormatter$WhereClauseKind, name, initialize, &_RichDiagnosticFormatter$WhereClauseKind_ClassInfo_, clinit$RichDiagnosticFormatter$WhereClauseKind, allocate$RichDiagnosticFormatter$WhereClauseKind);
+	$FieldInfo fieldInfos$$[] = {
+		{"TYPEVAR", "Lcom/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RichDiagnosticFormatter$WhereClauseKind, TYPEVAR)},
+		{"CAPTURED", "Lcom/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RichDiagnosticFormatter$WhereClauseKind, CAPTURED)},
+		{"INTERSECTION", "Lcom/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RichDiagnosticFormatter$WhereClauseKind, INTERSECTION)},
+		{"$VALUES", "[Lcom/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(RichDiagnosticFormatter$WhereClauseKind, $VALUES)},
+		{"key", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(RichDiagnosticFormatter$WhereClauseKind, key$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RichDiagnosticFormatter$WhereClauseKind, $values, $RichDiagnosticFormatter$WhereClauseKindArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(RichDiagnosticFormatter$WhereClauseKind, init$, void, $String*, int32_t, $String*)},
+		{"key", "()Ljava/lang/String;", nullptr, 0, $method(RichDiagnosticFormatter$WhereClauseKind, key, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(RichDiagnosticFormatter$WhereClauseKind, valueOf, RichDiagnosticFormatter$WhereClauseKind*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(RichDiagnosticFormatter$WhereClauseKind, values, $RichDiagnosticFormatter$WhereClauseKindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.RichDiagnosticFormatter$WhereClauseKind", "com.sun.tools.javac.util.RichDiagnosticFormatter", "WhereClauseKind", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.util.RichDiagnosticFormatter$WhereClauseKind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.RichDiagnosticFormatter"
+	};
+	$loadClass(RichDiagnosticFormatter$WhereClauseKind, name, initialize, &classInfo$$, RichDiagnosticFormatter$WhereClauseKind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RichDiagnosticFormatter$WhereClauseKind));
+	});
 	return class$;
 }
 

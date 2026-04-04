@@ -1,5 +1,4 @@
 #include <HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream.h>
-
 #include <HttpInputStreamTest$HttpInputStreamHandler.h>
 #include <HttpInputStreamTest.h>
 #include <java/io/IOException.h>
@@ -25,7 +24,6 @@
 using $HttpInputStreamTest = ::HttpInputStreamTest;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -36,74 +34,11 @@ using $InterruptedException = ::java::lang::InterruptedException;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $ArrayBlockingQueue = ::java::util::concurrent::ArrayBlockingQueue;
-using $BlockingQueue = ::java::util::concurrent::BlockingQueue;
 using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $CompletionStage = ::java::util::concurrent::CompletionStage;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
-
-$FieldInfo _HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, $assertionsDisabled)},
-	{"LAST_BUFFER", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, LAST_BUFFER)},
-	{"LAST_LIST", "Ljava/util/List;", "Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, LAST_LIST)},
-	{"buffers", "Ljava/util/concurrent/BlockingQueue;", "Ljava/util/concurrent/BlockingQueue<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;", $PRIVATE | $FINAL, $field(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, buffers)},
-	{"subscription", "Ljava/util/concurrent/Flow$Subscription;", nullptr, $PRIVATE | $VOLATILE, $field(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, subscription)},
-	{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, closed)},
-	{"failed", "Ljava/lang/Throwable;", nullptr, $PRIVATE | $VOLATILE, $field(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, failed)},
-	{"currentListItr", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/nio/ByteBuffer;>;", $PRIVATE | $VOLATILE, $field(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, currentListItr)},
-	{"currentBuffer", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $VOLATILE, $field(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, currentBuffer)},
-	{}
-};
-
-$MethodInfo _HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, init$, void)},
-	{"<init>", "(I)V", nullptr, 0, $method(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, init$, void, int32_t)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, close, void), "java.io.IOException"},
-	{"current", "()Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, current, $ByteBuffer*), "java.io.IOException"},
-	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<Ljava/io/InputStream;>;", $PUBLIC, $virtualMethod(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, getBody, $CompletionStage*)},
-	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, onComplete, void)},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, onError, void, $Throwable*)},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, onNext, void, $List*)},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, onNext, void, Object$*)},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, onSubscribe, void, $Flow$Subscription*)},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, read, int32_t), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream_InnerClassesInfo_[] = {
-	{"HttpInputStreamTest$HttpInputStreamHandler", "HttpInputStreamTest", "HttpInputStreamHandler", $PUBLIC | $STATIC},
-	{"HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream", "HttpInputStreamTest$HttpInputStreamHandler", "HttpResponseInputStream", $PRIVATE | $STATIC},
-	{"java.net.http.HttpResponse$BodySubscriber", "java.net.http.HttpResponse", "BodySubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream",
-	"java.io.InputStream",
-	"java.net.http.HttpResponse$BodySubscriber",
-	_HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream_FieldInfo_,
-	_HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream_MethodInfo_,
-	"Ljava/io/InputStream;Ljava/net/http/HttpResponse$BodySubscriber<Ljava/io/InputStream;>;",
-	nullptr,
-	_HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"HttpInputStreamTest"
-};
-
-$Object* allocate$HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream($Class* clazz) {
-	return $of($alloc(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream));
-}
 
 int32_t HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream::hashCode() {
 	 return this->$InputStream::hashCode();
@@ -144,7 +79,7 @@ $CompletionStage* HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputSt
 }
 
 $ByteBuffer* HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream::current() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (this->currentBuffer == nullptr || !$nc(this->currentBuffer)->hasRemaining()) {
 		if (this->closed || this->failed != nullptr) {
 			$throwNew($IOException, "closed"_s, this->failed);
@@ -202,10 +137,10 @@ int32_t HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream::read
 		return -1;
 	}
 	int32_t read = $Math::min($nc(buffer)->remaining(), len);
-	if (!HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream::$assertionsDisabled && !(read > 0 && read <= $nc(buffer)->remaining())) {
+	if (!HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream::$assertionsDisabled && !(read > 0 && read <= buffer->remaining())) {
 		$throwNew($AssertionError);
 	}
-	$nc(buffer)->get(bytes, off, read);
+	buffer->get(bytes, off, read);
 	return read;
 }
 
@@ -214,11 +149,11 @@ int32_t HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream::read
 	if (($assign(buffer, current())) == HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream::LAST_BUFFER) {
 		return -1;
 	}
-	return (int32_t)($nc(buffer)->get() & (uint32_t)255);
+	return $nc(buffer)->get() & 0xff;
 }
 
 void HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream::onSubscribe($Flow$Subscription* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->subscription != nullptr) {
 		$nc(s)->cancel();
 		return;
@@ -284,18 +219,73 @@ void HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream::onNext(
 	this->onNext($cast($List, t));
 }
 
-void clinit$HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream($Class* class$) {
+void HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream::clinit$($Class* clazz) {
 	$load($HttpInputStreamTest);
 	HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream::$assertionsDisabled = !$HttpInputStreamTest::class$->desiredAssertionStatus();
 	$assignStatic(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream::LAST_BUFFER, $ByteBuffer::wrap($$new($bytes, 0)));
-	$assignStatic(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream::LAST_LIST, $List::of($of(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream::LAST_BUFFER)));
+	$assignStatic(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream::LAST_LIST, $List::of(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream::LAST_BUFFER));
 }
 
 HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream::HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream() {
 }
 
 $Class* HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream::load$($String* name, bool initialize) {
-	$loadClass(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, name, initialize, &_HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream_ClassInfo_, clinit$HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, allocate$HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, $assertionsDisabled)},
+		{"LAST_BUFFER", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, LAST_BUFFER)},
+		{"LAST_LIST", "Ljava/util/List;", "Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, LAST_LIST)},
+		{"buffers", "Ljava/util/concurrent/BlockingQueue;", "Ljava/util/concurrent/BlockingQueue<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;", $PRIVATE | $FINAL, $field(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, buffers)},
+		{"subscription", "Ljava/util/concurrent/Flow$Subscription;", nullptr, $PRIVATE | $VOLATILE, $field(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, subscription)},
+		{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, closed)},
+		{"failed", "Ljava/lang/Throwable;", nullptr, $PRIVATE | $VOLATILE, $field(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, failed)},
+		{"currentListItr", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/nio/ByteBuffer;>;", $PRIVATE | $VOLATILE, $field(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, currentListItr)},
+		{"currentBuffer", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $VOLATILE, $field(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, currentBuffer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, init$, void)},
+		{"<init>", "(I)V", nullptr, 0, $method(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, init$, void, int32_t)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, close, void), "java.io.IOException"},
+		{"current", "()Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, current, $ByteBuffer*), "java.io.IOException"},
+		{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<Ljava/io/InputStream;>;", $PUBLIC, $virtualMethod(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, getBody, $CompletionStage*)},
+		{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, onComplete, void)},
+		{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, onError, void, $Throwable*)},
+		{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, onNext, void, $List*)},
+		{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, onNext, void, Object$*)},
+		{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, onSubscribe, void, $Flow$Subscription*)},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, read, int32_t), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HttpInputStreamTest$HttpInputStreamHandler", "HttpInputStreamTest", "HttpInputStreamHandler", $PUBLIC | $STATIC},
+		{"HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream", "HttpInputStreamTest$HttpInputStreamHandler", "HttpResponseInputStream", $PRIVATE | $STATIC},
+		{"java.net.http.HttpResponse$BodySubscriber", "java.net.http.HttpResponse", "BodySubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream",
+		"java.io.InputStream",
+		"java.net.http.HttpResponse$BodySubscriber",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/io/InputStream;Ljava/net/http/HttpResponse$BodySubscriber<Ljava/io/InputStream;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"HttpInputStreamTest"
+	};
+	$loadClass(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream, name, initialize, &classInfo$$, HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream));
+	});
 	return class$;
 }
 

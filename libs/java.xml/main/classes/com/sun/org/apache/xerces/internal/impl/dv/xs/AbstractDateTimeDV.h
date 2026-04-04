@@ -67,6 +67,7 @@ class AbstractDateTimeDV : public ::com::sun::org::apache::xerces::internal::imp
 	$class(AbstractDateTimeDV, 0, ::com::sun::org::apache::xerces::internal::impl::dv::xs::TypeValidator)
 public:
 	AbstractDateTimeDV();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void append(::java::lang::StringBuffer* message, int32_t value, int32_t nch);
 	void append(::java::lang::StringBuffer* message, double value);

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/Select.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ClassGenException.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
@@ -14,9 +13,7 @@ using $InstructionHandleArray = $Array<::com::sun::org::apache::bcel::internal::
 using $BranchInstruction = ::com::sun::org::apache::bcel::internal::generic::BranchInstruction;
 using $ClassGenException = ::com::sun::org::apache::bcel::internal::generic::ClassGenException;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
-using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
-using $InstructionTargeter = ::com::sun::org::apache::bcel::internal::generic::InstructionTargeter;
 using $ByteSequence = ::com::sun::org::apache::bcel::internal::util::ByteSequence;
 using $DataOutputStream = ::java::io::DataOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -30,66 +27,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$FieldInfo _Select_FieldInfo_[] = {
-	{"match", "[I", nullptr, $PRIVATE, $field(Select, match)},
-	{"indices", "[I", nullptr, $PRIVATE, $field(Select, indices)},
-	{"targets", "[Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PRIVATE, $field(Select, targets)},
-	{"fixed_length", "I", nullptr, $PRIVATE, $field(Select, fixed_length)},
-	{"match_length", "I", nullptr, $PRIVATE, $field(Select, match_length)},
-	{"padding", "I", nullptr, $PRIVATE, $field(Select, padding)},
-	{}
-};
-
-$MethodInfo _Select_MethodInfo_[] = {
-	{"*consumeStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, 0, $method(Select, init$, void)},
-	{"<init>", "(S[I[Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, 0, $method(Select, init$, void, int16_t, $ints*, $InstructionHandleArray*, $InstructionHandle*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(Select, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"containsTarget", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Z", nullptr, $PUBLIC, $virtualMethod(Select, containsTarget, bool, $InstructionHandle*)},
-	{"dispose", "()V", nullptr, 0, $virtualMethod(Select, dispose, void)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Select, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getFixed_length", "()I", nullptr, $FINAL, $method(Select, getFixed_length, int32_t)},
-	{"getIndices", "()[I", nullptr, $PUBLIC, $virtualMethod(Select, getIndices, $ints*)},
-	{"getIndices", "(I)I", nullptr, $FINAL, $method(Select, getIndices, int32_t, int32_t)},
-	{"getMatch", "(I)I", nullptr, $FINAL, $method(Select, getMatch, int32_t, int32_t)},
-	{"getMatch_length", "()I", nullptr, $FINAL, $method(Select, getMatch_length, int32_t)},
-	{"getMatchs", "()[I", nullptr, $PUBLIC, $virtualMethod(Select, getMatchs, $ints*)},
-	{"getPadding", "()I", nullptr, $FINAL, $method(Select, getPadding, int32_t)},
-	{"getTarget", "(I)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $FINAL, $method(Select, getTarget, $InstructionHandle*, int32_t)},
-	{"getTargets", "()[Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(Select, getTargets, $InstructionHandleArray*)},
-	{"initFromFile", "(Lcom/sun/org/apache/bcel/internal/util/ByteSequence;Z)V", nullptr, $PROTECTED, $virtualMethod(Select, initFromFile, void, $ByteSequence*, bool), "java.io.IOException"},
-	{"*produceStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
-	{"setFixed_length", "(I)V", nullptr, $FINAL, $method(Select, setFixed_length, void, int32_t)},
-	{"setIndices", "([I)V", nullptr, $FINAL, $method(Select, setIndices, void, $ints*)},
-	{"setIndices", "(II)I", nullptr, $FINAL, $method(Select, setIndices, int32_t, int32_t, int32_t)},
-	{"setMatch", "(II)V", nullptr, $FINAL, $method(Select, setMatch, void, int32_t, int32_t)},
-	{"setMatch_length", "(I)I", nullptr, $FINAL, $method(Select, setMatch_length, int32_t, int32_t)},
-	{"setMatches", "([I)V", nullptr, $FINAL, $method(Select, setMatches, void, $ints*)},
-	{"setTarget", "(ILcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $virtualMethod(Select, setTarget, void, int32_t, $InstructionHandle*)},
-	{"setTargets", "([Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $FINAL, $method(Select, setTargets, void, $InstructionHandleArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Select, toString, $String*, bool)},
-	{"updatePosition", "(II)I", nullptr, $PROTECTED, $virtualMethod(Select, updatePosition, int32_t, int32_t, int32_t)},
-	{"updateTarget", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $virtualMethod(Select, updateTarget, void, $InstructionHandle*, $InstructionHandle*)},
-	{}
-};
-
-$ClassInfo _Select_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.generic.Select",
-	"com.sun.org.apache.bcel.internal.generic.BranchInstruction",
-	"com.sun.org.apache.bcel.internal.generic.VariableLengthInstruction,com.sun.org.apache.bcel.internal.generic.StackConsumer,com.sun.org.apache.bcel.internal.generic.StackProducer",
-	_Select_FieldInfo_,
-	_Select_MethodInfo_
-};
-
-$Object* allocate$Select($Class* clazz) {
-	return $of($alloc(Select));
-}
 
 $String* Select::toString() {
 	 return this->$BranchInstruction::toString();
@@ -121,7 +58,7 @@ void Select::init$() {
 }
 
 void Select::init$(int16_t opcode, $ints* match, $InstructionHandleArray* targets, $InstructionHandle* defaultTarget) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BranchInstruction::init$(opcode, nullptr);
 	this->padding = 0;
 	$set(this, match, match);
@@ -129,9 +66,7 @@ void Select::init$(int16_t opcode, $ints* match, $InstructionHandleArray* target
 	setTarget(defaultTarget);
 	{
 		$var($InstructionHandleArray, arr$, targets);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($InstructionHandle, target2, arr$->get(i$));
 			{
 				notifyTarget(nullptr, target2, this);
@@ -170,13 +105,13 @@ void Select::initFromFile($ByteSequence* bytes, bool wide) {
 }
 
 $String* Select::toString(bool verbose) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder, $($BranchInstruction::toString(verbose))));
 	if (verbose) {
 		for (int32_t i = 0; i < this->match_length; ++i) {
 			$var($String, s, "null"_s);
 			if ($nc(this->targets)->get(i) != nullptr) {
-				$assign(s, $nc($($nc($nc(this->targets)->get(i))->getInstruction()))->toString());
+				$assign(s, $$nc($nc(this->targets->get(i))->getInstruction())->toString());
 			}
 			buf->append("("_s)->append($nc(this->match)->get(i))->append(", "_s)->append(s)->append(" = {"_s)->append($nc(this->indices)->get(i))->append("})"_s);
 		}
@@ -198,7 +133,7 @@ void Select::updateTarget($InstructionHandle* old_ih, $InstructionHandle* new_ih
 		setTarget(new_ih);
 	}
 	for (int32_t i = 0; i < $nc(this->targets)->length; ++i) {
-		if ($nc(this->targets)->get(i) == old_ih) {
+		if (this->targets->get(i) == old_ih) {
 			targeted = true;
 			setTarget(i, new_ih);
 		}
@@ -209,20 +144,16 @@ void Select::updateTarget($InstructionHandle* old_ih, $InstructionHandle* new_ih
 }
 
 bool Select::containsTarget($InstructionHandle* ih) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($BranchInstruction::getTarget() == ih) {
 		return true;
 	}
 	{
 		$var($InstructionHandleArray, arr$, this->targets);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($InstructionHandle, target2, arr$->get(i$));
-			{
-				if (target2 == ih) {
-					return true;
-				}
+			if (target2 == ih) {
+				return true;
 			}
 		}
 	}
@@ -238,13 +169,11 @@ $Object* Select::clone() {
 }
 
 void Select::dispose() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BranchInstruction::dispose();
 	{
 		$var($InstructionHandleArray, arr$, this->targets);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($InstructionHandle, target2, arr$->get(i$));
 			{
 				$nc(target2)->removeTargeter(this);
@@ -323,7 +252,62 @@ Select::Select() {
 }
 
 $Class* Select::load$($String* name, bool initialize) {
-	$loadClass(Select, name, initialize, &_Select_ClassInfo_, allocate$Select);
+	$FieldInfo fieldInfos$$[] = {
+		{"match", "[I", nullptr, $PRIVATE, $field(Select, match)},
+		{"indices", "[I", nullptr, $PRIVATE, $field(Select, indices)},
+		{"targets", "[Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PRIVATE, $field(Select, targets)},
+		{"fixed_length", "I", nullptr, $PRIVATE, $field(Select, fixed_length)},
+		{"match_length", "I", nullptr, $PRIVATE, $field(Select, match_length)},
+		{"padding", "I", nullptr, $PRIVATE, $field(Select, padding)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*consumeStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, 0, $method(Select, init$, void)},
+		{"<init>", "(S[I[Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, 0, $method(Select, init$, void, int16_t, $ints*, $InstructionHandleArray*, $InstructionHandle*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(Select, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"containsTarget", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Z", nullptr, $PUBLIC, $virtualMethod(Select, containsTarget, bool, $InstructionHandle*)},
+		{"dispose", "()V", nullptr, 0, $virtualMethod(Select, dispose, void)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Select, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getFixed_length", "()I", nullptr, $FINAL, $method(Select, getFixed_length, int32_t)},
+		{"getIndices", "()[I", nullptr, $PUBLIC, $virtualMethod(Select, getIndices, $ints*)},
+		{"getIndices", "(I)I", nullptr, $FINAL, $method(Select, getIndices, int32_t, int32_t)},
+		{"getMatch", "(I)I", nullptr, $FINAL, $method(Select, getMatch, int32_t, int32_t)},
+		{"getMatch_length", "()I", nullptr, $FINAL, $method(Select, getMatch_length, int32_t)},
+		{"getMatchs", "()[I", nullptr, $PUBLIC, $virtualMethod(Select, getMatchs, $ints*)},
+		{"getPadding", "()I", nullptr, $FINAL, $method(Select, getPadding, int32_t)},
+		{"getTarget", "(I)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $FINAL, $method(Select, getTarget, $InstructionHandle*, int32_t)},
+		{"getTargets", "()[Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(Select, getTargets, $InstructionHandleArray*)},
+		{"initFromFile", "(Lcom/sun/org/apache/bcel/internal/util/ByteSequence;Z)V", nullptr, $PROTECTED, $virtualMethod(Select, initFromFile, void, $ByteSequence*, bool), "java.io.IOException"},
+		{"*produceStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
+		{"setFixed_length", "(I)V", nullptr, $FINAL, $method(Select, setFixed_length, void, int32_t)},
+		{"setIndices", "([I)V", nullptr, $FINAL, $method(Select, setIndices, void, $ints*)},
+		{"setIndices", "(II)I", nullptr, $FINAL, $method(Select, setIndices, int32_t, int32_t, int32_t)},
+		{"setMatch", "(II)V", nullptr, $FINAL, $method(Select, setMatch, void, int32_t, int32_t)},
+		{"setMatch_length", "(I)I", nullptr, $FINAL, $method(Select, setMatch_length, int32_t, int32_t)},
+		{"setMatches", "([I)V", nullptr, $FINAL, $method(Select, setMatches, void, $ints*)},
+		{"setTarget", "(ILcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $virtualMethod(Select, setTarget, void, int32_t, $InstructionHandle*)},
+		{"setTargets", "([Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $FINAL, $method(Select, setTargets, void, $InstructionHandleArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Select, toString, $String*, bool)},
+		{"updatePosition", "(II)I", nullptr, $PROTECTED, $virtualMethod(Select, updatePosition, int32_t, int32_t, int32_t)},
+		{"updateTarget", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $virtualMethod(Select, updateTarget, void, $InstructionHandle*, $InstructionHandle*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.generic.Select",
+		"com.sun.org.apache.bcel.internal.generic.BranchInstruction",
+		"com.sun.org.apache.bcel.internal.generic.VariableLengthInstruction,com.sun.org.apache.bcel.internal.generic.StackConsumer,com.sun.org.apache.bcel.internal.generic.StackProducer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Select, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Select));
+	});
 	return class$;
 }
 

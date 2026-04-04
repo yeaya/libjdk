@@ -43,6 +43,7 @@ class XRPaints : public ::java::lang::Object {
 	$class(XRPaints, 0, ::java::lang::Object)
 public:
 	XRPaints();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int32_t colorToIntArgbPixel(::java::awt::Color* c);
 	virtual $ints* convertToIntArgbPixels($Array<::java::awt::Color>* colors);

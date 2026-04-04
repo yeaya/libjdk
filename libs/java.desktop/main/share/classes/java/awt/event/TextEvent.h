@@ -25,7 +25,7 @@ public:
 	static const int32_t TEXT_FIRST = 900;
 	static const int32_t TEXT_LAST = 900;
 	static const int32_t TEXT_VALUE_CHANGED = TEXT_FIRST;
-	static const int64_t serialVersionUID = (int64_t)0x57032AEA1E6B8CFB;
+	static const int64_t serialVersionUID = (int64_t)0x57032aea1e6b8cfb;
 };
 
 		} // event

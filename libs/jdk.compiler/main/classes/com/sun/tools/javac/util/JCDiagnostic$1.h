@@ -15,6 +15,7 @@ class JCDiagnostic$1 : public ::java::lang::Object {
 	$class(JCDiagnostic$1, 0, ::java::lang::Object)
 public:
 	JCDiagnostic$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$util$JCDiagnostic$DiagnosticFlag;
 	static $ints* $SwitchMap$com$sun$tools$javac$util$JCDiagnostic$DiagnosticType;
 };

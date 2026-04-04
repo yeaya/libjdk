@@ -1,5 +1,4 @@
 #include <sun/java2d/metal/MTLSwToSurfaceTransform.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <sun/java2d/SurfaceData.h>
@@ -28,30 +27,6 @@ namespace sun {
 	namespace java2d {
 		namespace metal {
 
-$FieldInfo _MTLSwToSurfaceTransform_FieldInfo_[] = {
-	{"typeval", "I", nullptr, $PRIVATE, $field(MTLSwToSurfaceTransform, typeval)},
-	{}
-};
-
-$MethodInfo _MTLSwToSurfaceTransform_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;I)V", nullptr, 0, $method(MTLSwToSurfaceTransform, init$, void, $SurfaceType*, int32_t)},
-	{"Transform", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIII)V", nullptr, $PUBLIC, $virtualMethod(MTLSwToSurfaceTransform, Transform, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _MTLSwToSurfaceTransform_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.metal.MTLSwToSurfaceTransform",
-	"sun.java2d.loops.TransformBlit",
-	nullptr,
-	_MTLSwToSurfaceTransform_FieldInfo_,
-	_MTLSwToSurfaceTransform_MethodInfo_
-};
-
-$Object* allocate$MTLSwToSurfaceTransform($Class* clazz) {
-	return $of($alloc(MTLSwToSurfaceTransform));
-}
-
 void MTLSwToSurfaceTransform::init$($SurfaceType* srcType, int32_t typeval) {
 	$init($CompositeType);
 	$init($MTLSurfaceData);
@@ -67,7 +42,26 @@ MTLSwToSurfaceTransform::MTLSwToSurfaceTransform() {
 }
 
 $Class* MTLSwToSurfaceTransform::load$($String* name, bool initialize) {
-	$loadClass(MTLSwToSurfaceTransform, name, initialize, &_MTLSwToSurfaceTransform_ClassInfo_, allocate$MTLSwToSurfaceTransform);
+	$FieldInfo fieldInfos$$[] = {
+		{"typeval", "I", nullptr, $PRIVATE, $field(MTLSwToSurfaceTransform, typeval)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;I)V", nullptr, 0, $method(MTLSwToSurfaceTransform, init$, void, $SurfaceType*, int32_t)},
+		{"Transform", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIII)V", nullptr, $PUBLIC, $virtualMethod(MTLSwToSurfaceTransform, Transform, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.metal.MTLSwToSurfaceTransform",
+		"sun.java2d.loops.TransformBlit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MTLSwToSurfaceTransform, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MTLSwToSurfaceTransform);
+	});
 	return class$;
 }
 

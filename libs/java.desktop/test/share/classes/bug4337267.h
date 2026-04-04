@@ -23,6 +23,7 @@ class $export bug4337267 : public ::java::lang::Object {
 	$class(bug4337267, 0, ::java::lang::Object)
 public:
 	bug4337267();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void assertEquals(Object$* o1, Object$* o2);
 	virtual ::java::awt::Component* createContentPane();

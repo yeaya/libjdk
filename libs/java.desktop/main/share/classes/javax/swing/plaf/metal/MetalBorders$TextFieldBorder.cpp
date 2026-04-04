@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalBorders$TextFieldBorder.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <javax/swing/plaf/metal/MetalBorders$Flush3DBorder.h>
@@ -22,38 +21,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$MethodInfo _MetalBorders$TextFieldBorder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalBorders$TextFieldBorder, init$, void)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MetalBorders$TextFieldBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _MetalBorders$TextFieldBorder_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalBorders$TextFieldBorder", "javax.swing.plaf.metal.MetalBorders", "TextFieldBorder", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.metal.MetalBorders$Flush3DBorder", "javax.swing.plaf.metal.MetalBorders", "Flush3DBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalBorders$TextFieldBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalBorders$TextFieldBorder",
-	"javax.swing.plaf.metal.MetalBorders$Flush3DBorder",
-	nullptr,
-	nullptr,
-	_MetalBorders$TextFieldBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalBorders$TextFieldBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalBorders"
-};
-
-$Object* allocate$MetalBorders$TextFieldBorder($Class* clazz) {
-	return $of($alloc(MetalBorders$TextFieldBorder));
-}
-
 void MetalBorders$TextFieldBorder::init$() {
 	$MetalBorders$Flush3DBorder::init$();
 }
@@ -68,7 +35,7 @@ void MetalBorders$TextFieldBorder::paintBorder($Component* c, $Graphics* g, int3
 		return;
 	}
 	bool var$0 = $nc(c)->isEnabled();
-	if (var$0 && $nc(($cast($JTextComponent, c)))->isEditable()) {
+	if (var$0 && $cast($JTextComponent, c)->isEditable()) {
 		$MetalUtils::drawFlush3DBorder(g, x, y, w, h);
 	} else {
 		$MetalUtils::drawDisabledBorder(g, x, y, w, h);
@@ -79,7 +46,34 @@ MetalBorders$TextFieldBorder::MetalBorders$TextFieldBorder() {
 }
 
 $Class* MetalBorders$TextFieldBorder::load$($String* name, bool initialize) {
-	$loadClass(MetalBorders$TextFieldBorder, name, initialize, &_MetalBorders$TextFieldBorder_ClassInfo_, allocate$MetalBorders$TextFieldBorder);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalBorders$TextFieldBorder, init$, void)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MetalBorders$TextFieldBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalBorders$TextFieldBorder", "javax.swing.plaf.metal.MetalBorders", "TextFieldBorder", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.metal.MetalBorders$Flush3DBorder", "javax.swing.plaf.metal.MetalBorders", "Flush3DBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalBorders$TextFieldBorder",
+		"javax.swing.plaf.metal.MetalBorders$Flush3DBorder",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalBorders"
+	};
+	$loadClass(MetalBorders$TextFieldBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalBorders$TextFieldBorder));
+	});
 	return class$;
 }
 

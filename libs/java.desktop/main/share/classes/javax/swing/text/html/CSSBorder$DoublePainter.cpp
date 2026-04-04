@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/CSSBorder$DoublePainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Polygon.h>
@@ -29,44 +28,12 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$MethodInfo _CSSBorder$DoublePainter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CSSBorder$DoublePainter, init$, void)},
-	{"paint", "(Ljava/awt/Polygon;Ljava/awt/Graphics;Ljava/awt/Color;I)V", nullptr, $PUBLIC, $virtualMethod(CSSBorder$DoublePainter, paint, void, $Polygon*, $Graphics*, $Color*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CSSBorder$DoublePainter_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.CSSBorder$DoublePainter", "javax.swing.text.html.CSSBorder", "DoublePainter", $STATIC},
-	{"javax.swing.text.html.CSSBorder$StrokePainter", "javax.swing.text.html.CSSBorder", "StrokePainter", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CSSBorder$DoublePainter_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.CSSBorder$DoublePainter",
-	"javax.swing.text.html.CSSBorder$StrokePainter",
-	nullptr,
-	nullptr,
-	_CSSBorder$DoublePainter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CSSBorder$DoublePainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.CSSBorder"
-};
-
-$Object* allocate$CSSBorder$DoublePainter($Class* clazz) {
-	return $of($alloc(CSSBorder$DoublePainter));
-}
-
 void CSSBorder$DoublePainter::init$() {
 	$CSSBorder$StrokePainter::init$();
 }
 
 void CSSBorder$DoublePainter::paint($Polygon* shape, $Graphics* g, $Color* color, int32_t side) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, r, $nc(shape)->getBounds());
 	int32_t length = $Math::max($nc(r)->height / 3, 1);
 	$var($ints, lengthPattern, $new($ints, {
@@ -75,7 +42,7 @@ void CSSBorder$DoublePainter::paint($Polygon* shape, $Graphics* g, $Color* color
 	}));
 	$var($ColorArray, colorPattern, $new($ColorArray, {
 		color,
-		($Color*)nullptr
+		nullptr
 	}));
 	paintStrokes(r, g, $View::Y_AXIS, lengthPattern, colorPattern);
 }
@@ -84,7 +51,34 @@ CSSBorder$DoublePainter::CSSBorder$DoublePainter() {
 }
 
 $Class* CSSBorder$DoublePainter::load$($String* name, bool initialize) {
-	$loadClass(CSSBorder$DoublePainter, name, initialize, &_CSSBorder$DoublePainter_ClassInfo_, allocate$CSSBorder$DoublePainter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CSSBorder$DoublePainter, init$, void)},
+		{"paint", "(Ljava/awt/Polygon;Ljava/awt/Graphics;Ljava/awt/Color;I)V", nullptr, $PUBLIC, $virtualMethod(CSSBorder$DoublePainter, paint, void, $Polygon*, $Graphics*, $Color*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.CSSBorder$DoublePainter", "javax.swing.text.html.CSSBorder", "DoublePainter", $STATIC},
+		{"javax.swing.text.html.CSSBorder$StrokePainter", "javax.swing.text.html.CSSBorder", "StrokePainter", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.CSSBorder$DoublePainter",
+		"javax.swing.text.html.CSSBorder$StrokePainter",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.CSSBorder"
+	};
+	$loadClass(CSSBorder$DoublePainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CSSBorder$DoublePainter);
+	});
 	return class$;
 }
 

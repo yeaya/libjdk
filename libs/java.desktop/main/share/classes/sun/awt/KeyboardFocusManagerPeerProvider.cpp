@@ -1,5 +1,4 @@
 #include <sun/awt/KeyboardFocusManagerPeerProvider.h>
-
 #include <java/awt/peer/KeyboardFocusManagerPeer.h>
 #include <jcpp.h>
 
@@ -10,26 +9,22 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace awt {
 
-$MethodInfo _KeyboardFocusManagerPeerProvider_MethodInfo_[] = {
-	{"getKeyboardFocusManagerPeer", "()Ljava/awt/peer/KeyboardFocusManagerPeer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyboardFocusManagerPeerProvider, getKeyboardFocusManagerPeer, $KeyboardFocusManagerPeer*)},
-	{}
-};
-
-$ClassInfo _KeyboardFocusManagerPeerProvider_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.awt.KeyboardFocusManagerPeerProvider",
-	nullptr,
-	nullptr,
-	nullptr,
-	_KeyboardFocusManagerPeerProvider_MethodInfo_
-};
-
-$Object* allocate$KeyboardFocusManagerPeerProvider($Class* clazz) {
-	return $of($alloc(KeyboardFocusManagerPeerProvider));
-}
-
 $Class* KeyboardFocusManagerPeerProvider::load$($String* name, bool initialize) {
-	$loadClass(KeyboardFocusManagerPeerProvider, name, initialize, &_KeyboardFocusManagerPeerProvider_ClassInfo_, allocate$KeyboardFocusManagerPeerProvider);
+	$MethodInfo methodInfos$$[] = {
+		{"getKeyboardFocusManagerPeer", "()Ljava/awt/peer/KeyboardFocusManagerPeer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyboardFocusManagerPeerProvider, getKeyboardFocusManagerPeer, $KeyboardFocusManagerPeer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.awt.KeyboardFocusManagerPeerProvider",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(KeyboardFocusManagerPeerProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyboardFocusManagerPeerProvider);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/DayDV.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/InvalidDatatypeValueException.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData.h>
@@ -27,7 +26,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $DatatypeConstants = ::javax::xml::datatype::DatatypeConstants;
-using $DatatypeFactory = ::javax::xml::datatype::DatatypeFactory;
 using $XMLGregorianCalendar = ::javax::xml::datatype::XMLGregorianCalendar;
 
 namespace com {
@@ -40,44 +38,17 @@ namespace com {
 							namespace dv {
 								namespace xs {
 
-$FieldInfo _DayDV_FieldInfo_[] = {
-	{"DAY_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DayDV, DAY_SIZE)},
-	{}
-};
-
-$MethodInfo _DayDV_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DayDV, init$, void)},
-	{"dateToString", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(DayDV, dateToString, $String*, $AbstractDateTimeDV$DateTimeData*)},
-	{"getActualValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DayDV, getActualValue, $Object*, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"getXMLGregorianCalendar", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PROTECTED, $virtualMethod(DayDV, getXMLGregorianCalendar, $XMLGregorianCalendar*, $AbstractDateTimeDV$DateTimeData*)},
-	{"parse", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;", nullptr, $PROTECTED, $virtualMethod(DayDV, parse, $AbstractDateTimeDV$DateTimeData*, $String*), "com.sun.org.apache.xerces.internal.impl.dv.xs.SchemaDateTimeException"},
-	{}
-};
-
-$ClassInfo _DayDV_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.DayDV",
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.AbstractDateTimeDV",
-	nullptr,
-	_DayDV_FieldInfo_,
-	_DayDV_MethodInfo_
-};
-
-$Object* allocate$DayDV($Class* clazz) {
-	return $of($alloc(DayDV));
-}
-
 void DayDV::init$() {
 	$AbstractDateTimeDV::init$();
 }
 
 $Object* DayDV::getActualValue($String* content, $ValidationContext* context) {
 	try {
-		return $of(parse(content));
+		return parse(content);
 	} catch ($Exception& ex) {
 		$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.1"_s, $$new($ObjectArray, {
-			$of(content),
-			$of("gDay"_s)
+			content,
+			"gDay"_s
 		}));
 	}
 	$shouldNotReachHere();
@@ -116,20 +87,42 @@ $String* DayDV::dateToString($AbstractDateTimeDV$DateTimeData* date) {
 	message->append(u'-');
 	message->append(u'-');
 	append(message, $nc(date)->day, 2);
-	append(message, (char16_t)$nc(date)->utc, 0);
+	append(message, (char16_t)date->utc, 0);
 	return message->toString();
 }
 
 $XMLGregorianCalendar* DayDV::getXMLGregorianCalendar($AbstractDateTimeDV$DateTimeData* date) {
 	$init($AbstractDateTimeDV);
-	return $nc($AbstractDateTimeDV::datatypeFactory)->newXMLGregorianCalendar($DatatypeConstants::FIELD_UNDEFINED, $DatatypeConstants::FIELD_UNDEFINED, $nc(date)->unNormDay, $DatatypeConstants::FIELD_UNDEFINED, $DatatypeConstants::FIELD_UNDEFINED, $DatatypeConstants::FIELD_UNDEFINED, $DatatypeConstants::FIELD_UNDEFINED, date->hasTimeZone() ? date->timezoneHr * 60 + date->timezoneMin : $DatatypeConstants::FIELD_UNDEFINED);
+	return $nc($AbstractDateTimeDV::datatypeFactory)->newXMLGregorianCalendar($DatatypeConstants::FIELD_UNDEFINED, $DatatypeConstants::FIELD_UNDEFINED, $nc(date)->unNormDay, $DatatypeConstants::FIELD_UNDEFINED, $DatatypeConstants::FIELD_UNDEFINED, $DatatypeConstants::FIELD_UNDEFINED, $DatatypeConstants::FIELD_UNDEFINED, $nc(date)->hasTimeZone() ? date->timezoneHr * 60 + date->timezoneMin : $DatatypeConstants::FIELD_UNDEFINED);
 }
 
 DayDV::DayDV() {
 }
 
 $Class* DayDV::load$($String* name, bool initialize) {
-	$loadClass(DayDV, name, initialize, &_DayDV_ClassInfo_, allocate$DayDV);
+	$FieldInfo fieldInfos$$[] = {
+		{"DAY_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DayDV, DAY_SIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DayDV, init$, void)},
+		{"dateToString", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(DayDV, dateToString, $String*, $AbstractDateTimeDV$DateTimeData*)},
+		{"getActualValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DayDV, getActualValue, $Object*, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"getXMLGregorianCalendar", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PROTECTED, $virtualMethod(DayDV, getXMLGregorianCalendar, $XMLGregorianCalendar*, $AbstractDateTimeDV$DateTimeData*)},
+		{"parse", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;", nullptr, $PROTECTED, $virtualMethod(DayDV, parse, $AbstractDateTimeDV$DateTimeData*, $String*), "com.sun.org.apache.xerces.internal.impl.dv.xs.SchemaDateTimeException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.DayDV",
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.AbstractDateTimeDV",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DayDV, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DayDV);
+	});
 	return class$;
 }
 

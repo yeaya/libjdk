@@ -62,6 +62,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::font::TextSource* source, ::sun::font::Decoration* decorator);
 	void init$(::sun::font::TextSource* source, ::sun::font::ExtendedTextSourceLabel* oldLabel, int32_t offset);
 	virtual ::sun::font::TextLineComponent* applyJustificationDeltas($floats* deltas, int32_t deltaStart, $booleans* flags) override;

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/MissingInfoHandler.h>
-
 #include <com/sun/source/util/ParameterNameProvider.h>
 #include <com/sun/tools/javac/code/Symbol$ParamSymbol.h>
 #include <com/sun/tools/javac/util/Context$Key.h>
@@ -20,41 +19,12 @@ using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $VariableElement = ::javax::lang::model::element::VariableElement;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _MissingInfoHandler_FieldInfo_[] = {
-	{"missingInfoHandlerWrapperKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/code/MissingInfoHandler;>;", $PROTECTED | $STATIC | $FINAL, $staticField(MissingInfoHandler, missingInfoHandlerWrapperKey)},
-	{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PRIVATE | $FINAL, $field(MissingInfoHandler, names)},
-	{"parameterNameProvider", "Lcom/sun/source/util/ParameterNameProvider;", nullptr, $PRIVATE, $field(MissingInfoHandler, parameterNameProvider)},
-	{}
-};
-
-$MethodInfo _MissingInfoHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(MissingInfoHandler, init$, void, $Context*)},
-	{"getParameterName", "(Lcom/sun/tools/javac/code/Symbol$ParamSymbol;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(MissingInfoHandler, getParameterName, $Name*, $Symbol$ParamSymbol*)},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/code/MissingInfoHandler;", nullptr, $PUBLIC | $STATIC, $staticMethod(MissingInfoHandler, instance, MissingInfoHandler*, $Context*)},
-	{"setDelegate", "(Lcom/sun/source/util/ParameterNameProvider;)V", nullptr, $PUBLIC, $virtualMethod(MissingInfoHandler, setDelegate, void, $ParameterNameProvider*)},
-	{}
-};
-
-$ClassInfo _MissingInfoHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.MissingInfoHandler",
-	"java.lang.Object",
-	nullptr,
-	_MissingInfoHandler_FieldInfo_,
-	_MissingInfoHandler_MethodInfo_
-};
-
-$Object* allocate$MissingInfoHandler($Class* clazz) {
-	return $of($alloc(MissingInfoHandler));
-}
 
 $Context$Key* MissingInfoHandler::missingInfoHandlerWrapperKey = nullptr;
 
@@ -68,14 +38,14 @@ MissingInfoHandler* MissingInfoHandler::instance($Context* context) {
 }
 
 void MissingInfoHandler::init$($Context* context) {
-	$nc(context)->put(MissingInfoHandler::missingInfoHandlerWrapperKey, $of(this));
+	$nc(context)->put(MissingInfoHandler::missingInfoHandlerWrapperKey, this);
 	$set(this, names, $Names::instance(context));
 }
 
 $Name* MissingInfoHandler::getParameterName($Symbol$ParamSymbol* parameter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->parameterNameProvider != nullptr) {
-		$var($CharSequence, name, $nc(this->parameterNameProvider)->getParameterName(parameter));
+		$var($CharSequence, name, this->parameterNameProvider->getParameterName(parameter));
 		if (name != nullptr) {
 			return $nc(this->names)->fromString($(name->toString()));
 		}
@@ -87,7 +57,7 @@ void MissingInfoHandler::setDelegate($ParameterNameProvider* delegate) {
 	$set(this, parameterNameProvider, delegate);
 }
 
-void clinit$MissingInfoHandler($Class* class$) {
+void MissingInfoHandler::clinit$($Class* clazz) {
 	$assignStatic(MissingInfoHandler::missingInfoHandlerWrapperKey, $new($Context$Key));
 }
 
@@ -95,7 +65,30 @@ MissingInfoHandler::MissingInfoHandler() {
 }
 
 $Class* MissingInfoHandler::load$($String* name, bool initialize) {
-	$loadClass(MissingInfoHandler, name, initialize, &_MissingInfoHandler_ClassInfo_, clinit$MissingInfoHandler, allocate$MissingInfoHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"missingInfoHandlerWrapperKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/code/MissingInfoHandler;>;", $PROTECTED | $STATIC | $FINAL, $staticField(MissingInfoHandler, missingInfoHandlerWrapperKey)},
+		{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PRIVATE | $FINAL, $field(MissingInfoHandler, names)},
+		{"parameterNameProvider", "Lcom/sun/source/util/ParameterNameProvider;", nullptr, $PRIVATE, $field(MissingInfoHandler, parameterNameProvider)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(MissingInfoHandler, init$, void, $Context*)},
+		{"getParameterName", "(Lcom/sun/tools/javac/code/Symbol$ParamSymbol;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(MissingInfoHandler, getParameterName, $Name*, $Symbol$ParamSymbol*)},
+		{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/code/MissingInfoHandler;", nullptr, $PUBLIC | $STATIC, $staticMethod(MissingInfoHandler, instance, MissingInfoHandler*, $Context*)},
+		{"setDelegate", "(Lcom/sun/source/util/ParameterNameProvider;)V", nullptr, $PUBLIC, $virtualMethod(MissingInfoHandler, setDelegate, void, $ParameterNameProvider*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.MissingInfoHandler",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MissingInfoHandler, name, initialize, &classInfo$$, MissingInfoHandler::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MissingInfoHandler);
+	});
 	return class$;
 }
 

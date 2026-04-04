@@ -1,5 +1,4 @@
 #include <java/awt/geom/NoninvertibleTransformException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,29 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 		namespace geom {
-
-$FieldInfo _NoninvertibleTransformException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NoninvertibleTransformException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NoninvertibleTransformException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoninvertibleTransformException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _NoninvertibleTransformException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.geom.NoninvertibleTransformException",
-	"java.lang.Exception",
-	nullptr,
-	_NoninvertibleTransformException_FieldInfo_,
-	_NoninvertibleTransformException_MethodInfo_
-};
-
-$Object* allocate$NoninvertibleTransformException($Class* clazz) {
-	return $of($alloc(NoninvertibleTransformException));
-}
 
 void NoninvertibleTransformException::init$($String* s) {
 	$Exception::init$(s);
@@ -49,7 +25,25 @@ void NoninvertibleTransformException::throw$() {
 }
 
 $Class* NoninvertibleTransformException::load$($String* name, bool initialize) {
-	$loadClass(NoninvertibleTransformException, name, initialize, &_NoninvertibleTransformException_ClassInfo_, allocate$NoninvertibleTransformException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NoninvertibleTransformException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoninvertibleTransformException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.geom.NoninvertibleTransformException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NoninvertibleTransformException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NoninvertibleTransformException);
+	});
 	return class$;
 }
 

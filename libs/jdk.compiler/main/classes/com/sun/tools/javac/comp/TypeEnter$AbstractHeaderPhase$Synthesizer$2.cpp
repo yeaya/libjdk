@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/TypeEnter$AbstractHeaderPhase$Synthesizer$2.h>
-
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type$ClassType.h>
 #include <com/sun/tools/javac/code/Type$ErrorType.h>
@@ -25,52 +24,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _TypeEnter$AbstractHeaderPhase$Synthesizer$2_FieldInfo_[] = {
-	{"this$2", "Lcom/sun/tools/javac/comp/TypeEnter$AbstractHeaderPhase$Synthesizer;", nullptr, $FINAL | $SYNTHETIC, $field(TypeEnter$AbstractHeaderPhase$Synthesizer$2, this$2)},
-	{}
-};
-
-$MethodInfo _TypeEnter$AbstractHeaderPhase$Synthesizer$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter$AbstractHeaderPhase$Synthesizer;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, 0, $method(TypeEnter$AbstractHeaderPhase$Synthesizer$2, init$, void, $TypeEnter$AbstractHeaderPhase$Synthesizer*, $Type*, $Symbol$TypeSymbol*)},
-	{"getTypeArguments", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(TypeEnter$AbstractHeaderPhase$Synthesizer$2, getTypeArguments, $List*)},
-	{}
-};
-
-$EnclosingMethodInfo _TypeEnter$AbstractHeaderPhase$Synthesizer$2_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.TypeEnter$AbstractHeaderPhase$Synthesizer",
-	"synthesizeClass",
-	"(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;"
-};
-
-$InnerClassInfo _TypeEnter$AbstractHeaderPhase$Synthesizer$2_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.TypeEnter$AbstractHeaderPhase", "com.sun.tools.javac.comp.TypeEnter", "AbstractHeaderPhase", $PRIVATE | $ABSTRACT},
-	{"com.sun.tools.javac.comp.TypeEnter$AbstractHeaderPhase$Synthesizer", "com.sun.tools.javac.comp.TypeEnter$AbstractHeaderPhase", "Synthesizer", $PRIVATE},
-	{"com.sun.tools.javac.comp.TypeEnter$AbstractHeaderPhase$Synthesizer$2", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Type$ErrorType", "com.sun.tools.javac.code.Type", "ErrorType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Symbol$ClassSymbol", "com.sun.tools.javac.code.Symbol", "ClassSymbol", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _TypeEnter$AbstractHeaderPhase$Synthesizer$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.TypeEnter$AbstractHeaderPhase$Synthesizer$2",
-	"com.sun.tools.javac.code.Type$ErrorType",
-	nullptr,
-	_TypeEnter$AbstractHeaderPhase$Synthesizer$2_FieldInfo_,
-	_TypeEnter$AbstractHeaderPhase$Synthesizer$2_MethodInfo_,
-	nullptr,
-	&_TypeEnter$AbstractHeaderPhase$Synthesizer$2_EnclosingMethodInfo_,
-	_TypeEnter$AbstractHeaderPhase$Synthesizer$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.TypeEnter"
-};
-
-$Object* allocate$TypeEnter$AbstractHeaderPhase$Synthesizer$2($Class* clazz) {
-	return $of($alloc(TypeEnter$AbstractHeaderPhase$Synthesizer$2));
-}
-
 void TypeEnter$AbstractHeaderPhase$Synthesizer$2::init$($TypeEnter$AbstractHeaderPhase$Synthesizer* this$2, $Type* originalType, $Symbol$TypeSymbol* tsym) {
 	$set(this, this$2, this$2);
 	$Type$ErrorType::init$(originalType, tsym);
@@ -84,7 +37,46 @@ TypeEnter$AbstractHeaderPhase$Synthesizer$2::TypeEnter$AbstractHeaderPhase$Synth
 }
 
 $Class* TypeEnter$AbstractHeaderPhase$Synthesizer$2::load$($String* name, bool initialize) {
-	$loadClass(TypeEnter$AbstractHeaderPhase$Synthesizer$2, name, initialize, &_TypeEnter$AbstractHeaderPhase$Synthesizer$2_ClassInfo_, allocate$TypeEnter$AbstractHeaderPhase$Synthesizer$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$2", "Lcom/sun/tools/javac/comp/TypeEnter$AbstractHeaderPhase$Synthesizer;", nullptr, $FINAL | $SYNTHETIC, $field(TypeEnter$AbstractHeaderPhase$Synthesizer$2, this$2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter$AbstractHeaderPhase$Synthesizer;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, 0, $method(TypeEnter$AbstractHeaderPhase$Synthesizer$2, init$, void, $TypeEnter$AbstractHeaderPhase$Synthesizer*, $Type*, $Symbol$TypeSymbol*)},
+		{"getTypeArguments", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(TypeEnter$AbstractHeaderPhase$Synthesizer$2, getTypeArguments, $List*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.TypeEnter$AbstractHeaderPhase$Synthesizer",
+		"synthesizeClass",
+		"(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.TypeEnter$AbstractHeaderPhase", "com.sun.tools.javac.comp.TypeEnter", "AbstractHeaderPhase", $PRIVATE | $ABSTRACT},
+		{"com.sun.tools.javac.comp.TypeEnter$AbstractHeaderPhase$Synthesizer", "com.sun.tools.javac.comp.TypeEnter$AbstractHeaderPhase", "Synthesizer", $PRIVATE},
+		{"com.sun.tools.javac.comp.TypeEnter$AbstractHeaderPhase$Synthesizer$2", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Type$ErrorType", "com.sun.tools.javac.code.Type", "ErrorType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Symbol$ClassSymbol", "com.sun.tools.javac.code.Symbol", "ClassSymbol", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.TypeEnter$AbstractHeaderPhase$Synthesizer$2",
+		"com.sun.tools.javac.code.Type$ErrorType",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.TypeEnter"
+	};
+	$loadClass(TypeEnter$AbstractHeaderPhase$Synthesizer$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TypeEnter$AbstractHeaderPhase$Synthesizer$2));
+	});
 	return class$;
 }
 

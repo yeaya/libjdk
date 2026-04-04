@@ -27,11 +27,14 @@ public:
 	void init$(::java::io::IOException* exception);
 	virtual $Throwable* getCause() override;
 	virtual ::java::io::IOException* getIOException();
-	static const int64_t serialVersionUID = (int64_t)0x513277E9D700C52E;
+	static const int64_t serialVersionUID = (int64_t)0x513277e9d700c52e;
 	::java::io::IOException* mException = nullptr;
 	PrinterIOException(const PrinterIOException& e);
 	virtual void throw$() override;
-	inline PrinterIOException* operator ->() {
+	inline PrinterIOException* operator ->() const {
+		return (PrinterIOException*)throwing$;
+	}
+	inline operator PrinterIOException*() const {
 		return (PrinterIOException*)throwing$;
 	}
 };

@@ -52,6 +52,7 @@ class GestureHandler : public ::java::lang::Object {
 	$class(GestureHandler, 0, ::java::lang::Object)
 public:
 	GestureHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addGestureListenerTo(::javax::swing::JComponent* component, ::com::apple::eawt::event::GestureListener* listener);
 	void addListener(::com::apple::eawt::event::GestureListener* listener);

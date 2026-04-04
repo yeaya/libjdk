@@ -1,5 +1,4 @@
 #include <sun/lwawt/LWToolkit.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTPermission.h>
 #include <java/awt/Button.h>
@@ -147,7 +146,6 @@ using $ScrollbarPeer = ::java::awt::peer::ScrollbarPeer;
 using $TextAreaPeer = ::java::awt::peer::TextAreaPeer;
 using $TextFieldPeer = ::java::awt::peer::TextFieldPeer;
 using $WindowPeer = ::java::awt::peer::WindowPeer;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -164,11 +162,9 @@ using $ThreadDeath = ::java::lang::ThreadDeath;
 using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Properties = ::java::util::Properties;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $AWTAutoShutdown = ::sun::awt::AWTAutoShutdown;
 using $AWTPermissions = ::sun::awt::AWTPermissions;
 using $AppContext = ::sun::awt::AppContext;
@@ -209,35 +205,31 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$init$1());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LWToolkit$$Lambda$lambda$init$1>());
+		 return $nc(inst$)->lambda$init$1();
 	}
 	LWToolkit* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LWToolkit$$Lambda$lambda$init$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LWToolkit$$Lambda$lambda$init$1, inst$)},
-	{}
-};
-$MethodInfo LWToolkit$$Lambda$lambda$init$1::methodInfos[3] = {
-	{"<init>", "(Lsun/lwawt/LWToolkit;)V", nullptr, $PUBLIC, $method(LWToolkit$$Lambda$lambda$init$1, init$, void, LWToolkit*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LWToolkit$$Lambda$lambda$init$1, run, $Object*)},
-	{}
-};
-$ClassInfo LWToolkit$$Lambda$lambda$init$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.LWToolkit$$Lambda$lambda$init$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* LWToolkit$$Lambda$lambda$init$1::load$($String* name, bool initialize) {
-	$loadClass(LWToolkit$$Lambda$lambda$init$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LWToolkit$$Lambda$lambda$init$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/LWToolkit;)V", nullptr, $PUBLIC, $method(LWToolkit$$Lambda$lambda$init$1, init$, void, LWToolkit*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LWToolkit$$Lambda$lambda$init$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.LWToolkit$$Lambda$lambda$init$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LWToolkit$$Lambda$lambda$init$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LWToolkit$$Lambda$lambda$init$1);
+	});
 	return class$;
 }
 $Class* LWToolkit$$Lambda$lambda$init$1::class$ = nullptr;
@@ -251,131 +243,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$init$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LWToolkit$$Lambda$lambda$init$0$1>());
-	}
 	LWToolkit* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LWToolkit$$Lambda$lambda$init$0$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LWToolkit$$Lambda$lambda$init$0$1, inst$)},
-	{}
-};
-$MethodInfo LWToolkit$$Lambda$lambda$init$0$1::methodInfos[3] = {
-	{"<init>", "(Lsun/lwawt/LWToolkit;)V", nullptr, $PUBLIC, $method(LWToolkit$$Lambda$lambda$init$0$1, init$, void, LWToolkit*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LWToolkit$$Lambda$lambda$init$0$1, run, void)},
-	{}
-};
-$ClassInfo LWToolkit$$Lambda$lambda$init$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.LWToolkit$$Lambda$lambda$init$0$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* LWToolkit$$Lambda$lambda$init$0$1::load$($String* name, bool initialize) {
-	$loadClass(LWToolkit$$Lambda$lambda$init$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LWToolkit$$Lambda$lambda$init$0$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/LWToolkit;)V", nullptr, $PUBLIC, $method(LWToolkit$$Lambda$lambda$init$0$1, init$, void, LWToolkit*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LWToolkit$$Lambda$lambda$init$0$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.LWToolkit$$Lambda$lambda$init$0$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LWToolkit$$Lambda$lambda$init$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LWToolkit$$Lambda$lambda$init$0$1);
+	});
 	return class$;
 }
 $Class* LWToolkit$$Lambda$lambda$init$0$1::class$ = nullptr;
-
-$FieldInfo _LWToolkit_FieldInfo_[] = {
-	{"STATE_NONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LWToolkit, STATE_NONE)},
-	{"STATE_INIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LWToolkit, STATE_INIT)},
-	{"STATE_MESSAGELOOP", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LWToolkit, STATE_MESSAGELOOP)},
-	{"STATE_SHUTDOWN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LWToolkit, STATE_SHUTDOWN)},
-	{"STATE_CLEANUP", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LWToolkit, STATE_CLEANUP)},
-	{"STATE_DONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LWToolkit, STATE_DONE)},
-	{"runState", "I", nullptr, $PRIVATE, $field(LWToolkit, runState)},
-	{"clipboard", "Ljava/awt/datatransfer/Clipboard;", nullptr, $PRIVATE, $field(LWToolkit, clipboard)},
-	{"mouseInfoPeer", "Ljava/awt/peer/MouseInfoPeer;", nullptr, $PRIVATE, $field(LWToolkit, mouseInfoPeer)},
-	{"dynamicLayoutSetting", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LWToolkit, dynamicLayoutSetting)},
-	{}
-};
-
-$MethodInfo _LWToolkit_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(LWToolkit, init$, void)},
-	{"createButton", "(Ljava/awt/Button;)Ljava/awt/peer/ButtonPeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createButton, $ButtonPeer*, $Button*)},
-	{"createCanvas", "(Ljava/awt/Canvas;)Ljava/awt/peer/CanvasPeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createCanvas, $CanvasPeer*, $Canvas*)},
-	{"createCheckbox", "(Ljava/awt/Checkbox;)Ljava/awt/peer/CheckboxPeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createCheckbox, $CheckboxPeer*, $Checkbox*)},
-	{"createChoice", "(Ljava/awt/Choice;)Ljava/awt/peer/ChoicePeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createChoice, $ChoicePeer*, $Choice*)},
-	{"createDelegatedPeer", "(Ljava/awt/Window;Lsun/lwawt/PlatformComponent;Lsun/lwawt/PlatformWindow;Lsun/lwawt/LWWindowPeer$PeerType;)Lsun/lwawt/LWWindowPeer;", nullptr, $PROTECTED, $virtualMethod(LWToolkit, createDelegatedPeer, $LWWindowPeer*, $Window*, $PlatformComponent*, $PlatformWindow*, $LWWindowPeer$PeerType*)},
-	{"createDialog", "(Ljava/awt/Dialog;)Ljava/awt/peer/DialogPeer;", nullptr, $PUBLIC, $virtualMethod(LWToolkit, createDialog, $DialogPeer*, $Dialog*)},
-	{"createDropTarget", "(Ljava/awt/dnd/DropTarget;Ljava/awt/Component;Lsun/lwawt/LWComponentPeer;)Lsun/lwawt/PlatformDropTarget;", "(Ljava/awt/dnd/DropTarget;Ljava/awt/Component;Lsun/lwawt/LWComponentPeer<**>;)Lsun/lwawt/PlatformDropTarget;", $PROTECTED | $ABSTRACT, $virtualMethod(LWToolkit, createDropTarget, $PlatformDropTarget*, $DropTarget*, $Component*, $LWComponentPeer*)},
-	{"createFileDialog", "(Ljava/awt/FileDialog;)Ljava/awt/peer/FileDialogPeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createFileDialog, $FileDialogPeer*, $FileDialog*)},
-	{"createFileDialogPeer", "(Ljava/awt/FileDialog;)Ljava/awt/peer/FileDialogPeer;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(LWToolkit, createFileDialogPeer, $FileDialogPeer*, $FileDialog*)},
-	{"createFrame", "(Ljava/awt/Frame;)Ljava/awt/peer/FramePeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createFrame, $FramePeer*, $Frame*)},
-	{"createLabel", "(Ljava/awt/Label;)Ljava/awt/peer/LabelPeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createLabel, $LabelPeer*, $Label*)},
-	{"createLightweightFrame", "(Lsun/awt/LightweightFrame;)Ljava/awt/peer/FramePeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createLightweightFrame, $FramePeer*, $LightweightFrame*)},
-	{"createList", "(Ljava/awt/List;)Ljava/awt/peer/ListPeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createList, $ListPeer*, $List*)},
-	{"createLwPlatformComponent", "()Lsun/lwawt/PlatformComponent;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(LWToolkit, createLwPlatformComponent, $PlatformComponent*)},
-	{"createMouseInfoPeerImpl", "()Ljava/awt/peer/MouseInfoPeer;", nullptr, $PROTECTED | $FINAL, $method(LWToolkit, createMouseInfoPeerImpl, $MouseInfoPeer*)},
-	{"createPanel", "(Ljava/awt/Panel;)Ljava/awt/peer/PanelPeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createPanel, $PanelPeer*, $Panel*)},
-	{"createPlatformClipboard", "()Ljava/awt/datatransfer/Clipboard;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LWToolkit, createPlatformClipboard, $Clipboard*)},
-	{"createPlatformComponent", "()Lsun/lwawt/PlatformComponent;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(LWToolkit, createPlatformComponent, $PlatformComponent*)},
-	{"createPlatformWindow", "(Lsun/lwawt/LWWindowPeer$PeerType;)Lsun/lwawt/PlatformWindow;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(LWToolkit, createPlatformWindow, $PlatformWindow*, $LWWindowPeer$PeerType*)},
-	{"createScrollPane", "(Ljava/awt/ScrollPane;)Ljava/awt/peer/ScrollPanePeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createScrollPane, $ScrollPanePeer*, $ScrollPane*)},
-	{"createScrollbar", "(Ljava/awt/Scrollbar;)Ljava/awt/peer/ScrollbarPeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createScrollbar, $ScrollbarPeer*, $Scrollbar*)},
-	{"createSecurityWarning", "(Ljava/awt/Window;Lsun/lwawt/LWWindowPeer;)Lsun/lwawt/SecurityWarningWindow;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(LWToolkit, createSecurityWarning, $SecurityWarningWindow*, $Window*, $LWWindowPeer*)},
-	{"createTextArea", "(Ljava/awt/TextArea;)Ljava/awt/peer/TextAreaPeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createTextArea, $TextAreaPeer*, $TextArea*)},
-	{"createTextField", "(Ljava/awt/TextField;)Ljava/awt/peer/TextFieldPeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createTextField, $TextFieldPeer*, $TextField*)},
-	{"createWindow", "(Ljava/awt/Window;)Ljava/awt/peer/WindowPeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createWindow, $WindowPeer*, $Window*)},
-	{"getCursorManager", "()Lsun/lwawt/LWCursorManager;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LWToolkit, getCursorManager, $LWCursorManager*)},
-	{"getKeyboardFocusManagerPeer", "()Ljava/awt/peer/KeyboardFocusManagerPeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, getKeyboardFocusManagerPeer, $KeyboardFocusManagerPeer*)},
-	{"getLWToolkit", "()Lsun/lwawt/LWToolkit;", nullptr, $PUBLIC | $STATIC, $staticMethod(LWToolkit, getLWToolkit, LWToolkit*)},
-	{"getMouseInfoPeer", "()Ljava/awt/peer/MouseInfoPeer;", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $virtualMethod(LWToolkit, getMouseInfoPeer, $MouseInfoPeer*)},
-	{"getPlatformWindowUnderMouse", "()Lsun/lwawt/PlatformWindow;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(LWToolkit, getPlatformWindowUnderMouse, $PlatformWindow*)},
-	{"getPrintJob", "(Ljava/awt/Frame;Ljava/lang/String;Ljava/util/Properties;)Ljava/awt/PrintJob;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, getPrintJob, $PrintJob*, $Frame*, $String*, $Properties*)},
-	{"getPrintJob", "(Ljava/awt/Frame;Ljava/lang/String;Ljava/awt/JobAttributes;Ljava/awt/PageAttributes;)Ljava/awt/PrintJob;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, getPrintJob, $PrintJob*, $Frame*, $String*, $JobAttributes*, $PageAttributes*)},
-	{"getRunState", "()I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(LWToolkit, getRunState, int32_t)},
-	{"getSystemClipboard", "()Ljava/awt/datatransfer/Clipboard;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, getSystemClipboard, $Clipboard*)},
-	{"grab", "(Ljava/awt/Window;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, grab, void, $Window*)},
-	{"init", "()V", nullptr, $PROTECTED | $FINAL, $method(LWToolkit, init, void)},
-	{"isDesktopSupported", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, isDesktopSupported, bool)},
-	{"isDynamicLayoutActive", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, isDynamicLayoutActive, bool)},
-	{"isDynamicLayoutSet", "()Z", nullptr, $PROTECTED | $FINAL, $virtualMethod(LWToolkit, isDynamicLayoutSet, bool)},
-	{"isDynamicLayoutSupported", "()Z", nullptr, $PROTECTED | $FINAL, $method(LWToolkit, isDynamicLayoutSupported, bool)},
-	{"isTaskbarSupported", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, isTaskbarSupported, bool)},
-	{"isTerminating", "()Z", nullptr, $PUBLIC | $FINAL, $method(LWToolkit, isTerminating, bool)},
-	{"lambda$init$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(LWToolkit, lambda$init$0, void)},
-	{"lambda$init$1", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(LWToolkit, lambda$init$1, $Void*)},
-	{"lazilyLoadDesktopProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LWToolkit, lazilyLoadDesktopProperty, $Object*, $String*)},
-	{"platformCleanup", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(LWToolkit, platformCleanup, void)},
-	{"platformInit", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(LWToolkit, platformInit, void)},
-	{"platformRunMessage", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(LWToolkit, platformRunMessage, void)},
-	{"platformShutdown", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(LWToolkit, platformShutdown, void)},
-	{"postEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LWToolkit, postEvent, void, $AWTEvent*)},
-	{"run", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, run, void)},
-	{"setDynamicLayout", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, setDynamicLayout, void, bool)},
-	{"setRunState", "(I)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(LWToolkit, setRunState, void, int32_t)},
-	{"shutdown", "()V", nullptr, $PUBLIC | $FINAL, $method(LWToolkit, shutdown, void)},
-	{"targetDisposedPeer", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(LWToolkit, targetDisposedPeer, void, Object$*, Object$*)},
-	{"targetToPeer", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(LWToolkit, targetToPeer, $Object*, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"ungrab", "(Ljava/awt/Window;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, ungrab, void, $Window*)},
-	{"waitForRunState", "(I)V", nullptr, $PRIVATE, $method(LWToolkit, waitForRunState, void, int32_t)},
-	{}
-};
-
-$ClassInfo _LWToolkit_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.lwawt.LWToolkit",
-	"sun.awt.SunToolkit",
-	"java.lang.Runnable",
-	_LWToolkit_FieldInfo_,
-	_LWToolkit_MethodInfo_
-};
-
-$Object* allocate$LWToolkit($Class* clazz) {
-	return $of($alloc(LWToolkit));
-}
 
 int32_t LWToolkit::hashCode() {
 	 return this->$SunToolkit::hashCode();
@@ -406,7 +299,7 @@ void LWToolkit::init$() {
 void LWToolkit::init() {
 	$beforeCallerSensitive();
 	$AWTAutoShutdown::notifyToolkitThreadBusy();
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(LWToolkit$$Lambda$lambda$init$1, this)));
+	$AccessController::doPrivileged($cast($PrivilegedAction, $$new(LWToolkit$$Lambda$lambda$init$1, this)));
 	waitForRunState(LWToolkit::STATE_MESSAGELOOP);
 }
 
@@ -445,7 +338,7 @@ void LWToolkit::waitForRunState(int32_t state) {
 }
 
 void LWToolkit::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setRunState(LWToolkit::STATE_INIT);
 	platformInit();
 	$AWTAutoShutdown::notifyToolkitThreadFree();
@@ -454,7 +347,7 @@ void LWToolkit::run() {
 		try {
 			platformRunMessage();
 			if ($($Thread::currentThread())->isInterrupted()) {
-				if ($nc($($AppContext::getAppContext()))->isDisposed()) {
+				if ($$nc($AppContext::getAppContext())->isDisposed()) {
 					break;
 				}
 			}
@@ -484,7 +377,7 @@ $LWWindowPeer* LWToolkit::createDelegatedPeer($Window* target, $PlatformComponen
 }
 
 $FramePeer* LWToolkit::createLightweightFrame($LightweightFrame* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PlatformComponent, platformComponent, createLwPlatformComponent());
 	$init($LWWindowPeer$PeerType);
 	$var($PlatformWindow, platformWindow, createPlatformWindow($LWWindowPeer$PeerType::LW_FRAME));
@@ -495,15 +388,15 @@ $FramePeer* LWToolkit::createLightweightFrame($LightweightFrame* target) {
 }
 
 $WindowPeer* LWToolkit::createWindow($Window* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PlatformComponent, platformComponent, createPlatformComponent());
 	$init($LWWindowPeer$PeerType);
 	$var($PlatformWindow, platformWindow, createPlatformWindow($LWWindowPeer$PeerType::SIMPLEWINDOW));
-	return static_cast<$WindowPeer*>(static_cast<$FramePeer*>(createDelegatedPeer(target, platformComponent, platformWindow, $LWWindowPeer$PeerType::SIMPLEWINDOW)));
+	return $cast($FramePeer, createDelegatedPeer(target, platformComponent, platformWindow, $LWWindowPeer$PeerType::SIMPLEWINDOW));
 }
 
 $FramePeer* LWToolkit::createFrame($Frame* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PlatformComponent, platformComponent, createPlatformComponent());
 	$init($LWWindowPeer$PeerType);
 	$var($PlatformWindow, platformWindow, createPlatformWindow($LWWindowPeer$PeerType::FRAME));
@@ -511,7 +404,7 @@ $FramePeer* LWToolkit::createFrame($Frame* target) {
 }
 
 $DialogPeer* LWToolkit::createDialog($Dialog* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PlatformComponent, platformComponent, createPlatformComponent());
 	$init($LWWindowPeer$PeerType);
 	$var($PlatformWindow, platformWindow, createPlatformWindow($LWWindowPeer$PeerType::DIALOG));
@@ -525,7 +418,7 @@ $FileDialogPeer* LWToolkit::createFileDialog($FileDialog* target) {
 }
 
 $ButtonPeer* LWToolkit::createButton($Button* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PlatformComponent, platformComponent, createPlatformComponent());
 	$var($LWButtonPeer, peer, $new($LWButtonPeer, target, platformComponent));
 	targetCreatedPeer(target, peer);
@@ -534,7 +427,7 @@ $ButtonPeer* LWToolkit::createButton($Button* target) {
 }
 
 $CheckboxPeer* LWToolkit::createCheckbox($Checkbox* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PlatformComponent, platformComponent, createPlatformComponent());
 	$var($LWCheckboxPeer, peer, $new($LWCheckboxPeer, target, platformComponent));
 	targetCreatedPeer(target, peer);
@@ -543,7 +436,7 @@ $CheckboxPeer* LWToolkit::createCheckbox($Checkbox* target) {
 }
 
 $ChoicePeer* LWToolkit::createChoice($Choice* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PlatformComponent, platformComponent, createPlatformComponent());
 	$var($LWChoicePeer, peer, $new($LWChoicePeer, target, platformComponent));
 	targetCreatedPeer(target, peer);
@@ -552,7 +445,7 @@ $ChoicePeer* LWToolkit::createChoice($Choice* target) {
 }
 
 $LabelPeer* LWToolkit::createLabel($Label* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PlatformComponent, platformComponent, createPlatformComponent());
 	$var($LWLabelPeer, peer, $new($LWLabelPeer, target, platformComponent));
 	targetCreatedPeer(target, peer);
@@ -561,7 +454,7 @@ $LabelPeer* LWToolkit::createLabel($Label* target) {
 }
 
 $CanvasPeer* LWToolkit::createCanvas($Canvas* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PlatformComponent, platformComponent, createPlatformComponent());
 	$var($LWCanvasPeer, peer, $new($LWCanvasPeer, target, platformComponent));
 	targetCreatedPeer(target, peer);
@@ -570,7 +463,7 @@ $CanvasPeer* LWToolkit::createCanvas($Canvas* target) {
 }
 
 $ListPeer* LWToolkit::createList($List* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PlatformComponent, platformComponent, createPlatformComponent());
 	$var($LWListPeer, peer, $new($LWListPeer, target, platformComponent));
 	targetCreatedPeer(target, peer);
@@ -579,7 +472,7 @@ $ListPeer* LWToolkit::createList($List* target) {
 }
 
 $PanelPeer* LWToolkit::createPanel($Panel* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PlatformComponent, platformComponent, createPlatformComponent());
 	$var($LWPanelPeer, peer, $new($LWPanelPeer, target, platformComponent));
 	targetCreatedPeer(target, peer);
@@ -588,7 +481,7 @@ $PanelPeer* LWToolkit::createPanel($Panel* target) {
 }
 
 $ScrollPanePeer* LWToolkit::createScrollPane($ScrollPane* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PlatformComponent, platformComponent, createPlatformComponent());
 	$var($LWScrollPanePeer, peer, $new($LWScrollPanePeer, target, platformComponent));
 	targetCreatedPeer(target, peer);
@@ -597,7 +490,7 @@ $ScrollPanePeer* LWToolkit::createScrollPane($ScrollPane* target) {
 }
 
 $ScrollbarPeer* LWToolkit::createScrollbar($Scrollbar* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PlatformComponent, platformComponent, createPlatformComponent());
 	$var($LWScrollBarPeer, peer, $new($LWScrollBarPeer, target, platformComponent));
 	targetCreatedPeer(target, peer);
@@ -606,7 +499,7 @@ $ScrollbarPeer* LWToolkit::createScrollbar($Scrollbar* target) {
 }
 
 $TextAreaPeer* LWToolkit::createTextArea($TextArea* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PlatformComponent, platformComponent, createPlatformComponent());
 	$var($LWTextAreaPeer, peer, $new($LWTextAreaPeer, target, platformComponent));
 	targetCreatedPeer(target, peer);
@@ -615,7 +508,7 @@ $TextAreaPeer* LWToolkit::createTextArea($TextArea* target) {
 }
 
 $TextFieldPeer* LWToolkit::createTextField($TextField* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PlatformComponent, platformComponent, createPlatformComponent());
 	$var($LWTextFieldPeer, peer, $new($LWTextFieldPeer, target, platformComponent));
 	targetCreatedPeer(target, peer);
@@ -682,7 +575,7 @@ $Clipboard* LWToolkit::getSystemClipboard() {
 
 $Object* LWToolkit::targetToPeer(Object$* target) {
 	$init(LWToolkit);
-	return $of($SunToolkit::targetToPeer(target));
+	return $SunToolkit::targetToPeer(target);
 }
 
 void LWToolkit::targetDisposedPeer(Object$* target, Object$* peer) {
@@ -692,23 +585,23 @@ void LWToolkit::targetDisposedPeer(Object$* target, Object$* peer) {
 
 void LWToolkit::postEvent($AWTEvent* event) {
 	$init(LWToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SunToolkit::postEvent($(targetToAppContext($($nc(event)->getSource()))), event);
 }
 
 void LWToolkit::grab($Window* w) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, peer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(w));
+	$useLocalObjectStack();
+	$var($Object, peer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(w));
 	if (peer != nullptr) {
-		$nc(($cast($LWWindowPeer, peer)))->grab();
+		$cast($LWWindowPeer, peer)->grab();
 	}
 }
 
 void LWToolkit::ungrab($Window* w) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, peer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(w));
+	$useLocalObjectStack();
+	$var($Object, peer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(w));
 	if (peer != nullptr) {
-		$nc(($cast($LWWindowPeer, peer)))->ungrab(false);
+		$cast($LWWindowPeer, peer)->ungrab(false);
 	}
 }
 
@@ -716,7 +609,7 @@ $Object* LWToolkit::lazilyLoadDesktopProperty($String* name) {
 	if ($nc(name)->equals("awt.dynamicLayoutSupported"_s)) {
 		return $of($Boolean::valueOf(isDynamicLayoutSupported()));
 	}
-	return $of($SunToolkit::lazilyLoadDesktopProperty(name));
+	return $SunToolkit::lazilyLoadDesktopProperty(name);
 }
 
 void LWToolkit::setDynamicLayout(bool dynamic) {
@@ -736,11 +629,11 @@ bool LWToolkit::isDynamicLayoutSupported() {
 }
 
 $Void* LWToolkit::lambda$init$1() {
-	$useLocalCurrentObjectStackCache();
-	$var($Runnable, shutdownRunnable, static_cast<$Runnable*>($new(LWToolkit$$Lambda$lambda$init$0$1, this)));
+	$useLocalObjectStack();
+	$var($Runnable, shutdownRunnable, $new(LWToolkit$$Lambda$lambda$init$0$1, this));
 	$var($Thread, shutdown, $new($Thread, $($ThreadGroupUtils::getRootThreadGroup()), shutdownRunnable, "AWT-Shutdown"_s, 0, false));
 	shutdown->setContextClassLoader(nullptr);
-	$nc($($Runtime::getRuntime()))->addShutdownHook(shutdown);
+	$$nc($Runtime::getRuntime())->addShutdownHook(shutdown);
 	$var($String, name, "AWT-LW"_s);
 	$var($Thread, toolkitThread, $new($Thread, $($ThreadGroupUtils::getRootThreadGroup()), this, name, 0, false));
 	toolkitThread->setDaemon(true);
@@ -759,14 +652,104 @@ LWToolkit::LWToolkit() {
 
 $Class* LWToolkit::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(LWToolkit$$Lambda$lambda$init$1::classInfo$.name)) {
+		if (name->equals("sun.lwawt.LWToolkit$$Lambda$lambda$init$1")) {
 			return LWToolkit$$Lambda$lambda$init$1::load$(name, initialize);
 		}
-		if (name->equals(LWToolkit$$Lambda$lambda$init$0$1::classInfo$.name)) {
+		if (name->equals("sun.lwawt.LWToolkit$$Lambda$lambda$init$0$1")) {
 			return LWToolkit$$Lambda$lambda$init$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(LWToolkit, name, initialize, &_LWToolkit_ClassInfo_, allocate$LWToolkit);
+	$FieldInfo fieldInfos$$[] = {
+		{"STATE_NONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LWToolkit, STATE_NONE)},
+		{"STATE_INIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LWToolkit, STATE_INIT)},
+		{"STATE_MESSAGELOOP", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LWToolkit, STATE_MESSAGELOOP)},
+		{"STATE_SHUTDOWN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LWToolkit, STATE_SHUTDOWN)},
+		{"STATE_CLEANUP", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LWToolkit, STATE_CLEANUP)},
+		{"STATE_DONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LWToolkit, STATE_DONE)},
+		{"runState", "I", nullptr, $PRIVATE, $field(LWToolkit, runState)},
+		{"clipboard", "Ljava/awt/datatransfer/Clipboard;", nullptr, $PRIVATE, $field(LWToolkit, clipboard)},
+		{"mouseInfoPeer", "Ljava/awt/peer/MouseInfoPeer;", nullptr, $PRIVATE, $field(LWToolkit, mouseInfoPeer)},
+		{"dynamicLayoutSetting", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LWToolkit, dynamicLayoutSetting)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(LWToolkit, init$, void)},
+		{"createButton", "(Ljava/awt/Button;)Ljava/awt/peer/ButtonPeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createButton, $ButtonPeer*, $Button*)},
+		{"createCanvas", "(Ljava/awt/Canvas;)Ljava/awt/peer/CanvasPeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createCanvas, $CanvasPeer*, $Canvas*)},
+		{"createCheckbox", "(Ljava/awt/Checkbox;)Ljava/awt/peer/CheckboxPeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createCheckbox, $CheckboxPeer*, $Checkbox*)},
+		{"createChoice", "(Ljava/awt/Choice;)Ljava/awt/peer/ChoicePeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createChoice, $ChoicePeer*, $Choice*)},
+		{"createDelegatedPeer", "(Ljava/awt/Window;Lsun/lwawt/PlatformComponent;Lsun/lwawt/PlatformWindow;Lsun/lwawt/LWWindowPeer$PeerType;)Lsun/lwawt/LWWindowPeer;", nullptr, $PROTECTED, $virtualMethod(LWToolkit, createDelegatedPeer, $LWWindowPeer*, $Window*, $PlatformComponent*, $PlatformWindow*, $LWWindowPeer$PeerType*)},
+		{"createDialog", "(Ljava/awt/Dialog;)Ljava/awt/peer/DialogPeer;", nullptr, $PUBLIC, $virtualMethod(LWToolkit, createDialog, $DialogPeer*, $Dialog*)},
+		{"createDropTarget", "(Ljava/awt/dnd/DropTarget;Ljava/awt/Component;Lsun/lwawt/LWComponentPeer;)Lsun/lwawt/PlatformDropTarget;", "(Ljava/awt/dnd/DropTarget;Ljava/awt/Component;Lsun/lwawt/LWComponentPeer<**>;)Lsun/lwawt/PlatformDropTarget;", $PROTECTED | $ABSTRACT, $virtualMethod(LWToolkit, createDropTarget, $PlatformDropTarget*, $DropTarget*, $Component*, $LWComponentPeer*)},
+		{"createFileDialog", "(Ljava/awt/FileDialog;)Ljava/awt/peer/FileDialogPeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createFileDialog, $FileDialogPeer*, $FileDialog*)},
+		{"createFileDialogPeer", "(Ljava/awt/FileDialog;)Ljava/awt/peer/FileDialogPeer;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(LWToolkit, createFileDialogPeer, $FileDialogPeer*, $FileDialog*)},
+		{"createFrame", "(Ljava/awt/Frame;)Ljava/awt/peer/FramePeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createFrame, $FramePeer*, $Frame*)},
+		{"createLabel", "(Ljava/awt/Label;)Ljava/awt/peer/LabelPeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createLabel, $LabelPeer*, $Label*)},
+		{"createLightweightFrame", "(Lsun/awt/LightweightFrame;)Ljava/awt/peer/FramePeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createLightweightFrame, $FramePeer*, $LightweightFrame*)},
+		{"createList", "(Ljava/awt/List;)Ljava/awt/peer/ListPeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createList, $ListPeer*, $List*)},
+		{"createLwPlatformComponent", "()Lsun/lwawt/PlatformComponent;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(LWToolkit, createLwPlatformComponent, $PlatformComponent*)},
+		{"createMouseInfoPeerImpl", "()Ljava/awt/peer/MouseInfoPeer;", nullptr, $PROTECTED | $FINAL, $method(LWToolkit, createMouseInfoPeerImpl, $MouseInfoPeer*)},
+		{"createPanel", "(Ljava/awt/Panel;)Ljava/awt/peer/PanelPeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createPanel, $PanelPeer*, $Panel*)},
+		{"createPlatformClipboard", "()Ljava/awt/datatransfer/Clipboard;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LWToolkit, createPlatformClipboard, $Clipboard*)},
+		{"createPlatformComponent", "()Lsun/lwawt/PlatformComponent;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(LWToolkit, createPlatformComponent, $PlatformComponent*)},
+		{"createPlatformWindow", "(Lsun/lwawt/LWWindowPeer$PeerType;)Lsun/lwawt/PlatformWindow;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(LWToolkit, createPlatformWindow, $PlatformWindow*, $LWWindowPeer$PeerType*)},
+		{"createScrollPane", "(Ljava/awt/ScrollPane;)Ljava/awt/peer/ScrollPanePeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createScrollPane, $ScrollPanePeer*, $ScrollPane*)},
+		{"createScrollbar", "(Ljava/awt/Scrollbar;)Ljava/awt/peer/ScrollbarPeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createScrollbar, $ScrollbarPeer*, $Scrollbar*)},
+		{"createSecurityWarning", "(Ljava/awt/Window;Lsun/lwawt/LWWindowPeer;)Lsun/lwawt/SecurityWarningWindow;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(LWToolkit, createSecurityWarning, $SecurityWarningWindow*, $Window*, $LWWindowPeer*)},
+		{"createTextArea", "(Ljava/awt/TextArea;)Ljava/awt/peer/TextAreaPeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createTextArea, $TextAreaPeer*, $TextArea*)},
+		{"createTextField", "(Ljava/awt/TextField;)Ljava/awt/peer/TextFieldPeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createTextField, $TextFieldPeer*, $TextField*)},
+		{"createWindow", "(Ljava/awt/Window;)Ljava/awt/peer/WindowPeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, createWindow, $WindowPeer*, $Window*)},
+		{"getCursorManager", "()Lsun/lwawt/LWCursorManager;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LWToolkit, getCursorManager, $LWCursorManager*)},
+		{"getKeyboardFocusManagerPeer", "()Ljava/awt/peer/KeyboardFocusManagerPeer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, getKeyboardFocusManagerPeer, $KeyboardFocusManagerPeer*)},
+		{"getLWToolkit", "()Lsun/lwawt/LWToolkit;", nullptr, $PUBLIC | $STATIC, $staticMethod(LWToolkit, getLWToolkit, LWToolkit*)},
+		{"getMouseInfoPeer", "()Ljava/awt/peer/MouseInfoPeer;", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $virtualMethod(LWToolkit, getMouseInfoPeer, $MouseInfoPeer*)},
+		{"getPlatformWindowUnderMouse", "()Lsun/lwawt/PlatformWindow;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(LWToolkit, getPlatformWindowUnderMouse, $PlatformWindow*)},
+		{"getPrintJob", "(Ljava/awt/Frame;Ljava/lang/String;Ljava/util/Properties;)Ljava/awt/PrintJob;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, getPrintJob, $PrintJob*, $Frame*, $String*, $Properties*)},
+		{"getPrintJob", "(Ljava/awt/Frame;Ljava/lang/String;Ljava/awt/JobAttributes;Ljava/awt/PageAttributes;)Ljava/awt/PrintJob;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, getPrintJob, $PrintJob*, $Frame*, $String*, $JobAttributes*, $PageAttributes*)},
+		{"getRunState", "()I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(LWToolkit, getRunState, int32_t)},
+		{"getSystemClipboard", "()Ljava/awt/datatransfer/Clipboard;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, getSystemClipboard, $Clipboard*)},
+		{"grab", "(Ljava/awt/Window;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, grab, void, $Window*)},
+		{"init", "()V", nullptr, $PROTECTED | $FINAL, $method(LWToolkit, init, void)},
+		{"isDesktopSupported", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, isDesktopSupported, bool)},
+		{"isDynamicLayoutActive", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, isDynamicLayoutActive, bool)},
+		{"isDynamicLayoutSet", "()Z", nullptr, $PROTECTED | $FINAL, $virtualMethod(LWToolkit, isDynamicLayoutSet, bool)},
+		{"isDynamicLayoutSupported", "()Z", nullptr, $PROTECTED | $FINAL, $method(LWToolkit, isDynamicLayoutSupported, bool)},
+		{"isTaskbarSupported", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, isTaskbarSupported, bool)},
+		{"isTerminating", "()Z", nullptr, $PUBLIC | $FINAL, $method(LWToolkit, isTerminating, bool)},
+		{"lambda$init$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(LWToolkit, lambda$init$0, void)},
+		{"lambda$init$1", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(LWToolkit, lambda$init$1, $Void*)},
+		{"lazilyLoadDesktopProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LWToolkit, lazilyLoadDesktopProperty, $Object*, $String*)},
+		{"platformCleanup", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(LWToolkit, platformCleanup, void)},
+		{"platformInit", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(LWToolkit, platformInit, void)},
+		{"platformRunMessage", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(LWToolkit, platformRunMessage, void)},
+		{"platformShutdown", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(LWToolkit, platformShutdown, void)},
+		{"postEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LWToolkit, postEvent, void, $AWTEvent*)},
+		{"run", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, run, void)},
+		{"setDynamicLayout", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, setDynamicLayout, void, bool)},
+		{"setRunState", "(I)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(LWToolkit, setRunState, void, int32_t)},
+		{"shutdown", "()V", nullptr, $PUBLIC | $FINAL, $method(LWToolkit, shutdown, void)},
+		{"targetDisposedPeer", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(LWToolkit, targetDisposedPeer, void, Object$*, Object$*)},
+		{"targetToPeer", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(LWToolkit, targetToPeer, $Object*, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"ungrab", "(Ljava/awt/Window;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWToolkit, ungrab, void, $Window*)},
+		{"waitForRunState", "(I)V", nullptr, $PRIVATE, $method(LWToolkit, waitForRunState, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.lwawt.LWToolkit",
+		"sun.awt.SunToolkit",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LWToolkit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LWToolkit));
+	});
 	return class$;
 }
 

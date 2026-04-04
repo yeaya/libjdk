@@ -21,6 +21,7 @@ class $export TestJInternalFrameIconify : public ::java::lang::Object {
 	$class(TestJInternalFrameIconify, 0, ::java::lang::Object)
 public:
 	TestJInternalFrameIconify();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createUI($String* lookAndFeelString);
 	static void executeTest($String* lookAndFeelString);

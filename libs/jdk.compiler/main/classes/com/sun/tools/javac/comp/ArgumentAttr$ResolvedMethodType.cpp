@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/ArgumentAttr$ResolvedMethodType.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/comp/ArgumentAttr$ArgumentType.h>
 #include <com/sun/tools/javac/comp/ArgumentAttr$ResolvedMemberType.h>
@@ -34,48 +33,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _ArgumentAttr$ResolvedMethodType_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/ArgumentAttr;", nullptr, $FINAL | $SYNTHETIC, $field(ArgumentAttr$ResolvedMethodType, this$0)},
-	{}
-};
-
-$MethodInfo _ArgumentAttr$ResolvedMethodType_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", $PUBLIC, $method(ArgumentAttr$ResolvedMethodType, init$, void, $ArgumentAttr*, $JCTree$JCExpression*, $Env*, $JCTree$JCMethodInvocation*)},
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;Ljava/util/Map<Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC, $method(ArgumentAttr$ResolvedMethodType, init$, void, $ArgumentAttr*, $JCTree$JCExpression*, $Env*, $JCTree$JCMethodInvocation*, $Map*)},
-	{"dup", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType;", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType<Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;>;", 0, $virtualMethod(ArgumentAttr$ResolvedMethodType, dup, $ArgumentAttr$ArgumentType*, $JCTree$JCMethodInvocation*, $Env*)},
-	{"dup", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(ArgumentAttr$ResolvedMethodType, dup, $ArgumentAttr$ArgumentType*, $JCTree$JCExpression*, $Env*)},
-	{"methodType", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ArgumentAttr$ResolvedMethodType, methodType, $Type*)},
-	{"resultInfo", "(Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, 0, $virtualMethod(ArgumentAttr$ResolvedMethodType, resultInfo, $Attr$ResultInfo*, $Attr$ResultInfo*)},
-	{}
-};
-
-$InnerClassInfo _ArgumentAttr$ResolvedMethodType_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.ArgumentAttr$ResolvedMethodType", "com.sun.tools.javac.comp.ArgumentAttr", "ResolvedMethodType", 0},
-	{"com.sun.tools.javac.comp.ArgumentAttr$ResolvedMemberType", "com.sun.tools.javac.comp.ArgumentAttr", "ResolvedMemberType", $ABSTRACT},
-	{"com.sun.tools.javac.tree.JCTree$JCMethodInvocation", "com.sun.tools.javac.tree.JCTree", "JCMethodInvocation", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _ArgumentAttr$ResolvedMethodType_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.ArgumentAttr$ResolvedMethodType",
-	"com.sun.tools.javac.comp.ArgumentAttr$ResolvedMemberType",
-	nullptr,
-	_ArgumentAttr$ResolvedMethodType_FieldInfo_,
-	_ArgumentAttr$ResolvedMethodType_MethodInfo_,
-	"Lcom/sun/tools/javac/comp/ArgumentAttr$ResolvedMemberType<Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;>;",
-	nullptr,
-	_ArgumentAttr$ResolvedMethodType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.ArgumentAttr"
-};
-
-$Object* allocate$ArgumentAttr$ResolvedMethodType($Class* clazz) {
-	return $of($alloc(ArgumentAttr$ResolvedMethodType));
-}
-
 void ArgumentAttr$ResolvedMethodType::init$($ArgumentAttr* this$0, $JCTree$JCExpression* tree, $Env* env, $JCTree$JCMethodInvocation* speculativeTree) {
 	ArgumentAttr$ResolvedMethodType::init$(this$0, tree, env, speculativeTree, $$new($HashMap));
 }
@@ -105,7 +62,43 @@ ArgumentAttr$ResolvedMethodType::ArgumentAttr$ResolvedMethodType() {
 }
 
 $Class* ArgumentAttr$ResolvedMethodType::load$($String* name, bool initialize) {
-	$loadClass(ArgumentAttr$ResolvedMethodType, name, initialize, &_ArgumentAttr$ResolvedMethodType_ClassInfo_, allocate$ArgumentAttr$ResolvedMethodType);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/ArgumentAttr;", nullptr, $FINAL | $SYNTHETIC, $field(ArgumentAttr$ResolvedMethodType, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", $PUBLIC, $method(ArgumentAttr$ResolvedMethodType, init$, void, $ArgumentAttr*, $JCTree$JCExpression*, $Env*, $JCTree$JCMethodInvocation*)},
+		{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;Ljava/util/Map<Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC, $method(ArgumentAttr$ResolvedMethodType, init$, void, $ArgumentAttr*, $JCTree$JCExpression*, $Env*, $JCTree$JCMethodInvocation*, $Map*)},
+		{"dup", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType;", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType<Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;>;", 0, $virtualMethod(ArgumentAttr$ResolvedMethodType, dup, $ArgumentAttr$ArgumentType*, $JCTree$JCMethodInvocation*, $Env*)},
+		{"dup", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(ArgumentAttr$ResolvedMethodType, dup, $ArgumentAttr$ArgumentType*, $JCTree$JCExpression*, $Env*)},
+		{"methodType", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ArgumentAttr$ResolvedMethodType, methodType, $Type*)},
+		{"resultInfo", "(Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, 0, $virtualMethod(ArgumentAttr$ResolvedMethodType, resultInfo, $Attr$ResultInfo*, $Attr$ResultInfo*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.ArgumentAttr$ResolvedMethodType", "com.sun.tools.javac.comp.ArgumentAttr", "ResolvedMethodType", 0},
+		{"com.sun.tools.javac.comp.ArgumentAttr$ResolvedMemberType", "com.sun.tools.javac.comp.ArgumentAttr", "ResolvedMemberType", $ABSTRACT},
+		{"com.sun.tools.javac.tree.JCTree$JCMethodInvocation", "com.sun.tools.javac.tree.JCTree", "JCMethodInvocation", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.ArgumentAttr$ResolvedMethodType",
+		"com.sun.tools.javac.comp.ArgumentAttr$ResolvedMemberType",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/comp/ArgumentAttr$ResolvedMemberType<Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.ArgumentAttr"
+	};
+	$loadClass(ArgumentAttr$ResolvedMethodType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ArgumentAttr$ResolvedMethodType));
+	});
 	return class$;
 }
 

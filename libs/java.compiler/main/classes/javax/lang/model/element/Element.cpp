@@ -1,5 +1,4 @@
 #include <javax/lang/model/element/Element.h>
-
 #include <java/util/List.h>
 #include <java/util/Set.h>
 #include <javax/lang/model/AnnotatedConstruct.h>
@@ -24,35 +23,6 @@ namespace javax {
 		namespace model {
 			namespace element {
 
-$MethodInfo _Element_MethodInfo_[] = {
-	{"accept", "(Ljavax/lang/model/element/ElementVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ElementVisitor<TR;TP;>;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Element, accept, $Object*, $ElementVisitor*, Object$*)},
-	{"asType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, asType, $TypeMirror*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getEnclosedElements", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/element/Element;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Element, getEnclosedElements, $List*)},
-	{"getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, getEnclosingElement, Element*)},
-	{"getKind", "()Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, getKind, $ElementKind*)},
-	{"getModifiers", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/lang/model/element/Modifier;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Element, getModifiers, $Set*)},
-	{"getSimpleName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, getSimpleName, $Name*)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Element_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.lang.model.element.Element",
-	nullptr,
-	"javax.lang.model.AnnotatedConstruct",
-	nullptr,
-	_Element_MethodInfo_
-};
-
-$Object* allocate$Element($Class* clazz) {
-	return $of($alloc(Element));
-}
-
 bool Element::equals(Object$* obj) {
 	 return this->$AnnotatedConstruct::equals(obj);
 }
@@ -62,7 +32,32 @@ int32_t Element::hashCode() {
 }
 
 $Class* Element::load$($String* name, bool initialize) {
-	$loadClass(Element, name, initialize, &_Element_ClassInfo_, allocate$Element);
+	$MethodInfo methodInfos$$[] = {
+		{"accept", "(Ljavax/lang/model/element/ElementVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ElementVisitor<TR;TP;>;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Element, accept, $Object*, $ElementVisitor*, Object$*)},
+		{"asType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, asType, $TypeMirror*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $ABSTRACT},
+		{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $ABSTRACT},
+		{"getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $ABSTRACT},
+		{"getEnclosedElements", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/element/Element;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Element, getEnclosedElements, $List*)},
+		{"getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, getEnclosingElement, Element*)},
+		{"getKind", "()Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, getKind, $ElementKind*)},
+		{"getModifiers", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/lang/model/element/Modifier;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Element, getModifiers, $Set*)},
+		{"getSimpleName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, getSimpleName, $Name*)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.lang.model.element.Element",
+		nullptr,
+		"javax.lang.model.AnnotatedConstruct",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Element, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Element);
+	});
 	return class$;
 }
 

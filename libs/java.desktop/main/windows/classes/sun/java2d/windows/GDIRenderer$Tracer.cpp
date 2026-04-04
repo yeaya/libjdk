@@ -1,5 +1,4 @@
 #include <sun/java2d/windows/GDIRenderer$Tracer.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/Path2D$Float.h>
 #include <sun/java2d/loops/GraphicsPrimitive.h>
@@ -21,49 +20,6 @@ using $GDIWindowSurfaceData = ::sun::java2d::windows::GDIWindowSurfaceData;
 namespace sun {
 	namespace java2d {
 		namespace windows {
-
-$MethodInfo _GDIRenderer$Tracer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GDIRenderer$Tracer, init$, void)},
-	{"devCopyArea", "(Lsun/java2d/windows/GDIWindowSurfaceData;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer$Tracer, devCopyArea, void, $GDIWindowSurfaceData*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"doDrawArc", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIIIII)V", nullptr, 0, $virtualMethod(GDIRenderer$Tracer, doDrawArc, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"doDrawLine", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIII)V", nullptr, 0, $virtualMethod(GDIRenderer$Tracer, doDrawLine, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"doDrawOval", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIII)V", nullptr, 0, $virtualMethod(GDIRenderer$Tracer, doDrawOval, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"doDrawPoly", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;III[I[IIZ)V", nullptr, 0, $virtualMethod(GDIRenderer$Tracer, doDrawPoly, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, $ints*, $ints*, int32_t, bool)},
-	{"doDrawRect", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIII)V", nullptr, 0, $virtualMethod(GDIRenderer$Tracer, doDrawRect, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"doDrawRoundRect", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIIIII)V", nullptr, 0, $virtualMethod(GDIRenderer$Tracer, doDrawRoundRect, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"doFillArc", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIIIII)V", nullptr, 0, $virtualMethod(GDIRenderer$Tracer, doFillArc, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"doFillOval", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIII)V", nullptr, 0, $virtualMethod(GDIRenderer$Tracer, doFillOval, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"doFillPoly", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;III[I[II)V", nullptr, 0, $virtualMethod(GDIRenderer$Tracer, doFillPoly, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, $ints*, $ints*, int32_t)},
-	{"doFillRect", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIII)V", nullptr, 0, $virtualMethod(GDIRenderer$Tracer, doFillRect, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"doFillRoundRect", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIIIII)V", nullptr, 0, $virtualMethod(GDIRenderer$Tracer, doFillRoundRect, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"doShape", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIILjava/awt/geom/Path2D$Float;Z)V", nullptr, 0, $virtualMethod(GDIRenderer$Tracer, doShape, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, $Path2D$Float*, bool)},
-	{}
-};
-
-$InnerClassInfo _GDIRenderer$Tracer_InnerClassesInfo_[] = {
-	{"sun.java2d.windows.GDIRenderer$Tracer", "sun.java2d.windows.GDIRenderer", "Tracer", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _GDIRenderer$Tracer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.windows.GDIRenderer$Tracer",
-	"sun.java2d.windows.GDIRenderer",
-	nullptr,
-	nullptr,
-	_GDIRenderer$Tracer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GDIRenderer$Tracer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.windows.GDIRenderer"
-};
-
-$Object* allocate$GDIRenderer$Tracer($Class* clazz) {
-	return $of($alloc(GDIRenderer$Tracer));
-}
 
 void GDIRenderer$Tracer::init$() {
 	$GDIRenderer::init$();
@@ -125,7 +81,7 @@ void GDIRenderer$Tracer::doFillPoly($GDIWindowSurfaceData* sData, $Region* clip,
 }
 
 void GDIRenderer$Tracer::doShape($GDIWindowSurfaceData* sData, $Region* clip, $Composite* comp, int32_t color, int32_t transX, int32_t transY, $Path2D$Float* p2df, bool isfill) {
-	$GraphicsPrimitive::tracePrimitive(isfill ? $of("GDIFillShape"_s) : $of("GDIDrawShape"_s));
+	$GraphicsPrimitive::tracePrimitive(isfill ? "GDIFillShape"_s : "GDIDrawShape"_s);
 	$GDIRenderer::doShape(sData, clip, comp, color, transX, transY, p2df, isfill);
 }
 
@@ -138,7 +94,45 @@ GDIRenderer$Tracer::GDIRenderer$Tracer() {
 }
 
 $Class* GDIRenderer$Tracer::load$($String* name, bool initialize) {
-	$loadClass(GDIRenderer$Tracer, name, initialize, &_GDIRenderer$Tracer_ClassInfo_, allocate$GDIRenderer$Tracer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GDIRenderer$Tracer, init$, void)},
+		{"devCopyArea", "(Lsun/java2d/windows/GDIWindowSurfaceData;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(GDIRenderer$Tracer, devCopyArea, void, $GDIWindowSurfaceData*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"doDrawArc", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIIIII)V", nullptr, 0, $virtualMethod(GDIRenderer$Tracer, doDrawArc, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"doDrawLine", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIII)V", nullptr, 0, $virtualMethod(GDIRenderer$Tracer, doDrawLine, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"doDrawOval", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIII)V", nullptr, 0, $virtualMethod(GDIRenderer$Tracer, doDrawOval, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"doDrawPoly", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;III[I[IIZ)V", nullptr, 0, $virtualMethod(GDIRenderer$Tracer, doDrawPoly, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, $ints*, $ints*, int32_t, bool)},
+		{"doDrawRect", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIII)V", nullptr, 0, $virtualMethod(GDIRenderer$Tracer, doDrawRect, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"doDrawRoundRect", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIIIII)V", nullptr, 0, $virtualMethod(GDIRenderer$Tracer, doDrawRoundRect, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"doFillArc", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIIIII)V", nullptr, 0, $virtualMethod(GDIRenderer$Tracer, doFillArc, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"doFillOval", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIII)V", nullptr, 0, $virtualMethod(GDIRenderer$Tracer, doFillOval, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"doFillPoly", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;III[I[II)V", nullptr, 0, $virtualMethod(GDIRenderer$Tracer, doFillPoly, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, $ints*, $ints*, int32_t)},
+		{"doFillRect", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIII)V", nullptr, 0, $virtualMethod(GDIRenderer$Tracer, doFillRect, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"doFillRoundRect", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIIIIII)V", nullptr, 0, $virtualMethod(GDIRenderer$Tracer, doFillRoundRect, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"doShape", "(Lsun/java2d/windows/GDIWindowSurfaceData;Lsun/java2d/pipe/Region;Ljava/awt/Composite;IIILjava/awt/geom/Path2D$Float;Z)V", nullptr, 0, $virtualMethod(GDIRenderer$Tracer, doShape, void, $GDIWindowSurfaceData*, $Region*, $Composite*, int32_t, int32_t, int32_t, $Path2D$Float*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.windows.GDIRenderer$Tracer", "sun.java2d.windows.GDIRenderer", "Tracer", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.windows.GDIRenderer$Tracer",
+		"sun.java2d.windows.GDIRenderer",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.windows.GDIRenderer"
+	};
+	$loadClass(GDIRenderer$Tracer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GDIRenderer$Tracer));
+	});
 	return class$;
 }
 

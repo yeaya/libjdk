@@ -1,12 +1,10 @@
 #include <com/sun/jmx/remote/security/JMXSubjectDomainCombiner.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/net/URL.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/security/CodeSource.h>
 #include <java/security/DomainCombiner.h>
-#include <java/security/PermissionCollection.h>
 #include <java/security/Permissions.h>
 #include <java/security/Principal.h>
 #include <java/security/ProtectionDomain.h>
@@ -26,8 +24,6 @@ using $URL = ::java::net::URL;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
 using $CodeSource = ::java::security::CodeSource;
-using $DomainCombiner = ::java::security::DomainCombiner;
-using $PermissionCollection = ::java::security::PermissionCollection;
 using $Permissions = ::java::security::Permissions;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
 using $Subject = ::javax::security::auth::Subject;
@@ -39,33 +35,6 @@ namespace com {
 			namespace remote {
 				namespace security {
 
-$FieldInfo _JMXSubjectDomainCombiner_FieldInfo_[] = {
-	{"nullCodeSource", "Ljava/security/CodeSource;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXSubjectDomainCombiner, nullCodeSource)},
-	{"pdNoPerms", "Ljava/security/ProtectionDomain;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXSubjectDomainCombiner, pdNoPerms)},
-	{}
-};
-
-$MethodInfo _JMXSubjectDomainCombiner_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC, $method(JMXSubjectDomainCombiner, init$, void, $Subject*)},
-	{"combine", "([Ljava/security/ProtectionDomain;[Ljava/security/ProtectionDomain;)[Ljava/security/ProtectionDomain;", nullptr, $PUBLIC, $virtualMethod(JMXSubjectDomainCombiner, combine, $ProtectionDomainArray*, $ProtectionDomainArray*, $ProtectionDomainArray*)},
-	{"getContext", "(Ljavax/security/auth/Subject;)Ljava/security/AccessControlContext;", nullptr, $PUBLIC | $STATIC, $staticMethod(JMXSubjectDomainCombiner, getContext, $AccessControlContext*, $Subject*)},
-	{"getDomainCombinerContext", "(Ljavax/security/auth/Subject;)Ljava/security/AccessControlContext;", nullptr, $PUBLIC | $STATIC, $staticMethod(JMXSubjectDomainCombiner, getDomainCombinerContext, $AccessControlContext*, $Subject*)},
-	{}
-};
-
-$ClassInfo _JMXSubjectDomainCombiner_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.jmx.remote.security.JMXSubjectDomainCombiner",
-	"javax.security.auth.SubjectDomainCombiner",
-	nullptr,
-	_JMXSubjectDomainCombiner_FieldInfo_,
-	_JMXSubjectDomainCombiner_MethodInfo_
-};
-
-$Object* allocate$JMXSubjectDomainCombiner($Class* clazz) {
-	return $of($alloc(JMXSubjectDomainCombiner));
-}
-
 $CodeSource* JMXSubjectDomainCombiner::nullCodeSource = nullptr;
 $ProtectionDomain* JMXSubjectDomainCombiner::pdNoPerms = nullptr;
 
@@ -75,7 +44,7 @@ void JMXSubjectDomainCombiner::init$($Subject* s) {
 
 $ProtectionDomainArray* JMXSubjectDomainCombiner::combine($ProtectionDomainArray* current, $ProtectionDomainArray* assigned) {
 	$var($ProtectionDomainArray, newCurrent, nullptr);
-	if (current == nullptr || $nc(current)->length == 0) {
+	if (current == nullptr || current->length == 0) {
 		$assign(newCurrent, $new($ProtectionDomainArray, 1));
 		newCurrent->set(0, JMXSubjectDomainCombiner::pdNoPerms);
 	} else {
@@ -90,20 +59,20 @@ $ProtectionDomainArray* JMXSubjectDomainCombiner::combine($ProtectionDomainArray
 
 $AccessControlContext* JMXSubjectDomainCombiner::getContext($Subject* subject) {
 	$init(JMXSubjectDomainCombiner);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessControlContext, var$0, $AccessController::getContext());
-	return $new($AccessControlContext, var$0, static_cast<$DomainCombiner*>($$new(JMXSubjectDomainCombiner, subject)));
+	return $new($AccessControlContext, var$0, $$new(JMXSubjectDomainCombiner, subject));
 }
 
 $AccessControlContext* JMXSubjectDomainCombiner::getDomainCombinerContext($Subject* subject) {
 	$init(JMXSubjectDomainCombiner);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessControlContext, var$0, $new($AccessControlContext, $$new($ProtectionDomainArray, 0)));
-	return $new($AccessControlContext, var$0, static_cast<$DomainCombiner*>($$new(JMXSubjectDomainCombiner, subject)));
+	return $new($AccessControlContext, var$0, $$new(JMXSubjectDomainCombiner, subject));
 }
 
-void clinit$JMXSubjectDomainCombiner($Class* class$) {
-	$assignStatic(JMXSubjectDomainCombiner::nullCodeSource, $new($CodeSource, ($URL*)nullptr, ($CertificateArray*)nullptr));
+void JMXSubjectDomainCombiner::clinit$($Class* clazz) {
+	$assignStatic(JMXSubjectDomainCombiner::nullCodeSource, $new($CodeSource, nullptr, ($CertificateArray*)nullptr));
 	$assignStatic(JMXSubjectDomainCombiner::pdNoPerms, $new($ProtectionDomain, JMXSubjectDomainCombiner::nullCodeSource, $$new($Permissions), nullptr, nullptr));
 }
 
@@ -111,7 +80,29 @@ JMXSubjectDomainCombiner::JMXSubjectDomainCombiner() {
 }
 
 $Class* JMXSubjectDomainCombiner::load$($String* name, bool initialize) {
-	$loadClass(JMXSubjectDomainCombiner, name, initialize, &_JMXSubjectDomainCombiner_ClassInfo_, clinit$JMXSubjectDomainCombiner, allocate$JMXSubjectDomainCombiner);
+	$FieldInfo fieldInfos$$[] = {
+		{"nullCodeSource", "Ljava/security/CodeSource;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXSubjectDomainCombiner, nullCodeSource)},
+		{"pdNoPerms", "Ljava/security/ProtectionDomain;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXSubjectDomainCombiner, pdNoPerms)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC, $method(JMXSubjectDomainCombiner, init$, void, $Subject*)},
+		{"combine", "([Ljava/security/ProtectionDomain;[Ljava/security/ProtectionDomain;)[Ljava/security/ProtectionDomain;", nullptr, $PUBLIC, $virtualMethod(JMXSubjectDomainCombiner, combine, $ProtectionDomainArray*, $ProtectionDomainArray*, $ProtectionDomainArray*)},
+		{"getContext", "(Ljavax/security/auth/Subject;)Ljava/security/AccessControlContext;", nullptr, $PUBLIC | $STATIC, $staticMethod(JMXSubjectDomainCombiner, getContext, $AccessControlContext*, $Subject*)},
+		{"getDomainCombinerContext", "(Ljavax/security/auth/Subject;)Ljava/security/AccessControlContext;", nullptr, $PUBLIC | $STATIC, $staticMethod(JMXSubjectDomainCombiner, getDomainCombinerContext, $AccessControlContext*, $Subject*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.jmx.remote.security.JMXSubjectDomainCombiner",
+		"javax.security.auth.SubjectDomainCombiner",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JMXSubjectDomainCombiner, name, initialize, &classInfo$$, JMXSubjectDomainCombiner::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JMXSubjectDomainCombiner);
+	});
 	return class$;
 }
 

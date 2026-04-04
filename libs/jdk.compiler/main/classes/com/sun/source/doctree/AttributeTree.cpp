@@ -1,5 +1,4 @@
 #include <com/sun/source/doctree/AttributeTree.h>
-
 #include <com/sun/source/doctree/AttributeTree$ValueKind.h>
 #include <java/util/List.h>
 #include <javax/lang/model/element/Name.h>
@@ -17,39 +16,34 @@ namespace com {
 		namespace source {
 			namespace doctree {
 
-$MethodInfo _AttributeTree_MethodInfo_[] = {
-	{"getName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AttributeTree, getName, $Name*)},
-	{"getValue", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(AttributeTree, getValue, $List*)},
-	{"getValueKind", "()Lcom/sun/source/doctree/AttributeTree$ValueKind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AttributeTree, getValueKind, $AttributeTree$ValueKind*)},
-	{}
-};
-
-$InnerClassInfo _AttributeTree_InnerClassesInfo_[] = {
-	{"com.sun.source.doctree.AttributeTree$ValueKind", "com.sun.source.doctree.AttributeTree", "ValueKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _AttributeTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.doctree.AttributeTree",
-	nullptr,
-	"com.sun.source.doctree.DocTree",
-	nullptr,
-	_AttributeTree_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AttributeTree_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.source.doctree.AttributeTree$ValueKind"
-};
-
-$Object* allocate$AttributeTree($Class* clazz) {
-	return $of($alloc(AttributeTree));
-}
-
 $Class* AttributeTree::load$($String* name, bool initialize) {
-	$loadClass(AttributeTree, name, initialize, &_AttributeTree_ClassInfo_, allocate$AttributeTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AttributeTree, getName, $Name*)},
+		{"getValue", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(AttributeTree, getValue, $List*)},
+		{"getValueKind", "()Lcom/sun/source/doctree/AttributeTree$ValueKind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AttributeTree, getValueKind, $AttributeTree$ValueKind*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.source.doctree.AttributeTree$ValueKind", "com.sun.source.doctree.AttributeTree", "ValueKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.doctree.AttributeTree",
+		nullptr,
+		"com.sun.source.doctree.DocTree",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.source.doctree.AttributeTree$ValueKind"
+	};
+	$loadClass(AttributeTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AttributeTree);
+	});
 	return class$;
 }
 

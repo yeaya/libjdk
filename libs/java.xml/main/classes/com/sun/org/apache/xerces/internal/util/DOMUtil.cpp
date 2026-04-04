@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/DOMUtil.h>
-
 #include <com/sun/org/apache/xerces/internal/dom/AttrImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/NodeImpl.h>
@@ -56,78 +55,11 @@ namespace com {
 					namespace internal {
 						namespace util {
 
-$MethodInfo _DOMUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(DOMUtil, init$, void)},
-	{"copyInto", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, copyInto, void, $Node*, $Node*), "org.w3c.dom.DOMException"},
-	{"createDOMException", "(SLjava/lang/Throwable;)Lorg/w3c/dom/DOMException;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, createDOMException, $DOMException*, int16_t, $Throwable*)},
-	{"createLSException", "(SLjava/lang/Throwable;)Lorg/w3c/dom/ls/LSException;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, createLSException, $LSException*, int16_t, $Throwable*)},
-	{"getAnnotation", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getAnnotation, $String*, $Node*)},
-	{"getAttr", "(Lorg/w3c/dom/Element;Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getAttr, $Attr*, $Element*, $String*)},
-	{"getAttrNS", "(Lorg/w3c/dom/Element;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getAttrNS, $Attr*, $Element*, $String*, $String*)},
-	{"getAttrValue", "(Lorg/w3c/dom/Element;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getAttrValue, $String*, $Element*, $String*)},
-	{"getAttrValueNS", "(Lorg/w3c/dom/Element;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getAttrValueNS, $String*, $Element*, $String*, $String*)},
-	{"getAttrs", "(Lorg/w3c/dom/Element;)[Lorg/w3c/dom/Attr;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getAttrs, $AttrArray*, $Element*)},
-	{"getChildText", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getChildText, $String*, $Node*)},
-	{"getDocument", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Document;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getDocument, $Document*, $Node*)},
-	{"getFirstChildElement", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getFirstChildElement, $Element*, $Node*)},
-	{"getFirstChildElement", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getFirstChildElement, $Element*, $Node*, $String*)},
-	{"getFirstChildElement", "(Lorg/w3c/dom/Node;[Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getFirstChildElement, $Element*, $Node*, $StringArray*)},
-	{"getFirstChildElement", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getFirstChildElement, $Element*, $Node*, $String*, $String*, $String*)},
-	{"getFirstChildElementNS", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getFirstChildElementNS, $Element*, $Node*, $String*, $String*)},
-	{"getFirstChildElementNS", "(Lorg/w3c/dom/Node;[[Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getFirstChildElementNS, $Element*, $Node*, $StringArray2*)},
-	{"getFirstVisibleChildElement", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getFirstVisibleChildElement, $Element*, $Node*)},
-	{"getFirstVisibleChildElement", "(Lorg/w3c/dom/Node;Ljava/util/Map;)Lorg/w3c/dom/Element;", "(Lorg/w3c/dom/Node;Ljava/util/Map<Lorg/w3c/dom/Node;Ljava/lang/String;>;)Lorg/w3c/dom/Element;", $PUBLIC | $STATIC, $staticMethod(DOMUtil, getFirstVisibleChildElement, $Element*, $Node*, $Map*)},
-	{"getLastChildElement", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getLastChildElement, $Element*, $Node*)},
-	{"getLastChildElement", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getLastChildElement, $Element*, $Node*, $String*)},
-	{"getLastChildElement", "(Lorg/w3c/dom/Node;[Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getLastChildElement, $Element*, $Node*, $StringArray*)},
-	{"getLastChildElement", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getLastChildElement, $Element*, $Node*, $String*, $String*, $String*)},
-	{"getLastChildElementNS", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getLastChildElementNS, $Element*, $Node*, $String*, $String*)},
-	{"getLastChildElementNS", "(Lorg/w3c/dom/Node;[[Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getLastChildElementNS, $Element*, $Node*, $StringArray2*)},
-	{"getLastVisibleChildElement", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getLastVisibleChildElement, $Element*, $Node*)},
-	{"getLastVisibleChildElement", "(Lorg/w3c/dom/Node;Ljava/util/Map;)Lorg/w3c/dom/Element;", "(Lorg/w3c/dom/Node;Ljava/util/Map<Lorg/w3c/dom/Node;Ljava/lang/String;>;)Lorg/w3c/dom/Element;", $PUBLIC | $STATIC, $staticMethod(DOMUtil, getLastVisibleChildElement, $Element*, $Node*, $Map*)},
-	{"getLocalName", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getLocalName, $String*, $Node*)},
-	{"getName", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getName, $String*, $Node*)},
-	{"getNamespaceURI", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getNamespaceURI, $String*, $Node*)},
-	{"getNextSiblingElement", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getNextSiblingElement, $Element*, $Node*)},
-	{"getNextSiblingElement", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getNextSiblingElement, $Element*, $Node*, $String*)},
-	{"getNextSiblingElement", "(Lorg/w3c/dom/Node;[Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getNextSiblingElement, $Element*, $Node*, $StringArray*)},
-	{"getNextSiblingElement", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getNextSiblingElement, $Element*, $Node*, $String*, $String*, $String*)},
-	{"getNextSiblingElementNS", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getNextSiblingElementNS, $Element*, $Node*, $String*, $String*)},
-	{"getNextSiblingElementNS", "(Lorg/w3c/dom/Node;[[Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getNextSiblingElementNS, $Element*, $Node*, $StringArray2*)},
-	{"getNextVisibleSiblingElement", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getNextVisibleSiblingElement, $Element*, $Node*)},
-	{"getNextVisibleSiblingElement", "(Lorg/w3c/dom/Node;Ljava/util/Map;)Lorg/w3c/dom/Element;", "(Lorg/w3c/dom/Node;Ljava/util/Map<Lorg/w3c/dom/Node;Ljava/lang/String;>;)Lorg/w3c/dom/Element;", $PUBLIC | $STATIC, $staticMethod(DOMUtil, getNextVisibleSiblingElement, $Element*, $Node*, $Map*)},
-	{"getParent", "(Lorg/w3c/dom/Element;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getParent, $Element*, $Element*)},
-	{"getPrefix", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getPrefix, $String*, $Node*)},
-	{"getRoot", "(Lorg/w3c/dom/Document;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getRoot, $Element*, $Document*)},
-	{"getSyntheticAnnotation", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getSyntheticAnnotation, $String*, $Node*)},
-	{"getValue", "(Lorg/w3c/dom/Attr;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getValue, $String*, $Attr*)},
-	{"isHidden", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, isHidden, bool, $Node*)},
-	{"isHidden", "(Lorg/w3c/dom/Node;Ljava/util/Map;)Z", "(Lorg/w3c/dom/Node;Ljava/util/Map<Lorg/w3c/dom/Node;Ljava/lang/String;>;)Z", $PUBLIC | $STATIC, $staticMethod(DOMUtil, isHidden, bool, $Node*, $Map*)},
-	{"setHidden", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, setHidden, void, $Node*)},
-	{"setHidden", "(Lorg/w3c/dom/Node;Ljava/util/Map;)V", "(Lorg/w3c/dom/Node;Ljava/util/Map<Lorg/w3c/dom/Node;Ljava/lang/String;>;)V", $PUBLIC | $STATIC, $staticMethod(DOMUtil, setHidden, void, $Node*, $Map*)},
-	{"setVisible", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, setVisible, void, $Node*)},
-	{"setVisible", "(Lorg/w3c/dom/Node;Ljava/util/Map;)V", "(Lorg/w3c/dom/Node;Ljava/util/Map<Lorg/w3c/dom/Node;Ljava/lang/String;>;)V", $PUBLIC | $STATIC, $staticMethod(DOMUtil, setVisible, void, $Node*, $Map*)},
-	{}
-};
-
-$ClassInfo _DOMUtil_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.util.DOMUtil",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_DOMUtil_MethodInfo_
-};
-
-$Object* allocate$DOMUtil($Class* clazz) {
-	return $of($alloc(DOMUtil));
-}
-
 void DOMUtil::init$() {
 }
 
 void DOMUtil::copyInto($Node* src, $Node* dest$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, dest, dest$renamed);
 	$var($Document, factory, $nc(dest)->getOwnerDocument());
 	bool domimpl = $instanceOf($DocumentImpl, factory);
@@ -140,67 +72,53 @@ void DOMUtil::copyInto($Node* src, $Node* dest$renamed) {
 		switch (type) {
 		case $Node::CDATA_SECTION_NODE:
 			{
-				{
-					$assign(node, $nc(factory)->createCDATASection($(place->getNodeValue())));
-					break;
-				}
+				$assign(node, $nc(factory)->createCDATASection($(place->getNodeValue())));
+				break;
 			}
 		case $Node::COMMENT_NODE:
 			{
-				{
-					$assign(node, $nc(factory)->createComment($(place->getNodeValue())));
-					break;
-				}
+				$assign(node, $nc(factory)->createComment($(place->getNodeValue())));
+				break;
 			}
 		case $Node::ELEMENT_NODE:
 			{
-				{
-					$var($Element, element, $nc(factory)->createElement($(place->getNodeName())));
-					$assign(node, element);
-					$var($NamedNodeMap, attrs, place->getAttributes());
-					int32_t attrCount = $nc(attrs)->getLength();
-					for (int32_t i = 0; i < attrCount; ++i) {
-						$var($Attr, attr, $cast($Attr, attrs->item(i)));
-						$var($String, attrName, $nc(attr)->getNodeName());
-						$var($String, attrValue, attr->getNodeValue());
-						$nc(element)->setAttribute(attrName, attrValue);
-						if (domimpl && !attr->getSpecified()) {
-							$nc(($cast($AttrImpl, $(element->getAttributeNode(attrName)))))->setSpecified(false);
-						}
+				$var($Element, element, $nc(factory)->createElement($(place->getNodeName())));
+				$assign(node, element);
+				$var($NamedNodeMap, attrs, place->getAttributes());
+				int32_t attrCount = $nc(attrs)->getLength();
+				for (int32_t i = 0; i < attrCount; ++i) {
+					$var($Attr, attr, $cast($Attr, attrs->item(i)));
+					$var($String, attrName, $nc(attr)->getNodeName());
+					$var($String, attrValue, attr->getNodeValue());
+					$nc(element)->setAttribute(attrName, attrValue);
+					if (domimpl && !attr->getSpecified()) {
+						$$sure($AttrImpl, element->getAttributeNode(attrName))->setSpecified(false);
 					}
-					break;
 				}
+				break;
 			}
 		case $Node::ENTITY_REFERENCE_NODE:
 			{
-				{
-					$assign(node, $nc(factory)->createEntityReference($(place->getNodeName())));
-					break;
-				}
+				$assign(node, $nc(factory)->createEntityReference($(place->getNodeName())));
+				break;
 			}
 		case $Node::PROCESSING_INSTRUCTION_NODE:
 			{
-				{
-					$var($String, var$0, place->getNodeName());
-					$assign(node, $nc(factory)->createProcessingInstruction(var$0, $(place->getNodeValue())));
-					break;
-				}
+				$var($String, var$0, place->getNodeName());
+				$assign(node, $nc(factory)->createProcessingInstruction(var$0, $(place->getNodeValue())));
+				break;
 			}
 		case $Node::TEXT_NODE:
 			{
-				{
-					$assign(node, $nc(factory)->createTextNode($(place->getNodeValue())));
-					break;
-				}
+				$assign(node, $nc(factory)->createTextNode($(place->getNodeValue())));
+				break;
 			}
 		default:
 			{
-				{
-					$throwNew($IllegalArgumentException, $$str({"can\'t copy node type, "_s, $$str(type), " ("_s, $(place->getNodeName()), $$str(u')')}));
-				}
+				$throwNew($IllegalArgumentException, $$str({"can\'t copy node type, "_s, $$str(type), " ("_s, $(place->getNodeName()), $$str(u')')}));
 			}
 		}
-		dest->appendChild(node);
+		$nc(dest)->appendChild(node);
 		if (place->hasChildNodes()) {
 			$assign(parent, place);
 			$assign(place, place->getFirstChild());
@@ -323,15 +241,15 @@ $Element* DOMUtil::getNextVisibleSiblingElement($Node* node, $Map* hiddenNodes) 
 
 void DOMUtil::setHidden($Node* node) {
 	if ($instanceOf($NodeImpl, node)) {
-		$nc(($cast($NodeImpl, node)))->setReadOnly(true, false);
+		$cast($NodeImpl, node)->setReadOnly(true, false);
 	} else if ($instanceOf($1NodeImpl, node)) {
-		$nc(($cast($1NodeImpl, node)))->setReadOnly(true, false);
+		$cast($1NodeImpl, node)->setReadOnly(true, false);
 	}
 }
 
 void DOMUtil::setHidden($Node* node, $Map* hiddenNodes) {
 	if ($instanceOf($NodeImpl, node)) {
-		$nc(($cast($NodeImpl, node)))->setReadOnly(true, false);
+		$cast($NodeImpl, node)->setReadOnly(true, false);
 	} else {
 		$nc(hiddenNodes)->put(node, ""_s);
 	}
@@ -339,15 +257,15 @@ void DOMUtil::setHidden($Node* node, $Map* hiddenNodes) {
 
 void DOMUtil::setVisible($Node* node) {
 	if ($instanceOf($NodeImpl, node)) {
-		$nc(($cast($NodeImpl, node)))->setReadOnly(false, false);
+		$cast($NodeImpl, node)->setReadOnly(false, false);
 	} else if ($instanceOf($1NodeImpl, node)) {
-		$nc(($cast($1NodeImpl, node)))->setReadOnly(false, false);
+		$cast($1NodeImpl, node)->setReadOnly(false, false);
 	}
 }
 
 void DOMUtil::setVisible($Node* node, $Map* hiddenNodes) {
 	if ($instanceOf($NodeImpl, node)) {
-		$nc(($cast($NodeImpl, node)))->setReadOnly(false, false);
+		$cast($NodeImpl, node)->setReadOnly(false, false);
 	} else {
 		$nc(hiddenNodes)->remove(node);
 	}
@@ -355,27 +273,27 @@ void DOMUtil::setVisible($Node* node, $Map* hiddenNodes) {
 
 bool DOMUtil::isHidden($Node* node) {
 	if ($instanceOf($NodeImpl, node)) {
-		return $nc(($cast($NodeImpl, node)))->getReadOnly();
+		return $cast($NodeImpl, node)->getReadOnly();
 	} else if ($instanceOf($1NodeImpl, node)) {
-		return $nc(($cast($1NodeImpl, node)))->getReadOnly();
+		return $cast($1NodeImpl, node)->getReadOnly();
 	}
 	return false;
 }
 
 bool DOMUtil::isHidden($Node* node, $Map* hiddenNodes) {
 	if ($instanceOf($NodeImpl, node)) {
-		return $nc(($cast($NodeImpl, node)))->getReadOnly();
+		return $cast($NodeImpl, node)->getReadOnly();
 	} else {
 		return $nc(hiddenNodes)->containsKey(node);
 	}
 }
 
 $Element* DOMUtil::getFirstChildElement($Node* parent, $String* elemName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, child, $nc(parent)->getFirstChild());
 	while (child != nullptr) {
 		if (child->getNodeType() == $Node::ELEMENT_NODE) {
-			if ($nc($(child->getNodeName()))->equals(elemName)) {
+			if ($$nc(child->getNodeName())->equals(elemName)) {
 				return $cast($Element, child);
 			}
 		}
@@ -385,11 +303,11 @@ $Element* DOMUtil::getFirstChildElement($Node* parent, $String* elemName) {
 }
 
 $Element* DOMUtil::getLastChildElement($Node* parent, $String* elemName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, child, $nc(parent)->getLastChild());
 	while (child != nullptr) {
 		if (child->getNodeType() == $Node::ELEMENT_NODE) {
-			if ($nc($(child->getNodeName()))->equals(elemName)) {
+			if ($$nc(child->getNodeName())->equals(elemName)) {
 				return $cast($Element, child);
 			}
 		}
@@ -399,11 +317,11 @@ $Element* DOMUtil::getLastChildElement($Node* parent, $String* elemName) {
 }
 
 $Element* DOMUtil::getNextSiblingElement($Node* node, $String* elemName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, sibling, $nc(node)->getNextSibling());
 	while (sibling != nullptr) {
 		if (sibling->getNodeType() == $Node::ELEMENT_NODE) {
-			if ($nc($(sibling->getNodeName()))->equals(elemName)) {
+			if ($$nc(sibling->getNodeName())->equals(elemName)) {
 				return $cast($Element, sibling);
 			}
 		}
@@ -413,13 +331,13 @@ $Element* DOMUtil::getNextSiblingElement($Node* node, $String* elemName) {
 }
 
 $Element* DOMUtil::getFirstChildElementNS($Node* parent, $String* uri, $String* localpart) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, child, $nc(parent)->getFirstChild());
 	while (child != nullptr) {
 		if (child->getNodeType() == $Node::ELEMENT_NODE) {
 			$var($String, childURI, child->getNamespaceURI());
 			bool var$0 = childURI != nullptr && childURI->equals(uri);
-			if (var$0 && $nc($(child->getLocalName()))->equals(localpart)) {
+			if (var$0 && $$nc(child->getLocalName())->equals(localpart)) {
 				return $cast($Element, child);
 			}
 		}
@@ -429,13 +347,13 @@ $Element* DOMUtil::getFirstChildElementNS($Node* parent, $String* uri, $String* 
 }
 
 $Element* DOMUtil::getLastChildElementNS($Node* parent, $String* uri, $String* localpart) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, child, $nc(parent)->getLastChild());
 	while (child != nullptr) {
 		if (child->getNodeType() == $Node::ELEMENT_NODE) {
 			$var($String, childURI, child->getNamespaceURI());
 			bool var$0 = childURI != nullptr && childURI->equals(uri);
-			if (var$0 && $nc($(child->getLocalName()))->equals(localpart)) {
+			if (var$0 && $$nc(child->getLocalName())->equals(localpart)) {
 				return $cast($Element, child);
 			}
 		}
@@ -445,13 +363,13 @@ $Element* DOMUtil::getLastChildElementNS($Node* parent, $String* uri, $String* l
 }
 
 $Element* DOMUtil::getNextSiblingElementNS($Node* node, $String* uri, $String* localpart) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, sibling, $nc(node)->getNextSibling());
 	while (sibling != nullptr) {
 		if (sibling->getNodeType() == $Node::ELEMENT_NODE) {
 			$var($String, siblingURI, sibling->getNamespaceURI());
 			bool var$0 = siblingURI != nullptr && siblingURI->equals(uri);
-			if (var$0 && $nc($(sibling->getLocalName()))->equals(localpart)) {
+			if (var$0 && $$nc(sibling->getLocalName())->equals(localpart)) {
 				return $cast($Element, sibling);
 			}
 		}
@@ -461,12 +379,12 @@ $Element* DOMUtil::getNextSiblingElementNS($Node* node, $String* uri, $String* l
 }
 
 $Element* DOMUtil::getFirstChildElement($Node* parent, $StringArray* elemNames) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, child, $nc(parent)->getFirstChild());
 	while (child != nullptr) {
 		if (child->getNodeType() == $Node::ELEMENT_NODE) {
 			for (int32_t i = 0; i < $nc(elemNames)->length; ++i) {
-				if ($nc($(child->getNodeName()))->equals(elemNames->get(i))) {
+				if ($$nc(child->getNodeName())->equals(elemNames->get(i))) {
 					return $cast($Element, child);
 				}
 			}
@@ -477,12 +395,12 @@ $Element* DOMUtil::getFirstChildElement($Node* parent, $StringArray* elemNames) 
 }
 
 $Element* DOMUtil::getLastChildElement($Node* parent, $StringArray* elemNames) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, child, $nc(parent)->getLastChild());
 	while (child != nullptr) {
 		if (child->getNodeType() == $Node::ELEMENT_NODE) {
 			for (int32_t i = 0; i < $nc(elemNames)->length; ++i) {
-				if ($nc($(child->getNodeName()))->equals(elemNames->get(i))) {
+				if ($$nc(child->getNodeName())->equals(elemNames->get(i))) {
 					return $cast($Element, child);
 				}
 			}
@@ -493,12 +411,12 @@ $Element* DOMUtil::getLastChildElement($Node* parent, $StringArray* elemNames) {
 }
 
 $Element* DOMUtil::getNextSiblingElement($Node* node, $StringArray* elemNames) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, sibling, $nc(node)->getNextSibling());
 	while (sibling != nullptr) {
 		if (sibling->getNodeType() == $Node::ELEMENT_NODE) {
 			for (int32_t i = 0; i < $nc(elemNames)->length; ++i) {
-				if ($nc($(sibling->getNodeName()))->equals(elemNames->get(i))) {
+				if ($$nc(sibling->getNodeName())->equals(elemNames->get(i))) {
 					return $cast($Element, sibling);
 				}
 			}
@@ -509,14 +427,14 @@ $Element* DOMUtil::getNextSiblingElement($Node* node, $StringArray* elemNames) {
 }
 
 $Element* DOMUtil::getFirstChildElementNS($Node* parent, $StringArray2* elemNames) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, child, $nc(parent)->getFirstChild());
 	while (child != nullptr) {
 		if (child->getNodeType() == $Node::ELEMENT_NODE) {
 			for (int32_t i = 0; i < $nc(elemNames)->length; ++i) {
 				$var($String, uri, child->getNamespaceURI());
 				bool var$0 = uri != nullptr && uri->equals($nc(elemNames->get(i))->get(0));
-				if (var$0 && $nc($(child->getLocalName()))->equals($nc(elemNames->get(i))->get(1))) {
+				if (var$0 && $$nc(child->getLocalName())->equals($nc(elemNames->get(i))->get(1))) {
 					return $cast($Element, child);
 				}
 			}
@@ -527,14 +445,14 @@ $Element* DOMUtil::getFirstChildElementNS($Node* parent, $StringArray2* elemName
 }
 
 $Element* DOMUtil::getLastChildElementNS($Node* parent, $StringArray2* elemNames) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, child, $nc(parent)->getLastChild());
 	while (child != nullptr) {
 		if (child->getNodeType() == $Node::ELEMENT_NODE) {
 			for (int32_t i = 0; i < $nc(elemNames)->length; ++i) {
 				$var($String, uri, child->getNamespaceURI());
 				bool var$0 = uri != nullptr && uri->equals($nc(elemNames->get(i))->get(0));
-				if (var$0 && $nc($(child->getLocalName()))->equals($nc(elemNames->get(i))->get(1))) {
+				if (var$0 && $$nc(child->getLocalName())->equals($nc(elemNames->get(i))->get(1))) {
 					return $cast($Element, child);
 				}
 			}
@@ -545,14 +463,14 @@ $Element* DOMUtil::getLastChildElementNS($Node* parent, $StringArray2* elemNames
 }
 
 $Element* DOMUtil::getNextSiblingElementNS($Node* node, $StringArray2* elemNames) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, sibling, $nc(node)->getNextSibling());
 	while (sibling != nullptr) {
 		if (sibling->getNodeType() == $Node::ELEMENT_NODE) {
 			for (int32_t i = 0; i < $nc(elemNames)->length; ++i) {
 				$var($String, uri, sibling->getNamespaceURI());
 				bool var$0 = uri != nullptr && uri->equals($nc(elemNames->get(i))->get(0));
-				if (var$0 && $nc($(sibling->getLocalName()))->equals($nc(elemNames->get(i))->get(1))) {
+				if (var$0 && $$nc(sibling->getLocalName())->equals($nc(elemNames->get(i))->get(1))) {
 					return $cast($Element, sibling);
 				}
 			}
@@ -563,13 +481,13 @@ $Element* DOMUtil::getNextSiblingElementNS($Node* node, $StringArray2* elemNames
 }
 
 $Element* DOMUtil::getFirstChildElement($Node* parent, $String* elemName, $String* attrName, $String* attrValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, child, $nc(parent)->getFirstChild());
 	while (child != nullptr) {
 		if (child->getNodeType() == $Node::ELEMENT_NODE) {
 			$var($Element, element, $cast($Element, child));
-			bool var$0 = $nc($(element->getNodeName()))->equals(elemName);
-			if (var$0 && $nc($(element->getAttribute(attrName)))->equals(attrValue)) {
+			bool var$0 = $$nc(element->getNodeName())->equals(elemName);
+			if (var$0 && $$nc(element->getAttribute(attrName))->equals(attrValue)) {
 				return element;
 			}
 		}
@@ -579,13 +497,13 @@ $Element* DOMUtil::getFirstChildElement($Node* parent, $String* elemName, $Strin
 }
 
 $Element* DOMUtil::getLastChildElement($Node* parent, $String* elemName, $String* attrName, $String* attrValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, child, $nc(parent)->getLastChild());
 	while (child != nullptr) {
 		if (child->getNodeType() == $Node::ELEMENT_NODE) {
 			$var($Element, element, $cast($Element, child));
-			bool var$0 = $nc($(element->getNodeName()))->equals(elemName);
-			if (var$0 && $nc($(element->getAttribute(attrName)))->equals(attrValue)) {
+			bool var$0 = $$nc(element->getNodeName())->equals(elemName);
+			if (var$0 && $$nc(element->getAttribute(attrName))->equals(attrValue)) {
 				return element;
 			}
 		}
@@ -595,13 +513,13 @@ $Element* DOMUtil::getLastChildElement($Node* parent, $String* elemName, $String
 }
 
 $Element* DOMUtil::getNextSiblingElement($Node* node, $String* elemName, $String* attrName, $String* attrValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, sibling, $nc(node)->getNextSibling());
 	while (sibling != nullptr) {
 		if (sibling->getNodeType() == $Node::ELEMENT_NODE) {
 			$var($Element, element, $cast($Element, sibling));
-			bool var$0 = $nc($(element->getNodeName()))->equals(elemName);
-			if (var$0 && $nc($(element->getAttribute(attrName)))->equals(attrValue)) {
+			bool var$0 = $$nc(element->getNodeName())->equals(elemName);
+			if (var$0 && $$nc(element->getAttribute(attrName))->equals(attrValue)) {
 				return element;
 			}
 		}
@@ -611,7 +529,7 @@ $Element* DOMUtil::getNextSiblingElement($Node* node, $String* elemName, $String
 }
 
 $String* DOMUtil::getChildText($Node* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (node == nullptr) {
 		return nullptr;
 	}
@@ -663,11 +581,11 @@ $Attr* DOMUtil::getAttrNS($Element* elem, $String* nsUri, $String* localName) {
 }
 
 $AttrArray* DOMUtil::getAttrs($Element* elem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NamedNodeMap, attrMap, $nc(elem)->getAttributes());
 	$var($AttrArray, attrArray, $new($AttrArray, $nc(attrMap)->getLength()));
 	for (int32_t i = 0; i < attrMap->getLength(); ++i) {
-		attrArray->set(i, $cast($Attr, $(attrMap->item(i))));
+		attrArray->set(i, $$cast($Attr, attrMap->item(i)));
 	}
 	return attrArray;
 }
@@ -694,21 +612,21 @@ $String* DOMUtil::getNamespaceURI($Node* node) {
 
 $String* DOMUtil::getAnnotation($Node* node) {
 	if ($instanceOf($ElementImpl, node)) {
-		return $nc(($cast($ElementImpl, node)))->getAnnotation();
+		return $cast($ElementImpl, node)->getAnnotation();
 	}
 	return nullptr;
 }
 
 $String* DOMUtil::getSyntheticAnnotation($Node* node) {
 	if ($instanceOf($ElementImpl, node)) {
-		return $nc(($cast($ElementImpl, node)))->getSyntheticAnnotation();
+		return $cast($ElementImpl, node)->getSyntheticAnnotation();
 	}
 	return nullptr;
 }
 
 $DOMException* DOMUtil::createDOMException(int16_t code, $Throwable* cause) {
-	$useLocalCurrentObjectStackCache();
-	$var($DOMException, de, $new($DOMException, code, cause != nullptr ? $($nc(cause)->getMessage()) : ($String*)nullptr));
+	$useLocalObjectStack();
+	$var($DOMException, de, $new($DOMException, code, cause != nullptr ? $(cause->getMessage()) : ($String*)nullptr));
 	if (cause != nullptr) {
 		de->initCause(cause);
 	}
@@ -716,8 +634,8 @@ $DOMException* DOMUtil::createDOMException(int16_t code, $Throwable* cause) {
 }
 
 $LSException* DOMUtil::createLSException(int16_t code, $Throwable* cause) {
-	$useLocalCurrentObjectStackCache();
-	$var($LSException, lse, $new($LSException, code, cause != nullptr ? $($nc(cause)->getMessage()) : ($String*)nullptr));
+	$useLocalObjectStack();
+	$var($LSException, lse, $new($LSException, code, cause != nullptr ? $(cause->getMessage()) : ($String*)nullptr));
 	if (cause != nullptr) {
 		lse->initCause(cause);
 	}
@@ -728,7 +646,70 @@ DOMUtil::DOMUtil() {
 }
 
 $Class* DOMUtil::load$($String* name, bool initialize) {
-	$loadClass(DOMUtil, name, initialize, &_DOMUtil_ClassInfo_, allocate$DOMUtil);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(DOMUtil, init$, void)},
+		{"copyInto", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, copyInto, void, $Node*, $Node*), "org.w3c.dom.DOMException"},
+		{"createDOMException", "(SLjava/lang/Throwable;)Lorg/w3c/dom/DOMException;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, createDOMException, $DOMException*, int16_t, $Throwable*)},
+		{"createLSException", "(SLjava/lang/Throwable;)Lorg/w3c/dom/ls/LSException;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, createLSException, $LSException*, int16_t, $Throwable*)},
+		{"getAnnotation", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getAnnotation, $String*, $Node*)},
+		{"getAttr", "(Lorg/w3c/dom/Element;Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getAttr, $Attr*, $Element*, $String*)},
+		{"getAttrNS", "(Lorg/w3c/dom/Element;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getAttrNS, $Attr*, $Element*, $String*, $String*)},
+		{"getAttrValue", "(Lorg/w3c/dom/Element;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getAttrValue, $String*, $Element*, $String*)},
+		{"getAttrValueNS", "(Lorg/w3c/dom/Element;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getAttrValueNS, $String*, $Element*, $String*, $String*)},
+		{"getAttrs", "(Lorg/w3c/dom/Element;)[Lorg/w3c/dom/Attr;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getAttrs, $AttrArray*, $Element*)},
+		{"getChildText", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getChildText, $String*, $Node*)},
+		{"getDocument", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Document;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getDocument, $Document*, $Node*)},
+		{"getFirstChildElement", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getFirstChildElement, $Element*, $Node*)},
+		{"getFirstChildElement", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getFirstChildElement, $Element*, $Node*, $String*)},
+		{"getFirstChildElement", "(Lorg/w3c/dom/Node;[Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getFirstChildElement, $Element*, $Node*, $StringArray*)},
+		{"getFirstChildElement", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getFirstChildElement, $Element*, $Node*, $String*, $String*, $String*)},
+		{"getFirstChildElementNS", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getFirstChildElementNS, $Element*, $Node*, $String*, $String*)},
+		{"getFirstChildElementNS", "(Lorg/w3c/dom/Node;[[Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getFirstChildElementNS, $Element*, $Node*, $StringArray2*)},
+		{"getFirstVisibleChildElement", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getFirstVisibleChildElement, $Element*, $Node*)},
+		{"getFirstVisibleChildElement", "(Lorg/w3c/dom/Node;Ljava/util/Map;)Lorg/w3c/dom/Element;", "(Lorg/w3c/dom/Node;Ljava/util/Map<Lorg/w3c/dom/Node;Ljava/lang/String;>;)Lorg/w3c/dom/Element;", $PUBLIC | $STATIC, $staticMethod(DOMUtil, getFirstVisibleChildElement, $Element*, $Node*, $Map*)},
+		{"getLastChildElement", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getLastChildElement, $Element*, $Node*)},
+		{"getLastChildElement", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getLastChildElement, $Element*, $Node*, $String*)},
+		{"getLastChildElement", "(Lorg/w3c/dom/Node;[Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getLastChildElement, $Element*, $Node*, $StringArray*)},
+		{"getLastChildElement", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getLastChildElement, $Element*, $Node*, $String*, $String*, $String*)},
+		{"getLastChildElementNS", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getLastChildElementNS, $Element*, $Node*, $String*, $String*)},
+		{"getLastChildElementNS", "(Lorg/w3c/dom/Node;[[Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getLastChildElementNS, $Element*, $Node*, $StringArray2*)},
+		{"getLastVisibleChildElement", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getLastVisibleChildElement, $Element*, $Node*)},
+		{"getLastVisibleChildElement", "(Lorg/w3c/dom/Node;Ljava/util/Map;)Lorg/w3c/dom/Element;", "(Lorg/w3c/dom/Node;Ljava/util/Map<Lorg/w3c/dom/Node;Ljava/lang/String;>;)Lorg/w3c/dom/Element;", $PUBLIC | $STATIC, $staticMethod(DOMUtil, getLastVisibleChildElement, $Element*, $Node*, $Map*)},
+		{"getLocalName", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getLocalName, $String*, $Node*)},
+		{"getName", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getName, $String*, $Node*)},
+		{"getNamespaceURI", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getNamespaceURI, $String*, $Node*)},
+		{"getNextSiblingElement", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getNextSiblingElement, $Element*, $Node*)},
+		{"getNextSiblingElement", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getNextSiblingElement, $Element*, $Node*, $String*)},
+		{"getNextSiblingElement", "(Lorg/w3c/dom/Node;[Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getNextSiblingElement, $Element*, $Node*, $StringArray*)},
+		{"getNextSiblingElement", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getNextSiblingElement, $Element*, $Node*, $String*, $String*, $String*)},
+		{"getNextSiblingElementNS", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getNextSiblingElementNS, $Element*, $Node*, $String*, $String*)},
+		{"getNextSiblingElementNS", "(Lorg/w3c/dom/Node;[[Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getNextSiblingElementNS, $Element*, $Node*, $StringArray2*)},
+		{"getNextVisibleSiblingElement", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getNextVisibleSiblingElement, $Element*, $Node*)},
+		{"getNextVisibleSiblingElement", "(Lorg/w3c/dom/Node;Ljava/util/Map;)Lorg/w3c/dom/Element;", "(Lorg/w3c/dom/Node;Ljava/util/Map<Lorg/w3c/dom/Node;Ljava/lang/String;>;)Lorg/w3c/dom/Element;", $PUBLIC | $STATIC, $staticMethod(DOMUtil, getNextVisibleSiblingElement, $Element*, $Node*, $Map*)},
+		{"getParent", "(Lorg/w3c/dom/Element;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getParent, $Element*, $Element*)},
+		{"getPrefix", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getPrefix, $String*, $Node*)},
+		{"getRoot", "(Lorg/w3c/dom/Document;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getRoot, $Element*, $Document*)},
+		{"getSyntheticAnnotation", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getSyntheticAnnotation, $String*, $Node*)},
+		{"getValue", "(Lorg/w3c/dom/Attr;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, getValue, $String*, $Attr*)},
+		{"isHidden", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, isHidden, bool, $Node*)},
+		{"isHidden", "(Lorg/w3c/dom/Node;Ljava/util/Map;)Z", "(Lorg/w3c/dom/Node;Ljava/util/Map<Lorg/w3c/dom/Node;Ljava/lang/String;>;)Z", $PUBLIC | $STATIC, $staticMethod(DOMUtil, isHidden, bool, $Node*, $Map*)},
+		{"setHidden", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, setHidden, void, $Node*)},
+		{"setHidden", "(Lorg/w3c/dom/Node;Ljava/util/Map;)V", "(Lorg/w3c/dom/Node;Ljava/util/Map<Lorg/w3c/dom/Node;Ljava/lang/String;>;)V", $PUBLIC | $STATIC, $staticMethod(DOMUtil, setHidden, void, $Node*, $Map*)},
+		{"setVisible", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtil, setVisible, void, $Node*)},
+		{"setVisible", "(Lorg/w3c/dom/Node;Ljava/util/Map;)V", "(Lorg/w3c/dom/Node;Ljava/util/Map<Lorg/w3c/dom/Node;Ljava/lang/String;>;)V", $PUBLIC | $STATIC, $staticMethod(DOMUtil, setVisible, void, $Node*, $Map*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.util.DOMUtil",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DOMUtil, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMUtil);
+	});
 	return class$;
 }
 

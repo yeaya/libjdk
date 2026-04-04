@@ -1,12 +1,9 @@
 #include <com/sun/org/apache/xpath/internal/functions/FunctionMultiArgs$ArgMultiOwner.h>
-
 #include <com/sun/org/apache/xpath/internal/Expression.h>
-#include <com/sun/org/apache/xpath/internal/ExpressionNode.h>
 #include <com/sun/org/apache/xpath/internal/functions/FunctionMultiArgs.h>
 #include <jcpp.h>
 
 using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
-using $ExpressionNode = ::com::sun::org::apache::xpath::internal::ExpressionNode;
 using $FunctionMultiArgs = ::com::sun::org::apache::xpath::internal::functions::FunctionMultiArgs;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -20,44 +17,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 						namespace functions {
-
-$FieldInfo _FunctionMultiArgs$ArgMultiOwner_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xpath/internal/functions/FunctionMultiArgs;", nullptr, $FINAL | $SYNTHETIC, $field(FunctionMultiArgs$ArgMultiOwner, this$0)},
-	{"m_argIndex", "I", nullptr, 0, $field(FunctionMultiArgs$ArgMultiOwner, m_argIndex)},
-	{}
-};
-
-$MethodInfo _FunctionMultiArgs$ArgMultiOwner_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xpath/internal/functions/FunctionMultiArgs;I)V", nullptr, 0, $method(FunctionMultiArgs$ArgMultiOwner, init$, void, $FunctionMultiArgs*, int32_t)},
-	{"getExpression", "()Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(FunctionMultiArgs$ArgMultiOwner, getExpression, $Expression*)},
-	{"setExpression", "(Lcom/sun/org/apache/xpath/internal/Expression;)V", nullptr, $PUBLIC, $virtualMethod(FunctionMultiArgs$ArgMultiOwner, setExpression, void, $Expression*)},
-	{}
-};
-
-$InnerClassInfo _FunctionMultiArgs$ArgMultiOwner_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xpath.internal.functions.FunctionMultiArgs$ArgMultiOwner", "com.sun.org.apache.xpath.internal.functions.FunctionMultiArgs", "ArgMultiOwner", 0},
-	{}
-};
-
-$ClassInfo _FunctionMultiArgs$ArgMultiOwner_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.functions.FunctionMultiArgs$ArgMultiOwner",
-	"java.lang.Object",
-	"com.sun.org.apache.xpath.internal.ExpressionOwner",
-	_FunctionMultiArgs$ArgMultiOwner_FieldInfo_,
-	_FunctionMultiArgs$ArgMultiOwner_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FunctionMultiArgs$ArgMultiOwner_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xpath.internal.functions.FunctionMultiArgs"
-};
-
-$Object* allocate$FunctionMultiArgs$ArgMultiOwner($Class* clazz) {
-	return $of($alloc(FunctionMultiArgs$ArgMultiOwner));
-}
 
 void FunctionMultiArgs$ArgMultiOwner::init$($FunctionMultiArgs* this$0, int32_t index) {
 	$set(this, this$0, this$0);
@@ -77,7 +36,39 @@ FunctionMultiArgs$ArgMultiOwner::FunctionMultiArgs$ArgMultiOwner() {
 }
 
 $Class* FunctionMultiArgs$ArgMultiOwner::load$($String* name, bool initialize) {
-	$loadClass(FunctionMultiArgs$ArgMultiOwner, name, initialize, &_FunctionMultiArgs$ArgMultiOwner_ClassInfo_, allocate$FunctionMultiArgs$ArgMultiOwner);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xpath/internal/functions/FunctionMultiArgs;", nullptr, $FINAL | $SYNTHETIC, $field(FunctionMultiArgs$ArgMultiOwner, this$0)},
+		{"m_argIndex", "I", nullptr, 0, $field(FunctionMultiArgs$ArgMultiOwner, m_argIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xpath/internal/functions/FunctionMultiArgs;I)V", nullptr, 0, $method(FunctionMultiArgs$ArgMultiOwner, init$, void, $FunctionMultiArgs*, int32_t)},
+		{"getExpression", "()Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(FunctionMultiArgs$ArgMultiOwner, getExpression, $Expression*)},
+		{"setExpression", "(Lcom/sun/org/apache/xpath/internal/Expression;)V", nullptr, $PUBLIC, $virtualMethod(FunctionMultiArgs$ArgMultiOwner, setExpression, void, $Expression*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xpath.internal.functions.FunctionMultiArgs$ArgMultiOwner", "com.sun.org.apache.xpath.internal.functions.FunctionMultiArgs", "ArgMultiOwner", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.functions.FunctionMultiArgs$ArgMultiOwner",
+		"java.lang.Object",
+		"com.sun.org.apache.xpath.internal.ExpressionOwner",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xpath.internal.functions.FunctionMultiArgs"
+	};
+	$loadClass(FunctionMultiArgs$ArgMultiOwner, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FunctionMultiArgs$ArgMultiOwner);
+	});
 	return class$;
 }
 

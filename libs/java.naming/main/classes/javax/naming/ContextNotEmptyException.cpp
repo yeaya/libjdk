@@ -1,5 +1,4 @@
 #include <javax/naming/ContextNotEmptyException.h>
-
 #include <javax/naming/NamingException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $NamingException = ::javax::naming::NamingException;
 
 namespace javax {
 	namespace naming {
-
-$FieldInfo _ContextNotEmptyException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ContextNotEmptyException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ContextNotEmptyException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ContextNotEmptyException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ContextNotEmptyException, init$, void)},
-	{}
-};
-
-$ClassInfo _ContextNotEmptyException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.ContextNotEmptyException",
-	"javax.naming.NamingException",
-	nullptr,
-	_ContextNotEmptyException_FieldInfo_,
-	_ContextNotEmptyException_MethodInfo_
-};
-
-$Object* allocate$ContextNotEmptyException($Class* clazz) {
-	return $of($alloc(ContextNotEmptyException));
-}
 
 void ContextNotEmptyException::init$($String* explanation) {
 	$NamingException::init$(explanation);
@@ -54,7 +29,26 @@ void ContextNotEmptyException::throw$() {
 }
 
 $Class* ContextNotEmptyException::load$($String* name, bool initialize) {
-	$loadClass(ContextNotEmptyException, name, initialize, &_ContextNotEmptyException_ClassInfo_, allocate$ContextNotEmptyException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ContextNotEmptyException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ContextNotEmptyException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ContextNotEmptyException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.ContextNotEmptyException",
+		"javax.naming.NamingException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ContextNotEmptyException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ContextNotEmptyException);
+	});
 	return class$;
 }
 

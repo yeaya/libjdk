@@ -18,6 +18,7 @@ class NotificationBroadcasterSupport$WildcardListenerInfo : public ::javax::mana
 	$class(NotificationBroadcasterSupport$WildcardListenerInfo, 0, ::javax::management::NotificationBroadcasterSupport$ListenerInfo)
 public:
 	NotificationBroadcasterSupport$WildcardListenerInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::management::NotificationListener* listener);
 	virtual bool equals(Object$* o) override;
 	virtual int32_t hashCode() override;

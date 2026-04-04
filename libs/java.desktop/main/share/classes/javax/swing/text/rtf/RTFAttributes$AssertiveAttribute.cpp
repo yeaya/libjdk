@@ -1,5 +1,4 @@
 #include <javax/swing/text/rtf/RTFAttributes$AssertiveAttribute.h>
-
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/rtf/RTFAttributes$GenericAttribute.h>
@@ -22,57 +21,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace rtf {
-
-$FieldInfo _RTFAttributes$AssertiveAttribute_FieldInfo_[] = {
-	{"swingValue", "Ljava/lang/Object;", nullptr, 0, $field(RTFAttributes$AssertiveAttribute, swingValue)},
-	{}
-};
-
-$MethodInfo _RTFAttributes$AssertiveAttribute_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*domain", "()I", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(ILjava/lang/Object;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RTFAttributes$AssertiveAttribute, init$, void, int32_t, Object$*, $String*)},
-	{"<init>", "(ILjava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(RTFAttributes$AssertiveAttribute, init$, void, int32_t, Object$*, $String*, Object$*)},
-	{"<init>", "(ILjava/lang/Object;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(RTFAttributes$AssertiveAttribute, init$, void, int32_t, Object$*, $String*, int32_t)},
-	{"*rtfName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"set", "(Ljavax/swing/text/MutableAttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(RTFAttributes$AssertiveAttribute, set, bool, $MutableAttributeSet*)},
-	{"set", "(Ljavax/swing/text/MutableAttributeSet;I)Z", nullptr, $PUBLIC, $virtualMethod(RTFAttributes$AssertiveAttribute, set, bool, $MutableAttributeSet*, int32_t)},
-	{"setDefault", "(Ljavax/swing/text/MutableAttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(RTFAttributes$AssertiveAttribute, setDefault, bool, $MutableAttributeSet*)},
-	{"*swingName", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*write", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/rtf/RTFGenerator;Z)Z", nullptr, $PUBLIC},
-	{"writeValue", "(Ljava/lang/Object;Ljavax/swing/text/rtf/RTFGenerator;Z)Z", nullptr, $PUBLIC, $virtualMethod(RTFAttributes$AssertiveAttribute, writeValue, bool, Object$*, $RTFGenerator*, bool), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _RTFAttributes$AssertiveAttribute_InnerClassesInfo_[] = {
-	{"javax.swing.text.rtf.RTFAttributes$AssertiveAttribute", "javax.swing.text.rtf.RTFAttributes", "AssertiveAttribute", $STATIC},
-	{"javax.swing.text.rtf.RTFAttributes$GenericAttribute", "javax.swing.text.rtf.RTFAttributes", "GenericAttribute", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RTFAttributes$AssertiveAttribute_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.rtf.RTFAttributes$AssertiveAttribute",
-	"javax.swing.text.rtf.RTFAttributes$GenericAttribute",
-	"javax.swing.text.rtf.RTFAttribute",
-	_RTFAttributes$AssertiveAttribute_FieldInfo_,
-	_RTFAttributes$AssertiveAttribute_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RTFAttributes$AssertiveAttribute_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.rtf.RTFAttributes"
-};
-
-$Object* allocate$RTFAttributes$AssertiveAttribute($Class* clazz) {
-	return $of($alloc(RTFAttributes$AssertiveAttribute));
-}
 
 int32_t RTFAttributes$AssertiveAttribute::domain() {
 	 return this->$RTFAttributes$GenericAttribute::domain();
@@ -158,7 +106,52 @@ RTFAttributes$AssertiveAttribute::RTFAttributes$AssertiveAttribute() {
 }
 
 $Class* RTFAttributes$AssertiveAttribute::load$($String* name, bool initialize) {
-	$loadClass(RTFAttributes$AssertiveAttribute, name, initialize, &_RTFAttributes$AssertiveAttribute_ClassInfo_, allocate$RTFAttributes$AssertiveAttribute);
+	$FieldInfo fieldInfos$$[] = {
+		{"swingValue", "Ljava/lang/Object;", nullptr, 0, $field(RTFAttributes$AssertiveAttribute, swingValue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*domain", "()I", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(ILjava/lang/Object;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RTFAttributes$AssertiveAttribute, init$, void, int32_t, Object$*, $String*)},
+		{"<init>", "(ILjava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(RTFAttributes$AssertiveAttribute, init$, void, int32_t, Object$*, $String*, Object$*)},
+		{"<init>", "(ILjava/lang/Object;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(RTFAttributes$AssertiveAttribute, init$, void, int32_t, Object$*, $String*, int32_t)},
+		{"*rtfName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"set", "(Ljavax/swing/text/MutableAttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(RTFAttributes$AssertiveAttribute, set, bool, $MutableAttributeSet*)},
+		{"set", "(Ljavax/swing/text/MutableAttributeSet;I)Z", nullptr, $PUBLIC, $virtualMethod(RTFAttributes$AssertiveAttribute, set, bool, $MutableAttributeSet*, int32_t)},
+		{"setDefault", "(Ljavax/swing/text/MutableAttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(RTFAttributes$AssertiveAttribute, setDefault, bool, $MutableAttributeSet*)},
+		{"*swingName", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*write", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/rtf/RTFGenerator;Z)Z", nullptr, $PUBLIC},
+		{"writeValue", "(Ljava/lang/Object;Ljavax/swing/text/rtf/RTFGenerator;Z)Z", nullptr, $PUBLIC, $virtualMethod(RTFAttributes$AssertiveAttribute, writeValue, bool, Object$*, $RTFGenerator*, bool), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.rtf.RTFAttributes$AssertiveAttribute", "javax.swing.text.rtf.RTFAttributes", "AssertiveAttribute", $STATIC},
+		{"javax.swing.text.rtf.RTFAttributes$GenericAttribute", "javax.swing.text.rtf.RTFAttributes", "GenericAttribute", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.rtf.RTFAttributes$AssertiveAttribute",
+		"javax.swing.text.rtf.RTFAttributes$GenericAttribute",
+		"javax.swing.text.rtf.RTFAttribute",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.rtf.RTFAttributes"
+	};
+	$loadClass(RTFAttributes$AssertiveAttribute, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RTFAttributes$AssertiveAttribute));
+	});
 	return class$;
 }
 

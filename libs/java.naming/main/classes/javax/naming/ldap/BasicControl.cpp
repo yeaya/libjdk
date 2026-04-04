@@ -1,5 +1,4 @@
 #include <javax/naming/ldap/BasicControl.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,36 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace naming {
 		namespace ldap {
-
-$FieldInfo _BasicControl_FieldInfo_[] = {
-	{"id", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicControl, id)},
-	{"criticality", "Z", nullptr, $PROTECTED, $field(BasicControl, criticality)},
-	{"value", "[B", nullptr, $PROTECTED, $field(BasicControl, value)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicControl, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _BasicControl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicControl, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Z[B)V", nullptr, $PUBLIC, $method(BasicControl, init$, void, $String*, bool, $bytes*)},
-	{"getEncodedValue", "()[B", nullptr, $PUBLIC, $virtualMethod(BasicControl, getEncodedValue, $bytes*)},
-	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicControl, getID, $String*)},
-	{"isCritical", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicControl, isCritical, bool)},
-	{}
-};
-
-$ClassInfo _BasicControl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.ldap.BasicControl",
-	"java.lang.Object",
-	"javax.naming.ldap.Control",
-	_BasicControl_FieldInfo_,
-	_BasicControl_MethodInfo_
-};
-
-$Object* allocate$BasicControl($Class* clazz) {
-	return $of($alloc(BasicControl));
-}
 
 void BasicControl::init$($String* id) {
 	this->criticality = false;
@@ -70,7 +39,32 @@ BasicControl::BasicControl() {
 }
 
 $Class* BasicControl::load$($String* name, bool initialize) {
-	$loadClass(BasicControl, name, initialize, &_BasicControl_ClassInfo_, allocate$BasicControl);
+	$FieldInfo fieldInfos$$[] = {
+		{"id", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicControl, id)},
+		{"criticality", "Z", nullptr, $PROTECTED, $field(BasicControl, criticality)},
+		{"value", "[B", nullptr, $PROTECTED, $field(BasicControl, value)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicControl, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicControl, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Z[B)V", nullptr, $PUBLIC, $method(BasicControl, init$, void, $String*, bool, $bytes*)},
+		{"getEncodedValue", "()[B", nullptr, $PUBLIC, $virtualMethod(BasicControl, getEncodedValue, $bytes*)},
+		{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicControl, getID, $String*)},
+		{"isCritical", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicControl, isCritical, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.ldap.BasicControl",
+		"java.lang.Object",
+		"javax.naming.ldap.Control",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BasicControl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicControl);
+	});
 	return class$;
 }
 

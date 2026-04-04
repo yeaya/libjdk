@@ -19,6 +19,7 @@ class GTKRegion : public ::javax::swing::plaf::synth::Region {
 	$class(GTKRegion, 0, ::javax::swing::plaf::synth::Region)
 public:
 	GTKRegion();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, $String* ui, bool subregion);
 	static ::javax::swing::plaf::synth::Region* HANDLE_BOX;
 };

@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/ArrayCacheConst.h>
-
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/IllegalStateException.h>
@@ -36,51 +35,6 @@ namespace sun {
 	namespace java2d {
 		namespace marlin {
 
-$FieldInfo _ArrayCacheConst_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ArrayCacheConst, $assertionsDisabled)},
-	{"BUCKETS", "I", nullptr, $STATIC | $FINAL, $constField(ArrayCacheConst, BUCKETS)},
-	{"MIN_ARRAY_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(ArrayCacheConst, MIN_ARRAY_SIZE)},
-	{"MAX_ARRAY_SIZE", "I", nullptr, $STATIC | $FINAL, $staticField(ArrayCacheConst, MAX_ARRAY_SIZE)},
-	{"THRESHOLD_SMALL_ARRAY_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(ArrayCacheConst, THRESHOLD_SMALL_ARRAY_SIZE)},
-	{"THRESHOLD_ARRAY_SIZE", "I", nullptr, $STATIC | $FINAL, $staticField(ArrayCacheConst, THRESHOLD_ARRAY_SIZE)},
-	{"THRESHOLD_HUGE_ARRAY_SIZE", "J", nullptr, $STATIC | $FINAL, $staticField(ArrayCacheConst, THRESHOLD_HUGE_ARRAY_SIZE)},
-	{"ARRAY_SIZES", "[I", nullptr, $STATIC | $FINAL, $staticField(ArrayCacheConst, ARRAY_SIZES)},
-	{}
-};
-
-$MethodInfo _ArrayCacheConst_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ArrayCacheConst, init$, void)},
-	{"getBucket", "(I)I", nullptr, $STATIC, $staticMethod(ArrayCacheConst, getBucket, int32_t, int32_t)},
-	{"getNewLargeSize", "(JJ)J", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayCacheConst, getNewLargeSize, int64_t, int64_t, int64_t)},
-	{"getNewSize", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayCacheConst, getNewSize, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ArrayCacheConst_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.ArrayCacheConst$BucketStats", "sun.java2d.marlin.ArrayCacheConst", "BucketStats", $STATIC | $FINAL},
-	{"sun.java2d.marlin.ArrayCacheConst$CacheStats", "sun.java2d.marlin.ArrayCacheConst", "CacheStats", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ArrayCacheConst_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.ArrayCacheConst",
-	"java.lang.Object",
-	"sun.java2d.marlin.MarlinConst",
-	_ArrayCacheConst_FieldInfo_,
-	_ArrayCacheConst_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ArrayCacheConst_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.ArrayCacheConst$BucketStats,sun.java2d.marlin.ArrayCacheConst$CacheStats"
-};
-
-$Object* allocate$ArrayCacheConst($Class* clazz) {
-	return $of($alloc(ArrayCacheConst));
-}
-
 bool ArrayCacheConst::$assertionsDisabled = false;
 int32_t ArrayCacheConst::MAX_ARRAY_SIZE = 0;
 int32_t ArrayCacheConst::THRESHOLD_ARRAY_SIZE = 0;
@@ -92,8 +46,8 @@ void ArrayCacheConst::init$() {
 
 int32_t ArrayCacheConst::getBucket(int32_t length) {
 	$init(ArrayCacheConst);
-	for (int32_t i = 0; i < $nc(ArrayCacheConst::ARRAY_SIZES)->length; ++i) {
-		if (length <= $nc(ArrayCacheConst::ARRAY_SIZES)->get(i)) {
+	for (int32_t i = 0; i < ArrayCacheConst::ARRAY_SIZES->length; ++i) {
+		if (length <= ArrayCacheConst::ARRAY_SIZES->get(i)) {
 			return i;
 		}
 	}
@@ -126,23 +80,21 @@ int32_t ArrayCacheConst::getNewSize(int32_t curSize, int32_t needSize) {
 
 int64_t ArrayCacheConst::getNewLargeSize(int64_t curSize, int64_t needSize) {
 	$init(ArrayCacheConst);
-	if (($sr(needSize, 31)) != (int64_t)0) {
+	if (($sr(needSize, 31)) != 0) {
 		$throwNew($ArrayIndexOutOfBoundsException, "array exceeds maximum capacity !"_s);
 	}
-	if (!ArrayCacheConst::$assertionsDisabled && !(curSize >= (int64_t)0)) {
+	if (!ArrayCacheConst::$assertionsDisabled && !(curSize >= 0)) {
 		$throwNew($AssertionError);
 	}
 	int64_t size = 0;
 	if (curSize > ArrayCacheConst::THRESHOLD_HUGE_ARRAY_SIZE) {
 		size = curSize + ($sr(curSize, 2));
+	} else if (curSize > ArrayCacheConst::THRESHOLD_ARRAY_SIZE) {
+		size = curSize + ($sr(curSize, 1));
+	} else if (curSize > ArrayCacheConst::THRESHOLD_SMALL_ARRAY_SIZE) {
+		size = ($sl(curSize, 1));
 	} else {
-		if (curSize > ArrayCacheConst::THRESHOLD_ARRAY_SIZE) {
-			size = curSize + ($sr(curSize, 1));
-		} else if (curSize > ArrayCacheConst::THRESHOLD_SMALL_ARRAY_SIZE) {
-			size = ($sl(curSize, 1));
-		} else {
-			size = ($sl(curSize, 2));
-		}
+		size = ($sl(curSize, 2));
 	}
 	if (size < needSize) {
 		size = $sl(($sr(needSize, 12)) + (int64_t)1, 12);
@@ -153,15 +105,15 @@ int64_t ArrayCacheConst::getNewLargeSize(int64_t curSize, int64_t needSize) {
 	return size;
 }
 
-void clinit$ArrayCacheConst($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ArrayCacheConst::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	ArrayCacheConst::$assertionsDisabled = !ArrayCacheConst::class$->desiredAssertionStatus();
 	$assignStatic(ArrayCacheConst::ARRAY_SIZES, $new($ints, ArrayCacheConst::BUCKETS));
 	{
 		int32_t arraySize = ArrayCacheConst::MIN_ARRAY_SIZE;
 		int32_t inc_lg = 2;
 		for (int32_t i = 0; i < ArrayCacheConst::BUCKETS; ++i, arraySize <<= inc_lg) {
-			$nc(ArrayCacheConst::ARRAY_SIZES)->set(i, arraySize);
+			ArrayCacheConst::ARRAY_SIZES->set(i, arraySize);
 			$init($MarlinConst);
 			if ($MarlinConst::DO_TRACE) {
 				$MarlinUtils::logInfo($$str({"arraySize["_s, $$str(i), "]: "_s, $$str(arraySize)}));
@@ -192,7 +144,46 @@ ArrayCacheConst::ArrayCacheConst() {
 }
 
 $Class* ArrayCacheConst::load$($String* name, bool initialize) {
-	$loadClass(ArrayCacheConst, name, initialize, &_ArrayCacheConst_ClassInfo_, clinit$ArrayCacheConst, allocate$ArrayCacheConst);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ArrayCacheConst, $assertionsDisabled)},
+		{"BUCKETS", "I", nullptr, $STATIC | $FINAL, $constField(ArrayCacheConst, BUCKETS)},
+		{"MIN_ARRAY_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(ArrayCacheConst, MIN_ARRAY_SIZE)},
+		{"MAX_ARRAY_SIZE", "I", nullptr, $STATIC | $FINAL, $staticField(ArrayCacheConst, MAX_ARRAY_SIZE)},
+		{"THRESHOLD_SMALL_ARRAY_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(ArrayCacheConst, THRESHOLD_SMALL_ARRAY_SIZE)},
+		{"THRESHOLD_ARRAY_SIZE", "I", nullptr, $STATIC | $FINAL, $staticField(ArrayCacheConst, THRESHOLD_ARRAY_SIZE)},
+		{"THRESHOLD_HUGE_ARRAY_SIZE", "J", nullptr, $STATIC | $FINAL, $staticField(ArrayCacheConst, THRESHOLD_HUGE_ARRAY_SIZE)},
+		{"ARRAY_SIZES", "[I", nullptr, $STATIC | $FINAL, $staticField(ArrayCacheConst, ARRAY_SIZES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ArrayCacheConst, init$, void)},
+		{"getBucket", "(I)I", nullptr, $STATIC, $staticMethod(ArrayCacheConst, getBucket, int32_t, int32_t)},
+		{"getNewLargeSize", "(JJ)J", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayCacheConst, getNewLargeSize, int64_t, int64_t, int64_t)},
+		{"getNewSize", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayCacheConst, getNewSize, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.ArrayCacheConst$BucketStats", "sun.java2d.marlin.ArrayCacheConst", "BucketStats", $STATIC | $FINAL},
+		{"sun.java2d.marlin.ArrayCacheConst$CacheStats", "sun.java2d.marlin.ArrayCacheConst", "CacheStats", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.ArrayCacheConst",
+		"java.lang.Object",
+		"sun.java2d.marlin.MarlinConst",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.ArrayCacheConst$BucketStats,sun.java2d.marlin.ArrayCacheConst$CacheStats"
+	};
+	$loadClass(ArrayCacheConst, name, initialize, &classInfo$$, ArrayCacheConst::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ArrayCacheConst);
+	});
 	return class$;
 }
 

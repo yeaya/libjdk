@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalBorders$ToolBarBorder.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -20,7 +19,6 @@
 
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -39,48 +37,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$FieldInfo _MetalBorders$ToolBarBorder_FieldInfo_[] = {
-	{"bumps", "Ljavax/swing/plaf/metal/MetalBumps;", nullptr, $PRIVATE, $field(MetalBorders$ToolBarBorder, bumps)},
-	{}
-};
-
-$MethodInfo _MetalBorders$ToolBarBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalBorders$ToolBarBorder, init$, void)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MetalBorders$ToolBarBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MetalBorders$ToolBarBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MetalBorders$ToolBarBorder_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalBorders$ToolBarBorder", "javax.swing.plaf.metal.MetalBorders", "ToolBarBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalBorders$ToolBarBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalBorders$ToolBarBorder",
-	"javax.swing.border.AbstractBorder",
-	"javax.swing.plaf.UIResource,javax.swing.SwingConstants",
-	_MetalBorders$ToolBarBorder_FieldInfo_,
-	_MetalBorders$ToolBarBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalBorders$ToolBarBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalBorders"
-};
-
-$Object* allocate$MetalBorders$ToolBarBorder($Class* clazz) {
-	return $of($alloc(MetalBorders$ToolBarBorder));
-}
 
 int32_t MetalBorders$ToolBarBorder::hashCode() {
 	 return this->$AbstractBorder::hashCode();
@@ -103,21 +59,21 @@ void MetalBorders$ToolBarBorder::finalize() {
 }
 
 void MetalBorders$ToolBarBorder::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AbstractBorder::init$();
-	$var($Color, var$0, static_cast<$Color*>($MetalLookAndFeel::getControlHighlight()));
-	$var($Color, var$1, static_cast<$Color*>($MetalLookAndFeel::getControlDarkShadow()));
+	$var($Color, var$0, $MetalLookAndFeel::getControlHighlight());
+	$var($Color, var$1, $MetalLookAndFeel::getControlDarkShadow());
 	$set(this, bumps, $new($MetalBumps, 10, 10, var$0, var$1, $($UIManager::getColor("ToolBar.background"_s))));
 }
 
 void MetalBorders$ToolBarBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($JToolBar, c))) {
 		return;
 	}
 	$nc(g)->translate(x, y);
-	if ($nc(($cast($JToolBar, c)))->isFloatable()) {
-		if (($cast($JToolBar, c))->getOrientation() == $SwingConstants::HORIZONTAL) {
+	if ($nc($cast($JToolBar, c))->isFloatable()) {
+		if ($cast($JToolBar, c)->getOrientation() == $SwingConstants::HORIZONTAL) {
 			int32_t shift = $MetalLookAndFeel::usingOcean() ? -1 : 0;
 			$nc(this->bumps)->setBumpArea(10, h - 4);
 			if ($MetalUtils::isLeftToRight(c)) {
@@ -130,7 +86,7 @@ void MetalBorders$ToolBarBorder::paintBorder($Component* c, $Graphics* g, int32_
 			$nc(this->bumps)->paintIcon(c, g, 2, 2);
 		}
 	}
-	bool var$0 = $nc(($cast($JToolBar, c)))->getOrientation() == $SwingConstants::HORIZONTAL;
+	bool var$0 = $cast($JToolBar, c)->getOrientation() == $SwingConstants::HORIZONTAL;
 	if (var$0 && $MetalLookAndFeel::usingOcean()) {
 		g->setColor($($MetalLookAndFeel::getControl()));
 		g->drawLine(0, h - 2, w, h - 2);
@@ -141,18 +97,18 @@ void MetalBorders$ToolBarBorder::paintBorder($Component* c, $Graphics* g, int32_
 }
 
 $Insets* MetalBorders$ToolBarBorder::getBorderInsets($Component* c, $Insets* newInsets) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($MetalLookAndFeel::usingOcean()) {
 		$nc(newInsets)->set(1, 2, 3, 2);
 	} else {
-		$nc(newInsets)->top = (newInsets->left = (newInsets->bottom = (newInsets->right = 2)));
+		$nc(newInsets)->top = ($nc(newInsets)->left = ($nc(newInsets)->bottom = ($nc(newInsets)->right = 2)));
 	}
 	if (!($instanceOf($JToolBar, c))) {
 		return newInsets;
 	}
-	if ($nc(($cast($JToolBar, c)))->isFloatable()) {
-		if (($cast($JToolBar, c))->getOrientation() == $SwingConstants::HORIZONTAL) {
-			if ($nc($($nc(c)->getComponentOrientation()))->isLeftToRight()) {
+	if ($nc($cast($JToolBar, c))->isFloatable()) {
+		if ($cast($JToolBar, c)->getOrientation() == $SwingConstants::HORIZONTAL) {
+			if ($$nc(c->getComponentOrientation())->isLeftToRight()) {
 				$nc(newInsets)->left = 16;
 			} else {
 				$nc(newInsets)->right = 16;
@@ -161,7 +117,7 @@ $Insets* MetalBorders$ToolBarBorder::getBorderInsets($Component* c, $Insets* new
 			$nc(newInsets)->top = 16;
 		}
 	}
-	$var($Insets, margin, $nc(($cast($JToolBar, c)))->getMargin());
+	$var($Insets, margin, $cast($JToolBar, c)->getMargin());
 	if (margin != nullptr) {
 		$nc(newInsets)->left += margin->left;
 		newInsets->top += margin->top;
@@ -175,7 +131,43 @@ MetalBorders$ToolBarBorder::MetalBorders$ToolBarBorder() {
 }
 
 $Class* MetalBorders$ToolBarBorder::load$($String* name, bool initialize) {
-	$loadClass(MetalBorders$ToolBarBorder, name, initialize, &_MetalBorders$ToolBarBorder_ClassInfo_, allocate$MetalBorders$ToolBarBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"bumps", "Ljavax/swing/plaf/metal/MetalBumps;", nullptr, $PRIVATE, $field(MetalBorders$ToolBarBorder, bumps)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalBorders$ToolBarBorder, init$, void)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MetalBorders$ToolBarBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MetalBorders$ToolBarBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalBorders$ToolBarBorder", "javax.swing.plaf.metal.MetalBorders", "ToolBarBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalBorders$ToolBarBorder",
+		"javax.swing.border.AbstractBorder",
+		"javax.swing.plaf.UIResource,javax.swing.SwingConstants",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalBorders"
+	};
+	$loadClass(MetalBorders$ToolBarBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalBorders$ToolBarBorder));
+	});
 	return class$;
 }
 

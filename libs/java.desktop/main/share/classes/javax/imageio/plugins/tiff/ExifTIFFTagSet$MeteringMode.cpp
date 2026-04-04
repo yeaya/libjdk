@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet$MeteringMode.h>
-
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -15,36 +14,6 @@ namespace javax {
 	namespace imageio {
 		namespace plugins {
 			namespace tiff {
-
-$MethodInfo _ExifTIFFTagSet$MeteringMode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$MeteringMode, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ExifTIFFTagSet$MeteringMode_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.ExifTIFFTagSet$MeteringMode", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "MeteringMode", $STATIC},
-	{}
-};
-
-$ClassInfo _ExifTIFFTagSet$MeteringMode_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet$MeteringMode",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$MeteringMode_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$MeteringMode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet"
-};
-
-$Object* allocate$ExifTIFFTagSet$MeteringMode($Class* clazz) {
-	return $of($alloc(ExifTIFFTagSet$MeteringMode));
-}
 
 void ExifTIFFTagSet$MeteringMode::init$() {
 	$TIFFTag::init$("MeteringMode"_s, 0x00009207, $sl(1, $TIFFTag::TIFF_SHORT), 1);
@@ -62,7 +31,32 @@ ExifTIFFTagSet$MeteringMode::ExifTIFFTagSet$MeteringMode() {
 }
 
 $Class* ExifTIFFTagSet$MeteringMode::load$($String* name, bool initialize) {
-	$loadClass(ExifTIFFTagSet$MeteringMode, name, initialize, &_ExifTIFFTagSet$MeteringMode_ClassInfo_, allocate$ExifTIFFTagSet$MeteringMode);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$MeteringMode, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.ExifTIFFTagSet$MeteringMode", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "MeteringMode", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet$MeteringMode",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet"
+	};
+	$loadClass(ExifTIFFTagSet$MeteringMode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExifTIFFTagSet$MeteringMode);
+	});
 	return class$;
 }
 

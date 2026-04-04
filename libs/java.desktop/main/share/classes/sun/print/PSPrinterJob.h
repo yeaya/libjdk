@@ -158,6 +158,7 @@ class PSPrinterJob : public ::sun::print::RasterPrinterJob {
 public:
 	PSPrinterJob();
 	using ::sun::print::RasterPrinterJob::defaultPage;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void abortDoc() override;
 	$bytes* ascii85Encode($bytes* inArr);
@@ -218,8 +219,8 @@ public:
 	static const int32_t FILL_EVEN_ODD = 1;
 	static const int32_t FILL_WINDING = 2;
 	static const int32_t MAX_PSSTR = 65535; // (1024 * 64 - 1)
-	static const int32_t RED_MASK = 0x00FF0000;
-	static const int32_t GREEN_MASK = 0x0000FF00;
+	static const int32_t RED_MASK = 0x00ff0000;
+	static const int32_t GREEN_MASK = 0x0000ff00;
 	static const int32_t BLUE_MASK = 255;
 	static const int32_t RED_SHIFT = 16;
 	static const int32_t GREEN_SHIFT = 8;

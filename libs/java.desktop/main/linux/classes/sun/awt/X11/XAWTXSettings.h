@@ -44,6 +44,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void dispose();
 	::java::util::Map* getUpdatedSettings(int64_t owner);
@@ -56,7 +57,7 @@ public:
 	void updateXSettings(int32_t screen, int64_t owner);
 	::sun::awt::X11::XAtom* xSettingsPropertyAtom = nullptr;
 	static ::sun::util::logging::PlatformLogger* log;
-	static const int64_t MAX_LENGTH = 0x000F4240;
+	static const int64_t MAX_LENGTH = 0x000f4240;
 	::sun::awt::X11::XMSelection* settings = nullptr;
 };
 

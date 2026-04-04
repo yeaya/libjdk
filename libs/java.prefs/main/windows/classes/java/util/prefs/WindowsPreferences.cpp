@@ -1,5 +1,4 @@
 #include <java/util/prefs/WindowsPreferences.h>
-
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/Serializable.h>
 #include <java/lang/IllegalStateException.h>
@@ -81,148 +80,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(WindowsPreferences::lambda$static$0());
+		 return WindowsPreferences::lambda$static$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsPreferences$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsPreferences$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsPreferences$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsPreferences$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo WindowsPreferences$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.prefs.WindowsPreferences$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsPreferences$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(WindowsPreferences$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsPreferences$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsPreferences$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.prefs.WindowsPreferences$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsPreferences$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsPreferences$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* WindowsPreferences$$Lambda$lambda$static$0::class$ = nullptr;
-
-$FieldInfo _WindowsPreferences_FieldInfo_[] = {
-	{"logger", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsPreferences, logger$)},
-	{"WINDOWS_ROOT_PATH", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsPreferences, WINDOWS_ROOT_PATH)},
-	{"HKEY_CURRENT_USER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, HKEY_CURRENT_USER)},
-	{"HKEY_LOCAL_MACHINE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, HKEY_LOCAL_MACHINE)},
-	{"USER_ROOT_NATIVE_HANDLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, USER_ROOT_NATIVE_HANDLE)},
-	{"SYSTEM_ROOT_NATIVE_HANDLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, SYSTEM_ROOT_NATIVE_HANDLE)},
-	{"MAX_WINDOWS_PATH_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, MAX_WINDOWS_PATH_LENGTH)},
-	{"userRoot", "Ljava/util/prefs/Preferences;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(WindowsPreferences, userRoot)},
-	{"systemRoot", "Ljava/util/prefs/Preferences;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(WindowsPreferences, systemRoot)},
-	{"ERROR_SUCCESS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, ERROR_SUCCESS)},
-	{"ERROR_FILE_NOT_FOUND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, ERROR_FILE_NOT_FOUND)},
-	{"ERROR_ACCESS_DENIED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, ERROR_ACCESS_DENIED)},
-	{"NATIVE_HANDLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, NATIVE_HANDLE)},
-	{"ERROR_CODE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, ERROR_CODE)},
-	{"SUBKEYS_NUMBER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, SUBKEYS_NUMBER)},
-	{"VALUES_NUMBER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, VALUES_NUMBER)},
-	{"MAX_KEY_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, MAX_KEY_LENGTH)},
-	{"MAX_VALUE_NAME_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, MAX_VALUE_NAME_LENGTH)},
-	{"DISPOSITION", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, DISPOSITION)},
-	{"REG_CREATED_NEW_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, REG_CREATED_NEW_KEY)},
-	{"REG_OPENED_EXISTING_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, REG_OPENED_EXISTING_KEY)},
-	{"NULL_NATIVE_HANDLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, NULL_NATIVE_HANDLE)},
-	{"DELETE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, DELETE)},
-	{"KEY_QUERY_VALUE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, KEY_QUERY_VALUE)},
-	{"KEY_SET_VALUE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, KEY_SET_VALUE)},
-	{"KEY_CREATE_SUB_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, KEY_CREATE_SUB_KEY)},
-	{"KEY_ENUMERATE_SUB_KEYS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, KEY_ENUMERATE_SUB_KEYS)},
-	{"KEY_READ", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, KEY_READ)},
-	{"KEY_WRITE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, KEY_WRITE)},
-	{"KEY_ALL_ACCESS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, KEY_ALL_ACCESS)},
-	{"INIT_SLEEP_TIME", "I", nullptr, $PRIVATE | $STATIC, $staticField(WindowsPreferences, INIT_SLEEP_TIME)},
-	{"MAX_ATTEMPTS", "I", nullptr, $PRIVATE | $STATIC, $staticField(WindowsPreferences, MAX_ATTEMPTS)},
-	{"isBackingStoreAvailable", "Z", nullptr, $PRIVATE, $field(WindowsPreferences, isBackingStoreAvailable)},
-	{}
-};
-
-$MethodInfo _WindowsPreferences_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/prefs/WindowsPreferences;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WindowsPreferences, init$, void, WindowsPreferences*, $String*)},
-	{"<init>", "(J[B)V", nullptr, $PRIVATE, $method(WindowsPreferences, init$, void, int64_t, $bytes*)},
-	{"WindowsRegCloseKey", "(J)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WindowsPreferences, WindowsRegCloseKey, int32_t, int64_t)},
-	{"WindowsRegCreateKeyEx", "(J[B)[J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WindowsPreferences, WindowsRegCreateKeyEx, $longs*, int64_t, $bytes*)},
-	{"WindowsRegCreateKeyEx1", "(J[B)[J", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, WindowsRegCreateKeyEx1, $longs*, int64_t, $bytes*)},
-	{"WindowsRegDeleteKey", "(J[B)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WindowsPreferences, WindowsRegDeleteKey, int32_t, int64_t, $bytes*)},
-	{"WindowsRegDeleteValue", "(J[B)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WindowsPreferences, WindowsRegDeleteValue, int32_t, int64_t, $bytes*)},
-	{"WindowsRegEnumKeyEx", "(JII)[B", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WindowsPreferences, WindowsRegEnumKeyEx, $bytes*, int64_t, int32_t, int32_t)},
-	{"WindowsRegEnumKeyEx1", "(JII)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, WindowsRegEnumKeyEx1, $bytes*, int64_t, int32_t, int32_t)},
-	{"WindowsRegEnumValue", "(JII)[B", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WindowsPreferences, WindowsRegEnumValue, $bytes*, int64_t, int32_t, int32_t)},
-	{"WindowsRegEnumValue1", "(JII)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, WindowsRegEnumValue1, $bytes*, int64_t, int32_t, int32_t)},
-	{"WindowsRegFlushKey", "(J)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WindowsPreferences, WindowsRegFlushKey, int32_t, int64_t)},
-	{"WindowsRegFlushKey1", "(J)I", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, WindowsRegFlushKey1, int32_t, int64_t)},
-	{"WindowsRegOpenKey", "(J[BI)[J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WindowsPreferences, WindowsRegOpenKey, $longs*, int64_t, $bytes*, int32_t)},
-	{"WindowsRegOpenKey1", "(J[BI)[J", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, WindowsRegOpenKey1, $longs*, int64_t, $bytes*, int32_t)},
-	{"WindowsRegQueryInfoKey", "(J)[J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WindowsPreferences, WindowsRegQueryInfoKey, $longs*, int64_t)},
-	{"WindowsRegQueryInfoKey1", "(J)[J", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, WindowsRegQueryInfoKey1, $longs*, int64_t)},
-	{"WindowsRegQueryValueEx", "(J[B)[B", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WindowsPreferences, WindowsRegQueryValueEx, $bytes*, int64_t, $bytes*)},
-	{"WindowsRegSetValueEx", "(J[B[B)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WindowsPreferences, WindowsRegSetValueEx, int32_t, int64_t, $bytes*, $bytes*)},
-	{"WindowsRegSetValueEx1", "(J[B[B)I", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, WindowsRegSetValueEx1, int32_t, int64_t, $bytes*, $bytes*)},
-	{"byteArrayToString", "([B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, byteArrayToString, $String*, $bytes*)},
-	{"childSpi", "(Ljava/lang/String;)Ljava/util/prefs/AbstractPreferences;", nullptr, $PROTECTED, $virtualMethod(WindowsPreferences, childSpi, $AbstractPreferences*, $String*)},
-	{"childrenNamesSpi", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(WindowsPreferences, childrenNamesSpi, $StringArray*), "java.util.prefs.BackingStoreException"},
-	{"closeKey", "(J)V", nullptr, $PRIVATE, $method(WindowsPreferences, closeKey, void, int64_t)},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsPreferences, flush, void), "java.util.prefs.BackingStoreException"},
-	{"flushSpi", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsPreferences, flushSpi, void), "java.util.prefs.BackingStoreException"},
-	{"getSpi", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(WindowsPreferences, getSpi, $String*, $String*)},
-	{"getSystemRoot", "()Ljava/util/prefs/Preferences;", nullptr, $STATIC, $staticMethod(WindowsPreferences, getSystemRoot, $Preferences*)},
-	{"getUserRoot", "()Ljava/util/prefs/Preferences;", nullptr, $STATIC, $staticMethod(WindowsPreferences, getUserRoot, $Preferences*)},
-	{"keysSpi", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(WindowsPreferences, keysSpi, $StringArray*), "java.util.prefs.BackingStoreException"},
-	{"lambda$static$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsPreferences, lambda$static$0, $Void*)},
-	{"logger", "()Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(WindowsPreferences, logger, $PlatformLogger*)},
-	{"openKey", "(I)J", nullptr, $PRIVATE, $method(WindowsPreferences, openKey, int64_t, int32_t)},
-	{"openKey", "(II)J", nullptr, $PRIVATE, $method(WindowsPreferences, openKey, int64_t, int32_t, int32_t)},
-	{"openKey", "([BII)J", nullptr, $PRIVATE, $method(WindowsPreferences, openKey, int64_t, $bytes*, int32_t, int32_t)},
-	{"openKey", "(J[BII)J", nullptr, $PRIVATE, $method(WindowsPreferences, openKey, int64_t, int64_t, $bytes*, int32_t, int32_t)},
-	{"putSpi", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(WindowsPreferences, putSpi, void, $String*, $String*)},
-	{"removeNodeSpi", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsPreferences, removeNodeSpi, void), "java.util.prefs.BackingStoreException"},
-	{"removeSpi", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(WindowsPreferences, removeSpi, void, $String*)},
-	{"rootNativeHandle", "()J", nullptr, $PRIVATE, $method(WindowsPreferences, rootNativeHandle, int64_t)},
-	{"stringToByteArray", "(Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, stringToByteArray, $bytes*, $String*)},
-	{"sync", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsPreferences, sync, void), "java.util.prefs.BackingStoreException"},
-	{"syncSpi", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsPreferences, syncSpi, void), "java.util.prefs.BackingStoreException"},
-	{"toJavaAlt64Name", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, toJavaAlt64Name, $String*, $String*)},
-	{"toJavaName", "([B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, toJavaName, $String*, $bytes*)},
-	{"toJavaValueString", "([B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, toJavaValueString, $String*, $bytes*)},
-	{"toWindowsAlt64Name", "(Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, toWindowsAlt64Name, $bytes*, $String*)},
-	{"toWindowsName", "(Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, toWindowsName, $bytes*, $String*)},
-	{"toWindowsValueString", "(Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, toWindowsValueString, $bytes*, $String*)},
-	{"windowsAbsolutePath", "()[B", nullptr, $PRIVATE, $method(WindowsPreferences, windowsAbsolutePath, $bytes*)},
-	{}
-};
-
-#define _METHOD_INDEX_WindowsRegCloseKey 2
-#define _METHOD_INDEX_WindowsRegCreateKeyEx 3
-#define _METHOD_INDEX_WindowsRegDeleteKey 5
-#define _METHOD_INDEX_WindowsRegDeleteValue 6
-#define _METHOD_INDEX_WindowsRegEnumKeyEx 7
-#define _METHOD_INDEX_WindowsRegEnumValue 9
-#define _METHOD_INDEX_WindowsRegFlushKey 11
-#define _METHOD_INDEX_WindowsRegOpenKey 13
-#define _METHOD_INDEX_WindowsRegQueryInfoKey 15
-#define _METHOD_INDEX_WindowsRegQueryValueEx 17
-#define _METHOD_INDEX_WindowsRegSetValueEx 18
-
-$ClassInfo _WindowsPreferences_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.prefs.WindowsPreferences",
-	"java.util.prefs.AbstractPreferences",
-	nullptr,
-	_WindowsPreferences_FieldInfo_,
-	_WindowsPreferences_MethodInfo_
-};
-
-$Object* allocate$WindowsPreferences($Class* clazz) {
-	return $of($alloc(WindowsPreferences));
-}
 
 $PlatformLogger* WindowsPreferences::logger$ = nullptr;
 $bytes* WindowsPreferences::WINDOWS_ROOT_PATH = nullptr;
@@ -238,7 +118,7 @@ $Preferences* WindowsPreferences::getUserRoot() {
 		$synchronized(WindowsPreferences::class$) {
 			$assign(root, WindowsPreferences::userRoot);
 			if (root == nullptr) {
-				$assign(root, $new(WindowsPreferences, (int64_t)WindowsPreferences::USER_ROOT_NATIVE_HANDLE, WindowsPreferences::WINDOWS_ROOT_PATH));
+				$assign(root, $new(WindowsPreferences, WindowsPreferences::USER_ROOT_NATIVE_HANDLE, WindowsPreferences::WINDOWS_ROOT_PATH));
 				$assignStatic(WindowsPreferences::userRoot, root);
 			}
 		}
@@ -253,7 +133,7 @@ $Preferences* WindowsPreferences::getSystemRoot() {
 		$synchronized(WindowsPreferences::class$) {
 			$assign(root, WindowsPreferences::systemRoot);
 			if (root == nullptr) {
-				$assign(root, $new(WindowsPreferences, (int64_t)WindowsPreferences::SYSTEM_ROOT_NATIVE_HANDLE, WindowsPreferences::WINDOWS_ROOT_PATH));
+				$assign(root, $new(WindowsPreferences, WindowsPreferences::SYSTEM_ROOT_NATIVE_HANDLE, WindowsPreferences::WINDOWS_ROOT_PATH));
 				$assignStatic(WindowsPreferences::systemRoot, root);
 			}
 		}
@@ -263,23 +143,26 @@ $Preferences* WindowsPreferences::getSystemRoot() {
 
 $longs* WindowsPreferences::WindowsRegOpenKey(int64_t hKey, $bytes* subKey, int32_t securityMask) {
 	$init(WindowsPreferences);
-	$var($longs, $ret, nullptr);
-	$prepareNativeStatic(WindowsPreferences, WindowsRegOpenKey, $longs*, int64_t hKey, $bytes* subKey, int32_t securityMask);
-	$assign($ret, $invokeNativeStaticObject(hKey, subKey, securityMask));
+	$prepareNativeStatic(WindowsRegOpenKey, $longs*, int64_t hKey, $bytes* subKey, int32_t securityMask);
+	$var($longs, $ret, $invokeNativeStaticObject(hKey, subKey, securityMask));
 	$finishNativeStatic();
 	return $ret;
 }
 
 $longs* WindowsPreferences::WindowsRegOpenKey1(int64_t hKey, $bytes* subKey, int32_t securityMask) {
 	$init(WindowsPreferences);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($longs, result, WindowsRegOpenKey(hKey, subKey, securityMask));
 	if ($nc(result)->get(WindowsPreferences::ERROR_CODE) == WindowsPreferences::ERROR_SUCCESS) {
 		return result;
 	} else if (result->get(WindowsPreferences::ERROR_CODE) == WindowsPreferences::ERROR_FILE_NOT_FOUND) {
-		$var($String, var$1, $$str({"Trying to recreate Windows registry node "_s, $(byteArrayToString(subKey)), " at root 0x"_s}));
-		$var($String, var$0, $$concat(var$1, $($Long::toHexString(hKey))));
-		$nc($(logger()))->warning($$concat(var$0, "."_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Trying to recreate Windows registry node "_s);
+		var$0->append($(byteArrayToString(subKey)));
+		var$0->append(" at root 0x"_s);
+		var$0->append($($Long::toHexString(hKey)));
+		var$0->append("."_s);
+		$$nc(logger())->warning($$str(var$0));
 		int64_t handle = $nc($(WindowsRegCreateKeyEx(hKey, subKey)))->get(WindowsPreferences::NATIVE_HANDLE);
 		WindowsRegCloseKey(handle);
 		return WindowsRegOpenKey(hKey, subKey, securityMask);
@@ -303,18 +186,16 @@ $longs* WindowsPreferences::WindowsRegOpenKey1(int64_t hKey, $bytes* subKey, int
 
 int32_t WindowsPreferences::WindowsRegCloseKey(int64_t hKey) {
 	$init(WindowsPreferences);
-	int32_t $ret = 0;
-	$prepareNativeStatic(WindowsPreferences, WindowsRegCloseKey, int32_t, int64_t hKey);
-	$ret = $invokeNativeStatic(hKey);
+	$prepareNativeStatic(WindowsRegCloseKey, int32_t, int64_t hKey);
+	int32_t $ret = $invokeNativeStatic(hKey);
 	$finishNativeStatic();
 	return $ret;
 }
 
 $longs* WindowsPreferences::WindowsRegCreateKeyEx(int64_t hKey, $bytes* subKey) {
 	$init(WindowsPreferences);
-	$var($longs, $ret, nullptr);
-	$prepareNativeStatic(WindowsPreferences, WindowsRegCreateKeyEx, $longs*, int64_t hKey, $bytes* subKey);
-	$assign($ret, $invokeNativeStaticObject(hKey, subKey));
+	$prepareNativeStatic(WindowsRegCreateKeyEx, $longs*, int64_t hKey, $bytes* subKey);
+	$var($longs, $ret, $invokeNativeStaticObject(hKey, subKey));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -344,18 +225,16 @@ $longs* WindowsPreferences::WindowsRegCreateKeyEx1(int64_t hKey, $bytes* subKey)
 
 int32_t WindowsPreferences::WindowsRegDeleteKey(int64_t hKey, $bytes* subKey) {
 	$init(WindowsPreferences);
-	int32_t $ret = 0;
-	$prepareNativeStatic(WindowsPreferences, WindowsRegDeleteKey, int32_t, int64_t hKey, $bytes* subKey);
-	$ret = $invokeNativeStatic(hKey, subKey);
+	$prepareNativeStatic(WindowsRegDeleteKey, int32_t, int64_t hKey, $bytes* subKey);
+	int32_t $ret = $invokeNativeStatic(hKey, subKey);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t WindowsPreferences::WindowsRegFlushKey(int64_t hKey) {
 	$init(WindowsPreferences);
-	int32_t $ret = 0;
-	$prepareNativeStatic(WindowsPreferences, WindowsRegFlushKey, int32_t, int64_t hKey);
-	$ret = $invokeNativeStatic(hKey);
+	$prepareNativeStatic(WindowsRegFlushKey, int32_t, int64_t hKey);
+	int32_t $ret = $invokeNativeStatic(hKey);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -385,18 +264,16 @@ int32_t WindowsPreferences::WindowsRegFlushKey1(int64_t hKey) {
 
 $bytes* WindowsPreferences::WindowsRegQueryValueEx(int64_t hKey, $bytes* valueName) {
 	$init(WindowsPreferences);
-	$var($bytes, $ret, nullptr);
-	$prepareNativeStatic(WindowsPreferences, WindowsRegQueryValueEx, $bytes*, int64_t hKey, $bytes* valueName);
-	$assign($ret, $invokeNativeStaticObject(hKey, valueName));
+	$prepareNativeStatic(WindowsRegQueryValueEx, $bytes*, int64_t hKey, $bytes* valueName);
+	$var($bytes, $ret, $invokeNativeStaticObject(hKey, valueName));
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t WindowsPreferences::WindowsRegSetValueEx(int64_t hKey, $bytes* valueName, $bytes* value) {
 	$init(WindowsPreferences);
-	int32_t $ret = 0;
-	$prepareNativeStatic(WindowsPreferences, WindowsRegSetValueEx, int32_t, int64_t hKey, $bytes* valueName, $bytes* value);
-	$ret = $invokeNativeStatic(hKey, valueName, value);
+	$prepareNativeStatic(WindowsRegSetValueEx, int32_t, int64_t hKey, $bytes* valueName, $bytes* value);
+	int32_t $ret = $invokeNativeStatic(hKey, valueName, value);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -426,18 +303,16 @@ int32_t WindowsPreferences::WindowsRegSetValueEx1(int64_t hKey, $bytes* valueNam
 
 int32_t WindowsPreferences::WindowsRegDeleteValue(int64_t hKey, $bytes* valueName) {
 	$init(WindowsPreferences);
-	int32_t $ret = 0;
-	$prepareNativeStatic(WindowsPreferences, WindowsRegDeleteValue, int32_t, int64_t hKey, $bytes* valueName);
-	$ret = $invokeNativeStatic(hKey, valueName);
+	$prepareNativeStatic(WindowsRegDeleteValue, int32_t, int64_t hKey, $bytes* valueName);
+	int32_t $ret = $invokeNativeStatic(hKey, valueName);
 	$finishNativeStatic();
 	return $ret;
 }
 
 $longs* WindowsPreferences::WindowsRegQueryInfoKey(int64_t hKey) {
 	$init(WindowsPreferences);
-	$var($longs, $ret, nullptr);
-	$prepareNativeStatic(WindowsPreferences, WindowsRegQueryInfoKey, $longs*, int64_t hKey);
-	$assign($ret, $invokeNativeStaticObject(hKey));
+	$prepareNativeStatic(WindowsRegQueryInfoKey, $longs*, int64_t hKey);
+	$var($longs, $ret, $invokeNativeStaticObject(hKey));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -467,9 +342,8 @@ $longs* WindowsPreferences::WindowsRegQueryInfoKey1(int64_t hKey) {
 
 $bytes* WindowsPreferences::WindowsRegEnumKeyEx(int64_t hKey, int32_t subKeyIndex, int32_t maxKeyLength) {
 	$init(WindowsPreferences);
-	$var($bytes, $ret, nullptr);
-	$prepareNativeStatic(WindowsPreferences, WindowsRegEnumKeyEx, $bytes*, int64_t hKey, int32_t subKeyIndex, int32_t maxKeyLength);
-	$assign($ret, $invokeNativeStaticObject(hKey, subKeyIndex, maxKeyLength));
+	$prepareNativeStatic(WindowsRegEnumKeyEx, $bytes*, int64_t hKey, int32_t subKeyIndex, int32_t maxKeyLength);
+	$var($bytes, $ret, $invokeNativeStaticObject(hKey, subKeyIndex, maxKeyLength));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -499,9 +373,8 @@ $bytes* WindowsPreferences::WindowsRegEnumKeyEx1(int64_t hKey, int32_t subKeyInd
 
 $bytes* WindowsPreferences::WindowsRegEnumValue(int64_t hKey, int32_t valueIndex, int32_t maxValueNameLength) {
 	$init(WindowsPreferences);
-	$var($bytes, $ret, nullptr);
-	$prepareNativeStatic(WindowsPreferences, WindowsRegEnumValue, $bytes*, int64_t hKey, int32_t valueIndex, int32_t maxValueNameLength);
-	$assign($ret, $invokeNativeStaticObject(hKey, valueIndex, maxValueNameLength));
+	$prepareNativeStatic(WindowsRegEnumValue, $bytes*, int64_t hKey, int32_t valueIndex, int32_t maxValueNameLength);
+	$var($bytes, $ret, $invokeNativeStaticObject(hKey, valueIndex, maxValueNameLength));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -530,7 +403,7 @@ $bytes* WindowsPreferences::WindowsRegEnumValue1(int64_t hKey, int32_t valueInde
 }
 
 void WindowsPreferences::init$(WindowsPreferences* parent, $String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AbstractPreferences::init$(parent, name);
 	this->isBackingStoreAvailable = true;
 	int64_t parentNativeHandle = $nc(parent)->openKey(WindowsPreferences::KEY_CREATE_SUB_KEY, WindowsPreferences::KEY_READ);
@@ -540,44 +413,52 @@ void WindowsPreferences::init$(WindowsPreferences* parent, $String* name) {
 	}
 	$var($longs, result, WindowsRegCreateKeyEx1(parentNativeHandle, $(toWindowsName(name))));
 	if ($nc(result)->get(WindowsPreferences::ERROR_CODE) != WindowsPreferences::ERROR_SUCCESS) {
-		$var($String, var$3, $$str({"Could not create windows registry node "_s, $(byteArrayToString($(windowsAbsolutePath()))), " at root 0x"_s}));
-		$var($String, var$2, $$concat(var$3, $($Long::toHexString(parentNativeHandle))));
-		$var($String, var$1, $$concat(var$2, ". Windows RegCreateKeyEx(...) returned error code "_s));
-		$var($String, var$0, $$concat(var$1, $$str(result->get(WindowsPreferences::ERROR_CODE))));
-		$nc($(logger()))->warning($$concat(var$0, "."_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Could not create windows registry node "_s);
+		var$0->append($(byteArrayToString($(windowsAbsolutePath()))));
+		var$0->append(" at root 0x"_s);
+		var$0->append($($Long::toHexString(parentNativeHandle)));
+		var$0->append(". Windows RegCreateKeyEx(...) returned error code "_s);
+		var$0->append(result->get(WindowsPreferences::ERROR_CODE));
+		var$0->append("."_s);
+		$$nc(logger())->warning($$str(var$0));
 		this->isBackingStoreAvailable = false;
 		return;
 	}
-	this->newNode = ($nc(result)->get(WindowsPreferences::DISPOSITION) == WindowsPreferences::REG_CREATED_NEW_KEY);
+	this->newNode = (result->get(WindowsPreferences::DISPOSITION) == WindowsPreferences::REG_CREATED_NEW_KEY);
 	closeKey(parentNativeHandle);
 	closeKey(result->get(WindowsPreferences::NATIVE_HANDLE));
 }
 
 void WindowsPreferences::init$(int64_t rootNativeHandle, $bytes* rootDirectory) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AbstractPreferences::init$(nullptr, ""_s);
 	this->isBackingStoreAvailable = true;
 	$var($longs, result, WindowsRegCreateKeyEx1(rootNativeHandle, rootDirectory));
 	if ($nc(result)->get(WindowsPreferences::ERROR_CODE) != WindowsPreferences::ERROR_SUCCESS) {
-		$var($String, var$3, $$str({"Could not open/create prefs root node "_s, $(byteArrayToString($(windowsAbsolutePath()))), " at root 0x"_s}));
-		$var($String, var$2, $$concat(var$3, $($Long::toHexString(rootNativeHandle))));
-		$var($String, var$1, $$concat(var$2, ". Windows RegCreateKeyEx(...) returned error code "_s));
-		$var($String, var$0, $$concat(var$1, $$str(result->get(WindowsPreferences::ERROR_CODE))));
-		$nc($(logger()))->warning($$concat(var$0, "."_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Could not open/create prefs root node "_s);
+		var$0->append($(byteArrayToString($(windowsAbsolutePath()))));
+		var$0->append(" at root 0x"_s);
+		var$0->append($($Long::toHexString(rootNativeHandle)));
+		var$0->append(". Windows RegCreateKeyEx(...) returned error code "_s);
+		var$0->append(result->get(WindowsPreferences::ERROR_CODE));
+		var$0->append("."_s);
+		$$nc(logger())->warning($$str(var$0));
 		this->isBackingStoreAvailable = false;
 		return;
 	}
-	this->newNode = ($nc(result)->get(WindowsPreferences::DISPOSITION) == WindowsPreferences::REG_CREATED_NEW_KEY);
+	this->newNode = (result->get(WindowsPreferences::DISPOSITION) == WindowsPreferences::REG_CREATED_NEW_KEY);
 	closeKey(result->get(WindowsPreferences::NATIVE_HANDLE));
 }
 
 $bytes* WindowsPreferences::windowsAbsolutePath() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteArrayOutputStream, bstream, $new($ByteArrayOutputStream));
 	bstream->write(WindowsPreferences::WINDOWS_ROOT_PATH, 0, $nc(WindowsPreferences::WINDOWS_ROOT_PATH)->length - 1);
 	$var($StringTokenizer, tokenizer, $new($StringTokenizer, $(absolutePath()), "/"_s));
 	while (tokenizer->hasMoreTokens()) {
-		bstream->write((int32_t)(int8_t)u'\\');
+		bstream->write((int8_t)u'\\');
 		$var($String, nextName, tokenizer->nextToken());
 		$var($bytes, windowsNextName, toWindowsName(nextName));
 		bstream->write(windowsNextName, 0, $nc(windowsNextName)->length - 1);
@@ -595,47 +476,59 @@ int64_t WindowsPreferences::openKey(int32_t mask1, int32_t mask2) {
 }
 
 int64_t WindowsPreferences::openKey($bytes* windowsAbsolutePath, int32_t mask1, int32_t mask2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(windowsAbsolutePath)->length <= WindowsPreferences::MAX_WINDOWS_PATH_LENGTH + 1) {
 		$var($longs, result, WindowsRegOpenKey1(rootNativeHandle(), windowsAbsolutePath, mask1));
 		if ($nc(result)->get(WindowsPreferences::ERROR_CODE) == WindowsPreferences::ERROR_ACCESS_DENIED && mask2 != mask1) {
 			$assign(result, WindowsRegOpenKey1(rootNativeHandle(), windowsAbsolutePath, mask2));
 		}
 		if ($nc(result)->get(WindowsPreferences::ERROR_CODE) != WindowsPreferences::ERROR_SUCCESS) {
-			$var($String, var$3, $$str({"Could not open windows registry node "_s, $(byteArrayToString($(this->windowsAbsolutePath()))), " at root 0x"_s}));
-			$var($String, var$2, $$concat(var$3, $($Long::toHexString(rootNativeHandle()))));
-			$var($String, var$1, $$concat(var$2, ". Windows RegOpenKey(...) returned error code "_s));
-			$var($String, var$0, $$concat(var$1, $$str(result->get(WindowsPreferences::ERROR_CODE))));
-			$nc($(logger()))->warning($$concat(var$0, "."_s));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("Could not open windows registry node "_s);
+			var$0->append($(byteArrayToString($(this->windowsAbsolutePath()))));
+			var$0->append(" at root 0x"_s);
+			var$0->append($($Long::toHexString(rootNativeHandle())));
+			var$0->append(". Windows RegOpenKey(...) returned error code "_s);
+			var$0->append(result->get(WindowsPreferences::ERROR_CODE));
+			var$0->append("."_s);
+			$$nc(logger())->warning($$str(var$0));
 			result->set(WindowsPreferences::NATIVE_HANDLE, WindowsPreferences::NULL_NATIVE_HANDLE);
 			if (result->get(WindowsPreferences::ERROR_CODE) == WindowsPreferences::ERROR_ACCESS_DENIED) {
-				$var($String, var$5, $$str({"Could not open windows registry node "_s, $(byteArrayToString($(this->windowsAbsolutePath()))), " at root 0x"_s}));
-				$var($String, var$4, $$concat(var$5, $($Long::toHexString(rootNativeHandle()))));
-				$throwNew($SecurityException, $$concat(var$4, ": Access denied"_s));
+				$var($StringBuilder, var$1, $new($StringBuilder));
+				var$1->append("Could not open windows registry node "_s);
+				var$1->append($(byteArrayToString($(this->windowsAbsolutePath()))));
+				var$1->append(" at root 0x"_s);
+				var$1->append($($Long::toHexString(rootNativeHandle())));
+				var$1->append(": Access denied"_s);
+				$throwNew($SecurityException, $$str(var$1));
 			}
 		}
-		return $nc(result)->get(WindowsPreferences::NATIVE_HANDLE);
+		return result->get(WindowsPreferences::NATIVE_HANDLE);
 	} else {
 		return openKey(rootNativeHandle(), windowsAbsolutePath, mask1, mask2);
 	}
 }
 
 int64_t WindowsPreferences::openKey(int64_t nativeHandle, $bytes* windowsRelativePath, int32_t mask1, int32_t mask2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(windowsRelativePath)->length <= WindowsPreferences::MAX_WINDOWS_PATH_LENGTH + 1) {
 		$var($longs, result, WindowsRegOpenKey1(nativeHandle, windowsRelativePath, mask1));
 		if ($nc(result)->get(WindowsPreferences::ERROR_CODE) == WindowsPreferences::ERROR_ACCESS_DENIED && mask2 != mask1) {
 			$assign(result, WindowsRegOpenKey1(nativeHandle, windowsRelativePath, mask2));
 		}
 		if ($nc(result)->get(WindowsPreferences::ERROR_CODE) != WindowsPreferences::ERROR_SUCCESS) {
-			$var($String, var$3, $$str({"Could not open windows registry node "_s, $(byteArrayToString($(windowsAbsolutePath()))), " at root 0x"_s}));
-			$var($String, var$2, $$concat(var$3, $($Long::toHexString(nativeHandle))));
-			$var($String, var$1, $$concat(var$2, ". Windows RegOpenKey(...) returned error code "_s));
-			$var($String, var$0, $$concat(var$1, $$str(result->get(WindowsPreferences::ERROR_CODE))));
-			$nc($(logger()))->warning($$concat(var$0, "."_s));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("Could not open windows registry node "_s);
+			var$0->append($(byteArrayToString($(windowsAbsolutePath()))));
+			var$0->append(" at root 0x"_s);
+			var$0->append($($Long::toHexString(nativeHandle)));
+			var$0->append(". Windows RegOpenKey(...) returned error code "_s);
+			var$0->append(result->get(WindowsPreferences::ERROR_CODE));
+			var$0->append("."_s);
+			$$nc(logger())->warning($$str(var$0));
 			result->set(WindowsPreferences::NATIVE_HANDLE, WindowsPreferences::NULL_NATIVE_HANDLE);
 		}
-		return $nc(result)->get(WindowsPreferences::NATIVE_HANDLE);
+		return result->get(WindowsPreferences::NATIVE_HANDLE);
 	} else {
 		int32_t separatorPosition = -1;
 		for (int32_t i = WindowsPreferences::MAX_WINDOWS_PATH_LENGTH; i > 0; --i) {
@@ -646,7 +539,7 @@ int64_t WindowsPreferences::openKey(int64_t nativeHandle, $bytes* windowsRelativ
 		}
 		$var($bytes, nextRelativeRoot, $new($bytes, separatorPosition + 1));
 		$System::arraycopy(windowsRelativePath, 0, nextRelativeRoot, 0, separatorPosition);
-		nextRelativeRoot->set(separatorPosition, (int8_t)0);
+		nextRelativeRoot->set(separatorPosition, 0);
 		$var($bytes, nextRelativePath, $new($bytes, windowsRelativePath->length - separatorPosition - 1));
 		$System::arraycopy(windowsRelativePath, separatorPosition + 1, nextRelativePath, 0, nextRelativePath->length);
 		int64_t nextNativeHandle = openKey(nativeHandle, nextRelativeRoot, mask1, mask2);
@@ -660,42 +553,49 @@ int64_t WindowsPreferences::openKey(int64_t nativeHandle, $bytes* windowsRelativ
 }
 
 void WindowsPreferences::closeKey(int64_t nativeHandle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t result = WindowsRegCloseKey(nativeHandle);
 	if (result != WindowsPreferences::ERROR_SUCCESS) {
-		$var($String, var$3, $$str({"Could not close windows registry node "_s, $(byteArrayToString($(windowsAbsolutePath()))), " at root 0x"_s}));
-		$var($String, var$2, $$concat(var$3, $($Long::toHexString(rootNativeHandle()))));
-		$var($String, var$1, $$concat(var$2, ". Windows RegCloseKey(...) returned error code "_s));
-		$var($String, var$0, $$concat(var$1, $$str(result)));
-		$nc($(logger()))->warning($$concat(var$0, "."_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Could not close windows registry node "_s);
+		var$0->append($(byteArrayToString($(windowsAbsolutePath()))));
+		var$0->append(" at root 0x"_s);
+		var$0->append($($Long::toHexString(rootNativeHandle())));
+		var$0->append(". Windows RegCloseKey(...) returned error code "_s);
+		var$0->append(result);
+		var$0->append("."_s);
+		$$nc(logger())->warning($$str(var$0));
 	}
 }
 
 void WindowsPreferences::putSpi($String* javaName, $String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t nativeHandle = openKey(WindowsPreferences::KEY_SET_VALUE);
 	if (nativeHandle == WindowsPreferences::NULL_NATIVE_HANDLE) {
 		this->isBackingStoreAvailable = false;
 		return;
 	}
-	int64_t var$0 = nativeHandle;
-	$var($bytes, var$1, toWindowsName(javaName));
-	int32_t result = WindowsRegSetValueEx1(var$0, var$1, $(toWindowsValueString(value)));
+	$var($bytes, var$0, toWindowsName(javaName));
+	int32_t result = WindowsRegSetValueEx1(nativeHandle, var$0, $(toWindowsValueString(value)));
 	if (result != WindowsPreferences::ERROR_SUCCESS) {
-		$var($String, var$7, $$str({"Could not assign value to key "_s, $(byteArrayToString($(toWindowsName(javaName)))), " at Windows registry node "_s}));
-		$var($String, var$6, $$concat(var$7, $(byteArrayToString($(windowsAbsolutePath())))));
-		$var($String, var$5, $$concat(var$6, " at root 0x"_s));
-		$var($String, var$4, $$concat(var$5, $($Long::toHexString(rootNativeHandle()))));
-		$var($String, var$3, $$concat(var$4, ". Windows RegSetValueEx(...) returned error code "_s));
-		$var($String, var$2, $$concat(var$3, $$str(result)));
-		$nc($(logger()))->warning($$concat(var$2, "."_s));
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append("Could not assign value to key "_s);
+		var$1->append($(byteArrayToString($(toWindowsName(javaName)))));
+		var$1->append(" at Windows registry node "_s);
+		var$1->append($(byteArrayToString($(windowsAbsolutePath()))));
+		var$1->append(" at root 0x"_s);
+		var$1->append($($Long::toHexString(rootNativeHandle())));
+		var$1->append(". Windows RegSetValueEx(...) returned error code "_s);
+		var$1->append(result);
+		var$1->append("."_s);
+		$$nc(logger())->warning($$str(var$1));
 		this->isBackingStoreAvailable = false;
 	}
 	closeKey(nativeHandle);
 }
 
 $String* WindowsPreferences::getSpi($String* javaName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t nativeHandle = openKey(WindowsPreferences::KEY_QUERY_VALUE);
 	if (nativeHandle == WindowsPreferences::NULL_NATIVE_HANDLE) {
 		return nullptr;
@@ -710,44 +610,56 @@ $String* WindowsPreferences::getSpi($String* javaName) {
 }
 
 void WindowsPreferences::removeSpi($String* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t nativeHandle = openKey(WindowsPreferences::KEY_SET_VALUE);
 	if (nativeHandle == WindowsPreferences::NULL_NATIVE_HANDLE) {
 		return;
 	}
 	int32_t result = WindowsRegDeleteValue(nativeHandle, $(toWindowsName(key)));
 	if (result != WindowsPreferences::ERROR_SUCCESS && result != WindowsPreferences::ERROR_FILE_NOT_FOUND) {
-		$var($String, var$5, $$str({"Could not delete windows registry value "_s, $(byteArrayToString($(windowsAbsolutePath()))), "\\"_s}));
-		$var($String, var$4, $$concat(var$5, $(toWindowsName(key))));
-		$var($String, var$3, $$concat(var$4, " at root 0x"_s));
-		$var($String, var$2, $$concat(var$3, $($Long::toHexString(rootNativeHandle()))));
-		$var($String, var$1, $$concat(var$2, ". Windows RegDeleteValue(...) returned error code "_s));
-		$var($String, var$0, $$concat(var$1, $$str(result)));
-		$nc($(logger()))->warning($$concat(var$0, "."_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Could not delete windows registry value "_s);
+		var$0->append($(byteArrayToString($(windowsAbsolutePath()))));
+		var$0->append("\\"_s);
+		var$0->append($(toWindowsName(key)));
+		var$0->append(" at root 0x"_s);
+		var$0->append($($Long::toHexString(rootNativeHandle())));
+		var$0->append(". Windows RegDeleteValue(...) returned error code "_s);
+		var$0->append(result);
+		var$0->append("."_s);
+		$$nc(logger())->warning($$str(var$0));
 		this->isBackingStoreAvailable = false;
 	}
 	closeKey(nativeHandle);
 }
 
 $StringArray* WindowsPreferences::keysSpi() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t nativeHandle = openKey(WindowsPreferences::KEY_QUERY_VALUE);
 	if (nativeHandle == WindowsPreferences::NULL_NATIVE_HANDLE) {
-		$var($String, var$1, $$str({"Could not open windows registry node "_s, $(byteArrayToString($(windowsAbsolutePath()))), " at root 0x"_s}));
-		$var($String, var$0, $$concat(var$1, $($Long::toHexString(rootNativeHandle()))));
-		$throwNew($BackingStoreException, $$concat(var$0, "."_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Could not open windows registry node "_s);
+		var$0->append($(byteArrayToString($(windowsAbsolutePath()))));
+		var$0->append(" at root 0x"_s);
+		var$0->append($($Long::toHexString(rootNativeHandle())));
+		var$0->append("."_s);
+		$throwNew($BackingStoreException, $$str(var$0));
 	}
 	$var($longs, result, WindowsRegQueryInfoKey1(nativeHandle));
 	if ($nc(result)->get(WindowsPreferences::ERROR_CODE) != WindowsPreferences::ERROR_SUCCESS) {
-		$var($String, var$5, $$str({"Could not query windows registry node "_s, $(byteArrayToString($(windowsAbsolutePath()))), " at root 0x"_s}));
-		$var($String, var$4, $$concat(var$5, $($Long::toHexString(rootNativeHandle()))));
-		$var($String, var$3, $$concat(var$4, ". Windows RegQueryInfoKeyEx(...) returned error code "_s));
-		$var($String, var$2, $$concat(var$3, $$str(result->get(WindowsPreferences::ERROR_CODE))));
-		$var($String, info, $concat(var$2, "."_s));
-		$nc($(logger()))->warning(info);
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append("Could not query windows registry node "_s);
+		var$1->append($(byteArrayToString($(windowsAbsolutePath()))));
+		var$1->append(" at root 0x"_s);
+		var$1->append($($Long::toHexString(rootNativeHandle())));
+		var$1->append(". Windows RegQueryInfoKeyEx(...) returned error code "_s);
+		var$1->append(result->get(WindowsPreferences::ERROR_CODE));
+		var$1->append("."_s);
+		$var($String, info, $str(var$1));
+		$$nc(logger())->warning(info);
 		$throwNew($BackingStoreException, info);
 	}
-	int32_t maxValueNameLength = (int32_t)$nc(result)->get(WindowsPreferences::MAX_VALUE_NAME_LENGTH);
+	int32_t maxValueNameLength = (int32_t)result->get(WindowsPreferences::MAX_VALUE_NAME_LENGTH);
 	int32_t valuesNumber = (int32_t)result->get(WindowsPreferences::VALUES_NUMBER);
 	if (valuesNumber == 0) {
 		closeKey(nativeHandle);
@@ -757,10 +669,16 @@ $StringArray* WindowsPreferences::keysSpi() {
 	for (int32_t i = 0; i < valuesNumber; ++i) {
 		$var($bytes, windowsName, WindowsRegEnumValue1(nativeHandle, i, maxValueNameLength + 1));
 		if (windowsName == nullptr) {
-			$var($String, var$7, $$str({"Could not enumerate value #"_s, $$str(i), "  of windows node "_s, $(byteArrayToString($(windowsAbsolutePath()))), " at root 0x"_s}));
-			$var($String, var$6, $$concat(var$7, $($Long::toHexString(rootNativeHandle()))));
-			$var($String, info, $concat(var$6, "."_s));
-			$nc($(logger()))->warning(info);
+			$var($StringBuilder, var$2, $new($StringBuilder));
+			var$2->append("Could not enumerate value #"_s);
+			var$2->append(i);
+			var$2->append("  of windows node "_s);
+			var$2->append($(byteArrayToString($(windowsAbsolutePath()))));
+			var$2->append(" at root 0x"_s);
+			var$2->append($($Long::toHexString(rootNativeHandle())));
+			var$2->append("."_s);
+			$var($String, info, $str(var$2));
+			$$nc(logger())->warning(info);
 			$throwNew($BackingStoreException, info);
 		}
 		valueNames->set(i, $(toJavaName(windowsName)));
@@ -770,24 +688,32 @@ $StringArray* WindowsPreferences::keysSpi() {
 }
 
 $StringArray* WindowsPreferences::childrenNamesSpi() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t nativeHandle = openKey(WindowsPreferences::KEY_ENUMERATE_SUB_KEYS | WindowsPreferences::KEY_QUERY_VALUE);
 	if (nativeHandle == WindowsPreferences::NULL_NATIVE_HANDLE) {
-		$var($String, var$1, $$str({"Could not open windows registry node "_s, $(byteArrayToString($(windowsAbsolutePath()))), " at root 0x"_s}));
-		$var($String, var$0, $$concat(var$1, $($Long::toHexString(rootNativeHandle()))));
-		$throwNew($BackingStoreException, $$concat(var$0, "."_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Could not open windows registry node "_s);
+		var$0->append($(byteArrayToString($(windowsAbsolutePath()))));
+		var$0->append(" at root 0x"_s);
+		var$0->append($($Long::toHexString(rootNativeHandle())));
+		var$0->append("."_s);
+		$throwNew($BackingStoreException, $$str(var$0));
 	}
 	$var($longs, result, WindowsRegQueryInfoKey1(nativeHandle));
 	if ($nc(result)->get(WindowsPreferences::ERROR_CODE) != WindowsPreferences::ERROR_SUCCESS) {
-		$var($String, var$5, $$str({"Could not query windows registry node "_s, $(byteArrayToString($(windowsAbsolutePath()))), " at root 0x"_s}));
-		$var($String, var$4, $$concat(var$5, $($Long::toHexString(rootNativeHandle()))));
-		$var($String, var$3, $$concat(var$4, ". Windows RegQueryInfoKeyEx(...) returned error code "_s));
-		$var($String, var$2, $$concat(var$3, $$str(result->get(WindowsPreferences::ERROR_CODE))));
-		$var($String, info, $concat(var$2, "."_s));
-		$nc($(logger()))->warning(info);
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append("Could not query windows registry node "_s);
+		var$1->append($(byteArrayToString($(windowsAbsolutePath()))));
+		var$1->append(" at root 0x"_s);
+		var$1->append($($Long::toHexString(rootNativeHandle())));
+		var$1->append(". Windows RegQueryInfoKeyEx(...) returned error code "_s);
+		var$1->append(result->get(WindowsPreferences::ERROR_CODE));
+		var$1->append("."_s);
+		$var($String, info, $str(var$1));
+		$$nc(logger())->warning(info);
 		$throwNew($BackingStoreException, info);
 	}
-	int32_t maxKeyLength = (int32_t)$nc(result)->get(WindowsPreferences::MAX_KEY_LENGTH);
+	int32_t maxKeyLength = (int32_t)result->get(WindowsPreferences::MAX_KEY_LENGTH);
 	int32_t subKeysNumber = (int32_t)result->get(WindowsPreferences::SUBKEYS_NUMBER);
 	if (subKeysNumber == 0) {
 		closeKey(nativeHandle);
@@ -798,10 +724,16 @@ $StringArray* WindowsPreferences::childrenNamesSpi() {
 	for (int32_t i = 0; i < subKeysNumber; ++i) {
 		$var($bytes, windowsName, WindowsRegEnumKeyEx1(nativeHandle, i, maxKeyLength + 1));
 		if (windowsName == nullptr) {
-			$var($String, var$7, $$str({"Could not enumerate key #"_s, $$str(i), "  of windows node "_s, $(byteArrayToString($(windowsAbsolutePath()))), " at root 0x"_s}));
-			$var($String, var$6, $$concat(var$7, $($Long::toHexString(rootNativeHandle()))));
-			$var($String, info, $concat(var$6, ". "_s));
-			$nc($(logger()))->warning(info);
+			$var($StringBuilder, var$2, $new($StringBuilder));
+			var$2->append("Could not enumerate key #"_s);
+			var$2->append(i);
+			var$2->append("  of windows node "_s);
+			var$2->append($(byteArrayToString($(windowsAbsolutePath()))));
+			var$2->append(" at root 0x"_s);
+			var$2->append($($Long::toHexString(rootNativeHandle())));
+			var$2->append(". "_s);
+			$var($String, info, $str(var$2));
+			$$nc(logger())->warning(info);
 			$throwNew($BackingStoreException, info);
 		}
 		$var($String, javaName, toJavaName(windowsName));
@@ -812,7 +744,7 @@ $StringArray* WindowsPreferences::childrenNamesSpi() {
 }
 
 void WindowsPreferences::flush() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isRemoved()) {
 		$nc(this->parent$)->flush();
 		return;
@@ -822,18 +754,26 @@ void WindowsPreferences::flush() {
 	}
 	int64_t nativeHandle = openKey(WindowsPreferences::KEY_READ);
 	if (nativeHandle == WindowsPreferences::NULL_NATIVE_HANDLE) {
-		$var($String, var$1, $$str({"Could not open windows registry node "_s, $(byteArrayToString($(windowsAbsolutePath()))), " at root 0x"_s}));
-		$var($String, var$0, $$concat(var$1, $($Long::toHexString(rootNativeHandle()))));
-		$throwNew($BackingStoreException, $$concat(var$0, "."_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Could not open windows registry node "_s);
+		var$0->append($(byteArrayToString($(windowsAbsolutePath()))));
+		var$0->append(" at root 0x"_s);
+		var$0->append($($Long::toHexString(rootNativeHandle())));
+		var$0->append("."_s);
+		$throwNew($BackingStoreException, $$str(var$0));
 	}
 	int32_t result = WindowsRegFlushKey1(nativeHandle);
 	if (result != WindowsPreferences::ERROR_SUCCESS) {
-		$var($String, var$5, $$str({"Could not flush windows registry node "_s, $(byteArrayToString($(windowsAbsolutePath()))), " at root 0x"_s}));
-		$var($String, var$4, $$concat(var$5, $($Long::toHexString(rootNativeHandle()))));
-		$var($String, var$3, $$concat(var$4, ". Windows RegFlushKey(...) returned error code "_s));
-		$var($String, var$2, $$concat(var$3, $$str(result)));
-		$var($String, info, $concat(var$2, "."_s));
-		$nc($(logger()))->warning(info);
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append("Could not flush windows registry node "_s);
+		var$1->append($(byteArrayToString($(windowsAbsolutePath()))));
+		var$1->append(" at root 0x"_s);
+		var$1->append($($Long::toHexString(rootNativeHandle())));
+		var$1->append(". Windows RegFlushKey(...) returned error code "_s);
+		var$1->append(result);
+		var$1->append("."_s);
+		$var($String, info, $str(var$1));
+		$$nc(logger())->warning(info);
 		$throwNew($BackingStoreException, info);
 	}
 	closeKey(nativeHandle);
@@ -851,21 +791,29 @@ $AbstractPreferences* WindowsPreferences::childSpi($String* name) {
 }
 
 void WindowsPreferences::removeNodeSpi() {
-	$useLocalCurrentObjectStackCache();
-	int64_t parentNativeHandle = $nc(($cast(WindowsPreferences, $(parent()))))->openKey(WindowsPreferences::DELETE);
+	$useLocalObjectStack();
+	int64_t parentNativeHandle = $$sure(WindowsPreferences, parent())->openKey(WindowsPreferences::DELETE);
 	if (parentNativeHandle == WindowsPreferences::NULL_NATIVE_HANDLE) {
-		$var($String, var$1, $$str({"Could not open parent windows registry node of "_s, $(byteArrayToString($(windowsAbsolutePath()))), " at root 0x"_s}));
-		$var($String, var$0, $$concat(var$1, $($Long::toHexString(rootNativeHandle()))));
-		$throwNew($BackingStoreException, $$concat(var$0, "."_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Could not open parent windows registry node of "_s);
+		var$0->append($(byteArrayToString($(windowsAbsolutePath()))));
+		var$0->append(" at root 0x"_s);
+		var$0->append($($Long::toHexString(rootNativeHandle())));
+		var$0->append("."_s);
+		$throwNew($BackingStoreException, $$str(var$0));
 	}
 	int32_t result = WindowsRegDeleteKey(parentNativeHandle, $(toWindowsName($(name()))));
 	if (result != WindowsPreferences::ERROR_SUCCESS) {
-		$var($String, var$5, $$str({"Could not delete windows registry node "_s, $(byteArrayToString($(windowsAbsolutePath()))), " at root 0x"_s}));
-		$var($String, var$4, $$concat(var$5, $($Long::toHexString(rootNativeHandle()))));
-		$var($String, var$3, $$concat(var$4, ". Windows RegDeleteKeyEx(...) returned error code "_s));
-		$var($String, var$2, $$concat(var$3, $$str(result)));
-		$var($String, info, $concat(var$2, "."_s));
-		$nc($(logger()))->warning(info);
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append("Could not delete windows registry node "_s);
+		var$1->append($(byteArrayToString($(windowsAbsolutePath()))));
+		var$1->append(" at root 0x"_s);
+		var$1->append($($Long::toHexString(rootNativeHandle())));
+		var$1->append(". Windows RegDeleteKeyEx(...) returned error code "_s);
+		var$1->append(result);
+		var$1->append("."_s);
+		$var($String, info, $str(var$1));
+		$$nc(logger())->warning(info);
 		$throwNew($BackingStoreException, info);
 	}
 	closeKey(parentNativeHandle);
@@ -873,18 +821,18 @@ void WindowsPreferences::removeNodeSpi() {
 
 $String* WindowsPreferences::toJavaName($bytes* windowsNameArray) {
 	$init(WindowsPreferences);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, windowsName, byteArrayToString(windowsNameArray));
-	bool var$0 = ($nc(windowsName)->length() > 1);
+	bool var$0 = $nc(windowsName)->length() > 1;
 	if (var$0 && ($(windowsName->substring(0, 2))->equals("/!"_s))) {
 		return toJavaAlt64Name(windowsName);
 	}
 	$var($StringBuilder, javaName, $new($StringBuilder));
 	char16_t ch = 0;
-	for (int32_t i = 0; i < $nc(windowsName)->length(); ++i) {
+	for (int32_t i = 0; i < windowsName->length(); ++i) {
 		if ((ch = windowsName->charAt(i)) == u'/') {
 			char16_t next = u' ';
-			bool var$1 = (windowsName->length() > i + 1);
+			bool var$1 = windowsName->length() > i + 1;
 			if (var$1 && ((next = windowsName->charAt(i + 1)) >= u'A') && (next <= u'Z')) {
 				ch = next;
 				++i;
@@ -902,12 +850,12 @@ $String* WindowsPreferences::toJavaName($bytes* windowsNameArray) {
 
 $String* WindowsPreferences::toJavaAlt64Name($String* windowsName) {
 	$init(WindowsPreferences);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, byteBuffer, $Base64::altBase64ToByteArray($($nc(windowsName)->substring(2))));
 	$var($StringBuilder, result, $new($StringBuilder));
 	for (int32_t i = 0; i < $nc(byteBuffer)->length; ++i) {
-		int32_t firstbyte = ((int32_t)(byteBuffer->get(i++) & (uint32_t)255));
-		int32_t secondbyte = ((int32_t)(byteBuffer->get(i) & (uint32_t)255));
+		int32_t firstbyte = (byteBuffer->get(i++) & 0xff);
+		int32_t secondbyte = (byteBuffer->get(i) & 0xff);
 		result->append((char16_t)((firstbyte << 8) + secondbyte));
 	}
 	return result->toString();
@@ -915,7 +863,7 @@ $String* WindowsPreferences::toJavaAlt64Name($String* windowsName) {
 
 $bytes* WindowsPreferences::toWindowsName($String* javaName) {
 	$init(WindowsPreferences);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, windowsName, $new($StringBuilder));
 	for (int32_t i = 0; i < $nc(javaName)->length(); ++i) {
 		char16_t ch = javaName->charAt(i);
@@ -937,7 +885,7 @@ $bytes* WindowsPreferences::toWindowsName($String* javaName) {
 
 $bytes* WindowsPreferences::toWindowsAlt64Name($String* javaName) {
 	$init(WindowsPreferences);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, javaNameArray, $new($bytes, 2 * $nc(javaName)->length()));
 	int32_t counter = 0;
 	for (int32_t i = 0; i < javaName->length(); ++i) {
@@ -950,7 +898,7 @@ $bytes* WindowsPreferences::toWindowsAlt64Name($String* javaName) {
 
 $String* WindowsPreferences::toJavaValueString($bytes* windowsNameArray) {
 	$init(WindowsPreferences);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, windowsName, byteArrayToString(windowsNameArray));
 	$var($StringBuilder, javaName, $new($StringBuilder));
 	char16_t ch = 0;
@@ -966,8 +914,8 @@ $String* WindowsPreferences::toJavaValueString($bytes* windowsNameArray) {
 					i += 5;
 				}
 			} else {
-				bool var$2 = (windowsName->length() > i + 1);
-				if (var$2 && ((windowsName->charAt(i + 1)) >= u'A') && (next <= u'Z')) {
+				bool var$1 = windowsName->length() > i + 1;
+				if (var$1 && ((windowsName->charAt(i + 1)) >= u'A') && (next <= u'Z')) {
 					ch = next;
 					++i;
 				} else if ((windowsName->length() > i + 1) && (next == u'/')) {
@@ -985,7 +933,7 @@ $String* WindowsPreferences::toJavaValueString($bytes* windowsNameArray) {
 
 $bytes* WindowsPreferences::toWindowsValueString($String* javaName) {
 	$init(WindowsPreferences);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, windowsName, $new($StringBuilder));
 	for (int32_t i = 0; i < $nc(javaName)->length(); ++i) {
 		char16_t ch = javaName->charAt(i);
@@ -1024,7 +972,7 @@ $bytes* WindowsPreferences::stringToByteArray($String* str) {
 	for (int32_t i = 0; i < str->length(); ++i) {
 		result->set(i, (int8_t)str->charAt(i));
 	}
-	result->set(str->length(), (int8_t)0);
+	result->set(str->length(), 0);
 	return result;
 }
 
@@ -1044,9 +992,8 @@ void WindowsPreferences::syncSpi() {
 }
 
 $PlatformLogger* WindowsPreferences::logger() {
-	$load(WindowsPreferences);
+	$init(WindowsPreferences);
 	$synchronized(class$) {
-		$init(WindowsPreferences);
 		if (WindowsPreferences::logger$ == nullptr) {
 			$assignStatic(WindowsPreferences::logger$, $PlatformLogger::getLogger("java.util.prefs"_s));
 		}
@@ -1061,10 +1008,10 @@ $Void* WindowsPreferences::lambda$static$0() {
 	return nullptr;
 }
 
-void clinit$WindowsPreferences($Class* class$) {
+void WindowsPreferences::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
-		$var($PrivilegedAction, load, static_cast<$PrivilegedAction*>($new(WindowsPreferences$$Lambda$lambda$static$0)));
+		$var($PrivilegedAction, load, $new(WindowsPreferences$$Lambda$lambda$static$0));
 		$AccessController::doPrivileged(load);
 	}
 	$assignStatic(WindowsPreferences::WINDOWS_ROOT_PATH, WindowsPreferences::stringToByteArray("Software\\JavaSoft\\Prefs"_s));
@@ -1077,11 +1024,110 @@ WindowsPreferences::WindowsPreferences() {
 
 $Class* WindowsPreferences::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(WindowsPreferences$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("java.util.prefs.WindowsPreferences$$Lambda$lambda$static$0")) {
 			return WindowsPreferences$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(WindowsPreferences, name, initialize, &_WindowsPreferences_ClassInfo_, clinit$WindowsPreferences, allocate$WindowsPreferences);
+	$FieldInfo fieldInfos$$[] = {
+		{"logger", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsPreferences, logger$)},
+		{"WINDOWS_ROOT_PATH", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsPreferences, WINDOWS_ROOT_PATH)},
+		{"HKEY_CURRENT_USER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, HKEY_CURRENT_USER)},
+		{"HKEY_LOCAL_MACHINE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, HKEY_LOCAL_MACHINE)},
+		{"USER_ROOT_NATIVE_HANDLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, USER_ROOT_NATIVE_HANDLE)},
+		{"SYSTEM_ROOT_NATIVE_HANDLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, SYSTEM_ROOT_NATIVE_HANDLE)},
+		{"MAX_WINDOWS_PATH_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, MAX_WINDOWS_PATH_LENGTH)},
+		{"userRoot", "Ljava/util/prefs/Preferences;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(WindowsPreferences, userRoot)},
+		{"systemRoot", "Ljava/util/prefs/Preferences;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(WindowsPreferences, systemRoot)},
+		{"ERROR_SUCCESS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, ERROR_SUCCESS)},
+		{"ERROR_FILE_NOT_FOUND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, ERROR_FILE_NOT_FOUND)},
+		{"ERROR_ACCESS_DENIED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, ERROR_ACCESS_DENIED)},
+		{"NATIVE_HANDLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, NATIVE_HANDLE)},
+		{"ERROR_CODE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, ERROR_CODE)},
+		{"SUBKEYS_NUMBER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, SUBKEYS_NUMBER)},
+		{"VALUES_NUMBER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, VALUES_NUMBER)},
+		{"MAX_KEY_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, MAX_KEY_LENGTH)},
+		{"MAX_VALUE_NAME_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, MAX_VALUE_NAME_LENGTH)},
+		{"DISPOSITION", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, DISPOSITION)},
+		{"REG_CREATED_NEW_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, REG_CREATED_NEW_KEY)},
+		{"REG_OPENED_EXISTING_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, REG_OPENED_EXISTING_KEY)},
+		{"NULL_NATIVE_HANDLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, NULL_NATIVE_HANDLE)},
+		{"DELETE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, DELETE)},
+		{"KEY_QUERY_VALUE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, KEY_QUERY_VALUE)},
+		{"KEY_SET_VALUE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, KEY_SET_VALUE)},
+		{"KEY_CREATE_SUB_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, KEY_CREATE_SUB_KEY)},
+		{"KEY_ENUMERATE_SUB_KEYS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, KEY_ENUMERATE_SUB_KEYS)},
+		{"KEY_READ", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, KEY_READ)},
+		{"KEY_WRITE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, KEY_WRITE)},
+		{"KEY_ALL_ACCESS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPreferences, KEY_ALL_ACCESS)},
+		{"INIT_SLEEP_TIME", "I", nullptr, $PRIVATE | $STATIC, $staticField(WindowsPreferences, INIT_SLEEP_TIME)},
+		{"MAX_ATTEMPTS", "I", nullptr, $PRIVATE | $STATIC, $staticField(WindowsPreferences, MAX_ATTEMPTS)},
+		{"isBackingStoreAvailable", "Z", nullptr, $PRIVATE, $field(WindowsPreferences, isBackingStoreAvailable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/prefs/WindowsPreferences;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WindowsPreferences, init$, void, WindowsPreferences*, $String*)},
+		{"<init>", "(J[B)V", nullptr, $PRIVATE, $method(WindowsPreferences, init$, void, int64_t, $bytes*)},
+		{"WindowsRegCloseKey", "(J)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WindowsPreferences, WindowsRegCloseKey, int32_t, int64_t)},
+		{"WindowsRegCreateKeyEx", "(J[B)[J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WindowsPreferences, WindowsRegCreateKeyEx, $longs*, int64_t, $bytes*)},
+		{"WindowsRegCreateKeyEx1", "(J[B)[J", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, WindowsRegCreateKeyEx1, $longs*, int64_t, $bytes*)},
+		{"WindowsRegDeleteKey", "(J[B)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WindowsPreferences, WindowsRegDeleteKey, int32_t, int64_t, $bytes*)},
+		{"WindowsRegDeleteValue", "(J[B)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WindowsPreferences, WindowsRegDeleteValue, int32_t, int64_t, $bytes*)},
+		{"WindowsRegEnumKeyEx", "(JII)[B", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WindowsPreferences, WindowsRegEnumKeyEx, $bytes*, int64_t, int32_t, int32_t)},
+		{"WindowsRegEnumKeyEx1", "(JII)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, WindowsRegEnumKeyEx1, $bytes*, int64_t, int32_t, int32_t)},
+		{"WindowsRegEnumValue", "(JII)[B", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WindowsPreferences, WindowsRegEnumValue, $bytes*, int64_t, int32_t, int32_t)},
+		{"WindowsRegEnumValue1", "(JII)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, WindowsRegEnumValue1, $bytes*, int64_t, int32_t, int32_t)},
+		{"WindowsRegFlushKey", "(J)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WindowsPreferences, WindowsRegFlushKey, int32_t, int64_t)},
+		{"WindowsRegFlushKey1", "(J)I", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, WindowsRegFlushKey1, int32_t, int64_t)},
+		{"WindowsRegOpenKey", "(J[BI)[J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WindowsPreferences, WindowsRegOpenKey, $longs*, int64_t, $bytes*, int32_t)},
+		{"WindowsRegOpenKey1", "(J[BI)[J", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, WindowsRegOpenKey1, $longs*, int64_t, $bytes*, int32_t)},
+		{"WindowsRegQueryInfoKey", "(J)[J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WindowsPreferences, WindowsRegQueryInfoKey, $longs*, int64_t)},
+		{"WindowsRegQueryInfoKey1", "(J)[J", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, WindowsRegQueryInfoKey1, $longs*, int64_t)},
+		{"WindowsRegQueryValueEx", "(J[B)[B", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WindowsPreferences, WindowsRegQueryValueEx, $bytes*, int64_t, $bytes*)},
+		{"WindowsRegSetValueEx", "(J[B[B)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WindowsPreferences, WindowsRegSetValueEx, int32_t, int64_t, $bytes*, $bytes*)},
+		{"WindowsRegSetValueEx1", "(J[B[B)I", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, WindowsRegSetValueEx1, int32_t, int64_t, $bytes*, $bytes*)},
+		{"byteArrayToString", "([B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, byteArrayToString, $String*, $bytes*)},
+		{"childSpi", "(Ljava/lang/String;)Ljava/util/prefs/AbstractPreferences;", nullptr, $PROTECTED, $virtualMethod(WindowsPreferences, childSpi, $AbstractPreferences*, $String*)},
+		{"childrenNamesSpi", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(WindowsPreferences, childrenNamesSpi, $StringArray*), "java.util.prefs.BackingStoreException"},
+		{"closeKey", "(J)V", nullptr, $PRIVATE, $method(WindowsPreferences, closeKey, void, int64_t)},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsPreferences, flush, void), "java.util.prefs.BackingStoreException"},
+		{"flushSpi", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsPreferences, flushSpi, void), "java.util.prefs.BackingStoreException"},
+		{"getSpi", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(WindowsPreferences, getSpi, $String*, $String*)},
+		{"getSystemRoot", "()Ljava/util/prefs/Preferences;", nullptr, $STATIC, $staticMethod(WindowsPreferences, getSystemRoot, $Preferences*)},
+		{"getUserRoot", "()Ljava/util/prefs/Preferences;", nullptr, $STATIC, $staticMethod(WindowsPreferences, getUserRoot, $Preferences*)},
+		{"keysSpi", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(WindowsPreferences, keysSpi, $StringArray*), "java.util.prefs.BackingStoreException"},
+		{"lambda$static$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsPreferences, lambda$static$0, $Void*)},
+		{"logger", "()Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(WindowsPreferences, logger, $PlatformLogger*)},
+		{"openKey", "(I)J", nullptr, $PRIVATE, $method(WindowsPreferences, openKey, int64_t, int32_t)},
+		{"openKey", "(II)J", nullptr, $PRIVATE, $method(WindowsPreferences, openKey, int64_t, int32_t, int32_t)},
+		{"openKey", "([BII)J", nullptr, $PRIVATE, $method(WindowsPreferences, openKey, int64_t, $bytes*, int32_t, int32_t)},
+		{"openKey", "(J[BII)J", nullptr, $PRIVATE, $method(WindowsPreferences, openKey, int64_t, int64_t, $bytes*, int32_t, int32_t)},
+		{"putSpi", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(WindowsPreferences, putSpi, void, $String*, $String*)},
+		{"removeNodeSpi", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsPreferences, removeNodeSpi, void), "java.util.prefs.BackingStoreException"},
+		{"removeSpi", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(WindowsPreferences, removeSpi, void, $String*)},
+		{"rootNativeHandle", "()J", nullptr, $PRIVATE, $method(WindowsPreferences, rootNativeHandle, int64_t)},
+		{"stringToByteArray", "(Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, stringToByteArray, $bytes*, $String*)},
+		{"sync", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsPreferences, sync, void), "java.util.prefs.BackingStoreException"},
+		{"syncSpi", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsPreferences, syncSpi, void), "java.util.prefs.BackingStoreException"},
+		{"toJavaAlt64Name", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, toJavaAlt64Name, $String*, $String*)},
+		{"toJavaName", "([B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, toJavaName, $String*, $bytes*)},
+		{"toJavaValueString", "([B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, toJavaValueString, $String*, $bytes*)},
+		{"toWindowsAlt64Name", "(Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, toWindowsAlt64Name, $bytes*, $String*)},
+		{"toWindowsName", "(Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, toWindowsName, $bytes*, $String*)},
+		{"toWindowsValueString", "(Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPreferences, toWindowsValueString, $bytes*, $String*)},
+		{"windowsAbsolutePath", "()[B", nullptr, $PRIVATE, $method(WindowsPreferences, windowsAbsolutePath, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.prefs.WindowsPreferences",
+		"java.util.prefs.AbstractPreferences",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WindowsPreferences, name, initialize, &classInfo$$, WindowsPreferences::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsPreferences);
+	});
 	return class$;
 }
 

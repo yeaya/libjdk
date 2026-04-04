@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/NodeSet.h>
-
 #include <com/sun/org/apache/xalan/internal/res/XSLMessages.h>
 #include <com/sun/org/apache/xml/internal/utils/DOM2Helper.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
@@ -39,100 +38,6 @@ namespace com {
 			namespace apache {
 				namespace xpath {
 					namespace internal {
-
-$FieldInfo _NodeSet_FieldInfo_[] = {
-	{"m_next", "I", nullptr, $PROTECTED | $TRANSIENT, $field(NodeSet, m_next)},
-	{"m_mutable", "Z", nullptr, $PROTECTED | $TRANSIENT, $field(NodeSet, m_mutable)},
-	{"m_cacheNodes", "Z", nullptr, $PROTECTED | $TRANSIENT, $field(NodeSet, m_cacheNodes)},
-	{"m_last", "I", nullptr, $PRIVATE | $TRANSIENT, $field(NodeSet, m_last)},
-	{"m_blocksize", "I", nullptr, $PRIVATE, $field(NodeSet, m_blocksize)},
-	{"m_map", "[Lorg/w3c/dom/Node;", nullptr, 0, $field(NodeSet, m_map)},
-	{"m_firstFree", "I", nullptr, $PROTECTED, $field(NodeSet, m_firstFree)},
-	{"m_mapSize", "I", nullptr, $PRIVATE, $field(NodeSet, m_mapSize)},
-	{}
-};
-
-$MethodInfo _NodeSet_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NodeSet, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(NodeSet, init$, void, int32_t)},
-	{"<init>", "(Lorg/w3c/dom/NodeList;)V", nullptr, $PUBLIC, $method(NodeSet, init$, void, $NodeList*)},
-	{"<init>", "(Lcom/sun/org/apache/xpath/internal/NodeSet;)V", nullptr, $PUBLIC, $method(NodeSet, init$, void, NodeSet*)},
-	{"<init>", "(Lorg/w3c/dom/traversal/NodeIterator;)V", nullptr, $PUBLIC, $method(NodeSet, init$, void, $NodeIterator*)},
-	{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(NodeSet, init$, void, $Node*)},
-	{"addElement", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, addElement, void, $Node*)},
-	{"addNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, addNode, void, $Node*)},
-	{"addNodeInDocOrder", "(Lorg/w3c/dom/Node;ZLcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC, $virtualMethod(NodeSet, addNodeInDocOrder, int32_t, $Node*, bool, $XPathContext*)},
-	{"addNodeInDocOrder", "(Lorg/w3c/dom/Node;Lcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC, $virtualMethod(NodeSet, addNodeInDocOrder, int32_t, $Node*, $XPathContext*)},
-	{"addNodes", "(Lorg/w3c/dom/NodeList;)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, addNodes, void, $NodeList*)},
-	{"addNodes", "(Lcom/sun/org/apache/xpath/internal/NodeSet;)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, addNodes, void, NodeSet*)},
-	{"addNodes", "(Lorg/w3c/dom/traversal/NodeIterator;)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, addNodes, void, $NodeIterator*)},
-	{"addNodesInDocOrder", "(Lorg/w3c/dom/NodeList;Lcom/sun/org/apache/xpath/internal/XPathContext;)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, addNodesInDocOrder, void, $NodeList*, $XPathContext*)},
-	{"addNodesInDocOrder", "(Lorg/w3c/dom/traversal/NodeIterator;Lcom/sun/org/apache/xpath/internal/XPathContext;)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, addNodesInDocOrder, void, $NodeIterator*, $XPathContext*)},
-	{"addNodesInDocOrder", "(IIILorg/w3c/dom/NodeList;Lcom/sun/org/apache/xpath/internal/XPathContext;)Z", nullptr, $PRIVATE, $method(NodeSet, addNodesInDocOrder, bool, int32_t, int32_t, int32_t, $NodeList*, $XPathContext*)},
-	{"appendNodes", "(Lcom/sun/org/apache/xpath/internal/NodeSet;)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, appendNodes, void, NodeSet*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NodeSet, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"cloneWithReset", "()Lorg/w3c/dom/traversal/NodeIterator;", nullptr, $PUBLIC, $virtualMethod(NodeSet, cloneWithReset, $NodeIterator*), "java.lang.CloneNotSupportedException"},
-	{"contains", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC, $virtualMethod(NodeSet, contains, bool, $Node*)},
-	{"detach", "()V", nullptr, $PUBLIC, $virtualMethod(NodeSet, detach, void)},
-	{"elementAt", "(I)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(NodeSet, elementAt, $Node*, int32_t)},
-	{"getCurrentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(NodeSet, getCurrentNode, $Node*)},
-	{"getCurrentPos", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSet, getCurrentPos, int32_t)},
-	{"getExpandEntityReferences", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSet, getExpandEntityReferences, bool)},
-	{"getFilter", "()Lorg/w3c/dom/traversal/NodeFilter;", nullptr, $PUBLIC, $virtualMethod(NodeSet, getFilter, $NodeFilter*)},
-	{"getLast", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSet, getLast, int32_t)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSet, getLength, int32_t)},
-	{"getRoot", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(NodeSet, getRoot, $Node*)},
-	{"getShouldCacheNodes", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSet, getShouldCacheNodes, bool)},
-	{"getWhatToShow", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSet, getWhatToShow, int32_t)},
-	{"indexOf", "(Lorg/w3c/dom/Node;I)I", nullptr, $PUBLIC, $virtualMethod(NodeSet, indexOf, int32_t, $Node*, int32_t)},
-	{"indexOf", "(Lorg/w3c/dom/Node;)I", nullptr, $PUBLIC, $virtualMethod(NodeSet, indexOf, int32_t, $Node*)},
-	{"insertElementAt", "(Lorg/w3c/dom/Node;I)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, insertElementAt, void, $Node*, int32_t)},
-	{"insertNode", "(Lorg/w3c/dom/Node;I)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, insertNode, void, $Node*, int32_t)},
-	{"isFresh", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSet, isFresh, bool)},
-	{"item", "(I)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(NodeSet, item, $Node*, int32_t)},
-	{"nextNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(NodeSet, nextNode, $Node*), "org.w3c.dom.DOMException"},
-	{"peepOrNull", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $method(NodeSet, peepOrNull, $Node*)},
-	{"peepTail", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $method(NodeSet, peepTail, $Node*)},
-	{"peepTailSub1", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $method(NodeSet, peepTailSub1, $Node*)},
-	{"pop", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $method(NodeSet, pop, $Node*)},
-	{"popAndTop", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $method(NodeSet, popAndTop, $Node*)},
-	{"popPair", "()V", nullptr, $PUBLIC | $FINAL, $method(NodeSet, popPair, void)},
-	{"popQuick", "()V", nullptr, $PUBLIC | $FINAL, $method(NodeSet, popQuick, void)},
-	{"previousNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(NodeSet, previousNode, $Node*), "org.w3c.dom.DOMException"},
-	{"push", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $FINAL, $method(NodeSet, push, void, $Node*)},
-	{"pushPair", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $FINAL, $method(NodeSet, pushPair, void, $Node*, $Node*)},
-	{"removeAllElements", "()V", nullptr, $PUBLIC, $virtualMethod(NodeSet, removeAllElements, void)},
-	{"removeElement", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC, $virtualMethod(NodeSet, removeElement, bool, $Node*)},
-	{"removeElementAt", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, removeElementAt, void, int32_t)},
-	{"removeNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, removeNode, void, $Node*)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(NodeSet, reset, void)},
-	{"runTo", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, runTo, void, int32_t)},
-	{"setCurrentPos", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, setCurrentPos, void, int32_t)},
-	{"setElementAt", "(Lorg/w3c/dom/Node;I)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, setElementAt, void, $Node*, int32_t)},
-	{"setLast", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, setLast, void, int32_t)},
-	{"setShouldCacheNodes", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, setShouldCacheNodes, void, bool)},
-	{"setTail", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $FINAL, $method(NodeSet, setTail, void, $Node*)},
-	{"setTailSub1", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $FINAL, $method(NodeSet, setTailSub1, void, $Node*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSet, size, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _NodeSet_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.NodeSet",
-	"java.lang.Object",
-	"org.w3c.dom.NodeList,org.w3c.dom.traversal.NodeIterator,java.lang.Cloneable,com.sun.org.apache.xpath.internal.axes.ContextNodeList",
-	_NodeSet_FieldInfo_,
-	_NodeSet_MethodInfo_
-};
-
-$Object* allocate$NodeSet($Class* clazz) {
-	return $of($alloc(NodeSet));
-}
 
 int32_t NodeSet::hashCode() {
 	 return this->$NodeList::hashCode();
@@ -177,7 +82,7 @@ void NodeSet::init$($NodeList* nodelist) {
 
 void NodeSet::init$(NodeSet* nodelist) {
 	NodeSet::init$(32);
-	addNodes(static_cast<$NodeIterator*>(nodelist));
+	addNodes($cast($NodeIterator, nodelist));
 }
 
 void NodeSet::init$($NodeIterator* ni) {
@@ -205,7 +110,7 @@ void NodeSet::reset() {
 }
 
 int32_t NodeSet::getWhatToShow() {
-	return (int32_t)($NodeFilter::SHOW_ALL & (uint32_t)~$NodeFilter::SHOW_ENTITY_REFERENCE);
+	return $NodeFilter::SHOW_ALL & ~$NodeFilter::SHOW_ENTITY_REFERENCE;
 }
 
 $NodeFilter* NodeSet::getFilter() {
@@ -293,7 +198,7 @@ void NodeSet::removeNode($Node* n) {
 }
 
 void NodeSet::addNodes($NodeList* nodelist) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->m_mutable) {
 		$init($XPATHErrorResources);
 		$throwNew($RuntimeException, $($XSLMessages::createXPATHMessage($XPATHErrorResources::ER_NODESET_NOT_MUTABLE, nullptr)));
@@ -314,11 +219,11 @@ void NodeSet::addNodes(NodeSet* ns) {
 		$init($XPATHErrorResources);
 		$throwNew($RuntimeException, $($XSLMessages::createXPATHMessage($XPATHErrorResources::ER_NODESET_NOT_MUTABLE, nullptr)));
 	}
-	addNodes(static_cast<$NodeIterator*>(ns));
+	addNodes($cast($NodeIterator, ns));
 }
 
 void NodeSet::addNodes($NodeIterator* iterator) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->m_mutable) {
 		$init($XPATHErrorResources);
 		$throwNew($RuntimeException, $($XSLMessages::createXPATHMessage($XPATHErrorResources::ER_NODESET_NOT_MUTABLE, nullptr)));
@@ -332,7 +237,7 @@ void NodeSet::addNodes($NodeIterator* iterator) {
 }
 
 void NodeSet::addNodesInDocOrder($NodeList* nodelist, $XPathContext* support) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->m_mutable) {
 		$init($XPATHErrorResources);
 		$throwNew($RuntimeException, $($XSLMessages::createXPATHMessage($XPATHErrorResources::ER_NODESET_NOT_MUTABLE, nullptr)));
@@ -347,7 +252,7 @@ void NodeSet::addNodesInDocOrder($NodeList* nodelist, $XPathContext* support) {
 }
 
 void NodeSet::addNodesInDocOrder($NodeIterator* iterator, $XPathContext* support) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->m_mutable) {
 		$init($XPATHErrorResources);
 		$throwNew($RuntimeException, $($XSLMessages::createXPATHMessage($XPATHErrorResources::ER_NODESET_NOT_MUTABLE, nullptr)));
@@ -359,7 +264,7 @@ void NodeSet::addNodesInDocOrder($NodeIterator* iterator, $XPathContext* support
 }
 
 bool NodeSet::addNodesInDocOrder(int32_t start, int32_t end, int32_t testIndex, $NodeList* nodelist, $XPathContext* support) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->m_mutable) {
 		$init($XPATHErrorResources);
 		$throwNew($RuntimeException, $($XSLMessages::createXPATHMessage($XPATHErrorResources::ER_NODESET_NOT_MUTABLE, nullptr)));
@@ -392,7 +297,7 @@ bool NodeSet::addNodesInDocOrder(int32_t start, int32_t end, int32_t testIndex, 
 }
 
 int32_t NodeSet::addNodeInDocOrder($Node* node, bool test, $XPathContext* support) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->m_mutable) {
 		$init($XPATHErrorResources);
 		$throwNew($RuntimeException, $($XSLMessages::createXPATHMessage($XPATHErrorResources::ER_NODESET_NOT_MUTABLE, nullptr)));
@@ -419,7 +324,7 @@ int32_t NodeSet::addNodeInDocOrder($Node* node, bool test, $XPathContext* suppor
 		insertIndex = this->size();
 		bool foundit = false;
 		for (int32_t i = 0; i < insertIndex; ++i) {
-			if ($nc($of($(this->item(i))))->equals(node)) {
+			if ($$nc(this->item(i))->equals(node)) {
 				foundit = true;
 				break;
 			}
@@ -452,7 +357,7 @@ void NodeSet::setCurrentPos(int32_t i) {
 }
 
 $Node* NodeSet::getCurrentNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->m_cacheNodes) {
 		$init($XPATHErrorResources);
 		$throwNew($RuntimeException, $($XSLMessages::createXPATHMessage($XPATHErrorResources::ER_NODESET_CANNOT_INDEX, nullptr)));
@@ -487,8 +392,8 @@ void NodeSet::setLast(int32_t last) {
 $Object* NodeSet::clone() {
 	$var(NodeSet, clone, $cast(NodeSet, $NodeList::clone()));
 	if ((nullptr != this->m_map) && (this->m_map == $nc(clone)->m_map)) {
-		$set(clone, m_map, $new($NodeArray, $nc(this->m_map)->length));
-		$System::arraycopy(this->m_map, 0, clone->m_map, 0, $nc(this->m_map)->length);
+		$set(clone, m_map, $new($NodeArray, this->m_map->length));
+		$System::arraycopy(this->m_map, 0, clone->m_map, 0, this->m_map->length);
 	}
 	return $of(clone);
 }
@@ -498,7 +403,7 @@ int32_t NodeSet::size() {
 }
 
 void NodeSet::addElement($Node* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->m_mutable) {
 		$init($XPATHErrorResources);
 		$throwNew($RuntimeException, $($XSLMessages::createXPATHMessage($XPATHErrorResources::ER_NODESET_NOT_MUTABLE, nullptr)));
@@ -539,14 +444,14 @@ void NodeSet::push($Node* value) {
 $Node* NodeSet::pop() {
 	--this->m_firstFree;
 	$var($Node, n, $nc(this->m_map)->get(this->m_firstFree));
-	$nc(this->m_map)->set(this->m_firstFree, nullptr);
+	this->m_map->set(this->m_firstFree, nullptr);
 	return n;
 }
 
 $Node* NodeSet::popAndTop() {
 	--this->m_firstFree;
 	$nc(this->m_map)->set(this->m_firstFree, nullptr);
-	return (this->m_firstFree == 0) ? ($Node*)nullptr : $nc(this->m_map)->get(this->m_firstFree - 1);
+	return (this->m_firstFree == 0) ? ($Node*)nullptr : this->m_map->get(this->m_firstFree - 1);
 }
 
 void NodeSet::popQuick() {
@@ -555,7 +460,7 @@ void NodeSet::popQuick() {
 }
 
 $Node* NodeSet::peepOrNull() {
-	return ((nullptr != this->m_map) && (this->m_firstFree > 0)) ? $nc(this->m_map)->get(this->m_firstFree - 1) : ($Node*)nullptr;
+	return ((nullptr != this->m_map) && (this->m_firstFree > 0)) ? this->m_map->get(this->m_firstFree - 1) : ($Node*)nullptr;
 }
 
 void NodeSet::pushPair($Node* v1, $Node* v2) {
@@ -569,14 +474,14 @@ void NodeSet::pushPair($Node* v1, $Node* v2) {
 		$set(this, m_map, newMap);
 	}
 	$nc(this->m_map)->set(this->m_firstFree, v1);
-	$nc(this->m_map)->set(this->m_firstFree + 1, v2);
+	this->m_map->set(this->m_firstFree + 1, v2);
 	this->m_firstFree += 2;
 }
 
 void NodeSet::popPair() {
 	this->m_firstFree -= 2;
 	$nc(this->m_map)->set(this->m_firstFree, nullptr);
-	$nc(this->m_map)->set(this->m_firstFree + 1, nullptr);
+	this->m_map->set(this->m_firstFree + 1, nullptr);
 }
 
 void NodeSet::setTail($Node* n) {
@@ -596,7 +501,7 @@ $Node* NodeSet::peepTailSub1() {
 }
 
 void NodeSet::insertElementAt($Node* value, int32_t at) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->m_mutable) {
 		$init($XPATHErrorResources);
 		$throwNew($RuntimeException, $($XSLMessages::createXPATHMessage($XPATHErrorResources::ER_NODESET_NOT_MUTABLE, nullptr)));
@@ -643,7 +548,7 @@ void NodeSet::removeAllElements() {
 }
 
 bool NodeSet::removeElement($Node* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->m_mutable) {
 		$init($XPATHErrorResources);
 		$throwNew($RuntimeException, $($XSLMessages::createXPATHMessage($XPATHErrorResources::ER_NODESET_NOT_MUTABLE, nullptr)));
@@ -653,12 +558,12 @@ bool NodeSet::removeElement($Node* s) {
 	}
 	for (int32_t i = 0; i < this->m_firstFree; ++i) {
 		$var($Node, node, $nc(this->m_map)->get(i));
-		if ((nullptr != node) && $of(node)->equals(s)) {
+		if ((nullptr != node) && node->equals(s)) {
 			if (i < this->m_firstFree - 1) {
 				$System::arraycopy(this->m_map, i + 1, this->m_map, i, this->m_firstFree - i - 1);
 			}
 			--this->m_firstFree;
-			$nc(this->m_map)->set(this->m_firstFree, nullptr);
+			this->m_map->set(this->m_firstFree, nullptr);
 			return true;
 		}
 	}
@@ -666,7 +571,7 @@ bool NodeSet::removeElement($Node* s) {
 }
 
 void NodeSet::removeElementAt(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (nullptr == this->m_map) {
 		return;
 	}
@@ -702,14 +607,14 @@ $Node* NodeSet::elementAt(int32_t i) {
 }
 
 bool NodeSet::contains($Node* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	runTo(-1);
 	if (nullptr == this->m_map) {
 		return false;
 	}
 	for (int32_t i = 0; i < this->m_firstFree; ++i) {
 		$var($Node, node, $nc(this->m_map)->get(i));
-		if ((nullptr != node) && $of(node)->equals(s)) {
+		if ((nullptr != node) && node->equals(s)) {
 			return true;
 		}
 	}
@@ -717,14 +622,14 @@ bool NodeSet::contains($Node* s) {
 }
 
 int32_t NodeSet::indexOf($Node* elem, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	runTo(-1);
 	if (nullptr == this->m_map) {
 		return -1;
 	}
 	for (int32_t i = index; i < this->m_firstFree; ++i) {
 		$var($Node, node, $nc(this->m_map)->get(i));
-		if ((nullptr != node) && $of(node)->equals(elem)) {
+		if ((nullptr != node) && node->equals(elem)) {
 			return i;
 		}
 	}
@@ -732,14 +637,14 @@ int32_t NodeSet::indexOf($Node* elem, int32_t index) {
 }
 
 int32_t NodeSet::indexOf($Node* elem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	runTo(-1);
 	if (nullptr == this->m_map) {
 		return -1;
 	}
 	for (int32_t i = 0; i < this->m_firstFree; ++i) {
 		$var($Node, node, $nc(this->m_map)->get(i));
-		if ((nullptr != node) && $of(node)->equals(elem)) {
+		if ((nullptr != node) && node->equals(elem)) {
 			return i;
 		}
 	}
@@ -750,7 +655,96 @@ NodeSet::NodeSet() {
 }
 
 $Class* NodeSet::load$($String* name, bool initialize) {
-	$loadClass(NodeSet, name, initialize, &_NodeSet_ClassInfo_, allocate$NodeSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_next", "I", nullptr, $PROTECTED | $TRANSIENT, $field(NodeSet, m_next)},
+		{"m_mutable", "Z", nullptr, $PROTECTED | $TRANSIENT, $field(NodeSet, m_mutable)},
+		{"m_cacheNodes", "Z", nullptr, $PROTECTED | $TRANSIENT, $field(NodeSet, m_cacheNodes)},
+		{"m_last", "I", nullptr, $PRIVATE | $TRANSIENT, $field(NodeSet, m_last)},
+		{"m_blocksize", "I", nullptr, $PRIVATE, $field(NodeSet, m_blocksize)},
+		{"m_map", "[Lorg/w3c/dom/Node;", nullptr, 0, $field(NodeSet, m_map)},
+		{"m_firstFree", "I", nullptr, $PROTECTED, $field(NodeSet, m_firstFree)},
+		{"m_mapSize", "I", nullptr, $PRIVATE, $field(NodeSet, m_mapSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NodeSet, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(NodeSet, init$, void, int32_t)},
+		{"<init>", "(Lorg/w3c/dom/NodeList;)V", nullptr, $PUBLIC, $method(NodeSet, init$, void, $NodeList*)},
+		{"<init>", "(Lcom/sun/org/apache/xpath/internal/NodeSet;)V", nullptr, $PUBLIC, $method(NodeSet, init$, void, NodeSet*)},
+		{"<init>", "(Lorg/w3c/dom/traversal/NodeIterator;)V", nullptr, $PUBLIC, $method(NodeSet, init$, void, $NodeIterator*)},
+		{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(NodeSet, init$, void, $Node*)},
+		{"addElement", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, addElement, void, $Node*)},
+		{"addNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, addNode, void, $Node*)},
+		{"addNodeInDocOrder", "(Lorg/w3c/dom/Node;ZLcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC, $virtualMethod(NodeSet, addNodeInDocOrder, int32_t, $Node*, bool, $XPathContext*)},
+		{"addNodeInDocOrder", "(Lorg/w3c/dom/Node;Lcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC, $virtualMethod(NodeSet, addNodeInDocOrder, int32_t, $Node*, $XPathContext*)},
+		{"addNodes", "(Lorg/w3c/dom/NodeList;)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, addNodes, void, $NodeList*)},
+		{"addNodes", "(Lcom/sun/org/apache/xpath/internal/NodeSet;)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, addNodes, void, NodeSet*)},
+		{"addNodes", "(Lorg/w3c/dom/traversal/NodeIterator;)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, addNodes, void, $NodeIterator*)},
+		{"addNodesInDocOrder", "(Lorg/w3c/dom/NodeList;Lcom/sun/org/apache/xpath/internal/XPathContext;)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, addNodesInDocOrder, void, $NodeList*, $XPathContext*)},
+		{"addNodesInDocOrder", "(Lorg/w3c/dom/traversal/NodeIterator;Lcom/sun/org/apache/xpath/internal/XPathContext;)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, addNodesInDocOrder, void, $NodeIterator*, $XPathContext*)},
+		{"addNodesInDocOrder", "(IIILorg/w3c/dom/NodeList;Lcom/sun/org/apache/xpath/internal/XPathContext;)Z", nullptr, $PRIVATE, $method(NodeSet, addNodesInDocOrder, bool, int32_t, int32_t, int32_t, $NodeList*, $XPathContext*)},
+		{"appendNodes", "(Lcom/sun/org/apache/xpath/internal/NodeSet;)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, appendNodes, void, NodeSet*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NodeSet, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"cloneWithReset", "()Lorg/w3c/dom/traversal/NodeIterator;", nullptr, $PUBLIC, $virtualMethod(NodeSet, cloneWithReset, $NodeIterator*), "java.lang.CloneNotSupportedException"},
+		{"contains", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC, $virtualMethod(NodeSet, contains, bool, $Node*)},
+		{"detach", "()V", nullptr, $PUBLIC, $virtualMethod(NodeSet, detach, void)},
+		{"elementAt", "(I)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(NodeSet, elementAt, $Node*, int32_t)},
+		{"getCurrentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(NodeSet, getCurrentNode, $Node*)},
+		{"getCurrentPos", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSet, getCurrentPos, int32_t)},
+		{"getExpandEntityReferences", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSet, getExpandEntityReferences, bool)},
+		{"getFilter", "()Lorg/w3c/dom/traversal/NodeFilter;", nullptr, $PUBLIC, $virtualMethod(NodeSet, getFilter, $NodeFilter*)},
+		{"getLast", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSet, getLast, int32_t)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSet, getLength, int32_t)},
+		{"getRoot", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(NodeSet, getRoot, $Node*)},
+		{"getShouldCacheNodes", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSet, getShouldCacheNodes, bool)},
+		{"getWhatToShow", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSet, getWhatToShow, int32_t)},
+		{"indexOf", "(Lorg/w3c/dom/Node;I)I", nullptr, $PUBLIC, $virtualMethod(NodeSet, indexOf, int32_t, $Node*, int32_t)},
+		{"indexOf", "(Lorg/w3c/dom/Node;)I", nullptr, $PUBLIC, $virtualMethod(NodeSet, indexOf, int32_t, $Node*)},
+		{"insertElementAt", "(Lorg/w3c/dom/Node;I)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, insertElementAt, void, $Node*, int32_t)},
+		{"insertNode", "(Lorg/w3c/dom/Node;I)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, insertNode, void, $Node*, int32_t)},
+		{"isFresh", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSet, isFresh, bool)},
+		{"item", "(I)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(NodeSet, item, $Node*, int32_t)},
+		{"nextNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(NodeSet, nextNode, $Node*), "org.w3c.dom.DOMException"},
+		{"peepOrNull", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $method(NodeSet, peepOrNull, $Node*)},
+		{"peepTail", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $method(NodeSet, peepTail, $Node*)},
+		{"peepTailSub1", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $method(NodeSet, peepTailSub1, $Node*)},
+		{"pop", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $method(NodeSet, pop, $Node*)},
+		{"popAndTop", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $FINAL, $method(NodeSet, popAndTop, $Node*)},
+		{"popPair", "()V", nullptr, $PUBLIC | $FINAL, $method(NodeSet, popPair, void)},
+		{"popQuick", "()V", nullptr, $PUBLIC | $FINAL, $method(NodeSet, popQuick, void)},
+		{"previousNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(NodeSet, previousNode, $Node*), "org.w3c.dom.DOMException"},
+		{"push", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $FINAL, $method(NodeSet, push, void, $Node*)},
+		{"pushPair", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $FINAL, $method(NodeSet, pushPair, void, $Node*, $Node*)},
+		{"removeAllElements", "()V", nullptr, $PUBLIC, $virtualMethod(NodeSet, removeAllElements, void)},
+		{"removeElement", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC, $virtualMethod(NodeSet, removeElement, bool, $Node*)},
+		{"removeElementAt", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, removeElementAt, void, int32_t)},
+		{"removeNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, removeNode, void, $Node*)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(NodeSet, reset, void)},
+		{"runTo", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, runTo, void, int32_t)},
+		{"setCurrentPos", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, setCurrentPos, void, int32_t)},
+		{"setElementAt", "(Lorg/w3c/dom/Node;I)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, setElementAt, void, $Node*, int32_t)},
+		{"setLast", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, setLast, void, int32_t)},
+		{"setShouldCacheNodes", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NodeSet, setShouldCacheNodes, void, bool)},
+		{"setTail", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $FINAL, $method(NodeSet, setTail, void, $Node*)},
+		{"setTailSub1", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $FINAL, $method(NodeSet, setTailSub1, void, $Node*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSet, size, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.NodeSet",
+		"java.lang.Object",
+		"org.w3c.dom.NodeList,org.w3c.dom.traversal.NodeIterator,java.lang.Cloneable,com.sun.org.apache.xpath.internal.axes.ContextNodeList",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NodeSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NodeSet));
+	});
 	return class$;
 }
 

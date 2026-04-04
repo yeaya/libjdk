@@ -1,5 +1,4 @@
 #include <bug6495408.h>
-
 #include <bug6495408$1.h>
 #include <bug6495408$2.h>
 #include <java/awt/Point.h>
@@ -42,68 +41,27 @@ public:
 	virtual void run() override {
 		bug6495408::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6495408$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug6495408$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6495408$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6495408$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo bug6495408$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6495408$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug6495408$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(bug6495408$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6495408$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6495408$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6495408$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug6495408$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6495408$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* bug6495408$$Lambda$lambda$main$0::class$ = nullptr;
-
-$FieldInfo _bug6495408_FieldInfo_[] = {
-	{"tabbedPane", "Ljavax/swing/JTabbedPane;", nullptr, $STATIC, $staticField(bug6495408, tabbedPane)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(bug6495408, frame)},
-	{}
-};
-
-$MethodInfo _bug6495408_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6495408, init$, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6495408, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6495408, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug6495408_InnerClassesInfo_[] = {
-	{"bug6495408$2", nullptr, nullptr, 0},
-	{"bug6495408$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6495408_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6495408",
-	"java.lang.Object",
-	nullptr,
-	_bug6495408_FieldInfo_,
-	_bug6495408_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6495408_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug6495408$2,bug6495408$1"
-};
-
-$Object* allocate$bug6495408($Class* clazz) {
-	return $of($alloc(bug6495408));
-}
 
 $JTabbedPane* bug6495408::tabbedPane = nullptr;
 $JFrame* bug6495408::frame = nullptr;
@@ -112,30 +70,28 @@ void bug6495408::init$() {
 }
 
 void bug6495408::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Robot, robot, $new($Robot));
-			robot->setAutoDelay(50);
-			$SwingUtilities::invokeAndWait($$new($bug6495408$1));
-			robot->waitForIdle();
-			$var($Rectangle, d, $new($Rectangle));
-			$var($Point, p, $new($Point));
-			for (int32_t i = 0; i < 7; ++i) {
-				$SwingUtilities::invokeLater($$new($bug6495408$2, d, p, robot));
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$init(bug6495408);
-			if (bug6495408::frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6495408$$Lambda$lambda$main$0)));
-			}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Robot, robot, $new($Robot));
+		robot->setAutoDelay(50);
+		$SwingUtilities::invokeAndWait($$new($bug6495408$1));
+		robot->waitForIdle();
+		$var($Rectangle, d, $new($Rectangle));
+		$var($Point, p, $new($Point));
+		for (int32_t i = 0; i < 7; ++i) {
+			$SwingUtilities::invokeLater($$new($bug6495408$2, d, p, robot));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$init(bug6495408);
+		if (bug6495408::frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(bug6495408$$Lambda$lambda$main$0));
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -149,11 +105,43 @@ bug6495408::bug6495408() {
 
 $Class* bug6495408::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug6495408$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("bug6495408$$Lambda$lambda$main$0")) {
 			return bug6495408$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(bug6495408, name, initialize, &_bug6495408_ClassInfo_, allocate$bug6495408);
+	$FieldInfo fieldInfos$$[] = {
+		{"tabbedPane", "Ljavax/swing/JTabbedPane;", nullptr, $STATIC, $staticField(bug6495408, tabbedPane)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(bug6495408, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6495408, init$, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6495408, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6495408, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6495408$2", nullptr, nullptr, 0},
+		{"bug6495408$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6495408",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug6495408$2,bug6495408$1"
+	};
+	$loadClass(bug6495408, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6495408);
+	});
 	return class$;
 }
 

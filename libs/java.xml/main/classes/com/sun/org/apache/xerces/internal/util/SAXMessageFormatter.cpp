@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/SAXMessageFormatter.h>
-
 #include <java/lang/StringBuffer.h>
 #include <java/text/MessageFormat.h>
 #include <java/util/Locale.h>
@@ -26,30 +25,11 @@ namespace com {
 					namespace internal {
 						namespace util {
 
-$MethodInfo _SAXMessageFormatter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SAXMessageFormatter, init$, void)},
-	{"formatMessage", "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SAXMessageFormatter, formatMessage, $String*, $Locale*, $String*, $ObjectArray*), "java.util.MissingResourceException"},
-	{}
-};
-
-$ClassInfo _SAXMessageFormatter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.util.SAXMessageFormatter",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SAXMessageFormatter_MethodInfo_
-};
-
-$Object* allocate$SAXMessageFormatter($Class* clazz) {
-	return $of($alloc(SAXMessageFormatter));
-}
-
 void SAXMessageFormatter::init$() {
 }
 
 $String* SAXMessageFormatter::formatMessage($Locale* locale, $String* key, $ObjectArray* arguments) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ResourceBundle, resourceBundle, nullptr);
 	if (locale != nullptr) {
 		$assign(resourceBundle, $SecuritySupport::getResourceBundle("com.sun.org.apache.xerces.internal.impl.msg.SAXMessages"_s, locale));
@@ -91,7 +71,22 @@ SAXMessageFormatter::SAXMessageFormatter() {
 }
 
 $Class* SAXMessageFormatter::load$($String* name, bool initialize) {
-	$loadClass(SAXMessageFormatter, name, initialize, &_SAXMessageFormatter_ClassInfo_, allocate$SAXMessageFormatter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SAXMessageFormatter, init$, void)},
+		{"formatMessage", "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SAXMessageFormatter, formatMessage, $String*, $Locale*, $String*, $ObjectArray*), "java.util.MissingResourceException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.util.SAXMessageFormatter",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SAXMessageFormatter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SAXMessageFormatter);
+	});
 	return class$;
 }
 

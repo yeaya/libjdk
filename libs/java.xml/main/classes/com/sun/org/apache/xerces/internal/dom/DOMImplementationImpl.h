@@ -28,6 +28,7 @@ class DOMImplementationImpl : public ::com::sun::org::apache::xerces::internal::
 public:
 	DOMImplementationImpl();
 	using ::com::sun::org::apache::xerces::internal::dom::CoreDOMImplementationImpl::createDocument;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::org::w3c::dom::Document* createDocument($String* namespaceURI, $String* qualifiedName, ::org::w3c::dom::DocumentType* doctype) override;
 	static ::org::w3c::dom::DOMImplementation* getDOMImplementation();

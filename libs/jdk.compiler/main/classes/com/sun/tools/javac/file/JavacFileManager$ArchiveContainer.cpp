@@ -1,6 +1,4 @@
 #include <com/sun/tools/javac/file/JavacFileManager$ArchiveContainer.h>
-
-#include <com/sun/tools/javac/file/BaseFileManager.h>
 #include <com/sun/tools/javac/file/FSInfo.h>
 #include <com/sun/tools/javac/file/JavacFileManager$ArchiveContainer$1.h>
 #include <com/sun/tools/javac/file/JavacFileManager$ArchiveContainer$2.h>
@@ -10,7 +8,6 @@
 #include <com/sun/tools/javac/file/RelativePath$RelativeFile.h>
 #include <com/sun/tools/javac/util/Assert.h>
 #include <com/sun/tools/javac/util/ListBuffer.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Iterable.h>
 #include <java/nio/file/FileSystem.h>
@@ -34,8 +31,6 @@
 #undef NO_FILE_VISIT_OPTIONS
 
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
-using $BaseFileManager = ::com::sun::tools::javac::file::BaseFileManager;
-using $FSInfo = ::com::sun::tools::javac::file::FSInfo;
 using $JavacFileManager = ::com::sun::tools::javac::file::JavacFileManager;
 using $JavacFileManager$ArchiveContainer$1 = ::com::sun::tools::javac::file::JavacFileManager$ArchiveContainer$1;
 using $JavacFileManager$ArchiveContainer$2 = ::com::sun::tools::javac::file::JavacFileManager$ArchiveContainer$2;
@@ -44,7 +39,6 @@ using $RelativePath$RelativeDirectory = ::com::sun::tools::javac::file::Relative
 using $RelativePath$RelativeFile = ::com::sun::tools::javac::file::RelativePath$RelativeFile;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -52,9 +46,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $FileSystem = ::java::nio::file::FileSystem;
 using $FileSystems = ::java::nio::file::FileSystems;
-using $FileVisitor = ::java::nio::file::FileVisitor;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 using $FileSystemProvider = ::java::nio::file::spi::FileSystemProvider;
@@ -72,72 +64,24 @@ namespace com {
 			namespace javac {
 				namespace file {
 
-$FieldInfo _JavacFileManager$ArchiveContainer_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/file/JavacFileManager;", nullptr, $FINAL | $SYNTHETIC, $field(JavacFileManager$ArchiveContainer, this$0)},
-	{"archivePath", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $FINAL, $field(JavacFileManager$ArchiveContainer, archivePath)},
-	{"fileSystem", "Ljava/nio/file/FileSystem;", nullptr, $PRIVATE | $FINAL, $field(JavacFileManager$ArchiveContainer, fileSystem)},
-	{"packages", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/nio/file/Path;>;", $PRIVATE | $FINAL, $field(JavacFileManager$ArchiveContainer, packages)},
-	{}
-};
-
-$MethodInfo _JavacFileManager$ArchiveContainer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/JavacFileManager;Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(JavacFileManager$ArchiveContainer, init$, void, $JavacFileManager*, $Path*), "java.io.IOException,java.nio.file.ProviderNotFoundException,java.lang.SecurityException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$ArchiveContainer, close, void), "java.io.IOException"},
-	{"getFileObject", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeFile;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$ArchiveContainer, getFileObject, $JavaFileObject*, $Path*, $RelativePath$RelativeFile*), "java.io.IOException"},
-	{"indexedDirectories", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;>;", $PUBLIC, $virtualMethod(JavacFileManager$ArchiveContainer, indexedDirectories, $Iterable*)},
-	{"isValid", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE, $method(JavacFileManager$ArchiveContainer, isValid, bool, $Path*)},
-	{"list", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/util/Set;ZLcom/sun/tools/javac/util/ListBuffer;)V", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;ZLcom/sun/tools/javac/util/ListBuffer<Ljavax/tools/JavaFileObject;>;)V", $PUBLIC, $virtualMethod(JavacFileManager$ArchiveContainer, list, void, $Path*, $RelativePath$RelativeDirectory*, $Set*, bool, $ListBuffer*), "java.io.IOException"},
-	{"maintainsDirectoryIndex", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$ArchiveContainer, maintainsDirectoryIndex, bool)},
-	{}
-};
-
-$InnerClassInfo _JavacFileManager$ArchiveContainer_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.file.JavacFileManager$ArchiveContainer", "com.sun.tools.javac.file.JavacFileManager", "ArchiveContainer", $PRIVATE | $FINAL},
-	{"com.sun.tools.javac.file.JavacFileManager$Container", "com.sun.tools.javac.file.JavacFileManager", "Container", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.file.JavacFileManager$ArchiveContainer$2", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.file.JavacFileManager$ArchiveContainer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JavacFileManager$ArchiveContainer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.tools.javac.file.JavacFileManager$ArchiveContainer",
-	"java.lang.Object",
-	"com.sun.tools.javac.file.JavacFileManager$Container",
-	_JavacFileManager$ArchiveContainer_FieldInfo_,
-	_JavacFileManager$ArchiveContainer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavacFileManager$ArchiveContainer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.file.JavacFileManager"
-};
-
-$Object* allocate$JavacFileManager$ArchiveContainer($Class* clazz) {
-	return $of($alloc(JavacFileManager$ArchiveContainer));
-}
-
 void JavacFileManager$ArchiveContainer::init$($JavacFileManager* this$0, $Path* archivePath) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$set(this, archivePath, archivePath);
-	if (this$0->multiReleaseValue != nullptr && $nc($($nc(archivePath)->toString()))->endsWith(".jar"_s)) {
+	if (this$0->multiReleaseValue != nullptr && $$nc($nc(archivePath)->toString())->endsWith(".jar"_s)) {
 		$var($Map, env, $Collections::singletonMap("multi-release"_s, this$0->multiReleaseValue));
 		$var($FileSystemProvider, jarFSProvider, $nc(this$0->fsInfo)->getJarFSProvider());
-		$Assert::checkNonNull($of(jarFSProvider), "should have been caught before!"_s);
+		$Assert::checkNonNull(jarFSProvider, "should have been caught before!"_s);
 		$set(this, fileSystem, $nc(jarFSProvider)->newFileSystem(archivePath, env));
 	} else {
 		$set(this, fileSystem, $FileSystems::newFileSystem(archivePath, ($ClassLoader*)nullptr));
 	}
 	$set(this, packages, $new($HashMap));
 	{
-		$var($Iterator, i$, $nc($($nc(this->fileSystem)->getRootDirectories()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->fileSystem)->getRootDirectories())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Path, root, $cast($Path, i$->next()));
 			{
-				$init($JavacFileManager);
 				$Files::walkFileTree(root, $JavacFileManager::NO_FILE_VISIT_OPTIONS, $Integer::MAX_VALUE, $$new($JavacFileManager$ArchiveContainer$1, this, this$0, root));
 			}
 		}
@@ -145,8 +89,8 @@ void JavacFileManager$ArchiveContainer::init$($JavacFileManager* this$0, $Path* 
 }
 
 void JavacFileManager$ArchiveContainer::list($Path* userPath, $RelativePath$RelativeDirectory* subdirectory, $Set* fileKinds, bool recurse, $ListBuffer* resultList) {
-	$useLocalCurrentObjectStackCache();
-	$var($Path, resolvedSubdirectory, $cast($Path, $nc(this->packages)->get(subdirectory)));
+	$useLocalObjectStack();
+	$var($Path, resolvedSubdirectory, $cast($Path, this->packages->get(subdirectory)));
 	if (resolvedSubdirectory == nullptr) {
 		return;
 	}
@@ -159,7 +103,7 @@ bool JavacFileManager$ArchiveContainer::isValid($Path* fileName) {
 	if (fileName == nullptr) {
 		return true;
 	} else {
-		$var($String, name, $nc(fileName)->toString());
+		$var($String, name, fileName->toString());
 		if ($nc(name)->endsWith("/"_s)) {
 			$assign(name, name->substring(0, name->length() - 1));
 		}
@@ -168,9 +112,9 @@ bool JavacFileManager$ArchiveContainer::isValid($Path* fileName) {
 }
 
 $JavaFileObject* JavacFileManager$ArchiveContainer::getFileObject($Path* userPath, $RelativePath$RelativeFile* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($RelativePath$RelativeDirectory, root, $nc(name)->dirname());
-	$var($Path, packagepath, $cast($Path, $nc(this->packages)->get(root)));
+	$var($Path, packagepath, $cast($Path, this->packages->get(root)));
 	if (packagepath != nullptr) {
 		$var($Path, relpath, packagepath->resolve($(name->basename())));
 		if ($Files::exists(relpath, $$new($LinkOptionArray, 0))) {
@@ -189,14 +133,55 @@ bool JavacFileManager$ArchiveContainer::maintainsDirectoryIndex() {
 }
 
 $Iterable* JavacFileManager$ArchiveContainer::indexedDirectories() {
-	return $nc(this->packages)->keySet();
+	return this->packages->keySet();
 }
 
 JavacFileManager$ArchiveContainer::JavacFileManager$ArchiveContainer() {
 }
 
 $Class* JavacFileManager$ArchiveContainer::load$($String* name, bool initialize) {
-	$loadClass(JavacFileManager$ArchiveContainer, name, initialize, &_JavacFileManager$ArchiveContainer_ClassInfo_, allocate$JavacFileManager$ArchiveContainer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/file/JavacFileManager;", nullptr, $FINAL | $SYNTHETIC, $field(JavacFileManager$ArchiveContainer, this$0)},
+		{"archivePath", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $FINAL, $field(JavacFileManager$ArchiveContainer, archivePath)},
+		{"fileSystem", "Ljava/nio/file/FileSystem;", nullptr, $PRIVATE | $FINAL, $field(JavacFileManager$ArchiveContainer, fileSystem)},
+		{"packages", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/nio/file/Path;>;", $PRIVATE | $FINAL, $field(JavacFileManager$ArchiveContainer, packages)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/file/JavacFileManager;Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(JavacFileManager$ArchiveContainer, init$, void, $JavacFileManager*, $Path*), "java.io.IOException,java.nio.file.ProviderNotFoundException,java.lang.SecurityException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$ArchiveContainer, close, void), "java.io.IOException"},
+		{"getFileObject", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeFile;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$ArchiveContainer, getFileObject, $JavaFileObject*, $Path*, $RelativePath$RelativeFile*), "java.io.IOException"},
+		{"indexedDirectories", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;>;", $PUBLIC, $virtualMethod(JavacFileManager$ArchiveContainer, indexedDirectories, $Iterable*)},
+		{"isValid", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE, $method(JavacFileManager$ArchiveContainer, isValid, bool, $Path*)},
+		{"list", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/util/Set;ZLcom/sun/tools/javac/util/ListBuffer;)V", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;ZLcom/sun/tools/javac/util/ListBuffer<Ljavax/tools/JavaFileObject;>;)V", $PUBLIC, $virtualMethod(JavacFileManager$ArchiveContainer, list, void, $Path*, $RelativePath$RelativeDirectory*, $Set*, bool, $ListBuffer*), "java.io.IOException"},
+		{"maintainsDirectoryIndex", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$ArchiveContainer, maintainsDirectoryIndex, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.file.JavacFileManager$ArchiveContainer", "com.sun.tools.javac.file.JavacFileManager", "ArchiveContainer", $PRIVATE | $FINAL},
+		{"com.sun.tools.javac.file.JavacFileManager$Container", "com.sun.tools.javac.file.JavacFileManager", "Container", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.file.JavacFileManager$ArchiveContainer$2", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.file.JavacFileManager$ArchiveContainer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.tools.javac.file.JavacFileManager$ArchiveContainer",
+		"java.lang.Object",
+		"com.sun.tools.javac.file.JavacFileManager$Container",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.file.JavacFileManager"
+	};
+	$loadClass(JavacFileManager$ArchiveContainer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacFileManager$ArchiveContainer);
+	});
 	return class$;
 }
 

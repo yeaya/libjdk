@@ -1,5 +1,4 @@
 #include <sun/java2d/pipe/RegionSpanIterator.h>
-
 #include <sun/java2d/pipe/Region.h>
 #include <sun/java2d/pipe/RegionIterator.h>
 #include <jcpp.h>
@@ -8,47 +7,10 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Region = ::sun::java2d::pipe::Region;
-using $RegionIterator = ::sun::java2d::pipe::RegionIterator;
 
 namespace sun {
 	namespace java2d {
 		namespace pipe {
-
-$FieldInfo _RegionSpanIterator_FieldInfo_[] = {
-	{"ri", "Lsun/java2d/pipe/RegionIterator;", nullptr, 0, $field(RegionSpanIterator, ri)},
-	{"lox", "I", nullptr, 0, $field(RegionSpanIterator, lox)},
-	{"loy", "I", nullptr, 0, $field(RegionSpanIterator, loy)},
-	{"hix", "I", nullptr, 0, $field(RegionSpanIterator, hix)},
-	{"hiy", "I", nullptr, 0, $field(RegionSpanIterator, hiy)},
-	{"curloy", "I", nullptr, 0, $field(RegionSpanIterator, curloy)},
-	{"curhiy", "I", nullptr, 0, $field(RegionSpanIterator, curhiy)},
-	{"done", "Z", nullptr, 0, $field(RegionSpanIterator, done)},
-	{"isrect", "Z", nullptr, 0, $field(RegionSpanIterator, isrect)},
-	{}
-};
-
-$MethodInfo _RegionSpanIterator_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC, $method(RegionSpanIterator, init$, void, $Region*)},
-	{"getNativeIterator", "()J", nullptr, $PUBLIC, $virtualMethod(RegionSpanIterator, getNativeIterator, int64_t)},
-	{"getPathBox", "([I)V", nullptr, $PUBLIC, $virtualMethod(RegionSpanIterator, getPathBox, void, $ints*)},
-	{"intersectClipBox", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(RegionSpanIterator, intersectClipBox, void, int32_t, int32_t, int32_t, int32_t)},
-	{"nextSpan", "([I)Z", nullptr, $PUBLIC, $virtualMethod(RegionSpanIterator, nextSpan, bool, $ints*)},
-	{"skipDownTo", "(I)V", nullptr, $PUBLIC, $virtualMethod(RegionSpanIterator, skipDownTo, void, int32_t)},
-	{}
-};
-
-$ClassInfo _RegionSpanIterator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.pipe.RegionSpanIterator",
-	"java.lang.Object",
-	"sun.java2d.pipe.SpanIterator",
-	_RegionSpanIterator_FieldInfo_,
-	_RegionSpanIterator_MethodInfo_
-};
-
-$Object* allocate$RegionSpanIterator($Class* clazz) {
-	return $of($alloc(RegionSpanIterator));
-}
 
 void RegionSpanIterator::init$($Region* r) {
 	this->done = false;
@@ -149,7 +111,38 @@ RegionSpanIterator::RegionSpanIterator() {
 }
 
 $Class* RegionSpanIterator::load$($String* name, bool initialize) {
-	$loadClass(RegionSpanIterator, name, initialize, &_RegionSpanIterator_ClassInfo_, allocate$RegionSpanIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"ri", "Lsun/java2d/pipe/RegionIterator;", nullptr, 0, $field(RegionSpanIterator, ri)},
+		{"lox", "I", nullptr, 0, $field(RegionSpanIterator, lox)},
+		{"loy", "I", nullptr, 0, $field(RegionSpanIterator, loy)},
+		{"hix", "I", nullptr, 0, $field(RegionSpanIterator, hix)},
+		{"hiy", "I", nullptr, 0, $field(RegionSpanIterator, hiy)},
+		{"curloy", "I", nullptr, 0, $field(RegionSpanIterator, curloy)},
+		{"curhiy", "I", nullptr, 0, $field(RegionSpanIterator, curhiy)},
+		{"done", "Z", nullptr, 0, $field(RegionSpanIterator, done)},
+		{"isrect", "Z", nullptr, 0, $field(RegionSpanIterator, isrect)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC, $method(RegionSpanIterator, init$, void, $Region*)},
+		{"getNativeIterator", "()J", nullptr, $PUBLIC, $virtualMethod(RegionSpanIterator, getNativeIterator, int64_t)},
+		{"getPathBox", "([I)V", nullptr, $PUBLIC, $virtualMethod(RegionSpanIterator, getPathBox, void, $ints*)},
+		{"intersectClipBox", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(RegionSpanIterator, intersectClipBox, void, int32_t, int32_t, int32_t, int32_t)},
+		{"nextSpan", "([I)Z", nullptr, $PUBLIC, $virtualMethod(RegionSpanIterator, nextSpan, bool, $ints*)},
+		{"skipDownTo", "(I)V", nullptr, $PUBLIC, $virtualMethod(RegionSpanIterator, skipDownTo, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.pipe.RegionSpanIterator",
+		"java.lang.Object",
+		"sun.java2d.pipe.SpanIterator",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RegionSpanIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RegionSpanIterator);
+	});
 	return class$;
 }
 

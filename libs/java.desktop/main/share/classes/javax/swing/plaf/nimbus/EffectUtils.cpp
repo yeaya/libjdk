@@ -1,7 +1,5 @@
 #include <javax/swing/plaf/nimbus/EffectUtils.h>
-
 #include <java/awt/AlphaComposite.h>
-#include <java/awt/Composite.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/GraphicsDevice.h>
@@ -22,10 +20,8 @@
 #undef TYPE_INT_RGB
 
 using $AlphaComposite = ::java::awt::AlphaComposite;
-using $Composite = ::java::awt::Composite;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
-using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Transparency = ::java::awt::Transparency;
 using $BufferedImage = ::java::awt::image::BufferedImage;
@@ -44,37 +40,6 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$MethodInfo _EffectUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(EffectUtils, init$, void)},
-	{"blur", "([I[III[FI)V", nullptr, $PRIVATE | $STATIC, $staticMethod(EffectUtils, blur, void, $ints*, $ints*, int32_t, int32_t, $floats*, int32_t)},
-	{"blur", "([B[BII[FI)V", nullptr, $STATIC, $staticMethod(EffectUtils, blur, void, $bytes*, $bytes*, int32_t, int32_t, $floats*, int32_t)},
-	{"clearImage", "(Ljava/awt/image/BufferedImage;)V", nullptr, $STATIC, $staticMethod(EffectUtils, clearImage, void, $BufferedImage*)},
-	{"createColorModelCompatibleImage", "(Ljava/awt/image/BufferedImage;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $STATIC, $staticMethod(EffectUtils, createColorModelCompatibleImage, $BufferedImage*, $BufferedImage*)},
-	{"createCompatibleTranslucentImage", "(II)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $STATIC, $staticMethod(EffectUtils, createCompatibleTranslucentImage, $BufferedImage*, int32_t, int32_t)},
-	{"createGaussianKernel", "(I)[F", nullptr, $STATIC, $staticMethod(EffectUtils, createGaussianKernel, $floats*, int32_t)},
-	{"gaussianBlur", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;I)Ljava/awt/image/BufferedImage;", nullptr, $STATIC, $staticMethod(EffectUtils, gaussianBlur, $BufferedImage*, $BufferedImage*, $BufferedImage*, int32_t)},
-	{"getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PRIVATE | $STATIC, $staticMethod(EffectUtils, getGraphicsConfiguration, $GraphicsConfiguration*)},
-	{"getPixels", "(Ljava/awt/image/BufferedImage;IIII[B)[B", nullptr, $STATIC, $staticMethod(EffectUtils, getPixels, $bytes*, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, $bytes*)},
-	{"getPixels", "(Ljava/awt/image/BufferedImage;IIII[I)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(EffectUtils, getPixels, $ints*, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"isHeadless", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(EffectUtils, isHeadless, bool)},
-	{"setPixels", "(Ljava/awt/image/BufferedImage;IIII[B)V", nullptr, $STATIC, $staticMethod(EffectUtils, setPixels, void, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, $bytes*)},
-	{"setPixels", "(Ljava/awt/image/BufferedImage;IIII[I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EffectUtils, setPixels, void, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{}
-};
-
-$ClassInfo _EffectUtils_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.nimbus.EffectUtils",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_EffectUtils_MethodInfo_
-};
-
-$Object* allocate$EffectUtils($Class* clazz) {
-	return $of($alloc(EffectUtils));
-}
-
 void EffectUtils::init$() {
 }
 
@@ -88,15 +53,15 @@ void EffectUtils::clearImage($BufferedImage* img) {
 }
 
 $BufferedImage* EffectUtils::gaussianBlur($BufferedImage* src, $BufferedImage* dst$renamed, int32_t radius) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, dst, dst$renamed);
 	int32_t width = $nc(src)->getWidth();
 	int32_t height = src->getHeight();
-	bool var$1 = dst == nullptr || $nc(dst)->getWidth() != width;
-	bool var$0 = var$1 || $nc(dst)->getHeight() != height;
+	bool var$1 = dst == nullptr || dst->getWidth() != width;
+	bool var$0 = var$1 || dst->getHeight() != height;
 	if (!var$0) {
 		int32_t var$2 = src->getType();
-		var$0 = var$2 != $nc(dst)->getType();
+		var$0 = var$2 != dst->getType();
 	}
 	if (var$0) {
 		$assign(dst, createColorModelCompatibleImage(src));
@@ -143,10 +108,10 @@ void EffectUtils::blur($ints* srcPixels, $ints* dstPixels, int32_t width, int32_
 				}
 				int32_t pixel = $nc(srcPixels)->get(offset + subOffset);
 				float blurFactor = $nc(kernel)->get(radius + i);
-				a += blurFactor * ((int32_t)((pixel >> 24) & (uint32_t)255));
-				r += blurFactor * ((int32_t)((pixel >> 16) & (uint32_t)255));
-				g += blurFactor * ((int32_t)((pixel >> 8) & (uint32_t)255));
-				b += blurFactor * ((int32_t)((pixel) & (uint32_t)255));
+				a += blurFactor * ((pixel >> 24) & 0xff);
+				r += blurFactor * ((pixel >> 16) & 0xff);
+				g += blurFactor * ((pixel >> 8) & 0xff);
+				b += blurFactor * ((pixel) & 0xff);
 			}
 			ca = $cast(int32_t, (a + 0.5f));
 			cr = $cast(int32_t, (r + 0.5f));
@@ -171,7 +136,7 @@ void EffectUtils::blur($bytes* srcPixels, $bytes* dstPixels, int32_t width, int3
 				if (subOffset < 0 || subOffset >= width) {
 					subOffset = $mod((x + width), width);
 				}
-				int32_t pixel = (int32_t)($nc(srcPixels)->get(offset + subOffset) & (uint32_t)255);
+				int32_t pixel = $nc(srcPixels)->get(offset + subOffset) & 0xff;
 				float blurFactor = $nc(kernel)->get(radius + i);
 				p += blurFactor * pixel;
 			}
@@ -205,14 +170,14 @@ $floats* EffectUtils::createGaussianKernel(int32_t radius) {
 }
 
 $bytes* EffectUtils::getPixels($BufferedImage* img, int32_t x, int32_t y, int32_t w, int32_t h, $bytes* pixels$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, pixels, pixels$renamed);
 	if (w == 0 || h == 0) {
 		return $new($bytes, 0);
 	}
 	if (pixels == nullptr) {
 		$assign(pixels, $new($bytes, w * h));
-	} else if ($nc(pixels)->length < w * h) {
+	} else if (pixels->length < w * h) {
 		$throwNew($IllegalArgumentException, "pixels array must have a length >= w*h"_s);
 	}
 	int32_t imageType = $nc(img)->getType();
@@ -227,7 +192,7 @@ $bytes* EffectUtils::getPixels($BufferedImage* img, int32_t x, int32_t y, int32_
 void EffectUtils::setPixels($BufferedImage* img, int32_t x, int32_t y, int32_t w, int32_t h, $bytes* pixels) {
 	if (pixels == nullptr || w == 0 || h == 0) {
 		return;
-	} else if ($nc(pixels)->length < w * h) {
+	} else if (pixels->length < w * h) {
 		$throwNew($IllegalArgumentException, "pixels array must have a length >= w*h"_s);
 	}
 	int32_t imageType = $nc(img)->getType();
@@ -240,14 +205,14 @@ void EffectUtils::setPixels($BufferedImage* img, int32_t x, int32_t y, int32_t w
 }
 
 $ints* EffectUtils::getPixels($BufferedImage* img, int32_t x, int32_t y, int32_t w, int32_t h, $ints* pixels$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, pixels, pixels$renamed);
 	if (w == 0 || h == 0) {
 		return $new($ints, 0);
 	}
 	if (pixels == nullptr) {
 		$assign(pixels, $new($ints, w * h));
-	} else if ($nc(pixels)->length < w * h) {
+	} else if (pixels->length < w * h) {
 		$throwNew($IllegalArgumentException, "pixels array must have a length >= w*h"_s);
 	}
 	int32_t imageType = $nc(img)->getType();
@@ -261,7 +226,7 @@ $ints* EffectUtils::getPixels($BufferedImage* img, int32_t x, int32_t y, int32_t
 void EffectUtils::setPixels($BufferedImage* img, int32_t x, int32_t y, int32_t w, int32_t h, $ints* pixels) {
 	if (pixels == nullptr || w == 0 || h == 0) {
 		return;
-	} else if ($nc(pixels)->length < w * h) {
+	} else if (pixels->length < w * h) {
 		$throwNew($IllegalArgumentException, "pixels array must have a length >= w*h"_s);
 	}
 	int32_t imageType = $nc(img)->getType();
@@ -274,16 +239,15 @@ void EffectUtils::setPixels($BufferedImage* img, int32_t x, int32_t y, int32_t w
 }
 
 $BufferedImage* EffectUtils::createColorModelCompatibleImage($BufferedImage* image) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorModel, cm, $nc(image)->getColorModel());
-	$var($ColorModel, var$0, cm);
-	int32_t var$2 = image->getWidth();
-	$var($WritableRaster, var$1, $nc(cm)->createCompatibleWritableRaster(var$2, image->getHeight()));
-	return $new($BufferedImage, var$0, var$1, cm->isAlphaPremultiplied(), ($Hashtable*)nullptr);
+	int32_t var$1 = image->getWidth();
+	$var($WritableRaster, var$0, $nc(cm)->createCompatibleWritableRaster(var$1, image->getHeight()));
+	return $new($BufferedImage, cm, var$0, $nc(cm)->isAlphaPremultiplied(), nullptr);
 }
 
 $BufferedImage* EffectUtils::createCompatibleTranslucentImage(int32_t width, int32_t height) {
-	return isHeadless() ? $new($BufferedImage, width, height, $BufferedImage::TYPE_INT_ARGB) : $nc($(getGraphicsConfiguration()))->createCompatibleImage(width, height, $Transparency::TRANSLUCENT);
+	return isHeadless() ? $new($BufferedImage, width, height, $BufferedImage::TYPE_INT_ARGB) : $$nc(getGraphicsConfiguration())->createCompatibleImage(width, height, $Transparency::TRANSLUCENT);
 }
 
 bool EffectUtils::isHeadless() {
@@ -291,15 +255,42 @@ bool EffectUtils::isHeadless() {
 }
 
 $GraphicsConfiguration* EffectUtils::getGraphicsConfiguration() {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc($($GraphicsEnvironment::getLocalGraphicsEnvironment()))->getDefaultScreenDevice()))->getDefaultConfiguration();
+	$useLocalObjectStack();
+	return $$nc($$nc($GraphicsEnvironment::getLocalGraphicsEnvironment())->getDefaultScreenDevice())->getDefaultConfiguration();
 }
 
 EffectUtils::EffectUtils() {
 }
 
 $Class* EffectUtils::load$($String* name, bool initialize) {
-	$loadClass(EffectUtils, name, initialize, &_EffectUtils_ClassInfo_, allocate$EffectUtils);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(EffectUtils, init$, void)},
+		{"blur", "([I[III[FI)V", nullptr, $PRIVATE | $STATIC, $staticMethod(EffectUtils, blur, void, $ints*, $ints*, int32_t, int32_t, $floats*, int32_t)},
+		{"blur", "([B[BII[FI)V", nullptr, $STATIC, $staticMethod(EffectUtils, blur, void, $bytes*, $bytes*, int32_t, int32_t, $floats*, int32_t)},
+		{"clearImage", "(Ljava/awt/image/BufferedImage;)V", nullptr, $STATIC, $staticMethod(EffectUtils, clearImage, void, $BufferedImage*)},
+		{"createColorModelCompatibleImage", "(Ljava/awt/image/BufferedImage;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $STATIC, $staticMethod(EffectUtils, createColorModelCompatibleImage, $BufferedImage*, $BufferedImage*)},
+		{"createCompatibleTranslucentImage", "(II)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $STATIC, $staticMethod(EffectUtils, createCompatibleTranslucentImage, $BufferedImage*, int32_t, int32_t)},
+		{"createGaussianKernel", "(I)[F", nullptr, $STATIC, $staticMethod(EffectUtils, createGaussianKernel, $floats*, int32_t)},
+		{"gaussianBlur", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;I)Ljava/awt/image/BufferedImage;", nullptr, $STATIC, $staticMethod(EffectUtils, gaussianBlur, $BufferedImage*, $BufferedImage*, $BufferedImage*, int32_t)},
+		{"getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PRIVATE | $STATIC, $staticMethod(EffectUtils, getGraphicsConfiguration, $GraphicsConfiguration*)},
+		{"getPixels", "(Ljava/awt/image/BufferedImage;IIII[B)[B", nullptr, $STATIC, $staticMethod(EffectUtils, getPixels, $bytes*, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, $bytes*)},
+		{"getPixels", "(Ljava/awt/image/BufferedImage;IIII[I)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(EffectUtils, getPixels, $ints*, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"isHeadless", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(EffectUtils, isHeadless, bool)},
+		{"setPixels", "(Ljava/awt/image/BufferedImage;IIII[B)V", nullptr, $STATIC, $staticMethod(EffectUtils, setPixels, void, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, $bytes*)},
+		{"setPixels", "(Ljava/awt/image/BufferedImage;IIII[I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EffectUtils, setPixels, void, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.nimbus.EffectUtils",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(EffectUtils, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EffectUtils);
+	});
 	return class$;
 }
 

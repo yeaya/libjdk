@@ -34,7 +34,7 @@ public:
 	void readObject(::java::io::ObjectInputStream* ois);
 	virtual $String* toString() override;
 	static void validate($Array<::javax::management::remote::TargetedNotification>* targetedNotifications, int64_t earliestSequenceNumber, int64_t nextSequenceNumber);
-	static const int64_t serialVersionUID = (int64_t)0x108A1FFE5C2B064F;
+	static const int64_t serialVersionUID = (int64_t)0x108a1ffe5c2b064f;
 	int64_t earliestSequenceNumber = 0;
 	int64_t nextSequenceNumber = 0;
 	$Array<::javax::management::remote::TargetedNotification>* targetedNotifications = nullptr;

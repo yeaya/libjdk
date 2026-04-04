@@ -1,9 +1,6 @@
 #include <java/awt/Button$AccessibleAWTButton.h>
-
-#include <java/awt/AWTEvent.h>
 #include <java/awt/Button.h>
 #include <java/awt/Component$AccessibleAWTComponent.h>
-#include <java/awt/Component.h>
 #include <java/awt/EventQueue.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/event/ActionEvent.h>
@@ -17,11 +14,8 @@
 #undef ACTION_PERFORMED
 #undef PUSH_BUTTON
 
-using $AWTEvent = ::java::awt::AWTEvent;
 using $Button = ::java::awt::Button;
-using $Component = ::java::awt::Component;
 using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
-using $EventQueue = ::java::awt::EventQueue;
 using $Toolkit = ::java::awt::Toolkit;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -36,59 +30,6 @@ using $AccessibleValue = ::javax::accessibility::AccessibleValue;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _Button$AccessibleAWTButton_FieldInfo_[] = {
-	{"this$0", "Ljava/awt/Button;", nullptr, $FINAL | $SYNTHETIC, $field(Button$AccessibleAWTButton, this$0)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Button$AccessibleAWTButton, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Button$AccessibleAWTButton_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Button;)V", nullptr, $PROTECTED, $method(Button$AccessibleAWTButton, init$, void, $Button*)},
-	{"doAccessibleAction", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Button$AccessibleAWTButton, doAccessibleAction, bool, int32_t)},
-	{"getAccessibleAction", "()Ljavax/accessibility/AccessibleAction;", nullptr, $PUBLIC, $virtualMethod(Button$AccessibleAWTButton, getAccessibleAction, $AccessibleAction*)},
-	{"getAccessibleActionCount", "()I", nullptr, $PUBLIC, $virtualMethod(Button$AccessibleAWTButton, getAccessibleActionCount, int32_t)},
-	{"getAccessibleActionDescription", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Button$AccessibleAWTButton, getAccessibleActionDescription, $String*, int32_t)},
-	{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Button$AccessibleAWTButton, getAccessibleName, $String*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(Button$AccessibleAWTButton, getAccessibleRole, $AccessibleRole*)},
-	{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(Button$AccessibleAWTButton, getAccessibleValue, $AccessibleValue*)},
-	{"getCurrentAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(Button$AccessibleAWTButton, getCurrentAccessibleValue, $Number*)},
-	{"getMaximumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(Button$AccessibleAWTButton, getMaximumAccessibleValue, $Number*)},
-	{"getMinimumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(Button$AccessibleAWTButton, getMinimumAccessibleValue, $Number*)},
-	{"setCurrentAccessibleValue", "(Ljava/lang/Number;)Z", nullptr, $PUBLIC, $virtualMethod(Button$AccessibleAWTButton, setCurrentAccessibleValue, bool, $Number*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Button$AccessibleAWTButton_InnerClassesInfo_[] = {
-	{"java.awt.Button$AccessibleAWTButton", "java.awt.Button", "AccessibleAWTButton", $PROTECTED},
-	{"java.awt.Component$AccessibleAWTComponent", "java.awt.Component", "AccessibleAWTComponent", $PROTECTED | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Button$AccessibleAWTButton_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Button$AccessibleAWTButton",
-	"java.awt.Component$AccessibleAWTComponent",
-	"javax.accessibility.AccessibleAction,javax.accessibility.AccessibleValue",
-	_Button$AccessibleAWTButton_FieldInfo_,
-	_Button$AccessibleAWTButton_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Button$AccessibleAWTButton_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Button"
-};
-
-$Object* allocate$Button$AccessibleAWTButton($Class* clazz) {
-	return $of($alloc(Button$AccessibleAWTButton));
-}
 
 int32_t Button$AccessibleAWTButton::hashCode() {
 	 return this->$Component$AccessibleAWTComponent::hashCode();
@@ -146,9 +87,9 @@ $String* Button$AccessibleAWTButton::getAccessibleActionDescription(int32_t i) {
 }
 
 bool Button$AccessibleAWTButton::doAccessibleAction(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (i == 0) {
-		$nc($($Toolkit::getEventQueue()))->postEvent($$new($ActionEvent, this->this$0, $ActionEvent::ACTION_PERFORMED, $(this->this$0->getActionCommand())));
+		$$nc($Toolkit::getEventQueue())->postEvent($$new($ActionEvent, this->this$0, $ActionEvent::ACTION_PERFORMED, $(this->this$0->getActionCommand())));
 		return true;
 	} else {
 		return false;
@@ -180,7 +121,54 @@ Button$AccessibleAWTButton::Button$AccessibleAWTButton() {
 }
 
 $Class* Button$AccessibleAWTButton::load$($String* name, bool initialize) {
-	$loadClass(Button$AccessibleAWTButton, name, initialize, &_Button$AccessibleAWTButton_ClassInfo_, allocate$Button$AccessibleAWTButton);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/awt/Button;", nullptr, $FINAL | $SYNTHETIC, $field(Button$AccessibleAWTButton, this$0)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Button$AccessibleAWTButton, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Button;)V", nullptr, $PROTECTED, $method(Button$AccessibleAWTButton, init$, void, $Button*)},
+		{"doAccessibleAction", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Button$AccessibleAWTButton, doAccessibleAction, bool, int32_t)},
+		{"getAccessibleAction", "()Ljavax/accessibility/AccessibleAction;", nullptr, $PUBLIC, $virtualMethod(Button$AccessibleAWTButton, getAccessibleAction, $AccessibleAction*)},
+		{"getAccessibleActionCount", "()I", nullptr, $PUBLIC, $virtualMethod(Button$AccessibleAWTButton, getAccessibleActionCount, int32_t)},
+		{"getAccessibleActionDescription", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Button$AccessibleAWTButton, getAccessibleActionDescription, $String*, int32_t)},
+		{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Button$AccessibleAWTButton, getAccessibleName, $String*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(Button$AccessibleAWTButton, getAccessibleRole, $AccessibleRole*)},
+		{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(Button$AccessibleAWTButton, getAccessibleValue, $AccessibleValue*)},
+		{"getCurrentAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(Button$AccessibleAWTButton, getCurrentAccessibleValue, $Number*)},
+		{"getMaximumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(Button$AccessibleAWTButton, getMaximumAccessibleValue, $Number*)},
+		{"getMinimumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(Button$AccessibleAWTButton, getMinimumAccessibleValue, $Number*)},
+		{"setCurrentAccessibleValue", "(Ljava/lang/Number;)Z", nullptr, $PUBLIC, $virtualMethod(Button$AccessibleAWTButton, setCurrentAccessibleValue, bool, $Number*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Button$AccessibleAWTButton", "java.awt.Button", "AccessibleAWTButton", $PROTECTED},
+		{"java.awt.Component$AccessibleAWTComponent", "java.awt.Component", "AccessibleAWTComponent", $PROTECTED | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Button$AccessibleAWTButton",
+		"java.awt.Component$AccessibleAWTComponent",
+		"javax.accessibility.AccessibleAction,javax.accessibility.AccessibleValue",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Button"
+	};
+	$loadClass(Button$AccessibleAWTButton, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Button$AccessibleAWTButton));
+	});
 	return class$;
 }
 

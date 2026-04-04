@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/AccessibleHTML$ElementInfo.h>
-
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/lang/Math.h>
@@ -20,7 +19,6 @@
 #undef REMOVE
 
 using $Rectangle = ::java::awt::Rectangle;
-using $Shape = ::java::awt::Shape;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -45,67 +43,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _AccessibleHTML$ElementInfo_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/html/AccessibleHTML;", nullptr, $FINAL | $SYNTHETIC, $field(AccessibleHTML$ElementInfo, this$0)},
-	{"children", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljavax/swing/text/html/AccessibleHTML$ElementInfo;>;", $PRIVATE, $field(AccessibleHTML$ElementInfo, children)},
-	{"element", "Ljavax/swing/text/Element;", nullptr, $PRIVATE, $field(AccessibleHTML$ElementInfo, element)},
-	{"parent", "Ljavax/swing/text/html/AccessibleHTML$ElementInfo;", nullptr, $PRIVATE, $field(AccessibleHTML$ElementInfo, parent)},
-	{"isValid", "Z", nullptr, $PRIVATE, $field(AccessibleHTML$ElementInfo, isValid$)},
-	{"canBeValid", "Z", nullptr, $PRIVATE, $field(AccessibleHTML$ElementInfo, canBeValid)},
-	{}
-};
-
-$MethodInfo _AccessibleHTML$ElementInfo_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/html/AccessibleHTML;Ljavax/swing/text/Element;)V", nullptr, 0, $method(AccessibleHTML$ElementInfo, init$, void, $AccessibleHTML*, $Element*)},
-	{"<init>", "(Ljavax/swing/text/html/AccessibleHTML;Ljavax/swing/text/Element;Ljavax/swing/text/html/AccessibleHTML$ElementInfo;)V", nullptr, 0, $method(AccessibleHTML$ElementInfo, init$, void, $AccessibleHTML*, $Element*, AccessibleHTML$ElementInfo*)},
-	{"addChild", "(Ljavax/swing/text/html/AccessibleHTML$ElementInfo;)V", nullptr, $PROTECTED, $virtualMethod(AccessibleHTML$ElementInfo, addChild, void, AccessibleHTML$ElementInfo*)},
-	{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PROTECTED, $virtualMethod(AccessibleHTML$ElementInfo, getAttributes, $AttributeSet*)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$ElementInfo, getBounds, $Rectangle*)},
-	{"getChild", "(I)Ljavax/swing/text/html/AccessibleHTML$ElementInfo;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$ElementInfo, getChild, AccessibleHTML$ElementInfo*, int32_t)},
-	{"getChildCount", "()I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$ElementInfo, getChildCount, int32_t)},
-	{"getClosestInfoIndex", "(I)I", nullptr, $PRIVATE, $method(AccessibleHTML$ElementInfo, getClosestInfoIndex, int32_t, int32_t)},
-	{"getElement", "()Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$ElementInfo, getElement, $Element*)},
-	{"getIndexInParent", "()I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$ElementInfo, getIndexInParent, int32_t)},
-	{"getIntAttr", "(Ljavax/swing/text/AttributeSet;Ljava/lang/Object;I)I", nullptr, $PROTECTED, $virtualMethod(AccessibleHTML$ElementInfo, getIntAttr, int32_t, $AttributeSet*, Object$*, int32_t)},
-	{"getParent", "()Ljavax/swing/text/html/AccessibleHTML$ElementInfo;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$ElementInfo, getParent, AccessibleHTML$ElementInfo*)},
-	{"getView", "()Ljavax/swing/text/View;", nullptr, $PROTECTED, $virtualMethod(AccessibleHTML$ElementInfo, getView, $View*)},
-	{"getView", "(Ljavax/swing/text/View;Ljavax/swing/text/Element;I)Ljavax/swing/text/View;", nullptr, $PRIVATE, $method(AccessibleHTML$ElementInfo, getView, $View*, $View*, $Element*, int32_t)},
-	{"getViewAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PROTECTED, $virtualMethod(AccessibleHTML$ElementInfo, getViewAttributes, $AttributeSet*)},
-	{"indexOf", "(Ljavax/swing/text/html/AccessibleHTML$ElementInfo;)I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$ElementInfo, indexOf, int32_t, AccessibleHTML$ElementInfo*)},
-	{"invalidate", "(Z)V", nullptr, $PROTECTED, $virtualMethod(AccessibleHTML$ElementInfo, invalidate, void, bool)},
-	{"isValid", "()Z", nullptr, $PROTECTED, $virtualMethod(AccessibleHTML$ElementInfo, isValid, bool)},
-	{"loadChildren", "(Ljavax/swing/text/Element;)V", nullptr, $PROTECTED, $virtualMethod(AccessibleHTML$ElementInfo, loadChildren, void, $Element*)},
-	{"update", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PRIVATE, $method(AccessibleHTML$ElementInfo, update, void, $DocumentEvent*)},
-	{"validate", "()V", nullptr, $PROTECTED, $virtualMethod(AccessibleHTML$ElementInfo, validate, void)},
-	{"validateIfNecessary", "()Z", nullptr, $PROTECTED, $virtualMethod(AccessibleHTML$ElementInfo, validateIfNecessary, bool)},
-	{}
-};
-
-$InnerClassInfo _AccessibleHTML$ElementInfo_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.AccessibleHTML$ElementInfo", "javax.swing.text.html.AccessibleHTML", "ElementInfo", $PRIVATE},
-	{}
-};
-
-$ClassInfo _AccessibleHTML$ElementInfo_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.AccessibleHTML$ElementInfo",
-	"java.lang.Object",
-	nullptr,
-	_AccessibleHTML$ElementInfo_FieldInfo_,
-	_AccessibleHTML$ElementInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AccessibleHTML$ElementInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.AccessibleHTML"
-};
-
-$Object* allocate$AccessibleHTML$ElementInfo($Class* clazz) {
-	return $of($alloc(AccessibleHTML$ElementInfo));
-}
-
 void AccessibleHTML$ElementInfo::init$($AccessibleHTML* this$0, $Element* element) {
 	AccessibleHTML$ElementInfo::init$(this$0, element, nullptr);
 }
@@ -124,26 +61,22 @@ void AccessibleHTML$ElementInfo::validate() {
 }
 
 void AccessibleHTML$ElementInfo::loadChildren($Element* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(parent)->isLeaf()) {
-		{
-			int32_t counter = 0;
-			int32_t maxCounter = parent->getElementCount();
-			for (; counter < maxCounter; ++counter) {
-				$var($Element, e, parent->getElement(counter));
-				$var(AccessibleHTML$ElementInfo, childInfo, this->this$0->createElementInfo(e, this));
-				if (childInfo != nullptr) {
-					addChild(childInfo);
-				} else {
-					loadChildren(e);
-				}
+		for (int32_t counter = 0, maxCounter = parent->getElementCount(); counter < maxCounter; ++counter) {
+			$var($Element, e, parent->getElement(counter));
+			$var(AccessibleHTML$ElementInfo, childInfo, this->this$0->createElementInfo(e, this));
+			if (childInfo != nullptr) {
+				addChild(childInfo);
+			} else {
+				loadChildren(e);
 			}
 		}
 	}
 }
 
 int32_t AccessibleHTML$ElementInfo::getIndexInParent() {
-	if (this->parent == nullptr || !$nc(this->parent)->isValid()) {
+	if (this->parent == nullptr || !this->parent->isValid()) {
 		return -1;
 	}
 	return $nc(this->parent)->indexOf(this);
@@ -177,7 +110,7 @@ AccessibleHTML$ElementInfo* AccessibleHTML$ElementInfo::getChild(int32_t index) 
 
 int32_t AccessibleHTML$ElementInfo::getChildCount() {
 	validateIfNecessary();
-	return (this->children == nullptr) ? 0 : $nc(this->children)->size();
+	return (this->children == nullptr) ? 0 : this->children->size();
 }
 
 void AccessibleHTML$ElementInfo::addChild(AccessibleHTML$ElementInfo* child) {
@@ -188,78 +121,74 @@ void AccessibleHTML$ElementInfo::addChild(AccessibleHTML$ElementInfo* child) {
 }
 
 $View* AccessibleHTML$ElementInfo::getView() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!validateIfNecessary()) {
 		return nullptr;
 	}
 	$var($Object, lock, this->this$0->lock());
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($View, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$var($View, rootView, this->this$0->getRootView());
-			$var($Element, e, getElement());
-			int32_t start = $nc(e)->getStartOffset();
-			if (rootView != nullptr) {
-				$assign(var$2, getView(rootView, e, start));
-				return$1 = true;
-				goto $finally;
-			}
-			$assign(var$2, nullptr);
+	$var($Throwable, var$0, nullptr);
+	$var($View, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$var($View, rootView, this->this$0->getRootView());
+		$var($Element, e, getElement());
+		int32_t start = $nc(e)->getStartOffset();
+		if (rootView != nullptr) {
+			$assign(var$2, getView(rootView, e, start));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			this->this$0->unlock(lock);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		$assign(var$2, nullptr);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		this->this$0->unlock(lock);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $Rectangle* AccessibleHTML$ElementInfo::getBounds() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!validateIfNecessary()) {
 		return nullptr;
 	}
 	$var($Object, lock, this->this$0->lock());
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Rectangle, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$var($Rectangle, bounds, this->this$0->getRootEditorRect());
-			$var($View, rootView, this->this$0->getRootView());
-			$var($Element, e, getElement());
-			if (bounds != nullptr && rootView != nullptr) {
-				try {
-					int32_t var$3 = $nc(e)->getStartOffset();
-					$init($Position$Bias);
-					$var($Position$Bias, var$4, $Position$Bias::Forward);
-					$assign(var$2, $nc($(rootView->modelToView(var$3, var$4, e->getEndOffset(), $Position$Bias::Backward, bounds)))->getBounds());
-					return$1 = true;
-					goto $finally;
-				} catch ($BadLocationException& ble) {
-				}
+	$var($Throwable, var$0, nullptr);
+	$var($Rectangle, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$var($Rectangle, bounds, this->this$0->getRootEditorRect());
+		$var($View, rootView, this->this$0->getRootView());
+		$var($Element, e, getElement());
+		if (bounds != nullptr && rootView != nullptr) {
+			try {
+				int32_t var$3 = $nc(e)->getStartOffset();
+				$init($Position$Bias);
+				$var($Position$Bias, var$4, $Position$Bias::Forward);
+				$assign(var$2, $$nc(rootView->modelToView(var$3, var$4, e->getEndOffset(), $Position$Bias::Backward, bounds))->getBounds());
+				return$1 = true;
+				goto $finally;
+			} catch ($BadLocationException& ble) {
 			}
-		} catch ($Throwable& var$5) {
-			$assign(var$0, var$5);
-		} $finally: {
-			this->this$0->unlock(lock);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$5) {
+		$assign(var$0, var$5);
+	} $finally: {
+		this->this$0->unlock(lock);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	return nullptr;
 }
@@ -270,19 +199,19 @@ bool AccessibleHTML$ElementInfo::isValid() {
 
 $AttributeSet* AccessibleHTML$ElementInfo::getAttributes() {
 	if (validateIfNecessary()) {
-		return $nc($(getElement()))->getAttributes();
+		return $$nc(getElement())->getAttributes();
 	}
 	return nullptr;
 }
 
 $AttributeSet* AccessibleHTML$ElementInfo::getViewAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (validateIfNecessary()) {
 		$var($View, view, getView());
 		if (view != nullptr) {
-			return $nc($(view->getElement()))->getAttributes();
+			return $$nc(view->getElement())->getAttributes();
 		}
-		return $nc($(getElement()))->getAttributes();
+		return $$nc(getElement())->getAttributes();
 	}
 	return nullptr;
 }
@@ -306,29 +235,27 @@ int32_t AccessibleHTML$ElementInfo::getIntAttr($AttributeSet* attrs, Object$* ke
 }
 
 bool AccessibleHTML$ElementInfo::validateIfNecessary() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isValid() && this->canBeValid) {
 		$set(this, children, nullptr);
 		$var($Object, lock, this->this$0->lock());
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				validate();
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				this->this$0->unlock(lock);
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			validate();
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			this->this$0->unlock(lock);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	return isValid();
 }
 
 void AccessibleHTML$ElementInfo::invalidate(bool first) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isValid()) {
 		if (this->canBeValid && !first) {
 			this->canBeValid = false;
@@ -339,7 +266,7 @@ void AccessibleHTML$ElementInfo::invalidate(bool first) {
 	this->canBeValid = first;
 	if (this->children != nullptr) {
 		{
-			$var($Iterator, i$, $nc(this->children)->iterator());
+			$var($Iterator, i$, this->children->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var(AccessibleHTML$ElementInfo, child, $cast(AccessibleHTML$ElementInfo, i$->next()));
 				{
@@ -356,7 +283,7 @@ $View* AccessibleHTML$ElementInfo::getView($View* parent, $Element* e, int32_t s
 		return parent;
 	}
 	$init($Position$Bias);
-	int32_t index = $nc(parent)->getViewIndex(start, $Position$Bias::Forward);
+	int32_t index = parent->getViewIndex(start, $Position$Bias::Forward);
 	if (index != -1 && index < parent->getViewCount()) {
 		return getView($(parent->getView(index)), e, start);
 	}
@@ -364,11 +291,11 @@ $View* AccessibleHTML$ElementInfo::getView($View* parent, $Element* e, int32_t s
 }
 
 int32_t AccessibleHTML$ElementInfo::getClosestInfoIndex(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t counter = 0; counter < getChildCount(); ++counter) {
 		$var(AccessibleHTML$ElementInfo, info, getChild(counter));
-		bool var$0 = index < $nc($($nc(info)->getElement()))->getEndOffset();
-		if (var$0 || index == $nc($($nc(info)->getElement()))->getStartOffset()) {
+		bool var$0 = index < $$nc($nc(info)->getElement())->getEndOffset();
+		if (var$0 || index == $$nc(info->getElement())->getStartOffset()) {
 			return counter;
 		}
 	}
@@ -376,7 +303,7 @@ int32_t AccessibleHTML$ElementInfo::getClosestInfoIndex(int32_t index) {
 }
 
 void AccessibleHTML$ElementInfo::update($DocumentEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isValid()) {
 		return;
 	}
@@ -404,7 +331,7 @@ void AccessibleHTML$ElementInfo::update($DocumentEvent* e) {
 			index0 = getChildCount() - 1;
 		}
 		$var(AccessibleHTML$ElementInfo, info, (index0 >= 0) ? getChild(index0) : (AccessibleHTML$ElementInfo*)nullptr);
-		if (info != nullptr && ($nc($(info->getElement()))->getStartOffset() == pos) && (pos > 0)) {
+		if (info != nullptr && ($$nc(info->getElement())->getStartOffset() == pos) && (pos > 0)) {
 			index0 = $Math::max(index0 - 1, 0);
 		}
 		int32_t index1 = 0;
@@ -418,8 +345,8 @@ void AccessibleHTML$ElementInfo::update($DocumentEvent* e) {
 			while (true) {
 				bool var$1 = (index1 + 1) < getChildCount();
 				if (var$1) {
-					int32_t var$2 = $nc($($nc($(getChild(index1 + 1)))->getElement()))->getEndOffset();
-					var$1 = var$2 == $nc($($nc($(getChild(index1 + 1)))->getElement()))->getStartOffset();
+					int32_t var$2 = $$nc($$nc(getChild(index1 + 1))->getElement())->getEndOffset();
+					var$1 = var$2 == $$nc($$nc(getChild(index1 + 1))->getElement())->getStartOffset();
 				}
 				if (!(var$1)) {
 					break;
@@ -431,7 +358,7 @@ void AccessibleHTML$ElementInfo::update($DocumentEvent* e) {
 		}
 		index0 = $Math::max(index0, 0);
 		for (int32_t i = index0; i <= index1 && isValid(); ++i) {
-			$nc($(getChild(i)))->update(e);
+			$$nc(getChild(i))->update(e);
 		}
 	}
 }
@@ -440,7 +367,62 @@ AccessibleHTML$ElementInfo::AccessibleHTML$ElementInfo() {
 }
 
 $Class* AccessibleHTML$ElementInfo::load$($String* name, bool initialize) {
-	$loadClass(AccessibleHTML$ElementInfo, name, initialize, &_AccessibleHTML$ElementInfo_ClassInfo_, allocate$AccessibleHTML$ElementInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/html/AccessibleHTML;", nullptr, $FINAL | $SYNTHETIC, $field(AccessibleHTML$ElementInfo, this$0)},
+		{"children", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljavax/swing/text/html/AccessibleHTML$ElementInfo;>;", $PRIVATE, $field(AccessibleHTML$ElementInfo, children)},
+		{"element", "Ljavax/swing/text/Element;", nullptr, $PRIVATE, $field(AccessibleHTML$ElementInfo, element)},
+		{"parent", "Ljavax/swing/text/html/AccessibleHTML$ElementInfo;", nullptr, $PRIVATE, $field(AccessibleHTML$ElementInfo, parent)},
+		{"isValid", "Z", nullptr, $PRIVATE, $field(AccessibleHTML$ElementInfo, isValid$)},
+		{"canBeValid", "Z", nullptr, $PRIVATE, $field(AccessibleHTML$ElementInfo, canBeValid)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/html/AccessibleHTML;Ljavax/swing/text/Element;)V", nullptr, 0, $method(AccessibleHTML$ElementInfo, init$, void, $AccessibleHTML*, $Element*)},
+		{"<init>", "(Ljavax/swing/text/html/AccessibleHTML;Ljavax/swing/text/Element;Ljavax/swing/text/html/AccessibleHTML$ElementInfo;)V", nullptr, 0, $method(AccessibleHTML$ElementInfo, init$, void, $AccessibleHTML*, $Element*, AccessibleHTML$ElementInfo*)},
+		{"addChild", "(Ljavax/swing/text/html/AccessibleHTML$ElementInfo;)V", nullptr, $PROTECTED, $virtualMethod(AccessibleHTML$ElementInfo, addChild, void, AccessibleHTML$ElementInfo*)},
+		{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PROTECTED, $virtualMethod(AccessibleHTML$ElementInfo, getAttributes, $AttributeSet*)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$ElementInfo, getBounds, $Rectangle*)},
+		{"getChild", "(I)Ljavax/swing/text/html/AccessibleHTML$ElementInfo;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$ElementInfo, getChild, AccessibleHTML$ElementInfo*, int32_t)},
+		{"getChildCount", "()I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$ElementInfo, getChildCount, int32_t)},
+		{"getClosestInfoIndex", "(I)I", nullptr, $PRIVATE, $method(AccessibleHTML$ElementInfo, getClosestInfoIndex, int32_t, int32_t)},
+		{"getElement", "()Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$ElementInfo, getElement, $Element*)},
+		{"getIndexInParent", "()I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$ElementInfo, getIndexInParent, int32_t)},
+		{"getIntAttr", "(Ljavax/swing/text/AttributeSet;Ljava/lang/Object;I)I", nullptr, $PROTECTED, $virtualMethod(AccessibleHTML$ElementInfo, getIntAttr, int32_t, $AttributeSet*, Object$*, int32_t)},
+		{"getParent", "()Ljavax/swing/text/html/AccessibleHTML$ElementInfo;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$ElementInfo, getParent, AccessibleHTML$ElementInfo*)},
+		{"getView", "()Ljavax/swing/text/View;", nullptr, $PROTECTED, $virtualMethod(AccessibleHTML$ElementInfo, getView, $View*)},
+		{"getView", "(Ljavax/swing/text/View;Ljavax/swing/text/Element;I)Ljavax/swing/text/View;", nullptr, $PRIVATE, $method(AccessibleHTML$ElementInfo, getView, $View*, $View*, $Element*, int32_t)},
+		{"getViewAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PROTECTED, $virtualMethod(AccessibleHTML$ElementInfo, getViewAttributes, $AttributeSet*)},
+		{"indexOf", "(Ljavax/swing/text/html/AccessibleHTML$ElementInfo;)I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$ElementInfo, indexOf, int32_t, AccessibleHTML$ElementInfo*)},
+		{"invalidate", "(Z)V", nullptr, $PROTECTED, $virtualMethod(AccessibleHTML$ElementInfo, invalidate, void, bool)},
+		{"isValid", "()Z", nullptr, $PROTECTED, $virtualMethod(AccessibleHTML$ElementInfo, isValid, bool)},
+		{"loadChildren", "(Ljavax/swing/text/Element;)V", nullptr, $PROTECTED, $virtualMethod(AccessibleHTML$ElementInfo, loadChildren, void, $Element*)},
+		{"update", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PRIVATE, $method(AccessibleHTML$ElementInfo, update, void, $DocumentEvent*)},
+		{"validate", "()V", nullptr, $PROTECTED, $virtualMethod(AccessibleHTML$ElementInfo, validate, void)},
+		{"validateIfNecessary", "()Z", nullptr, $PROTECTED, $virtualMethod(AccessibleHTML$ElementInfo, validateIfNecessary, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.AccessibleHTML$ElementInfo", "javax.swing.text.html.AccessibleHTML", "ElementInfo", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.AccessibleHTML$ElementInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.AccessibleHTML"
+	};
+	$loadClass(AccessibleHTML$ElementInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AccessibleHTML$ElementInfo);
+	});
 	return class$;
 }
 

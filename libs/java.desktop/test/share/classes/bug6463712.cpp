@@ -1,11 +1,9 @@
 #include <bug6463712.h>
-
 #include <javax/swing/JSpinner.h>
 #include <javax/swing/SpinnerDateModel.h>
 #include <javax/swing/SpinnerModel.h>
 #include <javax/swing/SpinnerNumberModel.h>
 #include <javax/swing/event/ChangeEvent.h>
-#include <javax/swing/event/ChangeListener.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -14,33 +12,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $JSpinner = ::javax::swing::JSpinner;
 using $SpinnerDateModel = ::javax::swing::SpinnerDateModel;
-using $SpinnerModel = ::javax::swing::SpinnerModel;
 using $SpinnerNumberModel = ::javax::swing::SpinnerNumberModel;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
-using $ChangeListener = ::javax::swing::event::ChangeListener;
-
-$MethodInfo _bug6463712_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6463712, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6463712, main, void, $StringArray*)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(bug6463712, stateChanged, void, $ChangeEvent*)},
-	{}
-};
-
-$ClassInfo _bug6463712_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6463712",
-	"java.lang.Object",
-	"javax.swing.event.ChangeListener",
-	nullptr,
-	_bug6463712_MethodInfo_
-};
-
-$Object* allocate$bug6463712($Class* clazz) {
-	return $of($alloc(bug6463712));
-}
 
 void bug6463712::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SpinnerNumberModel, m1, $new($SpinnerNumberModel));
 	$var($JSpinner, s, $new($JSpinner, m1));
 	s->addChangeListener(this);
@@ -62,7 +38,23 @@ bug6463712::bug6463712() {
 }
 
 $Class* bug6463712::load$($String* name, bool initialize) {
-	$loadClass(bug6463712, name, initialize, &_bug6463712_ClassInfo_, allocate$bug6463712);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6463712, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6463712, main, void, $StringArray*)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(bug6463712, stateChanged, void, $ChangeEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6463712",
+		"java.lang.Object",
+		"javax.swing.event.ChangeListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug6463712, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6463712);
+	});
 	return class$;
 }
 

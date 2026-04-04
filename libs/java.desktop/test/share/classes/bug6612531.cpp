@@ -1,6 +1,4 @@
 #include <bug6612531.h>
-
-#include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <javax/swing/JScrollPane.h>
@@ -8,39 +6,17 @@
 #include <javax/swing/ScrollPaneLayout.h>
 #include <jcpp.h>
 
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JViewport = ::javax::swing::JViewport;
 using $ScrollPaneLayout = ::javax::swing::ScrollPaneLayout;
 
-$MethodInfo _bug6612531_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6612531, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6612531, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _bug6612531_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6612531",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_bug6612531_MethodInfo_
-};
-
-$Object* allocate$bug6612531($Class* clazz) {
-	return $of($alloc(bug6612531));
-}
-
 void bug6612531::init$() {
 }
 
 void bug6612531::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ScrollPaneLayout, c, $new($ScrollPaneLayout));
 	$var($JViewport, vp, $new($JViewport));
 	c->addLayoutComponent("VIEWPORT"_s, vp);
@@ -52,7 +28,22 @@ bug6612531::bug6612531() {
 }
 
 $Class* bug6612531::load$($String* name, bool initialize) {
-	$loadClass(bug6612531, name, initialize, &_bug6612531_ClassInfo_, allocate$bug6612531);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6612531, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6612531, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6612531",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug6612531, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6612531);
+	});
 	return class$;
 }
 

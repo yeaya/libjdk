@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalComboBoxUI$MetalComboPopup.h>
-
 #include <java/awt/event/MouseEvent.h>
 #include <javax/swing/JComboBox.h>
 #include <javax/swing/plaf/basic/BasicComboPopup.h>
@@ -21,47 +20,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$CompoundAttribute _MetalComboBoxUI$MetalComboPopup_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _MetalComboBoxUI$MetalComboPopup_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/metal/MetalComboBoxUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalComboBoxUI$MetalComboPopup, this$0)},
-	{}
-};
-
-$MethodInfo _MetalComboBoxUI$MetalComboPopup_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/metal/MetalComboBoxUI;Ljavax/swing/JComboBox;)V", "(Ljavax/swing/JComboBox<Ljava/lang/Object;>;)V", $PUBLIC, $method(MetalComboBoxUI$MetalComboPopup, init$, void, $MetalComboBoxUI*, $JComboBox*)},
-	{"delegateFocus", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalComboBoxUI$MetalComboPopup, delegateFocus, void, $MouseEvent*)},
-	{}
-};
-
-$InnerClassInfo _MetalComboBoxUI$MetalComboPopup_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalComboBoxUI$MetalComboPopup", "javax.swing.plaf.metal.MetalComboBoxUI", "MetalComboPopup", $PUBLIC},
-	{}
-};
-
-$ClassInfo _MetalComboBoxUI$MetalComboPopup_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalComboBoxUI$MetalComboPopup",
-	"javax.swing.plaf.basic.BasicComboPopup",
-	nullptr,
-	_MetalComboBoxUI$MetalComboPopup_FieldInfo_,
-	_MetalComboBoxUI$MetalComboPopup_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalComboBoxUI$MetalComboPopup_InnerClassesInfo_,
-	_MetalComboBoxUI$MetalComboPopup_Annotations_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalComboBoxUI"
-};
-
-$Object* allocate$MetalComboBoxUI$MetalComboPopup($Class* clazz) {
-	return $of($alloc(MetalComboBoxUI$MetalComboPopup));
-}
-
 void MetalComboBoxUI$MetalComboPopup::init$($MetalComboBoxUI* this$0, $JComboBox* cBox) {
 	$set(this, this$0, this$0);
 	$BasicComboPopup::init$(cBox);
@@ -75,7 +33,41 @@ MetalComboBoxUI$MetalComboPopup::MetalComboBoxUI$MetalComboPopup() {
 }
 
 $Class* MetalComboBoxUI$MetalComboPopup::load$($String* name, bool initialize) {
-	$loadClass(MetalComboBoxUI$MetalComboPopup, name, initialize, &_MetalComboBoxUI$MetalComboPopup_ClassInfo_, allocate$MetalComboBoxUI$MetalComboPopup);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/metal/MetalComboBoxUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalComboBoxUI$MetalComboPopup, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/metal/MetalComboBoxUI;Ljavax/swing/JComboBox;)V", "(Ljavax/swing/JComboBox<Ljava/lang/Object;>;)V", $PUBLIC, $method(MetalComboBoxUI$MetalComboPopup, init$, void, $MetalComboBoxUI*, $JComboBox*)},
+		{"delegateFocus", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalComboBoxUI$MetalComboPopup, delegateFocus, void, $MouseEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalComboBoxUI$MetalComboPopup", "javax.swing.plaf.metal.MetalComboBoxUI", "MetalComboPopup", $PUBLIC},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalComboBoxUI$MetalComboPopup",
+		"javax.swing.plaf.basic.BasicComboPopup",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalComboBoxUI"
+	};
+	$loadClass(MetalComboBoxUI$MetalComboPopup, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalComboBoxUI$MetalComboPopup));
+	});
 	return class$;
 }
 

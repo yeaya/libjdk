@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/dsig/keyinfo/RetrievalMethod.h>
-
 #include <java/util/List.h>
 #include <javax/xml/crypto/Data.h>
 #include <javax/xml/crypto/URIReference.h>
@@ -18,31 +17,6 @@ namespace javax {
 		namespace crypto {
 			namespace dsig {
 				namespace keyinfo {
-
-$MethodInfo _RetrievalMethod_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"dereference", "(Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RetrievalMethod, dereference, $Data*, $XMLCryptoContext*), "javax.xml.crypto.URIReferenceException"},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getTransforms", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/dsig/Transform;>;", $PUBLIC | $ABSTRACT, $virtualMethod(RetrievalMethod, getTransforms, $List*)},
-	{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _RetrievalMethod_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.xml.crypto.dsig.keyinfo.RetrievalMethod",
-	nullptr,
-	"javax.xml.crypto.URIReference,javax.xml.crypto.XMLStructure",
-	nullptr,
-	_RetrievalMethod_MethodInfo_
-};
-
-$Object* allocate$RetrievalMethod($Class* clazz) {
-	return $of($alloc(RetrievalMethod));
-}
 
 int32_t RetrievalMethod::hashCode() {
 	 return this->$URIReference::hashCode();
@@ -65,7 +39,28 @@ void RetrievalMethod::finalize() {
 }
 
 $Class* RetrievalMethod::load$($String* name, bool initialize) {
-	$loadClass(RetrievalMethod, name, initialize, &_RetrievalMethod_ClassInfo_, allocate$RetrievalMethod);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"dereference", "(Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RetrievalMethod, dereference, $Data*, $XMLCryptoContext*), "javax.xml.crypto.URIReferenceException"},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"getTransforms", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/dsig/Transform;>;", $PUBLIC | $ABSTRACT, $virtualMethod(RetrievalMethod, getTransforms, $List*)},
+		{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.xml.crypto.dsig.keyinfo.RetrievalMethod",
+		nullptr,
+		"javax.xml.crypto.URIReference,javax.xml.crypto.XMLStructure",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RetrievalMethod, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RetrievalMethod));
+	});
 	return class$;
 }
 

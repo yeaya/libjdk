@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/file/JavacFileManager$Container.h>
-
 #include <com/sun/tools/javac/file/JavacFileManager.h>
 #include <com/sun/tools/javac/file/RelativePath$RelativeDirectory.h>
 #include <com/sun/tools/javac/file/RelativePath$RelativeFile.h>
@@ -27,42 +26,37 @@ namespace com {
 			namespace javac {
 				namespace file {
 
-$MethodInfo _JavacFileManager$Container_MethodInfo_[] = {
-	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavacFileManager$Container, close, void), "java.io.IOException"},
-	{"getFileObject", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeFile;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavacFileManager$Container, getFileObject, $JavaFileObject*, $Path*, $RelativePath$RelativeFile*), "java.io.IOException"},
-	{"indexedDirectories", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;>;", $PUBLIC | $ABSTRACT, $virtualMethod(JavacFileManager$Container, indexedDirectories, $Iterable*)},
-	{"list", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/util/Set;ZLcom/sun/tools/javac/util/ListBuffer;)V", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;ZLcom/sun/tools/javac/util/ListBuffer<Ljavax/tools/JavaFileObject;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(JavacFileManager$Container, list, void, $Path*, $RelativePath$RelativeDirectory*, $Set*, bool, $ListBuffer*), "java.io.IOException"},
-	{"maintainsDirectoryIndex", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavacFileManager$Container, maintainsDirectoryIndex, bool)},
-	{}
-};
-
-$InnerClassInfo _JavacFileManager$Container_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.file.JavacFileManager$Container", "com.sun.tools.javac.file.JavacFileManager", "Container", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JavacFileManager$Container_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.file.JavacFileManager$Container",
-	nullptr,
-	nullptr,
-	nullptr,
-	_JavacFileManager$Container_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavacFileManager$Container_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.file.JavacFileManager"
-};
-
-$Object* allocate$JavacFileManager$Container($Class* clazz) {
-	return $of($alloc(JavacFileManager$Container));
-}
-
 $Class* JavacFileManager$Container::load$($String* name, bool initialize) {
-	$loadClass(JavacFileManager$Container, name, initialize, &_JavacFileManager$Container_ClassInfo_, allocate$JavacFileManager$Container);
+	$MethodInfo methodInfos$$[] = {
+		{"close", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavacFileManager$Container, close, void), "java.io.IOException"},
+		{"getFileObject", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeFile;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavacFileManager$Container, getFileObject, $JavaFileObject*, $Path*, $RelativePath$RelativeFile*), "java.io.IOException"},
+		{"indexedDirectories", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;>;", $PUBLIC | $ABSTRACT, $virtualMethod(JavacFileManager$Container, indexedDirectories, $Iterable*)},
+		{"list", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/util/Set;ZLcom/sun/tools/javac/util/ListBuffer;)V", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;ZLcom/sun/tools/javac/util/ListBuffer<Ljavax/tools/JavaFileObject;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(JavacFileManager$Container, list, void, $Path*, $RelativePath$RelativeDirectory*, $Set*, bool, $ListBuffer*), "java.io.IOException"},
+		{"maintainsDirectoryIndex", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavacFileManager$Container, maintainsDirectoryIndex, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.file.JavacFileManager$Container", "com.sun.tools.javac.file.JavacFileManager", "Container", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.file.JavacFileManager$Container",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.file.JavacFileManager"
+	};
+	$loadClass(JavacFileManager$Container, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacFileManager$Container);
+	});
 	return class$;
 }
 

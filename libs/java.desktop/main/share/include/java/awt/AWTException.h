@@ -13,10 +13,13 @@ class $import AWTException : public ::java::lang::Exception {
 public:
 	AWTException();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0xE5A05F535A20D519;
+	static const int64_t serialVersionUID = (int64_t)0xe5a05f535a20d519;
 	AWTException(const AWTException& e);
 	virtual void throw$() override;
-	inline AWTException* operator ->() {
+	inline AWTException* operator ->() const {
+		return (AWTException*)throwing$;
+	}
+	inline operator AWTException*() const {
 		return (AWTException*)throwing$;
 	}
 };

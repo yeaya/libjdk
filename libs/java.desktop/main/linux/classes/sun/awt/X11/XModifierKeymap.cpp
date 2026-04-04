@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XModifierKeymap.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,55 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XModifierKeymap_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XModifierKeymap, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XModifierKeymap, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XModifierKeymap, pData)},
-	{}
-};
-
-$MethodInfo _XModifierKeymap_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XModifierKeymap, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XModifierKeymap, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XModifierKeymap, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XModifierKeymap, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XModifierKeymap, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XModifierKeymap, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XModifierKeymap, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XModifierKeymap, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XModifierKeymap, getSize, int32_t)},
-	{"get_max_keypermod", "()I", nullptr, $PUBLIC, $virtualMethod(XModifierKeymap, get_max_keypermod, int32_t)},
-	{"get_modifiermap", "(I)J", nullptr, $PUBLIC, $virtualMethod(XModifierKeymap, get_modifiermap, int64_t, int32_t)},
-	{"get_modifiermap", "()J", nullptr, $PUBLIC, $virtualMethod(XModifierKeymap, get_modifiermap, int64_t)},
-	{"set_max_keypermod", "(I)V", nullptr, $PUBLIC, $virtualMethod(XModifierKeymap, set_max_keypermod, void, int32_t)},
-	{"set_modifiermap", "(J)V", nullptr, $PUBLIC, $virtualMethod(XModifierKeymap, set_modifiermap, void, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XModifierKeymap, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XModifierKeymap, zero, void)},
-	{}
-};
-
-$ClassInfo _XModifierKeymap_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XModifierKeymap",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XModifierKeymap_FieldInfo_,
-	_XModifierKeymap_MethodInfo_
-};
-
-$Object* allocate$XModifierKeymap($Class* clazz) {
-	return $of($alloc(XModifierKeymap));
-}
 
 int32_t XModifierKeymap::getSize() {
 	$init(XModifierKeymap);
@@ -98,7 +55,7 @@ void XModifierKeymap::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -146,7 +103,7 @@ $String* XModifierKeymap::getFieldsAsString() {
 }
 
 $Object* XModifierKeymap::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XModifierKeymap::zero() {
@@ -161,7 +118,42 @@ XModifierKeymap::XModifierKeymap() {
 }
 
 $Class* XModifierKeymap::load$($String* name, bool initialize) {
-	$loadClass(XModifierKeymap, name, initialize, &_XModifierKeymap_ClassInfo_, allocate$XModifierKeymap);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XModifierKeymap, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XModifierKeymap, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XModifierKeymap, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XModifierKeymap, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XModifierKeymap, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XModifierKeymap, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XModifierKeymap, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XModifierKeymap, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XModifierKeymap, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XModifierKeymap, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XModifierKeymap, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XModifierKeymap, getSize, int32_t)},
+		{"get_max_keypermod", "()I", nullptr, $PUBLIC, $virtualMethod(XModifierKeymap, get_max_keypermod, int32_t)},
+		{"get_modifiermap", "(I)J", nullptr, $PUBLIC, $virtualMethod(XModifierKeymap, get_modifiermap, int64_t, int32_t)},
+		{"get_modifiermap", "()J", nullptr, $PUBLIC, $virtualMethod(XModifierKeymap, get_modifiermap, int64_t)},
+		{"set_max_keypermod", "(I)V", nullptr, $PUBLIC, $virtualMethod(XModifierKeymap, set_max_keypermod, void, int32_t)},
+		{"set_modifiermap", "(J)V", nullptr, $PUBLIC, $virtualMethod(XModifierKeymap, set_modifiermap, void, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XModifierKeymap, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XModifierKeymap, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XModifierKeymap",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XModifierKeymap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XModifierKeymap);
+	});
 	return class$;
 }
 

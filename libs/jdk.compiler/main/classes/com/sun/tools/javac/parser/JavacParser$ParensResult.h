@@ -26,6 +26,7 @@ class $export JavacParser$ParensResult : public ::java::lang::Enum {
 public:
 	JavacParser$ParensResult();
 	static $Array<::com::sun::tools::javac::parser::JavacParser$ParensResult>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::parser::JavacParser$ParensResult* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::parser::JavacParser$ParensResult>* values();

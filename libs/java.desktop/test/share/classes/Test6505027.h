@@ -33,6 +33,7 @@ class $export Test6505027 : public ::java::lang::Object {
 	$class(Test6505027, 0, ::java::lang::Object)
 public:
 	Test6505027();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::JFrame* main);
 	static void main($StringArray* args);
 	virtual void press();

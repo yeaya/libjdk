@@ -1,10 +1,8 @@
 #include <com/sun/java/swing/plaf/windows/WindowsCheckBoxMenuItemUI$1.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
 #include <com/sun/java/swing/plaf/windows/WindowsCheckBoxMenuItemUI.h>
 #include <com/sun/java/swing/plaf/windows/WindowsMenuItemUI.h>
-#include <com/sun/java/swing/plaf/windows/WindowsMenuItemUIAccessor.h>
 #include <javax/swing/JMenuItem.h>
 #include <jcpp.h>
 
@@ -12,7 +10,6 @@ using $TMSchema$Part = ::com::sun::java::swing::plaf::windows::TMSchema$Part;
 using $TMSchema$State = ::com::sun::java::swing::plaf::windows::TMSchema$State;
 using $WindowsCheckBoxMenuItemUI = ::com::sun::java::swing::plaf::windows::WindowsCheckBoxMenuItemUI;
 using $WindowsMenuItemUI = ::com::sun::java::swing::plaf::windows::WindowsMenuItemUI;
-using $WindowsMenuItemUIAccessor = ::com::sun::java::swing::plaf::windows::WindowsMenuItemUIAccessor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -26,50 +23,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _WindowsCheckBoxMenuItemUI$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsCheckBoxMenuItemUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsCheckBoxMenuItemUI$1, this$0)},
-	{}
-};
-
-$MethodInfo _WindowsCheckBoxMenuItemUI$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsCheckBoxMenuItemUI;)V", nullptr, 0, $method(WindowsCheckBoxMenuItemUI$1, init$, void, $WindowsCheckBoxMenuItemUI*)},
-	{"getMenuItem", "()Ljavax/swing/JMenuItem;", nullptr, $PUBLIC, $virtualMethod(WindowsCheckBoxMenuItemUI$1, getMenuItem, $JMenuItem*)},
-	{"getPart", "(Ljavax/swing/JMenuItem;)Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC, $virtualMethod(WindowsCheckBoxMenuItemUI$1, getPart, $TMSchema$Part*, $JMenuItem*)},
-	{"getState", "(Ljavax/swing/JMenuItem;)Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC, $virtualMethod(WindowsCheckBoxMenuItemUI$1, getState, $TMSchema$State*, $JMenuItem*)},
-	{}
-};
-
-$EnclosingMethodInfo _WindowsCheckBoxMenuItemUI$1_EnclosingMethodInfo_ = {
-	"com.sun.java.swing.plaf.windows.WindowsCheckBoxMenuItemUI",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _WindowsCheckBoxMenuItemUI$1_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsCheckBoxMenuItemUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WindowsCheckBoxMenuItemUI$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsCheckBoxMenuItemUI$1",
-	"java.lang.Object",
-	"com.sun.java.swing.plaf.windows.WindowsMenuItemUIAccessor",
-	_WindowsCheckBoxMenuItemUI$1_FieldInfo_,
-	_WindowsCheckBoxMenuItemUI$1_MethodInfo_,
-	nullptr,
-	&_WindowsCheckBoxMenuItemUI$1_EnclosingMethodInfo_,
-	_WindowsCheckBoxMenuItemUI$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsCheckBoxMenuItemUI"
-};
-
-$Object* allocate$WindowsCheckBoxMenuItemUI$1($Class* clazz) {
-	return $of($alloc(WindowsCheckBoxMenuItemUI$1));
-}
 
 void WindowsCheckBoxMenuItemUI$1::init$($WindowsCheckBoxMenuItemUI* this$0) {
 	$set(this, this$0, this$0);
@@ -91,7 +44,44 @@ WindowsCheckBoxMenuItemUI$1::WindowsCheckBoxMenuItemUI$1() {
 }
 
 $Class* WindowsCheckBoxMenuItemUI$1::load$($String* name, bool initialize) {
-	$loadClass(WindowsCheckBoxMenuItemUI$1, name, initialize, &_WindowsCheckBoxMenuItemUI$1_ClassInfo_, allocate$WindowsCheckBoxMenuItemUI$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsCheckBoxMenuItemUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsCheckBoxMenuItemUI$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsCheckBoxMenuItemUI;)V", nullptr, 0, $method(WindowsCheckBoxMenuItemUI$1, init$, void, $WindowsCheckBoxMenuItemUI*)},
+		{"getMenuItem", "()Ljavax/swing/JMenuItem;", nullptr, $PUBLIC, $virtualMethod(WindowsCheckBoxMenuItemUI$1, getMenuItem, $JMenuItem*)},
+		{"getPart", "(Ljavax/swing/JMenuItem;)Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC, $virtualMethod(WindowsCheckBoxMenuItemUI$1, getPart, $TMSchema$Part*, $JMenuItem*)},
+		{"getState", "(Ljavax/swing/JMenuItem;)Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC, $virtualMethod(WindowsCheckBoxMenuItemUI$1, getState, $TMSchema$State*, $JMenuItem*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.java.swing.plaf.windows.WindowsCheckBoxMenuItemUI",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsCheckBoxMenuItemUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsCheckBoxMenuItemUI$1",
+		"java.lang.Object",
+		"com.sun.java.swing.plaf.windows.WindowsMenuItemUIAccessor",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsCheckBoxMenuItemUI"
+	};
+	$loadClass(WindowsCheckBoxMenuItemUI$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsCheckBoxMenuItemUI$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/java2d/metal/MTLTextureToSurfaceScale.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/AffineTransformOp.h>
@@ -34,25 +33,6 @@ namespace sun {
 	namespace java2d {
 		namespace metal {
 
-$MethodInfo _MTLTextureToSurfaceScale_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MTLTextureToSurfaceScale, init$, void)},
-	{"Scale", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIDDDD)V", nullptr, $PUBLIC, $virtualMethod(MTLTextureToSurfaceScale, Scale, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
-	{}
-};
-
-$ClassInfo _MTLTextureToSurfaceScale_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.metal.MTLTextureToSurfaceScale",
-	"sun.java2d.loops.ScaledBlit",
-	nullptr,
-	nullptr,
-	_MTLTextureToSurfaceScale_MethodInfo_
-};
-
-$Object* allocate$MTLTextureToSurfaceScale($Class* clazz) {
-	return $of($alloc(MTLTextureToSurfaceScale));
-}
-
 void MTLTextureToSurfaceScale::init$() {
 	$init($MTLSurfaceData);
 	$init($CompositeType);
@@ -67,7 +47,22 @@ MTLTextureToSurfaceScale::MTLTextureToSurfaceScale() {
 }
 
 $Class* MTLTextureToSurfaceScale::load$($String* name, bool initialize) {
-	$loadClass(MTLTextureToSurfaceScale, name, initialize, &_MTLTextureToSurfaceScale_ClassInfo_, allocate$MTLTextureToSurfaceScale);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MTLTextureToSurfaceScale, init$, void)},
+		{"Scale", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIDDDD)V", nullptr, $PUBLIC, $virtualMethod(MTLTextureToSurfaceScale, Scale, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.metal.MTLTextureToSurfaceScale",
+		"sun.java2d.loops.ScaledBlit",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MTLTextureToSurfaceScale, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MTLTextureToSurfaceScale);
+	});
 	return class$;
 }
 

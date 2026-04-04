@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet$Orientation.h>
-
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,36 +15,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _BaselineTIFFTagSet$Orientation_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$Orientation, init$, void)},
-	{}
-};
-
-$InnerClassInfo _BaselineTIFFTagSet$Orientation_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$Orientation", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "Orientation", $STATIC},
-	{}
-};
-
-$ClassInfo _BaselineTIFFTagSet$Orientation_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet$Orientation",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$Orientation_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$Orientation_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
-};
-
-$Object* allocate$BaselineTIFFTagSet$Orientation($Class* clazz) {
-	return $of($alloc(BaselineTIFFTagSet$Orientation));
-}
-
 void BaselineTIFFTagSet$Orientation::init$() {
 	$TIFFTag::init$("Orientation"_s, 274, $sl(1, $TIFFTag::TIFF_SHORT), 1);
 	addValueName(1, "Row 0=Top, Column 0=Left"_s);
@@ -61,7 +30,32 @@ BaselineTIFFTagSet$Orientation::BaselineTIFFTagSet$Orientation() {
 }
 
 $Class* BaselineTIFFTagSet$Orientation::load$($String* name, bool initialize) {
-	$loadClass(BaselineTIFFTagSet$Orientation, name, initialize, &_BaselineTIFFTagSet$Orientation_ClassInfo_, allocate$BaselineTIFFTagSet$Orientation);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$Orientation, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$Orientation", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "Orientation", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet$Orientation",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
+	};
+	$loadClass(BaselineTIFFTagSet$Orientation, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BaselineTIFFTagSet$Orientation);
+	});
 	return class$;
 }
 

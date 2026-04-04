@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/NimbusStyle$RuntimeState.h>
-
 #include <java/util/Map.h>
 #include <javax/swing/Painter.h>
 #include <javax/swing/UIDefaults.h>
@@ -11,7 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
 using $UIDefaults = ::javax::swing::UIDefaults;
 using $NimbusStyle = ::javax::swing::plaf::nimbus::NimbusStyle;
 
@@ -19,49 +17,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace nimbus {
-
-$FieldInfo _NimbusStyle$RuntimeState_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/nimbus/NimbusStyle;", nullptr, $FINAL | $SYNTHETIC, $field(NimbusStyle$RuntimeState, this$0)},
-	{"state", "I", nullptr, 0, $field(NimbusStyle$RuntimeState, state)},
-	{"backgroundPainter", "Ljavax/swing/Painter;", "Ljavax/swing/Painter<Ljava/lang/Object;>;", 0, $field(NimbusStyle$RuntimeState, backgroundPainter)},
-	{"foregroundPainter", "Ljavax/swing/Painter;", "Ljavax/swing/Painter<Ljava/lang/Object;>;", 0, $field(NimbusStyle$RuntimeState, foregroundPainter)},
-	{"borderPainter", "Ljavax/swing/Painter;", "Ljavax/swing/Painter<Ljava/lang/Object;>;", 0, $field(NimbusStyle$RuntimeState, borderPainter)},
-	{"stateName", "Ljava/lang/String;", nullptr, 0, $field(NimbusStyle$RuntimeState, stateName)},
-	{"defaults", "Ljavax/swing/UIDefaults;", nullptr, 0, $field(NimbusStyle$RuntimeState, defaults)},
-	{}
-};
-
-$MethodInfo _NimbusStyle$RuntimeState_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/nimbus/NimbusStyle;ILjava/lang/String;)V", nullptr, $PRIVATE, $method(NimbusStyle$RuntimeState, init$, void, $NimbusStyle*, int32_t, $String*)},
-	{"clone", "()Ljavax/swing/plaf/nimbus/NimbusStyle$RuntimeState;", nullptr, $PUBLIC, $virtualMethod(NimbusStyle$RuntimeState, clone, NimbusStyle$RuntimeState*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NimbusStyle$RuntimeState, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _NimbusStyle$RuntimeState_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.nimbus.NimbusStyle$RuntimeState", "javax.swing.plaf.nimbus.NimbusStyle", "RuntimeState", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _NimbusStyle$RuntimeState_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.NimbusStyle$RuntimeState",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_NimbusStyle$RuntimeState_FieldInfo_,
-	_NimbusStyle$RuntimeState_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NimbusStyle$RuntimeState_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.nimbus.NimbusStyle"
-};
-
-$Object* allocate$NimbusStyle$RuntimeState($Class* clazz) {
-	return $of($alloc(NimbusStyle$RuntimeState));
-}
 
 void NimbusStyle$RuntimeState::init$($NimbusStyle* this$0, int32_t state, $String* stateName) {
 	$set(this, this$0, this$0);
@@ -87,7 +42,44 @@ NimbusStyle$RuntimeState::NimbusStyle$RuntimeState() {
 }
 
 $Class* NimbusStyle$RuntimeState::load$($String* name, bool initialize) {
-	$loadClass(NimbusStyle$RuntimeState, name, initialize, &_NimbusStyle$RuntimeState_ClassInfo_, allocate$NimbusStyle$RuntimeState);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/nimbus/NimbusStyle;", nullptr, $FINAL | $SYNTHETIC, $field(NimbusStyle$RuntimeState, this$0)},
+		{"state", "I", nullptr, 0, $field(NimbusStyle$RuntimeState, state)},
+		{"backgroundPainter", "Ljavax/swing/Painter;", "Ljavax/swing/Painter<Ljava/lang/Object;>;", 0, $field(NimbusStyle$RuntimeState, backgroundPainter)},
+		{"foregroundPainter", "Ljavax/swing/Painter;", "Ljavax/swing/Painter<Ljava/lang/Object;>;", 0, $field(NimbusStyle$RuntimeState, foregroundPainter)},
+		{"borderPainter", "Ljavax/swing/Painter;", "Ljavax/swing/Painter<Ljava/lang/Object;>;", 0, $field(NimbusStyle$RuntimeState, borderPainter)},
+		{"stateName", "Ljava/lang/String;", nullptr, 0, $field(NimbusStyle$RuntimeState, stateName)},
+		{"defaults", "Ljavax/swing/UIDefaults;", nullptr, 0, $field(NimbusStyle$RuntimeState, defaults)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/nimbus/NimbusStyle;ILjava/lang/String;)V", nullptr, $PRIVATE, $method(NimbusStyle$RuntimeState, init$, void, $NimbusStyle*, int32_t, $String*)},
+		{"clone", "()Ljavax/swing/plaf/nimbus/NimbusStyle$RuntimeState;", nullptr, $PUBLIC, $virtualMethod(NimbusStyle$RuntimeState, clone, NimbusStyle$RuntimeState*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NimbusStyle$RuntimeState, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.nimbus.NimbusStyle$RuntimeState", "javax.swing.plaf.nimbus.NimbusStyle", "RuntimeState", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.NimbusStyle$RuntimeState",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.nimbus.NimbusStyle"
+	};
+	$loadClass(NimbusStyle$RuntimeState, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NimbusStyle$RuntimeState);
+	});
 	return class$;
 }
 

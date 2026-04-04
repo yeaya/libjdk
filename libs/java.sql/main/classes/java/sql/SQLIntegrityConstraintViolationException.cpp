@@ -1,5 +1,4 @@
 #include <java/sql/SQLIntegrityConstraintViolationException.h>
-
 #include <java/sql/SQLNonTransientException.h>
 #include <jcpp.h>
 
@@ -10,36 +9,6 @@ using $SQLNonTransientException = ::java::sql::SQLNonTransientException;
 
 namespace java {
 	namespace sql {
-
-$FieldInfo _SQLIntegrityConstraintViolationException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SQLIntegrityConstraintViolationException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SQLIntegrityConstraintViolationException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SQLIntegrityConstraintViolationException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLIntegrityConstraintViolationException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLIntegrityConstraintViolationException, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(SQLIntegrityConstraintViolationException, init$, void, $String*, $String*, int32_t)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLIntegrityConstraintViolationException, init$, void, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLIntegrityConstraintViolationException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLIntegrityConstraintViolationException, init$, void, $String*, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLIntegrityConstraintViolationException, init$, void, $String*, $String*, int32_t, $Throwable*)},
-	{}
-};
-
-$ClassInfo _SQLIntegrityConstraintViolationException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.sql.SQLIntegrityConstraintViolationException",
-	"java.sql.SQLNonTransientException",
-	nullptr,
-	_SQLIntegrityConstraintViolationException_FieldInfo_,
-	_SQLIntegrityConstraintViolationException_MethodInfo_
-};
-
-$Object* allocate$SQLIntegrityConstraintViolationException($Class* clazz) {
-	return $of($alloc(SQLIntegrityConstraintViolationException));
-}
 
 void SQLIntegrityConstraintViolationException::init$() {
 	$SQLNonTransientException::init$();
@@ -84,7 +53,32 @@ void SQLIntegrityConstraintViolationException::throw$() {
 }
 
 $Class* SQLIntegrityConstraintViolationException::load$($String* name, bool initialize) {
-	$loadClass(SQLIntegrityConstraintViolationException, name, initialize, &_SQLIntegrityConstraintViolationException_ClassInfo_, allocate$SQLIntegrityConstraintViolationException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SQLIntegrityConstraintViolationException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SQLIntegrityConstraintViolationException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLIntegrityConstraintViolationException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLIntegrityConstraintViolationException, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(SQLIntegrityConstraintViolationException, init$, void, $String*, $String*, int32_t)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLIntegrityConstraintViolationException, init$, void, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLIntegrityConstraintViolationException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLIntegrityConstraintViolationException, init$, void, $String*, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLIntegrityConstraintViolationException, init$, void, $String*, $String*, int32_t, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.sql.SQLIntegrityConstraintViolationException",
+		"java.sql.SQLNonTransientException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SQLIntegrityConstraintViolationException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SQLIntegrityConstraintViolationException));
+	});
 	return class$;
 }
 

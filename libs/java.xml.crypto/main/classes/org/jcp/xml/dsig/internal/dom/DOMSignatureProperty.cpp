@@ -1,8 +1,6 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMSignatureProperty.h>
-
 #include <java/lang/ClassCastException.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -29,7 +27,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
@@ -53,42 +50,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$FieldInfo _DOMSignatureProperty_FieldInfo_[] = {
-	{"id", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DOMSignatureProperty, id)},
-	{"target", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DOMSignatureProperty, target)},
-	{"content", "Ljava/util/List;", "Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PRIVATE | $FINAL, $field(DOMSignatureProperty, content)},
-	{}
-};
-
-$MethodInfo _DOMSignatureProperty_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/util/List<+Ljavax/xml/crypto/XMLStructure;>;Ljava/lang/String;Ljava/lang/String;)V", $PUBLIC, $method(DOMSignatureProperty, init$, void, $List*, $String*, $String*)},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $method(DOMSignatureProperty, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMSignatureProperty, equals, bool, Object$*)},
-	{"getContent", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PUBLIC, $virtualMethod(DOMSignatureProperty, getContent, $List*)},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMSignatureProperty, getId, $String*)},
-	{"getTarget", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMSignatureProperty, getTarget, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMSignatureProperty, hashCode, int32_t)},
-	{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
-	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMSignatureProperty, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DOMSignatureProperty_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMSignatureProperty",
-	"org.jcp.xml.dsig.internal.dom.DOMStructure",
-	"javax.xml.crypto.dsig.SignatureProperty",
-	_DOMSignatureProperty_FieldInfo_,
-	_DOMSignatureProperty_MethodInfo_
-};
-
-$Object* allocate$DOMSignatureProperty($Class* clazz) {
-	return $of($alloc(DOMSignatureProperty));
-}
-
 bool DOMSignatureProperty::isFeatureSupported($String* feature) {
 	 return this->$DOMStructure::isFeatureSupported(feature);
 }
@@ -106,23 +67,19 @@ void DOMSignatureProperty::finalize() {
 }
 
 void DOMSignatureProperty::init$($List* content, $String* target, $String* id) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DOMStructure::init$();
 	if (target == nullptr) {
 		$throwNew($NullPointerException, "target cannot be null"_s);
 	} else if (content == nullptr) {
 		$throwNew($NullPointerException, "content cannot be null"_s);
-	} else if ($nc(content)->isEmpty()) {
+	} else if (content->isEmpty()) {
 		$throwNew($IllegalArgumentException, "content cannot be empty"_s);
 	} else {
-		$set(this, content, $Collections::unmodifiableList($$new($ArrayList, static_cast<$Collection*>(content))));
-		{
-			int32_t i = 0;
-			int32_t size = $nc(this->content)->size();
-			for (; i < size; ++i) {
-				if (!($instanceOf($XMLStructure, $($nc(this->content)->get(i))))) {
-					$throwNew($ClassCastException, $$str({"content["_s, $$str(i), "] is not a valid type"_s}));
-				}
+		$set(this, content, $Collections::unmodifiableList($$new($ArrayList, content)));
+		for (int32_t i = 0, size = $nc(this->content)->size(); i < size; ++i) {
+			if (!($instanceOf($XMLStructure, $(this->content->get(i))))) {
+				$throwNew($ClassCastException, $$str({"content["_s, $$str(i), "] is not a valid type"_s}));
 			}
 		}
 	}
@@ -131,7 +88,7 @@ void DOMSignatureProperty::init$($List* content, $String* target, $String* id) {
 }
 
 void DOMSignatureProperty::init$($Element* propElem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DOMStructure::init$();
 	$set(this, target, $DOMUtils::getAttributeValue(propElem, "Target"_s));
 	if (this->target == nullptr) {
@@ -170,7 +127,7 @@ $String* DOMSignatureProperty::getTarget() {
 }
 
 void DOMSignatureProperty::marshal($Node* parent, $String* dsPrefix, $DOMCryptoContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, ownerDoc, $DOMUtils::getOwnerDocument(parent));
 	$init($XMLSignature);
 	$var($Element, propElem, $DOMUtils::createElement(ownerDoc, "SignatureProperty"_s, $XMLSignature::XMLNS, dsPrefix));
@@ -181,7 +138,7 @@ void DOMSignatureProperty::marshal($Node* parent, $String* dsPrefix, $DOMCryptoC
 		for (; $nc(i$)->hasNext();) {
 			$var($XMLStructure, property, $cast($XMLStructure, i$->next()));
 			{
-				$DOMUtils::appendChild(propElem, $($nc(($cast($1DOMStructure, property)))->getNode()));
+				$DOMUtils::appendChild(propElem, $($nc($cast($1DOMStructure, property))->getNode()));
 			}
 		}
 	}
@@ -189,7 +146,7 @@ void DOMSignatureProperty::marshal($Node* parent, $String* dsPrefix, $DOMCryptoC
 }
 
 bool DOMSignatureProperty::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, o)) {
 		return true;
 	}
@@ -197,8 +154,8 @@ bool DOMSignatureProperty::equals(Object$* o) {
 		return false;
 	}
 	$var($SignatureProperty, osp, $cast($SignatureProperty, o));
-	bool idsEqual = this->id == nullptr ? $nc(osp)->getId() == nullptr : $nc(this->id)->equals($(osp->getId()));
-	$var($List, ospContent, osp->getContent());
+	bool idsEqual = this->id == nullptr ? $nc(osp)->getId() == nullptr : this->id->equals($($nc(osp)->getId()));
+	$var($List, ospContent, $nc(osp)->getContent());
 	bool var$0 = equalsContent(this->content, ospContent);
 	return var$0 && $nc(this->target)->equals($(osp->getTarget())) && idsEqual;
 }
@@ -206,7 +163,7 @@ bool DOMSignatureProperty::equals(Object$* o) {
 int32_t DOMSignatureProperty::hashCode() {
 	int32_t result = 17;
 	if (this->id != nullptr) {
-		result = 31 * result + $nc(this->id)->hashCode();
+		result = 31 * result + this->id->hashCode();
 	}
 	result = 31 * result + $nc(this->target)->hashCode();
 	result = 31 * result + $nc(this->content)->hashCode();
@@ -217,7 +174,38 @@ DOMSignatureProperty::DOMSignatureProperty() {
 }
 
 $Class* DOMSignatureProperty::load$($String* name, bool initialize) {
-	$loadClass(DOMSignatureProperty, name, initialize, &_DOMSignatureProperty_ClassInfo_, allocate$DOMSignatureProperty);
+	$FieldInfo fieldInfos$$[] = {
+		{"id", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DOMSignatureProperty, id)},
+		{"target", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DOMSignatureProperty, target)},
+		{"content", "Ljava/util/List;", "Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PRIVATE | $FINAL, $field(DOMSignatureProperty, content)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/util/List<+Ljavax/xml/crypto/XMLStructure;>;Ljava/lang/String;Ljava/lang/String;)V", $PUBLIC, $method(DOMSignatureProperty, init$, void, $List*, $String*, $String*)},
+		{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $method(DOMSignatureProperty, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMSignatureProperty, equals, bool, Object$*)},
+		{"getContent", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PUBLIC, $virtualMethod(DOMSignatureProperty, getContent, $List*)},
+		{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMSignatureProperty, getId, $String*)},
+		{"getTarget", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMSignatureProperty, getTarget, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMSignatureProperty, hashCode, int32_t)},
+		{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
+		{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMSignatureProperty, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMSignatureProperty",
+		"org.jcp.xml.dsig.internal.dom.DOMStructure",
+		"javax.xml.crypto.dsig.SignatureProperty",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMSignatureProperty, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMSignatureProperty));
+	});
 	return class$;
 }
 

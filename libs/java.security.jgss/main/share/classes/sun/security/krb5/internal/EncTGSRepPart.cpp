@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/EncTGSRepPart.h>
-
 #include <sun/security/krb5/EncryptionKey.h>
 #include <sun/security/krb5/PrincipalName.h>
 #include <sun/security/krb5/internal/EncKDCRepPart.h>
@@ -32,28 +31,6 @@ namespace sun {
 		namespace krb5 {
 			namespace internal {
 
-$MethodInfo _EncTGSRepPart_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/internal/LastReq;ILsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/TicketFlags;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/HostAddresses;[Lsun/security/krb5/internal/PAData;)V", nullptr, $PUBLIC, $method(EncTGSRepPart, init$, void, $EncryptionKey*, $LastReq*, int32_t, $KerberosTime*, $TicketFlags*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $PrincipalName*, $HostAddresses*, $PADataArray*)},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(EncTGSRepPart, init$, void, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.KrbException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(EncTGSRepPart, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.KrbException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(EncTGSRepPart, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(EncTGSRepPart, init, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.KrbException"},
-	{}
-};
-
-$ClassInfo _EncTGSRepPart_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.EncTGSRepPart",
-	"sun.security.krb5.internal.EncKDCRepPart",
-	nullptr,
-	nullptr,
-	_EncTGSRepPart_MethodInfo_
-};
-
-$Object* allocate$EncTGSRepPart($Class* clazz) {
-	return $of($alloc(EncTGSRepPart));
-}
-
 void EncTGSRepPart::init$($EncryptionKey* new_key, $LastReq* new_lastReq, int32_t new_nonce, $KerberosTime* new_keyExpiration, $TicketFlags* new_flags, $KerberosTime* new_authtime, $KerberosTime* new_starttime, $KerberosTime* new_endtime, $KerberosTime* new_renewTill, $PrincipalName* new_sname, $HostAddresses* new_caddr, $PADataArray* new_pAData) {
 	$EncKDCRepPart::init$(new_key, new_lastReq, new_nonce, new_keyExpiration, new_flags, new_authtime, new_starttime, new_endtime, new_renewTill, new_sname, new_caddr, new_pAData, $Krb5::KRB_ENC_TGS_REP_PART);
 }
@@ -80,7 +57,25 @@ EncTGSRepPart::EncTGSRepPart() {
 }
 
 $Class* EncTGSRepPart::load$($String* name, bool initialize) {
-	$loadClass(EncTGSRepPart, name, initialize, &_EncTGSRepPart_ClassInfo_, allocate$EncTGSRepPart);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/internal/LastReq;ILsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/TicketFlags;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/HostAddresses;[Lsun/security/krb5/internal/PAData;)V", nullptr, $PUBLIC, $method(EncTGSRepPart, init$, void, $EncryptionKey*, $LastReq*, int32_t, $KerberosTime*, $TicketFlags*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $PrincipalName*, $HostAddresses*, $PADataArray*)},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(EncTGSRepPart, init$, void, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.KrbException"},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(EncTGSRepPart, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.KrbException"},
+		{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(EncTGSRepPart, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(EncTGSRepPart, init, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.KrbException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.EncTGSRepPart",
+		"sun.security.krb5.internal.EncKDCRepPart",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(EncTGSRepPart, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EncTGSRepPart);
+	});
 	return class$;
 }
 

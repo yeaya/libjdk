@@ -1,5 +1,4 @@
 #include <sun/awt/X11InputMethodBase.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTException.h>
 #include <java/awt/Component.h>
@@ -66,7 +65,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $StringBuffer = ::java::lang::StringBuffer;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
@@ -82,123 +80,6 @@ using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
-
-$FieldInfo _X11InputMethodBase_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(X11InputMethodBase, log)},
-	{"XIMReverse", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11InputMethodBase, XIMReverse)},
-	{"XIMUnderline", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11InputMethodBase, XIMUnderline)},
-	{"XIMHighlight", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11InputMethodBase, XIMHighlight)},
-	{"XIMPrimary", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11InputMethodBase, XIMPrimary)},
-	{"XIMSecondary", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11InputMethodBase, XIMSecondary)},
-	{"XIMTertiary", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11InputMethodBase, XIMTertiary)},
-	{"XIMVisibleToForward", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(X11InputMethodBase, XIMVisibleToForward)},
-	{"XIMVisibleToBackward", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(X11InputMethodBase, XIMVisibleToBackward)},
-	{"XIMVisibleCenter", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(X11InputMethodBase, XIMVisibleCenter)},
-	{"XIMVisibleMask", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(X11InputMethodBase, XIMVisibleMask)},
-	{"locale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(X11InputMethodBase, locale)},
-	{"isXIMOpened", "Z", nullptr, $PRIVATE | $STATIC, $staticField(X11InputMethodBase, isXIMOpened)},
-	{"clientComponentWindow", "Ljava/awt/Container;", nullptr, $PROTECTED, $field(X11InputMethodBase, clientComponentWindow)},
-	{"awtFocussedComponent", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(X11InputMethodBase, awtFocussedComponent)},
-	{"lastXICFocussedComponent", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(X11InputMethodBase, lastXICFocussedComponent)},
-	{"isLastXICActive", "Z", nullptr, $PROTECTED, $field(X11InputMethodBase, isLastXICActive)},
-	{"isLastTemporary", "Z", nullptr, $PROTECTED, $field(X11InputMethodBase, isLastTemporary)},
-	{"isActive", "Z", nullptr, $PROTECTED, $field(X11InputMethodBase, isActive)},
-	{"highlightStyles", "[Ljava/util/Map;", "[Ljava/util/Map<Ljava/awt/font/TextAttribute;*>;", $PRIVATE | $STATIC, $staticField(X11InputMethodBase, highlightStyles)},
-	{"disposed", "Z", nullptr, $PROTECTED, $field(X11InputMethodBase, disposed)},
-	{"needResetXIC", "Z", nullptr, $PROTECTED, $field(X11InputMethodBase, needResetXIC)},
-	{"needResetXICClient", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/Component;>;", $PRIVATE, $field(X11InputMethodBase, needResetXICClient)},
-	{"compositionEnableSupported", "Z", nullptr, $PROTECTED, $field(X11InputMethodBase, compositionEnableSupported)},
-	{"savedCompositionState", "Z", nullptr, $PROTECTED, $field(X11InputMethodBase, savedCompositionState)},
-	{"committedText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(X11InputMethodBase, committedText)},
-	{"composedText", "Ljava/lang/StringBuffer;", nullptr, $PROTECTED, $field(X11InputMethodBase, composedText)},
-	{"rawFeedbacks", "Lsun/awt/X11InputMethodBase$IntBuffer;", nullptr, $PROTECTED, $field(X11InputMethodBase, rawFeedbacks)},
-	{"pData", "J", nullptr, $PROTECTED | $TRANSIENT, $field(X11InputMethodBase, pData)},
-	{"INITIAL_SIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(X11InputMethodBase, INITIAL_SIZE)},
-	{}
-};
-
-$MethodInfo _X11InputMethodBase_MethodInfo_[] = {
-	{"activate", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"deactivate", "(Z)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"hideWindows", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(X11InputMethodBase, init$, void), "java.awt.AWTException"},
-	{"awtLock", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(X11InputMethodBase, awtLock, void)},
-	{"awtUnlock", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(X11InputMethodBase, awtUnlock, void)},
-	{"convertVisualFeedbackToHighlight", "(I)Ljava/awt/im/InputMethodHighlight;", nullptr, $PROTECTED, $virtualMethod(X11InputMethodBase, convertVisualFeedbackToHighlight, $InputMethodHighlight*, int32_t)},
-	{"createXIC", "()Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(X11InputMethodBase, createXIC, bool)},
-	{"disableInputMethod", "()V", nullptr, $PUBLIC, $virtualMethod(X11InputMethodBase, disableInputMethod, void)},
-	{"dispatchCommittedText", "(Ljava/lang/String;J)V", nullptr, 0, $virtualMethod(X11InputMethodBase, dispatchCommittedText, void, $String*, int64_t)},
-	{"dispatchCommittedText", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(X11InputMethodBase, dispatchCommittedText, void, $String*)},
-	{"dispatchComposedText", "(Ljava/lang/String;[IIIIJ)V", nullptr, $ABSTRACT, $virtualMethod(X11InputMethodBase, dispatchComposedText, void, $String*, $ints*, int32_t, int32_t, int32_t, int64_t)},
-	{"dispatchEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(X11InputMethodBase, dispatchEvent, void, $AWTEvent*)},
-	{"dispose", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(X11InputMethodBase, dispose, void)},
-	{"disposeImpl", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(X11InputMethodBase, disposeImpl, void)},
-	{"disposeXIC", "()V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(X11InputMethodBase, disposeXIC, void)},
-	{"endComposition", "()V", nullptr, $PUBLIC, $virtualMethod(X11InputMethodBase, endComposition, void)},
-	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(X11InputMethodBase, finalize, void), "java.lang.Throwable"},
-	{"flushText", "()V", nullptr, 0, $virtualMethod(X11InputMethodBase, flushText, void)},
-	{"getClientComponentWindow", "()Ljava/awt/Window;", nullptr, $PROTECTED, $virtualMethod(X11InputMethodBase, getClientComponentWindow, $Window*)},
-	{"getCompositionState", "()Z", nullptr, $PROTECTED, $virtualMethod(X11InputMethodBase, getCompositionState, bool)},
-	{"getControlObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(X11InputMethodBase, getControlObject, $Object*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(X11InputMethodBase, getLocale, $Locale*)},
-	{"getNativeInputMethodInfo", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X11InputMethodBase, getNativeInputMethodInfo, $String*)},
-	{"getParent", "(Ljava/awt/Component;)Ljava/awt/Container;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(X11InputMethodBase, getParent, $Container*, $Component*)},
-	{"getPeer", "(Ljava/awt/Component;)Ljava/awt/peer/ComponentPeer;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(X11InputMethodBase, getPeer, $ComponentPeer*, $Component*)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11InputMethodBase, initIDs, void)},
-	{"initXIM", "()Z", nullptr, $PRIVATE | $SYNCHRONIZED, $method(X11InputMethodBase, initXIM, bool)},
-	{"isCompositionEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(X11InputMethodBase, isCompositionEnabled, bool)},
-	{"isCompositionEnabledNative", "()Z", nullptr, $PRIVATE | $NATIVE, $method(X11InputMethodBase, isCompositionEnabledNative, bool)},
-	{"isDisposed", "()Z", nullptr, $PROTECTED, $virtualMethod(X11InputMethodBase, isDisposed, bool)},
-	{"mapInputMethodHighlight", "(Ljava/awt/im/InputMethodHighlight;)Ljava/util/Map;", "(Ljava/awt/im/InputMethodHighlight;)Ljava/util/Map<Ljava/awt/font/TextAttribute;*>;", $PUBLIC | $STATIC, $staticMethod(X11InputMethodBase, mapInputMethodHighlight, $Map*, $InputMethodHighlight*)},
-	{"openXIM", "()Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(X11InputMethodBase, openXIM, bool)},
-	{"postInputMethodEvent", "(ILjava/text/AttributedCharacterIterator;ILjava/awt/font/TextHitInfo;Ljava/awt/font/TextHitInfo;J)V", nullptr, $PROTECTED, $virtualMethod(X11InputMethodBase, postInputMethodEvent, void, int32_t, $AttributedCharacterIterator*, int32_t, $TextHitInfo*, $TextHitInfo*, int64_t)},
-	{"postInputMethodEvent", "(ILjava/text/AttributedCharacterIterator;ILjava/awt/font/TextHitInfo;Ljava/awt/font/TextHitInfo;)V", nullptr, $PRIVATE, $method(X11InputMethodBase, postInputMethodEvent, void, int32_t, $AttributedCharacterIterator*, int32_t, $TextHitInfo*, $TextHitInfo*)},
-	{"removeNotify", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X11InputMethodBase, removeNotify, void)},
-	{"resetCompositionState", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(X11InputMethodBase, resetCompositionState, void)},
-	{"resetXIC", "()Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(X11InputMethodBase, resetXIC, $String*)},
-	{"resetXICifneeded", "()V", nullptr, $PROTECTED | $FINAL, $method(X11InputMethodBase, resetXICifneeded, void)},
-	{"setAWTFocussedComponent", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(X11InputMethodBase, setAWTFocussedComponent, void, $Component*)},
-	{"setCharacterSubsets", "([Ljava/lang/Character$Subset;)V", nullptr, $PUBLIC, $virtualMethod(X11InputMethodBase, setCharacterSubsets, void, $Character$SubsetArray*)},
-	{"setCompositionEnabled", "(Z)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"setCompositionEnabledNative", "(Z)Z", nullptr, $PROTECTED | $NATIVE, $virtualMethod(X11InputMethodBase, setCompositionEnabledNative, bool, bool)},
-	{"setInputMethodContext", "(Ljava/awt/im/spi/InputMethodContext;)V", nullptr, $PUBLIC, $virtualMethod(X11InputMethodBase, setInputMethodContext, void, $InputMethodContext*)},
-	{"setLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(X11InputMethodBase, setLocale, bool, $Locale*)},
-	{"setXICFocus", "(Ljava/awt/peer/ComponentPeer;ZZ)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(X11InputMethodBase, setXICFocus, void, $ComponentPeer*, bool, bool)},
-	{"stopListening", "()V", nullptr, $PROTECTED, $virtualMethod(X11InputMethodBase, stopListening, void)},
-	{"turnoffStatusWindow", "()V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(X11InputMethodBase, turnoffStatusWindow, void)},
-	{}
-};
-
-#define _METHOD_INDEX_disposeXIC 15
-#define _METHOD_INDEX_initIDs 26
-#define _METHOD_INDEX_isCompositionEnabledNative 29
-#define _METHOD_INDEX_resetXIC 37
-#define _METHOD_INDEX_setCompositionEnabledNative 42
-#define _METHOD_INDEX_turnoffStatusWindow 47
-
-$InnerClassInfo _X11InputMethodBase_InnerClassesInfo_[] = {
-	{"sun.awt.X11InputMethodBase$IntBuffer", "sun.awt.X11InputMethodBase", "IntBuffer", $PROTECTED | $FINAL},
-	{}
-};
-
-$ClassInfo _X11InputMethodBase_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.awt.X11InputMethodBase",
-	"sun.awt.im.InputMethodAdapter",
-	nullptr,
-	_X11InputMethodBase_FieldInfo_,
-	_X11InputMethodBase_MethodInfo_,
-	nullptr,
-	nullptr,
-	_X11InputMethodBase_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11InputMethodBase$IntBuffer"
-};
-
-$Object* allocate$X11InputMethodBase($Class* clazz) {
-	return $of($alloc(X11InputMethodBase));
-}
 
 $PlatformLogger* X11InputMethodBase::log = nullptr;
 bool X11InputMethodBase::isXIMOpened = false;
@@ -252,10 +133,10 @@ bool X11InputMethodBase::setLocale($Locale* lang) {
 		return true;
 	}
 	bool var$1 = $nc(this->locale)->equals($Locale::JAPAN);
-	bool var$0 = var$1 && $nc(lang)->equals($Locale::JAPANESE);
+	bool var$0 = var$1 && lang->equals($Locale::JAPANESE);
 	if (!var$0) {
-		bool var$2 = $nc(this->locale)->equals($Locale::KOREA);
-		var$0 = var$2 && $nc(lang)->equals($Locale::KOREAN);
+		bool var$2 = this->locale->equals($Locale::KOREA);
+		var$0 = var$2 && lang->equals($Locale::KOREAN);
 	}
 	if (var$0) {
 		return true;
@@ -328,7 +209,7 @@ $Map* X11InputMethodBase::mapInputMethodHighlight($InputMethodHighlight* highlig
 }
 
 void X11InputMethodBase::setAWTFocussedComponent($Component* component) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (component == nullptr) {
 		return;
 	}
@@ -351,7 +232,7 @@ void X11InputMethodBase::stopListening() {
 }
 
 $Window* X11InputMethodBase::getClientComponentWindow() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, client, getClientComponent());
 	$var($Container, container, nullptr);
 	if ($instanceOf($Container, client)) {
@@ -366,11 +247,11 @@ $Window* X11InputMethodBase::getClientComponentWindow() {
 }
 
 void X11InputMethodBase::postInputMethodEvent(int32_t id, $AttributedCharacterIterator* text, int32_t committedCharacterCount, $TextHitInfo* caret, $TextHitInfo* visiblePosition, int64_t when) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, source, getClientComponent());
 	if (source != nullptr) {
 		$var($InputMethodEvent, event, $new($InputMethodEvent, source, id, when, text, committedCharacterCount, caret, visiblePosition));
-		$SunToolkit::postEvent($($SunToolkit::targetToAppContext(source)), static_cast<$AWTEvent*>(event));
+		$SunToolkit::postEvent($($SunToolkit::targetToAppContext(source)), $cast($AWTEvent, event));
 	}
 }
 
@@ -379,7 +260,7 @@ void X11InputMethodBase::postInputMethodEvent(int32_t id, $AttributedCharacterIt
 }
 
 void X11InputMethodBase::dispatchCommittedText($String* str, int64_t when) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (str == nullptr) {
 		return;
 	}
@@ -397,10 +278,10 @@ void X11InputMethodBase::dispatchCommittedText($String* str) {
 }
 
 void X11InputMethodBase::flushText() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, flush, this->committedText != nullptr ? this->committedText : ""_s);
 	if (this->composedText != nullptr) {
-		$plusAssign(flush, $($nc(this->composedText)->toString()));
+		$plusAssign(flush, $(this->composedText->toString()));
 	}
 	if (!$nc(flush)->isEmpty()) {
 		$var($AttributedString, attrstr, $new($AttributedString, flush));
@@ -427,7 +308,7 @@ void X11InputMethodBase::dispose() {
 }
 
 $Object* X11InputMethodBase::getControlObject() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 void X11InputMethodBase::removeNotify() {
@@ -441,7 +322,7 @@ bool X11InputMethodBase::isCompositionEnabled() {
 }
 
 void X11InputMethodBase::endComposition() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->disposed) {
 		return;
 	}
@@ -457,22 +338,20 @@ void X11InputMethodBase::endComposition() {
 		this->needResetXIC = false;
 	}
 	awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$set(this, composedText, nullptr);
-			postInputMethodEvent($InputMethodEvent::INPUT_METHOD_TEXT_CHANGED, nullptr, 0, nullptr, nullptr);
-			if (text != nullptr && text->length() > 0) {
-				dispatchCommittedText(text);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			awtUnlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$set(this, composedText, nullptr);
+		postInputMethodEvent($InputMethodEvent::INPUT_METHOD_TEXT_CHANGED, nullptr, 0, nullptr, nullptr);
+		if (text != nullptr && text->length() > 0) {
+			dispatchCommittedText(text);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	if (this->savedCompositionState) {
 		resetCompositionState();
@@ -480,7 +359,7 @@ void X11InputMethodBase::endComposition() {
 }
 
 $String* X11InputMethodBase::getNativeInputMethodInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, xmodifiers, $System::getenv("XMODIFIERS"_s));
 	$var($String, imInfo, nullptr);
 	if (xmodifiers != nullptr) {
@@ -496,98 +375,80 @@ $InputMethodHighlight* X11InputMethodBase::convertVisualFeedbackToHighlight(int3
 	$var($InputMethodHighlight, highlight, nullptr);
 	switch (feedback) {
 	case X11InputMethodBase::XIMUnderline:
-		{
-			$init($InputMethodHighlight);
-			$assign(highlight, $InputMethodHighlight::UNSELECTED_CONVERTED_TEXT_HIGHLIGHT);
-			break;
-		}
+		$init($InputMethodHighlight);
+		$assign(highlight, $InputMethodHighlight::UNSELECTED_CONVERTED_TEXT_HIGHLIGHT);
+		break;
 	case X11InputMethodBase::XIMReverse:
-		{
-			$init($InputMethodHighlight);
-			$assign(highlight, $InputMethodHighlight::SELECTED_CONVERTED_TEXT_HIGHLIGHT);
-			break;
-		}
+		$init($InputMethodHighlight);
+		$assign(highlight, $InputMethodHighlight::SELECTED_CONVERTED_TEXT_HIGHLIGHT);
+		break;
 	case X11InputMethodBase::XIMHighlight:
-		{
-			$init($InputMethodHighlight);
-			$assign(highlight, $InputMethodHighlight::SELECTED_RAW_TEXT_HIGHLIGHT);
-			break;
-		}
+		$init($InputMethodHighlight);
+		$assign(highlight, $InputMethodHighlight::SELECTED_RAW_TEXT_HIGHLIGHT);
+		break;
 	case 0:
-		{}
 	case X11InputMethodBase::XIMPrimary:
-		{
-			$init($InputMethodHighlight);
-			$assign(highlight, $InputMethodHighlight::UNSELECTED_CONVERTED_TEXT_HIGHLIGHT);
-			break;
-		}
+		$init($InputMethodHighlight);
+		$assign(highlight, $InputMethodHighlight::UNSELECTED_CONVERTED_TEXT_HIGHLIGHT);
+		break;
 	case X11InputMethodBase::XIMSecondary:
-		{
-			$init($InputMethodHighlight);
-			$assign(highlight, $InputMethodHighlight::SELECTED_CONVERTED_TEXT_HIGHLIGHT);
-			break;
-		}
+		$init($InputMethodHighlight);
+		$assign(highlight, $InputMethodHighlight::SELECTED_CONVERTED_TEXT_HIGHLIGHT);
+		break;
 	case X11InputMethodBase::XIMTertiary:
-		{
-			$init($InputMethodHighlight);
-			$assign(highlight, $InputMethodHighlight::SELECTED_RAW_TEXT_HIGHLIGHT);
-			break;
-		}
+		$init($InputMethodHighlight);
+		$assign(highlight, $InputMethodHighlight::SELECTED_RAW_TEXT_HIGHLIGHT);
+		break;
 	default:
-		{
-			$init($InputMethodHighlight);
-			$assign(highlight, $InputMethodHighlight::SELECTED_RAW_TEXT_HIGHLIGHT);
-			break;
-		}
+		$init($InputMethodHighlight);
+		$assign(highlight, $InputMethodHighlight::SELECTED_RAW_TEXT_HIGHLIGHT);
+		break;
 	}
 	return highlight;
 }
 
 void X11InputMethodBase::initIDs() {
 	$init(X11InputMethodBase);
-	$prepareNativeStatic(X11InputMethodBase, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void X11InputMethodBase::turnoffStatusWindow() {
-	$prepareNative(X11InputMethodBase, turnoffStatusWindow, void);
+	$prepareNative(turnoffStatusWindow, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void X11InputMethodBase::disposeXIC() {
-	$prepareNative(X11InputMethodBase, disposeXIC, void);
+	$prepareNative(disposeXIC, void);
 	$invokeNative();
 	$finishNative();
 }
 
 $String* X11InputMethodBase::resetXIC() {
-	$var($String, $ret, nullptr);
-	$prepareNative(X11InputMethodBase, resetXIC, $String*);
-	$assign($ret, $invokeNativeObject());
+	$prepareNative(resetXIC, $String*);
+	$var($String, $ret, $invokeNativeObject());
 	$finishNative();
 	return $ret;
 }
 
 bool X11InputMethodBase::setCompositionEnabledNative(bool enable) {
-	bool $ret = false;
-	$prepareNative(X11InputMethodBase, setCompositionEnabledNative, bool, bool enable);
-	$ret = $invokeNative(enable);
+	$prepareNative(setCompositionEnabledNative, bool, bool enable);
+	bool $ret = $invokeNative(enable);
 	$finishNative();
 	return $ret;
 }
 
 bool X11InputMethodBase::isCompositionEnabledNative() {
-	bool $ret = false;
-	$prepareNative(X11InputMethodBase, isCompositionEnabledNative, bool);
-	$ret = $invokeNative();
+	$prepareNative(isCompositionEnabledNative, bool);
+	bool $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
-void clinit$X11InputMethodBase($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void X11InputMethodBase::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(X11InputMethodBase::log, $PlatformLogger::getLogger("sun.awt.X11InputMethod"_s));
 	X11InputMethodBase::isXIMOpened = false;
 	{
@@ -617,7 +478,111 @@ X11InputMethodBase::X11InputMethodBase() {
 }
 
 $Class* X11InputMethodBase::load$($String* name, bool initialize) {
-	$loadClass(X11InputMethodBase, name, initialize, &_X11InputMethodBase_ClassInfo_, clinit$X11InputMethodBase, allocate$X11InputMethodBase);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(X11InputMethodBase, log)},
+		{"XIMReverse", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11InputMethodBase, XIMReverse)},
+		{"XIMUnderline", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11InputMethodBase, XIMUnderline)},
+		{"XIMHighlight", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11InputMethodBase, XIMHighlight)},
+		{"XIMPrimary", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11InputMethodBase, XIMPrimary)},
+		{"XIMSecondary", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11InputMethodBase, XIMSecondary)},
+		{"XIMTertiary", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11InputMethodBase, XIMTertiary)},
+		{"XIMVisibleToForward", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(X11InputMethodBase, XIMVisibleToForward)},
+		{"XIMVisibleToBackward", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(X11InputMethodBase, XIMVisibleToBackward)},
+		{"XIMVisibleCenter", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(X11InputMethodBase, XIMVisibleCenter)},
+		{"XIMVisibleMask", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(X11InputMethodBase, XIMVisibleMask)},
+		{"locale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(X11InputMethodBase, locale)},
+		{"isXIMOpened", "Z", nullptr, $PRIVATE | $STATIC, $staticField(X11InputMethodBase, isXIMOpened)},
+		{"clientComponentWindow", "Ljava/awt/Container;", nullptr, $PROTECTED, $field(X11InputMethodBase, clientComponentWindow)},
+		{"awtFocussedComponent", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(X11InputMethodBase, awtFocussedComponent)},
+		{"lastXICFocussedComponent", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(X11InputMethodBase, lastXICFocussedComponent)},
+		{"isLastXICActive", "Z", nullptr, $PROTECTED, $field(X11InputMethodBase, isLastXICActive)},
+		{"isLastTemporary", "Z", nullptr, $PROTECTED, $field(X11InputMethodBase, isLastTemporary)},
+		{"isActive", "Z", nullptr, $PROTECTED, $field(X11InputMethodBase, isActive)},
+		{"highlightStyles", "[Ljava/util/Map;", "[Ljava/util/Map<Ljava/awt/font/TextAttribute;*>;", $PRIVATE | $STATIC, $staticField(X11InputMethodBase, highlightStyles)},
+		{"disposed", "Z", nullptr, $PROTECTED, $field(X11InputMethodBase, disposed)},
+		{"needResetXIC", "Z", nullptr, $PROTECTED, $field(X11InputMethodBase, needResetXIC)},
+		{"needResetXICClient", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/Component;>;", $PRIVATE, $field(X11InputMethodBase, needResetXICClient)},
+		{"compositionEnableSupported", "Z", nullptr, $PROTECTED, $field(X11InputMethodBase, compositionEnableSupported)},
+		{"savedCompositionState", "Z", nullptr, $PROTECTED, $field(X11InputMethodBase, savedCompositionState)},
+		{"committedText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(X11InputMethodBase, committedText)},
+		{"composedText", "Ljava/lang/StringBuffer;", nullptr, $PROTECTED, $field(X11InputMethodBase, composedText)},
+		{"rawFeedbacks", "Lsun/awt/X11InputMethodBase$IntBuffer;", nullptr, $PROTECTED, $field(X11InputMethodBase, rawFeedbacks)},
+		{"pData", "J", nullptr, $PROTECTED | $TRANSIENT, $field(X11InputMethodBase, pData)},
+		{"INITIAL_SIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(X11InputMethodBase, INITIAL_SIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"activate", "()V", nullptr, $PUBLIC | $ABSTRACT},
+		{"deactivate", "(Z)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"hideWindows", "()V", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(X11InputMethodBase, init$, void), "java.awt.AWTException"},
+		{"awtLock", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(X11InputMethodBase, awtLock, void)},
+		{"awtUnlock", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(X11InputMethodBase, awtUnlock, void)},
+		{"convertVisualFeedbackToHighlight", "(I)Ljava/awt/im/InputMethodHighlight;", nullptr, $PROTECTED, $virtualMethod(X11InputMethodBase, convertVisualFeedbackToHighlight, $InputMethodHighlight*, int32_t)},
+		{"createXIC", "()Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(X11InputMethodBase, createXIC, bool)},
+		{"disableInputMethod", "()V", nullptr, $PUBLIC, $virtualMethod(X11InputMethodBase, disableInputMethod, void)},
+		{"dispatchCommittedText", "(Ljava/lang/String;J)V", nullptr, 0, $virtualMethod(X11InputMethodBase, dispatchCommittedText, void, $String*, int64_t)},
+		{"dispatchCommittedText", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(X11InputMethodBase, dispatchCommittedText, void, $String*)},
+		{"dispatchComposedText", "(Ljava/lang/String;[IIIIJ)V", nullptr, $ABSTRACT, $virtualMethod(X11InputMethodBase, dispatchComposedText, void, $String*, $ints*, int32_t, int32_t, int32_t, int64_t)},
+		{"dispatchEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(X11InputMethodBase, dispatchEvent, void, $AWTEvent*)},
+		{"dispose", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(X11InputMethodBase, dispose, void)},
+		{"disposeImpl", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(X11InputMethodBase, disposeImpl, void)},
+		{"disposeXIC", "()V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(X11InputMethodBase, disposeXIC, void)},
+		{"endComposition", "()V", nullptr, $PUBLIC, $virtualMethod(X11InputMethodBase, endComposition, void)},
+		{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(X11InputMethodBase, finalize, void), "java.lang.Throwable"},
+		{"flushText", "()V", nullptr, 0, $virtualMethod(X11InputMethodBase, flushText, void)},
+		{"getClientComponentWindow", "()Ljava/awt/Window;", nullptr, $PROTECTED, $virtualMethod(X11InputMethodBase, getClientComponentWindow, $Window*)},
+		{"getCompositionState", "()Z", nullptr, $PROTECTED, $virtualMethod(X11InputMethodBase, getCompositionState, bool)},
+		{"getControlObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(X11InputMethodBase, getControlObject, $Object*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(X11InputMethodBase, getLocale, $Locale*)},
+		{"getNativeInputMethodInfo", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X11InputMethodBase, getNativeInputMethodInfo, $String*)},
+		{"getParent", "(Ljava/awt/Component;)Ljava/awt/Container;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(X11InputMethodBase, getParent, $Container*, $Component*)},
+		{"getPeer", "(Ljava/awt/Component;)Ljava/awt/peer/ComponentPeer;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(X11InputMethodBase, getPeer, $ComponentPeer*, $Component*)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11InputMethodBase, initIDs, void)},
+		{"initXIM", "()Z", nullptr, $PRIVATE | $SYNCHRONIZED, $method(X11InputMethodBase, initXIM, bool)},
+		{"isCompositionEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(X11InputMethodBase, isCompositionEnabled, bool)},
+		{"isCompositionEnabledNative", "()Z", nullptr, $PRIVATE | $NATIVE, $method(X11InputMethodBase, isCompositionEnabledNative, bool)},
+		{"isDisposed", "()Z", nullptr, $PROTECTED, $virtualMethod(X11InputMethodBase, isDisposed, bool)},
+		{"mapInputMethodHighlight", "(Ljava/awt/im/InputMethodHighlight;)Ljava/util/Map;", "(Ljava/awt/im/InputMethodHighlight;)Ljava/util/Map<Ljava/awt/font/TextAttribute;*>;", $PUBLIC | $STATIC, $staticMethod(X11InputMethodBase, mapInputMethodHighlight, $Map*, $InputMethodHighlight*)},
+		{"openXIM", "()Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(X11InputMethodBase, openXIM, bool)},
+		{"postInputMethodEvent", "(ILjava/text/AttributedCharacterIterator;ILjava/awt/font/TextHitInfo;Ljava/awt/font/TextHitInfo;J)V", nullptr, $PROTECTED, $virtualMethod(X11InputMethodBase, postInputMethodEvent, void, int32_t, $AttributedCharacterIterator*, int32_t, $TextHitInfo*, $TextHitInfo*, int64_t)},
+		{"postInputMethodEvent", "(ILjava/text/AttributedCharacterIterator;ILjava/awt/font/TextHitInfo;Ljava/awt/font/TextHitInfo;)V", nullptr, $PRIVATE, $method(X11InputMethodBase, postInputMethodEvent, void, int32_t, $AttributedCharacterIterator*, int32_t, $TextHitInfo*, $TextHitInfo*)},
+		{"removeNotify", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X11InputMethodBase, removeNotify, void)},
+		{"resetCompositionState", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(X11InputMethodBase, resetCompositionState, void)},
+		{"resetXIC", "()Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(X11InputMethodBase, resetXIC, $String*)},
+		{"resetXICifneeded", "()V", nullptr, $PROTECTED | $FINAL, $method(X11InputMethodBase, resetXICifneeded, void)},
+		{"setAWTFocussedComponent", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(X11InputMethodBase, setAWTFocussedComponent, void, $Component*)},
+		{"setCharacterSubsets", "([Ljava/lang/Character$Subset;)V", nullptr, $PUBLIC, $virtualMethod(X11InputMethodBase, setCharacterSubsets, void, $Character$SubsetArray*)},
+		{"setCompositionEnabled", "(Z)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"setCompositionEnabledNative", "(Z)Z", nullptr, $PROTECTED | $NATIVE, $virtualMethod(X11InputMethodBase, setCompositionEnabledNative, bool, bool)},
+		{"setInputMethodContext", "(Ljava/awt/im/spi/InputMethodContext;)V", nullptr, $PUBLIC, $virtualMethod(X11InputMethodBase, setInputMethodContext, void, $InputMethodContext*)},
+		{"setLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(X11InputMethodBase, setLocale, bool, $Locale*)},
+		{"setXICFocus", "(Ljava/awt/peer/ComponentPeer;ZZ)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(X11InputMethodBase, setXICFocus, void, $ComponentPeer*, bool, bool)},
+		{"stopListening", "()V", nullptr, $PROTECTED, $virtualMethod(X11InputMethodBase, stopListening, void)},
+		{"turnoffStatusWindow", "()V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(X11InputMethodBase, turnoffStatusWindow, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11InputMethodBase$IntBuffer", "sun.awt.X11InputMethodBase", "IntBuffer", $PROTECTED | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.awt.X11InputMethodBase",
+		"sun.awt.im.InputMethodAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11InputMethodBase$IntBuffer"
+	};
+	$loadClass(X11InputMethodBase, name, initialize, &classInfo$$, X11InputMethodBase::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(X11InputMethodBase);
+	});
 	return class$;
 }
 

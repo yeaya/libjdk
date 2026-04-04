@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/MaskFill$General.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Composite.h>
 #include <java/awt/image/BufferedImage.h>
@@ -36,43 +35,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _MaskFill$General_FieldInfo_[] = {
-	{"fillop", "Lsun/java2d/loops/FillRect;", nullptr, 0, $field(MaskFill$General, fillop)},
-	{"maskop", "Lsun/java2d/loops/MaskBlit;", nullptr, 0, $field(MaskFill$General, maskop)},
-	{}
-};
-
-$MethodInfo _MaskFill$General_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(MaskFill$General, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"MaskFill", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Ljava/awt/Composite;IIII[BII)V", nullptr, $PUBLIC, $virtualMethod(MaskFill$General, MaskFill$, void, $SunGraphics2D*, $SurfaceData*, $Composite*, int32_t, int32_t, int32_t, int32_t, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _MaskFill$General_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.MaskFill$General", "sun.java2d.loops.MaskFill", "General", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MaskFill$General_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.MaskFill$General",
-	"sun.java2d.loops.MaskFill",
-	nullptr,
-	_MaskFill$General_FieldInfo_,
-	_MaskFill$General_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MaskFill$General_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.MaskFill"
-};
-
-$Object* allocate$MaskFill$General($Class* clazz) {
-	return $of($alloc(MaskFill$General));
-}
-
 void MaskFill$General::init$($SurfaceType* srctype, $CompositeType* comptype, $SurfaceType* dsttype) {
 	$MaskFill::init$(srctype, comptype, dsttype);
 	$init($CompositeType);
@@ -82,7 +44,7 @@ void MaskFill$General::init$($SurfaceType* srctype, $CompositeType* comptype, $S
 }
 
 void MaskFill$General::MaskFill$($SunGraphics2D* sg2d, $SurfaceData* sData, $Composite* comp, int32_t x, int32_t y, int32_t w, int32_t h, $bytes* mask, int32_t offset, int32_t scan) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, dstBI, $new($BufferedImage, w, h, $BufferedImage::TYPE_INT_ARGB));
 	$var($SurfaceData, tmpData, $BufImgSurfaceData::createData(dstBI));
 	$var($Region, clip, $nc(sg2d)->clipRegion);
@@ -99,7 +61,38 @@ MaskFill$General::MaskFill$General() {
 }
 
 $Class* MaskFill$General::load$($String* name, bool initialize) {
-	$loadClass(MaskFill$General, name, initialize, &_MaskFill$General_ClassInfo_, allocate$MaskFill$General);
+	$FieldInfo fieldInfos$$[] = {
+		{"fillop", "Lsun/java2d/loops/FillRect;", nullptr, 0, $field(MaskFill$General, fillop)},
+		{"maskop", "Lsun/java2d/loops/MaskBlit;", nullptr, 0, $field(MaskFill$General, maskop)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(MaskFill$General, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"MaskFill", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Ljava/awt/Composite;IIII[BII)V", nullptr, $PUBLIC, $virtualMethod(MaskFill$General, MaskFill$, void, $SunGraphics2D*, $SurfaceData*, $Composite*, int32_t, int32_t, int32_t, int32_t, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.MaskFill$General", "sun.java2d.loops.MaskFill", "General", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.MaskFill$General",
+		"sun.java2d.loops.MaskFill",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.MaskFill"
+	};
+	$loadClass(MaskFill$General, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MaskFill$General);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/text/MaskFormatter$LowerCaseCharacter.h>
-
 #include <javax/swing/text/MaskFormatter$MaskCharacter.h>
 #include <javax/swing/text/MaskFormatter.h>
 #include <jcpp.h>
@@ -15,44 +14,6 @@ using $MaskFormatter$MaskCharacter = ::javax::swing::text::MaskFormatter$MaskCha
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _MaskFormatter$LowerCaseCharacter_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/MaskFormatter;", nullptr, $FINAL | $SYNTHETIC, $field(MaskFormatter$LowerCaseCharacter, this$0)},
-	{}
-};
-
-$MethodInfo _MaskFormatter$LowerCaseCharacter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/MaskFormatter;)V", nullptr, $PRIVATE, $method(MaskFormatter$LowerCaseCharacter, init$, void, $MaskFormatter*)},
-	{"getChar", "(C)C", nullptr, $PUBLIC, $virtualMethod(MaskFormatter$LowerCaseCharacter, getChar, char16_t, char16_t)},
-	{"isValidCharacter", "(C)Z", nullptr, $PUBLIC, $virtualMethod(MaskFormatter$LowerCaseCharacter, isValidCharacter, bool, char16_t)},
-	{}
-};
-
-$InnerClassInfo _MaskFormatter$LowerCaseCharacter_InnerClassesInfo_[] = {
-	{"javax.swing.text.MaskFormatter$LowerCaseCharacter", "javax.swing.text.MaskFormatter", "LowerCaseCharacter", $PRIVATE},
-	{"javax.swing.text.MaskFormatter$MaskCharacter", "javax.swing.text.MaskFormatter", "MaskCharacter", $PRIVATE},
-	{}
-};
-
-$ClassInfo _MaskFormatter$LowerCaseCharacter_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.MaskFormatter$LowerCaseCharacter",
-	"javax.swing.text.MaskFormatter$MaskCharacter",
-	nullptr,
-	_MaskFormatter$LowerCaseCharacter_FieldInfo_,
-	_MaskFormatter$LowerCaseCharacter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MaskFormatter$LowerCaseCharacter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.MaskFormatter"
-};
-
-$Object* allocate$MaskFormatter$LowerCaseCharacter($Class* clazz) {
-	return $of($alloc(MaskFormatter$LowerCaseCharacter));
-}
 
 void MaskFormatter$LowerCaseCharacter::init$($MaskFormatter* this$0) {
 	$set(this, this$0, this$0);
@@ -72,7 +33,39 @@ MaskFormatter$LowerCaseCharacter::MaskFormatter$LowerCaseCharacter() {
 }
 
 $Class* MaskFormatter$LowerCaseCharacter::load$($String* name, bool initialize) {
-	$loadClass(MaskFormatter$LowerCaseCharacter, name, initialize, &_MaskFormatter$LowerCaseCharacter_ClassInfo_, allocate$MaskFormatter$LowerCaseCharacter);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/MaskFormatter;", nullptr, $FINAL | $SYNTHETIC, $field(MaskFormatter$LowerCaseCharacter, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/MaskFormatter;)V", nullptr, $PRIVATE, $method(MaskFormatter$LowerCaseCharacter, init$, void, $MaskFormatter*)},
+		{"getChar", "(C)C", nullptr, $PUBLIC, $virtualMethod(MaskFormatter$LowerCaseCharacter, getChar, char16_t, char16_t)},
+		{"isValidCharacter", "(C)Z", nullptr, $PUBLIC, $virtualMethod(MaskFormatter$LowerCaseCharacter, isValidCharacter, bool, char16_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.MaskFormatter$LowerCaseCharacter", "javax.swing.text.MaskFormatter", "LowerCaseCharacter", $PRIVATE},
+		{"javax.swing.text.MaskFormatter$MaskCharacter", "javax.swing.text.MaskFormatter", "MaskCharacter", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.MaskFormatter$LowerCaseCharacter",
+		"javax.swing.text.MaskFormatter$MaskCharacter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.MaskFormatter"
+	};
+	$loadClass(MaskFormatter$LowerCaseCharacter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MaskFormatter$LowerCaseCharacter);
+	});
 	return class$;
 }
 

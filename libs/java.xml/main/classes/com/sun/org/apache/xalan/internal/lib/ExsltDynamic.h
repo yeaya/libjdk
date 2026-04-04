@@ -58,6 +58,7 @@ class ExsltDynamic : public ::com::sun::org::apache::xalan::internal::lib::Exslt
 	$class(ExsltDynamic, 0, ::com::sun::org::apache::xalan::internal::lib::ExsltBase)
 public:
 	ExsltDynamic();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::org::w3c::dom::NodeList* closure(::com::sun::org::apache::xalan::internal::extensions::ExpressionContext* myContext, ::org::w3c::dom::NodeList* nl, $String* expr);
 	static ::com::sun::org::apache::xpath::internal::objects::XObject* evaluate(::com::sun::org::apache::xalan::internal::extensions::ExpressionContext* myContext, $String* xpathExpr);

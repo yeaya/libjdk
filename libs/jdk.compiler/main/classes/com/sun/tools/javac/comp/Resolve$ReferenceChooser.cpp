@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$ReferenceChooser.h>
-
 #include <com/sun/tools/javac/comp/Resolve$ReferenceLookupResult.h>
 #include <com/sun/tools/javac/comp/Resolve.h>
 #include <jcpp.h>
@@ -17,44 +16,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Resolve$ReferenceChooser_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$ReferenceChooser, this$0)},
-	{}
-};
-
-$MethodInfo _Resolve$ReferenceChooser_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;)V", nullptr, 0, $method(Resolve$ReferenceChooser, init$, void, $Resolve*)},
-	{"boundResult", "(Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;", nullptr, $ABSTRACT, $virtualMethod(Resolve$ReferenceChooser, boundResult, $Resolve$ReferenceLookupResult*, $Resolve$ReferenceLookupResult*)},
-	{"result", "(Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;", nullptr, 0, $virtualMethod(Resolve$ReferenceChooser, result, $Resolve$ReferenceLookupResult*, $Resolve$ReferenceLookupResult*, $Resolve$ReferenceLookupResult*)},
-	{"unboundResult", "(Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;", nullptr, $ABSTRACT, $virtualMethod(Resolve$ReferenceChooser, unboundResult, $Resolve$ReferenceLookupResult*, $Resolve$ReferenceLookupResult*, $Resolve$ReferenceLookupResult*)},
-	{}
-};
-
-$InnerClassInfo _Resolve$ReferenceChooser_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$ReferenceChooser", "com.sun.tools.javac.comp.Resolve", "ReferenceChooser", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Resolve$ReferenceChooser_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.comp.Resolve$ReferenceChooser",
-	"java.lang.Object",
-	nullptr,
-	_Resolve$ReferenceChooser_FieldInfo_,
-	_Resolve$ReferenceChooser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Resolve$ReferenceChooser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$ReferenceChooser($Class* clazz) {
-	return $of($alloc(Resolve$ReferenceChooser));
-}
-
 void Resolve$ReferenceChooser::init$($Resolve* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -67,7 +28,39 @@ Resolve$ReferenceChooser::Resolve$ReferenceChooser() {
 }
 
 $Class* Resolve$ReferenceChooser::load$($String* name, bool initialize) {
-	$loadClass(Resolve$ReferenceChooser, name, initialize, &_Resolve$ReferenceChooser_ClassInfo_, allocate$Resolve$ReferenceChooser);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$ReferenceChooser, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;)V", nullptr, 0, $method(Resolve$ReferenceChooser, init$, void, $Resolve*)},
+		{"boundResult", "(Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;", nullptr, $ABSTRACT, $virtualMethod(Resolve$ReferenceChooser, boundResult, $Resolve$ReferenceLookupResult*, $Resolve$ReferenceLookupResult*)},
+		{"result", "(Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;", nullptr, 0, $virtualMethod(Resolve$ReferenceChooser, result, $Resolve$ReferenceLookupResult*, $Resolve$ReferenceLookupResult*, $Resolve$ReferenceLookupResult*)},
+		{"unboundResult", "(Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;", nullptr, $ABSTRACT, $virtualMethod(Resolve$ReferenceChooser, unboundResult, $Resolve$ReferenceLookupResult*, $Resolve$ReferenceLookupResult*, $Resolve$ReferenceLookupResult*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$ReferenceChooser", "com.sun.tools.javac.comp.Resolve", "ReferenceChooser", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.comp.Resolve$ReferenceChooser",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$ReferenceChooser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$ReferenceChooser);
+	});
 	return class$;
 }
 

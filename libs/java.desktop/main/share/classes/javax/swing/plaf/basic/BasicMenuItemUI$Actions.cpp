@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicMenuItemUI$Actions.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <java/util/EventObject.h>
 #include <javax/swing/JMenuItem.h>
@@ -24,42 +23,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicMenuItemUI$Actions_FieldInfo_[] = {
-	{"CLICK", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicMenuItemUI$Actions, CLICK)},
-	{}
-};
-
-$MethodInfo _BasicMenuItemUI$Actions_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicMenuItemUI$Actions, init$, void, $String*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI$Actions, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicMenuItemUI$Actions_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicMenuItemUI$Actions", "javax.swing.plaf.basic.BasicMenuItemUI", "Actions", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicMenuItemUI$Actions_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicMenuItemUI$Actions",
-	"sun.swing.UIAction",
-	nullptr,
-	_BasicMenuItemUI$Actions_FieldInfo_,
-	_BasicMenuItemUI$Actions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicMenuItemUI$Actions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicMenuItemUI"
-};
-
-$Object* allocate$BasicMenuItemUI$Actions($Class* clazz) {
-	return $of($alloc(BasicMenuItemUI$Actions));
-}
-
 $String* BasicMenuItemUI$Actions::CLICK = nullptr;
 
 void BasicMenuItemUI$Actions::init$($String* key) {
@@ -67,21 +30,51 @@ void BasicMenuItemUI$Actions::init$($String* key) {
 }
 
 void BasicMenuItemUI$Actions::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JMenuItem, mi, $cast($JMenuItem, $nc(e)->getSource()));
-	$nc($($MenuSelectionManager::defaultManager()))->clearSelectedPath();
+	$$nc($MenuSelectionManager::defaultManager())->clearSelectedPath();
 	$nc(mi)->doClick();
 }
 
 BasicMenuItemUI$Actions::BasicMenuItemUI$Actions() {
 }
 
-void clinit$BasicMenuItemUI$Actions($Class* class$) {
+void BasicMenuItemUI$Actions::clinit$($Class* clazz) {
 	$assignStatic(BasicMenuItemUI$Actions::CLICK, "doClick"_s);
 }
 
 $Class* BasicMenuItemUI$Actions::load$($String* name, bool initialize) {
-	$loadClass(BasicMenuItemUI$Actions, name, initialize, &_BasicMenuItemUI$Actions_ClassInfo_, clinit$BasicMenuItemUI$Actions, allocate$BasicMenuItemUI$Actions);
+	$FieldInfo fieldInfos$$[] = {
+		{"CLICK", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicMenuItemUI$Actions, CLICK)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicMenuItemUI$Actions, init$, void, $String*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI$Actions, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicMenuItemUI$Actions", "javax.swing.plaf.basic.BasicMenuItemUI", "Actions", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicMenuItemUI$Actions",
+		"sun.swing.UIAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicMenuItemUI"
+	};
+	$loadClass(BasicMenuItemUI$Actions, name, initialize, &classInfo$$, BasicMenuItemUI$Actions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicMenuItemUI$Actions);
+	});
 	return class$;
 }
 

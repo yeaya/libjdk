@@ -25,12 +25,13 @@ class $export SortControl : public ::javax::naming::ldap::BasicControl {
 	$class(SortControl, 0, ::javax::naming::ldap::BasicControl)
 public:
 	SortControl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* sortBy, bool criticality);
 	void init$($StringArray* sortBy, bool criticality);
 	void init$($Array<::javax::naming::ldap::SortKey>* sortBy, bool criticality);
 	$bytes* setEncodedValue($Array<::javax::naming::ldap::SortKey>* sortKeys);
 	static $String* OID;
-	static const int64_t serialVersionUID = (int64_t)0xE4B7804497A987C8;
+	static const int64_t serialVersionUID = (int64_t)0xe4b7804497a987c8;
 };
 
 		} // ldap

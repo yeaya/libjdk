@@ -1,5 +1,4 @@
 #include <java/lang/instrument/ClassDefinition.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,32 +9,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 namespace java {
 	namespace lang {
 		namespace instrument {
-
-$FieldInfo _ClassDefinition_FieldInfo_[] = {
-	{"mClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(ClassDefinition, mClass)},
-	{"mClassFile", "[B", nullptr, $PRIVATE | $FINAL, $field(ClassDefinition, mClassFile)},
-	{}
-};
-
-$MethodInfo _ClassDefinition_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;[B)V", "(Ljava/lang/Class<*>;[B)V", $PUBLIC, $method(ClassDefinition, init$, void, $Class*, $bytes*)},
-	{"getDefinitionClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(ClassDefinition, getDefinitionClass, $Class*)},
-	{"getDefinitionClassFile", "()[B", nullptr, $PUBLIC, $method(ClassDefinition, getDefinitionClassFile, $bytes*)},
-	{}
-};
-
-$ClassInfo _ClassDefinition_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.lang.instrument.ClassDefinition",
-	"java.lang.Object",
-	nullptr,
-	_ClassDefinition_FieldInfo_,
-	_ClassDefinition_MethodInfo_
-};
-
-$Object* allocate$ClassDefinition($Class* clazz) {
-	return $of($alloc(ClassDefinition));
-}
 
 void ClassDefinition::init$($Class* theClass, $bytes* theClassFile) {
 	if (theClass == nullptr || theClassFile == nullptr) {
@@ -57,7 +30,28 @@ ClassDefinition::ClassDefinition() {
 }
 
 $Class* ClassDefinition::load$($String* name, bool initialize) {
-	$loadClass(ClassDefinition, name, initialize, &_ClassDefinition_ClassInfo_, allocate$ClassDefinition);
+	$FieldInfo fieldInfos$$[] = {
+		{"mClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(ClassDefinition, mClass)},
+		{"mClassFile", "[B", nullptr, $PRIVATE | $FINAL, $field(ClassDefinition, mClassFile)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;[B)V", "(Ljava/lang/Class<*>;[B)V", $PUBLIC, $method(ClassDefinition, init$, void, $Class*, $bytes*)},
+		{"getDefinitionClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(ClassDefinition, getDefinitionClass, $Class*)},
+		{"getDefinitionClassFile", "()[B", nullptr, $PUBLIC, $method(ClassDefinition, getDefinitionClassFile, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.lang.instrument.ClassDefinition",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ClassDefinition, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassDefinition);
+	});
 	return class$;
 }
 

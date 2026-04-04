@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/dsig/XMLObject.h>
-
 #include <java/util/List.h>
 #include <jcpp.h>
 
@@ -15,40 +14,35 @@ namespace javax {
 		namespace crypto {
 			namespace dsig {
 
-$FieldInfo _XMLObject_FieldInfo_[] = {
-	{"TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLObject, TYPE)},
-	{}
-};
-
-$MethodInfo _XMLObject_MethodInfo_[] = {
-	{"getContent", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PUBLIC | $ABSTRACT, $virtualMethod(XMLObject, getContent, $List*)},
-	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLObject, getEncoding, $String*)},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLObject, getId, $String*)},
-	{"getMimeType", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLObject, getMimeType, $String*)},
-	{}
-};
-
-$ClassInfo _XMLObject_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.xml.crypto.dsig.XMLObject",
-	nullptr,
-	"javax.xml.crypto.XMLStructure",
-	_XMLObject_FieldInfo_,
-	_XMLObject_MethodInfo_
-};
-
-$Object* allocate$XMLObject($Class* clazz) {
-	return $of($alloc(XMLObject));
-}
-
 $String* XMLObject::TYPE = nullptr;
 
-void clinit$XMLObject($Class* class$) {
+void XMLObject::clinit$($Class* clazz) {
 	$assignStatic(XMLObject::TYPE, "http://www.w3.org/2000/09/xmldsig#Object"_s);
 }
 
 $Class* XMLObject::load$($String* name, bool initialize) {
-	$loadClass(XMLObject, name, initialize, &_XMLObject_ClassInfo_, clinit$XMLObject, allocate$XMLObject);
+	$FieldInfo fieldInfos$$[] = {
+		{"TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLObject, TYPE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"getContent", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PUBLIC | $ABSTRACT, $virtualMethod(XMLObject, getContent, $List*)},
+		{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLObject, getEncoding, $String*)},
+		{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLObject, getId, $String*)},
+		{"getMimeType", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLObject, getMimeType, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.xml.crypto.dsig.XMLObject",
+		nullptr,
+		"javax.xml.crypto.XMLStructure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLObject, name, initialize, &classInfo$$, XMLObject::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLObject);
+	});
 	return class$;
 }
 

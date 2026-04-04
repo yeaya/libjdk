@@ -37,6 +37,7 @@ class $import Iterators : public ::java::lang::Object {
 	$class(Iterators, 0, ::java::lang::Object)
 public:
 	Iterators();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Iterator* createCompoundIterator(::java::lang::Iterable* inputs, ::java::util::function::Function* convertor);
 	static ::java::util::Iterator* createFilterIterator(::java::util::Iterator* input, ::java::util::function::Predicate* test);

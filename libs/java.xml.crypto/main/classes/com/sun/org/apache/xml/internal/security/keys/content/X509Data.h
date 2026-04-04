@@ -87,6 +87,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::org::w3c::dom::Document* doc);
 	void init$(::org::w3c::dom::Element* element, $String* baseURI);
 	virtual void add(::com::sun::org::apache::xml::internal::security::keys::content::x509::XMLX509IssuerSerial* xmlX509IssuerSerial);

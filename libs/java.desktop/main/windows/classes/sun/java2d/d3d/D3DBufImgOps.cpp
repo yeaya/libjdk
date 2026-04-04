@@ -1,10 +1,8 @@
 #include <sun/java2d/d3d/D3DBufImgOps.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Composite.h>
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/GraphicsDevice.h>
-#include <java/awt/Image.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/AffineTransformOp.h>
 #include <java/awt/image/BufferedImage.h>
@@ -28,8 +26,6 @@
 #undef TYPE_BICUBIC
 
 using $Color = ::java::awt::Color;
-using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
-using $Image = ::java::awt::Image;
 using $AffineTransformOp = ::java::awt::image::AffineTransformOp;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $BufferedImageOp = ::java::awt::image::BufferedImageOp;
@@ -50,32 +46,13 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$MethodInfo _D3DBufImgOps_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(D3DBufImgOps, init$, void)},
-	{"renderImageWithOp", "(Lsun/java2d/SunGraphics2D;Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImageOp;II)Z", nullptr, $STATIC, $staticMethod(D3DBufImgOps, renderImageWithOp, bool, $SunGraphics2D*, $BufferedImage*, $BufferedImageOp*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _D3DBufImgOps_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.d3d.D3DBufImgOps",
-	"sun.java2d.pipe.BufferedBufImgOps",
-	nullptr,
-	nullptr,
-	_D3DBufImgOps_MethodInfo_
-};
-
-$Object* allocate$D3DBufImgOps($Class* clazz) {
-	return $of($alloc(D3DBufImgOps));
-}
-
 void D3DBufImgOps::init$() {
 	$BufferedBufImgOps::init$();
 }
 
 bool D3DBufImgOps::renderImageWithOp($SunGraphics2D* sg, $BufferedImage* img, $BufferedImageOp* biop, int32_t x, int32_t y) {
 	$init(D3DBufImgOps);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($ConvolveOp, biop)) {
 		if (!isConvolveOpValid($cast($ConvolveOp, biop))) {
 			return false;
@@ -104,7 +81,7 @@ bool D3DBufImgOps::renderImageWithOp($SunGraphics2D* sg, $BufferedImage* img, $B
 		}
 	}
 	$var($D3DSurfaceData, d3dSrc, $cast($D3DSurfaceData, srcData));
-	$var($D3DGraphicsDevice, gd, $cast($D3DGraphicsDevice, $nc($($nc(d3dSrc)->getDeviceConfiguration()))->getDevice()));
+	$var($D3DGraphicsDevice, gd, $cast($D3DGraphicsDevice, $$nc($nc(d3dSrc)->getDeviceConfiguration())->getDevice()));
 	bool var$0 = d3dSrc->getType() != $D3DSurfaceData::TEXTURE;
 	if (var$0 || !$nc(gd)->isCapPresent(0x00010000)) {
 		return false;
@@ -119,7 +96,22 @@ D3DBufImgOps::D3DBufImgOps() {
 }
 
 $Class* D3DBufImgOps::load$($String* name, bool initialize) {
-	$loadClass(D3DBufImgOps, name, initialize, &_D3DBufImgOps_ClassInfo_, allocate$D3DBufImgOps);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(D3DBufImgOps, init$, void)},
+		{"renderImageWithOp", "(Lsun/java2d/SunGraphics2D;Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImageOp;II)Z", nullptr, $STATIC, $staticMethod(D3DBufImgOps, renderImageWithOp, bool, $SunGraphics2D*, $BufferedImage*, $BufferedImageOp*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.d3d.D3DBufImgOps",
+		"sun.java2d.pipe.BufferedBufImgOps",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(D3DBufImgOps, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DBufImgOps);
+	});
 	return class$;
 }
 

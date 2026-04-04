@@ -1,7 +1,5 @@
 #include <sun/lwawt/macosx/CAccessible.h>
-
 #include <java/awt/Component.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <javax/accessibility/Accessible.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <sun/awt/AWTAccessor$AccessibleContextAccessor.h>
@@ -11,7 +9,6 @@
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -27,69 +24,6 @@ using $CFRetainedResource = ::sun::lwawt::macosx::CFRetainedResource;
 namespace sun {
 	namespace lwawt {
 		namespace macosx {
-
-$FieldInfo _CAccessible_FieldInfo_[] = {
-	{"accessible", "Ljavax/accessibility/Accessible;", nullptr, $PRIVATE, $field(CAccessible, accessible)},
-	{"activeDescendant", "Ljavax/accessibility/AccessibleContext;", nullptr, $PRIVATE, $field(CAccessible, activeDescendant)},
-	{}
-};
-
-$MethodInfo _CAccessible_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/accessibility/Accessible;)V", nullptr, $PRIVATE, $method(CAccessible, init$, void, $Accessible*)},
-	{"addNotificationListeners", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(CAccessible, addNotificationListeners, void, $Component*)},
-	{"dispose", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(CAccessible, dispose, void)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(CAccessible, getAccessibleContext, $AccessibleContext*)},
-	{"getActiveDescendant", "(Ljavax/accessibility/Accessible;)Ljavax/accessibility/AccessibleContext;", nullptr, $STATIC, $staticMethod(CAccessible, getActiveDescendant, $AccessibleContext*, $Accessible*)},
-	{"getCAccessible", "(Ljavax/accessibility/Accessible;)Lsun/lwawt/macosx/CAccessible;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessible, getCAccessible, CAccessible*, $Accessible*)},
-	{"getSwingAccessible", "(Ljavax/accessibility/Accessible;)Ljavax/accessibility/Accessible;", nullptr, $STATIC, $staticMethod(CAccessible, getSwingAccessible, $Accessible*, $Accessible*)},
-	{"menuClosed", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CAccessible, menuClosed, void, int64_t)},
-	{"menuItemSelected", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CAccessible, menuItemSelected, void, int64_t)},
-	{"menuOpened", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CAccessible, menuOpened, void, int64_t)},
-	{"selectedTextChanged", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CAccessible, selectedTextChanged, void, int64_t)},
-	{"selectionChanged", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CAccessible, selectionChanged, void, int64_t)},
-	{"titleChanged", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CAccessible, titleChanged, void, int64_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unregisterFromCocoaAXSystem", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CAccessible, unregisterFromCocoaAXSystem, void, int64_t)},
-	{"valueChanged", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CAccessible, valueChanged, void, int64_t)},
-	{}
-};
-
-#define _METHOD_INDEX_menuClosed 11
-#define _METHOD_INDEX_menuItemSelected 12
-#define _METHOD_INDEX_menuOpened 13
-#define _METHOD_INDEX_selectedTextChanged 14
-#define _METHOD_INDEX_selectionChanged 15
-#define _METHOD_INDEX_titleChanged 16
-#define _METHOD_INDEX_unregisterFromCocoaAXSystem 18
-#define _METHOD_INDEX_valueChanged 19
-
-$InnerClassInfo _CAccessible_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.CAccessible$AXChangeNotifier", "sun.lwawt.macosx.CAccessible", "AXChangeNotifier", $PRIVATE},
-	{}
-};
-
-$ClassInfo _CAccessible_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.lwawt.macosx.CAccessible",
-	"sun.lwawt.macosx.CFRetainedResource",
-	"javax.accessibility.Accessible",
-	_CAccessible_FieldInfo_,
-	_CAccessible_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CAccessible_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.CAccessible$AXChangeNotifier"
-};
-
-$Object* allocate$CAccessible($Class* clazz) {
-	return $of($alloc(CAccessible));
-}
 
 void CAccessible::finalize() {
 	this->$CFRetainedResource::finalize();
@@ -113,7 +47,7 @@ $String* CAccessible::toString() {
 
 CAccessible* CAccessible::getCAccessible($Accessible* a) {
 	$init(CAccessible);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (a == nullptr) {
 		return nullptr;
 	}
@@ -130,56 +64,56 @@ CAccessible* CAccessible::getCAccessible($Accessible* a) {
 
 void CAccessible::unregisterFromCocoaAXSystem(int64_t ptr) {
 	$init(CAccessible);
-	$prepareNativeStatic(CAccessible, unregisterFromCocoaAXSystem, void, int64_t ptr);
+	$prepareNativeStatic(unregisterFromCocoaAXSystem, void, int64_t ptr);
 	$invokeNativeStatic(ptr);
 	$finishNativeStatic();
 }
 
 void CAccessible::valueChanged(int64_t ptr) {
 	$init(CAccessible);
-	$prepareNativeStatic(CAccessible, valueChanged, void, int64_t ptr);
+	$prepareNativeStatic(valueChanged, void, int64_t ptr);
 	$invokeNativeStatic(ptr);
 	$finishNativeStatic();
 }
 
 void CAccessible::selectedTextChanged(int64_t ptr) {
 	$init(CAccessible);
-	$prepareNativeStatic(CAccessible, selectedTextChanged, void, int64_t ptr);
+	$prepareNativeStatic(selectedTextChanged, void, int64_t ptr);
 	$invokeNativeStatic(ptr);
 	$finishNativeStatic();
 }
 
 void CAccessible::selectionChanged(int64_t ptr) {
 	$init(CAccessible);
-	$prepareNativeStatic(CAccessible, selectionChanged, void, int64_t ptr);
+	$prepareNativeStatic(selectionChanged, void, int64_t ptr);
 	$invokeNativeStatic(ptr);
 	$finishNativeStatic();
 }
 
 void CAccessible::titleChanged(int64_t ptr) {
 	$init(CAccessible);
-	$prepareNativeStatic(CAccessible, titleChanged, void, int64_t ptr);
+	$prepareNativeStatic(titleChanged, void, int64_t ptr);
 	$invokeNativeStatic(ptr);
 	$finishNativeStatic();
 }
 
 void CAccessible::menuOpened(int64_t ptr) {
 	$init(CAccessible);
-	$prepareNativeStatic(CAccessible, menuOpened, void, int64_t ptr);
+	$prepareNativeStatic(menuOpened, void, int64_t ptr);
 	$invokeNativeStatic(ptr);
 	$finishNativeStatic();
 }
 
 void CAccessible::menuClosed(int64_t ptr) {
 	$init(CAccessible);
-	$prepareNativeStatic(CAccessible, menuClosed, void, int64_t ptr);
+	$prepareNativeStatic(menuClosed, void, int64_t ptr);
 	$invokeNativeStatic(ptr);
 	$finishNativeStatic();
 }
 
 void CAccessible::menuItemSelected(int64_t ptr) {
 	$init(CAccessible);
-	$prepareNativeStatic(CAccessible, menuItemSelected, void, int64_t ptr);
+	$prepareNativeStatic(menuItemSelected, void, int64_t ptr);
 	$invokeNativeStatic(ptr);
 	$finishNativeStatic();
 }
@@ -209,28 +143,76 @@ $AccessibleContext* CAccessible::getAccessibleContext() {
 }
 
 void CAccessible::addNotificationListeners($Component* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Accessible, c)) {
-		$var($AccessibleContext, ac, $nc(($cast($Accessible, c)))->getAccessibleContext());
+		$var($AccessibleContext, ac, $cast($Accessible, c)->getAccessibleContext());
 		$nc(ac)->addPropertyChangeListener($$new($CAccessible$AXChangeNotifier, this));
 	}
 }
 
 $Accessible* CAccessible::getSwingAccessible($Accessible* a) {
 	$init(CAccessible);
-	return ($instanceOf(CAccessible, a)) ? $nc(($cast(CAccessible, a)))->accessible : a;
+	return ($instanceOf(CAccessible, a)) ? $cast(CAccessible, a)->accessible : a;
 }
 
 $AccessibleContext* CAccessible::getActiveDescendant($Accessible* a) {
 	$init(CAccessible);
-	return ($instanceOf(CAccessible, a)) ? $nc(($cast(CAccessible, a)))->activeDescendant : ($AccessibleContext*)nullptr;
+	return ($instanceOf(CAccessible, a)) ? $cast(CAccessible, a)->activeDescendant : ($AccessibleContext*)nullptr;
 }
 
 CAccessible::CAccessible() {
 }
 
 $Class* CAccessible::load$($String* name, bool initialize) {
-	$loadClass(CAccessible, name, initialize, &_CAccessible_ClassInfo_, allocate$CAccessible);
+	$FieldInfo fieldInfos$$[] = {
+		{"accessible", "Ljavax/accessibility/Accessible;", nullptr, $PRIVATE, $field(CAccessible, accessible)},
+		{"activeDescendant", "Ljavax/accessibility/AccessibleContext;", nullptr, $PRIVATE, $field(CAccessible, activeDescendant)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/accessibility/Accessible;)V", nullptr, $PRIVATE, $method(CAccessible, init$, void, $Accessible*)},
+		{"addNotificationListeners", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(CAccessible, addNotificationListeners, void, $Component*)},
+		{"dispose", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(CAccessible, dispose, void)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(CAccessible, getAccessibleContext, $AccessibleContext*)},
+		{"getActiveDescendant", "(Ljavax/accessibility/Accessible;)Ljavax/accessibility/AccessibleContext;", nullptr, $STATIC, $staticMethod(CAccessible, getActiveDescendant, $AccessibleContext*, $Accessible*)},
+		{"getCAccessible", "(Ljavax/accessibility/Accessible;)Lsun/lwawt/macosx/CAccessible;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessible, getCAccessible, CAccessible*, $Accessible*)},
+		{"getSwingAccessible", "(Ljavax/accessibility/Accessible;)Ljavax/accessibility/Accessible;", nullptr, $STATIC, $staticMethod(CAccessible, getSwingAccessible, $Accessible*, $Accessible*)},
+		{"menuClosed", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CAccessible, menuClosed, void, int64_t)},
+		{"menuItemSelected", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CAccessible, menuItemSelected, void, int64_t)},
+		{"menuOpened", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CAccessible, menuOpened, void, int64_t)},
+		{"selectedTextChanged", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CAccessible, selectedTextChanged, void, int64_t)},
+		{"selectionChanged", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CAccessible, selectionChanged, void, int64_t)},
+		{"titleChanged", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CAccessible, titleChanged, void, int64_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unregisterFromCocoaAXSystem", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CAccessible, unregisterFromCocoaAXSystem, void, int64_t)},
+		{"valueChanged", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CAccessible, valueChanged, void, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.CAccessible$AXChangeNotifier", "sun.lwawt.macosx.CAccessible", "AXChangeNotifier", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.lwawt.macosx.CAccessible",
+		"sun.lwawt.macosx.CFRetainedResource",
+		"javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.CAccessible$AXChangeNotifier"
+	};
+	$loadClass(CAccessible, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CAccessible));
+	});
 	return class$;
 }
 

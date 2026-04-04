@@ -1,5 +1,4 @@
 #include <java/lang/management/ManagementFactory$PlatformMBeanFinder$1.h>
-
 #include <java/lang/management/DefaultPlatformMBeanProvider.h>
 #include <java/lang/management/ManagementFactory$PlatformMBeanFinder.h>
 #include <java/util/ArrayList.h>
@@ -24,54 +23,16 @@ namespace java {
 	namespace lang {
 		namespace management {
 
-$MethodInfo _ManagementFactory$PlatformMBeanFinder$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ManagementFactory$PlatformMBeanFinder$1, init$, void)},
-	{"run", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/spi/PlatformMBeanProvider;>;", $PUBLIC, $virtualMethod(ManagementFactory$PlatformMBeanFinder$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _ManagementFactory$PlatformMBeanFinder$1_EnclosingMethodInfo_ = {
-	"java.lang.management.ManagementFactory$PlatformMBeanFinder",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ManagementFactory$PlatformMBeanFinder$1_InnerClassesInfo_[] = {
-	{"java.lang.management.ManagementFactory$PlatformMBeanFinder", "java.lang.management.ManagementFactory", "PlatformMBeanFinder", $PRIVATE | $STATIC},
-	{"java.lang.management.ManagementFactory$PlatformMBeanFinder$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ManagementFactory$PlatformMBeanFinder$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.management.ManagementFactory$PlatformMBeanFinder$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_ManagementFactory$PlatformMBeanFinder$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/util/List<Lsun/management/spi/PlatformMBeanProvider;>;>;",
-	&_ManagementFactory$PlatformMBeanFinder$1_EnclosingMethodInfo_,
-	_ManagementFactory$PlatformMBeanFinder$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.management.ManagementFactory"
-};
-
-$Object* allocate$ManagementFactory$PlatformMBeanFinder$1($Class* clazz) {
-	return $of($alloc(ManagementFactory$PlatformMBeanFinder$1));
-}
-
 void ManagementFactory$PlatformMBeanFinder$1::init$() {
 }
 
 $Object* ManagementFactory$PlatformMBeanFinder$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($List, all, $new($ArrayList));
 	{
 		$load($PlatformMBeanProvider);
-		$var($Iterator, i$, $nc($($ServiceLoader::loadInstalled($PlatformMBeanProvider::class$)))->iterator());
+		$var($Iterator, i$, $$nc($ServiceLoader::loadInstalled($PlatformMBeanProvider::class$))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($PlatformMBeanProvider, provider, $cast($PlatformMBeanProvider, i$->next()));
 			{
@@ -80,14 +41,46 @@ $Object* ManagementFactory$PlatformMBeanFinder$1::run() {
 		}
 	}
 	all->add($$new($DefaultPlatformMBeanProvider));
-	return $of(all);
+	return all;
 }
 
 ManagementFactory$PlatformMBeanFinder$1::ManagementFactory$PlatformMBeanFinder$1() {
 }
 
 $Class* ManagementFactory$PlatformMBeanFinder$1::load$($String* name, bool initialize) {
-	$loadClass(ManagementFactory$PlatformMBeanFinder$1, name, initialize, &_ManagementFactory$PlatformMBeanFinder$1_ClassInfo_, allocate$ManagementFactory$PlatformMBeanFinder$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ManagementFactory$PlatformMBeanFinder$1, init$, void)},
+		{"run", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/spi/PlatformMBeanProvider;>;", $PUBLIC, $virtualMethod(ManagementFactory$PlatformMBeanFinder$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.lang.management.ManagementFactory$PlatformMBeanFinder",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.management.ManagementFactory$PlatformMBeanFinder", "java.lang.management.ManagementFactory", "PlatformMBeanFinder", $PRIVATE | $STATIC},
+		{"java.lang.management.ManagementFactory$PlatformMBeanFinder$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.management.ManagementFactory$PlatformMBeanFinder$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/util/List<Lsun/management/spi/PlatformMBeanProvider;>;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.management.ManagementFactory"
+	};
+	$loadClass(ManagementFactory$PlatformMBeanFinder$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ManagementFactory$PlatformMBeanFinder$1);
+	});
 	return class$;
 }
 

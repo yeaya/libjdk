@@ -1,5 +1,4 @@
 #include <sun/security/jgss/spnego/SpNegoContext.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -54,7 +53,6 @@ using $OidArray = $Array<::org::ietf::jgss::Oid>;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -72,7 +70,6 @@ using $Oid = ::org::ietf::jgss::Oid;
 using $GetBooleanAction = ::sun::security::action::GetBooleanAction;
 using $GSSContextImpl = ::sun::security::jgss::GSSContextImpl;
 using $GSSCredentialImpl = ::sun::security::jgss::GSSCredentialImpl;
-using $GSSManagerImpl = ::sun::security::jgss::GSSManagerImpl;
 using $GSSNameImpl = ::sun::security::jgss::GSSNameImpl;
 using $GSSUtil = ::sun::security::jgss::GSSUtil;
 using $GSSCredentialSpi = ::sun::security::jgss::spi::GSSCredentialSpi;
@@ -91,167 +88,6 @@ namespace sun {
 	namespace security {
 		namespace jgss {
 			namespace spnego {
-
-$NamedAttribute SpNegoContext_Attribute_var$0[] = {
-	{"since", 's', "11"},
-	{}
-};
-
-$CompoundAttribute _SpNegoContext_MethodAnnotations_acceptSecContext5[] = {
-	{"Ljava/lang/Deprecated;", SpNegoContext_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute SpNegoContext_Attribute_var$1[] = {
-	{"since", 's', "11"},
-	{}
-};
-
-$CompoundAttribute _SpNegoContext_MethodAnnotations_getMIC20[] = {
-	{"Ljava/lang/Deprecated;", SpNegoContext_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute SpNegoContext_Attribute_var$2[] = {
-	{"since", 's', "11"},
-	{}
-};
-
-$CompoundAttribute _SpNegoContext_MethodAnnotations_initSecContext30[] = {
-	{"Ljava/lang/Deprecated;", SpNegoContext_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute SpNegoContext_Attribute_var$3[] = {
-	{"since", 's', "11"},
-	{}
-};
-
-$CompoundAttribute _SpNegoContext_MethodAnnotations_unwrap51[] = {
-	{"Ljava/lang/Deprecated;", SpNegoContext_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute SpNegoContext_Attribute_var$4[] = {
-	{"since", 's', "11"},
-	{}
-};
-
-$CompoundAttribute _SpNegoContext_MethodAnnotations_verifyMIC53[] = {
-	{"Ljava/lang/Deprecated;", SpNegoContext_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute SpNegoContext_Attribute_var$5[] = {
-	{"since", 's', "11"},
-	{}
-};
-
-$CompoundAttribute _SpNegoContext_MethodAnnotations_wrap56[] = {
-	{"Ljava/lang/Deprecated;", SpNegoContext_Attribute_var$5},
-	{}
-};
-
-$FieldInfo _SpNegoContext_FieldInfo_[] = {
-	{"STATE_NEW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SpNegoContext, STATE_NEW)},
-	{"STATE_IN_PROCESS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SpNegoContext, STATE_IN_PROCESS)},
-	{"STATE_DONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SpNegoContext, STATE_DONE)},
-	{"STATE_DELETED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SpNegoContext, STATE_DELETED)},
-	{"state", "I", nullptr, $PRIVATE, $field(SpNegoContext, state)},
-	{"credDelegState", "Z", nullptr, $PRIVATE, $field(SpNegoContext, credDelegState)},
-	{"mutualAuthState", "Z", nullptr, $PRIVATE, $field(SpNegoContext, mutualAuthState)},
-	{"replayDetState", "Z", nullptr, $PRIVATE, $field(SpNegoContext, replayDetState)},
-	{"sequenceDetState", "Z", nullptr, $PRIVATE, $field(SpNegoContext, sequenceDetState)},
-	{"confState", "Z", nullptr, $PRIVATE, $field(SpNegoContext, confState)},
-	{"integState", "Z", nullptr, $PRIVATE, $field(SpNegoContext, integState)},
-	{"delegPolicyState", "Z", nullptr, $PRIVATE, $field(SpNegoContext, delegPolicyState)},
-	{"peerName", "Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PRIVATE, $field(SpNegoContext, peerName)},
-	{"myName", "Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PRIVATE, $field(SpNegoContext, myName)},
-	{"myCred", "Lsun/security/jgss/spnego/SpNegoCredElement;", nullptr, $PRIVATE, $field(SpNegoContext, myCred)},
-	{"mechContext", "Lorg/ietf/jgss/GSSContext;", nullptr, $PRIVATE, $field(SpNegoContext, mechContext)},
-	{"DER_mechTypes", "[B", nullptr, $PRIVATE, $field(SpNegoContext, DER_mechTypes)},
-	{"lifetime", "I", nullptr, $PRIVATE, $field(SpNegoContext, lifetime)},
-	{"channelBinding", "Lorg/ietf/jgss/ChannelBinding;", nullptr, $PRIVATE, $field(SpNegoContext, channelBinding)},
-	{"initiator", "Z", nullptr, $PRIVATE, $field(SpNegoContext, initiator)},
-	{"internal_mech", "Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE, $field(SpNegoContext, internal_mech)},
-	{"factory", "Lsun/security/jgss/spnego/SpNegoMechFactory;", nullptr, $PRIVATE | $FINAL, $field(SpNegoContext, factory)},
-	{"DEBUG", "Z", nullptr, $STATIC | $FINAL, $staticField(SpNegoContext, DEBUG)},
-	{}
-};
-
-$MethodInfo _SpNegoContext_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/spnego/SpNegoMechFactory;Lsun/security/jgss/spi/GSSNameSpi;Lsun/security/jgss/spi/GSSCredentialSpi;I)V", nullptr, $PUBLIC, $method(SpNegoContext, init$, void, $SpNegoMechFactory*, $GSSNameSpi*, $GSSCredentialSpi*, int32_t), "org.ietf.jgss.GSSException"},
-	{"<init>", "(Lsun/security/jgss/spnego/SpNegoMechFactory;Lsun/security/jgss/spi/GSSCredentialSpi;)V", nullptr, $PUBLIC, $method(SpNegoContext, init$, void, $SpNegoMechFactory*, $GSSCredentialSpi*), "org.ietf.jgss.GSSException"},
-	{"<init>", "(Lsun/security/jgss/spnego/SpNegoMechFactory;[B)V", nullptr, $PUBLIC, $method(SpNegoContext, init$, void, $SpNegoMechFactory*, $bytes*), "org.ietf.jgss.GSSException"},
-	{"GSS_acceptSecContext", "([B)[B", nullptr, $PRIVATE, $method(SpNegoContext, GSS_acceptSecContext, $bytes*, $bytes*), "org.ietf.jgss.GSSException"},
-	{"GSS_initSecContext", "([B)[B", nullptr, $PRIVATE, $method(SpNegoContext, GSS_initSecContext, $bytes*, $bytes*), "org.ietf.jgss.GSSException"},
-	{"acceptSecContext", "(Ljava/io/InputStream;I)[B", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $virtualMethod(SpNegoContext, acceptSecContext, $bytes*, $InputStream*, int32_t), "org.ietf.jgss.GSSException", nullptr, _SpNegoContext_MethodAnnotations_acceptSecContext5},
-	{"dispose", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, dispose, void), "org.ietf.jgss.GSSException"},
-	{"export", "()[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, export$, $bytes*), "org.ietf.jgss.GSSException"},
-	{"getAnonymityState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getAnonymityState, bool)},
-	{"getAvailableMechs", "()[Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE, $method(SpNegoContext, getAvailableMechs, $OidArray*)},
-	{"getChannelBinding", "()Lorg/ietf/jgss/ChannelBinding;", nullptr, $FINAL, $method(SpNegoContext, getChannelBinding, $ChannelBinding*)},
-	{"getConfState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getConfState, bool)},
-	{"getContextFlags", "()Lsun/security/util/BitArray;", nullptr, $PRIVATE, $method(SpNegoContext, getContextFlags, $BitArray*)},
-	{"getCredDelegState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getCredDelegState, bool)},
-	{"getDelegCred", "()Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getDelegCred, $GSSCredentialSpi*), "org.ietf.jgss.GSSException"},
-	{"getDelegPolicyState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getDelegPolicyState, bool)},
-	{"getEncodedMechs", "([Lorg/ietf/jgss/Oid;)[B", nullptr, $PRIVATE, $method(SpNegoContext, getEncodedMechs, $bytes*, $OidArray*), "java.io.IOException,org.ietf.jgss.GSSException"},
-	{"getIntegState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getIntegState, bool)},
-	{"getLifetime", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getLifetime, int32_t)},
-	{"getMIC", "([BIILorg/ietf/jgss/MessageProp;)[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getMIC, $bytes*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"getMIC", "(Ljava/io/InputStream;Ljava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $virtualMethod(SpNegoContext, getMIC, void, $InputStream*, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException", nullptr, _SpNegoContext_MethodAnnotations_getMIC20},
-	{"getMech", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getMech, $Oid*)},
-	{"getMutualAuthState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getMutualAuthState, bool)},
-	{"getNegotiatedMech", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $FINAL, $method(SpNegoContext, getNegotiatedMech, $Oid*)},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getProvider, $Provider*)},
-	{"getReplayDetState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getReplayDetState, bool)},
-	{"getSequenceDetState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getSequenceDetState, bool)},
-	{"getSrcName", "()Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getSrcName, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
-	{"getTargName", "()Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getTargName, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
-	{"getWrapSizeLimit", "(IZI)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getWrapSizeLimit, int32_t, int32_t, bool, int32_t), "org.ietf.jgss.GSSException"},
-	{"initSecContext", "(Ljava/io/InputStream;I)[B", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $virtualMethod(SpNegoContext, initSecContext, $bytes*, $InputStream*, int32_t), "org.ietf.jgss.GSSException", nullptr, _SpNegoContext_MethodAnnotations_initSecContext30},
-	{"inquireSecContext", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SpNegoContext, inquireSecContext, $Object*, $String*), "org.ietf.jgss.GSSException"},
-	{"isEstablished", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, isEstablished, bool)},
-	{"isInitiator", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, isInitiator, bool)},
-	{"isMechContextEstablished", "()Z", nullptr, $PUBLIC | $FINAL, $method(SpNegoContext, isMechContextEstablished, bool)},
-	{"isProtReady", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, isProtReady, bool)},
-	{"isTransferable", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, isTransferable, bool), "org.ietf.jgss.GSSException"},
-	{"negotiate_mech_type", "([Lorg/ietf/jgss/Oid;[Lorg/ietf/jgss/Oid;)Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE | $STATIC, $staticMethod(SpNegoContext, negotiate_mech_type, $Oid*, $OidArray*, $OidArray*)},
-	{"printState", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SpNegoContext, printState, $String*, int32_t)},
-	{"requestAnonymity", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, requestAnonymity, void, bool), "org.ietf.jgss.GSSException"},
-	{"requestConf", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, requestConf, void, bool), "org.ietf.jgss.GSSException"},
-	{"requestCredDeleg", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, requestCredDeleg, void, bool), "org.ietf.jgss.GSSException"},
-	{"requestDelegPolicy", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, requestDelegPolicy, void, bool), "org.ietf.jgss.GSSException"},
-	{"requestInteg", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, requestInteg, void, bool), "org.ietf.jgss.GSSException"},
-	{"requestLifetime", "(I)V", nullptr, $PUBLIC, $virtualMethod(SpNegoContext, requestLifetime, void, int32_t), "org.ietf.jgss.GSSException"},
-	{"requestMutualAuth", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, requestMutualAuth, void, bool), "org.ietf.jgss.GSSException"},
-	{"requestReplayDet", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, requestReplayDet, void, bool), "org.ietf.jgss.GSSException"},
-	{"requestSequenceDet", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, requestSequenceDet, void, bool), "org.ietf.jgss.GSSException"},
-	{"setChannelBinding", "(Lorg/ietf/jgss/ChannelBinding;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, setChannelBinding, void, $ChannelBinding*), "org.ietf.jgss.GSSException"},
-	{"setContextFlags", "()V", nullptr, $PRIVATE, $method(SpNegoContext, setContextFlags, void)},
-	{"unwrap", "([BIILorg/ietf/jgss/MessageProp;)[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, unwrap, $bytes*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"unwrap", "(Ljava/io/InputStream;Ljava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $virtualMethod(SpNegoContext, unwrap, void, $InputStream*, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException", nullptr, _SpNegoContext_MethodAnnotations_unwrap51},
-	{"verifyMIC", "([BII[BIILorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, verifyMIC, void, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"verifyMIC", "(Ljava/io/InputStream;Ljava/io/InputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $virtualMethod(SpNegoContext, verifyMIC, void, $InputStream*, $InputStream*, $MessageProp*), "org.ietf.jgss.GSSException", nullptr, _SpNegoContext_MethodAnnotations_verifyMIC53},
-	{"verifyMechListMIC", "([B[B)Z", nullptr, $PRIVATE, $method(SpNegoContext, verifyMechListMIC, bool, $bytes*, $bytes*), "org.ietf.jgss.GSSException"},
-	{"wrap", "([BIILorg/ietf/jgss/MessageProp;)[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, wrap, $bytes*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"wrap", "(Ljava/io/InputStream;Ljava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $virtualMethod(SpNegoContext, wrap, void, $InputStream*, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException", nullptr, _SpNegoContext_MethodAnnotations_wrap56},
-	{}
-};
-
-$ClassInfo _SpNegoContext_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.jgss.spnego.SpNegoContext",
-	"java.lang.Object",
-	"sun.security.jgss.spi.GSSContextSpi",
-	_SpNegoContext_FieldInfo_,
-	_SpNegoContext_MethodInfo_
-};
-
-$Object* allocate$SpNegoContext($Class* clazz) {
-	return $of($alloc(SpNegoContext));
-}
 
 bool SpNegoContext::DEBUG = false;
 
@@ -352,7 +188,7 @@ bool SpNegoContext::getIntegState() {
 
 bool SpNegoContext::getDelegPolicyState() {
 	if (isInitiator() && this->mechContext != nullptr && $instanceOf($GSSContextImpl, this->mechContext) && (this->state == SpNegoContext::STATE_IN_PROCESS || this->state == SpNegoContext::STATE_DONE)) {
-		return $nc(($cast($GSSContextImpl, this->mechContext)))->getDelegPolicyState();
+		return $cast($GSSContextImpl, this->mechContext)->getDelegPolicyState();
 	} else {
 		return this->delegPolicyState;
 	}
@@ -366,7 +202,7 @@ void SpNegoContext::requestCredDeleg(bool value) {
 
 bool SpNegoContext::getCredDelegState() {
 	if (isInitiator() && this->mechContext != nullptr && (this->state == SpNegoContext::STATE_IN_PROCESS || this->state == SpNegoContext::STATE_DONE)) {
-		return $nc(this->mechContext)->getCredDelegState();
+		return this->mechContext->getCredDelegState();
 	} else {
 		return this->credDelegState;
 	}
@@ -413,7 +249,7 @@ bool SpNegoContext::isProtReady() {
 }
 
 $bytes* SpNegoContext::initSecContext($InputStream* is, int32_t mechTokenSize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, retVal, nullptr);
 	$var($NegTokenInit, initToken, nullptr);
 	$var($bytes, mechToken, nullptr);
@@ -461,31 +297,23 @@ $bytes* SpNegoContext::initSecContext($InputStream* is, int32_t mechTokenSize) {
 			int32_t result = targToken->getNegotiatedResult();
 			switch (result) {
 			case 0:
-				{
-					$init($SpNegoToken$NegoResult);
-					negoResult = $SpNegoToken$NegoResult::ACCEPT_COMPLETE;
-					this->state = SpNegoContext::STATE_DONE;
-					break;
-				}
+				$init($SpNegoToken$NegoResult);
+				negoResult = $SpNegoToken$NegoResult::ACCEPT_COMPLETE;
+				this->state = SpNegoContext::STATE_DONE;
+				break;
 			case 1:
-				{
-					$init($SpNegoToken$NegoResult);
-					negoResult = $SpNegoToken$NegoResult::ACCEPT_INCOMPLETE;
-					this->state = SpNegoContext::STATE_IN_PROCESS;
-					break;
-				}
+				$init($SpNegoToken$NegoResult);
+				negoResult = $SpNegoToken$NegoResult::ACCEPT_INCOMPLETE;
+				this->state = SpNegoContext::STATE_IN_PROCESS;
+				break;
 			case 2:
-				{
-					$init($SpNegoToken$NegoResult);
-					negoResult = $SpNegoToken$NegoResult::REJECT;
-					this->state = SpNegoContext::STATE_DELETED;
-					break;
-				}
+				$init($SpNegoToken$NegoResult);
+				negoResult = $SpNegoToken$NegoResult::REJECT;
+				this->state = SpNegoContext::STATE_DELETED;
+				break;
 			default:
-				{
-					this->state = SpNegoContext::STATE_DONE;
-					break;
-				}
+				this->state = SpNegoContext::STATE_DONE;
+				break;
 			}
 			errorCode = $GSSException::BAD_MECH;
 			$init($SpNegoToken$NegoResult);
@@ -512,8 +340,12 @@ $bytes* SpNegoContext::initSecContext($InputStream* is, int32_t mechTokenSize) {
 					this->state = SpNegoContext::STATE_DONE;
 					$assign(retVal, mechToken);
 					if (SpNegoContext::DEBUG) {
-						$var($String, var$0, $$str({"SPNEGO Negotiated Mechanism = "_s, this->internal_mech, " "_s}));
-						$nc($System::out)->println($$concat(var$0, $($GSSUtil::getMechStr(this->internal_mech))));
+						$var($StringBuilder, var$0, $new($StringBuilder));
+						var$0->append("SPNEGO Negotiated Mechanism = "_s);
+						var$0->append(this->internal_mech);
+						var$0->append(" "_s);
+						var$0->append($($GSSUtil::getMechStr(this->internal_mech)));
+						$nc($System::out)->println($$str(var$0));
 					}
 				} else {
 					$assign(initToken, $new($NegTokenInit, nullptr, nullptr, mechToken, nullptr));
@@ -544,7 +376,7 @@ $bytes* SpNegoContext::initSecContext($InputStream* is, int32_t mechTokenSize) {
 }
 
 $bytes* SpNegoContext::acceptSecContext($InputStream* is, int32_t mechTokenSize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, retVal, nullptr);
 	$SpNegoToken$NegoResult* negoResult = nullptr;
 	bool valid = true;
@@ -580,19 +412,19 @@ $bytes* SpNegoContext::acceptSecContext($InputStream* is, int32_t mechTokenSize)
 			$var($bytes, accept_token, nullptr);
 			bool var$0 = $nc($nc(mechList)->get(0))->equals(mech_wanted);
 			if (!var$0) {
-				bool var$1 = $GSSUtil::isKerberosMech($nc(mechList)->get(0));
-				var$0 = (var$1 && $GSSUtil::isKerberosMech(mech_wanted));
+				bool var$1 = $GSSUtil::isKerberosMech(mechList->get(0));
+				var$0 = var$1 && $GSSUtil::isKerberosMech(mech_wanted);
 			}
 			if (var$0) {
-				if (SpNegoContext::DEBUG && !$nc(mech_wanted)->equals($nc(mechList)->get(0))) {
-					$nc($System::out)->println($$str({"SpNegoContext.acceptSecContext: negotiated mech adjusted to "_s, $nc(mechList)->get(0)}));
+				if (SpNegoContext::DEBUG && !$nc(mech_wanted)->equals(mechList->get(0))) {
+					$nc($System::out)->println($$str({"SpNegoContext.acceptSecContext: negotiated mech adjusted to "_s, mechList->get(0)}));
 				}
 				$var($bytes, mechToken, initToken->getMechToken());
 				if (mechToken == nullptr) {
 					$throwNew($GSSException, $GSSException::FAILURE, -1, "mechToken is missing"_s);
 				}
 				$assign(accept_token, GSS_acceptSecContext(mechToken));
-				$assign(mech_wanted, $nc(mechList)->get(0));
+				$assign(mech_wanted, mechList->get(0));
 			} else {
 				$assign(accept_token, nullptr);
 			}
@@ -606,8 +438,12 @@ $bytes* SpNegoContext::acceptSecContext($InputStream* is, int32_t mechTokenSize)
 					this->state = SpNegoContext::STATE_DONE;
 					setContextFlags();
 					if (SpNegoContext::DEBUG) {
-						$var($String, var$2, $$str({"SPNEGO Negotiated Mechanism = "_s, this->internal_mech, " "_s}));
-						$nc($System::out)->println($$concat(var$2, $($GSSUtil::getMechStr(this->internal_mech))));
+						$var($StringBuilder, var$2, $new($StringBuilder));
+						var$2->append("SPNEGO Negotiated Mechanism = "_s);
+						var$2->append(this->internal_mech);
+						var$2->append(" "_s);
+						var$2->append($($GSSUtil::getMechStr(this->internal_mech)));
+						$nc($System::out)->println($$str(var$2));
 					}
 				} else {
 					$init($SpNegoToken$NegoResult);
@@ -622,7 +458,7 @@ $bytes* SpNegoContext::acceptSecContext($InputStream* is, int32_t mechTokenSize)
 			}
 			if (SpNegoContext::DEBUG) {
 				$nc($System::out)->println($$str({"SpNegoContext.acceptSecContext: mechanism wanted = "_s, mech_wanted}));
-				$nc($System::out)->println($$str({"SpNegoContext.acceptSecContext: negotiated result = "_s, negoResult}));
+				$System::out->println($$str({"SpNegoContext.acceptSecContext: negotiated result = "_s, negoResult}));
 			}
 			$var($NegTokenTarg, targToken, $new($NegTokenTarg, $nc(negoResult)->ordinal(), mech_wanted, accept_token, nullptr));
 			if (SpNegoContext::DEBUG) {
@@ -683,10 +519,10 @@ $bytes* SpNegoContext::acceptSecContext($InputStream* is, int32_t mechTokenSize)
 }
 
 $OidArray* SpNegoContext::getAvailableMechs() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->myCred != nullptr) {
 		$var($OidArray, mechs, $new($OidArray, 1));
-		mechs->set(0, $($nc(this->myCred)->getInternalMech()));
+		mechs->set(0, $(this->myCred->getInternalMech()));
 		return mechs;
 	} else {
 		return $nc(this->factory)->availableMechs;
@@ -694,7 +530,7 @@ $OidArray* SpNegoContext::getAvailableMechs() {
 }
 
 $bytes* SpNegoContext::getEncodedMechs($OidArray* mechSet) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, mech, $new($DerOutputStream));
 	for (int32_t i = 0; i < $nc(mechSet)->length; ++i) {
 		$var($bytes, mechType, $nc(mechSet->get(i))->getDER());
@@ -731,7 +567,7 @@ $BitArray* SpNegoContext::getContextFlags() {
 
 void SpNegoContext::setContextFlags() {
 	if (this->mechContext != nullptr) {
-		if ($nc(this->mechContext)->getCredDelegState()) {
+		if (this->mechContext->getCredDelegState()) {
 			this->credDelegState = true;
 		}
 		if (!$nc(this->mechContext)->getMutualAuthState()) {
@@ -753,7 +589,7 @@ void SpNegoContext::setContextFlags() {
 }
 
 bool SpNegoContext::verifyMechListMIC($bytes* mechTypes, $bytes* token) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (token == nullptr) {
 		if (SpNegoContext::DEBUG) {
 			$nc($System::out)->println("SpNegoContext: no MIC token validation"_s);
@@ -781,14 +617,14 @@ bool SpNegoContext::verifyMechListMIC($bytes* mechTypes, $bytes* token) {
 }
 
 $bytes* SpNegoContext::GSS_initSecContext($bytes* token) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, tok, nullptr);
 	if (this->mechContext == nullptr) {
 		$var($String, var$0, $nc(this->peerName)->toString());
-		$var($GSSName, serverName, $nc($nc(this->factory)->manager)->createName(var$0, $($nc(this->peerName)->getStringNameType()), this->internal_mech));
+		$var($GSSName, serverName, $nc($nc(this->factory)->manager)->createName(var$0, $(this->peerName->getStringNameType()), this->internal_mech));
 		$var($GSSCredential, cred, nullptr);
 		if (this->myCred != nullptr) {
-			$assign(cred, $new($GSSCredentialImpl, $nc(this->factory)->manager, $($nc(this->myCred)->getInternalCred())));
+			$assign(cred, $new($GSSCredentialImpl, $nc(this->factory)->manager, $(this->myCred->getInternalCred())));
 		}
 		$set(this, mechContext, $nc($nc(this->factory)->manager)->createContext(serverName, this->internal_mech, cred, $GSSContext::DEFAULT_LIFETIME));
 		$nc(this->mechContext)->requestConf(this->confState);
@@ -798,7 +634,7 @@ $bytes* SpNegoContext::GSS_initSecContext($bytes* token) {
 		$nc(this->mechContext)->requestReplayDet(this->replayDetState);
 		$nc(this->mechContext)->requestSequenceDet(this->sequenceDetState);
 		if ($instanceOf($GSSContextImpl, this->mechContext)) {
-			$nc(($cast($GSSContextImpl, this->mechContext)))->requestDelegPolicy(this->delegPolicyState);
+			$cast($GSSContextImpl, this->mechContext)->requestDelegPolicy(this->delegPolicyState);
 		}
 	}
 	if (token != nullptr) {
@@ -811,11 +647,11 @@ $bytes* SpNegoContext::GSS_initSecContext($bytes* token) {
 }
 
 $bytes* SpNegoContext::GSS_acceptSecContext($bytes* token) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->mechContext == nullptr) {
 		$var($GSSCredential, cred, nullptr);
 		if (this->myCred != nullptr) {
-			$assign(cred, $new($GSSCredentialImpl, $nc(this->factory)->manager, $($nc(this->myCred)->getInternalCred())));
+			$assign(cred, $new($GSSCredentialImpl, $nc(this->factory)->manager, $(this->myCred->getInternalCred())));
 		}
 		$set(this, mechContext, $nc($nc(this->factory)->manager)->createContext(cred));
 	}
@@ -825,7 +661,7 @@ $bytes* SpNegoContext::GSS_acceptSecContext($bytes* token) {
 
 $Oid* SpNegoContext::negotiate_mech_type($OidArray* supported_mechSet, $OidArray* mechSet) {
 	$init(SpNegoContext);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(supported_mechSet)->length; ++i) {
 		for (int32_t j = 0; j < $nc(mechSet)->length; ++j) {
 			if ($nc(mechSet->get(j))->equals(supported_mechSet->get(i))) {
@@ -845,7 +681,7 @@ bool SpNegoContext::isEstablished() {
 
 bool SpNegoContext::isMechContextEstablished() {
 	if (this->mechContext != nullptr) {
-		return $nc(this->mechContext)->isEstablished();
+		return this->mechContext->isEstablished();
 	} else {
 		if (SpNegoContext::DEBUG) {
 			$nc($System::out)->println("The underlying mechanism context has not been initialized"_s);
@@ -882,7 +718,7 @@ void SpNegoContext::requestLifetime(int32_t lifetime) {
 
 int32_t SpNegoContext::getLifetime() {
 	if (this->mechContext != nullptr) {
-		return $nc(this->mechContext)->getLifetime();
+		return this->mechContext->getLifetime();
 	} else {
 		return $GSSContext::INDEFINITE_LIFETIME;
 	}
@@ -914,7 +750,7 @@ bool SpNegoContext::getReplayDetState() {
 
 $GSSNameSpi* SpNegoContext::getTargName() {
 	if (this->mechContext != nullptr) {
-		$var($GSSNameImpl, targName, $cast($GSSNameImpl, $nc(this->mechContext)->getTargName()));
+		$var($GSSNameImpl, targName, $cast($GSSNameImpl, this->mechContext->getTargName()));
 		$set(this, peerName, $nc(targName)->getElement(this->internal_mech));
 		return this->peerName;
 	} else {
@@ -927,7 +763,7 @@ $GSSNameSpi* SpNegoContext::getTargName() {
 
 $GSSNameSpi* SpNegoContext::getSrcName() {
 	if (this->mechContext != nullptr) {
-		$var($GSSNameImpl, srcName, $cast($GSSNameImpl, $nc(this->mechContext)->getSrcName()));
+		$var($GSSNameImpl, srcName, $cast($GSSNameImpl, this->mechContext->getSrcName()));
 		$set(this, myName, $nc(srcName)->getElement(this->internal_mech));
 		return this->myName;
 	} else {
@@ -939,12 +775,12 @@ $GSSNameSpi* SpNegoContext::getSrcName() {
 }
 
 $GSSCredentialSpi* SpNegoContext::getDelegCred() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->state != SpNegoContext::STATE_IN_PROCESS && this->state != SpNegoContext::STATE_DONE) {
 		$throwNew($GSSException, $GSSException::NO_CONTEXT);
 	}
 	if (this->mechContext != nullptr) {
-		$var($GSSCredentialImpl, delegCred, $cast($GSSCredentialImpl, $nc(this->mechContext)->getDelegCred()));
+		$var($GSSCredentialImpl, delegCred, $cast($GSSCredentialImpl, this->mechContext->getDelegCred()));
 		if (delegCred == nullptr) {
 			return nullptr;
 		}
@@ -952,7 +788,7 @@ $GSSCredentialSpi* SpNegoContext::getDelegCred() {
 		if ($nc(delegCred)->getUsage() == $GSSCredential::INITIATE_ONLY) {
 			initiate = true;
 		}
-		$var($GSSCredentialSpi, mechCred, $nc(delegCred)->getElement(this->internal_mech, initiate));
+		$var($GSSCredentialSpi, mechCred, delegCred->getElement(this->internal_mech, initiate));
 		$var($SpNegoCredElement, cred, $new($SpNegoCredElement, mechCred));
 		return cred->getInternalCred();
 	} else {
@@ -962,7 +798,7 @@ $GSSCredentialSpi* SpNegoContext::getDelegCred() {
 
 int32_t SpNegoContext::getWrapSizeLimit(int32_t qop, bool confReq, int32_t maxTokSize) {
 	if (this->mechContext != nullptr) {
-		return $nc(this->mechContext)->getWrapSizeLimit(qop, confReq, maxTokSize);
+		return this->mechContext->getWrapSizeLimit(qop, confReq, maxTokSize);
 	} else {
 		$throwNew($GSSException, $GSSException::NO_CONTEXT, -1, "getWrapSizeLimit called in invalid state!"_s);
 	}
@@ -970,7 +806,7 @@ int32_t SpNegoContext::getWrapSizeLimit(int32_t qop, bool confReq, int32_t maxTo
 
 $bytes* SpNegoContext::wrap($bytes* inBuf, int32_t offset, int32_t len, $MessageProp* msgProp) {
 	if (this->mechContext != nullptr) {
-		return $nc(this->mechContext)->wrap(inBuf, offset, len, msgProp);
+		return this->mechContext->wrap(inBuf, offset, len, msgProp);
 	} else {
 		$throwNew($GSSException, $GSSException::NO_CONTEXT, -1, "Wrap called in invalid state!"_s);
 	}
@@ -978,7 +814,7 @@ $bytes* SpNegoContext::wrap($bytes* inBuf, int32_t offset, int32_t len, $Message
 
 void SpNegoContext::wrap($InputStream* is, $OutputStream* os, $MessageProp* msgProp) {
 	if (this->mechContext != nullptr) {
-		$nc(this->mechContext)->wrap(is, os, msgProp);
+		this->mechContext->wrap(is, os, msgProp);
 	} else {
 		$throwNew($GSSException, $GSSException::NO_CONTEXT, -1, "Wrap called in invalid state!"_s);
 	}
@@ -986,7 +822,7 @@ void SpNegoContext::wrap($InputStream* is, $OutputStream* os, $MessageProp* msgP
 
 $bytes* SpNegoContext::unwrap($bytes* inBuf, int32_t offset, int32_t len, $MessageProp* msgProp) {
 	if (this->mechContext != nullptr) {
-		return $nc(this->mechContext)->unwrap(inBuf, offset, len, msgProp);
+		return this->mechContext->unwrap(inBuf, offset, len, msgProp);
 	} else {
 		$throwNew($GSSException, $GSSException::NO_CONTEXT, -1, "UnWrap called in invalid state!"_s);
 	}
@@ -994,7 +830,7 @@ $bytes* SpNegoContext::unwrap($bytes* inBuf, int32_t offset, int32_t len, $Messa
 
 void SpNegoContext::unwrap($InputStream* is, $OutputStream* os, $MessageProp* msgProp) {
 	if (this->mechContext != nullptr) {
-		$nc(this->mechContext)->unwrap(is, os, msgProp);
+		this->mechContext->unwrap(is, os, msgProp);
 	} else {
 		$throwNew($GSSException, $GSSException::NO_CONTEXT, -1, "UnWrap called in invalid state!"_s);
 	}
@@ -1002,7 +838,7 @@ void SpNegoContext::unwrap($InputStream* is, $OutputStream* os, $MessageProp* ms
 
 $bytes* SpNegoContext::getMIC($bytes* inMsg, int32_t offset, int32_t len, $MessageProp* msgProp) {
 	if (this->mechContext != nullptr) {
-		return $nc(this->mechContext)->getMIC(inMsg, offset, len, msgProp);
+		return this->mechContext->getMIC(inMsg, offset, len, msgProp);
 	} else {
 		$throwNew($GSSException, $GSSException::NO_CONTEXT, -1, "getMIC called in invalid state!"_s);
 	}
@@ -1010,7 +846,7 @@ $bytes* SpNegoContext::getMIC($bytes* inMsg, int32_t offset, int32_t len, $Messa
 
 void SpNegoContext::getMIC($InputStream* is, $OutputStream* os, $MessageProp* msgProp) {
 	if (this->mechContext != nullptr) {
-		$nc(this->mechContext)->getMIC(is, os, msgProp);
+		this->mechContext->getMIC(is, os, msgProp);
 	} else {
 		$throwNew($GSSException, $GSSException::NO_CONTEXT, -1, "getMIC called in invalid state!"_s);
 	}
@@ -1018,7 +854,7 @@ void SpNegoContext::getMIC($InputStream* is, $OutputStream* os, $MessageProp* ms
 
 void SpNegoContext::verifyMIC($bytes* inTok, int32_t tokOffset, int32_t tokLen, $bytes* inMsg, int32_t msgOffset, int32_t msgLen, $MessageProp* msgProp) {
 	if (this->mechContext != nullptr) {
-		$nc(this->mechContext)->verifyMIC(inTok, tokOffset, tokLen, inMsg, msgOffset, msgLen, msgProp);
+		this->mechContext->verifyMIC(inTok, tokOffset, tokLen, inMsg, msgOffset, msgLen, msgProp);
 	} else {
 		$throwNew($GSSException, $GSSException::NO_CONTEXT, -1, "verifyMIC called in invalid state!"_s);
 	}
@@ -1026,7 +862,7 @@ void SpNegoContext::verifyMIC($bytes* inTok, int32_t tokOffset, int32_t tokLen, 
 
 void SpNegoContext::verifyMIC($InputStream* is, $InputStream* msgStr, $MessageProp* msgProp) {
 	if (this->mechContext != nullptr) {
-		$nc(this->mechContext)->verifyMIC(is, msgStr, msgProp);
+		this->mechContext->verifyMIC(is, msgStr, msgProp);
 	} else {
 		$throwNew($GSSException, $GSSException::NO_CONTEXT, -1, "verifyMIC called in invalid state!"_s);
 	}
@@ -1036,25 +872,15 @@ $String* SpNegoContext::printState(int32_t state) {
 	$init(SpNegoContext);
 	switch (state) {
 	case SpNegoContext::STATE_NEW:
-		{
-			return ("STATE_NEW"_s);
-		}
+		return ("STATE_NEW"_s);
 	case SpNegoContext::STATE_IN_PROCESS:
-		{
-			return ("STATE_IN_PROCESS"_s);
-		}
+		return ("STATE_IN_PROCESS"_s);
 	case SpNegoContext::STATE_DONE:
-		{
-			return ("STATE_DONE"_s);
-		}
+		return ("STATE_DONE"_s);
 	case SpNegoContext::STATE_DELETED:
-		{
-			return ("STATE_DELETED"_s);
-		}
+		return ("STATE_DELETED"_s);
 	default:
-		{
-			return ($str({"Unknown state "_s, $$str(state)}));
-		}
+		return ($str({"Unknown state "_s, $$str(state)}));
 	}
 }
 
@@ -1063,13 +889,13 @@ $Object* SpNegoContext::inquireSecContext($String* type) {
 		$throwNew($GSSException, $GSSException::NO_CONTEXT, -1, "Underlying mech not established."_s);
 	}
 	if ($instanceOf($GSSContextImpl, this->mechContext)) {
-		return $of($nc(($cast($GSSContextImpl, this->mechContext)))->inquireSecContext(type));
+		return $cast($GSSContextImpl, this->mechContext)->inquireSecContext(type);
 	} else {
 		$throwNew($GSSException, $GSSException::BAD_MECH, -1, "inquireSecContext not supported by underlying mech."_s);
 	}
 }
 
-void clinit$SpNegoContext($Class* class$) {
+void SpNegoContext::clinit$($Class* clazz) {
 	SpNegoContext::DEBUG = $GetBooleanAction::privilegedGetProperty("sun.security.spnego.debug"_s);
 }
 
@@ -1077,7 +903,151 @@ SpNegoContext::SpNegoContext() {
 }
 
 $Class* SpNegoContext::load$($String* name, bool initialize) {
-	$loadClass(SpNegoContext, name, initialize, &_SpNegoContext_ClassInfo_, clinit$SpNegoContext, allocate$SpNegoContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"STATE_NEW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SpNegoContext, STATE_NEW)},
+		{"STATE_IN_PROCESS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SpNegoContext, STATE_IN_PROCESS)},
+		{"STATE_DONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SpNegoContext, STATE_DONE)},
+		{"STATE_DELETED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SpNegoContext, STATE_DELETED)},
+		{"state", "I", nullptr, $PRIVATE, $field(SpNegoContext, state)},
+		{"credDelegState", "Z", nullptr, $PRIVATE, $field(SpNegoContext, credDelegState)},
+		{"mutualAuthState", "Z", nullptr, $PRIVATE, $field(SpNegoContext, mutualAuthState)},
+		{"replayDetState", "Z", nullptr, $PRIVATE, $field(SpNegoContext, replayDetState)},
+		{"sequenceDetState", "Z", nullptr, $PRIVATE, $field(SpNegoContext, sequenceDetState)},
+		{"confState", "Z", nullptr, $PRIVATE, $field(SpNegoContext, confState)},
+		{"integState", "Z", nullptr, $PRIVATE, $field(SpNegoContext, integState)},
+		{"delegPolicyState", "Z", nullptr, $PRIVATE, $field(SpNegoContext, delegPolicyState)},
+		{"peerName", "Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PRIVATE, $field(SpNegoContext, peerName)},
+		{"myName", "Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PRIVATE, $field(SpNegoContext, myName)},
+		{"myCred", "Lsun/security/jgss/spnego/SpNegoCredElement;", nullptr, $PRIVATE, $field(SpNegoContext, myCred)},
+		{"mechContext", "Lorg/ietf/jgss/GSSContext;", nullptr, $PRIVATE, $field(SpNegoContext, mechContext)},
+		{"DER_mechTypes", "[B", nullptr, $PRIVATE, $field(SpNegoContext, DER_mechTypes)},
+		{"lifetime", "I", nullptr, $PRIVATE, $field(SpNegoContext, lifetime)},
+		{"channelBinding", "Lorg/ietf/jgss/ChannelBinding;", nullptr, $PRIVATE, $field(SpNegoContext, channelBinding)},
+		{"initiator", "Z", nullptr, $PRIVATE, $field(SpNegoContext, initiator)},
+		{"internal_mech", "Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE, $field(SpNegoContext, internal_mech)},
+		{"factory", "Lsun/security/jgss/spnego/SpNegoMechFactory;", nullptr, $PRIVATE | $FINAL, $field(SpNegoContext, factory)},
+		{"DEBUG", "Z", nullptr, $STATIC | $FINAL, $staticField(SpNegoContext, DEBUG)},
+		{}
+	};
+	$NamedAttribute acceptSecContextmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "11"},
+		{}
+	};
+	$CompoundAttribute acceptSecContextmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", acceptSecContextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getMICmethodAnnotations$$$1$namedAttribute[] = {
+		{"since", 's', "11"},
+		{}
+	};
+	$CompoundAttribute getMICmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", getMICmethodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$NamedAttribute initSecContextmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "11"},
+		{}
+	};
+	$CompoundAttribute initSecContextmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", initSecContextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute unwrapmethodAnnotations$$$1$namedAttribute[] = {
+		{"since", 's', "11"},
+		{}
+	};
+	$CompoundAttribute unwrapmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", unwrapmethodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$NamedAttribute verifyMICmethodAnnotations$$$1$namedAttribute[] = {
+		{"since", 's', "11"},
+		{}
+	};
+	$CompoundAttribute verifyMICmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", verifyMICmethodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$NamedAttribute wrapmethodAnnotations$$$1$namedAttribute[] = {
+		{"since", 's', "11"},
+		{}
+	};
+	$CompoundAttribute wrapmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", wrapmethodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/jgss/spnego/SpNegoMechFactory;Lsun/security/jgss/spi/GSSNameSpi;Lsun/security/jgss/spi/GSSCredentialSpi;I)V", nullptr, $PUBLIC, $method(SpNegoContext, init$, void, $SpNegoMechFactory*, $GSSNameSpi*, $GSSCredentialSpi*, int32_t), "org.ietf.jgss.GSSException"},
+		{"<init>", "(Lsun/security/jgss/spnego/SpNegoMechFactory;Lsun/security/jgss/spi/GSSCredentialSpi;)V", nullptr, $PUBLIC, $method(SpNegoContext, init$, void, $SpNegoMechFactory*, $GSSCredentialSpi*), "org.ietf.jgss.GSSException"},
+		{"<init>", "(Lsun/security/jgss/spnego/SpNegoMechFactory;[B)V", nullptr, $PUBLIC, $method(SpNegoContext, init$, void, $SpNegoMechFactory*, $bytes*), "org.ietf.jgss.GSSException"},
+		{"GSS_acceptSecContext", "([B)[B", nullptr, $PRIVATE, $method(SpNegoContext, GSS_acceptSecContext, $bytes*, $bytes*), "org.ietf.jgss.GSSException"},
+		{"GSS_initSecContext", "([B)[B", nullptr, $PRIVATE, $method(SpNegoContext, GSS_initSecContext, $bytes*, $bytes*), "org.ietf.jgss.GSSException"},
+		{"acceptSecContext", "(Ljava/io/InputStream;I)[B", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $virtualMethod(SpNegoContext, acceptSecContext, $bytes*, $InputStream*, int32_t), "org.ietf.jgss.GSSException", nullptr, acceptSecContextmethodAnnotations$$},
+		{"dispose", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, dispose, void), "org.ietf.jgss.GSSException"},
+		{"export", "()[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, export$, $bytes*), "org.ietf.jgss.GSSException"},
+		{"getAnonymityState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getAnonymityState, bool)},
+		{"getAvailableMechs", "()[Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE, $method(SpNegoContext, getAvailableMechs, $OidArray*)},
+		{"getChannelBinding", "()Lorg/ietf/jgss/ChannelBinding;", nullptr, $FINAL, $method(SpNegoContext, getChannelBinding, $ChannelBinding*)},
+		{"getConfState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getConfState, bool)},
+		{"getContextFlags", "()Lsun/security/util/BitArray;", nullptr, $PRIVATE, $method(SpNegoContext, getContextFlags, $BitArray*)},
+		{"getCredDelegState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getCredDelegState, bool)},
+		{"getDelegCred", "()Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getDelegCred, $GSSCredentialSpi*), "org.ietf.jgss.GSSException"},
+		{"getDelegPolicyState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getDelegPolicyState, bool)},
+		{"getEncodedMechs", "([Lorg/ietf/jgss/Oid;)[B", nullptr, $PRIVATE, $method(SpNegoContext, getEncodedMechs, $bytes*, $OidArray*), "java.io.IOException,org.ietf.jgss.GSSException"},
+		{"getIntegState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getIntegState, bool)},
+		{"getLifetime", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getLifetime, int32_t)},
+		{"getMIC", "([BIILorg/ietf/jgss/MessageProp;)[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getMIC, $bytes*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"getMIC", "(Ljava/io/InputStream;Ljava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $virtualMethod(SpNegoContext, getMIC, void, $InputStream*, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException", nullptr, getMICmethodAnnotations$$$1},
+		{"getMech", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getMech, $Oid*)},
+		{"getMutualAuthState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getMutualAuthState, bool)},
+		{"getNegotiatedMech", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $FINAL, $method(SpNegoContext, getNegotiatedMech, $Oid*)},
+		{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getProvider, $Provider*)},
+		{"getReplayDetState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getReplayDetState, bool)},
+		{"getSequenceDetState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getSequenceDetState, bool)},
+		{"getSrcName", "()Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getSrcName, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
+		{"getTargName", "()Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getTargName, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
+		{"getWrapSizeLimit", "(IZI)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, getWrapSizeLimit, int32_t, int32_t, bool, int32_t), "org.ietf.jgss.GSSException"},
+		{"initSecContext", "(Ljava/io/InputStream;I)[B", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $virtualMethod(SpNegoContext, initSecContext, $bytes*, $InputStream*, int32_t), "org.ietf.jgss.GSSException", nullptr, initSecContextmethodAnnotations$$},
+		{"inquireSecContext", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SpNegoContext, inquireSecContext, $Object*, $String*), "org.ietf.jgss.GSSException"},
+		{"isEstablished", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, isEstablished, bool)},
+		{"isInitiator", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, isInitiator, bool)},
+		{"isMechContextEstablished", "()Z", nullptr, $PUBLIC | $FINAL, $method(SpNegoContext, isMechContextEstablished, bool)},
+		{"isProtReady", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, isProtReady, bool)},
+		{"isTransferable", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, isTransferable, bool), "org.ietf.jgss.GSSException"},
+		{"negotiate_mech_type", "([Lorg/ietf/jgss/Oid;[Lorg/ietf/jgss/Oid;)Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE | $STATIC, $staticMethod(SpNegoContext, negotiate_mech_type, $Oid*, $OidArray*, $OidArray*)},
+		{"printState", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SpNegoContext, printState, $String*, int32_t)},
+		{"requestAnonymity", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, requestAnonymity, void, bool), "org.ietf.jgss.GSSException"},
+		{"requestConf", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, requestConf, void, bool), "org.ietf.jgss.GSSException"},
+		{"requestCredDeleg", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, requestCredDeleg, void, bool), "org.ietf.jgss.GSSException"},
+		{"requestDelegPolicy", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, requestDelegPolicy, void, bool), "org.ietf.jgss.GSSException"},
+		{"requestInteg", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, requestInteg, void, bool), "org.ietf.jgss.GSSException"},
+		{"requestLifetime", "(I)V", nullptr, $PUBLIC, $virtualMethod(SpNegoContext, requestLifetime, void, int32_t), "org.ietf.jgss.GSSException"},
+		{"requestMutualAuth", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, requestMutualAuth, void, bool), "org.ietf.jgss.GSSException"},
+		{"requestReplayDet", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, requestReplayDet, void, bool), "org.ietf.jgss.GSSException"},
+		{"requestSequenceDet", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, requestSequenceDet, void, bool), "org.ietf.jgss.GSSException"},
+		{"setChannelBinding", "(Lorg/ietf/jgss/ChannelBinding;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, setChannelBinding, void, $ChannelBinding*), "org.ietf.jgss.GSSException"},
+		{"setContextFlags", "()V", nullptr, $PRIVATE, $method(SpNegoContext, setContextFlags, void)},
+		{"unwrap", "([BIILorg/ietf/jgss/MessageProp;)[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, unwrap, $bytes*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"unwrap", "(Ljava/io/InputStream;Ljava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $virtualMethod(SpNegoContext, unwrap, void, $InputStream*, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException", nullptr, unwrapmethodAnnotations$$$1},
+		{"verifyMIC", "([BII[BIILorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, verifyMIC, void, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"verifyMIC", "(Ljava/io/InputStream;Ljava/io/InputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $virtualMethod(SpNegoContext, verifyMIC, void, $InputStream*, $InputStream*, $MessageProp*), "org.ietf.jgss.GSSException", nullptr, verifyMICmethodAnnotations$$$1},
+		{"verifyMechListMIC", "([B[B)Z", nullptr, $PRIVATE, $method(SpNegoContext, verifyMechListMIC, bool, $bytes*, $bytes*), "org.ietf.jgss.GSSException"},
+		{"wrap", "([BIILorg/ietf/jgss/MessageProp;)[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoContext, wrap, $bytes*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"wrap", "(Ljava/io/InputStream;Ljava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $virtualMethod(SpNegoContext, wrap, void, $InputStream*, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException", nullptr, wrapmethodAnnotations$$$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.jgss.spnego.SpNegoContext",
+		"java.lang.Object",
+		"sun.security.jgss.spi.GSSContextSpi",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SpNegoContext, name, initialize, &classInfo$$, SpNegoContext::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SpNegoContext);
+	});
 	return class$;
 }
 

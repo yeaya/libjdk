@@ -1,5 +1,4 @@
 #include <KoreanTest.h>
-
 #include <java/text/Collator.h>
 #include <java/util/Locale.h>
 #include <jcpp.h>
@@ -9,43 +8,12 @@
 #undef SECONDARY
 
 using $StringArray2 = $Array<::java::lang::String, 2>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Collator = ::java::text::Collator;
 using $Locale = ::java::util::Locale;
-
-$FieldInfo _KoreanTest_FieldInfo_[] = {
-	{"compData1", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(KoreanTest, compData1)},
-	{"compData2", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(KoreanTest, compData2)},
-	{"col", "Ljava/text/Collator;", nullptr, 0, $field(KoreanTest, col)},
-	{"result", "I", nullptr, 0, $field(KoreanTest, result)},
-	{}
-};
-
-$MethodInfo _KoreanTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(KoreanTest, init$, void)},
-	{"doCompare", "([[Ljava/lang/String;)V", nullptr, 0, $virtualMethod(KoreanTest, doCompare, void, $StringArray2*)},
-	{"doEquals", "([[Ljava/lang/String;)V", nullptr, 0, $virtualMethod(KoreanTest, doEquals, void, $StringArray2*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KoreanTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(KoreanTest, run, void)},
-	{}
-};
-
-$ClassInfo _KoreanTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"KoreanTest",
-	"java.lang.Object",
-	nullptr,
-	_KoreanTest_FieldInfo_,
-	_KoreanTest_MethodInfo_
-};
-
-$Object* allocate$KoreanTest($Class* clazz) {
-	return $of($alloc(KoreanTest));
-}
 
 $StringArray2* KoreanTest::compData1 = nullptr;
 $StringArray2* KoreanTest::compData2 = nullptr;
@@ -76,7 +44,7 @@ void KoreanTest::run() {
 }
 
 void KoreanTest::doCompare($StringArray2* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t value = 0;
 	for (int32_t i = 0; i < $nc(s)->length; ++i) {
 		if ((value = $nc(this->col)->compare($nc(s->get(i))->get(0), $nc(s->get(i))->get(1))) > -1) {
@@ -87,17 +55,17 @@ void KoreanTest::doCompare($StringArray2* s) {
 }
 
 void KoreanTest::doEquals($StringArray2* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(s)->length; ++i) {
 		if (!$nc(this->col)->equals($nc(s->get(i))->get(0), $nc(s->get(i))->get(1))) {
 			++this->result;
-			$nc($System::err)->println($$str({"TERTIARY: The first string should be equals to the second string:  "_s, $nc(s->get(i))->get(2), "  compare() returned "_s, $$str($nc(this->col)->compare($nc(s->get(i))->get(0), $$str({$nc(s->get(i))->get(1), "."_s})))}));
+			$nc($System::err)->println($$str({"TERTIARY: The first string should be equals to the second string:  "_s, $nc(s->get(i))->get(2), "  compare() returned "_s, $$str(this->col->compare($nc(s->get(i))->get(0), $$str({$nc(s->get(i))->get(1), "."_s})))}));
 		}
 	}
 }
 
-void clinit$KoreanTest($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void KoreanTest::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(KoreanTest::compData1, $new($StringArray2, {
 		$$new($StringArray, {
 			u"고양이"_s,
@@ -141,7 +109,32 @@ KoreanTest::KoreanTest() {
 }
 
 $Class* KoreanTest::load$($String* name, bool initialize) {
-	$loadClass(KoreanTest, name, initialize, &_KoreanTest_ClassInfo_, clinit$KoreanTest, allocate$KoreanTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"compData1", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(KoreanTest, compData1)},
+		{"compData2", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(KoreanTest, compData2)},
+		{"col", "Ljava/text/Collator;", nullptr, 0, $field(KoreanTest, col)},
+		{"result", "I", nullptr, 0, $field(KoreanTest, result)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(KoreanTest, init$, void)},
+		{"doCompare", "([[Ljava/lang/String;)V", nullptr, 0, $virtualMethod(KoreanTest, doCompare, void, $StringArray2*)},
+		{"doEquals", "([[Ljava/lang/String;)V", nullptr, 0, $virtualMethod(KoreanTest, doEquals, void, $StringArray2*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KoreanTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(KoreanTest, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"KoreanTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KoreanTest, name, initialize, &classInfo$$, KoreanTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KoreanTest);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/jgss/krb5/Krb5Context$1.h>
-
 #include <java/security/AccessControlContext.h>
 #include <javax/security/auth/kerberos/KerberosTicket.h>
 #include <sun/security/jgss/GSSCaller.h>
@@ -24,56 +23,11 @@ using $Krb5Context = ::sun::security::jgss::krb5::Krb5Context;
 using $Krb5NameElement = ::sun::security::jgss::krb5::Krb5NameElement;
 using $Krb5ProxyCredential = ::sun::security::jgss::krb5::Krb5ProxyCredential;
 using $Krb5Util = ::sun::security::jgss::krb5::Krb5Util;
-using $PrincipalName = ::sun::security::krb5::PrincipalName;
 
 namespace sun {
 	namespace security {
 		namespace jgss {
 			namespace krb5 {
-
-$FieldInfo _Krb5Context$1_FieldInfo_[] = {
-	{"this$0", "Lsun/security/jgss/krb5/Krb5Context;", nullptr, $FINAL | $SYNTHETIC, $field(Krb5Context$1, this$0)},
-	{"val$acc", "Ljava/security/AccessControlContext;", nullptr, $FINAL | $SYNTHETIC, $field(Krb5Context$1, val$acc)},
-	{"val$second", "Lsun/security/jgss/krb5/Krb5ProxyCredential;", nullptr, $FINAL | $SYNTHETIC, $field(Krb5Context$1, val$second)},
-	{}
-};
-
-$MethodInfo _Krb5Context$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Lsun/security/jgss/krb5/Krb5ProxyCredential;Ljava/security/AccessControlContext;)V", "()V", 0, $method(Krb5Context$1, init$, void, $Krb5Context*, $Krb5ProxyCredential*, $AccessControlContext*)},
-	{"run", "()Ljavax/security/auth/kerberos/KerberosTicket;", nullptr, $PUBLIC, $virtualMethod(Krb5Context$1, run, $Object*), "java.lang.Exception"},
-	{}
-};
-
-$EnclosingMethodInfo _Krb5Context$1_EnclosingMethodInfo_ = {
-	"sun.security.jgss.krb5.Krb5Context",
-	"initSecContext",
-	"(Ljava/io/InputStream;I)[B"
-};
-
-$InnerClassInfo _Krb5Context$1_InnerClassesInfo_[] = {
-	{"sun.security.jgss.krb5.Krb5Context$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Krb5Context$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.jgss.krb5.Krb5Context$1",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	_Krb5Context$1_FieldInfo_,
-	_Krb5Context$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljavax/security/auth/kerberos/KerberosTicket;>;",
-	&_Krb5Context$1_EnclosingMethodInfo_,
-	_Krb5Context$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.jgss.krb5.Krb5Context"
-};
-
-$Object* allocate$Krb5Context$1($Class* clazz) {
-	return $of($alloc(Krb5Context$1));
-}
 
 void Krb5Context$1::init$($Krb5Context* this$0, $Krb5ProxyCredential* val$second, $AccessControlContext* val$acc) {
 	$set(this, this$0, this$0);
@@ -82,18 +36,55 @@ void Krb5Context$1::init$($Krb5Context* this$0, $Krb5ProxyCredential* val$second
 }
 
 $Object* Krb5Context$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($GSSCaller);
 	$var($GSSCaller, var$0, $GSSCaller::CALLER_UNKNOWN);
-	$var($String, var$1, this->val$second == nullptr ? $nc($($nc(this->this$0->myName)->getKrb5PrincipalName()))->getName() : $nc($($nc($($cast($Krb5NameElement, $nc(this->val$second)->getName())))->getKrb5PrincipalName()))->getName());
-	return $of($Krb5Util::getServiceTicket(var$0, var$1, $($nc($($nc(this->this$0->peerName)->getKrb5PrincipalName()))->getName()), this->val$acc));
+	$var($String, var$1, this->val$second == nullptr ? $$nc($nc(this->this$0->myName)->getKrb5PrincipalName())->getName() : $$nc($$sure($Krb5NameElement, this->val$second->getName())->getKrb5PrincipalName())->getName());
+	return $of($Krb5Util::getServiceTicket(var$0, var$1, $($$nc($nc(this->this$0->peerName)->getKrb5PrincipalName())->getName()), this->val$acc));
 }
 
 Krb5Context$1::Krb5Context$1() {
 }
 
 $Class* Krb5Context$1::load$($String* name, bool initialize) {
-	$loadClass(Krb5Context$1, name, initialize, &_Krb5Context$1_ClassInfo_, allocate$Krb5Context$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/security/jgss/krb5/Krb5Context;", nullptr, $FINAL | $SYNTHETIC, $field(Krb5Context$1, this$0)},
+		{"val$acc", "Ljava/security/AccessControlContext;", nullptr, $FINAL | $SYNTHETIC, $field(Krb5Context$1, val$acc)},
+		{"val$second", "Lsun/security/jgss/krb5/Krb5ProxyCredential;", nullptr, $FINAL | $SYNTHETIC, $field(Krb5Context$1, val$second)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Lsun/security/jgss/krb5/Krb5ProxyCredential;Ljava/security/AccessControlContext;)V", "()V", 0, $method(Krb5Context$1, init$, void, $Krb5Context*, $Krb5ProxyCredential*, $AccessControlContext*)},
+		{"run", "()Ljavax/security/auth/kerberos/KerberosTicket;", nullptr, $PUBLIC, $virtualMethod(Krb5Context$1, run, $Object*), "java.lang.Exception"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.jgss.krb5.Krb5Context",
+		"initSecContext",
+		"(Ljava/io/InputStream;I)[B"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jgss.krb5.Krb5Context$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.jgss.krb5.Krb5Context$1",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljavax/security/auth/kerberos/KerberosTicket;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.jgss.krb5.Krb5Context"
+	};
+	$loadClass(Krb5Context$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Krb5Context$1);
+	});
 	return class$;
 }
 

@@ -21,6 +21,7 @@ class Frame$Masker : public ::java::lang::Object {
 	$class(Frame$Masker, 0, ::java::lang::Object)
 public:
 	Frame$Masker();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void begin(::java::nio::ByteBuffer* src, ::java::nio::ByteBuffer* dst);
 	void end(::java::nio::ByteBuffer* src, ::java::nio::ByteBuffer* dst);

@@ -21,6 +21,7 @@ class $export Notification : public ::java::util::EventObject {
 	$class(Notification, 0, ::java::util::EventObject)
 public:
 	Notification();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* type, Object$* source, int64_t sequenceNumber);
 	void init$($String* type, Object$* source, int64_t sequenceNumber, $String* message);
 	void init$($String* type, Object$* source, int64_t sequenceNumber, int64_t timeStamp);
@@ -37,8 +38,8 @@ public:
 	virtual void setUserData(Object$* userData);
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t oldSerialVersionUID = (int64_t)0x17D3EE5E24233430;
-	static const int64_t newSerialVersionUID = (int64_t)0x97B17A196C1D108B;
+	static const int64_t oldSerialVersionUID = (int64_t)0x17d3ee5e24233430;
+	static const int64_t newSerialVersionUID = (int64_t)0x97b17a196c1d108b;
 	static $Array<::java::io::ObjectStreamField>* oldSerialPersistentFields;
 	static $Array<::java::io::ObjectStreamField>* newSerialPersistentFields;
 	static int64_t serialVersionUID;

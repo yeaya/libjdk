@@ -24,6 +24,7 @@ class $import Http1Exchange$Http1Publisher$WriteTask : public ::java::lang::Runn
 	$class(Http1Exchange$Http1Publisher$WriteTask, 0, ::java::lang::Runnable)
 public:
 	Http1Exchange$Http1Publisher$WriteTask();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::Http1Exchange$Http1Publisher* this$1);
 	$String* lambda$run$0();
 	virtual void run() override;

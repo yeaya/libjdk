@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/sasl/DefaultCallbackHandler.h>
-
 #include <java/io/IOException.h>
 #include <javax/security/auth/callback/Callback.h>
 #include <javax/security/auth/callback/NameCallback.h>
@@ -26,41 +25,13 @@ namespace com {
 			namespace ldap {
 				namespace sasl {
 
-$FieldInfo _DefaultCallbackHandler_FieldInfo_[] = {
-	{"passwd", "[C", nullptr, $PRIVATE, $field(DefaultCallbackHandler, passwd)},
-	{"authenticationID", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DefaultCallbackHandler, authenticationID)},
-	{"authRealm", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DefaultCallbackHandler, authRealm)},
-	{}
-};
-
-$MethodInfo _DefaultCallbackHandler_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;)V", nullptr, 0, $method(DefaultCallbackHandler, init$, void, $String*, Object$*, $String*), "java.io.IOException"},
-	{"clearPassword", "()V", nullptr, 0, $method(DefaultCallbackHandler, clearPassword, void)},
-	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultCallbackHandler, finalize, void), "java.lang.Throwable"},
-	{"handle", "([Ljavax/security/auth/callback/Callback;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCallbackHandler, handle, void, $CallbackArray*), "java.io.IOException,javax.security.auth.callback.UnsupportedCallbackException"},
-	{}
-};
-
-$ClassInfo _DefaultCallbackHandler_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.sasl.DefaultCallbackHandler",
-	"java.lang.Object",
-	"javax.security.auth.callback.CallbackHandler",
-	_DefaultCallbackHandler_FieldInfo_,
-	_DefaultCallbackHandler_MethodInfo_
-};
-
-$Object* allocate$DefaultCallbackHandler($Class* clazz) {
-	return $of($alloc(DefaultCallbackHandler));
-}
-
 void DefaultCallbackHandler::init$($String* principal, Object$* cred, $String* realm) {
 	$set(this, authenticationID, principal);
 	$set(this, authRealm, realm);
 	if ($instanceOf($String, cred)) {
-		$set(this, passwd, $nc(($cast($String, cred)))->toCharArray());
+		$set(this, passwd, $cast($String, cred)->toCharArray());
 	} else if ($instanceOf($chars, cred)) {
-		$set(this, passwd, $cast($chars, $nc(($cast($chars, cred)))->clone()));
+		$set(this, passwd, $cast($chars, $cast($chars, cred)->clone()));
 	} else if (cred != nullptr) {
 		$var($String, orig, $new($String, $cast($bytes, cred), "UTF8"_s));
 		$set(this, passwd, orig->toCharArray());
@@ -68,16 +39,16 @@ void DefaultCallbackHandler::init$($String* principal, Object$* cred, $String* r
 }
 
 void DefaultCallbackHandler::handle($CallbackArray* callbacks) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(callbacks)->length; ++i) {
 		if ($instanceOf($NameCallback, callbacks->get(i))) {
-			$nc(($cast($NameCallback, callbacks->get(i))))->setName(this->authenticationID);
+			$nc($cast($NameCallback, callbacks->get(i)))->setName(this->authenticationID);
 		} else if ($instanceOf($PasswordCallback, callbacks->get(i))) {
-			$nc(($cast($PasswordCallback, callbacks->get(i))))->setPassword(this->passwd);
+			$nc($cast($PasswordCallback, callbacks->get(i)))->setPassword(this->passwd);
 		} else if ($instanceOf($RealmChoiceCallback, callbacks->get(i))) {
-			$var($StringArray, choices, $nc(($cast($RealmChoiceCallback, callbacks->get(i))))->getChoices());
+			$var($StringArray, choices, $nc($cast($RealmChoiceCallback, callbacks->get(i)))->getChoices());
 			int32_t selected = 0;
-			if (this->authRealm != nullptr && $nc(this->authRealm)->length() > 0) {
+			if (this->authRealm != nullptr && this->authRealm->length() > 0) {
 				selected = -1;
 				for (int32_t j = 0; j < $nc(choices)->length; ++j) {
 					if ($nc(choices->get(j))->equals(this->authRealm)) {
@@ -86,13 +57,13 @@ void DefaultCallbackHandler::handle($CallbackArray* callbacks) {
 				}
 				if (selected == -1) {
 					$var($StringBuilder, allChoices, $new($StringBuilder));
-					for (int32_t j = 0; j < $nc(choices)->length; ++j) {
+					for (int32_t j = 0; j < choices->length; ++j) {
 						allChoices->append(choices->get(j))->append(u',');
 					}
 					$throwNew($IOException, $$str({"Cannot match \'java.naming.security.sasl.realm\' property value, \'"_s, this->authRealm, "\' with choices "_s, allChoices, "in RealmChoiceCallback"_s}));
 				}
 			}
-			$nc(($cast($RealmChoiceCallback, callbacks->get(i))))->setSelectedIndex(selected);
+			$nc($cast($RealmChoiceCallback, callbacks->get(i)))->setSelectedIndex(selected);
 		} else if ($instanceOf($RealmCallback, callbacks->get(i))) {
 			$var($RealmCallback, rcb, $cast($RealmCallback, callbacks->get(i)));
 			if (this->authRealm != nullptr) {
@@ -113,8 +84,8 @@ void DefaultCallbackHandler::handle($CallbackArray* callbacks) {
 
 void DefaultCallbackHandler::clearPassword() {
 	if (this->passwd != nullptr) {
-		for (int32_t i = 0; i < $nc(this->passwd)->length; ++i) {
-			$nc(this->passwd)->set(i, u'\0');
+		for (int32_t i = 0; i < this->passwd->length; ++i) {
+			this->passwd->set(i, u'\0');
 		}
 		$set(this, passwd, nullptr);
 	}
@@ -128,7 +99,30 @@ DefaultCallbackHandler::DefaultCallbackHandler() {
 }
 
 $Class* DefaultCallbackHandler::load$($String* name, bool initialize) {
-	$loadClass(DefaultCallbackHandler, name, initialize, &_DefaultCallbackHandler_ClassInfo_, allocate$DefaultCallbackHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"passwd", "[C", nullptr, $PRIVATE, $field(DefaultCallbackHandler, passwd)},
+		{"authenticationID", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DefaultCallbackHandler, authenticationID)},
+		{"authRealm", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DefaultCallbackHandler, authRealm)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;)V", nullptr, 0, $method(DefaultCallbackHandler, init$, void, $String*, Object$*, $String*), "java.io.IOException"},
+		{"clearPassword", "()V", nullptr, 0, $method(DefaultCallbackHandler, clearPassword, void)},
+		{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultCallbackHandler, finalize, void), "java.lang.Throwable"},
+		{"handle", "([Ljavax/security/auth/callback/Callback;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCallbackHandler, handle, void, $CallbackArray*), "java.io.IOException,javax.security.auth.callback.UnsupportedCallbackException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.sasl.DefaultCallbackHandler",
+		"java.lang.Object",
+		"javax.security.auth.callback.CallbackHandler",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DefaultCallbackHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultCallbackHandler);
+	});
 	return class$;
 }
 

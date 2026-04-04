@@ -1,5 +1,4 @@
 #include <sun/swing/MenuItemLayoutHelper$ColumnAlignment.h>
-
 #include <javax/swing/SwingConstants.h>
 #include <sun/swing/MenuItemLayoutHelper.h>
 #include <jcpp.h>
@@ -17,52 +16,6 @@ using $SwingConstants = ::javax::swing::SwingConstants;
 
 namespace sun {
 	namespace swing {
-
-$FieldInfo _MenuItemLayoutHelper$ColumnAlignment_FieldInfo_[] = {
-	{"checkAlignment", "I", nullptr, $PRIVATE, $field(MenuItemLayoutHelper$ColumnAlignment, checkAlignment)},
-	{"iconAlignment", "I", nullptr, $PRIVATE, $field(MenuItemLayoutHelper$ColumnAlignment, iconAlignment)},
-	{"textAlignment", "I", nullptr, $PRIVATE, $field(MenuItemLayoutHelper$ColumnAlignment, textAlignment)},
-	{"accAlignment", "I", nullptr, $PRIVATE, $field(MenuItemLayoutHelper$ColumnAlignment, accAlignment)},
-	{"arrowAlignment", "I", nullptr, $PRIVATE, $field(MenuItemLayoutHelper$ColumnAlignment, arrowAlignment)},
-	{"LEFT_ALIGNMENT", "Lsun/swing/MenuItemLayoutHelper$ColumnAlignment;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MenuItemLayoutHelper$ColumnAlignment, LEFT_ALIGNMENT)},
-	{"RIGHT_ALIGNMENT", "Lsun/swing/MenuItemLayoutHelper$ColumnAlignment;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MenuItemLayoutHelper$ColumnAlignment, RIGHT_ALIGNMENT)},
-	{}
-};
-
-$MethodInfo _MenuItemLayoutHelper$ColumnAlignment_MethodInfo_[] = {
-	{"<init>", "(IIIII)V", nullptr, $PUBLIC, $method(MenuItemLayoutHelper$ColumnAlignment, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"getAccAlignment", "()I", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$ColumnAlignment, getAccAlignment, int32_t)},
-	{"getArrowAlignment", "()I", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$ColumnAlignment, getArrowAlignment, int32_t)},
-	{"getCheckAlignment", "()I", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$ColumnAlignment, getCheckAlignment, int32_t)},
-	{"getIconAlignment", "()I", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$ColumnAlignment, getIconAlignment, int32_t)},
-	{"getTextAlignment", "()I", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$ColumnAlignment, getTextAlignment, int32_t)},
-	{}
-};
-
-$InnerClassInfo _MenuItemLayoutHelper$ColumnAlignment_InnerClassesInfo_[] = {
-	{"sun.swing.MenuItemLayoutHelper$ColumnAlignment", "sun.swing.MenuItemLayoutHelper", "ColumnAlignment", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MenuItemLayoutHelper$ColumnAlignment_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.swing.MenuItemLayoutHelper$ColumnAlignment",
-	"java.lang.Object",
-	nullptr,
-	_MenuItemLayoutHelper$ColumnAlignment_FieldInfo_,
-	_MenuItemLayoutHelper$ColumnAlignment_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MenuItemLayoutHelper$ColumnAlignment_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.MenuItemLayoutHelper"
-};
-
-$Object* allocate$MenuItemLayoutHelper$ColumnAlignment($Class* clazz) {
-	return $of($alloc(MenuItemLayoutHelper$ColumnAlignment));
-}
 
 MenuItemLayoutHelper$ColumnAlignment* MenuItemLayoutHelper$ColumnAlignment::LEFT_ALIGNMENT = nullptr;
 MenuItemLayoutHelper$ColumnAlignment* MenuItemLayoutHelper$ColumnAlignment::RIGHT_ALIGNMENT = nullptr;
@@ -95,7 +48,7 @@ int32_t MenuItemLayoutHelper$ColumnAlignment::getArrowAlignment() {
 	return this->arrowAlignment;
 }
 
-void clinit$MenuItemLayoutHelper$ColumnAlignment($Class* class$) {
+void MenuItemLayoutHelper$ColumnAlignment::clinit$($Class* clazz) {
 	$assignStatic(MenuItemLayoutHelper$ColumnAlignment::LEFT_ALIGNMENT, $new(MenuItemLayoutHelper$ColumnAlignment, $SwingConstants::LEFT, $SwingConstants::LEFT, $SwingConstants::LEFT, $SwingConstants::LEFT, $SwingConstants::LEFT));
 	$assignStatic(MenuItemLayoutHelper$ColumnAlignment::RIGHT_ALIGNMENT, $new(MenuItemLayoutHelper$ColumnAlignment, $SwingConstants::RIGHT, $SwingConstants::RIGHT, $SwingConstants::RIGHT, $SwingConstants::RIGHT, $SwingConstants::RIGHT));
 }
@@ -104,7 +57,47 @@ MenuItemLayoutHelper$ColumnAlignment::MenuItemLayoutHelper$ColumnAlignment() {
 }
 
 $Class* MenuItemLayoutHelper$ColumnAlignment::load$($String* name, bool initialize) {
-	$loadClass(MenuItemLayoutHelper$ColumnAlignment, name, initialize, &_MenuItemLayoutHelper$ColumnAlignment_ClassInfo_, clinit$MenuItemLayoutHelper$ColumnAlignment, allocate$MenuItemLayoutHelper$ColumnAlignment);
+	$FieldInfo fieldInfos$$[] = {
+		{"checkAlignment", "I", nullptr, $PRIVATE, $field(MenuItemLayoutHelper$ColumnAlignment, checkAlignment)},
+		{"iconAlignment", "I", nullptr, $PRIVATE, $field(MenuItemLayoutHelper$ColumnAlignment, iconAlignment)},
+		{"textAlignment", "I", nullptr, $PRIVATE, $field(MenuItemLayoutHelper$ColumnAlignment, textAlignment)},
+		{"accAlignment", "I", nullptr, $PRIVATE, $field(MenuItemLayoutHelper$ColumnAlignment, accAlignment)},
+		{"arrowAlignment", "I", nullptr, $PRIVATE, $field(MenuItemLayoutHelper$ColumnAlignment, arrowAlignment)},
+		{"LEFT_ALIGNMENT", "Lsun/swing/MenuItemLayoutHelper$ColumnAlignment;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MenuItemLayoutHelper$ColumnAlignment, LEFT_ALIGNMENT)},
+		{"RIGHT_ALIGNMENT", "Lsun/swing/MenuItemLayoutHelper$ColumnAlignment;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MenuItemLayoutHelper$ColumnAlignment, RIGHT_ALIGNMENT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IIIII)V", nullptr, $PUBLIC, $method(MenuItemLayoutHelper$ColumnAlignment, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"getAccAlignment", "()I", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$ColumnAlignment, getAccAlignment, int32_t)},
+		{"getArrowAlignment", "()I", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$ColumnAlignment, getArrowAlignment, int32_t)},
+		{"getCheckAlignment", "()I", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$ColumnAlignment, getCheckAlignment, int32_t)},
+		{"getIconAlignment", "()I", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$ColumnAlignment, getIconAlignment, int32_t)},
+		{"getTextAlignment", "()I", nullptr, $PUBLIC, $virtualMethod(MenuItemLayoutHelper$ColumnAlignment, getTextAlignment, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.MenuItemLayoutHelper$ColumnAlignment", "sun.swing.MenuItemLayoutHelper", "ColumnAlignment", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.swing.MenuItemLayoutHelper$ColumnAlignment",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.MenuItemLayoutHelper"
+	};
+	$loadClass(MenuItemLayoutHelper$ColumnAlignment, name, initialize, &classInfo$$, MenuItemLayoutHelper$ColumnAlignment::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MenuItemLayoutHelper$ColumnAlignment);
+	});
 	return class$;
 }
 

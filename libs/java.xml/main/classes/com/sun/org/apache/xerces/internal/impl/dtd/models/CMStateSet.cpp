@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet.h>
-
 #include <java/lang/StringBuffer.h>
 #include <jcpp.h>
 
@@ -19,44 +18,6 @@ namespace com {
 							namespace dtd {
 								namespace models {
 
-$FieldInfo _CMStateSet_FieldInfo_[] = {
-	{"fBitCount", "I", nullptr, 0, $field(CMStateSet, fBitCount)},
-	{"fByteCount", "I", nullptr, 0, $field(CMStateSet, fByteCount)},
-	{"fBits1", "I", nullptr, 0, $field(CMStateSet, fBits1)},
-	{"fBits2", "I", nullptr, 0, $field(CMStateSet, fBits2)},
-	{"fByteArray", "[B", nullptr, 0, $field(CMStateSet, fByteArray)},
-	{}
-};
-
-$MethodInfo _CMStateSet_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(CMStateSet, init$, void, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CMStateSet, equals, bool, Object$*)},
-	{"getBit", "(I)Z", nullptr, $PUBLIC | $FINAL, $method(CMStateSet, getBit, bool, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(CMStateSet, hashCode, int32_t)},
-	{"intersection", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet;)V", nullptr, $PUBLIC | $FINAL, $method(CMStateSet, intersection, void, CMStateSet*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC | $FINAL, $method(CMStateSet, isEmpty, bool)},
-	{"isSameSet", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet;)Z", nullptr, $FINAL, $method(CMStateSet, isSameSet, bool, CMStateSet*)},
-	{"setBit", "(I)V", nullptr, $PUBLIC | $FINAL, $method(CMStateSet, setBit, void, int32_t)},
-	{"setTo", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet;)V", nullptr, $PUBLIC | $FINAL, $method(CMStateSet, setTo, void, CMStateSet*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CMStateSet, toString, $String*)},
-	{"union", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet;)V", nullptr, $PUBLIC | $FINAL, $method(CMStateSet, union$, void, CMStateSet*)},
-	{"zeroBits", "()V", nullptr, $PUBLIC | $FINAL, $method(CMStateSet, zeroBits, void)},
-	{}
-};
-
-$ClassInfo _CMStateSet_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dtd.models.CMStateSet",
-	"java.lang.Object",
-	nullptr,
-	_CMStateSet_FieldInfo_,
-	_CMStateSet_MethodInfo_
-};
-
-$Object* allocate$CMStateSet($Class* clazz) {
-	return $of($alloc(CMStateSet));
-}
-
 void CMStateSet::init$(int32_t bitCount) {
 	this->fBitCount = bitCount;
 	if (this->fBitCount < 0) {
@@ -73,7 +34,7 @@ void CMStateSet::init$(int32_t bitCount) {
 }
 
 $String* CMStateSet::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, strRet, $new($StringBuffer));
 	try {
 		strRet->append("{"_s);
@@ -106,14 +67,14 @@ bool CMStateSet::getBit(int32_t bitToGet) {
 	if (this->fBitCount < 65) {
 		int32_t mask = ($sl(1, bitToGet % 32));
 		if (bitToGet < 32) {
-			return ((int32_t)(this->fBits1 & (uint32_t)mask)) != 0;
+			return (this->fBits1 & mask) != 0;
 		} else {
-			return ((int32_t)(this->fBits2 & (uint32_t)mask)) != 0;
+			return (this->fBits2 & mask) != 0;
 		}
 	} else {
 		int8_t mask = (int8_t)($sl(1, bitToGet % 8));
 		int32_t ofs = bitToGet >> 3;
-		return (((int32_t)($nc(this->fByteArray)->get(ofs) & (uint32_t)(int32_t)mask)) != 0);
+		return (($nc(this->fByteArray)->get(ofs) & mask) != 0);
 	}
 }
 
@@ -135,10 +96,10 @@ bool CMStateSet::isSameSet(CMStateSet* setToCompare) {
 		return false;
 	}
 	if (this->fBitCount < 65) {
-		return ((this->fBits1 == $nc(setToCompare)->fBits1) && (this->fBits2 == setToCompare->fBits2));
+		return ((this->fBits1 == setToCompare->fBits1) && (this->fBits2 == setToCompare->fBits2));
 	}
 	for (int32_t index = this->fByteCount - 1; index >= 0; --index) {
-		if ($nc(this->fByteArray)->get(index) != $nc($nc(setToCompare)->fByteArray)->get(index)) {
+		if ($nc(this->fByteArray)->get(index) != $nc(setToCompare->fByteArray)->get(index)) {
 			return false;
 		}
 	}
@@ -173,7 +134,7 @@ void CMStateSet::setBit(int32_t bitToSet) {
 		int8_t mask = (int8_t)($sl(1, bitToSet % 8));
 		int32_t ofs = bitToSet >> 3;
 		(*$nc(this->fByteArray))[ofs] &= (uint8_t)~mask;
-		(*$nc(this->fByteArray))[ofs] |= mask;
+		(*this->fByteArray)[ofs] |= mask;
 	}
 }
 
@@ -182,11 +143,11 @@ void CMStateSet::setTo(CMStateSet* srcSet) {
 		$throwNew($RuntimeException, "ImplementationMessages.VAL_CMSI"_s);
 	}
 	if (this->fBitCount < 65) {
-		this->fBits1 = $nc(srcSet)->fBits1;
+		this->fBits1 = srcSet->fBits1;
 		this->fBits2 = srcSet->fBits2;
 	} else {
 		for (int32_t index = this->fByteCount - 1; index >= 0; --index) {
-			$nc(this->fByteArray)->set(index, $nc($nc(srcSet)->fByteArray)->get(index));
+			$nc(this->fByteArray)->set(index, $nc(srcSet->fByteArray)->get(index));
 		}
 	}
 }
@@ -197,7 +158,7 @@ void CMStateSet::zeroBits() {
 		this->fBits2 = 0;
 	} else {
 		for (int32_t index = this->fByteCount - 1; index >= 0; --index) {
-			$nc(this->fByteArray)->set(index, (int8_t)0);
+			$nc(this->fByteArray)->set(index, 0);
 		}
 	}
 }
@@ -225,7 +186,40 @@ CMStateSet::CMStateSet() {
 }
 
 $Class* CMStateSet::load$($String* name, bool initialize) {
-	$loadClass(CMStateSet, name, initialize, &_CMStateSet_ClassInfo_, allocate$CMStateSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"fBitCount", "I", nullptr, 0, $field(CMStateSet, fBitCount)},
+		{"fByteCount", "I", nullptr, 0, $field(CMStateSet, fByteCount)},
+		{"fBits1", "I", nullptr, 0, $field(CMStateSet, fBits1)},
+		{"fBits2", "I", nullptr, 0, $field(CMStateSet, fBits2)},
+		{"fByteArray", "[B", nullptr, 0, $field(CMStateSet, fByteArray)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(CMStateSet, init$, void, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CMStateSet, equals, bool, Object$*)},
+		{"getBit", "(I)Z", nullptr, $PUBLIC | $FINAL, $method(CMStateSet, getBit, bool, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(CMStateSet, hashCode, int32_t)},
+		{"intersection", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet;)V", nullptr, $PUBLIC | $FINAL, $method(CMStateSet, intersection, void, CMStateSet*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC | $FINAL, $method(CMStateSet, isEmpty, bool)},
+		{"isSameSet", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet;)Z", nullptr, $FINAL, $method(CMStateSet, isSameSet, bool, CMStateSet*)},
+		{"setBit", "(I)V", nullptr, $PUBLIC | $FINAL, $method(CMStateSet, setBit, void, int32_t)},
+		{"setTo", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet;)V", nullptr, $PUBLIC | $FINAL, $method(CMStateSet, setTo, void, CMStateSet*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CMStateSet, toString, $String*)},
+		{"union", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet;)V", nullptr, $PUBLIC | $FINAL, $method(CMStateSet, union$, void, CMStateSet*)},
+		{"zeroBits", "()V", nullptr, $PUBLIC | $FINAL, $method(CMStateSet, zeroBits, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dtd.models.CMStateSet",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CMStateSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CMStateSet);
+	});
 	return class$;
 }
 

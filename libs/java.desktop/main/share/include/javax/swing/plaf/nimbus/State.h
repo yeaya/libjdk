@@ -34,6 +34,7 @@ class $import State : public ::java::lang::Object {
 	$class(State, 0, ::java::lang::Object)
 public:
 	State();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	virtual $String* getName();
 	static ::javax::swing::plaf::nimbus::State$StandardState* getStandardState($String* name);

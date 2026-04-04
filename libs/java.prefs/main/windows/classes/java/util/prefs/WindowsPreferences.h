@@ -93,6 +93,7 @@ class WindowsPreferences : public ::java::util::prefs::AbstractPreferences {
 	$class(WindowsPreferences, 0, ::java::util::prefs::AbstractPreferences)
 public:
 	WindowsPreferences();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::prefs::WindowsPreferences* parent, $String* name);
 	void init$(int64_t rootNativeHandle, $bytes* rootDirectory);
 	static int32_t WindowsRegCloseKey(int64_t hKey);
@@ -172,7 +173,7 @@ public:
 	static const int32_t KEY_ENUMERATE_SUB_KEYS = 8;
 	static const int32_t KEY_READ = 0x00020019;
 	static const int32_t KEY_WRITE = 0x00020006;
-	static const int32_t KEY_ALL_ACCESS = 0x000F003F;
+	static const int32_t KEY_ALL_ACCESS = 0x000f003f;
 	static int32_t INIT_SLEEP_TIME;
 	static int32_t MAX_ATTEMPTS;
 	bool isBackingStoreAvailable = false;

@@ -24,6 +24,7 @@ class WObjectPeer : public ::java::lang::Object {
 	$class(WObjectPeer, 0, ::java::lang::Object)
 public:
 	WObjectPeer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void addChildPeer(::sun::awt::windows::WObjectPeer* child);
 	void dispose();

@@ -66,6 +66,7 @@ class $import TargetType : public ::java::lang::Enum {
 public:
 	TargetType();
 	static $Array<::com::sun::tools::javac::code::TargetType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t targetTypeValue);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t targetTypeValue, bool isLocal);
 	static ::com::sun::tools::javac::code::TargetType* fromTargetTypeValue(int32_t tag);

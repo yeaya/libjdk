@@ -1,5 +1,4 @@
 #include <sun/rmi/runtime/Log.h>
-
 #include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
 #include <java/lang/StackWalker$StackFrame.h>
@@ -45,7 +44,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $LogStream = ::java::rmi::server::LogStream;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Optional = ::java::util::Optional;
 using $Set = ::java::util::Set;
 using $Function = ::java::util::function::Function;
 using $Level = ::java::util::logging::Level;
@@ -64,29 +62,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(Log::lambda$getSource$1($cast($Stream, s)));
+		 return Log::lambda$getSource$1($cast($Stream, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Log$$Lambda$lambda$getSource$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Log$$Lambda$lambda$getSource$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Log$$Lambda$lambda$getSource$1, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Log$$Lambda$lambda$getSource$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Log$$Lambda$lambda$getSource$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.runtime.Log$$Lambda$lambda$getSource$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Log$$Lambda$lambda$getSource$1::load$($String* name, bool initialize) {
-	$loadClass(Log$$Lambda$lambda$getSource$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Log$$Lambda$lambda$getSource$1, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Log$$Lambda$lambda$getSource$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.runtime.Log$$Lambda$lambda$getSource$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Log$$Lambda$lambda$getSource$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Log$$Lambda$lambda$getSource$1);
+	});
 	return class$;
 }
 $Class* Log$$Lambda$lambda$getSource$1::class$ = nullptr;
@@ -99,83 +94,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(Log::lambda$static$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Log$$Lambda$lambda$static$0$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Log$$Lambda$lambda$static$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Log$$Lambda$lambda$static$0$1, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Log$$Lambda$lambda$static$0$1, run, $Object*)},
-	{}
-};
-$ClassInfo Log$$Lambda$lambda$static$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.runtime.Log$$Lambda$lambda$static$0$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* Log$$Lambda$lambda$static$0$1::load$($String* name, bool initialize) {
-	$loadClass(Log$$Lambda$lambda$static$0$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Log$$Lambda$lambda$static$0$1, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Log$$Lambda$lambda$static$0$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.runtime.Log$$Lambda$lambda$static$0$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Log$$Lambda$lambda$static$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Log$$Lambda$lambda$static$0$1);
+	});
 	return class$;
 }
 $Class* Log$$Lambda$lambda$static$0$1::class$ = nullptr;
-
-$FieldInfo _Log_FieldInfo_[] = {
-	{"BRIEF", "Ljava/util/logging/Level;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Log, BRIEF)},
-	{"VERBOSE", "Ljava/util/logging/Level;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Log, VERBOSE)},
-	{"WALKER", "Ljava/lang/StackWalker;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Log, WALKER)},
-	{"logFactory", "Lsun/rmi/runtime/Log$LogFactory;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Log, logFactory)},
-	{}
-};
-
-$MethodInfo _Log_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Log, init$, void)},
-	{"getLog", "(Ljava/lang/String;Ljava/lang/String;I)Lsun/rmi/runtime/Log;", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, getLog, Log*, $String*, $String*, int32_t)},
-	{"getLog", "(Ljava/lang/String;Ljava/lang/String;Z)Lsun/rmi/runtime/Log;", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, getLog, Log*, $String*, $String*, bool)},
-	{"getPrintStream", "()Ljava/io/PrintStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Log, getPrintStream, $PrintStream*)},
-	{"getSource", "()Ljava/lang/StackWalker$StackFrame;", nullptr, $PRIVATE | $STATIC, $staticMethod(Log, getSource, $StackWalker$StackFrame*)},
-	{"isLoggable", "(Ljava/util/logging/Level;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Log, isLoggable, bool, $Level*)},
-	{"lambda$getSource$1", "(Ljava/util/stream/Stream;)Ljava/lang/StackWalker$StackFrame;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Log, lambda$getSource$1, $StackWalker$StackFrame*, $Stream*)},
-	{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Log, lambda$static$0, $Boolean*)},
-	{"log", "(Ljava/util/logging/Level;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Log, log, void, $Level*, $String*)},
-	{"log", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Log, log, void, $Level*, $String*, $Throwable*)},
-	{"setOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Log, setOutputStream, void, $OutputStream*)},
-	{}
-};
-
-$InnerClassInfo _Log_InnerClassesInfo_[] = {
-	{"sun.rmi.runtime.Log$LogStreamLog", "sun.rmi.runtime.Log", "LogStreamLog", $PRIVATE | $STATIC},
-	{"sun.rmi.runtime.Log$LogStreamLogFactory", "sun.rmi.runtime.Log", "LogStreamLogFactory", $PRIVATE | $STATIC},
-	{"sun.rmi.runtime.Log$LoggerPrintStream", "sun.rmi.runtime.Log", "LoggerPrintStream", $PRIVATE | $STATIC},
-	{"sun.rmi.runtime.Log$InternalStreamHandler", "sun.rmi.runtime.Log", "InternalStreamHandler", $PRIVATE | $STATIC},
-	{"sun.rmi.runtime.Log$LoggerLog", "sun.rmi.runtime.Log", "LoggerLog", $PRIVATE | $STATIC},
-	{"sun.rmi.runtime.Log$LoggerLogFactory", "sun.rmi.runtime.Log", "LoggerLogFactory", $PRIVATE | $STATIC},
-	{"sun.rmi.runtime.Log$LogFactory", "sun.rmi.runtime.Log", "LogFactory", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Log_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.rmi.runtime.Log",
-	"java.lang.Object",
-	nullptr,
-	_Log_FieldInfo_,
-	_Log_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Log_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.rmi.runtime.Log$LogStreamLog,sun.rmi.runtime.Log$LogStreamLogFactory,sun.rmi.runtime.Log$LoggerPrintStream,sun.rmi.runtime.Log$InternalStreamHandler,sun.rmi.runtime.Log$LoggerLog,sun.rmi.runtime.Log$LoggerLog$2,sun.rmi.runtime.Log$LoggerLog$1,sun.rmi.runtime.Log$LoggerLogFactory,sun.rmi.runtime.Log$LogFactory"
-};
-
-$Object* allocate$Log($Class* clazz) {
-	return $of($alloc(Log));
-}
 
 $Level* Log::BRIEF = nullptr;
 $Level* Log::VERBOSE = nullptr;
@@ -213,13 +152,13 @@ Log* Log::getLog($String* loggerName, $String* oldLogName, bool override$) {
 $StackWalker$StackFrame* Log::getSource() {
 	$init(Log);
 	$beforeCallerSensitive();
-	return $cast($StackWalker$StackFrame, $nc(Log::WALKER)->walk(static_cast<$Function*>($$new(Log$$Lambda$lambda$getSource$1))));
+	return $cast($StackWalker$StackFrame, $nc(Log::WALKER)->walk($$new(Log$$Lambda$lambda$getSource$1)));
 }
 
 $StackWalker$StackFrame* Log::lambda$getSource$1($Stream* s) {
 	$init(Log);
-	$useLocalCurrentObjectStackCache();
-	return $cast($StackWalker$StackFrame, $nc($($nc($($nc(s)->skip(3)))->findFirst()))->get());
+	$useLocalObjectStack();
+	return $cast($StackWalker$StackFrame, $$nc($$nc($nc(s)->skip(3))->findFirst())->get());
 }
 
 $Boolean* Log::lambda$static$0() {
@@ -227,16 +166,16 @@ $Boolean* Log::lambda$static$0() {
 	return $Boolean::valueOf($Boolean::getBoolean("sun.rmi.log.useOld"_s));
 }
 
-void clinit$Log($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Log::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$init($Level);
 	$assignStatic(Log::BRIEF, $Level::FINE);
 	$assignStatic(Log::VERBOSE, $Level::FINER);
 	$assignStatic(Log::WALKER, $StackWalker::getInstance($($Set::of()), 4));
 	{
-		bool useOld = $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(Log$$Lambda$lambda$static$0$1)))))))->booleanValue();
-		$assignStatic(Log::logFactory, useOld ? static_cast<$Log$LogFactory*>($new($Log$LogStreamLogFactory)) : static_cast<$Log$LogFactory*>($new($Log$LoggerLogFactory)));
+		bool useOld = $$sure($Boolean, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(Log$$Lambda$lambda$static$0$1))))->booleanValue();
+		$assignStatic(Log::logFactory, useOld ? $cast($Log$LogFactory, $new($Log$LogStreamLogFactory)) : $cast($Log$LogFactory, $new($Log$LoggerLogFactory)));
 	}
 }
 
@@ -245,14 +184,61 @@ Log::Log() {
 
 $Class* Log::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Log$$Lambda$lambda$getSource$1::classInfo$.name)) {
+		if (name->equals("sun.rmi.runtime.Log$$Lambda$lambda$getSource$1")) {
 			return Log$$Lambda$lambda$getSource$1::load$(name, initialize);
 		}
-		if (name->equals(Log$$Lambda$lambda$static$0$1::classInfo$.name)) {
+		if (name->equals("sun.rmi.runtime.Log$$Lambda$lambda$static$0$1")) {
 			return Log$$Lambda$lambda$static$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(Log, name, initialize, &_Log_ClassInfo_, clinit$Log, allocate$Log);
+	$FieldInfo fieldInfos$$[] = {
+		{"BRIEF", "Ljava/util/logging/Level;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Log, BRIEF)},
+		{"VERBOSE", "Ljava/util/logging/Level;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Log, VERBOSE)},
+		{"WALKER", "Ljava/lang/StackWalker;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Log, WALKER)},
+		{"logFactory", "Lsun/rmi/runtime/Log$LogFactory;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Log, logFactory)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Log, init$, void)},
+		{"getLog", "(Ljava/lang/String;Ljava/lang/String;I)Lsun/rmi/runtime/Log;", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, getLog, Log*, $String*, $String*, int32_t)},
+		{"getLog", "(Ljava/lang/String;Ljava/lang/String;Z)Lsun/rmi/runtime/Log;", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, getLog, Log*, $String*, $String*, bool)},
+		{"getPrintStream", "()Ljava/io/PrintStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Log, getPrintStream, $PrintStream*)},
+		{"getSource", "()Ljava/lang/StackWalker$StackFrame;", nullptr, $PRIVATE | $STATIC, $staticMethod(Log, getSource, $StackWalker$StackFrame*)},
+		{"isLoggable", "(Ljava/util/logging/Level;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Log, isLoggable, bool, $Level*)},
+		{"lambda$getSource$1", "(Ljava/util/stream/Stream;)Ljava/lang/StackWalker$StackFrame;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Log, lambda$getSource$1, $StackWalker$StackFrame*, $Stream*)},
+		{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Log, lambda$static$0, $Boolean*)},
+		{"log", "(Ljava/util/logging/Level;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Log, log, void, $Level*, $String*)},
+		{"log", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Log, log, void, $Level*, $String*, $Throwable*)},
+		{"setOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Log, setOutputStream, void, $OutputStream*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.runtime.Log$LogStreamLog", "sun.rmi.runtime.Log", "LogStreamLog", $PRIVATE | $STATIC},
+		{"sun.rmi.runtime.Log$LogStreamLogFactory", "sun.rmi.runtime.Log", "LogStreamLogFactory", $PRIVATE | $STATIC},
+		{"sun.rmi.runtime.Log$LoggerPrintStream", "sun.rmi.runtime.Log", "LoggerPrintStream", $PRIVATE | $STATIC},
+		{"sun.rmi.runtime.Log$InternalStreamHandler", "sun.rmi.runtime.Log", "InternalStreamHandler", $PRIVATE | $STATIC},
+		{"sun.rmi.runtime.Log$LoggerLog", "sun.rmi.runtime.Log", "LoggerLog", $PRIVATE | $STATIC},
+		{"sun.rmi.runtime.Log$LoggerLogFactory", "sun.rmi.runtime.Log", "LoggerLogFactory", $PRIVATE | $STATIC},
+		{"sun.rmi.runtime.Log$LogFactory", "sun.rmi.runtime.Log", "LogFactory", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.rmi.runtime.Log",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.rmi.runtime.Log$LogStreamLog,sun.rmi.runtime.Log$LogStreamLogFactory,sun.rmi.runtime.Log$LoggerPrintStream,sun.rmi.runtime.Log$InternalStreamHandler,sun.rmi.runtime.Log$LoggerLog,sun.rmi.runtime.Log$LoggerLog$2,sun.rmi.runtime.Log$LoggerLog$1,sun.rmi.runtime.Log$LoggerLogFactory,sun.rmi.runtime.Log$LogFactory"
+	};
+	$loadClass(Log, name, initialize, &classInfo$$, Log::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Log);
+	});
 	return class$;
 }
 

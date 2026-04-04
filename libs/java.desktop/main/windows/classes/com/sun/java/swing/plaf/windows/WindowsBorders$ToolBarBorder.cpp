@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsBorders$ToolBarBorder.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
 #include <com/sun/java/swing/plaf/windows/WindowsBorders.h>
@@ -29,7 +28,6 @@ using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -47,49 +45,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _WindowsBorders$ToolBarBorder_FieldInfo_[] = {
-	{"shadow", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(WindowsBorders$ToolBarBorder, shadow)},
-	{"highlight", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(WindowsBorders$ToolBarBorder, highlight)},
-	{}
-};
-
-$MethodInfo _WindowsBorders$ToolBarBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(WindowsBorders$ToolBarBorder, init$, void, $Color*, $Color*)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(WindowsBorders$ToolBarBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(WindowsBorders$ToolBarBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _WindowsBorders$ToolBarBorder_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsBorders$ToolBarBorder", "com.sun.java.swing.plaf.windows.WindowsBorders", "ToolBarBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsBorders$ToolBarBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsBorders$ToolBarBorder",
-	"javax.swing.border.AbstractBorder",
-	"javax.swing.plaf.UIResource,javax.swing.SwingConstants",
-	_WindowsBorders$ToolBarBorder_FieldInfo_,
-	_WindowsBorders$ToolBarBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsBorders$ToolBarBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsBorders"
-};
-
-$Object* allocate$WindowsBorders$ToolBarBorder($Class* clazz) {
-	return $of($alloc(WindowsBorders$ToolBarBorder));
-}
 
 int32_t WindowsBorders$ToolBarBorder::hashCode() {
 	 return this->$AbstractBorder::hashCode();
@@ -118,7 +73,7 @@ void WindowsBorders$ToolBarBorder::init$($Color* shadow, $Color* highlight) {
 }
 
 void WindowsBorders$ToolBarBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($JToolBar, c))) {
 		return;
 	}
@@ -131,8 +86,8 @@ void WindowsBorders$ToolBarBorder::paintBorder($Component* c, $Graphics* g, int3
 			xpBorder->paintBorder(c, g, 0, 0, width, height);
 		}
 	}
-	if ($nc(($cast($JToolBar, c)))->isFloatable()) {
-		bool vertical = ($cast($JToolBar, c))->getOrientation() == $SwingConstants::VERTICAL;
+	if ($nc($cast($JToolBar, c))->isFloatable()) {
+		bool vertical = $cast($JToolBar, c)->getOrientation() == $SwingConstants::VERTICAL;
 		if (xp != nullptr) {
 			$init($TMSchema$Part);
 			$TMSchema$Part* part = vertical ? $TMSchema$Part::RP_GRIPPERVERT : $TMSchema$Part::RP_GRIPPER;
@@ -149,13 +104,13 @@ void WindowsBorders$ToolBarBorder::paintBorder($Component* c, $Graphics* g, int3
 			} else {
 				dw = $nc(skin)->getWidth();
 				dh = height - 1;
-				dx = $nc($($nc(c)->getComponentOrientation()))->isLeftToRight() ? 2 : (width - dw - 2);
+				dx = $$nc(c->getComponentOrientation())->isLeftToRight() ? 2 : (width - dw - 2);
 				dy = 0;
 			}
 			$init($TMSchema$State);
 			$nc(skin)->paintSkin(g, dx, dy, dw, dh, $TMSchema$State::NORMAL);
 		} else if (!vertical) {
-			if ($nc($($nc(c)->getComponentOrientation()))->isLeftToRight()) {
+			if ($$nc(c->getComponentOrientation())->isLeftToRight()) {
 				g->setColor(this->shadow);
 				g->drawLine(4, 3, 4, height - 4);
 				g->drawLine(4, height - 4, 2, height - 4);
@@ -187,10 +142,10 @@ $Insets* WindowsBorders$ToolBarBorder::getBorderInsets($Component* c, $Insets* i
 	if (!($instanceOf($JToolBar, c))) {
 		return insets;
 	}
-	if ($nc(($cast($JToolBar, c)))->isFloatable()) {
+	if ($nc($cast($JToolBar, c))->isFloatable()) {
 		int32_t gripInset = ($XPStyle::getXP() != nullptr) ? 12 : 9;
-		if (($cast($JToolBar, c))->getOrientation() == $SwingConstants::HORIZONTAL) {
-			if ($nc($($nc(c)->getComponentOrientation()))->isLeftToRight()) {
+		if ($cast($JToolBar, c)->getOrientation() == $SwingConstants::HORIZONTAL) {
+			if ($$nc(c->getComponentOrientation())->isLeftToRight()) {
 				insets->left = gripInset;
 			} else {
 				insets->right = gripInset;
@@ -206,7 +161,44 @@ WindowsBorders$ToolBarBorder::WindowsBorders$ToolBarBorder() {
 }
 
 $Class* WindowsBorders$ToolBarBorder::load$($String* name, bool initialize) {
-	$loadClass(WindowsBorders$ToolBarBorder, name, initialize, &_WindowsBorders$ToolBarBorder_ClassInfo_, allocate$WindowsBorders$ToolBarBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"shadow", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(WindowsBorders$ToolBarBorder, shadow)},
+		{"highlight", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(WindowsBorders$ToolBarBorder, highlight)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(WindowsBorders$ToolBarBorder, init$, void, $Color*, $Color*)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(WindowsBorders$ToolBarBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(WindowsBorders$ToolBarBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsBorders$ToolBarBorder", "com.sun.java.swing.plaf.windows.WindowsBorders", "ToolBarBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsBorders$ToolBarBorder",
+		"javax.swing.border.AbstractBorder",
+		"javax.swing.plaf.UIResource,javax.swing.SwingConstants",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsBorders"
+	};
+	$loadClass(WindowsBorders$ToolBarBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsBorders$ToolBarBorder));
+	});
 	return class$;
 }
 

@@ -19,6 +19,7 @@ class ValueObjectImpl : public ::com::sun::beans::decoder::ValueObject {
 	$class(ValueObjectImpl, 0, ::com::sun::beans::decoder::ValueObject)
 public:
 	ValueObjectImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(Object$* value);
 	static ::com::sun::beans::decoder::ValueObject* create(Object$* value);

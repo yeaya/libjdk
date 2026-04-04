@@ -40,6 +40,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::concurrent::CountDownLatch* latch);
 	virtual ::javax::swing::JScrollPane* addInfo($String* info);
 	void createUIandTest();

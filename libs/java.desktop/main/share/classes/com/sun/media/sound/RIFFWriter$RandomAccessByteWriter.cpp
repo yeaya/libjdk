@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/RIFFWriter$RandomAccessByteWriter.h>
-
 #include <com/sun/media/sound/RIFFWriter.h>
 #include <java/io/OutputStream.h>
 #include <java/lang/Math.h>
@@ -16,54 +15,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _RIFFWriter$RandomAccessByteWriter_FieldInfo_[] = {
-	{"buff", "[B", nullptr, 0, $field(RIFFWriter$RandomAccessByteWriter, buff)},
-	{"length", "I", nullptr, 0, $field(RIFFWriter$RandomAccessByteWriter, length$)},
-	{"pos", "I", nullptr, 0, $field(RIFFWriter$RandomAccessByteWriter, pos)},
-	{"s", "[B", nullptr, 0, $field(RIFFWriter$RandomAccessByteWriter, s)},
-	{"stream", "Ljava/io/OutputStream;", nullptr, $FINAL, $field(RIFFWriter$RandomAccessByteWriter, stream)},
-	{}
-};
-
-$MethodInfo _RIFFWriter$RandomAccessByteWriter_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, 0, $method(RIFFWriter$RandomAccessByteWriter, init$, void, $OutputStream*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessByteWriter, close, void), "java.io.IOException"},
-	{"getPointer", "()J", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessByteWriter, getPointer, int64_t), "java.io.IOException"},
-	{"length", "()J", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessByteWriter, length, int64_t), "java.io.IOException"},
-	{"seek", "(J)V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessByteWriter, seek, void, int64_t), "java.io.IOException"},
-	{"setLength", "(J)V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessByteWriter, setLength, void, int64_t), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessByteWriter, write, void, int32_t), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessByteWriter, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessByteWriter, write, void, $bytes*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _RIFFWriter$RandomAccessByteWriter_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.RIFFWriter$RandomAccessByteWriter", "com.sun.media.sound.RIFFWriter", "RandomAccessByteWriter", $PRIVATE | $STATIC},
-	{"com.sun.media.sound.RIFFWriter$RandomAccessWriter", "com.sun.media.sound.RIFFWriter", "RandomAccessWriter", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RIFFWriter$RandomAccessByteWriter_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.media.sound.RIFFWriter$RandomAccessByteWriter",
-	"java.lang.Object",
-	"com.sun.media.sound.RIFFWriter$RandomAccessWriter",
-	_RIFFWriter$RandomAccessByteWriter_FieldInfo_,
-	_RIFFWriter$RandomAccessByteWriter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RIFFWriter$RandomAccessByteWriter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.RIFFWriter"
-};
-
-$Object* allocate$RIFFWriter$RandomAccessByteWriter($Class* clazz) {
-	return $of($alloc(RIFFWriter$RandomAccessByteWriter));
-}
 
 void RIFFWriter$RandomAccessByteWriter::init$($OutputStream* stream) {
 	$set(this, buff, $new($bytes, 32));
@@ -82,7 +33,7 @@ int64_t RIFFWriter$RandomAccessByteWriter::getPointer() {
 
 void RIFFWriter$RandomAccessByteWriter::close() {
 	$nc(this->stream)->write(this->buff, 0, this->length$);
-	$nc(this->stream)->close();
+	this->stream->close();
 }
 
 void RIFFWriter$RandomAccessByteWriter::write(int32_t b) {
@@ -115,9 +66,9 @@ int64_t RIFFWriter$RandomAccessByteWriter::length() {
 void RIFFWriter$RandomAccessByteWriter::setLength(int64_t i) {
 	this->length$ = (int32_t)i;
 	if (this->length$ > $nc(this->buff)->length) {
-		int32_t newlen = $Math::max($nc(this->buff)->length << 1, this->length$);
+		int32_t newlen = $Math::max(this->buff->length << 1, this->length$);
 		$var($bytes, newbuff, $new($bytes, newlen));
-		$System::arraycopy(this->buff, 0, newbuff, 0, $nc(this->buff)->length);
+		$System::arraycopy(this->buff, 0, newbuff, 0, this->buff->length);
 		$set(this, buff, newbuff);
 	}
 }
@@ -126,7 +77,49 @@ RIFFWriter$RandomAccessByteWriter::RIFFWriter$RandomAccessByteWriter() {
 }
 
 $Class* RIFFWriter$RandomAccessByteWriter::load$($String* name, bool initialize) {
-	$loadClass(RIFFWriter$RandomAccessByteWriter, name, initialize, &_RIFFWriter$RandomAccessByteWriter_ClassInfo_, allocate$RIFFWriter$RandomAccessByteWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"buff", "[B", nullptr, 0, $field(RIFFWriter$RandomAccessByteWriter, buff)},
+		{"length", "I", nullptr, 0, $field(RIFFWriter$RandomAccessByteWriter, length$)},
+		{"pos", "I", nullptr, 0, $field(RIFFWriter$RandomAccessByteWriter, pos)},
+		{"s", "[B", nullptr, 0, $field(RIFFWriter$RandomAccessByteWriter, s)},
+		{"stream", "Ljava/io/OutputStream;", nullptr, $FINAL, $field(RIFFWriter$RandomAccessByteWriter, stream)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/OutputStream;)V", nullptr, 0, $method(RIFFWriter$RandomAccessByteWriter, init$, void, $OutputStream*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessByteWriter, close, void), "java.io.IOException"},
+		{"getPointer", "()J", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessByteWriter, getPointer, int64_t), "java.io.IOException"},
+		{"length", "()J", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessByteWriter, length, int64_t), "java.io.IOException"},
+		{"seek", "(J)V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessByteWriter, seek, void, int64_t), "java.io.IOException"},
+		{"setLength", "(J)V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessByteWriter, setLength, void, int64_t), "java.io.IOException"},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessByteWriter, write, void, int32_t), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessByteWriter, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessByteWriter, write, void, $bytes*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.RIFFWriter$RandomAccessByteWriter", "com.sun.media.sound.RIFFWriter", "RandomAccessByteWriter", $PRIVATE | $STATIC},
+		{"com.sun.media.sound.RIFFWriter$RandomAccessWriter", "com.sun.media.sound.RIFFWriter", "RandomAccessWriter", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.media.sound.RIFFWriter$RandomAccessByteWriter",
+		"java.lang.Object",
+		"com.sun.media.sound.RIFFWriter$RandomAccessWriter",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.RIFFWriter"
+	};
+	$loadClass(RIFFWriter$RandomAccessByteWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RIFFWriter$RandomAccessByteWriter);
+	});
 	return class$;
 }
 

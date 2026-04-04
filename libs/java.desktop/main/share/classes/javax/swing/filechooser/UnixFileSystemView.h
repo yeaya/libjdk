@@ -19,6 +19,7 @@ class UnixFileSystemView : public ::javax::swing::filechooser::FileSystemView {
 	$class(UnixFileSystemView, 0, ::javax::swing::filechooser::FileSystemView)
 public:
 	UnixFileSystemView();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::io::File* createNewFolder(::java::io::File* containingDir) override;
 	virtual bool isComputerNode(::java::io::File* dir) override;

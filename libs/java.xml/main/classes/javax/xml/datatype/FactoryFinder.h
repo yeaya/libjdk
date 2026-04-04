@@ -39,6 +39,7 @@ class FactoryFinder : public ::java::lang::Object {
 	$class(FactoryFinder, 0, ::java::lang::Object)
 public:
 	FactoryFinder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void dPrint(::java::util::function::Supplier* msgGen);
 	static $Object* find($Class* type, $String* fallbackClassName);

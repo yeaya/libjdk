@@ -40,6 +40,7 @@ class $export SimpleAttributeSet : public ::javax::swing::text::MutableAttribute
 public:
 	SimpleAttributeSet();
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::javax::swing::text::AttributeSet* source);
 	virtual void addAttribute(Object$* name, Object$* value) override;
@@ -64,7 +65,7 @@ public:
 	virtual void setResolveParent(::javax::swing::text::AttributeSet* parent) override;
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0xA3F7FD44B6E3C304;
+	static const int64_t serialVersionUID = (int64_t)0xa3f7fd44b6e3c304;
 	static ::javax::swing::text::AttributeSet* EMPTY;
 	::java::util::LinkedHashMap* table = nullptr;
 };

@@ -65,6 +65,7 @@ public:
 	virtual int32_t indexOf(Object$* arg0) override;
 	virtual bool isEmpty() override;
 	virtual int32_t lastIndexOf(Object$* arg0) override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($Array<::com::sun::org::apache::xerces::internal::xs::XSObject>* array, int32_t length);
 	virtual void addXSObject(::com::sun::org::apache::xerces::internal::xs::XSObject* object);

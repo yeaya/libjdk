@@ -1,5 +1,4 @@
 #include <com/sun/jmx/remote/internal/ArrayNotificationBuffer$BroadcasterQuery.h>
-
 #include <com/sun/jmx/remote/internal/ArrayNotificationBuffer.h>
 #include <javax/management/MBeanServer.h>
 #include <javax/management/ObjectName.h>
@@ -20,48 +19,6 @@ namespace com {
 		namespace jmx {
 			namespace remote {
 				namespace internal {
-
-$FieldInfo _ArrayNotificationBuffer$BroadcasterQuery_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArrayNotificationBuffer$BroadcasterQuery, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ArrayNotificationBuffer$BroadcasterQuery_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ArrayNotificationBuffer$BroadcasterQuery, init$, void)},
-	{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $virtualMethod(ArrayNotificationBuffer$BroadcasterQuery, apply, bool, $ObjectName*)},
-	{"*setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _ArrayNotificationBuffer$BroadcasterQuery_InnerClassesInfo_[] = {
-	{"com.sun.jmx.remote.internal.ArrayNotificationBuffer$BroadcasterQuery", "com.sun.jmx.remote.internal.ArrayNotificationBuffer", "BroadcasterQuery", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ArrayNotificationBuffer$BroadcasterQuery_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jmx.remote.internal.ArrayNotificationBuffer$BroadcasterQuery",
-	"javax.management.QueryEval",
-	"javax.management.QueryExp",
-	_ArrayNotificationBuffer$BroadcasterQuery_FieldInfo_,
-	_ArrayNotificationBuffer$BroadcasterQuery_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ArrayNotificationBuffer$BroadcasterQuery_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.remote.internal.ArrayNotificationBuffer"
-};
-
-$Object* allocate$ArrayNotificationBuffer$BroadcasterQuery($Class* clazz) {
-	return $of($alloc(ArrayNotificationBuffer$BroadcasterQuery));
-}
 
 void ArrayNotificationBuffer$BroadcasterQuery::setMBeanServer($MBeanServer* s) {
 	this->$QueryEval::setMBeanServer(s);
@@ -101,7 +58,43 @@ ArrayNotificationBuffer$BroadcasterQuery::ArrayNotificationBuffer$BroadcasterQue
 }
 
 $Class* ArrayNotificationBuffer$BroadcasterQuery::load$($String* name, bool initialize) {
-	$loadClass(ArrayNotificationBuffer$BroadcasterQuery, name, initialize, &_ArrayNotificationBuffer$BroadcasterQuery_ClassInfo_, allocate$ArrayNotificationBuffer$BroadcasterQuery);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArrayNotificationBuffer$BroadcasterQuery, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ArrayNotificationBuffer$BroadcasterQuery, init$, void)},
+		{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $virtualMethod(ArrayNotificationBuffer$BroadcasterQuery, apply, bool, $ObjectName*)},
+		{"*setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.remote.internal.ArrayNotificationBuffer$BroadcasterQuery", "com.sun.jmx.remote.internal.ArrayNotificationBuffer", "BroadcasterQuery", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jmx.remote.internal.ArrayNotificationBuffer$BroadcasterQuery",
+		"javax.management.QueryEval",
+		"javax.management.QueryExp",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.remote.internal.ArrayNotificationBuffer"
+	};
+	$loadClass(ArrayNotificationBuffer$BroadcasterQuery, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ArrayNotificationBuffer$BroadcasterQuery));
+	});
 	return class$;
 }
 

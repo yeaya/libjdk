@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignature.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithm.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/Canonicalizer.h>
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
@@ -86,7 +85,6 @@ using $SignedInfo = ::com::sun::org::apache::xml::internal::security::signature:
 using $XMLSignatureException = ::com::sun::org::apache::xml::internal::security::signature::XMLSignatureException;
 using $Transforms = ::com::sun::org::apache::xml::internal::security::transforms::Transforms;
 using $Constants = ::com::sun::org::apache::xml::internal::security::utils::Constants;
-using $ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::ElementProxy;
 using $I18n = ::com::sun::org::apache::xml::internal::security::utils::I18n;
 using $SignatureElementProxy = ::com::sun::org::apache::xml::internal::security::utils::SignatureElementProxy;
 using $SignerOutputStream = ::com::sun::org::apache::xml::internal::security::utils::SignerOutputStream;
@@ -98,7 +96,6 @@ using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -122,104 +119,6 @@ namespace com {
 					namespace internal {
 						namespace security {
 							namespace signature {
-
-$FieldInfo _XMLSignature_FieldInfo_[] = {
-	{"ALGO_ID_MAC_HMAC_SHA1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_MAC_HMAC_SHA1)},
-	{"ALGO_ID_SIGNATURE_DSA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_DSA)},
-	{"ALGO_ID_SIGNATURE_DSA_SHA256", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_DSA_SHA256)},
-	{"ALGO_ID_SIGNATURE_RSA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA)},
-	{"ALGO_ID_SIGNATURE_RSA_SHA1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_SHA1)},
-	{"ALGO_ID_SIGNATURE_NOT_RECOMMENDED_RSA_MD5", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_NOT_RECOMMENDED_RSA_MD5)},
-	{"ALGO_ID_SIGNATURE_RSA_RIPEMD160", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_RIPEMD160)},
-	{"ALGO_ID_SIGNATURE_RSA_SHA224", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_SHA224)},
-	{"ALGO_ID_SIGNATURE_RSA_SHA256", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_SHA256)},
-	{"ALGO_ID_SIGNATURE_RSA_SHA384", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_SHA384)},
-	{"ALGO_ID_SIGNATURE_RSA_SHA512", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_SHA512)},
-	{"ALGO_ID_SIGNATURE_RSA_SHA1_MGF1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_SHA1_MGF1)},
-	{"ALGO_ID_SIGNATURE_RSA_SHA224_MGF1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_SHA224_MGF1)},
-	{"ALGO_ID_SIGNATURE_RSA_SHA256_MGF1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_SHA256_MGF1)},
-	{"ALGO_ID_SIGNATURE_RSA_SHA384_MGF1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_SHA384_MGF1)},
-	{"ALGO_ID_SIGNATURE_RSA_SHA512_MGF1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_SHA512_MGF1)},
-	{"ALGO_ID_SIGNATURE_RSA_SHA3_224_MGF1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_SHA3_224_MGF1)},
-	{"ALGO_ID_SIGNATURE_RSA_SHA3_256_MGF1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_SHA3_256_MGF1)},
-	{"ALGO_ID_SIGNATURE_RSA_SHA3_384_MGF1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_SHA3_384_MGF1)},
-	{"ALGO_ID_SIGNATURE_RSA_SHA3_512_MGF1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_SHA3_512_MGF1)},
-	{"ALGO_ID_MAC_HMAC_NOT_RECOMMENDED_MD5", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_MAC_HMAC_NOT_RECOMMENDED_MD5)},
-	{"ALGO_ID_MAC_HMAC_RIPEMD160", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_MAC_HMAC_RIPEMD160)},
-	{"ALGO_ID_MAC_HMAC_SHA224", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_MAC_HMAC_SHA224)},
-	{"ALGO_ID_MAC_HMAC_SHA256", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_MAC_HMAC_SHA256)},
-	{"ALGO_ID_MAC_HMAC_SHA384", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_MAC_HMAC_SHA384)},
-	{"ALGO_ID_MAC_HMAC_SHA512", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_MAC_HMAC_SHA512)},
-	{"ALGO_ID_SIGNATURE_ECDSA_SHA1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_ECDSA_SHA1)},
-	{"ALGO_ID_SIGNATURE_ECDSA_SHA224", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_ECDSA_SHA224)},
-	{"ALGO_ID_SIGNATURE_ECDSA_SHA256", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_ECDSA_SHA256)},
-	{"ALGO_ID_SIGNATURE_ECDSA_SHA384", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_ECDSA_SHA384)},
-	{"ALGO_ID_SIGNATURE_ECDSA_SHA512", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_ECDSA_SHA512)},
-	{"ALGO_ID_SIGNATURE_ECDSA_RIPEMD160", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_ECDSA_RIPEMD160)},
-	{"ALGO_ID_SIGNATURE_RSA_PSS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_PSS)},
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLSignature, LOG)},
-	{"signedInfo", "Lcom/sun/org/apache/xml/internal/security/signature/SignedInfo;", nullptr, $PRIVATE | $FINAL, $field(XMLSignature, signedInfo)},
-	{"keyInfo", "Lcom/sun/org/apache/xml/internal/security/keys/KeyInfo;", nullptr, $PRIVATE, $field(XMLSignature, keyInfo)},
-	{"followManifestsDuringValidation", "Z", nullptr, $PRIVATE, $field(XMLSignature, followManifestsDuringValidation)},
-	{"signatureValueElement", "Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(XMLSignature, signatureValueElement)},
-	{"MODE_SIGN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLSignature, MODE_SIGN)},
-	{"MODE_VERIFY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLSignature, MODE_VERIFY)},
-	{"state", "I", nullptr, $PRIVATE, $field(XMLSignature, state)},
-	{}
-};
-
-$MethodInfo _XMLSignature_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLSignature, init$, void, $Document*, $String*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(XMLSignature, init$, void, $Document*, $String*, $String*, $Provider*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(XMLSignature, init$, void, $Document*, $String*, $String*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;ILjava/security/Provider;)V", nullptr, $PUBLIC, $method(XMLSignature, init$, void, $Document*, $String*, $String*, int32_t, $Provider*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLSignature, init$, void, $Document*, $String*, $String*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(XMLSignature, init$, void, $Document*, $String*, $String*, $String*, $Provider*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $method(XMLSignature, init$, void, $Document*, $String*, $String*, int32_t, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/security/Provider;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $method(XMLSignature, init$, void, $Document*, $String*, $String*, int32_t, $String*, $Provider*, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Lorg/w3c/dom/Element;Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $method(XMLSignature, init$, void, $Document*, $String*, $Element*, $Element*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Lorg/w3c/dom/Element;Lorg/w3c/dom/Element;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(XMLSignature, init$, void, $Document*, $String*, $Element*, $Element*, $Provider*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLSignature, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(XMLSignature, init$, void, $Element*, $String*, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(XMLSignature, init$, void, $Element*, $String*, bool), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;ZLjava/security/Provider;)V", nullptr, $PUBLIC, $method(XMLSignature, init$, void, $Element*, $String*, bool, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"addDocument", "(Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/transforms/Transforms;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLSignature, addDocument, void, $String*, $Transforms*, $String*, $String*, $String*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"addDocument", "(Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/transforms/Transforms;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLSignature, addDocument, void, $String*, $Transforms*, $String*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"addDocument", "(Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/transforms/Transforms;)V", nullptr, $PUBLIC, $method(XMLSignature, addDocument, void, $String*, $Transforms*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"addDocument", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLSignature, addDocument, void, $String*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"addKeyInfo", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(XMLSignature, addKeyInfo, void, $X509Certificate*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"addKeyInfo", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC, $method(XMLSignature, addKeyInfo, void, $PublicKey*)},
-	{"addResourceResolver", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi;)V", nullptr, $PUBLIC, $method(XMLSignature, addResourceResolver, void, $ResourceResolverSpi*)},
-	{"appendObject", "(Lcom/sun/org/apache/xml/internal/security/signature/ObjectContainer;)V", nullptr, $PUBLIC, $method(XMLSignature, appendObject, void, $ObjectContainer*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"checkSignatureValue", "(Ljava/security/cert/X509Certificate;)Z", nullptr, $PUBLIC, $method(XMLSignature, checkSignatureValue, bool, $X509Certificate*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"checkSignatureValue", "(Ljava/security/Key;)Z", nullptr, $PUBLIC, $method(XMLSignature, checkSignatureValue, bool, $Key*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"createSecretKey", "([B)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $method(XMLSignature, createSecretKey, $SecretKey*, $bytes*)},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLSignature, getBaseLocalName, $String*)},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(XMLSignature, getId, $String*)},
-	{"getKeyInfo", "()Lcom/sun/org/apache/xml/internal/security/keys/KeyInfo;", nullptr, $PUBLIC, $method(XMLSignature, getKeyInfo, $KeyInfo*)},
-	{"getObjectItem", "(I)Lcom/sun/org/apache/xml/internal/security/signature/ObjectContainer;", nullptr, $PUBLIC, $method(XMLSignature, getObjectItem, $ObjectContainer*, int32_t)},
-	{"getObjectLength", "()I", nullptr, $PUBLIC, $method(XMLSignature, getObjectLength, int32_t)},
-	{"getSignatureValue", "()[B", nullptr, $PUBLIC, $method(XMLSignature, getSignatureValue, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"getSignedInfo", "()Lcom/sun/org/apache/xml/internal/security/signature/SignedInfo;", nullptr, $PUBLIC, $method(XMLSignature, getSignedInfo, $SignedInfo*)},
-	{"setFollowNestedManifests", "(Z)V", nullptr, $PUBLIC, $method(XMLSignature, setFollowNestedManifests, void, bool)},
-	{"setId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLSignature, setId, void, $String*)},
-	{"setSignatureValueElement", "([B)V", nullptr, $PRIVATE, $method(XMLSignature, setSignatureValueElement, void, $bytes*)},
-	{"sign", "(Ljava/security/Key;)V", nullptr, $PUBLIC, $method(XMLSignature, sign, void, $Key*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{}
-};
-
-$ClassInfo _XMLSignature_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.signature.XMLSignature",
-	"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
-	nullptr,
-	_XMLSignature_FieldInfo_,
-	_XMLSignature_MethodInfo_
-};
-
-$Object* allocate$XMLSignature($Class* clazz) {
-	return $of($alloc(XMLSignature));
-}
 
 $String* XMLSignature::ALGO_ID_MAC_HMAC_SHA1 = nullptr;
 $String* XMLSignature::ALGO_ID_SIGNATURE_DSA = nullptr;
@@ -289,55 +188,55 @@ void XMLSignature::init$($Document* doc, $String* baseURI, $String* signatureMet
 }
 
 void XMLSignature::init$($Document* doc, $String* baseURI, $String* signatureMethodURI, int32_t hmacOutputLength, $String* canonicalizationMethodURI, $Provider* provider, $AlgorithmParameterSpec* spec) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SignatureElementProxy::init$(doc);
 	this->followManifestsDuringValidation = false;
 	this->state = XMLSignature::MODE_SIGN;
 	$init($Constants);
 	$var($String, xmlnsDsPrefix, getDefaultPrefix($Constants::SignatureSpecNS));
-	if (xmlnsDsPrefix == nullptr || $nc(xmlnsDsPrefix)->length() == 0) {
-		$nc($(getElement()))->setAttributeNS($Constants::NamespaceSpecNS, "xmlns"_s, $Constants::SignatureSpecNS);
+	if (xmlnsDsPrefix == nullptr || xmlnsDsPrefix->length() == 0) {
+		$$nc(getElement())->setAttributeNS($Constants::NamespaceSpecNS, "xmlns"_s, $Constants::SignatureSpecNS);
 	} else {
-		$nc($(getElement()))->setAttributeNS($Constants::NamespaceSpecNS, $$str({"xmlns:"_s, xmlnsDsPrefix}), $Constants::SignatureSpecNS);
+		$$nc(getElement())->setAttributeNS($Constants::NamespaceSpecNS, $$str({"xmlns:"_s, xmlnsDsPrefix}), $Constants::SignatureSpecNS);
 	}
 	addReturnToSelf();
 	$set(this, baseURI, baseURI);
 	$set(this, signedInfo, $new($SignedInfo, $(getDocument()), signatureMethodURI, hmacOutputLength, canonicalizationMethodURI, provider, spec));
-	appendSelf(static_cast<$ElementProxy*>(this->signedInfo));
+	appendSelf(this->signedInfo);
 	addReturnToSelf();
 	$set(this, signatureValueElement, $XMLUtils::createElementInSignatureSpace($(getDocument()), $Constants::_TAG_SIGNATUREVALUE));
-	appendSelf(static_cast<$Node*>(this->signatureValueElement));
+	appendSelf(this->signatureValueElement);
 	addReturnToSelf();
 }
 
 void XMLSignature::init$($Document* doc, $String* baseURI, $Element* signatureMethodElem, $Element* canonicalizationMethodElem) {
-	XMLSignature::init$(doc, baseURI, signatureMethodElem, canonicalizationMethodElem, ($Provider*)nullptr);
+	XMLSignature::init$(doc, baseURI, signatureMethodElem, canonicalizationMethodElem, nullptr);
 }
 
 void XMLSignature::init$($Document* doc, $String* baseURI, $Element* signatureMethodElem, $Element* canonicalizationMethodElem, $Provider* provider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SignatureElementProxy::init$(doc);
 	this->followManifestsDuringValidation = false;
 	this->state = XMLSignature::MODE_SIGN;
 	$init($Constants);
 	$var($String, xmlnsDsPrefix, getDefaultPrefix($Constants::SignatureSpecNS));
-	if (xmlnsDsPrefix == nullptr || $nc(xmlnsDsPrefix)->length() == 0) {
-		$nc($(getElement()))->setAttributeNS($Constants::NamespaceSpecNS, "xmlns"_s, $Constants::SignatureSpecNS);
+	if (xmlnsDsPrefix == nullptr || xmlnsDsPrefix->length() == 0) {
+		$$nc(getElement())->setAttributeNS($Constants::NamespaceSpecNS, "xmlns"_s, $Constants::SignatureSpecNS);
 	} else {
-		$nc($(getElement()))->setAttributeNS($Constants::NamespaceSpecNS, $$str({"xmlns:"_s, xmlnsDsPrefix}), $Constants::SignatureSpecNS);
+		$$nc(getElement())->setAttributeNS($Constants::NamespaceSpecNS, $$str({"xmlns:"_s, xmlnsDsPrefix}), $Constants::SignatureSpecNS);
 	}
 	addReturnToSelf();
 	$set(this, baseURI, baseURI);
 	$set(this, signedInfo, $new($SignedInfo, $(getDocument()), signatureMethodElem, canonicalizationMethodElem, provider));
-	appendSelf(static_cast<$ElementProxy*>(this->signedInfo));
+	appendSelf(this->signedInfo);
 	addReturnToSelf();
 	$set(this, signatureValueElement, $XMLUtils::createElementInSignatureSpace($(getDocument()), $Constants::_TAG_SIGNATUREVALUE));
-	appendSelf(static_cast<$Node*>(this->signatureValueElement));
+	appendSelf(this->signatureValueElement);
 	addReturnToSelf();
 }
 
 void XMLSignature::init$($Element* element, $String* baseURI) {
-	XMLSignature::init$(element, baseURI, true, ($Provider*)nullptr);
+	XMLSignature::init$(element, baseURI, true, nullptr);
 }
 
 void XMLSignature::init$($Element* element, $String* baseURI, $Provider* provider) {
@@ -345,45 +244,45 @@ void XMLSignature::init$($Element* element, $String* baseURI, $Provider* provide
 }
 
 void XMLSignature::init$($Element* element, $String* baseURI, bool secureValidation) {
-	XMLSignature::init$(element, baseURI, secureValidation, ($Provider*)nullptr);
+	XMLSignature::init$(element, baseURI, secureValidation, nullptr);
 }
 
 void XMLSignature::init$($Element* element, $String* baseURI, bool secureValidation, $Provider* provider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SignatureElementProxy::init$(element, baseURI);
 	this->followManifestsDuringValidation = false;
 	this->state = XMLSignature::MODE_SIGN;
 	$init($Constants);
 	bool var$0 = $nc($Constants::SignatureSpecNS)->equals($($nc(element)->getNamespaceURI()));
-	if (!(var$0 && $nc($Constants::_TAG_SIGNATURE)->equals($($nc(element)->getLocalName())))) {
-		$var($ObjectArray, exArgs, $new($ObjectArray, {$($of($nc(element)->getLocalName()))}));
+	if (!(var$0 && $nc($Constants::_TAG_SIGNATURE)->equals($(element->getLocalName())))) {
+		$var($ObjectArray, exArgs, $new($ObjectArray, {$(element->getLocalName())}));
 		$throwNew($XMLSignatureException, "signature.Verification.InvalidElement"_s, exArgs);
 	}
-	$var($Element, signedInfoElem, $XMLUtils::getNextElement($($nc(element)->getFirstChild())));
+	$var($Element, signedInfoElem, $XMLUtils::getNextElement($(element->getFirstChild())));
 	bool var$1 = signedInfoElem == nullptr;
 	if (!var$1) {
-		bool var$2 = $nc($Constants::SignatureSpecNS)->equals($($nc(signedInfoElem)->getNamespaceURI()));
-		var$1 = !(var$2 && $nc($Constants::_TAG_SIGNEDINFO)->equals($($nc(signedInfoElem)->getLocalName())));
+		bool var$2 = $Constants::SignatureSpecNS->equals($(signedInfoElem->getNamespaceURI()));
+		var$1 = !(var$2 && $nc($Constants::_TAG_SIGNEDINFO)->equals($(signedInfoElem->getLocalName())));
 	}
 	if (var$1) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of($Constants::_TAG_SIGNEDINFO),
-			$of($Constants::_TAG_SIGNATURE)
+			$Constants::_TAG_SIGNEDINFO,
+			$Constants::_TAG_SIGNATURE
 		}));
 		$throwNew($XMLSignatureException, "xml.WrongContent"_s, exArgs);
 	}
 	$set(this, signedInfo, $new($SignedInfo, signedInfoElem, baseURI, secureValidation, provider));
-	$assign(signedInfoElem, $XMLUtils::getNextElement($($nc(element)->getFirstChild())));
+	$assign(signedInfoElem, $XMLUtils::getNextElement($(element->getFirstChild())));
 	$set(this, signatureValueElement, $XMLUtils::getNextElement($($nc(signedInfoElem)->getNextSibling())));
 	bool var$3 = this->signatureValueElement == nullptr;
 	if (!var$3) {
-		bool var$4 = $nc($Constants::SignatureSpecNS)->equals($($nc(this->signatureValueElement)->getNamespaceURI()));
-		var$3 = !(var$4 && $nc($Constants::_TAG_SIGNATUREVALUE)->equals($($nc(this->signatureValueElement)->getLocalName())));
+		bool var$4 = $Constants::SignatureSpecNS->equals($(this->signatureValueElement->getNamespaceURI()));
+		var$3 = !(var$4 && $nc($Constants::_TAG_SIGNATUREVALUE)->equals($(this->signatureValueElement->getLocalName())));
 	}
 	if (var$3) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of($Constants::_TAG_SIGNATUREVALUE),
-			$of($Constants::_TAG_SIGNATURE)
+			$Constants::_TAG_SIGNATUREVALUE,
+			$Constants::_TAG_SIGNATURE
 		}));
 		$throwNew($XMLSignatureException, "xml.WrongContent"_s, exArgs);
 	}
@@ -393,18 +292,18 @@ void XMLSignature::init$($Element* element, $String* baseURI, bool secureValidat
 	}
 	$var($Element, keyInfoElem, $XMLUtils::getNextElement($($nc(this->signatureValueElement)->getNextSibling())));
 	$var($Element, objectElem, nullptr);
-	bool var$5 = keyInfoElem != nullptr && $nc($Constants::SignatureSpecNS)->equals($(keyInfoElem->getNamespaceURI()));
+	bool var$5 = keyInfoElem != nullptr && $Constants::SignatureSpecNS->equals($(keyInfoElem->getNamespaceURI()));
 	if (var$5 && $nc($Constants::_TAG_KEYINFO)->equals($(keyInfoElem->getLocalName()))) {
 		$set(this, keyInfo, $new($KeyInfo, keyInfoElem, baseURI));
-		$nc(this->keyInfo)->setSecureValidation(secureValidation);
+		this->keyInfo->setSecureValidation(secureValidation);
 		$assign(objectElem, $XMLUtils::getNextElement($(keyInfoElem->getNextSibling())));
 	} else {
 		$assign(objectElem, keyInfoElem);
 	}
 	while (objectElem != nullptr) {
-		bool var$6 = $nc($Constants::SignatureSpecNS)->equals($(objectElem->getNamespaceURI()));
+		bool var$6 = $Constants::SignatureSpecNS->equals($(objectElem->getNamespaceURI()));
 		if (!(var$6 && $nc($Constants::_TAG_OBJECT)->equals($(objectElem->getLocalName())))) {
-			$var($ObjectArray, exArgs, $new($ObjectArray, {$($of(objectElem->getLocalName()))}));
+			$var($ObjectArray, exArgs, $new($ObjectArray, {$(objectElem->getLocalName())}));
 			$throwNew($XMLSignatureException, "signature.Verification.InvalidElement"_s, exArgs);
 		}
 		$var($Attr, objectAttr, objectElem->getAttributeNodeNS(nullptr, "Id"_s));
@@ -451,9 +350,9 @@ $bytes* XMLSignature::getSignatureValue() {
 }
 
 void XMLSignature::setSignatureValueElement($bytes* bytes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while ($nc(this->signatureValueElement)->hasChildNodes()) {
-		$nc(this->signatureValueElement)->removeChild($($nc(this->signatureValueElement)->getFirstChild()));
+		this->signatureValueElement->removeChild($(this->signatureValueElement->getFirstChild()));
 	}
 	$var($String, base64codedValue, $XMLUtils::encodeToString(bytes));
 	bool var$0 = $nc(base64codedValue)->length() > 76;
@@ -465,17 +364,17 @@ void XMLSignature::setSignatureValueElement($bytes* bytes) {
 }
 
 $KeyInfo* XMLSignature::getKeyInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->state == XMLSignature::MODE_SIGN && this->keyInfo == nullptr) {
 		$set(this, keyInfo, $new($KeyInfo, $(getDocument())));
 		$var($Element, keyInfoElement, $nc(this->keyInfo)->getElement());
 		$init($Constants);
-		$var($Element, firstObject, $XMLUtils::selectDsNode($($nc($(getElement()))->getFirstChild()), $Constants::_TAG_OBJECT, 0));
+		$var($Element, firstObject, $XMLUtils::selectDsNode($($$nc(getElement())->getFirstChild()), $Constants::_TAG_OBJECT, 0));
 		if (firstObject != nullptr) {
-			$nc($(getElement()))->insertBefore(keyInfoElement, firstObject);
+			$$nc(getElement())->insertBefore(keyInfoElement, firstObject);
 			$XMLUtils::addReturnBeforeChild($(getElement()), firstObject);
 		} else {
-			appendSelf(static_cast<$Node*>(keyInfoElement));
+			appendSelf(keyInfoElement);
 			addReturnToSelf();
 		}
 	}
@@ -483,12 +382,12 @@ $KeyInfo* XMLSignature::getKeyInfo() {
 }
 
 void XMLSignature::appendObject($ObjectContainer* object) {
-	appendSelf(static_cast<$ElementProxy*>(object));
+	appendSelf(object);
 	addReturnToSelf();
 }
 
 $ObjectContainer* XMLSignature::getObjectItem(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
 	$var($Element, objElem, $XMLUtils::selectDsNode($(getFirstChild()), $Constants::_TAG_OBJECT, i));
 	try {
@@ -505,7 +404,7 @@ int32_t XMLSignature::getObjectLength() {
 }
 
 void XMLSignature::sign($Key* signingKey) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($PublicKey, signingKey)) {
 		$throwNew($IllegalArgumentException, $($I18n::translate("algorithms.operationOnlyVerification"_s)));
 	}
@@ -513,120 +412,17 @@ void XMLSignature::sign($Key* signingKey) {
 	$var($SignatureAlgorithm, sa, $nc(si)->getSignatureAlgorithm());
 	try {
 		$var($SignerOutputStream, output, $new($SignerOutputStream, sa));
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				try {
-					$var($OutputStream, so, $new($UnsyncBufferedOutputStream, output));
-					{
-						$var($Throwable, var$1, nullptr);
-						try {
-							try {
-								si->generateDigestValues();
-								$nc(sa)->initSign(signingKey);
-								si->signInOctetStream(so);
-								this->setSignatureValueElement($(sa->sign()));
-							} catch ($Throwable& t$) {
-								try {
-									so->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$2) {
-							$assign(var$1, var$2);
-						} /*finally*/ {
-							so->close();
-						}
-						if (var$1 != nullptr) {
-							$throw(var$1);
-						}
-					}
-				} catch ($Throwable& t$) {
-					try {
-						output->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
-				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
-				output->close();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-		}
-	} catch ($XMLSignatureException& ex) {
-		$throw(ex);
-	} catch ($XMLSecurityException& ex) {
-		$throwNew($XMLSignatureException, $cast($Exception, ex));
-	} catch ($IOException& ex) {
-		$throwNew($XMLSignatureException, $cast($Exception, ex));
-	}
-}
-
-void XMLSignature::addResourceResolver($ResourceResolverSpi* resolver) {
-	$nc($(this->getSignedInfo()))->addResourceResolver(resolver);
-}
-
-bool XMLSignature::checkSignatureValue($X509Certificate* cert) {
-	$useLocalCurrentObjectStackCache();
-	if (cert != nullptr) {
-		return this->checkSignatureValue($(static_cast<$Key*>(cert->getPublicKey())));
-	}
-	$var($ObjectArray, exArgs, $new($ObjectArray, {$of("Didn\'t get a certificate"_s)}));
-	$throwNew($XMLSignatureException, "empty"_s, exArgs);
-}
-
-bool XMLSignature::checkSignatureValue($Key* pk) {
-	$useLocalCurrentObjectStackCache();
-	if (pk == nullptr) {
-		$var($ObjectArray, exArgs, $new($ObjectArray, {$of("Didn\'t get a key"_s)}));
-		$throwNew($XMLSignatureException, "empty"_s, exArgs);
-	}
-	try {
-		$var($SignedInfo, si, this->getSignedInfo());
-		$var($SignatureAlgorithm, sa, $nc(si)->getSignatureAlgorithm());
-		$nc(XMLSignature::LOG)->debug("signatureMethodURI = {}"_s, $$new($ObjectArray, {$($of($nc(sa)->getAlgorithmURI()))}));
-		$nc(XMLSignature::LOG)->debug("jceSigAlgorithm = {}"_s, $$new($ObjectArray, {$($of($nc(sa)->getJCEAlgorithmString()))}));
-		$nc(XMLSignature::LOG)->debug("PublicKey = {}"_s, $$new($ObjectArray, {$of(pk)}));
-		$var($bytes, sigBytes, nullptr);
+		$var($Throwable, var$0, nullptr);
 		try {
-			$var($SignerOutputStream, so, $new($SignerOutputStream, sa));
-			{
-				$var($Throwable, var$0, nullptr);
+			try {
+				$var($OutputStream, so, $new($UnsyncBufferedOutputStream, output));
+				$var($Throwable, var$1, nullptr);
 				try {
 					try {
-						$var($OutputStream, bos, $new($UnsyncBufferedOutputStream, so));
-						{
-							$var($Throwable, var$1, nullptr);
-							try {
-								try {
-									$nc(sa)->initVerify(pk);
-									$nc(XMLSignature::LOG)->debug("jceSigProvider = {}"_s, $$new($ObjectArray, {$($of(sa->getJCEProviderName()))}));
-									si->signInOctetStream(bos);
-									$assign(sigBytes, this->getSignatureValue());
-								} catch ($Throwable& t$) {
-									try {
-										bos->close();
-									} catch ($Throwable& x2) {
-										t$->addSuppressed(x2);
-									}
-									$throw(t$);
-								}
-							} catch ($Throwable& var$2) {
-								$assign(var$1, var$2);
-							} /*finally*/ {
-								bos->close();
-							}
-							if (var$1 != nullptr) {
-								$throw(var$1);
-							}
-						}
+						si->generateDigestValues();
+						$nc(sa)->initSign(signingKey);
+						si->signInOctetStream(so);
+						this->setSignatureValueElement($(sa->sign()));
 					} catch ($Throwable& t$) {
 						try {
 							so->close();
@@ -635,29 +431,124 @@ bool XMLSignature::checkSignatureValue($Key* pk) {
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable& var$3) {
-					$assign(var$0, var$3);
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
 				} /*finally*/ {
 					so->close();
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
+				if (var$1 != nullptr) {
+					$throw(var$1);
 				}
+			} catch ($Throwable& t$) {
+				try {
+					output->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
+			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			output->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+	} catch ($XMLSignatureException& ex) {
+		$throw(ex);
+	} catch ($XMLSecurityException& ex) {
+		$throwNew($XMLSignatureException, ex);
+	} catch ($IOException& ex) {
+		$throwNew($XMLSignatureException, ex);
+	}
+}
+
+void XMLSignature::addResourceResolver($ResourceResolverSpi* resolver) {
+	$$nc(this->getSignedInfo())->addResourceResolver(resolver);
+}
+
+bool XMLSignature::checkSignatureValue($X509Certificate* cert) {
+	$useLocalObjectStack();
+	if (cert != nullptr) {
+		return this->checkSignatureValue($(cert->getPublicKey()));
+	}
+	$var($ObjectArray, exArgs, $new($ObjectArray, {"Didn\'t get a certificate"_s}));
+	$throwNew($XMLSignatureException, "empty"_s, exArgs);
+}
+
+bool XMLSignature::checkSignatureValue($Key* pk) {
+	$useLocalObjectStack();
+	if (pk == nullptr) {
+		$var($ObjectArray, exArgs, $new($ObjectArray, {"Didn\'t get a key"_s}));
+		$throwNew($XMLSignatureException, "empty"_s, exArgs);
+	}
+	try {
+		$var($SignedInfo, si, this->getSignedInfo());
+		$var($SignatureAlgorithm, sa, $nc(si)->getSignatureAlgorithm());
+		$nc(XMLSignature::LOG)->debug("signatureMethodURI = {}"_s, $$new($ObjectArray, {$($nc(sa)->getAlgorithmURI())}));
+		XMLSignature::LOG->debug("jceSigAlgorithm = {}"_s, $$new($ObjectArray, {$(sa->getJCEAlgorithmString())}));
+		XMLSignature::LOG->debug("PublicKey = {}"_s, $$new($ObjectArray, {pk}));
+		$var($bytes, sigBytes, nullptr);
+		try {
+			$var($SignerOutputStream, so, $new($SignerOutputStream, sa));
+			$var($Throwable, var$0, nullptr);
+			try {
+				try {
+					$var($OutputStream, bos, $new($UnsyncBufferedOutputStream, so));
+					$var($Throwable, var$1, nullptr);
+					try {
+						try {
+							sa->initVerify(pk);
+							XMLSignature::LOG->debug("jceSigProvider = {}"_s, $$new($ObjectArray, {$(sa->getJCEProviderName())}));
+							si->signInOctetStream(bos);
+							$assign(sigBytes, this->getSignatureValue());
+						} catch ($Throwable& t$) {
+							try {
+								bos->close();
+							} catch ($Throwable& x2) {
+								t$->addSuppressed(x2);
+							}
+							$throw(t$);
+						}
+					} catch ($Throwable& var$2) {
+						$assign(var$1, var$2);
+					} /*finally*/ {
+						bos->close();
+					}
+					if (var$1 != nullptr) {
+						$throw(var$1);
+					}
+				} catch ($Throwable& t$) {
+					try {
+						so->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
+					$throw(t$);
+				}
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
+			} /*finally*/ {
+				so->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		} catch ($IOException& ex) {
-			$nc(XMLSignature::LOG)->debug($(ex->getMessage()), static_cast<$Throwable*>(ex));
+			XMLSignature::LOG->debug($(ex->getMessage()), ex);
 		} catch ($XMLSecurityException& ex) {
 			$throw(ex);
 		}
-		if (!$nc(sa)->verify(sigBytes)) {
-			$nc(XMLSignature::LOG)->warn("Signature verification failed."_s);
+		if (!sa->verify(sigBytes)) {
+			XMLSignature::LOG->warn("Signature verification failed."_s);
 			return false;
 		}
 		return si->verify(this->followManifestsDuringValidation);
 	} catch ($XMLSignatureException& ex) {
 		$throw(ex);
 	} catch ($XMLSecurityException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 	$shouldNotReachHere();
 }
@@ -681,18 +572,18 @@ void XMLSignature::addDocument($String* referenceURI) {
 }
 
 void XMLSignature::addKeyInfo($X509Certificate* cert) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($X509Data, x509data, $new($X509Data, $(getDocument())));
 	x509data->addCertificate(cert);
-	$nc($(this->getKeyInfo()))->add(x509data);
+	$$nc(this->getKeyInfo())->add(x509data);
 }
 
 void XMLSignature::addKeyInfo($PublicKey* pk) {
-	$nc($(this->getKeyInfo()))->add(pk);
+	$$nc(this->getKeyInfo())->add(pk);
 }
 
 $SecretKey* XMLSignature::createSecretKey($bytes* secretKeyBytes) {
-	return $nc($(this->getSignedInfo()))->createSecretKey(secretKeyBytes);
+	return $$nc(this->getSignedInfo())->createSecretKey(secretKeyBytes);
 }
 
 void XMLSignature::setFollowNestedManifests(bool followManifests) {
@@ -704,7 +595,7 @@ $String* XMLSignature::getBaseLocalName() {
 	return $Constants::_TAG_SIGNATURE;
 }
 
-void clinit$XMLSignature($Class* class$) {
+void XMLSignature::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(XMLSignature::ALGO_ID_MAC_HMAC_SHA1, $str({$Constants::SignatureSpecNS, "hmac-sha1"_s}));
 	$assignStatic(XMLSignature::ALGO_ID_SIGNATURE_DSA, $str({$Constants::SignatureSpecNS, "dsa-sha1"_s}));
@@ -746,7 +637,100 @@ XMLSignature::XMLSignature() {
 }
 
 $Class* XMLSignature::load$($String* name, bool initialize) {
-	$loadClass(XMLSignature, name, initialize, &_XMLSignature_ClassInfo_, clinit$XMLSignature, allocate$XMLSignature);
+	$FieldInfo fieldInfos$$[] = {
+		{"ALGO_ID_MAC_HMAC_SHA1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_MAC_HMAC_SHA1)},
+		{"ALGO_ID_SIGNATURE_DSA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_DSA)},
+		{"ALGO_ID_SIGNATURE_DSA_SHA256", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_DSA_SHA256)},
+		{"ALGO_ID_SIGNATURE_RSA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA)},
+		{"ALGO_ID_SIGNATURE_RSA_SHA1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_SHA1)},
+		{"ALGO_ID_SIGNATURE_NOT_RECOMMENDED_RSA_MD5", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_NOT_RECOMMENDED_RSA_MD5)},
+		{"ALGO_ID_SIGNATURE_RSA_RIPEMD160", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_RIPEMD160)},
+		{"ALGO_ID_SIGNATURE_RSA_SHA224", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_SHA224)},
+		{"ALGO_ID_SIGNATURE_RSA_SHA256", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_SHA256)},
+		{"ALGO_ID_SIGNATURE_RSA_SHA384", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_SHA384)},
+		{"ALGO_ID_SIGNATURE_RSA_SHA512", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_SHA512)},
+		{"ALGO_ID_SIGNATURE_RSA_SHA1_MGF1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_SHA1_MGF1)},
+		{"ALGO_ID_SIGNATURE_RSA_SHA224_MGF1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_SHA224_MGF1)},
+		{"ALGO_ID_SIGNATURE_RSA_SHA256_MGF1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_SHA256_MGF1)},
+		{"ALGO_ID_SIGNATURE_RSA_SHA384_MGF1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_SHA384_MGF1)},
+		{"ALGO_ID_SIGNATURE_RSA_SHA512_MGF1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_SHA512_MGF1)},
+		{"ALGO_ID_SIGNATURE_RSA_SHA3_224_MGF1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_SHA3_224_MGF1)},
+		{"ALGO_ID_SIGNATURE_RSA_SHA3_256_MGF1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_SHA3_256_MGF1)},
+		{"ALGO_ID_SIGNATURE_RSA_SHA3_384_MGF1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_SHA3_384_MGF1)},
+		{"ALGO_ID_SIGNATURE_RSA_SHA3_512_MGF1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_SHA3_512_MGF1)},
+		{"ALGO_ID_MAC_HMAC_NOT_RECOMMENDED_MD5", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_MAC_HMAC_NOT_RECOMMENDED_MD5)},
+		{"ALGO_ID_MAC_HMAC_RIPEMD160", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_MAC_HMAC_RIPEMD160)},
+		{"ALGO_ID_MAC_HMAC_SHA224", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_MAC_HMAC_SHA224)},
+		{"ALGO_ID_MAC_HMAC_SHA256", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_MAC_HMAC_SHA256)},
+		{"ALGO_ID_MAC_HMAC_SHA384", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_MAC_HMAC_SHA384)},
+		{"ALGO_ID_MAC_HMAC_SHA512", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_MAC_HMAC_SHA512)},
+		{"ALGO_ID_SIGNATURE_ECDSA_SHA1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_ECDSA_SHA1)},
+		{"ALGO_ID_SIGNATURE_ECDSA_SHA224", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_ECDSA_SHA224)},
+		{"ALGO_ID_SIGNATURE_ECDSA_SHA256", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_ECDSA_SHA256)},
+		{"ALGO_ID_SIGNATURE_ECDSA_SHA384", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_ECDSA_SHA384)},
+		{"ALGO_ID_SIGNATURE_ECDSA_SHA512", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_ECDSA_SHA512)},
+		{"ALGO_ID_SIGNATURE_ECDSA_RIPEMD160", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_ECDSA_RIPEMD160)},
+		{"ALGO_ID_SIGNATURE_RSA_PSS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSignature, ALGO_ID_SIGNATURE_RSA_PSS)},
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLSignature, LOG)},
+		{"signedInfo", "Lcom/sun/org/apache/xml/internal/security/signature/SignedInfo;", nullptr, $PRIVATE | $FINAL, $field(XMLSignature, signedInfo)},
+		{"keyInfo", "Lcom/sun/org/apache/xml/internal/security/keys/KeyInfo;", nullptr, $PRIVATE, $field(XMLSignature, keyInfo)},
+		{"followManifestsDuringValidation", "Z", nullptr, $PRIVATE, $field(XMLSignature, followManifestsDuringValidation)},
+		{"signatureValueElement", "Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(XMLSignature, signatureValueElement)},
+		{"MODE_SIGN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLSignature, MODE_SIGN)},
+		{"MODE_VERIFY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLSignature, MODE_VERIFY)},
+		{"state", "I", nullptr, $PRIVATE, $field(XMLSignature, state)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLSignature, init$, void, $Document*, $String*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(XMLSignature, init$, void, $Document*, $String*, $String*, $Provider*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(XMLSignature, init$, void, $Document*, $String*, $String*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;ILjava/security/Provider;)V", nullptr, $PUBLIC, $method(XMLSignature, init$, void, $Document*, $String*, $String*, int32_t, $Provider*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLSignature, init$, void, $Document*, $String*, $String*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(XMLSignature, init$, void, $Document*, $String*, $String*, $String*, $Provider*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $method(XMLSignature, init$, void, $Document*, $String*, $String*, int32_t, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/security/Provider;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $method(XMLSignature, init$, void, $Document*, $String*, $String*, int32_t, $String*, $Provider*, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Lorg/w3c/dom/Element;Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $method(XMLSignature, init$, void, $Document*, $String*, $Element*, $Element*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Lorg/w3c/dom/Element;Lorg/w3c/dom/Element;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(XMLSignature, init$, void, $Document*, $String*, $Element*, $Element*, $Provider*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLSignature, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(XMLSignature, init$, void, $Element*, $String*, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(XMLSignature, init$, void, $Element*, $String*, bool), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;ZLjava/security/Provider;)V", nullptr, $PUBLIC, $method(XMLSignature, init$, void, $Element*, $String*, bool, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"addDocument", "(Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/transforms/Transforms;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLSignature, addDocument, void, $String*, $Transforms*, $String*, $String*, $String*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"addDocument", "(Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/transforms/Transforms;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLSignature, addDocument, void, $String*, $Transforms*, $String*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"addDocument", "(Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/transforms/Transforms;)V", nullptr, $PUBLIC, $method(XMLSignature, addDocument, void, $String*, $Transforms*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"addDocument", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLSignature, addDocument, void, $String*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"addKeyInfo", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(XMLSignature, addKeyInfo, void, $X509Certificate*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"addKeyInfo", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC, $method(XMLSignature, addKeyInfo, void, $PublicKey*)},
+		{"addResourceResolver", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi;)V", nullptr, $PUBLIC, $method(XMLSignature, addResourceResolver, void, $ResourceResolverSpi*)},
+		{"appendObject", "(Lcom/sun/org/apache/xml/internal/security/signature/ObjectContainer;)V", nullptr, $PUBLIC, $method(XMLSignature, appendObject, void, $ObjectContainer*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"checkSignatureValue", "(Ljava/security/cert/X509Certificate;)Z", nullptr, $PUBLIC, $method(XMLSignature, checkSignatureValue, bool, $X509Certificate*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"checkSignatureValue", "(Ljava/security/Key;)Z", nullptr, $PUBLIC, $method(XMLSignature, checkSignatureValue, bool, $Key*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"createSecretKey", "([B)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $method(XMLSignature, createSecretKey, $SecretKey*, $bytes*)},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLSignature, getBaseLocalName, $String*)},
+		{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(XMLSignature, getId, $String*)},
+		{"getKeyInfo", "()Lcom/sun/org/apache/xml/internal/security/keys/KeyInfo;", nullptr, $PUBLIC, $method(XMLSignature, getKeyInfo, $KeyInfo*)},
+		{"getObjectItem", "(I)Lcom/sun/org/apache/xml/internal/security/signature/ObjectContainer;", nullptr, $PUBLIC, $method(XMLSignature, getObjectItem, $ObjectContainer*, int32_t)},
+		{"getObjectLength", "()I", nullptr, $PUBLIC, $method(XMLSignature, getObjectLength, int32_t)},
+		{"getSignatureValue", "()[B", nullptr, $PUBLIC, $method(XMLSignature, getSignatureValue, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"getSignedInfo", "()Lcom/sun/org/apache/xml/internal/security/signature/SignedInfo;", nullptr, $PUBLIC, $method(XMLSignature, getSignedInfo, $SignedInfo*)},
+		{"setFollowNestedManifests", "(Z)V", nullptr, $PUBLIC, $method(XMLSignature, setFollowNestedManifests, void, bool)},
+		{"setId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLSignature, setId, void, $String*)},
+		{"setSignatureValueElement", "([B)V", nullptr, $PRIVATE, $method(XMLSignature, setSignatureValueElement, void, $bytes*)},
+		{"sign", "(Ljava/security/Key;)V", nullptr, $PUBLIC, $method(XMLSignature, sign, void, $Key*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.signature.XMLSignature",
+		"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLSignature, name, initialize, &classInfo$$, XMLSignature::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLSignature);
+	});
 	return class$;
 }
 

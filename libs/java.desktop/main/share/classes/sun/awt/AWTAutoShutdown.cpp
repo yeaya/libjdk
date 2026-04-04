@@ -1,10 +1,8 @@
 #include <sun/awt/AWTAutoShutdown.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/io/Serializable.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/ThreadGroup.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -29,7 +27,6 @@
 #undef SAFETY_TIMEOUT
 
 using $AWTEvent = ::java::awt::AWTEvent;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
@@ -37,15 +34,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $HashSet = ::java::util::HashSet;
 using $IdentityHashMap = ::java::util::IdentityHashMap;
 using $Iterator = ::java::util::Iterator;
-using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $AWTAutoShutdown$1 = ::sun::awt::AWTAutoShutdown$1;
 using $AppContext = ::sun::awt::AppContext;
 using $ThreadGroupUtils = ::sun::awt::util::ThreadGroupUtils;
@@ -62,96 +56,34 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$activateBlockerThread$0());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AWTAutoShutdown$$Lambda$lambda$activateBlockerThread$0>());
+		 return $nc(inst$)->lambda$activateBlockerThread$0();
 	}
 	AWTAutoShutdown* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo AWTAutoShutdown$$Lambda$lambda$activateBlockerThread$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(AWTAutoShutdown$$Lambda$lambda$activateBlockerThread$0, inst$)},
-	{}
-};
-$MethodInfo AWTAutoShutdown$$Lambda$lambda$activateBlockerThread$0::methodInfos[3] = {
-	{"<init>", "(Lsun/awt/AWTAutoShutdown;)V", nullptr, $PUBLIC, $method(AWTAutoShutdown$$Lambda$lambda$activateBlockerThread$0, init$, void, AWTAutoShutdown*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AWTAutoShutdown$$Lambda$lambda$activateBlockerThread$0, run, $Object*)},
-	{}
-};
-$ClassInfo AWTAutoShutdown$$Lambda$lambda$activateBlockerThread$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.AWTAutoShutdown$$Lambda$lambda$activateBlockerThread$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* AWTAutoShutdown$$Lambda$lambda$activateBlockerThread$0::load$($String* name, bool initialize) {
-	$loadClass(AWTAutoShutdown$$Lambda$lambda$activateBlockerThread$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(AWTAutoShutdown$$Lambda$lambda$activateBlockerThread$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/AWTAutoShutdown;)V", nullptr, $PUBLIC, $method(AWTAutoShutdown$$Lambda$lambda$activateBlockerThread$0, init$, void, AWTAutoShutdown*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AWTAutoShutdown$$Lambda$lambda$activateBlockerThread$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.AWTAutoShutdown$$Lambda$lambda$activateBlockerThread$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AWTAutoShutdown$$Lambda$lambda$activateBlockerThread$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AWTAutoShutdown$$Lambda$lambda$activateBlockerThread$0);
+	});
 	return class$;
 }
 $Class* AWTAutoShutdown$$Lambda$lambda$activateBlockerThread$0::class$ = nullptr;
-
-$FieldInfo _AWTAutoShutdown_FieldInfo_[] = {
-	{"theInstance", "Lsun/awt/AWTAutoShutdown;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AWTAutoShutdown, theInstance)},
-	{"mainLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(AWTAutoShutdown, mainLock)},
-	{"activationLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(AWTAutoShutdown, activationLock)},
-	{"busyThreadSet", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/Thread;>;", $PRIVATE | $FINAL, $field(AWTAutoShutdown, busyThreadSet)},
-	{"toolkitThreadBusy", "Z", nullptr, $PRIVATE, $field(AWTAutoShutdown, toolkitThreadBusy)},
-	{"peerMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Object;Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(AWTAutoShutdown, peerMap)},
-	{"blockerThread", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(AWTAutoShutdown, blockerThread)},
-	{"timeoutPassed", "Z", nullptr, $PRIVATE, $field(AWTAutoShutdown, timeoutPassed)},
-	{"SAFETY_TIMEOUT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AWTAutoShutdown, SAFETY_TIMEOUT)},
-	{}
-};
-
-$MethodInfo _AWTAutoShutdown_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(AWTAutoShutdown, init$, void)},
-	{"activateBlockerThread", "()V", nullptr, $PRIVATE, $method(AWTAutoShutdown, activateBlockerThread, void)},
-	{"dumpPeers", "(Lsun/util/logging/PlatformLogger;)V", nullptr, 0, $method(AWTAutoShutdown, dumpPeers, void, $PlatformLogger*)},
-	{"getInstance", "()Lsun/awt/AWTAutoShutdown;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAutoShutdown, getInstance, AWTAutoShutdown*)},
-	{"getPeer", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $method(AWTAutoShutdown, getPeer, $Object*, Object$*)},
-	{"getShutdownEvent", "()Ljava/awt/AWTEvent;", nullptr, $STATIC, $staticMethod(AWTAutoShutdown, getShutdownEvent, $AWTEvent*)},
-	{"isReadyToShutdown", "()Z", nullptr, $PRIVATE, $method(AWTAutoShutdown, isReadyToShutdown, bool)},
-	{"lambda$activateBlockerThread$0", "()Ljava/lang/Thread;", nullptr, $PRIVATE | $SYNTHETIC, $method(AWTAutoShutdown, lambda$activateBlockerThread$0, $Thread*)},
-	{"notifyPeerMapUpdated", "()V", nullptr, 0, $method(AWTAutoShutdown, notifyPeerMapUpdated, void)},
-	{"notifyThreadBusy", "(Ljava/lang/Thread;)V", nullptr, $PUBLIC, $method(AWTAutoShutdown, notifyThreadBusy, void, $Thread*)},
-	{"notifyThreadFree", "(Ljava/lang/Thread;)V", nullptr, $PUBLIC, $method(AWTAutoShutdown, notifyThreadFree, void, $Thread*)},
-	{"notifyToolkitThreadBusy", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAutoShutdown, notifyToolkitThreadBusy, void)},
-	{"notifyToolkitThreadFree", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAutoShutdown, notifyToolkitThreadFree, void)},
-	{"registerPeer", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $method(AWTAutoShutdown, registerPeer, void, Object$*, Object$*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AWTAutoShutdown, run, void)},
-	{"setToolkitBusy", "(Z)V", nullptr, $PRIVATE, $method(AWTAutoShutdown, setToolkitBusy, void, bool)},
-	{"unregisterPeer", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $method(AWTAutoShutdown, unregisterPeer, void, Object$*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _AWTAutoShutdown_InnerClassesInfo_[] = {
-	{"sun.awt.AWTAutoShutdown$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AWTAutoShutdown_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.AWTAutoShutdown",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_AWTAutoShutdown_FieldInfo_,
-	_AWTAutoShutdown_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AWTAutoShutdown_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.AWTAutoShutdown$1"
-};
-
-$Object* allocate$AWTAutoShutdown($Class* clazz) {
-	return $of($alloc(AWTAutoShutdown));
-}
 
 AWTAutoShutdown* AWTAutoShutdown::theInstance = nullptr;
 
@@ -172,12 +104,12 @@ AWTAutoShutdown* AWTAutoShutdown::getInstance() {
 
 void AWTAutoShutdown::notifyToolkitThreadBusy() {
 	$init(AWTAutoShutdown);
-	$nc($(getInstance()))->setToolkitBusy(true);
+	$$nc(getInstance())->setToolkitBusy(true);
 }
 
 void AWTAutoShutdown::notifyToolkitThreadFree() {
 	$init(AWTAutoShutdown);
-	$nc($(getInstance()))->setToolkitBusy(false);
+	$$nc(getInstance())->setToolkitBusy(false);
 }
 
 void AWTAutoShutdown::notifyThreadBusy($Thread* thread) {
@@ -189,10 +121,10 @@ void AWTAutoShutdown::notifyThreadBusy($Thread* thread) {
 			if (this->blockerThread == nullptr) {
 				activateBlockerThread();
 			} else if (isReadyToShutdown()) {
-				$nc($of(this->mainLock))->notifyAll();
+				this->mainLock->notifyAll();
 				this->timeoutPassed = false;
 			}
-			$nc(this->busyThreadSet)->add(thread);
+			this->busyThreadSet->add(thread);
 		}
 	}
 }
@@ -203,9 +135,9 @@ void AWTAutoShutdown::notifyThreadFree($Thread* thread) {
 	}
 	$synchronized(this->activationLock) {
 		$synchronized(this->mainLock) {
-			$nc(this->busyThreadSet)->remove(thread);
+			this->busyThreadSet->remove(thread);
 			if (isReadyToShutdown()) {
-				$nc($of(this->mainLock))->notifyAll();
+				this->mainLock->notifyAll();
 				this->timeoutPassed = false;
 			}
 		}
@@ -218,7 +150,7 @@ void AWTAutoShutdown::notifyPeerMapUpdated() {
 			if (!isReadyToShutdown() && this->blockerThread == nullptr) {
 				activateBlockerThread();
 			} else {
-				$nc($of(this->mainLock))->notifyAll();
+				this->mainLock->notifyAll();
 				this->timeoutPassed = false;
 			}
 		}
@@ -226,8 +158,8 @@ void AWTAutoShutdown::notifyPeerMapUpdated() {
 }
 
 bool AWTAutoShutdown::isReadyToShutdown() {
-	bool var$0 = !this->toolkitThreadBusy && $nc(this->peerMap)->isEmpty();
-	return (var$0 && $nc(this->busyThreadSet)->isEmpty());
+	bool var$0 = !this->toolkitThreadBusy && this->peerMap->isEmpty();
+	return (var$0 && this->busyThreadSet->isEmpty());
 }
 
 void AWTAutoShutdown::setToolkitBusy(bool busy) {
@@ -239,14 +171,14 @@ void AWTAutoShutdown::setToolkitBusy(bool busy) {
 						if (this->blockerThread == nullptr) {
 							activateBlockerThread();
 						} else if (isReadyToShutdown()) {
-							$nc($of(this->mainLock))->notifyAll();
+							this->mainLock->notifyAll();
 							this->timeoutPassed = false;
 						}
 						this->toolkitThreadBusy = busy;
 					} else {
 						this->toolkitThreadBusy = busy;
 						if (isReadyToShutdown()) {
-							$nc($of(this->mainLock))->notifyAll();
+							this->mainLock->notifyAll();
 							this->timeoutPassed = false;
 						}
 					}
@@ -257,41 +189,39 @@ void AWTAutoShutdown::setToolkitBusy(bool busy) {
 }
 
 void AWTAutoShutdown::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Thread, currentThread, $Thread::currentThread());
 	bool interrupted = false;
 	$synchronized(this->mainLock) {
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$nc($of(this->mainLock))->notifyAll();
-					while (this->blockerThread == currentThread) {
-						$nc($of(this->mainLock))->wait();
-						this->timeoutPassed = false;
-						while (isReadyToShutdown()) {
-							if (this->timeoutPassed) {
-								this->timeoutPassed = false;
-								$set(this, blockerThread, nullptr);
-								break;
-							}
-							this->timeoutPassed = true;
-							$nc($of(this->mainLock))->wait(AWTAutoShutdown::SAFETY_TIMEOUT);
+				this->mainLock->notifyAll();
+				while (this->blockerThread == currentThread) {
+					this->mainLock->wait();
+					this->timeoutPassed = false;
+					while (isReadyToShutdown()) {
+						if (this->timeoutPassed) {
+							this->timeoutPassed = false;
+							$set(this, blockerThread, nullptr);
+							break;
 						}
+						this->timeoutPassed = true;
+						this->mainLock->wait(AWTAutoShutdown::SAFETY_TIMEOUT);
 					}
-				} catch ($InterruptedException& e) {
-					interrupted = true;
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				if (this->blockerThread == currentThread) {
-					$set(this, blockerThread, nullptr);
-				}
+			} catch ($InterruptedException& e) {
+				interrupted = true;
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			if (this->blockerThread == currentThread) {
+				$set(this, blockerThread, nullptr);
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	if (!interrupted) {
@@ -305,11 +235,11 @@ $AWTEvent* AWTAutoShutdown::getShutdownEvent() {
 }
 
 void AWTAutoShutdown::activateBlockerThread() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$nc(($cast($Thread, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(AWTAutoShutdown$$Lambda$lambda$activateBlockerThread$0, this)))))))->start();
+	$$sure($Thread, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(AWTAutoShutdown$$Lambda$lambda$activateBlockerThread$0, this))))->start();
 	try {
-		$nc($of(this->mainLock))->wait();
+		this->mainLock->wait();
 	} catch ($InterruptedException& e) {
 		$nc($System::err)->println("AWT blocker activation interrupted:"_s);
 		e->printStackTrace();
@@ -319,7 +249,7 @@ void AWTAutoShutdown::activateBlockerThread() {
 void AWTAutoShutdown::registerPeer(Object$* target, Object$* peer) {
 	$synchronized(this->activationLock) {
 		$synchronized(this->mainLock) {
-			$nc(this->peerMap)->put(target, peer);
+			this->peerMap->put(target, peer);
 			notifyPeerMapUpdated();
 		}
 	}
@@ -328,8 +258,8 @@ void AWTAutoShutdown::registerPeer(Object$* target, Object$* peer) {
 void AWTAutoShutdown::unregisterPeer(Object$* target, Object$* peer) {
 	$synchronized(this->activationLock) {
 		$synchronized(this->mainLock) {
-			if ($equals($nc(this->peerMap)->get(target), peer)) {
-				$nc(this->peerMap)->remove(target);
+			if ($equals(this->peerMap->get(target), peer)) {
+				this->peerMap->remove(target);
 				notifyPeerMapUpdated();
 			}
 		}
@@ -339,25 +269,28 @@ void AWTAutoShutdown::unregisterPeer(Object$* target, Object$* peer) {
 $Object* AWTAutoShutdown::getPeer(Object$* target) {
 	$synchronized(this->activationLock) {
 		$synchronized(this->mainLock) {
-			return $of($nc(this->peerMap)->get(target));
+			return this->peerMap->get(target);
 		}
 	}
 }
 
 void AWTAutoShutdown::dumpPeers($PlatformLogger* aLog) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(aLog)->isLoggable($PlatformLogger$Level::FINE)) {
 		$synchronized(this->activationLock) {
 			$synchronized(this->mainLock) {
 				aLog->fine("Mapped peers:"_s);
 				{
-					$var($Iterator, i$, $nc($($nc(this->peerMap)->keySet()))->iterator());
+					$var($Iterator, i$, $$nc(this->peerMap->keySet())->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($Object, key, i$->next());
 						{
-							$var($String, var$0, $$str({key, "->"_s}));
-							aLog->fine($$concat(var$0, $($nc(this->peerMap)->get(key))));
+							$var($StringBuilder, var$0, $new($StringBuilder));
+							var$0->append(key);
+							var$0->append("->"_s);
+							var$0->append($(this->peerMap->get(key)));
+							aLog->fine($$str(var$0));
 						}
 					}
 				}
@@ -367,7 +300,7 @@ void AWTAutoShutdown::dumpPeers($PlatformLogger* aLog) {
 }
 
 $Thread* AWTAutoShutdown::lambda$activateBlockerThread$0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, "AWT-Shutdown"_s);
 	$var($Thread, thread, $new($Thread, $($ThreadGroupUtils::getRootThreadGroup()), this, name, 0, false));
 	thread->setContextClassLoader(nullptr);
@@ -376,7 +309,7 @@ $Thread* AWTAutoShutdown::lambda$activateBlockerThread$0() {
 	return thread;
 }
 
-void clinit$AWTAutoShutdown($Class* class$) {
+void AWTAutoShutdown::clinit$($Class* clazz) {
 	$assignStatic(AWTAutoShutdown::theInstance, $new(AWTAutoShutdown));
 }
 
@@ -385,11 +318,63 @@ AWTAutoShutdown::AWTAutoShutdown() {
 
 $Class* AWTAutoShutdown::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(AWTAutoShutdown$$Lambda$lambda$activateBlockerThread$0::classInfo$.name)) {
+		if (name->equals("sun.awt.AWTAutoShutdown$$Lambda$lambda$activateBlockerThread$0")) {
 			return AWTAutoShutdown$$Lambda$lambda$activateBlockerThread$0::load$(name, initialize);
 		}
 	}
-	$loadClass(AWTAutoShutdown, name, initialize, &_AWTAutoShutdown_ClassInfo_, clinit$AWTAutoShutdown, allocate$AWTAutoShutdown);
+	$FieldInfo fieldInfos$$[] = {
+		{"theInstance", "Lsun/awt/AWTAutoShutdown;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AWTAutoShutdown, theInstance)},
+		{"mainLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(AWTAutoShutdown, mainLock)},
+		{"activationLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(AWTAutoShutdown, activationLock)},
+		{"busyThreadSet", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/Thread;>;", $PRIVATE | $FINAL, $field(AWTAutoShutdown, busyThreadSet)},
+		{"toolkitThreadBusy", "Z", nullptr, $PRIVATE, $field(AWTAutoShutdown, toolkitThreadBusy)},
+		{"peerMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Object;Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(AWTAutoShutdown, peerMap)},
+		{"blockerThread", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(AWTAutoShutdown, blockerThread)},
+		{"timeoutPassed", "Z", nullptr, $PRIVATE, $field(AWTAutoShutdown, timeoutPassed)},
+		{"SAFETY_TIMEOUT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AWTAutoShutdown, SAFETY_TIMEOUT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(AWTAutoShutdown, init$, void)},
+		{"activateBlockerThread", "()V", nullptr, $PRIVATE, $method(AWTAutoShutdown, activateBlockerThread, void)},
+		{"dumpPeers", "(Lsun/util/logging/PlatformLogger;)V", nullptr, 0, $method(AWTAutoShutdown, dumpPeers, void, $PlatformLogger*)},
+		{"getInstance", "()Lsun/awt/AWTAutoShutdown;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAutoShutdown, getInstance, AWTAutoShutdown*)},
+		{"getPeer", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $method(AWTAutoShutdown, getPeer, $Object*, Object$*)},
+		{"getShutdownEvent", "()Ljava/awt/AWTEvent;", nullptr, $STATIC, $staticMethod(AWTAutoShutdown, getShutdownEvent, $AWTEvent*)},
+		{"isReadyToShutdown", "()Z", nullptr, $PRIVATE, $method(AWTAutoShutdown, isReadyToShutdown, bool)},
+		{"lambda$activateBlockerThread$0", "()Ljava/lang/Thread;", nullptr, $PRIVATE | $SYNTHETIC, $method(AWTAutoShutdown, lambda$activateBlockerThread$0, $Thread*)},
+		{"notifyPeerMapUpdated", "()V", nullptr, 0, $method(AWTAutoShutdown, notifyPeerMapUpdated, void)},
+		{"notifyThreadBusy", "(Ljava/lang/Thread;)V", nullptr, $PUBLIC, $method(AWTAutoShutdown, notifyThreadBusy, void, $Thread*)},
+		{"notifyThreadFree", "(Ljava/lang/Thread;)V", nullptr, $PUBLIC, $method(AWTAutoShutdown, notifyThreadFree, void, $Thread*)},
+		{"notifyToolkitThreadBusy", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAutoShutdown, notifyToolkitThreadBusy, void)},
+		{"notifyToolkitThreadFree", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAutoShutdown, notifyToolkitThreadFree, void)},
+		{"registerPeer", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $method(AWTAutoShutdown, registerPeer, void, Object$*, Object$*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AWTAutoShutdown, run, void)},
+		{"setToolkitBusy", "(Z)V", nullptr, $PRIVATE, $method(AWTAutoShutdown, setToolkitBusy, void, bool)},
+		{"unregisterPeer", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $method(AWTAutoShutdown, unregisterPeer, void, Object$*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.AWTAutoShutdown$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.AWTAutoShutdown",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.AWTAutoShutdown$1"
+	};
+	$loadClass(AWTAutoShutdown, name, initialize, &classInfo$$, AWTAutoShutdown::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AWTAutoShutdown);
+	});
 	return class$;
 }
 

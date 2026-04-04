@@ -1,5 +1,4 @@
 #include <javax/lang/model/element/Modifier.h>
-
 #include <java/lang/Enum.h>
 #include <java/util/Locale.h>
 #include <javax/lang/model/element/Modifier$1.h>
@@ -34,58 +33,6 @@ namespace javax {
 	namespace lang {
 		namespace model {
 			namespace element {
-
-$FieldInfo _Modifier_FieldInfo_[] = {
-	{"PUBLIC", "Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Modifier, PUBLIC)},
-	{"PROTECTED", "Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Modifier, PROTECTED)},
-	{"PRIVATE", "Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Modifier, PRIVATE)},
-	{"ABSTRACT", "Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Modifier, ABSTRACT)},
-	{"DEFAULT", "Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Modifier, DEFAULT)},
-	{"STATIC", "Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Modifier, STATIC)},
-	{"SEALED", "Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Modifier, SEALED)},
-	{"NON_SEALED", "Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Modifier, NON_SEALED)},
-	{"FINAL", "Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Modifier, FINAL)},
-	{"TRANSIENT", "Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Modifier, TRANSIENT)},
-	{"VOLATILE", "Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Modifier, VOLATILE)},
-	{"SYNCHRONIZED", "Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Modifier, SYNCHRONIZED)},
-	{"NATIVE", "Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Modifier, NATIVE)},
-	{"STRICTFP", "Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Modifier, STRICTFP)},
-	{"$VALUES", "[Ljavax/lang/model/element/Modifier;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Modifier, $VALUES)},
-	{}
-};
-
-$MethodInfo _Modifier_MethodInfo_[] = {
-	{"$values", "()[Ljavax/lang/model/element/Modifier;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modifier, $values, $ModifierArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Modifier, init$, void, $String*, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Modifier, toString, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, valueOf, Modifier*, $String*)},
-	{"values", "()[Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, values, $ModifierArray*)},
-	{}
-};
-
-$InnerClassInfo _Modifier_InnerClassesInfo_[] = {
-	{"javax.lang.model.element.Modifier$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Modifier_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ENUM,
-	"javax.lang.model.element.Modifier",
-	"java.lang.Enum",
-	nullptr,
-	_Modifier_FieldInfo_,
-	_Modifier_MethodInfo_,
-	"Ljava/lang/Enum<Ljavax/lang/model/element/Modifier;>;",
-	nullptr,
-	_Modifier_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.lang.model.element.Modifier$1"
-};
-
-$Object* allocate$Modifier($Class* clazz) {
-	return $of($alloc(Modifier));
-}
 
 Modifier* Modifier::PUBLIC = nullptr;
 Modifier* Modifier::PROTECTED = nullptr;
@@ -139,10 +86,10 @@ void Modifier::init$($String* $enum$name, int32_t $enum$ordinal) {
 
 $String* Modifier::toString() {
 	$init($Locale);
-	return $nc($(name()))->toLowerCase($Locale::US);
+	return $$nc(name())->toLowerCase($Locale::US);
 }
 
-void clinit$Modifier($Class* class$) {
+void Modifier::clinit$($Class* clazz) {
 	$assignStatic(Modifier::PUBLIC, $new(Modifier, "PUBLIC"_s, 0));
 	$assignStatic(Modifier::PROTECTED, $new(Modifier, "PROTECTED"_s, 1));
 	$assignStatic(Modifier::PRIVATE, $new(Modifier, "PRIVATE"_s, 2));
@@ -164,7 +111,53 @@ Modifier::Modifier() {
 }
 
 $Class* Modifier::load$($String* name, bool initialize) {
-	$loadClass(Modifier, name, initialize, &_Modifier_ClassInfo_, clinit$Modifier, allocate$Modifier);
+	$FieldInfo fieldInfos$$[] = {
+		{"PUBLIC", "Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Modifier, PUBLIC)},
+		{"PROTECTED", "Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Modifier, PROTECTED)},
+		{"PRIVATE", "Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Modifier, PRIVATE)},
+		{"ABSTRACT", "Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Modifier, ABSTRACT)},
+		{"DEFAULT", "Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Modifier, DEFAULT)},
+		{"STATIC", "Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Modifier, STATIC)},
+		{"SEALED", "Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Modifier, SEALED)},
+		{"NON_SEALED", "Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Modifier, NON_SEALED)},
+		{"FINAL", "Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Modifier, FINAL)},
+		{"TRANSIENT", "Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Modifier, TRANSIENT)},
+		{"VOLATILE", "Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Modifier, VOLATILE)},
+		{"SYNCHRONIZED", "Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Modifier, SYNCHRONIZED)},
+		{"NATIVE", "Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Modifier, NATIVE)},
+		{"STRICTFP", "Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Modifier, STRICTFP)},
+		{"$VALUES", "[Ljavax/lang/model/element/Modifier;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Modifier, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljavax/lang/model/element/Modifier;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modifier, $values, $ModifierArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Modifier, init$, void, $String*, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Modifier, toString, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, valueOf, Modifier*, $String*)},
+		{"values", "()[Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, values, $ModifierArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.lang.model.element.Modifier$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ENUM,
+		"javax.lang.model.element.Modifier",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljavax/lang/model/element/Modifier;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.lang.model.element.Modifier$1"
+	};
+	$loadClass(Modifier, name, initialize, &classInfo$$, Modifier::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Modifier));
+	});
 	return class$;
 }
 

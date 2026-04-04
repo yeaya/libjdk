@@ -30,6 +30,7 @@ class $export MetalIconFactory : public ::java::io::Serializable {
 	$class(MetalIconFactory, 0, ::java::io::Serializable)
 public:
 	MetalIconFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::Icon* getCheckBoxIcon();
 	static ::javax::swing::Icon* getCheckBoxMenuItemIcon();

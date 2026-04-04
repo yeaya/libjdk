@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/NodeVector.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <java/io/Serializable.h>
 #include <jcpp.h>
@@ -20,66 +19,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace utils {
-
-$FieldInfo _NodeVector_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(NodeVector, serialVersionUID)},
-	{"m_blocksize", "I", nullptr, $PRIVATE, $field(NodeVector, m_blocksize)},
-	{"m_map", "[I", nullptr, $PRIVATE, $field(NodeVector, m_map)},
-	{"m_firstFree", "I", nullptr, $PROTECTED, $field(NodeVector, m_firstFree)},
-	{"m_mapSize", "I", nullptr, $PRIVATE, $field(NodeVector, m_mapSize)},
-	{}
-};
-
-$MethodInfo _NodeVector_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NodeVector, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(NodeVector, init$, void, int32_t)},
-	{"RemoveAllNoClear", "()V", nullptr, $PUBLIC, $virtualMethod(NodeVector, RemoveAllNoClear, void)},
-	{"addElement", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeVector, addElement, void, int32_t)},
-	{"appendNodes", "(Lcom/sun/org/apache/xml/internal/utils/NodeVector;)V", nullptr, $PUBLIC, $virtualMethod(NodeVector, appendNodes, void, NodeVector*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NodeVector, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"contains", "(I)Z", nullptr, $PUBLIC, $virtualMethod(NodeVector, contains, bool, int32_t)},
-	{"elementAt", "(I)I", nullptr, $PUBLIC, $virtualMethod(NodeVector, elementAt, int32_t, int32_t)},
-	{"indexOf", "(II)I", nullptr, $PUBLIC, $virtualMethod(NodeVector, indexOf, int32_t, int32_t, int32_t)},
-	{"indexOf", "(I)I", nullptr, $PUBLIC, $virtualMethod(NodeVector, indexOf, int32_t, int32_t)},
-	{"insertElementAt", "(II)V", nullptr, $PUBLIC, $virtualMethod(NodeVector, insertElementAt, void, int32_t, int32_t)},
-	{"insertInOrder", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeVector, insertInOrder, void, int32_t)},
-	{"peepOrNull", "()I", nullptr, $PUBLIC | $FINAL, $method(NodeVector, peepOrNull, int32_t)},
-	{"peepTail", "()I", nullptr, $PUBLIC | $FINAL, $method(NodeVector, peepTail, int32_t)},
-	{"peepTailSub1", "()I", nullptr, $PUBLIC | $FINAL, $method(NodeVector, peepTailSub1, int32_t)},
-	{"pop", "()I", nullptr, $PUBLIC | $FINAL, $method(NodeVector, pop, int32_t)},
-	{"popAndTop", "()I", nullptr, $PUBLIC | $FINAL, $method(NodeVector, popAndTop, int32_t)},
-	{"popPair", "()V", nullptr, $PUBLIC | $FINAL, $method(NodeVector, popPair, void)},
-	{"popQuick", "()V", nullptr, $PUBLIC | $FINAL, $method(NodeVector, popQuick, void)},
-	{"push", "(I)V", nullptr, $PUBLIC | $FINAL, $method(NodeVector, push, void, int32_t)},
-	{"pushPair", "(II)V", nullptr, $PUBLIC | $FINAL, $method(NodeVector, pushPair, void, int32_t, int32_t)},
-	{"removeAllElements", "()V", nullptr, $PUBLIC, $virtualMethod(NodeVector, removeAllElements, void)},
-	{"removeElement", "(I)Z", nullptr, $PUBLIC, $virtualMethod(NodeVector, removeElement, bool, int32_t)},
-	{"removeElementAt", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeVector, removeElementAt, void, int32_t)},
-	{"setElementAt", "(II)V", nullptr, $PUBLIC, $virtualMethod(NodeVector, setElementAt, void, int32_t, int32_t)},
-	{"setTail", "(I)V", nullptr, $PUBLIC | $FINAL, $method(NodeVector, setTail, void, int32_t)},
-	{"setTailSub1", "(I)V", nullptr, $PUBLIC | $FINAL, $method(NodeVector, setTailSub1, void, int32_t)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(NodeVector, size, int32_t)},
-	{"sort", "([III)V", nullptr, $PUBLIC, $virtualMethod(NodeVector, sort, void, $ints*, int32_t, int32_t), "java.lang.Exception"},
-	{"sort", "()V", nullptr, $PUBLIC, $virtualMethod(NodeVector, sort, void), "java.lang.Exception"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _NodeVector_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.NodeVector",
-	"java.lang.Object",
-	"java.io.Serializable,java.lang.Cloneable",
-	_NodeVector_FieldInfo_,
-	_NodeVector_MethodInfo_
-};
-
-$Object* allocate$NodeVector($Class* clazz) {
-	return $of($alloc(NodeVector));
-}
 
 int32_t NodeVector::hashCode() {
 	 return this->$Serializable::hashCode();
@@ -112,8 +51,8 @@ void NodeVector::init$(int32_t blocksize) {
 $Object* NodeVector::clone() {
 	$var(NodeVector, clone, $cast(NodeVector, $Serializable::clone()));
 	if ((nullptr != this->m_map) && (this->m_map == $nc(clone)->m_map)) {
-		$set(clone, m_map, $new($ints, $nc(this->m_map)->length));
-		$System::arraycopy(this->m_map, 0, clone->m_map, 0, $nc(this->m_map)->length);
+		$set(clone, m_map, $new($ints, this->m_map->length));
+		$System::arraycopy(this->m_map, 0, clone->m_map, 0, this->m_map->length);
 	}
 	return $of(clone);
 }
@@ -159,14 +98,14 @@ void NodeVector::push(int32_t value) {
 int32_t NodeVector::pop() {
 	--this->m_firstFree;
 	int32_t n = $nc(this->m_map)->get(this->m_firstFree);
-	$nc(this->m_map)->set(this->m_firstFree, $DTM::NULL);
+	this->m_map->set(this->m_firstFree, $DTM::NULL);
 	return n;
 }
 
 int32_t NodeVector::popAndTop() {
 	--this->m_firstFree;
 	$nc(this->m_map)->set(this->m_firstFree, $DTM::NULL);
-	return (this->m_firstFree == 0) ? $DTM::NULL : $nc(this->m_map)->get(this->m_firstFree - 1);
+	return (this->m_firstFree == 0) ? $DTM::NULL : this->m_map->get(this->m_firstFree - 1);
 }
 
 void NodeVector::popQuick() {
@@ -175,7 +114,7 @@ void NodeVector::popQuick() {
 }
 
 int32_t NodeVector::peepOrNull() {
-	return ((nullptr != this->m_map) && (this->m_firstFree > 0)) ? $nc(this->m_map)->get(this->m_firstFree - 1) : $DTM::NULL;
+	return ((nullptr != this->m_map) && (this->m_firstFree > 0)) ? this->m_map->get(this->m_firstFree - 1) : $DTM::NULL;
 }
 
 void NodeVector::pushPair(int32_t v1, int32_t v2) {
@@ -189,14 +128,14 @@ void NodeVector::pushPair(int32_t v1, int32_t v2) {
 		$set(this, m_map, newMap);
 	}
 	$nc(this->m_map)->set(this->m_firstFree, v1);
-	$nc(this->m_map)->set(this->m_firstFree + 1, v2);
+	this->m_map->set(this->m_firstFree + 1, v2);
 	this->m_firstFree += 2;
 }
 
 void NodeVector::popPair() {
 	this->m_firstFree -= 2;
 	$nc(this->m_map)->set(this->m_firstFree, $DTM::NULL);
-	$nc(this->m_map)->set(this->m_firstFree + 1, $DTM::NULL);
+	this->m_map->set(this->m_firstFree + 1, $DTM::NULL);
 }
 
 void NodeVector::setTail(int32_t n) {
@@ -284,7 +223,7 @@ bool NodeVector::removeElement(int32_t s) {
 			if (i > this->m_firstFree) {
 				$System::arraycopy(this->m_map, i + 1, this->m_map, i - 1, this->m_firstFree - i);
 			} else {
-				$nc(this->m_map)->set(i, $DTM::NULL);
+				this->m_map->set(i, $DTM::NULL);
 			}
 			--this->m_firstFree;
 			return true;
@@ -367,7 +306,7 @@ void NodeVector::sort($ints* a, int32_t lo0, int32_t hi0) {
 	if (lo >= hi) {
 		return;
 	} else if (lo == hi - 1) {
-		if ($nc(a)->get(lo) > a->get(hi)) {
+		if ($nc(a)->get(lo) > $nc(a)->get(hi)) {
 			int32_t T = a->get(lo);
 			a->set(lo, a->get(hi));
 			a->set(hi, T);
@@ -405,7 +344,62 @@ NodeVector::NodeVector() {
 }
 
 $Class* NodeVector::load$($String* name, bool initialize) {
-	$loadClass(NodeVector, name, initialize, &_NodeVector_ClassInfo_, allocate$NodeVector);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(NodeVector, serialVersionUID)},
+		{"m_blocksize", "I", nullptr, $PRIVATE, $field(NodeVector, m_blocksize)},
+		{"m_map", "[I", nullptr, $PRIVATE, $field(NodeVector, m_map)},
+		{"m_firstFree", "I", nullptr, $PROTECTED, $field(NodeVector, m_firstFree)},
+		{"m_mapSize", "I", nullptr, $PRIVATE, $field(NodeVector, m_mapSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NodeVector, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(NodeVector, init$, void, int32_t)},
+		{"RemoveAllNoClear", "()V", nullptr, $PUBLIC, $virtualMethod(NodeVector, RemoveAllNoClear, void)},
+		{"addElement", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeVector, addElement, void, int32_t)},
+		{"appendNodes", "(Lcom/sun/org/apache/xml/internal/utils/NodeVector;)V", nullptr, $PUBLIC, $virtualMethod(NodeVector, appendNodes, void, NodeVector*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NodeVector, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"contains", "(I)Z", nullptr, $PUBLIC, $virtualMethod(NodeVector, contains, bool, int32_t)},
+		{"elementAt", "(I)I", nullptr, $PUBLIC, $virtualMethod(NodeVector, elementAt, int32_t, int32_t)},
+		{"indexOf", "(II)I", nullptr, $PUBLIC, $virtualMethod(NodeVector, indexOf, int32_t, int32_t, int32_t)},
+		{"indexOf", "(I)I", nullptr, $PUBLIC, $virtualMethod(NodeVector, indexOf, int32_t, int32_t)},
+		{"insertElementAt", "(II)V", nullptr, $PUBLIC, $virtualMethod(NodeVector, insertElementAt, void, int32_t, int32_t)},
+		{"insertInOrder", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeVector, insertInOrder, void, int32_t)},
+		{"peepOrNull", "()I", nullptr, $PUBLIC | $FINAL, $method(NodeVector, peepOrNull, int32_t)},
+		{"peepTail", "()I", nullptr, $PUBLIC | $FINAL, $method(NodeVector, peepTail, int32_t)},
+		{"peepTailSub1", "()I", nullptr, $PUBLIC | $FINAL, $method(NodeVector, peepTailSub1, int32_t)},
+		{"pop", "()I", nullptr, $PUBLIC | $FINAL, $method(NodeVector, pop, int32_t)},
+		{"popAndTop", "()I", nullptr, $PUBLIC | $FINAL, $method(NodeVector, popAndTop, int32_t)},
+		{"popPair", "()V", nullptr, $PUBLIC | $FINAL, $method(NodeVector, popPair, void)},
+		{"popQuick", "()V", nullptr, $PUBLIC | $FINAL, $method(NodeVector, popQuick, void)},
+		{"push", "(I)V", nullptr, $PUBLIC | $FINAL, $method(NodeVector, push, void, int32_t)},
+		{"pushPair", "(II)V", nullptr, $PUBLIC | $FINAL, $method(NodeVector, pushPair, void, int32_t, int32_t)},
+		{"removeAllElements", "()V", nullptr, $PUBLIC, $virtualMethod(NodeVector, removeAllElements, void)},
+		{"removeElement", "(I)Z", nullptr, $PUBLIC, $virtualMethod(NodeVector, removeElement, bool, int32_t)},
+		{"removeElementAt", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeVector, removeElementAt, void, int32_t)},
+		{"setElementAt", "(II)V", nullptr, $PUBLIC, $virtualMethod(NodeVector, setElementAt, void, int32_t, int32_t)},
+		{"setTail", "(I)V", nullptr, $PUBLIC | $FINAL, $method(NodeVector, setTail, void, int32_t)},
+		{"setTailSub1", "(I)V", nullptr, $PUBLIC | $FINAL, $method(NodeVector, setTailSub1, void, int32_t)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(NodeVector, size, int32_t)},
+		{"sort", "([III)V", nullptr, $PUBLIC, $virtualMethod(NodeVector, sort, void, $ints*, int32_t, int32_t), "java.lang.Exception"},
+		{"sort", "()V", nullptr, $PUBLIC, $virtualMethod(NodeVector, sort, void), "java.lang.Exception"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.NodeVector",
+		"java.lang.Object",
+		"java.io.Serializable,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NodeVector, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NodeVector));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl$EmptyIterator.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl$XSObjectListIterator.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObject.h>
@@ -55,91 +54,6 @@ namespace com {
 						namespace impl {
 							namespace xs {
 								namespace util {
-
-$FieldInfo _XSObjectListImpl_FieldInfo_[] = {
-	{"EMPTY_LIST", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSObjectListImpl, EMPTY_LIST)},
-	{"EMPTY_ITERATOR", "Ljava/util/ListIterator;", "Ljava/util/ListIterator<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;", $PRIVATE | $STATIC | $FINAL, $staticField(XSObjectListImpl, EMPTY_ITERATOR)},
-	{"DEFAULT_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSObjectListImpl, DEFAULT_SIZE)},
-	{"fArray", "[Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, $PRIVATE, $field(XSObjectListImpl, fArray)},
-	{"fLength", "I", nullptr, $PRIVATE, $field(XSObjectListImpl, fLength)},
-	{}
-};
-
-$MethodInfo _XSObjectListImpl_MethodInfo_[] = {
-	{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*add", "(ILjava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*addAll", "(ILjava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"*indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XSObjectListImpl, init$, void)},
-	{"<init>", "([Lcom/sun/org/apache/xerces/internal/xs/XSObject;I)V", nullptr, $PUBLIC, $method(XSObjectListImpl, init$, void, $XSObjectArray*, int32_t)},
-	{"addXSObject", "(Lcom/sun/org/apache/xerces/internal/xs/XSObject;)V", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl, addXSObject, void, $XSObject*)},
-	{"addXSObject", "(ILcom/sun/org/apache/xerces/internal/xs/XSObject;)V", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl, addXSObject, void, int32_t, $XSObject*)},
-	{"clearXSObjectList", "()V", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl, clearXSObjectList, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl, contains, bool, Object$*)},
-	{"containsNull", "()Z", nullptr, $PRIVATE, $method(XSObjectListImpl, containsNull, bool)},
-	{"containsObject", "(Ljava/lang/Object;)Z", nullptr, $PRIVATE, $method(XSObjectListImpl, containsObject, bool, Object$*)},
-	{"get", "(I)Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl, get, $Object*, int32_t)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl, getLength, int32_t)},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"item", "(I)Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl, item, $XSObject*, int32_t)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;", $PUBLIC, $virtualMethod(XSObjectListImpl, iterator, $Iterator*)},
-	{"*lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
-	{"listIterator", "()Ljava/util/ListIterator;", "()Ljava/util/ListIterator<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;", $PUBLIC, $virtualMethod(XSObjectListImpl, listIterator, $ListIterator*)},
-	{"listIterator", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;", $PUBLIC, $virtualMethod(XSObjectListImpl, listIterator, $ListIterator*, int32_t)},
-	{"listIterator0", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;", $PRIVATE, $method(XSObjectListImpl, listIterator0, $ListIterator*, int32_t)},
-	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*remove", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*replaceAll", "(Ljava/util/function/UnaryOperator;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*set", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl, size, int32_t)},
-	{"*sort", "(Ljava/util/Comparator;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*subList", "(II)Ljava/util/List;", nullptr, $PUBLIC},
-	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl, toArray, $ObjectArray*, $ObjectArray*)},
-	{"toArray0", "([Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(XSObjectListImpl, toArray0, void, $ObjectArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _XSObjectListImpl_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xs.util.XSObjectListImpl$XSObjectListIterator", "com.sun.org.apache.xerces.internal.impl.xs.util.XSObjectListImpl", "XSObjectListIterator", $PRIVATE | $FINAL},
-	{"com.sun.org.apache.xerces.internal.impl.xs.util.XSObjectListImpl$EmptyIterator", "com.sun.org.apache.xerces.internal.impl.xs.util.XSObjectListImpl", "EmptyIterator", $STATIC},
-	{}
-};
-
-$ClassInfo _XSObjectListImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.util.XSObjectListImpl",
-	"java.util.AbstractList",
-	"com.sun.org.apache.xerces.internal.xs.XSObjectList",
-	_XSObjectListImpl_FieldInfo_,
-	_XSObjectListImpl_MethodInfo_,
-	"Ljava/util/AbstractList<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;",
-	nullptr,
-	_XSObjectListImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xs.util.XSObjectListImpl$XSObjectListIterator,com.sun.org.apache.xerces.internal.impl.xs.util.XSObjectListImpl$EmptyIterator"
-};
-
-$Object* allocate$XSObjectListImpl($Class* clazz) {
-	return $of($alloc(XSObjectListImpl));
-}
 
 bool XSObjectListImpl::add(Object$* arg0) {
 	 return this->$AbstractList::add(arg0);
@@ -297,7 +211,7 @@ void XSObjectListImpl::addXSObject($XSObject* object) {
 		$System::arraycopy(this->fArray, 0, temp, 0, this->fLength);
 		$set(this, fArray, temp);
 	}
-	$nc(this->fArray)->set(this->fLength++, object);
+	this->fArray->set(this->fLength++, object);
 }
 
 void XSObjectListImpl::addXSObject(int32_t index, $XSObject* object) {
@@ -309,9 +223,9 @@ bool XSObjectListImpl::contains(Object$* value) {
 }
 
 $Object* XSObjectListImpl::get(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (index >= 0 && index < this->fLength) {
-		return $of($nc(this->fArray)->get(index));
+		return $nc(this->fArray)->get(index);
 	}
 	$throwNew($IndexOutOfBoundsException, $$str({"Index: "_s, $$str(index)}));
 }
@@ -329,7 +243,7 @@ $ListIterator* XSObjectListImpl::listIterator() {
 }
 
 $ListIterator* XSObjectListImpl::listIterator(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (index >= 0 && index < this->fLength) {
 		return listIterator0(index);
 	}
@@ -337,7 +251,7 @@ $ListIterator* XSObjectListImpl::listIterator(int32_t index) {
 }
 
 $ListIterator* XSObjectListImpl::listIterator0(int32_t index) {
-	return this->fLength == 0 ? XSObjectListImpl::EMPTY_ITERATOR : static_cast<$ListIterator*>($new($XSObjectListImpl$XSObjectListIterator, this, index));
+	return this->fLength == 0 ? XSObjectListImpl::EMPTY_ITERATOR : $cast($ListIterator, $new($XSObjectListImpl$XSObjectListIterator, this, index));
 }
 
 bool XSObjectListImpl::containsObject(Object$* value) {
@@ -368,11 +282,11 @@ $ObjectArray* XSObjectListImpl::toArray($ObjectArray* a$renamed) {
 	$var($ObjectArray, a, a$renamed);
 	if ($nc(a)->length < this->fLength) {
 		$Class* arrayClass = $of(a)->getClass();
-		$Class* componentType = $nc(arrayClass)->getComponentType();
+		$Class* componentType = arrayClass->getComponentType();
 		$assign(a, $cast($ObjectArray, $1Array::newInstance(componentType, this->fLength)));
 	}
 	toArray0(a);
-	if ($nc(a)->length > this->fLength) {
+	if (a->length > this->fLength) {
 		a->set(this->fLength, nullptr);
 	}
 	return a;
@@ -384,7 +298,7 @@ void XSObjectListImpl::toArray0($ObjectArray* a) {
 	}
 }
 
-void clinit$XSObjectListImpl($Class* class$) {
+void XSObjectListImpl::clinit$($Class* clazz) {
 	$assignStatic(XSObjectListImpl::EMPTY_LIST, $new(XSObjectListImpl, $$new($XSObjectArray, 0), 0));
 	$assignStatic(XSObjectListImpl::EMPTY_ITERATOR, $new($XSObjectListImpl$EmptyIterator));
 }
@@ -393,7 +307,86 @@ XSObjectListImpl::XSObjectListImpl() {
 }
 
 $Class* XSObjectListImpl::load$($String* name, bool initialize) {
-	$loadClass(XSObjectListImpl, name, initialize, &_XSObjectListImpl_ClassInfo_, clinit$XSObjectListImpl, allocate$XSObjectListImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY_LIST", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSObjectListImpl, EMPTY_LIST)},
+		{"EMPTY_ITERATOR", "Ljava/util/ListIterator;", "Ljava/util/ListIterator<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;", $PRIVATE | $STATIC | $FINAL, $staticField(XSObjectListImpl, EMPTY_ITERATOR)},
+		{"DEFAULT_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSObjectListImpl, DEFAULT_SIZE)},
+		{"fArray", "[Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, $PRIVATE, $field(XSObjectListImpl, fArray)},
+		{"fLength", "I", nullptr, $PRIVATE, $field(XSObjectListImpl, fLength)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*add", "(ILjava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*addAll", "(ILjava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"*indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XSObjectListImpl, init$, void)},
+		{"<init>", "([Lcom/sun/org/apache/xerces/internal/xs/XSObject;I)V", nullptr, $PUBLIC, $method(XSObjectListImpl, init$, void, $XSObjectArray*, int32_t)},
+		{"addXSObject", "(Lcom/sun/org/apache/xerces/internal/xs/XSObject;)V", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl, addXSObject, void, $XSObject*)},
+		{"addXSObject", "(ILcom/sun/org/apache/xerces/internal/xs/XSObject;)V", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl, addXSObject, void, int32_t, $XSObject*)},
+		{"clearXSObjectList", "()V", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl, clearXSObjectList, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl, contains, bool, Object$*)},
+		{"containsNull", "()Z", nullptr, $PRIVATE, $method(XSObjectListImpl, containsNull, bool)},
+		{"containsObject", "(Ljava/lang/Object;)Z", nullptr, $PRIVATE, $method(XSObjectListImpl, containsObject, bool, Object$*)},
+		{"get", "(I)Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl, get, $Object*, int32_t)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl, getLength, int32_t)},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"item", "(I)Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl, item, $XSObject*, int32_t)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;", $PUBLIC, $virtualMethod(XSObjectListImpl, iterator, $Iterator*)},
+		{"*lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
+		{"listIterator", "()Ljava/util/ListIterator;", "()Ljava/util/ListIterator<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;", $PUBLIC, $virtualMethod(XSObjectListImpl, listIterator, $ListIterator*)},
+		{"listIterator", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;", $PUBLIC, $virtualMethod(XSObjectListImpl, listIterator, $ListIterator*, int32_t)},
+		{"listIterator0", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;", $PRIVATE, $method(XSObjectListImpl, listIterator0, $ListIterator*, int32_t)},
+		{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*remove", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*replaceAll", "(Ljava/util/function/UnaryOperator;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*set", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl, size, int32_t)},
+		{"*sort", "(Ljava/util/Comparator;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*subList", "(II)Ljava/util/List;", nullptr, $PUBLIC},
+		{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl, toArray, $ObjectArray*, $ObjectArray*)},
+		{"toArray0", "([Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(XSObjectListImpl, toArray0, void, $ObjectArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xs.util.XSObjectListImpl$XSObjectListIterator", "com.sun.org.apache.xerces.internal.impl.xs.util.XSObjectListImpl", "XSObjectListIterator", $PRIVATE | $FINAL},
+		{"com.sun.org.apache.xerces.internal.impl.xs.util.XSObjectListImpl$EmptyIterator", "com.sun.org.apache.xerces.internal.impl.xs.util.XSObjectListImpl", "EmptyIterator", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.util.XSObjectListImpl",
+		"java.util.AbstractList",
+		"com.sun.org.apache.xerces.internal.xs.XSObjectList",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractList<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xs.util.XSObjectListImpl$XSObjectListIterator,com.sun.org.apache.xerces.internal.impl.xs.util.XSObjectListImpl$EmptyIterator"
+	};
+	$loadClass(XSObjectListImpl, name, initialize, &classInfo$$, XSObjectListImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XSObjectListImpl));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/EventDispatchThread$HierarchyEventFilter.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -39,48 +38,12 @@ using $SunToolkit = ::sun::awt::SunToolkit;
 namespace java {
 	namespace awt {
 
-$FieldInfo _EventDispatchThread$HierarchyEventFilter_FieldInfo_[] = {
-	{"modalComponent", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(EventDispatchThread$HierarchyEventFilter, modalComponent)},
-	{}
-};
-
-$MethodInfo _EventDispatchThread$HierarchyEventFilter_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $method(EventDispatchThread$HierarchyEventFilter, init$, void, $Component*)},
-	{"acceptEvent", "(Ljava/awt/AWTEvent;)Ljava/awt/EventFilter$FilterAction;", nullptr, $PUBLIC, $virtualMethod(EventDispatchThread$HierarchyEventFilter, acceptEvent, $EventFilter$FilterAction*, $AWTEvent*)},
-	{}
-};
-
-$InnerClassInfo _EventDispatchThread$HierarchyEventFilter_InnerClassesInfo_[] = {
-	{"java.awt.EventDispatchThread$HierarchyEventFilter", "java.awt.EventDispatchThread", "HierarchyEventFilter", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _EventDispatchThread$HierarchyEventFilter_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.EventDispatchThread$HierarchyEventFilter",
-	"java.lang.Object",
-	"java.awt.EventFilter",
-	_EventDispatchThread$HierarchyEventFilter_FieldInfo_,
-	_EventDispatchThread$HierarchyEventFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_EventDispatchThread$HierarchyEventFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.EventDispatchThread"
-};
-
-$Object* allocate$EventDispatchThread$HierarchyEventFilter($Class* clazz) {
-	return $of($alloc(EventDispatchThread$HierarchyEventFilter));
-}
-
 void EventDispatchThread$HierarchyEventFilter::init$($Component* modalComponent) {
 	$set(this, modalComponent, modalComponent);
 }
 
 $EventFilter$FilterAction* EventDispatchThread$HierarchyEventFilter::acceptEvent($AWTEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->modalComponent != nullptr) {
 		int32_t eventID = $nc(event)->getID();
 		bool mouseEvent = (eventID >= $MouseEvent::MOUSE_FIRST) && (eventID <= $MouseEvent::MOUSE_LAST);
@@ -122,7 +85,37 @@ EventDispatchThread$HierarchyEventFilter::EventDispatchThread$HierarchyEventFilt
 }
 
 $Class* EventDispatchThread$HierarchyEventFilter::load$($String* name, bool initialize) {
-	$loadClass(EventDispatchThread$HierarchyEventFilter, name, initialize, &_EventDispatchThread$HierarchyEventFilter_ClassInfo_, allocate$EventDispatchThread$HierarchyEventFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"modalComponent", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(EventDispatchThread$HierarchyEventFilter, modalComponent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $method(EventDispatchThread$HierarchyEventFilter, init$, void, $Component*)},
+		{"acceptEvent", "(Ljava/awt/AWTEvent;)Ljava/awt/EventFilter$FilterAction;", nullptr, $PUBLIC, $virtualMethod(EventDispatchThread$HierarchyEventFilter, acceptEvent, $EventFilter$FilterAction*, $AWTEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.EventDispatchThread$HierarchyEventFilter", "java.awt.EventDispatchThread", "HierarchyEventFilter", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.EventDispatchThread$HierarchyEventFilter",
+		"java.lang.Object",
+		"java.awt.EventFilter",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.EventDispatchThread"
+	};
+	$loadClass(EventDispatchThread$HierarchyEventFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EventDispatchThread$HierarchyEventFilter);
+	});
 	return class$;
 }
 

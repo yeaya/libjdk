@@ -1,6 +1,4 @@
 #include <javax/xml/catalog/CatalogReader.h>
-
-#include <java/io/Reader.h>
 #include <java/io/StringReader.h>
 #include <java/net/URL.h>
 #include <javax/xml/catalog/BaseEntry$CatalogEntryType.h>
@@ -44,14 +42,11 @@
 #undef PREFER_PUBLIC
 #undef PREFER_SYSTEM
 
-using $Reader = ::java::io::Reader;
 using $StringReader = ::java::io::StringReader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $URL = ::java::net::URL;
-using $BaseEntry = ::javax::xml::catalog::BaseEntry;
 using $BaseEntry$CatalogEntryType = ::javax::xml::catalog::BaseEntry$CatalogEntryType;
 using $Catalog = ::javax::xml::catalog::Catalog;
 using $CatalogEntry = ::javax::xml::catalog::CatalogEntry;
@@ -82,59 +77,6 @@ using $DefaultHandler = ::org::xml::sax::helpers::DefaultHandler;
 namespace javax {
 	namespace xml {
 		namespace catalog {
-
-$FieldInfo _CatalogReader_FieldInfo_[] = {
-	{"xmlCatalogXSD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CatalogReader, xmlCatalogXSD)},
-	{"xmlCatalogPubId", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CatalogReader, xmlCatalogPubId)},
-	{"NAMESPACE_OASIS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CatalogReader, NAMESPACE_OASIS)},
-	{"seenRoot", "Z", nullptr, 0, $field(CatalogReader, seenRoot)},
-	{"inGroup", "Z", nullptr, 0, $field(CatalogReader, inGroup)},
-	{"catalog", "Ljavax/xml/catalog/CatalogImpl;", nullptr, 0, $field(CatalogReader, catalog)},
-	{"parser", "Ljavax/xml/parsers/SAXParser;", nullptr, 0, $field(CatalogReader, parser)},
-	{"catalogEntry", "Ljavax/xml/catalog/CatalogEntry;", nullptr, 0, $field(CatalogReader, catalogEntry)},
-	{"group", "Ljavax/xml/catalog/GroupEntry;", nullptr, 0, $field(CatalogReader, group)},
-	{"entry", "Ljavax/xml/catalog/BaseEntry;", nullptr, 0, $field(CatalogReader, entry)},
-	{"ignoreTheCatalog", "Z", nullptr, 0, $field(CatalogReader, ignoreTheCatalog)},
-	{}
-};
-
-$MethodInfo _CatalogReader_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/xml/catalog/Catalog;Ljavax/xml/parsers/SAXParser;)V", nullptr, $PUBLIC, $method(CatalogReader, init$, void, $Catalog*, $SAXParser*)},
-	{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CatalogReader, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"resolve", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/transform/Source;", nullptr, $PUBLIC, $virtualMethod(CatalogReader, resolve, $Source*, $String*, $String*), "javax.xml.transform.TransformerException"},
-	{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(CatalogReader, resolveEntity, $InputSource*, $String*, $String*)},
-	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(CatalogReader, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _CatalogReader_InnerClassesInfo_[] = {
-	{"javax.xml.catalog.CatalogReader$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _CatalogReader_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.xml.catalog.CatalogReader",
-	"org.xml.sax.helpers.DefaultHandler",
-	"javax.xml.transform.URIResolver",
-	_CatalogReader_FieldInfo_,
-	_CatalogReader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CatalogReader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.xml.catalog.CatalogReader$1"
-};
-
-$Object* allocate$CatalogReader($Class* clazz) {
-	return $of($alloc(CatalogReader));
-}
 
 int32_t CatalogReader::hashCode() {
 	 return this->$DefaultHandler::hashCode();
@@ -168,18 +110,18 @@ void CatalogReader::init$($Catalog* catalog, $SAXParser* parser) {
 }
 
 void CatalogReader::startElement($String* namespaceURI, $String* localName, $String* qName, $Attributes* atts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->ignoreTheCatalog) {
 		return;
 	}
-	if (!$nc(CatalogReader::NAMESPACE_OASIS)->equals(namespaceURI)) {
+	if (!CatalogReader::NAMESPACE_OASIS->equals(namespaceURI)) {
 		this->ignoreTheCatalog = true;
 		return;
 	}
 	$BaseEntry$CatalogEntryType* type = $BaseEntry$CatalogEntryType::getType(localName);
 	if (type == nullptr) {
 		$init($CatalogMessages);
-		$CatalogMessages::reportError($CatalogMessages::ERR_INVALID_ENTRY_TYPE, $$new($ObjectArray, {$of(localName)}));
+		$CatalogMessages::reportError($CatalogMessages::ERR_INVALID_ENTRY_TYPE, $$new($ObjectArray, {localName}));
 	}
 	if (type != $BaseEntry$CatalogEntryType::CATALOGENTRY) {
 		if (!this->seenRoot) {
@@ -190,13 +132,11 @@ void CatalogReader::startElement($String* namespaceURI, $String* localName, $Str
 	$var($String, base, $nc(atts)->getValue("xml:base"_s));
 	if (base == nullptr) {
 		if (this->inGroup) {
-			$assign(base, $nc($($nc(this->group)->getBaseURI()))->toString());
+			$assign(base, $$nc($nc(this->group)->getBaseURI())->toString());
+		} else if (type == $BaseEntry$CatalogEntryType::CATALOGENTRY) {
+			$assign(base, $$nc($nc(this->catalog)->getBaseURI())->toString());
 		} else {
-			if (type == $BaseEntry$CatalogEntryType::CATALOGENTRY) {
-				$assign(base, $nc($($nc(this->catalog)->getBaseURI()))->toString());
-			} else {
-				$assign(base, $nc($($nc(this->catalogEntry)->getBaseURI()))->toString());
-			}
+			$assign(base, $$nc($nc(this->catalogEntry)->getBaseURI())->toString());
 		}
 	} else {
 		$assign(base, $Normalizer::normalizeURI(base));
@@ -247,79 +187,67 @@ void CatalogReader::startElement($String* namespaceURI, $String* localName, $Str
 	switch ($nc($CatalogReader$1::$SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType)->get($nc((type))->ordinal())) {
 	case 1:
 		{
-			$var($String, var$0, base);
-			$var($String, var$1, atts->getValue("publicId"_s));
-			$set(this, entry, $new($PublicEntry, var$0, var$1, $(atts->getValue("uri"_s))));
+			$var($String, var$0, atts->getValue("publicId"_s));
+			$set(this, entry, $new($PublicEntry, base, var$0, $(atts->getValue("uri"_s))));
 			break;
 		}
 	case 2:
 		{
-			$var($String, var$2, base);
-			$var($String, var$3, atts->getValue("systemId"_s));
-			$set(this, entry, $new($SystemEntry, var$2, var$3, $(atts->getValue("uri"_s))));
+			$var($String, var$1, atts->getValue("systemId"_s));
+			$set(this, entry, $new($SystemEntry, base, var$1, $(atts->getValue("uri"_s))));
 			break;
 		}
 	case 3:
 		{
-			$var($String, var$4, base);
-			$var($String, var$5, atts->getValue("systemIdStartString"_s));
-			$set(this, entry, $new($RewriteSystem, var$4, var$5, $(atts->getValue("rewritePrefix"_s))));
+			$var($String, var$2, atts->getValue("systemIdStartString"_s));
+			$set(this, entry, $new($RewriteSystem, base, var$2, $(atts->getValue("rewritePrefix"_s))));
 			break;
 		}
 	case 4:
 		{
-			$var($String, var$6, base);
-			$var($String, var$7, atts->getValue("systemIdSuffix"_s));
-			$set(this, entry, $new($SystemSuffix, var$6, var$7, $(atts->getValue("uri"_s))));
+			$var($String, var$3, atts->getValue("systemIdSuffix"_s));
+			$set(this, entry, $new($SystemSuffix, base, var$3, $(atts->getValue("uri"_s))));
 			break;
 		}
 	case 5:
 		{
-			$var($String, var$8, base);
-			$var($String, var$9, atts->getValue("publicIdStartString"_s));
-			$set(this, entry, $new($DelegatePublic, var$8, var$9, $(atts->getValue("catalog"_s))));
+			$var($String, var$4, atts->getValue("publicIdStartString"_s));
+			$set(this, entry, $new($DelegatePublic, base, var$4, $(atts->getValue("catalog"_s))));
 			break;
 		}
 	case 6:
 		{
-			$var($String, var$10, base);
-			$var($String, var$11, atts->getValue("systemIdStartString"_s));
-			$set(this, entry, $new($DelegateSystem, var$10, var$11, $(atts->getValue("catalog"_s))));
+			$var($String, var$5, atts->getValue("systemIdStartString"_s));
+			$set(this, entry, $new($DelegateSystem, base, var$5, $(atts->getValue("catalog"_s))));
 			break;
 		}
 	case 7:
 		{
-			$var($String, var$12, base);
-			$var($String, var$13, atts->getValue("name"_s));
-			$set(this, entry, $new($UriEntry, var$12, var$13, $(atts->getValue("uri"_s))));
+			$var($String, var$6, atts->getValue("name"_s));
+			$set(this, entry, $new($UriEntry, base, var$6, $(atts->getValue("uri"_s))));
 			break;
 		}
 	case 8:
 		{
-			$var($String, var$14, base);
-			$var($String, var$15, atts->getValue("uriStartString"_s));
-			$set(this, entry, $new($RewriteUri, var$14, var$15, $(atts->getValue("rewritePrefix"_s))));
+			$var($String, var$7, atts->getValue("uriStartString"_s));
+			$set(this, entry, $new($RewriteUri, base, var$7, $(atts->getValue("rewritePrefix"_s))));
 			break;
 		}
 	case 9:
 		{
-			$var($String, var$16, base);
-			$var($String, var$17, atts->getValue("uriSuffix"_s));
-			$set(this, entry, $new($UriSuffix, var$16, var$17, $(atts->getValue("uri"_s))));
+			$var($String, var$8, atts->getValue("uriSuffix"_s));
+			$set(this, entry, $new($UriSuffix, base, var$8, $(atts->getValue("uri"_s))));
 			break;
 		}
 	case 10:
 		{
-			$var($String, var$18, base);
-			$var($String, var$19, atts->getValue("uriStartString"_s));
-			$set(this, entry, $new($DelegateUri, var$18, var$19, $(atts->getValue("catalog"_s))));
+			$var($String, var$9, atts->getValue("uriStartString"_s));
+			$set(this, entry, $new($DelegateUri, base, var$9, $(atts->getValue("catalog"_s))));
 			break;
 		}
 	case 11:
-		{
-			$set(this, entry, $new($NextCatalog, base, $(atts->getValue("catalog"_s))));
-			break;
-		}
+		$set(this, entry, $new($NextCatalog, base, $(atts->getValue("catalog"_s))));
+		break;
 	}
 	if (type == $BaseEntry$CatalogEntryType::NEXTCATALOG) {
 		$nc(this->catalog)->addNextCatalog($cast($NextCatalog, this->entry));
@@ -341,25 +269,72 @@ void CatalogReader::endElement($String* namespaceURI, $String* localName, $Strin
 }
 
 $InputSource* CatalogReader::resolveEntity($String* publicId, $String* systemId) {
-	return $new($InputSource, static_cast<$Reader*>($$new($StringReader, ""_s)));
+	return $new($InputSource, $$new($StringReader, ""_s));
 }
 
 $Source* CatalogReader::resolve($String* href, $String* base) {
-	$useLocalCurrentObjectStackCache();
-	return $new($SAXSource, $$new($InputSource, static_cast<$Reader*>($$new($StringReader, ""_s))));
+	$useLocalObjectStack();
+	return $new($SAXSource, $$new($InputSource, $$new($StringReader, ""_s)));
 }
 
 CatalogReader::CatalogReader() {
 }
 
-void clinit$CatalogReader($Class* class$) {
+void CatalogReader::clinit$($Class* clazz) {
 	$assignStatic(CatalogReader::xmlCatalogXSD, "http://www.oasis-open.org/committees/entity/release/1.0/catalog.xsd"_s);
 	$assignStatic(CatalogReader::xmlCatalogPubId, "-//OASIS//DTD XML Catalogs V1.0//EN"_s);
 	$assignStatic(CatalogReader::NAMESPACE_OASIS, "urn:oasis:names:tc:entity:xmlns:xml:catalog"_s);
 }
 
 $Class* CatalogReader::load$($String* name, bool initialize) {
-	$loadClass(CatalogReader, name, initialize, &_CatalogReader_ClassInfo_, clinit$CatalogReader, allocate$CatalogReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"xmlCatalogXSD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CatalogReader, xmlCatalogXSD)},
+		{"xmlCatalogPubId", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CatalogReader, xmlCatalogPubId)},
+		{"NAMESPACE_OASIS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CatalogReader, NAMESPACE_OASIS)},
+		{"seenRoot", "Z", nullptr, 0, $field(CatalogReader, seenRoot)},
+		{"inGroup", "Z", nullptr, 0, $field(CatalogReader, inGroup)},
+		{"catalog", "Ljavax/xml/catalog/CatalogImpl;", nullptr, 0, $field(CatalogReader, catalog)},
+		{"parser", "Ljavax/xml/parsers/SAXParser;", nullptr, 0, $field(CatalogReader, parser)},
+		{"catalogEntry", "Ljavax/xml/catalog/CatalogEntry;", nullptr, 0, $field(CatalogReader, catalogEntry)},
+		{"group", "Ljavax/xml/catalog/GroupEntry;", nullptr, 0, $field(CatalogReader, group)},
+		{"entry", "Ljavax/xml/catalog/BaseEntry;", nullptr, 0, $field(CatalogReader, entry)},
+		{"ignoreTheCatalog", "Z", nullptr, 0, $field(CatalogReader, ignoreTheCatalog)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/xml/catalog/Catalog;Ljavax/xml/parsers/SAXParser;)V", nullptr, $PUBLIC, $method(CatalogReader, init$, void, $Catalog*, $SAXParser*)},
+		{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CatalogReader, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"resolve", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/transform/Source;", nullptr, $PUBLIC, $virtualMethod(CatalogReader, resolve, $Source*, $String*, $String*), "javax.xml.transform.TransformerException"},
+		{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(CatalogReader, resolveEntity, $InputSource*, $String*, $String*)},
+		{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(CatalogReader, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.xml.catalog.CatalogReader$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.xml.catalog.CatalogReader",
+		"org.xml.sax.helpers.DefaultHandler",
+		"javax.xml.transform.URIResolver",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.xml.catalog.CatalogReader$1"
+	};
+	$loadClass(CatalogReader, name, initialize, &classInfo$$, CatalogReader::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CatalogReader));
+	});
 	return class$;
 }
 

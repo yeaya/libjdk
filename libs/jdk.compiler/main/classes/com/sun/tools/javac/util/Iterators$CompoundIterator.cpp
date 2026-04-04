@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Iterators$CompoundIterator.h>
-
 #include <com/sun/tools/javac/util/Iterators.h>
 #include <java/lang/Iterable.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -27,47 +26,6 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$FieldInfo _Iterators$CompoundIterator_FieldInfo_[] = {
-	{"inputs", "Ljava/util/Iterator;", "Ljava/util/Iterator<TI;>;", $PRIVATE | $FINAL, $field(Iterators$CompoundIterator, inputs)},
-	{"convertor", "Ljava/util/function/Function;", "Ljava/util/function/Function<TI;Ljava/util/Iterator<TO;>;>;", $PRIVATE | $FINAL, $field(Iterators$CompoundIterator, convertor)},
-	{"currentIterator", "Ljava/util/Iterator;", "Ljava/util/Iterator<TO;>;", $PRIVATE, $field(Iterators$CompoundIterator, currentIterator)},
-	{}
-};
-
-$MethodInfo _Iterators$CompoundIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Iterable;Ljava/util/function/Function;)V", "(Ljava/lang/Iterable<TI;>;Ljava/util/function/Function<TI;Ljava/util/Iterator<TO;>;>;)V", $PUBLIC, $method(Iterators$CompoundIterator, init$, void, $Iterable*, $Function*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Iterators$CompoundIterator, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", "()TO;", $PUBLIC, $virtualMethod(Iterators$CompoundIterator, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Iterators$CompoundIterator, remove, void)},
-	{"update", "()V", nullptr, $PRIVATE, $method(Iterators$CompoundIterator, update, void)},
-	{}
-};
-
-$InnerClassInfo _Iterators$CompoundIterator_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.Iterators$CompoundIterator", "com.sun.tools.javac.util.Iterators", "CompoundIterator", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Iterators$CompoundIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.util.Iterators$CompoundIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_Iterators$CompoundIterator_FieldInfo_,
-	_Iterators$CompoundIterator_MethodInfo_,
-	"<I:Ljava/lang/Object;O:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Iterator<TO;>;",
-	nullptr,
-	_Iterators$CompoundIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.Iterators"
-};
-
-$Object* allocate$Iterators$CompoundIterator($Class* clazz) {
-	return $of($alloc(Iterators$CompoundIterator));
-}
-
 void Iterators$CompoundIterator::init$($Iterable* inputs, $Function* convertor) {
 	$init($Iterators);
 	$set(this, currentIterator, $Iterators::EMPTY);
@@ -76,7 +34,7 @@ void Iterators$CompoundIterator::init$($Iterable* inputs, $Function* convertor) 
 }
 
 bool Iterators$CompoundIterator::hasNext() {
-	if (this->currentIterator != nullptr && !$nc(this->currentIterator)->hasNext()) {
+	if (this->currentIterator != nullptr && !this->currentIterator->hasNext()) {
 		update();
 	}
 	return this->currentIterator != nullptr;
@@ -87,7 +45,7 @@ $Object* Iterators$CompoundIterator::next() {
 	if (this->currentIterator == $Iterators::EMPTY && !hasNext()) {
 		$throwNew($NoSuchElementException);
 	}
-	return $of($nc(this->currentIterator)->next());
+	return $nc(this->currentIterator)->next();
 }
 
 void Iterators$CompoundIterator::remove() {
@@ -95,9 +53,9 @@ void Iterators$CompoundIterator::remove() {
 }
 
 void Iterators$CompoundIterator::update() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while ($nc(this->inputs)->hasNext()) {
-		$set(this, currentIterator, $cast($Iterator, $nc(this->convertor)->apply($($nc(this->inputs)->next()))));
+		$set(this, currentIterator, $cast($Iterator, $nc(this->convertor)->apply($(this->inputs->next()))));
 		if ($nc(this->currentIterator)->hasNext()) {
 			return;
 		}
@@ -109,7 +67,42 @@ Iterators$CompoundIterator::Iterators$CompoundIterator() {
 }
 
 $Class* Iterators$CompoundIterator::load$($String* name, bool initialize) {
-	$loadClass(Iterators$CompoundIterator, name, initialize, &_Iterators$CompoundIterator_ClassInfo_, allocate$Iterators$CompoundIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"inputs", "Ljava/util/Iterator;", "Ljava/util/Iterator<TI;>;", $PRIVATE | $FINAL, $field(Iterators$CompoundIterator, inputs)},
+		{"convertor", "Ljava/util/function/Function;", "Ljava/util/function/Function<TI;Ljava/util/Iterator<TO;>;>;", $PRIVATE | $FINAL, $field(Iterators$CompoundIterator, convertor)},
+		{"currentIterator", "Ljava/util/Iterator;", "Ljava/util/Iterator<TO;>;", $PRIVATE, $field(Iterators$CompoundIterator, currentIterator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Iterable;Ljava/util/function/Function;)V", "(Ljava/lang/Iterable<TI;>;Ljava/util/function/Function<TI;Ljava/util/Iterator<TO;>;>;)V", $PUBLIC, $method(Iterators$CompoundIterator, init$, void, $Iterable*, $Function*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Iterators$CompoundIterator, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", "()TO;", $PUBLIC, $virtualMethod(Iterators$CompoundIterator, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Iterators$CompoundIterator, remove, void)},
+		{"update", "()V", nullptr, $PRIVATE, $method(Iterators$CompoundIterator, update, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.Iterators$CompoundIterator", "com.sun.tools.javac.util.Iterators", "CompoundIterator", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.util.Iterators$CompoundIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"<I:Ljava/lang/Object;O:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Iterator<TO;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.Iterators"
+	};
+	$loadClass(Iterators$CompoundIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Iterators$CompoundIterator);
+	});
 	return class$;
 }
 

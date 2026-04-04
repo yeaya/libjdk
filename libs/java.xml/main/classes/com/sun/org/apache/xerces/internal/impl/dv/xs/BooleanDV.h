@@ -38,6 +38,7 @@ class BooleanDV : public ::com::sun::org::apache::xerces::internal::impl::dv::xs
 	$class(BooleanDV, 0, ::com::sun::org::apache::xerces::internal::impl::dv::xs::TypeValidator)
 public:
 	BooleanDV();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* getActualValue($String* content, ::com::sun::org::apache::xerces::internal::impl::dv::ValidationContext* context) override;
 	virtual int16_t getAllowedFacets() override;

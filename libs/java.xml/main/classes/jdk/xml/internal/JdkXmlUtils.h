@@ -109,6 +109,7 @@ class JdkXmlUtils : public ::java::lang::Object {
 	$class(JdkXmlUtils, 0, ::java::lang::Object)
 public:
 	JdkXmlUtils();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void catalogFeaturesConfig2Config(::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager* config1, ::com::sun::org::apache::xerces::internal::util::ParserConfigurationSettings* config2);
 	static void catalogFeaturesConfig2Reader(::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager* config, ::org::xml::sax::XMLReader* reader);

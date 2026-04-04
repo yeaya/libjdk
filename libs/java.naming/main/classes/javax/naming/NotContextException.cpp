@@ -1,5 +1,4 @@
 #include <javax/naming/NotContextException.h>
-
 #include <javax/naming/NamingException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $NamingException = ::javax::naming::NamingException;
 
 namespace javax {
 	namespace naming {
-
-$FieldInfo _NotContextException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NotContextException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NotContextException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NotContextException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NotContextException, init$, void)},
-	{}
-};
-
-$ClassInfo _NotContextException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.NotContextException",
-	"javax.naming.NamingException",
-	nullptr,
-	_NotContextException_FieldInfo_,
-	_NotContextException_MethodInfo_
-};
-
-$Object* allocate$NotContextException($Class* clazz) {
-	return $of($alloc(NotContextException));
-}
 
 void NotContextException::init$($String* explanation) {
 	$NamingException::init$(explanation);
@@ -54,7 +29,26 @@ void NotContextException::throw$() {
 }
 
 $Class* NotContextException::load$($String* name, bool initialize) {
-	$loadClass(NotContextException, name, initialize, &_NotContextException_ClassInfo_, allocate$NotContextException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NotContextException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NotContextException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NotContextException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.NotContextException",
+		"javax.naming.NamingException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NotContextException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NotContextException);
+	});
 	return class$;
 }
 

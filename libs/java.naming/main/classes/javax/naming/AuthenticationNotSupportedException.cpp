@@ -1,5 +1,4 @@
 #include <javax/naming/AuthenticationNotSupportedException.h>
-
 #include <javax/naming/NamingSecurityException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $NamingSecurityException = ::javax::naming::NamingSecurityException;
 
 namespace javax {
 	namespace naming {
-
-$FieldInfo _AuthenticationNotSupportedException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AuthenticationNotSupportedException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AuthenticationNotSupportedException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AuthenticationNotSupportedException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AuthenticationNotSupportedException, init$, void)},
-	{}
-};
-
-$ClassInfo _AuthenticationNotSupportedException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.AuthenticationNotSupportedException",
-	"javax.naming.NamingSecurityException",
-	nullptr,
-	_AuthenticationNotSupportedException_FieldInfo_,
-	_AuthenticationNotSupportedException_MethodInfo_
-};
-
-$Object* allocate$AuthenticationNotSupportedException($Class* clazz) {
-	return $of($alloc(AuthenticationNotSupportedException));
-}
 
 void AuthenticationNotSupportedException::init$($String* explanation) {
 	$NamingSecurityException::init$(explanation);
@@ -54,7 +29,26 @@ void AuthenticationNotSupportedException::throw$() {
 }
 
 $Class* AuthenticationNotSupportedException::load$($String* name, bool initialize) {
-	$loadClass(AuthenticationNotSupportedException, name, initialize, &_AuthenticationNotSupportedException_ClassInfo_, allocate$AuthenticationNotSupportedException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AuthenticationNotSupportedException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AuthenticationNotSupportedException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AuthenticationNotSupportedException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.AuthenticationNotSupportedException",
+		"javax.naming.NamingSecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AuthenticationNotSupportedException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AuthenticationNotSupportedException);
+	});
 	return class$;
 }
 

@@ -1,12 +1,9 @@
 #include <com/sun/org/apache/xpath/internal/functions/Function2Args$Arg1Owner.h>
-
 #include <com/sun/org/apache/xpath/internal/Expression.h>
-#include <com/sun/org/apache/xpath/internal/ExpressionNode.h>
 #include <com/sun/org/apache/xpath/internal/functions/Function2Args.h>
 #include <jcpp.h>
 
 using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
-using $ExpressionNode = ::com::sun::org::apache::xpath::internal::ExpressionNode;
 using $Function2Args = ::com::sun::org::apache::xpath::internal::functions::Function2Args;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -20,43 +17,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 						namespace functions {
-
-$FieldInfo _Function2Args$Arg1Owner_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xpath/internal/functions/Function2Args;", nullptr, $FINAL | $SYNTHETIC, $field(Function2Args$Arg1Owner, this$0)},
-	{}
-};
-
-$MethodInfo _Function2Args$Arg1Owner_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xpath/internal/functions/Function2Args;)V", nullptr, 0, $method(Function2Args$Arg1Owner, init$, void, $Function2Args*)},
-	{"getExpression", "()Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(Function2Args$Arg1Owner, getExpression, $Expression*)},
-	{"setExpression", "(Lcom/sun/org/apache/xpath/internal/Expression;)V", nullptr, $PUBLIC, $virtualMethod(Function2Args$Arg1Owner, setExpression, void, $Expression*)},
-	{}
-};
-
-$InnerClassInfo _Function2Args$Arg1Owner_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xpath.internal.functions.Function2Args$Arg1Owner", "com.sun.org.apache.xpath.internal.functions.Function2Args", "Arg1Owner", 0},
-	{}
-};
-
-$ClassInfo _Function2Args$Arg1Owner_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.functions.Function2Args$Arg1Owner",
-	"java.lang.Object",
-	"com.sun.org.apache.xpath.internal.ExpressionOwner",
-	_Function2Args$Arg1Owner_FieldInfo_,
-	_Function2Args$Arg1Owner_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Function2Args$Arg1Owner_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xpath.internal.functions.Function2Args"
-};
-
-$Object* allocate$Function2Args$Arg1Owner($Class* clazz) {
-	return $of($alloc(Function2Args$Arg1Owner));
-}
 
 void Function2Args$Arg1Owner::init$($Function2Args* this$0) {
 	$set(this, this$0, this$0);
@@ -75,7 +35,38 @@ Function2Args$Arg1Owner::Function2Args$Arg1Owner() {
 }
 
 $Class* Function2Args$Arg1Owner::load$($String* name, bool initialize) {
-	$loadClass(Function2Args$Arg1Owner, name, initialize, &_Function2Args$Arg1Owner_ClassInfo_, allocate$Function2Args$Arg1Owner);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xpath/internal/functions/Function2Args;", nullptr, $FINAL | $SYNTHETIC, $field(Function2Args$Arg1Owner, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xpath/internal/functions/Function2Args;)V", nullptr, 0, $method(Function2Args$Arg1Owner, init$, void, $Function2Args*)},
+		{"getExpression", "()Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(Function2Args$Arg1Owner, getExpression, $Expression*)},
+		{"setExpression", "(Lcom/sun/org/apache/xpath/internal/Expression;)V", nullptr, $PUBLIC, $virtualMethod(Function2Args$Arg1Owner, setExpression, void, $Expression*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xpath.internal.functions.Function2Args$Arg1Owner", "com.sun.org.apache.xpath.internal.functions.Function2Args", "Arg1Owner", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.functions.Function2Args$Arg1Owner",
+		"java.lang.Object",
+		"com.sun.org.apache.xpath.internal.ExpressionOwner",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xpath.internal.functions.Function2Args"
+	};
+	$loadClass(Function2Args$Arg1Owner, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Function2Args$Arg1Owner);
+	});
 	return class$;
 }
 

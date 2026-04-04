@@ -60,6 +60,7 @@ class $export Operators$OperatorType : public ::java::lang::Enum {
 public:
 	Operators$OperatorType();
 	static $Array<::com::sun::tools::javac::comp::Operators$OperatorType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, ::java::util::function::Function* asTypeFunc);
 	virtual ::com::sun::tools::javac::code::Type* asType(::com::sun::tools::javac::code::Symtab* syms);
 	static ::com::sun::tools::javac::code::Type* lambda$static$0(::com::sun::tools::javac::code::Symtab* syms);

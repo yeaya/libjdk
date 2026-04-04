@@ -1,5 +1,4 @@
 #include <javax/management/remote/rmi/RMIConnector$RMINotifClient.h>
-
 #include <com/sun/jmx/remote/internal/ClientCommunicatorAdmin.h>
 #include <com/sun/jmx/remote/internal/ClientNotifForwarder.h>
 #include <java/io/IOException.h>
@@ -30,7 +29,6 @@ using $IntegerArray = $Array<::java::lang::Integer>;
 using $MarshalledObjectArray = $Array<::java::rmi::MarshalledObject>;
 using $ObjectNameArray = $Array<::javax::management::ObjectName>;
 using $SubjectArray = $Array<::javax::security::auth::Subject>;
-using $ClientCommunicatorAdmin = ::com::sun::jmx::remote::internal::ClientCommunicatorAdmin;
 using $ClientNotifForwarder = ::com::sun::jmx::remote::internal::ClientNotifForwarder;
 using $IOException = ::java::io::IOException;
 using $NotSerializableException = ::java::io::NotSerializableException;
@@ -51,7 +49,6 @@ using $Notification = ::javax::management::Notification;
 using $NotificationFilterSupport = ::javax::management::NotificationFilterSupport;
 using $JMXConnectionNotification = ::javax::management::remote::JMXConnectionNotification;
 using $NotificationResult = ::javax::management::remote::NotificationResult;
-using $RMIConnection = ::javax::management::remote::rmi::RMIConnection;
 using $RMIConnector = ::javax::management::remote::rmi::RMIConnector;
 using $RMIConnector$Util = ::javax::management::remote::rmi::RMIConnector$Util;
 using $Subject = ::javax::security::auth::Subject;
@@ -61,53 +58,13 @@ namespace javax {
 		namespace remote {
 			namespace rmi {
 
-$FieldInfo _RMIConnector$RMINotifClient_FieldInfo_[] = {
-	{"this$0", "Ljavax/management/remote/rmi/RMIConnector;", nullptr, $FINAL | $SYNTHETIC, $field(RMIConnector$RMINotifClient, this$0)},
-	{}
-};
-
-$MethodInfo _RMIConnector$RMINotifClient_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/remote/rmi/RMIConnector;Ljava/lang/ClassLoader;Ljava/util/Map;)V", "(Ljava/lang/ClassLoader;Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC, $method(RMIConnector$RMINotifClient, init$, void, $RMIConnector*, $ClassLoader*, $Map*)},
-	{"addListenerForMBeanRemovedNotif", "()Ljava/lang/Integer;", nullptr, $PROTECTED, $virtualMethod(RMIConnector$RMINotifClient, addListenerForMBeanRemovedNotif, $Integer*), "java.io.IOException,javax.management.InstanceNotFoundException"},
-	{"fetchNotifs", "(JIJ)Ljavax/management/remote/NotificationResult;", nullptr, $PROTECTED, $virtualMethod(RMIConnector$RMINotifClient, fetchNotifs, $NotificationResult*, int64_t, int32_t, int64_t), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"lostNotifs", "(Ljava/lang/String;J)V", nullptr, $PROTECTED, $virtualMethod(RMIConnector$RMINotifClient, lostNotifs, void, $String*, int64_t)},
-	{"removeListenerForMBeanRemovedNotif", "(Ljava/lang/Integer;)V", nullptr, $PROTECTED, $virtualMethod(RMIConnector$RMINotifClient, removeListenerForMBeanRemovedNotif, void, $Integer*), "java.io.IOException,javax.management.InstanceNotFoundException,javax.management.ListenerNotFoundException"},
-	{"rethrowDeserializationException", "(Ljava/io/IOException;)V", nullptr, $PRIVATE, $method(RMIConnector$RMINotifClient, rethrowDeserializationException, void, $IOException*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _RMIConnector$RMINotifClient_InnerClassesInfo_[] = {
-	{"javax.management.remote.rmi.RMIConnector$RMINotifClient", "javax.management.remote.rmi.RMIConnector", "RMINotifClient", $PRIVATE},
-	{}
-};
-
-$ClassInfo _RMIConnector$RMINotifClient_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.remote.rmi.RMIConnector$RMINotifClient",
-	"com.sun.jmx.remote.internal.ClientNotifForwarder",
-	nullptr,
-	_RMIConnector$RMINotifClient_FieldInfo_,
-	_RMIConnector$RMINotifClient_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RMIConnector$RMINotifClient_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.management.remote.rmi.RMIConnector"
-};
-
-$Object* allocate$RMIConnector$RMINotifClient($Class* clazz) {
-	return $of($alloc(RMIConnector$RMINotifClient));
-}
-
 void RMIConnector$RMINotifClient::init$($RMIConnector* this$0, $ClassLoader* cl, $Map* env) {
 	$set(this, this$0, this$0);
 	$ClientNotifForwarder::init$(cl, env);
 }
 
 $NotificationResult* RMIConnector$RMINotifClient::fetchNotifs(int64_t clientSequenceNumber, int32_t maxNotifications, int64_t timeout) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool retried = false;
 	while (true) {
 		try {
@@ -154,7 +111,7 @@ void RMIConnector$RMINotifClient::rethrowDeserializationException($IOException* 
 }
 
 $Integer* RMIConnector$RMINotifClient::addListenerForMBeanRemovedNotif() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NotificationFilterSupport, clientFilter, $new($NotificationFilterSupport));
 	$init($MBeanServerNotification);
 	clientFilter->enableType($MBeanServerNotification::UNREGISTRATION_NOTIFICATION);
@@ -163,7 +120,7 @@ $Integer* RMIConnector$RMINotifClient::addListenerForMBeanRemovedNotif() {
 	$init($MBeanServerDelegate);
 	$var($ObjectNameArray, names, $new($ObjectNameArray, {$MBeanServerDelegate::DELEGATE_NAME}));
 	$var($MarshalledObjectArray, filters, $cast($MarshalledObjectArray, $RMIConnector$Util::cast($$new($MarshalledObjectArray, {sFilter}))));
-	$var($SubjectArray, subjects, $new($SubjectArray, {($Subject*)nullptr}));
+	$var($SubjectArray, subjects, $new($SubjectArray, {nullptr}));
 	try {
 		$assign(listenerIDs, $nc(this->this$0->connection)->addNotificationListeners(names, filters, subjects));
 	} catch ($IOException& ioe) {
@@ -174,7 +131,7 @@ $Integer* RMIConnector$RMINotifClient::addListenerForMBeanRemovedNotif() {
 }
 
 void RMIConnector$RMINotifClient::removeListenerForMBeanRemovedNotif($Integer* id) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($MBeanServerDelegate);
 		$nc(this->this$0->connection)->removeNotificationListeners($MBeanServerDelegate::DELEGATE_NAME, $$new($IntegerArray, {id}), nullptr);
@@ -186,13 +143,12 @@ void RMIConnector$RMINotifClient::removeListenerForMBeanRemovedNotif($Integer* i
 }
 
 void RMIConnector$RMINotifClient::lostNotifs($String* message, int64_t number) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JMXConnectionNotification);
 	$var($String, notifType, $JMXConnectionNotification::NOTIFS_LOST);
-	$var($String, var$0, notifType);
-	$var($Object, var$1, $of(this->this$0));
-	$var($String, var$2, this->this$0->connectionId);
-	$var($JMXConnectionNotification, n, $new($JMXConnectionNotification, var$0, var$1, var$2, this->this$0->clientNotifCounter++, message, $($Long::valueOf(number))));
+	$var($Object, var$0, this->this$0);
+	$var($String, var$1, this->this$0->connectionId);
+	$var($JMXConnectionNotification, n, $new($JMXConnectionNotification, notifType, var$0, var$1, this->this$0->clientNotifCounter++, message, $($Long::valueOf(number))));
 	this->this$0->sendNotification(n);
 }
 
@@ -200,7 +156,41 @@ RMIConnector$RMINotifClient::RMIConnector$RMINotifClient() {
 }
 
 $Class* RMIConnector$RMINotifClient::load$($String* name, bool initialize) {
-	$loadClass(RMIConnector$RMINotifClient, name, initialize, &_RMIConnector$RMINotifClient_ClassInfo_, allocate$RMIConnector$RMINotifClient);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/management/remote/rmi/RMIConnector;", nullptr, $FINAL | $SYNTHETIC, $field(RMIConnector$RMINotifClient, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/remote/rmi/RMIConnector;Ljava/lang/ClassLoader;Ljava/util/Map;)V", "(Ljava/lang/ClassLoader;Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC, $method(RMIConnector$RMINotifClient, init$, void, $RMIConnector*, $ClassLoader*, $Map*)},
+		{"addListenerForMBeanRemovedNotif", "()Ljava/lang/Integer;", nullptr, $PROTECTED, $virtualMethod(RMIConnector$RMINotifClient, addListenerForMBeanRemovedNotif, $Integer*), "java.io.IOException,javax.management.InstanceNotFoundException"},
+		{"fetchNotifs", "(JIJ)Ljavax/management/remote/NotificationResult;", nullptr, $PROTECTED, $virtualMethod(RMIConnector$RMINotifClient, fetchNotifs, $NotificationResult*, int64_t, int32_t, int64_t), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"lostNotifs", "(Ljava/lang/String;J)V", nullptr, $PROTECTED, $virtualMethod(RMIConnector$RMINotifClient, lostNotifs, void, $String*, int64_t)},
+		{"removeListenerForMBeanRemovedNotif", "(Ljava/lang/Integer;)V", nullptr, $PROTECTED, $virtualMethod(RMIConnector$RMINotifClient, removeListenerForMBeanRemovedNotif, void, $Integer*), "java.io.IOException,javax.management.InstanceNotFoundException,javax.management.ListenerNotFoundException"},
+		{"rethrowDeserializationException", "(Ljava/io/IOException;)V", nullptr, $PRIVATE, $method(RMIConnector$RMINotifClient, rethrowDeserializationException, void, $IOException*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.remote.rmi.RMIConnector$RMINotifClient", "javax.management.remote.rmi.RMIConnector", "RMINotifClient", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.remote.rmi.RMIConnector$RMINotifClient",
+		"com.sun.jmx.remote.internal.ClientNotifForwarder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.management.remote.rmi.RMIConnector"
+	};
+	$loadClass(RMIConnector$RMINotifClient, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RMIConnector$RMINotifClient);
+	});
 	return class$;
 }
 

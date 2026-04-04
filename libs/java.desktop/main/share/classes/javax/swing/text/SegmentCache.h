@@ -26,6 +26,7 @@ class SegmentCache : public ::java::lang::Object {
 	$class(SegmentCache, 0, ::java::lang::Object)
 public:
 	SegmentCache();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::swing::text::Segment* getSegment();
 	static ::javax::swing::text::SegmentCache* getSharedInstance();

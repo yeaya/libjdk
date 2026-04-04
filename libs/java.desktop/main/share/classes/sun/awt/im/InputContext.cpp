@@ -1,5 +1,4 @@
 #include <sun/awt/im/InputContext.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTKeyStroke.h>
 #include <java/awt/Component.h>
@@ -10,25 +9,20 @@
 #include <java/awt/Toolkit.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ComponentEvent.h>
-#include <java/awt/event/ComponentListener.h>
 #include <java/awt/event/FocusEvent.h>
 #include <java/awt/event/InputEvent.h>
 #include <java/awt/event/InputMethodEvent.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/WindowEvent.h>
-#include <java/awt/event/WindowListener.h>
 #include <java/awt/im/InputContext.h>
 #include <java/awt/im/InputMethodRequests.h>
 #include <java/awt/im/spi/InputMethod.h>
-#include <java/awt/im/spi/InputMethodContext.h>
 #include <java/awt/im/spi/InputMethodDescriptor.h>
 #include <java/lang/Character$Subset.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/LinkageError.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/text/MessageFormat.h>
 #include <java/util/Collection.h>
 #include <java/util/HashMap.h>
@@ -66,18 +60,14 @@ using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
 using $Window = ::java::awt::Window;
 using $ComponentEvent = ::java::awt::event::ComponentEvent;
-using $ComponentListener = ::java::awt::event::ComponentListener;
 using $FocusEvent = ::java::awt::event::FocusEvent;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $InputMethodEvent = ::java::awt::event::InputMethodEvent;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $WindowEvent = ::java::awt::event::WindowEvent;
-using $WindowListener = ::java::awt::event::WindowListener;
 using $InputContext = ::java::awt::im::InputContext;
 using $InputMethodRequests = ::java::awt::im::InputMethodRequests;
 using $InputMethod = ::java::awt::im::spi::InputMethod;
-using $1InputMethodContext = ::java::awt::im::spi::InputMethodContext;
-using $InputMethodDescriptor = ::java::awt::im::spi::InputMethodDescriptor;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -87,12 +77,9 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $LinkageError = ::java::lang::LinkageError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $Runnable = ::java::lang::Runnable;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $MessageFormat = ::java::text::MessageFormat;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $Locale = ::java::util::Locale;
@@ -112,109 +99,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace sun {
 	namespace awt {
 		namespace im {
-
-$FieldInfo _InputContext_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InputContext, log)},
-	{"inputMethodLocator", "Lsun/awt/im/InputMethodLocator;", nullptr, $PRIVATE, $field(InputContext, inputMethodLocator)},
-	{"inputMethod", "Ljava/awt/im/spi/InputMethod;", nullptr, $PRIVATE, $field(InputContext, inputMethod)},
-	{"inputMethodCreationFailed", "Z", nullptr, $PRIVATE, $field(InputContext, inputMethodCreationFailed)},
-	{"usedInputMethods", "Ljava/util/HashMap;", "Ljava/util/HashMap<Lsun/awt/im/InputMethodLocator;Ljava/awt/im/spi/InputMethod;>;", $PRIVATE, $field(InputContext, usedInputMethods)},
-	{"currentClientComponent", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(InputContext, currentClientComponent)},
-	{"awtFocussedComponent", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(InputContext, awtFocussedComponent)},
-	{"isInputMethodActive", "Z", nullptr, $PRIVATE, $field(InputContext, isInputMethodActive)},
-	{"characterSubsets", "[Ljava/lang/Character$Subset;", nullptr, $PRIVATE, $field(InputContext, characterSubsets)},
-	{"compositionAreaHidden", "Z", nullptr, $PRIVATE, $field(InputContext, compositionAreaHidden)},
-	{"inputMethodWindowContext", "Lsun/awt/im/InputContext;", nullptr, $PRIVATE | $STATIC, $staticField(InputContext, inputMethodWindowContext)},
-	{"previousInputMethod", "Ljava/awt/im/spi/InputMethod;", nullptr, $PRIVATE | $STATIC, $staticField(InputContext, previousInputMethod)},
-	{"clientWindowNotificationEnabled", "Z", nullptr, $PRIVATE, $field(InputContext, clientWindowNotificationEnabled)},
-	{"clientWindowListened", "Ljava/awt/Window;", nullptr, $PRIVATE, $field(InputContext, clientWindowListened)},
-	{"clientWindowLocation", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(InputContext, clientWindowLocation)},
-	{"perInputMethodState", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/awt/im/spi/InputMethod;Ljava/lang/Boolean;>;", $PRIVATE, $field(InputContext, perInputMethodState)},
-	{"inputMethodSelectionKey", "Ljava/awt/AWTKeyStroke;", nullptr, $PRIVATE | $STATIC, $staticField(InputContext, inputMethodSelectionKey)},
-	{"inputMethodSelectionKeyInitialized", "Z", nullptr, $PRIVATE | $STATIC, $staticField(InputContext, inputMethodSelectionKeyInitialized)},
-	{"inputMethodSelectionKeyPath", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InputContext, inputMethodSelectionKeyPath)},
-	{"inputMethodSelectionKeyCodeName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InputContext, inputMethodSelectionKeyCodeName)},
-	{"inputMethodSelectionKeyModifiersName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InputContext, inputMethodSelectionKeyModifiersName)},
-	{}
-};
-
-$MethodInfo _InputContext_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(InputContext, init$, void)},
-	{"activateInputMethod", "(Z)V", nullptr, $PRIVATE, $method(InputContext, activateInputMethod, void, bool)},
-	{"addClientWindowListeners", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(InputContext, addClientWindowListeners, void)},
-	{"addedClientWindowListeners", "()Z", nullptr, $PRIVATE, $method(InputContext, addedClientWindowListeners, bool)},
-	{"changeInputMethod", "(Lsun/awt/im/InputMethodLocator;)V", nullptr, $SYNCHRONIZED, $virtualMethod(InputContext, changeInputMethod, void, $InputMethodLocator*)},
-	{"checkInputMethodSelectionKey", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PRIVATE, $method(InputContext, checkInputMethodSelectionKey, bool, $KeyEvent*)},
-	{"componentHidden", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(InputContext, componentHidden, void, $ComponentEvent*)},
-	{"componentMoved", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(InputContext, componentMoved, void, $ComponentEvent*)},
-	{"componentResized", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(InputContext, componentResized, void, $ComponentEvent*)},
-	{"componentShown", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(InputContext, componentShown, void, $ComponentEvent*)},
-	{"deactivateInputMethod", "(Z)V", nullptr, $PRIVATE, $method(InputContext, deactivateInputMethod, void, bool)},
-	{"disableNativeIM", "()V", nullptr, $PUBLIC, $virtualMethod(InputContext, disableNativeIM, void)},
-	{"dispatchEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(InputContext, dispatchEvent, void, $AWTEvent*)},
-	{"dispose", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(InputContext, dispose, void)},
-	{"enableClientWindowNotification", "(Ljava/awt/im/spi/InputMethod;Z)V", nullptr, $SYNCHRONIZED, $virtualMethod(InputContext, enableClientWindowNotification, void, $InputMethod*, bool)},
-	{"endComposition", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(InputContext, endComposition, void)},
-	{"focusGained", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(InputContext, focusGained, void, $Component*)},
-	{"focusLost", "(Ljava/awt/Component;Z)V", nullptr, $PRIVATE, $method(InputContext, focusLost, void, $Component*, bool)},
-	{"getClientComponent", "()Ljava/awt/Component;", nullptr, 0, $virtualMethod(InputContext, getClientComponent, $Component*)},
-	{"getComponentWindow", "(Ljava/awt/Component;)Ljava/awt/Window;", nullptr, $STATIC, $staticMethod(InputContext, getComponentWindow, $Window*, $Component*)},
-	{"getInputMethod", "()Ljava/awt/im/spi/InputMethod;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(InputContext, getInputMethod, $InputMethod*)},
-	{"getInputMethodControlObject", "()Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(InputContext, getInputMethodControlObject, $Object*)},
-	{"getInputMethodInfo", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InputContext, getInputMethodInfo, $String*)},
-	{"getInputMethodInstance", "()Ljava/awt/im/spi/InputMethod;", nullptr, $PRIVATE, $method(InputContext, getInputMethodInstance, $InputMethod*)},
-	{"getInputMethodLocator", "()Lsun/awt/im/InputMethodLocator;", nullptr, 0, $virtualMethod(InputContext, getInputMethodLocator, $InputMethodLocator*)},
-	{"getInputMethodSelectionKeyStroke", "(Ljava/util/prefs/Preferences;)Ljava/awt/AWTKeyStroke;", nullptr, $PRIVATE, $method(InputContext, getInputMethodSelectionKeyStroke, $AWTKeyStroke*, $Preferences*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(InputContext, getLocale, $Locale*)},
-	{"initializeInputMethodSelectionKey", "()V", nullptr, $PRIVATE, $method(InputContext, initializeInputMethodSelectionKey, void)},
-	{"isCompositionEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(InputContext, isCompositionEnabled, bool)},
-	{"logCreationFailed", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(InputContext, logCreationFailed, void, $Throwable*)},
-	{"notifyClientWindowChange", "(Ljava/awt/Window;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(InputContext, notifyClientWindowChange, void, $Window*)},
-	{"reconvert", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(InputContext, reconvert, void)},
-	{"removeClientWindowListeners", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(InputContext, removeClientWindowListeners, void)},
-	{"removeNotify", "(Ljava/awt/Component;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(InputContext, removeNotify, void, $Component*)},
-	{"selectInputMethod", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(InputContext, selectInputMethod, bool, $Locale*)},
-	{"setCharacterSubsets", "([Ljava/lang/Character$Subset;)V", nullptr, $PUBLIC, $virtualMethod(InputContext, setCharacterSubsets, void, $Character$SubsetArray*)},
-	{"setCompositionEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(InputContext, setCompositionEnabled, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"windowActivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(InputContext, windowActivated, void, $WindowEvent*)},
-	{"windowClosed", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(InputContext, windowClosed, void, $WindowEvent*)},
-	{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(InputContext, windowClosing, void, $WindowEvent*)},
-	{"windowDeactivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(InputContext, windowDeactivated, void, $WindowEvent*)},
-	{"windowDeiconified", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(InputContext, windowDeiconified, void, $WindowEvent*)},
-	{"windowIconified", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(InputContext, windowIconified, void, $WindowEvent*)},
-	{"windowOpened", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(InputContext, windowOpened, void, $WindowEvent*)},
-	{}
-};
-
-$InnerClassInfo _InputContext_InnerClassesInfo_[] = {
-	{"sun.awt.im.InputContext$2", nullptr, nullptr, 0},
-	{"sun.awt.im.InputContext$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _InputContext_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.im.InputContext",
-	"java.awt.im.InputContext",
-	"java.awt.event.ComponentListener,java.awt.event.WindowListener",
-	_InputContext_FieldInfo_,
-	_InputContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InputContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.im.InputContext$2,sun.awt.im.InputContext$1"
-};
-
-$Object* allocate$InputContext($Class* clazz) {
-	return $of($alloc(InputContext));
-}
 
 int32_t InputContext::hashCode() {
 	 return this->$InputContext::hashCode();
@@ -246,7 +130,7 @@ $String* InputContext::inputMethodSelectionKeyCodeName = nullptr;
 $String* InputContext::inputMethodSelectionKeyModifiersName = nullptr;
 
 void InputContext::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$InputContext::init$();
 	$set(this, characterSubsets, nullptr);
 	this->compositionAreaHidden = false;
@@ -266,21 +150,21 @@ void InputContext::init$() {
 
 bool InputContext::selectInputMethod($Locale* locale) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (locale == nullptr) {
 			$throwNew($NullPointerException);
 		}
 		if (this->inputMethod != nullptr) {
-			if ($nc(this->inputMethod)->setLocale(locale)) {
+			if (this->inputMethod->setLocale(locale)) {
 				return true;
 			}
 		} else if (this->inputMethodLocator != nullptr) {
-			if ($nc(this->inputMethodLocator)->isLocaleAvailable(locale)) {
+			if (this->inputMethodLocator->isLocaleAvailable(locale)) {
 				$set(this, inputMethodLocator, $nc(this->inputMethodLocator)->deriveLocator(locale));
 				return true;
 			}
 		}
-		$var($InputMethodLocator, newLocator, $nc($($InputMethodManager::getInstance()))->findInputMethod(locale));
+		$var($InputMethodLocator, newLocator, $$nc($InputMethodManager::getInstance())->findInputMethod(locale));
 		if (newLocator != nullptr) {
 			changeInputMethod(newLocator);
 			return true;
@@ -288,7 +172,7 @@ bool InputContext::selectInputMethod($Locale* locale) {
 		if (this->inputMethod == nullptr && this->inputMethodLocator != nullptr) {
 			$set(this, inputMethod, getInputMethod());
 			if (this->inputMethod != nullptr) {
-				return $nc(this->inputMethod)->setLocale(locale);
+				return this->inputMethod->setLocale(locale);
 			}
 		}
 		return false;
@@ -297,9 +181,9 @@ bool InputContext::selectInputMethod($Locale* locale) {
 
 $Locale* InputContext::getLocale() {
 	if (this->inputMethod != nullptr) {
-		return $nc(this->inputMethod)->getLocale();
+		return this->inputMethod->getLocale();
 	} else if (this->inputMethodLocator != nullptr) {
-		return $nc(this->inputMethodLocator)->getLocale();
+		return this->inputMethodLocator->getLocale();
 	} else {
 		return nullptr;
 	}
@@ -309,11 +193,11 @@ void InputContext::setCharacterSubsets($Character$SubsetArray* subsets) {
 	if (subsets == nullptr) {
 		$set(this, characterSubsets, nullptr);
 	} else {
-		$set(this, characterSubsets, $new($Character$SubsetArray, $nc(subsets)->length));
-		$System::arraycopy(subsets, 0, this->characterSubsets, 0, $nc(this->characterSubsets)->length);
+		$set(this, characterSubsets, $new($Character$SubsetArray, subsets->length));
+		$System::arraycopy(subsets, 0, this->characterSubsets, 0, this->characterSubsets->length);
 	}
 	if (this->inputMethod != nullptr) {
-		$nc(this->inputMethod)->setCharacterSubsets(subsets);
+		this->inputMethod->setCharacterSubsets(subsets);
 	}
 }
 
@@ -328,12 +212,12 @@ void InputContext::reconvert() {
 }
 
 void InputContext::dispatchEvent($AWTEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($InputMethodEvent, event)) {
 		return;
 	}
 	if ($instanceOf($FocusEvent, event)) {
-		$var($Component, opposite, $nc(($cast($FocusEvent, event)))->getOppositeComponent());
+		$var($Component, opposite, $cast($FocusEvent, event)->getOppositeComponent());
 		bool var$0 = (opposite != nullptr) && ($instanceOf($InputMethodWindow, $(getComponentWindow(opposite))));
 		if (var$0 && ($equals(opposite->getInputContext(), this))) {
 			return;
@@ -343,34 +227,28 @@ void InputContext::dispatchEvent($AWTEvent* event) {
 	int32_t id = $nc(event)->getID();
 	switch (id) {
 	case $FocusEvent::FOCUS_GAINED:
-		{
-			focusGained($cast($Component, $(event->getSource())));
-			break;
-		}
+		focusGained($$cast($Component, event->getSource()));
+		break;
 	case $FocusEvent::FOCUS_LOST:
 		{
 			$var($Component, var$1, $cast($Component, event->getSource()));
-			focusLost(var$1, $nc(($cast($FocusEvent, event)))->isTemporary());
+			focusLost(var$1, $cast($FocusEvent, event)->isTemporary());
 			break;
 		}
 	case $KeyEvent::KEY_PRESSED:
-		{
-			if (checkInputMethodSelectionKey($cast($KeyEvent, event))) {
-				$nc($($InputMethodManager::getInstance()))->notifyChangeRequestByHotKey($cast($Component, $(event->getSource())));
-				break;
-			}
+		if (checkInputMethodSelectionKey($cast($KeyEvent, event))) {
+			$$nc($InputMethodManager::getInstance())->notifyChangeRequestByHotKey($$cast($Component, event->getSource()));
+			break;
 		}
 	default:
-		{
-			if ((inputMethod != nullptr) && ($instanceOf($InputEvent, event))) {
-				inputMethod->dispatchEvent(event);
-			}
+		if ((inputMethod != nullptr) && ($instanceOf($InputEvent, event))) {
+			inputMethod->dispatchEvent(event);
 		}
 	}
 }
 
 void InputContext::focusGained($Component* source) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized($nc(source)->getTreeLock()) {
 		$synchronized(this) {
 			if ("sun.awt.im.CompositionArea"_s->equals($($of(source)->getClass()->getName()))) {
@@ -392,7 +270,7 @@ void InputContext::focusGained($Component* source) {
 			}
 			$set(this, awtFocussedComponent, source);
 			if ($instanceOf($InputMethodAdapter, this->inputMethod)) {
-				$nc(($cast($InputMethodAdapter, this->inputMethod)))->setAWTFocussedComponent(source);
+				$cast($InputMethodAdapter, this->inputMethod)->setAWTFocussedComponent(source);
 			}
 			if (!this->isInputMethodActive) {
 				activateInputMethod(true);
@@ -407,7 +285,7 @@ void InputContext::focusGained($Component* source) {
 				}
 			}
 			if (this->compositionAreaHidden == true) {
-				$nc(($cast($InputMethodContext, this)))->setCompositionAreaVisible(true);
+				$cast($InputMethodContext, this)->setCompositionAreaVisible(true);
 				this->compositionAreaHidden = false;
 			}
 		}
@@ -415,27 +293,27 @@ void InputContext::focusGained($Component* source) {
 }
 
 void InputContext::activateInputMethod(bool updateCompositionArea) {
-	$useLocalCurrentObjectStackCache();
-	if (InputContext::inputMethodWindowContext != nullptr && InputContext::inputMethodWindowContext != this && $nc(InputContext::inputMethodWindowContext)->inputMethodLocator != nullptr && !$nc($nc(InputContext::inputMethodWindowContext)->inputMethodLocator)->sameInputMethod(this->inputMethodLocator) && $nc(InputContext::inputMethodWindowContext)->inputMethod != nullptr) {
-		$nc($nc(InputContext::inputMethodWindowContext)->inputMethod)->hideWindows();
+	$useLocalObjectStack();
+	if (InputContext::inputMethodWindowContext != nullptr && InputContext::inputMethodWindowContext != this && InputContext::inputMethodWindowContext->inputMethodLocator != nullptr && !InputContext::inputMethodWindowContext->inputMethodLocator->sameInputMethod(this->inputMethodLocator) && InputContext::inputMethodWindowContext->inputMethod != nullptr) {
+		InputContext::inputMethodWindowContext->inputMethod->hideWindows();
 	}
 	$assignStatic(InputContext::inputMethodWindowContext, this);
 	if (this->inputMethod != nullptr) {
 		if (InputContext::previousInputMethod != this->inputMethod && $instanceOf($InputMethodAdapter, InputContext::previousInputMethod)) {
-			$nc(($cast($InputMethodAdapter, InputContext::previousInputMethod)))->stopListening();
+			$cast($InputMethodAdapter, InputContext::previousInputMethod)->stopListening();
 		}
 		$assignStatic(InputContext::previousInputMethod, nullptr);
 		$init($PlatformLogger$Level);
 		if ($nc(InputContext::log)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(InputContext::log)->fine($$str({"Current client component "_s, this->currentClientComponent}));
+			InputContext::log->fine($$str({"Current client component "_s, this->currentClientComponent}));
 		}
 		if ($instanceOf($InputMethodAdapter, this->inputMethod)) {
-			$nc(($cast($InputMethodAdapter, this->inputMethod)))->setClientComponent(this->currentClientComponent);
+			$cast($InputMethodAdapter, this->inputMethod)->setClientComponent(this->currentClientComponent);
 		}
 		$nc(this->inputMethod)->activate();
 		this->isInputMethodActive = true;
 		if (this->perInputMethodState != nullptr) {
-			$var($Boolean, state, $cast($Boolean, $nc(this->perInputMethodState)->remove(this->inputMethod)));
+			$var($Boolean, state, $cast($Boolean, this->perInputMethodState->remove(this->inputMethod)));
 			if (state != nullptr) {
 				this->clientWindowNotificationEnabled = state->booleanValue();
 			}
@@ -453,8 +331,8 @@ void InputContext::activateInputMethod(bool updateCompositionArea) {
 			removeClientWindowListeners();
 		}
 	}
-	$nc($($InputMethodManager::getInstance()))->setInputContext(this);
-	$nc(($cast($InputMethodContext, this)))->grabCompositionArea(updateCompositionArea);
+	$$nc($InputMethodManager::getInstance())->setInputContext(this);
+	$cast($InputMethodContext, this)->grabCompositionArea(updateCompositionArea);
 }
 
 $Window* InputContext::getComponentWindow($Component* component$renamed) {
@@ -466,7 +344,7 @@ $Window* InputContext::getComponentWindow($Component* component$renamed) {
 		} else if ($instanceOf($Window, component)) {
 			return $cast($Window, component);
 		} else {
-			$assign(component, $nc(component)->getParent());
+			$assign(component, component->getParent());
 		}
 	}
 }
@@ -479,7 +357,7 @@ void InputContext::focusLost($Component* source, bool isTemporary) {
 			}
 			$set(this, awtFocussedComponent, nullptr);
 			if ($instanceOf($InputMethodAdapter, this->inputMethod)) {
-				$nc(($cast($InputMethodAdapter, this->inputMethod)))->setAWTFocussedComponent(nullptr);
+				$cast($InputMethodAdapter, this->inputMethod)->setAWTFocussedComponent(nullptr);
 			}
 			$var($InputMethodContext, inputContext, $cast($InputMethodContext, this));
 			if (inputContext->isCompositionAreaVisible()) {
@@ -500,17 +378,17 @@ bool InputContext::checkInputMethodSelectionKey($KeyEvent* event) {
 }
 
 void InputContext::deactivateInputMethod(bool isTemporary) {
-	$nc($($InputMethodManager::getInstance()))->setInputContext(nullptr);
+	$$nc($InputMethodManager::getInstance())->setInputContext(nullptr);
 	if (this->inputMethod != nullptr) {
 		this->isInputMethodActive = false;
-		$nc(this->inputMethod)->deactivate(isTemporary);
+		this->inputMethod->deactivate(isTemporary);
 		$assignStatic(InputContext::previousInputMethod, this->inputMethod);
 	}
 }
 
 void InputContext::changeInputMethod($InputMethodLocator* newLocator$renamed) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($InputMethodLocator, newLocator, newLocator$renamed);
 		if (this->inputMethodLocator == nullptr) {
 			$set(this, inputMethodLocator, newLocator);
@@ -521,7 +399,7 @@ void InputContext::changeInputMethod($InputMethodLocator* newLocator$renamed) {
 			$var($Locale, newLocale, $nc(newLocator)->getLocale());
 			if (newLocale != nullptr && $nc(this->inputMethodLocator)->getLocale() != newLocale) {
 				if (this->inputMethod != nullptr) {
-					$nc(this->inputMethod)->setLocale(newLocale);
+					this->inputMethod->setLocale(newLocale);
 				}
 				$set(this, inputMethodLocator, newLocator);
 			}
@@ -533,7 +411,7 @@ void InputContext::changeInputMethod($InputMethodLocator* newLocator$renamed) {
 		bool wasCompositionEnabled = false;
 		if (this->inputMethod != nullptr) {
 			try {
-				wasCompositionEnabled = $nc(this->inputMethod)->isCompositionEnabled();
+				wasCompositionEnabled = this->inputMethod->isCompositionEnabled();
 				wasCompositionEnabledSupported = true;
 			} catch ($UnsupportedOperationException& e) {
 			}
@@ -544,7 +422,7 @@ void InputContext::changeInputMethod($InputMethodLocator* newLocator$renamed) {
 				endComposition();
 				deactivateInputMethod(false);
 				if ($instanceOf($InputMethodAdapter, this->inputMethod)) {
-					$nc(($cast($InputMethodAdapter, this->inputMethod)))->setClientComponent(nullptr);
+					$cast($InputMethodAdapter, this->inputMethod)->setClientComponent(nullptr);
 				}
 				if (nullptr == $nc(this->currentClientComponent)->getInputMethodRequests()) {
 					wasCompositionEnabledSupported = false;
@@ -578,7 +456,7 @@ void InputContext::changeInputMethod($InputMethodLocator* newLocator$renamed) {
 		if (wasInputMethodActive) {
 			$set(this, inputMethod, getInputMethodInstance());
 			if ($instanceOf($InputMethodAdapter, this->inputMethod)) {
-				$nc(($cast($InputMethodAdapter, this->inputMethod)))->setAWTFocussedComponent(this->awtFocussedComponent);
+				$cast($InputMethodAdapter, this->inputMethod)->setAWTFocussedComponent(this->awtFocussedComponent);
 			}
 			activateInputMethod(true);
 		}
@@ -586,7 +464,7 @@ void InputContext::changeInputMethod($InputMethodLocator* newLocator$renamed) {
 			$set(this, inputMethod, getInputMethod());
 			if (this->inputMethod != nullptr) {
 				try {
-					$nc(this->inputMethod)->setCompositionEnabled(wasCompositionEnabled);
+					this->inputMethod->setCompositionEnabled(wasCompositionEnabled);
 				} catch ($UnsupportedOperationException& e) {
 				}
 			}
@@ -622,10 +500,10 @@ void InputContext::removeNotify($Component* component) {
 			}
 			$set(this, currentClientComponent, nullptr);
 			if ($instanceOf($InputMethodAdapter, this->inputMethod)) {
-				$nc(($cast($InputMethodAdapter, this->inputMethod)))->setClientComponent(nullptr);
+				$cast($InputMethodAdapter, this->inputMethod)->setClientComponent(nullptr);
 			}
 			if ($EventQueue::isDispatchThread()) {
-				$nc(($cast($InputMethodContext, this)))->releaseCompositionArea();
+				$cast($InputMethodContext, this)->releaseCompositionArea();
 			} else {
 				$EventQueue::invokeLater($$new($InputContext$1, this));
 			}
@@ -635,13 +513,13 @@ void InputContext::removeNotify($Component* component) {
 
 void InputContext::dispose() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->currentClientComponent != nullptr) {
 			$throwNew($IllegalStateException, "Can\'t dispose InputContext while it\'s active"_s);
 		}
 		if (this->inputMethod != nullptr) {
 			if (this == InputContext::inputMethodWindowContext) {
-				$nc(this->inputMethod)->hideWindows();
+				this->inputMethod->hideWindows();
 				$assignStatic(InputContext::inputMethodWindowContext, nullptr);
 			}
 			if (this->inputMethod == InputContext::previousInputMethod) {
@@ -660,11 +538,11 @@ void InputContext::dispose() {
 			$set(this, inputMethod, nullptr);
 		}
 		$set(this, inputMethodLocator, nullptr);
-		if (this->usedInputMethods != nullptr && !$nc(this->usedInputMethods)->isEmpty()) {
-			$var($Iterator, iterator, $nc($($nc(this->usedInputMethods)->values()))->iterator());
+		if (this->usedInputMethods != nullptr && !this->usedInputMethods->isEmpty()) {
+			$var($Iterator, iterator, $$nc(this->usedInputMethods->values())->iterator());
 			$set(this, usedInputMethods, nullptr);
 			while ($nc(iterator)->hasNext()) {
-				$nc(($cast($InputMethod, $(iterator->next()))))->dispose();
+				$$sure($InputMethod, iterator->next())->dispose();
 			}
 		}
 		this->clientWindowNotificationEnabled = false;
@@ -677,9 +555,9 @@ $Object* InputContext::getInputMethodControlObject() {
 	$synchronized(this) {
 		$var($InputMethod, inputMethod, getInputMethod());
 		if (inputMethod != nullptr) {
-			return $of(inputMethod->getControlObject());
+			return inputMethod->getControlObject();
 		} else {
-			return $of(nullptr);
+			return nullptr;
 		}
 	}
 }
@@ -701,30 +579,33 @@ bool InputContext::isCompositionEnabled() {
 }
 
 $String* InputContext::getInputMethodInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputMethod, inputMethod, getInputMethod());
 	if (inputMethod == nullptr) {
 		$throwNew($UnsupportedOperationException, "Null input method"_s);
 	}
 	$var($String, inputMethodInfo, nullptr);
 	if ($instanceOf($InputMethodAdapter, inputMethod)) {
-		$assign(inputMethodInfo, $nc(($cast($InputMethodAdapter, inputMethod)))->getNativeInputMethodInfo());
+		$assign(inputMethodInfo, $cast($InputMethodAdapter, inputMethod)->getNativeInputMethodInfo());
 	}
 	if (inputMethodInfo == nullptr && this->inputMethodLocator != nullptr) {
 		$var($Locale, var$0, getLocale());
-		$assign(inputMethodInfo, $nc($($nc(this->inputMethodLocator)->getDescriptor()))->getInputMethodDisplayName(var$0, $($SunToolkit::getStartupLocale())));
+		$assign(inputMethodInfo, $$nc(this->inputMethodLocator->getDescriptor())->getInputMethodDisplayName(var$0, $($SunToolkit::getStartupLocale())));
 	}
 	if (inputMethodInfo != nullptr && !inputMethodInfo->isEmpty()) {
 		return inputMethodInfo;
 	}
-	$var($String, var$1, $$str({$($nc($of(inputMethod))->toString()), "-"_s}));
-	return $concat(var$1, $($nc($(inputMethod->getLocale()))->toString()));
+	$var($StringBuilder, var$1, $new($StringBuilder));
+	var$1->append($($nc(inputMethod)->toString()));
+	var$1->append("-"_s);
+	var$1->append($($$nc(inputMethod->getLocale())->toString()));
+	return $str(var$1);
 }
 
 void InputContext::disableNativeIM() {
 	$var($InputMethod, inputMethod, getInputMethod());
 	if (inputMethod != nullptr && $instanceOf($InputMethodAdapter, inputMethod)) {
-		$nc(($cast($InputMethodAdapter, inputMethod)))->stopListening();
+		$cast($InputMethodAdapter, inputMethod)->stopListening();
 	}
 }
 
@@ -742,7 +623,7 @@ $InputMethod* InputContext::getInputMethod() {
 }
 
 $InputMethod* InputContext::getInputMethodInstance() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputMethodLocator, locator, this->inputMethodLocator);
 	if (locator == nullptr) {
 		this->inputMethodCreationFailed = true;
@@ -751,7 +632,7 @@ $InputMethod* InputContext::getInputMethodInstance() {
 	$var($Locale, locale, $nc(locator)->getLocale());
 	$var($InputMethod, inputMethodInstance, nullptr);
 	if (this->usedInputMethods != nullptr) {
-		$assign(inputMethodInstance, $cast($InputMethod, $nc(this->usedInputMethods)->remove($(locator->deriveLocator(nullptr)))));
+		$assign(inputMethodInstance, $cast($InputMethod, this->usedInputMethods->remove($(locator->deriveLocator(nullptr)))));
 		if (inputMethodInstance != nullptr) {
 			if (locale != nullptr) {
 				inputMethodInstance->setLocale(locale);
@@ -761,12 +642,12 @@ $InputMethod* InputContext::getInputMethodInstance() {
 			if (state != nullptr) {
 				enableClientWindowNotification(inputMethodInstance, state->booleanValue());
 			}
-			$nc(($cast($InputMethodContext, this)))->setInputMethodSupportsBelowTheSpot((!($instanceOf($InputMethodAdapter, inputMethodInstance))) || $nc(($cast($InputMethodAdapter, inputMethodInstance)))->supportsBelowTheSpot());
+			$cast($InputMethodContext, this)->setInputMethodSupportsBelowTheSpot((!($instanceOf($InputMethodAdapter, inputMethodInstance))) || $cast($InputMethodAdapter, inputMethodInstance)->supportsBelowTheSpot());
 			return inputMethodInstance;
 		}
 	}
 	try {
-		$assign(inputMethodInstance, $nc($(locator->getDescriptor()))->createInputMethod());
+		$assign(inputMethodInstance, $$nc(locator->getDescriptor())->createInputMethod());
 		if (locale != nullptr) {
 			$nc(inputMethodInstance)->setLocale(locale);
 		}
@@ -782,19 +663,19 @@ $InputMethod* InputContext::getInputMethodInstance() {
 		logCreationFailed(e);
 		this->inputMethodCreationFailed = true;
 	}
-	$nc(($cast($InputMethodContext, this)))->setInputMethodSupportsBelowTheSpot((!($instanceOf($InputMethodAdapter, inputMethodInstance))) || $nc(($cast($InputMethodAdapter, inputMethodInstance)))->supportsBelowTheSpot());
+	$cast($InputMethodContext, this)->setInputMethodSupportsBelowTheSpot((!($instanceOf($InputMethodAdapter, inputMethodInstance))) || $cast($InputMethodAdapter, inputMethodInstance)->supportsBelowTheSpot());
 	return inputMethodInstance;
 }
 
 void InputContext::logCreationFailed($Throwable* throwable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PlatformLogger, logger, $PlatformLogger::getLogger("sun.awt.im"_s));
 	$init($PlatformLogger$Level);
 	if ($nc(logger)->isLoggable($PlatformLogger$Level::CONFIG)) {
 		$var($String, errorTextFormat, $Toolkit::getProperty("AWT.InputMethodCreationFailed"_s, "Could not create {0}. Reason: {1}"_s));
 		$var($ObjectArray, args, $new($ObjectArray, {
-			$($of($nc($($nc(this->inputMethodLocator)->getDescriptor()))->getInputMethodDisplayName(nullptr, $($Locale::getDefault())))),
-			$($of($nc(throwable)->getLocalizedMessage()))
+			$($$nc($nc(this->inputMethodLocator)->getDescriptor())->getInputMethodDisplayName(nullptr, $($Locale::getDefault()))),
+			$($nc(throwable)->getLocalizedMessage())
 		}));
 		$var($MessageFormat, mf, $new($MessageFormat, errorTextFormat));
 		logger->config($(mf->format(args)));
@@ -803,7 +684,7 @@ void InputContext::logCreationFailed($Throwable* throwable) {
 
 $InputMethodLocator* InputContext::getInputMethodLocator() {
 	if (this->inputMethod != nullptr) {
-		return $nc(this->inputMethodLocator)->deriveLocator($($nc(this->inputMethod)->getLocale()));
+		return $nc(this->inputMethodLocator)->deriveLocator($(this->inputMethod->getLocale()));
 	}
 	return this->inputMethodLocator;
 }
@@ -811,7 +692,7 @@ $InputMethodLocator* InputContext::getInputMethodLocator() {
 void InputContext::endComposition() {
 	$synchronized(this) {
 		if (this->inputMethod != nullptr) {
-			$nc(this->inputMethod)->endComposition();
+			this->inputMethod->endComposition();
 		}
 	}
 }
@@ -849,13 +730,13 @@ void InputContext::notifyClientWindowChange($Window* window) {
 			return;
 		}
 		bool var$0 = !$nc(window)->isVisible();
-		if (var$0 || (($instanceOf($Frame, window)) && $nc(($cast($Frame, window)))->getState() == $Frame::ICONIFIED)) {
+		if (var$0 || (($instanceOf($Frame, window)) && $cast($Frame, window)->getState() == $Frame::ICONIFIED)) {
 			$set(this, clientWindowLocation, nullptr);
 			$nc(this->inputMethod)->notifyClientWindowChange(nullptr);
 			return;
 		}
-		$var($Rectangle, location, $nc(window)->getBounds());
-		if (this->clientWindowLocation == nullptr || !$nc(this->clientWindowLocation)->equals(location)) {
+		$var($Rectangle, location, window->getBounds());
+		if (this->clientWindowLocation == nullptr || !this->clientWindowLocation->equals(location)) {
 			$set(this, clientWindowLocation, location);
 			$nc(this->inputMethod)->notifyClientWindowChange(this->clientWindowLocation);
 		}
@@ -864,7 +745,7 @@ void InputContext::notifyClientWindowChange($Window* window) {
 
 void InputContext::addClientWindowListeners() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($Component, client, getClientComponent());
 		if (client == nullptr) {
 			return;
@@ -892,19 +773,19 @@ bool InputContext::addedClientWindowListeners() {
 }
 
 void InputContext::componentResized($ComponentEvent* e) {
-	notifyClientWindowChange($cast($Window, $($nc(e)->getComponent())));
+	notifyClientWindowChange($$cast($Window, $nc(e)->getComponent()));
 }
 
 void InputContext::componentMoved($ComponentEvent* e) {
-	notifyClientWindowChange($cast($Window, $($nc(e)->getComponent())));
+	notifyClientWindowChange($$cast($Window, $nc(e)->getComponent()));
 }
 
 void InputContext::componentShown($ComponentEvent* e) {
-	notifyClientWindowChange($cast($Window, $($nc(e)->getComponent())));
+	notifyClientWindowChange($$cast($Window, $nc(e)->getComponent()));
 }
 
 void InputContext::componentHidden($ComponentEvent* e) {
-	notifyClientWindowChange($cast($Window, $($nc(e)->getComponent())));
+	notifyClientWindowChange($$cast($Window, $nc(e)->getComponent()));
 }
 
 void InputContext::windowOpened($WindowEvent* e) {
@@ -932,7 +813,7 @@ void InputContext::windowDeactivated($WindowEvent* e) {
 
 void InputContext::initializeInputMethodSelectionKey() {
 	$beforeCallerSensitive();
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($InputContext$2, this)));
+	$AccessController::doPrivileged($$new($InputContext$2, this));
 }
 
 $AWTKeyStroke* InputContext::getInputMethodSelectionKeyStroke($Preferences* root) {
@@ -950,7 +831,7 @@ $AWTKeyStroke* InputContext::getInputMethodSelectionKeyStroke($Preferences* root
 	return nullptr;
 }
 
-void clinit$InputContext($Class* class$) {
+void InputContext::clinit$($Class* clazz) {
 	$assignStatic(InputContext::inputMethodSelectionKeyPath, "/java/awt/im/selectionKey"_s);
 	$assignStatic(InputContext::inputMethodSelectionKeyCodeName, "keyCode"_s);
 	$assignStatic(InputContext::inputMethodSelectionKeyModifiersName, "modifiers"_s);
@@ -963,7 +844,104 @@ InputContext::InputContext() {
 }
 
 $Class* InputContext::load$($String* name, bool initialize) {
-	$loadClass(InputContext, name, initialize, &_InputContext_ClassInfo_, clinit$InputContext, allocate$InputContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InputContext, log)},
+		{"inputMethodLocator", "Lsun/awt/im/InputMethodLocator;", nullptr, $PRIVATE, $field(InputContext, inputMethodLocator)},
+		{"inputMethod", "Ljava/awt/im/spi/InputMethod;", nullptr, $PRIVATE, $field(InputContext, inputMethod)},
+		{"inputMethodCreationFailed", "Z", nullptr, $PRIVATE, $field(InputContext, inputMethodCreationFailed)},
+		{"usedInputMethods", "Ljava/util/HashMap;", "Ljava/util/HashMap<Lsun/awt/im/InputMethodLocator;Ljava/awt/im/spi/InputMethod;>;", $PRIVATE, $field(InputContext, usedInputMethods)},
+		{"currentClientComponent", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(InputContext, currentClientComponent)},
+		{"awtFocussedComponent", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(InputContext, awtFocussedComponent)},
+		{"isInputMethodActive", "Z", nullptr, $PRIVATE, $field(InputContext, isInputMethodActive)},
+		{"characterSubsets", "[Ljava/lang/Character$Subset;", nullptr, $PRIVATE, $field(InputContext, characterSubsets)},
+		{"compositionAreaHidden", "Z", nullptr, $PRIVATE, $field(InputContext, compositionAreaHidden)},
+		{"inputMethodWindowContext", "Lsun/awt/im/InputContext;", nullptr, $PRIVATE | $STATIC, $staticField(InputContext, inputMethodWindowContext)},
+		{"previousInputMethod", "Ljava/awt/im/spi/InputMethod;", nullptr, $PRIVATE | $STATIC, $staticField(InputContext, previousInputMethod)},
+		{"clientWindowNotificationEnabled", "Z", nullptr, $PRIVATE, $field(InputContext, clientWindowNotificationEnabled)},
+		{"clientWindowListened", "Ljava/awt/Window;", nullptr, $PRIVATE, $field(InputContext, clientWindowListened)},
+		{"clientWindowLocation", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(InputContext, clientWindowLocation)},
+		{"perInputMethodState", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/awt/im/spi/InputMethod;Ljava/lang/Boolean;>;", $PRIVATE, $field(InputContext, perInputMethodState)},
+		{"inputMethodSelectionKey", "Ljava/awt/AWTKeyStroke;", nullptr, $PRIVATE | $STATIC, $staticField(InputContext, inputMethodSelectionKey)},
+		{"inputMethodSelectionKeyInitialized", "Z", nullptr, $PRIVATE | $STATIC, $staticField(InputContext, inputMethodSelectionKeyInitialized)},
+		{"inputMethodSelectionKeyPath", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InputContext, inputMethodSelectionKeyPath)},
+		{"inputMethodSelectionKeyCodeName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InputContext, inputMethodSelectionKeyCodeName)},
+		{"inputMethodSelectionKeyModifiersName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InputContext, inputMethodSelectionKeyModifiersName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(InputContext, init$, void)},
+		{"activateInputMethod", "(Z)V", nullptr, $PRIVATE, $method(InputContext, activateInputMethod, void, bool)},
+		{"addClientWindowListeners", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(InputContext, addClientWindowListeners, void)},
+		{"addedClientWindowListeners", "()Z", nullptr, $PRIVATE, $method(InputContext, addedClientWindowListeners, bool)},
+		{"changeInputMethod", "(Lsun/awt/im/InputMethodLocator;)V", nullptr, $SYNCHRONIZED, $virtualMethod(InputContext, changeInputMethod, void, $InputMethodLocator*)},
+		{"checkInputMethodSelectionKey", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PRIVATE, $method(InputContext, checkInputMethodSelectionKey, bool, $KeyEvent*)},
+		{"componentHidden", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(InputContext, componentHidden, void, $ComponentEvent*)},
+		{"componentMoved", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(InputContext, componentMoved, void, $ComponentEvent*)},
+		{"componentResized", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(InputContext, componentResized, void, $ComponentEvent*)},
+		{"componentShown", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(InputContext, componentShown, void, $ComponentEvent*)},
+		{"deactivateInputMethod", "(Z)V", nullptr, $PRIVATE, $method(InputContext, deactivateInputMethod, void, bool)},
+		{"disableNativeIM", "()V", nullptr, $PUBLIC, $virtualMethod(InputContext, disableNativeIM, void)},
+		{"dispatchEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(InputContext, dispatchEvent, void, $AWTEvent*)},
+		{"dispose", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(InputContext, dispose, void)},
+		{"enableClientWindowNotification", "(Ljava/awt/im/spi/InputMethod;Z)V", nullptr, $SYNCHRONIZED, $virtualMethod(InputContext, enableClientWindowNotification, void, $InputMethod*, bool)},
+		{"endComposition", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(InputContext, endComposition, void)},
+		{"focusGained", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(InputContext, focusGained, void, $Component*)},
+		{"focusLost", "(Ljava/awt/Component;Z)V", nullptr, $PRIVATE, $method(InputContext, focusLost, void, $Component*, bool)},
+		{"getClientComponent", "()Ljava/awt/Component;", nullptr, 0, $virtualMethod(InputContext, getClientComponent, $Component*)},
+		{"getComponentWindow", "(Ljava/awt/Component;)Ljava/awt/Window;", nullptr, $STATIC, $staticMethod(InputContext, getComponentWindow, $Window*, $Component*)},
+		{"getInputMethod", "()Ljava/awt/im/spi/InputMethod;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(InputContext, getInputMethod, $InputMethod*)},
+		{"getInputMethodControlObject", "()Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(InputContext, getInputMethodControlObject, $Object*)},
+		{"getInputMethodInfo", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InputContext, getInputMethodInfo, $String*)},
+		{"getInputMethodInstance", "()Ljava/awt/im/spi/InputMethod;", nullptr, $PRIVATE, $method(InputContext, getInputMethodInstance, $InputMethod*)},
+		{"getInputMethodLocator", "()Lsun/awt/im/InputMethodLocator;", nullptr, 0, $virtualMethod(InputContext, getInputMethodLocator, $InputMethodLocator*)},
+		{"getInputMethodSelectionKeyStroke", "(Ljava/util/prefs/Preferences;)Ljava/awt/AWTKeyStroke;", nullptr, $PRIVATE, $method(InputContext, getInputMethodSelectionKeyStroke, $AWTKeyStroke*, $Preferences*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(InputContext, getLocale, $Locale*)},
+		{"initializeInputMethodSelectionKey", "()V", nullptr, $PRIVATE, $method(InputContext, initializeInputMethodSelectionKey, void)},
+		{"isCompositionEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(InputContext, isCompositionEnabled, bool)},
+		{"logCreationFailed", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(InputContext, logCreationFailed, void, $Throwable*)},
+		{"notifyClientWindowChange", "(Ljava/awt/Window;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(InputContext, notifyClientWindowChange, void, $Window*)},
+		{"reconvert", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(InputContext, reconvert, void)},
+		{"removeClientWindowListeners", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(InputContext, removeClientWindowListeners, void)},
+		{"removeNotify", "(Ljava/awt/Component;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(InputContext, removeNotify, void, $Component*)},
+		{"selectInputMethod", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(InputContext, selectInputMethod, bool, $Locale*)},
+		{"setCharacterSubsets", "([Ljava/lang/Character$Subset;)V", nullptr, $PUBLIC, $virtualMethod(InputContext, setCharacterSubsets, void, $Character$SubsetArray*)},
+		{"setCompositionEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(InputContext, setCompositionEnabled, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"windowActivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(InputContext, windowActivated, void, $WindowEvent*)},
+		{"windowClosed", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(InputContext, windowClosed, void, $WindowEvent*)},
+		{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(InputContext, windowClosing, void, $WindowEvent*)},
+		{"windowDeactivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(InputContext, windowDeactivated, void, $WindowEvent*)},
+		{"windowDeiconified", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(InputContext, windowDeiconified, void, $WindowEvent*)},
+		{"windowIconified", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(InputContext, windowIconified, void, $WindowEvent*)},
+		{"windowOpened", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(InputContext, windowOpened, void, $WindowEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.im.InputContext$2", nullptr, nullptr, 0},
+		{"sun.awt.im.InputContext$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.im.InputContext",
+		"java.awt.im.InputContext",
+		"java.awt.event.ComponentListener,java.awt.event.WindowListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.im.InputContext$2,sun.awt.im.InputContext$1"
+	};
+	$loadClass(InputContext, name, initialize, &classInfo$$, InputContext::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(InputContext));
+	});
 	return class$;
 }
 

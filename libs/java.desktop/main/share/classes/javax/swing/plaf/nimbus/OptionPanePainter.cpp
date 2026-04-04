@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/OptionPanePainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/LinearGradientPaint.h>
@@ -12,7 +11,6 @@
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
 #include <java/awt/geom/RoundRectangle2D$Float.h>
-#include <java/awt/geom/RoundRectangle2D.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter.h>
@@ -35,7 +33,6 @@ using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RoundRectangle2D = ::java::awt::geom::RoundRectangle2D;
 using $RoundRectangle2D$Float = ::java::awt::geom::RoundRectangle2D$Float;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -50,116 +47,12 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _OptionPanePainter_FieldInfo_[] = {
-	{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(OptionPanePainter, BACKGROUND_ENABLED)},
-	{"ERRORICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(OptionPanePainter, ERRORICON_ENABLED)},
-	{"INFORMATIONICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(OptionPanePainter, INFORMATIONICON_ENABLED)},
-	{"QUESTIONICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(OptionPanePainter, QUESTIONICON_ENABLED)},
-	{"WARNINGICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(OptionPanePainter, WARNINGICON_ENABLED)},
-	{"state", "I", nullptr, $PRIVATE, $field(OptionPanePainter, state)},
-	{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(OptionPanePainter, ctx)},
-	{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(OptionPanePainter, path)},
-	{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(OptionPanePainter, rect)},
-	{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(OptionPanePainter, roundRect)},
-	{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(OptionPanePainter, ellipse)},
-	{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color1)},
-	{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color2)},
-	{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color3)},
-	{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color4)},
-	{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color5)},
-	{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color6)},
-	{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color7)},
-	{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color8)},
-	{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color9)},
-	{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color10)},
-	{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color11)},
-	{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color12)},
-	{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color13)},
-	{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color14)},
-	{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color15)},
-	{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color16)},
-	{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color17)},
-	{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color18)},
-	{"color19", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color19)},
-	{"color20", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color20)},
-	{"color21", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color21)},
-	{"color22", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color22)},
-	{"color23", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color23)},
-	{"color24", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color24)},
-	{"color25", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color25)},
-	{"color26", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color26)},
-	{"color27", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color27)},
-	{"color28", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color28)},
-	{"color29", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color29)},
-	{"color30", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color30)},
-	{"color31", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color31)},
-	{"color32", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color32)},
-	{"color33", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color33)},
-	{"color34", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color34)},
-	{"color35", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color35)},
-	{"color36", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color36)},
-	{"color37", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color37)},
-	{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(OptionPanePainter, componentColors)},
-	{}
-};
-
-$MethodInfo _OptionPanePainter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(OptionPanePainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
-	{"decodeEllipse1", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeEllipse1, $Ellipse2D*)},
-	{"decodeEllipse2", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeEllipse2, $Ellipse2D*)},
-	{"decodeEllipse3", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeEllipse3, $Ellipse2D*)},
-	{"decodeEllipse4", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeEllipse4, $Ellipse2D*)},
-	{"decodeEllipse5", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeEllipse5, $Ellipse2D*)},
-	{"decodeEllipse6", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeEllipse6, $Ellipse2D*)},
-	{"decodeEllipse7", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeEllipse7, $Ellipse2D*)},
-	{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeGradient1, $Paint*, $Shape*)},
-	{"decodeGradient10", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeGradient10, $Paint*, $Shape*)},
-	{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeGradient2, $Paint*, $Shape*)},
-	{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeGradient3, $Paint*, $Shape*)},
-	{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeGradient4, $Paint*, $Shape*)},
-	{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeGradient5, $Paint*, $Shape*)},
-	{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeGradient6, $Paint*, $Shape*)},
-	{"decodeGradient7", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeGradient7, $Paint*, $Shape*)},
-	{"decodeGradient8", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeGradient8, $Paint*, $Shape*)},
-	{"decodeGradient9", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeGradient9, $Paint*, $Shape*)},
-	{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodePath1, $Path2D*)},
-	{"decodePath2", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodePath2, $Path2D*)},
-	{"decodePath3", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodePath3, $Path2D*)},
-	{"decodePath4", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodePath4, $Path2D*)},
-	{"decodePath5", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodePath5, $Path2D*)},
-	{"decodePath6", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodePath6, $Path2D*)},
-	{"decodePath7", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodePath7, $Path2D*)},
-	{"decodePath8", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodePath8, $Path2D*)},
-	{"decodePath9", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodePath9, $Path2D*)},
-	{"decodeRect1", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeRect1, $Rectangle2D*)},
-	{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(OptionPanePainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(OptionPanePainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
-	{"painterrorIconEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(OptionPanePainter, painterrorIconEnabled, void, $Graphics2D*)},
-	{"paintinformationIconEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(OptionPanePainter, paintinformationIconEnabled, void, $Graphics2D*)},
-	{"paintquestionIconEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(OptionPanePainter, paintquestionIconEnabled, void, $Graphics2D*)},
-	{"paintwarningIconEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(OptionPanePainter, paintwarningIconEnabled, void, $Graphics2D*)},
-	{}
-};
-
-$ClassInfo _OptionPanePainter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.OptionPanePainter",
-	"javax.swing.plaf.nimbus.AbstractRegionPainter",
-	nullptr,
-	_OptionPanePainter_FieldInfo_,
-	_OptionPanePainter_MethodInfo_
-};
-
-$Object* allocate$OptionPanePainter($Class* clazz) {
-	return $of($alloc(OptionPanePainter));
-}
-
 void OptionPanePainter::init$($AbstractRegionPainter$PaintContext* ctx, int32_t state) {
 	$AbstractRegionPainter::init$();
 	$set(this, path, $new($Path2D$Float));
-	$set(this, rect, $new($Rectangle2D$Float, (float)0, (float)0, (float)0, (float)0));
-	$set(this, roundRect, $new($RoundRectangle2D$Float, (float)0, (float)0, (float)0, (float)0, (float)0, (float)0));
-	$set(this, ellipse, $new($Ellipse2D$Float, (float)0, (float)0, (float)0, (float)0));
+	$set(this, rect, $new($Rectangle2D$Float, 0, 0, 0, 0));
+	$set(this, roundRect, $new($RoundRectangle2D$Float, 0, 0, 0, 0, 0, 0));
+	$set(this, ellipse, $new($Ellipse2D$Float, 0, 0, 0, 0));
 	$set(this, color1, decodeColor("nimbusRed"_s, -0.014814814f, 0.18384242f, 0.015686274f, 0));
 	$set(this, color2, decodeColor("nimbusRed"_s, -0.014814814f, -0.403261f, 0.21960783f, 0));
 	$set(this, color3, decodeColor("nimbusRed"_s, -0.014814814f, -0.07154381f, 0.11372548f, 0));
@@ -205,25 +98,17 @@ void OptionPanePainter::doPaint($Graphics2D* g, $JComponent* c, int32_t width, i
 	$set(this, componentColors, extendedCacheKeys);
 	switch (this->state) {
 	case OptionPanePainter::ERRORICON_ENABLED:
-		{
-			painterrorIconEnabled(g);
-			break;
-		}
+		painterrorIconEnabled(g);
+		break;
 	case OptionPanePainter::INFORMATIONICON_ENABLED:
-		{
-			paintinformationIconEnabled(g);
-			break;
-		}
+		paintinformationIconEnabled(g);
+		break;
 	case OptionPanePainter::QUESTIONICON_ENABLED:
-		{
-			paintquestionIconEnabled(g);
-			break;
-		}
+		paintquestionIconEnabled(g);
+		break;
 	case OptionPanePainter::WARNINGICON_ENABLED:
-		{
-			paintwarningIconEnabled(g);
-			break;
-		}
+		paintwarningIconEnabled(g);
+		break;
 	}
 }
 
@@ -250,7 +135,7 @@ void OptionPanePainter::painterrorIconEnabled($Graphics2D* g) {
 }
 
 void OptionPanePainter::paintinformationIconEnabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, ellipse, decodeEllipse2());
 	$nc(g)->setPaint(this->color8);
 	g->fill(this->ellipse);
@@ -278,7 +163,7 @@ void OptionPanePainter::paintinformationIconEnabled($Graphics2D* g) {
 }
 
 void OptionPanePainter::paintquestionIconEnabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, ellipse, decodeEllipse3());
 	$nc(g)->setPaint($(decodeGradient5(this->ellipse)));
 	g->fill(this->ellipse);
@@ -297,7 +182,7 @@ void OptionPanePainter::paintquestionIconEnabled($Graphics2D* g) {
 }
 
 void OptionPanePainter::paintwarningIconEnabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, rect, decodeRect1());
 	$nc(g)->setPaint(this->color8);
 	g->fill(this->rect);
@@ -317,23 +202,23 @@ void OptionPanePainter::paintwarningIconEnabled($Graphics2D* g) {
 
 $Path2D* OptionPanePainter::decodePath1() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.0f);
+	double var$0 = decodeX(1.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.2708334f));
-	double var$1 = (double)decodeX(1.2708334f);
+	double var$1 = decodeX(1.2708334f);
 	$nc(this->path)->lineTo(var$1, decodeY(1.0f));
-	double var$2 = (double)decodeX(1.6875f);
+	double var$2 = decodeX(1.6875f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.0f));
-	double var$3 = (double)decodeX(1.9583333f);
+	double var$3 = decodeX(1.9583333f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.2708334f));
-	double var$4 = (double)decodeX(1.9583333f);
+	double var$4 = decodeX(1.9583333f);
 	$nc(this->path)->lineTo(var$4, decodeY(1.6875f));
-	double var$5 = (double)decodeX(1.6875f);
+	double var$5 = decodeX(1.6875f);
 	$nc(this->path)->lineTo(var$5, decodeY(1.9583333f));
-	double var$6 = (double)decodeX(1.2708334f);
+	double var$6 = decodeX(1.2708334f);
 	$nc(this->path)->lineTo(var$6, decodeY(1.9583333f));
-	double var$7 = (double)decodeX(1.0f);
+	double var$7 = decodeX(1.0f);
 	$nc(this->path)->lineTo(var$7, decodeY(1.6875f));
-	double var$8 = (double)decodeX(1.0f);
+	double var$8 = decodeX(1.0f);
 	$nc(this->path)->lineTo(var$8, decodeY(1.2708334f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -341,23 +226,23 @@ $Path2D* OptionPanePainter::decodePath1() {
 
 $Path2D* OptionPanePainter::decodePath2() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.0208334f);
+	double var$0 = decodeX(1.0208334f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.2916666f));
-	double var$1 = (double)decodeX(1.2916666f);
+	double var$1 = decodeX(1.2916666f);
 	$nc(this->path)->lineTo(var$1, decodeY(1.0208334f));
-	double var$2 = (double)decodeX(1.6666667f);
+	double var$2 = decodeX(1.6666667f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.0208334f));
-	double var$3 = (double)decodeX(1.9375f);
+	double var$3 = decodeX(1.9375f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.2916666f));
-	double var$4 = (double)decodeX(1.9375f);
+	double var$4 = decodeX(1.9375f);
 	$nc(this->path)->lineTo(var$4, decodeY(1.6666667f));
-	double var$5 = (double)decodeX(1.6666667f);
+	double var$5 = decodeX(1.6666667f);
 	$nc(this->path)->lineTo(var$5, decodeY(1.9375f));
-	double var$6 = (double)decodeX(1.2916666f);
+	double var$6 = decodeX(1.2916666f);
 	$nc(this->path)->lineTo(var$6, decodeY(1.9375f));
-	double var$7 = (double)decodeX(1.0208334f);
+	double var$7 = decodeX(1.0208334f);
 	$nc(this->path)->lineTo(var$7, decodeY(1.6666667f));
-	double var$8 = (double)decodeX(1.0208334f);
+	double var$8 = decodeX(1.0208334f);
 	$nc(this->path)->lineTo(var$8, decodeY(1.2916666f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -365,43 +250,43 @@ $Path2D* OptionPanePainter::decodePath2() {
 
 $Path2D* OptionPanePainter::decodePath3() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.4166666f);
+	double var$0 = decodeX(1.4166666f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.2291666f));
-	double var$1 = (double)decodeAnchorX(1.4166666f, 0.0f);
-	double var$2 = (double)decodeAnchorY(1.2291666f, -2.0f);
-	double var$3 = (double)decodeAnchorX(1.4791666f, -2.0f);
-	double var$4 = (double)decodeAnchorY(1.1666666f, 0.0f);
-	double var$5 = (double)decodeX(1.4791666f);
+	double var$1 = decodeAnchorX(1.4166666f, 0.0f);
+	double var$2 = decodeAnchorY(1.2291666f, -2.0f);
+	double var$3 = decodeAnchorX(1.4791666f, -2.0f);
+	double var$4 = decodeAnchorY(1.1666666f, 0.0f);
+	double var$5 = decodeX(1.4791666f);
 	$nc(this->path)->curveTo(var$1, var$2, var$3, var$4, var$5, decodeY(1.1666666f));
-	double var$6 = (double)decodeAnchorX(1.4791666f, 2.0f);
-	double var$7 = (double)decodeAnchorY(1.1666666f, 0.0f);
-	double var$8 = (double)decodeAnchorX(1.5416667f, 0.0f);
-	double var$9 = (double)decodeAnchorY(1.2291666f, -2.0f);
-	double var$10 = (double)decodeX(1.5416667f);
+	double var$6 = decodeAnchorX(1.4791666f, 2.0f);
+	double var$7 = decodeAnchorY(1.1666666f, 0.0f);
+	double var$8 = decodeAnchorX(1.5416667f, 0.0f);
+	double var$9 = decodeAnchorY(1.2291666f, -2.0f);
+	double var$10 = decodeX(1.5416667f);
 	$nc(this->path)->curveTo(var$6, var$7, var$8, var$9, var$10, decodeY(1.2291666f));
-	double var$11 = (double)decodeAnchorX(1.5416667f, 0.0f);
-	double var$12 = (double)decodeAnchorY(1.2291666f, 2.0f);
-	double var$13 = (double)decodeAnchorX(1.5f, 0.0f);
-	double var$14 = (double)decodeAnchorY(1.6041667f, 0.0f);
-	double var$15 = (double)decodeX(1.5f);
+	double var$11 = decodeAnchorX(1.5416667f, 0.0f);
+	double var$12 = decodeAnchorY(1.2291666f, 2.0f);
+	double var$13 = decodeAnchorX(1.5f, 0.0f);
+	double var$14 = decodeAnchorY(1.6041667f, 0.0f);
+	double var$15 = decodeX(1.5f);
 	$nc(this->path)->curveTo(var$11, var$12, var$13, var$14, var$15, decodeY(1.6041667f));
-	double var$16 = (double)decodeX(1.4583334f);
+	double var$16 = decodeX(1.4583334f);
 	$nc(this->path)->lineTo(var$16, decodeY(1.6041667f));
-	double var$17 = (double)decodeAnchorX(1.4583334f, 0.0f);
-	double var$18 = (double)decodeAnchorY(1.6041667f, 0.0f);
-	double var$19 = (double)decodeAnchorX(1.4166666f, 0.0f);
-	double var$20 = (double)decodeAnchorY(1.2291666f, 2.0f);
-	double var$21 = (double)decodeX(1.4166666f);
+	double var$17 = decodeAnchorX(1.4583334f, 0.0f);
+	double var$18 = decodeAnchorY(1.6041667f, 0.0f);
+	double var$19 = decodeAnchorX(1.4166666f, 0.0f);
+	double var$20 = decodeAnchorY(1.2291666f, 2.0f);
+	double var$21 = decodeX(1.4166666f);
 	$nc(this->path)->curveTo(var$17, var$18, var$19, var$20, var$21, decodeY(1.2291666f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Ellipse2D* OptionPanePainter::decodeEllipse1() {
-	double var$0 = (double)decodeX(1.4166666f);
-	double var$1 = (double)decodeY(1.6666667f);
+	double var$0 = decodeX(1.4166666f);
+	double var$1 = decodeY(1.6666667f);
 	float var$3 = decodeX(1.5416667f);
-	double var$2 = (double)(var$3 - decodeX(1.4166666f));
+	double var$2 = var$3 - decodeX(1.4166666f);
 	float var$4 = decodeY(1.7916667f);
 	$nc(this->ellipse)->setFrame(var$0, var$1, var$2, var$4 - decodeY(1.6666667f));
 	return this->ellipse;
@@ -409,87 +294,87 @@ $Ellipse2D* OptionPanePainter::decodeEllipse1() {
 
 $Path2D* OptionPanePainter::decodePath4() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.0208334f);
+	double var$0 = decodeX(1.0208334f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.2851562f));
-	double var$1 = (double)decodeX(1.2799479f);
+	double var$1 = decodeX(1.2799479f);
 	$nc(this->path)->lineTo(var$1, decodeY(1.0208334f));
-	double var$2 = (double)decodeX(1.6783855f);
+	double var$2 = decodeX(1.6783855f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.0208334f));
-	double var$3 = (double)decodeX(1.9375f);
+	double var$3 = decodeX(1.9375f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.28125f));
-	double var$4 = (double)decodeX(1.9375f);
+	double var$4 = decodeX(1.9375f);
 	$nc(this->path)->lineTo(var$4, decodeY(1.6666667f));
-	double var$5 = (double)decodeX(1.6666667f);
+	double var$5 = decodeX(1.6666667f);
 	$nc(this->path)->lineTo(var$5, decodeY(1.9375f));
-	double var$6 = (double)decodeX(1.2851562f);
+	double var$6 = decodeX(1.2851562f);
 	$nc(this->path)->lineTo(var$6, decodeY(1.936198f));
-	double var$7 = (double)decodeX(1.0221354f);
+	double var$7 = decodeX(1.0221354f);
 	$nc(this->path)->lineTo(var$7, decodeY(1.673177f));
-	double var$8 = (double)decodeX(1.0208334f);
+	double var$8 = decodeX(1.0208334f);
 	$nc(this->path)->lineTo(var$8, decodeY(1.5f));
-	double var$9 = (double)decodeX(1.0416666f);
+	double var$9 = decodeX(1.0416666f);
 	$nc(this->path)->lineTo(var$9, decodeY(1.5f));
-	double var$10 = (double)decodeX(1.0416666f);
+	double var$10 = decodeX(1.0416666f);
 	$nc(this->path)->lineTo(var$10, decodeY(1.6666667f));
-	double var$11 = (double)decodeX(1.2916666f);
+	double var$11 = decodeX(1.2916666f);
 	$nc(this->path)->lineTo(var$11, decodeY(1.9166667f));
-	double var$12 = (double)decodeX(1.6666667f);
+	double var$12 = decodeX(1.6666667f);
 	$nc(this->path)->lineTo(var$12, decodeY(1.9166667f));
-	double var$13 = (double)decodeX(1.9166667f);
+	double var$13 = decodeX(1.9166667f);
 	$nc(this->path)->lineTo(var$13, decodeY(1.6666667f));
-	double var$14 = (double)decodeX(1.9166667f);
+	double var$14 = decodeX(1.9166667f);
 	$nc(this->path)->lineTo(var$14, decodeY(1.2916666f));
-	double var$15 = (double)decodeX(1.6666667f);
+	double var$15 = decodeX(1.6666667f);
 	$nc(this->path)->lineTo(var$15, decodeY(1.0416666f));
-	double var$16 = (double)decodeX(1.2916666f);
+	double var$16 = decodeX(1.2916666f);
 	$nc(this->path)->lineTo(var$16, decodeY(1.0416666f));
-	double var$17 = (double)decodeX(1.0416666f);
+	double var$17 = decodeX(1.0416666f);
 	$nc(this->path)->lineTo(var$17, decodeY(1.2916666f));
-	double var$18 = (double)decodeX(1.0416666f);
+	double var$18 = decodeX(1.0416666f);
 	$nc(this->path)->lineTo(var$18, decodeY(1.5f));
-	double var$19 = (double)decodeX(1.0208334f);
+	double var$19 = decodeX(1.0208334f);
 	$nc(this->path)->lineTo(var$19, decodeY(1.5f));
-	double var$20 = (double)decodeX(1.0208334f);
+	double var$20 = decodeX(1.0208334f);
 	$nc(this->path)->lineTo(var$20, decodeY(1.2851562f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Ellipse2D* OptionPanePainter::decodeEllipse2() {
-	double var$0 = (double)decodeX(1.0f);
-	double var$1 = (double)decodeY(1.0f);
+	double var$0 = decodeX(1.0f);
+	double var$1 = decodeY(1.0f);
 	float var$3 = decodeX(1.0f);
-	double var$2 = (double)(var$3 - decodeX(1.0f));
+	double var$2 = var$3 - decodeX(1.0f);
 	float var$4 = decodeY(1.0f);
 	$nc(this->ellipse)->setFrame(var$0, var$1, var$2, var$4 - decodeY(1.0f));
 	return this->ellipse;
 }
 
 $Ellipse2D* OptionPanePainter::decodeEllipse3() {
-	double var$0 = (double)decodeX(1.0f);
-	double var$1 = (double)decodeY(1.0f);
+	double var$0 = decodeX(1.0f);
+	double var$1 = decodeY(1.0f);
 	float var$3 = decodeX(1.9583333f);
-	double var$2 = (double)(var$3 - decodeX(1.0f));
+	double var$2 = var$3 - decodeX(1.0f);
 	float var$4 = decodeY(1.9583333f);
 	$nc(this->ellipse)->setFrame(var$0, var$1, var$2, var$4 - decodeY(1.0f));
 	return this->ellipse;
 }
 
 $Ellipse2D* OptionPanePainter::decodeEllipse4() {
-	double var$0 = (double)decodeX(1.0208334f);
-	double var$1 = (double)decodeY(1.0208334f);
+	double var$0 = decodeX(1.0208334f);
+	double var$1 = decodeY(1.0208334f);
 	float var$3 = decodeX(1.9375f);
-	double var$2 = (double)(var$3 - decodeX(1.0208334f));
+	double var$2 = var$3 - decodeX(1.0208334f);
 	float var$4 = decodeY(1.9375f);
 	$nc(this->ellipse)->setFrame(var$0, var$1, var$2, var$4 - decodeY(1.0208334f));
 	return this->ellipse;
 }
 
 $Ellipse2D* OptionPanePainter::decodeEllipse5() {
-	double var$0 = (double)decodeX(1.0416666f);
-	double var$1 = (double)decodeY(1.0416666f);
+	double var$0 = decodeX(1.0416666f);
+	double var$1 = decodeY(1.0416666f);
 	float var$3 = decodeX(1.9166667f);
-	double var$2 = (double)(var$3 - decodeX(1.0416666f));
+	double var$2 = var$3 - decodeX(1.0416666f);
 	float var$4 = decodeY(1.9166667f);
 	$nc(this->ellipse)->setFrame(var$0, var$1, var$2, var$4 - decodeY(1.0416666f));
 	return this->ellipse;
@@ -497,79 +382,79 @@ $Ellipse2D* OptionPanePainter::decodeEllipse5() {
 
 $Path2D* OptionPanePainter::decodePath5() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.375f);
+	double var$0 = decodeX(1.375f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.375f));
-	double var$1 = (double)decodeAnchorX(1.375f, 2.5f);
-	double var$2 = (double)decodeAnchorY(1.375f, 0.0f);
-	double var$3 = (double)decodeAnchorX(1.5f, -1.1875f);
-	double var$4 = (double)decodeAnchorY(1.375f, 0.0f);
-	double var$5 = (double)decodeX(1.5f);
+	double var$1 = decodeAnchorX(1.375f, 2.5f);
+	double var$2 = decodeAnchorY(1.375f, 0.0f);
+	double var$3 = decodeAnchorX(1.5f, -1.1875f);
+	double var$4 = decodeAnchorY(1.375f, 0.0f);
+	double var$5 = decodeX(1.5f);
 	$nc(this->path)->curveTo(var$1, var$2, var$3, var$4, var$5, decodeY(1.375f));
-	double var$6 = (double)decodeAnchorX(1.5f, 1.1875f);
-	double var$7 = (double)decodeAnchorY(1.375f, 0.0f);
-	double var$8 = (double)decodeAnchorX(1.5416667f, 0.0f);
-	double var$9 = (double)decodeAnchorY(1.4375f, -2.0f);
-	double var$10 = (double)decodeX(1.5416667f);
+	double var$6 = decodeAnchorX(1.5f, 1.1875f);
+	double var$7 = decodeAnchorY(1.375f, 0.0f);
+	double var$8 = decodeAnchorX(1.5416667f, 0.0f);
+	double var$9 = decodeAnchorY(1.4375f, -2.0f);
+	double var$10 = decodeX(1.5416667f);
 	$nc(this->path)->curveTo(var$6, var$7, var$8, var$9, var$10, decodeY(1.4375f));
-	double var$11 = (double)decodeAnchorX(1.5416667f, 0.0f);
-	double var$12 = (double)decodeAnchorY(1.4375f, 2.0f);
-	double var$13 = (double)decodeAnchorX(1.5416667f, 0.0f);
-	double var$14 = (double)decodeAnchorY(1.6875f, 0.0f);
-	double var$15 = (double)decodeX(1.5416667f);
+	double var$11 = decodeAnchorX(1.5416667f, 0.0f);
+	double var$12 = decodeAnchorY(1.4375f, 2.0f);
+	double var$13 = decodeAnchorX(1.5416667f, 0.0f);
+	double var$14 = decodeAnchorY(1.6875f, 0.0f);
+	double var$15 = decodeX(1.5416667f);
 	$nc(this->path)->curveTo(var$11, var$12, var$13, var$14, var$15, decodeY(1.6875f));
-	double var$16 = (double)decodeAnchorX(1.5416667f, 0.0f);
-	double var$17 = (double)decodeAnchorY(1.6875f, 0.0f);
-	double var$18 = (double)decodeAnchorX(1.6028645f, -2.5625f);
-	double var$19 = (double)decodeAnchorY(1.6875f, 0.0625f);
-	double var$20 = (double)decodeX(1.6028645f);
+	double var$16 = decodeAnchorX(1.5416667f, 0.0f);
+	double var$17 = decodeAnchorY(1.6875f, 0.0f);
+	double var$18 = decodeAnchorX(1.6028645f, -2.5625f);
+	double var$19 = decodeAnchorY(1.6875f, 0.0625f);
+	double var$20 = decodeX(1.6028645f);
 	$nc(this->path)->curveTo(var$16, var$17, var$18, var$19, var$20, decodeY(1.6875f));
-	double var$21 = (double)decodeAnchorX(1.6028645f, 2.5625f);
-	double var$22 = (double)decodeAnchorY(1.6875f, -0.0625f);
-	double var$23 = (double)decodeAnchorX(1.6041667f, 2.5625f);
-	double var$24 = (double)decodeAnchorY(1.7708333f, 0.0f);
-	double var$25 = (double)decodeX(1.6041667f);
+	double var$21 = decodeAnchorX(1.6028645f, 2.5625f);
+	double var$22 = decodeAnchorY(1.6875f, -0.0625f);
+	double var$23 = decodeAnchorX(1.6041667f, 2.5625f);
+	double var$24 = decodeAnchorY(1.7708333f, 0.0f);
+	double var$25 = decodeX(1.6041667f);
 	$nc(this->path)->curveTo(var$21, var$22, var$23, var$24, var$25, decodeY(1.7708333f));
-	double var$26 = (double)decodeAnchorX(1.6041667f, -2.5625f);
-	double var$27 = (double)decodeAnchorY(1.7708333f, 0.0f);
-	double var$28 = (double)decodeAnchorX(1.3567709f, 2.5f);
-	double var$29 = (double)decodeAnchorY(1.7708333f, 0.0625f);
-	double var$30 = (double)decodeX(1.3567709f);
+	double var$26 = decodeAnchorX(1.6041667f, -2.5625f);
+	double var$27 = decodeAnchorY(1.7708333f, 0.0f);
+	double var$28 = decodeAnchorX(1.3567709f, 2.5f);
+	double var$29 = decodeAnchorY(1.7708333f, 0.0625f);
+	double var$30 = decodeX(1.3567709f);
 	$nc(this->path)->curveTo(var$26, var$27, var$28, var$29, var$30, decodeY(1.7708333f));
-	double var$31 = (double)decodeAnchorX(1.3567709f, -2.5f);
-	double var$32 = (double)decodeAnchorY(1.7708333f, -0.0625f);
-	double var$33 = (double)decodeAnchorX(1.3541666f, -2.4375f);
-	double var$34 = (double)decodeAnchorY(1.6875f, 0.0f);
-	double var$35 = (double)decodeX(1.3541666f);
+	double var$31 = decodeAnchorX(1.3567709f, -2.5f);
+	double var$32 = decodeAnchorY(1.7708333f, -0.0625f);
+	double var$33 = decodeAnchorX(1.3541666f, -2.4375f);
+	double var$34 = decodeAnchorY(1.6875f, 0.0f);
+	double var$35 = decodeX(1.3541666f);
 	$nc(this->path)->curveTo(var$31, var$32, var$33, var$34, var$35, decodeY(1.6875f));
-	double var$36 = (double)decodeAnchorX(1.3541666f, 2.4375f);
-	double var$37 = (double)decodeAnchorY(1.6875f, 0.0f);
-	double var$38 = (double)decodeAnchorX(1.4166666f, 0.0f);
-	double var$39 = (double)decodeAnchorY(1.6875f, 0.0f);
-	double var$40 = (double)decodeX(1.4166666f);
+	double var$36 = decodeAnchorX(1.3541666f, 2.4375f);
+	double var$37 = decodeAnchorY(1.6875f, 0.0f);
+	double var$38 = decodeAnchorX(1.4166666f, 0.0f);
+	double var$39 = decodeAnchorY(1.6875f, 0.0f);
+	double var$40 = decodeX(1.4166666f);
 	$nc(this->path)->curveTo(var$36, var$37, var$38, var$39, var$40, decodeY(1.6875f));
-	double var$41 = (double)decodeX(1.4166666f);
+	double var$41 = decodeX(1.4166666f);
 	$nc(this->path)->lineTo(var$41, decodeY(1.4583334f));
-	double var$42 = (double)decodeAnchorX(1.4166666f, 0.0f);
-	double var$43 = (double)decodeAnchorY(1.4583334f, 0.0f);
-	double var$44 = (double)decodeAnchorX(1.375f, 2.75f);
-	double var$45 = (double)decodeAnchorY(1.4583334f, 0.0f);
-	double var$46 = (double)decodeX(1.375f);
+	double var$42 = decodeAnchorX(1.4166666f, 0.0f);
+	double var$43 = decodeAnchorY(1.4583334f, 0.0f);
+	double var$44 = decodeAnchorX(1.375f, 2.75f);
+	double var$45 = decodeAnchorY(1.4583334f, 0.0f);
+	double var$46 = decodeX(1.375f);
 	$nc(this->path)->curveTo(var$42, var$43, var$44, var$45, var$46, decodeY(1.4583334f));
-	double var$47 = (double)decodeAnchorX(1.375f, -2.75f);
-	double var$48 = (double)decodeAnchorY(1.4583334f, 0.0f);
-	double var$49 = (double)decodeAnchorX(1.375f, -2.5f);
-	double var$50 = (double)decodeAnchorY(1.375f, 0.0f);
-	double var$51 = (double)decodeX(1.375f);
+	double var$47 = decodeAnchorX(1.375f, -2.75f);
+	double var$48 = decodeAnchorY(1.4583334f, 0.0f);
+	double var$49 = decodeAnchorX(1.375f, -2.5f);
+	double var$50 = decodeAnchorY(1.375f, 0.0f);
+	double var$51 = decodeX(1.375f);
 	$nc(this->path)->curveTo(var$47, var$48, var$49, var$50, var$51, decodeY(1.375f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Ellipse2D* OptionPanePainter::decodeEllipse6() {
-	double var$0 = (double)decodeX(1.4166666f);
-	double var$1 = (double)decodeY(1.1666666f);
+	double var$0 = decodeX(1.4166666f);
+	double var$1 = decodeY(1.1666666f);
 	float var$3 = decodeX(1.5416667f);
-	double var$2 = (double)(var$3 - decodeX(1.4166666f));
+	double var$2 = var$3 - decodeX(1.4166666f);
 	float var$4 = decodeY(1.2916666f);
 	$nc(this->ellipse)->setFrame(var$0, var$1, var$2, var$4 - decodeY(1.1666666f));
 	return this->ellipse;
@@ -577,89 +462,89 @@ $Ellipse2D* OptionPanePainter::decodeEllipse6() {
 
 $Path2D* OptionPanePainter::decodePath6() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.3125f);
+	double var$0 = decodeX(1.3125f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.3723959f));
-	double var$1 = (double)decodeAnchorX(1.3125f, 1.5f);
-	double var$2 = (double)decodeAnchorY(1.3723959f, 1.375f);
-	double var$3 = (double)decodeAnchorX(1.3997396f, -0.75f);
-	double var$4 = (double)decodeAnchorY(1.3580729f, 1.1875f);
-	double var$5 = (double)decodeX(1.3997396f);
+	double var$1 = decodeAnchorX(1.3125f, 1.5f);
+	double var$2 = decodeAnchorY(1.3723959f, 1.375f);
+	double var$3 = decodeAnchorX(1.3997396f, -0.75f);
+	double var$4 = decodeAnchorY(1.3580729f, 1.1875f);
+	double var$5 = decodeX(1.3997396f);
 	$nc(this->path)->curveTo(var$1, var$2, var$3, var$4, var$5, decodeY(1.3580729f));
-	double var$6 = (double)decodeAnchorX(1.3997396f, 0.75f);
-	double var$7 = (double)decodeAnchorY(1.3580729f, -1.1875f);
-	double var$8 = (double)decodeAnchorX(1.46875f, -1.8125f);
-	double var$9 = (double)decodeAnchorY(1.2903646f, 0.0f);
-	double var$10 = (double)decodeX(1.46875f);
+	double var$6 = decodeAnchorX(1.3997396f, 0.75f);
+	double var$7 = decodeAnchorY(1.3580729f, -1.1875f);
+	double var$8 = decodeAnchorX(1.46875f, -1.8125f);
+	double var$9 = decodeAnchorY(1.2903646f, 0.0f);
+	double var$10 = decodeX(1.46875f);
 	$nc(this->path)->curveTo(var$6, var$7, var$8, var$9, var$10, decodeY(1.2903646f));
-	double var$11 = (double)decodeAnchorX(1.46875f, 1.8125f);
-	double var$12 = (double)decodeAnchorY(1.2903646f, 0.0f);
-	double var$13 = (double)decodeAnchorX(1.5351562f, 0.0f);
-	double var$14 = (double)decodeAnchorY(1.3502604f, -1.5625f);
-	double var$15 = (double)decodeX(1.5351562f);
+	double var$11 = decodeAnchorX(1.46875f, 1.8125f);
+	double var$12 = decodeAnchorY(1.2903646f, 0.0f);
+	double var$13 = decodeAnchorX(1.5351562f, 0.0f);
+	double var$14 = decodeAnchorY(1.3502604f, -1.5625f);
+	double var$15 = decodeX(1.5351562f);
 	$nc(this->path)->curveTo(var$11, var$12, var$13, var$14, var$15, decodeY(1.3502604f));
-	double var$16 = (double)decodeAnchorX(1.5351562f, 0.0f);
-	double var$17 = (double)decodeAnchorY(1.3502604f, 1.5625f);
-	double var$18 = (double)decodeAnchorX(1.4700521f, 1.25f);
-	double var$19 = (double)decodeAnchorY(1.4283854f, -1.1875f);
-	double var$20 = (double)decodeX(1.4700521f);
+	double var$16 = decodeAnchorX(1.5351562f, 0.0f);
+	double var$17 = decodeAnchorY(1.3502604f, 1.5625f);
+	double var$18 = decodeAnchorX(1.4700521f, 1.25f);
+	double var$19 = decodeAnchorY(1.4283854f, -1.1875f);
+	double var$20 = decodeX(1.4700521f);
 	$nc(this->path)->curveTo(var$16, var$17, var$18, var$19, var$20, decodeY(1.4283854f));
-	double var$21 = (double)decodeAnchorX(1.4700521f, -1.25f);
-	double var$22 = (double)decodeAnchorY(1.4283854f, 1.1875f);
-	double var$23 = (double)decodeAnchorX(1.4179688f, -0.0625f);
-	double var$24 = (double)decodeAnchorY(1.5442708f, -1.5f);
-	double var$25 = (double)decodeX(1.4179688f);
+	double var$21 = decodeAnchorX(1.4700521f, -1.25f);
+	double var$22 = decodeAnchorY(1.4283854f, 1.1875f);
+	double var$23 = decodeAnchorX(1.4179688f, -0.0625f);
+	double var$24 = decodeAnchorY(1.5442708f, -1.5f);
+	double var$25 = decodeX(1.4179688f);
 	$nc(this->path)->curveTo(var$21, var$22, var$23, var$24, var$25, decodeY(1.5442708f));
-	double var$26 = (double)decodeAnchorX(1.4179688f, 0.0625f);
-	double var$27 = (double)decodeAnchorY(1.5442708f, 1.5f);
-	double var$28 = (double)decodeAnchorX(1.4765625f, -1.3125f);
-	double var$29 = (double)decodeAnchorY(1.6028645f, 0.0f);
-	double var$30 = (double)decodeX(1.4765625f);
+	double var$26 = decodeAnchorX(1.4179688f, 0.0625f);
+	double var$27 = decodeAnchorY(1.5442708f, 1.5f);
+	double var$28 = decodeAnchorX(1.4765625f, -1.3125f);
+	double var$29 = decodeAnchorY(1.6028645f, 0.0f);
+	double var$30 = decodeX(1.4765625f);
 	$nc(this->path)->curveTo(var$26, var$27, var$28, var$29, var$30, decodeY(1.6028645f));
-	double var$31 = (double)decodeAnchorX(1.4765625f, 1.3125f);
-	double var$32 = (double)decodeAnchorY(1.6028645f, 0.0f);
-	double var$33 = (double)decodeAnchorX(1.5403645f, 0.0f);
-	double var$34 = (double)decodeAnchorY(1.546875f, 1.625f);
-	double var$35 = (double)decodeX(1.5403645f);
+	double var$31 = decodeAnchorX(1.4765625f, 1.3125f);
+	double var$32 = decodeAnchorY(1.6028645f, 0.0f);
+	double var$33 = decodeAnchorX(1.5403645f, 0.0f);
+	double var$34 = decodeAnchorY(1.546875f, 1.625f);
+	double var$35 = decodeX(1.5403645f);
 	$nc(this->path)->curveTo(var$31, var$32, var$33, var$34, var$35, decodeY(1.546875f));
-	double var$36 = (double)decodeAnchorX(1.5403645f, 0.0f);
-	double var$37 = (double)decodeAnchorY(1.546875f, -1.625f);
-	double var$38 = (double)decodeAnchorX(1.6132812f, -1.1875f);
-	double var$39 = (double)decodeAnchorY(1.4648438f, 1.25f);
-	double var$40 = (double)decodeX(1.6132812f);
+	double var$36 = decodeAnchorX(1.5403645f, 0.0f);
+	double var$37 = decodeAnchorY(1.546875f, -1.625f);
+	double var$38 = decodeAnchorX(1.6132812f, -1.1875f);
+	double var$39 = decodeAnchorY(1.4648438f, 1.25f);
+	double var$40 = decodeX(1.6132812f);
 	$nc(this->path)->curveTo(var$36, var$37, var$38, var$39, var$40, decodeY(1.4648438f));
-	double var$41 = (double)decodeAnchorX(1.6132812f, 1.1875f);
-	double var$42 = (double)decodeAnchorY(1.4648438f, -1.25f);
-	double var$43 = (double)decodeAnchorX(1.6666667f, 0.0625f);
-	double var$44 = (double)decodeAnchorY(1.3463541f, 3.3125f);
-	double var$45 = (double)decodeX(1.6666667f);
+	double var$41 = decodeAnchorX(1.6132812f, 1.1875f);
+	double var$42 = decodeAnchorY(1.4648438f, -1.25f);
+	double var$43 = decodeAnchorX(1.6666667f, 0.0625f);
+	double var$44 = decodeAnchorY(1.3463541f, 3.3125f);
+	double var$45 = decodeX(1.6666667f);
 	$nc(this->path)->curveTo(var$41, var$42, var$43, var$44, var$45, decodeY(1.3463541f));
-	double var$46 = (double)decodeAnchorX(1.6666667f, -0.0625f);
-	double var$47 = (double)decodeAnchorY(1.3463541f, -3.3125f);
-	double var$48 = (double)decodeAnchorX(1.4830729f, 6.125f);
-	double var$49 = (double)decodeAnchorY(1.1679688f, -0.0625f);
-	double var$50 = (double)decodeX(1.4830729f);
+	double var$46 = decodeAnchorX(1.6666667f, -0.0625f);
+	double var$47 = decodeAnchorY(1.3463541f, -3.3125f);
+	double var$48 = decodeAnchorX(1.4830729f, 6.125f);
+	double var$49 = decodeAnchorY(1.1679688f, -0.0625f);
+	double var$50 = decodeX(1.4830729f);
 	$nc(this->path)->curveTo(var$46, var$47, var$48, var$49, var$50, decodeY(1.1679688f));
-	double var$51 = (double)decodeAnchorX(1.4830729f, -6.125f);
-	double var$52 = (double)decodeAnchorY(1.1679688f, 0.0625f);
-	double var$53 = (double)decodeAnchorX(1.3046875f, 0.4375f);
-	double var$54 = (double)decodeAnchorY(1.2890625f, -1.25f);
-	double var$55 = (double)decodeX(1.3046875f);
+	double var$51 = decodeAnchorX(1.4830729f, -6.125f);
+	double var$52 = decodeAnchorY(1.1679688f, 0.0625f);
+	double var$53 = decodeAnchorX(1.3046875f, 0.4375f);
+	double var$54 = decodeAnchorY(1.2890625f, -1.25f);
+	double var$55 = decodeX(1.3046875f);
 	$nc(this->path)->curveTo(var$51, var$52, var$53, var$54, var$55, decodeY(1.2890625f));
-	double var$56 = (double)decodeAnchorX(1.3046875f, -0.4375f);
-	double var$57 = (double)decodeAnchorY(1.2890625f, 1.25f);
-	double var$58 = (double)decodeAnchorX(1.3125f, -1.5f);
-	double var$59 = (double)decodeAnchorY(1.3723959f, -1.375f);
-	double var$60 = (double)decodeX(1.3125f);
+	double var$56 = decodeAnchorX(1.3046875f, -0.4375f);
+	double var$57 = decodeAnchorY(1.2890625f, 1.25f);
+	double var$58 = decodeAnchorX(1.3125f, -1.5f);
+	double var$59 = decodeAnchorY(1.3723959f, -1.375f);
+	double var$60 = decodeX(1.3125f);
 	$nc(this->path)->curveTo(var$56, var$57, var$58, var$59, var$60, decodeY(1.3723959f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Rectangle2D* OptionPanePainter::decodeRect1() {
-	double var$0 = (double)decodeX(1.0f);
-	double var$1 = (double)decodeY(1.0f);
+	double var$0 = decodeX(1.0f);
+	double var$1 = decodeY(1.0f);
 	float var$3 = decodeX(1.0f);
-	double var$2 = (double)(var$3 - decodeX(1.0f));
+	double var$2 = var$3 - decodeX(1.0f);
 	float var$4 = decodeY(1.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.0f));
 	return this->rect;
@@ -667,49 +552,49 @@ $Rectangle2D* OptionPanePainter::decodeRect1() {
 
 $Path2D* OptionPanePainter::decodePath7() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.5f);
+	double var$0 = decodeX(1.5f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.0208334f));
-	double var$1 = (double)decodeAnchorX(1.5f, 2.0f);
-	double var$2 = (double)decodeAnchorY(1.0208334f, 0.0f);
-	double var$3 = (double)decodeAnchorX(1.5664062f, 0.0f);
-	double var$4 = (double)decodeAnchorY(1.0820312f, 0.0f);
-	double var$5 = (double)decodeX(1.5664062f);
+	double var$1 = decodeAnchorX(1.5f, 2.0f);
+	double var$2 = decodeAnchorY(1.0208334f, 0.0f);
+	double var$3 = decodeAnchorX(1.5664062f, 0.0f);
+	double var$4 = decodeAnchorY(1.0820312f, 0.0f);
+	double var$5 = decodeX(1.5664062f);
 	$nc(this->path)->curveTo(var$1, var$2, var$3, var$4, var$5, decodeY(1.0820312f));
-	double var$6 = (double)decodeX(1.9427083f);
+	double var$6 = decodeX(1.9427083f);
 	$nc(this->path)->lineTo(var$6, decodeY(1.779948f));
-	double var$7 = (double)decodeAnchorX(1.9427083f, 0.0f);
-	double var$8 = (double)decodeAnchorY(1.779948f, 0.0f);
-	double var$9 = (double)decodeAnchorX(1.9752605f, 0.0f);
-	double var$10 = (double)decodeAnchorY(1.8802083f, -2.375f);
-	double var$11 = (double)decodeX(1.9752605f);
+	double var$7 = decodeAnchorX(1.9427083f, 0.0f);
+	double var$8 = decodeAnchorY(1.779948f, 0.0f);
+	double var$9 = decodeAnchorX(1.9752605f, 0.0f);
+	double var$10 = decodeAnchorY(1.8802083f, -2.375f);
+	double var$11 = decodeX(1.9752605f);
 	$nc(this->path)->curveTo(var$7, var$8, var$9, var$10, var$11, decodeY(1.8802083f));
-	double var$12 = (double)decodeAnchorX(1.9752605f, 0.0f);
-	double var$13 = (double)decodeAnchorY(1.8802083f, 2.375f);
-	double var$14 = (double)decodeAnchorX(1.9166667f, 0.0f);
-	double var$15 = (double)decodeAnchorY(1.9375f, 0.0f);
-	double var$16 = (double)decodeX(1.9166667f);
+	double var$12 = decodeAnchorX(1.9752605f, 0.0f);
+	double var$13 = decodeAnchorY(1.8802083f, 2.375f);
+	double var$14 = decodeAnchorX(1.9166667f, 0.0f);
+	double var$15 = decodeAnchorY(1.9375f, 0.0f);
+	double var$16 = decodeX(1.9166667f);
 	$nc(this->path)->curveTo(var$12, var$13, var$14, var$15, var$16, decodeY(1.9375f));
-	double var$17 = (double)decodeX(1.0833334f);
+	double var$17 = decodeX(1.0833334f);
 	$nc(this->path)->lineTo(var$17, decodeY(1.9375f));
-	double var$18 = (double)decodeAnchorX(1.0833334f, 0.0f);
-	double var$19 = (double)decodeAnchorY(1.9375f, 0.0f);
-	double var$20 = (double)decodeAnchorX(1.0247396f, 0.125f);
-	double var$21 = (double)decodeAnchorY(1.8815105f, 2.25f);
-	double var$22 = (double)decodeX(1.0247396f);
+	double var$18 = decodeAnchorX(1.0833334f, 0.0f);
+	double var$19 = decodeAnchorY(1.9375f, 0.0f);
+	double var$20 = decodeAnchorX(1.0247396f, 0.125f);
+	double var$21 = decodeAnchorY(1.8815105f, 2.25f);
+	double var$22 = decodeX(1.0247396f);
 	$nc(this->path)->curveTo(var$18, var$19, var$20, var$21, var$22, decodeY(1.8815105f));
-	double var$23 = (double)decodeAnchorX(1.0247396f, -0.125f);
-	double var$24 = (double)decodeAnchorY(1.8815105f, -2.25f);
-	double var$25 = (double)decodeAnchorX(1.0598959f, 0.0f);
-	double var$26 = (double)decodeAnchorY(1.78125f, 0.0f);
-	double var$27 = (double)decodeX(1.0598959f);
+	double var$23 = decodeAnchorX(1.0247396f, -0.125f);
+	double var$24 = decodeAnchorY(1.8815105f, -2.25f);
+	double var$25 = decodeAnchorX(1.0598959f, 0.0f);
+	double var$26 = decodeAnchorY(1.78125f, 0.0f);
+	double var$27 = decodeX(1.0598959f);
 	$nc(this->path)->curveTo(var$23, var$24, var$25, var$26, var$27, decodeY(1.78125f));
-	double var$28 = (double)decodeX(1.4375f);
+	double var$28 = decodeX(1.4375f);
 	$nc(this->path)->lineTo(var$28, decodeY(1.0833334f));
-	double var$29 = (double)decodeAnchorX(1.4375f, 0.0f);
-	double var$30 = (double)decodeAnchorY(1.0833334f, 0.0f);
-	double var$31 = (double)decodeAnchorX(1.5f, -2.0f);
-	double var$32 = (double)decodeAnchorY(1.0208334f, 0.0f);
-	double var$33 = (double)decodeX(1.5f);
+	double var$29 = decodeAnchorX(1.4375f, 0.0f);
+	double var$30 = decodeAnchorY(1.0833334f, 0.0f);
+	double var$31 = decodeAnchorX(1.5f, -2.0f);
+	double var$32 = decodeAnchorY(1.0208334f, 0.0f);
+	double var$33 = decodeX(1.5f);
 	$nc(this->path)->curveTo(var$29, var$30, var$31, var$32, var$33, decodeY(1.0208334f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -717,49 +602,49 @@ $Path2D* OptionPanePainter::decodePath7() {
 
 $Path2D* OptionPanePainter::decodePath8() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.4986979f);
+	double var$0 = decodeX(1.4986979f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.0429688f));
-	double var$1 = (double)decodeAnchorX(1.4986979f, 1.75f);
-	double var$2 = (double)decodeAnchorY(1.0429688f, 0.0f);
-	double var$3 = (double)decodeAnchorX(1.5546875f, 0.0f);
-	double var$4 = (double)decodeAnchorY(1.0950521f, 0.0f);
-	double var$5 = (double)decodeX(1.5546875f);
+	double var$1 = decodeAnchorX(1.4986979f, 1.75f);
+	double var$2 = decodeAnchorY(1.0429688f, 0.0f);
+	double var$3 = decodeAnchorX(1.5546875f, 0.0f);
+	double var$4 = decodeAnchorY(1.0950521f, 0.0f);
+	double var$5 = decodeX(1.5546875f);
 	$nc(this->path)->curveTo(var$1, var$2, var$3, var$4, var$5, decodeY(1.0950521f));
-	double var$6 = (double)decodeX(1.9322917f);
+	double var$6 = decodeX(1.9322917f);
 	$nc(this->path)->lineTo(var$6, decodeY(1.8007812f));
-	double var$7 = (double)decodeAnchorX(1.9322917f, 0.0f);
-	double var$8 = (double)decodeAnchorY(1.8007812f, 0.0f);
-	double var$9 = (double)decodeAnchorX(1.9570312f, 0.0f);
-	double var$10 = (double)decodeAnchorY(1.875f, -1.4375f);
-	double var$11 = (double)decodeX(1.9570312f);
+	double var$7 = decodeAnchorX(1.9322917f, 0.0f);
+	double var$8 = decodeAnchorY(1.8007812f, 0.0f);
+	double var$9 = decodeAnchorX(1.9570312f, 0.0f);
+	double var$10 = decodeAnchorY(1.875f, -1.4375f);
+	double var$11 = decodeX(1.9570312f);
 	$nc(this->path)->curveTo(var$7, var$8, var$9, var$10, var$11, decodeY(1.875f));
-	double var$12 = (double)decodeAnchorX(1.9570312f, 0.0f);
-	double var$13 = (double)decodeAnchorY(1.875f, 1.4375f);
-	double var$14 = (double)decodeAnchorX(1.8841145f, 0.0f);
-	double var$15 = (double)decodeAnchorY(1.9166667f, 0.0f);
-	double var$16 = (double)decodeX(1.8841145f);
+	double var$12 = decodeAnchorX(1.9570312f, 0.0f);
+	double var$13 = decodeAnchorY(1.875f, 1.4375f);
+	double var$14 = decodeAnchorX(1.8841145f, 0.0f);
+	double var$15 = decodeAnchorY(1.9166667f, 0.0f);
+	double var$16 = decodeX(1.8841145f);
 	$nc(this->path)->curveTo(var$12, var$13, var$14, var$15, var$16, decodeY(1.9166667f));
-	double var$17 = (double)decodeX(1.1002604f);
+	double var$17 = decodeX(1.1002604f);
 	$nc(this->path)->lineTo(var$17, decodeY(1.9166667f));
-	double var$18 = (double)decodeAnchorX(1.1002604f, 0.0f);
-	double var$19 = (double)decodeAnchorY(1.9166667f, 0.0f);
-	double var$20 = (double)decodeAnchorX(1.0455729f, 0.0625f);
-	double var$21 = (double)decodeAnchorY(1.8723958f, 1.625f);
-	double var$22 = (double)decodeX(1.0455729f);
+	double var$18 = decodeAnchorX(1.1002604f, 0.0f);
+	double var$19 = decodeAnchorY(1.9166667f, 0.0f);
+	double var$20 = decodeAnchorX(1.0455729f, 0.0625f);
+	double var$21 = decodeAnchorY(1.8723958f, 1.625f);
+	double var$22 = decodeX(1.0455729f);
 	$nc(this->path)->curveTo(var$18, var$19, var$20, var$21, var$22, decodeY(1.8723958f));
-	double var$23 = (double)decodeAnchorX(1.0455729f, -0.0625f);
-	double var$24 = (double)decodeAnchorY(1.8723958f, -1.625f);
-	double var$25 = (double)decodeAnchorX(1.0755209f, 0.0f);
-	double var$26 = (double)decodeAnchorY(1.7903645f, 0.0f);
-	double var$27 = (double)decodeX(1.0755209f);
+	double var$23 = decodeAnchorX(1.0455729f, -0.0625f);
+	double var$24 = decodeAnchorY(1.8723958f, -1.625f);
+	double var$25 = decodeAnchorX(1.0755209f, 0.0f);
+	double var$26 = decodeAnchorY(1.7903645f, 0.0f);
+	double var$27 = decodeX(1.0755209f);
 	$nc(this->path)->curveTo(var$23, var$24, var$25, var$26, var$27, decodeY(1.7903645f));
-	double var$28 = (double)decodeX(1.4414062f);
+	double var$28 = decodeX(1.4414062f);
 	$nc(this->path)->lineTo(var$28, decodeY(1.1028646f));
-	double var$29 = (double)decodeAnchorX(1.4414062f, 0.0f);
-	double var$30 = (double)decodeAnchorY(1.1028646f, 0.0f);
-	double var$31 = (double)decodeAnchorX(1.4986979f, -1.75f);
-	double var$32 = (double)decodeAnchorY(1.0429688f, 0.0f);
-	double var$33 = (double)decodeX(1.4986979f);
+	double var$29 = decodeAnchorX(1.4414062f, 0.0f);
+	double var$30 = decodeAnchorY(1.1028646f, 0.0f);
+	double var$31 = decodeAnchorX(1.4986979f, -1.75f);
+	double var$32 = decodeAnchorY(1.0429688f, 0.0f);
+	double var$33 = decodeX(1.4986979f);
 	$nc(this->path)->curveTo(var$29, var$30, var$31, var$32, var$33, decodeY(1.0429688f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -767,48 +652,48 @@ $Path2D* OptionPanePainter::decodePath8() {
 
 $Path2D* OptionPanePainter::decodePath9() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.5f);
+	double var$0 = decodeX(1.5f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.2291666f));
-	double var$1 = (double)decodeAnchorX(1.5f, 2.0f);
-	double var$2 = (double)decodeAnchorY(1.2291666f, 0.0f);
-	double var$3 = (double)decodeAnchorX(1.5625f, 0.0f);
-	double var$4 = (double)decodeAnchorY(1.3125f, -2.0f);
-	double var$5 = (double)decodeX(1.5625f);
+	double var$1 = decodeAnchorX(1.5f, 2.0f);
+	double var$2 = decodeAnchorY(1.2291666f, 0.0f);
+	double var$3 = decodeAnchorX(1.5625f, 0.0f);
+	double var$4 = decodeAnchorY(1.3125f, -2.0f);
+	double var$5 = decodeX(1.5625f);
 	$nc(this->path)->curveTo(var$1, var$2, var$3, var$4, var$5, decodeY(1.3125f));
-	double var$6 = (double)decodeAnchorX(1.5625f, 0.0f);
-	double var$7 = (double)decodeAnchorY(1.3125f, 2.0f);
-	double var$8 = (double)decodeAnchorX(1.5f, 1.3125f);
-	double var$9 = (double)decodeAnchorY(1.6666667f, 0.0f);
-	double var$10 = (double)decodeX(1.5f);
+	double var$6 = decodeAnchorX(1.5625f, 0.0f);
+	double var$7 = decodeAnchorY(1.3125f, 2.0f);
+	double var$8 = decodeAnchorX(1.5f, 1.3125f);
+	double var$9 = decodeAnchorY(1.6666667f, 0.0f);
+	double var$10 = decodeX(1.5f);
 	$nc(this->path)->curveTo(var$6, var$7, var$8, var$9, var$10, decodeY(1.6666667f));
-	double var$11 = (double)decodeAnchorX(1.5f, -1.3125f);
-	double var$12 = (double)decodeAnchorY(1.6666667f, 0.0f);
-	double var$13 = (double)decodeAnchorX(1.4375f, 0.0f);
-	double var$14 = (double)decodeAnchorY(1.3125f, 2.0f);
-	double var$15 = (double)decodeX(1.4375f);
+	double var$11 = decodeAnchorX(1.5f, -1.3125f);
+	double var$12 = decodeAnchorY(1.6666667f, 0.0f);
+	double var$13 = decodeAnchorX(1.4375f, 0.0f);
+	double var$14 = decodeAnchorY(1.3125f, 2.0f);
+	double var$15 = decodeX(1.4375f);
 	$nc(this->path)->curveTo(var$11, var$12, var$13, var$14, var$15, decodeY(1.3125f));
-	double var$16 = (double)decodeAnchorX(1.4375f, 0.0f);
-	double var$17 = (double)decodeAnchorY(1.3125f, -2.0f);
-	double var$18 = (double)decodeAnchorX(1.5f, -2.0f);
-	double var$19 = (double)decodeAnchorY(1.2291666f, 0.0f);
-	double var$20 = (double)decodeX(1.5f);
+	double var$16 = decodeAnchorX(1.4375f, 0.0f);
+	double var$17 = decodeAnchorY(1.3125f, -2.0f);
+	double var$18 = decodeAnchorX(1.5f, -2.0f);
+	double var$19 = decodeAnchorY(1.2291666f, 0.0f);
+	double var$20 = decodeX(1.5f);
 	$nc(this->path)->curveTo(var$16, var$17, var$18, var$19, var$20, decodeY(1.2291666f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Ellipse2D* OptionPanePainter::decodeEllipse7() {
-	double var$0 = (double)decodeX(1.4375f);
-	double var$1 = (double)decodeY(1.7291667f);
+	double var$0 = decodeX(1.4375f);
+	double var$1 = decodeY(1.7291667f);
 	float var$3 = decodeX(1.5625f);
-	double var$2 = (double)(var$3 - decodeX(1.4375f));
+	double var$2 = var$3 - decodeX(1.4375f);
 	float var$4 = decodeY(1.8541667f);
 	$nc(this->ellipse)->setFrame(var$0, var$1, var$2, var$4 - decodeY(1.7291667f));
 	return this->ellipse;
 }
 
 $Paint* OptionPanePainter::decodeGradient1($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -834,7 +719,7 @@ $Paint* OptionPanePainter::decodeGradient1($Shape* s) {
 }
 
 $Paint* OptionPanePainter::decodeGradient2($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -852,7 +737,7 @@ $Paint* OptionPanePainter::decodeGradient2($Shape* s) {
 }
 
 $Paint* OptionPanePainter::decodeGradient3($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -874,7 +759,7 @@ $Paint* OptionPanePainter::decodeGradient3($Shape* s) {
 }
 
 $Paint* OptionPanePainter::decodeGradient4($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -904,7 +789,7 @@ $Paint* OptionPanePainter::decodeGradient4($Shape* s) {
 }
 
 $Paint* OptionPanePainter::decodeGradient5($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -922,7 +807,7 @@ $Paint* OptionPanePainter::decodeGradient5($Shape* s) {
 }
 
 $Paint* OptionPanePainter::decodeGradient6($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -940,7 +825,7 @@ $Paint* OptionPanePainter::decodeGradient6($Shape* s) {
 }
 
 $Paint* OptionPanePainter::decodeGradient7($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -966,7 +851,7 @@ $Paint* OptionPanePainter::decodeGradient7($Shape* s) {
 }
 
 $Paint* OptionPanePainter::decodeGradient8($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -984,7 +869,7 @@ $Paint* OptionPanePainter::decodeGradient8($Shape* s) {
 }
 
 $Paint* OptionPanePainter::decodeGradient9($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1014,7 +899,7 @@ $Paint* OptionPanePainter::decodeGradient9($Shape* s) {
 }
 
 $Paint* OptionPanePainter::decodeGradient10($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1035,7 +920,106 @@ OptionPanePainter::OptionPanePainter() {
 }
 
 $Class* OptionPanePainter::load$($String* name, bool initialize) {
-	$loadClass(OptionPanePainter, name, initialize, &_OptionPanePainter_ClassInfo_, allocate$OptionPanePainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(OptionPanePainter, BACKGROUND_ENABLED)},
+		{"ERRORICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(OptionPanePainter, ERRORICON_ENABLED)},
+		{"INFORMATIONICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(OptionPanePainter, INFORMATIONICON_ENABLED)},
+		{"QUESTIONICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(OptionPanePainter, QUESTIONICON_ENABLED)},
+		{"WARNINGICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(OptionPanePainter, WARNINGICON_ENABLED)},
+		{"state", "I", nullptr, $PRIVATE, $field(OptionPanePainter, state)},
+		{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(OptionPanePainter, ctx)},
+		{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(OptionPanePainter, path)},
+		{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(OptionPanePainter, rect)},
+		{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(OptionPanePainter, roundRect)},
+		{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(OptionPanePainter, ellipse)},
+		{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color1)},
+		{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color2)},
+		{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color3)},
+		{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color4)},
+		{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color5)},
+		{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color6)},
+		{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color7)},
+		{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color8)},
+		{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color9)},
+		{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color10)},
+		{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color11)},
+		{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color12)},
+		{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color13)},
+		{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color14)},
+		{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color15)},
+		{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color16)},
+		{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color17)},
+		{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color18)},
+		{"color19", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color19)},
+		{"color20", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color20)},
+		{"color21", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color21)},
+		{"color22", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color22)},
+		{"color23", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color23)},
+		{"color24", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color24)},
+		{"color25", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color25)},
+		{"color26", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color26)},
+		{"color27", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color27)},
+		{"color28", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color28)},
+		{"color29", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color29)},
+		{"color30", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color30)},
+		{"color31", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color31)},
+		{"color32", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color32)},
+		{"color33", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color33)},
+		{"color34", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color34)},
+		{"color35", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color35)},
+		{"color36", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color36)},
+		{"color37", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(OptionPanePainter, color37)},
+		{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(OptionPanePainter, componentColors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(OptionPanePainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
+		{"decodeEllipse1", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeEllipse1, $Ellipse2D*)},
+		{"decodeEllipse2", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeEllipse2, $Ellipse2D*)},
+		{"decodeEllipse3", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeEllipse3, $Ellipse2D*)},
+		{"decodeEllipse4", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeEllipse4, $Ellipse2D*)},
+		{"decodeEllipse5", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeEllipse5, $Ellipse2D*)},
+		{"decodeEllipse6", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeEllipse6, $Ellipse2D*)},
+		{"decodeEllipse7", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeEllipse7, $Ellipse2D*)},
+		{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeGradient1, $Paint*, $Shape*)},
+		{"decodeGradient10", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeGradient10, $Paint*, $Shape*)},
+		{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeGradient2, $Paint*, $Shape*)},
+		{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeGradient3, $Paint*, $Shape*)},
+		{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeGradient4, $Paint*, $Shape*)},
+		{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeGradient5, $Paint*, $Shape*)},
+		{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeGradient6, $Paint*, $Shape*)},
+		{"decodeGradient7", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeGradient7, $Paint*, $Shape*)},
+		{"decodeGradient8", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeGradient8, $Paint*, $Shape*)},
+		{"decodeGradient9", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeGradient9, $Paint*, $Shape*)},
+		{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodePath1, $Path2D*)},
+		{"decodePath2", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodePath2, $Path2D*)},
+		{"decodePath3", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodePath3, $Path2D*)},
+		{"decodePath4", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodePath4, $Path2D*)},
+		{"decodePath5", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodePath5, $Path2D*)},
+		{"decodePath6", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodePath6, $Path2D*)},
+		{"decodePath7", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodePath7, $Path2D*)},
+		{"decodePath8", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodePath8, $Path2D*)},
+		{"decodePath9", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodePath9, $Path2D*)},
+		{"decodeRect1", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(OptionPanePainter, decodeRect1, $Rectangle2D*)},
+		{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(OptionPanePainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(OptionPanePainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
+		{"painterrorIconEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(OptionPanePainter, painterrorIconEnabled, void, $Graphics2D*)},
+		{"paintinformationIconEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(OptionPanePainter, paintinformationIconEnabled, void, $Graphics2D*)},
+		{"paintquestionIconEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(OptionPanePainter, paintquestionIconEnabled, void, $Graphics2D*)},
+		{"paintwarningIconEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(OptionPanePainter, paintwarningIconEnabled, void, $Graphics2D*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.OptionPanePainter",
+		"javax.swing.plaf.nimbus.AbstractRegionPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OptionPanePainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OptionPanePainter);
+	});
 	return class$;
 }
 

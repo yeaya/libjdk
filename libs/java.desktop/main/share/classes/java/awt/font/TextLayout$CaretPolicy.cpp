@@ -1,5 +1,4 @@
 #include <java/awt/font/TextLayout$CaretPolicy.h>
-
 #include <java/awt/font/TextHitInfo.h>
 #include <java/awt/font/TextLayout.h>
 #include <jcpp.h>
@@ -14,37 +13,6 @@ namespace java {
 	namespace awt {
 		namespace font {
 
-$MethodInfo _TextLayout$CaretPolicy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TextLayout$CaretPolicy, init$, void)},
-	{"getStrongCaret", "(Ljava/awt/font/TextHitInfo;Ljava/awt/font/TextHitInfo;Ljava/awt/font/TextLayout;)Ljava/awt/font/TextHitInfo;", nullptr, $PUBLIC, $virtualMethod(TextLayout$CaretPolicy, getStrongCaret, $TextHitInfo*, $TextHitInfo*, $TextHitInfo*, $TextLayout*)},
-	{}
-};
-
-$InnerClassInfo _TextLayout$CaretPolicy_InnerClassesInfo_[] = {
-	{"java.awt.font.TextLayout$CaretPolicy", "java.awt.font.TextLayout", "CaretPolicy", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _TextLayout$CaretPolicy_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.font.TextLayout$CaretPolicy",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TextLayout$CaretPolicy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TextLayout$CaretPolicy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.font.TextLayout"
-};
-
-$Object* allocate$TextLayout$CaretPolicy($Class* clazz) {
-	return $of($alloc(TextLayout$CaretPolicy));
-}
-
 void TextLayout$CaretPolicy::init$() {
 }
 
@@ -56,7 +24,33 @@ TextLayout$CaretPolicy::TextLayout$CaretPolicy() {
 }
 
 $Class* TextLayout$CaretPolicy::load$($String* name, bool initialize) {
-	$loadClass(TextLayout$CaretPolicy, name, initialize, &_TextLayout$CaretPolicy_ClassInfo_, allocate$TextLayout$CaretPolicy);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TextLayout$CaretPolicy, init$, void)},
+		{"getStrongCaret", "(Ljava/awt/font/TextHitInfo;Ljava/awt/font/TextHitInfo;Ljava/awt/font/TextLayout;)Ljava/awt/font/TextHitInfo;", nullptr, $PUBLIC, $virtualMethod(TextLayout$CaretPolicy, getStrongCaret, $TextHitInfo*, $TextHitInfo*, $TextHitInfo*, $TextLayout*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.font.TextLayout$CaretPolicy", "java.awt.font.TextLayout", "CaretPolicy", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.font.TextLayout$CaretPolicy",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.font.TextLayout"
+	};
+	$loadClass(TextLayout$CaretPolicy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TextLayout$CaretPolicy);
+	});
 	return class$;
 }
 

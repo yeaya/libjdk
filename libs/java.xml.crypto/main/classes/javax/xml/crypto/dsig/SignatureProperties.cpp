@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/dsig/SignatureProperties.h>
-
 #include <java/util/List.h>
 #include <jcpp.h>
 
@@ -15,38 +14,33 @@ namespace javax {
 		namespace crypto {
 			namespace dsig {
 
-$FieldInfo _SignatureProperties_FieldInfo_[] = {
-	{"TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SignatureProperties, TYPE)},
-	{}
-};
-
-$MethodInfo _SignatureProperties_MethodInfo_[] = {
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SignatureProperties, getId, $String*)},
-	{"getProperties", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/dsig/SignatureProperty;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SignatureProperties, getProperties, $List*)},
-	{}
-};
-
-$ClassInfo _SignatureProperties_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.xml.crypto.dsig.SignatureProperties",
-	nullptr,
-	"javax.xml.crypto.XMLStructure",
-	_SignatureProperties_FieldInfo_,
-	_SignatureProperties_MethodInfo_
-};
-
-$Object* allocate$SignatureProperties($Class* clazz) {
-	return $of($alloc(SignatureProperties));
-}
-
 $String* SignatureProperties::TYPE = nullptr;
 
-void clinit$SignatureProperties($Class* class$) {
+void SignatureProperties::clinit$($Class* clazz) {
 	$assignStatic(SignatureProperties::TYPE, "http://www.w3.org/2000/09/xmldsig#SignatureProperties"_s);
 }
 
 $Class* SignatureProperties::load$($String* name, bool initialize) {
-	$loadClass(SignatureProperties, name, initialize, &_SignatureProperties_ClassInfo_, clinit$SignatureProperties, allocate$SignatureProperties);
+	$FieldInfo fieldInfos$$[] = {
+		{"TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SignatureProperties, TYPE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SignatureProperties, getId, $String*)},
+		{"getProperties", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/dsig/SignatureProperty;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SignatureProperties, getProperties, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.xml.crypto.dsig.SignatureProperties",
+		nullptr,
+		"javax.xml.crypto.XMLStructure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SignatureProperties, name, initialize, &classInfo$$, SignatureProperties::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SignatureProperties);
+	});
 	return class$;
 }
 

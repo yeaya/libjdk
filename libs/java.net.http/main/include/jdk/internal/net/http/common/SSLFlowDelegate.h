@@ -107,6 +107,7 @@ class $import SSLFlowDelegate : public ::java::lang::Object {
 	$class(SSLFlowDelegate, 0, ::java::lang::Object)
 public:
 	SSLFlowDelegate();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::net::ssl::SSLEngine* engine, ::java::util::concurrent::Executor* exec, ::java::util::concurrent::Flow$Subscriber* downReader, ::java::util::concurrent::Flow$Subscriber* downWriter);
 	void init$(::javax::net::ssl::SSLEngine* engine, ::java::util::concurrent::Executor* exec, ::java::util::function::Consumer* recycler, ::java::util::concurrent::Flow$Subscriber* downReader, ::java::util::concurrent::Flow$Subscriber* downWriter);
 	virtual ::java::util::concurrent::CompletableFuture* alpn();

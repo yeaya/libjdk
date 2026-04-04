@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/api/DiagnosticFormatter.h>
-
 #include <com/sun/tools/javac/api/DiagnosticFormatter$Configuration.h>
 #include <com/sun/tools/javac/api/DiagnosticFormatter$PositionKind.h>
 #include <java/util/Locale.h>
@@ -20,44 +19,39 @@ namespace com {
 			namespace javac {
 				namespace api {
 
-$MethodInfo _DiagnosticFormatter_MethodInfo_[] = {
-	{"displaySource", "(Ljavax/tools/Diagnostic;)Z", "(TD;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(DiagnosticFormatter, displaySource, bool, $Diagnostic*)},
-	{"format", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", "(TD;Ljava/util/Locale;)Ljava/lang/String;", $PUBLIC | $ABSTRACT, $virtualMethod(DiagnosticFormatter, format, $String*, $Diagnostic*, $Locale*)},
-	{"formatKind", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", "(TD;Ljava/util/Locale;)Ljava/lang/String;", $PUBLIC | $ABSTRACT, $virtualMethod(DiagnosticFormatter, formatKind, $String*, $Diagnostic*, $Locale*)},
-	{"formatMessage", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", "(TD;Ljava/util/Locale;)Ljava/lang/String;", $PUBLIC | $ABSTRACT, $virtualMethod(DiagnosticFormatter, formatMessage, $String*, $Diagnostic*, $Locale*)},
-	{"formatPosition", "(Ljavax/tools/Diagnostic;Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;Ljava/util/Locale;)Ljava/lang/String;", "(TD;Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;Ljava/util/Locale;)Ljava/lang/String;", $PUBLIC | $ABSTRACT, $virtualMethod(DiagnosticFormatter, formatPosition, $String*, $Diagnostic*, $DiagnosticFormatter$PositionKind*, $Locale*)},
-	{"formatSource", "(Ljavax/tools/Diagnostic;ZLjava/util/Locale;)Ljava/lang/String;", "(TD;ZLjava/util/Locale;)Ljava/lang/String;", $PUBLIC | $ABSTRACT, $virtualMethod(DiagnosticFormatter, formatSource, $String*, $Diagnostic*, bool, $Locale*)},
-	{"getConfiguration", "()Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DiagnosticFormatter, getConfiguration, $DiagnosticFormatter$Configuration*)},
-	{}
-};
-
-$InnerClassInfo _DiagnosticFormatter_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.api.DiagnosticFormatter$Configuration", "com.sun.tools.javac.api.DiagnosticFormatter", "Configuration", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.api.DiagnosticFormatter$PositionKind", "com.sun.tools.javac.api.DiagnosticFormatter", "PositionKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _DiagnosticFormatter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.api.DiagnosticFormatter",
-	nullptr,
-	nullptr,
-	nullptr,
-	_DiagnosticFormatter_MethodInfo_,
-	"<D::Ljavax/tools/Diagnostic<*>;>Ljava/lang/Object;",
-	nullptr,
-	_DiagnosticFormatter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.api.DiagnosticFormatter$Configuration,com.sun.tools.javac.api.DiagnosticFormatter$Configuration$MultilineLimit,com.sun.tools.javac.api.DiagnosticFormatter$Configuration$DiagnosticPart,com.sun.tools.javac.api.DiagnosticFormatter$PositionKind"
-};
-
-$Object* allocate$DiagnosticFormatter($Class* clazz) {
-	return $of($alloc(DiagnosticFormatter));
-}
-
 $Class* DiagnosticFormatter::load$($String* name, bool initialize) {
-	$loadClass(DiagnosticFormatter, name, initialize, &_DiagnosticFormatter_ClassInfo_, allocate$DiagnosticFormatter);
+	$MethodInfo methodInfos$$[] = {
+		{"displaySource", "(Ljavax/tools/Diagnostic;)Z", "(TD;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(DiagnosticFormatter, displaySource, bool, $Diagnostic*)},
+		{"format", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", "(TD;Ljava/util/Locale;)Ljava/lang/String;", $PUBLIC | $ABSTRACT, $virtualMethod(DiagnosticFormatter, format, $String*, $Diagnostic*, $Locale*)},
+		{"formatKind", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", "(TD;Ljava/util/Locale;)Ljava/lang/String;", $PUBLIC | $ABSTRACT, $virtualMethod(DiagnosticFormatter, formatKind, $String*, $Diagnostic*, $Locale*)},
+		{"formatMessage", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", "(TD;Ljava/util/Locale;)Ljava/lang/String;", $PUBLIC | $ABSTRACT, $virtualMethod(DiagnosticFormatter, formatMessage, $String*, $Diagnostic*, $Locale*)},
+		{"formatPosition", "(Ljavax/tools/Diagnostic;Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;Ljava/util/Locale;)Ljava/lang/String;", "(TD;Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;Ljava/util/Locale;)Ljava/lang/String;", $PUBLIC | $ABSTRACT, $virtualMethod(DiagnosticFormatter, formatPosition, $String*, $Diagnostic*, $DiagnosticFormatter$PositionKind*, $Locale*)},
+		{"formatSource", "(Ljavax/tools/Diagnostic;ZLjava/util/Locale;)Ljava/lang/String;", "(TD;ZLjava/util/Locale;)Ljava/lang/String;", $PUBLIC | $ABSTRACT, $virtualMethod(DiagnosticFormatter, formatSource, $String*, $Diagnostic*, bool, $Locale*)},
+		{"getConfiguration", "()Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DiagnosticFormatter, getConfiguration, $DiagnosticFormatter$Configuration*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.api.DiagnosticFormatter$Configuration", "com.sun.tools.javac.api.DiagnosticFormatter", "Configuration", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.api.DiagnosticFormatter$PositionKind", "com.sun.tools.javac.api.DiagnosticFormatter", "PositionKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.api.DiagnosticFormatter",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<D::Ljavax/tools/Diagnostic<*>;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.api.DiagnosticFormatter$Configuration,com.sun.tools.javac.api.DiagnosticFormatter$Configuration$MultilineLimit,com.sun.tools.javac.api.DiagnosticFormatter$Configuration$DiagnosticPart,com.sun.tools.javac.api.DiagnosticFormatter$PositionKind"
+	};
+	$loadClass(DiagnosticFormatter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DiagnosticFormatter);
+	});
 	return class$;
 }
 

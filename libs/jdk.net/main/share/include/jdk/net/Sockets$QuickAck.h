@@ -12,6 +12,7 @@ class $import Sockets$QuickAck : public ::java::lang::Object {
 	$class(Sockets$QuickAck, 0, ::java::lang::Object)
 public:
 	Sockets$QuickAck();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool available;
 };

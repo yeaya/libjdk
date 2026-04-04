@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftReceiver.h>
-
 #include <com/sun/media/sound/SoftMainMixer.h>
 #include <com/sun/media/sound/SoftSynthesizer.h>
 #include <java/lang/IllegalStateException.h>
@@ -10,17 +9,14 @@
 #include <javax/sound/midi/ShortMessage.h>
 #include <jcpp.h>
 
-using $SoftMainMixer = ::com::sun::media::sound::SoftMainMixer;
 using $SoftSynthesizer = ::com::sun::media::sound::SoftSynthesizer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $TreeMap = ::java::util::TreeMap;
 using $MidiDevice = ::javax::sound::midi::MidiDevice;
 using $MidiMessage = ::javax::sound::midi::MidiMessage;
-using $Receiver = ::javax::sound::midi::Receiver;
 using $ShortMessage = ::javax::sound::midi::ShortMessage;
 
 namespace com {
@@ -28,43 +24,13 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _SoftReceiver_FieldInfo_[] = {
-	{"open", "Z", nullptr, 0, $field(SoftReceiver, open)},
-	{"control_mutex", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(SoftReceiver, control_mutex)},
-	{"synth", "Lcom/sun/media/sound/SoftSynthesizer;", nullptr, $PRIVATE | $FINAL, $field(SoftReceiver, synth)},
-	{"midimessages", "Ljava/util/TreeMap;", "Ljava/util/TreeMap<Ljava/lang/Long;Ljava/lang/Object;>;", 0, $field(SoftReceiver, midimessages)},
-	{"mainmixer", "Lcom/sun/media/sound/SoftMainMixer;", nullptr, 0, $field(SoftReceiver, mainmixer)},
-	{}
-};
-
-$MethodInfo _SoftReceiver_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/SoftSynthesizer;)V", nullptr, $PUBLIC, $method(SoftReceiver, init$, void, $SoftSynthesizer*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SoftReceiver, close, void)},
-	{"getMidiDevice", "()Ljavax/sound/midi/MidiDevice;", nullptr, $PUBLIC, $virtualMethod(SoftReceiver, getMidiDevice, $MidiDevice*)},
-	{"send", "(Ljavax/sound/midi/MidiMessage;J)V", nullptr, $PUBLIC, $virtualMethod(SoftReceiver, send, void, $MidiMessage*, int64_t)},
-	{}
-};
-
-$ClassInfo _SoftReceiver_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SoftReceiver",
-	"java.lang.Object",
-	"javax.sound.midi.MidiDeviceReceiver",
-	_SoftReceiver_FieldInfo_,
-	_SoftReceiver_MethodInfo_
-};
-
-$Object* allocate$SoftReceiver($Class* clazz) {
-	return $of($alloc(SoftReceiver));
-}
-
 void SoftReceiver::init$($SoftSynthesizer* synth) {
 	this->open = true;
 	$set(this, control_mutex, $nc(synth)->control_mutex);
 	$set(this, synth, synth);
 	$set(this, mainmixer, synth->getMainMixer());
 	if (this->mainmixer != nullptr) {
-		$set(this, midimessages, $nc(this->mainmixer)->midimessages);
+		$set(this, midimessages, this->mainmixer->midimessages);
 	}
 }
 
@@ -73,7 +39,7 @@ $MidiDevice* SoftReceiver::getMidiDevice() {
 }
 
 void SoftReceiver::send($MidiMessage* message, int64_t timeStamp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->control_mutex) {
 		if (!this->open) {
 			$throwNew($IllegalStateException, "Receiver is not open"_s);
@@ -85,11 +51,11 @@ void SoftReceiver::send($MidiMessage* message, int64_t timeStamp) {
 			while ($nc(this->midimessages)->get($($Long::valueOf(timeStamp))) != nullptr) {
 				++timeStamp;
 			}
-			if ($instanceOf($ShortMessage, message) && ($nc(($cast($ShortMessage, message)))->getChannel() > 15)) {
-				$var($Object, var$0, $of($Long::valueOf(timeStamp)));
-				$nc(this->midimessages)->put(var$0, $($nc(message)->clone()));
+			if ($instanceOf($ShortMessage, message) && ($cast($ShortMessage, message)->getChannel() > 15)) {
+				$var($Object, var$0, $Long::valueOf(timeStamp));
+				$nc(this->midimessages)->put(var$0, $(message->clone()));
 			} else {
-				$var($Object, var$1, $of($Long::valueOf(timeStamp)));
+				$var($Object, var$1, $Long::valueOf(timeStamp));
 				$nc(this->midimessages)->put(var$1, $($nc(message)->getMessage()));
 			}
 		}
@@ -109,7 +75,32 @@ SoftReceiver::SoftReceiver() {
 }
 
 $Class* SoftReceiver::load$($String* name, bool initialize) {
-	$loadClass(SoftReceiver, name, initialize, &_SoftReceiver_ClassInfo_, allocate$SoftReceiver);
+	$FieldInfo fieldInfos$$[] = {
+		{"open", "Z", nullptr, 0, $field(SoftReceiver, open)},
+		{"control_mutex", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(SoftReceiver, control_mutex)},
+		{"synth", "Lcom/sun/media/sound/SoftSynthesizer;", nullptr, $PRIVATE | $FINAL, $field(SoftReceiver, synth)},
+		{"midimessages", "Ljava/util/TreeMap;", "Ljava/util/TreeMap<Ljava/lang/Long;Ljava/lang/Object;>;", 0, $field(SoftReceiver, midimessages)},
+		{"mainmixer", "Lcom/sun/media/sound/SoftMainMixer;", nullptr, 0, $field(SoftReceiver, mainmixer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/SoftSynthesizer;)V", nullptr, $PUBLIC, $method(SoftReceiver, init$, void, $SoftSynthesizer*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SoftReceiver, close, void)},
+		{"getMidiDevice", "()Ljavax/sound/midi/MidiDevice;", nullptr, $PUBLIC, $virtualMethod(SoftReceiver, getMidiDevice, $MidiDevice*)},
+		{"send", "(Ljavax/sound/midi/MidiMessage;J)V", nullptr, $PUBLIC, $virtualMethod(SoftReceiver, send, void, $MidiMessage*, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SoftReceiver",
+		"java.lang.Object",
+		"javax.sound.midi.MidiDeviceReceiver",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SoftReceiver, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftReceiver);
+	});
 	return class$;
 }
 

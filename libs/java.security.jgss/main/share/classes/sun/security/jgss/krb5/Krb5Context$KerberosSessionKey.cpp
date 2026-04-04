@@ -1,5 +1,4 @@
 #include <sun/security/jgss/krb5/Krb5Context$KerberosSessionKey.h>
-
 #include <sun/security/jgss/krb5/Krb5Context.h>
 #include <sun/security/krb5/EncryptionKey.h>
 #include <sun/security/util/HexDumpEncoder.h>
@@ -18,46 +17,6 @@ namespace sun {
 		namespace jgss {
 			namespace krb5 {
 
-$FieldInfo _Krb5Context$KerberosSessionKey_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Krb5Context$KerberosSessionKey, serialVersionUID)},
-	{"key", "Lsun/security/krb5/EncryptionKey;", nullptr, $PRIVATE | $FINAL, $field(Krb5Context$KerberosSessionKey, key)},
-	{}
-};
-
-$MethodInfo _Krb5Context$KerberosSessionKey_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/EncryptionKey;)V", nullptr, 0, $method(Krb5Context$KerberosSessionKey, init$, void, $EncryptionKey*)},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Krb5Context$KerberosSessionKey, getAlgorithm, $String*)},
-	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(Krb5Context$KerberosSessionKey, getEncoded, $bytes*)},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Krb5Context$KerberosSessionKey, getFormat, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Krb5Context$KerberosSessionKey, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Krb5Context$KerberosSessionKey_InnerClassesInfo_[] = {
-	{"sun.security.jgss.krb5.Krb5Context$KerberosSessionKey", "sun.security.jgss.krb5.Krb5Context", "KerberosSessionKey", $STATIC},
-	{}
-};
-
-$ClassInfo _Krb5Context$KerberosSessionKey_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.jgss.krb5.Krb5Context$KerberosSessionKey",
-	"java.lang.Object",
-	"java.security.Key",
-	_Krb5Context$KerberosSessionKey_FieldInfo_,
-	_Krb5Context$KerberosSessionKey_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Krb5Context$KerberosSessionKey_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.jgss.krb5.Krb5Context"
-};
-
-$Object* allocate$Krb5Context$KerberosSessionKey($Class* clazz) {
-	return $of($alloc(Krb5Context$KerberosSessionKey));
-}
-
 void Krb5Context$KerberosSessionKey::init$($EncryptionKey* key) {
 	$set(this, key, key);
 }
@@ -71,20 +30,58 @@ $String* Krb5Context$KerberosSessionKey::getFormat() {
 }
 
 $bytes* Krb5Context$KerberosSessionKey::getEncoded() {
-	return $cast($bytes, $nc($($nc(this->key)->getBytes()))->clone());
+	return $cast($bytes, $$nc($nc(this->key)->getBytes())->clone());
 }
 
 $String* Krb5Context$KerberosSessionKey::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({"Kerberos session key: etype: "_s, $$str($nc(this->key)->getEType()), "\n"_s}));
-	return $concat(var$0, $($$new($HexDumpEncoder)->encodeBuffer($($nc(this->key)->getBytes()))));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("Kerberos session key: etype: "_s);
+	var$0->append($nc(this->key)->getEType());
+	var$0->append("\n"_s);
+	var$0->append($($$new($HexDumpEncoder)->encodeBuffer($(this->key->getBytes()))));
+	return $str(var$0);
 }
 
 Krb5Context$KerberosSessionKey::Krb5Context$KerberosSessionKey() {
 }
 
 $Class* Krb5Context$KerberosSessionKey::load$($String* name, bool initialize) {
-	$loadClass(Krb5Context$KerberosSessionKey, name, initialize, &_Krb5Context$KerberosSessionKey_ClassInfo_, allocate$Krb5Context$KerberosSessionKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Krb5Context$KerberosSessionKey, serialVersionUID)},
+		{"key", "Lsun/security/krb5/EncryptionKey;", nullptr, $PRIVATE | $FINAL, $field(Krb5Context$KerberosSessionKey, key)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/krb5/EncryptionKey;)V", nullptr, 0, $method(Krb5Context$KerberosSessionKey, init$, void, $EncryptionKey*)},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Krb5Context$KerberosSessionKey, getAlgorithm, $String*)},
+		{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(Krb5Context$KerberosSessionKey, getEncoded, $bytes*)},
+		{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Krb5Context$KerberosSessionKey, getFormat, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Krb5Context$KerberosSessionKey, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jgss.krb5.Krb5Context$KerberosSessionKey", "sun.security.jgss.krb5.Krb5Context", "KerberosSessionKey", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.jgss.krb5.Krb5Context$KerberosSessionKey",
+		"java.lang.Object",
+		"java.security.Key",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.jgss.krb5.Krb5Context"
+	};
+	$loadClass(Krb5Context$KerberosSessionKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Krb5Context$KerberosSessionKey);
+	});
 	return class$;
 }
 

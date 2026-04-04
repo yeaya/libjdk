@@ -107,6 +107,7 @@ class SchemaDOMParser : public ::com::sun::org::apache::xerces::internal::impl::
 	$class(SchemaDOMParser, 0, ::com::sun::org::apache::xerces::internal::impl::xs::opti::DefaultXMLDocumentHandler)
 public:
 	SchemaDOMParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xerces::internal::xni::parser::XMLParserConfiguration* config);
 	virtual void characters(::com::sun::org::apache::xerces::internal::xni::XMLString* text, ::com::sun::org::apache::xerces::internal::xni::Augmentations* augs) override;
 	virtual void comment(::com::sun::org::apache::xerces::internal::xni::XMLString* text, ::com::sun::org::apache::xerces::internal::xni::Augmentations* augs) override;

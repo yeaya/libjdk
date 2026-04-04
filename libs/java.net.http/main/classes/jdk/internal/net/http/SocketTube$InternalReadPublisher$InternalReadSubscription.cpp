@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/SocketTube$InternalReadPublisher$InternalReadSubscription.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
@@ -20,14 +19,12 @@
 #include <jdk/internal/net/http/SocketTube$InternalReadPublisher$ReadEvent.h>
 #include <jdk/internal/net/http/SocketTube$InternalReadPublisher$ReadSubscription.h>
 #include <jdk/internal/net/http/SocketTube$InternalReadPublisher.h>
-#include <jdk/internal/net/http/SocketTube$SocketFlowEvent.h>
 #include <jdk/internal/net/http/SocketTube$SocketFlowTask.h>
 #include <jdk/internal/net/http/SocketTube.h>
 #include <jdk/internal/net/http/common/Demand.h>
 #include <jdk/internal/net/http/common/FlowTube$TubeSubscriber.h>
 #include <jdk/internal/net/http/common/Log.h>
 #include <jdk/internal/net/http/common/Logger.h>
-#include <jdk/internal/net/http/common/SequentialScheduler$RestartableTask.h>
 #include <jdk/internal/net/http/common/SequentialScheduler.h>
 #include <jdk/internal/net/http/common/Utils.h>
 #include <jcpp.h>
@@ -44,23 +41,17 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $List = ::java::util::List;
-using $AtomicReference = ::java::util::concurrent::atomic::AtomicReference;
 using $Consumer = ::java::util::function::Consumer;
-using $AsyncEvent = ::jdk::internal::net::http::AsyncEvent;
 using $AsyncTriggerEvent = ::jdk::internal::net::http::AsyncTriggerEvent;
-using $HttpClientImpl = ::jdk::internal::net::http::HttpClientImpl;
 using $SocketTube = ::jdk::internal::net::http::SocketTube;
 using $SocketTube$InternalReadPublisher = ::jdk::internal::net::http::SocketTube$InternalReadPublisher;
 using $SocketTube$InternalReadPublisher$ReadEvent = ::jdk::internal::net::http::SocketTube$InternalReadPublisher$ReadEvent;
 using $SocketTube$InternalReadPublisher$ReadSubscription = ::jdk::internal::net::http::SocketTube$InternalReadPublisher$ReadSubscription;
-using $SocketTube$SocketFlowEvent = ::jdk::internal::net::http::SocketTube$SocketFlowEvent;
 using $SocketTube$SocketFlowTask = ::jdk::internal::net::http::SocketTube$SocketFlowTask;
 using $Demand = ::jdk::internal::net::http::common::Demand;
 using $FlowTube$TubeSubscriber = ::jdk::internal::net::http::common::FlowTube$TubeSubscriber;
 using $Log = ::jdk::internal::net::http::common::Log;
-using $Logger = ::jdk::internal::net::http::common::Logger;
 using $SequentialScheduler = ::jdk::internal::net::http::common::SequentialScheduler;
-using $SequentialScheduler$RestartableTask = ::jdk::internal::net::http::common::SequentialScheduler$RestartableTask;
 using $Utils = ::jdk::internal::net::http::common::Utils;
 
 namespace jdk {
@@ -77,33 +68,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->read();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$read>());
-	}
 	SocketTube$InternalReadPublisher$InternalReadSubscription* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$read::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$read, inst$)},
-	{}
-};
-$MethodInfo SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$read::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalReadPublisher$InternalReadSubscription;)V", nullptr, $PUBLIC, $method(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$read, init$, void, SocketTube$InternalReadPublisher$InternalReadSubscription*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$read, run, void)},
-	{}
-};
-$ClassInfo SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$read::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$read",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$read::load$($String* name, bool initialize) {
-	$loadClass(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$read, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$read, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalReadPublisher$InternalReadSubscription;)V", nullptr, $PUBLIC, $method(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$read, init$, void, SocketTube$InternalReadPublisher$InternalReadSubscription*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$read, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$read",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$read, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$read);
+	});
 	return class$;
 }
 $Class* SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$read::class$ = nullptr;
@@ -117,33 +104,29 @@ public:
 	virtual void accept(Object$* error) override {
 		$nc(inst$)->signalError($cast($Throwable, error));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1>());
-	}
 	SocketTube$InternalReadPublisher$InternalReadSubscription* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1, inst$)},
-	{}
-};
-$MethodInfo SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalReadPublisher$InternalReadSubscription;)V", nullptr, $PUBLIC, $method(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1, init$, void, SocketTube$InternalReadPublisher$InternalReadSubscription*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1, accept, void, Object$*)},
-	{}
-};
-$ClassInfo SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1::load$($String* name, bool initialize) {
-	$loadClass(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalReadPublisher$InternalReadSubscription;)V", nullptr, $PUBLIC, $method(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1, init$, void, SocketTube$InternalReadPublisher$InternalReadSubscription*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1);
+	});
 	return class$;
 }
 $Class* SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1::class$ = nullptr;
@@ -157,115 +140,57 @@ public:
 	virtual void run() override {
 		$nc(inst$)->handleSubscribeEvent();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$handleSubscribeEvent$2>());
-	}
 	SocketTube$InternalReadPublisher$InternalReadSubscription* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$handleSubscribeEvent$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$handleSubscribeEvent$2, inst$)},
-	{}
-};
-$MethodInfo SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$handleSubscribeEvent$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalReadPublisher$InternalReadSubscription;)V", nullptr, $PUBLIC, $method(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$handleSubscribeEvent$2, init$, void, SocketTube$InternalReadPublisher$InternalReadSubscription*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$handleSubscribeEvent$2, run, void)},
-	{}
-};
-$ClassInfo SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$handleSubscribeEvent$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$handleSubscribeEvent$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$handleSubscribeEvent$2::load$($String* name, bool initialize) {
-	$loadClass(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$handleSubscribeEvent$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$handleSubscribeEvent$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalReadPublisher$InternalReadSubscription;)V", nullptr, $PUBLIC, $method(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$handleSubscribeEvent$2, init$, void, SocketTube$InternalReadPublisher$InternalReadSubscription*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$handleSubscribeEvent$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$handleSubscribeEvent$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$handleSubscribeEvent$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$handleSubscribeEvent$2);
+	});
 	return class$;
 }
 $Class* SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$handleSubscribeEvent$2::class$ = nullptr;
 
-$FieldInfo _SocketTube$InternalReadPublisher$InternalReadSubscription_FieldInfo_[] = {
-	{"this$1", "Ljdk/internal/net/http/SocketTube$InternalReadPublisher;", nullptr, $FINAL | $SYNTHETIC, $field(SocketTube$InternalReadPublisher$InternalReadSubscription, this$1)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SocketTube$InternalReadPublisher$InternalReadSubscription, $assertionsDisabled)},
-	{"demand", "Ljdk/internal/net/http/common/Demand;", nullptr, $PRIVATE | $FINAL, $field(SocketTube$InternalReadPublisher$InternalReadSubscription, demand)},
-	{"readScheduler", "Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $FINAL, $field(SocketTube$InternalReadPublisher$InternalReadSubscription, readScheduler)},
-	{"completed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(SocketTube$InternalReadPublisher$InternalReadSubscription, completed)},
-	{"readEvent", "Ljdk/internal/net/http/SocketTube$InternalReadPublisher$ReadEvent;", nullptr, $PRIVATE | $FINAL, $field(SocketTube$InternalReadPublisher$InternalReadSubscription, readEvent)},
-	{"subscribeEvent", "Ljdk/internal/net/http/AsyncEvent;", nullptr, $PRIVATE | $FINAL, $field(SocketTube$InternalReadPublisher$InternalReadSubscription, subscribeEvent)},
-	{}
-};
-
-$MethodInfo _SocketTube$InternalReadPublisher$InternalReadSubscription_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalReadPublisher;)V", nullptr, 0, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, init$, void, $SocketTube$InternalReadPublisher*)},
-	{"cancel", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketTube$InternalReadPublisher$InternalReadSubscription, cancel, void)},
-	{"handleError", "()V", nullptr, $FINAL, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, handleError, void)},
-	{"handlePending", "()Z", nullptr, 0, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, handlePending, bool)},
-	{"handleSubscribeEvent", "()V", nullptr, $FINAL, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, handleSubscribeEvent, void)},
-	{"pauseReadEvent", "()V", nullptr, $PRIVATE, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, pauseReadEvent, void)},
-	{"read", "()V", nullptr, $FINAL, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, read, void)},
-	{"request", "(J)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketTube$InternalReadPublisher$InternalReadSubscription, request, void, int64_t)},
-	{"resumeReadEvent", "()V", nullptr, $PRIVATE, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, resumeReadEvent, void)},
-	{"signalError", "(Ljava/lang/Throwable;)V", nullptr, $FINAL, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, signalError, void, $Throwable*)},
-	{"signalReadable", "()V", nullptr, $FINAL, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, signalReadable, void)},
-	{"signalSubscribe", "()V", nullptr, $FINAL, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, signalSubscribe, void)},
-	{}
-};
-
-$InnerClassInfo _SocketTube$InternalReadPublisher$InternalReadSubscription_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.SocketTube$InternalReadPublisher", "jdk.internal.net.http.SocketTube", "InternalReadPublisher", $PRIVATE | $FINAL},
-	{"jdk.internal.net.http.SocketTube$InternalReadPublisher$InternalReadSubscription", "jdk.internal.net.http.SocketTube$InternalReadPublisher", "InternalReadSubscription", $FINAL},
-	{"java.util.concurrent.Flow$Subscription", "java.util.concurrent.Flow", "Subscription", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SocketTube$InternalReadPublisher$InternalReadSubscription_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.SocketTube$InternalReadPublisher$InternalReadSubscription",
-	"java.lang.Object",
-	"java.util.concurrent.Flow$Subscription",
-	_SocketTube$InternalReadPublisher$InternalReadSubscription_FieldInfo_,
-	_SocketTube$InternalReadPublisher$InternalReadSubscription_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SocketTube$InternalReadPublisher$InternalReadSubscription_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.SocketTube"
-};
-
-$Object* allocate$SocketTube$InternalReadPublisher$InternalReadSubscription($Class* clazz) {
-	return $of($alloc(SocketTube$InternalReadPublisher$InternalReadSubscription));
-}
-
 bool SocketTube$InternalReadPublisher$InternalReadSubscription::$assertionsDisabled = false;
 
 void SocketTube$InternalReadPublisher$InternalReadSubscription::init$($SocketTube$InternalReadPublisher* this$1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$1, this$1);
 	$set(this, demand, $new($Demand));
-	$set(this, readScheduler, $new($SequentialScheduler, $$new($SocketTube$SocketFlowTask, static_cast<$Runnable*>($$new(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$read, this)))));
-	$var($Consumer, var$0, static_cast<$Consumer*>($new(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1, this)));
-	$set(this, subscribeEvent, $new($AsyncTriggerEvent, var$0, static_cast<$Runnable*>($$new(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$handleSubscribeEvent$2, this))));
+	$set(this, readScheduler, $new($SequentialScheduler, $$new($SocketTube$SocketFlowTask, $$new(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$read, this))));
+	$var($Consumer, var$0, $new(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1, this));
+	$set(this, subscribeEvent, $new($AsyncTriggerEvent, var$0, $$new(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$handleSubscribeEvent$2, this)));
 	$set(this, readEvent, $new($SocketTube$InternalReadPublisher$ReadEvent, this$1, $nc(this$1->this$0)->channel, this));
 }
 
 void SocketTube$InternalReadPublisher$InternalReadSubscription::signalSubscribe() {
-	if ($nc(this->readScheduler)->isStopped() || this->completed) {
+	if (this->readScheduler->isStopped() || this->completed) {
 		if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-			$nc($nc(this->this$1->this$0)->debug)->log("handling pending subscription while completed"_s);
+			this->this$1->this$0->debug->log("handling pending subscription while completed"_s);
 		}
 		handlePending();
 	} else {
 		try {
 			if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-				$nc($nc(this->this$1->this$0)->debug)->log("registering subscribe event"_s);
+				this->this$1->this$0->debug->log("registering subscribe event"_s);
 			}
-			$nc($nc(this->this$1->this$0)->client)->registerEvent(this->subscribeEvent);
+			$nc(this->this$1->this$0->client)->registerEvent(this->subscribeEvent);
 		} catch ($Throwable& t) {
 			signalError(t);
 			handlePending();
@@ -274,30 +199,30 @@ void SocketTube$InternalReadPublisher$InternalReadSubscription::signalSubscribe(
 }
 
 void SocketTube$InternalReadPublisher$InternalReadSubscription::handleSubscribeEvent() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!SocketTube$InternalReadPublisher$InternalReadSubscription::$assertionsDisabled && !$nc($nc(this->this$1->this$0)->client)->isSelectorThread()) {
 		$throwNew($AssertionError);
 	}
 	$nc($nc(this->this$1->this$0)->debug)->log("subscribe event raised"_s);
 	if ($Log::channel()) {
-		$Log::logChannel("Start reading from {0}"_s, $$new($ObjectArray, {$($of($nc(this->this$1->this$0)->channelDescr()))}));
+		$Log::logChannel("Start reading from {0}"_s, $$new($ObjectArray, {$(this->this$1->this$0->channelDescr())}));
 	}
-	$nc(this->readScheduler)->runOrSchedule();
-	if ($nc(this->readScheduler)->isStopped() || this->completed) {
-		if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-			$nc($nc(this->this$1->this$0)->debug)->log("handling pending subscription when completed"_s);
+	this->readScheduler->runOrSchedule();
+	if (this->readScheduler->isStopped() || this->completed) {
+		if (this->this$1->this$0->debug->on()) {
+			this->this$1->this$0->debug->log("handling pending subscription when completed"_s);
 		}
 		handlePending();
 	}
 }
 
 void SocketTube$InternalReadPublisher$InternalReadSubscription::request(int64_t n) {
-	$useLocalCurrentObjectStackCache();
-	if (n > (int64_t)0) {
-		bool wasFulfilled = $nc(this->demand)->increase(n);
+	$useLocalObjectStack();
+	if (n > 0) {
+		bool wasFulfilled = this->demand->increase(n);
 		if (wasFulfilled) {
 			if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-				$nc($nc(this->this$1->this$0)->debug)->log("got some demand for reading"_s);
+				this->this$1->this$0->debug->log("got some demand for reading"_s);
 			}
 			resumeReadEvent();
 		}
@@ -308,250 +233,248 @@ void SocketTube$InternalReadPublisher$InternalReadSubscription::request(int64_t 
 }
 
 void SocketTube$InternalReadPublisher$InternalReadSubscription::cancel() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	pauseReadEvent();
 	if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-		$nc($nc(this->this$1->this$0)->debug)->log("Read subscription cancelled"_s);
+		this->this$1->this$0->debug->log("Read subscription cancelled"_s);
 	}
 	if ($Log::channel()) {
-		$Log::logChannel("Read subscription cancelled for channel {0}"_s, $$new($ObjectArray, {$($of($nc(this->this$1->this$0)->channelDescr()))}));
+		$Log::logChannel("Read subscription cancelled for channel {0}"_s, $$new($ObjectArray, {$(this->this$1->this$0->channelDescr())}));
 	}
-	if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-		$nc($nc(this->this$1->this$0)->debug)->log("Stopping read scheduler"_s);
+	if (this->this$1->this$0->debug->on()) {
+		this->this$1->this$0->debug->log("Stopping read scheduler"_s);
 	}
-	$nc(this->readScheduler)->stop();
+	this->readScheduler->stop();
 }
 
 void SocketTube$InternalReadPublisher$InternalReadSubscription::resumeReadEvent() {
 	if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-		$nc($nc(this->this$1->this$0)->debug)->log("resuming read event"_s);
+		this->this$1->this$0->debug->log("resuming read event"_s);
 	}
-	$nc(this->this$1->this$0)->resumeEvent(this->readEvent, static_cast<$Consumer*>($$new(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1, this)));
+	this->this$1->this$0->resumeEvent(this->readEvent, $$new(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1, this));
 }
 
 void SocketTube$InternalReadPublisher$InternalReadSubscription::pauseReadEvent() {
 	if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-		$nc($nc(this->this$1->this$0)->debug)->log("pausing read event"_s);
+		this->this$1->this$0->debug->log("pausing read event"_s);
 	}
-	$nc(this->this$1->this$0)->pauseEvent(this->readEvent, static_cast<$Consumer*>($$new(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1, this)));
+	this->this$1->this$0->pauseEvent(this->readEvent, $$new(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1, this));
 }
 
 void SocketTube$InternalReadPublisher$InternalReadSubscription::handleError() {
 	if (!SocketTube$InternalReadPublisher$InternalReadSubscription::$assertionsDisabled && !($nc($nc(this->this$1->this$0)->errorRef)->get() != nullptr)) {
 		$throwNew($AssertionError);
 	}
-	$nc(this->readScheduler)->runOrSchedule();
+	this->readScheduler->runOrSchedule();
 }
 
 void SocketTube$InternalReadPublisher$InternalReadSubscription::signalError($Throwable* error) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-		$nc($nc(this->this$1->this$0)->debug)->log($$str({"signal read error: "_s, error}));
+		this->this$1->this$0->debug->log($$str({"signal read error: "_s, error}));
 	}
-	if (!$nc($nc(this->this$1->this$0)->errorRef)->compareAndSet(nullptr, error)) {
+	if (!$nc(this->this$1->this$0->errorRef)->compareAndSet(nullptr, error)) {
 		return;
 	}
-	if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-		$nc($nc(this->this$1->this$0)->debug)->log($$str({"got read error: "_s, error}));
+	if (this->this$1->this$0->debug->on()) {
+		this->this$1->this$0->debug->log($$str({"got read error: "_s, error}));
 	}
 	if ($Log::channel()) {
 		$Log::logChannel("Read error signalled on channel {0}: {1}"_s, $$new($ObjectArray, {
-			$($of($nc(this->this$1->this$0)->channelDescr())),
-			$of(error)
+			$(this->this$1->this$0->channelDescr()),
+			error
 		}));
 	}
-	$nc(this->readScheduler)->runOrSchedule();
+	this->readScheduler->runOrSchedule();
 }
 
 void SocketTube$InternalReadPublisher$InternalReadSubscription::signalReadable() {
-	$nc(this->readScheduler)->runOrSchedule();
+	this->readScheduler->runOrSchedule();
 }
 
 void SocketTube$InternalReadPublisher$InternalReadSubscription::read() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				while (!$nc(this->readScheduler)->isStopped()) {
-					if (this->completed) {
-						return$1 = true;
-						goto $finally;
+			while (!this->readScheduler->isStopped()) {
+				if (this->completed) {
+					return$1 = true;
+					goto $finally;
+				}
+				if (handlePending()) {
+					if ($nc($nc(this->this$1->this$0)->debug)->on()) {
+						this->this$1->this$0->debug->log("pending subscriber subscribed"_s);
 					}
-					if (handlePending()) {
-						if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-							$nc($nc(this->this$1->this$0)->debug)->log("pending subscriber subscribed"_s);
-						}
-						return$1 = true;
-						goto $finally;
-					}
-					$var($SocketTube$InternalReadPublisher$ReadSubscription, current, this->this$1->subscription);
-					$var($Throwable, error, $cast($Throwable, $nc($nc(this->this$1->this$0)->errorRef)->get()));
-					if (current == nullptr) {
-						if (!SocketTube$InternalReadPublisher$InternalReadSubscription::$assertionsDisabled && !(error != nullptr)) {
-							$throwNew($AssertionError);
-						}
-						if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-							$nc($nc(this->this$1->this$0)->debug)->log("error raised before subscriber subscribed: %s"_s, $$new($ObjectArray, {$of(error)}));
-						}
-						return$1 = true;
-						goto $finally;
-					}
-					$var($FlowTube$TubeSubscriber, subscriber, $nc(current)->subscriber);
-					if (error != nullptr) {
-						this->completed = true;
-						pauseReadEvent();
-						if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-							$nc($nc(this->this$1->this$0)->debug)->log($$str({"Sending error "_s, error, " to subscriber "_s, subscriber}));
-						}
-						if ($Log::channel()) {
-							$Log::logChannel("Raising error with subscriber for {0}: {1}"_s, $$new($ObjectArray, {
-								$($of($nc(this->this$1->this$0)->channelDescr())),
-								$of(error)
-							}));
-						}
-						$nc(current->errorRef)->compareAndSet(nullptr, error);
-						current->signalCompletion();
-						if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-							$nc($nc(this->this$1->this$0)->debug)->log("Stopping read scheduler"_s);
-						}
-						$nc(this->readScheduler)->stop();
-						$nc(this->this$1->this$0)->debugState("leaving read() loop with error: "_s);
-						return$1 = true;
-						goto $finally;
-					}
-					if (!SocketTube$InternalReadPublisher$InternalReadSubscription::$assertionsDisabled && !$nc($nc(this->this$1->this$0)->client)->isSelectorThread()) {
+					return$1 = true;
+					goto $finally;
+				}
+				$var($SocketTube$InternalReadPublisher$ReadSubscription, current, this->this$1->subscription);
+				$var($Throwable, error, $cast($Throwable, $nc($nc(this->this$1->this$0)->errorRef)->get()));
+				if (current == nullptr) {
+					if (!SocketTube$InternalReadPublisher$InternalReadSubscription::$assertionsDisabled && !(error != nullptr)) {
 						$throwNew($AssertionError);
 					}
-					if ($nc(this->demand)->tryDecrement()) {
-						try {
-							$var($List, bytes, $nc(this->this$1->this$0)->readAvailable(current->bufferSource));
-							if (bytes == $SocketTube::EOF) {
-								if (!this->completed) {
-									if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-										$nc($nc(this->this$1->this$0)->debug)->log("got read EOF"_s);
-									}
-									if ($Log::channel()) {
-										$Log::logChannel("EOF read from channel: {0}"_s, $$new($ObjectArray, {$($of($nc(this->this$1->this$0)->channelDescr()))}));
-									}
-									this->completed = true;
-									pauseReadEvent();
-									current->signalCompletion();
-									if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-										$nc($nc(this->this$1->this$0)->debug)->log("Stopping read scheduler"_s);
-									}
-									$nc(this->readScheduler)->stop();
-								}
-								$nc(this->this$1->this$0)->debugState("leaving read() loop after EOF: "_s);
-								return$1 = true;
-								goto $finally;
-							} else if ($Utils::remaining(bytes) > 0) {
-								if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-									$nc($nc(this->this$1->this$0)->debug)->log($$str({"read bytes: "_s, $$str($Utils::remaining(bytes))}));
-								}
-								if (!SocketTube$InternalReadPublisher$InternalReadSubscription::$assertionsDisabled && ! !current->completed) {
-									$throwNew($AssertionError);
-								}
-								$nc(subscriber)->onNext(bytes);
-								resumeReadEvent();
-								if ($nc($nc(this->this$1->this$0)->errorRef)->get() != nullptr) {
-									continue;
-								}
-								$nc(this->this$1->this$0)->debugState("leaving read() loop after onNext: "_s);
-								return$1 = true;
-								goto $finally;
-							} else {
-								if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-									$nc($nc(this->this$1->this$0)->debug)->log("no more bytes available"_s);
-								}
-								$nc(this->demand)->increase(1);
-								resumeReadEvent();
-								if ($nc($nc(this->this$1->this$0)->errorRef)->get() != nullptr) {
-									continue;
-								}
-								$nc(this->this$1->this$0)->debugState("leaving read() loop with no bytes"_s);
-								return$1 = true;
-								goto $finally;
-							}
-						} catch ($Throwable& x) {
-							signalError(x);
-							continue;
-						}
-					} else {
-						if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-							$nc($nc(this->this$1->this$0)->debug)->log("no more demand for reading"_s);
-						}
-						if ($nc($nc(this->this$1->this$0)->errorRef)->get() != nullptr) {
-							continue;
-						}
-						$nc(this->this$1->this$0)->debugState("leaving read() loop with no demand"_s);
-						break;
+					if ($nc(this->this$1->this$0->debug)->on()) {
+						this->this$1->this$0->debug->log("error raised before subscriber subscribed: %s"_s, $$new($ObjectArray, {$of(error)}));
 					}
+					return$1 = true;
+					goto $finally;
 				}
-			} catch ($Throwable& t) {
-				if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-					$nc($nc(this->this$1->this$0)->debug)->log("Unexpected exception in read loop"_s, $cast($Throwable, t));
+				$var($FlowTube$TubeSubscriber, subscriber, $nc(current)->subscriber);
+				if (error != nullptr) {
+					this->completed = true;
+					pauseReadEvent();
+					if ($nc(this->this$1->this$0->debug)->on()) {
+						this->this$1->this$0->debug->log($$str({"Sending error "_s, error, " to subscriber "_s, subscriber}));
+					}
+					if ($Log::channel()) {
+						$Log::logChannel("Raising error with subscriber for {0}: {1}"_s, $$new($ObjectArray, {
+							$(this->this$1->this$0->channelDescr()),
+							error
+						}));
+					}
+					$nc(current->errorRef)->compareAndSet(nullptr, error);
+					current->signalCompletion();
+					if (this->this$1->this$0->debug->on()) {
+						this->this$1->this$0->debug->log("Stopping read scheduler"_s);
+					}
+					this->readScheduler->stop();
+					this->this$1->this$0->debugState("leaving read() loop with error: "_s);
+					return$1 = true;
+					goto $finally;
 				}
-				signalError(t);
+				if (!SocketTube$InternalReadPublisher$InternalReadSubscription::$assertionsDisabled && !$nc(this->this$1->this$0->client)->isSelectorThread()) {
+					$throwNew($AssertionError);
+				}
+				if (this->demand->tryDecrement()) {
+					try {
+						$var($List, bytes, this->this$1->this$0->readAvailable(current->bufferSource));
+						if (bytes == $SocketTube::EOF) {
+							if (!this->completed) {
+								if ($nc(this->this$1->this$0->debug)->on()) {
+									this->this$1->this$0->debug->log("got read EOF"_s);
+								}
+								if ($Log::channel()) {
+									$Log::logChannel("EOF read from channel: {0}"_s, $$new($ObjectArray, {$(this->this$1->this$0->channelDescr())}));
+								}
+								this->completed = true;
+								pauseReadEvent();
+								current->signalCompletion();
+								if (this->this$1->this$0->debug->on()) {
+									this->this$1->this$0->debug->log("Stopping read scheduler"_s);
+								}
+								this->readScheduler->stop();
+							}
+							this->this$1->this$0->debugState("leaving read() loop after EOF: "_s);
+							return$1 = true;
+							goto $finally;
+						} else if ($Utils::remaining(bytes) > 0) {
+							if ($nc(this->this$1->this$0->debug)->on()) {
+								this->this$1->this$0->debug->log($$str({"read bytes: "_s, $$str($Utils::remaining(bytes))}));
+							}
+							if (!SocketTube$InternalReadPublisher$InternalReadSubscription::$assertionsDisabled && ! !current->completed) {
+								$throwNew($AssertionError);
+							}
+							$nc(subscriber)->onNext(bytes);
+							resumeReadEvent();
+							if (this->this$1->this$0->errorRef->get() != nullptr) {
+								continue;
+							}
+							this->this$1->this$0->debugState("leaving read() loop after onNext: "_s);
+							return$1 = true;
+							goto $finally;
+						} else {
+							if ($nc(this->this$1->this$0->debug)->on()) {
+								this->this$1->this$0->debug->log("no more bytes available"_s);
+							}
+							this->demand->increase(1);
+							resumeReadEvent();
+							if (this->this$1->this$0->errorRef->get() != nullptr) {
+								continue;
+							}
+							this->this$1->this$0->debugState("leaving read() loop with no bytes"_s);
+							return$1 = true;
+							goto $finally;
+						}
+					} catch ($Throwable& x) {
+						signalError(x);
+						continue;
+					}
+				} else {
+					if ($nc(this->this$1->this$0->debug)->on()) {
+						this->this$1->this$0->debug->log("no more demand for reading"_s);
+					}
+					if (this->this$1->this$0->errorRef->get() != nullptr) {
+						continue;
+					}
+					this->this$1->this$0->debugState("leaving read() loop with no demand"_s);
+					break;
+				}
 			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} $finally: {
-			if ($nc(this->readScheduler)->isStopped()) {
-				if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-					$nc($nc(this->this$1->this$0)->debug)->log("Read scheduler stopped"_s);
-				}
-				if ($Log::channel()) {
-					$Log::logChannel("Stopped reading from channel {0}"_s, $$new($ObjectArray, {$($of($nc(this->this$1->this$0)->channelDescr()))}));
-				}
+		} catch ($Throwable& t) {
+			if ($nc($nc(this->this$1->this$0)->debug)->on()) {
+				this->this$1->this$0->debug->log("Unexpected exception in read loop"_s, t);
 			}
-			handlePending();
+			signalError(t);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} $finally: {
+		if (this->readScheduler->isStopped()) {
+			if ($nc($nc(this->this$1->this$0)->debug)->on()) {
+				this->this$1->this$0->debug->log("Read scheduler stopped"_s);
+			}
+			if ($Log::channel()) {
+				$Log::logChannel("Stopped reading from channel {0}"_s, $$new($ObjectArray, {$(this->this$1->this$0->channelDescr())}));
+			}
 		}
-		if (return$1) {
-			return;
-		}
+		handlePending();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
 bool SocketTube$InternalReadPublisher$InternalReadSubscription::handlePending() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SocketTube$InternalReadPublisher$ReadSubscription, pending, $cast($SocketTube$InternalReadPublisher$ReadSubscription, $nc(this->this$1->pendingSubscription)->getAndSet(nullptr)));
 	if (pending == nullptr) {
 		return false;
 	}
 	if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-		$nc($nc(this->this$1->this$0)->debug)->log("handling pending subscription for %s"_s, $$new($ObjectArray, {$of($nc(pending)->subscriber)}));
+		this->this$1->this$0->debug->log("handling pending subscription for %s"_s, $$new($ObjectArray, {$nc(pending)->subscriber}));
 	}
 	$var($SocketTube$InternalReadPublisher$ReadSubscription, current, this->this$1->subscription);
 	if (current != nullptr && current != pending && !this->completed) {
 		$nc(current->subscriber)->dropSubscription();
 	}
-	if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-		$nc($nc(this->this$1->this$0)->debug)->log("read demand reset to 0"_s);
+	if (this->this$1->this$0->debug->on()) {
+		this->this$1->this$0->debug->log("read demand reset to 0"_s);
 	}
 	$nc($nc(this->this$1->subscriptionImpl)->demand)->reset();
-	$nc($nc(pending)->errorRef)->compareAndSet(nullptr, $cast($Throwable, $($nc($nc(this->this$1->this$0)->errorRef)->get())));
-	if (!$nc(this->readScheduler)->isStopped()) {
+	$nc($nc(pending)->errorRef)->compareAndSet(nullptr, $$cast($Throwable, $nc(this->this$1->this$0->errorRef)->get()));
+	if (!this->readScheduler->isStopped()) {
 		$set(this->this$1, subscription, pending);
-	} else if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-		$nc($nc(this->this$1->this$0)->debug)->log("socket tube is already stopped"_s);
+	} else if (this->this$1->this$0->debug->on()) {
+		this->this$1->this$0->debug->log("socket tube is already stopped"_s);
 	}
-	if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-		$nc($nc(this->this$1->this$0)->debug)->log("calling onSubscribe"_s);
+	if (this->this$1->this$0->debug->on()) {
+		this->this$1->this$0->debug->log("calling onSubscribe"_s);
 	}
 	pending->signalOnSubscribe();
 	if (this->completed) {
-		$nc(pending->errorRef)->compareAndSet(nullptr, $cast($Throwable, $($nc($nc(this->this$1->this$0)->errorRef)->get())));
+		pending->errorRef->compareAndSet(nullptr, $$cast($Throwable, this->this$1->this$0->errorRef->get()));
 		pending->signalCompletion();
 	}
 	return true;
 }
 
-void clinit$SocketTube$InternalReadPublisher$InternalReadSubscription($Class* class$) {
+void SocketTube$InternalReadPublisher$InternalReadSubscription::clinit$($Class* clazz) {
 	$load($SocketTube);
 	SocketTube$InternalReadPublisher$InternalReadSubscription::$assertionsDisabled = !$SocketTube::class$->desiredAssertionStatus();
 }
@@ -561,17 +484,65 @@ SocketTube$InternalReadPublisher$InternalReadSubscription::SocketTube$InternalRe
 
 $Class* SocketTube$InternalReadPublisher$InternalReadSubscription::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$read::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$read")) {
 			return SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$read::load$(name, initialize);
 		}
-		if (name->equals(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1")) {
 			return SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1::load$(name, initialize);
 		}
-		if (name->equals(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$handleSubscribeEvent$2::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$handleSubscribeEvent$2")) {
 			return SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$handleSubscribeEvent$2::load$(name, initialize);
 		}
 	}
-	$loadClass(SocketTube$InternalReadPublisher$InternalReadSubscription, name, initialize, &_SocketTube$InternalReadPublisher$InternalReadSubscription_ClassInfo_, clinit$SocketTube$InternalReadPublisher$InternalReadSubscription, allocate$SocketTube$InternalReadPublisher$InternalReadSubscription);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljdk/internal/net/http/SocketTube$InternalReadPublisher;", nullptr, $FINAL | $SYNTHETIC, $field(SocketTube$InternalReadPublisher$InternalReadSubscription, this$1)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SocketTube$InternalReadPublisher$InternalReadSubscription, $assertionsDisabled)},
+		{"demand", "Ljdk/internal/net/http/common/Demand;", nullptr, $PRIVATE | $FINAL, $field(SocketTube$InternalReadPublisher$InternalReadSubscription, demand)},
+		{"readScheduler", "Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $FINAL, $field(SocketTube$InternalReadPublisher$InternalReadSubscription, readScheduler)},
+		{"completed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(SocketTube$InternalReadPublisher$InternalReadSubscription, completed)},
+		{"readEvent", "Ljdk/internal/net/http/SocketTube$InternalReadPublisher$ReadEvent;", nullptr, $PRIVATE | $FINAL, $field(SocketTube$InternalReadPublisher$InternalReadSubscription, readEvent)},
+		{"subscribeEvent", "Ljdk/internal/net/http/AsyncEvent;", nullptr, $PRIVATE | $FINAL, $field(SocketTube$InternalReadPublisher$InternalReadSubscription, subscribeEvent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalReadPublisher;)V", nullptr, 0, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, init$, void, $SocketTube$InternalReadPublisher*)},
+		{"cancel", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketTube$InternalReadPublisher$InternalReadSubscription, cancel, void)},
+		{"handleError", "()V", nullptr, $FINAL, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, handleError, void)},
+		{"handlePending", "()Z", nullptr, 0, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, handlePending, bool)},
+		{"handleSubscribeEvent", "()V", nullptr, $FINAL, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, handleSubscribeEvent, void)},
+		{"pauseReadEvent", "()V", nullptr, $PRIVATE, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, pauseReadEvent, void)},
+		{"read", "()V", nullptr, $FINAL, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, read, void)},
+		{"request", "(J)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketTube$InternalReadPublisher$InternalReadSubscription, request, void, int64_t)},
+		{"resumeReadEvent", "()V", nullptr, $PRIVATE, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, resumeReadEvent, void)},
+		{"signalError", "(Ljava/lang/Throwable;)V", nullptr, $FINAL, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, signalError, void, $Throwable*)},
+		{"signalReadable", "()V", nullptr, $FINAL, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, signalReadable, void)},
+		{"signalSubscribe", "()V", nullptr, $FINAL, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, signalSubscribe, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.SocketTube$InternalReadPublisher", "jdk.internal.net.http.SocketTube", "InternalReadPublisher", $PRIVATE | $FINAL},
+		{"jdk.internal.net.http.SocketTube$InternalReadPublisher$InternalReadSubscription", "jdk.internal.net.http.SocketTube$InternalReadPublisher", "InternalReadSubscription", $FINAL},
+		{"java.util.concurrent.Flow$Subscription", "java.util.concurrent.Flow", "Subscription", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.SocketTube$InternalReadPublisher$InternalReadSubscription",
+		"java.lang.Object",
+		"java.util.concurrent.Flow$Subscription",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.SocketTube"
+	};
+	$loadClass(SocketTube$InternalReadPublisher$InternalReadSubscription, name, initialize, &classInfo$$, SocketTube$InternalReadPublisher$InternalReadSubscription::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketTube$InternalReadPublisher$InternalReadSubscription);
+	});
 	return class$;
 }
 

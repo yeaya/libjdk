@@ -28,6 +28,7 @@ class $export DiagnosticFormatter$PositionKind : public ::java::lang::Enum {
 public:
 	DiagnosticFormatter$PositionKind();
 	static $Array<::com::sun::tools::javac::api::DiagnosticFormatter$PositionKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::api::DiagnosticFormatter$PositionKind* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::api::DiagnosticFormatter$PositionKind>* values();

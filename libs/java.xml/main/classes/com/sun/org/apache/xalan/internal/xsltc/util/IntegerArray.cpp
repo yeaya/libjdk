@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/util/IntegerArray.h>
-
 #include <jcpp.h>
 
 using $PrintStream = ::java::io::PrintStream;
@@ -15,55 +14,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace util {
-
-$FieldInfo _IntegerArray_FieldInfo_[] = {
-	{"InitialSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerArray, InitialSize)},
-	{"_array", "[I", nullptr, $PRIVATE, $field(IntegerArray, _array)},
-	{"_size", "I", nullptr, $PRIVATE, $field(IntegerArray, _size)},
-	{"_free", "I", nullptr, $PRIVATE, $field(IntegerArray, _free)},
-	{}
-};
-
-$MethodInfo _IntegerArray_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IntegerArray, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(IntegerArray, init$, void, int32_t)},
-	{"<init>", "([I)V", nullptr, $PUBLIC, $method(IntegerArray, init$, void, $ints*)},
-	{"add", "(I)V", nullptr, $PUBLIC | $FINAL, $method(IntegerArray, add, void, int32_t)},
-	{"addNew", "(I)V", nullptr, $PUBLIC, $method(IntegerArray, addNew, void, int32_t)},
-	{"at", "(I)I", nullptr, $PUBLIC | $FINAL, $method(IntegerArray, at, int32_t, int32_t)},
-	{"cardinality", "()I", nullptr, $PUBLIC | $FINAL, $method(IntegerArray, cardinality, int32_t)},
-	{"clear", "()V", nullptr, $PUBLIC, $method(IntegerArray, clear, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IntegerArray, clone, $Object*)},
-	{"growArray", "(I)V", nullptr, $PRIVATE, $method(IntegerArray, growArray, void, int32_t)},
-	{"indexOf", "(I)I", nullptr, $PUBLIC, $method(IntegerArray, indexOf, int32_t, int32_t)},
-	{"last", "()I", nullptr, $PUBLIC, $method(IntegerArray, last, int32_t)},
-	{"merge", "(Lcom/sun/org/apache/xalan/internal/xsltc/util/IntegerArray;)V", nullptr, $PUBLIC, $method(IntegerArray, merge, void, IntegerArray*)},
-	{"partition", "([III)I", nullptr, $PRIVATE | $STATIC, $staticMethod(IntegerArray, partition, int32_t, $ints*, int32_t, int32_t)},
-	{"pop", "()V", nullptr, $PUBLIC, $method(IntegerArray, pop, void)},
-	{"pop", "(I)V", nullptr, $PUBLIC, $method(IntegerArray, pop, void, int32_t)},
-	{"popLast", "()I", nullptr, $PUBLIC, $method(IntegerArray, popLast, int32_t)},
-	{"print", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(IntegerArray, print, void, $PrintStream*)},
-	{"quicksort", "([III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(IntegerArray, quicksort, void, $ints*, int32_t, int32_t)},
-	{"reverse", "()V", nullptr, $PUBLIC, $method(IntegerArray, reverse, void)},
-	{"set", "(II)V", nullptr, $PUBLIC | $FINAL, $method(IntegerArray, set, void, int32_t, int32_t)},
-	{"setLast", "(I)V", nullptr, $PUBLIC, $method(IntegerArray, setLast, void, int32_t)},
-	{"sort", "()V", nullptr, $PUBLIC, $method(IntegerArray, sort, void)},
-	{"toIntArray", "()[I", nullptr, $PUBLIC, $method(IntegerArray, toIntArray, $ints*)},
-	{}
-};
-
-$ClassInfo _IntegerArray_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.util.IntegerArray",
-	"java.lang.Object",
-	nullptr,
-	_IntegerArray_FieldInfo_,
-	_IntegerArray_MethodInfo_
-};
-
-$Object* allocate$IntegerArray($Class* clazz) {
-	return $of($alloc(IntegerArray));
-}
 
 void IntegerArray::init$() {
 	IntegerArray::init$(IntegerArray::InitialSize);
@@ -87,7 +37,7 @@ $Object* IntegerArray::clone() {
 	$var(IntegerArray, clone, $new(IntegerArray, this->_free > 0 ? this->_free : 1));
 	$System::arraycopy(this->_array, 0, clone->_array, 0, this->_free);
 	clone->_free = this->_free;
-	return $of(clone);
+	return clone;
 }
 
 $ints* IntegerArray::toIntArray() {
@@ -134,8 +84,8 @@ void IntegerArray::reverse() {
 	int32_t right = this->_free - 1;
 	while (left < right) {
 		int32_t temp = $nc(this->_array)->get(left);
-		$nc(this->_array)->set(left++, $nc(this->_array)->get(right));
-		$nc(this->_array)->set(right--, temp);
+		this->_array->set(left++, this->_array->get(right));
+		this->_array->set(right--, temp);
 	}
 }
 
@@ -191,8 +141,10 @@ int32_t IntegerArray::partition($ints* array, int32_t p, int32_t r) {
 	int32_t j = r + 1;
 	while (true) {
 		while (x < array->get(--j)) {
+			;
 		}
 		while (x > array->get(++i)) {
+			;
 		}
 		if (i < j) {
 			int32_t temp = array->get(i);
@@ -250,7 +202,51 @@ IntegerArray::IntegerArray() {
 }
 
 $Class* IntegerArray::load$($String* name, bool initialize) {
-	$loadClass(IntegerArray, name, initialize, &_IntegerArray_ClassInfo_, allocate$IntegerArray);
+	$FieldInfo fieldInfos$$[] = {
+		{"InitialSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerArray, InitialSize)},
+		{"_array", "[I", nullptr, $PRIVATE, $field(IntegerArray, _array)},
+		{"_size", "I", nullptr, $PRIVATE, $field(IntegerArray, _size)},
+		{"_free", "I", nullptr, $PRIVATE, $field(IntegerArray, _free)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IntegerArray, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(IntegerArray, init$, void, int32_t)},
+		{"<init>", "([I)V", nullptr, $PUBLIC, $method(IntegerArray, init$, void, $ints*)},
+		{"add", "(I)V", nullptr, $PUBLIC | $FINAL, $method(IntegerArray, add, void, int32_t)},
+		{"addNew", "(I)V", nullptr, $PUBLIC, $method(IntegerArray, addNew, void, int32_t)},
+		{"at", "(I)I", nullptr, $PUBLIC | $FINAL, $method(IntegerArray, at, int32_t, int32_t)},
+		{"cardinality", "()I", nullptr, $PUBLIC | $FINAL, $method(IntegerArray, cardinality, int32_t)},
+		{"clear", "()V", nullptr, $PUBLIC, $method(IntegerArray, clear, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IntegerArray, clone, $Object*)},
+		{"growArray", "(I)V", nullptr, $PRIVATE, $method(IntegerArray, growArray, void, int32_t)},
+		{"indexOf", "(I)I", nullptr, $PUBLIC, $method(IntegerArray, indexOf, int32_t, int32_t)},
+		{"last", "()I", nullptr, $PUBLIC, $method(IntegerArray, last, int32_t)},
+		{"merge", "(Lcom/sun/org/apache/xalan/internal/xsltc/util/IntegerArray;)V", nullptr, $PUBLIC, $method(IntegerArray, merge, void, IntegerArray*)},
+		{"partition", "([III)I", nullptr, $PRIVATE | $STATIC, $staticMethod(IntegerArray, partition, int32_t, $ints*, int32_t, int32_t)},
+		{"pop", "()V", nullptr, $PUBLIC, $method(IntegerArray, pop, void)},
+		{"pop", "(I)V", nullptr, $PUBLIC, $method(IntegerArray, pop, void, int32_t)},
+		{"popLast", "()I", nullptr, $PUBLIC, $method(IntegerArray, popLast, int32_t)},
+		{"print", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(IntegerArray, print, void, $PrintStream*)},
+		{"quicksort", "([III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(IntegerArray, quicksort, void, $ints*, int32_t, int32_t)},
+		{"reverse", "()V", nullptr, $PUBLIC, $method(IntegerArray, reverse, void)},
+		{"set", "(II)V", nullptr, $PUBLIC | $FINAL, $method(IntegerArray, set, void, int32_t, int32_t)},
+		{"setLast", "(I)V", nullptr, $PUBLIC, $method(IntegerArray, setLast, void, int32_t)},
+		{"sort", "()V", nullptr, $PUBLIC, $method(IntegerArray, sort, void)},
+		{"toIntArray", "()[I", nullptr, $PUBLIC, $method(IntegerArray, toIntArray, $ints*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.util.IntegerArray",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IntegerArray, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IntegerArray);
+	});
 	return class$;
 }
 

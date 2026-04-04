@@ -1,5 +1,4 @@
 #include <javax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode.h>
-
 #include <javax/swing/tree/DefaultMutableTreeNode.h>
 #include <javax/swing/tree/FixedHeightLayoutCache$SearchInfo.h>
 #include <javax/swing/tree/FixedHeightLayoutCache.h>
@@ -19,86 +18,11 @@ using $FixedHeightLayoutCache = ::javax::swing::tree::FixedHeightLayoutCache;
 using $FixedHeightLayoutCache$SearchInfo = ::javax::swing::tree::FixedHeightLayoutCache$SearchInfo;
 using $MutableTreeNode = ::javax::swing::tree::MutableTreeNode;
 using $TreeModel = ::javax::swing::tree::TreeModel;
-using $TreeNode = ::javax::swing::tree::TreeNode;
 using $TreePath = ::javax::swing::tree::TreePath;
-using $TreeSelectionModel = ::javax::swing::tree::TreeSelectionModel;
 
 namespace javax {
 	namespace swing {
 		namespace tree {
-
-$FieldInfo _FixedHeightLayoutCache$FHTreeStateNode_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/tree/FixedHeightLayoutCache;", nullptr, $FINAL | $SYNTHETIC, $field(FixedHeightLayoutCache$FHTreeStateNode, this$0)},
-	{"isExpanded", "Z", nullptr, $PROTECTED, $field(FixedHeightLayoutCache$FHTreeStateNode, isExpanded$)},
-	{"childIndex", "I", nullptr, $PROTECTED, $field(FixedHeightLayoutCache$FHTreeStateNode, childIndex)},
-	{"childCount", "I", nullptr, $PROTECTED, $field(FixedHeightLayoutCache$FHTreeStateNode, childCount)},
-	{"row", "I", nullptr, $PROTECTED, $field(FixedHeightLayoutCache$FHTreeStateNode, row)},
-	{"path", "Ljavax/swing/tree/TreePath;", nullptr, $PROTECTED, $field(FixedHeightLayoutCache$FHTreeStateNode, path)},
-	{}
-};
-
-$MethodInfo _FixedHeightLayoutCache$FHTreeStateNode_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/tree/FixedHeightLayoutCache;Ljava/lang/Object;II)V", nullptr, $PUBLIC, $method(FixedHeightLayoutCache$FHTreeStateNode, init$, void, $FixedHeightLayoutCache*, Object$*, int32_t, int32_t)},
-	{"addNode", "(Ljavax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode;)V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, addNode, void, FixedHeightLayoutCache$FHTreeStateNode*)},
-	{"adjustChildIndexs", "(II)V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, adjustChildIndexs, void, int32_t, int32_t)},
-	{"adjustRowBy", "(I)V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, adjustRowBy, void, int32_t)},
-	{"adjustRowBy", "(II)V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, adjustRowBy, void, int32_t, int32_t)},
-	{"childInsertedAtModelIndex", "(IZ)V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, childInsertedAtModelIndex, void, int32_t, bool)},
-	{"collapse", "(Z)V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, collapse, void, bool)},
-	{"createChildFor", "(Ljava/lang/Object;)Ljavax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode;", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, createChildFor, FixedHeightLayoutCache$FHTreeStateNode*, Object$*)},
-	{"didAdjustTree", "()V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, didAdjustTree, void)},
-	{"didExpand", "()V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, didExpand, void)},
-	{"expand", "()V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, expand, void)},
-	{"expandParentAndReceiver", "()V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, expandParentAndReceiver, void)},
-	{"getChildAtModelIndex", "(I)Ljavax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode;", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, getChildAtModelIndex, FixedHeightLayoutCache$FHTreeStateNode*, int32_t)},
-	{"getChildIndex", "()I", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, getChildIndex, int32_t)},
-	{"getCountTo", "(I)I", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, getCountTo, int32_t, int32_t)},
-	{"getNumExpandedChildrenTo", "(I)I", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, getNumExpandedChildrenTo, int32_t, int32_t)},
-	{"getPathForRow", "(IILjavax/swing/tree/FixedHeightLayoutCache$SearchInfo;)Z", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, getPathForRow, bool, int32_t, int32_t, $FixedHeightLayoutCache$SearchInfo*)},
-	{"getRow", "()I", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, getRow, int32_t)},
-	{"getRowToModelIndex", "(I)I", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, getRowToModelIndex, int32_t, int32_t)},
-	{"getTotalChildCount", "()I", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, getTotalChildCount, int32_t)},
-	{"getTreePath", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, getTreePath, $TreePath*)},
-	{"getVisibleLevel", "()I", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, getVisibleLevel, int32_t)},
-	{"isExpanded", "()Z", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, isExpanded, bool)},
-	{"isLeaf", "()Z", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, isLeaf, bool)},
-	{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, isVisible, bool)},
-	{"makeVisible", "()V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, makeVisible, void)},
-	{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, remove, void, int32_t)},
-	{"removeChildAtModelIndex", "(IZ)V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, removeChildAtModelIndex, void, int32_t, bool)},
-	{"removeFromMapping", "()V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, removeFromMapping, void)},
-	{"resetChildrenPaths", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, resetChildrenPaths, void, $TreePath*)},
-	{"resetChildrenRowsFrom", "(III)V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, resetChildrenRowsFrom, void, int32_t, int32_t, int32_t)},
-	{"setParent", "(Ljavax/swing/tree/MutableTreeNode;)V", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, setParent, void, $MutableTreeNode*)},
-	{"setRowAndChildren", "(I)I", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, setRowAndChildren, int32_t, int32_t)},
-	{"setUserObject", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, setUserObject, void, Object$*)},
-	{}
-};
-
-$InnerClassInfo _FixedHeightLayoutCache$FHTreeStateNode_InnerClassesInfo_[] = {
-	{"javax.swing.tree.FixedHeightLayoutCache$FHTreeStateNode", "javax.swing.tree.FixedHeightLayoutCache", "FHTreeStateNode", $PRIVATE},
-	{}
-};
-
-$ClassInfo _FixedHeightLayoutCache$FHTreeStateNode_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.tree.FixedHeightLayoutCache$FHTreeStateNode",
-	"javax.swing.tree.DefaultMutableTreeNode",
-	nullptr,
-	_FixedHeightLayoutCache$FHTreeStateNode_FieldInfo_,
-	_FixedHeightLayoutCache$FHTreeStateNode_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FixedHeightLayoutCache$FHTreeStateNode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.tree.FixedHeightLayoutCache"
-};
-
-$Object* allocate$FixedHeightLayoutCache$FHTreeStateNode($Class* clazz) {
-	return $of($alloc(FixedHeightLayoutCache$FHTreeStateNode));
-}
 
 void FixedHeightLayoutCache$FHTreeStateNode::init$($FixedHeightLayoutCache* this$0, Object$* userObject, int32_t childIndex, int32_t row) {
 	$set(this, this$0, this$0);
@@ -108,10 +32,10 @@ void FixedHeightLayoutCache$FHTreeStateNode::init$($FixedHeightLayoutCache* this
 }
 
 void FixedHeightLayoutCache$FHTreeStateNode::setParent($MutableTreeNode* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DefaultMutableTreeNode::setParent(parent);
 	if (parent != nullptr) {
-		$set(this, path, $nc($($nc(($cast(FixedHeightLayoutCache$FHTreeStateNode, parent)))->getTreePath()))->pathByAddingChild($(getUserObject())));
+		$set(this, path, $$nc($cast(FixedHeightLayoutCache$FHTreeStateNode, parent)->getTreePath())->pathByAddingChild($(getUserObject())));
 		this->this$0->addMapping(this);
 	}
 }
@@ -123,7 +47,7 @@ void FixedHeightLayoutCache$FHTreeStateNode::remove(int32_t childIndex) {
 }
 
 void FixedHeightLayoutCache$FHTreeStateNode::setUserObject(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DefaultMutableTreeNode::setUserObject(o);
 	if (this->path != nullptr) {
 		$var(FixedHeightLayoutCache$FHTreeStateNode, parent, $cast(FixedHeightLayoutCache$FHTreeStateNode, getParent()));
@@ -144,9 +68,9 @@ $TreePath* FixedHeightLayoutCache$FHTreeStateNode::getTreePath() {
 }
 
 FixedHeightLayoutCache$FHTreeStateNode* FixedHeightLayoutCache$FHTreeStateNode::getChildAtModelIndex(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t counter = getChildCount() - 1; counter >= 0; --counter) {
-		if ($nc(($cast(FixedHeightLayoutCache$FHTreeStateNode, $(getChildAt(counter)))))->childIndex == index) {
+		if ($nc($$cast(FixedHeightLayoutCache$FHTreeStateNode, getChildAt(counter)))->childIndex == index) {
 			return $cast(FixedHeightLayoutCache$FHTreeStateNode, getChildAt(counter));
 		}
 	}
@@ -170,20 +94,16 @@ int32_t FixedHeightLayoutCache$FHTreeStateNode::getRowToModelIndex(int32_t index
 	$var(FixedHeightLayoutCache$FHTreeStateNode, child, nullptr);
 	int32_t lastRow = getRow() + 1;
 	int32_t retValue = lastRow;
-	{
-		int32_t counter = 0;
-		int32_t maxCounter = getChildCount();
-		for (; counter < maxCounter; ++counter) {
-			$assign(child, $cast(FixedHeightLayoutCache$FHTreeStateNode, getChildAt(counter)));
-			if ($nc(child)->childIndex >= index) {
-				if (child->childIndex == index) {
-					return child->row;
-				}
-				if (counter == 0) {
-					return getRow() + 1 + index;
-				}
-				return child->row - (child->childIndex - index);
+	for (int32_t counter = 0, maxCounter = getChildCount(); counter < maxCounter; ++counter) {
+		$assign(child, $cast(FixedHeightLayoutCache$FHTreeStateNode, getChildAt(counter)));
+		if ($nc(child)->childIndex >= index) {
+			if (child->childIndex == index) {
+				return child->row;
 			}
+			if (counter == 0) {
+				return getRow() + 1 + index;
+			}
+			return child->row - (child->childIndex - index);
 		}
 	}
 	int32_t var$0 = getRow() + 1;
@@ -191,7 +111,7 @@ int32_t FixedHeightLayoutCache$FHTreeStateNode::getRowToModelIndex(int32_t index
 }
 
 int32_t FixedHeightLayoutCache$FHTreeStateNode::getTotalChildCount() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isExpanded()) {
 		$var(FixedHeightLayoutCache$FHTreeStateNode, parent, $cast(FixedHeightLayoutCache$FHTreeStateNode, getParent()));
 		int32_t pIndex = 0;
@@ -201,12 +121,12 @@ int32_t FixedHeightLayoutCache$FHTreeStateNode::getTotalChildCount() {
 			var$0 = var$1 < parent->getChildCount();
 		}
 		if (var$0) {
-			$var(FixedHeightLayoutCache$FHTreeStateNode, nextSibling, $cast(FixedHeightLayoutCache$FHTreeStateNode, parent->getChildAt(pIndex + 1)));
-			return $nc(nextSibling)->row - this->row - (nextSibling->childIndex - this->childIndex);
+			$var(FixedHeightLayoutCache$FHTreeStateNode, nextSibling, $cast(FixedHeightLayoutCache$FHTreeStateNode, $nc(parent)->getChildAt(pIndex + 1)));
+			return $nc(nextSibling)->row - this->row - ($nc(nextSibling)->childIndex - this->childIndex);
 		} else {
 			int32_t retCount = this->childCount;
 			for (int32_t counter = getChildCount() - 1; counter >= 0; --counter) {
-				retCount += $nc(($cast(FixedHeightLayoutCache$FHTreeStateNode, $(getChildAt(counter)))))->getTotalChildCount();
+				retCount += $$sure(FixedHeightLayoutCache$FHTreeStateNode, getChildAt(counter))->getTotalChildCount();
 			}
 			return retCount;
 		}
@@ -227,31 +147,31 @@ int32_t FixedHeightLayoutCache$FHTreeStateNode::getVisibleLevel() {
 }
 
 void FixedHeightLayoutCache$FHTreeStateNode::resetChildrenPaths($TreePath* parentPath) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->this$0->removeMapping(this);
 	if (parentPath == nullptr) {
 		$set(this, path, $new($TreePath, $(getUserObject())));
 	} else {
-		$set(this, path, $nc(parentPath)->pathByAddingChild($(getUserObject())));
+		$set(this, path, parentPath->pathByAddingChild($(getUserObject())));
 	}
 	this->this$0->addMapping(this);
 	for (int32_t counter = getChildCount() - 1; counter >= 0; --counter) {
-		$nc(($cast(FixedHeightLayoutCache$FHTreeStateNode, $(getChildAt(counter)))))->resetChildrenPaths(this->path);
+		$$sure(FixedHeightLayoutCache$FHTreeStateNode, getChildAt(counter))->resetChildrenPaths(this->path);
 	}
 }
 
 void FixedHeightLayoutCache$FHTreeStateNode::removeFromMapping() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->path != nullptr) {
 		this->this$0->removeMapping(this);
 		for (int32_t counter = getChildCount() - 1; counter >= 0; --counter) {
-			$nc(($cast(FixedHeightLayoutCache$FHTreeStateNode, $(getChildAt(counter)))))->removeFromMapping();
+			$$sure(FixedHeightLayoutCache$FHTreeStateNode, getChildAt(counter))->removeFromMapping();
 		}
 	}
 }
 
 FixedHeightLayoutCache$FHTreeStateNode* FixedHeightLayoutCache$FHTreeStateNode::createChildFor(Object$* userObject) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t newChildIndex = $nc(this->this$0->treeModel)->getIndexOfChild($(getUserObject()), userObject);
 	if (newChildIndex < 0) {
 		return nullptr;
@@ -265,15 +185,11 @@ FixedHeightLayoutCache$FHTreeStateNode* FixedHeightLayoutCache$FHTreeStateNode::
 		childRow = -1;
 	}
 	$nc(child)->row = childRow;
-	{
-		int32_t counter = 0;
-		int32_t maxCounter = getChildCount();
-		for (; counter < maxCounter; ++counter) {
-			$assign(aNode, $cast(FixedHeightLayoutCache$FHTreeStateNode, getChildAt(counter)));
-			if ($nc(aNode)->childIndex > newChildIndex) {
-				insert(child, counter);
-				return child;
-			}
+	for (int32_t counter = 0, maxCounter = getChildCount(); counter < maxCounter; ++counter) {
+		$assign(aNode, $cast(FixedHeightLayoutCache$FHTreeStateNode, getChildAt(counter)));
+		if ($nc(aNode)->childIndex > newChildIndex) {
+			insert(child, counter);
+			return child;
 		}
 	}
 	add(child);
@@ -281,20 +197,20 @@ FixedHeightLayoutCache$FHTreeStateNode* FixedHeightLayoutCache$FHTreeStateNode::
 }
 
 void FixedHeightLayoutCache$FHTreeStateNode::adjustRowBy(int32_t amount) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->row += amount;
 	if (this->isExpanded$) {
 		for (int32_t counter = getChildCount() - 1; counter >= 0; --counter) {
-			$nc(($cast(FixedHeightLayoutCache$FHTreeStateNode, $(getChildAt(counter)))))->adjustRowBy(amount);
+			$$sure(FixedHeightLayoutCache$FHTreeStateNode, getChildAt(counter))->adjustRowBy(amount);
 		}
 	}
 }
 
 void FixedHeightLayoutCache$FHTreeStateNode::adjustRowBy(int32_t amount, int32_t startIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->isExpanded$) {
 		for (int32_t counter = getChildCount() - 1; counter >= startIndex; --counter) {
-			$nc(($cast(FixedHeightLayoutCache$FHTreeStateNode, $(getChildAt(counter)))))->adjustRowBy(amount);
+			$$sure(FixedHeightLayoutCache$FHTreeStateNode, getChildAt(counter))->adjustRowBy(amount);
 		}
 	}
 	$var(FixedHeightLayoutCache$FHTreeStateNode, parent, $cast(FixedHeightLayoutCache$FHTreeStateNode, getParent()));
@@ -383,7 +299,7 @@ void FixedHeightLayoutCache$FHTreeStateNode::expand() {
 			didExpand();
 		}
 		if (visible && this->this$0->treeSelectionModel != nullptr) {
-			$nc(this->this$0->treeSelectionModel)->resetRowSelection();
+			this->this$0->treeSelectionModel->resetRowSelection();
 		}
 	}
 }
@@ -399,30 +315,26 @@ void FixedHeightLayoutCache$FHTreeStateNode::collapse(bool adjustRows) {
 			this->isExpanded$ = false;
 		}
 		if (adjustRows && isVisible() && this->this$0->treeSelectionModel != nullptr) {
-			$nc(this->this$0->treeSelectionModel)->resetRowSelection();
+			this->this$0->treeSelectionModel->resetRowSelection();
 		}
 	}
 }
 
 bool FixedHeightLayoutCache$FHTreeStateNode::isLeaf() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreeModel, model, this->this$0->getModel());
-	return (model != nullptr) ? $nc(model)->isLeaf($(this->getUserObject())) : true;
+	return (model != nullptr) ? model->isLeaf($(this->getUserObject())) : true;
 }
 
 void FixedHeightLayoutCache$FHTreeStateNode::addNode(FixedHeightLayoutCache$FHTreeStateNode* newChild) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool added = false;
 	int32_t childIndex = $nc(newChild)->getChildIndex();
-	{
-		int32_t counter = 0;
-		int32_t maxCounter = getChildCount();
-		for (; counter < maxCounter; ++counter) {
-			if ($nc(($cast(FixedHeightLayoutCache$FHTreeStateNode, $(getChildAt(counter)))))->getChildIndex() > childIndex) {
-				added = true;
-				insert(newChild, counter);
-				counter = maxCounter;
-			}
+	for (int32_t counter = 0, maxCounter = getChildCount(); counter < maxCounter; ++counter) {
+		if ($$sure(FixedHeightLayoutCache$FHTreeStateNode, getChildAt(counter))->getChildIndex() > childIndex) {
+			added = true;
+			insert(newChild, counter);
+			counter = maxCounter;
 		}
 	}
 	if (!added) {
@@ -431,7 +343,7 @@ void FixedHeightLayoutCache$FHTreeStateNode::addNode(FixedHeightLayoutCache$FHTr
 }
 
 void FixedHeightLayoutCache$FHTreeStateNode::removeChildAtModelIndex(int32_t modelIndex, bool isChildVisible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(FixedHeightLayoutCache$FHTreeStateNode, childNode, getChildAtModelIndex(modelIndex));
 	if (childNode != nullptr) {
 		int32_t row = childNode->getRow();
@@ -454,7 +366,7 @@ void FixedHeightLayoutCache$FHTreeStateNode::removeChildAtModelIndex(int32_t mod
 					this->this$0->adjustRowCountBy(-1);
 				}
 				for (; counter < maxCounter; ++counter) {
-					--$nc(($cast(FixedHeightLayoutCache$FHTreeStateNode, $(getChildAt(counter)))))->childIndex;
+					--$nc($$cast(FixedHeightLayoutCache$FHTreeStateNode, getChildAt(counter)))->childIndex;
 				}
 				--this->childCount;
 				return;
@@ -469,18 +381,14 @@ void FixedHeightLayoutCache$FHTreeStateNode::removeChildAtModelIndex(int32_t mod
 }
 
 void FixedHeightLayoutCache$FHTreeStateNode::adjustChildIndexs(int32_t index, int32_t amount) {
-	$useLocalCurrentObjectStackCache();
-	{
-		int32_t counter = index;
-		int32_t maxCounter = getChildCount();
-		for (; counter < maxCounter; ++counter) {
-			$nc(($cast(FixedHeightLayoutCache$FHTreeStateNode, $(getChildAt(counter)))))->childIndex += amount;
-		}
+	$useLocalObjectStack();
+	for (int32_t counter = index, maxCounter = getChildCount(); counter < maxCounter; ++counter) {
+		$nc($$cast(FixedHeightLayoutCache$FHTreeStateNode, getChildAt(counter)))->childIndex += amount;
 	}
 }
 
 void FixedHeightLayoutCache$FHTreeStateNode::childInsertedAtModelIndex(int32_t index, bool isExpandedAndVisible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(FixedHeightLayoutCache$FHTreeStateNode, aChild, nullptr);
 	int32_t maxCounter = getChildCount();
 	for (int32_t counter = 0; counter < maxCounter; ++counter) {
@@ -491,7 +399,7 @@ void FixedHeightLayoutCache$FHTreeStateNode::childInsertedAtModelIndex(int32_t i
 				this->this$0->adjustRowCountBy(1);
 			}
 			for (; counter < maxCounter; ++counter) {
-				++$nc(($cast(FixedHeightLayoutCache$FHTreeStateNode, $(getChildAt(counter)))))->childIndex;
+				++$nc($$cast(FixedHeightLayoutCache$FHTreeStateNode, getChildAt(counter)))->childIndex;
 			}
 			++this->childCount;
 			return;
@@ -505,7 +413,7 @@ void FixedHeightLayoutCache$FHTreeStateNode::childInsertedAtModelIndex(int32_t i
 }
 
 bool FixedHeightLayoutCache$FHTreeStateNode::getPathForRow(int32_t row, int32_t nextRow, $FixedHeightLayoutCache$SearchInfo* info) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->row == row) {
 		$set($nc(info), node, this);
 		info->isNodeParentNode = false;
@@ -514,30 +422,26 @@ bool FixedHeightLayoutCache$FHTreeStateNode::getPathForRow(int32_t row, int32_t 
 	}
 	$var(FixedHeightLayoutCache$FHTreeStateNode, child, nullptr);
 	$var(FixedHeightLayoutCache$FHTreeStateNode, lastChild, nullptr);
-	{
-		int32_t counter = 0;
-		int32_t maxCounter = getChildCount();
-		for (; counter < maxCounter; ++counter) {
-			$assign(child, $cast(FixedHeightLayoutCache$FHTreeStateNode, getChildAt(counter)));
-			if ($nc(child)->row > row) {
-				if (counter == 0) {
-					$set($nc(info), node, this);
-					info->isNodeParentNode = true;
-					info->childIndex = row - this->row - 1;
-					return true;
-				} else {
-					int32_t lastChildEndRow = 1 + child->row - (child->childIndex - $nc(lastChild)->childIndex);
-					if (row < lastChildEndRow) {
-						return lastChild->getPathForRow(row, lastChildEndRow, info);
-					}
-					$set($nc(info), node, this);
-					info->isNodeParentNode = true;
-					info->childIndex = row - lastChildEndRow + lastChild->childIndex + 1;
-					return true;
+	for (int32_t counter = 0, maxCounter = getChildCount(); counter < maxCounter; ++counter) {
+		$assign(child, $cast(FixedHeightLayoutCache$FHTreeStateNode, getChildAt(counter)));
+		if ($nc(child)->row > row) {
+			if (counter == 0) {
+				$set($nc(info), node, this);
+				info->isNodeParentNode = true;
+				info->childIndex = row - this->row - 1;
+				return true;
+			} else {
+				int32_t lastChildEndRow = 1 + child->row - (child->childIndex - $nc(lastChild)->childIndex);
+				if (row < lastChildEndRow) {
+					return lastChild->getPathForRow(row, lastChildEndRow, info);
 				}
+				$set($nc(info), node, this);
+				info->isNodeParentNode = true;
+				info->childIndex = row - lastChildEndRow + lastChild->childIndex + 1;
+				return true;
 			}
-			$assign(lastChild, child);
 		}
+		$assign(lastChild, child);
 	}
 	if (lastChild != nullptr) {
 		int32_t lastChildEndRow = nextRow - (this->childCount - lastChild->childIndex) + 1;
@@ -561,23 +465,19 @@ bool FixedHeightLayoutCache$FHTreeStateNode::getPathForRow(int32_t row, int32_t 
 }
 
 int32_t FixedHeightLayoutCache$FHTreeStateNode::getCountTo(int32_t stopIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(FixedHeightLayoutCache$FHTreeStateNode, aChild, nullptr);
 	int32_t retCount = stopIndex + 1;
-	{
-		int32_t counter = 0;
-		int32_t maxCounter = getChildCount();
-		for (; counter < maxCounter; ++counter) {
-			$assign(aChild, $cast(FixedHeightLayoutCache$FHTreeStateNode, getChildAt(counter)));
-			if ($nc(aChild)->childIndex >= stopIndex) {
-				counter = maxCounter;
-			} else {
-				retCount += aChild->getTotalChildCount();
-			}
+	for (int32_t counter = 0, maxCounter = getChildCount(); counter < maxCounter; ++counter) {
+		$assign(aChild, $cast(FixedHeightLayoutCache$FHTreeStateNode, getChildAt(counter)));
+		if ($nc(aChild)->childIndex >= stopIndex) {
+			counter = maxCounter;
+		} else {
+			retCount += aChild->getTotalChildCount();
 		}
 	}
 	if (this->parent != nullptr) {
-		return retCount + $nc(($cast(FixedHeightLayoutCache$FHTreeStateNode, $(getParent()))))->getCountTo(this->childIndex);
+		return retCount + $$sure(FixedHeightLayoutCache$FHTreeStateNode, getParent())->getCountTo(this->childIndex);
 	}
 	if (!this->this$0->isRootVisible()) {
 		return (retCount - 1);
@@ -588,16 +488,12 @@ int32_t FixedHeightLayoutCache$FHTreeStateNode::getCountTo(int32_t stopIndex) {
 int32_t FixedHeightLayoutCache$FHTreeStateNode::getNumExpandedChildrenTo(int32_t stopIndex) {
 	$var(FixedHeightLayoutCache$FHTreeStateNode, aChild, nullptr);
 	int32_t retCount = stopIndex;
-	{
-		int32_t counter = 0;
-		int32_t maxCounter = getChildCount();
-		for (; counter < maxCounter; ++counter) {
-			$assign(aChild, $cast(FixedHeightLayoutCache$FHTreeStateNode, getChildAt(counter)));
-			if ($nc(aChild)->childIndex >= stopIndex) {
-				return retCount;
-			} else {
-				retCount += aChild->getTotalChildCount();
-			}
+	for (int32_t counter = 0, maxCounter = getChildCount(); counter < maxCounter; ++counter) {
+		$assign(aChild, $cast(FixedHeightLayoutCache$FHTreeStateNode, getChildAt(counter)));
+		if ($nc(aChild)->childIndex >= stopIndex) {
+			return retCount;
+		} else {
+			retCount += aChild->getTotalChildCount();
 		}
 	}
 	return retCount;
@@ -610,7 +506,74 @@ FixedHeightLayoutCache$FHTreeStateNode::FixedHeightLayoutCache$FHTreeStateNode()
 }
 
 $Class* FixedHeightLayoutCache$FHTreeStateNode::load$($String* name, bool initialize) {
-	$loadClass(FixedHeightLayoutCache$FHTreeStateNode, name, initialize, &_FixedHeightLayoutCache$FHTreeStateNode_ClassInfo_, allocate$FixedHeightLayoutCache$FHTreeStateNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/tree/FixedHeightLayoutCache;", nullptr, $FINAL | $SYNTHETIC, $field(FixedHeightLayoutCache$FHTreeStateNode, this$0)},
+		{"isExpanded", "Z", nullptr, $PROTECTED, $field(FixedHeightLayoutCache$FHTreeStateNode, isExpanded$)},
+		{"childIndex", "I", nullptr, $PROTECTED, $field(FixedHeightLayoutCache$FHTreeStateNode, childIndex)},
+		{"childCount", "I", nullptr, $PROTECTED, $field(FixedHeightLayoutCache$FHTreeStateNode, childCount)},
+		{"row", "I", nullptr, $PROTECTED, $field(FixedHeightLayoutCache$FHTreeStateNode, row)},
+		{"path", "Ljavax/swing/tree/TreePath;", nullptr, $PROTECTED, $field(FixedHeightLayoutCache$FHTreeStateNode, path)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/tree/FixedHeightLayoutCache;Ljava/lang/Object;II)V", nullptr, $PUBLIC, $method(FixedHeightLayoutCache$FHTreeStateNode, init$, void, $FixedHeightLayoutCache*, Object$*, int32_t, int32_t)},
+		{"addNode", "(Ljavax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode;)V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, addNode, void, FixedHeightLayoutCache$FHTreeStateNode*)},
+		{"adjustChildIndexs", "(II)V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, adjustChildIndexs, void, int32_t, int32_t)},
+		{"adjustRowBy", "(I)V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, adjustRowBy, void, int32_t)},
+		{"adjustRowBy", "(II)V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, adjustRowBy, void, int32_t, int32_t)},
+		{"childInsertedAtModelIndex", "(IZ)V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, childInsertedAtModelIndex, void, int32_t, bool)},
+		{"collapse", "(Z)V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, collapse, void, bool)},
+		{"createChildFor", "(Ljava/lang/Object;)Ljavax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode;", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, createChildFor, FixedHeightLayoutCache$FHTreeStateNode*, Object$*)},
+		{"didAdjustTree", "()V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, didAdjustTree, void)},
+		{"didExpand", "()V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, didExpand, void)},
+		{"expand", "()V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, expand, void)},
+		{"expandParentAndReceiver", "()V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, expandParentAndReceiver, void)},
+		{"getChildAtModelIndex", "(I)Ljavax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode;", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, getChildAtModelIndex, FixedHeightLayoutCache$FHTreeStateNode*, int32_t)},
+		{"getChildIndex", "()I", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, getChildIndex, int32_t)},
+		{"getCountTo", "(I)I", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, getCountTo, int32_t, int32_t)},
+		{"getNumExpandedChildrenTo", "(I)I", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, getNumExpandedChildrenTo, int32_t, int32_t)},
+		{"getPathForRow", "(IILjavax/swing/tree/FixedHeightLayoutCache$SearchInfo;)Z", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, getPathForRow, bool, int32_t, int32_t, $FixedHeightLayoutCache$SearchInfo*)},
+		{"getRow", "()I", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, getRow, int32_t)},
+		{"getRowToModelIndex", "(I)I", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, getRowToModelIndex, int32_t, int32_t)},
+		{"getTotalChildCount", "()I", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, getTotalChildCount, int32_t)},
+		{"getTreePath", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, getTreePath, $TreePath*)},
+		{"getVisibleLevel", "()I", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, getVisibleLevel, int32_t)},
+		{"isExpanded", "()Z", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, isExpanded, bool)},
+		{"isLeaf", "()Z", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, isLeaf, bool)},
+		{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, isVisible, bool)},
+		{"makeVisible", "()V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, makeVisible, void)},
+		{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, remove, void, int32_t)},
+		{"removeChildAtModelIndex", "(IZ)V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, removeChildAtModelIndex, void, int32_t, bool)},
+		{"removeFromMapping", "()V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, removeFromMapping, void)},
+		{"resetChildrenPaths", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, resetChildrenPaths, void, $TreePath*)},
+		{"resetChildrenRowsFrom", "(III)V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, resetChildrenRowsFrom, void, int32_t, int32_t, int32_t)},
+		{"setParent", "(Ljavax/swing/tree/MutableTreeNode;)V", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, setParent, void, $MutableTreeNode*)},
+		{"setRowAndChildren", "(I)I", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, setRowAndChildren, int32_t, int32_t)},
+		{"setUserObject", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$FHTreeStateNode, setUserObject, void, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.tree.FixedHeightLayoutCache$FHTreeStateNode", "javax.swing.tree.FixedHeightLayoutCache", "FHTreeStateNode", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.tree.FixedHeightLayoutCache$FHTreeStateNode",
+		"javax.swing.tree.DefaultMutableTreeNode",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.tree.FixedHeightLayoutCache"
+	};
+	$loadClass(FixedHeightLayoutCache$FHTreeStateNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FixedHeightLayoutCache$FHTreeStateNode));
+	});
 	return class$;
 }
 

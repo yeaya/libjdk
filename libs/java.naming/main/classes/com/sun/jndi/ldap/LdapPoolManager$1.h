@@ -14,6 +14,7 @@ class LdapPoolManager$1 : public ::java::security::PrivilegedAction {
 	$class(LdapPoolManager$1, 0, ::java::security::PrivilegedAction)
 public:
 	LdapPoolManager$1();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* run() override;
 	static bool $assertionsDisabled;

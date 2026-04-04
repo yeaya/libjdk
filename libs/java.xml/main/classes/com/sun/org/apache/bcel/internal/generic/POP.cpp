@@ -1,8 +1,6 @@
 #include <com/sun/org/apache/bcel/internal/generic/POP.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
-#include <com/sun/org/apache/bcel/internal/generic/PopInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackConsumer.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Visitor.h>
@@ -12,8 +10,6 @@
 
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
-using $PopInstruction = ::com::sun::org::apache::bcel::internal::generic::PopInstruction;
-using $StackConsumer = ::com::sun::org::apache::bcel::internal::generic::StackConsumer;
 using $StackInstruction = ::com::sun::org::apache::bcel::internal::generic::StackInstruction;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -26,31 +22,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$MethodInfo _POP_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*consumeStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(POP, init$, void)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(POP, accept, void, $Visitor*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _POP_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.POP",
-	"com.sun.org.apache.bcel.internal.generic.StackInstruction",
-	"com.sun.org.apache.bcel.internal.generic.PopInstruction",
-	nullptr,
-	_POP_MethodInfo_
-};
-
-$Object* allocate$POP($Class* clazz) {
-	return $of($alloc(POP));
-}
 
 $String* POP::toString() {
 	 return this->$StackInstruction::toString();
@@ -91,7 +62,28 @@ POP::POP() {
 }
 
 $Class* POP::load$($String* name, bool initialize) {
-	$loadClass(POP, name, initialize, &_POP_ClassInfo_, allocate$POP);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*consumeStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(POP, init$, void)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(POP, accept, void, $Visitor*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.POP",
+		"com.sun.org.apache.bcel.internal.generic.StackInstruction",
+		"com.sun.org.apache.bcel.internal.generic.PopInstruction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(POP, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(POP));
+	});
 	return class$;
 }
 

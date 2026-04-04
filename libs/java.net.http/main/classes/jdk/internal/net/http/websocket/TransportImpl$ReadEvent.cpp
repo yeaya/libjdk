@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/websocket/TransportImpl$ReadEvent.h>
-
 #include <java/nio/channels/SelectionKey.h>
 #include <jdk/internal/net/http/common/Logger.h>
 #include <jdk/internal/net/http/common/SequentialScheduler.h>
@@ -15,8 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
-using $Logger = ::jdk::internal::net::http::common::Logger;
-using $SequentialScheduler = ::jdk::internal::net::http::common::SequentialScheduler;
 using $TransportImpl = ::jdk::internal::net::http::websocket::TransportImpl;
 using $TransportImpl$ChannelState = ::jdk::internal::net::http::websocket::TransportImpl$ChannelState;
 
@@ -25,44 +22,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 				namespace websocket {
-
-$FieldInfo _TransportImpl$ReadEvent_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/net/http/websocket/TransportImpl;", nullptr, $FINAL | $SYNTHETIC, $field(TransportImpl$ReadEvent, this$0)},
-	{}
-};
-
-$MethodInfo _TransportImpl$ReadEvent_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/websocket/TransportImpl;)V", nullptr, $PRIVATE, $method(TransportImpl$ReadEvent, init$, void, $TransportImpl*)},
-	{"handle", "()V", nullptr, $PUBLIC, $virtualMethod(TransportImpl$ReadEvent, handle, void)},
-	{"interestOps", "()I", nullptr, $PUBLIC, $virtualMethod(TransportImpl$ReadEvent, interestOps, int32_t)},
-	{}
-};
-
-$InnerClassInfo _TransportImpl$ReadEvent_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.websocket.TransportImpl$ReadEvent", "jdk.internal.net.http.websocket.TransportImpl", "ReadEvent", $PRIVATE},
-	{"jdk.internal.net.http.websocket.RawChannel$RawEvent", "jdk.internal.net.http.websocket.RawChannel", "RawEvent", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TransportImpl$ReadEvent_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.websocket.TransportImpl$ReadEvent",
-	"java.lang.Object",
-	"jdk.internal.net.http.websocket.RawChannel$RawEvent",
-	_TransportImpl$ReadEvent_FieldInfo_,
-	_TransportImpl$ReadEvent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TransportImpl$ReadEvent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.websocket.TransportImpl"
-};
-
-$Object* allocate$TransportImpl$ReadEvent($Class* clazz) {
-	return $of($alloc(TransportImpl$ReadEvent));
-}
 
 void TransportImpl$ReadEvent::init$($TransportImpl* this$0) {
 	$set(this, this$0, this$0);
@@ -75,7 +34,7 @@ int32_t TransportImpl$ReadEvent::interestOps() {
 void TransportImpl$ReadEvent::handle() {
 	$init($TransportImpl);
 	if ($nc($TransportImpl::debug)->on()) {
-		$nc($TransportImpl::debug)->log("read event"_s);
+		$TransportImpl::debug->log("read event"_s);
 	}
 	$init($TransportImpl$ChannelState);
 	$set(this->this$0, readState, $TransportImpl$ChannelState::AVAILABLE);
@@ -86,7 +45,39 @@ TransportImpl$ReadEvent::TransportImpl$ReadEvent() {
 }
 
 $Class* TransportImpl$ReadEvent::load$($String* name, bool initialize) {
-	$loadClass(TransportImpl$ReadEvent, name, initialize, &_TransportImpl$ReadEvent_ClassInfo_, allocate$TransportImpl$ReadEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/net/http/websocket/TransportImpl;", nullptr, $FINAL | $SYNTHETIC, $field(TransportImpl$ReadEvent, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/websocket/TransportImpl;)V", nullptr, $PRIVATE, $method(TransportImpl$ReadEvent, init$, void, $TransportImpl*)},
+		{"handle", "()V", nullptr, $PUBLIC, $virtualMethod(TransportImpl$ReadEvent, handle, void)},
+		{"interestOps", "()I", nullptr, $PUBLIC, $virtualMethod(TransportImpl$ReadEvent, interestOps, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.websocket.TransportImpl$ReadEvent", "jdk.internal.net.http.websocket.TransportImpl", "ReadEvent", $PRIVATE},
+		{"jdk.internal.net.http.websocket.RawChannel$RawEvent", "jdk.internal.net.http.websocket.RawChannel", "RawEvent", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.websocket.TransportImpl$ReadEvent",
+		"java.lang.Object",
+		"jdk.internal.net.http.websocket.RawChannel$RawEvent",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.websocket.TransportImpl"
+	};
+	$loadClass(TransportImpl$ReadEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransportImpl$ReadEvent);
+	});
 	return class$;
 }
 

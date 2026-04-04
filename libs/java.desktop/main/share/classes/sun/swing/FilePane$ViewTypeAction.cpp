@@ -1,5 +1,4 @@
 #include <sun/swing/FilePane$ViewTypeAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
@@ -21,43 +20,6 @@ using $FilePane = ::sun::swing::FilePane;
 namespace sun {
 	namespace swing {
 
-$FieldInfo _FilePane$ViewTypeAction_FieldInfo_[] = {
-	{"this$0", "Lsun/swing/FilePane;", nullptr, $FINAL | $SYNTHETIC, $field(FilePane$ViewTypeAction, this$0)},
-	{"viewType", "I", nullptr, $PRIVATE, $field(FilePane$ViewTypeAction, viewType)},
-	{}
-};
-
-$MethodInfo _FilePane$ViewTypeAction_MethodInfo_[] = {
-	{"<init>", "(Lsun/swing/FilePane;I)V", nullptr, 0, $method(FilePane$ViewTypeAction, init$, void, $FilePane*, int32_t)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(FilePane$ViewTypeAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _FilePane$ViewTypeAction_InnerClassesInfo_[] = {
-	{"sun.swing.FilePane$ViewTypeAction", "sun.swing.FilePane", "ViewTypeAction", 0},
-	{}
-};
-
-$ClassInfo _FilePane$ViewTypeAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.swing.FilePane$ViewTypeAction",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_FilePane$ViewTypeAction_FieldInfo_,
-	_FilePane$ViewTypeAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FilePane$ViewTypeAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.FilePane"
-};
-
-$Object* allocate$FilePane$ViewTypeAction($Class* clazz) {
-	return $of($alloc(FilePane$ViewTypeAction));
-}
-
 void FilePane$ViewTypeAction::init$($FilePane* this$0, int32_t viewType) {
 	$set(this, this$0, this$0);
 	$AbstractAction::init$($nc(this$0->viewTypeActionNames)->get(viewType));
@@ -65,20 +27,14 @@ void FilePane$ViewTypeAction::init$($FilePane* this$0, int32_t viewType) {
 	$var($String, cmd, nullptr);
 	switch (viewType) {
 	case 0:
-		{
-			$assign(cmd, "viewTypeList"_s);
-			break;
-		}
+		$assign(cmd, "viewTypeList"_s);
+		break;
 	case 1:
-		{
-			$assign(cmd, "viewTypeDetails"_s);
-			break;
-		}
+		$assign(cmd, "viewTypeDetails"_s);
+		break;
 	default:
-		{
-			$init($Action);
-			$assign(cmd, $cast($String, getValue($Action::NAME)));
-		}
+		$init($Action);
+		$assign(cmd, $cast($String, getValue($Action::NAME)));
 	}
 	$init($Action);
 	putValue($Action::ACTION_COMMAND_KEY, cmd);
@@ -92,7 +48,38 @@ FilePane$ViewTypeAction::FilePane$ViewTypeAction() {
 }
 
 $Class* FilePane$ViewTypeAction::load$($String* name, bool initialize) {
-	$loadClass(FilePane$ViewTypeAction, name, initialize, &_FilePane$ViewTypeAction_ClassInfo_, allocate$FilePane$ViewTypeAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/swing/FilePane;", nullptr, $FINAL | $SYNTHETIC, $field(FilePane$ViewTypeAction, this$0)},
+		{"viewType", "I", nullptr, $PRIVATE, $field(FilePane$ViewTypeAction, viewType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/swing/FilePane;I)V", nullptr, 0, $method(FilePane$ViewTypeAction, init$, void, $FilePane*, int32_t)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(FilePane$ViewTypeAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.FilePane$ViewTypeAction", "sun.swing.FilePane", "ViewTypeAction", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.swing.FilePane$ViewTypeAction",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.FilePane"
+	};
+	$loadClass(FilePane$ViewTypeAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FilePane$ViewTypeAction));
+	});
 	return class$;
 }
 

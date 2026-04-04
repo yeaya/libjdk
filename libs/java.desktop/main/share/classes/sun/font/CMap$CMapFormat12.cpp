@@ -1,5 +1,4 @@
 #include <sun/font/CMap$CMapFormat12.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/IntBuffer.h>
 #include <sun/font/CMap.h>
@@ -19,50 +18,8 @@ using $CMap = ::sun::font::CMap;
 namespace sun {
 	namespace font {
 
-$FieldInfo _CMap$CMapFormat12_FieldInfo_[] = {
-	{"numGroups", "I", nullptr, 0, $field(CMap$CMapFormat12, numGroups)},
-	{"highBit", "I", nullptr, 0, $field(CMap$CMapFormat12, highBit)},
-	{"power", "I", nullptr, 0, $field(CMap$CMapFormat12, power)},
-	{"extra", "I", nullptr, 0, $field(CMap$CMapFormat12, extra)},
-	{"startCharCode", "[J", nullptr, 0, $field(CMap$CMapFormat12, startCharCode)},
-	{"endCharCode", "[J", nullptr, 0, $field(CMap$CMapFormat12, endCharCode)},
-	{"startGlyphID", "[I", nullptr, 0, $field(CMap$CMapFormat12, startGlyphID)},
-	{}
-};
-
-$MethodInfo _CMap$CMapFormat12_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/ByteBuffer;I[C)V", nullptr, 0, $method(CMap$CMapFormat12, init$, void, $ByteBuffer*, int32_t, $chars*)},
-	{"getGlyph", "(I)C", nullptr, 0, $virtualMethod(CMap$CMapFormat12, getGlyph, char16_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CMap$CMapFormat12_InnerClassesInfo_[] = {
-	{"sun.font.CMap$CMapFormat12", "sun.font.CMap", "CMapFormat12", $STATIC},
-	{}
-};
-
-$ClassInfo _CMap$CMapFormat12_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.font.CMap$CMapFormat12",
-	"sun.font.CMap",
-	nullptr,
-	_CMap$CMapFormat12_FieldInfo_,
-	_CMap$CMapFormat12_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CMap$CMapFormat12_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.font.CMap"
-};
-
-$Object* allocate$CMap$CMapFormat12($Class* clazz) {
-	return $of($alloc(CMap$CMapFormat12));
-}
-
 void CMap$CMapFormat12::init$($ByteBuffer* buffer$renamed, int32_t offset, $chars* xlat) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteBuffer, buffer, buffer$renamed);
 	$CMap::init$();
 	this->highBit = 0;
@@ -70,7 +27,7 @@ void CMap$CMapFormat12::init$($ByteBuffer* buffer$renamed, int32_t offset, $char
 		$throwNew($RuntimeException, "xlat array for cmap fmt=12"_s);
 	}
 	$nc(buffer)->position(offset + 12);
-	this->numGroups = (int32_t)(buffer->getInt() & (uint32_t)$CMap::INTMASK);
+	this->numGroups = buffer->getInt() & $CMap::INTMASK;
 	if (buffer->remaining() < (12 * (int64_t)this->numGroups)) {
 		$throwNew($RuntimeException, "Format 12 table exceeded"_s);
 	}
@@ -78,11 +35,11 @@ void CMap$CMapFormat12::init$($ByteBuffer* buffer$renamed, int32_t offset, $char
 	$set(this, endCharCode, $new($longs, this->numGroups));
 	$set(this, startGlyphID, $new($ints, this->numGroups));
 	$assign(buffer, buffer->slice());
-	$var($IntBuffer, ibuffer, buffer->asIntBuffer());
+	$var($IntBuffer, ibuffer, $nc(buffer)->asIntBuffer());
 	for (int32_t i = 0; i < this->numGroups; ++i) {
-		$nc(this->startCharCode)->set(i, (int32_t)($nc(ibuffer)->get() & (uint32_t)$CMap::INTMASK));
-		$nc(this->endCharCode)->set(i, (int32_t)(ibuffer->get() & (uint32_t)$CMap::INTMASK));
-		$nc(this->startGlyphID)->set(i, (int32_t)(ibuffer->get() & (uint32_t)$CMap::INTMASK));
+		$nc(this->startCharCode)->set(i, $nc(ibuffer)->get() & $CMap::INTMASK);
+		$nc(this->endCharCode)->set(i, ibuffer->get() & $CMap::INTMASK);
+		$nc(this->startGlyphID)->set(i, ibuffer->get() & $CMap::INTMASK);
 	}
 	int32_t value = this->numGroups;
 	if (value >= 1 << 16) {
@@ -122,12 +79,12 @@ char16_t CMap$CMapFormat12::getGlyph(int32_t charCode) {
 	}
 	while (probe > 1) {
 		probe >>= 1;
-		if ($nc(this->startCharCode)->get(range + probe) <= charCode) {
+		if (this->startCharCode->get(range + probe) <= charCode) {
 			range += probe;
 		}
 	}
-	if ($nc(this->startCharCode)->get(range) <= charCode && $nc(this->endCharCode)->get(range) >= charCode) {
-		return (char16_t)($nc(this->startGlyphID)->get(range) + (charCode - $nc(this->startCharCode)->get(range)));
+	if (this->startCharCode->get(range) <= charCode && $nc(this->endCharCode)->get(range) >= charCode) {
+		return (char16_t)($nc(this->startGlyphID)->get(range) + (charCode - this->startCharCode->get(range)));
 	}
 	return getFormatCharGlyph(origCharCode);
 }
@@ -136,7 +93,43 @@ CMap$CMapFormat12::CMap$CMapFormat12() {
 }
 
 $Class* CMap$CMapFormat12::load$($String* name, bool initialize) {
-	$loadClass(CMap$CMapFormat12, name, initialize, &_CMap$CMapFormat12_ClassInfo_, allocate$CMap$CMapFormat12);
+	$FieldInfo fieldInfos$$[] = {
+		{"numGroups", "I", nullptr, 0, $field(CMap$CMapFormat12, numGroups)},
+		{"highBit", "I", nullptr, 0, $field(CMap$CMapFormat12, highBit)},
+		{"power", "I", nullptr, 0, $field(CMap$CMapFormat12, power)},
+		{"extra", "I", nullptr, 0, $field(CMap$CMapFormat12, extra)},
+		{"startCharCode", "[J", nullptr, 0, $field(CMap$CMapFormat12, startCharCode)},
+		{"endCharCode", "[J", nullptr, 0, $field(CMap$CMapFormat12, endCharCode)},
+		{"startGlyphID", "[I", nullptr, 0, $field(CMap$CMapFormat12, startGlyphID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/ByteBuffer;I[C)V", nullptr, 0, $method(CMap$CMapFormat12, init$, void, $ByteBuffer*, int32_t, $chars*)},
+		{"getGlyph", "(I)C", nullptr, 0, $virtualMethod(CMap$CMapFormat12, getGlyph, char16_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.CMap$CMapFormat12", "sun.font.CMap", "CMapFormat12", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.font.CMap$CMapFormat12",
+		"sun.font.CMap",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.font.CMap"
+	};
+	$loadClass(CMap$CMapFormat12, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CMap$CMapFormat12);
+	});
 	return class$;
 }
 

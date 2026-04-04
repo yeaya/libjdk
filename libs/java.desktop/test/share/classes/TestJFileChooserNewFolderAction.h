@@ -32,6 +32,7 @@ class $export TestJFileChooserNewFolderAction : public ::java::lang::Object {
 	$class(TestJFileChooserNewFolderAction, 0, ::java::lang::Object)
 public:
 	TestJFileChooserNewFolderAction();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createInstructionUI();
 	static void createTestUI();

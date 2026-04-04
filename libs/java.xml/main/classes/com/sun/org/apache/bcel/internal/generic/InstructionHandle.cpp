@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
-
 #include <com/sun/org/apache/bcel/internal/classfile/Utility.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
@@ -29,8 +28,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
-using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 
 namespace com {
 	namespace sun {
@@ -39,64 +36,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$CompoundAttribute _InstructionHandle_MethodAnnotations_addHandle3[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _InstructionHandle_FieldInfo_[] = {
-	{"next", "Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PRIVATE, $field(InstructionHandle, next)},
-	{"prev", "Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PRIVATE, $field(InstructionHandle, prev)},
-	{"instruction", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE, $field(InstructionHandle, instruction)},
-	{"i_position", "I", nullptr, $PRIVATE, $field(InstructionHandle, i_position)},
-	{"targeters", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/org/apache/bcel/internal/generic/InstructionTargeter;>;", $PRIVATE, $field(InstructionHandle, targeters)},
-	{"attributes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Object;Ljava/lang/Object;>;", $PRIVATE, $field(InstructionHandle, attributes)},
-	{}
-};
-
-$MethodInfo _InstructionHandle_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;)V", nullptr, $PROTECTED, $method(InstructionHandle, init$, void, $Instruction*)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(InstructionHandle, accept, void, $Visitor*)},
-	{"addAttribute", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InstructionHandle, addAttribute, void, Object$*, Object$*)},
-	{"addHandle", "()V", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(InstructionHandle, addHandle, void), nullptr, nullptr, _InstructionHandle_MethodAnnotations_addHandle3},
-	{"addTargeter", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionTargeter;)V", nullptr, $PUBLIC, $virtualMethod(InstructionHandle, addTargeter, void, $InstructionTargeter*)},
-	{"dispose", "()V", nullptr, 0, $virtualMethod(InstructionHandle, dispose, void)},
-	{"getAttribute", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(InstructionHandle, getAttribute, $Object*, Object$*)},
-	{"getAttributes", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(InstructionHandle, getAttributes, $Collection*)},
-	{"getInstruction", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $FINAL, $method(InstructionHandle, getInstruction, $Instruction*)},
-	{"getInstructionHandle", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $STATIC, $staticMethod(InstructionHandle, getInstructionHandle, InstructionHandle*, $Instruction*)},
-	{"getNext", "()Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC | $FINAL, $method(InstructionHandle, getNext, InstructionHandle*)},
-	{"getPosition", "()I", nullptr, $PUBLIC, $virtualMethod(InstructionHandle, getPosition, int32_t)},
-	{"getPrev", "()Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC | $FINAL, $method(InstructionHandle, getPrev, InstructionHandle*)},
-	{"getTargeters", "()[Lcom/sun/org/apache/bcel/internal/generic/InstructionTargeter;", nullptr, $PUBLIC, $virtualMethod(InstructionHandle, getTargeters, $InstructionTargeterArray*)},
-	{"hasTargeters", "()Z", nullptr, $PUBLIC, $virtualMethod(InstructionHandle, hasTargeters, bool)},
-	{"removeAllTargeters", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionHandle, removeAllTargeters, void)},
-	{"removeAttribute", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InstructionHandle, removeAttribute, void, Object$*)},
-	{"removeTargeter", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionTargeter;)V", nullptr, $PUBLIC, $virtualMethod(InstructionHandle, removeTargeter, void, $InstructionTargeter*)},
-	{"setInstruction", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;)V", nullptr, $PUBLIC, $virtualMethod(InstructionHandle, setInstruction, void, $Instruction*)},
-	{"setNext", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $FINAL, $method(InstructionHandle, setNext, InstructionHandle*, InstructionHandle*)},
-	{"setPosition", "(I)V", nullptr, 0, $virtualMethod(InstructionHandle, setPosition, void, int32_t)},
-	{"setPrev", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $FINAL, $method(InstructionHandle, setPrev, InstructionHandle*, InstructionHandle*)},
-	{"swapInstruction", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;)Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(InstructionHandle, swapInstruction, $Instruction*, $Instruction*)},
-	{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InstructionHandle, toString, $String*, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InstructionHandle, toString, $String*)},
-	{"updatePosition", "(II)I", nullptr, $PROTECTED, $virtualMethod(InstructionHandle, updatePosition, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _InstructionHandle_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.InstructionHandle",
-	"java.lang.Object",
-	nullptr,
-	_InstructionHandle_FieldInfo_,
-	_InstructionHandle_MethodInfo_
-};
-
-$Object* allocate$InstructionHandle($Class* clazz) {
-	return $of($alloc(InstructionHandle));
-}
 
 void InstructionHandle::addHandle() {
 }
@@ -118,11 +57,11 @@ void InstructionHandle::setInstruction($Instruction* i) {
 		$throwNew($ClassGenException, "Assigning null to handle"_s);
 	}
 	$load($BranchHandle);
-	if (($of(this)->getClass() != $BranchHandle::class$) && ($instanceOf($BranchInstruction, i))) {
+	if ((this->getClass() != $BranchHandle::class$) && ($instanceOf($BranchInstruction, i))) {
 		$throwNew($ClassGenException, $$str({"Assigning branch instruction "_s, i, " to plain handle"_s}));
 	}
 	if (this->instruction != nullptr) {
-		$nc(this->instruction)->dispose();
+		this->instruction->dispose();
 	}
 	$set(this, instruction, i);
 }
@@ -156,7 +95,7 @@ void InstructionHandle::setPosition(int32_t pos) {
 }
 
 void InstructionHandle::dispose() {
-	$set(this, next, ($set(this, prev, nullptr)));
+	$set(this, next, $set(this, prev, nullptr));
 	$nc(this->instruction)->dispose();
 	$set(this, instruction, nullptr);
 	this->i_position = -1;
@@ -166,13 +105,13 @@ void InstructionHandle::dispose() {
 
 void InstructionHandle::removeAllTargeters() {
 	if (this->targeters != nullptr) {
-		$nc(this->targeters)->clear();
+		this->targeters->clear();
 	}
 }
 
 void InstructionHandle::removeTargeter($InstructionTargeter* t) {
 	if (this->targeters != nullptr) {
-		$nc(this->targeters)->remove(t);
+		this->targeters->remove(t);
 	}
 }
 
@@ -184,7 +123,7 @@ void InstructionHandle::addTargeter($InstructionTargeter* t) {
 }
 
 bool InstructionHandle::hasTargeters() {
-	return (this->targeters != nullptr) && ($nc(this->targeters)->size() > 0);
+	return (this->targeters != nullptr) && (this->targeters->size() > 0);
 }
 
 $InstructionTargeterArray* InstructionHandle::getTargeters() {
@@ -192,14 +131,17 @@ $InstructionTargeterArray* InstructionHandle::getTargeters() {
 		return $new($InstructionTargeterArray, 0);
 	}
 	$var($InstructionTargeterArray, t, $new($InstructionTargeterArray, $nc(this->targeters)->size()));
-	$nc(this->targeters)->toArray(t);
+	this->targeters->toArray(t);
 	return t;
 }
 
 $String* InstructionHandle::toString(bool verbose) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({$($Utility::format(this->i_position, 4, false, u' ')), ": "_s}));
-	return $concat(var$0, $($nc(this->instruction)->toString(verbose)));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($Utility::format(this->i_position, 4, false, u' ')));
+	var$0->append(": "_s);
+	var$0->append($($nc(this->instruction)->toString(verbose)));
+	return $str(var$0);
 }
 
 $String* InstructionHandle::toString() {
@@ -215,15 +157,15 @@ void InstructionHandle::addAttribute(Object$* key, Object$* attr) {
 
 void InstructionHandle::removeAttribute(Object$* key) {
 	if (this->attributes != nullptr) {
-		$nc(this->attributes)->remove(key);
+		this->attributes->remove(key);
 	}
 }
 
 $Object* InstructionHandle::getAttribute(Object$* key) {
 	if (this->attributes != nullptr) {
-		return $of($nc(this->attributes)->get(key));
+		return this->attributes->get(key);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Collection* InstructionHandle::getAttributes() {
@@ -251,7 +193,59 @@ InstructionHandle::InstructionHandle() {
 }
 
 $Class* InstructionHandle::load$($String* name, bool initialize) {
-	$loadClass(InstructionHandle, name, initialize, &_InstructionHandle_ClassInfo_, allocate$InstructionHandle);
+	$FieldInfo fieldInfos$$[] = {
+		{"next", "Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PRIVATE, $field(InstructionHandle, next)},
+		{"prev", "Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PRIVATE, $field(InstructionHandle, prev)},
+		{"instruction", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE, $field(InstructionHandle, instruction)},
+		{"i_position", "I", nullptr, $PRIVATE, $field(InstructionHandle, i_position)},
+		{"targeters", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/org/apache/bcel/internal/generic/InstructionTargeter;>;", $PRIVATE, $field(InstructionHandle, targeters)},
+		{"attributes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Object;Ljava/lang/Object;>;", $PRIVATE, $field(InstructionHandle, attributes)},
+		{}
+	};
+	$CompoundAttribute addHandlemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;)V", nullptr, $PROTECTED, $method(InstructionHandle, init$, void, $Instruction*)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(InstructionHandle, accept, void, $Visitor*)},
+		{"addAttribute", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InstructionHandle, addAttribute, void, Object$*, Object$*)},
+		{"addHandle", "()V", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(InstructionHandle, addHandle, void), nullptr, nullptr, addHandlemethodAnnotations$$},
+		{"addTargeter", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionTargeter;)V", nullptr, $PUBLIC, $virtualMethod(InstructionHandle, addTargeter, void, $InstructionTargeter*)},
+		{"dispose", "()V", nullptr, 0, $virtualMethod(InstructionHandle, dispose, void)},
+		{"getAttribute", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(InstructionHandle, getAttribute, $Object*, Object$*)},
+		{"getAttributes", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(InstructionHandle, getAttributes, $Collection*)},
+		{"getInstruction", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $FINAL, $method(InstructionHandle, getInstruction, $Instruction*)},
+		{"getInstructionHandle", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $STATIC, $staticMethod(InstructionHandle, getInstructionHandle, InstructionHandle*, $Instruction*)},
+		{"getNext", "()Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC | $FINAL, $method(InstructionHandle, getNext, InstructionHandle*)},
+		{"getPosition", "()I", nullptr, $PUBLIC, $virtualMethod(InstructionHandle, getPosition, int32_t)},
+		{"getPrev", "()Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC | $FINAL, $method(InstructionHandle, getPrev, InstructionHandle*)},
+		{"getTargeters", "()[Lcom/sun/org/apache/bcel/internal/generic/InstructionTargeter;", nullptr, $PUBLIC, $virtualMethod(InstructionHandle, getTargeters, $InstructionTargeterArray*)},
+		{"hasTargeters", "()Z", nullptr, $PUBLIC, $virtualMethod(InstructionHandle, hasTargeters, bool)},
+		{"removeAllTargeters", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionHandle, removeAllTargeters, void)},
+		{"removeAttribute", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InstructionHandle, removeAttribute, void, Object$*)},
+		{"removeTargeter", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionTargeter;)V", nullptr, $PUBLIC, $virtualMethod(InstructionHandle, removeTargeter, void, $InstructionTargeter*)},
+		{"setInstruction", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;)V", nullptr, $PUBLIC, $virtualMethod(InstructionHandle, setInstruction, void, $Instruction*)},
+		{"setNext", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $FINAL, $method(InstructionHandle, setNext, InstructionHandle*, InstructionHandle*)},
+		{"setPosition", "(I)V", nullptr, 0, $virtualMethod(InstructionHandle, setPosition, void, int32_t)},
+		{"setPrev", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $FINAL, $method(InstructionHandle, setPrev, InstructionHandle*, InstructionHandle*)},
+		{"swapInstruction", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;)Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(InstructionHandle, swapInstruction, $Instruction*, $Instruction*)},
+		{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InstructionHandle, toString, $String*, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InstructionHandle, toString, $String*)},
+		{"updatePosition", "(II)I", nullptr, $PROTECTED, $virtualMethod(InstructionHandle, updatePosition, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.InstructionHandle",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InstructionHandle, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InstructionHandle);
+	});
 	return class$;
 }
 

@@ -58,6 +58,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::JMenu* invoker);
 	void addItem(::java::awt::Component* m);
 	static int64_t addMenuListeners(::com::apple::laf::ScreenMenu* listener, int64_t nativeMenu);

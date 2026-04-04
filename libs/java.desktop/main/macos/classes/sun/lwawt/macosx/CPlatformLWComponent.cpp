@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CPlatformLWComponent.h>
-
 #include <sun/lwawt/PlatformWindow.h>
 #include <sun/lwawt/macosx/CPlatformComponent.h>
 #include <jcpp.h>
@@ -12,28 +11,6 @@ using $CPlatformComponent = ::sun::lwawt::macosx::CPlatformComponent;
 namespace sun {
 	namespace lwawt {
 		namespace macosx {
-
-$MethodInfo _CPlatformLWComponent_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CPlatformLWComponent, init$, void)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWComponent, dispose, void)},
-	{"getPointer", "()J", nullptr, $PUBLIC, $virtualMethod(CPlatformLWComponent, getPointer, int64_t)},
-	{"initialize", "(Lsun/lwawt/PlatformWindow;)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWComponent, initialize, void, $PlatformWindow*)},
-	{"setBounds", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWComponent, setBounds, void, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _CPlatformLWComponent_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.lwawt.macosx.CPlatformLWComponent",
-	"sun.lwawt.macosx.CPlatformComponent",
-	nullptr,
-	nullptr,
-	_CPlatformLWComponent_MethodInfo_
-};
-
-$Object* allocate$CPlatformLWComponent($Class* clazz) {
-	return $of($alloc(CPlatformLWComponent));
-}
 
 void CPlatformLWComponent::init$() {
 	$CPlatformComponent::init$();
@@ -56,7 +33,25 @@ CPlatformLWComponent::CPlatformLWComponent() {
 }
 
 $Class* CPlatformLWComponent::load$($String* name, bool initialize) {
-	$loadClass(CPlatformLWComponent, name, initialize, &_CPlatformLWComponent_ClassInfo_, allocate$CPlatformLWComponent);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CPlatformLWComponent, init$, void)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWComponent, dispose, void)},
+		{"getPointer", "()J", nullptr, $PUBLIC, $virtualMethod(CPlatformLWComponent, getPointer, int64_t)},
+		{"initialize", "(Lsun/lwawt/PlatformWindow;)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWComponent, initialize, void, $PlatformWindow*)},
+		{"setBounds", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWComponent, setBounds, void, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.lwawt.macosx.CPlatformLWComponent",
+		"sun.lwawt.macosx.CPlatformComponent",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CPlatformLWComponent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CPlatformLWComponent));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/swing/plaf/synth/SynthFileChooserUIImpl$FilterComboBoxRenderer.h>
-
 #include <java/awt/Component.h>
 #include <java/lang/AssertionError.h>
 #include <javax/swing/JLabel.h>
@@ -26,45 +25,6 @@ namespace sun {
 		namespace plaf {
 			namespace synth {
 
-$FieldInfo _SynthFileChooserUIImpl$FilterComboBoxRenderer_FieldInfo_[] = {
-	{"this$0", "Lsun/swing/plaf/synth/SynthFileChooserUIImpl;", nullptr, $FINAL | $SYNTHETIC, $field(SynthFileChooserUIImpl$FilterComboBoxRenderer, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SynthFileChooserUIImpl$FilterComboBoxRenderer, $assertionsDisabled)},
-	{"delegate", "Ljavax/swing/ListCellRenderer;", "Ljavax/swing/ListCellRenderer<-Ljavax/swing/filechooser/FileFilter;>;", $PRIVATE, $field(SynthFileChooserUIImpl$FilterComboBoxRenderer, delegate)},
-	{}
-};
-
-$MethodInfo _SynthFileChooserUIImpl$FilterComboBoxRenderer_MethodInfo_[] = {
-	{"<init>", "(Lsun/swing/plaf/synth/SynthFileChooserUIImpl;Ljavax/swing/ListCellRenderer;)V", "(Ljavax/swing/ListCellRenderer<-Ljavax/swing/filechooser/FileFilter;>;)V", $PRIVATE, $method(SynthFileChooserUIImpl$FilterComboBoxRenderer, init$, void, $SynthFileChooserUIImpl*, $ListCellRenderer*)},
-	{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljavax/swing/filechooser/FileFilter;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<+Ljavax/swing/filechooser/FileFilter;>;Ljavax/swing/filechooser/FileFilter;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(SynthFileChooserUIImpl$FilterComboBoxRenderer, getListCellRendererComponent, $Component*, $JList*, $FileFilter*, int32_t, bool, bool)},
-	{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SynthFileChooserUIImpl$FilterComboBoxRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
-	{}
-};
-
-$InnerClassInfo _SynthFileChooserUIImpl$FilterComboBoxRenderer_InnerClassesInfo_[] = {
-	{"sun.swing.plaf.synth.SynthFileChooserUIImpl$FilterComboBoxRenderer", "sun.swing.plaf.synth.SynthFileChooserUIImpl", "FilterComboBoxRenderer", $PUBLIC},
-	{}
-};
-
-$ClassInfo _SynthFileChooserUIImpl$FilterComboBoxRenderer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.swing.plaf.synth.SynthFileChooserUIImpl$FilterComboBoxRenderer",
-	"java.lang.Object",
-	"javax.swing.ListCellRenderer",
-	_SynthFileChooserUIImpl$FilterComboBoxRenderer_FieldInfo_,
-	_SynthFileChooserUIImpl$FilterComboBoxRenderer_MethodInfo_,
-	"Ljava/lang/Object;Ljavax/swing/ListCellRenderer<Ljavax/swing/filechooser/FileFilter;>;",
-	nullptr,
-	_SynthFileChooserUIImpl$FilterComboBoxRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.plaf.synth.SynthFileChooserUIImpl"
-};
-
-$Object* allocate$SynthFileChooserUIImpl$FilterComboBoxRenderer($Class* clazz) {
-	return $of($alloc(SynthFileChooserUIImpl$FilterComboBoxRenderer));
-}
-
 bool SynthFileChooserUIImpl$FilterComboBoxRenderer::$assertionsDisabled = false;
 
 void SynthFileChooserUIImpl$FilterComboBoxRenderer::init$($SynthFileChooserUIImpl* this$0, $ListCellRenderer* delegate) {
@@ -73,7 +33,7 @@ void SynthFileChooserUIImpl$FilterComboBoxRenderer::init$($SynthFileChooserUIImp
 }
 
 $Component* SynthFileChooserUIImpl$FilterComboBoxRenderer::getListCellRendererComponent($JList* list, $FileFilter* value, int32_t index, bool isSelected, bool cellHasFocus) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, c, $nc(this->delegate)->getListCellRendererComponent(list, value, index, isSelected, cellHasFocus));
 	$var($String, text, nullptr);
 	if (value != nullptr) {
@@ -83,7 +43,7 @@ $Component* SynthFileChooserUIImpl$FilterComboBoxRenderer::getListCellRendererCo
 		$throwNew($AssertionError);
 	}
 	if (text != nullptr) {
-		$nc(($cast($JLabel, c)))->setText(text);
+		$nc($cast($JLabel, c))->setText(text);
 	}
 	return c;
 }
@@ -92,7 +52,7 @@ $Component* SynthFileChooserUIImpl$FilterComboBoxRenderer::getListCellRendererCo
 	return this->getListCellRendererComponent(list, $cast($FileFilter, value), index, isSelected, cellHasFocus);
 }
 
-void clinit$SynthFileChooserUIImpl$FilterComboBoxRenderer($Class* class$) {
+void SynthFileChooserUIImpl$FilterComboBoxRenderer::clinit$($Class* clazz) {
 	$load($SynthFileChooserUIImpl);
 	SynthFileChooserUIImpl$FilterComboBoxRenderer::$assertionsDisabled = !$SynthFileChooserUIImpl::class$->desiredAssertionStatus();
 }
@@ -101,7 +61,40 @@ SynthFileChooserUIImpl$FilterComboBoxRenderer::SynthFileChooserUIImpl$FilterComb
 }
 
 $Class* SynthFileChooserUIImpl$FilterComboBoxRenderer::load$($String* name, bool initialize) {
-	$loadClass(SynthFileChooserUIImpl$FilterComboBoxRenderer, name, initialize, &_SynthFileChooserUIImpl$FilterComboBoxRenderer_ClassInfo_, clinit$SynthFileChooserUIImpl$FilterComboBoxRenderer, allocate$SynthFileChooserUIImpl$FilterComboBoxRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/swing/plaf/synth/SynthFileChooserUIImpl;", nullptr, $FINAL | $SYNTHETIC, $field(SynthFileChooserUIImpl$FilterComboBoxRenderer, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SynthFileChooserUIImpl$FilterComboBoxRenderer, $assertionsDisabled)},
+		{"delegate", "Ljavax/swing/ListCellRenderer;", "Ljavax/swing/ListCellRenderer<-Ljavax/swing/filechooser/FileFilter;>;", $PRIVATE, $field(SynthFileChooserUIImpl$FilterComboBoxRenderer, delegate)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/swing/plaf/synth/SynthFileChooserUIImpl;Ljavax/swing/ListCellRenderer;)V", "(Ljavax/swing/ListCellRenderer<-Ljavax/swing/filechooser/FileFilter;>;)V", $PRIVATE, $method(SynthFileChooserUIImpl$FilterComboBoxRenderer, init$, void, $SynthFileChooserUIImpl*, $ListCellRenderer*)},
+		{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljavax/swing/filechooser/FileFilter;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<+Ljavax/swing/filechooser/FileFilter;>;Ljavax/swing/filechooser/FileFilter;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(SynthFileChooserUIImpl$FilterComboBoxRenderer, getListCellRendererComponent, $Component*, $JList*, $FileFilter*, int32_t, bool, bool)},
+		{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SynthFileChooserUIImpl$FilterComboBoxRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.plaf.synth.SynthFileChooserUIImpl$FilterComboBoxRenderer", "sun.swing.plaf.synth.SynthFileChooserUIImpl", "FilterComboBoxRenderer", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.swing.plaf.synth.SynthFileChooserUIImpl$FilterComboBoxRenderer",
+		"java.lang.Object",
+		"javax.swing.ListCellRenderer",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljavax/swing/ListCellRenderer<Ljavax/swing/filechooser/FileFilter;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.plaf.synth.SynthFileChooserUIImpl"
+	};
+	$loadClass(SynthFileChooserUIImpl$FilterComboBoxRenderer, name, initialize, &classInfo$$, SynthFileChooserUIImpl$FilterComboBoxRenderer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SynthFileChooserUIImpl$FilterComboBoxRenderer);
+	});
 	return class$;
 }
 

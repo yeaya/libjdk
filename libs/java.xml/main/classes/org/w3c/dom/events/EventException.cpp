@@ -1,5 +1,4 @@
 #include <org/w3c/dom/events/EventException.h>
-
 #include <jcpp.h>
 
 #undef UNSPECIFIED_EVENT_TYPE_ERR
@@ -13,31 +12,6 @@ namespace org {
 	namespace w3c {
 		namespace dom {
 			namespace events {
-
-$FieldInfo _EventException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EventException, serialVersionUID)},
-	{"code", "S", nullptr, $PUBLIC, $field(EventException, code)},
-	{"UNSPECIFIED_EVENT_TYPE_ERR", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(EventException, UNSPECIFIED_EVENT_TYPE_ERR)},
-	{}
-};
-
-$MethodInfo _EventException_MethodInfo_[] = {
-	{"<init>", "(SLjava/lang/String;)V", nullptr, $PUBLIC, $method(EventException, init$, void, int16_t, $String*)},
-	{}
-};
-
-$ClassInfo _EventException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"org.w3c.dom.events.EventException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_EventException_FieldInfo_,
-	_EventException_MethodInfo_
-};
-
-$Object* allocate$EventException($Class* clazz) {
-	return $of($alloc(EventException));
-}
 
 void EventException::init$(int16_t code, $String* message) {
 	$RuntimeException::init$(message);
@@ -55,7 +29,27 @@ void EventException::throw$() {
 }
 
 $Class* EventException::load$($String* name, bool initialize) {
-	$loadClass(EventException, name, initialize, &_EventException_ClassInfo_, allocate$EventException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EventException, serialVersionUID)},
+		{"code", "S", nullptr, $PUBLIC, $field(EventException, code)},
+		{"UNSPECIFIED_EVENT_TYPE_ERR", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(EventException, UNSPECIFIED_EVENT_TYPE_ERR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(SLjava/lang/String;)V", nullptr, $PUBLIC, $method(EventException, init$, void, int16_t, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"org.w3c.dom.events.EventException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EventException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EventException);
+	});
 	return class$;
 }
 

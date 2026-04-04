@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicSplitPaneUI$BasicHorizontalLayoutManager.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -38,77 +37,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicSplitPaneUI$BasicHorizontalLayoutManager_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicSplitPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicSplitPaneUI$BasicHorizontalLayoutManager, this$0)},
-	{"sizes", "[I", nullptr, $PROTECTED, $field(BasicSplitPaneUI$BasicHorizontalLayoutManager, sizes)},
-	{"components", "[Ljava/awt/Component;", nullptr, $PROTECTED, $field(BasicSplitPaneUI$BasicHorizontalLayoutManager, components)},
-	{"lastSplitPaneSize", "I", nullptr, $PRIVATE, $field(BasicSplitPaneUI$BasicHorizontalLayoutManager, lastSplitPaneSize)},
-	{"doReset", "Z", nullptr, $PRIVATE, $field(BasicSplitPaneUI$BasicHorizontalLayoutManager, doReset)},
-	{"axis", "I", nullptr, $PRIVATE, $field(BasicSplitPaneUI$BasicHorizontalLayoutManager, axis)},
-	{}
-};
-
-$MethodInfo _BasicSplitPaneUI$BasicHorizontalLayoutManager_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneUI;)V", nullptr, 0, $method(BasicSplitPaneUI$BasicHorizontalLayoutManager, init$, void, $BasicSplitPaneUI*)},
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneUI;I)V", nullptr, 0, $method(BasicSplitPaneUI$BasicHorizontalLayoutManager, init$, void, $BasicSplitPaneUI*, int32_t)},
-	{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, addLayoutComponent, void, $String*, $Component*)},
-	{"addLayoutComponent", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, addLayoutComponent, void, $Component*, Object$*)},
-	{"distributeSpace", "(IZ)V", nullptr, 0, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, distributeSpace, void, int32_t, bool)},
-	{"getAvailableSize", "(Ljava/awt/Dimension;Ljava/awt/Insets;)I", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, getAvailableSize, int32_t, $Dimension*, $Insets*)},
-	{"getInitialLocation", "(Ljava/awt/Insets;)I", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, getInitialLocation, int32_t, $Insets*)},
-	{"getLayoutAlignmentX", "(Ljava/awt/Container;)F", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, getLayoutAlignmentX, float, $Container*)},
-	{"getLayoutAlignmentY", "(Ljava/awt/Container;)F", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, getLayoutAlignmentY, float, $Container*)},
-	{"getMinimumSizeOfComponent", "(Ljava/awt/Component;)I", nullptr, 0, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, getMinimumSizeOfComponent, int32_t, $Component*)},
-	{"getMinimumSizes", "()[I", nullptr, 0, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, getMinimumSizes, $ints*)},
-	{"getPreferredSizeOfComponent", "(Ljava/awt/Component;)I", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, getPreferredSizeOfComponent, int32_t, $Component*)},
-	{"getPreferredSizes", "()[I", nullptr, 0, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, getPreferredSizes, $ints*)},
-	{"getSizeForPrimaryAxis", "(Ljava/awt/Dimension;)I", nullptr, 0, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, getSizeForPrimaryAxis, int32_t, $Dimension*)},
-	{"getSizeForPrimaryAxis", "(Ljava/awt/Insets;Z)I", nullptr, 0, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, getSizeForPrimaryAxis, int32_t, $Insets*, bool)},
-	{"getSizeForSecondaryAxis", "(Ljava/awt/Dimension;)I", nullptr, 0, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, getSizeForSecondaryAxis, int32_t, $Dimension*)},
-	{"getSizeForSecondaryAxis", "(Ljava/awt/Insets;Z)I", nullptr, 0, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, getSizeForSecondaryAxis, int32_t, $Insets*, bool)},
-	{"getSizeOfComponent", "(Ljava/awt/Component;)I", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, getSizeOfComponent, int32_t, $Component*)},
-	{"getSizes", "()[I", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, getSizes, $ints*)},
-	{"invalidateLayout", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, invalidateLayout, void, $Container*)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, layoutContainer, void, $Container*)},
-	{"maximumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, maximumLayoutSize, $Dimension*, $Container*)},
-	{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, minimumLayoutSize, $Dimension*, $Container*)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, preferredLayoutSize, $Dimension*, $Container*)},
-	{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, removeLayoutComponent, void, $Component*)},
-	{"resetSizeAt", "(I)V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, resetSizeAt, void, int32_t)},
-	{"resetToPreferredSizes", "()V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, resetToPreferredSizes, void)},
-	{"resetToPreferredSizes", "(I)V", nullptr, 0, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, resetToPreferredSizes, void, int32_t)},
-	{"setComponentToSize", "(Ljava/awt/Component;IILjava/awt/Insets;Ljava/awt/Dimension;)V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, setComponentToSize, void, $Component*, int32_t, int32_t, $Insets*, $Dimension*)},
-	{"setDividerLocation", "(II)V", nullptr, 0, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, setDividerLocation, void, int32_t, int32_t)},
-	{"setSizes", "([I)V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, setSizes, void, $ints*)},
-	{"updateComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, updateComponents, void)},
-	{}
-};
-
-$InnerClassInfo _BasicSplitPaneUI$BasicHorizontalLayoutManager_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicSplitPaneUI$BasicHorizontalLayoutManager", "javax.swing.plaf.basic.BasicSplitPaneUI", "BasicHorizontalLayoutManager", $PUBLIC},
-	{}
-};
-
-$ClassInfo _BasicSplitPaneUI$BasicHorizontalLayoutManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicSplitPaneUI$BasicHorizontalLayoutManager",
-	"java.lang.Object",
-	"java.awt.LayoutManager2",
-	_BasicSplitPaneUI$BasicHorizontalLayoutManager_FieldInfo_,
-	_BasicSplitPaneUI$BasicHorizontalLayoutManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicSplitPaneUI$BasicHorizontalLayoutManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicSplitPaneUI"
-};
-
-$Object* allocate$BasicSplitPaneUI$BasicHorizontalLayoutManager($Class* clazz) {
-	return $of($alloc(BasicSplitPaneUI$BasicHorizontalLayoutManager));
-}
-
 void BasicSplitPaneUI$BasicHorizontalLayoutManager::init$($BasicSplitPaneUI* this$0) {
 	BasicSplitPaneUI$BasicHorizontalLayoutManager::init$(this$0, 0);
 }
@@ -117,14 +45,14 @@ void BasicSplitPaneUI$BasicHorizontalLayoutManager::init$($BasicSplitPaneUI* thi
 	$set(this, this$0, this$0);
 	this->axis = axis;
 	$set(this, components, $new($ComponentArray, 3));
-	$nc(this->components)->set(0, $nc(this->components)->set(1, $nc(this->components)->set(2, nullptr)));
+	this->components->set(0, this->components->set(1, this->components->set(2, nullptr)));
 	$set(this, sizes, $new($ints, 3));
 }
 
 void BasicSplitPaneUI$BasicHorizontalLayoutManager::layoutContainer($Container* container) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, containerSize, $nc(container)->getSize());
-	if ($nc(containerSize)->height <= 0 || $nc(containerSize)->width <= 0) {
+	if ($nc(containerSize)->height <= 0 || containerSize->width <= 0) {
 		this->lastSplitPaneSize = 0;
 		return;
 	}
@@ -134,7 +62,7 @@ void BasicSplitPaneUI$BasicHorizontalLayoutManager::layoutContainer($Container* 
 	int32_t newSize = getSizeForPrimaryAxis(containerSize);
 	int32_t beginLocation = this->this$0->getDividerLocation(this->this$0->splitPane);
 	int32_t dOffset = getSizeForPrimaryAxis(insets, true);
-	$var($Dimension, dSize, ($nc(this->components)->get(2) == nullptr) ? ($Dimension*)nullptr : $nc($nc(this->components)->get(2))->getPreferredSize());
+	$var($Dimension, dSize, ($nc(this->components)->get(2) == nullptr) ? ($Dimension*)nullptr : $nc(this->components->get(2))->getPreferredSize());
 	if ((this->doReset && !this->this$0->dividerLocationIsSet) || spDividerLocation < 0) {
 		resetToPreferredSizes(availableSize);
 	} else if (this->lastSplitPaneSize <= 0 || availableSize == this->lastSplitPaneSize || !this->this$0->painted || (dSize != nullptr && getSizeForPrimaryAxis(dSize) != $nc(this->sizes)->get(2))) {
@@ -154,26 +82,20 @@ void BasicSplitPaneUI$BasicHorizontalLayoutManager::layoutContainer($Container* 
 	int32_t nextLocation = getInitialLocation(insets);
 	int32_t counter = 0;
 	while (counter < 3) {
-		if ($nc(this->components)->get(counter) != nullptr && $nc($nc(this->components)->get(counter))->isVisible()) {
+		if ($nc(this->components)->get(counter) != nullptr && $nc(this->components->get(counter))->isVisible()) {
 			setComponentToSize($nc(this->components)->get(counter), $nc(this->sizes)->get(counter), nextLocation, insets, containerSize);
 			nextLocation += $nc(this->sizes)->get(counter);
 		}
 		switch (counter) {
 		case 0:
-			{
-				counter = 2;
-				break;
-			}
+			counter = 2;
+			break;
 		case 2:
-			{
-				counter = 1;
-				break;
-			}
+			counter = 1;
+			break;
 		case 1:
-			{
-				counter = 3;
-				break;
-			}
+			counter = 3;
+			break;
 		}
 	}
 	if (this->this$0->painted) {
@@ -181,26 +103,24 @@ void BasicSplitPaneUI$BasicHorizontalLayoutManager::layoutContainer($Container* 
 		if (newLocation != (spDividerLocation - dOffset)) {
 			int32_t lastLocation = $nc(this->this$0->splitPane)->getLastDividerLocation();
 			this->this$0->ignoreDividerLocationChange = true;
-			{
-				$var($Throwable, var$0, nullptr);
-				try {
-					$nc(this->this$0->splitPane)->setDividerLocation(newLocation);
-					$nc(this->this$0->splitPane)->setLastDividerLocation(lastLocation);
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					this->this$0->ignoreDividerLocationChange = false;
-				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+			$var($Throwable, var$0, nullptr);
+			try {
+				$nc(this->this$0->splitPane)->setDividerLocation(newLocation);
+				$nc(this->this$0->splitPane)->setLastDividerLocation(lastLocation);
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				this->this$0->ignoreDividerLocationChange = false;
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 	}
 }
 
 void BasicSplitPaneUI$BasicHorizontalLayoutManager::addLayoutComponent($String* place, $Component* component) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool isValid = true;
 	if (place != nullptr) {
 		$init($JSplitPane);
@@ -208,13 +128,13 @@ void BasicSplitPaneUI$BasicHorizontalLayoutManager::addLayoutComponent($String* 
 			$nc(this->components)->set(2, component);
 			$nc(this->sizes)->set(2, getSizeForPrimaryAxis($($nc(component)->getPreferredSize())));
 		} else {
-			bool var$1 = place->equals($JSplitPane::LEFT);
-			if (var$1 || place->equals($JSplitPane::TOP)) {
+			bool var$0 = place->equals($JSplitPane::LEFT);
+			if (var$0 || place->equals($JSplitPane::TOP)) {
 				$nc(this->components)->set(0, component);
 				$nc(this->sizes)->set(0, 0);
 			} else {
-				bool var$3 = place->equals($JSplitPane::RIGHT);
-				if (var$3 || place->equals($JSplitPane::BOTTOM)) {
+				bool var$1 = place->equals($JSplitPane::RIGHT);
+				if (var$1 || place->equals($JSplitPane::BOTTOM)) {
 					$nc(this->components)->set(1, component);
 					$nc(this->sizes)->set(1, 0);
 				} else {
@@ -235,13 +155,13 @@ void BasicSplitPaneUI$BasicHorizontalLayoutManager::addLayoutComponent($String* 
 }
 
 $Dimension* BasicSplitPaneUI$BasicHorizontalLayoutManager::minimumLayoutSize($Container* container) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t minPrimary = 0;
 	int32_t minSecondary = 0;
 	$var($Insets, insets, $nc(this->this$0->splitPane)->getInsets());
 	for (int32_t counter = 0; counter < 3; ++counter) {
 		if ($nc(this->components)->get(counter) != nullptr) {
-			$var($Dimension, minSize, $nc($nc(this->components)->get(counter))->getMinimumSize());
+			$var($Dimension, minSize, $nc(this->components->get(counter))->getMinimumSize());
 			int32_t secSize = getSizeForSecondaryAxis(minSize);
 			minPrimary += getSizeForPrimaryAxis(minSize);
 			if (secSize > minSecondary) {
@@ -262,13 +182,13 @@ $Dimension* BasicSplitPaneUI$BasicHorizontalLayoutManager::minimumLayoutSize($Co
 }
 
 $Dimension* BasicSplitPaneUI$BasicHorizontalLayoutManager::preferredLayoutSize($Container* container) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t prePrimary = 0;
 	int32_t preSecondary = 0;
 	$var($Insets, insets, $nc(this->this$0->splitPane)->getInsets());
 	for (int32_t counter = 0; counter < 3; ++counter) {
 		if ($nc(this->components)->get(counter) != nullptr) {
-			$var($Dimension, preSize, $nc($nc(this->components)->get(counter))->getPreferredSize());
+			$var($Dimension, preSize, $nc(this->components->get(counter))->getPreferredSize());
 			int32_t secSize = getSizeForSecondaryAxis(preSize);
 			prePrimary += getSizeForPrimaryAxis(preSize);
 			if (secSize > preSecondary) {
@@ -291,7 +211,7 @@ $Dimension* BasicSplitPaneUI$BasicHorizontalLayoutManager::preferredLayoutSize($
 void BasicSplitPaneUI$BasicHorizontalLayoutManager::removeLayoutComponent($Component* component) {
 	for (int32_t counter = 0; counter < 3; ++counter) {
 		if ($nc(this->components)->get(counter) == component) {
-			$nc(this->components)->set(counter, nullptr);
+			this->components->set(counter, nullptr);
 			$nc(this->sizes)->set(counter, 0);
 			this->doReset = true;
 		}
@@ -424,11 +344,11 @@ int32_t BasicSplitPaneUI$BasicHorizontalLayoutManager::getSizeForSecondaryAxis($
 }
 
 void BasicSplitPaneUI$BasicHorizontalLayoutManager::updateComponents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, comp, nullptr);
 	$assign(comp, $nc(this->this$0->splitPane)->getLeftComponent());
 	if ($nc(this->components)->get(0) != comp) {
-		$nc(this->components)->set(0, comp);
+		this->components->set(0, comp);
 		if (comp == nullptr) {
 			$nc(this->sizes)->set(0, 0);
 		} else {
@@ -437,7 +357,7 @@ void BasicSplitPaneUI$BasicHorizontalLayoutManager::updateComponents() {
 	}
 	$assign(comp, $nc(this->this$0->splitPane)->getRightComponent());
 	if ($nc(this->components)->get(1) != comp) {
-		$nc(this->components)->set(1, comp);
+		this->components->set(1, comp);
 		if (comp == nullptr) {
 			$nc(this->sizes)->set(1, 0);
 		} else {
@@ -446,28 +366,28 @@ void BasicSplitPaneUI$BasicHorizontalLayoutManager::updateComponents() {
 	}
 	$var($ComponentArray, children, $nc(this->this$0->splitPane)->getComponents());
 	$var($Component, oldDivider, $nc(this->components)->get(2));
-	$nc(this->components)->set(2, nullptr);
+	this->components->set(2, nullptr);
 	for (int32_t counter = $nc(children)->length - 1; counter >= 0; --counter) {
-		if (children->get(counter) != $nc(this->components)->get(0) && children->get(counter) != $nc(this->components)->get(1) && children->get(counter) != this->this$0->nonContinuousLayoutDivider) {
+		if (children->get(counter) != this->components->get(0) && children->get(counter) != this->components->get(1) && children->get(counter) != this->this$0->nonContinuousLayoutDivider) {
 			if (oldDivider != children->get(counter)) {
-				$nc(this->components)->set(2, children->get(counter));
+				this->components->set(2, children->get(counter));
 			} else {
-				$nc(this->components)->set(2, oldDivider);
+				this->components->set(2, oldDivider);
 			}
 			break;
 		}
 	}
-	if ($nc(this->components)->get(2) == nullptr) {
+	if (this->components->get(2) == nullptr) {
 		$nc(this->sizes)->set(2, 0);
 	} else {
-		$nc(this->sizes)->set(2, getSizeForPrimaryAxis($($nc($nc(this->components)->get(2))->getPreferredSize())));
+		$nc(this->sizes)->set(2, getSizeForPrimaryAxis($($nc(this->components->get(2))->getPreferredSize())));
 	}
 }
 
 void BasicSplitPaneUI$BasicHorizontalLayoutManager::setDividerLocation(int32_t leftSize, int32_t availableSize) {
-	bool lValid = ($nc(this->components)->get(0) != nullptr && $nc($nc(this->components)->get(0))->isVisible());
-	bool rValid = ($nc(this->components)->get(1) != nullptr && $nc($nc(this->components)->get(1))->isVisible());
-	bool dValid = ($nc(this->components)->get(2) != nullptr && $nc($nc(this->components)->get(2))->isVisible());
+	bool lValid = ($nc(this->components)->get(0) != nullptr && $nc(this->components->get(0))->isVisible());
+	bool rValid = ($nc(this->components)->get(1) != nullptr && $nc(this->components->get(1))->isVisible());
+	bool dValid = ($nc(this->components)->get(2) != nullptr && $nc(this->components->get(2))->isVisible());
 	int32_t max = availableSize;
 	if (dValid) {
 		max -= $nc(this->sizes)->get(2);
@@ -476,21 +396,21 @@ void BasicSplitPaneUI$BasicHorizontalLayoutManager::setDividerLocation(int32_t l
 	if (lValid) {
 		if (rValid) {
 			$nc(this->sizes)->set(0, leftSize);
-			$nc(this->sizes)->set(1, max - leftSize);
+			this->sizes->set(1, max - leftSize);
 		} else {
 			$nc(this->sizes)->set(0, max);
-			$nc(this->sizes)->set(1, 0);
+			this->sizes->set(1, 0);
 		}
 	} else if (rValid) {
 		$nc(this->sizes)->set(1, max);
-		$nc(this->sizes)->set(0, 0);
+		this->sizes->set(0, 0);
 	}
 }
 
 $ints* BasicSplitPaneUI$BasicHorizontalLayoutManager::getPreferredSizes() {
 	$var($ints, retValue, $new($ints, 3));
 	for (int32_t counter = 0; counter < 3; ++counter) {
-		if ($nc(this->components)->get(counter) != nullptr && $nc($nc(this->components)->get(counter))->isVisible()) {
+		if ($nc(this->components)->get(counter) != nullptr && $nc(this->components->get(counter))->isVisible()) {
 			retValue->set(counter, getPreferredSizeOfComponent($nc(this->components)->get(counter)));
 		} else {
 			retValue->set(counter, -1);
@@ -502,13 +422,13 @@ $ints* BasicSplitPaneUI$BasicHorizontalLayoutManager::getPreferredSizes() {
 $ints* BasicSplitPaneUI$BasicHorizontalLayoutManager::getMinimumSizes() {
 	$var($ints, retValue, $new($ints, 3));
 	for (int32_t counter = 0; counter < 2; ++counter) {
-		if ($nc(this->components)->get(counter) != nullptr && $nc($nc(this->components)->get(counter))->isVisible()) {
+		if ($nc(this->components)->get(counter) != nullptr && $nc(this->components->get(counter))->isVisible()) {
 			retValue->set(counter, getMinimumSizeOfComponent($nc(this->components)->get(counter)));
 		} else {
 			retValue->set(counter, -1);
 		}
 	}
-	retValue->set(2, ($nc(this->components)->get(2) != nullptr) ? getMinimumSizeOfComponent($nc(this->components)->get(2)) : -1);
+	retValue->set(2, ($nc(this->components)->get(2) != nullptr) ? getMinimumSizeOfComponent(this->components->get(2)) : -1);
 	return retValue;
 }
 
@@ -534,9 +454,9 @@ void BasicSplitPaneUI$BasicHorizontalLayoutManager::resetToPreferredSizes(int32_
 }
 
 void BasicSplitPaneUI$BasicHorizontalLayoutManager::distributeSpace(int32_t space, bool keepHidden) {
-	$useLocalCurrentObjectStackCache();
-	bool lValid = ($nc(this->components)->get(0) != nullptr && $nc($nc(this->components)->get(0))->isVisible());
-	bool rValid = ($nc(this->components)->get(1) != nullptr && $nc($nc(this->components)->get(1))->isVisible());
+	$useLocalObjectStack();
+	bool lValid = ($nc(this->components)->get(0) != nullptr && $nc(this->components->get(0))->isVisible());
+	bool rValid = ($nc(this->components)->get(1) != nullptr && $nc(this->components->get(1))->isVisible());
 	if (keepHidden) {
 		if (lValid && getSizeForPrimaryAxis($($nc($nc(this->components)->get(0))->getSize())) == 0) {
 			lValid = false;
@@ -552,45 +472,45 @@ void BasicSplitPaneUI$BasicHorizontalLayoutManager::distributeSpace(int32_t spac
 		int32_t lExtra = $cast(int32_t, (weight * (double)space));
 		int32_t rExtra = (space - lExtra);
 		(*$nc(this->sizes))[0] += lExtra;
-		(*$nc(this->sizes))[1] += rExtra;
+		(*this->sizes)[1] += rExtra;
 		int32_t lMin = getMinimumSizeOfComponent($nc(this->components)->get(0));
 		int32_t rMin = getMinimumSizeOfComponent($nc(this->components)->get(1));
 		bool lMinValid = ($nc(this->sizes)->get(0) >= lMin);
-		bool rMinValid = ($nc(this->sizes)->get(1) >= rMin);
+		bool rMinValid = (this->sizes->get(1) >= rMin);
 		if (!lMinValid && !rMinValid) {
-			if ($nc(this->sizes)->get(0) < 0) {
-				(*$nc(this->sizes))[1] += $nc(this->sizes)->get(0);
-				$nc(this->sizes)->set(0, 0);
-			} else if ($nc(this->sizes)->get(1) < 0) {
-				(*$nc(this->sizes))[0] += $nc(this->sizes)->get(1);
-				$nc(this->sizes)->set(1, 0);
+			if (this->sizes->get(0) < 0) {
+				(*this->sizes)[1] += this->sizes->get(0);
+				this->sizes->set(0, 0);
+			} else if (this->sizes->get(1) < 0) {
+				(*this->sizes)[0] += this->sizes->get(1);
+				this->sizes->set(1, 0);
 			}
 		} else if (!lMinValid) {
-			if ($nc(this->sizes)->get(1) - (lMin - $nc(this->sizes)->get(0)) < rMin) {
-				if ($nc(this->sizes)->get(0) < 0) {
-					(*$nc(this->sizes))[1] += $nc(this->sizes)->get(0);
-					$nc(this->sizes)->set(0, 0);
+			if (this->sizes->get(1) - (lMin - this->sizes->get(0)) < rMin) {
+				if (this->sizes->get(0) < 0) {
+					(*this->sizes)[1] += this->sizes->get(0);
+					this->sizes->set(0, 0);
 				}
 			} else {
-				(*$nc(this->sizes))[1] -= (lMin - $nc(this->sizes)->get(0));
-				$nc(this->sizes)->set(0, lMin);
+				(*this->sizes)[1] -= (lMin - this->sizes->get(0));
+				this->sizes->set(0, lMin);
 			}
 		} else if (!rMinValid) {
-			if ($nc(this->sizes)->get(0) - (rMin - $nc(this->sizes)->get(1)) < lMin) {
-				if ($nc(this->sizes)->get(1) < 0) {
-					(*$nc(this->sizes))[0] += $nc(this->sizes)->get(1);
-					$nc(this->sizes)->set(1, 0);
+			if (this->sizes->get(0) - (rMin - this->sizes->get(1)) < lMin) {
+				if (this->sizes->get(1) < 0) {
+					(*this->sizes)[0] += this->sizes->get(1);
+					this->sizes->set(1, 0);
 				}
 			} else {
-				(*$nc(this->sizes))[0] -= (rMin - $nc(this->sizes)->get(1));
-				$nc(this->sizes)->set(1, rMin);
+				(*this->sizes)[0] -= (rMin - this->sizes->get(1));
+				this->sizes->set(1, rMin);
 			}
 		}
-		if ($nc(this->sizes)->get(0) < 0) {
-			$nc(this->sizes)->set(0, 0);
+		if (this->sizes->get(0) < 0) {
+			this->sizes->set(0, 0);
 		}
-		if ($nc(this->sizes)->get(1) < 0) {
-			$nc(this->sizes)->set(1, 0);
+		if (this->sizes->get(1) < 0) {
+			this->sizes->set(1, 0);
 		}
 	} else if (lValid) {
 		$nc(this->sizes)->set(0, $Math::max(0, $nc(this->sizes)->get(0) + space));
@@ -603,7 +523,72 @@ BasicSplitPaneUI$BasicHorizontalLayoutManager::BasicSplitPaneUI$BasicHorizontalL
 }
 
 $Class* BasicSplitPaneUI$BasicHorizontalLayoutManager::load$($String* name, bool initialize) {
-	$loadClass(BasicSplitPaneUI$BasicHorizontalLayoutManager, name, initialize, &_BasicSplitPaneUI$BasicHorizontalLayoutManager_ClassInfo_, allocate$BasicSplitPaneUI$BasicHorizontalLayoutManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicSplitPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicSplitPaneUI$BasicHorizontalLayoutManager, this$0)},
+		{"sizes", "[I", nullptr, $PROTECTED, $field(BasicSplitPaneUI$BasicHorizontalLayoutManager, sizes)},
+		{"components", "[Ljava/awt/Component;", nullptr, $PROTECTED, $field(BasicSplitPaneUI$BasicHorizontalLayoutManager, components)},
+		{"lastSplitPaneSize", "I", nullptr, $PRIVATE, $field(BasicSplitPaneUI$BasicHorizontalLayoutManager, lastSplitPaneSize)},
+		{"doReset", "Z", nullptr, $PRIVATE, $field(BasicSplitPaneUI$BasicHorizontalLayoutManager, doReset)},
+		{"axis", "I", nullptr, $PRIVATE, $field(BasicSplitPaneUI$BasicHorizontalLayoutManager, axis)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneUI;)V", nullptr, 0, $method(BasicSplitPaneUI$BasicHorizontalLayoutManager, init$, void, $BasicSplitPaneUI*)},
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneUI;I)V", nullptr, 0, $method(BasicSplitPaneUI$BasicHorizontalLayoutManager, init$, void, $BasicSplitPaneUI*, int32_t)},
+		{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, addLayoutComponent, void, $String*, $Component*)},
+		{"addLayoutComponent", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, addLayoutComponent, void, $Component*, Object$*)},
+		{"distributeSpace", "(IZ)V", nullptr, 0, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, distributeSpace, void, int32_t, bool)},
+		{"getAvailableSize", "(Ljava/awt/Dimension;Ljava/awt/Insets;)I", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, getAvailableSize, int32_t, $Dimension*, $Insets*)},
+		{"getInitialLocation", "(Ljava/awt/Insets;)I", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, getInitialLocation, int32_t, $Insets*)},
+		{"getLayoutAlignmentX", "(Ljava/awt/Container;)F", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, getLayoutAlignmentX, float, $Container*)},
+		{"getLayoutAlignmentY", "(Ljava/awt/Container;)F", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, getLayoutAlignmentY, float, $Container*)},
+		{"getMinimumSizeOfComponent", "(Ljava/awt/Component;)I", nullptr, 0, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, getMinimumSizeOfComponent, int32_t, $Component*)},
+		{"getMinimumSizes", "()[I", nullptr, 0, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, getMinimumSizes, $ints*)},
+		{"getPreferredSizeOfComponent", "(Ljava/awt/Component;)I", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, getPreferredSizeOfComponent, int32_t, $Component*)},
+		{"getPreferredSizes", "()[I", nullptr, 0, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, getPreferredSizes, $ints*)},
+		{"getSizeForPrimaryAxis", "(Ljava/awt/Dimension;)I", nullptr, 0, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, getSizeForPrimaryAxis, int32_t, $Dimension*)},
+		{"getSizeForPrimaryAxis", "(Ljava/awt/Insets;Z)I", nullptr, 0, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, getSizeForPrimaryAxis, int32_t, $Insets*, bool)},
+		{"getSizeForSecondaryAxis", "(Ljava/awt/Dimension;)I", nullptr, 0, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, getSizeForSecondaryAxis, int32_t, $Dimension*)},
+		{"getSizeForSecondaryAxis", "(Ljava/awt/Insets;Z)I", nullptr, 0, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, getSizeForSecondaryAxis, int32_t, $Insets*, bool)},
+		{"getSizeOfComponent", "(Ljava/awt/Component;)I", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, getSizeOfComponent, int32_t, $Component*)},
+		{"getSizes", "()[I", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, getSizes, $ints*)},
+		{"invalidateLayout", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, invalidateLayout, void, $Container*)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, layoutContainer, void, $Container*)},
+		{"maximumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, maximumLayoutSize, $Dimension*, $Container*)},
+		{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, minimumLayoutSize, $Dimension*, $Container*)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, preferredLayoutSize, $Dimension*, $Container*)},
+		{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, removeLayoutComponent, void, $Component*)},
+		{"resetSizeAt", "(I)V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, resetSizeAt, void, int32_t)},
+		{"resetToPreferredSizes", "()V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, resetToPreferredSizes, void)},
+		{"resetToPreferredSizes", "(I)V", nullptr, 0, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, resetToPreferredSizes, void, int32_t)},
+		{"setComponentToSize", "(Ljava/awt/Component;IILjava/awt/Insets;Ljava/awt/Dimension;)V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, setComponentToSize, void, $Component*, int32_t, int32_t, $Insets*, $Dimension*)},
+		{"setDividerLocation", "(II)V", nullptr, 0, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, setDividerLocation, void, int32_t, int32_t)},
+		{"setSizes", "([I)V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, setSizes, void, $ints*)},
+		{"updateComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI$BasicHorizontalLayoutManager, updateComponents, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicSplitPaneUI$BasicHorizontalLayoutManager", "javax.swing.plaf.basic.BasicSplitPaneUI", "BasicHorizontalLayoutManager", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicSplitPaneUI$BasicHorizontalLayoutManager",
+		"java.lang.Object",
+		"java.awt.LayoutManager2",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicSplitPaneUI"
+	};
+	$loadClass(BasicSplitPaneUI$BasicHorizontalLayoutManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicSplitPaneUI$BasicHorizontalLayoutManager);
+	});
 	return class$;
 }
 

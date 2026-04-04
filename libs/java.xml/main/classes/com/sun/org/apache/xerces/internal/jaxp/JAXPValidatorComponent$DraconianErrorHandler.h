@@ -28,6 +28,7 @@ class JAXPValidatorComponent$DraconianErrorHandler : public ::org::xml::sax::Err
 	$class(JAXPValidatorComponent$DraconianErrorHandler, 0, ::org::xml::sax::ErrorHandler)
 public:
 	JAXPValidatorComponent$DraconianErrorHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void error(::org::xml::sax::SAXParseException* e) override;
 	virtual void fatalError(::org::xml::sax::SAXParseException* e) override;

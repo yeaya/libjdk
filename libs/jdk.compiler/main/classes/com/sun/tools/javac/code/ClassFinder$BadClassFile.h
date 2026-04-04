@@ -51,7 +51,10 @@ public:
 	static const int64_t serialVersionUID = 0;
 	ClassFinder$BadClassFile(const ClassFinder$BadClassFile& e);
 	virtual void throw$() override;
-	inline ClassFinder$BadClassFile* operator ->() {
+	inline ClassFinder$BadClassFile* operator ->() const {
+		return (ClassFinder$BadClassFile*)throwing$;
+	}
+	inline operator ClassFinder$BadClassFile*() const {
 		return (ClassFinder$BadClassFile*)throwing$;
 	}
 };

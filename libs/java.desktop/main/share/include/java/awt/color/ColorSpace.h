@@ -78,7 +78,7 @@ public:
 	void rangeCheck(int32_t component);
 	virtual $floats* toCIEXYZ($floats* colorvalue) {return nullptr;}
 	virtual $floats* toRGB($floats* colorvalue) {return nullptr;}
-	static const int64_t serialVersionUID = (int64_t)0xFA5154EF4F5B84C4;
+	static const int64_t serialVersionUID = (int64_t)0xfa5154ef4f5b84c4;
 	int32_t type = 0;
 	int32_t numComponents = 0;
 	$volatile($StringArray*) compName = nullptr;

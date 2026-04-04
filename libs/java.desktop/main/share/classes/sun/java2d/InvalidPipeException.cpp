@@ -1,5 +1,4 @@
 #include <sun/java2d/InvalidPipeException.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jcpp.h>
 
@@ -9,25 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace sun {
 	namespace java2d {
-
-$MethodInfo _InvalidPipeException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidPipeException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidPipeException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _InvalidPipeException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.InvalidPipeException",
-	"java.lang.IllegalStateException",
-	nullptr,
-	nullptr,
-	_InvalidPipeException_MethodInfo_
-};
-
-$Object* allocate$InvalidPipeException($Class* clazz) {
-	return $of($alloc(InvalidPipeException));
-}
 
 void InvalidPipeException::init$() {
 	$IllegalStateException::init$();
@@ -48,7 +28,22 @@ void InvalidPipeException::throw$() {
 }
 
 $Class* InvalidPipeException::load$($String* name, bool initialize) {
-	$loadClass(InvalidPipeException, name, initialize, &_InvalidPipeException_ClassInfo_, allocate$InvalidPipeException);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidPipeException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidPipeException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.InvalidPipeException",
+		"java.lang.IllegalStateException",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InvalidPipeException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvalidPipeException);
+	});
 	return class$;
 }
 

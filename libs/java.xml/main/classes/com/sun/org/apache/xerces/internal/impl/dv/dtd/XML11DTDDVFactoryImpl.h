@@ -45,6 +45,7 @@ class XML11DTDDVFactoryImpl : public ::com::sun::org::apache::xerces::internal::
 	$class(XML11DTDDVFactoryImpl, 0, ::com::sun::org::apache::xerces::internal::impl::dv::dtd::DTDDVFactoryImpl)
 public:
 	XML11DTDDVFactoryImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::com::sun::org::apache::xerces::internal::impl::dv::DatatypeValidator* getBuiltInDV($String* name) override;
 	virtual ::java::util::Map* getBuiltInTypes() override;

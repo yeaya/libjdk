@@ -15,6 +15,7 @@ class ZipFileAttributeView$AttrID : public ::java::lang::Enum {
 public:
 	ZipFileAttributeView$AttrID();
 	static $Array<::jdk::nio::zipfs::ZipFileAttributeView$AttrID>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::jdk::nio::zipfs::ZipFileAttributeView$AttrID* valueOf($String* name);
 	static $Array<::jdk::nio::zipfs::ZipFileAttributeView$AttrID>* values();

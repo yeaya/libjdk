@@ -1,5 +1,4 @@
 #include <sun/awt/X11/Depth.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/Visual.h>
@@ -12,58 +11,14 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $Visual = ::sun::awt::X11::Visual;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _Depth_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(Depth, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(Depth, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(Depth, pData)},
-	{}
-};
-
-$MethodInfo _Depth_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(Depth, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Depth, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Depth, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(Depth, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(Depth, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Depth, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Depth, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(Depth, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Depth, getSize, int32_t)},
-	{"get_depth", "()I", nullptr, $PUBLIC, $virtualMethod(Depth, get_depth, int32_t)},
-	{"get_nvisuals", "()I", nullptr, $PUBLIC, $virtualMethod(Depth, get_nvisuals, int32_t)},
-	{"get_visuals", "(I)Lsun/awt/X11/Visual;", nullptr, $PUBLIC, $virtualMethod(Depth, get_visuals, $Visual*, int32_t)},
-	{"get_visuals", "()J", nullptr, $PUBLIC, $virtualMethod(Depth, get_visuals, int64_t)},
-	{"set_depth", "(I)V", nullptr, $PUBLIC, $virtualMethod(Depth, set_depth, void, int32_t)},
-	{"set_nvisuals", "(I)V", nullptr, $PUBLIC, $virtualMethod(Depth, set_nvisuals, void, int32_t)},
-	{"set_visuals", "(J)V", nullptr, $PUBLIC, $virtualMethod(Depth, set_visuals, void, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Depth, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Depth, zero, void)},
-	{}
-};
-
-$ClassInfo _Depth_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.Depth",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_Depth_FieldInfo_,
-	_Depth_MethodInfo_
-};
-
-$Object* allocate$Depth($Class* clazz) {
-	return $of($alloc(Depth));
-}
 
 int32_t Depth::getSize() {
 	$init(Depth);
@@ -102,7 +57,7 @@ void Depth::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -162,7 +117,7 @@ $String* Depth::getFieldsAsString() {
 }
 
 $Object* Depth::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void Depth::zero() {
@@ -177,7 +132,44 @@ Depth::Depth() {
 }
 
 $Class* Depth::load$($String* name, bool initialize) {
-	$loadClass(Depth, name, initialize, &_Depth_ClassInfo_, allocate$Depth);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(Depth, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(Depth, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(Depth, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(Depth, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Depth, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Depth, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(Depth, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(Depth, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Depth, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Depth, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(Depth, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Depth, getSize, int32_t)},
+		{"get_depth", "()I", nullptr, $PUBLIC, $virtualMethod(Depth, get_depth, int32_t)},
+		{"get_nvisuals", "()I", nullptr, $PUBLIC, $virtualMethod(Depth, get_nvisuals, int32_t)},
+		{"get_visuals", "(I)Lsun/awt/X11/Visual;", nullptr, $PUBLIC, $virtualMethod(Depth, get_visuals, $Visual*, int32_t)},
+		{"get_visuals", "()J", nullptr, $PUBLIC, $virtualMethod(Depth, get_visuals, int64_t)},
+		{"set_depth", "(I)V", nullptr, $PUBLIC, $virtualMethod(Depth, set_depth, void, int32_t)},
+		{"set_nvisuals", "(I)V", nullptr, $PUBLIC, $virtualMethod(Depth, set_nvisuals, void, int32_t)},
+		{"set_visuals", "(J)V", nullptr, $PUBLIC, $virtualMethod(Depth, set_visuals, void, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Depth, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Depth, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.Depth",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Depth, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Depth);
+	});
 	return class$;
 }
 

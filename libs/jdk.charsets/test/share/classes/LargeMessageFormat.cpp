@@ -1,5 +1,4 @@
 #include <LargeMessageFormat.h>
-
 #include <java/lang/Number.h>
 #include <java/lang/StringBuffer.h>
 #include <java/text/MessageFormat.h>
@@ -11,7 +10,6 @@
 #undef GERMANY
 #undef REPEATS
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -25,66 +23,38 @@ using $Date = ::java::util::Date;
 using $Locale = ::java::util::Locale;
 using $TimeZone = ::java::util::TimeZone;
 
-$FieldInfo _LargeMessageFormat_FieldInfo_[] = {
-	{"REPEATS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LargeMessageFormat, REPEATS)},
-	{}
-};
-
-$MethodInfo _LargeMessageFormat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LargeMessageFormat, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LargeMessageFormat, main, void, $StringArray*), "java.text.ParseException"},
-	{"testFormat", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(LargeMessageFormat, testFormat, void)},
-	{"testParse", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(LargeMessageFormat, testParse, void), "java.text.ParseException"},
-	{}
-};
-
-$ClassInfo _LargeMessageFormat_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"LargeMessageFormat",
-	"java.lang.Object",
-	nullptr,
-	_LargeMessageFormat_FieldInfo_,
-	_LargeMessageFormat_MethodInfo_
-};
-
-$Object* allocate$LargeMessageFormat($Class* clazz) {
-	return $of($alloc(LargeMessageFormat));
-}
-
 void LargeMessageFormat::init$() {
 }
 
 void LargeMessageFormat::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, reservedLocale, $Locale::getDefault());
 	$var($TimeZone, reservedTimeZone, $TimeZone::getDefault());
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$Locale::setDefault($Locale::GERMANY);
-			$TimeZone::setDefault($($TimeZone::getTimeZone("Europe/Berlin"_s)));
-			testFormat();
-			testParse();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$Locale::setDefault(reservedLocale);
-			$TimeZone::setDefault(reservedTimeZone);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$Locale::setDefault($Locale::GERMANY);
+		$TimeZone::setDefault($($TimeZone::getTimeZone("Europe/Berlin"_s)));
+		testFormat();
+		testParse();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$Locale::setDefault(reservedLocale);
+		$TimeZone::setDefault(reservedTimeZone);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void LargeMessageFormat::testFormat() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, sample, $new($ObjectArray, {
-		$($of($Integer::valueOf(0))),
-		$of("hello"_s),
-		$of($$new($Date, 89, 10, 9)),
-		$($of($Integer::valueOf(0x0008AA52))),
-		$($of($Double::valueOf(1234.5)))
+		$($Integer::valueOf(0)),
+		"hello"_s,
+		$$new($Date, 89, 10, 9),
+		$($Integer::valueOf(0x0008aa52)),
+		$($Double::valueOf(1234.5))
 	}));
 	int32_t samples = sample->length;
 	$var($ObjectArray, arguments, $new($ObjectArray, LargeMessageFormat::REPEATS * (samples + 1)));
@@ -112,17 +82,17 @@ void LargeMessageFormat::testFormat() {
 	$var($String, result, format->format(arguments));
 	if (!$nc(result)->equals($(expected->toString()))) {
 		$nc($System::out)->println("Template:"_s);
-		$nc($System::out)->println($of(template$));
-		$nc($System::out)->println("Expected result: "_s);
-		$nc($System::out)->println($of(expected));
-		$nc($System::out)->println("Actual result: "_s);
-		$nc($System::out)->println(result);
+		$System::out->println(template$);
+		$System::out->println("Expected result: "_s);
+		$System::out->println(expected);
+		$System::out->println("Actual result: "_s);
+		$System::out->println(result);
 		$throwNew($RuntimeException);
 	}
 }
 
 void LargeMessageFormat::testParse() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, parseTemplate, $new($StringBuffer));
 	$var($StringBuffer, parseInput, $new($StringBuffer));
 	for (int32_t i = 0; i < LargeMessageFormat::REPEATS; ++i) {
@@ -132,7 +102,7 @@ void LargeMessageFormat::testParse() {
 	$var($MessageFormat, parseFormat, $new($MessageFormat, $(parseTemplate->toString())));
 	$var($ObjectArray, parseResult, parseFormat->parse($(parseInput->toString())));
 	for (int32_t i = 0; i < LargeMessageFormat::REPEATS; ++i) {
-		if ($nc(($cast($Number, $nc(parseResult)->get(i))))->intValue() != i) {
+		if ($nc($cast($Number, $nc(parseResult)->get(i)))->intValue() != i) {
 			$throwNew($RuntimeException, "got wrong parse result"_s);
 		}
 	}
@@ -142,7 +112,28 @@ LargeMessageFormat::LargeMessageFormat() {
 }
 
 $Class* LargeMessageFormat::load$($String* name, bool initialize) {
-	$loadClass(LargeMessageFormat, name, initialize, &_LargeMessageFormat_ClassInfo_, allocate$LargeMessageFormat);
+	$FieldInfo fieldInfos$$[] = {
+		{"REPEATS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LargeMessageFormat, REPEATS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LargeMessageFormat, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LargeMessageFormat, main, void, $StringArray*), "java.text.ParseException"},
+		{"testFormat", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(LargeMessageFormat, testFormat, void)},
+		{"testParse", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(LargeMessageFormat, testParse, void), "java.text.ParseException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"LargeMessageFormat",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LargeMessageFormat, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LargeMessageFormat);
+	});
 	return class$;
 }
 

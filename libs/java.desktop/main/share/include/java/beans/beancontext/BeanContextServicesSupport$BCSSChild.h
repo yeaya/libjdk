@@ -35,7 +35,7 @@ public:
 	virtual void revokeService($Class* serviceClass, bool isDelegated, bool revokeNow);
 	virtual void usingService(Object$* requestor, Object$* service, $Class* serviceClass, ::java::beans::beancontext::BeanContextServiceProvider* bcsp, bool isDelegated, ::java::beans::beancontext::BeanContextServiceRevokedListener* bcsrl);
 	::java::beans::beancontext::BeanContextServicesSupport* this$0 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xD2B478876D2CD287;
+	static const int64_t serialVersionUID = (int64_t)0xd2b478876d2cd287;
 	::java::util::HashMap* serviceClasses = nullptr;
 	::java::util::HashMap* serviceRequestors = nullptr;
 };

@@ -28,6 +28,7 @@ class ObjectEndpoint : public ::java::lang::Object {
 	$class(ObjectEndpoint, 0, ::java::lang::Object)
 public:
 	ObjectEndpoint();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::rmi::server::ObjID* id, ::sun::rmi::transport::Transport* transport);
 	virtual bool equals(Object$* obj) override;
 	virtual int32_t hashCode() override;

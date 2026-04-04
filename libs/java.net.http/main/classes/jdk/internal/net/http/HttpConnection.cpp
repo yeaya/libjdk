@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/HttpConnection.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
@@ -69,15 +68,12 @@ using $HttpHeaders = ::java::net::http::HttpHeaders;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
 using $Arrays = ::java::util::Arrays;
-using $Optional = ::java::util::Optional;
 using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $CompletionStage = ::java::util::concurrent::CompletionStage;
 using $BiPredicate = ::java::util::function::BiPredicate;
 using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
 using $Supplier = ::java::util::function::Supplier;
-using $Stream = ::java::util::stream::Stream;
-using $SSLParameters = ::javax::net::ssl::SSLParameters;
 using $AsyncSSLConnection = ::jdk::internal::net::http::AsyncSSLConnection;
 using $AsyncSSLTunnelConnection = ::jdk::internal::net::http::AsyncSSLTunnelConnection;
 using $ConnectionPool = ::jdk::internal::net::http::ConnectionPool;
@@ -91,7 +87,6 @@ using $PlainHttpConnection = ::jdk::internal::net::http::PlainHttpConnection;
 using $PlainProxyConnection = ::jdk::internal::net::http::PlainProxyConnection;
 using $PlainTunnelingConnection = ::jdk::internal::net::http::PlainTunnelingConnection;
 using $FlowTube = ::jdk::internal::net::http::common::FlowTube;
-using $HttpHeadersBuilder = ::jdk::internal::net::http::common::HttpHeadersBuilder;
 using $Log = ::jdk::internal::net::http::common::Log;
 using $Logger = ::jdk::internal::net::http::common::Logger;
 using $Utils = ::jdk::internal::net::http::common::Utils;
@@ -111,33 +106,29 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->dbgString());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpConnection$$Lambda$dbgString>());
-	}
 	HttpConnection* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo HttpConnection$$Lambda$dbgString::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HttpConnection$$Lambda$dbgString, inst$)},
-	{}
-};
-$MethodInfo HttpConnection$$Lambda$dbgString::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpConnection;)V", nullptr, $PUBLIC, $method(HttpConnection$$Lambda$dbgString, init$, void, HttpConnection*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpConnection$$Lambda$dbgString, get, $Object*)},
-	{}
-};
-$ClassInfo HttpConnection$$Lambda$dbgString::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.HttpConnection$$Lambda$dbgString",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* HttpConnection$$Lambda$dbgString::load$($String* name, bool initialize) {
-	$loadClass(HttpConnection$$Lambda$dbgString, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HttpConnection$$Lambda$dbgString, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/HttpConnection;)V", nullptr, $PUBLIC, $method(HttpConnection$$Lambda$dbgString, init$, void, HttpConnection*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpConnection$$Lambda$dbgString, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.HttpConnection$$Lambda$dbgString",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpConnection$$Lambda$dbgString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpConnection$$Lambda$dbgString);
+	});
 	return class$;
 }
 $Class* HttpConnection$$Lambda$dbgString::class$ = nullptr;
@@ -150,27 +141,24 @@ public:
 	virtual $Object* get() override {
 		 return $of(HttpConnection::lambda$static$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpConnection$$Lambda$lambda$static$0$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HttpConnection$$Lambda$lambda$static$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpConnection$$Lambda$lambda$static$0$1, init$, void)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpConnection$$Lambda$lambda$static$0$1, get, $Object*)},
-	{}
-};
-$ClassInfo HttpConnection$$Lambda$lambda$static$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.HttpConnection$$Lambda$lambda$static$0$1",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	nullptr,
-	methodInfos
 };
 $Class* HttpConnection$$Lambda$lambda$static$0$1::load$($String* name, bool initialize) {
-	$loadClass(HttpConnection$$Lambda$lambda$static$0$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HttpConnection$$Lambda$lambda$static$0$1, init$, void)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpConnection$$Lambda$lambda$static$0$1, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.HttpConnection$$Lambda$lambda$static$0$1",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HttpConnection$$Lambda$lambda$static$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpConnection$$Lambda$lambda$static$0$1);
+	});
 	return class$;
 }
 $Class* HttpConnection$$Lambda$lambda$static$0$1::class$ = nullptr;
@@ -183,27 +171,24 @@ public:
 	virtual bool test(Object$* proto) override {
 		 return HttpConnection::lambda$static$1($cast($String, proto));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpConnection$$Lambda$lambda$static$1$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HttpConnection$$Lambda$lambda$static$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpConnection$$Lambda$lambda$static$1$2, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HttpConnection$$Lambda$lambda$static$1$2, test, bool, Object$*)},
-	{}
-};
-$ClassInfo HttpConnection$$Lambda$lambda$static$1$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.HttpConnection$$Lambda$lambda$static$1$2",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* HttpConnection$$Lambda$lambda$static$1$2::load$($String* name, bool initialize) {
-	$loadClass(HttpConnection$$Lambda$lambda$static$1$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HttpConnection$$Lambda$lambda$static$1$2, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HttpConnection$$Lambda$lambda$static$1$2, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.HttpConnection$$Lambda$lambda$static$1$2",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HttpConnection$$Lambda$lambda$static$1$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpConnection$$Lambda$lambda$static$1$2);
+	});
 	return class$;
 }
 $Class* HttpConnection$$Lambda$lambda$static$1$2::class$ = nullptr;
@@ -216,103 +201,27 @@ public:
 	virtual $Object* apply(Object$* s) override {
 		 return $of(HttpConnection::lambda$closeOrReturnToCache$2($cast($String, s)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpConnection$$Lambda$lambda$closeOrReturnToCache$2$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HttpConnection$$Lambda$lambda$closeOrReturnToCache$2$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpConnection$$Lambda$lambda$closeOrReturnToCache$2$3, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpConnection$$Lambda$lambda$closeOrReturnToCache$2$3, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo HttpConnection$$Lambda$lambda$closeOrReturnToCache$2$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.HttpConnection$$Lambda$lambda$closeOrReturnToCache$2$3",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* HttpConnection$$Lambda$lambda$closeOrReturnToCache$2$3::load$($String* name, bool initialize) {
-	$loadClass(HttpConnection$$Lambda$lambda$closeOrReturnToCache$2$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HttpConnection$$Lambda$lambda$closeOrReturnToCache$2$3, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpConnection$$Lambda$lambda$closeOrReturnToCache$2$3, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.HttpConnection$$Lambda$lambda$closeOrReturnToCache$2$3",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HttpConnection$$Lambda$lambda$closeOrReturnToCache$2$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpConnection$$Lambda$lambda$closeOrReturnToCache$2$3);
+	});
 	return class$;
 }
 $Class* HttpConnection$$Lambda$lambda$closeOrReturnToCache$2$3::class$ = nullptr;
-
-$FieldInfo _HttpConnection_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(HttpConnection, $assertionsDisabled)},
-	{"debug", "Ljdk/internal/net/http/common/Logger;", nullptr, $FINAL, $field(HttpConnection, debug)},
-	{"DEBUG_LOGGER", "Ljdk/internal/net/http/common/Logger;", nullptr, $STATIC | $FINAL, $staticField(HttpConnection, DEBUG_LOGGER)},
-	{"address", "Ljava/net/InetSocketAddress;", nullptr, $FINAL, $field(HttpConnection, address$)},
-	{"client", "Ljdk/internal/net/http/HttpClientImpl;", nullptr, $PRIVATE | $FINAL, $field(HttpConnection, client$)},
-	{"trailingOperations", "Ljdk/internal/net/http/HttpConnection$TrailingOperations;", nullptr, $PRIVATE | $FINAL, $field(HttpConnection, trailingOperations)},
-	{"testRequiredHTTP2TLSVersion", "Ljava/util/function/Predicate;", "Ljava/util/function/Predicate<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(HttpConnection, testRequiredHTTP2TLSVersion)},
-	{"dbgTag", "Ljava/lang/String;", nullptr, 0, $field(HttpConnection, dbgTag)},
-	{}
-};
-
-$MethodInfo _HttpConnection_MethodInfo_[] = {
-	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "(Ljava/net/InetSocketAddress;Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, 0, $method(HttpConnection, init$, void, $InetSocketAddress*, $HttpClientImpl*)},
-	{"addTrailingOperation", "(Ljava/util/concurrent/CompletionStage;)V", "(Ljava/util/concurrent/CompletionStage<*>;)V", $FINAL, $method(HttpConnection, addTrailingOperation, void, $CompletionStage*)},
-	{"address", "()Ljava/net/InetSocketAddress;", nullptr, $FINAL, $method(HttpConnection, address, $InetSocketAddress*)},
-	{"cacheKey", "()Ljdk/internal/net/http/ConnectionPool$CacheKey;", nullptr, $ABSTRACT, $virtualMethod(HttpConnection, cacheKey, $ConnectionPool$CacheKey*)},
-	{"channel", "()Ljava/nio/channels/SocketChannel;", nullptr, $ABSTRACT, $virtualMethod(HttpConnection, channel, $SocketChannel*)},
-	{"checkOpen", "()Z", nullptr, $FINAL, $method(HttpConnection, checkOpen, bool)},
-	{"client", "()Ljdk/internal/net/http/HttpClientImpl;", nullptr, $FINAL, $method(HttpConnection, client, $HttpClientImpl*)},
-	{"closeOrReturnToCache", "(Ljava/net/http/HttpHeaders;)V", nullptr, 0, $virtualMethod(HttpConnection, closeOrReturnToCache, void, $HttpHeaders*)},
-	{"connectAsync", "(Ljdk/internal/net/http/Exchange;)Ljava/util/concurrent/CompletableFuture;", "(Ljdk/internal/net/http/Exchange<*>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpConnection, connectAsync, $CompletableFuture*, $Exchange*)},
-	{"connected", "()Z", nullptr, $ABSTRACT, $virtualMethod(HttpConnection, connected, bool)},
-	{"contextRestricted", "(Ljdk/internal/net/http/HttpRequestImpl;Ljava/net/http/HttpClient;)Ljava/util/function/BiPredicate;", "(Ljdk/internal/net/http/HttpRequestImpl;Ljava/net/http/HttpClient;)Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", 0, $virtualMethod(HttpConnection, contextRestricted, $BiPredicate*, $HttpRequestImpl*, $HttpClient*)},
-	{"dbgString", "()Ljava/lang/String;", nullptr, $FINAL, $method(HttpConnection, dbgString, $String*)},
-	{"finishConnect", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpConnection, finishConnect, $CompletableFuture*)},
-	{"getConnection", "(Ljava/net/InetSocketAddress;Ljdk/internal/net/http/HttpClientImpl;Ljdk/internal/net/http/HttpRequestImpl;Ljava/net/http/HttpClient$Version;)Ljdk/internal/net/http/HttpConnection;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpConnection, getConnection, HttpConnection*, $InetSocketAddress*, $HttpClientImpl*, $HttpRequestImpl*, $HttpClient$Version*)},
-	{"getConnectionFlow", "()Ljdk/internal/net/http/common/FlowTube;", nullptr, $ABSTRACT, $virtualMethod(HttpConnection, getConnectionFlow, $FlowTube*)},
-	{"getPlainConnection", "(Ljava/net/InetSocketAddress;Ljava/net/InetSocketAddress;Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/HttpClientImpl;)Ljdk/internal/net/http/HttpConnection;", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpConnection, getPlainConnection, HttpConnection*, $InetSocketAddress*, $InetSocketAddress*, $HttpRequestImpl*, $HttpClientImpl*)},
-	{"getSSLConnection", "(Ljava/net/InetSocketAddress;Ljava/net/InetSocketAddress;[Ljava/lang/String;Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/HttpClientImpl;)Ljdk/internal/net/http/HttpConnection;", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpConnection, getSSLConnection, HttpConnection*, $InetSocketAddress*, $InetSocketAddress*, $StringArray*, $HttpRequestImpl*, $HttpClientImpl*)},
-	{"hasRequiredHTTP2TLSVersion", "(Ljava/net/http/HttpClient;)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(HttpConnection, hasRequiredHTTP2TLSVersion, bool, $HttpClient*)},
-	{"headerFilter", "(Ljdk/internal/net/http/HttpRequestImpl;)Ljava/util/function/BiPredicate;", "(Ljdk/internal/net/http/HttpRequestImpl;)Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", 0, $virtualMethod(HttpConnection, headerFilter, $BiPredicate*, $HttpRequestImpl*)},
-	{"isOpen", "()Z", nullptr, $FINAL, $method(HttpConnection, isOpen, bool)},
-	{"isProxied", "()Z", nullptr, $ABSTRACT, $virtualMethod(HttpConnection, isProxied, bool)},
-	{"isSecure", "()Z", nullptr, $ABSTRACT, $virtualMethod(HttpConnection, isSecure, bool)},
-	{"isTunnel", "()Z", nullptr, 0, $virtualMethod(HttpConnection, isTunnel, bool)},
-	{"lambda$closeOrReturnToCache$2", "(Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpConnection, lambda$closeOrReturnToCache$2, $Boolean*, $String*)},
-	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpConnection, lambda$static$0, $String*)},
-	{"lambda$static$1", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpConnection, lambda$static$1, bool, $String*)},
-	{"proxy", "()Ljava/net/InetSocketAddress;", nullptr, $ABSTRACT, $virtualMethod(HttpConnection, proxy, $InetSocketAddress*)},
-	{"proxyTunnelHeaders", "(Ljdk/internal/net/http/HttpRequestImpl;)Ljdk/internal/net/http/common/Utils$ProxyHeaders;", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpConnection, proxyTunnelHeaders, $Utils$ProxyHeaders*, $HttpRequestImpl*)},
-	{"publisher", "()Ljdk/internal/net/http/HttpConnection$HttpPublisher;", nullptr, $ABSTRACT, $virtualMethod(HttpConnection, publisher, $HttpConnection$HttpPublisher*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpConnection, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _HttpConnection_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.HttpConnection$PlainHttpPublisher", "jdk.internal.net.http.HttpConnection", "PlainHttpPublisher", $FINAL},
-	{"jdk.internal.net.http.HttpConnection$HttpPublisher", "jdk.internal.net.http.HttpConnection", "HttpPublisher", $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.net.http.HttpConnection$TrailingOperations", "jdk.internal.net.http.HttpConnection", "TrailingOperations", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _HttpConnection_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"jdk.internal.net.http.HttpConnection",
-	"java.lang.Object",
-	"java.io.Closeable",
-	_HttpConnection_FieldInfo_,
-	_HttpConnection_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HttpConnection_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.HttpConnection$PlainHttpPublisher,jdk.internal.net.http.HttpConnection$PlainHttpPublisher$HttpWriteSubscription,jdk.internal.net.http.HttpConnection$HttpPublisher,jdk.internal.net.http.HttpConnection$TrailingOperations"
-};
-
-$Object* allocate$HttpConnection($Class* clazz) {
-	return $of($alloc(HttpConnection));
-}
 
 bool HttpConnection::$assertionsDisabled = false;
 $Logger* HttpConnection::DEBUG_LOGGER = nullptr;
@@ -320,14 +229,14 @@ $Predicate* HttpConnection::testRequiredHTTP2TLSVersion = nullptr;
 
 void HttpConnection::init$($InetSocketAddress* address, $HttpClientImpl* client) {
 	$init($Utils);
-	$set(this, debug, $Utils::getDebugLogger(static_cast<$Supplier*>($$new(HttpConnection$$Lambda$dbgString, this)), $Utils::DEBUG));
+	$set(this, debug, $Utils::getDebugLogger($$new(HttpConnection$$Lambda$dbgString, this), $Utils::DEBUG));
 	$set(this, address$, address);
 	$set(this, client$, client);
 	$set(this, trailingOperations, $new($HttpConnection$TrailingOperations));
 }
 
 void HttpConnection::addTrailingOperation($CompletionStage* cf) {
-	$nc(this->trailingOperations)->add(cf);
+	this->trailingOperations->add(cf);
 }
 
 $HttpClientImpl* HttpConnection::client() {
@@ -335,22 +244,22 @@ $HttpClientImpl* HttpConnection::client() {
 }
 
 bool HttpConnection::isOpen() {
-	$useLocalCurrentObjectStackCache();
-	bool var$0 = $nc($(channel()))->isOpen();
-	return var$0 && (connected() ? !$nc($(getConnectionFlow()))->isFinished() : true);
+	$useLocalObjectStack();
+	bool var$0 = $$nc(channel())->isOpen();
+	return var$0 && (connected() ? !$$nc(getConnectionFlow())->isFinished() : true);
 }
 
 bool HttpConnection::checkOpen() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isOpen()) {
 		try {
-			int32_t read = $nc($(channel()))->read($($ByteBuffer::allocate(1)));
+			int32_t read = $$nc(channel())->read($($ByteBuffer::allocate(1)));
 			if (read == 0) {
 				return true;
 			}
 			close();
 		} catch ($IOException& x) {
-			$nc(this->debug)->log("Pooled connection is no longer operational: %s"_s, $$new($ObjectArray, {$($of(x->toString()))}));
+			$nc(this->debug)->log("Pooled connection is no longer operational: %s"_s, $$new($ObjectArray, {$(x->toString())}));
 			return false;
 		}
 	}
@@ -359,10 +268,10 @@ bool HttpConnection::checkOpen() {
 
 bool HttpConnection::hasRequiredHTTP2TLSVersion($HttpClient* client) {
 	$init(HttpConnection);
-	$useLocalCurrentObjectStackCache();
-	$var($StringArray, protos, $nc($($nc(client)->sslParameters()))->getProtocols());
+	$useLocalObjectStack();
+	$var($StringArray, protos, $$nc($nc(client)->sslParameters())->getProtocols());
 	if (protos != nullptr) {
-		return $nc($($nc($($nc($($Arrays::stream(protos)))->filter(HttpConnection::testRequiredHTTP2TLSVersion)))->findAny()))->isPresent();
+		return $$nc($$nc($$nc($Arrays::stream(protos))->filter(HttpConnection::testRequiredHTTP2TLSVersion))->findAny())->isPresent();
 	} else {
 		return false;
 	}
@@ -370,17 +279,17 @@ bool HttpConnection::hasRequiredHTTP2TLSVersion($HttpClient* client) {
 
 HttpConnection* HttpConnection::getConnection($InetSocketAddress* addr, $HttpClientImpl* client, $HttpRequestImpl* request, $HttpClient$Version* version) {
 	$init(HttpConnection);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InetSocketAddress, proxy, $Utils::resolveAddress($($nc(request)->proxy())));
 	$var(HttpConnection, c, nullptr);
-	bool secure = $nc(request)->secure();
+	bool secure = request->secure();
 	$var($ConnectionPool, pool, $nc(client)->connectionPool());
 	if (!secure) {
 		$assign(c, $nc(pool)->getConnection(false, addr, proxy));
 		if (c != nullptr && c->checkOpen()) {
 			$var(HttpConnection, conn, c);
 			if ($nc(HttpConnection::DEBUG_LOGGER)->on()) {
-				$nc(HttpConnection::DEBUG_LOGGER)->log($$str({$(conn->getConnectionFlow()), ": plain connection retrieved from HTTP/1.1 pool"_s}));
+				HttpConnection::DEBUG_LOGGER->log($$str({$(conn->getConnectionFlow()), ": plain connection retrieved from HTTP/1.1 pool"_s}));
 			}
 			return c;
 		} else {
@@ -394,7 +303,7 @@ HttpConnection* HttpConnection::getConnection($InetSocketAddress* addr, $HttpCli
 		if (c != nullptr && c->isOpen()) {
 			$var(HttpConnection, conn, c);
 			if ($nc(HttpConnection::DEBUG_LOGGER)->on()) {
-				$nc(HttpConnection::DEBUG_LOGGER)->log($$str({$(conn->getConnectionFlow()), ": SSL connection retrieved from HTTP/1.1 pool"_s}));
+				HttpConnection::DEBUG_LOGGER->log($$str({$(conn->getConnectionFlow()), ": SSL connection retrieved from HTTP/1.1 pool"_s}));
 			}
 			return c;
 		} else {
@@ -455,10 +364,10 @@ $BiPredicate* HttpConnection::contextRestricted($HttpRequestImpl* request, $Http
 
 $Utils$ProxyHeaders* HttpConnection::proxyTunnelHeaders($HttpRequestImpl* request) {
 	$init(HttpConnection);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Utils);
-	$var($HttpHeaders, userHeaders, $HttpHeaders::of($($nc($($nc(request)->headers()))->map()), $Utils::PROXY_TUNNEL_FILTER));
-	$var($HttpHeaders, systemHeaders, $HttpHeaders::of($($nc($($nc(request)->getSystemHeadersBuilder()))->map()), $Utils::PROXY_TUNNEL_FILTER));
+	$var($HttpHeaders, userHeaders, $HttpHeaders::of($($$nc($nc(request)->headers())->map()), $Utils::PROXY_TUNNEL_FILTER));
+	$var($HttpHeaders, systemHeaders, $HttpHeaders::of($($$nc(request->getSystemHeadersBuilder())->map()), $Utils::PROXY_TUNNEL_FILTER));
 	return $new($Utils$ProxyHeaders, userHeaders, systemHeaders);
 }
 
@@ -475,28 +384,28 @@ HttpConnection* HttpConnection::getPlainConnection($InetSocketAddress* addr, $In
 }
 
 void HttpConnection::closeOrReturnToCache($HttpHeaders* hdrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (hdrs == nullptr) {
-		$Log::logTrace("Cannot return connection to pool: closing {0}"_s, $$new($ObjectArray, {$of(this)}));
+		$Log::logTrace("Cannot return connection to pool: closing {0}"_s, $$new($ObjectArray, {this}));
 		close();
 		return;
 	}
 	$var($HttpClientImpl, client, this->client());
 	if (client == nullptr) {
-		$Log::logTrace("Client released: closing {0}"_s, $$new($ObjectArray, {$of(this)}));
+		$Log::logTrace("Client released: closing {0}"_s, $$new($ObjectArray, {this}));
 		close();
 		return;
 	}
 	$var($ConnectionPool, pool, $nc(client)->connectionPool());
-	bool keepAlive = $nc(($cast($Boolean, $($nc($($nc($($nc(hdrs)->firstValue("Connection"_s)))->map(static_cast<$Function*>($$new(HttpConnection$$Lambda$lambda$closeOrReturnToCache$2$3)))))->orElse($($Boolean::valueOf(true)))))))->booleanValue();
+	bool keepAlive = $$sure($Boolean, $$nc($$nc($nc(hdrs)->firstValue("Connection"_s))->map($$new(HttpConnection$$Lambda$lambda$closeOrReturnToCache$2$3)))->orElse($($Boolean::valueOf(true))))->booleanValue();
 	if (keepAlive && checkOpen()) {
-		$Log::logTrace("Returning connection to the pool: {0}"_s, $$new($ObjectArray, {$of(this)}));
+		$Log::logTrace("Returning connection to the pool: {0}"_s, $$new($ObjectArray, {this}));
 		$nc(pool)->returnToPool(this);
 	} else {
 		$Log::logTrace("Closing connection (keepAlive={0}, isOpen={1}): {2}"_s, $$new($ObjectArray, {
-			$($of($Boolean::valueOf(keepAlive))),
-			$($of($Boolean::valueOf(isOpen()))),
-			$of(this)
+			$($Boolean::valueOf(keepAlive)),
+			$($Boolean::valueOf(isOpen())),
+			this
 		}));
 		close();
 	}
@@ -511,20 +420,20 @@ $InetSocketAddress* HttpConnection::address() {
 }
 
 $String* HttpConnection::dbgString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FlowTube, flow, getConnectionFlow());
 	$var($String, tag, this->dbgTag);
 	if (tag == nullptr && flow != nullptr) {
-		$set(this, dbgTag, ($assign(tag, $str({$($of(this)->getClass()->getSimpleName()), "("_s, flow, ")"_s}))));
+		$set(this, dbgTag, $assign(tag, $str({$(this->getClass()->getSimpleName()), "("_s, flow, ")"_s})));
 	} else if (tag == nullptr) {
-		$assign(tag, $str({$($of(this)->getClass()->getSimpleName()), "(?)"_s}));
+		$assign(tag, $str({$(this->getClass()->getSimpleName()), "(?)"_s}));
 	}
 	return tag;
 }
 
 $String* HttpConnection::toString() {
-	$useLocalCurrentObjectStackCache();
-	return $str({"HttpConnection: "_s, $($nc($of($(channel())))->toString())});
+	$useLocalObjectStack();
+	return $str({"HttpConnection: "_s, $($$nc(channel())->toString())});
 }
 
 $Boolean* HttpConnection::lambda$closeOrReturnToCache$2($String* s) {
@@ -535,7 +444,7 @@ $Boolean* HttpConnection::lambda$closeOrReturnToCache$2($String* s) {
 bool HttpConnection::lambda$static$1($String* proto) {
 	$init(HttpConnection);
 	bool var$0 = $nc(proto)->equals("TLSv1.2"_s);
-	return var$0 || $nc(proto)->equals("TLSv1.3"_s);
+	return var$0 || proto->equals("TLSv1.3"_s);
 }
 
 $String* HttpConnection::lambda$static$0() {
@@ -543,11 +452,11 @@ $String* HttpConnection::lambda$static$0() {
 	return "HttpConnection(SocketTube(?))"_s;
 }
 
-void clinit$HttpConnection($Class* class$) {
+void HttpConnection::clinit$($Class* clazz) {
 	HttpConnection::$assertionsDisabled = !HttpConnection::class$->desiredAssertionStatus();
 	$init($Utils);
-	$assignStatic(HttpConnection::DEBUG_LOGGER, $Utils::getDebugLogger(static_cast<$Supplier*>($$new(HttpConnection$$Lambda$lambda$static$0$1)), $Utils::DEBUG));
-	$assignStatic(HttpConnection::testRequiredHTTP2TLSVersion, static_cast<$Predicate*>($new(HttpConnection$$Lambda$lambda$static$1$2)));
+	$assignStatic(HttpConnection::DEBUG_LOGGER, $Utils::getDebugLogger($$new(HttpConnection$$Lambda$lambda$static$0$1), $Utils::DEBUG));
+	$assignStatic(HttpConnection::testRequiredHTTP2TLSVersion, $new(HttpConnection$$Lambda$lambda$static$1$2));
 }
 
 HttpConnection::HttpConnection() {
@@ -555,20 +464,87 @@ HttpConnection::HttpConnection() {
 
 $Class* HttpConnection::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(HttpConnection$$Lambda$dbgString::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.HttpConnection$$Lambda$dbgString")) {
 			return HttpConnection$$Lambda$dbgString::load$(name, initialize);
 		}
-		if (name->equals(HttpConnection$$Lambda$lambda$static$0$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.HttpConnection$$Lambda$lambda$static$0$1")) {
 			return HttpConnection$$Lambda$lambda$static$0$1::load$(name, initialize);
 		}
-		if (name->equals(HttpConnection$$Lambda$lambda$static$1$2::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.HttpConnection$$Lambda$lambda$static$1$2")) {
 			return HttpConnection$$Lambda$lambda$static$1$2::load$(name, initialize);
 		}
-		if (name->equals(HttpConnection$$Lambda$lambda$closeOrReturnToCache$2$3::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.HttpConnection$$Lambda$lambda$closeOrReturnToCache$2$3")) {
 			return HttpConnection$$Lambda$lambda$closeOrReturnToCache$2$3::load$(name, initialize);
 		}
 	}
-	$loadClass(HttpConnection, name, initialize, &_HttpConnection_ClassInfo_, clinit$HttpConnection, allocate$HttpConnection);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(HttpConnection, $assertionsDisabled)},
+		{"debug", "Ljdk/internal/net/http/common/Logger;", nullptr, $FINAL, $field(HttpConnection, debug)},
+		{"DEBUG_LOGGER", "Ljdk/internal/net/http/common/Logger;", nullptr, $STATIC | $FINAL, $staticField(HttpConnection, DEBUG_LOGGER)},
+		{"address", "Ljava/net/InetSocketAddress;", nullptr, $FINAL, $field(HttpConnection, address$)},
+		{"client", "Ljdk/internal/net/http/HttpClientImpl;", nullptr, $PRIVATE | $FINAL, $field(HttpConnection, client$)},
+		{"trailingOperations", "Ljdk/internal/net/http/HttpConnection$TrailingOperations;", nullptr, $PRIVATE | $FINAL, $field(HttpConnection, trailingOperations)},
+		{"testRequiredHTTP2TLSVersion", "Ljava/util/function/Predicate;", "Ljava/util/function/Predicate<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(HttpConnection, testRequiredHTTP2TLSVersion)},
+		{"dbgTag", "Ljava/lang/String;", nullptr, 0, $field(HttpConnection, dbgTag)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "(Ljava/net/InetSocketAddress;Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, 0, $method(HttpConnection, init$, void, $InetSocketAddress*, $HttpClientImpl*)},
+		{"addTrailingOperation", "(Ljava/util/concurrent/CompletionStage;)V", "(Ljava/util/concurrent/CompletionStage<*>;)V", $FINAL, $method(HttpConnection, addTrailingOperation, void, $CompletionStage*)},
+		{"address", "()Ljava/net/InetSocketAddress;", nullptr, $FINAL, $method(HttpConnection, address, $InetSocketAddress*)},
+		{"cacheKey", "()Ljdk/internal/net/http/ConnectionPool$CacheKey;", nullptr, $ABSTRACT, $virtualMethod(HttpConnection, cacheKey, $ConnectionPool$CacheKey*)},
+		{"channel", "()Ljava/nio/channels/SocketChannel;", nullptr, $ABSTRACT, $virtualMethod(HttpConnection, channel, $SocketChannel*)},
+		{"checkOpen", "()Z", nullptr, $FINAL, $method(HttpConnection, checkOpen, bool)},
+		{"client", "()Ljdk/internal/net/http/HttpClientImpl;", nullptr, $FINAL, $method(HttpConnection, client, $HttpClientImpl*)},
+		{"closeOrReturnToCache", "(Ljava/net/http/HttpHeaders;)V", nullptr, 0, $virtualMethod(HttpConnection, closeOrReturnToCache, void, $HttpHeaders*)},
+		{"connectAsync", "(Ljdk/internal/net/http/Exchange;)Ljava/util/concurrent/CompletableFuture;", "(Ljdk/internal/net/http/Exchange<*>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpConnection, connectAsync, $CompletableFuture*, $Exchange*)},
+		{"connected", "()Z", nullptr, $ABSTRACT, $virtualMethod(HttpConnection, connected, bool)},
+		{"contextRestricted", "(Ljdk/internal/net/http/HttpRequestImpl;Ljava/net/http/HttpClient;)Ljava/util/function/BiPredicate;", "(Ljdk/internal/net/http/HttpRequestImpl;Ljava/net/http/HttpClient;)Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", 0, $virtualMethod(HttpConnection, contextRestricted, $BiPredicate*, $HttpRequestImpl*, $HttpClient*)},
+		{"dbgString", "()Ljava/lang/String;", nullptr, $FINAL, $method(HttpConnection, dbgString, $String*)},
+		{"finishConnect", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpConnection, finishConnect, $CompletableFuture*)},
+		{"getConnection", "(Ljava/net/InetSocketAddress;Ljdk/internal/net/http/HttpClientImpl;Ljdk/internal/net/http/HttpRequestImpl;Ljava/net/http/HttpClient$Version;)Ljdk/internal/net/http/HttpConnection;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpConnection, getConnection, HttpConnection*, $InetSocketAddress*, $HttpClientImpl*, $HttpRequestImpl*, $HttpClient$Version*)},
+		{"getConnectionFlow", "()Ljdk/internal/net/http/common/FlowTube;", nullptr, $ABSTRACT, $virtualMethod(HttpConnection, getConnectionFlow, $FlowTube*)},
+		{"getPlainConnection", "(Ljava/net/InetSocketAddress;Ljava/net/InetSocketAddress;Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/HttpClientImpl;)Ljdk/internal/net/http/HttpConnection;", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpConnection, getPlainConnection, HttpConnection*, $InetSocketAddress*, $InetSocketAddress*, $HttpRequestImpl*, $HttpClientImpl*)},
+		{"getSSLConnection", "(Ljava/net/InetSocketAddress;Ljava/net/InetSocketAddress;[Ljava/lang/String;Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/HttpClientImpl;)Ljdk/internal/net/http/HttpConnection;", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpConnection, getSSLConnection, HttpConnection*, $InetSocketAddress*, $InetSocketAddress*, $StringArray*, $HttpRequestImpl*, $HttpClientImpl*)},
+		{"hasRequiredHTTP2TLSVersion", "(Ljava/net/http/HttpClient;)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(HttpConnection, hasRequiredHTTP2TLSVersion, bool, $HttpClient*)},
+		{"headerFilter", "(Ljdk/internal/net/http/HttpRequestImpl;)Ljava/util/function/BiPredicate;", "(Ljdk/internal/net/http/HttpRequestImpl;)Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", 0, $virtualMethod(HttpConnection, headerFilter, $BiPredicate*, $HttpRequestImpl*)},
+		{"isOpen", "()Z", nullptr, $FINAL, $method(HttpConnection, isOpen, bool)},
+		{"isProxied", "()Z", nullptr, $ABSTRACT, $virtualMethod(HttpConnection, isProxied, bool)},
+		{"isSecure", "()Z", nullptr, $ABSTRACT, $virtualMethod(HttpConnection, isSecure, bool)},
+		{"isTunnel", "()Z", nullptr, 0, $virtualMethod(HttpConnection, isTunnel, bool)},
+		{"lambda$closeOrReturnToCache$2", "(Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpConnection, lambda$closeOrReturnToCache$2, $Boolean*, $String*)},
+		{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpConnection, lambda$static$0, $String*)},
+		{"lambda$static$1", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpConnection, lambda$static$1, bool, $String*)},
+		{"proxy", "()Ljava/net/InetSocketAddress;", nullptr, $ABSTRACT, $virtualMethod(HttpConnection, proxy, $InetSocketAddress*)},
+		{"proxyTunnelHeaders", "(Ljdk/internal/net/http/HttpRequestImpl;)Ljdk/internal/net/http/common/Utils$ProxyHeaders;", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpConnection, proxyTunnelHeaders, $Utils$ProxyHeaders*, $HttpRequestImpl*)},
+		{"publisher", "()Ljdk/internal/net/http/HttpConnection$HttpPublisher;", nullptr, $ABSTRACT, $virtualMethod(HttpConnection, publisher, $HttpConnection$HttpPublisher*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpConnection, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.HttpConnection$PlainHttpPublisher", "jdk.internal.net.http.HttpConnection", "PlainHttpPublisher", $FINAL},
+		{"jdk.internal.net.http.HttpConnection$HttpPublisher", "jdk.internal.net.http.HttpConnection", "HttpPublisher", $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.net.http.HttpConnection$TrailingOperations", "jdk.internal.net.http.HttpConnection", "TrailingOperations", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"jdk.internal.net.http.HttpConnection",
+		"java.lang.Object",
+		"java.io.Closeable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.HttpConnection$PlainHttpPublisher,jdk.internal.net.http.HttpConnection$PlainHttpPublisher$HttpWriteSubscription,jdk.internal.net.http.HttpConnection$HttpPublisher,jdk.internal.net.http.HttpConnection$TrailingOperations"
+	};
+	$loadClass(HttpConnection, name, initialize, &classInfo$$, HttpConnection::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpConnection);
+	});
 	return class$;
 }
 

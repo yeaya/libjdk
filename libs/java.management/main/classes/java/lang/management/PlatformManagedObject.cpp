@@ -1,5 +1,4 @@
 #include <java/lang/management/PlatformManagedObject.h>
-
 #include <javax/management/ObjectName.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace java {
 	namespace lang {
 		namespace management {
 
-$MethodInfo _PlatformManagedObject_MethodInfo_[] = {
-	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PlatformManagedObject, getObjectName, $ObjectName*)},
-	{}
-};
-
-$ClassInfo _PlatformManagedObject_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.lang.management.PlatformManagedObject",
-	nullptr,
-	nullptr,
-	nullptr,
-	_PlatformManagedObject_MethodInfo_
-};
-
-$Object* allocate$PlatformManagedObject($Class* clazz) {
-	return $of($alloc(PlatformManagedObject));
-}
-
 $Class* PlatformManagedObject::load$($String* name, bool initialize) {
-	$loadClass(PlatformManagedObject, name, initialize, &_PlatformManagedObject_ClassInfo_, allocate$PlatformManagedObject);
+	$MethodInfo methodInfos$$[] = {
+		{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PlatformManagedObject, getObjectName, $ObjectName*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.lang.management.PlatformManagedObject",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PlatformManagedObject, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PlatformManagedObject);
+	});
 	return class$;
 }
 

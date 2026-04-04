@@ -27,6 +27,7 @@ class $import Sockets : public ::java::lang::Object {
 	$class(Sockets, 0, ::java::lang::Object)
 public:
 	Sockets();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkValueType(Object$* value, $Class* type);
 	static $Object* getOption(::java::net::Socket* s, ::java::net::SocketOption* name);

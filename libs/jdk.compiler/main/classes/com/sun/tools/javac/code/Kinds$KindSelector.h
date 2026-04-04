@@ -52,6 +52,7 @@ class $export Kinds$KindSelector : public ::java::lang::Object {
 	$class(Kinds$KindSelector, 0, ::java::lang::Object)
 public:
 	Kinds$KindSelector();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t data);
 	virtual bool contains(::com::sun::tools::javac::code::Kinds$KindSelector* other);
 	virtual ::java::util::Set* kindNames();

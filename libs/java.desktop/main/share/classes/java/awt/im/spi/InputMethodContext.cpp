@@ -1,5 +1,4 @@
 #include <java/awt/im/spi/InputMethodContext.h>
-
 #include <java/awt/Window.h>
 #include <java/awt/font/TextHitInfo.h>
 #include <java/awt/im/spi/InputMethod.h>
@@ -20,29 +19,25 @@ namespace java {
 		namespace im {
 			namespace spi {
 
-$MethodInfo _InputMethodContext_MethodInfo_[] = {
-	{"createInputMethodJFrame", "(Ljava/lang/String;Z)Ljavax/swing/JFrame;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InputMethodContext, createInputMethodJFrame, $JFrame*, $String*, bool)},
-	{"createInputMethodWindow", "(Ljava/lang/String;Z)Ljava/awt/Window;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InputMethodContext, createInputMethodWindow, $Window*, $String*, bool)},
-	{"dispatchInputMethodEvent", "(ILjava/text/AttributedCharacterIterator;ILjava/awt/font/TextHitInfo;Ljava/awt/font/TextHitInfo;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InputMethodContext, dispatchInputMethodEvent, void, int32_t, $AttributedCharacterIterator*, int32_t, $TextHitInfo*, $TextHitInfo*)},
-	{"enableClientWindowNotification", "(Ljava/awt/im/spi/InputMethod;Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InputMethodContext, enableClientWindowNotification, void, $InputMethod*, bool)},
-	{}
-};
-
-$ClassInfo _InputMethodContext_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.im.spi.InputMethodContext",
-	nullptr,
-	"java.awt.im.InputMethodRequests",
-	nullptr,
-	_InputMethodContext_MethodInfo_
-};
-
-$Object* allocate$InputMethodContext($Class* clazz) {
-	return $of($alloc(InputMethodContext));
-}
-
 $Class* InputMethodContext::load$($String* name, bool initialize) {
-	$loadClass(InputMethodContext, name, initialize, &_InputMethodContext_ClassInfo_, allocate$InputMethodContext);
+	$MethodInfo methodInfos$$[] = {
+		{"createInputMethodJFrame", "(Ljava/lang/String;Z)Ljavax/swing/JFrame;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InputMethodContext, createInputMethodJFrame, $JFrame*, $String*, bool)},
+		{"createInputMethodWindow", "(Ljava/lang/String;Z)Ljava/awt/Window;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InputMethodContext, createInputMethodWindow, $Window*, $String*, bool)},
+		{"dispatchInputMethodEvent", "(ILjava/text/AttributedCharacterIterator;ILjava/awt/font/TextHitInfo;Ljava/awt/font/TextHitInfo;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InputMethodContext, dispatchInputMethodEvent, void, int32_t, $AttributedCharacterIterator*, int32_t, $TextHitInfo*, $TextHitInfo*)},
+		{"enableClientWindowNotification", "(Ljava/awt/im/spi/InputMethod;Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InputMethodContext, enableClientWindowNotification, void, $InputMethod*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.im.spi.InputMethodContext",
+		nullptr,
+		"java.awt.im.InputMethodRequests",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InputMethodContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InputMethodContext);
+	});
 	return class$;
 }
 

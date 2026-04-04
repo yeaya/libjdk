@@ -1,5 +1,4 @@
 #include <sun/rmi/transport/GC$Daemon.h>
-
 #include <java/lang/InterruptedException.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
@@ -20,39 +19,6 @@ namespace sun {
 	namespace rmi {
 		namespace transport {
 
-$MethodInfo _GC$Daemon_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(GC$Daemon, init$, void)},
-	{"create", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(GC$Daemon, create, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(GC$Daemon, run, void)},
-	{}
-};
-
-$InnerClassInfo _GC$Daemon_InnerClassesInfo_[] = {
-	{"sun.rmi.transport.GC$Daemon", "sun.rmi.transport.GC", "Daemon", $PRIVATE | $STATIC},
-	{"sun.rmi.transport.GC$Daemon$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _GC$Daemon_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.rmi.transport.GC$Daemon",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_GC$Daemon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GC$Daemon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.rmi.transport.GC"
-};
-
-$Object* allocate$GC$Daemon($Class* clazz) {
-	return $of($alloc(GC$Daemon));
-}
-
 void GC$Daemon::init$() {
 }
 
@@ -62,7 +28,7 @@ void GC$Daemon::run() {
 		$init($GC);
 		$synchronized($GC::lock) {
 			l = $GC::latencyTarget;
-			if (l == (int64_t)0x7FFFFFFFFFFFFFFF) {
+			if (l == (int64_t)0x7fffffffffffffff) {
 				$assignStatic($GC::daemon, nullptr);
 				return;
 			}
@@ -72,7 +38,7 @@ void GC$Daemon::run() {
 				d = 0;
 			}
 			try {
-				$nc($of($GC::lock))->wait(l - d);
+				$nc($GC::lock)->wait(l - d);
 			} catch ($InterruptedException& x) {
 				continue;
 			}
@@ -91,7 +57,35 @@ GC$Daemon::GC$Daemon() {
 }
 
 $Class* GC$Daemon::load$($String* name, bool initialize) {
-	$loadClass(GC$Daemon, name, initialize, &_GC$Daemon_ClassInfo_, allocate$GC$Daemon);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(GC$Daemon, init$, void)},
+		{"create", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(GC$Daemon, create, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(GC$Daemon, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.transport.GC$Daemon", "sun.rmi.transport.GC", "Daemon", $PRIVATE | $STATIC},
+		{"sun.rmi.transport.GC$Daemon$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.rmi.transport.GC$Daemon",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.rmi.transport.GC"
+	};
+	$loadClass(GC$Daemon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GC$Daemon);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/ccache/FileCredentialsCache.h>
-
 #include <java/io/BufferedInputStream.h>
 #include <java/io/BufferedReader.h>
 #include <java/io/File.h>
@@ -9,13 +8,10 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/OutputStream.h>
-#include <java/io/Reader.h>
 #include <java/lang/Process.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
@@ -57,11 +53,7 @@ using $File = ::java::io::File;
 using $FileInputStream = ::java::io::FileInputStream;
 using $FileOutputStream = ::java::io::FileOutputStream;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
-using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
-using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -71,7 +63,6 @@ using $Process = ::java::lang::Process;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
@@ -83,11 +74,8 @@ using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 using $1Credentials = ::sun::security::krb5::Credentials;
 using $KrbException = ::sun::security::krb5::KrbException;
 using $PrincipalName = ::sun::security::krb5::PrincipalName;
-using $Realm = ::sun::security::krb5::Realm;
-using $KerberosTime = ::sun::security::krb5::internal::KerberosTime;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;
 using $LoginOptions = ::sun::security::krb5::internal::LoginOptions;
-using $TicketFlags = ::sun::security::krb5::internal::TicketFlags;
 using $CCacheInputStream = ::sun::security::krb5::internal::ccache::CCacheInputStream;
 using $CCacheOutputStream = ::sun::security::krb5::internal::ccache::CCacheOutputStream;
 using $Credentials = ::sun::security::krb5::internal::ccache::Credentials;
@@ -103,73 +91,6 @@ namespace sun {
 		namespace krb5 {
 			namespace internal {
 				namespace ccache {
-
-$FieldInfo _FileCredentialsCache_FieldInfo_[] = {
-	{"version", "I", nullptr, $PUBLIC, $field(FileCredentialsCache, version)},
-	{"tag", "Lsun/security/krb5/internal/ccache/Tag;", nullptr, $PUBLIC, $field(FileCredentialsCache, tag)},
-	{"primaryPrincipal", "Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $field(FileCredentialsCache, primaryPrincipal)},
-	{"credentialsList", "Ljava/util/Vector;", "Ljava/util/Vector<Lsun/security/krb5/internal/ccache/Credentials;>;", $PRIVATE, $field(FileCredentialsCache, credentialsList)},
-	{"dir", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(FileCredentialsCache, dir)},
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC, $staticField(FileCredentialsCache, DEBUG)},
-	{"configEntries", "Ljava/util/List;", "Ljava/util/List<Lsun/security/krb5/internal/ccache/CredentialsCache$ConfigEntry;>;", $PRIVATE, $field(FileCredentialsCache, configEntries)},
-	{}
-};
-
-$MethodInfo _FileCredentialsCache_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(FileCredentialsCache, init$, void)},
-	{"New", "(Lsun/security/krb5/PrincipalName;Ljava/lang/String;)Lsun/security/krb5/internal/ccache/FileCredentialsCache;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(FileCredentialsCache, New, FileCredentialsCache*, $PrincipalName*, $String*)},
-	{"New", "(Lsun/security/krb5/PrincipalName;)Lsun/security/krb5/internal/ccache/FileCredentialsCache;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(FileCredentialsCache, New, FileCredentialsCache*, $PrincipalName*)},
-	{"acquireInstance", "(Lsun/security/krb5/PrincipalName;Ljava/lang/String;)Lsun/security/krb5/internal/ccache/FileCredentialsCache;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(FileCredentialsCache, acquireInstance, FileCredentialsCache*, $PrincipalName*, $String*)},
-	{"acquireInstance", "()Lsun/security/krb5/internal/ccache/FileCredentialsCache;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileCredentialsCache, acquireInstance, FileCredentialsCache*)},
-	{"addConfigEntry", "(Lsun/security/krb5/internal/ccache/CredentialsCache$ConfigEntry;)V", nullptr, $PUBLIC, $virtualMethod(FileCredentialsCache, addConfigEntry, void, $CredentialsCache$ConfigEntry*)},
-	{"checkValidation", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileCredentialsCache, checkValidation, $String*, $String*)},
-	{"exec", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FileCredentialsCache, exec, $String*, $String*)},
-	{"exists", "(Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(FileCredentialsCache, exists, bool, $String*)},
-	{"getConfigEntries", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/krb5/internal/ccache/CredentialsCache$ConfigEntry;>;", $PUBLIC, $virtualMethod(FileCredentialsCache, getConfigEntries, $List*)},
-	{"getCreds", "(Lsun/security/krb5/internal/LoginOptions;Lsun/security/krb5/PrincipalName;)Lsun/security/krb5/internal/ccache/Credentials;", nullptr, $PUBLIC, $virtualMethod(FileCredentialsCache, getCreds, $Credentials*, $LoginOptions*, $PrincipalName*)},
-	{"getCreds", "(Lsun/security/krb5/PrincipalName;)Lsun/security/krb5/internal/ccache/Credentials;", nullptr, $PUBLIC, $virtualMethod(FileCredentialsCache, getCreds, $Credentials*, $PrincipalName*)},
-	{"getCredsList", "()[Lsun/security/krb5/internal/ccache/Credentials;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FileCredentialsCache, getCredsList, $CredentialsArray*)},
-	{"getDefaultCacheName", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileCredentialsCache, getDefaultCacheName, $String*)},
-	{"getDefaultCreds", "()Lsun/security/krb5/internal/ccache/Credentials;", nullptr, $PUBLIC, $virtualMethod(FileCredentialsCache, getDefaultCreds, $Credentials*)},
-	{"getInitialCreds", "()Lsun/security/krb5/Credentials;", nullptr, $PUBLIC, $virtualMethod(FileCredentialsCache, getInitialCreds, $1Credentials*)},
-	{"getPrimaryPrincipal", "()Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FileCredentialsCache, getPrimaryPrincipal, $PrincipalName*)},
-	{"init", "(Lsun/security/krb5/PrincipalName;Ljava/lang/String;)V", nullptr, $SYNCHRONIZED, $virtualMethod(FileCredentialsCache, init, void, $PrincipalName*, $String*), "java.io.IOException,sun.security.krb5.KrbException"},
-	{"load", "(Ljava/lang/String;)V", nullptr, $SYNCHRONIZED, $virtualMethod(FileCredentialsCache, load, void, $String*), "java.io.IOException,sun.security.krb5.KrbException"},
-	{"match", "([Ljava/lang/String;[Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(FileCredentialsCache, match, bool, $StringArray*, $StringArray*)},
-	{"save", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FileCredentialsCache, save, void), "java.io.IOException,sun.security.krb5.Asn1Exception"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"update", "(Lsun/security/krb5/internal/ccache/Credentials;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FileCredentialsCache, update, void, $Credentials*)},
-	{}
-};
-
-$InnerClassInfo _FileCredentialsCache_InnerClassesInfo_[] = {
-	{"sun.security.krb5.internal.ccache.FileCredentialsCache$2", nullptr, nullptr, 0},
-	{"sun.security.krb5.internal.ccache.FileCredentialsCache$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FileCredentialsCache_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.ccache.FileCredentialsCache",
-	"sun.security.krb5.internal.ccache.CredentialsCache",
-	"sun.security.krb5.internal.ccache.FileCCacheConstants",
-	_FileCredentialsCache_FieldInfo_,
-	_FileCredentialsCache_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FileCredentialsCache_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.krb5.internal.ccache.FileCredentialsCache$2,sun.security.krb5.internal.ccache.FileCredentialsCache$1"
-};
-
-$Object* allocate$FileCredentialsCache($Class* clazz) {
-	return $of($alloc(FileCredentialsCache));
-}
 
 int32_t FileCredentialsCache::hashCode() {
 	 return this->$CredentialsCache::hashCode();
@@ -195,10 +116,9 @@ $String* FileCredentialsCache::dir = nullptr;
 bool FileCredentialsCache::DEBUG = false;
 
 FileCredentialsCache* FileCredentialsCache::acquireInstance($PrincipalName* principal, $String* cache) {
-	$load(FileCredentialsCache);
+	$init(FileCredentialsCache);
 	$synchronized(class$) {
-		$init(FileCredentialsCache);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		try {
 			$var(FileCredentialsCache, fcc, $new(FileCredentialsCache));
 			if (cache == nullptr) {
@@ -236,9 +156,8 @@ FileCredentialsCache* FileCredentialsCache::acquireInstance() {
 }
 
 FileCredentialsCache* FileCredentialsCache::New($PrincipalName* principal, $String* name) {
-	$load(FileCredentialsCache);
+	$init(FileCredentialsCache);
 	$synchronized(class$) {
-		$init(FileCredentialsCache);
 		try {
 			$var(FileCredentialsCache, fcc, $new(FileCredentialsCache));
 			$init($CredentialsCache);
@@ -256,9 +175,8 @@ FileCredentialsCache* FileCredentialsCache::New($PrincipalName* principal, $Stri
 }
 
 FileCredentialsCache* FileCredentialsCache::New($PrincipalName* principal) {
-	$load(FileCredentialsCache);
+	$init(FileCredentialsCache);
 	$synchronized(class$) {
-		$init(FileCredentialsCache);
 		try {
 			$var(FileCredentialsCache, fcc, $new(FileCredentialsCache));
 			$init($CredentialsCache);
@@ -294,54 +212,50 @@ bool FileCredentialsCache::exists($String* cache) {
 
 void FileCredentialsCache::init($PrincipalName* principal, $String* name) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$set(this, primaryPrincipal, principal);
 		{
 			$var($FileOutputStream, fos, $new($FileOutputStream, name));
-			{
-				$var($Throwable, var$0, nullptr);
+			$var($Throwable, var$0, nullptr);
+			try {
 				try {
+					$var($CCacheOutputStream, cos, $new($CCacheOutputStream, fos));
+					$var($Throwable, var$1, nullptr);
 					try {
-						$var($CCacheOutputStream, cos, $new($CCacheOutputStream, fos));
-						{
-							$var($Throwable, var$1, nullptr);
-							try {
-								try {
-									this->version = $FileCCacheConstants::KRB5_FCC_FVNO_3;
-									cos->writeHeader(this->primaryPrincipal, this->version);
-								} catch ($Throwable& t$) {
-									try {
-										cos->close();
-									} catch ($Throwable& x2) {
-										t$->addSuppressed(x2);
-									}
-									$throw(t$);
-								}
-							} catch ($Throwable& var$2) {
-								$assign(var$1, var$2);
-							} /*finally*/ {
-								cos->close();
-							}
-							if (var$1 != nullptr) {
-								$throw(var$1);
-							}
-						}
-					} catch ($Throwable& t$) {
 						try {
-							fos->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
+							this->version = $FileCCacheConstants::KRB5_FCC_FVNO_3;
+							cos->writeHeader(this->primaryPrincipal, this->version);
+						} catch ($Throwable& t$) {
+							try {
+								cos->close();
+							} catch ($Throwable& x2) {
+								t$->addSuppressed(x2);
+							}
+							$throw(t$);
 						}
-						$throw(t$);
+					} catch ($Throwable& var$2) {
+						$assign(var$1, var$2);
+					} /*finally*/ {
+						cos->close();
 					}
-				} catch ($Throwable& var$3) {
-					$assign(var$0, var$3);
-				} /*finally*/ {
-					fos->close();
+					if (var$1 != nullptr) {
+						$throw(var$1);
+					}
+				} catch ($Throwable& t$) {
+					try {
+						fos->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
+					$throw(t$);
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
+			} /*finally*/ {
+				fos->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 		load(name);
@@ -350,80 +264,76 @@ void FileCredentialsCache::init($PrincipalName* principal, $String* name) {
 
 void FileCredentialsCache::load($String* name) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($PrincipalName, p, nullptr);
 		{
 			$var($FileInputStream, fis, $new($FileInputStream, name));
-			{
-				$var($Throwable, var$0, nullptr);
+			$var($Throwable, var$0, nullptr);
+			try {
 				try {
+					$var($CCacheInputStream, cis, $new($CCacheInputStream, fis));
+					$var($Throwable, var$1, nullptr);
 					try {
-						$var($CCacheInputStream, cis, $new($CCacheInputStream, fis));
-						{
-							$var($Throwable, var$1, nullptr);
-							try {
-								try {
-									this->version = cis->readVersion();
-									if (this->version == $FileCCacheConstants::KRB5_FCC_FVNO_4) {
-										$set(this, tag, cis->readTag());
-									} else {
-										$set(this, tag, nullptr);
-										if (this->version == $FileCCacheConstants::KRB5_FCC_FVNO_1 || this->version == $FileCCacheConstants::KRB5_FCC_FVNO_2) {
-											cis->setNativeByteOrder();
-										}
-									}
-									$assign(p, cis->readPrincipal(this->version));
-									if (this->primaryPrincipal != nullptr) {
-										if (!($nc(this->primaryPrincipal)->match(p))) {
-											$throwNew($IOException, "Primary principals don\'t match."_s);
-										}
-									} else {
-										$set(this, primaryPrincipal, p);
-									}
-									$set(this, credentialsList, $new($Vector));
-									while (cis->available() > 0) {
-										$var($Object, cred, cis->readCred(this->version));
-										if (cred != nullptr) {
-											if ($instanceOf($Credentials, cred)) {
-												$nc(this->credentialsList)->addElement($cast($Credentials, cred));
-											} else {
-												addConfigEntry($cast($CredentialsCache$ConfigEntry, cred));
-											}
-										}
-									}
-								} catch ($Throwable& t$) {
-									try {
-										cis->close();
-									} catch ($Throwable& x2) {
-										t$->addSuppressed(x2);
-									}
-									$throw(t$);
-								}
-							} catch ($Throwable& var$2) {
-								$assign(var$1, var$2);
-							} /*finally*/ {
-								cis->close();
-							}
-							if (var$1 != nullptr) {
-								$throw(var$1);
-							}
-						}
-					} catch ($Throwable& t$) {
 						try {
-							fis->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
+							this->version = cis->readVersion();
+							if (this->version == $FileCCacheConstants::KRB5_FCC_FVNO_4) {
+								$set(this, tag, cis->readTag());
+							} else {
+								$set(this, tag, nullptr);
+								if (this->version == $FileCCacheConstants::KRB5_FCC_FVNO_1 || this->version == $FileCCacheConstants::KRB5_FCC_FVNO_2) {
+									cis->setNativeByteOrder();
+								}
+							}
+							$assign(p, cis->readPrincipal(this->version));
+							if (this->primaryPrincipal != nullptr) {
+								if (!(this->primaryPrincipal->match(p))) {
+									$throwNew($IOException, "Primary principals don\'t match."_s);
+								}
+							} else {
+								$set(this, primaryPrincipal, p);
+							}
+							$set(this, credentialsList, $new($Vector));
+							while (cis->available() > 0) {
+								$var($Object, cred, cis->readCred(this->version));
+								if (cred != nullptr) {
+									if ($instanceOf($Credentials, cred)) {
+										$nc(this->credentialsList)->addElement($cast($Credentials, cred));
+									} else {
+										addConfigEntry($cast($CredentialsCache$ConfigEntry, cred));
+									}
+								}
+							}
+						} catch ($Throwable& t$) {
+							try {
+								cis->close();
+							} catch ($Throwable& x2) {
+								t$->addSuppressed(x2);
+							}
+							$throw(t$);
 						}
-						$throw(t$);
+					} catch ($Throwable& var$2) {
+						$assign(var$1, var$2);
+					} /*finally*/ {
+						cis->close();
 					}
-				} catch ($Throwable& var$3) {
-					$assign(var$0, var$3);
-				} /*finally*/ {
-					fis->close();
+					if (var$1 != nullptr) {
+						$throw(var$1);
+					}
+				} catch ($Throwable& t$) {
+					try {
+						fis->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
+					$throw(t$);
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
+			} /*finally*/ {
+				fis->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 	}
@@ -431,26 +341,26 @@ void FileCredentialsCache::load($String* name) {
 
 void FileCredentialsCache::update($Credentials* c) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->credentialsList != nullptr) {
-			if ($nc(this->credentialsList)->isEmpty()) {
-				$nc(this->credentialsList)->addElement(c);
+			if (this->credentialsList->isEmpty()) {
+				this->credentialsList->addElement(c);
 			} else {
 				$var($Credentials, tmp, nullptr);
 				bool matched = false;
 				for (int32_t i = 0; i < $nc(this->credentialsList)->size(); ++i) {
-					$assign(tmp, $cast($Credentials, $nc(this->credentialsList)->elementAt(i)));
+					$assign(tmp, $cast($Credentials, this->credentialsList->elementAt(i)));
 					$var($StringArray, var$1, $nc($nc(c)->sname)->getNameStrings());
 					bool var$0 = match(var$1, $($nc($nc(tmp)->sname)->getNameStrings()));
-					if (var$0 && ($nc(($($nc($nc(c)->sname)->getRealmString())))->equalsIgnoreCase($($nc($nc(tmp)->sname)->getRealmString())))) {
+					if (var$0 && (($$nc(c->sname->getRealmString()))->equalsIgnoreCase($(tmp->sname->getRealmString())))) {
 						matched = true;
 						int64_t var$2 = $nc(c->endtime)->getTime();
-						if (var$2 >= $nc($nc(tmp)->endtime)->getTime()) {
+						if (var$2 >= $nc(tmp->endtime)->getTime()) {
 							if (FileCredentialsCache::DEBUG) {
 								$nc($System::out)->println(" >>> FileCredentialsCache Ticket matched, overwrite the old one."_s);
 							}
 							$nc(this->credentialsList)->removeElementAt(i);
-							$nc(this->credentialsList)->addElement(c);
+							this->credentialsList->addElement(c);
 						}
 					}
 				}
@@ -473,68 +383,64 @@ $PrincipalName* FileCredentialsCache::getPrimaryPrincipal() {
 
 void FileCredentialsCache::save() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		{
 			$init($CredentialsCache);
 			$var($FileOutputStream, fos, $new($FileOutputStream, $CredentialsCache::cacheName$));
-			{
-				$var($Throwable, var$0, nullptr);
+			$var($Throwable, var$0, nullptr);
+			try {
 				try {
+					$var($CCacheOutputStream, cos, $new($CCacheOutputStream, fos));
+					$var($Throwable, var$1, nullptr);
 					try {
-						$var($CCacheOutputStream, cos, $new($CCacheOutputStream, fos));
-						{
-							$var($Throwable, var$1, nullptr);
-							try {
-								try {
-									cos->writeHeader(this->primaryPrincipal, this->version);
-									$var($CredentialsArray, tmp, nullptr);
-									if (($assign(tmp, getCredsList())) != nullptr) {
-										for (int32_t i = 0; i < $nc(tmp)->length; ++i) {
-											cos->addCreds(tmp->get(i));
-										}
-									}
-									{
-										$var($Iterator, i$, $nc($(getConfigEntries()))->iterator());
-										for (; $nc(i$)->hasNext();) {
-											$var($CredentialsCache$ConfigEntry, e, $cast($CredentialsCache$ConfigEntry, i$->next()));
-											{
-												cos->addConfigEntry(this->primaryPrincipal, e);
-											}
-										}
-									}
-								} catch ($Throwable& t$) {
-									try {
-										cos->close();
-									} catch ($Throwable& x2) {
-										t$->addSuppressed(x2);
-									}
-									$throw(t$);
-								}
-							} catch ($Throwable& var$2) {
-								$assign(var$1, var$2);
-							} /*finally*/ {
-								cos->close();
-							}
-							if (var$1 != nullptr) {
-								$throw(var$1);
-							}
-						}
-					} catch ($Throwable& t$) {
 						try {
-							fos->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
+							cos->writeHeader(this->primaryPrincipal, this->version);
+							$var($CredentialsArray, tmp, nullptr);
+							if (($assign(tmp, getCredsList())) != nullptr) {
+								for (int32_t i = 0; i < $nc(tmp)->length; ++i) {
+									cos->addCreds(tmp->get(i));
+								}
+							}
+							{
+								$var($Iterator, i$, $$nc(getConfigEntries())->iterator());
+								for (; $nc(i$)->hasNext();) {
+									$var($CredentialsCache$ConfigEntry, e, $cast($CredentialsCache$ConfigEntry, i$->next()));
+									{
+										cos->addConfigEntry(this->primaryPrincipal, e);
+									}
+								}
+							}
+						} catch ($Throwable& t$) {
+							try {
+								cos->close();
+							} catch ($Throwable& x2) {
+								t$->addSuppressed(x2);
+							}
+							$throw(t$);
 						}
-						$throw(t$);
+					} catch ($Throwable& var$2) {
+						$assign(var$1, var$2);
+					} /*finally*/ {
+						cos->close();
 					}
-				} catch ($Throwable& var$3) {
-					$assign(var$0, var$3);
-				} /*finally*/ {
-					fos->close();
+					if (var$1 != nullptr) {
+						$throw(var$1);
+					}
+				} catch ($Throwable& t$) {
+					try {
+						fos->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
+					$throw(t$);
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
+			} /*finally*/ {
+				fos->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 	}
@@ -555,13 +461,13 @@ bool FileCredentialsCache::match($StringArray* s1, $StringArray* s2) {
 
 $CredentialsArray* FileCredentialsCache::getCredsList() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		if ((this->credentialsList == nullptr) || ($nc(this->credentialsList)->isEmpty())) {
+		$useLocalObjectStack();
+		if ((this->credentialsList == nullptr) || (this->credentialsList->isEmpty())) {
 			return nullptr;
 		} else {
-			$var($CredentialsArray, tmp, $new($CredentialsArray, $nc(this->credentialsList)->size()));
-			for (int32_t i = 0; i < $nc(this->credentialsList)->size(); ++i) {
-				tmp->set(i, $cast($Credentials, $($nc(this->credentialsList)->elementAt(i))));
+			$var($CredentialsArray, tmp, $new($CredentialsArray, this->credentialsList->size()));
+			for (int32_t i = 0; i < this->credentialsList->size(); ++i) {
+				tmp->set(i, $$cast($Credentials, this->credentialsList->elementAt(i)));
 			}
 			return tmp;
 		}
@@ -576,7 +482,7 @@ $Credentials* FileCredentialsCache::getCreds($LoginOptions* options, $PrincipalN
 		if (list == nullptr) {
 			return nullptr;
 		} else {
-			for (int32_t i = 0; i < $nc(list)->length; ++i) {
+			for (int32_t i = 0; i < list->length; ++i) {
 				if ($nc(sname)->match($nc(list->get(i))->sname)) {
 					if ($nc($nc(list->get(i))->flags)->match(options)) {
 						return list->get(i);
@@ -601,7 +507,7 @@ $Credentials* FileCredentialsCache::getCreds($PrincipalName* sname) {
 	if (list == nullptr) {
 		return nullptr;
 	} else {
-		for (int32_t i = 0; i < $nc(list)->length; ++i) {
+		for (int32_t i = 0; i < list->length; ++i) {
 			if ($nc(sname)->match($nc(list->get(i))->sname)) {
 				return list->get(i);
 			}
@@ -611,7 +517,7 @@ $Credentials* FileCredentialsCache::getCreds($PrincipalName* sname) {
 }
 
 $1Credentials* FileCredentialsCache::getInitialCreds() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Credentials, defaultCreds, getDefaultCreds());
 	if (defaultCreds == nullptr) {
 		return nullptr;
@@ -633,56 +539,42 @@ $1Credentials* FileCredentialsCache::getInitialCreds() {
 		$var($String, s12798$, prop);
 		int32_t tmp12798$ = -1;
 		switch ($nc(s12798$)->hashCode()) {
-		case 0x1A43A46D:
-			{
-				if (s12798$->equals("no-impersonate"_s)) {
-					tmp12798$ = 0;
-				}
-				break;
+		case 0x1a43a46d:
+			if (s12798$->equals("no-impersonate"_s)) {
+				tmp12798$ = 0;
 			}
-		case (int32_t)0xAA453167:
-			{
-				if (s12798$->equals("try-impersonate"_s)) {
-					tmp12798$ = 1;
-				}
-				break;
+			break;
+		case (int32_t)0xaa453167:
+			if (s12798$->equals("try-impersonate"_s)) {
+				tmp12798$ = 1;
 			}
-		case (int32_t)0xF2B923BB:
-			{
-				if (s12798$->equals("always-impersonate"_s)) {
-					tmp12798$ = 2;
-				}
-				break;
+			break;
+		case (int32_t)0xf2b923bb:
+			if (s12798$->equals("always-impersonate"_s)) {
+				tmp12798$ = 2;
 			}
+			break;
 		}
 		switch (tmp12798$) {
 		case 0:
-			{
-				if (FileCredentialsCache::DEBUG) {
-					$nc($System::out)->println("get normal credential"_s);
-				}
-				return tgt;
+			if (FileCredentialsCache::DEBUG) {
+				$nc($System::out)->println("get normal credential"_s);
 			}
+			return tgt;
 		case 1:
-			{
-				force = false;
-				break;
-			}
+			force = false;
+			break;
 		case 2:
-			{
-				force = true;
-				break;
-			}
+			force = true;
+			break;
 		default:
-			{
-				$throwNew($RuntimeException, "Invalid jdk.security.krb5.default.initiate.credential"_s);
-			}
+			$throwNew($RuntimeException, "Invalid jdk.security.krb5.default.initiate.credential"_s);
 		}
 	}
 	try {
 		$init($StandardCharsets);
 		$var($PrincipalName, service, $new($PrincipalName, $$new($String, $($nc(entry)->getData()), $StandardCharsets::UTF_8)));
-		if (!$nc($($nc(tgt)->getClient()))->equals(service)) {
+		if (!$$nc($nc(tgt)->getClient())->equals(service)) {
 			if (FileCredentialsCache::DEBUG) {
 				$nc($System::out)->println("proxy_impersonator does not match service name"_s);
 			}
@@ -692,13 +584,11 @@ $1Credentials* FileCredentialsCache::getInitialCreds() {
 		$var($Credentials, proxy, nullptr);
 		{
 			$var($CredentialsArray, arr$, getCredsList());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Credentials, c, arr$->get(i$));
 				{
-					bool var$0 = $nc($($nc(c)->getClientPrincipal()))->equals(client);
-					if (var$0 && $nc($(c->getServicePrincipal()))->equals(service)) {
+					bool var$0 = $$nc($nc(c)->getClientPrincipal())->equals(client);
+					if (var$0 && $$nc(c->getServicePrincipal())->equals(service)) {
 						$assign(proxy, c);
 						break;
 					}
@@ -714,7 +604,7 @@ $1Credentials* FileCredentialsCache::getInitialCreds() {
 		if (FileCredentialsCache::DEBUG) {
 			$nc($System::out)->println("Get proxied credential"_s);
 		}
-		return $nc(tgt)->setProxy($($nc(proxy)->setKrbCreds()));
+		return tgt->setProxy($($nc(proxy)->setKrbCreds()));
 	} catch ($KrbException& e) {
 		if (FileCredentialsCache::DEBUG) {
 			$nc($System::out)->println("Impersonation with ccache failed"_s);
@@ -725,15 +615,15 @@ $1Credentials* FileCredentialsCache::getInitialCreds() {
 }
 
 $Credentials* FileCredentialsCache::getDefaultCreds() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CredentialsArray, list, getCredsList());
 	if (list == nullptr) {
 		return nullptr;
 	} else {
-		for (int32_t i = $nc(list)->length - 1; i >= 0; --i) {
-			if ($nc($($nc($nc(list->get(i))->sname)->toString()))->startsWith("krbtgt"_s)) {
+		for (int32_t i = list->length - 1; i >= 0; --i) {
+			if ($$nc($nc($nc(list->get(i))->sname)->toString())->startsWith("krbtgt"_s)) {
 				$var($StringArray, nameStrings, $nc($nc(list->get(i))->sname)->getNameStrings());
-				if ($nc($nc(nameStrings)->get(1))->equals($($nc($($nc($nc(list->get(i))->sname)->getRealm()))->toString()))) {
+				if ($nc($nc(nameStrings)->get(1))->equals($($$nc($nc($nc(list->get(i))->sname)->getRealm())->toString()))) {
 					return list->get(i);
 				}
 			}
@@ -744,10 +634,10 @@ $Credentials* FileCredentialsCache::getDefaultCreds() {
 
 $String* FileCredentialsCache::getDefaultCacheName() {
 	$init(FileCredentialsCache);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, stdCacheNameComponent, "krb5cc"_s);
-	$var($String, name, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($FileCredentialsCache$1)))));
+	$var($String, name, $cast($String, $AccessController::doPrivileged($$new($FileCredentialsCache$1))));
 	if (name != nullptr) {
 		if (FileCredentialsCache::DEBUG) {
 			$nc($System::out)->println($$str({">>>KinitOptions cache name is "_s, name}));
@@ -764,10 +654,8 @@ $String* FileCredentialsCache::getDefaultCacheName() {
 				$nc($System::out)->println($$str({">>>KinitOptions cache name is "_s, name}));
 			}
 			return name;
-		} else {
-			if (FileCredentialsCache::DEBUG) {
-				$nc($System::out)->println("Error in obtaining uid for Unix platforms Using user\'s home directory"_s);
-			}
+		} else if (FileCredentialsCache::DEBUG) {
+			$nc($System::out)->println("Error in obtaining uid for Unix platforms Using user\'s home directory"_s);
 		}
 	}
 	$var($String, user_name, $GetPropertyAction::privilegedGetProperty("user.name"_s));
@@ -790,7 +678,7 @@ $String* FileCredentialsCache::getDefaultCacheName() {
 
 $String* FileCredentialsCache::checkValidation($String* name) {
 	$init(FileCredentialsCache);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, fullname, nullptr);
 	if (name == nullptr) {
 		return nullptr;
@@ -814,7 +702,7 @@ $String* FileCredentialsCache::checkValidation($String* name) {
 
 $String* FileCredentialsCache::exec($String* c) {
 	$init(FileCredentialsCache);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($StringTokenizer, st, $new($StringTokenizer, c));
 	$var($Vector, v, $new($Vector));
@@ -824,7 +712,7 @@ $String* FileCredentialsCache::exec($String* c) {
 	$var($StringArray, command, $new($StringArray, v->size()));
 	v->copyInto(command);
 	try {
-		$var($Process, p, $cast($Process, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($FileCredentialsCache$2, command)))));
+		$var($Process, p, $cast($Process, $AccessController::doPrivileged($$new($FileCredentialsCache$2, command))));
 		if (p == nullptr) {
 			return nullptr;
 		}
@@ -853,7 +741,7 @@ $String* FileCredentialsCache::exec($String* c) {
 	return nullptr;
 }
 
-void clinit$FileCredentialsCache($Class* class$) {
+void FileCredentialsCache::clinit$($Class* clazz) {
 	$init($Krb5);
 	FileCredentialsCache::DEBUG = $Krb5::DEBUG;
 }
@@ -862,7 +750,68 @@ FileCredentialsCache::FileCredentialsCache() {
 }
 
 $Class* FileCredentialsCache::load$($String* name, bool initialize) {
-	$loadClass(FileCredentialsCache, name, initialize, &_FileCredentialsCache_ClassInfo_, clinit$FileCredentialsCache, allocate$FileCredentialsCache);
+	$FieldInfo fieldInfos$$[] = {
+		{"version", "I", nullptr, $PUBLIC, $field(FileCredentialsCache, version)},
+		{"tag", "Lsun/security/krb5/internal/ccache/Tag;", nullptr, $PUBLIC, $field(FileCredentialsCache, tag)},
+		{"primaryPrincipal", "Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $field(FileCredentialsCache, primaryPrincipal)},
+		{"credentialsList", "Ljava/util/Vector;", "Ljava/util/Vector<Lsun/security/krb5/internal/ccache/Credentials;>;", $PRIVATE, $field(FileCredentialsCache, credentialsList)},
+		{"dir", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(FileCredentialsCache, dir)},
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC, $staticField(FileCredentialsCache, DEBUG)},
+		{"configEntries", "Ljava/util/List;", "Ljava/util/List<Lsun/security/krb5/internal/ccache/CredentialsCache$ConfigEntry;>;", $PRIVATE, $field(FileCredentialsCache, configEntries)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(FileCredentialsCache, init$, void)},
+		{"New", "(Lsun/security/krb5/PrincipalName;Ljava/lang/String;)Lsun/security/krb5/internal/ccache/FileCredentialsCache;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(FileCredentialsCache, New, FileCredentialsCache*, $PrincipalName*, $String*)},
+		{"New", "(Lsun/security/krb5/PrincipalName;)Lsun/security/krb5/internal/ccache/FileCredentialsCache;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(FileCredentialsCache, New, FileCredentialsCache*, $PrincipalName*)},
+		{"acquireInstance", "(Lsun/security/krb5/PrincipalName;Ljava/lang/String;)Lsun/security/krb5/internal/ccache/FileCredentialsCache;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(FileCredentialsCache, acquireInstance, FileCredentialsCache*, $PrincipalName*, $String*)},
+		{"acquireInstance", "()Lsun/security/krb5/internal/ccache/FileCredentialsCache;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileCredentialsCache, acquireInstance, FileCredentialsCache*)},
+		{"addConfigEntry", "(Lsun/security/krb5/internal/ccache/CredentialsCache$ConfigEntry;)V", nullptr, $PUBLIC, $virtualMethod(FileCredentialsCache, addConfigEntry, void, $CredentialsCache$ConfigEntry*)},
+		{"checkValidation", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileCredentialsCache, checkValidation, $String*, $String*)},
+		{"exec", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FileCredentialsCache, exec, $String*, $String*)},
+		{"exists", "(Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(FileCredentialsCache, exists, bool, $String*)},
+		{"getConfigEntries", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/krb5/internal/ccache/CredentialsCache$ConfigEntry;>;", $PUBLIC, $virtualMethod(FileCredentialsCache, getConfigEntries, $List*)},
+		{"getCreds", "(Lsun/security/krb5/internal/LoginOptions;Lsun/security/krb5/PrincipalName;)Lsun/security/krb5/internal/ccache/Credentials;", nullptr, $PUBLIC, $virtualMethod(FileCredentialsCache, getCreds, $Credentials*, $LoginOptions*, $PrincipalName*)},
+		{"getCreds", "(Lsun/security/krb5/PrincipalName;)Lsun/security/krb5/internal/ccache/Credentials;", nullptr, $PUBLIC, $virtualMethod(FileCredentialsCache, getCreds, $Credentials*, $PrincipalName*)},
+		{"getCredsList", "()[Lsun/security/krb5/internal/ccache/Credentials;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FileCredentialsCache, getCredsList, $CredentialsArray*)},
+		{"getDefaultCacheName", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileCredentialsCache, getDefaultCacheName, $String*)},
+		{"getDefaultCreds", "()Lsun/security/krb5/internal/ccache/Credentials;", nullptr, $PUBLIC, $virtualMethod(FileCredentialsCache, getDefaultCreds, $Credentials*)},
+		{"getInitialCreds", "()Lsun/security/krb5/Credentials;", nullptr, $PUBLIC, $virtualMethod(FileCredentialsCache, getInitialCreds, $1Credentials*)},
+		{"getPrimaryPrincipal", "()Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FileCredentialsCache, getPrimaryPrincipal, $PrincipalName*)},
+		{"init", "(Lsun/security/krb5/PrincipalName;Ljava/lang/String;)V", nullptr, $SYNCHRONIZED, $virtualMethod(FileCredentialsCache, init, void, $PrincipalName*, $String*), "java.io.IOException,sun.security.krb5.KrbException"},
+		{"load", "(Ljava/lang/String;)V", nullptr, $SYNCHRONIZED, $virtualMethod(FileCredentialsCache, load, void, $String*), "java.io.IOException,sun.security.krb5.KrbException"},
+		{"match", "([Ljava/lang/String;[Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(FileCredentialsCache, match, bool, $StringArray*, $StringArray*)},
+		{"save", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FileCredentialsCache, save, void), "java.io.IOException,sun.security.krb5.Asn1Exception"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"update", "(Lsun/security/krb5/internal/ccache/Credentials;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FileCredentialsCache, update, void, $Credentials*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.krb5.internal.ccache.FileCredentialsCache$2", nullptr, nullptr, 0},
+		{"sun.security.krb5.internal.ccache.FileCredentialsCache$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.ccache.FileCredentialsCache",
+		"sun.security.krb5.internal.ccache.CredentialsCache",
+		"sun.security.krb5.internal.ccache.FileCCacheConstants",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.krb5.internal.ccache.FileCredentialsCache$2,sun.security.krb5.internal.ccache.FileCredentialsCache$1"
+	};
+	$loadClass(FileCredentialsCache, name, initialize, &classInfo$$, FileCredentialsCache::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FileCredentialsCache));
+	});
 	return class$;
 }
 

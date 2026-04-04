@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/AudioFloatInputStream.h>
-
 #include <com/sun/media/sound/AudioFloatConverter.h>
 #include <com/sun/media/sound/AudioFloatInputStream$BytaArrayAudioFloatInputStream.h>
 #include <com/sun/media/sound/AudioFloatInputStream$DirectAudioFloatInputStream.h>
@@ -33,52 +32,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$MethodInfo _AudioFloatInputStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AudioFloatInputStream, init$, void)},
-	{"available", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AudioFloatInputStream, available, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AudioFloatInputStream, close, void), "java.io.IOException"},
-	{"getFormat", "()Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AudioFloatInputStream, getFormat, $AudioFormat*)},
-	{"getFrameLength", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AudioFloatInputStream, getFrameLength, int64_t)},
-	{"getInputStream", "(Ljava/net/URL;)Lcom/sun/media/sound/AudioFloatInputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(AudioFloatInputStream, getInputStream, AudioFloatInputStream*, $URL*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
-	{"getInputStream", "(Ljava/io/File;)Lcom/sun/media/sound/AudioFloatInputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(AudioFloatInputStream, getInputStream, AudioFloatInputStream*, $File*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
-	{"getInputStream", "(Ljava/io/InputStream;)Lcom/sun/media/sound/AudioFloatInputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(AudioFloatInputStream, getInputStream, AudioFloatInputStream*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
-	{"getInputStream", "(Ljavax/sound/sampled/AudioInputStream;)Lcom/sun/media/sound/AudioFloatInputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(AudioFloatInputStream, getInputStream, AudioFloatInputStream*, $AudioInputStream*)},
-	{"getInputStream", "(Ljavax/sound/sampled/AudioFormat;[BII)Lcom/sun/media/sound/AudioFloatInputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(AudioFloatInputStream, getInputStream, AudioFloatInputStream*, $AudioFormat*, $bytes*, int32_t, int32_t)},
-	{"mark", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AudioFloatInputStream, mark, void, int32_t)},
-	{"markSupported", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AudioFloatInputStream, markSupported, bool)},
-	{"read", "([FII)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AudioFloatInputStream, read, int32_t, $floats*, int32_t, int32_t), "java.io.IOException"},
-	{"read", "([F)I", nullptr, $PUBLIC | $FINAL, $method(AudioFloatInputStream, read, int32_t, $floats*), "java.io.IOException"},
-	{"read", "()F", nullptr, $PUBLIC | $FINAL, $method(AudioFloatInputStream, read, float), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AudioFloatInputStream, reset, void), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AudioFloatInputStream, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _AudioFloatInputStream_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.AudioFloatInputStream$DirectAudioFloatInputStream", "com.sun.media.sound.AudioFloatInputStream", "DirectAudioFloatInputStream", $PRIVATE | $STATIC},
-	{"com.sun.media.sound.AudioFloatInputStream$BytaArrayAudioFloatInputStream", "com.sun.media.sound.AudioFloatInputStream", "BytaArrayAudioFloatInputStream", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AudioFloatInputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.media.sound.AudioFloatInputStream",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_AudioFloatInputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AudioFloatInputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.AudioFloatInputStream$DirectAudioFloatInputStream,com.sun.media.sound.AudioFloatInputStream$BytaArrayAudioFloatInputStream"
-};
-
-$Object* allocate$AudioFloatInputStream($Class* clazz) {
-	return $of($alloc(AudioFloatInputStream));
-}
-
 void AudioFloatInputStream::init$() {
 }
 
@@ -99,13 +52,13 @@ AudioFloatInputStream* AudioFloatInputStream::getInputStream($AudioInputStream* 
 }
 
 AudioFloatInputStream* AudioFloatInputStream::getInputStream($AudioFormat* format, $bytes* buffer, int32_t offset, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AudioFloatConverter, converter, $AudioFloatConverter::getConverter(format));
 	if (converter != nullptr) {
 		return $new($AudioFloatInputStream$BytaArrayAudioFloatInputStream, converter, buffer, offset, len);
 	}
 	$var($InputStream, stream, $new($ByteArrayInputStream, buffer, offset, len));
-	int64_t aLen = $nc(format)->getFrameSize() == $AudioSystem::NOT_SPECIFIED ? $AudioSystem::NOT_SPECIFIED : $div(len, $nc(format)->getFrameSize());
+	int64_t aLen = $nc(format)->getFrameSize() == $AudioSystem::NOT_SPECIFIED ? $AudioSystem::NOT_SPECIFIED : $div(len, format->getFrameSize());
 	$var($AudioInputStream, astream, $new($AudioInputStream, stream, format, aLen));
 	return getInputStream(astream);
 }
@@ -118,7 +71,7 @@ float AudioFloatInputStream::read() {
 	$var($floats, b, $new($floats, 1));
 	int32_t ret = read(b, 0, 1);
 	if (ret == -1 || ret == 0) {
-		return (float)0;
+		return 0;
 	}
 	return b->get(0);
 }
@@ -127,7 +80,48 @@ AudioFloatInputStream::AudioFloatInputStream() {
 }
 
 $Class* AudioFloatInputStream::load$($String* name, bool initialize) {
-	$loadClass(AudioFloatInputStream, name, initialize, &_AudioFloatInputStream_ClassInfo_, allocate$AudioFloatInputStream);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AudioFloatInputStream, init$, void)},
+		{"available", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AudioFloatInputStream, available, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AudioFloatInputStream, close, void), "java.io.IOException"},
+		{"getFormat", "()Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AudioFloatInputStream, getFormat, $AudioFormat*)},
+		{"getFrameLength", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AudioFloatInputStream, getFrameLength, int64_t)},
+		{"getInputStream", "(Ljava/net/URL;)Lcom/sun/media/sound/AudioFloatInputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(AudioFloatInputStream, getInputStream, AudioFloatInputStream*, $URL*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
+		{"getInputStream", "(Ljava/io/File;)Lcom/sun/media/sound/AudioFloatInputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(AudioFloatInputStream, getInputStream, AudioFloatInputStream*, $File*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
+		{"getInputStream", "(Ljava/io/InputStream;)Lcom/sun/media/sound/AudioFloatInputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(AudioFloatInputStream, getInputStream, AudioFloatInputStream*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
+		{"getInputStream", "(Ljavax/sound/sampled/AudioInputStream;)Lcom/sun/media/sound/AudioFloatInputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(AudioFloatInputStream, getInputStream, AudioFloatInputStream*, $AudioInputStream*)},
+		{"getInputStream", "(Ljavax/sound/sampled/AudioFormat;[BII)Lcom/sun/media/sound/AudioFloatInputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(AudioFloatInputStream, getInputStream, AudioFloatInputStream*, $AudioFormat*, $bytes*, int32_t, int32_t)},
+		{"mark", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AudioFloatInputStream, mark, void, int32_t)},
+		{"markSupported", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AudioFloatInputStream, markSupported, bool)},
+		{"read", "([FII)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AudioFloatInputStream, read, int32_t, $floats*, int32_t, int32_t), "java.io.IOException"},
+		{"read", "([F)I", nullptr, $PUBLIC | $FINAL, $method(AudioFloatInputStream, read, int32_t, $floats*), "java.io.IOException"},
+		{"read", "()F", nullptr, $PUBLIC | $FINAL, $method(AudioFloatInputStream, read, float), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AudioFloatInputStream, reset, void), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AudioFloatInputStream, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.AudioFloatInputStream$DirectAudioFloatInputStream", "com.sun.media.sound.AudioFloatInputStream", "DirectAudioFloatInputStream", $PRIVATE | $STATIC},
+		{"com.sun.media.sound.AudioFloatInputStream$BytaArrayAudioFloatInputStream", "com.sun.media.sound.AudioFloatInputStream", "BytaArrayAudioFloatInputStream", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.media.sound.AudioFloatInputStream",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.AudioFloatInputStream$DirectAudioFloatInputStream,com.sun.media.sound.AudioFloatInputStream$BytaArrayAudioFloatInputStream"
+	};
+	$loadClass(AudioFloatInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AudioFloatInputStream);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/dtd/DTDDVFactoryImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/DTDDVFactory.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/DatatypeValidator.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/dtd/ENTITYDatatypeValidator.h>
@@ -40,31 +39,6 @@ namespace com {
 							namespace dv {
 								namespace dtd {
 
-$FieldInfo _DTDDVFactoryImpl_FieldInfo_[] = {
-	{"fBuiltInTypes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/DatatypeValidator;>;", $STATIC | $FINAL, $staticField(DTDDVFactoryImpl, fBuiltInTypes)},
-	{}
-};
-
-$MethodInfo _DTDDVFactoryImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DTDDVFactoryImpl, init$, void)},
-	{"getBuiltInDV", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/dv/DatatypeValidator;", nullptr, $PUBLIC, $virtualMethod(DTDDVFactoryImpl, getBuiltInDV, $DatatypeValidator*, $String*)},
-	{"getBuiltInTypes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/DatatypeValidator;>;", $PUBLIC, $virtualMethod(DTDDVFactoryImpl, getBuiltInTypes, $Map*)},
-	{}
-};
-
-$ClassInfo _DTDDVFactoryImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.dtd.DTDDVFactoryImpl",
-	"com.sun.org.apache.xerces.internal.impl.dv.DTDDVFactory",
-	nullptr,
-	_DTDDVFactoryImpl_FieldInfo_,
-	_DTDDVFactoryImpl_MethodInfo_
-};
-
-$Object* allocate$DTDDVFactoryImpl($Class* clazz) {
-	return $of($alloc(DTDDVFactoryImpl));
-}
-
 $Map* DTDDVFactoryImpl::fBuiltInTypes = nullptr;
 
 void DTDDVFactoryImpl::init$() {
@@ -79,8 +53,8 @@ $Map* DTDDVFactoryImpl::getBuiltInTypes() {
 	return $new($HashMap, DTDDVFactoryImpl::fBuiltInTypes);
 }
 
-void clinit$DTDDVFactoryImpl($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void DTDDVFactoryImpl::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		$var($Map, builtInTypes, $new($HashMap));
 		$var($DatatypeValidator, dvTemp, nullptr);
@@ -104,7 +78,27 @@ DTDDVFactoryImpl::DTDDVFactoryImpl() {
 }
 
 $Class* DTDDVFactoryImpl::load$($String* name, bool initialize) {
-	$loadClass(DTDDVFactoryImpl, name, initialize, &_DTDDVFactoryImpl_ClassInfo_, clinit$DTDDVFactoryImpl, allocate$DTDDVFactoryImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fBuiltInTypes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/DatatypeValidator;>;", $STATIC | $FINAL, $staticField(DTDDVFactoryImpl, fBuiltInTypes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DTDDVFactoryImpl, init$, void)},
+		{"getBuiltInDV", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/dv/DatatypeValidator;", nullptr, $PUBLIC, $virtualMethod(DTDDVFactoryImpl, getBuiltInDV, $DatatypeValidator*, $String*)},
+		{"getBuiltInTypes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/DatatypeValidator;>;", $PUBLIC, $virtualMethod(DTDDVFactoryImpl, getBuiltInTypes, $Map*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.dtd.DTDDVFactoryImpl",
+		"com.sun.org.apache.xerces.internal.impl.dv.DTDDVFactory",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DTDDVFactoryImpl, name, initialize, &classInfo$$, DTDDVFactoryImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DTDDVFactoryImpl);
+	});
 	return class$;
 }
 

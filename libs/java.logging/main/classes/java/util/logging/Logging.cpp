@@ -1,5 +1,4 @@
 #include <java/util/logging/Logging.h>
-
 #include <java/util/ArrayList.h>
 #include <java/util/Enumeration.h>
 #include <java/util/List.h>
@@ -27,36 +26,6 @@ namespace java {
 	namespace util {
 		namespace logging {
 
-$FieldInfo _Logging_FieldInfo_[] = {
-	{"logManager", "Ljava/util/logging/LogManager;", nullptr, $PRIVATE | $STATIC, $staticField(Logging, logManager)},
-	{"EMPTY_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(Logging, EMPTY_STRING)},
-	{"INSTANCE", "Ljava/util/logging/Logging;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Logging, INSTANCE)},
-	{}
-};
-
-$MethodInfo _Logging_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Logging, init$, void)},
-	{"getInstance", "()Ljava/util/logging/Logging;", nullptr, $STATIC, $staticMethod(Logging, getInstance, Logging*)},
-	{"getLoggerLevel", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Logging, getLoggerLevel, $String*, $String*)},
-	{"getLoggerNames", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(Logging, getLoggerNames, $List*)},
-	{"getParentLoggerName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Logging, getParentLoggerName, $String*, $String*)},
-	{"setLoggerLevel", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logging, setLoggerLevel, void, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _Logging_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.logging.Logging",
-	"java.lang.Object",
-	"java.util.logging.LoggingMXBean",
-	_Logging_FieldInfo_,
-	_Logging_MethodInfo_
-};
-
-$Object* allocate$Logging($Class* clazz) {
-	return $of($alloc(Logging));
-}
-
 $LogManager* Logging::logManager = nullptr;
 $String* Logging::EMPTY_STRING = nullptr;
 Logging* Logging::INSTANCE = nullptr;
@@ -65,17 +34,17 @@ void Logging::init$() {
 }
 
 $List* Logging::getLoggerNames() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Enumeration, loggers, $nc(Logging::logManager)->getLoggerNames());
 	$var($ArrayList, array, $new($ArrayList));
 	for (; $nc(loggers)->hasMoreElements();) {
-		array->add($cast($String, $(loggers->nextElement())));
+		array->add($$cast($String, loggers->nextElement()));
 	}
 	return array;
 }
 
 $String* Logging::getLoggerLevel($String* loggerName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Logger, l, $nc(Logging::logManager)->getLogger(loggerName));
 	if (l == nullptr) {
 		return nullptr;
@@ -84,12 +53,12 @@ $String* Logging::getLoggerLevel($String* loggerName) {
 	if (level == nullptr) {
 		return Logging::EMPTY_STRING;
 	} else {
-		return $nc(level)->getLevelName();
+		return level->getLevelName();
 	}
 }
 
 void Logging::setLoggerLevel($String* loggerName, $String* levelName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (loggerName == nullptr) {
 		$throwNew($NullPointerException, "loggerName is null"_s);
 	}
@@ -108,7 +77,7 @@ void Logging::setLoggerLevel($String* loggerName, $String* levelName) {
 }
 
 $String* Logging::getParentLoggerName($String* loggerName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Logger, l, $nc(Logging::logManager)->getLogger(loggerName));
 	if (l == nullptr) {
 		return nullptr;
@@ -117,7 +86,7 @@ $String* Logging::getParentLoggerName($String* loggerName) {
 	if (p == nullptr) {
 		return Logging::EMPTY_STRING;
 	} else {
-		return $nc(p)->getName();
+		return p->getName();
 	}
 }
 
@@ -126,7 +95,7 @@ Logging* Logging::getInstance() {
 	return Logging::INSTANCE;
 }
 
-void clinit$Logging($Class* class$) {
+void Logging::clinit$($Class* clazz) {
 	$assignStatic(Logging::logManager, $LogManager::getLogManager());
 	$assignStatic(Logging::EMPTY_STRING, ""_s);
 	$assignStatic(Logging::INSTANCE, $new(Logging));
@@ -136,7 +105,32 @@ Logging::Logging() {
 }
 
 $Class* Logging::load$($String* name, bool initialize) {
-	$loadClass(Logging, name, initialize, &_Logging_ClassInfo_, clinit$Logging, allocate$Logging);
+	$FieldInfo fieldInfos$$[] = {
+		{"logManager", "Ljava/util/logging/LogManager;", nullptr, $PRIVATE | $STATIC, $staticField(Logging, logManager)},
+		{"EMPTY_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(Logging, EMPTY_STRING)},
+		{"INSTANCE", "Ljava/util/logging/Logging;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Logging, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Logging, init$, void)},
+		{"getInstance", "()Ljava/util/logging/Logging;", nullptr, $STATIC, $staticMethod(Logging, getInstance, Logging*)},
+		{"getLoggerLevel", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Logging, getLoggerLevel, $String*, $String*)},
+		{"getLoggerNames", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(Logging, getLoggerNames, $List*)},
+		{"getParentLoggerName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Logging, getParentLoggerName, $String*, $String*)},
+		{"setLoggerLevel", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logging, setLoggerLevel, void, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.logging.Logging",
+		"java.lang.Object",
+		"java.util.logging.LoggingMXBean",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Logging, name, initialize, &classInfo$$, Logging::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Logging);
+	});
 	return class$;
 }
 

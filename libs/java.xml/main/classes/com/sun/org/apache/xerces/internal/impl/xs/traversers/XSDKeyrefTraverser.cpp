@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/traversers/XSDKeyrefTraverser.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaSymbols.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSElementDecl.h>
@@ -49,38 +48,19 @@ namespace com {
 							namespace xs {
 								namespace traversers {
 
-$MethodInfo _XSDKeyrefTraverser_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDHandler;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSAttributeChecker;)V", nullptr, $PUBLIC, $method(XSDKeyrefTraverser, init$, void, $XSDHandler*, $XSAttributeChecker*)},
-	{"traverse", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, 0, $virtualMethod(XSDKeyrefTraverser, traverse, void, $Element*, $XSElementDecl*, $XSDocumentInfo*, $SchemaGrammar*)},
-	{}
-};
-
-$ClassInfo _XSDKeyrefTraverser_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDKeyrefTraverser",
-	"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractIDConstraintTraverser",
-	nullptr,
-	nullptr,
-	_XSDKeyrefTraverser_MethodInfo_
-};
-
-$Object* allocate$XSDKeyrefTraverser($Class* clazz) {
-	return $of($alloc(XSDKeyrefTraverser));
-}
-
 void XSDKeyrefTraverser::init$($XSDHandler* handler, $XSAttributeChecker* gAttrCheck) {
 	$XSDAbstractIDConstraintTraverser::init$(handler, gAttrCheck);
 }
 
 void XSDKeyrefTraverser::traverse($Element* krElem, $XSElementDecl* element, $XSDocumentInfo* schemaDoc, $SchemaGrammar* grammar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, attrValues, $nc(this->fAttrChecker)->checkAttributes(krElem, false, schemaDoc));
 	$var($String, krName, $cast($String, $nc(attrValues)->get($XSAttributeChecker::ATTIDX_NAME)));
 	if (krName == nullptr) {
 		$init($SchemaSymbols);
 		reportSchemaError("s4s-att-must-appear"_s, $$new($ObjectArray, {
-			$of($SchemaSymbols::ELT_KEYREF),
-			$of($SchemaSymbols::ATT_NAME)
+			$SchemaSymbols::ELT_KEYREF,
+			$SchemaSymbols::ATT_NAME
 		}), krElem);
 		$nc(this->fAttrChecker)->returnAttrArray(attrValues, schemaDoc);
 		return;
@@ -89,8 +69,8 @@ void XSDKeyrefTraverser::traverse($Element* krElem, $XSElementDecl* element, $XS
 	if (kName == nullptr) {
 		$init($SchemaSymbols);
 		reportSchemaError("s4s-att-must-appear"_s, $$new($ObjectArray, {
-			$of($SchemaSymbols::ELT_KEYREF),
-			$of($SchemaSymbols::ATT_REFER)
+			$SchemaSymbols::ELT_KEYREF,
+			$SchemaSymbols::ATT_REFER
 		}), krElem);
 		$nc(this->fAttrChecker)->returnAttrArray(attrValues, schemaDoc);
 		return;
@@ -103,8 +83,8 @@ void XSDKeyrefTraverser::traverse($Element* krElem, $XSElementDecl* element, $XS
 			$assign(key, $cast($UniqueOrKey, ret));
 		} else {
 			reportSchemaError("src-resolve"_s, $$new($ObjectArray, {
-				$of($nc(kName)->rawname),
-				$of("identity constraint key/unique"_s)
+				$nc(kName)->rawname,
+				"identity constraint key/unique"_s
 			}), krElem);
 		}
 	}
@@ -117,15 +97,15 @@ void XSDKeyrefTraverser::traverse($Element* krElem, $XSElementDecl* element, $XS
 		int32_t var$1 = $nc(key)->getFieldCount();
 		if (var$1 != keyRef->getFieldCount()) {
 			reportSchemaError("c-props-correct.2"_s, $$new($ObjectArray, {
-				$of(krName),
-				$($of(key->getIdentityConstraintName()))
+				krName,
+				$(key->getIdentityConstraintName())
 			}), krElem);
 		} else {
 			if ($nc(grammar)->getIDConstraintDecl($(keyRef->getIdentityConstraintName())) == nullptr) {
 				grammar->addIDConstraintDecl(element, keyRef);
 			}
 			$var($String, loc, $nc(this->fSchemaHandler)->schemaDocument2SystemId(schemaDoc));
-			$var($IdentityConstraint, idc, $nc(grammar)->getIDConstraintDecl($(keyRef->getIdentityConstraintName()), loc));
+			$var($IdentityConstraint, idc, grammar->getIDConstraintDecl($(keyRef->getIdentityConstraintName()), loc));
 			if (idc == nullptr) {
 				grammar->addIDConstraintDecl(element, keyRef, loc);
 			}
@@ -135,7 +115,7 @@ void XSDKeyrefTraverser::traverse($Element* krElem, $XSElementDecl* element, $XS
 						$assign(keyRef, $cast($KeyRef, idc));
 					}
 				}
-				$nc(this->fSchemaHandler)->addIDConstraintDecl(keyRef);
+				this->fSchemaHandler->addIDConstraintDecl(keyRef);
 			}
 		}
 	}
@@ -146,7 +126,22 @@ XSDKeyrefTraverser::XSDKeyrefTraverser() {
 }
 
 $Class* XSDKeyrefTraverser::load$($String* name, bool initialize) {
-	$loadClass(XSDKeyrefTraverser, name, initialize, &_XSDKeyrefTraverser_ClassInfo_, allocate$XSDKeyrefTraverser);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDHandler;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSAttributeChecker;)V", nullptr, $PUBLIC, $method(XSDKeyrefTraverser, init$, void, $XSDHandler*, $XSAttributeChecker*)},
+		{"traverse", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, 0, $virtualMethod(XSDKeyrefTraverser, traverse, void, $Element*, $XSElementDecl*, $XSDocumentInfo*, $SchemaGrammar*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDKeyrefTraverser",
+		"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractIDConstraintTraverser",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XSDKeyrefTraverser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSDKeyrefTraverser);
+	});
 	return class$;
 }
 

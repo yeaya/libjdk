@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/PCMtoPCMCodec$PCMtoPCMCodecStream.h>
-
 #include <com/sun/media/sound/PCMtoPCMCodec.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -23,7 +22,6 @@
 
 using $PCMtoPCMCodec = ::com::sun::media::sound::PCMtoPCMCodec;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -39,60 +37,8 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _PCMtoPCMCodec$PCMtoPCMCodecStream_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/media/sound/PCMtoPCMCodec;", nullptr, $FINAL | $SYNTHETIC, $field(PCMtoPCMCodec$PCMtoPCMCodecStream, this$0)},
-	{"PCM_SWITCH_SIGNED_8BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PCMtoPCMCodec$PCMtoPCMCodecStream, PCM_SWITCH_SIGNED_8BIT)},
-	{"PCM_SWITCH_ENDIAN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PCMtoPCMCodec$PCMtoPCMCodecStream, PCM_SWITCH_ENDIAN)},
-	{"PCM_SWITCH_SIGNED_LE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PCMtoPCMCodec$PCMtoPCMCodecStream, PCM_SWITCH_SIGNED_LE)},
-	{"PCM_SWITCH_SIGNED_BE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PCMtoPCMCodec$PCMtoPCMCodecStream, PCM_SWITCH_SIGNED_BE)},
-	{"PCM_UNSIGNED_LE2SIGNED_BE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PCMtoPCMCodec$PCMtoPCMCodecStream, PCM_UNSIGNED_LE2SIGNED_BE)},
-	{"PCM_SIGNED_LE2UNSIGNED_BE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PCMtoPCMCodec$PCMtoPCMCodecStream, PCM_SIGNED_LE2UNSIGNED_BE)},
-	{"PCM_UNSIGNED_BE2SIGNED_LE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PCMtoPCMCodec$PCMtoPCMCodecStream, PCM_UNSIGNED_BE2SIGNED_LE)},
-	{"PCM_SIGNED_BE2UNSIGNED_LE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PCMtoPCMCodec$PCMtoPCMCodecStream, PCM_SIGNED_BE2UNSIGNED_LE)},
-	{"sampleSizeInBytes", "I", nullptr, $PRIVATE | $FINAL, $field(PCMtoPCMCodec$PCMtoPCMCodecStream, sampleSizeInBytes)},
-	{"conversionType", "I", nullptr, $PRIVATE, $field(PCMtoPCMCodec$PCMtoPCMCodecStream, conversionType)},
-	{}
-};
-
-$MethodInfo _PCMtoPCMCodec$PCMtoPCMCodecStream_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/PCMtoPCMCodec;Ljavax/sound/sampled/AudioInputStream;Ljavax/sound/sampled/AudioFormat;)V", nullptr, 0, $method(PCMtoPCMCodec$PCMtoPCMCodecStream, init$, void, $PCMtoPCMCodec*, $AudioInputStream*, $AudioFormat*)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(PCMtoPCMCodec$PCMtoPCMCodecStream, read, int32_t), "java.io.IOException"},
-	{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(PCMtoPCMCodec$PCMtoPCMCodecStream, read, int32_t, $bytes*), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(PCMtoPCMCodec$PCMtoPCMCodecStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"switchEndian", "([BIII)V", nullptr, $PRIVATE, $method(PCMtoPCMCodec$PCMtoPCMCodecStream, switchEndian, void, $bytes*, int32_t, int32_t, int32_t)},
-	{"switchSigned8bit", "([BIII)V", nullptr, $PRIVATE, $method(PCMtoPCMCodec$PCMtoPCMCodecStream, switchSigned8bit, void, $bytes*, int32_t, int32_t, int32_t)},
-	{"switchSignedBE", "([BIII)V", nullptr, $PRIVATE, $method(PCMtoPCMCodec$PCMtoPCMCodecStream, switchSignedBE, void, $bytes*, int32_t, int32_t, int32_t)},
-	{"switchSignedLE", "([BIII)V", nullptr, $PRIVATE, $method(PCMtoPCMCodec$PCMtoPCMCodecStream, switchSignedLE, void, $bytes*, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _PCMtoPCMCodec$PCMtoPCMCodecStream_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.PCMtoPCMCodec$PCMtoPCMCodecStream", "com.sun.media.sound.PCMtoPCMCodec", "PCMtoPCMCodecStream", 0},
-	{}
-};
-
-$ClassInfo _PCMtoPCMCodec$PCMtoPCMCodecStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.media.sound.PCMtoPCMCodec$PCMtoPCMCodecStream",
-	"javax.sound.sampled.AudioInputStream",
-	nullptr,
-	_PCMtoPCMCodec$PCMtoPCMCodecStream_FieldInfo_,
-	_PCMtoPCMCodec$PCMtoPCMCodecStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PCMtoPCMCodec$PCMtoPCMCodecStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.PCMtoPCMCodec"
-};
-
-$Object* allocate$PCMtoPCMCodec$PCMtoPCMCodecStream($Class* clazz) {
-	return $of($alloc(PCMtoPCMCodec$PCMtoPCMCodecStream));
-}
-
 void PCMtoPCMCodec$PCMtoPCMCodecStream::init$($PCMtoPCMCodec* this$0, $AudioInputStream* stream, $AudioFormat* outputFormat) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$AudioInputStream::init$(stream, outputFormat, -1);
 	this->conversionType = 0;
@@ -103,8 +49,12 @@ void PCMtoPCMCodec$PCMtoPCMCodecStream::init$($PCMtoPCMCodec* this$0, $AudioInpu
 	bool outputIsBigEndian = false;
 	$var($AudioFormat, inputFormat, $nc(stream)->getFormat());
 	if (!(this$0->isConversionSupported(inputFormat, outputFormat))) {
-		$var($String, var$0, $$str({"Unsupported conversion: "_s, $($nc(inputFormat)->toString()), " to "_s}));
-		$throwNew($IllegalArgumentException, $$concat(var$0, $($nc(outputFormat)->toString())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Unsupported conversion: "_s);
+		var$0->append($($nc(inputFormat)->toString()));
+		var$0->append(" to "_s);
+		var$0->append($($nc(outputFormat)->toString()));
+		$throwNew($IllegalArgumentException, $$str(var$0));
 	}
 	$assign(inputEncoding, $nc(inputFormat)->getEncoding());
 	$assign(outputEncoding, $nc(outputFormat)->getEncoding());
@@ -118,29 +68,28 @@ void PCMtoPCMCodec$PCMtoPCMCodecStream::init$($PCMtoPCMCodec* this$0, $AudioInpu
 		if (var$1 && $nc($AudioFormat$Encoding::PCM_SIGNED)->equals(outputEncoding)) {
 			this->conversionType = PCMtoPCMCodec$PCMtoPCMCodecStream::PCM_SWITCH_SIGNED_8BIT;
 		} else {
-			bool var$3 = $nc($AudioFormat$Encoding::PCM_SIGNED)->equals(inputEncoding);
-			if (var$3 && $nc($AudioFormat$Encoding::PCM_UNSIGNED)->equals(outputEncoding)) {
+			bool var$2 = $nc($AudioFormat$Encoding::PCM_SIGNED)->equals(inputEncoding);
+			if (var$2 && $AudioFormat$Encoding::PCM_UNSIGNED->equals(outputEncoding)) {
 				this->conversionType = PCMtoPCMCodec$PCMtoPCMCodecStream::PCM_SWITCH_SIGNED_8BIT;
 			}
 		}
 	} else if ($nc(inputEncoding)->equals(outputEncoding) && (inputIsBigEndian != outputIsBigEndian)) {
 		this->conversionType = PCMtoPCMCodec$PCMtoPCMCodecStream::PCM_SWITCH_ENDIAN;
 	} else {
-		$init($AudioFormat$Encoding);
-		bool var$5 = $nc($AudioFormat$Encoding::PCM_UNSIGNED)->equals(inputEncoding) && !inputIsBigEndian;
-		if (var$5 && $nc($AudioFormat$Encoding::PCM_SIGNED)->equals(outputEncoding) && outputIsBigEndian) {
+		bool var$3 = $nc($AudioFormat$Encoding::PCM_UNSIGNED)->equals(inputEncoding) && !inputIsBigEndian;
+		if (var$3 && $nc($AudioFormat$Encoding::PCM_SIGNED)->equals(outputEncoding) && outputIsBigEndian) {
 			this->conversionType = PCMtoPCMCodec$PCMtoPCMCodecStream::PCM_UNSIGNED_LE2SIGNED_BE;
 		} else {
-			bool var$7 = $nc($AudioFormat$Encoding::PCM_SIGNED)->equals(inputEncoding) && !inputIsBigEndian;
-			if (var$7 && $nc($AudioFormat$Encoding::PCM_UNSIGNED)->equals(outputEncoding) && outputIsBigEndian) {
+			bool var$4 = $nc($AudioFormat$Encoding::PCM_SIGNED)->equals(inputEncoding) && !inputIsBigEndian;
+			if (var$4 && $AudioFormat$Encoding::PCM_UNSIGNED->equals(outputEncoding) && outputIsBigEndian) {
 				this->conversionType = PCMtoPCMCodec$PCMtoPCMCodecStream::PCM_SIGNED_LE2UNSIGNED_BE;
 			} else {
-				bool var$9 = $nc($AudioFormat$Encoding::PCM_UNSIGNED)->equals(inputEncoding) && inputIsBigEndian;
-				if (var$9 && $nc($AudioFormat$Encoding::PCM_SIGNED)->equals(outputEncoding) && !outputIsBigEndian) {
+				bool var$5 = $AudioFormat$Encoding::PCM_UNSIGNED->equals(inputEncoding) && inputIsBigEndian;
+				if (var$5 && $AudioFormat$Encoding::PCM_SIGNED->equals(outputEncoding) && !outputIsBigEndian) {
 					this->conversionType = PCMtoPCMCodec$PCMtoPCMCodecStream::PCM_UNSIGNED_BE2SIGNED_LE;
 				} else {
-					bool var$11 = $nc($AudioFormat$Encoding::PCM_SIGNED)->equals(inputEncoding) && inputIsBigEndian;
-					if (var$11 && $nc($AudioFormat$Encoding::PCM_UNSIGNED)->equals(outputEncoding) && !outputIsBigEndian) {
+					bool var$6 = $AudioFormat$Encoding::PCM_SIGNED->equals(inputEncoding) && inputIsBigEndian;
+					if (var$6 && $AudioFormat$Encoding::PCM_UNSIGNED->equals(outputEncoding) && !outputIsBigEndian) {
 						this->conversionType = PCMtoPCMCodec$PCMtoPCMCodecStream::PCM_SIGNED_BE2UNSIGNED_LE;
 					}
 				}
@@ -168,9 +117,9 @@ int32_t PCMtoPCMCodec$PCMtoPCMCodecStream::read() {
 			if (temp < 0) {
 				return temp;
 			}
-			tempbyte = (int8_t)((int32_t)(temp & (uint32_t)15));
-			tempbyte = (tempbyte >= 0) ? (int8_t)(128 | tempbyte) : (int8_t)((int32_t)(127 & (uint32_t)(int32_t)tempbyte));
-			temp = (int32_t)((int32_t)tempbyte & (uint32_t)15);
+			tempbyte = (int8_t)(temp & 0x0f);
+			tempbyte = (tempbyte >= 0) ? (int8_t)(0x80 | tempbyte) : (int8_t)(0x7f & tempbyte);
+			temp = (int32_t)tempbyte & 0x0f;
 			return temp;
 		} else {
 			$throwNew($IOException, "cannot read a single byte if frame size > 1"_s);
@@ -199,62 +148,48 @@ int32_t PCMtoPCMCodec$PCMtoPCMCodecStream::read($bytes* b, int32_t off, int32_t 
 	}
 	switch (this->conversionType) {
 	case PCMtoPCMCodec$PCMtoPCMCodecStream::PCM_SWITCH_SIGNED_8BIT:
-		{
-			switchSigned8bit(b, off, len, readCount);
-			break;
-		}
+		switchSigned8bit(b, off, len, readCount);
+		break;
 	case PCMtoPCMCodec$PCMtoPCMCodecStream::PCM_SWITCH_ENDIAN:
-		{
-			switchEndian(b, off, len, readCount);
-			break;
-		}
+		switchEndian(b, off, len, readCount);
+		break;
 	case PCMtoPCMCodec$PCMtoPCMCodecStream::PCM_SWITCH_SIGNED_LE:
-		{
-			switchSignedLE(b, off, len, readCount);
-			break;
-		}
+		switchSignedLE(b, off, len, readCount);
+		break;
 	case PCMtoPCMCodec$PCMtoPCMCodecStream::PCM_SWITCH_SIGNED_BE:
-		{
-			switchSignedBE(b, off, len, readCount);
-			break;
-		}
+		switchSignedBE(b, off, len, readCount);
+		break;
 	case PCMtoPCMCodec$PCMtoPCMCodecStream::PCM_UNSIGNED_LE2SIGNED_BE:
-		{}
 	case PCMtoPCMCodec$PCMtoPCMCodecStream::PCM_SIGNED_LE2UNSIGNED_BE:
-		{
-			switchSignedLE(b, off, len, readCount);
-			switchEndian(b, off, len, readCount);
-			break;
-		}
+		switchSignedLE(b, off, len, readCount);
+		switchEndian(b, off, len, readCount);
+		break;
 	case PCMtoPCMCodec$PCMtoPCMCodecStream::PCM_UNSIGNED_BE2SIGNED_LE:
-		{}
 	case PCMtoPCMCodec$PCMtoPCMCodecStream::PCM_SIGNED_BE2UNSIGNED_LE:
-		{
-			switchSignedBE(b, off, len, readCount);
-			switchEndian(b, off, len, readCount);
-			break;
-		}
+		switchSignedBE(b, off, len, readCount);
+		switchEndian(b, off, len, readCount);
+		break;
 	default:
-		{}
+		break;
 	}
 	return readCount;
 }
 
 void PCMtoPCMCodec$PCMtoPCMCodecStream::switchSigned8bit($bytes* b, int32_t off, int32_t len, int32_t readCount) {
 	for (int32_t i = off; i < (off + readCount); ++i) {
-		$nc(b)->set(i, (b->get(i) >= 0) ? (int8_t)(128 | b->get(i)) : (int8_t)((int32_t)(127 & (uint32_t)(int32_t)b->get(i))));
+		$nc(b)->set(i, ($nc(b)->get(i) >= 0) ? (int8_t)(0x80 | b->get(i)) : (int8_t)(0x7f & b->get(i)));
 	}
 }
 
 void PCMtoPCMCodec$PCMtoPCMCodecStream::switchSignedBE($bytes* b, int32_t off, int32_t len, int32_t readCount) {
 	for (int32_t i = off; i < (off + readCount); i += this->sampleSizeInBytes) {
-		$nc(b)->set(i, (b->get(i) >= 0) ? (int8_t)(128 | b->get(i)) : (int8_t)((int32_t)(127 & (uint32_t)(int32_t)b->get(i))));
+		$nc(b)->set(i, ($nc(b)->get(i) >= 0) ? (int8_t)(0x80 | b->get(i)) : (int8_t)(0x7f & b->get(i)));
 	}
 }
 
 void PCMtoPCMCodec$PCMtoPCMCodecStream::switchSignedLE($bytes* b, int32_t off, int32_t len, int32_t readCount) {
 	for (int32_t i = (off + this->sampleSizeInBytes - 1); i < (off + readCount); i += this->sampleSizeInBytes) {
-		$nc(b)->set(i, (b->get(i) >= 0) ? (int8_t)(128 | b->get(i)) : (int8_t)((int32_t)(127 & (uint32_t)(int32_t)b->get(i))));
+		$nc(b)->set(i, ($nc(b)->get(i) >= 0) ? (int8_t)(0x80 | b->get(i)) : (int8_t)(0x7f & b->get(i)));
 	}
 }
 
@@ -273,7 +208,53 @@ PCMtoPCMCodec$PCMtoPCMCodecStream::PCMtoPCMCodec$PCMtoPCMCodecStream() {
 }
 
 $Class* PCMtoPCMCodec$PCMtoPCMCodecStream::load$($String* name, bool initialize) {
-	$loadClass(PCMtoPCMCodec$PCMtoPCMCodecStream, name, initialize, &_PCMtoPCMCodec$PCMtoPCMCodecStream_ClassInfo_, allocate$PCMtoPCMCodec$PCMtoPCMCodecStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/media/sound/PCMtoPCMCodec;", nullptr, $FINAL | $SYNTHETIC, $field(PCMtoPCMCodec$PCMtoPCMCodecStream, this$0)},
+		{"PCM_SWITCH_SIGNED_8BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PCMtoPCMCodec$PCMtoPCMCodecStream, PCM_SWITCH_SIGNED_8BIT)},
+		{"PCM_SWITCH_ENDIAN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PCMtoPCMCodec$PCMtoPCMCodecStream, PCM_SWITCH_ENDIAN)},
+		{"PCM_SWITCH_SIGNED_LE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PCMtoPCMCodec$PCMtoPCMCodecStream, PCM_SWITCH_SIGNED_LE)},
+		{"PCM_SWITCH_SIGNED_BE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PCMtoPCMCodec$PCMtoPCMCodecStream, PCM_SWITCH_SIGNED_BE)},
+		{"PCM_UNSIGNED_LE2SIGNED_BE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PCMtoPCMCodec$PCMtoPCMCodecStream, PCM_UNSIGNED_LE2SIGNED_BE)},
+		{"PCM_SIGNED_LE2UNSIGNED_BE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PCMtoPCMCodec$PCMtoPCMCodecStream, PCM_SIGNED_LE2UNSIGNED_BE)},
+		{"PCM_UNSIGNED_BE2SIGNED_LE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PCMtoPCMCodec$PCMtoPCMCodecStream, PCM_UNSIGNED_BE2SIGNED_LE)},
+		{"PCM_SIGNED_BE2UNSIGNED_LE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PCMtoPCMCodec$PCMtoPCMCodecStream, PCM_SIGNED_BE2UNSIGNED_LE)},
+		{"sampleSizeInBytes", "I", nullptr, $PRIVATE | $FINAL, $field(PCMtoPCMCodec$PCMtoPCMCodecStream, sampleSizeInBytes)},
+		{"conversionType", "I", nullptr, $PRIVATE, $field(PCMtoPCMCodec$PCMtoPCMCodecStream, conversionType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/PCMtoPCMCodec;Ljavax/sound/sampled/AudioInputStream;Ljavax/sound/sampled/AudioFormat;)V", nullptr, 0, $method(PCMtoPCMCodec$PCMtoPCMCodecStream, init$, void, $PCMtoPCMCodec*, $AudioInputStream*, $AudioFormat*)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(PCMtoPCMCodec$PCMtoPCMCodecStream, read, int32_t), "java.io.IOException"},
+		{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(PCMtoPCMCodec$PCMtoPCMCodecStream, read, int32_t, $bytes*), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(PCMtoPCMCodec$PCMtoPCMCodecStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"switchEndian", "([BIII)V", nullptr, $PRIVATE, $method(PCMtoPCMCodec$PCMtoPCMCodecStream, switchEndian, void, $bytes*, int32_t, int32_t, int32_t)},
+		{"switchSigned8bit", "([BIII)V", nullptr, $PRIVATE, $method(PCMtoPCMCodec$PCMtoPCMCodecStream, switchSigned8bit, void, $bytes*, int32_t, int32_t, int32_t)},
+		{"switchSignedBE", "([BIII)V", nullptr, $PRIVATE, $method(PCMtoPCMCodec$PCMtoPCMCodecStream, switchSignedBE, void, $bytes*, int32_t, int32_t, int32_t)},
+		{"switchSignedLE", "([BIII)V", nullptr, $PRIVATE, $method(PCMtoPCMCodec$PCMtoPCMCodecStream, switchSignedLE, void, $bytes*, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.PCMtoPCMCodec$PCMtoPCMCodecStream", "com.sun.media.sound.PCMtoPCMCodec", "PCMtoPCMCodecStream", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.media.sound.PCMtoPCMCodec$PCMtoPCMCodecStream",
+		"javax.sound.sampled.AudioInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.PCMtoPCMCodec"
+	};
+	$loadClass(PCMtoPCMCodec$PCMtoPCMCodecStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PCMtoPCMCodec$PCMtoPCMCodecStream);
+	});
 	return class$;
 }
 

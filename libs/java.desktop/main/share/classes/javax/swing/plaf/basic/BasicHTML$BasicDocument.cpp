@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicHTML$BasicDocument.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Font.h>
 #include <javax/swing/plaf/basic/BasicHTML.h>
@@ -22,37 +21,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$MethodInfo _BasicHTML$BasicDocument_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/html/StyleSheet;Ljava/awt/Font;Ljava/awt/Color;)V", nullptr, 0, $method(BasicHTML$BasicDocument, init$, void, $StyleSheet*, $Font*, $Color*)},
-	{"setFontAndColor", "(Ljava/awt/Font;Ljava/awt/Color;)V", nullptr, $PRIVATE, $method(BasicHTML$BasicDocument, setFontAndColor, void, $Font*, $Color*)},
-	{}
-};
-
-$InnerClassInfo _BasicHTML$BasicDocument_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicHTML$BasicDocument", "javax.swing.plaf.basic.BasicHTML", "BasicDocument", $STATIC},
-	{}
-};
-
-$ClassInfo _BasicHTML$BasicDocument_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicHTML$BasicDocument",
-	"javax.swing.text.html.HTMLDocument",
-	nullptr,
-	nullptr,
-	_BasicHTML$BasicDocument_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicHTML$BasicDocument_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicHTML"
-};
-
-$Object* allocate$BasicHTML$BasicDocument($Class* clazz) {
-	return $of($alloc(BasicHTML$BasicDocument));
-}
-
 void BasicHTML$BasicDocument::init$($StyleSheet* s, $Font* defaultFont, $Color* foreground) {
 	$HTMLDocument::init$(s);
 	setPreservesUnknownTags(false);
@@ -60,15 +28,41 @@ void BasicHTML$BasicDocument::init$($StyleSheet* s, $Font* defaultFont, $Color* 
 }
 
 void BasicHTML$BasicDocument::setFontAndColor($Font* font, $Color* fg) {
-	$useLocalCurrentObjectStackCache();
-	$nc($(getStyleSheet()))->addRule($($SwingUtilities2::displayPropertiesToCSS(font, fg)));
+	$useLocalObjectStack();
+	$$nc(getStyleSheet())->addRule($($SwingUtilities2::displayPropertiesToCSS(font, fg)));
 }
 
 BasicHTML$BasicDocument::BasicHTML$BasicDocument() {
 }
 
 $Class* BasicHTML$BasicDocument::load$($String* name, bool initialize) {
-	$loadClass(BasicHTML$BasicDocument, name, initialize, &_BasicHTML$BasicDocument_ClassInfo_, allocate$BasicHTML$BasicDocument);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/html/StyleSheet;Ljava/awt/Font;Ljava/awt/Color;)V", nullptr, 0, $method(BasicHTML$BasicDocument, init$, void, $StyleSheet*, $Font*, $Color*)},
+		{"setFontAndColor", "(Ljava/awt/Font;Ljava/awt/Color;)V", nullptr, $PRIVATE, $method(BasicHTML$BasicDocument, setFontAndColor, void, $Font*, $Color*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicHTML$BasicDocument", "javax.swing.plaf.basic.BasicHTML", "BasicDocument", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicHTML$BasicDocument",
+		"javax.swing.text.html.HTMLDocument",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicHTML"
+	};
+	$loadClass(BasicHTML$BasicDocument, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicHTML$BasicDocument));
+	});
 	return class$;
 }
 

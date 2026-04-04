@@ -41,6 +41,7 @@ class SSLStreams$EngineWrapper : public ::java::lang::Object {
 	$class(SSLStreams$EngineWrapper, 0, ::java::lang::Object)
 public:
 	SSLStreams$EngineWrapper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::net::httpserver::SSLStreams* this$0, ::java::nio::channels::SocketChannel* chan, ::javax::net::ssl::SSLEngine* engine);
 	virtual void close();
 	virtual ::sun::net::httpserver::SSLStreams$WrapperResult* recvAndUnwrap(::java::nio::ByteBuffer* dst);

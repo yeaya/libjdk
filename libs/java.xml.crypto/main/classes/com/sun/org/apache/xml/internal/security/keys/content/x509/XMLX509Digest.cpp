@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509Digest.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/JCEMapper.h>
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
@@ -38,36 +37,6 @@ namespace com {
 							namespace keys {
 								namespace content {
 									namespace x509 {
-
-$MethodInfo _XMLX509Digest_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLX509Digest, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;[BLjava/lang/String;)V", nullptr, $PUBLIC, $method(XMLX509Digest, init$, void, $Document*, $bytes*, $String*)},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/security/cert/X509Certificate;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLX509Digest, init$, void, $Document*, $X509Certificate*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLX509Digest, getAlgorithm, $String*)},
-	{"getAlgorithmAttr", "()Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(XMLX509Digest, getAlgorithmAttr, $Attr*)},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLX509Digest, getBaseLocalName, $String*)},
-	{"getDigestBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(XMLX509Digest, getDigestBytes, $bytes*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"getDigestBytesFromCert", "(Ljava/security/cert/X509Certificate;Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLX509Digest, getDigestBytesFromCert, $bytes*, $X509Certificate*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _XMLX509Digest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.keys.content.x509.XMLX509Digest",
-	"com.sun.org.apache.xml.internal.security.utils.Signature11ElementProxy",
-	"com.sun.org.apache.xml.internal.security.keys.content.x509.XMLX509DataContent",
-	nullptr,
-	_XMLX509Digest_MethodInfo_
-};
-
-$Object* allocate$XMLX509Digest($Class* clazz) {
-	return $of($alloc(XMLX509Digest));
-}
 
 int32_t XMLX509Digest::hashCode() {
 	 return this->$Signature11ElementProxy::hashCode();
@@ -109,11 +78,11 @@ void XMLX509Digest::init$($Document* doc, $X509Certificate* x509certificate, $St
 
 $Attr* XMLX509Digest::getAlgorithmAttr() {
 	$init($Constants);
-	return $nc($(getElement()))->getAttributeNodeNS(nullptr, $Constants::_ATT_ALGORITHM);
+	return $$nc(getElement())->getAttributeNodeNS(nullptr, $Constants::_ATT_ALGORITHM);
 }
 
 $String* XMLX509Digest::getAlgorithm() {
-	return $nc($(this->getAlgorithmAttr()))->getNodeValue();
+	return $$nc(this->getAlgorithmAttr())->getNodeValue();
 }
 
 $bytes* XMLX509Digest::getDigestBytes() {
@@ -122,17 +91,17 @@ $bytes* XMLX509Digest::getDigestBytes() {
 
 $bytes* XMLX509Digest::getDigestBytesFromCert($X509Certificate* cert, $String* algorithmURI) {
 	$init(XMLX509Digest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, jcaDigestAlgorithm, $JCEMapper::translateURItoJCEID(algorithmURI));
 	if (jcaDigestAlgorithm == nullptr) {
-		$var($ObjectArray, exArgs, $new($ObjectArray, {$of(algorithmURI)}));
+		$var($ObjectArray, exArgs, $new($ObjectArray, {algorithmURI}));
 		$throwNew($XMLSecurityException, "XMLX509Digest.UnknownDigestAlgorithm"_s, exArgs);
 	}
 	try {
 		$var($MessageDigest, md, $MessageDigest::getInstance(jcaDigestAlgorithm));
 		return $nc(md)->digest($($nc(cert)->getEncoded()));
 	} catch ($Exception& e) {
-		$var($ObjectArray, exArgs, $new($ObjectArray, {$of(jcaDigestAlgorithm)}));
+		$var($ObjectArray, exArgs, $new($ObjectArray, {jcaDigestAlgorithm}));
 		$throwNew($XMLSecurityException, "XMLX509Digest.FailedDigest"_s, exArgs);
 	}
 	$shouldNotReachHere();
@@ -147,7 +116,33 @@ XMLX509Digest::XMLX509Digest() {
 }
 
 $Class* XMLX509Digest::load$($String* name, bool initialize) {
-	$loadClass(XMLX509Digest, name, initialize, &_XMLX509Digest_ClassInfo_, allocate$XMLX509Digest);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLX509Digest, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;[BLjava/lang/String;)V", nullptr, $PUBLIC, $method(XMLX509Digest, init$, void, $Document*, $bytes*, $String*)},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/security/cert/X509Certificate;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLX509Digest, init$, void, $Document*, $X509Certificate*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLX509Digest, getAlgorithm, $String*)},
+		{"getAlgorithmAttr", "()Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(XMLX509Digest, getAlgorithmAttr, $Attr*)},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLX509Digest, getBaseLocalName, $String*)},
+		{"getDigestBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(XMLX509Digest, getDigestBytes, $bytes*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"getDigestBytesFromCert", "(Ljava/security/cert/X509Certificate;Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLX509Digest, getDigestBytesFromCert, $bytes*, $X509Certificate*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.keys.content.x509.XMLX509Digest",
+		"com.sun.org.apache.xml.internal.security.utils.Signature11ElementProxy",
+		"com.sun.org.apache.xml.internal.security.keys.content.x509.XMLX509DataContent",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XMLX509Digest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XMLX509Digest));
+	});
 	return class$;
 }
 

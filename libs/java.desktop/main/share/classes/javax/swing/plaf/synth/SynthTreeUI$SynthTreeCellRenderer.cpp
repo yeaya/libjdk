@@ -1,12 +1,10 @@
 #include <javax/swing/plaf/synth/SynthTreeUI$SynthTreeCellRenderer.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Graphics.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JTree.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -24,7 +22,6 @@
 #undef TREE_CELL
 
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Graphics = ::java::awt::Graphics;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -33,14 +30,12 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Icon = ::javax::swing::Icon;
-using $JComponent = ::javax::swing::JComponent;
 using $JTree = ::javax::swing::JTree;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $Region = ::javax::swing::plaf::synth::Region;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthLabelUI = ::javax::swing::plaf::synth::SynthLabelUI;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
-using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
 using $SynthTreeUI = ::javax::swing::plaf::synth::SynthTreeUI;
 using $DefaultTreeCellRenderer = ::javax::swing::tree::DefaultTreeCellRenderer;
 
@@ -48,50 +43,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthTreeUI$SynthTreeCellRenderer_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/synth/SynthTreeUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthTreeUI$SynthTreeCellRenderer, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SynthTreeUI$SynthTreeCellRenderer, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _SynthTreeUI$SynthTreeCellRenderer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/synth/SynthTreeUI;)V", nullptr, 0, $method(SynthTreeUI$SynthTreeCellRenderer, init$, void, $SynthTreeUI*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SynthTreeUI$SynthTreeCellRenderer, getName, $String*)},
-	{"getTreeCellRendererComponent", "(Ljavax/swing/JTree;Ljava/lang/Object;ZZZIZ)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(SynthTreeUI$SynthTreeCellRenderer, getTreeCellRendererComponent, $Component*, $JTree*, Object$*, bool, bool, bool, int32_t, bool)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(SynthTreeUI$SynthTreeCellRenderer, paint, void, $Graphics*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SynthTreeUI$SynthTreeCellRenderer_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthTreeUI$SynthTreeCellRenderer", "javax.swing.plaf.synth.SynthTreeUI", "SynthTreeCellRenderer", $PRIVATE},
-	{}
-};
-
-$ClassInfo _SynthTreeUI$SynthTreeCellRenderer_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthTreeUI$SynthTreeCellRenderer",
-	"javax.swing.tree.DefaultTreeCellRenderer",
-	"javax.swing.plaf.UIResource",
-	_SynthTreeUI$SynthTreeCellRenderer_FieldInfo_,
-	_SynthTreeUI$SynthTreeCellRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthTreeUI$SynthTreeCellRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthTreeUI"
-};
-
-$Object* allocate$SynthTreeUI$SynthTreeCellRenderer($Class* clazz) {
-	return $of($alloc(SynthTreeUI$SynthTreeCellRenderer));
-}
 
 $String* SynthTreeUI$SynthTreeCellRenderer::toString() {
 	 return this->$DefaultTreeCellRenderer::toString();
@@ -125,13 +76,11 @@ $String* SynthTreeUI$SynthTreeCellRenderer::getName() {
 }
 
 $Component* SynthTreeUI$SynthTreeCellRenderer::getTreeCellRendererComponent($JTree* tree, Object$* value, bool sel, bool expanded, bool leaf, int32_t row, bool hasFocus) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->this$0->useTreeColors && (sel || hasFocus)) {
 		$load($SynthLabelUI);
 		$var($ComponentUI, var$0, $cast($SynthLabelUI, $SynthLookAndFeel::getUIOfType($(getUI()), $SynthLabelUI::class$)));
-		bool var$1 = sel;
-		bool var$2 = hasFocus;
-		$SynthLookAndFeel::setSelectedUI(var$0, var$1, var$2, $nc(tree)->isEnabled(), false);
+		$SynthLookAndFeel::setSelectedUI(var$0, sel, hasFocus, $nc(tree)->isEnabled(), false);
 	} else {
 		$SynthLookAndFeel::resetSelectedUI();
 	}
@@ -139,11 +88,11 @@ $Component* SynthTreeUI$SynthTreeCellRenderer::getTreeCellRendererComponent($JTr
 }
 
 void SynthTreeUI$SynthTreeCellRenderer::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	paintComponent(g);
 	if (this->hasFocus$) {
 		$init($Region);
-		$var($SynthContext, context, this->this$0->getContext($(static_cast<$JComponent*>($SynthTreeUI::access$000(this->this$0))), $Region::TREE_CELL));
+		$var($SynthContext, context, this->this$0->getContext($($SynthTreeUI::access$000(this->this$0)), $Region::TREE_CELL));
 		if ($nc(context)->getStyle() == nullptr) {
 			if (!SynthTreeUI$SynthTreeCellRenderer::$assertionsDisabled) {
 				$throwNew($AssertionError, $of("SynthTreeCellRenderer is being used outside of UI that created it"_s));
@@ -157,27 +106,22 @@ void SynthTreeUI$SynthTreeCellRenderer::paint($Graphics* g) {
 			imageOffset = var$0 + $Math::max(0, getIconTextGap() - 1);
 		}
 		if (this->selected) {
-			$nc(context)->setComponentState(1 | 512);
+			context->setComponentState(1 | 0x0200);
 		} else {
-			$nc(context)->setComponentState(1);
+			context->setComponentState(1);
 		}
-		if ($nc($(getComponentOrientation()))->isLeftToRight()) {
-			$var($SynthContext, var$1, context);
-			$var($Graphics, var$2, g);
-			int32_t var$3 = imageOffset;
-			int32_t var$4 = getWidth() - imageOffset;
-			$nc($($nc(context)->getPainter()))->paintTreeCellFocus(var$1, var$2, var$3, 0, var$4, getHeight());
+		if ($$nc(getComponentOrientation())->isLeftToRight()) {
+			int32_t var$1 = getWidth() - imageOffset;
+			$$nc(context->getPainter())->paintTreeCellFocus(context, g, imageOffset, 0, var$1, getHeight());
 		} else {
-			$var($SynthContext, var$5, context);
-			$var($Graphics, var$6, g);
-			int32_t var$7 = getWidth() - imageOffset;
-			$nc($($nc(context)->getPainter()))->paintTreeCellFocus(var$5, var$6, 0, 0, var$7, getHeight());
+			int32_t var$2 = getWidth() - imageOffset;
+			$$nc(context->getPainter())->paintTreeCellFocus(context, g, 0, 0, var$2, getHeight());
 		}
 	}
 	$SynthLookAndFeel::resetSelectedUI();
 }
 
-void clinit$SynthTreeUI$SynthTreeCellRenderer($Class* class$) {
+void SynthTreeUI$SynthTreeCellRenderer::clinit$($Class* clazz) {
 	$load($SynthTreeUI);
 	SynthTreeUI$SynthTreeCellRenderer::$assertionsDisabled = !$SynthTreeUI::class$->desiredAssertionStatus();
 }
@@ -186,7 +130,45 @@ SynthTreeUI$SynthTreeCellRenderer::SynthTreeUI$SynthTreeCellRenderer() {
 }
 
 $Class* SynthTreeUI$SynthTreeCellRenderer::load$($String* name, bool initialize) {
-	$loadClass(SynthTreeUI$SynthTreeCellRenderer, name, initialize, &_SynthTreeUI$SynthTreeCellRenderer_ClassInfo_, clinit$SynthTreeUI$SynthTreeCellRenderer, allocate$SynthTreeUI$SynthTreeCellRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/synth/SynthTreeUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthTreeUI$SynthTreeCellRenderer, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SynthTreeUI$SynthTreeCellRenderer, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/synth/SynthTreeUI;)V", nullptr, 0, $method(SynthTreeUI$SynthTreeCellRenderer, init$, void, $SynthTreeUI*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SynthTreeUI$SynthTreeCellRenderer, getName, $String*)},
+		{"getTreeCellRendererComponent", "(Ljavax/swing/JTree;Ljava/lang/Object;ZZZIZ)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(SynthTreeUI$SynthTreeCellRenderer, getTreeCellRendererComponent, $Component*, $JTree*, Object$*, bool, bool, bool, int32_t, bool)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(SynthTreeUI$SynthTreeCellRenderer, paint, void, $Graphics*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthTreeUI$SynthTreeCellRenderer", "javax.swing.plaf.synth.SynthTreeUI", "SynthTreeCellRenderer", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthTreeUI$SynthTreeCellRenderer",
+		"javax.swing.tree.DefaultTreeCellRenderer",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthTreeUI"
+	};
+	$loadClass(SynthTreeUI$SynthTreeCellRenderer, name, initialize, &classInfo$$, SynthTreeUI$SynthTreeCellRenderer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthTreeUI$SynthTreeCellRenderer));
+	});
 	return class$;
 }
 

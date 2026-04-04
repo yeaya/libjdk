@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalSliderUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -28,7 +27,6 @@
 #undef VERTICAL
 
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;
@@ -46,7 +44,6 @@ using $JSlider = ::javax::swing::JSlider;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $BasicSliderUI = ::javax::swing::plaf::basic::BasicSliderUI;
-using $BasicSliderUI$ScrollListener = ::javax::swing::plaf::basic::BasicSliderUI$ScrollListener;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
 using $MetalSliderUI$MetalPropertyListener = ::javax::swing::plaf::metal::MetalSliderUI$MetalPropertyListener;
 using $MetalUtils = ::javax::swing::plaf::metal::MetalUtils;
@@ -55,73 +52,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$FieldInfo _MetalSliderUI_FieldInfo_[] = {
-	{"TICK_BUFFER", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(MetalSliderUI, TICK_BUFFER)},
-	{"filledSlider", "Z", nullptr, $PROTECTED, $field(MetalSliderUI, filledSlider)},
-	{"thumbColor", "Ljava/awt/Color;", nullptr, $PROTECTED | $STATIC, $staticField(MetalSliderUI, thumbColor)},
-	{"highlightColor", "Ljava/awt/Color;", nullptr, $PROTECTED | $STATIC, $staticField(MetalSliderUI, highlightColor)},
-	{"darkShadowColor", "Ljava/awt/Color;", nullptr, $PROTECTED | $STATIC, $staticField(MetalSliderUI, darkShadowColor)},
-	{"trackWidth", "I", nullptr, $PROTECTED | $STATIC, $staticField(MetalSliderUI, trackWidth)},
-	{"tickLength", "I", nullptr, $PROTECTED | $STATIC, $staticField(MetalSliderUI, tickLength)},
-	{"safeLength", "I", nullptr, $PRIVATE, $field(MetalSliderUI, safeLength)},
-	{"horizThumbIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED | $STATIC, $staticField(MetalSliderUI, horizThumbIcon)},
-	{"vertThumbIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED | $STATIC, $staticField(MetalSliderUI, vertThumbIcon)},
-	{"SAFE_HORIZ_THUMB_ICON", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalSliderUI, SAFE_HORIZ_THUMB_ICON)},
-	{"SAFE_VERT_THUMB_ICON", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalSliderUI, SAFE_VERT_THUMB_ICON)},
-	{"SLIDER_FILL", "Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $field(MetalSliderUI, SLIDER_FILL)},
-	{}
-};
-
-$MethodInfo _MetalSliderUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalSliderUI, init$, void)},
-	{"createPropertyChangeListener", "(Ljavax/swing/JSlider;)Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(MetalSliderUI, createPropertyChangeListener, $PropertyChangeListener*, $JSlider*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalSliderUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getHorizThumbIcon", "()Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticMethod(MetalSliderUI, getHorizThumbIcon, $Icon*)},
-	{"getPaintTrackRect", "()Ljava/awt/Rectangle;", nullptr, $PRIVATE, $method(MetalSliderUI, getPaintTrackRect, $Rectangle*)},
-	{"getThumbOverhang", "()I", nullptr, $PROTECTED, $virtualMethod(MetalSliderUI, getThumbOverhang, int32_t)},
-	{"getThumbSize", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(MetalSliderUI, getThumbSize, $Dimension*)},
-	{"getTickLength", "()I", nullptr, $PUBLIC, $virtualMethod(MetalSliderUI, getTickLength, int32_t)},
-	{"getTrackLength", "()I", nullptr, $PROTECTED, $virtualMethod(MetalSliderUI, getTrackLength, int32_t)},
-	{"getTrackWidth", "()I", nullptr, $PROTECTED, $virtualMethod(MetalSliderUI, getTrackWidth, int32_t)},
-	{"getVertThumbIcon", "()Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticMethod(MetalSliderUI, getVertThumbIcon, $Icon*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalSliderUI, installUI, void, $JComponent*)},
-	{"oceanPaintTrack", "(Ljava/awt/Graphics;)V", nullptr, $PRIVATE, $method(MetalSliderUI, oceanPaintTrack, void, $Graphics*)},
-	{"paintFocus", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MetalSliderUI, paintFocus, void, $Graphics*)},
-	{"paintMajorTickForHorizSlider", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(MetalSliderUI, paintMajorTickForHorizSlider, void, $Graphics*, $Rectangle*, int32_t)},
-	{"paintMajorTickForVertSlider", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(MetalSliderUI, paintMajorTickForVertSlider, void, $Graphics*, $Rectangle*, int32_t)},
-	{"paintMinorTickForHorizSlider", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(MetalSliderUI, paintMinorTickForHorizSlider, void, $Graphics*, $Rectangle*, int32_t)},
-	{"paintMinorTickForVertSlider", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(MetalSliderUI, paintMinorTickForVertSlider, void, $Graphics*, $Rectangle*, int32_t)},
-	{"paintThumb", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MetalSliderUI, paintThumb, void, $Graphics*)},
-	{"paintTrack", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MetalSliderUI, paintTrack, void, $Graphics*)},
-	{"prepareFilledSliderField", "()V", nullptr, $PRIVATE, $method(MetalSliderUI, prepareFilledSliderField, void)},
-	{"scrollDueToClickInTrack", "(I)V", nullptr, $PROTECTED, $virtualMethod(MetalSliderUI, scrollDueToClickInTrack, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _MetalSliderUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalSliderUI$MetalPropertyListener", "javax.swing.plaf.metal.MetalSliderUI", "MetalPropertyListener", $PROTECTED},
-	{}
-};
-
-$ClassInfo _MetalSliderUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalSliderUI",
-	"javax.swing.plaf.basic.BasicSliderUI",
-	nullptr,
-	_MetalSliderUI_FieldInfo_,
-	_MetalSliderUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalSliderUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalSliderUI$MetalPropertyListener"
-};
-
-$Object* allocate$MetalSliderUI($Class* clazz) {
-	return $of($alloc(MetalSliderUI));
-}
 
 $Color* MetalSliderUI::thumbColor = nullptr;
 $Color* MetalSliderUI::highlightColor = nullptr;
@@ -163,11 +93,11 @@ $Icon* MetalSliderUI::getVertThumbIcon() {
 }
 
 void MetalSliderUI::installUI($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
-	MetalSliderUI::trackWidth = $nc(($cast($Integer, $($UIManager::get("Slider.trackWidth"_s)))))->intValue();
-	MetalSliderUI::tickLength = (this->safeLength = $nc(($cast($Integer, $($UIManager::get("Slider.majorTickLength"_s)))))->intValue());
-	$assignStatic(MetalSliderUI::horizThumbIcon, ($assignStatic(MetalSliderUI::SAFE_HORIZ_THUMB_ICON, $UIManager::getIcon("Slider.horizontalThumbIcon"_s))));
-	$assignStatic(MetalSliderUI::vertThumbIcon, ($assignStatic(MetalSliderUI::SAFE_VERT_THUMB_ICON, $UIManager::getIcon("Slider.verticalThumbIcon"_s))));
+	$useLocalObjectStack();
+	MetalSliderUI::trackWidth = $$sure($Integer, $UIManager::get("Slider.trackWidth"_s))->intValue();
+	MetalSliderUI::tickLength = (this->safeLength = $$sure($Integer, $UIManager::get("Slider.majorTickLength"_s))->intValue());
+	$assignStatic(MetalSliderUI::horizThumbIcon, $assignStatic(MetalSliderUI::SAFE_HORIZ_THUMB_ICON, $UIManager::getIcon("Slider.horizontalThumbIcon"_s)));
+	$assignStatic(MetalSliderUI::vertThumbIcon, $assignStatic(MetalSliderUI::SAFE_VERT_THUMB_ICON, $UIManager::getIcon("Slider.verticalThumbIcon"_s)));
 	$BasicSliderUI::installUI(c);
 	$assignStatic(MetalSliderUI::thumbColor, $UIManager::getColor("Slider.thumb"_s));
 	$assignStatic(MetalSliderUI::highlightColor, $UIManager::getColor("Slider.highlight"_s));
@@ -184,20 +114,20 @@ void MetalSliderUI::prepareFilledSliderField() {
 	this->filledSlider = $MetalLookAndFeel::usingOcean();
 	$var($Object, sliderFillProp, $nc(this->slider)->getClientProperty(this->SLIDER_FILL));
 	if (sliderFillProp != nullptr) {
-		this->filledSlider = $nc(($cast($Boolean, sliderFillProp)))->booleanValue();
+		this->filledSlider = $cast($Boolean, sliderFillProp)->booleanValue();
 	}
 }
 
 void MetalSliderUI::paintThumb($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, knobBounds, this->thumbRect);
-	$nc(g)->translate($nc(knobBounds)->x, knobBounds->y);
+	$nc(g)->translate($nc(knobBounds)->x, $nc(knobBounds)->y);
 	if ($nc(this->slider)->getOrientation() == $JSlider::HORIZONTAL) {
-		$nc($(getHorizThumbIcon()))->paintIcon(this->slider, g, 0, 0);
+		$$nc(getHorizThumbIcon())->paintIcon(this->slider, g, 0, 0);
 	} else {
-		$nc($(getVertThumbIcon()))->paintIcon(this->slider, g, 0, 0);
+		$$nc(getVertThumbIcon())->paintIcon(this->slider, g, 0, 0);
 	}
-	g->translate(-$nc(knobBounds)->x, -knobBounds->y);
+	g->translate(-knobBounds->x, -knobBounds->y);
 }
 
 $Rectangle* MetalSliderUI::getPaintTrackRect() {
@@ -211,7 +141,7 @@ $Rectangle* MetalSliderUI::getPaintTrackRect() {
 		trackRight = $nc(this->trackRect)->width - 1;
 	} else {
 		if ($MetalUtils::isLeftToRight(this->slider)) {
-			int32_t var$0 = ($nc(this->trackRect)->width - getThumbOverhang());
+			int32_t var$0 = $nc(this->trackRect)->width - getThumbOverhang();
 			trackLeft = var$0 - getTrackWidth();
 			trackRight = ($nc(this->trackRect)->width - getThumbOverhang()) - 1;
 		} else {
@@ -225,12 +155,12 @@ $Rectangle* MetalSliderUI::getPaintTrackRect() {
 }
 
 void MetalSliderUI::paintTrack($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($MetalLookAndFeel::usingOcean()) {
 		oceanPaintTrack(g);
 		return;
 	}
-	$var($Color, trackColor, !$nc(this->slider)->isEnabled() ? static_cast<$Color*>($MetalLookAndFeel::getControlShadow()) : $nc(this->slider)->getForeground());
+	$var($Color, trackColor, !$nc(this->slider)->isEnabled() ? $cast($Color, $MetalLookAndFeel::getControlShadow()) : this->slider->getForeground());
 	bool leftToRight = $MetalUtils::isLeftToRight(this->slider);
 	$nc(g)->translate($nc(this->trackRect)->x, $nc(this->trackRect)->y);
 	int32_t trackLeft = 0;
@@ -243,7 +173,7 @@ void MetalSliderUI::paintTrack($Graphics* g) {
 		trackRight = $nc(this->trackRect)->width - 1;
 	} else {
 		if (leftToRight) {
-			int32_t var$0 = ($nc(this->trackRect)->width - getThumbOverhang());
+			int32_t var$0 = $nc(this->trackRect)->width - getThumbOverhang();
 			trackLeft = var$0 - getTrackWidth();
 			trackRight = ($nc(this->trackRect)->width - getThumbOverhang()) - 1;
 		} else {
@@ -312,13 +242,13 @@ void MetalSliderUI::paintTrack($Graphics* g) {
 }
 
 void MetalSliderUI::oceanPaintTrack($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool leftToRight = $MetalUtils::isLeftToRight(this->slider);
 	bool drawInverted = this->drawInverted();
 	$var($Color, sliderAltTrackColor, $cast($Color, $UIManager::get("Slider.altTrackColor"_s)));
 	$var($Rectangle, paintRect, getPaintTrackRect());
-	$nc(g)->translate($nc(paintRect)->x, paintRect->y);
-	int32_t w = $nc(paintRect)->width;
+	$nc(g)->translate($nc(paintRect)->x, $nc(paintRect)->y);
+	int32_t w = paintRect->width;
 	int32_t h = paintRect->height;
 	if ($nc(this->slider)->getOrientation() == $JSlider::HORIZONTAL) {
 		int32_t middleOfThumb = $nc(this->thumbRect)->x + $nc(this->thumbRect)->width / 2 - paintRect->x;
@@ -326,11 +256,11 @@ void MetalSliderUI::oceanPaintTrack($Graphics* g) {
 			int32_t fillMinX = 0;
 			int32_t fillMaxX = 0;
 			if (middleOfThumb > 0) {
-				g->setColor(drawInverted ? $(static_cast<$Color*>($MetalLookAndFeel::getControlDarkShadow())) : $(static_cast<$Color*>($MetalLookAndFeel::getPrimaryControlDarkShadow())));
+				g->setColor(drawInverted ? $($MetalLookAndFeel::getControlDarkShadow()) : $($MetalLookAndFeel::getPrimaryControlDarkShadow()));
 				g->drawRect(0, 0, middleOfThumb - 1, h - 1);
 			}
 			if (middleOfThumb < w) {
-				g->setColor(drawInverted ? $(static_cast<$Color*>($MetalLookAndFeel::getPrimaryControlDarkShadow())) : $(static_cast<$Color*>($MetalLookAndFeel::getControlDarkShadow())));
+				g->setColor(drawInverted ? $($MetalLookAndFeel::getPrimaryControlDarkShadow()) : $($MetalLookAndFeel::getControlDarkShadow()));
 				g->drawRect(middleOfThumb, 0, w - middleOfThumb - 1, h - 1);
 			}
 			if (this->filledSlider) {
@@ -378,11 +308,11 @@ void MetalSliderUI::oceanPaintTrack($Graphics* g) {
 			int32_t fillMinY = 0;
 			int32_t fillMaxY = 0;
 			if (middleOfThumb > 0) {
-				g->setColor(drawInverted ? $(static_cast<$Color*>($MetalLookAndFeel::getPrimaryControlDarkShadow())) : $(static_cast<$Color*>($MetalLookAndFeel::getControlDarkShadow())));
+				g->setColor(drawInverted ? $($MetalLookAndFeel::getPrimaryControlDarkShadow()) : $($MetalLookAndFeel::getControlDarkShadow()));
 				g->drawRect(0, 0, w - 1, middleOfThumb - 1);
 			}
 			if (middleOfThumb < h) {
-				g->setColor(drawInverted ? $(static_cast<$Color*>($MetalLookAndFeel::getControlDarkShadow())) : $(static_cast<$Color*>($MetalLookAndFeel::getPrimaryControlDarkShadow())));
+				g->setColor(drawInverted ? $($MetalLookAndFeel::getControlDarkShadow()) : $($MetalLookAndFeel::getPrimaryControlDarkShadow()));
 				g->drawRect(0, middleOfThumb, w - 1, h - middleOfThumb - 1);
 			}
 			if (this->filledSlider) {
@@ -405,13 +335,13 @@ void MetalSliderUI::oceanPaintTrack($Graphics* g) {
 					}
 				}
 				if (w == 6) {
-					g->setColor(leftToRight ? $(static_cast<$Color*>($MetalLookAndFeel::getWhite())) : $(static_cast<$Color*>($MetalLookAndFeel::getPrimaryControlShadow())));
+					g->setColor(leftToRight ? $($MetalLookAndFeel::getWhite()) : $($MetalLookAndFeel::getPrimaryControlShadow()));
 					g->drawLine(1, fillMinY, 1, fillMaxY);
-					g->setColor(leftToRight ? sliderAltTrackColor : $(static_cast<$Color*>($MetalLookAndFeel::getControlShadow())));
+					g->setColor(leftToRight ? sliderAltTrackColor : $$cast($Color, $MetalLookAndFeel::getControlShadow()));
 					g->drawLine(2, fillMinY, 2, fillMaxY);
-					g->setColor(leftToRight ? $(static_cast<$Color*>($MetalLookAndFeel::getControlShadow())) : sliderAltTrackColor);
+					g->setColor(leftToRight ? $$cast($Color, $MetalLookAndFeel::getControlShadow()) : sliderAltTrackColor);
 					g->drawLine(3, fillMinY, 3, fillMaxY);
-					g->setColor(leftToRight ? $(static_cast<$Color*>($MetalLookAndFeel::getPrimaryControlShadow())) : $(static_cast<$Color*>($MetalLookAndFeel::getWhite())));
+					g->setColor(leftToRight ? $($MetalLookAndFeel::getPrimaryControlShadow()) : $($MetalLookAndFeel::getWhite()));
 					g->drawLine(4, fillMinY, 4, fillMaxY);
 				}
 			}
@@ -440,14 +370,14 @@ void MetalSliderUI::paintFocus($Graphics* g) {
 }
 
 $Dimension* MetalSliderUI::getThumbSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, size, $new($Dimension));
 	if ($nc(this->slider)->getOrientation() == $JSlider::VERTICAL) {
-		size->width = $nc($(getVertThumbIcon()))->getIconWidth();
-		size->height = $nc($(getVertThumbIcon()))->getIconHeight();
+		size->width = $$nc(getVertThumbIcon())->getIconWidth();
+		size->height = $$nc(getVertThumbIcon())->getIconHeight();
 	} else {
-		size->width = $nc($(getHorizThumbIcon()))->getIconWidth();
-		size->height = $nc($(getHorizThumbIcon()))->getIconHeight();
+		size->width = $$nc(getHorizThumbIcon())->getIconWidth();
+		size->height = $$nc(getHorizThumbIcon())->getIconHeight();
 	}
 	return size;
 }
@@ -475,7 +405,7 @@ int32_t MetalSliderUI::getTrackLength() {
 }
 
 int32_t MetalSliderUI::getThumbOverhang() {
-	double var$0 = $nc($(getThumbSize()))->getHeight();
+	double var$0 = $$nc(getThumbSize())->getHeight();
 	return $cast(int32_t, (var$0 - getTrackWidth())) / 2;
 }
 
@@ -484,20 +414,20 @@ void MetalSliderUI::scrollDueToClickInTrack(int32_t dir) {
 }
 
 void MetalSliderUI::paintMinorTickForHorizSlider($Graphics* g, $Rectangle* tickBounds, int32_t x) {
-	$useLocalCurrentObjectStackCache();
-	$nc(g)->setColor($nc(this->slider)->isEnabled() ? $($nc(this->slider)->getForeground()) : $(static_cast<$Color*>($MetalLookAndFeel::getControlShadow())));
+	$useLocalObjectStack();
+	$nc(g)->setColor($nc(this->slider)->isEnabled() ? $(this->slider->getForeground()) : $$cast($Color, $MetalLookAndFeel::getControlShadow()));
 	g->drawLine(x, MetalSliderUI::TICK_BUFFER, x, MetalSliderUI::TICK_BUFFER + (this->safeLength / 2));
 }
 
 void MetalSliderUI::paintMajorTickForHorizSlider($Graphics* g, $Rectangle* tickBounds, int32_t x) {
-	$useLocalCurrentObjectStackCache();
-	$nc(g)->setColor($nc(this->slider)->isEnabled() ? $($nc(this->slider)->getForeground()) : $(static_cast<$Color*>($MetalLookAndFeel::getControlShadow())));
+	$useLocalObjectStack();
+	$nc(g)->setColor($nc(this->slider)->isEnabled() ? $(this->slider->getForeground()) : $$cast($Color, $MetalLookAndFeel::getControlShadow()));
 	g->drawLine(x, MetalSliderUI::TICK_BUFFER, x, MetalSliderUI::TICK_BUFFER + (this->safeLength - 1));
 }
 
 void MetalSliderUI::paintMinorTickForVertSlider($Graphics* g, $Rectangle* tickBounds, int32_t y) {
-	$useLocalCurrentObjectStackCache();
-	$nc(g)->setColor($nc(this->slider)->isEnabled() ? $($nc(this->slider)->getForeground()) : $(static_cast<$Color*>($MetalLookAndFeel::getControlShadow())));
+	$useLocalObjectStack();
+	$nc(g)->setColor($nc(this->slider)->isEnabled() ? $(this->slider->getForeground()) : $$cast($Color, $MetalLookAndFeel::getControlShadow()));
 	if ($MetalUtils::isLeftToRight(this->slider)) {
 		g->drawLine(MetalSliderUI::TICK_BUFFER, y, MetalSliderUI::TICK_BUFFER + (this->safeLength / 2), y);
 	} else {
@@ -506,8 +436,8 @@ void MetalSliderUI::paintMinorTickForVertSlider($Graphics* g, $Rectangle* tickBo
 }
 
 void MetalSliderUI::paintMajorTickForVertSlider($Graphics* g, $Rectangle* tickBounds, int32_t y) {
-	$useLocalCurrentObjectStackCache();
-	$nc(g)->setColor($nc(this->slider)->isEnabled() ? $($nc(this->slider)->getForeground()) : $(static_cast<$Color*>($MetalLookAndFeel::getControlShadow())));
+	$useLocalObjectStack();
+	$nc(g)->setColor($nc(this->slider)->isEnabled() ? $(this->slider->getForeground()) : $$cast($Color, $MetalLookAndFeel::getControlShadow()));
 	if ($MetalUtils::isLeftToRight(this->slider)) {
 		g->drawLine(MetalSliderUI::TICK_BUFFER, y, MetalSliderUI::TICK_BUFFER + this->safeLength, y);
 	} else {
@@ -519,7 +449,68 @@ MetalSliderUI::MetalSliderUI() {
 }
 
 $Class* MetalSliderUI::load$($String* name, bool initialize) {
-	$loadClass(MetalSliderUI, name, initialize, &_MetalSliderUI_ClassInfo_, allocate$MetalSliderUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"TICK_BUFFER", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(MetalSliderUI, TICK_BUFFER)},
+		{"filledSlider", "Z", nullptr, $PROTECTED, $field(MetalSliderUI, filledSlider)},
+		{"thumbColor", "Ljava/awt/Color;", nullptr, $PROTECTED | $STATIC, $staticField(MetalSliderUI, thumbColor)},
+		{"highlightColor", "Ljava/awt/Color;", nullptr, $PROTECTED | $STATIC, $staticField(MetalSliderUI, highlightColor)},
+		{"darkShadowColor", "Ljava/awt/Color;", nullptr, $PROTECTED | $STATIC, $staticField(MetalSliderUI, darkShadowColor)},
+		{"trackWidth", "I", nullptr, $PROTECTED | $STATIC, $staticField(MetalSliderUI, trackWidth)},
+		{"tickLength", "I", nullptr, $PROTECTED | $STATIC, $staticField(MetalSliderUI, tickLength)},
+		{"safeLength", "I", nullptr, $PRIVATE, $field(MetalSliderUI, safeLength)},
+		{"horizThumbIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED | $STATIC, $staticField(MetalSliderUI, horizThumbIcon)},
+		{"vertThumbIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED | $STATIC, $staticField(MetalSliderUI, vertThumbIcon)},
+		{"SAFE_HORIZ_THUMB_ICON", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalSliderUI, SAFE_HORIZ_THUMB_ICON)},
+		{"SAFE_VERT_THUMB_ICON", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalSliderUI, SAFE_VERT_THUMB_ICON)},
+		{"SLIDER_FILL", "Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $field(MetalSliderUI, SLIDER_FILL)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalSliderUI, init$, void)},
+		{"createPropertyChangeListener", "(Ljavax/swing/JSlider;)Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(MetalSliderUI, createPropertyChangeListener, $PropertyChangeListener*, $JSlider*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalSliderUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getHorizThumbIcon", "()Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticMethod(MetalSliderUI, getHorizThumbIcon, $Icon*)},
+		{"getPaintTrackRect", "()Ljava/awt/Rectangle;", nullptr, $PRIVATE, $method(MetalSliderUI, getPaintTrackRect, $Rectangle*)},
+		{"getThumbOverhang", "()I", nullptr, $PROTECTED, $virtualMethod(MetalSliderUI, getThumbOverhang, int32_t)},
+		{"getThumbSize", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(MetalSliderUI, getThumbSize, $Dimension*)},
+		{"getTickLength", "()I", nullptr, $PUBLIC, $virtualMethod(MetalSliderUI, getTickLength, int32_t)},
+		{"getTrackLength", "()I", nullptr, $PROTECTED, $virtualMethod(MetalSliderUI, getTrackLength, int32_t)},
+		{"getTrackWidth", "()I", nullptr, $PROTECTED, $virtualMethod(MetalSliderUI, getTrackWidth, int32_t)},
+		{"getVertThumbIcon", "()Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticMethod(MetalSliderUI, getVertThumbIcon, $Icon*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalSliderUI, installUI, void, $JComponent*)},
+		{"oceanPaintTrack", "(Ljava/awt/Graphics;)V", nullptr, $PRIVATE, $method(MetalSliderUI, oceanPaintTrack, void, $Graphics*)},
+		{"paintFocus", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MetalSliderUI, paintFocus, void, $Graphics*)},
+		{"paintMajorTickForHorizSlider", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(MetalSliderUI, paintMajorTickForHorizSlider, void, $Graphics*, $Rectangle*, int32_t)},
+		{"paintMajorTickForVertSlider", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(MetalSliderUI, paintMajorTickForVertSlider, void, $Graphics*, $Rectangle*, int32_t)},
+		{"paintMinorTickForHorizSlider", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(MetalSliderUI, paintMinorTickForHorizSlider, void, $Graphics*, $Rectangle*, int32_t)},
+		{"paintMinorTickForVertSlider", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(MetalSliderUI, paintMinorTickForVertSlider, void, $Graphics*, $Rectangle*, int32_t)},
+		{"paintThumb", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MetalSliderUI, paintThumb, void, $Graphics*)},
+		{"paintTrack", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MetalSliderUI, paintTrack, void, $Graphics*)},
+		{"prepareFilledSliderField", "()V", nullptr, $PRIVATE, $method(MetalSliderUI, prepareFilledSliderField, void)},
+		{"scrollDueToClickInTrack", "(I)V", nullptr, $PROTECTED, $virtualMethod(MetalSliderUI, scrollDueToClickInTrack, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalSliderUI$MetalPropertyListener", "javax.swing.plaf.metal.MetalSliderUI", "MetalPropertyListener", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalSliderUI",
+		"javax.swing.plaf.basic.BasicSliderUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalSliderUI$MetalPropertyListener"
+	};
+	$loadClass(MetalSliderUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalSliderUI);
+	});
 	return class$;
 }
 

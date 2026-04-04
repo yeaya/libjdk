@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMExcC14NMethod.h>
-
 #include <com/sun/org/apache/xml/internal/security/c14n/Canonicalizer.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/InvalidCanonicalizerException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -44,7 +43,6 @@ using $ApacheCanonicalizer = ::org::jcp::xml::dsig::internal::dom::ApacheCanonic
 using $DOMSubTreeData = ::org::jcp::xml::dsig::internal::dom::DOMSubTreeData;
 using $DOMUtils = ::org::jcp::xml::dsig::internal::dom::DOMUtils;
 using $Element = ::org::w3c::dom::Element;
-using $Node = ::org::w3c::dom::Node;
 
 namespace org {
 	namespace jcp {
@@ -52,31 +50,6 @@ namespace org {
 			namespace dsig {
 				namespace internal {
 					namespace dom {
-
-$MethodInfo _DOMExcC14NMethod_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DOMExcC14NMethod, init$, void)},
-	{"getParameterSpecPrefixList", "(Ljavax/xml/crypto/dsig/spec/ExcC14NParameterSpec;)Ljava/util/List;", "(Ljavax/xml/crypto/dsig/spec/ExcC14NParameterSpec;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $method(DOMExcC14NMethod, getParameterSpecPrefixList, $List*, $ExcC14NParameterSpec*)},
-	{"getParamsNSURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(DOMExcC14NMethod, getParamsNSURI, $String*)},
-	{"init", "(Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(DOMExcC14NMethod, init, void, $TransformParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"init", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMExcC14NMethod, init, void, $XMLStructure*, $XMLCryptoContext*), "java.security.InvalidAlgorithmParameterException"},
-	{"marshalParams", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMExcC14NMethod, marshalParams, void, $XMLStructure*, $XMLCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(DOMExcC14NMethod, transform, $Data*, $Data*, $XMLCryptoContext*), "javax.xml.crypto.dsig.TransformException"},
-	{"unmarshalParams", "(Lorg/w3c/dom/Element;)V", nullptr, $PRIVATE, $method(DOMExcC14NMethod, unmarshalParams, void, $Element*)},
-	{}
-};
-
-$ClassInfo _DOMExcC14NMethod_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMExcC14NMethod",
-	"org.jcp.xml.dsig.internal.dom.ApacheCanonicalizer",
-	nullptr,
-	nullptr,
-	_DOMExcC14NMethod_MethodInfo_
-};
-
-$Object* allocate$DOMExcC14NMethod($Class* clazz) {
-	return $of($alloc(DOMExcC14NMethod));
-}
 
 void DOMExcC14NMethod::init$() {
 	$ApacheCanonicalizer::init$();
@@ -103,16 +76,16 @@ void DOMExcC14NMethod::init($XMLStructure* parent, $XMLCryptoContext* context) {
 }
 
 void DOMExcC14NMethod::unmarshalParams($Element* paramsElem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prefixListAttr, $nc(paramsElem)->getAttributeNS(nullptr, "PrefixList"_s));
 	$set(this, inclusiveNamespaces, prefixListAttr);
 	int32_t begin = 0;
-	int32_t end = $nc(prefixListAttr)->indexOf((int32_t)u' ');
+	int32_t end = $nc(prefixListAttr)->indexOf(u' ');
 	$var($List, prefixList, $new($ArrayList));
 	while (end != -1) {
 		prefixList->add($(prefixListAttr->substring(begin, end)));
 		begin = end + 1;
-		end = prefixListAttr->indexOf((int32_t)u' ', begin);
+		end = prefixListAttr->indexOf(u' ', begin);
 	}
 	if (begin <= prefixListAttr->length()) {
 		prefixList->add($(prefixListAttr->substring(begin)));
@@ -125,7 +98,7 @@ $List* DOMExcC14NMethod::getParameterSpecPrefixList($ExcC14NParameterSpec* param
 }
 
 void DOMExcC14NMethod::marshalParams($XMLStructure* parent, $XMLCryptoContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ApacheCanonicalizer::marshalParams(parent, context);
 	$var($AlgorithmParameterSpec, spec, getParameterSpec());
 	if (spec == nullptr) {
@@ -134,7 +107,7 @@ void DOMExcC14NMethod::marshalParams($XMLStructure* parent, $XMLCryptoContext* c
 	$init($CanonicalizationMethod);
 	$var($String, prefix, $DOMUtils::getNSPrefix(context, $CanonicalizationMethod::EXCLUSIVE));
 	$var($Element, eElem, $DOMUtils::createElement(this->ownerDoc, "InclusiveNamespaces"_s, $CanonicalizationMethod::EXCLUSIVE, prefix));
-	if (prefix == nullptr || $nc(prefix)->length() == 0) {
+	if (prefix == nullptr || prefix->length() == 0) {
 		$nc(eElem)->setAttributeNS("http://www.w3.org/2000/xmlns/"_s, "xmlns"_s, $CanonicalizationMethod::EXCLUSIVE);
 	} else {
 		$nc(eElem)->setAttributeNS("http://www.w3.org/2000/xmlns/"_s, $$str({"xmlns:"_s, prefix}), $CanonicalizationMethod::EXCLUSIVE);
@@ -142,14 +115,10 @@ void DOMExcC14NMethod::marshalParams($XMLStructure* parent, $XMLCryptoContext* c
 	$var($ExcC14NParameterSpec, params, $cast($ExcC14NParameterSpec, spec));
 	$var($StringBuilder, prefixListAttr, $new($StringBuilder, ""_s));
 	$var($List, prefixList, getParameterSpecPrefixList(params));
-	{
-		int32_t i = 0;
-		int32_t size = $nc(prefixList)->size();
-		for (; i < size; ++i) {
-			prefixListAttr->append($cast($String, $(prefixList->get(i))));
-			if (i < size - 1) {
-				prefixListAttr->append(u' ');
-			}
+	for (int32_t i = 0, size = $nc(prefixList)->size(); i < size; ++i) {
+		prefixListAttr->append($$cast($String, prefixList->get(i)));
+		if (i < size - 1) {
+			prefixListAttr->append(u' ');
 		}
 	}
 	$DOMUtils::setAttribute(eElem, "PrefixList"_s, $(prefixListAttr->toString()));
@@ -163,10 +132,10 @@ $String* DOMExcC14NMethod::getParamsNSURI() {
 }
 
 $Data* DOMExcC14NMethod::transform($Data* data, $XMLCryptoContext* xc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($DOMSubTreeData, data)) {
 		$var($DOMSubTreeData, subTree, $cast($DOMSubTreeData, data));
-		if ($nc(subTree)->excludeComments()) {
+		if (subTree->excludeComments()) {
 			try {
 				$init($CanonicalizationMethod);
 				$set(this, canonicalizer, $Canonicalizer::getInstance($CanonicalizationMethod::EXCLUSIVE));
@@ -183,7 +152,28 @@ DOMExcC14NMethod::DOMExcC14NMethod() {
 }
 
 $Class* DOMExcC14NMethod::load$($String* name, bool initialize) {
-	$loadClass(DOMExcC14NMethod, name, initialize, &_DOMExcC14NMethod_ClassInfo_, allocate$DOMExcC14NMethod);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DOMExcC14NMethod, init$, void)},
+		{"getParameterSpecPrefixList", "(Ljavax/xml/crypto/dsig/spec/ExcC14NParameterSpec;)Ljava/util/List;", "(Ljavax/xml/crypto/dsig/spec/ExcC14NParameterSpec;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $method(DOMExcC14NMethod, getParameterSpecPrefixList, $List*, $ExcC14NParameterSpec*)},
+		{"getParamsNSURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(DOMExcC14NMethod, getParamsNSURI, $String*)},
+		{"init", "(Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(DOMExcC14NMethod, init, void, $TransformParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"init", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMExcC14NMethod, init, void, $XMLStructure*, $XMLCryptoContext*), "java.security.InvalidAlgorithmParameterException"},
+		{"marshalParams", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMExcC14NMethod, marshalParams, void, $XMLStructure*, $XMLCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(DOMExcC14NMethod, transform, $Data*, $Data*, $XMLCryptoContext*), "javax.xml.crypto.dsig.TransformException"},
+		{"unmarshalParams", "(Lorg/w3c/dom/Element;)V", nullptr, $PRIVATE, $method(DOMExcC14NMethod, unmarshalParams, void, $Element*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMExcC14NMethod",
+		"org.jcp.xml.dsig.internal.dom.ApacheCanonicalizer",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DOMExcC14NMethod, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMExcC14NMethod));
+	});
 	return class$;
 }
 

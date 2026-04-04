@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Flags$Flag.h>
-
 #include <com/sun/tools/javac/code/Flags$Flag$1.h>
 #include <com/sun/tools/javac/code/Flags.h>
 #include <com/sun/tools/javac/util/StringUtils.h>
@@ -85,111 +84,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Flags$Flag_FieldInfo_[] = {
-	{"PUBLIC", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, PUBLIC)},
-	{"PRIVATE", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, PRIVATE)},
-	{"PROTECTED", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, PROTECTED)},
-	{"STATIC", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, STATIC)},
-	{"FINAL", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, FINAL)},
-	{"SYNCHRONIZED", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, SYNCHRONIZED)},
-	{"VOLATILE", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, VOLATILE)},
-	{"TRANSIENT", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, TRANSIENT)},
-	{"NATIVE", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, NATIVE)},
-	{"INTERFACE", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, INTERFACE)},
-	{"ABSTRACT", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, ABSTRACT)},
-	{"DEFAULT", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, DEFAULT)},
-	{"STRICTFP", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, STRICTFP)},
-	{"BRIDGE", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, BRIDGE)},
-	{"SYNTHETIC", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, SYNTHETIC)},
-	{"ANNOTATION", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, ANNOTATION)},
-	{"DEPRECATED", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, DEPRECATED)},
-	{"HASINIT", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, HASINIT)},
-	{"BLOCK", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, BLOCK)},
-	{"ENUM", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, ENUM)},
-	{"MANDATED", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, MANDATED)},
-	{"NOOUTERTHIS", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, NOOUTERTHIS)},
-	{"EXISTS", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, EXISTS)},
-	{"COMPOUND", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, COMPOUND)},
-	{"CLASS_SEEN", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, CLASS_SEEN)},
-	{"SOURCE_SEEN", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, SOURCE_SEEN)},
-	{"LOCKED", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, LOCKED)},
-	{"UNATTRIBUTED", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, UNATTRIBUTED)},
-	{"ANONCONSTR", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, ANONCONSTR)},
-	{"ACYCLIC", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, ACYCLIC)},
-	{"PARAMETER", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, PARAMETER)},
-	{"VARARGS", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, VARARGS)},
-	{"ACYCLIC_ANN", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, ACYCLIC_ANN)},
-	{"GENERATEDCONSTR", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, GENERATEDCONSTR)},
-	{"HYPOTHETICAL", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, HYPOTHETICAL)},
-	{"PROPRIETARY", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, PROPRIETARY)},
-	{"UNION", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, UNION)},
-	{"EFFECTIVELY_FINAL", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, EFFECTIVELY_FINAL)},
-	{"CLASH", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, CLASH)},
-	{"AUXILIARY", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, AUXILIARY)},
-	{"NOT_IN_PROFILE", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, NOT_IN_PROFILE)},
-	{"BAD_OVERRIDE", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, BAD_OVERRIDE)},
-	{"SIGNATURE_POLYMORPHIC", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, SIGNATURE_POLYMORPHIC)},
-	{"THROWS", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, THROWS)},
-	{"LAMBDA_METHOD", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, LAMBDA_METHOD)},
-	{"TYPE_TRANSLATED", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, TYPE_TRANSLATED)},
-	{"MODULE", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, MODULE)},
-	{"AUTOMATIC_MODULE", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, AUTOMATIC_MODULE)},
-	{"SYSTEM_MODULE", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, SYSTEM_MODULE)},
-	{"DEPRECATED_ANNOTATION", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, DEPRECATED_ANNOTATION)},
-	{"DEPRECATED_REMOVAL", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, DEPRECATED_REMOVAL)},
-	{"HAS_RESOURCE", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, HAS_RESOURCE)},
-	{"POTENTIALLY_AMBIGUOUS", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, POTENTIALLY_AMBIGUOUS)},
-	{"ANONCONSTR_BASED", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, ANONCONSTR_BASED)},
-	{"NAME_FILLED", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, NAME_FILLED)},
-	{"PREVIEW_API", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, PREVIEW_API)},
-	{"PREVIEW_REFLECTIVE", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, PREVIEW_REFLECTIVE)},
-	{"MATCH_BINDING", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, MATCH_BINDING)},
-	{"MATCH_BINDING_TO_OUTER", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, MATCH_BINDING_TO_OUTER)},
-	{"RECORD", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, RECORD)},
-	{"RECOVERABLE", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, RECOVERABLE)},
-	{"SEALED", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, SEALED)},
-	{"NON_SEALED", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, NON_SEALED)},
-	{"$VALUES", "[Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Flags$Flag, $VALUES)},
-	{"value", "J", nullptr, $FINAL, $field(Flags$Flag, value)},
-	{"lowercaseName", "Ljava/lang/String;", nullptr, $FINAL, $field(Flags$Flag, lowercaseName)},
-	{}
-};
-
-$MethodInfo _Flags$Flag_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Flags$Flag, $values, $Flags$FlagArray*)},
-	{"<init>", "(Ljava/lang/String;IJ)V", "(J)V", $PRIVATE, $method(Flags$Flag, init$, void, $String*, int32_t, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Flags$Flag, toString, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Flags$Flag, valueOf, Flags$Flag*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Flags$Flag, values, $Flags$FlagArray*)},
-	{}
-};
-
-$InnerClassInfo _Flags$Flag_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Flags$Flag", "com.sun.tools.javac.code.Flags", "Flag", $PUBLIC | $STATIC | $ENUM},
-	{"com.sun.tools.javac.code.Flags$Flag$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Flags$Flag_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.code.Flags$Flag",
-	"java.lang.Enum",
-	nullptr,
-	_Flags$Flag_FieldInfo_,
-	_Flags$Flag_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/code/Flags$Flag;>;",
-	nullptr,
-	_Flags$Flag_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Flags"
-};
-
-$Object* allocate$Flags$Flag($Class* clazz) {
-	return $of($alloc(Flags$Flag));
-}
 
 Flags$Flag* Flags$Flag::PUBLIC = nullptr;
 Flags$Flag* Flags$Flag::PRIVATE = nullptr;
@@ -345,7 +239,7 @@ $String* Flags$Flag::toString() {
 	return this->lowercaseName;
 }
 
-void clinit$Flags$Flag($Class* class$) {
+void Flags$Flag::clinit$($Class* clazz) {
 	$assignStatic(Flags$Flag::PUBLIC, $new(Flags$Flag, "PUBLIC"_s, 0, $Flags::PUBLIC));
 	$assignStatic(Flags$Flag::PRIVATE, $new(Flags$Flag, "PRIVATE"_s, 1, $Flags::PRIVATE));
 	$assignStatic(Flags$Flag::PROTECTED, $new(Flags$Flag, "PROTECTED"_s, 2, $Flags::PROTECTED));
@@ -416,7 +310,106 @@ Flags$Flag::Flags$Flag() {
 }
 
 $Class* Flags$Flag::load$($String* name, bool initialize) {
-	$loadClass(Flags$Flag, name, initialize, &_Flags$Flag_ClassInfo_, clinit$Flags$Flag, allocate$Flags$Flag);
+	$FieldInfo fieldInfos$$[] = {
+		{"PUBLIC", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, PUBLIC)},
+		{"PRIVATE", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, PRIVATE)},
+		{"PROTECTED", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, PROTECTED)},
+		{"STATIC", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, STATIC)},
+		{"FINAL", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, FINAL)},
+		{"SYNCHRONIZED", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, SYNCHRONIZED)},
+		{"VOLATILE", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, VOLATILE)},
+		{"TRANSIENT", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, TRANSIENT)},
+		{"NATIVE", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, NATIVE)},
+		{"INTERFACE", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, INTERFACE)},
+		{"ABSTRACT", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, ABSTRACT)},
+		{"DEFAULT", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, DEFAULT)},
+		{"STRICTFP", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, STRICTFP)},
+		{"BRIDGE", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, BRIDGE)},
+		{"SYNTHETIC", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, SYNTHETIC)},
+		{"ANNOTATION", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, ANNOTATION)},
+		{"DEPRECATED", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, DEPRECATED)},
+		{"HASINIT", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, HASINIT)},
+		{"BLOCK", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, BLOCK)},
+		{"ENUM", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, ENUM)},
+		{"MANDATED", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, MANDATED)},
+		{"NOOUTERTHIS", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, NOOUTERTHIS)},
+		{"EXISTS", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, EXISTS)},
+		{"COMPOUND", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, COMPOUND)},
+		{"CLASS_SEEN", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, CLASS_SEEN)},
+		{"SOURCE_SEEN", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, SOURCE_SEEN)},
+		{"LOCKED", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, LOCKED)},
+		{"UNATTRIBUTED", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, UNATTRIBUTED)},
+		{"ANONCONSTR", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, ANONCONSTR)},
+		{"ACYCLIC", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, ACYCLIC)},
+		{"PARAMETER", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, PARAMETER)},
+		{"VARARGS", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, VARARGS)},
+		{"ACYCLIC_ANN", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, ACYCLIC_ANN)},
+		{"GENERATEDCONSTR", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, GENERATEDCONSTR)},
+		{"HYPOTHETICAL", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, HYPOTHETICAL)},
+		{"PROPRIETARY", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, PROPRIETARY)},
+		{"UNION", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, UNION)},
+		{"EFFECTIVELY_FINAL", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, EFFECTIVELY_FINAL)},
+		{"CLASH", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, CLASH)},
+		{"AUXILIARY", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, AUXILIARY)},
+		{"NOT_IN_PROFILE", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, NOT_IN_PROFILE)},
+		{"BAD_OVERRIDE", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, BAD_OVERRIDE)},
+		{"SIGNATURE_POLYMORPHIC", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, SIGNATURE_POLYMORPHIC)},
+		{"THROWS", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, THROWS)},
+		{"LAMBDA_METHOD", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, LAMBDA_METHOD)},
+		{"TYPE_TRANSLATED", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, TYPE_TRANSLATED)},
+		{"MODULE", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, MODULE)},
+		{"AUTOMATIC_MODULE", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, AUTOMATIC_MODULE)},
+		{"SYSTEM_MODULE", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, SYSTEM_MODULE)},
+		{"DEPRECATED_ANNOTATION", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, DEPRECATED_ANNOTATION)},
+		{"DEPRECATED_REMOVAL", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, DEPRECATED_REMOVAL)},
+		{"HAS_RESOURCE", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, HAS_RESOURCE)},
+		{"POTENTIALLY_AMBIGUOUS", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, POTENTIALLY_AMBIGUOUS)},
+		{"ANONCONSTR_BASED", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, ANONCONSTR_BASED)},
+		{"NAME_FILLED", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, NAME_FILLED)},
+		{"PREVIEW_API", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, PREVIEW_API)},
+		{"PREVIEW_REFLECTIVE", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, PREVIEW_REFLECTIVE)},
+		{"MATCH_BINDING", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, MATCH_BINDING)},
+		{"MATCH_BINDING_TO_OUTER", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, MATCH_BINDING_TO_OUTER)},
+		{"RECORD", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, RECORD)},
+		{"RECOVERABLE", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, RECOVERABLE)},
+		{"SEALED", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, SEALED)},
+		{"NON_SEALED", "Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flags$Flag, NON_SEALED)},
+		{"$VALUES", "[Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Flags$Flag, $VALUES)},
+		{"value", "J", nullptr, $FINAL, $field(Flags$Flag, value)},
+		{"lowercaseName", "Ljava/lang/String;", nullptr, $FINAL, $field(Flags$Flag, lowercaseName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Flags$Flag, $values, $Flags$FlagArray*)},
+		{"<init>", "(Ljava/lang/String;IJ)V", "(J)V", $PRIVATE, $method(Flags$Flag, init$, void, $String*, int32_t, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Flags$Flag, toString, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Flags$Flag, valueOf, Flags$Flag*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Flags$Flag, values, $Flags$FlagArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Flags$Flag", "com.sun.tools.javac.code.Flags", "Flag", $PUBLIC | $STATIC | $ENUM},
+		{"com.sun.tools.javac.code.Flags$Flag$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.code.Flags$Flag",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/code/Flags$Flag;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Flags"
+	};
+	$loadClass(Flags$Flag, name, initialize, &classInfo$$, Flags$Flag::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Flags$Flag));
+	});
 	return class$;
 }
 

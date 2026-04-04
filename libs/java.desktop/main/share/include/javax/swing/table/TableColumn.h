@@ -44,6 +44,7 @@ class $import TableColumn : public ::java::io::Serializable {
 	$class(TableColumn, 0, ::java::io::Serializable)
 public:
 	TableColumn();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t modelIndex);
 	void init$(int32_t modelIndex, int32_t width);

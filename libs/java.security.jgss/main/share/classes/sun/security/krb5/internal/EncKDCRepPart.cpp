@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/EncKDCRepPart.h>
-
 #include <java/io/OutputStream.h>
 #include <java/math/BigInteger.h>
 #include <sun/security/krb5/Asn1Exception.h>
@@ -38,7 +37,6 @@ using $Krb5 = ::sun::security::krb5::internal::Krb5;
 using $LastReq = ::sun::security::krb5::internal::LastReq;
 using $PAData = ::sun::security::krb5::internal::PAData;
 using $TicketFlags = ::sun::security::krb5::internal::TicketFlags;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 
@@ -46,46 +44,6 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 			namespace internal {
-
-$FieldInfo _EncKDCRepPart_FieldInfo_[] = {
-	{"key", "Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC, $field(EncKDCRepPart, key)},
-	{"lastReq", "Lsun/security/krb5/internal/LastReq;", nullptr, $PUBLIC, $field(EncKDCRepPart, lastReq)},
-	{"nonce", "I", nullptr, $PUBLIC, $field(EncKDCRepPart, nonce)},
-	{"keyExpiration", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(EncKDCRepPart, keyExpiration)},
-	{"flags", "Lsun/security/krb5/internal/TicketFlags;", nullptr, $PUBLIC, $field(EncKDCRepPart, flags)},
-	{"authtime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(EncKDCRepPart, authtime)},
-	{"starttime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(EncKDCRepPart, starttime)},
-	{"endtime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(EncKDCRepPart, endtime)},
-	{"renewTill", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(EncKDCRepPart, renewTill)},
-	{"sname", "Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $field(EncKDCRepPart, sname)},
-	{"caddr", "Lsun/security/krb5/internal/HostAddresses;", nullptr, $PUBLIC, $field(EncKDCRepPart, caddr)},
-	{"pAData", "[Lsun/security/krb5/internal/PAData;", nullptr, $PUBLIC, $field(EncKDCRepPart, pAData)},
-	{"msgType", "I", nullptr, $PUBLIC, $field(EncKDCRepPart, msgType)},
-	{}
-};
-
-$MethodInfo _EncKDCRepPart_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/internal/LastReq;ILsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/TicketFlags;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/HostAddresses;[Lsun/security/krb5/internal/PAData;I)V", nullptr, $PUBLIC, $method(EncKDCRepPart, init$, void, $EncryptionKey*, $LastReq*, int32_t, $KerberosTime*, $TicketFlags*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $PrincipalName*, $HostAddresses*, $PADataArray*, int32_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(EncKDCRepPart, init$, void)},
-	{"<init>", "([BI)V", nullptr, $PUBLIC, $method(EncKDCRepPart, init$, void, $bytes*, int32_t), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException"},
-	{"<init>", "(Lsun/security/util/DerValue;I)V", nullptr, $PUBLIC, $method(EncKDCRepPart, init$, void, $DerValue*, int32_t), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException"},
-	{"asn1Encode", "(I)[B", nullptr, $PUBLIC, $virtualMethod(EncKDCRepPart, asn1Encode, $bytes*, int32_t), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"init", "(Lsun/security/util/DerValue;I)V", nullptr, $PROTECTED, $virtualMethod(EncKDCRepPart, init, void, $DerValue*, int32_t), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException"},
-	{}
-};
-
-$ClassInfo _EncKDCRepPart_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.EncKDCRepPart",
-	"java.lang.Object",
-	nullptr,
-	_EncKDCRepPart_FieldInfo_,
-	_EncKDCRepPart_MethodInfo_
-};
-
-$Object* allocate$EncKDCRepPart($Class* clazz) {
-	return $of($alloc(EncKDCRepPart));
-}
 
 void EncKDCRepPart::init$($EncryptionKey* new_key, $LastReq* new_lastReq, int32_t new_nonce, $KerberosTime* new_keyExpiration, $TicketFlags* new_flags, $KerberosTime* new_authtime, $KerberosTime* new_starttime, $KerberosTime* new_endtime, $KerberosTime* new_renewTill, $PrincipalName* new_sname, $HostAddresses* new_caddr, $PADataArray* new_pAData, int32_t new_msgType) {
 	$set(this, key, new_key);
@@ -115,22 +73,22 @@ void EncKDCRepPart::init$($DerValue* encoding, int32_t rep_type) {
 }
 
 void EncKDCRepPart::init($DerValue* encoding, int32_t rep_type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerValue, der, nullptr);
 	$var($DerValue, subDer, nullptr);
-	this->msgType = ((int32_t)($nc(encoding)->getTag() & (uint32_t)(int32_t)(int8_t)31));
+	this->msgType = ($nc(encoding)->getTag() & (int8_t)31);
 	if (this->msgType != $Krb5::KRB_ENC_AS_REP_PART && this->msgType != $Krb5::KRB_ENC_TGS_REP_PART) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$assign(der, $nc($(encoding->getData()))->getDerValue());
+	$assign(der, $$nc(encoding->getData())->getDerValue());
 	if ($nc(der)->getTag() != $DerValue::tag_Sequence) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$set(this, key, $EncryptionKey::parse($($nc(der)->getData()), (int8_t)0, false));
-	$set(this, lastReq, $LastReq::parse($($nc(der)->getData()), (int8_t)1, false));
-	$assign(subDer, $nc($($nc(der)->getData()))->getDerValue());
-	if (((int32_t)($nc(subDer)->getTag() & (uint32_t)(int32_t)(int8_t)31)) == (int8_t)2) {
-		this->nonce = $nc($($nc($(subDer->getData()))->getBigInteger()))->intValue();
+	$set(this, key, $EncryptionKey::parse($(der->getData()), (int8_t)0, false));
+	$set(this, lastReq, $LastReq::parse($(der->getData()), (int8_t)1, false));
+	$assign(subDer, $$nc(der->getData())->getDerValue());
+	if (($nc(subDer)->getTag() & (int8_t)31) == (int8_t)2) {
+		this->nonce = $$nc($$nc(subDer->getData())->getBigInteger())->intValue();
 	} else {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
@@ -142,16 +100,16 @@ void EncKDCRepPart::init($DerValue* encoding, int32_t rep_type) {
 	$set(this, renewTill, $KerberosTime::parse($(der->getData()), (int8_t)8, true));
 	$var($Realm, srealm, $Realm::parse($(der->getData()), (int8_t)9, false));
 	$set(this, sname, $PrincipalName::parse($(der->getData()), (int8_t)10, false, srealm));
-	if ($nc($(der->getData()))->available() > 0) {
+	if ($$nc(der->getData())->available() > 0) {
 		$set(this, caddr, $HostAddresses::parse($(der->getData()), (int8_t)11, true));
 	}
-	if ($nc($(der->getData()))->available() > 0) {
+	if ($$nc(der->getData())->available() > 0) {
 		$set(this, pAData, $PAData::parseSequence($(der->getData()), (int8_t)12, true));
 	}
 }
 
 $bytes* EncKDCRepPart::asn1Encode(int32_t rep_type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, bytes, nullptr);
 	$var($DerOutputStream, temp, $new($DerOutputStream));
 	$var($DerOutputStream, out, $new($DerOutputStream));
@@ -159,11 +117,11 @@ $bytes* EncKDCRepPart::asn1Encode(int32_t rep_type) {
 	out->write(var$0, $($nc(this->key)->asn1Encode()));
 	int8_t var$1 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)1);
 	out->write(var$1, $($nc(this->lastReq)->asn1Encode()));
-	temp->putInteger($($BigInteger::valueOf((int64_t)this->nonce)));
+	temp->putInteger($($BigInteger::valueOf(this->nonce)));
 	out->write($DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)2), temp);
 	if (this->keyExpiration != nullptr) {
 		int8_t var$2 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)3);
-		out->write(var$2, $($nc(this->keyExpiration)->asn1Encode()));
+		out->write(var$2, $(this->keyExpiration->asn1Encode()));
 	}
 	int8_t var$3 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)4);
 	out->write(var$3, $($nc(this->flags)->asn1Encode()));
@@ -171,26 +129,26 @@ $bytes* EncKDCRepPart::asn1Encode(int32_t rep_type) {
 	out->write(var$4, $($nc(this->authtime)->asn1Encode()));
 	if (this->starttime != nullptr) {
 		int8_t var$5 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)6);
-		out->write(var$5, $($nc(this->starttime)->asn1Encode()));
+		out->write(var$5, $(this->starttime->asn1Encode()));
 	}
 	int8_t var$6 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)7);
 	out->write(var$6, $($nc(this->endtime)->asn1Encode()));
 	if (this->renewTill != nullptr) {
 		int8_t var$7 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)8);
-		out->write(var$7, $($nc(this->renewTill)->asn1Encode()));
+		out->write(var$7, $(this->renewTill->asn1Encode()));
 	}
 	int8_t var$8 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)9);
-	out->write(var$8, $($nc($($nc(this->sname)->getRealm()))->asn1Encode()));
+	out->write(var$8, $($$nc($nc(this->sname)->getRealm())->asn1Encode()));
 	int8_t var$9 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)10);
 	out->write(var$9, $($nc(this->sname)->asn1Encode()));
 	if (this->caddr != nullptr) {
 		int8_t var$10 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)11);
-		out->write(var$10, $($nc(this->caddr)->asn1Encode()));
+		out->write(var$10, $(this->caddr->asn1Encode()));
 	}
-	if (this->pAData != nullptr && $nc(this->pAData)->length > 0) {
+	if (this->pAData != nullptr && this->pAData->length > 0) {
 		$assign(temp, $new($DerOutputStream));
 		for (int32_t i = 0; i < $nc(this->pAData)->length; ++i) {
-			temp->write($($nc($nc(this->pAData)->get(i))->asn1Encode()));
+			temp->write($($nc(this->pAData->get(i))->asn1Encode()));
 		}
 		$assign(bytes, $new($DerOutputStream));
 		bytes->write($DerValue::tag_SequenceOf, temp);
@@ -207,7 +165,42 @@ EncKDCRepPart::EncKDCRepPart() {
 }
 
 $Class* EncKDCRepPart::load$($String* name, bool initialize) {
-	$loadClass(EncKDCRepPart, name, initialize, &_EncKDCRepPart_ClassInfo_, allocate$EncKDCRepPart);
+	$FieldInfo fieldInfos$$[] = {
+		{"key", "Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC, $field(EncKDCRepPart, key)},
+		{"lastReq", "Lsun/security/krb5/internal/LastReq;", nullptr, $PUBLIC, $field(EncKDCRepPart, lastReq)},
+		{"nonce", "I", nullptr, $PUBLIC, $field(EncKDCRepPart, nonce)},
+		{"keyExpiration", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(EncKDCRepPart, keyExpiration)},
+		{"flags", "Lsun/security/krb5/internal/TicketFlags;", nullptr, $PUBLIC, $field(EncKDCRepPart, flags)},
+		{"authtime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(EncKDCRepPart, authtime)},
+		{"starttime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(EncKDCRepPart, starttime)},
+		{"endtime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(EncKDCRepPart, endtime)},
+		{"renewTill", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(EncKDCRepPart, renewTill)},
+		{"sname", "Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $field(EncKDCRepPart, sname)},
+		{"caddr", "Lsun/security/krb5/internal/HostAddresses;", nullptr, $PUBLIC, $field(EncKDCRepPart, caddr)},
+		{"pAData", "[Lsun/security/krb5/internal/PAData;", nullptr, $PUBLIC, $field(EncKDCRepPart, pAData)},
+		{"msgType", "I", nullptr, $PUBLIC, $field(EncKDCRepPart, msgType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/internal/LastReq;ILsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/TicketFlags;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/HostAddresses;[Lsun/security/krb5/internal/PAData;I)V", nullptr, $PUBLIC, $method(EncKDCRepPart, init$, void, $EncryptionKey*, $LastReq*, int32_t, $KerberosTime*, $TicketFlags*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $PrincipalName*, $HostAddresses*, $PADataArray*, int32_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(EncKDCRepPart, init$, void)},
+		{"<init>", "([BI)V", nullptr, $PUBLIC, $method(EncKDCRepPart, init$, void, $bytes*, int32_t), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException"},
+		{"<init>", "(Lsun/security/util/DerValue;I)V", nullptr, $PUBLIC, $method(EncKDCRepPart, init$, void, $DerValue*, int32_t), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException"},
+		{"asn1Encode", "(I)[B", nullptr, $PUBLIC, $virtualMethod(EncKDCRepPart, asn1Encode, $bytes*, int32_t), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"init", "(Lsun/security/util/DerValue;I)V", nullptr, $PROTECTED, $virtualMethod(EncKDCRepPart, init, void, $DerValue*, int32_t), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.EncKDCRepPart",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EncKDCRepPart, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EncKDCRepPart);
+	});
 	return class$;
 }
 

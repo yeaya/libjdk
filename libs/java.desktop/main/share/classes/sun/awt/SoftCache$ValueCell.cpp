@@ -1,5 +1,4 @@
 #include <sun/awt/SoftCache$ValueCell.h>
-
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/lang/ref/SoftReference.h>
@@ -17,47 +16,6 @@ using $SoftReference = ::java::lang::ref::SoftReference;
 
 namespace sun {
 	namespace awt {
-
-$FieldInfo _SoftCache$ValueCell_FieldInfo_[] = {
-	{"INVALID_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(SoftCache$ValueCell, INVALID_KEY)},
-	{"dropped", "I", nullptr, $PRIVATE | $STATIC, $staticField(SoftCache$ValueCell, dropped)},
-	{"key", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(SoftCache$ValueCell, key)},
-	{}
-};
-
-$MethodInfo _SoftCache$ValueCell_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;)V", $PRIVATE, $method(SoftCache$ValueCell, init$, void, Object$*, Object$*, $ReferenceQueue*)},
-	{"create", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)Lsun/awt/SoftCache$ValueCell;", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;)Lsun/awt/SoftCache$ValueCell;", $PRIVATE | $STATIC, $staticMethod(SoftCache$ValueCell, create, SoftCache$ValueCell*, Object$*, Object$*, $ReferenceQueue*)},
-	{"drop", "()V", nullptr, $PRIVATE, $method(SoftCache$ValueCell, drop, void)},
-	{"isValid", "()Z", nullptr, $PRIVATE, $method(SoftCache$ValueCell, isValid, bool)},
-	{"strip", "(Ljava/lang/Object;Z)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(SoftCache$ValueCell, strip, $Object*, Object$*, bool)},
-	{}
-};
-
-$InnerClassInfo _SoftCache$ValueCell_InnerClassesInfo_[] = {
-	{"sun.awt.SoftCache$ValueCell", "sun.awt.SoftCache", "ValueCell", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SoftCache$ValueCell_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.SoftCache$ValueCell",
-	"java.lang.ref.SoftReference",
-	nullptr,
-	_SoftCache$ValueCell_FieldInfo_,
-	_SoftCache$ValueCell_MethodInfo_,
-	"Ljava/lang/ref/SoftReference<Ljava/lang/Object;>;",
-	nullptr,
-	_SoftCache$ValueCell_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.SoftCache"
-};
-
-$Object* allocate$SoftCache$ValueCell($Class* clazz) {
-	return $of($alloc(SoftCache$ValueCell));
-}
 
 $Object* SoftCache$ValueCell::INVALID_KEY = nullptr;
 int32_t SoftCache$ValueCell::dropped = 0;
@@ -77,16 +35,16 @@ SoftCache$ValueCell* SoftCache$ValueCell::create(Object$* key, Object$* value, $
 
 $Object* SoftCache$ValueCell::strip(Object$* val, bool drop) {
 	$init(SoftCache$ValueCell);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (val == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$var(SoftCache$ValueCell, vc, $cast(SoftCache$ValueCell, val));
 	$var($Object, o, $nc(vc)->get());
 	if (drop) {
 		vc->drop();
 	}
-	return $of(o);
+	return o;
 }
 
 bool SoftCache$ValueCell::isValid() {
@@ -99,7 +57,7 @@ void SoftCache$ValueCell::drop() {
 	++SoftCache$ValueCell::dropped;
 }
 
-void clinit$SoftCache$ValueCell($Class* class$) {
+void SoftCache$ValueCell::clinit$($Class* clazz) {
 	$assignStatic(SoftCache$ValueCell::INVALID_KEY, $new($Object));
 	SoftCache$ValueCell::dropped = 0;
 }
@@ -108,7 +66,42 @@ SoftCache$ValueCell::SoftCache$ValueCell() {
 }
 
 $Class* SoftCache$ValueCell::load$($String* name, bool initialize) {
-	$loadClass(SoftCache$ValueCell, name, initialize, &_SoftCache$ValueCell_ClassInfo_, clinit$SoftCache$ValueCell, allocate$SoftCache$ValueCell);
+	$FieldInfo fieldInfos$$[] = {
+		{"INVALID_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(SoftCache$ValueCell, INVALID_KEY)},
+		{"dropped", "I", nullptr, $PRIVATE | $STATIC, $staticField(SoftCache$ValueCell, dropped)},
+		{"key", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(SoftCache$ValueCell, key)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;)V", $PRIVATE, $method(SoftCache$ValueCell, init$, void, Object$*, Object$*, $ReferenceQueue*)},
+		{"create", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)Lsun/awt/SoftCache$ValueCell;", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;)Lsun/awt/SoftCache$ValueCell;", $PRIVATE | $STATIC, $staticMethod(SoftCache$ValueCell, create, SoftCache$ValueCell*, Object$*, Object$*, $ReferenceQueue*)},
+		{"drop", "()V", nullptr, $PRIVATE, $method(SoftCache$ValueCell, drop, void)},
+		{"isValid", "()Z", nullptr, $PRIVATE, $method(SoftCache$ValueCell, isValid, bool)},
+		{"strip", "(Ljava/lang/Object;Z)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(SoftCache$ValueCell, strip, $Object*, Object$*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.SoftCache$ValueCell", "sun.awt.SoftCache", "ValueCell", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.SoftCache$ValueCell",
+		"java.lang.ref.SoftReference",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/ref/SoftReference<Ljava/lang/Object;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.SoftCache"
+	};
+	$loadClass(SoftCache$ValueCell, name, initialize, &classInfo$$, SoftCache$ValueCell::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftCache$ValueCell);
+	});
 	return class$;
 }
 

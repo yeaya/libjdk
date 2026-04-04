@@ -30,6 +30,7 @@ class CCursorManager : public ::sun::lwawt::LWCursorManager {
 	$class(CCursorManager, 0, ::sun::lwawt::LWCursorManager)
 public:
 	CCursorManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::awt::Point* getCursorPosition() override;
 	static ::sun::lwawt::macosx::CCursorManager* getInstance();

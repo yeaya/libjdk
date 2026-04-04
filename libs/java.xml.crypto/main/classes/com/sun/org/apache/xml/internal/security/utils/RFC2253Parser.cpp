@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/utils/RFC2253Parser.h>
-
 #include <java/io/IOException.h>
 #include <java/io/StringReader.h>
 #include <java/lang/NumberFormatException.h>
@@ -25,43 +24,6 @@ namespace com {
 						namespace security {
 							namespace utils {
 
-$MethodInfo _RFC2253Parser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RFC2253Parser, init$, void)},
-	{"changeLess32toRFC", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(RFC2253Parser, changeLess32toRFC, $String*, $String*), "java.io.IOException"},
-	{"changeLess32toXML", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(RFC2253Parser, changeLess32toXML, $String*, $String*), "java.io.IOException"},
-	{"changeWStoRFC", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(RFC2253Parser, changeWStoRFC, $String*, $String*)},
-	{"changeWStoXML", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(RFC2253Parser, changeWStoXML, $String*, $String*), "java.io.IOException"},
-	{"countQuotes", "(Ljava/lang/String;II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(RFC2253Parser, countQuotes, int32_t, $String*, int32_t, int32_t)},
-	{"normalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(RFC2253Parser, normalize, $String*, $String*)},
-	{"normalize", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(RFC2253Parser, normalize, $String*, $String*, bool)},
-	{"normalizeAT", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(RFC2253Parser, normalizeAT, $String*, $String*)},
-	{"normalizeV", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(RFC2253Parser, normalizeV, $String*, $String*, bool), "java.io.IOException"},
-	{"parseATAV", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(RFC2253Parser, parseATAV, $String*, $String*, bool), "java.io.IOException"},
-	{"parseRDN", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(RFC2253Parser, parseRDN, $String*, $String*, bool), "java.io.IOException"},
-	{"removeWSandReplace", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(RFC2253Parser, removeWSandReplace, $String*, $String*, $String*, $String*)},
-	{"removeWhiteSpace", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(RFC2253Parser, removeWhiteSpace, $String*, $String*, $String*)},
-	{"rfc2253toXMLdsig", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(RFC2253Parser, rfc2253toXMLdsig, $String*, $String*)},
-	{"rfctoXML", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(RFC2253Parser, rfctoXML, $String*, $String*)},
-	{"semicolonToComma", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(RFC2253Parser, semicolonToComma, $String*, $String*)},
-	{"trim", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(RFC2253Parser, trim, $String*, $String*)},
-	{"xmldsigtoRFC2253", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(RFC2253Parser, xmldsigtoRFC2253, $String*, $String*)},
-	{"xmltoRFC", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(RFC2253Parser, xmltoRFC, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _RFC2253Parser_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.utils.RFC2253Parser",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_RFC2253Parser_MethodInfo_
-};
-
-$Object* allocate$RFC2253Parser($Class* clazz) {
-	return $of($alloc(RFC2253Parser));
-}
-
 void RFC2253Parser::init$() {
 }
 
@@ -80,8 +42,8 @@ $String* RFC2253Parser::normalize($String* dn) {
 }
 
 $String* RFC2253Parser::normalize($String* dn, bool toXml) {
-	$useLocalCurrentObjectStackCache();
-	if (dn == nullptr || $nc(dn)->isEmpty()) {
+	$useLocalObjectStack();
+	if (dn == nullptr || dn->isEmpty()) {
 		return ""_s;
 	}
 	try {
@@ -90,7 +52,7 @@ $String* RFC2253Parser::normalize($String* dn, bool toXml) {
 		int32_t i = 0;
 		int32_t l = 0;
 		int32_t k = 0;
-		for (int32_t j = 0; (k = $nc(DN)->indexOf((int32_t)u',', j)) >= 0; j = k + 1) {
+		for (int32_t j = 0; (k = $nc(DN)->indexOf(u',', j)) >= 0; j = k + 1) {
 			l += countQuotes(DN, j, k);
 			if (k > 0 && DN->charAt(k - 1) != u'\\' && (l % 2) == 0) {
 				sb->append($(parseRDN($($(DN->substring(i, k))->trim()), toXml)))->append(u',');
@@ -98,7 +60,7 @@ $String* RFC2253Parser::normalize($String* dn, bool toXml) {
 				l = 0;
 			}
 		}
-		sb->append($(parseRDN($(trim($($nc(DN)->substring(i)))), toXml)));
+		sb->append($(parseRDN($(trim($(DN->substring(i)))), toXml)));
 		return sb->toString();
 	} catch ($IOException& ex) {
 		return dn;
@@ -107,12 +69,12 @@ $String* RFC2253Parser::normalize($String* dn, bool toXml) {
 }
 
 $String* RFC2253Parser::parseRDN($String* str, bool toXml) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	int32_t i = 0;
 	int32_t l = 0;
 	int32_t k = 0;
-	for (int32_t j = 0; (k = $nc(str)->indexOf((int32_t)u'+', j)) >= 0; j = k + 1) {
+	for (int32_t j = 0; (k = $nc(str)->indexOf(u'+', j)) >= 0; j = k + 1) {
 		l += countQuotes(str, j, k);
 		if (k > 0 && str->charAt(k - 1) != u'\\' && (l % 2) == 0) {
 			sb->append($(parseATAV($(trim($(str->substring(i, k)))), toXml)))->append(u'+');
@@ -120,13 +82,13 @@ $String* RFC2253Parser::parseRDN($String* str, bool toXml) {
 			l = 0;
 		}
 	}
-	sb->append($(parseATAV($(trim($($nc(str)->substring(i)))), toXml)));
+	sb->append($(parseATAV($(trim($(str->substring(i)))), toXml)));
 	return sb->toString();
 }
 
 $String* RFC2253Parser::parseATAV($String* str, bool toXml) {
-	$useLocalCurrentObjectStackCache();
-	int32_t i = $nc(str)->indexOf((int32_t)u'=');
+	$useLocalObjectStack();
+	int32_t i = $nc(str)->indexOf(u'=');
 	if (i == -1 || i > 0 && str->charAt(i - 1) == u'\\') {
 		return str;
 	}
@@ -142,7 +104,7 @@ $String* RFC2253Parser::parseATAV($String* str, bool toXml) {
 }
 
 $String* RFC2253Parser::normalizeAT($String* str) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, at, $($nc(str)->toUpperCase())->trim());
 	if (at->startsWith("OID"_s)) {
 		$assign(at, at->substring(3));
@@ -151,7 +113,7 @@ $String* RFC2253Parser::normalizeAT($String* str) {
 }
 
 $String* RFC2253Parser::normalizeV($String* str, bool toXml) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, value, trim(str));
 	if ($nc(value)->startsWith("\""_s)) {
 		$var($StringBuilder, sb, $new($StringBuilder));
@@ -199,7 +161,7 @@ $String* RFC2253Parser::xmltoRFC($String* string) {
 }
 
 $String* RFC2253Parser::changeLess32toRFC($String* string) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	$var($StringReader, sr, $new($StringReader, string));
 	int32_t i = 0;
@@ -215,7 +177,7 @@ $String* RFC2253Parser::changeLess32toRFC($String* string) {
 					char16_t ch = (char16_t)$Byte::parseByte($$str({""_s, $$str(c1), $$str(c2)}), 16);
 					sb->append(ch);
 				} catch ($NumberFormatException& ex) {
-					$throwNew($IOException, static_cast<$Throwable*>(ex));
+					$throwNew($IOException, ex);
 				}
 			} else {
 				sb->append(c1);
@@ -229,7 +191,7 @@ $String* RFC2253Parser::changeLess32toRFC($String* string) {
 }
 
 $String* RFC2253Parser::changeLess32toXML($String* string) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	$var($StringReader, sr, $new($StringReader, string));
 	int32_t i = 0;
@@ -245,7 +207,7 @@ $String* RFC2253Parser::changeLess32toXML($String* string) {
 }
 
 $String* RFC2253Parser::changeWStoXML($String* string) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	$var($StringReader, sr, $new($StringReader, string));
 	int32_t i = 0;
@@ -270,7 +232,7 @@ $String* RFC2253Parser::changeWStoXML($String* string) {
 }
 
 $String* RFC2253Parser::changeWStoRFC($String* string) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	int32_t i = 0;
 	int32_t k = 0;
@@ -278,7 +240,7 @@ $String* RFC2253Parser::changeWStoRFC($String* string) {
 		sb->append($(trim($(string->substring(i, k)))))->append("\\ "_s);
 		i = k + 3;
 	}
-	sb->append($($nc(string)->substring(i)));
+	sb->append($(string->substring(i)));
 	return sb->toString();
 }
 
@@ -291,7 +253,7 @@ $String* RFC2253Parser::removeWhiteSpace($String* str, $String* symbol) {
 }
 
 $String* RFC2253Parser::removeWSandReplace($String* str, $String* symbol, $String* replace) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	int32_t i = 0;
 	int32_t l = 0;
@@ -304,7 +266,7 @@ $String* RFC2253Parser::removeWSandReplace($String* str, $String* symbol, $Strin
 			l = 0;
 		}
 	}
-	sb->append($(trim($($nc(str)->substring(i)))));
+	sb->append($(trim($(str->substring(i)))));
 	return sb->toString();
 }
 
@@ -335,7 +297,40 @@ RFC2253Parser::RFC2253Parser() {
 }
 
 $Class* RFC2253Parser::load$($String* name, bool initialize) {
-	$loadClass(RFC2253Parser, name, initialize, &_RFC2253Parser_ClassInfo_, allocate$RFC2253Parser);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RFC2253Parser, init$, void)},
+		{"changeLess32toRFC", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(RFC2253Parser, changeLess32toRFC, $String*, $String*), "java.io.IOException"},
+		{"changeLess32toXML", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(RFC2253Parser, changeLess32toXML, $String*, $String*), "java.io.IOException"},
+		{"changeWStoRFC", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(RFC2253Parser, changeWStoRFC, $String*, $String*)},
+		{"changeWStoXML", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(RFC2253Parser, changeWStoXML, $String*, $String*), "java.io.IOException"},
+		{"countQuotes", "(Ljava/lang/String;II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(RFC2253Parser, countQuotes, int32_t, $String*, int32_t, int32_t)},
+		{"normalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(RFC2253Parser, normalize, $String*, $String*)},
+		{"normalize", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(RFC2253Parser, normalize, $String*, $String*, bool)},
+		{"normalizeAT", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(RFC2253Parser, normalizeAT, $String*, $String*)},
+		{"normalizeV", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(RFC2253Parser, normalizeV, $String*, $String*, bool), "java.io.IOException"},
+		{"parseATAV", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(RFC2253Parser, parseATAV, $String*, $String*, bool), "java.io.IOException"},
+		{"parseRDN", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(RFC2253Parser, parseRDN, $String*, $String*, bool), "java.io.IOException"},
+		{"removeWSandReplace", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(RFC2253Parser, removeWSandReplace, $String*, $String*, $String*, $String*)},
+		{"removeWhiteSpace", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(RFC2253Parser, removeWhiteSpace, $String*, $String*, $String*)},
+		{"rfc2253toXMLdsig", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(RFC2253Parser, rfc2253toXMLdsig, $String*, $String*)},
+		{"rfctoXML", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(RFC2253Parser, rfctoXML, $String*, $String*)},
+		{"semicolonToComma", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(RFC2253Parser, semicolonToComma, $String*, $String*)},
+		{"trim", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(RFC2253Parser, trim, $String*, $String*)},
+		{"xmldsigtoRFC2253", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(RFC2253Parser, xmldsigtoRFC2253, $String*, $String*)},
+		{"xmltoRFC", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(RFC2253Parser, xmltoRFC, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.utils.RFC2253Parser",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RFC2253Parser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RFC2253Parser);
+	});
 	return class$;
 }
 

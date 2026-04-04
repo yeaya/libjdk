@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/Big5_HKSCS_2001.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -25,45 +24,12 @@ namespace sun {
 		namespace cs {
 			namespace ext {
 
-$MethodInfo _Big5_HKSCS_2001_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Big5_HKSCS_2001, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(Big5_HKSCS_2001, contains, bool, $Charset*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(Big5_HKSCS_2001, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(Big5_HKSCS_2001, newEncoder, $CharsetEncoder*)},
-	{}
-};
-
-$InnerClassInfo _Big5_HKSCS_2001_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.Big5_HKSCS_2001$Encoder", "sun.nio.cs.ext.Big5_HKSCS_2001", "Encoder", $PRIVATE | $STATIC},
-	{"sun.nio.cs.ext.Big5_HKSCS_2001$Decoder", "sun.nio.cs.ext.Big5_HKSCS_2001", "Decoder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Big5_HKSCS_2001_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.ext.Big5_HKSCS_2001",
-	"java.nio.charset.Charset",
-	nullptr,
-	nullptr,
-	_Big5_HKSCS_2001_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Big5_HKSCS_2001_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.Big5_HKSCS_2001$Encoder,sun.nio.cs.ext.Big5_HKSCS_2001$Decoder"
-};
-
-$Object* allocate$Big5_HKSCS_2001($Class* clazz) {
-	return $of($alloc(Big5_HKSCS_2001));
-}
-
 void Big5_HKSCS_2001::init$() {
 	$Charset::init$("x-Big5-HKSCS-2001"_s, $($ExtendedCharsets::aliasesFor("x-Big5-HKSCS-2001"_s)));
 }
 
 bool Big5_HKSCS_2001::contains($Charset* cs) {
-	return (($nc($($nc(cs)->name()))->equals("US-ASCII"_s)) || ($instanceOf($Big5, cs)) || ($instanceOf(Big5_HKSCS_2001, cs)));
+	return (($$nc($nc(cs)->name())->equals("US-ASCII"_s)) || ($instanceOf($Big5, cs)) || ($instanceOf(Big5_HKSCS_2001, cs)));
 }
 
 $CharsetDecoder* Big5_HKSCS_2001::newDecoder() {
@@ -78,7 +44,35 @@ Big5_HKSCS_2001::Big5_HKSCS_2001() {
 }
 
 $Class* Big5_HKSCS_2001::load$($String* name, bool initialize) {
-	$loadClass(Big5_HKSCS_2001, name, initialize, &_Big5_HKSCS_2001_ClassInfo_, allocate$Big5_HKSCS_2001);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Big5_HKSCS_2001, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(Big5_HKSCS_2001, contains, bool, $Charset*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(Big5_HKSCS_2001, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(Big5_HKSCS_2001, newEncoder, $CharsetEncoder*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.Big5_HKSCS_2001$Encoder", "sun.nio.cs.ext.Big5_HKSCS_2001", "Encoder", $PRIVATE | $STATIC},
+		{"sun.nio.cs.ext.Big5_HKSCS_2001$Decoder", "sun.nio.cs.ext.Big5_HKSCS_2001", "Decoder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.ext.Big5_HKSCS_2001",
+		"java.nio.charset.Charset",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.Big5_HKSCS_2001$Encoder,sun.nio.cs.ext.Big5_HKSCS_2001$Decoder"
+	};
+	$loadClass(Big5_HKSCS_2001, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Big5_HKSCS_2001);
+	});
 	return class$;
 }
 

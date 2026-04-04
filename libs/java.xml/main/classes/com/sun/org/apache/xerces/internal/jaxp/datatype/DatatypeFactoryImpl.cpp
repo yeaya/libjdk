@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/datatype/DatatypeFactoryImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/jaxp/datatype/DurationDayTimeImpl.h>
 #include <com/sun/org/apache/xerces/internal/jaxp/datatype/DurationImpl.h>
 #include <com/sun/org/apache/xerces/internal/jaxp/datatype/DurationYearMonthImpl.h>
@@ -34,39 +33,6 @@ namespace com {
 					namespace internal {
 						namespace jaxp {
 							namespace datatype {
-
-$MethodInfo _DatatypeFactoryImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DatatypeFactoryImpl, init$, void)},
-	{"newDuration", "(Ljava/lang/String;)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newDuration, $Duration*, $String*)},
-	{"newDuration", "(J)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newDuration, $Duration*, int64_t)},
-	{"newDuration", "(ZLjava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigDecimal;)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newDuration, $Duration*, bool, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigDecimal*)},
-	{"newDurationDayTime", "(Ljava/lang/String;)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newDurationDayTime, $Duration*, $String*)},
-	{"newDurationDayTime", "(J)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newDurationDayTime, $Duration*, int64_t)},
-	{"newDurationDayTime", "(ZLjava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newDurationDayTime, $Duration*, bool, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*)},
-	{"newDurationDayTime", "(ZIIII)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newDurationDayTime, $Duration*, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"newDurationYearMonth", "(ZLjava/math/BigInteger;Ljava/math/BigInteger;)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newDurationYearMonth, $Duration*, bool, $BigInteger*, $BigInteger*)},
-	{"newDurationYearMonth", "(ZII)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newDurationYearMonth, $Duration*, bool, int32_t, int32_t)},
-	{"newDurationYearMonth", "(Ljava/lang/String;)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newDurationYearMonth, $Duration*, $String*)},
-	{"newDurationYearMonth", "(J)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newDurationYearMonth, $Duration*, int64_t)},
-	{"newXMLGregorianCalendar", "()Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newXMLGregorianCalendar, $XMLGregorianCalendar*)},
-	{"newXMLGregorianCalendar", "(Ljava/lang/String;)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newXMLGregorianCalendar, $XMLGregorianCalendar*, $String*)},
-	{"newXMLGregorianCalendar", "(Ljava/util/GregorianCalendar;)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newXMLGregorianCalendar, $XMLGregorianCalendar*, $GregorianCalendar*)},
-	{"newXMLGregorianCalendar", "(Ljava/math/BigInteger;IIIIILjava/math/BigDecimal;I)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newXMLGregorianCalendar, $XMLGregorianCalendar*, $BigInteger*, int32_t, int32_t, int32_t, int32_t, int32_t, $BigDecimal*, int32_t)},
-	{}
-};
-
-$ClassInfo _DatatypeFactoryImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.jaxp.datatype.DatatypeFactoryImpl",
-	"javax.xml.datatype.DatatypeFactory",
-	nullptr,
-	nullptr,
-	_DatatypeFactoryImpl_MethodInfo_
-};
-
-$Object* allocate$DatatypeFactoryImpl($Class* clazz) {
-	return $of($alloc(DatatypeFactoryImpl));
-}
 
 void DatatypeFactoryImpl::init$() {
 	$DatatypeFactory::init$();
@@ -139,7 +105,36 @@ DatatypeFactoryImpl::DatatypeFactoryImpl() {
 }
 
 $Class* DatatypeFactoryImpl::load$($String* name, bool initialize) {
-	$loadClass(DatatypeFactoryImpl, name, initialize, &_DatatypeFactoryImpl_ClassInfo_, allocate$DatatypeFactoryImpl);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DatatypeFactoryImpl, init$, void)},
+		{"newDuration", "(Ljava/lang/String;)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newDuration, $Duration*, $String*)},
+		{"newDuration", "(J)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newDuration, $Duration*, int64_t)},
+		{"newDuration", "(ZLjava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigDecimal;)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newDuration, $Duration*, bool, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigDecimal*)},
+		{"newDurationDayTime", "(Ljava/lang/String;)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newDurationDayTime, $Duration*, $String*)},
+		{"newDurationDayTime", "(J)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newDurationDayTime, $Duration*, int64_t)},
+		{"newDurationDayTime", "(ZLjava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newDurationDayTime, $Duration*, bool, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*)},
+		{"newDurationDayTime", "(ZIIII)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newDurationDayTime, $Duration*, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"newDurationYearMonth", "(ZLjava/math/BigInteger;Ljava/math/BigInteger;)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newDurationYearMonth, $Duration*, bool, $BigInteger*, $BigInteger*)},
+		{"newDurationYearMonth", "(ZII)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newDurationYearMonth, $Duration*, bool, int32_t, int32_t)},
+		{"newDurationYearMonth", "(Ljava/lang/String;)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newDurationYearMonth, $Duration*, $String*)},
+		{"newDurationYearMonth", "(J)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newDurationYearMonth, $Duration*, int64_t)},
+		{"newXMLGregorianCalendar", "()Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newXMLGregorianCalendar, $XMLGregorianCalendar*)},
+		{"newXMLGregorianCalendar", "(Ljava/lang/String;)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newXMLGregorianCalendar, $XMLGregorianCalendar*, $String*)},
+		{"newXMLGregorianCalendar", "(Ljava/util/GregorianCalendar;)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newXMLGregorianCalendar, $XMLGregorianCalendar*, $GregorianCalendar*)},
+		{"newXMLGregorianCalendar", "(Ljava/math/BigInteger;IIIIILjava/math/BigDecimal;I)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC, $virtualMethod(DatatypeFactoryImpl, newXMLGregorianCalendar, $XMLGregorianCalendar*, $BigInteger*, int32_t, int32_t, int32_t, int32_t, int32_t, $BigDecimal*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.jaxp.datatype.DatatypeFactoryImpl",
+		"javax.xml.datatype.DatatypeFactory",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DatatypeFactoryImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DatatypeFactoryImpl);
+	});
 	return class$;
 }
 

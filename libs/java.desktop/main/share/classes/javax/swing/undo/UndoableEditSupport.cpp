@@ -1,5 +1,4 @@
 #include <javax/swing/undo/UndoableEditSupport.h>
-
 #include <java/util/Enumeration.h>
 #include <java/util/Vector.h>
 #include <javax/swing/event/UndoableEditEvent.h>
@@ -22,43 +21,6 @@ using $UndoableEdit = ::javax::swing::undo::UndoableEdit;
 namespace javax {
 	namespace swing {
 		namespace undo {
-
-$FieldInfo _UndoableEditSupport_FieldInfo_[] = {
-	{"updateLevel", "I", nullptr, $PROTECTED, $field(UndoableEditSupport, updateLevel)},
-	{"compoundEdit", "Ljavax/swing/undo/CompoundEdit;", nullptr, $PROTECTED, $field(UndoableEditSupport, compoundEdit)},
-	{"listeners", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/event/UndoableEditListener;>;", $PROTECTED, $field(UndoableEditSupport, listeners)},
-	{"realSource", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(UndoableEditSupport, realSource)},
-	{}
-};
-
-$MethodInfo _UndoableEditSupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UndoableEditSupport, init$, void)},
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(UndoableEditSupport, init$, void, Object$*)},
-	{"_postEdit", "(Ljavax/swing/undo/UndoableEdit;)V", nullptr, $PROTECTED, $virtualMethod(UndoableEditSupport, _postEdit, void, $UndoableEdit*)},
-	{"addUndoableEditListener", "(Ljavax/swing/event/UndoableEditListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoableEditSupport, addUndoableEditListener, void, $UndoableEditListener*)},
-	{"beginUpdate", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoableEditSupport, beginUpdate, void)},
-	{"createCompoundEdit", "()Ljavax/swing/undo/CompoundEdit;", nullptr, $PROTECTED, $virtualMethod(UndoableEditSupport, createCompoundEdit, $CompoundEdit*)},
-	{"endUpdate", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoableEditSupport, endUpdate, void)},
-	{"getUndoableEditListeners", "()[Ljavax/swing/event/UndoableEditListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoableEditSupport, getUndoableEditListeners, $UndoableEditListenerArray*)},
-	{"getUpdateLevel", "()I", nullptr, $PUBLIC, $virtualMethod(UndoableEditSupport, getUpdateLevel, int32_t)},
-	{"postEdit", "(Ljavax/swing/undo/UndoableEdit;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoableEditSupport, postEdit, void, $UndoableEdit*)},
-	{"removeUndoableEditListener", "(Ljavax/swing/event/UndoableEditListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoableEditSupport, removeUndoableEditListener, void, $UndoableEditListener*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UndoableEditSupport, toString, $String*)},
-	{}
-};
-
-$ClassInfo _UndoableEditSupport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.undo.UndoableEditSupport",
-	"java.lang.Object",
-	nullptr,
-	_UndoableEditSupport_FieldInfo_,
-	_UndoableEditSupport_MethodInfo_
-};
-
-$Object* allocate$UndoableEditSupport($Class* clazz) {
-	return $of($alloc(UndoableEditSupport));
-}
 
 void UndoableEditSupport::init$() {
 	UndoableEditSupport::init$(nullptr);
@@ -85,16 +47,16 @@ void UndoableEditSupport::removeUndoableEditListener($UndoableEditListener* l) {
 
 $UndoableEditListenerArray* UndoableEditSupport::getUndoableEditListeners() {
 	$synchronized(this) {
-		return $fcast($UndoableEditListenerArray, $nc(this->listeners)->toArray($$new($UndoableEditListenerArray, 0)));
+		return $cast($UndoableEditListenerArray, $nc(this->listeners)->toArray($$new($UndoableEditListenerArray, 0)));
 	}
 }
 
 void UndoableEditSupport::_postEdit($UndoableEdit* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UndoableEditEvent, ev, $new($UndoableEditEvent, this->realSource, e));
-	$var($Enumeration, cursor, $nc(($cast($Vector, $($nc(this->listeners)->clone()))))->elements());
+	$var($Enumeration, cursor, $$sure($Vector, $nc(this->listeners)->clone())->elements());
 	while ($nc(cursor)->hasMoreElements()) {
-		$nc(($cast($UndoableEditListener, $(cursor->nextElement()))))->undoableEditHappened(ev);
+		$$sure($UndoableEditListener, cursor->nextElement())->undoableEditHappened(ev);
 	}
 }
 
@@ -137,7 +99,7 @@ void UndoableEditSupport::endUpdate() {
 }
 
 $String* UndoableEditSupport::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$($Object::toString()), " updateLevel: "_s, $$str(this->updateLevel), " listeners: "_s, this->listeners, " compoundEdit: "_s, this->compoundEdit});
 }
 
@@ -145,7 +107,39 @@ UndoableEditSupport::UndoableEditSupport() {
 }
 
 $Class* UndoableEditSupport::load$($String* name, bool initialize) {
-	$loadClass(UndoableEditSupport, name, initialize, &_UndoableEditSupport_ClassInfo_, allocate$UndoableEditSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"updateLevel", "I", nullptr, $PROTECTED, $field(UndoableEditSupport, updateLevel)},
+		{"compoundEdit", "Ljavax/swing/undo/CompoundEdit;", nullptr, $PROTECTED, $field(UndoableEditSupport, compoundEdit)},
+		{"listeners", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/event/UndoableEditListener;>;", $PROTECTED, $field(UndoableEditSupport, listeners)},
+		{"realSource", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(UndoableEditSupport, realSource)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UndoableEditSupport, init$, void)},
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(UndoableEditSupport, init$, void, Object$*)},
+		{"_postEdit", "(Ljavax/swing/undo/UndoableEdit;)V", nullptr, $PROTECTED, $virtualMethod(UndoableEditSupport, _postEdit, void, $UndoableEdit*)},
+		{"addUndoableEditListener", "(Ljavax/swing/event/UndoableEditListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoableEditSupport, addUndoableEditListener, void, $UndoableEditListener*)},
+		{"beginUpdate", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoableEditSupport, beginUpdate, void)},
+		{"createCompoundEdit", "()Ljavax/swing/undo/CompoundEdit;", nullptr, $PROTECTED, $virtualMethod(UndoableEditSupport, createCompoundEdit, $CompoundEdit*)},
+		{"endUpdate", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoableEditSupport, endUpdate, void)},
+		{"getUndoableEditListeners", "()[Ljavax/swing/event/UndoableEditListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoableEditSupport, getUndoableEditListeners, $UndoableEditListenerArray*)},
+		{"getUpdateLevel", "()I", nullptr, $PUBLIC, $virtualMethod(UndoableEditSupport, getUpdateLevel, int32_t)},
+		{"postEdit", "(Ljavax/swing/undo/UndoableEdit;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoableEditSupport, postEdit, void, $UndoableEdit*)},
+		{"removeUndoableEditListener", "(Ljavax/swing/event/UndoableEditListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoableEditSupport, removeUndoableEditListener, void, $UndoableEditListener*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UndoableEditSupport, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.undo.UndoableEditSupport",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UndoableEditSupport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UndoableEditSupport);
+	});
 	return class$;
 }
 

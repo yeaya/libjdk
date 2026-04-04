@@ -1,5 +1,4 @@
 #include <javax/swing/colorchooser/CenterLayout.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -19,34 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace swing {
 		namespace colorchooser {
-
-$MethodInfo _CenterLayout_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(CenterLayout, init$, void)},
-	{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(CenterLayout, addLayoutComponent, void, $String*, $Component*)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(CenterLayout, layoutContainer, void, $Container*)},
-	{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(CenterLayout, minimumLayoutSize, $Dimension*, $Container*)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(CenterLayout, preferredLayoutSize, $Dimension*, $Container*)},
-	{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(CenterLayout, removeLayoutComponent, void, $Component*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _CenterLayout_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.colorchooser.CenterLayout",
-	"java.lang.Object",
-	"java.awt.LayoutManager,java.io.Serializable",
-	nullptr,
-	_CenterLayout_MethodInfo_
-};
-
-$Object* allocate$CenterLayout($Class* clazz) {
-	return $of($alloc(CenterLayout));
-}
 
 int32_t CenterLayout::hashCode() {
 	 return this->$LayoutManager::hashCode();
@@ -78,12 +49,12 @@ void CenterLayout::removeLayoutComponent($Component* comp) {
 }
 
 $Dimension* CenterLayout::preferredLayoutSize($Container* container) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, c, $nc(container)->getComponent(0));
 	if (c != nullptr) {
 		$var($Dimension, size, c->getPreferredSize());
 		$var($Insets, insets, container->getInsets());
-		$nc(size)->width += $nc(insets)->left + insets->right;
+		$nc(size)->width += $nc(insets)->left + $nc(insets)->right;
 		size->height += insets->top + insets->bottom;
 		return size;
 	} else {
@@ -96,14 +67,14 @@ $Dimension* CenterLayout::minimumLayoutSize($Container* cont) {
 }
 
 void CenterLayout::layoutContainer($Container* container) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($Component, c, $nc(container)->getComponent(0));
-		$nc(c)->setSize($(c->getPreferredSize()));
+		$nc(c)->setSize($($nc(c)->getPreferredSize()));
 		$var($Dimension, size, c->getSize());
 		$var($Dimension, containerSize, container->getSize());
 		$var($Insets, containerInsets, container->getInsets());
-		$nc(containerSize)->width -= $nc(containerInsets)->left + containerInsets->right;
+		$nc(containerSize)->width -= $nc(containerInsets)->left + $nc(containerInsets)->right;
 		containerSize->height -= containerInsets->top + containerInsets->bottom;
 		int32_t componentLeft = (containerSize->width / 2) - ($nc(size)->width / 2);
 		int32_t componentTop = (containerSize->height / 2) - (size->height / 2);
@@ -118,7 +89,31 @@ CenterLayout::CenterLayout() {
 }
 
 $Class* CenterLayout::load$($String* name, bool initialize) {
-	$loadClass(CenterLayout, name, initialize, &_CenterLayout_ClassInfo_, allocate$CenterLayout);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(CenterLayout, init$, void)},
+		{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(CenterLayout, addLayoutComponent, void, $String*, $Component*)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(CenterLayout, layoutContainer, void, $Container*)},
+		{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(CenterLayout, minimumLayoutSize, $Dimension*, $Container*)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(CenterLayout, preferredLayoutSize, $Dimension*, $Container*)},
+		{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(CenterLayout, removeLayoutComponent, void, $Component*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.colorchooser.CenterLayout",
+		"java.lang.Object",
+		"java.awt.LayoutManager,java.io.Serializable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CenterLayout, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CenterLayout));
+	});
 	return class$;
 }
 

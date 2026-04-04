@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFileSystemModel.h>
-
 #include <com/apple/laf/AquaFileSystemModel$FilesLoader.h>
 #include <com/apple/laf/AquaFileSystemModel$QuickSortDates.h>
 #include <com/apple/laf/AquaFileSystemModel$QuickSortNames.h>
@@ -37,7 +36,6 @@ using $AquaFileSystemModel$QuickSortDates = ::com::apple::laf::AquaFileSystemMod
 using $AquaFileSystemModel$QuickSortNames = ::com::apple::laf::AquaFileSystemModel$QuickSortNames;
 using $AquaFileSystemModel$SortableFile = ::com::apple::laf::AquaFileSystemModel$SortableFile;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $File = ::java::io::File;
 using $Boolean = ::java::lang::Boolean;
@@ -54,88 +52,11 @@ using $JTable = ::javax::swing::JTable;
 using $ListSelectionModel = ::javax::swing::ListSelectionModel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $ListDataEvent = ::javax::swing::event::ListDataEvent;
-using $FileSystemView = ::javax::swing::filechooser::FileSystemView;
 using $AbstractTableModel = ::javax::swing::table::AbstractTableModel;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaFileSystemModel_FieldInfo_[] = {
-	{"fFileList", "Ljavax/swing/JTable;", nullptr, $PRIVATE | $FINAL, $field(AquaFileSystemModel, fFileList)},
-	{"filesLoader", "Lcom/apple/laf/AquaFileSystemModel$FilesLoader;", nullptr, $PRIVATE, $field(AquaFileSystemModel, filesLoader)},
-	{"files", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/io/File;>;", $PRIVATE, $field(AquaFileSystemModel, files)},
-	{"filechooser", "Ljavax/swing/JFileChooser;", nullptr, 0, $field(AquaFileSystemModel, filechooser)},
-	{"fileCache", "Ljava/util/Vector;", "Ljava/util/Vector<Lcom/apple/laf/AquaFileSystemModel$SortableFile;>;", 0, $field(AquaFileSystemModel, fileCache)},
-	{"fileCacheLock", "Ljava/lang/Object;", nullptr, 0, $field(AquaFileSystemModel, fileCacheLock)},
-	{"directories", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/io/File;>;", 0, $field(AquaFileSystemModel, directories)},
-	{"fetchID", "I", nullptr, 0, $field(AquaFileSystemModel, fetchID)},
-	{"fSortAscending", "[Z", nullptr, $PRIVATE | $FINAL, $field(AquaFileSystemModel, fSortAscending)},
-	{"fSortNames", "Z", nullptr, $PRIVATE, $field(AquaFileSystemModel, fSortNames)},
-	{"fColumnNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(AquaFileSystemModel, fColumnNames)},
-	{"SORT_BY_CHANGED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AquaFileSystemModel, SORT_BY_CHANGED)},
-	{"SORT_ASCENDING_CHANGED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AquaFileSystemModel, SORT_ASCENDING_CHANGED)},
-	{"sSortNames", "Lcom/apple/laf/AquaFileSystemModel$QuickSortNames;", nullptr, $FINAL, $field(AquaFileSystemModel, sSortNames)},
-	{"sSortDates", "Lcom/apple/laf/AquaFileSystemModel$QuickSortDates;", nullptr, $FINAL, $field(AquaFileSystemModel, sSortDates)},
-	{}
-};
-
-$MethodInfo _AquaFileSystemModel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JFileChooser;Ljavax/swing/JTable;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AquaFileSystemModel, init$, void, $JFileChooser*, $JTable*, $StringArray*)},
-	{"contains", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel, contains, bool, $File*)},
-	{"getColumnClass", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<+Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(AquaFileSystemModel, getColumnClass, $Class*, int32_t)},
-	{"getColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel, getColumnCount, int32_t)},
-	{"getColumnName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel, getColumnName, $String*, int32_t)},
-	{"getDirectories", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/io/File;>;", $PUBLIC, $virtualMethod(AquaFileSystemModel, getDirectories, $Vector*)},
-	{"getElementAt", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel, getElementAt, $Object*, int32_t)},
-	{"getFiles", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/io/File;>;", $PUBLIC, $virtualMethod(AquaFileSystemModel, getFiles, $Vector*)},
-	{"getRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel, getRowCount, int32_t)},
-	{"getValueAt", "(II)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel, getValueAt, $Object*, int32_t, int32_t)},
-	{"indexOf", "(Ljava/io/File;)I", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel, indexOf, int32_t, $File*)},
-	{"intervalAdded", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel, intervalAdded, void, $ListDataEvent*)},
-	{"intervalRemoved", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel, intervalRemoved, void, $ListDataEvent*)},
-	{"invalidateFileCache", "()V", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel, invalidateFileCache, void)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel, propertyChange, void, $PropertyChangeEvent*)},
-	{"runWhenDone", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel, runWhenDone, void, $Runnable*)},
-	{"sort", "(Ljava/util/Vector;)V", "(Ljava/util/Vector<Ljava/lang/Object;>;)V", $PROTECTED, $virtualMethod(AquaFileSystemModel, sort, void, $Vector*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateSelectionMode", "()V", nullptr, 0, $virtualMethod(AquaFileSystemModel, updateSelectionMode, void)},
-	{"validateFileCache", "()V", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel, validateFileCache, void)},
-	{}
-};
-
-$InnerClassInfo _AquaFileSystemModel_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFileSystemModel$DoChangeContents", "com.apple.laf.AquaFileSystemModel", "DoChangeContents", 0},
-	{"com.apple.laf.AquaFileSystemModel$FilesLoader", "com.apple.laf.AquaFileSystemModel", "FilesLoader", 0},
-	{"com.apple.laf.AquaFileSystemModel$SortableFile", "com.apple.laf.AquaFileSystemModel", "SortableFile", 0},
-	{"com.apple.laf.AquaFileSystemModel$QuickSortDates", "com.apple.laf.AquaFileSystemModel", "QuickSortDates", 0},
-	{"com.apple.laf.AquaFileSystemModel$QuickSortNames", "com.apple.laf.AquaFileSystemModel", "QuickSortNames", 0},
-	{"com.apple.laf.AquaFileSystemModel$QuickSort", "com.apple.laf.AquaFileSystemModel", "QuickSort", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaFileSystemModel_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaFileSystemModel",
-	"javax.swing.table.AbstractTableModel",
-	"java.beans.PropertyChangeListener",
-	_AquaFileSystemModel_FieldInfo_,
-	_AquaFileSystemModel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaFileSystemModel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFileSystemModel$DoChangeContents,com.apple.laf.AquaFileSystemModel$FilesLoader,com.apple.laf.AquaFileSystemModel$SortableFile,com.apple.laf.AquaFileSystemModel$QuickSortDates,com.apple.laf.AquaFileSystemModel$QuickSortNames,com.apple.laf.AquaFileSystemModel$QuickSort"
-};
-
-$Object* allocate$AquaFileSystemModel($Class* clazz) {
-	return $of($alloc(AquaFileSystemModel));
-}
 
 int32_t AquaFileSystemModel::hashCode() {
 	 return this->$AbstractTableModel::hashCode();
@@ -185,44 +106,40 @@ void AquaFileSystemModel::init$($JFileChooser* filechooser, $JTable* filelist, $
 
 void AquaFileSystemModel::updateSelectionMode() {
 	bool var$0 = $nc(this->filechooser)->isMultiSelectionEnabled();
-	bool b = var$0 && $nc(this->filechooser)->getDialogType() != $JFileChooser::SAVE_DIALOG;
+	bool b = var$0 && this->filechooser->getDialogType() != $JFileChooser::SAVE_DIALOG;
 	$nc(this->fFileList)->setSelectionMode(b ? $ListSelectionModel::MULTIPLE_INTERVAL_SELECTION : $ListSelectionModel::SINGLE_SELECTION);
 }
 
 void AquaFileSystemModel::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prop, $nc(e)->getPropertyName());
 	$init($JFileChooser);
 	if (prop == $JFileChooser::DIRECTORY_CHANGED_PROPERTY || prop == $JFileChooser::FILE_VIEW_CHANGED_PROPERTY || prop == $JFileChooser::FILE_FILTER_CHANGED_PROPERTY || prop == $JFileChooser::FILE_HIDING_CHANGED_PROPERTY) {
 		invalidateFileCache();
 		validateFileCache();
-	} else {
-		if ($nc(prop)->equals($JFileChooser::MULTI_SELECTION_ENABLED_CHANGED_PROPERTY)) {
-			updateSelectionMode();
-		} else {
-			if (prop == $JFileChooser::FILE_SELECTION_MODE_CHANGED_PROPERTY) {
-				invalidateFileCache();
-				validateFileCache();
-			} else if (prop->equals("componentOrientation"_s)) {
-				$var($ComponentOrientation, o, $cast($ComponentOrientation, e->getNewValue()));
-				$var($JFileChooser, cc, $cast($JFileChooser, e->getSource()));
-				if (!$equals(o, e->getOldValue())) {
-					$nc(cc)->applyComponentOrientation(o);
-				}
-				$nc(this->fFileList)->setComponentOrientation(o);
-				$nc($($nc($($nc(this->fFileList)->getParent()))->getParent()))->setComponentOrientation(o);
-			}
+	} else if ($nc(prop)->equals($JFileChooser::MULTI_SELECTION_ENABLED_CHANGED_PROPERTY)) {
+		updateSelectionMode();
+	} else if (prop == $JFileChooser::FILE_SELECTION_MODE_CHANGED_PROPERTY) {
+		invalidateFileCache();
+		validateFileCache();
+	} else if (prop->equals("componentOrientation"_s)) {
+		$var($ComponentOrientation, o, $cast($ComponentOrientation, e->getNewValue()));
+		$var($JFileChooser, cc, $cast($JFileChooser, e->getSource()));
+		if (!$equals(o, e->getOldValue())) {
+			$nc(cc)->applyComponentOrientation(o);
 		}
+		$nc(this->fFileList)->setComponentOrientation(o);
+		$$nc($$nc(this->fFileList->getParent())->getParent())->setComponentOrientation(o);
 	}
 	if (prop == AquaFileSystemModel::SORT_BY_CHANGED) {
-		this->fSortNames = ($nc(($cast($Integer, $(e->getNewValue()))))->intValue() == 0);
+		this->fSortNames = ($$sure($Integer, e->getNewValue())->intValue() == 0);
 		invalidateFileCache();
 		validateFileCache();
 		$nc(this->fFileList)->repaint();
 	}
 	if (prop == AquaFileSystemModel::SORT_ASCENDING_CHANGED) {
 		int32_t sortColumn = (this->fSortNames ? 0 : 1);
-		$nc(this->fSortAscending)->set(sortColumn, $nc(($cast($Boolean, $(e->getNewValue()))))->booleanValue());
+		this->fSortAscending->set(sortColumn, $$sure($Boolean, e->getNewValue())->booleanValue());
 		invalidateFileCache();
 		validateFileCache();
 		$nc(this->fFileList)->repaint();
@@ -234,7 +151,7 @@ void AquaFileSystemModel::invalidateFileCache() {
 	$set(this, directories, nullptr);
 	$synchronized(this->fileCacheLock) {
 		if (this->fileCache != nullptr) {
-			int32_t lastRow = $nc(this->fileCache)->size();
+			int32_t lastRow = this->fileCache->size();
 			$set(this, fileCache, nullptr);
 			fireTableRowsDeleted(0, lastRow);
 		}
@@ -249,16 +166,16 @@ $Vector* AquaFileSystemModel::getDirectories() {
 }
 
 $Vector* AquaFileSystemModel::getFiles() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->files != nullptr) {
 		return this->files;
 	}
 	$set(this, files, $new($Vector));
 	$set(this, directories, $new($Vector));
-	$nc(this->directories)->addElement($($nc($($nc(this->filechooser)->getFileSystemView()))->createFileObject($($nc(this->filechooser)->getCurrentDirectory()), ".."_s)));
+	this->directories->addElement($($$nc($nc(this->filechooser)->getFileSystemView())->createFileObject($($nc(this->filechooser)->getCurrentDirectory()), ".."_s)));
 	$synchronized(this->fileCacheLock) {
 		for (int32_t i = 0; i < $nc(this->fileCache)->size(); ++i) {
-			$var($AquaFileSystemModel$SortableFile, sf, $cast($AquaFileSystemModel$SortableFile, $nc(this->fileCache)->elementAt(i)));
+			$var($AquaFileSystemModel$SortableFile, sf, $cast($AquaFileSystemModel$SortableFile, this->fileCache->elementAt(i)));
 			$var($File, f, $nc(sf)->fFile);
 			if ($nc(this->filechooser)->isTraversable(f)) {
 				$nc(this->directories)->addElement(f);
@@ -273,8 +190,8 @@ $Vector* AquaFileSystemModel::getFiles() {
 void AquaFileSystemModel::runWhenDone($Runnable* runnable) {
 	$synchronized(this->fileCacheLock) {
 		if (this->filesLoader != nullptr) {
-			if ($nc($nc(this->filesLoader)->loadThread)->isAlive()) {
-				$nc($nc(this->filesLoader)->queuedTasks)->add(runnable);
+			if ($nc(this->filesLoader->loadThread)->isAlive()) {
+				$nc(this->filesLoader->queuedTasks)->add(runnable);
 				return;
 			}
 		}
@@ -289,7 +206,7 @@ void AquaFileSystemModel::validateFileCache() {
 		return;
 	}
 	if (this->filesLoader != nullptr) {
-		$nc($nc(this->filesLoader)->loadThread)->interrupt();
+		$nc(this->filesLoader->loadThread)->interrupt();
 	}
 	++this->fetchID;
 	invalidateFileCache();
@@ -319,7 +236,7 @@ $Class* AquaFileSystemModel::getColumnClass(int32_t col) {
 int32_t AquaFileSystemModel::getRowCount() {
 	$synchronized(this->fileCacheLock) {
 		if (this->fileCache != nullptr) {
-			return $nc(this->fileCache)->size();
+			return this->fileCache->size();
 		}
 		return 0;
 	}
@@ -328,7 +245,7 @@ int32_t AquaFileSystemModel::getRowCount() {
 bool AquaFileSystemModel::contains($File* o) {
 	$synchronized(this->fileCacheLock) {
 		if (this->fileCache != nullptr) {
-			return $nc(this->fileCache)->contains($$new($AquaFileSystemModel$SortableFile, this, o));
+			return this->fileCache->contains($$new($AquaFileSystemModel$SortableFile, this, o));
 		}
 		return false;
 	}
@@ -337,31 +254,31 @@ bool AquaFileSystemModel::contains($File* o) {
 int32_t AquaFileSystemModel::indexOf($File* o) {
 	$synchronized(this->fileCacheLock) {
 		if (this->fileCache != nullptr) {
-			bool isAscending = this->fSortNames ? $nc(this->fSortAscending)->get(0) : $nc(this->fSortAscending)->get(1);
-			int32_t row = $nc(this->fileCache)->indexOf($$new($AquaFileSystemModel$SortableFile, this, o));
-			return isAscending ? row : $nc(this->fileCache)->size() - row - 1;
+			bool isAscending = this->fSortNames ? this->fSortAscending->get(0) : this->fSortAscending->get(1);
+			int32_t row = this->fileCache->indexOf($$new($AquaFileSystemModel$SortableFile, this, o));
+			return isAscending ? row : this->fileCache->size() - row - 1;
 		}
 		return 0;
 	}
 }
 
 $Object* AquaFileSystemModel::getElementAt(int32_t row) {
-	return $of(getValueAt(row, 0));
+	return getValueAt(row, 0);
 }
 
 $Object* AquaFileSystemModel::getValueAt(int32_t row, int32_t col) {
 	if (row < 0 || col < 0) {
-		return $of(nullptr);
+		return nullptr;
 	}
-	bool isAscending = this->fSortNames ? $nc(this->fSortAscending)->get(0) : $nc(this->fSortAscending)->get(1);
+	bool isAscending = this->fSortNames ? this->fSortAscending->get(0) : this->fSortAscending->get(1);
 	$synchronized(this->fileCacheLock) {
 		if (this->fileCache != nullptr) {
 			if (!isAscending) {
-				row = $nc(this->fileCache)->size() - row - 1;
+				row = this->fileCache->size() - row - 1;
 			}
-			return $of($nc(($cast($AquaFileSystemModel$SortableFile, $($nc(this->fileCache)->elementAt(row)))))->getValueAt(col));
+			return $$sure($AquaFileSystemModel$SortableFile, this->fileCache->elementAt(row))->getValueAt(col);
 		}
-		return $of(nullptr);
+		return nullptr;
 	}
 }
 
@@ -373,22 +290,92 @@ void AquaFileSystemModel::intervalRemoved($ListDataEvent* e) {
 
 void AquaFileSystemModel::sort($Vector* v) {
 	if (this->fSortNames) {
-		$nc(this->sSortNames)->quickSort(v, 0, $nc(v)->size() - 1);
+		this->sSortNames->quickSort(v, 0, $nc(v)->size() - 1);
 	} else {
-		$nc(this->sSortDates)->quickSort(v, 0, $nc(v)->size() - 1);
+		this->sSortDates->quickSort(v, 0, $nc(v)->size() - 1);
 	}
 }
 
 AquaFileSystemModel::AquaFileSystemModel() {
 }
 
-void clinit$AquaFileSystemModel($Class* class$) {
+void AquaFileSystemModel::clinit$($Class* clazz) {
 	$assignStatic(AquaFileSystemModel::SORT_BY_CHANGED, "sortByChanged"_s);
 	$assignStatic(AquaFileSystemModel::SORT_ASCENDING_CHANGED, "sortAscendingChanged"_s);
 }
 
 $Class* AquaFileSystemModel::load$($String* name, bool initialize) {
-	$loadClass(AquaFileSystemModel, name, initialize, &_AquaFileSystemModel_ClassInfo_, clinit$AquaFileSystemModel, allocate$AquaFileSystemModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"fFileList", "Ljavax/swing/JTable;", nullptr, $PRIVATE | $FINAL, $field(AquaFileSystemModel, fFileList)},
+		{"filesLoader", "Lcom/apple/laf/AquaFileSystemModel$FilesLoader;", nullptr, $PRIVATE, $field(AquaFileSystemModel, filesLoader)},
+		{"files", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/io/File;>;", $PRIVATE, $field(AquaFileSystemModel, files)},
+		{"filechooser", "Ljavax/swing/JFileChooser;", nullptr, 0, $field(AquaFileSystemModel, filechooser)},
+		{"fileCache", "Ljava/util/Vector;", "Ljava/util/Vector<Lcom/apple/laf/AquaFileSystemModel$SortableFile;>;", 0, $field(AquaFileSystemModel, fileCache)},
+		{"fileCacheLock", "Ljava/lang/Object;", nullptr, 0, $field(AquaFileSystemModel, fileCacheLock)},
+		{"directories", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/io/File;>;", 0, $field(AquaFileSystemModel, directories)},
+		{"fetchID", "I", nullptr, 0, $field(AquaFileSystemModel, fetchID)},
+		{"fSortAscending", "[Z", nullptr, $PRIVATE | $FINAL, $field(AquaFileSystemModel, fSortAscending)},
+		{"fSortNames", "Z", nullptr, $PRIVATE, $field(AquaFileSystemModel, fSortNames)},
+		{"fColumnNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(AquaFileSystemModel, fColumnNames)},
+		{"SORT_BY_CHANGED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AquaFileSystemModel, SORT_BY_CHANGED)},
+		{"SORT_ASCENDING_CHANGED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AquaFileSystemModel, SORT_ASCENDING_CHANGED)},
+		{"sSortNames", "Lcom/apple/laf/AquaFileSystemModel$QuickSortNames;", nullptr, $FINAL, $field(AquaFileSystemModel, sSortNames)},
+		{"sSortDates", "Lcom/apple/laf/AquaFileSystemModel$QuickSortDates;", nullptr, $FINAL, $field(AquaFileSystemModel, sSortDates)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JFileChooser;Ljavax/swing/JTable;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AquaFileSystemModel, init$, void, $JFileChooser*, $JTable*, $StringArray*)},
+		{"contains", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel, contains, bool, $File*)},
+		{"getColumnClass", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<+Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(AquaFileSystemModel, getColumnClass, $Class*, int32_t)},
+		{"getColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel, getColumnCount, int32_t)},
+		{"getColumnName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel, getColumnName, $String*, int32_t)},
+		{"getDirectories", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/io/File;>;", $PUBLIC, $virtualMethod(AquaFileSystemModel, getDirectories, $Vector*)},
+		{"getElementAt", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel, getElementAt, $Object*, int32_t)},
+		{"getFiles", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/io/File;>;", $PUBLIC, $virtualMethod(AquaFileSystemModel, getFiles, $Vector*)},
+		{"getRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel, getRowCount, int32_t)},
+		{"getValueAt", "(II)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel, getValueAt, $Object*, int32_t, int32_t)},
+		{"indexOf", "(Ljava/io/File;)I", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel, indexOf, int32_t, $File*)},
+		{"intervalAdded", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel, intervalAdded, void, $ListDataEvent*)},
+		{"intervalRemoved", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel, intervalRemoved, void, $ListDataEvent*)},
+		{"invalidateFileCache", "()V", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel, invalidateFileCache, void)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel, propertyChange, void, $PropertyChangeEvent*)},
+		{"runWhenDone", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel, runWhenDone, void, $Runnable*)},
+		{"sort", "(Ljava/util/Vector;)V", "(Ljava/util/Vector<Ljava/lang/Object;>;)V", $PROTECTED, $virtualMethod(AquaFileSystemModel, sort, void, $Vector*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateSelectionMode", "()V", nullptr, 0, $virtualMethod(AquaFileSystemModel, updateSelectionMode, void)},
+		{"validateFileCache", "()V", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel, validateFileCache, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFileSystemModel$DoChangeContents", "com.apple.laf.AquaFileSystemModel", "DoChangeContents", 0},
+		{"com.apple.laf.AquaFileSystemModel$FilesLoader", "com.apple.laf.AquaFileSystemModel", "FilesLoader", 0},
+		{"com.apple.laf.AquaFileSystemModel$SortableFile", "com.apple.laf.AquaFileSystemModel", "SortableFile", 0},
+		{"com.apple.laf.AquaFileSystemModel$QuickSortDates", "com.apple.laf.AquaFileSystemModel", "QuickSortDates", 0},
+		{"com.apple.laf.AquaFileSystemModel$QuickSortNames", "com.apple.laf.AquaFileSystemModel", "QuickSortNames", 0},
+		{"com.apple.laf.AquaFileSystemModel$QuickSort", "com.apple.laf.AquaFileSystemModel", "QuickSort", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaFileSystemModel",
+		"javax.swing.table.AbstractTableModel",
+		"java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFileSystemModel$DoChangeContents,com.apple.laf.AquaFileSystemModel$FilesLoader,com.apple.laf.AquaFileSystemModel$SortableFile,com.apple.laf.AquaFileSystemModel$QuickSortDates,com.apple.laf.AquaFileSystemModel$QuickSortNames,com.apple.laf.AquaFileSystemModel$QuickSort"
+	};
+	$loadClass(AquaFileSystemModel, name, initialize, &classInfo$$, AquaFileSystemModel::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaFileSystemModel));
+	});
 	return class$;
 }
 

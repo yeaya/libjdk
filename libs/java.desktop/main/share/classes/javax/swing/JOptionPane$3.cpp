@@ -1,5 +1,4 @@
 #include <javax/swing/JOptionPane$3.h>
-
 #include <java/awt/event/ComponentAdapter.h>
 #include <java/awt/event/ComponentEvent.h>
 #include <javax/swing/JOptionPane.h>
@@ -19,48 +18,6 @@ using $JOptionPane = ::javax::swing::JOptionPane;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _JOptionPane$3_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JOptionPane;", nullptr, $FINAL | $SYNTHETIC, $field(JOptionPane$3, this$0)},
-	{}
-};
-
-$MethodInfo _JOptionPane$3_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JOptionPane;)V", nullptr, 0, $method(JOptionPane$3, init$, void, $JOptionPane*)},
-	{"componentShown", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(JOptionPane$3, componentShown, void, $ComponentEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _JOptionPane$3_EnclosingMethodInfo_ = {
-	"javax.swing.JOptionPane",
-	"initDialog",
-	"(Ljavax/swing/JDialog;ILjava/awt/Component;)V"
-};
-
-$InnerClassInfo _JOptionPane$3_InnerClassesInfo_[] = {
-	{"javax.swing.JOptionPane$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JOptionPane$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JOptionPane$3",
-	"java.awt.event.ComponentAdapter",
-	nullptr,
-	_JOptionPane$3_FieldInfo_,
-	_JOptionPane$3_MethodInfo_,
-	nullptr,
-	&_JOptionPane$3_EnclosingMethodInfo_,
-	_JOptionPane$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JOptionPane"
-};
-
-$Object* allocate$JOptionPane$3($Class* clazz) {
-	return $of($alloc(JOptionPane$3));
-}
-
 void JOptionPane$3::init$($JOptionPane* this$0) {
 	$set(this, this$0, this$0);
 	$ComponentAdapter::init$();
@@ -75,7 +32,42 @@ JOptionPane$3::JOptionPane$3() {
 }
 
 $Class* JOptionPane$3::load$($String* name, bool initialize) {
-	$loadClass(JOptionPane$3, name, initialize, &_JOptionPane$3_ClassInfo_, allocate$JOptionPane$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JOptionPane;", nullptr, $FINAL | $SYNTHETIC, $field(JOptionPane$3, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JOptionPane;)V", nullptr, 0, $method(JOptionPane$3, init$, void, $JOptionPane*)},
+		{"componentShown", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(JOptionPane$3, componentShown, void, $ComponentEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.JOptionPane",
+		"initDialog",
+		"(Ljavax/swing/JDialog;ILjava/awt/Component;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JOptionPane$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JOptionPane$3",
+		"java.awt.event.ComponentAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JOptionPane"
+	};
+	$loadClass(JOptionPane$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JOptionPane$3);
+	});
 	return class$;
 }
 

@@ -1,6 +1,4 @@
 #include <javax/swing/plaf/metal/MetalIconFactory$FileChooserNewFolderIcon.h>
-
-#include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <javax/swing/Icon.h>
@@ -9,7 +7,6 @@
 #include <javax/swing/plaf/metal/MetalLookAndFeel.h>
 #include <jcpp.h>
 
-using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -22,44 +19,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$MethodInfo _MetalIconFactory$FileChooserNewFolderIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MetalIconFactory$FileChooserNewFolderIcon, init$, void)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$FileChooserNewFolderIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$FileChooserNewFolderIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$FileChooserNewFolderIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MetalIconFactory$FileChooserNewFolderIcon_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalIconFactory$FileChooserNewFolderIcon", "javax.swing.plaf.metal.MetalIconFactory", "FileChooserNewFolderIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalIconFactory$FileChooserNewFolderIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalIconFactory$FileChooserNewFolderIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
-	nullptr,
-	_MetalIconFactory$FileChooserNewFolderIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalIconFactory$FileChooserNewFolderIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalIconFactory"
-};
-
-$Object* allocate$MetalIconFactory$FileChooserNewFolderIcon($Class* clazz) {
-	return $of($alloc(MetalIconFactory$FileChooserNewFolderIcon));
-}
 
 int32_t MetalIconFactory$FileChooserNewFolderIcon::hashCode() {
 	 return this->$Icon::hashCode();
@@ -85,7 +44,7 @@ void MetalIconFactory$FileChooserNewFolderIcon::init$() {
 }
 
 void MetalIconFactory$FileChooserNewFolderIcon::paintIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(g)->translate(x, y);
 	g->setColor($($MetalLookAndFeel::getPrimaryControl()));
 	g->fillRect(3, 5, 12, 9);
@@ -117,7 +76,40 @@ MetalIconFactory$FileChooserNewFolderIcon::MetalIconFactory$FileChooserNewFolder
 }
 
 $Class* MetalIconFactory$FileChooserNewFolderIcon::load$($String* name, bool initialize) {
-	$loadClass(MetalIconFactory$FileChooserNewFolderIcon, name, initialize, &_MetalIconFactory$FileChooserNewFolderIcon_ClassInfo_, allocate$MetalIconFactory$FileChooserNewFolderIcon);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MetalIconFactory$FileChooserNewFolderIcon, init$, void)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$FileChooserNewFolderIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$FileChooserNewFolderIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$FileChooserNewFolderIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalIconFactory$FileChooserNewFolderIcon", "javax.swing.plaf.metal.MetalIconFactory", "FileChooserNewFolderIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalIconFactory$FileChooserNewFolderIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalIconFactory"
+	};
+	$loadClass(MetalIconFactory$FileChooserNewFolderIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalIconFactory$FileChooserNewFolderIcon));
+	});
 	return class$;
 }
 

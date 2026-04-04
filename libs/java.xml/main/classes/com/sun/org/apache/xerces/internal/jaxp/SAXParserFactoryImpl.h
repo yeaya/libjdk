@@ -59,6 +59,7 @@ class SAXParserFactoryImpl : public ::javax::xml::parsers::SAXParserFactory {
 	$class(SAXParserFactoryImpl, 0, ::javax::xml::parsers::SAXParserFactory)
 public:
 	SAXParserFactoryImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool getFeature($String* name) override;
 	bool getFromFeatures($String* name);

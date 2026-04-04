@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XButtonEvent.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,80 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XButtonEvent_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XButtonEvent, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XButtonEvent, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XButtonEvent, pData)},
-	{}
-};
-
-$MethodInfo _XButtonEvent_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XButtonEvent, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XButtonEvent, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XButtonEvent, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XButtonEvent, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XButtonEvent, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XButtonEvent, getSize, int32_t)},
-	{"get_button", "()I", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_button, int32_t)},
-	{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_display, int64_t)},
-	{"get_root", "()J", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_root, int64_t)},
-	{"get_same_screen", "()Z", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_same_screen, bool)},
-	{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_send_event, bool)},
-	{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_serial, int64_t)},
-	{"get_state", "()I", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_state, int32_t)},
-	{"get_subwindow", "()J", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_subwindow, int64_t)},
-	{"get_time", "()J", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_time, int64_t)},
-	{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_type, int32_t)},
-	{"get_window", "()J", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_window, int64_t)},
-	{"get_x", "()I", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_x, int32_t)},
-	{"get_x_root", "()I", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_x_root, int32_t)},
-	{"get_y", "()I", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_y, int32_t)},
-	{"get_y_root", "()I", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_y_root, int32_t)},
-	{"set_button", "(I)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_button, void, int32_t)},
-	{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_display, void, int64_t)},
-	{"set_root", "(J)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_root, void, int64_t)},
-	{"set_same_screen", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_same_screen, void, bool)},
-	{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_send_event, void, bool)},
-	{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_serial, void, int64_t)},
-	{"set_state", "(I)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_state, void, int32_t)},
-	{"set_subwindow", "(J)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_subwindow, void, int64_t)},
-	{"set_time", "(J)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_time, void, int64_t)},
-	{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_type, void, int32_t)},
-	{"set_window", "(J)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_window, void, int64_t)},
-	{"set_x", "(I)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_x, void, int32_t)},
-	{"set_x_root", "(I)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_x_root, void, int32_t)},
-	{"set_y", "(I)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_y, void, int32_t)},
-	{"set_y_root", "(I)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_y_root, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XButtonEvent, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XButtonEvent, zero, void)},
-	{}
-};
-
-$ClassInfo _XButtonEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XButtonEvent",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XButtonEvent_FieldInfo_,
-	_XButtonEvent_MethodInfo_
-};
-
-$Object* allocate$XButtonEvent($Class* clazz) {
-	return $of($alloc(XButtonEvent));
-}
 
 int32_t XButtonEvent::getSize() {
 	$init(XButtonEvent);
@@ -123,7 +55,7 @@ void XButtonEvent::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -313,7 +245,7 @@ $String* XButtonEvent::getName() {
 }
 
 $String* XButtonEvent::getFieldsAsString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, ret, $new($StringBuilder, 600));
 	$init($XlibWrapper);
 	ret->append("type = "_s)->append($nc($XlibWrapper::eventToString)->get(get_type()))->append(", "_s);
@@ -335,7 +267,7 @@ $String* XButtonEvent::getFieldsAsString() {
 }
 
 $Object* XButtonEvent::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XButtonEvent::zero() {
@@ -350,7 +282,67 @@ XButtonEvent::XButtonEvent() {
 }
 
 $Class* XButtonEvent::load$($String* name, bool initialize) {
-	$loadClass(XButtonEvent, name, initialize, &_XButtonEvent_ClassInfo_, allocate$XButtonEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XButtonEvent, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XButtonEvent, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XButtonEvent, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XButtonEvent, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XButtonEvent, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XButtonEvent, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XButtonEvent, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XButtonEvent, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XButtonEvent, getSize, int32_t)},
+		{"get_button", "()I", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_button, int32_t)},
+		{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_display, int64_t)},
+		{"get_root", "()J", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_root, int64_t)},
+		{"get_same_screen", "()Z", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_same_screen, bool)},
+		{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_send_event, bool)},
+		{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_serial, int64_t)},
+		{"get_state", "()I", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_state, int32_t)},
+		{"get_subwindow", "()J", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_subwindow, int64_t)},
+		{"get_time", "()J", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_time, int64_t)},
+		{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_type, int32_t)},
+		{"get_window", "()J", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_window, int64_t)},
+		{"get_x", "()I", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_x, int32_t)},
+		{"get_x_root", "()I", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_x_root, int32_t)},
+		{"get_y", "()I", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_y, int32_t)},
+		{"get_y_root", "()I", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, get_y_root, int32_t)},
+		{"set_button", "(I)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_button, void, int32_t)},
+		{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_display, void, int64_t)},
+		{"set_root", "(J)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_root, void, int64_t)},
+		{"set_same_screen", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_same_screen, void, bool)},
+		{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_send_event, void, bool)},
+		{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_serial, void, int64_t)},
+		{"set_state", "(I)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_state, void, int32_t)},
+		{"set_subwindow", "(J)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_subwindow, void, int64_t)},
+		{"set_time", "(J)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_time, void, int64_t)},
+		{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_type, void, int32_t)},
+		{"set_window", "(J)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_window, void, int64_t)},
+		{"set_x", "(I)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_x, void, int32_t)},
+		{"set_x_root", "(I)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_x_root, void, int32_t)},
+		{"set_y", "(I)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_y, void, int32_t)},
+		{"set_y_root", "(I)V", nullptr, $PUBLIC, $virtualMethod(XButtonEvent, set_y_root, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XButtonEvent, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XButtonEvent, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XButtonEvent",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XButtonEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XButtonEvent);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/PatternTree.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,19 +8,16 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$ClassInfo _PatternTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.PatternTree",
-	nullptr,
-	"com.sun.source.tree.CaseLabelTree"
-};
-
-$Object* allocate$PatternTree($Class* clazz) {
-	return $of($alloc(PatternTree));
-}
-
 $Class* PatternTree::load$($String* name, bool initialize) {
-	$loadClass(PatternTree, name, initialize, &_PatternTree_ClassInfo_, allocate$PatternTree);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.PatternTree",
+		nullptr,
+		"com.sun.source.tree.CaseLabelTree"
+	};
+	$loadClass(PatternTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PatternTree);
+	});
 	return class$;
 }
 

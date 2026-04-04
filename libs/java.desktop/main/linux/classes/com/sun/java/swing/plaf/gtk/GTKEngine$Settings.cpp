@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKEngine$Settings.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKEngine.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -22,48 +21,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace gtk {
-
-$FieldInfo _GTKEngine$Settings_FieldInfo_[] = {
-	{"GTK_FONT_NAME", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$Settings;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$Settings, GTK_FONT_NAME)},
-	{"GTK_ICON_SIZES", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$Settings;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$Settings, GTK_ICON_SIZES)},
-	{"GTK_CURSOR_BLINK", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$Settings;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$Settings, GTK_CURSOR_BLINK)},
-	{"GTK_CURSOR_BLINK_TIME", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$Settings;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$Settings, GTK_CURSOR_BLINK_TIME)},
-	{"$VALUES", "[Lcom/sun/java/swing/plaf/gtk/GTKEngine$Settings;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(GTKEngine$Settings, $VALUES)},
-	{}
-};
-
-$MethodInfo _GTKEngine$Settings_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/java/swing/plaf/gtk/GTKEngine$Settings;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GTKEngine$Settings, $values, $GTKEngine$SettingsArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(GTKEngine$Settings, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/gtk/GTKEngine$Settings;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKEngine$Settings, valueOf, GTKEngine$Settings*, $String*)},
-	{"values", "()[Lcom/sun/java/swing/plaf/gtk/GTKEngine$Settings;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKEngine$Settings, values, $GTKEngine$SettingsArray*)},
-	{}
-};
-
-$InnerClassInfo _GTKEngine$Settings_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKEngine$Settings", "com.sun.java.swing.plaf.gtk.GTKEngine", "Settings", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _GTKEngine$Settings_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.java.swing.plaf.gtk.GTKEngine$Settings",
-	"java.lang.Enum",
-	nullptr,
-	_GTKEngine$Settings_FieldInfo_,
-	_GTKEngine$Settings_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/gtk/GTKEngine$Settings;>;",
-	nullptr,
-	_GTKEngine$Settings_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKEngine"
-};
-
-$Object* allocate$GTKEngine$Settings($Class* clazz) {
-	return $of($alloc(GTKEngine$Settings));
-}
 
 GTKEngine$Settings* GTKEngine$Settings::GTK_FONT_NAME = nullptr;
 GTKEngine$Settings* GTKEngine$Settings::GTK_ICON_SIZES = nullptr;
@@ -95,7 +52,7 @@ void GTKEngine$Settings::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$GTKEngine$Settings($Class* class$) {
+void GTKEngine$Settings::clinit$($Class* clazz) {
 	$assignStatic(GTKEngine$Settings::GTK_FONT_NAME, $new(GTKEngine$Settings, "GTK_FONT_NAME"_s, 0));
 	$assignStatic(GTKEngine$Settings::GTK_ICON_SIZES, $new(GTKEngine$Settings, "GTK_ICON_SIZES"_s, 1));
 	$assignStatic(GTKEngine$Settings::GTK_CURSOR_BLINK, $new(GTKEngine$Settings, "GTK_CURSOR_BLINK"_s, 2));
@@ -107,7 +64,43 @@ GTKEngine$Settings::GTKEngine$Settings() {
 }
 
 $Class* GTKEngine$Settings::load$($String* name, bool initialize) {
-	$loadClass(GTKEngine$Settings, name, initialize, &_GTKEngine$Settings_ClassInfo_, clinit$GTKEngine$Settings, allocate$GTKEngine$Settings);
+	$FieldInfo fieldInfos$$[] = {
+		{"GTK_FONT_NAME", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$Settings;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$Settings, GTK_FONT_NAME)},
+		{"GTK_ICON_SIZES", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$Settings;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$Settings, GTK_ICON_SIZES)},
+		{"GTK_CURSOR_BLINK", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$Settings;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$Settings, GTK_CURSOR_BLINK)},
+		{"GTK_CURSOR_BLINK_TIME", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$Settings;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKEngine$Settings, GTK_CURSOR_BLINK_TIME)},
+		{"$VALUES", "[Lcom/sun/java/swing/plaf/gtk/GTKEngine$Settings;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(GTKEngine$Settings, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/java/swing/plaf/gtk/GTKEngine$Settings;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GTKEngine$Settings, $values, $GTKEngine$SettingsArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(GTKEngine$Settings, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/gtk/GTKEngine$Settings;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKEngine$Settings, valueOf, GTKEngine$Settings*, $String*)},
+		{"values", "()[Lcom/sun/java/swing/plaf/gtk/GTKEngine$Settings;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKEngine$Settings, values, $GTKEngine$SettingsArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKEngine$Settings", "com.sun.java.swing.plaf.gtk.GTKEngine", "Settings", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.java.swing.plaf.gtk.GTKEngine$Settings",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/gtk/GTKEngine$Settings;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKEngine"
+	};
+	$loadClass(GTKEngine$Settings, name, initialize, &classInfo$$, GTKEngine$Settings::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GTKEngine$Settings));
+	});
 	return class$;
 }
 

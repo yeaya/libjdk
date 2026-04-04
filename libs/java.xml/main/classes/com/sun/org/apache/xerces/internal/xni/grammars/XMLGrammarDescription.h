@@ -22,6 +22,7 @@ namespace com {
 class XMLGrammarDescription : public ::com::sun::org::apache::xerces::internal::xni::XMLResourceIdentifier {
 	$interface(XMLGrammarDescription, 0, ::com::sun::org::apache::xerces::internal::xni::XMLResourceIdentifier)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $String* getGrammarType() {return nullptr;}
 	static $String* XML_SCHEMA;
 	static $String* XML_DTD;

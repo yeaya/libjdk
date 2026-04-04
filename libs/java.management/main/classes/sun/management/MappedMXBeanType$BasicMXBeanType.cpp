@@ -1,5 +1,4 @@
 #include <sun/management/MappedMXBeanType$BasicMXBeanType.h>
-
 #include <java/lang/reflect/Type.h>
 #include <javax/management/openmbean/OpenType.h>
 #include <sun/management/MappedMXBeanType.h>
@@ -15,45 +14,6 @@ using $MappedMXBeanType = ::sun::management::MappedMXBeanType;
 
 namespace sun {
 	namespace management {
-
-$FieldInfo _MappedMXBeanType$BasicMXBeanType_FieldInfo_[] = {
-	{"basicType", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $FINAL, $field(MappedMXBeanType$BasicMXBeanType, basicType)},
-	{}
-};
-
-$MethodInfo _MappedMXBeanType$BasicMXBeanType_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljavax/management/openmbean/OpenType;)V", "(Ljava/lang/Class<*>;Ljavax/management/openmbean/OpenType<*>;)V", 0, $method(MappedMXBeanType$BasicMXBeanType, init$, void, $Class*, $OpenType*)},
-	{"getJavaType", "()Ljava/lang/reflect/Type;", nullptr, 0, $virtualMethod(MappedMXBeanType$BasicMXBeanType, getJavaType, $Type*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MappedMXBeanType$BasicMXBeanType, getName, $String*)},
-	{"toJavaTypeData", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MappedMXBeanType$BasicMXBeanType, toJavaTypeData, $Object*, Object$*), "javax.management.openmbean.OpenDataException,java.io.InvalidObjectException"},
-	{"toOpenTypeData", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MappedMXBeanType$BasicMXBeanType, toOpenTypeData, $Object*, Object$*), "javax.management.openmbean.OpenDataException"},
-	{}
-};
-
-$InnerClassInfo _MappedMXBeanType$BasicMXBeanType_InnerClassesInfo_[] = {
-	{"sun.management.MappedMXBeanType$BasicMXBeanType", "sun.management.MappedMXBeanType", "BasicMXBeanType", $STATIC},
-	{}
-};
-
-$ClassInfo _MappedMXBeanType$BasicMXBeanType_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.management.MappedMXBeanType$BasicMXBeanType",
-	"sun.management.MappedMXBeanType",
-	nullptr,
-	_MappedMXBeanType$BasicMXBeanType_FieldInfo_,
-	_MappedMXBeanType$BasicMXBeanType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MappedMXBeanType$BasicMXBeanType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.management.MappedMXBeanType"
-};
-
-$Object* allocate$MappedMXBeanType$BasicMXBeanType($Class* clazz) {
-	return $of($alloc(MappedMXBeanType$BasicMXBeanType));
-}
 
 void MappedMXBeanType$BasicMXBeanType::init$($Class* c, $OpenType* openType) {
 	$MappedMXBeanType::init$();
@@ -83,7 +43,40 @@ MappedMXBeanType$BasicMXBeanType::MappedMXBeanType$BasicMXBeanType() {
 }
 
 $Class* MappedMXBeanType$BasicMXBeanType::load$($String* name, bool initialize) {
-	$loadClass(MappedMXBeanType$BasicMXBeanType, name, initialize, &_MappedMXBeanType$BasicMXBeanType_ClassInfo_, allocate$MappedMXBeanType$BasicMXBeanType);
+	$FieldInfo fieldInfos$$[] = {
+		{"basicType", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $FINAL, $field(MappedMXBeanType$BasicMXBeanType, basicType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;Ljavax/management/openmbean/OpenType;)V", "(Ljava/lang/Class<*>;Ljavax/management/openmbean/OpenType<*>;)V", 0, $method(MappedMXBeanType$BasicMXBeanType, init$, void, $Class*, $OpenType*)},
+		{"getJavaType", "()Ljava/lang/reflect/Type;", nullptr, 0, $virtualMethod(MappedMXBeanType$BasicMXBeanType, getJavaType, $Type*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MappedMXBeanType$BasicMXBeanType, getName, $String*)},
+		{"toJavaTypeData", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MappedMXBeanType$BasicMXBeanType, toJavaTypeData, $Object*, Object$*), "javax.management.openmbean.OpenDataException,java.io.InvalidObjectException"},
+		{"toOpenTypeData", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MappedMXBeanType$BasicMXBeanType, toOpenTypeData, $Object*, Object$*), "javax.management.openmbean.OpenDataException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.management.MappedMXBeanType$BasicMXBeanType", "sun.management.MappedMXBeanType", "BasicMXBeanType", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.management.MappedMXBeanType$BasicMXBeanType",
+		"sun.management.MappedMXBeanType",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.management.MappedMXBeanType"
+	};
+	$loadClass(MappedMXBeanType$BasicMXBeanType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MappedMXBeanType$BasicMXBeanType);
+	});
 	return class$;
 }
 

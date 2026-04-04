@@ -1,5 +1,4 @@
 #include <java/sql/Statement.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/sql/Connection.h>
@@ -31,98 +30,10 @@ using $SQLException = ::java::sql::SQLException;
 using $SQLFeatureNotSupportedException = ::java::sql::SQLFeatureNotSupportedException;
 using $SQLWarning = ::java::sql::SQLWarning;
 using $Wrapper = ::java::sql::Wrapper;
-using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
 
 namespace java {
 	namespace sql {
-
-$FieldInfo _Statement_FieldInfo_[] = {
-	{"CLOSE_CURRENT_RESULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Statement, CLOSE_CURRENT_RESULT)},
-	{"KEEP_CURRENT_RESULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Statement, KEEP_CURRENT_RESULT)},
-	{"CLOSE_ALL_RESULTS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Statement, CLOSE_ALL_RESULTS)},
-	{"SUCCESS_NO_INFO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Statement, SUCCESS_NO_INFO)},
-	{"EXECUTE_FAILED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Statement, EXECUTE_FAILED)},
-	{"RETURN_GENERATED_KEYS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Statement, RETURN_GENERATED_KEYS)},
-	{"NO_GENERATED_KEYS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Statement, NO_GENERATED_KEYS)},
-	{}
-};
-
-$MethodInfo _Statement_MethodInfo_[] = {
-	{"addBatch", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, addBatch, void, $String*), "java.sql.SQLException"},
-	{"cancel", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, cancel, void), "java.sql.SQLException"},
-	{"clearBatch", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, clearBatch, void), "java.sql.SQLException"},
-	{"clearWarnings", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, clearWarnings, void), "java.sql.SQLException"},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"closeOnCompletion", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, closeOnCompletion, void), "java.sql.SQLException"},
-	{"enquoteIdentifier", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Statement, enquoteIdentifier, $String*, $String*, bool), "java.sql.SQLException"},
-	{"enquoteLiteral", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Statement, enquoteLiteral, $String*, $String*), "java.sql.SQLException"},
-	{"enquoteNCharLiteral", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Statement, enquoteNCharLiteral, $String*, $String*), "java.sql.SQLException"},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"execute", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, execute, bool, $String*), "java.sql.SQLException"},
-	{"execute", "(Ljava/lang/String;I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, execute, bool, $String*, int32_t), "java.sql.SQLException"},
-	{"execute", "(Ljava/lang/String;[I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, execute, bool, $String*, $ints*), "java.sql.SQLException"},
-	{"execute", "(Ljava/lang/String;[Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, execute, bool, $String*, $StringArray*), "java.sql.SQLException"},
-	{"executeBatch", "()[I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, executeBatch, $ints*), "java.sql.SQLException"},
-	{"executeLargeBatch", "()[J", nullptr, $PUBLIC, $virtualMethod(Statement, executeLargeBatch, $longs*), "java.sql.SQLException"},
-	{"executeLargeUpdate", "(Ljava/lang/String;)J", nullptr, $PUBLIC, $virtualMethod(Statement, executeLargeUpdate, int64_t, $String*), "java.sql.SQLException"},
-	{"executeLargeUpdate", "(Ljava/lang/String;I)J", nullptr, $PUBLIC, $virtualMethod(Statement, executeLargeUpdate, int64_t, $String*, int32_t), "java.sql.SQLException"},
-	{"executeLargeUpdate", "(Ljava/lang/String;[I)J", nullptr, $PUBLIC, $virtualMethod(Statement, executeLargeUpdate, int64_t, $String*, $ints*), "java.sql.SQLException"},
-	{"executeLargeUpdate", "(Ljava/lang/String;[Ljava/lang/String;)J", nullptr, $PUBLIC, $virtualMethod(Statement, executeLargeUpdate, int64_t, $String*, $StringArray*), "java.sql.SQLException"},
-	{"executeQuery", "(Ljava/lang/String;)Ljava/sql/ResultSet;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, executeQuery, $ResultSet*, $String*), "java.sql.SQLException"},
-	{"executeUpdate", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, executeUpdate, int32_t, $String*), "java.sql.SQLException"},
-	{"executeUpdate", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, executeUpdate, int32_t, $String*, int32_t), "java.sql.SQLException"},
-	{"executeUpdate", "(Ljava/lang/String;[I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, executeUpdate, int32_t, $String*, $ints*), "java.sql.SQLException"},
-	{"executeUpdate", "(Ljava/lang/String;[Ljava/lang/String;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, executeUpdate, int32_t, $String*, $StringArray*), "java.sql.SQLException"},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getConnection", "()Ljava/sql/Connection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getConnection, $Connection*), "java.sql.SQLException"},
-	{"getFetchDirection", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getFetchDirection, int32_t), "java.sql.SQLException"},
-	{"getFetchSize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getFetchSize, int32_t), "java.sql.SQLException"},
-	{"getGeneratedKeys", "()Ljava/sql/ResultSet;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getGeneratedKeys, $ResultSet*), "java.sql.SQLException"},
-	{"getLargeMaxRows", "()J", nullptr, $PUBLIC, $virtualMethod(Statement, getLargeMaxRows, int64_t), "java.sql.SQLException"},
-	{"getLargeUpdateCount", "()J", nullptr, $PUBLIC, $virtualMethod(Statement, getLargeUpdateCount, int64_t), "java.sql.SQLException"},
-	{"getMaxFieldSize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getMaxFieldSize, int32_t), "java.sql.SQLException"},
-	{"getMaxRows", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getMaxRows, int32_t), "java.sql.SQLException"},
-	{"getMoreResults", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getMoreResults, bool), "java.sql.SQLException"},
-	{"getMoreResults", "(I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getMoreResults, bool, int32_t), "java.sql.SQLException"},
-	{"getQueryTimeout", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getQueryTimeout, int32_t), "java.sql.SQLException"},
-	{"getResultSet", "()Ljava/sql/ResultSet;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getResultSet, $ResultSet*), "java.sql.SQLException"},
-	{"getResultSetConcurrency", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getResultSetConcurrency, int32_t), "java.sql.SQLException"},
-	{"getResultSetHoldability", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getResultSetHoldability, int32_t), "java.sql.SQLException"},
-	{"getResultSetType", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getResultSetType, int32_t), "java.sql.SQLException"},
-	{"getUpdateCount", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getUpdateCount, int32_t), "java.sql.SQLException"},
-	{"getWarnings", "()Ljava/sql/SQLWarning;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getWarnings, $SQLWarning*), "java.sql.SQLException"},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"isCloseOnCompletion", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, isCloseOnCompletion, bool), "java.sql.SQLException"},
-	{"isClosed", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, isClosed, bool), "java.sql.SQLException"},
-	{"isPoolable", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, isPoolable, bool), "java.sql.SQLException"},
-	{"isSimpleIdentifier", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Statement, isSimpleIdentifier, bool, $String*), "java.sql.SQLException"},
-	{"setCursorName", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, setCursorName, void, $String*), "java.sql.SQLException"},
-	{"setEscapeProcessing", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, setEscapeProcessing, void, bool), "java.sql.SQLException"},
-	{"setFetchDirection", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, setFetchDirection, void, int32_t), "java.sql.SQLException"},
-	{"setFetchSize", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, setFetchSize, void, int32_t), "java.sql.SQLException"},
-	{"setLargeMaxRows", "(J)V", nullptr, $PUBLIC, $virtualMethod(Statement, setLargeMaxRows, void, int64_t), "java.sql.SQLException"},
-	{"setMaxFieldSize", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, setMaxFieldSize, void, int32_t), "java.sql.SQLException"},
-	{"setMaxRows", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, setMaxRows, void, int32_t), "java.sql.SQLException"},
-	{"setPoolable", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, setPoolable, void, bool), "java.sql.SQLException"},
-	{"setQueryTimeout", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, setQueryTimeout, void, int32_t), "java.sql.SQLException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _Statement_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.sql.Statement",
-	nullptr,
-	"java.sql.Wrapper,java.lang.AutoCloseable",
-	_Statement_FieldInfo_,
-	_Statement_MethodInfo_
-};
-
-$Object* allocate$Statement($Class* clazz) {
-	return $of($alloc(Statement));
-}
 
 int32_t Statement::hashCode() {
 	 return this->$Wrapper::hashCode();
@@ -183,23 +94,23 @@ int64_t Statement::executeLargeUpdate($String* sql, $StringArray* columnNames) {
 }
 
 $String* Statement::enquoteLiteral($String* val) {
-	return $str({"\'"_s, $($nc(val)->replace(static_cast<$CharSequence*>("\'"_s), static_cast<$CharSequence*>("\'\'"_s))), "\'"_s});
+	return $str({"\'"_s, $($nc(val)->replace("\'"_s, "\'\'"_s)), "\'"_s});
 }
 
 $String* Statement::enquoteIdentifier($String* identifier$renamed, bool alwaysQuote) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, identifier, identifier$renamed);
 	int32_t len = $nc(identifier)->length();
 	if (len < 1 || len > 128) {
 		$throwNew($SQLException, "Invalid name"_s);
 	}
-	if ($nc($($nc($($Pattern::compile("[\\p{Alpha}][\\p{Alnum}_]*"_s)))->matcher(identifier)))->matches()) {
+	if ($$nc($$nc($Pattern::compile("[\\p{Alpha}][\\p{Alnum}_]*"_s))->matcher(identifier))->matches()) {
 		return alwaysQuote ? $str({"\""_s, identifier, "\""_s}) : identifier;
 	}
 	if (identifier->matches("^\".+\"$"_s)) {
 		$assign(identifier, identifier->substring(1, len - 1));
 	}
-	if ($nc($($nc($($Pattern::compile($cstr({'[', '^', '\0', '\"', ']', '+'}))))->matcher(identifier)))->matches()) {
+	if ($$nc($$nc($Pattern::compile($cstr({'[', '^', '\0', '\"', ']', '+'})))->matcher(identifier))->matches()) {
 		return $str({"\""_s, identifier, "\""_s});
 	} else {
 		$throwNew($SQLException, "Invalid name"_s);
@@ -207,17 +118,99 @@ $String* Statement::enquoteIdentifier($String* identifier$renamed, bool alwaysQu
 }
 
 bool Statement::isSimpleIdentifier($String* identifier) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = $nc(identifier)->length();
-	return len >= 1 && len <= 128 && $nc($($nc($($Pattern::compile("[\\p{Alpha}][\\p{Alnum}_]*"_s)))->matcher(identifier)))->matches();
+	return len >= 1 && len <= 128 && $$nc($$nc($Pattern::compile("[\\p{Alpha}][\\p{Alnum}_]*"_s))->matcher(identifier))->matches();
 }
 
 $String* Statement::enquoteNCharLiteral($String* val) {
-	return $str({"N\'"_s, $($nc(val)->replace(static_cast<$CharSequence*>("\'"_s), static_cast<$CharSequence*>("\'\'"_s))), "\'"_s});
+	return $str({"N\'"_s, $($nc(val)->replace("\'"_s, "\'\'"_s)), "\'"_s});
 }
 
 $Class* Statement::load$($String* name, bool initialize) {
-	$loadClass(Statement, name, initialize, &_Statement_ClassInfo_, allocate$Statement);
+	$FieldInfo fieldInfos$$[] = {
+		{"CLOSE_CURRENT_RESULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Statement, CLOSE_CURRENT_RESULT)},
+		{"KEEP_CURRENT_RESULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Statement, KEEP_CURRENT_RESULT)},
+		{"CLOSE_ALL_RESULTS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Statement, CLOSE_ALL_RESULTS)},
+		{"SUCCESS_NO_INFO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Statement, SUCCESS_NO_INFO)},
+		{"EXECUTE_FAILED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Statement, EXECUTE_FAILED)},
+		{"RETURN_GENERATED_KEYS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Statement, RETURN_GENERATED_KEYS)},
+		{"NO_GENERATED_KEYS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Statement, NO_GENERATED_KEYS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"addBatch", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, addBatch, void, $String*), "java.sql.SQLException"},
+		{"cancel", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, cancel, void), "java.sql.SQLException"},
+		{"clearBatch", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, clearBatch, void), "java.sql.SQLException"},
+		{"clearWarnings", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, clearWarnings, void), "java.sql.SQLException"},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
+		{"closeOnCompletion", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, closeOnCompletion, void), "java.sql.SQLException"},
+		{"enquoteIdentifier", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Statement, enquoteIdentifier, $String*, $String*, bool), "java.sql.SQLException"},
+		{"enquoteLiteral", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Statement, enquoteLiteral, $String*, $String*), "java.sql.SQLException"},
+		{"enquoteNCharLiteral", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Statement, enquoteNCharLiteral, $String*, $String*), "java.sql.SQLException"},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"execute", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, execute, bool, $String*), "java.sql.SQLException"},
+		{"execute", "(Ljava/lang/String;I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, execute, bool, $String*, int32_t), "java.sql.SQLException"},
+		{"execute", "(Ljava/lang/String;[I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, execute, bool, $String*, $ints*), "java.sql.SQLException"},
+		{"execute", "(Ljava/lang/String;[Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, execute, bool, $String*, $StringArray*), "java.sql.SQLException"},
+		{"executeBatch", "()[I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, executeBatch, $ints*), "java.sql.SQLException"},
+		{"executeLargeBatch", "()[J", nullptr, $PUBLIC, $virtualMethod(Statement, executeLargeBatch, $longs*), "java.sql.SQLException"},
+		{"executeLargeUpdate", "(Ljava/lang/String;)J", nullptr, $PUBLIC, $virtualMethod(Statement, executeLargeUpdate, int64_t, $String*), "java.sql.SQLException"},
+		{"executeLargeUpdate", "(Ljava/lang/String;I)J", nullptr, $PUBLIC, $virtualMethod(Statement, executeLargeUpdate, int64_t, $String*, int32_t), "java.sql.SQLException"},
+		{"executeLargeUpdate", "(Ljava/lang/String;[I)J", nullptr, $PUBLIC, $virtualMethod(Statement, executeLargeUpdate, int64_t, $String*, $ints*), "java.sql.SQLException"},
+		{"executeLargeUpdate", "(Ljava/lang/String;[Ljava/lang/String;)J", nullptr, $PUBLIC, $virtualMethod(Statement, executeLargeUpdate, int64_t, $String*, $StringArray*), "java.sql.SQLException"},
+		{"executeQuery", "(Ljava/lang/String;)Ljava/sql/ResultSet;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, executeQuery, $ResultSet*, $String*), "java.sql.SQLException"},
+		{"executeUpdate", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, executeUpdate, int32_t, $String*), "java.sql.SQLException"},
+		{"executeUpdate", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, executeUpdate, int32_t, $String*, int32_t), "java.sql.SQLException"},
+		{"executeUpdate", "(Ljava/lang/String;[I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, executeUpdate, int32_t, $String*, $ints*), "java.sql.SQLException"},
+		{"executeUpdate", "(Ljava/lang/String;[Ljava/lang/String;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, executeUpdate, int32_t, $String*, $StringArray*), "java.sql.SQLException"},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"getConnection", "()Ljava/sql/Connection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getConnection, $Connection*), "java.sql.SQLException"},
+		{"getFetchDirection", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getFetchDirection, int32_t), "java.sql.SQLException"},
+		{"getFetchSize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getFetchSize, int32_t), "java.sql.SQLException"},
+		{"getGeneratedKeys", "()Ljava/sql/ResultSet;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getGeneratedKeys, $ResultSet*), "java.sql.SQLException"},
+		{"getLargeMaxRows", "()J", nullptr, $PUBLIC, $virtualMethod(Statement, getLargeMaxRows, int64_t), "java.sql.SQLException"},
+		{"getLargeUpdateCount", "()J", nullptr, $PUBLIC, $virtualMethod(Statement, getLargeUpdateCount, int64_t), "java.sql.SQLException"},
+		{"getMaxFieldSize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getMaxFieldSize, int32_t), "java.sql.SQLException"},
+		{"getMaxRows", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getMaxRows, int32_t), "java.sql.SQLException"},
+		{"getMoreResults", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getMoreResults, bool), "java.sql.SQLException"},
+		{"getMoreResults", "(I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getMoreResults, bool, int32_t), "java.sql.SQLException"},
+		{"getQueryTimeout", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getQueryTimeout, int32_t), "java.sql.SQLException"},
+		{"getResultSet", "()Ljava/sql/ResultSet;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getResultSet, $ResultSet*), "java.sql.SQLException"},
+		{"getResultSetConcurrency", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getResultSetConcurrency, int32_t), "java.sql.SQLException"},
+		{"getResultSetHoldability", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getResultSetHoldability, int32_t), "java.sql.SQLException"},
+		{"getResultSetType", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getResultSetType, int32_t), "java.sql.SQLException"},
+		{"getUpdateCount", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getUpdateCount, int32_t), "java.sql.SQLException"},
+		{"getWarnings", "()Ljava/sql/SQLWarning;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, getWarnings, $SQLWarning*), "java.sql.SQLException"},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"isCloseOnCompletion", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, isCloseOnCompletion, bool), "java.sql.SQLException"},
+		{"isClosed", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, isClosed, bool), "java.sql.SQLException"},
+		{"isPoolable", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, isPoolable, bool), "java.sql.SQLException"},
+		{"isSimpleIdentifier", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Statement, isSimpleIdentifier, bool, $String*), "java.sql.SQLException"},
+		{"setCursorName", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, setCursorName, void, $String*), "java.sql.SQLException"},
+		{"setEscapeProcessing", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, setEscapeProcessing, void, bool), "java.sql.SQLException"},
+		{"setFetchDirection", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, setFetchDirection, void, int32_t), "java.sql.SQLException"},
+		{"setFetchSize", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, setFetchSize, void, int32_t), "java.sql.SQLException"},
+		{"setLargeMaxRows", "(J)V", nullptr, $PUBLIC, $virtualMethod(Statement, setLargeMaxRows, void, int64_t), "java.sql.SQLException"},
+		{"setMaxFieldSize", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, setMaxFieldSize, void, int32_t), "java.sql.SQLException"},
+		{"setMaxRows", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, setMaxRows, void, int32_t), "java.sql.SQLException"},
+		{"setPoolable", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, setPoolable, void, bool), "java.sql.SQLException"},
+		{"setQueryTimeout", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Statement, setQueryTimeout, void, int32_t), "java.sql.SQLException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.sql.Statement",
+		nullptr,
+		"java.sql.Wrapper,java.lang.AutoCloseable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Statement, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Statement));
+	});
 	return class$;
 }
 

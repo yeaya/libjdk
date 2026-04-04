@@ -22,6 +22,7 @@ class DialogOwnerAccessor : public ::java::lang::Object {
 	$class(DialogOwnerAccessor, 0, ::java::lang::Object)
 public:
 	DialogOwnerAccessor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int64_t getID(::javax::print::attribute::standard::DialogOwner* owner);
 	virtual int64_t getOwnerID(::javax::print::attribute::standard::DialogOwner* owner) {return 0;}

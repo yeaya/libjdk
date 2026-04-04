@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/common/LZWCompressor.h>
-
 #include <com/sun/imageio/plugins/common/BitFile.h>
 #include <com/sun/imageio/plugins/common/LZWStringTable.h>
 #include <javax/imageio/stream/ImageOutputStream.h>
@@ -21,40 +20,6 @@ namespace com {
 			namespace plugins {
 				namespace common {
 
-$FieldInfo _LZWCompressor_FieldInfo_[] = {
-	{"codeSize", "I", nullptr, 0, $field(LZWCompressor, codeSize)},
-	{"clearCode", "I", nullptr, 0, $field(LZWCompressor, clearCode)},
-	{"endOfInfo", "I", nullptr, 0, $field(LZWCompressor, endOfInfo)},
-	{"numBits", "I", nullptr, 0, $field(LZWCompressor, numBits)},
-	{"limit", "I", nullptr, 0, $field(LZWCompressor, limit)},
-	{"prefix", "S", nullptr, 0, $field(LZWCompressor, prefix)},
-	{"bf", "Lcom/sun/imageio/plugins/common/BitFile;", nullptr, 0, $field(LZWCompressor, bf)},
-	{"lzss", "Lcom/sun/imageio/plugins/common/LZWStringTable;", nullptr, 0, $field(LZWCompressor, lzss)},
-	{"tiffFudge", "Z", nullptr, 0, $field(LZWCompressor, tiffFudge)},
-	{}
-};
-
-$MethodInfo _LZWCompressor_MethodInfo_[] = {
-	{"<init>", "(Ljavax/imageio/stream/ImageOutputStream;IZ)V", nullptr, $PUBLIC, $method(LZWCompressor, init$, void, $ImageOutputStream*, int32_t, bool), "java.io.IOException"},
-	{"compress", "([BII)V", nullptr, $PUBLIC, $virtualMethod(LZWCompressor, compress, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"dump", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $virtualMethod(LZWCompressor, dump, void, $PrintStream*)},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(LZWCompressor, flush, void), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _LZWCompressor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.common.LZWCompressor",
-	"java.lang.Object",
-	nullptr,
-	_LZWCompressor_FieldInfo_,
-	_LZWCompressor_MethodInfo_
-};
-
-$Object* allocate$LZWCompressor($Class* clazz) {
-	return $of($alloc(LZWCompressor));
-}
-
 void LZWCompressor::init$($ImageOutputStream* out, int32_t codeSize, bool TIFF) {
 	$set(this, bf, $new($BitFile, out, !TIFF));
 	this->codeSize = codeSize;
@@ -66,9 +31,9 @@ void LZWCompressor::init$($ImageOutputStream* out, int32_t codeSize, bool TIFF) 
 	if (this->tiffFudge) {
 		--this->limit;
 	}
-	this->prefix = (int16_t)0x0000FFFF;
+	this->prefix = (int16_t)0x0000ffff;
 	$set(this, lzss, $new($LZWStringTable));
-	$nc(this->lzss)->clearTable(codeSize);
+	this->lzss->clearTable(codeSize);
 	$nc(this->bf)->writeBits(this->clearCode, this->numBits);
 }
 
@@ -96,7 +61,7 @@ void LZWCompressor::compress($bytes* buf, int32_t offset, int32_t length) {
 					--this->limit;
 				}
 			}
-			this->prefix = (int16_t)((int32_t)((int16_t)c & (uint32_t)255));
+			this->prefix = (int16_t)((int16_t)c & 0xff);
 		}
 	}
 }
@@ -117,7 +82,36 @@ LZWCompressor::LZWCompressor() {
 }
 
 $Class* LZWCompressor::load$($String* name, bool initialize) {
-	$loadClass(LZWCompressor, name, initialize, &_LZWCompressor_ClassInfo_, allocate$LZWCompressor);
+	$FieldInfo fieldInfos$$[] = {
+		{"codeSize", "I", nullptr, 0, $field(LZWCompressor, codeSize)},
+		{"clearCode", "I", nullptr, 0, $field(LZWCompressor, clearCode)},
+		{"endOfInfo", "I", nullptr, 0, $field(LZWCompressor, endOfInfo)},
+		{"numBits", "I", nullptr, 0, $field(LZWCompressor, numBits)},
+		{"limit", "I", nullptr, 0, $field(LZWCompressor, limit)},
+		{"prefix", "S", nullptr, 0, $field(LZWCompressor, prefix)},
+		{"bf", "Lcom/sun/imageio/plugins/common/BitFile;", nullptr, 0, $field(LZWCompressor, bf)},
+		{"lzss", "Lcom/sun/imageio/plugins/common/LZWStringTable;", nullptr, 0, $field(LZWCompressor, lzss)},
+		{"tiffFudge", "Z", nullptr, 0, $field(LZWCompressor, tiffFudge)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/imageio/stream/ImageOutputStream;IZ)V", nullptr, $PUBLIC, $method(LZWCompressor, init$, void, $ImageOutputStream*, int32_t, bool), "java.io.IOException"},
+		{"compress", "([BII)V", nullptr, $PUBLIC, $virtualMethod(LZWCompressor, compress, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"dump", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $virtualMethod(LZWCompressor, dump, void, $PrintStream*)},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(LZWCompressor, flush, void), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.common.LZWCompressor",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LZWCompressor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LZWCompressor);
+	});
 	return class$;
 }
 

@@ -26,7 +26,7 @@ public:
 	virtual ::java::beans::beancontext::BeanContext* getPropagatedFrom();
 	virtual bool isPropagated();
 	virtual void setPropagatedFrom(::java::beans::beancontext::BeanContext* bc);
-	static const int64_t serialVersionUID = (int64_t)0x64DD1DBD8B4E6A3C;
+	static const int64_t serialVersionUID = (int64_t)0x64dd1dbd8b4e6a3c;
 	::java::beans::beancontext::BeanContext* propagatedFrom = nullptr;
 };
 

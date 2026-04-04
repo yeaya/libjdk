@@ -1,5 +1,4 @@
 #include <java/awt/geom/Ellipse2D.h>
-
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/EllipseIterator.h>
 #include <java/awt/geom/PathIterator.h>
@@ -18,42 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 		namespace geom {
-
-$MethodInfo _Ellipse2D_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(Ellipse2D, init$, void)},
-	{"contains", "(DD)Z", nullptr, $PUBLIC, $virtualMethod(Ellipse2D, contains, bool, double, double)},
-	{"contains", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(Ellipse2D, contains, bool, double, double, double, double)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Ellipse2D, equals, bool, Object$*)},
-	{"getPathIterator", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/geom/PathIterator;", nullptr, $PUBLIC, $virtualMethod(Ellipse2D, getPathIterator, $PathIterator*, $AffineTransform*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Ellipse2D, hashCode, int32_t)},
-	{"intersects", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(Ellipse2D, intersects, bool, double, double, double, double)},
-	{}
-};
-
-$InnerClassInfo _Ellipse2D_InnerClassesInfo_[] = {
-	{"java.awt.geom.Ellipse2D$Double", "java.awt.geom.Ellipse2D", "Double", $PUBLIC | $STATIC},
-	{"java.awt.geom.Ellipse2D$Float", "java.awt.geom.Ellipse2D", "Float", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Ellipse2D_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.geom.Ellipse2D",
-	"java.awt.geom.RectangularShape",
-	nullptr,
-	nullptr,
-	_Ellipse2D_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Ellipse2D_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.geom.Ellipse2D$Double,java.awt.geom.Ellipse2D$Float"
-};
-
-$Object* allocate$Ellipse2D($Class* clazz) {
-	return $of($alloc(Ellipse2D));
-}
 
 void Ellipse2D::init$() {
 	$RectangularShape::init$();
@@ -134,20 +97,20 @@ bool Ellipse2D::equals(Object$* obj) {
 	if ($instanceOf(Ellipse2D, obj)) {
 		$var(Ellipse2D, e2d, $cast(Ellipse2D, obj));
 		double var$3 = getX();
-		bool var$2 = (var$3 == $nc(e2d)->getX());
+		bool var$2 = var$3 == e2d->getX();
 		if (var$2) {
 			double var$4 = getY();
-			var$2 = (var$4 == e2d->getY());
+			var$2 = var$4 == e2d->getY();
 		}
 		bool var$1 = var$2;
 		if (var$1) {
 			double var$5 = getWidth();
-			var$1 = (var$5 == e2d->getWidth());
+			var$1 = var$5 == e2d->getWidth();
 		}
 		bool var$0 = var$1;
 		if (var$0) {
 			double var$6 = getHeight();
-			var$0 = (var$6 == e2d->getHeight());
+			var$0 = var$6 == e2d->getHeight();
 		}
 		return (var$0);
 	}
@@ -158,7 +121,38 @@ Ellipse2D::Ellipse2D() {
 }
 
 $Class* Ellipse2D::load$($String* name, bool initialize) {
-	$loadClass(Ellipse2D, name, initialize, &_Ellipse2D_ClassInfo_, allocate$Ellipse2D);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(Ellipse2D, init$, void)},
+		{"contains", "(DD)Z", nullptr, $PUBLIC, $virtualMethod(Ellipse2D, contains, bool, double, double)},
+		{"contains", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(Ellipse2D, contains, bool, double, double, double, double)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Ellipse2D, equals, bool, Object$*)},
+		{"getPathIterator", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/geom/PathIterator;", nullptr, $PUBLIC, $virtualMethod(Ellipse2D, getPathIterator, $PathIterator*, $AffineTransform*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Ellipse2D, hashCode, int32_t)},
+		{"intersects", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(Ellipse2D, intersects, bool, double, double, double, double)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.geom.Ellipse2D$Double", "java.awt.geom.Ellipse2D", "Double", $PUBLIC | $STATIC},
+		{"java.awt.geom.Ellipse2D$Float", "java.awt.geom.Ellipse2D", "Float", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.geom.Ellipse2D",
+		"java.awt.geom.RectangularShape",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.geom.Ellipse2D$Double,java.awt.geom.Ellipse2D$Float"
+	};
+	$loadClass(Ellipse2D, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Ellipse2D));
+	});
 	return class$;
 }
 

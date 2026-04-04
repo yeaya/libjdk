@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/util/HexBin.h>
-
 #include <jcpp.h>
 
 #undef BASELENGTH
@@ -18,34 +17,6 @@ namespace com {
 						namespace impl {
 							namespace dv {
 								namespace util {
-
-$FieldInfo _HexBin_FieldInfo_[] = {
-	{"BASELENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HexBin, BASELENGTH)},
-	{"LOOKUPLENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HexBin, LOOKUPLENGTH)},
-	{"hexNumberTable", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HexBin, hexNumberTable)},
-	{"lookUpHexAlphabet", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HexBin, lookUpHexAlphabet)},
-	{}
-};
-
-$MethodInfo _HexBin_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HexBin, init$, void)},
-	{"decode", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(HexBin, decode, $bytes*, $String*)},
-	{"encode", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(HexBin, encode, $String*, $bytes*)},
-	{}
-};
-
-$ClassInfo _HexBin_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.util.HexBin",
-	"java.lang.Object",
-	nullptr,
-	_HexBin_FieldInfo_,
-	_HexBin_MethodInfo_
-};
-
-$Object* allocate$HexBin($Class* clazz) {
-	return $of($alloc(HexBin));
-}
 
 $bytes* HexBin::hexNumberTable = nullptr;
 $chars* HexBin::lookUpHexAlphabet = nullptr;
@@ -67,15 +38,15 @@ $String* HexBin::encode($bytes* binaryData) {
 		if (temp < 0) {
 			temp += 256;
 		}
-		encodedData->set(i * 2, $nc(HexBin::lookUpHexAlphabet)->get(temp >> 4));
-		encodedData->set(i * 2 + 1, $nc(HexBin::lookUpHexAlphabet)->get((int32_t)(temp & (uint32_t)15)));
+		encodedData->set(i * 2, HexBin::lookUpHexAlphabet->get(temp >> 4));
+		encodedData->set(i * 2 + 1, HexBin::lookUpHexAlphabet->get(temp & 0x0f));
 	}
 	return $new($String, encodedData);
 }
 
 $bytes* HexBin::decode($String* encoded) {
 	$init(HexBin);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (encoded == nullptr) {
 		return nullptr;
 	}
@@ -91,12 +62,12 @@ $bytes* HexBin::decode($String* encoded) {
 	char16_t tempChar = 0;
 	for (int32_t i = 0; i < lengthDecode; ++i) {
 		tempChar = binaryData->get(i * 2);
-		temp1 = (tempChar < HexBin::BASELENGTH) ? $nc(HexBin::hexNumberTable)->get(tempChar) : (int8_t)-1;
+		temp1 = (tempChar < HexBin::BASELENGTH) ? HexBin::hexNumberTable->get(tempChar) : -1;
 		if (temp1 == -1) {
 			return nullptr;
 		}
 		tempChar = binaryData->get(i * 2 + 1);
-		temp2 = (tempChar < HexBin::BASELENGTH) ? $nc(HexBin::hexNumberTable)->get(tempChar) : (int8_t)-1;
+		temp2 = (tempChar < HexBin::BASELENGTH) ? HexBin::hexNumberTable->get(tempChar) : -1;
 		if (temp2 == -1) {
 			return nullptr;
 		}
@@ -105,27 +76,27 @@ $bytes* HexBin::decode($String* encoded) {
 	return decodedData;
 }
 
-void clinit$HexBin($Class* class$) {
+void HexBin::clinit$($Class* clazz) {
 	$assignStatic(HexBin::hexNumberTable, $new($bytes, HexBin::BASELENGTH));
 	$assignStatic(HexBin::lookUpHexAlphabet, $new($chars, HexBin::LOOKUPLENGTH));
 	{
 		for (int32_t i = 0; i < HexBin::BASELENGTH; ++i) {
-			$nc(HexBin::hexNumberTable)->set(i, (int8_t)-1);
+			HexBin::hexNumberTable->set(i, -1);
 		}
 		for (int32_t i = u'9'; i >= u'0'; --i) {
-			$nc(HexBin::hexNumberTable)->set(i, (int8_t)(i - u'0'));
+			HexBin::hexNumberTable->set(i, (int8_t)(i - u'0'));
 		}
 		for (int32_t i = u'F'; i >= u'A'; --i) {
-			$nc(HexBin::hexNumberTable)->set(i, (int8_t)(i - u'A' + 10));
+			HexBin::hexNumberTable->set(i, (int8_t)(i - u'A' + 10));
 		}
 		for (int32_t i = u'f'; i >= u'a'; --i) {
-			$nc(HexBin::hexNumberTable)->set(i, (int8_t)(i - u'a' + 10));
+			HexBin::hexNumberTable->set(i, (int8_t)(i - u'a' + 10));
 		}
 		for (int32_t i = 0; i < 10; ++i) {
-			$nc(HexBin::lookUpHexAlphabet)->set(i, (char16_t)(u'0' + i));
+			HexBin::lookUpHexAlphabet->set(i, (char16_t)(u'0' + i));
 		}
 		for (int32_t i = 10; i <= 15; ++i) {
-			$nc(HexBin::lookUpHexAlphabet)->set(i, (char16_t)(u'A' + i - 10));
+			HexBin::lookUpHexAlphabet->set(i, (char16_t)(u'A' + i - 10));
 		}
 	}
 }
@@ -134,7 +105,30 @@ HexBin::HexBin() {
 }
 
 $Class* HexBin::load$($String* name, bool initialize) {
-	$loadClass(HexBin, name, initialize, &_HexBin_ClassInfo_, clinit$HexBin, allocate$HexBin);
+	$FieldInfo fieldInfos$$[] = {
+		{"BASELENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HexBin, BASELENGTH)},
+		{"LOOKUPLENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HexBin, LOOKUPLENGTH)},
+		{"hexNumberTable", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HexBin, hexNumberTable)},
+		{"lookUpHexAlphabet", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HexBin, lookUpHexAlphabet)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HexBin, init$, void)},
+		{"decode", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(HexBin, decode, $bytes*, $String*)},
+		{"encode", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(HexBin, encode, $String*, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.util.HexBin",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HexBin, name, initialize, &classInfo$$, HexBin::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HexBin);
+	});
 	return class$;
 }
 

@@ -14,10 +14,13 @@ public:
 	RMISecurityException();
 	void init$($String* name);
 	void init$($String* name, $String* arg);
-	static const int64_t serialVersionUID = (int64_t)0x8AF685DB30DED396;
+	static const int64_t serialVersionUID = (int64_t)0x8af685db30ded396;
 	RMISecurityException(const RMISecurityException& e);
 	virtual void throw$() override;
-	inline RMISecurityException* operator ->() {
+	inline RMISecurityException* operator ->() const {
+		return (RMISecurityException*)throwing$;
+	}
+	inline operator RMISecurityException*() const {
 		return (RMISecurityException*)throwing$;
 	}
 };

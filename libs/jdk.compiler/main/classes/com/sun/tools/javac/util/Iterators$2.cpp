@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Iterators$2.h>
-
 #include <com/sun/tools/javac/util/Iterators.h>
 #include <java/util/Iterator.h>
 #include <java/util/function/Predicate.h>
@@ -19,52 +18,6 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$FieldInfo _Iterators$2_FieldInfo_[] = {
-	{"val$test", "Ljava/util/function/Predicate;", nullptr, $FINAL | $SYNTHETIC, $field(Iterators$2, val$test)},
-	{"val$input", "Ljava/util/Iterator;", nullptr, $FINAL | $SYNTHETIC, $field(Iterators$2, val$input)},
-	{"current", "Ljava/lang/Object;", "TE;", $PRIVATE, $field(Iterators$2, current)},
-	{}
-};
-
-$MethodInfo _Iterators$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Iterator;Ljava/util/function/Predicate;)V", "()V", 0, $method(Iterators$2, init$, void, $Iterator*, $Predicate*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Iterators$2, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Iterators$2, next, $Object*)},
-	{"update", "()Ljava/lang/Object;", "()TE;", $PRIVATE, $method(Iterators$2, update, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Iterators$2_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.util.Iterators",
-	"createFilterIterator",
-	"(Ljava/util/Iterator;Ljava/util/function/Predicate;)Ljava/util/Iterator;"
-};
-
-$InnerClassInfo _Iterators$2_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.Iterators$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Iterators$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.util.Iterators$2",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_Iterators$2_FieldInfo_,
-	_Iterators$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
-	&_Iterators$2_EnclosingMethodInfo_,
-	_Iterators$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.Iterators"
-};
-
-$Object* allocate$Iterators$2($Class* clazz) {
-	return $of($alloc(Iterators$2));
-}
-
 void Iterators$2::init$($Iterator* val$input, $Predicate* val$test) {
 	$set(this, val$input, val$input);
 	$set(this, val$test, val$test);
@@ -72,14 +25,14 @@ void Iterators$2::init$($Iterator* val$input, $Predicate* val$test) {
 }
 
 $Object* Iterators$2::update() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while ($nc(this->val$input)->hasNext()) {
-		$var($Object, sym, $nc(this->val$input)->next());
+		$var($Object, sym, this->val$input->next());
 		if ($nc(this->val$test)->test(sym)) {
-			return $of(sym);
+			return sym;
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 bool Iterators$2::hasNext() {
@@ -89,14 +42,53 @@ bool Iterators$2::hasNext() {
 $Object* Iterators$2::next() {
 	$var($Object, res, this->current);
 	$set(this, current, update());
-	return $of(res);
+	return res;
 }
 
 Iterators$2::Iterators$2() {
 }
 
 $Class* Iterators$2::load$($String* name, bool initialize) {
-	$loadClass(Iterators$2, name, initialize, &_Iterators$2_ClassInfo_, allocate$Iterators$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$test", "Ljava/util/function/Predicate;", nullptr, $FINAL | $SYNTHETIC, $field(Iterators$2, val$test)},
+		{"val$input", "Ljava/util/Iterator;", nullptr, $FINAL | $SYNTHETIC, $field(Iterators$2, val$input)},
+		{"current", "Ljava/lang/Object;", "TE;", $PRIVATE, $field(Iterators$2, current)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Iterator;Ljava/util/function/Predicate;)V", "()V", 0, $method(Iterators$2, init$, void, $Iterator*, $Predicate*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Iterators$2, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Iterators$2, next, $Object*)},
+		{"update", "()Ljava/lang/Object;", "()TE;", $PRIVATE, $method(Iterators$2, update, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.util.Iterators",
+		"createFilterIterator",
+		"(Ljava/util/Iterator;Ljava/util/function/Predicate;)Ljava/util/Iterator;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.Iterators$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.util.Iterators$2",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.Iterators"
+	};
+	$loadClass(Iterators$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Iterators$2);
+	});
 	return class$;
 }
 

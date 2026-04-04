@@ -76,6 +76,7 @@ class EAttribute : public ::java::lang::Enum {
 public:
 	EAttribute();
 	static $Array<::sun::font::EAttribute>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, ::java::awt::font::TextAttribute* ta);
 	static ::sun::font::EAttribute* forAttribute(::java::text::AttributedCharacterIterator$Attribute* ta);
 	virtual $String* toString() override;

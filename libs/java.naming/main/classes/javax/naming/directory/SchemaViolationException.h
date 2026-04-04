@@ -15,10 +15,13 @@ public:
 	SchemaViolationException();
 	void init$();
 	void init$($String* explanation);
-	static const int64_t serialVersionUID = (int64_t)0xD5C97D2FB107BEC1;
+	static const int64_t serialVersionUID = (int64_t)0xd5c97d2fb107bec1;
 	SchemaViolationException(const SchemaViolationException& e);
 	virtual void throw$() override;
-	inline SchemaViolationException* operator ->() {
+	inline SchemaViolationException* operator ->() const {
+		return (SchemaViolationException*)throwing$;
+	}
+	inline operator SchemaViolationException*() const {
 		return (SchemaViolationException*)throwing$;
 	}
 };

@@ -98,6 +98,7 @@ class XMLUtils : public ::java::lang::Object {
 	$class(XMLUtils, 0, ::java::lang::Object)
 public:
 	XMLUtils();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addReturnBeforeChild(::org::w3c::dom::Element* e, ::org::w3c::dom::Node* child);
 	static void addReturnToElement(::org::w3c::dom::Element* e);

@@ -1,5 +1,4 @@
 #include <javax/naming/directory/InvalidAttributeIdentifierException.h>
-
 #include <javax/naming/NamingException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $NamingException = ::javax::naming::NamingException;
 namespace javax {
 	namespace naming {
 		namespace directory {
-
-$FieldInfo _InvalidAttributeIdentifierException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidAttributeIdentifierException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InvalidAttributeIdentifierException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidAttributeIdentifierException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidAttributeIdentifierException, init$, void)},
-	{}
-};
-
-$ClassInfo _InvalidAttributeIdentifierException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.directory.InvalidAttributeIdentifierException",
-	"javax.naming.NamingException",
-	nullptr,
-	_InvalidAttributeIdentifierException_FieldInfo_,
-	_InvalidAttributeIdentifierException_MethodInfo_
-};
-
-$Object* allocate$InvalidAttributeIdentifierException($Class* clazz) {
-	return $of($alloc(InvalidAttributeIdentifierException));
-}
 
 void InvalidAttributeIdentifierException::init$($String* explanation) {
 	$NamingException::init$(explanation);
@@ -55,7 +30,26 @@ void InvalidAttributeIdentifierException::throw$() {
 }
 
 $Class* InvalidAttributeIdentifierException::load$($String* name, bool initialize) {
-	$loadClass(InvalidAttributeIdentifierException, name, initialize, &_InvalidAttributeIdentifierException_ClassInfo_, allocate$InvalidAttributeIdentifierException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidAttributeIdentifierException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidAttributeIdentifierException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidAttributeIdentifierException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.directory.InvalidAttributeIdentifierException",
+		"javax.naming.NamingException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InvalidAttributeIdentifierException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvalidAttributeIdentifierException);
+	});
 	return class$;
 }
 

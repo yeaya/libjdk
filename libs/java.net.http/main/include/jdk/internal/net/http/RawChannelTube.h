@@ -83,6 +83,7 @@ class $import RawChannelTube : public ::jdk::internal::net::http::websocket::Raw
 	$class(RawChannelTube, 0, ::jdk::internal::net::http::websocket::RawChannel)
 public:
 	RawChannelTube();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::HttpConnection* connection, ::java::util::function::Supplier* initial);
 	virtual void close() override;
 	void connectFlows();

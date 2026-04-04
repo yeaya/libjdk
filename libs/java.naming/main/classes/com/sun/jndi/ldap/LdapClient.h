@@ -262,6 +262,7 @@ class LdapClient : public ::com::sun::jndi::ldap::pool::PooledConnection {
 	$class(LdapClient, $HAS_FINALIZE, ::com::sun::jndi::ldap::pool::PooledConnection)
 public:
 	LdapClient();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* host, int32_t port, $String* socketFactory, int32_t connectTimeout, int32_t readTimeout, ::java::io::OutputStream* trace, ::com::sun::jndi::ldap::pool::PoolCallback* pcb);
 	::com::sun::jndi::ldap::LdapResult* add(::com::sun::jndi::ldap::LdapEntry* entry, $Array<::javax::naming::ldap::Control>* reqCtls);
 	void addUnsolicited(::com::sun::jndi::ldap::LdapCtx* ctx);

@@ -1,5 +1,4 @@
 #include <com/sun/jmx/remote/protocol/rmi/ServerProvider.h>
-
 #include <java/net/MalformedURLException.h>
 #include <java/util/Map.h>
 #include <javax/management/MBeanServer.h>
@@ -24,31 +23,12 @@ namespace com {
 				namespace protocol {
 					namespace rmi {
 
-$MethodInfo _ServerProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ServerProvider, init$, void)},
-	{"newJMXConnectorServer", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;Ljavax/management/MBeanServer;)Ljavax/management/remote/JMXConnectorServer;", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/management/MBeanServer;)Ljavax/management/remote/JMXConnectorServer;", $PUBLIC, $virtualMethod(ServerProvider, newJMXConnectorServer, $JMXConnectorServer*, $JMXServiceURL*, $Map*, $MBeanServer*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ServerProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.jmx.remote.protocol.rmi.ServerProvider",
-	"java.lang.Object",
-	"javax.management.remote.JMXConnectorServerProvider",
-	nullptr,
-	_ServerProvider_MethodInfo_
-};
-
-$Object* allocate$ServerProvider($Class* clazz) {
-	return $of($alloc(ServerProvider));
-}
-
 void ServerProvider::init$() {
 }
 
 $JMXConnectorServer* ServerProvider::newJMXConnectorServer($JMXServiceURL* serviceURL, $Map* environment, $MBeanServer* mbeanServer) {
-	$useLocalCurrentObjectStackCache();
-	if (!$nc($($nc(serviceURL)->getProtocol()))->equals("rmi"_s)) {
+	$useLocalObjectStack();
+	if (!$$nc($nc(serviceURL)->getProtocol())->equals("rmi"_s)) {
 		$throwNew($MalformedURLException, $$str({"Protocol not rmi: "_s, $(serviceURL->getProtocol())}));
 	}
 	return $new($RMIConnectorServer, serviceURL, environment, mbeanServer);
@@ -58,7 +38,22 @@ ServerProvider::ServerProvider() {
 }
 
 $Class* ServerProvider::load$($String* name, bool initialize) {
-	$loadClass(ServerProvider, name, initialize, &_ServerProvider_ClassInfo_, allocate$ServerProvider);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ServerProvider, init$, void)},
+		{"newJMXConnectorServer", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;Ljavax/management/MBeanServer;)Ljavax/management/remote/JMXConnectorServer;", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/management/MBeanServer;)Ljavax/management/remote/JMXConnectorServer;", $PUBLIC, $virtualMethod(ServerProvider, newJMXConnectorServer, $JMXConnectorServer*, $JMXServiceURL*, $Map*, $MBeanServer*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.jmx.remote.protocol.rmi.ServerProvider",
+		"java.lang.Object",
+		"javax.management.remote.JMXConnectorServerProvider",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ServerProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServerProvider);
+	});
 	return class$;
 }
 

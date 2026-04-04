@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/ParentLocationPath.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ALOAD.h>
 #include <com/sun/org/apache/bcel/internal/generic/ASTORE.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
@@ -54,7 +53,6 @@ using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::Const
 using $INVOKEINTERFACE = ::com::sun::org::apache::bcel::internal::generic::INVOKEINTERFACE;
 using $INVOKESPECIAL = ::com::sun::org::apache::bcel::internal::generic::INVOKESPECIAL;
 using $INVOKEVIRTUAL = ::com::sun::org::apache::bcel::internal::generic::INVOKEVIRTUAL;
-using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $LocalVariableGen = ::com::sun::org::apache::bcel::internal::generic::LocalVariableGen;
@@ -84,44 +82,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace compiler {
-
-$FieldInfo _ParentLocationPath_FieldInfo_[] = {
-	{"_step", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(ParentLocationPath, _step)},
-	{"_path", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/RelativeLocationPath;", nullptr, $PRIVATE | $FINAL, $field(ParentLocationPath, _path)},
-	{"stype", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PRIVATE, $field(ParentLocationPath, stype)},
-	{"_orderNodes", "Z", nullptr, $PRIVATE, $field(ParentLocationPath, _orderNodes)},
-	{"_axisMismatch", "Z", nullptr, $PRIVATE, $field(ParentLocationPath, _axisMismatch)},
-	{}
-};
-
-$MethodInfo _ParentLocationPath_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/RelativeLocationPath;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;)V", nullptr, $PUBLIC, $method(ParentLocationPath, init$, void, $RelativeLocationPath*, $Expression*)},
-	{"checkAxisMismatch", "()Z", nullptr, $PUBLIC, $method(ParentLocationPath, checkAxisMismatch, bool)},
-	{"enableNodeOrdering", "()V", nullptr, $PUBLIC, $method(ParentLocationPath, enableNodeOrdering, void)},
-	{"getAxis", "()I", nullptr, $PUBLIC, $virtualMethod(ParentLocationPath, getAxis, int32_t)},
-	{"getPath", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/RelativeLocationPath;", nullptr, $PUBLIC, $method(ParentLocationPath, getPath, $RelativeLocationPath*)},
-	{"getStep", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PUBLIC, $method(ParentLocationPath, getStep, $Expression*)},
-	{"setAxis", "(I)V", nullptr, $PUBLIC, $virtualMethod(ParentLocationPath, setAxis, void, int32_t)},
-	{"setParser", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(ParentLocationPath, setParser, void, $Parser*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ParentLocationPath, toString, $String*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(ParentLocationPath, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"translateStep", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $method(ParentLocationPath, translateStep, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(ParentLocationPath, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _ParentLocationPath_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.ParentLocationPath",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.RelativeLocationPath",
-	nullptr,
-	_ParentLocationPath_FieldInfo_,
-	_ParentLocationPath_MethodInfo_
-};
-
-$Object* allocate$ParentLocationPath($Class* clazz) {
-	return $of($alloc(ParentLocationPath));
-}
 
 void ParentLocationPath::init$($RelativeLocationPath* path, $Expression* step) {
 	$RelativeLocationPath::init$();
@@ -175,7 +135,7 @@ $Type* ParentLocationPath::typeCheck($SymbolTable* stable) {
 void ParentLocationPath::enableNodeOrdering() {
 	$var($SyntaxTreeNode, parent, getParent());
 	if ($instanceOf(ParentLocationPath, parent)) {
-		$nc(($cast(ParentLocationPath, parent)))->enableNodeOrdering();
+		$cast(ParentLocationPath, parent)->enableNodeOrdering();
 	} else {
 		this->_orderNodes = true;
 	}
@@ -183,7 +143,7 @@ void ParentLocationPath::enableNodeOrdering() {
 
 bool ParentLocationPath::checkAxisMismatch() {
 	int32_t left = $nc(this->_path)->getAxis();
-	int32_t right = $nc(($cast($Step, this->_step)))->getAxis();
+	int32_t right = $nc($cast($Step, this->_step))->getAxis();
 	if (((left == $Axis::ANCESTOR) || (left == $Axis::ANCESTORORSELF)) && ((right == $Axis::CHILD) || (right == $Axis::DESCENDANT) || (right == $Axis::DESCENDANTORSELF) || (right == $Axis::PARENT) || (right == $Axis::PRECEDING) || (right == $Axis::PRECEDINGSIBLING))) {
 		return true;
 	}
@@ -201,7 +161,7 @@ bool ParentLocationPath::checkAxisMismatch() {
 	}
 	if ((right == $Axis::FOLLOWING) && (left == $Axis::CHILD)) {
 		if ($instanceOf($Step, this->_path)) {
-			int32_t type = $nc(($cast($Step, this->_path)))->getNodeType();
+			int32_t type = $cast($Step, this->_path)->getNodeType();
 			if (type == $DTM::ATTRIBUTE_NODE) {
 				return true;
 			}
@@ -216,39 +176,39 @@ void ParentLocationPath::translate($ClassGenerator* classGen, $MethodGenerator* 
 }
 
 void ParentLocationPath::translateStep($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	$init($Constants);
 	$var($LocalVariableGen, pathTemp, methodGen->addLocalVariable("parent_location_path_tmp1"_s, $($Util::getJCRefType($Constants::NODE_ITERATOR_SIG)), nullptr, nullptr));
-	$nc(pathTemp)->setStart($($nc(il)->append(static_cast<$Instruction*>($$new($ASTORE, pathTemp->getIndex())))));
+	$nc(pathTemp)->setStart($($nc(il)->append($$new($ASTORE, $nc(pathTemp)->getIndex()))));
 	$nc(this->_step)->translate(classGen, methodGen);
 	$var($LocalVariableGen, stepTemp, methodGen->addLocalVariable("parent_location_path_tmp2"_s, $($Util::getJCRefType($Constants::NODE_ITERATOR_SIG)), nullptr, nullptr));
-	$nc(stepTemp)->setStart($($nc(il)->append(static_cast<$Instruction*>($$new($ASTORE, stepTemp->getIndex())))));
+	$nc(stepTemp)->setStart($(il->append($$new($ASTORE, $nc(stepTemp)->getIndex()))));
 	int32_t initSI = $nc(cpg)->addMethodref($Constants::STEP_ITERATOR_CLASS, "<init>"_s, $$str({"("_s, $Constants::NODE_ITERATOR_SIG, $Constants::NODE_ITERATOR_SIG, ")V"_s}));
-	$nc(il)->append(static_cast<$Instruction*>($$new($NEW, cpg->addClass($Constants::STEP_ITERATOR_CLASS))));
-	il->append(static_cast<$Instruction*>($Constants::DUP));
-	pathTemp->setEnd($(il->append(static_cast<$Instruction*>($$new($ALOAD, pathTemp->getIndex())))));
-	stepTemp->setEnd($(il->append(static_cast<$Instruction*>($$new($ALOAD, stepTemp->getIndex())))));
-	il->append(static_cast<$Instruction*>($$new($INVOKESPECIAL, initSI)));
+	il->append($$new($NEW, cpg->addClass($Constants::STEP_ITERATOR_CLASS)));
+	il->append($Constants::DUP);
+	pathTemp->setEnd($(il->append($$new($ALOAD, pathTemp->getIndex()))));
+	stepTemp->setEnd($(il->append($$new($ALOAD, stepTemp->getIndex()))));
+	il->append($$new($INVOKESPECIAL, initSI));
 	$var($Expression, stp, this->_step);
 	if ($instanceOf(ParentLocationPath, stp)) {
-		$assign(stp, $nc(($cast(ParentLocationPath, stp)))->getStep());
+		$assign(stp, $cast(ParentLocationPath, stp)->getStep());
 	}
 	if (($instanceOf($Step, this->_path)) && ($instanceOf($Step, stp))) {
-		int32_t path = $nc(($cast($Step, this->_path)))->getAxis();
-		int32_t step = $nc(($cast($Step, stp)))->getAxis();
+		int32_t path = $cast($Step, this->_path)->getAxis();
+		int32_t step = $cast($Step, stp)->getAxis();
 		if ((path == $Axis::DESCENDANTORSELF && step == $Axis::CHILD) || (path == $Axis::PRECEDING && step == $Axis::PARENT)) {
 			int32_t incl = cpg->addMethodref($Constants::NODE_ITERATOR_BASE, "includeSelf"_s, $$str({"()"_s, $Constants::NODE_ITERATOR_SIG}));
-			il->append(static_cast<$Instruction*>($$new($INVOKEVIRTUAL, incl)));
+			il->append($$new($INVOKEVIRTUAL, incl));
 		}
 	}
 	if (this->_orderNodes) {
 		int32_t order = cpg->addInterfaceMethodref($Constants::DOM_INTF, $Constants::ORDER_ITERATOR, $Constants::ORDER_ITERATOR_SIG);
 		il->append($(methodGen->loadDOM()));
-		il->append(static_cast<$Instruction*>($Constants::SWAP));
+		il->append($Constants::SWAP);
 		il->append($(methodGen->loadContextNode()));
-		il->append(static_cast<$Instruction*>($$new($INVOKEINTERFACE, order, 3)));
+		il->append($$new($INVOKEINTERFACE, order, 3));
 	}
 }
 
@@ -256,7 +216,40 @@ ParentLocationPath::ParentLocationPath() {
 }
 
 $Class* ParentLocationPath::load$($String* name, bool initialize) {
-	$loadClass(ParentLocationPath, name, initialize, &_ParentLocationPath_ClassInfo_, allocate$ParentLocationPath);
+	$FieldInfo fieldInfos$$[] = {
+		{"_step", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(ParentLocationPath, _step)},
+		{"_path", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/RelativeLocationPath;", nullptr, $PRIVATE | $FINAL, $field(ParentLocationPath, _path)},
+		{"stype", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PRIVATE, $field(ParentLocationPath, stype)},
+		{"_orderNodes", "Z", nullptr, $PRIVATE, $field(ParentLocationPath, _orderNodes)},
+		{"_axisMismatch", "Z", nullptr, $PRIVATE, $field(ParentLocationPath, _axisMismatch)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/RelativeLocationPath;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;)V", nullptr, $PUBLIC, $method(ParentLocationPath, init$, void, $RelativeLocationPath*, $Expression*)},
+		{"checkAxisMismatch", "()Z", nullptr, $PUBLIC, $method(ParentLocationPath, checkAxisMismatch, bool)},
+		{"enableNodeOrdering", "()V", nullptr, $PUBLIC, $method(ParentLocationPath, enableNodeOrdering, void)},
+		{"getAxis", "()I", nullptr, $PUBLIC, $virtualMethod(ParentLocationPath, getAxis, int32_t)},
+		{"getPath", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/RelativeLocationPath;", nullptr, $PUBLIC, $method(ParentLocationPath, getPath, $RelativeLocationPath*)},
+		{"getStep", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PUBLIC, $method(ParentLocationPath, getStep, $Expression*)},
+		{"setAxis", "(I)V", nullptr, $PUBLIC, $virtualMethod(ParentLocationPath, setAxis, void, int32_t)},
+		{"setParser", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(ParentLocationPath, setParser, void, $Parser*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ParentLocationPath, toString, $String*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(ParentLocationPath, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"translateStep", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $method(ParentLocationPath, translateStep, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(ParentLocationPath, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.ParentLocationPath",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.RelativeLocationPath",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ParentLocationPath, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ParentLocationPath);
+	});
 	return class$;
 }
 

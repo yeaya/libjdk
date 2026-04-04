@@ -1,5 +1,4 @@
 #include <sun/security/krb5/SCDynamicStoreConfig$1.h>
-
 #include <java/lang/CharSequence.h>
 #include <sun/security/krb5/SCDynamicStoreConfig.h>
 #include <jcpp.h>
@@ -14,43 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace security {
 		namespace krb5 {
-
-$MethodInfo _SCDynamicStoreConfig$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SCDynamicStoreConfig$1, init$, void)},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(SCDynamicStoreConfig$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _SCDynamicStoreConfig$1_EnclosingMethodInfo_ = {
-	"sun.security.krb5.SCDynamicStoreConfig",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _SCDynamicStoreConfig$1_InnerClassesInfo_[] = {
-	{"sun.security.krb5.SCDynamicStoreConfig$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SCDynamicStoreConfig$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.krb5.SCDynamicStoreConfig$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_SCDynamicStoreConfig$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
-	&_SCDynamicStoreConfig$1_EnclosingMethodInfo_,
-	_SCDynamicStoreConfig$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.krb5.SCDynamicStoreConfig"
-};
-
-$Object* allocate$SCDynamicStoreConfig$1($Class* clazz) {
-	return $of($alloc(SCDynamicStoreConfig$1));
-}
 
 void SCDynamicStoreConfig$1::init$() {
 }
@@ -69,7 +31,38 @@ SCDynamicStoreConfig$1::SCDynamicStoreConfig$1() {
 }
 
 $Class* SCDynamicStoreConfig$1::load$($String* name, bool initialize) {
-	$loadClass(SCDynamicStoreConfig$1, name, initialize, &_SCDynamicStoreConfig$1_ClassInfo_, allocate$SCDynamicStoreConfig$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SCDynamicStoreConfig$1, init$, void)},
+		{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(SCDynamicStoreConfig$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.krb5.SCDynamicStoreConfig",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.krb5.SCDynamicStoreConfig$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.krb5.SCDynamicStoreConfig$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.krb5.SCDynamicStoreConfig"
+	};
+	$loadClass(SCDynamicStoreConfig$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SCDynamicStoreConfig$1);
+	});
 	return class$;
 }
 

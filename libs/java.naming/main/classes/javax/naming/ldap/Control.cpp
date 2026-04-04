@@ -1,5 +1,4 @@
 #include <javax/naming/ldap/Control.h>
-
 #include <jcpp.h>
 
 #undef CRITICAL
@@ -13,34 +12,29 @@ namespace javax {
 	namespace naming {
 		namespace ldap {
 
-$FieldInfo _Control_FieldInfo_[] = {
-	{"CRITICAL", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Control, CRITICAL)},
-	{"NONCRITICAL", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Control, NONCRITICAL)},
-	{}
-};
-
-$MethodInfo _Control_MethodInfo_[] = {
-	{"getEncodedValue", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Control, getEncodedValue, $bytes*)},
-	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Control, getID, $String*)},
-	{"isCritical", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Control, isCritical, bool)},
-	{}
-};
-
-$ClassInfo _Control_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.naming.ldap.Control",
-	nullptr,
-	"java.io.Serializable",
-	_Control_FieldInfo_,
-	_Control_MethodInfo_
-};
-
-$Object* allocate$Control($Class* clazz) {
-	return $of($alloc(Control));
-}
-
 $Class* Control::load$($String* name, bool initialize) {
-	$loadClass(Control, name, initialize, &_Control_ClassInfo_, allocate$Control);
+	$FieldInfo fieldInfos$$[] = {
+		{"CRITICAL", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Control, CRITICAL)},
+		{"NONCRITICAL", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Control, NONCRITICAL)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"getEncodedValue", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Control, getEncodedValue, $bytes*)},
+		{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Control, getID, $String*)},
+		{"isCritical", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Control, isCritical, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.naming.ldap.Control",
+		nullptr,
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Control, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Control);
+	});
 	return class$;
 }
 

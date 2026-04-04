@@ -1,6 +1,4 @@
 #include <com/apple/laf/AquaSplitPaneDividerUI.h>
-
-#include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$State.h>
 #include <apple/laf/JRSUIState.h>
 #include <apple/laf/JRSUIStateFactory.h>
@@ -19,14 +17,12 @@
 #include <java/awt/LayoutManager.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <javax/swing/BorderFactory.h>
-#include <javax/swing/Icon.h>
 #include <javax/swing/ImageIcon.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JSplitPane.h>
 #include <javax/swing/SwingConstants.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/plaf/basic/BasicSplitPaneDivider.h>
-#include <javax/swing/plaf/basic/BasicSplitPaneUI.h>
 #include <jcpp.h>
 
 #undef ACTIVE
@@ -40,9 +36,7 @@
 #undef SOUTH
 #undef WEST
 
-using $JRSUIConstants$Property = ::apple::laf::JRSUIConstants$Property;
 using $JRSUIConstants$State = ::apple::laf::JRSUIConstants$State;
-using $JRSUIState = ::apple::laf::JRSUIState;
 using $JRSUIStateFactory = ::apple::laf::JRSUIStateFactory;
 using $AquaPainter = ::com::apple::laf::AquaPainter;
 using $AquaSplitPaneDividerUI$1 = ::com::apple::laf::AquaSplitPaneDividerUI$1;
@@ -50,12 +44,10 @@ using $AquaSplitPaneDividerUI$DividerLayout = ::com::apple::laf::AquaSplitPaneDi
 using $AquaSplitPaneDividerUI$HorizontalSplitDividerGradientPainter = ::com::apple::laf::AquaSplitPaneDividerUI$HorizontalSplitDividerGradientPainter;
 using $AquaSplitPaneUI = ::com::apple::laf::AquaSplitPaneUI;
 using $AquaUtils$LazyKeyedSingleton = ::com::apple::laf::AquaUtils$LazyKeyedSingleton;
-using $Component = ::java::awt::Component;
 using $Cursor = ::java::awt::Cursor;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Image = ::java::awt::Image;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -63,75 +55,16 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BorderFactory = ::javax::swing::BorderFactory;
-using $Icon = ::javax::swing::Icon;
 using $ImageIcon = ::javax::swing::ImageIcon;
 using $JButton = ::javax::swing::JButton;
 using $JSplitPane = ::javax::swing::JSplitPane;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $Border = ::javax::swing::border::Border;
 using $BasicSplitPaneDivider = ::javax::swing::plaf::basic::BasicSplitPaneDivider;
-using $BasicSplitPaneUI = ::javax::swing::plaf::basic::BasicSplitPaneUI;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaSplitPaneDividerUI_FieldInfo_[] = {
-	{"painter", "Lcom/apple/laf/AquaPainter;", "Lcom/apple/laf/AquaPainter<Lapple/laf/JRSUIState;>;", $FINAL, $field(AquaSplitPaneDividerUI, painter)},
-	{"directionArrows", "Lcom/apple/laf/AquaUtils$LazyKeyedSingleton;", "Lcom/apple/laf/AquaUtils$LazyKeyedSingleton<Ljava/lang/Integer;Ljava/awt/Image;>;", $STATIC | $FINAL, $staticField(AquaSplitPaneDividerUI, directionArrows)},
-	{"kMaxPopupArrowSize", "I", nullptr, $STATIC | $FINAL, $constField(AquaSplitPaneDividerUI, kMaxPopupArrowSize)},
-	{}
-};
-
-$MethodInfo _AquaSplitPaneDividerUI_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaSplitPaneUI;)V", nullptr, $PUBLIC, $method(AquaSplitPaneDividerUI, init$, void, $AquaSplitPaneUI*)},
-	{"access$000", "(Lcom/apple/laf/AquaSplitPaneDividerUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSplitPaneDividerUI, access$000, $JButton*, AquaSplitPaneDividerUI*)},
-	{"access$100", "(Lcom/apple/laf/AquaSplitPaneDividerUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSplitPaneDividerUI, access$100, $JButton*, AquaSplitPaneDividerUI*)},
-	{"access$200", "(Lcom/apple/laf/AquaSplitPaneDividerUI;)Ljavax/swing/JSplitPane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSplitPaneDividerUI, access$200, $JSplitPane*, AquaSplitPaneDividerUI*)},
-	{"access$300", "(Lcom/apple/laf/AquaSplitPaneDividerUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSplitPaneDividerUI, access$300, $JButton*, AquaSplitPaneDividerUI*)},
-	{"access$400", "(Lcom/apple/laf/AquaSplitPaneDividerUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSplitPaneDividerUI, access$400, $JButton*, AquaSplitPaneDividerUI*)},
-	{"access$500", "(Lcom/apple/laf/AquaSplitPaneDividerUI;)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSplitPaneDividerUI, access$500, int32_t, AquaSplitPaneDividerUI*)},
-	{"access$600", "(Lcom/apple/laf/AquaSplitPaneDividerUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSplitPaneDividerUI, access$600, $JButton*, AquaSplitPaneDividerUI*)},
-	{"access$700", "(Lcom/apple/laf/AquaSplitPaneDividerUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSplitPaneDividerUI, access$700, $JButton*, AquaSplitPaneDividerUI*)},
-	{"access$800", "(Lcom/apple/laf/AquaSplitPaneDividerUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSplitPaneDividerUI, access$800, $JButton*, AquaSplitPaneDividerUI*)},
-	{"access$900", "(Lcom/apple/laf/AquaSplitPaneDividerUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSplitPaneDividerUI, access$900, $JButton*, AquaSplitPaneDividerUI*)},
-	{"createButtonForDirection", "(I)Ljavax/swing/JButton;", nullptr, $STATIC, $staticMethod(AquaSplitPaneDividerUI, createButtonForDirection, $JButton*, int32_t)},
-	{"createLeftOneTouchButton", "()Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(AquaSplitPaneDividerUI, createLeftOneTouchButton, $JButton*)},
-	{"createRightOneTouchButton", "()Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(AquaSplitPaneDividerUI, createRightOneTouchButton, $JButton*)},
-	{"getDirection", "(Z)I", nullptr, 0, $virtualMethod(AquaSplitPaneDividerUI, getDirection, int32_t, bool)},
-	{"getHorizontalSplitDividerGradientVariant", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaSplitPaneDividerUI, getHorizontalSplitDividerGradientVariant, $Border*)},
-	{"getMaxDividerSize", "()I", nullptr, $PUBLIC, $virtualMethod(AquaSplitPaneDividerUI, getMaxDividerSize, int32_t)},
-	{"getState", "()Lapple/laf/JRSUIConstants$State;", nullptr, $PROTECTED, $virtualMethod(AquaSplitPaneDividerUI, getState, $JRSUIConstants$State*)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(AquaSplitPaneDividerUI, paint, void, $Graphics*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSplitPaneDividerUI, propertyChange, void, $PropertyChangeEvent*)},
-	{}
-};
-
-$InnerClassInfo _AquaSplitPaneDividerUI_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaSplitPaneDividerUI$HorizontalSplitDividerGradientPainter", "com.apple.laf.AquaSplitPaneDividerUI", "HorizontalSplitDividerGradientPainter", $STATIC},
-	{"com.apple.laf.AquaSplitPaneDividerUI$DividerLayout", "com.apple.laf.AquaSplitPaneDividerUI", "DividerLayout", $PROTECTED},
-	{"com.apple.laf.AquaSplitPaneDividerUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaSplitPaneDividerUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaSplitPaneDividerUI",
-	"javax.swing.plaf.basic.BasicSplitPaneDivider",
-	nullptr,
-	_AquaSplitPaneDividerUI_FieldInfo_,
-	_AquaSplitPaneDividerUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaSplitPaneDividerUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaSplitPaneDividerUI$HorizontalSplitDividerGradientPainter,com.apple.laf.AquaSplitPaneDividerUI$DividerLayout,com.apple.laf.AquaSplitPaneDividerUI$1"
-};
-
-$Object* allocate$AquaSplitPaneDividerUI($Class* clazz) {
-	return $of($alloc(AquaSplitPaneDividerUI));
-}
 
 $AquaUtils$LazyKeyedSingleton* AquaSplitPaneDividerUI::directionArrows = nullptr;
 
@@ -186,7 +119,7 @@ $JButton* AquaSplitPaneDividerUI::access$000(AquaSplitPaneDividerUI* x0) {
 }
 
 void AquaSplitPaneDividerUI::init$($AquaSplitPaneUI* ui) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicSplitPaneDivider::init$(ui);
 	$set(this, painter, $AquaPainter::create($($JRSUIStateFactory::getSplitPaneDivider())));
 	setLayout($$new($AquaSplitPaneDividerUI$DividerLayout, this));
@@ -198,20 +131,20 @@ void AquaSplitPaneDividerUI::propertyChange($PropertyChangeEvent* e) {
 		if ("enabled"_s->equals(propName)) {
 			bool enabled = $nc(this->splitPane)->isEnabled();
 			if (this->leftButton != nullptr) {
-				$nc(this->leftButton)->setEnabled(enabled);
+				this->leftButton->setEnabled(enabled);
 			}
 			if (this->rightButton != nullptr) {
-				$nc(this->rightButton)->setEnabled(enabled);
+				this->rightButton->setEnabled(enabled);
 			}
 		} else {
 			$init($JSplitPane);
 			if ($nc($JSplitPane::ORIENTATION_PROPERTY)->equals(propName)) {
 				if (this->rightButton != nullptr) {
-					remove(static_cast<$Component*>(this->rightButton));
+					remove(this->rightButton);
 					$set(this, rightButton, nullptr);
 				}
 				if (this->leftButton != nullptr) {
-					remove(static_cast<$Component*>(this->leftButton));
+					remove(this->leftButton);
 					$set(this, leftButton, nullptr);
 				}
 				oneTouchExpandableChanged();
@@ -226,7 +159,7 @@ int32_t AquaSplitPaneDividerUI::getMaxDividerSize() {
 }
 
 void AquaSplitPaneDividerUI::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, size, getSize());
 	int32_t x = 0;
 	int32_t y = 0;
@@ -239,7 +172,7 @@ void AquaSplitPaneDividerUI::paint($Graphics* g) {
 			y = diff / 2;
 			size->height = maxSize;
 		}
-		if ($nc(size)->height < 4) {
+		if (size->height < 4) {
 			doPaint = false;
 		}
 	} else {
@@ -248,13 +181,13 @@ void AquaSplitPaneDividerUI::paint($Graphics* g) {
 			x = diff / 2;
 			size->width = maxSize;
 		}
-		if ($nc(size)->width < 4) {
+		if (size->width < 4) {
 			doPaint = false;
 		}
 	}
 	if (doPaint) {
 		$nc($nc(this->painter)->state)->set($(getState()));
-		$nc(this->painter)->paint(g, this->splitPane, x, y, $nc(size)->width, size->height);
+		this->painter->paint(g, this->splitPane, x, y, $nc(size)->width, $nc(size)->height);
 	}
 	$BasicSplitPaneDivider::paint(g);
 }
@@ -274,8 +207,8 @@ $JButton* AquaSplitPaneDividerUI::createRightOneTouchButton() {
 
 $JButton* AquaSplitPaneDividerUI::createButtonForDirection(int32_t direction) {
 	$init(AquaSplitPaneDividerUI);
-	$useLocalCurrentObjectStackCache();
-	$var($JButton, button, $new($JButton, static_cast<$Icon*>($$new($ImageIcon, $cast($Image, $($nc(AquaSplitPaneDividerUI::directionArrows)->get($($Integer::valueOf(direction)))))))));
+	$useLocalObjectStack();
+	$var($JButton, button, $new($JButton, $$new($ImageIcon, $$cast($Image, AquaSplitPaneDividerUI::directionArrows->get($($Integer::valueOf(direction)))))));
 	button->setCursor($($Cursor::getPredefinedCursor($Cursor::DEFAULT_CURSOR)));
 	button->setFocusPainted(false);
 	button->setRequestFocusEnabled(false);
@@ -296,7 +229,7 @@ $Border* AquaSplitPaneDividerUI::getHorizontalSplitDividerGradientVariant() {
 	return $AquaSplitPaneDividerUI$HorizontalSplitDividerGradientPainter::instance();
 }
 
-void clinit$AquaSplitPaneDividerUI($Class* class$) {
+void AquaSplitPaneDividerUI::clinit$($Class* clazz) {
 	$assignStatic(AquaSplitPaneDividerUI::directionArrows, $new($AquaSplitPaneDividerUI$1));
 }
 
@@ -304,7 +237,58 @@ AquaSplitPaneDividerUI::AquaSplitPaneDividerUI() {
 }
 
 $Class* AquaSplitPaneDividerUI::load$($String* name, bool initialize) {
-	$loadClass(AquaSplitPaneDividerUI, name, initialize, &_AquaSplitPaneDividerUI_ClassInfo_, clinit$AquaSplitPaneDividerUI, allocate$AquaSplitPaneDividerUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"painter", "Lcom/apple/laf/AquaPainter;", "Lcom/apple/laf/AquaPainter<Lapple/laf/JRSUIState;>;", $FINAL, $field(AquaSplitPaneDividerUI, painter)},
+		{"directionArrows", "Lcom/apple/laf/AquaUtils$LazyKeyedSingleton;", "Lcom/apple/laf/AquaUtils$LazyKeyedSingleton<Ljava/lang/Integer;Ljava/awt/Image;>;", $STATIC | $FINAL, $staticField(AquaSplitPaneDividerUI, directionArrows)},
+		{"kMaxPopupArrowSize", "I", nullptr, $STATIC | $FINAL, $constField(AquaSplitPaneDividerUI, kMaxPopupArrowSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaSplitPaneUI;)V", nullptr, $PUBLIC, $method(AquaSplitPaneDividerUI, init$, void, $AquaSplitPaneUI*)},
+		{"access$000", "(Lcom/apple/laf/AquaSplitPaneDividerUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSplitPaneDividerUI, access$000, $JButton*, AquaSplitPaneDividerUI*)},
+		{"access$100", "(Lcom/apple/laf/AquaSplitPaneDividerUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSplitPaneDividerUI, access$100, $JButton*, AquaSplitPaneDividerUI*)},
+		{"access$200", "(Lcom/apple/laf/AquaSplitPaneDividerUI;)Ljavax/swing/JSplitPane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSplitPaneDividerUI, access$200, $JSplitPane*, AquaSplitPaneDividerUI*)},
+		{"access$300", "(Lcom/apple/laf/AquaSplitPaneDividerUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSplitPaneDividerUI, access$300, $JButton*, AquaSplitPaneDividerUI*)},
+		{"access$400", "(Lcom/apple/laf/AquaSplitPaneDividerUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSplitPaneDividerUI, access$400, $JButton*, AquaSplitPaneDividerUI*)},
+		{"access$500", "(Lcom/apple/laf/AquaSplitPaneDividerUI;)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSplitPaneDividerUI, access$500, int32_t, AquaSplitPaneDividerUI*)},
+		{"access$600", "(Lcom/apple/laf/AquaSplitPaneDividerUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSplitPaneDividerUI, access$600, $JButton*, AquaSplitPaneDividerUI*)},
+		{"access$700", "(Lcom/apple/laf/AquaSplitPaneDividerUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSplitPaneDividerUI, access$700, $JButton*, AquaSplitPaneDividerUI*)},
+		{"access$800", "(Lcom/apple/laf/AquaSplitPaneDividerUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSplitPaneDividerUI, access$800, $JButton*, AquaSplitPaneDividerUI*)},
+		{"access$900", "(Lcom/apple/laf/AquaSplitPaneDividerUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaSplitPaneDividerUI, access$900, $JButton*, AquaSplitPaneDividerUI*)},
+		{"createButtonForDirection", "(I)Ljavax/swing/JButton;", nullptr, $STATIC, $staticMethod(AquaSplitPaneDividerUI, createButtonForDirection, $JButton*, int32_t)},
+		{"createLeftOneTouchButton", "()Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(AquaSplitPaneDividerUI, createLeftOneTouchButton, $JButton*)},
+		{"createRightOneTouchButton", "()Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(AquaSplitPaneDividerUI, createRightOneTouchButton, $JButton*)},
+		{"getDirection", "(Z)I", nullptr, 0, $virtualMethod(AquaSplitPaneDividerUI, getDirection, int32_t, bool)},
+		{"getHorizontalSplitDividerGradientVariant", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaSplitPaneDividerUI, getHorizontalSplitDividerGradientVariant, $Border*)},
+		{"getMaxDividerSize", "()I", nullptr, $PUBLIC, $virtualMethod(AquaSplitPaneDividerUI, getMaxDividerSize, int32_t)},
+		{"getState", "()Lapple/laf/JRSUIConstants$State;", nullptr, $PROTECTED, $virtualMethod(AquaSplitPaneDividerUI, getState, $JRSUIConstants$State*)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(AquaSplitPaneDividerUI, paint, void, $Graphics*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSplitPaneDividerUI, propertyChange, void, $PropertyChangeEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaSplitPaneDividerUI$HorizontalSplitDividerGradientPainter", "com.apple.laf.AquaSplitPaneDividerUI", "HorizontalSplitDividerGradientPainter", $STATIC},
+		{"com.apple.laf.AquaSplitPaneDividerUI$DividerLayout", "com.apple.laf.AquaSplitPaneDividerUI", "DividerLayout", $PROTECTED},
+		{"com.apple.laf.AquaSplitPaneDividerUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaSplitPaneDividerUI",
+		"javax.swing.plaf.basic.BasicSplitPaneDivider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaSplitPaneDividerUI$HorizontalSplitDividerGradientPainter,com.apple.laf.AquaSplitPaneDividerUI$DividerLayout,com.apple.laf.AquaSplitPaneDividerUI$1"
+	};
+	$loadClass(AquaSplitPaneDividerUI, name, initialize, &classInfo$$, AquaSplitPaneDividerUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaSplitPaneDividerUI));
+	});
 	return class$;
 }
 

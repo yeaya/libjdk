@@ -1,5 +1,4 @@
 #include <java/awt/Dialog$ModalityType.h>
-
 #include <java/awt/Dialog.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -18,48 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _Dialog$ModalityType_FieldInfo_[] = {
-	{"MODELESS", "Ljava/awt/Dialog$ModalityType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dialog$ModalityType, MODELESS)},
-	{"DOCUMENT_MODAL", "Ljava/awt/Dialog$ModalityType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dialog$ModalityType, DOCUMENT_MODAL)},
-	{"APPLICATION_MODAL", "Ljava/awt/Dialog$ModalityType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dialog$ModalityType, APPLICATION_MODAL)},
-	{"TOOLKIT_MODAL", "Ljava/awt/Dialog$ModalityType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dialog$ModalityType, TOOLKIT_MODAL)},
-	{"$VALUES", "[Ljava/awt/Dialog$ModalityType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Dialog$ModalityType, $VALUES)},
-	{}
-};
-
-$MethodInfo _Dialog$ModalityType_MethodInfo_[] = {
-	{"$values", "()[Ljava/awt/Dialog$ModalityType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Dialog$ModalityType, $values, $Dialog$ModalityTypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Dialog$ModalityType, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/awt/Dialog$ModalityType;", nullptr, $PUBLIC | $STATIC, $staticMethod(Dialog$ModalityType, valueOf, Dialog$ModalityType*, $String*)},
-	{"values", "()[Ljava/awt/Dialog$ModalityType;", nullptr, $PUBLIC | $STATIC, $staticMethod(Dialog$ModalityType, values, $Dialog$ModalityTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _Dialog$ModalityType_InnerClassesInfo_[] = {
-	{"java.awt.Dialog$ModalityType", "java.awt.Dialog", "ModalityType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Dialog$ModalityType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.awt.Dialog$ModalityType",
-	"java.lang.Enum",
-	nullptr,
-	_Dialog$ModalityType_FieldInfo_,
-	_Dialog$ModalityType_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/awt/Dialog$ModalityType;>;",
-	nullptr,
-	_Dialog$ModalityType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Dialog"
-};
-
-$Object* allocate$Dialog$ModalityType($Class* clazz) {
-	return $of($alloc(Dialog$ModalityType));
-}
 
 Dialog$ModalityType* Dialog$ModalityType::MODELESS = nullptr;
 Dialog$ModalityType* Dialog$ModalityType::DOCUMENT_MODAL = nullptr;
@@ -91,7 +48,7 @@ void Dialog$ModalityType::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Dialog$ModalityType($Class* class$) {
+void Dialog$ModalityType::clinit$($Class* clazz) {
 	$assignStatic(Dialog$ModalityType::MODELESS, $new(Dialog$ModalityType, "MODELESS"_s, 0));
 	$assignStatic(Dialog$ModalityType::DOCUMENT_MODAL, $new(Dialog$ModalityType, "DOCUMENT_MODAL"_s, 1));
 	$assignStatic(Dialog$ModalityType::APPLICATION_MODAL, $new(Dialog$ModalityType, "APPLICATION_MODAL"_s, 2));
@@ -103,7 +60,43 @@ Dialog$ModalityType::Dialog$ModalityType() {
 }
 
 $Class* Dialog$ModalityType::load$($String* name, bool initialize) {
-	$loadClass(Dialog$ModalityType, name, initialize, &_Dialog$ModalityType_ClassInfo_, clinit$Dialog$ModalityType, allocate$Dialog$ModalityType);
+	$FieldInfo fieldInfos$$[] = {
+		{"MODELESS", "Ljava/awt/Dialog$ModalityType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dialog$ModalityType, MODELESS)},
+		{"DOCUMENT_MODAL", "Ljava/awt/Dialog$ModalityType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dialog$ModalityType, DOCUMENT_MODAL)},
+		{"APPLICATION_MODAL", "Ljava/awt/Dialog$ModalityType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dialog$ModalityType, APPLICATION_MODAL)},
+		{"TOOLKIT_MODAL", "Ljava/awt/Dialog$ModalityType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dialog$ModalityType, TOOLKIT_MODAL)},
+		{"$VALUES", "[Ljava/awt/Dialog$ModalityType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Dialog$ModalityType, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/awt/Dialog$ModalityType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Dialog$ModalityType, $values, $Dialog$ModalityTypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Dialog$ModalityType, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/awt/Dialog$ModalityType;", nullptr, $PUBLIC | $STATIC, $staticMethod(Dialog$ModalityType, valueOf, Dialog$ModalityType*, $String*)},
+		{"values", "()[Ljava/awt/Dialog$ModalityType;", nullptr, $PUBLIC | $STATIC, $staticMethod(Dialog$ModalityType, values, $Dialog$ModalityTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Dialog$ModalityType", "java.awt.Dialog", "ModalityType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.awt.Dialog$ModalityType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/awt/Dialog$ModalityType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Dialog"
+	};
+	$loadClass(Dialog$ModalityType, name, initialize, &classInfo$$, Dialog$ModalityType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Dialog$ModalityType));
+	});
 	return class$;
 }
 

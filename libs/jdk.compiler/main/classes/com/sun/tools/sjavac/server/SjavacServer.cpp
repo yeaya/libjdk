@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/server/SjavacServer.h>
-
 #include <com/sun/tools/javac/main/Main$Result.h>
 #include <com/sun/tools/sjavac/Log.h>
 #include <com/sun/tools/sjavac/Util.h>
@@ -10,7 +9,6 @@
 #include <com/sun/tools/sjavac/server/PortFileMonitor.h>
 #include <com/sun/tools/sjavac/server/RequestHandler.h>
 #include <com/sun/tools/sjavac/server/Sjavac.h>
-#include <com/sun/tools/sjavac/server/Terminable.h>
 #include <java/io/IOException.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Runtime.h>
@@ -18,7 +16,6 @@
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ServerSocket.h>
 #include <java/net/Socket.h>
-#include <java/net/SocketAddress.h>
 #include <java/net/SocketException.h>
 #include <java/util/Date.h>
 #include <java/util/HashMap.h>
@@ -40,11 +37,8 @@ using $IdleResetSjavac = ::com::sun::tools::sjavac::server::IdleResetSjavac;
 using $PortFile = ::com::sun::tools::sjavac::server::PortFile;
 using $PortFileMonitor = ::com::sun::tools::sjavac::server::PortFileMonitor;
 using $RequestHandler = ::com::sun::tools::sjavac::server::RequestHandler;
-using $Sjavac = ::com::sun::tools::sjavac::server::Sjavac;
-using $Terminable = ::com::sun::tools::sjavac::server::Terminable;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -53,7 +47,6 @@ using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;
-using $SocketAddress = ::java::net::SocketAddress;
 using $SocketException = ::java::net::SocketException;
 using $Date = ::java::util::Date;
 using $HashMap = ::java::util::HashMap;
@@ -67,54 +60,13 @@ namespace com {
 			namespace sjavac {
 				namespace server {
 
-$FieldInfo _SjavacServer_FieldInfo_[] = {
-	{"LINE_TYPE_RC", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SjavacServer, LINE_TYPE_RC)},
-	{"portfilename", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SjavacServer, portfilename)},
-	{"poolsize", "I", nullptr, $PRIVATE | $FINAL, $field(SjavacServer, poolsize)},
-	{"keepalive", "I", nullptr, $PRIVATE | $FINAL, $field(SjavacServer, keepalive)},
-	{"myCookie", "J", nullptr, $PRIVATE | $FINAL, $field(SjavacServer, myCookie)},
-	{"totalBuildTime", "J", nullptr, $PRIVATE, $field(SjavacServer, totalBuildTime)},
-	{"sjavac", "Lcom/sun/tools/sjavac/server/Sjavac;", nullptr, 0, $field(SjavacServer, sjavac)},
-	{"serverSocket", "Ljava/net/ServerSocket;", nullptr, $PRIVATE, $field(SjavacServer, serverSocket)},
-	{"portFile", "Lcom/sun/tools/sjavac/server/PortFile;", nullptr, $PRIVATE, $field(SjavacServer, portFile)},
-	{"portFileMonitor", "Lcom/sun/tools/sjavac/server/PortFileMonitor;", nullptr, $PRIVATE, $field(SjavacServer, portFileMonitor)},
-	{"keepAcceptingRequests", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $FINAL, $field(SjavacServer, keepAcceptingRequests)},
-	{"allPortFiles", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/server/PortFile;>;", $PRIVATE | $STATIC, $staticField(SjavacServer, allPortFiles)},
-	{}
-};
-
-$MethodInfo _SjavacServer_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SjavacServer, init$, void, $String*), "java.io.FileNotFoundException"},
-	{"<init>", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(SjavacServer, init$, void, $String*, int32_t, int32_t), "java.io.FileNotFoundException"},
-	{"addBuildTime", "(J)V", nullptr, $PUBLIC, $virtualMethod(SjavacServer, addBuildTime, void, int64_t)},
-	{"getCookie", "()J", nullptr, 0, $virtualMethod(SjavacServer, getCookie, int64_t)},
-	{"getPort", "()I", nullptr, 0, $virtualMethod(SjavacServer, getPort, int32_t)},
-	{"getPortFile", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/server/PortFile;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(SjavacServer, getPortFile, $PortFile*, $String*)},
-	{"shutdown", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SjavacServer, shutdown, void, $String*)},
-	{"startServer", "()I", nullptr, $PUBLIC, $virtualMethod(SjavacServer, startServer, int32_t), "java.io.IOException,java.lang.InterruptedException"},
-	{}
-};
-
-$ClassInfo _SjavacServer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.server.SjavacServer",
-	"java.lang.Object",
-	"com.sun.tools.sjavac.server.Terminable",
-	_SjavacServer_FieldInfo_,
-	_SjavacServer_MethodInfo_
-};
-
-$Object* allocate$SjavacServer($Class* clazz) {
-	return $of($alloc(SjavacServer));
-}
-
 $String* SjavacServer::LINE_TYPE_RC = nullptr;
 $Map* SjavacServer::allPortFiles = nullptr;
 
 void SjavacServer::init$($String* settings) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, $Util::extractStringOption("portfile"_s, settings));
-	int32_t var$1 = $Util::extractIntOption("poolsize"_s, settings, $nc($($Runtime::getRuntime()))->availableProcessors());
+	int32_t var$1 = $Util::extractIntOption("poolsize"_s, settings, $$nc($Runtime::getRuntime())->availableProcessors());
 	SjavacServer::init$(var$0, var$1, $Util::extractIntOption("keepalive"_s, settings, 120));
 }
 
@@ -127,9 +79,8 @@ void SjavacServer::init$($String* portfilename, int32_t poolsize, int32_t keepal
 }
 
 $PortFile* SjavacServer::getPortFile($String* filename) {
-	$load(SjavacServer);
+	$init(SjavacServer);
 	$synchronized(class$) {
-		$init(SjavacServer);
 		if (SjavacServer::allPortFiles == nullptr) {
 			$assignStatic(SjavacServer::allPortFiles, $new($HashMap));
 		}
@@ -164,11 +115,11 @@ void SjavacServer::addBuildTime(int64_t inc) {
 }
 
 int32_t SjavacServer::startServer() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t serverStart = $System::currentTimeMillis();
 	$set(this, portFile, getPortFile(this->portfilename));
 	$synchronized(this->portFile) {
-		$nc(this->portFile)->lock();
+		this->portFile->lock();
 		$nc(this->portFile)->getValues();
 		if ($nc(this->portFile)->containsPortInfo()) {
 			$Log::debug("Javac server not started because portfile exists!"_s);
@@ -181,13 +132,13 @@ int32_t SjavacServer::startServer() {
 		$set(this, sjavac, $new($IdleResetSjavac, this->sjavac, this, this->keepalive * 1000));
 		$set(this, serverSocket, $new($ServerSocket));
 		$var($InetAddress, localhost, $InetAddress::getByName(nullptr));
-		$nc(this->serverSocket)->bind($$new($InetSocketAddress, localhost, 0));
+		this->serverSocket->bind($$new($InetSocketAddress, localhost, 0));
 		int32_t var$0 = getPort();
 		$nc(this->portFile)->setValues(var$0, getCookie());
 		$nc(this->portFile)->unlock();
 	}
 	$set(this, portFileMonitor, $new($PortFileMonitor, this->portFile, this));
-	$nc(this->portFileMonitor)->start();
+	this->portFileMonitor->start();
 	$Log::debug("Sjavac server started. Accepting connections..."_s);
 	$Log::debug($$str({"    port: "_s, $$str(getPort())}));
 	$Log::debug($$str({"    time: "_s, $$new($Date)}));
@@ -199,7 +150,7 @@ int32_t SjavacServer::startServer() {
 			$$new($RequestHandler, socket, this->sjavac)->start();
 		} catch ($SocketException& se) {
 		}
-	} while ($nc(this->keepAcceptingRequests)->get());
+	} while (this->keepAcceptingRequests->get());
 	$Log::debug("Shutting down."_s);
 	int64_t realTime = $System::currentTimeMillis() - serverStart;
 	$Log::debug($$str({"Total wall clock time "_s, $$str(realTime), "ms build time "_s, $$str(this->totalBuildTime), "ms"_s}));
@@ -217,26 +168,62 @@ void SjavacServer::shutdown($String* quitMsg) {
 	try {
 		$nc(this->portFile)->delete$();
 	} catch ($IOException& e) {
-		$Log::error(static_cast<$Throwable*>(e));
+		$Log::error(e);
 	} catch ($InterruptedException& e) {
-		$Log::error(static_cast<$Throwable*>(e));
+		$Log::error(e);
 	}
 	try {
 		$nc(this->serverSocket)->close();
 	} catch ($IOException& e) {
-		$Log::error(static_cast<$Throwable*>(e));
+		$Log::error(e);
 	}
 }
 
 SjavacServer::SjavacServer() {
 }
 
-void clinit$SjavacServer($Class* class$) {
+void SjavacServer::clinit$($Class* clazz) {
 	$assignStatic(SjavacServer::LINE_TYPE_RC, "RC"_s);
 }
 
 $Class* SjavacServer::load$($String* name, bool initialize) {
-	$loadClass(SjavacServer, name, initialize, &_SjavacServer_ClassInfo_, clinit$SjavacServer, allocate$SjavacServer);
+	$FieldInfo fieldInfos$$[] = {
+		{"LINE_TYPE_RC", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SjavacServer, LINE_TYPE_RC)},
+		{"portfilename", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SjavacServer, portfilename)},
+		{"poolsize", "I", nullptr, $PRIVATE | $FINAL, $field(SjavacServer, poolsize)},
+		{"keepalive", "I", nullptr, $PRIVATE | $FINAL, $field(SjavacServer, keepalive)},
+		{"myCookie", "J", nullptr, $PRIVATE | $FINAL, $field(SjavacServer, myCookie)},
+		{"totalBuildTime", "J", nullptr, $PRIVATE, $field(SjavacServer, totalBuildTime)},
+		{"sjavac", "Lcom/sun/tools/sjavac/server/Sjavac;", nullptr, 0, $field(SjavacServer, sjavac)},
+		{"serverSocket", "Ljava/net/ServerSocket;", nullptr, $PRIVATE, $field(SjavacServer, serverSocket)},
+		{"portFile", "Lcom/sun/tools/sjavac/server/PortFile;", nullptr, $PRIVATE, $field(SjavacServer, portFile)},
+		{"portFileMonitor", "Lcom/sun/tools/sjavac/server/PortFileMonitor;", nullptr, $PRIVATE, $field(SjavacServer, portFileMonitor)},
+		{"keepAcceptingRequests", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $FINAL, $field(SjavacServer, keepAcceptingRequests)},
+		{"allPortFiles", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/server/PortFile;>;", $PRIVATE | $STATIC, $staticField(SjavacServer, allPortFiles)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SjavacServer, init$, void, $String*), "java.io.FileNotFoundException"},
+		{"<init>", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(SjavacServer, init$, void, $String*, int32_t, int32_t), "java.io.FileNotFoundException"},
+		{"addBuildTime", "(J)V", nullptr, $PUBLIC, $virtualMethod(SjavacServer, addBuildTime, void, int64_t)},
+		{"getCookie", "()J", nullptr, 0, $virtualMethod(SjavacServer, getCookie, int64_t)},
+		{"getPort", "()I", nullptr, 0, $virtualMethod(SjavacServer, getPort, int32_t)},
+		{"getPortFile", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/server/PortFile;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(SjavacServer, getPortFile, $PortFile*, $String*)},
+		{"shutdown", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SjavacServer, shutdown, void, $String*)},
+		{"startServer", "()I", nullptr, $PUBLIC, $virtualMethod(SjavacServer, startServer, int32_t), "java.io.IOException,java.lang.InterruptedException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.server.SjavacServer",
+		"java.lang.Object",
+		"com.sun.tools.sjavac.server.Terminable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SjavacServer, name, initialize, &classInfo$$, SjavacServer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SjavacServer);
+	});
 	return class$;
 }
 

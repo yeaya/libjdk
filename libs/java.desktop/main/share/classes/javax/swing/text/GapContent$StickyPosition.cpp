@@ -1,5 +1,4 @@
 #include <javax/swing/text/GapContent$StickyPosition.h>
-
 #include <javax/swing/text/GapContent$MarkData.h>
 #include <javax/swing/text/GapContent.h>
 #include <jcpp.h>
@@ -15,45 +14,6 @@ using $GapContent$MarkData = ::javax::swing::text::GapContent$MarkData;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _GapContent$StickyPosition_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/GapContent;", nullptr, $FINAL | $SYNTHETIC, $field(GapContent$StickyPosition, this$0)},
-	{"mark", "Ljavax/swing/text/GapContent$MarkData;", nullptr, 0, $field(GapContent$StickyPosition, mark)},
-	{}
-};
-
-$MethodInfo _GapContent$StickyPosition_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/GapContent;)V", nullptr, 0, $method(GapContent$StickyPosition, init$, void, $GapContent*)},
-	{"getOffset", "()I", nullptr, $PUBLIC, $virtualMethod(GapContent$StickyPosition, getOffset, int32_t)},
-	{"setMark", "(Ljavax/swing/text/GapContent$MarkData;)V", nullptr, 0, $method(GapContent$StickyPosition, setMark, void, $GapContent$MarkData*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GapContent$StickyPosition, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _GapContent$StickyPosition_InnerClassesInfo_[] = {
-	{"javax.swing.text.GapContent$StickyPosition", "javax.swing.text.GapContent", "StickyPosition", $FINAL},
-	{}
-};
-
-$ClassInfo _GapContent$StickyPosition_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.text.GapContent$StickyPosition",
-	"java.lang.Object",
-	"javax.swing.text.Position",
-	_GapContent$StickyPosition_FieldInfo_,
-	_GapContent$StickyPosition_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GapContent$StickyPosition_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.GapContent"
-};
-
-$Object* allocate$GapContent$StickyPosition($Class* clazz) {
-	return $of($alloc(GapContent$StickyPosition));
-}
 
 void GapContent$StickyPosition::init$($GapContent* this$0) {
 	$set(this, this$0, this$0);
@@ -75,7 +35,40 @@ GapContent$StickyPosition::GapContent$StickyPosition() {
 }
 
 $Class* GapContent$StickyPosition::load$($String* name, bool initialize) {
-	$loadClass(GapContent$StickyPosition, name, initialize, &_GapContent$StickyPosition_ClassInfo_, allocate$GapContent$StickyPosition);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/GapContent;", nullptr, $FINAL | $SYNTHETIC, $field(GapContent$StickyPosition, this$0)},
+		{"mark", "Ljavax/swing/text/GapContent$MarkData;", nullptr, 0, $field(GapContent$StickyPosition, mark)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/GapContent;)V", nullptr, 0, $method(GapContent$StickyPosition, init$, void, $GapContent*)},
+		{"getOffset", "()I", nullptr, $PUBLIC, $virtualMethod(GapContent$StickyPosition, getOffset, int32_t)},
+		{"setMark", "(Ljavax/swing/text/GapContent$MarkData;)V", nullptr, 0, $method(GapContent$StickyPosition, setMark, void, $GapContent$MarkData*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GapContent$StickyPosition, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.GapContent$StickyPosition", "javax.swing.text.GapContent", "StickyPosition", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.text.GapContent$StickyPosition",
+		"java.lang.Object",
+		"javax.swing.text.Position",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.GapContent"
+	};
+	$loadClass(GapContent$StickyPosition, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GapContent$StickyPosition);
+	});
 	return class$;
 }
 

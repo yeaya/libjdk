@@ -1,5 +1,4 @@
 #include <java/awt/image/renderable/RenderableImageProducer.h>
-
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/DataBuffer.h>
 #include <java/awt/image/ImageConsumer.h>
@@ -9,7 +8,6 @@
 #include <java/awt/image/SampleModel.h>
 #include <java/awt/image/renderable/RenderContext.h>
 #include <java/awt/image/renderable/RenderableImage.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/ThreadGroup.h>
 #include <java/util/Enumeration.h>
 #include <java/util/Vector.h>
@@ -33,7 +31,6 @@ using $RenderableImage = ::java::awt::image::renderable::RenderableImage;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $ThreadGroup = ::java::lang::ThreadGroup;
 using $Enumeration = ::java::util::Enumeration;
 using $Vector = ::java::util::Vector;
@@ -42,43 +39,6 @@ namespace java {
 	namespace awt {
 		namespace image {
 			namespace renderable {
-
-$FieldInfo _RenderableImageProducer_FieldInfo_[] = {
-	{"rdblImage", "Ljava/awt/image/renderable/RenderableImage;", nullptr, 0, $field(RenderableImageProducer, rdblImage)},
-	{"rc", "Ljava/awt/image/renderable/RenderContext;", nullptr, 0, $field(RenderableImageProducer, rc)},
-	{"ics", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/awt/image/ImageConsumer;>;", 0, $field(RenderableImageProducer, ics)},
-	{}
-};
-
-$MethodInfo _RenderableImageProducer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/image/renderable/RenderableImage;Ljava/awt/image/renderable/RenderContext;)V", nullptr, $PUBLIC, $method(RenderableImageProducer, init$, void, $RenderableImage*, $RenderContext*)},
-	{"addConsumer", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RenderableImageProducer, addConsumer, void, $ImageConsumer*)},
-	{"isConsumer", "(Ljava/awt/image/ImageConsumer;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RenderableImageProducer, isConsumer, bool, $ImageConsumer*)},
-	{"removeConsumer", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RenderableImageProducer, removeConsumer, void, $ImageConsumer*)},
-	{"requestTopDownLeftRightResend", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC, $virtualMethod(RenderableImageProducer, requestTopDownLeftRightResend, void, $ImageConsumer*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RenderableImageProducer, run, void)},
-	{"setRenderContext", "(Ljava/awt/image/renderable/RenderContext;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RenderableImageProducer, setRenderContext, void, $RenderContext*)},
-	{"startProduction", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RenderableImageProducer, startProduction, void, $ImageConsumer*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _RenderableImageProducer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.image.renderable.RenderableImageProducer",
-	"java.lang.Object",
-	"java.awt.image.ImageProducer,java.lang.Runnable",
-	_RenderableImageProducer_FieldInfo_,
-	_RenderableImageProducer_MethodInfo_
-};
-
-$Object* allocate$RenderableImageProducer($Class* clazz) {
-	return $of($alloc(RenderableImageProducer));
-}
 
 int32_t RenderableImageProducer::hashCode() {
 	 return this->$ImageProducer::hashCode();
@@ -115,7 +75,7 @@ void RenderableImageProducer::setRenderContext($RenderContext* rc) {
 void RenderableImageProducer::addConsumer($ImageConsumer* ic) {
 	$synchronized(this) {
 		if (!$nc(this->ics)->contains(ic)) {
-			$nc(this->ics)->addElement(ic);
+			this->ics->addElement(ic);
 		}
 	}
 }
@@ -134,7 +94,7 @@ void RenderableImageProducer::removeConsumer($ImageConsumer* ic) {
 
 void RenderableImageProducer::startProduction($ImageConsumer* ic) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		addConsumer(ic);
 		$var($String, name, "RenderableImageProducer Thread"_s);
 		$var($Thread, thread, $new($Thread, nullptr, this, name, 0, false));
@@ -146,7 +106,7 @@ void RenderableImageProducer::requestTopDownLeftRightResend($ImageConsumer* ic) 
 }
 
 void RenderableImageProducer::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($RenderedImage, rdrdImage, nullptr);
 	if (this->rc != nullptr) {
 		$assign(rdrdImage, $nc(this->rdblImage)->createRendering(this->rc));
@@ -199,7 +159,39 @@ RenderableImageProducer::RenderableImageProducer() {
 }
 
 $Class* RenderableImageProducer::load$($String* name, bool initialize) {
-	$loadClass(RenderableImageProducer, name, initialize, &_RenderableImageProducer_ClassInfo_, allocate$RenderableImageProducer);
+	$FieldInfo fieldInfos$$[] = {
+		{"rdblImage", "Ljava/awt/image/renderable/RenderableImage;", nullptr, 0, $field(RenderableImageProducer, rdblImage)},
+		{"rc", "Ljava/awt/image/renderable/RenderContext;", nullptr, 0, $field(RenderableImageProducer, rc)},
+		{"ics", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/awt/image/ImageConsumer;>;", 0, $field(RenderableImageProducer, ics)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/image/renderable/RenderableImage;Ljava/awt/image/renderable/RenderContext;)V", nullptr, $PUBLIC, $method(RenderableImageProducer, init$, void, $RenderableImage*, $RenderContext*)},
+		{"addConsumer", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RenderableImageProducer, addConsumer, void, $ImageConsumer*)},
+		{"isConsumer", "(Ljava/awt/image/ImageConsumer;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RenderableImageProducer, isConsumer, bool, $ImageConsumer*)},
+		{"removeConsumer", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RenderableImageProducer, removeConsumer, void, $ImageConsumer*)},
+		{"requestTopDownLeftRightResend", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC, $virtualMethod(RenderableImageProducer, requestTopDownLeftRightResend, void, $ImageConsumer*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RenderableImageProducer, run, void)},
+		{"setRenderContext", "(Ljava/awt/image/renderable/RenderContext;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RenderableImageProducer, setRenderContext, void, $RenderContext*)},
+		{"startProduction", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RenderableImageProducer, startProduction, void, $ImageConsumer*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.image.renderable.RenderableImageProducer",
+		"java.lang.Object",
+		"java.awt.image.ImageProducer,java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RenderableImageProducer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RenderableImageProducer));
+	});
 	return class$;
 }
 

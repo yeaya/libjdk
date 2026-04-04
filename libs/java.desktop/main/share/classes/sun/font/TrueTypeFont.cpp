@@ -1,5 +1,4 @@
 #include <sun/font/TrueTypeFont.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/FontFormatException.h>
 #include <java/awt/geom/Point2D$Float.h>
@@ -16,9 +15,7 @@
 #include <java/nio/channels/FileChannel.h>
 #include <java/nio/channels/SeekableByteChannel.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/PrivilegedActionException.h>
-#include <java/security/PrivilegedExceptionAction.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
 #include <java/util/Locale.h>
@@ -39,7 +36,6 @@
 #include <sun/font/TrueTypeFont$TTDisposerRecord.h>
 #include <sun/font/TrueTypeGlyphMapper.h>
 #include <sun/java2d/Disposer.h>
-#include <sun/java2d/DisposerRecord.h>
 #include <sun/security/action/GetPropertyAction.h>
 #include <sun/util/logging/PlatformLogger.h>
 #include <jcpp.h>
@@ -86,9 +82,7 @@ using $ShortBuffer = ::java::nio::ShortBuffer;
 using $ClosedChannelException = ::java::nio::channels::ClosedChannelException;
 using $FileChannel = ::java::nio::channels::FileChannel;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
 using $Locale = ::java::util::Locale;
@@ -108,165 +102,10 @@ using $TrueTypeFont$DirectoryEntry = ::sun::font::TrueTypeFont$DirectoryEntry;
 using $TrueTypeFont$TTDisposerRecord = ::sun::font::TrueTypeFont$TTDisposerRecord;
 using $TrueTypeGlyphMapper = ::sun::font::TrueTypeGlyphMapper;
 using $Disposer = ::sun::java2d::Disposer;
-using $DisposerRecord = ::sun::java2d::DisposerRecord;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _TrueTypeFont_FieldInfo_[] = {
-	{"cmapTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, cmapTag)},
-	{"glyfTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, glyfTag)},
-	{"headTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, headTag)},
-	{"hheaTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, hheaTag)},
-	{"hmtxTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, hmtxTag)},
-	{"locaTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, locaTag)},
-	{"maxpTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, maxpTag)},
-	{"nameTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, nameTag)},
-	{"postTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, postTag)},
-	{"os_2Tag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, os_2Tag)},
-	{"GDEFTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, GDEFTag)},
-	{"GPOSTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, GPOSTag)},
-	{"GSUBTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, GSUBTag)},
-	{"mortTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, mortTag)},
-	{"morxTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, morxTag)},
-	{"fdscTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, fdscTag)},
-	{"fvarTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, fvarTag)},
-	{"featTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, featTag)},
-	{"EBLCTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, EBLCTag)},
-	{"gaspTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, gaspTag)},
-	{"ttcfTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, ttcfTag)},
-	{"v1ttTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, v1ttTag)},
-	{"trueTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, trueTag)},
-	{"ottoTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, ottoTag)},
-	{"MAC_PLATFORM_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, MAC_PLATFORM_ID)},
-	{"MACROMAN_SPECIFIC_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, MACROMAN_SPECIFIC_ID)},
-	{"MACROMAN_ENGLISH_LANG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, MACROMAN_ENGLISH_LANG)},
-	{"MS_PLATFORM_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, MS_PLATFORM_ID)},
-	{"ENGLISH_LOCALE_ID", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, ENGLISH_LOCALE_ID)},
-	{"FAMILY_NAME_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, FAMILY_NAME_ID)},
-	{"FULL_NAME_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, FULL_NAME_ID)},
-	{"POSTSCRIPT_NAME_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, POSTSCRIPT_NAME_ID)},
-	{"US_LCID", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TrueTypeFont, US_LCID)},
-	{"lcidMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Short;>;", $PRIVATE | $STATIC, $staticField(TrueTypeFont, lcidMap)},
-	{"disposerRecord", "Lsun/font/TrueTypeFont$TTDisposerRecord;", nullptr, 0, $field(TrueTypeFont, disposerRecord)},
-	{"fontIndex", "I", nullptr, 0, $field(TrueTypeFont, fontIndex)},
-	{"directoryCount", "I", nullptr, 0, $field(TrueTypeFont, directoryCount)},
-	{"directoryOffset", "I", nullptr, 0, $field(TrueTypeFont, directoryOffset)},
-	{"numTables", "I", nullptr, 0, $field(TrueTypeFont, numTables)},
-	{"tableDirectory", "[Lsun/font/TrueTypeFont$DirectoryEntry;", nullptr, 0, $field(TrueTypeFont, tableDirectory)},
-	{"supportsJA", "Z", nullptr, $PRIVATE, $field(TrueTypeFont, supportsJA$)},
-	{"supportsCJK", "Z", nullptr, $PRIVATE, $field(TrueTypeFont, supportsCJK)},
-	{"nameLocale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(TrueTypeFont, nameLocale)},
-	{"localeFamilyName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TrueTypeFont, localeFamilyName)},
-	{"localeFullName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TrueTypeFont, localeFullName)},
-	{"fontDataSize", "I", nullptr, 0, $field(TrueTypeFont, fontDataSize)},
-	{"TTCHEADERSIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TrueTypeFont, TTCHEADERSIZE)},
-	{"DIRECTORYHEADERSIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TrueTypeFont, DIRECTORYHEADERSIZE)},
-	{"DIRECTORYENTRYSIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TrueTypeFont, DIRECTORYENTRYSIZE)},
-	{"encoding_mapping", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(TrueTypeFont, encoding_mapping)},
-	{"languages", "[[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TrueTypeFont, languages)},
-	{"codePages", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TrueTypeFont, codePages)},
-	{"defaultCodePage", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(TrueTypeFont, defaultCodePage)},
-	{"reserved_bits1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, reserved_bits1)},
-	{"reserved_bits2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, reserved_bits2)},
-	{"fontWidth", "I", nullptr, $PRIVATE, $field(TrueTypeFont, fontWidth)},
-	{"fontWeight", "I", nullptr, $PRIVATE, $field(TrueTypeFont, fontWeight)},
-	{"fsSelectionItalicBit", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TrueTypeFont, fsSelectionItalicBit)},
-	{"fsSelectionBoldBit", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TrueTypeFont, fsSelectionBoldBit)},
-	{"fsSelectionRegularBit", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TrueTypeFont, fsSelectionRegularBit)},
-	{"stSize", "F", nullptr, $PRIVATE, $field(TrueTypeFont, stSize)},
-	{"stPos", "F", nullptr, $PRIVATE, $field(TrueTypeFont, stPos)},
-	{"ulSize", "F", nullptr, $PRIVATE, $field(TrueTypeFont, ulSize)},
-	{"ulPos", "F", nullptr, $PRIVATE, $field(TrueTypeFont, ulPos)},
-	{"gaspTable", "[C", nullptr, $PRIVATE, $field(TrueTypeFont, gaspTable)},
-	{"lcidLanguageCompatibilityMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;[S>;", $PRIVATE | $STATIC, $staticField(TrueTypeFont, lcidLanguageCompatibilityMap)},
-	{"EMPTY_COMPATIBLE_LCIDS", "[S", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TrueTypeFont, EMPTY_COMPATIBLE_LCIDS)},
-	{"languageCompatibleLCIDs", "[S", nullptr, $PRIVATE, $field(TrueTypeFont, languageCompatibleLCIDs)},
-	{}
-};
-
-$MethodInfo _TrueTypeFont_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;IZ)V", nullptr, $PUBLIC, $method(TrueTypeFont, init$, void, $String*, Object$*, int32_t, bool), "java.awt.FontFormatException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;IZZ)V", nullptr, $PUBLIC, $method(TrueTypeFont, init$, void, $String*, Object$*, int32_t, bool, bool), "java.awt.FontFormatException"},
-	{"addLCIDMapEntry", "(Ljava/util/Map;Ljava/lang/String;S)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Short;>;Ljava/lang/String;S)V", $PRIVATE | $STATIC, $staticMethod(TrueTypeFont, addLCIDMapEntry, void, $Map*, $String*, int16_t)},
-	{"close", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(TrueTypeFont, close, void)},
-	{"createLCIDLanguageCompatibilityMap", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TrueTypeFont, createLCIDLanguageCompatibilityMap, void)},
-	{"createLCIDMap", "()V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(TrueTypeFont, createLCIDMap, void)},
-	{"getAllFamilyNames", "()[Ljava/lang/String;", nullptr, 0, $virtualMethod(TrueTypeFont, getAllFamilyNames, $StringArray*)},
-	{"getAllFullNames", "()[Ljava/lang/String;", nullptr, 0, $virtualMethod(TrueTypeFont, getAllFullNames, $StringArray*)},
-	{"getCodePage", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(TrueTypeFont, getCodePage, $String*)},
-	{"getDirectoryEntry", "(I)Lsun/font/TrueTypeFont$DirectoryEntry;", nullptr, 0, $virtualMethod(TrueTypeFont, getDirectoryEntry, $TrueTypeFont$DirectoryEntry*, int32_t)},
-	{"getFamilyName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TrueTypeFont, getFamilyName, $String*, $Locale*)},
-	{"getFontCount", "()I", nullptr, $PUBLIC, $virtualMethod(TrueTypeFont, getFontCount, int32_t)},
-	{"getFontName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TrueTypeFont, getFontName, $String*, $Locale*)},
-	{"getFullName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TrueTypeFont, getFullName, $String*)},
-	{"getGaspTable", "()[C", nullptr, $PRIVATE, $method(TrueTypeFont, getGaspTable, $chars*)},
-	{"getGlyphPoint", "(JII)Ljava/awt/geom/Point2D$Float;", nullptr, 0, $virtualMethod(TrueTypeFont, getGlyphPoint, $Point2D$Float*, int64_t, int32_t, int32_t)},
-	{"getLCIDFromLocale", "(Ljava/util/Locale;)S", nullptr, $PRIVATE | $STATIC, $staticMethod(TrueTypeFont, getLCIDFromLocale, int16_t, $Locale*)},
-	{"getLanguageCompatibleLCIDsFromLocale", "(Ljava/util/Locale;)[S", nullptr, $PRIVATE | $STATIC, $staticMethod(TrueTypeFont, getLanguageCompatibleLCIDsFromLocale, $shorts*, $Locale*)},
-	{"getMapper", "()Lsun/font/CharToGlyphMapper;", nullptr, $PUBLIC, $virtualMethod(TrueTypeFont, getMapper, $CharToGlyphMapper*)},
-	{"getPostscriptName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TrueTypeFont, getPostscriptName, $String*)},
-	{"getScaler", "()Lsun/font/FontScaler;", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(TrueTypeFont, getScaler, $FontScaler*)},
-	{"getStyleMetrics", "(F[FI)V", nullptr, $PUBLIC, $virtualMethod(TrueTypeFont, getStyleMetrics, void, float, $floats*, int32_t)},
-	{"getTableBuffer", "(I)Ljava/nio/ByteBuffer;", nullptr, 0, $virtualMethod(TrueTypeFont, getTableBuffer, $ByteBuffer*, int32_t)},
-	{"getTableBytes", "(I)[B", nullptr, $PROTECTED, $virtualMethod(TrueTypeFont, getTableBytes, $bytes*, int32_t)},
-	{"getTableOffset", "(I)I", nullptr, 0, $virtualMethod(TrueTypeFont, getTableOffset, int32_t, int32_t)},
-	{"getTableSize", "(I)I", nullptr, 0, $virtualMethod(TrueTypeFont, getTableSize, int32_t, int32_t)},
-	{"getWeight", "()I", nullptr, $PUBLIC, $virtualMethod(TrueTypeFont, getWeight, int32_t)},
-	{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(TrueTypeFont, getWidth, int32_t)},
-	{"hasSupplementaryChars", "()Z", nullptr, $PUBLIC, $virtualMethod(TrueTypeFont, hasSupplementaryChars, bool)},
-	{"init", "(I)V", nullptr, $PROTECTED, $virtualMethod(TrueTypeFont, init, void, int32_t), "java.awt.FontFormatException"},
-	{"initAllNames", "(ILjava/util/HashSet;)V", "(ILjava/util/HashSet<Ljava/lang/String;>;)V", $PROTECTED, $virtualMethod(TrueTypeFont, initAllNames, void, int32_t, $HashSet*)},
-	{"initNames", "()V", nullptr, $PROTECTED, $virtualMethod(TrueTypeFont, initNames, void)},
-	{"isLanguageCompatible", "(S)Z", nullptr, $PRIVATE, $method(TrueTypeFont, isLanguageCompatible, bool, int16_t)},
-	{"lookupName", "(SI)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(TrueTypeFont, lookupName, $String*, int16_t, int32_t)},
-	{"makeString", "([BISS)Ljava/lang/String;", nullptr, $PRIVATE, $method(TrueTypeFont, makeString, $String*, $bytes*, int32_t, int16_t, int16_t)},
-	{"open", "()Ljava/nio/channels/FileChannel;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(TrueTypeFont, open, $FileChannel*), "java.awt.FontFormatException"},
-	{"open", "(Z)Ljava/nio/channels/FileChannel;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(TrueTypeFont, open, $FileChannel*, bool), "java.awt.FontFormatException"},
-	{"readBlock", "(Ljava/nio/ByteBuffer;II)I", nullptr, 0, $virtualMethod(TrueTypeFont, readBlock, int32_t, $ByteBuffer*, int32_t, int32_t)},
-	{"readBlock", "(II)Ljava/nio/ByteBuffer;", nullptr, 0, $virtualMethod(TrueTypeFont, readBlock, $ByteBuffer*, int32_t, int32_t)},
-	{"readBytes", "(II)[B", nullptr, 0, $virtualMethod(TrueTypeFont, readBytes, $bytes*, int32_t, int32_t)},
-	{"setCJKSupport", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(TrueTypeFont, setCJKSupport, void, $ByteBuffer*)},
-	{"setStrikethroughMetrics", "(Ljava/nio/ByteBuffer;I)V", nullptr, $PRIVATE, $method(TrueTypeFont, setStrikethroughMetrics, void, $ByteBuffer*, int32_t)},
-	{"setStyle", "()V", nullptr, $PROTECTED, $virtualMethod(TrueTypeFont, setStyle, void)},
-	{"setStyle", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(TrueTypeFont, setStyle, void, $ByteBuffer*)},
-	{"setUnderlineMetrics", "(Ljava/nio/ByteBuffer;I)V", nullptr, $PRIVATE, $method(TrueTypeFont, setUnderlineMetrics, void, $ByteBuffer*, int32_t)},
-	{"supportsEncoding", "(Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(TrueTypeFont, supportsEncoding, bool, $String*)},
-	{"supportsJA", "()Z", nullptr, 0, $virtualMethod(TrueTypeFont, supportsJA, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TrueTypeFont, toString, $String*)},
-	{"useAAForPtSize", "(I)Z", nullptr, $PUBLIC, $virtualMethod(TrueTypeFont, useAAForPtSize, bool, int32_t)},
-	{"useEmbeddedBitmapsForSize", "(I)Z", nullptr, 0, $virtualMethod(TrueTypeFont, useEmbeddedBitmapsForSize, bool, int32_t)},
-	{"verify", "(Z)V", nullptr, $PRIVATE, $method(TrueTypeFont, verify, void, bool), "java.awt.FontFormatException"},
-	{}
-};
-
-$InnerClassInfo _TrueTypeFont_InnerClassesInfo_[] = {
-	{"sun.font.TrueTypeFont$TTDisposerRecord", "sun.font.TrueTypeFont", "TTDisposerRecord", $PRIVATE | $STATIC},
-	{"sun.font.TrueTypeFont$DirectoryEntry", "sun.font.TrueTypeFont", "DirectoryEntry", $STATIC},
-	{"sun.font.TrueTypeFont$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TrueTypeFont_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.font.TrueTypeFont",
-	"sun.font.FileFont",
-	nullptr,
-	_TrueTypeFont_FieldInfo_,
-	_TrueTypeFont_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TrueTypeFont_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.font.TrueTypeFont$TTDisposerRecord,sun.font.TrueTypeFont$DirectoryEntry,sun.font.TrueTypeFont$1"
-};
-
-$Object* allocate$TrueTypeFont($Class* clazz) {
-	return $of($alloc(TrueTypeFont));
-}
 
 $Map* TrueTypeFont::lcidMap = nullptr;
 $StringArray* TrueTypeFont::encoding_mapping = nullptr;
@@ -314,20 +153,20 @@ $FileChannel* TrueTypeFont::open() {
 
 $FileChannel* TrueTypeFont::open(bool usePool) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$beforeCallerSensitive();
 		if ($nc(this->disposerRecord)->channel == nullptr) {
 			if ($FontUtilities::isLogging()) {
 				$FontUtilities::logInfo($$str({"open TTF: "_s, this->platName}));
 			}
 			try {
-				$var($RandomAccessFile, raf, $cast($RandomAccessFile, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($TrueTypeFont$1, this)))));
+				$var($RandomAccessFile, raf, $cast($RandomAccessFile, $AccessController::doPrivileged($$new($TrueTypeFont$1, this))));
 				$set($nc(this->disposerRecord), channel, $nc(raf)->getChannel());
-				this->fileSize = (int32_t)$nc($nc(this->disposerRecord)->channel)->size();
+				this->fileSize = (int32_t)$nc(this->disposerRecord->channel)->size();
 				if (usePool) {
 					$var($FontManager, fm, $FontManagerFactory::getInstance());
 					if ($instanceOf($SunFontManager, fm)) {
-						$nc(($cast($SunFontManager, fm)))->addToPool(this);
+						$cast($SunFontManager, fm)->addToPool(this);
 					}
 				}
 			} catch ($PrivilegedActionException& e) {
@@ -357,7 +196,7 @@ void TrueTypeFont::close() {
 }
 
 int32_t TrueTypeFont::readBlock($ByteBuffer* buffer, int32_t offset, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t bread = 0;
 	try {
 		$synchronized(this) {
@@ -381,7 +220,7 @@ int32_t TrueTypeFont::readBlock($ByteBuffer* buffer, int32_t offset, int32_t len
 				int32_t cnt = $nc($nc(this->disposerRecord)->channel)->read(buffer);
 				if (cnt == -1) {
 					$var($String, msg, $str({"Unexpected EOF "_s, this}));
-					int32_t currSize = (int32_t)$nc($nc(this->disposerRecord)->channel)->size();
+					int32_t currSize = (int32_t)this->disposerRecord->channel->size();
 					if (currSize != this->fileSize) {
 						$plusAssign(msg, $$str({" File size was "_s, $$str(this->fileSize), " and now is "_s, $$str(currSize)}));
 					}
@@ -408,7 +247,7 @@ int32_t TrueTypeFont::readBlock($ByteBuffer* buffer, int32_t offset, int32_t len
 		}
 	} catch ($FontFormatException& e) {
 		if ($FontUtilities::isLogging()) {
-			$nc($($FontUtilities::getLogger()))->severe($$str({"While reading "_s, this->platName}), static_cast<$Throwable*>(e));
+			$$nc($FontUtilities::getLogger())->severe($$str({"While reading "_s, this->platName}), e);
 		}
 		bread = -1;
 		deregisterFontAndClearStrikeCache();
@@ -418,7 +257,7 @@ int32_t TrueTypeFont::readBlock($ByteBuffer* buffer, int32_t offset, int32_t len
 		return readBlock(buffer, offset, length);
 	} catch ($IOException& e) {
 		if ($FontUtilities::isLogging()) {
-			$nc($($FontUtilities::getLogger()))->severe($$str({"While reading "_s, this->platName}), static_cast<$Throwable*>(e));
+			$$nc($FontUtilities::getLogger())->severe($$str({"While reading "_s, this->platName}), e);
 		}
 		if (bread == 0) {
 			bread = -1;
@@ -443,7 +282,7 @@ $ByteBuffer* TrueTypeFont::readBlock(int32_t offset, int32_t length) {
 				}
 			}
 			$nc($nc(this->disposerRecord)->channel)->position(offset);
-			$nc($nc(this->disposerRecord)->channel)->read(buffer);
+			this->disposerRecord->channel->read(buffer);
 			$nc(buffer)->flip();
 		}
 	} catch ($FontFormatException& e) {
@@ -459,7 +298,7 @@ $ByteBuffer* TrueTypeFont::readBlock(int32_t offset, int32_t length) {
 }
 
 $bytes* TrueTypeFont::readBytes(int32_t offset, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteBuffer, buffer, readBlock(offset, length));
 	if ($nc(buffer)->hasArray()) {
 		return $cast($bytes, buffer->array());
@@ -475,40 +314,32 @@ void TrueTypeFont::verify(bool usePool) {
 }
 
 void TrueTypeFont::init(int32_t fIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t headerOffset = 0;
 	$var($ByteBuffer, buffer, readBlock(0, TrueTypeFont::TTCHEADERSIZE));
 	try {
 		switch ($nc(buffer)->getInt()) {
 		case TrueTypeFont::ttcfTag:
-			{
-				buffer->getInt();
-				this->directoryCount = buffer->getInt();
-				if (fIndex >= this->directoryCount) {
-					$throwNew($FontFormatException, "Bad collection index"_s);
-				}
-				this->fontIndex = fIndex;
-				$assign(buffer, readBlock(TrueTypeFont::TTCHEADERSIZE + 4 * fIndex, 4));
-				headerOffset = buffer->getInt();
-				this->fontDataSize = $Math::max(0, this->fileSize - headerOffset);
-				break;
+			buffer->getInt();
+			this->directoryCount = buffer->getInt();
+			if (fIndex >= this->directoryCount) {
+				$throwNew($FontFormatException, "Bad collection index"_s);
 			}
+			this->fontIndex = fIndex;
+			$assign(buffer, readBlock(TrueTypeFont::TTCHEADERSIZE + 4 * fIndex, 4));
+			headerOffset = $nc(buffer)->getInt();
+			this->fontDataSize = $Math::max(0, this->fileSize - headerOffset);
+			break;
 		case TrueTypeFont::v1ttTag:
-			{}
 		case TrueTypeFont::trueTag:
-			{}
 		case TrueTypeFont::ottoTag:
-			{
-				this->fontDataSize = this->fileSize;
-				break;
-			}
+			this->fontDataSize = this->fileSize;
+			break;
 		default:
-			{
-				$throwNew($FontFormatException, $$str({"Unsupported sfnt "_s, $(getPublicFileName())}));
-			}
+			$throwNew($FontFormatException, $$str({"Unsupported sfnt "_s, $(getPublicFileName())}));
 		}
 		$assign(buffer, readBlock(headerOffset + 4, 2));
-		this->numTables = buffer->getShort();
+		this->numTables = $nc(buffer)->getShort();
 		this->directoryOffset = headerOffset + TrueTypeFont::DIRECTORYHEADERSIZE;
 		$var($ByteBuffer, bbuffer, readBlock(this->directoryOffset, this->numTables * TrueTypeFont::DIRECTORYENTRYSIZE));
 		$var($IntBuffer, ibuffer, $nc(bbuffer)->asIntBuffer());
@@ -518,8 +349,8 @@ void TrueTypeFont::init(int32_t fIndex) {
 			$nc(this->tableDirectory)->set(i, $assign(table, $new($TrueTypeFont$DirectoryEntry)));
 			table->tag = $nc(ibuffer)->get();
 			ibuffer->get();
-			table->offset = (int32_t)(ibuffer->get() & (uint32_t)0x7FFFFFFF);
-			table->length = (int32_t)(ibuffer->get() & (uint32_t)0x7FFFFFFF);
+			table->offset = ibuffer->get() & 0x7fffffff;
+			table->length = ibuffer->get() & 0x7fffffff;
 			if (table->offset + table->length > this->fileSize) {
 				$throwNew($FontFormatException, $$str({"bad table, tag="_s, $$str(table->tag)}));
 			}
@@ -559,16 +390,16 @@ void TrueTypeFont::init(int32_t fIndex) {
 
 $String* TrueTypeFont::getCodePage() {
 	$init(TrueTypeFont);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (TrueTypeFont::defaultCodePage != nullptr) {
 		return TrueTypeFont::defaultCodePage;
 	}
 	$init($FontUtilities);
 	if ($FontUtilities::isWindows) {
-		$assignStatic(TrueTypeFont::defaultCodePage, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "file.encoding"_s)))));
+		$assignStatic(TrueTypeFont::defaultCodePage, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "file.encoding"_s))));
 	} else {
-		if ($nc(TrueTypeFont::languages)->length != $nc(TrueTypeFont::codePages)->length) {
+		if (TrueTypeFont::languages->length != TrueTypeFont::codePages->length) {
 			$throwNew($InternalError, "wrong code pages array length"_s);
 		}
 		$var($Locale, locale, $SunToolkit::getStartupLocale());
@@ -580,10 +411,10 @@ $String* TrueTypeFont::getCodePage() {
 					$assign(language, $str({language, "_"_s, country}));
 				}
 			}
-			for (int32_t i = 0; i < $nc(TrueTypeFont::languages)->length; ++i) {
-				for (int32_t l = 0; l < $nc($nc(TrueTypeFont::languages)->get(i))->length; ++l) {
-					if (language->equals($nc($nc(TrueTypeFont::languages)->get(i))->get(l))) {
-						$assignStatic(TrueTypeFont::defaultCodePage, $nc(TrueTypeFont::codePages)->get(i));
+			for (int32_t i = 0; i < TrueTypeFont::languages->length; ++i) {
+				for (int32_t l = 0; l < $nc(TrueTypeFont::languages->get(i))->length; ++l) {
+					if (language->equals($nc(TrueTypeFont::languages->get(i))->get(l))) {
+						$assignStatic(TrueTypeFont::defaultCodePage, TrueTypeFont::codePages->get(i));
 						return TrueTypeFont::defaultCodePage;
 					}
 				}
@@ -597,7 +428,7 @@ $String* TrueTypeFont::getCodePage() {
 }
 
 bool TrueTypeFont::supportsEncoding($String* encoding$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, encoding, encoding$renamed);
 	if (encoding == nullptr) {
 		$assign(encoding, getCodePage());
@@ -612,13 +443,13 @@ bool TrueTypeFont::supportsEncoding($String* encoding$renamed) {
 		$assign(encoding, "ms950"_s);
 	}
 	$var($ByteBuffer, buffer, getTableBuffer(TrueTypeFont::os_2Tag));
-	if (buffer == nullptr || $nc(buffer)->capacity() < 86) {
+	if (buffer == nullptr || buffer->capacity() < 86) {
 		return false;
 	}
 	int32_t range1 = $nc(buffer)->getInt(78);
-	for (int32_t em = 0; em < $nc(TrueTypeFont::encoding_mapping)->length; ++em) {
-		if ($nc($nc(TrueTypeFont::encoding_mapping)->get(em))->equals(encoding)) {
-			if (((int32_t)(($sl(1, em)) & (uint32_t)range1)) != 0) {
+	for (int32_t em = 0; em < TrueTypeFont::encoding_mapping->length; ++em) {
+		if ($nc(TrueTypeFont::encoding_mapping->get(em))->equals(encoding)) {
+			if ((($sl(1, em)) & range1) != 0) {
 				return true;
 			}
 		}
@@ -627,12 +458,12 @@ bool TrueTypeFont::supportsEncoding($String* encoding$renamed) {
 }
 
 void TrueTypeFont::setCJKSupport($ByteBuffer* os2Table) {
-	if (os2Table == nullptr || $nc(os2Table)->capacity() < 50) {
+	if (os2Table == nullptr || os2Table->capacity() < 50) {
 		return;
 	}
 	int32_t range2 = $nc(os2Table)->getInt(46);
-	this->supportsCJK = (((int32_t)(range2 & (uint32_t)0x29BF0000)) != 0);
-	this->supportsJA$ = (((int32_t)(range2 & (uint32_t)0x00060000)) != 0);
+	this->supportsCJK = ((range2 & 0x29bf0000) != 0);
+	this->supportsJA$ = ((range2 & 0x00060000) != 0);
 }
 
 bool TrueTypeFont::supportsJA() {
@@ -640,15 +471,15 @@ bool TrueTypeFont::supportsJA() {
 }
 
 $ByteBuffer* TrueTypeFont::getTableBuffer(int32_t tag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TrueTypeFont$DirectoryEntry, entry, nullptr);
 	for (int32_t i = 0; i < this->numTables; ++i) {
 		if ($nc($nc(this->tableDirectory)->get(i))->tag == tag) {
-			$assign(entry, $nc(this->tableDirectory)->get(i));
+			$assign(entry, this->tableDirectory->get(i));
 			break;
 		}
 	}
-	if (entry == nullptr || $nc(entry)->length == 0 || $nc(entry)->offset + entry->length > this->fileSize) {
+	if (entry == nullptr || entry->length == 0 || entry->offset + entry->length > this->fileSize) {
 		return nullptr;
 	}
 	int32_t bread = 0;
@@ -658,8 +489,8 @@ $ByteBuffer* TrueTypeFont::getTableBuffer(int32_t tag) {
 			if ($nc(this->disposerRecord)->channel == nullptr) {
 				open();
 			}
-			$nc($nc(this->disposerRecord)->channel)->position($nc(entry)->offset);
-			bread = $nc($nc(this->disposerRecord)->channel)->read(buffer);
+			$nc($nc(this->disposerRecord)->channel)->position(entry->offset);
+			bread = this->disposerRecord->channel->read(buffer);
 			$nc(buffer)->flip();
 		} catch ($ClosedChannelException& e) {
 			$Thread::interrupted();
@@ -670,7 +501,7 @@ $ByteBuffer* TrueTypeFont::getTableBuffer(int32_t tag) {
 		} catch ($FontFormatException& e) {
 			return nullptr;
 		}
-		if (bread < $nc(entry)->length) {
+		if (bread < entry->length) {
 			return nullptr;
 		} else {
 			return buffer;
@@ -679,11 +510,11 @@ $ByteBuffer* TrueTypeFont::getTableBuffer(int32_t tag) {
 }
 
 $bytes* TrueTypeFont::getTableBytes(int32_t tag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteBuffer, buffer, getTableBuffer(tag));
 	if (buffer == nullptr) {
 		return nullptr;
-	} else if ($nc(buffer)->hasArray()) {
+	} else if (buffer->hasArray()) {
 		try {
 			return $cast($bytes, buffer->array());
 		} catch ($Exception& re) {
@@ -697,7 +528,7 @@ $bytes* TrueTypeFont::getTableBytes(int32_t tag) {
 int32_t TrueTypeFont::getTableSize(int32_t tag) {
 	for (int32_t i = 0; i < this->numTables; ++i) {
 		if ($nc($nc(this->tableDirectory)->get(i))->tag == tag) {
-			return $nc($nc(this->tableDirectory)->get(i))->length;
+			return $nc(this->tableDirectory->get(i))->length;
 		}
 	}
 	return 0;
@@ -706,7 +537,7 @@ int32_t TrueTypeFont::getTableSize(int32_t tag) {
 int32_t TrueTypeFont::getTableOffset(int32_t tag) {
 	for (int32_t i = 0; i < this->numTables; ++i) {
 		if ($nc($nc(this->tableDirectory)->get(i))->tag == tag) {
-			return $nc($nc(this->tableDirectory)->get(i))->offset;
+			return $nc(this->tableDirectory->get(i))->offset;
 		}
 	}
 	return 0;
@@ -715,7 +546,7 @@ int32_t TrueTypeFont::getTableOffset(int32_t tag) {
 $TrueTypeFont$DirectoryEntry* TrueTypeFont::getDirectoryEntry(int32_t tag) {
 	for (int32_t i = 0; i < this->numTables; ++i) {
 		if ($nc($nc(this->tableDirectory)->get(i))->tag == tag) {
-			return $nc(this->tableDirectory)->get(i);
+			return this->tableDirectory->get(i);
 		}
 	}
 	return nullptr;
@@ -731,7 +562,7 @@ bool TrueTypeFont::useEmbeddedBitmapsForSize(int32_t ptSize) {
 	$var($ByteBuffer, eblcTable, getTableBuffer(TrueTypeFont::EBLCTag));
 	int32_t numSizes = $nc(eblcTable)->getInt(4);
 	for (int32_t i = 0; i < numSizes; ++i) {
-		int32_t ppemY = (int32_t)(eblcTable->get(8 + (i * 48) + 45) & (uint32_t)255);
+		int32_t ppemY = eblcTable->get(8 + (i * 48) + 45) & 0xff;
 		if (ppemY == ptSize) {
 			return true;
 		}
@@ -760,17 +591,17 @@ void TrueTypeFont::setStyle($ByteBuffer* os_2Table) {
 		return;
 	}
 	if ($nc(os_2Table)->capacity() >= 8) {
-		this->fontWeight = (int32_t)(os_2Table->getChar(4) & (uint32_t)0x0000FFFF);
-		this->fontWidth = (int32_t)(os_2Table->getChar(6) & (uint32_t)0x0000FFFF);
+		this->fontWeight = os_2Table->getChar(4) & 0xffff;
+		this->fontWidth = os_2Table->getChar(6) & 0xffff;
 	}
-	if ($nc(os_2Table)->capacity() < 64) {
+	if (os_2Table->capacity() < 64) {
 		$FileFont::setStyle();
 		return;
 	}
-	int32_t fsSelection = (int32_t)($nc(os_2Table)->getChar(62) & (uint32_t)0x0000FFFF);
-	int32_t italic = (int32_t)(fsSelection & (uint32_t)TrueTypeFont::fsSelectionItalicBit);
-	int32_t bold = (int32_t)(fsSelection & (uint32_t)TrueTypeFont::fsSelectionBoldBit);
-	int32_t regular = (int32_t)(fsSelection & (uint32_t)TrueTypeFont::fsSelectionRegularBit);
+	int32_t fsSelection = os_2Table->getChar(62) & 0xffff;
+	int32_t italic = fsSelection & TrueTypeFont::fsSelectionItalicBit;
+	int32_t bold = fsSelection & TrueTypeFont::fsSelectionBoldBit;
+	int32_t regular = fsSelection & TrueTypeFont::fsSelectionRegularBit;
 	if (regular != 0 && ((italic | bold) != 0)) {
 		$FileFont::setStyle();
 		return;
@@ -792,33 +623,27 @@ void TrueTypeFont::setStyle($ByteBuffer* os_2Table) {
 		break;
 case$0:
 		// fsSelectionItalicBit
-		{
-			this->style = $Font::ITALIC;
-			break;
-		}
+		this->style = $Font::ITALIC;
+		break;
 case$1:
 		// fsSelectionBoldBit
-		{
-			this->style = $Font::BOLD;
-			break;
-		}
+		this->style = $Font::BOLD;
+		break;
 case$2:
 		// fsSelectionBoldBit | fsSelectionItalicBit
-		{
-			this->style = $Font::BOLD | $Font::ITALIC;
-		}
+		this->style = $Font::BOLD | $Font::ITALIC;
 	} while (false);
 }
 
 void TrueTypeFont::setStrikethroughMetrics($ByteBuffer* os_2Table, int32_t upem) {
-	if (os_2Table == nullptr || $nc(os_2Table)->capacity() < 30 || upem < 0) {
+	if (os_2Table == nullptr || os_2Table->capacity() < 30 || upem < 0) {
 		this->stSize = 0.05f;
 		this->stPos = -0.4f;
 		return;
 	}
 	$var($ShortBuffer, sb, $nc(os_2Table)->asShortBuffer());
 	this->stSize = $nc(sb)->get(13) / (float)upem;
-	this->stPos = -(int32_t)sb->get(14) / (float)upem;
+	this->stPos = -sb->get(14) / (float)upem;
 	if (this->stSize < 0.0f) {
 		this->stSize = 0.05f;
 	}
@@ -828,14 +653,14 @@ void TrueTypeFont::setStrikethroughMetrics($ByteBuffer* os_2Table, int32_t upem)
 }
 
 void TrueTypeFont::setUnderlineMetrics($ByteBuffer* postTable, int32_t upem) {
-	if (postTable == nullptr || $nc(postTable)->capacity() < 12 || upem < 0) {
+	if (postTable == nullptr || postTable->capacity() < 12 || upem < 0) {
 		this->ulSize = 0.05f;
 		this->ulPos = 0.1f;
 		return;
 	}
 	$var($ShortBuffer, sb, $nc(postTable)->asShortBuffer());
 	this->ulSize = $nc(sb)->get(5) / (float)upem;
-	this->ulPos = -(int32_t)sb->get(4) / (float)upem;
+	this->ulPos = -sb->get(4) / (float)upem;
 	if (this->ulSize < 0.0f) {
 		this->ulSize = 0.05f;
 	}
@@ -845,13 +670,13 @@ void TrueTypeFont::setUnderlineMetrics($ByteBuffer* postTable, int32_t upem) {
 }
 
 void TrueTypeFont::getStyleMetrics(float pointSize, $floats* metrics, int32_t offset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->ulSize == 0.0f && this->ulPos == 0.0f) {
 		$var($ByteBuffer, head_Table, getTableBuffer(TrueTypeFont::headTag));
 		int32_t upem = -1;
 		if (head_Table != nullptr && head_Table->capacity() >= 18) {
 			$var($ShortBuffer, sb, head_Table->asShortBuffer());
-			upem = (int32_t)($nc(sb)->get(9) & (uint32_t)0x0000FFFF);
+			upem = $nc(sb)->get(9) & 0xffff;
 			if (upem < 16 || upem > 16384) {
 				upem = 2048;
 			}
@@ -868,10 +693,10 @@ void TrueTypeFont::getStyleMetrics(float pointSize, $floats* metrics, int32_t of
 }
 
 $String* TrueTypeFont::makeString($bytes* bytes$renamed, int32_t len, int16_t platformID, int16_t encoding) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, bytes, bytes$renamed);
 	if (platformID == TrueTypeFont::MAC_PLATFORM_ID) {
-		encoding = (int16_t)-1;
+		encoding = -1;
 	}
 	if (encoding >= 2 && encoding <= 6) {
 		$var($bytes, oldbytes, bytes);
@@ -887,50 +712,32 @@ $String* TrueTypeFont::makeString($bytes* bytes$renamed, int32_t len, int16_t pl
 	$var($String, charset, nullptr);
 	switch (encoding) {
 	case -1:
-		{
-			$assign(charset, "US-ASCII"_s);
-			break;
-		}
+		$assign(charset, "US-ASCII"_s);
+		break;
 	case 1:
-		{
-			$assign(charset, "UTF-16"_s);
-			break;
-		}
+		$assign(charset, "UTF-16"_s);
+		break;
 	case 0:
-		{
-			$assign(charset, "UTF-16"_s);
-			break;
-		}
+		$assign(charset, "UTF-16"_s);
+		break;
 	case 2:
-		{
-			$assign(charset, "SJIS"_s);
-			break;
-		}
+		$assign(charset, "SJIS"_s);
+		break;
 	case 3:
-		{
-			$assign(charset, "GBK"_s);
-			break;
-		}
+		$assign(charset, "GBK"_s);
+		break;
 	case 4:
-		{
-			$assign(charset, "MS950"_s);
-			break;
-		}
+		$assign(charset, "MS950"_s);
+		break;
 	case 5:
-		{
-			$assign(charset, "EUC_KR"_s);
-			break;
-		}
+		$assign(charset, "EUC_KR"_s);
+		break;
 	case 6:
-		{
-			$assign(charset, "Johab"_s);
-			break;
-		}
+		$assign(charset, "Johab"_s);
+		break;
 	default:
-		{
-			$assign(charset, "UTF-16"_s);
-			break;
-		}
+		$assign(charset, "UTF-16"_s);
+		break;
 	}
 	try {
 		return $new($String, bytes, 0, len, charset);
@@ -946,14 +753,14 @@ $String* TrueTypeFont::makeString($bytes* bytes$renamed, int32_t len, int16_t pl
 }
 
 void TrueTypeFont::initNames() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, name, $new($bytes, 256));
 	$var($ByteBuffer, buffer, getTableBuffer(TrueTypeFont::nameTag));
 	if (buffer != nullptr) {
 		$var($ShortBuffer, sbuffer, buffer->asShortBuffer());
 		$nc(sbuffer)->get();
 		int16_t numRecords = sbuffer->get();
-		int32_t stringPtr = (int32_t)(sbuffer->get() & (uint32_t)0x0000FFFF);
+		int32_t stringPtr = sbuffer->get() & 0xffff;
 		$set(this, nameLocale, $SunToolkit::getStartupLocale());
 		int16_t nameLocaleID = getLCIDFromLocale(this->nameLocale);
 		$set(this, languageCompatibleLCIDs, getLanguageCompatibleLCIDsFromLocale(this->nameLocale));
@@ -966,8 +773,8 @@ void TrueTypeFont::initNames() {
 			int16_t encodingID = sbuffer->get();
 			int16_t langID = sbuffer->get();
 			int16_t nameID = sbuffer->get();
-			int32_t nameLen = (int32_t)(((int32_t)sbuffer->get()) & (uint32_t)0x0000FFFF);
-			int32_t namePtr = ((int32_t)(((int32_t)sbuffer->get()) & (uint32_t)0x0000FFFF)) + stringPtr;
+			int32_t nameLen = ((int32_t)sbuffer->get()) & 0xffff;
+			int32_t namePtr = (((int32_t)sbuffer->get()) & 0xffff) + stringPtr;
 			$var($String, tmpName, nullptr);
 			if ((platformID == TrueTypeFont::MAC_PLATFORM_ID) && (encodingID != TrueTypeFont::MACROMAN_SPECIFIC_ID || langID != TrueTypeFont::MACROMAN_ENGLISH_LANG)) {
 				continue;
@@ -976,37 +783,33 @@ void TrueTypeFont::initNames() {
 				bool compatible = false;
 				switch (nameID) {
 				case TrueTypeFont::FAMILY_NAME_ID:
-					{
-						compatible = false;
-						if (this->familyName == nullptr || langID == TrueTypeFont::ENGLISH_LOCALE_ID || langID == nameLocaleID || (this->localeFamilyName == nullptr && (compatible = isLanguageCompatible(langID)))) {
-							buffer->position(namePtr);
-							buffer->get(name, 0, nameLen);
-							$assign(tmpName, makeString(name, nameLen, platformID, encodingID));
-							if (this->familyName == nullptr || langID == TrueTypeFont::ENGLISH_LOCALE_ID) {
-								$set(this, familyName, tmpName);
-							}
-							if (langID == nameLocaleID || (this->localeFamilyName == nullptr && compatible)) {
-								$set(this, localeFamilyName, tmpName);
-							}
+					compatible = false;
+					if (this->familyName == nullptr || langID == TrueTypeFont::ENGLISH_LOCALE_ID || langID == nameLocaleID || (this->localeFamilyName == nullptr && (compatible = isLanguageCompatible(langID)))) {
+						buffer->position(namePtr);
+						buffer->get(name, 0, nameLen);
+						$assign(tmpName, makeString(name, nameLen, platformID, encodingID));
+						if (this->familyName == nullptr || langID == TrueTypeFont::ENGLISH_LOCALE_ID) {
+							$set(this, familyName, tmpName);
 						}
-						break;
+						if (langID == nameLocaleID || (this->localeFamilyName == nullptr && compatible)) {
+							$set(this, localeFamilyName, tmpName);
+						}
 					}
+					break;
 				case TrueTypeFont::FULL_NAME_ID:
-					{
-						compatible = false;
-						if (this->fullName == nullptr || langID == TrueTypeFont::ENGLISH_LOCALE_ID || langID == nameLocaleID || (this->localeFullName == nullptr && (compatible = isLanguageCompatible(langID)))) {
-							buffer->position(namePtr);
-							buffer->get(name, 0, nameLen);
-							$assign(tmpName, makeString(name, nameLen, platformID, encodingID));
-							if (this->fullName == nullptr || langID == TrueTypeFont::ENGLISH_LOCALE_ID) {
-								$set(this, fullName, tmpName);
-							}
-							if (langID == nameLocaleID || (this->localeFullName == nullptr && compatible)) {
-								$set(this, localeFullName, tmpName);
-							}
+					compatible = false;
+					if (this->fullName == nullptr || langID == TrueTypeFont::ENGLISH_LOCALE_ID || langID == nameLocaleID || (this->localeFullName == nullptr && (compatible = isLanguageCompatible(langID)))) {
+						buffer->position(namePtr);
+						buffer->get(name, 0, nameLen);
+						$assign(tmpName, makeString(name, nameLen, platformID, encodingID));
+						if (this->fullName == nullptr || langID == TrueTypeFont::ENGLISH_LOCALE_ID) {
+							$set(this, fullName, tmpName);
 						}
-						break;
+						if (langID == nameLocaleID || (this->localeFullName == nullptr && compatible)) {
+							$set(this, localeFullName, tmpName);
+						}
 					}
+					break;
 				}
 			}
 		}
@@ -1020,7 +823,7 @@ void TrueTypeFont::initNames() {
 }
 
 $String* TrueTypeFont::lookupName(int16_t findLocaleID, int32_t findNameID) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, foundName, nullptr);
 	$var($bytes, name, $new($bytes, 1024));
 	$var($ByteBuffer, buffer, getTableBuffer(TrueTypeFont::nameTag));
@@ -1028,7 +831,7 @@ $String* TrueTypeFont::lookupName(int16_t findLocaleID, int32_t findNameID) {
 		$var($ShortBuffer, sbuffer, buffer->asShortBuffer());
 		$nc(sbuffer)->get();
 		int16_t numRecords = sbuffer->get();
-		int32_t stringPtr = (int32_t)(((int32_t)sbuffer->get()) & (uint32_t)0x0000FFFF);
+		int32_t stringPtr = ((int32_t)sbuffer->get()) & 0xffff;
 		for (int32_t i = 0; i < numRecords; ++i) {
 			int16_t platformID = sbuffer->get();
 			if (platformID != TrueTypeFont::MS_PLATFORM_ID) {
@@ -1038,8 +841,8 @@ $String* TrueTypeFont::lookupName(int16_t findLocaleID, int32_t findNameID) {
 			int16_t encodingID = sbuffer->get();
 			int16_t langID = sbuffer->get();
 			int16_t nameID = sbuffer->get();
-			int32_t nameLen = (int32_t)(((int32_t)sbuffer->get()) & (uint32_t)0x0000FFFF);
-			int32_t namePtr = ((int32_t)(((int32_t)sbuffer->get()) & (uint32_t)0x0000FFFF)) + stringPtr;
+			int32_t nameLen = ((int32_t)sbuffer->get()) & 0xffff;
+			int32_t namePtr = (((int32_t)sbuffer->get()) & 0xffff) + stringPtr;
 			if (nameID == findNameID && ((foundName == nullptr && langID == TrueTypeFont::ENGLISH_LOCALE_ID) || langID == findLocaleID)) {
 				buffer->position(namePtr);
 				buffer->get(name, 0, nameLen);
@@ -1078,7 +881,7 @@ $String* TrueTypeFont::getPostscriptName() {
 $String* TrueTypeFont::getFontName($Locale* locale) {
 	if (locale == nullptr) {
 		return this->fullName;
-	} else if ($nc(locale)->equals(this->nameLocale) && this->localeFullName != nullptr) {
+	} else if (locale->equals(this->nameLocale) && this->localeFullName != nullptr) {
 		return this->localeFullName;
 	} else {
 		int16_t localeID = getLCIDFromLocale(locale);
@@ -1097,9 +900,8 @@ void TrueTypeFont::addLCIDMapEntry($Map* map, $String* key, int16_t value) {
 }
 
 void TrueTypeFont::createLCIDMap() {
-	$load(TrueTypeFont);
+	$init(TrueTypeFont);
 	$synchronized(class$) {
-		$init(TrueTypeFont);
 		if (TrueTypeFont::lcidMap != nullptr) {
 			return;
 		}
@@ -1261,7 +1063,7 @@ void TrueTypeFont::createLCIDMap() {
 
 int16_t TrueTypeFont::getLCIDFromLocale($Locale* locale) {
 	$init(TrueTypeFont);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	if ($nc(locale)->equals($Locale::US)) {
 		return TrueTypeFont::US_LCID;
@@ -1269,13 +1071,13 @@ int16_t TrueTypeFont::getLCIDFromLocale($Locale* locale) {
 	if (TrueTypeFont::lcidMap == nullptr) {
 		createLCIDMap();
 	}
-	$var($String, key, $nc(locale)->toString());
+	$var($String, key, locale->toString());
 	while (!""_s->equals(key)) {
 		$var($Short, lcidObject, $cast($Short, $nc(TrueTypeFont::lcidMap)->get(key)));
 		if (lcidObject != nullptr) {
 			return lcidObject->shortValue();
 		}
-		int32_t pos = $nc(key)->lastIndexOf((int32_t)u'_');
+		int32_t pos = $nc(key)->lastIndexOf(u'_');
 		if (pos < 1) {
 			return TrueTypeFont::US_LCID;
 		}
@@ -1287,7 +1089,7 @@ int16_t TrueTypeFont::getLCIDFromLocale($Locale* locale) {
 $String* TrueTypeFont::getFamilyName($Locale* locale) {
 	if (locale == nullptr) {
 		return this->familyName;
-	} else if ($nc(locale)->equals(this->nameLocale) && this->localeFamilyName != nullptr) {
+	} else if (locale->equals(this->nameLocale) && this->localeFamilyName != nullptr) {
 		return this->localeFamilyName;
 	} else {
 		int16_t localeID = getLCIDFromLocale(locale);
@@ -1308,14 +1110,14 @@ $CharToGlyphMapper* TrueTypeFont::getMapper() {
 }
 
 void TrueTypeFont::initAllNames(int32_t requestedID, $HashSet* names) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, name, $new($bytes, 256));
 	$var($ByteBuffer, buffer, getTableBuffer(TrueTypeFont::nameTag));
 	if (buffer != nullptr) {
 		$var($ShortBuffer, sbuffer, buffer->asShortBuffer());
 		$nc(sbuffer)->get();
 		int16_t numRecords = sbuffer->get();
-		int32_t stringPtr = (int32_t)(((int32_t)sbuffer->get()) & (uint32_t)0x0000FFFF);
+		int32_t stringPtr = ((int32_t)sbuffer->get()) & 0xffff;
 		for (int32_t i = 0; i < numRecords; ++i) {
 			int16_t platformID = sbuffer->get();
 			if (platformID != TrueTypeFont::MS_PLATFORM_ID) {
@@ -1325,8 +1127,8 @@ void TrueTypeFont::initAllNames(int32_t requestedID, $HashSet* names) {
 			int16_t encodingID = sbuffer->get();
 			sbuffer->get();
 			int16_t nameID = sbuffer->get();
-			int32_t nameLen = (int32_t)(((int32_t)sbuffer->get()) & (uint32_t)0x0000FFFF);
-			int32_t namePtr = ((int32_t)(((int32_t)sbuffer->get()) & (uint32_t)0x0000FFFF)) + stringPtr;
+			int32_t nameLen = ((int32_t)sbuffer->get()) & 0xffff;
+			int32_t namePtr = (((int32_t)sbuffer->get()) & 0xffff) + stringPtr;
 			if (nameID == requestedID) {
 				buffer->position(namePtr);
 				buffer->get(name, 0, nameLen);
@@ -1337,28 +1139,28 @@ void TrueTypeFont::initAllNames(int32_t requestedID, $HashSet* names) {
 }
 
 $StringArray* TrueTypeFont::getAllFamilyNames() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashSet, aSet, $new($HashSet));
 	try {
 		initAllNames(TrueTypeFont::FAMILY_NAME_ID, aSet);
 	} catch ($Exception& e) {
 	}
-	return $fcast($StringArray, aSet->toArray($$new($StringArray, 0)));
+	return $cast($StringArray, aSet->toArray($$new($StringArray, 0)));
 }
 
 $StringArray* TrueTypeFont::getAllFullNames() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashSet, aSet, $new($HashSet));
 	try {
 		initAllNames(TrueTypeFont::FULL_NAME_ID, aSet);
 	} catch ($Exception& e) {
 	}
-	return $fcast($StringArray, aSet->toArray($$new($StringArray, 0)));
+	return $cast($StringArray, aSet->toArray($$new($StringArray, 0)));
 }
 
 $Point2D$Float* TrueTypeFont::getGlyphPoint(int64_t pScalerContext, int32_t glyphCode, int32_t ptNumber) {
 	try {
-		return $nc($(getScaler()))->getGlyphPoint(pScalerContext, glyphCode, ptNumber);
+		return $$nc(getScaler())->getGlyphPoint(pScalerContext, glyphCode, ptNumber);
 	} catch ($FontScalerException& fe) {
 		return nullptr;
 	}
@@ -1366,7 +1168,7 @@ $Point2D$Float* TrueTypeFont::getGlyphPoint(int64_t pScalerContext, int32_t glyp
 }
 
 $chars* TrueTypeFont::getGaspTable() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->gaspTable != nullptr) {
 		return this->gaspTable;
 	}
@@ -1393,7 +1195,7 @@ bool TrueTypeFont::useAAForPtSize(int32_t ptsize) {
 	if ($nc(gasp)->length > 0) {
 		for (int32_t i = 0; i < gasp->length; i += 2) {
 			if (ptsize <= gasp->get(i)) {
-				return (((int32_t)(gasp->get(i + 1) & (uint32_t)2)) != 0);
+				return ((gasp->get(i + 1) & 2) != 0);
 			}
 		}
 		return true;
@@ -1406,26 +1208,20 @@ bool TrueTypeFont::useAAForPtSize(int32_t ptsize) {
 }
 
 bool TrueTypeFont::hasSupplementaryChars() {
-	return $nc(($cast($TrueTypeGlyphMapper, $(getMapper()))))->hasSupplementaryChars();
+	return $$sure($TrueTypeGlyphMapper, getMapper())->hasSupplementaryChars();
 }
 
 $String* TrueTypeFont::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"** TrueType Font: Family="_s, this->familyName, " Name="_s, this->fullName, " style="_s, $$str(this->style), " fileName="_s, $(getPublicFileName())});
 }
 
 bool TrueTypeFont::isLanguageCompatible(int16_t lcid) {
-	{
-		$var($shorts, arr$, this->languageCompatibleLCIDs);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			int16_t s = arr$->get(i$);
-			{
-				if (s == lcid) {
-					return true;
-				}
-			}
+	$var($shorts, arr$, this->languageCompatibleLCIDs);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		int16_t s = arr$->get(i$);
+		if (s == lcid) {
+			return true;
 		}
 	}
 	return false;
@@ -1433,7 +1229,7 @@ bool TrueTypeFont::isLanguageCompatible(int16_t lcid) {
 
 $shorts* TrueTypeFont::getLanguageCompatibleLCIDsFromLocale($Locale* locale) {
 	$init(TrueTypeFont);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (TrueTypeFont::lcidLanguageCompatibilityMap == nullptr) {
 		createLCIDMap();
 		createLCIDLanguageCompatibilityMap();
@@ -1445,156 +1241,156 @@ $shorts* TrueTypeFont::getLanguageCompatibleLCIDsFromLocale($Locale* locale) {
 
 void TrueTypeFont::createLCIDLanguageCompatibilityMap() {
 	$init(TrueTypeFont);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, map, $new($HashMap));
 	$var($shorts, sarr, nullptr);
 	$assign(sarr, $new($shorts, {
-		(int16_t)1031,
-		(int16_t)3079,
-		(int16_t)5127,
-		(int16_t)2055,
-		(int16_t)4103
+		1031,
+		3079,
+		5127,
+		2055,
+		4103
 	}));
 	map->put("de"_s, sarr);
 	$assign(sarr, $new($shorts, {
-		(int16_t)1044,
-		(int16_t)2068
+		1044,
+		2068
 	}));
 	map->put("no"_s, sarr);
 	$assign(sarr, $new($shorts, {
-		(int16_t)1049,
-		(int16_t)2073
+		1049,
+		2073
 	}));
 	map->put("ru"_s, sarr);
 	$assign(sarr, $new($shorts, {
-		(int16_t)1053,
-		(int16_t)2077
+		1053,
+		2077
 	}));
 	map->put("sv"_s, sarr);
 	$assign(sarr, $new($shorts, {
-		(int16_t)1046,
-		(int16_t)2070
+		1046,
+		2070
 	}));
 	map->put("pt"_s, sarr);
 	$assign(sarr, $new($shorts, {
-		(int16_t)1131,
-		(int16_t)3179,
-		(int16_t)2155
+		1131,
+		3179,
+		2155
 	}));
 	map->put("qu"_s, sarr);
 	$assign(sarr, $new($shorts, {
-		(int16_t)1086,
-		(int16_t)2110
+		1086,
+		2110
 	}));
 	map->put("ms"_s, sarr);
 	$assign(sarr, $new($shorts, {
-		(int16_t)11273,
-		(int16_t)3081,
-		(int16_t)12297,
-		(int16_t)8201,
-		(int16_t)10249,
-		(int16_t)4105,
-		(int16_t)13321,
-		(int16_t)6153,
-		(int16_t)7177,
-		(int16_t)5129,
-		(int16_t)2057
+		11273,
+		3081,
+		12297,
+		8201,
+		10249,
+		4105,
+		13321,
+		6153,
+		7177,
+		5129,
+		2057
 	}));
 	map->put("en"_s, sarr);
 	$assign(sarr, $new($shorts, {
-		(int16_t)1050,
-		(int16_t)4122
+		1050,
+		4122
 	}));
 	map->put("hr"_s, sarr);
 	$assign(sarr, $new($shorts, {
-		(int16_t)1040,
-		(int16_t)2064
+		1040,
+		2064
 	}));
 	map->put("it"_s, sarr);
 	$assign(sarr, $new($shorts, {
-		(int16_t)1036,
-		(int16_t)5132,
-		(int16_t)6156,
-		(int16_t)2060,
-		(int16_t)3084,
-		(int16_t)4108
+		1036,
+		5132,
+		6156,
+		2060,
+		3084,
+		4108
 	}));
 	map->put("fr"_s, sarr);
 	$assign(sarr, $new($shorts, {
-		(int16_t)1034,
-		(int16_t)12298,
-		(int16_t)14346,
-		(int16_t)2058,
-		(int16_t)8202,
-		(int16_t)19466,
-		(int16_t)17418,
-		(int16_t)9226,
-		(int16_t)13322,
-		(int16_t)5130,
-		(int16_t)7178,
-		(int16_t)11274,
-		(int16_t)16394,
-		(int16_t)4106,
-		(int16_t)10250,
-		(int16_t)6154,
-		(int16_t)18442,
-		(int16_t)20490,
-		(int16_t)15370
+		1034,
+		12298,
+		14346,
+		2058,
+		8202,
+		19466,
+		17418,
+		9226,
+		13322,
+		5130,
+		7178,
+		11274,
+		16394,
+		4106,
+		10250,
+		6154,
+		18442,
+		20490,
+		15370
 	}));
 	map->put("es"_s, sarr);
 	$assign(sarr, $new($shorts, {
-		(int16_t)1028,
-		(int16_t)3076,
-		(int16_t)5124,
-		(int16_t)4100,
-		(int16_t)2052
+		1028,
+		3076,
+		5124,
+		4100,
+		2052
 	}));
 	map->put("zh"_s, sarr);
 	$assign(sarr, $new($shorts, {
-		(int16_t)1025,
-		(int16_t)8193,
-		(int16_t)16385,
-		(int16_t)9217,
-		(int16_t)2049,
-		(int16_t)14337,
-		(int16_t)15361,
-		(int16_t)11265,
-		(int16_t)13313,
-		(int16_t)10241,
-		(int16_t)7169,
-		(int16_t)12289,
-		(int16_t)4097,
-		(int16_t)5121,
-		(int16_t)6145,
-		(int16_t)3073
+		1025,
+		8193,
+		16385,
+		9217,
+		2049,
+		14337,
+		15361,
+		11265,
+		13313,
+		10241,
+		7169,
+		12289,
+		4097,
+		5121,
+		6145,
+		3073
 	}));
 	map->put("ar"_s, sarr);
 	$assign(sarr, $new($shorts, {
-		(int16_t)1083,
-		(int16_t)3131,
-		(int16_t)2107
+		1083,
+		3131,
+		2107
 	}));
 	map->put("se"_s, sarr);
 	$assign(sarr, $new($shorts, {
-		(int16_t)1048,
-		(int16_t)2072
+		1048,
+		2072
 	}));
 	map->put("ro"_s, sarr);
 	$assign(sarr, $new($shorts, {
-		(int16_t)1043,
-		(int16_t)2067
+		1043,
+		2067
 	}));
 	map->put("nl"_s, sarr);
 	$assign(sarr, $new($shorts, {
-		(int16_t)7194,
-		(int16_t)3098
+		7194,
+		3098
 	}));
 	map->put("sr"_s, sarr);
 	$assignStatic(TrueTypeFont::lcidLanguageCompatibilityMap, map);
 }
 
-void clinit$TrueTypeFont($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void TrueTypeFont::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(TrueTypeFont::encoding_mapping, $new($StringArray, {
 		"cp1252"_s,
 		"cp1250"_s,
@@ -1713,7 +1509,154 @@ TrueTypeFont::TrueTypeFont() {
 }
 
 $Class* TrueTypeFont::load$($String* name, bool initialize) {
-	$loadClass(TrueTypeFont, name, initialize, &_TrueTypeFont_ClassInfo_, clinit$TrueTypeFont, allocate$TrueTypeFont);
+	$FieldInfo fieldInfos$$[] = {
+		{"cmapTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, cmapTag)},
+		{"glyfTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, glyfTag)},
+		{"headTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, headTag)},
+		{"hheaTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, hheaTag)},
+		{"hmtxTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, hmtxTag)},
+		{"locaTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, locaTag)},
+		{"maxpTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, maxpTag)},
+		{"nameTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, nameTag)},
+		{"postTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, postTag)},
+		{"os_2Tag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, os_2Tag)},
+		{"GDEFTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, GDEFTag)},
+		{"GPOSTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, GPOSTag)},
+		{"GSUBTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, GSUBTag)},
+		{"mortTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, mortTag)},
+		{"morxTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, morxTag)},
+		{"fdscTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, fdscTag)},
+		{"fvarTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, fvarTag)},
+		{"featTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, featTag)},
+		{"EBLCTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, EBLCTag)},
+		{"gaspTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, gaspTag)},
+		{"ttcfTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, ttcfTag)},
+		{"v1ttTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, v1ttTag)},
+		{"trueTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, trueTag)},
+		{"ottoTag", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, ottoTag)},
+		{"MAC_PLATFORM_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, MAC_PLATFORM_ID)},
+		{"MACROMAN_SPECIFIC_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, MACROMAN_SPECIFIC_ID)},
+		{"MACROMAN_ENGLISH_LANG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, MACROMAN_ENGLISH_LANG)},
+		{"MS_PLATFORM_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, MS_PLATFORM_ID)},
+		{"ENGLISH_LOCALE_ID", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, ENGLISH_LOCALE_ID)},
+		{"FAMILY_NAME_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, FAMILY_NAME_ID)},
+		{"FULL_NAME_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, FULL_NAME_ID)},
+		{"POSTSCRIPT_NAME_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, POSTSCRIPT_NAME_ID)},
+		{"US_LCID", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TrueTypeFont, US_LCID)},
+		{"lcidMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Short;>;", $PRIVATE | $STATIC, $staticField(TrueTypeFont, lcidMap)},
+		{"disposerRecord", "Lsun/font/TrueTypeFont$TTDisposerRecord;", nullptr, 0, $field(TrueTypeFont, disposerRecord)},
+		{"fontIndex", "I", nullptr, 0, $field(TrueTypeFont, fontIndex)},
+		{"directoryCount", "I", nullptr, 0, $field(TrueTypeFont, directoryCount)},
+		{"directoryOffset", "I", nullptr, 0, $field(TrueTypeFont, directoryOffset)},
+		{"numTables", "I", nullptr, 0, $field(TrueTypeFont, numTables)},
+		{"tableDirectory", "[Lsun/font/TrueTypeFont$DirectoryEntry;", nullptr, 0, $field(TrueTypeFont, tableDirectory)},
+		{"supportsJA", "Z", nullptr, $PRIVATE, $field(TrueTypeFont, supportsJA$)},
+		{"supportsCJK", "Z", nullptr, $PRIVATE, $field(TrueTypeFont, supportsCJK)},
+		{"nameLocale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(TrueTypeFont, nameLocale)},
+		{"localeFamilyName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TrueTypeFont, localeFamilyName)},
+		{"localeFullName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TrueTypeFont, localeFullName)},
+		{"fontDataSize", "I", nullptr, 0, $field(TrueTypeFont, fontDataSize)},
+		{"TTCHEADERSIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TrueTypeFont, TTCHEADERSIZE)},
+		{"DIRECTORYHEADERSIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TrueTypeFont, DIRECTORYHEADERSIZE)},
+		{"DIRECTORYENTRYSIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TrueTypeFont, DIRECTORYENTRYSIZE)},
+		{"encoding_mapping", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(TrueTypeFont, encoding_mapping)},
+		{"languages", "[[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TrueTypeFont, languages)},
+		{"codePages", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TrueTypeFont, codePages)},
+		{"defaultCodePage", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(TrueTypeFont, defaultCodePage)},
+		{"reserved_bits1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, reserved_bits1)},
+		{"reserved_bits2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TrueTypeFont, reserved_bits2)},
+		{"fontWidth", "I", nullptr, $PRIVATE, $field(TrueTypeFont, fontWidth)},
+		{"fontWeight", "I", nullptr, $PRIVATE, $field(TrueTypeFont, fontWeight)},
+		{"fsSelectionItalicBit", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TrueTypeFont, fsSelectionItalicBit)},
+		{"fsSelectionBoldBit", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TrueTypeFont, fsSelectionBoldBit)},
+		{"fsSelectionRegularBit", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TrueTypeFont, fsSelectionRegularBit)},
+		{"stSize", "F", nullptr, $PRIVATE, $field(TrueTypeFont, stSize)},
+		{"stPos", "F", nullptr, $PRIVATE, $field(TrueTypeFont, stPos)},
+		{"ulSize", "F", nullptr, $PRIVATE, $field(TrueTypeFont, ulSize)},
+		{"ulPos", "F", nullptr, $PRIVATE, $field(TrueTypeFont, ulPos)},
+		{"gaspTable", "[C", nullptr, $PRIVATE, $field(TrueTypeFont, gaspTable)},
+		{"lcidLanguageCompatibilityMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;[S>;", $PRIVATE | $STATIC, $staticField(TrueTypeFont, lcidLanguageCompatibilityMap)},
+		{"EMPTY_COMPATIBLE_LCIDS", "[S", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TrueTypeFont, EMPTY_COMPATIBLE_LCIDS)},
+		{"languageCompatibleLCIDs", "[S", nullptr, $PRIVATE, $field(TrueTypeFont, languageCompatibleLCIDs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Object;IZ)V", nullptr, $PUBLIC, $method(TrueTypeFont, init$, void, $String*, Object$*, int32_t, bool), "java.awt.FontFormatException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Object;IZZ)V", nullptr, $PUBLIC, $method(TrueTypeFont, init$, void, $String*, Object$*, int32_t, bool, bool), "java.awt.FontFormatException"},
+		{"addLCIDMapEntry", "(Ljava/util/Map;Ljava/lang/String;S)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Short;>;Ljava/lang/String;S)V", $PRIVATE | $STATIC, $staticMethod(TrueTypeFont, addLCIDMapEntry, void, $Map*, $String*, int16_t)},
+		{"close", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(TrueTypeFont, close, void)},
+		{"createLCIDLanguageCompatibilityMap", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TrueTypeFont, createLCIDLanguageCompatibilityMap, void)},
+		{"createLCIDMap", "()V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(TrueTypeFont, createLCIDMap, void)},
+		{"getAllFamilyNames", "()[Ljava/lang/String;", nullptr, 0, $virtualMethod(TrueTypeFont, getAllFamilyNames, $StringArray*)},
+		{"getAllFullNames", "()[Ljava/lang/String;", nullptr, 0, $virtualMethod(TrueTypeFont, getAllFullNames, $StringArray*)},
+		{"getCodePage", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(TrueTypeFont, getCodePage, $String*)},
+		{"getDirectoryEntry", "(I)Lsun/font/TrueTypeFont$DirectoryEntry;", nullptr, 0, $virtualMethod(TrueTypeFont, getDirectoryEntry, $TrueTypeFont$DirectoryEntry*, int32_t)},
+		{"getFamilyName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TrueTypeFont, getFamilyName, $String*, $Locale*)},
+		{"getFontCount", "()I", nullptr, $PUBLIC, $virtualMethod(TrueTypeFont, getFontCount, int32_t)},
+		{"getFontName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TrueTypeFont, getFontName, $String*, $Locale*)},
+		{"getFullName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TrueTypeFont, getFullName, $String*)},
+		{"getGaspTable", "()[C", nullptr, $PRIVATE, $method(TrueTypeFont, getGaspTable, $chars*)},
+		{"getGlyphPoint", "(JII)Ljava/awt/geom/Point2D$Float;", nullptr, 0, $virtualMethod(TrueTypeFont, getGlyphPoint, $Point2D$Float*, int64_t, int32_t, int32_t)},
+		{"getLCIDFromLocale", "(Ljava/util/Locale;)S", nullptr, $PRIVATE | $STATIC, $staticMethod(TrueTypeFont, getLCIDFromLocale, int16_t, $Locale*)},
+		{"getLanguageCompatibleLCIDsFromLocale", "(Ljava/util/Locale;)[S", nullptr, $PRIVATE | $STATIC, $staticMethod(TrueTypeFont, getLanguageCompatibleLCIDsFromLocale, $shorts*, $Locale*)},
+		{"getMapper", "()Lsun/font/CharToGlyphMapper;", nullptr, $PUBLIC, $virtualMethod(TrueTypeFont, getMapper, $CharToGlyphMapper*)},
+		{"getPostscriptName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TrueTypeFont, getPostscriptName, $String*)},
+		{"getScaler", "()Lsun/font/FontScaler;", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(TrueTypeFont, getScaler, $FontScaler*)},
+		{"getStyleMetrics", "(F[FI)V", nullptr, $PUBLIC, $virtualMethod(TrueTypeFont, getStyleMetrics, void, float, $floats*, int32_t)},
+		{"getTableBuffer", "(I)Ljava/nio/ByteBuffer;", nullptr, 0, $virtualMethod(TrueTypeFont, getTableBuffer, $ByteBuffer*, int32_t)},
+		{"getTableBytes", "(I)[B", nullptr, $PROTECTED, $virtualMethod(TrueTypeFont, getTableBytes, $bytes*, int32_t)},
+		{"getTableOffset", "(I)I", nullptr, 0, $virtualMethod(TrueTypeFont, getTableOffset, int32_t, int32_t)},
+		{"getTableSize", "(I)I", nullptr, 0, $virtualMethod(TrueTypeFont, getTableSize, int32_t, int32_t)},
+		{"getWeight", "()I", nullptr, $PUBLIC, $virtualMethod(TrueTypeFont, getWeight, int32_t)},
+		{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(TrueTypeFont, getWidth, int32_t)},
+		{"hasSupplementaryChars", "()Z", nullptr, $PUBLIC, $virtualMethod(TrueTypeFont, hasSupplementaryChars, bool)},
+		{"init", "(I)V", nullptr, $PROTECTED, $virtualMethod(TrueTypeFont, init, void, int32_t), "java.awt.FontFormatException"},
+		{"initAllNames", "(ILjava/util/HashSet;)V", "(ILjava/util/HashSet<Ljava/lang/String;>;)V", $PROTECTED, $virtualMethod(TrueTypeFont, initAllNames, void, int32_t, $HashSet*)},
+		{"initNames", "()V", nullptr, $PROTECTED, $virtualMethod(TrueTypeFont, initNames, void)},
+		{"isLanguageCompatible", "(S)Z", nullptr, $PRIVATE, $method(TrueTypeFont, isLanguageCompatible, bool, int16_t)},
+		{"lookupName", "(SI)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(TrueTypeFont, lookupName, $String*, int16_t, int32_t)},
+		{"makeString", "([BISS)Ljava/lang/String;", nullptr, $PRIVATE, $method(TrueTypeFont, makeString, $String*, $bytes*, int32_t, int16_t, int16_t)},
+		{"open", "()Ljava/nio/channels/FileChannel;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(TrueTypeFont, open, $FileChannel*), "java.awt.FontFormatException"},
+		{"open", "(Z)Ljava/nio/channels/FileChannel;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(TrueTypeFont, open, $FileChannel*, bool), "java.awt.FontFormatException"},
+		{"readBlock", "(Ljava/nio/ByteBuffer;II)I", nullptr, 0, $virtualMethod(TrueTypeFont, readBlock, int32_t, $ByteBuffer*, int32_t, int32_t)},
+		{"readBlock", "(II)Ljava/nio/ByteBuffer;", nullptr, 0, $virtualMethod(TrueTypeFont, readBlock, $ByteBuffer*, int32_t, int32_t)},
+		{"readBytes", "(II)[B", nullptr, 0, $virtualMethod(TrueTypeFont, readBytes, $bytes*, int32_t, int32_t)},
+		{"setCJKSupport", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(TrueTypeFont, setCJKSupport, void, $ByteBuffer*)},
+		{"setStrikethroughMetrics", "(Ljava/nio/ByteBuffer;I)V", nullptr, $PRIVATE, $method(TrueTypeFont, setStrikethroughMetrics, void, $ByteBuffer*, int32_t)},
+		{"setStyle", "()V", nullptr, $PROTECTED, $virtualMethod(TrueTypeFont, setStyle, void)},
+		{"setStyle", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(TrueTypeFont, setStyle, void, $ByteBuffer*)},
+		{"setUnderlineMetrics", "(Ljava/nio/ByteBuffer;I)V", nullptr, $PRIVATE, $method(TrueTypeFont, setUnderlineMetrics, void, $ByteBuffer*, int32_t)},
+		{"supportsEncoding", "(Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(TrueTypeFont, supportsEncoding, bool, $String*)},
+		{"supportsJA", "()Z", nullptr, 0, $virtualMethod(TrueTypeFont, supportsJA, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TrueTypeFont, toString, $String*)},
+		{"useAAForPtSize", "(I)Z", nullptr, $PUBLIC, $virtualMethod(TrueTypeFont, useAAForPtSize, bool, int32_t)},
+		{"useEmbeddedBitmapsForSize", "(I)Z", nullptr, 0, $virtualMethod(TrueTypeFont, useEmbeddedBitmapsForSize, bool, int32_t)},
+		{"verify", "(Z)V", nullptr, $PRIVATE, $method(TrueTypeFont, verify, void, bool), "java.awt.FontFormatException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.TrueTypeFont$TTDisposerRecord", "sun.font.TrueTypeFont", "TTDisposerRecord", $PRIVATE | $STATIC},
+		{"sun.font.TrueTypeFont$DirectoryEntry", "sun.font.TrueTypeFont", "DirectoryEntry", $STATIC},
+		{"sun.font.TrueTypeFont$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.font.TrueTypeFont",
+		"sun.font.FileFont",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.font.TrueTypeFont$TTDisposerRecord,sun.font.TrueTypeFont$DirectoryEntry,sun.font.TrueTypeFont$1"
+	};
+	$loadClass(TrueTypeFont, name, initialize, &classInfo$$, TrueTypeFont::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TrueTypeFont);
+	});
 	return class$;
 }
 

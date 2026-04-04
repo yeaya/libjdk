@@ -25,6 +25,7 @@ class TrueTypeGlyphMapper : public ::sun::font::CharToGlyphMapper {
 	$class(TrueTypeGlyphMapper, 0, ::sun::font::CharToGlyphMapper)
 public:
 	TrueTypeGlyphMapper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::font::TrueTypeFont* font);
 	virtual int32_t charToGlyph(char16_t unicode) override;
 	virtual int32_t charToGlyph(int32_t unicode) override;

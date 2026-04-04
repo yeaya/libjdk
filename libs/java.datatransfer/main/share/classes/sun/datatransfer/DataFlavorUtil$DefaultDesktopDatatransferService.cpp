@@ -1,5 +1,4 @@
 #include <sun/datatransfer/DataFlavorUtil$DefaultDesktopDatatransferService.h>
-
 #include <java/awt/datatransfer/DataFlavor.h>
 #include <java/awt/datatransfer/FlavorMap.h>
 #include <java/lang/ClassLoader.h>
@@ -25,7 +24,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
@@ -36,50 +34,6 @@ using $DesktopDatatransferService = ::sun::datatransfer::DesktopDatatransferServ
 namespace sun {
 	namespace datatransfer {
 
-$FieldInfo _DataFlavorUtil$DefaultDesktopDatatransferService_FieldInfo_[] = {
-	{"INSTANCE", "Lsun/datatransfer/DesktopDatatransferService;", nullptr, $STATIC | $FINAL, $staticField(DataFlavorUtil$DefaultDesktopDatatransferService, INSTANCE)},
-	{"flavorMap", "Ljava/awt/datatransfer/FlavorMap;", nullptr, $PRIVATE | $VOLATILE, $field(DataFlavorUtil$DefaultDesktopDatatransferService, flavorMap)},
-	{}
-};
-
-$MethodInfo _DataFlavorUtil$DefaultDesktopDatatransferService_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DataFlavorUtil$DefaultDesktopDatatransferService, init$, void)},
-	{"getDefaultUnicodeEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DataFlavorUtil$DefaultDesktopDatatransferService, getDefaultUnicodeEncoding, $String*)},
-	{"getDesktopService", "()Lsun/datatransfer/DesktopDatatransferService;", nullptr, $PRIVATE | $STATIC, $staticMethod(DataFlavorUtil$DefaultDesktopDatatransferService, getDesktopService, $DesktopDatatransferService*)},
-	{"getFlavorMap", "(Ljava/util/function/Supplier;)Ljava/awt/datatransfer/FlavorMap;", "(Ljava/util/function/Supplier<Ljava/awt/datatransfer/FlavorMap;>;)Ljava/awt/datatransfer/FlavorMap;", $PUBLIC, $virtualMethod(DataFlavorUtil$DefaultDesktopDatatransferService, getFlavorMap, $FlavorMap*, $Supplier*)},
-	{"getPlatformMappingsForFlavor", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/util/LinkedHashSet;", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/util/LinkedHashSet<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(DataFlavorUtil$DefaultDesktopDatatransferService, getPlatformMappingsForFlavor, $LinkedHashSet*, $DataFlavor*)},
-	{"getPlatformMappingsForNative", "(Ljava/lang/String;)Ljava/util/LinkedHashSet;", "(Ljava/lang/String;)Ljava/util/LinkedHashSet<Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC, $virtualMethod(DataFlavorUtil$DefaultDesktopDatatransferService, getPlatformMappingsForNative, $LinkedHashSet*, $String*)},
-	{"invokeOnEventThread", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(DataFlavorUtil$DefaultDesktopDatatransferService, invokeOnEventThread, void, $Runnable*)},
-	{"isDesktopPresent", "()Z", nullptr, $PUBLIC, $virtualMethod(DataFlavorUtil$DefaultDesktopDatatransferService, isDesktopPresent, bool)},
-	{"registerTextFlavorProperties", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DataFlavorUtil$DefaultDesktopDatatransferService, registerTextFlavorProperties, void, $String*, $String*, $String*, $String*)},
-	{}
-};
-
-$InnerClassInfo _DataFlavorUtil$DefaultDesktopDatatransferService_InnerClassesInfo_[] = {
-	{"sun.datatransfer.DataFlavorUtil$DefaultDesktopDatatransferService", "sun.datatransfer.DataFlavorUtil", "DefaultDesktopDatatransferService", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DataFlavorUtil$DefaultDesktopDatatransferService_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.datatransfer.DataFlavorUtil$DefaultDesktopDatatransferService",
-	"java.lang.Object",
-	"sun.datatransfer.DesktopDatatransferService",
-	_DataFlavorUtil$DefaultDesktopDatatransferService_FieldInfo_,
-	_DataFlavorUtil$DefaultDesktopDatatransferService_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DataFlavorUtil$DefaultDesktopDatatransferService_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.datatransfer.DataFlavorUtil"
-};
-
-$Object* allocate$DataFlavorUtil$DefaultDesktopDatatransferService($Class* clazz) {
-	return $of($alloc(DataFlavorUtil$DefaultDesktopDatatransferService));
-}
-
 $DesktopDatatransferService* DataFlavorUtil$DefaultDesktopDatatransferService::INSTANCE = nullptr;
 
 void DataFlavorUtil$DefaultDesktopDatatransferService::init$() {
@@ -87,10 +41,10 @@ void DataFlavorUtil$DefaultDesktopDatatransferService::init$() {
 
 $DesktopDatatransferService* DataFlavorUtil$DefaultDesktopDatatransferService::getDesktopService() {
 	$init(DataFlavorUtil$DefaultDesktopDatatransferService);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$load($DesktopDatatransferService);
-	$var($ServiceLoader, loader, $ServiceLoader::load($DesktopDatatransferService::class$, ($ClassLoader*)nullptr));
+	$var($ServiceLoader, loader, $ServiceLoader::load($DesktopDatatransferService::class$, nullptr));
 	$var($Iterator, iterator, $nc(loader)->iterator());
 	if ($nc(iterator)->hasNext()) {
 		return $cast($DesktopDatatransferService, iterator->next());
@@ -114,7 +68,7 @@ $FlavorMap* DataFlavorUtil$DefaultDesktopDatatransferService::getFlavorMap($Supp
 		$synchronized(this) {
 			$assign(map, this->flavorMap);
 			if (map == nullptr) {
-				$set(this, flavorMap, ($assign(map, $cast($FlavorMap, $nc(supplier)->get()))));
+				$set(this, flavorMap, $assign(map, $cast($FlavorMap, $nc(supplier)->get())));
 			}
 		}
 	}
@@ -136,7 +90,7 @@ $LinkedHashSet* DataFlavorUtil$DefaultDesktopDatatransferService::getPlatformMap
 void DataFlavorUtil$DefaultDesktopDatatransferService::registerTextFlavorProperties($String* nat, $String* charset, $String* eoln, $String* terminators) {
 }
 
-void clinit$DataFlavorUtil$DefaultDesktopDatatransferService($Class* class$) {
+void DataFlavorUtil$DefaultDesktopDatatransferService::clinit$($Class* clazz) {
 	$assignStatic(DataFlavorUtil$DefaultDesktopDatatransferService::INSTANCE, DataFlavorUtil$DefaultDesktopDatatransferService::getDesktopService());
 }
 
@@ -144,7 +98,45 @@ DataFlavorUtil$DefaultDesktopDatatransferService::DataFlavorUtil$DefaultDesktopD
 }
 
 $Class* DataFlavorUtil$DefaultDesktopDatatransferService::load$($String* name, bool initialize) {
-	$loadClass(DataFlavorUtil$DefaultDesktopDatatransferService, name, initialize, &_DataFlavorUtil$DefaultDesktopDatatransferService_ClassInfo_, clinit$DataFlavorUtil$DefaultDesktopDatatransferService, allocate$DataFlavorUtil$DefaultDesktopDatatransferService);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "Lsun/datatransfer/DesktopDatatransferService;", nullptr, $STATIC | $FINAL, $staticField(DataFlavorUtil$DefaultDesktopDatatransferService, INSTANCE)},
+		{"flavorMap", "Ljava/awt/datatransfer/FlavorMap;", nullptr, $PRIVATE | $VOLATILE, $field(DataFlavorUtil$DefaultDesktopDatatransferService, flavorMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DataFlavorUtil$DefaultDesktopDatatransferService, init$, void)},
+		{"getDefaultUnicodeEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DataFlavorUtil$DefaultDesktopDatatransferService, getDefaultUnicodeEncoding, $String*)},
+		{"getDesktopService", "()Lsun/datatransfer/DesktopDatatransferService;", nullptr, $PRIVATE | $STATIC, $staticMethod(DataFlavorUtil$DefaultDesktopDatatransferService, getDesktopService, $DesktopDatatransferService*)},
+		{"getFlavorMap", "(Ljava/util/function/Supplier;)Ljava/awt/datatransfer/FlavorMap;", "(Ljava/util/function/Supplier<Ljava/awt/datatransfer/FlavorMap;>;)Ljava/awt/datatransfer/FlavorMap;", $PUBLIC, $virtualMethod(DataFlavorUtil$DefaultDesktopDatatransferService, getFlavorMap, $FlavorMap*, $Supplier*)},
+		{"getPlatformMappingsForFlavor", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/util/LinkedHashSet;", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/util/LinkedHashSet<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(DataFlavorUtil$DefaultDesktopDatatransferService, getPlatformMappingsForFlavor, $LinkedHashSet*, $DataFlavor*)},
+		{"getPlatformMappingsForNative", "(Ljava/lang/String;)Ljava/util/LinkedHashSet;", "(Ljava/lang/String;)Ljava/util/LinkedHashSet<Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC, $virtualMethod(DataFlavorUtil$DefaultDesktopDatatransferService, getPlatformMappingsForNative, $LinkedHashSet*, $String*)},
+		{"invokeOnEventThread", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(DataFlavorUtil$DefaultDesktopDatatransferService, invokeOnEventThread, void, $Runnable*)},
+		{"isDesktopPresent", "()Z", nullptr, $PUBLIC, $virtualMethod(DataFlavorUtil$DefaultDesktopDatatransferService, isDesktopPresent, bool)},
+		{"registerTextFlavorProperties", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DataFlavorUtil$DefaultDesktopDatatransferService, registerTextFlavorProperties, void, $String*, $String*, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.datatransfer.DataFlavorUtil$DefaultDesktopDatatransferService", "sun.datatransfer.DataFlavorUtil", "DefaultDesktopDatatransferService", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.datatransfer.DataFlavorUtil$DefaultDesktopDatatransferService",
+		"java.lang.Object",
+		"sun.datatransfer.DesktopDatatransferService",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.datatransfer.DataFlavorUtil"
+	};
+	$loadClass(DataFlavorUtil$DefaultDesktopDatatransferService, name, initialize, &classInfo$$, DataFlavorUtil$DefaultDesktopDatatransferService::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DataFlavorUtil$DefaultDesktopDatatransferService);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XBaseMenuWindow.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -8,7 +7,6 @@
 #include <java/awt/FontMetrics.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/GraphicsConfiguration.h>
-#include <java/awt/MenuComponent.h>
 #include <java/awt/MenuItem.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
@@ -21,7 +19,6 @@
 #include <java/awt/peer/ComponentPeer.h>
 #include <java/awt/peer/MenuComponentPeer.h>
 #include <java/lang/Math.h>
-#include <java/lang/Runnable.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Vector.h>
 #include <sun/awt/AWTAccessor$ComponentAccessor.h>
@@ -90,7 +87,6 @@ using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
-using $MenuComponent = ::java::awt::MenuComponent;
 using $MenuItem = ::java::awt::MenuItem;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
@@ -106,12 +102,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $ArrayList = ::java::util::ArrayList;
 using $Vector = ::java::util::Vector;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
-using $AWTAccessor$MenuComponentAccessor = ::sun::awt::AWTAccessor$MenuComponentAccessor;
 using $AppContext = ::sun::awt::AppContext;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $AwtGraphicsConfigData = ::sun::awt::X11::AwtGraphicsConfigData;
@@ -143,155 +136,15 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XBaseMenuWindow_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(XBaseMenuWindow, log)},
-	{"backgroundColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(XBaseMenuWindow, backgroundColor)},
-	{"foregroundColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(XBaseMenuWindow, foregroundColor)},
-	{"lightShadowColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(XBaseMenuWindow, lightShadowColor)},
-	{"darkShadowColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(XBaseMenuWindow, darkShadowColor)},
-	{"selectedColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(XBaseMenuWindow, selectedColor)},
-	{"disabledColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(XBaseMenuWindow, disabledColor)},
-	{"items", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lsun/awt/X11/XMenuItemPeer;>;", $PRIVATE, $field(XBaseMenuWindow, items)},
-	{"selectedIndex", "I", nullptr, $PRIVATE, $field(XBaseMenuWindow, selectedIndex)},
-	{"showingSubmenu", "Lsun/awt/X11/XMenuPeer;", nullptr, $PRIVATE, $field(XBaseMenuWindow, showingSubmenu)},
-	{"menuTreeLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(XBaseMenuWindow, menuTreeLock)},
-	{"showingMousePressedSubmenu", "Lsun/awt/X11/XMenuPeer;", nullptr, $PRIVATE, $field(XBaseMenuWindow, showingMousePressedSubmenu)},
-	{"grabInputPoint", "Ljava/awt/Point;", nullptr, $PROTECTED, $field(XBaseMenuWindow, grabInputPoint)},
-	{"hasPointerMoved", "Z", nullptr, $PROTECTED, $field(XBaseMenuWindow, hasPointerMoved)},
-	{"disposeAppContext", "Lsun/awt/AppContext;", nullptr, $PRIVATE, $field(XBaseMenuWindow, disposeAppContext)},
-	{"mappingData", "Lsun/awt/X11/XBaseMenuWindow$MappingData;", nullptr, $PRIVATE, $field(XBaseMenuWindow, mappingData)},
-	{}
-};
-
-$MethodInfo _XBaseMenuWindow_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(XBaseMenuWindow, init$, void)},
-	{"addItem", "(Ljava/awt/MenuItem;)V", nullptr, $PUBLIC, $virtualMethod(XBaseMenuWindow, addItem, void, $MenuItem*)},
-	{"copyItems", "()[Lsun/awt/X11/XMenuItemPeer;", nullptr, 0, $virtualMethod(XBaseMenuWindow, copyItems, $XMenuItemPeerArray*)},
-	{"delItem", "(I)V", nullptr, $PUBLIC, $virtualMethod(XBaseMenuWindow, delItem, void, int32_t)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XBaseMenuWindow, dispose, void)},
-	{"doDispose", "()V", nullptr, $PROTECTED, $virtualMethod(XBaseMenuWindow, doDispose, void)},
-	{"doHandleJavaKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(XBaseMenuWindow, doHandleJavaKeyEvent, void, $KeyEvent*)},
-	{"doHandleJavaMouseEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(XBaseMenuWindow, doHandleJavaMouseEvent, void, $MouseEvent*)},
-	{"doHandleJavaPaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, 0, $virtualMethod(XBaseMenuWindow, doHandleJavaPaintEvent, void, $PaintEvent*)},
-	{"doLayout", "(IIII)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, doLayout, void, int32_t, int32_t, int32_t, int32_t)},
-	{"doShowSubmenu", "(Lsun/awt/X11/XMenuPeer;)V", nullptr, $PRIVATE, $method(XBaseMenuWindow, doShowSubmenu, void, $XMenuPeer*)},
-	{"draw3DRect", "(Ljava/awt/Graphics;IIIIZ)V", nullptr, 0, $virtualMethod(XBaseMenuWindow, draw3DRect, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"fitWindowAbove", "(Ljava/awt/Rectangle;Ljava/awt/Dimension;Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(XBaseMenuWindow, fitWindowAbove, $Rectangle*, $Rectangle*, $Dimension*, $Rectangle*)},
-	{"fitWindowBelow", "(Ljava/awt/Rectangle;Ljava/awt/Dimension;Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(XBaseMenuWindow, fitWindowBelow, $Rectangle*, $Rectangle*, $Dimension*, $Rectangle*)},
-	{"fitWindowLeft", "(Ljava/awt/Rectangle;Ljava/awt/Dimension;Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(XBaseMenuWindow, fitWindowLeft, $Rectangle*, $Rectangle*, $Dimension*, $Rectangle*)},
-	{"fitWindowRight", "(Ljava/awt/Rectangle;Ljava/awt/Dimension;Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(XBaseMenuWindow, fitWindowRight, $Rectangle*, $Rectangle*, $Dimension*, $Rectangle*)},
-	{"fitWindowToScreen", "(Ljava/awt/Dimension;Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(XBaseMenuWindow, fitWindowToScreen, $Rectangle*, $Dimension*, $Rectangle*)},
-	{"getBackgroundColor", "()Ljava/awt/Color;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getBackgroundColor, $Color*)},
-	{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, getColorModel, $ColorModel*)},
-	{"getColorModel", "(I)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, getColorModel, $ColorModel*, int32_t)},
-	{"getCurrentGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getCurrentGraphicsConfiguration, $GraphicsConfiguration*)},
-	{"getDarkShadowColor", "()Ljava/awt/Color;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getDarkShadowColor, $Color*)},
-	{"getDisabledColor", "()Ljava/awt/Color;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getDisabledColor, $Color*)},
-	{"getEventSource", "()Ljava/awt/Component;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, getEventSource, $Component*)},
-	{"getFirstSelectableItem", "()Lsun/awt/X11/XMenuItemPeer;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getFirstSelectableItem, $XMenuItemPeer*)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, getFontMetrics, $FontMetrics*, $Font*)},
-	{"getForegroundColor", "()Ljava/awt/Color;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getForegroundColor, $Color*)},
-	{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, getGraphics, $Graphics*)},
-	{"getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, getGraphicsConfiguration, $GraphicsConfiguration*)},
-	{"getGraphicsConfigurationData", "()Lsun/awt/X11/AwtGraphicsConfigData;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, getGraphicsConfigurationData, $AwtGraphicsConfigData*)},
-	{"getItem", "(I)Lsun/awt/X11/XMenuItemPeer;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getItem, $XMenuItemPeer*, int32_t)},
-	{"getItemFromPoint", "(Ljava/awt/Point;)Lsun/awt/X11/XMenuItemPeer;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getItemFromPoint, $XMenuItemPeer*, $Point*)},
-	{"getLightShadowColor", "()Ljava/awt/Color;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getLightShadowColor, $Color*)},
-	{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, getLocationOnScreen, $Point*)},
-	{"getMWMHints", "()Lsun/awt/X11/PropMwmHints;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, getMWMHints, $PropMwmHints*)},
-	{"getMappingData", "()Lsun/awt/X11/XBaseMenuWindow$MappingData;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getMappingData, $XBaseMenuWindow$MappingData*)},
-	{"getMenuTreeLock", "()Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(XBaseMenuWindow, getMenuTreeLock, $Object*)},
-	{"getMenuWindowFromPoint", "(Ljava/awt/Point;)Lsun/awt/X11/XBaseMenuWindow;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getMenuWindowFromPoint, XBaseMenuWindow*, $Point*)},
-	{"getNextSelectableItem", "()Lsun/awt/X11/XMenuItemPeer;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getNextSelectableItem, $XMenuItemPeer*)},
-	{"getParentMenuWindow", "()Lsun/awt/X11/XBaseMenuWindow;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(XBaseMenuWindow, getParentMenuWindow, XBaseMenuWindow*)},
-	{"getPrevSelectableItem", "()Lsun/awt/X11/XMenuItemPeer;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getPrevSelectableItem, $XMenuItemPeer*)},
-	{"getRootMenuWindow", "()Lsun/awt/X11/XBaseMenuWindow;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getRootMenuWindow, XBaseMenuWindow*)},
-	{"getSelectedColor", "()Ljava/awt/Color;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getSelectedColor, $Color*)},
-	{"getSelectedItem", "()Lsun/awt/X11/XMenuItemPeer;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getSelectedItem, $XMenuItemPeer*)},
-	{"getShowingLeaf", "()Lsun/awt/X11/XBaseMenuWindow;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getShowingLeaf, XBaseMenuWindow*)},
-	{"getShowingSubmenu", "()Lsun/awt/X11/XMenuPeer;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getShowingSubmenu, $XMenuPeer*)},
-	{"getSubmenuBounds", "(Ljava/awt/Rectangle;Ljava/awt/Dimension;)Ljava/awt/Rectangle;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(XBaseMenuWindow, getSubmenuBounds, $Rectangle*, $Rectangle*, $Dimension*)},
-	{"getSurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, getSurfaceData, $SurfaceData*)},
-	{"getTarget", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, getTarget, $Object*)},
-	{"getTargetBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, getTargetBounds, $Rectangle*)},
-	{"getWinBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, getWinBackground, $Color*)},
-	{"grabInput", "()Z", nullptr, $PUBLIC, $virtualMethod(XBaseMenuWindow, grabInput, bool)},
-	{"handleButtonPressRelease", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, handleButtonPressRelease, void, $XEvent*)},
-	{"handleConfigureNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, handleConfigureNotifyEvent, void, $XEvent*)},
-	{"handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PROTECTED, $virtualMethod(XBaseMenuWindow, handleEvent, void, $AWTEvent*)},
-	{"handleExposeEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, handleExposeEvent, void, $XEvent*)},
-	{"handleKeyPress", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, handleKeyPress, void, $XEvent*)},
-	{"handleKeyRelease", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, handleKeyRelease, void, $XEvent*)},
-	{"handleMapNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, handleMapNotifyEvent, void, $XEvent*)},
-	{"handleMotionNotify", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, handleMotionNotify, void, $XEvent*)},
-	{"handlePropertyNotify", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, handlePropertyNotify, void, $XEvent*)},
-	{"handleUnmapNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, handleUnmapNotifyEvent, void, $XEvent*)},
-	{"handleXCrossingEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, handleXCrossingEvent, void, $XEvent*)},
-	{"instantPreInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XBaseMenuWindow, instantPreInit, void, $XCreateWindowParams*)},
-	{"isEmbedded", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, isEmbedded, bool)},
-	{"isEventDisabled", "(Lsun/awt/X11/XEvent;)Z", nullptr, $PROTECTED, $virtualMethod(XBaseMenuWindow, isEventDisabled, bool, $XEvent*)},
-	{"isMouseAbove", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, isMouseAbove, bool)},
-	{"layout", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, layout, void)},
-	{"map", "()Lsun/awt/X11/XBaseMenuWindow$MappingData;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(XBaseMenuWindow, map, $XBaseMenuWindow$MappingData*)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, paint, void, $Graphics*)},
-	{"popup", "(IIII)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, popup, void, int32_t, int32_t, int32_t, int32_t)},
-	{"postEvent", "(Ljava/awt/AWTEvent;)V", nullptr, 0, $virtualMethod(XBaseMenuWindow, postEvent, void, $AWTEvent*)},
-	{"postEventToEventQueue", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, postEventToEventQueue, void, $AWTEvent*)},
-	{"postKeyEvent", "(IIIIIJIJII)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, postKeyEvent, void, int32_t, int32_t, int32_t, int32_t, int32_t, int64_t, int32_t, int64_t, int32_t, int32_t)},
-	{"postPaintEvent", "()V", nullptr, 0, $virtualMethod(XBaseMenuWindow, postPaintEvent, void)},
-	{"postPaintEvent", "(Ljava/awt/Component;IIII)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, postPaintEvent, void, $Component*, int32_t, int32_t, int32_t, int32_t)},
-	{"reloadItems", "(Ljava/util/Vector;)V", "(Ljava/util/Vector<+Ljava/awt/MenuItem;>;)V", $PUBLIC, $virtualMethod(XBaseMenuWindow, reloadItems, void, $Vector*)},
-	{"replaceColors", "(Ljava/awt/Color;)V", nullptr, 0, $virtualMethod(XBaseMenuWindow, replaceColors, void, $Color*)},
-	{"resetColors", "()V", nullptr, 0, $virtualMethod(XBaseMenuWindow, resetColors, void)},
-	{"resetMapping", "()V", nullptr, $PROTECTED, $virtualMethod(XBaseMenuWindow, resetMapping, void)},
-	{"reshape", "(IIII)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, reshape, void, int32_t, int32_t, int32_t, int32_t)},
-	{"reshape", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, reshape, void, $Rectangle*)},
-	{"selectItem", "(Lsun/awt/X11/XMenuItemPeer;Z)V", nullptr, 0, $virtualMethod(XBaseMenuWindow, selectItem, void, $XMenuItemPeer*, bool)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, setBackground, void, $Color*)},
-	{"setFullScreenExclusiveModeState", "(Z)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, setFullScreenExclusiveModeState, void, bool)},
-	{"setItemsFont", "(Ljava/awt/Font;)V", nullptr, $FINAL, $method(XBaseMenuWindow, setItemsFont, void, $Font*)},
-	{"setMWMHints", "(Lsun/awt/X11/PropMwmHints;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, setMWMHints, void, $PropMwmHints*)},
-	{"updateSize", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(XBaseMenuWindow, updateSize, void)},
-	{}
-};
-
-$InnerClassInfo _XBaseMenuWindow_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XBaseMenuWindow$MappingData", "sun.awt.X11.XBaseMenuWindow", "MappingData", $STATIC},
-	{"sun.awt.X11.XBaseMenuWindow$3", nullptr, nullptr, 0},
-	{"sun.awt.X11.XBaseMenuWindow$2", nullptr, nullptr, 0},
-	{"sun.awt.X11.XBaseMenuWindow$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XBaseMenuWindow_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.awt.X11.XBaseMenuWindow",
-	"sun.awt.X11.XWindow",
-	nullptr,
-	_XBaseMenuWindow_FieldInfo_,
-	_XBaseMenuWindow_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XBaseMenuWindow_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XBaseMenuWindow$MappingData,sun.awt.X11.XBaseMenuWindow$3,sun.awt.X11.XBaseMenuWindow$2,sun.awt.X11.XBaseMenuWindow$1"
-};
-
-$Object* allocate$XBaseMenuWindow($Class* clazz) {
-	return $of($alloc(XBaseMenuWindow));
-}
-
 $PlatformLogger* XBaseMenuWindow::log = nullptr;
 $Object* XBaseMenuWindow::menuTreeLock = nullptr;
 
 void XBaseMenuWindow::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($XBaseWindow);
-	$init($Boolean);
 	$XWindow::init$($$new($XCreateWindowParams, $$new($ObjectArray, {
-		$of($XBaseWindow::DELAYED),
-		$of($Boolean::TRUE)
+		$XBaseWindow::DELAYED,
+		$Boolean::TRUE
 	})));
 	this->selectedIndex = -1;
 	$set(this, showingSubmenu, nullptr);
@@ -308,7 +161,7 @@ void XBaseMenuWindow::instantPreInit($XCreateWindowParams* params) {
 
 $Object* XBaseMenuWindow::getMenuTreeLock() {
 	$init(XBaseMenuWindow);
-	return $of(XBaseMenuWindow::menuTreeLock);
+	return XBaseMenuWindow::menuTreeLock;
 }
 
 void XBaseMenuWindow::resetMapping() {
@@ -316,7 +169,7 @@ void XBaseMenuWindow::resetMapping() {
 }
 
 void XBaseMenuWindow::postPaintEvent() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isShowing()) {
 		$var($PaintEvent, pe, $new($PaintEvent, this->target, $PaintEvent::PAINT, $$new($Rectangle, 0, 0, this->width, this->height)));
 		postEvent(pe);
@@ -327,7 +180,7 @@ $XMenuItemPeer* XBaseMenuWindow::getItem(int32_t index) {
 	if (index >= 0) {
 		$synchronized(getMenuTreeLock()) {
 			if ($nc(this->items)->size() > index) {
-				return $cast($XMenuItemPeer, $nc(this->items)->get(index));
+				return $cast($XMenuItemPeer, this->items->get(index));
 			}
 		}
 	}
@@ -336,7 +189,7 @@ $XMenuItemPeer* XBaseMenuWindow::getItem(int32_t index) {
 
 $XMenuItemPeerArray* XBaseMenuWindow::copyItems() {
 	$synchronized(getMenuTreeLock()) {
-		return $fcast($XMenuItemPeerArray, $nc(this->items)->toArray($$new($XMenuItemPeerArray, 0)));
+		return $cast($XMenuItemPeerArray, $nc(this->items)->toArray($$new($XMenuItemPeerArray, 0)));
 	}
 }
 
@@ -344,7 +197,7 @@ $XMenuItemPeer* XBaseMenuWindow::getSelectedItem() {
 	$synchronized(getMenuTreeLock()) {
 		if (this->selectedIndex >= 0) {
 			if ($nc(this->items)->size() > this->selectedIndex) {
-				return $cast($XMenuItemPeer, $nc(this->items)->get(this->selectedIndex));
+				return $cast($XMenuItemPeer, this->items->get(this->selectedIndex));
 			}
 		}
 		return nullptr;
@@ -358,8 +211,8 @@ $XMenuPeer* XBaseMenuWindow::getShowingSubmenu() {
 }
 
 void XBaseMenuWindow::addItem($MenuItem* item) {
-	$useLocalCurrentObjectStackCache();
-	$var($XMenuItemPeer, mp, $cast($XMenuItemPeer, $nc($($AWTAccessor::getMenuComponentAccessor()))->getPeer(item)));
+	$useLocalObjectStack();
+	$var($XMenuItemPeer, mp, $cast($XMenuItemPeer, $$nc($AWTAccessor::getMenuComponentAccessor())->getPeer(item)));
 	if (mp != nullptr) {
 		mp->setContainer(this);
 		$synchronized(getMenuTreeLock()) {
@@ -375,7 +228,7 @@ void XBaseMenuWindow::addItem($MenuItem* item) {
 }
 
 void XBaseMenuWindow::delItem(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getMenuTreeLock()) {
 		if (this->selectedIndex == index) {
 			selectItem(nullptr, false);
@@ -383,7 +236,7 @@ void XBaseMenuWindow::delItem(int32_t index) {
 			--this->selectedIndex;
 		}
 		if (index < $nc(this->items)->size()) {
-			$nc(this->items)->remove(index);
+			this->items->remove(index);
 		} else {
 			$init($PlatformLogger$Level);
 			if ($nc(XBaseMenuWindow::log)->isLoggable($PlatformLogger$Level::FINE)) {
@@ -395,10 +248,10 @@ void XBaseMenuWindow::delItem(int32_t index) {
 }
 
 void XBaseMenuWindow::reloadItems($Vector* items) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getMenuTreeLock()) {
 		$nc(this->items)->clear();
-		$var($MenuItemArray, itemArray, $fcast($MenuItemArray, $nc(items)->toArray($$new($MenuItemArray, 0))));
+		$var($MenuItemArray, itemArray, $cast($MenuItemArray, $nc(items)->toArray($$new($MenuItemArray, 0))));
 		int32_t itemCnt = $nc(itemArray)->length;
 		for (int32_t i = 0; i < itemCnt; ++i) {
 			addItem(itemArray->get(i));
@@ -407,7 +260,7 @@ void XBaseMenuWindow::reloadItems($Vector* items) {
 }
 
 void XBaseMenuWindow::selectItem($XMenuItemPeer* item, bool showWindowIfMenu) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getMenuTreeLock()) {
 		$var($XMenuPeer, showingSubmenu, getShowingSubmenu());
 		int32_t newSelectedIndex = (item != nullptr) ? $nc(this->items)->indexOf(item) : -1;
@@ -427,45 +280,43 @@ void XBaseMenuWindow::selectItem($XMenuItemPeer* item, bool showWindowIfMenu) {
 }
 
 void XBaseMenuWindow::doShowSubmenu($XMenuPeer* submenuToShow) {
-	$useLocalCurrentObjectStackCache();
-	$var($XMenuWindow, menuWindowToShow, (submenuToShow != nullptr) ? $nc(submenuToShow)->getMenuWindow() : ($XMenuWindow*)nullptr);
+	$useLocalObjectStack();
+	$var($XMenuWindow, menuWindowToShow, (submenuToShow != nullptr) ? submenuToShow->getMenuWindow() : ($XMenuWindow*)nullptr);
 	$var($Dimension, dim, nullptr);
 	$var($Rectangle, bounds, nullptr);
 	if (menuWindowToShow != nullptr) {
 		menuWindowToShow->ensureCreated();
 	}
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$synchronized(getMenuTreeLock()) {
-				if (this->showingSubmenu != submenuToShow) {
-					$init($PlatformLogger$Level);
-					if ($nc(XBaseMenuWindow::log)->isLoggable($PlatformLogger$Level::FINEST)) {
-						$nc(XBaseMenuWindow::log)->finest("Changing showing submenu"_s);
-					}
-					if (this->showingSubmenu != nullptr) {
-						$var($XMenuWindow, showingSubmenuWindow, $nc(this->showingSubmenu)->getMenuWindow());
-						if (showingSubmenuWindow != nullptr) {
-							showingSubmenuWindow->hide();
-						}
-					}
-					if (submenuToShow != nullptr) {
-						$assign(dim, $nc(menuWindowToShow)->getDesiredSize());
-						$assign(bounds, $nc($(menuWindowToShow->getParentMenuWindow()))->getSubmenuBounds($(submenuToShow->getBounds()), dim));
-						menuWindowToShow->show(bounds);
-					}
-					$set(this, showingSubmenu, submenuToShow);
+	$var($Throwable, var$0, nullptr);
+	try {
+		$synchronized(getMenuTreeLock()) {
+			if (this->showingSubmenu != submenuToShow) {
+				$init($PlatformLogger$Level);
+				if ($nc(XBaseMenuWindow::log)->isLoggable($PlatformLogger$Level::FINEST)) {
+					$nc(XBaseMenuWindow::log)->finest("Changing showing submenu"_s);
 				}
+				if (this->showingSubmenu != nullptr) {
+					$var($XMenuWindow, showingSubmenuWindow, this->showingSubmenu->getMenuWindow());
+					if (showingSubmenuWindow != nullptr) {
+						showingSubmenuWindow->hide();
+					}
+				}
+				if (submenuToShow != nullptr) {
+					$assign(dim, $nc(menuWindowToShow)->getDesiredSize());
+					$assign(bounds, $$nc(menuWindowToShow->getParentMenuWindow())->getSubmenuBounds($(submenuToShow->getBounds()), dim));
+					menuWindowToShow->show(bounds);
+				}
+				$set(this, showingSubmenu, submenuToShow);
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -487,11 +338,11 @@ $XBaseMenuWindow$MappingData* XBaseMenuWindow::getMappingData() {
 }
 
 $XMenuItemPeer* XBaseMenuWindow::getItemFromPoint($Point* pt) {
-	$useLocalCurrentObjectStackCache();
-	$var($XMenuItemPeerArray, items, $nc($(getMappingData()))->getItems());
+	$useLocalObjectStack();
+	$var($XMenuItemPeerArray, items, $$nc(getMappingData())->getItems());
 	int32_t cnt = $nc(items)->length;
 	for (int32_t i = 0; i < cnt; ++i) {
-		if ($nc($($nc(items->get(i))->getBounds()))->contains(pt)) {
+		if ($$nc($nc(items->get(i))->getBounds())->contains(pt)) {
 			return items->get(i);
 		}
 	}
@@ -499,8 +350,8 @@ $XMenuItemPeer* XBaseMenuWindow::getItemFromPoint($Point* pt) {
 }
 
 $XMenuItemPeer* XBaseMenuWindow::getNextSelectableItem() {
-	$useLocalCurrentObjectStackCache();
-	$var($XMenuItemPeerArray, mappedItems, $nc($(getMappingData()))->getItems());
+	$useLocalObjectStack();
+	$var($XMenuItemPeerArray, mappedItems, $$nc(getMappingData())->getItems());
 	$var($XMenuItemPeer, selectedItem, getSelectedItem());
 	int32_t cnt = $nc(mappedItems)->length;
 	int32_t selIdx = -1;
@@ -526,8 +377,8 @@ $XMenuItemPeer* XBaseMenuWindow::getNextSelectableItem() {
 }
 
 $XMenuItemPeer* XBaseMenuWindow::getPrevSelectableItem() {
-	$useLocalCurrentObjectStackCache();
-	$var($XMenuItemPeerArray, mappedItems, $nc($(getMappingData()))->getItems());
+	$useLocalObjectStack();
+	$var($XMenuItemPeerArray, mappedItems, $$nc(getMappingData())->getItems());
 	$var($XMenuItemPeer, selectedItem, getSelectedItem());
 	int32_t cnt = $nc(mappedItems)->length;
 	int32_t selIdx = -1;
@@ -553,8 +404,8 @@ $XMenuItemPeer* XBaseMenuWindow::getPrevSelectableItem() {
 }
 
 $XMenuItemPeer* XBaseMenuWindow::getFirstSelectableItem() {
-	$useLocalCurrentObjectStackCache();
-	$var($XMenuItemPeerArray, mappedItems, $nc($(getMappingData()))->getItems());
+	$useLocalObjectStack();
+	$var($XMenuItemPeerArray, mappedItems, $$nc(getMappingData())->getItems());
 	int32_t cnt = $nc(mappedItems)->length;
 	for (int32_t i = 0; i < cnt; ++i) {
 		$var($XMenuItemPeer, item, mappedItems->get(i));
@@ -567,7 +418,7 @@ $XMenuItemPeer* XBaseMenuWindow::getFirstSelectableItem() {
 }
 
 XBaseMenuWindow* XBaseMenuWindow::getShowingLeaf() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getMenuTreeLock()) {
 		$var(XBaseMenuWindow, leaf, this);
 		$var($XMenuPeer, leafchild, leaf->getShowingSubmenu());
@@ -580,7 +431,7 @@ XBaseMenuWindow* XBaseMenuWindow::getShowingLeaf() {
 }
 
 XBaseMenuWindow* XBaseMenuWindow::getRootMenuWindow() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getMenuTreeLock()) {
 		$var(XBaseMenuWindow, t, this);
 		$var(XBaseMenuWindow, tparent, t->getParentMenuWindow());
@@ -593,7 +444,7 @@ XBaseMenuWindow* XBaseMenuWindow::getRootMenuWindow() {
 }
 
 XBaseMenuWindow* XBaseMenuWindow::getMenuWindowFromPoint($Point* pt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getMenuTreeLock()) {
 		$var(XBaseMenuWindow, t, getShowingLeaf());
 		while (t != nullptr) {
@@ -609,9 +460,9 @@ XBaseMenuWindow* XBaseMenuWindow::getMenuWindowFromPoint($Point* pt) {
 }
 
 $GraphicsConfiguration* XBaseMenuWindow::getCurrentGraphicsConfiguration() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, hw, $SunToolkit::getHeavyweightComponent(this->target));
-	$var($XWindow, peer, $cast($XWindow, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(hw)));
+	$var($XWindow, peer, $cast($XWindow, $$nc($AWTAccessor::getComponentAccessor())->getPeer(hw)));
 	if (peer != nullptr && peer->graphicsConfig != nullptr) {
 		return peer->graphicsConfig;
 	}
@@ -621,7 +472,7 @@ $GraphicsConfiguration* XBaseMenuWindow::getCurrentGraphicsConfiguration() {
 $Rectangle* XBaseMenuWindow::fitWindowBelow($Rectangle* itemBounds, $Dimension* windowSize, $Rectangle* screenBounds) {
 	int32_t width = $nc(windowSize)->width;
 	int32_t height = windowSize->height;
-	int32_t x = ($nc(itemBounds)->x > $nc(screenBounds)->x) ? $nc(itemBounds)->x : $nc(screenBounds)->x;
+	int32_t x = ($nc(itemBounds)->x > $nc(screenBounds)->x) ? itemBounds->x : screenBounds->x;
 	int32_t y = (itemBounds->y + itemBounds->height > screenBounds->y) ? itemBounds->y + itemBounds->height : screenBounds->y;
 	if (y + height <= screenBounds->y + screenBounds->height) {
 		if (width > screenBounds->width) {
@@ -639,7 +490,7 @@ $Rectangle* XBaseMenuWindow::fitWindowBelow($Rectangle* itemBounds, $Dimension* 
 $Rectangle* XBaseMenuWindow::fitWindowAbove($Rectangle* itemBounds, $Dimension* windowSize, $Rectangle* screenBounds) {
 	int32_t width = $nc(windowSize)->width;
 	int32_t height = windowSize->height;
-	int32_t x = ($nc(itemBounds)->x > $nc(screenBounds)->x) ? $nc(itemBounds)->x : $nc(screenBounds)->x;
+	int32_t x = ($nc(itemBounds)->x > $nc(screenBounds)->x) ? itemBounds->x : screenBounds->x;
 	int32_t y = (itemBounds->y > screenBounds->y + screenBounds->height) ? screenBounds->y + screenBounds->height - height : itemBounds->y - height;
 	if (y >= screenBounds->y) {
 		if (width > screenBounds->width) {
@@ -657,7 +508,7 @@ $Rectangle* XBaseMenuWindow::fitWindowAbove($Rectangle* itemBounds, $Dimension* 
 $Rectangle* XBaseMenuWindow::fitWindowRight($Rectangle* itemBounds, $Dimension* windowSize, $Rectangle* screenBounds) {
 	int32_t width = $nc(windowSize)->width;
 	int32_t height = windowSize->height;
-	int32_t x = ($nc(itemBounds)->x + itemBounds->width > $nc(screenBounds)->x) ? $nc(itemBounds)->x + itemBounds->width : $nc(screenBounds)->x;
+	int32_t x = ($nc(itemBounds)->x + $nc(itemBounds)->width > $nc(screenBounds)->x) ? itemBounds->x + itemBounds->width : screenBounds->x;
 	int32_t y = (itemBounds->y > screenBounds->y) ? itemBounds->y : screenBounds->y;
 	if (x + width <= screenBounds->x + screenBounds->width) {
 		if (height > screenBounds->height) {
@@ -675,7 +526,7 @@ $Rectangle* XBaseMenuWindow::fitWindowRight($Rectangle* itemBounds, $Dimension* 
 $Rectangle* XBaseMenuWindow::fitWindowLeft($Rectangle* itemBounds, $Dimension* windowSize, $Rectangle* screenBounds) {
 	int32_t width = $nc(windowSize)->width;
 	int32_t height = windowSize->height;
-	int32_t x = ($nc(itemBounds)->x < $nc(screenBounds)->x + screenBounds->width) ? $nc(itemBounds)->x - width : $nc(screenBounds)->x + screenBounds->width - width;
+	int32_t x = ($nc(itemBounds)->x < $nc(screenBounds)->x + $nc(screenBounds)->width) ? itemBounds->x - width : screenBounds->x + screenBounds->width - width;
 	int32_t y = (itemBounds->y > screenBounds->y) ? itemBounds->y : screenBounds->y;
 	if (x >= screenBounds->x) {
 		if (height > screenBounds->height) {
@@ -691,14 +542,14 @@ $Rectangle* XBaseMenuWindow::fitWindowLeft($Rectangle* itemBounds, $Dimension* w
 }
 
 $Rectangle* XBaseMenuWindow::fitWindowToScreen($Dimension* windowSize, $Rectangle* screenBounds) {
-	int32_t width = ($nc(windowSize)->width < $nc(screenBounds)->width) ? $nc(windowSize)->width : $nc(screenBounds)->width;
+	int32_t width = ($nc(windowSize)->width < $nc(screenBounds)->width) ? windowSize->width : screenBounds->width;
 	int32_t height = (windowSize->height < screenBounds->height) ? windowSize->height : screenBounds->height;
 	return $new($Rectangle, screenBounds->x, screenBounds->y, width, height);
 }
 
 void XBaseMenuWindow::resetColors() {
 	$init($SystemColor);
-	replaceColors((this->target == nullptr) ? static_cast<$Color*>($SystemColor::window) : $($nc(this->target)->getBackground()));
+	replaceColors((this->target == nullptr) ? $cast($Color, $SystemColor::window) : $(this->target->getBackground()));
 }
 
 void XBaseMenuWindow::replaceColors($Color* backgroundColor) {
@@ -740,7 +591,7 @@ $Color* XBaseMenuWindow::getDisabledColor() {
 }
 
 void XBaseMenuWindow::draw3DRect($Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height, bool raised) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((width <= 0) || (height <= 0)) {
 		return;
 	}
@@ -757,27 +608,16 @@ void XBaseMenuWindow::draw3DRect($Graphics* g, int32_t x, int32_t y, int32_t wid
 bool XBaseMenuWindow::isEventDisabled($XEvent* e) {
 	switch ($nc(e)->get_type()) {
 	case $XConstants::Expose:
-		{}
 	case $XConstants::GraphicsExpose:
-		{}
 	case $XConstants::ButtonPress:
-		{}
 	case $XConstants::ButtonRelease:
-		{}
 	case $XConstants::MotionNotify:
-		{}
 	case $XConstants::KeyPress:
-		{}
 	case $XConstants::KeyRelease:
-		{}
 	case $XConstants::DestroyNotify:
-		{
-			return $XWindow::isEventDisabled(e);
-		}
+		return $XWindow::isEventDisabled(e);
 	default:
-		{
-			return true;
-		}
+		return true;
 	}
 }
 
@@ -797,7 +637,7 @@ void XBaseMenuWindow::doDispose() {
 }
 
 void XBaseMenuWindow::postEvent($AWTEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, var$0, $nc(event)->getSource());
 	$var($InvocationEvent, ev, $new($InvocationEvent, var$0, $$new($XBaseMenuWindow$3, this, event)));
 	$XWindow::postEvent(ev);
@@ -806,10 +646,8 @@ void XBaseMenuWindow::postEvent($AWTEvent* event) {
 void XBaseMenuWindow::handleEvent($AWTEvent* event) {
 	switch ($nc(event)->getID()) {
 	case $PaintEvent::PAINT:
-		{
-			doHandleJavaPaintEvent($cast($PaintEvent, event));
-			break;
-		}
+		doHandleJavaPaintEvent($cast($PaintEvent, event));
+		break;
 	}
 }
 
@@ -818,23 +656,21 @@ bool XBaseMenuWindow::grabInput() {
 	int32_t rootY = 0;
 	bool res = false;
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			int64_t var$1 = $XToolkit::getDisplay();
-			int64_t root = $XlibWrapper::RootWindow(var$1, getScreenNumber());
-			res = $XlibWrapper::XQueryPointer($XToolkit::getDisplay(), root, $XlibWrapper::larg1, $XlibWrapper::larg2, $XlibWrapper::larg3, $XlibWrapper::larg4, $XlibWrapper::larg5, $XlibWrapper::larg6, $XlibWrapper::larg7);
-			rootX = $Native::getInt($XlibWrapper::larg3);
-			rootY = $Native::getInt($XlibWrapper::larg4);
-			res &= $XWindow::grabInput();
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		int64_t var$1 = $XToolkit::getDisplay();
+		int64_t root = $XlibWrapper::RootWindow(var$1, getScreenNumber());
+		res = $XlibWrapper::XQueryPointer($XToolkit::getDisplay(), root, $XlibWrapper::larg1, $XlibWrapper::larg2, $XlibWrapper::larg3, $XlibWrapper::larg4, $XlibWrapper::larg5, $XlibWrapper::larg6, $XlibWrapper::larg7);
+		rootX = $Native::getInt($XlibWrapper::larg3);
+		rootY = $Native::getInt($XlibWrapper::larg4);
+		res &= $XWindow::grabInput();
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	if (res) {
 		$set(this, grabInputPoint, $new($Point, rootX, rootY));
@@ -848,11 +684,11 @@ bool XBaseMenuWindow::grabInput() {
 
 void XBaseMenuWindow::doHandleJavaPaintEvent($PaintEvent* event) {
 	$var($Rectangle, rect, $nc(event)->getUpdateRect());
-	repaint($nc(rect)->x, rect->y, rect->width, rect->height);
+	repaint($nc(rect)->x, $nc(rect)->y, $nc(rect)->width, $nc(rect)->height);
 }
 
 void XBaseMenuWindow::doHandleJavaMouseEvent($MouseEvent* mouseEvent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !$XToolkit::isLeftMouseButton(mouseEvent);
 	if (var$0 && !$XToolkit::isRightMouseButton(mouseEvent)) {
 		return;
@@ -862,41 +698,39 @@ void XBaseMenuWindow::doHandleJavaMouseEvent($MouseEvent* mouseEvent) {
 	if (!this->hasPointerMoved) {
 		bool var$2 = this->grabInputPoint == nullptr;
 		if (!var$2) {
-			int32_t var$3 = $Math::abs($nc(ptGlobal)->x - $nc(this->grabInputPoint)->x);
-			var$2 = (var$3 > getMouseMovementSmudge());
+			int32_t var$3 = $Math::abs($nc(ptGlobal)->x - this->grabInputPoint->x);
+			var$2 = var$3 > getMouseMovementSmudge();
 		}
 		bool var$1 = var$2;
 		if (!var$1) {
 			int32_t var$4 = $Math::abs($nc(ptGlobal)->y - $nc(this->grabInputPoint)->y);
-			var$1 = (var$4 > getMouseMovementSmudge());
+			var$1 = var$4 > getMouseMovementSmudge();
 		}
 		if (var$1) {
 			this->hasPointerMoved = true;
 		}
 	}
 	$var(XBaseMenuWindow, wnd, getMenuWindowFromPoint(ptGlobal));
-	$var($XMenuItemPeer, item, (wnd != nullptr) ? $nc(wnd)->getItemFromPoint($(wnd->toLocal(ptGlobal))) : ($XMenuItemPeer*)nullptr);
+	$var($XMenuItemPeer, item, (wnd != nullptr) ? wnd->getItemFromPoint($(wnd->toLocal(ptGlobal))) : ($XMenuItemPeer*)nullptr);
 	$var(XBaseMenuWindow, cwnd, getShowingLeaf());
 	switch (mouseEvent->getID()) {
 	case $MouseEvent::MOUSE_PRESSED:
-		{
-			$set(this, showingMousePressedSubmenu, nullptr);
-			if (($equals(grabWindow, this)) && (wnd == nullptr)) {
-				ungrabInput();
-			} else {
-				grabInput();
-				bool var$5 = item != nullptr && !item->isSeparator();
-				if (var$5 && item->isTargetItemEnabled()) {
-					if ($equals(wnd->getShowingSubmenu(), item)) {
-						$set(this, showingMousePressedSubmenu, $cast($XMenuPeer, item));
-					}
-					wnd->selectItem(item, true);
-				} else if (wnd != nullptr) {
-					wnd->selectItem(nullptr, false);
+		$set(this, showingMousePressedSubmenu, nullptr);
+		if (($equals(grabWindow, this)) && (wnd == nullptr)) {
+			ungrabInput();
+		} else {
+			grabInput();
+			bool var$5 = item != nullptr && !item->isSeparator();
+			if (var$5 && item->isTargetItemEnabled()) {
+				if ($equals($nc(wnd)->getShowingSubmenu(), item)) {
+					$set(this, showingMousePressedSubmenu, $cast($XMenuPeer, item));
 				}
+				wnd->selectItem(item, true);
+			} else if (wnd != nullptr) {
+				wnd->selectItem(nullptr, false);
 			}
-			break;
 		}
+		break;
 	case $MouseEvent::MOUSE_RELEASED:
 		{
 			bool var$6 = item != nullptr && !item->isSeparator();
@@ -906,7 +740,7 @@ void XBaseMenuWindow::doHandleJavaMouseEvent($MouseEvent* mouseEvent) {
 						if ($instanceOf($XMenuBarPeer, wnd)) {
 							ungrabInput();
 						} else {
-							wnd->selectItem(item, false);
+							$nc(wnd)->selectItem(item, false);
 						}
 					}
 				} else {
@@ -921,26 +755,24 @@ void XBaseMenuWindow::doHandleJavaMouseEvent($MouseEvent* mouseEvent) {
 			break;
 		}
 	case $MouseEvent::MOUSE_DRAGGED:
-		{
-			if (wnd != nullptr) {
-				bool var$7 = item != nullptr && !item->isSeparator();
-				if (var$7 && item->isTargetItemEnabled()) {
-					if ($equals(grabWindow, this)) {
-						wnd->selectItem(item, true);
-					}
-				} else {
-					wnd->selectItem(nullptr, false);
+		if (wnd != nullptr) {
+			bool var$7 = item != nullptr && !item->isSeparator();
+			if (var$7 && item->isTargetItemEnabled()) {
+				if ($equals(grabWindow, this)) {
+					wnd->selectItem(item, true);
 				}
-			} else if (cwnd != nullptr) {
-				cwnd->selectItem(nullptr, false);
+			} else {
+				wnd->selectItem(nullptr, false);
 			}
-			break;
+		} else if (cwnd != nullptr) {
+			cwnd->selectItem(nullptr, false);
 		}
+		break;
 	}
 }
 
 void XBaseMenuWindow::doHandleJavaKeyEvent($KeyEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XBaseMenuWindow::log)->isLoggable($PlatformLogger$Level::FINER)) {
 		$nc(XBaseMenuWindow::log)->finer($($nc(event)->toString()));
@@ -948,93 +780,72 @@ void XBaseMenuWindow::doHandleJavaKeyEvent($KeyEvent* event) {
 	if ($nc(event)->getID() != $KeyEvent::KEY_PRESSED) {
 		return;
 	}
-	int32_t keyCode = $nc(event)->getKeyCode();
+	int32_t keyCode = event->getKeyCode();
 	$var(XBaseMenuWindow, cwnd, getShowingLeaf());
 	$var($XMenuItemPeer, citem, $nc(cwnd)->getSelectedItem());
 	switch (keyCode) {
 	case $KeyEvent::VK_UP:
-		{}
 	case $KeyEvent::VK_KP_UP:
-		{
-			if (!($instanceOf($XMenuBarPeer, cwnd))) {
-				cwnd->selectItem($(cwnd->getPrevSelectableItem()), false);
-			}
-			break;
+		if (!($instanceOf($XMenuBarPeer, cwnd))) {
+			cwnd->selectItem($(cwnd->getPrevSelectableItem()), false);
 		}
+		break;
 	case $KeyEvent::VK_DOWN:
-		{}
 	case $KeyEvent::VK_KP_DOWN:
-		{
-			if ($instanceOf($XMenuBarPeer, cwnd)) {
-				selectItem($(getSelectedItem()), true);
-			} else {
-				cwnd->selectItem($(cwnd->getNextSelectableItem()), false);
-			}
-			break;
+		if ($instanceOf($XMenuBarPeer, cwnd)) {
+			selectItem($(getSelectedItem()), true);
+		} else {
+			cwnd->selectItem($(cwnd->getNextSelectableItem()), false);
 		}
+		break;
 	case $KeyEvent::VK_LEFT:
-		{}
 	case $KeyEvent::VK_KP_LEFT:
-		{
-			if ($instanceOf($XMenuBarPeer, cwnd)) {
-				selectItem($(getPrevSelectableItem()), false);
-			} else if ($instanceOf($XMenuBarPeer, $(cwnd->getParentMenuWindow()))) {
-				selectItem($(getPrevSelectableItem()), true);
-			} else {
-				$var(XBaseMenuWindow, pwnd, cwnd->getParentMenuWindow());
-				if (pwnd != nullptr) {
-					pwnd->selectItem($(pwnd->getSelectedItem()), false);
-				}
+		if ($instanceOf($XMenuBarPeer, cwnd)) {
+			selectItem($(getPrevSelectableItem()), false);
+		} else if ($instanceOf($XMenuBarPeer, $(cwnd->getParentMenuWindow()))) {
+			selectItem($(getPrevSelectableItem()), true);
+		} else {
+			$var(XBaseMenuWindow, pwnd, cwnd->getParentMenuWindow());
+			if (pwnd != nullptr) {
+				pwnd->selectItem($(pwnd->getSelectedItem()), false);
 			}
-			break;
 		}
+		break;
 	case $KeyEvent::VK_RIGHT:
-		{}
 	case $KeyEvent::VK_KP_RIGHT:
-		{
-			if ($instanceOf($XMenuBarPeer, cwnd)) {
-				selectItem($(getNextSelectableItem()), false);
-			} else if ($instanceOf($XMenuPeer, citem)) {
-				cwnd->selectItem(citem, true);
-			} else if ($instanceOf($XMenuBarPeer, this)) {
-				selectItem($(getNextSelectableItem()), true);
-			}
-			break;
+		if ($instanceOf($XMenuBarPeer, cwnd)) {
+			selectItem($(getNextSelectableItem()), false);
+		} else if ($instanceOf($XMenuPeer, citem)) {
+			cwnd->selectItem(citem, true);
+		} else if ($instanceOf($XMenuBarPeer, this)) {
+			selectItem($(getNextSelectableItem()), true);
 		}
+		break;
 	case $KeyEvent::VK_SPACE:
-		{}
 	case $KeyEvent::VK_ENTER:
-		{
-			if ($instanceOf($XMenuPeer, citem)) {
-				cwnd->selectItem(citem, true);
-			} else if (citem != nullptr) {
-				int32_t modifiers = event->getModifiers();
-				citem->action(event->getWhen(), modifiers);
-				ungrabInput();
-			}
-			break;
-		}
-	case $KeyEvent::VK_ESCAPE:
-		{
-			if (($instanceOf($XMenuBarPeer, cwnd)) || ($instanceOf($XMenuBarPeer, $(cwnd->getParentMenuWindow())))) {
-				ungrabInput();
-			} else if ($instanceOf($XPopupMenuPeer, cwnd)) {
-				ungrabInput();
-			} else {
-				$var(XBaseMenuWindow, pwnd, cwnd->getParentMenuWindow());
-				$nc(pwnd)->selectItem($(pwnd->getSelectedItem()), false);
-			}
-			break;
-		}
-	case $KeyEvent::VK_F10:
-		{
+		if ($instanceOf($XMenuPeer, citem)) {
+			cwnd->selectItem(citem, true);
+		} else if (citem != nullptr) {
+			int32_t modifiers = event->getModifiers();
+			citem->action(event->getWhen(), modifiers);
 			ungrabInput();
-			break;
 		}
+		break;
+	case $KeyEvent::VK_ESCAPE:
+		if (($instanceOf($XMenuBarPeer, cwnd)) || ($instanceOf($XMenuBarPeer, $(cwnd->getParentMenuWindow())))) {
+			ungrabInput();
+		} else if ($instanceOf($XPopupMenuPeer, cwnd)) {
+			ungrabInput();
+		} else {
+			$var(XBaseMenuWindow, pwnd, cwnd->getParentMenuWindow());
+			$nc(pwnd)->selectItem($($nc(pwnd)->getSelectedItem()), false);
+		}
+		break;
+	case $KeyEvent::VK_F10:
+		ungrabInput();
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 }
 
@@ -1175,7 +986,7 @@ $Component* XBaseMenuWindow::getEventSource() {
 }
 
 $Object* XBaseMenuWindow::getTarget() {
-	return $of($XWindow::getTarget());
+	return $XWindow::getTarget();
 }
 
 $AwtGraphicsConfigData* XBaseMenuWindow::getGraphicsConfigurationData() {
@@ -1186,7 +997,7 @@ $GraphicsConfiguration* XBaseMenuWindow::getGraphicsConfiguration() {
 	return $XWindow::getGraphicsConfiguration();
 }
 
-void clinit$XBaseMenuWindow($Class* class$) {
+void XBaseMenuWindow::clinit$($Class* clazz) {
 	$assignStatic(XBaseMenuWindow::log, $PlatformLogger::getLogger("sun.awt.X11.XBaseMenuWindow"_s));
 	$assignStatic(XBaseMenuWindow::menuTreeLock, $new($Object));
 }
@@ -1195,7 +1006,140 @@ XBaseMenuWindow::XBaseMenuWindow() {
 }
 
 $Class* XBaseMenuWindow::load$($String* name, bool initialize) {
-	$loadClass(XBaseMenuWindow, name, initialize, &_XBaseMenuWindow_ClassInfo_, clinit$XBaseMenuWindow, allocate$XBaseMenuWindow);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(XBaseMenuWindow, log)},
+		{"backgroundColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(XBaseMenuWindow, backgroundColor)},
+		{"foregroundColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(XBaseMenuWindow, foregroundColor)},
+		{"lightShadowColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(XBaseMenuWindow, lightShadowColor)},
+		{"darkShadowColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(XBaseMenuWindow, darkShadowColor)},
+		{"selectedColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(XBaseMenuWindow, selectedColor)},
+		{"disabledColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(XBaseMenuWindow, disabledColor)},
+		{"items", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lsun/awt/X11/XMenuItemPeer;>;", $PRIVATE, $field(XBaseMenuWindow, items)},
+		{"selectedIndex", "I", nullptr, $PRIVATE, $field(XBaseMenuWindow, selectedIndex)},
+		{"showingSubmenu", "Lsun/awt/X11/XMenuPeer;", nullptr, $PRIVATE, $field(XBaseMenuWindow, showingSubmenu)},
+		{"menuTreeLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(XBaseMenuWindow, menuTreeLock)},
+		{"showingMousePressedSubmenu", "Lsun/awt/X11/XMenuPeer;", nullptr, $PRIVATE, $field(XBaseMenuWindow, showingMousePressedSubmenu)},
+		{"grabInputPoint", "Ljava/awt/Point;", nullptr, $PROTECTED, $field(XBaseMenuWindow, grabInputPoint)},
+		{"hasPointerMoved", "Z", nullptr, $PROTECTED, $field(XBaseMenuWindow, hasPointerMoved)},
+		{"disposeAppContext", "Lsun/awt/AppContext;", nullptr, $PRIVATE, $field(XBaseMenuWindow, disposeAppContext)},
+		{"mappingData", "Lsun/awt/X11/XBaseMenuWindow$MappingData;", nullptr, $PRIVATE, $field(XBaseMenuWindow, mappingData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(XBaseMenuWindow, init$, void)},
+		{"addItem", "(Ljava/awt/MenuItem;)V", nullptr, $PUBLIC, $virtualMethod(XBaseMenuWindow, addItem, void, $MenuItem*)},
+		{"copyItems", "()[Lsun/awt/X11/XMenuItemPeer;", nullptr, 0, $virtualMethod(XBaseMenuWindow, copyItems, $XMenuItemPeerArray*)},
+		{"delItem", "(I)V", nullptr, $PUBLIC, $virtualMethod(XBaseMenuWindow, delItem, void, int32_t)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XBaseMenuWindow, dispose, void)},
+		{"doDispose", "()V", nullptr, $PROTECTED, $virtualMethod(XBaseMenuWindow, doDispose, void)},
+		{"doHandleJavaKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(XBaseMenuWindow, doHandleJavaKeyEvent, void, $KeyEvent*)},
+		{"doHandleJavaMouseEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(XBaseMenuWindow, doHandleJavaMouseEvent, void, $MouseEvent*)},
+		{"doHandleJavaPaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, 0, $virtualMethod(XBaseMenuWindow, doHandleJavaPaintEvent, void, $PaintEvent*)},
+		{"doLayout", "(IIII)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, doLayout, void, int32_t, int32_t, int32_t, int32_t)},
+		{"doShowSubmenu", "(Lsun/awt/X11/XMenuPeer;)V", nullptr, $PRIVATE, $method(XBaseMenuWindow, doShowSubmenu, void, $XMenuPeer*)},
+		{"draw3DRect", "(Ljava/awt/Graphics;IIIIZ)V", nullptr, 0, $virtualMethod(XBaseMenuWindow, draw3DRect, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"fitWindowAbove", "(Ljava/awt/Rectangle;Ljava/awt/Dimension;Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(XBaseMenuWindow, fitWindowAbove, $Rectangle*, $Rectangle*, $Dimension*, $Rectangle*)},
+		{"fitWindowBelow", "(Ljava/awt/Rectangle;Ljava/awt/Dimension;Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(XBaseMenuWindow, fitWindowBelow, $Rectangle*, $Rectangle*, $Dimension*, $Rectangle*)},
+		{"fitWindowLeft", "(Ljava/awt/Rectangle;Ljava/awt/Dimension;Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(XBaseMenuWindow, fitWindowLeft, $Rectangle*, $Rectangle*, $Dimension*, $Rectangle*)},
+		{"fitWindowRight", "(Ljava/awt/Rectangle;Ljava/awt/Dimension;Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(XBaseMenuWindow, fitWindowRight, $Rectangle*, $Rectangle*, $Dimension*, $Rectangle*)},
+		{"fitWindowToScreen", "(Ljava/awt/Dimension;Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(XBaseMenuWindow, fitWindowToScreen, $Rectangle*, $Dimension*, $Rectangle*)},
+		{"getBackgroundColor", "()Ljava/awt/Color;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getBackgroundColor, $Color*)},
+		{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, getColorModel, $ColorModel*)},
+		{"getColorModel", "(I)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, getColorModel, $ColorModel*, int32_t)},
+		{"getCurrentGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getCurrentGraphicsConfiguration, $GraphicsConfiguration*)},
+		{"getDarkShadowColor", "()Ljava/awt/Color;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getDarkShadowColor, $Color*)},
+		{"getDisabledColor", "()Ljava/awt/Color;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getDisabledColor, $Color*)},
+		{"getEventSource", "()Ljava/awt/Component;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, getEventSource, $Component*)},
+		{"getFirstSelectableItem", "()Lsun/awt/X11/XMenuItemPeer;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getFirstSelectableItem, $XMenuItemPeer*)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, getFontMetrics, $FontMetrics*, $Font*)},
+		{"getForegroundColor", "()Ljava/awt/Color;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getForegroundColor, $Color*)},
+		{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, getGraphics, $Graphics*)},
+		{"getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, getGraphicsConfiguration, $GraphicsConfiguration*)},
+		{"getGraphicsConfigurationData", "()Lsun/awt/X11/AwtGraphicsConfigData;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, getGraphicsConfigurationData, $AwtGraphicsConfigData*)},
+		{"getItem", "(I)Lsun/awt/X11/XMenuItemPeer;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getItem, $XMenuItemPeer*, int32_t)},
+		{"getItemFromPoint", "(Ljava/awt/Point;)Lsun/awt/X11/XMenuItemPeer;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getItemFromPoint, $XMenuItemPeer*, $Point*)},
+		{"getLightShadowColor", "()Ljava/awt/Color;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getLightShadowColor, $Color*)},
+		{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, getLocationOnScreen, $Point*)},
+		{"getMWMHints", "()Lsun/awt/X11/PropMwmHints;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, getMWMHints, $PropMwmHints*)},
+		{"getMappingData", "()Lsun/awt/X11/XBaseMenuWindow$MappingData;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getMappingData, $XBaseMenuWindow$MappingData*)},
+		{"getMenuTreeLock", "()Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(XBaseMenuWindow, getMenuTreeLock, $Object*)},
+		{"getMenuWindowFromPoint", "(Ljava/awt/Point;)Lsun/awt/X11/XBaseMenuWindow;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getMenuWindowFromPoint, XBaseMenuWindow*, $Point*)},
+		{"getNextSelectableItem", "()Lsun/awt/X11/XMenuItemPeer;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getNextSelectableItem, $XMenuItemPeer*)},
+		{"getParentMenuWindow", "()Lsun/awt/X11/XBaseMenuWindow;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(XBaseMenuWindow, getParentMenuWindow, XBaseMenuWindow*)},
+		{"getPrevSelectableItem", "()Lsun/awt/X11/XMenuItemPeer;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getPrevSelectableItem, $XMenuItemPeer*)},
+		{"getRootMenuWindow", "()Lsun/awt/X11/XBaseMenuWindow;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getRootMenuWindow, XBaseMenuWindow*)},
+		{"getSelectedColor", "()Ljava/awt/Color;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getSelectedColor, $Color*)},
+		{"getSelectedItem", "()Lsun/awt/X11/XMenuItemPeer;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getSelectedItem, $XMenuItemPeer*)},
+		{"getShowingLeaf", "()Lsun/awt/X11/XBaseMenuWindow;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getShowingLeaf, XBaseMenuWindow*)},
+		{"getShowingSubmenu", "()Lsun/awt/X11/XMenuPeer;", nullptr, 0, $virtualMethod(XBaseMenuWindow, getShowingSubmenu, $XMenuPeer*)},
+		{"getSubmenuBounds", "(Ljava/awt/Rectangle;Ljava/awt/Dimension;)Ljava/awt/Rectangle;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(XBaseMenuWindow, getSubmenuBounds, $Rectangle*, $Rectangle*, $Dimension*)},
+		{"getSurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, getSurfaceData, $SurfaceData*)},
+		{"getTarget", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, getTarget, $Object*)},
+		{"getTargetBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, getTargetBounds, $Rectangle*)},
+		{"getWinBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, getWinBackground, $Color*)},
+		{"grabInput", "()Z", nullptr, $PUBLIC, $virtualMethod(XBaseMenuWindow, grabInput, bool)},
+		{"handleButtonPressRelease", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, handleButtonPressRelease, void, $XEvent*)},
+		{"handleConfigureNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, handleConfigureNotifyEvent, void, $XEvent*)},
+		{"handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PROTECTED, $virtualMethod(XBaseMenuWindow, handleEvent, void, $AWTEvent*)},
+		{"handleExposeEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, handleExposeEvent, void, $XEvent*)},
+		{"handleKeyPress", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, handleKeyPress, void, $XEvent*)},
+		{"handleKeyRelease", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, handleKeyRelease, void, $XEvent*)},
+		{"handleMapNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, handleMapNotifyEvent, void, $XEvent*)},
+		{"handleMotionNotify", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, handleMotionNotify, void, $XEvent*)},
+		{"handlePropertyNotify", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, handlePropertyNotify, void, $XEvent*)},
+		{"handleUnmapNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, handleUnmapNotifyEvent, void, $XEvent*)},
+		{"handleXCrossingEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, handleXCrossingEvent, void, $XEvent*)},
+		{"instantPreInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XBaseMenuWindow, instantPreInit, void, $XCreateWindowParams*)},
+		{"isEmbedded", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, isEmbedded, bool)},
+		{"isEventDisabled", "(Lsun/awt/X11/XEvent;)Z", nullptr, $PROTECTED, $virtualMethod(XBaseMenuWindow, isEventDisabled, bool, $XEvent*)},
+		{"isMouseAbove", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, isMouseAbove, bool)},
+		{"layout", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, layout, void)},
+		{"map", "()Lsun/awt/X11/XBaseMenuWindow$MappingData;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(XBaseMenuWindow, map, $XBaseMenuWindow$MappingData*)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, paint, void, $Graphics*)},
+		{"popup", "(IIII)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, popup, void, int32_t, int32_t, int32_t, int32_t)},
+		{"postEvent", "(Ljava/awt/AWTEvent;)V", nullptr, 0, $virtualMethod(XBaseMenuWindow, postEvent, void, $AWTEvent*)},
+		{"postEventToEventQueue", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, postEventToEventQueue, void, $AWTEvent*)},
+		{"postKeyEvent", "(IIIIIJIJII)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, postKeyEvent, void, int32_t, int32_t, int32_t, int32_t, int32_t, int64_t, int32_t, int64_t, int32_t, int32_t)},
+		{"postPaintEvent", "()V", nullptr, 0, $virtualMethod(XBaseMenuWindow, postPaintEvent, void)},
+		{"postPaintEvent", "(Ljava/awt/Component;IIII)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, postPaintEvent, void, $Component*, int32_t, int32_t, int32_t, int32_t)},
+		{"reloadItems", "(Ljava/util/Vector;)V", "(Ljava/util/Vector<+Ljava/awt/MenuItem;>;)V", $PUBLIC, $virtualMethod(XBaseMenuWindow, reloadItems, void, $Vector*)},
+		{"replaceColors", "(Ljava/awt/Color;)V", nullptr, 0, $virtualMethod(XBaseMenuWindow, replaceColors, void, $Color*)},
+		{"resetColors", "()V", nullptr, 0, $virtualMethod(XBaseMenuWindow, resetColors, void)},
+		{"resetMapping", "()V", nullptr, $PROTECTED, $virtualMethod(XBaseMenuWindow, resetMapping, void)},
+		{"reshape", "(IIII)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, reshape, void, int32_t, int32_t, int32_t, int32_t)},
+		{"reshape", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, reshape, void, $Rectangle*)},
+		{"selectItem", "(Lsun/awt/X11/XMenuItemPeer;Z)V", nullptr, 0, $virtualMethod(XBaseMenuWindow, selectItem, void, $XMenuItemPeer*, bool)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, setBackground, void, $Color*)},
+		{"setFullScreenExclusiveModeState", "(Z)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, setFullScreenExclusiveModeState, void, bool)},
+		{"setItemsFont", "(Ljava/awt/Font;)V", nullptr, $FINAL, $method(XBaseMenuWindow, setItemsFont, void, $Font*)},
+		{"setMWMHints", "(Lsun/awt/X11/PropMwmHints;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XBaseMenuWindow, setMWMHints, void, $PropMwmHints*)},
+		{"updateSize", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(XBaseMenuWindow, updateSize, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XBaseMenuWindow$MappingData", "sun.awt.X11.XBaseMenuWindow", "MappingData", $STATIC},
+		{"sun.awt.X11.XBaseMenuWindow$3", nullptr, nullptr, 0},
+		{"sun.awt.X11.XBaseMenuWindow$2", nullptr, nullptr, 0},
+		{"sun.awt.X11.XBaseMenuWindow$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.awt.X11.XBaseMenuWindow",
+		"sun.awt.X11.XWindow",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XBaseMenuWindow$MappingData,sun.awt.X11.XBaseMenuWindow$3,sun.awt.X11.XBaseMenuWindow$2,sun.awt.X11.XBaseMenuWindow$1"
+	};
+	$loadClass(XBaseMenuWindow, name, initialize, &classInfo$$, XBaseMenuWindow::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XBaseMenuWindow));
+	});
 	return class$;
 }
 

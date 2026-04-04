@@ -1,5 +1,4 @@
 #include <bug6474153.h>
-
 #include <javax/swing/KeyStroke.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/text/DefaultEditorKit.h>
@@ -14,40 +13,20 @@ using $KeyStroke = ::javax::swing::KeyStroke;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
 
-$MethodInfo _bug6474153_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6474153, init$, void)},
-	{"checkArray", "([Ljavax/swing/text/JTextComponent$KeyBinding;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6474153, checkArray, void, $JTextComponent$KeyBindingArray*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(bug6474153, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _bug6474153_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6474153",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_bug6474153_MethodInfo_
-};
-
-$Object* allocate$bug6474153($Class* clazz) {
-	return $of($alloc(bug6474153));
-}
-
 void bug6474153::init$() {
 }
 
 void bug6474153::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($DefaultEditorKit);
 	checkArray($($LookAndFeel::makeKeyBindings($$new($ObjectArray, {
-		$of("UP"_s),
-		$of($DefaultEditorKit::upAction)
+		"UP"_s,
+		$DefaultEditorKit::upAction
 	}))));
 	checkArray($($LookAndFeel::makeKeyBindings($$new($ObjectArray, {
-		$of("UP"_s),
-		$of($DefaultEditorKit::upAction),
-		$of("PAGE_UP"_s)
+		"UP"_s,
+		$DefaultEditorKit::upAction,
+		"PAGE_UP"_s
 	}))));
 }
 
@@ -56,10 +35,10 @@ void bug6474153::checkArray($JTextComponent$KeyBindingArray* keyActionArray) {
 		$throwNew($RuntimeException, "Wrong array lenght!"_s);
 	}
 	$init($DefaultEditorKit);
-	if (!$nc($DefaultEditorKit::upAction)->equals($nc($nc(keyActionArray)->get(0))->actionName)) {
+	if (!$nc($DefaultEditorKit::upAction)->equals($nc(keyActionArray->get(0))->actionName)) {
 		$throwNew($RuntimeException, "Wrong action name!"_s);
 	}
-	if (!$nc($($KeyStroke::getKeyStroke("UP"_s)))->equals($nc($nc(keyActionArray)->get(0))->key)) {
+	if (!$$nc($KeyStroke::getKeyStroke("UP"_s))->equals($nc(keyActionArray->get(0))->key)) {
 		$throwNew($RuntimeException, "Wrong keystroke!"_s);
 	}
 }
@@ -68,7 +47,23 @@ bug6474153::bug6474153() {
 }
 
 $Class* bug6474153::load$($String* name, bool initialize) {
-	$loadClass(bug6474153, name, initialize, &_bug6474153_ClassInfo_, allocate$bug6474153);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6474153, init$, void)},
+		{"checkArray", "([Ljavax/swing/text/JTextComponent$KeyBinding;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6474153, checkArray, void, $JTextComponent$KeyBindingArray*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(bug6474153, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6474153",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug6474153, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6474153);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <HeadlessCellRendererPane.h>
-
 #include <HeadlessCellRendererPane$1.h>
 #include <HeadlessCellRendererPane$2.h>
 #include <HeadlessCellRendererPane$3.h>
@@ -49,7 +48,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -60,47 +58,15 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 using $CellRendererPane = ::javax::swing::CellRendererPane;
 
-$MethodInfo _HeadlessCellRendererPane_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessCellRendererPane, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessCellRendererPane, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _HeadlessCellRendererPane_InnerClassesInfo_[] = {
-	{"HeadlessCellRendererPane$3", nullptr, nullptr, 0},
-	{"HeadlessCellRendererPane$2", nullptr, nullptr, 0},
-	{"HeadlessCellRendererPane$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessCellRendererPane_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessCellRendererPane",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessCellRendererPane_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessCellRendererPane_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadlessCellRendererPane$3,HeadlessCellRendererPane$2,HeadlessCellRendererPane$1"
-};
-
-$Object* allocate$HeadlessCellRendererPane($Class* clazz) {
-	return $of($alloc(HeadlessCellRendererPane));
-}
-
 void HeadlessCellRendererPane::init$() {
 }
 
 void HeadlessCellRendererPane::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CellRendererPane, crp, $new($CellRendererPane));
-	$var($Component, c1, crp->add(static_cast<$Component*>($$new($HeadlessCellRendererPane$1))));
-	$var($Component, c2, crp->add(static_cast<$Component*>($$new($HeadlessCellRendererPane$2))));
-	$var($Component, c3, crp->add(static_cast<$Component*>($$new($HeadlessCellRendererPane$3))));
+	$var($Component, c1, crp->add($$new($HeadlessCellRendererPane$1)));
+	$var($Component, c2, crp->add($$new($HeadlessCellRendererPane$2)));
+	$var($Component, c3, crp->add($$new($HeadlessCellRendererPane$3)));
 	crp->setLayout($$new($FlowLayout));
 	crp->invalidate();
 	crp->getAccessibleContext();
@@ -122,26 +88,22 @@ void HeadlessCellRendererPane::main($StringArray* args) {
 	crp->remove(c2);
 	crp->removeAll();
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					crp->setFont(f1);
-					crp->setFont(f2);
-					crp->setFont(f3);
-					crp->setFont(f4);
-					crp->getFontMetrics(f1);
-					crp->getFontMetrics(f2);
-					crp->getFontMetrics(f3);
-					crp->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				crp->setFont(f1);
+				crp->setFont(f2);
+				crp->setFont(f3);
+				crp->setFont(f4);
+				crp->getFontMetrics(f1);
+				crp->getFontMetrics(f2);
+				crp->getFontMetrics(f3);
+				crp->getFontMetrics(f4);
 			}
 		}
 	}
@@ -195,7 +157,7 @@ void HeadlessCellRendererPane::main($StringArray* args) {
 	bool exceptions = false;
 	try {
 		$var($Container, c, $new($Container));
-		c->add(static_cast<$Component*>(crp));
+		c->add(crp);
 		crp->getLocale();
 	} catch ($IllegalComponentStateException& e) {
 		exceptions = true;
@@ -205,9 +167,7 @@ void HeadlessCellRendererPane::main($StringArray* args) {
 	}
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			crp->setLocale(locale);
 		}
@@ -278,7 +238,34 @@ HeadlessCellRendererPane::HeadlessCellRendererPane() {
 }
 
 $Class* HeadlessCellRendererPane::load$($String* name, bool initialize) {
-	$loadClass(HeadlessCellRendererPane, name, initialize, &_HeadlessCellRendererPane_ClassInfo_, allocate$HeadlessCellRendererPane);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessCellRendererPane, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessCellRendererPane, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessCellRendererPane$3", nullptr, nullptr, 0},
+		{"HeadlessCellRendererPane$2", nullptr, nullptr, 0},
+		{"HeadlessCellRendererPane$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessCellRendererPane",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadlessCellRendererPane$3,HeadlessCellRendererPane$2,HeadlessCellRendererPane$1"
+	};
+	$loadClass(HeadlessCellRendererPane, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessCellRendererPane);
+	});
 	return class$;
 }
 

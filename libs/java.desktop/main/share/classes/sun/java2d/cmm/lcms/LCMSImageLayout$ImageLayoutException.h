@@ -17,7 +17,10 @@ public:
 	void init$($String* message);
 	LCMSImageLayout$ImageLayoutException(const LCMSImageLayout$ImageLayoutException& e);
 	virtual void throw$() override;
-	inline LCMSImageLayout$ImageLayoutException* operator ->() {
+	inline LCMSImageLayout$ImageLayoutException* operator ->() const {
+		return (LCMSImageLayout$ImageLayoutException*)throwing$;
+	}
+	inline operator LCMSImageLayout$ImageLayoutException*() const {
 		return (LCMSImageLayout$ImageLayoutException*)throwing$;
 	}
 };

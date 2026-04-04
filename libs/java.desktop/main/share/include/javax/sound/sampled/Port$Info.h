@@ -26,6 +26,7 @@ class $import Port$Info : public ::javax::sound::sampled::Line$Info {
 	$class(Port$Info, 0, ::javax::sound::sampled::Line$Info)
 public:
 	Port$Info();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Class* lineClass, $String* name, bool isSource);
 	virtual bool equals(Object$* obj) override;
 	virtual $String* getName();

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/DOMAdapter.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/DOM.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/DOMEnhancedForDTM.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/StripFilter.h>
@@ -34,97 +33,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace dom {
-
-$FieldInfo _DOMAdapter_FieldInfo_[] = {
-	{"_enhancedDOM", "Lcom/sun/org/apache/xalan/internal/xsltc/DOMEnhancedForDTM;", nullptr, $PRIVATE, $field(DOMAdapter, _enhancedDOM)},
-	{"_dom", "Lcom/sun/org/apache/xalan/internal/xsltc/DOM;", nullptr, $PRIVATE, $field(DOMAdapter, _dom)},
-	{"_namesArray", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(DOMAdapter, _namesArray)},
-	{"_urisArray", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(DOMAdapter, _urisArray)},
-	{"_typesArray", "[I", nullptr, $PRIVATE, $field(DOMAdapter, _typesArray)},
-	{"_namespaceArray", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(DOMAdapter, _namespaceArray)},
-	{"_mapping", "[S", nullptr, $PRIVATE, $field(DOMAdapter, _mapping)},
-	{"_reverse", "[I", nullptr, $PRIVATE, $field(DOMAdapter, _reverse)},
-	{"_NSmapping", "[S", nullptr, $PRIVATE, $field(DOMAdapter, _NSmapping)},
-	{"_NSreverse", "[S", nullptr, $PRIVATE, $field(DOMAdapter, _NSreverse)},
-	{"_multiDOMMask", "I", nullptr, $PRIVATE, $field(DOMAdapter, _multiDOMMask)},
-	{}
-};
-
-$MethodInfo _DOMAdapter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/DOM;[Ljava/lang/String;[Ljava/lang/String;[I[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DOMAdapter, init$, void, $DOM*, $StringArray*, $StringArray*, $ints*, $StringArray*)},
-	{"characters", "(ILcom/sun/org/apache/xml/internal/serializer/SerializationHandler;)V", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, characters, void, int32_t, $SerializationHandler*), "com.sun.org.apache.xalan.internal.xsltc.TransletException"},
-	{"copy", "(ILcom/sun/org/apache/xml/internal/serializer/SerializationHandler;)V", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, copy, void, int32_t, $SerializationHandler*), "com.sun.org.apache.xalan.internal.xsltc.TransletException"},
-	{"copy", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;)V", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, copy, void, $DTMAxisIterator*, $SerializationHandler*), "com.sun.org.apache.xalan.internal.xsltc.TransletException"},
-	{"getAttributeNode", "(II)I", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getAttributeNode, int32_t, int32_t, int32_t)},
-	{"getAxisIterator", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getAxisIterator, $DTMAxisIterator*, int32_t)},
-	{"getChildren", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getChildren, $DTMAxisIterator*, int32_t)},
-	{"getDOMImpl", "()Lcom/sun/org/apache/xalan/internal/xsltc/DOM;", nullptr, $PUBLIC, $method(DOMAdapter, getDOMImpl, $DOM*)},
-	{"getDocument", "()I", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getDocument, int32_t)},
-	{"getDocumentURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(DOMAdapter, getDocumentURI, $String*)},
-	{"getDocumentURI", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getDocumentURI, $String*, int32_t)},
-	{"getElementsWithIDs", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(DOMAdapter, getElementsWithIDs, $Map*)},
-	{"getExpandedTypeID", "(I)I", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getExpandedTypeID, int32_t, int32_t)},
-	{"getIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getIterator, $DTMAxisIterator*)},
-	{"getLanguage", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getLanguage, $String*, int32_t)},
-	{"getMapping", "()[S", nullptr, $PRIVATE, $method(DOMAdapter, getMapping, $shorts*)},
-	{"getMultiDOMMask", "()I", nullptr, $PUBLIC, $method(DOMAdapter, getMultiDOMMask, int32_t)},
-	{"getNSMapping", "()[S", nullptr, $PRIVATE, $method(DOMAdapter, getNSMapping, $shorts*)},
-	{"getNSReverse", "()[S", nullptr, $PRIVATE, $method(DOMAdapter, getNSReverse, $shorts*)},
-	{"getNSType", "(I)I", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getNSType, int32_t, int32_t)},
-	{"getNamesArray", "()[Ljava/lang/String;", nullptr, $PUBLIC, $method(DOMAdapter, getNamesArray, $StringArray*)},
-	{"getNamespaceArray", "()[Ljava/lang/String;", nullptr, $PUBLIC, $method(DOMAdapter, getNamespaceArray, $StringArray*)},
-	{"getNamespaceAxisIterator", "(II)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getNamespaceAxisIterator, $DTMAxisIterator*, int32_t, int32_t)},
-	{"getNamespaceName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getNamespaceName, $String*, int32_t)},
-	{"getNamespaceType", "(I)I", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getNamespaceType, int32_t, int32_t)},
-	{"getNodeHandle", "(I)I", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getNodeHandle, int32_t, int32_t)},
-	{"getNodeIdent", "(I)I", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getNodeIdent, int32_t, int32_t)},
-	{"getNodeName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getNodeName, $String*, int32_t)},
-	{"getNodeNameX", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getNodeNameX, $String*, int32_t)},
-	{"getNodeValueIterator", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;ILjava/lang/String;Z)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getNodeValueIterator, $DTMAxisIterator*, $DTMAxisIterator*, int32_t, $String*, bool)},
-	{"getNthDescendant", "(IIZ)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getNthDescendant, $DTMAxisIterator*, int32_t, int32_t, bool)},
-	{"getOutputDomBuilder", "()Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getOutputDomBuilder, $SerializationHandler*)},
-	{"getParent", "(I)I", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getParent, int32_t, int32_t)},
-	{"getResultTreeFrag", "(II)Lcom/sun/org/apache/xalan/internal/xsltc/DOM;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getResultTreeFrag, $DOM*, int32_t, int32_t)},
-	{"getResultTreeFrag", "(IIZ)Lcom/sun/org/apache/xalan/internal/xsltc/DOM;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getResultTreeFrag, $DOM*, int32_t, int32_t, bool)},
-	{"getReverse", "()[I", nullptr, $PRIVATE, $method(DOMAdapter, getReverse, $ints*)},
-	{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getSize, int32_t)},
-	{"getStringValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getStringValue, $String*)},
-	{"getStringValueX", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getStringValueX, $String*, int32_t)},
-	{"getTypedAxisIterator", "(II)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getTypedAxisIterator, $DTMAxisIterator*, int32_t, int32_t)},
-	{"getTypedChildren", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getTypedChildren, $DTMAxisIterator*, int32_t)},
-	{"getTypesArray", "()[I", nullptr, $PUBLIC, $method(DOMAdapter, getTypesArray, $ints*)},
-	{"getUnparsedEntityURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getUnparsedEntityURI, $String*, $String*)},
-	{"getUrisArray", "()[Ljava/lang/String;", nullptr, $PUBLIC, $method(DOMAdapter, getUrisArray, $StringArray*)},
-	{"isAttribute", "(I)Z", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, isAttribute, bool, int32_t)},
-	{"isElement", "(I)Z", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, isElement, bool, int32_t)},
-	{"lessThan", "(II)Z", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, lessThan, bool, int32_t, int32_t)},
-	{"lookupNamespace", "(ILjava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, lookupNamespace, $String*, int32_t, $String*), "com.sun.org.apache.xalan.internal.xsltc.TransletException"},
-	{"makeNode", "(I)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, makeNode, $Node*, int32_t)},
-	{"makeNode", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, makeNode, $Node*, $DTMAxisIterator*)},
-	{"makeNodeList", "(I)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, makeNodeList, $NodeList*, int32_t)},
-	{"makeNodeList", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, makeNodeList, $NodeList*, $DTMAxisIterator*)},
-	{"orderNodes", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, orderNodes, $DTMAxisIterator*, $DTMAxisIterator*, int32_t)},
-	{"release", "()V", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, release, void)},
-	{"setDocumentURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DOMAdapter, setDocumentURI, void, $String*)},
-	{"setFilter", "(Lcom/sun/org/apache/xalan/internal/xsltc/StripFilter;)V", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, setFilter, void, $StripFilter*)},
-	{"setMultiDOMMask", "(I)V", nullptr, $PUBLIC, $method(DOMAdapter, setMultiDOMMask, void, int32_t)},
-	{"setupMapping", "([Ljava/lang/String;[Ljava/lang/String;[I[Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, setupMapping, void, $StringArray*, $StringArray*, $ints*, $StringArray*)},
-	{"shallowCopy", "(ILcom/sun/org/apache/xml/internal/serializer/SerializationHandler;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, shallowCopy, $String*, int32_t, $SerializationHandler*), "com.sun.org.apache.xalan.internal.xsltc.TransletException"},
-	{}
-};
-
-$ClassInfo _DOMAdapter_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.DOMAdapter",
-	"java.lang.Object",
-	"com.sun.org.apache.xalan.internal.xsltc.DOM",
-	_DOMAdapter_FieldInfo_,
-	_DOMAdapter_MethodInfo_
-};
-
-$Object* allocate$DOMAdapter($Class* clazz) {
-	return $of($alloc(DOMAdapter));
-}
 
 void DOMAdapter::init$($DOM* dom, $StringArray* namesArray, $StringArray* urisArray, $ints* typesArray, $StringArray* namespaceArray) {
 	$set(this, _mapping, nullptr);
@@ -171,7 +79,7 @@ $DOM* DOMAdapter::getDOMImpl() {
 $shorts* DOMAdapter::getMapping() {
 	if (this->_mapping == nullptr) {
 		if (this->_enhancedDOM != nullptr) {
-			$set(this, _mapping, $nc(this->_enhancedDOM)->getMapping(this->_namesArray, this->_urisArray, this->_typesArray));
+			$set(this, _mapping, this->_enhancedDOM->getMapping(this->_namesArray, this->_urisArray, this->_typesArray));
 		}
 	}
 	return this->_mapping;
@@ -180,7 +88,7 @@ $shorts* DOMAdapter::getMapping() {
 $ints* DOMAdapter::getReverse() {
 	if (this->_reverse == nullptr) {
 		if (this->_enhancedDOM != nullptr) {
-			$set(this, _reverse, $nc(this->_enhancedDOM)->getReverseMapping(this->_namesArray, this->_urisArray, this->_typesArray));
+			$set(this, _reverse, this->_enhancedDOM->getReverseMapping(this->_namesArray, this->_urisArray, this->_typesArray));
 		}
 	}
 	return this->_reverse;
@@ -189,7 +97,7 @@ $ints* DOMAdapter::getReverse() {
 $shorts* DOMAdapter::getNSMapping() {
 	if (this->_NSmapping == nullptr) {
 		if (this->_enhancedDOM != nullptr) {
-			$set(this, _NSmapping, $nc(this->_enhancedDOM)->getNamespaceMapping(this->_namespaceArray));
+			$set(this, _NSmapping, this->_enhancedDOM->getNamespaceMapping(this->_namespaceArray));
 		}
 	}
 	return this->_NSmapping;
@@ -198,7 +106,7 @@ $shorts* DOMAdapter::getNSMapping() {
 $shorts* DOMAdapter::getNSReverse() {
 	if (this->_NSreverse == nullptr) {
 		if (this->_enhancedDOM != nullptr) {
-			$set(this, _NSreverse, $nc(this->_enhancedDOM)->getReverseNamespaceMapping(this->_namespaceArray));
+			$set(this, _NSreverse, this->_enhancedDOM->getReverseNamespaceMapping(this->_namespaceArray));
 		}
 	}
 	return this->_NSreverse;
@@ -214,7 +122,7 @@ $String* DOMAdapter::getStringValue() {
 
 $DTMAxisIterator* DOMAdapter::getChildren(int32_t node) {
 	if (this->_enhancedDOM != nullptr) {
-		return $nc(this->_enhancedDOM)->getChildren(node);
+		return this->_enhancedDOM->getChildren(node);
 	} else {
 		$var($DTMAxisIterator, iterator, $nc(this->_dom)->getChildren(node));
 		return $nc(iterator)->setStartNode(node);
@@ -227,7 +135,7 @@ void DOMAdapter::setFilter($StripFilter* filter) {
 $DTMAxisIterator* DOMAdapter::getTypedChildren(int32_t type) {
 	$var($ints, reverse, getReverse());
 	if (this->_enhancedDOM != nullptr) {
-		return $nc(this->_enhancedDOM)->getTypedChildren($nc(reverse)->get(type));
+		return this->_enhancedDOM->getTypedChildren($nc(reverse)->get(type));
 	} else {
 		return $nc(this->_dom)->getTypedChildren(type);
 	}
@@ -239,7 +147,7 @@ $DTMAxisIterator* DOMAdapter::getNamespaceAxisIterator(int32_t axis, int32_t ns)
 
 $DTMAxisIterator* DOMAdapter::getAxisIterator(int32_t axis) {
 	if (this->_enhancedDOM != nullptr) {
-		return $nc(this->_enhancedDOM)->getAxisIterator(axis);
+		return this->_enhancedDOM->getAxisIterator(axis);
 	} else {
 		return $nc(this->_dom)->getAxisIterator(axis);
 	}
@@ -248,7 +156,7 @@ $DTMAxisIterator* DOMAdapter::getAxisIterator(int32_t axis) {
 $DTMAxisIterator* DOMAdapter::getTypedAxisIterator(int32_t axis, int32_t type) {
 	$var($ints, reverse, getReverse());
 	if (this->_enhancedDOM != nullptr) {
-		return $nc(this->_enhancedDOM)->getTypedAxisIterator(axis, $nc(reverse)->get(type));
+		return this->_enhancedDOM->getTypedAxisIterator(axis, $nc(reverse)->get(type));
 	} else {
 		return $nc(this->_dom)->getTypedAxisIterator(axis, type);
 	}
@@ -278,7 +186,7 @@ int32_t DOMAdapter::getExpandedTypeID(int32_t node) {
 	$var($shorts, mapping, getMapping());
 	int32_t type = 0;
 	if (this->_enhancedDOM != nullptr) {
-		type = $nc(mapping)->get($nc(this->_enhancedDOM)->getExpandedTypeID2(node));
+		type = $nc(mapping)->get(this->_enhancedDOM->getExpandedTypeID2(node));
 	} else if (nullptr != mapping) {
 		type = mapping->get($nc(this->_dom)->getExpandedTypeID(node));
 	} else {
@@ -326,7 +234,7 @@ $String* DOMAdapter::getNamespaceName(int32_t node) {
 
 $String* DOMAdapter::getStringValueX(int32_t node) {
 	if (this->_enhancedDOM != nullptr) {
-		return $nc(this->_enhancedDOM)->getStringValueX(node);
+		return this->_enhancedDOM->getStringValueX(node);
 	} else {
 		if (node == $DTM::NULL) {
 			return ""_s;
@@ -345,7 +253,7 @@ void DOMAdapter::copy($DTMAxisIterator* nodes, $SerializationHandler* handler) {
 
 $String* DOMAdapter::shallowCopy(int32_t node, $SerializationHandler* handler) {
 	if (this->_enhancedDOM != nullptr) {
-		return $nc(this->_enhancedDOM)->shallowCopy(node, handler);
+		return this->_enhancedDOM->shallowCopy(node, handler);
 	} else {
 		return $nc(this->_dom)->shallowCopy(node, handler);
 	}
@@ -357,7 +265,7 @@ bool DOMAdapter::lessThan(int32_t node1, int32_t node2) {
 
 void DOMAdapter::characters(int32_t textNode, $SerializationHandler* handler) {
 	if (this->_enhancedDOM != nullptr) {
-		$nc(this->_enhancedDOM)->characters(textNode, handler);
+		this->_enhancedDOM->characters(textNode, handler);
 	} else {
 		$nc(this->_dom)->characters(textNode, handler);
 	}
@@ -389,13 +297,13 @@ int32_t DOMAdapter::getSize() {
 
 void DOMAdapter::setDocumentURI($String* uri) {
 	if (this->_enhancedDOM != nullptr) {
-		$nc(this->_enhancedDOM)->setDocumentURI(uri);
+		this->_enhancedDOM->setDocumentURI(uri);
 	}
 }
 
 $String* DOMAdapter::getDocumentURI() {
 	if (this->_enhancedDOM != nullptr) {
-		return $nc(this->_enhancedDOM)->getDocumentURI();
+		return this->_enhancedDOM->getDocumentURI();
 	} else {
 		return ""_s;
 	}
@@ -427,7 +335,7 @@ int32_t DOMAdapter::getNodeHandle(int32_t nodeId) {
 
 $DOM* DOMAdapter::getResultTreeFrag(int32_t initSize, int32_t rtfType) {
 	if (this->_enhancedDOM != nullptr) {
-		return $nc(this->_enhancedDOM)->getResultTreeFrag(initSize, rtfType);
+		return this->_enhancedDOM->getResultTreeFrag(initSize, rtfType);
 	} else {
 		return $nc(this->_dom)->getResultTreeFrag(initSize, rtfType);
 	}
@@ -435,7 +343,7 @@ $DOM* DOMAdapter::getResultTreeFrag(int32_t initSize, int32_t rtfType) {
 
 $DOM* DOMAdapter::getResultTreeFrag(int32_t initSize, int32_t rtfType, bool addToManager) {
 	if (this->_enhancedDOM != nullptr) {
-		return $nc(this->_enhancedDOM)->getResultTreeFrag(initSize, rtfType, addToManager);
+		return this->_enhancedDOM->getResultTreeFrag(initSize, rtfType, addToManager);
 	} else {
 		return $nc(this->_dom)->getResultTreeFrag(initSize, rtfType, addToManager);
 	}
@@ -465,7 +373,93 @@ DOMAdapter::DOMAdapter() {
 }
 
 $Class* DOMAdapter::load$($String* name, bool initialize) {
-	$loadClass(DOMAdapter, name, initialize, &_DOMAdapter_ClassInfo_, allocate$DOMAdapter);
+	$FieldInfo fieldInfos$$[] = {
+		{"_enhancedDOM", "Lcom/sun/org/apache/xalan/internal/xsltc/DOMEnhancedForDTM;", nullptr, $PRIVATE, $field(DOMAdapter, _enhancedDOM)},
+		{"_dom", "Lcom/sun/org/apache/xalan/internal/xsltc/DOM;", nullptr, $PRIVATE, $field(DOMAdapter, _dom)},
+		{"_namesArray", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(DOMAdapter, _namesArray)},
+		{"_urisArray", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(DOMAdapter, _urisArray)},
+		{"_typesArray", "[I", nullptr, $PRIVATE, $field(DOMAdapter, _typesArray)},
+		{"_namespaceArray", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(DOMAdapter, _namespaceArray)},
+		{"_mapping", "[S", nullptr, $PRIVATE, $field(DOMAdapter, _mapping)},
+		{"_reverse", "[I", nullptr, $PRIVATE, $field(DOMAdapter, _reverse)},
+		{"_NSmapping", "[S", nullptr, $PRIVATE, $field(DOMAdapter, _NSmapping)},
+		{"_NSreverse", "[S", nullptr, $PRIVATE, $field(DOMAdapter, _NSreverse)},
+		{"_multiDOMMask", "I", nullptr, $PRIVATE, $field(DOMAdapter, _multiDOMMask)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/DOM;[Ljava/lang/String;[Ljava/lang/String;[I[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DOMAdapter, init$, void, $DOM*, $StringArray*, $StringArray*, $ints*, $StringArray*)},
+		{"characters", "(ILcom/sun/org/apache/xml/internal/serializer/SerializationHandler;)V", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, characters, void, int32_t, $SerializationHandler*), "com.sun.org.apache.xalan.internal.xsltc.TransletException"},
+		{"copy", "(ILcom/sun/org/apache/xml/internal/serializer/SerializationHandler;)V", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, copy, void, int32_t, $SerializationHandler*), "com.sun.org.apache.xalan.internal.xsltc.TransletException"},
+		{"copy", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;)V", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, copy, void, $DTMAxisIterator*, $SerializationHandler*), "com.sun.org.apache.xalan.internal.xsltc.TransletException"},
+		{"getAttributeNode", "(II)I", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getAttributeNode, int32_t, int32_t, int32_t)},
+		{"getAxisIterator", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getAxisIterator, $DTMAxisIterator*, int32_t)},
+		{"getChildren", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getChildren, $DTMAxisIterator*, int32_t)},
+		{"getDOMImpl", "()Lcom/sun/org/apache/xalan/internal/xsltc/DOM;", nullptr, $PUBLIC, $method(DOMAdapter, getDOMImpl, $DOM*)},
+		{"getDocument", "()I", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getDocument, int32_t)},
+		{"getDocumentURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(DOMAdapter, getDocumentURI, $String*)},
+		{"getDocumentURI", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getDocumentURI, $String*, int32_t)},
+		{"getElementsWithIDs", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(DOMAdapter, getElementsWithIDs, $Map*)},
+		{"getExpandedTypeID", "(I)I", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getExpandedTypeID, int32_t, int32_t)},
+		{"getIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getIterator, $DTMAxisIterator*)},
+		{"getLanguage", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getLanguage, $String*, int32_t)},
+		{"getMapping", "()[S", nullptr, $PRIVATE, $method(DOMAdapter, getMapping, $shorts*)},
+		{"getMultiDOMMask", "()I", nullptr, $PUBLIC, $method(DOMAdapter, getMultiDOMMask, int32_t)},
+		{"getNSMapping", "()[S", nullptr, $PRIVATE, $method(DOMAdapter, getNSMapping, $shorts*)},
+		{"getNSReverse", "()[S", nullptr, $PRIVATE, $method(DOMAdapter, getNSReverse, $shorts*)},
+		{"getNSType", "(I)I", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getNSType, int32_t, int32_t)},
+		{"getNamesArray", "()[Ljava/lang/String;", nullptr, $PUBLIC, $method(DOMAdapter, getNamesArray, $StringArray*)},
+		{"getNamespaceArray", "()[Ljava/lang/String;", nullptr, $PUBLIC, $method(DOMAdapter, getNamespaceArray, $StringArray*)},
+		{"getNamespaceAxisIterator", "(II)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getNamespaceAxisIterator, $DTMAxisIterator*, int32_t, int32_t)},
+		{"getNamespaceName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getNamespaceName, $String*, int32_t)},
+		{"getNamespaceType", "(I)I", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getNamespaceType, int32_t, int32_t)},
+		{"getNodeHandle", "(I)I", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getNodeHandle, int32_t, int32_t)},
+		{"getNodeIdent", "(I)I", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getNodeIdent, int32_t, int32_t)},
+		{"getNodeName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getNodeName, $String*, int32_t)},
+		{"getNodeNameX", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getNodeNameX, $String*, int32_t)},
+		{"getNodeValueIterator", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;ILjava/lang/String;Z)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getNodeValueIterator, $DTMAxisIterator*, $DTMAxisIterator*, int32_t, $String*, bool)},
+		{"getNthDescendant", "(IIZ)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getNthDescendant, $DTMAxisIterator*, int32_t, int32_t, bool)},
+		{"getOutputDomBuilder", "()Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getOutputDomBuilder, $SerializationHandler*)},
+		{"getParent", "(I)I", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getParent, int32_t, int32_t)},
+		{"getResultTreeFrag", "(II)Lcom/sun/org/apache/xalan/internal/xsltc/DOM;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getResultTreeFrag, $DOM*, int32_t, int32_t)},
+		{"getResultTreeFrag", "(IIZ)Lcom/sun/org/apache/xalan/internal/xsltc/DOM;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getResultTreeFrag, $DOM*, int32_t, int32_t, bool)},
+		{"getReverse", "()[I", nullptr, $PRIVATE, $method(DOMAdapter, getReverse, $ints*)},
+		{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getSize, int32_t)},
+		{"getStringValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getStringValue, $String*)},
+		{"getStringValueX", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getStringValueX, $String*, int32_t)},
+		{"getTypedAxisIterator", "(II)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getTypedAxisIterator, $DTMAxisIterator*, int32_t, int32_t)},
+		{"getTypedChildren", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getTypedChildren, $DTMAxisIterator*, int32_t)},
+		{"getTypesArray", "()[I", nullptr, $PUBLIC, $method(DOMAdapter, getTypesArray, $ints*)},
+		{"getUnparsedEntityURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, getUnparsedEntityURI, $String*, $String*)},
+		{"getUrisArray", "()[Ljava/lang/String;", nullptr, $PUBLIC, $method(DOMAdapter, getUrisArray, $StringArray*)},
+		{"isAttribute", "(I)Z", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, isAttribute, bool, int32_t)},
+		{"isElement", "(I)Z", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, isElement, bool, int32_t)},
+		{"lessThan", "(II)Z", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, lessThan, bool, int32_t, int32_t)},
+		{"lookupNamespace", "(ILjava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, lookupNamespace, $String*, int32_t, $String*), "com.sun.org.apache.xalan.internal.xsltc.TransletException"},
+		{"makeNode", "(I)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, makeNode, $Node*, int32_t)},
+		{"makeNode", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, makeNode, $Node*, $DTMAxisIterator*)},
+		{"makeNodeList", "(I)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, makeNodeList, $NodeList*, int32_t)},
+		{"makeNodeList", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, makeNodeList, $NodeList*, $DTMAxisIterator*)},
+		{"orderNodes", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, orderNodes, $DTMAxisIterator*, $DTMAxisIterator*, int32_t)},
+		{"release", "()V", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, release, void)},
+		{"setDocumentURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DOMAdapter, setDocumentURI, void, $String*)},
+		{"setFilter", "(Lcom/sun/org/apache/xalan/internal/xsltc/StripFilter;)V", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, setFilter, void, $StripFilter*)},
+		{"setMultiDOMMask", "(I)V", nullptr, $PUBLIC, $method(DOMAdapter, setMultiDOMMask, void, int32_t)},
+		{"setupMapping", "([Ljava/lang/String;[Ljava/lang/String;[I[Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, setupMapping, void, $StringArray*, $StringArray*, $ints*, $StringArray*)},
+		{"shallowCopy", "(ILcom/sun/org/apache/xml/internal/serializer/SerializationHandler;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMAdapter, shallowCopy, $String*, int32_t, $SerializationHandler*), "com.sun.org.apache.xalan.internal.xsltc.TransletException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.DOMAdapter",
+		"java.lang.Object",
+		"com.sun.org.apache.xalan.internal.xsltc.DOM",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMAdapter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMAdapter);
+	});
 	return class$;
 }
 

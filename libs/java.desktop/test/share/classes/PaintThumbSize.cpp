@@ -1,8 +1,6 @@
 #include <PaintThumbSize.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/EventQueue.h>
-#include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/RenderedImage.h>
@@ -30,7 +28,6 @@
 #include <javax/swing/plaf/basic/BasicSliderUI.h>
 #include <javax/swing/plaf/metal/DefaultMetalTheme.h>
 #include <javax/swing/plaf/metal/MetalLookAndFeel.h>
-#include <javax/swing/plaf/metal/MetalTheme.h>
 #include <jcpp.h>
 
 #undef BLACK
@@ -41,13 +38,10 @@
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
 using $Color = ::java::awt::Color;
 using $EventQueue = ::java::awt::EventQueue;
-using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $BufferedImage = ::java::awt::image::BufferedImage;
-using $RenderedImage = ::java::awt::image::RenderedImage;
 using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -56,7 +50,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InstantiationException = ::java::lang::InstantiationException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
@@ -69,7 +62,6 @@ using $SliderUI = ::javax::swing::plaf::SliderUI;
 using $BasicSliderUI = ::javax::swing::plaf::basic::BasicSliderUI;
 using $DefaultMetalTheme = ::javax::swing::plaf::metal::DefaultMetalTheme;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
-using $MetalTheme = ::javax::swing::plaf::metal::MetalTheme;
 
 class PaintThumbSize$$Lambda$lambda$main$0 : public $Runnable {
 	$class(PaintThumbSize$$Lambda$lambda$main$0, $NO_CLASS_INIT, $Runnable)
@@ -80,33 +72,29 @@ public:
 	virtual void run() override {
 		PaintThumbSize::lambda$main$0(laf);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<PaintThumbSize$$Lambda$lambda$main$0>());
-	}
 	$UIManager$LookAndFeelInfo* laf = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo PaintThumbSize$$Lambda$lambda$main$0::fieldInfos[2] = {
-	{"laf", "Ljavax/swing/UIManager$LookAndFeelInfo;", nullptr, $PUBLIC, $field(PaintThumbSize$$Lambda$lambda$main$0, laf)},
-	{}
-};
-$MethodInfo PaintThumbSize$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PUBLIC, $method(PaintThumbSize$$Lambda$lambda$main$0, init$, void, $UIManager$LookAndFeelInfo*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PaintThumbSize$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo PaintThumbSize$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"PaintThumbSize$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* PaintThumbSize$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(PaintThumbSize$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"laf", "Ljavax/swing/UIManager$LookAndFeelInfo;", nullptr, $PUBLIC, $field(PaintThumbSize$$Lambda$lambda$main$0, laf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PUBLIC, $method(PaintThumbSize$$Lambda$lambda$main$0, init$, void, $UIManager$LookAndFeelInfo*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PaintThumbSize$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"PaintThumbSize$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PaintThumbSize$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PaintThumbSize$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* PaintThumbSize$$Lambda$lambda$main$0::class$ = nullptr;
@@ -119,27 +107,24 @@ public:
 	virtual void run() override {
 		PaintThumbSize::test();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<PaintThumbSize$$Lambda$test$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo PaintThumbSize$$Lambda$test$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PaintThumbSize$$Lambda$test$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PaintThumbSize$$Lambda$test$1, run, void)},
-	{}
-};
-$ClassInfo PaintThumbSize$$Lambda$test$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"PaintThumbSize$$Lambda$test$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* PaintThumbSize$$Lambda$test$1::load$($String* name, bool initialize) {
-	$loadClass(PaintThumbSize$$Lambda$test$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PaintThumbSize$$Lambda$test$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PaintThumbSize$$Lambda$test$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"PaintThumbSize$$Lambda$test$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PaintThumbSize$$Lambda$test$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PaintThumbSize$$Lambda$test$1);
+	});
 	return class$;
 }
 $Class* PaintThumbSize$$Lambda$test$1::class$ = nullptr;
@@ -152,84 +137,48 @@ public:
 	virtual void run() override {
 		PaintThumbSize::lambda$main$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<PaintThumbSize$$Lambda$lambda$main$1$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo PaintThumbSize$$Lambda$lambda$main$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PaintThumbSize$$Lambda$lambda$main$1$2, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PaintThumbSize$$Lambda$lambda$main$1$2, run, void)},
-	{}
-};
-$ClassInfo PaintThumbSize$$Lambda$lambda$main$1$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"PaintThumbSize$$Lambda$lambda$main$1$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* PaintThumbSize$$Lambda$lambda$main$1$2::load$($String* name, bool initialize) {
-	$loadClass(PaintThumbSize$$Lambda$lambda$main$1$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PaintThumbSize$$Lambda$lambda$main$1$2, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PaintThumbSize$$Lambda$lambda$main$1$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"PaintThumbSize$$Lambda$lambda$main$1$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PaintThumbSize$$Lambda$lambda$main$1$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PaintThumbSize$$Lambda$lambda$main$1$2);
+	});
 	return class$;
 }
 $Class* PaintThumbSize$$Lambda$lambda$main$1$2::class$ = nullptr;
-
-$FieldInfo _PaintThumbSize_FieldInfo_[] = {
-	{"SCALE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PaintThumbSize, SCALE)},
-	{"SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PaintThumbSize, SHIFT)},
-	{}
-};
-
-$MethodInfo _PaintThumbSize_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PaintThumbSize, init$, void)},
-	{"lambda$main$0", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PaintThumbSize, lambda$main$0, void, $UIManager$LookAndFeelInfo*)},
-	{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PaintThumbSize, lambda$main$1, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PaintThumbSize, main, void, $StringArray*), "java.lang.Exception"},
-	{"setLookAndFeel", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PaintThumbSize, setLookAndFeel, void, $UIManager$LookAndFeelInfo*)},
-	{"test", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(PaintThumbSize, test, void)},
-	{}
-};
-
-$ClassInfo _PaintThumbSize_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"PaintThumbSize",
-	"java.lang.Object",
-	nullptr,
-	_PaintThumbSize_FieldInfo_,
-	_PaintThumbSize_MethodInfo_
-};
-
-$Object* allocate$PaintThumbSize($Class* clazz) {
-	return $of($alloc(PaintThumbSize));
-}
 
 void PaintThumbSize::init$() {
 }
 
 void PaintThumbSize::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($UIManager$LookAndFeelInfo, laf, arr$->get(i$));
-			{
-				$EventQueue::invokeAndWait(static_cast<$Runnable*>($$new(PaintThumbSize$$Lambda$lambda$main$0, laf)));
-				$EventQueue::invokeAndWait(static_cast<$Runnable*>($$new(PaintThumbSize$$Lambda$test$1)));
-				if ($nc($($nc(laf)->getClassName()))->contains("Metal"_s)) {
-					$EventQueue::invokeAndWait(static_cast<$Runnable*>($$new(PaintThumbSize$$Lambda$lambda$main$1$2)));
-				}
+	$useLocalObjectStack();
+	$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($UIManager$LookAndFeelInfo, laf, arr$->get(i$));
+		{
+			$EventQueue::invokeAndWait($$new(PaintThumbSize$$Lambda$lambda$main$0, laf));
+			$EventQueue::invokeAndWait($$new(PaintThumbSize$$Lambda$test$1));
+			if ($$nc($nc(laf)->getClassName())->contains("Metal"_s)) {
+				$EventQueue::invokeAndWait($$new(PaintThumbSize$$Lambda$lambda$main$1$2));
 			}
 		}
 	}
 }
 
 void PaintThumbSize::test() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, bi, $new($BufferedImage, 500, 500, 2));
 	$var($Graphics2D, g, bi->createGraphics());
 	$init($Color);
@@ -243,7 +192,7 @@ void PaintThumbSize::test() {
 	$var($SliderUI, ui, $cast($SliderUI, slider->getUI()));
 	if ($instanceOf($BasicSliderUI, ui)) {
 		$var($BasicSliderUI, bui, $cast($BasicSliderUI, ui));
-		$nc(bui)->setThumbLocation(0, 0);
+		bui->setThumbLocation(0, 0);
 		bui->paintThumb(g);
 		for (int32_t y = 0; y < bi->getHeight(); ++y) {
 			for (int32_t x = 0; x < bi->getWidth(); ++x) {
@@ -253,9 +202,9 @@ void PaintThumbSize::test() {
 				int32_t var$1 = bi->getRGB(x, y);
 				if (var$1 != $nc($Color::CYAN)->getRGB()) {
 					$nc($System::err)->println($$str({"x = "_s, $$str(x)}));
-					$nc($System::err)->println($$str({"y = "_s, $$str(y)}));
+					$System::err->println($$str({"y = "_s, $$str(y)}));
 					try {
-						$ImageIO::write(static_cast<$RenderedImage*>(bi), "png"_s, $$new($File, "image.png"_s));
+						$ImageIO::write(bi, "png"_s, $$new($File, "image.png"_s));
 					} catch ($IOException& e) {
 						e->printStackTrace();
 					}
@@ -268,18 +217,18 @@ void PaintThumbSize::test() {
 }
 
 void PaintThumbSize::setLookAndFeel($UIManager$LookAndFeelInfo* laf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$nc($System::err)->println($$str({"LookAndFeel: "_s, $($nc(laf)->getClassName())}));
-		$UIManager::setLookAndFeel($($nc(laf)->getClassName()));
+		$UIManager::setLookAndFeel($(laf->getClassName()));
 	} catch ($UnsupportedLookAndFeelException& ignored) {
 		$nc($System::err)->println($$str({"Unsupported LookAndFeel: "_s, $($nc(laf)->getClassName())}));
 	} catch ($ClassNotFoundException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($InstantiationException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($IllegalAccessException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
@@ -298,17 +247,41 @@ PaintThumbSize::PaintThumbSize() {
 
 $Class* PaintThumbSize::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(PaintThumbSize$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("PaintThumbSize$$Lambda$lambda$main$0")) {
 			return PaintThumbSize$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(PaintThumbSize$$Lambda$test$1::classInfo$.name)) {
+		if (name->equals("PaintThumbSize$$Lambda$test$1")) {
 			return PaintThumbSize$$Lambda$test$1::load$(name, initialize);
 		}
-		if (name->equals(PaintThumbSize$$Lambda$lambda$main$1$2::classInfo$.name)) {
+		if (name->equals("PaintThumbSize$$Lambda$lambda$main$1$2")) {
 			return PaintThumbSize$$Lambda$lambda$main$1$2::load$(name, initialize);
 		}
 	}
-	$loadClass(PaintThumbSize, name, initialize, &_PaintThumbSize_ClassInfo_, allocate$PaintThumbSize);
+	$FieldInfo fieldInfos$$[] = {
+		{"SCALE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PaintThumbSize, SCALE)},
+		{"SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PaintThumbSize, SHIFT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PaintThumbSize, init$, void)},
+		{"lambda$main$0", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PaintThumbSize, lambda$main$0, void, $UIManager$LookAndFeelInfo*)},
+		{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PaintThumbSize, lambda$main$1, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PaintThumbSize, main, void, $StringArray*), "java.lang.Exception"},
+		{"setLookAndFeel", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PaintThumbSize, setLookAndFeel, void, $UIManager$LookAndFeelInfo*)},
+		{"test", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(PaintThumbSize, test, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"PaintThumbSize",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PaintThumbSize, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PaintThumbSize);
+	});
 	return class$;
 }
 

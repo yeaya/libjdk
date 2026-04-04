@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet$PageNumber.h>
-
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,36 +15,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _BaselineTIFFTagSet$PageNumber_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$PageNumber, init$, void)},
-	{}
-};
-
-$InnerClassInfo _BaselineTIFFTagSet$PageNumber_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$PageNumber", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "PageNumber", $STATIC},
-	{}
-};
-
-$ClassInfo _BaselineTIFFTagSet$PageNumber_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet$PageNumber",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$PageNumber_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$PageNumber_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
-};
-
-$Object* allocate$BaselineTIFFTagSet$PageNumber($Class* clazz) {
-	return $of($alloc(BaselineTIFFTagSet$PageNumber));
-}
-
 void BaselineTIFFTagSet$PageNumber::init$() {
 	$TIFFTag::init$("PageNumber"_s, 297, $sl(1, $TIFFTag::TIFF_SHORT));
 }
@@ -54,7 +23,32 @@ BaselineTIFFTagSet$PageNumber::BaselineTIFFTagSet$PageNumber() {
 }
 
 $Class* BaselineTIFFTagSet$PageNumber::load$($String* name, bool initialize) {
-	$loadClass(BaselineTIFFTagSet$PageNumber, name, initialize, &_BaselineTIFFTagSet$PageNumber_ClassInfo_, allocate$BaselineTIFFTagSet$PageNumber);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$PageNumber, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$PageNumber", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "PageNumber", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet$PageNumber",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
+	};
+	$loadClass(BaselineTIFFTagSet$PageNumber, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BaselineTIFFTagSet$PageNumber);
+	});
 	return class$;
 }
 

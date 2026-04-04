@@ -1,5 +1,4 @@
 #include <javax/print/SimpleDoc.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/CharArrayReader.h>
 #include <java/io/InputStream.h>
@@ -29,40 +28,8 @@ using $ReflectUtil = ::sun::reflect::misc::ReflectUtil;
 namespace javax {
 	namespace print {
 
-$FieldInfo _SimpleDoc_FieldInfo_[] = {
-	{"flavor", "Ljavax/print/DocFlavor;", nullptr, $PRIVATE, $field(SimpleDoc, flavor)},
-	{"attributes", "Ljavax/print/attribute/DocAttributeSet;", nullptr, $PRIVATE, $field(SimpleDoc, attributes)},
-	{"printData", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(SimpleDoc, printData)},
-	{"reader", "Ljava/io/Reader;", nullptr, $PRIVATE, $field(SimpleDoc, reader)},
-	{"inStream", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(SimpleDoc, inStream)},
-	{}
-};
-
-$MethodInfo _SimpleDoc_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljavax/print/DocFlavor;Ljavax/print/attribute/DocAttributeSet;)V", nullptr, $PUBLIC, $method(SimpleDoc, init$, void, Object$*, $DocFlavor*, $DocAttributeSet*)},
-	{"getAttributes", "()Ljavax/print/attribute/DocAttributeSet;", nullptr, $PUBLIC, $virtualMethod(SimpleDoc, getAttributes, $DocAttributeSet*)},
-	{"getDocFlavor", "()Ljavax/print/DocFlavor;", nullptr, $PUBLIC, $virtualMethod(SimpleDoc, getDocFlavor, $DocFlavor*)},
-	{"getPrintData", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleDoc, getPrintData, $Object*), "java.io.IOException"},
-	{"getReaderForText", "()Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(SimpleDoc, getReaderForText, $Reader*), "java.io.IOException"},
-	{"getStreamForBytes", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(SimpleDoc, getStreamForBytes, $InputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _SimpleDoc_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.SimpleDoc",
-	"java.lang.Object",
-	"javax.print.Doc",
-	_SimpleDoc_FieldInfo_,
-	_SimpleDoc_MethodInfo_
-};
-
-$Object* allocate$SimpleDoc($Class* clazz) {
-	return $of($alloc(SimpleDoc));
-}
-
 void SimpleDoc::init$(Object$* printData, $DocFlavor* flavor, $DocAttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (flavor == nullptr || printData == nullptr) {
 		$throwNew($IllegalArgumentException, "null argument(s)"_s);
@@ -94,7 +61,7 @@ $DocAttributeSet* SimpleDoc::getAttributes() {
 }
 
 $Object* SimpleDoc::getPrintData() {
-	return $of(this->printData);
+	return this->printData;
 }
 
 $Reader* SimpleDoc::getReaderForText() {
@@ -133,7 +100,34 @@ SimpleDoc::SimpleDoc() {
 }
 
 $Class* SimpleDoc::load$($String* name, bool initialize) {
-	$loadClass(SimpleDoc, name, initialize, &_SimpleDoc_ClassInfo_, allocate$SimpleDoc);
+	$FieldInfo fieldInfos$$[] = {
+		{"flavor", "Ljavax/print/DocFlavor;", nullptr, $PRIVATE, $field(SimpleDoc, flavor)},
+		{"attributes", "Ljavax/print/attribute/DocAttributeSet;", nullptr, $PRIVATE, $field(SimpleDoc, attributes)},
+		{"printData", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(SimpleDoc, printData)},
+		{"reader", "Ljava/io/Reader;", nullptr, $PRIVATE, $field(SimpleDoc, reader)},
+		{"inStream", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(SimpleDoc, inStream)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;Ljavax/print/DocFlavor;Ljavax/print/attribute/DocAttributeSet;)V", nullptr, $PUBLIC, $method(SimpleDoc, init$, void, Object$*, $DocFlavor*, $DocAttributeSet*)},
+		{"getAttributes", "()Ljavax/print/attribute/DocAttributeSet;", nullptr, $PUBLIC, $virtualMethod(SimpleDoc, getAttributes, $DocAttributeSet*)},
+		{"getDocFlavor", "()Ljavax/print/DocFlavor;", nullptr, $PUBLIC, $virtualMethod(SimpleDoc, getDocFlavor, $DocFlavor*)},
+		{"getPrintData", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleDoc, getPrintData, $Object*), "java.io.IOException"},
+		{"getReaderForText", "()Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(SimpleDoc, getReaderForText, $Reader*), "java.io.IOException"},
+		{"getStreamForBytes", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(SimpleDoc, getStreamForBytes, $InputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.SimpleDoc",
+		"java.lang.Object",
+		"javax.print.Doc",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SimpleDoc, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SimpleDoc);
+	});
 	return class$;
 }
 

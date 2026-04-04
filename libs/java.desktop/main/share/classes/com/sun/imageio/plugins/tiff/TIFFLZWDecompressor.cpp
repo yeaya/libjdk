@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFLZWDecompressor.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFDecompressor.h>
 #include <com/sun/imageio/plugins/tiff/TIFFFaxDecompressor.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
@@ -26,58 +25,12 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $IIOException = ::javax::imageio::IIOException;
 using $BaselineTIFFTagSet = ::javax::imageio::plugins::tiff::BaselineTIFFTagSet;
-using $ImageInputStream = ::javax::imageio::stream::ImageInputStream;
 
 namespace com {
 	namespace sun {
 		namespace imageio {
 			namespace plugins {
 				namespace tiff {
-
-$FieldInfo _TIFFLZWDecompressor_FieldInfo_[] = {
-	{"CLEAR_CODE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TIFFLZWDecompressor, CLEAR_CODE)},
-	{"EOI_CODE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TIFFLZWDecompressor, EOI_CODE)},
-	{"FIRST_CODE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TIFFLZWDecompressor, FIRST_CODE)},
-	{"andTable", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFLZWDecompressor, andTable)},
-	{"predictor", "I", nullptr, $PRIVATE, $field(TIFFLZWDecompressor, predictor)},
-	{"flipBits", "Z", nullptr, $PRIVATE, $field(TIFFLZWDecompressor, flipBits)},
-	{"srcData", "[B", nullptr, $PRIVATE, $field(TIFFLZWDecompressor, srcData)},
-	{"dstData", "[B", nullptr, $PRIVATE, $field(TIFFLZWDecompressor, dstData)},
-	{"srcIndex", "I", nullptr, $PRIVATE, $field(TIFFLZWDecompressor, srcIndex)},
-	{"dstIndex", "I", nullptr, $PRIVATE, $field(TIFFLZWDecompressor, dstIndex)},
-	{"stringTable", "[[B", nullptr, $PRIVATE, $field(TIFFLZWDecompressor, stringTable)},
-	{"tableIndex", "I", nullptr, $PRIVATE, $field(TIFFLZWDecompressor, tableIndex)},
-	{"bitsToGet", "I", nullptr, $PRIVATE, $field(TIFFLZWDecompressor, bitsToGet)},
-	{"nextData", "I", nullptr, $PRIVATE, $field(TIFFLZWDecompressor, nextData)},
-	{"nextBits", "I", nullptr, $PRIVATE, $field(TIFFLZWDecompressor, nextBits)},
-	{}
-};
-
-$MethodInfo _TIFFLZWDecompressor_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(TIFFLZWDecompressor, init$, void, int32_t, int32_t), "javax.imageio.IIOException"},
-	{"addStringToTable", "([BB)V", nullptr, $PUBLIC, $virtualMethod(TIFFLZWDecompressor, addStringToTable, void, $bytes*, int8_t)},
-	{"addStringToTable", "([B)V", nullptr, $PUBLIC, $virtualMethod(TIFFLZWDecompressor, addStringToTable, void, $bytes*)},
-	{"composeString", "([BB)[B", nullptr, $PUBLIC, $virtualMethod(TIFFLZWDecompressor, composeString, $bytes*, $bytes*, int8_t)},
-	{"decode", "([BI[BI)I", nullptr, $PUBLIC, $virtualMethod(TIFFLZWDecompressor, decode, int32_t, $bytes*, int32_t, $bytes*, int32_t), "java.io.IOException"},
-	{"decodeRaw", "([BIII)V", nullptr, $PUBLIC, $virtualMethod(TIFFLZWDecompressor, decodeRaw, void, $bytes*, int32_t, int32_t, int32_t), "java.io.IOException"},
-	{"getNextCode", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFLZWDecompressor, getNextCode, int32_t)},
-	{"initializeStringTable", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFLZWDecompressor, initializeStringTable, void)},
-	{"writeString", "([B)V", nullptr, $PUBLIC, $virtualMethod(TIFFLZWDecompressor, writeString, void, $bytes*)},
-	{}
-};
-
-$ClassInfo _TIFFLZWDecompressor_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFLZWDecompressor",
-	"com.sun.imageio.plugins.tiff.TIFFDecompressor",
-	nullptr,
-	_TIFFLZWDecompressor_FieldInfo_,
-	_TIFFLZWDecompressor_MethodInfo_
-};
-
-$Object* allocate$TIFFLZWDecompressor($Class* clazz) {
-	return $of($alloc(TIFFLZWDecompressor));
-}
 
 $ints* TIFFLZWDecompressor::andTable = nullptr;
 
@@ -94,12 +47,12 @@ void TIFFLZWDecompressor::init$(int32_t predictor, int32_t fillOrder) {
 }
 
 void TIFFLZWDecompressor::decodeRaw($bytes* b, int32_t dstOffset, int32_t bitsPerPixel, int32_t scanlineStride) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->predictor == $BaselineTIFFTagSet::PREDICTOR_HORIZONTAL_DIFFERENCING) {
 		int32_t len = $nc(this->bitsPerSample)->length;
 		for (int32_t i = 0; i < len; ++i) {
-			if ($nc(this->bitsPerSample)->get(i) != 8) {
-				$throwNew($IIOException, $$str({$$str($nc(this->bitsPerSample)->get(i)), "-bit samples are not supported for Horizontal differencing Predictor"_s}));
+			if (this->bitsPerSample->get(i) != 8) {
+				$throwNew($IIOException, $$str({$$str(this->bitsPerSample->get(i)), "-bit samples are not supported for Horizontal differencing Predictor"_s}));
 			}
 		}
 	}
@@ -109,7 +62,7 @@ void TIFFLZWDecompressor::decodeRaw($bytes* b, int32_t dstOffset, int32_t bitsPe
 	if (this->flipBits) {
 		for (int32_t i = 0; i < this->byteCount; ++i) {
 			$init($TIFFFaxDecompressor);
-			sdata->set(i, $nc($TIFFFaxDecompressor::flipTable)->get((int32_t)(sdata->get(i) & (uint32_t)255)));
+			sdata->set(i, $nc($TIFFFaxDecompressor::flipTable)->get(sdata->get(i) & 0xff));
 		}
 	}
 	int32_t bytesPerRow = (this->srcWidth * bitsPerPixel + 7) / 8;
@@ -186,11 +139,11 @@ int32_t TIFFLZWDecompressor::decode($bytes* sdata, int32_t srcOffset, $bytes* dd
 }
 
 void TIFFLZWDecompressor::initializeStringTable() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, stringTable, $new($byteArray2, 4096));
 	for (int32_t i = 0; i < TIFFLZWDecompressor::CLEAR_CODE; ++i) {
-		$nc(this->stringTable)->set(i, $$new($bytes, 1));
-		$nc($nc(this->stringTable)->get(i))->set(0, (int8_t)i);
+		this->stringTable->set(i, $$new($bytes, 1));
+		$nc(this->stringTable->get(i))->set(0, (int8_t)i);
 	}
 	this->tableIndex = TIFFLZWDecompressor::FIRST_CODE;
 	this->bitsToGet = 9;
@@ -198,9 +151,9 @@ void TIFFLZWDecompressor::initializeStringTable() {
 
 void TIFFLZWDecompressor::writeString($bytes* string) {
 	if (this->dstIndex < $nc(this->dstData)->length) {
-		int32_t maxIndex = $Math::min($nc(string)->length, $nc(this->dstData)->length - this->dstIndex);
+		int32_t maxIndex = $Math::min($nc(string)->length, this->dstData->length - this->dstIndex);
 		for (int32_t i = 0; i < maxIndex; ++i) {
-			$nc(this->dstData)->set(this->dstIndex++, $nc(string)->get(i));
+			this->dstData->set(this->dstIndex++, string->get(i));
 		}
 	}
 }
@@ -241,13 +194,13 @@ $bytes* TIFFLZWDecompressor::composeString($bytes* oldString, int8_t newString) 
 
 int32_t TIFFLZWDecompressor::getNextCode() {
 	try {
-		this->nextData = (this->nextData << 8) | ((int32_t)($nc(this->srcData)->get(this->srcIndex++) & (uint32_t)255));
+		this->nextData = (this->nextData << 8) | ($nc(this->srcData)->get(this->srcIndex++) & 0xff);
 		this->nextBits += 8;
 		if (this->nextBits < this->bitsToGet) {
-			this->nextData = (this->nextData << 8) | ((int32_t)($nc(this->srcData)->get(this->srcIndex++) & (uint32_t)255));
+			this->nextData = (this->nextData << 8) | (this->srcData->get(this->srcIndex++) & 0xff);
 			this->nextBits += 8;
 		}
-		int32_t code = (int32_t)(($sr(this->nextData, this->nextBits - this->bitsToGet)) & (uint32_t)$nc(TIFFLZWDecompressor::andTable)->get(this->bitsToGet - 9));
+		int32_t code = ($sr(this->nextData, this->nextBits - this->bitsToGet)) & TIFFLZWDecompressor::andTable->get(this->bitsToGet - 9);
 		this->nextBits -= this->bitsToGet;
 		return code;
 	} catch ($ArrayIndexOutOfBoundsException& e) {
@@ -256,7 +209,7 @@ int32_t TIFFLZWDecompressor::getNextCode() {
 	$shouldNotReachHere();
 }
 
-void clinit$TIFFLZWDecompressor($Class* class$) {
+void TIFFLZWDecompressor::clinit$($Class* clazz) {
 	$assignStatic(TIFFLZWDecompressor::andTable, $new($ints, {
 		511,
 		1023,
@@ -269,7 +222,47 @@ TIFFLZWDecompressor::TIFFLZWDecompressor() {
 }
 
 $Class* TIFFLZWDecompressor::load$($String* name, bool initialize) {
-	$loadClass(TIFFLZWDecompressor, name, initialize, &_TIFFLZWDecompressor_ClassInfo_, clinit$TIFFLZWDecompressor, allocate$TIFFLZWDecompressor);
+	$FieldInfo fieldInfos$$[] = {
+		{"CLEAR_CODE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TIFFLZWDecompressor, CLEAR_CODE)},
+		{"EOI_CODE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TIFFLZWDecompressor, EOI_CODE)},
+		{"FIRST_CODE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TIFFLZWDecompressor, FIRST_CODE)},
+		{"andTable", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFLZWDecompressor, andTable)},
+		{"predictor", "I", nullptr, $PRIVATE, $field(TIFFLZWDecompressor, predictor)},
+		{"flipBits", "Z", nullptr, $PRIVATE, $field(TIFFLZWDecompressor, flipBits)},
+		{"srcData", "[B", nullptr, $PRIVATE, $field(TIFFLZWDecompressor, srcData)},
+		{"dstData", "[B", nullptr, $PRIVATE, $field(TIFFLZWDecompressor, dstData)},
+		{"srcIndex", "I", nullptr, $PRIVATE, $field(TIFFLZWDecompressor, srcIndex)},
+		{"dstIndex", "I", nullptr, $PRIVATE, $field(TIFFLZWDecompressor, dstIndex)},
+		{"stringTable", "[[B", nullptr, $PRIVATE, $field(TIFFLZWDecompressor, stringTable)},
+		{"tableIndex", "I", nullptr, $PRIVATE, $field(TIFFLZWDecompressor, tableIndex)},
+		{"bitsToGet", "I", nullptr, $PRIVATE, $field(TIFFLZWDecompressor, bitsToGet)},
+		{"nextData", "I", nullptr, $PRIVATE, $field(TIFFLZWDecompressor, nextData)},
+		{"nextBits", "I", nullptr, $PRIVATE, $field(TIFFLZWDecompressor, nextBits)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(TIFFLZWDecompressor, init$, void, int32_t, int32_t), "javax.imageio.IIOException"},
+		{"addStringToTable", "([BB)V", nullptr, $PUBLIC, $virtualMethod(TIFFLZWDecompressor, addStringToTable, void, $bytes*, int8_t)},
+		{"addStringToTable", "([B)V", nullptr, $PUBLIC, $virtualMethod(TIFFLZWDecompressor, addStringToTable, void, $bytes*)},
+		{"composeString", "([BB)[B", nullptr, $PUBLIC, $virtualMethod(TIFFLZWDecompressor, composeString, $bytes*, $bytes*, int8_t)},
+		{"decode", "([BI[BI)I", nullptr, $PUBLIC, $virtualMethod(TIFFLZWDecompressor, decode, int32_t, $bytes*, int32_t, $bytes*, int32_t), "java.io.IOException"},
+		{"decodeRaw", "([BIII)V", nullptr, $PUBLIC, $virtualMethod(TIFFLZWDecompressor, decodeRaw, void, $bytes*, int32_t, int32_t, int32_t), "java.io.IOException"},
+		{"getNextCode", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFLZWDecompressor, getNextCode, int32_t)},
+		{"initializeStringTable", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFLZWDecompressor, initializeStringTable, void)},
+		{"writeString", "([B)V", nullptr, $PUBLIC, $virtualMethod(TIFFLZWDecompressor, writeString, void, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFLZWDecompressor",
+		"com.sun.imageio.plugins.tiff.TIFFDecompressor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFLZWDecompressor, name, initialize, &classInfo$$, TIFFLZWDecompressor::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFLZWDecompressor);
+	});
 	return class$;
 }
 

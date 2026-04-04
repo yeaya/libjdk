@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XExposeEvent.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,70 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XExposeEvent_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XExposeEvent, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XExposeEvent, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XExposeEvent, pData)},
-	{}
-};
-
-$MethodInfo _XExposeEvent_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XExposeEvent, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XExposeEvent, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XExposeEvent, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XExposeEvent, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XExposeEvent, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XExposeEvent, getSize, int32_t)},
-	{"get_count", "()I", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, get_count, int32_t)},
-	{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, get_display, int64_t)},
-	{"get_height", "()I", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, get_height, int32_t)},
-	{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, get_send_event, bool)},
-	{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, get_serial, int64_t)},
-	{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, get_type, int32_t)},
-	{"get_width", "()I", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, get_width, int32_t)},
-	{"get_window", "()J", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, get_window, int64_t)},
-	{"get_x", "()I", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, get_x, int32_t)},
-	{"get_y", "()I", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, get_y, int32_t)},
-	{"set_count", "(I)V", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, set_count, void, int32_t)},
-	{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, set_display, void, int64_t)},
-	{"set_height", "(I)V", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, set_height, void, int32_t)},
-	{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, set_send_event, void, bool)},
-	{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, set_serial, void, int64_t)},
-	{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, set_type, void, int32_t)},
-	{"set_width", "(I)V", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, set_width, void, int32_t)},
-	{"set_window", "(J)V", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, set_window, void, int64_t)},
-	{"set_x", "(I)V", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, set_x, void, int32_t)},
-	{"set_y", "(I)V", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, set_y, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XExposeEvent, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XExposeEvent, zero, void)},
-	{}
-};
-
-$ClassInfo _XExposeEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XExposeEvent",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XExposeEvent_FieldInfo_,
-	_XExposeEvent_MethodInfo_
-};
-
-$Object* allocate$XExposeEvent($Class* clazz) {
-	return $of($alloc(XExposeEvent));
-}
 
 int32_t XExposeEvent::getSize() {
 	$init(XExposeEvent);
@@ -113,7 +55,7 @@ void XExposeEvent::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -243,7 +185,7 @@ $String* XExposeEvent::getName() {
 }
 
 $String* XExposeEvent::getFieldsAsString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, ret, $new($StringBuilder, 400));
 	$init($XlibWrapper);
 	ret->append("type = "_s)->append($nc($XlibWrapper::eventToString)->get(get_type()))->append(", "_s);
@@ -260,7 +202,7 @@ $String* XExposeEvent::getFieldsAsString() {
 }
 
 $Object* XExposeEvent::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XExposeEvent::zero() {
@@ -275,7 +217,57 @@ XExposeEvent::XExposeEvent() {
 }
 
 $Class* XExposeEvent::load$($String* name, bool initialize) {
-	$loadClass(XExposeEvent, name, initialize, &_XExposeEvent_ClassInfo_, allocate$XExposeEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XExposeEvent, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XExposeEvent, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XExposeEvent, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XExposeEvent, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XExposeEvent, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XExposeEvent, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XExposeEvent, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XExposeEvent, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XExposeEvent, getSize, int32_t)},
+		{"get_count", "()I", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, get_count, int32_t)},
+		{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, get_display, int64_t)},
+		{"get_height", "()I", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, get_height, int32_t)},
+		{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, get_send_event, bool)},
+		{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, get_serial, int64_t)},
+		{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, get_type, int32_t)},
+		{"get_width", "()I", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, get_width, int32_t)},
+		{"get_window", "()J", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, get_window, int64_t)},
+		{"get_x", "()I", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, get_x, int32_t)},
+		{"get_y", "()I", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, get_y, int32_t)},
+		{"set_count", "(I)V", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, set_count, void, int32_t)},
+		{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, set_display, void, int64_t)},
+		{"set_height", "(I)V", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, set_height, void, int32_t)},
+		{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, set_send_event, void, bool)},
+		{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, set_serial, void, int64_t)},
+		{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, set_type, void, int32_t)},
+		{"set_width", "(I)V", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, set_width, void, int32_t)},
+		{"set_window", "(J)V", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, set_window, void, int64_t)},
+		{"set_x", "(I)V", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, set_x, void, int32_t)},
+		{"set_y", "(I)V", nullptr, $PUBLIC, $virtualMethod(XExposeEvent, set_y, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XExposeEvent, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XExposeEvent, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XExposeEvent",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XExposeEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XExposeEvent);
+	});
 	return class$;
 }
 

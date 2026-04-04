@@ -1,5 +1,4 @@
 #include <sun/net/httpserver/TimeSource.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,26 +8,22 @@ namespace sun {
 	namespace net {
 		namespace httpserver {
 
-$MethodInfo _TimeSource_MethodInfo_[] = {
-	{"getTime", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TimeSource, getTime, int64_t)},
-	{}
-};
-
-$ClassInfo _TimeSource_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"sun.net.httpserver.TimeSource",
-	nullptr,
-	nullptr,
-	nullptr,
-	_TimeSource_MethodInfo_
-};
-
-$Object* allocate$TimeSource($Class* clazz) {
-	return $of($alloc(TimeSource));
-}
-
 $Class* TimeSource::load$($String* name, bool initialize) {
-	$loadClass(TimeSource, name, initialize, &_TimeSource_ClassInfo_, allocate$TimeSource);
+	$MethodInfo methodInfos$$[] = {
+		{"getTime", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TimeSource, getTime, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"sun.net.httpserver.TimeSource",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TimeSource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TimeSource);
+	});
 	return class$;
 }
 

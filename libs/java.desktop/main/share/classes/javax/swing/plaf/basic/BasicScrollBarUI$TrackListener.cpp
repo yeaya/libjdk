@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicScrollBarUI$TrackListener.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Container.h>
@@ -10,7 +9,6 @@
 #include <java/awt/event/MouseEvent.h>
 #include <java/lang/Math.h>
 #include <javax/swing/BoundedRangeModel.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JList.h>
 #include <javax/swing/JScrollBar.h>
 #include <javax/swing/JScrollPane.h>
@@ -30,7 +28,6 @@
 #undef VERTICAL_WRAP
 
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Dimension = ::java::awt::Dimension;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
@@ -43,68 +40,18 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BoundedRangeModel = ::javax::swing::BoundedRangeModel;
-using $JComponent = ::javax::swing::JComponent;
 using $JList = ::javax::swing::JList;
 using $JScrollBar = ::javax::swing::JScrollBar;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JViewport = ::javax::swing::JViewport;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $Timer = ::javax::swing::Timer;
 using $BasicScrollBarUI = ::javax::swing::plaf::basic::BasicScrollBarUI;
-using $BasicScrollBarUI$ScrollListener = ::javax::swing::plaf::basic::BasicScrollBarUI$ScrollListener;
 using $DefaultLookup = ::sun::swing::DefaultLookup;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicScrollBarUI$TrackListener_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicScrollBarUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicScrollBarUI$TrackListener, this$0)},
-	{"offset", "I", nullptr, $PROTECTED | $TRANSIENT, $field(BasicScrollBarUI$TrackListener, offset)},
-	{"currentMouseX", "I", nullptr, $PROTECTED | $TRANSIENT, $field(BasicScrollBarUI$TrackListener, currentMouseX)},
-	{"currentMouseY", "I", nullptr, $PROTECTED | $TRANSIENT, $field(BasicScrollBarUI$TrackListener, currentMouseY)},
-	{"direction", "I", nullptr, $PRIVATE | $TRANSIENT, $field(BasicScrollBarUI$TrackListener, direction)},
-	{}
-};
-
-$MethodInfo _BasicScrollBarUI$TrackListener_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicScrollBarUI;)V", nullptr, $PROTECTED, $method(BasicScrollBarUI$TrackListener, init$, void, $BasicScrollBarUI*)},
-	{"adjustValueIfNecessary", "(I)I", nullptr, $PRIVATE, $method(BasicScrollBarUI$TrackListener, adjustValueIfNecessary, int32_t, int32_t)},
-	{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI$TrackListener, mouseDragged, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI$TrackListener, mouseExited, void, $MouseEvent*)},
-	{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI$TrackListener, mouseMoved, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI$TrackListener, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI$TrackListener, mouseReleased, void, $MouseEvent*)},
-	{"setValueFrom", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(BasicScrollBarUI$TrackListener, setValueFrom, void, $MouseEvent*)},
-	{"startScrollTimerIfNecessary", "()V", nullptr, $PRIVATE, $method(BasicScrollBarUI$TrackListener, startScrollTimerIfNecessary, void)},
-	{}
-};
-
-$InnerClassInfo _BasicScrollBarUI$TrackListener_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicScrollBarUI$TrackListener", "javax.swing.plaf.basic.BasicScrollBarUI", "TrackListener", $PROTECTED},
-	{}
-};
-
-$ClassInfo _BasicScrollBarUI$TrackListener_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicScrollBarUI$TrackListener",
-	"java.awt.event.MouseAdapter",
-	nullptr,
-	_BasicScrollBarUI$TrackListener_FieldInfo_,
-	_BasicScrollBarUI$TrackListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicScrollBarUI$TrackListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicScrollBarUI"
-};
-
-$Object* allocate$BasicScrollBarUI$TrackListener($Class* clazz) {
-	return $of($alloc(BasicScrollBarUI$TrackListener));
-}
 
 void BasicScrollBarUI$TrackListener::init$($BasicScrollBarUI* this$0) {
 	$set(this, this$0, this$0);
@@ -120,7 +67,7 @@ void BasicScrollBarUI$TrackListener::mouseReleased($MouseEvent* e) {
 	bool var$1 = $SwingUtilities::isRightMouseButton(e);
 	if (!var$1) {
 		bool var$2 = !this->this$0->getSupportsAbsolutePositioning();
-		var$1 = (var$2 && $SwingUtilities::isMiddleMouseButton(e));
+		var$1 = var$2 && $SwingUtilities::isMiddleMouseButton(e);
 	}
 	if (var$1) {
 		return;
@@ -129,7 +76,7 @@ void BasicScrollBarUI$TrackListener::mouseReleased($MouseEvent* e) {
 		return;
 	}
 	$var($Rectangle, r, this->this$0->getTrackBounds());
-	$nc(this->this$0->scrollbar)->repaint($nc(r)->x, r->y, r->width, r->height);
+	$nc(this->this$0->scrollbar)->repaint($nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 	this->this$0->trackHighlight = 0;
 	this->this$0->setDragging(false);
 	this->offset = 0;
@@ -139,11 +86,11 @@ void BasicScrollBarUI$TrackListener::mouseReleased($MouseEvent* e) {
 }
 
 void BasicScrollBarUI$TrackListener::mousePressed($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $SwingUtilities::isRightMouseButton(e);
 	if (!var$0) {
 		bool var$1 = !this->this$0->getSupportsAbsolutePositioning();
-		var$0 = (var$1 && $SwingUtilities::isMiddleMouseButton(e));
+		var$0 = var$1 && $SwingUtilities::isMiddleMouseButton(e);
 	}
 	if (var$0) {
 		return;
@@ -152,42 +99,34 @@ void BasicScrollBarUI$TrackListener::mousePressed($MouseEvent* e) {
 		return;
 	}
 	bool var$2 = !$nc(this->this$0->scrollbar)->hasFocus();
-	if (var$2 && $nc(this->this$0->scrollbar)->isRequestFocusEnabled()) {
+	if (var$2 && this->this$0->scrollbar->isRequestFocusEnabled()) {
 		$nc(this->this$0->scrollbar)->requestFocus();
 	}
 	this->this$0->useCachedValue = true;
 	$nc(this->this$0->scrollbar)->setValueIsAdjusting(true);
 	this->currentMouseX = $nc(e)->getX();
 	this->currentMouseY = e->getY();
-	if ($nc($(this->this$0->getThumbBounds()))->contains(this->currentMouseX, this->currentMouseY)) {
+	if ($$nc(this->this$0->getThumbBounds())->contains(this->currentMouseX, this->currentMouseY)) {
 		switch ($nc(this->this$0->scrollbar)->getOrientation()) {
 		case $JScrollBar::VERTICAL:
-			{
-				this->offset = this->currentMouseY - $nc($(this->this$0->getThumbBounds()))->y;
-				break;
-			}
+			this->offset = this->currentMouseY - $nc($(this->this$0->getThumbBounds()))->y;
+			break;
 		case $JScrollBar::HORIZONTAL:
-			{
-				this->offset = this->currentMouseX - $nc($(this->this$0->getThumbBounds()))->x;
-				break;
-			}
+			this->offset = this->currentMouseX - $nc($(this->this$0->getThumbBounds()))->x;
+			break;
 		}
 		this->this$0->setDragging(true);
 		return;
 	} else {
-		bool var$4 = this->this$0->getSupportsAbsolutePositioning();
-		if (var$4 && $SwingUtilities::isMiddleMouseButton(e)) {
+		bool var$3 = this->this$0->getSupportsAbsolutePositioning();
+		if (var$3 && $SwingUtilities::isMiddleMouseButton(e)) {
 			switch ($nc(this->this$0->scrollbar)->getOrientation()) {
 			case $JScrollBar::VERTICAL:
-				{
-					this->offset = $nc($(this->this$0->getThumbBounds()))->height / 2;
-					break;
-				}
+				this->offset = $nc($(this->this$0->getThumbBounds()))->height / 2;
+				break;
 			case $JScrollBar::HORIZONTAL:
-				{
-					this->offset = $nc($(this->this$0->getThumbBounds()))->width / 2;
-					break;
-				}
+				this->offset = $nc($(this->this$0->getThumbBounds()))->width / 2;
+				break;
 			}
 			this->this$0->setDragging(true);
 			setValueFrom(e);
@@ -199,30 +138,26 @@ void BasicScrollBarUI$TrackListener::mousePressed($MouseEvent* e) {
 	this->direction = +1;
 	switch ($nc(this->this$0->scrollbar)->getOrientation()) {
 	case $JScrollBar::VERTICAL:
-		{
-			if ($nc($(this->this$0->getThumbBounds()))->isEmpty()) {
-				int32_t scrollbarCenter = $nc(sbSize)->height / 2;
-				this->direction = (this->currentMouseY < scrollbarCenter) ? -1 : +1;
-			} else {
-				int32_t thumbY = $nc($(this->this$0->getThumbBounds()))->y;
-				this->direction = (this->currentMouseY < thumbY) ? -1 : +1;
-			}
-			break;
+		if ($$nc(this->this$0->getThumbBounds())->isEmpty()) {
+			int32_t scrollbarCenter = $nc(sbSize)->height / 2;
+			this->direction = (this->currentMouseY < scrollbarCenter) ? -1 : +1;
+		} else {
+			int32_t thumbY = $nc($(this->this$0->getThumbBounds()))->y;
+			this->direction = (this->currentMouseY < thumbY) ? -1 : +1;
 		}
+		break;
 	case $JScrollBar::HORIZONTAL:
-		{
-			if ($nc($(this->this$0->getThumbBounds()))->isEmpty()) {
-				int32_t scrollbarCenter = $nc(sbSize)->width / 2;
-				this->direction = (this->currentMouseX < scrollbarCenter) ? -1 : +1;
-			} else {
-				int32_t thumbX = $nc($(this->this$0->getThumbBounds()))->x;
-				this->direction = (this->currentMouseX < thumbX) ? -1 : +1;
-			}
-			if (!$nc($($nc(this->this$0->scrollbar)->getComponentOrientation()))->isLeftToRight()) {
-				this->direction = -this->direction;
-			}
-			break;
+		if ($$nc(this->this$0->getThumbBounds())->isEmpty()) {
+			int32_t scrollbarCenter = $nc(sbSize)->width / 2;
+			this->direction = (this->currentMouseX < scrollbarCenter) ? -1 : +1;
+		} else {
+			int32_t thumbX = $nc($(this->this$0->getThumbBounds()))->x;
+			this->direction = (this->currentMouseX < thumbX) ? -1 : +1;
 		}
+		if (!$$nc($nc(this->this$0->scrollbar)->getComponentOrientation())->isLeftToRight()) {
+			this->direction = -this->direction;
+		}
+		break;
 	}
 	this->this$0->scrollByBlock(this->direction);
 	$nc(this->this$0->scrollTimer)->stop();
@@ -235,13 +170,13 @@ void BasicScrollBarUI$TrackListener::mouseDragged($MouseEvent* e) {
 	bool var$0 = $SwingUtilities::isRightMouseButton(e);
 	if (!var$0) {
 		bool var$1 = !this->this$0->getSupportsAbsolutePositioning();
-		var$0 = (var$1 && $SwingUtilities::isMiddleMouseButton(e));
+		var$0 = var$1 && $SwingUtilities::isMiddleMouseButton(e);
 	}
 	if (var$0) {
 		return;
 	}
 	bool var$2 = !$nc(this->this$0->scrollbar)->isEnabled();
-	if (var$2 || $nc($(this->this$0->getThumbBounds()))->isEmpty()) {
+	if (var$2 || $$nc(this->this$0->getThumbBounds())->isEmpty()) {
 		return;
 	}
 	if (this->this$0->isDragging) {
@@ -255,7 +190,7 @@ void BasicScrollBarUI$TrackListener::mouseDragged($MouseEvent* e) {
 }
 
 void BasicScrollBarUI$TrackListener::setValueFrom($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool active = this->this$0->isThumbRollover();
 	$var($BoundedRangeModel, model, $nc(this->this$0->scrollbar)->getModel());
 	$var($Rectangle, thumbR, this->this$0->getThumbBounds());
@@ -265,20 +200,20 @@ void BasicScrollBarUI$TrackListener::setValueFrom($MouseEvent* e) {
 	int32_t thumbPos = 0;
 	if ($nc(this->this$0->scrollbar)->getOrientation() == $JScrollBar::VERTICAL) {
 		thumbMin = $nc(this->this$0->trackRect)->y;
-		thumbMax = $nc(this->this$0->trackRect)->y + $nc(this->this$0->trackRect)->height - $nc(thumbR)->height;
+		thumbMax = this->this$0->trackRect->y + this->this$0->trackRect->height - $nc(thumbR)->height;
 		thumbPos = $Math::min(thumbMax, $Math::max(thumbMin, ($nc(e)->getY() - this->offset)));
 		this->this$0->setThumbBounds(thumbR->x, thumbPos, thumbR->width, thumbR->height);
 		trackLength = (float)$nc($(this->this$0->getTrackBounds()))->height;
 	} else {
 		thumbMin = $nc(this->this$0->trackRect)->x;
-		thumbMax = $nc(this->this$0->trackRect)->x + $nc(this->this$0->trackRect)->width - $nc(thumbR)->width;
+		thumbMax = this->this$0->trackRect->x + this->this$0->trackRect->width - $nc(thumbR)->width;
 		thumbPos = $Math::min(thumbMax, $Math::max(thumbMin, ($nc(e)->getX() - this->offset)));
 		this->this$0->setThumbBounds(thumbPos, thumbR->y, thumbR->width, thumbR->height);
 		trackLength = (float)$nc($(this->this$0->getTrackBounds()))->width;
 	}
 	if (thumbPos == thumbMax) {
 		bool var$0 = $nc(this->this$0->scrollbar)->getOrientation() == $JScrollBar::VERTICAL;
-		if (var$0 || $nc($($nc(this->this$0->scrollbar)->getComponentOrientation()))->isLeftToRight()) {
+		if (var$0 || $$nc(this->this$0->scrollbar->getComponentOrientation())->isLeftToRight()) {
 			int32_t var$1 = $nc(model)->getMaximum();
 			$nc(this->this$0->scrollbar)->setValue(var$1 - model->getExtent());
 		} else {
@@ -292,7 +227,7 @@ void BasicScrollBarUI$TrackListener::setValueFrom($MouseEvent* e) {
 		float thumbRange = (float)(thumbMax - thumbMin);
 		int32_t value = 0;
 		bool var$3 = $nc(this->this$0->scrollbar)->getOrientation() == $JScrollBar::VERTICAL;
-		if (var$3 || $nc($($nc(this->this$0->scrollbar)->getComponentOrientation()))->isLeftToRight()) {
+		if (var$3 || $$nc(this->this$0->scrollbar->getComponentOrientation())->isLeftToRight()) {
 			value = $cast(int32_t, (0.5 + ((thumbValue / thumbRange) * valueRange)));
 		} else {
 			value = $cast(int32_t, (0.5 + (((thumbMax - thumbPos) / thumbRange) * valueRange)));
@@ -305,16 +240,16 @@ void BasicScrollBarUI$TrackListener::setValueFrom($MouseEvent* e) {
 }
 
 int32_t BasicScrollBarUI$TrackListener::adjustValueIfNecessary(int32_t value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JScrollPane, $($nc(this->this$0->scrollbar)->getParent()))) {
 		$var($JScrollPane, scrollpane, $cast($JScrollPane, $nc(this->this$0->scrollbar)->getParent()));
 		$var($JViewport, viewport, $nc(scrollpane)->getViewport());
 		$var($Component, view, $nc(viewport)->getView());
 		if ($instanceOf($JList, view)) {
 			$var($JList, list, $cast($JList, view));
-			if ($DefaultLookup::getBoolean(list, $($nc(list)->getUI()), "List.lockToPositionOnScroll"_s, false)) {
+			if ($DefaultLookup::getBoolean(list, $(list->getUI()), "List.lockToPositionOnScroll"_s, false)) {
 				int32_t adjustedValue = value;
-				int32_t mode = $nc(list)->getLayoutOrientation();
+				int32_t mode = list->getLayoutOrientation();
 				int32_t orientation = $nc(this->this$0->scrollbar)->getOrientation();
 				if (orientation == $JScrollBar::VERTICAL && mode == $JList::VERTICAL) {
 					int32_t index = list->locationToIndex($$new($Point, 0, value));
@@ -324,7 +259,7 @@ int32_t BasicScrollBarUI$TrackListener::adjustValueIfNecessary(int32_t value) {
 					}
 				}
 				if (orientation == $JScrollBar::HORIZONTAL && (mode == $JList::VERTICAL_WRAP || mode == $JList::HORIZONTAL_WRAP)) {
-					if ($nc($(scrollpane->getComponentOrientation()))->isLeftToRight()) {
+					if ($$nc(scrollpane->getComponentOrientation())->isLeftToRight()) {
 						int32_t index = list->locationToIndex($$new($Point, value, 0));
 						$var($Rectangle, rect, list->getCellBounds(index, index));
 						if (rect != nullptr) {
@@ -355,19 +290,17 @@ void BasicScrollBarUI$TrackListener::startScrollTimerIfNecessary() {
 	$var($Rectangle, tb, this->this$0->getThumbBounds());
 	switch ($nc(this->this$0->scrollbar)->getOrientation()) {
 	case $JScrollBar::VERTICAL:
-		{
-			if (this->direction > 0) {
-				if ($nc(tb)->y + tb->height < $nc(this->this$0->trackListener)->currentMouseY) {
-					$nc(this->this$0->scrollTimer)->start();
-				}
-			} else if ($nc(tb)->y > $nc(this->this$0->trackListener)->currentMouseY) {
+		if (this->direction > 0) {
+			if ($nc(tb)->y + $nc(tb)->height < $nc(this->this$0->trackListener)->currentMouseY) {
 				$nc(this->this$0->scrollTimer)->start();
 			}
-			break;
+		} else if ($nc(tb)->y > $nc(this->this$0->trackListener)->currentMouseY) {
+			$nc(this->this$0->scrollTimer)->start();
 		}
+		break;
 	case $JScrollBar::HORIZONTAL:
 		{
-			bool var$0 = (this->direction > 0 && this->this$0->isMouseAfterThumb());
+			bool var$0 = this->direction > 0 && this->this$0->isMouseAfterThumb();
 			if (var$0 || (this->direction < 0 && this->this$0->isMouseBeforeThumb())) {
 				$nc(this->this$0->scrollTimer)->start();
 			}
@@ -393,7 +326,48 @@ BasicScrollBarUI$TrackListener::BasicScrollBarUI$TrackListener() {
 }
 
 $Class* BasicScrollBarUI$TrackListener::load$($String* name, bool initialize) {
-	$loadClass(BasicScrollBarUI$TrackListener, name, initialize, &_BasicScrollBarUI$TrackListener_ClassInfo_, allocate$BasicScrollBarUI$TrackListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicScrollBarUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicScrollBarUI$TrackListener, this$0)},
+		{"offset", "I", nullptr, $PROTECTED | $TRANSIENT, $field(BasicScrollBarUI$TrackListener, offset)},
+		{"currentMouseX", "I", nullptr, $PROTECTED | $TRANSIENT, $field(BasicScrollBarUI$TrackListener, currentMouseX)},
+		{"currentMouseY", "I", nullptr, $PROTECTED | $TRANSIENT, $field(BasicScrollBarUI$TrackListener, currentMouseY)},
+		{"direction", "I", nullptr, $PRIVATE | $TRANSIENT, $field(BasicScrollBarUI$TrackListener, direction)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicScrollBarUI;)V", nullptr, $PROTECTED, $method(BasicScrollBarUI$TrackListener, init$, void, $BasicScrollBarUI*)},
+		{"adjustValueIfNecessary", "(I)I", nullptr, $PRIVATE, $method(BasicScrollBarUI$TrackListener, adjustValueIfNecessary, int32_t, int32_t)},
+		{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI$TrackListener, mouseDragged, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI$TrackListener, mouseExited, void, $MouseEvent*)},
+		{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI$TrackListener, mouseMoved, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI$TrackListener, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI$TrackListener, mouseReleased, void, $MouseEvent*)},
+		{"setValueFrom", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(BasicScrollBarUI$TrackListener, setValueFrom, void, $MouseEvent*)},
+		{"startScrollTimerIfNecessary", "()V", nullptr, $PRIVATE, $method(BasicScrollBarUI$TrackListener, startScrollTimerIfNecessary, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicScrollBarUI$TrackListener", "javax.swing.plaf.basic.BasicScrollBarUI", "TrackListener", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicScrollBarUI$TrackListener",
+		"java.awt.event.MouseAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicScrollBarUI"
+	};
+	$loadClass(BasicScrollBarUI$TrackListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicScrollBarUI$TrackListener));
+	});
 	return class$;
 }
 

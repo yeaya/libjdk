@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/hpack/SpecHelper.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
 #include <java/nio/ByteBuffer.h>
@@ -26,7 +25,6 @@ using $List = ::java::util::List;
 using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
 using $Collectors = ::java::util::stream::Collectors;
-using $Stream = ::java::util::stream::Stream;
 
 namespace jdk {
 	namespace internal {
@@ -34,32 +32,12 @@ namespace jdk {
 			namespace http {
 				namespace hpack {
 
-$MethodInfo _SpecHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SpecHelper, init$, void)},
-	{"toBytes", "(Ljava/lang/String;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(SpecHelper, toBytes, $ByteBuffer*, $String*)},
-	{"toHexdump", "(Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SpecHelper, toHexdump, $String*, $ByteBuffer*)},
-	{}
-};
-
-$ClassInfo _SpecHelper_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.hpack.SpecHelper",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SpecHelper_MethodInfo_
-};
-
-$Object* allocate$SpecHelper($Class* clazz) {
-	return $of($alloc(SpecHelper));
-}
-
 void SpecHelper::init$() {
 	$throwNew($AssertionError);
 }
 
 $ByteBuffer* SpecHelper::toBytes($String* hexdump) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Pattern, hexByte, $Pattern::compile("[0-9a-fA-F]{2}"_s));
 	$var($List, bytes, $new($ArrayList));
 	$var($Matcher, matcher, $nc(hexByte)->matcher(hexdump));
@@ -81,7 +59,7 @@ $ByteBuffer* SpecHelper::toBytes($String* hexdump) {
 }
 
 $String* SpecHelper::toHexdump($ByteBuffer* bb) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, words, $new($ArrayList));
 	int32_t i = 0;
 	while ($nc(bb)->hasRemaining()) {
@@ -89,18 +67,34 @@ $String* SpecHelper::toHexdump($ByteBuffer* bb) {
 			words->add(""_s);
 		}
 		int8_t b = bb->get();
-		$var($String, hex, $nc($($Integer::toHexString(256 + $Byte::toUnsignedInt(b))))->substring(1));
-		words->set(i / 2, $$str({$cast($String, $(words->get(i / 2))), hex}));
+		$var($String, hex, $$nc($Integer::toHexString(256 + $Byte::toUnsignedInt(b)))->substring(1));
+		words->set(i / 2, $$str({$$cast($String, words->get(i / 2)), hex}));
 		++i;
 	}
-	return $cast($String, $nc($(words->stream()))->collect($($Collectors::joining(" "_s))));
+	return $cast($String, $$nc(words->stream())->collect($($Collectors::joining(" "_s))));
 }
 
 SpecHelper::SpecHelper() {
 }
 
 $Class* SpecHelper::load$($String* name, bool initialize) {
-	$loadClass(SpecHelper, name, initialize, &_SpecHelper_ClassInfo_, allocate$SpecHelper);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SpecHelper, init$, void)},
+		{"toBytes", "(Ljava/lang/String;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(SpecHelper, toBytes, $ByteBuffer*, $String*)},
+		{"toHexdump", "(Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SpecHelper, toHexdump, $String*, $ByteBuffer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.hpack.SpecHelper",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SpecHelper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SpecHelper);
+	});
 	return class$;
 }
 

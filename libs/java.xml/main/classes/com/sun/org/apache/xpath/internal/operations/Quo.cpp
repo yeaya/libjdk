@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/operations/Quo.h>
-
 #include <com/sun/org/apache/xpath/internal/objects/XNumber.h>
 #include <com/sun/org/apache/xpath/internal/objects/XObject.h>
 #include <com/sun/org/apache/xpath/internal/operations/Operation.h>
@@ -21,39 +20,6 @@ namespace com {
 					namespace internal {
 						namespace operations {
 
-$CompoundAttribute _Quo_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _Quo_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Quo, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Quo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Quo, init$, void)},
-	{"operate", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;Lcom/sun/org/apache/xpath/internal/objects/XObject;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(Quo, operate, $XObject*, $XObject*, $XObject*), "javax.xml.transform.TransformerException"},
-	{}
-};
-
-$ClassInfo _Quo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.operations.Quo",
-	"com.sun.org.apache.xpath.internal.operations.Operation",
-	nullptr,
-	_Quo_FieldInfo_,
-	_Quo_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Quo_Annotations_
-};
-
-$Object* allocate$Quo($Class* clazz) {
-	return $of($alloc(Quo));
-}
-
 void Quo::init$() {
 	$Operation::init$();
 }
@@ -67,7 +33,34 @@ Quo::Quo() {
 }
 
 $Class* Quo::load$($String* name, bool initialize) {
-	$loadClass(Quo, name, initialize, &_Quo_ClassInfo_, allocate$Quo);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Quo, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Quo, init$, void)},
+		{"operate", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;Lcom/sun/org/apache/xpath/internal/objects/XObject;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(Quo, operate, $XObject*, $XObject*, $XObject*), "javax.xml.transform.TransformerException"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.operations.Quo",
+		"com.sun.org.apache.xpath.internal.operations.Operation",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Quo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Quo));
+	});
 	return class$;
 }
 

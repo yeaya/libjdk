@@ -23,10 +23,13 @@ public:
 	SignatureException();
 	void init$($Throwable* cause);
 	::java::lang::NoSuchMethodException* toNoSuchMethodException($String* message);
-	static const int64_t serialVersionUID = (int64_t)0x3EF375688C7AA749;
+	static const int64_t serialVersionUID = (int64_t)0x3ef375688c7aa749;
 	SignatureException(const SignatureException& e);
 	virtual void throw$() override;
-	inline SignatureException* operator ->() {
+	inline SignatureException* operator ->() const {
+		return (SignatureException*)throwing$;
+	}
+	inline operator SignatureException*() const {
 		return (SignatureException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantMethodHandle.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Constant.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Visitor.h>
@@ -23,39 +22,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace classfile {
-
-$FieldInfo _ConstantMethodHandle_FieldInfo_[] = {
-	{"referenceKind", "I", nullptr, $PRIVATE, $field(ConstantMethodHandle, referenceKind)},
-	{"referenceIndex", "I", nullptr, $PRIVATE, $field(ConstantMethodHandle, referenceIndex)},
-	{}
-};
-
-$MethodInfo _ConstantMethodHandle_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantMethodHandle;)V", nullptr, $PUBLIC, $method(ConstantMethodHandle, init$, void, ConstantMethodHandle*)},
-	{"<init>", "(Ljava/io/DataInput;)V", nullptr, 0, $method(ConstantMethodHandle, init$, void, $DataInput*), "java.io.IOException"},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(ConstantMethodHandle, init$, void, int32_t, int32_t)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ConstantMethodHandle, accept, void, $Visitor*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ConstantMethodHandle, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getReferenceIndex", "()I", nullptr, $PUBLIC, $method(ConstantMethodHandle, getReferenceIndex, int32_t)},
-	{"getReferenceKind", "()I", nullptr, $PUBLIC, $method(ConstantMethodHandle, getReferenceKind, int32_t)},
-	{"setReferenceIndex", "(I)V", nullptr, $PUBLIC, $method(ConstantMethodHandle, setReferenceIndex, void, int32_t)},
-	{"setReferenceKind", "(I)V", nullptr, $PUBLIC, $method(ConstantMethodHandle, setReferenceKind, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantMethodHandle, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ConstantMethodHandle_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.ConstantMethodHandle",
-	"com.sun.org.apache.bcel.internal.classfile.Constant",
-	nullptr,
-	_ConstantMethodHandle_FieldInfo_,
-	_ConstantMethodHandle_MethodInfo_
-};
-
-$Object* allocate$ConstantMethodHandle($Class* clazz) {
-	return $of($alloc(ConstantMethodHandle));
-}
 
 void ConstantMethodHandle::init$(ConstantMethodHandle* c) {
 	int32_t var$0 = $nc(c)->getReferenceKind();
@@ -100,7 +66,7 @@ void ConstantMethodHandle::setReferenceIndex(int32_t reference_index) {
 }
 
 $String* ConstantMethodHandle::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$($Constant::toString()), "(referenceKind = "_s, $$str(this->referenceKind), ", referenceIndex = "_s, $$str(this->referenceIndex), ")"_s});
 }
 
@@ -108,7 +74,35 @@ ConstantMethodHandle::ConstantMethodHandle() {
 }
 
 $Class* ConstantMethodHandle::load$($String* name, bool initialize) {
-	$loadClass(ConstantMethodHandle, name, initialize, &_ConstantMethodHandle_ClassInfo_, allocate$ConstantMethodHandle);
+	$FieldInfo fieldInfos$$[] = {
+		{"referenceKind", "I", nullptr, $PRIVATE, $field(ConstantMethodHandle, referenceKind)},
+		{"referenceIndex", "I", nullptr, $PRIVATE, $field(ConstantMethodHandle, referenceIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantMethodHandle;)V", nullptr, $PUBLIC, $method(ConstantMethodHandle, init$, void, ConstantMethodHandle*)},
+		{"<init>", "(Ljava/io/DataInput;)V", nullptr, 0, $method(ConstantMethodHandle, init$, void, $DataInput*), "java.io.IOException"},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(ConstantMethodHandle, init$, void, int32_t, int32_t)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ConstantMethodHandle, accept, void, $Visitor*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ConstantMethodHandle, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getReferenceIndex", "()I", nullptr, $PUBLIC, $method(ConstantMethodHandle, getReferenceIndex, int32_t)},
+		{"getReferenceKind", "()I", nullptr, $PUBLIC, $method(ConstantMethodHandle, getReferenceKind, int32_t)},
+		{"setReferenceIndex", "(I)V", nullptr, $PUBLIC, $method(ConstantMethodHandle, setReferenceIndex, void, int32_t)},
+		{"setReferenceKind", "(I)V", nullptr, $PUBLIC, $method(ConstantMethodHandle, setReferenceKind, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantMethodHandle, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.ConstantMethodHandle",
+		"com.sun.org.apache.bcel.internal.classfile.Constant",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ConstantMethodHandle, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ConstantMethodHandle));
+	});
 	return class$;
 }
 

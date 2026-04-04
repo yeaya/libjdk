@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredStuckPolicy.h>
-
 #include <com/sun/tools/javac/comp/DeferredAttr.h>
 #include <java/util/Set.h>
 #include <jcpp.h>
@@ -15,40 +14,35 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$MethodInfo _DeferredAttr$DeferredStuckPolicy_MethodInfo_[] = {
-	{"depVars", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC | $ABSTRACT, $virtualMethod(DeferredAttr$DeferredStuckPolicy, depVars, $Set*)},
-	{"isStuck", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DeferredAttr$DeferredStuckPolicy, isStuck, bool)},
-	{"stuckVars", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC | $ABSTRACT, $virtualMethod(DeferredAttr$DeferredStuckPolicy, stuckVars, $Set*)},
-	{}
-};
-
-$InnerClassInfo _DeferredAttr$DeferredStuckPolicy_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.DeferredAttr$DeferredStuckPolicy", "com.sun.tools.javac.comp.DeferredAttr", "DeferredStuckPolicy", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DeferredAttr$DeferredStuckPolicy_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.comp.DeferredAttr$DeferredStuckPolicy",
-	nullptr,
-	nullptr,
-	nullptr,
-	_DeferredAttr$DeferredStuckPolicy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DeferredAttr$DeferredStuckPolicy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.DeferredAttr"
-};
-
-$Object* allocate$DeferredAttr$DeferredStuckPolicy($Class* clazz) {
-	return $of($alloc(DeferredAttr$DeferredStuckPolicy));
-}
-
 $Class* DeferredAttr$DeferredStuckPolicy::load$($String* name, bool initialize) {
-	$loadClass(DeferredAttr$DeferredStuckPolicy, name, initialize, &_DeferredAttr$DeferredStuckPolicy_ClassInfo_, allocate$DeferredAttr$DeferredStuckPolicy);
+	$MethodInfo methodInfos$$[] = {
+		{"depVars", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC | $ABSTRACT, $virtualMethod(DeferredAttr$DeferredStuckPolicy, depVars, $Set*)},
+		{"isStuck", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DeferredAttr$DeferredStuckPolicy, isStuck, bool)},
+		{"stuckVars", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC | $ABSTRACT, $virtualMethod(DeferredAttr$DeferredStuckPolicy, stuckVars, $Set*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.DeferredAttr$DeferredStuckPolicy", "com.sun.tools.javac.comp.DeferredAttr", "DeferredStuckPolicy", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.comp.DeferredAttr$DeferredStuckPolicy",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.DeferredAttr"
+	};
+	$loadClass(DeferredAttr$DeferredStuckPolicy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeferredAttr$DeferredStuckPolicy);
+	});
 	return class$;
 }
 

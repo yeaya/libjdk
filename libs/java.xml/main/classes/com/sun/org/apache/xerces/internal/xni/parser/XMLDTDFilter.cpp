@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDTDFilter.h>
-
 #include <com/sun/org/apache/xerces/internal/xni/XMLDTDHandler.h>
 #include <jcpp.h>
 
@@ -15,28 +14,6 @@ namespace com {
 					namespace internal {
 						namespace xni {
 							namespace parser {
-
-$MethodInfo _XMLDTDFilter_MethodInfo_[] = {
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{}
-};
-
-$ClassInfo _XMLDTDFilter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.xni.parser.XMLDTDFilter",
-	nullptr,
-	"com.sun.org.apache.xerces.internal.xni.XMLDTDHandler,com.sun.org.apache.xerces.internal.xni.parser.XMLDTDSource",
-	nullptr,
-	_XMLDTDFilter_MethodInfo_
-};
-
-$Object* allocate$XMLDTDFilter($Class* clazz) {
-	return $of($alloc(XMLDTDFilter));
-}
 
 int32_t XMLDTDFilter::hashCode() {
 	 return this->$XMLDTDHandler::hashCode();
@@ -59,7 +36,25 @@ void XMLDTDFilter::finalize() {
 }
 
 $Class* XMLDTDFilter::load$($String* name, bool initialize) {
-	$loadClass(XMLDTDFilter, name, initialize, &_XMLDTDFilter_ClassInfo_, allocate$XMLDTDFilter);
+	$MethodInfo methodInfos$$[] = {
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.xni.parser.XMLDTDFilter",
+		nullptr,
+		"com.sun.org.apache.xerces.internal.xni.XMLDTDHandler,com.sun.org.apache.xerces.internal.xni.parser.XMLDTDSource",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XMLDTDFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XMLDTDFilter));
+	});
 	return class$;
 }
 

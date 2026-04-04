@@ -1,5 +1,4 @@
 #include <javax/imageio/spi/ImageWriterSpi.h>
-
 #include <java/awt/image/RenderedImage.h>
 #include <javax/imageio/ImageTypeSpecifier.h>
 #include <javax/imageio/ImageWriter.h>
@@ -24,46 +23,6 @@ namespace javax {
 	namespace imageio {
 		namespace spi {
 
-$CompoundAttribute _ImageWriterSpi_FieldAnnotations_STANDARD_OUTPUT_TYPE[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _ImageWriterSpi_FieldInfo_[] = {
-	{"STANDARD_OUTPUT_TYPE", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(ImageWriterSpi, STANDARD_OUTPUT_TYPE), _ImageWriterSpi_FieldAnnotations_STANDARD_OUTPUT_TYPE},
-	{"outputTypes", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PROTECTED, $field(ImageWriterSpi, outputTypes)},
-	{"readerSpiNames", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageWriterSpi, readerSpiNames)},
-	{"writerClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(ImageWriterSpi, writerClass)},
-	{}
-};
-
-$MethodInfo _ImageWriterSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(ImageWriterSpi, init$, void)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Class<*>;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V", $PUBLIC, $method(ImageWriterSpi, init$, void, $String*, $String*, $StringArray*, $StringArray*, $StringArray*, $String*, $ClassArray*, $StringArray*, bool, $String*, $String*, $StringArray*, $StringArray*, bool, $String*, $String*, $StringArray*, $StringArray*)},
-	{"canEncodeImage", "(Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageWriterSpi, canEncodeImage, bool, $ImageTypeSpecifier*)},
-	{"canEncodeImage", "(Ljava/awt/image/RenderedImage;)Z", nullptr, $PUBLIC, $virtualMethod(ImageWriterSpi, canEncodeImage, bool, $RenderedImage*)},
-	{"createWriterInstance", "()Ljavax/imageio/ImageWriter;", nullptr, $PUBLIC, $virtualMethod(ImageWriterSpi, createWriterInstance, $ImageWriter*), "java.io.IOException"},
-	{"createWriterInstance", "(Ljava/lang/Object;)Ljavax/imageio/ImageWriter;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageWriterSpi, createWriterInstance, $ImageWriter*, Object$*), "java.io.IOException"},
-	{"getImageReaderSpiNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageWriterSpi, getImageReaderSpiNames, $StringArray*)},
-	{"getOutputTypes", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(ImageWriterSpi, getOutputTypes, $ClassArray*)},
-	{"isFormatLossless", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageWriterSpi, isFormatLossless, bool)},
-	{"isOwnWriter", "(Ljavax/imageio/ImageWriter;)Z", nullptr, $PUBLIC, $virtualMethod(ImageWriterSpi, isOwnWriter, bool, $ImageWriter*)},
-	{}
-};
-
-$ClassInfo _ImageWriterSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.imageio.spi.ImageWriterSpi",
-	"javax.imageio.spi.ImageReaderWriterSpi",
-	nullptr,
-	_ImageWriterSpi_FieldInfo_,
-	_ImageWriterSpi_MethodInfo_
-};
-
-$Object* allocate$ImageWriterSpi($Class* clazz) {
-	return $of($alloc(ImageWriterSpi));
-}
-
 $ClassArray* ImageWriterSpi::STANDARD_OUTPUT_TYPE = nullptr;
 
 void ImageWriterSpi::init$() {
@@ -85,7 +44,7 @@ void ImageWriterSpi::init$($String* vendorName, $String* version, $StringArray* 
 		$throwNew($IllegalArgumentException, "outputTypes.length == 0!"_s);
 	}
 	$load($ImageOutputStream);
-	$set(this, outputTypes, (outputTypes == ImageWriterSpi::STANDARD_OUTPUT_TYPE) ? $new($ClassArray, {$ImageOutputStream::class$}) : $cast($ClassArray, $nc(outputTypes)->clone()));
+	$set(this, outputTypes, (outputTypes == ImageWriterSpi::STANDARD_OUTPUT_TYPE) ? $new($ClassArray, {$ImageOutputStream::class$}) : $cast($ClassArray, outputTypes->clone()));
 	if (readerSpiNames != nullptr && readerSpiNames->length > 0) {
 		$set(this, readerSpiNames, $cast($StringArray, readerSpiNames->clone()));
 	}
@@ -116,10 +75,10 @@ bool ImageWriterSpi::isOwnWriter($ImageWriter* writer) {
 }
 
 $StringArray* ImageWriterSpi::getImageReaderSpiNames() {
-	return this->readerSpiNames == nullptr ? ($StringArray*)nullptr : $cast($StringArray, $nc(this->readerSpiNames)->clone());
+	return this->readerSpiNames == nullptr ? ($StringArray*)nullptr : $cast($StringArray, this->readerSpiNames->clone());
 }
 
-void clinit$ImageWriterSpi($Class* class$) {
+void ImageWriterSpi::clinit$($Class* clazz) {
 	$load($ImageOutputStream);
 	$assignStatic(ImageWriterSpi::STANDARD_OUTPUT_TYPE, $new($ClassArray, {$ImageOutputStream::class$}));
 }
@@ -128,7 +87,41 @@ ImageWriterSpi::ImageWriterSpi() {
 }
 
 $Class* ImageWriterSpi::load$($String* name, bool initialize) {
-	$loadClass(ImageWriterSpi, name, initialize, &_ImageWriterSpi_ClassInfo_, clinit$ImageWriterSpi, allocate$ImageWriterSpi);
+	$CompoundAttribute STANDARD_OUTPUT_TYPEfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"STANDARD_OUTPUT_TYPE", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(ImageWriterSpi, STANDARD_OUTPUT_TYPE), STANDARD_OUTPUT_TYPEfieldAnnotations$$},
+		{"outputTypes", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PROTECTED, $field(ImageWriterSpi, outputTypes)},
+		{"readerSpiNames", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageWriterSpi, readerSpiNames)},
+		{"writerClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(ImageWriterSpi, writerClass)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(ImageWriterSpi, init$, void)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Class<*>;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V", $PUBLIC, $method(ImageWriterSpi, init$, void, $String*, $String*, $StringArray*, $StringArray*, $StringArray*, $String*, $ClassArray*, $StringArray*, bool, $String*, $String*, $StringArray*, $StringArray*, bool, $String*, $String*, $StringArray*, $StringArray*)},
+		{"canEncodeImage", "(Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageWriterSpi, canEncodeImage, bool, $ImageTypeSpecifier*)},
+		{"canEncodeImage", "(Ljava/awt/image/RenderedImage;)Z", nullptr, $PUBLIC, $virtualMethod(ImageWriterSpi, canEncodeImage, bool, $RenderedImage*)},
+		{"createWriterInstance", "()Ljavax/imageio/ImageWriter;", nullptr, $PUBLIC, $virtualMethod(ImageWriterSpi, createWriterInstance, $ImageWriter*), "java.io.IOException"},
+		{"createWriterInstance", "(Ljava/lang/Object;)Ljavax/imageio/ImageWriter;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageWriterSpi, createWriterInstance, $ImageWriter*, Object$*), "java.io.IOException"},
+		{"getImageReaderSpiNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageWriterSpi, getImageReaderSpiNames, $StringArray*)},
+		{"getOutputTypes", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(ImageWriterSpi, getOutputTypes, $ClassArray*)},
+		{"isFormatLossless", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageWriterSpi, isFormatLossless, bool)},
+		{"isOwnWriter", "(Ljavax/imageio/ImageWriter;)Z", nullptr, $PUBLIC, $virtualMethod(ImageWriterSpi, isOwnWriter, bool, $ImageWriter*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.imageio.spi.ImageWriterSpi",
+		"javax.imageio.spi.ImageReaderWriterSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ImageWriterSpi, name, initialize, &classInfo$$, ImageWriterSpi::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageWriterSpi);
+	});
 	return class$;
 }
 

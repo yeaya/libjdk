@@ -15,6 +15,7 @@ class Arguments$3 : public ::java::lang::Object {
 	$class(Arguments$3, 0, ::java::lang::Object)
 public:
 	Arguments$3();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$main$Arguments$ErrorMode;
 };
 

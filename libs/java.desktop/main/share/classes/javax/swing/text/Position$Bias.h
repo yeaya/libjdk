@@ -13,6 +13,7 @@ class $export Position$Bias : public ::java::lang::Object {
 	$class(Position$Bias, 0, ::java::lang::Object)
 public:
 	Position$Bias();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	virtual $String* toString() override;
 	static ::javax::swing::text::Position$Bias* Forward;

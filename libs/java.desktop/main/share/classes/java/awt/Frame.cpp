@@ -1,5 +1,4 @@
 #include <java/awt/Frame.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Container.h>
 #include <java/awt/Cursor.h>
@@ -27,7 +26,6 @@
 #include <java/util/List.h>
 #include <java/util/Vector.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <sun/awt/AWTAccessor$FrameAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <sun/awt/ComponentFactory.h>
 #include <sun/awt/SunToolkit.h>
@@ -56,7 +54,6 @@
 using $FrameArray = $Array<::java::awt::Frame>;
 using $WindowArray = $Array<::java::awt::Window>;
 using $Color = ::java::awt::Color;
-using $Container = ::java::awt::Container;
 using $Cursor = ::java::awt::Cursor;
 using $Frame$1 = ::java::awt::Frame$1;
 using $Frame$AccessibleAWTFrame = ::java::awt::Frame$AccessibleAWTFrame;
@@ -66,13 +63,11 @@ using $IllegalComponentStateException = ::java::awt::IllegalComponentStateExcept
 using $Image = ::java::awt::Image;
 using $MenuBar = ::java::awt::MenuBar;
 using $MenuComponent = ::java::awt::MenuComponent;
-using $MenuContainer = ::java::awt::MenuContainer;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
 using $Toolkit = ::java::awt::Toolkit;
 using $Window = ::java::awt::Window;
 using $KeyEvent = ::java::awt::event::KeyEvent;
-using $ComponentPeer = ::java::awt::peer::ComponentPeer;
 using $FramePeer = ::java::awt::peer::FramePeer;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
@@ -87,199 +82,12 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
-using $Vector = ::java::util::Vector;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$FrameAccessor = ::sun::awt::AWTAccessor$FrameAccessor;
-using $ComponentFactory = ::sun::awt::ComponentFactory;
 using $SunToolkit = ::sun::awt::SunToolkit;
 
 namespace java {
 	namespace awt {
-
-$CompoundAttribute _Frame_FieldAnnotations_DEFAULT_CURSOR[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Frame_FieldAnnotations_CROSSHAIR_CURSOR[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Frame_FieldAnnotations_TEXT_CURSOR[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Frame_FieldAnnotations_WAIT_CURSOR[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Frame_FieldAnnotations_SW_RESIZE_CURSOR[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Frame_FieldAnnotations_SE_RESIZE_CURSOR[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Frame_FieldAnnotations_NW_RESIZE_CURSOR[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Frame_FieldAnnotations_NE_RESIZE_CURSOR[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Frame_FieldAnnotations_N_RESIZE_CURSOR[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Frame_FieldAnnotations_S_RESIZE_CURSOR[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Frame_FieldAnnotations_W_RESIZE_CURSOR[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Frame_FieldAnnotations_E_RESIZE_CURSOR[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Frame_FieldAnnotations_HAND_CURSOR[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Frame_FieldAnnotations_MOVE_CURSOR[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Frame_MethodAnnotations_getCursorType7[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Frame_MethodAnnotations_setCursor26[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _Frame_FieldInfo_[] = {
-	{"DEFAULT_CURSOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Frame, DEFAULT_CURSOR), _Frame_FieldAnnotations_DEFAULT_CURSOR},
-	{"CROSSHAIR_CURSOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Frame, CROSSHAIR_CURSOR), _Frame_FieldAnnotations_CROSSHAIR_CURSOR},
-	{"TEXT_CURSOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Frame, TEXT_CURSOR), _Frame_FieldAnnotations_TEXT_CURSOR},
-	{"WAIT_CURSOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Frame, WAIT_CURSOR), _Frame_FieldAnnotations_WAIT_CURSOR},
-	{"SW_RESIZE_CURSOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Frame, SW_RESIZE_CURSOR), _Frame_FieldAnnotations_SW_RESIZE_CURSOR},
-	{"SE_RESIZE_CURSOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Frame, SE_RESIZE_CURSOR), _Frame_FieldAnnotations_SE_RESIZE_CURSOR},
-	{"NW_RESIZE_CURSOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Frame, NW_RESIZE_CURSOR), _Frame_FieldAnnotations_NW_RESIZE_CURSOR},
-	{"NE_RESIZE_CURSOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Frame, NE_RESIZE_CURSOR), _Frame_FieldAnnotations_NE_RESIZE_CURSOR},
-	{"N_RESIZE_CURSOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Frame, N_RESIZE_CURSOR), _Frame_FieldAnnotations_N_RESIZE_CURSOR},
-	{"S_RESIZE_CURSOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Frame, S_RESIZE_CURSOR), _Frame_FieldAnnotations_S_RESIZE_CURSOR},
-	{"W_RESIZE_CURSOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Frame, W_RESIZE_CURSOR), _Frame_FieldAnnotations_W_RESIZE_CURSOR},
-	{"E_RESIZE_CURSOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Frame, E_RESIZE_CURSOR), _Frame_FieldAnnotations_E_RESIZE_CURSOR},
-	{"HAND_CURSOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Frame, HAND_CURSOR), _Frame_FieldAnnotations_HAND_CURSOR},
-	{"MOVE_CURSOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Frame, MOVE_CURSOR), _Frame_FieldAnnotations_MOVE_CURSOR},
-	{"NORMAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Frame, NORMAL)},
-	{"ICONIFIED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Frame, ICONIFIED)},
-	{"MAXIMIZED_HORIZ", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Frame, MAXIMIZED_HORIZ)},
-	{"MAXIMIZED_VERT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Frame, MAXIMIZED_VERT)},
-	{"MAXIMIZED_BOTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Frame, MAXIMIZED_BOTH)},
-	{"maximizedBounds", "Ljava/awt/Rectangle;", nullptr, 0, $field(Frame, maximizedBounds)},
-	{"title", "Ljava/lang/String;", nullptr, 0, $field(Frame, title)},
-	{"menuBar", "Ljava/awt/MenuBar;", nullptr, 0, $field(Frame, menuBar)},
-	{"resizable", "Z", nullptr, 0, $field(Frame, resizable)},
-	{"undecorated", "Z", nullptr, 0, $field(Frame, undecorated)},
-	{"mbManagement", "Z", nullptr, 0, $field(Frame, mbManagement)},
-	{"state", "I", nullptr, $PRIVATE, $field(Frame, state)},
-	{"ownedWindows", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/awt/Window;>;", 0, $field(Frame, ownedWindows)},
-	{"base", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Frame, base)},
-	{"nameCounter", "I", nullptr, $PRIVATE | $STATIC, $staticField(Frame, nameCounter)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Frame, serialVersionUID)},
-	{"frameSerializedDataVersion", "I", nullptr, $PRIVATE, $field(Frame, frameSerializedDataVersion)},
-	{}
-};
-
-$MethodInfo _Frame_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Frame, init$, void), "java.awt.HeadlessException"},
-	{"<init>", "(Ljava/awt/GraphicsConfiguration;)V", nullptr, $PUBLIC, $method(Frame, init$, void, $GraphicsConfiguration*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Frame, init$, void, $String*), "java.awt.HeadlessException"},
-	{"<init>", "(Ljava/lang/String;Ljava/awt/GraphicsConfiguration;)V", nullptr, $PUBLIC, $method(Frame, init$, void, $String*, $GraphicsConfiguration*)},
-	{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(Frame, addNotify, void)},
-	{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Frame, constructComponentName, $String*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(Frame, getAccessibleContext, $AccessibleContext*)},
-	{"getCursorType", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Frame, getCursorType, int32_t), nullptr, nullptr, _Frame_MethodAnnotations_getCursorType7},
-	{"getExtendedState", "()I", nullptr, $PUBLIC, $virtualMethod(Frame, getExtendedState, int32_t)},
-	{"getFrames", "()[Ljava/awt/Frame;", nullptr, $PUBLIC | $STATIC, $staticMethod(Frame, getFrames, $FrameArray*)},
-	{"getIconImage", "()Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(Frame, getIconImage, $Image*)},
-	{"getMaximizedBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(Frame, getMaximizedBounds, $Rectangle*)},
-	{"getMenuBar", "()Ljava/awt/MenuBar;", nullptr, $PUBLIC, $virtualMethod(Frame, getMenuBar, $MenuBar*)},
-	{"getState", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Frame, getState, int32_t)},
-	{"getTitle", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Frame, getTitle, $String*)},
-	{"init", "(Ljava/lang/String;Ljava/awt/GraphicsConfiguration;)V", nullptr, $PRIVATE, $method(Frame, init, void, $String*, $GraphicsConfiguration*)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Frame, initIDs, void)},
-	{"isFrameStateSupported", "(I)Z", nullptr, $PRIVATE, $method(Frame, isFrameStateSupported, bool, int32_t)},
-	{"isResizable", "()Z", nullptr, $PUBLIC, $virtualMethod(Frame, isResizable, bool)},
-	{"isUndecorated", "()Z", nullptr, $PUBLIC, $virtualMethod(Frame, isUndecorated, bool)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Frame, paramString, $String*)},
-	{"postProcessKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(Frame, postProcessKeyEvent, void, $KeyEvent*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Frame, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException,java.awt.HeadlessException"},
-	{"remove", "(Ljava/awt/MenuComponent;)V", nullptr, $PUBLIC, $virtualMethod(Frame, remove, void, $MenuComponent*)},
-	{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(Frame, removeNotify, void)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(Frame, setBackground, void, $Color*)},
-	{"setCursor", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Frame, setCursor, void, int32_t), nullptr, nullptr, _Frame_MethodAnnotations_setCursor26},
-	{"setExtendedState", "(I)V", nullptr, $PUBLIC, $virtualMethod(Frame, setExtendedState, void, int32_t)},
-	{"setIconImage", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(Frame, setIconImage, void, $Image*)},
-	{"setMaximizedBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(Frame, setMaximizedBounds, void, $Rectangle*)},
-	{"setMenuBar", "(Ljava/awt/MenuBar;)V", nullptr, $PUBLIC, $virtualMethod(Frame, setMenuBar, void, $MenuBar*)},
-	{"setOpacity", "(F)V", nullptr, $PUBLIC, $virtualMethod(Frame, setOpacity, void, float)},
-	{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Frame, setResizable, void, bool)},
-	{"setShape", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(Frame, setShape, void, $Shape*)},
-	{"setState", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Frame, setState, void, int32_t)},
-	{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Frame, setTitle, void, $String*)},
-	{"setUndecorated", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Frame, setUndecorated, void, bool)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Frame, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 16
-
-$InnerClassInfo _Frame_InnerClassesInfo_[] = {
-	{"java.awt.Frame$AccessibleAWTFrame", "java.awt.Frame", "AccessibleAWTFrame", $PROTECTED},
-	{"java.awt.Frame$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Frame_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Frame",
-	"java.awt.Window",
-	nullptr,
-	_Frame_FieldInfo_,
-	_Frame_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Frame_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.Frame$AccessibleAWTFrame,java.awt.Frame$1"
-};
-
-$Object* allocate$Frame($Class* clazz) {
-	return $of($alloc(Frame));
-}
 
 $String* Frame::base = nullptr;
 int32_t Frame::nameCounter = 0;
@@ -320,18 +128,19 @@ void Frame::init($String* title, $GraphicsConfiguration* gc) {
 }
 
 $String* Frame::constructComponentName() {
-	$useLocalCurrentObjectStackCache();
 	$synchronized(Frame::class$) {
-		$var($String, var$0, Frame::base);
-		return $concat(var$0, $$str(Frame::nameCounter++));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append(Frame::base);
+		var$0->append(Frame::nameCounter++);
+		return $str(var$0);
 	}
 }
 
 void Frame::addNotify() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getTreeLock()) {
 		if (this->peer == nullptr) {
-			$set(this, peer, $nc($(getComponentFactory()))->createFrame(this));
+			$set(this, peer, $$nc(getComponentFactory())->createFrame(this));
 		}
 		$var($FramePeer, p, $cast($FramePeer, this->peer));
 		$var($MenuBar, menuBar, this->menuBar);
@@ -350,7 +159,7 @@ $String* Frame::getTitle() {
 }
 
 void Frame::setTitle($String* title$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, title, title$renamed);
 	$var($String, oldTitle, this->title);
 	if (title == nullptr) {
@@ -363,7 +172,7 @@ void Frame::setTitle($String* title$renamed) {
 			peer->setTitle(title);
 		}
 	}
-	firePropertyChange("title"_s, $of(oldTitle), $of(title));
+	firePropertyChange("title"_s, oldTitle, title);
 }
 
 $Image* Frame::getIconImage() {
@@ -393,15 +202,15 @@ void Frame::setMenuBar($MenuBar* mb) {
 			$nc(mb->parent)->remove(mb);
 		}
 		if (this->menuBar != nullptr) {
-			remove(static_cast<$MenuComponent*>(this->menuBar));
+			remove(this->menuBar);
 		}
 		$set(this, menuBar, mb);
 		if (this->menuBar != nullptr) {
-			$set($nc(this->menuBar), parent, this);
+			$set(this->menuBar, parent, this);
 			$var($FramePeer, peer, $cast($FramePeer, this->peer));
 			if (peer != nullptr) {
 				this->mbManagement = true;
-				$nc(this->menuBar)->addNotify();
+				this->menuBar->addNotify();
 				invalidateIfValid();
 				peer->setMenuBar(this->menuBar);
 			}
@@ -433,10 +242,10 @@ void Frame::setResizable(bool resizable) {
 void Frame::setState(int32_t state) {
 	$synchronized(this) {
 		int32_t current = getExtendedState();
-		if (state == Frame::ICONIFIED && ((int32_t)(current & (uint32_t)Frame::ICONIFIED)) == 0) {
+		if (state == Frame::ICONIFIED && (current & Frame::ICONIFIED) == 0) {
 			setExtendedState(current | Frame::ICONIFIED);
-		} else if (state == Frame::NORMAL && ((int32_t)(current & (uint32_t)Frame::ICONIFIED)) != 0) {
-			setExtendedState((int32_t)(current & (uint32_t)~Frame::ICONIFIED));
+		} else if (state == Frame::NORMAL && (current & Frame::ICONIFIED) != 0) {
+			setExtendedState(current & ~Frame::ICONIFIED);
 		}
 	}
 }
@@ -455,21 +264,21 @@ void Frame::setExtendedState(int32_t state) {
 }
 
 bool Frame::isFrameStateSupported(int32_t state) {
-	$useLocalCurrentObjectStackCache();
-	if (!$nc($(getToolkit()))->isFrameStateSupported(state)) {
-		if ((((int32_t)(state & (uint32_t)Frame::ICONIFIED)) != 0) && !$nc($(getToolkit()))->isFrameStateSupported(Frame::ICONIFIED)) {
+	$useLocalObjectStack();
+	if (!$$nc(getToolkit())->isFrameStateSupported(state)) {
+		if (((state & Frame::ICONIFIED) != 0) && !$$nc(getToolkit())->isFrameStateSupported(Frame::ICONIFIED)) {
 			return false;
 		} else {
 			state &= (uint32_t)~Frame::ICONIFIED;
 		}
-		return $nc($(getToolkit()))->isFrameStateSupported(state);
+		return $$nc(getToolkit())->isFrameStateSupported(state);
 	}
 	return true;
 }
 
 int32_t Frame::getState() {
 	$synchronized(this) {
-		return ((int32_t)(getExtendedState() & (uint32_t)Frame::ICONIFIED)) != 0 ? Frame::ICONIFIED : Frame::NORMAL;
+		return (getExtendedState() & Frame::ICONIFIED) != 0 ? Frame::ICONIFIED : Frame::NORMAL;
 	}
 }
 
@@ -585,7 +394,7 @@ void Frame::removeNotify() {
 }
 
 void Frame::postProcessKeyEvent($KeyEvent* e) {
-	if (this->menuBar != nullptr && $nc(this->menuBar)->handleShortcut(e)) {
+	if (this->menuBar != nullptr && this->menuBar->handleShortcut(e)) {
 		$nc(e)->consume();
 		return;
 	}
@@ -593,7 +402,7 @@ void Frame::postProcessKeyEvent($KeyEvent* e) {
 }
 
 $String* Frame::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, $Window::paramString());
 	if (this->title != nullptr) {
 		$plusAssign(str, $$str({",title="_s, this->title}));
@@ -605,14 +414,14 @@ $String* Frame::paramString() {
 	if (state == Frame::NORMAL) {
 		$plusAssign(str, ",normal"_s);
 	} else {
-		if (((int32_t)(state & (uint32_t)Frame::ICONIFIED)) != 0) {
+		if ((state & Frame::ICONIFIED) != 0) {
 			$plusAssign(str, ",iconified"_s);
 		}
-		if (((int32_t)(state & (uint32_t)Frame::MAXIMIZED_BOTH)) == Frame::MAXIMIZED_BOTH) {
+		if ((state & Frame::MAXIMIZED_BOTH) == Frame::MAXIMIZED_BOTH) {
 			$plusAssign(str, ",maximized"_s);
-		} else if (((int32_t)(state & (uint32_t)Frame::MAXIMIZED_HORIZ)) != 0) {
+		} else if ((state & Frame::MAXIMIZED_HORIZ) != 0) {
 			$plusAssign(str, ",maximized_horiz"_s);
-		} else if (((int32_t)(state & (uint32_t)Frame::MAXIMIZED_VERT)) != 0) {
+		} else if ((state & Frame::MAXIMIZED_VERT) != 0) {
 			$plusAssign(str, ",maximized_vert"_s);
 		}
 	}
@@ -627,24 +436,20 @@ void Frame::setCursor(int32_t cursorType) {
 }
 
 int32_t Frame::getCursorType() {
-	return ($nc($(getCursor()))->getType());
+	return ($$nc(getCursor())->getType());
 }
 
 $FrameArray* Frame::getFrames() {
 	$init(Frame);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WindowArray, allWindows, $Window::getWindows());
 	int32_t frameCount = 0;
 	{
 		$var($WindowArray, arr$, allWindows);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Window, w, arr$->get(i$));
-			{
-				if ($instanceOf(Frame, w)) {
-					++frameCount;
-				}
+			if ($instanceOf(Frame, w)) {
+				++frameCount;
 			}
 		}
 	}
@@ -652,14 +457,10 @@ $FrameArray* Frame::getFrames() {
 	int32_t c = 0;
 	{
 		$var($WindowArray, arr$, allWindows);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Window, w, arr$->get(i$));
-			{
-				if ($instanceOf(Frame, w)) {
-					frames->set(c++, $cast(Frame, w));
-				}
+			if ($instanceOf(Frame, w)) {
+				frames->set(c++, $cast(Frame, w));
 			}
 		}
 	}
@@ -668,8 +469,8 @@ $FrameArray* Frame::getFrames() {
 
 void Frame::writeObject($ObjectOutputStream* s) {
 	$nc(s)->defaultWriteObject();
-	if (this->icons != nullptr && $nc(this->icons)->size() > 0) {
-		$var($Image, icon1, $cast($Image, $nc(this->icons)->get(0)));
+	if (this->icons != nullptr && this->icons->size() > 0) {
+		$var($Image, icon1, $cast($Image, this->icons->get(0)));
 		if ($instanceOf($Serializable, icon1)) {
 			s->writeObject(icon1);
 			return;
@@ -679,13 +480,13 @@ void Frame::writeObject($ObjectOutputStream* s) {
 }
 
 void Frame::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultReadObject();
 	try {
 		$var($Image, icon, $cast($Image, s->readObject()));
 		if (this->icons == nullptr) {
 			$set(this, icons, $new($ArrayList));
-			$nc(this->icons)->add(icon);
+			this->icons->add(icon);
 		}
 	} catch ($OptionalDataException& e) {
 		if (!e->eof) {
@@ -693,11 +494,11 @@ void Frame::readObject($ObjectInputStream* s) {
 		}
 	}
 	if (this->menuBar != nullptr) {
-		$set($nc(this->menuBar), parent, this);
+		$set(this->menuBar, parent, this);
 	}
 	if (this->ownedWindows != nullptr) {
 		for (int32_t i = 0; i < $nc(this->ownedWindows)->size(); ++i) {
-			connectOwnedWindow($cast($Window, $($nc(this->ownedWindows)->elementAt(i))));
+			connectOwnedWindow($$cast($Window, this->ownedWindows->elementAt(i)));
 		}
 		$set(this, ownedWindows, nullptr);
 	}
@@ -705,7 +506,7 @@ void Frame::readObject($ObjectInputStream* s) {
 
 void Frame::initIDs() {
 	$init(Frame);
-	$prepareNativeStatic(Frame, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -717,7 +518,7 @@ $AccessibleContext* Frame::getAccessibleContext() {
 	return this->accessibleContext;
 }
 
-void clinit$Frame($Class* class$) {
+void Frame::clinit$($Class* clazz) {
 	$assignStatic(Frame::base, "frame"_s);
 	Frame::nameCounter = 0;
 	{
@@ -735,7 +536,167 @@ Frame::Frame() {
 }
 
 $Class* Frame::load$($String* name, bool initialize) {
-	$loadClass(Frame, name, initialize, &_Frame_ClassInfo_, clinit$Frame, allocate$Frame);
+	$CompoundAttribute DEFAULT_CURSORfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute CROSSHAIR_CURSORfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute TEXT_CURSORfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute WAIT_CURSORfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute SW_RESIZE_CURSORfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute SE_RESIZE_CURSORfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute NW_RESIZE_CURSORfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute NE_RESIZE_CURSORfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute N_RESIZE_CURSORfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute S_RESIZE_CURSORfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute W_RESIZE_CURSORfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute E_RESIZE_CURSORfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute HAND_CURSORfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute MOVE_CURSORfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_CURSOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Frame, DEFAULT_CURSOR), DEFAULT_CURSORfieldAnnotations$$},
+		{"CROSSHAIR_CURSOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Frame, CROSSHAIR_CURSOR), CROSSHAIR_CURSORfieldAnnotations$$},
+		{"TEXT_CURSOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Frame, TEXT_CURSOR), TEXT_CURSORfieldAnnotations$$},
+		{"WAIT_CURSOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Frame, WAIT_CURSOR), WAIT_CURSORfieldAnnotations$$},
+		{"SW_RESIZE_CURSOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Frame, SW_RESIZE_CURSOR), SW_RESIZE_CURSORfieldAnnotations$$},
+		{"SE_RESIZE_CURSOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Frame, SE_RESIZE_CURSOR), SE_RESIZE_CURSORfieldAnnotations$$},
+		{"NW_RESIZE_CURSOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Frame, NW_RESIZE_CURSOR), NW_RESIZE_CURSORfieldAnnotations$$},
+		{"NE_RESIZE_CURSOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Frame, NE_RESIZE_CURSOR), NE_RESIZE_CURSORfieldAnnotations$$},
+		{"N_RESIZE_CURSOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Frame, N_RESIZE_CURSOR), N_RESIZE_CURSORfieldAnnotations$$},
+		{"S_RESIZE_CURSOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Frame, S_RESIZE_CURSOR), S_RESIZE_CURSORfieldAnnotations$$},
+		{"W_RESIZE_CURSOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Frame, W_RESIZE_CURSOR), W_RESIZE_CURSORfieldAnnotations$$},
+		{"E_RESIZE_CURSOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Frame, E_RESIZE_CURSOR), E_RESIZE_CURSORfieldAnnotations$$},
+		{"HAND_CURSOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Frame, HAND_CURSOR), HAND_CURSORfieldAnnotations$$},
+		{"MOVE_CURSOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Frame, MOVE_CURSOR), MOVE_CURSORfieldAnnotations$$},
+		{"NORMAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Frame, NORMAL)},
+		{"ICONIFIED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Frame, ICONIFIED)},
+		{"MAXIMIZED_HORIZ", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Frame, MAXIMIZED_HORIZ)},
+		{"MAXIMIZED_VERT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Frame, MAXIMIZED_VERT)},
+		{"MAXIMIZED_BOTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Frame, MAXIMIZED_BOTH)},
+		{"maximizedBounds", "Ljava/awt/Rectangle;", nullptr, 0, $field(Frame, maximizedBounds)},
+		{"title", "Ljava/lang/String;", nullptr, 0, $field(Frame, title)},
+		{"menuBar", "Ljava/awt/MenuBar;", nullptr, 0, $field(Frame, menuBar)},
+		{"resizable", "Z", nullptr, 0, $field(Frame, resizable)},
+		{"undecorated", "Z", nullptr, 0, $field(Frame, undecorated)},
+		{"mbManagement", "Z", nullptr, 0, $field(Frame, mbManagement)},
+		{"state", "I", nullptr, $PRIVATE, $field(Frame, state)},
+		{"ownedWindows", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/awt/Window;>;", 0, $field(Frame, ownedWindows)},
+		{"base", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Frame, base)},
+		{"nameCounter", "I", nullptr, $PRIVATE | $STATIC, $staticField(Frame, nameCounter)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Frame, serialVersionUID)},
+		{"frameSerializedDataVersion", "I", nullptr, $PRIVATE, $field(Frame, frameSerializedDataVersion)},
+		{}
+	};
+	$CompoundAttribute getCursorTypemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute setCursormethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Frame, init$, void), "java.awt.HeadlessException"},
+		{"<init>", "(Ljava/awt/GraphicsConfiguration;)V", nullptr, $PUBLIC, $method(Frame, init$, void, $GraphicsConfiguration*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Frame, init$, void, $String*), "java.awt.HeadlessException"},
+		{"<init>", "(Ljava/lang/String;Ljava/awt/GraphicsConfiguration;)V", nullptr, $PUBLIC, $method(Frame, init$, void, $String*, $GraphicsConfiguration*)},
+		{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(Frame, addNotify, void)},
+		{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Frame, constructComponentName, $String*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(Frame, getAccessibleContext, $AccessibleContext*)},
+		{"getCursorType", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Frame, getCursorType, int32_t), nullptr, nullptr, getCursorTypemethodAnnotations$$},
+		{"getExtendedState", "()I", nullptr, $PUBLIC, $virtualMethod(Frame, getExtendedState, int32_t)},
+		{"getFrames", "()[Ljava/awt/Frame;", nullptr, $PUBLIC | $STATIC, $staticMethod(Frame, getFrames, $FrameArray*)},
+		{"getIconImage", "()Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(Frame, getIconImage, $Image*)},
+		{"getMaximizedBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(Frame, getMaximizedBounds, $Rectangle*)},
+		{"getMenuBar", "()Ljava/awt/MenuBar;", nullptr, $PUBLIC, $virtualMethod(Frame, getMenuBar, $MenuBar*)},
+		{"getState", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Frame, getState, int32_t)},
+		{"getTitle", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Frame, getTitle, $String*)},
+		{"init", "(Ljava/lang/String;Ljava/awt/GraphicsConfiguration;)V", nullptr, $PRIVATE, $method(Frame, init, void, $String*, $GraphicsConfiguration*)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Frame, initIDs, void)},
+		{"isFrameStateSupported", "(I)Z", nullptr, $PRIVATE, $method(Frame, isFrameStateSupported, bool, int32_t)},
+		{"isResizable", "()Z", nullptr, $PUBLIC, $virtualMethod(Frame, isResizable, bool)},
+		{"isUndecorated", "()Z", nullptr, $PUBLIC, $virtualMethod(Frame, isUndecorated, bool)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Frame, paramString, $String*)},
+		{"postProcessKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(Frame, postProcessKeyEvent, void, $KeyEvent*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Frame, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException,java.awt.HeadlessException"},
+		{"remove", "(Ljava/awt/MenuComponent;)V", nullptr, $PUBLIC, $virtualMethod(Frame, remove, void, $MenuComponent*)},
+		{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(Frame, removeNotify, void)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(Frame, setBackground, void, $Color*)},
+		{"setCursor", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Frame, setCursor, void, int32_t), nullptr, nullptr, setCursormethodAnnotations$$},
+		{"setExtendedState", "(I)V", nullptr, $PUBLIC, $virtualMethod(Frame, setExtendedState, void, int32_t)},
+		{"setIconImage", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(Frame, setIconImage, void, $Image*)},
+		{"setMaximizedBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(Frame, setMaximizedBounds, void, $Rectangle*)},
+		{"setMenuBar", "(Ljava/awt/MenuBar;)V", nullptr, $PUBLIC, $virtualMethod(Frame, setMenuBar, void, $MenuBar*)},
+		{"setOpacity", "(F)V", nullptr, $PUBLIC, $virtualMethod(Frame, setOpacity, void, float)},
+		{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Frame, setResizable, void, bool)},
+		{"setShape", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(Frame, setShape, void, $Shape*)},
+		{"setState", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Frame, setState, void, int32_t)},
+		{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Frame, setTitle, void, $String*)},
+		{"setUndecorated", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Frame, setUndecorated, void, bool)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Frame, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Frame$AccessibleAWTFrame", "java.awt.Frame", "AccessibleAWTFrame", $PROTECTED},
+		{"java.awt.Frame$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Frame",
+		"java.awt.Window",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.Frame$AccessibleAWTFrame,java.awt.Frame$1"
+	};
+	$loadClass(Frame, name, initialize, &classInfo$$, Frame::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Frame));
+	});
 	return class$;
 }
 

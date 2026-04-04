@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/Method.h>
-
 #include <jcpp.h>
 
 #undef HTML
@@ -20,33 +19,6 @@ namespace com {
 					namespace internal {
 						namespace serializer {
 
-$FieldInfo _Method_FieldInfo_[] = {
-	{"XML", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Method, XML)},
-	{"HTML", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Method, HTML)},
-	{"XHTML", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Method, XHTML)},
-	{"TEXT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Method, TEXT)},
-	{"UNKNOWN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Method, UNKNOWN)},
-	{}
-};
-
-$MethodInfo _Method_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Method, init$, void)},
-	{}
-};
-
-$ClassInfo _Method_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serializer.Method",
-	"java.lang.Object",
-	nullptr,
-	_Method_FieldInfo_,
-	_Method_MethodInfo_
-};
-
-$Object* allocate$Method($Class* clazz) {
-	return $of($alloc(Method));
-}
-
 $String* Method::XML = nullptr;
 $String* Method::HTML = nullptr;
 $String* Method::XHTML = nullptr;
@@ -59,7 +31,7 @@ void Method::init$() {
 Method::Method() {
 }
 
-void clinit$Method($Class* class$) {
+void Method::clinit$($Class* clazz) {
 	$assignStatic(Method::XML, "xml"_s);
 	$assignStatic(Method::HTML, "html"_s);
 	$assignStatic(Method::XHTML, "xhtml"_s);
@@ -68,7 +40,29 @@ void clinit$Method($Class* class$) {
 }
 
 $Class* Method::load$($String* name, bool initialize) {
-	$loadClass(Method, name, initialize, &_Method_ClassInfo_, clinit$Method, allocate$Method);
+	$FieldInfo fieldInfos$$[] = {
+		{"XML", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Method, XML)},
+		{"HTML", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Method, HTML)},
+		{"XHTML", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Method, XHTML)},
+		{"TEXT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Method, TEXT)},
+		{"UNKNOWN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Method, UNKNOWN)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Method, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serializer.Method",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Method, name, initialize, &classInfo$$, Method::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Method);
+	});
 	return class$;
 }
 

@@ -1,9 +1,6 @@
 #include <java/awt/MenuItem$AccessibleAWTMenuItem.h>
-
-#include <java/awt/AWTEvent.h>
 #include <java/awt/EventQueue.h>
 #include <java/awt/MenuComponent$AccessibleAWTMenuComponent.h>
-#include <java/awt/MenuComponent.h>
 #include <java/awt/MenuItem.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/event/ActionEvent.h>
@@ -17,9 +14,7 @@
 #undef ACTION_PERFORMED
 #undef MENU_ITEM
 
-using $AWTEvent = ::java::awt::AWTEvent;
 using $EventQueue = ::java::awt::EventQueue;
-using $MenuComponent = ::java::awt::MenuComponent;
 using $MenuComponent$AccessibleAWTMenuComponent = ::java::awt::MenuComponent$AccessibleAWTMenuComponent;
 using $MenuItem = ::java::awt::MenuItem;
 using $Toolkit = ::java::awt::Toolkit;
@@ -36,59 +31,6 @@ using $AccessibleValue = ::javax::accessibility::AccessibleValue;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _MenuItem$AccessibleAWTMenuItem_FieldInfo_[] = {
-	{"this$0", "Ljava/awt/MenuItem;", nullptr, $FINAL | $SYNTHETIC, $field(MenuItem$AccessibleAWTMenuItem, this$0)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MenuItem$AccessibleAWTMenuItem, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _MenuItem$AccessibleAWTMenuItem_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/MenuItem;)V", nullptr, $PROTECTED, $method(MenuItem$AccessibleAWTMenuItem, init$, void, $MenuItem*)},
-	{"doAccessibleAction", "(I)Z", nullptr, $PUBLIC, $virtualMethod(MenuItem$AccessibleAWTMenuItem, doAccessibleAction, bool, int32_t)},
-	{"getAccessibleAction", "()Ljavax/accessibility/AccessibleAction;", nullptr, $PUBLIC, $virtualMethod(MenuItem$AccessibleAWTMenuItem, getAccessibleAction, $AccessibleAction*)},
-	{"getAccessibleActionCount", "()I", nullptr, $PUBLIC, $virtualMethod(MenuItem$AccessibleAWTMenuItem, getAccessibleActionCount, int32_t)},
-	{"getAccessibleActionDescription", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MenuItem$AccessibleAWTMenuItem, getAccessibleActionDescription, $String*, int32_t)},
-	{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MenuItem$AccessibleAWTMenuItem, getAccessibleName, $String*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(MenuItem$AccessibleAWTMenuItem, getAccessibleRole, $AccessibleRole*)},
-	{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(MenuItem$AccessibleAWTMenuItem, getAccessibleValue, $AccessibleValue*)},
-	{"getCurrentAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(MenuItem$AccessibleAWTMenuItem, getCurrentAccessibleValue, $Number*)},
-	{"getMaximumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(MenuItem$AccessibleAWTMenuItem, getMaximumAccessibleValue, $Number*)},
-	{"getMinimumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(MenuItem$AccessibleAWTMenuItem, getMinimumAccessibleValue, $Number*)},
-	{"setCurrentAccessibleValue", "(Ljava/lang/Number;)Z", nullptr, $PUBLIC, $virtualMethod(MenuItem$AccessibleAWTMenuItem, setCurrentAccessibleValue, bool, $Number*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MenuItem$AccessibleAWTMenuItem_InnerClassesInfo_[] = {
-	{"java.awt.MenuItem$AccessibleAWTMenuItem", "java.awt.MenuItem", "AccessibleAWTMenuItem", $PROTECTED},
-	{"java.awt.MenuComponent$AccessibleAWTMenuComponent", "java.awt.MenuComponent", "AccessibleAWTMenuComponent", $PROTECTED | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MenuItem$AccessibleAWTMenuItem_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.MenuItem$AccessibleAWTMenuItem",
-	"java.awt.MenuComponent$AccessibleAWTMenuComponent",
-	"javax.accessibility.AccessibleAction,javax.accessibility.AccessibleValue",
-	_MenuItem$AccessibleAWTMenuItem_FieldInfo_,
-	_MenuItem$AccessibleAWTMenuItem_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MenuItem$AccessibleAWTMenuItem_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.MenuItem"
-};
-
-$Object* allocate$MenuItem$AccessibleAWTMenuItem($Class* clazz) {
-	return $of($alloc(MenuItem$AccessibleAWTMenuItem));
-}
 
 int32_t MenuItem$AccessibleAWTMenuItem::hashCode() {
 	 return this->$MenuComponent$AccessibleAWTMenuComponent::hashCode();
@@ -151,11 +93,11 @@ $String* MenuItem$AccessibleAWTMenuItem::getAccessibleActionDescription(int32_t 
 }
 
 bool MenuItem$AccessibleAWTMenuItem::doAccessibleAction(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (i == 0) {
-		$var($Object, var$0, $of(this->this$0));
+		$var($Object, var$0, this->this$0);
 		$var($String, var$1, this->this$0->getActionCommand());
-		$nc($($Toolkit::getEventQueue()))->postEvent($$new($ActionEvent, var$0, $ActionEvent::ACTION_PERFORMED, var$1, $EventQueue::getMostRecentEventTime(), 0));
+		$$nc($Toolkit::getEventQueue())->postEvent($$new($ActionEvent, var$0, $ActionEvent::ACTION_PERFORMED, var$1, $EventQueue::getMostRecentEventTime(), 0));
 		return true;
 	} else {
 		return false;
@@ -182,7 +124,54 @@ MenuItem$AccessibleAWTMenuItem::MenuItem$AccessibleAWTMenuItem() {
 }
 
 $Class* MenuItem$AccessibleAWTMenuItem::load$($String* name, bool initialize) {
-	$loadClass(MenuItem$AccessibleAWTMenuItem, name, initialize, &_MenuItem$AccessibleAWTMenuItem_ClassInfo_, allocate$MenuItem$AccessibleAWTMenuItem);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/awt/MenuItem;", nullptr, $FINAL | $SYNTHETIC, $field(MenuItem$AccessibleAWTMenuItem, this$0)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MenuItem$AccessibleAWTMenuItem, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/MenuItem;)V", nullptr, $PROTECTED, $method(MenuItem$AccessibleAWTMenuItem, init$, void, $MenuItem*)},
+		{"doAccessibleAction", "(I)Z", nullptr, $PUBLIC, $virtualMethod(MenuItem$AccessibleAWTMenuItem, doAccessibleAction, bool, int32_t)},
+		{"getAccessibleAction", "()Ljavax/accessibility/AccessibleAction;", nullptr, $PUBLIC, $virtualMethod(MenuItem$AccessibleAWTMenuItem, getAccessibleAction, $AccessibleAction*)},
+		{"getAccessibleActionCount", "()I", nullptr, $PUBLIC, $virtualMethod(MenuItem$AccessibleAWTMenuItem, getAccessibleActionCount, int32_t)},
+		{"getAccessibleActionDescription", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MenuItem$AccessibleAWTMenuItem, getAccessibleActionDescription, $String*, int32_t)},
+		{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MenuItem$AccessibleAWTMenuItem, getAccessibleName, $String*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(MenuItem$AccessibleAWTMenuItem, getAccessibleRole, $AccessibleRole*)},
+		{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(MenuItem$AccessibleAWTMenuItem, getAccessibleValue, $AccessibleValue*)},
+		{"getCurrentAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(MenuItem$AccessibleAWTMenuItem, getCurrentAccessibleValue, $Number*)},
+		{"getMaximumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(MenuItem$AccessibleAWTMenuItem, getMaximumAccessibleValue, $Number*)},
+		{"getMinimumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(MenuItem$AccessibleAWTMenuItem, getMinimumAccessibleValue, $Number*)},
+		{"setCurrentAccessibleValue", "(Ljava/lang/Number;)Z", nullptr, $PUBLIC, $virtualMethod(MenuItem$AccessibleAWTMenuItem, setCurrentAccessibleValue, bool, $Number*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.MenuItem$AccessibleAWTMenuItem", "java.awt.MenuItem", "AccessibleAWTMenuItem", $PROTECTED},
+		{"java.awt.MenuComponent$AccessibleAWTMenuComponent", "java.awt.MenuComponent", "AccessibleAWTMenuComponent", $PROTECTED | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.MenuItem$AccessibleAWTMenuItem",
+		"java.awt.MenuComponent$AccessibleAWTMenuComponent",
+		"javax.accessibility.AccessibleAction,javax.accessibility.AccessibleValue",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.MenuItem"
+	};
+	$loadClass(MenuItem$AccessibleAWTMenuItem, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MenuItem$AccessibleAWTMenuItem));
+	});
 	return class$;
 }
 

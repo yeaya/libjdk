@@ -24,6 +24,7 @@ class $export JobAttributes$DestinationType : public ::java::awt::AttributeValue
 	$class(JobAttributes$DestinationType, 0, ::java::awt::AttributeValue)
 public:
 	JobAttributes$DestinationType();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t type);
 	virtual int32_t hashCode() override;
 	virtual $String* toString() override;

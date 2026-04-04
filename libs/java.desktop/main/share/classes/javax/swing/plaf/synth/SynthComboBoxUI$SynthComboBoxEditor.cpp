@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthComboBoxUI$SynthComboBoxEditor.h>
-
 #include <java/awt/Component.h>
 #include <javax/swing/JTextField.h>
 #include <javax/swing/plaf/basic/BasicComboBoxEditor$UIResource.h>
@@ -17,38 +16,6 @@ namespace javax {
 		namespace plaf {
 			namespace synth {
 
-$MethodInfo _SynthComboBoxUI$SynthComboBoxEditor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SynthComboBoxUI$SynthComboBoxEditor, init$, void)},
-	{"createEditorComponent", "()Ljavax/swing/JTextField;", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$SynthComboBoxEditor, createEditorComponent, $JTextField*)},
-	{}
-};
-
-$InnerClassInfo _SynthComboBoxUI$SynthComboBoxEditor_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthComboBoxUI$SynthComboBoxEditor", "javax.swing.plaf.synth.SynthComboBoxUI", "SynthComboBoxEditor", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.basic.BasicComboBoxEditor$UIResource", "javax.swing.plaf.basic.BasicComboBoxEditor", "UIResource", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _SynthComboBoxUI$SynthComboBoxEditor_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthComboBoxUI$SynthComboBoxEditor",
-	"javax.swing.plaf.basic.BasicComboBoxEditor$UIResource",
-	nullptr,
-	nullptr,
-	_SynthComboBoxUI$SynthComboBoxEditor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthComboBoxUI$SynthComboBoxEditor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthComboBoxUI"
-};
-
-$Object* allocate$SynthComboBoxUI$SynthComboBoxEditor($Class* clazz) {
-	return $of($alloc(SynthComboBoxUI$SynthComboBoxEditor));
-}
-
 void SynthComboBoxUI$SynthComboBoxEditor::init$() {
 	$BasicComboBoxEditor$UIResource::init$();
 }
@@ -63,7 +30,34 @@ SynthComboBoxUI$SynthComboBoxEditor::SynthComboBoxUI$SynthComboBoxEditor() {
 }
 
 $Class* SynthComboBoxUI$SynthComboBoxEditor::load$($String* name, bool initialize) {
-	$loadClass(SynthComboBoxUI$SynthComboBoxEditor, name, initialize, &_SynthComboBoxUI$SynthComboBoxEditor_ClassInfo_, allocate$SynthComboBoxUI$SynthComboBoxEditor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SynthComboBoxUI$SynthComboBoxEditor, init$, void)},
+		{"createEditorComponent", "()Ljavax/swing/JTextField;", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$SynthComboBoxEditor, createEditorComponent, $JTextField*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthComboBoxUI$SynthComboBoxEditor", "javax.swing.plaf.synth.SynthComboBoxUI", "SynthComboBoxEditor", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.basic.BasicComboBoxEditor$UIResource", "javax.swing.plaf.basic.BasicComboBoxEditor", "UIResource", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthComboBoxUI$SynthComboBoxEditor",
+		"javax.swing.plaf.basic.BasicComboBoxEditor$UIResource",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthComboBoxUI"
+	};
+	$loadClass(SynthComboBoxUI$SynthComboBoxEditor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthComboBoxUI$SynthComboBoxEditor));
+	});
 	return class$;
 }
 

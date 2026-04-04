@@ -1,5 +1,4 @@
 #include <javax/management/QueryExp.h>
-
 #include <javax/management/MBeanServer.h>
 #include <javax/management/ObjectName.h>
 #include <jcpp.h>
@@ -12,27 +11,23 @@ using $ObjectName = ::javax::management::ObjectName;
 namespace javax {
 	namespace management {
 
-$MethodInfo _QueryExp_MethodInfo_[] = {
-	{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QueryExp, apply, bool, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
-	{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QueryExp, setMBeanServer, void, $MBeanServer*)},
-	{}
-};
-
-$ClassInfo _QueryExp_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.management.QueryExp",
-	nullptr,
-	"java.io.Serializable",
-	nullptr,
-	_QueryExp_MethodInfo_
-};
-
-$Object* allocate$QueryExp($Class* clazz) {
-	return $of($alloc(QueryExp));
-}
-
 $Class* QueryExp::load$($String* name, bool initialize) {
-	$loadClass(QueryExp, name, initialize, &_QueryExp_ClassInfo_, allocate$QueryExp);
+	$MethodInfo methodInfos$$[] = {
+		{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QueryExp, apply, bool, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
+		{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QueryExp, setMBeanServer, void, $MBeanServer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.management.QueryExp",
+		nullptr,
+		"java.io.Serializable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(QueryExp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(QueryExp);
+	});
 	return class$;
 }
 

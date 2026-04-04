@@ -1,6 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$JCCompilationUnit.h>
-
-#include <com/sun/source/tree/CompilationUnitTree.h>
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <com/sun/source/tree/LineMap.h>
 #include <com/sun/source/tree/ModuleTree.h>
@@ -37,7 +35,6 @@
 #undef SKIP
 #undef TOPLEVEL
 
-using $CompilationUnitTree = ::com::sun::source::tree::CompilationUnitTree;
 using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
 using $LineMap = ::com::sun::source::tree::LineMap;
 using $ModuleTree = ::com::sun::source::tree::ModuleTree;
@@ -65,69 +62,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$JCCompilationUnit_FieldInfo_[] = {
-	{"defs", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", $PUBLIC, $field(JCTree$JCCompilationUnit, defs)},
-	{"sourcefile", "Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $field(JCTree$JCCompilationUnit, sourcefile)},
-	{"modle", "Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC, $field(JCTree$JCCompilationUnit, modle)},
-	{"locn", "Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $field(JCTree$JCCompilationUnit, locn)},
-	{"packge", "Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PUBLIC, $field(JCTree$JCCompilationUnit, packge)},
-	{"toplevelScope", "Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC, $field(JCTree$JCCompilationUnit, toplevelScope)},
-	{"namedImportScope", "Lcom/sun/tools/javac/code/Scope$NamedImportScope;", nullptr, $PUBLIC, $field(JCTree$JCCompilationUnit, namedImportScope)},
-	{"starImportScope", "Lcom/sun/tools/javac/code/Scope$StarImportScope;", nullptr, $PUBLIC, $field(JCTree$JCCompilationUnit, starImportScope)},
-	{"lineMap", "Lcom/sun/tools/javac/util/Position$LineMap;", nullptr, $PUBLIC, $field(JCTree$JCCompilationUnit, lineMap)},
-	{"docComments", "Lcom/sun/tools/javac/tree/DocCommentTable;", nullptr, $PUBLIC, $field(JCTree$JCCompilationUnit, docComments)},
-	{"endPositions", "Lcom/sun/tools/javac/tree/EndPosTable;", nullptr, $PUBLIC, $field(JCTree$JCCompilationUnit, endPositions)},
-	{}
-};
-
-$MethodInfo _JCTree$JCCompilationUnit_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)V", $PROTECTED, $method(JCTree$JCCompilationUnit, init$, void, $List*)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCompilationUnit, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCCompilationUnit, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getImports", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCImport;>;", $PUBLIC, $virtualMethod(JCTree$JCCompilationUnit, getImports, $1List*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCompilationUnit, getKind, $Tree$Kind*)},
-	{"getLineMap", "()Lcom/sun/tools/javac/util/Position$LineMap;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCompilationUnit, getLineMap, $LineMap*)},
-	{"getModule", "()Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCompilationUnit, getModule, $ModuleTree*)},
-	{"getModuleDecl", "()Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCompilationUnit, getModuleDecl, $JCTree$JCModuleDecl*)},
-	{"getPackage", "()Lcom/sun/tools/javac/tree/JCTree$JCPackageDecl;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCompilationUnit, getPackage, $PackageTree*)},
-	{"getPackageAnnotations", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;", $PUBLIC, $virtualMethod(JCTree$JCCompilationUnit, getPackageAnnotations, $1List*)},
-	{"getPackageName", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCompilationUnit, getPackageName, $ExpressionTree*)},
-	{"getSourceFile", "()Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCompilationUnit, getSourceFile, $JavaFileObject*)},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCompilationUnit, getTag, $JCTree$Tag*)},
-	{"getTypeDecls", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", $PUBLIC, $virtualMethod(JCTree$JCCompilationUnit, getTypeDecls, $1List*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCCompilationUnit_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCCompilationUnit", "com.sun.tools.javac.tree.JCTree", "JCCompilationUnit", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JCTree$JCCompilationUnit_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$JCCompilationUnit",
-	"com.sun.tools.javac.tree.JCTree",
-	"com.sun.source.tree.CompilationUnitTree",
-	_JCTree$JCCompilationUnit_FieldInfo_,
-	_JCTree$JCCompilationUnit_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCCompilationUnit_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCCompilationUnit($Class* clazz) {
-	return $of($alloc(JCTree$JCCompilationUnit));
-}
 
 $String* JCTree$JCCompilationUnit::toString() {
 	 return this->$JCTree::toString();
@@ -167,17 +101,13 @@ $Tree$Kind* JCTree$JCCompilationUnit::getKind() {
 }
 
 $JCTree$JCModuleDecl* JCTree$JCCompilationUnit::getModuleDecl() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(this->defs)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($JCTree, tree, $cast($JCTree, i$->next()));
-			{
-				$init($JCTree$Tag);
-				if ($nc(tree)->hasTag($JCTree$Tag::MODULEDEF)) {
-					return $cast($JCTree$JCModuleDecl, tree);
-				}
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(this->defs)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($JCTree, tree, $cast($JCTree, i$->next()));
+		$init($JCTree$Tag);
+		if ($nc(tree)->hasTag($JCTree$Tag::MODULEDEF)) {
+			return $cast($JCTree$JCModuleDecl, tree);
 		}
 	}
 	return nullptr;
@@ -190,7 +120,7 @@ $ModuleTree* JCTree$JCCompilationUnit::getModule() {
 $PackageTree* JCTree$JCCompilationUnit::getPackage() {
 	bool var$0 = !$nc(this->defs)->isEmpty();
 	$init($JCTree$Tag);
-	if (var$0 && $nc(($cast($JCTree, $nc(this->defs)->head)))->hasTag($JCTree$Tag::PACKAGEDEF)) {
+	if (var$0 && $nc($cast($JCTree, this->defs->head))->hasTag($JCTree$Tag::PACKAGEDEF)) {
 		return $cast($JCTree$JCPackageDecl, $nc(this->defs)->head);
 	}
 	return nullptr;
@@ -198,30 +128,28 @@ $PackageTree* JCTree$JCCompilationUnit::getPackage() {
 
 $1List* JCTree$JCCompilationUnit::getPackageAnnotations() {
 	$var($JCTree$JCPackageDecl, pd, $cast($JCTree$JCPackageDecl, getPackage()));
-	return (pd != nullptr ? $cast($List, $nc(pd)->getAnnotations()) : $List::nil());
+	return pd != nullptr ? $cast($List, pd->getAnnotations()) : $List::nil();
 }
 
 $ExpressionTree* JCTree$JCCompilationUnit::getPackageName() {
 	$var($JCTree$JCPackageDecl, pd, $cast($JCTree$JCPackageDecl, getPackage()));
-	return pd != nullptr ? $nc(pd)->getPackageName() : ($ExpressionTree*)nullptr;
+	return pd != nullptr ? pd->getPackageName() : ($ExpressionTree*)nullptr;
 }
 
 $1List* JCTree$JCCompilationUnit::getImports() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, imports, $new($ListBuffer));
 	{
 		$var($Iterator, i$, $nc(this->defs)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($JCTree, tree, $cast($JCTree, i$->next()));
-			{
-				$init($JCTree$Tag);
-				if ($nc(tree)->hasTag($JCTree$Tag::IMPORT)) {
-					imports->append($cast($JCTree$JCImport, tree));
-				} else {
-					bool var$1 = !tree->hasTag($JCTree$Tag::PACKAGEDEF);
-					if (var$1 && !tree->hasTag($JCTree$Tag::SKIP)) {
-						break;
-					}
+			$init($JCTree$Tag);
+			if ($nc(tree)->hasTag($JCTree$Tag::IMPORT)) {
+				imports->append($cast($JCTree$JCImport, tree));
+			} else {
+				bool var$0 = !tree->hasTag($JCTree$Tag::PACKAGEDEF);
+				if (var$0 && !tree->hasTag($JCTree$Tag::SKIP)) {
+					break;
 				}
 			}
 		}
@@ -239,11 +167,11 @@ $LineMap* JCTree$JCCompilationUnit::getLineMap() {
 
 $1List* JCTree$JCCompilationUnit::getTypeDecls() {
 	$var($List, typeDefs, nullptr);
-	for ($assign(typeDefs, this->defs); !$nc(typeDefs)->isEmpty(); $assign(typeDefs, $nc(typeDefs)->tail)) {
+	for ($assign(typeDefs, this->defs); !$nc(typeDefs)->isEmpty(); $assign(typeDefs, typeDefs->tail)) {
 		$init($JCTree$Tag);
-		bool var$1 = !$nc(($cast($JCTree, typeDefs->head)))->hasTag($JCTree$Tag::MODULEDEF);
-		bool var$0 = var$1 && !$nc(($cast($JCTree, typeDefs->head)))->hasTag($JCTree$Tag::PACKAGEDEF);
-		if (var$0 && !$nc(($cast($JCTree, typeDefs->head)))->hasTag($JCTree$Tag::IMPORT)) {
+		bool var$1 = !$nc($cast($JCTree, typeDefs->head))->hasTag($JCTree$Tag::MODULEDEF);
+		bool var$0 = var$1 && !$cast($JCTree, typeDefs->head)->hasTag($JCTree$Tag::PACKAGEDEF);
+		if (var$0 && !$cast($JCTree, typeDefs->head)->hasTag($JCTree$Tag::IMPORT)) {
 			break;
 		}
 	}
@@ -251,7 +179,7 @@ $1List* JCTree$JCCompilationUnit::getTypeDecls() {
 }
 
 $Object* JCTree$JCCompilationUnit::accept($TreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitCompilationUnit(this, d));
+	return $nc(v)->visitCompilationUnit(this, d);
 }
 
 $JCTree$Tag* JCTree$JCCompilationUnit::getTag() {
@@ -263,7 +191,64 @@ JCTree$JCCompilationUnit::JCTree$JCCompilationUnit() {
 }
 
 $Class* JCTree$JCCompilationUnit::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCCompilationUnit, name, initialize, &_JCTree$JCCompilationUnit_ClassInfo_, allocate$JCTree$JCCompilationUnit);
+	$FieldInfo fieldInfos$$[] = {
+		{"defs", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", $PUBLIC, $field(JCTree$JCCompilationUnit, defs)},
+		{"sourcefile", "Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $field(JCTree$JCCompilationUnit, sourcefile)},
+		{"modle", "Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC, $field(JCTree$JCCompilationUnit, modle)},
+		{"locn", "Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $field(JCTree$JCCompilationUnit, locn)},
+		{"packge", "Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PUBLIC, $field(JCTree$JCCompilationUnit, packge)},
+		{"toplevelScope", "Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC, $field(JCTree$JCCompilationUnit, toplevelScope)},
+		{"namedImportScope", "Lcom/sun/tools/javac/code/Scope$NamedImportScope;", nullptr, $PUBLIC, $field(JCTree$JCCompilationUnit, namedImportScope)},
+		{"starImportScope", "Lcom/sun/tools/javac/code/Scope$StarImportScope;", nullptr, $PUBLIC, $field(JCTree$JCCompilationUnit, starImportScope)},
+		{"lineMap", "Lcom/sun/tools/javac/util/Position$LineMap;", nullptr, $PUBLIC, $field(JCTree$JCCompilationUnit, lineMap)},
+		{"docComments", "Lcom/sun/tools/javac/tree/DocCommentTable;", nullptr, $PUBLIC, $field(JCTree$JCCompilationUnit, docComments)},
+		{"endPositions", "Lcom/sun/tools/javac/tree/EndPosTable;", nullptr, $PUBLIC, $field(JCTree$JCCompilationUnit, endPositions)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)V", $PROTECTED, $method(JCTree$JCCompilationUnit, init$, void, $List*)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCompilationUnit, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCCompilationUnit, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getImports", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCImport;>;", $PUBLIC, $virtualMethod(JCTree$JCCompilationUnit, getImports, $1List*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCompilationUnit, getKind, $Tree$Kind*)},
+		{"getLineMap", "()Lcom/sun/tools/javac/util/Position$LineMap;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCompilationUnit, getLineMap, $LineMap*)},
+		{"getModule", "()Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCompilationUnit, getModule, $ModuleTree*)},
+		{"getModuleDecl", "()Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCompilationUnit, getModuleDecl, $JCTree$JCModuleDecl*)},
+		{"getPackage", "()Lcom/sun/tools/javac/tree/JCTree$JCPackageDecl;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCompilationUnit, getPackage, $PackageTree*)},
+		{"getPackageAnnotations", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;", $PUBLIC, $virtualMethod(JCTree$JCCompilationUnit, getPackageAnnotations, $1List*)},
+		{"getPackageName", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCompilationUnit, getPackageName, $ExpressionTree*)},
+		{"getSourceFile", "()Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCompilationUnit, getSourceFile, $JavaFileObject*)},
+		{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCompilationUnit, getTag, $JCTree$Tag*)},
+		{"getTypeDecls", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", $PUBLIC, $virtualMethod(JCTree$JCCompilationUnit, getTypeDecls, $1List*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCCompilationUnit", "com.sun.tools.javac.tree.JCTree", "JCCompilationUnit", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$JCCompilationUnit",
+		"com.sun.tools.javac.tree.JCTree",
+		"com.sun.source.tree.CompilationUnitTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCCompilationUnit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCCompilationUnit));
+	});
 	return class$;
 }
 

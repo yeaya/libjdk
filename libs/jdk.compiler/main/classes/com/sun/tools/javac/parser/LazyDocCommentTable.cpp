@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/LazyDocCommentTable.h>
-
 #include <com/sun/tools/javac/parser/DocCommentParser.h>
 #include <com/sun/tools/javac/parser/LazyDocCommentTable$Entry.h>
 #include <com/sun/tools/javac/parser/ParserFactory.h>
@@ -19,60 +18,17 @@ using $ParserFactory = ::com::sun::tools::javac::parser::ParserFactory;
 using $Tokens$Comment = ::com::sun::tools::javac::parser::Tokens$Comment;
 using $DCTree$DCDocComment = ::com::sun::tools::javac::tree::DCTree$DCDocComment;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $Log = ::com::sun::tools::javac::util::Log;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashMap = ::java::util::HashMap;
-using $Map = ::java::util::Map;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace parser {
-
-$FieldInfo _LazyDocCommentTable_FieldInfo_[] = {
-	{"fac", "Lcom/sun/tools/javac/parser/ParserFactory;", nullptr, $PRIVATE | $FINAL, $field(LazyDocCommentTable, fac)},
-	{"diagSource", "Lcom/sun/tools/javac/util/DiagnosticSource;", nullptr, $PRIVATE | $FINAL, $field(LazyDocCommentTable, diagSource)},
-	{"table", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/parser/LazyDocCommentTable$Entry;>;", $PRIVATE | $FINAL, $field(LazyDocCommentTable, table)},
-	{}
-};
-
-$MethodInfo _LazyDocCommentTable_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/parser/ParserFactory;)V", nullptr, 0, $method(LazyDocCommentTable, init$, void, $ParserFactory*)},
-	{"getComment", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/parser/Tokens$Comment;", nullptr, $PUBLIC, $virtualMethod(LazyDocCommentTable, getComment, $Tokens$Comment*, $JCTree*)},
-	{"getCommentText", "(Lcom/sun/tools/javac/tree/JCTree;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LazyDocCommentTable, getCommentText, $String*, $JCTree*)},
-	{"getCommentTree", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/DCTree$DCDocComment;", nullptr, $PUBLIC, $virtualMethod(LazyDocCommentTable, getCommentTree, $DCTree$DCDocComment*, $JCTree*)},
-	{"hasComment", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC, $virtualMethod(LazyDocCommentTable, hasComment, bool, $JCTree*)},
-	{"putComment", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/parser/Tokens$Comment;)V", nullptr, $PUBLIC, $virtualMethod(LazyDocCommentTable, putComment, void, $JCTree*, $Tokens$Comment*)},
-	{}
-};
-
-$InnerClassInfo _LazyDocCommentTable_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.LazyDocCommentTable$Entry", "com.sun.tools.javac.parser.LazyDocCommentTable", "Entry", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _LazyDocCommentTable_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.parser.LazyDocCommentTable",
-	"java.lang.Object",
-	"com.sun.tools.javac.tree.DocCommentTable",
-	_LazyDocCommentTable_FieldInfo_,
-	_LazyDocCommentTable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LazyDocCommentTable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.LazyDocCommentTable$Entry"
-};
-
-$Object* allocate$LazyDocCommentTable($Class* clazz) {
-	return $of($alloc(LazyDocCommentTable));
-}
 
 void LazyDocCommentTable::init$($ParserFactory* fac) {
 	$set(this, fac, fac);
@@ -81,40 +37,75 @@ void LazyDocCommentTable::init$($ParserFactory* fac) {
 }
 
 bool LazyDocCommentTable::hasComment($JCTree* tree) {
-	return $nc(this->table)->containsKey(tree);
+	return this->table->containsKey(tree);
 }
 
 $Tokens$Comment* LazyDocCommentTable::getComment($JCTree* tree) {
-	$var($LazyDocCommentTable$Entry, e, $cast($LazyDocCommentTable$Entry, $nc(this->table)->get(tree)));
-	return (e == nullptr) ? ($Tokens$Comment*)nullptr : $nc(e)->comment;
+	$var($LazyDocCommentTable$Entry, e, $cast($LazyDocCommentTable$Entry, this->table->get(tree)));
+	return (e == nullptr) ? ($Tokens$Comment*)nullptr : e->comment;
 }
 
 $String* LazyDocCommentTable::getCommentText($JCTree* tree) {
 	$var($Tokens$Comment, c, getComment(tree));
-	return (c == nullptr) ? ($String*)nullptr : $nc(c)->getText();
+	return (c == nullptr) ? ($String*)nullptr : c->getText();
 }
 
 $DCTree$DCDocComment* LazyDocCommentTable::getCommentTree($JCTree* tree) {
-	$useLocalCurrentObjectStackCache();
-	$var($LazyDocCommentTable$Entry, e, $cast($LazyDocCommentTable$Entry, $nc(this->table)->get(tree)));
+	$useLocalObjectStack();
+	$var($LazyDocCommentTable$Entry, e, $cast($LazyDocCommentTable$Entry, this->table->get(tree)));
 	if (e == nullptr) {
 		return nullptr;
 	}
 	if ($nc(e)->tree == nullptr) {
 		$set(e, tree, $$new($DocCommentParser, this->fac, this->diagSource, e->comment)->parse());
 	}
-	return $nc(e)->tree;
+	return e->tree;
 }
 
 void LazyDocCommentTable::putComment($JCTree* tree, $Tokens$Comment* c) {
-	$nc(this->table)->put(tree, $$new($LazyDocCommentTable$Entry, c));
+	this->table->put(tree, $$new($LazyDocCommentTable$Entry, c));
 }
 
 LazyDocCommentTable::LazyDocCommentTable() {
 }
 
 $Class* LazyDocCommentTable::load$($String* name, bool initialize) {
-	$loadClass(LazyDocCommentTable, name, initialize, &_LazyDocCommentTable_ClassInfo_, allocate$LazyDocCommentTable);
+	$FieldInfo fieldInfos$$[] = {
+		{"fac", "Lcom/sun/tools/javac/parser/ParserFactory;", nullptr, $PRIVATE | $FINAL, $field(LazyDocCommentTable, fac)},
+		{"diagSource", "Lcom/sun/tools/javac/util/DiagnosticSource;", nullptr, $PRIVATE | $FINAL, $field(LazyDocCommentTable, diagSource)},
+		{"table", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/parser/LazyDocCommentTable$Entry;>;", $PRIVATE | $FINAL, $field(LazyDocCommentTable, table)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/parser/ParserFactory;)V", nullptr, 0, $method(LazyDocCommentTable, init$, void, $ParserFactory*)},
+		{"getComment", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/parser/Tokens$Comment;", nullptr, $PUBLIC, $virtualMethod(LazyDocCommentTable, getComment, $Tokens$Comment*, $JCTree*)},
+		{"getCommentText", "(Lcom/sun/tools/javac/tree/JCTree;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LazyDocCommentTable, getCommentText, $String*, $JCTree*)},
+		{"getCommentTree", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/DCTree$DCDocComment;", nullptr, $PUBLIC, $virtualMethod(LazyDocCommentTable, getCommentTree, $DCTree$DCDocComment*, $JCTree*)},
+		{"hasComment", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC, $virtualMethod(LazyDocCommentTable, hasComment, bool, $JCTree*)},
+		{"putComment", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/parser/Tokens$Comment;)V", nullptr, $PUBLIC, $virtualMethod(LazyDocCommentTable, putComment, void, $JCTree*, $Tokens$Comment*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.LazyDocCommentTable$Entry", "com.sun.tools.javac.parser.LazyDocCommentTable", "Entry", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.parser.LazyDocCommentTable",
+		"java.lang.Object",
+		"com.sun.tools.javac.tree.DocCommentTable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.LazyDocCommentTable$Entry"
+	};
+	$loadClass(LazyDocCommentTable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LazyDocCommentTable);
+	});
 	return class$;
 }
 

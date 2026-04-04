@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext.h>
-
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -15,14 +14,9 @@
 #include <com/sun/tools/javac/util/Names.h>
 #include <jcpp.h>
 
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
-using $Type = ::com::sun::tools::javac::code::Type;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $LambdaToMethod$LambdaAnalyzerPreprocessor = ::com::sun::tools::javac::comp::LambdaToMethod$LambdaAnalyzerPreprocessor;
 using $JCTree$JCFunctionalExpression = ::com::sun::tools::javac::tree::JCTree$JCFunctionalExpression;
-using $List = ::com::sun::tools::javac::util::List;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -35,60 +29,14 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext_FieldInfo_[] = {
-	{"this$1", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;", nullptr, $FINAL | $SYNTHETIC, $field(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, this$1)},
-	{"tree", "Lcom/sun/tools/javac/tree/JCTree$JCFunctionalExpression;", "TT;", $FINAL, $field(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, tree)},
-	{"owner", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $FINAL, $field(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, owner)},
-	{"depth", "I", nullptr, $FINAL, $field(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, depth)},
-	{"prev", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext;", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext<*>;", $FINAL, $field(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, prev)},
-	{"bridges", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol;>;", $FINAL, $field(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, bridges)},
-	{}
-};
-
-$MethodInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;Lcom/sun/tools/javac/tree/JCTree$JCFunctionalExpression;)V", "(TT;)V", 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, init$, void, $LambdaToMethod$LambdaAnalyzerPreprocessor*, $JCTree$JCFunctionalExpression*)},
-	{"enclosingMethodName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, enclosingMethodName, $String*)},
-	{"isSerializable", "()Z", nullptr, 0, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, isSerializable, bool)},
-	{"needsAltMetafactory", "()Z", nullptr, 0, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, needsAltMetafactory, bool)},
-	{"syntheticMethodNameComponent", "(Lcom/sun/tools/javac/util/Name;)Ljava/lang/String;", nullptr, 0, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, syntheticMethodNameComponent, $String*, $Name*)},
-	{}
-};
-
-$InnerClassInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor", "com.sun.tools.javac.comp.LambdaToMethod", "LambdaAnalyzerPreprocessor", 0},
-	{"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext", "com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor", "TranslationContext", $ABSTRACT},
-	{"com.sun.tools.javac.tree.JCTree$JCFunctionalExpression", "com.sun.tools.javac.tree.JCTree", "JCFunctionalExpression", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext",
-	"java.lang.Object",
-	nullptr,
-	_LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext_FieldInfo_,
-	_LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext_MethodInfo_,
-	"<T:Lcom/sun/tools/javac/tree/JCTree$JCFunctionalExpression;>Ljava/lang/Object;",
-	nullptr,
-	_LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.LambdaToMethod"
-};
-
-$Object* allocate$LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext($Class* clazz) {
-	return $of($alloc(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext));
-}
-
 void LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext::init$($LambdaToMethod$LambdaAnalyzerPreprocessor* this$1, $JCTree$JCFunctionalExpression* tree) {
 	$set(this, this$1, this$1);
 	$set(this, tree, tree);
 	$set(this, owner, this$1->owner(true));
 	this->depth = $nc(this$1->frameStack)->size() - 1;
 	$set(this, prev, this$1->context());
-	$var($Symbol$ClassSymbol, csym, $nc($nc(this$1->this$0)->types)->makeFunctionalInterfaceClass($nc(this$1->this$0)->attrEnv, $nc($nc(this$1->this$0)->names)->empty, $nc(tree)->target, 1024 | 512));
-	$set(this, bridges, $nc($nc(this$1->this$0)->types)->functionalInterfaceBridges(csym));
+	$var($Symbol$ClassSymbol, csym, $nc($nc(this$1->this$0)->types)->makeFunctionalInterfaceClass($nc(this$1->this$0)->attrEnv, $nc($nc(this$1->this$0)->names)->empty, $nc(tree)->target, 0x0400 | 0x0200));
+	$set(this, bridges, $nc(this$1->this$0->types)->functionalInterfaceBridges(csym));
 }
 
 bool LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext::needsAltMetafactory() {
@@ -101,7 +49,7 @@ bool LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext::isSerializabl
 	if ($nc(this->this$1->this$0)->forceSerializable) {
 		return true;
 	}
-	return $nc($nc(this->this$1->this$0)->types)->asSuper($nc(this->tree)->target, $nc($nc($nc(this->this$1->this$0)->syms)->serializableType)->tsym) != nullptr;
+	return $nc(this->this$1->this$0->types)->asSuper($nc(this->tree)->target, $nc($nc(this->this$1->this$0->syms)->serializableType)->tsym) != nullptr;
 }
 
 $String* LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext::enclosingMethodName() {
@@ -125,7 +73,47 @@ LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext::LambdaToMethod$Lam
 }
 
 $Class* LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext::load$($String* name, bool initialize) {
-	$loadClass(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, name, initialize, &_LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext_ClassInfo_, allocate$LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;", nullptr, $FINAL | $SYNTHETIC, $field(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, this$1)},
+		{"tree", "Lcom/sun/tools/javac/tree/JCTree$JCFunctionalExpression;", "TT;", $FINAL, $field(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, tree)},
+		{"owner", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $FINAL, $field(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, owner)},
+		{"depth", "I", nullptr, $FINAL, $field(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, depth)},
+		{"prev", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext;", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext<*>;", $FINAL, $field(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, prev)},
+		{"bridges", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol;>;", $FINAL, $field(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, bridges)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;Lcom/sun/tools/javac/tree/JCTree$JCFunctionalExpression;)V", "(TT;)V", 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, init$, void, $LambdaToMethod$LambdaAnalyzerPreprocessor*, $JCTree$JCFunctionalExpression*)},
+		{"enclosingMethodName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, enclosingMethodName, $String*)},
+		{"isSerializable", "()Z", nullptr, 0, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, isSerializable, bool)},
+		{"needsAltMetafactory", "()Z", nullptr, 0, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, needsAltMetafactory, bool)},
+		{"syntheticMethodNameComponent", "(Lcom/sun/tools/javac/util/Name;)Ljava/lang/String;", nullptr, 0, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, syntheticMethodNameComponent, $String*, $Name*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor", "com.sun.tools.javac.comp.LambdaToMethod", "LambdaAnalyzerPreprocessor", 0},
+		{"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext", "com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor", "TranslationContext", $ABSTRACT},
+		{"com.sun.tools.javac.tree.JCTree$JCFunctionalExpression", "com.sun.tools.javac.tree.JCTree", "JCFunctionalExpression", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Lcom/sun/tools/javac/tree/JCTree$JCFunctionalExpression;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.LambdaToMethod"
+	};
+	$loadClass(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext);
+	});
 	return class$;
 }
 

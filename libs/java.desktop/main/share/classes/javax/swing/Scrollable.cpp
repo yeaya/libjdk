@@ -1,5 +1,4 @@
 #include <javax/swing/Scrollable.h>
-
 #include <java/awt/Dimension.h>
 #include <java/awt/Rectangle.h>
 #include <jcpp.h>
@@ -12,30 +11,26 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace swing {
 
-$MethodInfo _Scrollable_MethodInfo_[] = {
-	{"getPreferredScrollableViewportSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scrollable, getPreferredScrollableViewportSize, $Dimension*)},
-	{"getScrollableBlockIncrement", "(Ljava/awt/Rectangle;II)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scrollable, getScrollableBlockIncrement, int32_t, $Rectangle*, int32_t, int32_t)},
-	{"getScrollableTracksViewportHeight", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scrollable, getScrollableTracksViewportHeight, bool)},
-	{"getScrollableTracksViewportWidth", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scrollable, getScrollableTracksViewportWidth, bool)},
-	{"getScrollableUnitIncrement", "(Ljava/awt/Rectangle;II)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scrollable, getScrollableUnitIncrement, int32_t, $Rectangle*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _Scrollable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.Scrollable",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Scrollable_MethodInfo_
-};
-
-$Object* allocate$Scrollable($Class* clazz) {
-	return $of($alloc(Scrollable));
-}
-
 $Class* Scrollable::load$($String* name, bool initialize) {
-	$loadClass(Scrollable, name, initialize, &_Scrollable_ClassInfo_, allocate$Scrollable);
+	$MethodInfo methodInfos$$[] = {
+		{"getPreferredScrollableViewportSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scrollable, getPreferredScrollableViewportSize, $Dimension*)},
+		{"getScrollableBlockIncrement", "(Ljava/awt/Rectangle;II)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scrollable, getScrollableBlockIncrement, int32_t, $Rectangle*, int32_t, int32_t)},
+		{"getScrollableTracksViewportHeight", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scrollable, getScrollableTracksViewportHeight, bool)},
+		{"getScrollableTracksViewportWidth", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scrollable, getScrollableTracksViewportWidth, bool)},
+		{"getScrollableUnitIncrement", "(Ljava/awt/Rectangle;II)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scrollable, getScrollableUnitIncrement, int32_t, $Rectangle*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.Scrollable",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Scrollable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Scrollable);
+	});
 	return class$;
 }
 

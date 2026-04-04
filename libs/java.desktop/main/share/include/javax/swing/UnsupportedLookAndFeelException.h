@@ -15,7 +15,10 @@ public:
 	void init$($String* s);
 	UnsupportedLookAndFeelException(const UnsupportedLookAndFeelException& e);
 	virtual void throw$() override;
-	inline UnsupportedLookAndFeelException* operator ->() {
+	inline UnsupportedLookAndFeelException* operator ->() const {
+		return (UnsupportedLookAndFeelException*)throwing$;
+	}
+	inline operator UnsupportedLookAndFeelException*() const {
 		return (UnsupportedLookAndFeelException*)throwing$;
 	}
 };

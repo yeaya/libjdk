@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/common/SubscriberWrapper.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/IllegalStateException.h>
@@ -61,9 +60,7 @@ using $AtomicLong = ::java::util::concurrent::atomic::AtomicLong;
 using $AtomicReference = ::java::util::concurrent::atomic::AtomicReference;
 using $BiConsumer = ::java::util::function::BiConsumer;
 using $Supplier = ::java::util::function::Supplier;
-using $Demand = ::jdk::internal::net::http::common::Demand;
 using $FlowTube$TubeSubscriber = ::jdk::internal::net::http::common::FlowTube$TubeSubscriber;
-using $Logger = ::jdk::internal::net::http::common::Logger;
 using $MinimalFuture = ::jdk::internal::net::http::common::MinimalFuture;
 using $SequentialScheduler = ::jdk::internal::net::http::common::SequentialScheduler;
 using $SubscriberWrapper$DownstreamPusher = ::jdk::internal::net::http::common::SubscriberWrapper$DownstreamPusher;
@@ -86,33 +83,29 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->dbgString());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SubscriberWrapper$$Lambda$dbgString>());
-	}
 	SubscriberWrapper* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SubscriberWrapper$$Lambda$dbgString::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SubscriberWrapper$$Lambda$dbgString, inst$)},
-	{}
-};
-$MethodInfo SubscriberWrapper$$Lambda$dbgString::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SubscriberWrapper;)V", nullptr, $PUBLIC, $method(SubscriberWrapper$$Lambda$dbgString, init$, void, SubscriberWrapper*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper$$Lambda$dbgString, get, $Object*)},
-	{}
-};
-$ClassInfo SubscriberWrapper$$Lambda$dbgString::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.SubscriberWrapper$$Lambda$dbgString",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* SubscriberWrapper$$Lambda$dbgString::load$($String* name, bool initialize) {
-	$loadClass(SubscriberWrapper$$Lambda$dbgString, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SubscriberWrapper$$Lambda$dbgString, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/common/SubscriberWrapper;)V", nullptr, $PUBLIC, $method(SubscriberWrapper$$Lambda$dbgString, init$, void, SubscriberWrapper*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper$$Lambda$dbgString, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.SubscriberWrapper$$Lambda$dbgString",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SubscriberWrapper$$Lambda$dbgString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SubscriberWrapper$$Lambda$dbgString);
+	});
 	return class$;
 }
 $Class* SubscriberWrapper$$Lambda$dbgString::class$ = nullptr;
@@ -126,33 +119,29 @@ public:
 	virtual void accept(Object$* v, Object$* t) override {
 		$nc(inst$)->lambda$new$0($cast($Void, v), $cast($Throwable, t));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SubscriberWrapper$$Lambda$lambda$new$0$1>());
-	}
 	SubscriberWrapper* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SubscriberWrapper$$Lambda$lambda$new$0$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SubscriberWrapper$$Lambda$lambda$new$0$1, inst$)},
-	{}
-};
-$MethodInfo SubscriberWrapper$$Lambda$lambda$new$0$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SubscriberWrapper;)V", nullptr, $PUBLIC, $method(SubscriberWrapper$$Lambda$lambda$new$0$1, init$, void, SubscriberWrapper*)},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper$$Lambda$lambda$new$0$1, accept, void, Object$*, Object$*)},
-	{}
-};
-$ClassInfo SubscriberWrapper$$Lambda$lambda$new$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.SubscriberWrapper$$Lambda$lambda$new$0$1",
-	"java.lang.Object",
-	"java.util.function.BiConsumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* SubscriberWrapper$$Lambda$lambda$new$0$1::load$($String* name, bool initialize) {
-	$loadClass(SubscriberWrapper$$Lambda$lambda$new$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SubscriberWrapper$$Lambda$lambda$new$0$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/common/SubscriberWrapper;)V", nullptr, $PUBLIC, $method(SubscriberWrapper$$Lambda$lambda$new$0$1, init$, void, SubscriberWrapper*)},
+		{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper$$Lambda$lambda$new$0$1, accept, void, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.SubscriberWrapper$$Lambda$lambda$new$0$1",
+		"java.lang.Object",
+		"java.util.function.BiConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SubscriberWrapper$$Lambda$lambda$new$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SubscriberWrapper$$Lambda$lambda$new$0$1);
+	});
 	return class$;
 }
 $Class* SubscriberWrapper$$Lambda$lambda$new$0$1::class$ = nullptr;
@@ -166,124 +155,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->downstreamCompletion();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SubscriberWrapper$$Lambda$downstreamCompletion$2>());
-	}
 	SubscriberWrapper* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SubscriberWrapper$$Lambda$downstreamCompletion$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SubscriberWrapper$$Lambda$downstreamCompletion$2, inst$)},
-	{}
-};
-$MethodInfo SubscriberWrapper$$Lambda$downstreamCompletion$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SubscriberWrapper;)V", nullptr, $PUBLIC, $method(SubscriberWrapper$$Lambda$downstreamCompletion$2, init$, void, SubscriberWrapper*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper$$Lambda$downstreamCompletion$2, run, void)},
-	{}
-};
-$ClassInfo SubscriberWrapper$$Lambda$downstreamCompletion$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.SubscriberWrapper$$Lambda$downstreamCompletion$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* SubscriberWrapper$$Lambda$downstreamCompletion$2::load$($String* name, bool initialize) {
-	$loadClass(SubscriberWrapper$$Lambda$downstreamCompletion$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SubscriberWrapper$$Lambda$downstreamCompletion$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/common/SubscriberWrapper;)V", nullptr, $PUBLIC, $method(SubscriberWrapper$$Lambda$downstreamCompletion$2, init$, void, SubscriberWrapper*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper$$Lambda$downstreamCompletion$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.SubscriberWrapper$$Lambda$downstreamCompletion$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SubscriberWrapper$$Lambda$downstreamCompletion$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SubscriberWrapper$$Lambda$downstreamCompletion$2);
+	});
 	return class$;
 }
 $Class* SubscriberWrapper$$Lambda$downstreamCompletion$2::class$ = nullptr;
-
-$FieldInfo _SubscriberWrapper_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SubscriberWrapper, $assertionsDisabled)},
-	{"debug", "Ljdk/internal/net/http/common/Logger;", nullptr, $FINAL, $field(SubscriberWrapper, debug)},
-	{"upstreamSubscription", "Ljava/util/concurrent/Flow$Subscription;", nullptr, $VOLATILE, $field(SubscriberWrapper, upstreamSubscription)},
-	{"downstreamSubscription", "Ljdk/internal/net/http/common/SubscriptionBase;", nullptr, $FINAL, $field(SubscriberWrapper, downstreamSubscription)},
-	{"upstreamCompleted", "Z", nullptr, $VOLATILE, $field(SubscriberWrapper, upstreamCompleted)},
-	{"downstreamCompleted", "Z", nullptr, $VOLATILE, $field(SubscriberWrapper, downstreamCompleted)},
-	{"completionAcknowledged", "Z", nullptr, $VOLATILE, $field(SubscriberWrapper, completionAcknowledged)},
-	{"downstreamSubscriber", "Ljava/util/concurrent/Flow$Subscriber;", "Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;", $PRIVATE | $VOLATILE, $field(SubscriberWrapper, downstreamSubscriber)},
-	{"outputQ", "Ljava/util/concurrent/ConcurrentLinkedQueue;", "Ljava/util/concurrent/ConcurrentLinkedQueue<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;", $PRIVATE | $FINAL, $field(SubscriberWrapper, outputQ)},
-	{"cf", "Ljava/util/concurrent/CompletableFuture;", "Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PRIVATE | $FINAL, $field(SubscriberWrapper, cf)},
-	{"pushScheduler", "Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $PRIVATE | $FINAL, $field(SubscriberWrapper, pushScheduler)},
-	{"errorRef", "Ljava/util/concurrent/atomic/AtomicReference;", "Ljava/util/concurrent/atomic/AtomicReference<Ljava/lang/Throwable;>;", $PRIVATE | $FINAL, $field(SubscriberWrapper, errorRef)},
-	{"upstreamWindow", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $FINAL, $field(SubscriberWrapper, upstreamWindow$)},
-	{}
-};
-
-$MethodInfo _SubscriberWrapper_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SubscriberWrapper, init$, void)},
-	{"<init>", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC, $method(SubscriberWrapper, init$, void, $Flow$Subscriber*)},
-	{"addData", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, addData, void, $ByteBuffer*)},
-	{"checkCompletion", "()V", nullptr, 0, $virtualMethod(SubscriberWrapper, checkCompletion, void)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, close, void)},
-	{"close", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, close, void, $Throwable*)},
-	{"closing", "()Z", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, closing, bool)},
-	{"completion", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(SubscriberWrapper, completion, $CompletableFuture*)},
-	{"dbgString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, dbgString, $String*)},
-	{"downstreamCompletion", "()V", nullptr, 0, $virtualMethod(SubscriberWrapper, downstreamCompletion, void)},
-	{"enterScheduling", "()Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PROTECTED, $virtualMethod(SubscriberWrapper, enterScheduling, $SubscriberWrapper$SchedulingAction*)},
-	{"errorCommon", "(Ljava/lang/Throwable;)Z", nullptr, $PROTECTED, $virtualMethod(SubscriberWrapper, errorCommon, bool, $Throwable*)},
-	{"hasNoOutputData", "()Z", nullptr, $FINAL, $method(SubscriberWrapper, hasNoOutputData, bool)},
-	{"incoming", "(Ljava/util/List;Z)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Z)V", $PROTECTED | $ABSTRACT, $virtualMethod(SubscriberWrapper, incoming, void, $List*, bool)},
-	{"incomingCaller", "(Ljava/util/List;Z)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Z)V", $PRIVATE, $method(SubscriberWrapper, incomingCaller, void, $List*, bool)},
-	{"initialUpstreamDemand", "()J", nullptr, $PROTECTED, $virtualMethod(SubscriberWrapper, initialUpstreamDemand, int64_t)},
-	{"lambda$new$0", "(Ljava/lang/Void;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(SubscriberWrapper, lambda$new$0, void, $Void*, $Throwable*)},
-	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, onComplete, void)},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, onError, void, $Throwable*)},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(SubscriberWrapper, onNext, void, $List*)},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SubscriberWrapper, onNext, void, Object$*)},
-	{"onSubscribe", "()V", nullptr, $PROTECTED, $virtualMethod(SubscriberWrapper, onSubscribe, void)},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, onSubscribe, void, $Flow$Subscription*)},
-	{"outgoing", "(Ljava/nio/ByteBuffer;Z)V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, outgoing, void, $ByteBuffer*, bool)},
-	{"outgoing", "(Ljava/util/List;Z)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Z)V", $PUBLIC, $virtualMethod(SubscriberWrapper, outgoing, void, $List*, bool)},
-	{"outputQueueSize", "()I", nullptr, $FINAL, $method(SubscriberWrapper, outputQueueSize, int32_t)},
-	{"requestMore", "()V", nullptr, $PROTECTED, $virtualMethod(SubscriberWrapper, requestMore, void)},
-	{"resetDownstreamDemand", "()V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, resetDownstreamDemand, void)},
-	{"signalScheduling", "()Z", nullptr, $PROTECTED, $virtualMethod(SubscriberWrapper, signalScheduling, bool)},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC | $FINAL, $virtualMethod(SubscriberWrapper, subscribe, void, $Flow$Subscriber*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, toString, $String*)},
-	{"upstreamRequest", "(J)V", nullptr, $PRIVATE, $method(SubscriberWrapper, upstreamRequest, void, int64_t)},
-	{"upstreamWindow", "()J", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, upstreamWindow, int64_t)},
-	{"upstreamWindowUpdate", "(JJ)J", nullptr, $PROTECTED, $virtualMethod(SubscriberWrapper, upstreamWindowUpdate, int64_t, int64_t, int64_t)},
-	{"upstreamWindowUpdate", "()V", nullptr, 0, $virtualMethod(SubscriberWrapper, upstreamWindowUpdate, void)},
-	{}
-};
-
-$InnerClassInfo _SubscriberWrapper_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.common.FlowTube$TubeSubscriber", "jdk.internal.net.http.common.FlowTube", "TubeSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.concurrent.Flow$Processor", "java.util.concurrent.Flow", "Processor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.net.http.common.SubscriberWrapper$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"jdk.internal.net.http.common.SubscriberWrapper$DownstreamPusher", "jdk.internal.net.http.common.SubscriberWrapper", "DownstreamPusher", 0},
-	{"jdk.internal.net.http.common.SubscriberWrapper$SchedulingAction", "jdk.internal.net.http.common.SubscriberWrapper", "SchedulingAction", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _SubscriberWrapper_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"jdk.internal.net.http.common.SubscriberWrapper",
-	"java.lang.Object",
-	"jdk.internal.net.http.common.FlowTube$TubeSubscriber,java.io.Closeable,java.util.concurrent.Flow$Processor",
-	_SubscriberWrapper_FieldInfo_,
-	_SubscriberWrapper_MethodInfo_,
-	"Ljava/lang/Object;Ljdk/internal/net/http/common/FlowTube$TubeSubscriber;Ljava/io/Closeable;Ljava/util/concurrent/Flow$Processor<Ljava/util/List<Ljava/nio/ByteBuffer;>;Ljava/util/List<Ljava/nio/ByteBuffer;>;>;",
-	nullptr,
-	_SubscriberWrapper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.common.SubscriberWrapper$1,jdk.internal.net.http.common.SubscriberWrapper$DownstreamPusher,jdk.internal.net.http.common.SubscriberWrapper$SchedulingAction"
-};
-
-$Object* allocate$SubscriberWrapper($Class* clazz) {
-	return $of($alloc(SubscriberWrapper));
-}
 
 int32_t SubscriberWrapper::hashCode() {
 	 return this->$FlowTube$TubeSubscriber::hashCode();
@@ -304,16 +201,16 @@ void SubscriberWrapper::finalize() {
 bool SubscriberWrapper::$assertionsDisabled = false;
 
 void SubscriberWrapper::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Utils);
-	$set(this, debug, $Utils::getDebugLogger(static_cast<$Supplier*>($$new(SubscriberWrapper$$Lambda$dbgString, this)), $Utils::DEBUG));
+	$set(this, debug, $Utils::getDebugLogger($$new(SubscriberWrapper$$Lambda$dbgString, this), $Utils::DEBUG));
 	$set(this, errorRef, $new($AtomicReference));
 	$set(this, upstreamWindow$, $new($AtomicLong));
 	$set(this, outputQ, $new($ConcurrentLinkedQueue));
 	$set(this, cf, $new($MinimalFuture));
-	$nc(this->cf)->whenComplete(static_cast<$BiConsumer*>($$new(SubscriberWrapper$$Lambda$lambda$new$0$1, this)));
+	$nc(this->cf)->whenComplete($$new(SubscriberWrapper$$Lambda$lambda$new$0$1, this));
 	$set(this, pushScheduler, $SequentialScheduler::lockingScheduler($$new($SubscriberWrapper$DownstreamPusher, this)));
-	$set(this, downstreamSubscription, $new($SubscriptionBase, this->pushScheduler, static_cast<$Runnable*>($$new(SubscriberWrapper$$Lambda$downstreamCompletion$2, this))));
+	$set(this, downstreamSubscription, $new($SubscriptionBase, this->pushScheduler, $$new(SubscriberWrapper$$Lambda$downstreamCompletion$2, this)));
 }
 
 void SubscriberWrapper::subscribe($Flow$Subscriber* downstreamSubscriber) {
@@ -358,7 +255,7 @@ void SubscriberWrapper::outgoing($ByteBuffer* buffer, bool complete) {
 	if (!SubscriberWrapper::$assertionsDisabled && !(!complete || !buffer->hasRemaining())) {
 		$throwNew($AssertionError);
 	}
-	outgoing($($List::of($of(buffer))), complete);
+	outgoing($($List::of(buffer)), complete);
 }
 
 bool SubscriberWrapper::closing() {
@@ -366,7 +263,7 @@ bool SubscriberWrapper::closing() {
 }
 
 void SubscriberWrapper::outgoing($List* buffers, bool complete) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(buffers);
 	if (complete) {
 		if (!SubscriberWrapper::$assertionsDisabled && !($Utils::remaining(buffers) == 0)) {
@@ -374,10 +271,10 @@ void SubscriberWrapper::outgoing($List* buffers, bool complete) {
 		}
 		bool closing = this->closing();
 		if ($nc(this->debug)->on()) {
-			$nc(this->debug)->log("completionAcknowledged upstreamCompleted:%s, downstreamCompleted:%s, closing:%s"_s, $$new($ObjectArray, {
-				$($of($Boolean::valueOf(this->upstreamCompleted))),
-				$($of($Boolean::valueOf(this->downstreamCompleted))),
-				$($of($Boolean::valueOf(closing)))
+			this->debug->log("completionAcknowledged upstreamCompleted:%s, downstreamCompleted:%s, closing:%s"_s, $$new($ObjectArray, {
+				$($Boolean::valueOf(this->upstreamCompleted)),
+				$($Boolean::valueOf(this->downstreamCompleted)),
+				$($Boolean::valueOf(closing))
 			}));
 		}
 		if (!this->upstreamCompleted && !closing) {
@@ -386,12 +283,12 @@ void SubscriberWrapper::outgoing($List* buffers, bool complete) {
 		this->completionAcknowledged = true;
 	} else {
 		if ($nc(this->debug)->on()) {
-			$nc(this->debug)->log("Adding %d to outputQ queue"_s, $$new($ObjectArray, {$($of($Long::valueOf($Utils::remaining(buffers))))}));
+			this->debug->log("Adding %d to outputQ queue"_s, $$new($ObjectArray, {$($Long::valueOf($Utils::remaining(buffers)))}));
 		}
 		$nc(this->outputQ)->add(buffers);
 	}
 	if ($nc(this->debug)->on()) {
-		$nc(this->debug)->log($$str({"pushScheduler"_s, ($nc(this->pushScheduler)->isStopped() ? " is stopped!"_s : " is alive"_s)}));
+		this->debug->log($$str({"pushScheduler"_s, ($nc(this->pushScheduler)->isStopped() ? " is stopped!"_s : " is alive"_s)}));
 	}
 	$nc(this->pushScheduler)->runOrSchedule();
 }
@@ -409,14 +306,14 @@ bool SubscriberWrapper::hasNoOutputData() {
 }
 
 void SubscriberWrapper::upstreamWindowUpdate() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t downstreamQueueSize = $nc(this->outputQ)->size();
 	int64_t upstreamWindowSize = $nc(this->upstreamWindow$)->get();
 	int64_t n = upstreamWindowUpdate(upstreamWindowSize, downstreamQueueSize);
 	if ($nc(this->debug)->on()) {
-		$nc(this->debug)->log("upstreamWindowUpdate, downstreamQueueSize:%d, upstreamWindow:%d"_s, $$new($ObjectArray, {
-			$($of($Long::valueOf(downstreamQueueSize))),
-			$($of($Long::valueOf(upstreamWindowSize)))
+		this->debug->log("upstreamWindowUpdate, downstreamQueueSize:%d, upstreamWindow:%d"_s, $$new($ObjectArray, {
+			$($Long::valueOf(downstreamQueueSize)),
+			$($Long::valueOf(upstreamWindowSize))
 		}));
 	}
 	if (n > 0) {
@@ -431,7 +328,7 @@ void SubscriberWrapper::onSubscribe($Flow$Subscription* subscription) {
 	$set(this, upstreamSubscription, subscription);
 	upstreamRequest(initialUpstreamDemand());
 	if ($nc(this->debug)->on()) {
-		$nc(this->debug)->log("calling downstreamSubscriber::onSubscribe on %s"_s, $$new($ObjectArray, {$of(this->downstreamSubscriber)}));
+		this->debug->log("calling downstreamSubscriber::onSubscribe on %s"_s, $$new($ObjectArray, {this->downstreamSubscriber}));
 	}
 	$nc(this->downstreamSubscriber)->onSubscribe(this->downstreamSubscription);
 	onSubscribe();
@@ -439,7 +336,7 @@ void SubscriberWrapper::onSubscribe($Flow$Subscription* subscription) {
 
 void SubscriberWrapper::onNext($List* item) {
 	if ($nc(this->debug)->on()) {
-		$nc(this->debug)->log("onNext"_s);
+		this->debug->log("onNext"_s);
 	}
 	int64_t prev = $nc(this->upstreamWindow$)->getAndDecrement();
 	if (prev <= 0) {
@@ -449,9 +346,9 @@ void SubscriberWrapper::onNext($List* item) {
 }
 
 void SubscriberWrapper::upstreamRequest(int64_t n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->debug)->on()) {
-		$nc(this->debug)->log("requesting %d"_s, $$new($ObjectArray, {$($of($Long::valueOf(n)))}));
+		this->debug->log("requesting %d"_s, $$new($ObjectArray, {$($Long::valueOf(n))}));
 	}
 	$nc(this->upstreamWindow$)->getAndAdd(n);
 	$nc(this->upstreamSubscription)->request(n);
@@ -473,7 +370,7 @@ int64_t SubscriberWrapper::upstreamWindow() {
 
 void SubscriberWrapper::onError($Throwable* throwable) {
 	if ($nc(this->debug)->on()) {
-		$nc(this->debug)->log($$str({"onError: "_s, throwable}));
+		this->debug->log($$str({"onError: "_s, throwable}));
 	}
 	errorCommon($cast($Throwable, $Objects::requireNonNull(throwable)));
 }
@@ -485,7 +382,7 @@ bool SubscriberWrapper::errorCommon($Throwable* throwable$renamed) {
 	}
 	if ($nc(this->errorRef)->compareAndSet(nullptr, throwable)) {
 		if ($nc(this->debug)->on()) {
-			$nc(this->debug)->log("error"_s, throwable);
+			this->debug->log("error"_s, throwable);
 		}
 		this->upstreamCompleted = true;
 		$nc(this->pushScheduler)->runOrSchedule();
@@ -511,9 +408,9 @@ void SubscriberWrapper::incomingCaller($List* l, bool complete) {
 }
 
 void SubscriberWrapper::onComplete() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->debug)->on()) {
-		$nc(this->debug)->log($$str({"upstream completed: "_s, $(toString())}));
+		this->debug->log($$str({"upstream completed: "_s, $(toString())}));
 	}
 	this->upstreamCompleted = true;
 	$init($Utils);
@@ -525,7 +422,7 @@ void SubscriberWrapper::addData($ByteBuffer* l) {
 	if (this->upstreamSubscription == nullptr) {
 		$throwNew($IllegalStateException, "can\'t add data before upstream subscriber subscribes"_s);
 	}
-	incomingCaller($($List::of($of(l))), false);
+	incomingCaller($($List::of(l)), false);
 }
 
 void SubscriberWrapper::checkCompletion() {
@@ -541,7 +438,7 @@ void SubscriberWrapper::checkCompletion() {
 	}
 	if (this->completionAcknowledged) {
 		if ($nc(this->debug)->on()) {
-			$nc(this->debug)->log("calling downstreamSubscriber.onComplete()"_s);
+			this->debug->log("calling downstreamSubscriber.onComplete()"_s);
 		}
 		$nc(this->downstreamSubscriber)->onComplete();
 		this->downstreamCompleted = true;
@@ -559,9 +456,9 @@ void SubscriberWrapper::resetDownstreamDemand() {
 }
 
 $String* SubscriberWrapper::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
-	sb->append("SubscriberWrapper:"_s)->append(" upstreamCompleted: "_s)->append($($Boolean::toString(this->upstreamCompleted)))->append(" upstreamWindow: "_s)->append($($nc(this->upstreamWindow$)->toString()))->append(" downstreamCompleted: "_s)->append($($Boolean::toString(this->downstreamCompleted)))->append(" completionAcknowledged: "_s)->append($($Boolean::toString(this->completionAcknowledged)))->append(" outputQ size: "_s)->append($($Integer::toString($nc(this->outputQ)->size())))->append(" cf: "_s)->append($($nc(this->cf)->toString()))->append(" downstreamSubscription: "_s)->append($of(this->downstreamSubscription))->append(" downstreamSubscriber: "_s)->append($of(this->downstreamSubscriber));
+	sb->append("SubscriberWrapper:"_s)->append(" upstreamCompleted: "_s)->append($($Boolean::toString(this->upstreamCompleted)))->append(" upstreamWindow: "_s)->append($($nc(this->upstreamWindow$)->toString()))->append(" downstreamCompleted: "_s)->append($($Boolean::toString(this->downstreamCompleted)))->append(" completionAcknowledged: "_s)->append($($Boolean::toString(this->completionAcknowledged)))->append(" outputQ size: "_s)->append($($Integer::toString($nc(this->outputQ)->size())))->append(" cf: "_s)->append($($nc(this->cf)->toString()))->append(" downstreamSubscription: "_s)->append(this->downstreamSubscription)->append(" downstreamSubscriber: "_s)->append(this->downstreamSubscriber);
 	return sb->toString();
 }
 
@@ -579,7 +476,7 @@ void SubscriberWrapper::lambda$new$0($Void* v, $Throwable* t) {
 	}
 }
 
-void clinit$SubscriberWrapper($Class* class$) {
+void SubscriberWrapper::clinit$($Class* clazz) {
 	SubscriberWrapper::$assertionsDisabled = !SubscriberWrapper::class$->desiredAssertionStatus();
 }
 
@@ -588,17 +485,99 @@ SubscriberWrapper::SubscriberWrapper() {
 
 $Class* SubscriberWrapper::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SubscriberWrapper$$Lambda$dbgString::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.SubscriberWrapper$$Lambda$dbgString")) {
 			return SubscriberWrapper$$Lambda$dbgString::load$(name, initialize);
 		}
-		if (name->equals(SubscriberWrapper$$Lambda$lambda$new$0$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.SubscriberWrapper$$Lambda$lambda$new$0$1")) {
 			return SubscriberWrapper$$Lambda$lambda$new$0$1::load$(name, initialize);
 		}
-		if (name->equals(SubscriberWrapper$$Lambda$downstreamCompletion$2::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.SubscriberWrapper$$Lambda$downstreamCompletion$2")) {
 			return SubscriberWrapper$$Lambda$downstreamCompletion$2::load$(name, initialize);
 		}
 	}
-	$loadClass(SubscriberWrapper, name, initialize, &_SubscriberWrapper_ClassInfo_, clinit$SubscriberWrapper, allocate$SubscriberWrapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SubscriberWrapper, $assertionsDisabled)},
+		{"debug", "Ljdk/internal/net/http/common/Logger;", nullptr, $FINAL, $field(SubscriberWrapper, debug)},
+		{"upstreamSubscription", "Ljava/util/concurrent/Flow$Subscription;", nullptr, $VOLATILE, $field(SubscriberWrapper, upstreamSubscription)},
+		{"downstreamSubscription", "Ljdk/internal/net/http/common/SubscriptionBase;", nullptr, $FINAL, $field(SubscriberWrapper, downstreamSubscription)},
+		{"upstreamCompleted", "Z", nullptr, $VOLATILE, $field(SubscriberWrapper, upstreamCompleted)},
+		{"downstreamCompleted", "Z", nullptr, $VOLATILE, $field(SubscriberWrapper, downstreamCompleted)},
+		{"completionAcknowledged", "Z", nullptr, $VOLATILE, $field(SubscriberWrapper, completionAcknowledged)},
+		{"downstreamSubscriber", "Ljava/util/concurrent/Flow$Subscriber;", "Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;", $PRIVATE | $VOLATILE, $field(SubscriberWrapper, downstreamSubscriber)},
+		{"outputQ", "Ljava/util/concurrent/ConcurrentLinkedQueue;", "Ljava/util/concurrent/ConcurrentLinkedQueue<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;", $PRIVATE | $FINAL, $field(SubscriberWrapper, outputQ)},
+		{"cf", "Ljava/util/concurrent/CompletableFuture;", "Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PRIVATE | $FINAL, $field(SubscriberWrapper, cf)},
+		{"pushScheduler", "Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $PRIVATE | $FINAL, $field(SubscriberWrapper, pushScheduler)},
+		{"errorRef", "Ljava/util/concurrent/atomic/AtomicReference;", "Ljava/util/concurrent/atomic/AtomicReference<Ljava/lang/Throwable;>;", $PRIVATE | $FINAL, $field(SubscriberWrapper, errorRef)},
+		{"upstreamWindow", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $FINAL, $field(SubscriberWrapper, upstreamWindow$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SubscriberWrapper, init$, void)},
+		{"<init>", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC, $method(SubscriberWrapper, init$, void, $Flow$Subscriber*)},
+		{"addData", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, addData, void, $ByteBuffer*)},
+		{"checkCompletion", "()V", nullptr, 0, $virtualMethod(SubscriberWrapper, checkCompletion, void)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, close, void)},
+		{"close", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, close, void, $Throwable*)},
+		{"closing", "()Z", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, closing, bool)},
+		{"completion", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(SubscriberWrapper, completion, $CompletableFuture*)},
+		{"dbgString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, dbgString, $String*)},
+		{"downstreamCompletion", "()V", nullptr, 0, $virtualMethod(SubscriberWrapper, downstreamCompletion, void)},
+		{"enterScheduling", "()Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PROTECTED, $virtualMethod(SubscriberWrapper, enterScheduling, $SubscriberWrapper$SchedulingAction*)},
+		{"errorCommon", "(Ljava/lang/Throwable;)Z", nullptr, $PROTECTED, $virtualMethod(SubscriberWrapper, errorCommon, bool, $Throwable*)},
+		{"hasNoOutputData", "()Z", nullptr, $FINAL, $method(SubscriberWrapper, hasNoOutputData, bool)},
+		{"incoming", "(Ljava/util/List;Z)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Z)V", $PROTECTED | $ABSTRACT, $virtualMethod(SubscriberWrapper, incoming, void, $List*, bool)},
+		{"incomingCaller", "(Ljava/util/List;Z)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Z)V", $PRIVATE, $method(SubscriberWrapper, incomingCaller, void, $List*, bool)},
+		{"initialUpstreamDemand", "()J", nullptr, $PROTECTED, $virtualMethod(SubscriberWrapper, initialUpstreamDemand, int64_t)},
+		{"lambda$new$0", "(Ljava/lang/Void;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(SubscriberWrapper, lambda$new$0, void, $Void*, $Throwable*)},
+		{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, onComplete, void)},
+		{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, onError, void, $Throwable*)},
+		{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(SubscriberWrapper, onNext, void, $List*)},
+		{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SubscriberWrapper, onNext, void, Object$*)},
+		{"onSubscribe", "()V", nullptr, $PROTECTED, $virtualMethod(SubscriberWrapper, onSubscribe, void)},
+		{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, onSubscribe, void, $Flow$Subscription*)},
+		{"outgoing", "(Ljava/nio/ByteBuffer;Z)V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, outgoing, void, $ByteBuffer*, bool)},
+		{"outgoing", "(Ljava/util/List;Z)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Z)V", $PUBLIC, $virtualMethod(SubscriberWrapper, outgoing, void, $List*, bool)},
+		{"outputQueueSize", "()I", nullptr, $FINAL, $method(SubscriberWrapper, outputQueueSize, int32_t)},
+		{"requestMore", "()V", nullptr, $PROTECTED, $virtualMethod(SubscriberWrapper, requestMore, void)},
+		{"resetDownstreamDemand", "()V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, resetDownstreamDemand, void)},
+		{"signalScheduling", "()Z", nullptr, $PROTECTED, $virtualMethod(SubscriberWrapper, signalScheduling, bool)},
+		{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC | $FINAL, $virtualMethod(SubscriberWrapper, subscribe, void, $Flow$Subscriber*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, toString, $String*)},
+		{"upstreamRequest", "(J)V", nullptr, $PRIVATE, $method(SubscriberWrapper, upstreamRequest, void, int64_t)},
+		{"upstreamWindow", "()J", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, upstreamWindow, int64_t)},
+		{"upstreamWindowUpdate", "(JJ)J", nullptr, $PROTECTED, $virtualMethod(SubscriberWrapper, upstreamWindowUpdate, int64_t, int64_t, int64_t)},
+		{"upstreamWindowUpdate", "()V", nullptr, 0, $virtualMethod(SubscriberWrapper, upstreamWindowUpdate, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.common.FlowTube$TubeSubscriber", "jdk.internal.net.http.common.FlowTube", "TubeSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.concurrent.Flow$Processor", "java.util.concurrent.Flow", "Processor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.net.http.common.SubscriberWrapper$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"jdk.internal.net.http.common.SubscriberWrapper$DownstreamPusher", "jdk.internal.net.http.common.SubscriberWrapper", "DownstreamPusher", 0},
+		{"jdk.internal.net.http.common.SubscriberWrapper$SchedulingAction", "jdk.internal.net.http.common.SubscriberWrapper", "SchedulingAction", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"jdk.internal.net.http.common.SubscriberWrapper",
+		"java.lang.Object",
+		"jdk.internal.net.http.common.FlowTube$TubeSubscriber,java.io.Closeable,java.util.concurrent.Flow$Processor",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljdk/internal/net/http/common/FlowTube$TubeSubscriber;Ljava/io/Closeable;Ljava/util/concurrent/Flow$Processor<Ljava/util/List<Ljava/nio/ByteBuffer;>;Ljava/util/List<Ljava/nio/ByteBuffer;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.common.SubscriberWrapper$1,jdk.internal.net.http.common.SubscriberWrapper$DownstreamPusher,jdk.internal.net.http.common.SubscriberWrapper$SchedulingAction"
+	};
+	$loadClass(SubscriberWrapper, name, initialize, &classInfo$$, SubscriberWrapper::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SubscriberWrapper));
+	});
 	return class$;
 }
 

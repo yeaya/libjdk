@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicListUI$ListTransferHandler.h>
-
 #include <java/awt/datatransfer/Transferable.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JList.h>
@@ -23,43 +22,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$MethodInfo _BasicListUI$ListTransferHandler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(BasicListUI$ListTransferHandler, init$, void)},
-	{"createTransferable", "(Ljavax/swing/JComponent;)Ljava/awt/datatransfer/Transferable;", nullptr, $PROTECTED, $virtualMethod(BasicListUI$ListTransferHandler, createTransferable, $Transferable*, $JComponent*)},
-	{"getSourceActions", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(BasicListUI$ListTransferHandler, getSourceActions, int32_t, $JComponent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicListUI$ListTransferHandler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicListUI$ListTransferHandler", "javax.swing.plaf.basic.BasicListUI", "ListTransferHandler", $STATIC},
-	{}
-};
-
-$ClassInfo _BasicListUI$ListTransferHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicListUI$ListTransferHandler",
-	"javax.swing.TransferHandler",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_BasicListUI$ListTransferHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicListUI$ListTransferHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicListUI"
-};
-
-$Object* allocate$BasicListUI$ListTransferHandler($Class* clazz) {
-	return $of($alloc(BasicListUI$ListTransferHandler));
-}
 
 int32_t BasicListUI$ListTransferHandler::hashCode() {
 	 return this->$TransferHandler::hashCode();
@@ -86,11 +48,11 @@ void BasicListUI$ListTransferHandler::init$() {
 }
 
 $Transferable* BasicListUI$ListTransferHandler::createTransferable($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JList, c)) {
 		$var($JList, list, $cast($JList, c));
-		$var($ObjectArray, values, $nc(list)->getSelectedValues());
-		if (values == nullptr || $nc(values)->length == 0) {
+		$var($ObjectArray, values, list->getSelectedValues());
+		if (values == nullptr || values->length == 0) {
 			return nullptr;
 		}
 		$var($StringBuilder, plainStr, $new($StringBuilder));
@@ -98,7 +60,7 @@ $Transferable* BasicListUI$ListTransferHandler::createTransferable($JComponent* 
 		htmlStr->append("<html>\n<body>\n<ul>\n"_s);
 		for (int32_t i = 0; i < $nc(values)->length; ++i) {
 			$var($Object0, obj, values->get(i));
-			$var($String, val, (obj == nullptr) ? ""_s : $nc($of(obj))->toString());
+			$var($String, val, (obj == nullptr) ? ""_s : obj->toString());
 			plainStr->append(val)->append(u'\n');
 			htmlStr->append("  <li>"_s)->append(val)->append(u'\n');
 		}
@@ -118,7 +80,39 @@ BasicListUI$ListTransferHandler::BasicListUI$ListTransferHandler() {
 }
 
 $Class* BasicListUI$ListTransferHandler::load$($String* name, bool initialize) {
-	$loadClass(BasicListUI$ListTransferHandler, name, initialize, &_BasicListUI$ListTransferHandler_ClassInfo_, allocate$BasicListUI$ListTransferHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(BasicListUI$ListTransferHandler, init$, void)},
+		{"createTransferable", "(Ljavax/swing/JComponent;)Ljava/awt/datatransfer/Transferable;", nullptr, $PROTECTED, $virtualMethod(BasicListUI$ListTransferHandler, createTransferable, $Transferable*, $JComponent*)},
+		{"getSourceActions", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(BasicListUI$ListTransferHandler, getSourceActions, int32_t, $JComponent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicListUI$ListTransferHandler", "javax.swing.plaf.basic.BasicListUI", "ListTransferHandler", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicListUI$ListTransferHandler",
+		"javax.swing.TransferHandler",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicListUI"
+	};
+	$loadClass(BasicListUI$ListTransferHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicListUI$ListTransferHandler));
+	});
 	return class$;
 }
 

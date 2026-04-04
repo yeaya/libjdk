@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/ErrorHandlerAdaptor.h>
-
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/Util.h>
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/WrappedSAXException.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLParseException.h>
@@ -26,35 +25,6 @@ namespace com {
 						namespace jaxp {
 							namespace validation {
 
-$FieldInfo _ErrorHandlerAdaptor_FieldInfo_[] = {
-	{"hadError", "Z", nullptr, $PRIVATE, $field(ErrorHandlerAdaptor, hadError$)},
-	{}
-};
-
-$MethodInfo _ErrorHandlerAdaptor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ErrorHandlerAdaptor, init$, void)},
-	{"error", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParseException;)V", nullptr, $PUBLIC, $virtualMethod(ErrorHandlerAdaptor, error, void, $String*, $String*, $XMLParseException*)},
-	{"fatalError", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParseException;)V", nullptr, $PUBLIC, $virtualMethod(ErrorHandlerAdaptor, fatalError, void, $String*, $String*, $XMLParseException*)},
-	{"getErrorHandler", "()Lorg/xml/sax/ErrorHandler;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ErrorHandlerAdaptor, getErrorHandler, $ErrorHandler*)},
-	{"hadError", "()Z", nullptr, $PUBLIC, $virtualMethod(ErrorHandlerAdaptor, hadError, bool)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(ErrorHandlerAdaptor, reset, void)},
-	{"warning", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParseException;)V", nullptr, $PUBLIC, $virtualMethod(ErrorHandlerAdaptor, warning, void, $String*, $String*, $XMLParseException*)},
-	{}
-};
-
-$ClassInfo _ErrorHandlerAdaptor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.jaxp.validation.ErrorHandlerAdaptor",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.xni.parser.XMLErrorHandler",
-	_ErrorHandlerAdaptor_FieldInfo_,
-	_ErrorHandlerAdaptor_MethodInfo_
-};
-
-$Object* allocate$ErrorHandlerAdaptor($Class* clazz) {
-	return $of($alloc(ErrorHandlerAdaptor));
-}
-
 void ErrorHandlerAdaptor::init$() {
 	this->hadError$ = false;
 }
@@ -68,29 +38,29 @@ void ErrorHandlerAdaptor::reset() {
 }
 
 void ErrorHandlerAdaptor::fatalError($String* domain, $String* key, $XMLParseException* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		this->hadError$ = true;
-		$nc($(getErrorHandler()))->fatalError($($Util::toSAXParseException(e)));
+		$$nc(getErrorHandler())->fatalError($($Util::toSAXParseException(e)));
 	} catch ($SAXException& se) {
 		$throwNew($WrappedSAXException, se);
 	}
 }
 
 void ErrorHandlerAdaptor::error($String* domain, $String* key, $XMLParseException* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		this->hadError$ = true;
-		$nc($(getErrorHandler()))->error($($Util::toSAXParseException(e)));
+		$$nc(getErrorHandler())->error($($Util::toSAXParseException(e)));
 	} catch ($SAXException& se) {
 		$throwNew($WrappedSAXException, se);
 	}
 }
 
 void ErrorHandlerAdaptor::warning($String* domain, $String* key, $XMLParseException* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$nc($(getErrorHandler()))->warning($($Util::toSAXParseException(e)));
+		$$nc(getErrorHandler())->warning($($Util::toSAXParseException(e)));
 	} catch ($SAXException& se) {
 		$throwNew($WrappedSAXException, se);
 	}
@@ -100,7 +70,31 @@ ErrorHandlerAdaptor::ErrorHandlerAdaptor() {
 }
 
 $Class* ErrorHandlerAdaptor::load$($String* name, bool initialize) {
-	$loadClass(ErrorHandlerAdaptor, name, initialize, &_ErrorHandlerAdaptor_ClassInfo_, allocate$ErrorHandlerAdaptor);
+	$FieldInfo fieldInfos$$[] = {
+		{"hadError", "Z", nullptr, $PRIVATE, $field(ErrorHandlerAdaptor, hadError$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ErrorHandlerAdaptor, init$, void)},
+		{"error", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParseException;)V", nullptr, $PUBLIC, $virtualMethod(ErrorHandlerAdaptor, error, void, $String*, $String*, $XMLParseException*)},
+		{"fatalError", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParseException;)V", nullptr, $PUBLIC, $virtualMethod(ErrorHandlerAdaptor, fatalError, void, $String*, $String*, $XMLParseException*)},
+		{"getErrorHandler", "()Lorg/xml/sax/ErrorHandler;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ErrorHandlerAdaptor, getErrorHandler, $ErrorHandler*)},
+		{"hadError", "()Z", nullptr, $PUBLIC, $virtualMethod(ErrorHandlerAdaptor, hadError, bool)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(ErrorHandlerAdaptor, reset, void)},
+		{"warning", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParseException;)V", nullptr, $PUBLIC, $virtualMethod(ErrorHandlerAdaptor, warning, void, $String*, $String*, $XMLParseException*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.jaxp.validation.ErrorHandlerAdaptor",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.xni.parser.XMLErrorHandler",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ErrorHandlerAdaptor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ErrorHandlerAdaptor);
+	});
 	return class$;
 }
 

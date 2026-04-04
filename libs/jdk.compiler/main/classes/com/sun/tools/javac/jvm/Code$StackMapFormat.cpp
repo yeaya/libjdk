@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/Code$StackMapFormat.h>
-
 #include <com/sun/tools/javac/jvm/Code$StackMapFormat$1.h>
 #include <com/sun/tools/javac/jvm/Code$StackMapFormat$2.h>
 #include <com/sun/tools/javac/jvm/Code.h>
@@ -27,50 +26,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$FieldInfo _Code$StackMapFormat_FieldInfo_[] = {
-	{"NONE", "Lcom/sun/tools/javac/jvm/Code$StackMapFormat;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Code$StackMapFormat, NONE)},
-	{"CLDC", "Lcom/sun/tools/javac/jvm/Code$StackMapFormat;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Code$StackMapFormat, CLDC)},
-	{"JSR202", "Lcom/sun/tools/javac/jvm/Code$StackMapFormat;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Code$StackMapFormat, JSR202)},
-	{"$VALUES", "[Lcom/sun/tools/javac/jvm/Code$StackMapFormat;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Code$StackMapFormat, $VALUES)},
-	{}
-};
-
-$MethodInfo _Code$StackMapFormat_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/jvm/Code$StackMapFormat;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Code$StackMapFormat, $values, $Code$StackMapFormatArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Code$StackMapFormat, init$, void, $String*, int32_t)},
-	{"getAttributeName", "(Lcom/sun/tools/javac/util/Names;)Lcom/sun/tools/javac/util/Name;", nullptr, 0, $virtualMethod(Code$StackMapFormat, getAttributeName, $Name*, $Names*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/jvm/Code$StackMapFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(Code$StackMapFormat, valueOf, Code$StackMapFormat*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/jvm/Code$StackMapFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(Code$StackMapFormat, values, $Code$StackMapFormatArray*)},
-	{}
-};
-
-$InnerClassInfo _Code$StackMapFormat_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.Code$StackMapFormat", "com.sun.tools.javac.jvm.Code", "StackMapFormat", $PUBLIC | $STATIC | $ENUM},
-	{"com.sun.tools.javac.jvm.Code$StackMapFormat$2", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.jvm.Code$StackMapFormat$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Code$StackMapFormat_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.jvm.Code$StackMapFormat",
-	"java.lang.Enum",
-	nullptr,
-	_Code$StackMapFormat_FieldInfo_,
-	_Code$StackMapFormat_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/jvm/Code$StackMapFormat;>;",
-	nullptr,
-	_Code$StackMapFormat_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.Code"
-};
-
-$Object* allocate$Code$StackMapFormat($Class* clazz) {
-	return $of($alloc(Code$StackMapFormat));
-}
 
 Code$StackMapFormat* Code$StackMapFormat::NONE = nullptr;
 Code$StackMapFormat* Code$StackMapFormat::CLDC = nullptr;
@@ -104,7 +59,7 @@ $Name* Code$StackMapFormat::getAttributeName($Names* names) {
 	return $nc(names)->empty;
 }
 
-void clinit$Code$StackMapFormat($Class* class$) {
+void Code$StackMapFormat::clinit$($Class* clazz) {
 	$assignStatic(Code$StackMapFormat::NONE, $new(Code$StackMapFormat, "NONE"_s, 0));
 	$assignStatic(Code$StackMapFormat::CLDC, $new($Code$StackMapFormat$1, "CLDC"_s, 1));
 	$assignStatic(Code$StackMapFormat::JSR202, $new($Code$StackMapFormat$2, "JSR202"_s, 2));
@@ -115,7 +70,45 @@ Code$StackMapFormat::Code$StackMapFormat() {
 }
 
 $Class* Code$StackMapFormat::load$($String* name, bool initialize) {
-	$loadClass(Code$StackMapFormat, name, initialize, &_Code$StackMapFormat_ClassInfo_, clinit$Code$StackMapFormat, allocate$Code$StackMapFormat);
+	$FieldInfo fieldInfos$$[] = {
+		{"NONE", "Lcom/sun/tools/javac/jvm/Code$StackMapFormat;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Code$StackMapFormat, NONE)},
+		{"CLDC", "Lcom/sun/tools/javac/jvm/Code$StackMapFormat;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Code$StackMapFormat, CLDC)},
+		{"JSR202", "Lcom/sun/tools/javac/jvm/Code$StackMapFormat;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Code$StackMapFormat, JSR202)},
+		{"$VALUES", "[Lcom/sun/tools/javac/jvm/Code$StackMapFormat;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Code$StackMapFormat, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/jvm/Code$StackMapFormat;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Code$StackMapFormat, $values, $Code$StackMapFormatArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Code$StackMapFormat, init$, void, $String*, int32_t)},
+		{"getAttributeName", "(Lcom/sun/tools/javac/util/Names;)Lcom/sun/tools/javac/util/Name;", nullptr, 0, $virtualMethod(Code$StackMapFormat, getAttributeName, $Name*, $Names*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/jvm/Code$StackMapFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(Code$StackMapFormat, valueOf, Code$StackMapFormat*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/jvm/Code$StackMapFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(Code$StackMapFormat, values, $Code$StackMapFormatArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.Code$StackMapFormat", "com.sun.tools.javac.jvm.Code", "StackMapFormat", $PUBLIC | $STATIC | $ENUM},
+		{"com.sun.tools.javac.jvm.Code$StackMapFormat$2", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.jvm.Code$StackMapFormat$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.jvm.Code$StackMapFormat",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/jvm/Code$StackMapFormat;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.Code"
+	};
+	$loadClass(Code$StackMapFormat, name, initialize, &classInfo$$, Code$StackMapFormat::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Code$StackMapFormat));
+	});
 	return class$;
 }
 

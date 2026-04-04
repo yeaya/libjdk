@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/TransformHelper$TraceTransformHelper.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <sun/java2d/SurfaceData.h>
@@ -26,43 +25,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _TransformHelper$TraceTransformHelper_FieldInfo_[] = {
-	{"target", "Lsun/java2d/loops/TransformHelper;", nullptr, 0, $field(TransformHelper$TraceTransformHelper, target)},
-	{}
-};
-
-$MethodInfo _TransformHelper$TraceTransformHelper_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/TransformHelper;)V", nullptr, $PUBLIC, $method(TransformHelper$TraceTransformHelper, init$, void, $TransformHelper*)},
-	{"Transform", "(Lsun/java2d/loops/MaskBlit;Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIIIII[III)V", nullptr, $PUBLIC, $virtualMethod(TransformHelper$TraceTransformHelper, Transform, void, $MaskBlit*, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*, int32_t, int32_t)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(TransformHelper$TraceTransformHelper, traceWrap, $GraphicsPrimitive*)},
-	{}
-};
-
-$InnerClassInfo _TransformHelper$TraceTransformHelper_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.TransformHelper$TraceTransformHelper", "sun.java2d.loops.TransformHelper", "TraceTransformHelper", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _TransformHelper$TraceTransformHelper_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.TransformHelper$TraceTransformHelper",
-	"sun.java2d.loops.TransformHelper",
-	nullptr,
-	_TransformHelper$TraceTransformHelper_FieldInfo_,
-	_TransformHelper$TraceTransformHelper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TransformHelper$TraceTransformHelper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.TransformHelper"
-};
-
-$Object* allocate$TransformHelper$TraceTransformHelper($Class* clazz) {
-	return $of($alloc(TransformHelper$TraceTransformHelper));
-}
-
 void TransformHelper$TraceTransformHelper::init$($TransformHelper* target) {
 	$TransformHelper::init$($($nc(target)->getSourceType()));
 	$set(this, target, target);
@@ -81,7 +43,38 @@ TransformHelper$TraceTransformHelper::TransformHelper$TraceTransformHelper() {
 }
 
 $Class* TransformHelper$TraceTransformHelper::load$($String* name, bool initialize) {
-	$loadClass(TransformHelper$TraceTransformHelper, name, initialize, &_TransformHelper$TraceTransformHelper_ClassInfo_, allocate$TransformHelper$TraceTransformHelper);
+	$FieldInfo fieldInfos$$[] = {
+		{"target", "Lsun/java2d/loops/TransformHelper;", nullptr, 0, $field(TransformHelper$TraceTransformHelper, target)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/TransformHelper;)V", nullptr, $PUBLIC, $method(TransformHelper$TraceTransformHelper, init$, void, $TransformHelper*)},
+		{"Transform", "(Lsun/java2d/loops/MaskBlit;Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIIIII[III)V", nullptr, $PUBLIC, $virtualMethod(TransformHelper$TraceTransformHelper, Transform, void, $MaskBlit*, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*, int32_t, int32_t)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(TransformHelper$TraceTransformHelper, traceWrap, $GraphicsPrimitive*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.TransformHelper$TraceTransformHelper", "sun.java2d.loops.TransformHelper", "TraceTransformHelper", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.TransformHelper$TraceTransformHelper",
+		"sun.java2d.loops.TransformHelper",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.TransformHelper"
+	};
+	$loadClass(TransformHelper$TraceTransformHelper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransformHelper$TraceTransformHelper);
+	});
 	return class$;
 }
 

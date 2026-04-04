@@ -42,6 +42,7 @@ public:
 	virtual int32_t lastIndexOf(Object$* arg0) override;
 	virtual ::java::util::ListIterator* listIterator() override;
 	virtual ::java::util::ListIterator* listIterator(int32_t arg0) override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($shorts* array, int32_t length);
 	virtual bool contains(int16_t item) override;
 	virtual bool equals(Object$* obj) override;

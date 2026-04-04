@@ -51,6 +51,7 @@ class $import StyleSheet$ListPainter : public ::java::io::Serializable {
 	$class(StyleSheet$ListPainter, 0, ::java::io::Serializable)
 public:
 	StyleSheet$ListPainter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::text::AttributeSet* attr, ::javax::swing::text::html::StyleSheet* ss);
 	virtual void drawIcon(::java::awt::Graphics* g, int32_t ax, int32_t ay, int32_t aw, int32_t ah, float align, ::java::awt::Component* c);
 	virtual void drawLetter(::java::awt::Graphics* g, char16_t letter, int32_t ax, int32_t ay, int32_t aw, int32_t ah, float align, int32_t index);

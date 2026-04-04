@@ -1,5 +1,4 @@
 #include <sun/util/resources/ext/LocaleNames_sr.h>
-
 #include <sun/util/resources/LocaleNamesBundle.h>
 #include <jcpp.h>
 
@@ -13,1219 +12,1200 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _LocaleNames_sr_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_sr, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_sr, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _LocaleNames_sr_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.util.resources.ext.LocaleNames_sr",
-	"sun.util.resources.LocaleNamesBundle",
-	nullptr,
-	nullptr,
-	_LocaleNames_sr_MethodInfo_
-};
-
-$Object* allocate$LocaleNames_sr($Class* clazz) {
-	return $of($alloc(LocaleNames_sr));
-}
-
 void LocaleNames_sr::init$() {
 	$LocaleNamesBundle::init$();
 }
 
 $ObjectArray2* LocaleNames_sr::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("AD"_s),
-			$of(u"Андора"_s)
+			"AD"_s,
+			u"Андора"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AE"_s),
-			$of(u"Уједињени Арапски Емирати"_s)
+			"AE"_s,
+			u"Уједињени Арапски Емирати"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AF"_s),
-			$of(u"Авганистан"_s)
+			"AF"_s,
+			u"Авганистан"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AL"_s),
-			$of(u"Албанија"_s)
+			"AL"_s,
+			u"Албанија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AM"_s),
-			$of(u"Арменија"_s)
+			"AM"_s,
+			u"Арменија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AN"_s),
-			$of(u"Холандски Антили"_s)
+			"AN"_s,
+			u"Холандски Антили"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AO"_s),
-			$of(u"Ангола"_s)
+			"AO"_s,
+			u"Ангола"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AR"_s),
-			$of(u"Аргентина"_s)
+			"AR"_s,
+			u"Аргентина"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AT"_s),
-			$of(u"Аустрија"_s)
+			"AT"_s,
+			u"Аустрија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AU"_s),
-			$of(u"Аустралија"_s)
+			"AU"_s,
+			u"Аустралија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AW"_s),
-			$of(u"Аруба"_s)
+			"AW"_s,
+			u"Аруба"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AX"_s),
-			$of(u"Аландска острва"_s)
+			"AX"_s,
+			u"Аландска острва"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AZ"_s),
-			$of(u"Азербејџан"_s)
+			"AZ"_s,
+			u"Азербејџан"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BA"_s),
-			$of(u"Босна и Херцеговина"_s)
+			"BA"_s,
+			u"Босна и Херцеговина"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BB"_s),
-			$of(u"Барбадос"_s)
+			"BB"_s,
+			u"Барбадос"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BD"_s),
-			$of(u"Бангладеш"_s)
+			"BD"_s,
+			u"Бангладеш"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BE"_s),
-			$of(u"Белгија"_s)
+			"BE"_s,
+			u"Белгија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BF"_s),
-			$of(u"Буркина Фасо"_s)
+			"BF"_s,
+			u"Буркина Фасо"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BG"_s),
-			$of(u"Бугарска"_s)
+			"BG"_s,
+			u"Бугарска"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BH"_s),
-			$of(u"Бахреин"_s)
+			"BH"_s,
+			u"Бахреин"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BI"_s),
-			$of(u"Бурунди"_s)
+			"BI"_s,
+			u"Бурунди"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BJ"_s),
-			$of(u"Бенин"_s)
+			"BJ"_s,
+			u"Бенин"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BM"_s),
-			$of(u"Бермуда"_s)
+			"BM"_s,
+			u"Бермуда"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BN"_s),
-			$of(u"Брунеј"_s)
+			"BN"_s,
+			u"Брунеј"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BO"_s),
-			$of(u"Боливија"_s)
+			"BO"_s,
+			u"Боливија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BR"_s),
-			$of(u"Браѕил"_s)
+			"BR"_s,
+			u"Браѕил"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BS"_s),
-			$of(u"Бахами"_s)
+			"BS"_s,
+			u"Бахами"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BT"_s),
-			$of(u"Бутан"_s)
+			"BT"_s,
+			u"Бутан"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BV"_s),
-			$of(u"Буве"_s)
+			"BV"_s,
+			u"Буве"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BW"_s),
-			$of(u"Боцвана"_s)
+			"BW"_s,
+			u"Боцвана"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BY"_s),
-			$of(u"Белорусија"_s)
+			"BY"_s,
+			u"Белорусија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BZ"_s),
-			$of(u"Белисе"_s)
+			"BZ"_s,
+			u"Белисе"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CA"_s),
-			$of(u"Канада"_s)
+			"CA"_s,
+			u"Канада"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CC"_s),
-			$of(u"Кокосова Острва"_s)
+			"CC"_s,
+			u"Кокосова Острва"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CD"_s),
-			$of(u"Демократска република Конго"_s)
+			"CD"_s,
+			u"Демократска република Конго"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CF"_s),
-			$of(u"Централно Афричка Република"_s)
+			"CF"_s,
+			u"Централно Афричка Република"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CG"_s),
-			$of(u"Конго"_s)
+			"CG"_s,
+			u"Конго"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CH"_s),
-			$of(u"Швајцарска"_s)
+			"CH"_s,
+			u"Швајцарска"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CI"_s),
-			$of(u"Обала Слоноваче"_s)
+			"CI"_s,
+			u"Обала Слоноваче"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CL"_s),
-			$of(u"Чиле"_s)
+			"CL"_s,
+			u"Чиле"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CM"_s),
-			$of(u"Камерун"_s)
+			"CM"_s,
+			u"Камерун"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CN"_s),
-			$of(u"Кина"_s)
+			"CN"_s,
+			u"Кина"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CO"_s),
-			$of(u"Колумбија"_s)
+			"CO"_s,
+			u"Колумбија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CR"_s),
-			$of(u"Костарика"_s)
+			"CR"_s,
+			u"Костарика"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CS"_s),
-			$of(u"Србија и Црна Гора"_s)
+			"CS"_s,
+			u"Србија и Црна Гора"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CU"_s),
-			$of(u"Куба"_s)
+			"CU"_s,
+			u"Куба"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CV"_s),
-			$of(u"Капе Верде"_s)
+			"CV"_s,
+			u"Капе Верде"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CX"_s),
-			$of(u"Божићно Острво"_s)
+			"CX"_s,
+			u"Божићно Острво"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CY"_s),
-			$of(u"Кипар"_s)
+			"CY"_s,
+			u"Кипар"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CZ"_s),
-			$of(u"Чешка"_s)
+			"CZ"_s,
+			u"Чешка"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DE"_s),
-			$of(u"Немачка"_s)
+			"DE"_s,
+			u"Немачка"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DJ"_s),
-			$of(u"Џибути"_s)
+			"DJ"_s,
+			u"Џибути"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DK"_s),
-			$of(u"Данска"_s)
+			"DK"_s,
+			u"Данска"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DM"_s),
-			$of(u"Доминика"_s)
+			"DM"_s,
+			u"Доминика"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DO"_s),
-			$of(u"Доминиканска Република"_s)
+			"DO"_s,
+			u"Доминиканска Република"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DZ"_s),
-			$of(u"Алжир"_s)
+			"DZ"_s,
+			u"Алжир"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EC"_s),
-			$of(u"Еквадор"_s)
+			"EC"_s,
+			u"Еквадор"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EE"_s),
-			$of(u"Естонија"_s)
+			"EE"_s,
+			u"Естонија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EG"_s),
-			$of(u"Египат"_s)
+			"EG"_s,
+			u"Египат"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EH"_s),
-			$of(u"Западна Сахара"_s)
+			"EH"_s,
+			u"Западна Сахара"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ER"_s),
-			$of(u"Еритреја"_s)
+			"ER"_s,
+			u"Еритреја"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ES"_s),
-			$of(u"Шпанија"_s)
+			"ES"_s,
+			u"Шпанија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ET"_s),
-			$of(u"Етиопија"_s)
+			"ET"_s,
+			u"Етиопија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FI"_s),
-			$of(u"Финска"_s)
+			"FI"_s,
+			u"Финска"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FJ"_s),
-			$of(u"Фиџи"_s)
+			"FJ"_s,
+			u"Фиџи"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FK"_s),
-			$of(u"Фолкландска Острва"_s)
+			"FK"_s,
+			u"Фолкландска Острва"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FM"_s),
-			$of(u"Микронезија"_s)
+			"FM"_s,
+			u"Микронезија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FO"_s),
-			$of(u"Фарска Острва"_s)
+			"FO"_s,
+			u"Фарска Острва"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FR"_s),
-			$of(u"Француска"_s)
+			"FR"_s,
+			u"Француска"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GA"_s),
-			$of(u"Габон"_s)
+			"GA"_s,
+			u"Габон"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GB"_s),
-			$of(u"Велика Британија"_s)
+			"GB"_s,
+			u"Велика Британија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GD"_s),
-			$of(u"Гренада"_s)
+			"GD"_s,
+			u"Гренада"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GE"_s),
-			$of(u"Грузија"_s)
+			"GE"_s,
+			u"Грузија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GF"_s),
-			$of(u"Француска Гвајана"_s)
+			"GF"_s,
+			u"Француска Гвајана"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GH"_s),
-			$of(u"Гана"_s)
+			"GH"_s,
+			u"Гана"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GI"_s),
-			$of(u"Гибралтар"_s)
+			"GI"_s,
+			u"Гибралтар"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GL"_s),
-			$of(u"Гренланд"_s)
+			"GL"_s,
+			u"Гренланд"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GM"_s),
-			$of(u"Гамбија"_s)
+			"GM"_s,
+			u"Гамбија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GN"_s),
-			$of(u"Гвинеја"_s)
+			"GN"_s,
+			u"Гвинеја"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GP"_s),
-			$of(u"Гваделупе"_s)
+			"GP"_s,
+			u"Гваделупе"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GQ"_s),
-			$of(u"Екваторијална Гвинеја"_s)
+			"GQ"_s,
+			u"Екваторијална Гвинеја"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GR"_s),
-			$of(u"Грчка"_s)
+			"GR"_s,
+			u"Грчка"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GS"_s),
-			$of(u"Јужна Џорџија и Јужна Сендвич Острва"_s)
+			"GS"_s,
+			u"Јужна Џорџија и Јужна Сендвич Острва"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GT"_s),
-			$of(u"Гватемала"_s)
+			"GT"_s,
+			u"Гватемала"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GU"_s),
-			$of(u"Гуам"_s)
+			"GU"_s,
+			u"Гуам"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GW"_s),
-			$of(u"Гвинеја-Бисао"_s)
+			"GW"_s,
+			u"Гвинеја-Бисао"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GY"_s),
-			$of(u"Гвајана"_s)
+			"GY"_s,
+			u"Гвајана"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HK"_s),
-			$of(u"Хонг Конг (С. А. Р. Кина)"_s)
+			"HK"_s,
+			u"Хонг Конг (С. А. Р. Кина)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HM"_s),
-			$of(u"Херд и Мекдоналд Острва"_s)
+			"HM"_s,
+			u"Херд и Мекдоналд Острва"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HN"_s),
-			$of(u"Хондурас"_s)
+			"HN"_s,
+			u"Хондурас"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HR"_s),
-			$of(u"Хрватска"_s)
+			"HR"_s,
+			u"Хрватска"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HT"_s),
-			$of(u"Хаити"_s)
+			"HT"_s,
+			u"Хаити"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HU"_s),
-			$of(u"Мађарска"_s)
+			"HU"_s,
+			u"Мађарска"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ID"_s),
-			$of(u"Индонезија"_s)
+			"ID"_s,
+			u"Индонезија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IE"_s),
-			$of(u"Ирска"_s)
+			"IE"_s,
+			u"Ирска"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IL"_s),
-			$of(u"Израел"_s)
+			"IL"_s,
+			u"Израел"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IN"_s),
-			$of(u"Индија"_s)
+			"IN"_s,
+			u"Индија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IQ"_s),
-			$of(u"Ирак"_s)
+			"IQ"_s,
+			u"Ирак"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IR"_s),
-			$of(u"Иран"_s)
+			"IR"_s,
+			u"Иран"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IS"_s),
-			$of(u"Исланд"_s)
+			"IS"_s,
+			u"Исланд"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IT"_s),
-			$of(u"Италија"_s)
+			"IT"_s,
+			u"Италија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JM"_s),
-			$of(u"Јамајка"_s)
+			"JM"_s,
+			u"Јамајка"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JO"_s),
-			$of(u"Јордан"_s)
+			"JO"_s,
+			u"Јордан"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JP"_s),
-			$of(u"Јапан"_s)
+			"JP"_s,
+			u"Јапан"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KE"_s),
-			$of(u"Кенија"_s)
+			"KE"_s,
+			u"Кенија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KG"_s),
-			$of(u"Киргизстан"_s)
+			"KG"_s,
+			u"Киргизстан"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KH"_s),
-			$of(u"Камбоџа"_s)
+			"KH"_s,
+			u"Камбоџа"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KI"_s),
-			$of(u"Кирибати"_s)
+			"KI"_s,
+			u"Кирибати"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KM"_s),
-			$of(u"Коморска Острва"_s)
+			"KM"_s,
+			u"Коморска Острва"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KN"_s),
-			$of(u"Сент Китс и Невис"_s)
+			"KN"_s,
+			u"Сент Китс и Невис"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KP"_s),
-			$of(u"Северна Кореја"_s)
+			"KP"_s,
+			u"Северна Кореја"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KR"_s),
-			$of(u"Јужна Кореја"_s)
+			"KR"_s,
+			u"Јужна Кореја"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KW"_s),
-			$of(u"Кувајт"_s)
+			"KW"_s,
+			u"Кувајт"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KY"_s),
-			$of(u"Кајманска Острва"_s)
+			"KY"_s,
+			u"Кајманска Острва"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KZ"_s),
-			$of(u"Казахстан"_s)
+			"KZ"_s,
+			u"Казахстан"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LA"_s),
-			$of(u"Лаос"_s)
+			"LA"_s,
+			u"Лаос"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LB"_s),
-			$of(u"Либан"_s)
+			"LB"_s,
+			u"Либан"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LC"_s),
-			$of(u"Сент Луција"_s)
+			"LC"_s,
+			u"Сент Луција"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LI"_s),
-			$of(u"Лихтенштајн"_s)
+			"LI"_s,
+			u"Лихтенштајн"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LK"_s),
-			$of(u"Шри Ланка"_s)
+			"LK"_s,
+			u"Шри Ланка"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LR"_s),
-			$of(u"Либерија"_s)
+			"LR"_s,
+			u"Либерија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LS"_s),
-			$of(u"Лесото"_s)
+			"LS"_s,
+			u"Лесото"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LT"_s),
-			$of(u"Литванија"_s)
+			"LT"_s,
+			u"Литванија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LU"_s),
-			$of(u"Луксембург"_s)
+			"LU"_s,
+			u"Луксембург"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LV"_s),
-			$of(u"Летонија"_s)
+			"LV"_s,
+			u"Летонија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LY"_s),
-			$of(u"Либија"_s)
+			"LY"_s,
+			u"Либија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MA"_s),
-			$of(u"Мароко"_s)
+			"MA"_s,
+			u"Мароко"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MC"_s),
-			$of(u"Монако"_s)
+			"MC"_s,
+			u"Монако"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MD"_s),
-			$of(u"Молдавија"_s)
+			"MD"_s,
+			u"Молдавија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MG"_s),
-			$of(u"Мадагаскар"_s)
+			"MG"_s,
+			u"Мадагаскар"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MH"_s),
-			$of(u"Маршалска Острва"_s)
+			"MH"_s,
+			u"Маршалска Острва"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MK"_s),
-			$of(u"Македонија"_s)
+			"MK"_s,
+			u"Македонија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ML"_s),
-			$of(u"Мали"_s)
+			"ML"_s,
+			u"Мали"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MM"_s),
-			$of(u"Мијанмар"_s)
+			"MM"_s,
+			u"Мијанмар"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MN"_s),
-			$of(u"Монголија"_s)
+			"MN"_s,
+			u"Монголија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MO"_s),
-			$of(u"Макао (С. А. Р. Кина)"_s)
+			"MO"_s,
+			u"Макао (С. А. Р. Кина)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MP"_s),
-			$of(u"Северна Маријанска Острва"_s)
+			"MP"_s,
+			u"Северна Маријанска Острва"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MQ"_s),
-			$of(u"Мартиник"_s)
+			"MQ"_s,
+			u"Мартиник"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MR"_s),
-			$of(u"Мауританија"_s)
+			"MR"_s,
+			u"Мауританија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MS"_s),
-			$of(u"Монсерат"_s)
+			"MS"_s,
+			u"Монсерат"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MT"_s),
-			$of(u"Малта"_s)
+			"MT"_s,
+			u"Малта"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MU"_s),
-			$of(u"Маурицијус"_s)
+			"MU"_s,
+			u"Маурицијус"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MV"_s),
-			$of(u"Малдиви"_s)
+			"MV"_s,
+			u"Малдиви"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MW"_s),
-			$of(u"Малави"_s)
+			"MW"_s,
+			u"Малави"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MX"_s),
-			$of(u"Мексико"_s)
+			"MX"_s,
+			u"Мексико"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MY"_s),
-			$of(u"Малезија"_s)
+			"MY"_s,
+			u"Малезија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MZ"_s),
-			$of(u"Мозамбик"_s)
+			"MZ"_s,
+			u"Мозамбик"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NA"_s),
-			$of(u"Намибија"_s)
+			"NA"_s,
+			u"Намибија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NC"_s),
-			$of(u"Нова Каледонија"_s)
+			"NC"_s,
+			u"Нова Каледонија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NE"_s),
-			$of(u"Нигер"_s)
+			"NE"_s,
+			u"Нигер"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NF"_s),
-			$of(u"Норфолк Острво"_s)
+			"NF"_s,
+			u"Норфолк Острво"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NG"_s),
-			$of(u"Нигерија"_s)
+			"NG"_s,
+			u"Нигерија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NI"_s),
-			$of(u"Никарагва"_s)
+			"NI"_s,
+			u"Никарагва"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NL"_s),
-			$of(u"Холандија"_s)
+			"NL"_s,
+			u"Холандија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NO"_s),
-			$of(u"Норвешка"_s)
+			"NO"_s,
+			u"Норвешка"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NP"_s),
-			$of(u"Непал"_s)
+			"NP"_s,
+			u"Непал"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NR"_s),
-			$of(u"Науру"_s)
+			"NR"_s,
+			u"Науру"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NU"_s),
-			$of(u"Ниуе"_s)
+			"NU"_s,
+			u"Ниуе"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NZ"_s),
-			$of(u"Нови Зеланд"_s)
+			"NZ"_s,
+			u"Нови Зеланд"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OM"_s),
-			$of(u"Оман"_s)
+			"OM"_s,
+			u"Оман"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PA"_s),
-			$of(u"Панама"_s)
+			"PA"_s,
+			u"Панама"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PE"_s),
-			$of(u"Перу"_s)
+			"PE"_s,
+			u"Перу"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PF"_s),
-			$of(u"Француска Полинезија"_s)
+			"PF"_s,
+			u"Француска Полинезија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PG"_s),
-			$of(u"Папуа Нова Гвинеја"_s)
+			"PG"_s,
+			u"Папуа Нова Гвинеја"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PH"_s),
-			$of(u"Филипини"_s)
+			"PH"_s,
+			u"Филипини"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PK"_s),
-			$of(u"Пакистан"_s)
+			"PK"_s,
+			u"Пакистан"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PL"_s),
-			$of(u"Пољска"_s)
+			"PL"_s,
+			u"Пољска"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PM"_s),
-			$of(u"Сен Пјер и Микелон"_s)
+			"PM"_s,
+			u"Сен Пјер и Микелон"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PN"_s),
-			$of(u"Питкерн"_s)
+			"PN"_s,
+			u"Питкерн"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PR"_s),
-			$of(u"Порто Рико"_s)
+			"PR"_s,
+			u"Порто Рико"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PS"_s),
-			$of(u"Палестинска територија"_s)
+			"PS"_s,
+			u"Палестинска територија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PT"_s),
-			$of(u"Португал"_s)
+			"PT"_s,
+			u"Португал"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PW"_s),
-			$of(u"Палау"_s)
+			"PW"_s,
+			u"Палау"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PY"_s),
-			$of(u"Парагвај"_s)
+			"PY"_s,
+			u"Парагвај"_s
 		}),
 		$$new($ObjectArray, {
-			$of("QA"_s),
-			$of(u"Катар"_s)
+			"QA"_s,
+			u"Катар"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RE"_s),
-			$of(u"Реинион"_s)
+			"RE"_s,
+			u"Реинион"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RO"_s),
-			$of(u"Румунија"_s)
+			"RO"_s,
+			u"Румунија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RU"_s),
-			$of(u"Русија"_s)
+			"RU"_s,
+			u"Русија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RW"_s),
-			$of(u"Руанда"_s)
+			"RW"_s,
+			u"Руанда"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SA"_s),
-			$of(u"Саудијска Арабија"_s)
+			"SA"_s,
+			u"Саудијска Арабија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SB"_s),
-			$of(u"Соломонска Острва"_s)
+			"SB"_s,
+			u"Соломонска Острва"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SC"_s),
-			$of(u"Сејшели"_s)
+			"SC"_s,
+			u"Сејшели"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SD"_s),
-			$of(u"Судан"_s)
+			"SD"_s,
+			u"Судан"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SE"_s),
-			$of(u"Шведска"_s)
+			"SE"_s,
+			u"Шведска"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SG"_s),
-			$of(u"Сингапур"_s)
+			"SG"_s,
+			u"Сингапур"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SH"_s),
-			$of(u"Света Јелена"_s)
+			"SH"_s,
+			u"Света Јелена"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SI"_s),
-			$of(u"Словенија"_s)
+			"SI"_s,
+			u"Словенија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SJ"_s),
-			$of(u"Свалбард и Јанмајен Острва"_s)
+			"SJ"_s,
+			u"Свалбард и Јанмајен Острва"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SK"_s),
-			$of(u"Словачка"_s)
+			"SK"_s,
+			u"Словачка"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SL"_s),
-			$of(u"Сијера Леоне"_s)
+			"SL"_s,
+			u"Сијера Леоне"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SM"_s),
-			$of(u"Сан Марино"_s)
+			"SM"_s,
+			u"Сан Марино"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SN"_s),
-			$of(u"Сенегал"_s)
+			"SN"_s,
+			u"Сенегал"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SO"_s),
-			$of(u"Сомалија"_s)
+			"SO"_s,
+			u"Сомалија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SR"_s),
-			$of(u"Суринам"_s)
+			"SR"_s,
+			u"Суринам"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ST"_s),
-			$of(u"Сао Томе и Принципи"_s)
+			"ST"_s,
+			u"Сао Томе и Принципи"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SV"_s),
-			$of(u"Салвадор"_s)
+			"SV"_s,
+			u"Салвадор"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SY"_s),
-			$of(u"Сирија"_s)
+			"SY"_s,
+			u"Сирија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SZ"_s),
-			$of(u"Свазиленд"_s)
+			"SZ"_s,
+			u"Свазиленд"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TC"_s),
-			$of(u"Туркс и Кајкос Острва"_s)
+			"TC"_s,
+			u"Туркс и Кајкос Острва"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TD"_s),
-			$of(u"Чад"_s)
+			"TD"_s,
+			u"Чад"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TF"_s),
-			$of(u"Француске Јужне Територије"_s)
+			"TF"_s,
+			u"Француске Јужне Територије"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TG"_s),
-			$of(u"Того"_s)
+			"TG"_s,
+			u"Того"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TH"_s),
-			$of(u"Тајланд"_s)
+			"TH"_s,
+			u"Тајланд"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TJ"_s),
-			$of(u"Таџикистан"_s)
+			"TJ"_s,
+			u"Таџикистан"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TK"_s),
-			$of(u"Токелау"_s)
+			"TK"_s,
+			u"Токелау"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TL"_s),
-			$of(u"Тимор-Лесте"_s)
+			"TL"_s,
+			u"Тимор-Лесте"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TM"_s),
-			$of(u"Туркменистан"_s)
+			"TM"_s,
+			u"Туркменистан"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TN"_s),
-			$of(u"Тунис"_s)
+			"TN"_s,
+			u"Тунис"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TO"_s),
-			$of(u"Тонга"_s)
+			"TO"_s,
+			u"Тонга"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TR"_s),
-			$of(u"Турска"_s)
+			"TR"_s,
+			u"Турска"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TT"_s),
-			$of(u"Тринидад и Тобаго"_s)
+			"TT"_s,
+			u"Тринидад и Тобаго"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TV"_s),
-			$of(u"Тувалу"_s)
+			"TV"_s,
+			u"Тувалу"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TW"_s),
-			$of(u"Тајван"_s)
+			"TW"_s,
+			u"Тајван"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TZ"_s),
-			$of(u"Танзанија"_s)
+			"TZ"_s,
+			u"Танзанија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UA"_s),
-			$of(u"Украјина"_s)
+			"UA"_s,
+			u"Украјина"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UG"_s),
-			$of(u"Уганда"_s)
+			"UG"_s,
+			u"Уганда"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UM"_s),
-			$of(u"Мања удаљена острва САД"_s)
+			"UM"_s,
+			u"Мања удаљена острва САД"_s
 		}),
 		$$new($ObjectArray, {
-			$of("US"_s),
-			$of(u"Сједињене Америчке Државе"_s)
+			"US"_s,
+			u"Сједињене Америчке Државе"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UY"_s),
-			$of(u"Уругвај"_s)
+			"UY"_s,
+			u"Уругвај"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UZ"_s),
-			$of(u"Узбекистан"_s)
+			"UZ"_s,
+			u"Узбекистан"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VA"_s),
-			$of(u"Ватикан"_s)
+			"VA"_s,
+			u"Ватикан"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VC"_s),
-			$of(u"Сент Винсент и Гренадини"_s)
+			"VC"_s,
+			u"Сент Винсент и Гренадини"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VE"_s),
-			$of(u"Венецуела"_s)
+			"VE"_s,
+			u"Венецуела"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VG"_s),
-			$of(u"Британска Девичанска Острва"_s)
+			"VG"_s,
+			u"Британска Девичанска Острва"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VI"_s),
-			$of(u"С.А.Д. Девичанска Острва"_s)
+			"VI"_s,
+			u"С.А.Д. Девичанска Острва"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VN"_s),
-			$of(u"Вијетнам"_s)
+			"VN"_s,
+			u"Вијетнам"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VU"_s),
-			$of(u"Вануату"_s)
+			"VU"_s,
+			u"Вануату"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WF"_s),
-			$of(u"Валис и Футуна Острва"_s)
+			"WF"_s,
+			u"Валис и Футуна Острва"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WS"_s),
-			$of(u"Самоа"_s)
+			"WS"_s,
+			u"Самоа"_s
 		}),
 		$$new($ObjectArray, {
-			$of("YE"_s),
-			$of(u"Јемен"_s)
+			"YE"_s,
+			u"Јемен"_s
 		}),
 		$$new($ObjectArray, {
-			$of("YT"_s),
-			$of(u"Мајоте"_s)
+			"YT"_s,
+			u"Мајоте"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZA"_s),
-			$of(u"Јужноафричка Република"_s)
+			"ZA"_s,
+			u"Јужноафричка Република"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZM"_s),
-			$of(u"Замбија"_s)
+			"ZM"_s,
+			u"Замбија"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZW"_s),
-			$of(u"Зимбабве"_s)
+			"ZW"_s,
+			u"Зимбабве"_s
 		}),
 		$$new($ObjectArray, {
-			$of("af"_s),
-			$of(u"Африканерски"_s)
+			"af"_s,
+			u"Африканерски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ar"_s),
-			$of(u"Арапски"_s)
+			"ar"_s,
+			u"Арапски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("be"_s),
-			$of(u"Белоруски"_s)
+			"be"_s,
+			u"Белоруски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bg"_s),
-			$of(u"Бугарски"_s)
+			"bg"_s,
+			u"Бугарски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("br"_s),
-			$of(u"Бретонски"_s)
+			"br"_s,
+			u"Бретонски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ca"_s),
-			$of(u"Каталонски"_s)
+			"ca"_s,
+			u"Каталонски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("co"_s),
-			$of(u"Корзикански"_s)
+			"co"_s,
+			u"Корзикански"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cs"_s),
-			$of(u"Чешки"_s)
+			"cs"_s,
+			u"Чешки"_s
 		}),
 		$$new($ObjectArray, {
-			$of("da"_s),
-			$of(u"Дански"_s)
+			"da"_s,
+			u"Дански"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de"_s),
-			$of(u"Немачки"_s)
+			"de"_s,
+			u"Немачки"_s
 		}),
 		$$new($ObjectArray, {
-			$of("el"_s),
-			$of(u"Грчки"_s)
+			"el"_s,
+			u"Грчки"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en"_s),
-			$of(u"Енглески"_s)
+			"en"_s,
+			u"Енглески"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eo"_s),
-			$of(u"Есперанто"_s)
+			"eo"_s,
+			u"Есперанто"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es"_s),
-			$of(u"Шпански"_s)
+			"es"_s,
+			u"Шпански"_s
 		}),
 		$$new($ObjectArray, {
-			$of("et"_s),
-			$of(u"Естонски"_s)
+			"et"_s,
+			u"Естонски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eu"_s),
-			$of(u"Баскијски"_s)
+			"eu"_s,
+			u"Баскијски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fa"_s),
-			$of(u"Персијски"_s)
+			"fa"_s,
+			u"Персијски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fi"_s),
-			$of(u"Фински"_s)
+			"fi"_s,
+			u"Фински"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr"_s),
-			$of(u"Француски"_s)
+			"fr"_s,
+			u"Француски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ga"_s),
-			$of(u"Ирски"_s)
+			"ga"_s,
+			u"Ирски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("he"_s),
-			$of(u"Хебрејски"_s)
+			"he"_s,
+			u"Хебрејски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hi"_s),
-			$of(u"Хинди"_s)
+			"hi"_s,
+			u"Хинди"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hr"_s),
-			$of(u"Хрватски"_s)
+			"hr"_s,
+			u"Хрватски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hu"_s),
-			$of(u"Мађарски"_s)
+			"hu"_s,
+			u"Мађарски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hy"_s),
-			$of(u"Арменски"_s)
+			"hy"_s,
+			u"Арменски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("id"_s),
-			$of(u"Индонезијски"_s)
+			"id"_s,
+			u"Индонезијски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("in"_s),
-			$of(u"Индонезијски"_s)
+			"in"_s,
+			u"Индонезијски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("is"_s),
-			$of(u"Исландски"_s)
+			"is"_s,
+			u"Исландски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("it"_s),
-			$of(u"Италијански"_s)
+			"it"_s,
+			u"Италијански"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iw"_s),
-			$of(u"Хебрејски"_s)
+			"iw"_s,
+			u"Хебрејски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ja"_s),
-			$of(u"Јапански"_s)
+			"ja"_s,
+			u"Јапански"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ji"_s),
-			$of(u"Јидиш"_s)
+			"ji"_s,
+			u"Јидиш"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ka"_s),
-			$of(u"Грузијски"_s)
+			"ka"_s,
+			u"Грузијски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("km"_s),
-			$of(u"Кмерски"_s)
+			"km"_s,
+			u"Кмерски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ko"_s),
-			$of(u"Корејски"_s)
+			"ko"_s,
+			u"Корејски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ku"_s),
-			$of(u"Курдски"_s)
+			"ku"_s,
+			u"Курдски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ky"_s),
-			$of(u"Киргиски"_s)
+			"ky"_s,
+			u"Киргиски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("la"_s),
-			$of(u"Латински"_s)
+			"la"_s,
+			u"Латински"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lt"_s),
-			$of(u"Литвански"_s)
+			"lt"_s,
+			u"Литвански"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lv"_s),
-			$of(u"Летонски"_s)
+			"lv"_s,
+			u"Летонски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mk"_s),
-			$of(u"Македонски"_s)
+			"mk"_s,
+			u"Македонски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mn"_s),
-			$of(u"Монголски"_s)
+			"mn"_s,
+			u"Монголски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mo"_s),
-			$of(u"Молдавски"_s)
+			"mo"_s,
+			u"Молдавски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("my"_s),
-			$of(u"Бурмански"_s)
+			"my"_s,
+			u"Бурмански"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nl"_s),
-			$of(u"Холандски"_s)
+			"nl"_s,
+			u"Холандски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("no"_s),
-			$of(u"Норвешки"_s)
+			"no"_s,
+			u"Норвешки"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pl"_s),
-			$of(u"Пољски"_s)
+			"pl"_s,
+			u"Пољски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt"_s),
-			$of(u"Португалски"_s)
+			"pt"_s,
+			u"Португалски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rm"_s),
-			$of(u"Рето-Романски"_s)
+			"rm"_s,
+			u"Рето-Романски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ro"_s),
-			$of(u"Румунски"_s)
+			"ro"_s,
+			u"Румунски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ru"_s),
-			$of(u"Руски"_s)
+			"ru"_s,
+			u"Руски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sa"_s),
-			$of(u"Санскрит"_s)
+			"sa"_s,
+			u"Санскрит"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sk"_s),
-			$of(u"Словачки"_s)
+			"sk"_s,
+			u"Словачки"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sl"_s),
-			$of(u"Словеначки"_s)
+			"sl"_s,
+			u"Словеначки"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sq"_s),
-			$of(u"Албански"_s)
+			"sq"_s,
+			u"Албански"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sr"_s),
-			$of(u"Српски"_s)
+			"sr"_s,
+			u"Српски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sv"_s),
-			$of(u"Шведски"_s)
+			"sv"_s,
+			u"Шведски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sw"_s),
-			$of(u"Свахили"_s)
+			"sw"_s,
+			u"Свахили"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tr"_s),
-			$of(u"Турски"_s)
+			"tr"_s,
+			u"Турски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uk"_s),
-			$of(u"Украјински"_s)
+			"uk"_s,
+			u"Украјински"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vi"_s),
-			$of(u"Вијетнамски"_s)
+			"vi"_s,
+			u"Вијетнамски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yi"_s),
-			$of(u"Јидиш"_s)
+			"yi"_s,
+			u"Јидиш"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh"_s),
-			$of(u"Кинески"_s)
+			"zh"_s,
+			u"Кинески"_s
 		})
 	});
 }
@@ -1234,7 +1214,22 @@ LocaleNames_sr::LocaleNames_sr() {
 }
 
 $Class* LocaleNames_sr::load$($String* name, bool initialize) {
-	$loadClass(LocaleNames_sr, name, initialize, &_LocaleNames_sr_ClassInfo_, allocate$LocaleNames_sr);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_sr, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_sr, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.util.resources.ext.LocaleNames_sr",
+		"sun.util.resources.LocaleNamesBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNames_sr, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNames_sr);
+	});
 	return class$;
 }
 

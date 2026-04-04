@@ -1,7 +1,5 @@
 #include <com/sun/tools/javac/tree/JCTree$JCLambda.h>
-
 #include <com/sun/source/tree/LambdaExpressionTree$BodyKind.h>
-#include <com/sun/source/tree/LambdaExpressionTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -24,7 +22,6 @@
 #undef LAMBDA_EXPRESSION
 #undef STATEMENT
 
-using $LambdaExpressionTree = ::com::sun::source::tree::LambdaExpressionTree;
 using $LambdaExpressionTree$BodyKind = ::com::sun::source::tree::LambdaExpressionTree$BodyKind;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
@@ -47,59 +44,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$JCLambda_FieldInfo_[] = {
-	{"params", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;", $PUBLIC, $field(JCTree$JCLambda, params)},
-	{"body", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $field(JCTree$JCLambda, body)},
-	{"canCompleteNormally", "Z", nullptr, $PUBLIC, $field(JCTree$JCLambda, canCompleteNormally)},
-	{"paramKind", "Lcom/sun/tools/javac/tree/JCTree$JCLambda$ParameterKind;", nullptr, $PUBLIC, $field(JCTree$JCLambda, paramKind)},
-	{}
-};
-
-$MethodInfo _JCTree$JCLambda_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;Lcom/sun/tools/javac/tree/JCTree;)V", $PUBLIC, $method(JCTree$JCLambda, init$, void, $List*, $JCTree*)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLambda, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCLambda, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getBody", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLambda, getBody, $JCTree*)},
-	{"getBodyKind", "()Lcom/sun/source/tree/LambdaExpressionTree$BodyKind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLambda, getBodyKind, $LambdaExpressionTree$BodyKind*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLambda, getKind, $Tree$Kind*)},
-	{"getParameters", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/VariableTree;>;", $PUBLIC, $virtualMethod(JCTree$JCLambda, getParameters, $1List*)},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLambda, getTag, $JCTree$Tag*)},
-	{"setType", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/tree/JCTree$JCLambda;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLambda, setType, JCTree$JCLambda*, $Type*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCLambda_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCLambda", "com.sun.tools.javac.tree.JCTree", "JCLambda", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCFunctionalExpression", "com.sun.tools.javac.tree.JCTree", "JCFunctionalExpression", $PUBLIC | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.tree.JCTree$JCLambda$ParameterKind", "com.sun.tools.javac.tree.JCTree$JCLambda", "ParameterKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _JCTree$JCLambda_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$JCLambda",
-	"com.sun.tools.javac.tree.JCTree$JCFunctionalExpression",
-	"com.sun.source.tree.LambdaExpressionTree",
-	_JCTree$JCLambda_FieldInfo_,
-	_JCTree$JCLambda_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCLambda_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCLambda($Class* clazz) {
-	return $of($alloc(JCTree$JCLambda));
-}
 
 $String* JCTree$JCLambda::toString() {
 	 return this->$JCTree$JCFunctionalExpression::toString();
@@ -126,7 +70,7 @@ void JCTree$JCLambda::init$($List* params, $JCTree* body) {
 	this->canCompleteNormally = true;
 	$set(this, params, params);
 	$set(this, body, body);
-	if ($nc(params)->isEmpty() || $nc(($cast($JCTree$JCVariableDecl, $nc(params)->head)))->vartype != nullptr) {
+	if ($nc(params)->isEmpty() || $nc(($cast($JCTree$JCVariableDecl, params->head)))->vartype != nullptr) {
 		$init($JCTree$JCLambda$ParameterKind);
 		$set(this, paramKind, $JCTree$JCLambda$ParameterKind::EXPLICIT);
 	} else {
@@ -145,7 +89,7 @@ void JCTree$JCLambda::accept($JCTree$Visitor* v) {
 }
 
 $Object* JCTree$JCLambda::accept($TreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitLambdaExpression(this, d));
+	return $nc(v)->visitLambdaExpression(this, d);
 }
 
 $Tree$Kind* JCTree$JCLambda::getKind() {
@@ -176,7 +120,54 @@ JCTree$JCLambda::JCTree$JCLambda() {
 }
 
 $Class* JCTree$JCLambda::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCLambda, name, initialize, &_JCTree$JCLambda_ClassInfo_, allocate$JCTree$JCLambda);
+	$FieldInfo fieldInfos$$[] = {
+		{"params", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;", $PUBLIC, $field(JCTree$JCLambda, params)},
+		{"body", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $field(JCTree$JCLambda, body)},
+		{"canCompleteNormally", "Z", nullptr, $PUBLIC, $field(JCTree$JCLambda, canCompleteNormally)},
+		{"paramKind", "Lcom/sun/tools/javac/tree/JCTree$JCLambda$ParameterKind;", nullptr, $PUBLIC, $field(JCTree$JCLambda, paramKind)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;Lcom/sun/tools/javac/tree/JCTree;)V", $PUBLIC, $method(JCTree$JCLambda, init$, void, $List*, $JCTree*)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLambda, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCLambda, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getBody", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLambda, getBody, $JCTree*)},
+		{"getBodyKind", "()Lcom/sun/source/tree/LambdaExpressionTree$BodyKind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLambda, getBodyKind, $LambdaExpressionTree$BodyKind*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLambda, getKind, $Tree$Kind*)},
+		{"getParameters", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/VariableTree;>;", $PUBLIC, $virtualMethod(JCTree$JCLambda, getParameters, $1List*)},
+		{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLambda, getTag, $JCTree$Tag*)},
+		{"setType", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/tree/JCTree$JCLambda;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLambda, setType, JCTree$JCLambda*, $Type*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCLambda", "com.sun.tools.javac.tree.JCTree", "JCLambda", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCFunctionalExpression", "com.sun.tools.javac.tree.JCTree", "JCFunctionalExpression", $PUBLIC | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.tree.JCTree$JCLambda$ParameterKind", "com.sun.tools.javac.tree.JCTree$JCLambda", "ParameterKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$JCLambda",
+		"com.sun.tools.javac.tree.JCTree$JCFunctionalExpression",
+		"com.sun.source.tree.LambdaExpressionTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCLambda, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCLambda));
+	});
 	return class$;
 }
 

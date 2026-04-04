@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet$Threshholding.h>
-
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,36 +15,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _BaselineTIFFTagSet$Threshholding_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$Threshholding, init$, void)},
-	{}
-};
-
-$InnerClassInfo _BaselineTIFFTagSet$Threshholding_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$Threshholding", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "Threshholding", $STATIC},
-	{}
-};
-
-$ClassInfo _BaselineTIFFTagSet$Threshholding_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet$Threshholding",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$Threshholding_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$Threshholding_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
-};
-
-$Object* allocate$BaselineTIFFTagSet$Threshholding($Class* clazz) {
-	return $of($alloc(BaselineTIFFTagSet$Threshholding));
-}
-
 void BaselineTIFFTagSet$Threshholding::init$() {
 	$TIFFTag::init$("Threshholding"_s, 263, $sl(1, $TIFFTag::TIFF_SHORT), 1);
 	addValueName(1, "None"_s);
@@ -57,7 +26,32 @@ BaselineTIFFTagSet$Threshholding::BaselineTIFFTagSet$Threshholding() {
 }
 
 $Class* BaselineTIFFTagSet$Threshholding::load$($String* name, bool initialize) {
-	$loadClass(BaselineTIFFTagSet$Threshholding, name, initialize, &_BaselineTIFFTagSet$Threshholding_ClassInfo_, allocate$BaselineTIFFTagSet$Threshholding);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$Threshholding, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$Threshholding", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "Threshholding", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet$Threshholding",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
+	};
+	$loadClass(BaselineTIFFTagSet$Threshholding, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BaselineTIFFTagSet$Threshholding);
+	});
 	return class$;
 }
 

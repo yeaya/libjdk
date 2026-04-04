@@ -1,5 +1,4 @@
 #include <javax/swing/BoxLayout.h>
-
 #include <java/awt/AWTError.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -38,76 +37,6 @@ using $SizeRequirements = ::javax::swing::SizeRequirements;
 
 namespace javax {
 	namespace swing {
-
-$Attribute BoxLayout_Attribute_var$1[] = {
-	{'s', "target"},
-	{'s', "axis"},
-	{'-'}
-};
-
-$NamedAttribute BoxLayout_Attribute_var$0[] = {
-	{"value", '[', BoxLayout_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _BoxLayout_MethodAnnotations_init$0[] = {
-	{"Ljava/beans/ConstructorProperties;", BoxLayout_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _BoxLayout_FieldInfo_[] = {
-	{"X_AXIS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BoxLayout, X_AXIS)},
-	{"Y_AXIS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BoxLayout, Y_AXIS)},
-	{"LINE_AXIS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BoxLayout, LINE_AXIS)},
-	{"PAGE_AXIS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BoxLayout, PAGE_AXIS)},
-	{"axis", "I", nullptr, $PRIVATE, $field(BoxLayout, axis)},
-	{"target", "Ljava/awt/Container;", nullptr, $PRIVATE, $field(BoxLayout, target)},
-	{"xChildren", "[Ljavax/swing/SizeRequirements;", nullptr, $PRIVATE | $TRANSIENT, $field(BoxLayout, xChildren)},
-	{"yChildren", "[Ljavax/swing/SizeRequirements;", nullptr, $PRIVATE | $TRANSIENT, $field(BoxLayout, yChildren)},
-	{"xTotal", "Ljavax/swing/SizeRequirements;", nullptr, $PRIVATE | $TRANSIENT, $field(BoxLayout, xTotal)},
-	{"yTotal", "Ljavax/swing/SizeRequirements;", nullptr, $PRIVATE | $TRANSIENT, $field(BoxLayout, yTotal)},
-	{"dbg", "Ljava/io/PrintStream;", nullptr, $PRIVATE | $TRANSIENT, $field(BoxLayout, dbg)},
-	{}
-};
-
-$MethodInfo _BoxLayout_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Container;I)V", nullptr, $PUBLIC, $method(BoxLayout, init$, void, $Container*, int32_t), nullptr, nullptr, _BoxLayout_MethodAnnotations_init$0},
-	{"<init>", "(Ljava/awt/Container;ILjava/io/PrintStream;)V", nullptr, 0, $method(BoxLayout, init$, void, $Container*, int32_t, $PrintStream*)},
-	{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(BoxLayout, addLayoutComponent, void, $String*, $Component*)},
-	{"addLayoutComponent", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BoxLayout, addLayoutComponent, void, $Component*, Object$*)},
-	{"checkContainer", "(Ljava/awt/Container;)V", nullptr, 0, $virtualMethod(BoxLayout, checkContainer, void, $Container*)},
-	{"checkRequests", "()V", nullptr, 0, $virtualMethod(BoxLayout, checkRequests, void)},
-	{"getAxis", "()I", nullptr, $PUBLIC | $FINAL, $method(BoxLayout, getAxis, int32_t)},
-	{"getLayoutAlignmentX", "(Ljava/awt/Container;)F", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BoxLayout, getLayoutAlignmentX, float, $Container*)},
-	{"getLayoutAlignmentY", "(Ljava/awt/Container;)F", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BoxLayout, getLayoutAlignmentY, float, $Container*)},
-	{"getTarget", "()Ljava/awt/Container;", nullptr, $PUBLIC | $FINAL, $method(BoxLayout, getTarget, $Container*)},
-	{"invalidateLayout", "(Ljava/awt/Container;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BoxLayout, invalidateLayout, void, $Container*)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(BoxLayout, layoutContainer, void, $Container*)},
-	{"maximumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BoxLayout, maximumLayoutSize, $Dimension*, $Container*)},
-	{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BoxLayout, minimumLayoutSize, $Dimension*, $Container*)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BoxLayout, preferredLayoutSize, $Dimension*, $Container*)},
-	{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(BoxLayout, removeLayoutComponent, void, $Component*)},
-	{"resolveAxis", "(ILjava/awt/ComponentOrientation;)I", nullptr, $PRIVATE, $method(BoxLayout, resolveAxis, int32_t, int32_t, $ComponentOrientation*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _BoxLayout_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.BoxLayout",
-	"java.lang.Object",
-	"java.awt.LayoutManager2,java.io.Serializable",
-	_BoxLayout_FieldInfo_,
-	_BoxLayout_MethodInfo_
-};
-
-$Object* allocate$BoxLayout($Class* clazz) {
-	return $of($alloc(BoxLayout));
-}
 
 int32_t BoxLayout::hashCode() {
 	 return this->$LayoutManager2::hashCode();
@@ -173,7 +102,7 @@ void BoxLayout::addLayoutComponent($Component* comp, Object$* constraints) {
 }
 
 $Dimension* BoxLayout::preferredLayoutSize($Container* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, size, nullptr);
 	$synchronized(this) {
 		checkContainer(target);
@@ -181,13 +110,13 @@ $Dimension* BoxLayout::preferredLayoutSize($Container* target) {
 		$assign(size, $new($Dimension, $nc(this->xTotal)->preferred, $nc(this->yTotal)->preferred));
 	}
 	$var($Insets, insets, $nc(target)->getInsets());
-	$nc(size)->width = (int32_t)$Math::min((int64_t)size->width + (int64_t)$nc(insets)->left + (int64_t)insets->right, (int64_t)$Integer::MAX_VALUE);
-	size->height = (int32_t)$Math::min((int64_t)size->height + (int64_t)$nc(insets)->top + (int64_t)insets->bottom, (int64_t)$Integer::MAX_VALUE);
+	size->width = (int32_t)$Math::min((int64_t)size->width + (int64_t)$nc(insets)->left + (int64_t)$nc(insets)->right, (int64_t)$Integer::MAX_VALUE);
+	size->height = (int32_t)$Math::min((int64_t)size->height + (int64_t)insets->top + (int64_t)insets->bottom, (int64_t)$Integer::MAX_VALUE);
 	return size;
 }
 
 $Dimension* BoxLayout::minimumLayoutSize($Container* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, size, nullptr);
 	$synchronized(this) {
 		checkContainer(target);
@@ -195,13 +124,13 @@ $Dimension* BoxLayout::minimumLayoutSize($Container* target) {
 		$assign(size, $new($Dimension, $nc(this->xTotal)->minimum, $nc(this->yTotal)->minimum));
 	}
 	$var($Insets, insets, $nc(target)->getInsets());
-	$nc(size)->width = (int32_t)$Math::min((int64_t)size->width + (int64_t)$nc(insets)->left + (int64_t)insets->right, (int64_t)$Integer::MAX_VALUE);
-	size->height = (int32_t)$Math::min((int64_t)size->height + (int64_t)$nc(insets)->top + (int64_t)insets->bottom, (int64_t)$Integer::MAX_VALUE);
+	size->width = (int32_t)$Math::min((int64_t)size->width + (int64_t)$nc(insets)->left + (int64_t)$nc(insets)->right, (int64_t)$Integer::MAX_VALUE);
+	size->height = (int32_t)$Math::min((int64_t)size->height + (int64_t)insets->top + (int64_t)insets->bottom, (int64_t)$Integer::MAX_VALUE);
 	return size;
 }
 
 $Dimension* BoxLayout::maximumLayoutSize($Container* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, size, nullptr);
 	$synchronized(this) {
 		checkContainer(target);
@@ -209,8 +138,8 @@ $Dimension* BoxLayout::maximumLayoutSize($Container* target) {
 		$assign(size, $new($Dimension, $nc(this->xTotal)->maximum, $nc(this->yTotal)->maximum));
 	}
 	$var($Insets, insets, $nc(target)->getInsets());
-	$nc(size)->width = (int32_t)$Math::min((int64_t)size->width + (int64_t)$nc(insets)->left + (int64_t)insets->right, (int64_t)$Integer::MAX_VALUE);
-	size->height = (int32_t)$Math::min((int64_t)size->height + (int64_t)$nc(insets)->top + (int64_t)insets->bottom, (int64_t)$Integer::MAX_VALUE);
+	size->width = (int32_t)$Math::min((int64_t)size->width + (int64_t)$nc(insets)->left + (int64_t)$nc(insets)->right, (int64_t)$Integer::MAX_VALUE);
+	size->height = (int32_t)$Math::min((int64_t)size->height + (int64_t)insets->top + (int64_t)insets->bottom, (int64_t)$Integer::MAX_VALUE);
 	return size;
 }
 
@@ -231,7 +160,7 @@ float BoxLayout::getLayoutAlignmentY($Container* target) {
 }
 
 void BoxLayout::layoutContainer($Container* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkContainer(target);
 	int32_t nChildren = $nc(target)->getComponentCount();
 	$var($ints, xOffsets, $new($ints, nChildren));
@@ -240,7 +169,7 @@ void BoxLayout::layoutContainer($Container* target) {
 	$var($ints, ySpans, $new($ints, nChildren));
 	$var($Dimension, alloc, target->getSize());
 	$var($Insets, in, target->getInsets());
-	$nc(alloc)->width -= $nc(in)->left + in->right;
+	$nc(alloc)->width -= $nc(in)->left + $nc(in)->right;
 	alloc->height -= in->top + in->bottom;
 	$var($ComponentOrientation, o, target->getComponentOrientation());
 	int32_t absoluteAxis = resolveAxis(this->axis, o);
@@ -265,7 +194,7 @@ void BoxLayout::layoutContainer($Container* target) {
 			$var($Component, c, target->getComponent(i));
 			$nc(this->dbg)->println($($nc(c)->toString()));
 			$nc(this->dbg)->println($$str({"X: "_s, $nc(this->xChildren)->get(i)}));
-			$nc(this->dbg)->println($$str({"Y: "_s, $nc(this->yChildren)->get(i)}));
+			this->dbg->println($$str({"Y: "_s, $nc(this->yChildren)->get(i)}));
 		}
 	}
 }
@@ -277,7 +206,7 @@ void BoxLayout::checkContainer($Container* target) {
 }
 
 void BoxLayout::checkRequests() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->xChildren == nullptr || this->yChildren == nullptr) {
 		int32_t n = $nc(this->target)->getComponentCount();
 		$set(this, xChildren, $new($SizeRequirementsArray, n));
@@ -289,11 +218,11 @@ void BoxLayout::checkRequests() {
 				$nc(this->yChildren)->set(i, $$new($SizeRequirements, 0, 0, 0, c->getAlignmentY()));
 				continue;
 			}
-			$var($Dimension, min, $nc(c)->getMinimumSize());
+			$var($Dimension, min, c->getMinimumSize());
 			$var($Dimension, typ, c->getPreferredSize());
 			$var($Dimension, max, c->getMaximumSize());
 			$nc(this->xChildren)->set(i, $$new($SizeRequirements, $nc(min)->width, $nc(typ)->width, $nc(max)->width, c->getAlignmentX()));
-			$nc(this->yChildren)->set(i, $$new($SizeRequirements, $nc(min)->height, $nc(typ)->height, $nc(max)->height, c->getAlignmentY()));
+			$nc(this->yChildren)->set(i, $$new($SizeRequirements, min->height, typ->height, max->height, c->getAlignmentY()));
 		}
 		int32_t absoluteAxis = resolveAxis(this->axis, $($nc(this->target)->getComponentOrientation()));
 		if (absoluteAxis == BoxLayout::X_AXIS) {
@@ -322,7 +251,69 @@ BoxLayout::BoxLayout() {
 }
 
 $Class* BoxLayout::load$($String* name, bool initialize) {
-	$loadClass(BoxLayout, name, initialize, &_BoxLayout_ClassInfo_, allocate$BoxLayout);
+	$FieldInfo fieldInfos$$[] = {
+		{"X_AXIS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BoxLayout, X_AXIS)},
+		{"Y_AXIS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BoxLayout, Y_AXIS)},
+		{"LINE_AXIS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BoxLayout, LINE_AXIS)},
+		{"PAGE_AXIS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BoxLayout, PAGE_AXIS)},
+		{"axis", "I", nullptr, $PRIVATE, $field(BoxLayout, axis)},
+		{"target", "Ljava/awt/Container;", nullptr, $PRIVATE, $field(BoxLayout, target)},
+		{"xChildren", "[Ljavax/swing/SizeRequirements;", nullptr, $PRIVATE | $TRANSIENT, $field(BoxLayout, xChildren)},
+		{"yChildren", "[Ljavax/swing/SizeRequirements;", nullptr, $PRIVATE | $TRANSIENT, $field(BoxLayout, yChildren)},
+		{"xTotal", "Ljavax/swing/SizeRequirements;", nullptr, $PRIVATE | $TRANSIENT, $field(BoxLayout, xTotal)},
+		{"yTotal", "Ljavax/swing/SizeRequirements;", nullptr, $PRIVATE | $TRANSIENT, $field(BoxLayout, yTotal)},
+		{"dbg", "Ljava/io/PrintStream;", nullptr, $PRIVATE | $TRANSIENT, $field(BoxLayout, dbg)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "target"},
+		{'s', "axis"},
+		{'-'}
+	};
+	$NamedAttribute init$methodAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/beans/ConstructorProperties;", init$methodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Container;I)V", nullptr, $PUBLIC, $method(BoxLayout, init$, void, $Container*, int32_t), nullptr, nullptr, init$methodAnnotations$$},
+		{"<init>", "(Ljava/awt/Container;ILjava/io/PrintStream;)V", nullptr, 0, $method(BoxLayout, init$, void, $Container*, int32_t, $PrintStream*)},
+		{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(BoxLayout, addLayoutComponent, void, $String*, $Component*)},
+		{"addLayoutComponent", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BoxLayout, addLayoutComponent, void, $Component*, Object$*)},
+		{"checkContainer", "(Ljava/awt/Container;)V", nullptr, 0, $virtualMethod(BoxLayout, checkContainer, void, $Container*)},
+		{"checkRequests", "()V", nullptr, 0, $virtualMethod(BoxLayout, checkRequests, void)},
+		{"getAxis", "()I", nullptr, $PUBLIC | $FINAL, $method(BoxLayout, getAxis, int32_t)},
+		{"getLayoutAlignmentX", "(Ljava/awt/Container;)F", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BoxLayout, getLayoutAlignmentX, float, $Container*)},
+		{"getLayoutAlignmentY", "(Ljava/awt/Container;)F", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BoxLayout, getLayoutAlignmentY, float, $Container*)},
+		{"getTarget", "()Ljava/awt/Container;", nullptr, $PUBLIC | $FINAL, $method(BoxLayout, getTarget, $Container*)},
+		{"invalidateLayout", "(Ljava/awt/Container;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BoxLayout, invalidateLayout, void, $Container*)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(BoxLayout, layoutContainer, void, $Container*)},
+		{"maximumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BoxLayout, maximumLayoutSize, $Dimension*, $Container*)},
+		{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BoxLayout, minimumLayoutSize, $Dimension*, $Container*)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BoxLayout, preferredLayoutSize, $Dimension*, $Container*)},
+		{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(BoxLayout, removeLayoutComponent, void, $Component*)},
+		{"resolveAxis", "(ILjava/awt/ComponentOrientation;)I", nullptr, $PRIVATE, $method(BoxLayout, resolveAxis, int32_t, int32_t, $ComponentOrientation*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.BoxLayout",
+		"java.lang.Object",
+		"java.awt.LayoutManager2,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BoxLayout, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BoxLayout));
+	});
 	return class$;
 }
 

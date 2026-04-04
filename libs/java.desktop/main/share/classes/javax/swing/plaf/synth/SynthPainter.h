@@ -32,6 +32,7 @@ class $export SynthPainter : public ::java::lang::Object {
 	$class(SynthPainter, 0, ::java::lang::Object)
 public:
 	SynthPainter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void paintArrowButtonBackground(::javax::swing::plaf::synth::SynthContext* context, ::java::awt::Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h);
 	virtual void paintArrowButtonBorder(::javax::swing::plaf::synth::SynthContext* context, ::java::awt::Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h);

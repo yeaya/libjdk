@@ -61,6 +61,7 @@ class $import SwingUtilities : public ::javax::swing::SwingConstants {
 	$class(SwingUtilities, 0, ::javax::swing::SwingConstants)
 public:
 	SwingUtilities();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Object* appContextGet(Object$* key);
 	static void appContextPut(Object$* key, Object$* value);

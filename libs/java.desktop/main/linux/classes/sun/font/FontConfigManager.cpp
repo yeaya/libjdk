@@ -1,5 +1,4 @@
 #include <sun/font/FontConfigManager.h>
-
 #include <java/util/Locale.h>
 #include <sun/awt/SunHints$Value.h>
 #include <sun/awt/SunHints.h>
@@ -51,62 +50,6 @@ using $SunFontManager = ::sun::font::SunFontManager;
 namespace sun {
 	namespace font {
 
-$FieldInfo _FontConfigManager_FieldInfo_[] = {
-	{"fontConfigFailed", "Z", nullptr, $STATIC, $staticField(FontConfigManager, fontConfigFailed)},
-	{"fcInfo", "Lsun/font/FontConfigManager$FontConfigInfo;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FontConfigManager, fcInfo)},
-	{"fontConfigNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(FontConfigManager, fontConfigNames)},
-	{"fontConfigFonts", "[Lsun/font/FontConfigManager$FcCompFont;", nullptr, $PRIVATE, $field(FontConfigManager, fontConfigFonts)},
-	{}
-};
-
-$MethodInfo _FontConfigManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FontConfigManager, init$, void)},
-	{"getFCLocaleStr", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfigManager, getFCLocaleStr, $String*)},
-	{"getFontConfig", "(Ljava/lang/String;Lsun/font/FontConfigManager$FontConfigInfo;[Lsun/font/FontConfigManager$FcCompFont;Z)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FontConfigManager, getFontConfig, void, $String*, $FontConfigManager$FontConfigInfo*, $FontConfigManager$FcCompFontArray*, bool)},
-	{"getFontConfigAAHint", "()Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontConfigManager, getFontConfigAAHint, $Object*)},
-	{"getFontConfigAAHint", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontConfigManager, getFontConfigAAHint, $Object*, $String*)},
-	{"getFontConfigAASettings", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FontConfigManager, getFontConfigAASettings, int32_t, $String*, $String*)},
-	{"getFontConfigFont", "(Ljava/lang/String;I)Lsun/font/CompositeFont;", nullptr, $PUBLIC, $virtualMethod(FontConfigManager, getFontConfigFont, $CompositeFont*, $String*, int32_t)},
-	{"getFontConfigFonts", "()[Lsun/font/FontConfigManager$FcCompFont;", nullptr, $PUBLIC, $virtualMethod(FontConfigManager, getFontConfigFonts, $FontConfigManager$FcCompFontArray*)},
-	{"getFontConfigInfo", "()Lsun/font/FontConfigManager$FontConfigInfo;", nullptr, 0, $virtualMethod(FontConfigManager, getFontConfigInfo, $FontConfigManager$FontConfigInfo*)},
-	{"getFontConfigVersion", "()I", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(FontConfigManager, getFontConfigVersion, int32_t)},
-	{"initFontConfigFonts", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FontConfigManager, initFontConfigFonts, void, bool)},
-	{"loadFontConfig", "()[Lsun/font/FontConfigManager$FcCompFont;", nullptr, 0, $virtualMethod(FontConfigManager, loadFontConfig, $FontConfigManager$FcCompFontArray*)},
-	{"populateFontConfig", "([Lsun/font/FontConfigManager$FcCompFont;)V", nullptr, 0, $virtualMethod(FontConfigManager, populateFontConfig, void, $FontConfigManager$FcCompFontArray*)},
-	{"registerFromFcInfo", "(Lsun/font/FontConfigManager$FcCompFont;)Lsun/font/PhysicalFont;", nullptr, $PUBLIC, $virtualMethod(FontConfigManager, registerFromFcInfo, $PhysicalFont*, $FontConfigManager$FcCompFont*)},
-	{}
-};
-
-#define _METHOD_INDEX_getFontConfig 2
-#define _METHOD_INDEX_getFontConfigAASettings 5
-#define _METHOD_INDEX_getFontConfigVersion 9
-
-$InnerClassInfo _FontConfigManager_InnerClassesInfo_[] = {
-	{"sun.font.FontConfigManager$FontConfigInfo", "sun.font.FontConfigManager", "FontConfigInfo", $PUBLIC | $STATIC},
-	{"sun.font.FontConfigManager$FcCompFont", "sun.font.FontConfigManager", "FcCompFont", $PUBLIC | $STATIC},
-	{"sun.font.FontConfigManager$FontConfigFont", "sun.font.FontConfigManager", "FontConfigFont", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _FontConfigManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.font.FontConfigManager",
-	"java.lang.Object",
-	nullptr,
-	_FontConfigManager_FieldInfo_,
-	_FontConfigManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FontConfigManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.font.FontConfigManager$FontConfigInfo,sun.font.FontConfigManager$FcCompFont,sun.font.FontConfigManager$FontConfigFont"
-};
-
-$Object* allocate$FontConfigManager($Class* clazz) {
-	return $of($alloc(FontConfigManager));
-}
-
 bool FontConfigManager::fontConfigFailed = false;
 $FontConfigManager$FontConfigInfo* FontConfigManager::fcInfo = nullptr;
 $StringArray* FontConfigManager::fontConfigNames = nullptr;
@@ -116,27 +59,27 @@ void FontConfigManager::init$() {
 
 $Object* FontConfigManager::getFontConfigAAHint() {
 	$init(FontConfigManager);
-	return $of(getFontConfigAAHint("sans"_s));
+	return getFontConfigAAHint("sans"_s);
 }
 
 $Object* FontConfigManager::getFontConfigAAHint($String* fcFamily) {
 	$init(FontConfigManager);
 	$init($FontUtilities);
 	if ($FontUtilities::isWindows) {
-		return $of(nullptr);
+		return nullptr;
 	} else {
 		int32_t hint = getFontConfigAASettings($(getFCLocaleStr()), fcFamily);
 		if (hint < 0) {
-			return $of(nullptr);
+			return nullptr;
 		} else {
-			return $of($SunHints$Value::get($SunHints::INTKEY_TEXT_ANTIALIASING, hint));
+			return $SunHints$Value::get($SunHints::INTKEY_TEXT_ANTIALIASING, hint);
 		}
 	}
 }
 
 $String* FontConfigManager::getFCLocaleStr() {
 	$init(FontConfigManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, l, $SunToolkit::getStartupLocale());
 	$var($String, localeStr, $nc(l)->getLanguage());
 	$var($String, country, l->getCountry());
@@ -148,18 +91,17 @@ $String* FontConfigManager::getFCLocaleStr() {
 
 int32_t FontConfigManager::getFontConfigVersion() {
 	$init(FontConfigManager);
-	int32_t $ret = 0;
-	$prepareNativeStatic(FontConfigManager, getFontConfigVersion, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(getFontConfigVersion, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 void FontConfigManager::initFontConfigFonts(bool includeFallbacks) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->fontConfigFonts != nullptr) {
-			if (!includeFallbacks || ($nc($nc(this->fontConfigFonts)->get(0))->allFonts != nullptr)) {
+			if (!includeFallbacks || ($nc(this->fontConfigFonts->get(0))->allFonts != nullptr)) {
 				return;
 			}
 		}
@@ -175,8 +117,8 @@ void FontConfigManager::initFontConfigFonts(bool includeFallbacks) {
 		for (int32_t i = 0; i < fontArr->length; ++i) {
 			fontArr->set(i, $$new($FontConfigManager$FcCompFont));
 			$set($nc(fontArr->get(i)), fcName, $nc(FontConfigManager::fontConfigNames)->get(i));
-			int32_t colonPos = $nc($nc(fontArr->get(i))->fcName)->indexOf((int32_t)u':');
-			$set($nc(fontArr->get(i)), fcFamily, $nc($nc(fontArr->get(i))->fcName)->substring(0, colonPos));
+			int32_t colonPos = $nc($nc(fontArr->get(i))->fcName)->indexOf(u':');
+			$set($nc(fontArr->get(i)), fcFamily, $nc(fontArr->get(i))->fcName->substring(0, colonPos));
 			$set($nc(fontArr->get(i)), jdkName, $FontUtilities::mapFcName($nc(fontArr->get(i))->fcFamily));
 			$nc(fontArr->get(i))->style = i % 4;
 		}
@@ -209,14 +151,14 @@ void FontConfigManager::initFontConfigFonts(bool includeFallbacks) {
 		$set(this, fontConfigFonts, fontArr);
 		if ($FontUtilities::isLogging()) {
 			int64_t t1 = $System::nanoTime();
-			$FontUtilities::logInfo($$str({"Time spent accessing fontconfig="_s, $$str(((t1 - t0) / 0x000F4240)), "ms."_s}));
+			$FontUtilities::logInfo($$str({"Time spent accessing fontconfig="_s, $$str(((t1 - t0) / 1000000)), "ms."_s}));
 			for (int32_t i = 0; i < $nc(this->fontConfigFonts)->length; ++i) {
-				$var($FontConfigManager$FcCompFont, fci, $nc(this->fontConfigFonts)->get(i));
-				$FontUtilities::logInfo($$str({"FC font "_s, $nc(fci)->fcName, " maps to family "_s, $nc(fci->firstFont)->familyName, " in file "_s, $nc(fci->firstFont)->fontFile}));
-				if ($nc(fci)->allFonts != nullptr) {
+				$var($FontConfigManager$FcCompFont, fci, this->fontConfigFonts->get(i));
+				$FontUtilities::logInfo($$str({"FC font "_s, $nc(fci)->fcName, " maps to family "_s, $nc($nc(fci)->firstFont)->familyName, " in file "_s, $nc($nc(fci)->firstFont)->fontFile}));
+				if (fci->allFonts != nullptr) {
 					for (int32_t f = 0; f < $nc(fci->allFonts)->length; ++f) {
-						$var($FontConfigManager$FontConfigFont, fcf, $nc(fci->allFonts)->get(f));
-						$FontUtilities::logInfo($$str({"Family="_s, $nc(fcf)->familyName, " Style="_s, fcf->styleStr, " Fullname="_s, fcf->fullName, " File="_s, fcf->fontFile}));
+						$var($FontConfigManager$FontConfigFont, fcf, fci->allFonts->get(f));
+						$FontUtilities::logInfo($$str({"Family="_s, $nc(fcf)->familyName, " Style="_s, $nc(fcf)->styleStr, " Fullname="_s, $nc(fcf)->fullName, " File="_s, $nc(fcf)->fontFile}));
 					}
 				}
 			}
@@ -225,7 +167,7 @@ void FontConfigManager::initFontConfigFonts(bool includeFallbacks) {
 }
 
 $PhysicalFont* FontConfigManager::registerFromFcInfo($FontConfigManager$FcCompFont* fcInfo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SunFontManager, fm, $SunFontManager::getInstance());
 	$var($String, fontFile, $nc($nc(fcInfo)->firstFont)->fontFile);
 	int32_t offset = $nc(fontFile)->length() - 4;
@@ -270,8 +212,8 @@ $PhysicalFont* FontConfigManager::registerFromFcInfo($FontConfigManager$FcCompFo
 			fontFormat = $SunFontManager::FONTFORMAT_TRUETYPE;
 			fontRank = $Font2D::TTF_RANK;
 		} else {
-			bool var$1 = ext->equals(".pfa"_s);
-			if (var$1 || ext->equals(".pfb"_s)) {
+			bool var$0 = ext->equals(".pfa"_s);
+			if (var$0 || ext->equals(".pfb"_s)) {
 				fontFormat = $SunFontManager::FONTFORMAT_TYPE1;
 				fontRank = $Font2D::TYPE1_RANK;
 			}
@@ -282,7 +224,7 @@ $PhysicalFont* FontConfigManager::registerFromFcInfo($FontConfigManager$FcCompFo
 }
 
 $CompositeFont* FontConfigManager::getFontConfigFont($String* name$renamed, int32_t style) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, name$renamed);
 	$assign(name, $nc(name)->toLowerCase());
 	initFontConfigFonts(false);
@@ -291,34 +233,34 @@ $CompositeFont* FontConfigManager::getFontConfigFont($String* name$renamed, int3
 	}
 	$var($FontConfigManager$FcCompFont, fcInfo, nullptr);
 	for (int32_t i = 0; i < $nc(this->fontConfigFonts)->length; ++i) {
-		if (name->equals($nc($nc(this->fontConfigFonts)->get(i))->fcFamily) && style == $nc($nc(this->fontConfigFonts)->get(i))->style) {
-			$assign(fcInfo, $nc(this->fontConfigFonts)->get(i));
+		if (name->equals($nc(this->fontConfigFonts->get(i))->fcFamily) && style == $nc(this->fontConfigFonts->get(i))->style) {
+			$assign(fcInfo, this->fontConfigFonts->get(i));
 			break;
 		}
 	}
 	if (fcInfo == nullptr) {
-		$assign(fcInfo, $nc(this->fontConfigFonts)->get(0));
+		$assign(fcInfo, this->fontConfigFonts->get(0));
 	}
 	if ($FontUtilities::isLogging()) {
-		$FontUtilities::logInfo($$str({"FC name="_s, name, " style="_s, $$str(style), " uses "_s, $nc($nc(fcInfo)->firstFont)->familyName, " in file: "_s, $nc(fcInfo->firstFont)->fontFile}));
+		$FontUtilities::logInfo($$str({"FC name="_s, name, " style="_s, $$str(style), " uses "_s, $nc($nc(fcInfo)->firstFont)->familyName, " in file: "_s, $nc($nc(fcInfo)->firstFont)->fontFile}));
 	}
 	if ($nc(fcInfo)->compFont != nullptr) {
 		return fcInfo->compFont;
 	}
 	$var($FontManager, fm, $FontManagerFactory::getInstance());
-	$var($CompositeFont, jdkFont, $cast($CompositeFont, $nc(fm)->findFont2D($nc(fcInfo)->jdkName, style, $FontManager::LOGICAL_FALLBACK)));
-	if ($nc($nc(fcInfo)->firstFont)->familyName == nullptr || $nc($nc(fcInfo)->firstFont)->fontFile == nullptr) {
+	$var($CompositeFont, jdkFont, $cast($CompositeFont, $nc(fm)->findFont2D(fcInfo->jdkName, style, $FontManager::LOGICAL_FALLBACK)));
+	if ($nc(fcInfo->firstFont)->familyName == nullptr || fcInfo->firstFont->fontFile == nullptr) {
 		return ($set(fcInfo, compFont, jdkFont));
 	}
-	$var($FontFamily, family, $FontFamily::getFamily($nc($nc(fcInfo)->firstFont)->familyName));
+	$var($FontFamily, family, $FontFamily::getFamily(fcInfo->firstFont->familyName));
 	$var($PhysicalFont, physFont, nullptr);
 	if (family != nullptr) {
-		$var($Font2D, f2D, family->getFontWithExactStyleMatch($nc(fcInfo)->style));
+		$var($Font2D, f2D, family->getFontWithExactStyleMatch(fcInfo->style));
 		if ($instanceOf($PhysicalFont, f2D)) {
 			$assign(physFont, $cast($PhysicalFont, f2D));
 		}
 	}
-	if (physFont == nullptr || !$nc($nc($nc(fcInfo)->firstFont)->fontFile)->equals($nc(physFont)->platName)) {
+	if (physFont == nullptr || !$nc($nc(fcInfo->firstFont)->fontFile)->equals(physFont->platName)) {
 		$assign(physFont, registerFromFcInfo(fcInfo));
 		if (physFont == nullptr) {
 			return ($set(fcInfo, compFont, jdkFont));
@@ -326,14 +268,14 @@ $CompositeFont* FontConfigManager::getFontConfigFont($String* name$renamed, int3
 		$assign(family, $FontFamily::getFamily($($nc(physFont)->getFamilyName(nullptr))));
 	}
 	for (int32_t i = 0; i < $nc(this->fontConfigFonts)->length; ++i) {
-		$var($FontConfigManager$FcCompFont, fc, $nc(this->fontConfigFonts)->get(i));
-		bool var$1 = fc != fcInfo && $nc($($nc(physFont)->getFamilyName(nullptr)))->equals($nc($nc(fc)->firstFont)->familyName);
-		bool var$0 = var$1 && !$nc($nc($nc(fc)->firstFont)->fontFile)->equals(physFont->platName);
+		$var($FontConfigManager$FcCompFont, fc, this->fontConfigFonts->get(i));
+		bool var$1 = fc != fcInfo && $$nc($nc(physFont)->getFamilyName(nullptr))->equals($nc($nc(fc)->firstFont)->familyName);
+		bool var$0 = var$1 && !$nc(fc->firstFont->fontFile)->equals(physFont->platName);
 		if (var$0 && $nc(family)->getFontWithExactStyleMatch(fc->style) == nullptr) {
 			registerFromFcInfo($nc(this->fontConfigFonts)->get(i));
 		}
 	}
-	return ($set($nc(fcInfo), compFont, $new($CompositeFont, physFont, jdkFont)));
+	return ($set(fcInfo, compFont, $new($CompositeFont, physFont, jdkFont)));
 }
 
 $FontConfigManager$FcCompFontArray* FontConfigManager::getFontConfigFonts() {
@@ -342,7 +284,7 @@ $FontConfigManager$FcCompFontArray* FontConfigManager::getFontConfigFonts() {
 
 void FontConfigManager::getFontConfig($String* locale, $FontConfigManager$FontConfigInfo* fcInfo, $FontConfigManager$FcCompFontArray* fonts, bool includeFallbacks) {
 	$init(FontConfigManager);
-	$prepareNativeStatic(FontConfigManager, getFontConfig, void, $String* locale, $FontConfigManager$FontConfigInfo* fcInfo, $FontConfigManager$FcCompFontArray* fonts, bool includeFallbacks);
+	$prepareNativeStatic(getFontConfig, void, $String* locale, $FontConfigManager$FontConfigInfo* fcInfo, $FontConfigManager$FcCompFontArray* fonts, bool includeFallbacks);
 	$invokeNativeStatic(locale, fcInfo, fonts, includeFallbacks);
 	$finishNativeStatic();
 }
@@ -363,14 +305,13 @@ $FontConfigManager$FontConfigInfo* FontConfigManager::getFontConfigInfo() {
 
 int32_t FontConfigManager::getFontConfigAASettings($String* locale, $String* fcFamily) {
 	$init(FontConfigManager);
-	int32_t $ret = 0;
-	$prepareNativeStatic(FontConfigManager, getFontConfigAASettings, int32_t, $String* locale, $String* fcFamily);
-	$ret = $invokeNativeStatic(locale, fcFamily);
+	$prepareNativeStatic(getFontConfigAASettings, int32_t, $String* locale, $String* fcFamily);
+	int32_t $ret = $invokeNativeStatic(locale, fcFamily);
 	$finishNativeStatic();
 	return $ret;
 }
 
-void clinit$FontConfigManager($Class* class$) {
+void FontConfigManager::clinit$($Class* clazz) {
 	FontConfigManager::fontConfigFailed = false;
 	$assignStatic(FontConfigManager::fcInfo, $new($FontConfigManager$FontConfigInfo));
 	$assignStatic(FontConfigManager::fontConfigNames, $new($StringArray, {
@@ -393,7 +334,53 @@ FontConfigManager::FontConfigManager() {
 }
 
 $Class* FontConfigManager::load$($String* name, bool initialize) {
-	$loadClass(FontConfigManager, name, initialize, &_FontConfigManager_ClassInfo_, clinit$FontConfigManager, allocate$FontConfigManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"fontConfigFailed", "Z", nullptr, $STATIC, $staticField(FontConfigManager, fontConfigFailed)},
+		{"fcInfo", "Lsun/font/FontConfigManager$FontConfigInfo;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FontConfigManager, fcInfo)},
+		{"fontConfigNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(FontConfigManager, fontConfigNames)},
+		{"fontConfigFonts", "[Lsun/font/FontConfigManager$FcCompFont;", nullptr, $PRIVATE, $field(FontConfigManager, fontConfigFonts)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FontConfigManager, init$, void)},
+		{"getFCLocaleStr", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfigManager, getFCLocaleStr, $String*)},
+		{"getFontConfig", "(Ljava/lang/String;Lsun/font/FontConfigManager$FontConfigInfo;[Lsun/font/FontConfigManager$FcCompFont;Z)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FontConfigManager, getFontConfig, void, $String*, $FontConfigManager$FontConfigInfo*, $FontConfigManager$FcCompFontArray*, bool)},
+		{"getFontConfigAAHint", "()Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontConfigManager, getFontConfigAAHint, $Object*)},
+		{"getFontConfigAAHint", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontConfigManager, getFontConfigAAHint, $Object*, $String*)},
+		{"getFontConfigAASettings", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FontConfigManager, getFontConfigAASettings, int32_t, $String*, $String*)},
+		{"getFontConfigFont", "(Ljava/lang/String;I)Lsun/font/CompositeFont;", nullptr, $PUBLIC, $virtualMethod(FontConfigManager, getFontConfigFont, $CompositeFont*, $String*, int32_t)},
+		{"getFontConfigFonts", "()[Lsun/font/FontConfigManager$FcCompFont;", nullptr, $PUBLIC, $virtualMethod(FontConfigManager, getFontConfigFonts, $FontConfigManager$FcCompFontArray*)},
+		{"getFontConfigInfo", "()Lsun/font/FontConfigManager$FontConfigInfo;", nullptr, 0, $virtualMethod(FontConfigManager, getFontConfigInfo, $FontConfigManager$FontConfigInfo*)},
+		{"getFontConfigVersion", "()I", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(FontConfigManager, getFontConfigVersion, int32_t)},
+		{"initFontConfigFonts", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FontConfigManager, initFontConfigFonts, void, bool)},
+		{"loadFontConfig", "()[Lsun/font/FontConfigManager$FcCompFont;", nullptr, 0, $virtualMethod(FontConfigManager, loadFontConfig, $FontConfigManager$FcCompFontArray*)},
+		{"populateFontConfig", "([Lsun/font/FontConfigManager$FcCompFont;)V", nullptr, 0, $virtualMethod(FontConfigManager, populateFontConfig, void, $FontConfigManager$FcCompFontArray*)},
+		{"registerFromFcInfo", "(Lsun/font/FontConfigManager$FcCompFont;)Lsun/font/PhysicalFont;", nullptr, $PUBLIC, $virtualMethod(FontConfigManager, registerFromFcInfo, $PhysicalFont*, $FontConfigManager$FcCompFont*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.FontConfigManager$FontConfigInfo", "sun.font.FontConfigManager", "FontConfigInfo", $PUBLIC | $STATIC},
+		{"sun.font.FontConfigManager$FcCompFont", "sun.font.FontConfigManager", "FcCompFont", $PUBLIC | $STATIC},
+		{"sun.font.FontConfigManager$FontConfigFont", "sun.font.FontConfigManager", "FontConfigFont", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.font.FontConfigManager",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.font.FontConfigManager$FontConfigInfo,sun.font.FontConfigManager$FcCompFont,sun.font.FontConfigManager$FontConfigFont"
+	};
+	$loadClass(FontConfigManager, name, initialize, &classInfo$$, FontConfigManager::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FontConfigManager);
+	});
 	return class$;
 }
 

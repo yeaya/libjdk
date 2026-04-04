@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverLocalFilesystem.h>
-
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureInput.h>
 #include <com/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext.h>
 #include <com/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverException.h>
@@ -44,34 +43,6 @@ namespace com {
 								namespace resolver {
 									namespace implementations {
 
-$FieldInfo _ResolverLocalFilesystem_FieldInfo_[] = {
-	{"FILE_URI_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResolverLocalFilesystem, FILE_URI_LENGTH)},
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResolverLocalFilesystem, LOG)},
-	{}
-};
-
-$MethodInfo _ResolverLocalFilesystem_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ResolverLocalFilesystem, init$, void)},
-	{"engineCanResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Z", nullptr, $PUBLIC, $virtualMethod(ResolverLocalFilesystem, engineCanResolveURI, bool, $ResourceResolverContext*)},
-	{"engineResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(ResolverLocalFilesystem, engineResolveURI, $XMLSignatureInput*, $ResourceResolverContext*), "com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverException"},
-	{"getNewURI", "(Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResolverLocalFilesystem, getNewURI, $URI*, $String*, $String*), "java.net.URISyntaxException"},
-	{"translateUriToFilename", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResolverLocalFilesystem, translateUriToFilename, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _ResolverLocalFilesystem_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.utils.resolver.implementations.ResolverLocalFilesystem",
-	"com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverSpi",
-	nullptr,
-	_ResolverLocalFilesystem_FieldInfo_,
-	_ResolverLocalFilesystem_MethodInfo_
-};
-
-$Object* allocate$ResolverLocalFilesystem($Class* clazz) {
-	return $of($alloc(ResolverLocalFilesystem));
-}
-
 int32_t ResolverLocalFilesystem::FILE_URI_LENGTH = 0;
 $Logger* ResolverLocalFilesystem::LOG = nullptr;
 
@@ -80,24 +51,24 @@ void ResolverLocalFilesystem::init$() {
 }
 
 $XMLSignatureInput* ResolverLocalFilesystem::engineResolveURI($ResourceResolverContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($URI, uriNew, getNewURI($nc(context)->uriToResolve, context->baseUri));
+		$var($URI, uriNew, getNewURI($nc(context)->uriToResolve, $nc(context)->baseUri));
 		$var($String, fileName, ResolverLocalFilesystem::translateUriToFilename($($nc(uriNew)->toString())));
 		$var($InputStream, inputStream, $Files::newInputStream($($Paths::get(fileName, $$new($StringArray, 0))), $$new($OpenOptionArray, 0)));
 		$var($XMLSignatureInput, result, $new($XMLSignatureInput, inputStream));
-		result->setSecureValidation($nc(context)->secureValidation);
-		result->setSourceURI($($nc(uriNew)->toString()));
+		result->setSecureValidation(context->secureValidation);
+		result->setSourceURI($(uriNew->toString()));
 		return result;
 	} catch ($Exception& e) {
-		$throwNew($ResourceResolverException, $cast($Exception, e), $nc(context)->uriToResolve, context->baseUri, "generic.EmptyMessage"_s);
+		$throwNew($ResourceResolverException, e, $nc(context)->uriToResolve, $nc(context)->baseUri, "generic.EmptyMessage"_s);
 	}
 	$shouldNotReachHere();
 }
 
 $String* ResolverLocalFilesystem::translateUriToFilename($String* uri) {
 	$init(ResolverLocalFilesystem);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, subStr, $nc(uri)->substring(ResolverLocalFilesystem::FILE_URI_LENGTH));
 	if (subStr->indexOf("%20"_s) > -1) {
 		int32_t offset = 0;
@@ -122,24 +93,24 @@ $String* ResolverLocalFilesystem::translateUriToFilename($String* uri) {
 }
 
 bool ResolverLocalFilesystem::engineCanResolveURI($ResourceResolverContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(context)->uriToResolve == nullptr) {
 		return false;
 	}
-	bool var$1 = $nc($nc(context)->uriToResolve)->isEmpty();
-	bool var$0 = var$1 || $nc($nc(context)->uriToResolve)->charAt(0) == u'#';
-	if (var$0 || $nc($nc(context)->uriToResolve)->startsWith("http:"_s)) {
+	bool var$1 = $nc(context->uriToResolve)->isEmpty();
+	bool var$0 = var$1 || context->uriToResolve->charAt(0) == u'#';
+	if (var$0 || context->uriToResolve->startsWith("http:"_s)) {
 		return false;
 	}
 	try {
-		$nc(ResolverLocalFilesystem::LOG)->debug("I was asked whether I can resolve {}"_s, $$new($ObjectArray, {$of($nc(context)->uriToResolve)}));
-		bool var$2 = $nc($nc(context)->uriToResolve)->startsWith("file:"_s);
-		if (var$2 || $nc($nc(context)->baseUri)->startsWith("file:"_s)) {
-			$nc(ResolverLocalFilesystem::LOG)->debug("I state that I can resolve {}"_s, $$new($ObjectArray, {$of(context->uriToResolve)}));
+		$nc(ResolverLocalFilesystem::LOG)->debug("I was asked whether I can resolve {}"_s, $$new($ObjectArray, {context->uriToResolve}));
+		bool var$2 = context->uriToResolve->startsWith("file:"_s);
+		if (var$2 || $nc(context->baseUri)->startsWith("file:"_s)) {
+			ResolverLocalFilesystem::LOG->debug("I state that I can resolve {}"_s, $$new($ObjectArray, {context->uriToResolve}));
 			return true;
 		}
 	} catch ($Exception& e) {
-		$nc(ResolverLocalFilesystem::LOG)->debug($(e->getMessage()), static_cast<$Throwable*>(e));
+		$nc(ResolverLocalFilesystem::LOG)->debug($(e->getMessage()), e);
 	}
 	$nc(ResolverLocalFilesystem::LOG)->debug("But I can\'t"_s);
 	return false;
@@ -147,7 +118,7 @@ bool ResolverLocalFilesystem::engineCanResolveURI($ResourceResolverContext* cont
 
 $URI* ResolverLocalFilesystem::getNewURI($String* uri, $String* baseURI) {
 	$init(ResolverLocalFilesystem);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URI, newUri, nullptr);
 	if (baseURI == nullptr || ""_s->equals(baseURI)) {
 		$assign(newUri, $new($URI, uri));
@@ -161,7 +132,7 @@ $URI* ResolverLocalFilesystem::getNewURI($String* uri, $String* baseURI) {
 	return newUri;
 }
 
-void clinit$ResolverLocalFilesystem($Class* class$) {
+void ResolverLocalFilesystem::clinit$($Class* clazz) {
 	ResolverLocalFilesystem::FILE_URI_LENGTH = "file:/"_s->length();
 	$assignStatic(ResolverLocalFilesystem::LOG, $LoggerFactory::getLogger(ResolverLocalFilesystem::class$));
 }
@@ -170,7 +141,30 @@ ResolverLocalFilesystem::ResolverLocalFilesystem() {
 }
 
 $Class* ResolverLocalFilesystem::load$($String* name, bool initialize) {
-	$loadClass(ResolverLocalFilesystem, name, initialize, &_ResolverLocalFilesystem_ClassInfo_, clinit$ResolverLocalFilesystem, allocate$ResolverLocalFilesystem);
+	$FieldInfo fieldInfos$$[] = {
+		{"FILE_URI_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResolverLocalFilesystem, FILE_URI_LENGTH)},
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResolverLocalFilesystem, LOG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ResolverLocalFilesystem, init$, void)},
+		{"engineCanResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Z", nullptr, $PUBLIC, $virtualMethod(ResolverLocalFilesystem, engineCanResolveURI, bool, $ResourceResolverContext*)},
+		{"engineResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(ResolverLocalFilesystem, engineResolveURI, $XMLSignatureInput*, $ResourceResolverContext*), "com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverException"},
+		{"getNewURI", "(Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResolverLocalFilesystem, getNewURI, $URI*, $String*, $String*), "java.net.URISyntaxException"},
+		{"translateUriToFilename", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResolverLocalFilesystem, translateUriToFilename, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.utils.resolver.implementations.ResolverLocalFilesystem",
+		"com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResolverLocalFilesystem, name, initialize, &classInfo$$, ResolverLocalFilesystem::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ResolverLocalFilesystem);
+	});
 	return class$;
 }
 

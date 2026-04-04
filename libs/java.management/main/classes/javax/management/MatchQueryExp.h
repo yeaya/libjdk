@@ -34,7 +34,7 @@ public:
 	virtual void setMBeanServer(::javax::management::MBeanServer* s) override;
 	virtual $String* toString() override;
 	static bool wildmatch($String* s, $String* p);
-	static const int64_t serialVersionUID = (int64_t)0x9CAEA2DADD27831A;
+	static const int64_t serialVersionUID = (int64_t)0x9caea2dadd27831a;
 	::javax::management::AttributeValueExp* exp = nullptr;
 	$String* pattern = nullptr;
 };

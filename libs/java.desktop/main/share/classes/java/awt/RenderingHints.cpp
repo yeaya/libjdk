@@ -1,5 +1,4 @@
 #include <java/awt/RenderingHints.h>
-
 #include <java/awt/RenderingHints$Key.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/InternalError.h>
@@ -84,106 +83,6 @@ using $SunHints = ::sun::awt::SunHints;
 namespace java {
 	namespace awt {
 
-$FieldInfo _RenderingHints_FieldInfo_[] = {
-	{"hintmap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Object;Ljava/lang/Object;>;", 0, $field(RenderingHints, hintmap)},
-	{"KEY_ANTIALIASING", "Ljava/awt/RenderingHints$Key;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, KEY_ANTIALIASING)},
-	{"VALUE_ANTIALIAS_ON", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_ANTIALIAS_ON)},
-	{"VALUE_ANTIALIAS_OFF", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_ANTIALIAS_OFF)},
-	{"VALUE_ANTIALIAS_DEFAULT", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_ANTIALIAS_DEFAULT)},
-	{"KEY_RENDERING", "Ljava/awt/RenderingHints$Key;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, KEY_RENDERING)},
-	{"VALUE_RENDER_SPEED", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_RENDER_SPEED)},
-	{"VALUE_RENDER_QUALITY", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_RENDER_QUALITY)},
-	{"VALUE_RENDER_DEFAULT", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_RENDER_DEFAULT)},
-	{"KEY_DITHERING", "Ljava/awt/RenderingHints$Key;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, KEY_DITHERING)},
-	{"VALUE_DITHER_DISABLE", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_DITHER_DISABLE)},
-	{"VALUE_DITHER_ENABLE", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_DITHER_ENABLE)},
-	{"VALUE_DITHER_DEFAULT", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_DITHER_DEFAULT)},
-	{"KEY_TEXT_ANTIALIASING", "Ljava/awt/RenderingHints$Key;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, KEY_TEXT_ANTIALIASING)},
-	{"VALUE_TEXT_ANTIALIAS_ON", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_TEXT_ANTIALIAS_ON)},
-	{"VALUE_TEXT_ANTIALIAS_OFF", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_TEXT_ANTIALIAS_OFF)},
-	{"VALUE_TEXT_ANTIALIAS_DEFAULT", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_TEXT_ANTIALIAS_DEFAULT)},
-	{"VALUE_TEXT_ANTIALIAS_GASP", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_TEXT_ANTIALIAS_GASP)},
-	{"VALUE_TEXT_ANTIALIAS_LCD_HRGB", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_TEXT_ANTIALIAS_LCD_HRGB)},
-	{"VALUE_TEXT_ANTIALIAS_LCD_HBGR", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_TEXT_ANTIALIAS_LCD_HBGR)},
-	{"VALUE_TEXT_ANTIALIAS_LCD_VRGB", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_TEXT_ANTIALIAS_LCD_VRGB)},
-	{"VALUE_TEXT_ANTIALIAS_LCD_VBGR", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_TEXT_ANTIALIAS_LCD_VBGR)},
-	{"KEY_TEXT_LCD_CONTRAST", "Ljava/awt/RenderingHints$Key;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, KEY_TEXT_LCD_CONTRAST)},
-	{"KEY_FRACTIONALMETRICS", "Ljava/awt/RenderingHints$Key;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, KEY_FRACTIONALMETRICS)},
-	{"VALUE_FRACTIONALMETRICS_OFF", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_FRACTIONALMETRICS_OFF)},
-	{"VALUE_FRACTIONALMETRICS_ON", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_FRACTIONALMETRICS_ON)},
-	{"VALUE_FRACTIONALMETRICS_DEFAULT", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_FRACTIONALMETRICS_DEFAULT)},
-	{"KEY_INTERPOLATION", "Ljava/awt/RenderingHints$Key;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, KEY_INTERPOLATION)},
-	{"VALUE_INTERPOLATION_NEAREST_NEIGHBOR", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_INTERPOLATION_NEAREST_NEIGHBOR)},
-	{"VALUE_INTERPOLATION_BILINEAR", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_INTERPOLATION_BILINEAR)},
-	{"VALUE_INTERPOLATION_BICUBIC", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_INTERPOLATION_BICUBIC)},
-	{"KEY_ALPHA_INTERPOLATION", "Ljava/awt/RenderingHints$Key;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, KEY_ALPHA_INTERPOLATION)},
-	{"VALUE_ALPHA_INTERPOLATION_SPEED", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_ALPHA_INTERPOLATION_SPEED)},
-	{"VALUE_ALPHA_INTERPOLATION_QUALITY", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_ALPHA_INTERPOLATION_QUALITY)},
-	{"VALUE_ALPHA_INTERPOLATION_DEFAULT", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_ALPHA_INTERPOLATION_DEFAULT)},
-	{"KEY_COLOR_RENDERING", "Ljava/awt/RenderingHints$Key;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, KEY_COLOR_RENDERING)},
-	{"VALUE_COLOR_RENDER_SPEED", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_COLOR_RENDER_SPEED)},
-	{"VALUE_COLOR_RENDER_QUALITY", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_COLOR_RENDER_QUALITY)},
-	{"VALUE_COLOR_RENDER_DEFAULT", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_COLOR_RENDER_DEFAULT)},
-	{"KEY_STROKE_CONTROL", "Ljava/awt/RenderingHints$Key;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, KEY_STROKE_CONTROL)},
-	{"VALUE_STROKE_DEFAULT", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_STROKE_DEFAULT)},
-	{"VALUE_STROKE_NORMALIZE", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_STROKE_NORMALIZE)},
-	{"VALUE_STROKE_PURE", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_STROKE_PURE)},
-	{"KEY_RESOLUTION_VARIANT", "Ljava/awt/RenderingHints$Key;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, KEY_RESOLUTION_VARIANT)},
-	{"VALUE_RESOLUTION_VARIANT_DEFAULT", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_RESOLUTION_VARIANT_DEFAULT)},
-	{"VALUE_RESOLUTION_VARIANT_BASE", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_RESOLUTION_VARIANT_BASE)},
-	{"VALUE_RESOLUTION_VARIANT_SIZE_FIT", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_RESOLUTION_VARIANT_SIZE_FIT)},
-	{"VALUE_RESOLUTION_VARIANT_DPI_FIT", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_RESOLUTION_VARIANT_DPI_FIT)},
-	{}
-};
-
-$MethodInfo _RenderingHints_MethodInfo_[] = {
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/awt/RenderingHints$Key;*>;)V", $PUBLIC, $method(RenderingHints, init$, void, $Map*)},
-	{"<init>", "(Ljava/awt/RenderingHints$Key;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(RenderingHints, init$, void, $RenderingHints$Key*, Object$*)},
-	{"add", "(Ljava/awt/RenderingHints;)V", nullptr, $PUBLIC, $virtualMethod(RenderingHints, add, void, RenderingHints*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(RenderingHints, clear, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RenderingHints, clone, $Object*)},
-	{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RenderingHints, containsKey, bool, Object$*)},
-	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RenderingHints, containsValue, bool, Object$*)},
-	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;>;", $PUBLIC, $virtualMethod(RenderingHints, entrySet, $Set*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RenderingHints, equals, bool, Object$*)},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RenderingHints, get, $Object*, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RenderingHints, hashCode, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(RenderingHints, isEmpty, bool)},
-	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(RenderingHints, keySet, $Set*)},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RenderingHints, put, $Object*, Object$*, Object$*)},
-	{"putAll", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PUBLIC, $virtualMethod(RenderingHints, putAll, void, $Map*)},
-	{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RenderingHints, remove, $Object*, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(RenderingHints, size, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RenderingHints, toString, $String*)},
-	{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(RenderingHints, values, $Collection*)},
-	{}
-};
-
-$InnerClassInfo _RenderingHints_InnerClassesInfo_[] = {
-	{"java.awt.RenderingHints$Key", "java.awt.RenderingHints", "Key", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RenderingHints_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.RenderingHints",
-	"java.lang.Object",
-	"java.util.Map,java.lang.Cloneable",
-	_RenderingHints_FieldInfo_,
-	_RenderingHints_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Map<Ljava/lang/Object;Ljava/lang/Object;>;Ljava/lang/Cloneable;",
-	nullptr,
-	_RenderingHints_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.RenderingHints$Key"
-};
-
-$Object* allocate$RenderingHints($Class* clazz) {
-	return $of($alloc(RenderingHints));
-}
-
 void RenderingHints::finalize() {
 	this->$Map::finalize();
 }
@@ -239,13 +138,13 @@ $Object* RenderingHints::VALUE_RESOLUTION_VARIANT_DPI_FIT = nullptr;
 void RenderingHints::init$($Map* init) {
 	$set(this, hintmap, $new($HashMap, 7));
 	if (init != nullptr) {
-		$nc(this->hintmap)->putAll(init);
+		this->hintmap->putAll(init);
 	}
 }
 
 void RenderingHints::init$($RenderingHints$Key* key, Object$* value) {
 	$set(this, hintmap, $new($HashMap, 7));
-	$nc(this->hintmap)->put(key, value);
+	this->hintmap->put(key, value);
 }
 
 int32_t RenderingHints::size() {
@@ -265,14 +164,14 @@ bool RenderingHints::containsValue(Object$* value) {
 }
 
 $Object* RenderingHints::get(Object$* key) {
-	return $of($nc(this->hintmap)->get($cast($RenderingHints$Key, key)));
+	return $nc(this->hintmap)->get($cast($RenderingHints$Key, key));
 }
 
 $Object* RenderingHints::put(Object$* key, Object$* value) {
-	if (!$nc(($cast($RenderingHints$Key, key)))->isCompatibleValue(value)) {
+	if (!$nc($cast($RenderingHints$Key, key))->isCompatibleValue(value)) {
 		$throwNew($IllegalArgumentException, $$str({value, " incompatible with "_s, key}));
 	}
-	return $of($nc(this->hintmap)->put($cast($RenderingHints$Key, key), value));
+	return $nc(this->hintmap)->put($cast($RenderingHints$Key, key), value);
 }
 
 void RenderingHints::add(RenderingHints* hints) {
@@ -284,28 +183,24 @@ void RenderingHints::clear() {
 }
 
 $Object* RenderingHints::remove(Object$* key) {
-	return $of($nc(this->hintmap)->remove($cast($RenderingHints$Key, key)));
+	return $nc(this->hintmap)->remove($cast($RenderingHints$Key, key));
 }
 
 void RenderingHints::putAll($Map* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (RenderingHints::class$->isInstance(m)) {
-		{
-			$var($Iterator, i$, $nc($($nc(m)->entrySet()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
-				$var($Object, var$0, $nc(entry)->getKey());
-				$nc(this->hintmap)->put(var$0, $(entry->getValue()));
-			}
+		$var($Iterator, i$, $$nc($nc(m)->entrySet())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
+			$var($Object, var$0, $nc(entry)->getKey());
+			$nc(this->hintmap)->put(var$0, $(entry->getValue()));
 		}
 	} else {
-		{
-			$var($Iterator, i$, $nc($($nc(m)->entrySet()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
-				$var($Object, var$1, $nc(entry)->getKey());
-				put(var$1, $(entry->getValue()));
-			}
+		$var($Iterator, i$, $$nc($nc(m)->entrySet())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
+			$var($Object, var$1, $nc(entry)->getKey());
+			put(var$1, $(entry->getValue()));
 		}
 	}
 }
@@ -319,12 +214,12 @@ $Collection* RenderingHints::values() {
 }
 
 $Set* RenderingHints::entrySet() {
-	return $nc($($Collections::unmodifiableMap(this->hintmap)))->entrySet();
+	return $$nc($Collections::unmodifiableMap(this->hintmap))->entrySet();
 }
 
 bool RenderingHints::equals(Object$* o) {
 	if ($instanceOf(RenderingHints, o)) {
-		return $nc(this->hintmap)->equals($nc(($cast(RenderingHints, o)))->hintmap);
+		return $nc(this->hintmap)->equals($cast(RenderingHints, o)->hintmap);
 	} else if ($instanceOf($Map, o)) {
 		return $nc(this->hintmap)->equals(o);
 	}
@@ -340,25 +235,28 @@ $Object* RenderingHints::clone() {
 	try {
 		$assign(rh, $cast(RenderingHints, $Map::clone()));
 		if (this->hintmap != nullptr) {
-			$set($nc(rh), hintmap, $cast($HashMap, $nc(this->hintmap)->clone()));
+			$set($nc(rh), hintmap, $cast($HashMap, this->hintmap->clone()));
 		}
 	} catch ($CloneNotSupportedException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 	return $of(rh);
 }
 
 $String* RenderingHints::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->hintmap == nullptr) {
-		$var($String, var$1, $$str({$($of(this)->getClass()->getName()), "@"_s}));
-		$var($String, var$0, $$concat(var$1, $($Integer::toHexString(hashCode()))));
-		return $concat(var$0, " (0 hints)"_s);
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($($of(this)->getClass()->getName()));
+		var$0->append("@"_s);
+		var$0->append($($Integer::toHexString(hashCode())));
+		var$0->append(" (0 hints)"_s);
+		return $str(var$0);
 	}
 	return $nc(this->hintmap)->toString();
 }
 
-void clinit$RenderingHints($Class* class$) {
+void RenderingHints::clinit$($Class* clazz) {
 	$init($SunHints);
 	$assignStatic(RenderingHints::KEY_ANTIALIASING, $SunHints::KEY_ANTIALIASING);
 	$assignStatic(RenderingHints::VALUE_ANTIALIAS_ON, $SunHints::VALUE_ANTIALIAS_ON);
@@ -413,7 +311,101 @@ RenderingHints::RenderingHints() {
 }
 
 $Class* RenderingHints::load$($String* name, bool initialize) {
-	$loadClass(RenderingHints, name, initialize, &_RenderingHints_ClassInfo_, clinit$RenderingHints, allocate$RenderingHints);
+	$FieldInfo fieldInfos$$[] = {
+		{"hintmap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Object;Ljava/lang/Object;>;", 0, $field(RenderingHints, hintmap)},
+		{"KEY_ANTIALIASING", "Ljava/awt/RenderingHints$Key;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, KEY_ANTIALIASING)},
+		{"VALUE_ANTIALIAS_ON", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_ANTIALIAS_ON)},
+		{"VALUE_ANTIALIAS_OFF", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_ANTIALIAS_OFF)},
+		{"VALUE_ANTIALIAS_DEFAULT", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_ANTIALIAS_DEFAULT)},
+		{"KEY_RENDERING", "Ljava/awt/RenderingHints$Key;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, KEY_RENDERING)},
+		{"VALUE_RENDER_SPEED", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_RENDER_SPEED)},
+		{"VALUE_RENDER_QUALITY", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_RENDER_QUALITY)},
+		{"VALUE_RENDER_DEFAULT", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_RENDER_DEFAULT)},
+		{"KEY_DITHERING", "Ljava/awt/RenderingHints$Key;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, KEY_DITHERING)},
+		{"VALUE_DITHER_DISABLE", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_DITHER_DISABLE)},
+		{"VALUE_DITHER_ENABLE", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_DITHER_ENABLE)},
+		{"VALUE_DITHER_DEFAULT", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_DITHER_DEFAULT)},
+		{"KEY_TEXT_ANTIALIASING", "Ljava/awt/RenderingHints$Key;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, KEY_TEXT_ANTIALIASING)},
+		{"VALUE_TEXT_ANTIALIAS_ON", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_TEXT_ANTIALIAS_ON)},
+		{"VALUE_TEXT_ANTIALIAS_OFF", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_TEXT_ANTIALIAS_OFF)},
+		{"VALUE_TEXT_ANTIALIAS_DEFAULT", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_TEXT_ANTIALIAS_DEFAULT)},
+		{"VALUE_TEXT_ANTIALIAS_GASP", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_TEXT_ANTIALIAS_GASP)},
+		{"VALUE_TEXT_ANTIALIAS_LCD_HRGB", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_TEXT_ANTIALIAS_LCD_HRGB)},
+		{"VALUE_TEXT_ANTIALIAS_LCD_HBGR", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_TEXT_ANTIALIAS_LCD_HBGR)},
+		{"VALUE_TEXT_ANTIALIAS_LCD_VRGB", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_TEXT_ANTIALIAS_LCD_VRGB)},
+		{"VALUE_TEXT_ANTIALIAS_LCD_VBGR", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_TEXT_ANTIALIAS_LCD_VBGR)},
+		{"KEY_TEXT_LCD_CONTRAST", "Ljava/awt/RenderingHints$Key;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, KEY_TEXT_LCD_CONTRAST)},
+		{"KEY_FRACTIONALMETRICS", "Ljava/awt/RenderingHints$Key;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, KEY_FRACTIONALMETRICS)},
+		{"VALUE_FRACTIONALMETRICS_OFF", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_FRACTIONALMETRICS_OFF)},
+		{"VALUE_FRACTIONALMETRICS_ON", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_FRACTIONALMETRICS_ON)},
+		{"VALUE_FRACTIONALMETRICS_DEFAULT", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_FRACTIONALMETRICS_DEFAULT)},
+		{"KEY_INTERPOLATION", "Ljava/awt/RenderingHints$Key;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, KEY_INTERPOLATION)},
+		{"VALUE_INTERPOLATION_NEAREST_NEIGHBOR", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_INTERPOLATION_NEAREST_NEIGHBOR)},
+		{"VALUE_INTERPOLATION_BILINEAR", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_INTERPOLATION_BILINEAR)},
+		{"VALUE_INTERPOLATION_BICUBIC", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_INTERPOLATION_BICUBIC)},
+		{"KEY_ALPHA_INTERPOLATION", "Ljava/awt/RenderingHints$Key;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, KEY_ALPHA_INTERPOLATION)},
+		{"VALUE_ALPHA_INTERPOLATION_SPEED", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_ALPHA_INTERPOLATION_SPEED)},
+		{"VALUE_ALPHA_INTERPOLATION_QUALITY", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_ALPHA_INTERPOLATION_QUALITY)},
+		{"VALUE_ALPHA_INTERPOLATION_DEFAULT", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_ALPHA_INTERPOLATION_DEFAULT)},
+		{"KEY_COLOR_RENDERING", "Ljava/awt/RenderingHints$Key;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, KEY_COLOR_RENDERING)},
+		{"VALUE_COLOR_RENDER_SPEED", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_COLOR_RENDER_SPEED)},
+		{"VALUE_COLOR_RENDER_QUALITY", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_COLOR_RENDER_QUALITY)},
+		{"VALUE_COLOR_RENDER_DEFAULT", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_COLOR_RENDER_DEFAULT)},
+		{"KEY_STROKE_CONTROL", "Ljava/awt/RenderingHints$Key;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, KEY_STROKE_CONTROL)},
+		{"VALUE_STROKE_DEFAULT", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_STROKE_DEFAULT)},
+		{"VALUE_STROKE_NORMALIZE", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_STROKE_NORMALIZE)},
+		{"VALUE_STROKE_PURE", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_STROKE_PURE)},
+		{"KEY_RESOLUTION_VARIANT", "Ljava/awt/RenderingHints$Key;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, KEY_RESOLUTION_VARIANT)},
+		{"VALUE_RESOLUTION_VARIANT_DEFAULT", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_RESOLUTION_VARIANT_DEFAULT)},
+		{"VALUE_RESOLUTION_VARIANT_BASE", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_RESOLUTION_VARIANT_BASE)},
+		{"VALUE_RESOLUTION_VARIANT_SIZE_FIT", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_RESOLUTION_VARIANT_SIZE_FIT)},
+		{"VALUE_RESOLUTION_VARIANT_DPI_FIT", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RenderingHints, VALUE_RESOLUTION_VARIANT_DPI_FIT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/awt/RenderingHints$Key;*>;)V", $PUBLIC, $method(RenderingHints, init$, void, $Map*)},
+		{"<init>", "(Ljava/awt/RenderingHints$Key;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(RenderingHints, init$, void, $RenderingHints$Key*, Object$*)},
+		{"add", "(Ljava/awt/RenderingHints;)V", nullptr, $PUBLIC, $virtualMethod(RenderingHints, add, void, RenderingHints*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(RenderingHints, clear, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RenderingHints, clone, $Object*)},
+		{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RenderingHints, containsKey, bool, Object$*)},
+		{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RenderingHints, containsValue, bool, Object$*)},
+		{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;>;", $PUBLIC, $virtualMethod(RenderingHints, entrySet, $Set*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RenderingHints, equals, bool, Object$*)},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RenderingHints, get, $Object*, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RenderingHints, hashCode, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(RenderingHints, isEmpty, bool)},
+		{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(RenderingHints, keySet, $Set*)},
+		{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RenderingHints, put, $Object*, Object$*, Object$*)},
+		{"putAll", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PUBLIC, $virtualMethod(RenderingHints, putAll, void, $Map*)},
+		{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RenderingHints, remove, $Object*, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(RenderingHints, size, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RenderingHints, toString, $String*)},
+		{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(RenderingHints, values, $Collection*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.RenderingHints$Key", "java.awt.RenderingHints", "Key", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.RenderingHints",
+		"java.lang.Object",
+		"java.util.Map,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Map<Ljava/lang/Object;Ljava/lang/Object;>;Ljava/lang/Cloneable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.RenderingHints$Key"
+	};
+	$loadClass(RenderingHints, name, initialize, &classInfo$$, RenderingHints::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RenderingHints));
+	});
 	return class$;
 }
 

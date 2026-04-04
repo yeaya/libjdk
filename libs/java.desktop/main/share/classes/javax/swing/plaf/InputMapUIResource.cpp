@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/InputMapUIResource.h>
-
 #include <javax/swing/InputMap.h>
 #include <jcpp.h>
 
@@ -10,29 +9,6 @@ using $InputMap = ::javax::swing::InputMap;
 namespace javax {
 	namespace swing {
 		namespace plaf {
-
-$MethodInfo _InputMapUIResource_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InputMapUIResource, init$, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _InputMapUIResource_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.InputMapUIResource",
-	"javax.swing.InputMap",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_InputMapUIResource_MethodInfo_
-};
-
-$Object* allocate$InputMapUIResource($Class* clazz) {
-	return $of($alloc(InputMapUIResource));
-}
 
 int32_t InputMapUIResource::hashCode() {
 	 return this->$InputMap::hashCode();
@@ -62,7 +38,26 @@ InputMapUIResource::InputMapUIResource() {
 }
 
 $Class* InputMapUIResource::load$($String* name, bool initialize) {
-	$loadClass(InputMapUIResource, name, initialize, &_InputMapUIResource_ClassInfo_, allocate$InputMapUIResource);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InputMapUIResource, init$, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.InputMapUIResource",
+		"javax.swing.InputMap",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InputMapUIResource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(InputMapUIResource));
+	});
 	return class$;
 }
 

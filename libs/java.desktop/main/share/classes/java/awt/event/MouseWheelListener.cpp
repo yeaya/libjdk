@@ -1,5 +1,4 @@
 #include <java/awt/event/MouseWheelListener.h>
-
 #include <java/awt/event/MouseWheelEvent.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace java {
 	namespace awt {
 		namespace event {
 
-$MethodInfo _MouseWheelListener_MethodInfo_[] = {
-	{"mouseWheelMoved", "(Ljava/awt/event/MouseWheelEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MouseWheelListener, mouseWheelMoved, void, $MouseWheelEvent*)},
-	{}
-};
-
-$ClassInfo _MouseWheelListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.event.MouseWheelListener",
-	nullptr,
-	"java.util.EventListener",
-	nullptr,
-	_MouseWheelListener_MethodInfo_
-};
-
-$Object* allocate$MouseWheelListener($Class* clazz) {
-	return $of($alloc(MouseWheelListener));
-}
-
 $Class* MouseWheelListener::load$($String* name, bool initialize) {
-	$loadClass(MouseWheelListener, name, initialize, &_MouseWheelListener_ClassInfo_, allocate$MouseWheelListener);
+	$MethodInfo methodInfos$$[] = {
+		{"mouseWheelMoved", "(Ljava/awt/event/MouseWheelEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MouseWheelListener, mouseWheelMoved, void, $MouseWheelEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.event.MouseWheelListener",
+		nullptr,
+		"java.util.EventListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MouseWheelListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MouseWheelListener);
+	});
 	return class$;
 }
 

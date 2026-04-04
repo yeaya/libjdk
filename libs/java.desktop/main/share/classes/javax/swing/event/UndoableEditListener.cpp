@@ -1,5 +1,4 @@
 #include <javax/swing/event/UndoableEditListener.h>
-
 #include <javax/swing/event/UndoableEditEvent.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace javax {
 	namespace swing {
 		namespace event {
 
-$MethodInfo _UndoableEditListener_MethodInfo_[] = {
-	{"undoableEditHappened", "(Ljavax/swing/event/UndoableEditEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UndoableEditListener, undoableEditHappened, void, $UndoableEditEvent*)},
-	{}
-};
-
-$ClassInfo _UndoableEditListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.event.UndoableEditListener",
-	nullptr,
-	"java.util.EventListener",
-	nullptr,
-	_UndoableEditListener_MethodInfo_
-};
-
-$Object* allocate$UndoableEditListener($Class* clazz) {
-	return $of($alloc(UndoableEditListener));
-}
-
 $Class* UndoableEditListener::load$($String* name, bool initialize) {
-	$loadClass(UndoableEditListener, name, initialize, &_UndoableEditListener_ClassInfo_, allocate$UndoableEditListener);
+	$MethodInfo methodInfos$$[] = {
+		{"undoableEditHappened", "(Ljavax/swing/event/UndoableEditEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UndoableEditListener, undoableEditHappened, void, $UndoableEditEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.event.UndoableEditListener",
+		nullptr,
+		"java.util.EventListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UndoableEditListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UndoableEditListener);
+	});
 	return class$;
 }
 

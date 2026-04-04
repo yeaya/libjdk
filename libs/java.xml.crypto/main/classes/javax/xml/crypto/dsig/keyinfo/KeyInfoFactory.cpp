@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/dsig/keyinfo/KeyInfoFactory.h>
-
 #include <java/math/BigInteger.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/NoSuchProviderException.h>
@@ -50,64 +49,18 @@ namespace javax {
 			namespace dsig {
 				namespace keyinfo {
 
-$FieldInfo _KeyInfoFactory_FieldInfo_[] = {
-	{"mechanismType", "Ljava/lang/String;", nullptr, $PRIVATE, $field(KeyInfoFactory, mechanismType)},
-	{"provider", "Ljava/security/Provider;", nullptr, $PRIVATE, $field(KeyInfoFactory, provider)},
-	{}
-};
-
-$MethodInfo _KeyInfoFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(KeyInfoFactory, init$, void)},
-	{"getInstance", "(Ljava/lang/String;)Ljavax/xml/crypto/dsig/keyinfo/KeyInfoFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyInfoFactory, getInstance, KeyInfoFactory*, $String*)},
-	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljavax/xml/crypto/dsig/keyinfo/KeyInfoFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyInfoFactory, getInstance, KeyInfoFactory*, $String*, $Provider*)},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/keyinfo/KeyInfoFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyInfoFactory, getInstance, KeyInfoFactory*, $String*, $String*), "java.security.NoSuchProviderException"},
-	{"getInstance", "()Ljavax/xml/crypto/dsig/keyinfo/KeyInfoFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyInfoFactory, getInstance, KeyInfoFactory*)},
-	{"getMechanismType", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(KeyInfoFactory, getMechanismType, $String*)},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(KeyInfoFactory, getProvider, $Provider*)},
-	{"getURIDereferencer", "()Ljavax/xml/crypto/URIDereferencer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfoFactory, getURIDereferencer, $URIDereferencer*)},
-	{"isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfoFactory, isFeatureSupported, bool, $String*)},
-	{"newKeyInfo", "(Ljava/util/List;)Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;", "(Ljava/util/List<+Ljavax/xml/crypto/XMLStructure;>;)Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;", $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfoFactory, newKeyInfo, $KeyInfo*, $List*)},
-	{"newKeyInfo", "(Ljava/util/List;Ljava/lang/String;)Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;", "(Ljava/util/List<+Ljavax/xml/crypto/XMLStructure;>;Ljava/lang/String;)Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;", $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfoFactory, newKeyInfo, $KeyInfo*, $List*, $String*)},
-	{"newKeyName", "(Ljava/lang/String;)Ljavax/xml/crypto/dsig/keyinfo/KeyName;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfoFactory, newKeyName, $KeyName*, $String*)},
-	{"newKeyValue", "(Ljava/security/PublicKey;)Ljavax/xml/crypto/dsig/keyinfo/KeyValue;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfoFactory, newKeyValue, $KeyValue*, $PublicKey*), "java.security.KeyException"},
-	{"newPGPData", "([B)Ljavax/xml/crypto/dsig/keyinfo/PGPData;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfoFactory, newPGPData, $PGPData*, $bytes*)},
-	{"newPGPData", "([B[BLjava/util/List;)Ljavax/xml/crypto/dsig/keyinfo/PGPData;", "([B[BLjava/util/List<+Ljavax/xml/crypto/XMLStructure;>;)Ljavax/xml/crypto/dsig/keyinfo/PGPData;", $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfoFactory, newPGPData, $PGPData*, $bytes*, $bytes*, $List*)},
-	{"newPGPData", "([BLjava/util/List;)Ljavax/xml/crypto/dsig/keyinfo/PGPData;", "([BLjava/util/List<+Ljavax/xml/crypto/XMLStructure;>;)Ljavax/xml/crypto/dsig/keyinfo/PGPData;", $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfoFactory, newPGPData, $PGPData*, $bytes*, $List*)},
-	{"newRetrievalMethod", "(Ljava/lang/String;)Ljavax/xml/crypto/dsig/keyinfo/RetrievalMethod;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfoFactory, newRetrievalMethod, $RetrievalMethod*, $String*)},
-	{"newRetrievalMethod", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Ljavax/xml/crypto/dsig/keyinfo/RetrievalMethod;", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List<+Ljavax/xml/crypto/dsig/Transform;>;)Ljavax/xml/crypto/dsig/keyinfo/RetrievalMethod;", $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfoFactory, newRetrievalMethod, $RetrievalMethod*, $String*, $String*, $List*)},
-	{"newX509Data", "(Ljava/util/List;)Ljavax/xml/crypto/dsig/keyinfo/X509Data;", "(Ljava/util/List<*>;)Ljavax/xml/crypto/dsig/keyinfo/X509Data;", $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfoFactory, newX509Data, $X509Data*, $List*)},
-	{"newX509IssuerSerial", "(Ljava/lang/String;Ljava/math/BigInteger;)Ljavax/xml/crypto/dsig/keyinfo/X509IssuerSerial;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfoFactory, newX509IssuerSerial, $X509IssuerSerial*, $String*, $BigInteger*)},
-	{"unmarshalKeyInfo", "(Ljavax/xml/crypto/XMLStructure;)Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfoFactory, unmarshalKeyInfo, $KeyInfo*, $XMLStructure*), "javax.xml.crypto.MarshalException"},
-	{}
-};
-
-$ClassInfo _KeyInfoFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.xml.crypto.dsig.keyinfo.KeyInfoFactory",
-	"java.lang.Object",
-	nullptr,
-	_KeyInfoFactory_FieldInfo_,
-	_KeyInfoFactory_MethodInfo_
-};
-
-$Object* allocate$KeyInfoFactory($Class* clazz) {
-	return $of($alloc(KeyInfoFactory));
-}
-
 void KeyInfoFactory::init$() {
 }
 
 KeyInfoFactory* KeyInfoFactory::getInstance($String* mechanismType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (mechanismType == nullptr) {
 		$throwNew($NullPointerException, "mechanismType cannot be null"_s);
 	}
 	$var($ProviderArray, provs, $Security::getProviders());
 	{
 		$var($ProviderArray, arr$, provs);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Provider, p, arr$->get(i$));
 			{
 				$var($Provider$Service, s, $nc(p)->getService("KeyInfoFactory"_s, mechanismType));
@@ -116,11 +69,11 @@ KeyInfoFactory* KeyInfoFactory::getInstance($String* mechanismType) {
 					try {
 						$assign(obj, s->newInstance(nullptr));
 					} catch ($NoSuchAlgorithmException& nsae) {
-						$throwNew($NoSuchMechanismException, static_cast<$Throwable*>(nsae));
+						$throwNew($NoSuchMechanismException, nsae);
 					}
 					if ($instanceOf(KeyInfoFactory, obj)) {
 						$var(KeyInfoFactory, factory, $cast(KeyInfoFactory, obj));
-						$set($nc(factory), mechanismType, mechanismType);
+						$set(factory, mechanismType, mechanismType);
 						$set(factory, provider, p);
 						return factory;
 					}
@@ -132,7 +85,7 @@ KeyInfoFactory* KeyInfoFactory::getInstance($String* mechanismType) {
 }
 
 KeyInfoFactory* KeyInfoFactory::getInstance($String* mechanismType, $Provider* provider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (mechanismType == nullptr) {
 		$throwNew($NullPointerException, "mechanismType cannot be null"_s);
 	} else if (provider == nullptr) {
@@ -144,11 +97,11 @@ KeyInfoFactory* KeyInfoFactory::getInstance($String* mechanismType, $Provider* p
 		try {
 			$assign(obj, s->newInstance(nullptr));
 		} catch ($NoSuchAlgorithmException& nsae) {
-			$throwNew($NoSuchMechanismException, static_cast<$Throwable*>(nsae));
+			$throwNew($NoSuchMechanismException, nsae);
 		}
 		if ($instanceOf(KeyInfoFactory, obj)) {
 			$var(KeyInfoFactory, factory, $cast(KeyInfoFactory, obj));
-			$set($nc(factory), mechanismType, mechanismType);
+			$set(factory, mechanismType, mechanismType);
 			$set(factory, provider, provider);
 			return factory;
 		}
@@ -157,12 +110,12 @@ KeyInfoFactory* KeyInfoFactory::getInstance($String* mechanismType, $Provider* p
 }
 
 KeyInfoFactory* KeyInfoFactory::getInstance($String* mechanismType, $String* provider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (mechanismType == nullptr) {
 		$throwNew($NullPointerException, "mechanismType cannot be null"_s);
 	} else if (provider == nullptr) {
 		$throwNew($NullPointerException, "provider cannot be null"_s);
-	} else if ($nc(provider)->length() == 0) {
+	} else if (provider->length() == 0) {
 		$throwNew($NoSuchProviderException);
 	}
 	$var($Provider, p, $Security::getProvider(provider));
@@ -175,11 +128,11 @@ KeyInfoFactory* KeyInfoFactory::getInstance($String* mechanismType, $String* pro
 		try {
 			$assign(obj, s->newInstance(nullptr));
 		} catch ($NoSuchAlgorithmException& nsae) {
-			$throwNew($NoSuchMechanismException, static_cast<$Throwable*>(nsae));
+			$throwNew($NoSuchMechanismException, nsae);
 		}
 		if ($instanceOf(KeyInfoFactory, obj)) {
 			$var(KeyInfoFactory, factory, $cast(KeyInfoFactory, obj));
-			$set($nc(factory), mechanismType, mechanismType);
+			$set(factory, mechanismType, mechanismType);
 			$set(factory, provider, p);
 			return factory;
 		}
@@ -203,7 +156,46 @@ KeyInfoFactory::KeyInfoFactory() {
 }
 
 $Class* KeyInfoFactory::load$($String* name, bool initialize) {
-	$loadClass(KeyInfoFactory, name, initialize, &_KeyInfoFactory_ClassInfo_, allocate$KeyInfoFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"mechanismType", "Ljava/lang/String;", nullptr, $PRIVATE, $field(KeyInfoFactory, mechanismType)},
+		{"provider", "Ljava/security/Provider;", nullptr, $PRIVATE, $field(KeyInfoFactory, provider)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(KeyInfoFactory, init$, void)},
+		{"getInstance", "(Ljava/lang/String;)Ljavax/xml/crypto/dsig/keyinfo/KeyInfoFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyInfoFactory, getInstance, KeyInfoFactory*, $String*)},
+		{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljavax/xml/crypto/dsig/keyinfo/KeyInfoFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyInfoFactory, getInstance, KeyInfoFactory*, $String*, $Provider*)},
+		{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/keyinfo/KeyInfoFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyInfoFactory, getInstance, KeyInfoFactory*, $String*, $String*), "java.security.NoSuchProviderException"},
+		{"getInstance", "()Ljavax/xml/crypto/dsig/keyinfo/KeyInfoFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyInfoFactory, getInstance, KeyInfoFactory*)},
+		{"getMechanismType", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(KeyInfoFactory, getMechanismType, $String*)},
+		{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(KeyInfoFactory, getProvider, $Provider*)},
+		{"getURIDereferencer", "()Ljavax/xml/crypto/URIDereferencer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfoFactory, getURIDereferencer, $URIDereferencer*)},
+		{"isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfoFactory, isFeatureSupported, bool, $String*)},
+		{"newKeyInfo", "(Ljava/util/List;)Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;", "(Ljava/util/List<+Ljavax/xml/crypto/XMLStructure;>;)Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;", $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfoFactory, newKeyInfo, $KeyInfo*, $List*)},
+		{"newKeyInfo", "(Ljava/util/List;Ljava/lang/String;)Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;", "(Ljava/util/List<+Ljavax/xml/crypto/XMLStructure;>;Ljava/lang/String;)Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;", $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfoFactory, newKeyInfo, $KeyInfo*, $List*, $String*)},
+		{"newKeyName", "(Ljava/lang/String;)Ljavax/xml/crypto/dsig/keyinfo/KeyName;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfoFactory, newKeyName, $KeyName*, $String*)},
+		{"newKeyValue", "(Ljava/security/PublicKey;)Ljavax/xml/crypto/dsig/keyinfo/KeyValue;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfoFactory, newKeyValue, $KeyValue*, $PublicKey*), "java.security.KeyException"},
+		{"newPGPData", "([B)Ljavax/xml/crypto/dsig/keyinfo/PGPData;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfoFactory, newPGPData, $PGPData*, $bytes*)},
+		{"newPGPData", "([B[BLjava/util/List;)Ljavax/xml/crypto/dsig/keyinfo/PGPData;", "([B[BLjava/util/List<+Ljavax/xml/crypto/XMLStructure;>;)Ljavax/xml/crypto/dsig/keyinfo/PGPData;", $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfoFactory, newPGPData, $PGPData*, $bytes*, $bytes*, $List*)},
+		{"newPGPData", "([BLjava/util/List;)Ljavax/xml/crypto/dsig/keyinfo/PGPData;", "([BLjava/util/List<+Ljavax/xml/crypto/XMLStructure;>;)Ljavax/xml/crypto/dsig/keyinfo/PGPData;", $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfoFactory, newPGPData, $PGPData*, $bytes*, $List*)},
+		{"newRetrievalMethod", "(Ljava/lang/String;)Ljavax/xml/crypto/dsig/keyinfo/RetrievalMethod;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfoFactory, newRetrievalMethod, $RetrievalMethod*, $String*)},
+		{"newRetrievalMethod", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Ljavax/xml/crypto/dsig/keyinfo/RetrievalMethod;", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List<+Ljavax/xml/crypto/dsig/Transform;>;)Ljavax/xml/crypto/dsig/keyinfo/RetrievalMethod;", $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfoFactory, newRetrievalMethod, $RetrievalMethod*, $String*, $String*, $List*)},
+		{"newX509Data", "(Ljava/util/List;)Ljavax/xml/crypto/dsig/keyinfo/X509Data;", "(Ljava/util/List<*>;)Ljavax/xml/crypto/dsig/keyinfo/X509Data;", $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfoFactory, newX509Data, $X509Data*, $List*)},
+		{"newX509IssuerSerial", "(Ljava/lang/String;Ljava/math/BigInteger;)Ljavax/xml/crypto/dsig/keyinfo/X509IssuerSerial;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfoFactory, newX509IssuerSerial, $X509IssuerSerial*, $String*, $BigInteger*)},
+		{"unmarshalKeyInfo", "(Ljavax/xml/crypto/XMLStructure;)Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfoFactory, unmarshalKeyInfo, $KeyInfo*, $XMLStructure*), "javax.xml.crypto.MarshalException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.xml.crypto.dsig.keyinfo.KeyInfoFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KeyInfoFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyInfoFactory);
+	});
 	return class$;
 }
 

@@ -95,6 +95,7 @@ public:
 	virtual bool isObscured() override;
 	virtual bool isReparentSupported() override;
 	virtual void layout() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::ScrollPane* target);
 	virtual void childResized(int32_t w, int32_t h) override;
 	virtual ::java::awt::Dimension* getChildSize();

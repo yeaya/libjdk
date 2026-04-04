@@ -1,5 +1,4 @@
 #include <javax/swing/JComboBox$KeySelectionManager.h>
-
 #include <javax/swing/ComboBoxModel.h>
 #include <javax/swing/JComboBox.h>
 #include <jcpp.h>
@@ -12,38 +11,33 @@ using $ComboBoxModel = ::javax::swing::ComboBoxModel;
 namespace javax {
 	namespace swing {
 
-$MethodInfo _JComboBox$KeySelectionManager_MethodInfo_[] = {
-	{"selectionForKey", "(CLjavax/swing/ComboBoxModel;)I", "(CLjavax/swing/ComboBoxModel<*>;)I", $PUBLIC | $ABSTRACT, $virtualMethod(JComboBox$KeySelectionManager, selectionForKey, int32_t, char16_t, $ComboBoxModel*)},
-	{}
-};
-
-$InnerClassInfo _JComboBox$KeySelectionManager_InnerClassesInfo_[] = {
-	{"javax.swing.JComboBox$KeySelectionManager", "javax.swing.JComboBox", "KeySelectionManager", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JComboBox$KeySelectionManager_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.JComboBox$KeySelectionManager",
-	nullptr,
-	nullptr,
-	nullptr,
-	_JComboBox$KeySelectionManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JComboBox$KeySelectionManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JComboBox"
-};
-
-$Object* allocate$JComboBox$KeySelectionManager($Class* clazz) {
-	return $of($alloc(JComboBox$KeySelectionManager));
-}
-
 $Class* JComboBox$KeySelectionManager::load$($String* name, bool initialize) {
-	$loadClass(JComboBox$KeySelectionManager, name, initialize, &_JComboBox$KeySelectionManager_ClassInfo_, allocate$JComboBox$KeySelectionManager);
+	$MethodInfo methodInfos$$[] = {
+		{"selectionForKey", "(CLjavax/swing/ComboBoxModel;)I", "(CLjavax/swing/ComboBoxModel<*>;)I", $PUBLIC | $ABSTRACT, $virtualMethod(JComboBox$KeySelectionManager, selectionForKey, int32_t, char16_t, $ComboBoxModel*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JComboBox$KeySelectionManager", "javax.swing.JComboBox", "KeySelectionManager", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.JComboBox$KeySelectionManager",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JComboBox"
+	};
+	$loadClass(JComboBox$KeySelectionManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JComboBox$KeySelectionManager);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <bug6348946$3.h>
-
 #include <bug6348946.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -17,66 +16,58 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JPanel = ::javax::swing::JPanel;
-
-$FieldInfo _bug6348946$3_FieldInfo_[] = {
-	{"val$result", "[Ljava/awt/Rectangle;", nullptr, $FINAL | $SYNTHETIC, $field(bug6348946$3, val$result)},
-	{}
-};
-
-$MethodInfo _bug6348946$3_MethodInfo_[] = {
-	{"<init>", "([Ljava/awt/Rectangle;)V", "()V", 0, $method(bug6348946$3, init$, void, $RectangleArray*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6348946$3, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug6348946$3_EnclosingMethodInfo_ = {
-	"bug6348946",
-	"getPanelRectangle",
-	"()Ljava/awt/Rectangle;"
-};
-
-$InnerClassInfo _bug6348946$3_InnerClassesInfo_[] = {
-	{"bug6348946$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6348946$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6348946$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_bug6348946$3_FieldInfo_,
-	_bug6348946$3_MethodInfo_,
-	nullptr,
-	&_bug6348946$3_EnclosingMethodInfo_,
-	_bug6348946$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6348946"
-};
-
-$Object* allocate$bug6348946$3($Class* clazz) {
-	return $of($alloc(bug6348946$3));
-}
 
 void bug6348946$3::init$($RectangleArray* val$result) {
 	$set(this, val$result, val$result);
 }
 
 void bug6348946$3::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($bug6348946);
 	$var($Point, var$0, $nc($bug6348946::panel)->getLocationOnScreen());
-	$nc(this->val$result)->set(0, $$new($Rectangle, var$0, $($nc($bug6348946::panel)->getSize())));
+	$nc(this->val$result)->set(0, $$new($Rectangle, var$0, $($bug6348946::panel->getSize())));
 }
 
 bug6348946$3::bug6348946$3() {
 }
 
 $Class* bug6348946$3::load$($String* name, bool initialize) {
-	$loadClass(bug6348946$3, name, initialize, &_bug6348946$3_ClassInfo_, allocate$bug6348946$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$result", "[Ljava/awt/Rectangle;", nullptr, $FINAL | $SYNTHETIC, $field(bug6348946$3, val$result)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/awt/Rectangle;)V", "()V", 0, $method(bug6348946$3, init$, void, $RectangleArray*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6348946$3, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug6348946",
+		"getPanelRectangle",
+		"()Ljava/awt/Rectangle;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6348946$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6348946$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6348946"
+	};
+	$loadClass(bug6348946$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6348946$3);
+	});
 	return class$;
 }
 

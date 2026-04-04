@@ -1,5 +1,4 @@
 #include <sun/util/resources/ext/CurrencyNames_el_GR.h>
-
 #include <sun/util/resources/LocaleNamesBundle.h>
 #include <jcpp.h>
 
@@ -13,39 +12,20 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _CurrencyNames_el_GR_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_el_GR, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_el_GR, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_el_GR_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.util.resources.ext.CurrencyNames_el_GR",
-	"sun.util.resources.LocaleNamesBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_el_GR_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_el_GR($Class* clazz) {
-	return $of($alloc(CurrencyNames_el_GR));
-}
-
 void CurrencyNames_el_GR::init$() {
 	$LocaleNamesBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_el_GR::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("EUR"_s),
-			$of(u"€"_s)
+			"EUR"_s,
+			u"€"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GRD"_s),
-			$of(u"δρχ"_s)
+			"GRD"_s,
+			u"δρχ"_s
 		})
 	});
 }
@@ -54,7 +34,22 @@ CurrencyNames_el_GR::CurrencyNames_el_GR() {
 }
 
 $Class* CurrencyNames_el_GR::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_el_GR, name, initialize, &_CurrencyNames_el_GR_ClassInfo_, allocate$CurrencyNames_el_GR);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_el_GR, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_el_GR, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.util.resources.ext.CurrencyNames_el_GR",
+		"sun.util.resources.LocaleNamesBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_el_GR, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_el_GR);
+	});
 	return class$;
 }
 

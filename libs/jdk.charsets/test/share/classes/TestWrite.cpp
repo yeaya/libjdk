@@ -1,53 +1,30 @@
 #include <TestWrite.h>
-
 #include <java/io/ByteArrayOutputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
 #include <java/io/UnsupportedEncodingException.h>
 #include <jcpp.h>
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
-using $PrintStream = ::java::io::PrintStream;
 using $UnsupportedEncodingException = ::java::io::UnsupportedEncodingException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _TestWrite_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestWrite, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestWrite, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _TestWrite_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestWrite",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestWrite_MethodInfo_
-};
-
-$Object* allocate$TestWrite($Class* clazz) {
-	return $of($alloc(TestWrite));
-}
-
 void TestWrite::init$() {
 }
 
 void TestWrite::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteArrayOutputStream, bos, nullptr);
 	$var($OutputStreamWriter, osw, nullptr);
 	$var($bytes, array, nullptr);
 	try {
 		$assign(bos, $new($ByteArrayOutputStream));
-		$assign(osw, $new($OutputStreamWriter, static_cast<$OutputStream*>(bos), "EUCJIS"_s));
-		osw->write((int32_t)u'a');
+		$assign(osw, $new($OutputStreamWriter, bos, "EUCJIS"_s));
+		osw->write(u'a');
 		for (int32_t count = 0; count < 10000; ++count) {
-			osw->write((int32_t)(char16_t)0x3042);
+			osw->write((char16_t)0x3042);
 		}
 		osw->close();
 		$assign(array, bos->toByteArray());
@@ -61,7 +38,22 @@ TestWrite::TestWrite() {
 }
 
 $Class* TestWrite::load$($String* name, bool initialize) {
-	$loadClass(TestWrite, name, initialize, &_TestWrite_ClassInfo_, allocate$TestWrite);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestWrite, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestWrite, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestWrite",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestWrite, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestWrite);
+	});
 	return class$;
 }
 

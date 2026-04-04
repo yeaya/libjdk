@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalFileChooserUI$DirectoryComboBoxAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <java/io/File.h>
 #include <javax/swing/AbstractAction.h>
@@ -15,8 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractAction = ::javax::swing::AbstractAction;
-using $JComboBox = ::javax::swing::JComboBox;
-using $JFileChooser = ::javax::swing::JFileChooser;
 using $MetalFileChooserUI = ::javax::swing::plaf::metal::MetalFileChooserUI;
 
 namespace javax {
@@ -24,53 +21,17 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalFileChooserUI$DirectoryComboBoxAction_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/metal/MetalFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalFileChooserUI$DirectoryComboBoxAction, this$0)},
-	{}
-};
-
-$MethodInfo _MetalFileChooserUI$DirectoryComboBoxAction_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;)V", nullptr, $PROTECTED, $method(MetalFileChooserUI$DirectoryComboBoxAction, init$, void, $MetalFileChooserUI*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$DirectoryComboBoxAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _MetalFileChooserUI$DirectoryComboBoxAction_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalFileChooserUI$DirectoryComboBoxAction", "javax.swing.plaf.metal.MetalFileChooserUI", "DirectoryComboBoxAction", $PROTECTED},
-	{}
-};
-
-$ClassInfo _MetalFileChooserUI$DirectoryComboBoxAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalFileChooserUI$DirectoryComboBoxAction",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_MetalFileChooserUI$DirectoryComboBoxAction_FieldInfo_,
-	_MetalFileChooserUI$DirectoryComboBoxAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalFileChooserUI$DirectoryComboBoxAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalFileChooserUI"
-};
-
-$Object* allocate$MetalFileChooserUI$DirectoryComboBoxAction($Class* clazz) {
-	return $of($alloc(MetalFileChooserUI$DirectoryComboBoxAction));
-}
-
 void MetalFileChooserUI$DirectoryComboBoxAction::init$($MetalFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
 	$AbstractAction::init$("DirectoryComboBoxAction"_s);
 }
 
 void MetalFileChooserUI$DirectoryComboBoxAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->this$0->directoryComboBox)->hidePopup();
 	$var($File, f, $cast($File, $nc(this->this$0->directoryComboBox)->getSelectedItem()));
-	if (!$nc($($nc($(this->this$0->getFileChooser()))->getCurrentDirectory()))->equals(f)) {
-		$nc($(this->this$0->getFileChooser()))->setCurrentDirectory(f);
+	if (!$$nc($$nc(this->this$0->getFileChooser())->getCurrentDirectory())->equals(f)) {
+		$$nc(this->this$0->getFileChooser())->setCurrentDirectory(f);
 	}
 }
 
@@ -78,7 +39,37 @@ MetalFileChooserUI$DirectoryComboBoxAction::MetalFileChooserUI$DirectoryComboBox
 }
 
 $Class* MetalFileChooserUI$DirectoryComboBoxAction::load$($String* name, bool initialize) {
-	$loadClass(MetalFileChooserUI$DirectoryComboBoxAction, name, initialize, &_MetalFileChooserUI$DirectoryComboBoxAction_ClassInfo_, allocate$MetalFileChooserUI$DirectoryComboBoxAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/metal/MetalFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalFileChooserUI$DirectoryComboBoxAction, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;)V", nullptr, $PROTECTED, $method(MetalFileChooserUI$DirectoryComboBoxAction, init$, void, $MetalFileChooserUI*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$DirectoryComboBoxAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalFileChooserUI$DirectoryComboBoxAction", "javax.swing.plaf.metal.MetalFileChooserUI", "DirectoryComboBoxAction", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalFileChooserUI$DirectoryComboBoxAction",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalFileChooserUI"
+	};
+	$loadClass(MetalFileChooserUI$DirectoryComboBoxAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalFileChooserUI$DirectoryComboBoxAction));
+	});
 	return class$;
 }
 

@@ -39,6 +39,7 @@ class $import DataFlavor : public ::java::io::Externalizable, public ::java::lan
 public:
 	DataFlavor();
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* primaryType, $String* subType, ::java::awt::datatransfer::MimeTypeParameterList* params, $Class* representationClass, $String* humanPresentableName);
 	void init$($Class* representationClass, $String* humanPresentableName);
@@ -89,7 +90,7 @@ public:
 	virtual $String* toString() override;
 	static $Class* tryToLoadClass($String* className, ::java::lang::ClassLoader* fallback);
 	virtual void writeExternal(::java::io::ObjectOutput* os) override;
-	static const int64_t serialVersionUID = (int64_t)0x741DA5DB78A37333;
+	static const int64_t serialVersionUID = (int64_t)0x741da5db78a37333;
 	static ::java::awt::datatransfer::DataFlavor* stringFlavor;
 	static ::java::awt::datatransfer::DataFlavor* imageFlavor;
 	static ::java::awt::datatransfer::DataFlavor* plainTextFlavor;

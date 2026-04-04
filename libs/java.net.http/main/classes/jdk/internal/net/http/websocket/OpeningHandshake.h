@@ -108,6 +108,7 @@ class OpeningHandshake : public ::java::lang::Object {
 	$class(OpeningHandshake, 0, ::java::lang::Object)
 public:
 	OpeningHandshake();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::websocket::BuilderImpl* b);
 	$String* checkAndReturnSubprotocol(::java::net::http::HttpHeaders* responseHeaders);
 	static ::jdk::internal::net::http::websocket::CheckFailedException* checkFailed($String* message);

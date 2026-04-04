@@ -12,6 +12,7 @@ class $export TestJTableCellEditor$UserEditor : public ::java::lang::Object {
 	$class(TestJTableCellEditor$UserEditor, 0, ::java::lang::Object)
 public:
 	TestJTableCellEditor$UserEditor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* value);
 	static $String* TEST_VALUE;
 	$String* value = nullptr;

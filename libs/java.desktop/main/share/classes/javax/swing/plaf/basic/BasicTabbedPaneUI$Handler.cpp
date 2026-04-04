@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTabbedPaneUI$Handler.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -11,7 +10,6 @@
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/util/Vector.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JTabbedPane.h>
 #include <javax/swing/event/ChangeEvent.h>
 #include <javax/swing/event/ChangeListener.h>
@@ -39,19 +37,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Vector = ::java::util::Vector;
-using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $BasicHTML = ::javax::swing::plaf::basic::BasicHTML;
 using $BasicTabbedPaneUI = ::javax::swing::plaf::basic::BasicTabbedPaneUI;
-using $BasicTabbedPaneUI$ScrollableTabPanel = ::javax::swing::plaf::basic::BasicTabbedPaneUI$ScrollableTabPanel;
-using $BasicTabbedPaneUI$ScrollableTabSupport = ::javax::swing::plaf::basic::BasicTabbedPaneUI$ScrollableTabSupport;
-using $BasicTabbedPaneUI$ScrollableTabViewport = ::javax::swing::plaf::basic::BasicTabbedPaneUI$ScrollableTabViewport;
-using $BasicTabbedPaneUI$TabContainer = ::javax::swing::plaf::basic::BasicTabbedPaneUI$TabContainer;
 using $View = ::javax::swing::text::View;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 
@@ -59,61 +50,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicTabbedPaneUI$Handler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicTabbedPaneUI$Handler, this$0)},
-	{}
-};
-
-$MethodInfo _BasicTabbedPaneUI$Handler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicTabbedPaneUI;)V", nullptr, $PRIVATE, $method(BasicTabbedPaneUI$Handler, init$, void, $BasicTabbedPaneUI*)},
-	{"componentAdded", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$Handler, componentAdded, void, $ContainerEvent*)},
-	{"componentRemoved", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$Handler, componentRemoved, void, $ContainerEvent*)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$Handler, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$Handler, focusLost, void, $FocusEvent*)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$Handler, mouseClicked, void, $MouseEvent*)},
-	{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$Handler, mouseDragged, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$Handler, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$Handler, mouseExited, void, $MouseEvent*)},
-	{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$Handler, mouseMoved, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$Handler, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$Handler, mouseReleased, void, $MouseEvent*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$Handler, propertyChange, void, $PropertyChangeEvent*)},
-	{"setHtmlView", "(Ljavax/swing/text/View;ZI)V", nullptr, $PRIVATE, $method(BasicTabbedPaneUI$Handler, setHtmlView, void, $View*, bool, int32_t)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$Handler, stateChanged, void, $ChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateHtmlViews", "(IZ)V", nullptr, $PRIVATE, $method(BasicTabbedPaneUI$Handler, updateHtmlViews, void, int32_t, bool)},
-	{}
-};
-
-$InnerClassInfo _BasicTabbedPaneUI$Handler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTabbedPaneUI$Handler", "javax.swing.plaf.basic.BasicTabbedPaneUI", "Handler", $PRIVATE},
-	{}
-};
-
-$ClassInfo _BasicTabbedPaneUI$Handler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTabbedPaneUI$Handler",
-	"java.lang.Object",
-	"javax.swing.event.ChangeListener,java.awt.event.ContainerListener,java.awt.event.FocusListener,java.awt.event.MouseListener,java.awt.event.MouseMotionListener,java.beans.PropertyChangeListener",
-	_BasicTabbedPaneUI$Handler_FieldInfo_,
-	_BasicTabbedPaneUI$Handler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTabbedPaneUI$Handler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTabbedPaneUI"
-};
-
-$Object* allocate$BasicTabbedPaneUI$Handler($Class* clazz) {
-	return $of($alloc(BasicTabbedPaneUI$Handler));
-}
 
 int32_t BasicTabbedPaneUI$Handler::hashCode() {
 	 return this->$ChangeListener::hashCode();
@@ -140,7 +76,7 @@ void BasicTabbedPaneUI$Handler::init$($BasicTabbedPaneUI* this$0) {
 }
 
 void BasicTabbedPaneUI$Handler::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTabbedPane, pane, $cast($JTabbedPane, $nc(e)->getSource()));
 	$var($String, name, e->getPropertyName());
 	bool isScrollLayout = this->this$0->scrollableTabLayoutEnabled();
@@ -163,7 +99,7 @@ void BasicTabbedPaneUI$Handler::propertyChange($PropertyChangeEvent* e) {
 		}
 		this->this$0->calculatedBaseline = false;
 	} else if (name == "opaque"_s && isScrollLayout) {
-		bool newVal = $nc(($cast($Boolean, $(e->getNewValue()))))->booleanValue();
+		bool newVal = $$sure($Boolean, e->getNewValue())->booleanValue();
 		$nc($nc(this->this$0->tabScroller)->tabPanel)->setOpaque(newVal);
 		$nc($nc(this->this$0->tabScroller)->viewport)->setOpaque(newVal);
 	} else if (name == "background"_s && isScrollLayout) {
@@ -175,14 +111,14 @@ void BasicTabbedPaneUI$Handler::propertyChange($PropertyChangeEvent* e) {
 		$nc($nc(this->this$0->tabScroller)->scrollBackwardButton)->setBackground(newColor);
 	} else if (name == "indexForTabComponent"_s) {
 		if (this->this$0->tabContainer != nullptr) {
-			$nc(this->this$0->tabContainer)->removeUnusedTabComponents();
+			this->this$0->tabContainer->removeUnusedTabComponents();
 		}
-		$var($Component, c, $nc(this->this$0->tabPane)->getTabComponentAt($nc(($cast($Integer, $(e->getNewValue()))))->intValue()));
+		$var($Component, c, $nc(this->this$0->tabPane)->getTabComponentAt($$sure($Integer, e->getNewValue())->intValue()));
 		if (c != nullptr) {
 			if (this->this$0->tabContainer == nullptr) {
 				this->this$0->installTabContainer();
 			} else {
-				$nc(this->this$0->tabContainer)->add(c);
+				this->this$0->tabContainer->add(c);
 			}
 		}
 		$nc(this->this$0->tabPane)->revalidate();
@@ -190,14 +126,14 @@ void BasicTabbedPaneUI$Handler::propertyChange($PropertyChangeEvent* e) {
 		this->this$0->calculatedBaseline = false;
 	} else if (name == "indexForNullComponent"_s) {
 		this->this$0->isRunsDirty = true;
-		updateHtmlViews($nc(($cast($Integer, $(e->getNewValue()))))->intValue(), true);
+		updateHtmlViews($$sure($Integer, e->getNewValue())->intValue(), true);
 	} else if (name == "font"_s || $SwingUtilities2::isScaleChanged(e)) {
 		this->this$0->calculatedBaseline = false;
 	}
 }
 
 void BasicTabbedPaneUI$Handler::updateHtmlViews(int32_t index, bool inserted) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, title, $nc(this->this$0->tabPane)->getTitleAt(index));
 	bool isHTML = $BasicHTML::isHTMLString(title);
 	if (isHTML) {
@@ -222,7 +158,7 @@ void BasicTabbedPaneUI$Handler::setHtmlView($View* v, bool inserted, int32_t ind
 }
 
 void BasicTabbedPaneUI$Handler::stateChanged($ChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTabbedPane, tabPane, $cast($JTabbedPane, $nc(e)->getSource()));
 	$nc(tabPane)->revalidate();
 	tabPane->repaint();
@@ -231,7 +167,7 @@ void BasicTabbedPaneUI$Handler::stateChanged($ChangeEvent* e) {
 		this->this$0->ensureCurrentLayout();
 		int32_t index = tabPane->getSelectedIndex();
 		if (index < $nc(this->this$0->rects)->length && index != -1) {
-			$nc($nc(this->this$0->tabScroller)->tabPanel)->scrollRectToVisible($cast($Rectangle, $($nc($nc(this->this$0->rects)->get(index))->clone())));
+			$nc($nc(this->this$0->tabScroller)->tabPanel)->scrollRectToVisible($$cast($Rectangle, $nc(this->this$0->rects->get(index))->clone()));
 		}
 	}
 }
@@ -284,7 +220,7 @@ void BasicTabbedPaneUI$Handler::focusLost($FocusEvent* e) {
 }
 
 void BasicTabbedPaneUI$Handler::componentAdded($ContainerEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTabbedPane, tp, $cast($JTabbedPane, $nc(e)->getContainer()));
 	$var($Component, child, e->getChild());
 	if ($instanceOf($UIResource, child)) {
@@ -295,7 +231,7 @@ void BasicTabbedPaneUI$Handler::componentAdded($ContainerEvent* e) {
 }
 
 void BasicTabbedPaneUI$Handler::componentRemoved($ContainerEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTabbedPane, tp, $cast($JTabbedPane, $nc(e)->getContainer()));
 	$var($Component, child, e->getChild());
 	if ($instanceOf($UIResource, child)) {
@@ -304,8 +240,8 @@ void BasicTabbedPaneUI$Handler::componentRemoved($ContainerEvent* e) {
 	$var($Integer, indexObj, $cast($Integer, $nc(tp)->getClientProperty("__index_to_remove__"_s)));
 	if (indexObj != nullptr) {
 		int32_t index = indexObj->intValue();
-		if (this->this$0->htmlViews != nullptr && $nc(this->this$0->htmlViews)->size() > index) {
-			$nc(this->this$0->htmlViews)->removeElementAt(index);
+		if (this->this$0->htmlViews != nullptr && this->this$0->htmlViews->size() > index) {
+			this->this$0->htmlViews->removeElementAt(index);
 		}
 		tp->putClientProperty("__index_to_remove__"_s, nullptr);
 	}
@@ -318,7 +254,56 @@ BasicTabbedPaneUI$Handler::BasicTabbedPaneUI$Handler() {
 }
 
 $Class* BasicTabbedPaneUI$Handler::load$($String* name, bool initialize) {
-	$loadClass(BasicTabbedPaneUI$Handler, name, initialize, &_BasicTabbedPaneUI$Handler_ClassInfo_, allocate$BasicTabbedPaneUI$Handler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicTabbedPaneUI$Handler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicTabbedPaneUI;)V", nullptr, $PRIVATE, $method(BasicTabbedPaneUI$Handler, init$, void, $BasicTabbedPaneUI*)},
+		{"componentAdded", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$Handler, componentAdded, void, $ContainerEvent*)},
+		{"componentRemoved", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$Handler, componentRemoved, void, $ContainerEvent*)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$Handler, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$Handler, focusLost, void, $FocusEvent*)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$Handler, mouseClicked, void, $MouseEvent*)},
+		{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$Handler, mouseDragged, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$Handler, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$Handler, mouseExited, void, $MouseEvent*)},
+		{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$Handler, mouseMoved, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$Handler, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$Handler, mouseReleased, void, $MouseEvent*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$Handler, propertyChange, void, $PropertyChangeEvent*)},
+		{"setHtmlView", "(Ljavax/swing/text/View;ZI)V", nullptr, $PRIVATE, $method(BasicTabbedPaneUI$Handler, setHtmlView, void, $View*, bool, int32_t)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$Handler, stateChanged, void, $ChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateHtmlViews", "(IZ)V", nullptr, $PRIVATE, $method(BasicTabbedPaneUI$Handler, updateHtmlViews, void, int32_t, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTabbedPaneUI$Handler", "javax.swing.plaf.basic.BasicTabbedPaneUI", "Handler", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTabbedPaneUI$Handler",
+		"java.lang.Object",
+		"javax.swing.event.ChangeListener,java.awt.event.ContainerListener,java.awt.event.FocusListener,java.awt.event.MouseListener,java.awt.event.MouseMotionListener,java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTabbedPaneUI"
+	};
+	$loadClass(BasicTabbedPaneUI$Handler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicTabbedPaneUI$Handler));
+	});
 	return class$;
 }
 

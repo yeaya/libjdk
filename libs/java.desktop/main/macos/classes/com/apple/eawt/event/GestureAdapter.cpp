@@ -1,5 +1,4 @@
 #include <com/apple/eawt/event/GestureAdapter.h>
-
 #include <com/apple/eawt/event/GesturePhaseEvent.h>
 #include <com/apple/eawt/event/GesturePhaseListener.h>
 #include <com/apple/eawt/event/MagnificationEvent.h>
@@ -19,37 +18,6 @@ namespace com {
 	namespace apple {
 		namespace eawt {
 			namespace event {
-
-$MethodInfo _GestureAdapter_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GestureAdapter, init$, void)},
-	{"gestureBegan", "(Lcom/apple/eawt/event/GesturePhaseEvent;)V", nullptr, $PUBLIC, $virtualMethod(GestureAdapter, gestureBegan, void, $GesturePhaseEvent*)},
-	{"gestureEnded", "(Lcom/apple/eawt/event/GesturePhaseEvent;)V", nullptr, $PUBLIC, $virtualMethod(GestureAdapter, gestureEnded, void, $GesturePhaseEvent*)},
-	{"magnify", "(Lcom/apple/eawt/event/MagnificationEvent;)V", nullptr, $PUBLIC, $virtualMethod(GestureAdapter, magnify, void, $MagnificationEvent*)},
-	{"rotate", "(Lcom/apple/eawt/event/RotationEvent;)V", nullptr, $PUBLIC, $virtualMethod(GestureAdapter, rotate, void, $RotationEvent*)},
-	{"swipedDown", "(Lcom/apple/eawt/event/SwipeEvent;)V", nullptr, $PUBLIC, $virtualMethod(GestureAdapter, swipedDown, void, $SwipeEvent*)},
-	{"swipedLeft", "(Lcom/apple/eawt/event/SwipeEvent;)V", nullptr, $PUBLIC, $virtualMethod(GestureAdapter, swipedLeft, void, $SwipeEvent*)},
-	{"swipedRight", "(Lcom/apple/eawt/event/SwipeEvent;)V", nullptr, $PUBLIC, $virtualMethod(GestureAdapter, swipedRight, void, $SwipeEvent*)},
-	{"swipedUp", "(Lcom/apple/eawt/event/SwipeEvent;)V", nullptr, $PUBLIC, $virtualMethod(GestureAdapter, swipedUp, void, $SwipeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _GestureAdapter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.apple.eawt.event.GestureAdapter",
-	"java.lang.Object",
-	"com.apple.eawt.event.GesturePhaseListener,com.apple.eawt.event.MagnificationListener,com.apple.eawt.event.RotationListener,com.apple.eawt.event.SwipeListener",
-	nullptr,
-	_GestureAdapter_MethodInfo_
-};
-
-$Object* allocate$GestureAdapter($Class* clazz) {
-	return $of($alloc(GestureAdapter));
-}
 
 int32_t GestureAdapter::hashCode() {
 	 return this->$GesturePhaseListener::hashCode();
@@ -102,7 +70,34 @@ GestureAdapter::GestureAdapter() {
 }
 
 $Class* GestureAdapter::load$($String* name, bool initialize) {
-	$loadClass(GestureAdapter, name, initialize, &_GestureAdapter_ClassInfo_, allocate$GestureAdapter);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GestureAdapter, init$, void)},
+		{"gestureBegan", "(Lcom/apple/eawt/event/GesturePhaseEvent;)V", nullptr, $PUBLIC, $virtualMethod(GestureAdapter, gestureBegan, void, $GesturePhaseEvent*)},
+		{"gestureEnded", "(Lcom/apple/eawt/event/GesturePhaseEvent;)V", nullptr, $PUBLIC, $virtualMethod(GestureAdapter, gestureEnded, void, $GesturePhaseEvent*)},
+		{"magnify", "(Lcom/apple/eawt/event/MagnificationEvent;)V", nullptr, $PUBLIC, $virtualMethod(GestureAdapter, magnify, void, $MagnificationEvent*)},
+		{"rotate", "(Lcom/apple/eawt/event/RotationEvent;)V", nullptr, $PUBLIC, $virtualMethod(GestureAdapter, rotate, void, $RotationEvent*)},
+		{"swipedDown", "(Lcom/apple/eawt/event/SwipeEvent;)V", nullptr, $PUBLIC, $virtualMethod(GestureAdapter, swipedDown, void, $SwipeEvent*)},
+		{"swipedLeft", "(Lcom/apple/eawt/event/SwipeEvent;)V", nullptr, $PUBLIC, $virtualMethod(GestureAdapter, swipedLeft, void, $SwipeEvent*)},
+		{"swipedRight", "(Lcom/apple/eawt/event/SwipeEvent;)V", nullptr, $PUBLIC, $virtualMethod(GestureAdapter, swipedRight, void, $SwipeEvent*)},
+		{"swipedUp", "(Lcom/apple/eawt/event/SwipeEvent;)V", nullptr, $PUBLIC, $virtualMethod(GestureAdapter, swipedUp, void, $SwipeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.apple.eawt.event.GestureAdapter",
+		"java.lang.Object",
+		"com.apple.eawt.event.GesturePhaseListener,com.apple.eawt.event.MagnificationListener,com.apple.eawt.event.RotationListener,com.apple.eawt.event.SwipeListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GestureAdapter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GestureAdapter));
+	});
 	return class$;
 }
 

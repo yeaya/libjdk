@@ -64,6 +64,7 @@ class $import XMLEventFactory : public ::java::lang::Object {
 	$class(XMLEventFactory, 0, ::java::lang::Object)
 public:
 	XMLEventFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::xml::stream::events::Attribute* createAttribute($String* prefix, $String* namespaceURI, $String* localName, $String* value) {return nullptr;}
 	virtual ::javax::xml::stream::events::Attribute* createAttribute($String* localName, $String* value) {return nullptr;}

@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftMixingDataLine.h>
-
 #include <com/sun/media/sound/SoftAudioBuffer.h>
 #include <com/sun/media/sound/SoftMixingDataLine$1.h>
 #include <com/sun/media/sound/SoftMixingDataLine$ApplyReverb.h>
@@ -47,8 +46,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $List = ::java::util::List;
-using $AudioFormat = ::javax::sound::sampled::AudioFormat;
 using $Control = ::javax::sound::sampled::Control;
 using $Control$Type = ::javax::sound::sampled::Control$Type;
 using $DataLine$Info = ::javax::sound::sampled::DataLine$Info;
@@ -62,74 +59,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _SoftMixingDataLine_FieldInfo_[] = {
-	{"CHORUS_SEND", "Ljavax/sound/sampled/FloatControl$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SoftMixingDataLine, CHORUS_SEND)},
-	{"gain_control", "Lcom/sun/media/sound/SoftMixingDataLine$Gain;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine, gain_control)},
-	{"mute_control", "Lcom/sun/media/sound/SoftMixingDataLine$Mute;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine, mute_control)},
-	{"balance_control", "Lcom/sun/media/sound/SoftMixingDataLine$Balance;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine, balance_control)},
-	{"pan_control", "Lcom/sun/media/sound/SoftMixingDataLine$Pan;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine, pan_control)},
-	{"reverbsend_control", "Lcom/sun/media/sound/SoftMixingDataLine$ReverbSend;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine, reverbsend_control)},
-	{"chorussend_control", "Lcom/sun/media/sound/SoftMixingDataLine$ChorusSend;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine, chorussend_control)},
-	{"apply_reverb", "Lcom/sun/media/sound/SoftMixingDataLine$ApplyReverb;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine, apply_reverb)},
-	{"controls", "[Ljavax/sound/sampled/Control;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine, controls)},
-	{"leftgain", "F", nullptr, 0, $field(SoftMixingDataLine, leftgain)},
-	{"rightgain", "F", nullptr, 0, $field(SoftMixingDataLine, rightgain)},
-	{"eff1gain", "F", nullptr, 0, $field(SoftMixingDataLine, eff1gain)},
-	{"eff2gain", "F", nullptr, 0, $field(SoftMixingDataLine, eff2gain)},
-	{"listeners", "Ljava/util/List;", "Ljava/util/List<Ljavax/sound/sampled/LineListener;>;", 0, $field(SoftMixingDataLine, listeners)},
-	{"control_mutex", "Ljava/lang/Object;", nullptr, $FINAL, $field(SoftMixingDataLine, control_mutex)},
-	{"mixer", "Lcom/sun/media/sound/SoftMixingMixer;", nullptr, 0, $field(SoftMixingDataLine, mixer)},
-	{"info", "Ljavax/sound/sampled/DataLine$Info;", nullptr, 0, $field(SoftMixingDataLine, info)},
-	{}
-};
-
-$MethodInfo _SoftMixingDataLine_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/SoftMixingMixer;Ljavax/sound/sampled/DataLine$Info;)V", nullptr, 0, $method(SoftMixingDataLine, init$, void, $SoftMixingMixer*, $DataLine$Info*)},
-	{"addLineListener", "(Ljavax/sound/sampled/LineListener;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SoftMixingDataLine, addLineListener, void, $LineListener*)},
-	{"calcVolume", "()V", nullptr, $FINAL, $method(SoftMixingDataLine, calcVolume, void)},
-	{"getControl", "(Ljavax/sound/sampled/Control$Type;)Ljavax/sound/sampled/Control;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SoftMixingDataLine, getControl, $Control*, $Control$Type*)},
-	{"getControls", "()[Ljavax/sound/sampled/Control;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SoftMixingDataLine, getControls, $ControlArray*)},
-	{"getLineInfo", "()Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SoftMixingDataLine, getLineInfo, $Line$Info*)},
-	{"isControlSupported", "(Ljavax/sound/sampled/Control$Type;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SoftMixingDataLine, isControlSupported, bool, $Control$Type*)},
-	{"processAudioLogic", "([Lcom/sun/media/sound/SoftAudioBuffer;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SoftMixingDataLine, processAudioLogic, void, $SoftAudioBufferArray*)},
-	{"processControlLogic", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SoftMixingDataLine, processControlLogic, void)},
-	{"removeLineListener", "(Ljavax/sound/sampled/LineListener;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SoftMixingDataLine, removeLineListener, void, $LineListener*)},
-	{"sendEvent", "(Ljavax/sound/sampled/LineEvent;)V", nullptr, $FINAL, $method(SoftMixingDataLine, sendEvent, void, $LineEvent*)},
-	{}
-};
-
-$InnerClassInfo _SoftMixingDataLine_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.SoftMixingDataLine$ChorusSend", "com.sun.media.sound.SoftMixingDataLine", "ChorusSend", $PRIVATE | $FINAL},
-	{"com.sun.media.sound.SoftMixingDataLine$ReverbSend", "com.sun.media.sound.SoftMixingDataLine", "ReverbSend", $PRIVATE | $FINAL},
-	{"com.sun.media.sound.SoftMixingDataLine$Pan", "com.sun.media.sound.SoftMixingDataLine", "Pan", $PRIVATE | $FINAL},
-	{"com.sun.media.sound.SoftMixingDataLine$Balance", "com.sun.media.sound.SoftMixingDataLine", "Balance", $PRIVATE | $FINAL},
-	{"com.sun.media.sound.SoftMixingDataLine$ApplyReverb", "com.sun.media.sound.SoftMixingDataLine", "ApplyReverb", $PRIVATE | $FINAL},
-	{"com.sun.media.sound.SoftMixingDataLine$Mute", "com.sun.media.sound.SoftMixingDataLine", "Mute", $PRIVATE | $FINAL},
-	{"com.sun.media.sound.SoftMixingDataLine$Gain", "com.sun.media.sound.SoftMixingDataLine", "Gain", $PRIVATE | $FINAL},
-	{"com.sun.media.sound.SoftMixingDataLine$AudioFloatInputStreamResampler", "com.sun.media.sound.SoftMixingDataLine", "AudioFloatInputStreamResampler", $PROTECTED | $STATIC | $FINAL},
-	{"com.sun.media.sound.SoftMixingDataLine$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SoftMixingDataLine_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.media.sound.SoftMixingDataLine",
-	"java.lang.Object",
-	"javax.sound.sampled.DataLine",
-	_SoftMixingDataLine_FieldInfo_,
-	_SoftMixingDataLine_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SoftMixingDataLine_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.SoftMixingDataLine$ChorusSend,com.sun.media.sound.SoftMixingDataLine$ReverbSend,com.sun.media.sound.SoftMixingDataLine$Pan,com.sun.media.sound.SoftMixingDataLine$Balance,com.sun.media.sound.SoftMixingDataLine$ApplyReverb,com.sun.media.sound.SoftMixingDataLine$Mute,com.sun.media.sound.SoftMixingDataLine$Gain,com.sun.media.sound.SoftMixingDataLine$AudioFloatInputStreamResampler,com.sun.media.sound.SoftMixingDataLine$1"
-};
-
-$Object* allocate$SoftMixingDataLine($Class* clazz) {
-	return $of($alloc(SoftMixingDataLine));
-}
-
 $FloatControl$Type* SoftMixingDataLine::CHORUS_SEND = nullptr;
 
 void SoftMixingDataLine::init$($SoftMixingMixer* mixer, $DataLine$Info* info) {
@@ -140,36 +69,36 @@ void SoftMixingDataLine::init$($SoftMixingMixer* mixer, $DataLine$Info* info) {
 	$set(this, reverbsend_control, $new($SoftMixingDataLine$ReverbSend, this));
 	$set(this, chorussend_control, $new($SoftMixingDataLine$ChorusSend, this));
 	$set(this, apply_reverb, $new($SoftMixingDataLine$ApplyReverb, this));
-	this->leftgain = (float)1;
-	this->rightgain = (float)1;
-	this->eff1gain = (float)0;
-	this->eff2gain = (float)0;
+	this->leftgain = 1;
+	this->rightgain = 1;
+	this->eff1gain = 0;
+	this->eff2gain = 0;
 	$set(this, listeners, $new($ArrayList));
 	$set(this, mixer, mixer);
 	$set(this, info, info);
 	$set(this, control_mutex, $nc(mixer)->control_mutex);
 	$set(this, controls, $new($ControlArray, {
-		static_cast<$Control*>(this->gain_control),
-		static_cast<$Control*>(this->mute_control),
-		static_cast<$Control*>(this->balance_control),
-		static_cast<$Control*>(this->pan_control),
-		static_cast<$Control*>(this->reverbsend_control),
-		static_cast<$Control*>(this->chorussend_control),
-		static_cast<$Control*>(this->apply_reverb)
+		this->gain_control,
+		this->mute_control,
+		this->balance_control,
+		this->pan_control,
+		this->reverbsend_control,
+		this->chorussend_control,
+		this->apply_reverb
 	}));
 	calcVolume();
 }
 
 void SoftMixingDataLine::calcVolume() {
 	$synchronized(this->control_mutex) {
-		double gain = $Math::pow(10.0, $nc(this->gain_control)->getValue() / 20.0);
-		if ($nc(this->mute_control)->getValue()) {
-			gain = (double)0;
+		double gain = $Math::pow(10.0, this->gain_control->getValue() / 20.0);
+		if (this->mute_control->getValue()) {
+			gain = 0;
 		}
 		this->leftgain = (float)gain;
 		this->rightgain = (float)gain;
-		if ($nc($($nc(this->mixer)->getFormat()))->getChannels() > 1) {
-			double balance = $nc(this->balance_control)->getValue();
+		if ($$nc($nc(this->mixer)->getFormat())->getChannels() > 1) {
+			double balance = this->balance_control->getValue();
 			if (balance > 0) {
 				this->leftgain *= (1 - balance);
 			} else {
@@ -177,24 +106,22 @@ void SoftMixingDataLine::calcVolume() {
 			}
 		}
 	}
-	this->eff1gain = (float)$Math::pow(10.0, $nc(this->reverbsend_control)->getValue() / 20.0);
-	this->eff2gain = (float)$Math::pow(10.0, $nc(this->chorussend_control)->getValue() / 20.0);
-	if (!$nc(this->apply_reverb)->getValue()) {
-		this->eff1gain = (float)0;
+	this->eff1gain = (float)$Math::pow(10.0, this->reverbsend_control->getValue() / 20.0);
+	this->eff2gain = (float)$Math::pow(10.0, this->chorussend_control->getValue() / 20.0);
+	if (!this->apply_reverb->getValue()) {
+		this->eff1gain = 0;
 	}
 }
 
 void SoftMixingDataLine::sendEvent($LineEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->listeners)->size() == 0) {
 		return;
 	}
-	$var($LineListenerArray, listener_array, $fcast($LineListenerArray, $nc(this->listeners)->toArray($$new($LineListenerArray, $nc(this->listeners)->size()))));
+	$var($LineListenerArray, listener_array, $cast($LineListenerArray, this->listeners->toArray($$new($LineListenerArray, this->listeners->size()))));
 	{
 		$var($LineListenerArray, arr$, listener_array);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($LineListener, listener, arr$->get(i$));
 			{
 				$nc(listener)->update(event);
@@ -221,9 +148,9 @@ $Line$Info* SoftMixingDataLine::getLineInfo() {
 
 $Control* SoftMixingDataLine::getControl($Control$Type* control) {
 	if (control != nullptr) {
-		for (int32_t i = 0; i < $nc(this->controls)->length; ++i) {
-			if ($nc($nc(this->controls)->get(i))->getType() == control) {
-				return $nc(this->controls)->get(i);
+		for (int32_t i = 0; i < this->controls->length; ++i) {
+			if ($nc(this->controls->get(i))->getType() == control) {
+				return this->controls->get(i);
 			}
 		}
 	}
@@ -231,13 +158,13 @@ $Control* SoftMixingDataLine::getControl($Control$Type* control) {
 }
 
 $ControlArray* SoftMixingDataLine::getControls() {
-	return $fcast($ControlArray, $Arrays::copyOf(this->controls, $nc(this->controls)->length));
+	return $cast($ControlArray, $Arrays::copyOf(this->controls, this->controls->length));
 }
 
 bool SoftMixingDataLine::isControlSupported($Control$Type* control) {
 	if (control != nullptr) {
-		for (int32_t i = 0; i < $nc(this->controls)->length; ++i) {
-			if ($nc($nc(this->controls)->get(i))->getType() == control) {
+		for (int32_t i = 0; i < this->controls->length; ++i) {
+			if ($nc(this->controls->get(i))->getType() == control) {
 				return true;
 			}
 		}
@@ -245,7 +172,7 @@ bool SoftMixingDataLine::isControlSupported($Control$Type* control) {
 	return false;
 }
 
-void clinit$SoftMixingDataLine($Class* class$) {
+void SoftMixingDataLine::clinit$($Class* clazz) {
 	$assignStatic(SoftMixingDataLine::CHORUS_SEND, $new($SoftMixingDataLine$1, "Chorus Send"_s));
 }
 
@@ -253,7 +180,69 @@ SoftMixingDataLine::SoftMixingDataLine() {
 }
 
 $Class* SoftMixingDataLine::load$($String* name, bool initialize) {
-	$loadClass(SoftMixingDataLine, name, initialize, &_SoftMixingDataLine_ClassInfo_, clinit$SoftMixingDataLine, allocate$SoftMixingDataLine);
+	$FieldInfo fieldInfos$$[] = {
+		{"CHORUS_SEND", "Ljavax/sound/sampled/FloatControl$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SoftMixingDataLine, CHORUS_SEND)},
+		{"gain_control", "Lcom/sun/media/sound/SoftMixingDataLine$Gain;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine, gain_control)},
+		{"mute_control", "Lcom/sun/media/sound/SoftMixingDataLine$Mute;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine, mute_control)},
+		{"balance_control", "Lcom/sun/media/sound/SoftMixingDataLine$Balance;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine, balance_control)},
+		{"pan_control", "Lcom/sun/media/sound/SoftMixingDataLine$Pan;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine, pan_control)},
+		{"reverbsend_control", "Lcom/sun/media/sound/SoftMixingDataLine$ReverbSend;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine, reverbsend_control)},
+		{"chorussend_control", "Lcom/sun/media/sound/SoftMixingDataLine$ChorusSend;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine, chorussend_control)},
+		{"apply_reverb", "Lcom/sun/media/sound/SoftMixingDataLine$ApplyReverb;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine, apply_reverb)},
+		{"controls", "[Ljavax/sound/sampled/Control;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine, controls)},
+		{"leftgain", "F", nullptr, 0, $field(SoftMixingDataLine, leftgain)},
+		{"rightgain", "F", nullptr, 0, $field(SoftMixingDataLine, rightgain)},
+		{"eff1gain", "F", nullptr, 0, $field(SoftMixingDataLine, eff1gain)},
+		{"eff2gain", "F", nullptr, 0, $field(SoftMixingDataLine, eff2gain)},
+		{"listeners", "Ljava/util/List;", "Ljava/util/List<Ljavax/sound/sampled/LineListener;>;", 0, $field(SoftMixingDataLine, listeners)},
+		{"control_mutex", "Ljava/lang/Object;", nullptr, $FINAL, $field(SoftMixingDataLine, control_mutex)},
+		{"mixer", "Lcom/sun/media/sound/SoftMixingMixer;", nullptr, 0, $field(SoftMixingDataLine, mixer)},
+		{"info", "Ljavax/sound/sampled/DataLine$Info;", nullptr, 0, $field(SoftMixingDataLine, info)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/SoftMixingMixer;Ljavax/sound/sampled/DataLine$Info;)V", nullptr, 0, $method(SoftMixingDataLine, init$, void, $SoftMixingMixer*, $DataLine$Info*)},
+		{"addLineListener", "(Ljavax/sound/sampled/LineListener;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SoftMixingDataLine, addLineListener, void, $LineListener*)},
+		{"calcVolume", "()V", nullptr, $FINAL, $method(SoftMixingDataLine, calcVolume, void)},
+		{"getControl", "(Ljavax/sound/sampled/Control$Type;)Ljavax/sound/sampled/Control;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SoftMixingDataLine, getControl, $Control*, $Control$Type*)},
+		{"getControls", "()[Ljavax/sound/sampled/Control;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SoftMixingDataLine, getControls, $ControlArray*)},
+		{"getLineInfo", "()Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SoftMixingDataLine, getLineInfo, $Line$Info*)},
+		{"isControlSupported", "(Ljavax/sound/sampled/Control$Type;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SoftMixingDataLine, isControlSupported, bool, $Control$Type*)},
+		{"processAudioLogic", "([Lcom/sun/media/sound/SoftAudioBuffer;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SoftMixingDataLine, processAudioLogic, void, $SoftAudioBufferArray*)},
+		{"processControlLogic", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SoftMixingDataLine, processControlLogic, void)},
+		{"removeLineListener", "(Ljavax/sound/sampled/LineListener;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SoftMixingDataLine, removeLineListener, void, $LineListener*)},
+		{"sendEvent", "(Ljavax/sound/sampled/LineEvent;)V", nullptr, $FINAL, $method(SoftMixingDataLine, sendEvent, void, $LineEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.SoftMixingDataLine$ChorusSend", "com.sun.media.sound.SoftMixingDataLine", "ChorusSend", $PRIVATE | $FINAL},
+		{"com.sun.media.sound.SoftMixingDataLine$ReverbSend", "com.sun.media.sound.SoftMixingDataLine", "ReverbSend", $PRIVATE | $FINAL},
+		{"com.sun.media.sound.SoftMixingDataLine$Pan", "com.sun.media.sound.SoftMixingDataLine", "Pan", $PRIVATE | $FINAL},
+		{"com.sun.media.sound.SoftMixingDataLine$Balance", "com.sun.media.sound.SoftMixingDataLine", "Balance", $PRIVATE | $FINAL},
+		{"com.sun.media.sound.SoftMixingDataLine$ApplyReverb", "com.sun.media.sound.SoftMixingDataLine", "ApplyReverb", $PRIVATE | $FINAL},
+		{"com.sun.media.sound.SoftMixingDataLine$Mute", "com.sun.media.sound.SoftMixingDataLine", "Mute", $PRIVATE | $FINAL},
+		{"com.sun.media.sound.SoftMixingDataLine$Gain", "com.sun.media.sound.SoftMixingDataLine", "Gain", $PRIVATE | $FINAL},
+		{"com.sun.media.sound.SoftMixingDataLine$AudioFloatInputStreamResampler", "com.sun.media.sound.SoftMixingDataLine", "AudioFloatInputStreamResampler", $PROTECTED | $STATIC | $FINAL},
+		{"com.sun.media.sound.SoftMixingDataLine$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.media.sound.SoftMixingDataLine",
+		"java.lang.Object",
+		"javax.sound.sampled.DataLine",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.SoftMixingDataLine$ChorusSend,com.sun.media.sound.SoftMixingDataLine$ReverbSend,com.sun.media.sound.SoftMixingDataLine$Pan,com.sun.media.sound.SoftMixingDataLine$Balance,com.sun.media.sound.SoftMixingDataLine$ApplyReverb,com.sun.media.sound.SoftMixingDataLine$Mute,com.sun.media.sound.SoftMixingDataLine$Gain,com.sun.media.sound.SoftMixingDataLine$AudioFloatInputStreamResampler,com.sun.media.sound.SoftMixingDataLine$1"
+	};
+	$loadClass(SoftMixingDataLine, name, initialize, &classInfo$$, SoftMixingDataLine::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftMixingDataLine);
+	});
 	return class$;
 }
 

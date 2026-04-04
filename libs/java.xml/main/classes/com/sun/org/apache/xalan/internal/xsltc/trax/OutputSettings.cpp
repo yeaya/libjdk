@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/trax/OutputSettings.h>
-
 #include <java/util/Properties.h>
 #include <jcpp.h>
 
@@ -16,38 +15,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace trax {
-
-$FieldInfo _OutputSettings_FieldInfo_[] = {
-	{"_cdata_section_elements", "Ljava/lang/String;", nullptr, $PRIVATE, $field(OutputSettings, _cdata_section_elements)},
-	{"_doctype_public", "Ljava/lang/String;", nullptr, $PRIVATE, $field(OutputSettings, _doctype_public)},
-	{"_encoding", "Ljava/lang/String;", nullptr, $PRIVATE, $field(OutputSettings, _encoding)},
-	{"_indent", "Ljava/lang/String;", nullptr, $PRIVATE, $field(OutputSettings, _indent)},
-	{"_media_type", "Ljava/lang/String;", nullptr, $PRIVATE, $field(OutputSettings, _media_type)},
-	{"_method", "Ljava/lang/String;", nullptr, $PRIVATE, $field(OutputSettings, _method)},
-	{"_omit_xml_declaration", "Ljava/lang/String;", nullptr, $PRIVATE, $field(OutputSettings, _omit_xml_declaration)},
-	{"_standalone", "Ljava/lang/String;", nullptr, $PRIVATE, $field(OutputSettings, _standalone)},
-	{"_version", "Ljava/lang/String;", nullptr, $PRIVATE, $field(OutputSettings, _version)},
-	{}
-};
-
-$MethodInfo _OutputSettings_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(OutputSettings, init$, void)},
-	{"getProperties", "()Ljava/util/Properties;", nullptr, $PUBLIC, $method(OutputSettings, getProperties, $Properties*)},
-	{}
-};
-
-$ClassInfo _OutputSettings_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.trax.OutputSettings",
-	"java.lang.Object",
-	nullptr,
-	_OutputSettings_FieldInfo_,
-	_OutputSettings_MethodInfo_
-};
-
-$Object* allocate$OutputSettings($Class* clazz) {
-	return $of($alloc(OutputSettings));
-}
 
 void OutputSettings::init$() {
 	$set(this, _cdata_section_elements, nullptr);
@@ -70,7 +37,34 @@ OutputSettings::OutputSettings() {
 }
 
 $Class* OutputSettings::load$($String* name, bool initialize) {
-	$loadClass(OutputSettings, name, initialize, &_OutputSettings_ClassInfo_, allocate$OutputSettings);
+	$FieldInfo fieldInfos$$[] = {
+		{"_cdata_section_elements", "Ljava/lang/String;", nullptr, $PRIVATE, $field(OutputSettings, _cdata_section_elements)},
+		{"_doctype_public", "Ljava/lang/String;", nullptr, $PRIVATE, $field(OutputSettings, _doctype_public)},
+		{"_encoding", "Ljava/lang/String;", nullptr, $PRIVATE, $field(OutputSettings, _encoding)},
+		{"_indent", "Ljava/lang/String;", nullptr, $PRIVATE, $field(OutputSettings, _indent)},
+		{"_media_type", "Ljava/lang/String;", nullptr, $PRIVATE, $field(OutputSettings, _media_type)},
+		{"_method", "Ljava/lang/String;", nullptr, $PRIVATE, $field(OutputSettings, _method)},
+		{"_omit_xml_declaration", "Ljava/lang/String;", nullptr, $PRIVATE, $field(OutputSettings, _omit_xml_declaration)},
+		{"_standalone", "Ljava/lang/String;", nullptr, $PRIVATE, $field(OutputSettings, _standalone)},
+		{"_version", "Ljava/lang/String;", nullptr, $PRIVATE, $field(OutputSettings, _version)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(OutputSettings, init$, void)},
+		{"getProperties", "()Ljava/util/Properties;", nullptr, $PUBLIC, $method(OutputSettings, getProperties, $Properties*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.trax.OutputSettings",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OutputSettings, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OutputSettings);
+	});
 	return class$;
 }
 

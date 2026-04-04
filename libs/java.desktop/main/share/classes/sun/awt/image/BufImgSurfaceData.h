@@ -77,6 +77,7 @@ class BufImgSurfaceData : public ::sun::java2d::SurfaceData {
 	$class(BufImgSurfaceData, 0, ::sun::java2d::SurfaceData)
 public:
 	BufImgSurfaceData();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::image::DataBuffer* db, ::java::awt::image::BufferedImage* bufImg, ::sun::java2d::loops::SurfaceType* sType, double scaleX, double scaleY);
 	void init$(::sun::java2d::loops::SurfaceType* surfaceType, ::java::awt::image::ColorModel* cm);
 	virtual void checkCustomComposite() override;
@@ -104,19 +105,19 @@ public:
 	::sun::java2d::loops::RenderLoops* solidloops = nullptr;
 	double scaleX = 0.0;
 	double scaleY = 0.0;
-	static const int32_t DCM_RGBX_RED_MASK = 0xFF000000;
-	static const int32_t DCM_RGBX_GREEN_MASK = 0x00FF0000;
-	static const int32_t DCM_RGBX_BLUE_MASK = 0x0000FF00;
-	static const int32_t DCM_555X_RED_MASK = 0x0000F800;
+	static const int32_t DCM_RGBX_RED_MASK = 0xff000000;
+	static const int32_t DCM_RGBX_GREEN_MASK = 0x00ff0000;
+	static const int32_t DCM_RGBX_BLUE_MASK = 0x0000ff00;
+	static const int32_t DCM_555X_RED_MASK = 0x0000f800;
 	static const int32_t DCM_555X_GREEN_MASK = 1984;
 	static const int32_t DCM_555X_BLUE_MASK = 62;
 	static const int32_t DCM_4444_RED_MASK = 3840;
 	static const int32_t DCM_4444_GREEN_MASK = 240;
 	static const int32_t DCM_4444_BLUE_MASK = 15;
-	static const int32_t DCM_4444_ALPHA_MASK = 0x0000F000;
+	static const int32_t DCM_4444_ALPHA_MASK = 0x0000f000;
 	static const int32_t DCM_ARGBBM_ALPHA_MASK = 0x01000000;
-	static const int32_t DCM_ARGBBM_RED_MASK = 0x00FF0000;
-	static const int32_t DCM_ARGBBM_GREEN_MASK = 0x0000FF00;
+	static const int32_t DCM_ARGBBM_RED_MASK = 0x00ff0000;
+	static const int32_t DCM_ARGBBM_GREEN_MASK = 0x0000ff00;
 	static const int32_t DCM_ARGBBM_BLUE_MASK = 255;
 	static const int32_t CACHE_SIZE = 5;
 	static $Array<::sun::java2d::loops::RenderLoops>* loopcache;

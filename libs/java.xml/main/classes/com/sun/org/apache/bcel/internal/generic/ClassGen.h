@@ -77,6 +77,7 @@ class ClassGen : public ::com::sun::org::apache::bcel::internal::classfile::Acce
 public:
 	ClassGen();
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* className, $String* superClassName, $String* fileName, int32_t accessFlags, $StringArray* interfaces, ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen* cp);
 	void init$($String* className, $String* superClassName, $String* fileName, int32_t accessFlags, $StringArray* interfaces);
 	void init$(::com::sun::org::apache::bcel::internal::classfile::JavaClass* clazz);

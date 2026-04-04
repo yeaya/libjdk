@@ -1,5 +1,4 @@
 #include <Test6888156$3.h>
-
 #include <Test6888156.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -13,61 +12,15 @@
 #undef OPAQUE
 
 using $Test6888156 = ::Test6888156;
-using $Component = ::java::awt::Component;
 using $BufferedImage = ::java::awt::image::BufferedImage;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JTable = ::javax::swing::JTable;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-
-$FieldInfo _Test6888156$3_FieldInfo_[] = {
-	{"this$0", "LTest6888156;", nullptr, $FINAL | $SYNTHETIC, $field(Test6888156$3, this$0)},
-	{"val$laf", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(Test6888156$3, val$laf)},
-	{}
-};
-
-$MethodInfo _Test6888156$3_MethodInfo_[] = {
-	{"<init>", "(LTest6888156;Ljava/lang/String;)V", "()V", 0, $method(Test6888156$3, init$, void, $Test6888156*, $String*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test6888156$3, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _Test6888156$3_EnclosingMethodInfo_ = {
-	"Test6888156",
-	"test",
-	"(Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _Test6888156$3_InnerClassesInfo_[] = {
-	{"Test6888156$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Test6888156$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"Test6888156$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_Test6888156$3_FieldInfo_,
-	_Test6888156$3_MethodInfo_,
-	nullptr,
-	&_Test6888156$3_EnclosingMethodInfo_,
-	_Test6888156$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Test6888156"
-};
-
-$Object* allocate$Test6888156$3($Class* clazz) {
-	return $of($alloc(Test6888156$3));
-}
 
 void Test6888156$3::init$($Test6888156* this$0, $String* val$laf) {
 	$set(this, this$0, this$0);
@@ -75,7 +28,7 @@ void Test6888156$3::init$($Test6888156* this$0, $String* val$laf) {
 }
 
 void Test6888156$3::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$nc($System::out)->println(this->val$laf);
 		$UIManager::setLookAndFeel(this->val$laf);
@@ -92,7 +45,43 @@ Test6888156$3::Test6888156$3() {
 }
 
 $Class* Test6888156$3::load$($String* name, bool initialize) {
-	$loadClass(Test6888156$3, name, initialize, &_Test6888156$3_ClassInfo_, allocate$Test6888156$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LTest6888156;", nullptr, $FINAL | $SYNTHETIC, $field(Test6888156$3, this$0)},
+		{"val$laf", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(Test6888156$3, val$laf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LTest6888156;Ljava/lang/String;)V", "()V", 0, $method(Test6888156$3, init$, void, $Test6888156*, $String*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test6888156$3, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"Test6888156",
+		"test",
+		"(Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Test6888156$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Test6888156$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Test6888156"
+	};
+	$loadClass(Test6888156$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test6888156$3);
+	});
 	return class$;
 }
 

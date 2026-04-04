@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/XMLChar.h>
-
 #include <jcpp.h>
 
 #undef CHARS
@@ -24,59 +23,6 @@ namespace com {
 					namespace internal {
 						namespace utils {
 
-$FieldInfo _XMLChar_FieldInfo_[] = {
-	{"CHARS", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLChar, CHARS)},
-	{"MASK_VALID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLChar, MASK_VALID)},
-	{"MASK_SPACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLChar, MASK_SPACE)},
-	{"MASK_NAME_START", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLChar, MASK_NAME_START)},
-	{"MASK_NAME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLChar, MASK_NAME)},
-	{"MASK_PUBID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLChar, MASK_PUBID)},
-	{"MASK_CONTENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLChar, MASK_CONTENT)},
-	{"MASK_NCNAME_START", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLChar, MASK_NCNAME_START)},
-	{"MASK_NCNAME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLChar, MASK_NCNAME)},
-	{}
-};
-
-$MethodInfo _XMLChar_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLChar, init$, void)},
-	{"highSurrogate", "(I)C", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, highSurrogate, char16_t, int32_t)},
-	{"isContent", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isContent, bool, int32_t)},
-	{"isHighSurrogate", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isHighSurrogate, bool, int32_t)},
-	{"isInvalid", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isInvalid, bool, int32_t)},
-	{"isLowSurrogate", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isLowSurrogate, bool, int32_t)},
-	{"isMarkup", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isMarkup, bool, int32_t)},
-	{"isNCName", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isNCName, bool, int32_t)},
-	{"isNCNameStart", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isNCNameStart, bool, int32_t)},
-	{"isName", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isName, bool, int32_t)},
-	{"isNameStart", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isNameStart, bool, int32_t)},
-	{"isPubid", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isPubid, bool, int32_t)},
-	{"isSpace", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isSpace, bool, int32_t)},
-	{"isSupplemental", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isSupplemental, bool, int32_t)},
-	{"isValid", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isValid, bool, int32_t)},
-	{"isValidIANAEncoding", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isValidIANAEncoding, bool, $String*)},
-	{"isValidJavaEncoding", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isValidJavaEncoding, bool, $String*)},
-	{"isValidNCName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isValidNCName, bool, $String*)},
-	{"isValidName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isValidName, bool, $String*)},
-	{"isValidNmtoken", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isValidNmtoken, bool, $String*)},
-	{"isValidQName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isValidQName, bool, $String*)},
-	{"lowSurrogate", "(I)C", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, lowSurrogate, char16_t, int32_t)},
-	{"supplemental", "(CC)I", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, supplemental, int32_t, char16_t, char16_t)},
-	{}
-};
-
-$ClassInfo _XMLChar_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.XMLChar",
-	"java.lang.Object",
-	nullptr,
-	_XMLChar_FieldInfo_,
-	_XMLChar_MethodInfo_
-};
-
-$Object* allocate$XMLChar($Class* clazz) {
-	return $of($alloc(XMLChar));
-}
-
 $bytes* XMLChar::CHARS = nullptr;
 
 void XMLChar::init$() {
@@ -84,37 +30,37 @@ void XMLChar::init$() {
 
 bool XMLChar::isSupplemental(int32_t c) {
 	$init(XMLChar);
-	return (c >= 0x00010000 && c <= 0x0010FFFF);
+	return (c >= 0x00010000 && c <= 0x0010ffff);
 }
 
 int32_t XMLChar::supplemental(char16_t h, char16_t l) {
 	$init(XMLChar);
-	return (h - 0x0000D800) * 1024 + (l - 0x0000DC00) + 0x00010000;
+	return (h - 0x0000d800) * 1024 + (l - 0x0000dc00) + 0x00010000;
 }
 
 char16_t XMLChar::highSurrogate(int32_t c) {
 	$init(XMLChar);
-	return (char16_t)(((c - 0x00010000) >> 10) + 0x0000D800);
+	return (char16_t)(((c - 0x00010000) >> 10) + 0x0000d800);
 }
 
 char16_t XMLChar::lowSurrogate(int32_t c) {
 	$init(XMLChar);
-	return (char16_t)(((int32_t)((c - 0x00010000) & (uint32_t)1023)) + 0x0000DC00);
+	return (char16_t)(((c - 0x00010000) & 0x03ff) + 0xdc00);
 }
 
 bool XMLChar::isHighSurrogate(int32_t c) {
 	$init(XMLChar);
-	return (0x0000D800 <= c && c <= 0x0000DBFF);
+	return (0x0000d800 <= c && c <= 0x0000dbff);
 }
 
 bool XMLChar::isLowSurrogate(int32_t c) {
 	$init(XMLChar);
-	return (0x0000DC00 <= c && c <= 0x0000DFFF);
+	return (0x0000dc00 <= c && c <= 0x0000dfff);
 }
 
 bool XMLChar::isValid(int32_t c) {
 	$init(XMLChar);
-	return (c < 0x00010000 && ((int32_t)($nc(XMLChar::CHARS)->get(c) & (uint32_t)XMLChar::MASK_VALID)) != 0) || (0x00010000 <= c && c <= 0x0010FFFF);
+	return (c < 0x00010000 && (XMLChar::CHARS->get(c) & XMLChar::MASK_VALID) != 0) || (0x00010000 <= c && c <= 0x0010ffff);
 }
 
 bool XMLChar::isInvalid(int32_t c) {
@@ -124,7 +70,7 @@ bool XMLChar::isInvalid(int32_t c) {
 
 bool XMLChar::isContent(int32_t c) {
 	$init(XMLChar);
-	return (c < 0x00010000 && ((int32_t)($nc(XMLChar::CHARS)->get(c) & (uint32_t)XMLChar::MASK_CONTENT)) != 0) || (0x00010000 <= c && c <= 0x0010FFFF);
+	return (c < 0x00010000 && (XMLChar::CHARS->get(c) & XMLChar::MASK_CONTENT) != 0) || (0x00010000 <= c && c <= 0x0010ffff);
 }
 
 bool XMLChar::isMarkup(int32_t c) {
@@ -134,32 +80,32 @@ bool XMLChar::isMarkup(int32_t c) {
 
 bool XMLChar::isSpace(int32_t c) {
 	$init(XMLChar);
-	return c < 0x00010000 && ((int32_t)($nc(XMLChar::CHARS)->get(c) & (uint32_t)XMLChar::MASK_SPACE)) != 0;
+	return c < 0x00010000 && (XMLChar::CHARS->get(c) & XMLChar::MASK_SPACE) != 0;
 }
 
 bool XMLChar::isNameStart(int32_t c) {
 	$init(XMLChar);
-	return c < 0x00010000 && ((int32_t)($nc(XMLChar::CHARS)->get(c) & (uint32_t)XMLChar::MASK_NAME_START)) != 0;
+	return c < 0x00010000 && (XMLChar::CHARS->get(c) & XMLChar::MASK_NAME_START) != 0;
 }
 
 bool XMLChar::isName(int32_t c) {
 	$init(XMLChar);
-	return c < 0x00010000 && ((int32_t)($nc(XMLChar::CHARS)->get(c) & (uint32_t)XMLChar::MASK_NAME)) != 0;
+	return c < 0x00010000 && (XMLChar::CHARS->get(c) & XMLChar::MASK_NAME) != 0;
 }
 
 bool XMLChar::isNCNameStart(int32_t c) {
 	$init(XMLChar);
-	return c < 0x00010000 && ((int32_t)($nc(XMLChar::CHARS)->get(c) & (uint32_t)XMLChar::MASK_NCNAME_START)) != 0;
+	return c < 0x00010000 && (XMLChar::CHARS->get(c) & XMLChar::MASK_NCNAME_START) != 0;
 }
 
 bool XMLChar::isNCName(int32_t c) {
 	$init(XMLChar);
-	return c < 0x00010000 && ((int32_t)($nc(XMLChar::CHARS)->get(c) & (uint32_t)XMLChar::MASK_NCNAME)) != 0;
+	return c < 0x00010000 && (XMLChar::CHARS->get(c) & XMLChar::MASK_NCNAME) != 0;
 }
 
 bool XMLChar::isPubid(int32_t c) {
 	$init(XMLChar);
-	return c < 0x00010000 && ((int32_t)($nc(XMLChar::CHARS)->get(c) & (uint32_t)XMLChar::MASK_PUBID)) != 0;
+	return c < 0x00010000 && (XMLChar::CHARS->get(c) & XMLChar::MASK_PUBID) != 0;
 }
 
 bool XMLChar::isValidName($String* name) {
@@ -167,7 +113,7 @@ bool XMLChar::isValidName($String* name) {
 	if ($nc(name)->length() == 0) {
 		return false;
 	}
-	char16_t ch = $nc(name)->charAt(0);
+	char16_t ch = name->charAt(0);
 	if (isNameStart(ch) == false) {
 		return false;
 	}
@@ -185,7 +131,7 @@ bool XMLChar::isValidNCName($String* ncName) {
 	if ($nc(ncName)->length() == 0) {
 		return false;
 	}
-	char16_t ch = $nc(ncName)->charAt(0);
+	char16_t ch = ncName->charAt(0);
 	if (isNCNameStart(ch) == false) {
 		return false;
 	}
@@ -203,7 +149,7 @@ bool XMLChar::isValidNmtoken($String* nmtoken) {
 	if ($nc(nmtoken)->length() == 0) {
 		return false;
 	}
-	for (int32_t i = 0; i < $nc(nmtoken)->length(); ++i) {
+	for (int32_t i = 0; i < nmtoken->length(); ++i) {
 		char16_t ch = nmtoken->charAt(i);
 		if (!isName(ch)) {
 			return false;
@@ -251,8 +197,8 @@ bool XMLChar::isValidJavaEncoding($String* javaEncoding) {
 
 bool XMLChar::isValidQName($String* str) {
 	$init(XMLChar);
-	$useLocalCurrentObjectStackCache();
-	int32_t colon = $nc(str)->indexOf((int32_t)u':');
+	$useLocalObjectStack();
+	int32_t colon = $nc(str)->indexOf(u':');
 	if (colon == 0 || colon == str->length() - 1) {
 		return false;
 	}
@@ -266,8 +212,8 @@ bool XMLChar::isValidQName($String* str) {
 	}
 }
 
-void clinit$XMLChar($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void XMLChar::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(XMLChar::CHARS, $new($bytes, 1 << 16));
 	{
 		$var($ints, charRange, $new($ints, {
@@ -276,9 +222,9 @@ void clinit$XMLChar($Class* class$) {
 			13,
 			13,
 			32,
-			0x0000D7FF,
-			0x0000E000,
-			0x0000FFFD
+			0x0000d7ff,
+			0x0000e000,
+			0x0000fffd
 		}));
 		$var($ints, spaceChar, $new($ints, {
 			32,
@@ -610,12 +556,12 @@ void clinit$XMLChar($Class* class$) {
 			12538,
 			12549,
 			12588,
-			0x0000AC00,
-			0x0000D7A3,
+			0x0000ac00,
+			0x0000d7a3,
 			12321,
 			12329,
 			19968,
-			0x00009FA5
+			0x00009fa5
 		}));
 		$var($ints, letterChar, $new($ints, {
 			902,
@@ -888,65 +834,65 @@ void clinit$XMLChar($Class* class$) {
 			12293
 		}));
 		$var($ints, specialChar, $new($ints, {
-			(int32_t)u'<',
-			(int32_t)u'&',
-			(int32_t)u'\n',
-			(int32_t)u'\r',
-			(int32_t)u']'
+			u'<',
+			u'&',
+			u'\n',
+			u'\r',
+			u']'
 		}));
 		for (int32_t i = 0; i < charRange->length; i += 2) {
 			for (int32_t j = charRange->get(i); j <= charRange->get(i + 1); ++j) {
-				(*$nc(XMLChar::CHARS))[j] |= XMLChar::MASK_VALID | XMLChar::MASK_CONTENT;
+				(*XMLChar::CHARS)[j] |= XMLChar::MASK_VALID | XMLChar::MASK_CONTENT;
 			}
 		}
 		for (int32_t i = 0; i < specialChar->length; ++i) {
-			$nc(XMLChar::CHARS)->set(specialChar->get(i), (int8_t)((int32_t)($nc(XMLChar::CHARS)->get(specialChar->get(i)) & (uint32_t)~XMLChar::MASK_CONTENT)));
+			XMLChar::CHARS->set(specialChar->get(i), (int8_t)(XMLChar::CHARS->get(specialChar->get(i)) & ~XMLChar::MASK_CONTENT));
 		}
 		for (int32_t i = 0; i < spaceChar->length; ++i) {
-			(*$nc(XMLChar::CHARS))[spaceChar->get(i)] |= XMLChar::MASK_SPACE;
+			(*XMLChar::CHARS)[spaceChar->get(i)] |= XMLChar::MASK_SPACE;
 		}
 		for (int32_t i = 0; i < nameStartChar->length; ++i) {
-			(*$nc(XMLChar::CHARS))[nameStartChar->get(i)] |= ((XMLChar::MASK_NAME_START | XMLChar::MASK_NAME) | XMLChar::MASK_NCNAME_START) | XMLChar::MASK_NCNAME;
+			(*XMLChar::CHARS)[nameStartChar->get(i)] |= ((XMLChar::MASK_NAME_START | XMLChar::MASK_NAME) | XMLChar::MASK_NCNAME_START) | XMLChar::MASK_NCNAME;
 		}
 		for (int32_t i = 0; i < letterRange->length; i += 2) {
 			for (int32_t j = letterRange->get(i); j <= letterRange->get(i + 1); ++j) {
-				(*$nc(XMLChar::CHARS))[j] |= ((XMLChar::MASK_NAME_START | XMLChar::MASK_NAME) | XMLChar::MASK_NCNAME_START) | XMLChar::MASK_NCNAME;
+				(*XMLChar::CHARS)[j] |= ((XMLChar::MASK_NAME_START | XMLChar::MASK_NAME) | XMLChar::MASK_NCNAME_START) | XMLChar::MASK_NCNAME;
 			}
 		}
 		for (int32_t i = 0; i < letterChar->length; ++i) {
-			(*$nc(XMLChar::CHARS))[letterChar->get(i)] |= ((XMLChar::MASK_NAME_START | XMLChar::MASK_NAME) | XMLChar::MASK_NCNAME_START) | XMLChar::MASK_NCNAME;
+			(*XMLChar::CHARS)[letterChar->get(i)] |= ((XMLChar::MASK_NAME_START | XMLChar::MASK_NAME) | XMLChar::MASK_NCNAME_START) | XMLChar::MASK_NCNAME;
 		}
 		for (int32_t i = 0; i < nameChar->length; ++i) {
-			(*$nc(XMLChar::CHARS))[nameChar->get(i)] |= XMLChar::MASK_NAME | XMLChar::MASK_NCNAME;
+			(*XMLChar::CHARS)[nameChar->get(i)] |= XMLChar::MASK_NAME | XMLChar::MASK_NCNAME;
 		}
 		for (int32_t i = 0; i < digitRange->length; i += 2) {
 			for (int32_t j = digitRange->get(i); j <= digitRange->get(i + 1); ++j) {
-				(*$nc(XMLChar::CHARS))[j] |= XMLChar::MASK_NAME | XMLChar::MASK_NCNAME;
+				(*XMLChar::CHARS)[j] |= XMLChar::MASK_NAME | XMLChar::MASK_NCNAME;
 			}
 		}
 		for (int32_t i = 0; i < combiningCharRange->length; i += 2) {
 			for (int32_t j = combiningCharRange->get(i); j <= combiningCharRange->get(i + 1); ++j) {
-				(*$nc(XMLChar::CHARS))[j] |= XMLChar::MASK_NAME | XMLChar::MASK_NCNAME;
+				(*XMLChar::CHARS)[j] |= XMLChar::MASK_NAME | XMLChar::MASK_NCNAME;
 			}
 		}
 		for (int32_t i = 0; i < combiningCharChar->length; ++i) {
-			(*$nc(XMLChar::CHARS))[combiningCharChar->get(i)] |= XMLChar::MASK_NAME | XMLChar::MASK_NCNAME;
+			(*XMLChar::CHARS)[combiningCharChar->get(i)] |= XMLChar::MASK_NAME | XMLChar::MASK_NCNAME;
 		}
 		for (int32_t i = 0; i < extenderRange->length; i += 2) {
 			for (int32_t j = extenderRange->get(i); j <= extenderRange->get(i + 1); ++j) {
-				(*$nc(XMLChar::CHARS))[j] |= XMLChar::MASK_NAME | XMLChar::MASK_NCNAME;
+				(*XMLChar::CHARS)[j] |= XMLChar::MASK_NAME | XMLChar::MASK_NCNAME;
 			}
 		}
 		for (int32_t i = 0; i < extenderChar->length; ++i) {
-			(*$nc(XMLChar::CHARS))[extenderChar->get(i)] |= XMLChar::MASK_NAME | XMLChar::MASK_NCNAME;
+			(*XMLChar::CHARS)[extenderChar->get(i)] |= XMLChar::MASK_NAME | XMLChar::MASK_NCNAME;
 		}
-		(*$nc(XMLChar::CHARS))[u':'] &= (uint8_t)~(XMLChar::MASK_NCNAME_START | XMLChar::MASK_NCNAME);
+		(*XMLChar::CHARS)[u':'] &= (uint8_t)~(XMLChar::MASK_NCNAME_START | XMLChar::MASK_NCNAME);
 		for (int32_t i = 0; i < pubidChar->length; ++i) {
-			(*$nc(XMLChar::CHARS))[pubidChar->get(i)] |= XMLChar::MASK_PUBID;
+			(*XMLChar::CHARS)[pubidChar->get(i)] |= XMLChar::MASK_PUBID;
 		}
 		for (int32_t i = 0; i < pubidRange->length; i += 2) {
 			for (int32_t j = pubidRange->get(i); j <= pubidRange->get(i + 1); ++j) {
-				(*$nc(XMLChar::CHARS))[j] |= XMLChar::MASK_PUBID;
+				(*XMLChar::CHARS)[j] |= XMLChar::MASK_PUBID;
 			}
 		}
 	}
@@ -956,7 +902,55 @@ XMLChar::XMLChar() {
 }
 
 $Class* XMLChar::load$($String* name, bool initialize) {
-	$loadClass(XMLChar, name, initialize, &_XMLChar_ClassInfo_, clinit$XMLChar, allocate$XMLChar);
+	$FieldInfo fieldInfos$$[] = {
+		{"CHARS", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLChar, CHARS)},
+		{"MASK_VALID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLChar, MASK_VALID)},
+		{"MASK_SPACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLChar, MASK_SPACE)},
+		{"MASK_NAME_START", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLChar, MASK_NAME_START)},
+		{"MASK_NAME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLChar, MASK_NAME)},
+		{"MASK_PUBID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLChar, MASK_PUBID)},
+		{"MASK_CONTENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLChar, MASK_CONTENT)},
+		{"MASK_NCNAME_START", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLChar, MASK_NCNAME_START)},
+		{"MASK_NCNAME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLChar, MASK_NCNAME)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLChar, init$, void)},
+		{"highSurrogate", "(I)C", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, highSurrogate, char16_t, int32_t)},
+		{"isContent", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isContent, bool, int32_t)},
+		{"isHighSurrogate", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isHighSurrogate, bool, int32_t)},
+		{"isInvalid", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isInvalid, bool, int32_t)},
+		{"isLowSurrogate", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isLowSurrogate, bool, int32_t)},
+		{"isMarkup", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isMarkup, bool, int32_t)},
+		{"isNCName", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isNCName, bool, int32_t)},
+		{"isNCNameStart", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isNCNameStart, bool, int32_t)},
+		{"isName", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isName, bool, int32_t)},
+		{"isNameStart", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isNameStart, bool, int32_t)},
+		{"isPubid", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isPubid, bool, int32_t)},
+		{"isSpace", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isSpace, bool, int32_t)},
+		{"isSupplemental", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isSupplemental, bool, int32_t)},
+		{"isValid", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isValid, bool, int32_t)},
+		{"isValidIANAEncoding", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isValidIANAEncoding, bool, $String*)},
+		{"isValidJavaEncoding", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isValidJavaEncoding, bool, $String*)},
+		{"isValidNCName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isValidNCName, bool, $String*)},
+		{"isValidName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isValidName, bool, $String*)},
+		{"isValidNmtoken", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isValidNmtoken, bool, $String*)},
+		{"isValidQName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, isValidQName, bool, $String*)},
+		{"lowSurrogate", "(I)C", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, lowSurrogate, char16_t, int32_t)},
+		{"supplemental", "(CC)I", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLChar, supplemental, int32_t, char16_t, char16_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.XMLChar",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLChar, name, initialize, &classInfo$$, XMLChar::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLChar);
+	});
 	return class$;
 }
 

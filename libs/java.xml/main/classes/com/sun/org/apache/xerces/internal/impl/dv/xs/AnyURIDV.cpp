@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/AnyURIDV.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/InvalidDatatypeValueException.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/TypeValidator.h>
@@ -40,36 +39,6 @@ namespace com {
 							namespace dv {
 								namespace xs {
 
-$FieldInfo _AnyURIDV_FieldInfo_[] = {
-	{"BASE_URI", "Lcom/sun/org/apache/xerces/internal/util/URI;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AnyURIDV, BASE_URI)},
-	{"gNeedEscaping", "[Z", nullptr, $PRIVATE | $STATIC, $staticField(AnyURIDV, gNeedEscaping)},
-	{"gAfterEscaping1", "[C", nullptr, $PRIVATE | $STATIC, $staticField(AnyURIDV, gAfterEscaping1)},
-	{"gAfterEscaping2", "[C", nullptr, $PRIVATE | $STATIC, $staticField(AnyURIDV, gAfterEscaping2)},
-	{"gHexChs", "[C", nullptr, $PRIVATE | $STATIC, $staticField(AnyURIDV, gHexChs)},
-	{}
-};
-
-$MethodInfo _AnyURIDV_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AnyURIDV, init$, void)},
-	{"encode", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(AnyURIDV, encode, $String*, $String*)},
-	{"getActualValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AnyURIDV, getActualValue, $Object*, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"getAllowedFacets", "()S", nullptr, $PUBLIC, $virtualMethod(AnyURIDV, getAllowedFacets, int16_t)},
-	{}
-};
-
-$ClassInfo _AnyURIDV_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.AnyURIDV",
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.TypeValidator",
-	nullptr,
-	_AnyURIDV_FieldInfo_,
-	_AnyURIDV_MethodInfo_
-};
-
-$Object* allocate$AnyURIDV($Class* clazz) {
-	return $of($alloc(AnyURIDV));
-}
-
 $URI* AnyURIDV::BASE_URI = nullptr;
 $booleans* AnyURIDV::gNeedEscaping = nullptr;
 $chars* AnyURIDV::gAfterEscaping1 = nullptr;
@@ -85,7 +54,7 @@ int16_t AnyURIDV::getAllowedFacets() {
 }
 
 $Object* AnyURIDV::getActualValue($String* content, $ValidationContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if ($nc(content)->length() != 0) {
 			$var($String, encoded, encode(content));
@@ -93,8 +62,8 @@ $Object* AnyURIDV::getActualValue($String* content, $ValidationContext* context)
 		}
 	} catch ($URI$MalformedURIException& ex) {
 		$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.1"_s, $$new($ObjectArray, {
-			$of(content),
-			$of("anyURI"_s)
+			content,
+			"anyURI"_s
 		}));
 	}
 	return $of(content);
@@ -102,7 +71,7 @@ $Object* AnyURIDV::getActualValue($String* content, $ValidationContext* context)
 
 $String* AnyURIDV::encode($String* anyURI) {
 	$init(AnyURIDV);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = $nc(anyURI)->length();
 	int32_t ch = 0;
 	$var($StringBuffer, buffer, $new($StringBuffer, len * 3));
@@ -135,15 +104,13 @@ $String* AnyURIDV::encode($String* anyURI) {
 				ch = b + 256;
 				buffer->append(u'%');
 				buffer->append($nc(AnyURIDV::gHexChs)->get(ch >> 4));
-				buffer->append($nc(AnyURIDV::gHexChs)->get((int32_t)(ch & (uint32_t)15)));
+				buffer->append(AnyURIDV::gHexChs->get(ch & 0x0f));
+			} else if ($nc(AnyURIDV::gNeedEscaping)->get(b)) {
+				buffer->append(u'%');
+				buffer->append($nc(AnyURIDV::gAfterEscaping1)->get(b));
+				buffer->append($nc(AnyURIDV::gAfterEscaping2)->get(b));
 			} else {
-				if ($nc(AnyURIDV::gNeedEscaping)->get(b)) {
-					buffer->append(u'%');
-					buffer->append($nc(AnyURIDV::gAfterEscaping1)->get(b));
-					buffer->append($nc(AnyURIDV::gAfterEscaping2)->get(b));
-				} else {
-					buffer->append((char16_t)b);
-				}
+				buffer->append((char16_t)b);
 			}
 		}
 	}
@@ -154,8 +121,8 @@ $String* AnyURIDV::encode($String* anyURI) {
 	}
 }
 
-void clinit$AnyURIDV($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void AnyURIDV::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		$var($URI, uri, nullptr);
 		try {
@@ -187,13 +154,13 @@ void clinit$AnyURIDV($Class* class$) {
 	}));
 	{
 		for (int32_t i = 0; i <= 31; ++i) {
-			$nc(AnyURIDV::gNeedEscaping)->set(i, true);
-			$nc(AnyURIDV::gAfterEscaping1)->set(i, $nc(AnyURIDV::gHexChs)->get(i >> 4));
-			$nc(AnyURIDV::gAfterEscaping2)->set(i, $nc(AnyURIDV::gHexChs)->get((int32_t)(i & (uint32_t)15)));
+			AnyURIDV::gNeedEscaping->set(i, true);
+			AnyURIDV::gAfterEscaping1->set(i, AnyURIDV::gHexChs->get(i >> 4));
+			AnyURIDV::gAfterEscaping2->set(i, AnyURIDV::gHexChs->get(i & 0x0f));
 		}
-		$nc(AnyURIDV::gNeedEscaping)->set(127, true);
-		$nc(AnyURIDV::gAfterEscaping1)->set(127, u'7');
-		$nc(AnyURIDV::gAfterEscaping2)->set(127, u'F');
+		AnyURIDV::gNeedEscaping->set(127, true);
+		AnyURIDV::gAfterEscaping1->set(127, u'7');
+		AnyURIDV::gAfterEscaping2->set(127, u'F');
 		$var($chars, escChs, $new($chars, {
 			u' ',
 			u'<',
@@ -211,9 +178,9 @@ void clinit$AnyURIDV($Class* class$) {
 		char16_t ch = 0;
 		for (int32_t i = 0; i < len; ++i) {
 			ch = escChs->get(i);
-			$nc(AnyURIDV::gNeedEscaping)->set(ch, true);
-			$nc(AnyURIDV::gAfterEscaping1)->set(ch, $nc(AnyURIDV::gHexChs)->get(ch >> 4));
-			$nc(AnyURIDV::gAfterEscaping2)->set(ch, $nc(AnyURIDV::gHexChs)->get((int32_t)(ch & (uint32_t)15)));
+			AnyURIDV::gNeedEscaping->set(ch, true);
+			AnyURIDV::gAfterEscaping1->set(ch, AnyURIDV::gHexChs->get(ch >> 4));
+			AnyURIDV::gAfterEscaping2->set(ch, AnyURIDV::gHexChs->get(ch & 0x0f));
 		}
 	}
 }
@@ -222,7 +189,32 @@ AnyURIDV::AnyURIDV() {
 }
 
 $Class* AnyURIDV::load$($String* name, bool initialize) {
-	$loadClass(AnyURIDV, name, initialize, &_AnyURIDV_ClassInfo_, clinit$AnyURIDV, allocate$AnyURIDV);
+	$FieldInfo fieldInfos$$[] = {
+		{"BASE_URI", "Lcom/sun/org/apache/xerces/internal/util/URI;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AnyURIDV, BASE_URI)},
+		{"gNeedEscaping", "[Z", nullptr, $PRIVATE | $STATIC, $staticField(AnyURIDV, gNeedEscaping)},
+		{"gAfterEscaping1", "[C", nullptr, $PRIVATE | $STATIC, $staticField(AnyURIDV, gAfterEscaping1)},
+		{"gAfterEscaping2", "[C", nullptr, $PRIVATE | $STATIC, $staticField(AnyURIDV, gAfterEscaping2)},
+		{"gHexChs", "[C", nullptr, $PRIVATE | $STATIC, $staticField(AnyURIDV, gHexChs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AnyURIDV, init$, void)},
+		{"encode", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(AnyURIDV, encode, $String*, $String*)},
+		{"getActualValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AnyURIDV, getActualValue, $Object*, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"getAllowedFacets", "()S", nullptr, $PUBLIC, $virtualMethod(AnyURIDV, getAllowedFacets, int16_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.AnyURIDV",
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.TypeValidator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AnyURIDV, name, initialize, &classInfo$$, AnyURIDV::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AnyURIDV);
+	});
 	return class$;
 }
 

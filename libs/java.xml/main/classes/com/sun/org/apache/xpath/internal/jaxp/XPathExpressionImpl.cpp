@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/jaxp/XPathExpressionImpl.h>
-
 #include <com/sun/org/apache/xpath/internal/XPath.h>
 #include <com/sun/org/apache/xpath/internal/jaxp/JAXPPrefixResolver.h>
 #include <com/sun/org/apache/xpath/internal/jaxp/XPathImplUtil.h>
@@ -52,46 +51,6 @@ namespace com {
 					namespace internal {
 						namespace jaxp {
 
-$FieldInfo _XPathExpressionImpl_FieldInfo_[] = {
-	{"xpath", "Lcom/sun/org/apache/xpath/internal/XPath;", nullptr, $PRIVATE, $field(XPathExpressionImpl, xpath)},
-	{}
-};
-
-$MethodInfo _XPathExpressionImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(XPathExpressionImpl, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xpath/internal/XPath;Lcom/sun/org/apache/xpath/internal/jaxp/JAXPPrefixResolver;Ljavax/xml/xpath/XPathFunctionResolver;Ljavax/xml/xpath/XPathVariableResolver;)V", nullptr, $PROTECTED, $method(XPathExpressionImpl, init$, void, $XPath*, $JAXPPrefixResolver*, $XPathFunctionResolver*, $XPathVariableResolver*)},
-	{"<init>", "(Lcom/sun/org/apache/xpath/internal/XPath;Lcom/sun/org/apache/xpath/internal/jaxp/JAXPPrefixResolver;Ljavax/xml/xpath/XPathFunctionResolver;Ljavax/xml/xpath/XPathVariableResolver;ZLjdk/xml/internal/JdkXmlFeatures;)V", nullptr, $PROTECTED, $method(XPathExpressionImpl, init$, void, $XPath*, $JAXPPrefixResolver*, $XPathFunctionResolver*, $XPathVariableResolver*, bool, $JdkXmlFeatures*)},
-	{"eval", "(Ljava/lang/Object;Ljavax/xml/namespace/QName;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XPathExpressionImpl, eval, $Object*, Object$*, $QName*), "javax.xml.transform.TransformerException"},
-	{"evaluate", "(Ljava/lang/Object;Ljavax/xml/namespace/QName;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XPathExpressionImpl, evaluate, $Object*, Object$*, $QName*), "javax.xml.xpath.XPathExpressionException"},
-	{"evaluate", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XPathExpressionImpl, evaluate, $String*, Object$*), "javax.xml.xpath.XPathExpressionException"},
-	{"evaluate", "(Lorg/xml/sax/InputSource;Ljavax/xml/namespace/QName;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XPathExpressionImpl, evaluate, $Object*, $InputSource*, $QName*), "javax.xml.xpath.XPathExpressionException"},
-	{"evaluate", "(Lorg/xml/sax/InputSource;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XPathExpressionImpl, evaluate, $String*, $InputSource*), "javax.xml.xpath.XPathExpressionException"},
-	{"evaluateExpression", "(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(XPathExpressionImpl, evaluateExpression, $Object*, Object$*, $Class*), "javax.xml.xpath.XPathExpressionException"},
-	{"evaluateExpression", "(Ljava/lang/Object;)Ljavax/xml/xpath/XPathEvaluationResult;", "(Ljava/lang/Object;)Ljavax/xml/xpath/XPathEvaluationResult<*>;", $PUBLIC, $virtualMethod(XPathExpressionImpl, evaluateExpression, $XPathEvaluationResult*, Object$*), "javax.xml.xpath.XPathExpressionException"},
-	{"evaluateExpression", "(Lorg/xml/sax/InputSource;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Lorg/xml/sax/InputSource;Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(XPathExpressionImpl, evaluateExpression, $Object*, $InputSource*, $Class*), "javax.xml.xpath.XPathExpressionException"},
-	{"evaluateExpression", "(Lorg/xml/sax/InputSource;)Ljavax/xml/xpath/XPathEvaluationResult;", "(Lorg/xml/sax/InputSource;)Ljavax/xml/xpath/XPathEvaluationResult<*>;", $PUBLIC, $virtualMethod(XPathExpressionImpl, evaluateExpression, $XPathEvaluationResult*, $InputSource*), "javax.xml.xpath.XPathExpressionException"},
-	{"setXPath", "(Lcom/sun/org/apache/xpath/internal/XPath;)V", nullptr, $PUBLIC, $virtualMethod(XPathExpressionImpl, setXPath, void, $XPath*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _XPathExpressionImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.jaxp.XPathExpressionImpl",
-	"com.sun.org.apache.xpath.internal.jaxp.XPathImplUtil",
-	"javax.xml.xpath.XPathExpression",
-	_XPathExpressionImpl_FieldInfo_,
-	_XPathExpressionImpl_MethodInfo_
-};
-
-$Object* allocate$XPathExpressionImpl($Class* clazz) {
-	return $of($alloc(XPathExpressionImpl));
-}
-
 int32_t XPathExpressionImpl::hashCode() {
 	 return this->$XPathImplUtil::hashCode();
 }
@@ -138,21 +97,21 @@ void XPathExpressionImpl::setXPath($XPath* xpath) {
 
 $Object* XPathExpressionImpl::eval(Object$* item, $QName* returnType) {
 	$var($XObject, resultObject, eval(item, this->xpath));
-	return $of(getResultAsType(resultObject, returnType));
+	return getResultAsType(resultObject, returnType);
 }
 
 $Object* XPathExpressionImpl::evaluate(Object$* item, $QName* returnType) {
 	isSupported(returnType);
 	try {
-		return $of(eval(item, returnType));
+		return eval(item, returnType);
 	} catch ($NullPointerException& npe) {
-		$throwNew($XPathExpressionException, static_cast<$Throwable*>(npe));
+		$throwNew($XPathExpressionException, npe);
 	} catch ($TransformerException& te) {
 		$var($Throwable, nestedException, te->getException());
 		if ($instanceOf($XPathFunctionException, nestedException)) {
 			$throw($cast($XPathFunctionException, nestedException));
 		} else {
-			$throwNew($XPathExpressionException, static_cast<$Throwable*>(te));
+			$throwNew($XPathExpressionException, te);
 		}
 	}
 	$shouldNotReachHere();
@@ -167,9 +126,9 @@ $Object* XPathExpressionImpl::evaluate($InputSource* source, $QName* returnType)
 	isSupported(returnType);
 	try {
 		$var($Document, document, getDocument(source));
-		return $of(eval($of(document), returnType));
+		return eval(document, returnType);
 	} catch ($TransformerException& e) {
-		$throwNew($XPathExpressionException, static_cast<$Throwable*>(e));
+		$throwNew($XPathExpressionException, e);
 	}
 	$shouldNotReachHere();
 }
@@ -185,12 +144,12 @@ $Object* XPathExpressionImpl::evaluateExpression(Object$* item, $Class* type) {
 		$var($XObject, resultObject, eval(item, this->xpath));
 		$load($XPathEvaluationResult);
 		if ($nc(type)->isAssignableFrom($XPathEvaluationResult::class$)) {
-			return $of(getXPathResult(resultObject, type));
+			return getXPathResult(resultObject, type);
 		} else {
-			return $of($XPathResultImpl::getValue(resultObject, type));
+			return $XPathResultImpl::getValue(resultObject, type);
 		}
 	} catch ($TransformerException& te) {
-		$throwNew($XPathExpressionException, static_cast<$Throwable*>(te));
+		$throwNew($XPathExpressionException, te);
 	}
 	$shouldNotReachHere();
 }
@@ -202,7 +161,7 @@ $XPathEvaluationResult* XPathExpressionImpl::evaluateExpression(Object$* item) {
 
 $Object* XPathExpressionImpl::evaluateExpression($InputSource* source, $Class* type) {
 	$var($Document, document, getDocument(source));
-	return $of(evaluateExpression($of(document), type));
+	return evaluateExpression(document, type);
 }
 
 $XPathEvaluationResult* XPathExpressionImpl::evaluateExpression($InputSource* source) {
@@ -214,7 +173,42 @@ XPathExpressionImpl::XPathExpressionImpl() {
 }
 
 $Class* XPathExpressionImpl::load$($String* name, bool initialize) {
-	$loadClass(XPathExpressionImpl, name, initialize, &_XPathExpressionImpl_ClassInfo_, allocate$XPathExpressionImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"xpath", "Lcom/sun/org/apache/xpath/internal/XPath;", nullptr, $PRIVATE, $field(XPathExpressionImpl, xpath)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(XPathExpressionImpl, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xpath/internal/XPath;Lcom/sun/org/apache/xpath/internal/jaxp/JAXPPrefixResolver;Ljavax/xml/xpath/XPathFunctionResolver;Ljavax/xml/xpath/XPathVariableResolver;)V", nullptr, $PROTECTED, $method(XPathExpressionImpl, init$, void, $XPath*, $JAXPPrefixResolver*, $XPathFunctionResolver*, $XPathVariableResolver*)},
+		{"<init>", "(Lcom/sun/org/apache/xpath/internal/XPath;Lcom/sun/org/apache/xpath/internal/jaxp/JAXPPrefixResolver;Ljavax/xml/xpath/XPathFunctionResolver;Ljavax/xml/xpath/XPathVariableResolver;ZLjdk/xml/internal/JdkXmlFeatures;)V", nullptr, $PROTECTED, $method(XPathExpressionImpl, init$, void, $XPath*, $JAXPPrefixResolver*, $XPathFunctionResolver*, $XPathVariableResolver*, bool, $JdkXmlFeatures*)},
+		{"eval", "(Ljava/lang/Object;Ljavax/xml/namespace/QName;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XPathExpressionImpl, eval, $Object*, Object$*, $QName*), "javax.xml.transform.TransformerException"},
+		{"evaluate", "(Ljava/lang/Object;Ljavax/xml/namespace/QName;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XPathExpressionImpl, evaluate, $Object*, Object$*, $QName*), "javax.xml.xpath.XPathExpressionException"},
+		{"evaluate", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XPathExpressionImpl, evaluate, $String*, Object$*), "javax.xml.xpath.XPathExpressionException"},
+		{"evaluate", "(Lorg/xml/sax/InputSource;Ljavax/xml/namespace/QName;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XPathExpressionImpl, evaluate, $Object*, $InputSource*, $QName*), "javax.xml.xpath.XPathExpressionException"},
+		{"evaluate", "(Lorg/xml/sax/InputSource;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XPathExpressionImpl, evaluate, $String*, $InputSource*), "javax.xml.xpath.XPathExpressionException"},
+		{"evaluateExpression", "(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(XPathExpressionImpl, evaluateExpression, $Object*, Object$*, $Class*), "javax.xml.xpath.XPathExpressionException"},
+		{"evaluateExpression", "(Ljava/lang/Object;)Ljavax/xml/xpath/XPathEvaluationResult;", "(Ljava/lang/Object;)Ljavax/xml/xpath/XPathEvaluationResult<*>;", $PUBLIC, $virtualMethod(XPathExpressionImpl, evaluateExpression, $XPathEvaluationResult*, Object$*), "javax.xml.xpath.XPathExpressionException"},
+		{"evaluateExpression", "(Lorg/xml/sax/InputSource;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Lorg/xml/sax/InputSource;Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(XPathExpressionImpl, evaluateExpression, $Object*, $InputSource*, $Class*), "javax.xml.xpath.XPathExpressionException"},
+		{"evaluateExpression", "(Lorg/xml/sax/InputSource;)Ljavax/xml/xpath/XPathEvaluationResult;", "(Lorg/xml/sax/InputSource;)Ljavax/xml/xpath/XPathEvaluationResult<*>;", $PUBLIC, $virtualMethod(XPathExpressionImpl, evaluateExpression, $XPathEvaluationResult*, $InputSource*), "javax.xml.xpath.XPathExpressionException"},
+		{"setXPath", "(Lcom/sun/org/apache/xpath/internal/XPath;)V", nullptr, $PUBLIC, $virtualMethod(XPathExpressionImpl, setXPath, void, $XPath*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.jaxp.XPathExpressionImpl",
+		"com.sun.org.apache.xpath.internal.jaxp.XPathImplUtil",
+		"javax.xml.xpath.XPathExpression",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XPathExpressionImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XPathExpressionImpl));
+	});
 	return class$;
 }
 

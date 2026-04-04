@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/ClassReader$TypeAnnotationProxy.h>
-
 #include <com/sun/tools/javac/code/TypeAnnotationPosition.h>
 #include <com/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy.h>
 #include <com/sun/tools/javac/jvm/ClassReader.h>
@@ -18,42 +17,6 @@ namespace com {
 			namespace javac {
 				namespace jvm {
 
-$FieldInfo _ClassReader$TypeAnnotationProxy_FieldInfo_[] = {
-	{"compound", "Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;", nullptr, $FINAL, $field(ClassReader$TypeAnnotationProxy, compound)},
-	{"position", "Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $FINAL, $field(ClassReader$TypeAnnotationProxy, position)},
-	{}
-};
-
-$MethodInfo _ClassReader$TypeAnnotationProxy_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;Lcom/sun/tools/javac/code/TypeAnnotationPosition;)V", nullptr, $PUBLIC, $method(ClassReader$TypeAnnotationProxy, init$, void, $ClassReader$CompoundAnnotationProxy*, $TypeAnnotationPosition*)},
-	{}
-};
-
-$InnerClassInfo _ClassReader$TypeAnnotationProxy_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.ClassReader$TypeAnnotationProxy", "com.sun.tools.javac.jvm.ClassReader", "TypeAnnotationProxy", $STATIC},
-	{}
-};
-
-$ClassInfo _ClassReader$TypeAnnotationProxy_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.ClassReader$TypeAnnotationProxy",
-	"java.lang.Object",
-	nullptr,
-	_ClassReader$TypeAnnotationProxy_FieldInfo_,
-	_ClassReader$TypeAnnotationProxy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClassReader$TypeAnnotationProxy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.ClassReader"
-};
-
-$Object* allocate$ClassReader$TypeAnnotationProxy($Class* clazz) {
-	return $of($alloc(ClassReader$TypeAnnotationProxy));
-}
-
 void ClassReader$TypeAnnotationProxy::init$($ClassReader$CompoundAnnotationProxy* compound, $TypeAnnotationPosition* position) {
 	$set(this, compound, compound);
 	$set(this, position, position);
@@ -63,7 +26,37 @@ ClassReader$TypeAnnotationProxy::ClassReader$TypeAnnotationProxy() {
 }
 
 $Class* ClassReader$TypeAnnotationProxy::load$($String* name, bool initialize) {
-	$loadClass(ClassReader$TypeAnnotationProxy, name, initialize, &_ClassReader$TypeAnnotationProxy_ClassInfo_, allocate$ClassReader$TypeAnnotationProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"compound", "Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;", nullptr, $FINAL, $field(ClassReader$TypeAnnotationProxy, compound)},
+		{"position", "Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $FINAL, $field(ClassReader$TypeAnnotationProxy, position)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;Lcom/sun/tools/javac/code/TypeAnnotationPosition;)V", nullptr, $PUBLIC, $method(ClassReader$TypeAnnotationProxy, init$, void, $ClassReader$CompoundAnnotationProxy*, $TypeAnnotationPosition*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.ClassReader$TypeAnnotationProxy", "com.sun.tools.javac.jvm.ClassReader", "TypeAnnotationProxy", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.ClassReader$TypeAnnotationProxy",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.ClassReader"
+	};
+	$loadClass(ClassReader$TypeAnnotationProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassReader$TypeAnnotationProxy);
+	});
 	return class$;
 }
 

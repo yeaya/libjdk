@@ -61,6 +61,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::image::ToolkitImage* im, ::java::awt::image::ColorModel* cmodel, bool forceCMhint);
 	virtual void abort();
 	virtual int32_t check(::java::awt::image::ImageObserver* iw);

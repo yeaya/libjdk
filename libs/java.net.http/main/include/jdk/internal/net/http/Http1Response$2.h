@@ -14,6 +14,7 @@ class $import Http1Response$2 : public ::java::lang::Object {
 	$class(Http1Response$2, 0, ::java::lang::Object)
 public:
 	Http1Response$2();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$jdk$internal$net$http$Http1Response$State;
 };
 

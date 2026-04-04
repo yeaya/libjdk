@@ -19,6 +19,7 @@ class $export MultipleGradientPaint$ColorSpaceType : public ::java::lang::Enum {
 public:
 	MultipleGradientPaint$ColorSpaceType();
 	static $Array<::java::awt::MultipleGradientPaint$ColorSpaceType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::awt::MultipleGradientPaint$ColorSpaceType* valueOf($String* name);
 	static $Array<::java::awt::MultipleGradientPaint$ColorSpaceType>* values();

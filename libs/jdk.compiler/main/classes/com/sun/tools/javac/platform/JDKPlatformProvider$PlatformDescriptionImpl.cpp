@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/platform/JDKPlatformProvider$PlatformDescriptionImpl.h>
-
 #include <com/sun/tools/javac/code/Source$Feature.h>
 #include <com/sun/tools/javac/code/Source.h>
 #include <com/sun/tools/javac/file/BaseFileManager.h>
@@ -72,7 +71,6 @@ using $Context = ::com::sun::tools::javac::util::Context;
 using $Log = ::com::sun::tools::javac::util::Log;
 using $StringUtils = ::com::sun::tools::javac::util::StringUtils;
 using $IOException = ::java::io::IOException;
-using $OutputStream = ::java::io::OutputStream;
 using $PrintWriter = ::java::io::PrintWriter;
 using $Serializable = ::java::io::Serializable;
 using $CharSequence = ::java::lang::CharSequence;
@@ -83,7 +81,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $URI = ::java::net::URI;
@@ -102,7 +99,6 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $Consumer = ::java::util::function::Consumer;
 using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
@@ -127,33 +123,29 @@ public:
 	virtual $Object* apply(Object$* line) override {
 		 return $of(JDKPlatformProvider$PlatformDescriptionImpl::lambda$getFileManager$0(jrtModules, $cast($String, line)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$0>());
-	}
 	$Path* jrtModules = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$0::fieldInfos[2] = {
-	{"jrtModules", "Ljava/nio/file/Path;", nullptr, $PUBLIC, $field(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$0, jrtModules)},
-	{}
-};
-$MethodInfo JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$0::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$0, init$, void, $Path*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$0::load$($String* name, bool initialize) {
-	$loadClass(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"jrtModules", "Ljava/nio/file/Path;", nullptr, $PUBLIC, $field(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$0, jrtModules)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$0, init$, void, $Path*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$0);
+	});
 	return class$;
 }
 $Class* JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$0::class$ = nullptr;
@@ -166,27 +158,24 @@ public:
 	virtual bool test(Object$* mod) override {
 		 return JDKPlatformProvider$PlatformDescriptionImpl::lambda$getFileManager$1($cast($Path, mod));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$1$1, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$1$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$1$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$1$1::load$($String* name, bool initialize) {
-	$loadClass(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$1$1, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$1$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$1$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$1$1);
+	});
 	return class$;
 }
 $Class* JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$1$1::class$ = nullptr;
@@ -200,33 +189,29 @@ public:
 	virtual void accept(Object$* mod) override {
 		JDKPlatformProvider$PlatformDescriptionImpl::lambda$getFileManager$2(fm, $cast($Path, mod));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$2$2>());
-	}
 	$JavacFileManager* fm = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$2$2::fieldInfos[2] = {
-	{"fm", "Lcom/sun/tools/javac/file/JavacFileManager;", nullptr, $PUBLIC, $field(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$2$2, fm)},
-	{}
-};
-$MethodInfo JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$2$2::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/JavacFileManager;)V", nullptr, $PUBLIC, $method(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$2$2, init$, void, $JavacFileManager*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$2$2, accept, void, Object$*)},
-	{}
-};
-$ClassInfo JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$2$2",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$2$2::load$($String* name, bool initialize) {
-	$loadClass(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"fm", "Lcom/sun/tools/javac/file/JavacFileManager;", nullptr, $PUBLIC, $field(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$2$2, fm)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/file/JavacFileManager;)V", nullptr, $PUBLIC, $method(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$2$2, init$, void, $JavacFileManager*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$2$2, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$2$2",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$2$2);
+	});
 	return class$;
 }
 $Class* JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$2$2::class$ = nullptr;
@@ -237,83 +222,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* dummy) override {
-		 return $of(JDKPlatformProvider$PlatformDescriptionImpl::lambda$getFileManager$3($cast($String, dummy)));
+		 return JDKPlatformProvider$PlatformDescriptionImpl::lambda$getFileManager$3($cast($String, dummy));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$3$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$3$3, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$3$3, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$3$3",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$3$3::load$($String* name, bool initialize) {
-	$loadClass(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$3$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$3$3, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$3$3, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$3$3",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$3$3);
+	});
 	return class$;
 }
 $Class* JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$3$3::class$ = nullptr;
-
-$FieldInfo _JDKPlatformProvider$PlatformDescriptionImpl_FieldInfo_[] = {
-	{"ctSym2FileSystem", "Ljava/util/Map;", "Ljava/util/Map<Ljava/nio/file/Path;Ljava/nio/file/FileSystem;>;", $PRIVATE | $FINAL, $field(JDKPlatformProvider$PlatformDescriptionImpl, ctSym2FileSystem)},
-	{"sourceVersion", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JDKPlatformProvider$PlatformDescriptionImpl, sourceVersion)},
-	{"ctSymVersion", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JDKPlatformProvider$PlatformDescriptionImpl, ctSymVersion)},
-	{}
-};
-
-$MethodInfo _JDKPlatformProvider$PlatformDescriptionImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(JDKPlatformProvider$PlatformDescriptionImpl, init$, void, $String*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl, close, void), "java.io.IOException"},
-	{"getAdditionalOptions", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl, getAdditionalOptions, $List*)},
-	{"getAnnotationProcessors", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/tools/javac/platform/PlatformDescription$PluginInfo<Ljavax/annotation/processing/Processor;>;>;", $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl, getAnnotationProcessors, $List*)},
-	{"getFileManager", "()Ljavax/tools/JavaFileManager;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl, getFileManager, $JavaFileManager*)},
-	{"getPlugins", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/tools/javac/platform/PlatformDescription$PluginInfo<Lcom/sun/source/util/Plugin;>;>;", $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl, getPlugins, $List*)},
-	{"getSourceVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl, getSourceVersion, $String*)},
-	{"getTargetVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl, getTargetVersion, $String*)},
-	{"lambda$getFileManager$0", "(Ljava/nio/file/Path;Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JDKPlatformProvider$PlatformDescriptionImpl, lambda$getFileManager$0, $Path*, $Path*, $String*)},
-	{"lambda$getFileManager$1", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JDKPlatformProvider$PlatformDescriptionImpl, lambda$getFileManager$1, bool, $Path*)},
-	{"lambda$getFileManager$2", "(Lcom/sun/tools/javac/file/JavacFileManager;Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JDKPlatformProvider$PlatformDescriptionImpl, lambda$getFileManager$2, void, $JavacFileManager*, $Path*)},
-	{"lambda$getFileManager$3", "(Ljava/lang/String;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JDKPlatformProvider$PlatformDescriptionImpl, lambda$getFileManager$3, $List*, $String*)},
-	{"setModule", "(Ljavax/tools/StandardJavaFileManager;Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JDKPlatformProvider$PlatformDescriptionImpl, setModule, void, $StandardJavaFileManager*, $Path*)},
-	{}
-};
-
-$InnerClassInfo _JDKPlatformProvider$PlatformDescriptionImpl_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl", "com.sun.tools.javac.platform.JDKPlatformProvider", "PlatformDescriptionImpl", $STATIC},
-	{"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject", "com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl", "SigJavaFileObject", $PRIVATE | $STATIC},
-	{"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JDKPlatformProvider$PlatformDescriptionImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl",
-	"java.lang.Object",
-	"com.sun.tools.javac.platform.PlatformDescription",
-	_JDKPlatformProvider$PlatformDescriptionImpl_FieldInfo_,
-	_JDKPlatformProvider$PlatformDescriptionImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JDKPlatformProvider$PlatformDescriptionImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.platform.JDKPlatformProvider"
-};
-
-$Object* allocate$JDKPlatformProvider$PlatformDescriptionImpl($Class* clazz) {
-	return $of($alloc(JDKPlatformProvider$PlatformDescriptionImpl));
-}
 
 void JDKPlatformProvider$PlatformDescriptionImpl::init$($String* sourceVersion) {
 	$set(this, ctSym2FileSystem, $new($HashMap));
@@ -322,11 +253,11 @@ void JDKPlatformProvider$PlatformDescriptionImpl::init$($String* sourceVersion) 
 }
 
 $JavaFileManager* JDKPlatformProvider$PlatformDescriptionImpl::getFileManager() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Context, context, $new($Context));
-	$var($PrintWriter, pw, $new($PrintWriter, static_cast<$OutputStream*>($System::err), true));
+	$var($PrintWriter, pw, $new($PrintWriter, $System::err, true));
 	$init($Log);
-	context->put($Log::errKey, $of(pw));
+	context->put($Log::errKey, pw);
 	$CacheFSInfo::preRegister(context);
 	$var($JavacFileManager, fm, $new($JDKPlatformProvider$PlatformDescriptionImpl$1, this, context, true, nullptr));
 	$init($Option);
@@ -334,223 +265,201 @@ $JavaFileManager* JDKPlatformProvider$PlatformDescriptionImpl::getFileManager() 
 	$var($Path, file, $JDKPlatformProvider::findCtSym());
 	if ($Files::exists(file, $$new($LinkOptionArray, 0))) {
 		try {
-			$var($FileSystem, fs, $cast($FileSystem, $nc(this->ctSym2FileSystem)->get(file)));
+			$var($FileSystem, fs, $cast($FileSystem, this->ctSym2FileSystem->get(file)));
 			if (fs == nullptr) {
-				$nc(this->ctSym2FileSystem)->put(file, $assign(fs, $FileSystems::newFileSystem(file, ($ClassLoader*)nullptr)));
+				this->ctSym2FileSystem->put(file, $assign(fs, $FileSystems::newFileSystem(file, ($ClassLoader*)nullptr)));
 			}
-			$var($Path, root, $cast($Path, $nc($($nc($($nc(fs)->getRootDirectories()))->iterator()))->next()));
+			$var($Path, root, $cast($Path, $$nc($$nc($nc(fs)->getRootDirectories())->iterator())->next()));
 			$init($Source$Feature);
 			bool hasModules = $Source$Feature::MODULES->allowedInSource($($Source::lookup(this->sourceVersion)));
-			$var($Path, systemModules, $nc($($nc(root)->resolve(this->ctSymVersion)))->resolve("system-modules"_s));
+			$var($Path, systemModules, $$nc($nc(root)->resolve(this->ctSymVersion))->resolve("system-modules"_s));
 			$var($Charset, utf8, $Charset::forName("UTF-8"_s));
 			if (!hasModules) {
 				$var($List, paths, $new($ArrayList));
 				{
 					$var($DirectoryStream, dir, $Files::newDirectoryStream(root));
-					{
-						$var($Throwable, var$0, nullptr);
+					$var($Throwable, var$0, nullptr);
+					try {
 						try {
-							try {
+							$var($Iterator, i$, $nc(dir)->iterator());
+							for (; $nc(i$)->hasNext();) {
+								$var($Path, section, $cast($Path, i$->next()));
 								{
-									$var($Iterator, i$, $nc(dir)->iterator());
-									for (; $nc(i$)->hasNext();) {
-										$var($Path, section, $cast($Path, i$->next()));
-										{
-											bool var$1 = $nc($($nc($($nc(section)->getFileName()))->toString()))->contains(this->ctSymVersion);
-											if (var$1 && !$nc($($nc($(section->getFileName()))->toString()))->contains("-"_s)) {
-												{
-													$var($DirectoryStream, modules, $Files::newDirectoryStream(section));
+									bool var$1 = $$nc($$nc($nc(section)->getFileName())->toString())->contains(this->ctSymVersion);
+									if (var$1 && !$$nc($$nc(section->getFileName())->toString())->contains("-"_s)) {
+										$var($DirectoryStream, modules, $Files::newDirectoryStream(section));
+										$var($Throwable, var$2, nullptr);
+										try {
+											try {
+												$var($Iterator, i$, $nc(modules)->iterator());
+												for (; $nc(i$)->hasNext();) {
+													$var($Path, module, $cast($Path, i$->next()));
 													{
-														$var($Throwable, var$2, nullptr);
-														try {
-															try {
-																{
-																	$var($Iterator, i$, $nc(modules)->iterator());
-																	for (; $nc(i$)->hasNext();) {
-																		$var($Path, module, $cast($Path, i$->next()));
-																		{
-																			paths->add(module);
-																		}
-																	}
-																}
-															} catch ($Throwable& t$) {
-																if (modules != nullptr) {
-																	try {
-																		modules->close();
-																	} catch ($Throwable& x2) {
-																		t$->addSuppressed(x2);
-																	}
-																}
-																$throw(t$);
-															}
-														} catch ($Throwable& var$3) {
-															$assign(var$2, var$3);
-														} /*finally*/ {
-															if (modules != nullptr) {
-																modules->close();
-															}
-														}
-														if (var$2 != nullptr) {
-															$throw(var$2);
-														}
+														paths->add(module);
 													}
 												}
+											} catch ($Throwable& t$) {
+												if (modules != nullptr) {
+													try {
+														modules->close();
+													} catch ($Throwable& x2) {
+														t$->addSuppressed(x2);
+													}
+												}
+												$throw(t$);
 											}
+										} catch ($Throwable& var$3) {
+											$assign(var$2, var$3);
+										} /*finally*/ {
+											if (modules != nullptr) {
+												modules->close();
+											}
+										}
+										if (var$2 != nullptr) {
+											$throw(var$2);
 										}
 									}
 								}
-							} catch ($Throwable& t$) {
-								if (dir != nullptr) {
-									try {
-										dir->close();
-									} catch ($Throwable& x2) {
-										t$->addSuppressed(x2);
-									}
-								}
-								$throw(t$);
 							}
-						} catch ($Throwable& var$4) {
-							$assign(var$0, var$4);
-						} /*finally*/ {
+						} catch ($Throwable& t$) {
 							if (dir != nullptr) {
-								dir->close();
+								try {
+									dir->close();
+								} catch ($Throwable& x2) {
+									t$->addSuppressed(x2);
+								}
 							}
+							$throw(t$);
 						}
-						if (var$0 != nullptr) {
-							$throw(var$0);
+					} catch ($Throwable& var$4) {
+						$assign(var$0, var$4);
+					} /*finally*/ {
+						if (dir != nullptr) {
+							dir->close();
 						}
+					}
+					if (var$0 != nullptr) {
+						$throw(var$0);
 					}
 				}
 				$init($StandardLocation);
 				fm->setLocationFromPaths($StandardLocation::PLATFORM_CLASS_PATH, paths);
 			} else if ($Files::isRegularFile(systemModules, $$new($LinkOptionArray, 0))) {
-				fm->handleOption("--system"_s, $($nc($($Arrays::asList($$new($StringArray, {"none"_s}))))->iterator()));
-				$var($Path, jrtModules, $nc($($FileSystems::getFileSystem($($URI::create("jrt:/"_s)))))->getPath("modules"_s, $$new($StringArray, 0)));
+				fm->handleOption("--system"_s, $($$nc($Arrays::asList($$new($StringArray, {"none"_s})))->iterator()));
+				$var($Path, jrtModules, $$nc($FileSystems::getFileSystem($($URI::create("jrt:/"_s))))->getPath("modules"_s, $$new($StringArray, 0)));
 				{
 					$var($Stream, lines, $Files::lines(systemModules, utf8));
-					{
-						$var($Throwable, var$5, nullptr);
+					$var($Throwable, var$5, nullptr);
+					try {
 						try {
-							try {
-								$nc($($nc($($nc(lines)->map(static_cast<$Function*>($$new(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$0, jrtModules)))))->filter(static_cast<$Predicate*>($$new(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$1$1)))))->forEach(static_cast<$Consumer*>($$new(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$2$2, fm)));
-							} catch ($Throwable& t$) {
-								if (lines != nullptr) {
-									try {
-										lines->close();
-									} catch ($Throwable& x2) {
-										t$->addSuppressed(x2);
-									}
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$6) {
-							$assign(var$5, var$6);
-						} /*finally*/ {
+							$$nc($$nc($nc(lines)->map($$new(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$0, jrtModules)))->filter($$new(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$1$1)))->forEach($$new(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$2$2, fm));
+						} catch ($Throwable& t$) {
 							if (lines != nullptr) {
-								lines->close();
+								try {
+									lines->close();
+								} catch ($Throwable& x2) {
+									t$->addSuppressed(x2);
+								}
 							}
+							$throw(t$);
 						}
-						if (var$5 != nullptr) {
-							$throw(var$5);
+					} catch ($Throwable& var$6) {
+						$assign(var$5, var$6);
+					} /*finally*/ {
+						if (lines != nullptr) {
+							lines->close();
 						}
+					}
+					if (var$5 != nullptr) {
+						$throw(var$5);
 					}
 				}
 			} else {
 				$var($Map, module2Paths, $new($HashMap));
 				{
 					$var($DirectoryStream, dir, $Files::newDirectoryStream(root));
-					{
-						$var($Throwable, var$7, nullptr);
+					$var($Throwable, var$7, nullptr);
+					try {
 						try {
-							try {
+							$var($Iterator, i$, $nc(dir)->iterator());
+							for (; $nc(i$)->hasNext();) {
+								$var($Path, section, $cast($Path, i$->next()));
 								{
-									$var($Iterator, i$, $nc(dir)->iterator());
-									for (; $nc(i$)->hasNext();) {
-										$var($Path, section, $cast($Path, i$->next()));
-										{
-											bool var$8 = $nc($($nc($($nc(section)->getFileName()))->toString()))->contains(this->ctSymVersion);
-											if (var$8 && !$nc($($nc($(section->getFileName()))->toString()))->contains("-"_s)) {
-												{
-													$var($DirectoryStream, modules, $Files::newDirectoryStream(section));
+									bool var$8 = $$nc($$nc($nc(section)->getFileName())->toString())->contains(this->ctSymVersion);
+									if (var$8 && !$$nc($$nc(section->getFileName())->toString())->contains("-"_s)) {
+										$var($DirectoryStream, modules, $Files::newDirectoryStream(section));
+										$var($Throwable, var$9, nullptr);
+										try {
+											try {
+												$var($Iterator, i$, $nc(modules)->iterator());
+												for (; $nc(i$)->hasNext();) {
+													$var($Path, module, $cast($Path, i$->next()));
 													{
-														$var($Throwable, var$9, nullptr);
-														try {
-															try {
-																{
-																	$var($Iterator, i$, $nc(modules)->iterator());
-																	for (; $nc(i$)->hasNext();) {
-																		$var($Path, module, $cast($Path, i$->next()));
-																		{
-																			$var($Object, var$10, $of($nc($($nc(module)->getFileName()))->toString()));
-																			$nc(($cast($List, $(module2Paths->computeIfAbsent(var$10, static_cast<$Function*>($$new(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$3$3)))))))->add(module);
-																		}
-																	}
-																}
-															} catch ($Throwable& t$) {
-																if (modules != nullptr) {
-																	try {
-																		modules->close();
-																	} catch ($Throwable& x2) {
-																		t$->addSuppressed(x2);
-																	}
-																}
-																$throw(t$);
-															}
-														} catch ($Throwable& var$11) {
-															$assign(var$9, var$11);
-														} /*finally*/ {
-															if (modules != nullptr) {
-																modules->close();
-															}
-														}
-														if (var$9 != nullptr) {
-															$throw(var$9);
-														}
+														$var($Object, var$10, $$nc($nc(module)->getFileName())->toString());
+														$$sure($List, module2Paths->computeIfAbsent(var$10, $$new(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$3$3)))->add(module);
 													}
 												}
+											} catch ($Throwable& t$) {
+												if (modules != nullptr) {
+													try {
+														modules->close();
+													} catch ($Throwable& x2) {
+														t$->addSuppressed(x2);
+													}
+												}
+												$throw(t$);
 											}
+										} catch ($Throwable& var$11) {
+											$assign(var$9, var$11);
+										} /*finally*/ {
+											if (modules != nullptr) {
+												modules->close();
+											}
+										}
+										if (var$9 != nullptr) {
+											$throw(var$9);
 										}
 									}
 								}
-							} catch ($Throwable& t$) {
-								if (dir != nullptr) {
-									try {
-										dir->close();
-									} catch ($Throwable& x2) {
-										t$->addSuppressed(x2);
-									}
-								}
-								$throw(t$);
 							}
-						} catch ($Throwable& var$12) {
-							$assign(var$7, var$12);
-						} /*finally*/ {
+						} catch ($Throwable& t$) {
 							if (dir != nullptr) {
-								dir->close();
+								try {
+									dir->close();
+								} catch ($Throwable& x2) {
+									t$->addSuppressed(x2);
+								}
 							}
+							$throw(t$);
 						}
-						if (var$7 != nullptr) {
-							$throw(var$7);
+					} catch ($Throwable& var$12) {
+						$assign(var$7, var$12);
+					} /*finally*/ {
+						if (dir != nullptr) {
+							dir->close();
 						}
 					}
+					if (var$7 != nullptr) {
+						$throw(var$7);
+					}
 				}
-				fm->handleOption("--system"_s, $($nc($($Arrays::asList($$new($StringArray, {"none"_s}))))->iterator()));
+				fm->handleOption("--system"_s, $($$nc($Arrays::asList($$new($StringArray, {"none"_s})))->iterator()));
 				{
-					$var($Iterator, i$, $nc($(module2Paths->entrySet()))->iterator());
+					$var($Iterator, i$, $$nc(module2Paths->entrySet())->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
 						{
 							$init($StandardLocation);
-							$var($JavaFileManager$Location, var$13, static_cast<$JavaFileManager$Location*>($StandardLocation::SYSTEM_MODULES));
+							$var($JavaFileManager$Location, var$13, $StandardLocation::SYSTEM_MODULES);
 							$var($String, var$14, $cast($String, $nc(e)->getKey()));
-							fm->setLocationForModule(var$13, var$14, $cast($Collection, $(e->getValue())));
+							fm->setLocationForModule(var$13, var$14, $$cast($Collection, e->getValue()));
 						}
 					}
 				}
 			}
-			return static_cast<$JavaFileManager*>(static_cast<$BaseFileManager*>(fm));
+			return $cast($BaseFileManager, fm);
 		} catch ($IOException& ex) {
-			$throwNew($IllegalStateException, static_cast<$Throwable*>(ex));
+			$throwNew($IllegalStateException, ex);
 		}
 	} else {
 		$throwNew($IllegalStateException, "Cannot find ct.sym!"_s);
@@ -560,14 +469,14 @@ $JavaFileManager* JDKPlatformProvider$PlatformDescriptionImpl::getFileManager() 
 
 void JDKPlatformProvider$PlatformDescriptionImpl::setModule($StandardJavaFileManager* fm, $Path* mod) {
 	$init(JDKPlatformProvider$PlatformDescriptionImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($StandardLocation);
-		$var($JavaFileManager$Location, var$0, static_cast<$JavaFileManager$Location*>($StandardLocation::SYSTEM_MODULES));
-		$var($String, var$1, $nc($($nc(mod)->getFileName()))->toString());
+		$var($JavaFileManager$Location, var$0, $StandardLocation::SYSTEM_MODULES);
+		$var($String, var$1, $$nc($nc(mod)->getFileName())->toString());
 		$nc(fm)->setLocationForModule(var$0, var$1, $($Collections::singleton(mod)));
 	} catch ($IOException& ex) {
-		$throwNew($IllegalStateException, static_cast<$Throwable*>(ex));
+		$throwNew($IllegalStateException, ex);
 	}
 }
 
@@ -592,9 +501,9 @@ $List* JDKPlatformProvider$PlatformDescriptionImpl::getAdditionalOptions() {
 }
 
 void JDKPlatformProvider$PlatformDescriptionImpl::close() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
-		$var($Iterator, i$, $nc($($nc(this->ctSym2FileSystem)->values()))->iterator());
+		$var($Iterator, i$, $$nc(this->ctSym2FileSystem->values())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($FileSystem, fs, $cast($FileSystem, i$->next()));
 			{
@@ -602,7 +511,7 @@ void JDKPlatformProvider$PlatformDescriptionImpl::close() {
 			}
 		}
 	}
-	$nc(this->ctSym2FileSystem)->clear();
+	this->ctSym2FileSystem->clear();
 }
 
 $List* JDKPlatformProvider$PlatformDescriptionImpl::lambda$getFileManager$3($String* dummy) {
@@ -630,20 +539,65 @@ JDKPlatformProvider$PlatformDescriptionImpl::JDKPlatformProvider$PlatformDescrip
 
 $Class* JDKPlatformProvider$PlatformDescriptionImpl::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$0")) {
 			return JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$0::load$(name, initialize);
 		}
-		if (name->equals(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$1$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$1$1")) {
 			return JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$1$1::load$(name, initialize);
 		}
-		if (name->equals(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$2$2::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$2$2")) {
 			return JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$2$2::load$(name, initialize);
 		}
-		if (name->equals(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$3$3::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$3$3")) {
 			return JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$3$3::load$(name, initialize);
 		}
 	}
-	$loadClass(JDKPlatformProvider$PlatformDescriptionImpl, name, initialize, &_JDKPlatformProvider$PlatformDescriptionImpl_ClassInfo_, allocate$JDKPlatformProvider$PlatformDescriptionImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"ctSym2FileSystem", "Ljava/util/Map;", "Ljava/util/Map<Ljava/nio/file/Path;Ljava/nio/file/FileSystem;>;", $PRIVATE | $FINAL, $field(JDKPlatformProvider$PlatformDescriptionImpl, ctSym2FileSystem)},
+		{"sourceVersion", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JDKPlatformProvider$PlatformDescriptionImpl, sourceVersion)},
+		{"ctSymVersion", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JDKPlatformProvider$PlatformDescriptionImpl, ctSymVersion)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(JDKPlatformProvider$PlatformDescriptionImpl, init$, void, $String*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl, close, void), "java.io.IOException"},
+		{"getAdditionalOptions", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl, getAdditionalOptions, $List*)},
+		{"getAnnotationProcessors", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/tools/javac/platform/PlatformDescription$PluginInfo<Ljavax/annotation/processing/Processor;>;>;", $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl, getAnnotationProcessors, $List*)},
+		{"getFileManager", "()Ljavax/tools/JavaFileManager;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl, getFileManager, $JavaFileManager*)},
+		{"getPlugins", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/tools/javac/platform/PlatformDescription$PluginInfo<Lcom/sun/source/util/Plugin;>;>;", $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl, getPlugins, $List*)},
+		{"getSourceVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl, getSourceVersion, $String*)},
+		{"getTargetVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl, getTargetVersion, $String*)},
+		{"lambda$getFileManager$0", "(Ljava/nio/file/Path;Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JDKPlatformProvider$PlatformDescriptionImpl, lambda$getFileManager$0, $Path*, $Path*, $String*)},
+		{"lambda$getFileManager$1", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JDKPlatformProvider$PlatformDescriptionImpl, lambda$getFileManager$1, bool, $Path*)},
+		{"lambda$getFileManager$2", "(Lcom/sun/tools/javac/file/JavacFileManager;Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JDKPlatformProvider$PlatformDescriptionImpl, lambda$getFileManager$2, void, $JavacFileManager*, $Path*)},
+		{"lambda$getFileManager$3", "(Ljava/lang/String;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JDKPlatformProvider$PlatformDescriptionImpl, lambda$getFileManager$3, $List*, $String*)},
+		{"setModule", "(Ljavax/tools/StandardJavaFileManager;Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JDKPlatformProvider$PlatformDescriptionImpl, setModule, void, $StandardJavaFileManager*, $Path*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl", "com.sun.tools.javac.platform.JDKPlatformProvider", "PlatformDescriptionImpl", $STATIC},
+		{"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject", "com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl", "SigJavaFileObject", $PRIVATE | $STATIC},
+		{"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl",
+		"java.lang.Object",
+		"com.sun.tools.javac.platform.PlatformDescription",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.platform.JDKPlatformProvider"
+	};
+	$loadClass(JDKPlatformProvider$PlatformDescriptionImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JDKPlatformProvider$PlatformDescriptionImpl);
+	});
 	return class$;
 }
 

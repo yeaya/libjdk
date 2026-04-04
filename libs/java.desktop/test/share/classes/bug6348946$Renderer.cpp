@@ -1,5 +1,4 @@
 #include <bug6348946$Renderer.h>
-
 #include <bug6348946.h>
 #include <java/awt/Component.h>
 #include <javax/swing/JSlider.h>
@@ -15,48 +14,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JSlider = ::javax::swing::JSlider;
 using $JTable = ::javax::swing::JTable;
 
-$FieldInfo _bug6348946$Renderer_FieldInfo_[] = {
-	{"slider", "Ljavax/swing/JSlider;", nullptr, $PRIVATE, $field(bug6348946$Renderer, slider)},
-	{}
-};
-
-$MethodInfo _bug6348946$Renderer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(bug6348946$Renderer, init$, void)},
-	{"getTableCellRendererComponent", "(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(bug6348946$Renderer, getTableCellRendererComponent, $Component*, $JTable*, Object$*, bool, bool, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _bug6348946$Renderer_InnerClassesInfo_[] = {
-	{"bug6348946$Renderer", "bug6348946", "Renderer", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _bug6348946$Renderer_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6348946$Renderer",
-	"java.lang.Object",
-	"javax.swing.table.TableCellRenderer",
-	_bug6348946$Renderer_FieldInfo_,
-	_bug6348946$Renderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6348946$Renderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6348946"
-};
-
-$Object* allocate$bug6348946$Renderer($Class* clazz) {
-	return $of($alloc(bug6348946$Renderer));
-}
-
 void bug6348946$Renderer::init$() {
 	$set(this, slider, $new($JSlider, 0, 10));
 }
 
 $Component* bug6348946$Renderer::getTableCellRendererComponent($JTable* table, Object$* value, bool isSelected, bool hasFocus, int32_t row, int32_t col) {
-	int32_t val = $nc(($cast($Integer, value)))->intValue();
+	int32_t val = $nc($cast($Integer, value))->intValue();
 	$nc(this->slider)->setValue(val);
 	return this->slider;
 }
@@ -65,7 +28,37 @@ bug6348946$Renderer::bug6348946$Renderer() {
 }
 
 $Class* bug6348946$Renderer::load$($String* name, bool initialize) {
-	$loadClass(bug6348946$Renderer, name, initialize, &_bug6348946$Renderer_ClassInfo_, allocate$bug6348946$Renderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"slider", "Ljavax/swing/JSlider;", nullptr, $PRIVATE, $field(bug6348946$Renderer, slider)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(bug6348946$Renderer, init$, void)},
+		{"getTableCellRendererComponent", "(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(bug6348946$Renderer, getTableCellRendererComponent, $Component*, $JTable*, Object$*, bool, bool, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6348946$Renderer", "bug6348946", "Renderer", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6348946$Renderer",
+		"java.lang.Object",
+		"javax.swing.table.TableCellRenderer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6348946"
+	};
+	$loadClass(bug6348946$Renderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6348946$Renderer);
+	});
 	return class$;
 }
 

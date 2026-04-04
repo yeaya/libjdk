@@ -58,6 +58,7 @@ class XMLSecurityManager : public ::java::lang::Object {
 	$class(XMLSecurityManager, 0, ::java::lang::Object)
 public:
 	XMLSecurityManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(bool secureProcessing);
 	static ::com::sun::org::apache::xerces::internal::utils::XMLSecurityManager* convert(Object$* value, ::com::sun::org::apache::xerces::internal::utils::XMLSecurityManager* securityManager);

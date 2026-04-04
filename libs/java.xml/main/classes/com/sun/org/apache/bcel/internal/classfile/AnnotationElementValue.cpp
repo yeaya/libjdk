@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/AnnotationElementValue.h>
-
 #include <com/sun/org/apache/bcel/internal/classfile/AnnotationEntry.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ElementValue.h>
@@ -25,35 +24,8 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$FieldInfo _AnnotationElementValue_FieldInfo_[] = {
-	{"annotationEntry", "Lcom/sun/org/apache/bcel/internal/classfile/AnnotationEntry;", nullptr, $PRIVATE | $FINAL, $field(AnnotationElementValue, annotationEntry)},
-	{}
-};
-
-$MethodInfo _AnnotationElementValue_MethodInfo_[] = {
-	{"<init>", "(ILcom/sun/org/apache/bcel/internal/classfile/AnnotationEntry;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(AnnotationElementValue, init$, void, int32_t, $AnnotationEntry*, $ConstantPool*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationElementValue, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getAnnotationEntry", "()Lcom/sun/org/apache/bcel/internal/classfile/AnnotationEntry;", nullptr, $PUBLIC, $virtualMethod(AnnotationElementValue, getAnnotationEntry, $AnnotationEntry*)},
-	{"stringifyValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AnnotationElementValue, stringifyValue, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AnnotationElementValue, toString, $String*)},
-	{}
-};
-
-$ClassInfo _AnnotationElementValue_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.AnnotationElementValue",
-	"com.sun.org.apache.bcel.internal.classfile.ElementValue",
-	nullptr,
-	_AnnotationElementValue_FieldInfo_,
-	_AnnotationElementValue_MethodInfo_
-};
-
-$Object* allocate$AnnotationElementValue($Class* clazz) {
-	return $of($alloc(AnnotationElementValue));
-}
-
 void AnnotationElementValue::init$(int32_t type, $AnnotationEntry* annotationEntry, $ConstantPool* cpool) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ElementValue::init$(type, cpool);
 	if (type != $ElementValue::ANNOTATION) {
 		$throwNew($IllegalArgumentException, $$str({"Only element values of type annotation can be built with this ctor - type specified: "_s, $$str(type)}));
@@ -82,7 +54,29 @@ AnnotationElementValue::AnnotationElementValue() {
 }
 
 $Class* AnnotationElementValue::load$($String* name, bool initialize) {
-	$loadClass(AnnotationElementValue, name, initialize, &_AnnotationElementValue_ClassInfo_, allocate$AnnotationElementValue);
+	$FieldInfo fieldInfos$$[] = {
+		{"annotationEntry", "Lcom/sun/org/apache/bcel/internal/classfile/AnnotationEntry;", nullptr, $PRIVATE | $FINAL, $field(AnnotationElementValue, annotationEntry)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILcom/sun/org/apache/bcel/internal/classfile/AnnotationEntry;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(AnnotationElementValue, init$, void, int32_t, $AnnotationEntry*, $ConstantPool*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationElementValue, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getAnnotationEntry", "()Lcom/sun/org/apache/bcel/internal/classfile/AnnotationEntry;", nullptr, $PUBLIC, $virtualMethod(AnnotationElementValue, getAnnotationEntry, $AnnotationEntry*)},
+		{"stringifyValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AnnotationElementValue, stringifyValue, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AnnotationElementValue, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.AnnotationElementValue",
+		"com.sun.org.apache.bcel.internal.classfile.ElementValue",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AnnotationElementValue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AnnotationElementValue);
+	});
 	return class$;
 }
 

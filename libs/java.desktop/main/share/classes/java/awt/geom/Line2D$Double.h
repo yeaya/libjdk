@@ -45,7 +45,7 @@ public:
 	double y1 = 0.0;
 	double x2 = 0.0;
 	double y2 = 0.0;
-	static const int64_t serialVersionUID = (int64_t)0x6EBD54D799DCB6AB;
+	static const int64_t serialVersionUID = (int64_t)0x6ebd54d799dcb6ab;
 };
 
 		} // geom

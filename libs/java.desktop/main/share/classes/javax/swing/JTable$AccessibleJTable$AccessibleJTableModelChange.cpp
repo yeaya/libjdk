@@ -1,5 +1,4 @@
 #include <javax/swing/JTable$AccessibleJTable$AccessibleJTableModelChange.h>
-
 #include <javax/swing/JTable$AccessibleJTable.h>
 #include <jcpp.h>
 
@@ -11,52 +10,6 @@ using $JTable$AccessibleJTable = ::javax::swing::JTable$AccessibleJTable;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JTable$AccessibleJTable$AccessibleJTableModelChange_FieldInfo_[] = {
-	{"this$1", "Ljavax/swing/JTable$AccessibleJTable;", nullptr, $FINAL | $SYNTHETIC, $field(JTable$AccessibleJTable$AccessibleJTableModelChange, this$1)},
-	{"type", "I", nullptr, $PROTECTED, $field(JTable$AccessibleJTable$AccessibleJTableModelChange, type)},
-	{"firstRow", "I", nullptr, $PROTECTED, $field(JTable$AccessibleJTable$AccessibleJTableModelChange, firstRow)},
-	{"lastRow", "I", nullptr, $PROTECTED, $field(JTable$AccessibleJTable$AccessibleJTableModelChange, lastRow)},
-	{"firstColumn", "I", nullptr, $PROTECTED, $field(JTable$AccessibleJTable$AccessibleJTableModelChange, firstColumn)},
-	{"lastColumn", "I", nullptr, $PROTECTED, $field(JTable$AccessibleJTable$AccessibleJTableModelChange, lastColumn)},
-	{}
-};
-
-$MethodInfo _JTable$AccessibleJTable$AccessibleJTableModelChange_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JTable$AccessibleJTable;IIIII)V", nullptr, $PROTECTED, $method(JTable$AccessibleJTable$AccessibleJTableModelChange, init$, void, $JTable$AccessibleJTable*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"getFirstColumn", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableModelChange, getFirstColumn, int32_t)},
-	{"getFirstRow", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableModelChange, getFirstRow, int32_t)},
-	{"getLastColumn", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableModelChange, getLastColumn, int32_t)},
-	{"getLastRow", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableModelChange, getLastRow, int32_t)},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableModelChange, getType, int32_t)},
-	{}
-};
-
-$InnerClassInfo _JTable$AccessibleJTable$AccessibleJTableModelChange_InnerClassesInfo_[] = {
-	{"javax.swing.JTable$AccessibleJTable", "javax.swing.JTable", "AccessibleJTable", $PROTECTED},
-	{"javax.swing.JTable$AccessibleJTable$AccessibleJTableModelChange", "javax.swing.JTable$AccessibleJTable", "AccessibleJTableModelChange", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JTable$AccessibleJTable$AccessibleJTableModelChange_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JTable$AccessibleJTable$AccessibleJTableModelChange",
-	"java.lang.Object",
-	"javax.accessibility.AccessibleTableModelChange",
-	_JTable$AccessibleJTable$AccessibleJTableModelChange_FieldInfo_,
-	_JTable$AccessibleJTable$AccessibleJTableModelChange_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTable$AccessibleJTable$AccessibleJTableModelChange_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JTable"
-};
-
-$Object* allocate$JTable$AccessibleJTable$AccessibleJTableModelChange($Class* clazz) {
-	return $of($alloc(JTable$AccessibleJTable$AccessibleJTableModelChange));
-}
 
 void JTable$AccessibleJTable$AccessibleJTableModelChange::init$($JTable$AccessibleJTable* this$1, int32_t type, int32_t firstRow, int32_t lastRow, int32_t firstColumn, int32_t lastColumn) {
 	$set(this, this$1, this$1);
@@ -91,7 +44,47 @@ JTable$AccessibleJTable$AccessibleJTableModelChange::JTable$AccessibleJTable$Acc
 }
 
 $Class* JTable$AccessibleJTable$AccessibleJTableModelChange::load$($String* name, bool initialize) {
-	$loadClass(JTable$AccessibleJTable$AccessibleJTableModelChange, name, initialize, &_JTable$AccessibleJTable$AccessibleJTableModelChange_ClassInfo_, allocate$JTable$AccessibleJTable$AccessibleJTableModelChange);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljavax/swing/JTable$AccessibleJTable;", nullptr, $FINAL | $SYNTHETIC, $field(JTable$AccessibleJTable$AccessibleJTableModelChange, this$1)},
+		{"type", "I", nullptr, $PROTECTED, $field(JTable$AccessibleJTable$AccessibleJTableModelChange, type)},
+		{"firstRow", "I", nullptr, $PROTECTED, $field(JTable$AccessibleJTable$AccessibleJTableModelChange, firstRow)},
+		{"lastRow", "I", nullptr, $PROTECTED, $field(JTable$AccessibleJTable$AccessibleJTableModelChange, lastRow)},
+		{"firstColumn", "I", nullptr, $PROTECTED, $field(JTable$AccessibleJTable$AccessibleJTableModelChange, firstColumn)},
+		{"lastColumn", "I", nullptr, $PROTECTED, $field(JTable$AccessibleJTable$AccessibleJTableModelChange, lastColumn)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JTable$AccessibleJTable;IIIII)V", nullptr, $PROTECTED, $method(JTable$AccessibleJTable$AccessibleJTableModelChange, init$, void, $JTable$AccessibleJTable*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"getFirstColumn", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableModelChange, getFirstColumn, int32_t)},
+		{"getFirstRow", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableModelChange, getFirstRow, int32_t)},
+		{"getLastColumn", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableModelChange, getLastColumn, int32_t)},
+		{"getLastRow", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableModelChange, getLastRow, int32_t)},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableModelChange, getType, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JTable$AccessibleJTable", "javax.swing.JTable", "AccessibleJTable", $PROTECTED},
+		{"javax.swing.JTable$AccessibleJTable$AccessibleJTableModelChange", "javax.swing.JTable$AccessibleJTable", "AccessibleJTableModelChange", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JTable$AccessibleJTable$AccessibleJTableModelChange",
+		"java.lang.Object",
+		"javax.accessibility.AccessibleTableModelChange",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JTable"
+	};
+	$loadClass(JTable$AccessibleJTable$AccessibleJTableModelChange, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JTable$AccessibleJTable$AccessibleJTableModelChange);
+	});
 	return class$;
 }
 

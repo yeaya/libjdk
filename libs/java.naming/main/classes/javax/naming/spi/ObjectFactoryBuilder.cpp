@@ -1,5 +1,4 @@
 #include <javax/naming/spi/ObjectFactoryBuilder.h>
-
 #include <java/util/Hashtable.h>
 #include <javax/naming/spi/ObjectFactory.h>
 #include <jcpp.h>
@@ -13,26 +12,22 @@ namespace javax {
 	namespace naming {
 		namespace spi {
 
-$MethodInfo _ObjectFactoryBuilder_MethodInfo_[] = {
-	{"createObjectFactory", "(Ljava/lang/Object;Ljava/util/Hashtable;)Ljavax/naming/spi/ObjectFactory;", "(Ljava/lang/Object;Ljava/util/Hashtable<**>;)Ljavax/naming/spi/ObjectFactory;", $PUBLIC | $ABSTRACT, $virtualMethod(ObjectFactoryBuilder, createObjectFactory, $ObjectFactory*, Object$*, $Hashtable*), "javax.naming.NamingException"},
-	{}
-};
-
-$ClassInfo _ObjectFactoryBuilder_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.naming.spi.ObjectFactoryBuilder",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ObjectFactoryBuilder_MethodInfo_
-};
-
-$Object* allocate$ObjectFactoryBuilder($Class* clazz) {
-	return $of($alloc(ObjectFactoryBuilder));
-}
-
 $Class* ObjectFactoryBuilder::load$($String* name, bool initialize) {
-	$loadClass(ObjectFactoryBuilder, name, initialize, &_ObjectFactoryBuilder_ClassInfo_, allocate$ObjectFactoryBuilder);
+	$MethodInfo methodInfos$$[] = {
+		{"createObjectFactory", "(Ljava/lang/Object;Ljava/util/Hashtable;)Ljavax/naming/spi/ObjectFactory;", "(Ljava/lang/Object;Ljava/util/Hashtable<**>;)Ljavax/naming/spi/ObjectFactory;", $PUBLIC | $ABSTRACT, $virtualMethod(ObjectFactoryBuilder, createObjectFactory, $ObjectFactory*, Object$*, $Hashtable*), "javax.naming.NamingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.naming.spi.ObjectFactoryBuilder",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ObjectFactoryBuilder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectFactoryBuilder);
+	});
 	return class$;
 }
 

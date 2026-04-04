@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/GraphUtils$NodeVisitor.h>
-
 #include <com/sun/tools/javac/util/GraphUtils$DependencyKind.h>
 #include <com/sun/tools/javac/util/GraphUtils$Node.h>
 #include <com/sun/tools/javac/util/GraphUtils.h>
@@ -23,52 +22,16 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$MethodInfo _GraphUtils$NodeVisitor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(GraphUtils$NodeVisitor, init$, void)},
-	{"visit", "(Ljava/util/Collection;Ljava/lang/Object;)V", "(Ljava/util/Collection<+TN;>;TA;)V", $PUBLIC, $virtualMethod(GraphUtils$NodeVisitor, visit, void, $Collection*, Object$*)},
-	{"visitDependency", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;Lcom/sun/tools/javac/util/GraphUtils$Node;Lcom/sun/tools/javac/util/GraphUtils$Node;Ljava/lang/Object;)V", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;TN;TN;TA;)V", $PUBLIC | $ABSTRACT, $virtualMethod(GraphUtils$NodeVisitor, visitDependency, void, $GraphUtils$DependencyKind*, $GraphUtils$Node*, $GraphUtils$Node*, Object$*)},
-	{"visitNode", "(Lcom/sun/tools/javac/util/GraphUtils$Node;Ljava/lang/Object;)V", "(TN;TA;)V", $PUBLIC | $ABSTRACT, $virtualMethod(GraphUtils$NodeVisitor, visitNode, void, $GraphUtils$Node*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _GraphUtils$NodeVisitor_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.GraphUtils$NodeVisitor", "com.sun.tools.javac.util.GraphUtils", "NodeVisitor", $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.util.GraphUtils$Node", "com.sun.tools.javac.util.GraphUtils", "Node", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _GraphUtils$NodeVisitor_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.util.GraphUtils$NodeVisitor",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_GraphUtils$NodeVisitor_MethodInfo_,
-	"<D:Ljava/lang/Object;N::Lcom/sun/tools/javac/util/GraphUtils$Node<TD;TN;>;A:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_GraphUtils$NodeVisitor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.GraphUtils"
-};
-
-$Object* allocate$GraphUtils$NodeVisitor($Class* clazz) {
-	return $of($alloc(GraphUtils$NodeVisitor));
-}
-
 void GraphUtils$NodeVisitor::init$() {
 }
 
 void GraphUtils$NodeVisitor::visit($Collection* nodes, Object$* arg) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $$new($ArrayList, nodes)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($GraphUtils$Node, n, $cast($GraphUtils$Node, i$->next()));
-			{
-				$nc(n)->accept(this, arg);
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$new($ArrayList, nodes)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($GraphUtils$Node, n, $cast($GraphUtils$Node, i$->next()));
+		{
+			$nc(n)->accept(this, arg);
 		}
 	}
 }
@@ -77,7 +40,36 @@ GraphUtils$NodeVisitor::GraphUtils$NodeVisitor() {
 }
 
 $Class* GraphUtils$NodeVisitor::load$($String* name, bool initialize) {
-	$loadClass(GraphUtils$NodeVisitor, name, initialize, &_GraphUtils$NodeVisitor_ClassInfo_, allocate$GraphUtils$NodeVisitor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(GraphUtils$NodeVisitor, init$, void)},
+		{"visit", "(Ljava/util/Collection;Ljava/lang/Object;)V", "(Ljava/util/Collection<+TN;>;TA;)V", $PUBLIC, $virtualMethod(GraphUtils$NodeVisitor, visit, void, $Collection*, Object$*)},
+		{"visitDependency", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;Lcom/sun/tools/javac/util/GraphUtils$Node;Lcom/sun/tools/javac/util/GraphUtils$Node;Ljava/lang/Object;)V", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;TN;TN;TA;)V", $PUBLIC | $ABSTRACT, $virtualMethod(GraphUtils$NodeVisitor, visitDependency, void, $GraphUtils$DependencyKind*, $GraphUtils$Node*, $GraphUtils$Node*, Object$*)},
+		{"visitNode", "(Lcom/sun/tools/javac/util/GraphUtils$Node;Ljava/lang/Object;)V", "(TN;TA;)V", $PUBLIC | $ABSTRACT, $virtualMethod(GraphUtils$NodeVisitor, visitNode, void, $GraphUtils$Node*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.GraphUtils$NodeVisitor", "com.sun.tools.javac.util.GraphUtils", "NodeVisitor", $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.util.GraphUtils$Node", "com.sun.tools.javac.util.GraphUtils", "Node", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.util.GraphUtils$NodeVisitor",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<D:Ljava/lang/Object;N::Lcom/sun/tools/javac/util/GraphUtils$Node<TD;TN;>;A:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.GraphUtils"
+	};
+	$loadClass(GraphUtils$NodeVisitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GraphUtils$NodeVisitor);
+	});
 	return class$;
 }
 

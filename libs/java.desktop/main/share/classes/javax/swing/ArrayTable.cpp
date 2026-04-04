@@ -1,5 +1,4 @@
 #include <javax/swing/ArrayTable.h>
-
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/Serializable.h>
 #include <java/util/Enumeration.h>
@@ -21,58 +20,22 @@ using $ClientPropertyKey = ::javax::swing::ClientPropertyKey;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _ArrayTable_FieldInfo_[] = {
-	{"table", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(ArrayTable, table)},
-	{"ARRAY_BOUNDARY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArrayTable, ARRAY_BOUNDARY)},
-	{}
-};
-
-$MethodInfo _ArrayTable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ArrayTable, init$, void)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayTable, clear, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArrayTable, clone, $Object*)},
-	{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ArrayTable, containsKey, bool, Object$*)},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArrayTable, get, $Object*, Object$*)},
-	{"getKeys", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArrayTable, getKeys, $ObjectArray*, $ObjectArray*)},
-	{"grow", "()V", nullptr, $PRIVATE, $method(ArrayTable, grow, void)},
-	{"isArray", "()Z", nullptr, $PRIVATE, $method(ArrayTable, isArray, bool)},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ArrayTable, put, void, Object$*, Object$*)},
-	{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArrayTable, remove, $Object*, Object$*)},
-	{"shrink", "()V", nullptr, $PRIVATE, $method(ArrayTable, shrink, void)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayTable, size, int32_t)},
-	{"writeArrayTable", "(Ljava/io/ObjectOutputStream;Ljavax/swing/ArrayTable;)V", nullptr, $STATIC, $staticMethod(ArrayTable, writeArrayTable, void, $ObjectOutputStream*, ArrayTable*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ArrayTable_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.ArrayTable",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_ArrayTable_FieldInfo_,
-	_ArrayTable_MethodInfo_
-};
-
-$Object* allocate$ArrayTable($Class* clazz) {
-	return $of($alloc(ArrayTable));
-}
-
 void ArrayTable::init$() {
 	$set(this, table, nullptr);
 }
 
 void ArrayTable::writeArrayTable($ObjectOutputStream* s, ArrayTable* table) {
 	$init(ArrayTable);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, keys, nullptr);
-	if (table == nullptr || ($assign(keys, $nc(table)->getKeys(nullptr))) == nullptr) {
+	if (table == nullptr || ($assign(keys, table->getKeys(nullptr))) == nullptr) {
 		$nc(s)->writeInt(0);
 	} else {
 		int32_t validCount = 0;
 		for (int32_t counter = 0; counter < $nc(keys)->length; ++counter) {
 			$var($Object0, key, keys->get(counter));
-			bool var$0 = ($instanceOf($Serializable, key) && $instanceOf($Serializable, $(table->get(key))));
-			if (var$0 || ($instanceOf($ClientPropertyKey, key) && $nc(($cast($ClientPropertyKey, key)))->getReportValueNotSerializable())) {
+			bool var$0 = $instanceOf($Serializable, key) && $instanceOf($Serializable, $(table->get(key)));
+			if (var$0 || ($instanceOf($ClientPropertyKey, key) && $cast($ClientPropertyKey, key)->getReportValueNotSerializable())) {
 				++validCount;
 			} else {
 				keys->set(counter, nullptr);
@@ -80,20 +43,14 @@ void ArrayTable::writeArrayTable($ObjectOutputStream* s, ArrayTable* table) {
 		}
 		$nc(s)->writeInt(validCount);
 		if (validCount > 0) {
-			{
-				$var($ObjectArray, arr$, keys);
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					$var($Object0, key, arr$->get(i$));
-					{
-						if (key != nullptr) {
-							s->writeObject(key);
-							s->writeObject($(table->get(key)));
-							if (--validCount == 0) {
-								break;
-							}
-						}
+			$var($ObjectArray, arr$, keys);
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+				$var($Object0, key, arr$->get(i$));
+				if (key != nullptr) {
+					s->writeObject(key);
+					s->writeObject($(table->get(key)));
+					if (--validCount == 0) {
+						break;
 					}
 				}
 			}
@@ -102,7 +59,7 @@ void ArrayTable::writeArrayTable($ObjectOutputStream* s, ArrayTable* table) {
 }
 
 void ArrayTable::put(Object$* key, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->table == nullptr) {
 		$set(this, table, $new($ObjectArray, {
 			key,
@@ -114,7 +71,7 @@ void ArrayTable::put(Object$* key, Object$* value) {
 			if (containsKey(key)) {
 				$var($ObjectArray, tmp, $cast($ObjectArray, this->table));
 				for (int32_t i = 0; i < $nc(tmp)->length - 1; i += 2) {
-					if ($nc($of(tmp->get(i)))->equals(key)) {
+					if ($nc(tmp->get(i))->equals(key)) {
 						tmp->set(i + 1, value);
 						break;
 					}
@@ -139,22 +96,22 @@ void ArrayTable::put(Object$* key, Object$* value) {
 }
 
 $Object* ArrayTable::get(Object$* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, nullptr);
 	if (this->table != nullptr) {
 		if (isArray()) {
 			$var($ObjectArray, array, $cast($ObjectArray, this->table));
 			for (int32_t i = 0; i < $nc(array)->length - 1; i += 2) {
-				if ($nc($of(array->get(i)))->equals(key)) {
+				if ($nc(array->get(i))->equals(key)) {
 					$assign(value, array->get(i + 1));
 					break;
 				}
 			}
 		} else {
-			$assign(value, $nc(($cast($Hashtable, this->table)))->get(key));
+			$assign(value, $nc($cast($Hashtable, this->table))->get(key));
 		}
 	}
-	return $of(value);
+	return value;
 }
 
 int32_t ArrayTable::size() {
@@ -163,9 +120,9 @@ int32_t ArrayTable::size() {
 		return 0;
 	}
 	if (isArray()) {
-		size = $nc(($cast($ObjectArray, this->table)))->length / 2;
+		size = $nc($cast($ObjectArray, this->table))->length / 2;
 	} else {
-		size = $nc(($cast($Hashtable, this->table)))->size();
+		size = $nc($cast($Hashtable, this->table))->size();
 	}
 	return size;
 }
@@ -176,30 +133,30 @@ bool ArrayTable::containsKey(Object$* key) {
 		if (isArray()) {
 			$var($ObjectArray, array, $cast($ObjectArray, this->table));
 			for (int32_t i = 0; i < $nc(array)->length - 1; i += 2) {
-				if ($nc($of(array->get(i)))->equals(key)) {
+				if ($nc(array->get(i))->equals(key)) {
 					contains = true;
 					break;
 				}
 			}
 		} else {
-			contains = $nc(($cast($Hashtable, this->table)))->containsKey(key);
+			contains = $nc($cast($Hashtable, this->table))->containsKey(key);
 		}
 	}
 	return contains;
 }
 
 $Object* ArrayTable::remove(Object$* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, nullptr);
 	if (key == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	if (this->table != nullptr) {
 		if (isArray()) {
 			int32_t index = -1;
 			$var($ObjectArray, array, $cast($ObjectArray, this->table));
 			for (int32_t i = $nc(array)->length - 2; i >= 0; i -= 2) {
-				if ($nc($of(array->get(i)))->equals(key)) {
+				if ($nc(array->get(i))->equals(key)) {
 					index = i;
 					$assign(value, array->get(i + 1));
 					break;
@@ -214,14 +171,14 @@ $Object* ArrayTable::remove(Object$* key) {
 				$set(this, table, (tmp->length == 0) ? ($Object*)nullptr : $of(tmp));
 			}
 		} else {
-			$assign(value, $nc(($cast($Hashtable, this->table)))->remove(key));
+			$assign(value, $nc($cast($Hashtable, this->table))->remove(key));
 		}
 		bool var$0 = size() == ArrayTable::ARRAY_BOUNDARY - 1;
 		if (var$0 && !isArray()) {
 			shrink();
 		}
 	}
-	return $of(value);
+	return value;
 }
 
 void ArrayTable::clear() {
@@ -229,7 +186,7 @@ void ArrayTable::clear() {
 }
 
 $Object* ArrayTable::clone() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(ArrayTable, newArrayTable, $new(ArrayTable));
 	if (this->table != nullptr) {
 		if (isArray()) {
@@ -246,11 +203,11 @@ $Object* ArrayTable::clone() {
 			}
 		}
 	}
-	return $of(newArrayTable);
+	return newArrayTable;
 }
 
 $ObjectArray* ArrayTable::getKeys($ObjectArray* keys$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, keys, keys$renamed);
 	if (this->table == nullptr) {
 		return nullptr;
@@ -260,12 +217,8 @@ $ObjectArray* ArrayTable::getKeys($ObjectArray* keys$renamed) {
 		if (keys == nullptr) {
 			$assign(keys, $new($ObjectArray, $nc(array)->length / 2));
 		}
-		{
-			int32_t i = 0;
-			int32_t index = 0;
-			for (; i < $nc(array)->length - 1; i += 2, ++index) {
-				$nc(keys)->set(index, array->get(i));
-			}
+		for (int32_t i = 0, index = 0; i < $nc(array)->length - 1; i += 2, ++index) {
+			$nc(keys)->set(index, array->get(i));
 		}
 	} else {
 		$var($Hashtable, tmp, $cast($Hashtable, this->table));
@@ -286,17 +239,17 @@ bool ArrayTable::isArray() {
 }
 
 void ArrayTable::grow() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, array, $cast($ObjectArray, this->table));
 	$var($Hashtable, tmp, $new($Hashtable, $nc(array)->length / 2));
-	for (int32_t i = 0; i < $nc(array)->length; i += 2) {
+	for (int32_t i = 0; i < array->length; i += 2) {
 		tmp->put(array->get(i), array->get(i + 1));
 	}
 	$set(this, table, tmp);
 }
 
 void ArrayTable::shrink() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Hashtable, tmp, $cast($Hashtable, this->table));
 	$var($ObjectArray, array, $new($ObjectArray, $nc(tmp)->size() * 2));
 	$var($Enumeration, keys, tmp->keys());
@@ -314,7 +267,38 @@ ArrayTable::ArrayTable() {
 }
 
 $Class* ArrayTable::load$($String* name, bool initialize) {
-	$loadClass(ArrayTable, name, initialize, &_ArrayTable_ClassInfo_, allocate$ArrayTable);
+	$FieldInfo fieldInfos$$[] = {
+		{"table", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(ArrayTable, table)},
+		{"ARRAY_BOUNDARY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArrayTable, ARRAY_BOUNDARY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ArrayTable, init$, void)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayTable, clear, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArrayTable, clone, $Object*)},
+		{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ArrayTable, containsKey, bool, Object$*)},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArrayTable, get, $Object*, Object$*)},
+		{"getKeys", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArrayTable, getKeys, $ObjectArray*, $ObjectArray*)},
+		{"grow", "()V", nullptr, $PRIVATE, $method(ArrayTable, grow, void)},
+		{"isArray", "()Z", nullptr, $PRIVATE, $method(ArrayTable, isArray, bool)},
+		{"put", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ArrayTable, put, void, Object$*, Object$*)},
+		{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArrayTable, remove, $Object*, Object$*)},
+		{"shrink", "()V", nullptr, $PRIVATE, $method(ArrayTable, shrink, void)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayTable, size, int32_t)},
+		{"writeArrayTable", "(Ljava/io/ObjectOutputStream;Ljavax/swing/ArrayTable;)V", nullptr, $STATIC, $staticMethod(ArrayTable, writeArrayTable, void, $ObjectOutputStream*, ArrayTable*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.ArrayTable",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ArrayTable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArrayTable);
+	});
 	return class$;
 }
 

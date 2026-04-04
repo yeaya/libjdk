@@ -1,5 +1,4 @@
 #include <javax/swing/RowFilter$NumberFilter.h>
-
 #include <java/lang/Comparable.h>
 #include <java/lang/Number.h>
 #include <javax/swing/RowFilter$1.h>
@@ -24,46 +23,6 @@ using $RowFilter$GeneralFilter = ::javax::swing::RowFilter$GeneralFilter;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _RowFilter$NumberFilter_FieldInfo_[] = {
-	{"isComparable", "Z", nullptr, $PRIVATE, $field(RowFilter$NumberFilter, isComparable)},
-	{"number", "Ljava/lang/Number;", nullptr, $PRIVATE, $field(RowFilter$NumberFilter, number)},
-	{"type", "Ljavax/swing/RowFilter$ComparisonType;", nullptr, $PRIVATE, $field(RowFilter$NumberFilter, type)},
-	{}
-};
-
-$MethodInfo _RowFilter$NumberFilter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/RowFilter$ComparisonType;Ljava/lang/Number;[I)V", nullptr, 0, $method(RowFilter$NumberFilter, init$, void, $RowFilter$ComparisonType*, $Number*, $ints*)},
-	{"include", "(Ljavax/swing/RowFilter$Entry;I)Z", "(Ljavax/swing/RowFilter$Entry<+TM;+TI;>;I)Z", $PROTECTED, $virtualMethod(RowFilter$NumberFilter, include, bool, $RowFilter$Entry*, int32_t)},
-	{"longCompare", "(Ljava/lang/Number;)I", nullptr, $PRIVATE, $method(RowFilter$NumberFilter, longCompare, int32_t, $Number*)},
-	{}
-};
-
-$InnerClassInfo _RowFilter$NumberFilter_InnerClassesInfo_[] = {
-	{"javax.swing.RowFilter$NumberFilter", "javax.swing.RowFilter", "NumberFilter", $PRIVATE | $STATIC},
-	{"javax.swing.RowFilter$GeneralFilter", "javax.swing.RowFilter", "GeneralFilter", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RowFilter$NumberFilter_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.RowFilter$NumberFilter",
-	"javax.swing.RowFilter$GeneralFilter",
-	nullptr,
-	_RowFilter$NumberFilter_FieldInfo_,
-	_RowFilter$NumberFilter_MethodInfo_,
-	"<M:Ljava/lang/Object;I:Ljava/lang/Object;>Ljavax/swing/RowFilter$GeneralFilter<TM;TI;>;",
-	nullptr,
-	_RowFilter$NumberFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.RowFilter"
-};
-
-$Object* allocate$RowFilter$NumberFilter($Class* clazz) {
-	return $of($alloc(RowFilter$NumberFilter));
-}
-
 void RowFilter$NumberFilter::init$($RowFilter$ComparisonType* type, $Number* number, $ints* columns) {
 	$RowFilter$GeneralFilter::init$(columns);
 	if (type == nullptr || number == nullptr) {
@@ -79,34 +38,24 @@ bool RowFilter$NumberFilter::include($RowFilter$Entry* value, int32_t index) {
 	if ($instanceOf($Number, v)) {
 		bool compared = true;
 		int32_t compareResult = 0;
-		$Class* vClass = $nc($of(v))->getClass();
-		if ($nc($of(this->number))->getClass() == vClass && this->isComparable) {
-			compareResult = $nc(($cast($Comparable, this->number)))->compareTo(v);
+		$Class* vClass = v->getClass();
+		if ($nc(this->number)->getClass() == vClass && this->isComparable) {
+			compareResult = $cast($Comparable, this->number)->compareTo(v);
 		} else {
 			compareResult = longCompare($cast($Number, v));
 		}
 		$init($RowFilter$1);
 		switch ($nc($RowFilter$1::$SwitchMap$javax$swing$RowFilter$ComparisonType)->get($nc((this->type))->ordinal())) {
 		case 1:
-			{
-				return (compareResult > 0);
-			}
+			return (compareResult > 0);
 		case 2:
-			{
-				return (compareResult < 0);
-			}
+			return (compareResult < 0);
 		case 3:
-			{
-				return (compareResult == 0);
-			}
+			return (compareResult == 0);
 		case 4:
-			{
-				return (compareResult != 0);
-			}
+			return (compareResult != 0);
 		default:
-			{
-				break;
-			}
+			break;
 		}
 	}
 	return false;
@@ -127,7 +76,41 @@ RowFilter$NumberFilter::RowFilter$NumberFilter() {
 }
 
 $Class* RowFilter$NumberFilter::load$($String* name, bool initialize) {
-	$loadClass(RowFilter$NumberFilter, name, initialize, &_RowFilter$NumberFilter_ClassInfo_, allocate$RowFilter$NumberFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"isComparable", "Z", nullptr, $PRIVATE, $field(RowFilter$NumberFilter, isComparable)},
+		{"number", "Ljava/lang/Number;", nullptr, $PRIVATE, $field(RowFilter$NumberFilter, number)},
+		{"type", "Ljavax/swing/RowFilter$ComparisonType;", nullptr, $PRIVATE, $field(RowFilter$NumberFilter, type)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/RowFilter$ComparisonType;Ljava/lang/Number;[I)V", nullptr, 0, $method(RowFilter$NumberFilter, init$, void, $RowFilter$ComparisonType*, $Number*, $ints*)},
+		{"include", "(Ljavax/swing/RowFilter$Entry;I)Z", "(Ljavax/swing/RowFilter$Entry<+TM;+TI;>;I)Z", $PROTECTED, $virtualMethod(RowFilter$NumberFilter, include, bool, $RowFilter$Entry*, int32_t)},
+		{"longCompare", "(Ljava/lang/Number;)I", nullptr, $PRIVATE, $method(RowFilter$NumberFilter, longCompare, int32_t, $Number*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.RowFilter$NumberFilter", "javax.swing.RowFilter", "NumberFilter", $PRIVATE | $STATIC},
+		{"javax.swing.RowFilter$GeneralFilter", "javax.swing.RowFilter", "GeneralFilter", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.RowFilter$NumberFilter",
+		"javax.swing.RowFilter$GeneralFilter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<M:Ljava/lang/Object;I:Ljava/lang/Object;>Ljavax/swing/RowFilter$GeneralFilter<TM;TI;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.RowFilter"
+	};
+	$loadClass(RowFilter$NumberFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RowFilter$NumberFilter);
+	});
 	return class$;
 }
 

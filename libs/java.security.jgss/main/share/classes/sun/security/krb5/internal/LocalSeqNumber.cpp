@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/LocalSeqNumber.h>
-
 #include <sun/security/krb5/Confounder.h>
 #include <jcpp.h>
 
@@ -13,36 +12,6 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 			namespace internal {
-
-$FieldInfo _LocalSeqNumber_FieldInfo_[] = {
-	{"lastSeqNumber", "I", nullptr, $PRIVATE, $field(LocalSeqNumber, lastSeqNumber)},
-	{}
-};
-
-$MethodInfo _LocalSeqNumber_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocalSeqNumber, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(LocalSeqNumber, init$, void, int32_t)},
-	{"<init>", "(Ljava/lang/Integer;)V", nullptr, $PUBLIC, $method(LocalSeqNumber, init$, void, $Integer*)},
-	{"current", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(LocalSeqNumber, current, int32_t)},
-	{"init", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(LocalSeqNumber, init, void, int32_t)},
-	{"next", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(LocalSeqNumber, next, int32_t)},
-	{"randInit", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(LocalSeqNumber, randInit, void)},
-	{"step", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(LocalSeqNumber, step, int32_t)},
-	{}
-};
-
-$ClassInfo _LocalSeqNumber_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.LocalSeqNumber",
-	"java.lang.Object",
-	"sun.security.krb5.internal.SeqNumber",
-	_LocalSeqNumber_FieldInfo_,
-	_LocalSeqNumber_MethodInfo_
-};
-
-$Object* allocate$LocalSeqNumber($Class* clazz) {
-	return $of($alloc(LocalSeqNumber));
-}
 
 void LocalSeqNumber::init$() {
 	randInit();
@@ -59,8 +28,8 @@ void LocalSeqNumber::init$($Integer* start) {
 void LocalSeqNumber::randInit() {
 	$synchronized(this) {
 		$var($bytes, data, $Confounder::bytes(4));
-		$nc(data)->set(0, (int8_t)((int32_t)(data->get(0) & (uint32_t)63)));
-		int32_t result = (((((int32_t)(data->get(3) & (uint32_t)255)) | (((int32_t)(data->get(2) & (uint32_t)255)) << 8)) | (((int32_t)(data->get(1) & (uint32_t)255)) << 16)) | (((int32_t)(data->get(0) & (uint32_t)255)) << 24));
+		$nc(data)->set(0, (int8_t)($nc(data)->get(0) & 0x3f));
+		int32_t result = ((((data->get(3) & 0xff) | ((data->get(2) & 0xff) << 8)) | ((data->get(1) & 0xff) << 16)) | ((data->get(0) & 0xff) << 24));
 		if (result == 0) {
 			result = 1;
 		}
@@ -96,7 +65,32 @@ LocalSeqNumber::LocalSeqNumber() {
 }
 
 $Class* LocalSeqNumber::load$($String* name, bool initialize) {
-	$loadClass(LocalSeqNumber, name, initialize, &_LocalSeqNumber_ClassInfo_, allocate$LocalSeqNumber);
+	$FieldInfo fieldInfos$$[] = {
+		{"lastSeqNumber", "I", nullptr, $PRIVATE, $field(LocalSeqNumber, lastSeqNumber)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocalSeqNumber, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(LocalSeqNumber, init$, void, int32_t)},
+		{"<init>", "(Ljava/lang/Integer;)V", nullptr, $PUBLIC, $method(LocalSeqNumber, init$, void, $Integer*)},
+		{"current", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(LocalSeqNumber, current, int32_t)},
+		{"init", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(LocalSeqNumber, init, void, int32_t)},
+		{"next", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(LocalSeqNumber, next, int32_t)},
+		{"randInit", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(LocalSeqNumber, randInit, void)},
+		{"step", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(LocalSeqNumber, step, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.LocalSeqNumber",
+		"java.lang.Object",
+		"sun.security.krb5.internal.SeqNumber",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LocalSeqNumber, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocalSeqNumber);
+	});
 	return class$;
 }
 

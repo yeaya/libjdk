@@ -1,5 +1,4 @@
 #include <java/awt/image/VolatileImage.h>
-
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/GraphicsConfiguration.h>
@@ -31,47 +30,6 @@ namespace java {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _VolatileImage_FieldInfo_[] = {
-	{"IMAGE_OK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(VolatileImage, IMAGE_OK)},
-	{"IMAGE_RESTORED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(VolatileImage, IMAGE_RESTORED)},
-	{"IMAGE_INCOMPATIBLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(VolatileImage, IMAGE_INCOMPATIBLE)},
-	{"transparency", "I", nullptr, $PROTECTED, $field(VolatileImage, transparency)},
-	{}
-};
-
-$MethodInfo _VolatileImage_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(VolatileImage, init$, void)},
-	{"contentsLost", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VolatileImage, contentsLost, bool)},
-	{"createGraphics", "()Ljava/awt/Graphics2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VolatileImage, createGraphics, $Graphics2D*)},
-	{"getCapabilities", "()Ljava/awt/ImageCapabilities;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VolatileImage, getCapabilities, $ImageCapabilities*)},
-	{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(VolatileImage, getGraphics, $Graphics*)},
-	{"getHeight", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VolatileImage, getHeight, int32_t)},
-	{"getSnapshot", "()Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VolatileImage, getSnapshot, $BufferedImage*)},
-	{"getSource", "()Ljava/awt/image/ImageProducer;", nullptr, $PUBLIC, $virtualMethod(VolatileImage, getSource, $ImageProducer*)},
-	{"getTransparency", "()I", nullptr, $PUBLIC, $virtualMethod(VolatileImage, getTransparency, int32_t)},
-	{"getWidth", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VolatileImage, getWidth, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"validate", "(Ljava/awt/GraphicsConfiguration;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VolatileImage, validate, int32_t, $GraphicsConfiguration*)},
-	{}
-};
-
-$ClassInfo _VolatileImage_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.image.VolatileImage",
-	"java.awt.Image",
-	"java.awt.Transparency",
-	_VolatileImage_FieldInfo_,
-	_VolatileImage_MethodInfo_
-};
-
-$Object* allocate$VolatileImage($Class* clazz) {
-	return $of($alloc(VolatileImage));
-}
-
 int32_t VolatileImage::hashCode() {
 	 return this->$Image::hashCode();
 }
@@ -98,7 +56,7 @@ void VolatileImage::init$() {
 }
 
 $ImageProducer* VolatileImage::getSource() {
-	return $nc($(getSnapshot()))->getSource();
+	return $$nc(getSnapshot())->getSource();
 }
 
 $Graphics* VolatileImage::getGraphics() {
@@ -113,7 +71,43 @@ VolatileImage::VolatileImage() {
 }
 
 $Class* VolatileImage::load$($String* name, bool initialize) {
-	$loadClass(VolatileImage, name, initialize, &_VolatileImage_ClassInfo_, allocate$VolatileImage);
+	$FieldInfo fieldInfos$$[] = {
+		{"IMAGE_OK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(VolatileImage, IMAGE_OK)},
+		{"IMAGE_RESTORED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(VolatileImage, IMAGE_RESTORED)},
+		{"IMAGE_INCOMPATIBLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(VolatileImage, IMAGE_INCOMPATIBLE)},
+		{"transparency", "I", nullptr, $PROTECTED, $field(VolatileImage, transparency)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(VolatileImage, init$, void)},
+		{"contentsLost", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VolatileImage, contentsLost, bool)},
+		{"createGraphics", "()Ljava/awt/Graphics2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VolatileImage, createGraphics, $Graphics2D*)},
+		{"getCapabilities", "()Ljava/awt/ImageCapabilities;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VolatileImage, getCapabilities, $ImageCapabilities*)},
+		{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(VolatileImage, getGraphics, $Graphics*)},
+		{"getHeight", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VolatileImage, getHeight, int32_t)},
+		{"getSnapshot", "()Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VolatileImage, getSnapshot, $BufferedImage*)},
+		{"getSource", "()Ljava/awt/image/ImageProducer;", nullptr, $PUBLIC, $virtualMethod(VolatileImage, getSource, $ImageProducer*)},
+		{"getTransparency", "()I", nullptr, $PUBLIC, $virtualMethod(VolatileImage, getTransparency, int32_t)},
+		{"getWidth", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VolatileImage, getWidth, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"validate", "(Ljava/awt/GraphicsConfiguration;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VolatileImage, validate, int32_t, $GraphicsConfiguration*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.image.VolatileImage",
+		"java.awt.Image",
+		"java.awt.Transparency",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(VolatileImage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(VolatileImage));
+	});
 	return class$;
 }
 

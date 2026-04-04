@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/LocaleNames_ar_EG.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,34 +13,15 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _LocaleNames_ar_EG_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_ar_EG, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_ar_EG, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _LocaleNames_ar_EG_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.LocaleNames_ar_EG",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_LocaleNames_ar_EG_MethodInfo_
-};
-
-$Object* allocate$LocaleNames_ar_EG($Class* clazz) {
-	return $of($alloc(LocaleNames_ar_EG));
-}
-
 void LocaleNames_ar_EG::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* LocaleNames_ar_EG::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {$$new($ObjectArray, {
-		$of("da"_s),
-		$of(u"الدنماركية"_s)
+		"da"_s,
+		u"الدنماركية"_s
 	})}));
 	return data;
 }
@@ -50,7 +30,22 @@ LocaleNames_ar_EG::LocaleNames_ar_EG() {
 }
 
 $Class* LocaleNames_ar_EG::load$($String* name, bool initialize) {
-	$loadClass(LocaleNames_ar_EG, name, initialize, &_LocaleNames_ar_EG_ClassInfo_, allocate$LocaleNames_ar_EG);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_ar_EG, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_ar_EG, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.LocaleNames_ar_EG",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNames_ar_EG, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNames_ar_EG);
+	});
 	return class$;
 }
 

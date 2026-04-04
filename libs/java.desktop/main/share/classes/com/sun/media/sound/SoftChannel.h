@@ -49,6 +49,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::media::sound::SoftSynthesizer* synth, int32_t channel);
 	virtual void allNotesOff() override;
 	virtual void allSoundOff() override;

@@ -40,6 +40,7 @@ class JdkProperty$ImplPropMap : public ::java::lang::Enum {
 public:
 	JdkProperty$ImplPropMap();
 	static $Array<::jdk::xml::internal::JdkProperty$ImplPropMap>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* name, $String* qName, $String* spName, bool differ, $String* oldQName, $String* oldSPName);
 	virtual ::jdk::xml::internal::JdkProperty$State* getState($String* name);
 	virtual bool is($String* name);

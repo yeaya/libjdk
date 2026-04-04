@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/ResponseContent$ChunkedBodyParser.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
@@ -16,7 +15,6 @@
 #include <java/util/Collections.h>
 #include <java/util/List.h>
 #include <java/util/concurrent/Flow$Subscriber.h>
-#include <java/util/concurrent/Flow$Subscription.h>
 #include <java/util/function/Consumer.h>
 #include <java/util/function/Supplier.h>
 #include <jdk/internal/net/http/AbstractSubscription.h>
@@ -46,19 +44,15 @@ using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $HttpResponse$BodySubscriber = ::java::net::http::HttpResponse$BodySubscriber;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
 using $List = ::java::util::List;
-using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $Consumer = ::java::util::function::Consumer;
 using $Supplier = ::java::util::function::Supplier;
 using $AbstractSubscription = ::jdk::internal::net::http::AbstractSubscription;
 using $ResponseContent = ::jdk::internal::net::http::ResponseContent;
 using $ResponseContent$ChunkState = ::jdk::internal::net::http::ResponseContent$ChunkState;
-using $Demand = ::jdk::internal::net::http::common::Demand;
-using $Logger = ::jdk::internal::net::http::common::Logger;
 using $Utils = ::jdk::internal::net::http::common::Utils;
 
 namespace jdk {
@@ -75,33 +69,29 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->dbgString());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ResponseContent$ChunkedBodyParser$$Lambda$dbgString>());
-	}
 	ResponseContent$ChunkedBodyParser* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ResponseContent$ChunkedBodyParser$$Lambda$dbgString::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ResponseContent$ChunkedBodyParser$$Lambda$dbgString, inst$)},
-	{}
-};
-$MethodInfo ResponseContent$ChunkedBodyParser$$Lambda$dbgString::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/ResponseContent$ChunkedBodyParser;)V", nullptr, $PUBLIC, $method(ResponseContent$ChunkedBodyParser$$Lambda$dbgString, init$, void, ResponseContent$ChunkedBodyParser*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseContent$ChunkedBodyParser$$Lambda$dbgString, get, $Object*)},
-	{}
-};
-$ClassInfo ResponseContent$ChunkedBodyParser$$Lambda$dbgString::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.ResponseContent$ChunkedBodyParser$$Lambda$dbgString",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* ResponseContent$ChunkedBodyParser$$Lambda$dbgString::load$($String* name, bool initialize) {
-	$loadClass(ResponseContent$ChunkedBodyParser$$Lambda$dbgString, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ResponseContent$ChunkedBodyParser$$Lambda$dbgString, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/ResponseContent$ChunkedBodyParser;)V", nullptr, $PUBLIC, $method(ResponseContent$ChunkedBodyParser$$Lambda$dbgString, init$, void, ResponseContent$ChunkedBodyParser*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseContent$ChunkedBodyParser$$Lambda$dbgString, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.ResponseContent$ChunkedBodyParser$$Lambda$dbgString",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResponseContent$ChunkedBodyParser$$Lambda$dbgString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseContent$ChunkedBodyParser$$Lambda$dbgString);
+	});
 	return class$;
 }
 $Class* ResponseContent$ChunkedBodyParser$$Lambda$dbgString::class$ = nullptr;
@@ -115,99 +105,32 @@ public:
 	virtual $Object* get() override {
 		 return $of(ResponseContent$ChunkedBodyParser::lambda$tryReadOneHunk$0(chunk));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1>());
-	}
 	$ByteBuffer* chunk = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1::fieldInfos[2] = {
-	{"chunk", "Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $field(ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1, chunk)},
-	{}
-};
-$MethodInfo ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1, init$, void, $ByteBuffer*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1, get, $Object*)},
-	{}
-};
-$ClassInfo ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1::load$($String* name, bool initialize) {
-	$loadClass(ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"chunk", "Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $field(ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1, chunk)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1, init$, void, $ByteBuffer*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1);
+	});
 	return class$;
 }
 $Class* ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1::class$ = nullptr;
-
-$FieldInfo _ResponseContent$ChunkedBodyParser_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/net/http/ResponseContent;", nullptr, $FINAL | $SYNTHETIC, $field(ResponseContent$ChunkedBodyParser, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ResponseContent$ChunkedBodyParser, $assertionsDisabled)},
-	{"READMORE", "Ljava/nio/ByteBuffer;", nullptr, $FINAL, $field(ResponseContent$ChunkedBodyParser, READMORE)},
-	{"onComplete", "Ljava/util/function/Consumer;", "Ljava/util/function/Consumer<Ljava/lang/Throwable;>;", $FINAL, $field(ResponseContent$ChunkedBodyParser, onComplete)},
-	{"debug", "Ljdk/internal/net/http/common/Logger;", nullptr, $FINAL, $field(ResponseContent$ChunkedBodyParser, debug)},
-	{"dbgTag", "Ljava/lang/String;", nullptr, $FINAL, $field(ResponseContent$ChunkedBodyParser, dbgTag)},
-	{"closedExceptionally", "Ljava/lang/Throwable;", nullptr, $VOLATILE, $field(ResponseContent$ChunkedBodyParser, closedExceptionally)},
-	{"partialChunklen", "I", nullptr, $VOLATILE, $field(ResponseContent$ChunkedBodyParser, partialChunklen)},
-	{"chunklen", "I", nullptr, $VOLATILE, $field(ResponseContent$ChunkedBodyParser, chunklen)},
-	{"bytesremaining", "I", nullptr, $VOLATILE, $field(ResponseContent$ChunkedBodyParser, bytesremaining)},
-	{"cr", "Z", nullptr, $VOLATILE, $field(ResponseContent$ChunkedBodyParser, cr)},
-	{"chunkext", "I", nullptr, $VOLATILE, $field(ResponseContent$ChunkedBodyParser, chunkext)},
-	{"digits", "I", nullptr, $VOLATILE, $field(ResponseContent$ChunkedBodyParser, digits)},
-	{"bytesToConsume", "I", nullptr, $VOLATILE, $field(ResponseContent$ChunkedBodyParser, bytesToConsume)},
-	{"state", "Ljdk/internal/net/http/ResponseContent$ChunkState;", nullptr, $VOLATILE, $field(ResponseContent$ChunkedBodyParser, state)},
-	{"sub", "Ljdk/internal/net/http/AbstractSubscription;", nullptr, $VOLATILE, $field(ResponseContent$ChunkedBodyParser, sub)},
-	{}
-};
-
-$MethodInfo _ResponseContent$ChunkedBodyParser_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/ResponseContent;Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<Ljava/lang/Throwable;>;)V", 0, $method(ResponseContent$ChunkedBodyParser, init$, void, $ResponseContent*, $Consumer*)},
-	{"accept", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ResponseContent$ChunkedBodyParser, accept, void, $ByteBuffer*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseContent$ChunkedBodyParser, accept, void, Object$*)},
-	{"currentStateMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResponseContent$ChunkedBodyParser, currentStateMessage, $String*)},
-	{"dbgString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ResponseContent$ChunkedBodyParser, dbgString, $String*)},
-	{"debugBuffer", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(ResponseContent$ChunkedBodyParser, debugBuffer, void, $ByteBuffer*)},
-	{"lambda$tryReadOneHunk$0", "(Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResponseContent$ChunkedBodyParser, lambda$tryReadOneHunk$0, $String*, $ByteBuffer*)},
-	{"onSubscribe", "(Ljdk/internal/net/http/AbstractSubscription;)V", nullptr, $PUBLIC, $virtualMethod(ResponseContent$ChunkedBodyParser, onSubscribe, void, $AbstractSubscription*)},
-	{"toDigit", "(I)I", nullptr, $PRIVATE, $method(ResponseContent$ChunkedBodyParser, toDigit, int32_t, int32_t), "java.io.IOException"},
-	{"tryConsumeBytes", "(Ljava/nio/ByteBuffer;)I", nullptr, $PRIVATE, $method(ResponseContent$ChunkedBodyParser, tryConsumeBytes, int32_t, $ByteBuffer*), "java.io.IOException"},
-	{"tryPushOneHunk", "(Ljava/nio/ByteBuffer;Ljava/util/List;)Z", "(Ljava/nio/ByteBuffer;Ljava/util/List<Ljava/nio/ByteBuffer;>;)Z", $PRIVATE, $method(ResponseContent$ChunkedBodyParser, tryPushOneHunk, bool, $ByteBuffer*, $List*), "java.io.IOException"},
-	{"tryReadChunkLen", "(Ljava/nio/ByteBuffer;)I", nullptr, $PRIVATE, $method(ResponseContent$ChunkedBodyParser, tryReadChunkLen, int32_t, $ByteBuffer*), "java.io.IOException"},
-	{"tryReadOneHunk", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, 0, $virtualMethod(ResponseContent$ChunkedBodyParser, tryReadOneHunk, $ByteBuffer*, $ByteBuffer*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ResponseContent$ChunkedBodyParser_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.ResponseContent$ChunkedBodyParser", "jdk.internal.net.http.ResponseContent", "ChunkedBodyParser", 0},
-	{"jdk.internal.net.http.ResponseContent$BodyParser", "jdk.internal.net.http.ResponseContent", "BodyParser", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ResponseContent$ChunkedBodyParser_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.ResponseContent$ChunkedBodyParser",
-	"java.lang.Object",
-	"jdk.internal.net.http.ResponseContent$BodyParser",
-	_ResponseContent$ChunkedBodyParser_FieldInfo_,
-	_ResponseContent$ChunkedBodyParser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ResponseContent$ChunkedBodyParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.ResponseContent"
-};
-
-$Object* allocate$ResponseContent$ChunkedBodyParser($Class* clazz) {
-	return $of($alloc(ResponseContent$ChunkedBodyParser));
-}
 
 bool ResponseContent$ChunkedBodyParser::$assertionsDisabled = false;
 
@@ -215,7 +138,7 @@ void ResponseContent$ChunkedBodyParser::init$($ResponseContent* this$0, $Consume
 	$set(this, this$0, this$0);
 	$init($Utils);
 	$set(this, READMORE, $Utils::EMPTY_BYTEBUFFER);
-	$set(this, debug, $Utils::getDebugLogger(static_cast<$Supplier*>($$new(ResponseContent$ChunkedBodyParser$$Lambda$dbgString, this)), $Utils::DEBUG));
+	$set(this, debug, $Utils::getDebugLogger($$new(ResponseContent$ChunkedBodyParser$$Lambda$dbgString, this), $Utils::DEBUG));
 	$set(this, dbgTag, $str({this->this$0->dbgTag, "/ChunkedBodyParser"_s}));
 	this->partialChunklen = 0;
 	this->chunklen = -1;
@@ -232,7 +155,7 @@ $String* ResponseContent$ChunkedBodyParser::dbgString() {
 }
 
 void ResponseContent$ChunkedBodyParser::debugBuffer($ByteBuffer* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(this->debug)->on()) {
 		return;
 	}
@@ -249,26 +172,26 @@ void ResponseContent$ChunkedBodyParser::debugBuffer($ByteBuffer* b) {
 		x->printStackTrace();
 	}
 	$plusAssign(msg, "\n==========================================\n"_s);
-	$nc(this->debug)->log(msg);
+	this->debug->log(msg);
 }
 
 void ResponseContent$ChunkedBodyParser::onSubscribe($AbstractSubscription* sub) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->debug)->on()) {
-		$nc(this->debug)->log($$str({"onSubscribe: "_s, $($nc($of(this->this$0->pusher))->getClass()->getName())}));
+		this->debug->log($$str({"onSubscribe: "_s, $($nc(this->this$0->pusher)->getClass()->getName())}));
 	}
-	$nc(this->this$0->pusher)->onSubscribe(($set(this, sub, sub)));
+	$nc(this->this$0->pusher)->onSubscribe($set(this, sub, sub));
 }
 
 $String* ResponseContent$ChunkedBodyParser::currentStateMessage() {
-	return $String::format("chunked transfer encoding, state: %s"_s, $$new($ObjectArray, {$of(this->state)}));
+	return $String::format("chunked transfer encoding, state: %s"_s, $$new($ObjectArray, {this->state}));
 }
 
 void ResponseContent$ChunkedBodyParser::accept($ByteBuffer* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->closedExceptionally != nullptr) {
 		if ($nc(this->debug)->on()) {
-			$nc(this->debug)->log($$str({"already closed: "_s, this->closedExceptionally}));
+			this->debug->log($$str({"already closed: "_s, this->closedExceptionally}));
 		}
 		return;
 	}
@@ -278,17 +201,17 @@ void ResponseContent$ChunkedBodyParser::accept($ByteBuffer* b) {
 		do {
 			if (tryPushOneHunk(b, out)) {
 				if (!out->isEmpty()) {
-					bool hasDemand = $nc($($nc(this->sub)->demand()))->tryDecrement();
+					bool hasDemand = $$nc($nc(this->sub)->demand())->tryDecrement();
 					if (!ResponseContent$ChunkedBodyParser::$assertionsDisabled && !hasDemand) {
 						$throwNew($AssertionError);
 					}
 					$nc(this->this$0->pusher)->onNext($($Collections::unmodifiableList(out)));
 					if ($nc(this->debug)->on()) {
-						$nc(this->debug)->log("Chunks sent"_s);
+						this->debug->log("Chunks sent"_s);
 					}
 				}
 				if ($nc(this->debug)->on()) {
-					$nc(this->debug)->log("done!"_s);
+					this->debug->log("done!"_s);
 				}
 				if (!ResponseContent$ChunkedBodyParser::$assertionsDisabled && !(this->closedExceptionally == nullptr)) {
 					$throwNew($AssertionError);
@@ -299,8 +222,8 @@ void ResponseContent$ChunkedBodyParser::accept($ByteBuffer* b) {
 				}
 				$nc(this->this$0->onFinished)->run();
 				$nc(this->this$0->pusher)->onComplete();
-				if ($nc(this->debug)->on()) {
-					$nc(this->debug)->log("subscriber completed"_s);
+				if (this->debug->on()) {
+					this->debug->log("subscriber completed"_s);
 				}
 				completed = true;
 				$nc(this->onComplete)->accept(this->closedExceptionally);
@@ -308,22 +231,22 @@ void ResponseContent$ChunkedBodyParser::accept($ByteBuffer* b) {
 			}
 		} while ($nc(b)->hasRemaining());
 		if (!completed && !out->isEmpty()) {
-			bool hasDemand = $nc($($nc(this->sub)->demand()))->tryDecrement();
+			bool hasDemand = $$nc($nc(this->sub)->demand())->tryDecrement();
 			if (!ResponseContent$ChunkedBodyParser::$assertionsDisabled && !hasDemand) {
 				$throwNew($AssertionError);
 			}
 			$nc(this->this$0->pusher)->onNext($($Collections::unmodifiableList(out)));
 			if ($nc(this->debug)->on()) {
-				$nc(this->debug)->log("Chunk sent"_s);
+				this->debug->log("Chunk sent"_s);
 			}
 		}
 		$init($ResponseContent$ChunkState);
-		if (!ResponseContent$ChunkedBodyParser::$assertionsDisabled && !(this->state == $ResponseContent$ChunkState::DONE || !b->hasRemaining())) {
+		if (!ResponseContent$ChunkedBodyParser::$assertionsDisabled && !(this->state == $ResponseContent$ChunkState::DONE || !$nc(b)->hasRemaining())) {
 			$throwNew($AssertionError);
 		}
 	} catch ($Throwable& t) {
 		if ($nc(this->debug)->on()) {
-			$nc(this->debug)->log("Error while processing buffer: %s"_s, $$new($ObjectArray, {$of(t)}));
+			this->debug->log("Error while processing buffer: %s"_s, $$new($ObjectArray, {$of(t)}));
 		}
 		$set(this, closedExceptionally, t);
 		if (!completed) {
@@ -333,7 +256,7 @@ void ResponseContent$ChunkedBodyParser::accept($ByteBuffer* b) {
 }
 
 int32_t ResponseContent$ChunkedBodyParser::tryReadChunkLen($ByteBuffer* chunkbuf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ResponseContent$ChunkState);
 	if (!ResponseContent$ChunkedBodyParser::$assertionsDisabled && !(this->state == $ResponseContent$ChunkState::READING_LENGTH)) {
 		$throwNew($AssertionError);
@@ -353,12 +276,12 @@ int32_t ResponseContent$ChunkedBodyParser::tryReadChunkLen($ByteBuffer* chunkbuf
 		if (c == 13) {
 			this->cr = true;
 			if (this->digits == 0 && $nc(this->debug)->on()) {
-				$nc(this->debug)->log("tryReadChunkLen: invalid chunk header? No digits in chunkLen?"_s);
+				this->debug->log("tryReadChunkLen: invalid chunk header? No digits in chunkLen?"_s);
 			}
 		} else if (this->cr == false && this->chunkext > 0) {
 			++this->chunkext;
 			if ($nc(this->debug)->on()) {
-				$nc(this->debug)->log($$str({"tryReadChunkLen: More extraneous character after chunk length: "_s, $$str(c)}));
+				this->debug->log($$str({"tryReadChunkLen: More extraneous character after chunk length: "_s, $$str(c)}));
 			}
 		} else {
 			int32_t digit = toDigit(c);
@@ -366,7 +289,7 @@ int32_t ResponseContent$ChunkedBodyParser::tryReadChunkLen($ByteBuffer* chunkbuf
 				if (this->digits > 0) {
 					++this->chunkext;
 					if ($nc(this->debug)->on()) {
-						$nc(this->debug)->log($$str({"tryReadChunkLen: Extraneous character after chunk length: "_s, $$str(c)}));
+						this->debug->log($$str({"tryReadChunkLen: Extraneous character after chunk length: "_s, $$str(c)}));
 					}
 				} else {
 					$throwNew($IOException, $$str({"Illegal character in chunk size: "_s, $$str(c)}));
@@ -389,7 +312,7 @@ int32_t ResponseContent$ChunkedBodyParser::tryConsumeBytes($ByteBuffer* chunkbuf
 			if (!ResponseContent$ChunkedBodyParser::$assertionsDisabled && !(n <= 2 && e <= 2)) {
 				$throwNew($AssertionError);
 			}
-			$var($ByteBuffer, tmp, $nc(chunkbuf)->slice());
+			$var($ByteBuffer, tmp, chunkbuf->slice());
 			if (!ResponseContent$ChunkedBodyParser::$assertionsDisabled && !((n == 2 && e > 0) ? $nc(tmp)->get() == 13 : true)) {
 				$throwNew($AssertionError);
 			}
@@ -397,7 +320,7 @@ int32_t ResponseContent$ChunkedBodyParser::tryConsumeBytes($ByteBuffer* chunkbuf
 				$throwNew($AssertionError);
 			}
 		}
-		$nc(chunkbuf)->position(chunkbuf->position() + e);
+		chunkbuf->position(chunkbuf->position() + e);
 		n -= e;
 		this->bytesToConsume = n;
 	}
@@ -408,22 +331,22 @@ int32_t ResponseContent$ChunkedBodyParser::tryConsumeBytes($ByteBuffer* chunkbuf
 }
 
 $ByteBuffer* ResponseContent$ChunkedBodyParser::tryReadOneHunk($ByteBuffer* chunk) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t unfulfilled = this->bytesremaining;
 	int32_t toconsume = this->bytesToConsume;
 	$ResponseContent$ChunkState* st = this->state;
 	$init($ResponseContent$ChunkState);
 	if (st == $ResponseContent$ChunkState::READING_LENGTH && this->chunklen == -1) {
 		if ($nc(this->debug)->on()) {
-			$nc(this->debug)->log(static_cast<$Supplier*>($$new(ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1, chunk)));
+			this->debug->log($$new(ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1, chunk));
 		}
 		int32_t clen = this->chunklen = tryReadChunkLen(chunk);
 		if (clen == -1) {
 			return this->READMORE;
 		}
 		this->digits = (this->chunkext = 0);
-		if ($nc(this->debug)->on()) {
-			$nc(this->debug)->log("Got chunk len %d"_s, $$new($ObjectArray, {$($of($Integer::valueOf(clen)))}));
+		if (this->debug->on()) {
+			this->debug->log("Got chunk len %d"_s, $$new($ObjectArray, {$($Integer::valueOf(clen))}));
 		}
 		this->cr = false;
 		this->partialChunklen = 0;
@@ -436,9 +359,9 @@ $ByteBuffer* ResponseContent$ChunkedBodyParser::tryReadOneHunk($ByteBuffer* chun
 	}
 	if (toconsume > 0) {
 		if ($nc(this->debug)->on()) {
-			$nc(this->debug)->log("Trying to consume bytes: %d (remaining in buffer: %s)"_s, $$new($ObjectArray, {
-				$($of($Integer::valueOf(toconsume))),
-				$($of($Integer::valueOf($nc(chunk)->remaining())))
+			this->debug->log("Trying to consume bytes: %d (remaining in buffer: %s)"_s, $$new($ObjectArray, {
+				$($Integer::valueOf(toconsume)),
+				$($Integer::valueOf($nc(chunk)->remaining()))
 			}));
 		}
 		if (tryConsumeBytes(chunk) > 0) {
@@ -455,7 +378,7 @@ $ByteBuffer* ResponseContent$ChunkedBodyParser::tryReadOneHunk($ByteBuffer* chun
 			$throwNew($AssertionError);
 		}
 		if ($nc(this->debug)->on()) {
-			$nc(this->debug)->log("No more chunks: %d"_s, $$new($ObjectArray, {$($of($Integer::valueOf(clen)))}));
+			this->debug->log("No more chunks: %d"_s, $$new($ObjectArray, {$($Integer::valueOf(clen))}));
 		}
 		$set(this, state, $ResponseContent$ChunkState::DONE);
 		return nullptr;
@@ -471,16 +394,16 @@ $ByteBuffer* ResponseContent$ChunkedBodyParser::tryReadOneHunk($ByteBuffer* chun
 	if (unfulfilled > 0) {
 		int32_t bytesread = $nc(chunk)->remaining();
 		if ($nc(this->debug)->on()) {
-			$nc(this->debug)->log("Reading chunk: available %d, needed %d"_s, $$new($ObjectArray, {
-				$($of($Integer::valueOf(bytesread))),
-				$($of($Integer::valueOf(unfulfilled)))
+			this->debug->log("Reading chunk: available %d, needed %d"_s, $$new($ObjectArray, {
+				$($Integer::valueOf(bytesread)),
+				$($Integer::valueOf(unfulfilled))
 			}));
 		}
 		int32_t bytes2return = $Math::min(bytesread, unfulfilled);
-		if ($nc(this->debug)->on()) {
-			$nc(this->debug)->log("Returning chunk bytes: %d"_s, $$new($ObjectArray, {$($of($Integer::valueOf(bytes2return)))}));
+		if (this->debug->on()) {
+			this->debug->log("Returning chunk bytes: %d"_s, $$new($ObjectArray, {$($Integer::valueOf(bytes2return))}));
 		}
-		$assign(returnBuffer, $nc($($Utils::sliceWithLimitedCapacity(chunk, bytes2return)))->asReadOnlyBuffer());
+		$assign(returnBuffer, $$nc($Utils::sliceWithLimitedCapacity(chunk, bytes2return))->asReadOnlyBuffer());
 		unfulfilled = this->bytesremaining -= bytes2return;
 		if (unfulfilled == 0) {
 			this->bytesToConsume = 2;
@@ -491,7 +414,7 @@ $ByteBuffer* ResponseContent$ChunkedBodyParser::tryReadOneHunk($ByteBuffer* chun
 	}
 	if (unfulfilled == 0) {
 		if ($nc(this->debug)->on()) {
-			$nc(this->debug)->log("No more bytes to read - %d yet to consume."_s, $$new($ObjectArray, {$($of($Integer::valueOf(unfulfilled)))}));
+			this->debug->log("No more bytes to read - %d yet to consume."_s, $$new($ObjectArray, {$($Integer::valueOf(unfulfilled))}));
 		}
 		if (tryConsumeBytes(chunk) == 0) {
 			this->chunklen = -1;
@@ -499,21 +422,21 @@ $ByteBuffer* ResponseContent$ChunkedBodyParser::tryReadOneHunk($ByteBuffer* chun
 			this->cr = false;
 			this->digits = (this->chunkext = 0);
 			$set(this, state, $ResponseContent$ChunkState::READING_LENGTH);
-			if ($nc(this->debug)->on()) {
-				$nc(this->debug)->log("Ready to read next chunk"_s);
+			if (this->debug->on()) {
+				this->debug->log("Ready to read next chunk"_s);
 			}
 		}
 	}
 	if (returnBuffer == this->READMORE) {
 		if ($nc(this->debug)->on()) {
-			$nc(this->debug)->log("Need more data"_s);
+			this->debug->log("Need more data"_s);
 		}
 	}
 	return returnBuffer;
 }
 
 bool ResponseContent$ChunkedBodyParser::tryPushOneHunk($ByteBuffer* b, $List* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ResponseContent$ChunkState);
 	if (!ResponseContent$ChunkedBodyParser::$assertionsDisabled && !(this->state != $ResponseContent$ChunkState::DONE)) {
 		$throwNew($AssertionError);
@@ -522,7 +445,7 @@ bool ResponseContent$ChunkedBodyParser::tryPushOneHunk($ByteBuffer* b, $List* ou
 	if (b1 != nullptr) {
 		if (b1->hasRemaining()) {
 			if ($nc(this->debug)->on()) {
-				$nc(this->debug)->log("Sending chunk to consumer (%d)"_s, $$new($ObjectArray, {$($of($Integer::valueOf(b1->remaining())))}));
+				this->debug->log("Sending chunk to consumer (%d)"_s, $$new($ObjectArray, {$($Integer::valueOf(b1->remaining()))}));
 			}
 			$nc(out)->add(b1);
 		}
@@ -554,7 +477,7 @@ $String* ResponseContent$ChunkedBodyParser::lambda$tryReadOneHunk$0($ByteBuffer*
 	return $str({"Trying to read chunk len (remaining in buffer:"_s, $$str($nc(chunk)->remaining()), ")"_s});
 }
 
-void clinit$ResponseContent$ChunkedBodyParser($Class* class$) {
+void ResponseContent$ChunkedBodyParser::clinit$($Class* clazz) {
 	$load($ResponseContent);
 	ResponseContent$ChunkedBodyParser::$assertionsDisabled = !$ResponseContent::class$->desiredAssertionStatus();
 }
@@ -564,14 +487,71 @@ ResponseContent$ChunkedBodyParser::ResponseContent$ChunkedBodyParser() {
 
 $Class* ResponseContent$ChunkedBodyParser::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ResponseContent$ChunkedBodyParser$$Lambda$dbgString::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.ResponseContent$ChunkedBodyParser$$Lambda$dbgString")) {
 			return ResponseContent$ChunkedBodyParser$$Lambda$dbgString::load$(name, initialize);
 		}
-		if (name->equals(ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1")) {
 			return ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(ResponseContent$ChunkedBodyParser, name, initialize, &_ResponseContent$ChunkedBodyParser_ClassInfo_, clinit$ResponseContent$ChunkedBodyParser, allocate$ResponseContent$ChunkedBodyParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/net/http/ResponseContent;", nullptr, $FINAL | $SYNTHETIC, $field(ResponseContent$ChunkedBodyParser, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ResponseContent$ChunkedBodyParser, $assertionsDisabled)},
+		{"READMORE", "Ljava/nio/ByteBuffer;", nullptr, $FINAL, $field(ResponseContent$ChunkedBodyParser, READMORE)},
+		{"onComplete", "Ljava/util/function/Consumer;", "Ljava/util/function/Consumer<Ljava/lang/Throwable;>;", $FINAL, $field(ResponseContent$ChunkedBodyParser, onComplete)},
+		{"debug", "Ljdk/internal/net/http/common/Logger;", nullptr, $FINAL, $field(ResponseContent$ChunkedBodyParser, debug)},
+		{"dbgTag", "Ljava/lang/String;", nullptr, $FINAL, $field(ResponseContent$ChunkedBodyParser, dbgTag)},
+		{"closedExceptionally", "Ljava/lang/Throwable;", nullptr, $VOLATILE, $field(ResponseContent$ChunkedBodyParser, closedExceptionally)},
+		{"partialChunklen", "I", nullptr, $VOLATILE, $field(ResponseContent$ChunkedBodyParser, partialChunklen)},
+		{"chunklen", "I", nullptr, $VOLATILE, $field(ResponseContent$ChunkedBodyParser, chunklen)},
+		{"bytesremaining", "I", nullptr, $VOLATILE, $field(ResponseContent$ChunkedBodyParser, bytesremaining)},
+		{"cr", "Z", nullptr, $VOLATILE, $field(ResponseContent$ChunkedBodyParser, cr)},
+		{"chunkext", "I", nullptr, $VOLATILE, $field(ResponseContent$ChunkedBodyParser, chunkext)},
+		{"digits", "I", nullptr, $VOLATILE, $field(ResponseContent$ChunkedBodyParser, digits)},
+		{"bytesToConsume", "I", nullptr, $VOLATILE, $field(ResponseContent$ChunkedBodyParser, bytesToConsume)},
+		{"state", "Ljdk/internal/net/http/ResponseContent$ChunkState;", nullptr, $VOLATILE, $field(ResponseContent$ChunkedBodyParser, state)},
+		{"sub", "Ljdk/internal/net/http/AbstractSubscription;", nullptr, $VOLATILE, $field(ResponseContent$ChunkedBodyParser, sub)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/ResponseContent;Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<Ljava/lang/Throwable;>;)V", 0, $method(ResponseContent$ChunkedBodyParser, init$, void, $ResponseContent*, $Consumer*)},
+		{"accept", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ResponseContent$ChunkedBodyParser, accept, void, $ByteBuffer*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseContent$ChunkedBodyParser, accept, void, Object$*)},
+		{"currentStateMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResponseContent$ChunkedBodyParser, currentStateMessage, $String*)},
+		{"dbgString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ResponseContent$ChunkedBodyParser, dbgString, $String*)},
+		{"debugBuffer", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(ResponseContent$ChunkedBodyParser, debugBuffer, void, $ByteBuffer*)},
+		{"lambda$tryReadOneHunk$0", "(Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResponseContent$ChunkedBodyParser, lambda$tryReadOneHunk$0, $String*, $ByteBuffer*)},
+		{"onSubscribe", "(Ljdk/internal/net/http/AbstractSubscription;)V", nullptr, $PUBLIC, $virtualMethod(ResponseContent$ChunkedBodyParser, onSubscribe, void, $AbstractSubscription*)},
+		{"toDigit", "(I)I", nullptr, $PRIVATE, $method(ResponseContent$ChunkedBodyParser, toDigit, int32_t, int32_t), "java.io.IOException"},
+		{"tryConsumeBytes", "(Ljava/nio/ByteBuffer;)I", nullptr, $PRIVATE, $method(ResponseContent$ChunkedBodyParser, tryConsumeBytes, int32_t, $ByteBuffer*), "java.io.IOException"},
+		{"tryPushOneHunk", "(Ljava/nio/ByteBuffer;Ljava/util/List;)Z", "(Ljava/nio/ByteBuffer;Ljava/util/List<Ljava/nio/ByteBuffer;>;)Z", $PRIVATE, $method(ResponseContent$ChunkedBodyParser, tryPushOneHunk, bool, $ByteBuffer*, $List*), "java.io.IOException"},
+		{"tryReadChunkLen", "(Ljava/nio/ByteBuffer;)I", nullptr, $PRIVATE, $method(ResponseContent$ChunkedBodyParser, tryReadChunkLen, int32_t, $ByteBuffer*), "java.io.IOException"},
+		{"tryReadOneHunk", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, 0, $virtualMethod(ResponseContent$ChunkedBodyParser, tryReadOneHunk, $ByteBuffer*, $ByteBuffer*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.ResponseContent$ChunkedBodyParser", "jdk.internal.net.http.ResponseContent", "ChunkedBodyParser", 0},
+		{"jdk.internal.net.http.ResponseContent$BodyParser", "jdk.internal.net.http.ResponseContent", "BodyParser", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.ResponseContent$ChunkedBodyParser",
+		"java.lang.Object",
+		"jdk.internal.net.http.ResponseContent$BodyParser",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.ResponseContent"
+	};
+	$loadClass(ResponseContent$ChunkedBodyParser, name, initialize, &classInfo$$, ResponseContent$ChunkedBodyParser::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseContent$ChunkedBodyParser);
+	});
 	return class$;
 }
 

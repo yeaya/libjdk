@@ -1,5 +1,4 @@
 #include <sun/awt/image/SurfaceManager.h>
-
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/Image.h>
 #include <java/awt/ImageCapabilities.h>
@@ -30,7 +29,6 @@ using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $BufImgSurfaceManager = ::sun::awt::image::BufImgSurfaceManager;
@@ -43,58 +41,6 @@ using $SurfaceData = ::sun::java2d::SurfaceData;
 namespace sun {
 	namespace awt {
 		namespace image {
-
-$FieldInfo _SurfaceManager_FieldInfo_[] = {
-	{"imgaccessor", "Lsun/awt/image/SurfaceManager$ImageAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(SurfaceManager, imgaccessor)},
-	{"cacheMap", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/Object;Ljava/lang/Object;>;", $PRIVATE, $field(SurfaceManager, cacheMap)},
-	{}
-};
-
-$MethodInfo _SurfaceManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SurfaceManager, init$, void)},
-	{"acceleratedSurfaceLost", "()V", nullptr, $PUBLIC, $virtualMethod(SurfaceManager, acceleratedSurfaceLost, void)},
-	{"flush", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SurfaceManager, flush, void)},
-	{"flush", "(Z)V", nullptr, $SYNCHRONIZED, $virtualMethod(SurfaceManager, flush, void, bool)},
-	{"getCacheData", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SurfaceManager, getCacheData, $Object*, Object$*)},
-	{"getCapabilities", "(Ljava/awt/GraphicsConfiguration;)Ljava/awt/ImageCapabilities;", nullptr, $PUBLIC, $virtualMethod(SurfaceManager, getCapabilities, $ImageCapabilities*, $GraphicsConfiguration*)},
-	{"getImageScaleX", "(Ljava/awt/Image;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(SurfaceManager, getImageScaleX, double, $Image*)},
-	{"getImageScaleY", "(Ljava/awt/Image;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(SurfaceManager, getImageScaleY, double, $Image*)},
-	{"getManager", "(Ljava/awt/Image;)Lsun/awt/image/SurfaceManager;", nullptr, $PUBLIC | $STATIC, $staticMethod(SurfaceManager, getManager, SurfaceManager*, $Image*)},
-	{"getPrimarySurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SurfaceManager, getPrimarySurfaceData, $SurfaceData*)},
-	{"restoreContents", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SurfaceManager, restoreContents, $SurfaceData*)},
-	{"setAccelerationPriority", "(F)V", nullptr, $PUBLIC, $virtualMethod(SurfaceManager, setAccelerationPriority, void, float)},
-	{"setCacheData", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SurfaceManager, setCacheData, void, Object$*, Object$*)},
-	{"setImageAccessor", "(Lsun/awt/image/SurfaceManager$ImageAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SurfaceManager, setImageAccessor, void, $SurfaceManager$ImageAccessor*)},
-	{"setManager", "(Ljava/awt/Image;Lsun/awt/image/SurfaceManager;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SurfaceManager, setManager, void, $Image*, SurfaceManager*)},
-	{}
-};
-
-$InnerClassInfo _SurfaceManager_InnerClassesInfo_[] = {
-	{"sun.awt.image.SurfaceManager$FlushableCacheData", "sun.awt.image.SurfaceManager", "FlushableCacheData", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.image.SurfaceManager$ProxiedGraphicsConfig", "sun.awt.image.SurfaceManager", "ProxiedGraphicsConfig", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.image.SurfaceManager$ImageCapabilitiesGc", "sun.awt.image.SurfaceManager", "ImageCapabilitiesGc", 0},
-	{"sun.awt.image.SurfaceManager$ImageAccessor", "sun.awt.image.SurfaceManager", "ImageAccessor", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SurfaceManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.awt.image.SurfaceManager",
-	"java.lang.Object",
-	nullptr,
-	_SurfaceManager_FieldInfo_,
-	_SurfaceManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SurfaceManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.image.SurfaceManager$FlushableCacheData,sun.awt.image.SurfaceManager$ProxiedGraphicsConfig,sun.awt.image.SurfaceManager$ImageCapabilitiesGc,sun.awt.image.SurfaceManager$ImageAccessor"
-};
-
-$Object* allocate$SurfaceManager($Class* clazz) {
-	return $of($alloc(SurfaceManager));
-}
 
 $SurfaceManager$ImageAccessor* SurfaceManager::imgaccessor = nullptr;
 
@@ -110,7 +56,7 @@ void SurfaceManager::setImageAccessor($SurfaceManager$ImageAccessor* ia) {
 }
 
 SurfaceManager* SurfaceManager::getManager($Image* img) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(SurfaceManager);
 	$var(SurfaceManager, sMgr, $nc(SurfaceManager::imgaccessor)->getSurfaceManager(img));
 	if (sMgr == nullptr) {
@@ -131,7 +77,7 @@ void SurfaceManager::setManager($Image* img, SurfaceManager* mgr) {
 }
 
 $Object* SurfaceManager::getCacheData(Object$* key) {
-	return $of((this->cacheMap == nullptr) ? ($Object*)nullptr : $nc(this->cacheMap)->get(key));
+	return (this->cacheMap == nullptr) ? ($Object*)nullptr : this->cacheMap->get(key);
 }
 
 void SurfaceManager::setCacheData(Object$* key, Object$* value) {
@@ -160,13 +106,13 @@ void SurfaceManager::flush() {
 
 void SurfaceManager::flush(bool deaccelerate) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->cacheMap != nullptr) {
-			$var($Iterator, i, $nc($($nc(this->cacheMap)->values()))->iterator());
+			$var($Iterator, i, $$nc(this->cacheMap->values())->iterator());
 			while ($nc(i)->hasNext()) {
 				$var($Object, o, i->next());
 				if ($instanceOf($SurfaceManager$FlushableCacheData, o)) {
-					if ($nc(($cast($SurfaceManager$FlushableCacheData, o)))->flush(deaccelerate)) {
+					if ($cast($SurfaceManager$FlushableCacheData, o)->flush(deaccelerate)) {
 						i->remove();
 					}
 				}
@@ -182,28 +128,74 @@ void SurfaceManager::setAccelerationPriority(float priority) {
 }
 
 double SurfaceManager::getImageScaleX($Image* img) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($VolatileImage, img))) {
-		return (double)1;
+		return 1;
 	}
 	$var(SurfaceManager, sm, getManager(img));
-	return $nc($($nc(sm)->getPrimarySurfaceData()))->getDefaultScaleX();
+	return $$nc($nc(sm)->getPrimarySurfaceData())->getDefaultScaleX();
 }
 
 double SurfaceManager::getImageScaleY($Image* img) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($VolatileImage, img))) {
-		return (double)1;
+		return 1;
 	}
 	$var(SurfaceManager, sm, getManager(img));
-	return $nc($($nc(sm)->getPrimarySurfaceData()))->getDefaultScaleY();
+	return $$nc($nc(sm)->getPrimarySurfaceData())->getDefaultScaleY();
 }
 
 SurfaceManager::SurfaceManager() {
 }
 
 $Class* SurfaceManager::load$($String* name, bool initialize) {
-	$loadClass(SurfaceManager, name, initialize, &_SurfaceManager_ClassInfo_, allocate$SurfaceManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"imgaccessor", "Lsun/awt/image/SurfaceManager$ImageAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(SurfaceManager, imgaccessor)},
+		{"cacheMap", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/Object;Ljava/lang/Object;>;", $PRIVATE, $field(SurfaceManager, cacheMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SurfaceManager, init$, void)},
+		{"acceleratedSurfaceLost", "()V", nullptr, $PUBLIC, $virtualMethod(SurfaceManager, acceleratedSurfaceLost, void)},
+		{"flush", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SurfaceManager, flush, void)},
+		{"flush", "(Z)V", nullptr, $SYNCHRONIZED, $virtualMethod(SurfaceManager, flush, void, bool)},
+		{"getCacheData", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SurfaceManager, getCacheData, $Object*, Object$*)},
+		{"getCapabilities", "(Ljava/awt/GraphicsConfiguration;)Ljava/awt/ImageCapabilities;", nullptr, $PUBLIC, $virtualMethod(SurfaceManager, getCapabilities, $ImageCapabilities*, $GraphicsConfiguration*)},
+		{"getImageScaleX", "(Ljava/awt/Image;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(SurfaceManager, getImageScaleX, double, $Image*)},
+		{"getImageScaleY", "(Ljava/awt/Image;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(SurfaceManager, getImageScaleY, double, $Image*)},
+		{"getManager", "(Ljava/awt/Image;)Lsun/awt/image/SurfaceManager;", nullptr, $PUBLIC | $STATIC, $staticMethod(SurfaceManager, getManager, SurfaceManager*, $Image*)},
+		{"getPrimarySurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SurfaceManager, getPrimarySurfaceData, $SurfaceData*)},
+		{"restoreContents", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SurfaceManager, restoreContents, $SurfaceData*)},
+		{"setAccelerationPriority", "(F)V", nullptr, $PUBLIC, $virtualMethod(SurfaceManager, setAccelerationPriority, void, float)},
+		{"setCacheData", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SurfaceManager, setCacheData, void, Object$*, Object$*)},
+		{"setImageAccessor", "(Lsun/awt/image/SurfaceManager$ImageAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SurfaceManager, setImageAccessor, void, $SurfaceManager$ImageAccessor*)},
+		{"setManager", "(Ljava/awt/Image;Lsun/awt/image/SurfaceManager;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SurfaceManager, setManager, void, $Image*, SurfaceManager*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.image.SurfaceManager$FlushableCacheData", "sun.awt.image.SurfaceManager", "FlushableCacheData", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.image.SurfaceManager$ProxiedGraphicsConfig", "sun.awt.image.SurfaceManager", "ProxiedGraphicsConfig", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.image.SurfaceManager$ImageCapabilitiesGc", "sun.awt.image.SurfaceManager", "ImageCapabilitiesGc", 0},
+		{"sun.awt.image.SurfaceManager$ImageAccessor", "sun.awt.image.SurfaceManager", "ImageAccessor", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.awt.image.SurfaceManager",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.image.SurfaceManager$FlushableCacheData,sun.awt.image.SurfaceManager$ProxiedGraphicsConfig,sun.awt.image.SurfaceManager$ImageCapabilitiesGc,sun.awt.image.SurfaceManager$ImageAccessor"
+	};
+	$loadClass(SurfaceManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SurfaceManager);
+	});
 	return class$;
 }
 

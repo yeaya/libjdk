@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSModelGroupImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaSymbols.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl.h>
@@ -24,7 +23,6 @@
 
 using $XSObjectArray = $Array<::com::sun::org::apache::xerces::internal::xs::XSObject>;
 using $SchemaSymbols = ::com::sun::org::apache::xerces::internal::impl::xs::SchemaSymbols;
-using $XSParticleDecl = ::com::sun::org::apache::xerces::internal::impl::xs::XSParticleDecl;
 using $XSObjectListImpl = ::com::sun::org::apache::xerces::internal::impl::xs::util::XSObjectListImpl;
 using $XSAnnotation = ::com::sun::org::apache::xerces::internal::xs::XSAnnotation;
 using $XSConstants = ::com::sun::org::apache::xerces::internal::xs::XSConstants;
@@ -44,53 +42,6 @@ namespace com {
 					namespace internal {
 						namespace impl {
 							namespace xs {
-
-$FieldInfo _XSModelGroupImpl_FieldInfo_[] = {
-	{"MODELGROUP_CHOICE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSModelGroupImpl, MODELGROUP_CHOICE)},
-	{"MODELGROUP_SEQUENCE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSModelGroupImpl, MODELGROUP_SEQUENCE)},
-	{"MODELGROUP_ALL", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSModelGroupImpl, MODELGROUP_ALL)},
-	{"fCompositor", "S", nullptr, $PUBLIC, $field(XSModelGroupImpl, fCompositor)},
-	{"fParticles", "[Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, $PUBLIC, $field(XSModelGroupImpl, fParticles)},
-	{"fParticleCount", "I", nullptr, $PUBLIC, $field(XSModelGroupImpl, fParticleCount)},
-	{"fAnnotations", "Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $field(XSModelGroupImpl, fAnnotations)},
-	{"fDescription", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSModelGroupImpl, fDescription)},
-	{}
-};
-
-$MethodInfo _XSModelGroupImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XSModelGroupImpl, init$, void)},
-	{"getAnnotation", "()Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $virtualMethod(XSModelGroupImpl, getAnnotation, $XSAnnotation*)},
-	{"getAnnotations", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSModelGroupImpl, getAnnotations, $XSObjectList*)},
-	{"getCompositor", "()S", nullptr, $PUBLIC, $virtualMethod(XSModelGroupImpl, getCompositor, int16_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSModelGroupImpl, getName, $String*)},
-	{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSModelGroupImpl, getNamespace, $String*)},
-	{"getNamespaceItem", "()Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PUBLIC, $virtualMethod(XSModelGroupImpl, getNamespaceItem, $XSNamespaceItem*)},
-	{"getParticles", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSModelGroupImpl, getParticles, $XSObjectList*)},
-	{"getType", "()S", nullptr, $PUBLIC, $virtualMethod(XSModelGroupImpl, getType, int16_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(XSModelGroupImpl, isEmpty, bool)},
-	{"maxEffectiveTotalRange", "()I", nullptr, $PUBLIC, $virtualMethod(XSModelGroupImpl, maxEffectiveTotalRange, int32_t)},
-	{"maxEffectiveTotalRangeAllSeq", "()I", nullptr, $PRIVATE, $method(XSModelGroupImpl, maxEffectiveTotalRangeAllSeq, int32_t)},
-	{"maxEffectiveTotalRangeChoice", "()I", nullptr, $PRIVATE, $method(XSModelGroupImpl, maxEffectiveTotalRangeChoice, int32_t)},
-	{"minEffectiveTotalRange", "()I", nullptr, $PUBLIC, $virtualMethod(XSModelGroupImpl, minEffectiveTotalRange, int32_t)},
-	{"minEffectiveTotalRangeAllSeq", "()I", nullptr, $PRIVATE, $method(XSModelGroupImpl, minEffectiveTotalRangeAllSeq, int32_t)},
-	{"minEffectiveTotalRangeChoice", "()I", nullptr, $PRIVATE, $method(XSModelGroupImpl, minEffectiveTotalRangeChoice, int32_t)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(XSModelGroupImpl, reset, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSModelGroupImpl, toString, $String*)},
-	{}
-};
-
-$ClassInfo _XSModelGroupImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.XSModelGroupImpl",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.xs.XSModelGroup",
-	_XSModelGroupImpl_FieldInfo_,
-	_XSModelGroupImpl_MethodInfo_
-};
-
-$Object* allocate$XSModelGroupImpl($Class* clazz) {
-	return $of($alloc(XSModelGroupImpl));
-}
 
 void XSModelGroupImpl::init$() {
 	$set(this, fParticles, nullptr);
@@ -182,7 +133,7 @@ int32_t XSModelGroupImpl::maxEffectiveTotalRangeChoice() {
 }
 
 $String* XSModelGroupImpl::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fDescription == nullptr) {
 		$var($StringBuffer, buffer, $new($StringBuffer));
 		if (this->fCompositor == XSModelGroupImpl::MODELGROUP_ALL) {
@@ -238,16 +189,16 @@ int16_t XSModelGroupImpl::getCompositor() {
 }
 
 $XSObjectList* XSModelGroupImpl::getParticles() {
-	return $new($XSObjectListImpl, $fcast($XSObjectArray, this->fParticles), this->fParticleCount);
+	return $new($XSObjectListImpl, $cast($XSObjectArray, this->fParticles), this->fParticleCount);
 }
 
 $XSAnnotation* XSModelGroupImpl::getAnnotation() {
-	return (this->fAnnotations != nullptr) ? $cast($XSAnnotation, $nc(this->fAnnotations)->item(0)) : ($XSAnnotation*)nullptr;
+	return (this->fAnnotations != nullptr) ? $cast($XSAnnotation, this->fAnnotations->item(0)) : ($XSAnnotation*)nullptr;
 }
 
 $XSObjectList* XSModelGroupImpl::getAnnotations() {
 	$init($XSObjectListImpl);
-	return (this->fAnnotations != nullptr) ? this->fAnnotations : static_cast<$XSObjectList*>($XSObjectListImpl::EMPTY_LIST);
+	return (this->fAnnotations != nullptr) ? this->fAnnotations : $cast($XSObjectList, $XSObjectListImpl::EMPTY_LIST);
 }
 
 $XSNamespaceItem* XSModelGroupImpl::getNamespaceItem() {
@@ -258,7 +209,49 @@ XSModelGroupImpl::XSModelGroupImpl() {
 }
 
 $Class* XSModelGroupImpl::load$($String* name, bool initialize) {
-	$loadClass(XSModelGroupImpl, name, initialize, &_XSModelGroupImpl_ClassInfo_, allocate$XSModelGroupImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"MODELGROUP_CHOICE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSModelGroupImpl, MODELGROUP_CHOICE)},
+		{"MODELGROUP_SEQUENCE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSModelGroupImpl, MODELGROUP_SEQUENCE)},
+		{"MODELGROUP_ALL", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSModelGroupImpl, MODELGROUP_ALL)},
+		{"fCompositor", "S", nullptr, $PUBLIC, $field(XSModelGroupImpl, fCompositor)},
+		{"fParticles", "[Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, $PUBLIC, $field(XSModelGroupImpl, fParticles)},
+		{"fParticleCount", "I", nullptr, $PUBLIC, $field(XSModelGroupImpl, fParticleCount)},
+		{"fAnnotations", "Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $field(XSModelGroupImpl, fAnnotations)},
+		{"fDescription", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSModelGroupImpl, fDescription)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XSModelGroupImpl, init$, void)},
+		{"getAnnotation", "()Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $virtualMethod(XSModelGroupImpl, getAnnotation, $XSAnnotation*)},
+		{"getAnnotations", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSModelGroupImpl, getAnnotations, $XSObjectList*)},
+		{"getCompositor", "()S", nullptr, $PUBLIC, $virtualMethod(XSModelGroupImpl, getCompositor, int16_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSModelGroupImpl, getName, $String*)},
+		{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSModelGroupImpl, getNamespace, $String*)},
+		{"getNamespaceItem", "()Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PUBLIC, $virtualMethod(XSModelGroupImpl, getNamespaceItem, $XSNamespaceItem*)},
+		{"getParticles", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSModelGroupImpl, getParticles, $XSObjectList*)},
+		{"getType", "()S", nullptr, $PUBLIC, $virtualMethod(XSModelGroupImpl, getType, int16_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(XSModelGroupImpl, isEmpty, bool)},
+		{"maxEffectiveTotalRange", "()I", nullptr, $PUBLIC, $virtualMethod(XSModelGroupImpl, maxEffectiveTotalRange, int32_t)},
+		{"maxEffectiveTotalRangeAllSeq", "()I", nullptr, $PRIVATE, $method(XSModelGroupImpl, maxEffectiveTotalRangeAllSeq, int32_t)},
+		{"maxEffectiveTotalRangeChoice", "()I", nullptr, $PRIVATE, $method(XSModelGroupImpl, maxEffectiveTotalRangeChoice, int32_t)},
+		{"minEffectiveTotalRange", "()I", nullptr, $PUBLIC, $virtualMethod(XSModelGroupImpl, minEffectiveTotalRange, int32_t)},
+		{"minEffectiveTotalRangeAllSeq", "()I", nullptr, $PRIVATE, $method(XSModelGroupImpl, minEffectiveTotalRangeAllSeq, int32_t)},
+		{"minEffectiveTotalRangeChoice", "()I", nullptr, $PRIVATE, $method(XSModelGroupImpl, minEffectiveTotalRangeChoice, int32_t)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(XSModelGroupImpl, reset, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSModelGroupImpl, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.XSModelGroupImpl",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.xs.XSModelGroup",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XSModelGroupImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSModelGroupImpl);
+	});
 	return class$;
 }
 

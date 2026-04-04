@@ -77,6 +77,7 @@ class $export AppContext : public ::java::lang::Object {
 	$class(AppContext, 0, ::java::lang::Object)
 public:
 	AppContext();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::ThreadGroup* threadGroup);
 	void addPropertyChangeListener($String* propertyName, ::java::beans::PropertyChangeListener* listener);
 	void dispose();

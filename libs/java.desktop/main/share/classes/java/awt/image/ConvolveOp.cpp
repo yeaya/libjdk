@@ -1,7 +1,5 @@
 #include <java/awt/image/ConvolveOp.h>
-
 #include <java/awt/Graphics2D.h>
-#include <java/awt/Image.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/RenderingHints.h>
 #include <java/awt/color/ColorSpace.h>
@@ -17,7 +15,6 @@
 #include <java/awt/image/IndexColorModel.h>
 #include <java/awt/image/Kernel.h>
 #include <java/awt/image/Raster.h>
-#include <java/awt/image/RasterOp.h>
 #include <java/awt/image/WritableRaster.h>
 #include <java/util/Hashtable.h>
 #include <sun/awt/image/ImagingLib.h>
@@ -27,9 +24,7 @@
 #undef EDGE_ZERO_FILL
 
 using $Graphics2D = ::java::awt::Graphics2D;
-using $Image = ::java::awt::Image;
 using $RenderingHints = ::java::awt::RenderingHints;
-using $ColorSpace = ::java::awt::color::ColorSpace;
 using $Point2D = ::java::awt::geom::Point2D;
 using $Point2D$Float = ::java::awt::geom::Point2D$Float;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
@@ -42,7 +37,6 @@ using $ImagingOpException = ::java::awt::image::ImagingOpException;
 using $IndexColorModel = ::java::awt::image::IndexColorModel;
 using $Kernel = ::java::awt::image::Kernel;
 using $Raster = ::java::awt::image::Raster;
-using $RasterOp = ::java::awt::image::RasterOp;
 using $WritableRaster = ::java::awt::image::WritableRaster;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -55,49 +49,6 @@ using $ImagingLib = ::sun::awt::image::ImagingLib;
 namespace java {
 	namespace awt {
 		namespace image {
-
-$FieldInfo _ConvolveOp_FieldInfo_[] = {
-	{"kernel", "Ljava/awt/image/Kernel;", nullptr, 0, $field(ConvolveOp, kernel)},
-	{"edgeHint", "I", nullptr, 0, $field(ConvolveOp, edgeHint)},
-	{"hints", "Ljava/awt/RenderingHints;", nullptr, 0, $field(ConvolveOp, hints)},
-	{"EDGE_ZERO_FILL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ConvolveOp, EDGE_ZERO_FILL)},
-	{"EDGE_NO_OP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ConvolveOp, EDGE_NO_OP)},
-	{}
-};
-
-$MethodInfo _ConvolveOp_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/image/Kernel;ILjava/awt/RenderingHints;)V", nullptr, $PUBLIC, $method(ConvolveOp, init$, void, $Kernel*, int32_t, $RenderingHints*)},
-	{"<init>", "(Ljava/awt/image/Kernel;)V", nullptr, $PUBLIC, $method(ConvolveOp, init$, void, $Kernel*)},
-	{"createCompatibleDestImage", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/ColorModel;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(ConvolveOp, createCompatibleDestImage, $BufferedImage*, $BufferedImage*, $ColorModel*)},
-	{"createCompatibleDestRaster", "(Ljava/awt/image/Raster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ConvolveOp, createCompatibleDestRaster, $WritableRaster*, $Raster*)},
-	{"filter", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConvolveOp, filter, $BufferedImage*, $BufferedImage*, $BufferedImage*)},
-	{"filter", "(Ljava/awt/image/Raster;Ljava/awt/image/WritableRaster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConvolveOp, filter, $WritableRaster*, $Raster*, $WritableRaster*)},
-	{"getBounds2D", "(Ljava/awt/image/BufferedImage;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConvolveOp, getBounds2D, $Rectangle2D*, $BufferedImage*)},
-	{"getBounds2D", "(Ljava/awt/image/Raster;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConvolveOp, getBounds2D, $Rectangle2D*, $Raster*)},
-	{"getEdgeCondition", "()I", nullptr, $PUBLIC, $virtualMethod(ConvolveOp, getEdgeCondition, int32_t)},
-	{"getKernel", "()Ljava/awt/image/Kernel;", nullptr, $PUBLIC | $FINAL, $method(ConvolveOp, getKernel, $Kernel*)},
-	{"getPoint2D", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConvolveOp, getPoint2D, $Point2D*, $Point2D*, $Point2D*)},
-	{"getRenderingHints", "()Ljava/awt/RenderingHints;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConvolveOp, getRenderingHints, $RenderingHints*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ConvolveOp_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.image.ConvolveOp",
-	"java.lang.Object",
-	"java.awt.image.BufferedImageOp,java.awt.image.RasterOp",
-	_ConvolveOp_FieldInfo_,
-	_ConvolveOp_MethodInfo_
-};
-
-$Object* allocate$ConvolveOp($Class* clazz) {
-	return $of($alloc(ConvolveOp));
-}
 
 int32_t ConvolveOp::hashCode() {
 	 return this->$BufferedImageOp::hashCode();
@@ -139,7 +90,7 @@ $Kernel* ConvolveOp::getKernel() {
 }
 
 $BufferedImage* ConvolveOp::filter($BufferedImage* src$renamed, $BufferedImage* dst$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, dst, dst$renamed);
 	$var($BufferedImage, src, src$renamed);
 	if (src == nullptr) {
@@ -154,7 +105,7 @@ $BufferedImage* ConvolveOp::filter($BufferedImage* src$renamed, $BufferedImage* 
 	$var($BufferedImage, origDst, dst);
 	if ($instanceOf($IndexColorModel, srcCM)) {
 		$var($IndexColorModel, icm, $cast($IndexColorModel, srcCM));
-		$assign(src, $nc(icm)->convertToIntDiscrete($(src->getRaster()), false));
+		$assign(src, icm->convertToIntDiscrete($(src->getRaster()), false));
 		$assign(srcCM, $nc(src)->getColorModel());
 	}
 	if (dst == nullptr) {
@@ -162,9 +113,9 @@ $BufferedImage* ConvolveOp::filter($BufferedImage* src$renamed, $BufferedImage* 
 		$assign(dstCM, srcCM);
 		$assign(origDst, dst);
 	} else {
-		$assign(dstCM, $nc(dst)->getColorModel());
-		int32_t var$0 = $nc($($nc(srcCM)->getColorSpace()))->getType();
-		if (var$0 != $nc($($nc(dstCM)->getColorSpace()))->getType()) {
+		$assign(dstCM, dst->getColorModel());
+		int32_t var$0 = $$nc($nc(srcCM)->getColorSpace())->getType();
+		if (var$0 != $$nc($nc(dstCM)->getColorSpace())->getType()) {
 			needToConvert = true;
 			$assign(dst, createCompatibleDestImage(src, nullptr));
 			$assign(dstCM, $nc(dst)->getColorModel());
@@ -173,7 +124,7 @@ $BufferedImage* ConvolveOp::filter($BufferedImage* src$renamed, $BufferedImage* 
 			$assign(dstCM, $nc(dst)->getColorModel());
 		}
 	}
-	if ($ImagingLib::filter(static_cast<$BufferedImageOp*>(this), src, dst) == nullptr) {
+	if ($ImagingLib::filter(this, src, dst) == nullptr) {
 		$throwNew($ImagingOpException, "Unable to convolve src image"_s);
 	}
 	if (needToConvert) {
@@ -181,18 +132,16 @@ $BufferedImage* ConvolveOp::filter($BufferedImage* src$renamed, $BufferedImage* 
 		ccop->filter(dst, origDst);
 	} else if (origDst != dst) {
 		$var($Graphics2D, g, $nc(origDst)->createGraphics());
-		{
-			$var($Throwable, var$1, nullptr);
-			try {
-				$nc(g)->drawImage(dst, 0, 0, nullptr);
-			} catch ($Throwable& var$2) {
-				$assign(var$1, var$2);
-			} /*finally*/ {
-				$nc(g)->dispose();
-			}
-			if (var$1 != nullptr) {
-				$throw(var$1);
-			}
+		$var($Throwable, var$1, nullptr);
+		try {
+			$nc(g)->drawImage(dst, 0, 0, nullptr);
+		} catch ($Throwable& var$2) {
+			$assign(var$1, var$2);
+		} /*finally*/ {
+			$nc(g)->dispose();
+		}
+		if (var$1 != nullptr) {
+			$throw(var$1);
 		}
 	}
 	return origDst;
@@ -205,19 +154,19 @@ $WritableRaster* ConvolveOp::filter($Raster* src, $WritableRaster* dst$renamed) 
 	} else if ($equals(src, dst)) {
 		$throwNew($IllegalArgumentException, "src image cannot be the same as the dst image"_s);
 	} else {
-		int32_t var$1 = $nc(src)->getNumBands();
-		if (var$1 != $nc(dst)->getNumBands()) {
+		int32_t var$0 = $nc(src)->getNumBands();
+		if (var$0 != dst->getNumBands()) {
 			$throwNew($ImagingOpException, "Different number of bands in src  and dst Rasters"_s);
 		}
 	}
-	if ($ImagingLib::filter(static_cast<$RasterOp*>(this), src, dst) == nullptr) {
+	if ($ImagingLib::filter(this, src, dst) == nullptr) {
 		$throwNew($ImagingOpException, "Unable to convolve src image"_s);
 	}
 	return dst;
 }
 
 $BufferedImage* ConvolveOp::createCompatibleDestImage($BufferedImage* src, $ColorModel* destCM$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorModel, destCM, destCM$renamed);
 	$var($BufferedImage, image, nullptr);
 	int32_t w = $nc(src)->getWidth();
@@ -228,13 +177,13 @@ $BufferedImage* ConvolveOp::createCompatibleDestImage($BufferedImage* src, $Colo
 		if ($instanceOf($IndexColorModel, destCM)) {
 			$assign(destCM, $ColorModel::getRGBdefault());
 		} else {
-			$assign(wr, $nc($(src->getData()))->createCompatibleWritableRaster(w, h));
+			$assign(wr, $$nc(src->getData())->createCompatibleWritableRaster(w, h));
 		}
 	}
 	if (wr == nullptr) {
 		$assign(wr, $nc(destCM)->createCompatibleWritableRaster(w, h));
 	}
-	$assign(image, $new($BufferedImage, destCM, wr, $nc(destCM)->isAlphaPremultiplied(), ($Hashtable*)nullptr));
+	$assign(image, $new($BufferedImage, destCM, wr, $nc(destCM)->isAlphaPremultiplied(), nullptr));
 	return image;
 }
 
@@ -243,7 +192,7 @@ $WritableRaster* ConvolveOp::createCompatibleDestRaster($Raster* src) {
 }
 
 $Rectangle2D* ConvolveOp::getBounds2D($BufferedImage* src) {
-	return getBounds2D($(static_cast<$Raster*>($nc(src)->getRaster())));
+	return getBounds2D($($nc(src)->getRaster()));
 }
 
 $Rectangle2D* ConvolveOp::getBounds2D($Raster* src) {
@@ -268,7 +217,45 @@ ConvolveOp::ConvolveOp() {
 }
 
 $Class* ConvolveOp::load$($String* name, bool initialize) {
-	$loadClass(ConvolveOp, name, initialize, &_ConvolveOp_ClassInfo_, allocate$ConvolveOp);
+	$FieldInfo fieldInfos$$[] = {
+		{"kernel", "Ljava/awt/image/Kernel;", nullptr, 0, $field(ConvolveOp, kernel)},
+		{"edgeHint", "I", nullptr, 0, $field(ConvolveOp, edgeHint)},
+		{"hints", "Ljava/awt/RenderingHints;", nullptr, 0, $field(ConvolveOp, hints)},
+		{"EDGE_ZERO_FILL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ConvolveOp, EDGE_ZERO_FILL)},
+		{"EDGE_NO_OP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ConvolveOp, EDGE_NO_OP)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/image/Kernel;ILjava/awt/RenderingHints;)V", nullptr, $PUBLIC, $method(ConvolveOp, init$, void, $Kernel*, int32_t, $RenderingHints*)},
+		{"<init>", "(Ljava/awt/image/Kernel;)V", nullptr, $PUBLIC, $method(ConvolveOp, init$, void, $Kernel*)},
+		{"createCompatibleDestImage", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/ColorModel;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(ConvolveOp, createCompatibleDestImage, $BufferedImage*, $BufferedImage*, $ColorModel*)},
+		{"createCompatibleDestRaster", "(Ljava/awt/image/Raster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ConvolveOp, createCompatibleDestRaster, $WritableRaster*, $Raster*)},
+		{"filter", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConvolveOp, filter, $BufferedImage*, $BufferedImage*, $BufferedImage*)},
+		{"filter", "(Ljava/awt/image/Raster;Ljava/awt/image/WritableRaster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConvolveOp, filter, $WritableRaster*, $Raster*, $WritableRaster*)},
+		{"getBounds2D", "(Ljava/awt/image/BufferedImage;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConvolveOp, getBounds2D, $Rectangle2D*, $BufferedImage*)},
+		{"getBounds2D", "(Ljava/awt/image/Raster;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConvolveOp, getBounds2D, $Rectangle2D*, $Raster*)},
+		{"getEdgeCondition", "()I", nullptr, $PUBLIC, $virtualMethod(ConvolveOp, getEdgeCondition, int32_t)},
+		{"getKernel", "()Ljava/awt/image/Kernel;", nullptr, $PUBLIC | $FINAL, $method(ConvolveOp, getKernel, $Kernel*)},
+		{"getPoint2D", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConvolveOp, getPoint2D, $Point2D*, $Point2D*, $Point2D*)},
+		{"getRenderingHints", "()Ljava/awt/RenderingHints;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConvolveOp, getRenderingHints, $RenderingHints*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.image.ConvolveOp",
+		"java.lang.Object",
+		"java.awt.image.BufferedImageOp,java.awt.image.RasterOp",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ConvolveOp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ConvolveOp));
+	});
 	return class$;
 }
 

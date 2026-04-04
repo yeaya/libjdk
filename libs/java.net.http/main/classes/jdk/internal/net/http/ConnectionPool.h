@@ -64,6 +64,7 @@ class $export ConnectionPool : public ::java::lang::Object {
 	$class(ConnectionPool, 0, ::java::lang::Object)
 public:
 	ConnectionPool();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t clientId);
 	void init$($String* tag);
 	static ::jdk::internal::net::http::ConnectionPool$CacheKey* cacheKey(::java::net::InetSocketAddress* destination, ::java::net::InetSocketAddress* proxy);

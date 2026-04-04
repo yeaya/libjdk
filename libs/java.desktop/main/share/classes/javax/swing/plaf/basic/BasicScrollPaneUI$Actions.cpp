@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicScrollPaneUI$Actions.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Dimension.h>
@@ -30,7 +29,6 @@
 #undef VERTICAL
 
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Dimension = ::java::awt::Dimension;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
@@ -51,54 +49,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicScrollPaneUI$Actions_FieldInfo_[] = {
-	{"SCROLL_UP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicScrollPaneUI$Actions, SCROLL_UP)},
-	{"SCROLL_DOWN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicScrollPaneUI$Actions, SCROLL_DOWN)},
-	{"SCROLL_HOME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicScrollPaneUI$Actions, SCROLL_HOME)},
-	{"SCROLL_END", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicScrollPaneUI$Actions, SCROLL_END)},
-	{"UNIT_SCROLL_UP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicScrollPaneUI$Actions, UNIT_SCROLL_UP)},
-	{"UNIT_SCROLL_DOWN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicScrollPaneUI$Actions, UNIT_SCROLL_DOWN)},
-	{"SCROLL_LEFT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicScrollPaneUI$Actions, SCROLL_LEFT)},
-	{"SCROLL_RIGHT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicScrollPaneUI$Actions, SCROLL_RIGHT)},
-	{"UNIT_SCROLL_LEFT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicScrollPaneUI$Actions, UNIT_SCROLL_LEFT)},
-	{"UNIT_SCROLL_RIGHT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicScrollPaneUI$Actions, UNIT_SCROLL_RIGHT)},
-	{}
-};
-
-$MethodInfo _BasicScrollPaneUI$Actions_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicScrollPaneUI$Actions, init$, void, $String*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollPaneUI$Actions, actionPerformed, void, $ActionEvent*)},
-	{"scroll", "(Ljavax/swing/JScrollPane;IIZ)V", nullptr, $PRIVATE, $method(BasicScrollPaneUI$Actions, scroll, void, $JScrollPane*, int32_t, int32_t, bool)},
-	{"scrollEnd", "(Ljavax/swing/JScrollPane;)V", nullptr, $PRIVATE, $method(BasicScrollPaneUI$Actions, scrollEnd, void, $JScrollPane*)},
-	{"scrollHome", "(Ljavax/swing/JScrollPane;)V", nullptr, $PRIVATE, $method(BasicScrollPaneUI$Actions, scrollHome, void, $JScrollPane*)},
-	{}
-};
-
-$InnerClassInfo _BasicScrollPaneUI$Actions_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicScrollPaneUI$Actions", "javax.swing.plaf.basic.BasicScrollPaneUI", "Actions", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicScrollPaneUI$Actions_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicScrollPaneUI$Actions",
-	"sun.swing.UIAction",
-	nullptr,
-	_BasicScrollPaneUI$Actions_FieldInfo_,
-	_BasicScrollPaneUI$Actions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicScrollPaneUI$Actions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicScrollPaneUI"
-};
-
-$Object* allocate$BasicScrollPaneUI$Actions($Class* clazz) {
-	return $of($alloc(BasicScrollPaneUI$Actions));
-}
-
 $String* BasicScrollPaneUI$Actions::SCROLL_UP = nullptr;
 $String* BasicScrollPaneUI$Actions::SCROLL_DOWN = nullptr;
 $String* BasicScrollPaneUI$Actions::SCROLL_HOME = nullptr;
@@ -115,9 +65,9 @@ void BasicScrollPaneUI$Actions::init$($String* key) {
 }
 
 void BasicScrollPaneUI$Actions::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JScrollPane, scrollPane, $cast($JScrollPane, $nc(e)->getSource()));
-	bool ltr = $nc($($nc(scrollPane)->getComponentOrientation()))->isLeftToRight();
+	bool ltr = $$nc($nc(scrollPane)->getComponentOrientation())->isLeftToRight();
 	$var($String, key, getName());
 	if (key == BasicScrollPaneUI$Actions::SCROLL_UP) {
 		scroll(scrollPane, $SwingConstants::VERTICAL, -1, true);
@@ -143,14 +93,14 @@ void BasicScrollPaneUI$Actions::actionPerformed($ActionEvent* e) {
 }
 
 void BasicScrollPaneUI$Actions::scrollEnd($JScrollPane* scrollpane) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JViewport, vp, $nc(scrollpane)->getViewport());
 	$var($Component, view, nullptr);
 	if (vp != nullptr && ($assign(view, vp->getView())) != nullptr) {
 		$var($Rectangle, visRect, vp->getViewRect());
 		$var($Rectangle, bounds, $nc(view)->getBounds());
-		if ($nc($(scrollpane->getComponentOrientation()))->isLeftToRight()) {
-			vp->setViewPosition($$new($Point, $nc(bounds)->width - $nc(visRect)->width, bounds->height - visRect->height));
+		if ($$nc(scrollpane->getComponentOrientation())->isLeftToRight()) {
+			vp->setViewPosition($$new($Point, $nc(bounds)->width - $nc(visRect)->width, $nc(bounds)->height - $nc(visRect)->height));
 		} else {
 			vp->setViewPosition($$new($Point, 0, $nc(bounds)->height - $nc(visRect)->height));
 		}
@@ -158,11 +108,11 @@ void BasicScrollPaneUI$Actions::scrollEnd($JScrollPane* scrollpane) {
 }
 
 void BasicScrollPaneUI$Actions::scrollHome($JScrollPane* scrollpane) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JViewport, vp, $nc(scrollpane)->getViewport());
 	$var($Component, view, nullptr);
 	if (vp != nullptr && ($assign(view, vp->getView())) != nullptr) {
-		if ($nc($(scrollpane->getComponentOrientation()))->isLeftToRight()) {
+		if ($$nc(scrollpane->getComponentOrientation())->isLeftToRight()) {
 			vp->setViewPosition($$new($Point, 0, 0));
 		} else {
 			$var($Rectangle, visRect, vp->getViewRect());
@@ -173,7 +123,7 @@ void BasicScrollPaneUI$Actions::scrollHome($JScrollPane* scrollpane) {
 }
 
 void BasicScrollPaneUI$Actions::scroll($JScrollPane* scrollpane, int32_t orientation, int32_t direction, bool block) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JViewport, vp, $nc(scrollpane)->getViewport());
 	$var($Component, view, nullptr);
 	if (vp != nullptr && ($assign(view, vp->getView())) != nullptr) {
@@ -182,9 +132,9 @@ void BasicScrollPaneUI$Actions::scroll($JScrollPane* scrollpane, int32_t orienta
 		int32_t amount = 0;
 		if ($instanceOf($Scrollable, view)) {
 			if (block) {
-				amount = $nc(($cast($Scrollable, view)))->getScrollableBlockIncrement(visRect, orientation, direction);
+				amount = $cast($Scrollable, view)->getScrollableBlockIncrement(visRect, orientation, direction);
 			} else {
-				amount = $nc(($cast($Scrollable, view)))->getScrollableUnitIncrement(visRect, orientation, direction);
+				amount = $cast($Scrollable, view)->getScrollableUnitIncrement(visRect, orientation, direction);
 			}
 		} else if (block) {
 			if (orientation == $SwingConstants::VERTICAL) {
@@ -202,7 +152,7 @@ void BasicScrollPaneUI$Actions::scroll($JScrollPane* scrollpane, int32_t orienta
 			} else if (visRect->y < 0) {
 				visRect->y = 0;
 			}
-		} else if ($nc($(scrollpane->getComponentOrientation()))->isLeftToRight()) {
+		} else if ($$nc(scrollpane->getComponentOrientation())->isLeftToRight()) {
 			$nc(visRect)->x += (amount * direction);
 			if ((visRect->x + visRect->width) > $nc(vSize)->width) {
 				visRect->x = $Math::max(0, vSize->width - visRect->width);
@@ -224,7 +174,7 @@ void BasicScrollPaneUI$Actions::scroll($JScrollPane* scrollpane, int32_t orienta
 BasicScrollPaneUI$Actions::BasicScrollPaneUI$Actions() {
 }
 
-void clinit$BasicScrollPaneUI$Actions($Class* class$) {
+void BasicScrollPaneUI$Actions::clinit$($Class* clazz) {
 	$assignStatic(BasicScrollPaneUI$Actions::SCROLL_UP, "scrollUp"_s);
 	$assignStatic(BasicScrollPaneUI$Actions::SCROLL_DOWN, "scrollDown"_s);
 	$assignStatic(BasicScrollPaneUI$Actions::SCROLL_HOME, "scrollHome"_s);
@@ -238,7 +188,49 @@ void clinit$BasicScrollPaneUI$Actions($Class* class$) {
 }
 
 $Class* BasicScrollPaneUI$Actions::load$($String* name, bool initialize) {
-	$loadClass(BasicScrollPaneUI$Actions, name, initialize, &_BasicScrollPaneUI$Actions_ClassInfo_, clinit$BasicScrollPaneUI$Actions, allocate$BasicScrollPaneUI$Actions);
+	$FieldInfo fieldInfos$$[] = {
+		{"SCROLL_UP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicScrollPaneUI$Actions, SCROLL_UP)},
+		{"SCROLL_DOWN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicScrollPaneUI$Actions, SCROLL_DOWN)},
+		{"SCROLL_HOME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicScrollPaneUI$Actions, SCROLL_HOME)},
+		{"SCROLL_END", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicScrollPaneUI$Actions, SCROLL_END)},
+		{"UNIT_SCROLL_UP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicScrollPaneUI$Actions, UNIT_SCROLL_UP)},
+		{"UNIT_SCROLL_DOWN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicScrollPaneUI$Actions, UNIT_SCROLL_DOWN)},
+		{"SCROLL_LEFT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicScrollPaneUI$Actions, SCROLL_LEFT)},
+		{"SCROLL_RIGHT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicScrollPaneUI$Actions, SCROLL_RIGHT)},
+		{"UNIT_SCROLL_LEFT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicScrollPaneUI$Actions, UNIT_SCROLL_LEFT)},
+		{"UNIT_SCROLL_RIGHT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicScrollPaneUI$Actions, UNIT_SCROLL_RIGHT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicScrollPaneUI$Actions, init$, void, $String*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollPaneUI$Actions, actionPerformed, void, $ActionEvent*)},
+		{"scroll", "(Ljavax/swing/JScrollPane;IIZ)V", nullptr, $PRIVATE, $method(BasicScrollPaneUI$Actions, scroll, void, $JScrollPane*, int32_t, int32_t, bool)},
+		{"scrollEnd", "(Ljavax/swing/JScrollPane;)V", nullptr, $PRIVATE, $method(BasicScrollPaneUI$Actions, scrollEnd, void, $JScrollPane*)},
+		{"scrollHome", "(Ljavax/swing/JScrollPane;)V", nullptr, $PRIVATE, $method(BasicScrollPaneUI$Actions, scrollHome, void, $JScrollPane*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicScrollPaneUI$Actions", "javax.swing.plaf.basic.BasicScrollPaneUI", "Actions", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicScrollPaneUI$Actions",
+		"sun.swing.UIAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicScrollPaneUI"
+	};
+	$loadClass(BasicScrollPaneUI$Actions, name, initialize, &classInfo$$, BasicScrollPaneUI$Actions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicScrollPaneUI$Actions);
+	});
 	return class$;
 }
 

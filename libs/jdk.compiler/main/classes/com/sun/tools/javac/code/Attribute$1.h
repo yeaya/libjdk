@@ -15,6 +15,7 @@ class Attribute$1 : public ::java::lang::Object {
 	$class(Attribute$1, 0, ::java::lang::Object)
 public:
 	Attribute$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$code$TypeTag;
 };
 

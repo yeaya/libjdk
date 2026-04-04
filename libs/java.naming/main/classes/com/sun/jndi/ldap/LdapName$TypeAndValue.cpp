@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/LdapName$TypeAndValue.h>
-
 #include <com/sun/jndi/ldap/LdapName.h>
 #include <java/io/UnsupportedEncodingException.h>
 #include <java/lang/StringBuffer.h>
@@ -24,58 +23,6 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$FieldInfo _LdapName$TypeAndValue_FieldInfo_[] = {
-	{"type", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(LdapName$TypeAndValue, type)},
-	{"value", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(LdapName$TypeAndValue, value)},
-	{"binary", "Z", nullptr, $PRIVATE | $FINAL, $field(LdapName$TypeAndValue, binary)},
-	{"valueCaseSensitive", "Z", nullptr, $PRIVATE | $FINAL, $field(LdapName$TypeAndValue, valueCaseSensitive)},
-	{"comparable", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapName$TypeAndValue, comparable)},
-	{}
-};
-
-$MethodInfo _LdapName$TypeAndValue_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, 0, $method(LdapName$TypeAndValue, init$, void, $String*, $String*, bool)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(LdapName$TypeAndValue, compareTo, int32_t, Object$*)},
-	{"decodeHexPairs", "([CII)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapName$TypeAndValue, decodeHexPairs, $bytes*, $chars*, int32_t, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LdapName$TypeAndValue, equals, bool, Object$*)},
-	{"escapeBinaryValue", "([B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapName$TypeAndValue, escapeBinaryValue, $String*, $bytes*)},
-	{"escapeStringValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapName$TypeAndValue, escapeStringValue, $String*, $String*)},
-	{"escapeValue", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(LdapName$TypeAndValue, escapeValue, $String*, Object$*)},
-	{"getType", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(LdapName$TypeAndValue, getType, $String*)},
-	{"getUnescapedValue", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(LdapName$TypeAndValue, getUnescapedValue, $Object*)},
-	{"getUtf8Octets", "([CII)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapName$TypeAndValue, getUtf8Octets, $bytes*, $chars*, int32_t, int32_t)},
-	{"getValueComparable", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(LdapName$TypeAndValue, getValueComparable, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LdapName$TypeAndValue, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LdapName$TypeAndValue, toString, $String*)},
-	{"unescapeValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(LdapName$TypeAndValue, unescapeValue, $Object*, $String*)},
-	{}
-};
-
-$InnerClassInfo _LdapName$TypeAndValue_InnerClassesInfo_[] = {
-	{"com.sun.jndi.ldap.LdapName$TypeAndValue", "com.sun.jndi.ldap.LdapName", "TypeAndValue", $STATIC},
-	{}
-};
-
-$ClassInfo _LdapName$TypeAndValue_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jndi.ldap.LdapName$TypeAndValue",
-	"java.lang.Object",
-	nullptr,
-	_LdapName$TypeAndValue_FieldInfo_,
-	_LdapName$TypeAndValue_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LdapName$TypeAndValue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jndi.ldap.LdapName"
-};
-
-$Object* allocate$LdapName$TypeAndValue($Class* clazz) {
-	return $of($alloc(LdapName$TypeAndValue));
-}
-
 void LdapName$TypeAndValue::init$($String* type, $String* value, bool valueCaseSensitive) {
 	$set(this, comparable, nullptr);
 	$set(this, type, type);
@@ -89,37 +36,37 @@ $String* LdapName$TypeAndValue::toString() {
 }
 
 int32_t LdapName$TypeAndValue::compareTo(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(LdapName$TypeAndValue, that, $cast(LdapName$TypeAndValue, obj));
 	int32_t diff = $nc(this->type)->compareToIgnoreCase($nc(that)->type);
 	if (diff != 0) {
 		return diff;
 	}
-	if ($nc(this->value)->equals($nc(that)->value)) {
+	if ($nc(this->value)->equals(that->value)) {
 		return 0;
 	}
-	return $nc($(getValueComparable()))->compareTo($($nc(that)->getValueComparable()));
+	return $$nc(getValueComparable())->compareTo($(that->getValueComparable()));
 }
 
 bool LdapName$TypeAndValue::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf(LdapName$TypeAndValue, obj))) {
 		return false;
 	}
 	$var(LdapName$TypeAndValue, that, $cast(LdapName$TypeAndValue, obj));
 	bool var$0 = $nc(this->type)->equalsIgnoreCase($nc(that)->type);
 	if (var$0) {
-		bool var$1 = $nc(this->value)->equals($nc(that)->value);
-		var$0 = (var$1 || $nc($(getValueComparable()))->equals($($nc(that)->getValueComparable())));
+		bool var$1 = $nc(this->value)->equals(that->value);
+		var$0 = var$1 || $$nc(getValueComparable())->equals($(that->getValueComparable()));
 	}
 	return (var$0);
 }
 
 int32_t LdapName$TypeAndValue::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	int32_t var$0 = $($nc(this->type)->toUpperCase($Locale::ENGLISH))->hashCode();
-	return (var$0 + $nc($(getValueComparable()))->hashCode());
+	return (var$0 + $$nc(getValueComparable())->hashCode());
 }
 
 $String* LdapName$TypeAndValue::getType() {
@@ -127,7 +74,7 @@ $String* LdapName$TypeAndValue::getType() {
 }
 
 $Object* LdapName$TypeAndValue::getUnescapedValue() {
-	return $of(unescapeValue(this->value));
+	return unescapeValue(this->value);
 }
 
 $String* LdapName$TypeAndValue::getValueComparable() {
@@ -152,7 +99,7 @@ $String* LdapName$TypeAndValue::escapeValue(Object$* val) {
 }
 
 $String* LdapName$TypeAndValue::escapeStringValue($String* val) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, escapees, ",=+<>#;\"\\"_s);
 	$var($chars, chars, $nc(val)->toCharArray());
 	$var($StringBuffer, buf, $new($StringBuffer, 2 * val->length()));
@@ -170,7 +117,7 @@ $String* LdapName$TypeAndValue::escapeStringValue($String* val) {
 	}
 	for (int32_t i = 0; i < chars->length; ++i) {
 		char16_t c = chars->get(i);
-		if ((i < lead) || (i > trail) || (escapees->indexOf((int32_t)c) >= 0)) {
+		if ((i < lead) || (i > trail) || (escapees->indexOf(c) >= 0)) {
 			buf->append(u'\\');
 		}
 		buf->append(c);
@@ -179,20 +126,20 @@ $String* LdapName$TypeAndValue::escapeStringValue($String* val) {
 }
 
 $String* LdapName$TypeAndValue::escapeBinaryValue($bytes* val) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, buf, $new($StringBuffer, 1 + 2 * $nc(val)->length));
 	buf->append("#"_s);
-	for (int32_t i = 0; i < $nc(val)->length; ++i) {
+	for (int32_t i = 0; i < val->length; ++i) {
 		int8_t b = val->get(i);
-		buf->append($Character::forDigit((int32_t)(15 & (uint32_t)((int32_t)((uint32_t)b >> 4))), 16));
-		buf->append($Character::forDigit((int32_t)(15 & (uint32_t)(int32_t)b), 16));
+		buf->append($Character::forDigit(0x0f & ((int32_t)((uint32_t)b >> 4)), 16));
+		buf->append($Character::forDigit(0x0f & b, 16));
 	}
 	$init($Locale);
 	return ($$new($String, buf))->toUpperCase($Locale::ENGLISH);
 }
 
 $Object* LdapName$TypeAndValue::unescapeValue($String* val) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, chars, $nc(val)->toCharArray());
 	int32_t beg = 0;
 	int32_t end = chars->length;
@@ -209,7 +156,7 @@ $Object* LdapName$TypeAndValue::unescapeValue($String* val) {
 		return $of(""_s);
 	}
 	if (chars->get(beg) == u'#') {
-		return $of(decodeHexPairs(chars, ++beg, end));
+		return decodeHexPairs(chars, ++beg, end);
 	}
 	if ((chars->get(beg) == u'\"') && (chars->get(end - 1) == u'\"')) {
 		++beg;
@@ -247,11 +194,11 @@ $Object* LdapName$TypeAndValue::unescapeValue($String* val) {
 }
 
 $bytes* LdapName$TypeAndValue::decodeHexPairs($chars* chars, int32_t beg, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, bytes, $new($bytes, (end - beg) / 2));
 	for (int32_t i = 0; beg + 1 < end; ++i) {
 		int32_t hi = $Character::digit($nc(chars)->get(beg), 16);
-		int32_t lo = $Character::digit($nc(chars)->get(beg + 1), 16);
+		int32_t lo = $Character::digit(chars->get(beg + 1), 16);
 		if (hi < 0 || lo < 0) {
 			break;
 		}
@@ -265,16 +212,16 @@ $bytes* LdapName$TypeAndValue::decodeHexPairs($chars* chars, int32_t beg, int32_
 }
 
 $bytes* LdapName$TypeAndValue::getUtf8Octets($chars* chars, int32_t beg, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, utf8, $new($bytes, (end - beg) / 3));
 	int32_t len = 0;
 	while (true) {
-		bool var$0 = (beg + 2 < end);
+		bool var$0 = beg + 2 < end;
 		if (!(var$0 && ($nc(chars)->get(beg++) == u'\\'))) {
 			break;
 		}
 		{
-			int32_t hi = $Character::digit(chars->get(beg++), 16);
+			int32_t hi = $Character::digit($nc(chars)->get(beg++), 16);
 			int32_t lo = $Character::digit(chars->get(beg++), 16);
 			if (hi < 0 || lo < 0) {
 				break;
@@ -295,7 +242,53 @@ LdapName$TypeAndValue::LdapName$TypeAndValue() {
 }
 
 $Class* LdapName$TypeAndValue::load$($String* name, bool initialize) {
-	$loadClass(LdapName$TypeAndValue, name, initialize, &_LdapName$TypeAndValue_ClassInfo_, allocate$LdapName$TypeAndValue);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(LdapName$TypeAndValue, type)},
+		{"value", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(LdapName$TypeAndValue, value)},
+		{"binary", "Z", nullptr, $PRIVATE | $FINAL, $field(LdapName$TypeAndValue, binary)},
+		{"valueCaseSensitive", "Z", nullptr, $PRIVATE | $FINAL, $field(LdapName$TypeAndValue, valueCaseSensitive)},
+		{"comparable", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapName$TypeAndValue, comparable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, 0, $method(LdapName$TypeAndValue, init$, void, $String*, $String*, bool)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(LdapName$TypeAndValue, compareTo, int32_t, Object$*)},
+		{"decodeHexPairs", "([CII)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapName$TypeAndValue, decodeHexPairs, $bytes*, $chars*, int32_t, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LdapName$TypeAndValue, equals, bool, Object$*)},
+		{"escapeBinaryValue", "([B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapName$TypeAndValue, escapeBinaryValue, $String*, $bytes*)},
+		{"escapeStringValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapName$TypeAndValue, escapeStringValue, $String*, $String*)},
+		{"escapeValue", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(LdapName$TypeAndValue, escapeValue, $String*, Object$*)},
+		{"getType", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(LdapName$TypeAndValue, getType, $String*)},
+		{"getUnescapedValue", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(LdapName$TypeAndValue, getUnescapedValue, $Object*)},
+		{"getUtf8Octets", "([CII)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapName$TypeAndValue, getUtf8Octets, $bytes*, $chars*, int32_t, int32_t)},
+		{"getValueComparable", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(LdapName$TypeAndValue, getValueComparable, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LdapName$TypeAndValue, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LdapName$TypeAndValue, toString, $String*)},
+		{"unescapeValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(LdapName$TypeAndValue, unescapeValue, $Object*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jndi.ldap.LdapName$TypeAndValue", "com.sun.jndi.ldap.LdapName", "TypeAndValue", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jndi.ldap.LdapName$TypeAndValue",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jndi.ldap.LdapName"
+	};
+	$loadClass(LdapName$TypeAndValue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LdapName$TypeAndValue);
+	});
 	return class$;
 }
 

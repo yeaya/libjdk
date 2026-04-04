@@ -15,10 +15,13 @@ public:
 	RelationNotFoundException();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0xCB592D4AF2CD5674;
+	static const int64_t serialVersionUID = (int64_t)0xcb592d4af2cd5674;
 	RelationNotFoundException(const RelationNotFoundException& e);
 	virtual void throw$() override;
-	inline RelationNotFoundException* operator ->() {
+	inline RelationNotFoundException* operator ->() const {
+		return (RelationNotFoundException*)throwing$;
+	}
+	inline operator RelationNotFoundException*() const {
 		return (RelationNotFoundException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DGraphicsDevice$7.h>
-
 #include <sun/java2d/d3d/D3DGraphicsDevice$3Result.h>
 #include <sun/java2d/d3d/D3DGraphicsDevice.h>
 #include <jcpp.h>
@@ -16,49 +15,6 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$FieldInfo _D3DGraphicsDevice$7_FieldInfo_[] = {
-	{"this$0", "Lsun/java2d/d3d/D3DGraphicsDevice;", nullptr, $FINAL | $SYNTHETIC, $field(D3DGraphicsDevice$7, this$0)},
-	{"val$res", "Lsun/java2d/d3d/D3DGraphicsDevice$3Result;", nullptr, $FINAL | $SYNTHETIC, $field(D3DGraphicsDevice$7, val$res)},
-	{}
-};
-
-$MethodInfo _D3DGraphicsDevice$7_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/d3d/D3DGraphicsDevice;Lsun/java2d/d3d/D3DGraphicsDevice$3Result;)V", "()V", 0, $method(D3DGraphicsDevice$7, init$, void, $D3DGraphicsDevice*, $D3DGraphicsDevice$3Result*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsDevice$7, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _D3DGraphicsDevice$7_EnclosingMethodInfo_ = {
-	"sun.java2d.d3d.D3DGraphicsDevice",
-	"getAvailableAcceleratedMemory",
-	"()I"
-};
-
-$InnerClassInfo _D3DGraphicsDevice$7_InnerClassesInfo_[] = {
-	{"sun.java2d.d3d.D3DGraphicsDevice$7", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _D3DGraphicsDevice$7_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.d3d.D3DGraphicsDevice$7",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_D3DGraphicsDevice$7_FieldInfo_,
-	_D3DGraphicsDevice$7_MethodInfo_,
-	nullptr,
-	&_D3DGraphicsDevice$7_EnclosingMethodInfo_,
-	_D3DGraphicsDevice$7_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.d3d.D3DGraphicsDevice"
-};
-
-$Object* allocate$D3DGraphicsDevice$7($Class* clazz) {
-	return $of($alloc(D3DGraphicsDevice$7));
-}
-
 void D3DGraphicsDevice$7::init$($D3DGraphicsDevice* this$0, $D3DGraphicsDevice$3Result* val$res) {
 	$set(this, this$0, this$0);
 	$set(this, val$res, val$res);
@@ -72,7 +28,43 @@ D3DGraphicsDevice$7::D3DGraphicsDevice$7() {
 }
 
 $Class* D3DGraphicsDevice$7::load$($String* name, bool initialize) {
-	$loadClass(D3DGraphicsDevice$7, name, initialize, &_D3DGraphicsDevice$7_ClassInfo_, allocate$D3DGraphicsDevice$7);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/java2d/d3d/D3DGraphicsDevice;", nullptr, $FINAL | $SYNTHETIC, $field(D3DGraphicsDevice$7, this$0)},
+		{"val$res", "Lsun/java2d/d3d/D3DGraphicsDevice$3Result;", nullptr, $FINAL | $SYNTHETIC, $field(D3DGraphicsDevice$7, val$res)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/d3d/D3DGraphicsDevice;Lsun/java2d/d3d/D3DGraphicsDevice$3Result;)V", "()V", 0, $method(D3DGraphicsDevice$7, init$, void, $D3DGraphicsDevice*, $D3DGraphicsDevice$3Result*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsDevice$7, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.java2d.d3d.D3DGraphicsDevice",
+		"getAvailableAcceleratedMemory",
+		"()I"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.d3d.D3DGraphicsDevice$7", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.d3d.D3DGraphicsDevice$7",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.d3d.D3DGraphicsDevice"
+	};
+	$loadClass(D3DGraphicsDevice$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DGraphicsDevice$7);
+	});
 	return class$;
 }
 

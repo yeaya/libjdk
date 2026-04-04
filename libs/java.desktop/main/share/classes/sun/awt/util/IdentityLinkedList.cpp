@@ -1,5 +1,4 @@
 #include <sun/awt/util/IdentityLinkedList.h>
-
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/reflect/Array.h>
 #include <java/util/AbstractList.h>
@@ -41,103 +40,6 @@ using $IdentityLinkedList$ListItr = ::sun::awt::util::IdentityLinkedList$ListItr
 namespace sun {
 	namespace awt {
 		namespace util {
-
-$FieldInfo _IdentityLinkedList_FieldInfo_[] = {
-	{"header", "Lsun/awt/util/IdentityLinkedList$Entry;", "Lsun/awt/util/IdentityLinkedList$Entry<TE;>;", $PRIVATE | $TRANSIENT, $field(IdentityLinkedList, header)},
-	{"size", "I", nullptr, $PRIVATE | $TRANSIENT, $field(IdentityLinkedList, size$)},
-	{}
-};
-
-$MethodInfo _IdentityLinkedList_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IdentityLinkedList, init$, void)},
-	{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+TE;>;)V", $PUBLIC, $method(IdentityLinkedList, init$, void, $Collection*)},
-	{"access$000", "(Lsun/awt/util/IdentityLinkedList;)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(IdentityLinkedList, access$000, int32_t, IdentityLinkedList*)},
-	{"access$100", "(Lsun/awt/util/IdentityLinkedList;)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(IdentityLinkedList, access$100, int32_t, IdentityLinkedList*)},
-	{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(IdentityLinkedList, add, bool, Object$*)},
-	{"add", "(ILjava/lang/Object;)V", "(ITE;)V", $PUBLIC, $virtualMethod(IdentityLinkedList, add, void, int32_t, Object$*)},
-	{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(IdentityLinkedList, addAll, bool, $Collection*)},
-	{"addAll", "(ILjava/util/Collection;)Z", "(ILjava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(IdentityLinkedList, addAll, bool, int32_t, $Collection*)},
-	{"addBefore", "(Ljava/lang/Object;Lsun/awt/util/IdentityLinkedList$Entry;)Lsun/awt/util/IdentityLinkedList$Entry;", "(TE;Lsun/awt/util/IdentityLinkedList$Entry<TE;>;)Lsun/awt/util/IdentityLinkedList$Entry<TE;>;", $PRIVATE, $method(IdentityLinkedList, addBefore, $IdentityLinkedList$Entry*, Object$*, $IdentityLinkedList$Entry*)},
-	{"addFirst", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(IdentityLinkedList, addFirst, void, Object$*)},
-	{"addLast", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(IdentityLinkedList, addLast, void, Object$*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(IdentityLinkedList, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IdentityLinkedList, contains, bool, Object$*)},
-	{"descendingIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(IdentityLinkedList, descendingIterator, $Iterator*)},
-	{"element", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, element, $Object*)},
-	{"entry", "(I)Lsun/awt/util/IdentityLinkedList$Entry;", "(I)Lsun/awt/util/IdentityLinkedList$Entry<TE;>;", $PRIVATE, $method(IdentityLinkedList, entry, $IdentityLinkedList$Entry*, int32_t)},
-	{"get", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, get, $Object*, int32_t)},
-	{"getFirst", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, getFirst, $Object*)},
-	{"getLast", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, getLast, $Object*)},
-	{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(IdentityLinkedList, indexOf, int32_t, Object$*)},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
-	{"lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(IdentityLinkedList, lastIndexOf, int32_t, Object$*)},
-	{"listIterator", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<TE;>;", $PUBLIC, $virtualMethod(IdentityLinkedList, listIterator, $ListIterator*, int32_t)},
-	{"offer", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(IdentityLinkedList, offer, bool, Object$*)},
-	{"offerFirst", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(IdentityLinkedList, offerFirst, bool, Object$*)},
-	{"offerLast", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(IdentityLinkedList, offerLast, bool, Object$*)},
-	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"peek", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, peek, $Object*)},
-	{"peekFirst", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, peekFirst, $Object*)},
-	{"peekLast", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, peekLast, $Object*)},
-	{"poll", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, poll, $Object*)},
-	{"pollFirst", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, pollFirst, $Object*)},
-	{"pollLast", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, pollLast, $Object*)},
-	{"pop", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, pop, $Object*)},
-	{"push", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(IdentityLinkedList, push, void, Object$*)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IdentityLinkedList, remove, bool, Object$*)},
-	{"remove", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, remove, $Object*, int32_t)},
-	{"remove", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, remove, $Object*)},
-	{"remove", "(Lsun/awt/util/IdentityLinkedList$Entry;)Ljava/lang/Object;", "(Lsun/awt/util/IdentityLinkedList$Entry<TE;>;)TE;", $PRIVATE, $method(IdentityLinkedList, remove, $Object*, $IdentityLinkedList$Entry*)},
-	{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"removeFirst", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, removeFirst, $Object*)},
-	{"removeFirstOccurrence", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IdentityLinkedList, removeFirstOccurrence, bool, Object$*)},
-	{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"removeLast", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, removeLast, $Object*)},
-	{"removeLastOccurrence", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IdentityLinkedList, removeLastOccurrence, bool, Object$*)},
-	{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", "(ITE;)TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, set, $Object*, int32_t, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(IdentityLinkedList, size, int32_t)},
-	{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IdentityLinkedList, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(IdentityLinkedList, toArray, $ObjectArray*, $ObjectArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _IdentityLinkedList_InnerClassesInfo_[] = {
-	{"sun.awt.util.IdentityLinkedList$DescendingIterator", "sun.awt.util.IdentityLinkedList", "DescendingIterator", $PRIVATE},
-	{"sun.awt.util.IdentityLinkedList$Entry", "sun.awt.util.IdentityLinkedList", "Entry", $PRIVATE | $STATIC},
-	{"sun.awt.util.IdentityLinkedList$ListItr", "sun.awt.util.IdentityLinkedList", "ListItr", $PRIVATE},
-	{}
-};
-
-$ClassInfo _IdentityLinkedList_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.util.IdentityLinkedList",
-	"java.util.AbstractSequentialList",
-	"java.util.Deque",
-	_IdentityLinkedList_FieldInfo_,
-	_IdentityLinkedList_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/AbstractSequentialList<TE;>;Ljava/util/List<TE;>;Ljava/util/Deque<TE;>;",
-	nullptr,
-	_IdentityLinkedList_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.util.IdentityLinkedList$DescendingIterator,sun.awt.util.IdentityLinkedList$Entry,sun.awt.util.IdentityLinkedList$ListItr"
-};
-
-$Object* allocate$IdentityLinkedList($Class* clazz) {
-	return $of($alloc(IdentityLinkedList));
-}
 
 $Iterator* IdentityLinkedList::iterator() {
 	 return this->$AbstractSequentialList::iterator();
@@ -217,7 +119,7 @@ void IdentityLinkedList::init$() {
 	$AbstractSequentialList::init$();
 	$set(this, header, $new($IdentityLinkedList$Entry, nullptr, nullptr, nullptr));
 	this->size$ = 0;
-	$set($nc(this->header), next, ($set($nc(this->header), previous, this->header)));
+	$set(this->header, next, $set(this->header, previous, this->header));
 }
 
 void IdentityLinkedList::init$($Collection* c) {
@@ -229,22 +131,22 @@ $Object* IdentityLinkedList::getFirst() {
 	if (this->size$ == 0) {
 		$throwNew($NoSuchElementException);
 	}
-	return $of($nc($nc(this->header)->next)->element);
+	return $nc($nc(this->header)->next)->element;
 }
 
 $Object* IdentityLinkedList::getLast() {
 	if (this->size$ == 0) {
 		$throwNew($NoSuchElementException);
 	}
-	return $of($nc($nc(this->header)->previous)->element);
+	return $nc($nc(this->header)->previous)->element;
 }
 
 $Object* IdentityLinkedList::removeFirst() {
-	return $of(remove($nc(this->header)->next));
+	return remove($nc(this->header)->next);
 }
 
 $Object* IdentityLinkedList::removeLast() {
-	return $of(remove($nc(this->header)->previous));
+	return remove($nc(this->header)->previous);
 }
 
 void IdentityLinkedList::addFirst(Object$* e) {
@@ -269,13 +171,11 @@ bool IdentityLinkedList::add(Object$* e) {
 }
 
 bool IdentityLinkedList::remove(Object$* o) {
-	{
-		$var($IdentityLinkedList$Entry, e, $nc(this->header)->next);
-		for (; e != this->header; $assign(e, $nc(e)->next)) {
-			if ($equals(o, e->element)) {
-				remove(e);
-				return true;
-			}
+	$var($IdentityLinkedList$Entry, e, $nc(this->header)->next);
+	for (; e != this->header; $assign(e, $nc(e)->next)) {
+		if ($equals(o, $nc(e)->element)) {
+			remove(e);
+			return true;
 		}
 	}
 	return false;
@@ -286,7 +186,7 @@ bool IdentityLinkedList::addAll($Collection* c) {
 }
 
 bool IdentityLinkedList::addAll(int32_t index, $Collection* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (index < 0 || index > this->size$) {
 		$throwNew($IndexOutOfBoundsException, $$str({"Index: "_s, $$str(index), ", Size: "_s, $$str(this->size$)}));
 	}
@@ -310,29 +210,29 @@ bool IdentityLinkedList::addAll(int32_t index, $Collection* c) {
 }
 
 void IdentityLinkedList::clear() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IdentityLinkedList$Entry, e, $nc(this->header)->next);
 	while (e != this->header) {
 		$var($IdentityLinkedList$Entry, next, $nc(e)->next);
-		$set(e, next, ($set(e, previous, nullptr)));
+		$set(e, next, $set(e, previous, nullptr));
 		$set(e, element, nullptr);
 		$assign(e, next);
 	}
-	$set($nc(this->header), next, ($set($nc(this->header), previous, this->header)));
+	$set(this->header, next, $set(this->header, previous, this->header));
 	this->size$ = 0;
 	++this->modCount;
 }
 
 $Object* IdentityLinkedList::get(int32_t index) {
-	return $of($nc($(entry(index)))->element);
+	return $nc($(entry(index)))->element;
 }
 
 $Object* IdentityLinkedList::set(int32_t index, Object$* element) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IdentityLinkedList$Entry, e, entry(index));
 	$var($Object, oldVal, $nc(e)->element);
 	$set(e, element, element);
-	return $of(oldVal);
+	return oldVal;
 }
 
 void IdentityLinkedList::add(int32_t index, Object$* element) {
@@ -340,11 +240,11 @@ void IdentityLinkedList::add(int32_t index, Object$* element) {
 }
 
 $Object* IdentityLinkedList::remove(int32_t index) {
-	return $of(remove($(entry(index))));
+	return remove($(entry(index)));
 }
 
 $IdentityLinkedList$Entry* IdentityLinkedList::entry(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (index < 0 || index >= this->size$) {
 		$throwNew($IndexOutOfBoundsException, $$str({"Index: "_s, $$str(index), ", Size: "_s, $$str(this->size$)}));
 	}
@@ -366,7 +266,7 @@ int32_t IdentityLinkedList::indexOf(Object$* o) {
 	{
 		$var($IdentityLinkedList$Entry, e, $nc(this->header)->next);
 		for (; e != this->header; $assign(e, $nc(e)->next)) {
-			if ($equals(o, e->element)) {
+			if ($equals(o, $nc(e)->element)) {
 				return index;
 			}
 			++index;
@@ -381,7 +281,7 @@ int32_t IdentityLinkedList::lastIndexOf(Object$* o) {
 		$var($IdentityLinkedList$Entry, e, $nc(this->header)->previous);
 		for (; e != this->header; $assign(e, $nc(e)->previous)) {
 			--index;
-			if ($equals(o, e->element)) {
+			if ($equals(o, $nc(e)->element)) {
 				return index;
 			}
 		}
@@ -391,24 +291,24 @@ int32_t IdentityLinkedList::lastIndexOf(Object$* o) {
 
 $Object* IdentityLinkedList::peek() {
 	if (this->size$ == 0) {
-		return $of(nullptr);
+		return nullptr;
 	}
-	return $of(getFirst());
+	return getFirst();
 }
 
 $Object* IdentityLinkedList::element() {
-	return $of(getFirst());
+	return getFirst();
 }
 
 $Object* IdentityLinkedList::poll() {
 	if (this->size$ == 0) {
-		return $of(nullptr);
+		return nullptr;
 	}
-	return $of(removeFirst());
+	return removeFirst();
 }
 
 $Object* IdentityLinkedList::remove() {
-	return $of(removeFirst());
+	return removeFirst();
 }
 
 bool IdentityLinkedList::offer(Object$* e) {
@@ -427,30 +327,30 @@ bool IdentityLinkedList::offerLast(Object$* e) {
 
 $Object* IdentityLinkedList::peekFirst() {
 	if (this->size$ == 0) {
-		return $of(nullptr);
+		return nullptr;
 	}
-	return $of(getFirst());
+	return getFirst();
 }
 
 $Object* IdentityLinkedList::peekLast() {
 	if (this->size$ == 0) {
-		return $of(nullptr);
+		return nullptr;
 	}
-	return $of(getLast());
+	return getLast();
 }
 
 $Object* IdentityLinkedList::pollFirst() {
 	if (this->size$ == 0) {
-		return $of(nullptr);
+		return nullptr;
 	}
-	return $of(removeFirst());
+	return removeFirst();
 }
 
 $Object* IdentityLinkedList::pollLast() {
 	if (this->size$ == 0) {
-		return $of(nullptr);
+		return nullptr;
 	}
-	return $of(removeLast());
+	return removeLast();
 }
 
 void IdentityLinkedList::push(Object$* e) {
@@ -458,7 +358,7 @@ void IdentityLinkedList::push(Object$* e) {
 }
 
 $Object* IdentityLinkedList::pop() {
-	return $of(removeFirst());
+	return removeFirst();
 }
 
 bool IdentityLinkedList::removeFirstOccurrence(Object$* o) {
@@ -466,13 +366,11 @@ bool IdentityLinkedList::removeFirstOccurrence(Object$* o) {
 }
 
 bool IdentityLinkedList::removeLastOccurrence(Object$* o) {
-	{
-		$var($IdentityLinkedList$Entry, e, $nc(this->header)->previous);
-		for (; e != this->header; $assign(e, $nc(e)->previous)) {
-			if ($equals(o, e->element)) {
-				remove(e);
-				return true;
-			}
+	$var($IdentityLinkedList$Entry, e, $nc(this->header)->previous);
+	for (; e != this->header; $assign(e, $nc(e)->previous)) {
+		if ($equals(o, $nc(e)->element)) {
+			remove(e);
+			return true;
 		}
 	}
 	return false;
@@ -498,11 +396,11 @@ $Object* IdentityLinkedList::remove($IdentityLinkedList$Entry* e) {
 	$var($Object, result, $nc(e)->element);
 	$set($nc(e->previous), next, e->next);
 	$set($nc(e->next), previous, e->previous);
-	$set(e, next, ($set(e, previous, nullptr)));
+	$set(e, next, $set(e, previous, nullptr));
 	$set(e, element, nullptr);
 	--this->size$;
 	++this->modCount;
-	return $of(result);
+	return result;
 }
 
 $Iterator* IdentityLinkedList::descendingIterator() {
@@ -510,20 +408,20 @@ $Iterator* IdentityLinkedList::descendingIterator() {
 }
 
 $ObjectArray* IdentityLinkedList::toArray() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, result, $new($ObjectArray, this->size$));
 	int32_t i = 0;
 	{
 		$var($IdentityLinkedList$Entry, e, $nc(this->header)->next);
 		for (; e != this->header; $assign(e, $nc(e)->next)) {
-			result->set(i++, e->element);
+			result->set(i++, $nc(e)->element);
 		}
 	}
 	return result;
 }
 
 $ObjectArray* IdentityLinkedList::toArray($ObjectArray* a$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, a, a$renamed);
 	if ($nc(a)->length < this->size$) {
 		$assign(a, $cast($ObjectArray, $1Array::newInstance($of(a)->getClass()->getComponentType(), this->size$)));
@@ -533,10 +431,10 @@ $ObjectArray* IdentityLinkedList::toArray($ObjectArray* a$renamed) {
 	{
 		$var($IdentityLinkedList$Entry, e, $nc(this->header)->next);
 		for (; e != this->header; $assign(e, $nc(e)->next)) {
-			$nc(result)->set(i++, e->element);
+			result->set(i++, $nc(e)->element);
 		}
 	}
-	if ($nc(a)->length > this->size$) {
+	if (a->length > this->size$) {
 		a->set(this->size$, nullptr);
 	}
 	return a;
@@ -546,7 +444,98 @@ IdentityLinkedList::IdentityLinkedList() {
 }
 
 $Class* IdentityLinkedList::load$($String* name, bool initialize) {
-	$loadClass(IdentityLinkedList, name, initialize, &_IdentityLinkedList_ClassInfo_, allocate$IdentityLinkedList);
+	$FieldInfo fieldInfos$$[] = {
+		{"header", "Lsun/awt/util/IdentityLinkedList$Entry;", "Lsun/awt/util/IdentityLinkedList$Entry<TE;>;", $PRIVATE | $TRANSIENT, $field(IdentityLinkedList, header)},
+		{"size", "I", nullptr, $PRIVATE | $TRANSIENT, $field(IdentityLinkedList, size$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IdentityLinkedList, init$, void)},
+		{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+TE;>;)V", $PUBLIC, $method(IdentityLinkedList, init$, void, $Collection*)},
+		{"access$000", "(Lsun/awt/util/IdentityLinkedList;)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(IdentityLinkedList, access$000, int32_t, IdentityLinkedList*)},
+		{"access$100", "(Lsun/awt/util/IdentityLinkedList;)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(IdentityLinkedList, access$100, int32_t, IdentityLinkedList*)},
+		{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(IdentityLinkedList, add, bool, Object$*)},
+		{"add", "(ILjava/lang/Object;)V", "(ITE;)V", $PUBLIC, $virtualMethod(IdentityLinkedList, add, void, int32_t, Object$*)},
+		{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(IdentityLinkedList, addAll, bool, $Collection*)},
+		{"addAll", "(ILjava/util/Collection;)Z", "(ILjava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(IdentityLinkedList, addAll, bool, int32_t, $Collection*)},
+		{"addBefore", "(Ljava/lang/Object;Lsun/awt/util/IdentityLinkedList$Entry;)Lsun/awt/util/IdentityLinkedList$Entry;", "(TE;Lsun/awt/util/IdentityLinkedList$Entry<TE;>;)Lsun/awt/util/IdentityLinkedList$Entry<TE;>;", $PRIVATE, $method(IdentityLinkedList, addBefore, $IdentityLinkedList$Entry*, Object$*, $IdentityLinkedList$Entry*)},
+		{"addFirst", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(IdentityLinkedList, addFirst, void, Object$*)},
+		{"addLast", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(IdentityLinkedList, addLast, void, Object$*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(IdentityLinkedList, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IdentityLinkedList, contains, bool, Object$*)},
+		{"descendingIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(IdentityLinkedList, descendingIterator, $Iterator*)},
+		{"element", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, element, $Object*)},
+		{"entry", "(I)Lsun/awt/util/IdentityLinkedList$Entry;", "(I)Lsun/awt/util/IdentityLinkedList$Entry<TE;>;", $PRIVATE, $method(IdentityLinkedList, entry, $IdentityLinkedList$Entry*, int32_t)},
+		{"get", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, get, $Object*, int32_t)},
+		{"getFirst", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, getFirst, $Object*)},
+		{"getLast", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, getLast, $Object*)},
+		{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(IdentityLinkedList, indexOf, int32_t, Object$*)},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
+		{"lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(IdentityLinkedList, lastIndexOf, int32_t, Object$*)},
+		{"listIterator", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<TE;>;", $PUBLIC, $virtualMethod(IdentityLinkedList, listIterator, $ListIterator*, int32_t)},
+		{"offer", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(IdentityLinkedList, offer, bool, Object$*)},
+		{"offerFirst", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(IdentityLinkedList, offerFirst, bool, Object$*)},
+		{"offerLast", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(IdentityLinkedList, offerLast, bool, Object$*)},
+		{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"peek", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, peek, $Object*)},
+		{"peekFirst", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, peekFirst, $Object*)},
+		{"peekLast", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, peekLast, $Object*)},
+		{"poll", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, poll, $Object*)},
+		{"pollFirst", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, pollFirst, $Object*)},
+		{"pollLast", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, pollLast, $Object*)},
+		{"pop", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, pop, $Object*)},
+		{"push", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(IdentityLinkedList, push, void, Object$*)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IdentityLinkedList, remove, bool, Object$*)},
+		{"remove", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, remove, $Object*, int32_t)},
+		{"remove", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, remove, $Object*)},
+		{"remove", "(Lsun/awt/util/IdentityLinkedList$Entry;)Ljava/lang/Object;", "(Lsun/awt/util/IdentityLinkedList$Entry<TE;>;)TE;", $PRIVATE, $method(IdentityLinkedList, remove, $Object*, $IdentityLinkedList$Entry*)},
+		{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"removeFirst", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, removeFirst, $Object*)},
+		{"removeFirstOccurrence", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IdentityLinkedList, removeFirstOccurrence, bool, Object$*)},
+		{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"removeLast", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, removeLast, $Object*)},
+		{"removeLastOccurrence", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IdentityLinkedList, removeLastOccurrence, bool, Object$*)},
+		{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", "(ITE;)TE;", $PUBLIC, $virtualMethod(IdentityLinkedList, set, $Object*, int32_t, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(IdentityLinkedList, size, int32_t)},
+		{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IdentityLinkedList, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(IdentityLinkedList, toArray, $ObjectArray*, $ObjectArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.util.IdentityLinkedList$DescendingIterator", "sun.awt.util.IdentityLinkedList", "DescendingIterator", $PRIVATE},
+		{"sun.awt.util.IdentityLinkedList$Entry", "sun.awt.util.IdentityLinkedList", "Entry", $PRIVATE | $STATIC},
+		{"sun.awt.util.IdentityLinkedList$ListItr", "sun.awt.util.IdentityLinkedList", "ListItr", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.util.IdentityLinkedList",
+		"java.util.AbstractSequentialList",
+		"java.util.Deque",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/AbstractSequentialList<TE;>;Ljava/util/List<TE;>;Ljava/util/Deque<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.util.IdentityLinkedList$DescendingIterator,sun.awt.util.IdentityLinkedList$Entry,sun.awt.util.IdentityLinkedList$ListItr"
+	};
+	$loadClass(IdentityLinkedList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(IdentityLinkedList));
+	});
 	return class$;
 }
 

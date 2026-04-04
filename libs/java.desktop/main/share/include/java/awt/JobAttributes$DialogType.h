@@ -28,6 +28,7 @@ class $import JobAttributes$DialogType : public ::java::awt::AttributeValue {
 	$class(JobAttributes$DialogType, 0, ::java::awt::AttributeValue)
 public:
 	JobAttributes$DialogType();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t type);
 	virtual int32_t hashCode() override;
 	virtual $String* toString() override;

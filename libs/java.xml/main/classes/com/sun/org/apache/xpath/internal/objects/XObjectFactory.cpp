@@ -1,10 +1,8 @@
 #include <com/sun/org/apache/xpath/internal/objects/XObjectFactory.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/Axis.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMIterator.h>
-#include <com/sun/org/apache/xml/internal/dtm/DTMManager.h>
 #include <com/sun/org/apache/xml/internal/utils/WrappedRuntimeException.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
 #include <com/sun/org/apache/xpath/internal/axes/OneStepIterator.h>
@@ -26,7 +24,6 @@ using $Axis = ::com::sun::org::apache::xml::internal::dtm::Axis;
 using $DTM = ::com::sun::org::apache::xml::internal::dtm::DTM;
 using $DTMAxisIterator = ::com::sun::org::apache::xml::internal::dtm::DTMAxisIterator;
 using $DTMIterator = ::com::sun::org::apache::xml::internal::dtm::DTMIterator;
-using $DTMManager = ::com::sun::org::apache::xml::internal::dtm::DTMManager;
 using $WrappedRuntimeException = ::com::sun::org::apache::xml::internal::utils::WrappedRuntimeException;
 using $XPathContext = ::com::sun::org::apache::xpath::internal::XPathContext;
 using $OneStepIterator = ::com::sun::org::apache::xpath::internal::axes::OneStepIterator;
@@ -54,26 +51,6 @@ namespace com {
 					namespace internal {
 						namespace objects {
 
-$MethodInfo _XObjectFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XObjectFactory, init$, void)},
-	{"create", "(Ljava/lang/Object;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC | $STATIC, $staticMethod(XObjectFactory, create, $XObject*, Object$*)},
-	{"create", "(Ljava/lang/Object;Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC | $STATIC, $staticMethod(XObjectFactory, create, $XObject*, Object$*, $XPathContext*)},
-	{}
-};
-
-$ClassInfo _XObjectFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.objects.XObjectFactory",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_XObjectFactory_MethodInfo_
-};
-
-$Object* allocate$XObjectFactory($Class* clazz) {
-	return $of($alloc(XObjectFactory));
-}
-
 void XObjectFactory::init$() {
 }
 
@@ -86,7 +63,7 @@ $XObject* XObjectFactory::create(Object$* val) {
 	} else if ($instanceOf($Boolean, val)) {
 		$assign(result, $new($XBoolean, $cast($Boolean, val)));
 	} else if ($instanceOf($Double, val)) {
-		$assign(result, $new($XNumber, ($cast($Double, val))));
+		$assign(result, $new($XNumber, $cast($Double, val)));
 	} else {
 		$assign(result, $new($XObject, val));
 	}
@@ -94,7 +71,7 @@ $XObject* XObjectFactory::create(Object$* val) {
 }
 
 $XObject* XObjectFactory::create(Object$* val, $XPathContext* xctxt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XObject, result, nullptr);
 	if ($instanceOf($XObject, val)) {
 		$assign(result, $cast($XObject, val));
@@ -103,11 +80,11 @@ $XObject* XObjectFactory::create(Object$* val, $XPathContext* xctxt) {
 	} else if ($instanceOf($Boolean, val)) {
 		$assign(result, $new($XBoolean, $cast($Boolean, val)));
 	} else if ($instanceOf($Number, val)) {
-		$assign(result, $new($XNumber, ($cast($Number, val))));
+		$assign(result, $new($XNumber, $cast($Number, val)));
 	} else if ($instanceOf($DTM, val)) {
 		$var($DTM, dtm, $cast($DTM, val));
 		try {
-			int32_t dtmRoot = $nc(dtm)->getDocument();
+			int32_t dtmRoot = dtm->getDocument();
 			$var($DTMAxisIterator, iter, dtm->getAxisIterator($Axis::SELF));
 			$nc(iter)->setStartNode(dtmRoot);
 			$var($DTMIterator, iterator, $new($OneStepIterator, iter, $Axis::SELF));
@@ -120,7 +97,7 @@ $XObject* XObjectFactory::create(Object$* val, $XPathContext* xctxt) {
 		$var($DTMAxisIterator, iter, $cast($DTMAxisIterator, val));
 		try {
 			$var($DTMIterator, iterator, $new($OneStepIterator, iter, $Axis::SELF));
-			iterator->setRoot($nc(iter)->getStartNode(), xctxt);
+			iterator->setRoot(iter->getStartNode(), xctxt);
 			$assign(result, $new($XNodeSet, iterator));
 		} catch ($Exception& ex) {
 			$throwNew($WrappedRuntimeException, ex);
@@ -128,7 +105,7 @@ $XObject* XObjectFactory::create(Object$* val, $XPathContext* xctxt) {
 	} else if ($instanceOf($DTMIterator, val)) {
 		$assign(result, $new($XNodeSet, $cast($DTMIterator, val)));
 	} else if ($instanceOf($Node, val)) {
-		$assign(result, $new($XNodeSetForDOM, $cast($Node, val), static_cast<$DTMManager*>(xctxt)));
+		$assign(result, $new($XNodeSetForDOM, $cast($Node, val), xctxt));
 	} else if ($instanceOf($NodeList, val)) {
 		$assign(result, $new($XNodeSetForDOM, $cast($NodeList, val), xctxt));
 	} else if ($instanceOf($NodeIterator, val)) {
@@ -143,7 +120,23 @@ XObjectFactory::XObjectFactory() {
 }
 
 $Class* XObjectFactory::load$($String* name, bool initialize) {
-	$loadClass(XObjectFactory, name, initialize, &_XObjectFactory_ClassInfo_, allocate$XObjectFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XObjectFactory, init$, void)},
+		{"create", "(Ljava/lang/Object;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC | $STATIC, $staticMethod(XObjectFactory, create, $XObject*, Object$*)},
+		{"create", "(Ljava/lang/Object;Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC | $STATIC, $staticMethod(XObjectFactory, create, $XObject*, Object$*, $XPathContext*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.objects.XObjectFactory",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XObjectFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XObjectFactory);
+	});
 	return class$;
 }
 

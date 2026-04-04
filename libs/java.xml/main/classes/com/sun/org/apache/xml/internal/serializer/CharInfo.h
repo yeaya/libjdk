@@ -40,6 +40,7 @@ class CharInfo : public ::java::lang::Object {
 	$class(CharInfo, 0, ::java::lang::Object)
 public:
 	CharInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* entitiesResource, $String* method);
 	void init$($String* entitiesResource, $String* method, bool internal);
 	static int32_t arrayIndex(int32_t i);

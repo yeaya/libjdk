@@ -44,6 +44,7 @@ class XInputMethod : public ::sun::awt::X11InputMethod {
 	$class(XInputMethod, 0, ::sun::awt::X11InputMethod)
 public:
 	XInputMethod();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void adjustStatusWindow(int64_t window);
 	virtual void awtLock() override;

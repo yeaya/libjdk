@@ -57,6 +57,7 @@ class $export SunDragSourceContextPeer : public ::java::awt::dnd::peer::DragSour
 	$class(SunDragSourceContextPeer, 0, ::java::awt::dnd::peer::DragSourceContextPeer)
 public:
 	SunDragSourceContextPeer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::dnd::DragGestureEvent* dge);
 	static void checkDragDropInProgress();
 	static bool checkEvent(::java::awt::AWTEvent* event);

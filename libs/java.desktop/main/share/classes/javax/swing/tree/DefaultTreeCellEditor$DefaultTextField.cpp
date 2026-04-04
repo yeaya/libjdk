@@ -1,5 +1,4 @@
 #include <javax/swing/tree/DefaultTreeCellEditor$DefaultTextField.h>
-
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
@@ -24,63 +23,10 @@ using $JTextField = ::javax::swing::JTextField;
 using $Border = ::javax::swing::border::Border;
 using $FontUIResource = ::javax::swing::plaf::FontUIResource;
 using $DefaultTreeCellEditor = ::javax::swing::tree::DefaultTreeCellEditor;
-using $DefaultTreeCellRenderer = ::javax::swing::tree::DefaultTreeCellRenderer;
 
 namespace javax {
 	namespace swing {
 		namespace tree {
-
-$NamedAttribute DefaultTreeCellEditor$DefaultTextField_Attribute_var$0[] = {
-	{"preferred", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The component\'s border."},
-	{}
-};
-
-$CompoundAttribute _DefaultTreeCellEditor$DefaultTextField_MethodAnnotations_setBorder4[] = {
-	{"Ljava/beans/BeanProperty;", DefaultTreeCellEditor$DefaultTextField_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _DefaultTreeCellEditor$DefaultTextField_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/tree/DefaultTreeCellEditor;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultTreeCellEditor$DefaultTextField, this$0)},
-	{"border", "Ljavax/swing/border/Border;", nullptr, $PROTECTED, $field(DefaultTreeCellEditor$DefaultTextField, border)},
-	{}
-};
-
-$MethodInfo _DefaultTreeCellEditor$DefaultTextField_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/tree/DefaultTreeCellEditor;Ljavax/swing/border/Border;)V", nullptr, $PUBLIC, $method(DefaultTreeCellEditor$DefaultTextField, init$, void, $DefaultTreeCellEditor*, $Border*)},
-	{"getBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor$DefaultTextField, getBorder, $Border*)},
-	{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor$DefaultTextField, getFont, $Font*)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor$DefaultTextField, getPreferredSize, $Dimension*)},
-	{"setBorder", "(Ljavax/swing/border/Border;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor$DefaultTextField, setBorder, void, $Border*), nullptr, nullptr, _DefaultTreeCellEditor$DefaultTextField_MethodAnnotations_setBorder4},
-	{}
-};
-
-$InnerClassInfo _DefaultTreeCellEditor$DefaultTextField_InnerClassesInfo_[] = {
-	{"javax.swing.tree.DefaultTreeCellEditor$DefaultTextField", "javax.swing.tree.DefaultTreeCellEditor", "DefaultTextField", $PUBLIC},
-	{}
-};
-
-$ClassInfo _DefaultTreeCellEditor$DefaultTextField_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.tree.DefaultTreeCellEditor$DefaultTextField",
-	"javax.swing.JTextField",
-	nullptr,
-	_DefaultTreeCellEditor$DefaultTextField_FieldInfo_,
-	_DefaultTreeCellEditor$DefaultTextField_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultTreeCellEditor$DefaultTextField_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.tree.DefaultTreeCellEditor"
-};
-
-$Object* allocate$DefaultTreeCellEditor$DefaultTextField($Class* clazz) {
-	return $of($alloc(DefaultTreeCellEditor$DefaultTextField));
-}
 
 void DefaultTreeCellEditor$DefaultTextField::init$($DefaultTreeCellEditor* this$0, $Border* border) {
 	$set(this, this$0, this$0);
@@ -98,7 +44,7 @@ $Border* DefaultTreeCellEditor$DefaultTextField::getBorder() {
 }
 
 $Font* DefaultTreeCellEditor$DefaultTextField::getFont() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Font, font, $JTextField::getFont());
 	if ($instanceOf($FontUIResource, font)) {
 		$var($Container, parent, getParent());
@@ -110,10 +56,10 @@ $Font* DefaultTreeCellEditor$DefaultTextField::getFont() {
 }
 
 $Dimension* DefaultTreeCellEditor$DefaultTextField::getPreferredSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, size, $JTextField::getPreferredSize());
 	if (this->this$0->renderer != nullptr && this->this$0->getFont() == nullptr) {
-		$var($Dimension, rSize, $nc(this->this$0->renderer)->getPreferredSize());
+		$var($Dimension, rSize, this->this$0->renderer->getPreferredSize());
 		$nc(size)->height = $nc(rSize)->height;
 	}
 	return size;
@@ -123,7 +69,51 @@ DefaultTreeCellEditor$DefaultTextField::DefaultTreeCellEditor$DefaultTextField()
 }
 
 $Class* DefaultTreeCellEditor$DefaultTextField::load$($String* name, bool initialize) {
-	$loadClass(DefaultTreeCellEditor$DefaultTextField, name, initialize, &_DefaultTreeCellEditor$DefaultTextField_ClassInfo_, allocate$DefaultTreeCellEditor$DefaultTextField);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/tree/DefaultTreeCellEditor;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultTreeCellEditor$DefaultTextField, this$0)},
+		{"border", "Ljavax/swing/border/Border;", nullptr, $PROTECTED, $field(DefaultTreeCellEditor$DefaultTextField, border)},
+		{}
+	};
+	$NamedAttribute setBordermethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The component\'s border."},
+		{}
+	};
+	$CompoundAttribute setBordermethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setBordermethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/tree/DefaultTreeCellEditor;Ljavax/swing/border/Border;)V", nullptr, $PUBLIC, $method(DefaultTreeCellEditor$DefaultTextField, init$, void, $DefaultTreeCellEditor*, $Border*)},
+		{"getBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor$DefaultTextField, getBorder, $Border*)},
+		{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor$DefaultTextField, getFont, $Font*)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor$DefaultTextField, getPreferredSize, $Dimension*)},
+		{"setBorder", "(Ljavax/swing/border/Border;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor$DefaultTextField, setBorder, void, $Border*), nullptr, nullptr, setBordermethodAnnotations$$},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.tree.DefaultTreeCellEditor$DefaultTextField", "javax.swing.tree.DefaultTreeCellEditor", "DefaultTextField", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.tree.DefaultTreeCellEditor$DefaultTextField",
+		"javax.swing.JTextField",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.tree.DefaultTreeCellEditor"
+	};
+	$loadClass(DefaultTreeCellEditor$DefaultTextField, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultTreeCellEditor$DefaultTextField));
+	});
 	return class$;
 }
 

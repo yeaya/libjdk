@@ -49,6 +49,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* label);
 	virtual void addActionListener(::java::awt::event::ActionListener* l);
@@ -75,7 +76,7 @@ public:
 	::java::awt::event::ActionListener* actionListener = nullptr;
 	static $String* base;
 	static int32_t nameCounter;
-	static const int64_t serialVersionUID = (int64_t)0x863A0FA678C2539E;
+	static const int64_t serialVersionUID = (int64_t)0x863a0fa678c2539e;
 	int32_t buttonSerializedDataVersion = 0;
 };
 

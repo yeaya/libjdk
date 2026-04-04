@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFElementInfo.h>
-
 #include <javax/imageio/metadata/IIOMetadataFormat.h>
 #include <jcpp.h>
 
@@ -17,41 +16,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace tiff {
-
-$FieldInfo _TIFFElementInfo_FieldInfo_[] = {
-	{"childNames", "[Ljava/lang/String;", nullptr, 0, $field(TIFFElementInfo, childNames)},
-	{"attributeNames", "[Ljava/lang/String;", nullptr, 0, $field(TIFFElementInfo, attributeNames)},
-	{"childPolicy", "I", nullptr, 0, $field(TIFFElementInfo, childPolicy)},
-	{"minChildren", "I", nullptr, 0, $field(TIFFElementInfo, minChildren)},
-	{"maxChildren", "I", nullptr, 0, $field(TIFFElementInfo, maxChildren)},
-	{"objectValueType", "I", nullptr, 0, $field(TIFFElementInfo, objectValueType)},
-	{"objectClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", 0, $field(TIFFElementInfo, objectClass)},
-	{"objectDefaultValue", "Ljava/lang/Object;", nullptr, 0, $field(TIFFElementInfo, objectDefaultValue)},
-	{"objectEnumerations", "[Ljava/lang/Object;", nullptr, 0, $field(TIFFElementInfo, objectEnumerations)},
-	{"objectMinValue", "Ljava/lang/Comparable;", "Ljava/lang/Comparable<Ljava/lang/Object;>;", 0, $field(TIFFElementInfo, objectMinValue)},
-	{"objectMaxValue", "Ljava/lang/Comparable;", "Ljava/lang/Comparable<Ljava/lang/Object;>;", 0, $field(TIFFElementInfo, objectMaxValue)},
-	{"objectArrayMinLength", "I", nullptr, 0, $field(TIFFElementInfo, objectArrayMinLength)},
-	{"objectArrayMaxLength", "I", nullptr, 0, $field(TIFFElementInfo, objectArrayMaxLength)},
-	{}
-};
-
-$MethodInfo _TIFFElementInfo_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/String;[Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(TIFFElementInfo, init$, void, $StringArray*, $StringArray*, int32_t)},
-	{}
-};
-
-$ClassInfo _TIFFElementInfo_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFElementInfo",
-	"java.lang.Object",
-	nullptr,
-	_TIFFElementInfo_FieldInfo_,
-	_TIFFElementInfo_MethodInfo_
-};
-
-$Object* allocate$TIFFElementInfo($Class* clazz) {
-	return $of($alloc(TIFFElementInfo));
-}
 
 void TIFFElementInfo::init$($StringArray* childNames, $StringArray* attributeNames, int32_t childPolicy) {
 	this->minChildren = 0;
@@ -73,7 +37,37 @@ TIFFElementInfo::TIFFElementInfo() {
 }
 
 $Class* TIFFElementInfo::load$($String* name, bool initialize) {
-	$loadClass(TIFFElementInfo, name, initialize, &_TIFFElementInfo_ClassInfo_, allocate$TIFFElementInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"childNames", "[Ljava/lang/String;", nullptr, 0, $field(TIFFElementInfo, childNames)},
+		{"attributeNames", "[Ljava/lang/String;", nullptr, 0, $field(TIFFElementInfo, attributeNames)},
+		{"childPolicy", "I", nullptr, 0, $field(TIFFElementInfo, childPolicy)},
+		{"minChildren", "I", nullptr, 0, $field(TIFFElementInfo, minChildren)},
+		{"maxChildren", "I", nullptr, 0, $field(TIFFElementInfo, maxChildren)},
+		{"objectValueType", "I", nullptr, 0, $field(TIFFElementInfo, objectValueType)},
+		{"objectClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", 0, $field(TIFFElementInfo, objectClass)},
+		{"objectDefaultValue", "Ljava/lang/Object;", nullptr, 0, $field(TIFFElementInfo, objectDefaultValue)},
+		{"objectEnumerations", "[Ljava/lang/Object;", nullptr, 0, $field(TIFFElementInfo, objectEnumerations)},
+		{"objectMinValue", "Ljava/lang/Comparable;", "Ljava/lang/Comparable<Ljava/lang/Object;>;", 0, $field(TIFFElementInfo, objectMinValue)},
+		{"objectMaxValue", "Ljava/lang/Comparable;", "Ljava/lang/Comparable<Ljava/lang/Object;>;", 0, $field(TIFFElementInfo, objectMaxValue)},
+		{"objectArrayMinLength", "I", nullptr, 0, $field(TIFFElementInfo, objectArrayMinLength)},
+		{"objectArrayMaxLength", "I", nullptr, 0, $field(TIFFElementInfo, objectArrayMaxLength)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/lang/String;[Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(TIFFElementInfo, init$, void, $StringArray*, $StringArray*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFElementInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFElementInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFElementInfo);
+	});
 	return class$;
 }
 

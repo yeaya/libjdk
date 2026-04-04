@@ -1,5 +1,4 @@
 #include <Timeout.h>
-
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -14,7 +13,6 @@
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ServerSocket.h>
 #include <java/net/Socket.h>
-#include <java/net/SocketAddress.h>
 #include <java/net/URI.h>
 #include <java/net/http/HttpClient$Builder.h>
 #include <java/net/http/HttpClient$Version.h>
@@ -45,8 +43,6 @@
 
 using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -56,19 +52,15 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
-using $SocketAddress = ::java::net::SocketAddress;
 using $URI = ::java::net::URI;
 using $HttpClient = ::java::net::http::HttpClient;
-using $HttpClient$Builder = ::java::net::http::HttpClient$Builder;
 using $HttpClient$Version = ::java::net::http::HttpClient$Version;
 using $HttpRequest = ::java::net::http::HttpRequest;
 using $HttpRequest$BodyPublishers = ::java::net::http::HttpRequest$BodyPublishers;
-using $HttpRequest$Builder = ::java::net::http::HttpRequest$Builder;
 using $HttpResponse = ::java::net::http::HttpResponse;
 using $HttpResponse$BodyHandlers = ::java::net::http::HttpResponse$BodyHandlers;
 using $HttpTimeoutException = ::java::net::http::HttpTimeoutException;
 using $Duration = ::java::time::Duration;
-using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $CompletionException = ::java::util::concurrent::CompletionException;
 using $SSLParameters = ::javax::net::ssl::SSLParameters;
 using $SSLServerSocket = ::javax::net::ssl::SSLServerSocket;
@@ -84,68 +76,32 @@ public:
 	virtual void run() override {
 		Timeout::lambda$test$0(ssocket);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Timeout$$Lambda$lambda$test$0>());
-	}
 	$SSLServerSocket* ssocket = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Timeout$$Lambda$lambda$test$0::fieldInfos[2] = {
-	{"ssocket", "Ljavax/net/ssl/SSLServerSocket;", nullptr, $PUBLIC, $field(Timeout$$Lambda$lambda$test$0, ssocket)},
-	{}
-};
-$MethodInfo Timeout$$Lambda$lambda$test$0::methodInfos[3] = {
-	{"<init>", "(Ljavax/net/ssl/SSLServerSocket;)V", nullptr, $PUBLIC, $method(Timeout$$Lambda$lambda$test$0, init$, void, $SSLServerSocket*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Timeout$$Lambda$lambda$test$0, run, void)},
-	{}
-};
-$ClassInfo Timeout$$Lambda$lambda$test$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"Timeout$$Lambda$lambda$test$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* Timeout$$Lambda$lambda$test$0::load$($String* name, bool initialize) {
-	$loadClass(Timeout$$Lambda$lambda$test$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"ssocket", "Ljavax/net/ssl/SSLServerSocket;", nullptr, $PUBLIC, $field(Timeout$$Lambda$lambda$test$0, ssocket)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/net/ssl/SSLServerSocket;)V", nullptr, $PUBLIC, $method(Timeout$$Lambda$lambda$test$0, init$, void, $SSLServerSocket*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Timeout$$Lambda$lambda$test$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"Timeout$$Lambda$lambda$test$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Timeout$$Lambda$lambda$test$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Timeout$$Lambda$lambda$test$0);
+	});
 	return class$;
 }
 $Class* Timeout$$Lambda$lambda$test$0::class$ = nullptr;
-
-$FieldInfo _Timeout_FieldInfo_[] = {
-	{"RANDOM_PORT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Timeout, RANDOM_PORT)},
-	{"TIMEOUT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Timeout, TIMEOUT)},
-	{"KEYSTORE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Timeout, KEYSTORE)},
-	{"PASSWORD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Timeout, PASSWORD)},
-	{"ready", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Timeout, ready)},
-	{}
-};
-
-$MethodInfo _Timeout_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Timeout, init$, void)},
-	{"connect", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Timeout, connect, void, $String*), "java.lang.Exception"},
-	{"connectAsync", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Timeout, connectAsync, void, $String*), "java.lang.Exception"},
-	{"lambda$test$0", "(Ljavax/net/ssl/SSLServerSocket;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Timeout, lambda$test$0, void, $SSLServerSocket*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Timeout, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Timeout, test, void, bool), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Timeout_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Timeout",
-	"java.lang.Object",
-	nullptr,
-	_Timeout_FieldInfo_,
-	_Timeout_MethodInfo_
-};
-
-$Object* allocate$Timeout($Class* clazz) {
-	return $of($alloc(Timeout));
-}
 
 $String* Timeout::KEYSTORE = nullptr;
 $String* Timeout::PASSWORD = nullptr;
@@ -162,7 +118,7 @@ void Timeout::main($StringArray* args) {
 
 void Timeout::test(bool async) {
 	$init(Timeout);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$System::setProperty("javax.net.ssl.keyStore"_s, Timeout::KEYSTORE);
 	$System::setProperty("javax.net.ssl.keyStorePassword"_s, Timeout::PASSWORD);
 	$System::setProperty("javax.net.ssl.trustStore"_s, Timeout::KEYSTORE);
@@ -170,57 +126,55 @@ void Timeout::test(bool async) {
 	$var($SSLServerSocketFactory, factory, $cast($SSLServerSocketFactory, $SSLServerSocketFactory::getDefault()));
 	{
 		$var($SSLServerSocket, ssocket, $cast($SSLServerSocket, $nc(factory)->createServerSocket()));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$nc(ssocket)->setReuseAddress(false);
-					ssocket->bind($$new($InetSocketAddress, $($InetAddress::getLoopbackAddress()), Timeout::RANDOM_PORT));
-					$var($Thread, server, $new($Thread, static_cast<$Runnable*>($$new(Timeout$$Lambda$lambda$test$0, ssocket))));
-					server->setDaemon(true);
-					server->start();
-					do {
-						$Thread::sleep(1000);
-					} while (!Timeout::ready);
-					$var($String, uri, $str({"https://localhost:"_s, $$str(ssocket->getLocalPort())}));
-					if (async) {
-						$nc($System::out)->println($$str({uri, ": Trying to connect asynchronously"_s}));
-						connectAsync(uri);
-					} else {
-						$nc($System::out)->println($$str({uri, ": Trying to connect synchronously"_s}));
-						connect(uri);
-					}
-				} catch ($Throwable& t$) {
-					if (ssocket != nullptr) {
-						try {
-							ssocket->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
+				$nc(ssocket)->setReuseAddress(false);
+				ssocket->bind($$new($InetSocketAddress, $($InetAddress::getLoopbackAddress()), Timeout::RANDOM_PORT));
+				$var($Thread, server, $new($Thread, $$new(Timeout$$Lambda$lambda$test$0, ssocket)));
+				server->setDaemon(true);
+				server->start();
+				do {
+					$Thread::sleep(1000);
+				} while (!Timeout::ready);
+				$var($String, uri, $str({"https://localhost:"_s, $$str(ssocket->getLocalPort())}));
+				if (async) {
+					$nc($System::out)->println($$str({uri, ": Trying to connect asynchronously"_s}));
+					connectAsync(uri);
+				} else {
+					$nc($System::out)->println($$str({uri, ": Trying to connect synchronously"_s}));
+					connect(uri);
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
+			} catch ($Throwable& t$) {
 				if (ssocket != nullptr) {
-					ssocket->close();
+					try {
+						ssocket->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			if (ssocket != nullptr) {
+				ssocket->close();
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void Timeout::connect($String* server) {
 	$init(Timeout);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($HttpClient$Version);
-		$var($HttpClient, client, $nc($($nc($($HttpClient::newBuilder()))->version($HttpClient$Version::HTTP_2)))->build());
-		$var($HttpRequest, request, $nc($($nc($($nc($($HttpRequest::newBuilder($$new($URI, server))))->timeout($($Duration::ofMillis(Timeout::TIMEOUT)))))->POST($($HttpRequest$BodyPublishers::ofString("body"_s)))))->build());
+		$var($HttpClient, client, $$nc($$nc($HttpClient::newBuilder())->version($HttpClient$Version::HTTP_2))->build());
+		$var($HttpRequest, request, $$nc($$nc($$nc($HttpRequest::newBuilder($$new($URI, server)))->timeout($($Duration::ofMillis(Timeout::TIMEOUT))))->POST($($HttpRequest$BodyPublishers::ofString("body"_s))))->build());
 		$var($HttpResponse, response, $nc(client)->send(request, $($HttpResponse$BodyHandlers::ofString())));
 		$nc($System::out)->println($$str({"Received unexpected reply: "_s, $$str($nc(response)->statusCode())}));
 		$throwNew($RuntimeException, "unexpected successful connection"_s);
@@ -231,12 +185,12 @@ void Timeout::connect($String* server) {
 
 void Timeout::connectAsync($String* server) {
 	$init(Timeout);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($HttpClient$Version);
-		$var($HttpClient, client, $nc($($nc($($HttpClient::newBuilder()))->version($HttpClient$Version::HTTP_2)))->build());
-		$var($HttpRequest, request, $nc($($nc($($nc($($HttpRequest::newBuilder($$new($URI, server))))->timeout($($Duration::ofMillis(Timeout::TIMEOUT)))))->POST($($HttpRequest$BodyPublishers::ofString("body"_s)))))->build());
-		$var($HttpResponse, response, $cast($HttpResponse, $nc($($nc(client)->sendAsync(request, $($HttpResponse$BodyHandlers::ofString()))))->join()));
+		$var($HttpClient, client, $$nc($$nc($HttpClient::newBuilder())->version($HttpClient$Version::HTTP_2))->build());
+		$var($HttpRequest, request, $$nc($$nc($$nc($HttpRequest::newBuilder($$new($URI, server)))->timeout($($Duration::ofMillis(Timeout::TIMEOUT))))->POST($($HttpRequest$BodyPublishers::ofString("body"_s))))->build());
+		$var($HttpResponse, response, $cast($HttpResponse, $$nc($nc(client)->sendAsync(request, $($HttpResponse$BodyHandlers::ofString())))->join()));
 		$nc($System::out)->println($$str({"Received unexpected reply: "_s, $$str($nc(response)->statusCode())}));
 		$throwNew($RuntimeException, "unexpected successful connection"_s);
 	} catch ($CompletionException& e) {
@@ -250,7 +204,7 @@ void Timeout::connectAsync($String* server) {
 
 void Timeout::lambda$test$0($SSLServerSocket* ssocket) {
 	$init(Timeout);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (true) {
 		$nc($System::out)->println("server: ready"_s);
 		$var($SSLParameters, params, $nc(ssocket)->getSSLParameters());
@@ -259,42 +213,40 @@ void Timeout::lambda$test$0($SSLServerSocket* ssocket) {
 		Timeout::ready = true;
 		try {
 			$var($SSLSocket, socket, $cast($SSLSocket, ssocket->accept()));
-			{
-				$var($Throwable, var$0, nullptr);
+			$var($Throwable, var$0, nullptr);
+			try {
 				try {
-					try {
-						$nc($System::out)->println("server: accepted"_s);
-						while (true) {
-							$nc($($nc(socket)->getInputStream()))->read();
-						}
-					} catch ($Throwable& t$) {
-						if (socket != nullptr) {
-							try {
-								socket->close();
-							} catch ($Throwable& x2) {
-								t$->addSuppressed(x2);
-							}
-						}
-						$throw(t$);
+					$System::out->println("server: accepted"_s);
+					while (true) {
+						$$nc($nc(socket)->getInputStream())->read();
 					}
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
+				} catch ($Throwable& t$) {
 					if (socket != nullptr) {
-						socket->close();
+						try {
+							socket->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
 					}
+					$throw(t$);
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				if (socket != nullptr) {
+					socket->close();
 				}
 			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
 		} catch ($IOException& e) {
-			$nc($System::out)->println($$str({"server: exception: "_s, e}));
+			$System::out->println($$str({"server: exception: "_s, e}));
 		}
 	}
 }
 
-void clinit$Timeout($Class* class$) {
+void Timeout::clinit$($Class* clazz) {
 	$assignStatic(Timeout::PASSWORD, "password"_s);
 	$init($File);
 	$assignStatic(Timeout::KEYSTORE, $str({$($System::getProperty("test.src"_s)), $File::separator, "keystore.p12"_s}));
@@ -306,11 +258,38 @@ Timeout::Timeout() {
 
 $Class* Timeout::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Timeout$$Lambda$lambda$test$0::classInfo$.name)) {
+		if (name->equals("Timeout$$Lambda$lambda$test$0")) {
 			return Timeout$$Lambda$lambda$test$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Timeout, name, initialize, &_Timeout_ClassInfo_, clinit$Timeout, allocate$Timeout);
+	$FieldInfo fieldInfos$$[] = {
+		{"RANDOM_PORT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Timeout, RANDOM_PORT)},
+		{"TIMEOUT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Timeout, TIMEOUT)},
+		{"KEYSTORE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Timeout, KEYSTORE)},
+		{"PASSWORD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Timeout, PASSWORD)},
+		{"ready", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Timeout, ready)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Timeout, init$, void)},
+		{"connect", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Timeout, connect, void, $String*), "java.lang.Exception"},
+		{"connectAsync", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Timeout, connectAsync, void, $String*), "java.lang.Exception"},
+		{"lambda$test$0", "(Ljavax/net/ssl/SSLServerSocket;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Timeout, lambda$test$0, void, $SSLServerSocket*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Timeout, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Timeout, test, void, bool), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Timeout",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Timeout, name, initialize, &classInfo$$, Timeout::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Timeout);
+	});
 	return class$;
 }
 

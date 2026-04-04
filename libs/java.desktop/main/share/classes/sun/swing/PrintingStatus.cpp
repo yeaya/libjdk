@@ -1,18 +1,14 @@
 #include <sun/swing/PrintingStatus.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/WindowAdapter.h>
-#include <java/awt/event/WindowListener.h>
 #include <java/awt/print/Printable.h>
 #include <java/awt/print/PrinterJob.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Error.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/text/MessageFormat.h>
 #include <java/util/concurrent/atomic/AtomicBoolean.h>
@@ -38,9 +34,6 @@
 #undef INFORMATION_MESSAGE
 
 using $Component = ::java::awt::Component;
-using $ActionListener = ::java::awt::event::ActionListener;
-using $WindowAdapter = ::java::awt::event::WindowAdapter;
-using $WindowListener = ::java::awt::event::WindowListener;
 using $Printable = ::java::awt::print::Printable;
 using $PrinterJob = ::java::awt::print::PrinterJob;
 using $AssertionError = ::java::lang::AssertionError;
@@ -52,13 +45,10 @@ using $Integer = ::java::lang::Integer;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $MessageFormat = ::java::text::MessageFormat;
 using $AtomicBoolean = ::java::util::concurrent::atomic::AtomicBoolean;
-using $Action = ::javax::swing::Action;
-using $ActionMap = ::javax::swing::ActionMap;
 using $Icon = ::javax::swing::Icon;
 using $JButton = ::javax::swing::JButton;
 using $JDialog = ::javax::swing::JDialog;
@@ -76,62 +66,6 @@ using $PrintingStatus$NotificationPrintable = ::sun::swing::PrintingStatus$Notif
 namespace sun {
 	namespace swing {
 
-$FieldInfo _PrintingStatus_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(PrintingStatus, $assertionsDisabled)},
-	{"job", "Ljava/awt/print/PrinterJob;", nullptr, $PRIVATE | $FINAL, $field(PrintingStatus, job)},
-	{"parent", "Ljava/awt/Component;", nullptr, $PRIVATE | $FINAL, $field(PrintingStatus, parent)},
-	{"abortDialog", "Ljavax/swing/JDialog;", nullptr, $PRIVATE, $field(PrintingStatus, abortDialog)},
-	{"abortButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE, $field(PrintingStatus, abortButton)},
-	{"statusLabel", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(PrintingStatus, statusLabel)},
-	{"statusFormat", "Ljava/text/MessageFormat;", nullptr, $PRIVATE, $field(PrintingStatus, statusFormat)},
-	{"isAborted", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $PRIVATE | $FINAL, $field(PrintingStatus, isAborted$)},
-	{"abortAction", "Ljavax/swing/Action;", nullptr, $PRIVATE | $FINAL, $field(PrintingStatus, abortAction)},
-	{"closeListener", "Ljava/awt/event/WindowAdapter;", nullptr, $PRIVATE | $FINAL, $field(PrintingStatus, closeListener)},
-	{}
-};
-
-$MethodInfo _PrintingStatus_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Component;Ljava/awt/print/PrinterJob;)V", nullptr, $PROTECTED, $method(PrintingStatus, init$, void, $Component*, $PrinterJob*)},
-	{"createNotificationPrintable", "(Ljava/awt/print/Printable;)Ljava/awt/print/Printable;", nullptr, $PUBLIC, $virtualMethod(PrintingStatus, createNotificationPrintable, $Printable*, $Printable*)},
-	{"createPrintingStatus", "(Ljava/awt/Component;Ljava/awt/print/PrinterJob;)Lsun/swing/PrintingStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(PrintingStatus, createPrintingStatus, PrintingStatus*, $Component*, $PrinterJob*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(PrintingStatus, dispose, void)},
-	{"disposeOnEDT", "()V", nullptr, $PRIVATE, $method(PrintingStatus, disposeOnEDT, void)},
-	{"getInt", "(Ljava/lang/Object;I)I", nullptr, $STATIC, $staticMethod(PrintingStatus, getInt, int32_t, Object$*, int32_t)},
-	{"init", "()V", nullptr, $PRIVATE, $method(PrintingStatus, init, void)},
-	{"isAborted", "()Z", nullptr, $PUBLIC, $virtualMethod(PrintingStatus, isAborted, bool)},
-	{"showModal", "(Z)V", nullptr, $PUBLIC, $virtualMethod(PrintingStatus, showModal, void, bool)},
-	{"showModalOnEDT", "(Z)V", nullptr, $PRIVATE, $method(PrintingStatus, showModalOnEDT, void, bool)},
-	{}
-};
-
-$InnerClassInfo _PrintingStatus_InnerClassesInfo_[] = {
-	{"sun.swing.PrintingStatus$NotificationPrintable", "sun.swing.PrintingStatus", "NotificationPrintable", $PRIVATE},
-	{"sun.swing.PrintingStatus$4", nullptr, nullptr, 0},
-	{"sun.swing.PrintingStatus$3", nullptr, nullptr, 0},
-	{"sun.swing.PrintingStatus$2", nullptr, nullptr, 0},
-	{"sun.swing.PrintingStatus$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PrintingStatus_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.swing.PrintingStatus",
-	"java.lang.Object",
-	nullptr,
-	_PrintingStatus_FieldInfo_,
-	_PrintingStatus_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PrintingStatus_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.swing.PrintingStatus$NotificationPrintable,sun.swing.PrintingStatus$NotificationPrintable$1,sun.swing.PrintingStatus$4,sun.swing.PrintingStatus$3,sun.swing.PrintingStatus$2,sun.swing.PrintingStatus$1"
-};
-
-$Object* allocate$PrintingStatus($Class* clazz) {
-	return $of($alloc(PrintingStatus));
-}
-
 bool PrintingStatus::$assertionsDisabled = false;
 
 PrintingStatus* PrintingStatus::createPrintingStatus($Component* parent, $PrinterJob* job) {
@@ -148,7 +82,7 @@ void PrintingStatus::init$($Component* parent, $PrinterJob* job) {
 }
 
 void PrintingStatus::init() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, progressTitle, $UIManager::getString("PrintingDialog.titleProgressText"_s));
 	$var($String, dialogInitialContent, $UIManager::getString("PrintingDialog.contentInitialText"_s));
 	$set(this, statusFormat, $new($MessageFormat, $($UIManager::getString("PrintingDialog.contentProgressText"_s))));
@@ -157,7 +91,7 @@ void PrintingStatus::init() {
 	int32_t abortMnemonic = getInt("PrintingDialog.abortButtonMnemonic"_s, -1);
 	int32_t abortMnemonicIndex = getInt("PrintingDialog.abortButtonDisplayedMnemonicIndex"_s, -1);
 	$set(this, abortButton, $new($JButton, abortText));
-	$nc(this->abortButton)->addActionListener(this->abortAction);
+	this->abortButton->addActionListener(this->abortAction);
 	$nc(this->abortButton)->setToolTipText(abortTooltip);
 	if (abortMnemonic != -1) {
 		$nc(this->abortButton)->setMnemonic(abortMnemonic);
@@ -166,10 +100,10 @@ void PrintingStatus::init() {
 		$nc(this->abortButton)->setDisplayedMnemonicIndex(abortMnemonicIndex);
 	}
 	$set(this, statusLabel, $new($JLabel, dialogInitialContent));
-	$var($JOptionPane, abortPane, $new($JOptionPane, this->statusLabel, $JOptionPane::INFORMATION_MESSAGE, $JOptionPane::DEFAULT_OPTION, nullptr, $$new($ObjectArray, {$of(this->abortButton)}), this->abortButton));
-	$nc($(abortPane->getActionMap()))->put("close"_s, this->abortAction);
-	if (this->parent != nullptr && $instanceOf($JViewport, $($nc(this->parent)->getParent()))) {
-		$set(this, abortDialog, abortPane->createDialog($($nc(this->parent)->getParent()), progressTitle));
+	$var($JOptionPane, abortPane, $new($JOptionPane, this->statusLabel, $JOptionPane::INFORMATION_MESSAGE, $JOptionPane::DEFAULT_OPTION, nullptr, $$new($ObjectArray, {this->abortButton}), this->abortButton));
+	$$nc(abortPane->getActionMap())->put("close"_s, this->abortAction);
+	if (this->parent != nullptr && $instanceOf($JViewport, $(this->parent->getParent()))) {
+		$set(this, abortDialog, abortPane->createDialog($(this->parent->getParent()), progressTitle));
 	} else {
 		$set(this, abortDialog, abortPane->createDialog(this->parent, progressTitle));
 	}
@@ -178,14 +112,14 @@ void PrintingStatus::init() {
 }
 
 void PrintingStatus::showModal(bool isModal) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($SwingUtilities::isEventDispatchThread()) {
 		showModalOnEDT(isModal);
 	} else {
 		try {
 			$SwingUtilities::invokeAndWait($$new($PrintingStatus$3, this, isModal));
 		} catch ($InterruptedException& e) {
-			$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+			$throwNew($RuntimeException, e);
 		} catch ($InvocationTargetException& e) {
 			$var($Throwable, cause, e->getCause());
 			if ($instanceOf($RuntimeException, cause)) {
@@ -221,14 +155,14 @@ void PrintingStatus::disposeOnEDT() {
 		$throwNew($AssertionError);
 	}
 	if (this->abortDialog != nullptr) {
-		$nc(this->abortDialog)->removeWindowListener(this->closeListener);
+		this->abortDialog->removeWindowListener(this->closeListener);
 		$nc(this->abortDialog)->dispose();
 		$set(this, abortDialog, nullptr);
 	}
 }
 
 bool PrintingStatus::isAborted() {
-	return $nc(this->isAborted$)->get();
+	return this->isAborted$->get();
 }
 
 $Printable* PrintingStatus::createNotificationPrintable($Printable* printable) {
@@ -239,7 +173,7 @@ int32_t PrintingStatus::getInt(Object$* key, int32_t defaultValue) {
 	$init(PrintingStatus);
 	$var($Object, value, $UIManager::get(key));
 	if ($instanceOf($Integer, value)) {
-		return $nc(($cast($Integer, value)))->intValue();
+		return $cast($Integer, value)->intValue();
 	}
 	if ($instanceOf($String, value)) {
 		try {
@@ -250,7 +184,7 @@ int32_t PrintingStatus::getInt(Object$* key, int32_t defaultValue) {
 	return defaultValue;
 }
 
-void clinit$PrintingStatus($Class* class$) {
+void PrintingStatus::clinit$($Class* clazz) {
 	PrintingStatus::$assertionsDisabled = !PrintingStatus::class$->desiredAssertionStatus();
 }
 
@@ -258,7 +192,57 @@ PrintingStatus::PrintingStatus() {
 }
 
 $Class* PrintingStatus::load$($String* name, bool initialize) {
-	$loadClass(PrintingStatus, name, initialize, &_PrintingStatus_ClassInfo_, clinit$PrintingStatus, allocate$PrintingStatus);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(PrintingStatus, $assertionsDisabled)},
+		{"job", "Ljava/awt/print/PrinterJob;", nullptr, $PRIVATE | $FINAL, $field(PrintingStatus, job)},
+		{"parent", "Ljava/awt/Component;", nullptr, $PRIVATE | $FINAL, $field(PrintingStatus, parent)},
+		{"abortDialog", "Ljavax/swing/JDialog;", nullptr, $PRIVATE, $field(PrintingStatus, abortDialog)},
+		{"abortButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE, $field(PrintingStatus, abortButton)},
+		{"statusLabel", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(PrintingStatus, statusLabel)},
+		{"statusFormat", "Ljava/text/MessageFormat;", nullptr, $PRIVATE, $field(PrintingStatus, statusFormat)},
+		{"isAborted", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $PRIVATE | $FINAL, $field(PrintingStatus, isAborted$)},
+		{"abortAction", "Ljavax/swing/Action;", nullptr, $PRIVATE | $FINAL, $field(PrintingStatus, abortAction)},
+		{"closeListener", "Ljava/awt/event/WindowAdapter;", nullptr, $PRIVATE | $FINAL, $field(PrintingStatus, closeListener)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Component;Ljava/awt/print/PrinterJob;)V", nullptr, $PROTECTED, $method(PrintingStatus, init$, void, $Component*, $PrinterJob*)},
+		{"createNotificationPrintable", "(Ljava/awt/print/Printable;)Ljava/awt/print/Printable;", nullptr, $PUBLIC, $virtualMethod(PrintingStatus, createNotificationPrintable, $Printable*, $Printable*)},
+		{"createPrintingStatus", "(Ljava/awt/Component;Ljava/awt/print/PrinterJob;)Lsun/swing/PrintingStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(PrintingStatus, createPrintingStatus, PrintingStatus*, $Component*, $PrinterJob*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(PrintingStatus, dispose, void)},
+		{"disposeOnEDT", "()V", nullptr, $PRIVATE, $method(PrintingStatus, disposeOnEDT, void)},
+		{"getInt", "(Ljava/lang/Object;I)I", nullptr, $STATIC, $staticMethod(PrintingStatus, getInt, int32_t, Object$*, int32_t)},
+		{"init", "()V", nullptr, $PRIVATE, $method(PrintingStatus, init, void)},
+		{"isAborted", "()Z", nullptr, $PUBLIC, $virtualMethod(PrintingStatus, isAborted, bool)},
+		{"showModal", "(Z)V", nullptr, $PUBLIC, $virtualMethod(PrintingStatus, showModal, void, bool)},
+		{"showModalOnEDT", "(Z)V", nullptr, $PRIVATE, $method(PrintingStatus, showModalOnEDT, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.PrintingStatus$NotificationPrintable", "sun.swing.PrintingStatus", "NotificationPrintable", $PRIVATE},
+		{"sun.swing.PrintingStatus$4", nullptr, nullptr, 0},
+		{"sun.swing.PrintingStatus$3", nullptr, nullptr, 0},
+		{"sun.swing.PrintingStatus$2", nullptr, nullptr, 0},
+		{"sun.swing.PrintingStatus$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.swing.PrintingStatus",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.swing.PrintingStatus$NotificationPrintable,sun.swing.PrintingStatus$NotificationPrintable$1,sun.swing.PrintingStatus$4,sun.swing.PrintingStatus$3,sun.swing.PrintingStatus$2,sun.swing.PrintingStatus$1"
+	};
+	$loadClass(PrintingStatus, name, initialize, &classInfo$$, PrintingStatus::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PrintingStatus);
+	});
 	return class$;
 }
 

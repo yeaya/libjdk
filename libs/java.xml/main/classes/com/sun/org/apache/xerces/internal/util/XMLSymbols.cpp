@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/XMLSymbols.h>
-
 #include <jcpp.h>
 
 #undef EMPTY_STRING
@@ -17,45 +16,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace util {
-
-$FieldInfo _XMLSymbols_FieldInfo_[] = {
-	{"EMPTY_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, EMPTY_STRING)},
-	{"PREFIX_XML", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, PREFIX_XML)},
-	{"PREFIX_XMLNS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, PREFIX_XMLNS)},
-	{"fANYSymbol", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, fANYSymbol)},
-	{"fCDATASymbol", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, fCDATASymbol)},
-	{"fIDSymbol", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, fIDSymbol)},
-	{"fIDREFSymbol", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, fIDREFSymbol)},
-	{"fIDREFSSymbol", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, fIDREFSSymbol)},
-	{"fENTITYSymbol", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, fENTITYSymbol)},
-	{"fENTITIESSymbol", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, fENTITIESSymbol)},
-	{"fNMTOKENSymbol", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, fNMTOKENSymbol)},
-	{"fNMTOKENSSymbol", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, fNMTOKENSSymbol)},
-	{"fNOTATIONSymbol", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, fNOTATIONSymbol)},
-	{"fENUMERATIONSymbol", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, fENUMERATIONSymbol)},
-	{"fIMPLIEDSymbol", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, fIMPLIEDSymbol)},
-	{"fREQUIREDSymbol", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, fREQUIREDSymbol)},
-	{"fFIXEDSymbol", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, fFIXEDSymbol)},
-	{}
-};
-
-$MethodInfo _XMLSymbols_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLSymbols, init$, void)},
-	{}
-};
-
-$ClassInfo _XMLSymbols_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.util.XMLSymbols",
-	"java.lang.Object",
-	nullptr,
-	_XMLSymbols_FieldInfo_,
-	_XMLSymbols_MethodInfo_
-};
-
-$Object* allocate$XMLSymbols($Class* clazz) {
-	return $of($alloc(XMLSymbols));
-}
 
 $String* XMLSymbols::EMPTY_STRING = nullptr;
 $String* XMLSymbols::PREFIX_XML = nullptr;
@@ -78,7 +38,7 @@ $String* XMLSymbols::fFIXEDSymbol = nullptr;
 void XMLSymbols::init$() {
 }
 
-void clinit$XMLSymbols($Class* class$) {
+void XMLSymbols::clinit$($Class* clazz) {
 	$assignStatic(XMLSymbols::EMPTY_STRING, ""_s->intern());
 	$assignStatic(XMLSymbols::PREFIX_XML, "xml"_s->intern());
 	$assignStatic(XMLSymbols::PREFIX_XMLNS, "xmlns"_s->intern());
@@ -102,7 +62,41 @@ XMLSymbols::XMLSymbols() {
 }
 
 $Class* XMLSymbols::load$($String* name, bool initialize) {
-	$loadClass(XMLSymbols, name, initialize, &_XMLSymbols_ClassInfo_, clinit$XMLSymbols, allocate$XMLSymbols);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, EMPTY_STRING)},
+		{"PREFIX_XML", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, PREFIX_XML)},
+		{"PREFIX_XMLNS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, PREFIX_XMLNS)},
+		{"fANYSymbol", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, fANYSymbol)},
+		{"fCDATASymbol", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, fCDATASymbol)},
+		{"fIDSymbol", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, fIDSymbol)},
+		{"fIDREFSymbol", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, fIDREFSymbol)},
+		{"fIDREFSSymbol", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, fIDREFSSymbol)},
+		{"fENTITYSymbol", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, fENTITYSymbol)},
+		{"fENTITIESSymbol", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, fENTITIESSymbol)},
+		{"fNMTOKENSymbol", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, fNMTOKENSymbol)},
+		{"fNMTOKENSSymbol", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, fNMTOKENSSymbol)},
+		{"fNOTATIONSymbol", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, fNOTATIONSymbol)},
+		{"fENUMERATIONSymbol", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, fENUMERATIONSymbol)},
+		{"fIMPLIEDSymbol", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, fIMPLIEDSymbol)},
+		{"fREQUIREDSymbol", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, fREQUIREDSymbol)},
+		{"fFIXEDSymbol", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLSymbols, fFIXEDSymbol)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLSymbols, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.util.XMLSymbols",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLSymbols, name, initialize, &classInfo$$, XMLSymbols::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLSymbols);
+	});
 	return class$;
 }
 

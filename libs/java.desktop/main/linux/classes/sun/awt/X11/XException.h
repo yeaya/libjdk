@@ -17,7 +17,10 @@ public:
 	void init$($String* message);
 	XException(const XException& e);
 	virtual void throw$() override;
-	inline XException* operator ->() {
+	inline XException* operator ->() const {
+		return (XException*)throwing$;
+	}
+	inline operator XException*() const {
 		return (XException*)throwing$;
 	}
 };

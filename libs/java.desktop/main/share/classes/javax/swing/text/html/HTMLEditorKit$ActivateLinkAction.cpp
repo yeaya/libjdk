@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/HTMLEditorKit$ActivateLinkAction.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/net/MalformedURLException.h>
@@ -14,7 +13,6 @@
 #include <javax/swing/plaf/TextUI.h>
 #include <javax/swing/text/AbstractDocument.h>
 #include <javax/swing/text/AttributeSet.h>
-#include <javax/swing/text/DefaultStyledDocument.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/ElementIterator.h>
@@ -50,7 +48,6 @@ using $HyperlinkEvent$EventType = ::javax::swing::event::HyperlinkEvent$EventTyp
 using $TextUI = ::javax::swing::plaf::TextUI;
 using $AbstractDocument = ::javax::swing::text::AbstractDocument;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
-using $DefaultStyledDocument = ::javax::swing::text::DefaultStyledDocument;
 using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
 using $ElementIterator = ::javax::swing::text::ElementIterator;
@@ -69,70 +66,30 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$MethodInfo _HTMLEditorKit$ActivateLinkAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HTMLEditorKit$ActivateLinkAction, init$, void, $String*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$ActivateLinkAction, actionPerformed, void, $ActionEvent*)},
-	{"activateLink", "(Ljava/lang/String;Ljavax/swing/text/html/HTMLDocument;Ljavax/swing/JEditorPane;I)V", nullptr, $PRIVATE, $method(HTMLEditorKit$ActivateLinkAction, activateLink, void, $String*, $HTMLDocument*, $JEditorPane*, int32_t)},
-	{"doObjectAction", "(Ljavax/swing/JEditorPane;Ljavax/swing/text/Element;)V", nullptr, $PRIVATE, $method(HTMLEditorKit$ActivateLinkAction, doObjectAction, void, $JEditorPane*, $Element*)},
-	{"getRootView", "(Ljavax/swing/JEditorPane;)Ljavax/swing/text/View;", nullptr, $PRIVATE, $method(HTMLEditorKit$ActivateLinkAction, getRootView, $View*, $JEditorPane*)},
-	{"getView", "(Ljavax/swing/JEditorPane;Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, $PRIVATE, $method(HTMLEditorKit$ActivateLinkAction, getView, $View*, $JEditorPane*, $Element*)},
-	{"getView", "(Ljavax/swing/text/View;Ljavax/swing/text/Element;I)Ljavax/swing/text/View;", nullptr, $PRIVATE, $method(HTMLEditorKit$ActivateLinkAction, getView, $View*, $View*, $Element*, int32_t)},
-	{"lock", "(Ljavax/swing/JEditorPane;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(HTMLEditorKit$ActivateLinkAction, lock, $Object*, $JEditorPane*)},
-	{"unlock", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(HTMLEditorKit$ActivateLinkAction, unlock, void, Object$*)},
-	{}
-};
-
-$InnerClassInfo _HTMLEditorKit$ActivateLinkAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.HTMLEditorKit$ActivateLinkAction", "javax.swing.text.html.HTMLEditorKit", "ActivateLinkAction", $STATIC},
-	{}
-};
-
-$ClassInfo _HTMLEditorKit$ActivateLinkAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.HTMLEditorKit$ActivateLinkAction",
-	"javax.swing.text.TextAction",
-	nullptr,
-	nullptr,
-	_HTMLEditorKit$ActivateLinkAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HTMLEditorKit$ActivateLinkAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.HTMLEditorKit"
-};
-
-$Object* allocate$HTMLEditorKit$ActivateLinkAction($Class* clazz) {
-	return $of($alloc(HTMLEditorKit$ActivateLinkAction));
-}
-
 void HTMLEditorKit$ActivateLinkAction::init$($String* actionName) {
 	$TextAction::init$(actionName);
 }
 
 void HTMLEditorKit$ActivateLinkAction::activateLink($String* href, $HTMLDocument* doc, $JEditorPane* editor, int32_t offset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($Document);
 		$var($URL, page, $cast($URL, $nc(doc)->getProperty($Document::StreamDescriptionProperty)));
 		$var($URL, url, $new($URL, page, href));
-		$var($Object, var$0, $of(editor));
 		$init($HyperlinkEvent$EventType);
-		$var($HyperlinkEvent$EventType, var$1, $HyperlinkEvent$EventType::ACTIVATED);
-		$var($URL, var$2, url);
-		$var($String, var$3, url->toExternalForm());
-		$var($HyperlinkEvent, linkEvent, $new($HyperlinkEvent, var$0, var$1, var$2, var$3, $(doc->getCharacterElement(offset))));
+		$var($HyperlinkEvent$EventType, var$0, $HyperlinkEvent$EventType::ACTIVATED);
+		$var($String, var$1, url->toExternalForm());
+		$var($HyperlinkEvent, linkEvent, $new($HyperlinkEvent, editor, var$0, url, var$1, $(doc->getCharacterElement(offset))));
 		$nc(editor)->fireHyperlinkUpdate(linkEvent);
 	} catch ($MalformedURLException& m) {
 	}
 }
 
 void HTMLEditorKit$ActivateLinkAction::doObjectAction($JEditorPane* editor, $Element* elem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($View, view, getView(editor, elem));
 	if (view != nullptr && $instanceOf($ObjectView, view)) {
-		$var($Component, comp, $nc(($cast($ObjectView, view)))->getComponent());
+		$var($Component, comp, $cast($ObjectView, view)->getComponent());
 		if (comp != nullptr && $instanceOf($Accessible, comp)) {
 			$var($AccessibleContext, ac, comp->getAccessibleContext());
 			if (ac != nullptr) {
@@ -146,38 +103,36 @@ void HTMLEditorKit$ActivateLinkAction::doObjectAction($JEditorPane* editor, $Ele
 }
 
 $View* HTMLEditorKit$ActivateLinkAction::getRootView($JEditorPane* editor) {
-	return $nc($($cast($TextUI, $nc(editor)->getUI())))->getRootView(editor);
+	return $$sure($TextUI, $nc(editor)->getUI())->getRootView(editor);
 }
 
 $View* HTMLEditorKit$ActivateLinkAction::getView($JEditorPane* editor, $Element* elem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, lock, this->lock(editor));
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($View, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$var($View, rootView, getRootView(editor));
-			int32_t start = $nc(elem)->getStartOffset();
-			if (rootView != nullptr) {
-				$assign(var$2, getView(rootView, elem, start));
-				return$1 = true;
-				goto $finally;
-			}
-			$assign(var$2, nullptr);
+	$var($Throwable, var$0, nullptr);
+	$var($View, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$var($View, rootView, getRootView(editor));
+		int32_t start = $nc(elem)->getStartOffset();
+		if (rootView != nullptr) {
+			$assign(var$2, getView(rootView, elem, start));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			unlock(lock);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		$assign(var$2, nullptr);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		unlock(lock);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -187,7 +142,7 @@ $View* HTMLEditorKit$ActivateLinkAction::getView($View* parent, $Element* elem, 
 		return parent;
 	}
 	$init($Position$Bias);
-	int32_t index = $nc(parent)->getViewIndex(start, $Position$Bias::Forward);
+	int32_t index = parent->getViewIndex(start, $Position$Bias::Forward);
 	if (index != -1 && index < parent->getViewCount()) {
 		return getView($(parent->getView(index)), elem, start);
 	}
@@ -197,31 +152,31 @@ $View* HTMLEditorKit$ActivateLinkAction::getView($View* parent, $Element* elem, 
 $Object* HTMLEditorKit$ActivateLinkAction::lock($JEditorPane* editor) {
 	$var($Document, document, $nc(editor)->getDocument());
 	if ($instanceOf($AbstractDocument, document)) {
-		$nc(($cast($AbstractDocument, document)))->readLock();
-		return $of(document);
+		$cast($AbstractDocument, document)->readLock();
+		return document;
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 void HTMLEditorKit$ActivateLinkAction::unlock(Object$* key) {
 	if (key != nullptr) {
-		$nc(($cast($AbstractDocument, key)))->readUnlock();
+		$cast($AbstractDocument, key)->readUnlock();
 	}
 }
 
 void HTMLEditorKit$ActivateLinkAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextComponent, c, getTextComponent(e));
 	if ($nc(c)->isEditable() || !($instanceOf($JEditorPane, c))) {
 		return;
 	}
 	$var($JEditorPane, editor, $cast($JEditorPane, c));
-	$var($Document, d, $nc(editor)->getDocument());
+	$var($Document, d, editor->getDocument());
 	if (d == nullptr || !($instanceOf($HTMLDocument, d))) {
 		return;
 	}
 	$var($HTMLDocument, doc, $cast($HTMLDocument, d));
-	$var($ElementIterator, ei, $new($ElementIterator, static_cast<$Document*>(static_cast<$AbstractDocument*>(static_cast<$DefaultStyledDocument*>(doc)))));
+	$var($ElementIterator, ei, $new($ElementIterator, $cast($AbstractDocument, doc)));
 	int32_t currentOffset = editor->getCaretPosition();
 	$var($String, urlString, nullptr);
 	$var($String, objString, nullptr);
@@ -257,7 +212,40 @@ HTMLEditorKit$ActivateLinkAction::HTMLEditorKit$ActivateLinkAction() {
 }
 
 $Class* HTMLEditorKit$ActivateLinkAction::load$($String* name, bool initialize) {
-	$loadClass(HTMLEditorKit$ActivateLinkAction, name, initialize, &_HTMLEditorKit$ActivateLinkAction_ClassInfo_, allocate$HTMLEditorKit$ActivateLinkAction);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HTMLEditorKit$ActivateLinkAction, init$, void, $String*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$ActivateLinkAction, actionPerformed, void, $ActionEvent*)},
+		{"activateLink", "(Ljava/lang/String;Ljavax/swing/text/html/HTMLDocument;Ljavax/swing/JEditorPane;I)V", nullptr, $PRIVATE, $method(HTMLEditorKit$ActivateLinkAction, activateLink, void, $String*, $HTMLDocument*, $JEditorPane*, int32_t)},
+		{"doObjectAction", "(Ljavax/swing/JEditorPane;Ljavax/swing/text/Element;)V", nullptr, $PRIVATE, $method(HTMLEditorKit$ActivateLinkAction, doObjectAction, void, $JEditorPane*, $Element*)},
+		{"getRootView", "(Ljavax/swing/JEditorPane;)Ljavax/swing/text/View;", nullptr, $PRIVATE, $method(HTMLEditorKit$ActivateLinkAction, getRootView, $View*, $JEditorPane*)},
+		{"getView", "(Ljavax/swing/JEditorPane;Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, $PRIVATE, $method(HTMLEditorKit$ActivateLinkAction, getView, $View*, $JEditorPane*, $Element*)},
+		{"getView", "(Ljavax/swing/text/View;Ljavax/swing/text/Element;I)Ljavax/swing/text/View;", nullptr, $PRIVATE, $method(HTMLEditorKit$ActivateLinkAction, getView, $View*, $View*, $Element*, int32_t)},
+		{"lock", "(Ljavax/swing/JEditorPane;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(HTMLEditorKit$ActivateLinkAction, lock, $Object*, $JEditorPane*)},
+		{"unlock", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(HTMLEditorKit$ActivateLinkAction, unlock, void, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.HTMLEditorKit$ActivateLinkAction", "javax.swing.text.html.HTMLEditorKit", "ActivateLinkAction", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.HTMLEditorKit$ActivateLinkAction",
+		"javax.swing.text.TextAction",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.HTMLEditorKit"
+	};
+	$loadClass(HTMLEditorKit$ActivateLinkAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HTMLEditorKit$ActivateLinkAction));
+	});
 	return class$;
 }
 

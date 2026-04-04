@@ -48,6 +48,7 @@ class $export DOMImplementationRegistry : public ::java::lang::Object {
 	$class(DOMImplementationRegistry, 0, ::java::lang::Object)
 public:
 	DOMImplementationRegistry();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::List* srcs);
 	void addSource(::org::w3c::dom::DOMImplementationSource* s);
 	static ::java::lang::ClassLoader* getClassLoader();

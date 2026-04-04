@@ -1,5 +1,4 @@
 #include <javax/tools/StandardJavaFileManager.h>
-
 #include <java/io/File.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Iterable.h>
@@ -58,33 +57,29 @@ public:
 	virtual $Iterator* iterator() override {
 		 return StandardJavaFileManager::lambda$asPaths$0(files);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<StandardJavaFileManager$$Lambda$lambda$asPaths$0>());
-	}
 	$Iterable* files = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo StandardJavaFileManager$$Lambda$lambda$asPaths$0::fieldInfos[2] = {
-	{"files", "Ljava/lang/Iterable;", nullptr, $PUBLIC, $field(StandardJavaFileManager$$Lambda$lambda$asPaths$0, files)},
-	{}
-};
-$MethodInfo StandardJavaFileManager$$Lambda$lambda$asPaths$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Iterable;)V", nullptr, $PUBLIC, $method(StandardJavaFileManager$$Lambda$lambda$asPaths$0, init$, void, $Iterable*)},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(StandardJavaFileManager$$Lambda$lambda$asPaths$0, iterator, $Iterator*)},
-	{}
-};
-$ClassInfo StandardJavaFileManager$$Lambda$lambda$asPaths$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.tools.StandardJavaFileManager$$Lambda$lambda$asPaths$0",
-	"java.lang.Object",
-	"java.lang.Iterable",
-	fieldInfos,
-	methodInfos
 };
 $Class* StandardJavaFileManager$$Lambda$lambda$asPaths$0::load$($String* name, bool initialize) {
-	$loadClass(StandardJavaFileManager$$Lambda$lambda$asPaths$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"files", "Ljava/lang/Iterable;", nullptr, $PUBLIC, $field(StandardJavaFileManager$$Lambda$lambda$asPaths$0, files)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Iterable;)V", nullptr, $PUBLIC, $method(StandardJavaFileManager$$Lambda$lambda$asPaths$0, init$, void, $Iterable*)},
+		{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(StandardJavaFileManager$$Lambda$lambda$asPaths$0, iterator, $Iterator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.tools.StandardJavaFileManager$$Lambda$lambda$asPaths$0",
+		"java.lang.Object",
+		"java.lang.Iterable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StandardJavaFileManager$$Lambda$lambda$asPaths$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StandardJavaFileManager$$Lambda$lambda$asPaths$0);
+	});
 	return class$;
 }
 $Class* StandardJavaFileManager$$Lambda$lambda$asPaths$0::class$ = nullptr;
@@ -98,96 +93,32 @@ public:
 	virtual $Iterator* iterator() override {
 		 return StandardJavaFileManager::lambda$asFiles$1(paths);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<StandardJavaFileManager$$Lambda$lambda$asFiles$1$1>());
-	}
 	$Iterable* paths = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo StandardJavaFileManager$$Lambda$lambda$asFiles$1$1::fieldInfos[2] = {
-	{"paths", "Ljava/lang/Iterable;", nullptr, $PUBLIC, $field(StandardJavaFileManager$$Lambda$lambda$asFiles$1$1, paths)},
-	{}
-};
-$MethodInfo StandardJavaFileManager$$Lambda$lambda$asFiles$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Iterable;)V", nullptr, $PUBLIC, $method(StandardJavaFileManager$$Lambda$lambda$asFiles$1$1, init$, void, $Iterable*)},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(StandardJavaFileManager$$Lambda$lambda$asFiles$1$1, iterator, $Iterator*)},
-	{}
-};
-$ClassInfo StandardJavaFileManager$$Lambda$lambda$asFiles$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.tools.StandardJavaFileManager$$Lambda$lambda$asFiles$1$1",
-	"java.lang.Object",
-	"java.lang.Iterable",
-	fieldInfos,
-	methodInfos
 };
 $Class* StandardJavaFileManager$$Lambda$lambda$asFiles$1$1::load$($String* name, bool initialize) {
-	$loadClass(StandardJavaFileManager$$Lambda$lambda$asFiles$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"paths", "Ljava/lang/Iterable;", nullptr, $PUBLIC, $field(StandardJavaFileManager$$Lambda$lambda$asFiles$1$1, paths)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Iterable;)V", nullptr, $PUBLIC, $method(StandardJavaFileManager$$Lambda$lambda$asFiles$1$1, init$, void, $Iterable*)},
+		{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(StandardJavaFileManager$$Lambda$lambda$asFiles$1$1, iterator, $Iterator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.tools.StandardJavaFileManager$$Lambda$lambda$asFiles$1$1",
+		"java.lang.Object",
+		"java.lang.Iterable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StandardJavaFileManager$$Lambda$lambda$asFiles$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StandardJavaFileManager$$Lambda$lambda$asFiles$1$1);
+	});
 	return class$;
 }
 $Class* StandardJavaFileManager$$Lambda$lambda$asFiles$1$1::class$ = nullptr;
-
-$NamedAttribute StandardJavaFileManager_Attribute_var$0[] = {
-	{"since", 's', "13"},
-	{}
-};
-
-$CompoundAttribute _StandardJavaFileManager_MethodAnnotations_getJavaFileObjectsFromPaths9[] = {
-	{"Ljava/lang/Deprecated;", StandardJavaFileManager_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _StandardJavaFileManager_MethodInfo_[] = {
-	{"asCollection", "(Ljava/lang/Iterable;)Ljava/util/Collection;", "<T:Ljava/lang/Object;>(Ljava/lang/Iterable<TT;>;)Ljava/util/Collection<TT;>;", $PRIVATE | $STATIC, $staticMethod(StandardJavaFileManager, asCollection, $Collection*, $Iterable*)},
-	{"asFiles", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Ljava/lang/Iterable<Ljava/io/File;>;", $PRIVATE | $STATIC, $staticMethod(StandardJavaFileManager, asFiles, $Iterable*, $Iterable*)},
-	{"asPath", "(Ljavax/tools/FileObject;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(StandardJavaFileManager, asPath, $Path*, $FileObject*)},
-	{"asPaths", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljava/io/File;>;)Ljava/lang/Iterable<Ljava/nio/file/Path;>;", $PRIVATE | $STATIC, $staticMethod(StandardJavaFileManager, asPaths, $Iterable*, $Iterable*)},
-	{"getJavaFileObjects", "([Ljava/io/File;)Ljava/lang/Iterable;", "([Ljava/io/File;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(StandardJavaFileManager, getJavaFileObjects, $Iterable*, $FileArray*)},
-	{"getJavaFileObjects", "([Ljava/nio/file/Path;)Ljava/lang/Iterable;", "([Ljava/nio/file/Path;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC | $TRANSIENT, $virtualMethod(StandardJavaFileManager, getJavaFileObjects, $Iterable*, $PathArray*)},
-	{"getJavaFileObjects", "([Ljava/lang/String;)Ljava/lang/Iterable;", "([Ljava/lang/String;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(StandardJavaFileManager, getJavaFileObjects, $Iterable*, $StringArray*)},
-	{"getJavaFileObjectsFromFiles", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljava/io/File;>;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC | $ABSTRACT, $virtualMethod(StandardJavaFileManager, getJavaFileObjectsFromFiles, $Iterable*, $Iterable*)},
-	{"getJavaFileObjectsFromPaths", "(Ljava/util/Collection;)Ljava/lang/Iterable;", "(Ljava/util/Collection<+Ljava/nio/file/Path;>;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(StandardJavaFileManager, getJavaFileObjectsFromPaths, $Iterable*, $Collection*)},
-	{"getJavaFileObjectsFromPaths", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC | $DEPRECATED, $virtualMethod(StandardJavaFileManager, getJavaFileObjectsFromPaths, $Iterable*, $Iterable*), nullptr, nullptr, _StandardJavaFileManager_MethodAnnotations_getJavaFileObjectsFromPaths9},
-	{"getJavaFileObjectsFromStrings", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<Ljava/lang/String;>;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC | $ABSTRACT, $virtualMethod(StandardJavaFileManager, getJavaFileObjectsFromStrings, $Iterable*, $Iterable*)},
-	{"getLocation", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable<+Ljava/io/File;>;", $PUBLIC | $ABSTRACT, $virtualMethod(StandardJavaFileManager, getLocation, $Iterable*, $JavaFileManager$Location*)},
-	{"getLocationAsPaths", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable<+Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(StandardJavaFileManager, getLocationAsPaths, $Iterable*, $JavaFileManager$Location*)},
-	{"isSameFile", "(Ljavax/tools/FileObject;Ljavax/tools/FileObject;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"lambda$asFiles$1", "(Ljava/lang/Iterable;)Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StandardJavaFileManager, lambda$asFiles$1, $Iterator*, $Iterable*)},
-	{"lambda$asPaths$0", "(Ljava/lang/Iterable;)Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StandardJavaFileManager, lambda$asPaths$0, $Iterator*, $Iterable*)},
-	{"setLocation", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/Iterable;)V", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/Iterable<+Ljava/io/File;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(StandardJavaFileManager, setLocation, void, $JavaFileManager$Location*, $Iterable*), "java.io.IOException"},
-	{"setLocationForModule", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Collection;)V", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Collection<+Ljava/nio/file/Path;>;)V", $PUBLIC, $virtualMethod(StandardJavaFileManager, setLocationForModule, void, $JavaFileManager$Location*, $String*, $Collection*), "java.io.IOException"},
-	{"setLocationFromPaths", "(Ljavax/tools/JavaFileManager$Location;Ljava/util/Collection;)V", "(Ljavax/tools/JavaFileManager$Location;Ljava/util/Collection<+Ljava/nio/file/Path;>;)V", $PUBLIC, $virtualMethod(StandardJavaFileManager, setLocationFromPaths, void, $JavaFileManager$Location*, $Collection*), "java.io.IOException"},
-	{"setPathFactory", "(Ljavax/tools/StandardJavaFileManager$PathFactory;)V", nullptr, $PUBLIC, $virtualMethod(StandardJavaFileManager, setPathFactory, void, $StandardJavaFileManager$PathFactory*)},
-	{}
-};
-
-$InnerClassInfo _StandardJavaFileManager_InnerClassesInfo_[] = {
-	{"javax.tools.StandardJavaFileManager$PathFactory", "javax.tools.StandardJavaFileManager", "PathFactory", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"javax.tools.StandardJavaFileManager$1", nullptr, nullptr, 0},
-	{"javax.tools.StandardJavaFileManager$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _StandardJavaFileManager_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.tools.StandardJavaFileManager",
-	nullptr,
-	"javax.tools.JavaFileManager",
-	nullptr,
-	_StandardJavaFileManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StandardJavaFileManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.tools.StandardJavaFileManager$PathFactory,javax.tools.StandardJavaFileManager$1,javax.tools.StandardJavaFileManager$2"
-};
-
-$Object* allocate$StandardJavaFileManager($Class* clazz) {
-	return $of($alloc(StandardJavaFileManager));
-}
 
 $Iterable* StandardJavaFileManager::getJavaFileObjectsFromPaths($Collection* paths) {
 	return getJavaFileObjectsFromFiles($(asFiles(paths)));
@@ -198,7 +129,7 @@ $Iterable* StandardJavaFileManager::getJavaFileObjectsFromPaths($Iterable* paths
 }
 
 $Iterable* StandardJavaFileManager::getJavaFileObjects($PathArray* paths) {
-	return getJavaFileObjectsFromPaths($(static_cast<$Collection*>($Arrays::asList(paths))));
+	return getJavaFileObjectsFromPaths($($Arrays::asList(paths)));
 }
 
 void StandardJavaFileManager::setLocationFromPaths($JavaFileManager$Location* location, $Collection* paths) {
@@ -223,17 +154,17 @@ void StandardJavaFileManager::setPathFactory($StandardJavaFileManager$PathFactor
 
 $Iterable* StandardJavaFileManager::asPaths($Iterable* files) {
 	$init(StandardJavaFileManager);
-	return static_cast<$Iterable*>($new(StandardJavaFileManager$$Lambda$lambda$asPaths$0, files));
+	return $new(StandardJavaFileManager$$Lambda$lambda$asPaths$0, files);
 }
 
 $Iterable* StandardJavaFileManager::asFiles($Iterable* paths) {
 	$init(StandardJavaFileManager);
-	return static_cast<$Iterable*>($new(StandardJavaFileManager$$Lambda$lambda$asFiles$1$1, paths));
+	return $new(StandardJavaFileManager$$Lambda$lambda$asFiles$1$1, paths);
 }
 
 $Collection* StandardJavaFileManager::asCollection($Iterable* iterable) {
 	$init(StandardJavaFileManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Collection, iterable)) {
 		return $cast($Collection, iterable);
 	}
@@ -260,14 +191,67 @@ $Iterator* StandardJavaFileManager::lambda$asPaths$0($Iterable* files) {
 
 $Class* StandardJavaFileManager::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(StandardJavaFileManager$$Lambda$lambda$asPaths$0::classInfo$.name)) {
+		if (name->equals("javax.tools.StandardJavaFileManager$$Lambda$lambda$asPaths$0")) {
 			return StandardJavaFileManager$$Lambda$lambda$asPaths$0::load$(name, initialize);
 		}
-		if (name->equals(StandardJavaFileManager$$Lambda$lambda$asFiles$1$1::classInfo$.name)) {
+		if (name->equals("javax.tools.StandardJavaFileManager$$Lambda$lambda$asFiles$1$1")) {
 			return StandardJavaFileManager$$Lambda$lambda$asFiles$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(StandardJavaFileManager, name, initialize, &_StandardJavaFileManager_ClassInfo_, allocate$StandardJavaFileManager);
+	$NamedAttribute getJavaFileObjectsFromPathsmethodAnnotations$$$1$namedAttribute[] = {
+		{"since", 's', "13"},
+		{}
+	};
+	$CompoundAttribute getJavaFileObjectsFromPathsmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", getJavaFileObjectsFromPathsmethodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"asCollection", "(Ljava/lang/Iterable;)Ljava/util/Collection;", "<T:Ljava/lang/Object;>(Ljava/lang/Iterable<TT;>;)Ljava/util/Collection<TT;>;", $PRIVATE | $STATIC, $staticMethod(StandardJavaFileManager, asCollection, $Collection*, $Iterable*)},
+		{"asFiles", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Ljava/lang/Iterable<Ljava/io/File;>;", $PRIVATE | $STATIC, $staticMethod(StandardJavaFileManager, asFiles, $Iterable*, $Iterable*)},
+		{"asPath", "(Ljavax/tools/FileObject;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(StandardJavaFileManager, asPath, $Path*, $FileObject*)},
+		{"asPaths", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljava/io/File;>;)Ljava/lang/Iterable<Ljava/nio/file/Path;>;", $PRIVATE | $STATIC, $staticMethod(StandardJavaFileManager, asPaths, $Iterable*, $Iterable*)},
+		{"getJavaFileObjects", "([Ljava/io/File;)Ljava/lang/Iterable;", "([Ljava/io/File;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(StandardJavaFileManager, getJavaFileObjects, $Iterable*, $FileArray*)},
+		{"getJavaFileObjects", "([Ljava/nio/file/Path;)Ljava/lang/Iterable;", "([Ljava/nio/file/Path;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC | $TRANSIENT, $virtualMethod(StandardJavaFileManager, getJavaFileObjects, $Iterable*, $PathArray*)},
+		{"getJavaFileObjects", "([Ljava/lang/String;)Ljava/lang/Iterable;", "([Ljava/lang/String;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(StandardJavaFileManager, getJavaFileObjects, $Iterable*, $StringArray*)},
+		{"getJavaFileObjectsFromFiles", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljava/io/File;>;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC | $ABSTRACT, $virtualMethod(StandardJavaFileManager, getJavaFileObjectsFromFiles, $Iterable*, $Iterable*)},
+		{"getJavaFileObjectsFromPaths", "(Ljava/util/Collection;)Ljava/lang/Iterable;", "(Ljava/util/Collection<+Ljava/nio/file/Path;>;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(StandardJavaFileManager, getJavaFileObjectsFromPaths, $Iterable*, $Collection*)},
+		{"getJavaFileObjectsFromPaths", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC | $DEPRECATED, $virtualMethod(StandardJavaFileManager, getJavaFileObjectsFromPaths, $Iterable*, $Iterable*), nullptr, nullptr, getJavaFileObjectsFromPathsmethodAnnotations$$$1},
+		{"getJavaFileObjectsFromStrings", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<Ljava/lang/String;>;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC | $ABSTRACT, $virtualMethod(StandardJavaFileManager, getJavaFileObjectsFromStrings, $Iterable*, $Iterable*)},
+		{"getLocation", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable<+Ljava/io/File;>;", $PUBLIC | $ABSTRACT, $virtualMethod(StandardJavaFileManager, getLocation, $Iterable*, $JavaFileManager$Location*)},
+		{"getLocationAsPaths", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable<+Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(StandardJavaFileManager, getLocationAsPaths, $Iterable*, $JavaFileManager$Location*)},
+		{"isSameFile", "(Ljavax/tools/FileObject;Ljavax/tools/FileObject;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"lambda$asFiles$1", "(Ljava/lang/Iterable;)Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StandardJavaFileManager, lambda$asFiles$1, $Iterator*, $Iterable*)},
+		{"lambda$asPaths$0", "(Ljava/lang/Iterable;)Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StandardJavaFileManager, lambda$asPaths$0, $Iterator*, $Iterable*)},
+		{"setLocation", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/Iterable;)V", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/Iterable<+Ljava/io/File;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(StandardJavaFileManager, setLocation, void, $JavaFileManager$Location*, $Iterable*), "java.io.IOException"},
+		{"setLocationForModule", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Collection;)V", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Collection<+Ljava/nio/file/Path;>;)V", $PUBLIC, $virtualMethod(StandardJavaFileManager, setLocationForModule, void, $JavaFileManager$Location*, $String*, $Collection*), "java.io.IOException"},
+		{"setLocationFromPaths", "(Ljavax/tools/JavaFileManager$Location;Ljava/util/Collection;)V", "(Ljavax/tools/JavaFileManager$Location;Ljava/util/Collection<+Ljava/nio/file/Path;>;)V", $PUBLIC, $virtualMethod(StandardJavaFileManager, setLocationFromPaths, void, $JavaFileManager$Location*, $Collection*), "java.io.IOException"},
+		{"setPathFactory", "(Ljavax/tools/StandardJavaFileManager$PathFactory;)V", nullptr, $PUBLIC, $virtualMethod(StandardJavaFileManager, setPathFactory, void, $StandardJavaFileManager$PathFactory*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.tools.StandardJavaFileManager$PathFactory", "javax.tools.StandardJavaFileManager", "PathFactory", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"javax.tools.StandardJavaFileManager$1", nullptr, nullptr, 0},
+		{"javax.tools.StandardJavaFileManager$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.tools.StandardJavaFileManager",
+		nullptr,
+		"javax.tools.JavaFileManager",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.tools.StandardJavaFileManager$PathFactory,javax.tools.StandardJavaFileManager$1,javax.tools.StandardJavaFileManager$2"
+	};
+	$loadClass(StandardJavaFileManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StandardJavaFileManager));
+	});
 	return class$;
 }
 

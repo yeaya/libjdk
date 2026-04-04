@@ -71,6 +71,7 @@ class $export HttpClientImpl$SelectorManager : public ::java::lang::Thread {
 	$class(HttpClientImpl$SelectorManager, 0, ::java::lang::Thread)
 public:
 	HttpClientImpl$SelectorManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::HttpClientImpl* ref);
 	void cancel(::java::nio::channels::SocketChannel* e);
 	void eventUpdated(::jdk::internal::net::http::AsyncEvent* e);

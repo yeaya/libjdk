@@ -22,6 +22,7 @@ class $export DefaultComboBoxModelAddAllElementsTest : public ::java::lang::Obje
 	$class(DefaultComboBoxModelAddAllElementsTest, 0, ::java::lang::Object)
 public:
 	DefaultComboBoxModelAddAllElementsTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkAddAll();
 	static void checkAddAllWithIndex();

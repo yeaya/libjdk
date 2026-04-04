@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/jpeg/DQTMarkerSegment$Qtable.h>
-
 #include <com/sun/imageio/plugins/jpeg/DQTMarkerSegment.h>
 #include <com/sun/imageio/plugins/jpeg/JPEG.h>
 #include <com/sun/imageio/plugins/jpeg/JPEGBuffer.h>
@@ -21,7 +20,6 @@ using $DQTMarkerSegment = ::com::sun::imageio::plugins::jpeg::DQTMarkerSegment;
 using $JPEG = ::com::sun::imageio::plugins::jpeg::JPEG;
 using $JPEGBuffer = ::com::sun::imageio::plugins::jpeg::JPEGBuffer;
 using $MarkerSegment = ::com::sun::imageio::plugins::jpeg::MarkerSegment;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CloneNotSupportedException = ::java::lang::CloneNotSupportedException;
 using $Cloneable = ::java::lang::Cloneable;
@@ -41,52 +39,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace jpeg {
-
-$FieldInfo _DQTMarkerSegment$Qtable_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/imageio/plugins/jpeg/DQTMarkerSegment;", nullptr, $FINAL | $SYNTHETIC, $field(DQTMarkerSegment$Qtable, this$0)},
-	{"elementPrecision", "I", nullptr, 0, $field(DQTMarkerSegment$Qtable, elementPrecision)},
-	{"tableID", "I", nullptr, 0, $field(DQTMarkerSegment$Qtable, tableID)},
-	{"QTABLE_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(DQTMarkerSegment$Qtable, QTABLE_SIZE)},
-	{"data", "[I", nullptr, 0, $field(DQTMarkerSegment$Qtable, data)},
-	{"zigzag", "[I", nullptr, $PRIVATE | $FINAL, $field(DQTMarkerSegment$Qtable, zigzag)},
-	{}
-};
-
-$MethodInfo _DQTMarkerSegment$Qtable_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/imageio/plugins/jpeg/DQTMarkerSegment;ZF)V", nullptr, 0, $method(DQTMarkerSegment$Qtable, init$, void, $DQTMarkerSegment*, bool, float)},
-	{"<init>", "(Lcom/sun/imageio/plugins/jpeg/DQTMarkerSegment;Lcom/sun/imageio/plugins/jpeg/JPEGBuffer;)V", nullptr, 0, $method(DQTMarkerSegment$Qtable, init$, void, $DQTMarkerSegment*, $JPEGBuffer*), "javax.imageio.IIOException"},
-	{"<init>", "(Lcom/sun/imageio/plugins/jpeg/DQTMarkerSegment;Ljavax/imageio/plugins/jpeg/JPEGQTable;I)V", nullptr, 0, $method(DQTMarkerSegment$Qtable, init$, void, $DQTMarkerSegment*, $JPEGQTable*, int32_t)},
-	{"<init>", "(Lcom/sun/imageio/plugins/jpeg/DQTMarkerSegment;Lorg/w3c/dom/Node;)V", nullptr, 0, $method(DQTMarkerSegment$Qtable, init$, void, $DQTMarkerSegment*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(DQTMarkerSegment$Qtable, clone, $Object*)},
-	{"getNativeNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, 0, $virtualMethod(DQTMarkerSegment$Qtable, getNativeNode, $IIOMetadataNode*)},
-	{"print", "()V", nullptr, 0, $virtualMethod(DQTMarkerSegment$Qtable, print, void)},
-	{}
-};
-
-$InnerClassInfo _DQTMarkerSegment$Qtable_InnerClassesInfo_[] = {
-	{"com.sun.imageio.plugins.jpeg.DQTMarkerSegment$Qtable", "com.sun.imageio.plugins.jpeg.DQTMarkerSegment", "Qtable", 0},
-	{}
-};
-
-$ClassInfo _DQTMarkerSegment$Qtable_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.jpeg.DQTMarkerSegment$Qtable",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_DQTMarkerSegment$Qtable_FieldInfo_,
-	_DQTMarkerSegment$Qtable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DQTMarkerSegment$Qtable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.imageio.plugins.jpeg.DQTMarkerSegment"
-};
-
-$Object* allocate$DQTMarkerSegment$Qtable($Class* clazz) {
-	return $of($alloc(DQTMarkerSegment$Qtable));
-}
 
 void DQTMarkerSegment$Qtable::init$($DQTMarkerSegment* this$0, bool wantLuma, float quality) {
 	$set(this, this$0, this$0);
@@ -249,14 +201,14 @@ void DQTMarkerSegment$Qtable::init$($DQTMarkerSegment* this$0, $JPEGBuffer* buff
 		62,
 		63
 	}));
-	this->elementPrecision = (int32_t)((uint32_t)$nc($nc(buffer)->buf)->get(buffer->bufPtr) >> 4);
-	this->tableID = (int32_t)($nc(buffer->buf)->get(buffer->bufPtr++) & (uint32_t)15);
+	this->elementPrecision = (int32_t)((uint32_t)$nc($nc(buffer)->buf)->get($nc(buffer)->bufPtr) >> 4);
+	this->tableID = buffer->buf->get(buffer->bufPtr++) & 0x0f;
 	if (this->elementPrecision != 0) {
 		$throwNew($IIOException, "Unsupported element precision"_s);
 	}
 	$set(this, data, $new($ints, DQTMarkerSegment$Qtable::QTABLE_SIZE));
 	for (int32_t i = 0; i < DQTMarkerSegment$Qtable::QTABLE_SIZE; ++i) {
-		$nc(this->data)->set(i, (int32_t)($nc(buffer->buf)->get(buffer->bufPtr + $nc(this->zigzag)->get(i)) & (uint32_t)255));
+		this->data->set(i, buffer->buf->get(buffer->bufPtr + this->zigzag->get(i)) & 0xff);
 	}
 	buffer->bufPtr += DQTMarkerSegment$Qtable::QTABLE_SIZE;
 }
@@ -335,7 +287,7 @@ void DQTMarkerSegment$Qtable::init$($DQTMarkerSegment* this$0, $JPEGQTable* tabl
 }
 
 void DQTMarkerSegment$Qtable::init$($DQTMarkerSegment* this$0, $Node* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$set(this, zigzag, $new($ints, {
 		0,
@@ -403,7 +355,7 @@ void DQTMarkerSegment$Qtable::init$($DQTMarkerSegment* this$0, $Node* node) {
 		62,
 		63
 	}));
-	if ($nc($($nc(node)->getNodeName()))->equals("dqtable"_s)) {
+	if ($$nc($nc(node)->getNodeName())->equals("dqtable"_s)) {
 		$var($NamedNodeMap, attrs, node->getAttributes());
 		int32_t count = $nc(attrs)->getLength();
 		if ((count < 1) || (count > 2)) {
@@ -433,13 +385,13 @@ $Object* DQTMarkerSegment$Qtable::clone() {
 	} catch ($CloneNotSupportedException& e) {
 	}
 	if (this->data != nullptr) {
-		$set($nc(newGuy), data, $cast($ints, $nc(this->data)->clone()));
+		$set($nc(newGuy), data, $cast($ints, this->data->clone()));
 	}
-	return $of(newGuy);
+	return newGuy;
 }
 
 $IIOMetadataNode* DQTMarkerSegment$Qtable::getNativeNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, node, $new($IIOMetadataNode, "dqtable"_s));
 	node->setAttribute("elementPrecision"_s, $($Integer::toString(this->elementPrecision)));
 	node->setAttribute("qtableId"_s, $($Integer::toString(this->tableID)));
@@ -448,9 +400,9 @@ $IIOMetadataNode* DQTMarkerSegment$Qtable::getNativeNode() {
 }
 
 void DQTMarkerSegment$Qtable::print() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println($$str({"Table id: "_s, $($Integer::toString(this->tableID))}));
-	$nc($System::out)->println($$str({"Element precision: "_s, $($Integer::toString(this->elementPrecision))}));
+	$System::out->println($$str({"Element precision: "_s, $($Integer::toString(this->elementPrecision))}));
 	($$new($JPEGQTable, this->data))->toString();
 }
 
@@ -458,7 +410,47 @@ DQTMarkerSegment$Qtable::DQTMarkerSegment$Qtable() {
 }
 
 $Class* DQTMarkerSegment$Qtable::load$($String* name, bool initialize) {
-	$loadClass(DQTMarkerSegment$Qtable, name, initialize, &_DQTMarkerSegment$Qtable_ClassInfo_, allocate$DQTMarkerSegment$Qtable);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/imageio/plugins/jpeg/DQTMarkerSegment;", nullptr, $FINAL | $SYNTHETIC, $field(DQTMarkerSegment$Qtable, this$0)},
+		{"elementPrecision", "I", nullptr, 0, $field(DQTMarkerSegment$Qtable, elementPrecision)},
+		{"tableID", "I", nullptr, 0, $field(DQTMarkerSegment$Qtable, tableID)},
+		{"QTABLE_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(DQTMarkerSegment$Qtable, QTABLE_SIZE)},
+		{"data", "[I", nullptr, 0, $field(DQTMarkerSegment$Qtable, data)},
+		{"zigzag", "[I", nullptr, $PRIVATE | $FINAL, $field(DQTMarkerSegment$Qtable, zigzag)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/imageio/plugins/jpeg/DQTMarkerSegment;ZF)V", nullptr, 0, $method(DQTMarkerSegment$Qtable, init$, void, $DQTMarkerSegment*, bool, float)},
+		{"<init>", "(Lcom/sun/imageio/plugins/jpeg/DQTMarkerSegment;Lcom/sun/imageio/plugins/jpeg/JPEGBuffer;)V", nullptr, 0, $method(DQTMarkerSegment$Qtable, init$, void, $DQTMarkerSegment*, $JPEGBuffer*), "javax.imageio.IIOException"},
+		{"<init>", "(Lcom/sun/imageio/plugins/jpeg/DQTMarkerSegment;Ljavax/imageio/plugins/jpeg/JPEGQTable;I)V", nullptr, 0, $method(DQTMarkerSegment$Qtable, init$, void, $DQTMarkerSegment*, $JPEGQTable*, int32_t)},
+		{"<init>", "(Lcom/sun/imageio/plugins/jpeg/DQTMarkerSegment;Lorg/w3c/dom/Node;)V", nullptr, 0, $method(DQTMarkerSegment$Qtable, init$, void, $DQTMarkerSegment*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(DQTMarkerSegment$Qtable, clone, $Object*)},
+		{"getNativeNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, 0, $virtualMethod(DQTMarkerSegment$Qtable, getNativeNode, $IIOMetadataNode*)},
+		{"print", "()V", nullptr, 0, $virtualMethod(DQTMarkerSegment$Qtable, print, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.imageio.plugins.jpeg.DQTMarkerSegment$Qtable", "com.sun.imageio.plugins.jpeg.DQTMarkerSegment", "Qtable", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.jpeg.DQTMarkerSegment$Qtable",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.imageio.plugins.jpeg.DQTMarkerSegment"
+	};
+	$loadClass(DQTMarkerSegment$Qtable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DQTMarkerSegment$Qtable);
+	});
 	return class$;
 }
 

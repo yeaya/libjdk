@@ -43,6 +43,7 @@ class $export MotifScrollPaneUI : public ::javax::swing::plaf::basic::BasicScrol
 	$class(MotifScrollPaneUI, 0, ::javax::swing::plaf::basic::BasicScrollPaneUI)
 public:
 	MotifScrollPaneUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::java::beans::PropertyChangeListener* createPropertyChangeHandler();
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* x);

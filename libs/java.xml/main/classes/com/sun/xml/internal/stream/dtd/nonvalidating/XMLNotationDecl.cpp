@@ -1,5 +1,4 @@
 #include <com/sun/xml/internal/stream/dtd/nonvalidating/XMLNotationDecl.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -13,34 +12,6 @@ namespace com {
 				namespace stream {
 					namespace dtd {
 						namespace nonvalidating {
-
-$FieldInfo _XMLNotationDecl_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XMLNotationDecl, name)},
-	{"publicId", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XMLNotationDecl, publicId)},
-	{"systemId", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XMLNotationDecl, systemId)},
-	{"baseSystemId", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XMLNotationDecl, baseSystemId)},
-	{}
-};
-
-$MethodInfo _XMLNotationDecl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLNotationDecl, init$, void)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(XMLNotationDecl, clear, void)},
-	{"setValues", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLNotationDecl, setValues, void, $String*, $String*, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _XMLNotationDecl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.xml.internal.stream.dtd.nonvalidating.XMLNotationDecl",
-	"java.lang.Object",
-	nullptr,
-	_XMLNotationDecl_FieldInfo_,
-	_XMLNotationDecl_MethodInfo_
-};
-
-$Object* allocate$XMLNotationDecl($Class* clazz) {
-	return $of($alloc(XMLNotationDecl));
-}
 
 void XMLNotationDecl::init$() {
 }
@@ -63,7 +34,30 @@ XMLNotationDecl::XMLNotationDecl() {
 }
 
 $Class* XMLNotationDecl::load$($String* name, bool initialize) {
-	$loadClass(XMLNotationDecl, name, initialize, &_XMLNotationDecl_ClassInfo_, allocate$XMLNotationDecl);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XMLNotationDecl, name)},
+		{"publicId", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XMLNotationDecl, publicId)},
+		{"systemId", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XMLNotationDecl, systemId)},
+		{"baseSystemId", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XMLNotationDecl, baseSystemId)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLNotationDecl, init$, void)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(XMLNotationDecl, clear, void)},
+		{"setValues", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLNotationDecl, setValues, void, $String*, $String*, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.xml.internal.stream.dtd.nonvalidating.XMLNotationDecl",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLNotationDecl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLNotationDecl);
+	});
 	return class$;
 }
 

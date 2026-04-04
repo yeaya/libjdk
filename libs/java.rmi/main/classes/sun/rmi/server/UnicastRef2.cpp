@@ -1,5 +1,4 @@
 #include <sun/rmi/server/UnicastRef2.h>
-
 #include <java/io/ObjectInput.h>
 #include <java/io/ObjectOutput.h>
 #include <sun/rmi/server/UnicastRef.h>
@@ -17,33 +16,6 @@ using $LiveRef = ::sun::rmi::transport::LiveRef;
 namespace sun {
 	namespace rmi {
 		namespace server {
-
-$FieldInfo _UnicastRef2_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnicastRef2, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _UnicastRef2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UnicastRef2, init$, void)},
-	{"<init>", "(Lsun/rmi/transport/LiveRef;)V", nullptr, $PUBLIC, $method(UnicastRef2, init$, void, $LiveRef*)},
-	{"getRefClass", "(Ljava/io/ObjectOutput;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicastRef2, getRefClass, $String*, $ObjectOutput*)},
-	{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC, $virtualMethod(UnicastRef2, readExternal, void, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, $virtualMethod(UnicastRef2, writeExternal, void, $ObjectOutput*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _UnicastRef2_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.rmi.server.UnicastRef2",
-	"sun.rmi.server.UnicastRef",
-	nullptr,
-	_UnicastRef2_FieldInfo_,
-	_UnicastRef2_MethodInfo_
-};
-
-$Object* allocate$UnicastRef2($Class* clazz) {
-	return $of($alloc(UnicastRef2));
-}
 
 void UnicastRef2::init$() {
 	$UnicastRef::init$();
@@ -69,7 +41,29 @@ UnicastRef2::UnicastRef2() {
 }
 
 $Class* UnicastRef2::load$($String* name, bool initialize) {
-	$loadClass(UnicastRef2, name, initialize, &_UnicastRef2_ClassInfo_, allocate$UnicastRef2);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnicastRef2, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UnicastRef2, init$, void)},
+		{"<init>", "(Lsun/rmi/transport/LiveRef;)V", nullptr, $PUBLIC, $method(UnicastRef2, init$, void, $LiveRef*)},
+		{"getRefClass", "(Ljava/io/ObjectOutput;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicastRef2, getRefClass, $String*, $ObjectOutput*)},
+		{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC, $virtualMethod(UnicastRef2, readExternal, void, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, $virtualMethod(UnicastRef2, writeExternal, void, $ObjectOutput*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.rmi.server.UnicastRef2",
+		"sun.rmi.server.UnicastRef",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnicastRef2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnicastRef2);
+	});
 	return class$;
 }
 

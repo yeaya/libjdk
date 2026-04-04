@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/ElementImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/DefaultElement.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/NamedNodeMapImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/NodeImpl.h>
@@ -31,64 +30,6 @@ namespace com {
 						namespace impl {
 							namespace xs {
 								namespace opti {
-
-$FieldInfo _ElementImpl_FieldInfo_[] = {
-	{"schemaDOM", "Lcom/sun/org/apache/xerces/internal/impl/xs/opti/SchemaDOM;", nullptr, 0, $field(ElementImpl, schemaDOM)},
-	{"attrs", "[Lorg/w3c/dom/Attr;", nullptr, 0, $field(ElementImpl, attrs)},
-	{"row", "I", nullptr, 0, $field(ElementImpl, row)},
-	{"col", "I", nullptr, 0, $field(ElementImpl, col)},
-	{"parentRow", "I", nullptr, 0, $field(ElementImpl, parentRow)},
-	{"line", "I", nullptr, 0, $field(ElementImpl, line)},
-	{"column", "I", nullptr, 0, $field(ElementImpl, column)},
-	{"charOffset", "I", nullptr, 0, $field(ElementImpl, charOffset)},
-	{"fAnnotation", "Ljava/lang/String;", nullptr, 0, $field(ElementImpl, fAnnotation)},
-	{"fSyntheticAnnotation", "Ljava/lang/String;", nullptr, 0, $field(ElementImpl, fSyntheticAnnotation)},
-	{}
-};
-
-$MethodInfo _ElementImpl_MethodInfo_[] = {
-	{"<init>", "(III)V", nullptr, $PUBLIC, $method(ElementImpl, init$, void, int32_t, int32_t, int32_t)},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(ElementImpl, init$, void, int32_t, int32_t)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;III)V", nullptr, $PUBLIC, $method(ElementImpl, init$, void, $String*, $String*, $String*, $String*, int32_t, int32_t, int32_t)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(ElementImpl, init$, void, $String*, $String*, $String*, $String*, int32_t, int32_t)},
-	{"getAnnotation", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getAnnotation, $String*)},
-	{"getAttribute", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getAttribute, $String*, $String*)},
-	{"getAttributeNS", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getAttributeNS, $String*, $String*, $String*)},
-	{"getAttributeNode", "(Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getAttributeNode, $Attr*, $String*)},
-	{"getAttributeNodeNS", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getAttributeNodeNS, $Attr*, $String*, $String*)},
-	{"getAttributes", "()Lorg/w3c/dom/NamedNodeMap;", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getAttributes, $NamedNodeMap*)},
-	{"getCharacterOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getCharacterOffset, int32_t)},
-	{"getColumnNumber", "()I", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getColumnNumber, int32_t)},
-	{"getFirstChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getFirstChild, $Node*)},
-	{"getLastChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getLastChild, $Node*)},
-	{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getLineNumber, int32_t)},
-	{"getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getNextSibling, $Node*)},
-	{"getOwnerDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getOwnerDocument, $Document*)},
-	{"getParentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getParentNode, $Node*)},
-	{"getPreviousSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getPreviousSibling, $Node*)},
-	{"getSyntheticAnnotation", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getSyntheticAnnotation, $String*)},
-	{"getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getTagName, $String*)},
-	{"hasAttribute", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ElementImpl, hasAttribute, bool, $String*)},
-	{"hasAttributeNS", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ElementImpl, hasAttributeNS, bool, $String*, $String*)},
-	{"hasAttributes", "()Z", nullptr, $PUBLIC, $virtualMethod(ElementImpl, hasAttributes, bool)},
-	{"hasChildNodes", "()Z", nullptr, $PUBLIC, $virtualMethod(ElementImpl, hasChildNodes, bool)},
-	{"nsEquals", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ElementImpl, nsEquals, bool, $String*, $String*)},
-	{"setAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ElementImpl, setAttribute, void, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _ElementImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.opti.ElementImpl",
-	"com.sun.org.apache.xerces.internal.impl.xs.opti.DefaultElement",
-	nullptr,
-	_ElementImpl_FieldInfo_,
-	_ElementImpl_MethodInfo_
-};
-
-$Object* allocate$ElementImpl($Class* clazz) {
-	return $of($alloc(ElementImpl));
-}
 
 void ElementImpl::init$(int32_t line, int32_t column, int32_t offset) {
 	$DefaultElement::init$();
@@ -148,14 +89,14 @@ $Node* ElementImpl::getLastChild() {
 	}
 	int32_t i = 1;
 	for (; i < $nc($nc($nc(this->schemaDOM)->relations)->get(this->parentRow))->length; ++i) {
-		if ($nc($nc($nc(this->schemaDOM)->relations)->get(this->parentRow))->get(i) == nullptr) {
-			return $nc($nc($nc(this->schemaDOM)->relations)->get(this->parentRow))->get(i - 1);
+		if ($nc(this->schemaDOM->relations->get(this->parentRow))->get(i) == nullptr) {
+			return $nc(this->schemaDOM->relations->get(this->parentRow))->get(i - 1);
 		}
 	}
 	if (i == 1) {
 		++i;
 	}
-	return $nc($nc($nc(this->schemaDOM)->relations)->get(this->parentRow))->get(i - 1);
+	return $nc(this->schemaDOM->relations->get(this->parentRow))->get(i - 1);
 }
 
 $Node* ElementImpl::getPreviousSibling() {
@@ -169,7 +110,7 @@ $Node* ElementImpl::getNextSibling() {
 	if (this->col == $nc($nc($nc(this->schemaDOM)->relations)->get(this->row))->length - 1) {
 		return nullptr;
 	}
-	return $nc($nc($nc(this->schemaDOM)->relations)->get(this->row))->get(this->col + 1);
+	return $nc(this->schemaDOM->relations->get(this->row))->get(this->col + 1);
 }
 
 $NamedNodeMap* ElementImpl::getAttributes() {
@@ -185,9 +126,9 @@ $String* ElementImpl::getTagName() {
 }
 
 $String* ElementImpl::getAttribute($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->attrs)->length; ++i) {
-		if ($nc($($nc($nc(this->attrs)->get(i))->getName()))->equals(name)) {
+		if ($$nc($nc(this->attrs->get(i))->getName())->equals(name)) {
 			return $nc($nc(this->attrs)->get(i))->getValue();
 		}
 	}
@@ -195,9 +136,9 @@ $String* ElementImpl::getAttribute($String* name) {
 }
 
 $Attr* ElementImpl::getAttributeNode($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->attrs)->length; ++i) {
-		if ($nc($($nc($nc(this->attrs)->get(i))->getName()))->equals(name)) {
+		if ($$nc($nc(this->attrs->get(i))->getName())->equals(name)) {
 			return $nc(this->attrs)->get(i);
 		}
 	}
@@ -205,10 +146,10 @@ $Attr* ElementImpl::getAttributeNode($String* name) {
 }
 
 $String* ElementImpl::getAttributeNS($String* namespaceURI, $String* localName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->attrs)->length; ++i) {
-		bool var$0 = $nc($($nc($nc(this->attrs)->get(i))->getLocalName()))->equals(localName);
-		if (var$0 && nsEquals($($nc($nc(this->attrs)->get(i))->getNamespaceURI()), namespaceURI)) {
+		bool var$0 = $$nc($nc(this->attrs->get(i))->getLocalName())->equals(localName);
+		if (var$0 && nsEquals($($nc(this->attrs->get(i))->getNamespaceURI()), namespaceURI)) {
 			return $nc($nc(this->attrs)->get(i))->getValue();
 		}
 	}
@@ -216,10 +157,10 @@ $String* ElementImpl::getAttributeNS($String* namespaceURI, $String* localName) 
 }
 
 $Attr* ElementImpl::getAttributeNodeNS($String* namespaceURI, $String* localName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->attrs)->length; ++i) {
-		bool var$0 = $nc($($nc($nc(this->attrs)->get(i))->getName()))->equals(localName);
-		if (var$0 && nsEquals($($nc($nc(this->attrs)->get(i))->getNamespaceURI()), namespaceURI)) {
+		bool var$0 = $$nc($nc(this->attrs->get(i))->getName())->equals(localName);
+		if (var$0 && nsEquals($($nc(this->attrs->get(i))->getNamespaceURI()), namespaceURI)) {
 			return $nc(this->attrs)->get(i);
 		}
 	}
@@ -227,9 +168,9 @@ $Attr* ElementImpl::getAttributeNodeNS($String* namespaceURI, $String* localName
 }
 
 bool ElementImpl::hasAttribute($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->attrs)->length; ++i) {
-		if ($nc($($nc($nc(this->attrs)->get(i))->getName()))->equals(name)) {
+		if ($$nc($nc(this->attrs->get(i))->getName())->equals(name)) {
 			return true;
 		}
 	}
@@ -237,10 +178,10 @@ bool ElementImpl::hasAttribute($String* name) {
 }
 
 bool ElementImpl::hasAttributeNS($String* namespaceURI, $String* localName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->attrs)->length; ++i) {
-		bool var$0 = $nc($($nc($nc(this->attrs)->get(i))->getName()))->equals(localName);
-		if (var$0 && nsEquals($($nc($nc(this->attrs)->get(i))->getNamespaceURI()), namespaceURI)) {
+		bool var$0 = $$nc($nc(this->attrs->get(i))->getName())->equals(localName);
+		if (var$0 && nsEquals($($nc(this->attrs->get(i))->getNamespaceURI()), namespaceURI)) {
 			return true;
 		}
 	}
@@ -248,9 +189,9 @@ bool ElementImpl::hasAttributeNS($String* namespaceURI, $String* localName) {
 }
 
 void ElementImpl::setAttribute($String* name, $String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->attrs)->length; ++i) {
-		if ($nc($($nc($nc(this->attrs)->get(i))->getName()))->equals(name)) {
+		if ($$nc($nc(this->attrs->get(i))->getName())->equals(name)) {
 			$nc($nc(this->attrs)->get(i))->setValue(value);
 			return;
 		}
@@ -282,7 +223,7 @@ bool ElementImpl::nsEquals($String* nsURI_1, $String* nsURI_2) {
 	if (nsURI_1 == nullptr) {
 		return (nsURI_2 == nullptr);
 	} else {
-		return $nc(nsURI_1)->equals(nsURI_2);
+		return nsURI_1->equals(nsURI_2);
 	}
 }
 
@@ -290,7 +231,60 @@ ElementImpl::ElementImpl() {
 }
 
 $Class* ElementImpl::load$($String* name, bool initialize) {
-	$loadClass(ElementImpl, name, initialize, &_ElementImpl_ClassInfo_, allocate$ElementImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"schemaDOM", "Lcom/sun/org/apache/xerces/internal/impl/xs/opti/SchemaDOM;", nullptr, 0, $field(ElementImpl, schemaDOM)},
+		{"attrs", "[Lorg/w3c/dom/Attr;", nullptr, 0, $field(ElementImpl, attrs)},
+		{"row", "I", nullptr, 0, $field(ElementImpl, row)},
+		{"col", "I", nullptr, 0, $field(ElementImpl, col)},
+		{"parentRow", "I", nullptr, 0, $field(ElementImpl, parentRow)},
+		{"line", "I", nullptr, 0, $field(ElementImpl, line)},
+		{"column", "I", nullptr, 0, $field(ElementImpl, column)},
+		{"charOffset", "I", nullptr, 0, $field(ElementImpl, charOffset)},
+		{"fAnnotation", "Ljava/lang/String;", nullptr, 0, $field(ElementImpl, fAnnotation)},
+		{"fSyntheticAnnotation", "Ljava/lang/String;", nullptr, 0, $field(ElementImpl, fSyntheticAnnotation)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(III)V", nullptr, $PUBLIC, $method(ElementImpl, init$, void, int32_t, int32_t, int32_t)},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(ElementImpl, init$, void, int32_t, int32_t)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;III)V", nullptr, $PUBLIC, $method(ElementImpl, init$, void, $String*, $String*, $String*, $String*, int32_t, int32_t, int32_t)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(ElementImpl, init$, void, $String*, $String*, $String*, $String*, int32_t, int32_t)},
+		{"getAnnotation", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getAnnotation, $String*)},
+		{"getAttribute", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getAttribute, $String*, $String*)},
+		{"getAttributeNS", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getAttributeNS, $String*, $String*, $String*)},
+		{"getAttributeNode", "(Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getAttributeNode, $Attr*, $String*)},
+		{"getAttributeNodeNS", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getAttributeNodeNS, $Attr*, $String*, $String*)},
+		{"getAttributes", "()Lorg/w3c/dom/NamedNodeMap;", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getAttributes, $NamedNodeMap*)},
+		{"getCharacterOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getCharacterOffset, int32_t)},
+		{"getColumnNumber", "()I", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getColumnNumber, int32_t)},
+		{"getFirstChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getFirstChild, $Node*)},
+		{"getLastChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getLastChild, $Node*)},
+		{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getLineNumber, int32_t)},
+		{"getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getNextSibling, $Node*)},
+		{"getOwnerDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getOwnerDocument, $Document*)},
+		{"getParentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getParentNode, $Node*)},
+		{"getPreviousSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getPreviousSibling, $Node*)},
+		{"getSyntheticAnnotation", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getSyntheticAnnotation, $String*)},
+		{"getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ElementImpl, getTagName, $String*)},
+		{"hasAttribute", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ElementImpl, hasAttribute, bool, $String*)},
+		{"hasAttributeNS", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ElementImpl, hasAttributeNS, bool, $String*, $String*)},
+		{"hasAttributes", "()Z", nullptr, $PUBLIC, $virtualMethod(ElementImpl, hasAttributes, bool)},
+		{"hasChildNodes", "()Z", nullptr, $PUBLIC, $virtualMethod(ElementImpl, hasChildNodes, bool)},
+		{"nsEquals", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ElementImpl, nsEquals, bool, $String*, $String*)},
+		{"setAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ElementImpl, setAttribute, void, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.opti.ElementImpl",
+		"com.sun.org.apache.xerces.internal.impl.xs.opti.DefaultElement",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ElementImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ElementImpl));
+	});
 	return class$;
 }
 

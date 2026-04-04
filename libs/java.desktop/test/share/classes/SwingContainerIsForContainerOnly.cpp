@@ -1,5 +1,4 @@
 #include <SwingContainerIsForContainerOnly.h>
-
 #include <SwingContainerIsForContainerOnly$1.h>
 #include <java/lang/Iterable.h>
 #include <java/net/URI.h>
@@ -17,45 +16,14 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $URI = ::java::net::URI;
 using $FileSystem = ::java::nio::file::FileSystem;
 using $FileSystems = ::java::nio::file::FileSystems;
-using $FileVisitor = ::java::nio::file::FileVisitor;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
-
-$MethodInfo _SwingContainerIsForContainerOnly_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SwingContainerIsForContainerOnly, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingContainerIsForContainerOnly, main, void, $StringArray*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _SwingContainerIsForContainerOnly_InnerClassesInfo_[] = {
-	{"SwingContainerIsForContainerOnly$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SwingContainerIsForContainerOnly_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"SwingContainerIsForContainerOnly",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SwingContainerIsForContainerOnly_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SwingContainerIsForContainerOnly_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"SwingContainerIsForContainerOnly$1"
-};
-
-$Object* allocate$SwingContainerIsForContainerOnly($Class* clazz) {
-	return $of($alloc(SwingContainerIsForContainerOnly));
-}
 
 void SwingContainerIsForContainerOnly::init$() {
 }
 
 void SwingContainerIsForContainerOnly::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileSystem, fs, $FileSystems::getFileSystem($($URI::create("jrt:/"_s))));
 	$nc(fs)->getFileStores();
 	$var($Path, var$0, fs->getPath("/modules/java.desktop"_s, $$new($StringArray, 0)));
@@ -66,7 +34,32 @@ SwingContainerIsForContainerOnly::SwingContainerIsForContainerOnly() {
 }
 
 $Class* SwingContainerIsForContainerOnly::load$($String* name, bool initialize) {
-	$loadClass(SwingContainerIsForContainerOnly, name, initialize, &_SwingContainerIsForContainerOnly_ClassInfo_, allocate$SwingContainerIsForContainerOnly);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SwingContainerIsForContainerOnly, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingContainerIsForContainerOnly, main, void, $StringArray*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"SwingContainerIsForContainerOnly$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"SwingContainerIsForContainerOnly",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"SwingContainerIsForContainerOnly$1"
+	};
+	$loadClass(SwingContainerIsForContainerOnly, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SwingContainerIsForContainerOnly);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XkbAccessXNotifyEvent.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,72 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XkbAccessXNotifyEvent_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XkbAccessXNotifyEvent, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XkbAccessXNotifyEvent, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XkbAccessXNotifyEvent, pData)},
-	{}
-};
-
-$MethodInfo _XkbAccessXNotifyEvent_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XkbAccessXNotifyEvent, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XkbAccessXNotifyEvent, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbAccessXNotifyEvent, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbAccessXNotifyEvent, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbAccessXNotifyEvent, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XkbAccessXNotifyEvent, getSize, int32_t)},
-	{"get_debounce_delay", "()I", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, get_debounce_delay, int32_t)},
-	{"get_detail", "()I", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, get_detail, int32_t)},
-	{"get_device", "()I", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, get_device, int32_t)},
-	{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, get_display, int64_t)},
-	{"get_keycode", "()I", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, get_keycode, int32_t)},
-	{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, get_send_event, bool)},
-	{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, get_serial, int64_t)},
-	{"get_sk_delay", "()I", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, get_sk_delay, int32_t)},
-	{"get_time", "()J", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, get_time, int64_t)},
-	{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, get_type, int32_t)},
-	{"get_xkb_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, get_xkb_type, int32_t)},
-	{"set_debounce_delay", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, set_debounce_delay, void, int32_t)},
-	{"set_detail", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, set_detail, void, int32_t)},
-	{"set_device", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, set_device, void, int32_t)},
-	{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, set_display, void, int64_t)},
-	{"set_keycode", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, set_keycode, void, int32_t)},
-	{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, set_send_event, void, bool)},
-	{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, set_serial, void, int64_t)},
-	{"set_sk_delay", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, set_sk_delay, void, int32_t)},
-	{"set_time", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, set_time, void, int64_t)},
-	{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, set_type, void, int32_t)},
-	{"set_xkb_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, set_xkb_type, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbAccessXNotifyEvent, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbAccessXNotifyEvent, zero, void)},
-	{}
-};
-
-$ClassInfo _XkbAccessXNotifyEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XkbAccessXNotifyEvent",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XkbAccessXNotifyEvent_FieldInfo_,
-	_XkbAccessXNotifyEvent_MethodInfo_
-};
-
-$Object* allocate$XkbAccessXNotifyEvent($Class* clazz) {
-	return $of($alloc(XkbAccessXNotifyEvent));
-}
 
 int32_t XkbAccessXNotifyEvent::getSize() {
 	$init(XkbAccessXNotifyEvent);
@@ -115,7 +55,7 @@ void XkbAccessXNotifyEvent::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -274,7 +214,7 @@ $String* XkbAccessXNotifyEvent::getFieldsAsString() {
 }
 
 $Object* XkbAccessXNotifyEvent::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XkbAccessXNotifyEvent::zero() {
@@ -289,7 +229,59 @@ XkbAccessXNotifyEvent::XkbAccessXNotifyEvent() {
 }
 
 $Class* XkbAccessXNotifyEvent::load$($String* name, bool initialize) {
-	$loadClass(XkbAccessXNotifyEvent, name, initialize, &_XkbAccessXNotifyEvent_ClassInfo_, allocate$XkbAccessXNotifyEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XkbAccessXNotifyEvent, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XkbAccessXNotifyEvent, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XkbAccessXNotifyEvent, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XkbAccessXNotifyEvent, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XkbAccessXNotifyEvent, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbAccessXNotifyEvent, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbAccessXNotifyEvent, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbAccessXNotifyEvent, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XkbAccessXNotifyEvent, getSize, int32_t)},
+		{"get_debounce_delay", "()I", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, get_debounce_delay, int32_t)},
+		{"get_detail", "()I", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, get_detail, int32_t)},
+		{"get_device", "()I", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, get_device, int32_t)},
+		{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, get_display, int64_t)},
+		{"get_keycode", "()I", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, get_keycode, int32_t)},
+		{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, get_send_event, bool)},
+		{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, get_serial, int64_t)},
+		{"get_sk_delay", "()I", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, get_sk_delay, int32_t)},
+		{"get_time", "()J", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, get_time, int64_t)},
+		{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, get_type, int32_t)},
+		{"get_xkb_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, get_xkb_type, int32_t)},
+		{"set_debounce_delay", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, set_debounce_delay, void, int32_t)},
+		{"set_detail", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, set_detail, void, int32_t)},
+		{"set_device", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, set_device, void, int32_t)},
+		{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, set_display, void, int64_t)},
+		{"set_keycode", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, set_keycode, void, int32_t)},
+		{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, set_send_event, void, bool)},
+		{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, set_serial, void, int64_t)},
+		{"set_sk_delay", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, set_sk_delay, void, int32_t)},
+		{"set_time", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, set_time, void, int64_t)},
+		{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, set_type, void, int32_t)},
+		{"set_xkb_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbAccessXNotifyEvent, set_xkb_type, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbAccessXNotifyEvent, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbAccessXNotifyEvent, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XkbAccessXNotifyEvent",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XkbAccessXNotifyEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XkbAccessXNotifyEvent);
+	});
 	return class$;
 }
 

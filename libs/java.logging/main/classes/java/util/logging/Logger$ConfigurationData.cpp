@@ -1,5 +1,4 @@
 #include <java/util/logging/Logger$ConfigurationData.h>
-
 #include <java/lang/InternalError.h>
 #include <java/util/Collection.h>
 #include <java/util/Iterator.h>
@@ -17,7 +16,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $CopyOnWriteArrayList = ::java::util::concurrent::CopyOnWriteArrayList;
 using $Filter = ::java::util::logging::Filter;
@@ -28,53 +26,6 @@ using $Logger = ::java::util::logging::Logger;
 namespace java {
 	namespace util {
 		namespace logging {
-
-$FieldInfo _Logger$ConfigurationData_FieldInfo_[] = {
-	{"delegate", "Ljava/util/logging/Logger$ConfigurationData;", nullptr, $PRIVATE | $VOLATILE, $field(Logger$ConfigurationData, delegate)},
-	{"useParentHandlers", "Z", nullptr, $VOLATILE, $field(Logger$ConfigurationData, useParentHandlers)},
-	{"filter", "Ljava/util/logging/Filter;", nullptr, $VOLATILE, $field(Logger$ConfigurationData, filter)},
-	{"levelObject", "Ljava/util/logging/Level;", nullptr, $VOLATILE, $field(Logger$ConfigurationData, levelObject)},
-	{"levelValue", "I", nullptr, $VOLATILE, $field(Logger$ConfigurationData, levelValue)},
-	{"handlers", "Ljava/util/concurrent/CopyOnWriteArrayList;", "Ljava/util/concurrent/CopyOnWriteArrayList<Ljava/util/logging/Handler;>;", $FINAL, $field(Logger$ConfigurationData, handlers)},
-	{}
-};
-
-$MethodInfo _Logger$ConfigurationData_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Logger$ConfigurationData, init$, void)},
-	{"addHandler", "(Ljava/util/logging/Handler;)V", nullptr, 0, $method(Logger$ConfigurationData, addHandler, void, $Handler*)},
-	{"merge", "(Ljava/util/logging/Logger;)Ljava/util/logging/Logger$ConfigurationData;", nullptr, 0, $method(Logger$ConfigurationData, merge, Logger$ConfigurationData*, $Logger*)},
-	{"removeHandler", "(Ljava/util/logging/Handler;)V", nullptr, 0, $method(Logger$ConfigurationData, removeHandler, void, $Handler*)},
-	{"setFilter", "(Ljava/util/logging/Filter;)V", nullptr, 0, $method(Logger$ConfigurationData, setFilter, void, $Filter*)},
-	{"setLevelObject", "(Ljava/util/logging/Level;)V", nullptr, 0, $method(Logger$ConfigurationData, setLevelObject, void, $Level*)},
-	{"setLevelValue", "(I)V", nullptr, 0, $method(Logger$ConfigurationData, setLevelValue, void, int32_t)},
-	{"setUseParentHandlers", "(Z)V", nullptr, 0, $method(Logger$ConfigurationData, setUseParentHandlers, void, bool)},
-	{}
-};
-
-$InnerClassInfo _Logger$ConfigurationData_InnerClassesInfo_[] = {
-	{"java.util.logging.Logger$ConfigurationData", "java.util.logging.Logger", "ConfigurationData", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Logger$ConfigurationData_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.logging.Logger$ConfigurationData",
-	"java.lang.Object",
-	nullptr,
-	_Logger$ConfigurationData_FieldInfo_,
-	_Logger$ConfigurationData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Logger$ConfigurationData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.logging.Logger"
-};
-
-$Object* allocate$Logger$ConfigurationData($Class* clazz) {
-	return $of($alloc(Logger$ConfigurationData));
-}
 
 void Logger$ConfigurationData::init$() {
 	$set(this, handlers, $new($CopyOnWriteArrayList));
@@ -89,7 +40,7 @@ void Logger$ConfigurationData::setUseParentHandlers(bool flag) {
 	if (this->delegate != this) {
 		$var(Logger$ConfigurationData, system, this->delegate);
 		$synchronized(system) {
-			$nc(system)->useParentHandlers = this->useParentHandlers;
+			system->useParentHandlers = this->useParentHandlers;
 		}
 	}
 }
@@ -99,7 +50,7 @@ void Logger$ConfigurationData::setFilter($Filter* f) {
 	if (this->delegate != this) {
 		$var(Logger$ConfigurationData, system, this->delegate);
 		$synchronized(system) {
-			$set($nc(system), filter, this->filter);
+			$set(system, filter, this->filter);
 		}
 	}
 }
@@ -109,7 +60,7 @@ void Logger$ConfigurationData::setLevelObject($Level* l) {
 	if (this->delegate != this) {
 		$var(Logger$ConfigurationData, system, this->delegate);
 		$synchronized(system) {
-			$set($nc(system), levelObject, this->levelObject);
+			$set(system, levelObject, this->levelObject);
 		}
 	}
 }
@@ -119,39 +70,39 @@ void Logger$ConfigurationData::setLevelValue(int32_t v) {
 	if (this->delegate != this) {
 		$var(Logger$ConfigurationData, system, this->delegate);
 		$synchronized(system) {
-			$nc(system)->levelValue = this->levelValue;
+			system->levelValue = this->levelValue;
 		}
 	}
 }
 
 void Logger$ConfigurationData::addHandler($Handler* h) {
-	if ($nc(this->handlers)->add(h)) {
+	if (this->handlers->add(h)) {
 		if (this->delegate != this) {
 			$var(Logger$ConfigurationData, system, this->delegate);
 			$synchronized(system) {
-				$nc($nc(system)->handlers)->addIfAbsent(h);
+				$nc(system->handlers)->addIfAbsent(h);
 			}
 		}
 	}
 }
 
 void Logger$ConfigurationData::removeHandler($Handler* h) {
-	if ($nc(this->handlers)->remove($of(h))) {
+	if (this->handlers->remove(h)) {
 		if (this->delegate != this) {
 			$var(Logger$ConfigurationData, system, this->delegate);
 			$synchronized(system) {
-				$nc($nc(system)->handlers)->remove($of(h));
+				$nc(system->handlers)->remove(h);
 			}
 		}
 	}
 }
 
 Logger$ConfigurationData* Logger$ConfigurationData::merge($Logger* systemPeer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(systemPeer)->isSystemLogger) {
 		$throwNew($InternalError, "not a system logger"_s);
 	}
-	$var(Logger$ConfigurationData, system, $nc(systemPeer)->config$);
+	$var(Logger$ConfigurationData, system, systemPeer->config$);
 	if (system == this) {
 		return system;
 	}
@@ -160,25 +111,22 @@ Logger$ConfigurationData* Logger$ConfigurationData::merge($Logger* systemPeer) {
 			return system;
 		}
 		$set(this, delegate, system);
-		$nc(system)->useParentHandlers = this->useParentHandlers;
+		system->useParentHandlers = this->useParentHandlers;
 		$set(system, filter, this->filter);
 		$set(system, levelObject, this->levelObject);
 		system->levelValue = this->levelValue;
 		{
-			$var($Iterator, i$, $nc(this->handlers)->iterator());
+			$var($Iterator, i$, this->handlers->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Handler, h, $cast($Handler, i$->next()));
-				{
-					if (!$nc(system->handlers)->contains(h)) {
-						systemPeer->addHandler(h);
-					}
+				if (!$nc(system->handlers)->contains(h)) {
+					systemPeer->addHandler(h);
 				}
 			}
 		}
 		$nc(system->handlers)->retainAll(this->handlers);
-		$nc(system->handlers)->addAllAbsent(this->handlers);
+		system->handlers->addAllAbsent(this->handlers);
 	}
-	$init($Logger);
 	$synchronized($Logger::treeLock) {
 		systemPeer->updateEffectiveLevel();
 	}
@@ -189,7 +137,48 @@ Logger$ConfigurationData::Logger$ConfigurationData() {
 }
 
 $Class* Logger$ConfigurationData::load$($String* name, bool initialize) {
-	$loadClass(Logger$ConfigurationData, name, initialize, &_Logger$ConfigurationData_ClassInfo_, allocate$Logger$ConfigurationData);
+	$FieldInfo fieldInfos$$[] = {
+		{"delegate", "Ljava/util/logging/Logger$ConfigurationData;", nullptr, $PRIVATE | $VOLATILE, $field(Logger$ConfigurationData, delegate)},
+		{"useParentHandlers", "Z", nullptr, $VOLATILE, $field(Logger$ConfigurationData, useParentHandlers)},
+		{"filter", "Ljava/util/logging/Filter;", nullptr, $VOLATILE, $field(Logger$ConfigurationData, filter)},
+		{"levelObject", "Ljava/util/logging/Level;", nullptr, $VOLATILE, $field(Logger$ConfigurationData, levelObject)},
+		{"levelValue", "I", nullptr, $VOLATILE, $field(Logger$ConfigurationData, levelValue)},
+		{"handlers", "Ljava/util/concurrent/CopyOnWriteArrayList;", "Ljava/util/concurrent/CopyOnWriteArrayList<Ljava/util/logging/Handler;>;", $FINAL, $field(Logger$ConfigurationData, handlers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Logger$ConfigurationData, init$, void)},
+		{"addHandler", "(Ljava/util/logging/Handler;)V", nullptr, 0, $method(Logger$ConfigurationData, addHandler, void, $Handler*)},
+		{"merge", "(Ljava/util/logging/Logger;)Ljava/util/logging/Logger$ConfigurationData;", nullptr, 0, $method(Logger$ConfigurationData, merge, Logger$ConfigurationData*, $Logger*)},
+		{"removeHandler", "(Ljava/util/logging/Handler;)V", nullptr, 0, $method(Logger$ConfigurationData, removeHandler, void, $Handler*)},
+		{"setFilter", "(Ljava/util/logging/Filter;)V", nullptr, 0, $method(Logger$ConfigurationData, setFilter, void, $Filter*)},
+		{"setLevelObject", "(Ljava/util/logging/Level;)V", nullptr, 0, $method(Logger$ConfigurationData, setLevelObject, void, $Level*)},
+		{"setLevelValue", "(I)V", nullptr, 0, $method(Logger$ConfigurationData, setLevelValue, void, int32_t)},
+		{"setUseParentHandlers", "(Z)V", nullptr, 0, $method(Logger$ConfigurationData, setUseParentHandlers, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.logging.Logger$ConfigurationData", "java.util.logging.Logger", "ConfigurationData", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.logging.Logger$ConfigurationData",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.logging.Logger"
+	};
+	$loadClass(Logger$ConfigurationData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Logger$ConfigurationData);
+	});
 	return class$;
 }
 

@@ -26,6 +26,7 @@ class $export Option$OptionGroup : public ::java::lang::Enum {
 public:
 	Option$OptionGroup();
 	static $Array<::com::sun::tools::javac::main::Option$OptionGroup>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::main::Option$OptionGroup* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::main::Option$OptionGroup>* values();

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/api/ClientCodeWrapper$WrappedTaskListener.h>
-
 #include <com/sun/source/util/TaskEvent.h>
 #include <com/sun/source/util/TaskListener.h>
 #include <com/sun/tools/javac/api/ClientCodeWrapper.h>
@@ -25,45 +24,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace api {
-
-$FieldInfo _ClientCodeWrapper$WrappedTaskListener_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/api/ClientCodeWrapper;", nullptr, $FINAL | $SYNTHETIC, $field(ClientCodeWrapper$WrappedTaskListener, this$0)},
-	{"clientTaskListener", "Lcom/sun/source/util/TaskListener;", nullptr, $PROTECTED, $field(ClientCodeWrapper$WrappedTaskListener, clientTaskListener)},
-	{}
-};
-
-$MethodInfo _ClientCodeWrapper$WrappedTaskListener_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/ClientCodeWrapper;Lcom/sun/source/util/TaskListener;)V", nullptr, 0, $method(ClientCodeWrapper$WrappedTaskListener, init$, void, $ClientCodeWrapper*, $TaskListener*)},
-	{"finished", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedTaskListener, finished, void, $TaskEvent*)},
-	{"started", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedTaskListener, started, void, $TaskEvent*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedTaskListener, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _ClientCodeWrapper$WrappedTaskListener_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener", "com.sun.tools.javac.api.ClientCodeWrapper", "WrappedTaskListener", $PROTECTED},
-	{}
-};
-
-$ClassInfo _ClientCodeWrapper$WrappedTaskListener_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener",
-	"java.lang.Object",
-	"com.sun.source.util.TaskListener",
-	_ClientCodeWrapper$WrappedTaskListener_FieldInfo_,
-	_ClientCodeWrapper$WrappedTaskListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClientCodeWrapper$WrappedTaskListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.api.ClientCodeWrapper"
-};
-
-$Object* allocate$ClientCodeWrapper$WrappedTaskListener($Class* clazz) {
-	return $of($alloc(ClientCodeWrapper$WrappedTaskListener));
-}
 
 void ClientCodeWrapper$WrappedTaskListener::init$($ClientCodeWrapper* this$0, $TaskListener* clientTaskListener) {
 	$set(this, this$0, this$0);
@@ -102,7 +62,40 @@ ClientCodeWrapper$WrappedTaskListener::ClientCodeWrapper$WrappedTaskListener() {
 }
 
 $Class* ClientCodeWrapper$WrappedTaskListener::load$($String* name, bool initialize) {
-	$loadClass(ClientCodeWrapper$WrappedTaskListener, name, initialize, &_ClientCodeWrapper$WrappedTaskListener_ClassInfo_, allocate$ClientCodeWrapper$WrappedTaskListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/api/ClientCodeWrapper;", nullptr, $FINAL | $SYNTHETIC, $field(ClientCodeWrapper$WrappedTaskListener, this$0)},
+		{"clientTaskListener", "Lcom/sun/source/util/TaskListener;", nullptr, $PROTECTED, $field(ClientCodeWrapper$WrappedTaskListener, clientTaskListener)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/api/ClientCodeWrapper;Lcom/sun/source/util/TaskListener;)V", nullptr, 0, $method(ClientCodeWrapper$WrappedTaskListener, init$, void, $ClientCodeWrapper*, $TaskListener*)},
+		{"finished", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedTaskListener, finished, void, $TaskEvent*)},
+		{"started", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedTaskListener, started, void, $TaskEvent*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedTaskListener, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener", "com.sun.tools.javac.api.ClientCodeWrapper", "WrappedTaskListener", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener",
+		"java.lang.Object",
+		"com.sun.source.util.TaskListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.api.ClientCodeWrapper"
+	};
+	$loadClass(ClientCodeWrapper$WrappedTaskListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClientCodeWrapper$WrappedTaskListener);
+	});
 	return class$;
 }
 

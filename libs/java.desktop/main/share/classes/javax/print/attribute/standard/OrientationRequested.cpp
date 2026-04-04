@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/OrientationRequested.h>
-
 #include <javax/print/attribute/EnumSyntax.h>
 #include <jcpp.h>
 
@@ -19,45 +18,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _OrientationRequested_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(OrientationRequested, serialVersionUID)},
-	{"PORTRAIT", "Ljavax/print/attribute/standard/OrientationRequested;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OrientationRequested, PORTRAIT)},
-	{"LANDSCAPE", "Ljavax/print/attribute/standard/OrientationRequested;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OrientationRequested, LANDSCAPE)},
-	{"REVERSE_LANDSCAPE", "Ljavax/print/attribute/standard/OrientationRequested;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OrientationRequested, REVERSE_LANDSCAPE)},
-	{"REVERSE_PORTRAIT", "Ljavax/print/attribute/standard/OrientationRequested;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OrientationRequested, REVERSE_PORTRAIT)},
-	{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OrientationRequested, myStringTable)},
-	{"myEnumValueTable", "[Ljavax/print/attribute/standard/OrientationRequested;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OrientationRequested, myEnumValueTable)},
-	{}
-};
-
-$MethodInfo _OrientationRequested_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(OrientationRequested, init$, void, int32_t)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(OrientationRequested, getCategory, $Class*)},
-	{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(OrientationRequested, getEnumValueTable, $EnumSyntaxArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(OrientationRequested, getName, $String*)},
-	{"getOffset", "()I", nullptr, $PROTECTED, $virtualMethod(OrientationRequested, getOffset, int32_t)},
-	{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(OrientationRequested, getStringTable, $StringArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _OrientationRequested_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.OrientationRequested",
-	"javax.print.attribute.EnumSyntax",
-	"javax.print.attribute.DocAttribute,javax.print.attribute.PrintRequestAttribute,javax.print.attribute.PrintJobAttribute",
-	_OrientationRequested_FieldInfo_,
-	_OrientationRequested_MethodInfo_
-};
-
-$Object* allocate$OrientationRequested($Class* clazz) {
-	return $of($alloc(OrientationRequested));
-}
 
 $Object* OrientationRequested::clone() {
 	 return this->$EnumSyntax::clone();
@@ -95,7 +55,7 @@ $StringArray* OrientationRequested::getStringTable() {
 }
 
 $EnumSyntaxArray* OrientationRequested::getEnumValueTable() {
-	return $fcast($EnumSyntaxArray, OrientationRequested::myEnumValueTable);
+	return $cast($EnumSyntaxArray, OrientationRequested::myEnumValueTable);
 }
 
 int32_t OrientationRequested::getOffset() {
@@ -110,7 +70,7 @@ $String* OrientationRequested::getName() {
 	return "orientation-requested"_s;
 }
 
-void clinit$OrientationRequested($Class* class$) {
+void OrientationRequested::clinit$($Class* clazz) {
 	$assignStatic(OrientationRequested::PORTRAIT, $new(OrientationRequested, 3));
 	$assignStatic(OrientationRequested::LANDSCAPE, $new(OrientationRequested, 4));
 	$assignStatic(OrientationRequested::REVERSE_LANDSCAPE, $new(OrientationRequested, 5));
@@ -133,7 +93,41 @@ OrientationRequested::OrientationRequested() {
 }
 
 $Class* OrientationRequested::load$($String* name, bool initialize) {
-	$loadClass(OrientationRequested, name, initialize, &_OrientationRequested_ClassInfo_, clinit$OrientationRequested, allocate$OrientationRequested);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(OrientationRequested, serialVersionUID)},
+		{"PORTRAIT", "Ljavax/print/attribute/standard/OrientationRequested;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OrientationRequested, PORTRAIT)},
+		{"LANDSCAPE", "Ljavax/print/attribute/standard/OrientationRequested;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OrientationRequested, LANDSCAPE)},
+		{"REVERSE_LANDSCAPE", "Ljavax/print/attribute/standard/OrientationRequested;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OrientationRequested, REVERSE_LANDSCAPE)},
+		{"REVERSE_PORTRAIT", "Ljavax/print/attribute/standard/OrientationRequested;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OrientationRequested, REVERSE_PORTRAIT)},
+		{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OrientationRequested, myStringTable)},
+		{"myEnumValueTable", "[Ljavax/print/attribute/standard/OrientationRequested;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OrientationRequested, myEnumValueTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(OrientationRequested, init$, void, int32_t)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(OrientationRequested, getCategory, $Class*)},
+		{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(OrientationRequested, getEnumValueTable, $EnumSyntaxArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(OrientationRequested, getName, $String*)},
+		{"getOffset", "()I", nullptr, $PROTECTED, $virtualMethod(OrientationRequested, getOffset, int32_t)},
+		{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(OrientationRequested, getStringTable, $StringArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.OrientationRequested",
+		"javax.print.attribute.EnumSyntax",
+		"javax.print.attribute.DocAttribute,javax.print.attribute.PrintRequestAttribute,javax.print.attribute.PrintJobAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OrientationRequested, name, initialize, &classInfo$$, OrientationRequested::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(OrientationRequested));
+	});
 	return class$;
 }
 

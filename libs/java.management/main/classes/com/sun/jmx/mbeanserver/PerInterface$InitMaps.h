@@ -24,6 +24,7 @@ class PerInterface$InitMaps : public ::com::sun::jmx::mbeanserver::MBeanAnalyzer
 	$class(PerInterface$InitMaps, 0, ::com::sun::jmx::mbeanserver::MBeanAnalyzer$MBeanVisitor)
 public:
 	PerInterface$InitMaps();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::jmx::mbeanserver::PerInterface* this$0);
 	virtual void visitAttribute($String* attributeName, Object$* getter, Object$* setter) override;
 	virtual void visitOperation($String* operationName, Object$* operation) override;

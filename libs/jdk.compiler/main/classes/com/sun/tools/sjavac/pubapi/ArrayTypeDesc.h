@@ -18,7 +18,7 @@ public:
 	void init$(::com::sun::tools::sjavac::pubapi::TypeDesc* compTypeDesc);
 	virtual bool equals(Object$* obj) override;
 	virtual int32_t hashCode() override;
-	static const int64_t serialVersionUID = (int64_t)0xEFA94903468CC0CC;
+	static const int64_t serialVersionUID = (int64_t)0xefa94903468cc0cc;
 	::com::sun::tools::sjavac::pubapi::TypeDesc* compTypeDesc = nullptr;
 };
 

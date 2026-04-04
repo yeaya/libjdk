@@ -30,6 +30,7 @@ class WBMPMetadata : public ::javax::imageio::metadata::IIOMetadata {
 	$class(WBMPMetadata, 0, ::javax::imageio::metadata::IIOMetadata)
 public:
 	WBMPMetadata();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::javax::imageio::metadata::IIOMetadataNode* addChildNode(::javax::imageio::metadata::IIOMetadataNode* root, $String* name, Object$* object);
 	virtual ::org::w3c::dom::Node* getAsTree($String* formatName) override;

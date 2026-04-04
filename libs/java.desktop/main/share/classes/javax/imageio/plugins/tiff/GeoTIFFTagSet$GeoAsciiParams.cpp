@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/GeoTIFFTagSet$GeoAsciiParams.h>
-
 #include <javax/imageio/plugins/tiff/GeoTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,45 +15,40 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _GeoTIFFTagSet$GeoAsciiParams_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GeoTIFFTagSet$GeoAsciiParams, init$, void)},
-	{}
-};
-
-$InnerClassInfo _GeoTIFFTagSet$GeoAsciiParams_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.GeoTIFFTagSet$GeoAsciiParams", "javax.imageio.plugins.tiff.GeoTIFFTagSet", "GeoAsciiParams", $STATIC},
-	{}
-};
-
-$ClassInfo _GeoTIFFTagSet$GeoAsciiParams_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.GeoTIFFTagSet$GeoAsciiParams",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_GeoTIFFTagSet$GeoAsciiParams_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GeoTIFFTagSet$GeoAsciiParams_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.GeoTIFFTagSet"
-};
-
-$Object* allocate$GeoTIFFTagSet$GeoAsciiParams($Class* clazz) {
-	return $of($alloc(GeoTIFFTagSet$GeoAsciiParams));
-}
-
 void GeoTIFFTagSet$GeoAsciiParams::init$() {
-	$TIFFTag::init$("GeoAsciiParamsTag"_s, 0x000087B1, $sl(1, $TIFFTag::TIFF_ASCII));
+	$TIFFTag::init$("GeoAsciiParamsTag"_s, 0x000087b1, $sl(1, $TIFFTag::TIFF_ASCII));
 }
 
 GeoTIFFTagSet$GeoAsciiParams::GeoTIFFTagSet$GeoAsciiParams() {
 }
 
 $Class* GeoTIFFTagSet$GeoAsciiParams::load$($String* name, bool initialize) {
-	$loadClass(GeoTIFFTagSet$GeoAsciiParams, name, initialize, &_GeoTIFFTagSet$GeoAsciiParams_ClassInfo_, allocate$GeoTIFFTagSet$GeoAsciiParams);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GeoTIFFTagSet$GeoAsciiParams, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.GeoTIFFTagSet$GeoAsciiParams", "javax.imageio.plugins.tiff.GeoTIFFTagSet", "GeoAsciiParams", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.GeoTIFFTagSet$GeoAsciiParams",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.GeoTIFFTagSet"
+	};
+	$loadClass(GeoTIFFTagSet$GeoAsciiParams, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GeoTIFFTagSet$GeoAsciiParams);
+	});
 	return class$;
 }
 

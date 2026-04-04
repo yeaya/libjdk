@@ -1,5 +1,4 @@
 #include <javax/swing/CompareTabOrderComparator.h>
-
 #include <java/awt/Component.h>
 #include <javax/swing/DefaultFocusManager.h>
 #include <jcpp.h>
@@ -12,32 +11,6 @@ using $DefaultFocusManager = ::javax::swing::DefaultFocusManager;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _CompareTabOrderComparator_FieldInfo_[] = {
-	{"defaultFocusManager", "Ljavax/swing/DefaultFocusManager;", nullptr, $PRIVATE | $FINAL, $field(CompareTabOrderComparator, defaultFocusManager)},
-	{}
-};
-
-$MethodInfo _CompareTabOrderComparator_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/DefaultFocusManager;)V", nullptr, 0, $method(CompareTabOrderComparator, init$, void, $DefaultFocusManager*)},
-	{"compare", "(Ljava/awt/Component;Ljava/awt/Component;)I", nullptr, $PUBLIC, $method(CompareTabOrderComparator, compare, int32_t, $Component*, $Component*)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CompareTabOrderComparator, compare, int32_t, Object$*, Object$*)},
-	{}
-};
-
-$ClassInfo _CompareTabOrderComparator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.CompareTabOrderComparator",
-	"java.lang.Object",
-	"java.util.Comparator",
-	_CompareTabOrderComparator_FieldInfo_,
-	_CompareTabOrderComparator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Comparator<Ljava/awt/Component;>;"
-};
-
-$Object* allocate$CompareTabOrderComparator($Class* clazz) {
-	return $of($alloc(CompareTabOrderComparator));
-}
 
 void CompareTabOrderComparator::init$($DefaultFocusManager* defaultFocusManager) {
 	$set(this, defaultFocusManager, defaultFocusManager);
@@ -58,7 +31,28 @@ CompareTabOrderComparator::CompareTabOrderComparator() {
 }
 
 $Class* CompareTabOrderComparator::load$($String* name, bool initialize) {
-	$loadClass(CompareTabOrderComparator, name, initialize, &_CompareTabOrderComparator_ClassInfo_, allocate$CompareTabOrderComparator);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultFocusManager", "Ljavax/swing/DefaultFocusManager;", nullptr, $PRIVATE | $FINAL, $field(CompareTabOrderComparator, defaultFocusManager)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/DefaultFocusManager;)V", nullptr, 0, $method(CompareTabOrderComparator, init$, void, $DefaultFocusManager*)},
+		{"compare", "(Ljava/awt/Component;Ljava/awt/Component;)I", nullptr, $PUBLIC, $method(CompareTabOrderComparator, compare, int32_t, $Component*, $Component*)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CompareTabOrderComparator, compare, int32_t, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.CompareTabOrderComparator",
+		"java.lang.Object",
+		"java.util.Comparator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Comparator<Ljava/awt/Component;>;"
+	};
+	$loadClass(CompareTabOrderComparator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CompareTabOrderComparator);
+	});
 	return class$;
 }
 

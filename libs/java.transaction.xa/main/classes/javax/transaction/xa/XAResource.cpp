@@ -1,5 +1,4 @@
 #include <javax/transaction/xa/XAResource.h>
-
 #include <javax/transaction/xa/Xid.h>
 #include <jcpp.h>
 
@@ -25,50 +24,45 @@ namespace javax {
 	namespace transaction {
 		namespace xa {
 
-$FieldInfo _XAResource_FieldInfo_[] = {
-	{"TMENDRSCAN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAResource, TMENDRSCAN)},
-	{"TMFAIL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAResource, TMFAIL)},
-	{"TMJOIN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAResource, TMJOIN)},
-	{"TMNOFLAGS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAResource, TMNOFLAGS)},
-	{"TMONEPHASE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAResource, TMONEPHASE)},
-	{"TMRESUME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAResource, TMRESUME)},
-	{"TMSTARTRSCAN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAResource, TMSTARTRSCAN)},
-	{"TMSUCCESS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAResource, TMSUCCESS)},
-	{"TMSUSPEND", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAResource, TMSUSPEND)},
-	{"XA_RDONLY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAResource, XA_RDONLY)},
-	{"XA_OK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAResource, XA_OK)},
-	{}
-};
-
-$MethodInfo _XAResource_MethodInfo_[] = {
-	{"commit", "(Ljavax/transaction/xa/Xid;Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, commit, void, $Xid*, bool), "javax.transaction.xa.XAException"},
-	{"end", "(Ljavax/transaction/xa/Xid;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, end, void, $Xid*, int32_t), "javax.transaction.xa.XAException"},
-	{"forget", "(Ljavax/transaction/xa/Xid;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, forget, void, $Xid*), "javax.transaction.xa.XAException"},
-	{"getTransactionTimeout", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, getTransactionTimeout, int32_t), "javax.transaction.xa.XAException"},
-	{"isSameRM", "(Ljavax/transaction/xa/XAResource;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, isSameRM, bool, XAResource*), "javax.transaction.xa.XAException"},
-	{"prepare", "(Ljavax/transaction/xa/Xid;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, prepare, int32_t, $Xid*), "javax.transaction.xa.XAException"},
-	{"recover", "(I)[Ljavax/transaction/xa/Xid;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, recover, $XidArray*, int32_t), "javax.transaction.xa.XAException"},
-	{"rollback", "(Ljavax/transaction/xa/Xid;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, rollback, void, $Xid*), "javax.transaction.xa.XAException"},
-	{"setTransactionTimeout", "(I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, setTransactionTimeout, bool, int32_t), "javax.transaction.xa.XAException"},
-	{"start", "(Ljavax/transaction/xa/Xid;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, start, void, $Xid*, int32_t), "javax.transaction.xa.XAException"},
-	{}
-};
-
-$ClassInfo _XAResource_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.transaction.xa.XAResource",
-	nullptr,
-	nullptr,
-	_XAResource_FieldInfo_,
-	_XAResource_MethodInfo_
-};
-
-$Object* allocate$XAResource($Class* clazz) {
-	return $of($alloc(XAResource));
-}
-
 $Class* XAResource::load$($String* name, bool initialize) {
-	$loadClass(XAResource, name, initialize, &_XAResource_ClassInfo_, allocate$XAResource);
+	$FieldInfo fieldInfos$$[] = {
+		{"TMENDRSCAN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAResource, TMENDRSCAN)},
+		{"TMFAIL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAResource, TMFAIL)},
+		{"TMJOIN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAResource, TMJOIN)},
+		{"TMNOFLAGS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAResource, TMNOFLAGS)},
+		{"TMONEPHASE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAResource, TMONEPHASE)},
+		{"TMRESUME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAResource, TMRESUME)},
+		{"TMSTARTRSCAN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAResource, TMSTARTRSCAN)},
+		{"TMSUCCESS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAResource, TMSUCCESS)},
+		{"TMSUSPEND", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAResource, TMSUSPEND)},
+		{"XA_RDONLY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAResource, XA_RDONLY)},
+		{"XA_OK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAResource, XA_OK)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"commit", "(Ljavax/transaction/xa/Xid;Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, commit, void, $Xid*, bool), "javax.transaction.xa.XAException"},
+		{"end", "(Ljavax/transaction/xa/Xid;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, end, void, $Xid*, int32_t), "javax.transaction.xa.XAException"},
+		{"forget", "(Ljavax/transaction/xa/Xid;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, forget, void, $Xid*), "javax.transaction.xa.XAException"},
+		{"getTransactionTimeout", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, getTransactionTimeout, int32_t), "javax.transaction.xa.XAException"},
+		{"isSameRM", "(Ljavax/transaction/xa/XAResource;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, isSameRM, bool, XAResource*), "javax.transaction.xa.XAException"},
+		{"prepare", "(Ljavax/transaction/xa/Xid;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, prepare, int32_t, $Xid*), "javax.transaction.xa.XAException"},
+		{"recover", "(I)[Ljavax/transaction/xa/Xid;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, recover, $XidArray*, int32_t), "javax.transaction.xa.XAException"},
+		{"rollback", "(Ljavax/transaction/xa/Xid;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, rollback, void, $Xid*), "javax.transaction.xa.XAException"},
+		{"setTransactionTimeout", "(I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, setTransactionTimeout, bool, int32_t), "javax.transaction.xa.XAException"},
+		{"start", "(Ljavax/transaction/xa/Xid;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, start, void, $Xid*, int32_t), "javax.transaction.xa.XAException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.transaction.xa.XAResource",
+		nullptr,
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XAResource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XAResource);
+	});
 	return class$;
 }
 

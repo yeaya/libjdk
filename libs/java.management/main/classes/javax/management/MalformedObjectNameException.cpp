@@ -1,5 +1,4 @@
 #include <javax/management/MalformedObjectNameException.h>
-
 #include <javax/management/OperationsException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $OperationsException = ::javax::management::OperationsException;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _MalformedObjectNameException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MalformedObjectNameException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _MalformedObjectNameException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MalformedObjectNameException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MalformedObjectNameException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _MalformedObjectNameException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.MalformedObjectNameException",
-	"javax.management.OperationsException",
-	nullptr,
-	_MalformedObjectNameException_FieldInfo_,
-	_MalformedObjectNameException_MethodInfo_
-};
-
-$Object* allocate$MalformedObjectNameException($Class* clazz) {
-	return $of($alloc(MalformedObjectNameException));
-}
 
 void MalformedObjectNameException::init$() {
 	$OperationsException::init$();
@@ -54,7 +29,26 @@ void MalformedObjectNameException::throw$() {
 }
 
 $Class* MalformedObjectNameException::load$($String* name, bool initialize) {
-	$loadClass(MalformedObjectNameException, name, initialize, &_MalformedObjectNameException_ClassInfo_, allocate$MalformedObjectNameException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MalformedObjectNameException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MalformedObjectNameException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MalformedObjectNameException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.MalformedObjectNameException",
+		"javax.management.OperationsException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MalformedObjectNameException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MalformedObjectNameException);
+	});
 	return class$;
 }
 

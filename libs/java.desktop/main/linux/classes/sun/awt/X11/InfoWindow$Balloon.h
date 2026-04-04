@@ -59,6 +59,7 @@ public:
 	using ::sun::awt::X11::InfoWindow::isFocusCycleRoot;
 	using ::sun::awt::X11::InfoWindow::getMousePosition;
 	using ::sun::awt::X11::InfoWindow::list;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Frame* parent, Object$* target, ::sun::awt::X11::InfoWindow$Balloon$LiveArguments* liveArguments);
 	void _display($String* caption, $String* text, $String* messageType);
 	virtual void display($String* caption, $String* text, $String* messageType);

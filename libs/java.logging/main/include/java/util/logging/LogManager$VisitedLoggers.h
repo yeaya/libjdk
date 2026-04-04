@@ -29,6 +29,7 @@ class $import LogManager$VisitedLoggers : public ::java::util::function::Predica
 	$class(LogManager$VisitedLoggers, 0, ::java::util::function::Predicate)
 public:
 	LogManager$VisitedLoggers();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::IdentityHashMap* visited);
 	void init$();
 	void clear();

@@ -43,6 +43,7 @@ class MFontConfiguration : public ::sun::awt::FontConfiguration {
 	$class(MFontConfiguration, 0, ::sun::awt::FontConfiguration)
 public:
 	MFontConfiguration();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::font::SunFontManager* fm);
 	void init$(::sun::font::SunFontManager* fm, bool preferLocaleFonts, bool preferPropFonts);
 	virtual ::java::util::HashSet* getAWTFontPathSet() override;

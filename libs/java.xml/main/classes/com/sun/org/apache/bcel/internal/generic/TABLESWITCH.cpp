@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/TABLESWITCH.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
@@ -15,11 +14,8 @@
 
 using $InstructionHandleArray = $Array<::com::sun::org::apache::bcel::internal::generic::InstructionHandle>;
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
-using $BranchInstruction = ::com::sun::org::apache::bcel::internal::generic::BranchInstruction;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
 using $Select = ::com::sun::org::apache::bcel::internal::generic::Select;
-using $StackConsumer = ::com::sun::org::apache::bcel::internal::generic::StackConsumer;
-using $VariableLengthInstruction = ::com::sun::org::apache::bcel::internal::generic::VariableLengthInstruction;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ByteSequence = ::com::sun::org::apache::bcel::internal::util::ByteSequence;
 using $DataOutputStream = ::java::io::DataOutputStream;
@@ -34,28 +30,6 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$MethodInfo _TABLESWITCH_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TABLESWITCH, init$, void)},
-	{"<init>", "([I[Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $method(TABLESWITCH, init$, void, $ints*, $InstructionHandleArray*, $InstructionHandle*)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(TABLESWITCH, accept, void, $Visitor*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(TABLESWITCH, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"initFromFile", "(Lcom/sun/org/apache/bcel/internal/util/ByteSequence;Z)V", nullptr, $PROTECTED, $virtualMethod(TABLESWITCH, initFromFile, void, $ByteSequence*, bool), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _TABLESWITCH_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.TABLESWITCH",
-	"com.sun.org.apache.bcel.internal.generic.Select",
-	nullptr,
-	nullptr,
-	_TABLESWITCH_MethodInfo_
-};
-
-$Object* allocate$TABLESWITCH($Class* clazz) {
-	return $of($alloc(TABLESWITCH));
-}
-
 void TABLESWITCH::init$() {
 	$Select::init$();
 }
@@ -68,7 +42,7 @@ void TABLESWITCH::init$($ints* match, $InstructionHandleArray* targets, $Instruc
 }
 
 void TABLESWITCH::dump($DataOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Select::dump(out);
 	int32_t _match_length = getMatch_length();
 	int32_t low = (_match_length > 0) ? $Select::getMatch(0) : 0;
@@ -81,7 +55,7 @@ void TABLESWITCH::dump($DataOutputStream* out) {
 }
 
 void TABLESWITCH::initFromFile($ByteSequence* bytes, bool wide) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Select::initFromFile(bytes, wide);
 	int32_t low = $nc(bytes)->readInt();
 	int32_t high = bytes->readInt();
@@ -111,7 +85,25 @@ TABLESWITCH::TABLESWITCH() {
 }
 
 $Class* TABLESWITCH::load$($String* name, bool initialize) {
-	$loadClass(TABLESWITCH, name, initialize, &_TABLESWITCH_ClassInfo_, allocate$TABLESWITCH);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TABLESWITCH, init$, void)},
+		{"<init>", "([I[Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $method(TABLESWITCH, init$, void, $ints*, $InstructionHandleArray*, $InstructionHandle*)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(TABLESWITCH, accept, void, $Visitor*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(TABLESWITCH, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"initFromFile", "(Lcom/sun/org/apache/bcel/internal/util/ByteSequence;Z)V", nullptr, $PROTECTED, $virtualMethod(TABLESWITCH, initFromFile, void, $ByteSequence*, bool), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.TABLESWITCH",
+		"com.sun.org.apache.bcel.internal.generic.Select",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TABLESWITCH, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TABLESWITCH));
+	});
 	return class$;
 }
 

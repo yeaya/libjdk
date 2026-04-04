@@ -27,7 +27,7 @@ public:
 	virtual $String* getName() override;
 	using ::javax::print::attribute::ResolutionSyntax::toString;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x002E8190809323FE;
+	static const int64_t serialVersionUID = (int64_t)0x002e8190809323fe;
 };
 
 			} // standard

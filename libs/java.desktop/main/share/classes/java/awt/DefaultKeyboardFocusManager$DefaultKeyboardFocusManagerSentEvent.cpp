@@ -1,5 +1,4 @@
 #include <java/awt/DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/DefaultKeyboardFocusManager.h>
 #include <java/awt/KeyboardFocusManager.h>
@@ -20,48 +19,12 @@ using $AppContext = ::sun::awt::AppContext;
 namespace java {
 	namespace awt {
 
-$FieldInfo _DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/AWTEvent;Lsun/awt/AppContext;)V", nullptr, $PUBLIC, $method(DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent, init$, void, $AWTEvent*, $AppContext*)},
-	{"dispatch", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent, dispatch, void)},
-	{}
-};
-
-$InnerClassInfo _DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent_InnerClassesInfo_[] = {
-	{"java.awt.DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent", "java.awt.DefaultKeyboardFocusManager", "DefaultKeyboardFocusManagerSentEvent", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent",
-	"java.awt.SentEvent",
-	nullptr,
-	_DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent_FieldInfo_,
-	_DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.DefaultKeyboardFocusManager"
-};
-
-$Object* allocate$DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent($Class* clazz) {
-	return $of($alloc(DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent));
-}
-
 void DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent::init$($AWTEvent* nested, $AppContext* toNotify) {
 	$SentEvent::init$(nested, toNotify);
 }
 
 void DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent::dispatch() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($KeyboardFocusManager, manager, $KeyboardFocusManager::getCurrentKeyboardFocusManager());
 	$var($DefaultKeyboardFocusManager, defaultManager, ($instanceOf($DefaultKeyboardFocusManager, manager)) ? $cast($DefaultKeyboardFocusManager, manager) : ($DefaultKeyboardFocusManager*)nullptr);
 	if (defaultManager != nullptr) {
@@ -81,7 +44,37 @@ DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent::DefaultKeyboar
 }
 
 $Class* DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent::load$($String* name, bool initialize) {
-	$loadClass(DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent, name, initialize, &_DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent_ClassInfo_, allocate$DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/AWTEvent;Lsun/awt/AppContext;)V", nullptr, $PUBLIC, $method(DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent, init$, void, $AWTEvent*, $AppContext*)},
+		{"dispatch", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent, dispatch, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent", "java.awt.DefaultKeyboardFocusManager", "DefaultKeyboardFocusManagerSentEvent", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent",
+		"java.awt.SentEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.DefaultKeyboardFocusManager"
+	};
+	$loadClass(DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent));
+	});
 	return class$;
 }
 

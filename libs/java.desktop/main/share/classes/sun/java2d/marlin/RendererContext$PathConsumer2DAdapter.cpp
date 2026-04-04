@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/RendererContext$PathConsumer2DAdapter.h>
-
 #include <java/lang/InternalError.h>
 #include <sun/awt/geom/PathConsumer2D.h>
 #include <sun/java2d/marlin/RendererContext.h>
@@ -15,49 +14,6 @@ using $PathConsumer2D = ::sun::awt::geom::PathConsumer2D;
 namespace sun {
 	namespace java2d {
 		namespace marlin {
-
-$FieldInfo _RendererContext$PathConsumer2DAdapter_FieldInfo_[] = {
-	{"out", "Lsun/awt/geom/PathConsumer2D;", nullptr, $PRIVATE, $field(RendererContext$PathConsumer2DAdapter, out)},
-	{}
-};
-
-$MethodInfo _RendererContext$PathConsumer2DAdapter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(RendererContext$PathConsumer2DAdapter, init$, void)},
-	{"closePath", "()V", nullptr, $PUBLIC, $virtualMethod(RendererContext$PathConsumer2DAdapter, closePath, void)},
-	{"curveTo", "(DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(RendererContext$PathConsumer2DAdapter, curveTo, void, double, double, double, double, double, double)},
-	{"getNativeConsumer", "()J", nullptr, $PUBLIC, $virtualMethod(RendererContext$PathConsumer2DAdapter, getNativeConsumer, int64_t)},
-	{"init", "(Lsun/awt/geom/PathConsumer2D;)Lsun/java2d/marlin/RendererContext$PathConsumer2DAdapter;", nullptr, 0, $method(RendererContext$PathConsumer2DAdapter, init, RendererContext$PathConsumer2DAdapter*, $PathConsumer2D*)},
-	{"lineTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(RendererContext$PathConsumer2DAdapter, lineTo, void, double, double)},
-	{"moveTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(RendererContext$PathConsumer2DAdapter, moveTo, void, double, double)},
-	{"pathDone", "()V", nullptr, $PUBLIC, $virtualMethod(RendererContext$PathConsumer2DAdapter, pathDone, void)},
-	{"quadTo", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(RendererContext$PathConsumer2DAdapter, quadTo, void, double, double, double, double)},
-	{}
-};
-
-$InnerClassInfo _RendererContext$PathConsumer2DAdapter_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.RendererContext$PathConsumer2DAdapter", "sun.java2d.marlin.RendererContext", "PathConsumer2DAdapter", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _RendererContext$PathConsumer2DAdapter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.RendererContext$PathConsumer2DAdapter",
-	"java.lang.Object",
-	"sun.java2d.marlin.DPathConsumer2D",
-	_RendererContext$PathConsumer2DAdapter_FieldInfo_,
-	_RendererContext$PathConsumer2DAdapter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RendererContext$PathConsumer2DAdapter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.RendererContext"
-};
-
-$Object* allocate$RendererContext$PathConsumer2DAdapter($Class* clazz) {
-	return $of($alloc(RendererContext$PathConsumer2DAdapter));
-}
 
 void RendererContext$PathConsumer2DAdapter::init$() {
 }
@@ -100,7 +56,44 @@ RendererContext$PathConsumer2DAdapter::RendererContext$PathConsumer2DAdapter() {
 }
 
 $Class* RendererContext$PathConsumer2DAdapter::load$($String* name, bool initialize) {
-	$loadClass(RendererContext$PathConsumer2DAdapter, name, initialize, &_RendererContext$PathConsumer2DAdapter_ClassInfo_, allocate$RendererContext$PathConsumer2DAdapter);
+	$FieldInfo fieldInfos$$[] = {
+		{"out", "Lsun/awt/geom/PathConsumer2D;", nullptr, $PRIVATE, $field(RendererContext$PathConsumer2DAdapter, out)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(RendererContext$PathConsumer2DAdapter, init$, void)},
+		{"closePath", "()V", nullptr, $PUBLIC, $virtualMethod(RendererContext$PathConsumer2DAdapter, closePath, void)},
+		{"curveTo", "(DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(RendererContext$PathConsumer2DAdapter, curveTo, void, double, double, double, double, double, double)},
+		{"getNativeConsumer", "()J", nullptr, $PUBLIC, $virtualMethod(RendererContext$PathConsumer2DAdapter, getNativeConsumer, int64_t)},
+		{"init", "(Lsun/awt/geom/PathConsumer2D;)Lsun/java2d/marlin/RendererContext$PathConsumer2DAdapter;", nullptr, 0, $method(RendererContext$PathConsumer2DAdapter, init, RendererContext$PathConsumer2DAdapter*, $PathConsumer2D*)},
+		{"lineTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(RendererContext$PathConsumer2DAdapter, lineTo, void, double, double)},
+		{"moveTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(RendererContext$PathConsumer2DAdapter, moveTo, void, double, double)},
+		{"pathDone", "()V", nullptr, $PUBLIC, $virtualMethod(RendererContext$PathConsumer2DAdapter, pathDone, void)},
+		{"quadTo", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(RendererContext$PathConsumer2DAdapter, quadTo, void, double, double, double, double)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.RendererContext$PathConsumer2DAdapter", "sun.java2d.marlin.RendererContext", "PathConsumer2DAdapter", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.RendererContext$PathConsumer2DAdapter",
+		"java.lang.Object",
+		"sun.java2d.marlin.DPathConsumer2D",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.RendererContext"
+	};
+	$loadClass(RendererContext$PathConsumer2DAdapter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RendererContext$PathConsumer2DAdapter);
+	});
 	return class$;
 }
 

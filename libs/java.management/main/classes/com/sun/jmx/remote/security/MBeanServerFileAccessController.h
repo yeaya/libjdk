@@ -49,6 +49,7 @@ class $export MBeanServerFileAccessController : public ::com::sun::jmx::remote::
 	$class(MBeanServerFileAccessController, 0, ::com::sun::jmx::remote::security::MBeanServerAccessController)
 public:
 	MBeanServerFileAccessController();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* accessFileName);
 	void init$($String* accessFileName, ::javax::management::MBeanServer* mbs);
 	void init$(::java::util::Properties* accessFileProps);

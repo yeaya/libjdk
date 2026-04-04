@@ -45,6 +45,7 @@ class $import SocketTube$SSLDirectBufferSource : public ::jdk::internal::net::ht
 	$class(SocketTube$SSLDirectBufferSource, 0, ::jdk::internal::net::http::SocketTube$BufferSource)
 public:
 	SocketTube$SSLDirectBufferSource();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::HttpClientImpl* client);
 	virtual ::java::util::List* append(::java::util::List* list, ::java::nio::ByteBuffer* buf, int32_t start) override;
 	virtual ::java::nio::ByteBuffer* getBuffer() override;

@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/JobMediaSheetsSupported.h>
-
 #include <javax/print/attribute/SetOfIntegerSyntax.h>
 #include <jcpp.h>
 
@@ -13,36 +12,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _JobMediaSheetsSupported_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobMediaSheetsSupported, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _JobMediaSheetsSupported_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(JobMediaSheetsSupported, init$, void, int32_t, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JobMediaSheetsSupported, equals, bool, Object$*)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(JobMediaSheetsSupported, getCategory, $Class*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JobMediaSheetsSupported, getName, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _JobMediaSheetsSupported_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.JobMediaSheetsSupported",
-	"javax.print.attribute.SetOfIntegerSyntax",
-	"javax.print.attribute.SupportedValuesAttribute",
-	_JobMediaSheetsSupported_FieldInfo_,
-	_JobMediaSheetsSupported_MethodInfo_
-};
-
-$Object* allocate$JobMediaSheetsSupported($Class* clazz) {
-	return $of($alloc(JobMediaSheetsSupported));
-}
 
 int32_t JobMediaSheetsSupported::hashCode() {
 	 return this->$SetOfIntegerSyntax::hashCode();
@@ -85,7 +54,32 @@ JobMediaSheetsSupported::JobMediaSheetsSupported() {
 }
 
 $Class* JobMediaSheetsSupported::load$($String* name, bool initialize) {
-	$loadClass(JobMediaSheetsSupported, name, initialize, &_JobMediaSheetsSupported_ClassInfo_, allocate$JobMediaSheetsSupported);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobMediaSheetsSupported, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(JobMediaSheetsSupported, init$, void, int32_t, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JobMediaSheetsSupported, equals, bool, Object$*)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(JobMediaSheetsSupported, getCategory, $Class*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JobMediaSheetsSupported, getName, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.JobMediaSheetsSupported",
+		"javax.print.attribute.SetOfIntegerSyntax",
+		"javax.print.attribute.SupportedValuesAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JobMediaSheetsSupported, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JobMediaSheetsSupported));
+	});
 	return class$;
 }
 

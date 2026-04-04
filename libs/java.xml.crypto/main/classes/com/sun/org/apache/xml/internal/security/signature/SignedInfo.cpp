@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/signature/SignedInfo.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithm.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/Canonicalizer.h>
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
@@ -50,7 +49,6 @@ using $SecretKey = ::javax::crypto::SecretKey;
 using $SecretKeySpec = ::javax::crypto::spec::SecretKeySpec;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
-using $Node = ::org::w3c::dom::Node;
 
 namespace com {
 	namespace sun {
@@ -60,52 +58,6 @@ namespace com {
 					namespace internal {
 						namespace security {
 							namespace signature {
-
-$FieldInfo _SignedInfo_FieldInfo_[] = {
-	{"signatureAlgorithm", "Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithm;", nullptr, $PRIVATE | $FINAL, $field(SignedInfo, signatureAlgorithm)},
-	{"c14nizedBytes", "[B", nullptr, $PRIVATE, $field(SignedInfo, c14nizedBytes)},
-	{"c14nMethod", "Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(SignedInfo, c14nMethod)},
-	{"signatureMethod", "Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(SignedInfo, signatureMethod)},
-	{}
-};
-
-$MethodInfo _SignedInfo_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(SignedInfo, init$, void, $Document*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignedInfo, init$, void, $Document*, $String*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignedInfo, init$, void, $Document*, $String*, $String*, $Provider*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $method(SignedInfo, init$, void, $Document*, $String*, int32_t, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;ILjava/lang/String;Ljava/security/Provider;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $method(SignedInfo, init$, void, $Document*, $String*, int32_t, $String*, $Provider*, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Lorg/w3c/dom/Element;Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $method(SignedInfo, init$, void, $Document*, $Element*, $Element*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Lorg/w3c/dom/Element;Lorg/w3c/dom/Element;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignedInfo, init$, void, $Document*, $Element*, $Element*, $Provider*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignedInfo, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(SignedInfo, init$, void, $Element*, $String*, bool), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;ZLjava/security/Provider;)V", nullptr, $PUBLIC, $method(SignedInfo, init$, void, $Element*, $String*, bool, $Provider*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"createSecretKey", "([B)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(SignedInfo, createSecretKey, $SecretKey*, $bytes*)},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignedInfo, getBaseLocalName, $String*)},
-	{"getCanonicalizationMethodURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignedInfo, getCanonicalizationMethodURI, $String*)},
-	{"getCanonicalizedOctetStream", "()[B", nullptr, $PUBLIC, $virtualMethod(SignedInfo, getCanonicalizedOctetStream, $bytes*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,com.sun.org.apache.xml.internal.security.c14n.InvalidCanonicalizerException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException,java.io.IOException"},
-	{"getInclusiveNamespaces", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignedInfo, getInclusiveNamespaces, $String*)},
-	{"getSignatureAlgorithm", "()Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithm;", nullptr, $PUBLIC, $virtualMethod(SignedInfo, getSignatureAlgorithm, $SignatureAlgorithm*)},
-	{"getSignatureMethodElement", "()Lorg/w3c/dom/Element;", nullptr, $PUBLIC, $virtualMethod(SignedInfo, getSignatureMethodElement, $Element*)},
-	{"getSignatureMethodURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignedInfo, getSignatureMethodURI, $String*)},
-	{"signInOctetStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(SignedInfo, signInOctetStream, void, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,com.sun.org.apache.xml.internal.security.c14n.InvalidCanonicalizerException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"verify", "()Z", nullptr, $PUBLIC, $virtualMethod(SignedInfo, verify, bool), "com.sun.org.apache.xml.internal.security.signature.MissingResourceFailureException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"verify", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(SignedInfo, verify, bool, bool), "com.sun.org.apache.xml.internal.security.signature.MissingResourceFailureException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{}
-};
-
-$ClassInfo _SignedInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.signature.SignedInfo",
-	"com.sun.org.apache.xml.internal.security.signature.Manifest",
-	nullptr,
-	_SignedInfo_FieldInfo_,
-	_SignedInfo_MethodInfo_
-};
-
-$Object* allocate$SignedInfo($Class* clazz) {
-	return $of($alloc(SignedInfo));
-}
 
 void SignedInfo::init$($Document* doc) {
 	$init($XMLSignature);
@@ -126,12 +78,12 @@ void SignedInfo::init$($Document* doc, $String* signatureMethodURI, int32_t hMAC
 }
 
 void SignedInfo::init$($Document* doc, $String* signatureMethodURI, int32_t hMACOutputLength, $String* canonicalizationMethodURI, $Provider* provider, $AlgorithmParameterSpec* spec) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Manifest::init$(doc);
 	$init($Constants);
 	$set(this, c14nMethod, $XMLUtils::createElementInSignatureSpace($(getDocument()), $Constants::_TAG_CANONICALIZATIONMETHOD));
 	$nc(this->c14nMethod)->setAttributeNS(nullptr, $Constants::_ATT_ALGORITHM, canonicalizationMethodURI);
-	appendSelf(static_cast<$Node*>(this->c14nMethod));
+	appendSelf(this->c14nMethod);
 	addReturnToSelf();
 	if (hMACOutputLength > 0) {
 		$set(this, signatureAlgorithm, $new($SignatureAlgorithm, $(getDocument()), signatureMethodURI, hMACOutputLength, provider));
@@ -139,48 +91,48 @@ void SignedInfo::init$($Document* doc, $String* signatureMethodURI, int32_t hMAC
 		$set(this, signatureAlgorithm, $new($SignatureAlgorithm, $(getDocument()), signatureMethodURI, provider, spec));
 	}
 	$set(this, signatureMethod, $nc(this->signatureAlgorithm)->getElement());
-	appendSelf(static_cast<$Node*>(this->signatureMethod));
+	appendSelf(this->signatureMethod);
 	addReturnToSelf();
 }
 
 void SignedInfo::init$($Document* doc, $Element* signatureMethodElem, $Element* canonicalizationMethodElem) {
-	SignedInfo::init$(doc, signatureMethodElem, canonicalizationMethodElem, ($Provider*)nullptr);
+	SignedInfo::init$(doc, signatureMethodElem, canonicalizationMethodElem, nullptr);
 }
 
 void SignedInfo::init$($Document* doc, $Element* signatureMethodElem, $Element* canonicalizationMethodElem, $Provider* provider) {
 	$Manifest::init$(doc);
 	$set(this, c14nMethod, canonicalizationMethodElem);
-	appendSelf(static_cast<$Node*>(this->c14nMethod));
+	appendSelf(this->c14nMethod);
 	addReturnToSelf();
-	$set(this, signatureAlgorithm, $new($SignatureAlgorithm, signatureMethodElem, ($String*)nullptr, provider));
-	$set(this, signatureMethod, $nc(this->signatureAlgorithm)->getElement());
-	appendSelf(static_cast<$Node*>(this->signatureMethod));
+	$set(this, signatureAlgorithm, $new($SignatureAlgorithm, signatureMethodElem, nullptr, provider));
+	$set(this, signatureMethod, this->signatureAlgorithm->getElement());
+	appendSelf(this->signatureMethod);
 	addReturnToSelf();
 }
 
 void SignedInfo::init$($Element* element, $String* baseURI) {
-	SignedInfo::init$(element, baseURI, true, ($Provider*)nullptr);
+	SignedInfo::init$(element, baseURI, true, nullptr);
 }
 
 void SignedInfo::init$($Element* element, $String* baseURI, bool secureValidation) {
-	SignedInfo::init$(element, baseURI, secureValidation, ($Provider*)nullptr);
+	SignedInfo::init$(element, baseURI, secureValidation, nullptr);
 }
 
 void SignedInfo::init$($Element* element, $String* baseURI, bool secureValidation, $Provider* provider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Manifest::init$(element, baseURI, secureValidation);
 	$set(this, c14nMethod, $XMLUtils::getNextElement($($nc(element)->getFirstChild())));
 	bool var$0 = this->c14nMethod == nullptr;
 	if (!var$0) {
 		$init($Constants);
-		bool var$1 = $nc($Constants::SignatureSpecNS)->equals($($nc(this->c14nMethod)->getNamespaceURI()));
-		var$0 = !(var$1 && $nc($Constants::_TAG_CANONICALIZATIONMETHOD)->equals($($nc(this->c14nMethod)->getLocalName())));
+		bool var$1 = $nc($Constants::SignatureSpecNS)->equals($(this->c14nMethod->getNamespaceURI()));
+		var$0 = !(var$1 && $nc($Constants::_TAG_CANONICALIZATIONMETHOD)->equals($(this->c14nMethod->getLocalName())));
 	}
 	if (var$0) {
 		$init($Constants);
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of($Constants::_TAG_CANONICALIZATIONMETHOD),
-			$of($Constants::_TAG_SIGNEDINFO)
+			$Constants::_TAG_CANONICALIZATIONMETHOD,
+			$Constants::_TAG_SIGNEDINFO
 		}));
 		$throwNew($XMLSignatureException, "xml.WrongContent"_s, exArgs);
 	}
@@ -188,14 +140,14 @@ void SignedInfo::init$($Element* element, $String* baseURI, bool secureValidatio
 	bool var$2 = this->signatureMethod == nullptr;
 	if (!var$2) {
 		$init($Constants);
-		bool var$3 = $nc($Constants::SignatureSpecNS)->equals($($nc(this->signatureMethod)->getNamespaceURI()));
-		var$2 = !(var$3 && $nc($Constants::_TAG_SIGNATUREMETHOD)->equals($($nc(this->signatureMethod)->getLocalName())));
+		bool var$3 = $nc($Constants::SignatureSpecNS)->equals($(this->signatureMethod->getNamespaceURI()));
+		var$2 = !(var$3 && $nc($Constants::_TAG_SIGNATUREMETHOD)->equals($(this->signatureMethod->getLocalName())));
 	}
 	if (var$2) {
 		$init($Constants);
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of($Constants::_TAG_SIGNATUREMETHOD),
-			$of($Constants::_TAG_SIGNEDINFO)
+			$Constants::_TAG_SIGNATUREMETHOD,
+			$Constants::_TAG_SIGNEDINFO
 		}));
 		$throwNew($XMLSignatureException, "xml.WrongContent"_s, exArgs);
 	}
@@ -211,38 +163,36 @@ bool SignedInfo::verify(bool followManifests) {
 }
 
 $bytes* SignedInfo::getCanonicalizedOctetStream() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->c14nizedBytes == nullptr) {
 		$var($Canonicalizer, c14nizer, $Canonicalizer::getInstance($(this->getCanonicalizationMethodURI())));
 		$var($String, inclusiveNamespaces, this->getInclusiveNamespaces());
 		{
 			$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream));
-			{
-				$var($Throwable, var$0, nullptr);
+			$var($Throwable, var$0, nullptr);
+			try {
 				try {
-					try {
-						if (inclusiveNamespaces == nullptr) {
-							$nc(c14nizer)->canonicalizeSubtree($(getElement()), baos);
-						} else {
-							$nc(c14nizer)->canonicalizeSubtree($(getElement()), inclusiveNamespaces, baos);
-						}
-						$set(this, c14nizedBytes, baos->toByteArray());
-					} catch ($Throwable& t$) {
-						try {
-							baos->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-						$throw(t$);
+					if (inclusiveNamespaces == nullptr) {
+						$nc(c14nizer)->canonicalizeSubtree($(getElement()), baos);
+					} else {
+						$nc(c14nizer)->canonicalizeSubtree($(getElement()), inclusiveNamespaces, baos);
 					}
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					baos->close();
+					$set(this, c14nizedBytes, baos->toByteArray());
+				} catch ($Throwable& t$) {
+					try {
+						baos->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
+					$throw(t$);
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				baos->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 	}
@@ -250,7 +200,7 @@ $bytes* SignedInfo::getCanonicalizedOctetStream() {
 }
 
 void SignedInfo::signInOctetStream($OutputStream* os) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->c14nizedBytes == nullptr) {
 		$var($Canonicalizer, c14nizer, $Canonicalizer::getInstance($(this->getCanonicalizationMethodURI())));
 		$var($String, inclusiveNamespaces, this->getInclusiveNamespaces());
@@ -263,7 +213,7 @@ void SignedInfo::signInOctetStream($OutputStream* os) {
 		try {
 			$nc(os)->write(this->c14nizedBytes);
 		} catch ($IOException& e) {
-			$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+			$throwNew($RuntimeException, e);
 		}
 	}
 }
@@ -300,7 +250,7 @@ $String* SignedInfo::getBaseLocalName() {
 }
 
 $String* SignedInfo::getInclusiveNamespaces() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, c14nMethodURI, getCanonicalizationMethodURI());
 	bool var$0 = "http://www.w3.org/2001/10/xml-exc-c14n#"_s->equals(c14nMethodURI);
 	if (!(var$0 || "http://www.w3.org/2001/10/xml-exc-c14n#WithComments"_s->equals(c14nMethodURI))) {
@@ -323,7 +273,48 @@ SignedInfo::SignedInfo() {
 }
 
 $Class* SignedInfo::load$($String* name, bool initialize) {
-	$loadClass(SignedInfo, name, initialize, &_SignedInfo_ClassInfo_, allocate$SignedInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"signatureAlgorithm", "Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithm;", nullptr, $PRIVATE | $FINAL, $field(SignedInfo, signatureAlgorithm)},
+		{"c14nizedBytes", "[B", nullptr, $PRIVATE, $field(SignedInfo, c14nizedBytes)},
+		{"c14nMethod", "Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(SignedInfo, c14nMethod)},
+		{"signatureMethod", "Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(SignedInfo, signatureMethod)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(SignedInfo, init$, void, $Document*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignedInfo, init$, void, $Document*, $String*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignedInfo, init$, void, $Document*, $String*, $String*, $Provider*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $method(SignedInfo, init$, void, $Document*, $String*, int32_t, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;ILjava/lang/String;Ljava/security/Provider;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $method(SignedInfo, init$, void, $Document*, $String*, int32_t, $String*, $Provider*, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Lorg/w3c/dom/Element;Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $method(SignedInfo, init$, void, $Document*, $Element*, $Element*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Lorg/w3c/dom/Element;Lorg/w3c/dom/Element;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignedInfo, init$, void, $Document*, $Element*, $Element*, $Provider*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignedInfo, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(SignedInfo, init$, void, $Element*, $String*, bool), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;ZLjava/security/Provider;)V", nullptr, $PUBLIC, $method(SignedInfo, init$, void, $Element*, $String*, bool, $Provider*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"createSecretKey", "([B)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(SignedInfo, createSecretKey, $SecretKey*, $bytes*)},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignedInfo, getBaseLocalName, $String*)},
+		{"getCanonicalizationMethodURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignedInfo, getCanonicalizationMethodURI, $String*)},
+		{"getCanonicalizedOctetStream", "()[B", nullptr, $PUBLIC, $virtualMethod(SignedInfo, getCanonicalizedOctetStream, $bytes*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,com.sun.org.apache.xml.internal.security.c14n.InvalidCanonicalizerException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException,java.io.IOException"},
+		{"getInclusiveNamespaces", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignedInfo, getInclusiveNamespaces, $String*)},
+		{"getSignatureAlgorithm", "()Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithm;", nullptr, $PUBLIC, $virtualMethod(SignedInfo, getSignatureAlgorithm, $SignatureAlgorithm*)},
+		{"getSignatureMethodElement", "()Lorg/w3c/dom/Element;", nullptr, $PUBLIC, $virtualMethod(SignedInfo, getSignatureMethodElement, $Element*)},
+		{"getSignatureMethodURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignedInfo, getSignatureMethodURI, $String*)},
+		{"signInOctetStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(SignedInfo, signInOctetStream, void, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,com.sun.org.apache.xml.internal.security.c14n.InvalidCanonicalizerException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"verify", "()Z", nullptr, $PUBLIC, $virtualMethod(SignedInfo, verify, bool), "com.sun.org.apache.xml.internal.security.signature.MissingResourceFailureException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"verify", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(SignedInfo, verify, bool, bool), "com.sun.org.apache.xml.internal.security.signature.MissingResourceFailureException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.signature.SignedInfo",
+		"com.sun.org.apache.xml.internal.security.signature.Manifest",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SignedInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SignedInfo);
+	});
 	return class$;
 }
 

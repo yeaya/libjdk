@@ -34,6 +34,7 @@ class SpanClipRenderer : public ::sun::java2d::pipe::CompositePipe {
 	$class(SpanClipRenderer, 0, ::sun::java2d::pipe::CompositePipe)
 public:
 	SpanClipRenderer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::java2d::pipe::CompositePipe* pipe);
 	virtual void endSequence(Object$* ctx) override;
 	virtual void eraseTile(::sun::java2d::pipe::RegionIterator* ri, $bytes* alpha, int32_t offset, int32_t tsize, $ints* band);

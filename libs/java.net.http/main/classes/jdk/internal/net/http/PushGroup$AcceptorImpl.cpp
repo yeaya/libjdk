@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/PushGroup$AcceptorImpl.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/invoke/CallSite.h>
@@ -46,73 +45,27 @@ public:
 	virtual void accept(Object$* r, Object$* t) override {
 		PushGroup$AcceptorImpl::lambda$accept$0($cast($HttpResponse, r), $cast($Throwable, t));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<PushGroup$AcceptorImpl$$Lambda$lambda$accept$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo PushGroup$AcceptorImpl$$Lambda$lambda$accept$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PushGroup$AcceptorImpl$$Lambda$lambda$accept$0, init$, void)},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PushGroup$AcceptorImpl$$Lambda$lambda$accept$0, accept, void, Object$*, Object$*)},
-	{}
-};
-$ClassInfo PushGroup$AcceptorImpl$$Lambda$lambda$accept$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.PushGroup$AcceptorImpl$$Lambda$lambda$accept$0",
-	"java.lang.Object",
-	"java.util.function.BiConsumer",
-	nullptr,
-	methodInfos
 };
 $Class* PushGroup$AcceptorImpl$$Lambda$lambda$accept$0::load$($String* name, bool initialize) {
-	$loadClass(PushGroup$AcceptorImpl$$Lambda$lambda$accept$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PushGroup$AcceptorImpl$$Lambda$lambda$accept$0, init$, void)},
+		{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PushGroup$AcceptorImpl$$Lambda$lambda$accept$0, accept, void, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.PushGroup$AcceptorImpl$$Lambda$lambda$accept$0",
+		"java.lang.Object",
+		"java.util.function.BiConsumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PushGroup$AcceptorImpl$$Lambda$lambda$accept$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PushGroup$AcceptorImpl$$Lambda$lambda$accept$0);
+	});
 	return class$;
 }
 $Class* PushGroup$AcceptorImpl$$Lambda$lambda$accept$0::class$ = nullptr;
-
-$FieldInfo _PushGroup$AcceptorImpl_FieldInfo_[] = {
-	{"executor", "Ljava/util/concurrent/Executor;", nullptr, $PRIVATE | $FINAL, $field(PushGroup$AcceptorImpl, executor)},
-	{"bodyHandler", "Ljava/net/http/HttpResponse$BodyHandler;", "Ljava/net/http/HttpResponse$BodyHandler<TT;>;", $PRIVATE | $VOLATILE, $field(PushGroup$AcceptorImpl, bodyHandler$)},
-	{"cf", "Ljava/util/concurrent/CompletableFuture;", "Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PRIVATE | $VOLATILE, $field(PushGroup$AcceptorImpl, cf$)},
-	{}
-};
-
-$MethodInfo _PushGroup$AcceptorImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Executor;)V", nullptr, 0, $method(PushGroup$AcceptorImpl, init$, void, $Executor*)},
-	{"accept", "(Ljava/net/http/HttpResponse$BodyHandler;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/net/http/HttpResponse$BodyHandler<TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", 0, $virtualMethod(PushGroup$AcceptorImpl, accept, $CompletableFuture*, $HttpResponse$BodyHandler*)},
-	{"accepted", "()Z", nullptr, $PUBLIC, $virtualMethod(PushGroup$AcceptorImpl, accepted, bool)},
-	{"bodyHandler", "()Ljava/net/http/HttpResponse$BodyHandler;", "()Ljava/net/http/HttpResponse$BodyHandler<TT;>;", $PUBLIC, $virtualMethod(PushGroup$AcceptorImpl, bodyHandler, $HttpResponse$BodyHandler*)},
-	{"cf", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC, $virtualMethod(PushGroup$AcceptorImpl, cf, $CompletableFuture*)},
-	{"lambda$accept$0", "(Ljava/net/http/HttpResponse;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PushGroup$AcceptorImpl, lambda$accept$0, void, $HttpResponse*, $Throwable*)},
-	{}
-};
-
-$InnerClassInfo _PushGroup$AcceptorImpl_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.PushGroup$AcceptorImpl", "jdk.internal.net.http.PushGroup", "AcceptorImpl", $PRIVATE | $STATIC},
-	{"jdk.internal.net.http.PushGroup$Acceptor", "jdk.internal.net.http.PushGroup", "Acceptor", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _PushGroup$AcceptorImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.PushGroup$AcceptorImpl",
-	"java.lang.Object",
-	"jdk.internal.net.http.PushGroup$Acceptor",
-	_PushGroup$AcceptorImpl_FieldInfo_,
-	_PushGroup$AcceptorImpl_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljdk/internal/net/http/PushGroup$Acceptor<TT;>;",
-	nullptr,
-	_PushGroup$AcceptorImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.PushGroup"
-};
-
-$Object* allocate$PushGroup$AcceptorImpl($Class* clazz) {
-	return $of($alloc(PushGroup$AcceptorImpl));
-}
 
 void PushGroup$AcceptorImpl::init$($Executor* executor) {
 	$set(this, executor, executor);
@@ -125,7 +78,7 @@ $CompletableFuture* PushGroup$AcceptorImpl::accept($HttpResponse$BodyHandler* bo
 	}
 	$set(this, bodyHandler$, bodyHandler);
 	$set(this, cf$, $new($MinimalFuture));
-	return $cast($CompletableFuture, $nc(this->cf$)->whenCompleteAsync(static_cast<$BiConsumer*>($$new(PushGroup$AcceptorImpl$$Lambda$lambda$accept$0)), this->executor));
+	return $cast($CompletableFuture, $nc(this->cf$)->whenCompleteAsync($$new(PushGroup$AcceptorImpl$$Lambda$lambda$accept$0), this->executor));
 }
 
 $HttpResponse$BodyHandler* PushGroup$AcceptorImpl::bodyHandler() {
@@ -149,11 +102,48 @@ PushGroup$AcceptorImpl::PushGroup$AcceptorImpl() {
 
 $Class* PushGroup$AcceptorImpl::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(PushGroup$AcceptorImpl$$Lambda$lambda$accept$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.PushGroup$AcceptorImpl$$Lambda$lambda$accept$0")) {
 			return PushGroup$AcceptorImpl$$Lambda$lambda$accept$0::load$(name, initialize);
 		}
 	}
-	$loadClass(PushGroup$AcceptorImpl, name, initialize, &_PushGroup$AcceptorImpl_ClassInfo_, allocate$PushGroup$AcceptorImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"executor", "Ljava/util/concurrent/Executor;", nullptr, $PRIVATE | $FINAL, $field(PushGroup$AcceptorImpl, executor)},
+		{"bodyHandler", "Ljava/net/http/HttpResponse$BodyHandler;", "Ljava/net/http/HttpResponse$BodyHandler<TT;>;", $PRIVATE | $VOLATILE, $field(PushGroup$AcceptorImpl, bodyHandler$)},
+		{"cf", "Ljava/util/concurrent/CompletableFuture;", "Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PRIVATE | $VOLATILE, $field(PushGroup$AcceptorImpl, cf$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/Executor;)V", nullptr, 0, $method(PushGroup$AcceptorImpl, init$, void, $Executor*)},
+		{"accept", "(Ljava/net/http/HttpResponse$BodyHandler;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/net/http/HttpResponse$BodyHandler<TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", 0, $virtualMethod(PushGroup$AcceptorImpl, accept, $CompletableFuture*, $HttpResponse$BodyHandler*)},
+		{"accepted", "()Z", nullptr, $PUBLIC, $virtualMethod(PushGroup$AcceptorImpl, accepted, bool)},
+		{"bodyHandler", "()Ljava/net/http/HttpResponse$BodyHandler;", "()Ljava/net/http/HttpResponse$BodyHandler<TT;>;", $PUBLIC, $virtualMethod(PushGroup$AcceptorImpl, bodyHandler, $HttpResponse$BodyHandler*)},
+		{"cf", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC, $virtualMethod(PushGroup$AcceptorImpl, cf, $CompletableFuture*)},
+		{"lambda$accept$0", "(Ljava/net/http/HttpResponse;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PushGroup$AcceptorImpl, lambda$accept$0, void, $HttpResponse*, $Throwable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.PushGroup$AcceptorImpl", "jdk.internal.net.http.PushGroup", "AcceptorImpl", $PRIVATE | $STATIC},
+		{"jdk.internal.net.http.PushGroup$Acceptor", "jdk.internal.net.http.PushGroup", "Acceptor", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.PushGroup$AcceptorImpl",
+		"java.lang.Object",
+		"jdk.internal.net.http.PushGroup$Acceptor",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljdk/internal/net/http/PushGroup$Acceptor<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.PushGroup"
+	};
+	$loadClass(PushGroup$AcceptorImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PushGroup$AcceptorImpl);
+	});
 	return class$;
 }
 

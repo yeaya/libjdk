@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureInput.h>
-
 #include <com/sun/org/apache/xml/internal/security/c14n/CanonicalizationException.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/implementations/Canonicalizer11_OmitComments.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/implementations/Canonicalizer20010315OmitComments.h>
@@ -56,84 +55,6 @@ namespace com {
 					namespace internal {
 						namespace security {
 							namespace signature {
-
-$FieldInfo _XMLSignatureInput_FieldInfo_[] = {
-	{"inputOctetStreamProxy", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(XMLSignatureInput, inputOctetStreamProxy)},
-	{"inputNodeSet", "Ljava/util/Set;", "Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PRIVATE, $field(XMLSignatureInput, inputNodeSet)},
-	{"subNode", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(XMLSignatureInput, subNode)},
-	{"excludeNode", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(XMLSignatureInput, excludeNode)},
-	{"excludeComments", "Z", nullptr, $PRIVATE, $field(XMLSignatureInput, excludeComments)},
-	{"isNodeSet", "Z", nullptr, $PRIVATE, $field(XMLSignatureInput, isNodeSet$)},
-	{"bytes", "[B", nullptr, $PRIVATE, $field(XMLSignatureInput, bytes)},
-	{"secureValidation", "Z", nullptr, $PRIVATE, $field(XMLSignatureInput, secureValidation)},
-	{"mimeType", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XMLSignatureInput, mimeType)},
-	{"sourceURI", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XMLSignatureInput, sourceURI)},
-	{"nodeFilters", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/signature/NodeFilter;>;", $PRIVATE, $field(XMLSignatureInput, nodeFilters)},
-	{"needsToBeExpanded", "Z", nullptr, $PRIVATE, $field(XMLSignatureInput, needsToBeExpanded)},
-	{"outputStream", "Ljava/io/OutputStream;", nullptr, $PRIVATE, $field(XMLSignatureInput, outputStream)},
-	{"preCalculatedDigest", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XMLSignatureInput, preCalculatedDigest)},
-	{}
-};
-
-$MethodInfo _XMLSignatureInput_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(XMLSignatureInput, init$, void, $bytes*)},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(XMLSignatureInput, init$, void, $InputStream*)},
-	{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(XMLSignatureInput, init$, void, $Node*)},
-	{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<Lorg/w3c/dom/Node;>;)V", $PUBLIC, $method(XMLSignatureInput, init$, void, $Set*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLSignatureInput, init$, void, $String*)},
-	{"addNodeFilter", "(Lcom/sun/org/apache/xml/internal/security/signature/NodeFilter;)V", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, addNodeFilter, void, $NodeFilter*)},
-	{"convertToNodes", "()V", nullptr, $PRIVATE, $method(XMLSignatureInput, convertToNodes, void), "com.sun.org.apache.xml.internal.security.parser.XMLParserException,java.io.IOException"},
-	{"getBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, getBytes, $bytes*), "java.io.IOException,com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
-	{"getBytesFromInputStream", "()[B", nullptr, $PRIVATE, $method(XMLSignatureInput, getBytesFromInputStream, $bytes*), "java.io.IOException"},
-	{"getExcludeNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, getExcludeNode, $Node*)},
-	{"getHTMLRepresentation", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, getHTMLRepresentation, $String*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"getHTMLRepresentation", "(Ljava/util/Set;)Ljava/lang/String;", "(Ljava/util/Set<Ljava/lang/String;>;)Ljava/lang/String;", $PUBLIC, $virtualMethod(XMLSignatureInput, getHTMLRepresentation, $String*, $Set*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"getInputNodeSet", "()Ljava/util/Set;", "()Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PUBLIC, $virtualMethod(XMLSignatureInput, getInputNodeSet, $Set*)},
-	{"getMIMEType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, getMIMEType, $String*)},
-	{"getNodeFilters", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/signature/NodeFilter;>;", $PUBLIC, $virtualMethod(XMLSignatureInput, getNodeFilters, $List*)},
-	{"getNodeSet", "()Ljava/util/Set;", "()Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PUBLIC, $virtualMethod(XMLSignatureInput, getNodeSet, $Set*), "com.sun.org.apache.xml.internal.security.parser.XMLParserException,java.io.IOException"},
-	{"getNodeSet", "(Z)Ljava/util/Set;", "(Z)Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PUBLIC, $virtualMethod(XMLSignatureInput, getNodeSet, $Set*, bool), "com.sun.org.apache.xml.internal.security.parser.XMLParserException,java.io.IOException"},
-	{"getOctetStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, getOctetStream, $InputStream*), "java.io.IOException"},
-	{"getOctetStreamReal", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, getOctetStreamReal, $InputStream*)},
-	{"getPreCalculatedDigest", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, getPreCalculatedDigest, $String*)},
-	{"getSourceURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, getSourceURI, $String*)},
-	{"getSubNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, getSubNode, $Node*)},
-	{"isByteArray", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, isByteArray, bool)},
-	{"isElement", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, isElement, bool)},
-	{"isExcludeComments", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, isExcludeComments, bool)},
-	{"isInitialized", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, isInitialized, bool)},
-	{"isNeedsToBeExpanded", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, isNeedsToBeExpanded, bool)},
-	{"isNodeSet", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, isNodeSet, bool)},
-	{"isOctetStream", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, isOctetStream, bool)},
-	{"isOutputStreamSet", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, isOutputStreamSet, bool)},
-	{"isPreCalculatedDigest", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, isPreCalculatedDigest, bool)},
-	{"isSecureValidation", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, isSecureValidation, bool)},
-	{"setExcludeComments", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, setExcludeComments, void, bool)},
-	{"setExcludeNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, setExcludeNode, void, $Node*)},
-	{"setMIMEType", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, setMIMEType, void, $String*)},
-	{"setNeedsToBeExpanded", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, setNeedsToBeExpanded, void, bool)},
-	{"setNodeSet", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, setNodeSet, void, bool)},
-	{"setOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, setOutputStream, void, $OutputStream*)},
-	{"setSecureValidation", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, setSecureValidation, void, bool)},
-	{"setSourceURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, setSourceURI, void, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, toString, $String*)},
-	{"updateOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, updateOutputStream, void, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,java.io.IOException"},
-	{"updateOutputStream", "(Ljava/io/OutputStream;Z)V", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, updateOutputStream, void, $OutputStream*, bool), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,java.io.IOException"},
-	{}
-};
-
-$ClassInfo _XMLSignatureInput_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.signature.XMLSignatureInput",
-	"java.lang.Object",
-	nullptr,
-	_XMLSignatureInput_FieldInfo_,
-	_XMLSignatureInput_MethodInfo_
-};
-
-$Object* allocate$XMLSignatureInput($Class* clazz) {
-	return $of($alloc(XMLSignatureInput));
-}
 
 void XMLSignatureInput::init$($bytes* inputOctets) {
 	this->excludeComments = false;
@@ -192,7 +113,7 @@ $Set* XMLSignatureInput::getInputNodeSet() {
 }
 
 $Set* XMLSignatureInput::getNodeSet(bool circumvent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->inputNodeSet != nullptr) {
 		return this->inputNodeSet;
 	}
@@ -228,7 +149,7 @@ $InputStream* XMLSignatureInput::getOctetStreamReal() {
 }
 
 $bytes* XMLSignatureInput::getBytes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, inputBytes, getBytesFromInputStream());
 	if (inputBytes != nullptr) {
 		return inputBytes;
@@ -239,28 +160,26 @@ $bytes* XMLSignatureInput::getBytes() {
 		$var($Canonicalizer20010315OmitComments, c14nizer, $new($Canonicalizer20010315OmitComments));
 		{
 			$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream));
-			{
-				$var($Throwable, var$2, nullptr);
+			$var($Throwable, var$2, nullptr);
+			try {
 				try {
+					c14nizer->engineCanonicalize(this, baos, this->secureValidation);
+					$set(this, bytes, baos->toByteArray());
+				} catch ($Throwable& t$) {
 					try {
-						c14nizer->engineCanonicalize(this, static_cast<$OutputStream*>(baos), this->secureValidation);
-						$set(this, bytes, baos->toByteArray());
-					} catch ($Throwable& t$) {
-						try {
-							baos->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-						$throw(t$);
+						baos->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
 					}
-				} catch ($Throwable& var$3) {
-					$assign(var$2, var$3);
-				} /*finally*/ {
-					baos->close();
+					$throw(t$);
 				}
-				if (var$2 != nullptr) {
-					$throw(var$2);
-				}
+			} catch ($Throwable& var$3) {
+				$assign(var$2, var$3);
+			} /*finally*/ {
+				baos->close();
+			}
+			if (var$2 != nullptr) {
+				$throw(var$2);
 			}
 		}
 	}
@@ -313,18 +232,30 @@ void XMLSignatureInput::setSourceURI($String* sourceURI) {
 }
 
 $String* XMLSignatureInput::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isNodeSet()) {
-		$var($String, var$0, $$str({"XMLSignatureInput/NodeSet/"_s, $$str($nc(this->inputNodeSet)->size()), " nodes/"_s}));
-		return $concat(var$0, $(getSourceURI()));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("XMLSignatureInput/NodeSet/"_s);
+		var$0->append($nc(this->inputNodeSet)->size());
+		var$0->append(" nodes/"_s);
+		var$0->append($(getSourceURI()));
+		return $str(var$0);
 	}
 	if (isElement()) {
-		$var($String, var$1, $$str({"XMLSignatureInput/Element/"_s, this->subNode, " exclude "_s, this->excludeNode, " comments:"_s, $$str(this->excludeComments), "/"_s}));
-		return $concat(var$1, $(getSourceURI()));
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append("XMLSignatureInput/Element/"_s);
+		var$1->append(this->subNode);
+		var$1->append(" exclude "_s);
+		var$1->append(this->excludeNode);
+		var$1->append(" comments:"_s);
+		var$1->append(this->excludeComments);
+		var$1->append("/"_s);
+		var$1->append($(getSourceURI()));
+		return $str(var$1);
 	}
 	try {
 		$var($bytes, bytes, getBytes());
-		return $str({"XMLSignatureInput/OctetStream/"_s, $$str((bytes != nullptr ? $nc(bytes)->length : 0)), " octets/"_s, $(getSourceURI())});
+		return $str({"XMLSignatureInput/OctetStream/"_s, $$str((bytes != nullptr ? bytes->length : 0)), " octets/"_s, $(getSourceURI())});
 	} catch ($IOException& ex) {
 		return $str({"XMLSignatureInput/OctetStream//"_s, $(getSourceURI())});
 	} catch ($CanonicalizationException& ex) {
@@ -368,7 +299,7 @@ void XMLSignatureInput::updateOutputStream($OutputStream* diOs) {
 }
 
 void XMLSignatureInput::updateOutputStream($OutputStream* diOs, bool c14n11) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (diOs == this->outputStream) {
 		return;
 	}
@@ -386,11 +317,11 @@ void XMLSignatureInput::updateOutputStream($OutputStream* diOs, bool c14n11) {
 		$var($bytes, buffer, $new($bytes, 4 * 1024));
 		int32_t bytesread = 0;
 		try {
-			while ((bytesread = $nc(this->inputOctetStreamProxy)->read(buffer)) != -1) {
+			while ((bytesread = this->inputOctetStreamProxy->read(buffer)) != -1) {
 				$nc(diOs)->write(buffer, 0, bytesread);
 			}
 		} catch ($IOException& ex) {
-			$nc(this->inputOctetStreamProxy)->close();
+			this->inputOctetStreamProxy->close();
 			$throw(ex);
 		}
 	}
@@ -407,18 +338,16 @@ $bytes* XMLSignatureInput::getBytesFromInputStream() {
 	if (this->inputOctetStreamProxy == nullptr) {
 		return nullptr;
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$set(this, bytes, $JavaUtils::getBytesFromStream(this->inputOctetStreamProxy));
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->inputOctetStreamProxy)->close();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$set(this, bytes, $JavaUtils::getBytesFromStream(this->inputOctetStreamProxy));
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->inputOctetStreamProxy)->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return this->bytes;
 }
@@ -428,7 +357,7 @@ void XMLSignatureInput::addNodeFilter($NodeFilter* filter) {
 		try {
 			convertToNodes();
 		} catch ($Exception& e) {
-			$throwNew($XMLSecurityRuntimeException, "signature.XMLSignatureInput.nodesetReference"_s, $cast($Exception, e));
+			$throwNew($XMLSecurityRuntimeException, "signature.XMLSignatureInput.nodesetReference"_s, e);
 		}
 	}
 	$nc(this->nodeFilters)->add(filter);
@@ -443,24 +372,22 @@ void XMLSignatureInput::setNodeSet(bool b) {
 }
 
 void XMLSignatureInput::convertToNodes() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Document, doc, $XMLUtils::read($(this->getOctetStream()), this->secureValidation));
-			$set(this, subNode, doc);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (this->inputOctetStreamProxy != nullptr) {
-				$nc(this->inputOctetStreamProxy)->close();
-			}
-			$set(this, inputOctetStreamProxy, nullptr);
-			$set(this, bytes, nullptr);
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Document, doc, $XMLUtils::read($(this->getOctetStream()), this->secureValidation));
+		$set(this, subNode, doc);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (this->inputOctetStreamProxy != nullptr) {
+			this->inputOctetStreamProxy->close();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		$set(this, inputOctetStreamProxy, nullptr);
+		$set(this, bytes, nullptr);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -480,7 +407,80 @@ XMLSignatureInput::XMLSignatureInput() {
 }
 
 $Class* XMLSignatureInput::load$($String* name, bool initialize) {
-	$loadClass(XMLSignatureInput, name, initialize, &_XMLSignatureInput_ClassInfo_, allocate$XMLSignatureInput);
+	$FieldInfo fieldInfos$$[] = {
+		{"inputOctetStreamProxy", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(XMLSignatureInput, inputOctetStreamProxy)},
+		{"inputNodeSet", "Ljava/util/Set;", "Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PRIVATE, $field(XMLSignatureInput, inputNodeSet)},
+		{"subNode", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(XMLSignatureInput, subNode)},
+		{"excludeNode", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(XMLSignatureInput, excludeNode)},
+		{"excludeComments", "Z", nullptr, $PRIVATE, $field(XMLSignatureInput, excludeComments)},
+		{"isNodeSet", "Z", nullptr, $PRIVATE, $field(XMLSignatureInput, isNodeSet$)},
+		{"bytes", "[B", nullptr, $PRIVATE, $field(XMLSignatureInput, bytes)},
+		{"secureValidation", "Z", nullptr, $PRIVATE, $field(XMLSignatureInput, secureValidation)},
+		{"mimeType", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XMLSignatureInput, mimeType)},
+		{"sourceURI", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XMLSignatureInput, sourceURI)},
+		{"nodeFilters", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/signature/NodeFilter;>;", $PRIVATE, $field(XMLSignatureInput, nodeFilters)},
+		{"needsToBeExpanded", "Z", nullptr, $PRIVATE, $field(XMLSignatureInput, needsToBeExpanded)},
+		{"outputStream", "Ljava/io/OutputStream;", nullptr, $PRIVATE, $field(XMLSignatureInput, outputStream)},
+		{"preCalculatedDigest", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XMLSignatureInput, preCalculatedDigest)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(XMLSignatureInput, init$, void, $bytes*)},
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(XMLSignatureInput, init$, void, $InputStream*)},
+		{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(XMLSignatureInput, init$, void, $Node*)},
+		{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<Lorg/w3c/dom/Node;>;)V", $PUBLIC, $method(XMLSignatureInput, init$, void, $Set*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLSignatureInput, init$, void, $String*)},
+		{"addNodeFilter", "(Lcom/sun/org/apache/xml/internal/security/signature/NodeFilter;)V", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, addNodeFilter, void, $NodeFilter*)},
+		{"convertToNodes", "()V", nullptr, $PRIVATE, $method(XMLSignatureInput, convertToNodes, void), "com.sun.org.apache.xml.internal.security.parser.XMLParserException,java.io.IOException"},
+		{"getBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, getBytes, $bytes*), "java.io.IOException,com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
+		{"getBytesFromInputStream", "()[B", nullptr, $PRIVATE, $method(XMLSignatureInput, getBytesFromInputStream, $bytes*), "java.io.IOException"},
+		{"getExcludeNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, getExcludeNode, $Node*)},
+		{"getHTMLRepresentation", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, getHTMLRepresentation, $String*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"getHTMLRepresentation", "(Ljava/util/Set;)Ljava/lang/String;", "(Ljava/util/Set<Ljava/lang/String;>;)Ljava/lang/String;", $PUBLIC, $virtualMethod(XMLSignatureInput, getHTMLRepresentation, $String*, $Set*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"getInputNodeSet", "()Ljava/util/Set;", "()Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PUBLIC, $virtualMethod(XMLSignatureInput, getInputNodeSet, $Set*)},
+		{"getMIMEType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, getMIMEType, $String*)},
+		{"getNodeFilters", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/signature/NodeFilter;>;", $PUBLIC, $virtualMethod(XMLSignatureInput, getNodeFilters, $List*)},
+		{"getNodeSet", "()Ljava/util/Set;", "()Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PUBLIC, $virtualMethod(XMLSignatureInput, getNodeSet, $Set*), "com.sun.org.apache.xml.internal.security.parser.XMLParserException,java.io.IOException"},
+		{"getNodeSet", "(Z)Ljava/util/Set;", "(Z)Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PUBLIC, $virtualMethod(XMLSignatureInput, getNodeSet, $Set*, bool), "com.sun.org.apache.xml.internal.security.parser.XMLParserException,java.io.IOException"},
+		{"getOctetStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, getOctetStream, $InputStream*), "java.io.IOException"},
+		{"getOctetStreamReal", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, getOctetStreamReal, $InputStream*)},
+		{"getPreCalculatedDigest", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, getPreCalculatedDigest, $String*)},
+		{"getSourceURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, getSourceURI, $String*)},
+		{"getSubNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, getSubNode, $Node*)},
+		{"isByteArray", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, isByteArray, bool)},
+		{"isElement", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, isElement, bool)},
+		{"isExcludeComments", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, isExcludeComments, bool)},
+		{"isInitialized", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, isInitialized, bool)},
+		{"isNeedsToBeExpanded", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, isNeedsToBeExpanded, bool)},
+		{"isNodeSet", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, isNodeSet, bool)},
+		{"isOctetStream", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, isOctetStream, bool)},
+		{"isOutputStreamSet", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, isOutputStreamSet, bool)},
+		{"isPreCalculatedDigest", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, isPreCalculatedDigest, bool)},
+		{"isSecureValidation", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, isSecureValidation, bool)},
+		{"setExcludeComments", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, setExcludeComments, void, bool)},
+		{"setExcludeNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, setExcludeNode, void, $Node*)},
+		{"setMIMEType", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, setMIMEType, void, $String*)},
+		{"setNeedsToBeExpanded", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, setNeedsToBeExpanded, void, bool)},
+		{"setNodeSet", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, setNodeSet, void, bool)},
+		{"setOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, setOutputStream, void, $OutputStream*)},
+		{"setSecureValidation", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, setSecureValidation, void, bool)},
+		{"setSourceURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, setSourceURI, void, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, toString, $String*)},
+		{"updateOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, updateOutputStream, void, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,java.io.IOException"},
+		{"updateOutputStream", "(Ljava/io/OutputStream;Z)V", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInput, updateOutputStream, void, $OutputStream*, bool), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.signature.XMLSignatureInput",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLSignatureInput, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLSignatureInput);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/processing/JavacFiler$FilerInputFileObject.h>
-
 #include <com/sun/tools/javac/processing/JavacFiler.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Writer.h>
@@ -25,44 +24,6 @@ namespace com {
 			namespace javac {
 				namespace processing {
 
-$FieldInfo _JavacFiler$FilerInputFileObject_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/processing/JavacFiler;", nullptr, $FINAL | $SYNTHETIC, $field(JavacFiler$FilerInputFileObject, this$0)},
-	{}
-};
-
-$MethodInfo _JavacFiler$FilerInputFileObject_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/processing/JavacFiler;Ljavax/tools/FileObject;)V", nullptr, 0, $method(JavacFiler$FilerInputFileObject, init$, void, $JavacFiler*, $FileObject*)},
-	{"delete", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacFiler$FilerInputFileObject, delete$, bool)},
-	{"openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(JavacFiler$FilerInputFileObject, openOutputStream, $OutputStream*), "java.io.IOException"},
-	{"openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(JavacFiler$FilerInputFileObject, openWriter, $Writer*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JavacFiler$FilerInputFileObject_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.processing.JavacFiler$FilerInputFileObject", "com.sun.tools.javac.processing.JavacFiler", "FilerInputFileObject", $PRIVATE},
-	{}
-};
-
-$ClassInfo _JavacFiler$FilerInputFileObject_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.processing.JavacFiler$FilerInputFileObject",
-	"javax.tools.ForwardingFileObject",
-	nullptr,
-	_JavacFiler$FilerInputFileObject_FieldInfo_,
-	_JavacFiler$FilerInputFileObject_MethodInfo_,
-	"Ljavax/tools/ForwardingFileObject<Ljavax/tools/FileObject;>;",
-	nullptr,
-	_JavacFiler$FilerInputFileObject_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.processing.JavacFiler"
-};
-
-$Object* allocate$JavacFiler$FilerInputFileObject($Class* clazz) {
-	return $of($alloc(JavacFiler$FilerInputFileObject));
-}
-
 void JavacFiler$FilerInputFileObject::init$($JavacFiler* this$0, $FileObject* fileObject) {
 	$set(this, this$0, this$0);
 	$ForwardingFileObject::init$(fileObject);
@@ -86,7 +47,39 @@ JavacFiler$FilerInputFileObject::JavacFiler$FilerInputFileObject() {
 }
 
 $Class* JavacFiler$FilerInputFileObject::load$($String* name, bool initialize) {
-	$loadClass(JavacFiler$FilerInputFileObject, name, initialize, &_JavacFiler$FilerInputFileObject_ClassInfo_, allocate$JavacFiler$FilerInputFileObject);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/processing/JavacFiler;", nullptr, $FINAL | $SYNTHETIC, $field(JavacFiler$FilerInputFileObject, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/processing/JavacFiler;Ljavax/tools/FileObject;)V", nullptr, 0, $method(JavacFiler$FilerInputFileObject, init$, void, $JavacFiler*, $FileObject*)},
+		{"delete", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacFiler$FilerInputFileObject, delete$, bool)},
+		{"openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(JavacFiler$FilerInputFileObject, openOutputStream, $OutputStream*), "java.io.IOException"},
+		{"openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(JavacFiler$FilerInputFileObject, openWriter, $Writer*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.processing.JavacFiler$FilerInputFileObject", "com.sun.tools.javac.processing.JavacFiler", "FilerInputFileObject", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.processing.JavacFiler$FilerInputFileObject",
+		"javax.tools.ForwardingFileObject",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljavax/tools/ForwardingFileObject<Ljavax/tools/FileObject;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.processing.JavacFiler"
+	};
+	$loadClass(JavacFiler$FilerInputFileObject, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacFiler$FilerInputFileObject);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/SpinnerUI.h>
-
 #include <javax/swing/plaf/ComponentUI.h>
 #include <jcpp.h>
 
@@ -11,24 +10,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 
-$MethodInfo _SpinnerUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(SpinnerUI, init$, void)},
-	{}
-};
-
-$ClassInfo _SpinnerUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.plaf.SpinnerUI",
-	"javax.swing.plaf.ComponentUI",
-	nullptr,
-	nullptr,
-	_SpinnerUI_MethodInfo_
-};
-
-$Object* allocate$SpinnerUI($Class* clazz) {
-	return $of($alloc(SpinnerUI));
-}
-
 void SpinnerUI::init$() {
 	$ComponentUI::init$();
 }
@@ -37,7 +18,21 @@ SpinnerUI::SpinnerUI() {
 }
 
 $Class* SpinnerUI::load$($String* name, bool initialize) {
-	$loadClass(SpinnerUI, name, initialize, &_SpinnerUI_ClassInfo_, allocate$SpinnerUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(SpinnerUI, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.plaf.SpinnerUI",
+		"javax.swing.plaf.ComponentUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SpinnerUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SpinnerUI);
+	});
 	return class$;
 }
 

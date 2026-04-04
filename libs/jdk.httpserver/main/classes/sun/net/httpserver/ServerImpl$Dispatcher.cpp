@@ -1,8 +1,6 @@
 #include <sun/net/httpserver/ServerImpl$Dispatcher.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$Logger.h>
 #include <java/net/Socket.h>
@@ -42,20 +40,14 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
-using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
-using $Socket = ::java::net::Socket;
 using $CancelledKeyException = ::java::nio::channels::CancelledKeyException;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
-using $Selector = ::java::nio::channels::Selector;
-using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;
 using $List = ::java::util::List;
 using $Set = ::java::util::Set;
-using $Executor = ::java::util::concurrent::Executor;
 using $Event = ::sun::net::httpserver::Event;
 using $ExchangeImpl = ::sun::net::httpserver::ExchangeImpl;
 using $HttpConnection = ::sun::net::httpserver::HttpConnection;
@@ -71,48 +63,6 @@ namespace sun {
 	namespace net {
 		namespace httpserver {
 
-$FieldInfo _ServerImpl$Dispatcher_FieldInfo_[] = {
-	{"this$0", "Lsun/net/httpserver/ServerImpl;", nullptr, $FINAL | $SYNTHETIC, $field(ServerImpl$Dispatcher, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ServerImpl$Dispatcher, $assertionsDisabled)},
-	{"connsToRegister", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Lsun/net/httpserver/HttpConnection;>;", $FINAL, $field(ServerImpl$Dispatcher, connsToRegister)},
-	{}
-};
-
-$MethodInfo _ServerImpl$Dispatcher_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/ServerImpl;)V", nullptr, 0, $method(ServerImpl$Dispatcher, init$, void, $ServerImpl*)},
-	{"handle", "(Ljava/nio/channels/SocketChannel;Lsun/net/httpserver/HttpConnection;)V", nullptr, $PUBLIC, $virtualMethod(ServerImpl$Dispatcher, handle, void, $SocketChannel*, $HttpConnection*)},
-	{"handleEvent", "(Lsun/net/httpserver/Event;)V", nullptr, $PRIVATE, $method(ServerImpl$Dispatcher, handleEvent, void, $Event*)},
-	{"handleException", "(Ljava/nio/channels/SelectionKey;Ljava/lang/Exception;)V", nullptr, $PRIVATE, $method(ServerImpl$Dispatcher, handleException, void, $SelectionKey*, $Exception*)},
-	{"reRegister", "(Lsun/net/httpserver/HttpConnection;)V", nullptr, 0, $virtualMethod(ServerImpl$Dispatcher, reRegister, void, $HttpConnection*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ServerImpl$Dispatcher, run, void)},
-	{}
-};
-
-$InnerClassInfo _ServerImpl$Dispatcher_InnerClassesInfo_[] = {
-	{"sun.net.httpserver.ServerImpl$Dispatcher", "sun.net.httpserver.ServerImpl", "Dispatcher", 0},
-	{}
-};
-
-$ClassInfo _ServerImpl$Dispatcher_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.httpserver.ServerImpl$Dispatcher",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_ServerImpl$Dispatcher_FieldInfo_,
-	_ServerImpl$Dispatcher_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServerImpl$Dispatcher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.httpserver.ServerImpl"
-};
-
-$Object* allocate$ServerImpl$Dispatcher($Class* clazz) {
-	return $of($alloc(ServerImpl$Dispatcher));
-}
-
 bool ServerImpl$Dispatcher::$assertionsDisabled = false;
 
 void ServerImpl$Dispatcher::init$($ServerImpl* this$0) {
@@ -121,7 +71,7 @@ void ServerImpl$Dispatcher::init$($ServerImpl* this$0) {
 }
 
 void ServerImpl$Dispatcher::handleEvent($Event* r) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ExchangeImpl, t, $nc(r)->exchange);
 	$var($HttpConnection, c, $nc(t)->getConnection());
 	try {
@@ -144,41 +94,40 @@ void ServerImpl$Dispatcher::handleEvent($Event* r) {
 			if (t->close$ || $nc(this->this$0->idleConnections)->size() >= $ServerImpl::MAX_IDLE_CONNECTIONS) {
 				$nc(c)->close();
 				$nc(this->this$0->allConnections)->remove(c);
-			} else if ($nc(is)->isDataBuffered()) {
+			} else if (is->isDataBuffered()) {
 				this->this$0->requestStarted(c);
 				handle($($nc(c)->getChannel()), c);
 			} else {
-				$nc(this->connsToRegister)->add(c);
+				this->connsToRegister->add(c);
 			}
 		}
 	} catch ($IOException& e) {
 		$init($System$Logger$Level);
-		$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "Dispatcher (1)"_s, static_cast<$Throwable*>(e));
+		$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "Dispatcher (1)"_s, e);
 		$nc(c)->close();
 	}
 }
 
 void ServerImpl$Dispatcher::reRegister($HttpConnection* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($SocketChannel, chan, $nc(c)->getChannel());
 		$nc(chan)->configureBlocking(false);
 		$var($SelectionKey, key, chan->register$(this->this$0->selector, $SelectionKey::OP_READ));
 		$nc(key)->attach(c);
 		$set(c, selectionKey, key);
-		$init($ServerImpl);
 		c->time = this->this$0->getTime() + $ServerImpl::IDLE_INTERVAL;
 		$nc(this->this$0->idleConnections)->add(c);
 	} catch ($IOException& e) {
-		$ServerImpl::dprint(static_cast<$Exception*>(e));
+		$ServerImpl::dprint(e);
 		$init($System$Logger$Level);
-		$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "Dispatcher(8)"_s, static_cast<$Throwable*>(e));
+		$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "Dispatcher(8)"_s, e);
 		$nc(c)->close();
 	}
 }
 
 void ServerImpl$Dispatcher::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (!this->this$0->finished) {
 		try {
 			$var($List, list, nullptr);
@@ -189,18 +138,16 @@ void ServerImpl$Dispatcher::run() {
 				}
 			}
 			if (list != nullptr) {
-				{
-					$var($Iterator, i$, list->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($Event, r, $cast($Event, i$->next()));
-						{
-							handleEvent(r);
-						}
+				$var($Iterator, i$, list->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($Event, r, $cast($Event, i$->next()));
+					{
+						handleEvent(r);
 					}
 				}
 			}
 			{
-				$var($Iterator, i$, $nc(this->connsToRegister)->iterator());
+				$var($Iterator, i$, this->connsToRegister->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($HttpConnection, c, $cast($HttpConnection, i$->next()));
 					{
@@ -208,21 +155,21 @@ void ServerImpl$Dispatcher::run() {
 					}
 				}
 			}
-			$nc(this->connsToRegister)->clear();
-			$nc(this->this$0->selector)->select((int64_t)1000);
-			$var($Set, selected, $nc(this->this$0->selector)->selectedKeys());
+			this->connsToRegister->clear();
+			$nc(this->this$0->selector)->select(1000);
+			$var($Set, selected, this->this$0->selector->selectedKeys());
 			$var($Iterator, iter, $nc(selected)->iterator());
 			while ($nc(iter)->hasNext()) {
 				$var($SelectionKey, key, $cast($SelectionKey, iter->next()));
 				iter->remove();
-				if ($nc($of(key))->equals(this->this$0->listenerKey)) {
+				if ($nc(key)->equals(this->this$0->listenerKey)) {
 					if (this->this$0->terminating) {
 						continue;
 					}
 					$var($SocketChannel, chan, $nc(this->this$0->schan)->accept());
 					if (chan != nullptr) {
 						if ($ServerConfig::noDelay()) {
-							$nc($(chan->socket()))->setTcpNoDelay(true);
+							$$nc(chan->socket())->setTcpNoDelay(true);
 						}
 						chan->configureBlocking(false);
 						$var($SelectionKey, newkey, chan->register$(this->this$0->selector, $SelectionKey::OP_READ));
@@ -245,7 +192,7 @@ void ServerImpl$Dispatcher::run() {
 							}
 							handle(chan, conn);
 						} else if (!ServerImpl$Dispatcher::$assertionsDisabled) {
-							$throwNew($AssertionError, $of($$str({"Unexpected non-readable key:"_s, key})));
+							$throwNew($AssertionError, $$of($str({"Unexpected non-readable key:"_s, key})));
 						}
 					} catch ($CancelledKeyException& e) {
 						handleException(key, nullptr);
@@ -257,10 +204,10 @@ void ServerImpl$Dispatcher::run() {
 			$nc(this->this$0->selector)->selectNow();
 		} catch ($IOException& e) {
 			$init($System$Logger$Level);
-			$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "Dispatcher (4)"_s, static_cast<$Throwable*>(e));
+			$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "Dispatcher (4)"_s, e);
 		} catch ($Exception& e) {
 			$init($System$Logger$Level);
-			$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "Dispatcher (7)"_s, static_cast<$Throwable*>(e));
+			$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "Dispatcher (7)"_s, e);
 		}
 	}
 	try {
@@ -273,7 +220,7 @@ void ServerImpl$Dispatcher::handleException($SelectionKey* key, $Exception* e) {
 	$var($HttpConnection, conn, $cast($HttpConnection, $nc(key)->attachment()));
 	if (e != nullptr) {
 		$init($System$Logger$Level);
-		$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "Dispatcher (2)"_s, static_cast<$Throwable*>(e));
+		$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "Dispatcher (2)"_s, e);
 	}
 	this->this$0->closeConnection(conn);
 }
@@ -284,20 +231,20 @@ void ServerImpl$Dispatcher::handle($SocketChannel* chan, $HttpConnection* conn) 
 		$nc(this->this$0->executor)->execute(t);
 	} catch ($HttpError& e1) {
 		$init($System$Logger$Level);
-		$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "Dispatcher (4)"_s, static_cast<$Throwable*>(e1));
+		$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "Dispatcher (4)"_s, e1);
 		this->this$0->closeConnection(conn);
 	} catch ($IOException& e) {
 		$init($System$Logger$Level);
-		$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "Dispatcher (5)"_s, static_cast<$Throwable*>(e));
+		$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "Dispatcher (5)"_s, e);
 		this->this$0->closeConnection(conn);
 	} catch ($Throwable& e) {
 		$init($System$Logger$Level);
-		$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "Dispatcher (6)"_s, $cast($Throwable, e));
+		$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "Dispatcher (6)"_s, e);
 		this->this$0->closeConnection(conn);
 	}
 }
 
-void clinit$ServerImpl$Dispatcher($Class* class$) {
+void ServerImpl$Dispatcher::clinit$($Class* clazz) {
 	$load($ServerImpl);
 	ServerImpl$Dispatcher::$assertionsDisabled = !$ServerImpl::class$->desiredAssertionStatus();
 }
@@ -306,7 +253,43 @@ ServerImpl$Dispatcher::ServerImpl$Dispatcher() {
 }
 
 $Class* ServerImpl$Dispatcher::load$($String* name, bool initialize) {
-	$loadClass(ServerImpl$Dispatcher, name, initialize, &_ServerImpl$Dispatcher_ClassInfo_, clinit$ServerImpl$Dispatcher, allocate$ServerImpl$Dispatcher);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/net/httpserver/ServerImpl;", nullptr, $FINAL | $SYNTHETIC, $field(ServerImpl$Dispatcher, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ServerImpl$Dispatcher, $assertionsDisabled)},
+		{"connsToRegister", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Lsun/net/httpserver/HttpConnection;>;", $FINAL, $field(ServerImpl$Dispatcher, connsToRegister)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/httpserver/ServerImpl;)V", nullptr, 0, $method(ServerImpl$Dispatcher, init$, void, $ServerImpl*)},
+		{"handle", "(Ljava/nio/channels/SocketChannel;Lsun/net/httpserver/HttpConnection;)V", nullptr, $PUBLIC, $virtualMethod(ServerImpl$Dispatcher, handle, void, $SocketChannel*, $HttpConnection*)},
+		{"handleEvent", "(Lsun/net/httpserver/Event;)V", nullptr, $PRIVATE, $method(ServerImpl$Dispatcher, handleEvent, void, $Event*)},
+		{"handleException", "(Ljava/nio/channels/SelectionKey;Ljava/lang/Exception;)V", nullptr, $PRIVATE, $method(ServerImpl$Dispatcher, handleException, void, $SelectionKey*, $Exception*)},
+		{"reRegister", "(Lsun/net/httpserver/HttpConnection;)V", nullptr, 0, $virtualMethod(ServerImpl$Dispatcher, reRegister, void, $HttpConnection*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ServerImpl$Dispatcher, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.httpserver.ServerImpl$Dispatcher", "sun.net.httpserver.ServerImpl", "Dispatcher", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.httpserver.ServerImpl$Dispatcher",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.httpserver.ServerImpl"
+	};
+	$loadClass(ServerImpl$Dispatcher, name, initialize, &classInfo$$, ServerImpl$Dispatcher::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ServerImpl$Dispatcher);
+	});
 	return class$;
 }
 

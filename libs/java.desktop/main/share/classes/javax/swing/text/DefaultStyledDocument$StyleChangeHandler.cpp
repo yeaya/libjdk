@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultStyledDocument$StyleChangeHandler.h>
-
 #include <javax/swing/event/ChangeEvent.h>
 #include <javax/swing/text/DefaultStyledDocument$AbstractChangeHandler.h>
 #include <javax/swing/text/DefaultStyledDocument.h>
@@ -18,38 +17,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _DefaultStyledDocument$StyleChangeHandler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/DefaultStyledDocument;)V", nullptr, 0, $method(DefaultStyledDocument$StyleChangeHandler, init$, void, $DefaultStyledDocument*)},
-	{"fireStateChanged", "(Ljavax/swing/text/DefaultStyledDocument;Ljavax/swing/event/ChangeEvent;)V", nullptr, 0, $virtualMethod(DefaultStyledDocument$StyleChangeHandler, fireStateChanged, void, $DefaultStyledDocument*, $ChangeEvent*)},
-	{}
-};
-
-$InnerClassInfo _DefaultStyledDocument$StyleChangeHandler_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultStyledDocument$StyleChangeHandler", "javax.swing.text.DefaultStyledDocument", "StyleChangeHandler", $STATIC},
-	{"javax.swing.text.DefaultStyledDocument$AbstractChangeHandler", "javax.swing.text.DefaultStyledDocument", "AbstractChangeHandler", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DefaultStyledDocument$StyleChangeHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.DefaultStyledDocument$StyleChangeHandler",
-	"javax.swing.text.DefaultStyledDocument$AbstractChangeHandler",
-	nullptr,
-	nullptr,
-	_DefaultStyledDocument$StyleChangeHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultStyledDocument$StyleChangeHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultStyledDocument"
-};
-
-$Object* allocate$DefaultStyledDocument$StyleChangeHandler($Class* clazz) {
-	return $of($alloc(DefaultStyledDocument$StyleChangeHandler));
-}
-
 void DefaultStyledDocument$StyleChangeHandler::init$($DefaultStyledDocument* d) {
 	$DefaultStyledDocument$AbstractChangeHandler::init$(d);
 }
@@ -67,7 +34,34 @@ DefaultStyledDocument$StyleChangeHandler::DefaultStyledDocument$StyleChangeHandl
 }
 
 $Class* DefaultStyledDocument$StyleChangeHandler::load$($String* name, bool initialize) {
-	$loadClass(DefaultStyledDocument$StyleChangeHandler, name, initialize, &_DefaultStyledDocument$StyleChangeHandler_ClassInfo_, allocate$DefaultStyledDocument$StyleChangeHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/DefaultStyledDocument;)V", nullptr, 0, $method(DefaultStyledDocument$StyleChangeHandler, init$, void, $DefaultStyledDocument*)},
+		{"fireStateChanged", "(Ljavax/swing/text/DefaultStyledDocument;Ljavax/swing/event/ChangeEvent;)V", nullptr, 0, $virtualMethod(DefaultStyledDocument$StyleChangeHandler, fireStateChanged, void, $DefaultStyledDocument*, $ChangeEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultStyledDocument$StyleChangeHandler", "javax.swing.text.DefaultStyledDocument", "StyleChangeHandler", $STATIC},
+		{"javax.swing.text.DefaultStyledDocument$AbstractChangeHandler", "javax.swing.text.DefaultStyledDocument", "AbstractChangeHandler", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.DefaultStyledDocument$StyleChangeHandler",
+		"javax.swing.text.DefaultStyledDocument$AbstractChangeHandler",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultStyledDocument"
+	};
+	$loadClass(DefaultStyledDocument$StyleChangeHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultStyledDocument$StyleChangeHandler);
+	});
 	return class$;
 }
 

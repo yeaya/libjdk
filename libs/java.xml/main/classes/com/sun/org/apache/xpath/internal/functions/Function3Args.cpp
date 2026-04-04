@@ -1,9 +1,6 @@
 #include <com/sun/org/apache/xpath/internal/functions/Function3Args.h>
-
 #include <com/sun/org/apache/xalan/internal/res/XSLMessages.h>
 #include <com/sun/org/apache/xpath/internal/Expression.h>
-#include <com/sun/org/apache/xpath/internal/ExpressionNode.h>
-#include <com/sun/org/apache/xpath/internal/ExpressionOwner.h>
 #include <com/sun/org/apache/xpath/internal/XPathVisitor.h>
 #include <com/sun/org/apache/xpath/internal/functions/Function2Args.h>
 #include <com/sun/org/apache/xpath/internal/functions/Function3Args$Arg2Owner.h>
@@ -13,8 +10,6 @@
 
 using $XSLMessages = ::com::sun::org::apache::xalan::internal::res::XSLMessages;
 using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
-using $ExpressionNode = ::com::sun::org::apache::xpath::internal::ExpressionNode;
-using $ExpressionOwner = ::com::sun::org::apache::xpath::internal::ExpressionOwner;
 using $XPathVisitor = ::com::sun::org::apache::xpath::internal::XPathVisitor;
 using $Function2Args = ::com::sun::org::apache::xpath::internal::functions::Function2Args;
 using $Function3Args$Arg2Owner = ::com::sun::org::apache::xpath::internal::functions::Function3Args$Arg2Owner;
@@ -33,49 +28,6 @@ namespace com {
 					namespace internal {
 						namespace functions {
 
-$FieldInfo _Function3Args_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Function3Args, serialVersionUID)},
-	{"m_arg2", "Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, 0, $field(Function3Args, m_arg2)},
-	{}
-};
-
-$MethodInfo _Function3Args_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Function3Args, init$, void)},
-	{"callArgVisitors", "(Lcom/sun/org/apache/xpath/internal/XPathVisitor;)V", nullptr, $PUBLIC, $virtualMethod(Function3Args, callArgVisitors, void, $XPathVisitor*)},
-	{"canTraverseOutsideSubtree", "()Z", nullptr, $PUBLIC, $virtualMethod(Function3Args, canTraverseOutsideSubtree, bool)},
-	{"checkNumberArgs", "(I)V", nullptr, $PUBLIC, $virtualMethod(Function3Args, checkNumberArgs, void, int32_t), "com.sun.org.apache.xpath.internal.functions.WrongNumberArgsException"},
-	{"deepEquals", "(Lcom/sun/org/apache/xpath/internal/Expression;)Z", nullptr, $PUBLIC, $virtualMethod(Function3Args, deepEquals, bool, $Expression*)},
-	{"fixupVariables", "(Ljava/util/List;I)V", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/utils/QName;>;I)V", $PUBLIC, $virtualMethod(Function3Args, fixupVariables, void, $List*, int32_t)},
-	{"getArg2", "()Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(Function3Args, getArg2, $Expression*)},
-	{"reportWrongNumberArgs", "()V", nullptr, $PROTECTED, $virtualMethod(Function3Args, reportWrongNumberArgs, void), "com.sun.org.apache.xpath.internal.functions.WrongNumberArgsException"},
-	{"setArg", "(Lcom/sun/org/apache/xpath/internal/Expression;I)V", nullptr, $PUBLIC, $virtualMethod(Function3Args, setArg, void, $Expression*, int32_t), "com.sun.org.apache.xpath.internal.functions.WrongNumberArgsException"},
-	{}
-};
-
-$InnerClassInfo _Function3Args_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xpath.internal.functions.Function3Args$Arg2Owner", "com.sun.org.apache.xpath.internal.functions.Function3Args", "Arg2Owner", 0},
-	{}
-};
-
-$ClassInfo _Function3Args_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.functions.Function3Args",
-	"com.sun.org.apache.xpath.internal.functions.Function2Args",
-	nullptr,
-	_Function3Args_FieldInfo_,
-	_Function3Args_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Function3Args_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xpath.internal.functions.Function3Args$Arg2Owner"
-};
-
-$Object* allocate$Function3Args($Class* clazz) {
-	return $of($alloc(Function3Args));
-}
-
 void Function3Args::init$() {
 	$Function2Args::init$();
 }
@@ -87,7 +39,7 @@ $Expression* Function3Args::getArg2() {
 void Function3Args::fixupVariables($List* vars, int32_t globalsSize) {
 	$Function2Args::fixupVariables(vars, globalsSize);
 	if (nullptr != this->m_arg2) {
-		$nc(this->m_arg2)->fixupVariables(vars, globalsSize);
+		this->m_arg2->fixupVariables(vars, globalsSize);
 	}
 }
 
@@ -119,7 +71,7 @@ bool Function3Args::canTraverseOutsideSubtree() {
 void Function3Args::callArgVisitors($XPathVisitor* visitor) {
 	$Function2Args::callArgVisitors(visitor);
 	if (nullptr != this->m_arg2) {
-		$nc(this->m_arg2)->callVisitors($$new($Function3Args$Arg2Owner, this), visitor);
+		this->m_arg2->callVisitors($$new($Function3Args$Arg2Owner, this), visitor);
 	}
 }
 
@@ -128,13 +80,13 @@ bool Function3Args::deepEquals($Expression* expr) {
 		return false;
 	}
 	if (nullptr != this->m_arg2) {
-		if (nullptr == $nc(($cast(Function3Args, expr)))->m_arg2) {
+		if (nullptr == $nc($cast(Function3Args, expr))->m_arg2) {
 			return false;
 		}
-		if (!$nc(this->m_arg2)->deepEquals($nc(($cast(Function3Args, expr)))->m_arg2)) {
+		if (!this->m_arg2->deepEquals($cast(Function3Args, expr)->m_arg2)) {
 			return false;
 		}
-	} else if (nullptr != $nc(($cast(Function3Args, expr)))->m_arg2) {
+	} else if (nullptr != $nc($cast(Function3Args, expr))->m_arg2) {
 		return false;
 	}
 	return true;
@@ -144,7 +96,44 @@ Function3Args::Function3Args() {
 }
 
 $Class* Function3Args::load$($String* name, bool initialize) {
-	$loadClass(Function3Args, name, initialize, &_Function3Args_ClassInfo_, allocate$Function3Args);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Function3Args, serialVersionUID)},
+		{"m_arg2", "Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, 0, $field(Function3Args, m_arg2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Function3Args, init$, void)},
+		{"callArgVisitors", "(Lcom/sun/org/apache/xpath/internal/XPathVisitor;)V", nullptr, $PUBLIC, $virtualMethod(Function3Args, callArgVisitors, void, $XPathVisitor*)},
+		{"canTraverseOutsideSubtree", "()Z", nullptr, $PUBLIC, $virtualMethod(Function3Args, canTraverseOutsideSubtree, bool)},
+		{"checkNumberArgs", "(I)V", nullptr, $PUBLIC, $virtualMethod(Function3Args, checkNumberArgs, void, int32_t), "com.sun.org.apache.xpath.internal.functions.WrongNumberArgsException"},
+		{"deepEquals", "(Lcom/sun/org/apache/xpath/internal/Expression;)Z", nullptr, $PUBLIC, $virtualMethod(Function3Args, deepEquals, bool, $Expression*)},
+		{"fixupVariables", "(Ljava/util/List;I)V", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/utils/QName;>;I)V", $PUBLIC, $virtualMethod(Function3Args, fixupVariables, void, $List*, int32_t)},
+		{"getArg2", "()Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(Function3Args, getArg2, $Expression*)},
+		{"reportWrongNumberArgs", "()V", nullptr, $PROTECTED, $virtualMethod(Function3Args, reportWrongNumberArgs, void), "com.sun.org.apache.xpath.internal.functions.WrongNumberArgsException"},
+		{"setArg", "(Lcom/sun/org/apache/xpath/internal/Expression;I)V", nullptr, $PUBLIC, $virtualMethod(Function3Args, setArg, void, $Expression*, int32_t), "com.sun.org.apache.xpath.internal.functions.WrongNumberArgsException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xpath.internal.functions.Function3Args$Arg2Owner", "com.sun.org.apache.xpath.internal.functions.Function3Args", "Arg2Owner", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.functions.Function3Args",
+		"com.sun.org.apache.xpath.internal.functions.Function2Args",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xpath.internal.functions.Function3Args$Arg2Owner"
+	};
+	$loadClass(Function3Args, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Function3Args));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/management/remote/rmi/RMIConnector$ObjectInputStreamWithLoader.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectStreamClass.h>
@@ -26,42 +25,6 @@ namespace javax {
 		namespace remote {
 			namespace rmi {
 
-$FieldInfo _RMIConnector$ObjectInputStreamWithLoader_FieldInfo_[] = {
-	{"loader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $FINAL, $field(RMIConnector$ObjectInputStreamWithLoader, loader)},
-	{}
-};
-
-$MethodInfo _RMIConnector$ObjectInputStreamWithLoader_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Ljava/lang/ClassLoader;)V", nullptr, 0, $method(RMIConnector$ObjectInputStreamWithLoader, init$, void, $InputStream*, $ClassLoader*), "java.io.IOException,java.lang.IllegalArgumentException"},
-	{"resolveClass", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(RMIConnector$ObjectInputStreamWithLoader, resolveClass, $Class*, $ObjectStreamClass*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{}
-};
-
-$InnerClassInfo _RMIConnector$ObjectInputStreamWithLoader_InnerClassesInfo_[] = {
-	{"javax.management.remote.rmi.RMIConnector$ObjectInputStreamWithLoader", "javax.management.remote.rmi.RMIConnector", "ObjectInputStreamWithLoader", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _RMIConnector$ObjectInputStreamWithLoader_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.management.remote.rmi.RMIConnector$ObjectInputStreamWithLoader",
-	"java.io.ObjectInputStream",
-	nullptr,
-	_RMIConnector$ObjectInputStreamWithLoader_FieldInfo_,
-	_RMIConnector$ObjectInputStreamWithLoader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RMIConnector$ObjectInputStreamWithLoader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.management.remote.rmi.RMIConnector"
-};
-
-$Object* allocate$RMIConnector$ObjectInputStreamWithLoader($Class* clazz) {
-	return $of($alloc(RMIConnector$ObjectInputStreamWithLoader));
-}
-
 void RMIConnector$ObjectInputStreamWithLoader::init$($InputStream* in, $ClassLoader* cl) {
 	$ObjectInputStream::init$(in);
 	if (cl == nullptr) {
@@ -81,7 +44,37 @@ RMIConnector$ObjectInputStreamWithLoader::RMIConnector$ObjectInputStreamWithLoad
 }
 
 $Class* RMIConnector$ObjectInputStreamWithLoader::load$($String* name, bool initialize) {
-	$loadClass(RMIConnector$ObjectInputStreamWithLoader, name, initialize, &_RMIConnector$ObjectInputStreamWithLoader_ClassInfo_, allocate$RMIConnector$ObjectInputStreamWithLoader);
+	$FieldInfo fieldInfos$$[] = {
+		{"loader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $FINAL, $field(RMIConnector$ObjectInputStreamWithLoader, loader)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;Ljava/lang/ClassLoader;)V", nullptr, 0, $method(RMIConnector$ObjectInputStreamWithLoader, init$, void, $InputStream*, $ClassLoader*), "java.io.IOException,java.lang.IllegalArgumentException"},
+		{"resolveClass", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(RMIConnector$ObjectInputStreamWithLoader, resolveClass, $Class*, $ObjectStreamClass*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.remote.rmi.RMIConnector$ObjectInputStreamWithLoader", "javax.management.remote.rmi.RMIConnector", "ObjectInputStreamWithLoader", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.management.remote.rmi.RMIConnector$ObjectInputStreamWithLoader",
+		"java.io.ObjectInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.management.remote.rmi.RMIConnector"
+	};
+	$loadClass(RMIConnector$ObjectInputStreamWithLoader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RMIConnector$ObjectInputStreamWithLoader));
+	});
 	return class$;
 }
 

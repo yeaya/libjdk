@@ -28,6 +28,7 @@ class SoftLowFrequencyOscillator : public ::com::sun::media::sound::SoftProcess 
 	$class(SoftLowFrequencyOscillator, 0, ::com::sun::media::sound::SoftProcess)
 public:
 	SoftLowFrequencyOscillator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $doubles* get(int32_t instance, $String* name) override;
 	virtual void init(::com::sun::media::sound::SoftSynthesizer* synth) override;

@@ -21,6 +21,7 @@ class WDefaultFontCharset : public ::sun::awt::AWTCharset {
 	$class(WDefaultFontCharset, 0, ::sun::awt::AWTCharset)
 public:
 	WDefaultFontCharset();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	bool canConvert(char16_t ch);
 	static void initIDs();

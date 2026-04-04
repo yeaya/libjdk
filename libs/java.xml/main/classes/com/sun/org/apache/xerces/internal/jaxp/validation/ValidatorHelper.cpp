@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/ValidatorHelper.h>
-
 #include <javax/xml/transform/Result.h>
 #include <javax/xml/transform/Source.h>
 #include <jcpp.h>
@@ -18,26 +17,22 @@ namespace com {
 						namespace jaxp {
 							namespace validation {
 
-$MethodInfo _ValidatorHelper_MethodInfo_[] = {
-	{"validate", "(Ljavax/xml/transform/Source;Ljavax/xml/transform/Result;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ValidatorHelper, validate, void, $Source*, $Result*), "org.xml.sax.SAXException,java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ValidatorHelper_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHelper",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ValidatorHelper_MethodInfo_
-};
-
-$Object* allocate$ValidatorHelper($Class* clazz) {
-	return $of($alloc(ValidatorHelper));
-}
-
 $Class* ValidatorHelper::load$($String* name, bool initialize) {
-	$loadClass(ValidatorHelper, name, initialize, &_ValidatorHelper_ClassInfo_, allocate$ValidatorHelper);
+	$MethodInfo methodInfos$$[] = {
+		{"validate", "(Ljavax/xml/transform/Source;Ljavax/xml/transform/Result;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ValidatorHelper, validate, void, $Source*, $Result*), "org.xml.sax.SAXException,java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHelper",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ValidatorHelper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ValidatorHelper);
+	});
 	return class$;
 }
 

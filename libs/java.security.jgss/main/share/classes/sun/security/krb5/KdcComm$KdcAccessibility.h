@@ -20,6 +20,7 @@ class $export KdcComm$KdcAccessibility : public ::java::lang::Object {
 	$class(KdcComm$KdcAccessibility, 0, ::java::lang::Object)
 public:
 	KdcComm$KdcAccessibility();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addBad($String* kdc);
 	static bool isBad($String* kdc);

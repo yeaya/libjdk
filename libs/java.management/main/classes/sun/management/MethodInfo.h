@@ -20,7 +20,7 @@ public:
 	$String* name = nullptr;
 	int64_t type = 0;
 	int32_t compileSize = 0;
-	static const int64_t serialVersionUID = (int64_t)0x6109C59A2636DD85;
+	static const int64_t serialVersionUID = (int64_t)0x6109c59a2636dd85;
 };
 
 	} // management

@@ -1,10 +1,7 @@
 #include <java/awt/Checkbox$AccessibleAWTCheckbox.h>
-
 #include <java/awt/Checkbox.h>
 #include <java/awt/Component$AccessibleAWTComponent.h>
-#include <java/awt/Component.h>
 #include <java/awt/event/ItemEvent.h>
-#include <java/awt/event/ItemListener.h>
 #include <java/lang/Number.h>
 #include <java/util/EventObject.h>
 #include <javax/accessibility/AccessibleAction.h>
@@ -20,10 +17,8 @@
 #undef CHECK_BOX
 
 using $Checkbox = ::java::awt::Checkbox;
-using $Component = ::java::awt::Component;
 using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $ItemEvent = ::java::awt::event::ItemEvent;
-using $ItemListener = ::java::awt::event::ItemListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -38,60 +33,6 @@ using $AccessibleValue = ::javax::accessibility::AccessibleValue;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _Checkbox$AccessibleAWTCheckbox_FieldInfo_[] = {
-	{"this$0", "Ljava/awt/Checkbox;", nullptr, $FINAL | $SYNTHETIC, $field(Checkbox$AccessibleAWTCheckbox, this$0)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Checkbox$AccessibleAWTCheckbox, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Checkbox$AccessibleAWTCheckbox_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Checkbox;)V", nullptr, $PUBLIC, $method(Checkbox$AccessibleAWTCheckbox, init$, void, $Checkbox*)},
-	{"doAccessibleAction", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Checkbox$AccessibleAWTCheckbox, doAccessibleAction, bool, int32_t)},
-	{"getAccessibleAction", "()Ljavax/accessibility/AccessibleAction;", nullptr, $PUBLIC, $virtualMethod(Checkbox$AccessibleAWTCheckbox, getAccessibleAction, $AccessibleAction*)},
-	{"getAccessibleActionCount", "()I", nullptr, $PUBLIC, $virtualMethod(Checkbox$AccessibleAWTCheckbox, getAccessibleActionCount, int32_t)},
-	{"getAccessibleActionDescription", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Checkbox$AccessibleAWTCheckbox, getAccessibleActionDescription, $String*, int32_t)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(Checkbox$AccessibleAWTCheckbox, getAccessibleRole, $AccessibleRole*)},
-	{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(Checkbox$AccessibleAWTCheckbox, getAccessibleStateSet, $AccessibleStateSet*)},
-	{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(Checkbox$AccessibleAWTCheckbox, getAccessibleValue, $AccessibleValue*)},
-	{"getCurrentAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(Checkbox$AccessibleAWTCheckbox, getCurrentAccessibleValue, $Number*)},
-	{"getMaximumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(Checkbox$AccessibleAWTCheckbox, getMaximumAccessibleValue, $Number*)},
-	{"getMinimumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(Checkbox$AccessibleAWTCheckbox, getMinimumAccessibleValue, $Number*)},
-	{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(Checkbox$AccessibleAWTCheckbox, itemStateChanged, void, $ItemEvent*)},
-	{"setCurrentAccessibleValue", "(Ljava/lang/Number;)Z", nullptr, $PUBLIC, $virtualMethod(Checkbox$AccessibleAWTCheckbox, setCurrentAccessibleValue, bool, $Number*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Checkbox$AccessibleAWTCheckbox_InnerClassesInfo_[] = {
-	{"java.awt.Checkbox$AccessibleAWTCheckbox", "java.awt.Checkbox", "AccessibleAWTCheckbox", $PROTECTED},
-	{"java.awt.Component$AccessibleAWTComponent", "java.awt.Component", "AccessibleAWTComponent", $PROTECTED | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Checkbox$AccessibleAWTCheckbox_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Checkbox$AccessibleAWTCheckbox",
-	"java.awt.Component$AccessibleAWTComponent",
-	"java.awt.event.ItemListener,javax.accessibility.AccessibleAction,javax.accessibility.AccessibleValue",
-	_Checkbox$AccessibleAWTCheckbox_FieldInfo_,
-	_Checkbox$AccessibleAWTCheckbox_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Checkbox$AccessibleAWTCheckbox_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Checkbox"
-};
-
-$Object* allocate$Checkbox$AccessibleAWTCheckbox($Class* clazz) {
-	return $of($alloc(Checkbox$AccessibleAWTCheckbox));
-}
 
 int32_t Checkbox$AccessibleAWTCheckbox::hashCode() {
 	 return this->$Component$AccessibleAWTComponent::hashCode();
@@ -188,7 +129,55 @@ Checkbox$AccessibleAWTCheckbox::Checkbox$AccessibleAWTCheckbox() {
 }
 
 $Class* Checkbox$AccessibleAWTCheckbox::load$($String* name, bool initialize) {
-	$loadClass(Checkbox$AccessibleAWTCheckbox, name, initialize, &_Checkbox$AccessibleAWTCheckbox_ClassInfo_, allocate$Checkbox$AccessibleAWTCheckbox);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/awt/Checkbox;", nullptr, $FINAL | $SYNTHETIC, $field(Checkbox$AccessibleAWTCheckbox, this$0)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Checkbox$AccessibleAWTCheckbox, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Checkbox;)V", nullptr, $PUBLIC, $method(Checkbox$AccessibleAWTCheckbox, init$, void, $Checkbox*)},
+		{"doAccessibleAction", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Checkbox$AccessibleAWTCheckbox, doAccessibleAction, bool, int32_t)},
+		{"getAccessibleAction", "()Ljavax/accessibility/AccessibleAction;", nullptr, $PUBLIC, $virtualMethod(Checkbox$AccessibleAWTCheckbox, getAccessibleAction, $AccessibleAction*)},
+		{"getAccessibleActionCount", "()I", nullptr, $PUBLIC, $virtualMethod(Checkbox$AccessibleAWTCheckbox, getAccessibleActionCount, int32_t)},
+		{"getAccessibleActionDescription", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Checkbox$AccessibleAWTCheckbox, getAccessibleActionDescription, $String*, int32_t)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(Checkbox$AccessibleAWTCheckbox, getAccessibleRole, $AccessibleRole*)},
+		{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(Checkbox$AccessibleAWTCheckbox, getAccessibleStateSet, $AccessibleStateSet*)},
+		{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(Checkbox$AccessibleAWTCheckbox, getAccessibleValue, $AccessibleValue*)},
+		{"getCurrentAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(Checkbox$AccessibleAWTCheckbox, getCurrentAccessibleValue, $Number*)},
+		{"getMaximumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(Checkbox$AccessibleAWTCheckbox, getMaximumAccessibleValue, $Number*)},
+		{"getMinimumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(Checkbox$AccessibleAWTCheckbox, getMinimumAccessibleValue, $Number*)},
+		{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(Checkbox$AccessibleAWTCheckbox, itemStateChanged, void, $ItemEvent*)},
+		{"setCurrentAccessibleValue", "(Ljava/lang/Number;)Z", nullptr, $PUBLIC, $virtualMethod(Checkbox$AccessibleAWTCheckbox, setCurrentAccessibleValue, bool, $Number*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Checkbox$AccessibleAWTCheckbox", "java.awt.Checkbox", "AccessibleAWTCheckbox", $PROTECTED},
+		{"java.awt.Component$AccessibleAWTComponent", "java.awt.Component", "AccessibleAWTComponent", $PROTECTED | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Checkbox$AccessibleAWTCheckbox",
+		"java.awt.Component$AccessibleAWTComponent",
+		"java.awt.event.ItemListener,javax.accessibility.AccessibleAction,javax.accessibility.AccessibleValue",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Checkbox"
+	};
+	$loadClass(Checkbox$AccessibleAWTCheckbox, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Checkbox$AccessibleAWTCheckbox));
+	});
 	return class$;
 }
 

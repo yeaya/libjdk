@@ -1,6 +1,4 @@
 #include <com/sun/jndi/toolkit/dir/HierMemDirCtx.h>
-
-#include <com/sun/jndi/toolkit/dir/AttrFilter.h>
 #include <com/sun/jndi/toolkit/dir/ContainmentFilter.h>
 #include <com/sun/jndi/toolkit/dir/HierMemDirCtx$FlatBindings.h>
 #include <com/sun/jndi/toolkit/dir/HierMemDirCtx$FlatNames.h>
@@ -39,7 +37,6 @@
 #undef REPLACE_ATTRIBUTE
 
 using $ModificationItemArray = $Array<::javax::naming::directory::ModificationItem>;
-using $AttrFilter = ::com::sun::jndi::toolkit::dir::AttrFilter;
 using $ContainmentFilter = ::com::sun::jndi::toolkit::dir::ContainmentFilter;
 using $HierMemDirCtx$FlatBindings = ::com::sun::jndi::toolkit::dir::HierMemDirCtx$FlatBindings;
 using $HierMemDirCtx$FlatNames = ::com::sun::jndi::toolkit::dir::HierMemDirCtx$FlatNames;
@@ -83,132 +80,6 @@ namespace com {
 			namespace toolkit {
 				namespace dir {
 
-$FieldInfo _HierMemDirCtx_FieldInfo_[] = {
-	{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HierMemDirCtx, debug)},
-	{"defaultParser", "Ljavax/naming/NameParser;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HierMemDirCtx, defaultParser)},
-	{"myEnv", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PROTECTED, $field(HierMemDirCtx, myEnv)},
-	{"bindings", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljavax/naming/Name;Ljava/lang/Object;>;", $PROTECTED, $field(HierMemDirCtx, bindings)},
-	{"attrs", "Ljavax/naming/directory/Attributes;", nullptr, $PROTECTED, $field(HierMemDirCtx, attrs)},
-	{"ignoreCase", "Z", nullptr, $PROTECTED, $field(HierMemDirCtx, ignoreCase)},
-	{"readOnlyEx", "Ljavax/naming/NamingException;", nullptr, $PROTECTED, $field(HierMemDirCtx, readOnlyEx)},
-	{"myParser", "Ljavax/naming/NameParser;", nullptr, $PROTECTED, $field(HierMemDirCtx, myParser)},
-	{"alwaysUseFactory", "Z", nullptr, $PRIVATE, $field(HierMemDirCtx, alwaysUseFactory)},
-	{}
-};
-
-$MethodInfo _HierMemDirCtx_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HierMemDirCtx, init$, void)},
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(HierMemDirCtx, init$, void, bool)},
-	{"<init>", "(Ljava/util/Hashtable;Z)V", "(Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;Z)V", $PUBLIC, $method(HierMemDirCtx, init$, void, $Hashtable*, bool)},
-	{"<init>", "(Ljava/util/Hashtable;ZZ)V", "(Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;ZZ)V", $PROTECTED, $method(HierMemDirCtx, init$, void, $Hashtable*, bool, bool)},
-	{"addToEnvironment", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, addToEnvironment, $Object*, $String*, Object$*), "javax.naming.NamingException"},
-	{"applyMods", "([Ljavax/naming/directory/ModificationItem;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/Attributes;", nullptr, $PROTECTED | $STATIC, $staticMethod(HierMemDirCtx, applyMods, $Attributes*, $ModificationItemArray*, $Attributes*), "javax.naming.NamingException"},
-	{"bind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, bind, void, $String*, Object$*), "javax.naming.NamingException"},
-	{"bind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, bind, void, $Name*, Object$*), "javax.naming.NamingException"},
-	{"bind", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, bind, void, $String*, Object$*, $Attributes*), "javax.naming.NamingException"},
-	{"bind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, bind, void, $Name*, Object$*, $Attributes*), "javax.naming.NamingException"},
-	{"canonizeName", "(Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, canonizeName, $Name*, $Name*), "javax.naming.NamingException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, close, void), "javax.naming.NamingException"},
-	{"composeName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, composeName, $String*, $String*, $String*), "javax.naming.NamingException"},
-	{"composeName", "(Ljavax/naming/Name;Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, composeName, $Name*, $Name*, $Name*), "javax.naming.NamingException"},
-	{"createNewCtx", "()Lcom/sun/jndi/toolkit/dir/HierMemDirCtx;", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, createNewCtx, HierMemDirCtx*), "javax.naming.NamingException"},
-	{"createSubcontext", "(Ljava/lang/String;)Ljavax/naming/Context;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, createSubcontext, $Context*, $String*), "javax.naming.NamingException"},
-	{"createSubcontext", "(Ljavax/naming/Name;)Ljavax/naming/Context;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, createSubcontext, $Context*, $Name*), "javax.naming.NamingException"},
-	{"createSubcontext", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, createSubcontext, $DirContext*, $String*, $Attributes*), "javax.naming.NamingException"},
-	{"createSubcontext", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, createSubcontext, $DirContext*, $Name*, $Attributes*), "javax.naming.NamingException"},
-	{"destroySubcontext", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, destroySubcontext, void, $String*), "javax.naming.NamingException"},
-	{"destroySubcontext", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, destroySubcontext, void, $Name*), "javax.naming.NamingException"},
-	{"doBind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;Z)V", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, doBind, void, $Name*, Object$*, $Attributes*, bool), "javax.naming.NamingException"},
-	{"doBindAux", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, doBindAux, void, $Name*, Object$*), "javax.naming.NamingException"},
-	{"doCreateSubcontext", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, doCreateSubcontext, $DirContext*, $Name*, $Attributes*), "javax.naming.NamingException"},
-	{"doDestroySubcontext", "(Ljavax/naming/Name;)V", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, doDestroySubcontext, void, $Name*), "javax.naming.NamingException"},
-	{"doGetAttributes", "()Ljavax/naming/directory/Attributes;", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, doGetAttributes, $Attributes*), "javax.naming.NamingException"},
-	{"doGetAttributes", "([Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, doGetAttributes, $Attributes*, $StringArray*), "javax.naming.NamingException"},
-	{"doList", "()Ljavax/naming/NamingEnumeration;", "()Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PROTECTED, $virtualMethod(HierMemDirCtx, doList, $NamingEnumeration*), "javax.naming.NamingException"},
-	{"doListBindings", "(Z)Ljavax/naming/NamingEnumeration;", "(Z)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PROTECTED, $virtualMethod(HierMemDirCtx, doListBindings, $NamingEnumeration*, bool), "javax.naming.NamingException"},
-	{"doLookup", "(Ljavax/naming/Name;Z)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, doLookup, $Object*, $Name*, bool), "javax.naming.NamingException"},
-	{"doModifyAttributes", "([Ljavax/naming/directory/ModificationItem;)V", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, doModifyAttributes, void, $ModificationItemArray*), "javax.naming.NamingException"},
-	{"doRebind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;Z)V", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, doRebind, void, $Name*, Object$*, $Attributes*, bool), "javax.naming.NamingException"},
-	{"doRebindAux", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, doRebindAux, void, $Name*, Object$*), "javax.naming.NamingException"},
-	{"doRename", "(Ljavax/naming/Name;Ljavax/naming/Name;)V", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, doRename, void, $Name*, $Name*), "javax.naming.NamingException"},
-	{"doUnbind", "(Ljavax/naming/Name;)V", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, doUnbind, void, $Name*), "javax.naming.NamingException"},
-	{"getAttributes", "(Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, getAttributes, $Attributes*, $String*), "javax.naming.NamingException"},
-	{"getAttributes", "(Ljavax/naming/Name;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, getAttributes, $Attributes*, $Name*), "javax.naming.NamingException"},
-	{"getAttributes", "(Ljava/lang/String;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, getAttributes, $Attributes*, $String*, $StringArray*), "javax.naming.NamingException"},
-	{"getAttributes", "(Ljavax/naming/Name;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, getAttributes, $Attributes*, $Name*, $StringArray*), "javax.naming.NamingException"},
-	{"getEnvironment", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(HierMemDirCtx, getEnvironment, $Hashtable*), "javax.naming.NamingException"},
-	{"getInternalName", "(Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, getInternalName, $Name*, $Name*), "javax.naming.NamingException"},
-	{"getLeafName", "(Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, getLeafName, $Name*, $Name*), "javax.naming.NamingException"},
-	{"getNameInNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, getNameInNamespace, $String*), "javax.naming.NamingException"},
-	{"getNameParser", "(Ljava/lang/String;)Ljavax/naming/NameParser;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, getNameParser, $NameParser*, $String*), "javax.naming.NamingException"},
-	{"getNameParser", "(Ljavax/naming/Name;)Ljavax/naming/NameParser;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, getNameParser, $NameParser*, $Name*), "javax.naming.NamingException"},
-	{"getSchema", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, getSchema, $DirContext*, $String*), "javax.naming.NamingException"},
-	{"getSchema", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, getSchema, $DirContext*, $Name*), "javax.naming.NamingException"},
-	{"getSchemaClassDefinition", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, getSchemaClassDefinition, $DirContext*, $String*), "javax.naming.NamingException"},
-	{"getSchemaClassDefinition", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, getSchemaClassDefinition, $DirContext*, $Name*), "javax.naming.NamingException"},
-	{"init", "()V", nullptr, $PRIVATE, $method(HierMemDirCtx, init, void)},
-	{"list", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PUBLIC, $virtualMethod(HierMemDirCtx, list, $NamingEnumeration*, $String*), "javax.naming.NamingException"},
-	{"list", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PUBLIC, $virtualMethod(HierMemDirCtx, list, $NamingEnumeration*, $Name*), "javax.naming.NamingException"},
-	{"listBindings", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PUBLIC, $virtualMethod(HierMemDirCtx, listBindings, $NamingEnumeration*, $String*), "javax.naming.NamingException"},
-	{"listBindings", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PUBLIC, $virtualMethod(HierMemDirCtx, listBindings, $NamingEnumeration*, $Name*), "javax.naming.NamingException"},
-	{"lookup", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, lookup, $Object*, $String*), "javax.naming.NamingException"},
-	{"lookup", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, lookup, $Object*, $Name*), "javax.naming.NamingException"},
-	{"lookupLink", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, lookupLink, $Object*, $String*), "javax.naming.NamingException"},
-	{"lookupLink", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, lookupLink, $Object*, $Name*), "javax.naming.NamingException"},
-	{"modifyAttributes", "(Ljava/lang/String;ILjavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, modifyAttributes, void, $String*, int32_t, $Attributes*), "javax.naming.NamingException"},
-	{"modifyAttributes", "(Ljavax/naming/Name;ILjavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, modifyAttributes, void, $Name*, int32_t, $Attributes*), "javax.naming.NamingException"},
-	{"modifyAttributes", "(Ljava/lang/String;[Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, modifyAttributes, void, $String*, $ModificationItemArray*), "javax.naming.NamingException"},
-	{"modifyAttributes", "(Ljavax/naming/Name;[Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, modifyAttributes, void, $Name*, $ModificationItemArray*), "javax.naming.NamingException"},
-	{"rebind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, rebind, void, $String*, Object$*), "javax.naming.NamingException"},
-	{"rebind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, rebind, void, $Name*, Object$*), "javax.naming.NamingException"},
-	{"rebind", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, rebind, void, $String*, Object$*, $Attributes*), "javax.naming.NamingException"},
-	{"rebind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, rebind, void, $Name*, Object$*, $Attributes*), "javax.naming.NamingException"},
-	{"removeFromEnvironment", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, removeFromEnvironment, $Object*, $String*), "javax.naming.NamingException"},
-	{"rename", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, rename, void, $String*, $String*), "javax.naming.NamingException"},
-	{"rename", "(Ljavax/naming/Name;Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, rename, void, $Name*, $Name*), "javax.naming.NamingException"},
-	{"search", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(HierMemDirCtx, search, $NamingEnumeration*, $String*, $Attributes*), "javax.naming.NamingException"},
-	{"search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(HierMemDirCtx, search, $NamingEnumeration*, $Name*, $Attributes*), "javax.naming.NamingException"},
-	{"search", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(HierMemDirCtx, search, $NamingEnumeration*, $String*, $Attributes*, $StringArray*), "javax.naming.NamingException"},
-	{"search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(HierMemDirCtx, search, $NamingEnumeration*, $Name*, $Attributes*, $StringArray*), "javax.naming.NamingException"},
-	{"search", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(HierMemDirCtx, search, $NamingEnumeration*, $Name*, $String*, $SearchControls*), "javax.naming.NamingException"},
-	{"search", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(HierMemDirCtx, search, $NamingEnumeration*, $Name*, $String*, $ObjectArray*, $SearchControls*), "javax.naming.NamingException"},
-	{"search", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(HierMemDirCtx, search, $NamingEnumeration*, $String*, $String*, $SearchControls*), "javax.naming.NamingException"},
-	{"search", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(HierMemDirCtx, search, $NamingEnumeration*, $String*, $String*, $ObjectArray*, $SearchControls*), "javax.naming.NamingException"},
-	{"setIgnoreCase", "(Z)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, setIgnoreCase, void, bool)},
-	{"setNameParser", "(Ljavax/naming/NameParser;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, setNameParser, void, $NameParser*)},
-	{"setReadOnly", "(Ljavax/naming/NamingException;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, setReadOnly, void, $NamingException*)},
-	{"unbind", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, unbind, void, $String*), "javax.naming.NamingException"},
-	{"unbind", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, unbind, void, $Name*), "javax.naming.NamingException"},
-	{}
-};
-
-$InnerClassInfo _HierMemDirCtx_InnerClassesInfo_[] = {
-	{"com.sun.jndi.toolkit.dir.HierMemDirCtx$HierContextEnumerator", "com.sun.jndi.toolkit.dir.HierMemDirCtx", "HierContextEnumerator", $PUBLIC},
-	{"com.sun.jndi.toolkit.dir.HierMemDirCtx$FlatBindings", "com.sun.jndi.toolkit.dir.HierMemDirCtx", "FlatBindings", $PRIVATE | $FINAL},
-	{"com.sun.jndi.toolkit.dir.HierMemDirCtx$FlatNames", "com.sun.jndi.toolkit.dir.HierMemDirCtx", "FlatNames", $PRIVATE | $FINAL},
-	{"com.sun.jndi.toolkit.dir.HierMemDirCtx$BaseFlatNames", "com.sun.jndi.toolkit.dir.HierMemDirCtx", "BaseFlatNames", $PRIVATE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _HierMemDirCtx_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.jndi.toolkit.dir.HierMemDirCtx",
-	"java.lang.Object",
-	"javax.naming.directory.DirContext",
-	_HierMemDirCtx_FieldInfo_,
-	_HierMemDirCtx_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HierMemDirCtx_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.jndi.toolkit.dir.HierMemDirCtx$HierContextEnumerator,com.sun.jndi.toolkit.dir.HierMemDirCtx$FlatBindings,com.sun.jndi.toolkit.dir.HierMemDirCtx$FlatNames,com.sun.jndi.toolkit.dir.HierMemDirCtx$BaseFlatNames"
-};
-
-$Object* allocate$HierMemDirCtx($Class* clazz) {
-	return $of($alloc(HierMemDirCtx));
-}
-
 $NameParser* HierMemDirCtx::defaultParser = nullptr;
 
 void HierMemDirCtx::close() {
@@ -250,41 +121,35 @@ void HierMemDirCtx::init() {
 }
 
 $Object* HierMemDirCtx::lookup($String* name) {
-	return $of(lookup($($nc(this->myParser)->parse(name))));
+	return lookup($($nc(this->myParser)->parse(name)));
 }
 
 $Object* HierMemDirCtx::lookup($Name* name) {
-	return $of(doLookup(name, this->alwaysUseFactory));
+	return doLookup(name, this->alwaysUseFactory);
 }
 
 $Object* HierMemDirCtx::doLookup($Name* name$renamed, bool useFactory) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Name, name, name$renamed);
 	$var($Object, target, nullptr);
 	$assign(name, canonizeName(name));
 	{
-		$var(HierMemDirCtx, ctx, nullptr)
+		$var(HierMemDirCtx, ctx, nullptr);
 		switch ($nc(name)->size()) {
 		case 0:
-			{
-				$assign(target, this);
-				break;
-			}
+			$assign(target, this);
+			break;
 		case 1:
-			{
-				$assign(target, $nc(this->bindings)->get(name));
-				break;
-			}
+			$assign(target, $nc(this->bindings)->get(name));
+			break;
 		default:
-			{
-				$assign(ctx, $cast(HierMemDirCtx, $nc(this->bindings)->get($(name->getPrefix(1)))));
-				if (ctx == nullptr) {
-					$assign(target, nullptr);
-				} else {
-					$assign(target, $nc(ctx)->doLookup($(name->getSuffix(1)), false));
-				}
-				break;
+			$assign(ctx, $cast(HierMemDirCtx, $nc(this->bindings)->get($(name->getPrefix(1)))));
+			if (ctx == nullptr) {
+				$assign(target, nullptr);
+			} else {
+				$assign(target, ctx->doLookup($(name->getSuffix(1)), false));
 			}
+			break;
 		}
 	}
 	if (target == nullptr) {
@@ -292,7 +157,7 @@ $Object* HierMemDirCtx::doLookup($Name* name$renamed, bool useFactory) {
 	}
 	if (useFactory) {
 		try {
-			return $of($DirectoryManager::getObjectInstance(target, name, this, this->myEnv, ($instanceOf(HierMemDirCtx, target)) ? $nc(($cast(HierMemDirCtx, target)))->attrs : ($Attributes*)nullptr));
+			return $DirectoryManager::getObjectInstance(target, name, this, this->myEnv, ($instanceOf(HierMemDirCtx, target)) ? $cast(HierMemDirCtx, target)->attrs : ($Attributes*)nullptr);
 		} catch ($NamingException& e) {
 			$throw(e);
 		} catch ($Exception& e) {
@@ -301,7 +166,7 @@ $Object* HierMemDirCtx::doLookup($Name* name$renamed, bool useFactory) {
 			$throw(e2);
 		}
 	} else {
-		return $of(target);
+		return target;
 	}
 }
 
@@ -322,7 +187,7 @@ void HierMemDirCtx::bind($Name* name, Object$* obj, $Attributes* attrs) {
 }
 
 void HierMemDirCtx::doBind($Name* name, Object$* obj$renamed, $Attributes* attrs$renamed, bool useFactory) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, obj, obj$renamed);
 	$var($Attributes, attrs, attrs$renamed);
 	if ($nc(name)->isEmpty()) {
@@ -341,15 +206,15 @@ void HierMemDirCtx::doBind($Name* name, Object$* obj$renamed, $Attributes* attrs
 }
 
 void HierMemDirCtx::doBindAux($Name* name, Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->readOnlyEx != nullptr) {
-		$throw($cast($NamingException, $($nc(this->readOnlyEx)->fillInStackTrace())));
+		$throw($$cast($NamingException, this->readOnlyEx->fillInStackTrace()));
 	}
 	if ($nc(this->bindings)->get(name) != nullptr) {
 		$throwNew($NameAlreadyBoundException, $($nc($of(name))->toString()));
 	}
 	if ($instanceOf(HierMemDirCtx, obj)) {
-		$nc(this->bindings)->put(name, obj);
+		this->bindings->put(name, obj);
 	} else {
 		$throwNew($SchemaViolationException, "This context only supports binding objects of it\'s own kind"_s);
 	}
@@ -372,7 +237,7 @@ void HierMemDirCtx::rebind($Name* name, Object$* obj, $Attributes* attrs) {
 }
 
 void HierMemDirCtx::doRebind($Name* name, Object$* obj$renamed, $Attributes* attrs$renamed, bool useFactory) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, obj, obj$renamed);
 	$var($Attributes, attrs, attrs$renamed);
 	if ($nc(name)->isEmpty()) {
@@ -392,7 +257,7 @@ void HierMemDirCtx::doRebind($Name* name, Object$* obj$renamed, $Attributes* att
 
 void HierMemDirCtx::doRebindAux($Name* name, Object$* obj) {
 	if (this->readOnlyEx != nullptr) {
-		$throw($cast($NamingException, $($nc(this->readOnlyEx)->fillInStackTrace())));
+		$throw($$cast($NamingException, this->readOnlyEx->fillInStackTrace()));
 	}
 	if ($instanceOf(HierMemDirCtx, obj)) {
 		$nc(this->bindings)->put(name, obj);
@@ -406,7 +271,7 @@ void HierMemDirCtx::unbind($String* name) {
 }
 
 void HierMemDirCtx::unbind($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(name)->isEmpty()) {
 		$throwNew($InvalidNameException, "Cannot unbind empty name"_s);
 	} else {
@@ -417,24 +282,24 @@ void HierMemDirCtx::unbind($Name* name) {
 
 void HierMemDirCtx::doUnbind($Name* name) {
 	if (this->readOnlyEx != nullptr) {
-		$throw($cast($NamingException, $($nc(this->readOnlyEx)->fillInStackTrace())));
+		$throw($$cast($NamingException, this->readOnlyEx->fillInStackTrace()));
 	}
 	$nc(this->bindings)->remove(name);
 }
 
 void HierMemDirCtx::rename($String* oldname, $String* newname) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Name, var$0, $nc(this->myParser)->parse(oldname));
-	rename(var$0, $($nc(this->myParser)->parse(newname)));
+	rename(var$0, $(this->myParser->parse(newname)));
 }
 
 void HierMemDirCtx::rename($Name* oldname, $Name* newname) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(newname)->isEmpty();
 	if (var$0 || $nc(oldname)->isEmpty()) {
 		$throwNew($InvalidNameException, "Cannot rename empty name"_s);
 	}
-	if (!$nc($of($(getInternalName(newname))))->equals($(getInternalName(oldname)))) {
+	if (!$$nc(getInternalName(newname))->equals($(getInternalName(oldname)))) {
 		$throwNew($InvalidNameException, "Cannot rename across contexts"_s);
 	}
 	$var(HierMemDirCtx, ctx, $cast(HierMemDirCtx, doLookup($(getInternalName(newname)), false)));
@@ -443,22 +308,22 @@ void HierMemDirCtx::rename($Name* oldname, $Name* newname) {
 }
 
 void HierMemDirCtx::doRename($Name* oldname$renamed, $Name* newname$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Name, oldname, oldname$renamed);
 	$var($Name, newname, newname$renamed);
 	if (this->readOnlyEx != nullptr) {
-		$throw($cast($NamingException, $($nc(this->readOnlyEx)->fillInStackTrace())));
+		$throw($$cast($NamingException, this->readOnlyEx->fillInStackTrace()));
 	}
 	$assign(oldname, canonizeName(oldname));
 	$assign(newname, canonizeName(newname));
 	if ($nc(this->bindings)->get(newname) != nullptr) {
 		$throwNew($NameAlreadyBoundException, $($nc($of(newname))->toString()));
 	}
-	$var($Object, oldBinding, $nc(this->bindings)->remove(oldname));
+	$var($Object, oldBinding, this->bindings->remove(oldname));
 	if (oldBinding == nullptr) {
 		$throwNew($NameNotFoundException, $($nc($of(oldname))->toString()));
 	}
-	$nc(this->bindings)->put(newname, oldBinding);
+	this->bindings->put(newname, oldBinding);
 }
 
 $NamingEnumeration* HierMemDirCtx::list($String* name) {
@@ -492,16 +357,16 @@ void HierMemDirCtx::destroySubcontext($String* name) {
 }
 
 void HierMemDirCtx::destroySubcontext($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(HierMemDirCtx, ctx, $cast(HierMemDirCtx, doLookup($(getInternalName(name)), false)));
 	$nc(ctx)->doDestroySubcontext($(getLeafName(name)));
 }
 
 void HierMemDirCtx::doDestroySubcontext($Name* name$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Name, name, name$renamed);
 	if (this->readOnlyEx != nullptr) {
-		$throw($cast($NamingException, $($nc(this->readOnlyEx)->fillInStackTrace())));
+		$throw($$cast($NamingException, this->readOnlyEx->fillInStackTrace()));
 	}
 	$assign(name, canonizeName(name));
 	$nc(this->bindings)->remove(name);
@@ -512,7 +377,7 @@ $Context* HierMemDirCtx::createSubcontext($String* name) {
 }
 
 $Context* HierMemDirCtx::createSubcontext($Name* name) {
-	return createSubcontext(name, ($Attributes*)nullptr);
+	return createSubcontext(name, nullptr);
 }
 
 $DirContext* HierMemDirCtx::createSubcontext($String* name, $Attributes* attrs) {
@@ -520,16 +385,16 @@ $DirContext* HierMemDirCtx::createSubcontext($String* name, $Attributes* attrs) 
 }
 
 $DirContext* HierMemDirCtx::createSubcontext($Name* name, $Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(HierMemDirCtx, ctx, $cast(HierMemDirCtx, doLookup($(getInternalName(name)), false)));
 	return $nc(ctx)->doCreateSubcontext($(getLeafName(name)), attrs);
 }
 
 $DirContext* HierMemDirCtx::doCreateSubcontext($Name* name$renamed, $Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Name, name, name$renamed);
 	if (this->readOnlyEx != nullptr) {
-		$throw($cast($NamingException, $($nc(this->readOnlyEx)->fillInStackTrace())));
+		$throw($$cast($NamingException, this->readOnlyEx->fillInStackTrace()));
 	}
 	$assign(name, canonizeName(name));
 	if ($nc(this->bindings)->get(name) != nullptr) {
@@ -544,11 +409,11 @@ $DirContext* HierMemDirCtx::doCreateSubcontext($Name* name$renamed, $Attributes*
 }
 
 $Object* HierMemDirCtx::lookupLink($String* name) {
-	return $of(lookupLink($($nc(this->myParser)->parse(name))));
+	return lookupLink($($nc(this->myParser)->parse(name)));
 }
 
 $Object* HierMemDirCtx::lookupLink($Name* name) {
-	return $of(lookup(name));
+	return lookup(name);
 }
 
 $NameParser* HierMemDirCtx::getNameParser($String* name) {
@@ -560,41 +425,41 @@ $NameParser* HierMemDirCtx::getNameParser($Name* name) {
 }
 
 $String* HierMemDirCtx::composeName($String* name, $String* prefix) {
-	$useLocalCurrentObjectStackCache();
-	$var($Name, var$0, static_cast<$Name*>($new($CompositeName, name)));
-	$var($Name, result, composeName(var$0, static_cast<$Name*>($$new($CompositeName, prefix))));
-	return $nc($of(result))->toString();
+	$useLocalObjectStack();
+	$var($Name, var$0, $new($CompositeName, name));
+	$var($Name, result, composeName(var$0, $$new($CompositeName, prefix)));
+	return $nc(result)->toString();
 }
 
 $Name* HierMemDirCtx::composeName($Name* name$renamed, $Name* prefix$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Name, prefix, prefix$renamed);
 	$var($Name, name, name$renamed);
 	$assign(name, canonizeName(name));
 	$assign(prefix, canonizeName(prefix));
-	$var($Name, result, ($cast($Name, $nc(prefix)->clone())));
+	$var($Name, result, $cast($Name, $nc(prefix)->clone()));
 	$nc(result)->addAll(name);
 	return result;
 }
 
 $Object* HierMemDirCtx::addToEnvironment($String* propName, Object$* propVal) {
-	$set(this, myEnv, (this->myEnv == nullptr) ? $new($Hashtable, 11, 0.75f) : $cast($Hashtable, $nc(this->myEnv)->clone()));
-	return $of($nc(this->myEnv)->put(propName, propVal));
+	$set(this, myEnv, (this->myEnv == nullptr) ? $new($Hashtable, 11, 0.75f) : $cast($Hashtable, this->myEnv->clone()));
+	return $nc(this->myEnv)->put(propName, propVal);
 }
 
 $Object* HierMemDirCtx::removeFromEnvironment($String* propName) {
 	if (this->myEnv == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$set(this, myEnv, $cast($Hashtable, $nc(this->myEnv)->clone()));
-	return $of($nc(this->myEnv)->remove(propName));
+	return $nc(this->myEnv)->remove(propName);
 }
 
 $Hashtable* HierMemDirCtx::getEnvironment() {
 	if (this->myEnv == nullptr) {
 		return $new($Hashtable, 5, 0.75f);
 	} else {
-		return $cast($Hashtable, $nc(this->myEnv)->clone());
+		return $cast($Hashtable, this->myEnv->clone());
 	}
 }
 
@@ -621,7 +486,7 @@ $Attributes* HierMemDirCtx::getAttributes($Name* name, $StringArray* attrIds) {
 }
 
 $Attributes* HierMemDirCtx::doGetAttributes($StringArray* attrIds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (attrIds == nullptr) {
 		return doGetAttributes();
 	}
@@ -641,14 +506,14 @@ void HierMemDirCtx::modifyAttributes($String* name, int32_t mod_op, $Attributes*
 }
 
 void HierMemDirCtx::modifyAttributes($Name* name, int32_t mod_op, $Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
-	if (attrs == nullptr || $nc(attrs)->size() == 0) {
+	$useLocalObjectStack();
+	if (attrs == nullptr || attrs->size() == 0) {
 		$throwNew($IllegalArgumentException, "Cannot modify without an attribute"_s);
 	}
 	$var($NamingEnumeration, attrEnum, $nc(attrs)->getAll());
 	$var($ModificationItemArray, mods, $new($ModificationItemArray, attrs->size()));
 	for (int32_t i = 0; i < mods->length && $nc(attrEnum)->hasMoreElements(); ++i) {
-		mods->set(i, $$new($ModificationItem, mod_op, $cast($Attribute, $(attrEnum->next()))));
+		mods->set(i, $$new($ModificationItem, mod_op, $$cast($Attribute, attrEnum->next())));
 	}
 	modifyAttributes(name, mods);
 }
@@ -664,14 +529,14 @@ void HierMemDirCtx::modifyAttributes($Name* name, $ModificationItemArray* mods) 
 
 void HierMemDirCtx::doModifyAttributes($ModificationItemArray* mods) {
 	if (this->readOnlyEx != nullptr) {
-		$throw($cast($NamingException, $($nc(this->readOnlyEx)->fillInStackTrace())));
+		$throw($$cast($NamingException, this->readOnlyEx->fillInStackTrace()));
 	}
 	applyMods(mods, this->attrs);
 }
 
 $Attributes* HierMemDirCtx::applyMods($ModificationItemArray* mods, $Attributes* orig) {
 	$init(HierMemDirCtx);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ModificationItem, mod, nullptr);
 	$var($Attribute, existingAttr, nullptr);
 	$var($Attribute, modAttr, nullptr);
@@ -681,60 +546,53 @@ $Attributes* HierMemDirCtx::applyMods($ModificationItemArray* mods, $Attributes*
 		$assign(modAttr, $nc(mod)->getAttribute());
 		switch (mod->getModificationOp()) {
 		case $DirContext::ADD_ATTRIBUTE:
-			{
-				$assign(existingAttr, $nc(orig)->get($($nc(modAttr)->getID())));
-				if (existingAttr == nullptr) {
-					$nc(orig)->put($cast($Attribute, $($nc(modAttr)->clone())));
-				} else {
-					$assign(modVals, $nc(modAttr)->getAll());
-					while ($nc(modVals)->hasMore()) {
-						$nc(existingAttr)->add($(modVals->next()));
-					}
+			;
+			$assign(existingAttr, $nc(orig)->get($($nc(modAttr)->getID())));
+			if (existingAttr == nullptr) {
+				orig->put($$cast($Attribute, modAttr->clone()));
+			} else {
+				$assign(modVals, modAttr->getAll());
+				while ($nc(modVals)->hasMore()) {
+					existingAttr->add($(modVals->next()));
 				}
-				break;
 			}
+			break;
 		case $DirContext::REPLACE_ATTRIBUTE:
-			{
-				if ($nc(modAttr)->size() == 0) {
-					$nc(orig)->remove($(modAttr->getID()));
-				} else {
-					$nc(orig)->put($cast($Attribute, $(modAttr->clone())));
-				}
-				break;
+			if ($nc(modAttr)->size() == 0) {
+				$nc(orig)->remove($(modAttr->getID()));
+			} else {
+				$nc(orig)->put($$cast($Attribute, modAttr->clone()));
 			}
+			break;
 		case $DirContext::REMOVE_ATTRIBUTE:
-			{
-				$assign(existingAttr, $nc(orig)->get($($nc(modAttr)->getID())));
-				if (existingAttr != nullptr) {
-					if ($nc(modAttr)->size() == 0) {
-						$nc(orig)->remove($(modAttr->getID()));
-					} else {
-						$assign(modVals, modAttr->getAll());
-						while ($nc(modVals)->hasMore()) {
-							existingAttr->remove($(modVals->next()));
-						}
-						if (existingAttr->size() == 0) {
-							$nc(orig)->remove($(modAttr->getID()));
-						}
+			$assign(existingAttr, $nc(orig)->get($($nc(modAttr)->getID())));
+			if (existingAttr != nullptr) {
+				if (modAttr->size() == 0) {
+					orig->remove($(modAttr->getID()));
+				} else {
+					$assign(modVals, modAttr->getAll());
+					while ($nc(modVals)->hasMore()) {
+						existingAttr->remove($(modVals->next()));
+					}
+					if (existingAttr->size() == 0) {
+						orig->remove($(modAttr->getID()));
 					}
 				}
-				break;
 			}
+			break;
 		default:
-			{
-				$throwNew($AttributeModificationException, "Unknown mod_op"_s);
-			}
+			$throwNew($AttributeModificationException, "Unknown mod_op"_s);
 		}
 	}
 	return orig;
 }
 
 $NamingEnumeration* HierMemDirCtx::search($String* name, $Attributes* matchingAttributes) {
-	return search(name, matchingAttributes, ($StringArray*)nullptr);
+	return search(name, matchingAttributes, nullptr);
 }
 
 $NamingEnumeration* HierMemDirCtx::search($Name* name, $Attributes* matchingAttributes) {
-	return search(name, matchingAttributes, ($StringArray*)nullptr);
+	return search(name, matchingAttributes, nullptr);
 }
 
 $NamingEnumeration* HierMemDirCtx::search($String* name, $Attributes* matchingAttributes, $StringArray* attributesToReturn) {
@@ -742,7 +600,7 @@ $NamingEnumeration* HierMemDirCtx::search($String* name, $Attributes* matchingAt
 }
 
 $NamingEnumeration* HierMemDirCtx::search($Name* name, $Attributes* matchingAttributes, $StringArray* attributesToReturn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(HierMemDirCtx, target, $cast(HierMemDirCtx, doLookup(name, false)));
 	$var($SearchControls, cons, $new($SearchControls));
 	cons->setReturningAttributes(attributesToReturn);
@@ -751,10 +609,10 @@ $NamingEnumeration* HierMemDirCtx::search($Name* name, $Attributes* matchingAttr
 }
 
 $NamingEnumeration* HierMemDirCtx::search($Name* name, $String* filter, $SearchControls* cons) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DirContext, target, $cast($DirContext, doLookup(name, false)));
 	$var($SearchFilter, stringfilter, $new($SearchFilter, filter));
-	return $new($LazySearchEnumerationImpl, $$new($HierMemDirCtx$HierContextEnumerator, this, target, (cons != nullptr) ? $nc(cons)->getSearchScope() : $SearchControls::ONELEVEL_SCOPE), stringfilter, cons, this, this->myEnv, this->alwaysUseFactory);
+	return $new($LazySearchEnumerationImpl, $$new($HierMemDirCtx$HierContextEnumerator, this, target, (cons != nullptr) ? cons->getSearchScope() : $SearchControls::ONELEVEL_SCOPE), stringfilter, cons, this, this->myEnv, this->alwaysUseFactory);
 }
 
 $NamingEnumeration* HierMemDirCtx::search($Name* name, $String* filterExpr, $ObjectArray* filterArgs, $SearchControls* cons) {
@@ -775,7 +633,7 @@ HierMemDirCtx* HierMemDirCtx::createNewCtx() {
 }
 
 $Name* HierMemDirCtx::canonizeName($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Name, canonicalName, name);
 	if (!($instanceOf($HierarchicalName, name))) {
 		$assign(canonicalName, $new($HierarchicalName));
@@ -788,11 +646,11 @@ $Name* HierMemDirCtx::canonizeName($Name* name) {
 }
 
 $Name* HierMemDirCtx::getInternalName($Name* name) {
-	return ($nc(name)->getPrefix(name->size() - 1));
+	return ($nc(name)->getPrefix($nc(name)->size() - 1));
 }
 
 $Name* HierMemDirCtx::getLeafName($Name* name) {
-	return ($nc(name)->getSuffix(name->size() - 1));
+	return ($nc(name)->getSuffix($nc(name)->size() - 1));
 }
 
 $DirContext* HierMemDirCtx::getSchema($String* name) {
@@ -827,7 +685,7 @@ void HierMemDirCtx::setNameParser($NameParser* parser) {
 	$set(this, myParser, parser);
 }
 
-void clinit$HierMemDirCtx($Class* class$) {
+void HierMemDirCtx::clinit$($Class* clazz) {
 	$assignStatic(HierMemDirCtx::defaultParser, $new($HierarchicalNameParser));
 }
 
@@ -835,7 +693,127 @@ HierMemDirCtx::HierMemDirCtx() {
 }
 
 $Class* HierMemDirCtx::load$($String* name, bool initialize) {
-	$loadClass(HierMemDirCtx, name, initialize, &_HierMemDirCtx_ClassInfo_, clinit$HierMemDirCtx, allocate$HierMemDirCtx);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HierMemDirCtx, debug)},
+		{"defaultParser", "Ljavax/naming/NameParser;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HierMemDirCtx, defaultParser)},
+		{"myEnv", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PROTECTED, $field(HierMemDirCtx, myEnv)},
+		{"bindings", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljavax/naming/Name;Ljava/lang/Object;>;", $PROTECTED, $field(HierMemDirCtx, bindings)},
+		{"attrs", "Ljavax/naming/directory/Attributes;", nullptr, $PROTECTED, $field(HierMemDirCtx, attrs)},
+		{"ignoreCase", "Z", nullptr, $PROTECTED, $field(HierMemDirCtx, ignoreCase)},
+		{"readOnlyEx", "Ljavax/naming/NamingException;", nullptr, $PROTECTED, $field(HierMemDirCtx, readOnlyEx)},
+		{"myParser", "Ljavax/naming/NameParser;", nullptr, $PROTECTED, $field(HierMemDirCtx, myParser)},
+		{"alwaysUseFactory", "Z", nullptr, $PRIVATE, $field(HierMemDirCtx, alwaysUseFactory)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HierMemDirCtx, init$, void)},
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(HierMemDirCtx, init$, void, bool)},
+		{"<init>", "(Ljava/util/Hashtable;Z)V", "(Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;Z)V", $PUBLIC, $method(HierMemDirCtx, init$, void, $Hashtable*, bool)},
+		{"<init>", "(Ljava/util/Hashtable;ZZ)V", "(Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;ZZ)V", $PROTECTED, $method(HierMemDirCtx, init$, void, $Hashtable*, bool, bool)},
+		{"addToEnvironment", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, addToEnvironment, $Object*, $String*, Object$*), "javax.naming.NamingException"},
+		{"applyMods", "([Ljavax/naming/directory/ModificationItem;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/Attributes;", nullptr, $PROTECTED | $STATIC, $staticMethod(HierMemDirCtx, applyMods, $Attributes*, $ModificationItemArray*, $Attributes*), "javax.naming.NamingException"},
+		{"bind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, bind, void, $String*, Object$*), "javax.naming.NamingException"},
+		{"bind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, bind, void, $Name*, Object$*), "javax.naming.NamingException"},
+		{"bind", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, bind, void, $String*, Object$*, $Attributes*), "javax.naming.NamingException"},
+		{"bind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, bind, void, $Name*, Object$*, $Attributes*), "javax.naming.NamingException"},
+		{"canonizeName", "(Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, canonizeName, $Name*, $Name*), "javax.naming.NamingException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, close, void), "javax.naming.NamingException"},
+		{"composeName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, composeName, $String*, $String*, $String*), "javax.naming.NamingException"},
+		{"composeName", "(Ljavax/naming/Name;Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, composeName, $Name*, $Name*, $Name*), "javax.naming.NamingException"},
+		{"createNewCtx", "()Lcom/sun/jndi/toolkit/dir/HierMemDirCtx;", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, createNewCtx, HierMemDirCtx*), "javax.naming.NamingException"},
+		{"createSubcontext", "(Ljava/lang/String;)Ljavax/naming/Context;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, createSubcontext, $Context*, $String*), "javax.naming.NamingException"},
+		{"createSubcontext", "(Ljavax/naming/Name;)Ljavax/naming/Context;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, createSubcontext, $Context*, $Name*), "javax.naming.NamingException"},
+		{"createSubcontext", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, createSubcontext, $DirContext*, $String*, $Attributes*), "javax.naming.NamingException"},
+		{"createSubcontext", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, createSubcontext, $DirContext*, $Name*, $Attributes*), "javax.naming.NamingException"},
+		{"destroySubcontext", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, destroySubcontext, void, $String*), "javax.naming.NamingException"},
+		{"destroySubcontext", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, destroySubcontext, void, $Name*), "javax.naming.NamingException"},
+		{"doBind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;Z)V", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, doBind, void, $Name*, Object$*, $Attributes*, bool), "javax.naming.NamingException"},
+		{"doBindAux", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, doBindAux, void, $Name*, Object$*), "javax.naming.NamingException"},
+		{"doCreateSubcontext", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, doCreateSubcontext, $DirContext*, $Name*, $Attributes*), "javax.naming.NamingException"},
+		{"doDestroySubcontext", "(Ljavax/naming/Name;)V", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, doDestroySubcontext, void, $Name*), "javax.naming.NamingException"},
+		{"doGetAttributes", "()Ljavax/naming/directory/Attributes;", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, doGetAttributes, $Attributes*), "javax.naming.NamingException"},
+		{"doGetAttributes", "([Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, doGetAttributes, $Attributes*, $StringArray*), "javax.naming.NamingException"},
+		{"doList", "()Ljavax/naming/NamingEnumeration;", "()Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PROTECTED, $virtualMethod(HierMemDirCtx, doList, $NamingEnumeration*), "javax.naming.NamingException"},
+		{"doListBindings", "(Z)Ljavax/naming/NamingEnumeration;", "(Z)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PROTECTED, $virtualMethod(HierMemDirCtx, doListBindings, $NamingEnumeration*, bool), "javax.naming.NamingException"},
+		{"doLookup", "(Ljavax/naming/Name;Z)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, doLookup, $Object*, $Name*, bool), "javax.naming.NamingException"},
+		{"doModifyAttributes", "([Ljavax/naming/directory/ModificationItem;)V", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, doModifyAttributes, void, $ModificationItemArray*), "javax.naming.NamingException"},
+		{"doRebind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;Z)V", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, doRebind, void, $Name*, Object$*, $Attributes*, bool), "javax.naming.NamingException"},
+		{"doRebindAux", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, doRebindAux, void, $Name*, Object$*), "javax.naming.NamingException"},
+		{"doRename", "(Ljavax/naming/Name;Ljavax/naming/Name;)V", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, doRename, void, $Name*, $Name*), "javax.naming.NamingException"},
+		{"doUnbind", "(Ljavax/naming/Name;)V", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, doUnbind, void, $Name*), "javax.naming.NamingException"},
+		{"getAttributes", "(Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, getAttributes, $Attributes*, $String*), "javax.naming.NamingException"},
+		{"getAttributes", "(Ljavax/naming/Name;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, getAttributes, $Attributes*, $Name*), "javax.naming.NamingException"},
+		{"getAttributes", "(Ljava/lang/String;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, getAttributes, $Attributes*, $String*, $StringArray*), "javax.naming.NamingException"},
+		{"getAttributes", "(Ljavax/naming/Name;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, getAttributes, $Attributes*, $Name*, $StringArray*), "javax.naming.NamingException"},
+		{"getEnvironment", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(HierMemDirCtx, getEnvironment, $Hashtable*), "javax.naming.NamingException"},
+		{"getInternalName", "(Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, getInternalName, $Name*, $Name*), "javax.naming.NamingException"},
+		{"getLeafName", "(Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx, getLeafName, $Name*, $Name*), "javax.naming.NamingException"},
+		{"getNameInNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, getNameInNamespace, $String*), "javax.naming.NamingException"},
+		{"getNameParser", "(Ljava/lang/String;)Ljavax/naming/NameParser;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, getNameParser, $NameParser*, $String*), "javax.naming.NamingException"},
+		{"getNameParser", "(Ljavax/naming/Name;)Ljavax/naming/NameParser;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, getNameParser, $NameParser*, $Name*), "javax.naming.NamingException"},
+		{"getSchema", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, getSchema, $DirContext*, $String*), "javax.naming.NamingException"},
+		{"getSchema", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, getSchema, $DirContext*, $Name*), "javax.naming.NamingException"},
+		{"getSchemaClassDefinition", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, getSchemaClassDefinition, $DirContext*, $String*), "javax.naming.NamingException"},
+		{"getSchemaClassDefinition", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, getSchemaClassDefinition, $DirContext*, $Name*), "javax.naming.NamingException"},
+		{"init", "()V", nullptr, $PRIVATE, $method(HierMemDirCtx, init, void)},
+		{"list", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PUBLIC, $virtualMethod(HierMemDirCtx, list, $NamingEnumeration*, $String*), "javax.naming.NamingException"},
+		{"list", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PUBLIC, $virtualMethod(HierMemDirCtx, list, $NamingEnumeration*, $Name*), "javax.naming.NamingException"},
+		{"listBindings", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PUBLIC, $virtualMethod(HierMemDirCtx, listBindings, $NamingEnumeration*, $String*), "javax.naming.NamingException"},
+		{"listBindings", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PUBLIC, $virtualMethod(HierMemDirCtx, listBindings, $NamingEnumeration*, $Name*), "javax.naming.NamingException"},
+		{"lookup", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, lookup, $Object*, $String*), "javax.naming.NamingException"},
+		{"lookup", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, lookup, $Object*, $Name*), "javax.naming.NamingException"},
+		{"lookupLink", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, lookupLink, $Object*, $String*), "javax.naming.NamingException"},
+		{"lookupLink", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, lookupLink, $Object*, $Name*), "javax.naming.NamingException"},
+		{"modifyAttributes", "(Ljava/lang/String;ILjavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, modifyAttributes, void, $String*, int32_t, $Attributes*), "javax.naming.NamingException"},
+		{"modifyAttributes", "(Ljavax/naming/Name;ILjavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, modifyAttributes, void, $Name*, int32_t, $Attributes*), "javax.naming.NamingException"},
+		{"modifyAttributes", "(Ljava/lang/String;[Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, modifyAttributes, void, $String*, $ModificationItemArray*), "javax.naming.NamingException"},
+		{"modifyAttributes", "(Ljavax/naming/Name;[Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, modifyAttributes, void, $Name*, $ModificationItemArray*), "javax.naming.NamingException"},
+		{"rebind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, rebind, void, $String*, Object$*), "javax.naming.NamingException"},
+		{"rebind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, rebind, void, $Name*, Object$*), "javax.naming.NamingException"},
+		{"rebind", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, rebind, void, $String*, Object$*, $Attributes*), "javax.naming.NamingException"},
+		{"rebind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, rebind, void, $Name*, Object$*, $Attributes*), "javax.naming.NamingException"},
+		{"removeFromEnvironment", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, removeFromEnvironment, $Object*, $String*), "javax.naming.NamingException"},
+		{"rename", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, rename, void, $String*, $String*), "javax.naming.NamingException"},
+		{"rename", "(Ljavax/naming/Name;Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, rename, void, $Name*, $Name*), "javax.naming.NamingException"},
+		{"search", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(HierMemDirCtx, search, $NamingEnumeration*, $String*, $Attributes*), "javax.naming.NamingException"},
+		{"search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(HierMemDirCtx, search, $NamingEnumeration*, $Name*, $Attributes*), "javax.naming.NamingException"},
+		{"search", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(HierMemDirCtx, search, $NamingEnumeration*, $String*, $Attributes*, $StringArray*), "javax.naming.NamingException"},
+		{"search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(HierMemDirCtx, search, $NamingEnumeration*, $Name*, $Attributes*, $StringArray*), "javax.naming.NamingException"},
+		{"search", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(HierMemDirCtx, search, $NamingEnumeration*, $Name*, $String*, $SearchControls*), "javax.naming.NamingException"},
+		{"search", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(HierMemDirCtx, search, $NamingEnumeration*, $Name*, $String*, $ObjectArray*, $SearchControls*), "javax.naming.NamingException"},
+		{"search", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(HierMemDirCtx, search, $NamingEnumeration*, $String*, $String*, $SearchControls*), "javax.naming.NamingException"},
+		{"search", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(HierMemDirCtx, search, $NamingEnumeration*, $String*, $String*, $ObjectArray*, $SearchControls*), "javax.naming.NamingException"},
+		{"setIgnoreCase", "(Z)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, setIgnoreCase, void, bool)},
+		{"setNameParser", "(Ljavax/naming/NameParser;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, setNameParser, void, $NameParser*)},
+		{"setReadOnly", "(Ljavax/naming/NamingException;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, setReadOnly, void, $NamingException*)},
+		{"unbind", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, unbind, void, $String*), "javax.naming.NamingException"},
+		{"unbind", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx, unbind, void, $Name*), "javax.naming.NamingException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jndi.toolkit.dir.HierMemDirCtx$HierContextEnumerator", "com.sun.jndi.toolkit.dir.HierMemDirCtx", "HierContextEnumerator", $PUBLIC},
+		{"com.sun.jndi.toolkit.dir.HierMemDirCtx$FlatBindings", "com.sun.jndi.toolkit.dir.HierMemDirCtx", "FlatBindings", $PRIVATE | $FINAL},
+		{"com.sun.jndi.toolkit.dir.HierMemDirCtx$FlatNames", "com.sun.jndi.toolkit.dir.HierMemDirCtx", "FlatNames", $PRIVATE | $FINAL},
+		{"com.sun.jndi.toolkit.dir.HierMemDirCtx$BaseFlatNames", "com.sun.jndi.toolkit.dir.HierMemDirCtx", "BaseFlatNames", $PRIVATE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.jndi.toolkit.dir.HierMemDirCtx",
+		"java.lang.Object",
+		"javax.naming.directory.DirContext",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.jndi.toolkit.dir.HierMemDirCtx$HierContextEnumerator,com.sun.jndi.toolkit.dir.HierMemDirCtx$FlatBindings,com.sun.jndi.toolkit.dir.HierMemDirCtx$FlatNames,com.sun.jndi.toolkit.dir.HierMemDirCtx$BaseFlatNames"
+	};
+	$loadClass(HierMemDirCtx, name, initialize, &classInfo$$, HierMemDirCtx::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HierMemDirCtx);
+	});
 	return class$;
 }
 

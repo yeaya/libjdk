@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Expression.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/BranchHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
@@ -33,7 +32,6 @@
 #undef NOT_IMPLEMENTED_ERR
 
 using $BranchHandle = ::com::sun::org::apache::bcel::internal::generic::BranchHandle;
-using $BranchInstruction = ::com::sun::org::apache::bcel::internal::generic::BranchInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $GOTO_W = ::com::sun::org::apache::bcel::internal::generic::GOTO_W;
 using $IFEQ = ::com::sun::org::apache::bcel::internal::generic::IFEQ;
@@ -42,7 +40,6 @@ using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::Instr
 using $CastExpr = ::com::sun::org::apache::xalan::internal::xsltc::compiler::CastExpr;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
 using $FlowList = ::com::sun::org::apache::xalan::internal::xsltc::compiler::FlowList;
-using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
 using $SymbolTable = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SymbolTable;
 using $SyntaxTreeNode = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SyntaxTreeNode;
 using $VariableRefBase = ::com::sun::org::apache::xalan::internal::xsltc::compiler::VariableRefBase;
@@ -68,48 +65,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _Expression_FieldInfo_[] = {
-	{"_type", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PROTECTED, $field(Expression, _type)},
-	{"_trueList", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/FlowList;", nullptr, $PROTECTED, $field(Expression, _trueList)},
-	{"_falseList", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/FlowList;", nullptr, $PROTECTED, $field(Expression, _falseList)},
-	{}
-};
-
-$MethodInfo _Expression_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Expression, init$, void)},
-	{"backPatchFalseList", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $virtualMethod(Expression, backPatchFalseList, void, $InstructionHandle*)},
-	{"backPatchTrueList", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $virtualMethod(Expression, backPatchTrueList, void, $InstructionHandle*)},
-	{"compile", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)Lcom/sun/org/apache/bcel/internal/generic/InstructionList;", nullptr, $PUBLIC | $FINAL, $method(Expression, compile, $InstructionList*, $ClassGenerator*, $MethodGenerator*)},
-	{"desynthesize", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Expression, desynthesize, void, $ClassGenerator*, $MethodGenerator*)},
-	{"evaluateAtCompileTime", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Expression, evaluateAtCompileTime, $Object*)},
-	{"getFalseList", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/FlowList;", nullptr, $PUBLIC, $virtualMethod(Expression, getFalseList, $FlowList*)},
-	{"getTrueList", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/FlowList;", nullptr, $PUBLIC, $virtualMethod(Expression, getTrueList, $FlowList*)},
-	{"getType", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(Expression, getType, $Type*)},
-	{"hasLastCall", "()Z", nullptr, $PUBLIC, $virtualMethod(Expression, hasLastCall, bool)},
-	{"hasPositionCall", "()Z", nullptr, $PUBLIC, $virtualMethod(Expression, hasPositionCall, bool)},
-	{"lookupPrimop", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodType;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodType;", nullptr, $PUBLIC, $virtualMethod(Expression, lookupPrimop, $MethodType*, $SymbolTable*, $String*, $MethodType*)},
-	{"startIterator", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Expression, startIterator, void, $ClassGenerator*, $MethodGenerator*)},
-	{"synthesize", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Expression, synthesize, void, $ClassGenerator*, $MethodGenerator*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Expression, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"translateDesynthesized", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Expression, translateDesynthesized, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(Expression, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _Expression_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Expression",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.SyntaxTreeNode",
-	nullptr,
-	_Expression_FieldInfo_,
-	_Expression_MethodInfo_
-};
-
-$Object* allocate$Expression($Class* clazz) {
-	return $of($alloc(Expression));
-}
-
 $String* Expression::toString() {
 	 return this->$SyntaxTreeNode::toString();
 }
@@ -133,7 +88,7 @@ bool Expression::hasLastCall() {
 }
 
 $Object* Expression::evaluateAtCompileTime() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Type* Expression::typeCheck($SymbolTable* stable) {
@@ -141,14 +96,14 @@ $Type* Expression::typeCheck($SymbolTable* stable) {
 }
 
 void Expression::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ErrorMsg);
-	$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::NOT_IMPLEMENTED_ERR, $of($of(this)->getClass()), static_cast<$SyntaxTreeNode*>(this)));
-	$nc($(getParser()))->reportError($Constants::FATAL, msg);
+	$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::NOT_IMPLEMENTED_ERR, $of(this)->getClass(), this));
+	$$nc(getParser())->reportError($Constants::FATAL, msg);
 }
 
 $InstructionList* Expression::compile($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InstructionList, result, nullptr);
 	$var($InstructionList, save, $nc(methodGen)->getInstructionList());
 	methodGen->setInstructionList($assign(result, $new($InstructionList)));
@@ -165,13 +120,13 @@ void Expression::translateDesynthesized($ClassGenerator* classGen, $MethodGenera
 }
 
 void Expression::startIterator($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($NodeSetType, this->_type) == false) {
 		return;
 	}
 	$var(Expression, expr, this);
 	if ($instanceOf($CastExpr, expr)) {
-		$assign(expr, $nc(($cast($CastExpr, expr)))->getExpr());
+		$assign(expr, $cast($CastExpr, expr)->getExpr());
 	}
 	if ($instanceOf($VariableRefBase, expr) == false) {
 		$var($InstructionList, il, $nc(methodGen)->getInstructionList());
@@ -181,20 +136,20 @@ void Expression::startIterator($ClassGenerator* classGen, $MethodGenerator* meth
 }
 
 void Expression::synthesize($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	$init($Constants);
 	$nc(this->_trueList)->backPatch($($nc(il)->append($Constants::ICONST_1)));
-	$var($BranchHandle, truec, $nc(il)->append(static_cast<$BranchInstruction*>($$new($GOTO_W, nullptr))));
+	$var($BranchHandle, truec, il->append($$new($GOTO_W, nullptr)));
 	$nc(this->_falseList)->backPatch($(il->append($Constants::ICONST_0)));
 	$nc(truec)->setTarget($(il->append($Constants::NOP)));
 }
 
 void Expression::desynthesize($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
-	$nc(this->_falseList)->add($($nc(il)->append(static_cast<$BranchInstruction*>($$new($IFEQ, nullptr)))));
+	$nc(this->_falseList)->add($($nc(il)->append($$new($IFEQ, nullptr))));
 }
 
 $FlowList* Expression::getFalseList() {
@@ -214,7 +169,7 @@ void Expression::backPatchTrueList($InstructionHandle* ih) {
 }
 
 $MethodType* Expression::lookupPrimop($SymbolTable* stable, $String* op, $MethodType* ctype) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodType, result, nullptr);
 	$var($List, primop, $nc(stable)->lookupPrimop(op));
 	if (primop != nullptr) {
@@ -229,7 +184,7 @@ $MethodType* Expression::lookupPrimop($SymbolTable* stable, $String* op, $Method
 			if (result == nullptr) {
 				$assign(result, ptype);
 			}
-			int32_t distance = $nc(ctype)->distanceTo(ptype);
+			int32_t distance = ctype->distanceTo(ptype);
 			if (distance < minDistance) {
 				minDistance = distance;
 				$assign(result, ptype);
@@ -243,7 +198,44 @@ Expression::Expression() {
 }
 
 $Class* Expression::load$($String* name, bool initialize) {
-	$loadClass(Expression, name, initialize, &_Expression_ClassInfo_, allocate$Expression);
+	$FieldInfo fieldInfos$$[] = {
+		{"_type", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PROTECTED, $field(Expression, _type)},
+		{"_trueList", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/FlowList;", nullptr, $PROTECTED, $field(Expression, _trueList)},
+		{"_falseList", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/FlowList;", nullptr, $PROTECTED, $field(Expression, _falseList)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Expression, init$, void)},
+		{"backPatchFalseList", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $virtualMethod(Expression, backPatchFalseList, void, $InstructionHandle*)},
+		{"backPatchTrueList", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $virtualMethod(Expression, backPatchTrueList, void, $InstructionHandle*)},
+		{"compile", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)Lcom/sun/org/apache/bcel/internal/generic/InstructionList;", nullptr, $PUBLIC | $FINAL, $method(Expression, compile, $InstructionList*, $ClassGenerator*, $MethodGenerator*)},
+		{"desynthesize", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Expression, desynthesize, void, $ClassGenerator*, $MethodGenerator*)},
+		{"evaluateAtCompileTime", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Expression, evaluateAtCompileTime, $Object*)},
+		{"getFalseList", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/FlowList;", nullptr, $PUBLIC, $virtualMethod(Expression, getFalseList, $FlowList*)},
+		{"getTrueList", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/FlowList;", nullptr, $PUBLIC, $virtualMethod(Expression, getTrueList, $FlowList*)},
+		{"getType", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(Expression, getType, $Type*)},
+		{"hasLastCall", "()Z", nullptr, $PUBLIC, $virtualMethod(Expression, hasLastCall, bool)},
+		{"hasPositionCall", "()Z", nullptr, $PUBLIC, $virtualMethod(Expression, hasPositionCall, bool)},
+		{"lookupPrimop", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodType;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodType;", nullptr, $PUBLIC, $virtualMethod(Expression, lookupPrimop, $MethodType*, $SymbolTable*, $String*, $MethodType*)},
+		{"startIterator", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Expression, startIterator, void, $ClassGenerator*, $MethodGenerator*)},
+		{"synthesize", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Expression, synthesize, void, $ClassGenerator*, $MethodGenerator*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Expression, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"translateDesynthesized", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Expression, translateDesynthesized, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(Expression, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Expression",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.SyntaxTreeNode",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Expression, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Expression);
+	});
 	return class$;
 }
 

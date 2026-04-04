@@ -22,6 +22,7 @@ class ISO2022_KR$Holder : public ::java::lang::Object {
 	$class(ISO2022_KR$Holder, 0, ::java::lang::Object)
 public:
 	ISO2022_KR$Holder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::nio::charset::Charset* ksc5601_cs;
 };

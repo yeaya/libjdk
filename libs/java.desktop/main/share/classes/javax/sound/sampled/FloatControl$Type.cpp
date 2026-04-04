@@ -1,5 +1,4 @@
 #include <javax/sound/sampled/FloatControl$Type.h>
-
 #include <javax/sound/sampled/Control$Type.h>
 #include <javax/sound/sampled/FloatControl.h>
 #include <jcpp.h>
@@ -24,50 +23,6 @@ namespace javax {
 	namespace sound {
 		namespace sampled {
 
-$FieldInfo _FloatControl$Type_FieldInfo_[] = {
-	{"MASTER_GAIN", "Ljavax/sound/sampled/FloatControl$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FloatControl$Type, MASTER_GAIN)},
-	{"AUX_SEND", "Ljavax/sound/sampled/FloatControl$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FloatControl$Type, AUX_SEND)},
-	{"AUX_RETURN", "Ljavax/sound/sampled/FloatControl$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FloatControl$Type, AUX_RETURN)},
-	{"REVERB_SEND", "Ljavax/sound/sampled/FloatControl$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FloatControl$Type, REVERB_SEND)},
-	{"REVERB_RETURN", "Ljavax/sound/sampled/FloatControl$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FloatControl$Type, REVERB_RETURN)},
-	{"VOLUME", "Ljavax/sound/sampled/FloatControl$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FloatControl$Type, VOLUME)},
-	{"PAN", "Ljavax/sound/sampled/FloatControl$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FloatControl$Type, PAN)},
-	{"BALANCE", "Ljavax/sound/sampled/FloatControl$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FloatControl$Type, BALANCE)},
-	{"SAMPLE_RATE", "Ljavax/sound/sampled/FloatControl$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FloatControl$Type, SAMPLE_RATE)},
-	{}
-};
-
-$MethodInfo _FloatControl$Type_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(FloatControl$Type, init$, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _FloatControl$Type_InnerClassesInfo_[] = {
-	{"javax.sound.sampled.FloatControl$Type", "javax.sound.sampled.FloatControl", "Type", $PUBLIC | $STATIC},
-	{"javax.sound.sampled.Control$Type", "javax.sound.sampled.Control", "Type", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _FloatControl$Type_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.sound.sampled.FloatControl$Type",
-	"javax.sound.sampled.Control$Type",
-	nullptr,
-	_FloatControl$Type_FieldInfo_,
-	_FloatControl$Type_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FloatControl$Type_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.sound.sampled.FloatControl"
-};
-
-$Object* allocate$FloatControl$Type($Class* clazz) {
-	return $of($alloc(FloatControl$Type));
-}
-
 FloatControl$Type* FloatControl$Type::MASTER_GAIN = nullptr;
 FloatControl$Type* FloatControl$Type::AUX_SEND = nullptr;
 FloatControl$Type* FloatControl$Type::AUX_RETURN = nullptr;
@@ -82,7 +37,7 @@ void FloatControl$Type::init$($String* name) {
 	$Control$Type::init$(name);
 }
 
-void clinit$FloatControl$Type($Class* class$) {
+void FloatControl$Type::clinit$($Class* clazz) {
 	$assignStatic(FloatControl$Type::MASTER_GAIN, $new(FloatControl$Type, "Master Gain"_s));
 	$assignStatic(FloatControl$Type::AUX_SEND, $new(FloatControl$Type, "AUX Send"_s));
 	$assignStatic(FloatControl$Type::AUX_RETURN, $new(FloatControl$Type, "AUX Return"_s));
@@ -98,7 +53,45 @@ FloatControl$Type::FloatControl$Type() {
 }
 
 $Class* FloatControl$Type::load$($String* name, bool initialize) {
-	$loadClass(FloatControl$Type, name, initialize, &_FloatControl$Type_ClassInfo_, clinit$FloatControl$Type, allocate$FloatControl$Type);
+	$FieldInfo fieldInfos$$[] = {
+		{"MASTER_GAIN", "Ljavax/sound/sampled/FloatControl$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FloatControl$Type, MASTER_GAIN)},
+		{"AUX_SEND", "Ljavax/sound/sampled/FloatControl$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FloatControl$Type, AUX_SEND)},
+		{"AUX_RETURN", "Ljavax/sound/sampled/FloatControl$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FloatControl$Type, AUX_RETURN)},
+		{"REVERB_SEND", "Ljavax/sound/sampled/FloatControl$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FloatControl$Type, REVERB_SEND)},
+		{"REVERB_RETURN", "Ljavax/sound/sampled/FloatControl$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FloatControl$Type, REVERB_RETURN)},
+		{"VOLUME", "Ljavax/sound/sampled/FloatControl$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FloatControl$Type, VOLUME)},
+		{"PAN", "Ljavax/sound/sampled/FloatControl$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FloatControl$Type, PAN)},
+		{"BALANCE", "Ljavax/sound/sampled/FloatControl$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FloatControl$Type, BALANCE)},
+		{"SAMPLE_RATE", "Ljavax/sound/sampled/FloatControl$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FloatControl$Type, SAMPLE_RATE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(FloatControl$Type, init$, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.sound.sampled.FloatControl$Type", "javax.sound.sampled.FloatControl", "Type", $PUBLIC | $STATIC},
+		{"javax.sound.sampled.Control$Type", "javax.sound.sampled.Control", "Type", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.sound.sampled.FloatControl$Type",
+		"javax.sound.sampled.Control$Type",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.sound.sampled.FloatControl"
+	};
+	$loadClass(FloatControl$Type, name, initialize, &classInfo$$, FloatControl$Type::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FloatControl$Type);
+	});
 	return class$;
 }
 

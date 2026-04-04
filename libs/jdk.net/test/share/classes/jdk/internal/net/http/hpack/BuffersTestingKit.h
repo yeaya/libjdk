@@ -42,6 +42,7 @@ class $export BuffersTestingKit : public ::java::lang::Object {
 	$class(BuffersTestingKit, 0, ::java::lang::Object)
 public:
 	BuffersTestingKit();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::nio::ByteBuffer* concat(::java::lang::Iterable* split);
 	static ::java::nio::ByteBuffer* concat(::java::lang::Iterable* split, ::java::util::function::Function* concatBufferFactory);

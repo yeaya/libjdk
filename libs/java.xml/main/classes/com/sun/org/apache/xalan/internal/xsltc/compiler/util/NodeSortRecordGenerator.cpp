@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/NodeSortRecordGenerator.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ALOAD.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet.h>
@@ -26,32 +25,6 @@ namespace com {
 							namespace compiler {
 								namespace util {
 
-$FieldInfo _NodeSortRecordGenerator_FieldInfo_[] = {
-	{"TRANSLET_INDEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NodeSortRecordGenerator, TRANSLET_INDEX)},
-	{"_aloadTranslet", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(NodeSortRecordGenerator, _aloadTranslet)},
-	{}
-};
-
-$MethodInfo _NodeSortRecordGenerator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;)V", nullptr, $PUBLIC, $method(NodeSortRecordGenerator, init$, void, $String*, $String*, $String*, int32_t, $StringArray*, $Stylesheet*)},
-	{"isExternal", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSortRecordGenerator, isExternal, bool)},
-	{"loadTranslet", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(NodeSortRecordGenerator, loadTranslet, $Instruction*)},
-	{}
-};
-
-$ClassInfo _NodeSortRecordGenerator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.NodeSortRecordGenerator",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.ClassGenerator",
-	nullptr,
-	_NodeSortRecordGenerator_FieldInfo_,
-	_NodeSortRecordGenerator_MethodInfo_
-};
-
-$Object* allocate$NodeSortRecordGenerator($Class* clazz) {
-	return $of($alloc(NodeSortRecordGenerator));
-}
-
 void NodeSortRecordGenerator::init$($String* className, $String* superClassName, $String* fileName, int32_t accessFlags, $StringArray* interfaces, $Stylesheet* stylesheet) {
 	$ClassGenerator::init$(className, superClassName, fileName, accessFlags, interfaces, stylesheet);
 	$set(this, _aloadTranslet, $new($ALOAD, NodeSortRecordGenerator::TRANSLET_INDEX));
@@ -69,7 +42,28 @@ NodeSortRecordGenerator::NodeSortRecordGenerator() {
 }
 
 $Class* NodeSortRecordGenerator::load$($String* name, bool initialize) {
-	$loadClass(NodeSortRecordGenerator, name, initialize, &_NodeSortRecordGenerator_ClassInfo_, allocate$NodeSortRecordGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"TRANSLET_INDEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NodeSortRecordGenerator, TRANSLET_INDEX)},
+		{"_aloadTranslet", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(NodeSortRecordGenerator, _aloadTranslet)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;)V", nullptr, $PUBLIC, $method(NodeSortRecordGenerator, init$, void, $String*, $String*, $String*, int32_t, $StringArray*, $Stylesheet*)},
+		{"isExternal", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSortRecordGenerator, isExternal, bool)},
+		{"loadTranslet", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(NodeSortRecordGenerator, loadTranslet, $Instruction*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.NodeSortRecordGenerator",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.ClassGenerator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NodeSortRecordGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NodeSortRecordGenerator));
+	});
 	return class$;
 }
 

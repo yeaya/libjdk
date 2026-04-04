@@ -1,5 +1,4 @@
 #include <sun/awt/X11/AwtScreenData.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/AwtGraphicsConfigData.h>
 #include <sun/awt/X11/Native.h>
@@ -12,65 +11,14 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $AwtGraphicsConfigData = ::sun::awt::X11::AwtGraphicsConfigData;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _AwtScreenData_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(AwtScreenData, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(AwtScreenData, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(AwtScreenData, pData)},
-	{}
-};
-
-$MethodInfo _AwtScreenData_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(AwtScreenData, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AwtScreenData, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AwtScreenData, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(AwtScreenData, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(AwtScreenData, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(AwtScreenData, getSize, int32_t)},
-	{"get_blackpixel", "()J", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, get_blackpixel, int64_t)},
-	{"get_configs", "(I)J", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, get_configs, int64_t, int32_t)},
-	{"get_configs", "()J", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, get_configs, int64_t)},
-	{"get_defaultConfig", "(I)Lsun/awt/X11/AwtGraphicsConfigData;", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, get_defaultConfig, $AwtGraphicsConfigData*, int32_t)},
-	{"get_defaultConfig", "()J", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, get_defaultConfig, int64_t)},
-	{"get_numConfigs", "()I", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, get_numConfigs, int32_t)},
-	{"get_root", "()J", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, get_root, int64_t)},
-	{"get_whitepixel", "()J", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, get_whitepixel, int64_t)},
-	{"set_blackpixel", "(J)V", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, set_blackpixel, void, int64_t)},
-	{"set_configs", "(J)V", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, set_configs, void, int64_t)},
-	{"set_defaultConfig", "(J)V", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, set_defaultConfig, void, int64_t)},
-	{"set_numConfigs", "(I)V", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, set_numConfigs, void, int32_t)},
-	{"set_root", "(J)V", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, set_root, void, int64_t)},
-	{"set_whitepixel", "(J)V", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, set_whitepixel, void, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AwtScreenData, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AwtScreenData, zero, void)},
-	{}
-};
-
-$ClassInfo _AwtScreenData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.AwtScreenData",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_AwtScreenData_FieldInfo_,
-	_AwtScreenData_MethodInfo_
-};
-
-$Object* allocate$AwtScreenData($Class* clazz) {
-	return $of($alloc(AwtScreenData));
-}
 
 int32_t AwtScreenData::getSize() {
 	$init(AwtScreenData);
@@ -109,7 +57,7 @@ void AwtScreenData::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -215,7 +163,7 @@ $String* AwtScreenData::getFieldsAsString() {
 }
 
 $Object* AwtScreenData::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void AwtScreenData::zero() {
@@ -230,7 +178,51 @@ AwtScreenData::AwtScreenData() {
 }
 
 $Class* AwtScreenData::load$($String* name, bool initialize) {
-	$loadClass(AwtScreenData, name, initialize, &_AwtScreenData_ClassInfo_, allocate$AwtScreenData);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(AwtScreenData, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(AwtScreenData, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(AwtScreenData, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(AwtScreenData, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AwtScreenData, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AwtScreenData, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(AwtScreenData, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(AwtScreenData, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(AwtScreenData, getSize, int32_t)},
+		{"get_blackpixel", "()J", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, get_blackpixel, int64_t)},
+		{"get_configs", "(I)J", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, get_configs, int64_t, int32_t)},
+		{"get_configs", "()J", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, get_configs, int64_t)},
+		{"get_defaultConfig", "(I)Lsun/awt/X11/AwtGraphicsConfigData;", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, get_defaultConfig, $AwtGraphicsConfigData*, int32_t)},
+		{"get_defaultConfig", "()J", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, get_defaultConfig, int64_t)},
+		{"get_numConfigs", "()I", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, get_numConfigs, int32_t)},
+		{"get_root", "()J", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, get_root, int64_t)},
+		{"get_whitepixel", "()J", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, get_whitepixel, int64_t)},
+		{"set_blackpixel", "(J)V", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, set_blackpixel, void, int64_t)},
+		{"set_configs", "(J)V", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, set_configs, void, int64_t)},
+		{"set_defaultConfig", "(J)V", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, set_defaultConfig, void, int64_t)},
+		{"set_numConfigs", "(I)V", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, set_numConfigs, void, int32_t)},
+		{"set_root", "(J)V", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, set_root, void, int64_t)},
+		{"set_whitepixel", "(J)V", nullptr, $PUBLIC, $virtualMethod(AwtScreenData, set_whitepixel, void, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AwtScreenData, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AwtScreenData, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.AwtScreenData",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AwtScreenData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AwtScreenData);
+	});
 	return class$;
 }
 

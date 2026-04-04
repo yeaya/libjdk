@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/LocaleNames_ti.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,31 +13,12 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _LocaleNames_ti_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_ti, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_ti, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _LocaleNames_ti_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.LocaleNames_ti",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_LocaleNames_ti_MethodInfo_
-};
-
-$Object* allocate$LocaleNames_ti($Class* clazz) {
-	return $of($alloc(LocaleNames_ti));
-}
-
 void LocaleNames_ti::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* LocaleNames_ti::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, metaValue_BY, u"ቤላሩስ"_s);
 	$var($String, metaValue_DE, u"ጀርመን"_s);
 	$var($String, metaValue_GB, u"እንግሊዝ"_s);
@@ -51,1508 +31,1508 @@ $ObjectArray2* LocaleNames_ti::getContents() {
 	$var($String, metaValue_VN, u"ቬትናም"_s);
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("PR"_s),
-			$of(u"ፖርታ ሪኮ"_s)
+			"PR"_s,
+			u"ፖርታ ሪኮ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PS"_s),
-			$of(u"የፍልስጤም ግዛት"_s)
+			"PS"_s,
+			u"የፍልስጤም ግዛት"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ps"_s),
-			$of(u"ፓሽቶ"_s)
+			"ps"_s,
+			u"ፓሽቶ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PT"_s),
-			$of(u"ፖርቱጋል"_s)
+			"PT"_s,
+			u"ፖርቱጋል"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt"_s),
-			$of(u"ፖርቹጋል"_s)
+			"pt"_s,
+			u"ፖርቹጋል"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PW"_s),
-			$of(u"ፓላው"_s)
+			"PW"_s,
+			u"ፓላው"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fil"_s),
-			$of(u"ፊሊፕን"_s)
+			"fil"_s,
+			u"ፊሊፕን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PY"_s),
-			$of(u"ፓራጓይ"_s)
+			"PY"_s,
+			u"ፓራጓይ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt_BR"_s),
-			$of(u"ፖርቹጋል (ናይ ብራዚል)"_s)
+			"pt_BR"_s,
+			u"ፖርቹጋል (ናይ ብራዚል)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("QA"_s),
-			$of(u"ቀጠር"_s)
+			"QA"_s,
+			u"ቀጠር"_s
 		}),
 		$$new($ObjectArray, {
-			$of("QO"_s),
-			$of(u"ወጣ ያለ ኦሽኒያ"_s)
+			"QO"_s,
+			u"ወጣ ያለ ኦሽኒያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AC"_s),
-			$of(u"አሴንሽን ደሴት"_s)
+			"AC"_s,
+			u"አሴንሽን ደሴት"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AD"_s),
-			$of(u"ኣንዶራ"_s)
+			"AD"_s,
+			u"ኣንዶራ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AE"_s),
-			$of(u"ሕቡራት ኢማራት ዓረብ"_s)
+			"AE"_s,
+			u"ሕቡራት ኢማራት ዓረብ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AF"_s),
-			$of(u"ኣፍጋኒስታን"_s)
+			"AF"_s,
+			u"ኣፍጋኒስታን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("af"_s),
-			$of(u"ኣፍሪከንስ"_s)
+			"af"_s,
+			u"ኣፍሪከንስ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AG"_s),
-			$of(u"ኣንቲጓን ባርቡዳን"_s)
+			"AG"_s,
+			u"ኣንቲጓን ባርቡዳን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AI"_s),
-			$of(u"ኣንጊላ"_s)
+			"AI"_s,
+			u"ኣንጊላ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AL"_s),
-			$of(u"ኣልቤኒያ"_s)
+			"AL"_s,
+			u"ኣልቤኒያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AM"_s),
-			$of(u"ኣርሜኒያ"_s)
+			"AM"_s,
+			u"ኣርሜኒያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("am"_s),
-			$of(u"ኣምሓርኛ"_s)
+			"am"_s,
+			u"ኣምሓርኛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AO"_s),
-			$of(u"ኣንጎላ"_s)
+			"AO"_s,
+			u"ኣንጎላ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AQ"_s),
-			$of(u"ኣንታርክቲካ"_s)
+			"AQ"_s,
+			u"ኣንታርክቲካ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("001"_s),
-			$of(u"ዓለም"_s)
+			"001"_s,
+			u"ዓለም"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AR"_s),
-			$of(u"ኣርጀንቲና"_s)
+			"AR"_s,
+			u"ኣርጀንቲና"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ar"_s),
-			$of(u"ዓረብ"_s)
+			"ar"_s,
+			u"ዓረብ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Ethi"_s),
-			$of(u"ፊደል"_s)
+			"Ethi"_s,
+			u"ፊደል"_s
 		}),
 		$$new($ObjectArray, {
-			$of("002"_s),
-			$of(u"አፍሪካ"_s)
+			"002"_s,
+			u"አፍሪካ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AS"_s),
-			$of(u"ኣሜሪካ ሳሞኣ"_s)
+			"AS"_s,
+			u"ኣሜሪካ ሳሞኣ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AT"_s),
-			$of(u"ኦስትሪያ"_s)
+			"AT"_s,
+			u"ኦስትሪያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RE"_s),
-			$of(u"ሪዩኒየን"_s)
+			"RE"_s,
+			u"ሪዩኒየን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AU"_s),
-			$of(u"ኣውስትራሊያ"_s)
+			"AU"_s,
+			u"ኣውስትራሊያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("005"_s),
-			$of(u"ደቡባዊ አሜሪካ"_s)
+			"005"_s,
+			u"ደቡባዊ አሜሪካ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AW"_s),
-			$of(u"ኣሩባ"_s)
+			"AW"_s,
+			u"ኣሩባ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AX"_s),
-			$of(u"ደሴታት ኣላንድ"_s)
+			"AX"_s,
+			u"ደሴታት ኣላንድ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("009"_s),
-			$of(u"ኦሽኒያ"_s)
+			"009"_s,
+			u"ኦሽኒያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AZ"_s),
-			$of(u"ኣዘርበጃን"_s)
+			"AZ"_s,
+			u"ኣዘርበጃን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("az"_s),
-			$of(u"ኣዘርባጃን"_s)
+			"az"_s,
+			u"ኣዘርባጃን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RO"_s),
-			$of(u"ሮሜኒያ"_s)
+			"RO"_s,
+			u"ሮሜኒያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ro"_s),
-			$of(u"ሮማኒያን"_s)
+			"ro"_s,
+			u"ሮማኒያን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BA"_s),
-			$of(u"ቦዝንያን ሄርዘጎቪናን"_s)
+			"BA"_s,
+			u"ቦዝንያን ሄርዘጎቪናን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BB"_s),
-			$of(u"ባርባዶስ"_s)
+			"BB"_s,
+			u"ባርባዶስ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RS"_s),
-			$of(u"ሰርቢያ"_s)
+			"RS"_s,
+			u"ሰርቢያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BD"_s),
-			$of(u"ባንግላዲሽ"_s)
+			"BD"_s,
+			u"ባንግላዲሽ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("be"_s),
-			$of(metaValue_BY)
+			"be"_s,
+			metaValue_BY
 		}),
 		$$new($ObjectArray, {
-			$of("BE"_s),
-			$of(u"ቤልጀም"_s)
+			"BE"_s,
+			u"ቤልጀም"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RU"_s),
-			$of(u"ራሺያ"_s)
+			"RU"_s,
+			u"ራሺያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ru"_s),
-			$of(u"ሩስያ"_s)
+			"ru"_s,
+			u"ሩስያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BF"_s),
-			$of(u"ቡርኪና ፋሶ"_s)
+			"BF"_s,
+			u"ቡርኪና ፋሶ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BG"_s),
-			$of(u"ቡልጋሪያ"_s)
+			"BG"_s,
+			u"ቡልጋሪያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RW"_s),
-			$of(u"ሩዋንዳ"_s)
+			"RW"_s,
+			u"ሩዋንዳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bg"_s),
-			$of(u"ቡልጋሪኛ"_s)
+			"bg"_s,
+			u"ቡልጋሪኛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BH"_s),
-			$of(u"ባሕሬን"_s)
+			"BH"_s,
+			u"ባሕሬን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BI"_s),
-			$of(u"ቡሩንዲ"_s)
+			"BI"_s,
+			u"ቡሩንዲ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BJ"_s),
-			$of(u"ቤኒን"_s)
+			"BJ"_s,
+			u"ቤኒን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BL"_s),
-			$of(u"ቅዱስ ባርተለሚይ"_s)
+			"BL"_s,
+			u"ቅዱስ ባርተለሚይ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BM"_s),
-			$of(u"ቤርሙዳ"_s)
+			"BM"_s,
+			u"ቤርሙዳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BN"_s),
-			$of(u"ብሩነይ"_s)
+			"BN"_s,
+			u"ብሩነይ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bn"_s),
-			$of(u"ባንጋላ"_s)
+			"bn"_s,
+			u"ባንጋላ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BO"_s),
-			$of(u"ቦሊቪያ"_s)
+			"BO"_s,
+			u"ቦሊቪያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SA"_s),
-			$of(u"ስዑዲ ዓረብ"_s)
+			"SA"_s,
+			u"ስዑዲ ዓረብ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BQ"_s),
-			$of(u"ካሪቢያን ኔዘርላንድስ"_s)
+			"BQ"_s,
+			u"ካሪቢያን ኔዘርላንድስ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SB"_s),
-			$of(u"ሰሎሞን ደሴት"_s)
+			"SB"_s,
+			u"ሰሎሞን ደሴት"_s
 		}),
 		$$new($ObjectArray, {
-			$of("011"_s),
-			$of(u"ምዕራባዊ አፍሪካ"_s)
+			"011"_s,
+			u"ምዕራባዊ አፍሪካ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BR"_s),
-			$of(u"ብራዚል"_s)
+			"BR"_s,
+			u"ብራዚል"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SC"_s),
-			$of(u"ሲሼልስ"_s)
+			"SC"_s,
+			u"ሲሼልስ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("br"_s),
-			$of(u"ብሬቶን"_s)
+			"br"_s,
+			u"ብሬቶን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SD"_s),
-			$of(metaValue_SD)
+			"SD"_s,
+			metaValue_SD
 		}),
 		$$new($ObjectArray, {
-			$of("BS"_s),
-			$of(u"ባሃማስ"_s)
+			"BS"_s,
+			u"ባሃማስ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bs"_s),
-			$of(u"ቦስኒያን"_s)
+			"bs"_s,
+			u"ቦስኒያን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BT"_s),
-			$of(u"ቡታን"_s)
+			"BT"_s,
+			u"ቡታን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SE"_s),
-			$of(u"ስዊድን"_s)
+			"SE"_s,
+			u"ስዊድን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("014"_s),
-			$of(u"ምስራቃዊ አፍሪካ"_s)
+			"014"_s,
+			u"ምስራቃዊ አፍሪካ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("015"_s),
-			$of(u"ሰሜናዊ አፍሪካ"_s)
+			"015"_s,
+			u"ሰሜናዊ አፍሪካ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BV"_s),
-			$of(u"ደሴት ቡቬት"_s)
+			"BV"_s,
+			u"ደሴት ቡቬት"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SG"_s),
-			$of(u"ሲንጋፖር"_s)
+			"SG"_s,
+			u"ሲንጋፖር"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BW"_s),
-			$of(u"ቦትስዋና"_s)
+			"BW"_s,
+			u"ቦትስዋና"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SH"_s),
-			$of(u"ሴንት ሄለና"_s)
+			"SH"_s,
+			u"ሴንት ሄለና"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sh"_s),
-			$of(u"ሰርቦ- ክሮዊታን"_s)
+			"sh"_s,
+			u"ሰርቦ- ክሮዊታን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("017"_s),
-			$of(u"መካከለኛ አፍሪካ"_s)
+			"017"_s,
+			u"መካከለኛ አፍሪካ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SI"_s),
-			$of(u"ስሎቬኒያ"_s)
+			"SI"_s,
+			u"ስሎቬኒያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("si"_s),
-			$of(u"ሲንሃላ"_s)
+			"si"_s,
+			u"ሲንሃላ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BY"_s),
-			$of(metaValue_BY)
+			"BY"_s,
+			metaValue_BY
 		}),
 		$$new($ObjectArray, {
-			$of("018"_s),
-			$of(u"ደቡባዊ አፍሪካ"_s)
+			"018"_s,
+			u"ደቡባዊ አፍሪካ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SJ"_s),
-			$of(u"ስቫልባርድን ጃን ማየንን"_s)
+			"SJ"_s,
+			u"ስቫልባርድን ጃን ማየንን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("019"_s),
-			$of(u"አሜሪካዎች"_s)
+			"019"_s,
+			u"አሜሪካዎች"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BZ"_s),
-			$of(u"ቤሊዝ"_s)
+			"BZ"_s,
+			u"ቤሊዝ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SK"_s),
-			$of(u"ስሎቫኪያ"_s)
+			"SK"_s,
+			u"ስሎቫኪያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sk"_s),
-			$of(u"ስሎቫክ"_s)
+			"sk"_s,
+			u"ስሎቫክ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SL"_s),
-			$of(u"ሴራሊዮን"_s)
+			"SL"_s,
+			u"ሴራሊዮን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sl"_s),
-			$of(u"ስሎቪኒያ"_s)
+			"sl"_s,
+			u"ስሎቪኒያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SM"_s),
-			$of(u"ሳን ማሪኖ"_s)
+			"SM"_s,
+			u"ሳን ማሪኖ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SN"_s),
-			$of(u"ሴኔጋል"_s)
+			"SN"_s,
+			u"ሴኔጋል"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SO"_s),
-			$of(u"ሱማሌ"_s)
+			"SO"_s,
+			u"ሱማሌ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CA"_s),
-			$of(u"ካናዳ"_s)
+			"CA"_s,
+			u"ካናዳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ca"_s),
-			$of(u"ካታላን"_s)
+			"ca"_s,
+			u"ካታላን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sq"_s),
-			$of(u"ኣልበንየን"_s)
+			"sq"_s,
+			u"ኣልበንየን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SR"_s),
-			$of(u"ሱሪናም"_s)
+			"SR"_s,
+			u"ሱሪናም"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sr"_s),
-			$of(u"ሰርብያኛ"_s)
+			"sr"_s,
+			u"ሰርብያኛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CC"_s),
-			$of(u"ኮኮስ ኬሊንግ ደሴቶች"_s)
+			"CC"_s,
+			u"ኮኮስ ኬሊንግ ደሴቶች"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SS"_s),
-			$of(u"ደቡብ ሱዳን"_s)
+			"SS"_s,
+			u"ደቡብ ሱዳን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CD"_s),
-			$of(u"ኮንጎ"_s)
+			"CD"_s,
+			u"ኮንጎ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ST"_s),
-			$of(u"ሳኦ ቶሜን ፕሪንሲፔን"_s)
+			"ST"_s,
+			u"ሳኦ ቶሜን ፕሪንሲፔን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("st"_s),
-			$of(u"ሰሴቶ"_s)
+			"st"_s,
+			u"ሰሴቶ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("su"_s),
-			$of(metaValue_SD)
+			"su"_s,
+			metaValue_SD
 		}),
 		$$new($ObjectArray, {
-			$of("CF"_s),
-			$of(u"ማእከላዊ አፍሪቃ ሪፖብሊክ"_s)
+			"CF"_s,
+			u"ማእከላዊ አፍሪቃ ሪፖብሊክ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SV"_s),
-			$of(u"ኤል ሳልቫዶር"_s)
+			"SV"_s,
+			u"ኤል ሳልቫዶር"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sv"_s),
-			$of(u"ስዊድንኛ"_s)
+			"sv"_s,
+			u"ስዊድንኛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CG"_s),
-			$of(u"ኮንጎ ሪፓብሊክ"_s)
+			"CG"_s,
+			u"ኮንጎ ሪፓብሊክ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sw"_s),
-			$of(u"ስዋሂሊ"_s)
+			"sw"_s,
+			u"ስዋሂሊ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CH"_s),
-			$of(u"ስዊዘርላንድ"_s)
+			"CH"_s,
+			u"ስዊዘርላንድ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SX"_s),
-			$of(u"ሲንት ማርቲን"_s)
+			"SX"_s,
+			u"ሲንት ማርቲን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CI"_s),
-			$of(u"ኮት ዲቯር"_s)
+			"CI"_s,
+			u"ኮት ዲቯር"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SY"_s),
-			$of(u"ሲሪያ"_s)
+			"SY"_s,
+			u"ሲሪያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SZ"_s),
-			$of(u"ኢስዋቲኒ"_s)
+			"SZ"_s,
+			u"ኢስዋቲኒ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CK"_s),
-			$of(u"ደሴታት ኩክ"_s)
+			"CK"_s,
+			u"ደሴታት ኩክ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CL"_s),
-			$of(u"ቺሊ"_s)
+			"CL"_s,
+			u"ቺሊ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CM"_s),
-			$of(u"ካሜሮን"_s)
+			"CM"_s,
+			u"ካሜሮን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CN"_s),
-			$of(u"ቻይና"_s)
+			"CN"_s,
+			u"ቻይና"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CO"_s),
-			$of(u"ኮሎምቢያ"_s)
+			"CO"_s,
+			u"ኮሎምቢያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CP"_s),
-			$of(u"ክሊፐርቶን ደሴት"_s)
+			"CP"_s,
+			u"ክሊፐርቶን ደሴት"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TA"_s),
-			$of(u"ትሪስን ዳ ኩንሃ"_s)
+			"TA"_s,
+			u"ትሪስን ዳ ኩንሃ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ta"_s),
-			$of(u"ታሚልኛ"_s)
+			"ta"_s,
+			u"ታሚልኛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("021"_s),
-			$of(u"ሰሜናዊ አሜሪካ"_s)
+			"021"_s,
+			u"ሰሜናዊ አሜሪካ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("142"_s),
-			$of(u"እስያ"_s)
+			"142"_s,
+			u"እስያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CR"_s),
-			$of(u"ኮስታ ሪካ"_s)
+			"CR"_s,
+			u"ኮስታ ሪካ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TC"_s),
-			$of(u"ደሴታት ቱርክን ካይኮስን"_s)
+			"TC"_s,
+			u"ደሴታት ቱርክን ካይኮስን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TD"_s),
-			$of(u"ጫድ"_s)
+			"TD"_s,
+			u"ጫድ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cs"_s),
-			$of(u"ቼክ"_s)
+			"cs"_s,
+			u"ቼክ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("te"_s),
-			$of(u"ተሉጉኛ"_s)
+			"te"_s,
+			u"ተሉጉኛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("145"_s),
-			$of(u"ምዕራባዊ እስያ"_s)
+			"145"_s,
+			u"ምዕራባዊ እስያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CU"_s),
-			$of(u"ኩባ"_s)
+			"CU"_s,
+			u"ኩባ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TF"_s),
-			$of(u"ናይ ፈረንሳይ ደቡባዊ ግዝኣታት"_s)
+			"TF"_s,
+			u"ናይ ፈረንሳይ ደቡባዊ ግዝኣታት"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CV"_s),
-			$of(u"ኬፕ ቬርዴ"_s)
+			"CV"_s,
+			u"ኬፕ ቬርዴ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TG"_s),
-			$of(u"ቶጐ"_s)
+			"TG"_s,
+			u"ቶጐ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CW"_s),
-			$of(u"ኩራካዎ"_s)
+			"CW"_s,
+			u"ኩራካዎ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TH"_s),
-			$of(u"ታይላንድ"_s)
+			"TH"_s,
+			u"ታይላንድ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("th"_s),
-			$of(u"ታይኛ"_s)
+			"th"_s,
+			u"ታይኛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CX"_s),
-			$of(u"ደሴት ክሪስማስ"_s)
+			"CX"_s,
+			u"ደሴት ክሪስማስ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ti"_s),
-			$of(u"ትግር"_s)
+			"ti"_s,
+			u"ትግር"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CY"_s),
-			$of(u"ሳይፕረስ"_s)
+			"CY"_s,
+			u"ሳይፕረስ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TJ"_s),
-			$of(u"ታጃኪስታን"_s)
+			"TJ"_s,
+			u"ታጃኪስታን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cy"_s),
-			$of(u"ወልሽ"_s)
+			"cy"_s,
+			u"ወልሽ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("029"_s),
-			$of(u"ካሪቢያን"_s)
+			"029"_s,
+			u"ካሪቢያን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CZ"_s),
-			$of(u"ቼክ ሪፓብሊክ"_s)
+			"CZ"_s,
+			u"ቼክ ሪፓብሊክ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TK"_s),
-			$of(u"ቶክላው"_s)
+			"TK"_s,
+			u"ቶክላው"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tk"_s),
-			$of(u"ቱርክሜን"_s)
+			"tk"_s,
+			u"ቱርክሜን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TL"_s),
-			$of(u"ምብራቕ ቲሞር"_s)
+			"TL"_s,
+			u"ምብራቕ ቲሞር"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TM"_s),
-			$of(u"ቱርክሜኒስታን"_s)
+			"TM"_s,
+			u"ቱርክሜኒስታን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TN"_s),
-			$of(u"ቱኒዚያ"_s)
+			"TN"_s,
+			u"ቱኒዚያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TO"_s),
-			$of(u"ቶንጋ"_s)
+			"TO"_s,
+			u"ቶንጋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("da"_s),
-			$of(u"ዳኒሽ"_s)
+			"da"_s,
+			u"ዳኒሽ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tr"_s),
-			$of(metaValue_TR)
+			"tr"_s,
+			metaValue_TR
 		}),
 		$$new($ObjectArray, {
-			$of("TR"_s),
-			$of(metaValue_TR)
+			"TR"_s,
+			metaValue_TR
 		}),
 		$$new($ObjectArray, {
-			$of("pt_PT"_s),
-			$of(u"ፖርቹጋል (ናይ ፖርቱጋል)"_s)
+			"pt_PT"_s,
+			u"ፖርቹጋል (ናይ ፖርቱጋል)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TT"_s),
-			$of(u"ትሪኒዳድን ቶባጎን"_s)
+			"TT"_s,
+			u"ትሪኒዳድን ቶባጎን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de"_s),
-			$of(metaValue_DE)
+			"de"_s,
+			metaValue_DE
 		}),
 		$$new($ObjectArray, {
-			$of("DE"_s),
-			$of(metaValue_DE)
+			"DE"_s,
+			metaValue_DE
 		}),
 		$$new($ObjectArray, {
-			$of("TV"_s),
-			$of(u"ቱቫሉ"_s)
+			"TV"_s,
+			u"ቱቫሉ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DG"_s),
-			$of(u"ዲየጎ ጋርሺያ"_s)
+			"DG"_s,
+			u"ዲየጎ ጋርሺያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TW"_s),
-			$of(u"ታይዋን"_s)
+			"TW"_s,
+			u"ታይዋን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tw"_s),
-			$of(u"ትዊ"_s)
+			"tw"_s,
+			u"ትዊ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DJ"_s),
-			$of(u"ጂቡቲ"_s)
+			"DJ"_s,
+			u"ጂቡቲ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TZ"_s),
-			$of(u"ታንዛኒያ"_s)
+			"TZ"_s,
+			u"ታንዛኒያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DK"_s),
-			$of(u"ዴንማርክ"_s)
+			"DK"_s,
+			u"ዴንማርክ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DM"_s),
-			$of(u"ዶሚኒካ"_s)
+			"DM"_s,
+			u"ዶሚኒካ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DO"_s),
-			$of(u"ዶመኒካ ሪፓብሊክ"_s)
+			"DO"_s,
+			u"ዶመኒካ ሪፓብሊክ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UA"_s),
-			$of(metaValue_UA)
+			"UA"_s,
+			metaValue_UA
 		}),
 		$$new($ObjectArray, {
-			$of("150"_s),
-			$of(u"አውሮፓ"_s)
+			"150"_s,
+			u"አውሮፓ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("151"_s),
-			$of(u"ምስራቃዊ አውሮፓ"_s)
+			"151"_s,
+			u"ምስራቃዊ አውሮፓ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("154"_s),
-			$of(u"ሰሜናዊ አውሮፓ"_s)
+			"154"_s,
+			u"ሰሜናዊ አውሮፓ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("034"_s),
-			$of(u"ምሥራቃዊ እስያ"_s)
+			"034"_s,
+			u"ምሥራቃዊ እስያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("155"_s),
-			$of(u"ምዕራባዊ አውሮፓ"_s)
+			"155"_s,
+			u"ምዕራባዊ አውሮፓ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UG"_s),
-			$of(u"ዩጋንዳ"_s)
+			"UG"_s,
+			u"ዩጋንዳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es_419"_s),
-			$of(u"ስፓኒሽ (የላቲን አሜሪካ)"_s)
+			"es_419"_s,
+			u"ስፓኒሽ (የላቲን አሜሪካ)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uk"_s),
-			$of(metaValue_UA)
+			"uk"_s,
+			metaValue_UA
 		}),
 		$$new($ObjectArray, {
-			$of("039"_s),
-			$of(u"ደቡባዊ አውሮፓ"_s)
+			"039"_s,
+			u"ደቡባዊ አውሮፓ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DZ"_s),
-			$of(u"ኣልጀሪያ"_s)
+			"DZ"_s,
+			u"ኣልጀሪያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UM"_s),
-			$of(u"ናይ ኣሜሪካ ፍንትት ዝበሉ ደሴታት"_s)
+			"UM"_s,
+			u"ናይ ኣሜሪካ ፍንትት ዝበሉ ደሴታት"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EA"_s),
-			$of(u"ሲውታን ሜሊላን"_s)
+			"EA"_s,
+			u"ሲውታን ሜሊላን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ur"_s),
-			$of(u"ኡርዱ"_s)
+			"ur"_s,
+			u"ኡርዱ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EC"_s),
-			$of(u"ኢኳዶር"_s)
+			"EC"_s,
+			u"ኢኳዶር"_s
 		}),
 		$$new($ObjectArray, {
-			$of("US"_s),
-			$of(u"አሜሪካ"_s)
+			"US"_s,
+			u"አሜሪካ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EE"_s),
-			$of(u"ኤስቶኒያ"_s)
+			"EE"_s,
+			u"ኤስቶኒያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EG"_s),
-			$of(u"ግብጽ"_s)
+			"EG"_s,
+			u"ግብጽ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EH"_s),
-			$of(u"ምዕራባዊ ሳህራ"_s)
+			"EH"_s,
+			u"ምዕራባዊ ሳህራ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UY"_s),
-			$of(u"ኡራጓይ"_s)
+			"UY"_s,
+			u"ኡራጓይ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UZ"_s),
-			$of(u"ዩዝበኪስታን"_s)
+			"UZ"_s,
+			u"ዩዝበኪስታን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uz"_s),
-			$of(u"ኡዝቤክ"_s)
+			"uz"_s,
+			u"ኡዝቤክ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("el"_s),
-			$of(metaValue_GR)
+			"el"_s,
+			metaValue_GR
 		}),
 		$$new($ObjectArray, {
-			$of("en"_s),
-			$of(metaValue_GB)
+			"en"_s,
+			metaValue_GB
 		}),
 		$$new($ObjectArray, {
-			$of("eo"_s),
-			$of(u"ኤስፐራንቶ"_s)
+			"eo"_s,
+			u"ኤስፐራንቶ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VA"_s),
-			$of(u"ቫቲካን"_s)
+			"VA"_s,
+			u"ቫቲካን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ER"_s),
-			$of(u"ኤርትራ"_s)
+			"ER"_s,
+			u"ኤርትራ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VC"_s),
-			$of(u"ቅዱስ ቪንሴንትን ግሬናዲንስን"_s)
+			"VC"_s,
+			u"ቅዱስ ቪንሴንትን ግሬናዲንስን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ES"_s),
-			$of(u"ስፔን"_s)
+			"ES"_s,
+			u"ስፔን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es"_s),
-			$of(u"ስፓኒሽ"_s)
+			"es"_s,
+			u"ስፓኒሽ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ET"_s),
-			$of(u"ኢትዮጵያ"_s)
+			"ET"_s,
+			u"ኢትዮጵያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VE"_s),
-			$of(u"ቬንዙዌላ"_s)
+			"VE"_s,
+			u"ቬንዙዌላ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("et"_s),
-			$of(u"ኤስቶኒአን"_s)
+			"et"_s,
+			u"ኤስቶኒአን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eu"_s),
-			$of(u"ባስክ"_s)
+			"eu"_s,
+			u"ባስክ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VG"_s),
-			$of(u"ደሴታት ቨርጂን ብሪጣኒያ"_s)
+			"VG"_s,
+			u"ደሴታት ቨርጂን ብሪጣኒያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vi"_s),
-			$of(metaValue_VN)
+			"vi"_s,
+			metaValue_VN
 		}),
 		$$new($ObjectArray, {
-			$of("VI"_s),
-			$of(u"ቨርጂን ደሴታት ኣሜሪካ"_s)
+			"VI"_s,
+			u"ቨርጂን ደሴታት ኣሜሪካ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VN"_s),
-			$of(metaValue_VN)
+			"VN"_s,
+			metaValue_VN
 		}),
 		$$new($ObjectArray, {
-			$of("fa"_s),
-			$of(u"ፋርስ"_s)
+			"fa"_s,
+			u"ፋርስ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VU"_s),
-			$of(u"ቫኑአቱ"_s)
+			"VU"_s,
+			u"ቫኑአቱ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FI"_s),
-			$of(u"ፊንላንድ"_s)
+			"FI"_s,
+			u"ፊንላንድ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fi"_s),
-			$of(u"ፊኒሽ"_s)
+			"fi"_s,
+			u"ፊኒሽ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FJ"_s),
-			$of(u"ፊጂ"_s)
+			"FJ"_s,
+			u"ፊጂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FK"_s),
-			$of(u"ደሴታት ፎክላንድ"_s)
+			"FK"_s,
+			u"ደሴታት ፎክላንድ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FM"_s),
-			$of(u"ሚክሮኔዢያ"_s)
+			"FM"_s,
+			u"ሚክሮኔዢያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FO"_s),
-			$of(u"ደሴታት ፋራኦ"_s)
+			"FO"_s,
+			u"ደሴታት ፋራኦ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fo"_s),
-			$of(u"ፋሮስ"_s)
+			"fo"_s,
+			u"ፋሮስ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FR"_s),
-			$of(u"ፈረንሳይ"_s)
+			"FR"_s,
+			u"ፈረንሳይ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr"_s),
-			$of(u"ፈረንሳይን"_s)
+			"fr"_s,
+			u"ፈረንሳይን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("053"_s),
-			$of(u"አውስትራሊያ እና ኒው ዚላንድ"_s)
+			"053"_s,
+			u"አውስትራሊያ እና ኒው ዚላንድ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("054"_s),
-			$of(u"ሜላኔሲያ"_s)
+			"054"_s,
+			u"ሜላኔሲያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WF"_s),
-			$of(u"ዋሊስን ፉቱናን"_s)
+			"WF"_s,
+			u"ዋሊስን ፉቱናን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fy"_s),
-			$of(u"ምዕራባዊ ፍሪሰኛ"_s)
+			"fy"_s,
+			u"ምዕራባዊ ፍሪሰኛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GA"_s),
-			$of(u"ጋቦን"_s)
+			"GA"_s,
+			u"ጋቦን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ga"_s),
-			$of(u"አይሪሽ"_s)
+			"ga"_s,
+			u"አይሪሽ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GB"_s),
-			$of(metaValue_GB)
+			"GB"_s,
+			metaValue_GB
 		}),
 		$$new($ObjectArray, {
-			$of("WS"_s),
-			$of(u"ሳሞአ"_s)
+			"WS"_s,
+			u"ሳሞአ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GD"_s),
-			$of(u"ግሬናዳ"_s)
+			"GD"_s,
+			u"ግሬናዳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gd"_s),
-			$of(u"ስኮቲሽ ጋአሊክ"_s)
+			"gd"_s,
+			u"ስኮቲሽ ጋአሊክ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GE"_s),
-			$of(u"ጆርጂያ"_s)
+			"GE"_s,
+			u"ጆርጂያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GF"_s),
-			$of(u"ናይ ፈረንሳይ ጉይና"_s)
+			"GF"_s,
+			u"ናይ ፈረንሳይ ጉይና"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GG"_s),
-			$of(u"ገርንሲ"_s)
+			"GG"_s,
+			u"ገርንሲ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GH"_s),
-			$of(u"ጋና"_s)
+			"GH"_s,
+			u"ጋና"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GI"_s),
-			$of(u"ጊብራልታር"_s)
+			"GI"_s,
+			u"ጊብራልታር"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GL"_s),
-			$of(u"ግሪንላንድ"_s)
+			"GL"_s,
+			u"ግሪንላንድ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gl"_s),
-			$of(u"ጋሊሻን"_s)
+			"gl"_s,
+			u"ጋሊሻን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GM"_s),
-			$of(u"ጋምቢያ"_s)
+			"GM"_s,
+			u"ጋምቢያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GN"_s),
-			$of(u"ጊኒ"_s)
+			"GN"_s,
+			u"ጊኒ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gn"_s),
-			$of(u"ጓራኒ"_s)
+			"gn"_s,
+			u"ጓራኒ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GP"_s),
-			$of(u"ጉዋደሉፕ"_s)
+			"GP"_s,
+			u"ጉዋደሉፕ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GQ"_s),
-			$of(u"ኢኳቶሪያል ጊኒ"_s)
+			"GQ"_s,
+			u"ኢኳቶሪያል ጊኒ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GR"_s),
-			$of(metaValue_GR)
+			"GR"_s,
+			metaValue_GR
 		}),
 		$$new($ObjectArray, {
-			$of("061"_s),
-			$of(u"ፖሊኔዢያ"_s)
+			"061"_s,
+			u"ፖሊኔዢያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Latn"_s),
-			$of(u"ላቲን"_s)
+			"Latn"_s,
+			u"ላቲን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GS"_s),
-			$of(u"ደሴታት ደቡብ ጆርጂያን ደቡድ ሳንድዊችን"_s)
+			"GS"_s,
+			u"ደሴታት ደቡብ ጆርጂያን ደቡድ ሳንድዊችን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GT"_s),
-			$of(u"ጉዋቲማላ"_s)
+			"GT"_s,
+			u"ጉዋቲማላ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GU"_s),
-			$of(u"ጉዋም"_s)
+			"GU"_s,
+			u"ጉዋም"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gu"_s),
-			$of(u"ጉጃራቲ"_s)
+			"gu"_s,
+			u"ጉጃራቲ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GW"_s),
-			$of(u"ቢሳዎ"_s)
+			"GW"_s,
+			u"ቢሳዎ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xh"_s),
-			$of(u"ኢሲቆሳ"_s)
+			"xh"_s,
+			u"ኢሲቆሳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tlh"_s),
-			$of(u"ክሊንግኦንኛ"_s)
+			"tlh"_s,
+			u"ክሊንግኦንኛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GY"_s),
-			$of(u"ጉያና"_s)
+			"GY"_s,
+			u"ጉያና"_s
 		}),
 		$$new($ObjectArray, {
-			$of("XK"_s),
-			$of(u"ኮሶቮ"_s)
+			"XK"_s,
+			u"ኮሶቮ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("he"_s),
-			$of(u"እብራይስጥ"_s)
+			"he"_s,
+			u"እብራይስጥ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hi"_s),
-			$of(metaValue_IN)
+			"hi"_s,
+			metaValue_IN
 		}),
 		$$new($ObjectArray, {
-			$of("HK"_s),
-			$of(u"ፍሉይ ምምሕዳር ዞባ ሆንግ ኮንግ"_s)
+			"HK"_s,
+			u"ፍሉይ ምምሕዳር ዞባ ሆንግ ኮንግ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HM"_s),
-			$of(u"ደሴታት ሀርድን ማክዶናልድን"_s)
+			"HM"_s,
+			u"ደሴታት ሀርድን ማክዶናልድን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HN"_s),
-			$of(u"ሆንዱራስ"_s)
+			"HN"_s,
+			u"ሆንዱራስ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HR"_s),
-			$of(u"ክሮኤሽያ"_s)
+			"HR"_s,
+			u"ክሮኤሽያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hr"_s),
-			$of(u"ሮኤሽያን"_s)
+			"hr"_s,
+			u"ሮኤሽያን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HT"_s),
-			$of(u"ሀይቲ"_s)
+			"HT"_s,
+			u"ሀይቲ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("YE"_s),
-			$of(u"የመን"_s)
+			"YE"_s,
+			u"የመን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HU"_s),
-			$of(u"ሀንጋሪ"_s)
+			"HU"_s,
+			u"ሀንጋሪ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hu"_s),
-			$of(u"ሃንጋሪ"_s)
+			"hu"_s,
+			u"ሃንጋሪ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yi"_s),
-			$of(u"ዪዲሽ"_s)
+			"yi"_s,
+			u"ዪዲሽ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ia"_s),
-			$of(u"ኢንቴር ቋንቋ"_s)
+			"ia"_s,
+			u"ኢንቴር ቋንቋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IC"_s),
-			$of(u"ደሴታት ካናሪ"_s)
+			"IC"_s,
+			u"ደሴታት ካናሪ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ID"_s),
-			$of(u"ኢንዶኔዢያ"_s)
+			"ID"_s,
+			u"ኢንዶኔዢያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("YT"_s),
-			$of(u"ሜይኦቴ"_s)
+			"YT"_s,
+			u"ሜይኦቴ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("id"_s),
-			$of(u"ኢንዶኔዥያን"_s)
+			"id"_s,
+			u"ኢንዶኔዥያን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IE"_s),
-			$of(u"አየርላንድ"_s)
+			"IE"_s,
+			u"አየርላንድ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IL"_s),
-			$of(u"እስራኤል"_s)
+			"IL"_s,
+			u"እስራኤል"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IM"_s),
-			$of(u"አይል ኦፍ ማን"_s)
+			"IM"_s,
+			u"አይል ኦፍ ማን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IN"_s),
-			$of(metaValue_IN)
+			"IN"_s,
+			metaValue_IN
 		}),
 		$$new($ObjectArray, {
-			$of("IO"_s),
-			$of(u"ናይ ብሪጣኒያ ህንዲ ውቅያኖስ ግዝኣት"_s)
+			"IO"_s,
+			u"ናይ ብሪጣኒያ ህንዲ ውቅያኖስ ግዝኣት"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZA"_s),
-			$of(u"ደቡብ አፍሪካ"_s)
+			"ZA"_s,
+			u"ደቡብ አፍሪካ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IQ"_s),
-			$of(u"ኢራቅ"_s)
+			"IQ"_s,
+			u"ኢራቅ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IR"_s),
-			$of(u"ኢራን"_s)
+			"IR"_s,
+			u"ኢራን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IS"_s),
-			$of(u"ኣየርላንድ"_s)
+			"IS"_s,
+			u"ኣየርላንድ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("is"_s),
-			$of(u"ኣይስላንዲክ"_s)
+			"is"_s,
+			u"ኣይስላንዲክ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IT"_s),
-			$of(u"ጣሊያን"_s)
+			"IT"_s,
+			u"ጣሊያን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("it"_s),
-			$of(u"ጥልያን"_s)
+			"it"_s,
+			u"ጥልያን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZM"_s),
-			$of(u"ዛምቢያ"_s)
+			"ZM"_s,
+			u"ዛምቢያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ja"_s),
-			$of(metaValue_JP)
+			"ja"_s,
+			metaValue_JP
 		}),
 		$$new($ObjectArray, {
-			$of("JE"_s),
-			$of(u"ጀርሲ"_s)
+			"JE"_s,
+			u"ጀርሲ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zu"_s),
-			$of(u"ዙሉኛ"_s)
+			"zu"_s,
+			u"ዙሉኛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZW"_s),
-			$of(u"ዚምቧቤ"_s)
+			"ZW"_s,
+			u"ዚምቧቤ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JM"_s),
-			$of(u"ጃማይካ"_s)
+			"JM"_s,
+			u"ጃማይካ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JO"_s),
-			$of(u"ጆርዳን"_s)
+			"JO"_s,
+			u"ጆርዳን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JP"_s),
-			$of(metaValue_JP)
+			"JP"_s,
+			metaValue_JP
 		}),
 		$$new($ObjectArray, {
-			$of("jv"_s),
-			$of(u"ጃቫን"_s)
+			"jv"_s,
+			u"ጃቫን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ka"_s),
-			$of(u"ጆርጅየን"_s)
+			"ka"_s,
+			u"ጆርጅየን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KE"_s),
-			$of(u"ኬንያ"_s)
+			"KE"_s,
+			u"ኬንያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KG"_s),
-			$of(u"ኪርጂስታን"_s)
+			"KG"_s,
+			u"ኪርጂስታን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KH"_s),
-			$of(u"ካምቦዲያ"_s)
+			"KH"_s,
+			u"ካምቦዲያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KI"_s),
-			$of(u"ኪሪባቲ"_s)
+			"KI"_s,
+			u"ኪሪባቲ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KM"_s),
-			$of(u"ኮሞሮስ"_s)
+			"KM"_s,
+			u"ኮሞሮስ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KN"_s),
-			$of(u"ቅዱስ ኪትስን ኔቪስን"_s)
+			"KN"_s,
+			u"ቅዱስ ኪትስን ኔቪስን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kn"_s),
-			$of(u"ካማደኛ"_s)
+			"kn"_s,
+			u"ካማደኛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ko"_s),
-			$of(u"ኮሪያኛ"_s)
+			"ko"_s,
+			u"ኮሪያኛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KP"_s),
-			$of(u"ሰሜን ኮሪያ"_s)
+			"KP"_s,
+			u"ሰሜን ኮሪያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KR"_s),
-			$of(u"ደቡብ ኮሪያ"_s)
+			"KR"_s,
+			u"ደቡብ ኮሪያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ku"_s),
-			$of(u"ኩርድሽ"_s)
+			"ku"_s,
+			u"ኩርድሽ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KW"_s),
-			$of(u"ክዌት"_s)
+			"KW"_s,
+			u"ክዌት"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KY"_s),
-			$of(u"ደሴታት ኬይማን"_s)
+			"KY"_s,
+			u"ደሴታት ኬይማን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ky"_s),
-			$of(u"ኪሩጋዚ"_s)
+			"ky"_s,
+			u"ኪሩጋዚ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KZ"_s),
-			$of(u"ካዛኪስታን"_s)
+			"KZ"_s,
+			u"ካዛኪስታን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LA"_s),
-			$of(u"ላኦስ"_s)
+			"LA"_s,
+			u"ላኦስ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("la"_s),
-			$of(u"ላቲንኛ"_s)
+			"la"_s,
+			u"ላቲንኛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LB"_s),
-			$of(u"ሊባኖስ"_s)
+			"LB"_s,
+			u"ሊባኖስ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LC"_s),
-			$of(u"ሴንት ሉቺያ"_s)
+			"LC"_s,
+			u"ሴንት ሉቺያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LI"_s),
-			$of(u"ሊችተንስታይን"_s)
+			"LI"_s,
+			u"ሊችተንስታይን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LK"_s),
-			$of(u"ሲሪላንካ"_s)
+			"LK"_s,
+			u"ሲሪላንካ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LR"_s),
-			$of(u"ላይቤሪያ"_s)
+			"LR"_s,
+			u"ላይቤሪያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LS"_s),
-			$of(u"ሌሶቶ"_s)
+			"LS"_s,
+			u"ሌሶቶ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LT"_s),
-			$of(u"ሊቱዌኒያ"_s)
+			"LT"_s,
+			u"ሊቱዌኒያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lt"_s),
-			$of(u"ሊቱወኒየን"_s)
+			"lt"_s,
+			u"ሊቱወኒየን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LU"_s),
-			$of(u"ሉክሰምበርግ"_s)
+			"LU"_s,
+			u"ሉክሰምበርግ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LV"_s),
-			$of(u"ላትቪያ"_s)
+			"LV"_s,
+			u"ላትቪያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lv"_s),
-			$of(u"ላቲቪያን"_s)
+			"lv"_s,
+			u"ላቲቪያን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LY"_s),
-			$of(u"ሊቢያ"_s)
+			"LY"_s,
+			u"ሊቢያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MA"_s),
-			$of(u"ሞሮኮ"_s)
+			"MA"_s,
+			u"ሞሮኮ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MC"_s),
-			$of(u"ሞናኮ"_s)
+			"MC"_s,
+			u"ሞናኮ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MD"_s),
-			$of(u"ሞልዶቫ"_s)
+			"MD"_s,
+			u"ሞልዶቫ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ME"_s),
-			$of(u"ሞንቴኔግሮ"_s)
+			"ME"_s,
+			u"ሞንቴኔግሮ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MF"_s),
-			$of(u"ሴንት ማርቲን"_s)
+			"MF"_s,
+			u"ሴንት ማርቲን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MG"_s),
-			$of(u"ማዳጋስካር"_s)
+			"MG"_s,
+			u"ማዳጋስካር"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MH"_s),
-			$of(u"ማርሻል አይላንድ"_s)
+			"MH"_s,
+			u"ማርሻል አይላንድ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MK"_s),
-			$of(u"ሰሜን መቆዶንያ"_s)
+			"MK"_s,
+			u"ሰሜን መቆዶንያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mk"_s),
-			$of(u"መቆዶኒኛ"_s)
+			"mk"_s,
+			u"መቆዶኒኛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ML"_s),
-			$of(u"ማሊ"_s)
+			"ML"_s,
+			u"ማሊ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ml"_s),
-			$of(u"ማላይያላም"_s)
+			"ml"_s,
+			u"ማላይያላም"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MM"_s),
-			$of(u"ማያንማር"_s)
+			"MM"_s,
+			u"ማያንማር"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MN"_s),
-			$of(u"ሞንጎሊያ"_s)
+			"MN"_s,
+			u"ሞንጎሊያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MO"_s),
-			$of(u"ፍሉይ ምምሕዳር ዞባ ማካዎ"_s)
+			"MO"_s,
+			u"ፍሉይ ምምሕዳር ዞባ ማካዎ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MP"_s),
-			$of(u"ደሴታት ሰሜናዊ ማሪያና"_s)
+			"MP"_s,
+			u"ደሴታት ሰሜናዊ ማሪያና"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MQ"_s),
-			$of(u"ማርቲኒክ"_s)
+			"MQ"_s,
+			u"ማርቲኒክ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MR"_s),
-			$of(u"ሞሪቴኒያ"_s)
+			"MR"_s,
+			u"ሞሪቴኒያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mr"_s),
-			$of(u"ማራቲኛ"_s)
+			"mr"_s,
+			u"ማራቲኛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MS"_s),
-			$of(u"ሞንትሴራት"_s)
+			"MS"_s,
+			u"ሞንትሴራት"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ms"_s),
-			$of(u"ማላይ"_s)
+			"ms"_s,
+			u"ማላይ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MT"_s),
-			$of(u"ማልታ"_s)
+			"MT"_s,
+			u"ማልታ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mt"_s),
-			$of(u"ማልተዘ"_s)
+			"mt"_s,
+			u"ማልተዘ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MU"_s),
-			$of(u"ማሩሸስ"_s)
+			"MU"_s,
+			u"ማሩሸስ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MV"_s),
-			$of(u"ማልዲቭስ"_s)
+			"MV"_s,
+			u"ማልዲቭስ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MW"_s),
-			$of(u"ማላዊ"_s)
+			"MW"_s,
+			u"ማላዊ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MX"_s),
-			$of(u"ሜክሲኮ"_s)
+			"MX"_s,
+			u"ሜክሲኮ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MY"_s),
-			$of(u"ማሌዢያ"_s)
+			"MY"_s,
+			u"ማሌዢያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MZ"_s),
-			$of(u"ሞዛምቢክ"_s)
+			"MZ"_s,
+			u"ሞዛምቢክ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NA"_s),
-			$of(u"ናሚቢያ"_s)
+			"NA"_s,
+			u"ናሚቢያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NC"_s),
-			$of(u"ኒው ካሌዶኒያ"_s)
+			"NC"_s,
+			u"ኒው ካሌዶኒያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NE"_s),
-			$of(u"ኒጀር"_s)
+			"NE"_s,
+			u"ኒጀር"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ne"_s),
-			$of(u"ኔፓሊ"_s)
+			"ne"_s,
+			u"ኔፓሊ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NF"_s),
-			$of(u"ኖርፎልክ ደሴት"_s)
+			"NF"_s,
+			u"ኖርፎልክ ደሴት"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NG"_s),
-			$of(u"ናይጄሪያ"_s)
+			"NG"_s,
+			u"ናይጄሪያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NI"_s),
-			$of(u"ኒካራጓ"_s)
+			"NI"_s,
+			u"ኒካራጓ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NL"_s),
-			$of(u"ኔዘርላንድስ"_s)
+			"NL"_s,
+			u"ኔዘርላንድስ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nl"_s),
-			$of(u"ደች"_s)
+			"nl"_s,
+			u"ደች"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nn"_s),
-			$of(u"ርዌጂያን (ናይ ኝኖርስክ)"_s)
+			"nn"_s,
+			u"ርዌጂያን (ናይ ኝኖርስክ)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NO"_s),
-			$of(u"ኖርዌ"_s)
+			"NO"_s,
+			u"ኖርዌ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("no"_s),
-			$of(u"ርዌጂያን"_s)
+			"no"_s,
+			u"ርዌጂያን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NP"_s),
-			$of(u"ኔፓል"_s)
+			"NP"_s,
+			u"ኔፓል"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NR"_s),
-			$of(u"ናኡሩ"_s)
+			"NR"_s,
+			u"ናኡሩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NU"_s),
-			$of(u"ኒኡይ"_s)
+			"NU"_s,
+			u"ኒኡይ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NZ"_s),
-			$of(u"ኒው ዚላንድ"_s)
+			"NZ"_s,
+			u"ኒው ዚላንድ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("oc"_s),
-			$of(u"ኦኪታንኛ"_s)
+			"oc"_s,
+			u"ኦኪታንኛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OM"_s),
-			$of(u"ኦማን"_s)
+			"OM"_s,
+			u"ኦማን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("or"_s),
-			$of(u"ኦዲያ"_s)
+			"or"_s,
+			u"ኦዲያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PA"_s),
-			$of(u"ፓናማ"_s)
+			"PA"_s,
+			u"ፓናማ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pa"_s),
-			$of(u"ፑንጃቢ"_s)
+			"pa"_s,
+			u"ፑንጃቢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PE"_s),
-			$of(u"ፔሩ"_s)
+			"PE"_s,
+			u"ፔሩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PF"_s),
-			$of(u"ናይ ፈረንሳይ ፖሊነዝያ"_s)
+			"PF"_s,
+			u"ናይ ፈረንሳይ ፖሊነዝያ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PG"_s),
-			$of(u"ፓፑዋ ኒው ጊኒ"_s)
+			"PG"_s,
+			u"ፓፑዋ ኒው ጊኒ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PH"_s),
-			$of(u"ፊሊፒንስ"_s)
+			"PH"_s,
+			u"ፊሊፒንስ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PK"_s),
-			$of(u"ፓኪስታን"_s)
+			"PK"_s,
+			u"ፓኪስታን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PL"_s),
-			$of(u"ፖላንድ"_s)
+			"PL"_s,
+			u"ፖላንድ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pl"_s),
-			$of(u"ፖሊሽ"_s)
+			"pl"_s,
+			u"ፖሊሽ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PM"_s),
-			$of(u"ቅዱስ ፒዬርን ሚኩኤሎን"_s)
+			"PM"_s,
+			u"ቅዱስ ፒዬርን ሚኩኤሎን"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PN"_s),
-			$of(u"ፒትካኢርን"_s)
+			"PN"_s,
+			u"ፒትካኢርን"_s
 		})
 	}));
 	return data;
@@ -1562,7 +1542,22 @@ LocaleNames_ti::LocaleNames_ti() {
 }
 
 $Class* LocaleNames_ti::load$($String* name, bool initialize) {
-	$loadClass(LocaleNames_ti, name, initialize, &_LocaleNames_ti_ClassInfo_, allocate$LocaleNames_ti);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_ti, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_ti, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.LocaleNames_ti",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNames_ti, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNames_ti);
+	});
 	return class$;
 }
 

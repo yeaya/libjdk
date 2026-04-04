@@ -1,5 +1,4 @@
 #include <javax/management/openmbean/InvalidOpenTypeException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace management {
 		namespace openmbean {
-
-$FieldInfo _InvalidOpenTypeException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidOpenTypeException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InvalidOpenTypeException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidOpenTypeException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidOpenTypeException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _InvalidOpenTypeException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.openmbean.InvalidOpenTypeException",
-	"java.lang.IllegalArgumentException",
-	nullptr,
-	_InvalidOpenTypeException_FieldInfo_,
-	_InvalidOpenTypeException_MethodInfo_
-};
-
-$Object* allocate$InvalidOpenTypeException($Class* clazz) {
-	return $of($alloc(InvalidOpenTypeException));
-}
 
 void InvalidOpenTypeException::init$() {
 	$IllegalArgumentException::init$();
@@ -54,7 +29,26 @@ void InvalidOpenTypeException::throw$() {
 }
 
 $Class* InvalidOpenTypeException::load$($String* name, bool initialize) {
-	$loadClass(InvalidOpenTypeException, name, initialize, &_InvalidOpenTypeException_ClassInfo_, allocate$InvalidOpenTypeException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidOpenTypeException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidOpenTypeException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidOpenTypeException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.openmbean.InvalidOpenTypeException",
+		"java.lang.IllegalArgumentException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InvalidOpenTypeException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvalidOpenTypeException);
+	});
 	return class$;
 }
 

@@ -55,6 +55,7 @@ class $export Profile : public ::java::lang::Enum {
 public:
 	Profile();
 	static $Array<::com::sun::tools::javac::jvm::Profile>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* name, int32_t value, ::com::sun::tools::javac::jvm::Target* t, $Array<::com::sun::tools::javac::jvm::Target>* targets);
 	static ::com::sun::tools::javac::jvm::Profile* instance(::com::sun::tools::javac::util::Context* context);

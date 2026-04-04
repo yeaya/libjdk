@@ -99,7 +99,7 @@ public:
 	virtual void setVisible(bool b) override;
 	virtual $String* toString() override;
 	::java::awt::Component* this$0 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x08E9FC248AFC02FF;
+	static const int64_t serialVersionUID = (int64_t)0x08e9fc248afc02ff;
 	$volatile(int32_t) propertyListenersCount = 0;
 	::java::awt::event::ComponentListener* accessibleAWTComponentHandler = nullptr;
 	::java::awt::event::FocusListener* accessibleAWTFocusHandler = nullptr;

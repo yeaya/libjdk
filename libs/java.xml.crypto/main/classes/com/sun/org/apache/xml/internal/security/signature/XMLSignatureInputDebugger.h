@@ -83,6 +83,7 @@ class XMLSignatureInputDebugger : public ::java::lang::Object {
 	$class(XMLSignatureInputDebugger, 0, ::java::lang::Object)
 public:
 	XMLSignatureInputDebugger();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xml::internal::security::signature::XMLSignatureInput* xmlSignatureInput);
 	void init$(::com::sun::org::apache::xml::internal::security::signature::XMLSignatureInput* xmlSignatureInput, ::java::util::Set* inclusiveNamespace);
 	void canonicalizeXPathNodeSet(::org::w3c::dom::Node* currentNode);

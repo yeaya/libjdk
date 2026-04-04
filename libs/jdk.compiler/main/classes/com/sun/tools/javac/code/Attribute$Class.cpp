@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Attribute$Class.h>
-
 #include <com/sun/tools/javac/code/Attribute$Visitor.h>
 #include <com/sun/tools/javac/code/Attribute.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
@@ -10,7 +9,6 @@
 #include <com/sun/tools/javac/code/Types.h>
 #include <com/sun/tools/javac/util/List.h>
 #include <javax/lang/model/element/AnnotationValueVisitor.h>
-#include <javax/lang/model/type/TypeMirror.h>
 #include <jcpp.h>
 
 using $Attribute = ::com::sun::tools::javac::code::Attribute;
@@ -24,53 +22,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AnnotationValueVisitor = ::javax::lang::model::element::AnnotationValueVisitor;
-using $TypeMirror = ::javax::lang::model::type::TypeMirror;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Attribute$Class_FieldInfo_[] = {
-	{"classType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Attribute$Class, classType)},
-	{}
-};
-
-$MethodInfo _Attribute$Class_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Attribute$Class, init$, void, $Types*, $Type*)},
-	{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Attribute$Class, accept, void, $Attribute$Visitor*)},
-	{"accept", "(Ljavax/lang/model/element/AnnotationValueVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/AnnotationValueVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Attribute$Class, accept, $Object*, $AnnotationValueVisitor*, Object$*)},
-	{"getValue", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Attribute$Class, getValue, $Object*)},
-	{"makeClassType", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $STATIC, $staticMethod(Attribute$Class, makeClassType, $Type*, $Types*, $Type*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attribute$Class, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Attribute$Class_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Attribute$Class", "com.sun.tools.javac.code.Attribute", "Class", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Attribute$Class_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Attribute$Class",
-	"com.sun.tools.javac.code.Attribute",
-	nullptr,
-	_Attribute$Class_FieldInfo_,
-	_Attribute$Class_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Attribute$Class_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Attribute"
-};
-
-$Object* allocate$Attribute$Class($Class* clazz) {
-	return $of($alloc(Attribute$Class));
-}
 
 void Attribute$Class::accept($Attribute$Visitor* v) {
 	$nc(v)->visitClass(this);
@@ -83,10 +40,10 @@ void Attribute$Class::init$($Types* types, $Type* type) {
 
 $Type* Attribute$Class::makeClassType($Types* types, $Type* type) {
 	$init(Attribute$Class);
-	$useLocalCurrentObjectStackCache();
-	$var($Type, arg, $nc(type)->isPrimitive() ? $nc($($nc(types)->boxedClass(type)))->type : types->erasure(type));
-	$var($Type, var$0, $nc($nc(types->syms)->classType)->getEnclosingType());
-	return $new($Type$ClassType, var$0, $($List::of(arg)), $nc($nc(types->syms)->classType)->tsym);
+	$useLocalObjectStack();
+	$var($Type, arg, $nc(type)->isPrimitive() ? $nc($($nc(types)->boxedClass(type)))->type : $nc(types)->erasure(type));
+	$var($Type, var$0, $nc($nc($nc(types)->syms)->classType)->getEnclosingType());
+	return $new($Type$ClassType, var$0, $($List::of(arg)), types->syms->classType->tsym);
 }
 
 $String* Attribute$Class::toString() {
@@ -98,14 +55,48 @@ $Object* Attribute$Class::getValue() {
 }
 
 $Object* Attribute$Class::accept($AnnotationValueVisitor* v, Object$* p) {
-	return $of($nc(v)->visitType(this->classType, p));
+	return $nc(v)->visitType(this->classType, p);
 }
 
 Attribute$Class::Attribute$Class() {
 }
 
 $Class* Attribute$Class::load$($String* name, bool initialize) {
-	$loadClass(Attribute$Class, name, initialize, &_Attribute$Class_ClassInfo_, allocate$Attribute$Class);
+	$FieldInfo fieldInfos$$[] = {
+		{"classType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Attribute$Class, classType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Attribute$Class, init$, void, $Types*, $Type*)},
+		{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Attribute$Class, accept, void, $Attribute$Visitor*)},
+		{"accept", "(Ljavax/lang/model/element/AnnotationValueVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/AnnotationValueVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Attribute$Class, accept, $Object*, $AnnotationValueVisitor*, Object$*)},
+		{"getValue", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Attribute$Class, getValue, $Object*)},
+		{"makeClassType", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $STATIC, $staticMethod(Attribute$Class, makeClassType, $Type*, $Types*, $Type*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attribute$Class, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Attribute$Class", "com.sun.tools.javac.code.Attribute", "Class", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Attribute$Class",
+		"com.sun.tools.javac.code.Attribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Attribute"
+	};
+	$loadClass(Attribute$Class, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Attribute$Class);
+	});
 	return class$;
 }
 

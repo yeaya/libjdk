@@ -47,6 +47,7 @@ class $export MetalButtonUI : public ::javax::swing::plaf::basic::BasicButtonUI 
 	$class(MetalButtonUI, 0, ::javax::swing::plaf::basic::BasicButtonUI)
 public:
 	MetalButtonUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::swing::plaf::basic::BasicButtonListener* createButtonListener(::javax::swing::AbstractButton* b) override;
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* c);

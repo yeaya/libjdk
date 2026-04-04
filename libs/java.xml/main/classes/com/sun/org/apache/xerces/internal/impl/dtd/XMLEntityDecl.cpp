@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dtd/XMLEntityDecl.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -14,39 +13,6 @@ namespace com {
 					namespace internal {
 						namespace impl {
 							namespace dtd {
-
-$FieldInfo _XMLEntityDecl_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XMLEntityDecl, name)},
-	{"publicId", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XMLEntityDecl, publicId)},
-	{"systemId", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XMLEntityDecl, systemId)},
-	{"baseSystemId", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XMLEntityDecl, baseSystemId)},
-	{"notation", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XMLEntityDecl, notation)},
-	{"isPE", "Z", nullptr, $PUBLIC, $field(XMLEntityDecl, isPE)},
-	{"inExternal", "Z", nullptr, $PUBLIC, $field(XMLEntityDecl, inExternal)},
-	{"value", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XMLEntityDecl, value)},
-	{}
-};
-
-$MethodInfo _XMLEntityDecl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLEntityDecl, init$, void)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(XMLEntityDecl, clear, void)},
-	{"setValues", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $virtualMethod(XMLEntityDecl, setValues, void, $String*, $String*, $String*, $String*, $String*, bool, bool)},
-	{"setValues", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $virtualMethod(XMLEntityDecl, setValues, void, $String*, $String*, $String*, $String*, $String*, $String*, bool, bool)},
-	{}
-};
-
-$ClassInfo _XMLEntityDecl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dtd.XMLEntityDecl",
-	"java.lang.Object",
-	nullptr,
-	_XMLEntityDecl_FieldInfo_,
-	_XMLEntityDecl_MethodInfo_
-};
-
-$Object* allocate$XMLEntityDecl($Class* clazz) {
-	return $of($alloc(XMLEntityDecl));
-}
 
 void XMLEntityDecl::init$() {
 }
@@ -81,7 +47,35 @@ XMLEntityDecl::XMLEntityDecl() {
 }
 
 $Class* XMLEntityDecl::load$($String* name, bool initialize) {
-	$loadClass(XMLEntityDecl, name, initialize, &_XMLEntityDecl_ClassInfo_, allocate$XMLEntityDecl);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XMLEntityDecl, name)},
+		{"publicId", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XMLEntityDecl, publicId)},
+		{"systemId", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XMLEntityDecl, systemId)},
+		{"baseSystemId", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XMLEntityDecl, baseSystemId)},
+		{"notation", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XMLEntityDecl, notation)},
+		{"isPE", "Z", nullptr, $PUBLIC, $field(XMLEntityDecl, isPE)},
+		{"inExternal", "Z", nullptr, $PUBLIC, $field(XMLEntityDecl, inExternal)},
+		{"value", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XMLEntityDecl, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLEntityDecl, init$, void)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(XMLEntityDecl, clear, void)},
+		{"setValues", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $virtualMethod(XMLEntityDecl, setValues, void, $String*, $String*, $String*, $String*, $String*, bool, bool)},
+		{"setValues", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $virtualMethod(XMLEntityDecl, setValues, void, $String*, $String*, $String*, $String*, $String*, $String*, bool, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dtd.XMLEntityDecl",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLEntityDecl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLEntityDecl);
+	});
 	return class$;
 }
 

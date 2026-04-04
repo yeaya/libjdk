@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/RendererStats.h>
-
 #include <sun/java2d/marlin/ArrayCacheConst$CacheStats.h>
 #include <sun/java2d/marlin/MarlinConst.h>
 #include <sun/java2d/marlin/MarlinUtils.h>
@@ -30,118 +29,11 @@ namespace sun {
 	namespace java2d {
 		namespace marlin {
 
-$FieldInfo _RendererStats_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(RendererStats, name)},
-	{"stat_cache_rowAA", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_cache_rowAA)},
-	{"stat_cache_rowAAChunk", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_cache_rowAAChunk)},
-	{"stat_cache_tiles", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_cache_tiles)},
-	{"stat_rdr_addLine", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_addLine)},
-	{"stat_rdr_addLine_skip", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_addLine_skip)},
-	{"stat_rdr_curveBreak", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_curveBreak)},
-	{"stat_rdr_curveBreak_dec", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_curveBreak_dec)},
-	{"stat_rdr_curveBreak_inc", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_curveBreak_inc)},
-	{"stat_rdr_quadBreak", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_quadBreak)},
-	{"stat_rdr_quadBreak_dec", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_quadBreak_dec)},
-	{"stat_rdr_edges", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_edges)},
-	{"stat_rdr_edges_count", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_edges_count)},
-	{"stat_rdr_edges_resizes", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_edges_resizes)},
-	{"stat_rdr_activeEdges", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_activeEdges)},
-	{"stat_rdr_activeEdges_updates", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_activeEdges_updates)},
-	{"stat_rdr_activeEdges_adds", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_activeEdges_adds)},
-	{"stat_rdr_activeEdges_adds_high", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_activeEdges_adds_high)},
-	{"stat_rdr_crossings_updates", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_crossings_updates)},
-	{"stat_rdr_crossings_sorts", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_crossings_sorts)},
-	{"stat_rdr_crossings_bsearch", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_crossings_bsearch)},
-	{"stat_rdr_crossings_msorts", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_crossings_msorts)},
-	{"stat_str_polystack_curves", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_str_polystack_curves)},
-	{"stat_str_polystack_types", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_str_polystack_types)},
-	{"stat_cpd_polystack_curves", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_cpd_polystack_curves)},
-	{"stat_cpd_polystack_types", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_cpd_polystack_types)},
-	{"stat_pcf_idxstack_indices", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_pcf_idxstack_indices)},
-	{"stat_array_dasher_dasher", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_dasher_dasher)},
-	{"stat_array_dasher_firstSegmentsBuffer", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_dasher_firstSegmentsBuffer)},
-	{"stat_array_marlincache_rowAAChunk", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_marlincache_rowAAChunk)},
-	{"stat_array_marlincache_touchedTile", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_marlincache_touchedTile)},
-	{"stat_array_renderer_alphaline", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_renderer_alphaline)},
-	{"stat_array_renderer_crossings", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_renderer_crossings)},
-	{"stat_array_renderer_aux_crossings", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_renderer_aux_crossings)},
-	{"stat_array_renderer_edgeBuckets", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_renderer_edgeBuckets)},
-	{"stat_array_renderer_edgeBucketCounts", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_renderer_edgeBucketCounts)},
-	{"stat_array_renderer_edgePtrs", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_renderer_edgePtrs)},
-	{"stat_array_renderer_aux_edgePtrs", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_renderer_aux_edgePtrs)},
-	{"stat_array_str_polystack_curves", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_str_polystack_curves)},
-	{"stat_array_str_polystack_types", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_str_polystack_types)},
-	{"stat_array_cpd_polystack_curves", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_cpd_polystack_curves)},
-	{"stat_array_cpd_polystack_types", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_cpd_polystack_types)},
-	{"stat_array_pcf_idxstack_indices", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_pcf_idxstack_indices)},
-	{"hist_rdr_edges_count", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $FINAL, $field(RendererStats, hist_rdr_edges_count)},
-	{"hist_rdr_crossings", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $FINAL, $field(RendererStats, hist_rdr_crossings)},
-	{"hist_rdr_crossings_ratio", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $FINAL, $field(RendererStats, hist_rdr_crossings_ratio)},
-	{"hist_rdr_crossings_adds", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $FINAL, $field(RendererStats, hist_rdr_crossings_adds)},
-	{"hist_rdr_crossings_msorts", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $FINAL, $field(RendererStats, hist_rdr_crossings_msorts)},
-	{"hist_rdr_crossings_msorts_adds", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $FINAL, $field(RendererStats, hist_rdr_crossings_msorts_adds)},
-	{"hist_str_polystack_curves", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $FINAL, $field(RendererStats, hist_str_polystack_curves)},
-	{"hist_tile_generator_alpha", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $FINAL, $field(RendererStats, hist_tile_generator_alpha)},
-	{"hist_tile_generator_encoding", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $FINAL, $field(RendererStats, hist_tile_generator_encoding)},
-	{"hist_tile_generator_encoding_dist", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $FINAL, $field(RendererStats, hist_tile_generator_encoding_dist)},
-	{"hist_tile_generator_encoding_ratio", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $FINAL, $field(RendererStats, hist_tile_generator_encoding_ratio)},
-	{"hist_tile_generator_encoding_runLen", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $FINAL, $field(RendererStats, hist_tile_generator_encoding_runLen)},
-	{"hist_cpd_polystack_curves", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $FINAL, $field(RendererStats, hist_cpd_polystack_curves)},
-	{"hist_pcf_idxstack_indices", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $FINAL, $field(RendererStats, hist_pcf_idxstack_indices)},
-	{"statistics", "[Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, statistics)},
-	{"mon_pre_getAATileGenerator", "Lsun/java2d/marlin/stats/Monitor;", nullptr, $FINAL, $field(RendererStats, mon_pre_getAATileGenerator)},
-	{"mon_rdr_addLine", "Lsun/java2d/marlin/stats/Monitor;", nullptr, $FINAL, $field(RendererStats, mon_rdr_addLine)},
-	{"mon_rdr_endRendering", "Lsun/java2d/marlin/stats/Monitor;", nullptr, $FINAL, $field(RendererStats, mon_rdr_endRendering)},
-	{"mon_rdr_endRendering_Y", "Lsun/java2d/marlin/stats/Monitor;", nullptr, $FINAL, $field(RendererStats, mon_rdr_endRendering_Y)},
-	{"mon_rdr_copyAARow", "Lsun/java2d/marlin/stats/Monitor;", nullptr, $FINAL, $field(RendererStats, mon_rdr_copyAARow)},
-	{"mon_pipe_renderTiles", "Lsun/java2d/marlin/stats/Monitor;", nullptr, $FINAL, $field(RendererStats, mon_pipe_renderTiles)},
-	{"mon_ptg_getAlpha", "Lsun/java2d/marlin/stats/Monitor;", nullptr, $FINAL, $field(RendererStats, mon_ptg_getAlpha)},
-	{"mon_debug", "Lsun/java2d/marlin/stats/Monitor;", nullptr, $FINAL, $field(RendererStats, mon_debug)},
-	{"monitors", "[Lsun/java2d/marlin/stats/Monitor;", nullptr, $FINAL, $field(RendererStats, monitors)},
-	{"totalOffHeapInitial", "J", nullptr, 0, $field(RendererStats, totalOffHeapInitial)},
-	{"totalOffHeap", "J", nullptr, 0, $field(RendererStats, totalOffHeap)},
-	{"totalOffHeapMax", "J", nullptr, 0, $field(RendererStats, totalOffHeapMax)},
-	{"cacheStats", "[Lsun/java2d/marlin/ArrayCacheConst$CacheStats;", nullptr, 0, $field(RendererStats, cacheStats)},
-	{}
-};
-
-$MethodInfo _RendererStats_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(RendererStats, init$, void, $String*)},
-	{"createInstance", "(Ljava/lang/Object;Ljava/lang/String;)Lsun/java2d/marlin/RendererStats;", nullptr, $STATIC, $staticMethod(RendererStats, createInstance, RendererStats*, Object$*, $String*)},
-	{"dump", "()V", nullptr, 0, $method(RendererStats, dump, void)},
-	{"dumpStats", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(RendererStats, dumpStats, void)},
-	{}
-};
-
-$InnerClassInfo _RendererStats_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.RendererStats$RendererStatsHolder", "sun.java2d.marlin.RendererStats", "RendererStatsHolder", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _RendererStats_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.RendererStats",
-	"java.lang.Object",
-	"sun.java2d.marlin.MarlinConst",
-	_RendererStats_FieldInfo_,
-	_RendererStats_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RendererStats_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.RendererStats$RendererStatsHolder,sun.java2d.marlin.RendererStats$RendererStatsHolder$1"
-};
-
-$Object* allocate$RendererStats($Class* clazz) {
-	return $of($alloc(RendererStats));
-}
-
 RendererStats* RendererStats::createInstance(Object$* parent, $String* name) {
 	$init(RendererStats);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(RendererStats, stats, $new(RendererStats, name));
-	$nc($($RendererStats$RendererStatsHolder::getInstance()))->add(parent, stats);
+	$$nc($RendererStats$RendererStatsHolder::getInstance())->add(parent, stats);
 	return stats;
 }
 
@@ -234,20 +126,20 @@ void RendererStats::init$($String* name) {
 		this->stat_cpd_polystack_curves,
 		this->stat_cpd_polystack_types,
 		this->stat_pcf_idxstack_indices,
-		static_cast<$StatLong*>(this->hist_rdr_edges_count),
-		static_cast<$StatLong*>(this->hist_rdr_crossings),
-		static_cast<$StatLong*>(this->hist_rdr_crossings_ratio),
-		static_cast<$StatLong*>(this->hist_rdr_crossings_adds),
-		static_cast<$StatLong*>(this->hist_rdr_crossings_msorts),
-		static_cast<$StatLong*>(this->hist_rdr_crossings_msorts_adds),
-		static_cast<$StatLong*>(this->hist_tile_generator_alpha),
-		static_cast<$StatLong*>(this->hist_tile_generator_encoding),
-		static_cast<$StatLong*>(this->hist_tile_generator_encoding_dist),
-		static_cast<$StatLong*>(this->hist_tile_generator_encoding_ratio),
-		static_cast<$StatLong*>(this->hist_tile_generator_encoding_runLen),
-		static_cast<$StatLong*>(this->hist_str_polystack_curves),
-		static_cast<$StatLong*>(this->hist_cpd_polystack_curves),
-		static_cast<$StatLong*>(this->hist_pcf_idxstack_indices),
+		this->hist_rdr_edges_count,
+		this->hist_rdr_crossings,
+		this->hist_rdr_crossings_ratio,
+		this->hist_rdr_crossings_adds,
+		this->hist_rdr_crossings_msorts,
+		this->hist_rdr_crossings_msorts_adds,
+		this->hist_tile_generator_alpha,
+		this->hist_tile_generator_encoding,
+		this->hist_tile_generator_encoding_dist,
+		this->hist_tile_generator_encoding_ratio,
+		this->hist_tile_generator_encoding_runLen,
+		this->hist_str_polystack_curves,
+		this->hist_cpd_polystack_curves,
+		this->hist_pcf_idxstack_indices,
 		this->stat_array_dasher_dasher,
 		this->stat_array_dasher_firstSegmentsBuffer,
 		this->stat_array_marlincache_rowAAChunk,
@@ -291,22 +183,19 @@ void RendererStats::init$($String* name) {
 }
 
 void RendererStats::dump() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MarlinUtils::logInfo($$str({"RendererContext: "_s, this->name}));
+	;
 	$init($MarlinConst);
 	if ($MarlinConst::DO_STATS) {
 		{
 			$var($StatLongArray, arr$, this->statistics);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($StatLong, stat, arr$->get(i$));
-				{
-					if ($nc(stat)->count != 0) {
-						$MarlinUtils::logInfo($(stat->toString()));
-						{
-							stat->reset();
-						}
+				if ($nc(stat)->count != 0) {
+					$MarlinUtils::logInfo($(stat->toString()));
+					{
+						stat->reset();
 					}
 				}
 			}
@@ -319,18 +208,14 @@ void RendererStats::dump() {
 		int64_t totalInitialBytes = this->totalOffHeapInitial;
 		int64_t totalCacheBytes = 0;
 		if (this->cacheStats != nullptr) {
-			{
-				$var($ArrayCacheConst$CacheStatsArray, arr$, this->cacheStats);
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					$var($ArrayCacheConst$CacheStats, stat, arr$->get(i$));
+			$var($ArrayCacheConst$CacheStatsArray, arr$, this->cacheStats);
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+				$var($ArrayCacheConst$CacheStats, stat, arr$->get(i$));
+				{
+					totalCacheBytes += $nc(stat)->dumpStats();
+					totalInitialBytes += stat->getTotalInitialBytes();
 					{
-						totalCacheBytes += $nc(stat)->dumpStats();
-						totalInitialBytes += stat->getTotalInitialBytes();
-						{
-							stat->reset();
-						}
+						stat->reset();
 					}
 				}
 			}
@@ -343,7 +228,108 @@ RendererStats::RendererStats() {
 }
 
 $Class* RendererStats::load$($String* name, bool initialize) {
-	$loadClass(RendererStats, name, initialize, &_RendererStats_ClassInfo_, allocate$RendererStats);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(RendererStats, name)},
+		{"stat_cache_rowAA", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_cache_rowAA)},
+		{"stat_cache_rowAAChunk", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_cache_rowAAChunk)},
+		{"stat_cache_tiles", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_cache_tiles)},
+		{"stat_rdr_addLine", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_addLine)},
+		{"stat_rdr_addLine_skip", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_addLine_skip)},
+		{"stat_rdr_curveBreak", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_curveBreak)},
+		{"stat_rdr_curveBreak_dec", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_curveBreak_dec)},
+		{"stat_rdr_curveBreak_inc", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_curveBreak_inc)},
+		{"stat_rdr_quadBreak", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_quadBreak)},
+		{"stat_rdr_quadBreak_dec", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_quadBreak_dec)},
+		{"stat_rdr_edges", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_edges)},
+		{"stat_rdr_edges_count", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_edges_count)},
+		{"stat_rdr_edges_resizes", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_edges_resizes)},
+		{"stat_rdr_activeEdges", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_activeEdges)},
+		{"stat_rdr_activeEdges_updates", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_activeEdges_updates)},
+		{"stat_rdr_activeEdges_adds", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_activeEdges_adds)},
+		{"stat_rdr_activeEdges_adds_high", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_activeEdges_adds_high)},
+		{"stat_rdr_crossings_updates", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_crossings_updates)},
+		{"stat_rdr_crossings_sorts", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_crossings_sorts)},
+		{"stat_rdr_crossings_bsearch", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_crossings_bsearch)},
+		{"stat_rdr_crossings_msorts", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_rdr_crossings_msorts)},
+		{"stat_str_polystack_curves", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_str_polystack_curves)},
+		{"stat_str_polystack_types", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_str_polystack_types)},
+		{"stat_cpd_polystack_curves", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_cpd_polystack_curves)},
+		{"stat_cpd_polystack_types", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_cpd_polystack_types)},
+		{"stat_pcf_idxstack_indices", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_pcf_idxstack_indices)},
+		{"stat_array_dasher_dasher", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_dasher_dasher)},
+		{"stat_array_dasher_firstSegmentsBuffer", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_dasher_firstSegmentsBuffer)},
+		{"stat_array_marlincache_rowAAChunk", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_marlincache_rowAAChunk)},
+		{"stat_array_marlincache_touchedTile", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_marlincache_touchedTile)},
+		{"stat_array_renderer_alphaline", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_renderer_alphaline)},
+		{"stat_array_renderer_crossings", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_renderer_crossings)},
+		{"stat_array_renderer_aux_crossings", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_renderer_aux_crossings)},
+		{"stat_array_renderer_edgeBuckets", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_renderer_edgeBuckets)},
+		{"stat_array_renderer_edgeBucketCounts", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_renderer_edgeBucketCounts)},
+		{"stat_array_renderer_edgePtrs", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_renderer_edgePtrs)},
+		{"stat_array_renderer_aux_edgePtrs", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_renderer_aux_edgePtrs)},
+		{"stat_array_str_polystack_curves", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_str_polystack_curves)},
+		{"stat_array_str_polystack_types", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_str_polystack_types)},
+		{"stat_array_cpd_polystack_curves", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_cpd_polystack_curves)},
+		{"stat_array_cpd_polystack_types", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_cpd_polystack_types)},
+		{"stat_array_pcf_idxstack_indices", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, stat_array_pcf_idxstack_indices)},
+		{"hist_rdr_edges_count", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $FINAL, $field(RendererStats, hist_rdr_edges_count)},
+		{"hist_rdr_crossings", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $FINAL, $field(RendererStats, hist_rdr_crossings)},
+		{"hist_rdr_crossings_ratio", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $FINAL, $field(RendererStats, hist_rdr_crossings_ratio)},
+		{"hist_rdr_crossings_adds", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $FINAL, $field(RendererStats, hist_rdr_crossings_adds)},
+		{"hist_rdr_crossings_msorts", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $FINAL, $field(RendererStats, hist_rdr_crossings_msorts)},
+		{"hist_rdr_crossings_msorts_adds", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $FINAL, $field(RendererStats, hist_rdr_crossings_msorts_adds)},
+		{"hist_str_polystack_curves", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $FINAL, $field(RendererStats, hist_str_polystack_curves)},
+		{"hist_tile_generator_alpha", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $FINAL, $field(RendererStats, hist_tile_generator_alpha)},
+		{"hist_tile_generator_encoding", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $FINAL, $field(RendererStats, hist_tile_generator_encoding)},
+		{"hist_tile_generator_encoding_dist", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $FINAL, $field(RendererStats, hist_tile_generator_encoding_dist)},
+		{"hist_tile_generator_encoding_ratio", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $FINAL, $field(RendererStats, hist_tile_generator_encoding_ratio)},
+		{"hist_tile_generator_encoding_runLen", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $FINAL, $field(RendererStats, hist_tile_generator_encoding_runLen)},
+		{"hist_cpd_polystack_curves", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $FINAL, $field(RendererStats, hist_cpd_polystack_curves)},
+		{"hist_pcf_idxstack_indices", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $FINAL, $field(RendererStats, hist_pcf_idxstack_indices)},
+		{"statistics", "[Lsun/java2d/marlin/stats/StatLong;", nullptr, $FINAL, $field(RendererStats, statistics)},
+		{"mon_pre_getAATileGenerator", "Lsun/java2d/marlin/stats/Monitor;", nullptr, $FINAL, $field(RendererStats, mon_pre_getAATileGenerator)},
+		{"mon_rdr_addLine", "Lsun/java2d/marlin/stats/Monitor;", nullptr, $FINAL, $field(RendererStats, mon_rdr_addLine)},
+		{"mon_rdr_endRendering", "Lsun/java2d/marlin/stats/Monitor;", nullptr, $FINAL, $field(RendererStats, mon_rdr_endRendering)},
+		{"mon_rdr_endRendering_Y", "Lsun/java2d/marlin/stats/Monitor;", nullptr, $FINAL, $field(RendererStats, mon_rdr_endRendering_Y)},
+		{"mon_rdr_copyAARow", "Lsun/java2d/marlin/stats/Monitor;", nullptr, $FINAL, $field(RendererStats, mon_rdr_copyAARow)},
+		{"mon_pipe_renderTiles", "Lsun/java2d/marlin/stats/Monitor;", nullptr, $FINAL, $field(RendererStats, mon_pipe_renderTiles)},
+		{"mon_ptg_getAlpha", "Lsun/java2d/marlin/stats/Monitor;", nullptr, $FINAL, $field(RendererStats, mon_ptg_getAlpha)},
+		{"mon_debug", "Lsun/java2d/marlin/stats/Monitor;", nullptr, $FINAL, $field(RendererStats, mon_debug)},
+		{"monitors", "[Lsun/java2d/marlin/stats/Monitor;", nullptr, $FINAL, $field(RendererStats, monitors)},
+		{"totalOffHeapInitial", "J", nullptr, 0, $field(RendererStats, totalOffHeapInitial)},
+		{"totalOffHeap", "J", nullptr, 0, $field(RendererStats, totalOffHeap)},
+		{"totalOffHeapMax", "J", nullptr, 0, $field(RendererStats, totalOffHeapMax)},
+		{"cacheStats", "[Lsun/java2d/marlin/ArrayCacheConst$CacheStats;", nullptr, 0, $field(RendererStats, cacheStats)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(RendererStats, init$, void, $String*)},
+		{"createInstance", "(Ljava/lang/Object;Ljava/lang/String;)Lsun/java2d/marlin/RendererStats;", nullptr, $STATIC, $staticMethod(RendererStats, createInstance, RendererStats*, Object$*, $String*)},
+		{"dump", "()V", nullptr, 0, $method(RendererStats, dump, void)},
+		{"dumpStats", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(RendererStats, dumpStats, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.RendererStats$RendererStatsHolder", "sun.java2d.marlin.RendererStats", "RendererStatsHolder", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.RendererStats",
+		"java.lang.Object",
+		"sun.java2d.marlin.MarlinConst",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.RendererStats$RendererStatsHolder,sun.java2d.marlin.RendererStats$RendererStatsHolder$1"
+	};
+	$loadClass(RendererStats, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RendererStats);
+	});
 	return class$;
 }
 

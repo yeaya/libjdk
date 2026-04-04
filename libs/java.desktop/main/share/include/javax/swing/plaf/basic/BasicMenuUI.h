@@ -69,6 +69,7 @@ class $import BasicMenuUI : public ::javax::swing::plaf::basic::BasicMenuItemUI 
 	$class(BasicMenuUI, 0, ::javax::swing::plaf::basic::BasicMenuItemUI)
 public:
 	BasicMenuUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void appendPath($Array<::javax::swing::MenuElement>* path, ::javax::swing::MenuElement* elem);
 	virtual ::javax::swing::event::ChangeListener* createChangeListener(::javax::swing::JComponent* c);

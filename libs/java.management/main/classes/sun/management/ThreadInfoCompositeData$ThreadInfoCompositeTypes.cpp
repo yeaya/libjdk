@@ -1,5 +1,4 @@
 #include <sun/management/ThreadInfoCompositeData$ThreadInfoCompositeTypes.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/invoke/CallSite.h>
@@ -40,7 +39,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ThreadInfo = ::java::lang::management::ThreadInfo;
-using $Type = ::java::lang::reflect::Type;
 using $Arrays = ::java::util::Arrays;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
@@ -65,29 +63,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* arg0) override {
-		 return $of($Arrays::stream($cast($ObjectArray, arg0)));
+		 return $Arrays::stream($cast($ObjectArray, arg0));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$stream>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$stream::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$stream, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$stream, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$stream::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.management.ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$stream",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$stream::load$($String* name, bool initialize) {
-	$loadClass(ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$stream, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$stream, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$stream, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.management.ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$stream",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$stream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$stream);
+	});
 	return class$;
 }
 $Class* ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$stream::class$ = nullptr;
@@ -98,73 +93,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return $of(ThreadInfoCompositeData$ThreadInfoCompositeTypes::lambda$initV6CompositeType$0(x$0));
+		 return ThreadInfoCompositeData$ThreadInfoCompositeTypes::lambda$initV6CompositeType$0(x$0);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$lambda$initV6CompositeType$0$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$lambda$initV6CompositeType$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$lambda$initV6CompositeType$0$1, init$, void)},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$lambda$initV6CompositeType$0$1, apply, $Object*, int32_t)},
-	{}
-};
-$ClassInfo ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$lambda$initV6CompositeType$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.management.ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$lambda$initV6CompositeType$0$1",
-	"java.lang.Object",
-	"java.util.function.IntFunction",
-	nullptr,
-	methodInfos
 };
 $Class* ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$lambda$initV6CompositeType$0$1::load$($String* name, bool initialize) {
-	$loadClass(ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$lambda$initV6CompositeType$0$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$lambda$initV6CompositeType$0$1, init$, void)},
+		{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$lambda$initV6CompositeType$0$1, apply, $Object*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.management.ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$lambda$initV6CompositeType$0$1",
+		"java.lang.Object",
+		"java.util.function.IntFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$lambda$initV6CompositeType$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$lambda$initV6CompositeType$0$1);
+	});
 	return class$;
 }
 $Class* ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$lambda$initV6CompositeType$0$1::class$ = nullptr;
-
-$FieldInfo _ThreadInfoCompositeData$ThreadInfoCompositeTypes_FieldInfo_[] = {
-	{"compositeTypes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Ljavax/management/openmbean/CompositeType;>;", $STATIC | $FINAL, $staticField(ThreadInfoCompositeData$ThreadInfoCompositeTypes, compositeTypes)},
-	{}
-};
-
-$MethodInfo _ThreadInfoCompositeData$ThreadInfoCompositeTypes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ThreadInfoCompositeData$ThreadInfoCompositeTypes, init$, void)},
-	{"initCompositeType", "()Ljavax/management/openmbean/CompositeType;", nullptr, $STATIC, $staticMethod(ThreadInfoCompositeData$ThreadInfoCompositeTypes, initCompositeType, $CompositeType*)},
-	{"initCompositeTypes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/Integer;Ljavax/management/openmbean/CompositeType;>;", $STATIC, $staticMethod(ThreadInfoCompositeData$ThreadInfoCompositeTypes, initCompositeTypes, $Map*)},
-	{"initV5CompositeType", "(Ljavax/management/openmbean/CompositeType;)Ljavax/management/openmbean/CompositeType;", nullptr, $STATIC, $staticMethod(ThreadInfoCompositeData$ThreadInfoCompositeTypes, initV5CompositeType, $CompositeType*, $CompositeType*)},
-	{"initV6CompositeType", "(Ljavax/management/openmbean/CompositeType;)Ljavax/management/openmbean/CompositeType;", nullptr, $STATIC, $staticMethod(ThreadInfoCompositeData$ThreadInfoCompositeTypes, initV6CompositeType, $CompositeType*, $CompositeType*)},
-	{"lambda$initV6CompositeType$0", "(I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ThreadInfoCompositeData$ThreadInfoCompositeTypes, lambda$initV6CompositeType$0, $StringArray*, int32_t)},
-	{"ofVersion", "(I)Ljavax/management/openmbean/CompositeType;", nullptr, $STATIC, $staticMethod(ThreadInfoCompositeData$ThreadInfoCompositeTypes, ofVersion, $CompositeType*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ThreadInfoCompositeData$ThreadInfoCompositeTypes_InnerClassesInfo_[] = {
-	{"sun.management.ThreadInfoCompositeData$ThreadInfoCompositeTypes", "sun.management.ThreadInfoCompositeData", "ThreadInfoCompositeTypes", $STATIC},
-	{}
-};
-
-$ClassInfo _ThreadInfoCompositeData$ThreadInfoCompositeTypes_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.management.ThreadInfoCompositeData$ThreadInfoCompositeTypes",
-	"java.lang.Object",
-	nullptr,
-	_ThreadInfoCompositeData$ThreadInfoCompositeTypes_FieldInfo_,
-	_ThreadInfoCompositeData$ThreadInfoCompositeTypes_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ThreadInfoCompositeData$ThreadInfoCompositeTypes_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.management.ThreadInfoCompositeData"
-};
-
-$Object* allocate$ThreadInfoCompositeData$ThreadInfoCompositeTypes($Class* clazz) {
-	return $of($alloc(ThreadInfoCompositeData$ThreadInfoCompositeTypes));
-}
 
 $Map* ThreadInfoCompositeData$ThreadInfoCompositeTypes::compositeTypes = nullptr;
 
@@ -178,14 +129,14 @@ $CompositeType* ThreadInfoCompositeData$ThreadInfoCompositeTypes::ofVersion(int3
 
 $Map* ThreadInfoCompositeData$ThreadInfoCompositeTypes::initCompositeTypes() {
 	$init(ThreadInfoCompositeData$ThreadInfoCompositeTypes);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, types, $new($HashMap));
 	$var($CompositeType, ctype, initCompositeType());
 	$init($ThreadInfoCompositeData);
 	types->put($($Integer::valueOf($ThreadInfoCompositeData::RUNTIME_VERSION)), ctype);
-	$var($Object, var$0, $of($Integer::valueOf(5)));
+	$var($Object, var$0, $Integer::valueOf(5));
 	types->put(var$0, $(initV5CompositeType(ctype)));
-	$var($Object, var$1, $of($Integer::valueOf(6)));
+	$var($Object, var$1, $Integer::valueOf(6));
 	types->put(var$1, $(initV6CompositeType(ctype)));
 	return types;
 }
@@ -203,13 +154,13 @@ $CompositeType* ThreadInfoCompositeData$ThreadInfoCompositeTypes::initCompositeT
 
 $CompositeType* ThreadInfoCompositeData$ThreadInfoCompositeTypes::initV5CompositeType($CompositeType* threadInfoCompositeType) {
 	$init(ThreadInfoCompositeData$ThreadInfoCompositeTypes);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($ThreadInfoCompositeData);
 		$var($OpenTypeArray, v5Types, $new($OpenTypeArray, $nc($ThreadInfoCompositeData::V5_ATTRIBUTES)->length));
 		for (int32_t i = 0; i < v5Types->length; ++i) {
-			$var($String, name, $nc($ThreadInfoCompositeData::V5_ATTRIBUTES)->get(i));
-			v5Types->set(i, $nc(name)->equals("stackTrace"_s) ? static_cast<$OpenType*>($$new($ArrayType, 1, $(static_cast<$OpenType*>($StackTraceElementCompositeData::v5CompositeType())))) : $($nc(threadInfoCompositeType)->getType(name)));
+			$var($String, name, $ThreadInfoCompositeData::V5_ATTRIBUTES->get(i));
+			v5Types->set(i, $nc(name)->equals("stackTrace"_s) ? $$cast($OpenType, $new($ArrayType, 1, $($StackTraceElementCompositeData::v5CompositeType()))) : $($nc(threadInfoCompositeType)->getType(name)));
 		}
 		return $new($CompositeType, "ThreadInfo"_s, "JDK 5 ThreadInfo"_s, $ThreadInfoCompositeData::V5_ATTRIBUTES, $ThreadInfoCompositeData::V5_ATTRIBUTES, v5Types);
 	} catch ($OpenDataException& e) {
@@ -220,21 +171,21 @@ $CompositeType* ThreadInfoCompositeData$ThreadInfoCompositeTypes::initV5Composit
 
 $CompositeType* ThreadInfoCompositeData$ThreadInfoCompositeTypes::initV6CompositeType($CompositeType* threadInfoCompositeType) {
 	$init(ThreadInfoCompositeData$ThreadInfoCompositeTypes);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($ThreadInfoCompositeData);
-		$var($StringArray, v6Names, $fcast($StringArray, $nc($($nc($($Stream::of($$new($StringArray2, {
+		$var($StringArray, v6Names, $cast($StringArray, $$nc($$nc($Stream::of($$new($StringArray2, {
 			$ThreadInfoCompositeData::V5_ATTRIBUTES,
 			$ThreadInfoCompositeData::V6_ATTRIBUTES
-		}))))->flatMap(static_cast<$Function*>($$new(ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$stream)))))->toArray(static_cast<$IntFunction*>($$new(ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$lambda$initV6CompositeType$0$1)))));
+		})))->flatMap($$new(ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$stream)))->toArray($$new(ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$lambda$initV6CompositeType$0$1))));
 		$var($OpenTypeArray, v6Types, $new($OpenTypeArray, $nc(v6Names)->length));
 		for (int32_t i = 0; i < v6Names->length; ++i) {
 			$var($String, name, v6Names->get(i));
 			$var($OpenType, ot, $nc(threadInfoCompositeType)->getType(name));
 			if ($nc(name)->equals("stackTrace"_s)) {
-				$assign(ot, $new($ArrayType, 1, $(static_cast<$OpenType*>($StackTraceElementCompositeData::v5CompositeType()))));
+				$assign(ot, $new($ArrayType, 1, $($StackTraceElementCompositeData::v5CompositeType())));
 			} else if (name->equals("lockedMonitors"_s)) {
-				$assign(ot, $new($ArrayType, 1, $(static_cast<$OpenType*>($MonitorInfoCompositeData::v6CompositeType()))));
+				$assign(ot, $new($ArrayType, 1, $($MonitorInfoCompositeData::v6CompositeType())));
 			}
 			v6Types->set(i, ot);
 		}
@@ -250,7 +201,7 @@ $StringArray* ThreadInfoCompositeData$ThreadInfoCompositeTypes::lambda$initV6Com
 	return $new($StringArray, x$0);
 }
 
-void clinit$ThreadInfoCompositeData$ThreadInfoCompositeTypes($Class* class$) {
+void ThreadInfoCompositeData$ThreadInfoCompositeTypes::clinit$($Class* clazz) {
 	$assignStatic(ThreadInfoCompositeData$ThreadInfoCompositeTypes::compositeTypes, ThreadInfoCompositeData$ThreadInfoCompositeTypes::initCompositeTypes());
 }
 
@@ -259,14 +210,49 @@ ThreadInfoCompositeData$ThreadInfoCompositeTypes::ThreadInfoCompositeData$Thread
 
 $Class* ThreadInfoCompositeData$ThreadInfoCompositeTypes::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$stream::classInfo$.name)) {
+		if (name->equals("sun.management.ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$stream")) {
 			return ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$stream::load$(name, initialize);
 		}
-		if (name->equals(ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$lambda$initV6CompositeType$0$1::classInfo$.name)) {
+		if (name->equals("sun.management.ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$lambda$initV6CompositeType$0$1")) {
 			return ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$lambda$initV6CompositeType$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(ThreadInfoCompositeData$ThreadInfoCompositeTypes, name, initialize, &_ThreadInfoCompositeData$ThreadInfoCompositeTypes_ClassInfo_, clinit$ThreadInfoCompositeData$ThreadInfoCompositeTypes, allocate$ThreadInfoCompositeData$ThreadInfoCompositeTypes);
+	$FieldInfo fieldInfos$$[] = {
+		{"compositeTypes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Ljavax/management/openmbean/CompositeType;>;", $STATIC | $FINAL, $staticField(ThreadInfoCompositeData$ThreadInfoCompositeTypes, compositeTypes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ThreadInfoCompositeData$ThreadInfoCompositeTypes, init$, void)},
+		{"initCompositeType", "()Ljavax/management/openmbean/CompositeType;", nullptr, $STATIC, $staticMethod(ThreadInfoCompositeData$ThreadInfoCompositeTypes, initCompositeType, $CompositeType*)},
+		{"initCompositeTypes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/Integer;Ljavax/management/openmbean/CompositeType;>;", $STATIC, $staticMethod(ThreadInfoCompositeData$ThreadInfoCompositeTypes, initCompositeTypes, $Map*)},
+		{"initV5CompositeType", "(Ljavax/management/openmbean/CompositeType;)Ljavax/management/openmbean/CompositeType;", nullptr, $STATIC, $staticMethod(ThreadInfoCompositeData$ThreadInfoCompositeTypes, initV5CompositeType, $CompositeType*, $CompositeType*)},
+		{"initV6CompositeType", "(Ljavax/management/openmbean/CompositeType;)Ljavax/management/openmbean/CompositeType;", nullptr, $STATIC, $staticMethod(ThreadInfoCompositeData$ThreadInfoCompositeTypes, initV6CompositeType, $CompositeType*, $CompositeType*)},
+		{"lambda$initV6CompositeType$0", "(I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ThreadInfoCompositeData$ThreadInfoCompositeTypes, lambda$initV6CompositeType$0, $StringArray*, int32_t)},
+		{"ofVersion", "(I)Ljavax/management/openmbean/CompositeType;", nullptr, $STATIC, $staticMethod(ThreadInfoCompositeData$ThreadInfoCompositeTypes, ofVersion, $CompositeType*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.management.ThreadInfoCompositeData$ThreadInfoCompositeTypes", "sun.management.ThreadInfoCompositeData", "ThreadInfoCompositeTypes", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.management.ThreadInfoCompositeData$ThreadInfoCompositeTypes",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.management.ThreadInfoCompositeData"
+	};
+	$loadClass(ThreadInfoCompositeData$ThreadInfoCompositeTypes, name, initialize, &classInfo$$, ThreadInfoCompositeData$ThreadInfoCompositeTypes::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ThreadInfoCompositeData$ThreadInfoCompositeTypes);
+	});
 	return class$;
 }
 

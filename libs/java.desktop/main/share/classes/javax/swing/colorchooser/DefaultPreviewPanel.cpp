@@ -1,7 +1,5 @@
 #include <javax/swing/colorchooser/DefaultPreviewPanel.h>
-
 #include <java/awt/Color.h>
-#include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -21,8 +19,6 @@
 #undef PLAIN
 
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
@@ -40,43 +36,6 @@ using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 namespace javax {
 	namespace swing {
 		namespace colorchooser {
-
-$FieldInfo _DefaultPreviewPanel_FieldInfo_[] = {
-	{"squareSize", "I", nullptr, $PRIVATE, $field(DefaultPreviewPanel, squareSize)},
-	{"squareGap", "I", nullptr, $PRIVATE, $field(DefaultPreviewPanel, squareGap)},
-	{"innerGap", "I", nullptr, $PRIVATE, $field(DefaultPreviewPanel, innerGap)},
-	{"textGap", "I", nullptr, $PRIVATE, $field(DefaultPreviewPanel, textGap)},
-	{"font", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(DefaultPreviewPanel, font)},
-	{"sampleText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DefaultPreviewPanel, sampleText)},
-	{"swatchWidth", "I", nullptr, $PRIVATE, $field(DefaultPreviewPanel, swatchWidth)},
-	{"oldColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(DefaultPreviewPanel, oldColor)},
-	{}
-};
-
-$MethodInfo _DefaultPreviewPanel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DefaultPreviewPanel, init$, void)},
-	{"getColorChooser", "()Ljavax/swing/JColorChooser;", nullptr, $PRIVATE, $method(DefaultPreviewPanel, getColorChooser, $JColorChooser*)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(DefaultPreviewPanel, getPreferredSize, $Dimension*)},
-	{"getSampleText", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(DefaultPreviewPanel, getSampleText, $String*)},
-	{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(DefaultPreviewPanel, paintComponent, void, $Graphics*)},
-	{"paintSquares", "(Ljava/awt/Graphics;I)I", nullptr, $PRIVATE, $method(DefaultPreviewPanel, paintSquares, int32_t, $Graphics*, int32_t)},
-	{"paintSwatch", "(Ljava/awt/Graphics;I)I", nullptr, $PRIVATE, $method(DefaultPreviewPanel, paintSwatch, int32_t, $Graphics*, int32_t)},
-	{"paintText", "(Ljava/awt/Graphics;I)I", nullptr, $PRIVATE, $method(DefaultPreviewPanel, paintText, int32_t, $Graphics*, int32_t)},
-	{}
-};
-
-$ClassInfo _DefaultPreviewPanel_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.colorchooser.DefaultPreviewPanel",
-	"javax.swing.JPanel",
-	nullptr,
-	_DefaultPreviewPanel_FieldInfo_,
-	_DefaultPreviewPanel_MethodInfo_
-};
-
-$Object* allocate$DefaultPreviewPanel($Class* clazz) {
-	return $of($alloc(DefaultPreviewPanel));
-}
 
 void DefaultPreviewPanel::init$() {
 	$JPanel::init$();
@@ -96,7 +55,7 @@ $JColorChooser* DefaultPreviewPanel::getColorChooser() {
 }
 
 $Dimension* DefaultPreviewPanel::getPreferredSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, host, getColorChooser());
 	if (host == nullptr) {
 		$assign(host, this);
@@ -111,14 +70,14 @@ $Dimension* DefaultPreviewPanel::getPreferredSize() {
 }
 
 void DefaultPreviewPanel::paintComponent($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->oldColor == nullptr) {
 		$set(this, oldColor, getForeground());
 	}
 	$nc(g)->setColor($(getBackground()));
 	int32_t var$0 = getWidth();
 	g->fillRect(0, 0, var$0, getHeight());
-	if ($nc($(this->getComponentOrientation()))->isLeftToRight()) {
+	if ($$nc(this->getComponentOrientation())->isLeftToRight()) {
 		int32_t squareWidth = paintSquares(g, 0);
 		int32_t textWidth = paintText(g, squareWidth);
 		paintSwatch(g, squareWidth + textWidth);
@@ -139,7 +98,7 @@ int32_t DefaultPreviewPanel::paintSwatch($Graphics* g, int32_t offsetX) {
 }
 
 int32_t DefaultPreviewPanel::paintText($Graphics* g, int32_t offsetX) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(g)->setFont($(getFont()));
 	$var($JComponent, host, getColorChooser());
 	if (host == nullptr) {
@@ -209,7 +168,7 @@ int32_t DefaultPreviewPanel::paintSquares($Graphics* g, int32_t offsetX) {
 
 $String* DefaultPreviewPanel::getSampleText() {
 	if (this->sampleText == nullptr) {
-		$set(this, sampleText, $UIManager::getString($of("ColorChooser.sampleText"_s), $(getLocale())));
+		$set(this, sampleText, $UIManager::getString("ColorChooser.sampleText"_s, $(getLocale())));
 	}
 	return this->sampleText;
 }
@@ -218,7 +177,39 @@ DefaultPreviewPanel::DefaultPreviewPanel() {
 }
 
 $Class* DefaultPreviewPanel::load$($String* name, bool initialize) {
-	$loadClass(DefaultPreviewPanel, name, initialize, &_DefaultPreviewPanel_ClassInfo_, allocate$DefaultPreviewPanel);
+	$FieldInfo fieldInfos$$[] = {
+		{"squareSize", "I", nullptr, $PRIVATE, $field(DefaultPreviewPanel, squareSize)},
+		{"squareGap", "I", nullptr, $PRIVATE, $field(DefaultPreviewPanel, squareGap)},
+		{"innerGap", "I", nullptr, $PRIVATE, $field(DefaultPreviewPanel, innerGap)},
+		{"textGap", "I", nullptr, $PRIVATE, $field(DefaultPreviewPanel, textGap)},
+		{"font", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(DefaultPreviewPanel, font)},
+		{"sampleText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DefaultPreviewPanel, sampleText)},
+		{"swatchWidth", "I", nullptr, $PRIVATE, $field(DefaultPreviewPanel, swatchWidth)},
+		{"oldColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(DefaultPreviewPanel, oldColor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DefaultPreviewPanel, init$, void)},
+		{"getColorChooser", "()Ljavax/swing/JColorChooser;", nullptr, $PRIVATE, $method(DefaultPreviewPanel, getColorChooser, $JColorChooser*)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(DefaultPreviewPanel, getPreferredSize, $Dimension*)},
+		{"getSampleText", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(DefaultPreviewPanel, getSampleText, $String*)},
+		{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(DefaultPreviewPanel, paintComponent, void, $Graphics*)},
+		{"paintSquares", "(Ljava/awt/Graphics;I)I", nullptr, $PRIVATE, $method(DefaultPreviewPanel, paintSquares, int32_t, $Graphics*, int32_t)},
+		{"paintSwatch", "(Ljava/awt/Graphics;I)I", nullptr, $PRIVATE, $method(DefaultPreviewPanel, paintSwatch, int32_t, $Graphics*, int32_t)},
+		{"paintText", "(Ljava/awt/Graphics;I)I", nullptr, $PRIVATE, $method(DefaultPreviewPanel, paintText, int32_t, $Graphics*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.colorchooser.DefaultPreviewPanel",
+		"javax.swing.JPanel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DefaultPreviewPanel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultPreviewPanel));
+	});
 	return class$;
 }
 

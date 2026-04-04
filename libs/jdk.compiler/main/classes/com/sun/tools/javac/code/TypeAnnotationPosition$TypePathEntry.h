@@ -34,6 +34,7 @@ class $export TypeAnnotationPosition$TypePathEntry : public ::java::lang::Object
 	$class(TypeAnnotationPosition$TypePathEntry, 0, ::java::lang::Object)
 public:
 	TypeAnnotationPosition$TypePathEntry();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::code::TypeAnnotationPosition$TypePathEntryKind* tag);
 	void init$(::com::sun::tools::javac::code::TypeAnnotationPosition$TypePathEntryKind* tag, int32_t arg);
 	virtual bool equals(Object$* other) override;

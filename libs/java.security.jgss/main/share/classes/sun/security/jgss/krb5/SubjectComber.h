@@ -30,6 +30,7 @@ class SubjectComber : public ::java::lang::Object {
 	$class(SubjectComber, 0, ::java::lang::Object)
 public:
 	SubjectComber();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Object* find(::javax::security::auth::Subject* subject, $String* serverPrincipal, $String* clientPrincipal, $Class* credClass);
 	static $Object* findAux(::javax::security::auth::Subject* subject, $String* serverPrincipal, $String* clientPrincipal, $Class* credClass, bool oneOnly);

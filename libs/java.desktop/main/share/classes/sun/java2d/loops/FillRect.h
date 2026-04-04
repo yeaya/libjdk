@@ -28,6 +28,7 @@ class FillRect : public ::sun::java2d::loops::GraphicsPrimitive {
 	$class(FillRect, 0, ::sun::java2d::loops::GraphicsPrimitive)
 public:
 	FillRect();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::java2d::loops::SurfaceType* srctype, ::sun::java2d::loops::CompositeType* comptype, ::sun::java2d::loops::SurfaceType* dsttype);
 	void init$(int64_t pNativePrim, ::sun::java2d::loops::SurfaceType* srctype, ::sun::java2d::loops::CompositeType* comptype, ::sun::java2d::loops::SurfaceType* dsttype);
 	virtual void FillRect$(::sun::java2d::SunGraphics2D* sg2d, ::sun::java2d::SurfaceData* dest, int32_t x, int32_t y, int32_t w, int32_t h);

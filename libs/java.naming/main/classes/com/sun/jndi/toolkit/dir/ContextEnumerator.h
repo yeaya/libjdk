@@ -22,6 +22,7 @@ class ContextEnumerator : public ::javax::naming::NamingEnumeration {
 	$class(ContextEnumerator, 0, ::javax::naming::NamingEnumeration)
 public:
 	ContextEnumerator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::naming::Context* context);
 	void init$(::javax::naming::Context* context, int32_t scope);
 	void init$(::javax::naming::Context* context, int32_t scope, $String* contextName, bool returnSelf);

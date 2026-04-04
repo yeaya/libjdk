@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/JobOriginatingUserName.h>
-
 #include <java/util/Locale.h>
 #include <javax/print/attribute/TextSyntax.h>
 #include <jcpp.h>
@@ -14,36 +13,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _JobOriginatingUserName_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobOriginatingUserName, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _JobOriginatingUserName_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/lang/String;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(JobOriginatingUserName, init$, void, $String*, $Locale*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JobOriginatingUserName, equals, bool, Object$*)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(JobOriginatingUserName, getCategory, $Class*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JobOriginatingUserName, getName, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _JobOriginatingUserName_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.JobOriginatingUserName",
-	"javax.print.attribute.TextSyntax",
-	"javax.print.attribute.PrintJobAttribute",
-	_JobOriginatingUserName_FieldInfo_,
-	_JobOriginatingUserName_MethodInfo_
-};
-
-$Object* allocate$JobOriginatingUserName($Class* clazz) {
-	return $of($alloc(JobOriginatingUserName));
-}
 
 int32_t JobOriginatingUserName::hashCode() {
 	 return this->$TextSyntax::hashCode();
@@ -81,7 +50,32 @@ JobOriginatingUserName::JobOriginatingUserName() {
 }
 
 $Class* JobOriginatingUserName::load$($String* name, bool initialize) {
-	$loadClass(JobOriginatingUserName, name, initialize, &_JobOriginatingUserName_ClassInfo_, allocate$JobOriginatingUserName);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobOriginatingUserName, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/lang/String;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(JobOriginatingUserName, init$, void, $String*, $Locale*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JobOriginatingUserName, equals, bool, Object$*)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(JobOriginatingUserName, getCategory, $Class*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JobOriginatingUserName, getName, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.JobOriginatingUserName",
+		"javax.print.attribute.TextSyntax",
+		"javax.print.attribute.PrintJobAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JobOriginatingUserName, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JobOriginatingUserName));
+	});
 	return class$;
 }
 

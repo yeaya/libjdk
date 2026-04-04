@@ -1,5 +1,4 @@
 #include <java/awt/GraphicsCallback$PaintCallback.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/GraphicsCallback.h>
@@ -16,43 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 
-$FieldInfo _GraphicsCallback$PaintCallback_FieldInfo_[] = {
-	{"instance", "Ljava/awt/GraphicsCallback$PaintCallback;", nullptr, $PRIVATE | $STATIC, $staticField(GraphicsCallback$PaintCallback, instance)},
-	{}
-};
-
-$MethodInfo _GraphicsCallback$PaintCallback_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(GraphicsCallback$PaintCallback, init$, void)},
-	{"getInstance", "()Ljava/awt/GraphicsCallback$PaintCallback;", nullptr, $STATIC, $staticMethod(GraphicsCallback$PaintCallback, getInstance, GraphicsCallback$PaintCallback*)},
-	{"run", "(Ljava/awt/Component;Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(GraphicsCallback$PaintCallback, run, void, $Component*, $Graphics*)},
-	{}
-};
-
-$InnerClassInfo _GraphicsCallback$PaintCallback_InnerClassesInfo_[] = {
-	{"java.awt.GraphicsCallback$PaintCallback", "java.awt.GraphicsCallback", "PaintCallback", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _GraphicsCallback$PaintCallback_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.awt.GraphicsCallback$PaintCallback",
-	"java.awt.GraphicsCallback",
-	nullptr,
-	_GraphicsCallback$PaintCallback_FieldInfo_,
-	_GraphicsCallback$PaintCallback_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GraphicsCallback$PaintCallback_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.GraphicsCallback"
-};
-
-$Object* allocate$GraphicsCallback$PaintCallback($Class* clazz) {
-	return $of($alloc(GraphicsCallback$PaintCallback));
-}
-
 GraphicsCallback$PaintCallback* GraphicsCallback$PaintCallback::instance = nullptr;
 
 void GraphicsCallback$PaintCallback::init$() {
@@ -68,7 +30,7 @@ GraphicsCallback$PaintCallback* GraphicsCallback$PaintCallback::getInstance() {
 	return GraphicsCallback$PaintCallback::instance;
 }
 
-void clinit$GraphicsCallback$PaintCallback($Class* class$) {
+void GraphicsCallback$PaintCallback::clinit$($Class* clazz) {
 	$assignStatic(GraphicsCallback$PaintCallback::instance, $new(GraphicsCallback$PaintCallback));
 }
 
@@ -76,7 +38,38 @@ GraphicsCallback$PaintCallback::GraphicsCallback$PaintCallback() {
 }
 
 $Class* GraphicsCallback$PaintCallback::load$($String* name, bool initialize) {
-	$loadClass(GraphicsCallback$PaintCallback, name, initialize, &_GraphicsCallback$PaintCallback_ClassInfo_, clinit$GraphicsCallback$PaintCallback, allocate$GraphicsCallback$PaintCallback);
+	$FieldInfo fieldInfos$$[] = {
+		{"instance", "Ljava/awt/GraphicsCallback$PaintCallback;", nullptr, $PRIVATE | $STATIC, $staticField(GraphicsCallback$PaintCallback, instance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(GraphicsCallback$PaintCallback, init$, void)},
+		{"getInstance", "()Ljava/awt/GraphicsCallback$PaintCallback;", nullptr, $STATIC, $staticMethod(GraphicsCallback$PaintCallback, getInstance, GraphicsCallback$PaintCallback*)},
+		{"run", "(Ljava/awt/Component;Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(GraphicsCallback$PaintCallback, run, void, $Component*, $Graphics*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.GraphicsCallback$PaintCallback", "java.awt.GraphicsCallback", "PaintCallback", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.awt.GraphicsCallback$PaintCallback",
+		"java.awt.GraphicsCallback",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.GraphicsCallback"
+	};
+	$loadClass(GraphicsCallback$PaintCallback, name, initialize, &classInfo$$, GraphicsCallback$PaintCallback::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GraphicsCallback$PaintCallback);
+	});
 	return class$;
 }
 

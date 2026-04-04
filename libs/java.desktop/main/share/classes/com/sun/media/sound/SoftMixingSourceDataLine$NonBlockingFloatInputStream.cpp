@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftMixingSourceDataLine$NonBlockingFloatInputStream.h>
-
 #include <com/sun/media/sound/AudioFloatInputStream.h>
 #include <com/sun/media/sound/SoftMixingSourceDataLine.h>
 #include <java/util/Arrays.h>
@@ -18,50 +17,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _SoftMixingSourceDataLine$NonBlockingFloatInputStream_FieldInfo_[] = {
-	{"ais", "Lcom/sun/media/sound/AudioFloatInputStream;", nullptr, 0, $field(SoftMixingSourceDataLine$NonBlockingFloatInputStream, ais)},
-	{}
-};
-
-$MethodInfo _SoftMixingSourceDataLine$NonBlockingFloatInputStream_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/AudioFloatInputStream;)V", nullptr, 0, $method(SoftMixingSourceDataLine$NonBlockingFloatInputStream, init$, void, $AudioFloatInputStream*)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(SoftMixingSourceDataLine$NonBlockingFloatInputStream, available, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SoftMixingSourceDataLine$NonBlockingFloatInputStream, close, void), "java.io.IOException"},
-	{"getFormat", "()Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC, $virtualMethod(SoftMixingSourceDataLine$NonBlockingFloatInputStream, getFormat, $AudioFormat*)},
-	{"getFrameLength", "()J", nullptr, $PUBLIC, $virtualMethod(SoftMixingSourceDataLine$NonBlockingFloatInputStream, getFrameLength, int64_t)},
-	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(SoftMixingSourceDataLine$NonBlockingFloatInputStream, mark, void, int32_t)},
-	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(SoftMixingSourceDataLine$NonBlockingFloatInputStream, markSupported, bool)},
-	{"read", "([FII)I", nullptr, $PUBLIC, $virtualMethod(SoftMixingSourceDataLine$NonBlockingFloatInputStream, read, int32_t, $floats*, int32_t, int32_t), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(SoftMixingSourceDataLine$NonBlockingFloatInputStream, reset, void), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(SoftMixingSourceDataLine$NonBlockingFloatInputStream, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _SoftMixingSourceDataLine$NonBlockingFloatInputStream_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.SoftMixingSourceDataLine$NonBlockingFloatInputStream", "com.sun.media.sound.SoftMixingSourceDataLine", "NonBlockingFloatInputStream", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SoftMixingSourceDataLine$NonBlockingFloatInputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.media.sound.SoftMixingSourceDataLine$NonBlockingFloatInputStream",
-	"com.sun.media.sound.AudioFloatInputStream",
-	nullptr,
-	_SoftMixingSourceDataLine$NonBlockingFloatInputStream_FieldInfo_,
-	_SoftMixingSourceDataLine$NonBlockingFloatInputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SoftMixingSourceDataLine$NonBlockingFloatInputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.SoftMixingSourceDataLine"
-};
-
-$Object* allocate$SoftMixingSourceDataLine$NonBlockingFloatInputStream($Class* clazz) {
-	return $of($alloc(SoftMixingSourceDataLine$NonBlockingFloatInputStream));
-}
 
 void SoftMixingSourceDataLine$NonBlockingFloatInputStream::init$($AudioFloatInputStream* ais) {
 	$AudioFloatInputStream::init$();
@@ -96,7 +51,7 @@ int32_t SoftMixingSourceDataLine$NonBlockingFloatInputStream::read($floats* b, i
 	int32_t avail = available();
 	if (len > avail) {
 		int32_t ret = $nc(this->ais)->read(b, off, avail);
-		$Arrays::fill(b, off + ret, off + len, (float)0);
+		$Arrays::fill(b, off + ret, off + len, 0);
 		return len;
 	}
 	return $nc(this->ais)->read(b, off, len);
@@ -114,7 +69,45 @@ SoftMixingSourceDataLine$NonBlockingFloatInputStream::SoftMixingSourceDataLine$N
 }
 
 $Class* SoftMixingSourceDataLine$NonBlockingFloatInputStream::load$($String* name, bool initialize) {
-	$loadClass(SoftMixingSourceDataLine$NonBlockingFloatInputStream, name, initialize, &_SoftMixingSourceDataLine$NonBlockingFloatInputStream_ClassInfo_, allocate$SoftMixingSourceDataLine$NonBlockingFloatInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"ais", "Lcom/sun/media/sound/AudioFloatInputStream;", nullptr, 0, $field(SoftMixingSourceDataLine$NonBlockingFloatInputStream, ais)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/AudioFloatInputStream;)V", nullptr, 0, $method(SoftMixingSourceDataLine$NonBlockingFloatInputStream, init$, void, $AudioFloatInputStream*)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(SoftMixingSourceDataLine$NonBlockingFloatInputStream, available, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SoftMixingSourceDataLine$NonBlockingFloatInputStream, close, void), "java.io.IOException"},
+		{"getFormat", "()Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC, $virtualMethod(SoftMixingSourceDataLine$NonBlockingFloatInputStream, getFormat, $AudioFormat*)},
+		{"getFrameLength", "()J", nullptr, $PUBLIC, $virtualMethod(SoftMixingSourceDataLine$NonBlockingFloatInputStream, getFrameLength, int64_t)},
+		{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(SoftMixingSourceDataLine$NonBlockingFloatInputStream, mark, void, int32_t)},
+		{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(SoftMixingSourceDataLine$NonBlockingFloatInputStream, markSupported, bool)},
+		{"read", "([FII)I", nullptr, $PUBLIC, $virtualMethod(SoftMixingSourceDataLine$NonBlockingFloatInputStream, read, int32_t, $floats*, int32_t, int32_t), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(SoftMixingSourceDataLine$NonBlockingFloatInputStream, reset, void), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(SoftMixingSourceDataLine$NonBlockingFloatInputStream, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.SoftMixingSourceDataLine$NonBlockingFloatInputStream", "com.sun.media.sound.SoftMixingSourceDataLine", "NonBlockingFloatInputStream", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.media.sound.SoftMixingSourceDataLine$NonBlockingFloatInputStream",
+		"com.sun.media.sound.AudioFloatInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.SoftMixingSourceDataLine"
+	};
+	$loadClass(SoftMixingSourceDataLine$NonBlockingFloatInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftMixingSourceDataLine$NonBlockingFloatInputStream);
+	});
 	return class$;
 }
 

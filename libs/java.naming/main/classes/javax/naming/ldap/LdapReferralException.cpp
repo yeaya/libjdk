@@ -1,5 +1,4 @@
 #include <javax/naming/ldap/LdapReferralException.h>
-
 #include <java/util/Hashtable.h>
 #include <javax/naming/Context.h>
 #include <javax/naming/ReferralException.h>
@@ -17,33 +16,6 @@ using $ReferralException = ::javax::naming::ReferralException;
 namespace javax {
 	namespace naming {
 		namespace ldap {
-
-$FieldInfo _LdapReferralException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapReferralException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _LdapReferralException_MethodInfo_[] = {
-	{"getReferralContext", "()Ljavax/naming/Context;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getReferralContext", "(Ljava/util/Hashtable;)Ljavax/naming/Context;", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(LdapReferralException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(LdapReferralException, init$, void)},
-	{"getReferralContext", "(Ljava/util/Hashtable;[Ljavax/naming/ldap/Control;)Ljavax/naming/Context;", "(Ljava/util/Hashtable<**>;[Ljavax/naming/ldap/Control;)Ljavax/naming/Context;", $PUBLIC | $ABSTRACT, $virtualMethod(LdapReferralException, getReferralContext, $Context*, $Hashtable*, $ControlArray*), "javax.naming.NamingException"},
-	{}
-};
-
-$ClassInfo _LdapReferralException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.naming.ldap.LdapReferralException",
-	"javax.naming.ReferralException",
-	nullptr,
-	_LdapReferralException_FieldInfo_,
-	_LdapReferralException_MethodInfo_
-};
-
-$Object* allocate$LdapReferralException($Class* clazz) {
-	return $of($alloc(LdapReferralException));
-}
 
 void LdapReferralException::init$($String* explanation) {
 	$ReferralException::init$(explanation);
@@ -64,7 +36,29 @@ void LdapReferralException::throw$() {
 }
 
 $Class* LdapReferralException::load$($String* name, bool initialize) {
-	$loadClass(LdapReferralException, name, initialize, &_LdapReferralException_ClassInfo_, allocate$LdapReferralException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapReferralException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"getReferralContext", "()Ljavax/naming/Context;", nullptr, $PUBLIC | $ABSTRACT},
+		{"getReferralContext", "(Ljava/util/Hashtable;)Ljavax/naming/Context;", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(LdapReferralException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(LdapReferralException, init$, void)},
+		{"getReferralContext", "(Ljava/util/Hashtable;[Ljavax/naming/ldap/Control;)Ljavax/naming/Context;", "(Ljava/util/Hashtable<**>;[Ljavax/naming/ldap/Control;)Ljavax/naming/Context;", $PUBLIC | $ABSTRACT, $virtualMethod(LdapReferralException, getReferralContext, $Context*, $Hashtable*, $ControlArray*), "javax.naming.NamingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.naming.ldap.LdapReferralException",
+		"javax.naming.ReferralException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LdapReferralException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LdapReferralException);
+	});
 	return class$;
 }
 

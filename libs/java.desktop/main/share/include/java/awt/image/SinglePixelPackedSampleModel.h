@@ -26,6 +26,7 @@ public:
 	using ::java::awt::image::SampleModel::getPixel;
 	using ::java::awt::image::SampleModel::getPixels;
 	using ::java::awt::image::SampleModel::getSamples;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t dataType, int32_t w, int32_t h, $ints* bitMasks);
 	void init$(int32_t dataType, int32_t w, int32_t h, int32_t scanlineStride, $ints* bitMasks);
 	virtual ::java::awt::image::SampleModel* createCompatibleSampleModel(int32_t w, int32_t h) override;

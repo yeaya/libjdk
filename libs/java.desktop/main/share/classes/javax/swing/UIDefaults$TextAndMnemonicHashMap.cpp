@@ -1,5 +1,4 @@
 #include <javax/swing/UIDefaults$TextAndMnemonicHashMap.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/util/HashMap.h>
 #include <javax/swing/UIDefaults.h>
@@ -21,48 +20,6 @@ using $HashMap = ::java::util::HashMap;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _UIDefaults$TextAndMnemonicHashMap_FieldInfo_[] = {
-	{"AND_MNEMONIC", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(UIDefaults$TextAndMnemonicHashMap, AND_MNEMONIC)},
-	{"TITLE_SUFFIX", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(UIDefaults$TextAndMnemonicHashMap, TITLE_SUFFIX)},
-	{"TEXT_SUFFIX", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(UIDefaults$TextAndMnemonicHashMap, TEXT_SUFFIX)},
-	{}
-};
-
-$MethodInfo _UIDefaults$TextAndMnemonicHashMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(UIDefaults$TextAndMnemonicHashMap, init$, void)},
-	{"composeKey", "(Ljava/lang/String;ILjava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(UIDefaults$TextAndMnemonicHashMap, composeKey, $String*, $String*, int32_t, $String*)},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UIDefaults$TextAndMnemonicHashMap, get, $Object*, Object$*)},
-	{"getIndexFromProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(UIDefaults$TextAndMnemonicHashMap, getIndexFromProperty, $String*, $String*)},
-	{"getMnemonicFromProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(UIDefaults$TextAndMnemonicHashMap, getMnemonicFromProperty, $String*, $String*)},
-	{"getTextFromProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(UIDefaults$TextAndMnemonicHashMap, getTextFromProperty, $String*, $String*)},
-	{}
-};
-
-$InnerClassInfo _UIDefaults$TextAndMnemonicHashMap_InnerClassesInfo_[] = {
-	{"javax.swing.UIDefaults$TextAndMnemonicHashMap", "javax.swing.UIDefaults", "TextAndMnemonicHashMap", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _UIDefaults$TextAndMnemonicHashMap_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.UIDefaults$TextAndMnemonicHashMap",
-	"java.util.HashMap",
-	nullptr,
-	_UIDefaults$TextAndMnemonicHashMap_FieldInfo_,
-	_UIDefaults$TextAndMnemonicHashMap_MethodInfo_,
-	"Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;",
-	nullptr,
-	_UIDefaults$TextAndMnemonicHashMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.UIDefaults"
-};
-
-$Object* allocate$UIDefaults$TextAndMnemonicHashMap($Class* clazz) {
-	return $of($alloc(UIDefaults$TextAndMnemonicHashMap));
-}
-
 $String* UIDefaults$TextAndMnemonicHashMap::AND_MNEMONIC = nullptr;
 $String* UIDefaults$TextAndMnemonicHashMap::TITLE_SUFFIX = nullptr;
 $String* UIDefaults$TextAndMnemonicHashMap::TEXT_SUFFIX = nullptr;
@@ -72,16 +29,16 @@ void UIDefaults$TextAndMnemonicHashMap::init$() {
 }
 
 $Object* UIDefaults$TextAndMnemonicHashMap::get(Object$* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, $HashMap::get(key));
 	if (value == nullptr) {
 		bool checkTitle = false;
 		$var($String, stringKey, $nc($of(key))->toString());
 		$var($String, compositeKey, nullptr);
 		if ($nc(stringKey)->endsWith(UIDefaults$TextAndMnemonicHashMap::AND_MNEMONIC)) {
-			return $of(nullptr);
+			return nullptr;
 		}
-		if ($nc(stringKey)->endsWith(".mnemonic"_s)) {
+		if (stringKey->endsWith(".mnemonic"_s)) {
 			$assign(compositeKey, composeKey(stringKey, 9, UIDefaults$TextAndMnemonicHashMap::TEXT_SUFFIX));
 		} else if (stringKey->endsWith("NameMnemonic"_s)) {
 			$assign(compositeKey, composeKey(stringKey, 12, UIDefaults$TextAndMnemonicHashMap::TEXT_SUFFIX));
@@ -95,9 +52,9 @@ $Object* UIDefaults$TextAndMnemonicHashMap::get(Object$* key) {
 				$assign(compositeKey, composeKey(stringKey, 8, UIDefaults$TextAndMnemonicHashMap::TITLE_SUFFIX));
 				$assign(value, $HashMap::get(compositeKey));
 			}
-			return $of(value == nullptr ? ($Object*)nullptr : $of(getMnemonicFromProperty($($nc($of(value))->toString()))));
+			return value == nullptr ? ($Object*)nullptr : $of(getMnemonicFromProperty($(value->toString())));
 		}
-		if ($nc(stringKey)->endsWith("NameText"_s)) {
+		if (stringKey->endsWith("NameText"_s)) {
 			$assign(compositeKey, composeKey(stringKey, 8, UIDefaults$TextAndMnemonicHashMap::TEXT_SUFFIX));
 		} else if (stringKey->endsWith(".nameText"_s)) {
 			$assign(compositeKey, composeKey(stringKey, 9, UIDefaults$TextAndMnemonicHashMap::TEXT_SUFFIX));
@@ -108,31 +65,31 @@ $Object* UIDefaults$TextAndMnemonicHashMap::get(Object$* key) {
 		}
 		if (compositeKey != nullptr) {
 			$assign(value, $HashMap::get(compositeKey));
-			return $of(value == nullptr ? ($Object*)nullptr : $of(getTextFromProperty($($nc($of(value))->toString()))));
+			return value == nullptr ? ($Object*)nullptr : $of(getTextFromProperty($(value->toString())));
 		}
-		if ($nc(stringKey)->endsWith("DisplayedMnemonicIndex"_s)) {
+		if (stringKey->endsWith("DisplayedMnemonicIndex"_s)) {
 			$assign(compositeKey, composeKey(stringKey, 22, UIDefaults$TextAndMnemonicHashMap::TEXT_SUFFIX));
 			$assign(value, $HashMap::get(compositeKey));
 			if (value == nullptr) {
 				$assign(compositeKey, composeKey(stringKey, 22, UIDefaults$TextAndMnemonicHashMap::TITLE_SUFFIX));
 				$assign(value, $HashMap::get(compositeKey));
 			}
-			return $of(value == nullptr ? ($Object*)nullptr : $of(getIndexFromProperty($($nc($of(value))->toString()))));
+			return value == nullptr ? ($Object*)nullptr : $of(getIndexFromProperty($(value->toString())));
 		}
 	}
-	return $of(value);
+	return value;
 }
 
 $String* UIDefaults$TextAndMnemonicHashMap::composeKey($String* key, int32_t reduce, $String* sufix) {
-	return $str({$($nc(key)->substring(0, key->length() - reduce)), sufix});
+	return $str({$($nc(key)->substring(0, $nc(key)->length() - reduce)), sufix});
 }
 
 $String* UIDefaults$TextAndMnemonicHashMap::getTextFromProperty($String* text) {
-	return $nc(text)->replace(static_cast<$CharSequence*>("&"_s), static_cast<$CharSequence*>(""_s));
+	return $nc(text)->replace("&"_s, ""_s);
 }
 
 $String* UIDefaults$TextAndMnemonicHashMap::getMnemonicFromProperty($String* text) {
-	int32_t index = $nc(text)->indexOf((int32_t)u'&');
+	int32_t index = $nc(text)->indexOf(u'&');
 	if (0 <= index && index < text->length() - 1) {
 		char16_t c = text->charAt(index + 1);
 		return $Integer::toString((int32_t)$Character::toUpperCase(c));
@@ -141,21 +98,57 @@ $String* UIDefaults$TextAndMnemonicHashMap::getMnemonicFromProperty($String* tex
 }
 
 $String* UIDefaults$TextAndMnemonicHashMap::getIndexFromProperty($String* text) {
-	int32_t index = $nc(text)->indexOf((int32_t)u'&');
+	int32_t index = $nc(text)->indexOf(u'&');
 	return (index == -1) ? ($String*)nullptr : $Integer::toString(index);
 }
 
 UIDefaults$TextAndMnemonicHashMap::UIDefaults$TextAndMnemonicHashMap() {
 }
 
-void clinit$UIDefaults$TextAndMnemonicHashMap($Class* class$) {
+void UIDefaults$TextAndMnemonicHashMap::clinit$($Class* clazz) {
 	$assignStatic(UIDefaults$TextAndMnemonicHashMap::AND_MNEMONIC, "AndMnemonic"_s);
 	$assignStatic(UIDefaults$TextAndMnemonicHashMap::TITLE_SUFFIX, ".titleAndMnemonic"_s);
 	$assignStatic(UIDefaults$TextAndMnemonicHashMap::TEXT_SUFFIX, ".textAndMnemonic"_s);
 }
 
 $Class* UIDefaults$TextAndMnemonicHashMap::load$($String* name, bool initialize) {
-	$loadClass(UIDefaults$TextAndMnemonicHashMap, name, initialize, &_UIDefaults$TextAndMnemonicHashMap_ClassInfo_, clinit$UIDefaults$TextAndMnemonicHashMap, allocate$UIDefaults$TextAndMnemonicHashMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"AND_MNEMONIC", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(UIDefaults$TextAndMnemonicHashMap, AND_MNEMONIC)},
+		{"TITLE_SUFFIX", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(UIDefaults$TextAndMnemonicHashMap, TITLE_SUFFIX)},
+		{"TEXT_SUFFIX", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(UIDefaults$TextAndMnemonicHashMap, TEXT_SUFFIX)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(UIDefaults$TextAndMnemonicHashMap, init$, void)},
+		{"composeKey", "(Ljava/lang/String;ILjava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(UIDefaults$TextAndMnemonicHashMap, composeKey, $String*, $String*, int32_t, $String*)},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UIDefaults$TextAndMnemonicHashMap, get, $Object*, Object$*)},
+		{"getIndexFromProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(UIDefaults$TextAndMnemonicHashMap, getIndexFromProperty, $String*, $String*)},
+		{"getMnemonicFromProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(UIDefaults$TextAndMnemonicHashMap, getMnemonicFromProperty, $String*, $String*)},
+		{"getTextFromProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(UIDefaults$TextAndMnemonicHashMap, getTextFromProperty, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.UIDefaults$TextAndMnemonicHashMap", "javax.swing.UIDefaults", "TextAndMnemonicHashMap", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.UIDefaults$TextAndMnemonicHashMap",
+		"java.util.HashMap",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.UIDefaults"
+	};
+	$loadClass(UIDefaults$TextAndMnemonicHashMap, name, initialize, &classInfo$$, UIDefaults$TextAndMnemonicHashMap::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UIDefaults$TextAndMnemonicHashMap));
+	});
 	return class$;
 }
 

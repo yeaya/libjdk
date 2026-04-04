@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsBorders.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsBorders$ComplementDashedBorder.h>
 #include <com/sun/java/swing/plaf/windows/WindowsBorders$InternalFrameLineBorder.h>
 #include <com/sun/java/swing/plaf/windows/WindowsBorders$ProgressBarBorder.h>
@@ -43,58 +42,20 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$MethodInfo _WindowsBorders_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsBorders, init$, void)},
-	{"getFocusCellHighlightBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsBorders, getFocusCellHighlightBorder, $Border*)},
-	{"getInternalFrameBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsBorders, getInternalFrameBorder, $Border*)},
-	{"getProgressBarBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsBorders, getProgressBarBorder, $Border*)},
-	{"getTableHeaderBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsBorders, getTableHeaderBorder, $Border*)},
-	{"getToolBarBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsBorders, getToolBarBorder, $Border*)},
-	{}
-};
-
-$InnerClassInfo _WindowsBorders_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsBorders$InternalFrameLineBorder", "com.sun.java.swing.plaf.windows.WindowsBorders", "InternalFrameLineBorder", $PUBLIC | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsBorders$ComplementDashedBorder", "com.sun.java.swing.plaf.windows.WindowsBorders", "ComplementDashedBorder", $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsBorders$DashedBorder", "com.sun.java.swing.plaf.windows.WindowsBorders", "DashedBorder", $PUBLIC | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsBorders$ToolBarBorder", "com.sun.java.swing.plaf.windows.WindowsBorders", "ToolBarBorder", $PUBLIC | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsBorders$ProgressBarBorder", "com.sun.java.swing.plaf.windows.WindowsBorders", "ProgressBarBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsBorders_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsBorders",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_WindowsBorders_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsBorders_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsBorders$InternalFrameLineBorder,com.sun.java.swing.plaf.windows.WindowsBorders$ComplementDashedBorder,com.sun.java.swing.plaf.windows.WindowsBorders$DashedBorder,com.sun.java.swing.plaf.windows.WindowsBorders$ToolBarBorder,com.sun.java.swing.plaf.windows.WindowsBorders$ProgressBarBorder"
-};
-
-$Object* allocate$WindowsBorders($Class* clazz) {
-	return $of($alloc(WindowsBorders));
-}
-
 void WindowsBorders::init$() {
 }
 
 $Border* WindowsBorders::getProgressBarBorder() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UIDefaults, table, $UIManager::getLookAndFeelDefaults());
 	$var($Color, var$1, $nc(table)->getColor("ProgressBar.shadow"_s));
-	$var($Border, var$0, static_cast<$Border*>($new($WindowsBorders$ProgressBarBorder, var$1, $(table->getColor("ProgressBar.highlight"_s)))));
+	$var($Border, var$0, $new($WindowsBorders$ProgressBarBorder, var$1, $(table->getColor("ProgressBar.highlight"_s))));
 	$var($Border, progressBarBorder, $new($BorderUIResource$CompoundBorderUIResource, var$0, $$new($EmptyBorder, 1, 1, 1, 1)));
 	return progressBarBorder;
 }
 
 $Border* WindowsBorders::getToolBarBorder() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UIDefaults, table, $UIManager::getLookAndFeelDefaults());
 	$var($Color, var$0, $nc(table)->getColor("ToolBar.shadow"_s));
 	$var($Border, toolBarBorder, $new($WindowsBorders$ToolBarBorder, var$0, $(table->getColor("ToolBar.highlight"_s))));
@@ -106,24 +67,24 @@ $Border* WindowsBorders::getFocusCellHighlightBorder() {
 }
 
 $Border* WindowsBorders::getTableHeaderBorder() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UIDefaults, table, $UIManager::getLookAndFeelDefaults());
 	$var($Color, var$1, $nc(table)->getColor("Table.shadow"_s));
 	$var($Color, var$2, table->getColor("Table.darkShadow"_s));
 	$var($Color, var$3, table->getColor("Table.light"_s));
-	$var($Border, var$0, static_cast<$Border*>($new($BasicBorders$ButtonBorder, var$1, var$2, var$3, $(table->getColor("Table.highlight"_s)))));
+	$var($Border, var$0, $new($BasicBorders$ButtonBorder, var$1, var$2, var$3, $(table->getColor("Table.highlight"_s))));
 	$var($Border, tableHeaderBorder, $new($BorderUIResource$CompoundBorderUIResource, var$0, $$new($BasicBorders$MarginBorder)));
 	return tableHeaderBorder;
 }
 
 $Border* WindowsBorders::getInternalFrameBorder() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UIDefaults, table, $UIManager::getLookAndFeelDefaults());
 	$var($Color, var$1, $nc(table)->getColor("InternalFrame.borderColor"_s));
 	$var($Color, var$2, table->getColor("InternalFrame.borderHighlight"_s));
 	$var($Color, var$3, table->getColor("InternalFrame.borderDarkShadow"_s));
 	$var($Border, var$0, $BorderFactory::createBevelBorder($BevelBorder::RAISED, var$1, var$2, var$3, $(table->getColor("InternalFrame.borderShadow"_s))));
-	$var($Color, var$4, $nc(table)->getColor("InternalFrame.activeBorderColor"_s));
+	$var($Color, var$4, table->getColor("InternalFrame.activeBorderColor"_s));
 	$var($Color, var$5, table->getColor("InternalFrame.inactiveBorderColor"_s));
 	$var($Border, internalFrameBorder, $new($BorderUIResource$CompoundBorderUIResource, var$0, $$new($WindowsBorders$InternalFrameLineBorder, var$4, var$5, table->getInt("InternalFrame.borderWidth"_s))));
 	return internalFrameBorder;
@@ -133,7 +94,40 @@ WindowsBorders::WindowsBorders() {
 }
 
 $Class* WindowsBorders::load$($String* name, bool initialize) {
-	$loadClass(WindowsBorders, name, initialize, &_WindowsBorders_ClassInfo_, allocate$WindowsBorders);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsBorders, init$, void)},
+		{"getFocusCellHighlightBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsBorders, getFocusCellHighlightBorder, $Border*)},
+		{"getInternalFrameBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsBorders, getInternalFrameBorder, $Border*)},
+		{"getProgressBarBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsBorders, getProgressBarBorder, $Border*)},
+		{"getTableHeaderBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsBorders, getTableHeaderBorder, $Border*)},
+		{"getToolBarBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsBorders, getToolBarBorder, $Border*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsBorders$InternalFrameLineBorder", "com.sun.java.swing.plaf.windows.WindowsBorders", "InternalFrameLineBorder", $PUBLIC | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsBorders$ComplementDashedBorder", "com.sun.java.swing.plaf.windows.WindowsBorders", "ComplementDashedBorder", $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsBorders$DashedBorder", "com.sun.java.swing.plaf.windows.WindowsBorders", "DashedBorder", $PUBLIC | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsBorders$ToolBarBorder", "com.sun.java.swing.plaf.windows.WindowsBorders", "ToolBarBorder", $PUBLIC | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsBorders$ProgressBarBorder", "com.sun.java.swing.plaf.windows.WindowsBorders", "ProgressBarBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsBorders",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsBorders$InternalFrameLineBorder,com.sun.java.swing.plaf.windows.WindowsBorders$ComplementDashedBorder,com.sun.java.swing.plaf.windows.WindowsBorders$DashedBorder,com.sun.java.swing.plaf.windows.WindowsBorders$ToolBarBorder,com.sun.java.swing.plaf.windows.WindowsBorders$ProgressBarBorder"
+	};
+	$loadClass(WindowsBorders, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsBorders);
+	});
 	return class$;
 }
 

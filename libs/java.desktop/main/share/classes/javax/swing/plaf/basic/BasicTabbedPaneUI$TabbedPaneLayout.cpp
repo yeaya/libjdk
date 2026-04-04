@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTabbedPaneUI$TabbedPaneLayout.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -29,66 +28,14 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $BasicGraphicsUtils = ::javax::swing::plaf::basic::BasicGraphicsUtils;
 using $BasicTabbedPaneUI = ::javax::swing::plaf::basic::BasicTabbedPaneUI;
-using $BasicTabbedPaneUI$TabContainer = ::javax::swing::plaf::basic::BasicTabbedPaneUI$TabContainer;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicTabbedPaneUI$TabbedPaneLayout_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicTabbedPaneUI$TabbedPaneLayout, this$0)},
-	{}
-};
-
-$MethodInfo _BasicTabbedPaneUI$TabbedPaneLayout_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicTabbedPaneUI;)V", nullptr, $PUBLIC, $method(BasicTabbedPaneUI$TabbedPaneLayout, init$, void, $BasicTabbedPaneUI*)},
-	{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$TabbedPaneLayout, addLayoutComponent, void, $String*, $Component*)},
-	{"calculateLayoutInfo", "()V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$TabbedPaneLayout, calculateLayoutInfo, void)},
-	{"calculateSize", "(Z)Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(BasicTabbedPaneUI$TabbedPaneLayout, calculateSize, $Dimension*, bool)},
-	{"calculateTabRects", "(II)V", nullptr, $PROTECTED, $virtualMethod(BasicTabbedPaneUI$TabbedPaneLayout, calculateTabRects, void, int32_t, int32_t)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$TabbedPaneLayout, layoutContainer, void, $Container*)},
-	{"layoutTabComponents", "()V", nullptr, $PRIVATE, $method(BasicTabbedPaneUI$TabbedPaneLayout, layoutTabComponents, void)},
-	{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$TabbedPaneLayout, minimumLayoutSize, $Dimension*, $Container*)},
-	{"normalizeTabRuns", "(IIII)V", nullptr, $PROTECTED, $virtualMethod(BasicTabbedPaneUI$TabbedPaneLayout, normalizeTabRuns, void, int32_t, int32_t, int32_t, int32_t)},
-	{"padSelectedTab", "(II)V", nullptr, $PROTECTED, $virtualMethod(BasicTabbedPaneUI$TabbedPaneLayout, padSelectedTab, void, int32_t, int32_t)},
-	{"padTabRun", "(IIII)V", nullptr, $PROTECTED, $virtualMethod(BasicTabbedPaneUI$TabbedPaneLayout, padTabRun, void, int32_t, int32_t, int32_t, int32_t)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$TabbedPaneLayout, preferredLayoutSize, $Dimension*, $Container*)},
-	{"preferredTabAreaHeight", "(II)I", nullptr, $PROTECTED, $virtualMethod(BasicTabbedPaneUI$TabbedPaneLayout, preferredTabAreaHeight, int32_t, int32_t, int32_t)},
-	{"preferredTabAreaWidth", "(II)I", nullptr, $PROTECTED, $virtualMethod(BasicTabbedPaneUI$TabbedPaneLayout, preferredTabAreaWidth, int32_t, int32_t, int32_t)},
-	{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$TabbedPaneLayout, removeLayoutComponent, void, $Component*)},
-	{"rotateTabRuns", "(II)V", nullptr, $PROTECTED, $virtualMethod(BasicTabbedPaneUI$TabbedPaneLayout, rotateTabRuns, void, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _BasicTabbedPaneUI$TabbedPaneLayout_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTabbedPaneUI$TabbedPaneLayout", "javax.swing.plaf.basic.BasicTabbedPaneUI", "TabbedPaneLayout", $PUBLIC},
-	{}
-};
-
-$ClassInfo _BasicTabbedPaneUI$TabbedPaneLayout_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTabbedPaneUI$TabbedPaneLayout",
-	"java.lang.Object",
-	"java.awt.LayoutManager",
-	_BasicTabbedPaneUI$TabbedPaneLayout_FieldInfo_,
-	_BasicTabbedPaneUI$TabbedPaneLayout_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTabbedPaneUI$TabbedPaneLayout_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTabbedPaneUI"
-};
-
-$Object* allocate$BasicTabbedPaneUI$TabbedPaneLayout($Class* clazz) {
-	return $of($alloc(BasicTabbedPaneUI$TabbedPaneLayout));
-}
 
 void BasicTabbedPaneUI$TabbedPaneLayout::init$($BasicTabbedPaneUI* this$0) {
 	$set(this, this$0, this$0);
@@ -109,7 +56,7 @@ $Dimension* BasicTabbedPaneUI$TabbedPaneLayout::minimumLayoutSize($Container* pa
 }
 
 $Dimension* BasicTabbedPaneUI$TabbedPaneLayout::calculateSize(bool minimum) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t tabPlacement = $nc(this->this$0->tabPane)->getTabPlacement();
 	$var($Insets, insets, $nc(this->this$0->tabPane)->getInsets());
 	$var($Insets, contentInsets, this->this$0->getContentBorderInsets(tabPlacement));
@@ -120,7 +67,7 @@ $Dimension* BasicTabbedPaneUI$TabbedPaneLayout::calculateSize(bool minimum) {
 	int32_t cWidth = 0;
 	int32_t cHeight = 0;
 	for (int32_t i = 0; i < $nc(this->this$0->tabPane)->getTabCount(); ++i) {
-		$var($Component, component, $nc(this->this$0->tabPane)->getComponentAt(i));
+		$var($Component, component, this->this$0->tabPane->getComponentAt(i));
 		if (component != nullptr) {
 			$var($Dimension, size, minimum ? component->getMinimumSize() : component->getPreferredSize());
 			if (size != nullptr) {
@@ -134,26 +81,19 @@ $Dimension* BasicTabbedPaneUI$TabbedPaneLayout::calculateSize(bool minimum) {
 	int32_t tabExtent = 0;
 	switch (tabPlacement) {
 	case 2:
-		{}
 	case 4:
-		{
-			height = $Math::max(height, this->this$0->calculateMaxTabHeight(tabPlacement));
-			tabExtent = preferredTabAreaWidth(tabPlacement, height - $nc(tabAreaInsets)->top - tabAreaInsets->bottom);
-			width += tabExtent;
-			break;
-		}
+		height = $Math::max(height, this->this$0->calculateMaxTabHeight(tabPlacement));
+		tabExtent = preferredTabAreaWidth(tabPlacement, height - $nc(tabAreaInsets)->top - $nc(tabAreaInsets)->bottom);
+		width += tabExtent;
+		break;
 	case 1:
-		{}
 	case 3:
-		{}
 	default:
-		{
-			width = $Math::max(width, this->this$0->calculateMaxTabWidth(tabPlacement));
-			tabExtent = preferredTabAreaHeight(tabPlacement, width - $nc(tabAreaInsets)->left - tabAreaInsets->right);
-			height += tabExtent;
-		}
+		width = $Math::max(width, this->this$0->calculateMaxTabWidth(tabPlacement));
+		tabExtent = preferredTabAreaHeight(tabPlacement, width - $nc(tabAreaInsets)->left - $nc(tabAreaInsets)->right);
+		height += tabExtent;
 	}
-	return $new($Dimension, width + $nc(insets)->left + insets->right + $nc(contentInsets)->left + contentInsets->right, height + insets->bottom + insets->top + contentInsets->top + contentInsets->bottom);
+	return $new($Dimension, width + $nc(insets)->left + $nc(insets)->right + $nc(contentInsets)->left + $nc(contentInsets)->right, height + $nc(insets)->bottom + $nc(insets)->top + $nc(contentInsets)->top + $nc(contentInsets)->bottom);
 }
 
 int32_t BasicTabbedPaneUI$TabbedPaneLayout::preferredTabAreaHeight(int32_t tabPlacement, int32_t width) {
@@ -200,7 +140,7 @@ int32_t BasicTabbedPaneUI$TabbedPaneLayout::preferredTabAreaWidth(int32_t tabPla
 }
 
 void BasicTabbedPaneUI$TabbedPaneLayout::layoutContainer($Container* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->this$0->setRolloverTab(-1);
 	int32_t tabPlacement = $nc(this->this$0->tabPane)->getTabPlacement();
 	$var($Insets, insets, $nc(this->this$0->tabPane)->getInsets());
@@ -236,36 +176,27 @@ void BasicTabbedPaneUI$TabbedPaneLayout::layoutContainer($Container* parent) {
 	if (numChildren > 0) {
 		switch (tabPlacement) {
 		case 2:
-			{
-				totalTabWidth = this->this$0->calculateTabAreaWidth(tabPlacement, this->this$0->runCount, this->this$0->maxTabWidth);
-				cx = $nc(insets)->left + totalTabWidth + $nc(contentInsets)->left;
-				cy = $nc(insets)->top + $nc(contentInsets)->top;
-				break;
-			}
+			totalTabWidth = this->this$0->calculateTabAreaWidth(tabPlacement, this->this$0->runCount, this->this$0->maxTabWidth);
+			cx = $nc(insets)->left + totalTabWidth + $nc(contentInsets)->left;
+			cy = insets->top + contentInsets->top;
+			break;
 		case 4:
-			{
-				totalTabWidth = this->this$0->calculateTabAreaWidth(tabPlacement, this->this$0->runCount, this->this$0->maxTabWidth);
-				cx = $nc(insets)->left + $nc(contentInsets)->left;
-				cy = $nc(insets)->top + $nc(contentInsets)->top;
-				break;
-			}
+			totalTabWidth = this->this$0->calculateTabAreaWidth(tabPlacement, this->this$0->runCount, this->this$0->maxTabWidth);
+			cx = $nc(insets)->left + $nc(contentInsets)->left;
+			cy = insets->top + contentInsets->top;
+			break;
 		case 3:
-			{
-				totalTabHeight = this->this$0->calculateTabAreaHeight(tabPlacement, this->this$0->runCount, this->this$0->maxTabHeight);
-				cx = $nc(insets)->left + $nc(contentInsets)->left;
-				cy = $nc(insets)->top + $nc(contentInsets)->top;
-				break;
-			}
+			totalTabHeight = this->this$0->calculateTabAreaHeight(tabPlacement, this->this$0->runCount, this->this$0->maxTabHeight);
+			cx = $nc(insets)->left + $nc(contentInsets)->left;
+			cy = insets->top + contentInsets->top;
+			break;
 		case 1:
-			{}
 		default:
-			{
-				totalTabHeight = this->this$0->calculateTabAreaHeight(tabPlacement, this->this$0->runCount, this->this$0->maxTabHeight);
-				cx = $nc(insets)->left + $nc(contentInsets)->left;
-				cy = $nc(insets)->top + totalTabHeight + $nc(contentInsets)->top;
-			}
+			totalTabHeight = this->this$0->calculateTabAreaHeight(tabPlacement, this->this$0->runCount, this->this$0->maxTabHeight);
+			cx = $nc(insets)->left + $nc(contentInsets)->left;
+			cy = insets->top + totalTabHeight + contentInsets->top;
 		}
-		cw = $nc(bounds)->width - totalTabWidth - $nc(insets)->left - insets->right - $nc(contentInsets)->left - contentInsets->right;
+		cw = $nc(bounds)->width - totalTabWidth - $nc(insets)->left - $nc(insets)->right - $nc(contentInsets)->left - $nc(contentInsets)->right;
 		ch = bounds->height - totalTabHeight - insets->top - insets->bottom - contentInsets->top - contentInsets->bottom;
 		for (int32_t i = 0; i < numChildren; ++i) {
 			$var($Component, child, $nc(this->this$0->tabPane)->getComponent(i));
@@ -301,18 +232,18 @@ void BasicTabbedPaneUI$TabbedPaneLayout::calculateLayoutInfo() {
 }
 
 void BasicTabbedPaneUI$TabbedPaneLayout::layoutTabComponents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$0->tabContainer == nullptr) {
 		return;
 	}
 	$var($Rectangle, rect, $new($Rectangle));
 	int32_t var$0 = -$nc(this->this$0->tabContainer)->getX();
-	$var($Point, delta, $new($Point, var$0, -$nc(this->this$0->tabContainer)->getY()));
+	$var($Point, delta, $new($Point, var$0, -this->this$0->tabContainer->getY()));
 	if (this->this$0->scrollableTabLayoutEnabled()) {
 		this->this$0->translatePointToTabPanel(0, 0, delta);
 	}
 	for (int32_t i = 0; i < $nc(this->this$0->tabPane)->getTabCount(); ++i) {
-		$var($Component, c, $nc(this->this$0->tabPane)->getTabComponentAt(i));
+		$var($Component, c, this->this$0->tabPane->getTabComponentAt(i));
 		if (c == nullptr) {
 			continue;
 		}
@@ -333,7 +264,7 @@ void BasicTabbedPaneUI$TabbedPaneLayout::layoutTabComponents() {
 }
 
 void BasicTabbedPaneUI$TabbedPaneLayout::calculateTabRects(int32_t tabPlacement, int32_t tabCount) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontMetrics, metrics, this->this$0->getFontMetrics());
 	$var($Dimension, size, $nc(this->this$0->tabPane)->getSize());
 	$var($Insets, insets, $nc(this->this$0->tabPane)->getInsets());
@@ -350,39 +281,30 @@ void BasicTabbedPaneUI$TabbedPaneLayout::calculateTabRects(int32_t tabPlacement,
 	bool leftToRight = $BasicGraphicsUtils::isLeftToRight(this->this$0->tabPane);
 	switch (tabPlacement) {
 	case 2:
-		{
-			this->this$0->maxTabWidth = this->this$0->calculateMaxTabWidth(tabPlacement);
-			x = $nc(insets)->left + $nc(tabAreaInsets)->left;
-			y = $nc(insets)->top + $nc(tabAreaInsets)->top;
-			returnAt = $nc(size)->height - ($nc(insets)->bottom + $nc(tabAreaInsets)->bottom);
-			break;
-		}
+		this->this$0->maxTabWidth = this->this$0->calculateMaxTabWidth(tabPlacement);
+		x = $nc(insets)->left + $nc(tabAreaInsets)->left;
+		y = insets->top + tabAreaInsets->top;
+		returnAt = $nc(size)->height - (insets->bottom + tabAreaInsets->bottom);
+		break;
 	case 4:
-		{
-			this->this$0->maxTabWidth = this->this$0->calculateMaxTabWidth(tabPlacement);
-			x = $nc(size)->width - $nc(insets)->right - $nc(tabAreaInsets)->right - this->this$0->maxTabWidth;
-			y = $nc(insets)->top + $nc(tabAreaInsets)->top;
-			returnAt = $nc(size)->height - ($nc(insets)->bottom + $nc(tabAreaInsets)->bottom);
-			break;
-		}
+		this->this$0->maxTabWidth = this->this$0->calculateMaxTabWidth(tabPlacement);
+		x = $nc(size)->width - $nc(insets)->right - $nc(tabAreaInsets)->right - this->this$0->maxTabWidth;
+		y = insets->top + tabAreaInsets->top;
+		returnAt = size->height - (insets->bottom + tabAreaInsets->bottom);
+		break;
 	case 3:
-		{
-			this->this$0->maxTabHeight = this->this$0->calculateMaxTabHeight(tabPlacement);
-			x = $nc(insets)->left + $nc(tabAreaInsets)->left;
-			y = $nc(size)->height - $nc(insets)->bottom - $nc(tabAreaInsets)->bottom - this->this$0->maxTabHeight;
-			returnAt = $nc(size)->width - ($nc(insets)->right + $nc(tabAreaInsets)->right);
-			break;
-		}
+		this->this$0->maxTabHeight = this->this$0->calculateMaxTabHeight(tabPlacement);
+		x = $nc(insets)->left + $nc(tabAreaInsets)->left;
+		y = $nc(size)->height - insets->bottom - tabAreaInsets->bottom - this->this$0->maxTabHeight;
+		returnAt = size->width - (insets->right + tabAreaInsets->right);
+		break;
 	case 1:
-		{}
 	default:
-		{
-			this->this$0->maxTabHeight = this->this$0->calculateMaxTabHeight(tabPlacement);
-			x = $nc(insets)->left + $nc(tabAreaInsets)->left;
-			y = $nc(insets)->top + $nc(tabAreaInsets)->top;
-			returnAt = $nc(size)->width - ($nc(insets)->right + $nc(tabAreaInsets)->right);
-			break;
-		}
+		this->this$0->maxTabHeight = this->this$0->calculateMaxTabHeight(tabPlacement);
+		x = $nc(insets)->left + $nc(tabAreaInsets)->left;
+		y = insets->top + tabAreaInsets->top;
+		returnAt = $nc(size)->width - (insets->right + tabAreaInsets->right);
+		break;
 	}
 	tabRunOverlay = this->this$0->getTabRunOverlay(tabPlacement);
 	this->this$0->runCount = 0;
@@ -395,7 +317,7 @@ void BasicTabbedPaneUI$TabbedPaneLayout::calculateTabRects(int32_t tabPlacement,
 		$assign(rect, $nc(this->this$0->rects)->get(i));
 		if (!verticalTabRuns) {
 			if (i > 0) {
-				$nc(rect)->x = $nc($nc(this->this$0->rects)->get(i - 1))->x + $nc($nc(this->this$0->rects)->get(i - 1))->width;
+				$nc(rect)->x = $nc(this->this$0->rects->get(i - 1))->x + $nc(this->this$0->rects->get(i - 1))->width;
 			} else {
 				$nc(this->this$0->tabRuns)->set(0, 0);
 				this->this$0->runCount = 1;
@@ -449,7 +371,7 @@ void BasicTabbedPaneUI$TabbedPaneLayout::calculateTabRects(int32_t tabPlacement,
 	}
 	for (i = this->this$0->runCount - 1; i >= 0; --i) {
 		int32_t start = $nc(this->this$0->tabRuns)->get(i);
-		int32_t next = $nc(this->this$0->tabRuns)->get(i == (this->this$0->runCount - 1) ? 0 : i + 1);
+		int32_t next = this->this$0->tabRuns->get(i == (this->this$0->runCount - 1) ? 0 : i + 1);
 		int32_t end = (next != 0 ? next - 1 : tabCount - 1);
 		if (!verticalTabRuns) {
 			for (j = start; j <= end; ++j) {
@@ -494,9 +416,9 @@ void BasicTabbedPaneUI$TabbedPaneLayout::rotateTabRuns(int32_t tabPlacement, int
 	for (int32_t i = 0; i < selectedRun; ++i) {
 		int32_t save = $nc(this->this$0->tabRuns)->get(0);
 		for (int32_t j = 1; j < this->this$0->runCount; ++j) {
-			$nc(this->this$0->tabRuns)->set(j - 1, $nc(this->this$0->tabRuns)->get(j));
+			this->this$0->tabRuns->set(j - 1, this->this$0->tabRuns->get(j));
 		}
-		$nc(this->this$0->tabRuns)->set(this->this$0->runCount - 1, save);
+		this->this$0->tabRuns->set(this->this$0->runCount - 1, save);
 	}
 }
 
@@ -544,37 +466,37 @@ void BasicTabbedPaneUI$TabbedPaneLayout::normalizeTabRuns(int32_t tabPlacement, 
 }
 
 void BasicTabbedPaneUI$TabbedPaneLayout::padTabRun(int32_t tabPlacement, int32_t start, int32_t end, int32_t max) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, lastRect, $nc(this->this$0->rects)->get(end));
 	if (tabPlacement == 1 || tabPlacement == 3) {
-		int32_t runWidth = ($nc(lastRect)->x + lastRect->width) - $nc($nc(this->this$0->rects)->get(start))->x;
+		int32_t runWidth = ($nc(lastRect)->x + $nc(lastRect)->width) - $nc(this->this$0->rects->get(start))->x;
 		int32_t deltaWidth = max - (lastRect->x + lastRect->width);
 		float factor = (float)deltaWidth / (float)runWidth;
 		for (int32_t j = start; j <= end; ++j) {
-			$var($Rectangle, pastRect, $nc(this->this$0->rects)->get(j));
+			$var($Rectangle, pastRect, this->this$0->rects->get(j));
 			if (j > start) {
-				$nc(pastRect)->x = $nc($nc(this->this$0->rects)->get(j - 1))->x + $nc($nc(this->this$0->rects)->get(j - 1))->width;
+				$nc(pastRect)->x = $nc(this->this$0->rects->get(j - 1))->x + $nc(this->this$0->rects->get(j - 1))->width;
 			}
-			$nc(pastRect)->width += $Math::round((float)pastRect->width * factor);
+			$nc(pastRect)->width += $Math::round((float)$nc(pastRect)->width * factor);
 		}
 		lastRect->width = max - lastRect->x;
 	} else {
-		int32_t runHeight = ($nc(lastRect)->y + lastRect->height) - $nc($nc(this->this$0->rects)->get(start))->y;
+		int32_t runHeight = ($nc(lastRect)->y + $nc(lastRect)->height) - $nc(this->this$0->rects->get(start))->y;
 		int32_t deltaHeight = max - (lastRect->y + lastRect->height);
 		float factor = (float)deltaHeight / (float)runHeight;
 		for (int32_t j = start; j <= end; ++j) {
-			$var($Rectangle, pastRect, $nc(this->this$0->rects)->get(j));
+			$var($Rectangle, pastRect, this->this$0->rects->get(j));
 			if (j > start) {
-				$nc(pastRect)->y = $nc($nc(this->this$0->rects)->get(j - 1))->y + $nc($nc(this->this$0->rects)->get(j - 1))->height;
+				$nc(pastRect)->y = $nc(this->this$0->rects->get(j - 1))->y + $nc(this->this$0->rects->get(j - 1))->height;
 			}
-			$nc(pastRect)->height += $Math::round((float)pastRect->height * factor);
+			$nc(pastRect)->height += $Math::round((float)$nc(pastRect)->height * factor);
 		}
 		lastRect->height = max - lastRect->y;
 	}
 }
 
 void BasicTabbedPaneUI$TabbedPaneLayout::padSelectedTab(int32_t tabPlacement, int32_t selectedIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (selectedIndex >= 0) {
 		$var($Rectangle, selRect, $nc(this->this$0->rects)->get(selectedIndex));
 		$var($Insets, padInsets, this->this$0->getSelectedTabPadInsets(tabPlacement));
@@ -614,7 +536,51 @@ BasicTabbedPaneUI$TabbedPaneLayout::BasicTabbedPaneUI$TabbedPaneLayout() {
 }
 
 $Class* BasicTabbedPaneUI$TabbedPaneLayout::load$($String* name, bool initialize) {
-	$loadClass(BasicTabbedPaneUI$TabbedPaneLayout, name, initialize, &_BasicTabbedPaneUI$TabbedPaneLayout_ClassInfo_, allocate$BasicTabbedPaneUI$TabbedPaneLayout);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicTabbedPaneUI$TabbedPaneLayout, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicTabbedPaneUI;)V", nullptr, $PUBLIC, $method(BasicTabbedPaneUI$TabbedPaneLayout, init$, void, $BasicTabbedPaneUI*)},
+		{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$TabbedPaneLayout, addLayoutComponent, void, $String*, $Component*)},
+		{"calculateLayoutInfo", "()V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$TabbedPaneLayout, calculateLayoutInfo, void)},
+		{"calculateSize", "(Z)Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(BasicTabbedPaneUI$TabbedPaneLayout, calculateSize, $Dimension*, bool)},
+		{"calculateTabRects", "(II)V", nullptr, $PROTECTED, $virtualMethod(BasicTabbedPaneUI$TabbedPaneLayout, calculateTabRects, void, int32_t, int32_t)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$TabbedPaneLayout, layoutContainer, void, $Container*)},
+		{"layoutTabComponents", "()V", nullptr, $PRIVATE, $method(BasicTabbedPaneUI$TabbedPaneLayout, layoutTabComponents, void)},
+		{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$TabbedPaneLayout, minimumLayoutSize, $Dimension*, $Container*)},
+		{"normalizeTabRuns", "(IIII)V", nullptr, $PROTECTED, $virtualMethod(BasicTabbedPaneUI$TabbedPaneLayout, normalizeTabRuns, void, int32_t, int32_t, int32_t, int32_t)},
+		{"padSelectedTab", "(II)V", nullptr, $PROTECTED, $virtualMethod(BasicTabbedPaneUI$TabbedPaneLayout, padSelectedTab, void, int32_t, int32_t)},
+		{"padTabRun", "(IIII)V", nullptr, $PROTECTED, $virtualMethod(BasicTabbedPaneUI$TabbedPaneLayout, padTabRun, void, int32_t, int32_t, int32_t, int32_t)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$TabbedPaneLayout, preferredLayoutSize, $Dimension*, $Container*)},
+		{"preferredTabAreaHeight", "(II)I", nullptr, $PROTECTED, $virtualMethod(BasicTabbedPaneUI$TabbedPaneLayout, preferredTabAreaHeight, int32_t, int32_t, int32_t)},
+		{"preferredTabAreaWidth", "(II)I", nullptr, $PROTECTED, $virtualMethod(BasicTabbedPaneUI$TabbedPaneLayout, preferredTabAreaWidth, int32_t, int32_t, int32_t)},
+		{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$TabbedPaneLayout, removeLayoutComponent, void, $Component*)},
+		{"rotateTabRuns", "(II)V", nullptr, $PROTECTED, $virtualMethod(BasicTabbedPaneUI$TabbedPaneLayout, rotateTabRuns, void, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTabbedPaneUI$TabbedPaneLayout", "javax.swing.plaf.basic.BasicTabbedPaneUI", "TabbedPaneLayout", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTabbedPaneUI$TabbedPaneLayout",
+		"java.lang.Object",
+		"java.awt.LayoutManager",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTabbedPaneUI"
+	};
+	$loadClass(BasicTabbedPaneUI$TabbedPaneLayout, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicTabbedPaneUI$TabbedPaneLayout);
+	});
 	return class$;
 }
 

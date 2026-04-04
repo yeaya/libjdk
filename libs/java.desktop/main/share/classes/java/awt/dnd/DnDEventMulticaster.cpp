@@ -1,5 +1,4 @@
 #include <java/awt/dnd/DnDEventMulticaster.h>
-
 #include <java/awt/AWTEventMulticaster.h>
 #include <java/awt/dnd/DragSourceDragEvent.h>
 #include <java/awt/dnd/DragSourceDropEvent.h>
@@ -27,43 +26,6 @@ namespace java {
 	namespace awt {
 		namespace dnd {
 
-$MethodInfo _DnDEventMulticaster_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/EventListener;Ljava/util/EventListener;)V", nullptr, $PROTECTED, $method(DnDEventMulticaster, init$, void, $EventListener*, $EventListener*)},
-	{"add", "(Ljava/awt/dnd/DragSourceListener;Ljava/awt/dnd/DragSourceListener;)Ljava/awt/dnd/DragSourceListener;", nullptr, $PUBLIC | $STATIC, $staticMethod(DnDEventMulticaster, add, $DragSourceListener*, $DragSourceListener*, $DragSourceListener*)},
-	{"add", "(Ljava/awt/dnd/DragSourceMotionListener;Ljava/awt/dnd/DragSourceMotionListener;)Ljava/awt/dnd/DragSourceMotionListener;", nullptr, $PUBLIC | $STATIC, $staticMethod(DnDEventMulticaster, add, $DragSourceMotionListener*, $DragSourceMotionListener*, $DragSourceMotionListener*)},
-	{"addInternal", "(Ljava/util/EventListener;Ljava/util/EventListener;)Ljava/util/EventListener;", nullptr, $PROTECTED | $STATIC, $staticMethod(DnDEventMulticaster, addInternal, $EventListener*, $EventListener*, $EventListener*)},
-	{"dragDropEnd", "(Ljava/awt/dnd/DragSourceDropEvent;)V", nullptr, $PUBLIC, $virtualMethod(DnDEventMulticaster, dragDropEnd, void, $DragSourceDropEvent*)},
-	{"dragEnter", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, $PUBLIC, $virtualMethod(DnDEventMulticaster, dragEnter, void, $DragSourceDragEvent*)},
-	{"dragExit", "(Ljava/awt/dnd/DragSourceEvent;)V", nullptr, $PUBLIC, $virtualMethod(DnDEventMulticaster, dragExit, void, $DragSourceEvent*)},
-	{"dragMouseMoved", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, $PUBLIC, $virtualMethod(DnDEventMulticaster, dragMouseMoved, void, $DragSourceDragEvent*)},
-	{"dragOver", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, $PUBLIC, $virtualMethod(DnDEventMulticaster, dragOver, void, $DragSourceDragEvent*)},
-	{"dropActionChanged", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, $PUBLIC, $virtualMethod(DnDEventMulticaster, dropActionChanged, void, $DragSourceDragEvent*)},
-	{"remove", "(Ljava/awt/dnd/DragSourceListener;Ljava/awt/dnd/DragSourceListener;)Ljava/awt/dnd/DragSourceListener;", nullptr, $PUBLIC | $STATIC, $staticMethod(DnDEventMulticaster, remove, $DragSourceListener*, $DragSourceListener*, $DragSourceListener*)},
-	{"remove", "(Ljava/awt/dnd/DragSourceMotionListener;Ljava/awt/dnd/DragSourceMotionListener;)Ljava/awt/dnd/DragSourceMotionListener;", nullptr, $PUBLIC | $STATIC, $staticMethod(DnDEventMulticaster, remove, $DragSourceMotionListener*, $DragSourceMotionListener*, $DragSourceMotionListener*)},
-	{"remove", "(Ljava/util/EventListener;)Ljava/util/EventListener;", nullptr, $PROTECTED, $virtualMethod(DnDEventMulticaster, remove, $EventListener*, $EventListener*)},
-	{"removeInternal", "(Ljava/util/EventListener;Ljava/util/EventListener;)Ljava/util/EventListener;", nullptr, $PROTECTED | $STATIC, $staticMethod(DnDEventMulticaster, removeInternal, $EventListener*, $EventListener*, $EventListener*)},
-	{"save", "(Ljava/io/ObjectOutputStream;Ljava/lang/String;Ljava/util/EventListener;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(DnDEventMulticaster, save, void, $ObjectOutputStream*, $String*, $EventListener*), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DnDEventMulticaster_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.dnd.DnDEventMulticaster",
-	"java.awt.AWTEventMulticaster",
-	"java.awt.dnd.DragSourceListener,java.awt.dnd.DragSourceMotionListener",
-	nullptr,
-	_DnDEventMulticaster_MethodInfo_
-};
-
-$Object* allocate$DnDEventMulticaster($Class* clazz) {
-	return $of($alloc(DnDEventMulticaster));
-}
-
 int32_t DnDEventMulticaster::hashCode() {
 	 return this->$AWTEventMulticaster::hashCode();
 }
@@ -89,33 +51,33 @@ void DnDEventMulticaster::init$($EventListener* a, $EventListener* b) {
 }
 
 void DnDEventMulticaster::dragEnter($DragSourceDragEvent* dsde) {
-	$nc(($cast($DragSourceListener, this->a)))->dragEnter(dsde);
-	$nc(($cast($DragSourceListener, this->b)))->dragEnter(dsde);
+	$nc($cast($DragSourceListener, this->a))->dragEnter(dsde);
+	$nc($cast($DragSourceListener, this->b))->dragEnter(dsde);
 }
 
 void DnDEventMulticaster::dragOver($DragSourceDragEvent* dsde) {
-	$nc(($cast($DragSourceListener, this->a)))->dragOver(dsde);
-	$nc(($cast($DragSourceListener, this->b)))->dragOver(dsde);
+	$nc($cast($DragSourceListener, this->a))->dragOver(dsde);
+	$nc($cast($DragSourceListener, this->b))->dragOver(dsde);
 }
 
 void DnDEventMulticaster::dropActionChanged($DragSourceDragEvent* dsde) {
-	$nc(($cast($DragSourceListener, this->a)))->dropActionChanged(dsde);
-	$nc(($cast($DragSourceListener, this->b)))->dropActionChanged(dsde);
+	$nc($cast($DragSourceListener, this->a))->dropActionChanged(dsde);
+	$nc($cast($DragSourceListener, this->b))->dropActionChanged(dsde);
 }
 
 void DnDEventMulticaster::dragExit($DragSourceEvent* dse) {
-	$nc(($cast($DragSourceListener, this->a)))->dragExit(dse);
-	$nc(($cast($DragSourceListener, this->b)))->dragExit(dse);
+	$nc($cast($DragSourceListener, this->a))->dragExit(dse);
+	$nc($cast($DragSourceListener, this->b))->dragExit(dse);
 }
 
 void DnDEventMulticaster::dragDropEnd($DragSourceDropEvent* dsde) {
-	$nc(($cast($DragSourceListener, this->a)))->dragDropEnd(dsde);
-	$nc(($cast($DragSourceListener, this->b)))->dragDropEnd(dsde);
+	$nc($cast($DragSourceListener, this->a))->dragDropEnd(dsde);
+	$nc($cast($DragSourceListener, this->b))->dragDropEnd(dsde);
 }
 
 void DnDEventMulticaster::dragMouseMoved($DragSourceDragEvent* dsde) {
-	$nc(($cast($DragSourceMotionListener, this->a)))->dragMouseMoved(dsde);
-	$nc(($cast($DragSourceMotionListener, this->b)))->dragMouseMoved(dsde);
+	$nc($cast($DragSourceMotionListener, this->a))->dragMouseMoved(dsde);
+	$nc($cast($DragSourceMotionListener, this->b))->dragMouseMoved(dsde);
 }
 
 $DragSourceListener* DnDEventMulticaster::add($DragSourceListener* a, $DragSourceListener* b) {
@@ -146,11 +108,11 @@ $EventListener* DnDEventMulticaster::addInternal($EventListener* a, $EventListen
 	if (b == nullptr) {
 		return a;
 	}
-	return static_cast<$EventListener*>(static_cast<$ComponentListener*>(static_cast<$AWTEventMulticaster*>($new(DnDEventMulticaster, a, b))));
+	return $cast($ComponentListener, $new(DnDEventMulticaster, a, b));
 }
 
 $EventListener* DnDEventMulticaster::remove($EventListener* oldl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (oldl == this->a) {
 		return this->b;
 	}
@@ -160,7 +122,7 @@ $EventListener* DnDEventMulticaster::remove($EventListener* oldl) {
 	$var($EventListener, a2, removeInternal(this->a, oldl));
 	$var($EventListener, b2, removeInternal(this->b, oldl));
 	if (a2 == this->a && b2 == this->b) {
-		return static_cast<$EventListener*>(static_cast<$ComponentListener*>(static_cast<$AWTEventMulticaster*>(this)));
+		return $cast($ComponentListener, this);
 	}
 	return addInternal(a2, b2);
 }
@@ -170,7 +132,7 @@ $EventListener* DnDEventMulticaster::removeInternal($EventListener* l, $EventLis
 	if (l == oldl || l == nullptr) {
 		return nullptr;
 	} else if ($instanceOf(DnDEventMulticaster, l)) {
-		return $nc(($cast(DnDEventMulticaster, l)))->remove(oldl);
+		return $cast(DnDEventMulticaster, l)->remove(oldl);
 	} else {
 		return l;
 	}
@@ -185,7 +147,40 @@ DnDEventMulticaster::DnDEventMulticaster() {
 }
 
 $Class* DnDEventMulticaster::load$($String* name, bool initialize) {
-	$loadClass(DnDEventMulticaster, name, initialize, &_DnDEventMulticaster_ClassInfo_, allocate$DnDEventMulticaster);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/EventListener;Ljava/util/EventListener;)V", nullptr, $PROTECTED, $method(DnDEventMulticaster, init$, void, $EventListener*, $EventListener*)},
+		{"add", "(Ljava/awt/dnd/DragSourceListener;Ljava/awt/dnd/DragSourceListener;)Ljava/awt/dnd/DragSourceListener;", nullptr, $PUBLIC | $STATIC, $staticMethod(DnDEventMulticaster, add, $DragSourceListener*, $DragSourceListener*, $DragSourceListener*)},
+		{"add", "(Ljava/awt/dnd/DragSourceMotionListener;Ljava/awt/dnd/DragSourceMotionListener;)Ljava/awt/dnd/DragSourceMotionListener;", nullptr, $PUBLIC | $STATIC, $staticMethod(DnDEventMulticaster, add, $DragSourceMotionListener*, $DragSourceMotionListener*, $DragSourceMotionListener*)},
+		{"addInternal", "(Ljava/util/EventListener;Ljava/util/EventListener;)Ljava/util/EventListener;", nullptr, $PROTECTED | $STATIC, $staticMethod(DnDEventMulticaster, addInternal, $EventListener*, $EventListener*, $EventListener*)},
+		{"dragDropEnd", "(Ljava/awt/dnd/DragSourceDropEvent;)V", nullptr, $PUBLIC, $virtualMethod(DnDEventMulticaster, dragDropEnd, void, $DragSourceDropEvent*)},
+		{"dragEnter", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, $PUBLIC, $virtualMethod(DnDEventMulticaster, dragEnter, void, $DragSourceDragEvent*)},
+		{"dragExit", "(Ljava/awt/dnd/DragSourceEvent;)V", nullptr, $PUBLIC, $virtualMethod(DnDEventMulticaster, dragExit, void, $DragSourceEvent*)},
+		{"dragMouseMoved", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, $PUBLIC, $virtualMethod(DnDEventMulticaster, dragMouseMoved, void, $DragSourceDragEvent*)},
+		{"dragOver", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, $PUBLIC, $virtualMethod(DnDEventMulticaster, dragOver, void, $DragSourceDragEvent*)},
+		{"dropActionChanged", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, $PUBLIC, $virtualMethod(DnDEventMulticaster, dropActionChanged, void, $DragSourceDragEvent*)},
+		{"remove", "(Ljava/awt/dnd/DragSourceListener;Ljava/awt/dnd/DragSourceListener;)Ljava/awt/dnd/DragSourceListener;", nullptr, $PUBLIC | $STATIC, $staticMethod(DnDEventMulticaster, remove, $DragSourceListener*, $DragSourceListener*, $DragSourceListener*)},
+		{"remove", "(Ljava/awt/dnd/DragSourceMotionListener;Ljava/awt/dnd/DragSourceMotionListener;)Ljava/awt/dnd/DragSourceMotionListener;", nullptr, $PUBLIC | $STATIC, $staticMethod(DnDEventMulticaster, remove, $DragSourceMotionListener*, $DragSourceMotionListener*, $DragSourceMotionListener*)},
+		{"remove", "(Ljava/util/EventListener;)Ljava/util/EventListener;", nullptr, $PROTECTED, $virtualMethod(DnDEventMulticaster, remove, $EventListener*, $EventListener*)},
+		{"removeInternal", "(Ljava/util/EventListener;Ljava/util/EventListener;)Ljava/util/EventListener;", nullptr, $PROTECTED | $STATIC, $staticMethod(DnDEventMulticaster, removeInternal, $EventListener*, $EventListener*, $EventListener*)},
+		{"save", "(Ljava/io/ObjectOutputStream;Ljava/lang/String;Ljava/util/EventListener;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(DnDEventMulticaster, save, void, $ObjectOutputStream*, $String*, $EventListener*), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.dnd.DnDEventMulticaster",
+		"java.awt.AWTEventMulticaster",
+		"java.awt.dnd.DragSourceListener,java.awt.dnd.DragSourceMotionListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DnDEventMulticaster, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DnDEventMulticaster));
+	});
 	return class$;
 }
 

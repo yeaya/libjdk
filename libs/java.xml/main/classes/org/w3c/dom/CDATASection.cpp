@@ -1,5 +1,4 @@
 #include <org/w3c/dom/CDATASection.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -8,19 +7,16 @@ namespace org {
 	namespace w3c {
 		namespace dom {
 
-$ClassInfo _CDATASection_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"org.w3c.dom.CDATASection",
-	nullptr,
-	"org.w3c.dom.Text"
-};
-
-$Object* allocate$CDATASection($Class* clazz) {
-	return $of($alloc(CDATASection));
-}
-
 $Class* CDATASection::load$($String* name, bool initialize) {
-	$loadClass(CDATASection, name, initialize, &_CDATASection_ClassInfo_, allocate$CDATASection);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"org.w3c.dom.CDATASection",
+		nullptr,
+		"org.w3c.dom.Text"
+	};
+	$loadClass(CDATASection, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CDATASection);
+	});
 	return class$;
 }
 

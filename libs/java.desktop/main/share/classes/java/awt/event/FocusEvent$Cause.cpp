@@ -1,5 +1,4 @@
 #include <java/awt/event/FocusEvent$Cause.h>
-
 #include <java/awt/event/FocusEvent.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -26,55 +25,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 		namespace event {
-
-$FieldInfo _FocusEvent$Cause_FieldInfo_[] = {
-	{"UNKNOWN", "Ljava/awt/event/FocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FocusEvent$Cause, UNKNOWN)},
-	{"MOUSE_EVENT", "Ljava/awt/event/FocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FocusEvent$Cause, MOUSE_EVENT)},
-	{"TRAVERSAL", "Ljava/awt/event/FocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FocusEvent$Cause, TRAVERSAL)},
-	{"TRAVERSAL_UP", "Ljava/awt/event/FocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FocusEvent$Cause, TRAVERSAL_UP)},
-	{"TRAVERSAL_DOWN", "Ljava/awt/event/FocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FocusEvent$Cause, TRAVERSAL_DOWN)},
-	{"TRAVERSAL_FORWARD", "Ljava/awt/event/FocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FocusEvent$Cause, TRAVERSAL_FORWARD)},
-	{"TRAVERSAL_BACKWARD", "Ljava/awt/event/FocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FocusEvent$Cause, TRAVERSAL_BACKWARD)},
-	{"ROLLBACK", "Ljava/awt/event/FocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FocusEvent$Cause, ROLLBACK)},
-	{"UNEXPECTED", "Ljava/awt/event/FocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FocusEvent$Cause, UNEXPECTED)},
-	{"ACTIVATION", "Ljava/awt/event/FocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FocusEvent$Cause, ACTIVATION)},
-	{"CLEAR_GLOBAL_FOCUS_OWNER", "Ljava/awt/event/FocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FocusEvent$Cause, CLEAR_GLOBAL_FOCUS_OWNER)},
-	{"$VALUES", "[Ljava/awt/event/FocusEvent$Cause;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(FocusEvent$Cause, $VALUES)},
-	{}
-};
-
-$MethodInfo _FocusEvent$Cause_MethodInfo_[] = {
-	{"$values", "()[Ljava/awt/event/FocusEvent$Cause;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FocusEvent$Cause, $values, $FocusEvent$CauseArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(FocusEvent$Cause, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/awt/event/FocusEvent$Cause;", nullptr, $PUBLIC | $STATIC, $staticMethod(FocusEvent$Cause, valueOf, FocusEvent$Cause*, $String*)},
-	{"values", "()[Ljava/awt/event/FocusEvent$Cause;", nullptr, $PUBLIC | $STATIC, $staticMethod(FocusEvent$Cause, values, $FocusEvent$CauseArray*)},
-	{}
-};
-
-$InnerClassInfo _FocusEvent$Cause_InnerClassesInfo_[] = {
-	{"java.awt.event.FocusEvent$Cause", "java.awt.event.FocusEvent", "Cause", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _FocusEvent$Cause_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.awt.event.FocusEvent$Cause",
-	"java.lang.Enum",
-	nullptr,
-	_FocusEvent$Cause_FieldInfo_,
-	_FocusEvent$Cause_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/awt/event/FocusEvent$Cause;>;",
-	nullptr,
-	_FocusEvent$Cause_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.event.FocusEvent"
-};
-
-$Object* allocate$FocusEvent$Cause($Class* clazz) {
-	return $of($alloc(FocusEvent$Cause));
-}
 
 FocusEvent$Cause* FocusEvent$Cause::UNKNOWN = nullptr;
 FocusEvent$Cause* FocusEvent$Cause::MOUSE_EVENT = nullptr;
@@ -120,7 +70,7 @@ void FocusEvent$Cause::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$FocusEvent$Cause($Class* class$) {
+void FocusEvent$Cause::clinit$($Class* clazz) {
 	$assignStatic(FocusEvent$Cause::UNKNOWN, $new(FocusEvent$Cause, "UNKNOWN"_s, 0));
 	$assignStatic(FocusEvent$Cause::MOUSE_EVENT, $new(FocusEvent$Cause, "MOUSE_EVENT"_s, 1));
 	$assignStatic(FocusEvent$Cause::TRAVERSAL, $new(FocusEvent$Cause, "TRAVERSAL"_s, 2));
@@ -139,7 +89,50 @@ FocusEvent$Cause::FocusEvent$Cause() {
 }
 
 $Class* FocusEvent$Cause::load$($String* name, bool initialize) {
-	$loadClass(FocusEvent$Cause, name, initialize, &_FocusEvent$Cause_ClassInfo_, clinit$FocusEvent$Cause, allocate$FocusEvent$Cause);
+	$FieldInfo fieldInfos$$[] = {
+		{"UNKNOWN", "Ljava/awt/event/FocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FocusEvent$Cause, UNKNOWN)},
+		{"MOUSE_EVENT", "Ljava/awt/event/FocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FocusEvent$Cause, MOUSE_EVENT)},
+		{"TRAVERSAL", "Ljava/awt/event/FocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FocusEvent$Cause, TRAVERSAL)},
+		{"TRAVERSAL_UP", "Ljava/awt/event/FocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FocusEvent$Cause, TRAVERSAL_UP)},
+		{"TRAVERSAL_DOWN", "Ljava/awt/event/FocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FocusEvent$Cause, TRAVERSAL_DOWN)},
+		{"TRAVERSAL_FORWARD", "Ljava/awt/event/FocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FocusEvent$Cause, TRAVERSAL_FORWARD)},
+		{"TRAVERSAL_BACKWARD", "Ljava/awt/event/FocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FocusEvent$Cause, TRAVERSAL_BACKWARD)},
+		{"ROLLBACK", "Ljava/awt/event/FocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FocusEvent$Cause, ROLLBACK)},
+		{"UNEXPECTED", "Ljava/awt/event/FocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FocusEvent$Cause, UNEXPECTED)},
+		{"ACTIVATION", "Ljava/awt/event/FocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FocusEvent$Cause, ACTIVATION)},
+		{"CLEAR_GLOBAL_FOCUS_OWNER", "Ljava/awt/event/FocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FocusEvent$Cause, CLEAR_GLOBAL_FOCUS_OWNER)},
+		{"$VALUES", "[Ljava/awt/event/FocusEvent$Cause;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(FocusEvent$Cause, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/awt/event/FocusEvent$Cause;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FocusEvent$Cause, $values, $FocusEvent$CauseArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(FocusEvent$Cause, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/awt/event/FocusEvent$Cause;", nullptr, $PUBLIC | $STATIC, $staticMethod(FocusEvent$Cause, valueOf, FocusEvent$Cause*, $String*)},
+		{"values", "()[Ljava/awt/event/FocusEvent$Cause;", nullptr, $PUBLIC | $STATIC, $staticMethod(FocusEvent$Cause, values, $FocusEvent$CauseArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.event.FocusEvent$Cause", "java.awt.event.FocusEvent", "Cause", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.awt.event.FocusEvent$Cause",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/awt/event/FocusEvent$Cause;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.event.FocusEvent"
+	};
+	$loadClass(FocusEvent$Cause, name, initialize, &classInfo$$, FocusEvent$Cause::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FocusEvent$Cause));
+	});
 	return class$;
 }
 

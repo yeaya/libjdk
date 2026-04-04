@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalRadioButtonUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -28,14 +27,12 @@
 #undef TRUE
 
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
-using $Shape = ::java::awt::Shape;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -59,41 +56,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalRadioButtonUI_FieldInfo_[] = {
-	{"METAL_RADIO_BUTTON_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalRadioButtonUI, METAL_RADIO_BUTTON_UI_KEY)},
-	{"focusColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalRadioButtonUI, focusColor)},
-	{"selectColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalRadioButtonUI, selectColor)},
-	{"disabledTextColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalRadioButtonUI, disabledTextColor)},
-	{"defaults_initialized", "Z", nullptr, $PRIVATE, $field(MetalRadioButtonUI, defaults_initialized)},
-	{}
-};
-
-$MethodInfo _MetalRadioButtonUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalRadioButtonUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalRadioButtonUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getDisabledTextColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalRadioButtonUI, getDisabledTextColor, $Color*)},
-	{"getFocusColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalRadioButtonUI, getFocusColor, $Color*)},
-	{"getSelectColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalRadioButtonUI, getSelectColor, $Color*)},
-	{"installDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $virtualMethod(MetalRadioButtonUI, installDefaults, void, $AbstractButton*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MetalRadioButtonUI, paint, void, $Graphics*, $JComponent*)},
-	{"paintFocus", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Ljava/awt/Dimension;)V", nullptr, $PROTECTED, $virtualMethod(MetalRadioButtonUI, paintFocus, void, $Graphics*, $Rectangle*, $Dimension*)},
-	{"uninstallDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(MetalRadioButtonUI, uninstallDefaults, void, $AbstractButton*)},
-	{}
-};
-
-$ClassInfo _MetalRadioButtonUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalRadioButtonUI",
-	"javax.swing.plaf.basic.BasicRadioButtonUI",
-	nullptr,
-	_MetalRadioButtonUI_FieldInfo_,
-	_MetalRadioButtonUI_MethodInfo_
-};
-
-$Object* allocate$MetalRadioButtonUI($Class* clazz) {
-	return $of($alloc(MetalRadioButtonUI));
-}
-
 $Object* MetalRadioButtonUI::METAL_RADIO_BUTTON_UI_KEY = nullptr;
 
 void MetalRadioButtonUI::init$() {
@@ -103,7 +65,7 @@ void MetalRadioButtonUI::init$() {
 
 $ComponentUI* MetalRadioButtonUI::createUI($JComponent* c) {
 	$init(MetalRadioButtonUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, appContext, $AppContext::getAppContext());
 	$var(MetalRadioButtonUI, metalRadioButtonUI, $cast(MetalRadioButtonUI, $nc(appContext)->get(MetalRadioButtonUI::METAL_RADIO_BUTTON_UI_KEY)));
 	if (metalRadioButtonUI == nullptr) {
@@ -114,7 +76,7 @@ $ComponentUI* MetalRadioButtonUI::createUI($JComponent* c) {
 }
 
 void MetalRadioButtonUI::installDefaults($AbstractButton* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicRadioButtonUI::installDefaults(b);
 	if (!this->defaults_initialized) {
 		$set(this, focusColor, $UIManager::getColor($$str({$(getPropertyPrefix()), "focus"_s})));
@@ -122,7 +84,6 @@ void MetalRadioButtonUI::installDefaults($AbstractButton* b) {
 		$set(this, disabledTextColor, $UIManager::getColor($$str({$(getPropertyPrefix()), "disabledText"_s})));
 		this->defaults_initialized = true;
 	}
-	$init($Boolean);
 	$LookAndFeel::installProperty(b, "opaque"_s, $Boolean::TRUE);
 }
 
@@ -145,7 +106,7 @@ $Color* MetalRadioButtonUI::getFocusColor() {
 
 void MetalRadioButtonUI::paint($Graphics* g, $JComponent* c) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($AbstractButton, b, $cast($AbstractButton, c));
 		$var($ButtonModel, model, $nc(b)->getModel());
 		$var($Dimension, size, $nc(c)->getSize());
@@ -165,18 +126,13 @@ void MetalRadioButtonUI::paint($Graphics* g, $JComponent* c) {
 		$var($Icon, altIcon, b->getIcon());
 		$var($Icon, selectedIcon, nullptr);
 		$var($Icon, disabledIcon, nullptr);
-		$var($JComponent, var$0, c);
-		$var($FontMetrics, var$1, fm);
-		$var($String, var$2, b->getText());
-		$var($Icon, var$3, altIcon != nullptr ? altIcon : getDefaultIcon());
-		int32_t var$4 = b->getVerticalAlignment();
-		int32_t var$5 = b->getHorizontalAlignment();
-		int32_t var$6 = b->getVerticalTextPosition();
-		int32_t var$7 = b->getHorizontalTextPosition();
-		$var($Rectangle, var$8, viewRect);
-		$var($Rectangle, var$9, iconRect);
-		$var($Rectangle, var$10, textRect);
-		$var($String, text, $SwingUtilities::layoutCompoundLabel(var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, var$10, b->getIconTextGap()));
+		$var($String, var$0, b->getText());
+		$var($Icon, var$1, altIcon != nullptr ? altIcon : getDefaultIcon());
+		int32_t var$2 = b->getVerticalAlignment();
+		int32_t var$3 = b->getHorizontalAlignment();
+		int32_t var$4 = b->getVerticalTextPosition();
+		int32_t var$5 = b->getHorizontalTextPosition();
+		$var($String, text, $SwingUtilities::layoutCompoundLabel(c, fm, var$0, var$1, var$2, var$3, var$4, var$5, viewRect, iconRect, textRect, b->getIconTextGap()));
 		if (c->isOpaque()) {
 			g->setColor($(b->getBackground()));
 			g->fillRect(0, 0, size->width, size->height);
@@ -189,15 +145,15 @@ void MetalRadioButtonUI::paint($Graphics* g, $JComponent* c) {
 					$assign(altIcon, b->getDisabledIcon());
 				}
 			} else {
-				bool var$12 = model->isPressed();
-				if (var$12 && model->isArmed()) {
+				bool var$6 = model->isPressed();
+				if (var$6 && model->isArmed()) {
 					$assign(altIcon, b->getPressedIcon());
 					if (altIcon == nullptr) {
 						$assign(altIcon, b->getSelectedIcon());
 					}
 				} else if (model->isSelected()) {
-					bool var$13 = b->isRolloverEnabled();
-					if (var$13 && model->isRollover()) {
+					bool var$7 = b->isRolloverEnabled();
+					if (var$7 && model->isRollover()) {
 						$assign(altIcon, b->getRolloverSelectedIcon());
 						if (altIcon == nullptr) {
 							$assign(altIcon, b->getSelectedIcon());
@@ -206,8 +162,8 @@ void MetalRadioButtonUI::paint($Graphics* g, $JComponent* c) {
 						$assign(altIcon, b->getSelectedIcon());
 					}
 				} else {
-					bool var$15 = b->isRolloverEnabled();
-					if (var$15 && model->isRollover()) {
+					bool var$8 = b->isRolloverEnabled();
+					if (var$8 && model->isRollover()) {
 						$assign(altIcon, b->getRolloverIcon());
 					}
 				}
@@ -215,9 +171,9 @@ void MetalRadioButtonUI::paint($Graphics* g, $JComponent* c) {
 			if (altIcon == nullptr) {
 				$assign(altIcon, b->getIcon());
 			}
-			altIcon->paintIcon(c, g, iconRect->x, iconRect->y);
+			$nc(altIcon)->paintIcon(c, g, iconRect->x, iconRect->y);
 		} else {
-			$nc($(getDefaultIcon()))->paintIcon(c, g, iconRect->x, iconRect->y);
+			$$nc(getDefaultIcon())->paintIcon(c, g, iconRect->x, iconRect->y);
 		}
 		if (text != nullptr) {
 			$init($BasicHTML);
@@ -233,8 +189,8 @@ void MetalRadioButtonUI::paint($Graphics* g, $JComponent* c) {
 				}
 				$SwingUtilities2::drawStringUnderlineCharAt(c, g, text, mnemIndex, textRect->x, textRect->y + $nc(fm)->getAscent());
 			}
-			bool var$16 = b->hasFocus();
-			if (var$16 && b->isFocusPainted() && textRect->width > 0 && textRect->height > 0) {
+			bool var$9 = b->hasFocus();
+			if (var$9 && b->isFocusPainted() && textRect->width > 0 && textRect->height > 0) {
 				paintFocus(g, textRect, size);
 			}
 		}
@@ -243,10 +199,10 @@ void MetalRadioButtonUI::paint($Graphics* g, $JComponent* c) {
 
 void MetalRadioButtonUI::paintFocus($Graphics* g, $Rectangle* t, $Dimension* d) {
 	$nc(g)->setColor($(getFocusColor()));
-	g->drawRect($nc(t)->x - 1, t->y - 1, t->width + 1, t->height + 1);
+	g->drawRect($nc(t)->x - 1, $nc(t)->y - 1, $nc(t)->width + 1, $nc(t)->height + 1);
 }
 
-void clinit$MetalRadioButtonUI($Class* class$) {
+void MetalRadioButtonUI::clinit$($Class* clazz) {
 	$assignStatic(MetalRadioButtonUI::METAL_RADIO_BUTTON_UI_KEY, $new($Object));
 }
 
@@ -254,7 +210,37 @@ MetalRadioButtonUI::MetalRadioButtonUI() {
 }
 
 $Class* MetalRadioButtonUI::load$($String* name, bool initialize) {
-	$loadClass(MetalRadioButtonUI, name, initialize, &_MetalRadioButtonUI_ClassInfo_, clinit$MetalRadioButtonUI, allocate$MetalRadioButtonUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"METAL_RADIO_BUTTON_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalRadioButtonUI, METAL_RADIO_BUTTON_UI_KEY)},
+		{"focusColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalRadioButtonUI, focusColor)},
+		{"selectColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalRadioButtonUI, selectColor)},
+		{"disabledTextColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalRadioButtonUI, disabledTextColor)},
+		{"defaults_initialized", "Z", nullptr, $PRIVATE, $field(MetalRadioButtonUI, defaults_initialized)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalRadioButtonUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalRadioButtonUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getDisabledTextColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalRadioButtonUI, getDisabledTextColor, $Color*)},
+		{"getFocusColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalRadioButtonUI, getFocusColor, $Color*)},
+		{"getSelectColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalRadioButtonUI, getSelectColor, $Color*)},
+		{"installDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $virtualMethod(MetalRadioButtonUI, installDefaults, void, $AbstractButton*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MetalRadioButtonUI, paint, void, $Graphics*, $JComponent*)},
+		{"paintFocus", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Ljava/awt/Dimension;)V", nullptr, $PROTECTED, $virtualMethod(MetalRadioButtonUI, paintFocus, void, $Graphics*, $Rectangle*, $Dimension*)},
+		{"uninstallDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(MetalRadioButtonUI, uninstallDefaults, void, $AbstractButton*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalRadioButtonUI",
+		"javax.swing.plaf.basic.BasicRadioButtonUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MetalRadioButtonUI, name, initialize, &classInfo$$, MetalRadioButtonUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalRadioButtonUI);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/ScrollPane.h>
-
 #include <java/awt/AWTError.h>
 #include <java/awt/Adjustable.h>
 #include <java/awt/BorderLayout.h>
@@ -16,7 +15,6 @@
 #include <java/awt/ScrollPane$PeerFixer.h>
 #include <java/awt/ScrollPaneAdjustable.h>
 #include <java/awt/Toolkit.h>
-#include <java/awt/event/AdjustmentListener.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/awt/event/MouseWheelEvent.h>
 #include <java/awt/peer/ComponentPeer.h>
@@ -53,10 +51,8 @@ using $ScrollPane$AccessibleAWTScrollPane = ::java::awt::ScrollPane$AccessibleAW
 using $ScrollPane$PeerFixer = ::java::awt::ScrollPane$PeerFixer;
 using $ScrollPaneAdjustable = ::java::awt::ScrollPaneAdjustable;
 using $Toolkit = ::java::awt::Toolkit;
-using $AdjustmentListener = ::java::awt::event::AdjustmentListener;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $MouseWheelEvent = ::java::awt::event::MouseWheelEvent;
-using $ComponentPeer = ::java::awt::peer::ComponentPeer;
 using $ScrollPanePeer = ::java::awt::peer::ScrollPanePeer;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectInputStream$GetField = ::java::io::ObjectInputStream$GetField;
@@ -71,118 +67,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $ComponentFactory = ::sun::awt::ComponentFactory;
 using $ScrollPaneWheelScroller = ::sun::awt::ScrollPaneWheelScroller;
 using $SunToolkit = ::sun::awt::SunToolkit;
 
 namespace java {
 	namespace awt {
-
-$Attribute ScrollPane_Attribute_var$1[] = {
-	{'s', "scrollbarDisplayPolicy"},
-	{'-'}
-};
-
-$NamedAttribute ScrollPane_Attribute_var$0[] = {
-	{"value", '[', ScrollPane_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _ScrollPane_MethodAnnotations_init$1[] = {
-	{"Ljava/beans/ConstructorProperties;", ScrollPane_Attribute_var$0},
-	{}
-};
-
-$CompoundAttribute _ScrollPane_MethodAnnotations_getScrollPosition13[] = {
-	{"Ljava/beans/Transient;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ScrollPane_MethodAnnotations_layout20[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _ScrollPane_FieldInfo_[] = {
-	{"SCROLLBARS_AS_NEEDED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ScrollPane, SCROLLBARS_AS_NEEDED)},
-	{"SCROLLBARS_ALWAYS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ScrollPane, SCROLLBARS_ALWAYS)},
-	{"SCROLLBARS_NEVER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ScrollPane, SCROLLBARS_NEVER)},
-	{"scrollbarDisplayPolicy", "I", nullptr, $PRIVATE, $field(ScrollPane, scrollbarDisplayPolicy)},
-	{"vAdjustable", "Ljava/awt/ScrollPaneAdjustable;", nullptr, $PRIVATE, $field(ScrollPane, vAdjustable)},
-	{"hAdjustable", "Ljava/awt/ScrollPaneAdjustable;", nullptr, $PRIVATE, $field(ScrollPane, hAdjustable)},
-	{"base", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ScrollPane, base)},
-	{"nameCounter", "I", nullptr, $PRIVATE | $STATIC, $staticField(ScrollPane, nameCounter)},
-	{"defaultWheelScroll", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ScrollPane, defaultWheelScroll)},
-	{"wheelScrollingEnabled", "Z", nullptr, $PRIVATE, $field(ScrollPane, wheelScrollingEnabled)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ScrollPane, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ScrollPane_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ScrollPane, init$, void), "java.awt.HeadlessException"},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ScrollPane, init$, void, int32_t), "java.awt.HeadlessException", nullptr, _ScrollPane_MethodAnnotations_init$1},
-	{"addImpl", "(Ljava/awt/Component;Ljava/lang/Object;I)V", nullptr, $PROTECTED | $FINAL, $virtualMethod(ScrollPane, addImpl, void, $Component*, Object$*, int32_t)},
-	{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(ScrollPane, addNotify, void)},
-	{"addToPanel", "(Ljava/awt/Component;Ljava/lang/Object;I)V", nullptr, $PRIVATE, $method(ScrollPane, addToPanel, void, $Component*, Object$*, int32_t)},
-	{"autoProcessMouseWheel", "(Ljava/awt/event/MouseWheelEvent;)V", nullptr, 0, $virtualMethod(ScrollPane, autoProcessMouseWheel, void, $MouseWheelEvent*)},
-	{"calculateChildSize", "()Ljava/awt/Dimension;", nullptr, 0, $virtualMethod(ScrollPane, calculateChildSize, $Dimension*)},
-	{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ScrollPane, constructComponentName, $String*)},
-	{"doLayout", "()V", nullptr, $PUBLIC, $virtualMethod(ScrollPane, doLayout, void)},
-	{"eventTypeEnabled", "(I)Z", nullptr, $PROTECTED, $virtualMethod(ScrollPane, eventTypeEnabled, bool, int32_t)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(ScrollPane, getAccessibleContext, $AccessibleContext*)},
-	{"getHAdjustable", "()Ljava/awt/Adjustable;", nullptr, $PUBLIC, $virtualMethod(ScrollPane, getHAdjustable, $Adjustable*)},
-	{"getHScrollbarHeight", "()I", nullptr, $PUBLIC, $virtualMethod(ScrollPane, getHScrollbarHeight, int32_t)},
-	{"getScrollPosition", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(ScrollPane, getScrollPosition, $Point*), nullptr, nullptr, _ScrollPane_MethodAnnotations_getScrollPosition13},
-	{"getScrollbarDisplayPolicy", "()I", nullptr, $PUBLIC, $virtualMethod(ScrollPane, getScrollbarDisplayPolicy, int32_t)},
-	{"getVAdjustable", "()Ljava/awt/Adjustable;", nullptr, $PUBLIC, $virtualMethod(ScrollPane, getVAdjustable, $Adjustable*)},
-	{"getVScrollbarWidth", "()I", nullptr, $PUBLIC, $virtualMethod(ScrollPane, getVScrollbarWidth, int32_t)},
-	{"getViewportSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(ScrollPane, getViewportSize, $Dimension*)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ScrollPane, initIDs, void)},
-	{"isWheelScrollingEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(ScrollPane, isWheelScrollingEnabled, bool)},
-	{"layout", "()V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(ScrollPane, layout, void), nullptr, nullptr, _ScrollPane_MethodAnnotations_layout20},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ScrollPane, paramString, $String*)},
-	{"printComponents", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(ScrollPane, printComponents, void, $Graphics*)},
-	{"processMouseWheelEvent", "(Ljava/awt/event/MouseWheelEvent;)V", nullptr, $PROTECTED, $virtualMethod(ScrollPane, processMouseWheelEvent, void, $MouseWheelEvent*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ScrollPane, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException,java.awt.HeadlessException"},
-	{"setLayout", "(Ljava/awt/LayoutManager;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ScrollPane, setLayout, void, $LayoutManager*)},
-	{"setScrollPosition", "(II)V", nullptr, $PUBLIC, $virtualMethod(ScrollPane, setScrollPosition, void, int32_t, int32_t)},
-	{"setScrollPosition", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(ScrollPane, setScrollPosition, void, $Point*)},
-	{"setWheelScrollingEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ScrollPane, setWheelScrollingEnabled, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ScrollPane, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 22
-
-$InnerClassInfo _ScrollPane_InnerClassesInfo_[] = {
-	{"java.awt.ScrollPane$AccessibleAWTScrollPane", "java.awt.ScrollPane", "AccessibleAWTScrollPane", $PROTECTED},
-	{"java.awt.ScrollPane$PeerFixer", "java.awt.ScrollPane", "PeerFixer", 0},
-	{}
-};
-
-$ClassInfo _ScrollPane_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.ScrollPane",
-	"java.awt.Container",
-	"javax.accessibility.Accessible",
-	_ScrollPane_FieldInfo_,
-	_ScrollPane_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ScrollPane_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.ScrollPane$AccessibleAWTScrollPane,java.awt.ScrollPane$PeerFixer"
-};
-
-$Object* allocate$ScrollPane($Class* clazz) {
-	return $of($alloc(ScrollPane));
-}
 
 $String* ScrollPane::toString() {
 	 return this->$Container::toString();
@@ -209,7 +98,7 @@ int32_t ScrollPane::nameCounter = 0;
 
 void ScrollPane::initIDs() {
 	$init(ScrollPane);
-	$prepareNativeStatic(ScrollPane, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -219,7 +108,7 @@ void ScrollPane::init$() {
 }
 
 void ScrollPane::init$(int32_t scrollbarDisplayPolicy) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Container::init$();
 	this->wheelScrollingEnabled = ScrollPane::defaultWheelScroll;
 	$GraphicsEnvironment::checkHeadless();
@@ -228,18 +117,12 @@ void ScrollPane::init$(int32_t scrollbarDisplayPolicy) {
 	this->height = 100;
 	switch (scrollbarDisplayPolicy) {
 	case ScrollPane::SCROLLBARS_NEVER:
-		{}
 	case ScrollPane::SCROLLBARS_AS_NEEDED:
-		{}
 	case ScrollPane::SCROLLBARS_ALWAYS:
-		{
-			this->scrollbarDisplayPolicy = scrollbarDisplayPolicy;
-			break;
-		}
+		this->scrollbarDisplayPolicy = scrollbarDisplayPolicy;
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, "illegal scrollbar display policy"_s);
-		}
+		$throwNew($IllegalArgumentException, "illegal scrollbar display policy"_s);
 	}
 	$set(this, vAdjustable, $new($ScrollPaneAdjustable, this, $$new($ScrollPane$PeerFixer, this, this), $Adjustable::VERTICAL));
 	$set(this, hAdjustable, $new($ScrollPaneAdjustable, this, $$new($ScrollPane$PeerFixer, this, this), $Adjustable::HORIZONTAL));
@@ -247,15 +130,16 @@ void ScrollPane::init$(int32_t scrollbarDisplayPolicy) {
 }
 
 $String* ScrollPane::constructComponentName() {
-	$useLocalCurrentObjectStackCache();
 	$synchronized(ScrollPane::class$) {
-		$var($String, var$0, ScrollPane::base);
-		return $concat(var$0, $$str(ScrollPane::nameCounter++));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append(ScrollPane::base);
+		var$0->append(ScrollPane::nameCounter++);
+		return $str(var$0);
 	}
 }
 
 void ScrollPane::addToPanel($Component* comp, Object$* constraints, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Panel, child, $new($Panel));
 	child->setLayout($$new($BorderLayout));
 	child->add(comp);
@@ -285,7 +169,7 @@ int32_t ScrollPane::getScrollbarDisplayPolicy() {
 
 $Dimension* ScrollPane::getViewportSize() {
 	$var($Insets, i, getInsets());
-	return $new($Dimension, this->width - $nc(i)->right - i->left, this->height - i->top - i->bottom);
+	return $new($Dimension, this->width - $nc(i)->right - $nc(i)->left, this->height - $nc(i)->top - $nc(i)->bottom);
 }
 
 int32_t ScrollPane::getHScrollbarHeight() {
@@ -329,7 +213,7 @@ void ScrollPane::setScrollPosition(int32_t x, int32_t y) {
 }
 
 void ScrollPane::setScrollPosition($Point* p) {
-	setScrollPosition($nc(p)->x, p->y);
+	setScrollPosition($nc(p)->x, $nc(p)->y);
 }
 
 $Point* ScrollPane::getScrollPosition() {
@@ -351,7 +235,7 @@ void ScrollPane::doLayout() {
 }
 
 $Dimension* ScrollPane::calculateChildSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, size, getSize());
 	$var($Insets, insets, getInsets());
 	int32_t viewWidth = $nc(size)->width - $nc(insets)->left * 2;
@@ -386,7 +270,7 @@ $Dimension* ScrollPane::calculateChildSize() {
 }
 
 void ScrollPane::layout() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getComponentCount() == 0) {
 		return;
 	}
@@ -394,18 +278,18 @@ void ScrollPane::layout() {
 	$var($Point, p, getScrollPosition());
 	$var($Dimension, cs, calculateChildSize());
 	$var($Dimension, vs, getViewportSize());
-	$nc(c)->reshape(-$nc(p)->x, -p->y, $nc(cs)->width, cs->height);
+	$nc(c)->reshape(-$nc(p)->x, -$nc(p)->y, $nc(cs)->width, $nc(cs)->height);
 	$var($ScrollPanePeer, peer, $cast($ScrollPanePeer, this->peer));
 	if (peer != nullptr) {
-		peer->childResized($nc(cs)->width, cs->height);
+		peer->childResized(cs->width, cs->height);
 	}
 	$assign(vs, getViewportSize());
-	$nc(this->hAdjustable)->setSpan(0, $nc(cs)->width, $nc(vs)->width);
-	$nc(this->vAdjustable)->setSpan(0, $nc(cs)->height, $nc(vs)->height);
+	$nc(this->hAdjustable)->setSpan(0, cs->width, $nc(vs)->width);
+	$nc(this->vAdjustable)->setSpan(0, cs->height, vs->height);
 }
 
 void ScrollPane::printComponents($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getComponentCount() == 0) {
 		return;
 	}
@@ -414,20 +298,18 @@ void ScrollPane::printComponents($Graphics* g) {
 	$var($Dimension, vs, getViewportSize());
 	$var($Insets, i, getInsets());
 	$var($Graphics, cg, $nc(g)->create());
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(cg)->clipRect($nc(i)->left, i->top, $nc(vs)->width, vs->height);
-			cg->translate($nc(p)->x, p->y);
-			c->printAll(cg);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(cg)->dispose();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(cg)->clipRect($nc(i)->left, $nc(i)->top, $nc(vs)->width, $nc(vs)->height);
+		cg->translate($nc(p)->x, $nc(p)->y);
+		c->printAll(cg);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(cg)->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -442,7 +324,7 @@ void ScrollPane::addNotify() {
 			$nc(this->hAdjustable)->setValue(0);
 		}
 		if (this->peer == nullptr) {
-			$set(this, peer, $nc($(getComponentFactory()))->createScrollPane(this));
+			$set(this, peer, $$nc(getComponentFactory())->createScrollPane(this));
 		}
 		$Container::addNotify();
 		if (getComponentCount() > 0) {
@@ -453,33 +335,42 @@ void ScrollPane::addNotify() {
 }
 
 $String* ScrollPane::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, sdpStr, nullptr);
 	switch (this->scrollbarDisplayPolicy) {
 	case ScrollPane::SCROLLBARS_AS_NEEDED:
-		{
-			$assign(sdpStr, "as-needed"_s);
-			break;
-		}
+		$assign(sdpStr, "as-needed"_s);
+		break;
 	case ScrollPane::SCROLLBARS_ALWAYS:
-		{
-			$assign(sdpStr, "always"_s);
-			break;
-		}
+		$assign(sdpStr, "always"_s);
+		break;
 	case ScrollPane::SCROLLBARS_NEVER:
-		{
-			$assign(sdpStr, "never"_s);
-			break;
-		}
+		$assign(sdpStr, "never"_s);
+		break;
 	default:
-		{
-			$assign(sdpStr, "invalid display policy"_s);
-		}
+		$assign(sdpStr, "invalid display policy"_s);
 	}
 	$var($Point, p, (getComponentCount() > 0) ? getScrollPosition() : $new($Point, 0, 0));
 	$var($Insets, i, getInsets());
-	$var($String, var$0, $$str({$($Container::paramString()), ",ScrollPosition=("_s, $$str($nc(p)->x), ","_s, $$str(p->y), "),Insets=("_s, $$str($nc(i)->top), ","_s, $$str(i->left), ","_s, $$str(i->bottom), ","_s, $$str(i->right), "),ScrollbarDisplayPolicy="_s, sdpStr, ",wheelScrollingEnabled="_s}));
-	return $concat(var$0, $$str(isWheelScrollingEnabled()));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($Container::paramString()));
+	var$0->append(",ScrollPosition=("_s);
+	var$0->append($nc(p)->x);
+	var$0->append(","_s);
+	var$0->append(p->y);
+	var$0->append("),Insets=("_s);
+	var$0->append($nc(i)->top);
+	var$0->append(","_s);
+	var$0->append(i->left);
+	var$0->append(","_s);
+	var$0->append(i->bottom);
+	var$0->append(","_s);
+	var$0->append(i->right);
+	var$0->append("),ScrollbarDisplayPolicy="_s);
+	var$0->append(sdpStr);
+	var$0->append(",wheelScrollingEnabled="_s);
+	var$0->append(isWheelScrollingEnabled());
+	return $str(var$0);
 }
 
 void ScrollPane::autoProcessMouseWheel($MouseWheelEvent* e) {
@@ -518,8 +409,8 @@ void ScrollPane::readObject($ObjectInputStream* s) {
 	$GraphicsEnvironment::checkHeadless();
 	$var($ObjectInputStream$GetField, f, $nc(s)->readFields());
 	this->scrollbarDisplayPolicy = $nc(f)->get("scrollbarDisplayPolicy"_s, ScrollPane::SCROLLBARS_AS_NEEDED);
-	$set(this, hAdjustable, $cast($ScrollPaneAdjustable, f->get("hAdjustable"_s, ($Object*)nullptr)));
-	$set(this, vAdjustable, $cast($ScrollPaneAdjustable, f->get("vAdjustable"_s, ($Object*)nullptr)));
+	$set(this, hAdjustable, $cast($ScrollPaneAdjustable, f->get("hAdjustable"_s, nullptr)));
+	$set(this, vAdjustable, $cast($ScrollPaneAdjustable, f->get("vAdjustable"_s, nullptr)));
 	this->wheelScrollingEnabled = f->get("wheelScrollingEnabled"_s, ScrollPane::defaultWheelScroll);
 }
 
@@ -530,7 +421,7 @@ $AccessibleContext* ScrollPane::getAccessibleContext() {
 	return this->accessibleContext;
 }
 
-void clinit$ScrollPane($Class* class$) {
+void ScrollPane::clinit$($Class* clazz) {
 	$assignStatic(ScrollPane::base, "scrollpane"_s);
 	{
 		$Toolkit::loadLibraries();
@@ -545,7 +436,100 @@ ScrollPane::ScrollPane() {
 }
 
 $Class* ScrollPane::load$($String* name, bool initialize) {
-	$loadClass(ScrollPane, name, initialize, &_ScrollPane_ClassInfo_, clinit$ScrollPane, allocate$ScrollPane);
+	$FieldInfo fieldInfos$$[] = {
+		{"SCROLLBARS_AS_NEEDED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ScrollPane, SCROLLBARS_AS_NEEDED)},
+		{"SCROLLBARS_ALWAYS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ScrollPane, SCROLLBARS_ALWAYS)},
+		{"SCROLLBARS_NEVER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ScrollPane, SCROLLBARS_NEVER)},
+		{"scrollbarDisplayPolicy", "I", nullptr, $PRIVATE, $field(ScrollPane, scrollbarDisplayPolicy)},
+		{"vAdjustable", "Ljava/awt/ScrollPaneAdjustable;", nullptr, $PRIVATE, $field(ScrollPane, vAdjustable)},
+		{"hAdjustable", "Ljava/awt/ScrollPaneAdjustable;", nullptr, $PRIVATE, $field(ScrollPane, hAdjustable)},
+		{"base", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ScrollPane, base)},
+		{"nameCounter", "I", nullptr, $PRIVATE | $STATIC, $staticField(ScrollPane, nameCounter)},
+		{"defaultWheelScroll", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ScrollPane, defaultWheelScroll)},
+		{"wheelScrollingEnabled", "Z", nullptr, $PRIVATE, $field(ScrollPane, wheelScrollingEnabled)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ScrollPane, serialVersionUID)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "scrollbarDisplayPolicy"},
+		{'-'}
+	};
+	$NamedAttribute init$methodAnnotations$$$1$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$1[] = {
+		{"Ljava/beans/ConstructorProperties;", init$methodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$CompoundAttribute getScrollPositionmethodAnnotations$$[] = {
+		{"Ljava/beans/Transient;", nullptr},
+		{}
+	};
+	$CompoundAttribute layoutmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ScrollPane, init$, void), "java.awt.HeadlessException"},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(ScrollPane, init$, void, int32_t), "java.awt.HeadlessException", nullptr, init$methodAnnotations$$$1},
+		{"addImpl", "(Ljava/awt/Component;Ljava/lang/Object;I)V", nullptr, $PROTECTED | $FINAL, $virtualMethod(ScrollPane, addImpl, void, $Component*, Object$*, int32_t)},
+		{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(ScrollPane, addNotify, void)},
+		{"addToPanel", "(Ljava/awt/Component;Ljava/lang/Object;I)V", nullptr, $PRIVATE, $method(ScrollPane, addToPanel, void, $Component*, Object$*, int32_t)},
+		{"autoProcessMouseWheel", "(Ljava/awt/event/MouseWheelEvent;)V", nullptr, 0, $virtualMethod(ScrollPane, autoProcessMouseWheel, void, $MouseWheelEvent*)},
+		{"calculateChildSize", "()Ljava/awt/Dimension;", nullptr, 0, $virtualMethod(ScrollPane, calculateChildSize, $Dimension*)},
+		{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ScrollPane, constructComponentName, $String*)},
+		{"doLayout", "()V", nullptr, $PUBLIC, $virtualMethod(ScrollPane, doLayout, void)},
+		{"eventTypeEnabled", "(I)Z", nullptr, $PROTECTED, $virtualMethod(ScrollPane, eventTypeEnabled, bool, int32_t)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(ScrollPane, getAccessibleContext, $AccessibleContext*)},
+		{"getHAdjustable", "()Ljava/awt/Adjustable;", nullptr, $PUBLIC, $virtualMethod(ScrollPane, getHAdjustable, $Adjustable*)},
+		{"getHScrollbarHeight", "()I", nullptr, $PUBLIC, $virtualMethod(ScrollPane, getHScrollbarHeight, int32_t)},
+		{"getScrollPosition", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(ScrollPane, getScrollPosition, $Point*), nullptr, nullptr, getScrollPositionmethodAnnotations$$},
+		{"getScrollbarDisplayPolicy", "()I", nullptr, $PUBLIC, $virtualMethod(ScrollPane, getScrollbarDisplayPolicy, int32_t)},
+		{"getVAdjustable", "()Ljava/awt/Adjustable;", nullptr, $PUBLIC, $virtualMethod(ScrollPane, getVAdjustable, $Adjustable*)},
+		{"getVScrollbarWidth", "()I", nullptr, $PUBLIC, $virtualMethod(ScrollPane, getVScrollbarWidth, int32_t)},
+		{"getViewportSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(ScrollPane, getViewportSize, $Dimension*)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ScrollPane, initIDs, void)},
+		{"isWheelScrollingEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(ScrollPane, isWheelScrollingEnabled, bool)},
+		{"layout", "()V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(ScrollPane, layout, void), nullptr, nullptr, layoutmethodAnnotations$$},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ScrollPane, paramString, $String*)},
+		{"printComponents", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(ScrollPane, printComponents, void, $Graphics*)},
+		{"processMouseWheelEvent", "(Ljava/awt/event/MouseWheelEvent;)V", nullptr, $PROTECTED, $virtualMethod(ScrollPane, processMouseWheelEvent, void, $MouseWheelEvent*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ScrollPane, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException,java.awt.HeadlessException"},
+		{"setLayout", "(Ljava/awt/LayoutManager;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ScrollPane, setLayout, void, $LayoutManager*)},
+		{"setScrollPosition", "(II)V", nullptr, $PUBLIC, $virtualMethod(ScrollPane, setScrollPosition, void, int32_t, int32_t)},
+		{"setScrollPosition", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(ScrollPane, setScrollPosition, void, $Point*)},
+		{"setWheelScrollingEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ScrollPane, setWheelScrollingEnabled, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ScrollPane, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.ScrollPane$AccessibleAWTScrollPane", "java.awt.ScrollPane", "AccessibleAWTScrollPane", $PROTECTED},
+		{"java.awt.ScrollPane$PeerFixer", "java.awt.ScrollPane", "PeerFixer", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.ScrollPane",
+		"java.awt.Container",
+		"javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.ScrollPane$AccessibleAWTScrollPane,java.awt.ScrollPane$PeerFixer"
+	};
+	$loadClass(ScrollPane, name, initialize, &classInfo$$, ScrollPane::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ScrollPane));
+	});
 	return class$;
 }
 

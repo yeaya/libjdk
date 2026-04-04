@@ -1,5 +1,4 @@
 #include <java.se.test.h>
-
 #include <java.se.h>
 #include <java.compiler.h>
 #include <java.datatransfer.h>

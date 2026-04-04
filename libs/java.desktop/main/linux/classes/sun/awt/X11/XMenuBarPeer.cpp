@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XMenuBarPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -10,8 +9,6 @@
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/Menu.h>
 #include <java/awt/MenuBar.h>
-#include <java/awt/MenuComponent.h>
-#include <java/awt/MenuItem.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/InputEvent.h>
@@ -83,11 +80,8 @@ using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $Frame = ::java::awt::Frame;
 using $Graphics = ::java::awt::Graphics;
-using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $Menu = ::java::awt::Menu;
 using $MenuBar = ::java::awt::MenuBar;
-using $MenuComponent = ::java::awt::MenuComponent;
-using $MenuItem = ::java::awt::MenuItem;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $InputEvent = ::java::awt::event::InputEvent;
@@ -101,9 +95,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Vector = ::java::util::Vector;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
-using $AWTAccessor$MenuBarAccessor = ::sun::awt::AWTAccessor$MenuBarAccessor;
-using $AWTAccessor$MenuComponentAccessor = ::sun::awt::AWTAccessor$MenuComponentAccessor;
 using $XBaseMenuWindow = ::sun::awt::X11::XBaseMenuWindow;
 using $XBaseMenuWindow$MappingData = ::sun::awt::X11::XBaseMenuWindow$MappingData;
 using $XBaseWindow = ::sun::awt::X11::XBaseWindow;
@@ -123,80 +114,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XMenuBarPeer_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(XMenuBarPeer, log)},
-	{"framePeer", "Lsun/awt/X11/XFramePeer;", nullptr, $PRIVATE, $field(XMenuBarPeer, framePeer)},
-	{"menuBarTarget", "Ljava/awt/MenuBar;", nullptr, $PRIVATE, $field(XMenuBarPeer, menuBarTarget)},
-	{"helpMenu", "Lsun/awt/X11/XMenuPeer;", nullptr, $PRIVATE, $field(XMenuBarPeer, helpMenu)},
-	{"BAR_SPACING_TOP", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuBarPeer, BAR_SPACING_TOP)},
-	{"BAR_SPACING_BOTTOM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuBarPeer, BAR_SPACING_BOTTOM)},
-	{"BAR_SPACING_LEFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuBarPeer, BAR_SPACING_LEFT)},
-	{"BAR_SPACING_RIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuBarPeer, BAR_SPACING_RIGHT)},
-	{"BAR_ITEM_SPACING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuBarPeer, BAR_ITEM_SPACING)},
-	{"BAR_ITEM_MARGIN_LEFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuBarPeer, BAR_ITEM_MARGIN_LEFT)},
-	{"BAR_ITEM_MARGIN_RIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuBarPeer, BAR_ITEM_MARGIN_RIGHT)},
-	{"BAR_ITEM_MARGIN_TOP", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuBarPeer, BAR_ITEM_MARGIN_TOP)},
-	{"BAR_ITEM_MARGIN_BOTTOM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuBarPeer, BAR_ITEM_MARGIN_BOTTOM)},
-	{"W_DIFF", "I", nullptr, $STATIC | $FINAL, $constField(XMenuBarPeer, W_DIFF)},
-	{"H_DIFF", "I", nullptr, $STATIC | $FINAL, $constField(XMenuBarPeer, H_DIFF)},
-	{}
-};
-
-$MethodInfo _XMenuBarPeer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*dispose", "()V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/MenuBar;)V", nullptr, 0, $method(XMenuBarPeer, init$, void, $MenuBar*)},
-	{"addHelpMenu", "(Ljava/awt/Menu;)V", nullptr, $PUBLIC, $virtualMethod(XMenuBarPeer, addHelpMenu, void, $Menu*)},
-	{"addMenu", "(Ljava/awt/Menu;)V", nullptr, $PUBLIC, $virtualMethod(XMenuBarPeer, addMenu, void, $Menu*)},
-	{"delMenu", "(I)V", nullptr, $PUBLIC, $virtualMethod(XMenuBarPeer, delMenu, void, int32_t)},
-	{"doDispose", "()V", nullptr, $PROTECTED, $virtualMethod(XMenuBarPeer, doDispose, void)},
-	{"getDesiredHeight", "()I", nullptr, 0, $virtualMethod(XMenuBarPeer, getDesiredHeight, int32_t)},
-	{"getParentMenuWindow", "()Lsun/awt/X11/XBaseMenuWindow;", nullptr, $PROTECTED, $virtualMethod(XMenuBarPeer, getParentMenuWindow, $XBaseMenuWindow*)},
-	{"getSubmenuBounds", "(Ljava/awt/Rectangle;Ljava/awt/Dimension;)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(XMenuBarPeer, getSubmenuBounds, $Rectangle*, $Rectangle*, $Dimension*)},
-	{"handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PROTECTED, $virtualMethod(XMenuBarPeer, handleEvent, void, $AWTEvent*)},
-	{"handleF10KeyPress", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(XMenuBarPeer, handleF10KeyPress, void, $KeyEvent*)},
-	{"handleKeyPress", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XMenuBarPeer, handleKeyPress, void, $XEvent*)},
-	{"init", "(Ljava/awt/Frame;)V", nullptr, $PUBLIC, $virtualMethod(XMenuBarPeer, init, void, $Frame*)},
-	{"isFramePeerEnabled", "()Z", nullptr, 0, $virtualMethod(XMenuBarPeer, isFramePeerEnabled, bool)},
-	{"map", "()Lsun/awt/X11/XMenuBarPeer$MappingData;", nullptr, $PROTECTED, $virtualMethod(XMenuBarPeer, map, $XBaseMenuWindow$MappingData*)},
-	{"paintPeer", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(XMenuBarPeer, paintPeer, void, $Graphics*)},
-	{"postInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XMenuBarPeer, postInit, void, $XCreateWindowParams*)},
-	{"print", "(Ljava/awt/Graphics;)V", nullptr, 0, $virtualMethod(XMenuBarPeer, print, void, $Graphics*)},
-	{"reshape", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(XMenuBarPeer, reshape, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(XMenuBarPeer, setFont, void, $Font*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"ungrabInputImpl", "()V", nullptr, 0, $virtualMethod(XMenuBarPeer, ungrabInputImpl, void)},
-	{"updateSize", "()V", nullptr, $PROTECTED, $virtualMethod(XMenuBarPeer, updateSize, void)},
-	{}
-};
-
-$InnerClassInfo _XMenuBarPeer_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XMenuBarPeer$MappingData", "sun.awt.X11.XMenuBarPeer", "MappingData", $STATIC},
-	{}
-};
-
-$ClassInfo _XMenuBarPeer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XMenuBarPeer",
-	"sun.awt.X11.XBaseMenuWindow",
-	"java.awt.peer.MenuBarPeer",
-	_XMenuBarPeer_FieldInfo_,
-	_XMenuBarPeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XMenuBarPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XMenuBarPeer$MappingData"
-};
-
-$Object* allocate$XMenuBarPeer($Class* clazz) {
-	return $of($alloc(XMenuBarPeer));
-}
 
 void XMenuBarPeer::dispose() {
 	this->$XBaseMenuWindow::dispose();
@@ -253,8 +170,8 @@ void XMenuBarPeer::delMenu(int32_t index) {
 }
 
 void XMenuBarPeer::addHelpMenu($Menu* m) {
-	$useLocalCurrentObjectStackCache();
-	$var($XMenuPeer, mp, $cast($XMenuPeer, $nc($($AWTAccessor::getMenuComponentAccessor()))->getPeer(m)));
+	$useLocalObjectStack();
+	$var($XMenuPeer, mp, $cast($XMenuPeer, $$nc($AWTAccessor::getMenuComponentAccessor())->getPeer(m)));
 	$synchronized(getMenuTreeLock()) {
 		$set(this, helpMenu, mp);
 	}
@@ -262,23 +179,23 @@ void XMenuBarPeer::addHelpMenu($Menu* m) {
 }
 
 void XMenuBarPeer::init($Frame* frame) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, target, frame);
-	$set(this, framePeer, $cast($XFramePeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(frame)));
+	$set(this, framePeer, $cast($XFramePeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(frame)));
 	$var($XCreateWindowParams, params, getDelayedParams());
 	$init($XBaseWindow);
 	$nc(params)->remove($XBaseWindow::DELAYED);
-	params->add($of($XBaseWindow::PARENT_WINDOW), $nc(this->framePeer)->getShell());
+	params->add($XBaseWindow::PARENT_WINDOW, $nc(this->framePeer)->getShell());
 	$init($XWindow);
-	params->add($of($XWindow::TARGET), $of(frame));
+	params->add($XWindow::TARGET, frame);
 	init(params);
 }
 
 void XMenuBarPeer::postInit($XCreateWindowParams* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XBaseMenuWindow::postInit(params);
-	$var($Vector, targetMenuVector, $nc($($AWTAccessor::getMenuBarAccessor()))->getMenus(this->menuBarTarget));
-	$var($Menu, targetHelpMenu, $nc($($AWTAccessor::getMenuBarAccessor()))->getHelpMenu(this->menuBarTarget));
+	$var($Vector, targetMenuVector, $$nc($AWTAccessor::getMenuBarAccessor())->getMenus(this->menuBarTarget));
+	$var($Menu, targetHelpMenu, $$nc($AWTAccessor::getMenuBarAccessor())->getHelpMenu(this->menuBarTarget));
 	reloadItems(targetMenuVector);
 	if (targetHelpMenu != nullptr) {
 		addHelpMenu(targetHelpMenu);
@@ -292,7 +209,7 @@ $XBaseMenuWindow* XMenuBarPeer::getParentMenuWindow() {
 }
 
 $XBaseMenuWindow$MappingData* XMenuBarPeer::map() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XMenuItemPeerArray, itemVector, copyItems());
 	int32_t itemCnt = $nc(itemVector)->length;
 	$var($XMenuItemPeer, helpMenu, this->helpMenu);
@@ -353,9 +270,9 @@ $XBaseMenuWindow$MappingData* XMenuBarPeer::map() {
 }
 
 $Rectangle* XMenuBarPeer::getSubmenuBounds($Rectangle* itemBounds, $Dimension* windowSize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, globalBounds, toGlobal(itemBounds));
-	$var($Rectangle, screenBounds, $nc($(getCurrentGraphicsConfiguration()))->getBounds());
+	$var($Rectangle, screenBounds, $$nc(getCurrentGraphicsConfiguration())->getBounds());
 	$var($Rectangle, res, nullptr);
 	$assign(res, fitWindowBelow(globalBounds, windowSize, screenBounds));
 	if (res != nullptr) {
@@ -379,7 +296,7 @@ $Rectangle* XMenuBarPeer::getSubmenuBounds($Rectangle* itemBounds, $Dimension* w
 void XMenuBarPeer::updateSize() {
 	resetMapping();
 	if (this->framePeer != nullptr) {
-		$nc(this->framePeer)->reshapeMenubarPeer();
+		this->framePeer->reshapeMenubarPeer();
 	}
 }
 
@@ -390,7 +307,7 @@ int32_t XMenuBarPeer::getDesiredHeight() {
 
 bool XMenuBarPeer::isFramePeerEnabled() {
 	if (this->framePeer != nullptr) {
-		return $nc(this->framePeer)->isEnabled();
+		return this->framePeer->isEnabled();
 	}
 	return false;
 }
@@ -414,7 +331,7 @@ void XMenuBarPeer::ungrabInputImpl() {
 }
 
 void XMenuBarPeer::paintPeer($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	resetColors();
 	int32_t width = getWidth();
 	int32_t height = getHeight();
@@ -428,12 +345,12 @@ void XMenuBarPeer::paintPeer($Graphics* g) {
 	for (int32_t i = 0; i < $nc(itemVector)->length; ++i) {
 		$var($XMenuItemPeer, item, itemVector->get(i));
 		g->setFont($($nc(item)->getTargetFont()));
-		$var($Rectangle, bounds, $nc(item)->getBounds());
+		$var($Rectangle, bounds, item->getBounds());
 		$var($Point, textOrigin, item->getTextOrigin());
 		if (item == selectedItem) {
 			g->setColor($(getSelectedColor()));
-			g->fillRect($nc(bounds)->x, bounds->y, bounds->width, bounds->height);
-			draw3DRect(g, $nc(bounds)->x, bounds->y, bounds->width, bounds->height, false);
+			g->fillRect($nc(bounds)->x, $nc(bounds)->y, $nc(bounds)->width, $nc(bounds)->height);
+			draw3DRect(g, bounds->x, bounds->y, bounds->width, bounds->height, false);
 		}
 		bool var$0 = isFramePeerEnabled();
 		if (var$0 && item->isTargetItemEnabled()) {
@@ -441,7 +358,7 @@ void XMenuBarPeer::paintPeer($Graphics* g) {
 		} else {
 			g->setColor($(getDisabledColor()));
 		}
-		g->drawString($(item->getTargetLabel()), $nc(textOrigin)->x, textOrigin->y);
+		g->drawString($(item->getTargetLabel()), $nc(textOrigin)->x, $nc(textOrigin)->y);
 	}
 	flush();
 }
@@ -451,50 +368,37 @@ void XMenuBarPeer::print($Graphics* g) {
 
 void XMenuBarPeer::handleEvent($AWTEvent* event) {
 	if ((this->framePeer != nullptr) && ($nc(event)->getID() != $PaintEvent::PAINT)) {
-		if ($nc(this->framePeer)->isModalBlocked()) {
+		if (this->framePeer->isModalBlocked()) {
 			return;
 		}
 	}
 	switch ($nc(event)->getID()) {
 	case $MouseEvent::MOUSE_PRESSED:
-		{}
 	case $MouseEvent::MOUSE_RELEASED:
-		{}
 	case $MouseEvent::MOUSE_CLICKED:
-		{}
 	case $MouseEvent::MOUSE_MOVED:
-		{}
 	case $MouseEvent::MOUSE_ENTERED:
-		{}
 	case $MouseEvent::MOUSE_EXITED:
-		{}
 	case $MouseEvent::MOUSE_DRAGGED:
-		{
-			if (isFramePeerEnabled()) {
-				doHandleJavaMouseEvent($cast($MouseEvent, event));
-			}
-			break;
+		if (isFramePeerEnabled()) {
+			doHandleJavaMouseEvent($cast($MouseEvent, event));
 		}
+		break;
 	case $KeyEvent::KEY_PRESSED:
-		{}
 	case $KeyEvent::KEY_RELEASED:
-		{
-			if (isFramePeerEnabled()) {
-				doHandleJavaKeyEvent($cast($KeyEvent, event));
-			}
-			break;
+		if (isFramePeerEnabled()) {
+			doHandleJavaKeyEvent($cast($KeyEvent, event));
 		}
+		break;
 	default:
-		{
-			$XBaseMenuWindow::handleEvent(event);
-			break;
-		}
+		$XBaseMenuWindow::handleEvent(event);
+		break;
 	}
 }
 
 void XMenuBarPeer::handleF10KeyPress($KeyEvent* event) {
 	int32_t keyState = $nc(event)->getModifiers();
-	if ((((int32_t)(keyState & (uint32_t)$InputEvent::ALT_MASK)) != 0) || (((int32_t)(keyState & (uint32_t)$InputEvent::SHIFT_MASK)) != 0) || (((int32_t)(keyState & (uint32_t)$InputEvent::CTRL_MASK)) != 0)) {
+	if (((keyState & $InputEvent::ALT_MASK) != 0) || ((keyState & $InputEvent::SHIFT_MASK) != 0) || ((keyState & $InputEvent::CTRL_MASK) != 0)) {
 		return;
 	}
 	grabInput();
@@ -502,7 +406,7 @@ void XMenuBarPeer::handleF10KeyPress($KeyEvent* event) {
 }
 
 void XMenuBarPeer::handleKeyPress($XEvent* xev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XKeyEvent, xkey, $nc(xev)->get_xkey());
 	$init($PlatformLogger$Level);
 	if ($nc(XMenuBarPeer::log)->isLoggable($PlatformLogger$Level::FINE)) {
@@ -515,7 +419,7 @@ void XMenuBarPeer::handleKeyPress($XEvent* xev) {
 	handleKeyPress(xkey);
 }
 
-void clinit$XMenuBarPeer($Class* class$) {
+void XMenuBarPeer::clinit$($Class* clazz) {
 	$assignStatic(XMenuBarPeer::log, $PlatformLogger::getLogger("sun.awt.X11.XMenuBarPeer"_s));
 }
 
@@ -523,7 +427,75 @@ XMenuBarPeer::XMenuBarPeer() {
 }
 
 $Class* XMenuBarPeer::load$($String* name, bool initialize) {
-	$loadClass(XMenuBarPeer, name, initialize, &_XMenuBarPeer_ClassInfo_, clinit$XMenuBarPeer, allocate$XMenuBarPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(XMenuBarPeer, log)},
+		{"framePeer", "Lsun/awt/X11/XFramePeer;", nullptr, $PRIVATE, $field(XMenuBarPeer, framePeer)},
+		{"menuBarTarget", "Ljava/awt/MenuBar;", nullptr, $PRIVATE, $field(XMenuBarPeer, menuBarTarget)},
+		{"helpMenu", "Lsun/awt/X11/XMenuPeer;", nullptr, $PRIVATE, $field(XMenuBarPeer, helpMenu)},
+		{"BAR_SPACING_TOP", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuBarPeer, BAR_SPACING_TOP)},
+		{"BAR_SPACING_BOTTOM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuBarPeer, BAR_SPACING_BOTTOM)},
+		{"BAR_SPACING_LEFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuBarPeer, BAR_SPACING_LEFT)},
+		{"BAR_SPACING_RIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuBarPeer, BAR_SPACING_RIGHT)},
+		{"BAR_ITEM_SPACING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuBarPeer, BAR_ITEM_SPACING)},
+		{"BAR_ITEM_MARGIN_LEFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuBarPeer, BAR_ITEM_MARGIN_LEFT)},
+		{"BAR_ITEM_MARGIN_RIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuBarPeer, BAR_ITEM_MARGIN_RIGHT)},
+		{"BAR_ITEM_MARGIN_TOP", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuBarPeer, BAR_ITEM_MARGIN_TOP)},
+		{"BAR_ITEM_MARGIN_BOTTOM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuBarPeer, BAR_ITEM_MARGIN_BOTTOM)},
+		{"W_DIFF", "I", nullptr, $STATIC | $FINAL, $constField(XMenuBarPeer, W_DIFF)},
+		{"H_DIFF", "I", nullptr, $STATIC | $FINAL, $constField(XMenuBarPeer, H_DIFF)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*dispose", "()V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/MenuBar;)V", nullptr, 0, $method(XMenuBarPeer, init$, void, $MenuBar*)},
+		{"addHelpMenu", "(Ljava/awt/Menu;)V", nullptr, $PUBLIC, $virtualMethod(XMenuBarPeer, addHelpMenu, void, $Menu*)},
+		{"addMenu", "(Ljava/awt/Menu;)V", nullptr, $PUBLIC, $virtualMethod(XMenuBarPeer, addMenu, void, $Menu*)},
+		{"delMenu", "(I)V", nullptr, $PUBLIC, $virtualMethod(XMenuBarPeer, delMenu, void, int32_t)},
+		{"doDispose", "()V", nullptr, $PROTECTED, $virtualMethod(XMenuBarPeer, doDispose, void)},
+		{"getDesiredHeight", "()I", nullptr, 0, $virtualMethod(XMenuBarPeer, getDesiredHeight, int32_t)},
+		{"getParentMenuWindow", "()Lsun/awt/X11/XBaseMenuWindow;", nullptr, $PROTECTED, $virtualMethod(XMenuBarPeer, getParentMenuWindow, $XBaseMenuWindow*)},
+		{"getSubmenuBounds", "(Ljava/awt/Rectangle;Ljava/awt/Dimension;)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(XMenuBarPeer, getSubmenuBounds, $Rectangle*, $Rectangle*, $Dimension*)},
+		{"handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PROTECTED, $virtualMethod(XMenuBarPeer, handleEvent, void, $AWTEvent*)},
+		{"handleF10KeyPress", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(XMenuBarPeer, handleF10KeyPress, void, $KeyEvent*)},
+		{"handleKeyPress", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XMenuBarPeer, handleKeyPress, void, $XEvent*)},
+		{"init", "(Ljava/awt/Frame;)V", nullptr, $PUBLIC, $virtualMethod(XMenuBarPeer, init, void, $Frame*)},
+		{"isFramePeerEnabled", "()Z", nullptr, 0, $virtualMethod(XMenuBarPeer, isFramePeerEnabled, bool)},
+		{"map", "()Lsun/awt/X11/XMenuBarPeer$MappingData;", nullptr, $PROTECTED, $virtualMethod(XMenuBarPeer, map, $XBaseMenuWindow$MappingData*)},
+		{"paintPeer", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(XMenuBarPeer, paintPeer, void, $Graphics*)},
+		{"postInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XMenuBarPeer, postInit, void, $XCreateWindowParams*)},
+		{"print", "(Ljava/awt/Graphics;)V", nullptr, 0, $virtualMethod(XMenuBarPeer, print, void, $Graphics*)},
+		{"reshape", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(XMenuBarPeer, reshape, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(XMenuBarPeer, setFont, void, $Font*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"ungrabInputImpl", "()V", nullptr, 0, $virtualMethod(XMenuBarPeer, ungrabInputImpl, void)},
+		{"updateSize", "()V", nullptr, $PROTECTED, $virtualMethod(XMenuBarPeer, updateSize, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XMenuBarPeer$MappingData", "sun.awt.X11.XMenuBarPeer", "MappingData", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XMenuBarPeer",
+		"sun.awt.X11.XBaseMenuWindow",
+		"java.awt.peer.MenuBarPeer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XMenuBarPeer$MappingData"
+	};
+	$loadClass(XMenuBarPeer, name, initialize, &classInfo$$, XMenuBarPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XMenuBarPeer));
+	});
 	return class$;
 }
 

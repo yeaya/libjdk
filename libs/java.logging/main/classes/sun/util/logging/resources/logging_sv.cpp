@@ -1,5 +1,4 @@
 #include <sun/util/logging/resources/logging_sv.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -13,67 +12,48 @@ namespace sun {
 		namespace logging {
 			namespace resources {
 
-$MethodInfo _logging_sv_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(logging_sv, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(logging_sv, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _logging_sv_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.util.logging.resources.logging_sv",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_logging_sv_MethodInfo_
-};
-
-$Object* allocate$logging_sv($Class* clazz) {
-	return $of($alloc(logging_sv));
-}
-
 void logging_sv::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* logging_sv::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("ALL"_s),
-			$of("Alla"_s)
+			"ALL"_s,
+			"Alla"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CONFIG"_s),
-			$of("Konfig"_s)
+			"CONFIG"_s,
+			"Konfig"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FINE"_s),
-			$of("Fin"_s)
+			"FINE"_s,
+			"Fin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FINER"_s),
-			$of("Finare"_s)
+			"FINER"_s,
+			"Finare"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FINEST"_s),
-			$of("Finaste"_s)
+			"FINEST"_s,
+			"Finaste"_s
 		}),
 		$$new($ObjectArray, {
-			$of("INFO"_s),
-			$of("Info"_s)
+			"INFO"_s,
+			"Info"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OFF"_s),
-			$of("Av"_s)
+			"OFF"_s,
+			"Av"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SEVERE"_s),
-			$of("Allvarlig"_s)
+			"SEVERE"_s,
+			"Allvarlig"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WARNING"_s),
-			$of("Varning"_s)
+			"WARNING"_s,
+			"Varning"_s
 		})
 	});
 }
@@ -82,7 +62,22 @@ logging_sv::logging_sv() {
 }
 
 $Class* logging_sv::load$($String* name, bool initialize) {
-	$loadClass(logging_sv, name, initialize, &_logging_sv_ClassInfo_, allocate$logging_sv);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(logging_sv, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(logging_sv, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.util.logging.resources.logging_sv",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(logging_sv, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(logging_sv);
+	});
 	return class$;
 }
 

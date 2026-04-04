@@ -45,12 +45,15 @@ public:
 	virtual $String* returnCodeSymbol();
 	static $String* returnCodeSymbol(int32_t i);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xBAB4397D512585EC;
+	static const int64_t serialVersionUID = (int64_t)0xbab4397d512585ec;
 	int32_t returnCode$ = 0;
 	::sun::security::krb5::internal::KRBError* error = nullptr;
 	KrbException(const KrbException& e);
 	virtual void throw$() override;
-	inline KrbException* operator ->() {
+	inline KrbException* operator ->() const {
+		return (KrbException*)throwing$;
+	}
+	inline operator KrbException*() const {
 		return (KrbException*)throwing$;
 	}
 };

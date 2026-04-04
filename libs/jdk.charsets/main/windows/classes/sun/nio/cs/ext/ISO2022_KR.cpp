@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/ISO2022_KR.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -27,46 +26,6 @@ namespace sun {
 		namespace cs {
 			namespace ext {
 
-$MethodInfo _ISO2022_KR_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ISO2022_KR, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(ISO2022_KR, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ISO2022_KR, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(ISO2022_KR, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(ISO2022_KR, newEncoder, $CharsetEncoder*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{}
-};
-
-$InnerClassInfo _ISO2022_KR_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.ISO2022_KR$Encoder", "sun.nio.cs.ext.ISO2022_KR", "Encoder", $PRIVATE | $STATIC},
-	{"sun.nio.cs.ext.ISO2022_KR$Decoder", "sun.nio.cs.ext.ISO2022_KR", "Decoder", $PRIVATE | $STATIC},
-	{"sun.nio.cs.ext.ISO2022_KR$Holder", "sun.nio.cs.ext.ISO2022_KR", "Holder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ISO2022_KR_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.ext.ISO2022_KR",
-	"sun.nio.cs.ext.ISO2022",
-	"sun.nio.cs.HistoricallyNamedCharset",
-	nullptr,
-	_ISO2022_KR_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ISO2022_KR_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.ISO2022_KR$Encoder,sun.nio.cs.ext.ISO2022_KR$Decoder,sun.nio.cs.ext.ISO2022_KR$Holder"
-};
-
-$Object* allocate$ISO2022_KR($Class* clazz) {
-	return $of($alloc(ISO2022_KR));
-}
-
 int32_t ISO2022_KR::hashCode() {
 	 return this->$ISO2022::hashCode();
 }
@@ -92,7 +51,7 @@ void ISO2022_KR::init$() {
 }
 
 bool ISO2022_KR::contains($Charset* cs) {
-	return (($instanceOf($EUC_KR, cs)) || ($nc($($nc(cs)->name()))->equals("US-ASCII"_s)) || ($instanceOf(ISO2022_KR, cs)));
+	return (($instanceOf($EUC_KR, cs)) || ($$nc($nc(cs)->name())->equals("US-ASCII"_s)) || ($instanceOf(ISO2022_KR, cs)));
 }
 
 $String* ISO2022_KR::historicalName() {
@@ -111,7 +70,42 @@ ISO2022_KR::ISO2022_KR() {
 }
 
 $Class* ISO2022_KR::load$($String* name, bool initialize) {
-	$loadClass(ISO2022_KR, name, initialize, &_ISO2022_KR_ClassInfo_, allocate$ISO2022_KR);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ISO2022_KR, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(ISO2022_KR, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ISO2022_KR, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(ISO2022_KR, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(ISO2022_KR, newEncoder, $CharsetEncoder*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.ISO2022_KR$Encoder", "sun.nio.cs.ext.ISO2022_KR", "Encoder", $PRIVATE | $STATIC},
+		{"sun.nio.cs.ext.ISO2022_KR$Decoder", "sun.nio.cs.ext.ISO2022_KR", "Decoder", $PRIVATE | $STATIC},
+		{"sun.nio.cs.ext.ISO2022_KR$Holder", "sun.nio.cs.ext.ISO2022_KR", "Holder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.ext.ISO2022_KR",
+		"sun.nio.cs.ext.ISO2022",
+		"sun.nio.cs.HistoricallyNamedCharset",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.ISO2022_KR$Encoder,sun.nio.cs.ext.ISO2022_KR$Decoder,sun.nio.cs.ext.ISO2022_KR$Holder"
+	};
+	$loadClass(ISO2022_KR, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ISO2022_KR));
+	});
 	return class$;
 }
 

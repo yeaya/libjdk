@@ -44,6 +44,7 @@ class AquaUtilControlSize : public ::java::lang::Object {
 	$class(AquaUtilControlSize, 0, ::java::lang::Object)
 public:
 	AquaUtilControlSize();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addSizePropertyListener(::javax::swing::JComponent* c);
 	static void applyBorderForSize(::javax::swing::JComponent* c, ::apple::laf::JRSUIConstants$Size* size);

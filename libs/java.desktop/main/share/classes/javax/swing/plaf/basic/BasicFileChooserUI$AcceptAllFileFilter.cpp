@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicFileChooserUI$AcceptAllFileFilter.h>
-
 #include <java/io/File.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/filechooser/FileFilter.h>
@@ -20,43 +19,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicFileChooserUI$AcceptAllFileFilter_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicFileChooserUI$AcceptAllFileFilter, this$0)},
-	{}
-};
-
-$MethodInfo _BasicFileChooserUI$AcceptAllFileFilter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicFileChooserUI;)V", nullptr, $PUBLIC, $method(BasicFileChooserUI$AcceptAllFileFilter, init$, void, $BasicFileChooserUI*)},
-	{"accept", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI$AcceptAllFileFilter, accept, bool, $File*)},
-	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI$AcceptAllFileFilter, getDescription, $String*)},
-	{}
-};
-
-$InnerClassInfo _BasicFileChooserUI$AcceptAllFileFilter_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicFileChooserUI$AcceptAllFileFilter", "javax.swing.plaf.basic.BasicFileChooserUI", "AcceptAllFileFilter", $PROTECTED},
-	{}
-};
-
-$ClassInfo _BasicFileChooserUI$AcceptAllFileFilter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicFileChooserUI$AcceptAllFileFilter",
-	"javax.swing.filechooser.FileFilter",
-	nullptr,
-	_BasicFileChooserUI$AcceptAllFileFilter_FieldInfo_,
-	_BasicFileChooserUI$AcceptAllFileFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicFileChooserUI$AcceptAllFileFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicFileChooserUI"
-};
-
-$Object* allocate$BasicFileChooserUI$AcceptAllFileFilter($Class* clazz) {
-	return $of($alloc(BasicFileChooserUI$AcceptAllFileFilter));
-}
-
 void BasicFileChooserUI$AcceptAllFileFilter::init$($BasicFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
 	$FileFilter::init$();
@@ -74,7 +36,38 @@ BasicFileChooserUI$AcceptAllFileFilter::BasicFileChooserUI$AcceptAllFileFilter()
 }
 
 $Class* BasicFileChooserUI$AcceptAllFileFilter::load$($String* name, bool initialize) {
-	$loadClass(BasicFileChooserUI$AcceptAllFileFilter, name, initialize, &_BasicFileChooserUI$AcceptAllFileFilter_ClassInfo_, allocate$BasicFileChooserUI$AcceptAllFileFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicFileChooserUI$AcceptAllFileFilter, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicFileChooserUI;)V", nullptr, $PUBLIC, $method(BasicFileChooserUI$AcceptAllFileFilter, init$, void, $BasicFileChooserUI*)},
+		{"accept", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI$AcceptAllFileFilter, accept, bool, $File*)},
+		{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI$AcceptAllFileFilter, getDescription, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicFileChooserUI$AcceptAllFileFilter", "javax.swing.plaf.basic.BasicFileChooserUI", "AcceptAllFileFilter", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicFileChooserUI$AcceptAllFileFilter",
+		"javax.swing.filechooser.FileFilter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicFileChooserUI"
+	};
+	$loadClass(BasicFileChooserUI$AcceptAllFileFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicFileChooserUI$AcceptAllFileFilter);
+	});
 	return class$;
 }
 

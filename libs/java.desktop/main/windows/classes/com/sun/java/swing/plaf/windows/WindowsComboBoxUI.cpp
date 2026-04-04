@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsComboBoxUI.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
 #include <com/sun/java/swing/plaf/windows/WindowsComboBoxUI$1.h>
@@ -13,7 +12,6 @@
 #include <com/sun/java/swing/plaf/windows/XPStyle.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/Graphics.h>
@@ -59,7 +57,6 @@ using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
@@ -71,14 +68,12 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CellRendererPane = ::javax::swing::CellRendererPane;
 using $ComboBoxEditor = ::javax::swing::ComboBoxEditor;
 using $JButton = ::javax::swing::JButton;
 using $JComboBox = ::javax::swing::JComboBox;
 using $JComponent = ::javax::swing::JComponent;
 using $JPanel = ::javax::swing::JPanel;
 using $ListCellRenderer = ::javax::swing::ListCellRenderer;
-using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $BasicComboBoxUI = ::javax::swing::plaf::basic::BasicComboBoxUI;
@@ -91,85 +86,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _WindowsComboBoxUI_FieldInfo_[] = {
-	{"rolloverListener", "Ljava/awt/event/MouseListener;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsComboBoxUI, rolloverListener)},
-	{"isRollover", "Z", nullptr, $PRIVATE, $field(WindowsComboBoxUI, isRollover)},
-	{"componentOrientationListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsComboBoxUI, componentOrientationListener)},
-	{}
-};
-
-$MethodInfo _WindowsComboBoxUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsComboBoxUI, init$, void)},
-	{"access$000", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$000, $JButton*, WindowsComboBoxUI*)},
-	{"access$100", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$100, $JButton*, WindowsComboBoxUI*)},
-	{"access$1000", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$1000, $JComboBox*, WindowsComboBoxUI*)},
-	{"access$1100", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$1100, $JComboBox*, WindowsComboBoxUI*)},
-	{"access$1200", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$1200, $JComboBox*, WindowsComboBoxUI*)},
-	{"access$1300", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$1300, $JComboBox*, WindowsComboBoxUI*)},
-	{"access$1400", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$1400, $JComboBox*, WindowsComboBoxUI*)},
-	{"access$1500", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$1500, $JComboBox*, WindowsComboBoxUI*)},
-	{"access$1600", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$1600, $JComboBox*, WindowsComboBoxUI*)},
-	{"access$1700", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$1700, $JComboBox*, WindowsComboBoxUI*)},
-	{"access$200", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$200, $JComboBox*, WindowsComboBoxUI*)},
-	{"access$300", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$300, $JButton*, WindowsComboBoxUI*)},
-	{"access$400", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$400, $JButton*, WindowsComboBoxUI*)},
-	{"access$500", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$500, $JButton*, WindowsComboBoxUI*)},
-	{"access$600", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljava/awt/Insets;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$600, $Insets*, WindowsComboBoxUI*)},
-	{"access$700", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$700, $JButton*, WindowsComboBoxUI*)},
-	{"access$800", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$800, $JButton*, WindowsComboBoxUI*)},
-	{"access$900", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$900, $JButton*, WindowsComboBoxUI*)},
-	{"configureEditor", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsComboBoxUI, configureEditor, void)},
-	{"createArrowButton", "()Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(WindowsComboBoxUI, createArrowButton, $JButton*)},
-	{"createEditor", "()Ljavax/swing/ComboBoxEditor;", nullptr, $PROTECTED, $virtualMethod(WindowsComboBoxUI, createEditor, $ComboBoxEditor*)},
-	{"createLayoutManager", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(WindowsComboBoxUI, createLayoutManager, $LayoutManager*)},
-	{"createPopup", "()Ljavax/swing/plaf/basic/ComboPopup;", nullptr, $PROTECTED, $virtualMethod(WindowsComboBoxUI, createPopup, $ComboPopup*)},
-	{"createRenderer", "()Ljavax/swing/ListCellRenderer;", "()Ljavax/swing/ListCellRenderer<Ljava/lang/Object;>;", $PROTECTED, $virtualMethod(WindowsComboBoxUI, createRenderer, $ListCellRenderer*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsComboBoxUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsComboBoxUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getXPComboBoxState", "(Ljavax/swing/JComponent;)Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, 0, $virtualMethod(WindowsComboBoxUI, getXPComboBoxState, $TMSchema$State*, $JComponent*)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsComboBoxUI, installKeyboardActions, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsComboBoxUI, installListeners, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsComboBoxUI, installUI, void, $JComponent*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsComboBoxUI, paint, void, $Graphics*, $JComponent*)},
-	{"paintCurrentValue", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Z)V", nullptr, $PUBLIC, $virtualMethod(WindowsComboBoxUI, paintCurrentValue, void, $Graphics*, $Rectangle*, bool)},
-	{"paintCurrentValueBackground", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Z)V", nullptr, $PUBLIC, $virtualMethod(WindowsComboBoxUI, paintCurrentValueBackground, void, $Graphics*, $Rectangle*, bool)},
-	{"paintXPComboBoxBackground", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(WindowsComboBoxUI, paintXPComboBoxBackground, void, $Graphics*, $JComponent*)},
-	{"unconfigureEditor", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsComboBoxUI, unconfigureEditor, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsComboBoxUI, uninstallListeners, void)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsComboBoxUI, uninstallUI, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _WindowsComboBoxUI_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WindowsComboBoxRenderer", "com.sun.java.swing.plaf.windows.WindowsComboBoxUI", "WindowsComboBoxRenderer", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WindowsComboBoxEditor", "com.sun.java.swing.plaf.windows.WindowsComboBoxUI", "WindowsComboBoxEditor", $PUBLIC | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WinComboPopUp", "com.sun.java.swing.plaf.windows.WindowsComboBoxUI", "WinComboPopUp", $PROTECTED},
-	{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$XPComboBoxButton", "com.sun.java.swing.plaf.windows.WindowsComboBoxUI", "XPComboBoxButton", $PRIVATE},
-	{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$3", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$2", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WindowsComboBoxUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsComboBoxUI",
-	"javax.swing.plaf.basic.BasicComboBoxUI",
-	nullptr,
-	_WindowsComboBoxUI_FieldInfo_,
-	_WindowsComboBoxUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsComboBoxUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WindowsComboBoxRenderer,com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder,com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WindowsComboBoxEditor,com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WinComboPopUp,com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WinComboPopUp$InvocationKeyHandler,com.sun.java.swing.plaf.windows.WindowsComboBoxUI$XPComboBoxButton,com.sun.java.swing.plaf.windows.WindowsComboBoxUI$3,com.sun.java.swing.plaf.windows.WindowsComboBoxUI$2,com.sun.java.swing.plaf.windows.WindowsComboBoxUI$1"
-};
-
-$Object* allocate$WindowsComboBoxUI($Class* clazz) {
-	return $of($alloc(WindowsComboBoxUI));
-}
 
 $MouseListener* WindowsComboBoxUI::rolloverListener = nullptr;
 $PropertyChangeListener* WindowsComboBoxUI::componentOrientationListener = nullptr;
@@ -288,7 +204,7 @@ void WindowsComboBoxUI::installUI($JComponent* c) {
 void WindowsComboBoxUI::uninstallUI($JComponent* c) {
 	$nc(this->comboBox)->removeMouseListener(WindowsComboBoxUI::rolloverListener);
 	if (this->arrowButton != nullptr) {
-		$nc(this->arrowButton)->removeMouseListener(WindowsComboBoxUI::rolloverListener);
+		this->arrowButton->removeMouseListener(WindowsComboBoxUI::rolloverListener);
 	}
 	$BasicComboBoxUI::uninstallUI(c);
 }
@@ -327,7 +243,7 @@ void WindowsComboBoxUI::paint($Graphics* g, $JComponent* c) {
 }
 
 $TMSchema$State* WindowsComboBoxUI::getXPComboBoxState($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TMSchema$State);
 	$TMSchema$State* state = $TMSchema$State::NORMAL;
 	if (!$nc(c)->isEnabled()) {
@@ -335,8 +251,8 @@ $TMSchema$State* WindowsComboBoxUI::getXPComboBoxState($JComponent* c) {
 	} else if (isPopupVisible(this->comboBox)) {
 		state = $TMSchema$State::PRESSED;
 	} else {
-		bool var$1 = $nc(this->comboBox)->isEditable();
-		if (var$1 && $nc($($nc($($nc(this->comboBox)->getEditor()))->getEditorComponent()))->isFocusOwner()) {
+		bool var$0 = $nc(this->comboBox)->isEditable();
+		if (var$0 && $$nc($$nc(this->comboBox->getEditor())->getEditorComponent())->isFocusOwner()) {
 			state = $TMSchema$State::PRESSED;
 		} else if (this->isRollover) {
 			state = $TMSchema$State::HOT;
@@ -346,7 +262,7 @@ $TMSchema$State* WindowsComboBoxUI::getXPComboBoxState($JComponent* c) {
 }
 
 void WindowsComboBoxUI::paintXPComboBoxBackground($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp == nullptr) {
 		return;
@@ -361,13 +277,12 @@ void WindowsComboBoxUI::paintXPComboBoxBackground($Graphics* g, $JComponent* c) 
 	if (skin == nullptr) {
 		$assign(skin, $nc(xp)->getSkin(c, $TMSchema$Part::CP_BORDER));
 	}
-	$var($Graphics, var$1, g);
-	int32_t var$2 = $nc(c)->getWidth();
-	$nc(skin)->paintSkin(var$1, 0, 0, var$2, c->getHeight(), state);
+	int32_t var$1 = $nc(c)->getWidth();
+	$nc(skin)->paintSkin(g, 0, 0, var$1, c->getHeight(), state);
 }
 
 void WindowsComboBoxUI::paintCurrentValue($Graphics* g, $Rectangle* bounds, bool hasFocus) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
 		$nc(bounds)->x += 2;
@@ -402,7 +317,7 @@ void WindowsComboBoxUI::paintCurrentValue($Graphics* g, $Rectangle* bounds, bool
 		if ($instanceOf($JPanel, c)) {
 			shouldValidate = true;
 		}
-		$nc(this->currentValuePane)->paintComponent(g, c, this->comboBox, $nc(bounds)->x, bounds->y, bounds->width, bounds->height, shouldValidate);
+		$nc(this->currentValuePane)->paintComponent(g, c, this->comboBox, $nc(bounds)->x, $nc(bounds)->y, $nc(bounds)->width, $nc(bounds)->height, shouldValidate);
 	} else {
 		$BasicComboBoxUI::paintCurrentValue(g, bounds, hasFocus);
 	}
@@ -415,15 +330,15 @@ void WindowsComboBoxUI::paintCurrentValueBackground($Graphics* g, $Rectangle* bo
 }
 
 $Dimension* WindowsComboBoxUI::getMinimumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, d, $BasicComboBoxUI::getMinimumSize(c));
 	if ($XPStyle::getXP() != nullptr) {
 		$nc(d)->width += 7;
 		bool isEditable = false;
 		if ($instanceOf($JComboBox, c)) {
-			isEditable = $nc(($cast($JComboBox, c)))->isEditable();
+			isEditable = $cast($JComboBox, c)->isEditable();
 		}
-		if ($instanceOf($EmptyBorder, $($nc(($cast($JComboBox, c)))->getBorder()))) {
+		if ($instanceOf($EmptyBorder, $($nc($cast($JComboBox, c))->getBorder()))) {
 			d->height += isEditable ? 2 : 4;
 		} else {
 			d->height += isEditable ? 4 : 6;
@@ -470,7 +385,7 @@ $JButton* WindowsComboBoxUI::createArrowButton() {
 	}
 }
 
-void clinit$WindowsComboBoxUI($Class* class$) {
+void WindowsComboBoxUI::clinit$($Class* clazz) {
 	$assignStatic(WindowsComboBoxUI::rolloverListener, $new($WindowsComboBoxUI$1));
 	$assignStatic(WindowsComboBoxUI::componentOrientationListener, $new($WindowsComboBoxUI$2));
 }
@@ -479,7 +394,80 @@ WindowsComboBoxUI::WindowsComboBoxUI() {
 }
 
 $Class* WindowsComboBoxUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsComboBoxUI, name, initialize, &_WindowsComboBoxUI_ClassInfo_, clinit$WindowsComboBoxUI, allocate$WindowsComboBoxUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"rolloverListener", "Ljava/awt/event/MouseListener;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsComboBoxUI, rolloverListener)},
+		{"isRollover", "Z", nullptr, $PRIVATE, $field(WindowsComboBoxUI, isRollover)},
+		{"componentOrientationListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsComboBoxUI, componentOrientationListener)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsComboBoxUI, init$, void)},
+		{"access$000", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$000, $JButton*, WindowsComboBoxUI*)},
+		{"access$100", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$100, $JButton*, WindowsComboBoxUI*)},
+		{"access$1000", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$1000, $JComboBox*, WindowsComboBoxUI*)},
+		{"access$1100", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$1100, $JComboBox*, WindowsComboBoxUI*)},
+		{"access$1200", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$1200, $JComboBox*, WindowsComboBoxUI*)},
+		{"access$1300", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$1300, $JComboBox*, WindowsComboBoxUI*)},
+		{"access$1400", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$1400, $JComboBox*, WindowsComboBoxUI*)},
+		{"access$1500", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$1500, $JComboBox*, WindowsComboBoxUI*)},
+		{"access$1600", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$1600, $JComboBox*, WindowsComboBoxUI*)},
+		{"access$1700", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$1700, $JComboBox*, WindowsComboBoxUI*)},
+		{"access$200", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$200, $JComboBox*, WindowsComboBoxUI*)},
+		{"access$300", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$300, $JButton*, WindowsComboBoxUI*)},
+		{"access$400", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$400, $JButton*, WindowsComboBoxUI*)},
+		{"access$500", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$500, $JButton*, WindowsComboBoxUI*)},
+		{"access$600", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljava/awt/Insets;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$600, $Insets*, WindowsComboBoxUI*)},
+		{"access$700", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$700, $JButton*, WindowsComboBoxUI*)},
+		{"access$800", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$800, $JButton*, WindowsComboBoxUI*)},
+		{"access$900", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsComboBoxUI, access$900, $JButton*, WindowsComboBoxUI*)},
+		{"configureEditor", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsComboBoxUI, configureEditor, void)},
+		{"createArrowButton", "()Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(WindowsComboBoxUI, createArrowButton, $JButton*)},
+		{"createEditor", "()Ljavax/swing/ComboBoxEditor;", nullptr, $PROTECTED, $virtualMethod(WindowsComboBoxUI, createEditor, $ComboBoxEditor*)},
+		{"createLayoutManager", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(WindowsComboBoxUI, createLayoutManager, $LayoutManager*)},
+		{"createPopup", "()Ljavax/swing/plaf/basic/ComboPopup;", nullptr, $PROTECTED, $virtualMethod(WindowsComboBoxUI, createPopup, $ComboPopup*)},
+		{"createRenderer", "()Ljavax/swing/ListCellRenderer;", "()Ljavax/swing/ListCellRenderer<Ljava/lang/Object;>;", $PROTECTED, $virtualMethod(WindowsComboBoxUI, createRenderer, $ListCellRenderer*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsComboBoxUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsComboBoxUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getXPComboBoxState", "(Ljavax/swing/JComponent;)Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, 0, $virtualMethod(WindowsComboBoxUI, getXPComboBoxState, $TMSchema$State*, $JComponent*)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsComboBoxUI, installKeyboardActions, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsComboBoxUI, installListeners, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsComboBoxUI, installUI, void, $JComponent*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsComboBoxUI, paint, void, $Graphics*, $JComponent*)},
+		{"paintCurrentValue", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Z)V", nullptr, $PUBLIC, $virtualMethod(WindowsComboBoxUI, paintCurrentValue, void, $Graphics*, $Rectangle*, bool)},
+		{"paintCurrentValueBackground", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Z)V", nullptr, $PUBLIC, $virtualMethod(WindowsComboBoxUI, paintCurrentValueBackground, void, $Graphics*, $Rectangle*, bool)},
+		{"paintXPComboBoxBackground", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(WindowsComboBoxUI, paintXPComboBoxBackground, void, $Graphics*, $JComponent*)},
+		{"unconfigureEditor", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsComboBoxUI, unconfigureEditor, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsComboBoxUI, uninstallListeners, void)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsComboBoxUI, uninstallUI, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WindowsComboBoxRenderer", "com.sun.java.swing.plaf.windows.WindowsComboBoxUI", "WindowsComboBoxRenderer", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WindowsComboBoxEditor", "com.sun.java.swing.plaf.windows.WindowsComboBoxUI", "WindowsComboBoxEditor", $PUBLIC | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WinComboPopUp", "com.sun.java.swing.plaf.windows.WindowsComboBoxUI", "WinComboPopUp", $PROTECTED},
+		{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$XPComboBoxButton", "com.sun.java.swing.plaf.windows.WindowsComboBoxUI", "XPComboBoxButton", $PRIVATE},
+		{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$3", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$2", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsComboBoxUI",
+		"javax.swing.plaf.basic.BasicComboBoxUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WindowsComboBoxRenderer,com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder,com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WindowsComboBoxEditor,com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WinComboPopUp,com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WinComboPopUp$InvocationKeyHandler,com.sun.java.swing.plaf.windows.WindowsComboBoxUI$XPComboBoxButton,com.sun.java.swing.plaf.windows.WindowsComboBoxUI$3,com.sun.java.swing.plaf.windows.WindowsComboBoxUI$2,com.sun.java.swing.plaf.windows.WindowsComboBoxUI$1"
+	};
+	$loadClass(WindowsComboBoxUI, name, initialize, &classInfo$$, WindowsComboBoxUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsComboBoxUI);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Scope$WriteableScope.h>
-
 #include <com/sun/tools/javac/code/Scope$ScopeImpl.h>
 #include <com/sun/tools/javac/code/Scope.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -17,45 +16,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$MethodInfo _Scope$WriteableScope_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Scope$WriteableScope, init$, void, $Symbol*)},
-	{"create", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC | $STATIC, $staticMethod(Scope$WriteableScope, create, Scope$WriteableScope*, $Symbol*)},
-	{"dup", "()Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC | $FINAL, $method(Scope$WriteableScope, dup, Scope$WriteableScope*)},
-	{"dup", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scope$WriteableScope, dup, Scope$WriteableScope*, $Symbol*)},
-	{"dupUnshared", "()Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC | $FINAL, $method(Scope$WriteableScope, dupUnshared, Scope$WriteableScope*)},
-	{"dupUnshared", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scope$WriteableScope, dupUnshared, Scope$WriteableScope*, $Symbol*)},
-	{"enter", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scope$WriteableScope, enter, void, $Symbol*)},
-	{"enterIfAbsent", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scope$WriteableScope, enterIfAbsent, void, $Symbol*)},
-	{"leave", "()Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scope$WriteableScope, leave, Scope$WriteableScope*)},
-	{"remove", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scope$WriteableScope, remove, void, $Symbol*)},
-	{}
-};
-
-$InnerClassInfo _Scope$WriteableScope_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Scope$WriteableScope", "com.sun.tools.javac.code.Scope", "WriteableScope", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Scope$WriteableScope_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.code.Scope$WriteableScope",
-	"com.sun.tools.javac.code.Scope",
-	nullptr,
-	nullptr,
-	_Scope$WriteableScope_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Scope$WriteableScope_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Scope"
-};
-
-$Object* allocate$Scope$WriteableScope($Class* clazz) {
-	return $of($alloc(Scope$WriteableScope));
-}
 
 void Scope$WriteableScope::init$($Symbol* owner) {
 	$Scope::init$(owner);
@@ -78,7 +38,41 @@ Scope$WriteableScope::Scope$WriteableScope() {
 }
 
 $Class* Scope$WriteableScope::load$($String* name, bool initialize) {
-	$loadClass(Scope$WriteableScope, name, initialize, &_Scope$WriteableScope_ClassInfo_, allocate$Scope$WriteableScope);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Scope$WriteableScope, init$, void, $Symbol*)},
+		{"create", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC | $STATIC, $staticMethod(Scope$WriteableScope, create, Scope$WriteableScope*, $Symbol*)},
+		{"dup", "()Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC | $FINAL, $method(Scope$WriteableScope, dup, Scope$WriteableScope*)},
+		{"dup", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scope$WriteableScope, dup, Scope$WriteableScope*, $Symbol*)},
+		{"dupUnshared", "()Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC | $FINAL, $method(Scope$WriteableScope, dupUnshared, Scope$WriteableScope*)},
+		{"dupUnshared", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scope$WriteableScope, dupUnshared, Scope$WriteableScope*, $Symbol*)},
+		{"enter", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scope$WriteableScope, enter, void, $Symbol*)},
+		{"enterIfAbsent", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scope$WriteableScope, enterIfAbsent, void, $Symbol*)},
+		{"leave", "()Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scope$WriteableScope, leave, Scope$WriteableScope*)},
+		{"remove", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scope$WriteableScope, remove, void, $Symbol*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Scope$WriteableScope", "com.sun.tools.javac.code.Scope", "WriteableScope", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.code.Scope$WriteableScope",
+		"com.sun.tools.javac.code.Scope",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Scope"
+	};
+	$loadClass(Scope$WriteableScope, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Scope$WriteableScope);
+	});
 	return class$;
 }
 

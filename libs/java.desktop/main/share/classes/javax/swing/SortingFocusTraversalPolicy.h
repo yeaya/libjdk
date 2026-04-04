@@ -44,6 +44,7 @@ class $export SortingFocusTraversalPolicy : public ::javax::swing::InternalFrame
 public:
 	SortingFocusTraversalPolicy();
 	using ::javax::swing::InternalFrameFocusTraversalPolicy::getInitialComponent;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::util::Comparator* comparator);
 	virtual bool accept(::java::awt::Component* aComponent);

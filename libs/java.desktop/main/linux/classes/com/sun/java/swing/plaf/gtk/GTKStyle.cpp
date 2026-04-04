@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKStyle.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKColorType.h>
 #include <com/sun/java/swing/plaf/gtk/GTKConstants$StateType.h>
 #include <com/sun/java/swing/plaf/gtk/GTKConstants$TextDirection.h>
@@ -128,7 +127,6 @@
 #undef WHITE_COLOR
 
 using $GTKColorType = ::com::sun::java::swing::plaf::gtk::GTKColorType;
-using $GTKConstants$StateType = ::com::sun::java::swing::plaf::gtk::GTKConstants$StateType;
 using $GTKConstants$TextDirection = ::com::sun::java::swing::plaf::gtk::GTKConstants$TextDirection;
 using $GTKEngine$CustomRegion = ::com::sun::java::swing::plaf::gtk::GTKEngine$CustomRegion;
 using $GTKEngine$WidgetType = ::com::sun::java::swing::plaf::gtk::GTKEngine$WidgetType;
@@ -185,104 +183,6 @@ namespace com {
 				namespace plaf {
 					namespace gtk {
 
-$FieldInfo _GTKStyle_FieldInfo_[] = {
-	{"ICON_PROPERTY_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKStyle, ICON_PROPERTY_PREFIX)},
-	{"BLACK_COLOR", "Ljava/awt/Color;", nullptr, $STATIC | $FINAL, $staticField(GTKStyle, BLACK_COLOR)},
-	{"WHITE_COLOR", "Ljava/awt/Color;", nullptr, $STATIC | $FINAL, $staticField(GTKStyle, WHITE_COLOR)},
-	{"DEFAULT_FONT", "Ljava/awt/Font;", nullptr, $STATIC | $FINAL, $staticField(GTKStyle, DEFAULT_FONT)},
-	{"BUTTON_DEFAULT_BORDER_INSETS", "Ljava/awt/Insets;", nullptr, $STATIC | $FINAL, $staticField(GTKStyle, BUTTON_DEFAULT_BORDER_INSETS)},
-	{"GTK_GRAPHICS", "Lcom/sun/java/swing/plaf/gtk/GTKGraphicsUtils;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKStyle, GTK_GRAPHICS)},
-	{"CLASS_SPECIFIC_MAP", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(GTKStyle, CLASS_SPECIFIC_MAP)},
-	{"ICONS_MAP", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/java/swing/plaf/gtk/GTKStyle$GTKStockIcon;>;", $PRIVATE | $STATIC | $FINAL, $staticField(GTKStyle, ICONS_MAP)},
-	{"font", "Ljava/awt/Font;", nullptr, $PRIVATE | $FINAL, $field(GTKStyle, font)},
-	{"widgetType", "I", nullptr, $PRIVATE | $FINAL, $field(GTKStyle, widgetType)},
-	{"xThickness", "I", nullptr, $PRIVATE | $FINAL, $field(GTKStyle, xThickness)},
-	{"yThickness", "I", nullptr, $PRIVATE | $FINAL, $field(GTKStyle, yThickness)},
-	{}
-};
-
-$MethodInfo _GTKStyle_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Font;Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;)V", nullptr, 0, $method(GTKStyle, init$, void, $Font*, $GTKEngine$WidgetType*)},
-	{"get", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(GTKStyle, get, $Object*, $SynthContext*, Object$*)},
-	{"getButtonInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(GTKStyle, getButtonInsets, $Insets*, $SynthContext*, $Insets*)},
-	{"getClassSpecificBoolValue", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/lang/String;Z)Z", nullptr, 0, $virtualMethod(GTKStyle, getClassSpecificBoolValue, bool, $SynthContext*, $String*, bool)},
-	{"getClassSpecificInsetsValue", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/lang/String;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, 0, $virtualMethod(GTKStyle, getClassSpecificInsetsValue, $Insets*, $SynthContext*, $String*, $Insets*)},
-	{"getClassSpecificIntValue", "(Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(GTKStyle, getClassSpecificIntValue, int32_t, $GTKEngine$WidgetType*, $String*, int32_t)},
-	{"getClassSpecificIntValue", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/lang/String;I)I", nullptr, 0, $virtualMethod(GTKStyle, getClassSpecificIntValue, int32_t, $SynthContext*, $String*, int32_t)},
-	{"getClassSpecificValue", "(Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(GTKStyle, getClassSpecificValue, $Object*, $GTKEngine$WidgetType*, $String*)},
-	{"getClassSpecificValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(GTKStyle, getClassSpecificValue, $Object*, $String*)},
-	{"getColor", "(Ljavax/swing/plaf/synth/SynthContext;Ljavax/swing/plaf/synth/ColorType;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(GTKStyle, getColor, $Color*, $SynthContext*, $ColorType*)},
-	{"getColorForState", "(Ljavax/swing/plaf/synth/SynthContext;Ljavax/swing/plaf/synth/ColorType;)Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(GTKStyle, getColorForState, $Color*, $SynthContext*, $ColorType*)},
-	{"getDefaultFont", "()Ljava/awt/Font;", nullptr, 0, $virtualMethod(GTKStyle, getDefaultFont, $Font*)},
-	{"getFontForState", "(Ljavax/swing/plaf/synth/SynthContext;)Ljava/awt/Font;", nullptr, $PROTECTED, $virtualMethod(GTKStyle, getFontForState, $Font*, $SynthContext*)},
-	{"getGTKColor", "(ILjavax/swing/plaf/synth/ColorType;)Ljava/awt/Color;", nullptr, 0, $virtualMethod(GTKStyle, getGTKColor, $Color*, int32_t, $ColorType*)},
-	{"getGTKColor", "(III)Ljava/awt/Color;", nullptr, 0, $virtualMethod(GTKStyle, getGTKColor, $Color*, int32_t, int32_t, int32_t)},
-	{"getGTKColor", "(Ljavax/swing/plaf/synth/SynthContext;ILjavax/swing/plaf/synth/ColorType;)Ljava/awt/Color;", nullptr, 0, $virtualMethod(GTKStyle, getGTKColor, $Color*, $SynthContext*, int32_t, $ColorType*)},
-	{"getGraphicsUtils", "(Ljavax/swing/plaf/synth/SynthContext;)Ljavax/swing/plaf/synth/SynthGraphicsUtils;", nullptr, $PUBLIC, $virtualMethod(GTKStyle, getGraphicsUtils, $SynthGraphicsUtils*, $SynthContext*)},
-	{"getInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(GTKStyle, getInsets, $Insets*, $SynthContext*, $Insets*)},
-	{"getMenuBarInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(GTKStyle, getMenuBarInsets, $Insets*, $SynthContext*, $Insets*)},
-	{"getMenuItemInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(GTKStyle, getMenuItemInsets, $Insets*, $SynthContext*, $Insets*)},
-	{"getPainter", "(Ljavax/swing/plaf/synth/SynthContext;)Ljavax/swing/plaf/synth/SynthPainter;", nullptr, $PUBLIC, $virtualMethod(GTKStyle, getPainter, $SynthPainter*, $SynthContext*)},
-	{"getRadioInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(GTKStyle, getRadioInsets, $Insets*, $SynthContext*, $Insets*)},
-	{"getScrollBarInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(GTKStyle, getScrollBarInsets, $Insets*, $SynthContext*, $Insets*)},
-	{"getSeparatorInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(GTKStyle, getSeparatorInsets, $Insets*, $SynthContext*, $Insets*)},
-	{"getSimpleInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;I)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(GTKStyle, getSimpleInsets, $Insets*, $SynthContext*, $Insets*, int32_t)},
-	{"getSliderTrackInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(GTKStyle, getSliderTrackInsets, $Insets*, $SynthContext*, $Insets*)},
-	{"getStockIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/lang/String;I)Ljavax/swing/Icon;", nullptr, $PRIVATE, $method(GTKStyle, getStockIcon, $Icon*, $SynthContext*, $String*, int32_t)},
-	{"getStyleSpecificColor", "(Ljavax/swing/plaf/synth/SynthContext;ILjavax/swing/plaf/synth/ColorType;)Ljava/awt/Color;", nullptr, $PRIVATE, $method(GTKStyle, getStyleSpecificColor, $Color*, $SynthContext*, int32_t, $ColorType*)},
-	{"getStyleSpecificIcon", "(Ljava/lang/String;Lcom/sun/java/swing/plaf/gtk/GTKConstants$TextDirection;I)Ljavax/swing/Icon;", nullptr, $PRIVATE, $method(GTKStyle, getStyleSpecificIcon, $Icon*, $String*, $GTKConstants$TextDirection*, int32_t)},
-	{"getTabbedPaneTabInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(GTKStyle, getTabbedPaneTabInsets, $Insets*, $SynthContext*, $Insets*)},
-	{"getTextFieldInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(GTKStyle, getTextFieldInsets, $Insets*, $SynthContext*, $Insets*)},
-	{"getThicknessInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(GTKStyle, getThicknessInsets, $Insets*, $SynthContext*, $Insets*)},
-	{"getXThickness", "()I", nullptr, 0, $virtualMethod(GTKStyle, getXThickness, int32_t)},
-	{"getYThickness", "()I", nullptr, 0, $virtualMethod(GTKStyle, getYThickness, int32_t)},
-	{"installDefaults", "(Ljavax/swing/plaf/synth/SynthContext;)V", nullptr, $PUBLIC, $virtualMethod(GTKStyle, installDefaults, void, $SynthContext*)},
-	{"isOpaque", "(Ljavax/swing/plaf/synth/SynthContext;)Z", nullptr, $PUBLIC, $virtualMethod(GTKStyle, isOpaque, bool, $SynthContext*)},
-	{"nativeGetClassValue", "(ILjava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(GTKStyle, nativeGetClassValue, $Object*, int32_t, $String*)},
-	{"nativeGetColorForState", "(III)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(GTKStyle, nativeGetColorForState, int32_t, int32_t, int32_t, int32_t)},
-	{"nativeGetPangoFontName", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(GTKStyle, nativeGetPangoFontName, $String*, int32_t)},
-	{"nativeGetXThickness", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(GTKStyle, nativeGetXThickness, int32_t, int32_t)},
-	{"nativeGetYThickness", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(GTKStyle, nativeGetYThickness, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-#define _METHOD_INDEX_nativeGetClassValue 40
-#define _METHOD_INDEX_nativeGetColorForState 41
-#define _METHOD_INDEX_nativeGetPangoFontName 42
-#define _METHOD_INDEX_nativeGetXThickness 43
-#define _METHOD_INDEX_nativeGetYThickness 44
-
-$InnerClassInfo _GTKStyle_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKStyle$GTKLazyValue", "com.sun.java.swing.plaf.gtk.GTKStyle", "GTKLazyValue", $STATIC},
-	{"com.sun.java.swing.plaf.gtk.GTKStyle$GTKStockIcon", "com.sun.java.swing.plaf.gtk.GTKStyle", "GTKStockIcon", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.gtk.GTKStyle$GTKStockIconInfo", "com.sun.java.swing.plaf.gtk.GTKStyle", "GTKStockIconInfo", $STATIC},
-	{}
-};
-
-$ClassInfo _GTKStyle_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.GTKStyle",
-	"javax.swing.plaf.synth.SynthStyle",
-	"com.sun.java.swing.plaf.gtk.GTKConstants",
-	_GTKStyle_FieldInfo_,
-	_GTKStyle_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GTKStyle_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKStyle$GTKLazyValue,com.sun.java.swing.plaf.gtk.GTKStyle$GTKStockIcon,com.sun.java.swing.plaf.gtk.GTKStyle$GTKStockIconInfo"
-};
-
-$Object* allocate$GTKStyle($Class* clazz) {
-	return $of($alloc(GTKStyle));
-}
-
 int32_t GTKStyle::hashCode() {
 	 return this->$SynthStyle::hashCode();
 }
@@ -314,51 +214,46 @@ $Map* GTKStyle::ICONS_MAP = nullptr;
 
 int32_t GTKStyle::nativeGetXThickness(int32_t widgetType) {
 	$init(GTKStyle);
-	int32_t $ret = 0;
-	$prepareNativeStatic(GTKStyle, nativeGetXThickness, int32_t, int32_t widgetType);
-	$ret = $invokeNativeStatic(widgetType);
+	$prepareNativeStatic(nativeGetXThickness, int32_t, int32_t widgetType);
+	int32_t $ret = $invokeNativeStatic(widgetType);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t GTKStyle::nativeGetYThickness(int32_t widgetType) {
 	$init(GTKStyle);
-	int32_t $ret = 0;
-	$prepareNativeStatic(GTKStyle, nativeGetYThickness, int32_t, int32_t widgetType);
-	$ret = $invokeNativeStatic(widgetType);
+	$prepareNativeStatic(nativeGetYThickness, int32_t, int32_t widgetType);
+	int32_t $ret = $invokeNativeStatic(widgetType);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t GTKStyle::nativeGetColorForState(int32_t widgetType, int32_t state, int32_t typeID) {
 	$init(GTKStyle);
-	int32_t $ret = 0;
-	$prepareNativeStatic(GTKStyle, nativeGetColorForState, int32_t, int32_t widgetType, int32_t state, int32_t typeID);
-	$ret = $invokeNativeStatic(widgetType, state, typeID);
+	$prepareNativeStatic(nativeGetColorForState, int32_t, int32_t widgetType, int32_t state, int32_t typeID);
+	int32_t $ret = $invokeNativeStatic(widgetType, state, typeID);
 	$finishNativeStatic();
 	return $ret;
 }
 
 $Object* GTKStyle::nativeGetClassValue(int32_t widgetType, $String* key) {
 	$init(GTKStyle);
-	$var($Object, $ret, nullptr);
-	$prepareNativeStatic(GTKStyle, nativeGetClassValue, $Object*, int32_t widgetType, $String* key);
-	$assign($ret, $invokeNativeStaticObject(widgetType, key));
+	$prepareNativeStatic(nativeGetClassValue, $Object*, int32_t widgetType, $String* key);
+	$var($Object, $ret, $invokeNativeStaticObject(widgetType, key));
 	$finishNativeStatic();
 	return $ret;
 }
 
 $String* GTKStyle::nativeGetPangoFontName(int32_t widgetType) {
 	$init(GTKStyle);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(GTKStyle, nativeGetPangoFontName, $String*, int32_t widgetType);
-	$assign($ret, $invokeNativeStaticObject(widgetType));
+	$prepareNativeStatic(nativeGetPangoFontName, $String*, int32_t widgetType);
+	$var($String, $ret, $invokeNativeStaticObject(widgetType));
 	$finishNativeStatic();
 	return $ret;
 }
 
 void GTKStyle::init$($Font* userFont, $GTKEngine$WidgetType* widgetType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SynthStyle::init$();
 	this->widgetType = $nc(widgetType)->ordinal();
 	$var($String, pangoFontName, nullptr);
@@ -382,14 +277,14 @@ void GTKStyle::init$($Font* userFont, $GTKEngine$WidgetType* widgetType) {
 }
 
 void GTKStyle::installDefaults($SynthContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SynthStyle::installDefaults(context);
 	$init($GTKLookAndFeel);
 	$var($Map, aaTextInfo, $GTKLookAndFeel::aaTextInfo);
-	if (aaTextInfo != nullptr && !$nc($($nc(context)->getRegion()))->isSubregion()) {
+	if (aaTextInfo != nullptr && !$$nc($nc(context)->getRegion())->isSubregion()) {
 		$init($RenderingHints);
-		$nc($(context->getComponent()))->putClientProperty($RenderingHints::KEY_TEXT_ANTIALIASING, $(aaTextInfo->get($RenderingHints::KEY_TEXT_ANTIALIASING)));
-		$nc($(context->getComponent()))->putClientProperty($RenderingHints::KEY_TEXT_LCD_CONTRAST, $(aaTextInfo->get($RenderingHints::KEY_TEXT_LCD_CONTRAST)));
+		$$nc(context->getComponent())->putClientProperty($RenderingHints::KEY_TEXT_ANTIALIASING, $(aaTextInfo->get($RenderingHints::KEY_TEXT_ANTIALIASING)));
+		$$nc(context->getComponent())->putClientProperty($RenderingHints::KEY_TEXT_LCD_CONTRAST, $(aaTextInfo->get($RenderingHints::KEY_TEXT_LCD_CONTRAST)));
 	}
 }
 
@@ -403,16 +298,14 @@ $SynthPainter* GTKStyle::getPainter($SynthContext* state) {
 }
 
 $Color* GTKStyle::getColorForState($SynthContext* context, $ColorType* type$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorType, type, type$renamed);
 	$init($ColorType);
 	$init($GTKColorType);
 	if (type == $ColorType::FOCUS || type == $GTKColorType::BLACK) {
 		return GTKStyle::BLACK_COLOR;
-	} else {
-		if (type == $GTKColorType::WHITE) {
-			return GTKStyle::WHITE_COLOR;
-		}
+	} else if (type == $GTKColorType::WHITE) {
+		return GTKStyle::WHITE_COLOR;
 	}
 	$var($Region, id, $nc(context)->getRegion());
 	int32_t state = context->getComponentState();
@@ -420,25 +313,21 @@ $Color* GTKStyle::getColorForState($SynthContext* context, $ColorType* type$rena
 	$init($Region);
 	if (type == $ColorType::TEXT_FOREGROUND && (id == $Region::BUTTON || id == $Region::CHECK_BOX || id == $Region::CHECK_BOX_MENU_ITEM || id == $Region::MENU || id == $Region::MENU_ITEM || id == $Region::RADIO_BUTTON || id == $Region::RADIO_BUTTON_MENU_ITEM || id == $Region::TABBED_PANE_TAB || id == $Region::TOGGLE_BUTTON || id == $Region::TOOL_TIP || id == $Region::MENU_ITEM_ACCELERATOR)) {
 		$assign(type, $ColorType::FOREGROUND);
-	} else {
-		if (id == $Region::TABLE || id == $Region::LIST || id == $Region::TREE || id == $Region::TREE_CELL) {
-			if (type == $ColorType::FOREGROUND) {
-				$assign(type, $ColorType::TEXT_FOREGROUND);
-				if (state == $SynthConstants::PRESSED) {
-					state = $SynthConstants::SELECTED;
-				}
-			} else {
-				if (type == $ColorType::BACKGROUND) {
-					$assign(type, $ColorType::TEXT_BACKGROUND);
-				}
+	} else if (id == $Region::TABLE || id == $Region::LIST || id == $Region::TREE || id == $Region::TREE_CELL) {
+		if (type == $ColorType::FOREGROUND) {
+			$assign(type, $ColorType::TEXT_FOREGROUND);
+			if (state == $SynthConstants::PRESSED) {
+				state = $SynthConstants::SELECTED;
 			}
+		} else if (type == $ColorType::BACKGROUND) {
+			$assign(type, $ColorType::TEXT_BACKGROUND);
 		}
 	}
 	return getStyleSpecificColor(context, state, type);
 }
 
 $Color* GTKStyle::getStyleSpecificColor($SynthContext* context, int32_t state, $ColorType* type) {
-	state = $nc($($GTKLookAndFeel::synthStateToGTKStateType(state)))->ordinal();
+	state = $$nc($GTKLookAndFeel::synthStateToGTKStateType(state))->ordinal();
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
 		int32_t rgb = nativeGetColorForState(this->widgetType, state, $nc(type)->getID());
@@ -447,7 +336,7 @@ $Color* GTKStyle::getStyleSpecificColor($SynthContext* context, int32_t state, $
 }
 
 $Color* GTKStyle::getGTKColor(int32_t state, $ColorType* type) {
-	return getGTKColor(($SynthContext*)nullptr, state, type);
+	return getGTKColor(nullptr, state, type);
 }
 
 $Color* GTKStyle::getGTKColor(int32_t widgetType, int32_t state, int32_t colorType) {
@@ -459,24 +348,22 @@ $Color* GTKStyle::getGTKColor(int32_t widgetType, int32_t state, int32_t colorTy
 }
 
 $Color* GTKStyle::getGTKColor($SynthContext* context, int32_t state, $ColorType* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (context != nullptr) {
 		$var($JComponent, c, context->getComponent());
 		$var($Region, id, context->getRegion());
 		state = $GTKLookAndFeel::synthStateToGTKState(id, state);
-		if (!$nc(id)->isSubregion() && ((int32_t)(state & (uint32_t)$SynthConstants::ENABLED)) != 0) {
+		if (!$nc(id)->isSubregion() && (state & $SynthConstants::ENABLED) != 0) {
 			$init($ColorType);
 			if (type == $ColorType::BACKGROUND || type == $ColorType::TEXT_BACKGROUND) {
 				$var($Color, bg, $nc(c)->getBackground());
 				if (!($instanceOf($UIResource, bg))) {
 					return bg;
 				}
-			} else {
-				if (type == $ColorType::FOREGROUND || type == $ColorType::TEXT_FOREGROUND) {
-					$var($Color, fg, $nc(c)->getForeground());
-					if (!($instanceOf($UIResource, fg))) {
-						return fg;
-					}
+			} else if (type == $ColorType::FOREGROUND || type == $ColorType::TEXT_FOREGROUND) {
+				$var($Color, fg, $nc(c)->getForeground());
+				if (!($instanceOf($UIResource, fg))) {
+					return fg;
 				}
 			}
 		}
@@ -485,7 +372,7 @@ $Color* GTKStyle::getGTKColor($SynthContext* context, int32_t state, $ColorType*
 }
 
 $Color* GTKStyle::getColor($SynthContext* context, $ColorType* type$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorType, type, type$renamed);
 	$var($JComponent, c, $nc(context)->getComponent());
 	$var($Region, id, context->getRegion());
@@ -504,19 +391,15 @@ $Color* GTKStyle::getColor($SynthContext* context, $ColorType* type$renamed) {
 	if (id == $Region::LABEL && type == $ColorType::TEXT_FOREGROUND) {
 		$assign(type, $ColorType::FOREGROUND);
 	}
-	if (!$nc(id)->isSubregion() && ((int32_t)(state & (uint32_t)$SynthConstants::ENABLED)) != 0) {
+	if (!$nc(id)->isSubregion() && (state & $SynthConstants::ENABLED) != 0) {
 		if (type == $ColorType::BACKGROUND) {
-			return $nc(c)->getBackground();
-		} else {
-			if (type == $ColorType::FOREGROUND) {
-				return $nc(c)->getForeground();
-			} else {
-				if (type == $ColorType::TEXT_FOREGROUND) {
-					$var($Color, color, $nc(c)->getForeground());
-					if (color != nullptr && !($instanceOf($UIResource, color))) {
-						return color;
-					}
-				}
+			return c->getBackground();
+		} else if (type == $ColorType::FOREGROUND) {
+			return c->getForeground();
+		} else if (type == $ColorType::TEXT_FOREGROUND) {
+			$var($Color, color, c->getForeground());
+			if (color != nullptr && !($instanceOf($UIResource, color))) {
+				return color;
 			}
 		}
 	}
@@ -528,8 +411,8 @@ $Font* GTKStyle::getDefaultFont() {
 }
 
 $Font* GTKStyle::getFontForState($SynthContext* context) {
-	$useLocalCurrentObjectStackCache();
-	$var($Font, propFont, $UIManager::getFont($$str({$($nc($($nc(context)->getRegion()))->getName()), ".font"_s})));
+	$useLocalObjectStack();
+	$var($Font, propFont, $UIManager::getFont($$str({$($$nc($nc(context)->getRegion())->getName()), ".font"_s})));
 	if (propFont != nullptr) {
 		return propFont;
 	}
@@ -545,7 +428,7 @@ int32_t GTKStyle::getYThickness() {
 }
 
 $Insets* GTKStyle::getInsets($SynthContext* state, $Insets* insets$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, insets, insets$renamed);
 	$var($Region, id, $nc(state)->getRegion());
 	$var($JComponent, component, state->getComponent());
@@ -553,7 +436,7 @@ $Insets* GTKStyle::getInsets($SynthContext* state, $Insets* insets$renamed) {
 	if (insets == nullptr) {
 		$assign(insets, $new($Insets, 0, 0, 0, 0));
 	} else {
-		$nc(insets)->top = (insets->bottom = (insets->left = (insets->right = 0)));
+		insets->top = (insets->bottom = (insets->left = (insets->right = 0)));
 	}
 	if (id == $Region::ARROW_BUTTON || id == $Region::BUTTON || id == $Region::TOGGLE_BUTTON) {
 		if ("Spinner.previousButton"_s == name || "Spinner.nextButton"_s == name) {
@@ -561,83 +444,55 @@ $Insets* GTKStyle::getInsets($SynthContext* state, $Insets* insets$renamed) {
 		} else {
 			return getButtonInsets(state, insets);
 		}
+	} else if (id == $Region::CHECK_BOX || id == $Region::RADIO_BUTTON) {
+		return getRadioInsets(state, insets);
+	} else if (id == $Region::MENU_BAR) {
+		return getMenuBarInsets(state, insets);
+	} else if (id == $Region::MENU || id == $Region::MENU_ITEM || id == $Region::CHECK_BOX_MENU_ITEM || id == $Region::RADIO_BUTTON_MENU_ITEM) {
+		return getMenuItemInsets(state, insets);
+	} else if (id == $Region::FORMATTED_TEXT_FIELD) {
+		return getTextFieldInsets(state, insets);
+	} else if (id == $Region::INTERNAL_FRAME) {
+		$init($Metacity);
+		$assign(insets, $nc($Metacity::INSTANCE)->getBorderInsets(state, insets));
+	} else if (id == $Region::LABEL) {
+		if ("TableHeader.renderer"_s == name) {
+			return getButtonInsets(state, insets);
+		} else if ($instanceOf($ListCellRenderer, component)) {
+			return getTextFieldInsets(state, insets);
+		} else if ("Tree.cellRenderer"_s == name) {
+			return getSimpleInsets(state, insets, 1);
+		}
+	} else if (id == $Region::OPTION_PANE) {
+		return getSimpleInsets(state, insets, 6);
+	} else if (id == $Region::POPUP_MENU) {
+		return getSimpleInsets(state, insets, 2);
+	} else if (id == $Region::PROGRESS_BAR || id == $Region::SLIDER || id == $Region::TABBED_PANE || id == $Region::TABBED_PANE_CONTENT || id == $Region::TOOL_BAR || id == $Region::TOOL_BAR_DRAG_WINDOW || id == $Region::TOOL_TIP) {
+		return getThicknessInsets(state, insets);
+	} else if (id == $Region::SCROLL_BAR) {
+		return getScrollBarInsets(state, insets);
+	} else if (id == $Region::SLIDER_TRACK) {
+		return getSliderTrackInsets(state, insets);
+	} else if (id == $Region::TABBED_PANE_TAB) {
+		return getTabbedPaneTabInsets(state, insets);
+	} else if (id == $Region::TEXT_FIELD || id == $Region::PASSWORD_FIELD) {
+		if (name == "Tree.cellEditor"_s) {
+			return getSimpleInsets(state, insets, 1);
+		}
+		return getTextFieldInsets(state, insets);
+	} else if (id == $Region::SEPARATOR || id == $Region::POPUP_MENU_SEPARATOR || id == $Region::TOOL_BAR_SEPARATOR) {
+		return getSeparatorInsets(state, insets);
 	} else {
-		if (id == $Region::CHECK_BOX || id == $Region::RADIO_BUTTON) {
-			return getRadioInsets(state, insets);
-		} else {
-			if (id == $Region::MENU_BAR) {
-				return getMenuBarInsets(state, insets);
-			} else {
-				if (id == $Region::MENU || id == $Region::MENU_ITEM || id == $Region::CHECK_BOX_MENU_ITEM || id == $Region::RADIO_BUTTON_MENU_ITEM) {
-					return getMenuItemInsets(state, insets);
-				} else {
-					if (id == $Region::FORMATTED_TEXT_FIELD) {
-						return getTextFieldInsets(state, insets);
-					} else {
-						if (id == $Region::INTERNAL_FRAME) {
-							$init($Metacity);
-							$assign(insets, $nc($Metacity::INSTANCE)->getBorderInsets(state, insets));
-						} else {
-							if (id == $Region::LABEL) {
-								if ("TableHeader.renderer"_s == name) {
-									return getButtonInsets(state, insets);
-								} else if ($instanceOf($ListCellRenderer, component)) {
-									return getTextFieldInsets(state, insets);
-								} else if ("Tree.cellRenderer"_s == name) {
-									return getSimpleInsets(state, insets, 1);
-								}
-							} else {
-								if (id == $Region::OPTION_PANE) {
-									return getSimpleInsets(state, insets, 6);
-								} else {
-									if (id == $Region::POPUP_MENU) {
-										return getSimpleInsets(state, insets, 2);
-									} else {
-										if (id == $Region::PROGRESS_BAR || id == $Region::SLIDER || id == $Region::TABBED_PANE || id == $Region::TABBED_PANE_CONTENT || id == $Region::TOOL_BAR || id == $Region::TOOL_BAR_DRAG_WINDOW || id == $Region::TOOL_TIP) {
-											return getThicknessInsets(state, insets);
-										} else {
-											if (id == $Region::SCROLL_BAR) {
-												return getScrollBarInsets(state, insets);
-											} else {
-												if (id == $Region::SLIDER_TRACK) {
-													return getSliderTrackInsets(state, insets);
-												} else {
-													if (id == $Region::TABBED_PANE_TAB) {
-														return getTabbedPaneTabInsets(state, insets);
-													} else {
-														if (id == $Region::TEXT_FIELD || id == $Region::PASSWORD_FIELD) {
-															if (name == "Tree.cellEditor"_s) {
-																return getSimpleInsets(state, insets, 1);
-															}
-															return getTextFieldInsets(state, insets);
-														} else {
-															if (id == $Region::SEPARATOR || id == $Region::POPUP_MENU_SEPARATOR || id == $Region::TOOL_BAR_SEPARATOR) {
-																return getSeparatorInsets(state, insets);
-															} else {
-																$init($GTKEngine$CustomRegion);
-																if (id == $GTKEngine$CustomRegion::TITLED_BORDER) {
-																	return getThicknessInsets(state, insets);
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
+		$init($GTKEngine$CustomRegion);
+		if (id == $GTKEngine$CustomRegion::TITLED_BORDER) {
+			return getThicknessInsets(state, insets);
 		}
 	}
 	return insets;
 }
 
 $Insets* GTKStyle::getButtonInsets($SynthContext* context, $Insets* insets) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t CHILD_SPACING = 1;
 	int32_t focusSize = getClassSpecificIntValue(context, "focus-line-width"_s, 1);
 	int32_t focusPad = getClassSpecificIntValue(context, "focus-padding"_s, 1);
@@ -645,11 +500,11 @@ $Insets* GTKStyle::getButtonInsets($SynthContext* context, $Insets* insets) {
 	int32_t yThickness = getYThickness();
 	int32_t w = focusSize + focusPad + xThickness + CHILD_SPACING;
 	int32_t h = focusSize + focusPad + yThickness + CHILD_SPACING;
-	$nc(insets)->left = (insets->right = w);
+	$nc(insets)->left = ($nc(insets)->right = w);
 	insets->top = (insets->bottom = h);
 	$var($Component, component, $nc(context)->getComponent());
-	bool var$0 = ($instanceOf($JButton, component)) && !($instanceOf($JToolBar, $($nc(component)->getParent())));
-	if (var$0 && $nc(($cast($JButton, component)))->isDefaultCapable()) {
+	bool var$0 = ($instanceOf($JButton, component)) && !($instanceOf($JToolBar, $(component->getParent())));
+	if (var$0 && $cast($JButton, component)->isDefaultCapable()) {
 		$var($Insets, defaultInsets, getClassSpecificInsetsValue(context, "default-border"_s, GTKStyle::BUTTON_DEFAULT_BORDER_INSETS));
 		insets->left += $nc(defaultInsets)->left;
 		insets->right += defaultInsets->right;
@@ -660,13 +515,13 @@ $Insets* GTKStyle::getButtonInsets($SynthContext* context, $Insets* insets) {
 }
 
 $Insets* GTKStyle::getRadioInsets($SynthContext* context, $Insets* insets) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t focusSize = getClassSpecificIntValue(context, "focus-line-width"_s, 1);
 	int32_t focusPad = getClassSpecificIntValue(context, "focus-padding"_s, 1);
 	int32_t totalFocus = focusSize + focusPad;
 	$nc(insets)->top = totalFocus;
 	insets->bottom = totalFocus;
-	if ($nc($($nc($($nc(context)->getComponent()))->getComponentOrientation()))->isLeftToRight()) {
+	if ($$nc($$nc($nc(context)->getComponent())->getComponentOrientation())->isLeftToRight()) {
 		insets->left = 0;
 		insets->right = totalFocus;
 	} else {
@@ -680,7 +535,7 @@ $Insets* GTKStyle::getMenuBarInsets($SynthContext* context, $Insets* insets) {
 	int32_t internalPadding = getClassSpecificIntValue(context, "internal-padding"_s, 1);
 	int32_t xThickness = getXThickness();
 	int32_t yThickness = getYThickness();
-	$nc(insets)->left = (insets->right = xThickness + internalPadding);
+	$nc(insets)->left = ($nc(insets)->right = xThickness + internalPadding);
 	insets->top = (insets->bottom = yThickness + internalPadding);
 	return insets;
 }
@@ -689,13 +544,13 @@ $Insets* GTKStyle::getMenuItemInsets($SynthContext* context, $Insets* insets) {
 	int32_t horizPadding = getClassSpecificIntValue(context, "horizontal-padding"_s, 3);
 	int32_t xThickness = getXThickness();
 	int32_t yThickness = getYThickness();
-	$nc(insets)->left = (insets->right = xThickness + horizPadding);
+	$nc(insets)->left = ($nc(insets)->right = xThickness + horizPadding);
 	insets->top = (insets->bottom = yThickness);
 	return insets;
 }
 
 $Insets* GTKStyle::getThicknessInsets($SynthContext* context, $Insets* insets) {
-	$nc(insets)->left = (insets->right = getXThickness());
+	$nc(insets)->left = ($nc(insets)->right = getXThickness());
 	insets->top = (insets->bottom = getYThickness());
 	return insets;
 }
@@ -706,7 +561,7 @@ $Insets* GTKStyle::getSeparatorInsets($SynthContext* context, $Insets* insets) {
 	if ($nc(context)->getRegion() == $Region::POPUP_MENU_SEPARATOR) {
 		horizPadding = getClassSpecificIntValue(context, "horizontal-padding"_s, 3);
 	}
-	$nc(insets)->right = (insets->left = getXThickness() + horizPadding);
+	$nc(insets)->right = ($nc(insets)->left = getXThickness() + horizPadding);
 	insets->top = (insets->bottom = getYThickness());
 	return insets;
 }
@@ -714,12 +569,12 @@ $Insets* GTKStyle::getSeparatorInsets($SynthContext* context, $Insets* insets) {
 $Insets* GTKStyle::getSliderTrackInsets($SynthContext* context, $Insets* insets) {
 	int32_t focusSize = getClassSpecificIntValue(context, "focus-line-width"_s, 1);
 	int32_t focusPad = getClassSpecificIntValue(context, "focus-padding"_s, 1);
-	$nc(insets)->top = (insets->bottom = (insets->left = (insets->right = focusSize + focusPad)));
+	$nc(insets)->top = ($nc(insets)->bottom = ($nc(insets)->left = ($nc(insets)->right = focusSize + focusPad)));
 	return insets;
 }
 
 $Insets* GTKStyle::getSimpleInsets($SynthContext* context, $Insets* insets, int32_t n) {
-	$nc(insets)->top = (insets->bottom = (insets->right = (insets->left = n)));
+	$nc(insets)->top = ($nc(insets)->bottom = ($nc(insets)->right = ($nc(insets)->left = n)));
 	return insets;
 }
 
@@ -728,13 +583,13 @@ $Insets* GTKStyle::getTabbedPaneTabInsets($SynthContext* context, $Insets* inset
 	int32_t yThickness = getYThickness();
 	int32_t focusSize = getClassSpecificIntValue(context, "focus-line-width"_s, 1);
 	int32_t pad = 2;
-	$nc(insets)->left = (insets->right = focusSize + pad + xThickness);
+	$nc(insets)->left = ($nc(insets)->right = focusSize + pad + xThickness);
 	insets->top = (insets->bottom = focusSize + pad + yThickness);
 	return insets;
 }
 
 $Insets* GTKStyle::getTextFieldInsets($SynthContext* context, $Insets* insets$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, insets, insets$renamed);
 	$assign(insets, getClassSpecificInsetsValue(context, "inner-border"_s, $(getSimpleInsets(context, insets, 2))));
 	int32_t xThickness = getXThickness();
@@ -752,16 +607,16 @@ $Insets* GTKStyle::getTextFieldInsets($SynthContext* context, $Insets* insets$re
 }
 
 $Insets* GTKStyle::getScrollBarInsets($SynthContext* context, $Insets* insets) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t troughBorder = getClassSpecificIntValue(context, "trough-border"_s, 1);
-	$nc(insets)->left = (insets->right = (insets->top = (insets->bottom = troughBorder)));
+	$nc(insets)->left = ($nc(insets)->right = ($nc(insets)->top = ($nc(insets)->bottom = troughBorder)));
 	$var($JComponent, c, $nc(context)->getComponent());
 	if ($instanceOf($JScrollPane, $($nc(c)->getParent()))) {
 		$init($GTKEngine$WidgetType);
 		int32_t spacing = getClassSpecificIntValue($GTKEngine$WidgetType::SCROLL_PANE, "scrollbar-spacing"_s, 3);
-		if ($nc(($cast($JScrollBar, c)))->getOrientation() == $JScrollBar::HORIZONTAL) {
+		if ($cast($JScrollBar, c)->getOrientation() == $JScrollBar::HORIZONTAL) {
 			insets->top += spacing;
-		} else if ($nc($(c->getComponentOrientation()))->isLeftToRight()) {
+		} else if ($$nc(c->getComponentOrientation())->isLeftToRight()) {
 			insets->left += spacing;
 		} else {
 			insets->right += spacing;
@@ -782,7 +637,7 @@ $Object* GTKStyle::getClassSpecificValue($GTKEngine$WidgetType* wt, $String* key
 	$init(GTKStyle);
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
-		return $of(nativeGetClassValue($nc(wt)->ordinal(), key));
+		return nativeGetClassValue($nc(wt)->ordinal(), key);
 	}
 }
 
@@ -790,7 +645,7 @@ int32_t GTKStyle::getClassSpecificIntValue($GTKEngine$WidgetType* wt, $String* k
 	$init(GTKStyle);
 	$var($Object, value, getClassSpecificValue(wt, key));
 	if ($instanceOf($Number, value)) {
-		return $nc(($cast($Number, value)))->intValue();
+		return $cast($Number, value)->intValue();
 	}
 	return defaultValue;
 }
@@ -798,14 +653,14 @@ int32_t GTKStyle::getClassSpecificIntValue($GTKEngine$WidgetType* wt, $String* k
 $Object* GTKStyle::getClassSpecificValue($String* key) {
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
-		return $of(nativeGetClassValue(this->widgetType, key));
+		return nativeGetClassValue(this->widgetType, key);
 	}
 }
 
 int32_t GTKStyle::getClassSpecificIntValue($SynthContext* context, $String* key, int32_t defaultValue) {
 	$var($Object, value, getClassSpecificValue(key));
 	if ($instanceOf($Number, value)) {
-		return $nc(($cast($Number, value)))->intValue();
+		return $cast($Number, value)->intValue();
 	}
 	return defaultValue;
 }
@@ -821,13 +676,13 @@ $Insets* GTKStyle::getClassSpecificInsetsValue($SynthContext* context, $String* 
 bool GTKStyle::getClassSpecificBoolValue($SynthContext* context, $String* key, bool defaultValue) {
 	$var($Object, value, getClassSpecificValue(key));
 	if ($instanceOf($Boolean, value)) {
-		return $nc(($cast($Boolean, value)))->booleanValue();
+		return $cast($Boolean, value)->booleanValue();
 	}
 	return defaultValue;
 }
 
 bool GTKStyle::isOpaque($SynthContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, region, $nc(context)->getRegion());
 	$init($Region);
 	if (region == $Region::COMBO_BOX || region == $Region::DESKTOP_PANE || region == $Region::DESKTOP_ICON || region == $Region::INTERNAL_FRAME || region == $Region::LIST || region == $Region::MENU_BAR || region == $Region::PANEL || region == $Region::POPUP_MENU || region == $Region::PROGRESS_BAR || region == $Region::ROOT_PANE || region == $Region::SCROLL_PANE || region == $Region::SPLIT_PANE_DIVIDER || region == $Region::TABLE || region == $Region::TEXT_AREA || region == $Region::TOOL_BAR_DRAG_WINDOW || region == $Region::TOOL_TIP || region == $Region::TREE || region == $Region::VIEWPORT || region == $Region::TEXT_PANE) {
@@ -847,16 +702,16 @@ bool GTKStyle::isOpaque($SynthContext* context) {
 }
 
 $Object* GTKStyle::get($SynthContext* context, Object$* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, classKey, $cast($String, $nc(GTKStyle::CLASS_SPECIFIC_MAP)->get(key)));
 	if (classKey != nullptr) {
 		$var($Object, value, getClassSpecificValue(classKey));
 		if (value != nullptr) {
 			bool var$0 = "Slider.thumbWidth"_s->equals(key);
-			if (var$0 && $of(value)->equals($($Integer::valueOf(31)))) {
+			if (var$0 && value->equals($($Integer::valueOf(31)))) {
 				return $of($Integer::valueOf(14));
 			}
-			return $of(value);
+			return value;
 		}
 	}
 	if ($equals(key, "ScrollPane.viewportBorderInsets"_s)) {
@@ -898,15 +753,15 @@ $Object* GTKStyle::get($SynthContext* context, Object$* key) {
 		int32_t size = getClassSpecificIntValue($GTKEngine$WidgetType::TOOL_BAR, "space-size"_s, 12);
 		return $of($new($DimensionUIResource, size, size));
 	} else if ($equals(key, "ScrollBar.buttonSize"_s)) {
-		$var($JScrollBar, sb, $cast($JScrollBar, $nc($($nc(context)->getComponent()))->getParent()));
+		$var($JScrollBar, sb, $cast($JScrollBar, $$nc($nc(context)->getComponent())->getParent()));
 		bool horiz = ($nc(sb)->getOrientation() == $JScrollBar::HORIZONTAL);
 		$init($GTKEngine$WidgetType);
 		$GTKEngine$WidgetType* wt = horiz ? $GTKEngine$WidgetType::HSCROLL_BAR : $GTKEngine$WidgetType::VSCROLL_BAR;
 		int32_t sliderWidth = getClassSpecificIntValue(wt, "slider-width"_s, 14);
 		int32_t stepperSize = getClassSpecificIntValue(wt, "stepper-size"_s, 14);
-		return $of(horiz ? $of($new($DimensionUIResource, stepperSize, sliderWidth)) : $of($new($DimensionUIResource, sliderWidth, stepperSize)));
+		return $of(horiz ? $new($DimensionUIResource, stepperSize, sliderWidth) : $new($DimensionUIResource, sliderWidth, stepperSize));
 	} else if ($equals(key, "ArrowButton.size"_s)) {
-		$var($String, name, $nc($($nc(context)->getComponent()))->getName());
+		$var($String, name, $$nc($nc(context)->getComponent())->getName());
 		if (name != nullptr && name->startsWith("Spinner"_s)) {
 			$var($String, pangoFontName, nullptr);
 			$init($UNIXToolkit);
@@ -918,31 +773,31 @@ $Object* GTKStyle::get($SynthContext* context, Object$* key) {
 			return $of($Integer::valueOf((arrowSize + (getXThickness() * 2))));
 		}
 	} else {
-		bool var$3 = "CheckBox.iconTextGap"_s->equals(key);
-		if (var$3 || "RadioButton.iconTextGap"_s->equals(key)) {
+		bool var$2 = "CheckBox.iconTextGap"_s->equals(key);
+		if (var$2 || "RadioButton.iconTextGap"_s->equals(key)) {
 			int32_t indicatorSpacing = getClassSpecificIntValue(context, "indicator-spacing"_s, 2);
 			int32_t focusSize = getClassSpecificIntValue(context, "focus-line-width"_s, 1);
 			int32_t focusPad = getClassSpecificIntValue(context, "focus-padding"_s, 1);
 			return $of($Integer::valueOf(indicatorSpacing + focusSize + focusPad));
 		} else {
-			bool var$5 = $GTKLookAndFeel::is3();
-			if (var$5 && "ComboBox.forceOpaque"_s->equals(key)) {
+			bool var$3 = $GTKLookAndFeel::is3();
+			if (var$3 && "ComboBox.forceOpaque"_s->equals(key)) {
 				return $of($Boolean::valueOf(true));
 			} else if ("Tree.expanderSize"_s->equals(key)) {
 				$var($Object, value, getClassSpecificValue("expander-size"_s));
 				if ($instanceOf($Integer, value)) {
-					return $of($Integer::valueOf($nc(($cast($Integer, value)))->intValue() + 4));
+					return $of($Integer::valueOf($cast($Integer, value)->intValue() + 4));
 				}
-				return $of(nullptr);
+				return nullptr;
 			}
 		}
 	}
 	$var($GTKStyle$GTKStockIcon, stockIcon, nullptr);
 	$synchronized(GTKStyle::ICONS_MAP) {
-		$assign(stockIcon, $cast($GTKStyle$GTKStockIcon, $nc(GTKStyle::ICONS_MAP)->get(key)));
+		$assign(stockIcon, $cast($GTKStyle$GTKStockIcon, GTKStyle::ICONS_MAP->get(key)));
 	}
 	if (stockIcon != nullptr) {
-		return $of(stockIcon);
+		return stockIcon;
 	}
 	if (!$equals(key, "engine"_s)) {
 		$var($Object, value, $UIManager::get(key));
@@ -952,17 +807,17 @@ $Object* GTKStyle::get($SynthContext* context, Object$* key) {
 				$assign(value, $Integer::valueOf(16 + 2 * focusLineWidth));
 			}
 		}
-		return $of(value);
+		return value;
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Icon* GTKStyle::getStockIcon($SynthContext* context, $String* key, int32_t type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($GTKConstants$TextDirection);
 	$GTKConstants$TextDirection* direction = $GTKConstants$TextDirection::LTR;
 	if (context != nullptr) {
-		$var($ComponentOrientation, co, $nc($(context->getComponent()))->getComponentOrientation());
+		$var($ComponentOrientation, co, $$nc(context->getComponent())->getComponentOrientation());
 		if (co != nullptr && !co->isLeftToRight()) {
 			direction = $GTKConstants$TextDirection::RTL;
 		}
@@ -972,7 +827,7 @@ $Icon* GTKStyle::getStockIcon($SynthContext* context, $String* key, int32_t type
 		return icon;
 	}
 	$var($String, propName, $str({GTKStyle::ICON_PROPERTY_PREFIX, key, $$str(u'.'), $$str(type), $$str(u'.'), (direction == $GTKConstants$TextDirection::RTL ? "rtl"_s : "ltr"_s)}));
-	$var($Image, img, $cast($Image, $nc($($Toolkit::getDefaultToolkit()))->getDesktopProperty(propName)));
+	$var($Image, img, $cast($Image, $$nc($Toolkit::getDefaultToolkit())->getDesktopProperty(propName)));
 	if (img != nullptr) {
 		return $new($ImageIcon, img);
 	}
@@ -980,14 +835,14 @@ $Icon* GTKStyle::getStockIcon($SynthContext* context, $String* key, int32_t type
 }
 
 $Icon* GTKStyle::getStyleSpecificIcon($String* key, $GTKConstants$TextDirection* direction, int32_t type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UNIXToolkit, tk, $cast($UNIXToolkit, $Toolkit::getDefaultToolkit()));
 	$var($Image, img, $nc(tk)->getStockIcon(this->widgetType, key, type, $nc(direction)->ordinal(), nullptr));
-	return (img != nullptr) ? static_cast<$Icon*>($new($ImageIcon, img)) : ($Icon*)nullptr;
+	return (img != nullptr) ? $cast($Icon, $new($ImageIcon, img)) : ($Icon*)nullptr;
 }
 
-void clinit$GTKStyle($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void GTKStyle::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(GTKStyle::ICON_PROPERTY_PREFIX, "gtk.icon."_s);
 	$init($Color);
 	$assignStatic(GTKStyle::BLACK_COLOR, $new($ColorUIResource, $Color::BLACK));
@@ -997,42 +852,42 @@ void clinit$GTKStyle($Class* class$) {
 	$assignStatic(GTKStyle::GTK_GRAPHICS, $new($GTKGraphicsUtils));
 	{
 		$assignStatic(GTKStyle::CLASS_SPECIFIC_MAP, $new($HashMap));
-		$nc(GTKStyle::CLASS_SPECIFIC_MAP)->put("Slider.thumbHeight"_s, "slider-width"_s);
-		$nc(GTKStyle::CLASS_SPECIFIC_MAP)->put("Slider.thumbWidth"_s, "slider-length"_s);
-		$nc(GTKStyle::CLASS_SPECIFIC_MAP)->put("Slider.trackBorder"_s, "trough-border"_s);
-		$nc(GTKStyle::CLASS_SPECIFIC_MAP)->put("SplitPane.size"_s, "handle-size"_s);
-		$nc(GTKStyle::CLASS_SPECIFIC_MAP)->put("ScrollBar.thumbHeight"_s, "slider-width"_s);
-		$nc(GTKStyle::CLASS_SPECIFIC_MAP)->put("ScrollBar.width"_s, "slider-width"_s);
-		$nc(GTKStyle::CLASS_SPECIFIC_MAP)->put("TextArea.caretForeground"_s, "cursor-color"_s);
-		$nc(GTKStyle::CLASS_SPECIFIC_MAP)->put("TextArea.caretAspectRatio"_s, "cursor-aspect-ratio"_s);
-		$nc(GTKStyle::CLASS_SPECIFIC_MAP)->put("TextField.caretForeground"_s, "cursor-color"_s);
-		$nc(GTKStyle::CLASS_SPECIFIC_MAP)->put("TextField.caretAspectRatio"_s, "cursor-aspect-ratio"_s);
-		$nc(GTKStyle::CLASS_SPECIFIC_MAP)->put("PasswordField.caretForeground"_s, "cursor-color"_s);
-		$nc(GTKStyle::CLASS_SPECIFIC_MAP)->put("PasswordField.caretAspectRatio"_s, "cursor-aspect-ratio"_s);
-		$nc(GTKStyle::CLASS_SPECIFIC_MAP)->put("FormattedTextField.caretForeground"_s, "cursor-color"_s);
-		$nc(GTKStyle::CLASS_SPECIFIC_MAP)->put("FormattedTextField.caretAspectRatio"_s, "cursor-aspect-"_s);
-		$nc(GTKStyle::CLASS_SPECIFIC_MAP)->put("TextPane.caretForeground"_s, "cursor-color"_s);
-		$nc(GTKStyle::CLASS_SPECIFIC_MAP)->put("TextPane.caretAspectRatio"_s, "cursor-aspect-ratio"_s);
-		$nc(GTKStyle::CLASS_SPECIFIC_MAP)->put("EditorPane.caretForeground"_s, "cursor-color"_s);
-		$nc(GTKStyle::CLASS_SPECIFIC_MAP)->put("EditorPane.caretAspectRatio"_s, "cursor-aspect-ratio"_s);
+		GTKStyle::CLASS_SPECIFIC_MAP->put("Slider.thumbHeight"_s, "slider-width"_s);
+		GTKStyle::CLASS_SPECIFIC_MAP->put("Slider.thumbWidth"_s, "slider-length"_s);
+		GTKStyle::CLASS_SPECIFIC_MAP->put("Slider.trackBorder"_s, "trough-border"_s);
+		GTKStyle::CLASS_SPECIFIC_MAP->put("SplitPane.size"_s, "handle-size"_s);
+		GTKStyle::CLASS_SPECIFIC_MAP->put("ScrollBar.thumbHeight"_s, "slider-width"_s);
+		GTKStyle::CLASS_SPECIFIC_MAP->put("ScrollBar.width"_s, "slider-width"_s);
+		GTKStyle::CLASS_SPECIFIC_MAP->put("TextArea.caretForeground"_s, "cursor-color"_s);
+		GTKStyle::CLASS_SPECIFIC_MAP->put("TextArea.caretAspectRatio"_s, "cursor-aspect-ratio"_s);
+		GTKStyle::CLASS_SPECIFIC_MAP->put("TextField.caretForeground"_s, "cursor-color"_s);
+		GTKStyle::CLASS_SPECIFIC_MAP->put("TextField.caretAspectRatio"_s, "cursor-aspect-ratio"_s);
+		GTKStyle::CLASS_SPECIFIC_MAP->put("PasswordField.caretForeground"_s, "cursor-color"_s);
+		GTKStyle::CLASS_SPECIFIC_MAP->put("PasswordField.caretAspectRatio"_s, "cursor-aspect-ratio"_s);
+		GTKStyle::CLASS_SPECIFIC_MAP->put("FormattedTextField.caretForeground"_s, "cursor-color"_s);
+		GTKStyle::CLASS_SPECIFIC_MAP->put("FormattedTextField.caretAspectRatio"_s, "cursor-aspect-"_s);
+		GTKStyle::CLASS_SPECIFIC_MAP->put("TextPane.caretForeground"_s, "cursor-color"_s);
+		GTKStyle::CLASS_SPECIFIC_MAP->put("TextPane.caretAspectRatio"_s, "cursor-aspect-ratio"_s);
+		GTKStyle::CLASS_SPECIFIC_MAP->put("EditorPane.caretForeground"_s, "cursor-color"_s);
+		GTKStyle::CLASS_SPECIFIC_MAP->put("EditorPane.caretAspectRatio"_s, "cursor-aspect-ratio"_s);
 		$assignStatic(GTKStyle::ICONS_MAP, $new($HashMap));
-		$nc(GTKStyle::ICONS_MAP)->put("FileChooser.cancelIcon"_s, $$new($GTKStyle$GTKStockIcon, "gtk-cancel"_s, 4));
-		$nc(GTKStyle::ICONS_MAP)->put("FileChooser.okIcon"_s, $$new($GTKStyle$GTKStockIcon, "gtk-ok"_s, 4));
-		$nc(GTKStyle::ICONS_MAP)->put("OptionPane.yesIcon"_s, $$new($GTKStyle$GTKStockIcon, "gtk-yes"_s, 4));
-		$nc(GTKStyle::ICONS_MAP)->put("OptionPane.noIcon"_s, $$new($GTKStyle$GTKStockIcon, "gtk-no"_s, 4));
-		$nc(GTKStyle::ICONS_MAP)->put("OptionPane.cancelIcon"_s, $$new($GTKStyle$GTKStockIcon, "gtk-cancel"_s, 4));
-		$nc(GTKStyle::ICONS_MAP)->put("OptionPane.okIcon"_s, $$new($GTKStyle$GTKStockIcon, "gtk-ok"_s, 4));
+		GTKStyle::ICONS_MAP->put("FileChooser.cancelIcon"_s, $$new($GTKStyle$GTKStockIcon, "gtk-cancel"_s, 4));
+		GTKStyle::ICONS_MAP->put("FileChooser.okIcon"_s, $$new($GTKStyle$GTKStockIcon, "gtk-ok"_s, 4));
+		GTKStyle::ICONS_MAP->put("OptionPane.yesIcon"_s, $$new($GTKStyle$GTKStockIcon, "gtk-yes"_s, 4));
+		GTKStyle::ICONS_MAP->put("OptionPane.noIcon"_s, $$new($GTKStyle$GTKStockIcon, "gtk-no"_s, 4));
+		GTKStyle::ICONS_MAP->put("OptionPane.cancelIcon"_s, $$new($GTKStyle$GTKStockIcon, "gtk-cancel"_s, 4));
+		GTKStyle::ICONS_MAP->put("OptionPane.okIcon"_s, $$new($GTKStyle$GTKStockIcon, "gtk-ok"_s, 4));
 		$var($UNIXToolkit, tk, $cast($UNIXToolkit, $Toolkit::getDefaultToolkit()));
 		if ($nc(tk)->checkGtkVersion(3, 10, 0)) {
-			$nc(GTKStyle::ICONS_MAP)->put("OptionPane.errorIcon"_s, $$new($GTKStyle$GTKStockIcon, "dialog-error"_s, 6));
-			$nc(GTKStyle::ICONS_MAP)->put("OptionPane.informationIcon"_s, $$new($GTKStyle$GTKStockIcon, "dialog-information"_s, 6));
-			$nc(GTKStyle::ICONS_MAP)->put("OptionPane.warningIcon"_s, $$new($GTKStyle$GTKStockIcon, "dialog-warning"_s, 6));
-			$nc(GTKStyle::ICONS_MAP)->put("OptionPane.questionIcon"_s, $$new($GTKStyle$GTKStockIcon, "dialog-question"_s, 6));
+			GTKStyle::ICONS_MAP->put("OptionPane.errorIcon"_s, $$new($GTKStyle$GTKStockIcon, "dialog-error"_s, 6));
+			GTKStyle::ICONS_MAP->put("OptionPane.informationIcon"_s, $$new($GTKStyle$GTKStockIcon, "dialog-information"_s, 6));
+			GTKStyle::ICONS_MAP->put("OptionPane.warningIcon"_s, $$new($GTKStyle$GTKStockIcon, "dialog-warning"_s, 6));
+			GTKStyle::ICONS_MAP->put("OptionPane.questionIcon"_s, $$new($GTKStyle$GTKStockIcon, "dialog-question"_s, 6));
 		} else {
-			$nc(GTKStyle::ICONS_MAP)->put("OptionPane.errorIcon"_s, $$new($GTKStyle$GTKStockIcon, "gtk-dialog-error"_s, 6));
-			$nc(GTKStyle::ICONS_MAP)->put("OptionPane.informationIcon"_s, $$new($GTKStyle$GTKStockIcon, "gtk-dialog-info"_s, 6));
-			$nc(GTKStyle::ICONS_MAP)->put("OptionPane.warningIcon"_s, $$new($GTKStyle$GTKStockIcon, "gtk-dialog-warning"_s, 6));
-			$nc(GTKStyle::ICONS_MAP)->put("OptionPane.questionIcon"_s, $$new($GTKStyle$GTKStockIcon, "gtk-dialog-question"_s, 6));
+			GTKStyle::ICONS_MAP->put("OptionPane.errorIcon"_s, $$new($GTKStyle$GTKStockIcon, "gtk-dialog-error"_s, 6));
+			GTKStyle::ICONS_MAP->put("OptionPane.informationIcon"_s, $$new($GTKStyle$GTKStockIcon, "gtk-dialog-info"_s, 6));
+			GTKStyle::ICONS_MAP->put("OptionPane.warningIcon"_s, $$new($GTKStyle$GTKStockIcon, "gtk-dialog-warning"_s, 6));
+			GTKStyle::ICONS_MAP->put("OptionPane.questionIcon"_s, $$new($GTKStyle$GTKStockIcon, "gtk-dialog-question"_s, 6));
 		}
 	}
 }
@@ -1041,7 +896,93 @@ GTKStyle::GTKStyle() {
 }
 
 $Class* GTKStyle::load$($String* name, bool initialize) {
-	$loadClass(GTKStyle, name, initialize, &_GTKStyle_ClassInfo_, clinit$GTKStyle, allocate$GTKStyle);
+	$FieldInfo fieldInfos$$[] = {
+		{"ICON_PROPERTY_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKStyle, ICON_PROPERTY_PREFIX)},
+		{"BLACK_COLOR", "Ljava/awt/Color;", nullptr, $STATIC | $FINAL, $staticField(GTKStyle, BLACK_COLOR)},
+		{"WHITE_COLOR", "Ljava/awt/Color;", nullptr, $STATIC | $FINAL, $staticField(GTKStyle, WHITE_COLOR)},
+		{"DEFAULT_FONT", "Ljava/awt/Font;", nullptr, $STATIC | $FINAL, $staticField(GTKStyle, DEFAULT_FONT)},
+		{"BUTTON_DEFAULT_BORDER_INSETS", "Ljava/awt/Insets;", nullptr, $STATIC | $FINAL, $staticField(GTKStyle, BUTTON_DEFAULT_BORDER_INSETS)},
+		{"GTK_GRAPHICS", "Lcom/sun/java/swing/plaf/gtk/GTKGraphicsUtils;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKStyle, GTK_GRAPHICS)},
+		{"CLASS_SPECIFIC_MAP", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(GTKStyle, CLASS_SPECIFIC_MAP)},
+		{"ICONS_MAP", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/java/swing/plaf/gtk/GTKStyle$GTKStockIcon;>;", $PRIVATE | $STATIC | $FINAL, $staticField(GTKStyle, ICONS_MAP)},
+		{"font", "Ljava/awt/Font;", nullptr, $PRIVATE | $FINAL, $field(GTKStyle, font)},
+		{"widgetType", "I", nullptr, $PRIVATE | $FINAL, $field(GTKStyle, widgetType)},
+		{"xThickness", "I", nullptr, $PRIVATE | $FINAL, $field(GTKStyle, xThickness)},
+		{"yThickness", "I", nullptr, $PRIVATE | $FINAL, $field(GTKStyle, yThickness)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Font;Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;)V", nullptr, 0, $method(GTKStyle, init$, void, $Font*, $GTKEngine$WidgetType*)},
+		{"get", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(GTKStyle, get, $Object*, $SynthContext*, Object$*)},
+		{"getButtonInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(GTKStyle, getButtonInsets, $Insets*, $SynthContext*, $Insets*)},
+		{"getClassSpecificBoolValue", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/lang/String;Z)Z", nullptr, 0, $virtualMethod(GTKStyle, getClassSpecificBoolValue, bool, $SynthContext*, $String*, bool)},
+		{"getClassSpecificInsetsValue", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/lang/String;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, 0, $virtualMethod(GTKStyle, getClassSpecificInsetsValue, $Insets*, $SynthContext*, $String*, $Insets*)},
+		{"getClassSpecificIntValue", "(Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(GTKStyle, getClassSpecificIntValue, int32_t, $GTKEngine$WidgetType*, $String*, int32_t)},
+		{"getClassSpecificIntValue", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/lang/String;I)I", nullptr, 0, $virtualMethod(GTKStyle, getClassSpecificIntValue, int32_t, $SynthContext*, $String*, int32_t)},
+		{"getClassSpecificValue", "(Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(GTKStyle, getClassSpecificValue, $Object*, $GTKEngine$WidgetType*, $String*)},
+		{"getClassSpecificValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(GTKStyle, getClassSpecificValue, $Object*, $String*)},
+		{"getColor", "(Ljavax/swing/plaf/synth/SynthContext;Ljavax/swing/plaf/synth/ColorType;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(GTKStyle, getColor, $Color*, $SynthContext*, $ColorType*)},
+		{"getColorForState", "(Ljavax/swing/plaf/synth/SynthContext;Ljavax/swing/plaf/synth/ColorType;)Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(GTKStyle, getColorForState, $Color*, $SynthContext*, $ColorType*)},
+		{"getDefaultFont", "()Ljava/awt/Font;", nullptr, 0, $virtualMethod(GTKStyle, getDefaultFont, $Font*)},
+		{"getFontForState", "(Ljavax/swing/plaf/synth/SynthContext;)Ljava/awt/Font;", nullptr, $PROTECTED, $virtualMethod(GTKStyle, getFontForState, $Font*, $SynthContext*)},
+		{"getGTKColor", "(ILjavax/swing/plaf/synth/ColorType;)Ljava/awt/Color;", nullptr, 0, $virtualMethod(GTKStyle, getGTKColor, $Color*, int32_t, $ColorType*)},
+		{"getGTKColor", "(III)Ljava/awt/Color;", nullptr, 0, $virtualMethod(GTKStyle, getGTKColor, $Color*, int32_t, int32_t, int32_t)},
+		{"getGTKColor", "(Ljavax/swing/plaf/synth/SynthContext;ILjavax/swing/plaf/synth/ColorType;)Ljava/awt/Color;", nullptr, 0, $virtualMethod(GTKStyle, getGTKColor, $Color*, $SynthContext*, int32_t, $ColorType*)},
+		{"getGraphicsUtils", "(Ljavax/swing/plaf/synth/SynthContext;)Ljavax/swing/plaf/synth/SynthGraphicsUtils;", nullptr, $PUBLIC, $virtualMethod(GTKStyle, getGraphicsUtils, $SynthGraphicsUtils*, $SynthContext*)},
+		{"getInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(GTKStyle, getInsets, $Insets*, $SynthContext*, $Insets*)},
+		{"getMenuBarInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(GTKStyle, getMenuBarInsets, $Insets*, $SynthContext*, $Insets*)},
+		{"getMenuItemInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(GTKStyle, getMenuItemInsets, $Insets*, $SynthContext*, $Insets*)},
+		{"getPainter", "(Ljavax/swing/plaf/synth/SynthContext;)Ljavax/swing/plaf/synth/SynthPainter;", nullptr, $PUBLIC, $virtualMethod(GTKStyle, getPainter, $SynthPainter*, $SynthContext*)},
+		{"getRadioInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(GTKStyle, getRadioInsets, $Insets*, $SynthContext*, $Insets*)},
+		{"getScrollBarInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(GTKStyle, getScrollBarInsets, $Insets*, $SynthContext*, $Insets*)},
+		{"getSeparatorInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(GTKStyle, getSeparatorInsets, $Insets*, $SynthContext*, $Insets*)},
+		{"getSimpleInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;I)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(GTKStyle, getSimpleInsets, $Insets*, $SynthContext*, $Insets*, int32_t)},
+		{"getSliderTrackInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(GTKStyle, getSliderTrackInsets, $Insets*, $SynthContext*, $Insets*)},
+		{"getStockIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/lang/String;I)Ljavax/swing/Icon;", nullptr, $PRIVATE, $method(GTKStyle, getStockIcon, $Icon*, $SynthContext*, $String*, int32_t)},
+		{"getStyleSpecificColor", "(Ljavax/swing/plaf/synth/SynthContext;ILjavax/swing/plaf/synth/ColorType;)Ljava/awt/Color;", nullptr, $PRIVATE, $method(GTKStyle, getStyleSpecificColor, $Color*, $SynthContext*, int32_t, $ColorType*)},
+		{"getStyleSpecificIcon", "(Ljava/lang/String;Lcom/sun/java/swing/plaf/gtk/GTKConstants$TextDirection;I)Ljavax/swing/Icon;", nullptr, $PRIVATE, $method(GTKStyle, getStyleSpecificIcon, $Icon*, $String*, $GTKConstants$TextDirection*, int32_t)},
+		{"getTabbedPaneTabInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(GTKStyle, getTabbedPaneTabInsets, $Insets*, $SynthContext*, $Insets*)},
+		{"getTextFieldInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(GTKStyle, getTextFieldInsets, $Insets*, $SynthContext*, $Insets*)},
+		{"getThicknessInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(GTKStyle, getThicknessInsets, $Insets*, $SynthContext*, $Insets*)},
+		{"getXThickness", "()I", nullptr, 0, $virtualMethod(GTKStyle, getXThickness, int32_t)},
+		{"getYThickness", "()I", nullptr, 0, $virtualMethod(GTKStyle, getYThickness, int32_t)},
+		{"installDefaults", "(Ljavax/swing/plaf/synth/SynthContext;)V", nullptr, $PUBLIC, $virtualMethod(GTKStyle, installDefaults, void, $SynthContext*)},
+		{"isOpaque", "(Ljavax/swing/plaf/synth/SynthContext;)Z", nullptr, $PUBLIC, $virtualMethod(GTKStyle, isOpaque, bool, $SynthContext*)},
+		{"nativeGetClassValue", "(ILjava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(GTKStyle, nativeGetClassValue, $Object*, int32_t, $String*)},
+		{"nativeGetColorForState", "(III)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(GTKStyle, nativeGetColorForState, int32_t, int32_t, int32_t, int32_t)},
+		{"nativeGetPangoFontName", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(GTKStyle, nativeGetPangoFontName, $String*, int32_t)},
+		{"nativeGetXThickness", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(GTKStyle, nativeGetXThickness, int32_t, int32_t)},
+		{"nativeGetYThickness", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(GTKStyle, nativeGetYThickness, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKStyle$GTKLazyValue", "com.sun.java.swing.plaf.gtk.GTKStyle", "GTKLazyValue", $STATIC},
+		{"com.sun.java.swing.plaf.gtk.GTKStyle$GTKStockIcon", "com.sun.java.swing.plaf.gtk.GTKStyle", "GTKStockIcon", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.gtk.GTKStyle$GTKStockIconInfo", "com.sun.java.swing.plaf.gtk.GTKStyle", "GTKStockIconInfo", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.GTKStyle",
+		"javax.swing.plaf.synth.SynthStyle",
+		"com.sun.java.swing.plaf.gtk.GTKConstants",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKStyle$GTKLazyValue,com.sun.java.swing.plaf.gtk.GTKStyle$GTKStockIcon,com.sun.java.swing.plaf.gtk.GTKStyle$GTKStockIconInfo"
+	};
+	$loadClass(GTKStyle, name, initialize, &classInfo$$, GTKStyle::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GTKStyle));
+	});
 	return class$;
 }
 

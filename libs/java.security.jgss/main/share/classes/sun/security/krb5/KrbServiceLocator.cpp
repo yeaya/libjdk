@@ -1,5 +1,4 @@
 #include <sun/security/krb5/KrbServiceLocator.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -41,7 +40,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $SocketPermission = ::java::net::SocketPermission;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Arrays = ::java::util::Arrays;
@@ -69,35 +67,31 @@ public:
 	virtual $Object* run() override {
 		 return $of(KrbServiceLocator::lambda$getKerberosService$0(ctx, dnsUrl));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<KrbServiceLocator$$Lambda$lambda$getKerberosService$0>());
-	}
 	$Context* ctx = nullptr;
 	$String* dnsUrl = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo KrbServiceLocator$$Lambda$lambda$getKerberosService$0::fieldInfos[3] = {
-	{"ctx", "Ljavax/naming/Context;", nullptr, $PUBLIC, $field(KrbServiceLocator$$Lambda$lambda$getKerberosService$0, ctx)},
-	{"dnsUrl", "Ljava/lang/String;", nullptr, $PUBLIC, $field(KrbServiceLocator$$Lambda$lambda$getKerberosService$0, dnsUrl)},
-	{}
-};
-$MethodInfo KrbServiceLocator$$Lambda$lambda$getKerberosService$0::methodInfos[3] = {
-	{"<init>", "(Ljavax/naming/Context;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KrbServiceLocator$$Lambda$lambda$getKerberosService$0, init$, void, $Context*, $String*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(KrbServiceLocator$$Lambda$lambda$getKerberosService$0, run, $Object*)},
-	{}
-};
-$ClassInfo KrbServiceLocator$$Lambda$lambda$getKerberosService$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.security.krb5.KrbServiceLocator$$Lambda$lambda$getKerberosService$0",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* KrbServiceLocator$$Lambda$lambda$getKerberosService$0::load$($String* name, bool initialize) {
-	$loadClass(KrbServiceLocator$$Lambda$lambda$getKerberosService$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"ctx", "Ljavax/naming/Context;", nullptr, $PUBLIC, $field(KrbServiceLocator$$Lambda$lambda$getKerberosService$0, ctx)},
+		{"dnsUrl", "Ljava/lang/String;", nullptr, $PUBLIC, $field(KrbServiceLocator$$Lambda$lambda$getKerberosService$0, dnsUrl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/naming/Context;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KrbServiceLocator$$Lambda$lambda$getKerberosService$0, init$, void, $Context*, $String*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(KrbServiceLocator$$Lambda$lambda$getKerberosService$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.security.krb5.KrbServiceLocator$$Lambda$lambda$getKerberosService$0",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KrbServiceLocator$$Lambda$lambda$getKerberosService$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KrbServiceLocator$$Lambda$lambda$getKerberosService$0);
+	});
 	return class$;
 }
 $Class* KrbServiceLocator$$Lambda$lambda$getKerberosService$0::class$ = nullptr;
@@ -112,82 +106,34 @@ public:
 	virtual $Object* run() override {
 		 return $of(KrbServiceLocator::lambda$getKerberosService$1(ctx, dnsUrl));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<KrbServiceLocator$$Lambda$lambda$getKerberosService$1$1>());
-	}
 	$Context* ctx = nullptr;
 	$String* dnsUrl = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo KrbServiceLocator$$Lambda$lambda$getKerberosService$1$1::fieldInfos[3] = {
-	{"ctx", "Ljavax/naming/Context;", nullptr, $PUBLIC, $field(KrbServiceLocator$$Lambda$lambda$getKerberosService$1$1, ctx)},
-	{"dnsUrl", "Ljava/lang/String;", nullptr, $PUBLIC, $field(KrbServiceLocator$$Lambda$lambda$getKerberosService$1$1, dnsUrl)},
-	{}
-};
-$MethodInfo KrbServiceLocator$$Lambda$lambda$getKerberosService$1$1::methodInfos[3] = {
-	{"<init>", "(Ljavax/naming/Context;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KrbServiceLocator$$Lambda$lambda$getKerberosService$1$1, init$, void, $Context*, $String*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(KrbServiceLocator$$Lambda$lambda$getKerberosService$1$1, run, $Object*)},
-	{}
-};
-$ClassInfo KrbServiceLocator$$Lambda$lambda$getKerberosService$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.security.krb5.KrbServiceLocator$$Lambda$lambda$getKerberosService$1$1",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* KrbServiceLocator$$Lambda$lambda$getKerberosService$1$1::load$($String* name, bool initialize) {
-	$loadClass(KrbServiceLocator$$Lambda$lambda$getKerberosService$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"ctx", "Ljavax/naming/Context;", nullptr, $PUBLIC, $field(KrbServiceLocator$$Lambda$lambda$getKerberosService$1$1, ctx)},
+		{"dnsUrl", "Ljava/lang/String;", nullptr, $PUBLIC, $field(KrbServiceLocator$$Lambda$lambda$getKerberosService$1$1, dnsUrl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/naming/Context;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KrbServiceLocator$$Lambda$lambda$getKerberosService$1$1, init$, void, $Context*, $String*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(KrbServiceLocator$$Lambda$lambda$getKerberosService$1$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.security.krb5.KrbServiceLocator$$Lambda$lambda$getKerberosService$1$1",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KrbServiceLocator$$Lambda$lambda$getKerberosService$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KrbServiceLocator$$Lambda$lambda$getKerberosService$1$1);
+	});
 	return class$;
 }
 $Class* KrbServiceLocator$$Lambda$lambda$getKerberosService$1$1::class$ = nullptr;
-
-$FieldInfo _KrbServiceLocator_FieldInfo_[] = {
-	{"SRV_RR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KrbServiceLocator, SRV_RR)},
-	{"SRV_RR_ATTR", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KrbServiceLocator, SRV_RR_ATTR)},
-	{"SRV_TXT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KrbServiceLocator, SRV_TXT)},
-	{"SRV_TXT_ATTR", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KrbServiceLocator, SRV_TXT_ATTR)},
-	{"random", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KrbServiceLocator, random)},
-	{}
-};
-
-$MethodInfo _KrbServiceLocator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(KrbServiceLocator, init$, void)},
-	{"extractHostports", "([Lsun/security/krb5/KrbServiceLocator$SrvRecord;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(KrbServiceLocator, extractHostports, $StringArray*, $KrbServiceLocator$SrvRecordArray*)},
-	{"getKerberosService", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(KrbServiceLocator, getKerberosService, $StringArray*, $String*)},
-	{"getKerberosService", "(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(KrbServiceLocator, getKerberosService, $StringArray*, $String*, $String*)},
-	{"lambda$getKerberosService$0", "(Ljavax/naming/Context;Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(KrbServiceLocator, lambda$getKerberosService$0, $Attributes*, $Context*, $String*), "java.lang.Exception"},
-	{"lambda$getKerberosService$1", "(Ljavax/naming/Context;Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(KrbServiceLocator, lambda$getKerberosService$1, $Attributes*, $Context*, $String*), "java.lang.Exception"},
-	{"selectHostport", "([Lsun/security/krb5/KrbServiceLocator$SrvRecord;II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(KrbServiceLocator, selectHostport, $String*, $KrbServiceLocator$SrvRecordArray*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _KrbServiceLocator_InnerClassesInfo_[] = {
-	{"sun.security.krb5.KrbServiceLocator$SrvRecord", "sun.security.krb5.KrbServiceLocator", "SrvRecord", $STATIC},
-	{}
-};
-
-$ClassInfo _KrbServiceLocator_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.krb5.KrbServiceLocator",
-	"java.lang.Object",
-	nullptr,
-	_KrbServiceLocator_FieldInfo_,
-	_KrbServiceLocator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KrbServiceLocator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.krb5.KrbServiceLocator$SrvRecord"
-};
-
-$Object* allocate$KrbServiceLocator($Class* clazz) {
-	return $of($alloc(KrbServiceLocator));
-}
 
 $String* KrbServiceLocator::SRV_RR = nullptr;
 $StringArray* KrbServiceLocator::SRV_RR_ATTR = nullptr;
@@ -200,7 +146,7 @@ void KrbServiceLocator::init$() {
 
 $StringArray* KrbServiceLocator::getKerberosService($String* realmName) {
 	$init(KrbServiceLocator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, dnsUrl, $str({"dns:///_kerberos."_s, realmName}));
 	$var($StringArray, records, nullptr);
@@ -211,10 +157,10 @@ $StringArray* KrbServiceLocator::getKerberosService($String* realmName) {
 		}
 		$var($Attributes, attrs, nullptr);
 		try {
-			$var($PrivilegedExceptionAction, var$0, static_cast<$PrivilegedExceptionAction*>($new(KrbServiceLocator$$Lambda$lambda$getKerberosService$0, ctx, dnsUrl)));
-			$assign(attrs, $cast($Attributes, $AccessController::doPrivileged(var$0, ($AccessControlContext*)nullptr, $$new($PermissionArray, {static_cast<$Permission*>($$new($SocketPermission, "*"_s, "connect,accept"_s))}))));
+			$var($PrivilegedExceptionAction, var$0, $cast($PrivilegedExceptionAction, $new(KrbServiceLocator$$Lambda$lambda$getKerberosService$0, ctx, dnsUrl)));
+			$assign(attrs, $cast($Attributes, $AccessController::doPrivileged(var$0, nullptr, $$new($PermissionArray, {$$new($SocketPermission, "*"_s, "connect,accept"_s)}))));
 		} catch ($PrivilegedActionException& e) {
-			$throw($cast($NamingException, $(e->getCause())));
+			$throw($$cast($NamingException, e->getCause()));
 		}
 		$var($Attribute, attr, nullptr);
 		if (attrs != nullptr && (($assign(attr, attrs->get(KrbServiceLocator::SRV_TXT))) != nullptr)) {
@@ -225,7 +171,7 @@ $StringArray* KrbServiceLocator::getKerberosService($String* realmName) {
 			int32_t j = 0;
 			while (i < numValues) {
 				try {
-					txtRecords->set(j, $cast($String, $(attr->get(i))));
+					txtRecords->set(j, $$cast($String, attr->get(i)));
 					++j;
 				} catch ($Exception& e) {
 				}
@@ -247,7 +193,7 @@ $StringArray* KrbServiceLocator::getKerberosService($String* realmName) {
 
 $StringArray* KrbServiceLocator::getKerberosService($String* realmName, $String* protocol) {
 	$init(KrbServiceLocator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, dnsUrl, $str({"dns:///_kerberos."_s, protocol, "."_s, realmName}));
 	$var($StringArray, hostports, nullptr);
@@ -258,10 +204,10 @@ $StringArray* KrbServiceLocator::getKerberosService($String* realmName, $String*
 		}
 		$var($Attributes, attrs, nullptr);
 		try {
-			$var($PrivilegedExceptionAction, var$0, static_cast<$PrivilegedExceptionAction*>($new(KrbServiceLocator$$Lambda$lambda$getKerberosService$1$1, ctx, dnsUrl)));
-			$assign(attrs, $cast($Attributes, $AccessController::doPrivileged(var$0, ($AccessControlContext*)nullptr, $$new($PermissionArray, {static_cast<$Permission*>($$new($SocketPermission, "*"_s, "connect,accept"_s))}))));
+			$var($PrivilegedExceptionAction, var$0, $cast($PrivilegedExceptionAction, $new(KrbServiceLocator$$Lambda$lambda$getKerberosService$1$1, ctx, dnsUrl)));
+			$assign(attrs, $cast($Attributes, $AccessController::doPrivileged(var$0, nullptr, $$new($PermissionArray, {$$new($SocketPermission, "*"_s, "connect,accept"_s)}))));
 		} catch ($PrivilegedActionException& e) {
-			$throw($cast($NamingException, $(e->getCause())));
+			$throw($$cast($NamingException, e->getCause()));
 		}
 		$var($Attribute, attr, nullptr);
 		if (attrs != nullptr && (($assign(attr, attrs->get(KrbServiceLocator::SRV_RR))) != nullptr)) {
@@ -272,7 +218,7 @@ $StringArray* KrbServiceLocator::getKerberosService($String* realmName, $String*
 			int32_t j = 0;
 			while (i < numValues) {
 				try {
-					srvRecords->set(j, $$new($KrbServiceLocator$SrvRecord, $cast($String, $(attr->get(i)))));
+					srvRecords->set(j, $$new($KrbServiceLocator$SrvRecord, $$cast($String, attr->get(i))));
 					++j;
 				} catch ($Exception& e) {
 				}
@@ -296,7 +242,7 @@ $StringArray* KrbServiceLocator::getKerberosService($String* realmName, $String*
 
 $StringArray* KrbServiceLocator::extractHostports($KrbServiceLocator$SrvRecordArray* srvRecords) {
 	$init(KrbServiceLocator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, hostports, nullptr);
 	int32_t head = 0;
 	int32_t tail = 0;
@@ -332,7 +278,7 @@ $String* KrbServiceLocator::selectHostport($KrbServiceLocator$SrvRecordArray* sr
 		}
 	}
 	$var($String, hostport, nullptr);
-	int32_t target = (sum == 0 ? 0 : $nc(KrbServiceLocator::random)->nextInt(sum + 1));
+	int32_t target = (sum == 0 ? 0 : KrbServiceLocator::random->nextInt(sum + 1));
 	for (int32_t i = head; i <= tail; ++i) {
 		if ($nc(srvRecords)->get(i) != nullptr && $nc(srvRecords->get(i))->sum >= target) {
 			$assign(hostport, $nc(srvRecords->get(i))->hostport);
@@ -345,15 +291,15 @@ $String* KrbServiceLocator::selectHostport($KrbServiceLocator$SrvRecordArray* sr
 
 $Attributes* KrbServiceLocator::lambda$getKerberosService$1($Context* ctx, $String* dnsUrl) {
 	$init(KrbServiceLocator);
-	return $nc(($cast($DirContext, ctx)))->getAttributes(dnsUrl, KrbServiceLocator::SRV_RR_ATTR);
+	return $nc($cast($DirContext, ctx))->getAttributes(dnsUrl, KrbServiceLocator::SRV_RR_ATTR);
 }
 
 $Attributes* KrbServiceLocator::lambda$getKerberosService$0($Context* ctx, $String* dnsUrl) {
 	$init(KrbServiceLocator);
-	return $nc(($cast($DirContext, ctx)))->getAttributes(dnsUrl, KrbServiceLocator::SRV_TXT_ATTR);
+	return $nc($cast($DirContext, ctx))->getAttributes(dnsUrl, KrbServiceLocator::SRV_TXT_ATTR);
 }
 
-void clinit$KrbServiceLocator($Class* class$) {
+void KrbServiceLocator::clinit$($Class* clazz) {
 	$assignStatic(KrbServiceLocator::SRV_RR, "SRV"_s);
 	$assignStatic(KrbServiceLocator::SRV_TXT, "TXT"_s);
 	$assignStatic(KrbServiceLocator::SRV_RR_ATTR, $new($StringArray, {KrbServiceLocator::SRV_RR}));
@@ -366,14 +312,52 @@ KrbServiceLocator::KrbServiceLocator() {
 
 $Class* KrbServiceLocator::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(KrbServiceLocator$$Lambda$lambda$getKerberosService$0::classInfo$.name)) {
+		if (name->equals("sun.security.krb5.KrbServiceLocator$$Lambda$lambda$getKerberosService$0")) {
 			return KrbServiceLocator$$Lambda$lambda$getKerberosService$0::load$(name, initialize);
 		}
-		if (name->equals(KrbServiceLocator$$Lambda$lambda$getKerberosService$1$1::classInfo$.name)) {
+		if (name->equals("sun.security.krb5.KrbServiceLocator$$Lambda$lambda$getKerberosService$1$1")) {
 			return KrbServiceLocator$$Lambda$lambda$getKerberosService$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(KrbServiceLocator, name, initialize, &_KrbServiceLocator_ClassInfo_, clinit$KrbServiceLocator, allocate$KrbServiceLocator);
+	$FieldInfo fieldInfos$$[] = {
+		{"SRV_RR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KrbServiceLocator, SRV_RR)},
+		{"SRV_RR_ATTR", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KrbServiceLocator, SRV_RR_ATTR)},
+		{"SRV_TXT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KrbServiceLocator, SRV_TXT)},
+		{"SRV_TXT_ATTR", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KrbServiceLocator, SRV_TXT_ATTR)},
+		{"random", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KrbServiceLocator, random)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(KrbServiceLocator, init$, void)},
+		{"extractHostports", "([Lsun/security/krb5/KrbServiceLocator$SrvRecord;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(KrbServiceLocator, extractHostports, $StringArray*, $KrbServiceLocator$SrvRecordArray*)},
+		{"getKerberosService", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(KrbServiceLocator, getKerberosService, $StringArray*, $String*)},
+		{"getKerberosService", "(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(KrbServiceLocator, getKerberosService, $StringArray*, $String*, $String*)},
+		{"lambda$getKerberosService$0", "(Ljavax/naming/Context;Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(KrbServiceLocator, lambda$getKerberosService$0, $Attributes*, $Context*, $String*), "java.lang.Exception"},
+		{"lambda$getKerberosService$1", "(Ljavax/naming/Context;Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(KrbServiceLocator, lambda$getKerberosService$1, $Attributes*, $Context*, $String*), "java.lang.Exception"},
+		{"selectHostport", "([Lsun/security/krb5/KrbServiceLocator$SrvRecord;II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(KrbServiceLocator, selectHostport, $String*, $KrbServiceLocator$SrvRecordArray*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.krb5.KrbServiceLocator$SrvRecord", "sun.security.krb5.KrbServiceLocator", "SrvRecord", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.krb5.KrbServiceLocator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.krb5.KrbServiceLocator$SrvRecord"
+	};
+	$loadClass(KrbServiceLocator, name, initialize, &classInfo$$, KrbServiceLocator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KrbServiceLocator);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/border/EmptyBorder.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
@@ -20,52 +19,6 @@ using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 namespace javax {
 	namespace swing {
 		namespace border {
-
-$Attribute EmptyBorder_Attribute_var$1[] = {
-	{'s', "borderInsets"},
-	{'-'}
-};
-
-$NamedAttribute EmptyBorder_Attribute_var$0[] = {
-	{"value", '[', EmptyBorder_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _EmptyBorder_MethodAnnotations_init$1[] = {
-	{"Ljava/beans/ConstructorProperties;", EmptyBorder_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _EmptyBorder_FieldInfo_[] = {
-	{"left", "I", nullptr, $PROTECTED, $field(EmptyBorder, left)},
-	{"right", "I", nullptr, $PROTECTED, $field(EmptyBorder, right)},
-	{"top", "I", nullptr, $PROTECTED, $field(EmptyBorder, top)},
-	{"bottom", "I", nullptr, $PROTECTED, $field(EmptyBorder, bottom)},
-	{}
-};
-
-$MethodInfo _EmptyBorder_MethodInfo_[] = {
-	{"<init>", "(IIII)V", nullptr, $PUBLIC, $method(EmptyBorder, init$, void, int32_t, int32_t, int32_t, int32_t)},
-	{"<init>", "(Ljava/awt/Insets;)V", nullptr, $PUBLIC, $method(EmptyBorder, init$, void, $Insets*), nullptr, nullptr, _EmptyBorder_MethodAnnotations_init$1},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(EmptyBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"getBorderInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(EmptyBorder, getBorderInsets, $Insets*)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(EmptyBorder, isBorderOpaque, bool)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(EmptyBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _EmptyBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.border.EmptyBorder",
-	"javax.swing.border.AbstractBorder",
-	nullptr,
-	_EmptyBorder_FieldInfo_,
-	_EmptyBorder_MethodInfo_
-};
-
-$Object* allocate$EmptyBorder($Class* clazz) {
-	return $of($alloc(EmptyBorder));
-}
 
 void EmptyBorder::init$(int32_t top, int32_t left, int32_t bottom, int32_t right) {
 	$AbstractBorder::init$();
@@ -106,7 +59,45 @@ EmptyBorder::EmptyBorder() {
 }
 
 $Class* EmptyBorder::load$($String* name, bool initialize) {
-	$loadClass(EmptyBorder, name, initialize, &_EmptyBorder_ClassInfo_, allocate$EmptyBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"left", "I", nullptr, $PROTECTED, $field(EmptyBorder, left)},
+		{"right", "I", nullptr, $PROTECTED, $field(EmptyBorder, right)},
+		{"top", "I", nullptr, $PROTECTED, $field(EmptyBorder, top)},
+		{"bottom", "I", nullptr, $PROTECTED, $field(EmptyBorder, bottom)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "borderInsets"},
+		{'-'}
+	};
+	$NamedAttribute init$methodAnnotations$$$1$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$1[] = {
+		{"Ljava/beans/ConstructorProperties;", init$methodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IIII)V", nullptr, $PUBLIC, $method(EmptyBorder, init$, void, int32_t, int32_t, int32_t, int32_t)},
+		{"<init>", "(Ljava/awt/Insets;)V", nullptr, $PUBLIC, $method(EmptyBorder, init$, void, $Insets*), nullptr, nullptr, init$methodAnnotations$$$1},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(EmptyBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"getBorderInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(EmptyBorder, getBorderInsets, $Insets*)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(EmptyBorder, isBorderOpaque, bool)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(EmptyBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.border.EmptyBorder",
+		"javax.swing.border.AbstractBorder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EmptyBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(EmptyBorder));
+	});
 	return class$;
 }
 

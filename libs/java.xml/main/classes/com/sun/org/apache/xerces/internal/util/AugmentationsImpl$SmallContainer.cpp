@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/AugmentationsImpl$SmallContainer.h>
-
 #include <com/sun/org/apache/xerces/internal/util/AugmentationsImpl$AugmentationsItemsContainer.h>
 #include <com/sun/org/apache/xerces/internal/util/AugmentationsImpl$LargeContainer.h>
 #include <com/sun/org/apache/xerces/internal/util/AugmentationsImpl$SmallContainer$SmallContainerKeyEnumeration.h>
@@ -27,54 +26,6 @@ namespace com {
 					namespace internal {
 						namespace util {
 
-$FieldInfo _AugmentationsImpl$SmallContainer_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xerces/internal/util/AugmentationsImpl;", nullptr, $FINAL | $SYNTHETIC, $field(AugmentationsImpl$SmallContainer, this$0)},
-	{"SIZE_LIMIT", "I", nullptr, $STATIC | $FINAL, $constField(AugmentationsImpl$SmallContainer, SIZE_LIMIT)},
-	{"fAugmentations", "[Ljava/lang/Object;", nullptr, $FINAL, $field(AugmentationsImpl$SmallContainer, fAugmentations)},
-	{"fNumEntries", "I", nullptr, 0, $field(AugmentationsImpl$SmallContainer, fNumEntries)},
-	{}
-};
-
-$MethodInfo _AugmentationsImpl$SmallContainer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/AugmentationsImpl;)V", nullptr, 0, $method(AugmentationsImpl$SmallContainer, init$, void, $AugmentationsImpl*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(AugmentationsImpl$SmallContainer, clear, void)},
-	{"expand", "()Lcom/sun/org/apache/xerces/internal/util/AugmentationsImpl$AugmentationsItemsContainer;", nullptr, $PUBLIC, $virtualMethod(AugmentationsImpl$SmallContainer, expand, $AugmentationsImpl$AugmentationsItemsContainer*)},
-	{"getItem", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AugmentationsImpl$SmallContainer, getItem, $Object*, Object$*)},
-	{"isFull", "()Z", nullptr, $PUBLIC, $virtualMethod(AugmentationsImpl$SmallContainer, isFull, bool)},
-	{"keys", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(AugmentationsImpl$SmallContainer, keys, $Enumeration*)},
-	{"putItem", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AugmentationsImpl$SmallContainer, putItem, $Object*, Object$*, Object$*)},
-	{"removeItem", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AugmentationsImpl$SmallContainer, removeItem, $Object*, Object$*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AugmentationsImpl$SmallContainer, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _AugmentationsImpl$SmallContainer_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.util.AugmentationsImpl$SmallContainer", "com.sun.org.apache.xerces.internal.util.AugmentationsImpl", "SmallContainer", 0},
-	{"com.sun.org.apache.xerces.internal.util.AugmentationsImpl$AugmentationsItemsContainer", "com.sun.org.apache.xerces.internal.util.AugmentationsImpl", "AugmentationsItemsContainer", $ABSTRACT},
-	{"com.sun.org.apache.xerces.internal.util.AugmentationsImpl$SmallContainer$SmallContainerKeyEnumeration", "com.sun.org.apache.xerces.internal.util.AugmentationsImpl$SmallContainer", "SmallContainerKeyEnumeration", 0},
-	{}
-};
-
-$ClassInfo _AugmentationsImpl$SmallContainer_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.util.AugmentationsImpl$SmallContainer",
-	"com.sun.org.apache.xerces.internal.util.AugmentationsImpl$AugmentationsItemsContainer",
-	nullptr,
-	_AugmentationsImpl$SmallContainer_FieldInfo_,
-	_AugmentationsImpl$SmallContainer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AugmentationsImpl$SmallContainer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.util.AugmentationsImpl"
-};
-
-$Object* allocate$AugmentationsImpl$SmallContainer($Class* clazz) {
-	return $of($alloc(AugmentationsImpl$SmallContainer));
-}
-
 void AugmentationsImpl$SmallContainer::init$($AugmentationsImpl* this$0) {
 	$set(this, this$0, this$0);
 	$AugmentationsImpl$AugmentationsItemsContainer::init$(this$0);
@@ -88,50 +39,50 @@ $Enumeration* AugmentationsImpl$SmallContainer::keys() {
 
 $Object* AugmentationsImpl$SmallContainer::getItem(Object$* key) {
 	for (int32_t i = 0; i < this->fNumEntries * 2; i = i + 2) {
-		if ($nc($of($nc(this->fAugmentations)->get(i)))->equals(key)) {
-			return $of($nc(this->fAugmentations)->get(i + 1));
+		if ($nc(this->fAugmentations->get(i))->equals(key)) {
+			return this->fAugmentations->get(i + 1);
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* AugmentationsImpl$SmallContainer::putItem(Object$* key, Object$* item) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < this->fNumEntries * 2; i = i + 2) {
-		if ($nc($of($nc(this->fAugmentations)->get(i)))->equals(key)) {
-			$var($Object0, oldValue, $nc(this->fAugmentations)->get(i + 1));
-			$nc(this->fAugmentations)->set(i + 1, item);
-			return $of(oldValue);
+		if ($nc(this->fAugmentations->get(i))->equals(key)) {
+			$var($Object0, oldValue, this->fAugmentations->get(i + 1));
+			this->fAugmentations->set(i + 1, item);
+			return oldValue;
 		}
 	}
-	$nc(this->fAugmentations)->set(this->fNumEntries * 2, key);
-	$nc(this->fAugmentations)->set(this->fNumEntries * 2 + 1, item);
+	this->fAugmentations->set(this->fNumEntries * 2, key);
+	this->fAugmentations->set(this->fNumEntries * 2 + 1, item);
 	++this->fNumEntries;
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* AugmentationsImpl$SmallContainer::removeItem(Object$* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < this->fNumEntries * 2; i = i + 2) {
-		if ($nc($of($nc(this->fAugmentations)->get(i)))->equals(key)) {
-			$var($Object0, oldValue, $nc(this->fAugmentations)->get(i + 1));
+		if ($nc(this->fAugmentations->get(i))->equals(key)) {
+			$var($Object0, oldValue, this->fAugmentations->get(i + 1));
 			for (int32_t j = i; j < this->fNumEntries * 2 - 2; j = j + 2) {
-				$nc(this->fAugmentations)->set(j, $nc(this->fAugmentations)->get(j + 2));
-				$nc(this->fAugmentations)->set(j + 1, $nc(this->fAugmentations)->get(j + 3));
+				this->fAugmentations->set(j, this->fAugmentations->get(j + 2));
+				this->fAugmentations->set(j + 1, this->fAugmentations->get(j + 3));
 			}
-			$nc(this->fAugmentations)->set(this->fNumEntries * 2 - 2, nullptr);
-			$nc(this->fAugmentations)->set(this->fNumEntries * 2 - 1, nullptr);
+			this->fAugmentations->set(this->fNumEntries * 2 - 2, nullptr);
+			this->fAugmentations->set(this->fNumEntries * 2 - 1, nullptr);
 			--this->fNumEntries;
-			return $of(oldValue);
+			return oldValue;
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 void AugmentationsImpl$SmallContainer::clear() {
 	for (int32_t i = 0; i < this->fNumEntries * 2; i = i + 2) {
-		$nc(this->fAugmentations)->set(i, nullptr);
-		$nc(this->fAugmentations)->set(i + 1, nullptr);
+		this->fAugmentations->set(i, nullptr);
+		this->fAugmentations->set(i + 1, nullptr);
 	}
 	this->fNumEntries = 0;
 }
@@ -143,7 +94,7 @@ bool AugmentationsImpl$SmallContainer::isFull() {
 $AugmentationsImpl$AugmentationsItemsContainer* AugmentationsImpl$SmallContainer::expand() {
 	$var($AugmentationsImpl$LargeContainer, expandedContainer, $new($AugmentationsImpl$LargeContainer, this->this$0));
 	for (int32_t i = 0; i < this->fNumEntries * 2; i = i + 2) {
-		expandedContainer->putItem($nc(this->fAugmentations)->get(i), $nc(this->fAugmentations)->get(i + 1));
+		expandedContainer->putItem(this->fAugmentations->get(i), this->fAugmentations->get(i + 1));
 	}
 	return expandedContainer;
 }
@@ -152,7 +103,7 @@ $String* AugmentationsImpl$SmallContainer::toString() {
 	$var($StringBuilder, buff, $new($StringBuilder));
 	buff->append("SmallContainer - fNumEntries == "_s)->append(this->fNumEntries);
 	for (int32_t i = 0; i < AugmentationsImpl$SmallContainer::SIZE_LIMIT * 2; i = i + 2) {
-		buff->append("\nfAugmentations["_s)->append(i)->append("] == "_s)->append($nc(this->fAugmentations)->get(i))->append("; fAugmentations["_s)->append(i + 1)->append("] == "_s)->append($nc(this->fAugmentations)->get(i + 1));
+		buff->append("\nfAugmentations["_s)->append(i)->append("] == "_s)->append(this->fAugmentations->get(i))->append("; fAugmentations["_s)->append(i + 1)->append("] == "_s)->append(this->fAugmentations->get(i + 1));
 	}
 	return buff->toString();
 }
@@ -161,7 +112,49 @@ AugmentationsImpl$SmallContainer::AugmentationsImpl$SmallContainer() {
 }
 
 $Class* AugmentationsImpl$SmallContainer::load$($String* name, bool initialize) {
-	$loadClass(AugmentationsImpl$SmallContainer, name, initialize, &_AugmentationsImpl$SmallContainer_ClassInfo_, allocate$AugmentationsImpl$SmallContainer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xerces/internal/util/AugmentationsImpl;", nullptr, $FINAL | $SYNTHETIC, $field(AugmentationsImpl$SmallContainer, this$0)},
+		{"SIZE_LIMIT", "I", nullptr, $STATIC | $FINAL, $constField(AugmentationsImpl$SmallContainer, SIZE_LIMIT)},
+		{"fAugmentations", "[Ljava/lang/Object;", nullptr, $FINAL, $field(AugmentationsImpl$SmallContainer, fAugmentations)},
+		{"fNumEntries", "I", nullptr, 0, $field(AugmentationsImpl$SmallContainer, fNumEntries)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/AugmentationsImpl;)V", nullptr, 0, $method(AugmentationsImpl$SmallContainer, init$, void, $AugmentationsImpl*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(AugmentationsImpl$SmallContainer, clear, void)},
+		{"expand", "()Lcom/sun/org/apache/xerces/internal/util/AugmentationsImpl$AugmentationsItemsContainer;", nullptr, $PUBLIC, $virtualMethod(AugmentationsImpl$SmallContainer, expand, $AugmentationsImpl$AugmentationsItemsContainer*)},
+		{"getItem", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AugmentationsImpl$SmallContainer, getItem, $Object*, Object$*)},
+		{"isFull", "()Z", nullptr, $PUBLIC, $virtualMethod(AugmentationsImpl$SmallContainer, isFull, bool)},
+		{"keys", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(AugmentationsImpl$SmallContainer, keys, $Enumeration*)},
+		{"putItem", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AugmentationsImpl$SmallContainer, putItem, $Object*, Object$*, Object$*)},
+		{"removeItem", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AugmentationsImpl$SmallContainer, removeItem, $Object*, Object$*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AugmentationsImpl$SmallContainer, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.util.AugmentationsImpl$SmallContainer", "com.sun.org.apache.xerces.internal.util.AugmentationsImpl", "SmallContainer", 0},
+		{"com.sun.org.apache.xerces.internal.util.AugmentationsImpl$AugmentationsItemsContainer", "com.sun.org.apache.xerces.internal.util.AugmentationsImpl", "AugmentationsItemsContainer", $ABSTRACT},
+		{"com.sun.org.apache.xerces.internal.util.AugmentationsImpl$SmallContainer$SmallContainerKeyEnumeration", "com.sun.org.apache.xerces.internal.util.AugmentationsImpl$SmallContainer", "SmallContainerKeyEnumeration", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.util.AugmentationsImpl$SmallContainer",
+		"com.sun.org.apache.xerces.internal.util.AugmentationsImpl$AugmentationsItemsContainer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.util.AugmentationsImpl"
+	};
+	$loadClass(AugmentationsImpl$SmallContainer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AugmentationsImpl$SmallContainer);
+	});
 	return class$;
 }
 

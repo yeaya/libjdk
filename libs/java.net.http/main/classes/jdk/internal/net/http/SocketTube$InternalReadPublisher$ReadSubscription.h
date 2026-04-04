@@ -46,6 +46,7 @@ class $export SocketTube$InternalReadPublisher$ReadSubscription : public ::java:
 	$class(SocketTube$InternalReadPublisher$ReadSubscription, 0, ::java::util::concurrent::Flow$Subscription)
 public:
 	SocketTube$InternalReadPublisher$ReadSubscription();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::SocketTube$InternalReadPublisher* this$1, ::jdk::internal::net::http::SocketTube$InternalReadPublisher$InternalReadSubscription* impl, ::jdk::internal::net::http::common::FlowTube$TubeSubscriber* subscriber);
 	virtual void cancel() override;
 	virtual void request(int64_t n) override;

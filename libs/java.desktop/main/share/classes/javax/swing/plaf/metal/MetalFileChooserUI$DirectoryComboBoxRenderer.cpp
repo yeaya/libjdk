@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalFileChooserUI$DirectoryComboBoxRenderer.h>
-
 #include <java/awt/Component.h>
 #include <java/io/File.h>
 #include <javax/swing/DefaultListCellRenderer.h>
@@ -20,53 +19,14 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DefaultListCellRenderer = ::javax::swing::DefaultListCellRenderer;
 using $Icon = ::javax::swing::Icon;
-using $JFileChooser = ::javax::swing::JFileChooser;
 using $JList = ::javax::swing::JList;
 using $MetalFileChooserUI = ::javax::swing::plaf::metal::MetalFileChooserUI;
-using $MetalFileChooserUI$DirectoryComboBoxModel = ::javax::swing::plaf::metal::MetalFileChooserUI$DirectoryComboBoxModel;
 using $MetalFileChooserUI$IndentIcon = ::javax::swing::plaf::metal::MetalFileChooserUI$IndentIcon;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$FieldInfo _MetalFileChooserUI$DirectoryComboBoxRenderer_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/metal/MetalFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalFileChooserUI$DirectoryComboBoxRenderer, this$0)},
-	{"ii", "Ljavax/swing/plaf/metal/MetalFileChooserUI$IndentIcon;", nullptr, 0, $field(MetalFileChooserUI$DirectoryComboBoxRenderer, ii)},
-	{}
-};
-
-$MethodInfo _MetalFileChooserUI$DirectoryComboBoxRenderer_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;)V", nullptr, 0, $method(MetalFileChooserUI$DirectoryComboBoxRenderer, init$, void, $MetalFileChooserUI*)},
-	{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<*>;Ljava/lang/Object;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(MetalFileChooserUI$DirectoryComboBoxRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
-	{}
-};
-
-$InnerClassInfo _MetalFileChooserUI$DirectoryComboBoxRenderer_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalFileChooserUI$DirectoryComboBoxRenderer", "javax.swing.plaf.metal.MetalFileChooserUI", "DirectoryComboBoxRenderer", 0},
-	{}
-};
-
-$ClassInfo _MetalFileChooserUI$DirectoryComboBoxRenderer_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalFileChooserUI$DirectoryComboBoxRenderer",
-	"javax.swing.DefaultListCellRenderer",
-	nullptr,
-	_MetalFileChooserUI$DirectoryComboBoxRenderer_FieldInfo_,
-	_MetalFileChooserUI$DirectoryComboBoxRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalFileChooserUI$DirectoryComboBoxRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalFileChooserUI"
-};
-
-$Object* allocate$MetalFileChooserUI$DirectoryComboBoxRenderer($Class* clazz) {
-	return $of($alloc(MetalFileChooserUI$DirectoryComboBoxRenderer));
-}
 
 void MetalFileChooserUI$DirectoryComboBoxRenderer::init$($MetalFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
@@ -75,17 +35,17 @@ void MetalFileChooserUI$DirectoryComboBoxRenderer::init$($MetalFileChooserUI* th
 }
 
 $Component* MetalFileChooserUI$DirectoryComboBoxRenderer::getListCellRendererComponent($JList* list, Object$* value, int32_t index, bool isSelected, bool cellHasFocus) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DefaultListCellRenderer::getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 	if (value == nullptr) {
 		setText(""_s);
 		return this;
 	}
 	$var($File, directory, $cast($File, value));
-	setText($($nc($(this->this$0->getFileChooser()))->getName(directory)));
-	$var($Icon, icon, $nc($(this->this$0->getFileChooser()))->getIcon(directory));
+	setText($($$nc(this->this$0->getFileChooser())->getName(directory)));
+	$var($Icon, icon, $$nc(this->this$0->getFileChooser())->getIcon(directory));
 	$set($nc(this->ii), icon, icon);
-	$nc(this->ii)->depth = $nc(this->this$0->directoryComboBoxModel)->getDepth(index);
+	this->ii->depth = $nc(this->this$0->directoryComboBoxModel)->getDepth(index);
 	setIcon(this->ii);
 	return this;
 }
@@ -94,7 +54,38 @@ MetalFileChooserUI$DirectoryComboBoxRenderer::MetalFileChooserUI$DirectoryComboB
 }
 
 $Class* MetalFileChooserUI$DirectoryComboBoxRenderer::load$($String* name, bool initialize) {
-	$loadClass(MetalFileChooserUI$DirectoryComboBoxRenderer, name, initialize, &_MetalFileChooserUI$DirectoryComboBoxRenderer_ClassInfo_, allocate$MetalFileChooserUI$DirectoryComboBoxRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/metal/MetalFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalFileChooserUI$DirectoryComboBoxRenderer, this$0)},
+		{"ii", "Ljavax/swing/plaf/metal/MetalFileChooserUI$IndentIcon;", nullptr, 0, $field(MetalFileChooserUI$DirectoryComboBoxRenderer, ii)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;)V", nullptr, 0, $method(MetalFileChooserUI$DirectoryComboBoxRenderer, init$, void, $MetalFileChooserUI*)},
+		{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<*>;Ljava/lang/Object;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(MetalFileChooserUI$DirectoryComboBoxRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalFileChooserUI$DirectoryComboBoxRenderer", "javax.swing.plaf.metal.MetalFileChooserUI", "DirectoryComboBoxRenderer", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalFileChooserUI$DirectoryComboBoxRenderer",
+		"javax.swing.DefaultListCellRenderer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalFileChooserUI"
+	};
+	$loadClass(MetalFileChooserUI$DirectoryComboBoxRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalFileChooserUI$DirectoryComboBoxRenderer));
+	});
 	return class$;
 }
 

@@ -61,7 +61,7 @@ public:
 	virtual int32_t rtf(::com::sun::org::apache::xpath::internal::XPathContext* support) override;
 	virtual $String* str() override;
 	using ::com::sun::org::apache::xpath::internal::objects::XNodeSet::xstr;
-	static const int64_t serialVersionUID = (int64_t)0xA10D74E9C8E943A3;
+	static const int64_t serialVersionUID = (int64_t)0xa10d74e9c8e943a3;
 };
 
 						} // objects

@@ -25,6 +25,7 @@ class $import PopupMenu : public ::java::awt::Menu {
 public:
 	PopupMenu();
 	using ::java::awt::Menu::deleteShortcut;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* label);
 	virtual void addNotify() override;
@@ -35,7 +36,7 @@ public:
 	static $String* base;
 	static int32_t nameCounter;
 	$volatile(bool) isTrayIconPopup = false;
-	static const int64_t serialVersionUID = (int64_t)0xBFE0DAE6A5D27E84;
+	static const int64_t serialVersionUID = (int64_t)0xbfe0dae6a5d27e84;
 };
 
 	} // awt

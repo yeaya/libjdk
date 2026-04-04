@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/DDIV.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/ArithmeticInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackConsumer.h>
@@ -12,9 +11,6 @@
 
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
 using $ArithmeticInstruction = ::com::sun::org::apache::bcel::internal::generic::ArithmeticInstruction;
-using $StackConsumer = ::com::sun::org::apache::bcel::internal::generic::StackConsumer;
-using $StackProducer = ::com::sun::org::apache::bcel::internal::generic::StackProducer;
-using $TypedInstruction = ::com::sun::org::apache::bcel::internal::generic::TypedInstruction;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -26,25 +22,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$MethodInfo _DDIV_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DDIV, init$, void)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(DDIV, accept, void, $Visitor*)},
-	{}
-};
-
-$ClassInfo _DDIV_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.DDIV",
-	"com.sun.org.apache.bcel.internal.generic.ArithmeticInstruction",
-	nullptr,
-	nullptr,
-	_DDIV_MethodInfo_
-};
-
-$Object* allocate$DDIV($Class* clazz) {
-	return $of($alloc(DDIV));
-}
 
 void DDIV::init$() {
 	$ArithmeticInstruction::init$($Const::DDIV);
@@ -62,7 +39,22 @@ DDIV::DDIV() {
 }
 
 $Class* DDIV::load$($String* name, bool initialize) {
-	$loadClass(DDIV, name, initialize, &_DDIV_ClassInfo_, allocate$DDIV);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DDIV, init$, void)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(DDIV, accept, void, $Visitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.DDIV",
+		"com.sun.org.apache.bcel.internal.generic.ArithmeticInstruction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DDIV, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DDIV));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/DrawGlyphListAA$General.h>
-
 #include <java/awt/Composite.h>
 #include <sun/font/GlyphList.h>
 #include <sun/java2d/SunGraphics2D.h>
@@ -28,49 +27,13 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _DrawGlyphListAA$General_FieldInfo_[] = {
-	{"maskop", "Lsun/java2d/loops/MaskFill;", nullptr, 0, $field(DrawGlyphListAA$General, maskop)},
-	{}
-};
-
-$MethodInfo _DrawGlyphListAA$General_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(DrawGlyphListAA$General, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"DrawGlyphListAA", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Lsun/font/GlyphList;II)V", nullptr, $PUBLIC, $virtualMethod(DrawGlyphListAA$General, DrawGlyphListAA$, void, $SunGraphics2D*, $SurfaceData*, $GlyphList*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _DrawGlyphListAA$General_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.DrawGlyphListAA$General", "sun.java2d.loops.DrawGlyphListAA", "General", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _DrawGlyphListAA$General_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.loops.DrawGlyphListAA$General",
-	"sun.java2d.loops.DrawGlyphListAA",
-	nullptr,
-	_DrawGlyphListAA$General_FieldInfo_,
-	_DrawGlyphListAA$General_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DrawGlyphListAA$General_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.DrawGlyphListAA"
-};
-
-$Object* allocate$DrawGlyphListAA$General($Class* clazz) {
-	return $of($alloc(DrawGlyphListAA$General));
-}
-
 void DrawGlyphListAA$General::init$($SurfaceType* srctype, $CompositeType* comptype, $SurfaceType* dsttype) {
 	$DrawGlyphListAA::init$(srctype, comptype, dsttype);
 	$set(this, maskop, $MaskFill::locate(srctype, comptype, dsttype));
 }
 
 void DrawGlyphListAA$General::DrawGlyphListAA$($SunGraphics2D* sg2d, $SurfaceData* dest, $GlyphList* gl, int32_t fromGlyph, int32_t toGlyph) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, clip, $nc(sg2d)->getCompClip());
 	int32_t cx1 = $nc(clip)->getLoX();
 	int32_t cy1 = clip->getLoY();
@@ -110,7 +73,37 @@ DrawGlyphListAA$General::DrawGlyphListAA$General() {
 }
 
 $Class* DrawGlyphListAA$General::load$($String* name, bool initialize) {
-	$loadClass(DrawGlyphListAA$General, name, initialize, &_DrawGlyphListAA$General_ClassInfo_, allocate$DrawGlyphListAA$General);
+	$FieldInfo fieldInfos$$[] = {
+		{"maskop", "Lsun/java2d/loops/MaskFill;", nullptr, 0, $field(DrawGlyphListAA$General, maskop)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(DrawGlyphListAA$General, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"DrawGlyphListAA", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Lsun/font/GlyphList;II)V", nullptr, $PUBLIC, $virtualMethod(DrawGlyphListAA$General, DrawGlyphListAA$, void, $SunGraphics2D*, $SurfaceData*, $GlyphList*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.DrawGlyphListAA$General", "sun.java2d.loops.DrawGlyphListAA", "General", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.loops.DrawGlyphListAA$General",
+		"sun.java2d.loops.DrawGlyphListAA",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.DrawGlyphListAA"
+	};
+	$loadClass(DrawGlyphListAA$General, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DrawGlyphListAA$General);
+	});
 	return class$;
 }
 

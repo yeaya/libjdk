@@ -21,6 +21,7 @@ class ImageTypeProducer : public ::java::lang::Object {
 	$class(ImageTypeProducer, 0, ::java::lang::Object)
 public:
 	ImageTypeProducer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t csCode);
 	void init$();
 	virtual ::javax::imageio::ImageTypeSpecifier* getType();

@@ -28,6 +28,7 @@ class $export JNIWriter$EncoderType : public ::java::lang::Enum {
 public:
 	JNIWriter$EncoderType();
 	static $Array<::com::sun::tools::javac::jvm::JNIWriter$EncoderType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::jvm::JNIWriter$EncoderType* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::jvm::JNIWriter$EncoderType>* values();

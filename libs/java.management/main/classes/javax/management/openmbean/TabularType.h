@@ -42,7 +42,7 @@ public:
 	virtual bool isAssignableFrom(::javax::management::openmbean::OpenType* ot) override;
 	virtual bool isValue(Object$* obj) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x5AF4BDA1C4D6063D;
+	static const int64_t serialVersionUID = (int64_t)0x5af4bda1c4d6063d;
 	::javax::management::openmbean::CompositeType* rowType = nullptr;
 	::java::util::List* indexNames = nullptr;
 	::java::lang::Integer* myHashCode = nullptr;

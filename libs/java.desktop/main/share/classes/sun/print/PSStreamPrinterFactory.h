@@ -25,6 +25,7 @@ class PSStreamPrinterFactory : public ::javax::print::StreamPrintServiceFactory 
 	$class(PSStreamPrinterFactory, 0, ::javax::print::StreamPrintServiceFactory)
 public:
 	PSStreamPrinterFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Array<::javax::print::DocFlavor>* getFlavors();
 	virtual $String* getOutputFormat() override;

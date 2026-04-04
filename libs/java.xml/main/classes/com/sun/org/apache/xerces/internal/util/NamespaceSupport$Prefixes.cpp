@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/NamespaceSupport$Prefixes.h>
-
 #include <com/sun/org/apache/xerces/internal/util/NamespaceSupport.h>
 #include <java/util/NoSuchElementException.h>
 #include <jcpp.h>
@@ -18,47 +17,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace util {
-
-$FieldInfo _NamespaceSupport$Prefixes_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xerces/internal/util/NamespaceSupport;", nullptr, $FINAL | $SYNTHETIC, $field(NamespaceSupport$Prefixes, this$0)},
-	{"prefixes", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(NamespaceSupport$Prefixes, prefixes)},
-	{"counter", "I", nullptr, $PRIVATE, $field(NamespaceSupport$Prefixes, counter)},
-	{"size", "I", nullptr, $PRIVATE, $field(NamespaceSupport$Prefixes, size)},
-	{}
-};
-
-$MethodInfo _NamespaceSupport$Prefixes_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/NamespaceSupport;[Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(NamespaceSupport$Prefixes, init$, void, $NamespaceSupport*, $StringArray*, int32_t)},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport$Prefixes, hasMoreElements, bool)},
-	{"nextElement", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport$Prefixes, nextElement, $Object*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport$Prefixes, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _NamespaceSupport$Prefixes_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.util.NamespaceSupport$Prefixes", "com.sun.org.apache.xerces.internal.util.NamespaceSupport", "Prefixes", $PROTECTED | $FINAL},
-	{}
-};
-
-$ClassInfo _NamespaceSupport$Prefixes_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.util.NamespaceSupport$Prefixes",
-	"java.lang.Object",
-	"java.util.Enumeration",
-	_NamespaceSupport$Prefixes_FieldInfo_,
-	_NamespaceSupport$Prefixes_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/lang/String;>;",
-	nullptr,
-	_NamespaceSupport$Prefixes_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.util.NamespaceSupport"
-};
-
-$Object* allocate$NamespaceSupport$Prefixes($Class* clazz) {
-	return $of($alloc(NamespaceSupport$Prefixes));
-}
 
 void NamespaceSupport$Prefixes::init$($NamespaceSupport* this$0, $StringArray* prefixes, int32_t size) {
 	$set(this, this$0, this$0);
@@ -92,7 +50,42 @@ NamespaceSupport$Prefixes::NamespaceSupport$Prefixes() {
 }
 
 $Class* NamespaceSupport$Prefixes::load$($String* name, bool initialize) {
-	$loadClass(NamespaceSupport$Prefixes, name, initialize, &_NamespaceSupport$Prefixes_ClassInfo_, allocate$NamespaceSupport$Prefixes);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xerces/internal/util/NamespaceSupport;", nullptr, $FINAL | $SYNTHETIC, $field(NamespaceSupport$Prefixes, this$0)},
+		{"prefixes", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(NamespaceSupport$Prefixes, prefixes)},
+		{"counter", "I", nullptr, $PRIVATE, $field(NamespaceSupport$Prefixes, counter)},
+		{"size", "I", nullptr, $PRIVATE, $field(NamespaceSupport$Prefixes, size)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/NamespaceSupport;[Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(NamespaceSupport$Prefixes, init$, void, $NamespaceSupport*, $StringArray*, int32_t)},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport$Prefixes, hasMoreElements, bool)},
+		{"nextElement", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport$Prefixes, nextElement, $Object*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport$Prefixes, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.util.NamespaceSupport$Prefixes", "com.sun.org.apache.xerces.internal.util.NamespaceSupport", "Prefixes", $PROTECTED | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.util.NamespaceSupport$Prefixes",
+		"java.lang.Object",
+		"java.util.Enumeration",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/lang/String;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.util.NamespaceSupport"
+	};
+	$loadClass(NamespaceSupport$Prefixes, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NamespaceSupport$Prefixes);
+	});
 	return class$;
 }
 

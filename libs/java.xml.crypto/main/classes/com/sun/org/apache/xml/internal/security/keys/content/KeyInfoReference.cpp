@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/content/KeyInfoReference.h>
-
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <com/sun/org/apache/xml/internal/security/utils/ElementProxy.h>
 #include <com/sun/org/apache/xml/internal/security/utils/Signature11ElementProxy.h>
@@ -29,35 +28,6 @@ namespace com {
 						namespace security {
 							namespace keys {
 								namespace content {
-
-$MethodInfo _KeyInfoReference_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KeyInfoReference, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KeyInfoReference, init$, void, $Document*, $String*)},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyInfoReference, getBaseLocalName, $String*)},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyInfoReference, getId, $String*)},
-	{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyInfoReference, getURI, $String*)},
-	{"getURIAttr", "()Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(KeyInfoReference, getURIAttr, $Attr*)},
-	{"setId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfoReference, setId, void, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _KeyInfoReference_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.keys.content.KeyInfoReference",
-	"com.sun.org.apache.xml.internal.security.utils.Signature11ElementProxy",
-	"com.sun.org.apache.xml.internal.security.keys.content.KeyInfoContent",
-	nullptr,
-	_KeyInfoReference_MethodInfo_
-};
-
-$Object* allocate$KeyInfoReference($Class* clazz) {
-	return $of($alloc(KeyInfoReference));
-}
 
 int32_t KeyInfoReference::hashCode() {
 	 return this->$Signature11ElementProxy::hashCode();
@@ -91,11 +61,11 @@ void KeyInfoReference::init$($Document* doc, $String* uri) {
 
 $Attr* KeyInfoReference::getURIAttr() {
 	$init($Constants);
-	return $nc($(getElement()))->getAttributeNodeNS(nullptr, $Constants::_ATT_URI);
+	return $$nc(getElement())->getAttributeNodeNS(nullptr, $Constants::_ATT_URI);
 }
 
 $String* KeyInfoReference::getURI() {
-	return $nc($(this->getURIAttr()))->getNodeValue();
+	return $$nc(this->getURIAttr())->getNodeValue();
 }
 
 void KeyInfoReference::setId($String* id) {
@@ -117,7 +87,32 @@ KeyInfoReference::KeyInfoReference() {
 }
 
 $Class* KeyInfoReference::load$($String* name, bool initialize) {
-	$loadClass(KeyInfoReference, name, initialize, &_KeyInfoReference_ClassInfo_, allocate$KeyInfoReference);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KeyInfoReference, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KeyInfoReference, init$, void, $Document*, $String*)},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyInfoReference, getBaseLocalName, $String*)},
+		{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyInfoReference, getId, $String*)},
+		{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyInfoReference, getURI, $String*)},
+		{"getURIAttr", "()Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(KeyInfoReference, getURIAttr, $Attr*)},
+		{"setId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfoReference, setId, void, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.keys.content.KeyInfoReference",
+		"com.sun.org.apache.xml.internal.security.utils.Signature11ElementProxy",
+		"com.sun.org.apache.xml.internal.security.keys.content.KeyInfoContent",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(KeyInfoReference, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(KeyInfoReference));
+	});
 	return class$;
 }
 

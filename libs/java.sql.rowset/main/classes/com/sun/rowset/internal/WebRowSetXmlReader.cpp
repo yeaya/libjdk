@@ -1,5 +1,4 @@
 #include <com/sun/rowset/internal/WebRowSetXmlReader.h>
-
 #include <com/sun/rowset/JdbcRowSetResourceBundle.h>
 #include <com/sun/rowset/internal/XmlErrorHandler.h>
 #include <com/sun/rowset/internal/XmlReaderContentHandler.h>
@@ -17,9 +16,6 @@
 #include <javax/sql/rowset/spi/XmlReader.h>
 #include <javax/xml/parsers/SAXParser.h>
 #include <javax/xml/parsers/SAXParserFactory.h>
-#include <org/xml/sax/ContentHandler.h>
-#include <org/xml/sax/EntityResolver.h>
-#include <org/xml/sax/ErrorHandler.h>
 #include <org/xml/sax/InputSource.h>
 #include <org/xml/sax/SAXException.h>
 #include <org/xml/sax/SAXParseException.h>
@@ -34,7 +30,6 @@ using $XmlResolver = ::com::sun::rowset::internal::XmlResolver;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $Reader = ::java::io::Reader;
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -51,9 +46,6 @@ using $WebRowSet = ::javax::sql::rowset::WebRowSet;
 using $XmlReader = ::javax::sql::rowset::spi::XmlReader;
 using $SAXParser = ::javax::xml::parsers::SAXParser;
 using $SAXParserFactory = ::javax::xml::parsers::SAXParserFactory;
-using $ContentHandler = ::org::xml::sax::ContentHandler;
-using $EntityResolver = ::org::xml::sax::EntityResolver;
-using $ErrorHandler = ::org::xml::sax::ErrorHandler;
 using $InputSource = ::org::xml::sax::InputSource;
 using $SAXException = ::org::xml::sax::SAXException;
 using $SAXParseException = ::org::xml::sax::SAXParseException;
@@ -64,39 +56,6 @@ namespace com {
 	namespace sun {
 		namespace rowset {
 			namespace internal {
-
-$FieldInfo _WebRowSetXmlReader_FieldInfo_[] = {
-	{"resBundle", "Lcom/sun/rowset/JdbcRowSetResourceBundle;", nullptr, $PRIVATE, $field(WebRowSetXmlReader, resBundle)},
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(WebRowSetXmlReader, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _WebRowSetXmlReader_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WebRowSetXmlReader, init$, void)},
-	{"readData", "(Ljavax/sql/RowSetInternal;)V", nullptr, $PUBLIC, $virtualMethod(WebRowSetXmlReader, readData, void, $RowSetInternal*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(WebRowSetXmlReader, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"readXML", "(Ljavax/sql/rowset/WebRowSet;Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(WebRowSetXmlReader, readXML, void, $WebRowSet*, $Reader*), "java.sql.SQLException"},
-	{"readXML", "(Ljavax/sql/rowset/WebRowSet;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(WebRowSetXmlReader, readXML, void, $WebRowSet*, $InputStream*), "java.sql.SQLException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _WebRowSetXmlReader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.rowset.internal.WebRowSetXmlReader",
-	"java.lang.Object",
-	"javax.sql.rowset.spi.XmlReader,java.io.Serializable",
-	_WebRowSetXmlReader_FieldInfo_,
-	_WebRowSetXmlReader_MethodInfo_
-};
-
-$Object* allocate$WebRowSetXmlReader($Class* clazz) {
-	return $of($alloc(WebRowSetXmlReader));
-}
 
 int32_t WebRowSetXmlReader::hashCode() {
 	 return this->$XmlReader::hashCode();
@@ -122,16 +81,16 @@ void WebRowSetXmlReader::init$() {
 	try {
 		$set(this, resBundle, $JdbcRowSetResourceBundle::getJdbcRowSetResourceBundle());
 	} catch ($IOException& ioe) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(ioe));
+		$throwNew($RuntimeException, ioe);
 	}
 }
 
 void WebRowSetXmlReader::readXML($WebRowSet* caller, $Reader* reader) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($InputSource, is, $new($InputSource, reader));
 		$var($DefaultHandler, dh, $new($XmlErrorHandler));
-		$var($XmlReaderContentHandler, hndr, $new($XmlReaderContentHandler, static_cast<$RowSet*>(caller)));
+		$var($XmlReaderContentHandler, hndr, $new($XmlReaderContentHandler, $cast($RowSet, caller)));
 		$var($SAXParserFactory, factory, $SAXParserFactory::newInstance());
 		$nc(factory)->setNamespaceAware(true);
 		factory->setValidating(true);
@@ -143,11 +102,11 @@ void WebRowSetXmlReader::readXML($WebRowSet* caller, $Reader* reader) {
 		reader1->setErrorHandler(dh);
 		reader1->parse(is);
 	} catch ($SAXParseException& err) {
-		$var($String, var$0, $nc($of($($nc(this->resBundle)->handleGetObject("wrsxmlreader.parseerr"_s))))->toString());
+		$var($String, var$0, $$nc($nc(this->resBundle)->handleGetObject("wrsxmlreader.parseerr"_s))->toString());
 		$nc($System::out)->println($($MessageFormat::format(var$0, $$new($ObjectArray, {
-			$($of(err->getMessage())),
-			$($of($Integer::valueOf(err->getLineNumber()))),
-			$($of(err->getSystemId()))
+			$(err->getMessage()),
+			$($Integer::valueOf(err->getLineNumber())),
+			$(err->getSystemId())
 		}))));
 		err->printStackTrace();
 		$throwNew($SQLException, $(err->getMessage()));
@@ -156,22 +115,22 @@ void WebRowSetXmlReader::readXML($WebRowSet* caller, $Reader* reader) {
 		if (e->getException() != nullptr) {
 			$assign(x, e->getException());
 		}
-		x->printStackTrace();
+		$nc(x)->printStackTrace();
 		$throwNew($SQLException, $(x->getMessage()));
 	} catch ($ArrayIndexOutOfBoundsException& aie) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("wrsxmlreader.invalidcp"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("wrsxmlreader.invalidcp"_s))->toString()));
 	} catch ($Throwable& e) {
-		$var($String, var$1, $nc($of($($nc(this->resBundle)->handleGetObject("wrsxmlreader.readxml"_s))))->toString());
-		$throwNew($SQLException, $($MessageFormat::format(var$1, $$new($ObjectArray, {$($of(e->getMessage()))}))));
+		$var($String, var$1, $$nc($nc(this->resBundle)->handleGetObject("wrsxmlreader.readxml"_s))->toString());
+		$throwNew($SQLException, $($MessageFormat::format(var$1, $$new($ObjectArray, {$(e->getMessage())}))));
 	}
 }
 
 void WebRowSetXmlReader::readXML($WebRowSet* caller, $InputStream* iStream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($InputSource, is, $new($InputSource, iStream));
 		$var($DefaultHandler, dh, $new($XmlErrorHandler));
-		$var($XmlReaderContentHandler, hndr, $new($XmlReaderContentHandler, static_cast<$RowSet*>(caller)));
+		$var($XmlReaderContentHandler, hndr, $new($XmlReaderContentHandler, $cast($RowSet, caller)));
 		$var($SAXParserFactory, factory, $SAXParserFactory::newInstance());
 		$nc(factory)->setNamespaceAware(true);
 		factory->setValidating(true);
@@ -183,10 +142,10 @@ void WebRowSetXmlReader::readXML($WebRowSet* caller, $InputStream* iStream) {
 		reader1->setErrorHandler(dh);
 		reader1->parse(is);
 	} catch ($SAXParseException& err) {
-		$var($String, var$0, $nc($of($($nc(this->resBundle)->handleGetObject("wrsxmlreader.parseerr"_s))))->toString());
+		$var($String, var$0, $$nc($nc(this->resBundle)->handleGetObject("wrsxmlreader.parseerr"_s))->toString());
 		$nc($System::out)->println($($MessageFormat::format(var$0, $$new($ObjectArray, {
-			$($of($Integer::valueOf(err->getLineNumber()))),
-			$($of(err->getSystemId()))
+			$($Integer::valueOf(err->getLineNumber())),
+			$(err->getSystemId())
 		}))));
 		$nc($System::out)->println($$str({"   "_s, $(err->getMessage())}));
 		err->printStackTrace();
@@ -196,13 +155,13 @@ void WebRowSetXmlReader::readXML($WebRowSet* caller, $InputStream* iStream) {
 		if (e->getException() != nullptr) {
 			$assign(x, e->getException());
 		}
-		x->printStackTrace();
+		$nc(x)->printStackTrace();
 		$throwNew($SQLException, $(x->getMessage()));
 	} catch ($ArrayIndexOutOfBoundsException& aie) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("wrsxmlreader.invalidcp"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("wrsxmlreader.invalidcp"_s))->toString()));
 	} catch ($Throwable& e) {
-		$var($String, var$1, $nc($of($($nc(this->resBundle)->handleGetObject("wrsxmlreader.readxml"_s))))->toString());
-		$throwNew($SQLException, $($MessageFormat::format(var$1, $$new($ObjectArray, {$($of(e->getMessage()))}))));
+		$var($String, var$1, $$nc($nc(this->resBundle)->handleGetObject("wrsxmlreader.readxml"_s))->toString());
+		$throwNew($SQLException, $($MessageFormat::format(var$1, $$new($ObjectArray, {$(e->getMessage())}))));
 	}
 }
 
@@ -214,7 +173,7 @@ void WebRowSetXmlReader::readObject($ObjectInputStream* ois) {
 	try {
 		$set(this, resBundle, $JdbcRowSetResourceBundle::getJdbcRowSetResourceBundle());
 	} catch ($IOException& ioe) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(ioe));
+		$throwNew($RuntimeException, ioe);
 	}
 }
 
@@ -222,7 +181,35 @@ WebRowSetXmlReader::WebRowSetXmlReader() {
 }
 
 $Class* WebRowSetXmlReader::load$($String* name, bool initialize) {
-	$loadClass(WebRowSetXmlReader, name, initialize, &_WebRowSetXmlReader_ClassInfo_, allocate$WebRowSetXmlReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"resBundle", "Lcom/sun/rowset/JdbcRowSetResourceBundle;", nullptr, $PRIVATE, $field(WebRowSetXmlReader, resBundle)},
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(WebRowSetXmlReader, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WebRowSetXmlReader, init$, void)},
+		{"readData", "(Ljavax/sql/RowSetInternal;)V", nullptr, $PUBLIC, $virtualMethod(WebRowSetXmlReader, readData, void, $RowSetInternal*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(WebRowSetXmlReader, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"readXML", "(Ljavax/sql/rowset/WebRowSet;Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(WebRowSetXmlReader, readXML, void, $WebRowSet*, $Reader*), "java.sql.SQLException"},
+		{"readXML", "(Ljavax/sql/rowset/WebRowSet;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(WebRowSetXmlReader, readXML, void, $WebRowSet*, $InputStream*), "java.sql.SQLException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.rowset.internal.WebRowSetXmlReader",
+		"java.lang.Object",
+		"javax.sql.rowset.spi.XmlReader,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WebRowSetXmlReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WebRowSetXmlReader));
+	});
 	return class$;
 }
 

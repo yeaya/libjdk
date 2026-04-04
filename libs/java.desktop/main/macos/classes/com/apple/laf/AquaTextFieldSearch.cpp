@@ -1,6 +1,4 @@
 #include <com/apple/laf/AquaTextFieldSearch.h>
-
-#include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$State.h>
 #include <apple/laf/JRSUIConstants$Variant.h>
 #include <apple/laf/JRSUIState.h>
@@ -34,22 +32,16 @@
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/event/ActionListener.h>
-#include <java/awt/event/FocusListener.h>
 #include <java/awt/event/MouseListener.h>
-#include <java/beans/PropertyChangeListener.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/BorderFactory.h>
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JPopupMenu.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/border/Border.h>
-#include <javax/swing/event/ChangeListener.h>
-#include <javax/swing/event/DocumentListener.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/TextUI.h>
 #include <javax/swing/text/Document.h>
@@ -72,10 +64,8 @@
 #undef VARIANT_KEY
 #undef WEST
 
-using $JRSUIConstants$Property = ::apple::laf::JRSUIConstants$Property;
 using $JRSUIConstants$State = ::apple::laf::JRSUIConstants$State;
 using $JRSUIConstants$Variant = ::apple::laf::JRSUIConstants$Variant;
-using $JRSUIState = ::apple::laf::JRSUIState;
 using $AquaFocusHandler = ::com::apple::laf::AquaFocusHandler;
 using $AquaIcon$DynamicallySizingJRSUIIcon = ::com::apple::laf::AquaIcon$DynamicallySizingJRSUIIcon;
 using $AquaTextFieldSearch$1 = ::com::apple::laf::AquaTextFieldSearch$1;
@@ -103,105 +93,22 @@ using $Component = ::java::awt::Component;
 using $Cursor = ::java::awt::Cursor;
 using $Insets = ::java::awt::Insets;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $FocusListener = ::java::awt::event::FocusListener;
-using $MouseListener = ::java::awt::event::MouseListener;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $BorderFactory = ::javax::swing::BorderFactory;
-using $ButtonModel = ::javax::swing::ButtonModel;
-using $Icon = ::javax::swing::Icon;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $JPopupMenu = ::javax::swing::JPopupMenu;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $Border = ::javax::swing::border::Border;
-using $ChangeListener = ::javax::swing::event::ChangeListener;
-using $DocumentListener = ::javax::swing::event::DocumentListener;
 using $TextUI = ::javax::swing::plaf::TextUI;
-using $Document = ::javax::swing::text::Document;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaTextFieldSearch_FieldInfo_[] = {
-	{"VARIANT_KEY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaTextFieldSearch, VARIANT_KEY)},
-	{"SEARCH_VARIANT_VALUE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaTextFieldSearch, SEARCH_VARIANT_VALUE)},
-	{"FIND_POPUP_KEY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaTextFieldSearch, FIND_POPUP_KEY)},
-	{"FIND_ACTION_KEY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaTextFieldSearch, FIND_ACTION_KEY)},
-	{"CANCEL_ACTION_KEY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaTextFieldSearch, CANCEL_ACTION_KEY)},
-	{"PROMPT_KEY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaTextFieldSearch, PROMPT_KEY)},
-	{"SEARCH_FIELD_PROPERTY_LISTENER", "Lcom/apple/laf/AquaTextFieldSearch$SearchFieldPropertyListener;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaTextFieldSearch, SEARCH_FIELD_PROPERTY_LISTENER)},
-	{"instance", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaTextFieldSearch$SearchFieldBorder;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaTextFieldSearch, instance)},
-	{}
-};
-
-$MethodInfo _AquaTextFieldSearch_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaTextFieldSearch, init$, void)},
-	{"createButton", "(Ljavax/swing/text/JTextComponent;Lcom/apple/laf/AquaIcon$DynamicallySizingJRSUIIcon;)Ljavax/swing/JButton;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTextFieldSearch, createButton, $JButton*, $JTextComponent*, $AquaIcon$DynamicallySizingJRSUIIcon*)},
-	{"getCancelButton", "(Ljavax/swing/text/JTextComponent;)Ljavax/swing/JButton;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTextFieldSearch, getCancelButton, $JButton*, $JTextComponent*)},
-	{"getCancelIcon", "()Lcom/apple/laf/AquaIcon$DynamicallySizingJRSUIIcon;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTextFieldSearch, getCancelIcon, $AquaIcon$DynamicallySizingJRSUIIcon*)},
-	{"getFindButton", "(Ljavax/swing/text/JTextComponent;)Ljavax/swing/JButton;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTextFieldSearch, getFindButton, $JButton*, $JTextComponent*)},
-	{"getFindIcon", "(Ljavax/swing/text/JTextComponent;)Lcom/apple/laf/AquaIcon$DynamicallySizingJRSUIIcon;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTextFieldSearch, getFindIcon, $AquaIcon$DynamicallySizingJRSUIIcon*, $JTextComponent*)},
-	{"getPromptLabel", "(Ljavax/swing/text/JTextComponent;)Ljava/awt/Component;", nullptr, $PRIVATE | $STATIC, $staticMethod(AquaTextFieldSearch, getPromptLabel, $Component*, $JTextComponent*)},
-	{"getSearchTextFieldBorder", "()Lcom/apple/laf/AquaTextFieldSearch$SearchFieldBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaTextFieldSearch, getSearchTextFieldBorder, $AquaTextFieldSearch$SearchFieldBorder*)},
-	{"getState", "(Ljavax/swing/JButton;)Lapple/laf/JRSUIConstants$State;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTextFieldSearch, getState, $JRSUIConstants$State*, $JButton*)},
-	{"hasPopupMenu", "(Ljavax/swing/text/JTextComponent;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTextFieldSearch, hasPopupMenu, bool, $JTextComponent*)},
-	{"installSearchField", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTextFieldSearch, installSearchField, void, $JTextComponent*)},
-	{"installSearchFieldListener", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTextFieldSearch, installSearchFieldListener, void, $JTextComponent*)},
-	{"uninstallSearchField", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTextFieldSearch, uninstallSearchField, void, $JTextComponent*)},
-	{"uninstallSearchFieldListener", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTextFieldSearch, uninstallSearchFieldListener, void, $JTextComponent*)},
-	{"updateCancelIcon", "(Ljavax/swing/JButton;Ljavax/swing/text/JTextComponent;)V", nullptr, $STATIC, $staticMethod(AquaTextFieldSearch, updateCancelIcon, void, $JButton*, $JTextComponent*)},
-	{"updateCancelIconOnEDT", "(Ljavax/swing/JButton;Ljavax/swing/text/JTextComponent;)V", nullptr, $STATIC, $staticMethod(AquaTextFieldSearch, updateCancelIconOnEDT, void, $JButton*, $JTextComponent*)},
-	{"updatePromptLabel", "(Ljavax/swing/JLabel;Ljavax/swing/text/JTextComponent;)V", nullptr, $STATIC, $staticMethod(AquaTextFieldSearch, updatePromptLabel, void, $JLabel*, $JTextComponent*)},
-	{"updatePromptLabelOnEDT", "(Ljavax/swing/JLabel;Ljavax/swing/text/JTextComponent;)V", nullptr, $STATIC, $staticMethod(AquaTextFieldSearch, updatePromptLabelOnEDT, void, $JLabel*, $JTextComponent*)},
-	{"wantsToBeASearchField", "(Ljavax/swing/text/JTextComponent;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTextFieldSearch, wantsToBeASearchField, bool, $JTextComponent*)},
-	{}
-};
-
-$InnerClassInfo _AquaTextFieldSearch_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaTextFieldSearch$SearchFieldBorder", "com.apple.laf.AquaTextFieldSearch", "SearchFieldBorder", $STATIC},
-	{"com.apple.laf.AquaTextFieldSearch$SearchFieldPropertyListener", "com.apple.laf.AquaTextFieldSearch", "SearchFieldPropertyListener", $STATIC},
-	{"com.apple.laf.AquaTextFieldSearch$12", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaTextFieldSearch$11", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaTextFieldSearch$10", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaTextFieldSearch$9", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaTextFieldSearch$8", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaTextFieldSearch$7", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaTextFieldSearch$6", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaTextFieldSearch$5", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaTextFieldSearch$4", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaTextFieldSearch$3", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaTextFieldSearch$2", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaTextFieldSearch$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaTextFieldSearch_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaTextFieldSearch",
-	"java.lang.Object",
-	nullptr,
-	_AquaTextFieldSearch_FieldInfo_,
-	_AquaTextFieldSearch_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaTextFieldSearch_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaTextFieldSearch$SearchFieldBorder,com.apple.laf.AquaTextFieldSearch$SearchFieldBorder$1,com.apple.laf.AquaTextFieldSearch$SearchFieldPropertyListener,com.apple.laf.AquaTextFieldSearch$12,com.apple.laf.AquaTextFieldSearch$11,com.apple.laf.AquaTextFieldSearch$10,com.apple.laf.AquaTextFieldSearch$9,com.apple.laf.AquaTextFieldSearch$8,com.apple.laf.AquaTextFieldSearch$7,com.apple.laf.AquaTextFieldSearch$6,com.apple.laf.AquaTextFieldSearch$5,com.apple.laf.AquaTextFieldSearch$4,com.apple.laf.AquaTextFieldSearch$3,com.apple.laf.AquaTextFieldSearch$2,com.apple.laf.AquaTextFieldSearch$1"
-};
-
-$Object* allocate$AquaTextFieldSearch($Class* clazz) {
-	return $of($alloc(AquaTextFieldSearch));
-}
 
 $String* AquaTextFieldSearch::VARIANT_KEY = nullptr;
 $String* AquaTextFieldSearch::SEARCH_VARIANT_VALUE = nullptr;
@@ -227,7 +134,7 @@ void AquaTextFieldSearch::uninstallSearchFieldListener($JTextComponent* c) {
 
 bool AquaTextFieldSearch::wantsToBeASearchField($JTextComponent* c) {
 	$init(AquaTextFieldSearch);
-	return $nc(AquaTextFieldSearch::SEARCH_VARIANT_VALUE)->equals($($nc(c)->getClientProperty(AquaTextFieldSearch::VARIANT_KEY)));
+	return AquaTextFieldSearch::SEARCH_VARIANT_VALUE->equals($($nc(c)->getClientProperty(AquaTextFieldSearch::VARIANT_KEY)));
 }
 
 bool AquaTextFieldSearch::hasPopupMenu($JTextComponent* c) {
@@ -237,45 +144,45 @@ bool AquaTextFieldSearch::hasPopupMenu($JTextComponent* c) {
 
 $AquaTextFieldSearch$SearchFieldBorder* AquaTextFieldSearch::getSearchTextFieldBorder() {
 	$init(AquaTextFieldSearch);
-	return $cast($AquaTextFieldSearch$SearchFieldBorder, $nc(AquaTextFieldSearch::instance)->get());
+	return $cast($AquaTextFieldSearch$SearchFieldBorder, AquaTextFieldSearch::instance->get());
 }
 
 void AquaTextFieldSearch::installSearchField($JTextComponent* c) {
 	$init(AquaTextFieldSearch);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AquaTextFieldSearch$SearchFieldBorder, border, getSearchTextFieldBorder());
 	$nc(c)->setBorder(border);
 	c->setLayout($($nc(border)->getCustomLayout()));
 	$init($BorderLayout);
-	c->add($(static_cast<$Component*>(getFindButton(c))), $of($BorderLayout::WEST));
-	c->add($(static_cast<$Component*>(getCancelButton(c))), $of($BorderLayout::EAST));
-	c->add($(getPromptLabel(c)), $of($BorderLayout::CENTER));
+	c->add($(getFindButton(c)), $BorderLayout::WEST);
+	c->add($(getCancelButton(c)), $BorderLayout::EAST);
+	c->add($(getPromptLabel(c)), $BorderLayout::CENTER);
 	$var($TextUI, ui, $cast($TextUI, c->getUI()));
 	if ($instanceOf($AquaTextFieldUI, ui)) {
-		$nc(($cast($AquaTextFieldUI, ui)))->setPaintingDelegate(border);
+		$cast($AquaTextFieldUI, ui)->setPaintingDelegate(border);
 	}
 }
 
 void AquaTextFieldSearch::uninstallSearchField($JTextComponent* c) {
 	$init(AquaTextFieldSearch);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(c)->setBorder($($UIManager::getBorder("TextField.border"_s)));
 	c->removeAll();
 	$var($TextUI, ui, $cast($TextUI, c->getUI()));
 	if ($instanceOf($AquaTextFieldUI, ui)) {
-		$nc(($cast($AquaTextFieldUI, ui)))->setPaintingDelegate(nullptr);
+		$cast($AquaTextFieldUI, ui)->setPaintingDelegate(nullptr);
 	}
 }
 
 $AquaIcon$DynamicallySizingJRSUIIcon* AquaTextFieldSearch::getFindIcon($JTextComponent* text) {
 	$init(AquaTextFieldSearch);
-	$useLocalCurrentObjectStackCache();
-	return ($nc(text)->getClientProperty(AquaTextFieldSearch::FIND_POPUP_KEY) == nullptr) ? static_cast<$AquaIcon$DynamicallySizingJRSUIIcon*>($new($AquaTextFieldSearch$1, $$new($AquaUtilControlSize$SizeDescriptor, $($$new($AquaUtilControlSize$SizeVariant, 25, 22)->alterMargins(0, 4, 0, -5))))) : static_cast<$AquaIcon$DynamicallySizingJRSUIIcon*>($new($AquaTextFieldSearch$2, $$new($AquaUtilControlSize$SizeDescriptor, $($$new($AquaUtilControlSize$SizeVariant, 25, 22)->alterMargins(0, 4, 0, 2)))));
+	$useLocalObjectStack();
+	return ($nc(text)->getClientProperty(AquaTextFieldSearch::FIND_POPUP_KEY) == nullptr) ? $cast($AquaIcon$DynamicallySizingJRSUIIcon, $new($AquaTextFieldSearch$1, $$new($AquaUtilControlSize$SizeDescriptor, $($$new($AquaUtilControlSize$SizeVariant, 25, 22)->alterMargins(0, 4, 0, -5))))) : $cast($AquaIcon$DynamicallySizingJRSUIIcon, $new($AquaTextFieldSearch$2, $$new($AquaUtilControlSize$SizeDescriptor, $($$new($AquaUtilControlSize$SizeVariant, 25, 22)->alterMargins(0, 4, 0, 2)))));
 }
 
 $AquaIcon$DynamicallySizingJRSUIIcon* AquaTextFieldSearch::getCancelIcon() {
 	$init(AquaTextFieldSearch);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($AquaTextFieldSearch$3, $$new($AquaUtilControlSize$SizeDescriptor, $($$new($AquaUtilControlSize$SizeVariant, 22, 22)->alterMargins(0, 0, 0, 4))));
 }
 
@@ -285,7 +192,7 @@ $JRSUIConstants$State* AquaTextFieldSearch::getState($JButton* b) {
 		$init($JRSUIConstants$State);
 		return $JRSUIConstants$State::INACTIVE;
 	}
-	if ($nc($($nc(b)->getModel()))->isPressed()) {
+	if ($$nc($nc(b)->getModel())->isPressed()) {
 		$init($JRSUIConstants$State);
 		return $JRSUIConstants$State::PRESSED;
 	}
@@ -295,10 +202,10 @@ $JRSUIConstants$State* AquaTextFieldSearch::getState($JButton* b) {
 
 $JButton* AquaTextFieldSearch::createButton($JTextComponent* c, $AquaIcon$DynamicallySizingJRSUIIcon* icon) {
 	$init(AquaTextFieldSearch);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JButton, b, $new($JButton));
 	$var($Insets, i, $nc($nc(icon)->sizeVariant)->margins);
-	b->setBorder($($BorderFactory::createEmptyBorder($nc(i)->top, i->left, i->bottom, i->right)));
+	b->setBorder($($BorderFactory::createEmptyBorder($nc(i)->top, $nc(i)->left, $nc(i)->bottom, $nc(i)->right)));
 	b->setIcon(icon);
 	b->setBorderPainted(false);
 	b->setFocusable(false);
@@ -310,7 +217,7 @@ $JButton* AquaTextFieldSearch::createButton($JTextComponent* c, $AquaIcon$Dynami
 
 $JButton* AquaTextFieldSearch::getFindButton($JTextComponent* c) {
 	$init(AquaTextFieldSearch);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AquaIcon$DynamicallySizingJRSUIIcon, findIcon, getFindIcon(c));
 	$var($JButton, b, createButton(c, findIcon));
 	$nc(b)->setName("find"_s);
@@ -329,10 +236,10 @@ $JButton* AquaTextFieldSearch::getFindButton($JTextComponent* c) {
 
 $Component* AquaTextFieldSearch::getPromptLabel($JTextComponent* c) {
 	$init(AquaTextFieldSearch);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JLabel, label, $new($JLabel));
 	label->setForeground($($UIManager::getColor("TextField.inactiveForeground"_s)));
-	$nc($($nc(c)->getDocument()))->addDocumentListener($$new($AquaTextFieldSearch$7, label, c));
+	$$nc($nc(c)->getDocument())->addDocumentListener($$new($AquaTextFieldSearch$7, label, c));
 	c->addFocusListener($$new($AquaTextFieldSearch$8, label, c));
 	updatePromptLabel(label, c);
 	return label;
@@ -349,13 +256,13 @@ void AquaTextFieldSearch::updatePromptLabel($JLabel* label, $JTextComponent* tex
 
 void AquaTextFieldSearch::updatePromptLabelOnEDT($JLabel* label, $JTextComponent* text) {
 	$init(AquaTextFieldSearch);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, promptText, " "_s);
 	bool var$0 = !$nc(text)->hasFocus();
 	if (var$0 && ""_s->equals($(text->getText()))) {
 		$var($Object, prompt, text->getClientProperty(AquaTextFieldSearch::PROMPT_KEY));
 		if (prompt != nullptr) {
-			$assign(promptText, $of(prompt)->toString());
+			$assign(promptText, prompt->toString());
 		}
 	}
 	$nc(label)->setText(promptText);
@@ -363,7 +270,7 @@ void AquaTextFieldSearch::updatePromptLabelOnEDT($JLabel* label, $JTextComponent
 
 $JButton* AquaTextFieldSearch::getCancelButton($JTextComponent* c) {
 	$init(AquaTextFieldSearch);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JButton, b, createButton(c, $(getCancelIcon())));
 	$nc(b)->setName("cancel"_s);
 	$var($Object, cancelAction, $nc(c)->getClientProperty(AquaTextFieldSearch::CANCEL_ACTION_KEY));
@@ -371,7 +278,7 @@ $JButton* AquaTextFieldSearch::getCancelButton($JTextComponent* c) {
 		b->addActionListener($cast($ActionListener, cancelAction));
 	}
 	b->addActionListener($$new($AquaTextFieldSearch$10, "cancel"_s, c));
-	$nc($(c->getDocument()))->addDocumentListener($$new($AquaTextFieldSearch$11, b, c));
+	$$nc(c->getDocument())->addDocumentListener($$new($AquaTextFieldSearch$11, b, c));
 	updateCancelIcon(b, c);
 	return b;
 }
@@ -390,7 +297,7 @@ void AquaTextFieldSearch::updateCancelIconOnEDT($JButton* button, $JTextComponen
 	$nc(button)->setVisible(!""_s->equals($($nc(text)->getText())));
 }
 
-void clinit$AquaTextFieldSearch($Class* class$) {
+void AquaTextFieldSearch::clinit$($Class* clazz) {
 	$assignStatic(AquaTextFieldSearch::VARIANT_KEY, "JTextField.variant"_s);
 	$assignStatic(AquaTextFieldSearch::SEARCH_VARIANT_VALUE, "search"_s);
 	$assignStatic(AquaTextFieldSearch::FIND_POPUP_KEY, "JTextField.Search.FindPopup"_s);
@@ -406,7 +313,73 @@ AquaTextFieldSearch::AquaTextFieldSearch() {
 }
 
 $Class* AquaTextFieldSearch::load$($String* name, bool initialize) {
-	$loadClass(AquaTextFieldSearch, name, initialize, &_AquaTextFieldSearch_ClassInfo_, clinit$AquaTextFieldSearch, allocate$AquaTextFieldSearch);
+	$FieldInfo fieldInfos$$[] = {
+		{"VARIANT_KEY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaTextFieldSearch, VARIANT_KEY)},
+		{"SEARCH_VARIANT_VALUE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaTextFieldSearch, SEARCH_VARIANT_VALUE)},
+		{"FIND_POPUP_KEY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaTextFieldSearch, FIND_POPUP_KEY)},
+		{"FIND_ACTION_KEY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaTextFieldSearch, FIND_ACTION_KEY)},
+		{"CANCEL_ACTION_KEY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaTextFieldSearch, CANCEL_ACTION_KEY)},
+		{"PROMPT_KEY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaTextFieldSearch, PROMPT_KEY)},
+		{"SEARCH_FIELD_PROPERTY_LISTENER", "Lcom/apple/laf/AquaTextFieldSearch$SearchFieldPropertyListener;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaTextFieldSearch, SEARCH_FIELD_PROPERTY_LISTENER)},
+		{"instance", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaTextFieldSearch$SearchFieldBorder;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaTextFieldSearch, instance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaTextFieldSearch, init$, void)},
+		{"createButton", "(Ljavax/swing/text/JTextComponent;Lcom/apple/laf/AquaIcon$DynamicallySizingJRSUIIcon;)Ljavax/swing/JButton;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTextFieldSearch, createButton, $JButton*, $JTextComponent*, $AquaIcon$DynamicallySizingJRSUIIcon*)},
+		{"getCancelButton", "(Ljavax/swing/text/JTextComponent;)Ljavax/swing/JButton;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTextFieldSearch, getCancelButton, $JButton*, $JTextComponent*)},
+		{"getCancelIcon", "()Lcom/apple/laf/AquaIcon$DynamicallySizingJRSUIIcon;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTextFieldSearch, getCancelIcon, $AquaIcon$DynamicallySizingJRSUIIcon*)},
+		{"getFindButton", "(Ljavax/swing/text/JTextComponent;)Ljavax/swing/JButton;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTextFieldSearch, getFindButton, $JButton*, $JTextComponent*)},
+		{"getFindIcon", "(Ljavax/swing/text/JTextComponent;)Lcom/apple/laf/AquaIcon$DynamicallySizingJRSUIIcon;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTextFieldSearch, getFindIcon, $AquaIcon$DynamicallySizingJRSUIIcon*, $JTextComponent*)},
+		{"getPromptLabel", "(Ljavax/swing/text/JTextComponent;)Ljava/awt/Component;", nullptr, $PRIVATE | $STATIC, $staticMethod(AquaTextFieldSearch, getPromptLabel, $Component*, $JTextComponent*)},
+		{"getSearchTextFieldBorder", "()Lcom/apple/laf/AquaTextFieldSearch$SearchFieldBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaTextFieldSearch, getSearchTextFieldBorder, $AquaTextFieldSearch$SearchFieldBorder*)},
+		{"getState", "(Ljavax/swing/JButton;)Lapple/laf/JRSUIConstants$State;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTextFieldSearch, getState, $JRSUIConstants$State*, $JButton*)},
+		{"hasPopupMenu", "(Ljavax/swing/text/JTextComponent;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTextFieldSearch, hasPopupMenu, bool, $JTextComponent*)},
+		{"installSearchField", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTextFieldSearch, installSearchField, void, $JTextComponent*)},
+		{"installSearchFieldListener", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTextFieldSearch, installSearchFieldListener, void, $JTextComponent*)},
+		{"uninstallSearchField", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTextFieldSearch, uninstallSearchField, void, $JTextComponent*)},
+		{"uninstallSearchFieldListener", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTextFieldSearch, uninstallSearchFieldListener, void, $JTextComponent*)},
+		{"updateCancelIcon", "(Ljavax/swing/JButton;Ljavax/swing/text/JTextComponent;)V", nullptr, $STATIC, $staticMethod(AquaTextFieldSearch, updateCancelIcon, void, $JButton*, $JTextComponent*)},
+		{"updateCancelIconOnEDT", "(Ljavax/swing/JButton;Ljavax/swing/text/JTextComponent;)V", nullptr, $STATIC, $staticMethod(AquaTextFieldSearch, updateCancelIconOnEDT, void, $JButton*, $JTextComponent*)},
+		{"updatePromptLabel", "(Ljavax/swing/JLabel;Ljavax/swing/text/JTextComponent;)V", nullptr, $STATIC, $staticMethod(AquaTextFieldSearch, updatePromptLabel, void, $JLabel*, $JTextComponent*)},
+		{"updatePromptLabelOnEDT", "(Ljavax/swing/JLabel;Ljavax/swing/text/JTextComponent;)V", nullptr, $STATIC, $staticMethod(AquaTextFieldSearch, updatePromptLabelOnEDT, void, $JLabel*, $JTextComponent*)},
+		{"wantsToBeASearchField", "(Ljavax/swing/text/JTextComponent;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTextFieldSearch, wantsToBeASearchField, bool, $JTextComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaTextFieldSearch$SearchFieldBorder", "com.apple.laf.AquaTextFieldSearch", "SearchFieldBorder", $STATIC},
+		{"com.apple.laf.AquaTextFieldSearch$SearchFieldPropertyListener", "com.apple.laf.AquaTextFieldSearch", "SearchFieldPropertyListener", $STATIC},
+		{"com.apple.laf.AquaTextFieldSearch$12", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaTextFieldSearch$11", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaTextFieldSearch$10", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaTextFieldSearch$9", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaTextFieldSearch$8", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaTextFieldSearch$7", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaTextFieldSearch$6", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaTextFieldSearch$5", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaTextFieldSearch$4", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaTextFieldSearch$3", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaTextFieldSearch$2", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaTextFieldSearch$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaTextFieldSearch",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaTextFieldSearch$SearchFieldBorder,com.apple.laf.AquaTextFieldSearch$SearchFieldBorder$1,com.apple.laf.AquaTextFieldSearch$SearchFieldPropertyListener,com.apple.laf.AquaTextFieldSearch$12,com.apple.laf.AquaTextFieldSearch$11,com.apple.laf.AquaTextFieldSearch$10,com.apple.laf.AquaTextFieldSearch$9,com.apple.laf.AquaTextFieldSearch$8,com.apple.laf.AquaTextFieldSearch$7,com.apple.laf.AquaTextFieldSearch$6,com.apple.laf.AquaTextFieldSearch$5,com.apple.laf.AquaTextFieldSearch$4,com.apple.laf.AquaTextFieldSearch$3,com.apple.laf.AquaTextFieldSearch$2,com.apple.laf.AquaTextFieldSearch$1"
+	};
+	$loadClass(AquaTextFieldSearch, name, initialize, &classInfo$$, AquaTextFieldSearch::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaTextFieldSearch);
+	});
 	return class$;
 }
 

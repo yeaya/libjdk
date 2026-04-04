@@ -1,5 +1,4 @@
 #include <sun/font/FontSubstitution.h>
-
 #include <sun/font/CompositeFont.h>
 #include <jcpp.h>
 
@@ -10,26 +9,22 @@ using $CompositeFont = ::sun::font::CompositeFont;
 namespace sun {
 	namespace font {
 
-$MethodInfo _FontSubstitution_MethodInfo_[] = {
-	{"getCompositeFont2D", "()Lsun/font/CompositeFont;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FontSubstitution, getCompositeFont2D, $CompositeFont*)},
-	{}
-};
-
-$ClassInfo _FontSubstitution_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.font.FontSubstitution",
-	nullptr,
-	nullptr,
-	nullptr,
-	_FontSubstitution_MethodInfo_
-};
-
-$Object* allocate$FontSubstitution($Class* clazz) {
-	return $of($alloc(FontSubstitution));
-}
-
 $Class* FontSubstitution::load$($String* name, bool initialize) {
-	$loadClass(FontSubstitution, name, initialize, &_FontSubstitution_ClassInfo_, allocate$FontSubstitution);
+	$MethodInfo methodInfos$$[] = {
+		{"getCompositeFont2D", "()Lsun/font/CompositeFont;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FontSubstitution, getCompositeFont2D, $CompositeFont*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.font.FontSubstitution",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FontSubstitution, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FontSubstitution);
+	});
 	return class$;
 }
 

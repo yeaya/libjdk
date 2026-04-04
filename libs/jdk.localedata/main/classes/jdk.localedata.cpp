@@ -1,13 +1,10 @@
 #include <jdk.localedata.h>
-
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>
 #include <java/lang/Library.h>
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 #include <sun/text/resources/cldr/ext/FormatData_af.h>
 #include <sun/text/resources/cldr/ext/FormatData_af_NA.h>
 #include <sun/text/resources/cldr/ext/FormatData_agq.h>
@@ -3695,6 +3692,7 @@ $bytes* jdk$localedata$GetResource($String* name) {
 
 void jdk$localedata::init() {
 	::java$base::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"jdk.localedata", "17.35", "",
 		&_jdk$localedata_ModuleInfo_,

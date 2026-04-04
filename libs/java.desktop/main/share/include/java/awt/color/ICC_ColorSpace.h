@@ -45,7 +45,7 @@ public:
 	void setMinMax();
 	virtual $floats* toCIEXYZ($floats* colorvalue) override;
 	virtual $floats* toRGB($floats* colorvalue) override;
-	static const int64_t serialVersionUID = (int64_t)0x2FF5C8D6D34EB6FB;
+	static const int64_t serialVersionUID = (int64_t)0x2ff5c8d6d34eb6fb;
 	::java::awt::color::ICC_Profile* thisProfile = nullptr;
 	$floats* minVal = nullptr;
 	$floats* maxVal = nullptr;

@@ -1,5 +1,4 @@
 #include <CodeBugDocument.h>
-
 #include <java/util/ArrayList.h>
 #include <javax/swing/text/AbstractDocument.h>
 #include <javax/swing/text/AttributeSet.h>
@@ -25,34 +24,6 @@ using $DefaultStyledDocument = ::javax::swing::text::DefaultStyledDocument;
 using $DefaultStyledDocument$ElementSpec = ::javax::swing::text::DefaultStyledDocument$ElementSpec;
 using $SimpleAttributeSet = ::javax::swing::text::SimpleAttributeSet;
 
-$FieldInfo _CodeBugDocument_FieldInfo_[] = {
-	{"ELEMENT_TABLE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CodeBugDocument, ELEMENT_TABLE)},
-	{"ELEMENT_TR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CodeBugDocument, ELEMENT_TR)},
-	{"ELEMENT_TD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CodeBugDocument, ELEMENT_TD)},
-	{}
-};
-
-$MethodInfo _CodeBugDocument_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CodeBugDocument, init$, void)},
-	{"fillCellSpecs", "(Ljava/util/ArrayList;I)V", nullptr, $PROTECTED, $virtualMethod(CodeBugDocument, fillCellSpecs, void, $ArrayList*, int32_t)},
-	{"fillRowSpecs", "(Ljava/util/ArrayList;II)V", nullptr, $PROTECTED, $virtualMethod(CodeBugDocument, fillRowSpecs, void, $ArrayList*, int32_t, int32_t)},
-	{"insertTable", "(III)V", nullptr, $PROTECTED, $virtualMethod(CodeBugDocument, insertTable, void, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _CodeBugDocument_ClassInfo_ = {
-	$ACC_SUPER,
-	"CodeBugDocument",
-	"javax.swing.text.DefaultStyledDocument",
-	nullptr,
-	_CodeBugDocument_FieldInfo_,
-	_CodeBugDocument_MethodInfo_
-};
-
-$Object* allocate$CodeBugDocument($Class* clazz) {
-	return $of($alloc(CodeBugDocument));
-}
-
 $String* CodeBugDocument::ELEMENT_TABLE = nullptr;
 $String* CodeBugDocument::ELEMENT_TR = nullptr;
 $String* CodeBugDocument::ELEMENT_TD = nullptr;
@@ -62,10 +33,10 @@ void CodeBugDocument::init$() {
 }
 
 void CodeBugDocument::insertTable(int32_t offset, int32_t rowCount, int32_t colCount) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($ArrayList, Specs, $new($ArrayList));
-		$var($AttributeSet, var$0, static_cast<$AttributeSet*>($new($SimpleAttributeSet)));
+		$var($AttributeSet, var$0, $new($SimpleAttributeSet));
 		$var($DefaultStyledDocument$ElementSpec, gapTag, $new($DefaultStyledDocument$ElementSpec, var$0, $DefaultStyledDocument$ElementSpec::ContentType, $("\n"_s->toCharArray()), 0, 1));
 		Specs->add(gapTag);
 		$var($SimpleAttributeSet, tableAttrs, $new($SimpleAttributeSet));
@@ -82,7 +53,7 @@ void CodeBugDocument::insertTable(int32_t offset, int32_t rowCount, int32_t colC
 }
 
 void CodeBugDocument::fillRowSpecs($ArrayList* Specs, int32_t rowCount, int32_t colCount) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SimpleAttributeSet, rowAttrs, $new($SimpleAttributeSet));
 	$init($AbstractDocument);
 	rowAttrs->addAttribute($AbstractDocument::ElementNameAttribute, CodeBugDocument::ELEMENT_TR);
@@ -96,7 +67,7 @@ void CodeBugDocument::fillRowSpecs($ArrayList* Specs, int32_t rowCount, int32_t 
 }
 
 void CodeBugDocument::fillCellSpecs($ArrayList* Specs, int32_t colCount) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < colCount; ++i) {
 		$var($SimpleAttributeSet, cellAttrs, $new($SimpleAttributeSet));
 		$init($AbstractDocument);
@@ -105,7 +76,7 @@ void CodeBugDocument::fillCellSpecs($ArrayList* Specs, int32_t colCount) {
 		$nc(Specs)->add(cellStart);
 		$var($DefaultStyledDocument$ElementSpec, parStart, $new($DefaultStyledDocument$ElementSpec, $$new($SimpleAttributeSet), $DefaultStyledDocument$ElementSpec::StartTagType));
 		Specs->add(parStart);
-		$var($AttributeSet, var$0, static_cast<$AttributeSet*>($new($SimpleAttributeSet)));
+		$var($AttributeSet, var$0, $new($SimpleAttributeSet));
 		$var($DefaultStyledDocument$ElementSpec, parContent, $new($DefaultStyledDocument$ElementSpec, var$0, $DefaultStyledDocument$ElementSpec::ContentType, $("\n"_s->toCharArray()), 0, 1));
 		Specs->add(parContent);
 		$var($DefaultStyledDocument$ElementSpec, parEnd, $new($DefaultStyledDocument$ElementSpec, $$new($SimpleAttributeSet), $DefaultStyledDocument$ElementSpec::EndTagType));
@@ -118,14 +89,37 @@ void CodeBugDocument::fillCellSpecs($ArrayList* Specs, int32_t colCount) {
 CodeBugDocument::CodeBugDocument() {
 }
 
-void clinit$CodeBugDocument($Class* class$) {
+void CodeBugDocument::clinit$($Class* clazz) {
 	$assignStatic(CodeBugDocument::ELEMENT_TABLE, "table"_s);
 	$assignStatic(CodeBugDocument::ELEMENT_TR, "table cells row"_s);
 	$assignStatic(CodeBugDocument::ELEMENT_TD, "table data cell"_s);
 }
 
 $Class* CodeBugDocument::load$($String* name, bool initialize) {
-	$loadClass(CodeBugDocument, name, initialize, &_CodeBugDocument_ClassInfo_, clinit$CodeBugDocument, allocate$CodeBugDocument);
+	$FieldInfo fieldInfos$$[] = {
+		{"ELEMENT_TABLE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CodeBugDocument, ELEMENT_TABLE)},
+		{"ELEMENT_TR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CodeBugDocument, ELEMENT_TR)},
+		{"ELEMENT_TD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CodeBugDocument, ELEMENT_TD)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CodeBugDocument, init$, void)},
+		{"fillCellSpecs", "(Ljava/util/ArrayList;I)V", nullptr, $PROTECTED, $virtualMethod(CodeBugDocument, fillCellSpecs, void, $ArrayList*, int32_t)},
+		{"fillRowSpecs", "(Ljava/util/ArrayList;II)V", nullptr, $PROTECTED, $virtualMethod(CodeBugDocument, fillRowSpecs, void, $ArrayList*, int32_t, int32_t)},
+		{"insertTable", "(III)V", nullptr, $PROTECTED, $virtualMethod(CodeBugDocument, insertTable, void, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"CodeBugDocument",
+		"javax.swing.text.DefaultStyledDocument",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CodeBugDocument, name, initialize, &classInfo$$, CodeBugDocument::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CodeBugDocument));
+	});
 	return class$;
 }
 

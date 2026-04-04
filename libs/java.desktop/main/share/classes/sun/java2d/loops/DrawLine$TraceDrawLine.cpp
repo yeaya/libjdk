@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/DrawLine$TraceDrawLine.h>
-
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/loops/CompositeType.h>
@@ -23,45 +22,8 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _DrawLine$TraceDrawLine_FieldInfo_[] = {
-	{"target", "Lsun/java2d/loops/DrawLine;", nullptr, 0, $field(DrawLine$TraceDrawLine, target)},
-	{}
-};
-
-$MethodInfo _DrawLine$TraceDrawLine_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/DrawLine;)V", nullptr, $PUBLIC, $method(DrawLine$TraceDrawLine, init$, void, $DrawLine*)},
-	{"DrawLine", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;IIII)V", nullptr, $PUBLIC, $virtualMethod(DrawLine$TraceDrawLine, DrawLine$, void, $SunGraphics2D*, $SurfaceData*, int32_t, int32_t, int32_t, int32_t)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(DrawLine$TraceDrawLine, traceWrap, $GraphicsPrimitive*)},
-	{}
-};
-
-$InnerClassInfo _DrawLine$TraceDrawLine_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.DrawLine$TraceDrawLine", "sun.java2d.loops.DrawLine", "TraceDrawLine", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DrawLine$TraceDrawLine_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.DrawLine$TraceDrawLine",
-	"sun.java2d.loops.DrawLine",
-	nullptr,
-	_DrawLine$TraceDrawLine_FieldInfo_,
-	_DrawLine$TraceDrawLine_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DrawLine$TraceDrawLine_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.DrawLine"
-};
-
-$Object* allocate$DrawLine$TraceDrawLine($Class* clazz) {
-	return $of($alloc(DrawLine$TraceDrawLine));
-}
-
 void DrawLine$TraceDrawLine::init$($DrawLine* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceType, var$0, $nc(target)->getSourceType());
 	$var($CompositeType, var$1, target->getCompositeType());
 	$DrawLine::init$(var$0, var$1, $(target->getDestType()));
@@ -81,7 +43,38 @@ DrawLine$TraceDrawLine::DrawLine$TraceDrawLine() {
 }
 
 $Class* DrawLine$TraceDrawLine::load$($String* name, bool initialize) {
-	$loadClass(DrawLine$TraceDrawLine, name, initialize, &_DrawLine$TraceDrawLine_ClassInfo_, allocate$DrawLine$TraceDrawLine);
+	$FieldInfo fieldInfos$$[] = {
+		{"target", "Lsun/java2d/loops/DrawLine;", nullptr, 0, $field(DrawLine$TraceDrawLine, target)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/DrawLine;)V", nullptr, $PUBLIC, $method(DrawLine$TraceDrawLine, init$, void, $DrawLine*)},
+		{"DrawLine", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;IIII)V", nullptr, $PUBLIC, $virtualMethod(DrawLine$TraceDrawLine, DrawLine$, void, $SunGraphics2D*, $SurfaceData*, int32_t, int32_t, int32_t, int32_t)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(DrawLine$TraceDrawLine, traceWrap, $GraphicsPrimitive*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.DrawLine$TraceDrawLine", "sun.java2d.loops.DrawLine", "TraceDrawLine", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.DrawLine$TraceDrawLine",
+		"sun.java2d.loops.DrawLine",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.DrawLine"
+	};
+	$loadClass(DrawLine$TraceDrawLine, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DrawLine$TraceDrawLine);
+	});
 	return class$;
 }
 

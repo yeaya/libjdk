@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifButtonListener.h>
-
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/plaf/basic/BasicButtonListener.h>
 #include <jcpp.h>
@@ -16,25 +15,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$MethodInfo _MotifButtonListener_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $method(MotifButtonListener, init$, void, $AbstractButton*)},
-	{"checkOpacity", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(MotifButtonListener, checkOpacity, void, $AbstractButton*)},
-	{}
-};
-
-$ClassInfo _MotifButtonListener_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifButtonListener",
-	"javax.swing.plaf.basic.BasicButtonListener",
-	nullptr,
-	nullptr,
-	_MotifButtonListener_MethodInfo_
-};
-
-$Object* allocate$MotifButtonListener($Class* clazz) {
-	return $of($alloc(MotifButtonListener));
-}
-
 void MotifButtonListener::init$($AbstractButton* b) {
 	$BasicButtonListener::init$(b);
 }
@@ -47,7 +27,22 @@ MotifButtonListener::MotifButtonListener() {
 }
 
 $Class* MotifButtonListener::load$($String* name, bool initialize) {
-	$loadClass(MotifButtonListener, name, initialize, &_MotifButtonListener_ClassInfo_, allocate$MotifButtonListener);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $method(MotifButtonListener, init$, void, $AbstractButton*)},
+		{"checkOpacity", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(MotifButtonListener, checkOpacity, void, $AbstractButton*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifButtonListener",
+		"javax.swing.plaf.basic.BasicButtonListener",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MotifButtonListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifButtonListener));
+	});
 	return class$;
 }
 

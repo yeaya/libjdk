@@ -1,5 +1,4 @@
 #include <java/awt/GraphicsEnvironment.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/GraphicsDevice.h>
@@ -62,85 +61,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(GraphicsEnvironment::lambda$getHeadlessProperty$0());
+		 return GraphicsEnvironment::lambda$getHeadlessProperty$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<GraphicsEnvironment$$Lambda$lambda$getHeadlessProperty$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo GraphicsEnvironment$$Lambda$lambda$getHeadlessProperty$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GraphicsEnvironment$$Lambda$lambda$getHeadlessProperty$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(GraphicsEnvironment$$Lambda$lambda$getHeadlessProperty$0, run, $Object*)},
-	{}
-};
-$ClassInfo GraphicsEnvironment$$Lambda$lambda$getHeadlessProperty$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.awt.GraphicsEnvironment$$Lambda$lambda$getHeadlessProperty$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* GraphicsEnvironment$$Lambda$lambda$getHeadlessProperty$0::load$($String* name, bool initialize) {
-	$loadClass(GraphicsEnvironment$$Lambda$lambda$getHeadlessProperty$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GraphicsEnvironment$$Lambda$lambda$getHeadlessProperty$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(GraphicsEnvironment$$Lambda$lambda$getHeadlessProperty$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.awt.GraphicsEnvironment$$Lambda$lambda$getHeadlessProperty$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GraphicsEnvironment$$Lambda$lambda$getHeadlessProperty$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GraphicsEnvironment$$Lambda$lambda$getHeadlessProperty$0);
+	});
 	return class$;
 }
 $Class* GraphicsEnvironment$$Lambda$lambda$getHeadlessProperty$0::class$ = nullptr;
-
-$FieldInfo _GraphicsEnvironment_FieldInfo_[] = {
-	{"headless", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC, $staticField(GraphicsEnvironment, headless)},
-	{"defaultHeadless", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC, $staticField(GraphicsEnvironment, defaultHeadless)},
-	{}
-};
-
-$MethodInfo _GraphicsEnvironment_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(GraphicsEnvironment, init$, void)},
-	{"checkHeadless", "()V", nullptr, $STATIC, $staticMethod(GraphicsEnvironment, checkHeadless, void), "java.awt.HeadlessException"},
-	{"createGraphics", "(Ljava/awt/image/BufferedImage;)Ljava/awt/Graphics2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsEnvironment, createGraphics, $Graphics2D*, $BufferedImage*)},
-	{"getAllFonts", "()[Ljava/awt/Font;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsEnvironment, getAllFonts, $FontArray*)},
-	{"getAvailableFontFamilyNames", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsEnvironment, getAvailableFontFamilyNames, $StringArray*)},
-	{"getAvailableFontFamilyNames", "(Ljava/util/Locale;)[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsEnvironment, getAvailableFontFamilyNames, $StringArray*, $Locale*)},
-	{"getCenterPoint", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(GraphicsEnvironment, getCenterPoint, $Point*), "java.awt.HeadlessException"},
-	{"getDefaultScreenDevice", "()Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsEnvironment, getDefaultScreenDevice, $GraphicsDevice*), "java.awt.HeadlessException"},
-	{"getHeadlessMessage", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(GraphicsEnvironment, getHeadlessMessage, $String*)},
-	{"getHeadlessProperty", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(GraphicsEnvironment, getHeadlessProperty, bool)},
-	{"getLocalGraphicsEnvironment", "()Ljava/awt/GraphicsEnvironment;", nullptr, $PUBLIC | $STATIC, $staticMethod(GraphicsEnvironment, getLocalGraphicsEnvironment, GraphicsEnvironment*)},
-	{"getMaximumWindowBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(GraphicsEnvironment, getMaximumWindowBounds, $Rectangle*), "java.awt.HeadlessException"},
-	{"getScreenDevices", "()[Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsEnvironment, getScreenDevices, $GraphicsDeviceArray*), "java.awt.HeadlessException"},
-	{"isHeadless", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(GraphicsEnvironment, isHeadless, bool)},
-	{"isHeadlessInstance", "()Z", nullptr, $PUBLIC, $virtualMethod(GraphicsEnvironment, isHeadlessInstance, bool)},
-	{"lambda$getHeadlessProperty$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GraphicsEnvironment, lambda$getHeadlessProperty$0, $Void*)},
-	{"preferLocaleFonts", "()V", nullptr, $PUBLIC, $virtualMethod(GraphicsEnvironment, preferLocaleFonts, void)},
-	{"preferProportionalFonts", "()V", nullptr, $PUBLIC, $virtualMethod(GraphicsEnvironment, preferProportionalFonts, void)},
-	{"registerFont", "(Ljava/awt/Font;)Z", nullptr, $PUBLIC, $virtualMethod(GraphicsEnvironment, registerFont, bool, $Font*)},
-	{}
-};
-
-$InnerClassInfo _GraphicsEnvironment_InnerClassesInfo_[] = {
-	{"java.awt.GraphicsEnvironment$LocalGE", "java.awt.GraphicsEnvironment", "LocalGE", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _GraphicsEnvironment_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.GraphicsEnvironment",
-	"java.lang.Object",
-	nullptr,
-	_GraphicsEnvironment_FieldInfo_,
-	_GraphicsEnvironment_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GraphicsEnvironment_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.GraphicsEnvironment$LocalGE"
-};
-
-$Object* allocate$GraphicsEnvironment($Class* clazz) {
-	return $of($alloc(GraphicsEnvironment));
-}
 
 $Boolean* GraphicsEnvironment::headless = nullptr;
 $Boolean* GraphicsEnvironment::defaultHeadless = nullptr;
@@ -162,7 +105,6 @@ $String* GraphicsEnvironment::getHeadlessMessage() {
 	if (GraphicsEnvironment::headless == nullptr) {
 		getHeadlessProperty();
 	}
-	$init($Boolean);
 	return GraphicsEnvironment::defaultHeadless != $Boolean::TRUE ? ($String*)nullptr : $PlatformGraphicsInfo::getDefaultHeadlessMessage();
 }
 
@@ -171,7 +113,7 @@ bool GraphicsEnvironment::getHeadlessProperty() {
 	$beforeCallerSensitive();
 	$init(GraphicsEnvironment);
 	if (GraphicsEnvironment::headless == nullptr) {
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(GraphicsEnvironment$$Lambda$lambda$getHeadlessProperty$0)));
+		$AccessController::doPrivileged($cast($PrivilegedAction, $$new(GraphicsEnvironment$$Lambda$lambda$getHeadlessProperty$0)));
 	}
 	return $nc(GraphicsEnvironment::headless)->booleanValue();
 }
@@ -205,9 +147,9 @@ void GraphicsEnvironment::preferProportionalFonts() {
 }
 
 $Point* GraphicsEnvironment::getCenterPoint() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, usableBounds, $SunGraphicsEnvironment::getUsableBounds($(getDefaultScreenDevice())));
-	return $new($Point, ($nc(usableBounds)->width / 2) + usableBounds->x, (usableBounds->height / 2) + usableBounds->y);
+	return $new($Point, ($nc(usableBounds)->width / 2) + $nc(usableBounds)->x, ($nc(usableBounds)->height / 2) + $nc(usableBounds)->y);
 }
 
 $Rectangle* GraphicsEnvironment::getMaximumWindowBounds() {
@@ -218,7 +160,7 @@ $Void* GraphicsEnvironment::lambda$getHeadlessProperty$0() {
 	$var($String, nm, $System::getProperty("java.awt.headless"_s));
 	if (nm == nullptr) {
 		$init(GraphicsEnvironment);
-		$assignStatic(GraphicsEnvironment::headless, ($assignStatic(GraphicsEnvironment::defaultHeadless, $Boolean::valueOf($PlatformGraphicsInfo::getDefaultHeadlessProperty()))));
+		$assignStatic(GraphicsEnvironment::headless, $assignStatic(GraphicsEnvironment::defaultHeadless, $Boolean::valueOf($PlatformGraphicsInfo::getDefaultHeadlessProperty())));
 	} else {
 		$init(GraphicsEnvironment);
 		$assignStatic(GraphicsEnvironment::headless, $Boolean::valueOf(nm));
@@ -231,11 +173,58 @@ GraphicsEnvironment::GraphicsEnvironment() {
 
 $Class* GraphicsEnvironment::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(GraphicsEnvironment$$Lambda$lambda$getHeadlessProperty$0::classInfo$.name)) {
+		if (name->equals("java.awt.GraphicsEnvironment$$Lambda$lambda$getHeadlessProperty$0")) {
 			return GraphicsEnvironment$$Lambda$lambda$getHeadlessProperty$0::load$(name, initialize);
 		}
 	}
-	$loadClass(GraphicsEnvironment, name, initialize, &_GraphicsEnvironment_ClassInfo_, allocate$GraphicsEnvironment);
+	$FieldInfo fieldInfos$$[] = {
+		{"headless", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC, $staticField(GraphicsEnvironment, headless)},
+		{"defaultHeadless", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC, $staticField(GraphicsEnvironment, defaultHeadless)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(GraphicsEnvironment, init$, void)},
+		{"checkHeadless", "()V", nullptr, $STATIC, $staticMethod(GraphicsEnvironment, checkHeadless, void), "java.awt.HeadlessException"},
+		{"createGraphics", "(Ljava/awt/image/BufferedImage;)Ljava/awt/Graphics2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsEnvironment, createGraphics, $Graphics2D*, $BufferedImage*)},
+		{"getAllFonts", "()[Ljava/awt/Font;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsEnvironment, getAllFonts, $FontArray*)},
+		{"getAvailableFontFamilyNames", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsEnvironment, getAvailableFontFamilyNames, $StringArray*)},
+		{"getAvailableFontFamilyNames", "(Ljava/util/Locale;)[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsEnvironment, getAvailableFontFamilyNames, $StringArray*, $Locale*)},
+		{"getCenterPoint", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(GraphicsEnvironment, getCenterPoint, $Point*), "java.awt.HeadlessException"},
+		{"getDefaultScreenDevice", "()Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsEnvironment, getDefaultScreenDevice, $GraphicsDevice*), "java.awt.HeadlessException"},
+		{"getHeadlessMessage", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(GraphicsEnvironment, getHeadlessMessage, $String*)},
+		{"getHeadlessProperty", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(GraphicsEnvironment, getHeadlessProperty, bool)},
+		{"getLocalGraphicsEnvironment", "()Ljava/awt/GraphicsEnvironment;", nullptr, $PUBLIC | $STATIC, $staticMethod(GraphicsEnvironment, getLocalGraphicsEnvironment, GraphicsEnvironment*)},
+		{"getMaximumWindowBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(GraphicsEnvironment, getMaximumWindowBounds, $Rectangle*), "java.awt.HeadlessException"},
+		{"getScreenDevices", "()[Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsEnvironment, getScreenDevices, $GraphicsDeviceArray*), "java.awt.HeadlessException"},
+		{"isHeadless", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(GraphicsEnvironment, isHeadless, bool)},
+		{"isHeadlessInstance", "()Z", nullptr, $PUBLIC, $virtualMethod(GraphicsEnvironment, isHeadlessInstance, bool)},
+		{"lambda$getHeadlessProperty$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GraphicsEnvironment, lambda$getHeadlessProperty$0, $Void*)},
+		{"preferLocaleFonts", "()V", nullptr, $PUBLIC, $virtualMethod(GraphicsEnvironment, preferLocaleFonts, void)},
+		{"preferProportionalFonts", "()V", nullptr, $PUBLIC, $virtualMethod(GraphicsEnvironment, preferProportionalFonts, void)},
+		{"registerFont", "(Ljava/awt/Font;)Z", nullptr, $PUBLIC, $virtualMethod(GraphicsEnvironment, registerFont, bool, $Font*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.GraphicsEnvironment$LocalGE", "java.awt.GraphicsEnvironment", "LocalGE", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.GraphicsEnvironment",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.GraphicsEnvironment$LocalGE"
+	};
+	$loadClass(GraphicsEnvironment, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GraphicsEnvironment);
+	});
 	return class$;
 }
 

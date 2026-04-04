@@ -1,5 +1,4 @@
 #include <CloseOnMouseClickPropertyTest$1.h>
-
 #include <CloseOnMouseClickPropertyTest$TestType.h>
 #include <CloseOnMouseClickPropertyTest.h>
 #include <java/lang/NoSuchFieldError.h>
@@ -16,57 +15,21 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
 
-$FieldInfo _CloseOnMouseClickPropertyTest$1_FieldInfo_[] = {
-	{"$SwitchMap$CloseOnMouseClickPropertyTest$TestType", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CloseOnMouseClickPropertyTest$1, $SwitchMap$CloseOnMouseClickPropertyTest$TestType)},
-	{}
-};
-
-$EnclosingMethodInfo _CloseOnMouseClickPropertyTest$1_EnclosingMethodInfo_ = {
-	"CloseOnMouseClickPropertyTest",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _CloseOnMouseClickPropertyTest$1_InnerClassesInfo_[] = {
-	{"CloseOnMouseClickPropertyTest$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _CloseOnMouseClickPropertyTest$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"CloseOnMouseClickPropertyTest$1",
-	"java.lang.Object",
-	nullptr,
-	_CloseOnMouseClickPropertyTest$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_CloseOnMouseClickPropertyTest$1_EnclosingMethodInfo_,
-	_CloseOnMouseClickPropertyTest$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"CloseOnMouseClickPropertyTest"
-};
-
-$Object* allocate$CloseOnMouseClickPropertyTest$1($Class* clazz) {
-	return $of($alloc(CloseOnMouseClickPropertyTest$1));
-}
-
 $ints* CloseOnMouseClickPropertyTest$1::$SwitchMap$CloseOnMouseClickPropertyTest$TestType = nullptr;
 
-void clinit$CloseOnMouseClickPropertyTest$1($Class* class$) {
+void CloseOnMouseClickPropertyTest$1::clinit$($Class* clazz) {
 	$assignStatic(CloseOnMouseClickPropertyTest$1::$SwitchMap$CloseOnMouseClickPropertyTest$TestType, $new($ints, $($CloseOnMouseClickPropertyTest$TestType::values())->length));
 	{
 		try {
-			$nc(CloseOnMouseClickPropertyTest$1::$SwitchMap$CloseOnMouseClickPropertyTest$TestType)->set($CloseOnMouseClickPropertyTest$TestType::MENU_ITEM->ordinal(), 1);
+			CloseOnMouseClickPropertyTest$1::$SwitchMap$CloseOnMouseClickPropertyTest$TestType->set($CloseOnMouseClickPropertyTest$TestType::MENU_ITEM->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CloseOnMouseClickPropertyTest$1::$SwitchMap$CloseOnMouseClickPropertyTest$TestType)->set($CloseOnMouseClickPropertyTest$TestType::CHECK_BOX_MENU_ITEM->ordinal(), 2);
+			CloseOnMouseClickPropertyTest$1::$SwitchMap$CloseOnMouseClickPropertyTest$TestType->set($CloseOnMouseClickPropertyTest$TestType::CHECK_BOX_MENU_ITEM->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CloseOnMouseClickPropertyTest$1::$SwitchMap$CloseOnMouseClickPropertyTest$TestType)->set($CloseOnMouseClickPropertyTest$TestType::RADIO_BUTTON_MENU_ITEM->ordinal(), 3);
+			CloseOnMouseClickPropertyTest$1::$SwitchMap$CloseOnMouseClickPropertyTest$TestType->set($CloseOnMouseClickPropertyTest$TestType::RADIO_BUTTON_MENU_ITEM->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -76,7 +39,37 @@ CloseOnMouseClickPropertyTest$1::CloseOnMouseClickPropertyTest$1() {
 }
 
 $Class* CloseOnMouseClickPropertyTest$1::load$($String* name, bool initialize) {
-	$loadClass(CloseOnMouseClickPropertyTest$1, name, initialize, &_CloseOnMouseClickPropertyTest$1_ClassInfo_, clinit$CloseOnMouseClickPropertyTest$1, allocate$CloseOnMouseClickPropertyTest$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$CloseOnMouseClickPropertyTest$TestType", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CloseOnMouseClickPropertyTest$1, $SwitchMap$CloseOnMouseClickPropertyTest$TestType)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"CloseOnMouseClickPropertyTest",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"CloseOnMouseClickPropertyTest$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"CloseOnMouseClickPropertyTest$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"CloseOnMouseClickPropertyTest"
+	};
+	$loadClass(CloseOnMouseClickPropertyTest$1, name, initialize, &classInfo$$, CloseOnMouseClickPropertyTest$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CloseOnMouseClickPropertyTest$1);
+	});
 	return class$;
 }
 

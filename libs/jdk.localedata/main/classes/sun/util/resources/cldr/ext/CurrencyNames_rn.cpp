@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/CurrencyNames_rn.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,255 +13,236 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _CurrencyNames_rn_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_rn, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_rn, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_rn_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.CurrencyNames_rn",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_rn_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_rn($Class* clazz) {
-	return $of($alloc(CurrencyNames_rn));
-}
-
 void CurrencyNames_rn::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_rn::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("BIF"_s),
-			$of("FBu"_s)
+			"BIF"_s,
+			"FBu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aed"_s),
-			$of(u"Idiramu ryo muri Leta Zunze Ubumwe z’Abarabu"_s)
+			"aed"_s,
+			u"Idiramu ryo muri Leta Zunze Ubumwe z’Abarabu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aoa"_s),
-			$of("Ikwanza ryo muri Angola"_s)
+			"aoa"_s,
+			"Ikwanza ryo muri Angola"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aud"_s),
-			$of("Idolari ryo muri Ositaraliya"_s)
+			"aud"_s,
+			"Idolari ryo muri Ositaraliya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bhd"_s),
-			$of(u"Idinari ry’iribahireyini"_s)
+			"bhd"_s,
+			u"Idinari ry’iribahireyini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bif"_s),
-			$of(u"Ifaranga ry’Uburundi"_s)
+			"bif"_s,
+			u"Ifaranga ry’Uburundi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bwp"_s),
-			$of("Ipula ryo muri Botswana"_s)
+			"bwp"_s,
+			"Ipula ryo muri Botswana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cad"_s),
-			$of("Idolari rya Kanada"_s)
+			"cad"_s,
+			"Idolari rya Kanada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cdf"_s),
-			$of("Ifaranga rya Kongo"_s)
+			"cdf"_s,
+			"Ifaranga rya Kongo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chf"_s),
-			$of(u"Ifaranga ry’Ubusuwisi"_s)
+			"chf"_s,
+			u"Ifaranga ry’Ubusuwisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cny"_s),
-			$of("Iyuwani ryo mu Bushinwa"_s)
+			"cny"_s,
+			"Iyuwani ryo mu Bushinwa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cve"_s),
-			$of("Irikaboveridiyano ryo muri Esikudo"_s)
+			"cve"_s,
+			"Irikaboveridiyano ryo muri Esikudo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("djf"_s),
-			$of("Ifaranga ryo muri Jibuti"_s)
+			"djf"_s,
+			"Ifaranga ryo muri Jibuti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dzd"_s),
-			$of("Idinari ryo muri Alijeriya"_s)
+			"dzd"_s,
+			"Idinari ryo muri Alijeriya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("egp"_s),
-			$of("Ipawundi rya Misiri"_s)
+			"egp"_s,
+			"Ipawundi rya Misiri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ern"_s),
-			$of("Irinakufa ryo muri Eritereya"_s)
+			"ern"_s,
+			"Irinakufa ryo muri Eritereya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("etb"_s),
-			$of("Ibiri ryo muri Etiyopiya"_s)
+			"etb"_s,
+			"Ibiri ryo muri Etiyopiya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eur"_s),
-			$of("Iyero"_s)
+			"eur"_s,
+			"Iyero"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gbp"_s),
-			$of("Ipawundi ryo mu Bwongereza"_s)
+			"gbp"_s,
+			"Ipawundi ryo mu Bwongereza"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ghc"_s),
-			$of("Icedi ryo muri Gana"_s)
+			"ghc"_s,
+			"Icedi ryo muri Gana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gmd"_s),
-			$of("Idalasi ryo muri Gambiya"_s)
+			"gmd"_s,
+			"Idalasi ryo muri Gambiya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gns"_s),
-			$of("Ifaranga ryo muri Gineya"_s)
+			"gns"_s,
+			"Ifaranga ryo muri Gineya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("inr"_s),
-			$of("Irupiya ryo mu Buhindi"_s)
+			"inr"_s,
+			"Irupiya ryo mu Buhindi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jpy"_s),
-			$of(u"Iyeni ry’Ubuyapani"_s)
+			"jpy"_s,
+			u"Iyeni ry’Ubuyapani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kes"_s),
-			$of("Ishilingi rya Kenya"_s)
+			"kes"_s,
+			"Ishilingi rya Kenya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kmf"_s),
-			$of("Ifaranga rya Komore"_s)
+			"kmf"_s,
+			"Ifaranga rya Komore"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lrd"_s),
-			$of("Idolari rya Liberiya"_s)
+			"lrd"_s,
+			"Idolari rya Liberiya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lsl"_s),
-			$of("Iloti ryo muro Lesoto"_s)
+			"lsl"_s,
+			"Iloti ryo muro Lesoto"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lyd"_s),
-			$of("Idinari rya Libiya"_s)
+			"lyd"_s,
+			"Idinari rya Libiya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mad"_s),
-			$of("Idiramu ryo muri Maroke"_s)
+			"mad"_s,
+			"Idiramu ryo muri Maroke"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mga"_s),
-			$of("Iriyari ryo muri Madagasikari"_s)
+			"mga"_s,
+			"Iriyari ryo muri Madagasikari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mro"_s),
-			$of(u"Ugwiya ryo muri Moritaniya (1973–2017)"_s)
+			"mro"_s,
+			u"Ugwiya ryo muri Moritaniya (1973–2017)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mru"_s),
-			$of("Ugwiya ryo muri Moritaniya"_s)
+			"mru"_s,
+			"Ugwiya ryo muri Moritaniya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mur"_s),
-			$of("Irupiya ryo mu birwa bya Morise"_s)
+			"mur"_s,
+			"Irupiya ryo mu birwa bya Morise"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mwk"_s),
-			$of("Ikwaca ryo muri Malawi"_s)
+			"mwk"_s,
+			"Ikwaca ryo muri Malawi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mzm"_s),
-			$of("Irimetikali ryo muri Mozambike"_s)
+			"mzm"_s,
+			"Irimetikali ryo muri Mozambike"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nad"_s),
-			$of("Idolari rya Namibiya"_s)
+			"nad"_s,
+			"Idolari rya Namibiya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ngn"_s),
-			$of("Inayira ryo muri Nijeriya"_s)
+			"ngn"_s,
+			"Inayira ryo muri Nijeriya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rwf"_s),
-			$of(u"Ifaranga ry’u Rwanda"_s)
+			"rwf"_s,
+			u"Ifaranga ry’u Rwanda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sar"_s),
-			$of("Iriyari ryo muri Arabiya Sawudite"_s)
+			"sar"_s,
+			"Iriyari ryo muri Arabiya Sawudite"_s
 		}),
 		$$new($ObjectArray, {
-			$of("scr"_s),
-			$of("Irupiya ryo mu birwa bya Sayisheli"_s)
+			"scr"_s,
+			"Irupiya ryo mu birwa bya Sayisheli"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sdg"_s),
-			$of("Ipawundi rya Sudani"_s)
+			"sdg"_s,
+			"Ipawundi rya Sudani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shp"_s),
-			$of("Ipawundi rya Sente Helena"_s)
+			"shp"_s,
+			"Ipawundi rya Sente Helena"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sll"_s),
-			$of("Ilewone"_s)
+			"sll"_s,
+			"Ilewone"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sos"_s),
-			$of("Ishilingi ryo muri Somaliya"_s)
+			"sos"_s,
+			"Ishilingi ryo muri Somaliya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("std"_s),
-			$of(u"Idobura ryo muri Sawotome na Perensipe (1977–2017)"_s)
+			"std"_s,
+			u"Idobura ryo muri Sawotome na Perensipe (1977–2017)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("stn"_s),
-			$of("Idobura ryo muri Sawotome na Perensipe"_s)
+			"stn"_s,
+			"Idobura ryo muri Sawotome na Perensipe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("szl"_s),
-			$of("Ililangeni"_s)
+			"szl"_s,
+			"Ililangeni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tnd"_s),
-			$of("Idinari ryo muri Tuniziya"_s)
+			"tnd"_s,
+			"Idinari ryo muri Tuniziya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tzs"_s),
-			$of("Ishilingi rya Tanzaniya"_s)
+			"tzs"_s,
+			"Ishilingi rya Tanzaniya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ugx"_s),
-			$of(u"Ishilingi ry’Ubugande"_s)
+			"ugx"_s,
+			u"Ishilingi ry’Ubugande"_s
 		}),
 		$$new($ObjectArray, {
-			$of("usd"_s),
-			$of(u"Idolari ry’abanyamerika"_s)
+			"usd"_s,
+			u"Idolari ry’abanyamerika"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zar"_s),
-			$of(u"Irandi ryo muri Afurika y’Epfo"_s)
+			"zar"_s,
+			u"Irandi ryo muri Afurika y’Epfo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zmk"_s),
-			$of(u"Ikwaca ryo muri Zambiya (1968–2012)"_s)
+			"zmk"_s,
+			u"Ikwaca ryo muri Zambiya (1968–2012)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zmw"_s),
-			$of("Ikwaca ryo muri Zambiya"_s)
+			"zmw"_s,
+			"Ikwaca ryo muri Zambiya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zwd"_s),
-			$of("Idolari ryo muri Zimbabwe"_s)
+			"zwd"_s,
+			"Idolari ryo muri Zimbabwe"_s
 		})
 	}));
 	return data;
@@ -272,7 +252,22 @@ CurrencyNames_rn::CurrencyNames_rn() {
 }
 
 $Class* CurrencyNames_rn::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_rn, name, initialize, &_CurrencyNames_rn_ClassInfo_, allocate$CurrencyNames_rn);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_rn, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_rn, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.CurrencyNames_rn",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_rn, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_rn);
+	});
 	return class$;
 }
 

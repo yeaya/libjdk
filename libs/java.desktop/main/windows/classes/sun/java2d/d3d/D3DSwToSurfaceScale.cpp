@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DSwToSurfaceScale.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/AffineTransformOp.h>
@@ -32,30 +31,6 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$FieldInfo _D3DSwToSurfaceScale_FieldInfo_[] = {
-	{"typeval", "I", nullptr, $PRIVATE, $field(D3DSwToSurfaceScale, typeval)},
-	{}
-};
-
-$MethodInfo _D3DSwToSurfaceScale_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;I)V", nullptr, 0, $method(D3DSwToSurfaceScale, init$, void, $SurfaceType*, int32_t)},
-	{"Scale", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIDDDD)V", nullptr, $PUBLIC, $virtualMethod(D3DSwToSurfaceScale, Scale, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
-	{}
-};
-
-$ClassInfo _D3DSwToSurfaceScale_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.d3d.D3DSwToSurfaceScale",
-	"sun.java2d.loops.ScaledBlit",
-	nullptr,
-	_D3DSwToSurfaceScale_FieldInfo_,
-	_D3DSwToSurfaceScale_MethodInfo_
-};
-
-$Object* allocate$D3DSwToSurfaceScale($Class* clazz) {
-	return $of($alloc(D3DSwToSurfaceScale));
-}
-
 void D3DSwToSurfaceScale::init$($SurfaceType* srcType, int32_t typeval) {
 	$init($CompositeType);
 	$init($D3DSurfaceData);
@@ -71,7 +46,26 @@ D3DSwToSurfaceScale::D3DSwToSurfaceScale() {
 }
 
 $Class* D3DSwToSurfaceScale::load$($String* name, bool initialize) {
-	$loadClass(D3DSwToSurfaceScale, name, initialize, &_D3DSwToSurfaceScale_ClassInfo_, allocate$D3DSwToSurfaceScale);
+	$FieldInfo fieldInfos$$[] = {
+		{"typeval", "I", nullptr, $PRIVATE, $field(D3DSwToSurfaceScale, typeval)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;I)V", nullptr, 0, $method(D3DSwToSurfaceScale, init$, void, $SurfaceType*, int32_t)},
+		{"Scale", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIDDDD)V", nullptr, $PUBLIC, $virtualMethod(D3DSwToSurfaceScale, Scale, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.d3d.D3DSwToSurfaceScale",
+		"sun.java2d.loops.ScaledBlit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(D3DSwToSurfaceScale, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DSwToSurfaceScale);
+	});
 	return class$;
 }
 

@@ -15,6 +15,7 @@ class Preview$1 : public ::java::lang::Object {
 	$class(Preview$1, 0, ::java::lang::Object)
 public:
 	Preview$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$code$Source$Feature;
 };
 

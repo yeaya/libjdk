@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/Http2ClientImpl.h>
-
 #include <java/io/EOFException.h>
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
@@ -60,11 +59,8 @@ using $URI = ::java::net::URI;
 using $AbstractMap = ::java::util::AbstractMap;
 using $Base64 = ::java::util::Base64;
 using $Base64$Encoder = ::java::util::Base64$Encoder;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashSet = ::java::util::HashSet;
-using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $BiConsumer = ::java::util::function::BiConsumer;
@@ -95,33 +91,29 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->toString());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Http2ClientImpl$$Lambda$toString>());
-	}
 	$String* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Http2ClientImpl$$Lambda$toString::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Http2ClientImpl$$Lambda$toString, inst$)},
-	{}
-};
-$MethodInfo Http2ClientImpl$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Http2ClientImpl$$Lambda$toString, init$, void, $String*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http2ClientImpl$$Lambda$toString, get, $Object*)},
-	{}
-};
-$ClassInfo Http2ClientImpl$$Lambda$toString::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.Http2ClientImpl$$Lambda$toString",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* Http2ClientImpl$$Lambda$toString::load$($String* name, bool initialize) {
-	$loadClass(Http2ClientImpl$$Lambda$toString, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Http2ClientImpl$$Lambda$toString, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Http2ClientImpl$$Lambda$toString, init$, void, $String*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http2ClientImpl$$Lambda$toString, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.Http2ClientImpl$$Lambda$toString",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Http2ClientImpl$$Lambda$toString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Http2ClientImpl$$Lambda$toString);
+	});
 	return class$;
 }
 $Class* Http2ClientImpl$$Lambda$toString::class$ = nullptr;
@@ -136,35 +128,31 @@ public:
 	virtual void accept(Object$* conn, Object$* t) override {
 		$nc(inst$)->lambda$getConnectionFor$0(key, $cast($Http2Connection, conn), $cast($Throwable, t));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Http2ClientImpl$$Lambda$lambda$getConnectionFor$0$1>());
-	}
 	Http2ClientImpl* inst$ = nullptr;
 	$String* key = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Http2ClientImpl$$Lambda$lambda$getConnectionFor$0$1::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Http2ClientImpl$$Lambda$lambda$getConnectionFor$0$1, inst$)},
-	{"key", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Http2ClientImpl$$Lambda$lambda$getConnectionFor$0$1, key)},
-	{}
-};
-$MethodInfo Http2ClientImpl$$Lambda$lambda$getConnectionFor$0$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Http2ClientImpl;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Http2ClientImpl$$Lambda$lambda$getConnectionFor$0$1, init$, void, Http2ClientImpl*, $String*)},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Http2ClientImpl$$Lambda$lambda$getConnectionFor$0$1, accept, void, Object$*, Object$*)},
-	{}
-};
-$ClassInfo Http2ClientImpl$$Lambda$lambda$getConnectionFor$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.Http2ClientImpl$$Lambda$lambda$getConnectionFor$0$1",
-	"java.lang.Object",
-	"java.util.function.BiConsumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Http2ClientImpl$$Lambda$lambda$getConnectionFor$0$1::load$($String* name, bool initialize) {
-	$loadClass(Http2ClientImpl$$Lambda$lambda$getConnectionFor$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Http2ClientImpl$$Lambda$lambda$getConnectionFor$0$1, inst$)},
+		{"key", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Http2ClientImpl$$Lambda$lambda$getConnectionFor$0$1, key)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/Http2ClientImpl;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Http2ClientImpl$$Lambda$lambda$getConnectionFor$0$1, init$, void, Http2ClientImpl*, $String*)},
+		{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Http2ClientImpl$$Lambda$lambda$getConnectionFor$0$1, accept, void, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.Http2ClientImpl$$Lambda$lambda$getConnectionFor$0$1",
+		"java.lang.Object",
+		"java.util.function.BiConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Http2ClientImpl$$Lambda$lambda$getConnectionFor$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Http2ClientImpl$$Lambda$lambda$getConnectionFor$0$1);
+	});
 	return class$;
 }
 $Class* Http2ClientImpl$$Lambda$lambda$getConnectionFor$0$1::class$ = nullptr;
@@ -178,101 +166,58 @@ public:
 	virtual void accept(Object$* h2c) override {
 		$nc(inst$)->close($cast($Http2Connection, h2c));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Http2ClientImpl$$Lambda$close$2>());
-	}
 	Http2ClientImpl* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Http2ClientImpl$$Lambda$close$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Http2ClientImpl$$Lambda$close$2, inst$)},
-	{}
-};
-$MethodInfo Http2ClientImpl$$Lambda$close$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Http2ClientImpl;)V", nullptr, $PUBLIC, $method(Http2ClientImpl$$Lambda$close$2, init$, void, Http2ClientImpl*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Http2ClientImpl$$Lambda$close$2, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Http2ClientImpl$$Lambda$close$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.Http2ClientImpl$$Lambda$close$2",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Http2ClientImpl$$Lambda$close$2::load$($String* name, bool initialize) {
-	$loadClass(Http2ClientImpl$$Lambda$close$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Http2ClientImpl$$Lambda$close$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/Http2ClientImpl;)V", nullptr, $PUBLIC, $method(Http2ClientImpl$$Lambda$close$2, init$, void, Http2ClientImpl*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Http2ClientImpl$$Lambda$close$2, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.Http2ClientImpl$$Lambda$close$2",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Http2ClientImpl$$Lambda$close$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Http2ClientImpl$$Lambda$close$2);
+	});
 	return class$;
 }
 $Class* Http2ClientImpl$$Lambda$close$2::class$ = nullptr;
 
-$FieldInfo _Http2ClientImpl_FieldInfo_[] = {
-	{"debug", "Ljdk/internal/net/http/common/Logger;", nullptr, $STATIC | $FINAL, $staticField(Http2ClientImpl, debug)},
-	{"client", "Ljdk/internal/net/http/HttpClientImpl;", nullptr, $PRIVATE | $FINAL, $field(Http2ClientImpl, client$)},
-	{"connections", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljdk/internal/net/http/Http2Connection;>;", $PRIVATE | $FINAL, $field(Http2ClientImpl, connections)},
-	{"failures", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(Http2ClientImpl, failures)},
-	{"STOPPED", "Ljava/io/EOFException;", nullptr, $PRIVATE, $field(Http2ClientImpl, STOPPED)},
-	{"K", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Http2ClientImpl, K)},
-	{}
-};
-
-$MethodInfo _Http2ClientImpl_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, 0, $method(Http2ClientImpl, init$, void, $HttpClientImpl*)},
-	{"client", "()Ljdk/internal/net/http/HttpClientImpl;", nullptr, 0, $virtualMethod(Http2ClientImpl, client, $HttpClientImpl*)},
-	{"close", "(Ljdk/internal/net/http/Http2Connection;)V", nullptr, $PRIVATE, $method(Http2ClientImpl, close, void, $Http2Connection*)},
-	{"deleteConnection", "(Ljdk/internal/net/http/Http2Connection;)V", nullptr, 0, $virtualMethod(Http2ClientImpl, deleteConnection, void, $Http2Connection*)},
-	{"getClientSettings", "()Ljdk/internal/net/http/frame/SettingsFrame;", nullptr, 0, $virtualMethod(Http2ClientImpl, getClientSettings, $SettingsFrame*)},
-	{"getConnectionFor", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Exchange;)Ljava/util/concurrent/CompletableFuture;", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Exchange<*>;)Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Http2Connection;>;", 0, $virtualMethod(Http2ClientImpl, getConnectionFor, $CompletableFuture*, $HttpRequestImpl*, $Exchange*)},
-	{"getConnectionWindowSize", "(Ljdk/internal/net/http/frame/SettingsFrame;)I", nullptr, 0, $virtualMethod(Http2ClientImpl, getConnectionWindowSize, int32_t, $SettingsFrame*)},
-	{"getParameter", "(Ljava/lang/String;III)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Http2ClientImpl, getParameter, int32_t, $String*, int32_t, int32_t, int32_t)},
-	{"getSettingsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Http2ClientImpl, getSettingsString, $String*)},
-	{"lambda$getConnectionFor$0", "(Ljava/lang/String;Ljdk/internal/net/http/Http2Connection;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Http2ClientImpl, lambda$getConnectionFor$0, void, $String*, $Http2Connection*, $Throwable*)},
-	{"offerConnection", "(Ljdk/internal/net/http/Http2Connection;)Z", nullptr, 0, $virtualMethod(Http2ClientImpl, offerConnection, bool, $Http2Connection*)},
-	{"stop", "()V", nullptr, 0, $virtualMethod(Http2ClientImpl, stop, void)},
-	{}
-};
-
-$ClassInfo _Http2ClientImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.Http2ClientImpl",
-	"java.lang.Object",
-	nullptr,
-	_Http2ClientImpl_FieldInfo_,
-	_Http2ClientImpl_MethodInfo_
-};
-
-$Object* allocate$Http2ClientImpl($Class* clazz) {
-	return $of($alloc(Http2ClientImpl));
-}
-
 $Logger* Http2ClientImpl::debug = nullptr;
 
 void Http2ClientImpl::init$($HttpClientImpl* client) {
-	$set(this, connections, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
+	$set(this, connections, $cast($AbstractMap, $new($ConcurrentHashMap)));
 	$set(this, failures, $Collections::synchronizedSet($$new($HashSet)));
 	$set(this, client$, client);
 }
 
 $CompletableFuture* Http2ClientImpl::getConnectionFor($HttpRequestImpl* req, $Exchange* exchange) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URI, uri, $nc(req)->uri());
 	$var($InetSocketAddress, proxy, req->proxy());
 	$var($String, key, $Http2Connection::keyFor(uri, proxy));
 	$synchronized(this) {
-		$var($Http2Connection, connection, $cast($Http2Connection, $nc(this->connections)->get(key)));
+		$var($Http2Connection, connection, $cast($Http2Connection, this->connections->get(key)));
 		if (connection != nullptr) {
 			try {
 				if (connection->closed || !connection->reserveStream(true)) {
 					if ($nc(Http2ClientImpl::debug)->on()) {
-						$nc(Http2ClientImpl::debug)->log("removing found closed or closing connection: %s"_s, $$new($ObjectArray, {$of(connection)}));
+						Http2ClientImpl::debug->log("removing found closed or closing connection: %s"_s, $$new($ObjectArray, {connection}));
 					}
 					deleteConnection(connection);
 				} else {
 					if ($nc(Http2ClientImpl::debug)->on()) {
-						$nc(Http2ClientImpl::debug)->log("found connection in the pool: %s"_s, $$new($ObjectArray, {$of(connection)}));
+						Http2ClientImpl::debug->log("found connection in the pool: %s"_s, $$new($ObjectArray, {connection}));
 					}
 					return $MinimalFuture::completedFuture(connection);
 				}
@@ -283,67 +228,67 @@ $CompletableFuture* Http2ClientImpl::getConnectionFor($HttpRequestImpl* req, $Ex
 		bool var$0 = !req->secure();
 		if (var$0 || $nc(this->failures)->contains(key)) {
 			if ($nc(Http2ClientImpl::debug)->on()) {
-				$nc(Http2ClientImpl::debug)->log("not found in connection pool"_s);
+				Http2ClientImpl::debug->log("not found in connection pool"_s);
 			}
 			return $MinimalFuture::completedFuture(nullptr);
 		}
 	}
-	return $cast($CompletableFuture, $nc($($Http2Connection::createAsync(req, this, exchange)))->whenComplete(static_cast<$BiConsumer*>($$new(Http2ClientImpl$$Lambda$lambda$getConnectionFor$0$1, this, key))));
+	return $cast($CompletableFuture, $$nc($Http2Connection::createAsync(req, this, exchange))->whenComplete($$new(Http2ClientImpl$$Lambda$lambda$getConnectionFor$0$1, this, key)));
 }
 
 bool Http2ClientImpl::offerConnection($Http2Connection* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(Http2ClientImpl::debug)->on()) {
-		$nc(Http2ClientImpl::debug)->log("offering to the connection pool: %s"_s, $$new($ObjectArray, {$of(c)}));
+		Http2ClientImpl::debug->log("offering to the connection pool: %s"_s, $$new($ObjectArray, {c}));
 	}
-	if ($nc(c)->closed || $nc(c)->finalStream()) {
-		if ($nc(Http2ClientImpl::debug)->on()) {
-			$nc(Http2ClientImpl::debug)->log("skipping offered closed or closing connection: %s"_s, $$new($ObjectArray, {$of(c)}));
+	if ($nc(c)->closed || c->finalStream()) {
+		if (Http2ClientImpl::debug->on()) {
+			Http2ClientImpl::debug->log("skipping offered closed or closing connection: %s"_s, $$new($ObjectArray, {c}));
 		}
 		return false;
 	}
-	$var($String, key, $nc(c)->key());
+	$var($String, key, c->key());
 	$synchronized(this) {
-		$var($Http2Connection, c1, $cast($Http2Connection, $nc(this->connections)->putIfAbsent(key, c)));
+		$var($Http2Connection, c1, $cast($Http2Connection, this->connections->putIfAbsent(key, c)));
 		if (c1 != nullptr) {
 			c->setFinalStream();
-			if ($nc(Http2ClientImpl::debug)->on()) {
-				$nc(Http2ClientImpl::debug)->log("existing entry in connection pool for %s"_s, $$new($ObjectArray, {$of(key)}));
+			if (Http2ClientImpl::debug->on()) {
+				Http2ClientImpl::debug->log("existing entry in connection pool for %s"_s, $$new($ObjectArray, {key}));
 			}
 			return false;
 		}
-		if ($nc(Http2ClientImpl::debug)->on()) {
-			$nc(Http2ClientImpl::debug)->log("put in the connection pool: %s"_s, $$new($ObjectArray, {$of(c)}));
+		if (Http2ClientImpl::debug->on()) {
+			Http2ClientImpl::debug->log("put in the connection pool: %s"_s, $$new($ObjectArray, {c}));
 		}
 		return true;
 	}
 }
 
 void Http2ClientImpl::deleteConnection($Http2Connection* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(Http2ClientImpl::debug)->on()) {
-		$nc(Http2ClientImpl::debug)->log("removing from the connection pool: %s"_s, $$new($ObjectArray, {$of(c)}));
+		Http2ClientImpl::debug->log("removing from the connection pool: %s"_s, $$new($ObjectArray, {c}));
 	}
 	$synchronized(this) {
-		$var($Http2Connection, c1, $cast($Http2Connection, $nc(this->connections)->get($($nc(c)->key()))));
-		if (c1 != nullptr && $of(c1)->equals(c)) {
-			$nc(this->connections)->remove($($nc(c)->key()));
-			if ($nc(Http2ClientImpl::debug)->on()) {
-				$nc(Http2ClientImpl::debug)->log("removed from the connection pool: %s"_s, $$new($ObjectArray, {$of(c)}));
+		$var($Http2Connection, c1, $cast($Http2Connection, this->connections->get($($nc(c)->key()))));
+		if (c1 != nullptr && c1->equals(c)) {
+			this->connections->remove($(c->key()));
+			if (Http2ClientImpl::debug->on()) {
+				Http2ClientImpl::debug->log("removed from the connection pool: %s"_s, $$new($ObjectArray, {c}));
 			}
 		}
 	}
 }
 
 void Http2ClientImpl::stop() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(Http2ClientImpl::debug)->on()) {
-		$nc(Http2ClientImpl::debug)->log("stopping"_s);
+		Http2ClientImpl::debug->log("stopping"_s);
 	}
 	$set(this, STOPPED, $new($EOFException, "HTTP/2 client stopped"_s));
-	$nc(this->STOPPED)->setStackTrace($$new($StackTraceElementArray, 0));
-	$nc($($nc(this->connections)->values()))->forEach(static_cast<$Consumer*>($$new(Http2ClientImpl$$Lambda$close$2, this)));
-	$nc(this->connections)->clear();
+	this->STOPPED->setStackTrace($$new($StackTraceElementArray, 0));
+	$$nc(this->connections->values())->forEach($$new(Http2ClientImpl$$Lambda$close$2, this));
+	this->connections->clear();
 }
 
 void Http2ClientImpl::close($Http2Connection* h2c) {
@@ -362,24 +307,24 @@ $HttpClientImpl* Http2ClientImpl::client() {
 }
 
 $String* Http2ClientImpl::getSettingsString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SettingsFrame, sf, getClientSettings());
 	$var($bytes, settings, $nc(sf)->toByteArray());
-	$var($Base64$Encoder, encoder, $nc($($Base64::getUrlEncoder()))->withoutPadding());
+	$var($Base64$Encoder, encoder, $$nc($Base64::getUrlEncoder())->withoutPadding());
 	return $nc(encoder)->encodeToString(settings);
 }
 
 int32_t Http2ClientImpl::getParameter($String* property, int32_t min, int32_t max, int32_t defaultValue) {
 	$init(Http2ClientImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t value = $Utils::getIntegerNetProperty(property, defaultValue);
 	if (value < min || value > max) {
 		$Log::logError("Property value for {0}={1} not in [{2}..{3}]: using default={4}"_s, $$new($ObjectArray, {
-			$of(property),
-			$($of($Integer::valueOf(value))),
-			$($of($Integer::valueOf(min))),
-			$($of($Integer::valueOf(max))),
-			$($of($Integer::valueOf(defaultValue)))
+			property,
+			$($Integer::valueOf(value)),
+			$($Integer::valueOf(min)),
+			$($Integer::valueOf(max)),
+			$($Integer::valueOf(defaultValue))
 		}));
 		value = defaultValue;
 	}
@@ -420,9 +365,9 @@ void Http2ClientImpl::lambda$getConnectionFor$0($String* key, $Http2Connection* 
 	}
 }
 
-void clinit$Http2ClientImpl($Class* class$) {
+void Http2ClientImpl::clinit$($Class* clazz) {
 	$init($Utils);
-	$assignStatic(Http2ClientImpl::debug, $Utils::getDebugLogger(static_cast<$Supplier*>($$new(Http2ClientImpl$$Lambda$toString, static_cast<$String*>("Http2ClientImpl"_s))), $Utils::DEBUG));
+	$assignStatic(Http2ClientImpl::debug, $Utils::getDebugLogger($$new(Http2ClientImpl$$Lambda$toString, "Http2ClientImpl"_s), $Utils::DEBUG));
 }
 
 Http2ClientImpl::Http2ClientImpl() {
@@ -430,17 +375,51 @@ Http2ClientImpl::Http2ClientImpl() {
 
 $Class* Http2ClientImpl::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Http2ClientImpl$$Lambda$toString::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.Http2ClientImpl$$Lambda$toString")) {
 			return Http2ClientImpl$$Lambda$toString::load$(name, initialize);
 		}
-		if (name->equals(Http2ClientImpl$$Lambda$lambda$getConnectionFor$0$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.Http2ClientImpl$$Lambda$lambda$getConnectionFor$0$1")) {
 			return Http2ClientImpl$$Lambda$lambda$getConnectionFor$0$1::load$(name, initialize);
 		}
-		if (name->equals(Http2ClientImpl$$Lambda$close$2::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.Http2ClientImpl$$Lambda$close$2")) {
 			return Http2ClientImpl$$Lambda$close$2::load$(name, initialize);
 		}
 	}
-	$loadClass(Http2ClientImpl, name, initialize, &_Http2ClientImpl_ClassInfo_, clinit$Http2ClientImpl, allocate$Http2ClientImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Ljdk/internal/net/http/common/Logger;", nullptr, $STATIC | $FINAL, $staticField(Http2ClientImpl, debug)},
+		{"client", "Ljdk/internal/net/http/HttpClientImpl;", nullptr, $PRIVATE | $FINAL, $field(Http2ClientImpl, client$)},
+		{"connections", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljdk/internal/net/http/Http2Connection;>;", $PRIVATE | $FINAL, $field(Http2ClientImpl, connections)},
+		{"failures", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(Http2ClientImpl, failures)},
+		{"STOPPED", "Ljava/io/EOFException;", nullptr, $PRIVATE, $field(Http2ClientImpl, STOPPED)},
+		{"K", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Http2ClientImpl, K)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, 0, $method(Http2ClientImpl, init$, void, $HttpClientImpl*)},
+		{"client", "()Ljdk/internal/net/http/HttpClientImpl;", nullptr, 0, $virtualMethod(Http2ClientImpl, client, $HttpClientImpl*)},
+		{"close", "(Ljdk/internal/net/http/Http2Connection;)V", nullptr, $PRIVATE, $method(Http2ClientImpl, close, void, $Http2Connection*)},
+		{"deleteConnection", "(Ljdk/internal/net/http/Http2Connection;)V", nullptr, 0, $virtualMethod(Http2ClientImpl, deleteConnection, void, $Http2Connection*)},
+		{"getClientSettings", "()Ljdk/internal/net/http/frame/SettingsFrame;", nullptr, 0, $virtualMethod(Http2ClientImpl, getClientSettings, $SettingsFrame*)},
+		{"getConnectionFor", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Exchange;)Ljava/util/concurrent/CompletableFuture;", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Exchange<*>;)Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Http2Connection;>;", 0, $virtualMethod(Http2ClientImpl, getConnectionFor, $CompletableFuture*, $HttpRequestImpl*, $Exchange*)},
+		{"getConnectionWindowSize", "(Ljdk/internal/net/http/frame/SettingsFrame;)I", nullptr, 0, $virtualMethod(Http2ClientImpl, getConnectionWindowSize, int32_t, $SettingsFrame*)},
+		{"getParameter", "(Ljava/lang/String;III)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Http2ClientImpl, getParameter, int32_t, $String*, int32_t, int32_t, int32_t)},
+		{"getSettingsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Http2ClientImpl, getSettingsString, $String*)},
+		{"lambda$getConnectionFor$0", "(Ljava/lang/String;Ljdk/internal/net/http/Http2Connection;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Http2ClientImpl, lambda$getConnectionFor$0, void, $String*, $Http2Connection*, $Throwable*)},
+		{"offerConnection", "(Ljdk/internal/net/http/Http2Connection;)Z", nullptr, 0, $virtualMethod(Http2ClientImpl, offerConnection, bool, $Http2Connection*)},
+		{"stop", "()V", nullptr, 0, $virtualMethod(Http2ClientImpl, stop, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.Http2ClientImpl",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Http2ClientImpl, name, initialize, &classInfo$$, Http2ClientImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Http2ClientImpl);
+	});
 	return class$;
 }
 

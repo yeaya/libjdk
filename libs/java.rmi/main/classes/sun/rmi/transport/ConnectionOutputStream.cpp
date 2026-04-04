@@ -1,5 +1,4 @@
 #include <sun/rmi/transport/ConnectionOutputStream.h>
-
 #include <java/io/DataOutput.h>
 #include <java/io/OutputStream.h>
 #include <java/lang/AssertionError.h>
@@ -9,7 +8,6 @@
 #include <sun/rmi/transport/DGCAckHandler.h>
 #include <jcpp.h>
 
-using $DataOutput = ::java::io::DataOutput;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -22,38 +20,6 @@ using $DGCAckHandler = ::sun::rmi::transport::DGCAckHandler;
 namespace sun {
 	namespace rmi {
 		namespace transport {
-
-$FieldInfo _ConnectionOutputStream_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ConnectionOutputStream, $assertionsDisabled)},
-	{"conn", "Lsun/rmi/transport/Connection;", nullptr, $PRIVATE | $FINAL, $field(ConnectionOutputStream, conn)},
-	{"resultStream", "Z", nullptr, $PRIVATE | $FINAL, $field(ConnectionOutputStream, resultStream)},
-	{"ackID", "Ljava/rmi/server/UID;", nullptr, $PRIVATE | $FINAL, $field(ConnectionOutputStream, ackID)},
-	{"dgcAckHandler", "Lsun/rmi/transport/DGCAckHandler;", nullptr, $PRIVATE, $field(ConnectionOutputStream, dgcAckHandler)},
-	{}
-};
-
-$MethodInfo _ConnectionOutputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/transport/Connection;Z)V", nullptr, 0, $method(ConnectionOutputStream, init$, void, $Connection*, bool), "java.io.IOException"},
-	{"done", "()V", nullptr, 0, $virtualMethod(ConnectionOutputStream, done, void)},
-	{"getDGCAckHandler", "()Lsun/rmi/transport/DGCAckHandler;", nullptr, 0, $virtualMethod(ConnectionOutputStream, getDGCAckHandler, $DGCAckHandler*)},
-	{"isResultStream", "()Z", nullptr, 0, $virtualMethod(ConnectionOutputStream, isResultStream, bool)},
-	{"saveObject", "(Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(ConnectionOutputStream, saveObject, void, Object$*)},
-	{"writeID", "()V", nullptr, 0, $virtualMethod(ConnectionOutputStream, writeID, void), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ConnectionOutputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.rmi.transport.ConnectionOutputStream",
-	"sun.rmi.server.MarshalOutputStream",
-	nullptr,
-	_ConnectionOutputStream_FieldInfo_,
-	_ConnectionOutputStream_MethodInfo_
-};
-
-$Object* allocate$ConnectionOutputStream($Class* clazz) {
-	return $of($alloc(ConnectionOutputStream));
-}
 
 bool ConnectionOutputStream::$assertionsDisabled = false;
 
@@ -89,11 +55,11 @@ $DGCAckHandler* ConnectionOutputStream::getDGCAckHandler() {
 
 void ConnectionOutputStream::done() {
 	if (this->dgcAckHandler != nullptr) {
-		$nc(this->dgcAckHandler)->startTimer();
+		this->dgcAckHandler->startTimer();
 	}
 }
 
-void clinit$ConnectionOutputStream($Class* class$) {
+void ConnectionOutputStream::clinit$($Class* clazz) {
 	ConnectionOutputStream::$assertionsDisabled = !ConnectionOutputStream::class$->desiredAssertionStatus();
 }
 
@@ -101,7 +67,34 @@ ConnectionOutputStream::ConnectionOutputStream() {
 }
 
 $Class* ConnectionOutputStream::load$($String* name, bool initialize) {
-	$loadClass(ConnectionOutputStream, name, initialize, &_ConnectionOutputStream_ClassInfo_, clinit$ConnectionOutputStream, allocate$ConnectionOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ConnectionOutputStream, $assertionsDisabled)},
+		{"conn", "Lsun/rmi/transport/Connection;", nullptr, $PRIVATE | $FINAL, $field(ConnectionOutputStream, conn)},
+		{"resultStream", "Z", nullptr, $PRIVATE | $FINAL, $field(ConnectionOutputStream, resultStream)},
+		{"ackID", "Ljava/rmi/server/UID;", nullptr, $PRIVATE | $FINAL, $field(ConnectionOutputStream, ackID)},
+		{"dgcAckHandler", "Lsun/rmi/transport/DGCAckHandler;", nullptr, $PRIVATE, $field(ConnectionOutputStream, dgcAckHandler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/rmi/transport/Connection;Z)V", nullptr, 0, $method(ConnectionOutputStream, init$, void, $Connection*, bool), "java.io.IOException"},
+		{"done", "()V", nullptr, 0, $virtualMethod(ConnectionOutputStream, done, void)},
+		{"getDGCAckHandler", "()Lsun/rmi/transport/DGCAckHandler;", nullptr, 0, $virtualMethod(ConnectionOutputStream, getDGCAckHandler, $DGCAckHandler*)},
+		{"isResultStream", "()Z", nullptr, 0, $virtualMethod(ConnectionOutputStream, isResultStream, bool)},
+		{"saveObject", "(Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(ConnectionOutputStream, saveObject, void, Object$*)},
+		{"writeID", "()V", nullptr, 0, $virtualMethod(ConnectionOutputStream, writeID, void), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.rmi.transport.ConnectionOutputStream",
+		"sun.rmi.server.MarshalOutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ConnectionOutputStream, name, initialize, &classInfo$$, ConnectionOutputStream::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ConnectionOutputStream));
+	});
 	return class$;
 }
 

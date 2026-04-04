@@ -1,5 +1,4 @@
 #include <sun/swing/LightweightContent.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Cursor.h>
 #include <java/awt/dnd/DragGestureEvent.h>
@@ -29,51 +28,6 @@ using $JComponent = ::javax::swing::JComponent;
 
 namespace sun {
 	namespace swing {
-
-$NamedAttribute LightweightContent_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _LightweightContent_MethodAnnotations_imageBufferReset6[] = {
-	{"Ljava/lang/Deprecated;", LightweightContent_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _LightweightContent_MethodInfo_[] = {
-	{"addDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC, $virtualMethod(LightweightContent, addDropTarget, void, $DropTarget*)},
-	{"createDragGestureRecognizer", "(Ljava/lang/Class;Ljava/awt/dnd/DragSource;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)Ljava/awt/dnd/DragGestureRecognizer;", "<T:Ljava/awt/dnd/DragGestureRecognizer;>(Ljava/lang/Class<TT;>;Ljava/awt/dnd/DragSource;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)TT;", $PUBLIC, $virtualMethod(LightweightContent, createDragGestureRecognizer, $DragGestureRecognizer*, $Class*, $DragSource*, $Component*, int32_t, $DragGestureListener*)},
-	{"createDragSourceContextPeer", "(Ljava/awt/dnd/DragGestureEvent;)Ljava/awt/dnd/peer/DragSourceContextPeer;", nullptr, $PUBLIC, $virtualMethod(LightweightContent, createDragSourceContextPeer, $DragSourceContextPeer*, $DragGestureEvent*), "java.awt.dnd.InvalidDnDOperationException"},
-	{"focusGrabbed", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LightweightContent, focusGrabbed, void)},
-	{"focusUngrabbed", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LightweightContent, focusUngrabbed, void)},
-	{"getComponent", "()Ljavax/swing/JComponent;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LightweightContent, getComponent, $JComponent*)},
-	{"imageBufferReset", "([IIIIIII)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(LightweightContent, imageBufferReset, void, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t), nullptr, nullptr, _LightweightContent_MethodAnnotations_imageBufferReset6},
-	{"imageBufferReset", "([IIIIIIDD)V", nullptr, $PUBLIC, $virtualMethod(LightweightContent, imageBufferReset, void, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t, double, double)},
-	{"imageBufferReset", "([IIIIII)V", nullptr, $PUBLIC, $virtualMethod(LightweightContent, imageBufferReset, void, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"imageReshaped", "(IIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LightweightContent, imageReshaped, void, int32_t, int32_t, int32_t, int32_t)},
-	{"imageUpdated", "(IIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LightweightContent, imageUpdated, void, int32_t, int32_t, int32_t, int32_t)},
-	{"maximumSizeChanged", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LightweightContent, maximumSizeChanged, void, int32_t, int32_t)},
-	{"minimumSizeChanged", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LightweightContent, minimumSizeChanged, void, int32_t, int32_t)},
-	{"paintLock", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LightweightContent, paintLock, void)},
-	{"paintUnlock", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LightweightContent, paintUnlock, void)},
-	{"preferredSizeChanged", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LightweightContent, preferredSizeChanged, void, int32_t, int32_t)},
-	{"removeDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC, $virtualMethod(LightweightContent, removeDropTarget, void, $DropTarget*)},
-	{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC, $virtualMethod(LightweightContent, setCursor, void, $Cursor*)},
-	{}
-};
-
-$ClassInfo _LightweightContent_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.swing.LightweightContent",
-	nullptr,
-	nullptr,
-	nullptr,
-	_LightweightContent_MethodInfo_
-};
-
-$Object* allocate$LightweightContent($Class* clazz) {
-	return $of($alloc(LightweightContent));
-}
 
 void LightweightContent::imageBufferReset($ints* data, int32_t x, int32_t y, int32_t width, int32_t height, int32_t linestride, int32_t scale) {
 	imageBufferReset(data, x, y, width, height, linestride);
@@ -105,7 +59,46 @@ void LightweightContent::removeDropTarget($DropTarget* dt) {
 }
 
 $Class* LightweightContent::load$($String* name, bool initialize) {
-	$loadClass(LightweightContent, name, initialize, &_LightweightContent_ClassInfo_, allocate$LightweightContent);
+	$NamedAttribute imageBufferResetmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute imageBufferResetmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", imageBufferResetmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"addDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC, $virtualMethod(LightweightContent, addDropTarget, void, $DropTarget*)},
+		{"createDragGestureRecognizer", "(Ljava/lang/Class;Ljava/awt/dnd/DragSource;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)Ljava/awt/dnd/DragGestureRecognizer;", "<T:Ljava/awt/dnd/DragGestureRecognizer;>(Ljava/lang/Class<TT;>;Ljava/awt/dnd/DragSource;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)TT;", $PUBLIC, $virtualMethod(LightweightContent, createDragGestureRecognizer, $DragGestureRecognizer*, $Class*, $DragSource*, $Component*, int32_t, $DragGestureListener*)},
+		{"createDragSourceContextPeer", "(Ljava/awt/dnd/DragGestureEvent;)Ljava/awt/dnd/peer/DragSourceContextPeer;", nullptr, $PUBLIC, $virtualMethod(LightweightContent, createDragSourceContextPeer, $DragSourceContextPeer*, $DragGestureEvent*), "java.awt.dnd.InvalidDnDOperationException"},
+		{"focusGrabbed", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LightweightContent, focusGrabbed, void)},
+		{"focusUngrabbed", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LightweightContent, focusUngrabbed, void)},
+		{"getComponent", "()Ljavax/swing/JComponent;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LightweightContent, getComponent, $JComponent*)},
+		{"imageBufferReset", "([IIIIIII)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(LightweightContent, imageBufferReset, void, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t), nullptr, nullptr, imageBufferResetmethodAnnotations$$},
+		{"imageBufferReset", "([IIIIIIDD)V", nullptr, $PUBLIC, $virtualMethod(LightweightContent, imageBufferReset, void, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t, double, double)},
+		{"imageBufferReset", "([IIIIII)V", nullptr, $PUBLIC, $virtualMethod(LightweightContent, imageBufferReset, void, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"imageReshaped", "(IIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LightweightContent, imageReshaped, void, int32_t, int32_t, int32_t, int32_t)},
+		{"imageUpdated", "(IIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LightweightContent, imageUpdated, void, int32_t, int32_t, int32_t, int32_t)},
+		{"maximumSizeChanged", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LightweightContent, maximumSizeChanged, void, int32_t, int32_t)},
+		{"minimumSizeChanged", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LightweightContent, minimumSizeChanged, void, int32_t, int32_t)},
+		{"paintLock", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LightweightContent, paintLock, void)},
+		{"paintUnlock", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LightweightContent, paintUnlock, void)},
+		{"preferredSizeChanged", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LightweightContent, preferredSizeChanged, void, int32_t, int32_t)},
+		{"removeDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC, $virtualMethod(LightweightContent, removeDropTarget, void, $DropTarget*)},
+		{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC, $virtualMethod(LightweightContent, setCursor, void, $Cursor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.swing.LightweightContent",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LightweightContent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LightweightContent);
+	});
 	return class$;
 }
 

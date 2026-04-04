@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/DrawGlyphList.h>
-
 #include <sun/font/GlyphList.h>
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
@@ -29,49 +28,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _DrawGlyphList_FieldInfo_[] = {
-	{"methodSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DrawGlyphList, methodSignature)},
-	{"primTypeID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DrawGlyphList, primTypeID)},
-	{}
-};
-
-$MethodInfo _DrawGlyphList_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(DrawGlyphList, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"<init>", "(JLsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(DrawGlyphList, init$, void, int64_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"DrawGlyphList", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Lsun/font/GlyphList;II)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(DrawGlyphList, DrawGlyphList$, void, $SunGraphics2D*, $SurfaceData*, $GlyphList*, int32_t, int32_t)},
-	{"locate", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/DrawGlyphList;", nullptr, $PUBLIC | $STATIC, $staticMethod(DrawGlyphList, locate, DrawGlyphList*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"makePrimitive", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PROTECTED, $virtualMethod(DrawGlyphList, makePrimitive, $GraphicsPrimitive*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(DrawGlyphList, traceWrap, $GraphicsPrimitive*)},
-	{}
-};
-
-#define _METHOD_INDEX_DrawGlyphList$ 2
-
-$InnerClassInfo _DrawGlyphList_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.DrawGlyphList$TraceDrawGlyphList", "sun.java2d.loops.DrawGlyphList", "TraceDrawGlyphList", $PRIVATE | $STATIC},
-	{"sun.java2d.loops.DrawGlyphList$General", "sun.java2d.loops.DrawGlyphList", "General", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DrawGlyphList_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.loops.DrawGlyphList",
-	"sun.java2d.loops.GraphicsPrimitive",
-	nullptr,
-	_DrawGlyphList_FieldInfo_,
-	_DrawGlyphList_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DrawGlyphList_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.DrawGlyphList$TraceDrawGlyphList,sun.java2d.loops.DrawGlyphList$General"
-};
-
-$Object* allocate$DrawGlyphList($Class* clazz) {
-	return $of($alloc(DrawGlyphList));
-}
-
 $String* DrawGlyphList::methodSignature = nullptr;
 int32_t DrawGlyphList::primTypeID = 0;
 
@@ -89,7 +45,7 @@ void DrawGlyphList::init$(int64_t pNativePrim, $SurfaceType* srctype, $Composite
 }
 
 void DrawGlyphList::DrawGlyphList$($SunGraphics2D* sg2d, $SurfaceData* dest, $GlyphList* srcData, int32_t fromGlyph, int32_t toGlyph) {
-	$prepareNative(DrawGlyphList, DrawGlyphList$, void, $SunGraphics2D* sg2d, $SurfaceData* dest, $GlyphList* srcData, int32_t fromGlyph, int32_t toGlyph);
+	$prepareNative(DrawGlyphList, void, $SunGraphics2D* sg2d, $SurfaceData* dest, $GlyphList* srcData, int32_t fromGlyph, int32_t toGlyph);
 	$invokeNative(sg2d, dest, srcData, fromGlyph, toGlyph);
 	$finishNative();
 }
@@ -102,7 +58,7 @@ $GraphicsPrimitive* DrawGlyphList::traceWrap() {
 	return $new($DrawGlyphList$TraceDrawGlyphList, this);
 }
 
-void clinit$DrawGlyphList($Class* class$) {
+void DrawGlyphList::clinit$($Class* clazz) {
 	$assignStatic(DrawGlyphList::methodSignature, "DrawGlyphList(...)"_s->toString());
 	DrawGlyphList::primTypeID = $GraphicsPrimitive::makePrimTypeID();
 	{
@@ -114,7 +70,42 @@ DrawGlyphList::DrawGlyphList() {
 }
 
 $Class* DrawGlyphList::load$($String* name, bool initialize) {
-	$loadClass(DrawGlyphList, name, initialize, &_DrawGlyphList_ClassInfo_, clinit$DrawGlyphList, allocate$DrawGlyphList);
+	$FieldInfo fieldInfos$$[] = {
+		{"methodSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DrawGlyphList, methodSignature)},
+		{"primTypeID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DrawGlyphList, primTypeID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(DrawGlyphList, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"<init>", "(JLsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(DrawGlyphList, init$, void, int64_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"DrawGlyphList", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Lsun/font/GlyphList;II)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(DrawGlyphList, DrawGlyphList$, void, $SunGraphics2D*, $SurfaceData*, $GlyphList*, int32_t, int32_t)},
+		{"locate", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/DrawGlyphList;", nullptr, $PUBLIC | $STATIC, $staticMethod(DrawGlyphList, locate, DrawGlyphList*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"makePrimitive", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PROTECTED, $virtualMethod(DrawGlyphList, makePrimitive, $GraphicsPrimitive*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(DrawGlyphList, traceWrap, $GraphicsPrimitive*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.DrawGlyphList$TraceDrawGlyphList", "sun.java2d.loops.DrawGlyphList", "TraceDrawGlyphList", $PRIVATE | $STATIC},
+		{"sun.java2d.loops.DrawGlyphList$General", "sun.java2d.loops.DrawGlyphList", "General", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.loops.DrawGlyphList",
+		"sun.java2d.loops.GraphicsPrimitive",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.DrawGlyphList$TraceDrawGlyphList,sun.java2d.loops.DrawGlyphList$General"
+	};
+	$loadClass(DrawGlyphList, name, initialize, &classInfo$$, DrawGlyphList::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DrawGlyphList);
+	});
 	return class$;
 }
 

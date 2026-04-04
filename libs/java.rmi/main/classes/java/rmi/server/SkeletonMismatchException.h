@@ -14,10 +14,13 @@ class $export SkeletonMismatchException : public ::java::rmi::RemoteException {
 public:
 	SkeletonMismatchException();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x94064070618C36EF;
+	static const int64_t serialVersionUID = (int64_t)0x94064070618c36ef;
 	SkeletonMismatchException(const SkeletonMismatchException& e);
 	virtual void throw$() override;
-	inline SkeletonMismatchException* operator ->() {
+	inline SkeletonMismatchException* operator ->() const {
+		return (SkeletonMismatchException*)throwing$;
+	}
+	inline operator SkeletonMismatchException*() const {
 		return (SkeletonMismatchException*)throwing$;
 	}
 };

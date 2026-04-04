@@ -1,5 +1,4 @@
 #include <javax/swing/ListSelectionModel.h>
-
 #include <javax/swing/event/ListSelectionListener.h>
 #include <jcpp.h>
 
@@ -15,54 +14,8 @@ using $ListSelectionListener = ::javax::swing::event::ListSelectionListener;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _ListSelectionModel_FieldInfo_[] = {
-	{"SINGLE_SELECTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ListSelectionModel, SINGLE_SELECTION)},
-	{"SINGLE_INTERVAL_SELECTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ListSelectionModel, SINGLE_INTERVAL_SELECTION)},
-	{"MULTIPLE_INTERVAL_SELECTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ListSelectionModel, MULTIPLE_INTERVAL_SELECTION)},
-	{}
-};
-
-$MethodInfo _ListSelectionModel_MethodInfo_[] = {
-	{"addListSelectionListener", "(Ljavax/swing/event/ListSelectionListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, addListSelectionListener, void, $ListSelectionListener*)},
-	{"addSelectionInterval", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, addSelectionInterval, void, int32_t, int32_t)},
-	{"clearSelection", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, clearSelection, void)},
-	{"getAnchorSelectionIndex", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, getAnchorSelectionIndex, int32_t)},
-	{"getLeadSelectionIndex", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, getLeadSelectionIndex, int32_t)},
-	{"getMaxSelectionIndex", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, getMaxSelectionIndex, int32_t)},
-	{"getMinSelectionIndex", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, getMinSelectionIndex, int32_t)},
-	{"getSelectedIndices", "()[I", nullptr, $PUBLIC, $virtualMethod(ListSelectionModel, getSelectedIndices, $ints*)},
-	{"getSelectedItemsCount", "()I", nullptr, $PUBLIC, $virtualMethod(ListSelectionModel, getSelectedItemsCount, int32_t)},
-	{"getSelectionMode", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, getSelectionMode, int32_t)},
-	{"getValueIsAdjusting", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, getValueIsAdjusting, bool)},
-	{"insertIndexInterval", "(IIZ)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, insertIndexInterval, void, int32_t, int32_t, bool)},
-	{"isSelectedIndex", "(I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, isSelectedIndex, bool, int32_t)},
-	{"isSelectionEmpty", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, isSelectionEmpty, bool)},
-	{"removeIndexInterval", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, removeIndexInterval, void, int32_t, int32_t)},
-	{"removeListSelectionListener", "(Ljavax/swing/event/ListSelectionListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, removeListSelectionListener, void, $ListSelectionListener*)},
-	{"removeSelectionInterval", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, removeSelectionInterval, void, int32_t, int32_t)},
-	{"setAnchorSelectionIndex", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, setAnchorSelectionIndex, void, int32_t)},
-	{"setLeadSelectionIndex", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, setLeadSelectionIndex, void, int32_t)},
-	{"setSelectionInterval", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, setSelectionInterval, void, int32_t, int32_t)},
-	{"setSelectionMode", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, setSelectionMode, void, int32_t)},
-	{"setValueIsAdjusting", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, setValueIsAdjusting, void, bool)},
-	{}
-};
-
-$ClassInfo _ListSelectionModel_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.ListSelectionModel",
-	nullptr,
-	nullptr,
-	_ListSelectionModel_FieldInfo_,
-	_ListSelectionModel_MethodInfo_
-};
-
-$Object* allocate$ListSelectionModel($Class* clazz) {
-	return $of($alloc(ListSelectionModel));
-}
-
 $ints* ListSelectionModel::getSelectedIndices() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t iMin = getMinSelectionIndex();
 	int32_t iMax = getMaxSelectionIndex();
 	if ((iMin < 0) || (iMax < 0)) {
@@ -93,7 +46,48 @@ int32_t ListSelectionModel::getSelectedItemsCount() {
 }
 
 $Class* ListSelectionModel::load$($String* name, bool initialize) {
-	$loadClass(ListSelectionModel, name, initialize, &_ListSelectionModel_ClassInfo_, allocate$ListSelectionModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"SINGLE_SELECTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ListSelectionModel, SINGLE_SELECTION)},
+		{"SINGLE_INTERVAL_SELECTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ListSelectionModel, SINGLE_INTERVAL_SELECTION)},
+		{"MULTIPLE_INTERVAL_SELECTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ListSelectionModel, MULTIPLE_INTERVAL_SELECTION)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"addListSelectionListener", "(Ljavax/swing/event/ListSelectionListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, addListSelectionListener, void, $ListSelectionListener*)},
+		{"addSelectionInterval", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, addSelectionInterval, void, int32_t, int32_t)},
+		{"clearSelection", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, clearSelection, void)},
+		{"getAnchorSelectionIndex", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, getAnchorSelectionIndex, int32_t)},
+		{"getLeadSelectionIndex", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, getLeadSelectionIndex, int32_t)},
+		{"getMaxSelectionIndex", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, getMaxSelectionIndex, int32_t)},
+		{"getMinSelectionIndex", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, getMinSelectionIndex, int32_t)},
+		{"getSelectedIndices", "()[I", nullptr, $PUBLIC, $virtualMethod(ListSelectionModel, getSelectedIndices, $ints*)},
+		{"getSelectedItemsCount", "()I", nullptr, $PUBLIC, $virtualMethod(ListSelectionModel, getSelectedItemsCount, int32_t)},
+		{"getSelectionMode", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, getSelectionMode, int32_t)},
+		{"getValueIsAdjusting", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, getValueIsAdjusting, bool)},
+		{"insertIndexInterval", "(IIZ)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, insertIndexInterval, void, int32_t, int32_t, bool)},
+		{"isSelectedIndex", "(I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, isSelectedIndex, bool, int32_t)},
+		{"isSelectionEmpty", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, isSelectionEmpty, bool)},
+		{"removeIndexInterval", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, removeIndexInterval, void, int32_t, int32_t)},
+		{"removeListSelectionListener", "(Ljavax/swing/event/ListSelectionListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, removeListSelectionListener, void, $ListSelectionListener*)},
+		{"removeSelectionInterval", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, removeSelectionInterval, void, int32_t, int32_t)},
+		{"setAnchorSelectionIndex", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, setAnchorSelectionIndex, void, int32_t)},
+		{"setLeadSelectionIndex", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, setLeadSelectionIndex, void, int32_t)},
+		{"setSelectionInterval", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, setSelectionInterval, void, int32_t, int32_t)},
+		{"setSelectionMode", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, setSelectionMode, void, int32_t)},
+		{"setValueIsAdjusting", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListSelectionModel, setValueIsAdjusting, void, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.ListSelectionModel",
+		nullptr,
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ListSelectionModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ListSelectionModel);
+	});
 	return class$;
 }
 

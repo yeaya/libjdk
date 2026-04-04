@@ -46,6 +46,7 @@ namespace com {
 class Constants : public ::java::lang::Object {
 	$interface(Constants, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	static const int32_t ANY = (-1);
 	static const int32_t ATTRIBUTE = (-2);
 	static const int32_t ROOT = 0; // DTM.ROOT_NODE

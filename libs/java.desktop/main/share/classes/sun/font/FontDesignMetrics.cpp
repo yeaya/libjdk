@@ -1,5 +1,4 @@
 #include <sun/font/FontDesignMetrics.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
 #include <java/awt/GraphicsConfiguration.h>
@@ -32,8 +31,6 @@
 using $FontDesignMetricsArray = $Array<::sun::font::FontDesignMetrics>;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
-using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
-using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $FontRenderContext = ::java::awt::font::FontRenderContext;
 using $TextLayout = ::java::awt::font::TextLayout;
@@ -56,94 +53,12 @@ using $CompositeFont = ::sun::font::CompositeFont;
 using $Font2D = ::sun::font::Font2D;
 using $FontDesignMetrics$KeyReference = ::sun::font::FontDesignMetrics$KeyReference;
 using $FontDesignMetrics$MetricsKey = ::sun::font::FontDesignMetrics$MetricsKey;
-using $FontStrike = ::sun::font::FontStrike;
 using $FontUtilities = ::sun::font::FontUtilities;
 using $StrikeMetrics = ::sun::font::StrikeMetrics;
 using $SunFontManager = ::sun::font::SunFontManager;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _FontDesignMetrics_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontDesignMetrics, serialVersionUID)},
-	{"UNKNOWN_WIDTH", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FontDesignMetrics, UNKNOWN_WIDTH)},
-	{"CURRENT_VERSION", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontDesignMetrics, CURRENT_VERSION)},
-	{"roundingUpValue", "F", nullptr, $PRIVATE | $STATIC, $staticField(FontDesignMetrics, roundingUpValue)},
-	{"font", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(FontDesignMetrics, font)},
-	{"ascent", "F", nullptr, $PRIVATE, $field(FontDesignMetrics, ascent)},
-	{"descent", "F", nullptr, $PRIVATE, $field(FontDesignMetrics, descent)},
-	{"leading", "F", nullptr, $PRIVATE, $field(FontDesignMetrics, leading)},
-	{"maxAdvance", "F", nullptr, $PRIVATE, $field(FontDesignMetrics, maxAdvance)},
-	{"matrix", "[D", nullptr, $PRIVATE, $field(FontDesignMetrics, matrix)},
-	{"cache", "[I", nullptr, $PRIVATE, $field(FontDesignMetrics, cache)},
-	{"serVersion", "I", nullptr, $PRIVATE, $field(FontDesignMetrics, serVersion)},
-	{"isAntiAliased", "Z", nullptr, $PRIVATE, $field(FontDesignMetrics, isAntiAliased)},
-	{"usesFractionalMetrics", "Z", nullptr, $PRIVATE, $field(FontDesignMetrics, usesFractionalMetrics)},
-	{"frcTx", "Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE, $field(FontDesignMetrics, frcTx)},
-	{"advCache", "[F", nullptr, $PRIVATE | $TRANSIENT, $field(FontDesignMetrics, advCache)},
-	{"height", "I", nullptr, $PRIVATE | $TRANSIENT, $field(FontDesignMetrics, height)},
-	{"frc", "Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE | $TRANSIENT, $field(FontDesignMetrics, frc)},
-	{"devmatrix", "[D", nullptr, $PRIVATE | $TRANSIENT, $field(FontDesignMetrics, devmatrix)},
-	{"fontStrike", "Lsun/font/FontStrike;", nullptr, $PRIVATE | $TRANSIENT, $field(FontDesignMetrics, fontStrike)},
-	{"DEFAULT_FRC", "Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE | $STATIC, $staticField(FontDesignMetrics, DEFAULT_FRC)},
-	{"metricsCache", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/Object;Lsun/font/FontDesignMetrics$KeyReference;>;", $PRIVATE | $STATIC | $FINAL, $staticField(FontDesignMetrics, metricsCache)},
-	{"MAXRECENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontDesignMetrics, MAXRECENT)},
-	{"recentMetrics", "[Lsun/font/FontDesignMetrics;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FontDesignMetrics, recentMetrics)},
-	{"recentIndex", "I", nullptr, $PRIVATE | $STATIC, $staticField(FontDesignMetrics, recentIndex)},
-	{}
-};
-
-$MethodInfo _FontDesignMetrics_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Font;)V", nullptr, $PRIVATE, $method(FontDesignMetrics, init$, void, $Font*)},
-	{"<init>", "(Ljava/awt/Font;Ljava/awt/font/FontRenderContext;)V", nullptr, $PRIVATE, $method(FontDesignMetrics, init$, void, $Font*, $FontRenderContext*)},
-	{"charWidth", "(C)I", nullptr, $PUBLIC, $virtualMethod(FontDesignMetrics, charWidth, int32_t, char16_t)},
-	{"charWidth", "(I)I", nullptr, $PUBLIC, $virtualMethod(FontDesignMetrics, charWidth, int32_t, int32_t)},
-	{"charsWidth", "([CII)I", nullptr, $PUBLIC, $virtualMethod(FontDesignMetrics, charsWidth, int32_t, $chars*, int32_t, int32_t)},
-	{"getAscent", "()I", nullptr, $PUBLIC, $virtualMethod(FontDesignMetrics, getAscent, int32_t)},
-	{"getDefaultFrc", "()Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE | $STATIC, $staticMethod(FontDesignMetrics, getDefaultFrc, $FontRenderContext*)},
-	{"getDescent", "()I", nullptr, $PUBLIC, $virtualMethod(FontDesignMetrics, getDescent, int32_t)},
-	{"getFontRenderContext", "()Ljava/awt/font/FontRenderContext;", nullptr, $PUBLIC, $virtualMethod(FontDesignMetrics, getFontRenderContext, $FontRenderContext*)},
-	{"getHeight", "()I", nullptr, $PUBLIC, $virtualMethod(FontDesignMetrics, getHeight, int32_t)},
-	{"getLatinCharWidth", "(C)F", nullptr, $PRIVATE, $method(FontDesignMetrics, getLatinCharWidth, float, char16_t)},
-	{"getLeading", "()I", nullptr, $PUBLIC, $virtualMethod(FontDesignMetrics, getLeading, int32_t)},
-	{"getMaxAdvance", "()I", nullptr, $PUBLIC, $virtualMethod(FontDesignMetrics, getMaxAdvance, int32_t)},
-	{"getMetrics", "(Ljava/awt/Font;)Lsun/font/FontDesignMetrics;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontDesignMetrics, getMetrics, FontDesignMetrics*, $Font*)},
-	{"getMetrics", "(Ljava/awt/Font;Ljava/awt/font/FontRenderContext;)Lsun/font/FontDesignMetrics;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontDesignMetrics, getMetrics, FontDesignMetrics*, $Font*, $FontRenderContext*)},
-	{"getSimpleBounds", "([CII)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $method(FontDesignMetrics, getSimpleBounds, $Rectangle2D*, $chars*, int32_t, int32_t)},
-	{"getWidths", "()[I", nullptr, $PUBLIC, $virtualMethod(FontDesignMetrics, getWidths, $ints*)},
-	{"handleCharWidth", "(I)F", nullptr, $PRIVATE, $method(FontDesignMetrics, handleCharWidth, float, int32_t)},
-	{"initAdvCache", "()V", nullptr, $PRIVATE, $method(FontDesignMetrics, initAdvCache, void)},
-	{"initMatrixAndMetrics", "()V", nullptr, $PRIVATE, $method(FontDesignMetrics, initMatrixAndMetrics, void)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(FontDesignMetrics, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"stringWidth", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(FontDesignMetrics, stringWidth, int32_t, $String*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(FontDesignMetrics, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _FontDesignMetrics_InnerClassesInfo_[] = {
-	{"sun.font.FontDesignMetrics$MetricsKey", "sun.font.FontDesignMetrics", "MetricsKey", $PRIVATE | $STATIC},
-	{"sun.font.FontDesignMetrics$KeyReference", "sun.font.FontDesignMetrics", "KeyReference", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _FontDesignMetrics_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.font.FontDesignMetrics",
-	"java.awt.FontMetrics",
-	nullptr,
-	_FontDesignMetrics_FieldInfo_,
-	_FontDesignMetrics_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FontDesignMetrics_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.font.FontDesignMetrics$MetricsKey,sun.font.FontDesignMetrics$KeyReference"
-};
-
-$Object* allocate$FontDesignMetrics($Class* clazz) {
-	return $of($alloc(FontDesignMetrics));
-}
 
 float FontDesignMetrics::UNKNOWN_WIDTH = 0.0;
 float FontDesignMetrics::roundingUpValue = 0.0;
@@ -154,13 +69,13 @@ int32_t FontDesignMetrics::recentIndex = 0;
 
 $FontRenderContext* FontDesignMetrics::getDefaultFrc() {
 	$init(FontDesignMetrics);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (FontDesignMetrics::DEFAULT_FRC == nullptr) {
 		$var($AffineTransform, tx, nullptr);
 		if ($GraphicsEnvironment::isHeadless()) {
 			$assign(tx, $new($AffineTransform));
 		} else {
-			$assign(tx, $nc($($nc($($nc($($GraphicsEnvironment::getLocalGraphicsEnvironment()))->getDefaultScreenDevice()))->getDefaultConfiguration()))->getDefaultTransform());
+			$assign(tx, $$nc($$nc($$nc($GraphicsEnvironment::getLocalGraphicsEnvironment())->getDefaultScreenDevice())->getDefaultConfiguration())->getDefaultTransform());
 		}
 		$assignStatic(FontDesignMetrics::DEFAULT_FRC, $new($FontRenderContext, tx, false, false));
 	}
@@ -174,7 +89,7 @@ FontDesignMetrics* FontDesignMetrics::getMetrics($Font* font) {
 
 FontDesignMetrics* FontDesignMetrics::getMetrics($Font* font, $FontRenderContext* frc) {
 	$init(FontDesignMetrics);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SunFontManager, fm, $SunFontManager::getInstance());
 	bool var$0 = $nc(fm)->usingAlternateCompositeFonts();
 	if (var$0 && $instanceOf($CompositeFont, $($FontUtilities::getFont2D(font)))) {
@@ -184,13 +99,13 @@ FontDesignMetrics* FontDesignMetrics::getMetrics($Font* font, $FontRenderContext
 	$var($FontDesignMetrics$KeyReference, r, nullptr);
 	bool usefontkey = $nc(frc)->equals($(getDefaultFrc()));
 	if (usefontkey) {
-		$assign(r, $cast($FontDesignMetrics$KeyReference, $nc(FontDesignMetrics::metricsCache)->get(font)));
+		$assign(r, $cast($FontDesignMetrics$KeyReference, FontDesignMetrics::metricsCache->get(font)));
 	} else {
 		$load($FontDesignMetrics$MetricsKey);
 		$synchronized($FontDesignMetrics$MetricsKey::class$) {
 			$init($FontDesignMetrics$MetricsKey);
 			$nc($FontDesignMetrics$MetricsKey::key)->init(font, frc);
-			$assign(r, $cast($FontDesignMetrics$KeyReference, $nc(FontDesignMetrics::metricsCache)->get($FontDesignMetrics$MetricsKey::key)));
+			$assign(r, $cast($FontDesignMetrics$KeyReference, FontDesignMetrics::metricsCache->get($FontDesignMetrics$MetricsKey::key)));
 		}
 	}
 	if (r != nullptr) {
@@ -199,19 +114,19 @@ FontDesignMetrics* FontDesignMetrics::getMetrics($Font* font, $FontRenderContext
 	if (m == nullptr) {
 		$assign(m, $new(FontDesignMetrics, font, frc));
 		if (usefontkey) {
-			$nc(FontDesignMetrics::metricsCache)->put(font, $$new($FontDesignMetrics$KeyReference, font, m));
+			FontDesignMetrics::metricsCache->put(font, $$new($FontDesignMetrics$KeyReference, font, m));
 		} else {
 			$var($FontDesignMetrics$MetricsKey, newKey, $new($FontDesignMetrics$MetricsKey, font, frc));
-			$nc(FontDesignMetrics::metricsCache)->put(newKey, $$new($FontDesignMetrics$KeyReference, newKey, m));
+			FontDesignMetrics::metricsCache->put(newKey, $$new($FontDesignMetrics$KeyReference, newKey, m));
 		}
 	}
-	for (int32_t i = 0; i < $nc(FontDesignMetrics::recentMetrics)->length; ++i) {
-		if ($nc(FontDesignMetrics::recentMetrics)->get(i) == m) {
+	for (int32_t i = 0; i < FontDesignMetrics::recentMetrics->length; ++i) {
+		if (FontDesignMetrics::recentMetrics->get(i) == m) {
 			return m;
 		}
 	}
 	$synchronized(FontDesignMetrics::recentMetrics) {
-		$nc(FontDesignMetrics::recentMetrics)->set(FontDesignMetrics::recentIndex++, m);
+		FontDesignMetrics::recentMetrics->set(FontDesignMetrics::recentIndex++, m);
 		if (FontDesignMetrics::recentIndex == FontDesignMetrics::MAXRECENT) {
 			FontDesignMetrics::recentIndex = 0;
 		}
@@ -239,7 +154,7 @@ void FontDesignMetrics::init$($Font* font, $FontRenderContext* frc) {
 }
 
 void FontDesignMetrics::initMatrixAndMetrics() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Font2D, font2D, $FontUtilities::getFont2D(this->font));
 	$set(this, fontStrike, $nc(font2D)->getStrike(this->font, this->frc));
 	$var($StrikeMetrics, metrics, $nc(this->fontStrike)->getFontMetrics());
@@ -254,7 +169,7 @@ void FontDesignMetrics::initMatrixAndMetrics() {
 void FontDesignMetrics::initAdvCache() {
 	$set(this, advCache, $new($floats, 256));
 	for (int32_t i = 0; i < 256; ++i) {
-		$nc(this->advCache)->set(i, FontDesignMetrics::UNKNOWN_WIDTH);
+		this->advCache->set(i, FontDesignMetrics::UNKNOWN_WIDTH);
 	}
 }
 
@@ -277,7 +192,7 @@ void FontDesignMetrics::readObject($ObjectInputStream* in) {
 void FontDesignMetrics::writeObject($ObjectOutputStream* out) {
 	$set(this, cache, $new($ints, 256));
 	for (int32_t i = 0; i < 256; ++i) {
-		$nc(this->cache)->set(i, -1);
+		this->cache->set(i, -1);
 	}
 	this->serVersion = FontDesignMetrics::CURRENT_VERSION;
 	$nc(out)->defaultWriteObject();
@@ -313,15 +228,15 @@ int32_t FontDesignMetrics::charWidth(char16_t ch) {
 
 int32_t FontDesignMetrics::charWidth(int32_t ch) {
 	if (!$Character::isValidCodePoint(ch)) {
-		ch = 0x0000FFFF;
+		ch = 0x0000ffff;
 	}
 	float w = handleCharWidth(ch);
 	return $cast(int32_t, (0.5 + w));
 }
 
 int32_t FontDesignMetrics::stringWidth($String* str) {
-	$useLocalCurrentObjectStackCache();
-	float width = (float)0;
+	$useLocalObjectStack();
+	float width = 0;
 	if ($nc(this->font)->hasLayoutAttributes()) {
 		if (str == nullptr) {
 			$throwNew($NullPointerException, "str is null"_s);
@@ -348,8 +263,8 @@ int32_t FontDesignMetrics::stringWidth($String* str) {
 }
 
 int32_t FontDesignMetrics::charsWidth($chars* data, int32_t off, int32_t len) {
-	$useLocalCurrentObjectStackCache();
-	float width = (float)0;
+	$useLocalObjectStack();
+	float width = 0;
 	if ($nc(this->font)->hasLayoutAttributes()) {
 		if (len == 0) {
 			return 0;
@@ -378,7 +293,7 @@ int32_t FontDesignMetrics::charsWidth($chars* data, int32_t off, int32_t len) {
 }
 
 $Rectangle2D* FontDesignMetrics::getSimpleBounds($chars* data, int32_t off, int32_t len) {
-	float width = (float)0;
+	float width = 0;
 	int32_t limit = off + len;
 	for (int32_t i = off; i < limit; ++i) {
 		char16_t ch = $nc(data)->get(i);
@@ -394,10 +309,10 @@ $Rectangle2D* FontDesignMetrics::getSimpleBounds($chars* data, int32_t off, int3
 
 $ints* FontDesignMetrics::getWidths() {
 	$var($ints, widths, $new($ints, 256));
-	for (char16_t ch = (char16_t)0; ch < 256; ++ch) {
+	for (char16_t ch = 0; ch < 256; ++ch) {
 		float w = $nc(this->advCache)->get(ch);
 		if (w == FontDesignMetrics::UNKNOWN_WIDTH) {
-			w = ($nc(this->advCache)->set(ch, handleCharWidth(ch)));
+			w = (this->advCache->set(ch, handleCharWidth(ch)));
 		}
 		widths->set(ch, $cast(int32_t, (0.5 + w)));
 	}
@@ -427,8 +342,8 @@ int32_t FontDesignMetrics::getHeight() {
 	return this->height;
 }
 
-void clinit$FontDesignMetrics($Class* class$) {
-	FontDesignMetrics::UNKNOWN_WIDTH = (float)-1;
+void FontDesignMetrics::clinit$($Class* clazz) {
+	FontDesignMetrics::UNKNOWN_WIDTH = -1;
 	FontDesignMetrics::roundingUpValue = 0.95f;
 	$assignStatic(FontDesignMetrics::DEFAULT_FRC, nullptr);
 	$assignStatic(FontDesignMetrics::metricsCache, $new($ConcurrentHashMap));
@@ -440,7 +355,82 @@ FontDesignMetrics::FontDesignMetrics() {
 }
 
 $Class* FontDesignMetrics::load$($String* name, bool initialize) {
-	$loadClass(FontDesignMetrics, name, initialize, &_FontDesignMetrics_ClassInfo_, clinit$FontDesignMetrics, allocate$FontDesignMetrics);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontDesignMetrics, serialVersionUID)},
+		{"UNKNOWN_WIDTH", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FontDesignMetrics, UNKNOWN_WIDTH)},
+		{"CURRENT_VERSION", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontDesignMetrics, CURRENT_VERSION)},
+		{"roundingUpValue", "F", nullptr, $PRIVATE | $STATIC, $staticField(FontDesignMetrics, roundingUpValue)},
+		{"font", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(FontDesignMetrics, font)},
+		{"ascent", "F", nullptr, $PRIVATE, $field(FontDesignMetrics, ascent)},
+		{"descent", "F", nullptr, $PRIVATE, $field(FontDesignMetrics, descent)},
+		{"leading", "F", nullptr, $PRIVATE, $field(FontDesignMetrics, leading)},
+		{"maxAdvance", "F", nullptr, $PRIVATE, $field(FontDesignMetrics, maxAdvance)},
+		{"matrix", "[D", nullptr, $PRIVATE, $field(FontDesignMetrics, matrix)},
+		{"cache", "[I", nullptr, $PRIVATE, $field(FontDesignMetrics, cache)},
+		{"serVersion", "I", nullptr, $PRIVATE, $field(FontDesignMetrics, serVersion)},
+		{"isAntiAliased", "Z", nullptr, $PRIVATE, $field(FontDesignMetrics, isAntiAliased)},
+		{"usesFractionalMetrics", "Z", nullptr, $PRIVATE, $field(FontDesignMetrics, usesFractionalMetrics)},
+		{"frcTx", "Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE, $field(FontDesignMetrics, frcTx)},
+		{"advCache", "[F", nullptr, $PRIVATE | $TRANSIENT, $field(FontDesignMetrics, advCache)},
+		{"height", "I", nullptr, $PRIVATE | $TRANSIENT, $field(FontDesignMetrics, height)},
+		{"frc", "Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE | $TRANSIENT, $field(FontDesignMetrics, frc)},
+		{"devmatrix", "[D", nullptr, $PRIVATE | $TRANSIENT, $field(FontDesignMetrics, devmatrix)},
+		{"fontStrike", "Lsun/font/FontStrike;", nullptr, $PRIVATE | $TRANSIENT, $field(FontDesignMetrics, fontStrike)},
+		{"DEFAULT_FRC", "Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE | $STATIC, $staticField(FontDesignMetrics, DEFAULT_FRC)},
+		{"metricsCache", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/Object;Lsun/font/FontDesignMetrics$KeyReference;>;", $PRIVATE | $STATIC | $FINAL, $staticField(FontDesignMetrics, metricsCache)},
+		{"MAXRECENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontDesignMetrics, MAXRECENT)},
+		{"recentMetrics", "[Lsun/font/FontDesignMetrics;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FontDesignMetrics, recentMetrics)},
+		{"recentIndex", "I", nullptr, $PRIVATE | $STATIC, $staticField(FontDesignMetrics, recentIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Font;)V", nullptr, $PRIVATE, $method(FontDesignMetrics, init$, void, $Font*)},
+		{"<init>", "(Ljava/awt/Font;Ljava/awt/font/FontRenderContext;)V", nullptr, $PRIVATE, $method(FontDesignMetrics, init$, void, $Font*, $FontRenderContext*)},
+		{"charWidth", "(C)I", nullptr, $PUBLIC, $virtualMethod(FontDesignMetrics, charWidth, int32_t, char16_t)},
+		{"charWidth", "(I)I", nullptr, $PUBLIC, $virtualMethod(FontDesignMetrics, charWidth, int32_t, int32_t)},
+		{"charsWidth", "([CII)I", nullptr, $PUBLIC, $virtualMethod(FontDesignMetrics, charsWidth, int32_t, $chars*, int32_t, int32_t)},
+		{"getAscent", "()I", nullptr, $PUBLIC, $virtualMethod(FontDesignMetrics, getAscent, int32_t)},
+		{"getDefaultFrc", "()Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE | $STATIC, $staticMethod(FontDesignMetrics, getDefaultFrc, $FontRenderContext*)},
+		{"getDescent", "()I", nullptr, $PUBLIC, $virtualMethod(FontDesignMetrics, getDescent, int32_t)},
+		{"getFontRenderContext", "()Ljava/awt/font/FontRenderContext;", nullptr, $PUBLIC, $virtualMethod(FontDesignMetrics, getFontRenderContext, $FontRenderContext*)},
+		{"getHeight", "()I", nullptr, $PUBLIC, $virtualMethod(FontDesignMetrics, getHeight, int32_t)},
+		{"getLatinCharWidth", "(C)F", nullptr, $PRIVATE, $method(FontDesignMetrics, getLatinCharWidth, float, char16_t)},
+		{"getLeading", "()I", nullptr, $PUBLIC, $virtualMethod(FontDesignMetrics, getLeading, int32_t)},
+		{"getMaxAdvance", "()I", nullptr, $PUBLIC, $virtualMethod(FontDesignMetrics, getMaxAdvance, int32_t)},
+		{"getMetrics", "(Ljava/awt/Font;)Lsun/font/FontDesignMetrics;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontDesignMetrics, getMetrics, FontDesignMetrics*, $Font*)},
+		{"getMetrics", "(Ljava/awt/Font;Ljava/awt/font/FontRenderContext;)Lsun/font/FontDesignMetrics;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontDesignMetrics, getMetrics, FontDesignMetrics*, $Font*, $FontRenderContext*)},
+		{"getSimpleBounds", "([CII)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $method(FontDesignMetrics, getSimpleBounds, $Rectangle2D*, $chars*, int32_t, int32_t)},
+		{"getWidths", "()[I", nullptr, $PUBLIC, $virtualMethod(FontDesignMetrics, getWidths, $ints*)},
+		{"handleCharWidth", "(I)F", nullptr, $PRIVATE, $method(FontDesignMetrics, handleCharWidth, float, int32_t)},
+		{"initAdvCache", "()V", nullptr, $PRIVATE, $method(FontDesignMetrics, initAdvCache, void)},
+		{"initMatrixAndMetrics", "()V", nullptr, $PRIVATE, $method(FontDesignMetrics, initMatrixAndMetrics, void)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(FontDesignMetrics, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"stringWidth", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(FontDesignMetrics, stringWidth, int32_t, $String*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(FontDesignMetrics, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.FontDesignMetrics$MetricsKey", "sun.font.FontDesignMetrics", "MetricsKey", $PRIVATE | $STATIC},
+		{"sun.font.FontDesignMetrics$KeyReference", "sun.font.FontDesignMetrics", "KeyReference", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.font.FontDesignMetrics",
+		"java.awt.FontMetrics",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.font.FontDesignMetrics$MetricsKey,sun.font.FontDesignMetrics$KeyReference"
+	};
+	$loadClass(FontDesignMetrics, name, initialize, &classInfo$$, FontDesignMetrics::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FontDesignMetrics);
+	});
 	return class$;
 }
 

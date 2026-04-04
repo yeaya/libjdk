@@ -1,5 +1,4 @@
 #include <java/awt/image/LookupTable.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,34 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 		namespace image {
-
-$FieldInfo _LookupTable_FieldInfo_[] = {
-	{"numComponents", "I", nullptr, 0, $field(LookupTable, numComponents)},
-	{"offset", "I", nullptr, 0, $field(LookupTable, offset)},
-	{"numEntries", "I", nullptr, 0, $field(LookupTable, numEntries)},
-	{}
-};
-
-$MethodInfo _LookupTable_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PROTECTED, $method(LookupTable, init$, void, int32_t, int32_t)},
-	{"getNumComponents", "()I", nullptr, $PUBLIC, $virtualMethod(LookupTable, getNumComponents, int32_t)},
-	{"getOffset", "()I", nullptr, $PUBLIC, $virtualMethod(LookupTable, getOffset, int32_t)},
-	{"lookupPixel", "([I[I)[I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LookupTable, lookupPixel, $ints*, $ints*, $ints*)},
-	{}
-};
-
-$ClassInfo _LookupTable_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.image.LookupTable",
-	"java.lang.Object",
-	nullptr,
-	_LookupTable_FieldInfo_,
-	_LookupTable_MethodInfo_
-};
-
-$Object* allocate$LookupTable($Class* clazz) {
-	return $of($alloc(LookupTable));
-}
 
 void LookupTable::init$(int32_t offset, int32_t numComponents) {
 	if (offset < 0) {
@@ -62,7 +33,30 @@ LookupTable::LookupTable() {
 }
 
 $Class* LookupTable::load$($String* name, bool initialize) {
-	$loadClass(LookupTable, name, initialize, &_LookupTable_ClassInfo_, allocate$LookupTable);
+	$FieldInfo fieldInfos$$[] = {
+		{"numComponents", "I", nullptr, 0, $field(LookupTable, numComponents)},
+		{"offset", "I", nullptr, 0, $field(LookupTable, offset)},
+		{"numEntries", "I", nullptr, 0, $field(LookupTable, numEntries)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II)V", nullptr, $PROTECTED, $method(LookupTable, init$, void, int32_t, int32_t)},
+		{"getNumComponents", "()I", nullptr, $PUBLIC, $virtualMethod(LookupTable, getNumComponents, int32_t)},
+		{"getOffset", "()I", nullptr, $PUBLIC, $virtualMethod(LookupTable, getOffset, int32_t)},
+		{"lookupPixel", "([I[I)[I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LookupTable, lookupPixel, $ints*, $ints*, $ints*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.image.LookupTable",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LookupTable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LookupTable);
+	});
 	return class$;
 }
 

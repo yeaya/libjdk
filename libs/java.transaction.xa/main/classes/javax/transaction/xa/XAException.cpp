@@ -1,5 +1,4 @@
 #include <javax/transaction/xa/XAException.h>
-
 #include <jcpp.h>
 
 #undef XAER_ASYNC
@@ -37,57 +36,6 @@ namespace javax {
 	namespace transaction {
 		namespace xa {
 
-$FieldInfo _XAException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XAException, serialVersionUID)},
-	{"errorCode", "I", nullptr, $PUBLIC, $field(XAException, errorCode)},
-	{"XA_RBBASE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_RBBASE)},
-	{"XA_RBROLLBACK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_RBROLLBACK)},
-	{"XA_RBCOMMFAIL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_RBCOMMFAIL)},
-	{"XA_RBDEADLOCK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_RBDEADLOCK)},
-	{"XA_RBINTEGRITY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_RBINTEGRITY)},
-	{"XA_RBOTHER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_RBOTHER)},
-	{"XA_RBPROTO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_RBPROTO)},
-	{"XA_RBTIMEOUT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_RBTIMEOUT)},
-	{"XA_RBTRANSIENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_RBTRANSIENT)},
-	{"XA_RBEND", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_RBEND)},
-	{"XA_NOMIGRATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_NOMIGRATE)},
-	{"XA_HEURHAZ", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_HEURHAZ)},
-	{"XA_HEURCOM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_HEURCOM)},
-	{"XA_HEURRB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_HEURRB)},
-	{"XA_HEURMIX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_HEURMIX)},
-	{"XA_RETRY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_RETRY)},
-	{"XA_RDONLY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_RDONLY)},
-	{"XAER_ASYNC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XAER_ASYNC)},
-	{"XAER_RMERR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XAER_RMERR)},
-	{"XAER_NOTA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XAER_NOTA)},
-	{"XAER_INVAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XAER_INVAL)},
-	{"XAER_PROTO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XAER_PROTO)},
-	{"XAER_RMFAIL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XAER_RMFAIL)},
-	{"XAER_DUPID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XAER_DUPID)},
-	{"XAER_OUTSIDE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XAER_OUTSIDE)},
-	{}
-};
-
-$MethodInfo _XAException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XAException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XAException, init$, void, $String*)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(XAException, init$, void, int32_t)},
-	{}
-};
-
-$ClassInfo _XAException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.transaction.xa.XAException",
-	"java.lang.Exception",
-	nullptr,
-	_XAException_FieldInfo_,
-	_XAException_MethodInfo_
-};
-
-$Object* allocate$XAException($Class* clazz) {
-	return $of($alloc(XAException));
-}
-
 void XAException::init$() {
 	$Exception::init$();
 }
@@ -112,7 +60,53 @@ void XAException::throw$() {
 }
 
 $Class* XAException::load$($String* name, bool initialize) {
-	$loadClass(XAException, name, initialize, &_XAException_ClassInfo_, allocate$XAException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XAException, serialVersionUID)},
+		{"errorCode", "I", nullptr, $PUBLIC, $field(XAException, errorCode)},
+		{"XA_RBBASE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_RBBASE)},
+		{"XA_RBROLLBACK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_RBROLLBACK)},
+		{"XA_RBCOMMFAIL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_RBCOMMFAIL)},
+		{"XA_RBDEADLOCK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_RBDEADLOCK)},
+		{"XA_RBINTEGRITY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_RBINTEGRITY)},
+		{"XA_RBOTHER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_RBOTHER)},
+		{"XA_RBPROTO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_RBPROTO)},
+		{"XA_RBTIMEOUT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_RBTIMEOUT)},
+		{"XA_RBTRANSIENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_RBTRANSIENT)},
+		{"XA_RBEND", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_RBEND)},
+		{"XA_NOMIGRATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_NOMIGRATE)},
+		{"XA_HEURHAZ", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_HEURHAZ)},
+		{"XA_HEURCOM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_HEURCOM)},
+		{"XA_HEURRB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_HEURRB)},
+		{"XA_HEURMIX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_HEURMIX)},
+		{"XA_RETRY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_RETRY)},
+		{"XA_RDONLY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XA_RDONLY)},
+		{"XAER_ASYNC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XAER_ASYNC)},
+		{"XAER_RMERR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XAER_RMERR)},
+		{"XAER_NOTA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XAER_NOTA)},
+		{"XAER_INVAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XAER_INVAL)},
+		{"XAER_PROTO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XAER_PROTO)},
+		{"XAER_RMFAIL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XAER_RMFAIL)},
+		{"XAER_DUPID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XAER_DUPID)},
+		{"XAER_OUTSIDE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XAException, XAER_OUTSIDE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XAException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XAException, init$, void, $String*)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(XAException, init$, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.transaction.xa.XAException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XAException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XAException);
+	});
 	return class$;
 }
 

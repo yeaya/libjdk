@@ -1,5 +1,4 @@
 #include <java/beans/ThreadGroupContext.h>
-
 #include <com/sun/beans/finder/BeanInfoFinder.h>
 #include <com/sun/beans/finder/PropertyEditorFinder.h>
 #include <java/awt/GraphicsEnvironment.h>
@@ -22,68 +21,17 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
 using $WeakHashMap = ::java::util::WeakHashMap;
 
 namespace java {
 	namespace beans {
 
-$FieldInfo _ThreadGroupContext_FieldInfo_[] = {
-	{"contexts", "Ljava/beans/WeakIdentityMap;", "Ljava/beans/WeakIdentityMap<Ljava/beans/ThreadGroupContext;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ThreadGroupContext, contexts)},
-	{"isDesignTime", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ThreadGroupContext, isDesignTime$)},
-	{"isGuiAvailable", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $VOLATILE, $field(ThreadGroupContext, isGuiAvailable$)},
-	{"beanInfoCache", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/beans/BeanInfo;>;", $PRIVATE, $field(ThreadGroupContext, beanInfoCache)},
-	{"beanInfoFinder", "Lcom/sun/beans/finder/BeanInfoFinder;", nullptr, $PRIVATE, $field(ThreadGroupContext, beanInfoFinder)},
-	{"propertyEditorFinder", "Lcom/sun/beans/finder/PropertyEditorFinder;", nullptr, $PRIVATE, $field(ThreadGroupContext, propertyEditorFinder)},
-	{}
-};
-
-$MethodInfo _ThreadGroupContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ThreadGroupContext, init$, void)},
-	{"clearBeanInfoCache", "()V", nullptr, $SYNCHRONIZED, $method(ThreadGroupContext, clearBeanInfoCache, void)},
-	{"getBeanInfo", "(Ljava/lang/Class;)Ljava/beans/BeanInfo;", "(Ljava/lang/Class<*>;)Ljava/beans/BeanInfo;", $SYNCHRONIZED, $method(ThreadGroupContext, getBeanInfo, $BeanInfo*, $Class*)},
-	{"getBeanInfoFinder", "()Lcom/sun/beans/finder/BeanInfoFinder;", nullptr, $SYNCHRONIZED, $method(ThreadGroupContext, getBeanInfoFinder, $BeanInfoFinder*)},
-	{"getContext", "()Ljava/beans/ThreadGroupContext;", nullptr, $STATIC, $staticMethod(ThreadGroupContext, getContext, ThreadGroupContext*)},
-	{"getPropertyEditorFinder", "()Lcom/sun/beans/finder/PropertyEditorFinder;", nullptr, $SYNCHRONIZED, $method(ThreadGroupContext, getPropertyEditorFinder, $PropertyEditorFinder*)},
-	{"isDesignTime", "()Z", nullptr, 0, $method(ThreadGroupContext, isDesignTime, bool)},
-	{"isGuiAvailable", "()Z", nullptr, 0, $method(ThreadGroupContext, isGuiAvailable, bool)},
-	{"putBeanInfo", "(Ljava/lang/Class;Ljava/beans/BeanInfo;)Ljava/beans/BeanInfo;", "(Ljava/lang/Class<*>;Ljava/beans/BeanInfo;)Ljava/beans/BeanInfo;", $SYNCHRONIZED, $method(ThreadGroupContext, putBeanInfo, $BeanInfo*, $Class*, $BeanInfo*)},
-	{"removeBeanInfo", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $SYNCHRONIZED, $method(ThreadGroupContext, removeBeanInfo, void, $Class*)},
-	{"setDesignTime", "(Z)V", nullptr, 0, $method(ThreadGroupContext, setDesignTime, void, bool)},
-	{"setGuiAvailable", "(Z)V", nullptr, 0, $method(ThreadGroupContext, setGuiAvailable, void, bool)},
-	{}
-};
-
-$InnerClassInfo _ThreadGroupContext_InnerClassesInfo_[] = {
-	{"java.beans.ThreadGroupContext$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ThreadGroupContext_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.beans.ThreadGroupContext",
-	"java.lang.Object",
-	nullptr,
-	_ThreadGroupContext_FieldInfo_,
-	_ThreadGroupContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ThreadGroupContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.beans.ThreadGroupContext$1"
-};
-
-$Object* allocate$ThreadGroupContext($Class* clazz) {
-	return $of($alloc(ThreadGroupContext));
-}
-
 $WeakIdentityMap* ThreadGroupContext::contexts = nullptr;
 
 ThreadGroupContext* ThreadGroupContext::getContext() {
 	$init(ThreadGroupContext);
-	$useLocalCurrentObjectStackCache();
-	return $cast(ThreadGroupContext, $nc(ThreadGroupContext::contexts)->get($($($Thread::currentThread())->getThreadGroup())));
+	$useLocalObjectStack();
+	return $cast(ThreadGroupContext, ThreadGroupContext::contexts->get($($($Thread::currentThread())->getThreadGroup())));
 }
 
 void ThreadGroupContext::init$() {
@@ -99,7 +47,7 @@ void ThreadGroupContext::setDesignTime(bool isDesignTime) {
 
 bool ThreadGroupContext::isGuiAvailable() {
 	$var($Boolean, isGuiAvailable, this->isGuiAvailable$);
-	return (isGuiAvailable != nullptr) ? $nc(isGuiAvailable)->booleanValue() : !$GraphicsEnvironment::isHeadless();
+	return (isGuiAvailable != nullptr) ? isGuiAvailable->booleanValue() : !$GraphicsEnvironment::isHeadless();
 }
 
 void ThreadGroupContext::setGuiAvailable(bool isGuiAvailable) {
@@ -108,7 +56,7 @@ void ThreadGroupContext::setGuiAvailable(bool isGuiAvailable) {
 
 $BeanInfo* ThreadGroupContext::getBeanInfo($Class* type) {
 	$synchronized(this) {
-		return (this->beanInfoCache != nullptr) ? $cast($BeanInfo, $nc(this->beanInfoCache)->get(type)) : ($BeanInfo*)nullptr;
+		return (this->beanInfoCache != nullptr) ? $cast($BeanInfo, this->beanInfoCache->get(type)) : ($BeanInfo*)nullptr;
 	}
 }
 
@@ -124,7 +72,7 @@ $BeanInfo* ThreadGroupContext::putBeanInfo($Class* type, $BeanInfo* info) {
 void ThreadGroupContext::removeBeanInfo($Class* type) {
 	$synchronized(this) {
 		if (this->beanInfoCache != nullptr) {
-			$nc(this->beanInfoCache)->remove(type);
+			this->beanInfoCache->remove(type);
 		}
 	}
 }
@@ -132,7 +80,7 @@ void ThreadGroupContext::removeBeanInfo($Class* type) {
 void ThreadGroupContext::clearBeanInfoCache() {
 	$synchronized(this) {
 		if (this->beanInfoCache != nullptr) {
-			$nc(this->beanInfoCache)->clear();
+			this->beanInfoCache->clear();
 		}
 	}
 }
@@ -155,7 +103,7 @@ $PropertyEditorFinder* ThreadGroupContext::getPropertyEditorFinder() {
 	}
 }
 
-void clinit$ThreadGroupContext($Class* class$) {
+void ThreadGroupContext::clinit$($Class* clazz) {
 	$assignStatic(ThreadGroupContext::contexts, $new($ThreadGroupContext$1));
 }
 
@@ -163,7 +111,51 @@ ThreadGroupContext::ThreadGroupContext() {
 }
 
 $Class* ThreadGroupContext::load$($String* name, bool initialize) {
-	$loadClass(ThreadGroupContext, name, initialize, &_ThreadGroupContext_ClassInfo_, clinit$ThreadGroupContext, allocate$ThreadGroupContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"contexts", "Ljava/beans/WeakIdentityMap;", "Ljava/beans/WeakIdentityMap<Ljava/beans/ThreadGroupContext;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ThreadGroupContext, contexts)},
+		{"isDesignTime", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ThreadGroupContext, isDesignTime$)},
+		{"isGuiAvailable", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $VOLATILE, $field(ThreadGroupContext, isGuiAvailable$)},
+		{"beanInfoCache", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/beans/BeanInfo;>;", $PRIVATE, $field(ThreadGroupContext, beanInfoCache)},
+		{"beanInfoFinder", "Lcom/sun/beans/finder/BeanInfoFinder;", nullptr, $PRIVATE, $field(ThreadGroupContext, beanInfoFinder)},
+		{"propertyEditorFinder", "Lcom/sun/beans/finder/PropertyEditorFinder;", nullptr, $PRIVATE, $field(ThreadGroupContext, propertyEditorFinder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ThreadGroupContext, init$, void)},
+		{"clearBeanInfoCache", "()V", nullptr, $SYNCHRONIZED, $method(ThreadGroupContext, clearBeanInfoCache, void)},
+		{"getBeanInfo", "(Ljava/lang/Class;)Ljava/beans/BeanInfo;", "(Ljava/lang/Class<*>;)Ljava/beans/BeanInfo;", $SYNCHRONIZED, $method(ThreadGroupContext, getBeanInfo, $BeanInfo*, $Class*)},
+		{"getBeanInfoFinder", "()Lcom/sun/beans/finder/BeanInfoFinder;", nullptr, $SYNCHRONIZED, $method(ThreadGroupContext, getBeanInfoFinder, $BeanInfoFinder*)},
+		{"getContext", "()Ljava/beans/ThreadGroupContext;", nullptr, $STATIC, $staticMethod(ThreadGroupContext, getContext, ThreadGroupContext*)},
+		{"getPropertyEditorFinder", "()Lcom/sun/beans/finder/PropertyEditorFinder;", nullptr, $SYNCHRONIZED, $method(ThreadGroupContext, getPropertyEditorFinder, $PropertyEditorFinder*)},
+		{"isDesignTime", "()Z", nullptr, 0, $method(ThreadGroupContext, isDesignTime, bool)},
+		{"isGuiAvailable", "()Z", nullptr, 0, $method(ThreadGroupContext, isGuiAvailable, bool)},
+		{"putBeanInfo", "(Ljava/lang/Class;Ljava/beans/BeanInfo;)Ljava/beans/BeanInfo;", "(Ljava/lang/Class<*>;Ljava/beans/BeanInfo;)Ljava/beans/BeanInfo;", $SYNCHRONIZED, $method(ThreadGroupContext, putBeanInfo, $BeanInfo*, $Class*, $BeanInfo*)},
+		{"removeBeanInfo", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $SYNCHRONIZED, $method(ThreadGroupContext, removeBeanInfo, void, $Class*)},
+		{"setDesignTime", "(Z)V", nullptr, 0, $method(ThreadGroupContext, setDesignTime, void, bool)},
+		{"setGuiAvailable", "(Z)V", nullptr, 0, $method(ThreadGroupContext, setGuiAvailable, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.ThreadGroupContext$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.beans.ThreadGroupContext",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.beans.ThreadGroupContext$1"
+	};
+	$loadClass(ThreadGroupContext, name, initialize, &classInfo$$, ThreadGroupContext::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ThreadGroupContext);
+	});
 	return class$;
 }
 

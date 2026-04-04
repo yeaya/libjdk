@@ -1,5 +1,4 @@
 #include <javax/management/remote/NotificationResult.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <javax/management/remote/TargetedNotification.h>
@@ -17,43 +16,11 @@ namespace javax {
 	namespace management {
 		namespace remote {
 
-$FieldInfo _NotificationResult_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NotificationResult, serialVersionUID)},
-	{"earliestSequenceNumber", "J", nullptr, $PRIVATE, $field(NotificationResult, earliestSequenceNumber)},
-	{"nextSequenceNumber", "J", nullptr, $PRIVATE, $field(NotificationResult, nextSequenceNumber)},
-	{"targetedNotifications", "[Ljavax/management/remote/TargetedNotification;", nullptr, $PRIVATE, $field(NotificationResult, targetedNotifications)},
-	{}
-};
-
-$MethodInfo _NotificationResult_MethodInfo_[] = {
-	{"<init>", "(JJ[Ljavax/management/remote/TargetedNotification;)V", nullptr, $PUBLIC, $method(NotificationResult, init$, void, int64_t, int64_t, $TargetedNotificationArray*)},
-	{"getEarliestSequenceNumber", "()J", nullptr, $PUBLIC, $virtualMethod(NotificationResult, getEarliestSequenceNumber, int64_t)},
-	{"getNextSequenceNumber", "()J", nullptr, $PUBLIC, $virtualMethod(NotificationResult, getNextSequenceNumber, int64_t)},
-	{"getTargetedNotifications", "()[Ljavax/management/remote/TargetedNotification;", nullptr, $PUBLIC, $virtualMethod(NotificationResult, getTargetedNotifications, $TargetedNotificationArray*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(NotificationResult, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NotificationResult, toString, $String*)},
-	{"validate", "([Ljavax/management/remote/TargetedNotification;JJ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NotificationResult, validate, void, $TargetedNotificationArray*, int64_t, int64_t), "java.lang.IllegalArgumentException"},
-	{}
-};
-
-$ClassInfo _NotificationResult_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.remote.NotificationResult",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_NotificationResult_FieldInfo_,
-	_NotificationResult_MethodInfo_
-};
-
-$Object* allocate$NotificationResult($Class* clazz) {
-	return $of($alloc(NotificationResult));
-}
-
 void NotificationResult::init$(int64_t earliestSequenceNumber, int64_t nextSequenceNumber, $TargetedNotificationArray* targetedNotifications) {
 	validate(targetedNotifications, earliestSequenceNumber, nextSequenceNumber);
 	this->earliestSequenceNumber = earliestSequenceNumber;
 	this->nextSequenceNumber = nextSequenceNumber;
-	$set(this, targetedNotifications, $nc(targetedNotifications)->length == 0 ? targetedNotifications : $cast($TargetedNotificationArray, $nc(targetedNotifications)->clone()));
+	$set(this, targetedNotifications, $nc(targetedNotifications)->length == 0 ? targetedNotifications : $cast($TargetedNotificationArray, targetedNotifications->clone()));
 }
 
 int64_t NotificationResult::getEarliestSequenceNumber() {
@@ -65,22 +32,26 @@ int64_t NotificationResult::getNextSequenceNumber() {
 }
 
 $TargetedNotificationArray* NotificationResult::getTargetedNotifications() {
-	return $nc(this->targetedNotifications)->length == 0 ? this->targetedNotifications : $cast($TargetedNotificationArray, $nc(this->targetedNotifications)->clone());
+	return $nc(this->targetedNotifications)->length == 0 ? this->targetedNotifications : $cast($TargetedNotificationArray, this->targetedNotifications->clone());
 }
 
 $String* NotificationResult::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$2, $$str({"NotificationResult: earliest="_s, $$str(getEarliestSequenceNumber()), "; next="_s}));
-	$var($String, var$1, $$concat(var$2, $$str(getNextSequenceNumber())));
-	$var($String, var$0, $$concat(var$1, "; nnotifs="_s));
-	return $concat(var$0, $$str($nc($(getTargetedNotifications()))->length));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("NotificationResult: earliest="_s);
+	var$0->append(getEarliestSequenceNumber());
+	var$0->append("; next="_s);
+	var$0->append(getNextSequenceNumber());
+	var$0->append("; nnotifs="_s);
+	var$0->append($nc($(getTargetedNotifications()))->length);
+	return $str(var$0);
 }
 
 void NotificationResult::readObject($ObjectInputStream* ois) {
 	$nc(ois)->defaultReadObject();
 	try {
 		validate(this->targetedNotifications, this->earliestSequenceNumber, this->nextSequenceNumber);
-		$set(this, targetedNotifications, $nc(this->targetedNotifications)->length == 0 ? this->targetedNotifications : $cast($TargetedNotificationArray, $nc(this->targetedNotifications)->clone()));
+		$set(this, targetedNotifications, $nc(this->targetedNotifications)->length == 0 ? this->targetedNotifications : $cast($TargetedNotificationArray, this->targetedNotifications->clone()));
 	} catch ($IllegalArgumentException& e) {
 		$throwNew($InvalidObjectException, $(e->getMessage()));
 	}
@@ -101,7 +72,34 @@ NotificationResult::NotificationResult() {
 }
 
 $Class* NotificationResult::load$($String* name, bool initialize) {
-	$loadClass(NotificationResult, name, initialize, &_NotificationResult_ClassInfo_, allocate$NotificationResult);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NotificationResult, serialVersionUID)},
+		{"earliestSequenceNumber", "J", nullptr, $PRIVATE, $field(NotificationResult, earliestSequenceNumber)},
+		{"nextSequenceNumber", "J", nullptr, $PRIVATE, $field(NotificationResult, nextSequenceNumber)},
+		{"targetedNotifications", "[Ljavax/management/remote/TargetedNotification;", nullptr, $PRIVATE, $field(NotificationResult, targetedNotifications)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JJ[Ljavax/management/remote/TargetedNotification;)V", nullptr, $PUBLIC, $method(NotificationResult, init$, void, int64_t, int64_t, $TargetedNotificationArray*)},
+		{"getEarliestSequenceNumber", "()J", nullptr, $PUBLIC, $virtualMethod(NotificationResult, getEarliestSequenceNumber, int64_t)},
+		{"getNextSequenceNumber", "()J", nullptr, $PUBLIC, $virtualMethod(NotificationResult, getNextSequenceNumber, int64_t)},
+		{"getTargetedNotifications", "()[Ljavax/management/remote/TargetedNotification;", nullptr, $PUBLIC, $virtualMethod(NotificationResult, getTargetedNotifications, $TargetedNotificationArray*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(NotificationResult, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NotificationResult, toString, $String*)},
+		{"validate", "([Ljavax/management/remote/TargetedNotification;JJ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NotificationResult, validate, void, $TargetedNotificationArray*, int64_t, int64_t), "java.lang.IllegalArgumentException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.remote.NotificationResult",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NotificationResult, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NotificationResult);
+	});
 	return class$;
 }
 

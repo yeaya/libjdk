@@ -1,5 +1,4 @@
 #include <sun/misc/Signal.h>
-
 #include <jdk/internal/misc/Signal$Handler.h>
 #include <jdk/internal/misc/Signal.h>
 #include <sun/misc/Signal$InternalMiscHandler.h>
@@ -19,48 +18,6 @@ using $SignalHandler = ::sun::misc::SignalHandler;
 
 namespace sun {
 	namespace misc {
-
-$FieldInfo _Signal_FieldInfo_[] = {
-	{"iSignal", "Ljdk/internal/misc/Signal;", nullptr, $PRIVATE | $FINAL, $field(Signal, iSignal)},
-	{}
-};
-
-$MethodInfo _Signal_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Signal, init$, void, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Signal, equals, bool, Object$*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Signal, getName, $String*)},
-	{"getNumber", "()I", nullptr, $PUBLIC, $method(Signal, getNumber, int32_t)},
-	{"handle", "(Lsun/misc/Signal;Lsun/misc/SignalHandler;)Lsun/misc/SignalHandler;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Signal, handle, $SignalHandler*, Signal*, $SignalHandler*), "java.lang.IllegalArgumentException"},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Signal, hashCode, int32_t)},
-	{"raise", "(Lsun/misc/Signal;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Signal, raise, void, Signal*), "java.lang.IllegalArgumentException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Signal, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Signal_InnerClassesInfo_[] = {
-	{"sun.misc.Signal$SunMiscHandler", "sun.misc.Signal", "SunMiscHandler", $STATIC | $FINAL},
-	{"sun.misc.Signal$InternalMiscHandler", "sun.misc.Signal", "InternalMiscHandler", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Signal_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.misc.Signal",
-	"java.lang.Object",
-	nullptr,
-	_Signal_FieldInfo_,
-	_Signal_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Signal_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.misc.Signal$SunMiscHandler,sun.misc.Signal$InternalMiscHandler"
-};
-
-$Object* allocate$Signal($Class* clazz) {
-	return $of($alloc(Signal));
-}
 
 int32_t Signal::getNumber() {
 	return $nc(this->iSignal)->getNumber();
@@ -96,9 +53,9 @@ void Signal::init$($String* name) {
 $SignalHandler* Signal::handle(Signal* sig, $SignalHandler* handler) {
 	$load(Signal);
 	$synchronized(class$) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($Signal$Handler, oldHandler, $Signal::handle($nc(sig)->iSignal, $($Signal$InternalMiscHandler::of(sig, handler))));
-		return $Signal$SunMiscHandler::of($nc(sig)->iSignal, oldHandler);
+		return $Signal$SunMiscHandler::of(sig->iSignal, oldHandler);
 	}
 }
 
@@ -110,7 +67,43 @@ Signal::Signal() {
 }
 
 $Class* Signal::load$($String* name, bool initialize) {
-	$loadClass(Signal, name, initialize, &_Signal_ClassInfo_, allocate$Signal);
+	$FieldInfo fieldInfos$$[] = {
+		{"iSignal", "Ljdk/internal/misc/Signal;", nullptr, $PRIVATE | $FINAL, $field(Signal, iSignal)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Signal, init$, void, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Signal, equals, bool, Object$*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Signal, getName, $String*)},
+		{"getNumber", "()I", nullptr, $PUBLIC, $method(Signal, getNumber, int32_t)},
+		{"handle", "(Lsun/misc/Signal;Lsun/misc/SignalHandler;)Lsun/misc/SignalHandler;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Signal, handle, $SignalHandler*, Signal*, $SignalHandler*), "java.lang.IllegalArgumentException"},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Signal, hashCode, int32_t)},
+		{"raise", "(Lsun/misc/Signal;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Signal, raise, void, Signal*), "java.lang.IllegalArgumentException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Signal, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.misc.Signal$SunMiscHandler", "sun.misc.Signal", "SunMiscHandler", $STATIC | $FINAL},
+		{"sun.misc.Signal$InternalMiscHandler", "sun.misc.Signal", "InternalMiscHandler", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.misc.Signal",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.misc.Signal$SunMiscHandler,sun.misc.Signal$InternalMiscHandler"
+	};
+	$loadClass(Signal, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Signal);
+	});
 	return class$;
 }
 

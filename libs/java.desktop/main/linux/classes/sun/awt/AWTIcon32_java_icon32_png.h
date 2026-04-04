@@ -12,6 +12,7 @@ class $export AWTIcon32_java_icon32_png : public ::java::lang::Object {
 	$class(AWTIcon32_java_icon32_png, 0, ::java::lang::Object)
 public:
 	AWTIcon32_java_icon32_png();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $ints* java_icon32_png;
 };

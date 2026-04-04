@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory$ArrayMapping.h>
-
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory$NonNullMXBeanMapping.h>
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory.h>
 #include <com/sun/jmx/mbeanserver/MXBeanMapping.h>
@@ -7,7 +6,6 @@
 #include <java/lang/reflect/GenericArrayType.h>
 #include <java/lang/reflect/Type.h>
 #include <javax/management/openmbean/ArrayType.h>
-#include <javax/management/openmbean/OpenType.h>
 #include <jcpp.h>
 
 using $DefaultMXBeanMappingFactory$NonNullMXBeanMapping = ::com::sun::jmx::mbeanserver::DefaultMXBeanMappingFactory$NonNullMXBeanMapping;
@@ -21,51 +19,11 @@ using $1Array = ::java::lang::reflect::Array;
 using $GenericArrayType = ::java::lang::reflect::GenericArrayType;
 using $Type = ::java::lang::reflect::Type;
 using $ArrayType = ::javax::management::openmbean::ArrayType;
-using $OpenType = ::javax::management::openmbean::OpenType;
 
 namespace com {
 	namespace sun {
 		namespace jmx {
 			namespace mbeanserver {
-
-$FieldInfo _DefaultMXBeanMappingFactory$ArrayMapping_FieldInfo_[] = {
-	{"elementMapping", "Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PRIVATE | $FINAL, $field(DefaultMXBeanMappingFactory$ArrayMapping, elementMapping)},
-	{}
-};
-
-$MethodInfo _DefaultMXBeanMappingFactory$ArrayMapping_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/ArrayType;Ljava/lang/Class;Lcom/sun/jmx/mbeanserver/MXBeanMapping;)V", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/ArrayType<*>;Ljava/lang/Class<*>;Lcom/sun/jmx/mbeanserver/MXBeanMapping;)V", 0, $method(DefaultMXBeanMappingFactory$ArrayMapping, init$, void, $Type*, $ArrayType*, $Class*, $MXBeanMapping*)},
-	{"checkReconstructible", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultMXBeanMappingFactory$ArrayMapping, checkReconstructible, void), "java.io.InvalidObjectException"},
-	{"fromNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$ArrayMapping, fromNonNullOpenValue, $Object*, Object$*), "java.io.InvalidObjectException"},
-	{"toNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$ArrayMapping, toNonNullOpenValue, $Object*, Object$*), "javax.management.openmbean.OpenDataException"},
-	{}
-};
-
-$InnerClassInfo _DefaultMXBeanMappingFactory$ArrayMapping_InnerClassesInfo_[] = {
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$ArrayMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "ArrayMapping", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$NonNullMXBeanMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "NonNullMXBeanMapping", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DefaultMXBeanMappingFactory$ArrayMapping_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$ArrayMapping",
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$NonNullMXBeanMapping",
-	nullptr,
-	_DefaultMXBeanMappingFactory$ArrayMapping_FieldInfo_,
-	_DefaultMXBeanMappingFactory$ArrayMapping_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultMXBeanMappingFactory$ArrayMapping_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory"
-};
-
-$Object* allocate$DefaultMXBeanMappingFactory$ArrayMapping($Class* clazz) {
-	return $of($alloc(DefaultMXBeanMappingFactory$ArrayMapping));
-}
 
 void DefaultMXBeanMappingFactory$ArrayMapping::init$($Type* targetType, $ArrayType* openArrayType, $Class* openArrayClass, $MXBeanMapping* elementMapping) {
 	$DefaultMXBeanMappingFactory$NonNullMXBeanMapping::init$(targetType, openArrayType);
@@ -73,34 +31,34 @@ void DefaultMXBeanMappingFactory$ArrayMapping::init$($Type* targetType, $ArrayTy
 }
 
 $Object* DefaultMXBeanMappingFactory$ArrayMapping::toNonNullOpenValue(Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, valueArray, $cast($ObjectArray, value));
 	int32_t len = $nc(valueArray)->length;
 	$var($ObjectArray, openArray, $cast($ObjectArray, $1Array::newInstance($nc(getOpenClass())->getComponentType(), len)));
 	for (int32_t i = 0; i < len; ++i) {
 		openArray->set(i, $($nc(this->elementMapping)->toOpenValue(valueArray->get(i))));
 	}
-	return $of(openArray);
+	return openArray;
 }
 
 $Object* DefaultMXBeanMappingFactory$ArrayMapping::fromNonNullOpenValue(Object$* openValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, openArray, $cast($ObjectArray, openValue));
 	$var($Type, javaType, getJavaType());
 	$var($ObjectArray, valueArray, nullptr);
 	$var($Type, componentType, nullptr);
 	if ($instanceOf($GenericArrayType, javaType)) {
-		$assign(componentType, $nc(($cast($GenericArrayType, javaType)))->getGenericComponentType());
-	} else if ($instanceOf($Class, javaType) && $nc(($cast($Class, javaType)))->isArray()) {
-		$assign(componentType, $nc(($cast($Class, javaType)))->getComponentType());
+		$assign(componentType, $cast($GenericArrayType, javaType)->getGenericComponentType());
+	} else if ($instanceOf($Class, javaType) && $cast($Class, javaType)->isArray()) {
+		$assign(componentType, $cast($Class, javaType)->getComponentType());
 	} else {
 		$throwNew($IllegalArgumentException, $$str({"Not an array: "_s, javaType}));
 	}
 	$assign(valueArray, $cast($ObjectArray, $1Array::newInstance($cast($Class, componentType), $nc(openArray)->length)));
-	for (int32_t i = 0; i < $nc(openArray)->length; ++i) {
+	for (int32_t i = 0; i < openArray->length; ++i) {
 		valueArray->set(i, $($nc(this->elementMapping)->fromOpenValue(openArray->get(i))));
 	}
-	return $of(valueArray);
+	return valueArray;
 }
 
 void DefaultMXBeanMappingFactory$ArrayMapping::checkReconstructible() {
@@ -111,7 +69,40 @@ DefaultMXBeanMappingFactory$ArrayMapping::DefaultMXBeanMappingFactory$ArrayMappi
 }
 
 $Class* DefaultMXBeanMappingFactory$ArrayMapping::load$($String* name, bool initialize) {
-	$loadClass(DefaultMXBeanMappingFactory$ArrayMapping, name, initialize, &_DefaultMXBeanMappingFactory$ArrayMapping_ClassInfo_, allocate$DefaultMXBeanMappingFactory$ArrayMapping);
+	$FieldInfo fieldInfos$$[] = {
+		{"elementMapping", "Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PRIVATE | $FINAL, $field(DefaultMXBeanMappingFactory$ArrayMapping, elementMapping)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/ArrayType;Ljava/lang/Class;Lcom/sun/jmx/mbeanserver/MXBeanMapping;)V", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/ArrayType<*>;Ljava/lang/Class<*>;Lcom/sun/jmx/mbeanserver/MXBeanMapping;)V", 0, $method(DefaultMXBeanMappingFactory$ArrayMapping, init$, void, $Type*, $ArrayType*, $Class*, $MXBeanMapping*)},
+		{"checkReconstructible", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultMXBeanMappingFactory$ArrayMapping, checkReconstructible, void), "java.io.InvalidObjectException"},
+		{"fromNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$ArrayMapping, fromNonNullOpenValue, $Object*, Object$*), "java.io.InvalidObjectException"},
+		{"toNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$ArrayMapping, toNonNullOpenValue, $Object*, Object$*), "javax.management.openmbean.OpenDataException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$ArrayMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "ArrayMapping", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$NonNullMXBeanMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "NonNullMXBeanMapping", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$ArrayMapping",
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$NonNullMXBeanMapping",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory"
+	};
+	$loadClass(DefaultMXBeanMappingFactory$ArrayMapping, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultMXBeanMappingFactory$ArrayMapping);
+	});
 	return class$;
 }
 

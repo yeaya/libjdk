@@ -21,7 +21,7 @@ public:
 	void init$(Object$* source, $String* propertyName, Object$* oldValue, Object$* newValue, int32_t index);
 	virtual void appendTo(::java::lang::StringBuilder* sb) override;
 	virtual int32_t getIndex();
-	static const int64_t serialVersionUID = (int64_t)0xFB8E52D50D13E66A;
+	static const int64_t serialVersionUID = (int64_t)0xfb8e52d50d13e66a;
 	int32_t index = 0;
 };
 

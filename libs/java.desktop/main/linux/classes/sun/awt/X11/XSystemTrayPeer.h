@@ -63,6 +63,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::SystemTray* target);
 	virtual void addTrayIcon(::sun::awt::X11::XTrayIconPeer* tiPeer);
 	void createTrayPeers();

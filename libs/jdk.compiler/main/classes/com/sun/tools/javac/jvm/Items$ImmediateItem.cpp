@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/Items$ImmediateItem.h>
-
 #include <com/sun/tools/javac/code/Symtab.h>
 #include <com/sun/tools/javac/code/Type$JCPrimitiveType.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -9,7 +8,6 @@
 #include <com/sun/tools/javac/jvm/Items.h>
 #include <com/sun/tools/javac/jvm/PoolConstant$LoadableConstant$BasicConstant.h>
 #include <com/sun/tools/javac/jvm/PoolConstant$LoadableConstant.h>
-#include <com/sun/tools/javac/jvm/PoolConstant.h>
 #include <com/sun/tools/javac/jvm/PoolWriter.h>
 #include <com/sun/tools/javac/util/Assert.h>
 #include <java/io/Serializable.h>
@@ -31,7 +29,6 @@ using $Code = ::com::sun::tools::javac::jvm::Code;
 using $Items = ::com::sun::tools::javac::jvm::Items;
 using $Items$CondItem = ::com::sun::tools::javac::jvm::Items$CondItem;
 using $Items$Item = ::com::sun::tools::javac::jvm::Items$Item;
-using $PoolConstant = ::com::sun::tools::javac::jvm::PoolConstant;
 using $PoolConstant$LoadableConstant = ::com::sun::tools::javac::jvm::PoolConstant$LoadableConstant;
 using $PoolConstant$LoadableConstant$BasicConstant = ::com::sun::tools::javac::jvm::PoolConstant$LoadableConstant$BasicConstant;
 using $PoolWriter = ::com::sun::tools::javac::jvm::PoolWriter;
@@ -66,133 +63,70 @@ public:
 	virtual int32_t applyAsInt(Object$* inst$, Object$* c) override {
 		 return $sure($PoolWriter, inst$)->putConstant($cast($PoolConstant$LoadableConstant, c));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Items$ImmediateItem$$Lambda$putConstant>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Items$ImmediateItem$$Lambda$putConstant::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Items$ImmediateItem$$Lambda$putConstant, init$, void)},
-	{"applyAsInt", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Items$ImmediateItem$$Lambda$putConstant, applyAsInt, int32_t, Object$*, Object$*)},
-	{}
-};
-$ClassInfo Items$ImmediateItem$$Lambda$putConstant::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.jvm.Items$ImmediateItem$$Lambda$putConstant",
-	"java.lang.Object",
-	"java.util.function.ToIntBiFunction",
-	nullptr,
-	methodInfos
 };
 $Class* Items$ImmediateItem$$Lambda$putConstant::load$($String* name, bool initialize) {
-	$loadClass(Items$ImmediateItem$$Lambda$putConstant, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Items$ImmediateItem$$Lambda$putConstant, init$, void)},
+		{"applyAsInt", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Items$ImmediateItem$$Lambda$putConstant, applyAsInt, int32_t, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.jvm.Items$ImmediateItem$$Lambda$putConstant",
+		"java.lang.Object",
+		"java.util.function.ToIntBiFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Items$ImmediateItem$$Lambda$putConstant, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Items$ImmediateItem$$Lambda$putConstant);
+	});
 	return class$;
 }
 $Class* Items$ImmediateItem$$Lambda$putConstant::class$ = nullptr;
 
-$FieldInfo _Items$ImmediateItem_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/jvm/Items;", nullptr, $FINAL | $SYNTHETIC, $field(Items$ImmediateItem, this$0)},
-	{"value", "Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $FINAL, $field(Items$ImmediateItem, value)},
-	{}
-};
-
-$MethodInfo _Items$ImmediateItem_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)V", nullptr, 0, $method(Items$ImmediateItem, init$, void, $Items*, $Type*, Object$*)},
-	{"coerce", "(I)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$ImmediateItem, coerce, $Items$Item*, int32_t)},
-	{"isPosZero", "(F)Z", nullptr, $PRIVATE, $method(Items$ImmediateItem, isPosZero, bool, float)},
-	{"isPosZero", "(D)Z", nullptr, $PRIVATE, $method(Items$ImmediateItem, isPosZero, bool, double)},
-	{"ldc", "()V", nullptr, $PRIVATE, $method(Items$ImmediateItem, ldc, void)},
-	{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$ImmediateItem, load, $Items$Item*)},
-	{"mkCond", "()Lcom/sun/tools/javac/jvm/Items$CondItem;", nullptr, 0, $virtualMethod(Items$ImmediateItem, mkCond, $Items$CondItem*)},
-	{"numericValue", "()Ljava/lang/Number;", nullptr, $PRIVATE, $method(Items$ImmediateItem, numericValue, $Number*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Items$ImmediateItem, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Items$ImmediateItem_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.Items$ImmediateItem", "com.sun.tools.javac.jvm.Items", "ImmediateItem", 0},
-	{"com.sun.tools.javac.jvm.Items$Item", "com.sun.tools.javac.jvm.Items", "Item", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Items$ImmediateItem_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.Items$ImmediateItem",
-	"com.sun.tools.javac.jvm.Items$Item",
-	nullptr,
-	_Items$ImmediateItem_FieldInfo_,
-	_Items$ImmediateItem_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Items$ImmediateItem_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.Items"
-};
-
-$Object* allocate$Items$ImmediateItem($Class* clazz) {
-	return $of($alloc(Items$ImmediateItem));
-}
-
 void Items$ImmediateItem::init$($Items* this$0, $Type* type, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$Items$Item::init$(this$0, $Code::typecode(type));
 	switch (this->typecode) {
 	case 5:
-		{}
 	case 7:
-		{}
 	case 6:
-		{}
 	case 0:
-		{
-			$set(this, value, $PoolConstant$LoadableConstant::Int($nc(($cast($Integer, value)))->intValue()));
-			break;
-		}
+		$set(this, value, $PoolConstant$LoadableConstant::Int($nc($cast($Integer, value))->intValue()));
+		break;
 	case 1:
-		{
-			$set(this, value, $PoolConstant$LoadableConstant::Long($nc(($cast($Long, value)))->longValue()));
-			break;
-		}
+		$set(this, value, $PoolConstant$LoadableConstant::Long($nc($cast($Long, value))->longValue()));
+		break;
 	case 2:
-		{
-			$set(this, value, $PoolConstant$LoadableConstant::Float($nc(($cast($Float, value)))->floatValue()));
-			break;
-		}
+		$set(this, value, $PoolConstant$LoadableConstant::Float($nc($cast($Float, value))->floatValue()));
+		break;
 	case 3:
-		{
-			$set(this, value, $PoolConstant$LoadableConstant::Double($nc(($cast($Double, value)))->doubleValue()));
-			break;
-		}
+		$set(this, value, $PoolConstant$LoadableConstant::Double($nc($cast($Double, value))->doubleValue()));
+		break;
 	case 4:
-		{
-			$set(this, value, $PoolConstant$LoadableConstant::String($cast($String, value)));
-			break;
-		}
+		$set(this, value, $PoolConstant$LoadableConstant::String($cast($String, value)));
+		break;
 	default:
-		{
-			$throwNew($UnsupportedOperationException, $$str({"unsupported tag: "_s, $$str(this->typecode)}));
-		}
+		$throwNew($UnsupportedOperationException, $$str({"unsupported tag: "_s, $$str(this->typecode)}));
 	}
 }
 
 void Items$ImmediateItem::ldc() {
 	if (this->typecode == 1 || this->typecode == 3) {
-		$nc(this->this$0->code)->emitop2(20, static_cast<$PoolConstant*>(this->value), static_cast<$ToIntBiFunction*>($$new(Items$ImmediateItem$$Lambda$putConstant)));
+		$nc(this->this$0->code)->emitop2(20, this->value, $$new(Items$ImmediateItem$$Lambda$putConstant));
 	} else {
 		$nc(this->this$0->code)->emitLdc(this->value);
 	}
 }
 
 $Number* Items$ImmediateItem::numericValue() {
-	return $cast($Number, $nc(($cast($PoolConstant$LoadableConstant$BasicConstant, this->value)))->data);
+	return $cast($Number, $nc($cast($PoolConstant$LoadableConstant$BasicConstant, this->value))->data);
 }
 
 $Items$Item* Items$ImmediateItem::load() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		int32_t ival = 0;
 		int64_t lval = 0;
@@ -200,64 +134,49 @@ $Items$Item* Items$ImmediateItem::load() {
 		double dval = 0;
 		switch (this->typecode) {
 		case 0:
-			{}
 		case 5:
-			{}
 		case 7:
-			{}
 		case 6:
-			{
-				ival = $nc($(numericValue()))->intValue();
-				if (-1 <= ival && ival <= 5) {
-					$nc(this->this$0->code)->emitop0(3 + ival);
-				} else if ($Byte::MIN_VALUE <= ival && ival <= $Byte::MAX_VALUE) {
-					$nc(this->this$0->code)->emitop1(16, ival);
-				} else if ($Short::MIN_VALUE <= ival && ival <= $Short::MAX_VALUE) {
-					$nc(this->this$0->code)->emitop2(17, ival);
-				} else {
-					ldc();
-				}
-				break;
-			}
-		case 1:
-			{
-				lval = $nc($(numericValue()))->longValue();
-				if (lval == 0 || lval == 1) {
-					$nc(this->this$0->code)->emitop0(9 + (int32_t)lval);
-				} else {
-					ldc();
-				}
-				break;
-			}
-		case 2:
-			{
-				fval = $nc($(numericValue()))->floatValue();
-				if (isPosZero(fval) || fval == 1.0 || fval == 2.0) {
-					$nc(this->this$0->code)->emitop0(11 + $cast(int32_t, fval));
-				} else {
-					ldc();
-				}
-				break;
-			}
-		case 3:
-			{
-				dval = $nc($(numericValue()))->doubleValue();
-				if (isPosZero(dval) || dval == 1.0) {
-					$nc(this->this$0->code)->emitop0(14 + $cast(int32_t, dval));
-				} else {
-					ldc();
-				}
-				break;
-			}
-		case 4:
-			{
+			ival = $$nc(numericValue())->intValue();
+			if (-1 <= ival && ival <= 5) {
+				$nc(this->this$0->code)->emitop0(3 + ival);
+			} else if ($Byte::MIN_VALUE <= ival && ival <= $Byte::MAX_VALUE) {
+				$nc(this->this$0->code)->emitop1(16, ival);
+			} else if ($Short::MIN_VALUE <= ival && ival <= $Short::MAX_VALUE) {
+				$nc(this->this$0->code)->emitop2(17, ival);
+			} else {
 				ldc();
-				break;
 			}
+			break;
+		case 1:
+			lval = $$nc(numericValue())->longValue();
+			if (lval == 0 || lval == 1) {
+				$nc(this->this$0->code)->emitop0(9 + (int32_t)lval);
+			} else {
+				ldc();
+			}
+			break;
+		case 2:
+			fval = $$nc(numericValue())->floatValue();
+			if (isPosZero(fval) || fval == 1.0 || fval == 2.0) {
+				$nc(this->this$0->code)->emitop0(11 + $cast(int32_t, fval));
+			} else {
+				ldc();
+			}
+			break;
+		case 3:
+			dval = $$nc(numericValue())->doubleValue();
+			if (isPosZero(dval) || dval == 1.0) {
+				$nc(this->this$0->code)->emitop0(14 + $cast(int32_t, dval));
+			} else {
+				ldc();
+			}
+			break;
+		case 4:
+			ldc();
+			break;
 		default:
-			{
-				$Assert::error();
-			}
+			$Assert::error();
 		}
 	}
 	return $nc(this->this$0->stackItem)->get(this->typecode);
@@ -272,52 +191,36 @@ bool Items$ImmediateItem::isPosZero(double x) {
 }
 
 $Items$CondItem* Items$ImmediateItem::mkCond() {
-	int32_t ival = $nc($(numericValue()))->intValue();
+	int32_t ival = $$nc(numericValue())->intValue();
 	return this->this$0->makeCondItem(ival != 0 ? 167 : 168);
 }
 
 $Items$Item* Items$ImmediateItem::coerce(int32_t targetcode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->typecode == targetcode) {
 		return this;
 	} else {
 		switch (targetcode) {
 		case 0:
-			{
-				if ($Code::truncate(this->typecode) == 0) {
-					return this;
-				} else {
-					return $new(Items$ImmediateItem, this->this$0, $nc(this->this$0->syms)->intType, $($Integer::valueOf($nc($(numericValue()))->intValue())));
-				}
+			if ($Code::truncate(this->typecode) == 0) {
+				return this;
+			} else {
+				return $new(Items$ImmediateItem, this->this$0, $nc(this->this$0->syms)->intType, $($Integer::valueOf($$nc(numericValue())->intValue())));
 			}
 		case 1:
-			{
-				return $new(Items$ImmediateItem, this->this$0, $nc(this->this$0->syms)->longType, $($Long::valueOf($nc($(numericValue()))->longValue())));
-			}
+			return $new(Items$ImmediateItem, this->this$0, $nc(this->this$0->syms)->longType, $($Long::valueOf($$nc(numericValue())->longValue())));
 		case 2:
-			{
-				return $new(Items$ImmediateItem, this->this$0, $nc(this->this$0->syms)->floatType, $($Float::valueOf($nc($(numericValue()))->floatValue())));
-			}
+			return $new(Items$ImmediateItem, this->this$0, $nc(this->this$0->syms)->floatType, $($Float::valueOf($$nc(numericValue())->floatValue())));
 		case 3:
-			{
-				return $new(Items$ImmediateItem, this->this$0, $nc(this->this$0->syms)->doubleType, $($Double::valueOf($nc($(numericValue()))->doubleValue())));
-			}
+			return $new(Items$ImmediateItem, this->this$0, $nc(this->this$0->syms)->doubleType, $($Double::valueOf($$nc(numericValue())->doubleValue())));
 		case 5:
-			{
-				return $new(Items$ImmediateItem, this->this$0, $nc(this->this$0->syms)->byteType, $($Integer::valueOf((int32_t)(int8_t)$nc($(numericValue()))->intValue())));
-			}
+			return $new(Items$ImmediateItem, this->this$0, $nc(this->this$0->syms)->byteType, $($Integer::valueOf((int32_t)(int8_t)$$nc(numericValue())->intValue())));
 		case 6:
-			{
-				return $new(Items$ImmediateItem, this->this$0, $nc(this->this$0->syms)->charType, $($Integer::valueOf((int32_t)(char16_t)$nc($(numericValue()))->intValue())));
-			}
+			return $new(Items$ImmediateItem, this->this$0, $nc(this->this$0->syms)->charType, $($Integer::valueOf((int32_t)(char16_t)$$nc(numericValue())->intValue())));
 		case 7:
-			{
-				return $new(Items$ImmediateItem, this->this$0, $nc(this->this$0->syms)->shortType, $($Integer::valueOf((int32_t)(int16_t)$nc($(numericValue()))->intValue())));
-			}
+			return $new(Items$ImmediateItem, this->this$0, $nc(this->this$0->syms)->shortType, $($Integer::valueOf((int32_t)(int16_t)$$nc(numericValue())->intValue())));
 		default:
-			{
-				return $Items$Item::coerce(targetcode);
-			}
+			return $Items$Item::coerce(targetcode);
 		}
 	}
 }
@@ -331,11 +234,50 @@ Items$ImmediateItem::Items$ImmediateItem() {
 
 $Class* Items$ImmediateItem::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Items$ImmediateItem$$Lambda$putConstant::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.jvm.Items$ImmediateItem$$Lambda$putConstant")) {
 			return Items$ImmediateItem$$Lambda$putConstant::load$(name, initialize);
 		}
 	}
-	$loadClass(Items$ImmediateItem, name, initialize, &_Items$ImmediateItem_ClassInfo_, allocate$Items$ImmediateItem);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/jvm/Items;", nullptr, $FINAL | $SYNTHETIC, $field(Items$ImmediateItem, this$0)},
+		{"value", "Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $FINAL, $field(Items$ImmediateItem, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/jvm/Items;Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)V", nullptr, 0, $method(Items$ImmediateItem, init$, void, $Items*, $Type*, Object$*)},
+		{"coerce", "(I)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$ImmediateItem, coerce, $Items$Item*, int32_t)},
+		{"isPosZero", "(F)Z", nullptr, $PRIVATE, $method(Items$ImmediateItem, isPosZero, bool, float)},
+		{"isPosZero", "(D)Z", nullptr, $PRIVATE, $method(Items$ImmediateItem, isPosZero, bool, double)},
+		{"ldc", "()V", nullptr, $PRIVATE, $method(Items$ImmediateItem, ldc, void)},
+		{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$ImmediateItem, load, $Items$Item*)},
+		{"mkCond", "()Lcom/sun/tools/javac/jvm/Items$CondItem;", nullptr, 0, $virtualMethod(Items$ImmediateItem, mkCond, $Items$CondItem*)},
+		{"numericValue", "()Ljava/lang/Number;", nullptr, $PRIVATE, $method(Items$ImmediateItem, numericValue, $Number*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Items$ImmediateItem, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.Items$ImmediateItem", "com.sun.tools.javac.jvm.Items", "ImmediateItem", 0},
+		{"com.sun.tools.javac.jvm.Items$Item", "com.sun.tools.javac.jvm.Items", "Item", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.Items$ImmediateItem",
+		"com.sun.tools.javac.jvm.Items$Item",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.Items"
+	};
+	$loadClass(Items$ImmediateItem, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Items$ImmediateItem);
+	});
 	return class$;
 }
 

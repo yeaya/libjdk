@@ -1,5 +1,4 @@
 #include <sun/java2d/metal/MTLSwToSurfaceBlit.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/AffineTransformOp.h>
@@ -32,30 +31,6 @@ namespace sun {
 	namespace java2d {
 		namespace metal {
 
-$FieldInfo _MTLSwToSurfaceBlit_FieldInfo_[] = {
-	{"typeval", "I", nullptr, $PRIVATE, $field(MTLSwToSurfaceBlit, typeval)},
-	{}
-};
-
-$MethodInfo _MTLSwToSurfaceBlit_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;I)V", nullptr, 0, $method(MTLSwToSurfaceBlit, init$, void, $SurfaceType*, int32_t)},
-	{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(MTLSwToSurfaceBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _MTLSwToSurfaceBlit_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.metal.MTLSwToSurfaceBlit",
-	"sun.java2d.loops.Blit",
-	nullptr,
-	_MTLSwToSurfaceBlit_FieldInfo_,
-	_MTLSwToSurfaceBlit_MethodInfo_
-};
-
-$Object* allocate$MTLSwToSurfaceBlit($Class* clazz) {
-	return $of($alloc(MTLSwToSurfaceBlit));
-}
-
 void MTLSwToSurfaceBlit::init$($SurfaceType* srcType, int32_t typeval) {
 	$init($CompositeType);
 	$init($MTLSurfaceData);
@@ -71,7 +46,26 @@ MTLSwToSurfaceBlit::MTLSwToSurfaceBlit() {
 }
 
 $Class* MTLSwToSurfaceBlit::load$($String* name, bool initialize) {
-	$loadClass(MTLSwToSurfaceBlit, name, initialize, &_MTLSwToSurfaceBlit_ClassInfo_, allocate$MTLSwToSurfaceBlit);
+	$FieldInfo fieldInfos$$[] = {
+		{"typeval", "I", nullptr, $PRIVATE, $field(MTLSwToSurfaceBlit, typeval)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;I)V", nullptr, 0, $method(MTLSwToSurfaceBlit, init$, void, $SurfaceType*, int32_t)},
+		{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(MTLSwToSurfaceBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.metal.MTLSwToSurfaceBlit",
+		"sun.java2d.loops.Blit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MTLSwToSurfaceBlit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MTLSwToSurfaceBlit);
+	});
 	return class$;
 }
 

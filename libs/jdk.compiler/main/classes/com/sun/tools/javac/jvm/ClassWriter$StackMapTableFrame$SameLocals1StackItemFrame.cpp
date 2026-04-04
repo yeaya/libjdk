@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/jvm/ClassWriter$StackMapTableFrame.h>
 #include <com/sun/tools/javac/jvm/ClassWriter.h>
@@ -9,8 +8,6 @@
 using $Type = ::com::sun::tools::javac::code::Type;
 using $ClassWriter = ::com::sun::tools::javac::jvm::ClassWriter;
 using $ClassWriter$StackMapTableFrame = ::com::sun::tools::javac::jvm::ClassWriter$StackMapTableFrame;
-using $ByteBuffer = ::com::sun::tools::javac::util::ByteBuffer;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -21,45 +18,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$FieldInfo _ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame_FieldInfo_[] = {
-	{"offsetDelta", "I", nullptr, $FINAL, $field(ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame, offsetDelta)},
-	{"stack", "Lcom/sun/tools/javac/code/Type;", nullptr, $FINAL, $field(ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame, stack)},
-	{}
-};
-
-$MethodInfo _ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame_MethodInfo_[] = {
-	{"<init>", "(ILcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame, init$, void, int32_t, $Type*)},
-	{"getFrameType", "()I", nullptr, 0, $virtualMethod(ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame, getFrameType, int32_t)},
-	{"write", "(Lcom/sun/tools/javac/jvm/ClassWriter;)V", nullptr, 0, $virtualMethod(ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame, write, void, $ClassWriter*)},
-	{}
-};
-
-$InnerClassInfo _ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame", "com.sun.tools.javac.jvm.ClassWriter", "StackMapTableFrame", $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame", "com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame", "SameLocals1StackItemFrame", $STATIC},
-	{}
-};
-
-$ClassInfo _ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame",
-	"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame",
-	nullptr,
-	_ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame_FieldInfo_,
-	_ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.ClassWriter"
-};
-
-$Object* allocate$ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame($Class* clazz) {
-	return $of($alloc(ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame));
-}
 
 void ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame::init$(int32_t offsetDelta, $Type* stack) {
 	$ClassWriter$StackMapTableFrame::init$();
@@ -72,7 +30,7 @@ int32_t ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame::getFrameType()
 }
 
 void ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame::write($ClassWriter* writer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ClassWriter$StackMapTableFrame::write(writer);
 	if (getFrameType() == 247) {
 		$nc($nc(writer)->databuf)->appendChar(this->offsetDelta);
@@ -83,14 +41,47 @@ void ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame::write($ClassWrite
 	if ($nc(writer)->debugstackmap) {
 		$nc($System::out)->print($$str({" stack["_s, $$str(0), "]="_s}));
 	}
-	$nc(writer)->writeStackMapType(this->stack);
+	writer->writeStackMapType(this->stack);
 }
 
 ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame::ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame() {
 }
 
 $Class* ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame::load$($String* name, bool initialize) {
-	$loadClass(ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame, name, initialize, &_ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame_ClassInfo_, allocate$ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame);
+	$FieldInfo fieldInfos$$[] = {
+		{"offsetDelta", "I", nullptr, $FINAL, $field(ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame, offsetDelta)},
+		{"stack", "Lcom/sun/tools/javac/code/Type;", nullptr, $FINAL, $field(ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame, stack)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame, init$, void, int32_t, $Type*)},
+		{"getFrameType", "()I", nullptr, 0, $virtualMethod(ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame, getFrameType, int32_t)},
+		{"write", "(Lcom/sun/tools/javac/jvm/ClassWriter;)V", nullptr, 0, $virtualMethod(ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame, write, void, $ClassWriter*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame", "com.sun.tools.javac.jvm.ClassWriter", "StackMapTableFrame", $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame", "com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame", "SameLocals1StackItemFrame", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame",
+		"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.ClassWriter"
+	};
+	$loadClass(ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/beans/finder/PersistenceDelegateFinder.h>
-
 #include <com/sun/beans/finder/InstanceFinder.h>
 #include <java/beans/PersistenceDelegate.h>
 #include <java/util/HashMap.h>
@@ -12,40 +11,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashMap = ::java::util::HashMap;
-using $Map = ::java::util::Map;
 
 namespace com {
 	namespace sun {
 		namespace beans {
 			namespace finder {
-
-$FieldInfo _PersistenceDelegateFinder_FieldInfo_[] = {
-	{"registry", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/beans/PersistenceDelegate;>;", $PRIVATE | $FINAL, $field(PersistenceDelegateFinder, registry)},
-	{}
-};
-
-$MethodInfo _PersistenceDelegateFinder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PersistenceDelegateFinder, init$, void)},
-	{"find", "(Ljava/lang/Class;)Ljava/beans/PersistenceDelegate;", "(Ljava/lang/Class<*>;)Ljava/beans/PersistenceDelegate;", $PUBLIC, $virtualMethod(PersistenceDelegateFinder, find, $Object*, $Class*)},
-	{"getPackages", "()[Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PersistenceDelegateFinder, getPackages, $StringArray*)},
-	{"register", "(Ljava/lang/Class;Ljava/beans/PersistenceDelegate;)V", "(Ljava/lang/Class<*>;Ljava/beans/PersistenceDelegate;)V", $PUBLIC, $method(PersistenceDelegateFinder, register$, void, $Class*, $PersistenceDelegate*)},
-	{"setPackages", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PersistenceDelegateFinder, setPackages, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _PersistenceDelegateFinder_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.beans.finder.PersistenceDelegateFinder",
-	"com.sun.beans.finder.InstanceFinder",
-	nullptr,
-	_PersistenceDelegateFinder_FieldInfo_,
-	_PersistenceDelegateFinder_MethodInfo_,
-	"Lcom/sun/beans/finder/InstanceFinder<Ljava/beans/PersistenceDelegate;>;"
-};
-
-$Object* allocate$PersistenceDelegateFinder($Class* clazz) {
-	return $of($alloc(PersistenceDelegateFinder));
-}
 
 void PersistenceDelegateFinder::init$() {
 	$load($PersistenceDelegate);
@@ -56,9 +26,9 @@ void PersistenceDelegateFinder::init$() {
 void PersistenceDelegateFinder::register$($Class* type, $PersistenceDelegate* delegate) {
 	$synchronized(this->registry) {
 		if (delegate != nullptr) {
-			$nc(this->registry)->put(type, delegate);
+			this->registry->put(type, delegate);
 		} else {
-			$nc(this->registry)->remove(type);
+			this->registry->remove(type);
 		}
 	}
 }
@@ -66,9 +36,9 @@ void PersistenceDelegateFinder::register$($Class* type, $PersistenceDelegate* de
 $Object* PersistenceDelegateFinder::find($Class* type) {
 	$var($PersistenceDelegate, delegate, nullptr);
 	$synchronized(this->registry) {
-		$assign(delegate, $cast($PersistenceDelegate, $nc(this->registry)->get(type)));
+		$assign(delegate, $cast($PersistenceDelegate, this->registry->get(type)));
 	}
-	return $of((delegate != nullptr) ? delegate : $cast($PersistenceDelegate, $InstanceFinder::find(type)));
+	return (delegate != nullptr) ? delegate : $cast($PersistenceDelegate, $InstanceFinder::find(type));
 }
 
 void PersistenceDelegateFinder::setPackages($StringArray* packages) {
@@ -83,7 +53,30 @@ PersistenceDelegateFinder::PersistenceDelegateFinder() {
 }
 
 $Class* PersistenceDelegateFinder::load$($String* name, bool initialize) {
-	$loadClass(PersistenceDelegateFinder, name, initialize, &_PersistenceDelegateFinder_ClassInfo_, allocate$PersistenceDelegateFinder);
+	$FieldInfo fieldInfos$$[] = {
+		{"registry", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/beans/PersistenceDelegate;>;", $PRIVATE | $FINAL, $field(PersistenceDelegateFinder, registry)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PersistenceDelegateFinder, init$, void)},
+		{"find", "(Ljava/lang/Class;)Ljava/beans/PersistenceDelegate;", "(Ljava/lang/Class<*>;)Ljava/beans/PersistenceDelegate;", $PUBLIC, $virtualMethod(PersistenceDelegateFinder, find, $Object*, $Class*)},
+		{"getPackages", "()[Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PersistenceDelegateFinder, getPackages, $StringArray*)},
+		{"register", "(Ljava/lang/Class;Ljava/beans/PersistenceDelegate;)V", "(Ljava/lang/Class<*>;Ljava/beans/PersistenceDelegate;)V", $PUBLIC, $method(PersistenceDelegateFinder, register$, void, $Class*, $PersistenceDelegate*)},
+		{"setPackages", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PersistenceDelegateFinder, setPackages, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.beans.finder.PersistenceDelegateFinder",
+		"com.sun.beans.finder.InstanceFinder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/beans/finder/InstanceFinder<Ljava/beans/PersistenceDelegate;>;"
+	};
+	$loadClass(PersistenceDelegateFinder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PersistenceDelegateFinder);
+	});
 	return class$;
 }
 

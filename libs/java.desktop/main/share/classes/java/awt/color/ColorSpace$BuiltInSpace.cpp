@@ -1,5 +1,4 @@
 #include <java/awt/color/ColorSpace$BuiltInSpace.h>
-
 #include <java/awt/color/ColorSpace.h>
 #include <java/awt/color/ICC_ColorSpace.h>
 #include <java/awt/color/ICC_Profile.h>
@@ -22,48 +21,14 @@ namespace java {
 	namespace awt {
 		namespace color {
 
-$FieldInfo _ColorSpace$BuiltInSpace_FieldInfo_[] = {
-	{"SRGB", "Ljava/awt/color/ColorSpace;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ColorSpace$BuiltInSpace, SRGB)},
-	{"LRGB", "Ljava/awt/color/ColorSpace;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ColorSpace$BuiltInSpace, LRGB)},
-	{"XYZ", "Ljava/awt/color/ColorSpace;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ColorSpace$BuiltInSpace, XYZ)},
-	{"PYCC", "Ljava/awt/color/ColorSpace;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ColorSpace$BuiltInSpace, PYCC)},
-	{"GRAY", "Ljava/awt/color/ColorSpace;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ColorSpace$BuiltInSpace, GRAY)},
-	{}
-};
-
-$InnerClassInfo _ColorSpace$BuiltInSpace_InnerClassesInfo_[] = {
-	{"java.awt.color.ColorSpace$BuiltInSpace", "java.awt.color.ColorSpace", "BuiltInSpace", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ColorSpace$BuiltInSpace_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"java.awt.color.ColorSpace$BuiltInSpace",
-	nullptr,
-	nullptr,
-	_ColorSpace$BuiltInSpace_FieldInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_ColorSpace$BuiltInSpace_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.color.ColorSpace"
-};
-
-$Object* allocate$ColorSpace$BuiltInSpace($Class* clazz) {
-	return $of($alloc(ColorSpace$BuiltInSpace));
-}
-
 $ColorSpace* ColorSpace$BuiltInSpace::SRGB = nullptr;
 $ColorSpace* ColorSpace$BuiltInSpace::LRGB = nullptr;
 $ColorSpace* ColorSpace$BuiltInSpace::XYZ = nullptr;
 $ColorSpace* ColorSpace$BuiltInSpace::PYCC = nullptr;
 $ColorSpace* ColorSpace$BuiltInSpace::GRAY = nullptr;
 
-void clinit$ColorSpace$BuiltInSpace($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ColorSpace$BuiltInSpace::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(ColorSpace$BuiltInSpace::SRGB, $new($ICC_ColorSpace, $($ICC_Profile::getInstance(1000))));
 	$assignStatic(ColorSpace$BuiltInSpace::LRGB, $new($ICC_ColorSpace, $($ICC_Profile::getInstance(1004))));
 	$assignStatic(ColorSpace$BuiltInSpace::XYZ, $new($ICC_ColorSpace, $($ICC_Profile::getInstance(1001))));
@@ -72,7 +37,36 @@ void clinit$ColorSpace$BuiltInSpace($Class* class$) {
 }
 
 $Class* ColorSpace$BuiltInSpace::load$($String* name, bool initialize) {
-	$loadClass(ColorSpace$BuiltInSpace, name, initialize, &_ColorSpace$BuiltInSpace_ClassInfo_, clinit$ColorSpace$BuiltInSpace, allocate$ColorSpace$BuiltInSpace);
+	$FieldInfo fieldInfos$$[] = {
+		{"SRGB", "Ljava/awt/color/ColorSpace;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ColorSpace$BuiltInSpace, SRGB)},
+		{"LRGB", "Ljava/awt/color/ColorSpace;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ColorSpace$BuiltInSpace, LRGB)},
+		{"XYZ", "Ljava/awt/color/ColorSpace;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ColorSpace$BuiltInSpace, XYZ)},
+		{"PYCC", "Ljava/awt/color/ColorSpace;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ColorSpace$BuiltInSpace, PYCC)},
+		{"GRAY", "Ljava/awt/color/ColorSpace;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ColorSpace$BuiltInSpace, GRAY)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.color.ColorSpace$BuiltInSpace", "java.awt.color.ColorSpace", "BuiltInSpace", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"java.awt.color.ColorSpace$BuiltInSpace",
+		nullptr,
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.color.ColorSpace"
+	};
+	$loadClass(ColorSpace$BuiltInSpace, name, initialize, &classInfo$$, ColorSpace$BuiltInSpace::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ColorSpace$BuiltInSpace);
+	});
 	return class$;
 }
 

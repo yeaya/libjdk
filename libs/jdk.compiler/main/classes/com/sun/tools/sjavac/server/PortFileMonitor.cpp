@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/server/PortFileMonitor.h>
-
 #include <com/sun/tools/sjavac/Log.h>
 #include <com/sun/tools/sjavac/server/PortFile.h>
 #include <com/sun/tools/sjavac/server/PortFileMonitor$1.h>
@@ -27,45 +26,6 @@ namespace com {
 			namespace sjavac {
 				namespace server {
 
-$FieldInfo _PortFileMonitor_FieldInfo_[] = {
-	{"CHECK_PORTFILE_INTERVAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PortFileMonitor, CHECK_PORTFILE_INTERVAL)},
-	{"timer", "Ljava/util/Timer;", nullptr, $PRIVATE | $FINAL, $field(PortFileMonitor, timer)},
-	{"portFile", "Lcom/sun/tools/sjavac/server/PortFile;", nullptr, $PRIVATE | $FINAL, $field(PortFileMonitor, portFile)},
-	{"server", "Lcom/sun/tools/sjavac/server/SjavacServer;", nullptr, $PRIVATE | $FINAL, $field(PortFileMonitor, server)},
-	{}
-};
-
-$MethodInfo _PortFileMonitor_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/sjavac/server/PortFile;Lcom/sun/tools/sjavac/server/SjavacServer;)V", nullptr, $PUBLIC, $method(PortFileMonitor, init$, void, $PortFile*, $SjavacServer*)},
-	{"shutdown", "()V", nullptr, $PUBLIC, $virtualMethod(PortFileMonitor, shutdown, void)},
-	{"start", "()V", nullptr, $PUBLIC, $virtualMethod(PortFileMonitor, start, void)},
-	{}
-};
-
-$InnerClassInfo _PortFileMonitor_InnerClassesInfo_[] = {
-	{"com.sun.tools.sjavac.server.PortFileMonitor$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PortFileMonitor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.server.PortFileMonitor",
-	"java.lang.Object",
-	nullptr,
-	_PortFileMonitor_FieldInfo_,
-	_PortFileMonitor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PortFileMonitor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.sjavac.server.PortFileMonitor$1"
-};
-
-$Object* allocate$PortFileMonitor($Class* clazz) {
-	return $of($alloc(PortFileMonitor));
-}
-
 void PortFileMonitor::init$($PortFile* portFile, $SjavacServer* server) {
 	$set(this, timer, $new($Timer));
 	$set(this, portFile, portFile);
@@ -73,21 +33,54 @@ void PortFileMonitor::init$($PortFile* portFile, $SjavacServer* server) {
 }
 
 void PortFileMonitor::start() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Log, log, $Log::get());
 	$var($TimerTask, shutdownCheck, $new($PortFileMonitor$1, this, log));
-	$nc(this->timer)->schedule(shutdownCheck, (int64_t)0, (int64_t)PortFileMonitor::CHECK_PORTFILE_INTERVAL);
+	this->timer->schedule(shutdownCheck, (int64_t)0, PortFileMonitor::CHECK_PORTFILE_INTERVAL);
 }
 
 void PortFileMonitor::shutdown() {
-	$nc(this->timer)->cancel();
+	this->timer->cancel();
 }
 
 PortFileMonitor::PortFileMonitor() {
 }
 
 $Class* PortFileMonitor::load$($String* name, bool initialize) {
-	$loadClass(PortFileMonitor, name, initialize, &_PortFileMonitor_ClassInfo_, allocate$PortFileMonitor);
+	$FieldInfo fieldInfos$$[] = {
+		{"CHECK_PORTFILE_INTERVAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PortFileMonitor, CHECK_PORTFILE_INTERVAL)},
+		{"timer", "Ljava/util/Timer;", nullptr, $PRIVATE | $FINAL, $field(PortFileMonitor, timer)},
+		{"portFile", "Lcom/sun/tools/sjavac/server/PortFile;", nullptr, $PRIVATE | $FINAL, $field(PortFileMonitor, portFile)},
+		{"server", "Lcom/sun/tools/sjavac/server/SjavacServer;", nullptr, $PRIVATE | $FINAL, $field(PortFileMonitor, server)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/sjavac/server/PortFile;Lcom/sun/tools/sjavac/server/SjavacServer;)V", nullptr, $PUBLIC, $method(PortFileMonitor, init$, void, $PortFile*, $SjavacServer*)},
+		{"shutdown", "()V", nullptr, $PUBLIC, $virtualMethod(PortFileMonitor, shutdown, void)},
+		{"start", "()V", nullptr, $PUBLIC, $virtualMethod(PortFileMonitor, start, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.sjavac.server.PortFileMonitor$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.server.PortFileMonitor",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.sjavac.server.PortFileMonitor$1"
+	};
+	$loadClass(PortFileMonitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PortFileMonitor);
+	});
 	return class$;
 }
 

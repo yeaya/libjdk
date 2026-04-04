@@ -1,5 +1,4 @@
 #include <Util.h>
-
 #include <Util$1.h>
 #include <Util$2.h>
 #include <Util$3.h>
@@ -11,7 +10,6 @@
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Robot.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/InputEvent.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/image/BufferedImage.h>
@@ -19,7 +17,6 @@
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Math.h>
 #include <java/lang/OutOfMemoryError.h>
-#include <java/lang/Runnable.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedList.h>
@@ -56,11 +53,9 @@ using $Dialog$ModalityType = ::java::awt::Dialog$ModalityType;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Robot = ::java::awt::Robot;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $BufferedImage = ::java::awt::image::BufferedImage;
-using $PrintStream = ::java::io::PrintStream;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -69,7 +64,6 @@ using $InterruptedException = ::java::lang::InterruptedException;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
@@ -81,57 +75,13 @@ using $JButton = ::javax::swing::JButton;
 using $JDialog = ::javax::swing::JDialog;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 
-$MethodInfo _Util_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Util, init$, void)},
-	{"compareBufferedImages", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, compareBufferedImages, bool, $BufferedImage*, $BufferedImage*)},
-	{"convertRectToScreen", "(Ljava/awt/Rectangle;Ljava/awt/Component;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, convertRectToScreen, void, $Rectangle*, $Component*)},
-	{"createModalDialogWithPassFailButtons", "(Ljava/lang/String;)Ljavax/swing/JDialog;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, createModalDialogWithPassFailButtons, $JDialog*, $String*)},
-	{"findSubComponent", "(Ljava/awt/Component;Ljava/lang/String;)Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, findSubComponent, $Component*, $Component*, $String*)},
-	{"generateOOME", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, generateOOME, void)},
-	{"getCenterPoint", "(Ljava/awt/Component;)Ljava/awt/Point;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, getCenterPoint, $Point*, $Component*), "java.lang.Exception"},
-	{"getKeyCodesFromKeyMask", "(I)Ljava/util/ArrayList;", "(I)Ljava/util/ArrayList<Ljava/lang/Integer;>;", $PUBLIC | $STATIC, $staticMethod(Util, getKeyCodesFromKeyMask, $ArrayList*, int32_t)},
-	{"getSystemMnemonicKeyCodes", "()Ljava/util/ArrayList;", "()Ljava/util/ArrayList<Ljava/lang/Integer;>;", $PUBLIC | $STATIC, $staticMethod(Util, getSystemMnemonicKeyCodes, $ArrayList*)},
-	{"glide", "(Ljava/awt/Robot;IIII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, glide, void, $Robot*, int32_t, int32_t, int32_t, int32_t), "java.awt.AWTException"},
-	{"hitKeys", "(Ljava/awt/Robot;[I)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Util, hitKeys, void, $Robot*, $ints*)},
-	{"hitMnemonics", "(Ljava/awt/Robot;[I)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Util, hitMnemonics, void, $Robot*, $ints*)},
-	{"invokeOnEDT", "(Ljava/util/concurrent/Callable;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TT;>;)TT;", $PUBLIC | $STATIC, $staticMethod(Util, invokeOnEDT, $Object*, $Callable*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _Util_InnerClassesInfo_[] = {
-	{"Util$4", nullptr, nullptr, 0},
-	{"Util$3", nullptr, nullptr, 0},
-	{"Util$2", nullptr, nullptr, 0},
-	{"Util$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Util_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Util",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Util_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Util_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"Util$4,Util$3,Util$2,Util$1"
-};
-
-$Object* allocate$Util($Class* clazz) {
-	return $of($alloc(Util));
-}
-
 void Util::init$() {
 }
 
 void Util::convertRectToScreen($Rectangle* r, $Component* c) {
-	$var($Point, p, $new($Point, $nc(r)->x, r->y));
+	$var($Point, p, $new($Point, $nc(r)->x, $nc(r)->y));
 	$SwingUtilities::convertPointToScreen(p, c);
-	$nc(r)->x = p->x;
+	r->x = p->x;
 	r->y = p->y;
 }
 
@@ -139,13 +89,13 @@ bool Util::compareBufferedImages($BufferedImage* bufferedImage0, $BufferedImage*
 	int32_t width = $nc(bufferedImage0)->getWidth();
 	int32_t height = bufferedImage0->getHeight();
 	bool var$0 = width != $nc(bufferedImage1)->getWidth();
-	if (var$0 || height != $nc(bufferedImage1)->getHeight()) {
+	if (var$0 || height != bufferedImage1->getHeight()) {
 		return false;
 	}
 	for (int32_t y = 0; y < height; ++y) {
 		for (int32_t x = 0; x < width; ++x) {
 			int32_t var$1 = bufferedImage0->getRGB(x, y);
-			if (var$1 != $nc(bufferedImage1)->getRGB(x, y)) {
+			if (var$1 != bufferedImage1->getRGB(x, y)) {
 				return false;
 			}
 		}
@@ -154,14 +104,14 @@ bool Util::compareBufferedImages($BufferedImage* bufferedImage0, $BufferedImage*
 }
 
 void Util::generateOOME() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, bigLeak, $new($LinkedList));
 	bool oome = false;
 	$nc($System::out)->print("Filling the heap"_s);
 	try {
 		for (int32_t i = 0; true; ++i) {
 			bigLeak->add($$new($bytes, 1024 * 1024));
-			$nc($System::out)->print("."_s);
+			$System::out->print("."_s);
 			if (i % 10 == 0) {
 				$System::gc();
 				try {
@@ -175,31 +125,27 @@ void Util::generateOOME() {
 		$assign(bigLeak, nullptr);
 		oome = true;
 	}
-	$nc($System::out)->println(""_s);
+	$System::out->println(""_s);
 	if (!oome) {
 		$throwNew($RuntimeException, "Problem with test case - never got OOME"_s);
 	}
-	$nc($System::out)->println("Got OOME"_s);
+	$System::out->println("Got OOME"_s);
 }
 
 $Component* Util::findSubComponent($Component* parent, $String* className) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, parentClassName, $nc($of(parent))->getClass()->getName());
 	if ($nc(parentClassName)->contains(className)) {
 		return parent;
 	}
 	if ($instanceOf($Container, parent)) {
-		{
-			$var($ComponentArray, arr$, $nc(($cast($Container, parent)))->getComponents());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Component, child, arr$->get(i$));
-				{
-					$var($Component, subComponent, findSubComponent(child, className));
-					if (subComponent != nullptr) {
-						return subComponent;
-					}
+		$var($ComponentArray, arr$, $cast($Container, parent)->getComponents());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Component, child, arr$->get(i$));
+			{
+				$var($Component, subComponent, findSubComponent(child, className));
+				if (subComponent != nullptr) {
+					return subComponent;
 				}
 			}
 		}
@@ -208,7 +154,7 @@ $Component* Util::findSubComponent($Component* parent, $String* className) {
 }
 
 void Util::hitMnemonics($Robot* robot, $ints* keys) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, mnemonicKeyCodes, getSystemMnemonicKeyCodes());
 	{
 		$var($Iterator, i$, $nc(mnemonicKeyCodes)->iterator());
@@ -235,7 +181,7 @@ void Util::hitKeys($Robot* robot, $ints* keys) {
 	for (int32_t i = 0; i < $nc(keys)->length; ++i) {
 		$nc(robot)->keyPress(keys->get(i));
 	}
-	for (int32_t i = $nc(keys)->length - 1; i >= 0; --i) {
+	for (int32_t i = keys->length - 1; i >= 0; --i) {
 		$nc(robot)->keyRelease(keys->get(i));
 	}
 }
@@ -255,36 +201,36 @@ $Point* Util::getCenterPoint($Component* component) {
 }
 
 $Object* Util::invokeOnEDT($Callable* task) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, result, $new($ArrayList, 1));
 	$var($ExceptionArray, exception, $new($ExceptionArray, 1));
 	$SwingUtilities::invokeAndWait($$new($Util$2, result, task, exception));
 	if (exception->get(0) != nullptr) {
 		$throw(exception->get(0));
 	}
-	return $of(result->get(0));
+	return result->get(0);
 }
 
 $ArrayList* Util::getKeyCodesFromKeyMask(int32_t modifiers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, result, $new($ArrayList));
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::CTRL_MASK)) != 0) {
+	if ((modifiers & $InputEvent::CTRL_MASK) != 0) {
 		result->add($($Integer::valueOf($KeyEvent::VK_CONTROL)));
 	}
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::ALT_MASK)) != 0) {
+	if ((modifiers & $InputEvent::ALT_MASK) != 0) {
 		result->add($($Integer::valueOf($KeyEvent::VK_ALT)));
 	}
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::SHIFT_MASK)) != 0) {
+	if ((modifiers & $InputEvent::SHIFT_MASK) != 0) {
 		result->add($($Integer::valueOf($KeyEvent::VK_SHIFT)));
 	}
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::META_MASK)) != 0) {
+	if ((modifiers & $InputEvent::META_MASK) != 0) {
 		result->add($($Integer::valueOf($KeyEvent::VK_META)));
 	}
 	return result;
 }
 
 $ArrayList* Util::getSystemMnemonicKeyCodes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, osName, $System::getProperty("os.name"_s));
 	$var($ArrayList, result, $new($ArrayList));
 	if ($nc(osName)->contains("OS X"_s)) {
@@ -295,7 +241,7 @@ $ArrayList* Util::getSystemMnemonicKeyCodes() {
 }
 
 $JDialog* Util::createModalDialogWithPassFailButtons($String* failString) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JDialog, retDialog, $new($JDialog));
 	$var($Box, buttonBox, $Box::createHorizontalBox());
 	$var($JButton, passButton, $new($JButton, "Pass"_s));
@@ -305,11 +251,11 @@ $JDialog* Util::createModalDialogWithPassFailButtons($String* failString) {
 	retDialog->setTitle("Test"_s);
 	$init($Dialog$ModalityType);
 	retDialog->setModalityType($Dialog$ModalityType::APPLICATION_MODAL);
-	$nc(buttonBox)->add(static_cast<$Component*>(passButton));
+	$nc(buttonBox)->add(passButton);
 	buttonBox->add($($Box::createGlue()));
-	buttonBox->add(static_cast<$Component*>(failButton));
+	buttonBox->add(failButton);
 	$init($BorderLayout);
-	$nc($(retDialog->getContentPane()))->add(static_cast<$Component*>(buttonBox), $of($BorderLayout::SOUTH));
+	$$nc(retDialog->getContentPane())->add(buttonBox, $BorderLayout::SOUTH);
 	retDialog->setDefaultCloseOperation($JDialog::DISPOSE_ON_CLOSE);
 	return retDialog;
 }
@@ -318,7 +264,46 @@ Util::Util() {
 }
 
 $Class* Util::load$($String* name, bool initialize) {
-	$loadClass(Util, name, initialize, &_Util_ClassInfo_, allocate$Util);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Util, init$, void)},
+		{"compareBufferedImages", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, compareBufferedImages, bool, $BufferedImage*, $BufferedImage*)},
+		{"convertRectToScreen", "(Ljava/awt/Rectangle;Ljava/awt/Component;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, convertRectToScreen, void, $Rectangle*, $Component*)},
+		{"createModalDialogWithPassFailButtons", "(Ljava/lang/String;)Ljavax/swing/JDialog;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, createModalDialogWithPassFailButtons, $JDialog*, $String*)},
+		{"findSubComponent", "(Ljava/awt/Component;Ljava/lang/String;)Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, findSubComponent, $Component*, $Component*, $String*)},
+		{"generateOOME", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, generateOOME, void)},
+		{"getCenterPoint", "(Ljava/awt/Component;)Ljava/awt/Point;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, getCenterPoint, $Point*, $Component*), "java.lang.Exception"},
+		{"getKeyCodesFromKeyMask", "(I)Ljava/util/ArrayList;", "(I)Ljava/util/ArrayList<Ljava/lang/Integer;>;", $PUBLIC | $STATIC, $staticMethod(Util, getKeyCodesFromKeyMask, $ArrayList*, int32_t)},
+		{"getSystemMnemonicKeyCodes", "()Ljava/util/ArrayList;", "()Ljava/util/ArrayList<Ljava/lang/Integer;>;", $PUBLIC | $STATIC, $staticMethod(Util, getSystemMnemonicKeyCodes, $ArrayList*)},
+		{"glide", "(Ljava/awt/Robot;IIII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, glide, void, $Robot*, int32_t, int32_t, int32_t, int32_t), "java.awt.AWTException"},
+		{"hitKeys", "(Ljava/awt/Robot;[I)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Util, hitKeys, void, $Robot*, $ints*)},
+		{"hitMnemonics", "(Ljava/awt/Robot;[I)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Util, hitMnemonics, void, $Robot*, $ints*)},
+		{"invokeOnEDT", "(Ljava/util/concurrent/Callable;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TT;>;)TT;", $PUBLIC | $STATIC, $staticMethod(Util, invokeOnEDT, $Object*, $Callable*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Util$4", nullptr, nullptr, 0},
+		{"Util$3", nullptr, nullptr, 0},
+		{"Util$2", nullptr, nullptr, 0},
+		{"Util$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Util",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"Util$4,Util$3,Util$2,Util$1"
+	};
+	$loadClass(Util, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Util);
+	});
 	return class$;
 }
 

@@ -63,6 +63,7 @@ public:
 	virtual bool isObscured() override;
 	virtual bool isReparentSupported() override;
 	virtual void layout() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::FileDialog* fd);
 	virtual void dispose() override;
 	bool filenameFilterCallback($String* fullname);

@@ -53,6 +53,7 @@ public:
 	virtual void finalize() override;
 	virtual ::javax::management::remote::JMXServiceURL* getAddress() override {return nullptr;}
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::javax::management::MBeanServer* mbeanServer);
 	virtual void connectionClosed($String* connectionId, $String* message, Object$* userData);

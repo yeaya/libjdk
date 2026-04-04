@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/DiagnosticSource$1.h>
-
 #include <com/sun/tools/javac/util/DiagnosticSource.h>
 #include <jcpp.h>
 
@@ -15,43 +14,6 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$MethodInfo _DiagnosticSource$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DiagnosticSource$1, init$, void)},
-	{"findLine", "(I)Z", nullptr, $PROTECTED, $virtualMethod(DiagnosticSource$1, findLine, bool, int32_t)},
-	{}
-};
-
-$EnclosingMethodInfo _DiagnosticSource$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.util.DiagnosticSource",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _DiagnosticSource$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.DiagnosticSource$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DiagnosticSource$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.util.DiagnosticSource$1",
-	"com.sun.tools.javac.util.DiagnosticSource",
-	nullptr,
-	nullptr,
-	_DiagnosticSource$1_MethodInfo_,
-	nullptr,
-	&_DiagnosticSource$1_EnclosingMethodInfo_,
-	_DiagnosticSource$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.DiagnosticSource"
-};
-
-$Object* allocate$DiagnosticSource$1($Class* clazz) {
-	return $of($alloc(DiagnosticSource$1));
-}
-
 void DiagnosticSource$1::init$() {
 	$DiagnosticSource::init$();
 }
@@ -64,7 +26,38 @@ DiagnosticSource$1::DiagnosticSource$1() {
 }
 
 $Class* DiagnosticSource$1::load$($String* name, bool initialize) {
-	$loadClass(DiagnosticSource$1, name, initialize, &_DiagnosticSource$1_ClassInfo_, allocate$DiagnosticSource$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DiagnosticSource$1, init$, void)},
+		{"findLine", "(I)Z", nullptr, $PROTECTED, $virtualMethod(DiagnosticSource$1, findLine, bool, int32_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.util.DiagnosticSource",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.DiagnosticSource$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.util.DiagnosticSource$1",
+		"com.sun.tools.javac.util.DiagnosticSource",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.DiagnosticSource"
+	};
+	$loadClass(DiagnosticSource$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DiagnosticSource$1);
+	});
 	return class$;
 }
 

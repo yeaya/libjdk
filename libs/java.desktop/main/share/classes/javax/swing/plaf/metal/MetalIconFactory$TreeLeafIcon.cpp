@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalIconFactory$TreeLeafIcon.h>
-
 #include <javax/swing/plaf/metal/MetalIconFactory$FileIcon16.h>
 #include <javax/swing/plaf/metal/MetalIconFactory.h>
 #include <jcpp.h>
@@ -13,39 +12,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$MethodInfo _MetalIconFactory$TreeLeafIcon_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalIconFactory$TreeLeafIcon, init$, void)},
-	{"getAdditionalHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$TreeLeafIcon, getAdditionalHeight, int32_t)},
-	{"getShift", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$TreeLeafIcon, getShift, int32_t)},
-	{}
-};
-
-$InnerClassInfo _MetalIconFactory$TreeLeafIcon_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalIconFactory$TreeLeafIcon", "javax.swing.plaf.metal.MetalIconFactory", "TreeLeafIcon", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$FileIcon16", "javax.swing.plaf.metal.MetalIconFactory", "FileIcon16", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalIconFactory$TreeLeafIcon_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalIconFactory$TreeLeafIcon",
-	"javax.swing.plaf.metal.MetalIconFactory$FileIcon16",
-	nullptr,
-	nullptr,
-	_MetalIconFactory$TreeLeafIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalIconFactory$TreeLeafIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalIconFactory"
-};
-
-$Object* allocate$MetalIconFactory$TreeLeafIcon($Class* clazz) {
-	return $of($alloc(MetalIconFactory$TreeLeafIcon));
-}
 
 void MetalIconFactory$TreeLeafIcon::init$() {
 	$MetalIconFactory$FileIcon16::init$();
@@ -63,7 +29,35 @@ MetalIconFactory$TreeLeafIcon::MetalIconFactory$TreeLeafIcon() {
 }
 
 $Class* MetalIconFactory$TreeLeafIcon::load$($String* name, bool initialize) {
-	$loadClass(MetalIconFactory$TreeLeafIcon, name, initialize, &_MetalIconFactory$TreeLeafIcon_ClassInfo_, allocate$MetalIconFactory$TreeLeafIcon);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalIconFactory$TreeLeafIcon, init$, void)},
+		{"getAdditionalHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$TreeLeafIcon, getAdditionalHeight, int32_t)},
+		{"getShift", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$TreeLeafIcon, getShift, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalIconFactory$TreeLeafIcon", "javax.swing.plaf.metal.MetalIconFactory", "TreeLeafIcon", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$FileIcon16", "javax.swing.plaf.metal.MetalIconFactory", "FileIcon16", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalIconFactory$TreeLeafIcon",
+		"javax.swing.plaf.metal.MetalIconFactory$FileIcon16",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalIconFactory"
+	};
+	$loadClass(MetalIconFactory$TreeLeafIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalIconFactory$TreeLeafIcon));
+	});
 	return class$;
 }
 

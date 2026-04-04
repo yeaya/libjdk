@@ -47,6 +47,7 @@ class XRUtils : public ::java::lang::Object {
 	$class(XRUtils, 0, ::java::lang::Object)
 public:
 	XRUtils();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t ATransOpToXRQuality(int32_t affineTranformOp);
 	static $bytes* ATransOpToXRQualityName(int32_t affineTranformOp);

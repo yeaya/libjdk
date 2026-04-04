@@ -28,11 +28,14 @@ public:
 	virtual $Throwable* getCause() override;
 	virtual ::java::lang::Exception* getException();
 	virtual $String* getMessage() override;
-	static const int64_t serialVersionUID = (int64_t)0xD671B59E908E1F40;
+	static const int64_t serialVersionUID = (int64_t)0xd671b59e908e1f40;
 	::java::lang::Exception* nested = nullptr;
 	FactoryConfigurationError(const FactoryConfigurationError& e);
 	virtual void throw$() override;
-	inline FactoryConfigurationError* operator ->() {
+	inline FactoryConfigurationError* operator ->() const {
+		return (FactoryConfigurationError*)throwing$;
+	}
+	inline operator FactoryConfigurationError*() const {
 		return (FactoryConfigurationError*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <JFileChooserCombolistSelection$1.h>
-
 #include <JFileChooserCombolistSelection.h>
 #include <Sysout4JFileChooserCombolistSelection.h>
 #include <jcpp.h>
@@ -9,43 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _JFileChooserCombolistSelection$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(JFileChooserCombolistSelection$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JFileChooserCombolistSelection$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _JFileChooserCombolistSelection$1_EnclosingMethodInfo_ = {
-	"JFileChooserCombolistSelection",
-	"init",
-	"()V"
-};
-
-$InnerClassInfo _JFileChooserCombolistSelection$1_InnerClassesInfo_[] = {
-	{"JFileChooserCombolistSelection$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JFileChooserCombolistSelection$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"JFileChooserCombolistSelection$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_JFileChooserCombolistSelection$1_MethodInfo_,
-	nullptr,
-	&_JFileChooserCombolistSelection$1_EnclosingMethodInfo_,
-	_JFileChooserCombolistSelection$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"JFileChooserCombolistSelection"
-};
-
-$Object* allocate$JFileChooserCombolistSelection$1($Class* clazz) {
-	return $of($alloc(JFileChooserCombolistSelection$1));
-}
 
 void JFileChooserCombolistSelection$1::init$() {
 }
@@ -60,7 +22,38 @@ JFileChooserCombolistSelection$1::JFileChooserCombolistSelection$1() {
 }
 
 $Class* JFileChooserCombolistSelection$1::load$($String* name, bool initialize) {
-	$loadClass(JFileChooserCombolistSelection$1, name, initialize, &_JFileChooserCombolistSelection$1_ClassInfo_, allocate$JFileChooserCombolistSelection$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(JFileChooserCombolistSelection$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JFileChooserCombolistSelection$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"JFileChooserCombolistSelection",
+		"init",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"JFileChooserCombolistSelection$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"JFileChooserCombolistSelection$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"JFileChooserCombolistSelection"
+	};
+	$loadClass(JFileChooserCombolistSelection$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JFileChooserCombolistSelection$1);
+	});
 	return class$;
 }
 

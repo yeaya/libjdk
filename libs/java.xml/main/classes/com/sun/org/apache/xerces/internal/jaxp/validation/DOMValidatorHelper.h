@@ -186,6 +186,7 @@ class DOMValidatorHelper : public ::com::sun::org::apache::xerces::internal::jax
 	$class(DOMValidatorHelper, 0, ::com::sun::org::apache::xerces::internal::jaxp::validation::ValidatorHelper, ::com::sun::org::apache::xerces::internal::impl::validation::EntityState)
 public:
 	DOMValidatorHelper();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

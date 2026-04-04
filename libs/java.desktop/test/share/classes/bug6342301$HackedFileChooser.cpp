@@ -1,5 +1,4 @@
 #include <bug6342301$HackedFileChooser.h>
-
 #include <bug6342301.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JFileChooser.h>
@@ -11,37 +10,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JFileChooser = ::javax::swing::JFileChooser;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-
-$MethodInfo _bug6342301$HackedFileChooser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(bug6342301$HackedFileChooser, init$, void)},
-	{"setUI", "(Ljavax/swing/plaf/ComponentUI;)V", nullptr, $PUBLIC, $virtualMethod(bug6342301$HackedFileChooser, setUI, void, $ComponentUI*)},
-	{}
-};
-
-$InnerClassInfo _bug6342301$HackedFileChooser_InnerClassesInfo_[] = {
-	{"bug6342301$HackedFileChooser", "bug6342301", "HackedFileChooser", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _bug6342301$HackedFileChooser_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6342301$HackedFileChooser",
-	"javax.swing.JFileChooser",
-	nullptr,
-	nullptr,
-	_bug6342301$HackedFileChooser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6342301$HackedFileChooser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6342301"
-};
-
-$Object* allocate$bug6342301$HackedFileChooser($Class* clazz) {
-	return $of($alloc(bug6342301$HackedFileChooser));
-}
 
 void bug6342301$HackedFileChooser::init$() {
 	$JFileChooser::init$();
@@ -55,7 +23,33 @@ bug6342301$HackedFileChooser::bug6342301$HackedFileChooser() {
 }
 
 $Class* bug6342301$HackedFileChooser::load$($String* name, bool initialize) {
-	$loadClass(bug6342301$HackedFileChooser, name, initialize, &_bug6342301$HackedFileChooser_ClassInfo_, allocate$bug6342301$HackedFileChooser);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(bug6342301$HackedFileChooser, init$, void)},
+		{"setUI", "(Ljavax/swing/plaf/ComponentUI;)V", nullptr, $PUBLIC, $virtualMethod(bug6342301$HackedFileChooser, setUI, void, $ComponentUI*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6342301$HackedFileChooser", "bug6342301", "HackedFileChooser", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6342301$HackedFileChooser",
+		"javax.swing.JFileChooser",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6342301"
+	};
+	$loadClass(bug6342301$HackedFileChooser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug6342301$HackedFileChooser));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/JavacParser$EnumeratorEstimate.h>
-
 #include <com/sun/tools/javac/parser/JavacParser.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -20,47 +19,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace parser {
-
-$FieldInfo _JavacParser$EnumeratorEstimate_FieldInfo_[] = {
-	{"ENUMERATOR", "Lcom/sun/tools/javac/parser/JavacParser$EnumeratorEstimate;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavacParser$EnumeratorEstimate, ENUMERATOR)},
-	{"MEMBER", "Lcom/sun/tools/javac/parser/JavacParser$EnumeratorEstimate;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavacParser$EnumeratorEstimate, MEMBER)},
-	{"UNKNOWN", "Lcom/sun/tools/javac/parser/JavacParser$EnumeratorEstimate;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavacParser$EnumeratorEstimate, UNKNOWN)},
-	{"$VALUES", "[Lcom/sun/tools/javac/parser/JavacParser$EnumeratorEstimate;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JavacParser$EnumeratorEstimate, $VALUES)},
-	{}
-};
-
-$MethodInfo _JavacParser$EnumeratorEstimate_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/parser/JavacParser$EnumeratorEstimate;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacParser$EnumeratorEstimate, $values, $JavacParser$EnumeratorEstimateArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JavacParser$EnumeratorEstimate, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/JavacParser$EnumeratorEstimate;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacParser$EnumeratorEstimate, valueOf, JavacParser$EnumeratorEstimate*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/parser/JavacParser$EnumeratorEstimate;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacParser$EnumeratorEstimate, values, $JavacParser$EnumeratorEstimateArray*)},
-	{}
-};
-
-$InnerClassInfo _JavacParser$EnumeratorEstimate_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.JavacParser$EnumeratorEstimate", "com.sun.tools.javac.parser.JavacParser", "EnumeratorEstimate", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _JavacParser$EnumeratorEstimate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.parser.JavacParser$EnumeratorEstimate",
-	"java.lang.Enum",
-	nullptr,
-	_JavacParser$EnumeratorEstimate_FieldInfo_,
-	_JavacParser$EnumeratorEstimate_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/parser/JavacParser$EnumeratorEstimate;>;",
-	nullptr,
-	_JavacParser$EnumeratorEstimate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.JavacParser"
-};
-
-$Object* allocate$JavacParser$EnumeratorEstimate($Class* clazz) {
-	return $of($alloc(JavacParser$EnumeratorEstimate));
-}
 
 JavacParser$EnumeratorEstimate* JavacParser$EnumeratorEstimate::ENUMERATOR = nullptr;
 JavacParser$EnumeratorEstimate* JavacParser$EnumeratorEstimate::MEMBER = nullptr;
@@ -90,7 +48,7 @@ void JavacParser$EnumeratorEstimate::init$($String* $enum$name, int32_t $enum$or
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$JavacParser$EnumeratorEstimate($Class* class$) {
+void JavacParser$EnumeratorEstimate::clinit$($Class* clazz) {
 	$assignStatic(JavacParser$EnumeratorEstimate::ENUMERATOR, $new(JavacParser$EnumeratorEstimate, "ENUMERATOR"_s, 0));
 	$assignStatic(JavacParser$EnumeratorEstimate::MEMBER, $new(JavacParser$EnumeratorEstimate, "MEMBER"_s, 1));
 	$assignStatic(JavacParser$EnumeratorEstimate::UNKNOWN, $new(JavacParser$EnumeratorEstimate, "UNKNOWN"_s, 2));
@@ -101,7 +59,42 @@ JavacParser$EnumeratorEstimate::JavacParser$EnumeratorEstimate() {
 }
 
 $Class* JavacParser$EnumeratorEstimate::load$($String* name, bool initialize) {
-	$loadClass(JavacParser$EnumeratorEstimate, name, initialize, &_JavacParser$EnumeratorEstimate_ClassInfo_, clinit$JavacParser$EnumeratorEstimate, allocate$JavacParser$EnumeratorEstimate);
+	$FieldInfo fieldInfos$$[] = {
+		{"ENUMERATOR", "Lcom/sun/tools/javac/parser/JavacParser$EnumeratorEstimate;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavacParser$EnumeratorEstimate, ENUMERATOR)},
+		{"MEMBER", "Lcom/sun/tools/javac/parser/JavacParser$EnumeratorEstimate;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavacParser$EnumeratorEstimate, MEMBER)},
+		{"UNKNOWN", "Lcom/sun/tools/javac/parser/JavacParser$EnumeratorEstimate;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavacParser$EnumeratorEstimate, UNKNOWN)},
+		{"$VALUES", "[Lcom/sun/tools/javac/parser/JavacParser$EnumeratorEstimate;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JavacParser$EnumeratorEstimate, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/parser/JavacParser$EnumeratorEstimate;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacParser$EnumeratorEstimate, $values, $JavacParser$EnumeratorEstimateArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JavacParser$EnumeratorEstimate, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/JavacParser$EnumeratorEstimate;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacParser$EnumeratorEstimate, valueOf, JavacParser$EnumeratorEstimate*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/parser/JavacParser$EnumeratorEstimate;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacParser$EnumeratorEstimate, values, $JavacParser$EnumeratorEstimateArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.JavacParser$EnumeratorEstimate", "com.sun.tools.javac.parser.JavacParser", "EnumeratorEstimate", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.parser.JavacParser$EnumeratorEstimate",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/parser/JavacParser$EnumeratorEstimate;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.JavacParser"
+	};
+	$loadClass(JavacParser$EnumeratorEstimate, name, initialize, &classInfo$$, JavacParser$EnumeratorEstimate::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JavacParser$EnumeratorEstimate));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKConstants$ShadowType.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKConstants.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -23,49 +22,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace gtk {
-
-$FieldInfo _GTKConstants$ShadowType_FieldInfo_[] = {
-	{"NONE", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$ShadowType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$ShadowType, NONE)},
-	{"IN", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$ShadowType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$ShadowType, IN)},
-	{"OUT", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$ShadowType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$ShadowType, OUT)},
-	{"ETCHED_IN", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$ShadowType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$ShadowType, ETCHED_IN)},
-	{"ETCHED_OUT", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$ShadowType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$ShadowType, ETCHED_OUT)},
-	{"$VALUES", "[Lcom/sun/java/swing/plaf/gtk/GTKConstants$ShadowType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(GTKConstants$ShadowType, $VALUES)},
-	{}
-};
-
-$MethodInfo _GTKConstants$ShadowType_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$ShadowType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GTKConstants$ShadowType, $values, $GTKConstants$ShadowTypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(GTKConstants$ShadowType, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/gtk/GTKConstants$ShadowType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$ShadowType, valueOf, GTKConstants$ShadowType*, $String*)},
-	{"values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$ShadowType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$ShadowType, values, $GTKConstants$ShadowTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _GTKConstants$ShadowType_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKConstants$ShadowType", "com.sun.java.swing.plaf.gtk.GTKConstants", "ShadowType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _GTKConstants$ShadowType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.java.swing.plaf.gtk.GTKConstants$ShadowType",
-	"java.lang.Enum",
-	nullptr,
-	_GTKConstants$ShadowType_FieldInfo_,
-	_GTKConstants$ShadowType_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/gtk/GTKConstants$ShadowType;>;",
-	nullptr,
-	_GTKConstants$ShadowType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKConstants"
-};
-
-$Object* allocate$GTKConstants$ShadowType($Class* clazz) {
-	return $of($alloc(GTKConstants$ShadowType));
-}
 
 GTKConstants$ShadowType* GTKConstants$ShadowType::NONE = nullptr;
 GTKConstants$ShadowType* GTKConstants$ShadowType::IN = nullptr;
@@ -99,7 +55,7 @@ void GTKConstants$ShadowType::init$($String* $enum$name, int32_t $enum$ordinal) 
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$GTKConstants$ShadowType($Class* class$) {
+void GTKConstants$ShadowType::clinit$($Class* clazz) {
 	$assignStatic(GTKConstants$ShadowType::NONE, $new(GTKConstants$ShadowType, "NONE"_s, 0));
 	$assignStatic(GTKConstants$ShadowType::IN, $new(GTKConstants$ShadowType, "IN"_s, 1));
 	$assignStatic(GTKConstants$ShadowType::OUT, $new(GTKConstants$ShadowType, "OUT"_s, 2));
@@ -112,7 +68,44 @@ GTKConstants$ShadowType::GTKConstants$ShadowType() {
 }
 
 $Class* GTKConstants$ShadowType::load$($String* name, bool initialize) {
-	$loadClass(GTKConstants$ShadowType, name, initialize, &_GTKConstants$ShadowType_ClassInfo_, clinit$GTKConstants$ShadowType, allocate$GTKConstants$ShadowType);
+	$FieldInfo fieldInfos$$[] = {
+		{"NONE", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$ShadowType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$ShadowType, NONE)},
+		{"IN", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$ShadowType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$ShadowType, IN)},
+		{"OUT", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$ShadowType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$ShadowType, OUT)},
+		{"ETCHED_IN", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$ShadowType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$ShadowType, ETCHED_IN)},
+		{"ETCHED_OUT", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$ShadowType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$ShadowType, ETCHED_OUT)},
+		{"$VALUES", "[Lcom/sun/java/swing/plaf/gtk/GTKConstants$ShadowType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(GTKConstants$ShadowType, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$ShadowType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GTKConstants$ShadowType, $values, $GTKConstants$ShadowTypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(GTKConstants$ShadowType, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/gtk/GTKConstants$ShadowType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$ShadowType, valueOf, GTKConstants$ShadowType*, $String*)},
+		{"values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$ShadowType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$ShadowType, values, $GTKConstants$ShadowTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKConstants$ShadowType", "com.sun.java.swing.plaf.gtk.GTKConstants", "ShadowType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.java.swing.plaf.gtk.GTKConstants$ShadowType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/gtk/GTKConstants$ShadowType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKConstants"
+	};
+	$loadClass(GTKConstants$ShadowType, name, initialize, &classInfo$$, GTKConstants$ShadowType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GTKConstants$ShadowType));
+	});
 	return class$;
 }
 

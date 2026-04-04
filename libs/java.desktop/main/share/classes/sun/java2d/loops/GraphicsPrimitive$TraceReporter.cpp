@@ -1,8 +1,6 @@
 #include <sun/java2d/loops/GraphicsPrimitive$TraceReporter.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/Runtime.h>
 #include <java/lang/ThreadGroup.h>
 #include <java/lang/invoke/CallSite.h>
@@ -26,16 +24,13 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $Runtime = ::java::lang::Runtime;
 using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $ThreadGroupUtils = ::sun::awt::util::ThreadGroupUtils;
 using $GraphicsPrimitive = ::sun::java2d::loops::GraphicsPrimitive;
 
@@ -49,65 +44,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(GraphicsPrimitive$TraceReporter::lambda$setShutdownHook$0());
+		 return GraphicsPrimitive$TraceReporter::lambda$setShutdownHook$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<GraphicsPrimitive$TraceReporter$$Lambda$lambda$setShutdownHook$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo GraphicsPrimitive$TraceReporter$$Lambda$lambda$setShutdownHook$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GraphicsPrimitive$TraceReporter$$Lambda$lambda$setShutdownHook$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(GraphicsPrimitive$TraceReporter$$Lambda$lambda$setShutdownHook$0, run, $Object*)},
-	{}
-};
-$ClassInfo GraphicsPrimitive$TraceReporter$$Lambda$lambda$setShutdownHook$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.java2d.loops.GraphicsPrimitive$TraceReporter$$Lambda$lambda$setShutdownHook$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* GraphicsPrimitive$TraceReporter$$Lambda$lambda$setShutdownHook$0::load$($String* name, bool initialize) {
-	$loadClass(GraphicsPrimitive$TraceReporter$$Lambda$lambda$setShutdownHook$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GraphicsPrimitive$TraceReporter$$Lambda$lambda$setShutdownHook$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(GraphicsPrimitive$TraceReporter$$Lambda$lambda$setShutdownHook$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.java2d.loops.GraphicsPrimitive$TraceReporter$$Lambda$lambda$setShutdownHook$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GraphicsPrimitive$TraceReporter$$Lambda$lambda$setShutdownHook$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GraphicsPrimitive$TraceReporter$$Lambda$lambda$setShutdownHook$0);
+	});
 	return class$;
 }
 $Class* GraphicsPrimitive$TraceReporter$$Lambda$lambda$setShutdownHook$0::class$ = nullptr;
-
-$MethodInfo _GraphicsPrimitive$TraceReporter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GraphicsPrimitive$TraceReporter, init$, void)},
-	{"lambda$setShutdownHook$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GraphicsPrimitive$TraceReporter, lambda$setShutdownHook$0, $Void*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(GraphicsPrimitive$TraceReporter, run, void)},
-	{"setShutdownHook", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(GraphicsPrimitive$TraceReporter, setShutdownHook, void)},
-	{}
-};
-
-$InnerClassInfo _GraphicsPrimitive$TraceReporter_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.GraphicsPrimitive$TraceReporter", "sun.java2d.loops.GraphicsPrimitive", "TraceReporter", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _GraphicsPrimitive$TraceReporter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.loops.GraphicsPrimitive$TraceReporter",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_GraphicsPrimitive$TraceReporter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GraphicsPrimitive$TraceReporter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.GraphicsPrimitive"
-};
-
-$Object* allocate$GraphicsPrimitive$TraceReporter($Class* clazz) {
-	return $of($alloc(GraphicsPrimitive$TraceReporter));
-}
 
 void GraphicsPrimitive$TraceReporter::init$() {
 }
@@ -115,13 +74,13 @@ void GraphicsPrimitive$TraceReporter::init$() {
 void GraphicsPrimitive$TraceReporter::setShutdownHook() {
 	$init(GraphicsPrimitive$TraceReporter);
 	$beforeCallerSensitive();
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(GraphicsPrimitive$TraceReporter$$Lambda$lambda$setShutdownHook$0)));
+	$AccessController::doPrivileged($cast($PrivilegedAction, $$new(GraphicsPrimitive$TraceReporter$$Lambda$lambda$setShutdownHook$0)));
 }
 
 void GraphicsPrimitive$TraceReporter::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PrintStream, ps, $GraphicsPrimitive::getTraceOutputFile());
-	$var($Iterator, iterator, $nc($($nc($GraphicsPrimitive::traceMap)->entrySet()))->iterator());
+	$var($Iterator, iterator, $$nc($nc($GraphicsPrimitive::traceMap)->entrySet())->iterator());
 	int64_t total = 0;
 	int32_t numprims = 0;
 	while ($nc(iterator)->hasNext()) {
@@ -135,7 +94,7 @@ void GraphicsPrimitive$TraceReporter::run() {
 		}
 		$nc(ps)->println(prim);
 		++numprims;
-		total += $nc(count)->get(0);
+		total += count->get(0);
 	}
 	if (numprims == 0) {
 		$nc(ps)->println("No graphics primitives executed"_s);
@@ -146,11 +105,11 @@ void GraphicsPrimitive$TraceReporter::run() {
 
 $Void* GraphicsPrimitive$TraceReporter::lambda$setShutdownHook$0() {
 	$init(GraphicsPrimitive$TraceReporter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(GraphicsPrimitive$TraceReporter, t, $new(GraphicsPrimitive$TraceReporter));
 	$var($Thread, thread, $new($Thread, $($ThreadGroupUtils::getRootThreadGroup()), t, "TraceReporter"_s, 0, false));
 	thread->setContextClassLoader(nullptr);
-	$nc($($Runtime::getRuntime()))->addShutdownHook(thread);
+	$$nc($Runtime::getRuntime())->addShutdownHook(thread);
 	return nullptr;
 }
 
@@ -159,11 +118,39 @@ GraphicsPrimitive$TraceReporter::GraphicsPrimitive$TraceReporter() {
 
 $Class* GraphicsPrimitive$TraceReporter::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(GraphicsPrimitive$TraceReporter$$Lambda$lambda$setShutdownHook$0::classInfo$.name)) {
+		if (name->equals("sun.java2d.loops.GraphicsPrimitive$TraceReporter$$Lambda$lambda$setShutdownHook$0")) {
 			return GraphicsPrimitive$TraceReporter$$Lambda$lambda$setShutdownHook$0::load$(name, initialize);
 		}
 	}
-	$loadClass(GraphicsPrimitive$TraceReporter, name, initialize, &_GraphicsPrimitive$TraceReporter_ClassInfo_, allocate$GraphicsPrimitive$TraceReporter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GraphicsPrimitive$TraceReporter, init$, void)},
+		{"lambda$setShutdownHook$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GraphicsPrimitive$TraceReporter, lambda$setShutdownHook$0, $Void*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(GraphicsPrimitive$TraceReporter, run, void)},
+		{"setShutdownHook", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(GraphicsPrimitive$TraceReporter, setShutdownHook, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.GraphicsPrimitive$TraceReporter", "sun.java2d.loops.GraphicsPrimitive", "TraceReporter", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.loops.GraphicsPrimitive$TraceReporter",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.GraphicsPrimitive"
+	};
+	$loadClass(GraphicsPrimitive$TraceReporter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GraphicsPrimitive$TraceReporter);
+	});
 	return class$;
 }
 

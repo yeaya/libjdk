@@ -14,6 +14,7 @@ class JIS_X_0208_MS5022X$DecodeHolder : public ::java::lang::Object {
 	$class(JIS_X_0208_MS5022X$DecodeHolder, 0, ::java::lang::Object)
 public:
 	JIS_X_0208_MS5022X$DecodeHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* b2cSBStr;
 	static $StringArray* b2cStr;

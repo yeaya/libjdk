@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/HTMLEditorKit.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Cursor.h>
 #include <java/awt/event/MouseListener.h>
@@ -13,17 +12,14 @@
 #include <java/io/Writer.h>
 #include <java/net/URL.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Enumeration.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/JEditorPane.h>
-#include <javax/swing/event/CaretListener.h>
 #include <javax/swing/text/AbstractDocument.h>
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/BadLocationException.h>
 #include <javax/swing/text/DefaultEditorKit.h>
-#include <javax/swing/text/DefaultStyledDocument.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/JTextComponent.h>
@@ -98,8 +94,6 @@
 
 using $ActionArray = $Array<::javax::swing::Action>;
 using $Cursor = ::java::awt::Cursor;
-using $MouseListener = ::java::awt::event::MouseListener;
-using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $BufferedReader = ::java::io::BufferedReader;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
@@ -114,17 +108,13 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Enumeration = ::java::util::Enumeration;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $Action = ::javax::swing::Action;
 using $JEditorPane = ::javax::swing::JEditorPane;
-using $CaretListener = ::javax::swing::event::CaretListener;
 using $AbstractDocument = ::javax::swing::text::AbstractDocument;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
-using $DefaultStyledDocument = ::javax::swing::text::DefaultStyledDocument;
 using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
@@ -160,116 +150,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _HTMLEditorKit_FieldInfo_[] = {
-	{"theEditor", "Ljavax/swing/JEditorPane;", nullptr, $PRIVATE, $field(HTMLEditorKit, theEditor)},
-	{"DEFAULT_CSS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLEditorKit, DEFAULT_CSS)},
-	{"accessibleContext", "Ljavax/accessibility/AccessibleContext;", nullptr, $PRIVATE, $field(HTMLEditorKit, accessibleContext)},
-	{"MoveCursor", "Ljava/awt/Cursor;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLEditorKit, MoveCursor)},
-	{"DefaultCursor", "Ljava/awt/Cursor;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLEditorKit, DefaultCursor)},
-	{"defaultFactory", "Ljavax/swing/text/ViewFactory;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLEditorKit, defaultFactory)},
-	{"input", "Ljavax/swing/text/MutableAttributeSet;", nullptr, 0, $field(HTMLEditorKit, input)},
-	{"DEFAULT_STYLES_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLEditorKit, DEFAULT_STYLES_KEY)},
-	{"linkHandler", "Ljavax/swing/text/html/HTMLEditorKit$LinkController;", nullptr, $PRIVATE, $field(HTMLEditorKit, linkHandler)},
-	{"defaultParser", "Ljavax/swing/text/html/HTMLEditorKit$Parser;", nullptr, $PRIVATE | $STATIC, $staticField(HTMLEditorKit, defaultParser)},
-	{"defaultCursor", "Ljava/awt/Cursor;", nullptr, $PRIVATE, $field(HTMLEditorKit, defaultCursor)},
-	{"linkCursor", "Ljava/awt/Cursor;", nullptr, $PRIVATE, $field(HTMLEditorKit, linkCursor)},
-	{"isAutoFormSubmission", "Z", nullptr, $PRIVATE, $field(HTMLEditorKit, isAutoFormSubmission$)},
-	{"BOLD_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLEditorKit, BOLD_ACTION)},
-	{"ITALIC_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLEditorKit, ITALIC_ACTION)},
-	{"PARA_INDENT_LEFT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLEditorKit, PARA_INDENT_LEFT)},
-	{"PARA_INDENT_RIGHT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLEditorKit, PARA_INDENT_RIGHT)},
-	{"FONT_CHANGE_BIGGER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLEditorKit, FONT_CHANGE_BIGGER)},
-	{"FONT_CHANGE_SMALLER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLEditorKit, FONT_CHANGE_SMALLER)},
-	{"COLOR_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLEditorKit, COLOR_ACTION)},
-	{"LOGICAL_STYLE_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLEditorKit, LOGICAL_STYLE_ACTION)},
-	{"IMG_ALIGN_TOP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLEditorKit, IMG_ALIGN_TOP)},
-	{"IMG_ALIGN_MIDDLE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLEditorKit, IMG_ALIGN_MIDDLE)},
-	{"IMG_ALIGN_BOTTOM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLEditorKit, IMG_ALIGN_BOTTOM)},
-	{"IMG_BORDER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLEditorKit, IMG_BORDER)},
-	{"INSERT_TABLE_HTML", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLEditorKit, INSERT_TABLE_HTML)},
-	{"INSERT_UL_HTML", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLEditorKit, INSERT_UL_HTML)},
-	{"INSERT_OL_HTML", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLEditorKit, INSERT_OL_HTML)},
-	{"INSERT_HR_HTML", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLEditorKit, INSERT_HR_HTML)},
-	{"INSERT_PRE_HTML", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLEditorKit, INSERT_PRE_HTML)},
-	{"nextLinkAction", "Ljavax/swing/text/html/HTMLEditorKit$NavigateLinkAction;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLEditorKit, nextLinkAction)},
-	{"previousLinkAction", "Ljavax/swing/text/html/HTMLEditorKit$NavigateLinkAction;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLEditorKit, previousLinkAction)},
-	{"activateLinkAction", "Ljavax/swing/text/html/HTMLEditorKit$ActivateLinkAction;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLEditorKit, activateLinkAction)},
-	{"defaultActions", "[Ljavax/swing/Action;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLEditorKit, defaultActions)},
-	{"foundLink", "Z", nullptr, $PRIVATE, $field(HTMLEditorKit, foundLink)},
-	{"prevHypertextOffset", "I", nullptr, $PRIVATE, $field(HTMLEditorKit, prevHypertextOffset)},
-	{"linkNavigationTag", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(HTMLEditorKit, linkNavigationTag)},
-	{}
-};
-
-$MethodInfo _HTMLEditorKit_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HTMLEditorKit, init$, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, clone, $Object*)},
-	{"createDefaultDocument", "()Ljavax/swing/text/Document;", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, createDefaultDocument, $Document*)},
-	{"createInputAttributes", "(Ljavax/swing/text/Element;Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(HTMLEditorKit, createInputAttributes, void, $Element*, $MutableAttributeSet*)},
-	{"deinstall", "(Ljavax/swing/JEditorPane;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, deinstall, void, $JEditorPane*)},
-	{"ensureParser", "(Ljavax/swing/text/html/HTMLDocument;)Ljavax/swing/text/html/HTMLEditorKit$Parser;", nullptr, $PRIVATE, $method(HTMLEditorKit, ensureParser, $HTMLEditorKit$Parser*, $HTMLDocument*), "java.io.IOException"},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, getAccessibleContext, $AccessibleContext*)},
-	{"getActions", "()[Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, getActions, $ActionArray*)},
-	{"getAttrValue", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/html/HTML$Attribute;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(HTMLEditorKit, getAttrValue, $Object*, $AttributeSet*, $HTML$Attribute*)},
-	{"getBodyElementStart", "(Ljavax/swing/text/JTextComponent;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(HTMLEditorKit, getBodyElementStart, int32_t, $JTextComponent*)},
-	{"getContentType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, getContentType, $String*)},
-	{"getDefaultCursor", "()Ljava/awt/Cursor;", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, getDefaultCursor, $Cursor*)},
-	{"getInputAttributes", "()Ljavax/swing/text/MutableAttributeSet;", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, getInputAttributes, $MutableAttributeSet*)},
-	{"getLinkCursor", "()Ljava/awt/Cursor;", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, getLinkCursor, $Cursor*)},
-	{"getParser", "()Ljavax/swing/text/html/HTMLEditorKit$Parser;", nullptr, $PROTECTED, $virtualMethod(HTMLEditorKit, getParser, $HTMLEditorKit$Parser*)},
-	{"getResourceAsStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $STATIC, $staticMethod(HTMLEditorKit, getResourceAsStream, $InputStream*, $String*)},
-	{"getStyleSheet", "()Ljavax/swing/text/html/StyleSheet;", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, getStyleSheet, $StyleSheet*)},
-	{"getViewFactory", "()Ljavax/swing/text/ViewFactory;", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, getViewFactory, $ViewFactory*)},
-	{"insertHTML", "(Ljavax/swing/text/html/HTMLDocument;ILjava/lang/String;IILjavax/swing/text/html/HTML$Tag;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, insertHTML, void, $HTMLDocument*, int32_t, $String*, int32_t, int32_t, $HTML$Tag*), "javax.swing.text.BadLocationException,java.io.IOException"},
-	{"install", "(Ljavax/swing/JEditorPane;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, install, void, $JEditorPane*)},
-	{"isAutoFormSubmission", "()Z", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, isAutoFormSubmission, bool)},
-	{"read", "(Ljava/io/Reader;Ljavax/swing/text/Document;I)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, read, void, $Reader*, $Document*, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
-	{"setAutoFormSubmission", "(Z)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, setAutoFormSubmission, void, bool)},
-	{"setDefaultCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, setDefaultCursor, void, $Cursor*)},
-	{"setLinkCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, setLinkCursor, void, $Cursor*)},
-	{"setStyleSheet", "(Ljavax/swing/text/html/StyleSheet;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, setStyleSheet, void, $StyleSheet*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"write", "(Ljava/io/Writer;Ljavax/swing/text/Document;II)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, write, void, $Writer*, $Document*, int32_t, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
-	{}
-};
-
-$InnerClassInfo _HTMLEditorKit_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.HTMLEditorKit$BeginAction", "javax.swing.text.html.HTMLEditorKit", "BeginAction", $STATIC},
-	{"javax.swing.text.html.HTMLEditorKit$ActivateLinkAction", "javax.swing.text.html.HTMLEditorKit", "ActivateLinkAction", $STATIC},
-	{"javax.swing.text.html.HTMLEditorKit$NavigateLinkAction", "javax.swing.text.html.HTMLEditorKit", "NavigateLinkAction", $STATIC},
-	{"javax.swing.text.html.HTMLEditorKit$InsertHRAction", "javax.swing.text.html.HTMLEditorKit", "InsertHRAction", $STATIC},
-	{"javax.swing.text.html.HTMLEditorKit$InsertHTMLTextAction", "javax.swing.text.html.HTMLEditorKit", "InsertHTMLTextAction", $PUBLIC | $STATIC},
-	{"javax.swing.text.html.HTMLEditorKit$HTMLTextAction", "javax.swing.text.html.HTMLEditorKit", "HTMLTextAction", $PUBLIC | $STATIC | $ABSTRACT},
-	{"javax.swing.text.html.HTMLEditorKit$HTMLFactory", "javax.swing.text.html.HTMLEditorKit", "HTMLFactory", $PUBLIC | $STATIC},
-	{"javax.swing.text.html.HTMLEditorKit$ParserCallback", "javax.swing.text.html.HTMLEditorKit", "ParserCallback", $PUBLIC | $STATIC},
-	{"javax.swing.text.html.HTMLEditorKit$Parser", "javax.swing.text.html.HTMLEditorKit", "Parser", $PUBLIC | $STATIC | $ABSTRACT},
-	{"javax.swing.text.html.HTMLEditorKit$LinkController", "javax.swing.text.html.HTMLEditorKit", "LinkController", $PUBLIC | $STATIC},
-	{"javax.swing.text.html.HTMLEditorKit$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HTMLEditorKit_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.HTMLEditorKit",
-	"javax.swing.text.StyledEditorKit",
-	"javax.accessibility.Accessible",
-	_HTMLEditorKit_FieldInfo_,
-	_HTMLEditorKit_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HTMLEditorKit_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.HTMLEditorKit$BeginAction,javax.swing.text.html.HTMLEditorKit$ActivateLinkAction,javax.swing.text.html.HTMLEditorKit$NavigateLinkAction,javax.swing.text.html.HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter,javax.swing.text.html.HTMLEditorKit$InsertHRAction,javax.swing.text.html.HTMLEditorKit$InsertHTMLTextAction,javax.swing.text.html.HTMLEditorKit$HTMLTextAction,javax.swing.text.html.HTMLEditorKit$HTMLFactory,javax.swing.text.html.HTMLEditorKit$HTMLFactory$BodyBlockView,javax.swing.text.html.HTMLEditorKit$HTMLFactory$1,javax.swing.text.html.HTMLEditorKit$ParserCallback,javax.swing.text.html.HTMLEditorKit$Parser,javax.swing.text.html.HTMLEditorKit$LinkController,javax.swing.text.html.HTMLEditorKit$1"
-};
-
-$Object* allocate$HTMLEditorKit($Class* clazz) {
-	return $of($alloc(HTMLEditorKit));
-}
 
 int32_t HTMLEditorKit::hashCode() {
 	 return this->$StyledEditorKit::hashCode();
@@ -334,7 +214,7 @@ $ViewFactory* HTMLEditorKit::getViewFactory() {
 }
 
 $Document* HTMLEditorKit::createDefaultDocument() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StyleSheet, styles, getStyleSheet());
 	$var($StyleSheet, ss, $new($StyleSheet));
 	ss->addStyleSheet(styles);
@@ -342,7 +222,7 @@ $Document* HTMLEditorKit::createDefaultDocument() {
 	doc->setParser($(getParser()));
 	doc->setAsynchronousLoadPriority(4);
 	doc->setTokenThreshold(100);
-	return static_cast<$Document*>(static_cast<$AbstractDocument*>(static_cast<$DefaultStyledDocument*>(doc)));
+	return $cast($AbstractDocument, doc);
 }
 
 $HTMLEditorKit$Parser* HTMLEditorKit::ensureParser($HTMLDocument* doc) {
@@ -357,16 +237,16 @@ $HTMLEditorKit$Parser* HTMLEditorKit::ensureParser($HTMLDocument* doc) {
 }
 
 void HTMLEditorKit::read($Reader* in, $Document* doc, int32_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($HTMLDocument, doc)) {
 		$var($HTMLDocument, hdoc, $cast($HTMLDocument, doc));
-		if (pos > $nc(doc)->getLength()) {
+		if (pos > doc->getLength()) {
 			$throwNew($BadLocationException, "Invalid location"_s, pos);
 		}
 		$var($HTMLEditorKit$Parser, p, ensureParser(hdoc));
-		$var($HTMLEditorKit$ParserCallback, receiver, $nc(hdoc)->getReader(pos));
-		$var($Boolean, ignoreCharset, $cast($Boolean, $nc(doc)->getProperty("IgnoreCharsetDirective"_s)));
-		$nc(p)->parse(in, receiver, (ignoreCharset == nullptr) ? false : $nc(ignoreCharset)->booleanValue());
+		$var($HTMLEditorKit$ParserCallback, receiver, hdoc->getReader(pos));
+		$var($Boolean, ignoreCharset, $cast($Boolean, doc->getProperty("IgnoreCharsetDirective"_s)));
+		$nc(p)->parse(in, receiver, (ignoreCharset == nullptr) ? false : ignoreCharset->booleanValue());
 		$nc(receiver)->flush();
 	} else {
 		$StyledEditorKit::read(in, doc, pos);
@@ -374,21 +254,20 @@ void HTMLEditorKit::read($Reader* in, $Document* doc, int32_t pos) {
 }
 
 void HTMLEditorKit::insertHTML($HTMLDocument* doc, int32_t offset, $String* html, int32_t popDepth, int32_t pushDepth, $HTML$Tag* insertTag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (offset > $nc(doc)->getLength()) {
 		$throwNew($BadLocationException, "Invalid location"_s, offset);
 	}
 	$var($HTMLEditorKit$Parser, p, ensureParser(doc));
-	$var($HTMLEditorKit$ParserCallback, receiver, $nc(doc)->getReader(offset, popDepth, pushDepth, insertTag));
+	$var($HTMLEditorKit$ParserCallback, receiver, doc->getReader(offset, popDepth, pushDepth, insertTag));
 	$var($Boolean, ignoreCharset, $cast($Boolean, doc->getProperty("IgnoreCharsetDirective"_s)));
-	$var($Reader, var$0, static_cast<$Reader*>($new($StringReader, html)));
-	$var($HTMLEditorKit$ParserCallback, var$1, receiver);
-	$nc(p)->parse(var$0, var$1, (ignoreCharset == nullptr) ? false : $nc(ignoreCharset)->booleanValue());
+	$var($Reader, var$0, $new($StringReader, html));
+	$nc(p)->parse(var$0, receiver, (ignoreCharset == nullptr) ? false : ignoreCharset->booleanValue());
 	$nc(receiver)->flush();
 }
 
 void HTMLEditorKit::write($Writer* out, $Document* doc, int32_t pos, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($HTMLDocument, doc)) {
 		$var($HTMLWriter, w, $new($HTMLWriter, out, $cast($HTMLDocument, doc), pos, len));
 		w->write();
@@ -417,16 +296,16 @@ void HTMLEditorKit::deinstall($JEditorPane* c) {
 }
 
 void HTMLEditorKit::setStyleSheet($StyleSheet* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (s == nullptr) {
-		$nc($($AppContext::getAppContext()))->remove(HTMLEditorKit::DEFAULT_STYLES_KEY);
+		$$nc($AppContext::getAppContext())->remove(HTMLEditorKit::DEFAULT_STYLES_KEY);
 	} else {
-		$nc($($AppContext::getAppContext()))->put(HTMLEditorKit::DEFAULT_STYLES_KEY, s);
+		$$nc($AppContext::getAppContext())->put(HTMLEditorKit::DEFAULT_STYLES_KEY, s);
 	}
 }
 
 $StyleSheet* HTMLEditorKit::getStyleSheet() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, appContext, $AppContext::getAppContext());
 	$var($StyleSheet, defaultStyles, $cast($StyleSheet, $nc(appContext)->get(HTMLEditorKit::DEFAULT_STYLES_KEY)));
 	if (defaultStyles == nullptr) {
@@ -446,7 +325,7 @@ $StyleSheet* HTMLEditorKit::getStyleSheet() {
 $InputStream* HTMLEditorKit::getResourceAsStream($String* name) {
 	$init(HTMLEditorKit);
 	$beforeCallerSensitive();
-	return $cast($InputStream, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($HTMLEditorKit$1, name))));
+	return $cast($InputStream, $AccessController::doPrivileged($$new($HTMLEditorKit$1, name)));
 }
 
 $ActionArray* HTMLEditorKit::getActions() {
@@ -454,8 +333,8 @@ $ActionArray* HTMLEditorKit::getActions() {
 }
 
 void HTMLEditorKit::createInputAttributes($Element* element, $MutableAttributeSet* set) {
-	$useLocalCurrentObjectStackCache();
-	$nc(set)->removeAttributes(static_cast<$AttributeSet*>(set));
+	$useLocalObjectStack();
+	$nc(set)->removeAttributes(set);
 	set->addAttributes($($nc(element)->getAttributes()));
 	$init($StyleConstants);
 	set->removeAttribute($StyleConstants::ComposedTextAttribute);
@@ -469,32 +348,26 @@ void HTMLEditorKit::createInputAttributes($Element* element, $MutableAttributeSe
 			set->removeAttribute($HTML$Attribute::HEIGHT);
 			set->removeAttribute($HTML$Attribute::WIDTH);
 			set->addAttribute($StyleConstants::NameAttribute, $HTML$Tag::CONTENT);
-		} else {
-			if (tag == $HTML$Tag::HR || tag == $HTML$Tag::BR) {
-				set->addAttribute($StyleConstants::NameAttribute, $HTML$Tag::CONTENT);
-			} else {
-				if (tag == $HTML$Tag::COMMENT) {
-					set->addAttribute($StyleConstants::NameAttribute, $HTML$Tag::CONTENT);
-					$init($HTML$Attribute);
-					set->removeAttribute($HTML$Attribute::COMMENT);
-				} else {
-					if (tag == $HTML$Tag::INPUT) {
-						set->addAttribute($StyleConstants::NameAttribute, $HTML$Tag::CONTENT);
-						set->removeAttribute($HTML$Tag::INPUT);
-					} else if ($instanceOf($HTML$UnknownTag, tag)) {
-						set->addAttribute($StyleConstants::NameAttribute, $HTML$Tag::CONTENT);
-						$init($HTML$Attribute);
-						set->removeAttribute($HTML$Attribute::ENDTAG);
-					}
-				}
-			}
+		} else if (tag == $HTML$Tag::HR || tag == $HTML$Tag::BR) {
+			set->addAttribute($StyleConstants::NameAttribute, $HTML$Tag::CONTENT);
+		} else if (tag == $HTML$Tag::COMMENT) {
+			set->addAttribute($StyleConstants::NameAttribute, $HTML$Tag::CONTENT);
+			$init($HTML$Attribute);
+			set->removeAttribute($HTML$Attribute::COMMENT);
+		} else if (tag == $HTML$Tag::INPUT) {
+			set->addAttribute($StyleConstants::NameAttribute, $HTML$Tag::CONTENT);
+			set->removeAttribute($HTML$Tag::INPUT);
+		} else if ($instanceOf($HTML$UnknownTag, tag)) {
+			set->addAttribute($StyleConstants::NameAttribute, $HTML$Tag::CONTENT);
+			$init($HTML$Attribute);
+			set->removeAttribute($HTML$Attribute::ENDTAG);
 		}
 	}
 }
 
 $MutableAttributeSet* HTMLEditorKit::getInputAttributes() {
 	if (this->input == nullptr) {
-		$set(this, input, $nc($(getStyleSheet()))->addStyle(nullptr, nullptr));
+		$set(this, input, $$nc(getStyleSheet())->addStyle(nullptr, nullptr));
 	}
 	return this->input;
 }
@@ -552,7 +425,7 @@ $AccessibleContext* HTMLEditorKit::getAccessibleContext() {
 
 $Object* HTMLEditorKit::getAttrValue($AttributeSet* attr, $HTML$Attribute* key) {
 	$init(HTMLEditorKit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Enumeration, names, $nc(attr)->getAttributeNames());
 	while ($nc(names)->hasMoreElements()) {
 		$var($Object, nextKey, names->nextElement());
@@ -560,30 +433,30 @@ $Object* HTMLEditorKit::getAttrValue($AttributeSet* attr, $HTML$Attribute* key) 
 		if ($instanceOf($AttributeSet, nextVal)) {
 			$var($Object, value, getAttrValue($cast($AttributeSet, nextVal), key));
 			if (value != nullptr) {
-				return $of(value);
+				return value;
 			}
 		} else if ($equals(nextKey, key)) {
-			return $of(nextVal);
+			return nextVal;
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 int32_t HTMLEditorKit::getBodyElementStart($JTextComponent* comp) {
 	$init(HTMLEditorKit);
-	$useLocalCurrentObjectStackCache();
-	$var($Element, rootElement, $nc($($nc($($nc(comp)->getDocument()))->getRootElements()))->get(0));
+	$useLocalObjectStack();
+	$var($Element, rootElement, $nc($($$nc($nc(comp)->getDocument())->getRootElements()))->get(0));
 	for (int32_t i = 0; i < $nc(rootElement)->getElementCount(); ++i) {
 		$var($Element, currElement, rootElement->getElement(i));
 		if ("body"_s->equals($($nc(currElement)->getName()))) {
-			return $nc(currElement)->getStartOffset();
+			return currElement->getStartOffset();
 		}
 	}
 	return 0;
 }
 
-void clinit$HTMLEditorKit($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void HTMLEditorKit::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(HTMLEditorKit::DEFAULT_CSS, "default.css"_s);
 	$assignStatic(HTMLEditorKit::BOLD_ACTION, "html-bold-action"_s);
 	$assignStatic(HTMLEditorKit::ITALIC_ACTION, "html-italic-action"_s);
@@ -613,20 +486,20 @@ void clinit$HTMLEditorKit($Class* class$) {
 	$init($HTML$Tag);
 	$init($DefaultEditorKit);
 	$assignStatic(HTMLEditorKit::defaultActions, $new($ActionArray, {
-		static_cast<$Action*>($$new($HTMLEditorKit$InsertHTMLTextAction, "InsertTable"_s, HTMLEditorKit::INSERT_TABLE_HTML, $HTML$Tag::BODY, $HTML$Tag::TABLE)),
-		static_cast<$Action*>($$new($HTMLEditorKit$InsertHTMLTextAction, "InsertTableRow"_s, HTMLEditorKit::INSERT_TABLE_HTML, $HTML$Tag::TABLE, $HTML$Tag::TR, $HTML$Tag::BODY, $HTML$Tag::TABLE)),
-		static_cast<$Action*>($$new($HTMLEditorKit$InsertHTMLTextAction, "InsertTableDataCell"_s, HTMLEditorKit::INSERT_TABLE_HTML, $HTML$Tag::TR, $HTML$Tag::TD, $HTML$Tag::BODY, $HTML$Tag::TABLE)),
-		static_cast<$Action*>($$new($HTMLEditorKit$InsertHTMLTextAction, "InsertUnorderedList"_s, HTMLEditorKit::INSERT_UL_HTML, $HTML$Tag::BODY, $HTML$Tag::UL)),
-		static_cast<$Action*>($$new($HTMLEditorKit$InsertHTMLTextAction, "InsertUnorderedListItem"_s, HTMLEditorKit::INSERT_UL_HTML, $HTML$Tag::UL, $HTML$Tag::LI, $HTML$Tag::BODY, $HTML$Tag::UL)),
-		static_cast<$Action*>($$new($HTMLEditorKit$InsertHTMLTextAction, "InsertOrderedList"_s, HTMLEditorKit::INSERT_OL_HTML, $HTML$Tag::BODY, $HTML$Tag::OL)),
-		static_cast<$Action*>($$new($HTMLEditorKit$InsertHTMLTextAction, "InsertOrderedListItem"_s, HTMLEditorKit::INSERT_OL_HTML, $HTML$Tag::OL, $HTML$Tag::LI, $HTML$Tag::BODY, $HTML$Tag::OL)),
-		static_cast<$Action*>($$new($HTMLEditorKit$InsertHRAction)),
-		static_cast<$Action*>($$new($HTMLEditorKit$InsertHTMLTextAction, "InsertPre"_s, HTMLEditorKit::INSERT_PRE_HTML, $HTML$Tag::BODY, $HTML$Tag::PRE)),
-		static_cast<$Action*>(HTMLEditorKit::nextLinkAction),
-		static_cast<$Action*>(HTMLEditorKit::previousLinkAction),
-		static_cast<$Action*>(HTMLEditorKit::activateLinkAction),
-		static_cast<$Action*>($$new($HTMLEditorKit$BeginAction, $DefaultEditorKit::beginAction, false)),
-		static_cast<$Action*>($$new($HTMLEditorKit$BeginAction, $DefaultEditorKit::selectionBeginAction, true))
+		$$new($HTMLEditorKit$InsertHTMLTextAction, "InsertTable"_s, HTMLEditorKit::INSERT_TABLE_HTML, $HTML$Tag::BODY, $HTML$Tag::TABLE),
+		$$new($HTMLEditorKit$InsertHTMLTextAction, "InsertTableRow"_s, HTMLEditorKit::INSERT_TABLE_HTML, $HTML$Tag::TABLE, $HTML$Tag::TR, $HTML$Tag::BODY, $HTML$Tag::TABLE),
+		$$new($HTMLEditorKit$InsertHTMLTextAction, "InsertTableDataCell"_s, HTMLEditorKit::INSERT_TABLE_HTML, $HTML$Tag::TR, $HTML$Tag::TD, $HTML$Tag::BODY, $HTML$Tag::TABLE),
+		$$new($HTMLEditorKit$InsertHTMLTextAction, "InsertUnorderedList"_s, HTMLEditorKit::INSERT_UL_HTML, $HTML$Tag::BODY, $HTML$Tag::UL),
+		$$new($HTMLEditorKit$InsertHTMLTextAction, "InsertUnorderedListItem"_s, HTMLEditorKit::INSERT_UL_HTML, $HTML$Tag::UL, $HTML$Tag::LI, $HTML$Tag::BODY, $HTML$Tag::UL),
+		$$new($HTMLEditorKit$InsertHTMLTextAction, "InsertOrderedList"_s, HTMLEditorKit::INSERT_OL_HTML, $HTML$Tag::BODY, $HTML$Tag::OL),
+		$$new($HTMLEditorKit$InsertHTMLTextAction, "InsertOrderedListItem"_s, HTMLEditorKit::INSERT_OL_HTML, $HTML$Tag::OL, $HTML$Tag::LI, $HTML$Tag::BODY, $HTML$Tag::OL),
+		$$new($HTMLEditorKit$InsertHRAction),
+		$$new($HTMLEditorKit$InsertHTMLTextAction, "InsertPre"_s, HTMLEditorKit::INSERT_PRE_HTML, $HTML$Tag::BODY, $HTML$Tag::PRE),
+		HTMLEditorKit::nextLinkAction,
+		HTMLEditorKit::previousLinkAction,
+		HTMLEditorKit::activateLinkAction,
+		$$new($HTMLEditorKit$BeginAction, $DefaultEditorKit::beginAction, false),
+		$$new($HTMLEditorKit$BeginAction, $DefaultEditorKit::selectionBeginAction, true)
 	}));
 }
 
@@ -634,7 +507,111 @@ HTMLEditorKit::HTMLEditorKit() {
 }
 
 $Class* HTMLEditorKit::load$($String* name, bool initialize) {
-	$loadClass(HTMLEditorKit, name, initialize, &_HTMLEditorKit_ClassInfo_, clinit$HTMLEditorKit, allocate$HTMLEditorKit);
+	$FieldInfo fieldInfos$$[] = {
+		{"theEditor", "Ljavax/swing/JEditorPane;", nullptr, $PRIVATE, $field(HTMLEditorKit, theEditor)},
+		{"DEFAULT_CSS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLEditorKit, DEFAULT_CSS)},
+		{"accessibleContext", "Ljavax/accessibility/AccessibleContext;", nullptr, $PRIVATE, $field(HTMLEditorKit, accessibleContext)},
+		{"MoveCursor", "Ljava/awt/Cursor;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLEditorKit, MoveCursor)},
+		{"DefaultCursor", "Ljava/awt/Cursor;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLEditorKit, DefaultCursor)},
+		{"defaultFactory", "Ljavax/swing/text/ViewFactory;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLEditorKit, defaultFactory)},
+		{"input", "Ljavax/swing/text/MutableAttributeSet;", nullptr, 0, $field(HTMLEditorKit, input)},
+		{"DEFAULT_STYLES_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLEditorKit, DEFAULT_STYLES_KEY)},
+		{"linkHandler", "Ljavax/swing/text/html/HTMLEditorKit$LinkController;", nullptr, $PRIVATE, $field(HTMLEditorKit, linkHandler)},
+		{"defaultParser", "Ljavax/swing/text/html/HTMLEditorKit$Parser;", nullptr, $PRIVATE | $STATIC, $staticField(HTMLEditorKit, defaultParser)},
+		{"defaultCursor", "Ljava/awt/Cursor;", nullptr, $PRIVATE, $field(HTMLEditorKit, defaultCursor)},
+		{"linkCursor", "Ljava/awt/Cursor;", nullptr, $PRIVATE, $field(HTMLEditorKit, linkCursor)},
+		{"isAutoFormSubmission", "Z", nullptr, $PRIVATE, $field(HTMLEditorKit, isAutoFormSubmission$)},
+		{"BOLD_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLEditorKit, BOLD_ACTION)},
+		{"ITALIC_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLEditorKit, ITALIC_ACTION)},
+		{"PARA_INDENT_LEFT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLEditorKit, PARA_INDENT_LEFT)},
+		{"PARA_INDENT_RIGHT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLEditorKit, PARA_INDENT_RIGHT)},
+		{"FONT_CHANGE_BIGGER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLEditorKit, FONT_CHANGE_BIGGER)},
+		{"FONT_CHANGE_SMALLER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLEditorKit, FONT_CHANGE_SMALLER)},
+		{"COLOR_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLEditorKit, COLOR_ACTION)},
+		{"LOGICAL_STYLE_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLEditorKit, LOGICAL_STYLE_ACTION)},
+		{"IMG_ALIGN_TOP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLEditorKit, IMG_ALIGN_TOP)},
+		{"IMG_ALIGN_MIDDLE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLEditorKit, IMG_ALIGN_MIDDLE)},
+		{"IMG_ALIGN_BOTTOM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLEditorKit, IMG_ALIGN_BOTTOM)},
+		{"IMG_BORDER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLEditorKit, IMG_BORDER)},
+		{"INSERT_TABLE_HTML", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLEditorKit, INSERT_TABLE_HTML)},
+		{"INSERT_UL_HTML", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLEditorKit, INSERT_UL_HTML)},
+		{"INSERT_OL_HTML", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLEditorKit, INSERT_OL_HTML)},
+		{"INSERT_HR_HTML", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLEditorKit, INSERT_HR_HTML)},
+		{"INSERT_PRE_HTML", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLEditorKit, INSERT_PRE_HTML)},
+		{"nextLinkAction", "Ljavax/swing/text/html/HTMLEditorKit$NavigateLinkAction;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLEditorKit, nextLinkAction)},
+		{"previousLinkAction", "Ljavax/swing/text/html/HTMLEditorKit$NavigateLinkAction;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLEditorKit, previousLinkAction)},
+		{"activateLinkAction", "Ljavax/swing/text/html/HTMLEditorKit$ActivateLinkAction;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLEditorKit, activateLinkAction)},
+		{"defaultActions", "[Ljavax/swing/Action;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLEditorKit, defaultActions)},
+		{"foundLink", "Z", nullptr, $PRIVATE, $field(HTMLEditorKit, foundLink)},
+		{"prevHypertextOffset", "I", nullptr, $PRIVATE, $field(HTMLEditorKit, prevHypertextOffset)},
+		{"linkNavigationTag", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(HTMLEditorKit, linkNavigationTag)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HTMLEditorKit, init$, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, clone, $Object*)},
+		{"createDefaultDocument", "()Ljavax/swing/text/Document;", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, createDefaultDocument, $Document*)},
+		{"createInputAttributes", "(Ljavax/swing/text/Element;Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(HTMLEditorKit, createInputAttributes, void, $Element*, $MutableAttributeSet*)},
+		{"deinstall", "(Ljavax/swing/JEditorPane;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, deinstall, void, $JEditorPane*)},
+		{"ensureParser", "(Ljavax/swing/text/html/HTMLDocument;)Ljavax/swing/text/html/HTMLEditorKit$Parser;", nullptr, $PRIVATE, $method(HTMLEditorKit, ensureParser, $HTMLEditorKit$Parser*, $HTMLDocument*), "java.io.IOException"},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, getAccessibleContext, $AccessibleContext*)},
+		{"getActions", "()[Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, getActions, $ActionArray*)},
+		{"getAttrValue", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/html/HTML$Attribute;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(HTMLEditorKit, getAttrValue, $Object*, $AttributeSet*, $HTML$Attribute*)},
+		{"getBodyElementStart", "(Ljavax/swing/text/JTextComponent;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(HTMLEditorKit, getBodyElementStart, int32_t, $JTextComponent*)},
+		{"getContentType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, getContentType, $String*)},
+		{"getDefaultCursor", "()Ljava/awt/Cursor;", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, getDefaultCursor, $Cursor*)},
+		{"getInputAttributes", "()Ljavax/swing/text/MutableAttributeSet;", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, getInputAttributes, $MutableAttributeSet*)},
+		{"getLinkCursor", "()Ljava/awt/Cursor;", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, getLinkCursor, $Cursor*)},
+		{"getParser", "()Ljavax/swing/text/html/HTMLEditorKit$Parser;", nullptr, $PROTECTED, $virtualMethod(HTMLEditorKit, getParser, $HTMLEditorKit$Parser*)},
+		{"getResourceAsStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $STATIC, $staticMethod(HTMLEditorKit, getResourceAsStream, $InputStream*, $String*)},
+		{"getStyleSheet", "()Ljavax/swing/text/html/StyleSheet;", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, getStyleSheet, $StyleSheet*)},
+		{"getViewFactory", "()Ljavax/swing/text/ViewFactory;", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, getViewFactory, $ViewFactory*)},
+		{"insertHTML", "(Ljavax/swing/text/html/HTMLDocument;ILjava/lang/String;IILjavax/swing/text/html/HTML$Tag;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, insertHTML, void, $HTMLDocument*, int32_t, $String*, int32_t, int32_t, $HTML$Tag*), "javax.swing.text.BadLocationException,java.io.IOException"},
+		{"install", "(Ljavax/swing/JEditorPane;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, install, void, $JEditorPane*)},
+		{"isAutoFormSubmission", "()Z", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, isAutoFormSubmission, bool)},
+		{"read", "(Ljava/io/Reader;Ljavax/swing/text/Document;I)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, read, void, $Reader*, $Document*, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
+		{"setAutoFormSubmission", "(Z)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, setAutoFormSubmission, void, bool)},
+		{"setDefaultCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, setDefaultCursor, void, $Cursor*)},
+		{"setLinkCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, setLinkCursor, void, $Cursor*)},
+		{"setStyleSheet", "(Ljavax/swing/text/html/StyleSheet;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, setStyleSheet, void, $StyleSheet*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"write", "(Ljava/io/Writer;Ljavax/swing/text/Document;II)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit, write, void, $Writer*, $Document*, int32_t, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.HTMLEditorKit$BeginAction", "javax.swing.text.html.HTMLEditorKit", "BeginAction", $STATIC},
+		{"javax.swing.text.html.HTMLEditorKit$ActivateLinkAction", "javax.swing.text.html.HTMLEditorKit", "ActivateLinkAction", $STATIC},
+		{"javax.swing.text.html.HTMLEditorKit$NavigateLinkAction", "javax.swing.text.html.HTMLEditorKit", "NavigateLinkAction", $STATIC},
+		{"javax.swing.text.html.HTMLEditorKit$InsertHRAction", "javax.swing.text.html.HTMLEditorKit", "InsertHRAction", $STATIC},
+		{"javax.swing.text.html.HTMLEditorKit$InsertHTMLTextAction", "javax.swing.text.html.HTMLEditorKit", "InsertHTMLTextAction", $PUBLIC | $STATIC},
+		{"javax.swing.text.html.HTMLEditorKit$HTMLTextAction", "javax.swing.text.html.HTMLEditorKit", "HTMLTextAction", $PUBLIC | $STATIC | $ABSTRACT},
+		{"javax.swing.text.html.HTMLEditorKit$HTMLFactory", "javax.swing.text.html.HTMLEditorKit", "HTMLFactory", $PUBLIC | $STATIC},
+		{"javax.swing.text.html.HTMLEditorKit$ParserCallback", "javax.swing.text.html.HTMLEditorKit", "ParserCallback", $PUBLIC | $STATIC},
+		{"javax.swing.text.html.HTMLEditorKit$Parser", "javax.swing.text.html.HTMLEditorKit", "Parser", $PUBLIC | $STATIC | $ABSTRACT},
+		{"javax.swing.text.html.HTMLEditorKit$LinkController", "javax.swing.text.html.HTMLEditorKit", "LinkController", $PUBLIC | $STATIC},
+		{"javax.swing.text.html.HTMLEditorKit$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.HTMLEditorKit",
+		"javax.swing.text.StyledEditorKit",
+		"javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.HTMLEditorKit$BeginAction,javax.swing.text.html.HTMLEditorKit$ActivateLinkAction,javax.swing.text.html.HTMLEditorKit$NavigateLinkAction,javax.swing.text.html.HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter,javax.swing.text.html.HTMLEditorKit$InsertHRAction,javax.swing.text.html.HTMLEditorKit$InsertHTMLTextAction,javax.swing.text.html.HTMLEditorKit$HTMLTextAction,javax.swing.text.html.HTMLEditorKit$HTMLFactory,javax.swing.text.html.HTMLEditorKit$HTMLFactory$BodyBlockView,javax.swing.text.html.HTMLEditorKit$HTMLFactory$1,javax.swing.text.html.HTMLEditorKit$ParserCallback,javax.swing.text.html.HTMLEditorKit$Parser,javax.swing.text.html.HTMLEditorKit$LinkController,javax.swing.text.html.HTMLEditorKit$1"
+	};
+	$loadClass(HTMLEditorKit, name, initialize, &classInfo$$, HTMLEditorKit::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HTMLEditorKit));
+	});
 	return class$;
 }
 

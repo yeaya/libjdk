@@ -68,7 +68,7 @@ public:
 	using ::com::sun::org::apache::xpath::internal::objects::XString::rtf;
 	virtual $String* str() override;
 	using ::com::sun::org::apache::xpath::internal::objects::XString::xstr;
-	static const int64_t serialVersionUID = (int64_t)0xE0FACCFADC9D30DD;
+	static const int64_t serialVersionUID = (int64_t)0xe0faccfadc9d30dd;
 	int32_t m_start = 0;
 	int32_t m_length = 0;
 	$String* m_strCache = nullptr;

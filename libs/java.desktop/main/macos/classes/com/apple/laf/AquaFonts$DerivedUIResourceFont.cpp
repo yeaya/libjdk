@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFonts$DerivedUIResourceFont.h>
-
 #include <com/apple/laf/AquaFonts.h>
 #include <java/awt/Font.h>
 #include <java/awt/geom/AffineTransform.h>
@@ -18,43 +17,6 @@ using $FontUIResource = ::javax::swing::plaf::FontUIResource;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$MethodInfo _AquaFonts$DerivedUIResourceFont_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $method(AquaFonts$DerivedUIResourceFont, init$, void, $Font*)},
-	{"<init>", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(AquaFonts$DerivedUIResourceFont, init$, void, $String*, int32_t, int32_t)},
-	{"deriveFont", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(AquaFonts$DerivedUIResourceFont, deriveFont, $Font*, $AffineTransform*)},
-	{"deriveFont", "(F)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(AquaFonts$DerivedUIResourceFont, deriveFont, $Font*, float)},
-	{"deriveFont", "(I)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(AquaFonts$DerivedUIResourceFont, deriveFont, $Font*, int32_t)},
-	{"deriveFont", "(ILjava/awt/geom/AffineTransform;)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(AquaFonts$DerivedUIResourceFont, deriveFont, $Font*, int32_t, $AffineTransform*)},
-	{"deriveFont", "(IF)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(AquaFonts$DerivedUIResourceFont, deriveFont, $Font*, int32_t, float)},
-	{"deriveFont", "(Ljava/util/Map;)Ljava/awt/Font;", "(Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;)Ljava/awt/Font;", $PUBLIC, $virtualMethod(AquaFonts$DerivedUIResourceFont, deriveFont, $Font*, $Map*)},
-	{}
-};
-
-$InnerClassInfo _AquaFonts$DerivedUIResourceFont_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFonts$DerivedUIResourceFont", "com.apple.laf.AquaFonts", "DerivedUIResourceFont", $STATIC},
-	{}
-};
-
-$ClassInfo _AquaFonts$DerivedUIResourceFont_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaFonts$DerivedUIResourceFont",
-	"javax.swing.plaf.FontUIResource",
-	nullptr,
-	nullptr,
-	_AquaFonts$DerivedUIResourceFont_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaFonts$DerivedUIResourceFont_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFonts"
-};
-
-$Object* allocate$AquaFonts$DerivedUIResourceFont($Class* clazz) {
-	return $of($alloc(AquaFonts$DerivedUIResourceFont));
-}
 
 void AquaFonts$DerivedUIResourceFont::init$($Font* font) {
 	$FontUIResource::init$(font);
@@ -92,7 +54,39 @@ AquaFonts$DerivedUIResourceFont::AquaFonts$DerivedUIResourceFont() {
 }
 
 $Class* AquaFonts$DerivedUIResourceFont::load$($String* name, bool initialize) {
-	$loadClass(AquaFonts$DerivedUIResourceFont, name, initialize, &_AquaFonts$DerivedUIResourceFont_ClassInfo_, allocate$AquaFonts$DerivedUIResourceFont);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $method(AquaFonts$DerivedUIResourceFont, init$, void, $Font*)},
+		{"<init>", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(AquaFonts$DerivedUIResourceFont, init$, void, $String*, int32_t, int32_t)},
+		{"deriveFont", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(AquaFonts$DerivedUIResourceFont, deriveFont, $Font*, $AffineTransform*)},
+		{"deriveFont", "(F)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(AquaFonts$DerivedUIResourceFont, deriveFont, $Font*, float)},
+		{"deriveFont", "(I)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(AquaFonts$DerivedUIResourceFont, deriveFont, $Font*, int32_t)},
+		{"deriveFont", "(ILjava/awt/geom/AffineTransform;)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(AquaFonts$DerivedUIResourceFont, deriveFont, $Font*, int32_t, $AffineTransform*)},
+		{"deriveFont", "(IF)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(AquaFonts$DerivedUIResourceFont, deriveFont, $Font*, int32_t, float)},
+		{"deriveFont", "(Ljava/util/Map;)Ljava/awt/Font;", "(Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;)Ljava/awt/Font;", $PUBLIC, $virtualMethod(AquaFonts$DerivedUIResourceFont, deriveFont, $Font*, $Map*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFonts$DerivedUIResourceFont", "com.apple.laf.AquaFonts", "DerivedUIResourceFont", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaFonts$DerivedUIResourceFont",
+		"javax.swing.plaf.FontUIResource",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFonts"
+	};
+	$loadClass(AquaFonts$DerivedUIResourceFont, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaFonts$DerivedUIResourceFont));
+	});
 	return class$;
 }
 

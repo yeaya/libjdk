@@ -1,5 +1,4 @@
 #include <com/sun/source/doctree/BlockTagTree.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,26 +9,22 @@ namespace com {
 		namespace source {
 			namespace doctree {
 
-$MethodInfo _BlockTagTree_MethodInfo_[] = {
-	{"getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BlockTagTree, getTagName, $String*)},
-	{}
-};
-
-$ClassInfo _BlockTagTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.doctree.BlockTagTree",
-	nullptr,
-	"com.sun.source.doctree.DocTree",
-	nullptr,
-	_BlockTagTree_MethodInfo_
-};
-
-$Object* allocate$BlockTagTree($Class* clazz) {
-	return $of($alloc(BlockTagTree));
-}
-
 $Class* BlockTagTree::load$($String* name, bool initialize) {
-	$loadClass(BlockTagTree, name, initialize, &_BlockTagTree_ClassInfo_, allocate$BlockTagTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BlockTagTree, getTagName, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.doctree.BlockTagTree",
+		nullptr,
+		"com.sun.source.doctree.DocTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BlockTagTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BlockTagTree);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/MarlinUtils.h>
-
 #include <java/lang/ThreadGroup.h>
 #include <sun/java2d/marlin/MarlinConst.h>
 #include <sun/util/logging/PlatformLogger.h>
@@ -9,7 +8,6 @@
 #undef LOG
 #undef USE_LOGGER
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -21,32 +19,6 @@ namespace sun {
 	namespace java2d {
 		namespace marlin {
 
-$FieldInfo _MarlinUtils_FieldInfo_[] = {
-	{"LOG", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MarlinUtils, LOG)},
-	{}
-};
-
-$MethodInfo _MarlinUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MarlinUtils, init$, void)},
-	{"getRootThreadGroup", "()Ljava/lang/ThreadGroup;", nullptr, $PUBLIC | $STATIC, $staticMethod(MarlinUtils, getRootThreadGroup, $ThreadGroup*)},
-	{"logException", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MarlinUtils, logException, void, $String*, $Throwable*)},
-	{"logInfo", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MarlinUtils, logInfo, void, $String*)},
-	{}
-};
-
-$ClassInfo _MarlinUtils_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.MarlinUtils",
-	"java.lang.Object",
-	nullptr,
-	_MarlinUtils_FieldInfo_,
-	_MarlinUtils_MethodInfo_
-};
-
-$Object* allocate$MarlinUtils($Class* clazz) {
-	return $of($alloc(MarlinUtils));
-}
-
 $PlatformLogger* MarlinUtils::LOG = nullptr;
 
 void MarlinUtils::init$() {
@@ -57,11 +29,9 @@ void MarlinUtils::logInfo($String* msg) {
 	$init($MarlinConst);
 	if ($MarlinConst::USE_LOGGER) {
 		$nc(MarlinUtils::LOG)->info(msg);
-	} else {
-		if ($MarlinConst::ENABLE_LOGS) {
-			$nc($System::out)->print("INFO: "_s);
-			$nc($System::out)->println(msg);
-		}
+	} else if ($MarlinConst::ENABLE_LOGS) {
+		$nc($System::out)->print("INFO: "_s);
+		$System::out->println(msg);
 	}
 }
 
@@ -70,18 +40,16 @@ void MarlinUtils::logException($String* msg, $Throwable* th) {
 	$init($MarlinConst);
 	if ($MarlinConst::USE_LOGGER) {
 		$nc(MarlinUtils::LOG)->warning(msg, th);
-	} else {
-		if ($MarlinConst::ENABLE_LOGS) {
-			$nc($System::out)->print("WARNING: "_s);
-			$nc($System::out)->println(msg);
-			$nc(th)->printStackTrace($System::err);
-		}
+	} else if ($MarlinConst::ENABLE_LOGS) {
+		$nc($System::out)->print("WARNING: "_s);
+		$System::out->println(msg);
+		$nc(th)->printStackTrace($System::err);
 	}
 }
 
 $ThreadGroup* MarlinUtils::getRootThreadGroup() {
 	$init(MarlinUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ThreadGroup, currentTG, $($Thread::currentThread())->getThreadGroup());
 	$var($ThreadGroup, parentTG, $nc(currentTG)->getParent());
 	while (parentTG != nullptr) {
@@ -91,7 +59,7 @@ $ThreadGroup* MarlinUtils::getRootThreadGroup() {
 	return currentTG;
 }
 
-void clinit$MarlinUtils($Class* class$) {
+void MarlinUtils::clinit$($Class* clazz) {
 	{
 		$init($MarlinConst);
 		if ($MarlinConst::USE_LOGGER) {
@@ -106,7 +74,28 @@ MarlinUtils::MarlinUtils() {
 }
 
 $Class* MarlinUtils::load$($String* name, bool initialize) {
-	$loadClass(MarlinUtils, name, initialize, &_MarlinUtils_ClassInfo_, clinit$MarlinUtils, allocate$MarlinUtils);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MarlinUtils, LOG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MarlinUtils, init$, void)},
+		{"getRootThreadGroup", "()Ljava/lang/ThreadGroup;", nullptr, $PUBLIC | $STATIC, $staticMethod(MarlinUtils, getRootThreadGroup, $ThreadGroup*)},
+		{"logException", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MarlinUtils, logException, void, $String*, $Throwable*)},
+		{"logInfo", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MarlinUtils, logInfo, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.MarlinUtils",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MarlinUtils, name, initialize, &classInfo$$, MarlinUtils::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MarlinUtils);
+	});
 	return class$;
 }
 

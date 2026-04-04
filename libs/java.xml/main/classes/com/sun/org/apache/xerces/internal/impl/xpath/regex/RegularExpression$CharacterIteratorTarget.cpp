@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression$CharacterIteratorTarget.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression$ExpressionTarget.h>
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression.h>
 #include <java/text/CharacterIterator.h>
@@ -22,50 +21,6 @@ namespace com {
 						namespace impl {
 							namespace xpath {
 								namespace regex {
-
-$FieldInfo _RegularExpression$CharacterIteratorTarget_FieldInfo_[] = {
-	{"target", "Ljava/text/CharacterIterator;", nullptr, 0, $field(RegularExpression$CharacterIteratorTarget, target)},
-	{}
-};
-
-$MethodInfo _RegularExpression$CharacterIteratorTarget_MethodInfo_[] = {
-	{"<init>", "(Ljava/text/CharacterIterator;)V", nullptr, 0, $method(RegularExpression$CharacterIteratorTarget, init$, void, $CharacterIterator*)},
-	{"charAt", "(I)C", nullptr, $FINAL, $virtualMethod(RegularExpression$CharacterIteratorTarget, charAt, char16_t, int32_t)},
-	{"regionMatches", "(ZIILjava/lang/String;I)Z", nullptr, $FINAL, $virtualMethod(RegularExpression$CharacterIteratorTarget, regionMatches, bool, bool, int32_t, int32_t, $String*, int32_t)},
-	{"regionMatches", "(IILjava/lang/String;I)Z", nullptr, $PRIVATE | $FINAL, $method(RegularExpression$CharacterIteratorTarget, regionMatches, bool, int32_t, int32_t, $String*, int32_t)},
-	{"regionMatches", "(ZIIII)Z", nullptr, $FINAL, $virtualMethod(RegularExpression$CharacterIteratorTarget, regionMatches, bool, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"regionMatches", "(IIII)Z", nullptr, $PRIVATE | $FINAL, $method(RegularExpression$CharacterIteratorTarget, regionMatches, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"regionMatchesIgnoreCase", "(IILjava/lang/String;I)Z", nullptr, $PRIVATE | $FINAL, $method(RegularExpression$CharacterIteratorTarget, regionMatchesIgnoreCase, bool, int32_t, int32_t, $String*, int32_t)},
-	{"regionMatchesIgnoreCase", "(IIII)Z", nullptr, $PRIVATE | $FINAL, $method(RegularExpression$CharacterIteratorTarget, regionMatchesIgnoreCase, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"resetTarget", "(Ljava/text/CharacterIterator;)V", nullptr, $FINAL, $method(RegularExpression$CharacterIteratorTarget, resetTarget, void, $CharacterIterator*)},
-	{}
-};
-
-$InnerClassInfo _RegularExpression$CharacterIteratorTarget_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$CharacterIteratorTarget", "com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression", "CharacterIteratorTarget", $STATIC | $FINAL},
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$ExpressionTarget", "com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression", "ExpressionTarget", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RegularExpression$CharacterIteratorTarget_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$CharacterIteratorTarget",
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$ExpressionTarget",
-	nullptr,
-	_RegularExpression$CharacterIteratorTarget_FieldInfo_,
-	_RegularExpression$CharacterIteratorTarget_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RegularExpression$CharacterIteratorTarget_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression"
-};
-
-$Object* allocate$RegularExpression$CharacterIteratorTarget($Class* clazz) {
-	return $of($alloc(RegularExpression$CharacterIteratorTarget));
-}
 
 void RegularExpression$CharacterIteratorTarget::init$($CharacterIterator* target) {
 	$RegularExpression$ExpressionTarget::init$();
@@ -130,7 +85,7 @@ bool RegularExpression$CharacterIteratorTarget::regionMatches(int32_t offset, in
 	int32_t i = offset2;
 	while (partlen-- > 0) {
 		char16_t var$0 = $nc(this->target)->setIndex(offset++);
-		if (var$0 != $nc(this->target)->setIndex(i++)) {
+		if (var$0 != this->target->setIndex(i++)) {
 			return false;
 		}
 	}
@@ -141,7 +96,7 @@ bool RegularExpression$CharacterIteratorTarget::regionMatchesIgnoreCase(int32_t 
 	int32_t i = offset2;
 	while (partlen-- > 0) {
 		char16_t ch1 = $nc(this->target)->setIndex(offset++);
-		char16_t ch2 = $nc(this->target)->setIndex(i++);
+		char16_t ch2 = this->target->setIndex(i++);
 		if (ch1 == ch2) {
 			continue;
 		}
@@ -162,7 +117,45 @@ RegularExpression$CharacterIteratorTarget::RegularExpression$CharacterIteratorTa
 }
 
 $Class* RegularExpression$CharacterIteratorTarget::load$($String* name, bool initialize) {
-	$loadClass(RegularExpression$CharacterIteratorTarget, name, initialize, &_RegularExpression$CharacterIteratorTarget_ClassInfo_, allocate$RegularExpression$CharacterIteratorTarget);
+	$FieldInfo fieldInfos$$[] = {
+		{"target", "Ljava/text/CharacterIterator;", nullptr, 0, $field(RegularExpression$CharacterIteratorTarget, target)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/text/CharacterIterator;)V", nullptr, 0, $method(RegularExpression$CharacterIteratorTarget, init$, void, $CharacterIterator*)},
+		{"charAt", "(I)C", nullptr, $FINAL, $virtualMethod(RegularExpression$CharacterIteratorTarget, charAt, char16_t, int32_t)},
+		{"regionMatches", "(ZIILjava/lang/String;I)Z", nullptr, $FINAL, $virtualMethod(RegularExpression$CharacterIteratorTarget, regionMatches, bool, bool, int32_t, int32_t, $String*, int32_t)},
+		{"regionMatches", "(IILjava/lang/String;I)Z", nullptr, $PRIVATE | $FINAL, $method(RegularExpression$CharacterIteratorTarget, regionMatches, bool, int32_t, int32_t, $String*, int32_t)},
+		{"regionMatches", "(ZIIII)Z", nullptr, $FINAL, $virtualMethod(RegularExpression$CharacterIteratorTarget, regionMatches, bool, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"regionMatches", "(IIII)Z", nullptr, $PRIVATE | $FINAL, $method(RegularExpression$CharacterIteratorTarget, regionMatches, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"regionMatchesIgnoreCase", "(IILjava/lang/String;I)Z", nullptr, $PRIVATE | $FINAL, $method(RegularExpression$CharacterIteratorTarget, regionMatchesIgnoreCase, bool, int32_t, int32_t, $String*, int32_t)},
+		{"regionMatchesIgnoreCase", "(IIII)Z", nullptr, $PRIVATE | $FINAL, $method(RegularExpression$CharacterIteratorTarget, regionMatchesIgnoreCase, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"resetTarget", "(Ljava/text/CharacterIterator;)V", nullptr, $FINAL, $method(RegularExpression$CharacterIteratorTarget, resetTarget, void, $CharacterIterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$CharacterIteratorTarget", "com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression", "CharacterIteratorTarget", $STATIC | $FINAL},
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$ExpressionTarget", "com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression", "ExpressionTarget", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$CharacterIteratorTarget",
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$ExpressionTarget",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression"
+	};
+	$loadClass(RegularExpression$CharacterIteratorTarget, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RegularExpression$CharacterIteratorTarget);
+	});
 	return class$;
 }
 

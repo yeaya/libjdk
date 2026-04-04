@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/dtm/DTMFilter.h>
-
 #include <jcpp.h>
 
 #undef SHOW_ALL
@@ -30,46 +29,41 @@ namespace com {
 					namespace internal {
 						namespace dtm {
 
-$FieldInfo _DTMFilter_FieldInfo_[] = {
-	{"SHOW_ALL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_ALL)},
-	{"SHOW_ELEMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_ELEMENT)},
-	{"SHOW_ATTRIBUTE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_ATTRIBUTE)},
-	{"SHOW_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_TEXT)},
-	{"SHOW_CDATA_SECTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_CDATA_SECTION)},
-	{"SHOW_ENTITY_REFERENCE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_ENTITY_REFERENCE)},
-	{"SHOW_ENTITY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_ENTITY)},
-	{"SHOW_PROCESSING_INSTRUCTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_PROCESSING_INSTRUCTION)},
-	{"SHOW_COMMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_COMMENT)},
-	{"SHOW_DOCUMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_DOCUMENT)},
-	{"SHOW_DOCUMENT_TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_DOCUMENT_TYPE)},
-	{"SHOW_DOCUMENT_FRAGMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_DOCUMENT_FRAGMENT)},
-	{"SHOW_NOTATION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_NOTATION)},
-	{"SHOW_NAMESPACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_NAMESPACE)},
-	{"SHOW_BYFUNCTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_BYFUNCTION)},
-	{}
-};
-
-$MethodInfo _DTMFilter_MethodInfo_[] = {
-	{"acceptNode", "(II)S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DTMFilter, acceptNode, int16_t, int32_t, int32_t)},
-	{"acceptNode", "(III)S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DTMFilter, acceptNode, int16_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _DTMFilter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.dtm.DTMFilter",
-	nullptr,
-	nullptr,
-	_DTMFilter_FieldInfo_,
-	_DTMFilter_MethodInfo_
-};
-
-$Object* allocate$DTMFilter($Class* clazz) {
-	return $of($alloc(DTMFilter));
-}
-
 $Class* DTMFilter::load$($String* name, bool initialize) {
-	$loadClass(DTMFilter, name, initialize, &_DTMFilter_ClassInfo_, allocate$DTMFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"SHOW_ALL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_ALL)},
+		{"SHOW_ELEMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_ELEMENT)},
+		{"SHOW_ATTRIBUTE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_ATTRIBUTE)},
+		{"SHOW_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_TEXT)},
+		{"SHOW_CDATA_SECTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_CDATA_SECTION)},
+		{"SHOW_ENTITY_REFERENCE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_ENTITY_REFERENCE)},
+		{"SHOW_ENTITY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_ENTITY)},
+		{"SHOW_PROCESSING_INSTRUCTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_PROCESSING_INSTRUCTION)},
+		{"SHOW_COMMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_COMMENT)},
+		{"SHOW_DOCUMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_DOCUMENT)},
+		{"SHOW_DOCUMENT_TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_DOCUMENT_TYPE)},
+		{"SHOW_DOCUMENT_FRAGMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_DOCUMENT_FRAGMENT)},
+		{"SHOW_NOTATION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_NOTATION)},
+		{"SHOW_NAMESPACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_NAMESPACE)},
+		{"SHOW_BYFUNCTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMFilter, SHOW_BYFUNCTION)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"acceptNode", "(II)S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DTMFilter, acceptNode, int16_t, int32_t, int32_t)},
+		{"acceptNode", "(III)S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DTMFilter, acceptNode, int16_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.dtm.DTMFilter",
+		nullptr,
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DTMFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DTMFilter);
+	});
 	return class$;
 }
 

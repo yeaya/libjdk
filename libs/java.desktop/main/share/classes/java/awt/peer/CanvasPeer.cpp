@@ -1,5 +1,4 @@
 #include <java/awt/peer/CanvasPeer.h>
-
 #include <java/awt/GraphicsConfiguration.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace java {
 	namespace awt {
 		namespace peer {
 
-$MethodInfo _CanvasPeer_MethodInfo_[] = {
-	{"getAppropriateGraphicsConfiguration", "(Ljava/awt/GraphicsConfiguration;)Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CanvasPeer, getAppropriateGraphicsConfiguration, $GraphicsConfiguration*, $GraphicsConfiguration*)},
-	{}
-};
-
-$ClassInfo _CanvasPeer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.peer.CanvasPeer",
-	nullptr,
-	"java.awt.peer.ComponentPeer",
-	nullptr,
-	_CanvasPeer_MethodInfo_
-};
-
-$Object* allocate$CanvasPeer($Class* clazz) {
-	return $of($alloc(CanvasPeer));
-}
-
 $Class* CanvasPeer::load$($String* name, bool initialize) {
-	$loadClass(CanvasPeer, name, initialize, &_CanvasPeer_ClassInfo_, allocate$CanvasPeer);
+	$MethodInfo methodInfos$$[] = {
+		{"getAppropriateGraphicsConfiguration", "(Ljava/awt/GraphicsConfiguration;)Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CanvasPeer, getAppropriateGraphicsConfiguration, $GraphicsConfiguration*, $GraphicsConfiguration*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.peer.CanvasPeer",
+		nullptr,
+		"java.awt.peer.ComponentPeer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CanvasPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CanvasPeer);
+	});
 	return class$;
 }
 

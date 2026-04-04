@@ -1,5 +1,4 @@
 #include <javax/print/attribute/HashPrintRequestAttributeSet.h>
-
 #include <javax/print/attribute/Attribute.h>
 #include <javax/print/attribute/AttributeSet.h>
 #include <javax/print/attribute/HashAttributeSet.h>
@@ -21,48 +20,6 @@ using $PrintRequestAttributeSet = ::javax::print::attribute::PrintRequestAttribu
 namespace javax {
 	namespace print {
 		namespace attribute {
-
-$FieldInfo _HashPrintRequestAttributeSet_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HashPrintRequestAttributeSet, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _HashPrintRequestAttributeSet_MethodInfo_[] = {
-	{"*add", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
-	{"*addAll", "(Ljavax/print/attribute/AttributeSet;)Z", nullptr, $PUBLIC},
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*containsKey", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC},
-	{"*containsValue", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*get", "(Ljava/lang/Class;)Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HashPrintRequestAttributeSet, init$, void)},
-	{"<init>", "(Ljavax/print/attribute/PrintRequestAttribute;)V", nullptr, $PUBLIC, $method(HashPrintRequestAttributeSet, init$, void, $PrintRequestAttribute*)},
-	{"<init>", "([Ljavax/print/attribute/PrintRequestAttribute;)V", nullptr, $PUBLIC, $method(HashPrintRequestAttributeSet, init$, void, $PrintRequestAttributeArray*)},
-	{"<init>", "(Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PUBLIC, $method(HashPrintRequestAttributeSet, init$, void, $PrintRequestAttributeSet*)},
-	{"*remove", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC},
-	{"*remove", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
-	{"*size", "()I", nullptr, $PUBLIC},
-	{"*toArray", "()[Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _HashPrintRequestAttributeSet_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.print.attribute.HashPrintRequestAttributeSet",
-	"javax.print.attribute.HashAttributeSet",
-	"javax.print.attribute.PrintRequestAttributeSet",
-	_HashPrintRequestAttributeSet_FieldInfo_,
-	_HashPrintRequestAttributeSet_MethodInfo_
-};
-
-$Object* allocate$HashPrintRequestAttributeSet($Class* clazz) {
-	return $of($alloc(HashPrintRequestAttributeSet));
-}
 
 $Attribute* HashPrintRequestAttributeSet::get($Class* category) {
 	 return this->$HashAttributeSet::get(category);
@@ -135,24 +92,61 @@ void HashPrintRequestAttributeSet::init$() {
 
 void HashPrintRequestAttributeSet::init$($PrintRequestAttribute* attribute) {
 	$load($PrintRequestAttribute);
-	$HashAttributeSet::init$(static_cast<$Attribute*>(attribute), $PrintRequestAttribute::class$);
+	$HashAttributeSet::init$(attribute, $PrintRequestAttribute::class$);
 }
 
 void HashPrintRequestAttributeSet::init$($PrintRequestAttributeArray* attributes) {
 	$load($PrintRequestAttribute);
-	$HashAttributeSet::init$($fcast($AttributeArray, attributes), $PrintRequestAttribute::class$);
+	$HashAttributeSet::init$($cast($AttributeArray, attributes), $PrintRequestAttribute::class$);
 }
 
 void HashPrintRequestAttributeSet::init$($PrintRequestAttributeSet* attributes) {
 	$load($PrintRequestAttribute);
-	$HashAttributeSet::init$(static_cast<$AttributeSet*>(attributes), $PrintRequestAttribute::class$);
+	$HashAttributeSet::init$(attributes, $PrintRequestAttribute::class$);
 }
 
 HashPrintRequestAttributeSet::HashPrintRequestAttributeSet() {
 }
 
 $Class* HashPrintRequestAttributeSet::load$($String* name, bool initialize) {
-	$loadClass(HashPrintRequestAttributeSet, name, initialize, &_HashPrintRequestAttributeSet_ClassInfo_, allocate$HashPrintRequestAttributeSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HashPrintRequestAttributeSet, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
+		{"*addAll", "(Ljavax/print/attribute/AttributeSet;)Z", nullptr, $PUBLIC},
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*containsKey", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC},
+		{"*containsValue", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*get", "(Ljava/lang/Class;)Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HashPrintRequestAttributeSet, init$, void)},
+		{"<init>", "(Ljavax/print/attribute/PrintRequestAttribute;)V", nullptr, $PUBLIC, $method(HashPrintRequestAttributeSet, init$, void, $PrintRequestAttribute*)},
+		{"<init>", "([Ljavax/print/attribute/PrintRequestAttribute;)V", nullptr, $PUBLIC, $method(HashPrintRequestAttributeSet, init$, void, $PrintRequestAttributeArray*)},
+		{"<init>", "(Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PUBLIC, $method(HashPrintRequestAttributeSet, init$, void, $PrintRequestAttributeSet*)},
+		{"*remove", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC},
+		{"*remove", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
+		{"*size", "()I", nullptr, $PUBLIC},
+		{"*toArray", "()[Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.print.attribute.HashPrintRequestAttributeSet",
+		"javax.print.attribute.HashAttributeSet",
+		"javax.print.attribute.PrintRequestAttributeSet",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HashPrintRequestAttributeSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HashPrintRequestAttributeSet));
+	});
 	return class$;
 }
 

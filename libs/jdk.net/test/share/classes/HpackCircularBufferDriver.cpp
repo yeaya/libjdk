@@ -1,27 +1,8 @@
 #include <HpackCircularBufferDriver.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _HpackCircularBufferDriver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HpackCircularBufferDriver, init$, void)},
-	{}
-};
-
-$ClassInfo _HpackCircularBufferDriver_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HpackCircularBufferDriver",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HpackCircularBufferDriver_MethodInfo_
-};
-
-$Object* allocate$HpackCircularBufferDriver($Class* clazz) {
-	return $of($alloc(HpackCircularBufferDriver));
-}
 
 void HpackCircularBufferDriver::init$() {
 }
@@ -30,7 +11,21 @@ HpackCircularBufferDriver::HpackCircularBufferDriver() {
 }
 
 $Class* HpackCircularBufferDriver::load$($String* name, bool initialize) {
-	$loadClass(HpackCircularBufferDriver, name, initialize, &_HpackCircularBufferDriver_ClassInfo_, allocate$HpackCircularBufferDriver);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HpackCircularBufferDriver, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HpackCircularBufferDriver",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HpackCircularBufferDriver, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HpackCircularBufferDriver);
+	});
 	return class$;
 }
 

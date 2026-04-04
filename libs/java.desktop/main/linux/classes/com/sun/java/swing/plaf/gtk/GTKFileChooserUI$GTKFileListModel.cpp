@@ -1,11 +1,9 @@
 #include <com/sun/java/swing/plaf/gtk/GTKFileChooserUI$GTKFileListModel.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKFileChooserUI.h>
 #include <java/io/File.h>
 #include <java/util/Vector.h>
 #include <javax/swing/AbstractListModel.h>
 #include <javax/swing/event/ListDataEvent.h>
-#include <javax/swing/event/ListDataListener.h>
 #include <javax/swing/plaf/basic/BasicDirectoryModel.h>
 #include <jcpp.h>
 
@@ -15,11 +13,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Vector = ::java::util::Vector;
 using $AbstractListModel = ::javax::swing::AbstractListModel;
 using $ListDataEvent = ::javax::swing::event::ListDataEvent;
-using $ListDataListener = ::javax::swing::event::ListDataListener;
-using $BasicDirectoryModel = ::javax::swing::plaf::basic::BasicDirectoryModel;
 
 namespace com {
 	namespace sun {
@@ -27,54 +22,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace gtk {
-
-$FieldInfo _GTKFileChooserUI$GTKFileListModel_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(GTKFileChooserUI$GTKFileListModel, this$0)},
-	{}
-};
-
-$MethodInfo _GTKFileChooserUI$GTKFileListModel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;)V", nullptr, $PUBLIC, $method(GTKFileChooserUI$GTKFileListModel, init$, void, $GTKFileChooserUI*)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$GTKFileListModel, contains, bool, Object$*)},
-	{"contentsChanged", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$GTKFileListModel, contentsChanged, void, $ListDataEvent*)},
-	{"fireContentsChanged", "()V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$GTKFileListModel, fireContentsChanged, void)},
-	{"getElementAt", "(I)Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$GTKFileListModel, getElementAt, $Object*, int32_t)},
-	{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$GTKFileListModel, getSize, int32_t)},
-	{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$GTKFileListModel, indexOf, int32_t, Object$*)},
-	{"intervalAdded", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$GTKFileListModel, intervalAdded, void, $ListDataEvent*)},
-	{"intervalRemoved", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$GTKFileListModel, intervalRemoved, void, $ListDataEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _GTKFileChooserUI$GTKFileListModel_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKFileListModel", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "GTKFileListModel", $PROTECTED},
-	{}
-};
-
-$ClassInfo _GTKFileChooserUI$GTKFileListModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKFileListModel",
-	"javax.swing.AbstractListModel",
-	"javax.swing.event.ListDataListener",
-	_GTKFileChooserUI$GTKFileListModel_FieldInfo_,
-	_GTKFileChooserUI$GTKFileListModel_MethodInfo_,
-	"Ljavax/swing/AbstractListModel<Ljava/io/File;>;Ljavax/swing/event/ListDataListener;",
-	nullptr,
-	_GTKFileChooserUI$GTKFileListModel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKFileChooserUI"
-};
-
-$Object* allocate$GTKFileChooserUI$GTKFileListModel($Class* clazz) {
-	return $of($alloc(GTKFileChooserUI$GTKFileListModel));
-}
 
 int32_t GTKFileChooserUI$GTKFileListModel::hashCode() {
 	 return this->$AbstractListModel::hashCode();
@@ -99,27 +46,27 @@ void GTKFileChooserUI$GTKFileListModel::finalize() {
 void GTKFileChooserUI$GTKFileListModel::init$($GTKFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
 	$AbstractListModel::init$();
-	$nc($(this$0->getModel()))->addListDataListener(this);
+	$$nc(this$0->getModel())->addListDataListener(this);
 }
 
 int32_t GTKFileChooserUI$GTKFileListModel::getSize() {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc($(this->this$0->getModel()))->getFiles()))->size();
+	$useLocalObjectStack();
+	return $$nc($$nc(this->this$0->getModel())->getFiles())->size();
 }
 
 bool GTKFileChooserUI$GTKFileListModel::contains(Object$* o) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc($(this->this$0->getModel()))->getFiles()))->contains(o);
+	$useLocalObjectStack();
+	return $$nc($$nc(this->this$0->getModel())->getFiles())->contains(o);
 }
 
 int32_t GTKFileChooserUI$GTKFileListModel::indexOf(Object$* o) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc($(this->this$0->getModel()))->getFiles()))->indexOf(o);
+	$useLocalObjectStack();
+	return $$nc($$nc(this->this$0->getModel())->getFiles())->indexOf(o);
 }
 
 $Object* GTKFileChooserUI$GTKFileListModel::getElementAt(int32_t index) {
-	$useLocalCurrentObjectStackCache();
-	return $of($cast($File, $nc($($nc($(this->this$0->getModel()))->getFiles()))->elementAt(index)));
+	$useLocalObjectStack();
+	return $of($cast($File, $$nc($$nc(this->this$0->getModel())->getFiles())->elementAt(index)));
 }
 
 void GTKFileChooserUI$GTKFileListModel::intervalAdded($ListDataEvent* e) {
@@ -133,8 +80,8 @@ void GTKFileChooserUI$GTKFileListModel::intervalRemoved($ListDataEvent* e) {
 }
 
 void GTKFileChooserUI$GTKFileListModel::fireContentsChanged() {
-	$useLocalCurrentObjectStackCache();
-	fireContentsChanged(this, 0, $nc($($nc($(this->this$0->getModel()))->getFiles()))->size() - 1);
+	$useLocalObjectStack();
+	fireContentsChanged(this, 0, $$nc($$nc(this->this$0->getModel())->getFiles())->size() - 1);
 }
 
 void GTKFileChooserUI$GTKFileListModel::contentsChanged($ListDataEvent* e) {
@@ -145,7 +92,49 @@ GTKFileChooserUI$GTKFileListModel::GTKFileChooserUI$GTKFileListModel() {
 }
 
 $Class* GTKFileChooserUI$GTKFileListModel::load$($String* name, bool initialize) {
-	$loadClass(GTKFileChooserUI$GTKFileListModel, name, initialize, &_GTKFileChooserUI$GTKFileListModel_ClassInfo_, allocate$GTKFileChooserUI$GTKFileListModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(GTKFileChooserUI$GTKFileListModel, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;)V", nullptr, $PUBLIC, $method(GTKFileChooserUI$GTKFileListModel, init$, void, $GTKFileChooserUI*)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$GTKFileListModel, contains, bool, Object$*)},
+		{"contentsChanged", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$GTKFileListModel, contentsChanged, void, $ListDataEvent*)},
+		{"fireContentsChanged", "()V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$GTKFileListModel, fireContentsChanged, void)},
+		{"getElementAt", "(I)Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$GTKFileListModel, getElementAt, $Object*, int32_t)},
+		{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$GTKFileListModel, getSize, int32_t)},
+		{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$GTKFileListModel, indexOf, int32_t, Object$*)},
+		{"intervalAdded", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$GTKFileListModel, intervalAdded, void, $ListDataEvent*)},
+		{"intervalRemoved", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$GTKFileListModel, intervalRemoved, void, $ListDataEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKFileListModel", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "GTKFileListModel", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKFileListModel",
+		"javax.swing.AbstractListModel",
+		"javax.swing.event.ListDataListener",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljavax/swing/AbstractListModel<Ljava/io/File;>;Ljavax/swing/event/ListDataListener;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKFileChooserUI"
+	};
+	$loadClass(GTKFileChooserUI$GTKFileListModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GTKFileChooserUI$GTKFileListModel));
+	});
 	return class$;
 }
 

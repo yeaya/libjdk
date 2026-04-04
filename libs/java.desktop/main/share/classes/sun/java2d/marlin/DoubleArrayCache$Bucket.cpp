@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/DoubleArrayCache$Bucket.h>
-
 #include <sun/java2d/marlin/ArrayCacheConst$BucketStats.h>
 #include <sun/java2d/marlin/DoubleArrayCache.h>
 #include <sun/java2d/marlin/MarlinConst.h>
@@ -23,47 +22,6 @@ namespace sun {
 	namespace java2d {
 		namespace marlin {
 
-$FieldInfo _DoubleArrayCache$Bucket_FieldInfo_[] = {
-	{"tail", "I", nullptr, $PRIVATE, $field(DoubleArrayCache$Bucket, tail)},
-	{"arraySize", "I", nullptr, $PRIVATE | $FINAL, $field(DoubleArrayCache$Bucket, arraySize)},
-	{"clean", "Z", nullptr, $PRIVATE | $FINAL, $field(DoubleArrayCache$Bucket, clean)},
-	{"arrays", "[[D", nullptr, $PRIVATE | $FINAL, $field(DoubleArrayCache$Bucket, arrays)},
-	{"stats", "Lsun/java2d/marlin/ArrayCacheConst$BucketStats;", nullptr, $PRIVATE | $FINAL, $field(DoubleArrayCache$Bucket, stats)},
-	{}
-};
-
-$MethodInfo _DoubleArrayCache$Bucket_MethodInfo_[] = {
-	{"<init>", "(ZIILsun/java2d/marlin/ArrayCacheConst$BucketStats;)V", nullptr, 0, $method(DoubleArrayCache$Bucket, init$, void, bool, int32_t, int32_t, $ArrayCacheConst$BucketStats*)},
-	{"getArray", "()[D", nullptr, 0, $method(DoubleArrayCache$Bucket, getArray, $doubles*)},
-	{"putArray", "([D)V", nullptr, 0, $method(DoubleArrayCache$Bucket, putArray, void, $doubles*)},
-	{}
-};
-
-$InnerClassInfo _DoubleArrayCache$Bucket_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.DoubleArrayCache$Bucket", "sun.java2d.marlin.DoubleArrayCache", "Bucket", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DoubleArrayCache$Bucket_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.DoubleArrayCache$Bucket",
-	"java.lang.Object",
-	nullptr,
-	_DoubleArrayCache$Bucket_FieldInfo_,
-	_DoubleArrayCache$Bucket_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DoubleArrayCache$Bucket_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.DoubleArrayCache"
-};
-
-$Object* allocate$DoubleArrayCache$Bucket($Class* clazz) {
-	return $of($alloc(DoubleArrayCache$Bucket));
-}
-
 void DoubleArrayCache$Bucket::init$(bool clean, int32_t arraySize, int32_t capacity, $ArrayCacheConst$BucketStats* stats) {
 	this->tail = 0;
 	this->arraySize = arraySize;
@@ -79,7 +37,7 @@ $doubles* DoubleArrayCache$Bucket::getArray() {
 	}
 	if (this->tail != 0) {
 		$var($doubles, array, $nc(this->arrays)->get(--this->tail));
-		$nc(this->arrays)->set(this->tail, nullptr);
+		this->arrays->set(this->tail, nullptr);
 		return array;
 	}
 	if ($MarlinConst::DO_STATS) {
@@ -89,7 +47,7 @@ $doubles* DoubleArrayCache$Bucket::getArray() {
 }
 
 void DoubleArrayCache$Bucket::putArray($doubles* array) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($MarlinConst);
 	if ($MarlinConst::DO_CHECKS && ($nc(array)->length != this->arraySize)) {
 		$MarlinUtils::logInfo($$str({$($DoubleArrayCache::getLogPrefix(this->clean)), "DoubleArrayCache: bad length = "_s, $$str(array->length)}));
@@ -99,14 +57,12 @@ void DoubleArrayCache$Bucket::putArray($doubles* array) {
 		++$nc(this->stats)->returnOp;
 	}
 	if ($nc(this->arrays)->length > this->tail) {
-		$nc(this->arrays)->set(this->tail++, array);
+		this->arrays->set(this->tail++, array);
 		if ($MarlinConst::DO_STATS) {
 			$nc(this->stats)->updateMaxSize(this->tail);
 		}
-	} else {
-		if ($MarlinConst::DO_CHECKS) {
-			$MarlinUtils::logInfo($$str({$($DoubleArrayCache::getLogPrefix(this->clean)), "DoubleArrayCache: array capacity exceeded !"_s}));
-		}
+	} else if ($MarlinConst::DO_CHECKS) {
+		$MarlinUtils::logInfo($$str({$($DoubleArrayCache::getLogPrefix(this->clean)), "DoubleArrayCache: array capacity exceeded !"_s}));
 	}
 }
 
@@ -114,7 +70,42 @@ DoubleArrayCache$Bucket::DoubleArrayCache$Bucket() {
 }
 
 $Class* DoubleArrayCache$Bucket::load$($String* name, bool initialize) {
-	$loadClass(DoubleArrayCache$Bucket, name, initialize, &_DoubleArrayCache$Bucket_ClassInfo_, allocate$DoubleArrayCache$Bucket);
+	$FieldInfo fieldInfos$$[] = {
+		{"tail", "I", nullptr, $PRIVATE, $field(DoubleArrayCache$Bucket, tail)},
+		{"arraySize", "I", nullptr, $PRIVATE | $FINAL, $field(DoubleArrayCache$Bucket, arraySize)},
+		{"clean", "Z", nullptr, $PRIVATE | $FINAL, $field(DoubleArrayCache$Bucket, clean)},
+		{"arrays", "[[D", nullptr, $PRIVATE | $FINAL, $field(DoubleArrayCache$Bucket, arrays)},
+		{"stats", "Lsun/java2d/marlin/ArrayCacheConst$BucketStats;", nullptr, $PRIVATE | $FINAL, $field(DoubleArrayCache$Bucket, stats)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZIILsun/java2d/marlin/ArrayCacheConst$BucketStats;)V", nullptr, 0, $method(DoubleArrayCache$Bucket, init$, void, bool, int32_t, int32_t, $ArrayCacheConst$BucketStats*)},
+		{"getArray", "()[D", nullptr, 0, $method(DoubleArrayCache$Bucket, getArray, $doubles*)},
+		{"putArray", "([D)V", nullptr, 0, $method(DoubleArrayCache$Bucket, putArray, void, $doubles*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.DoubleArrayCache$Bucket", "sun.java2d.marlin.DoubleArrayCache", "Bucket", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.DoubleArrayCache$Bucket",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.DoubleArrayCache"
+	};
+	$loadClass(DoubleArrayCache$Bucket, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DoubleArrayCache$Bucket);
+	});
 	return class$;
 }
 

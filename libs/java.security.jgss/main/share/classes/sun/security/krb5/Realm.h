@@ -26,6 +26,7 @@ class $export Realm : public ::java::lang::Cloneable {
 	$class(Realm, 0, ::java::lang::Cloneable)
 public:
 	Realm();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	void init$(::sun::security::util::DerValue* encoding);
 	virtual $bytes* asn1Encode();

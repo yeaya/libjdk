@@ -1,5 +1,4 @@
 #include <sun/awt/image/PNGImageDecoder$PNGException.h>
-
 #include <java/io/IOException.h>
 #include <sun/awt/image/PNGImageDecoder.h>
 #include <jcpp.h>
@@ -14,41 +13,6 @@ using $PNGImageDecoder = ::sun::awt::image::PNGImageDecoder;
 namespace sun {
 	namespace awt {
 		namespace image {
-
-$FieldInfo _PNGImageDecoder$PNGException_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/image/PNGImageDecoder;", nullptr, $FINAL | $SYNTHETIC, $field(PNGImageDecoder$PNGException, this$0)},
-	{}
-};
-
-$MethodInfo _PNGImageDecoder$PNGException_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/image/PNGImageDecoder;Ljava/lang/String;)V", nullptr, 0, $method(PNGImageDecoder$PNGException, init$, void, $PNGImageDecoder*, $String*)},
-	{}
-};
-
-$InnerClassInfo _PNGImageDecoder$PNGException_InnerClassesInfo_[] = {
-	{"sun.awt.image.PNGImageDecoder$PNGException", "sun.awt.image.PNGImageDecoder", "PNGException", $PUBLIC},
-	{}
-};
-
-$ClassInfo _PNGImageDecoder$PNGException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.image.PNGImageDecoder$PNGException",
-	"java.io.IOException",
-	nullptr,
-	_PNGImageDecoder$PNGException_FieldInfo_,
-	_PNGImageDecoder$PNGException_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PNGImageDecoder$PNGException_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.image.PNGImageDecoder"
-};
-
-$Object* allocate$PNGImageDecoder$PNGException($Class* clazz) {
-	return $of($alloc(PNGImageDecoder$PNGException));
-}
 
 void PNGImageDecoder$PNGException::init$($PNGImageDecoder* this$0, $String* s) {
 	$set(this, this$0, this$0);
@@ -66,7 +30,36 @@ void PNGImageDecoder$PNGException::throw$() {
 }
 
 $Class* PNGImageDecoder$PNGException::load$($String* name, bool initialize) {
-	$loadClass(PNGImageDecoder$PNGException, name, initialize, &_PNGImageDecoder$PNGException_ClassInfo_, allocate$PNGImageDecoder$PNGException);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/image/PNGImageDecoder;", nullptr, $FINAL | $SYNTHETIC, $field(PNGImageDecoder$PNGException, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/image/PNGImageDecoder;Ljava/lang/String;)V", nullptr, 0, $method(PNGImageDecoder$PNGException, init$, void, $PNGImageDecoder*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.image.PNGImageDecoder$PNGException", "sun.awt.image.PNGImageDecoder", "PNGException", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.image.PNGImageDecoder$PNGException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.image.PNGImageDecoder"
+	};
+	$loadClass(PNGImageDecoder$PNGException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PNGImageDecoder$PNGException);
+	});
 	return class$;
 }
 

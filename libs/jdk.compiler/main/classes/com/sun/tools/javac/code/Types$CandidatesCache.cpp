@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$CandidatesCache.h>
-
 #include <com/sun/tools/javac/code/Types$CandidatesCache$Entry.h>
 #include <com/sun/tools/javac/code/Types.h>
 #include <com/sun/tools/javac/util/List.h>
@@ -14,7 +13,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
 using $WeakHashMap = ::java::util::WeakHashMap;
 
 namespace com {
@@ -22,45 +20,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Types$CandidatesCache_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$CandidatesCache, this$0)},
-	{"cache", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/code/Types$CandidatesCache$Entry;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;>;>;", $PUBLIC, $field(Types$CandidatesCache, cache)},
-	{}
-};
-
-$MethodInfo _Types$CandidatesCache_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $method(Types$CandidatesCache, init$, void, $Types*)},
-	{"get", "(Lcom/sun/tools/javac/code/Types$CandidatesCache$Entry;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Types$CandidatesCache$Entry;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;>;", $PUBLIC, $virtualMethod(Types$CandidatesCache, get, $List*, $Types$CandidatesCache$Entry*)},
-	{"put", "(Lcom/sun/tools/javac/code/Types$CandidatesCache$Entry;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Types$CandidatesCache$Entry;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;>;)V", $PUBLIC, $virtualMethod(Types$CandidatesCache, put, void, $Types$CandidatesCache$Entry*, $List*)},
-	{}
-};
-
-$InnerClassInfo _Types$CandidatesCache_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$CandidatesCache", "com.sun.tools.javac.code.Types", "CandidatesCache", $PUBLIC},
-	{"com.sun.tools.javac.code.Types$CandidatesCache$Entry", "com.sun.tools.javac.code.Types$CandidatesCache", "Entry", 0},
-	{}
-};
-
-$ClassInfo _Types$CandidatesCache_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Types$CandidatesCache",
-	"java.lang.Object",
-	nullptr,
-	_Types$CandidatesCache_FieldInfo_,
-	_Types$CandidatesCache_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Types$CandidatesCache_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$CandidatesCache($Class* clazz) {
-	return $of($alloc(Types$CandidatesCache));
-}
 
 void Types$CandidatesCache::init$($Types* this$0) {
 	$set(this, this$0, this$0);
@@ -79,7 +38,40 @@ Types$CandidatesCache::Types$CandidatesCache() {
 }
 
 $Class* Types$CandidatesCache::load$($String* name, bool initialize) {
-	$loadClass(Types$CandidatesCache, name, initialize, &_Types$CandidatesCache_ClassInfo_, allocate$Types$CandidatesCache);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$CandidatesCache, this$0)},
+		{"cache", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/code/Types$CandidatesCache$Entry;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;>;>;", $PUBLIC, $field(Types$CandidatesCache, cache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $method(Types$CandidatesCache, init$, void, $Types*)},
+		{"get", "(Lcom/sun/tools/javac/code/Types$CandidatesCache$Entry;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Types$CandidatesCache$Entry;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;>;", $PUBLIC, $virtualMethod(Types$CandidatesCache, get, $List*, $Types$CandidatesCache$Entry*)},
+		{"put", "(Lcom/sun/tools/javac/code/Types$CandidatesCache$Entry;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Types$CandidatesCache$Entry;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;>;)V", $PUBLIC, $virtualMethod(Types$CandidatesCache, put, void, $Types$CandidatesCache$Entry*, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$CandidatesCache", "com.sun.tools.javac.code.Types", "CandidatesCache", $PUBLIC},
+		{"com.sun.tools.javac.code.Types$CandidatesCache$Entry", "com.sun.tools.javac.code.Types$CandidatesCache", "Entry", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Types$CandidatesCache",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$CandidatesCache, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$CandidatesCache);
+	});
 	return class$;
 }
 

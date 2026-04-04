@@ -22,6 +22,7 @@ class $export DefaultListModelAddAllTest : public ::java::lang::Object {
 	$class(DefaultListModelAddAllTest, 0, ::java::lang::Object)
 public:
 	DefaultListModelAddAllTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkAddAll();
 	static void checkAddAllWithIndex();

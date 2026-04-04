@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/common/SSLFlowDelegate$EngineResult.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <javax/net/ssl/SSLEngineResult$HandshakeStatus.h>
 #include <javax/net/ssl/SSLEngineResult$Status.h>
@@ -27,49 +26,6 @@ namespace jdk {
 			namespace http {
 				namespace common {
 
-$FieldInfo _SSLFlowDelegate$EngineResult_FieldInfo_[] = {
-	{"result", "Ljavax/net/ssl/SSLEngineResult;", nullptr, $FINAL, $field(SSLFlowDelegate$EngineResult, result)},
-	{"destBuffer", "Ljava/nio/ByteBuffer;", nullptr, $FINAL, $field(SSLFlowDelegate$EngineResult, destBuffer)},
-	{}
-};
-
-$MethodInfo _SSLFlowDelegate$EngineResult_MethodInfo_[] = {
-	{"<init>", "(Ljavax/net/ssl/SSLEngineResult;)V", nullptr, 0, $method(SSLFlowDelegate$EngineResult, init$, void, $SSLEngineResult*)},
-	{"<init>", "(Ljavax/net/ssl/SSLEngineResult;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(SSLFlowDelegate$EngineResult, init$, void, $SSLEngineResult*, $ByteBuffer*)},
-	{"bytesConsumed", "()I", nullptr, 0, $virtualMethod(SSLFlowDelegate$EngineResult, bytesConsumed, int32_t)},
-	{"bytesProduced", "()I", nullptr, 0, $virtualMethod(SSLFlowDelegate$EngineResult, bytesProduced, int32_t)},
-	{"handshakeStatus", "()Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, 0, $virtualMethod(SSLFlowDelegate$EngineResult, handshakeStatus, $SSLEngineResult$HandshakeStatus*)},
-	{"handshaking", "()Z", nullptr, 0, $virtualMethod(SSLFlowDelegate$EngineResult, handshaking, bool)},
-	{"needUnwrap", "()Z", nullptr, 0, $virtualMethod(SSLFlowDelegate$EngineResult, needUnwrap, bool)},
-	{"status", "()Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, 0, $virtualMethod(SSLFlowDelegate$EngineResult, status, $SSLEngineResult$Status*)},
-	{}
-};
-
-$InnerClassInfo _SSLFlowDelegate$EngineResult_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.common.SSLFlowDelegate$EngineResult", "jdk.internal.net.http.common.SSLFlowDelegate", "EngineResult", $STATIC},
-	{}
-};
-
-$ClassInfo _SSLFlowDelegate$EngineResult_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.common.SSLFlowDelegate$EngineResult",
-	"java.lang.Object",
-	nullptr,
-	_SSLFlowDelegate$EngineResult_FieldInfo_,
-	_SSLFlowDelegate$EngineResult_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLFlowDelegate$EngineResult_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.common.SSLFlowDelegate"
-};
-
-$Object* allocate$SSLFlowDelegate$EngineResult($Class* clazz) {
-	return $of($alloc(SSLFlowDelegate$EngineResult));
-}
-
 void SSLFlowDelegate$EngineResult::init$($SSLEngineResult* result) {
 	SSLFlowDelegate$EngineResult::init$(result, nullptr);
 }
@@ -83,7 +39,7 @@ bool SSLFlowDelegate$EngineResult::handshaking() {
 	$SSLEngineResult$HandshakeStatus* s = $nc(this->result)->getHandshakeStatus();
 	$init($SSLEngineResult$HandshakeStatus);
 	$init($SSLEngineResult$Status);
-	return s != $SSLEngineResult$HandshakeStatus::FINISHED && s != $SSLEngineResult$HandshakeStatus::NOT_HANDSHAKING && $nc(this->result)->getStatus() != $SSLEngineResult$Status::CLOSED;
+	return s != $SSLEngineResult$HandshakeStatus::FINISHED && s != $SSLEngineResult$HandshakeStatus::NOT_HANDSHAKING && this->result->getStatus() != $SSLEngineResult$Status::CLOSED;
 }
 
 bool SSLFlowDelegate$EngineResult::needUnwrap() {
@@ -112,7 +68,44 @@ SSLFlowDelegate$EngineResult::SSLFlowDelegate$EngineResult() {
 }
 
 $Class* SSLFlowDelegate$EngineResult::load$($String* name, bool initialize) {
-	$loadClass(SSLFlowDelegate$EngineResult, name, initialize, &_SSLFlowDelegate$EngineResult_ClassInfo_, allocate$SSLFlowDelegate$EngineResult);
+	$FieldInfo fieldInfos$$[] = {
+		{"result", "Ljavax/net/ssl/SSLEngineResult;", nullptr, $FINAL, $field(SSLFlowDelegate$EngineResult, result)},
+		{"destBuffer", "Ljava/nio/ByteBuffer;", nullptr, $FINAL, $field(SSLFlowDelegate$EngineResult, destBuffer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/net/ssl/SSLEngineResult;)V", nullptr, 0, $method(SSLFlowDelegate$EngineResult, init$, void, $SSLEngineResult*)},
+		{"<init>", "(Ljavax/net/ssl/SSLEngineResult;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(SSLFlowDelegate$EngineResult, init$, void, $SSLEngineResult*, $ByteBuffer*)},
+		{"bytesConsumed", "()I", nullptr, 0, $virtualMethod(SSLFlowDelegate$EngineResult, bytesConsumed, int32_t)},
+		{"bytesProduced", "()I", nullptr, 0, $virtualMethod(SSLFlowDelegate$EngineResult, bytesProduced, int32_t)},
+		{"handshakeStatus", "()Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, 0, $virtualMethod(SSLFlowDelegate$EngineResult, handshakeStatus, $SSLEngineResult$HandshakeStatus*)},
+		{"handshaking", "()Z", nullptr, 0, $virtualMethod(SSLFlowDelegate$EngineResult, handshaking, bool)},
+		{"needUnwrap", "()Z", nullptr, 0, $virtualMethod(SSLFlowDelegate$EngineResult, needUnwrap, bool)},
+		{"status", "()Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, 0, $virtualMethod(SSLFlowDelegate$EngineResult, status, $SSLEngineResult$Status*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.common.SSLFlowDelegate$EngineResult", "jdk.internal.net.http.common.SSLFlowDelegate", "EngineResult", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.common.SSLFlowDelegate$EngineResult",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.common.SSLFlowDelegate"
+	};
+	$loadClass(SSLFlowDelegate$EngineResult, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLFlowDelegate$EngineResult);
+	});
 	return class$;
 }
 

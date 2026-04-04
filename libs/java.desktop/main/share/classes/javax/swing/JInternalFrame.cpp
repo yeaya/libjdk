@@ -1,6 +1,4 @@
 #include <javax/swing/JInternalFrame.h>
-
-#include <java/awt/AWTEvent.h>
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -80,12 +78,10 @@
 
 using $ComponentArray = $Array<::java::awt::Component>;
 using $InternalFrameListenerArray = $Array<::javax::swing::event::InternalFrameListener>;
-using $AWTEvent = ::java::awt::AWTEvent;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Cursor = ::java::awt::Cursor;
-using $EventQueue = ::java::awt::EventQueue;
 using $FocusTraversalPolicy = ::java::awt::FocusTraversalPolicy;
 using $Graphics = ::java::awt::Graphics;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
@@ -105,7 +101,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $SecurityException = ::java::lang::SecurityException;
-using $EventListener = ::java::util::EventListener;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $Icon = ::javax::swing::Icon;
 using $InternalFrameFocusTraversalPolicy = ::javax::swing::InternalFrameFocusTraversalPolicy;
@@ -120,7 +115,6 @@ using $JRootPane = ::javax::swing::JRootPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $WindowConstants = ::javax::swing::WindowConstants;
-using $EventListenerList = ::javax::swing::event::EventListenerList;
 using $InternalFrameEvent = ::javax::swing::event::InternalFrameEvent;
 using $InternalFrameListener = ::javax::swing::event::InternalFrameListener;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
@@ -132,493 +126,6 @@ using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 
 namespace javax {
 	namespace swing {
-
-$NamedAttribute JInternalFrame_Attribute_var$0[] = {
-	{"defaultProperty", 's', "JMenuBar"},
-	{"description", 's', "A frame container which is contained within another window."},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$1[] = {
-	{"delegate", 's', "getContentPane"},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", JInternalFrame_Attribute_var$0},
-	{"Ljavax/swing/SwingContainer;", JInternalFrame_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$2[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_getAccessibleContext14[] = {
-	{"Ljava/beans/BeanProperty;", JInternalFrame_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$3[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_getDesktopPane18[] = {
-	{"Ljava/beans/BeanProperty;", JInternalFrame_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$4[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_getFocusCycleRootAncestor19[] = {
-	{"Ljava/beans/BeanProperty;", JInternalFrame_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$5[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_getInternalFrameListeners23[] = {
-	{"Ljava/beans/BeanProperty;", JInternalFrame_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$6[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_getLastCursor25[] = {
-	{"Ljava/beans/BeanProperty;", JInternalFrame_Attribute_var$6},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_getMenuBar28[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$7[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_getMostRecentFocusOwner29[] = {
-	{"Ljava/beans/BeanProperty;", JInternalFrame_Attribute_var$7},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$8[] = {
-	{"hidden", 'Z', "true"},
-	{"description", 's', "The root pane used by this internal frame."},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_getRootPane31[] = {
-	{"Ljava/beans/BeanProperty;", JInternalFrame_Attribute_var$8},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$9[] = {
-	{"bound", 'Z', "false"},
-	{"description", 's', "UIClassID"},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_getUIClassID34[] = {
-	{"Ljava/beans/BeanProperty;", JInternalFrame_Attribute_var$9},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$10[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_getWarningString35[] = {
-	{"Ljava/beans/BeanProperty;", JInternalFrame_Attribute_var$10},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$11[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "Indicates whether this internal frame can be closed."},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_setClosable56[] = {
-	{"Ljava/beans/BeanProperty;", JInternalFrame_Attribute_var$11},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$12[] = {
-	{"description", 's', "Indicates whether this internal frame has been closed."},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_setClosed57[] = {
-	{"Ljava/beans/BeanProperty;", JInternalFrame_Attribute_var$12},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$13[] = {
-	{"hidden", 'Z', "true"},
-	{"description", 's', "The client area of the internal frame where child components are normally inserted."},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_setContentPane58[] = {
-	{"Ljava/beans/BeanProperty;", JInternalFrame_Attribute_var$13},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$14[] = {
-	{"description", 's', "The icon shown when this internal frame is minimized."},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_setDesktopIcon61[] = {
-	{"Ljava/beans/BeanProperty;", JInternalFrame_Attribute_var$14},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$15[] = {
-	{"description", 's', "The icon shown in the top-left corner of this internal frame."},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_setFrameIcon63[] = {
-	{"Ljava/beans/BeanProperty;", JInternalFrame_Attribute_var$15},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$16[] = {
-	{"hidden", 'Z', "true"},
-	{"description", 's', "A transparent pane used for menu rendering."},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_setGlassPane64[] = {
-	{"Ljava/beans/BeanProperty;", JInternalFrame_Attribute_var$16},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$17[] = {
-	{"description", 's', "The image displayed when this internal frame is minimized."},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_setIcon65[] = {
-	{"Ljava/beans/BeanProperty;", JInternalFrame_Attribute_var$17},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$18[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "Determines whether this internal frame can be iconified."},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_setIconifiable66[] = {
-	{"Ljava/beans/BeanProperty;", JInternalFrame_Attribute_var$18},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$19[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "The menu bar for accessing pulldown menus from this internal frame."},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_setJMenuBar67[] = {
-	{"Ljava/beans/BeanProperty;", JInternalFrame_Attribute_var$19},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$20[] = {
-	{"bound", 'Z', "false"},
-	{"expert", 'Z', "true"},
-	{"description", 's', "Specifies what desktop layer is used."},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_setLayer69[] = {
-	{"Ljava/beans/BeanProperty;", JInternalFrame_Attribute_var$20},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$21[] = {
-	{"bound", 'Z', "false"},
-	{"expert", 'Z', "true"},
-	{"description", 's', "Specifies what desktop layer is used."},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_setLayer70[] = {
-	{"Ljava/beans/BeanProperty;", JInternalFrame_Attribute_var$21},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$22[] = {
-	{"hidden", 'Z', "true"},
-	{"description", 's', "The pane which holds the various desktop layers."},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_setLayeredPane71[] = {
-	{"Ljava/beans/BeanProperty;", JInternalFrame_Attribute_var$22},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$23[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "Determines whether this internal frame can be maximized."},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_setMaximizable73[] = {
-	{"Ljava/beans/BeanProperty;", JInternalFrame_Attribute_var$23},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$24[] = {
-	{"description", 's', "Indicates whether this internal frame is maximized."},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_setMaximum74[] = {
-	{"Ljava/beans/BeanProperty;", JInternalFrame_Attribute_var$24},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_setMenuBar75[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$25[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "Determines whether this internal frame can be resized by the user."},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_setResizable77[] = {
-	{"Ljava/beans/BeanProperty;", JInternalFrame_Attribute_var$25},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$26[] = {
-	{"hidden", 'Z', "true"},
-	{"description", 's', "Whether the add and setLayout methods are forwarded"},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_setRootPaneCheckingEnabled79[] = {
-	{"Ljava/beans/BeanProperty;", JInternalFrame_Attribute_var$26},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$27[] = {
-	{"description", 's', "Indicates whether this internal frame is currently the active frame."},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_setSelected80[] = {
-	{"Ljava/beans/BeanProperty;", JInternalFrame_Attribute_var$27},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$28[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "The text displayed in the title bar."},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_setTitle81[] = {
-	{"Ljava/beans/BeanProperty;", JInternalFrame_Attribute_var$28},
-	{}
-};
-
-$NamedAttribute JInternalFrame_Attribute_var$29[] = {
-	{"hidden", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The UI object that implements the Component\'s LookAndFeel."},
-	{}
-};
-
-$CompoundAttribute _JInternalFrame_MethodAnnotations_setUI82[] = {
-	{"Ljava/beans/BeanProperty;", JInternalFrame_Attribute_var$29},
-	{}
-};
-
-$FieldInfo _JInternalFrame_FieldInfo_[] = {
-	{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JInternalFrame, uiClassID)},
-	{"rootPane", "Ljavax/swing/JRootPane;", nullptr, $PROTECTED, $field(JInternalFrame, rootPane)},
-	{"rootPaneCheckingEnabled", "Z", nullptr, $PROTECTED, $field(JInternalFrame, rootPaneCheckingEnabled)},
-	{"closable", "Z", nullptr, $PROTECTED, $field(JInternalFrame, closable)},
-	{"isClosed", "Z", nullptr, $PROTECTED, $field(JInternalFrame, isClosed$)},
-	{"maximizable", "Z", nullptr, $PROTECTED, $field(JInternalFrame, maximizable)},
-	{"isMaximum", "Z", nullptr, $PROTECTED, $field(JInternalFrame, isMaximum$)},
-	{"iconable", "Z", nullptr, $PROTECTED, $field(JInternalFrame, iconable)},
-	{"isIcon", "Z", nullptr, $PROTECTED, $field(JInternalFrame, isIcon$)},
-	{"resizable", "Z", nullptr, $PROTECTED, $field(JInternalFrame, resizable)},
-	{"isSelected", "Z", nullptr, $PROTECTED, $field(JInternalFrame, isSelected$)},
-	{"frameIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(JInternalFrame, frameIcon)},
-	{"title", "Ljava/lang/String;", nullptr, $PROTECTED, $field(JInternalFrame, title)},
-	{"desktopIcon", "Ljavax/swing/JInternalFrame$JDesktopIcon;", nullptr, $PROTECTED, $field(JInternalFrame, desktopIcon)},
-	{"lastCursor", "Ljava/awt/Cursor;", nullptr, $PRIVATE, $field(JInternalFrame, lastCursor)},
-	{"opened", "Z", nullptr, $PRIVATE, $field(JInternalFrame, opened)},
-	{"normalBounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(JInternalFrame, normalBounds)},
-	{"defaultCloseOperation", "I", nullptr, $PRIVATE, $field(JInternalFrame, defaultCloseOperation)},
-	{"lastFocusOwner", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(JInternalFrame, lastFocusOwner)},
-	{"CONTENT_PANE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JInternalFrame, CONTENT_PANE_PROPERTY)},
-	{"MENU_BAR_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JInternalFrame, MENU_BAR_PROPERTY)},
-	{"TITLE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JInternalFrame, TITLE_PROPERTY)},
-	{"LAYERED_PANE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JInternalFrame, LAYERED_PANE_PROPERTY)},
-	{"ROOT_PANE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JInternalFrame, ROOT_PANE_PROPERTY)},
-	{"GLASS_PANE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JInternalFrame, GLASS_PANE_PROPERTY)},
-	{"FRAME_ICON_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JInternalFrame, FRAME_ICON_PROPERTY)},
-	{"IS_SELECTED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JInternalFrame, IS_SELECTED_PROPERTY)},
-	{"IS_CLOSED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JInternalFrame, IS_CLOSED_PROPERTY)},
-	{"IS_MAXIMUM_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JInternalFrame, IS_MAXIMUM_PROPERTY)},
-	{"IS_ICON_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JInternalFrame, IS_ICON_PROPERTY)},
-	{"PROPERTY_CHANGE_LISTENER_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JInternalFrame, PROPERTY_CHANGE_LISTENER_KEY)},
-	{"isDragging", "Z", nullptr, 0, $field(JInternalFrame, isDragging)},
-	{"danger", "Z", nullptr, 0, $field(JInternalFrame, danger)},
-	{}
-};
-
-$MethodInfo _JInternalFrame_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JInternalFrame, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JInternalFrame, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(JInternalFrame, init$, void, $String*, bool)},
-	{"<init>", "(Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $method(JInternalFrame, init$, void, $String*, bool, bool)},
-	{"<init>", "(Ljava/lang/String;ZZZ)V", nullptr, $PUBLIC, $method(JInternalFrame, init$, void, $String*, bool, bool, bool)},
-	{"<init>", "(Ljava/lang/String;ZZZZ)V", nullptr, $PUBLIC, $method(JInternalFrame, init$, void, $String*, bool, bool, bool, bool)},
-	{"addImpl", "(Ljava/awt/Component;Ljava/lang/Object;I)V", nullptr, $PROTECTED, $virtualMethod(JInternalFrame, addImpl, void, $Component*, Object$*, int32_t)},
-	{"addInternalFrameListener", "(Ljavax/swing/event/InternalFrameListener;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, addInternalFrameListener, void, $InternalFrameListener*)},
-	{"addPropertyChangeListenerIfNecessary", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrame, addPropertyChangeListenerIfNecessary, void)},
-	{"compWriteObjectNotify", "()V", nullptr, 0, $virtualMethod(JInternalFrame, compWriteObjectNotify, void)},
-	{"createRootPane", "()Ljavax/swing/JRootPane;", nullptr, $PROTECTED, $virtualMethod(JInternalFrame, createRootPane, $JRootPane*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, dispose, void)},
-	{"doDefaultCloseAction", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, doDefaultCloseAction, void)},
-	{"fireInternalFrameEvent", "(I)V", nullptr, $PROTECTED, $virtualMethod(JInternalFrame, fireInternalFrameEvent, void, int32_t)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, _JInternalFrame_MethodAnnotations_getAccessibleContext14},
-	{"getContentPane", "()Ljava/awt/Container;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getContentPane, $Container*)},
-	{"getDefaultCloseOperation", "()I", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getDefaultCloseOperation, int32_t)},
-	{"getDesktopIcon", "()Ljavax/swing/JInternalFrame$JDesktopIcon;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getDesktopIcon, $JInternalFrame$JDesktopIcon*)},
-	{"getDesktopPane", "()Ljavax/swing/JDesktopPane;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getDesktopPane, $JDesktopPane*), nullptr, nullptr, _JInternalFrame_MethodAnnotations_getDesktopPane18},
-	{"getFocusCycleRootAncestor", "()Ljava/awt/Container;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JInternalFrame, getFocusCycleRootAncestor, $Container*), nullptr, nullptr, _JInternalFrame_MethodAnnotations_getFocusCycleRootAncestor19},
-	{"getFocusOwner", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getFocusOwner, $Component*)},
-	{"getFrameIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getFrameIcon, $Icon*)},
-	{"getGlassPane", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getGlassPane, $Component*)},
-	{"getInternalFrameListeners", "()[Ljavax/swing/event/InternalFrameListener;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getInternalFrameListeners, $InternalFrameListenerArray*), nullptr, nullptr, _JInternalFrame_MethodAnnotations_getInternalFrameListeners23},
-	{"getJMenuBar", "()Ljavax/swing/JMenuBar;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getJMenuBar, $JMenuBar*)},
-	{"getLastCursor", "()Ljava/awt/Cursor;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getLastCursor, $Cursor*), nullptr, nullptr, _JInternalFrame_MethodAnnotations_getLastCursor25},
-	{"getLayer", "()I", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getLayer, int32_t)},
-	{"getLayeredPane", "()Ljavax/swing/JLayeredPane;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getLayeredPane, $JLayeredPane*)},
-	{"getMenuBar", "()Ljavax/swing/JMenuBar;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(JInternalFrame, getMenuBar, $JMenuBar*), nullptr, nullptr, _JInternalFrame_MethodAnnotations_getMenuBar28},
-	{"getMostRecentFocusOwner", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getMostRecentFocusOwner, $Component*), nullptr, nullptr, _JInternalFrame_MethodAnnotations_getMostRecentFocusOwner29},
-	{"getNormalBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getNormalBounds, $Rectangle*)},
-	{"getRootPane", "()Ljavax/swing/JRootPane;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getRootPane, $JRootPane*), nullptr, nullptr, _JInternalFrame_MethodAnnotations_getRootPane31},
-	{"getTitle", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getTitle, $String*)},
-	{"getUI", "()Ljavax/swing/plaf/InternalFrameUI;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getUI, $ComponentUI*)},
-	{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getUIClassID, $String*), nullptr, nullptr, _JInternalFrame_MethodAnnotations_getUIClassID34},
-	{"getWarningString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(JInternalFrame, getWarningString, $String*), nullptr, nullptr, _JInternalFrame_MethodAnnotations_getWarningString35},
-	{"hide", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, hide, void)},
-	{"isClosable", "()Z", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, isClosable, bool)},
-	{"isClosed", "()Z", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, isClosed, bool)},
-	{"isFocusCycleRoot", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(JInternalFrame, isFocusCycleRoot, bool)},
-	{"isIcon", "()Z", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, isIcon, bool)},
-	{"isIconifiable", "()Z", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, isIconifiable, bool)},
-	{"isMaximizable", "()Z", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, isMaximizable, bool)},
-	{"isMaximum", "()Z", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, isMaximum, bool)},
-	{"isResizable", "()Z", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, isResizable, bool)},
-	{"isRootPaneCheckingEnabled", "()Z", nullptr, $PROTECTED, $virtualMethod(JInternalFrame, isRootPaneCheckingEnabled, bool)},
-	{"isSelected", "()Z", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, isSelected, bool)},
-	{"moveToBack", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, moveToBack, void)},
-	{"moveToFront", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, moveToFront, void)},
-	{"pack", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, pack, void)},
-	{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(JInternalFrame, paintComponent, void, $Graphics*)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JInternalFrame, paramString, $String*)},
-	{"remove", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, remove, void, $Component*)},
-	{"removeInternalFrameListener", "(Ljavax/swing/event/InternalFrameListener;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, removeInternalFrameListener, void, $InternalFrameListener*)},
-	{"reshape", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, reshape, void, int32_t, int32_t, int32_t, int32_t)},
-	{"restoreSubcomponentFocus", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, restoreSubcomponentFocus, void)},
-	{"setClosable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setClosable, void, bool), nullptr, nullptr, _JInternalFrame_MethodAnnotations_setClosable56},
-	{"setClosed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setClosed, void, bool), "java.beans.PropertyVetoException", nullptr, _JInternalFrame_MethodAnnotations_setClosed57},
-	{"setContentPane", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setContentPane, void, $Container*), nullptr, nullptr, _JInternalFrame_MethodAnnotations_setContentPane58},
-	{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setCursor, void, $Cursor*)},
-	{"setDefaultCloseOperation", "(I)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setDefaultCloseOperation, void, int32_t)},
-	{"setDesktopIcon", "(Ljavax/swing/JInternalFrame$JDesktopIcon;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setDesktopIcon, void, $JInternalFrame$JDesktopIcon*), nullptr, nullptr, _JInternalFrame_MethodAnnotations_setDesktopIcon61},
-	{"setFocusCycleRoot", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(JInternalFrame, setFocusCycleRoot, void, bool)},
-	{"setFrameIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setFrameIcon, void, $Icon*), nullptr, nullptr, _JInternalFrame_MethodAnnotations_setFrameIcon63},
-	{"setGlassPane", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setGlassPane, void, $Component*), nullptr, nullptr, _JInternalFrame_MethodAnnotations_setGlassPane64},
-	{"setIcon", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setIcon, void, bool), "java.beans.PropertyVetoException", nullptr, _JInternalFrame_MethodAnnotations_setIcon65},
-	{"setIconifiable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setIconifiable, void, bool), nullptr, nullptr, _JInternalFrame_MethodAnnotations_setIconifiable66},
-	{"setJMenuBar", "(Ljavax/swing/JMenuBar;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setJMenuBar, void, $JMenuBar*), nullptr, nullptr, _JInternalFrame_MethodAnnotations_setJMenuBar67},
-	{"setLastFocusOwner", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(JInternalFrame, setLastFocusOwner, void, $Component*)},
-	{"setLayer", "(Ljava/lang/Integer;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setLayer, void, $Integer*), nullptr, nullptr, _JInternalFrame_MethodAnnotations_setLayer69},
-	{"setLayer", "(I)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setLayer, void, int32_t), nullptr, nullptr, _JInternalFrame_MethodAnnotations_setLayer70},
-	{"setLayeredPane", "(Ljavax/swing/JLayeredPane;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setLayeredPane, void, $JLayeredPane*), nullptr, nullptr, _JInternalFrame_MethodAnnotations_setLayeredPane71},
-	{"setLayout", "(Ljava/awt/LayoutManager;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setLayout, void, $LayoutManager*)},
-	{"setMaximizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setMaximizable, void, bool), nullptr, nullptr, _JInternalFrame_MethodAnnotations_setMaximizable73},
-	{"setMaximum", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setMaximum, void, bool), "java.beans.PropertyVetoException", nullptr, _JInternalFrame_MethodAnnotations_setMaximum74},
-	{"setMenuBar", "(Ljavax/swing/JMenuBar;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(JInternalFrame, setMenuBar, void, $JMenuBar*), nullptr, nullptr, _JInternalFrame_MethodAnnotations_setMenuBar75},
-	{"setNormalBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setNormalBounds, void, $Rectangle*)},
-	{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setResizable, void, bool), nullptr, nullptr, _JInternalFrame_MethodAnnotations_setResizable77},
-	{"setRootPane", "(Ljavax/swing/JRootPane;)V", nullptr, $PROTECTED, $virtualMethod(JInternalFrame, setRootPane, void, $JRootPane*)},
-	{"setRootPaneCheckingEnabled", "(Z)V", nullptr, $PROTECTED, $virtualMethod(JInternalFrame, setRootPaneCheckingEnabled, void, bool), nullptr, nullptr, _JInternalFrame_MethodAnnotations_setRootPaneCheckingEnabled79},
-	{"setSelected", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setSelected, void, bool), "java.beans.PropertyVetoException", nullptr, _JInternalFrame_MethodAnnotations_setSelected80},
-	{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setTitle, void, $String*), nullptr, nullptr, _JInternalFrame_MethodAnnotations_setTitle81},
-	{"setUI", "(Ljavax/swing/plaf/InternalFrameUI;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setUI, void, $InternalFrameUI*), nullptr, nullptr, _JInternalFrame_MethodAnnotations_setUI82},
-	{"show", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, show, void)},
-	{"toBack", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, toBack, void)},
-	{"toFront", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, toFront, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateLastFocusOwner", "(Ljava/awt/Component;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrame, updateLastFocusOwner, void, $Component*)},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, updateUI, void)},
-	{"updateUIWhenHidden", "()V", nullptr, 0, $virtualMethod(JInternalFrame, updateUIWhenHidden, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JInternalFrame, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JInternalFrame_InnerClassesInfo_[] = {
-	{"javax.swing.JInternalFrame$JDesktopIcon", "javax.swing.JInternalFrame", "JDesktopIcon", $PUBLIC | $STATIC},
-	{"javax.swing.JInternalFrame$AccessibleJInternalFrame", "javax.swing.JInternalFrame", "AccessibleJInternalFrame", $PROTECTED},
-	{"javax.swing.JInternalFrame$FocusPropertyChangeListener", "javax.swing.JInternalFrame", "FocusPropertyChangeListener", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _JInternalFrame_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JInternalFrame",
-	"javax.swing.JComponent",
-	"javax.accessibility.Accessible,javax.swing.WindowConstants,javax.swing.RootPaneContainer",
-	_JInternalFrame_FieldInfo_,
-	_JInternalFrame_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JInternalFrame_InnerClassesInfo_,
-	_JInternalFrame_Annotations_,
-	nullptr,
-	"javax.swing.JInternalFrame$JDesktopIcon,javax.swing.JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon,javax.swing.JInternalFrame$AccessibleJInternalFrame,javax.swing.JInternalFrame$FocusPropertyChangeListener"
-};
-
-$Object* allocate$JInternalFrame($Class* clazz) {
-	return $of($alloc(JInternalFrame));
-}
 
 $String* JInternalFrame::toString() {
 	 return this->$JComponent::toString();
@@ -656,11 +163,11 @@ $Object* JInternalFrame::PROPERTY_CHANGE_LISTENER_KEY = nullptr;
 
 void JInternalFrame::addPropertyChangeListenerIfNecessary() {
 	$init(JInternalFrame);
-	$useLocalCurrentObjectStackCache();
-	if ($nc($($AppContext::getAppContext()))->get(JInternalFrame::PROPERTY_CHANGE_LISTENER_KEY) == nullptr) {
+	$useLocalObjectStack();
+	if ($$nc($AppContext::getAppContext())->get(JInternalFrame::PROPERTY_CHANGE_LISTENER_KEY) == nullptr) {
 		$var($PropertyChangeListener, focusListener, $new($JInternalFrame$FocusPropertyChangeListener));
-		$nc($($AppContext::getAppContext()))->put(JInternalFrame::PROPERTY_CHANGE_LISTENER_KEY, focusListener);
-		$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->addPropertyChangeListener(focusListener);
+		$$nc($AppContext::getAppContext())->put(JInternalFrame::PROPERTY_CHANGE_LISTENER_KEY, focusListener);
+		$$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->addPropertyChangeListener(focusListener);
 	}
 }
 
@@ -670,7 +177,7 @@ void JInternalFrame::updateLastFocusOwner($Component* component) {
 		$var($Component, parent, component);
 		while (parent != nullptr && !($instanceOf($Window, parent))) {
 			if ($instanceOf(JInternalFrame, parent)) {
-				$nc(($cast(JInternalFrame, parent)))->setLastFocusOwner(component);
+				$cast(JInternalFrame, parent)->setLastFocusOwner(component);
 			}
 			$assign(parent, parent->getParent());
 		}
@@ -698,7 +205,7 @@ void JInternalFrame::init$($String* title, bool resizable, bool closable, bool m
 }
 
 void JInternalFrame::init$($String* title, bool resizable, bool closable, bool maximizable, bool iconifiable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JComponent::init$();
 	this->rootPaneCheckingEnabled = false;
 	$set(this, normalBounds, nullptr);
@@ -732,45 +239,39 @@ $ComponentUI* JInternalFrame::getUI() {
 
 void JInternalFrame::setUI($InternalFrameUI* ui) {
 	bool checkingEnabled = isRootPaneCheckingEnabled();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			setRootPaneCheckingEnabled(false);
-			$JComponent::setUI(ui);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			setRootPaneCheckingEnabled(checkingEnabled);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		setRootPaneCheckingEnabled(false);
+		$JComponent::setUI(ui);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		setRootPaneCheckingEnabled(checkingEnabled);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void JInternalFrame::updateUI() {
-	setUI($cast($InternalFrameUI, $($UIManager::getUI(this))));
+	setUI($$cast($InternalFrameUI, $UIManager::getUI(this)));
 	invalidate();
 	if (this->desktopIcon != nullptr) {
-		$nc(this->desktopIcon)->updateUIWhenHidden();
+		this->desktopIcon->updateUIWhenHidden();
 	}
 }
 
 void JInternalFrame::updateUIWhenHidden() {
-	$useLocalCurrentObjectStackCache();
-	setUI($cast($InternalFrameUI, $($UIManager::getUI(this))));
+	$useLocalObjectStack();
+	setUI($$cast($InternalFrameUI, $UIManager::getUI(this)));
 	invalidate();
 	$var($ComponentArray, children, getComponents());
 	if (children != nullptr) {
-		{
-			$var($ComponentArray, arr$, children);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Component, child, arr$->get(i$));
-				{
-					$SwingUtilities::updateComponentTreeUI(child);
-				}
+		$var($ComponentArray, arr$, children);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Component, child, arr$->get(i$));
+			{
+				$SwingUtilities::updateComponentTreeUI(child);
 			}
 		}
 	}
@@ -790,7 +291,7 @@ void JInternalFrame::setRootPaneCheckingEnabled(bool enabled) {
 
 void JInternalFrame::addImpl($Component* comp, Object$* constraints, int32_t index) {
 	if (isRootPaneCheckingEnabled()) {
-		$nc($(getContentPane()))->add(comp, constraints, index);
+		$$nc(getContentPane())->add(comp, constraints, index);
 	} else {
 		$JComponent::addImpl(comp, constraints, index);
 	}
@@ -800,71 +301,71 @@ void JInternalFrame::remove($Component* comp) {
 	int32_t oldCount = getComponentCount();
 	$JComponent::remove(comp);
 	if (oldCount == getComponentCount()) {
-		$nc($(getContentPane()))->remove(comp);
+		$$nc(getContentPane())->remove(comp);
 	}
 }
 
 void JInternalFrame::setLayout($LayoutManager* manager) {
 	if (isRootPaneCheckingEnabled()) {
-		$nc($(getContentPane()))->setLayout(manager);
+		$$nc(getContentPane())->setLayout(manager);
 	} else {
 		$JComponent::setLayout(manager);
 	}
 }
 
 $JMenuBar* JInternalFrame::getMenuBar() {
-	return $nc($(getRootPane()))->getMenuBar();
+	return $$nc(getRootPane())->getMenuBar();
 }
 
 $JMenuBar* JInternalFrame::getJMenuBar() {
-	return $nc($(getRootPane()))->getJMenuBar();
+	return $$nc(getRootPane())->getJMenuBar();
 }
 
 void JInternalFrame::setMenuBar($JMenuBar* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JMenuBar, oldValue, getMenuBar());
-	$nc($(getRootPane()))->setJMenuBar(m);
-	firePropertyChange(JInternalFrame::MENU_BAR_PROPERTY, $of(oldValue), $of(m));
+	$$nc(getRootPane())->setJMenuBar(m);
+	firePropertyChange(JInternalFrame::MENU_BAR_PROPERTY, oldValue, m);
 }
 
 void JInternalFrame::setJMenuBar($JMenuBar* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JMenuBar, oldValue, getMenuBar());
-	$nc($(getRootPane()))->setJMenuBar(m);
-	firePropertyChange(JInternalFrame::MENU_BAR_PROPERTY, $of(oldValue), $of(m));
+	$$nc(getRootPane())->setJMenuBar(m);
+	firePropertyChange(JInternalFrame::MENU_BAR_PROPERTY, oldValue, m);
 }
 
 $Container* JInternalFrame::getContentPane() {
-	return $nc($(getRootPane()))->getContentPane();
+	return $$nc(getRootPane())->getContentPane();
 }
 
 void JInternalFrame::setContentPane($Container* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, oldValue, getContentPane());
-	$nc($(getRootPane()))->setContentPane(c);
-	firePropertyChange(JInternalFrame::CONTENT_PANE_PROPERTY, $of(oldValue), $of(c));
+	$$nc(getRootPane())->setContentPane(c);
+	firePropertyChange(JInternalFrame::CONTENT_PANE_PROPERTY, oldValue, c);
 }
 
 $JLayeredPane* JInternalFrame::getLayeredPane() {
-	return $nc($(getRootPane()))->getLayeredPane();
+	return $$nc(getRootPane())->getLayeredPane();
 }
 
 void JInternalFrame::setLayeredPane($JLayeredPane* layered) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JLayeredPane, oldValue, getLayeredPane());
-	$nc($(getRootPane()))->setLayeredPane(layered);
-	firePropertyChange(JInternalFrame::LAYERED_PANE_PROPERTY, $of(oldValue), $of(layered));
+	$$nc(getRootPane())->setLayeredPane(layered);
+	firePropertyChange(JInternalFrame::LAYERED_PANE_PROPERTY, oldValue, layered);
 }
 
 $Component* JInternalFrame::getGlassPane() {
-	return $nc($(getRootPane()))->getGlassPane();
+	return $$nc(getRootPane())->getGlassPane();
 }
 
 void JInternalFrame::setGlassPane($Component* glass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, oldValue, getGlassPane());
-	$nc($(getRootPane()))->setGlassPane(glass);
-	firePropertyChange(JInternalFrame::GLASS_PANE_PROPERTY, $of(oldValue), $of(glass));
+	$$nc(getRootPane())->setGlassPane(glass);
+	firePropertyChange(JInternalFrame::GLASS_PANE_PROPERTY, oldValue, glass);
 }
 
 $JRootPane* JInternalFrame::getRootPane() {
@@ -872,40 +373,37 @@ $JRootPane* JInternalFrame::getRootPane() {
 }
 
 void JInternalFrame::setRootPane($JRootPane* root) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->rootPane != nullptr) {
-		remove(static_cast<$Component*>(this->rootPane));
+		remove(this->rootPane);
 	}
 	$var($JRootPane, oldValue, getRootPane());
 	$set(this, rootPane, root);
 	if (this->rootPane != nullptr) {
 		bool checkingEnabled = isRootPaneCheckingEnabled();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				setRootPaneCheckingEnabled(false);
-				$init($BorderLayout);
-				add(static_cast<$Component*>(this->rootPane), $of($BorderLayout::CENTER));
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				setRootPaneCheckingEnabled(checkingEnabled);
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			setRootPaneCheckingEnabled(false);
+			$init($BorderLayout);
+			add(this->rootPane, $BorderLayout::CENTER);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			setRootPaneCheckingEnabled(checkingEnabled);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
-	firePropertyChange(JInternalFrame::ROOT_PANE_PROPERTY, $of(oldValue), $of(root));
+	firePropertyChange(JInternalFrame::ROOT_PANE_PROPERTY, oldValue, root);
 }
 
 void JInternalFrame::setClosable(bool b) {
-	$useLocalCurrentObjectStackCache();
-	$init($Boolean);
+	$useLocalObjectStack();
 	$var($Boolean, oldValue, this->closable ? $Boolean::TRUE : $Boolean::FALSE);
 	$var($Boolean, newValue, b ? $Boolean::TRUE : $Boolean::FALSE);
 	this->closable = b;
-	firePropertyChange("closable"_s, $of(oldValue), $of(newValue));
+	firePropertyChange("closable"_s, oldValue, newValue);
 }
 
 bool JInternalFrame::isClosable() {
@@ -917,11 +415,10 @@ bool JInternalFrame::isClosed() {
 }
 
 void JInternalFrame::setClosed(bool b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->isClosed$ == b) {
 		return;
 	}
-	$init($Boolean);
 	$var($Boolean, oldValue, this->isClosed$ ? $Boolean::TRUE : $Boolean::FALSE);
 	$var($Boolean, newValue, b ? $Boolean::TRUE : $Boolean::FALSE);
 	if (b) {
@@ -932,7 +429,7 @@ void JInternalFrame::setClosed(bool b) {
 	if (this->isClosed$) {
 		setVisible(false);
 	}
-	firePropertyChange(JInternalFrame::IS_CLOSED_PROPERTY, $of(oldValue), $of(newValue));
+	firePropertyChange(JInternalFrame::IS_CLOSED_PROPERTY, oldValue, newValue);
 	if (this->isClosed$) {
 		dispose();
 	} else if (!this->opened) {
@@ -940,12 +437,11 @@ void JInternalFrame::setClosed(bool b) {
 }
 
 void JInternalFrame::setResizable(bool b) {
-	$useLocalCurrentObjectStackCache();
-	$init($Boolean);
+	$useLocalObjectStack();
 	$var($Boolean, oldValue, this->resizable ? $Boolean::TRUE : $Boolean::FALSE);
 	$var($Boolean, newValue, b ? $Boolean::TRUE : $Boolean::FALSE);
 	this->resizable = b;
-	firePropertyChange("resizable"_s, $of(oldValue), $of(newValue));
+	firePropertyChange("resizable"_s, oldValue, newValue);
 }
 
 bool JInternalFrame::isResizable() {
@@ -953,12 +449,11 @@ bool JInternalFrame::isResizable() {
 }
 
 void JInternalFrame::setIconifiable(bool b) {
-	$useLocalCurrentObjectStackCache();
-	$init($Boolean);
+	$useLocalObjectStack();
 	$var($Boolean, oldValue, this->iconable ? $Boolean::TRUE : $Boolean::FALSE);
 	$var($Boolean, newValue, b ? $Boolean::TRUE : $Boolean::FALSE);
 	this->iconable = b;
-	firePropertyChange("iconable"_s, $of(oldValue), $of(newValue));
+	firePropertyChange("iconable"_s, oldValue, newValue);
 }
 
 bool JInternalFrame::isIconifiable() {
@@ -970,17 +465,16 @@ bool JInternalFrame::isIcon() {
 }
 
 void JInternalFrame::setIcon(bool b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->isIcon$ == b) {
 		return;
 	}
-	firePropertyChange("ancestor"_s, ($Object*)nullptr, $($of(getParent())));
-	$init($Boolean);
+	firePropertyChange("ancestor"_s, nullptr, $(getParent()));
 	$var($Boolean, oldValue, this->isIcon$ ? $Boolean::TRUE : $Boolean::FALSE);
 	$var($Boolean, newValue, b ? $Boolean::TRUE : $Boolean::FALSE);
 	fireVetoableChange(JInternalFrame::IS_ICON_PROPERTY, oldValue, newValue);
 	this->isIcon$ = b;
-	firePropertyChange(JInternalFrame::IS_ICON_PROPERTY, $of(oldValue), $of(newValue));
+	firePropertyChange(JInternalFrame::IS_ICON_PROPERTY, oldValue, newValue);
 	if (b) {
 		fireInternalFrameEvent($InternalFrameEvent::INTERNAL_FRAME_ICONIFIED);
 	} else {
@@ -989,12 +483,11 @@ void JInternalFrame::setIcon(bool b) {
 }
 
 void JInternalFrame::setMaximizable(bool b) {
-	$useLocalCurrentObjectStackCache();
-	$init($Boolean);
+	$useLocalObjectStack();
 	$var($Boolean, oldValue, this->maximizable ? $Boolean::TRUE : $Boolean::FALSE);
 	$var($Boolean, newValue, b ? $Boolean::TRUE : $Boolean::FALSE);
 	this->maximizable = b;
-	firePropertyChange("maximizable"_s, $of(oldValue), $of(newValue));
+	firePropertyChange("maximizable"_s, oldValue, newValue);
 }
 
 bool JInternalFrame::isMaximizable() {
@@ -1006,16 +499,15 @@ bool JInternalFrame::isMaximum() {
 }
 
 void JInternalFrame::setMaximum(bool b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->isMaximum$ == b) {
 		return;
 	}
-	$init($Boolean);
 	$var($Boolean, oldValue, this->isMaximum$ ? $Boolean::TRUE : $Boolean::FALSE);
 	$var($Boolean, newValue, b ? $Boolean::TRUE : $Boolean::FALSE);
 	fireVetoableChange(JInternalFrame::IS_MAXIMUM_PROPERTY, oldValue, newValue);
 	this->isMaximum$ = b;
-	firePropertyChange(JInternalFrame::IS_MAXIMUM_PROPERTY, $of(oldValue), $of(newValue));
+	firePropertyChange(JInternalFrame::IS_MAXIMUM_PROPERTY, oldValue, newValue);
 }
 
 $String* JInternalFrame::getTitle() {
@@ -1025,11 +517,11 @@ $String* JInternalFrame::getTitle() {
 void JInternalFrame::setTitle($String* title) {
 	$var($String, oldValue, this->title);
 	$set(this, title, title);
-	firePropertyChange(JInternalFrame::TITLE_PROPERTY, $of(oldValue), $of(title));
+	firePropertyChange(JInternalFrame::TITLE_PROPERTY, oldValue, title);
 }
 
 void JInternalFrame::setSelected(bool selected) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (selected && this->isSelected$) {
 		restoreSubcomponentFocus();
 		return;
@@ -1037,7 +529,6 @@ void JInternalFrame::setSelected(bool selected) {
 	if ((this->isSelected$ == selected) || (selected && (this->isIcon$ ? !$nc(this->desktopIcon)->isShowing() : !isShowing()))) {
 		return;
 	}
-	$init($Boolean);
 	$var($Boolean, oldValue, this->isSelected$ ? $Boolean::TRUE : $Boolean::FALSE);
 	$var($Boolean, newValue, selected ? $Boolean::TRUE : $Boolean::FALSE);
 	fireVetoableChange(JInternalFrame::IS_SELECTED_PROPERTY, oldValue, newValue);
@@ -1045,13 +536,13 @@ void JInternalFrame::setSelected(bool selected) {
 		restoreSubcomponentFocus();
 	}
 	this->isSelected$ = selected;
-	firePropertyChange(JInternalFrame::IS_SELECTED_PROPERTY, $of(oldValue), $of(newValue));
+	firePropertyChange(JInternalFrame::IS_SELECTED_PROPERTY, oldValue, newValue);
 	if (this->isSelected$) {
 		fireInternalFrameEvent($InternalFrameEvent::INTERNAL_FRAME_ACTIVATED);
 	} else {
 		fireInternalFrameEvent($InternalFrameEvent::INTERNAL_FRAME_DEACTIVATED);
 		try {
-			$nc($($nc($($Toolkit::getDefaultToolkit()))->getSystemEventQueue()))->postEvent($$new($UngrabEvent, this));
+			$$nc($$nc($Toolkit::getDefaultToolkit())->getSystemEventQueue())->postEvent($$new($UngrabEvent, this));
 		} catch ($SecurityException& e) {
 			this->dispatchEvent($$new($UngrabEvent, this));
 		}
@@ -1066,7 +557,7 @@ bool JInternalFrame::isSelected() {
 void JInternalFrame::setFrameIcon($Icon* icon) {
 	$var($Icon, oldIcon, this->frameIcon);
 	$set(this, frameIcon, icon);
-	firePropertyChange(JInternalFrame::FRAME_ICON_PROPERTY, $of(oldIcon), $of(icon));
+	firePropertyChange(JInternalFrame::FRAME_ICON_PROPERTY, oldIcon, icon);
 }
 
 $Icon* JInternalFrame::getFrameIcon() {
@@ -1074,24 +565,24 @@ $Icon* JInternalFrame::getFrameIcon() {
 }
 
 void JInternalFrame::moveToFront() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isIcon()) {
-		if ($instanceOf($JLayeredPane, $($nc($(getDesktopIcon()))->getParent()))) {
-			$nc(($cast($JLayeredPane, $($nc($(getDesktopIcon()))->getParent()))))->moveToFront($(getDesktopIcon()));
+		if ($instanceOf($JLayeredPane, $($$nc(getDesktopIcon())->getParent()))) {
+			$$sure($JLayeredPane, $$nc(getDesktopIcon())->getParent())->moveToFront($(getDesktopIcon()));
 		}
 	} else if ($instanceOf($JLayeredPane, $(getParent()))) {
-		$nc(($cast($JLayeredPane, $(getParent()))))->moveToFront(this);
+		$$sure($JLayeredPane, getParent())->moveToFront(this);
 	}
 }
 
 void JInternalFrame::moveToBack() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isIcon()) {
-		if ($instanceOf($JLayeredPane, $($nc($(getDesktopIcon()))->getParent()))) {
-			$nc(($cast($JLayeredPane, $($nc($(getDesktopIcon()))->getParent()))))->moveToBack($(getDesktopIcon()));
+		if ($instanceOf($JLayeredPane, $($$nc(getDesktopIcon())->getParent()))) {
+			$$sure($JLayeredPane, $$nc(getDesktopIcon())->getParent())->moveToBack($(getDesktopIcon()));
 		}
 	} else if ($instanceOf($JLayeredPane, $(getParent()))) {
-		$nc(($cast($JLayeredPane, $(getParent()))))->moveToBack(this);
+		$$sure($JLayeredPane, getParent())->moveToBack(this);
 	}
 }
 
@@ -1113,19 +604,19 @@ void JInternalFrame::setCursor($Cursor* cursor) {
 }
 
 void JInternalFrame::setLayer($Integer* layer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = getParent() != nullptr;
 	if (var$0 && $instanceOf($JLayeredPane, $(getParent()))) {
 		$var($JLayeredPane, p, $cast($JLayeredPane, getParent()));
 		int32_t var$1 = $nc(layer)->intValue();
-		$nc(p)->setLayer(this, var$1, p->getPosition(this));
+		$nc(p)->setLayer(this, var$1, $nc(p)->getPosition(this));
 	} else {
 		$JLayeredPane::putLayer(this, $nc(layer)->intValue());
 		if (getParent() != nullptr) {
 			int32_t var$2 = getX();
 			int32_t var$3 = getY();
 			int32_t var$4 = getWidth();
-			$nc($(getParent()))->repaint(var$2, var$3, var$4, getHeight());
+			$$nc(getParent())->repaint(var$2, var$3, var$4, getHeight());
 		}
 	}
 }
@@ -1135,18 +626,18 @@ void JInternalFrame::setLayer(int32_t layer) {
 }
 
 int32_t JInternalFrame::getLayer() {
-	return $JLayeredPane::getLayer(static_cast<$JComponent*>(this));
+	return $JLayeredPane::getLayer(this);
 }
 
 $JDesktopPane* JInternalFrame::getDesktopPane() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, p, nullptr);
 	$assign(p, getParent());
 	while (p != nullptr && !($instanceOf($JDesktopPane, p))) {
 		$assign(p, p->getParent());
 	}
 	if (p == nullptr) {
-		$assign(p, $nc($(getDesktopIcon()))->getParent());
+		$assign(p, $$nc(getDesktopIcon())->getParent());
 		while (p != nullptr && !($instanceOf($JDesktopPane, p))) {
 			$assign(p, p->getParent());
 		}
@@ -1157,7 +648,7 @@ $JDesktopPane* JInternalFrame::getDesktopPane() {
 void JInternalFrame::setDesktopIcon($JInternalFrame$JDesktopIcon* d) {
 	$var($JInternalFrame$JDesktopIcon, oldValue, getDesktopIcon());
 	$set(this, desktopIcon, d);
-	firePropertyChange("desktopIcon"_s, $of(oldValue), $of(d));
+	firePropertyChange("desktopIcon"_s, oldValue, d);
 }
 
 $JInternalFrame$JDesktopIcon* JInternalFrame::getDesktopIcon() {
@@ -1184,7 +675,7 @@ $Component* JInternalFrame::getFocusOwner() {
 }
 
 $Component* JInternalFrame::getMostRecentFocusOwner() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isSelected()) {
 		return getFocusOwner();
 	}
@@ -1193,7 +684,7 @@ $Component* JInternalFrame::getMostRecentFocusOwner() {
 	}
 	$var($FocusTraversalPolicy, policy, getFocusTraversalPolicy());
 	if ($instanceOf($InternalFrameFocusTraversalPolicy, policy)) {
-		return $nc(($cast($InternalFrameFocusTraversalPolicy, policy)))->getInitialComponent(this);
+		return $cast($InternalFrameFocusTraversalPolicy, policy)->getInitialComponent(this);
 	}
 	$var($Component, toFocus, $nc(policy)->getDefaultComponent(this));
 	if (toFocus != nullptr) {
@@ -1203,11 +694,11 @@ $Component* JInternalFrame::getMostRecentFocusOwner() {
 }
 
 void JInternalFrame::restoreSubcomponentFocus() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isIcon()) {
 		$SwingUtilities2::compositeRequestFocus($(getDesktopIcon()));
 	} else {
-		$var($Component, component, $nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->getPermanentFocusOwner());
+		$var($Component, component, $$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->getPermanentFocusOwner());
 		if ((component == nullptr) || !$SwingUtilities::isDescendingFrom(component, this)) {
 			setLastFocusOwner($(getMostRecentFocusOwner()));
 			if (this->lastFocusOwner == nullptr) {
@@ -1241,11 +732,11 @@ void JInternalFrame::removeInternalFrameListener($InternalFrameListener* l) {
 
 $InternalFrameListenerArray* JInternalFrame::getInternalFrameListeners() {
 	$load($InternalFrameListener);
-	return $fcast($InternalFrameListenerArray, $nc(this->listenerList)->getListeners($InternalFrameListener::class$));
+	return $cast($InternalFrameListenerArray, $nc(this->listenerList)->getListeners($InternalFrameListener::class$));
 }
 
 void JInternalFrame::fireInternalFrameEvent(int32_t id) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, listeners, $nc(this->listenerList)->getListenerList());
 	$var($InternalFrameEvent, e, nullptr);
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
@@ -1256,44 +747,28 @@ void JInternalFrame::fireInternalFrameEvent(int32_t id) {
 			}
 			switch ($nc(e)->getID()) {
 			case $InternalFrameEvent::INTERNAL_FRAME_OPENED:
-				{
-					$nc(($cast($InternalFrameListener, listeners->get(i + 1))))->internalFrameOpened(e);
-					break;
-				}
+				$nc($cast($InternalFrameListener, listeners->get(i + 1)))->internalFrameOpened(e);
+				break;
 			case $InternalFrameEvent::INTERNAL_FRAME_CLOSING:
-				{
-					$nc(($cast($InternalFrameListener, listeners->get(i + 1))))->internalFrameClosing(e);
-					break;
-				}
+				$nc($cast($InternalFrameListener, listeners->get(i + 1)))->internalFrameClosing(e);
+				break;
 			case $InternalFrameEvent::INTERNAL_FRAME_CLOSED:
-				{
-					$nc(($cast($InternalFrameListener, listeners->get(i + 1))))->internalFrameClosed(e);
-					break;
-				}
+				$nc($cast($InternalFrameListener, listeners->get(i + 1)))->internalFrameClosed(e);
+				break;
 			case $InternalFrameEvent::INTERNAL_FRAME_ICONIFIED:
-				{
-					$nc(($cast($InternalFrameListener, listeners->get(i + 1))))->internalFrameIconified(e);
-					break;
-				}
+				$nc($cast($InternalFrameListener, listeners->get(i + 1)))->internalFrameIconified(e);
+				break;
 			case $InternalFrameEvent::INTERNAL_FRAME_DEICONIFIED:
-				{
-					$nc(($cast($InternalFrameListener, listeners->get(i + 1))))->internalFrameDeiconified(e);
-					break;
-				}
+				$nc($cast($InternalFrameListener, listeners->get(i + 1)))->internalFrameDeiconified(e);
+				break;
 			case $InternalFrameEvent::INTERNAL_FRAME_ACTIVATED:
-				{
-					$nc(($cast($InternalFrameListener, listeners->get(i + 1))))->internalFrameActivated(e);
-					break;
-				}
+				$nc($cast($InternalFrameListener, listeners->get(i + 1)))->internalFrameActivated(e);
+				break;
 			case $InternalFrameEvent::INTERNAL_FRAME_DEACTIVATED:
-				{
-					$nc(($cast($InternalFrameListener, listeners->get(i + 1))))->internalFrameDeactivated(e);
-					break;
-				}
+				$nc($cast($InternalFrameListener, listeners->get(i + 1)))->internalFrameDeactivated(e);
+				break;
 			default:
-				{
-					break;
-				}
+				break;
 			}
 		}
 	}
@@ -1303,37 +778,28 @@ void JInternalFrame::doDefaultCloseAction() {
 	fireInternalFrameEvent($InternalFrameEvent::INTERNAL_FRAME_CLOSING);
 	switch (this->defaultCloseOperation) {
 	case $WindowConstants::DO_NOTHING_ON_CLOSE:
-		{
-			break;
-		}
+		break;
 	case $WindowConstants::HIDE_ON_CLOSE:
-		{
-			setVisible(false);
-			if (isSelected()) {
-				try {
-					setSelected(false);
-				} catch ($PropertyVetoException& pve) {
-				}
-			}
-			break;
-		}
-	case $WindowConstants::DISPOSE_ON_CLOSE:
-		{
+		setVisible(false);
+		if (isSelected()) {
 			try {
-				$init($Boolean);
-				fireVetoableChange(JInternalFrame::IS_CLOSED_PROPERTY, $Boolean::FALSE, $Boolean::TRUE);
-				this->isClosed$ = true;
-				setVisible(false);
-				firePropertyChange(JInternalFrame::IS_CLOSED_PROPERTY, $of($Boolean::FALSE), $of($Boolean::TRUE));
-				dispose();
+				setSelected(false);
 			} catch ($PropertyVetoException& pve) {
 			}
-			break;
 		}
+		break;
+	case $WindowConstants::DISPOSE_ON_CLOSE:
+		try {
+			fireVetoableChange(JInternalFrame::IS_CLOSED_PROPERTY, $Boolean::FALSE, $Boolean::TRUE);
+			this->isClosed$ = true;
+			setVisible(false);
+			firePropertyChange(JInternalFrame::IS_CLOSED_PROPERTY, $Boolean::FALSE, $Boolean::TRUE);
+			dispose();
+		} catch ($PropertyVetoException& pve) {
+		}
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 }
 
@@ -1367,7 +833,7 @@ void JInternalFrame::show() {
 		fireInternalFrameEvent($InternalFrameEvent::INTERNAL_FRAME_OPENED);
 		this->opened = true;
 	}
-	$nc($(getDesktopIcon()))->setVisible(true);
+	$$nc(getDesktopIcon())->setVisible(true);
 	toFront();
 	$JComponent::show();
 	if (this->isIcon$) {
@@ -1383,24 +849,23 @@ void JInternalFrame::show() {
 
 void JInternalFrame::hide() {
 	if (isIcon()) {
-		$nc($(getDesktopIcon()))->setVisible(false);
+		$$nc(getDesktopIcon())->setVisible(false);
 	}
 	$JComponent::hide();
 }
 
 void JInternalFrame::dispose() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isVisible()) {
 		setVisible(false);
 	}
 	if (!this->isClosed$) {
-		$init($Boolean);
-		firePropertyChange(JInternalFrame::IS_CLOSED_PROPERTY, $of($Boolean::FALSE), $of($Boolean::TRUE));
+		firePropertyChange(JInternalFrame::IS_CLOSED_PROPERTY, $Boolean::FALSE, $Boolean::TRUE);
 		this->isClosed$ = true;
 	}
 	fireInternalFrameEvent($InternalFrameEvent::INTERNAL_FRAME_CLOSED);
 	try {
-		$nc($($nc($($Toolkit::getDefaultToolkit()))->getSystemEventQueue()))->postEvent($$new($UngrabEvent, this));
+		$$nc($$nc($Toolkit::getDefaultToolkit())->getSystemEventQueue())->postEvent($$new($UngrabEvent, this));
 	} catch ($SecurityException& e) {
 		this->dispatchEvent($$new($UngrabEvent, this));
 	}
@@ -1430,26 +895,24 @@ $String* JInternalFrame::getWarningString() {
 }
 
 void JInternalFrame::writeObject($ObjectOutputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultWriteObject();
-	if ($nc($(getUIClassID()))->equals(JInternalFrame::uiClassID)) {
+	if ($$nc(getUIClassID())->equals(JInternalFrame::uiClassID)) {
 		int8_t count = $JComponent::getWriteObjCounter(this);
 		$JComponent::setWriteObjCounter(this, --count);
 		if (count == 0 && this->ui != nullptr) {
 			bool old = isRootPaneCheckingEnabled();
-			{
-				$var($Throwable, var$0, nullptr);
-				try {
-					setRootPaneCheckingEnabled(false);
-					$nc(this->ui)->installUI(this);
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					setRootPaneCheckingEnabled(old);
-				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+			$var($Throwable, var$0, nullptr);
+			try {
+				setRootPaneCheckingEnabled(false);
+				$nc(this->ui)->installUI(this);
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				setRootPaneCheckingEnabled(old);
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 	}
@@ -1457,25 +920,23 @@ void JInternalFrame::writeObject($ObjectOutputStream* s) {
 
 void JInternalFrame::compWriteObjectNotify() {
 	bool old = isRootPaneCheckingEnabled();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			setRootPaneCheckingEnabled(false);
-			$JComponent::compWriteObjectNotify();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			setRootPaneCheckingEnabled(old);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		setRootPaneCheckingEnabled(false);
+		$JComponent::compWriteObjectNotify();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		setRootPaneCheckingEnabled(old);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 $String* JInternalFrame::paramString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, rootPaneString, this->rootPane != nullptr ? $nc(this->rootPane)->toString() : ""_s);
+	$useLocalObjectStack();
+	$var($String, rootPaneString, this->rootPane != nullptr ? this->rootPane->toString() : ""_s);
 	$var($String, rootPaneCheckingEnabledString, this->rootPaneCheckingEnabled ? "true"_s : "false"_s);
 	$var($String, closableString, this->closable ? "true"_s : "false"_s);
 	$var($String, isClosedString, this->isClosed$ ? "true"_s : "false"_s);
@@ -1485,9 +946,9 @@ $String* JInternalFrame::paramString() {
 	$var($String, isIconString, this->isIcon$ ? "true"_s : "false"_s);
 	$var($String, resizableString, this->resizable ? "true"_s : "false"_s);
 	$var($String, isSelectedString, this->isSelected$ ? "true"_s : "false"_s);
-	$var($String, frameIconString, this->frameIcon != nullptr ? $nc($of(this->frameIcon))->toString() : ""_s);
+	$var($String, frameIconString, this->frameIcon != nullptr ? this->frameIcon->toString() : ""_s);
 	$var($String, titleString, this->title != nullptr ? this->title : ""_s);
-	$var($String, desktopIconString, this->desktopIcon != nullptr ? $nc(this->desktopIcon)->toString() : ""_s);
+	$var($String, desktopIconString, this->desktopIcon != nullptr ? this->desktopIcon->toString() : ""_s);
 	$var($String, openedString, this->opened ? "true"_s : "false"_s);
 	$var($String, defaultCloseOperationString, nullptr);
 	if (this->defaultCloseOperation == $WindowConstants::HIDE_ON_CLOSE) {
@@ -1517,7 +978,7 @@ $AccessibleContext* JInternalFrame::getAccessibleContext() {
 	return this->accessibleContext;
 }
 
-void clinit$JInternalFrame($Class* class$) {
+void JInternalFrame::clinit$($Class* clazz) {
 	$assignStatic(JInternalFrame::uiClassID, "InternalFrameUI"_s);
 	$assignStatic(JInternalFrame::CONTENT_PANE_PROPERTY, "contentPane"_s);
 	$assignStatic(JInternalFrame::MENU_BAR_PROPERTY, "JMenuBar"_s);
@@ -1537,7 +998,427 @@ JInternalFrame::JInternalFrame() {
 }
 
 $Class* JInternalFrame::load$($String* name, bool initialize) {
-	$loadClass(JInternalFrame, name, initialize, &_JInternalFrame_ClassInfo_, clinit$JInternalFrame, allocate$JInternalFrame);
+	$FieldInfo fieldInfos$$[] = {
+		{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JInternalFrame, uiClassID)},
+		{"rootPane", "Ljavax/swing/JRootPane;", nullptr, $PROTECTED, $field(JInternalFrame, rootPane)},
+		{"rootPaneCheckingEnabled", "Z", nullptr, $PROTECTED, $field(JInternalFrame, rootPaneCheckingEnabled)},
+		{"closable", "Z", nullptr, $PROTECTED, $field(JInternalFrame, closable)},
+		{"isClosed", "Z", nullptr, $PROTECTED, $field(JInternalFrame, isClosed$)},
+		{"maximizable", "Z", nullptr, $PROTECTED, $field(JInternalFrame, maximizable)},
+		{"isMaximum", "Z", nullptr, $PROTECTED, $field(JInternalFrame, isMaximum$)},
+		{"iconable", "Z", nullptr, $PROTECTED, $field(JInternalFrame, iconable)},
+		{"isIcon", "Z", nullptr, $PROTECTED, $field(JInternalFrame, isIcon$)},
+		{"resizable", "Z", nullptr, $PROTECTED, $field(JInternalFrame, resizable)},
+		{"isSelected", "Z", nullptr, $PROTECTED, $field(JInternalFrame, isSelected$)},
+		{"frameIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(JInternalFrame, frameIcon)},
+		{"title", "Ljava/lang/String;", nullptr, $PROTECTED, $field(JInternalFrame, title)},
+		{"desktopIcon", "Ljavax/swing/JInternalFrame$JDesktopIcon;", nullptr, $PROTECTED, $field(JInternalFrame, desktopIcon)},
+		{"lastCursor", "Ljava/awt/Cursor;", nullptr, $PRIVATE, $field(JInternalFrame, lastCursor)},
+		{"opened", "Z", nullptr, $PRIVATE, $field(JInternalFrame, opened)},
+		{"normalBounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(JInternalFrame, normalBounds)},
+		{"defaultCloseOperation", "I", nullptr, $PRIVATE, $field(JInternalFrame, defaultCloseOperation)},
+		{"lastFocusOwner", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(JInternalFrame, lastFocusOwner)},
+		{"CONTENT_PANE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JInternalFrame, CONTENT_PANE_PROPERTY)},
+		{"MENU_BAR_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JInternalFrame, MENU_BAR_PROPERTY)},
+		{"TITLE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JInternalFrame, TITLE_PROPERTY)},
+		{"LAYERED_PANE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JInternalFrame, LAYERED_PANE_PROPERTY)},
+		{"ROOT_PANE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JInternalFrame, ROOT_PANE_PROPERTY)},
+		{"GLASS_PANE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JInternalFrame, GLASS_PANE_PROPERTY)},
+		{"FRAME_ICON_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JInternalFrame, FRAME_ICON_PROPERTY)},
+		{"IS_SELECTED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JInternalFrame, IS_SELECTED_PROPERTY)},
+		{"IS_CLOSED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JInternalFrame, IS_CLOSED_PROPERTY)},
+		{"IS_MAXIMUM_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JInternalFrame, IS_MAXIMUM_PROPERTY)},
+		{"IS_ICON_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JInternalFrame, IS_ICON_PROPERTY)},
+		{"PROPERTY_CHANGE_LISTENER_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JInternalFrame, PROPERTY_CHANGE_LISTENER_KEY)},
+		{"isDragging", "Z", nullptr, 0, $field(JInternalFrame, isDragging)},
+		{"danger", "Z", nullptr, 0, $field(JInternalFrame, danger)},
+		{}
+	};
+	$NamedAttribute getAccessibleContextmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getAccessibleContextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getAccessibleContextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getDesktopPanemethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getDesktopPanemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getDesktopPanemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getFocusCycleRootAncestormethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getFocusCycleRootAncestormethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getFocusCycleRootAncestormethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getInternalFrameListenersmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getInternalFrameListenersmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getInternalFrameListenersmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getLastCursormethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getLastCursormethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getLastCursormethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$CompoundAttribute getMenuBarmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$NamedAttribute getMostRecentFocusOwnermethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getMostRecentFocusOwnermethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getMostRecentFocusOwnermethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getRootPanemethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"description", 's', "The root pane used by this internal frame."},
+		{}
+	};
+	$CompoundAttribute getRootPanemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getRootPanemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getUIClassIDmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"description", 's', "UIClassID"},
+		{}
+	};
+	$CompoundAttribute getUIClassIDmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getUIClassIDmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getWarningStringmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getWarningStringmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getWarningStringmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setClosablemethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "Indicates whether this internal frame can be closed."},
+		{}
+	};
+	$CompoundAttribute setClosablemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setClosablemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setClosedmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "Indicates whether this internal frame has been closed."},
+		{}
+	};
+	$CompoundAttribute setClosedmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setClosedmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setContentPanemethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"description", 's', "The client area of the internal frame where child components are normally inserted."},
+		{}
+	};
+	$CompoundAttribute setContentPanemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setContentPanemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setDesktopIconmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The icon shown when this internal frame is minimized."},
+		{}
+	};
+	$CompoundAttribute setDesktopIconmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setDesktopIconmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setFrameIconmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The icon shown in the top-left corner of this internal frame."},
+		{}
+	};
+	$CompoundAttribute setFrameIconmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setFrameIconmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setGlassPanemethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"description", 's', "A transparent pane used for menu rendering."},
+		{}
+	};
+	$CompoundAttribute setGlassPanemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setGlassPanemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setIconmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The image displayed when this internal frame is minimized."},
+		{}
+	};
+	$CompoundAttribute setIconmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setIconmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setIconifiablemethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "Determines whether this internal frame can be iconified."},
+		{}
+	};
+	$CompoundAttribute setIconifiablemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setIconifiablemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setJMenuBarmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "The menu bar for accessing pulldown menus from this internal frame."},
+		{}
+	};
+	$CompoundAttribute setJMenuBarmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setJMenuBarmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setLayermethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"expert", 'Z', "true"},
+		{"description", 's', "Specifies what desktop layer is used."},
+		{}
+	};
+	$CompoundAttribute setLayermethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setLayermethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setLayermethodAnnotations$$$1$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"expert", 'Z', "true"},
+		{"description", 's', "Specifies what desktop layer is used."},
+		{}
+	};
+	$CompoundAttribute setLayermethodAnnotations$$$1[] = {
+		{"Ljava/beans/BeanProperty;", setLayermethodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$NamedAttribute setLayeredPanemethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"description", 's', "The pane which holds the various desktop layers."},
+		{}
+	};
+	$CompoundAttribute setLayeredPanemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setLayeredPanemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setMaximizablemethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "Determines whether this internal frame can be maximized."},
+		{}
+	};
+	$CompoundAttribute setMaximizablemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setMaximizablemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setMaximummethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "Indicates whether this internal frame is maximized."},
+		{}
+	};
+	$CompoundAttribute setMaximummethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setMaximummethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$CompoundAttribute setMenuBarmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$NamedAttribute setResizablemethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "Determines whether this internal frame can be resized by the user."},
+		{}
+	};
+	$CompoundAttribute setResizablemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setResizablemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setRootPaneCheckingEnabledmethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"description", 's', "Whether the add and setLayout methods are forwarded"},
+		{}
+	};
+	$CompoundAttribute setRootPaneCheckingEnabledmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setRootPaneCheckingEnabledmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setSelectedmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "Indicates whether this internal frame is currently the active frame."},
+		{}
+	};
+	$CompoundAttribute setSelectedmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setSelectedmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setTitlemethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "The text displayed in the title bar."},
+		{}
+	};
+	$CompoundAttribute setTitlemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setTitlemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setUImethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The UI object that implements the Component\'s LookAndFeel."},
+		{}
+	};
+	$CompoundAttribute setUImethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setUImethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JInternalFrame, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JInternalFrame, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(JInternalFrame, init$, void, $String*, bool)},
+		{"<init>", "(Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $method(JInternalFrame, init$, void, $String*, bool, bool)},
+		{"<init>", "(Ljava/lang/String;ZZZ)V", nullptr, $PUBLIC, $method(JInternalFrame, init$, void, $String*, bool, bool, bool)},
+		{"<init>", "(Ljava/lang/String;ZZZZ)V", nullptr, $PUBLIC, $method(JInternalFrame, init$, void, $String*, bool, bool, bool, bool)},
+		{"addImpl", "(Ljava/awt/Component;Ljava/lang/Object;I)V", nullptr, $PROTECTED, $virtualMethod(JInternalFrame, addImpl, void, $Component*, Object$*, int32_t)},
+		{"addInternalFrameListener", "(Ljavax/swing/event/InternalFrameListener;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, addInternalFrameListener, void, $InternalFrameListener*)},
+		{"addPropertyChangeListenerIfNecessary", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrame, addPropertyChangeListenerIfNecessary, void)},
+		{"compWriteObjectNotify", "()V", nullptr, 0, $virtualMethod(JInternalFrame, compWriteObjectNotify, void)},
+		{"createRootPane", "()Ljavax/swing/JRootPane;", nullptr, $PROTECTED, $virtualMethod(JInternalFrame, createRootPane, $JRootPane*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, dispose, void)},
+		{"doDefaultCloseAction", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, doDefaultCloseAction, void)},
+		{"fireInternalFrameEvent", "(I)V", nullptr, $PROTECTED, $virtualMethod(JInternalFrame, fireInternalFrameEvent, void, int32_t)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, getAccessibleContextmethodAnnotations$$},
+		{"getContentPane", "()Ljava/awt/Container;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getContentPane, $Container*)},
+		{"getDefaultCloseOperation", "()I", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getDefaultCloseOperation, int32_t)},
+		{"getDesktopIcon", "()Ljavax/swing/JInternalFrame$JDesktopIcon;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getDesktopIcon, $JInternalFrame$JDesktopIcon*)},
+		{"getDesktopPane", "()Ljavax/swing/JDesktopPane;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getDesktopPane, $JDesktopPane*), nullptr, nullptr, getDesktopPanemethodAnnotations$$},
+		{"getFocusCycleRootAncestor", "()Ljava/awt/Container;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JInternalFrame, getFocusCycleRootAncestor, $Container*), nullptr, nullptr, getFocusCycleRootAncestormethodAnnotations$$},
+		{"getFocusOwner", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getFocusOwner, $Component*)},
+		{"getFrameIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getFrameIcon, $Icon*)},
+		{"getGlassPane", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getGlassPane, $Component*)},
+		{"getInternalFrameListeners", "()[Ljavax/swing/event/InternalFrameListener;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getInternalFrameListeners, $InternalFrameListenerArray*), nullptr, nullptr, getInternalFrameListenersmethodAnnotations$$},
+		{"getJMenuBar", "()Ljavax/swing/JMenuBar;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getJMenuBar, $JMenuBar*)},
+		{"getLastCursor", "()Ljava/awt/Cursor;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getLastCursor, $Cursor*), nullptr, nullptr, getLastCursormethodAnnotations$$},
+		{"getLayer", "()I", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getLayer, int32_t)},
+		{"getLayeredPane", "()Ljavax/swing/JLayeredPane;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getLayeredPane, $JLayeredPane*)},
+		{"getMenuBar", "()Ljavax/swing/JMenuBar;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(JInternalFrame, getMenuBar, $JMenuBar*), nullptr, nullptr, getMenuBarmethodAnnotations$$},
+		{"getMostRecentFocusOwner", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getMostRecentFocusOwner, $Component*), nullptr, nullptr, getMostRecentFocusOwnermethodAnnotations$$},
+		{"getNormalBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getNormalBounds, $Rectangle*)},
+		{"getRootPane", "()Ljavax/swing/JRootPane;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getRootPane, $JRootPane*), nullptr, nullptr, getRootPanemethodAnnotations$$},
+		{"getTitle", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getTitle, $String*)},
+		{"getUI", "()Ljavax/swing/plaf/InternalFrameUI;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getUI, $ComponentUI*)},
+		{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, getUIClassID, $String*), nullptr, nullptr, getUIClassIDmethodAnnotations$$},
+		{"getWarningString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(JInternalFrame, getWarningString, $String*), nullptr, nullptr, getWarningStringmethodAnnotations$$},
+		{"hide", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, hide, void)},
+		{"isClosable", "()Z", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, isClosable, bool)},
+		{"isClosed", "()Z", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, isClosed, bool)},
+		{"isFocusCycleRoot", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(JInternalFrame, isFocusCycleRoot, bool)},
+		{"isIcon", "()Z", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, isIcon, bool)},
+		{"isIconifiable", "()Z", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, isIconifiable, bool)},
+		{"isMaximizable", "()Z", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, isMaximizable, bool)},
+		{"isMaximum", "()Z", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, isMaximum, bool)},
+		{"isResizable", "()Z", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, isResizable, bool)},
+		{"isRootPaneCheckingEnabled", "()Z", nullptr, $PROTECTED, $virtualMethod(JInternalFrame, isRootPaneCheckingEnabled, bool)},
+		{"isSelected", "()Z", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, isSelected, bool)},
+		{"moveToBack", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, moveToBack, void)},
+		{"moveToFront", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, moveToFront, void)},
+		{"pack", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, pack, void)},
+		{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(JInternalFrame, paintComponent, void, $Graphics*)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JInternalFrame, paramString, $String*)},
+		{"remove", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, remove, void, $Component*)},
+		{"removeInternalFrameListener", "(Ljavax/swing/event/InternalFrameListener;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, removeInternalFrameListener, void, $InternalFrameListener*)},
+		{"reshape", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, reshape, void, int32_t, int32_t, int32_t, int32_t)},
+		{"restoreSubcomponentFocus", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, restoreSubcomponentFocus, void)},
+		{"setClosable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setClosable, void, bool), nullptr, nullptr, setClosablemethodAnnotations$$},
+		{"setClosed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setClosed, void, bool), "java.beans.PropertyVetoException", nullptr, setClosedmethodAnnotations$$},
+		{"setContentPane", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setContentPane, void, $Container*), nullptr, nullptr, setContentPanemethodAnnotations$$},
+		{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setCursor, void, $Cursor*)},
+		{"setDefaultCloseOperation", "(I)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setDefaultCloseOperation, void, int32_t)},
+		{"setDesktopIcon", "(Ljavax/swing/JInternalFrame$JDesktopIcon;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setDesktopIcon, void, $JInternalFrame$JDesktopIcon*), nullptr, nullptr, setDesktopIconmethodAnnotations$$},
+		{"setFocusCycleRoot", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(JInternalFrame, setFocusCycleRoot, void, bool)},
+		{"setFrameIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setFrameIcon, void, $Icon*), nullptr, nullptr, setFrameIconmethodAnnotations$$},
+		{"setGlassPane", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setGlassPane, void, $Component*), nullptr, nullptr, setGlassPanemethodAnnotations$$},
+		{"setIcon", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setIcon, void, bool), "java.beans.PropertyVetoException", nullptr, setIconmethodAnnotations$$},
+		{"setIconifiable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setIconifiable, void, bool), nullptr, nullptr, setIconifiablemethodAnnotations$$},
+		{"setJMenuBar", "(Ljavax/swing/JMenuBar;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setJMenuBar, void, $JMenuBar*), nullptr, nullptr, setJMenuBarmethodAnnotations$$},
+		{"setLastFocusOwner", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(JInternalFrame, setLastFocusOwner, void, $Component*)},
+		{"setLayer", "(Ljava/lang/Integer;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setLayer, void, $Integer*), nullptr, nullptr, setLayermethodAnnotations$$},
+		{"setLayer", "(I)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setLayer, void, int32_t), nullptr, nullptr, setLayermethodAnnotations$$$1},
+		{"setLayeredPane", "(Ljavax/swing/JLayeredPane;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setLayeredPane, void, $JLayeredPane*), nullptr, nullptr, setLayeredPanemethodAnnotations$$},
+		{"setLayout", "(Ljava/awt/LayoutManager;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setLayout, void, $LayoutManager*)},
+		{"setMaximizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setMaximizable, void, bool), nullptr, nullptr, setMaximizablemethodAnnotations$$},
+		{"setMaximum", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setMaximum, void, bool), "java.beans.PropertyVetoException", nullptr, setMaximummethodAnnotations$$},
+		{"setMenuBar", "(Ljavax/swing/JMenuBar;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(JInternalFrame, setMenuBar, void, $JMenuBar*), nullptr, nullptr, setMenuBarmethodAnnotations$$},
+		{"setNormalBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setNormalBounds, void, $Rectangle*)},
+		{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setResizable, void, bool), nullptr, nullptr, setResizablemethodAnnotations$$},
+		{"setRootPane", "(Ljavax/swing/JRootPane;)V", nullptr, $PROTECTED, $virtualMethod(JInternalFrame, setRootPane, void, $JRootPane*)},
+		{"setRootPaneCheckingEnabled", "(Z)V", nullptr, $PROTECTED, $virtualMethod(JInternalFrame, setRootPaneCheckingEnabled, void, bool), nullptr, nullptr, setRootPaneCheckingEnabledmethodAnnotations$$},
+		{"setSelected", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setSelected, void, bool), "java.beans.PropertyVetoException", nullptr, setSelectedmethodAnnotations$$},
+		{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setTitle, void, $String*), nullptr, nullptr, setTitlemethodAnnotations$$},
+		{"setUI", "(Ljavax/swing/plaf/InternalFrameUI;)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, setUI, void, $InternalFrameUI*), nullptr, nullptr, setUImethodAnnotations$$},
+		{"show", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, show, void)},
+		{"toBack", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, toBack, void)},
+		{"toFront", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, toFront, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateLastFocusOwner", "(Ljava/awt/Component;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrame, updateLastFocusOwner, void, $Component*)},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrame, updateUI, void)},
+		{"updateUIWhenHidden", "()V", nullptr, 0, $virtualMethod(JInternalFrame, updateUIWhenHidden, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JInternalFrame, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JInternalFrame$JDesktopIcon", "javax.swing.JInternalFrame", "JDesktopIcon", $PUBLIC | $STATIC},
+		{"javax.swing.JInternalFrame$AccessibleJInternalFrame", "javax.swing.JInternalFrame", "AccessibleJInternalFrame", $PROTECTED},
+		{"javax.swing.JInternalFrame$FocusPropertyChangeListener", "javax.swing.JInternalFrame", "FocusPropertyChangeListener", $PRIVATE | $STATIC},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"defaultProperty", 's', "JMenuBar"},
+		{"description", 's', "A frame container which is contained within another window."},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"delegate", 's', "getContentPane"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{"Ljavax/swing/SwingContainer;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JInternalFrame",
+		"javax.swing.JComponent",
+		"javax.accessibility.Accessible,javax.swing.WindowConstants,javax.swing.RootPaneContainer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.JInternalFrame$JDesktopIcon,javax.swing.JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon,javax.swing.JInternalFrame$AccessibleJInternalFrame,javax.swing.JInternalFrame$FocusPropertyChangeListener"
+	};
+	$loadClass(JInternalFrame, name, initialize, &classInfo$$, JInternalFrame::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JInternalFrame));
+	});
 	return class$;
 }
 

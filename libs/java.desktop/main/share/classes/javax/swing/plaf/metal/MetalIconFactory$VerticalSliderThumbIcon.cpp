@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalIconFactory$VerticalSliderThumbIcon.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -17,7 +16,6 @@ using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;
-using $Shape = ::java::awt::Shape;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -31,50 +29,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$FieldInfo _MetalIconFactory$VerticalSliderThumbIcon_FieldInfo_[] = {
-	{"controlBumps", "Ljavax/swing/plaf/metal/MetalBumps;", nullptr, $PROTECTED | $STATIC, $staticField(MetalIconFactory$VerticalSliderThumbIcon, controlBumps)},
-	{"primaryBumps", "Ljavax/swing/plaf/metal/MetalBumps;", nullptr, $PROTECTED | $STATIC, $staticField(MetalIconFactory$VerticalSliderThumbIcon, primaryBumps)},
-	{}
-};
-
-$MethodInfo _MetalIconFactory$VerticalSliderThumbIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalIconFactory$VerticalSliderThumbIcon, init$, void)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$VerticalSliderThumbIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$VerticalSliderThumbIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$VerticalSliderThumbIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MetalIconFactory$VerticalSliderThumbIcon_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalIconFactory$VerticalSliderThumbIcon", "javax.swing.plaf.metal.MetalIconFactory", "VerticalSliderThumbIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalIconFactory$VerticalSliderThumbIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalIconFactory$VerticalSliderThumbIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,java.io.Serializable,javax.swing.plaf.UIResource",
-	_MetalIconFactory$VerticalSliderThumbIcon_FieldInfo_,
-	_MetalIconFactory$VerticalSliderThumbIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalIconFactory$VerticalSliderThumbIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalIconFactory"
-};
-
-$Object* allocate$MetalIconFactory$VerticalSliderThumbIcon($Class* clazz) {
-	return $of($alloc(MetalIconFactory$VerticalSliderThumbIcon));
-}
 
 int32_t MetalIconFactory$VerticalSliderThumbIcon::hashCode() {
 	 return this->$Icon::hashCode();
@@ -100,17 +54,17 @@ $MetalBumps* MetalIconFactory$VerticalSliderThumbIcon::controlBumps = nullptr;
 $MetalBumps* MetalIconFactory$VerticalSliderThumbIcon::primaryBumps = nullptr;
 
 void MetalIconFactory$VerticalSliderThumbIcon::init$() {
-	$useLocalCurrentObjectStackCache();
-	$var($Color, var$0, static_cast<$Color*>($MetalLookAndFeel::getControlHighlight()));
-	$var($Color, var$1, static_cast<$Color*>($MetalLookAndFeel::getControlInfo()));
+	$useLocalObjectStack();
+	$var($Color, var$0, $MetalLookAndFeel::getControlHighlight());
+	$var($Color, var$1, $MetalLookAndFeel::getControlInfo());
 	$assignStatic(MetalIconFactory$VerticalSliderThumbIcon::controlBumps, $new($MetalBumps, 6, 10, var$0, var$1, $($MetalLookAndFeel::getControl())));
-	$var($Color, var$2, static_cast<$Color*>($MetalLookAndFeel::getPrimaryControl()));
-	$var($Color, var$3, static_cast<$Color*>($MetalLookAndFeel::getPrimaryControlDarkShadow()));
+	$var($Color, var$2, $MetalLookAndFeel::getPrimaryControl());
+	$var($Color, var$3, $MetalLookAndFeel::getPrimaryControlDarkShadow());
 	$assignStatic(MetalIconFactory$VerticalSliderThumbIcon::primaryBumps, $new($MetalBumps, 6, 10, var$2, var$3, $($MetalLookAndFeel::getPrimaryControlShadow())));
 }
 
 void MetalIconFactory$VerticalSliderThumbIcon::paintIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool leftToRight = $MetalUtils::isLeftToRight(c);
 	$nc(g)->translate(x, y);
 	$var($Rectangle, clip, g->getClipBounds());
@@ -119,7 +73,7 @@ void MetalIconFactory$VerticalSliderThumbIcon::paintIcon($Component* c, $Graphic
 	if ($nc(c)->hasFocus()) {
 		g->setColor($($MetalLookAndFeel::getPrimaryControlInfo()));
 	} else {
-		g->setColor(c->isEnabled() ? $(static_cast<$Color*>($MetalLookAndFeel::getPrimaryControlInfo())) : $(static_cast<$Color*>($MetalLookAndFeel::getControlDarkShadow())));
+		g->setColor(c->isEnabled() ? $($MetalLookAndFeel::getPrimaryControlInfo()) : $($MetalLookAndFeel::getControlDarkShadow()));
 	}
 	if (leftToRight) {
 		g->drawLine(1, 0, 8, 0);
@@ -134,7 +88,7 @@ void MetalIconFactory$VerticalSliderThumbIcon::paintIcon($Component* c, $Graphic
 		g->drawLine(0, 7, 6, 1);
 		g->drawLine(0, 7, 6, 13);
 	}
-	if ($nc(c)->hasFocus()) {
+	if (c->hasFocus()) {
 		g->setColor($(c->getForeground()));
 	} else {
 		g->setColor($($MetalLookAndFeel::getControl()));
@@ -156,15 +110,15 @@ void MetalIconFactory$VerticalSliderThumbIcon::paintIcon($Component* c, $Graphic
 		g->drawLine(2, 7, 2, 8);
 	}
 	int32_t offset = (leftToRight) ? 2 : 8;
-	if ($nc(c)->isEnabled()) {
+	if (c->isEnabled()) {
 		if (c->hasFocus()) {
 			$nc(MetalIconFactory$VerticalSliderThumbIcon::primaryBumps)->paintIcon(c, g, offset, 2);
 		} else {
 			$nc(MetalIconFactory$VerticalSliderThumbIcon::controlBumps)->paintIcon(c, g, offset, 2);
 		}
 	}
-	if ($nc(c)->isEnabled()) {
-		g->setColor(c->hasFocus() ? $(static_cast<$Color*>($MetalLookAndFeel::getPrimaryControl())) : $(static_cast<$Color*>($MetalLookAndFeel::getControlHighlight())));
+	if (c->isEnabled()) {
+		g->setColor(c->hasFocus() ? $($MetalLookAndFeel::getPrimaryControl()) : $($MetalLookAndFeel::getControlHighlight()));
 		if (leftToRight) {
 			g->drawLine(1, 1, 8, 1);
 			g->drawLine(1, 1, 1, 13);
@@ -189,7 +143,45 @@ MetalIconFactory$VerticalSliderThumbIcon::MetalIconFactory$VerticalSliderThumbIc
 }
 
 $Class* MetalIconFactory$VerticalSliderThumbIcon::load$($String* name, bool initialize) {
-	$loadClass(MetalIconFactory$VerticalSliderThumbIcon, name, initialize, &_MetalIconFactory$VerticalSliderThumbIcon_ClassInfo_, allocate$MetalIconFactory$VerticalSliderThumbIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"controlBumps", "Ljavax/swing/plaf/metal/MetalBumps;", nullptr, $PROTECTED | $STATIC, $staticField(MetalIconFactory$VerticalSliderThumbIcon, controlBumps)},
+		{"primaryBumps", "Ljavax/swing/plaf/metal/MetalBumps;", nullptr, $PROTECTED | $STATIC, $staticField(MetalIconFactory$VerticalSliderThumbIcon, primaryBumps)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalIconFactory$VerticalSliderThumbIcon, init$, void)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$VerticalSliderThumbIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$VerticalSliderThumbIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$VerticalSliderThumbIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalIconFactory$VerticalSliderThumbIcon", "javax.swing.plaf.metal.MetalIconFactory", "VerticalSliderThumbIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalIconFactory$VerticalSliderThumbIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,java.io.Serializable,javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalIconFactory"
+	};
+	$loadClass(MetalIconFactory$VerticalSliderThumbIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalIconFactory$VerticalSliderThumbIcon));
+	});
 	return class$;
 }
 

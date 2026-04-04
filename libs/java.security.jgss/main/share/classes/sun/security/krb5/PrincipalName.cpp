@@ -1,5 +1,4 @@
 #include <sun/security/krb5/PrincipalName.h>
-
 #include <java/io/BufferedOutputStream.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
@@ -86,80 +85,6 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 
-$FieldInfo _PrincipalName_FieldInfo_[] = {
-	{"KRB_NT_UNKNOWN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrincipalName, KRB_NT_UNKNOWN)},
-	{"KRB_NT_PRINCIPAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrincipalName, KRB_NT_PRINCIPAL)},
-	{"KRB_NT_SRV_INST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrincipalName, KRB_NT_SRV_INST)},
-	{"KRB_NT_SRV_HST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrincipalName, KRB_NT_SRV_HST)},
-	{"KRB_NT_SRV_XHST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrincipalName, KRB_NT_SRV_XHST)},
-	{"KRB_NT_UID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrincipalName, KRB_NT_UID)},
-	{"KRB_NT_ENTERPRISE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrincipalName, KRB_NT_ENTERPRISE)},
-	{"TGS_DEFAULT_SRV_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrincipalName, TGS_DEFAULT_SRV_NAME)},
-	{"TGS_DEFAULT_NT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrincipalName, TGS_DEFAULT_NT)},
-	{"NAME_COMPONENT_SEPARATOR", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrincipalName, NAME_COMPONENT_SEPARATOR)},
-	{"NAME_REALM_SEPARATOR", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrincipalName, NAME_REALM_SEPARATOR)},
-	{"REALM_COMPONENT_SEPARATOR", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrincipalName, REALM_COMPONENT_SEPARATOR)},
-	{"NAME_COMPONENT_SEPARATOR_STR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrincipalName, NAME_COMPONENT_SEPARATOR_STR)},
-	{"NAME_REALM_SEPARATOR_STR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrincipalName, NAME_REALM_SEPARATOR_STR)},
-	{"REALM_COMPONENT_SEPARATOR_STR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrincipalName, REALM_COMPONENT_SEPARATOR_STR)},
-	{"nameType", "I", nullptr, $PRIVATE | $FINAL, $field(PrincipalName, nameType)},
-	{"nameStrings", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(PrincipalName, nameStrings)},
-	{"nameRealm", "Lsun/security/krb5/Realm;", nullptr, $PRIVATE | $FINAL, $field(PrincipalName, nameRealm)},
-	{"realmDeduced", "Z", nullptr, $PRIVATE | $FINAL, $field(PrincipalName, realmDeduced)},
-	{"salt", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(PrincipalName, salt)},
-	{"NAME_STRINGS_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrincipalName, NAME_STRINGS_OFFSET)},
-	{"UNSAFE", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrincipalName, UNSAFE)},
-	{}
-};
-
-$MethodInfo _PrincipalName_MethodInfo_[] = {
-	{"<init>", "(I[Ljava/lang/String;Lsun/security/krb5/Realm;)V", nullptr, $PUBLIC, $method(PrincipalName, init$, void, int32_t, $StringArray*, $Realm*)},
-	{"<init>", "([Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PrincipalName, init$, void, $StringArray*, $String*), "sun.security.krb5.RealmException"},
-	{"<init>", "(Lsun/security/util/DerValue;Lsun/security/krb5/Realm;)V", nullptr, $PUBLIC, $method(PrincipalName, init$, void, $DerValue*, $Realm*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $method(PrincipalName, init$, void, $String*, int32_t, $String*), "sun.security.krb5.RealmException"},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(PrincipalName, init$, void, $String*, int32_t), "sun.security.krb5.RealmException"},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PrincipalName, init$, void, $String*), "sun.security.krb5.RealmException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PrincipalName, init$, void, $String*, $String*), "sun.security.krb5.RealmException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(PrincipalName, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PrincipalName, clone, $Object*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PrincipalName, equals, bool, Object$*)},
-	{"getInstanceComponent", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrincipalName, getInstanceComponent, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrincipalName, getName, $String*)},
-	{"getNameString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrincipalName, getNameString, $String*)},
-	{"getNameStrings", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrincipalName, getNameStrings, $StringArray*)},
-	{"getNameType", "()I", nullptr, $PUBLIC, $virtualMethod(PrincipalName, getNameType, int32_t)},
-	{"getPrincipalNameAsString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrincipalName, getPrincipalNameAsString, $String*)},
-	{"getRealm", "()Lsun/security/krb5/Realm;", nullptr, $PUBLIC, $virtualMethod(PrincipalName, getRealm, $Realm*)},
-	{"getRealmAsString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrincipalName, getRealmAsString, $String*)},
-	{"getRealmString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrincipalName, getRealmString, $String*)},
-	{"getSalt", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrincipalName, getSalt, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PrincipalName, hashCode, int32_t)},
-	{"isRealmDeduced", "()Z", nullptr, $PUBLIC, $virtualMethod(PrincipalName, isRealmDeduced, bool)},
-	{"mapHostToRealm", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(PrincipalName, mapHostToRealm, $String*, $String*)},
-	{"match", "(Lsun/security/krb5/PrincipalName;)Z", nullptr, $PUBLIC, $virtualMethod(PrincipalName, match, bool, PrincipalName*)},
-	{"parse", "(Lsun/security/util/DerInputStream;BZLsun/security/krb5/Realm;)Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC | $STATIC, $staticMethod(PrincipalName, parse, PrincipalName*, $DerInputStream*, int8_t, bool, $Realm*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException"},
-	{"parseName", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(PrincipalName, parseName, $StringArray*, $String*)},
-	{"tgsService", "(Ljava/lang/String;Ljava/lang/String;)Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC | $STATIC, $staticMethod(PrincipalName, tgsService, PrincipalName*, $String*, $String*), "sun.security.krb5.KrbException"},
-	{"toByteArray", "()[[B", nullptr, $PUBLIC, $virtualMethod(PrincipalName, toByteArray, $byteArray2*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrincipalName, toString, $String*)},
-	{"validateNameStrings", "([Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PrincipalName, validateNameStrings, void, $StringArray*)},
-	{"writePrincipal", "(Lsun/security/krb5/internal/ccache/CCacheOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(PrincipalName, writePrincipal, void, $CCacheOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _PrincipalName_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.PrincipalName",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_PrincipalName_FieldInfo_,
-	_PrincipalName_MethodInfo_
-};
-
-$Object* allocate$PrincipalName($Class* clazz) {
-	return $of($alloc(PrincipalName));
-}
-
 $String* PrincipalName::TGS_DEFAULT_SRV_NAME = nullptr;
 $String* PrincipalName::NAME_COMPONENT_SEPARATOR_STR = nullptr;
 $String* PrincipalName::NAME_REALM_SEPARATOR_STR = nullptr;
@@ -185,7 +110,7 @@ void PrincipalName::init$($StringArray* nameParts, $String* realm) {
 
 void PrincipalName::validateNameStrings($StringArray* ns) {
 	$init(PrincipalName);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (ns == nullptr) {
 		$throwNew($IllegalArgumentException, "Null nameStrings not allowed"_s);
 	}
@@ -194,9 +119,7 @@ void PrincipalName::validateNameStrings($StringArray* ns) {
 	}
 	{
 		$var($StringArray, arr$, ns);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, s, arr$->get(i$));
 			{
 				if (s == nullptr) {
@@ -211,11 +134,11 @@ void PrincipalName::validateNameStrings($StringArray* ns) {
 }
 
 $Object* PrincipalName::clone() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var(PrincipalName, pName, $cast(PrincipalName, $Cloneable::clone()));
 		$nc(PrincipalName::UNSAFE)->putReference(this, PrincipalName::NAME_STRINGS_OFFSET, $($nc(this->nameStrings)->clone()));
-		return $of(pName);
+		return pName;
 	} catch ($CloneNotSupportedException& ex) {
 		$throwNew($AssertionError, $of("Should never happen"_s));
 	}
@@ -228,14 +151,14 @@ bool PrincipalName::equals(Object$* o) {
 	}
 	if ($instanceOf(PrincipalName, o)) {
 		$var(PrincipalName, other, $cast(PrincipalName, o));
-		bool var$0 = $nc(this->nameRealm)->equals($nc(other)->nameRealm);
-		return var$0 && $Arrays::equals(this->nameStrings, $nc(other)->nameStrings);
+		bool var$0 = $nc(this->nameRealm)->equals(other->nameRealm);
+		return var$0 && $Arrays::equals(this->nameStrings, other->nameStrings);
 	}
 	return false;
 }
 
 void PrincipalName::init$($DerValue* encoding, $Realm* realm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, salt, nullptr);
 	if (realm == nullptr) {
 		$throwNew($IllegalArgumentException, "Null realm not allowed"_s);
@@ -249,23 +172,23 @@ void PrincipalName::init$($DerValue* encoding, $Realm* realm) {
 	if ($nc(encoding)->getTag() != $DerValue::tag_Sequence) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$assign(der, $nc($($nc(encoding)->getData()))->getDerValue());
-	if (((int32_t)($nc(der)->getTag() & (uint32_t)31)) == 0) {
-		$var($BigInteger, bint, $nc($(der->getData()))->getBigInteger());
+	$assign(der, $$nc(encoding->getData())->getDerValue());
+	if (($nc(der)->getTag() & 0x1f) == 0) {
+		$var($BigInteger, bint, $$nc(der->getData())->getBigInteger());
 		this->nameType = $nc(bint)->intValue();
 	} else {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$assign(der, $nc($(encoding->getData()))->getDerValue());
-	if (((int32_t)($nc(der)->getTag() & (uint32_t)31)) == 1) {
-		$var($DerValue, subDer, $nc($(der->getData()))->getDerValue());
+	$assign(der, $$nc(encoding->getData())->getDerValue());
+	if (($nc(der)->getTag() & 0x1f) == 1) {
+		$var($DerValue, subDer, $$nc(der->getData())->getDerValue());
 		if ($nc(subDer)->getTag() != $DerValue::tag_SequenceOf) {
 			$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 		}
 		$var($Vector, v, $new($Vector));
 		$var($DerValue, subSubDer, nullptr);
-		while ($nc($($nc(subDer)->getData()))->available() > 0) {
-			$assign(subSubDer, $nc($(subDer->getData()))->getDerValue());
+		while ($$nc(subDer->getData())->available() > 0) {
+			$assign(subSubDer, $$nc(subDer->getData())->getDerValue());
 			$var($String, namePart, $$new($KerberosString, subSubDer)->toString());
 			v->addElement(namePart);
 		}
@@ -279,16 +202,16 @@ void PrincipalName::init$($DerValue* encoding, $Realm* realm) {
 
 PrincipalName* PrincipalName::parse($DerInputStream* data, int8_t explicitTag, bool optional, $Realm* realm$renamed) {
 	$init(PrincipalName);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Realm, realm, realm$renamed);
-	if ((optional) && (((int32_t)((int8_t)$nc(data)->peekByte() & (uint32_t)(int32_t)(int8_t)31)) != explicitTag)) {
+	if ((optional) && (((int8_t)$nc(data)->peekByte() & (int8_t)31) != explicitTag)) {
 		return nullptr;
 	}
 	$var($DerValue, der, $nc(data)->getDerValue());
-	if (explicitTag != ((int32_t)($nc(der)->getTag() & (uint32_t)(int32_t)(int8_t)31))) {
+	if (explicitTag != ($nc(der)->getTag() & (int8_t)31)) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	} else {
-		$var($DerValue, subDer, $nc($(der->getData()))->getDerValue());
+		$var($DerValue, subDer, $$nc(der->getData())->getDerValue());
 		if (realm == nullptr) {
 			$assign(realm, $Realm::getDefault());
 		}
@@ -298,7 +221,7 @@ PrincipalName* PrincipalName::parse($DerInputStream* data, int8_t explicitTag, b
 
 $StringArray* PrincipalName::parseName($String* name) {
 	$init(PrincipalName);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, tempStrings, $new($Vector));
 	$var($String, temp, name);
 	int32_t i = 0;
@@ -307,8 +230,10 @@ $StringArray* PrincipalName::parseName($String* name) {
 	while (i < $nc(temp)->length()) {
 		if (temp->charAt(i) == PrincipalName::NAME_COMPONENT_SEPARATOR) {
 			if (i > 0 && temp->charAt(i - 1) == u'\\') {
-				$var($String, var$0, $(temp->substring(0, i - 1)));
-				$assign(temp, $concat(var$0, $(temp->substring(i, temp->length()))));
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append($(temp->substring(0, i - 1)));
+				var$0->append($(temp->substring(i, temp->length())));
+				$assign(temp, $str(var$0));
 				continue;
 			} else {
 				if (componentStart <= i) {
@@ -319,8 +244,10 @@ $StringArray* PrincipalName::parseName($String* name) {
 			}
 		} else if (temp->charAt(i) == PrincipalName::NAME_REALM_SEPARATOR) {
 			if (i > 0 && temp->charAt(i - 1) == u'\\') {
-				$var($String, var$1, $(temp->substring(0, i - 1)));
-				$assign(temp, $concat(var$1, $(temp->substring(i, temp->length()))));
+				$var($StringBuilder, var$1, $new($StringBuilder));
+				var$1->append($(temp->substring(0, i - 1)));
+				var$1->append($(temp->substring(i, temp->length())));
+				$assign(temp, $str(var$1));
 				continue;
 			} else {
 				if (componentStart < i) {
@@ -333,7 +260,7 @@ $StringArray* PrincipalName::parseName($String* name) {
 		}
 		++i;
 	}
-	if (i == $nc(temp)->length()) {
+	if (i == temp->length()) {
 		$assign(component, temp->substring(componentStart, i));
 		tempStrings->addElement(component);
 	}
@@ -343,7 +270,7 @@ $StringArray* PrincipalName::parseName($String* name) {
 }
 
 void PrincipalName::init$($String* name, int32_t type, $String* realm$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, realm, realm$renamed);
 	$set(this, salt, nullptr);
 	if (name == nullptr) {
@@ -357,75 +284,63 @@ void PrincipalName::init$($String* name, int32_t type, $String* realm$renamed) {
 	this->realmDeduced = realm == nullptr;
 	switch (type) {
 	case PrincipalName::KRB_NT_SRV_HST:
-		{
-			if ($nc(nameParts)->length >= 2) {
-				$var($String, hostName, nameParts->get(1));
-				$var($Boolean, option, nullptr);
+		if ($nc(nameParts)->length >= 2) {
+			$var($String, hostName, nameParts->get(1));
+			$var($Boolean, option, nullptr);
+			try {
+				$assign(option, $$nc($Config::getInstance())->getBooleanObject($$new($StringArray, {
+					"libdefaults"_s,
+					"dns_canonicalize_hostname"_s
+				})));
+			} catch ($KrbException& e) {
+				$assign(option, nullptr);
+			}
+			if (option != $Boolean::FALSE) {
 				try {
-					$assign(option, $nc($($Config::getInstance()))->getBooleanObject($$new($StringArray, {
-						"libdefaults"_s,
-						"dns_canonicalize_hostname"_s
-					})));
-				} catch ($KrbException& e) {
-					$assign(option, nullptr);
-				}
-				$init($Boolean);
-				if (option != $Boolean::FALSE) {
-					try {
-						$var($String, canonicalized, $nc(($($InetAddress::getByName(hostName))))->getCanonicalHostName());
-						$init($Locale);
-						if ($($nc(canonicalized)->toLowerCase($Locale::ENGLISH))->startsWith($$str({$($nc(hostName)->toLowerCase($Locale::ENGLISH)), "."_s}))) {
-							$assign(hostName, canonicalized);
-						}
-					} catch ($UnknownHostException& e) {
-					} catch ($SecurityException& e) {
+					$var($String, canonicalized, ($$nc($InetAddress::getByName(hostName)))->getCanonicalHostName());
+					$init($Locale);
+					if ($($nc(canonicalized)->toLowerCase($Locale::ENGLISH))->startsWith($$str({$($nc(hostName)->toLowerCase($Locale::ENGLISH)), "."_s}))) {
+						$assign(hostName, canonicalized);
 					}
-					if ($nc(hostName)->endsWith("."_s)) {
-						$assign(hostName, hostName->substring(0, hostName->length() - 1));
-					}
+				} catch ($UnknownHostException& e) {
+				} catch ($SecurityException& e) {
 				}
-				$init($Locale);
-				nameParts->set(1, $($nc(hostName)->toLowerCase($Locale::ENGLISH)));
-			}
-			$set(this, nameStrings, nameParts);
-			this->nameType = type;
-			if (realm != nullptr) {
-				$set(this, nameRealm, $new($Realm, realm));
-			} else {
-				$var($String, mapRealm, mapHostToRealm($nc(nameParts)->get(1)));
-				if (mapRealm != nullptr) {
-					$set(this, nameRealm, $new($Realm, mapRealm));
-				} else {
-					$set(this, nameRealm, $Realm::getDefault());
+				if ($nc(hostName)->endsWith("."_s)) {
+					$assign(hostName, hostName->substring(0, hostName->length() - 1));
 				}
 			}
-			break;
+			$init($Locale);
+			nameParts->set(1, $($nc(hostName)->toLowerCase($Locale::ENGLISH)));
 		}
-	case PrincipalName::KRB_NT_UNKNOWN:
-		{}
-	case PrincipalName::KRB_NT_PRINCIPAL:
-		{}
-	case PrincipalName::KRB_NT_SRV_INST:
-		{}
-	case PrincipalName::KRB_NT_SRV_XHST:
-		{}
-	case PrincipalName::KRB_NT_UID:
-		{}
-	case PrincipalName::KRB_NT_ENTERPRISE:
-		{
-			$set(this, nameStrings, nameParts);
-			this->nameType = type;
-			if (realm != nullptr) {
-				$set(this, nameRealm, $new($Realm, realm));
+		$set(this, nameStrings, nameParts);
+		this->nameType = type;
+		if (realm != nullptr) {
+			$set(this, nameRealm, $new($Realm, realm));
+		} else {
+			$var($String, mapRealm, mapHostToRealm(nameParts->get(1)));
+			if (mapRealm != nullptr) {
+				$set(this, nameRealm, $new($Realm, mapRealm));
 			} else {
 				$set(this, nameRealm, $Realm::getDefault());
 			}
-			break;
 		}
+		break;
+	case PrincipalName::KRB_NT_UNKNOWN:
+	case PrincipalName::KRB_NT_PRINCIPAL:
+	case PrincipalName::KRB_NT_SRV_INST:
+	case PrincipalName::KRB_NT_SRV_XHST:
+	case PrincipalName::KRB_NT_UID:
+	case PrincipalName::KRB_NT_ENTERPRISE:
+		$set(this, nameStrings, nameParts);
+		this->nameType = type;
+		if (realm != nullptr) {
+			$set(this, nameRealm, $new($Realm, realm));
+		} else {
+			$set(this, nameRealm, $Realm::getDefault());
+		}
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, "Illegal name type"_s);
-		}
+		$throwNew($IllegalArgumentException, "Illegal name type"_s);
 	}
 }
 
@@ -443,7 +358,7 @@ void PrincipalName::init$($String* name, $String* realm) {
 
 PrincipalName* PrincipalName::tgsService($String* r1, $String* r2) {
 	$init(PrincipalName);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new(PrincipalName, PrincipalName::KRB_NT_SRV_INST, $$new($StringArray, {
 		PrincipalName::TGS_DEFAULT_SRV_NAME,
 		r1
@@ -456,14 +371,14 @@ $String* PrincipalName::getRealmAsString() {
 
 $String* PrincipalName::getPrincipalNameAsString() {
 	$var($StringBuilder, temp, $new($StringBuilder, $nc(this->nameStrings)->get(0)));
-	for (int32_t i = 1; i < $nc(this->nameStrings)->length; ++i) {
-		temp->append($nc(this->nameStrings)->get(i));
+	for (int32_t i = 1; i < this->nameStrings->length; ++i) {
+		temp->append(this->nameStrings->get(i));
 	}
 	return temp->toString();
 }
 
 int32_t PrincipalName::hashCode() {
-	return $nc($(toString()))->hashCode();
+	return $$nc(toString())->hashCode();
 }
 
 $String* PrincipalName::getName() {
@@ -479,10 +394,10 @@ $StringArray* PrincipalName::getNameStrings() {
 }
 
 $byteArray2* PrincipalName::toByteArray() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($byteArray2, result, $new($byteArray2, $nc(this->nameStrings)->length));
-	for (int32_t i = 0; i < $nc(this->nameStrings)->length; ++i) {
-		result->set(i, $($nc($nc(this->nameStrings)->get(i))->getBytes()));
+	for (int32_t i = 0; i < this->nameStrings->length; ++i) {
+		result->set(i, $($nc(this->nameStrings->get(i))->getBytes()));
 	}
 	return result;
 }
@@ -496,12 +411,12 @@ $Realm* PrincipalName::getRealm() {
 }
 
 $String* PrincipalName::getSalt() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->salt == nullptr) {
 		$var($StringBuilder, salt, $new($StringBuilder));
 		salt->append($($nc(this->nameRealm)->toString()));
 		for (int32_t i = 0; i < $nc(this->nameStrings)->length; ++i) {
-			salt->append($nc(this->nameStrings)->get(i));
+			salt->append(this->nameStrings->get(i));
 		}
 		return salt->toString();
 	}
@@ -509,14 +424,14 @@ $String* PrincipalName::getSalt() {
 }
 
 $String* PrincipalName::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, str, $new($StringBuilder));
 	for (int32_t i = 0; i < $nc(this->nameStrings)->length; ++i) {
 		if (i > 0) {
 			str->append("/"_s);
 		}
-		$var($String, n, $nc(this->nameStrings)->get(i));
-		$assign(n, $nc(n)->replace(static_cast<$CharSequence*>("@"_s), static_cast<$CharSequence*>("\\@"_s)));
+		$var($String, n, this->nameStrings->get(i));
+		$assign(n, $nc(n)->replace("@"_s, "\\@"_s));
 		str->append(n);
 	}
 	str->append("@"_s);
@@ -530,22 +445,22 @@ $String* PrincipalName::getNameString() {
 		if (i > 0) {
 			str->append("/"_s);
 		}
-		str->append($nc(this->nameStrings)->get(i));
+		str->append(this->nameStrings->get(i));
 	}
 	return str->toString();
 }
 
 $bytes* PrincipalName::asn1Encode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, bytes, $new($DerOutputStream));
 	$var($DerOutputStream, temp, $new($DerOutputStream));
-	$var($BigInteger, bint, $BigInteger::valueOf((int64_t)this->nameType));
+	$var($BigInteger, bint, $BigInteger::valueOf(this->nameType));
 	temp->putInteger(bint);
 	bytes->write($DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)0), temp);
 	$assign(temp, $new($DerOutputStream));
 	$var($DerValueArray, der, $new($DerValueArray, $nc(this->nameStrings)->length));
-	for (int32_t i = 0; i < $nc(this->nameStrings)->length; ++i) {
-		der->set(i, $($$new($KerberosString, $nc(this->nameStrings)->get(i))->toDerValue()));
+	for (int32_t i = 0; i < this->nameStrings->length; ++i) {
+		der->set(i, $($$new($KerberosString, this->nameStrings->get(i))->toDerValue()));
 	}
 	temp->putSequence(der);
 	bytes->write($DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)1), temp);
@@ -555,18 +470,18 @@ $bytes* PrincipalName::asn1Encode() {
 }
 
 bool PrincipalName::match(PrincipalName* pname) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool matched = true;
 	if ((this->nameRealm != nullptr) && ($nc(pname)->nameRealm != nullptr)) {
-		if (!($nc($($nc(this->nameRealm)->toString()))->equalsIgnoreCase($($nc(pname->nameRealm)->toString())))) {
+		if (!($$nc(this->nameRealm->toString())->equalsIgnoreCase($(pname->nameRealm->toString())))) {
 			matched = false;
 		}
 	}
 	if ($nc(this->nameStrings)->length != $nc($nc(pname)->nameStrings)->length) {
 		matched = false;
 	} else {
-		for (int32_t i = 0; i < $nc(this->nameStrings)->length; ++i) {
-			if (!($nc($nc(this->nameStrings)->get(i))->equalsIgnoreCase($nc(pname->nameStrings)->get(i)))) {
+		for (int32_t i = 0; i < this->nameStrings->length; ++i) {
+			if (!($nc(this->nameStrings->get(i))->equalsIgnoreCase(pname->nameStrings->get(i)))) {
 				matched = false;
 			}
 		}
@@ -575,31 +490,31 @@ bool PrincipalName::match(PrincipalName* pname) {
 }
 
 void PrincipalName::writePrincipal($CCacheOutputStream* cos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(cos)->write32(this->nameType);
 	cos->write32($nc(this->nameStrings)->length);
 	$var($bytes, realmBytes, nullptr);
-	$assign(realmBytes, $nc($($nc(this->nameRealm)->toString()))->getBytes());
+	$assign(realmBytes, $$nc($nc(this->nameRealm)->toString())->getBytes());
 	cos->write32(realmBytes->length);
 	cos->write(realmBytes, 0, realmBytes->length);
 	$var($bytes, bytes, nullptr);
-	for (int32_t i = 0; i < $nc(this->nameStrings)->length; ++i) {
-		$assign(bytes, $nc($nc(this->nameStrings)->get(i))->getBytes());
+	for (int32_t i = 0; i < this->nameStrings->length; ++i) {
+		$assign(bytes, $nc(this->nameStrings->get(i))->getBytes());
 		cos->write32(bytes->length);
 		cos->write(bytes, 0, bytes->length);
 	}
 }
 
 $String* PrincipalName::getInstanceComponent() {
-	if (this->nameStrings != nullptr && $nc(this->nameStrings)->length >= 2) {
-		return $new($String, $nc(this->nameStrings)->get(1));
+	if (this->nameStrings != nullptr && this->nameStrings->length >= 2) {
+		return $new($String, this->nameStrings->get(1));
 	}
 	return nullptr;
 }
 
 $String* PrincipalName::mapHostToRealm($String* name) {
 	$init(PrincipalName);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, result, nullptr);
 	try {
 		$var($String, subname, nullptr);
@@ -611,7 +526,7 @@ $String* PrincipalName::mapHostToRealm($String* name) {
 			return result;
 		} else {
 			for (int32_t i = 1; i < $nc(name)->length(); ++i) {
-				bool var$0 = (name->charAt(i) == u'.');
+				bool var$0 = name->charAt(i) == u'.';
 				if (var$0 && (i != name->length() - 1)) {
 					$assign(subname, name->substring(i));
 					$assign(result, c->get($$new($StringArray, {
@@ -642,8 +557,8 @@ bool PrincipalName::isRealmDeduced() {
 	return this->realmDeduced;
 }
 
-void clinit$PrincipalName($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void PrincipalName::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(PrincipalName::TGS_DEFAULT_SRV_NAME, "krbtgt"_s);
 	$assignStatic(PrincipalName::NAME_COMPONENT_SEPARATOR_STR, "/"_s);
 	$assignStatic(PrincipalName::NAME_REALM_SEPARATOR_STR, "@"_s);
@@ -655,7 +570,7 @@ void clinit$PrincipalName($Class* class$) {
 			PrincipalName::NAME_STRINGS_OFFSET = $nc(unsafe)->objectFieldOffset($(PrincipalName::class$->getDeclaredField("nameStrings"_s)));
 			$assignStatic(PrincipalName::UNSAFE, unsafe);
 		} catch ($ReflectiveOperationException& e) {
-			$throwNew($Error, static_cast<$Throwable*>(e));
+			$throwNew($Error, e);
 		}
 	}
 }
@@ -664,7 +579,76 @@ PrincipalName::PrincipalName() {
 }
 
 $Class* PrincipalName::load$($String* name, bool initialize) {
-	$loadClass(PrincipalName, name, initialize, &_PrincipalName_ClassInfo_, clinit$PrincipalName, allocate$PrincipalName);
+	$FieldInfo fieldInfos$$[] = {
+		{"KRB_NT_UNKNOWN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrincipalName, KRB_NT_UNKNOWN)},
+		{"KRB_NT_PRINCIPAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrincipalName, KRB_NT_PRINCIPAL)},
+		{"KRB_NT_SRV_INST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrincipalName, KRB_NT_SRV_INST)},
+		{"KRB_NT_SRV_HST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrincipalName, KRB_NT_SRV_HST)},
+		{"KRB_NT_SRV_XHST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrincipalName, KRB_NT_SRV_XHST)},
+		{"KRB_NT_UID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrincipalName, KRB_NT_UID)},
+		{"KRB_NT_ENTERPRISE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrincipalName, KRB_NT_ENTERPRISE)},
+		{"TGS_DEFAULT_SRV_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrincipalName, TGS_DEFAULT_SRV_NAME)},
+		{"TGS_DEFAULT_NT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrincipalName, TGS_DEFAULT_NT)},
+		{"NAME_COMPONENT_SEPARATOR", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrincipalName, NAME_COMPONENT_SEPARATOR)},
+		{"NAME_REALM_SEPARATOR", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrincipalName, NAME_REALM_SEPARATOR)},
+		{"REALM_COMPONENT_SEPARATOR", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrincipalName, REALM_COMPONENT_SEPARATOR)},
+		{"NAME_COMPONENT_SEPARATOR_STR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrincipalName, NAME_COMPONENT_SEPARATOR_STR)},
+		{"NAME_REALM_SEPARATOR_STR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrincipalName, NAME_REALM_SEPARATOR_STR)},
+		{"REALM_COMPONENT_SEPARATOR_STR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrincipalName, REALM_COMPONENT_SEPARATOR_STR)},
+		{"nameType", "I", nullptr, $PRIVATE | $FINAL, $field(PrincipalName, nameType)},
+		{"nameStrings", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(PrincipalName, nameStrings)},
+		{"nameRealm", "Lsun/security/krb5/Realm;", nullptr, $PRIVATE | $FINAL, $field(PrincipalName, nameRealm)},
+		{"realmDeduced", "Z", nullptr, $PRIVATE | $FINAL, $field(PrincipalName, realmDeduced)},
+		{"salt", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(PrincipalName, salt)},
+		{"NAME_STRINGS_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrincipalName, NAME_STRINGS_OFFSET)},
+		{"UNSAFE", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrincipalName, UNSAFE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I[Ljava/lang/String;Lsun/security/krb5/Realm;)V", nullptr, $PUBLIC, $method(PrincipalName, init$, void, int32_t, $StringArray*, $Realm*)},
+		{"<init>", "([Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PrincipalName, init$, void, $StringArray*, $String*), "sun.security.krb5.RealmException"},
+		{"<init>", "(Lsun/security/util/DerValue;Lsun/security/krb5/Realm;)V", nullptr, $PUBLIC, $method(PrincipalName, init$, void, $DerValue*, $Realm*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $method(PrincipalName, init$, void, $String*, int32_t, $String*), "sun.security.krb5.RealmException"},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(PrincipalName, init$, void, $String*, int32_t), "sun.security.krb5.RealmException"},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PrincipalName, init$, void, $String*), "sun.security.krb5.RealmException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PrincipalName, init$, void, $String*, $String*), "sun.security.krb5.RealmException"},
+		{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(PrincipalName, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PrincipalName, clone, $Object*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PrincipalName, equals, bool, Object$*)},
+		{"getInstanceComponent", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrincipalName, getInstanceComponent, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrincipalName, getName, $String*)},
+		{"getNameString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrincipalName, getNameString, $String*)},
+		{"getNameStrings", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrincipalName, getNameStrings, $StringArray*)},
+		{"getNameType", "()I", nullptr, $PUBLIC, $virtualMethod(PrincipalName, getNameType, int32_t)},
+		{"getPrincipalNameAsString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrincipalName, getPrincipalNameAsString, $String*)},
+		{"getRealm", "()Lsun/security/krb5/Realm;", nullptr, $PUBLIC, $virtualMethod(PrincipalName, getRealm, $Realm*)},
+		{"getRealmAsString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrincipalName, getRealmAsString, $String*)},
+		{"getRealmString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrincipalName, getRealmString, $String*)},
+		{"getSalt", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrincipalName, getSalt, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PrincipalName, hashCode, int32_t)},
+		{"isRealmDeduced", "()Z", nullptr, $PUBLIC, $virtualMethod(PrincipalName, isRealmDeduced, bool)},
+		{"mapHostToRealm", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(PrincipalName, mapHostToRealm, $String*, $String*)},
+		{"match", "(Lsun/security/krb5/PrincipalName;)Z", nullptr, $PUBLIC, $virtualMethod(PrincipalName, match, bool, PrincipalName*)},
+		{"parse", "(Lsun/security/util/DerInputStream;BZLsun/security/krb5/Realm;)Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC | $STATIC, $staticMethod(PrincipalName, parse, PrincipalName*, $DerInputStream*, int8_t, bool, $Realm*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException"},
+		{"parseName", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(PrincipalName, parseName, $StringArray*, $String*)},
+		{"tgsService", "(Ljava/lang/String;Ljava/lang/String;)Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC | $STATIC, $staticMethod(PrincipalName, tgsService, PrincipalName*, $String*, $String*), "sun.security.krb5.KrbException"},
+		{"toByteArray", "()[[B", nullptr, $PUBLIC, $virtualMethod(PrincipalName, toByteArray, $byteArray2*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrincipalName, toString, $String*)},
+		{"validateNameStrings", "([Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PrincipalName, validateNameStrings, void, $StringArray*)},
+		{"writePrincipal", "(Lsun/security/krb5/internal/ccache/CCacheOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(PrincipalName, writePrincipal, void, $CCacheOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.PrincipalName",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PrincipalName, name, initialize, &classInfo$$, PrincipalName::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PrincipalName);
+	});
 	return class$;
 }
 

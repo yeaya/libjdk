@@ -14,7 +14,7 @@ class $import AppEvent : public ::java::util::EventObject {
 public:
 	AppEvent();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xAD4F242FF758FE28;
+	static const int64_t serialVersionUID = (int64_t)0xad4f242ff758fe28;
 };
 
 		} // desktop

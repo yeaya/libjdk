@@ -44,8 +44,8 @@ public:
 	virtual int16_t findCharString(int16_t index, int8_t b);
 	static int32_t hash(int16_t index, int8_t lastbyte);
 	static const int32_t RES_CODES = 2;
-	static const int16_t HASH_FREE = (int16_t)0x0000FFFF;
-	static const int16_t NEXT_FIRST = (int16_t)0x0000FFFF;
+	static const int16_t HASH_FREE = (int16_t)0x0000ffff;
+	static const int16_t NEXT_FIRST = (int16_t)0x0000ffff;
 	static const int32_t MAXBITS = 12;
 	static const int32_t MAXSTR = 4096; // (1 << MAXBITS)
 	static const int16_t HASHSIZE = 9973;

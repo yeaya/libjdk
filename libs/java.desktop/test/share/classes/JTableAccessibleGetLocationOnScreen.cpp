@@ -1,11 +1,9 @@
 #include <JTableAccessibleGetLocationOnScreen.h>
-
 #include <JTableAccessibleGetLocationOnScreen$1.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Point.h>
 #include <java/awt/Window.h>
-#include <java/lang/Runnable.h>
 #include <javax/accessibility/Accessible.h>
 #include <javax/accessibility/AccessibleComponent.h>
 #include <javax/accessibility/AccessibleContext.h>
@@ -20,12 +18,10 @@
 
 using $JTableAccessibleGetLocationOnScreen$1 = ::JTableAccessibleGetLocationOnScreen$1;
 using $ObjectArray2 = $Array<::java::lang::Object, 2>;
-using $Component = ::java::awt::Component;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $AccessibleComponent = ::javax::accessibility::AccessibleComponent;
 using $AccessibleTable = ::javax::accessibility::AccessibleTable;
@@ -33,44 +29,6 @@ using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJC
 using $JFrame = ::javax::swing::JFrame;
 using $JTable = ::javax::swing::JTable;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-
-$FieldInfo _JTableAccessibleGetLocationOnScreen_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(JTableAccessibleGetLocationOnScreen, frame)},
-	{"table", "Ljavax/swing/JTable;", nullptr, $PRIVATE | $STATIC, $staticField(JTableAccessibleGetLocationOnScreen, table)},
-	{}
-};
-
-$MethodInfo _JTableAccessibleGetLocationOnScreen_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JTableAccessibleGetLocationOnScreen, init$, void)},
-	{"assertGetLocation", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JTableAccessibleGetLocationOnScreen, assertGetLocation, void)},
-	{"constructInEDT", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JTableAccessibleGetLocationOnScreen, constructInEDT, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JTableAccessibleGetLocationOnScreen, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _JTableAccessibleGetLocationOnScreen_InnerClassesInfo_[] = {
-	{"JTableAccessibleGetLocationOnScreen$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JTableAccessibleGetLocationOnScreen_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"JTableAccessibleGetLocationOnScreen",
-	"java.lang.Object",
-	nullptr,
-	_JTableAccessibleGetLocationOnScreen_FieldInfo_,
-	_JTableAccessibleGetLocationOnScreen_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTableAccessibleGetLocationOnScreen_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"JTableAccessibleGetLocationOnScreen$1"
-};
-
-$Object* allocate$JTableAccessibleGetLocationOnScreen($Class* clazz) {
-	return $of($alloc(JTableAccessibleGetLocationOnScreen));
-}
 
 $JFrame* JTableAccessibleGetLocationOnScreen::frame = nullptr;
 $JTable* JTableAccessibleGetLocationOnScreen::table = nullptr;
@@ -83,31 +41,31 @@ void JTableAccessibleGetLocationOnScreen::main($StringArray* args) {
 }
 
 void JTableAccessibleGetLocationOnScreen::constructInEDT() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, columnNames, $new($StringArray, {
 		"col1"_s,
 		"col2"_s
 	}));
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("row1, col1"_s),
-			$of("row1, col2"_s)
+			"row1, col1"_s,
+			"row1, col2"_s
 		}),
 		$$new($ObjectArray, {
-			$of("row2, col1"_s),
-			$of("row2, col2"_s)
+			"row2, col1"_s,
+			"row2, col2"_s
 		})
 	}));
 	$init(JTableAccessibleGetLocationOnScreen);
 	$assignStatic(JTableAccessibleGetLocationOnScreen::frame, $new($JFrame, "JTable AccessibleTableHeader and AccessibleJTableCell test"_s));
-	$nc(JTableAccessibleGetLocationOnScreen::frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
+	JTableAccessibleGetLocationOnScreen::frame->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$assignStatic(JTableAccessibleGetLocationOnScreen::table, $new($JTable, data, columnNames));
-	$nc(JTableAccessibleGetLocationOnScreen::frame)->add(static_cast<$Component*>(JTableAccessibleGetLocationOnScreen::table));
+	$nc(JTableAccessibleGetLocationOnScreen::frame)->add(JTableAccessibleGetLocationOnScreen::table);
 	$nc(JTableAccessibleGetLocationOnScreen::frame)->pack();
 }
 
 void JTableAccessibleGetLocationOnScreen::assertGetLocation() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(JTableAccessibleGetLocationOnScreen);
 	$var($AccessibleTable, accessibleTable, $cast($AccessibleTable, $nc(JTableAccessibleGetLocationOnScreen::table)->getAccessibleContext()));
 	$var($AccessibleTable, header, $nc(accessibleTable)->getAccessibleColumnHeader());
@@ -126,7 +84,39 @@ JTableAccessibleGetLocationOnScreen::JTableAccessibleGetLocationOnScreen() {
 }
 
 $Class* JTableAccessibleGetLocationOnScreen::load$($String* name, bool initialize) {
-	$loadClass(JTableAccessibleGetLocationOnScreen, name, initialize, &_JTableAccessibleGetLocationOnScreen_ClassInfo_, allocate$JTableAccessibleGetLocationOnScreen);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(JTableAccessibleGetLocationOnScreen, frame)},
+		{"table", "Ljavax/swing/JTable;", nullptr, $PRIVATE | $STATIC, $staticField(JTableAccessibleGetLocationOnScreen, table)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JTableAccessibleGetLocationOnScreen, init$, void)},
+		{"assertGetLocation", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JTableAccessibleGetLocationOnScreen, assertGetLocation, void)},
+		{"constructInEDT", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JTableAccessibleGetLocationOnScreen, constructInEDT, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JTableAccessibleGetLocationOnScreen, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"JTableAccessibleGetLocationOnScreen$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"JTableAccessibleGetLocationOnScreen",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"JTableAccessibleGetLocationOnScreen$1"
+	};
+	$loadClass(JTableAccessibleGetLocationOnScreen, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JTableAccessibleGetLocationOnScreen);
+	});
 	return class$;
 }
 

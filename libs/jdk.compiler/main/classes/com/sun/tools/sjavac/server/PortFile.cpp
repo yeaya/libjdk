@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/server/PortFile.h>
-
 #include <com/sun/tools/javac/util/Assert.h>
 #include <com/sun/tools/sjavac/Log.h>
 #include <com/sun/tools/sjavac/client/PortFileInaccessibleException.h>
@@ -31,8 +30,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
 using $ClosedChannelException = ::java::nio::channels::ClosedChannelException;
-using $FileChannel = ::java::nio::channels::FileChannel;
-using $FileLock = ::java::nio::channels::FileLock;
 using $FileLockInterruptionException = ::java::nio::channels::FileLockInterruptionException;
 using $Semaphore = ::java::util::concurrent::Semaphore;
 
@@ -41,56 +38,6 @@ namespace com {
 		namespace tools {
 			namespace sjavac {
 				namespace server {
-
-$FieldInfo _PortFile_FieldInfo_[] = {
-	{"magicNr", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PortFile, magicNr)},
-	{"filename", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PortFile, filename)},
-	{"file", "Ljava/io/File;", nullptr, $PRIVATE, $field(PortFile, file)},
-	{"stopFile", "Ljava/io/File;", nullptr, $PRIVATE, $field(PortFile, stopFile)},
-	{"rwfile", "Ljava/io/RandomAccessFile;", nullptr, $PRIVATE, $field(PortFile, rwfile)},
-	{"channel", "Ljava/nio/channels/FileChannel;", nullptr, $PRIVATE, $field(PortFile, channel)},
-	{"lock", "Ljava/nio/channels/FileLock;", nullptr, $PRIVATE, $field(PortFile, lock$)},
-	{"lockSem", "Ljava/util/concurrent/Semaphore;", nullptr, $PRIVATE, $field(PortFile, lockSem)},
-	{"containsPortInfo", "Z", nullptr, $PRIVATE, $field(PortFile, containsPortInfo$)},
-	{"serverPort", "I", nullptr, $PRIVATE, $field(PortFile, serverPort)},
-	{"serverCookie", "J", nullptr, $PRIVATE, $field(PortFile, serverCookie)},
-	{"myServerPort", "I", nullptr, $PRIVATE, $field(PortFile, myServerPort)},
-	{"myServerCookie", "J", nullptr, $PRIVATE, $field(PortFile, myServerCookie)},
-	{}
-};
-
-$MethodInfo _PortFile_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PortFile, init$, void, $String*)},
-	{"containsPortInfo", "()Z", nullptr, $PUBLIC, $virtualMethod(PortFile, containsPortInfo, bool)},
-	{"delete", "()V", nullptr, $PUBLIC, $virtualMethod(PortFile, delete$, void), "java.io.IOException,java.lang.InterruptedException"},
-	{"exists", "()Z", nullptr, $PUBLIC, $virtualMethod(PortFile, exists, bool), "java.io.IOException"},
-	{"getCookie", "()J", nullptr, $PUBLIC, $virtualMethod(PortFile, getCookie, int64_t)},
-	{"getFilename", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PortFile, getFilename, $String*)},
-	{"getPort", "()I", nullptr, $PUBLIC, $virtualMethod(PortFile, getPort, int32_t)},
-	{"getServerStartupTimeoutSeconds", "()J", nullptr, $PRIVATE, $method(PortFile, getServerStartupTimeoutSeconds, int64_t)},
-	{"getValues", "()V", nullptr, $PUBLIC, $virtualMethod(PortFile, getValues, void)},
-	{"initializeChannel", "()V", nullptr, $PRIVATE, $method(PortFile, initializeChannel, void), "com.sun.tools.sjavac.client.PortFileInaccessibleException"},
-	{"lock", "()V", nullptr, $PUBLIC, $virtualMethod(PortFile, lock, void), "java.io.IOException,java.lang.InterruptedException"},
-	{"markedForStop", "()Z", nullptr, $PUBLIC, $virtualMethod(PortFile, markedForStop, bool), "java.io.IOException"},
-	{"setValues", "(IJ)V", nullptr, $PUBLIC, $virtualMethod(PortFile, setValues, void, int32_t, int64_t), "java.io.IOException"},
-	{"stillMyValues", "()Z", nullptr, $PUBLIC, $virtualMethod(PortFile, stillMyValues, bool), "java.io.IOException,java.io.FileNotFoundException,java.lang.InterruptedException"},
-	{"unlock", "()V", nullptr, $PUBLIC, $virtualMethod(PortFile, unlock, void), "java.io.IOException"},
-	{"waitForValidValues", "()V", nullptr, $PUBLIC, $virtualMethod(PortFile, waitForValidValues, void), "java.io.IOException,java.lang.InterruptedException"},
-	{}
-};
-
-$ClassInfo _PortFile_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.server.PortFile",
-	"java.lang.Object",
-	nullptr,
-	_PortFile_FieldInfo_,
-	_PortFile_MethodInfo_
-};
-
-$Object* allocate$PortFile($Class* clazz) {
-	return $of($alloc(PortFile));
-}
 
 void PortFile::init$($String* fn) {
 	$set(this, lockSem, $new($Semaphore, 1));
@@ -125,10 +72,10 @@ void PortFile::getValues() {
 	}
 	try {
 		if ($nc(this->rwfile)->length() > 0) {
-			$nc(this->rwfile)->seek(0);
-			int32_t nr = $nc(this->rwfile)->readInt();
-			this->serverPort = $nc(this->rwfile)->readInt();
-			this->serverCookie = $nc(this->rwfile)->readLong();
+			this->rwfile->seek(0);
+			int32_t nr = this->rwfile->readInt();
+			this->serverPort = this->rwfile->readInt();
+			this->serverCookie = this->rwfile->readLong();
 			if (nr == PortFile::magicNr) {
 				this->containsPortInfo$ = true;
 			} else {
@@ -157,9 +104,9 @@ int64_t PortFile::getCookie() {
 void PortFile::setValues(int32_t port, int64_t cookie) {
 	$Assert::check(this->lock$ != nullptr);
 	$nc(this->rwfile)->seek(0);
-	$nc(this->rwfile)->writeInt(PortFile::magicNr);
-	$nc(this->rwfile)->writeInt(port);
-	$nc(this->rwfile)->writeLong(cookie);
+	this->rwfile->writeInt(PortFile::magicNr);
+	this->rwfile->writeInt(port);
+	this->rwfile->writeLong(cookie);
 	this->myServerPort = port;
 	this->myServerCookie = cookie;
 }
@@ -167,10 +114,10 @@ void PortFile::setValues(int32_t port, int64_t cookie) {
 void PortFile::delete$() {
 	$nc(this->rwfile)->close();
 	$nc(this->file)->delete$();
-	for (int32_t i = 0; i < 10 && $nc(this->file)->exists(); ++i) {
+	for (int32_t i = 0; i < 10 && this->file->exists(); ++i) {
 		$Thread::sleep(1000);
 	}
-	if ($nc(this->file)->exists()) {
+	if (this->file->exists()) {
 		$throwNew($IOException, "Failed to delete file."_s);
 	}
 }
@@ -182,7 +129,7 @@ bool PortFile::exists() {
 bool PortFile::markedForStop() {
 	if ($nc(this->stopFile)->exists()) {
 		try {
-			$nc(this->stopFile)->delete$();
+			this->stopFile->delete$();
 		} catch ($Exception& e) {
 		}
 		return true;
@@ -200,7 +147,7 @@ void PortFile::unlock() {
 }
 
 void PortFile::waitForValidValues() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t MS_BETWEEN_ATTEMPTS = 500;
 	int64_t startTime = $System::currentTimeMillis();
 	int64_t timeout = startTime + getServerStartupTimeoutSeconds() * 1000;
@@ -264,7 +211,52 @@ PortFile::PortFile() {
 }
 
 $Class* PortFile::load$($String* name, bool initialize) {
-	$loadClass(PortFile, name, initialize, &_PortFile_ClassInfo_, allocate$PortFile);
+	$FieldInfo fieldInfos$$[] = {
+		{"magicNr", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PortFile, magicNr)},
+		{"filename", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PortFile, filename)},
+		{"file", "Ljava/io/File;", nullptr, $PRIVATE, $field(PortFile, file)},
+		{"stopFile", "Ljava/io/File;", nullptr, $PRIVATE, $field(PortFile, stopFile)},
+		{"rwfile", "Ljava/io/RandomAccessFile;", nullptr, $PRIVATE, $field(PortFile, rwfile)},
+		{"channel", "Ljava/nio/channels/FileChannel;", nullptr, $PRIVATE, $field(PortFile, channel)},
+		{"lock", "Ljava/nio/channels/FileLock;", nullptr, $PRIVATE, $field(PortFile, lock$)},
+		{"lockSem", "Ljava/util/concurrent/Semaphore;", nullptr, $PRIVATE, $field(PortFile, lockSem)},
+		{"containsPortInfo", "Z", nullptr, $PRIVATE, $field(PortFile, containsPortInfo$)},
+		{"serverPort", "I", nullptr, $PRIVATE, $field(PortFile, serverPort)},
+		{"serverCookie", "J", nullptr, $PRIVATE, $field(PortFile, serverCookie)},
+		{"myServerPort", "I", nullptr, $PRIVATE, $field(PortFile, myServerPort)},
+		{"myServerCookie", "J", nullptr, $PRIVATE, $field(PortFile, myServerCookie)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PortFile, init$, void, $String*)},
+		{"containsPortInfo", "()Z", nullptr, $PUBLIC, $virtualMethod(PortFile, containsPortInfo, bool)},
+		{"delete", "()V", nullptr, $PUBLIC, $virtualMethod(PortFile, delete$, void), "java.io.IOException,java.lang.InterruptedException"},
+		{"exists", "()Z", nullptr, $PUBLIC, $virtualMethod(PortFile, exists, bool), "java.io.IOException"},
+		{"getCookie", "()J", nullptr, $PUBLIC, $virtualMethod(PortFile, getCookie, int64_t)},
+		{"getFilename", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PortFile, getFilename, $String*)},
+		{"getPort", "()I", nullptr, $PUBLIC, $virtualMethod(PortFile, getPort, int32_t)},
+		{"getServerStartupTimeoutSeconds", "()J", nullptr, $PRIVATE, $method(PortFile, getServerStartupTimeoutSeconds, int64_t)},
+		{"getValues", "()V", nullptr, $PUBLIC, $virtualMethod(PortFile, getValues, void)},
+		{"initializeChannel", "()V", nullptr, $PRIVATE, $method(PortFile, initializeChannel, void), "com.sun.tools.sjavac.client.PortFileInaccessibleException"},
+		{"lock", "()V", nullptr, $PUBLIC, $virtualMethod(PortFile, lock, void), "java.io.IOException,java.lang.InterruptedException"},
+		{"markedForStop", "()Z", nullptr, $PUBLIC, $virtualMethod(PortFile, markedForStop, bool), "java.io.IOException"},
+		{"setValues", "(IJ)V", nullptr, $PUBLIC, $virtualMethod(PortFile, setValues, void, int32_t, int64_t), "java.io.IOException"},
+		{"stillMyValues", "()Z", nullptr, $PUBLIC, $virtualMethod(PortFile, stillMyValues, bool), "java.io.IOException,java.io.FileNotFoundException,java.lang.InterruptedException"},
+		{"unlock", "()V", nullptr, $PUBLIC, $virtualMethod(PortFile, unlock, void), "java.io.IOException"},
+		{"waitForValidValues", "()V", nullptr, $PUBLIC, $virtualMethod(PortFile, waitForValidValues, void), "java.io.IOException,java.lang.InterruptedException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.server.PortFile",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PortFile, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PortFile);
+	});
 	return class$;
 }
 

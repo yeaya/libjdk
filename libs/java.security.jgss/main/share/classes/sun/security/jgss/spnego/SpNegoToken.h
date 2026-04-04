@@ -41,6 +41,7 @@ class SpNegoToken : public ::sun::security::jgss::GSSToken {
 	$class(SpNegoToken, 0, ::sun::security::jgss::GSSToken)
 public:
 	SpNegoToken();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t tokenType);
 	static int32_t checkNextField(int32_t last, int32_t current);
 	virtual $bytes* encode() {return nullptr;}

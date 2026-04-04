@@ -1,5 +1,4 @@
 #include <java/beans/MetaData$java_awt_GridBagLayout_PersistenceDelegate.h>
-
 #include <java/beans/DefaultPersistenceDelegate.h>
 #include <java/beans/Encoder.h>
 #include <java/beans/MetaData.h>
@@ -18,63 +17,27 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Hashtable = ::java::util::Hashtable;
 using $Iterator = ::java::util::Iterator;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 
 namespace java {
 	namespace beans {
-
-$MethodInfo _MetaData$java_awt_GridBagLayout_PersistenceDelegate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MetaData$java_awt_GridBagLayout_PersistenceDelegate, init$, void)},
-	{"getHashtable", "(Ljava/lang/Object;)Ljava/util/Hashtable;", "(Ljava/lang/Object;)Ljava/util/Hashtable<**>;", $PRIVATE | $STATIC, $staticMethod(MetaData$java_awt_GridBagLayout_PersistenceDelegate, getHashtable, $Hashtable*, Object$*)},
-	{"initialize", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", $PROTECTED, $virtualMethod(MetaData$java_awt_GridBagLayout_PersistenceDelegate, initialize, void, $Class*, Object$*, Object$*, $Encoder*)},
-	{"mutatesTo", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(MetaData$java_awt_GridBagLayout_PersistenceDelegate, mutatesTo, bool, Object$*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _MetaData$java_awt_GridBagLayout_PersistenceDelegate_InnerClassesInfo_[] = {
-	{"java.beans.MetaData$java_awt_GridBagLayout_PersistenceDelegate", "java.beans.MetaData", "java_awt_GridBagLayout_PersistenceDelegate", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MetaData$java_awt_GridBagLayout_PersistenceDelegate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.beans.MetaData$java_awt_GridBagLayout_PersistenceDelegate",
-	"java.beans.DefaultPersistenceDelegate",
-	nullptr,
-	nullptr,
-	_MetaData$java_awt_GridBagLayout_PersistenceDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetaData$java_awt_GridBagLayout_PersistenceDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.beans.MetaData"
-};
-
-$Object* allocate$MetaData$java_awt_GridBagLayout_PersistenceDelegate($Class* clazz) {
-	return $of($alloc(MetaData$java_awt_GridBagLayout_PersistenceDelegate));
-}
 
 void MetaData$java_awt_GridBagLayout_PersistenceDelegate::init$() {
 	$DefaultPersistenceDelegate::init$();
 }
 
 void MetaData$java_awt_GridBagLayout_PersistenceDelegate::initialize($Class* type, Object$* oldInstance, Object$* newInstance, $Encoder* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DefaultPersistenceDelegate::initialize(type, oldInstance, newInstance, out);
-	if ($nc($(getHashtable(newInstance)))->isEmpty()) {
-		{
-			$var($Iterator, i$, $nc($($nc($(getHashtable(oldInstance)))->entrySet()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
-				{
-					$var($ObjectArray, args, $new($ObjectArray, {
-						$($nc(entry)->getKey()),
-						$(entry->getValue())
-					}));
-					invokeStatement(oldInstance, "addLayoutComponent"_s, args, out);
-				}
+	if ($$nc(getHashtable(newInstance))->isEmpty()) {
+		$var($Iterator, i$, $$nc($$nc(getHashtable(oldInstance))->entrySet())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
+			{
+				$var($ObjectArray, args, $new($ObjectArray, {
+					$($nc(entry)->getKey()),
+					$($nc(entry)->getValue())
+				}));
+				invokeStatement(oldInstance, "addLayoutComponent"_s, args, out);
 			}
 		}
 	}
@@ -82,7 +45,7 @@ void MetaData$java_awt_GridBagLayout_PersistenceDelegate::initialize($Class* typ
 
 bool MetaData$java_awt_GridBagLayout_PersistenceDelegate::mutatesTo(Object$* oldInstance, Object$* newInstance) {
 	bool var$0 = $DefaultPersistenceDelegate::mutatesTo(oldInstance, newInstance);
-	return var$0 && $nc($(getHashtable(newInstance)))->isEmpty();
+	return var$0 && $$nc(getHashtable(newInstance))->isEmpty();
 }
 
 $Hashtable* MetaData$java_awt_GridBagLayout_PersistenceDelegate::getHashtable(Object$* instance) {
@@ -94,7 +57,35 @@ MetaData$java_awt_GridBagLayout_PersistenceDelegate::MetaData$java_awt_GridBagLa
 }
 
 $Class* MetaData$java_awt_GridBagLayout_PersistenceDelegate::load$($String* name, bool initialize) {
-	$loadClass(MetaData$java_awt_GridBagLayout_PersistenceDelegate, name, initialize, &_MetaData$java_awt_GridBagLayout_PersistenceDelegate_ClassInfo_, allocate$MetaData$java_awt_GridBagLayout_PersistenceDelegate);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MetaData$java_awt_GridBagLayout_PersistenceDelegate, init$, void)},
+		{"getHashtable", "(Ljava/lang/Object;)Ljava/util/Hashtable;", "(Ljava/lang/Object;)Ljava/util/Hashtable<**>;", $PRIVATE | $STATIC, $staticMethod(MetaData$java_awt_GridBagLayout_PersistenceDelegate, getHashtable, $Hashtable*, Object$*)},
+		{"initialize", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", $PROTECTED, $virtualMethod(MetaData$java_awt_GridBagLayout_PersistenceDelegate, initialize, void, $Class*, Object$*, Object$*, $Encoder*)},
+		{"mutatesTo", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(MetaData$java_awt_GridBagLayout_PersistenceDelegate, mutatesTo, bool, Object$*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.MetaData$java_awt_GridBagLayout_PersistenceDelegate", "java.beans.MetaData", "java_awt_GridBagLayout_PersistenceDelegate", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.beans.MetaData$java_awt_GridBagLayout_PersistenceDelegate",
+		"java.beans.DefaultPersistenceDelegate",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.beans.MetaData"
+	};
+	$loadClass(MetaData$java_awt_GridBagLayout_PersistenceDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetaData$java_awt_GridBagLayout_PersistenceDelegate);
+	});
 	return class$;
 }
 

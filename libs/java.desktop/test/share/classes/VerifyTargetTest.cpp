@@ -1,13 +1,10 @@
 #include <VerifyTargetTest.h>
-
 #include <java/awt/BorderLayout.h>
-#include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/FocusEvent.h>
-#include <java/awt/event/FocusListener.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -26,13 +23,9 @@
 #undef SOUTH
 
 using $BorderLayout = ::java::awt::BorderLayout;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $Robot = ::java::awt::Robot;
 using $FocusEvent = ::java::awt::event::FocusEvent;
-using $FocusListener = ::java::awt::event::FocusListener;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -54,27 +47,24 @@ public:
 	virtual void run() override {
 		VerifyTargetTest::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<VerifyTargetTest$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo VerifyTargetTest$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(VerifyTargetTest$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(VerifyTargetTest$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo VerifyTargetTest$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"VerifyTargetTest$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* VerifyTargetTest$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(VerifyTargetTest$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(VerifyTargetTest$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(VerifyTargetTest$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"VerifyTargetTest$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(VerifyTargetTest$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VerifyTargetTest$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* VerifyTargetTest$$Lambda$lambda$main$0::class$ = nullptr;
@@ -87,68 +77,27 @@ public:
 	virtual void run() override {
 		VerifyTargetTest::lambda$main$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<VerifyTargetTest$$Lambda$lambda$main$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo VerifyTargetTest$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(VerifyTargetTest$$Lambda$lambda$main$1$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(VerifyTargetTest$$Lambda$lambda$main$1$1, run, void)},
-	{}
-};
-$ClassInfo VerifyTargetTest$$Lambda$lambda$main$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"VerifyTargetTest$$Lambda$lambda$main$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* VerifyTargetTest$$Lambda$lambda$main$1$1::load$($String* name, bool initialize) {
-	$loadClass(VerifyTargetTest$$Lambda$lambda$main$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(VerifyTargetTest$$Lambda$lambda$main$1$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(VerifyTargetTest$$Lambda$lambda$main$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"VerifyTargetTest$$Lambda$lambda$main$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(VerifyTargetTest$$Lambda$lambda$main$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VerifyTargetTest$$Lambda$lambda$main$1$1);
+	});
 	return class$;
 }
 $Class* VerifyTargetTest$$Lambda$lambda$main$1$1::class$ = nullptr;
-
-$FieldInfo _VerifyTargetTest_FieldInfo_[] = {
-	{"success", "Z", nullptr, $STATIC, $staticField(VerifyTargetTest, success)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(VerifyTargetTest, frame)},
-	{"field2", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(VerifyTargetTest, field2)},
-	{}
-};
-
-$MethodInfo _VerifyTargetTest_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(VerifyTargetTest, init$, void)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(VerifyTargetTest, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(VerifyTargetTest, focusLost, void, $FocusEvent*)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VerifyTargetTest, lambda$main$0, void)},
-	{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VerifyTargetTest, lambda$main$1, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(VerifyTargetTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"setup", "()V", nullptr, $STATIC, $staticMethod(VerifyTargetTest, setup, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"verify", "(Ljavax/swing/JComponent;)Z", nullptr, $PUBLIC, $virtualMethod(VerifyTargetTest, verify, bool, $JComponent*)},
-	{"verifyTarget", "(Ljavax/swing/JComponent;)Z", nullptr, $PUBLIC, $virtualMethod(VerifyTargetTest, verifyTarget, bool, $JComponent*)},
-	{}
-};
-
-$ClassInfo _VerifyTargetTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"VerifyTargetTest",
-	"javax.swing.InputVerifier",
-	"java.awt.event.FocusListener",
-	_VerifyTargetTest_FieldInfo_,
-	_VerifyTargetTest_MethodInfo_
-};
-
-$Object* allocate$VerifyTargetTest($Class* clazz) {
-	return $of($alloc(VerifyTargetTest));
-}
 
 int32_t VerifyTargetTest::hashCode() {
 	 return this->$InputVerifier::hashCode();
@@ -180,45 +129,43 @@ void VerifyTargetTest::init$() {
 
 void VerifyTargetTest::main($StringArray* args) {
 	$init(VerifyTargetTest);
-	$useLocalCurrentObjectStackCache();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(VerifyTargetTest$$Lambda$lambda$main$0)));
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Robot, robot, $new($Robot));
-			robot->waitForIdle();
-			robot->delay(200);
-			$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->focusNextComponent();
-			robot->waitForIdle();
-			robot->delay(200);
-			if (!VerifyTargetTest::success) {
-				$throwNew($RuntimeException, "Failed"_s);
-			} else {
-				$nc($System::out)->println("ok"_s);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(VerifyTargetTest$$Lambda$lambda$main$1$1)));
+	$useLocalObjectStack();
+	$SwingUtilities::invokeAndWait($$new(VerifyTargetTest$$Lambda$lambda$main$0));
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Robot, robot, $new($Robot));
+		robot->waitForIdle();
+		robot->delay(200);
+		$$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->focusNextComponent();
+		robot->waitForIdle();
+		robot->delay(200);
+		if (!VerifyTargetTest::success) {
+			$throwNew($RuntimeException, "Failed"_s);
+		} else {
+			$nc($System::out)->println("ok"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$SwingUtilities::invokeLater($$new(VerifyTargetTest$$Lambda$lambda$main$1$1));
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void VerifyTargetTest::setup() {
 	$init(VerifyTargetTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(VerifyTargetTest::frame, $new($JFrame));
 	$var($JTextField, field1, $new($JTextField, "Input 1"_s));
 	$var(VerifyTargetTest, test, $new(VerifyTargetTest));
 	field1->setInputVerifier(test);
 	field1->addFocusListener(test);
 	$init($BorderLayout);
-	$nc($($nc(VerifyTargetTest::frame)->getContentPane()))->add(static_cast<$Component*>(field1), $of($BorderLayout::NORTH));
+	$$nc($nc(VerifyTargetTest::frame)->getContentPane())->add(field1, $BorderLayout::NORTH);
 	$assignStatic(VerifyTargetTest::field2, $new($JTextField, "Input 2"_s));
-	$nc($($nc(VerifyTargetTest::frame)->getContentPane()))->add(static_cast<$Component*>(VerifyTargetTest::field2), $of($BorderLayout::SOUTH));
+	$$nc($nc(VerifyTargetTest::frame)->getContentPane())->add(VerifyTargetTest::field2, $BorderLayout::SOUTH);
 	$nc(VerifyTargetTest::frame)->pack();
 	$nc(VerifyTargetTest::frame)->setVisible(true);
 }
@@ -254,14 +201,47 @@ VerifyTargetTest::VerifyTargetTest() {
 
 $Class* VerifyTargetTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(VerifyTargetTest$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("VerifyTargetTest$$Lambda$lambda$main$0")) {
 			return VerifyTargetTest$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(VerifyTargetTest$$Lambda$lambda$main$1$1::classInfo$.name)) {
+		if (name->equals("VerifyTargetTest$$Lambda$lambda$main$1$1")) {
 			return VerifyTargetTest$$Lambda$lambda$main$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(VerifyTargetTest, name, initialize, &_VerifyTargetTest_ClassInfo_, allocate$VerifyTargetTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"success", "Z", nullptr, $STATIC, $staticField(VerifyTargetTest, success)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(VerifyTargetTest, frame)},
+		{"field2", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(VerifyTargetTest, field2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(VerifyTargetTest, init$, void)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(VerifyTargetTest, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(VerifyTargetTest, focusLost, void, $FocusEvent*)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VerifyTargetTest, lambda$main$0, void)},
+		{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VerifyTargetTest, lambda$main$1, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(VerifyTargetTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"setup", "()V", nullptr, $STATIC, $staticMethod(VerifyTargetTest, setup, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"verify", "(Ljavax/swing/JComponent;)Z", nullptr, $PUBLIC, $virtualMethod(VerifyTargetTest, verify, bool, $JComponent*)},
+		{"verifyTarget", "(Ljavax/swing/JComponent;)Z", nullptr, $PUBLIC, $virtualMethod(VerifyTargetTest, verifyTarget, bool, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"VerifyTargetTest",
+		"javax.swing.InputVerifier",
+		"java.awt.event.FocusListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(VerifyTargetTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(VerifyTargetTest));
+	});
 	return class$;
 }
 

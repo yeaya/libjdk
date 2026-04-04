@@ -24,6 +24,7 @@ class $import PlatformGraphicsInfo : public ::java::lang::Object {
 	$class(PlatformGraphicsInfo, 0, ::java::lang::Object)
 public:
 	PlatformGraphicsInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::awt::GraphicsEnvironment* createGE();
 	static ::java::awt::Toolkit* createToolkit();

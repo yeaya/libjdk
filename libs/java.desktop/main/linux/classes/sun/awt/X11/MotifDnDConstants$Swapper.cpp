@@ -1,5 +1,4 @@
 #include <sun/awt/X11/MotifDnDConstants$Swapper.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/MotifDnDConstants.h>
 #include <jcpp.h>
@@ -7,56 +6,21 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $MotifDnDConstants = ::sun::awt::X11::MotifDnDConstants;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$MethodInfo _MotifDnDConstants$Swapper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MotifDnDConstants$Swapper, init$, void)},
-	{"getInt", "(JB)I", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifDnDConstants$Swapper, getInt, int32_t, int64_t, int8_t)},
-	{"getShort", "(JB)S", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifDnDConstants$Swapper, getShort, int16_t, int64_t, int8_t)},
-	{"swap", "(S)S", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifDnDConstants$Swapper, swap, int16_t, int16_t)},
-	{"swap", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifDnDConstants$Swapper, swap, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _MotifDnDConstants$Swapper_InnerClassesInfo_[] = {
-	{"sun.awt.X11.MotifDnDConstants$Swapper", "sun.awt.X11.MotifDnDConstants", "Swapper", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MotifDnDConstants$Swapper_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.X11.MotifDnDConstants$Swapper",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_MotifDnDConstants$Swapper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifDnDConstants$Swapper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.MotifDnDConstants"
-};
-
-$Object* allocate$MotifDnDConstants$Swapper($Class* clazz) {
-	return $of($alloc(MotifDnDConstants$Swapper));
-}
-
 void MotifDnDConstants$Swapper::init$() {
 }
 
 int16_t MotifDnDConstants$Swapper::swap(int16_t s) {
-	return (int16_t)(((int32_t)((uint32_t)((int32_t)(s & (uint32_t)0x0000FF00)) >> 8)) | (((int32_t)(s & (uint32_t)255)) << 8));
+	return (int16_t)(((int32_t)((uint32_t)(s & 0xff00) >> 8)) | ((s & 0xff) << 8));
 }
 
 int32_t MotifDnDConstants$Swapper::swap(int32_t i) {
-	return ((((int32_t)((uint32_t)((int32_t)(i & (uint32_t)(int32_t)0xFF000000)) >> 24)) | ((int32_t)((uint32_t)((int32_t)(i & (uint32_t)0x00FF0000)) >> 8))) | (((int32_t)(i & (uint32_t)0x0000FF00)) << 8)) | (((int32_t)(i & (uint32_t)255)) << 24);
+	return ((((int32_t)((uint32_t)(i & (int32_t)0xff000000) >> 24)) | ((int32_t)((uint32_t)(i & 0x00ff0000) >> 8))) | ((i & 0xff00) << 8)) | ((i & 0xff) << 24);
 }
 
 int16_t MotifDnDConstants$Swapper::getShort(int64_t data, int8_t order) {
@@ -83,7 +47,36 @@ MotifDnDConstants$Swapper::MotifDnDConstants$Swapper() {
 }
 
 $Class* MotifDnDConstants$Swapper::load$($String* name, bool initialize) {
-	$loadClass(MotifDnDConstants$Swapper, name, initialize, &_MotifDnDConstants$Swapper_ClassInfo_, allocate$MotifDnDConstants$Swapper);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MotifDnDConstants$Swapper, init$, void)},
+		{"getInt", "(JB)I", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifDnDConstants$Swapper, getInt, int32_t, int64_t, int8_t)},
+		{"getShort", "(JB)S", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifDnDConstants$Swapper, getShort, int16_t, int64_t, int8_t)},
+		{"swap", "(S)S", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifDnDConstants$Swapper, swap, int16_t, int16_t)},
+		{"swap", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifDnDConstants$Swapper, swap, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.MotifDnDConstants$Swapper", "sun.awt.X11.MotifDnDConstants", "Swapper", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.X11.MotifDnDConstants$Swapper",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.MotifDnDConstants"
+	};
+	$loadClass(MotifDnDConstants$Swapper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MotifDnDConstants$Swapper);
+	});
 	return class$;
 }
 

@@ -26,7 +26,7 @@ public:
 	virtual $ObjectArray* getOrigRow();
 	virtual void setColumnObject(int32_t idx, Object$* obj) {}
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x399EEA4D2384060E;
+	static const int64_t serialVersionUID = (int64_t)0x399eea4d2384060e;
 	$ObjectArray* origVals = nullptr;
 };
 

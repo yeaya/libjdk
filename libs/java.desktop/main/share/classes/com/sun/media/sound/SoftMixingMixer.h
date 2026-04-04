@@ -56,6 +56,7 @@ class SoftMixingMixer : public ::javax::sound::sampled::Mixer {
 	$class(SoftMixingMixer, 0, ::javax::sound::sampled::Mixer)
 public:
 	SoftMixingMixer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addLineListener(::javax::sound::sampled::LineListener* listener) override;
 	virtual void close() override;
@@ -100,7 +101,7 @@ public:
 	::com::sun::media::sound::SoftAudioPusher* pusher = nullptr;
 	::javax::sound::sampled::AudioInputStream* pusher_stream = nullptr;
 	float controlrate = 0.0;
-	static const int64_t latency = 0x000186A0;
+	static const int64_t latency = 0x000186a0;
 	static const bool jitter_correction = false;
 	::java::util::List* listeners = nullptr;
 	$Array<::javax::sound::sampled::Line$Info>* sourceLineInfo = nullptr;

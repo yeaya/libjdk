@@ -1,5 +1,4 @@
 #include <javax/xml/xpath/XPathEvaluationResult.h>
-
 #include <javax/xml/xpath/XPathEvaluationResult$XPathResultType.h>
 #include <jcpp.h>
 
@@ -12,38 +11,33 @@ namespace javax {
 	namespace xml {
 		namespace xpath {
 
-$MethodInfo _XPathEvaluationResult_MethodInfo_[] = {
-	{"type", "()Ljavax/xml/xpath/XPathEvaluationResult$XPathResultType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XPathEvaluationResult, type, $XPathEvaluationResult$XPathResultType*)},
-	{"value", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT, $virtualMethod(XPathEvaluationResult, value, $Object*)},
-	{}
-};
-
-$InnerClassInfo _XPathEvaluationResult_InnerClassesInfo_[] = {
-	{"javax.xml.xpath.XPathEvaluationResult$XPathResultType", "javax.xml.xpath.XPathEvaluationResult", "XPathResultType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _XPathEvaluationResult_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.xml.xpath.XPathEvaluationResult",
-	nullptr,
-	nullptr,
-	nullptr,
-	_XPathEvaluationResult_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_XPathEvaluationResult_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.xml.xpath.XPathEvaluationResult$XPathResultType"
-};
-
-$Object* allocate$XPathEvaluationResult($Class* clazz) {
-	return $of($alloc(XPathEvaluationResult));
-}
-
 $Class* XPathEvaluationResult::load$($String* name, bool initialize) {
-	$loadClass(XPathEvaluationResult, name, initialize, &_XPathEvaluationResult_ClassInfo_, allocate$XPathEvaluationResult);
+	$MethodInfo methodInfos$$[] = {
+		{"type", "()Ljavax/xml/xpath/XPathEvaluationResult$XPathResultType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XPathEvaluationResult, type, $XPathEvaluationResult$XPathResultType*)},
+		{"value", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT, $virtualMethod(XPathEvaluationResult, value, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.xml.xpath.XPathEvaluationResult$XPathResultType", "javax.xml.xpath.XPathEvaluationResult", "XPathResultType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.xml.xpath.XPathEvaluationResult",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.xml.xpath.XPathEvaluationResult$XPathResultType"
+	};
+	$loadClass(XPathEvaluationResult, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XPathEvaluationResult);
+	});
 	return class$;
 }
 

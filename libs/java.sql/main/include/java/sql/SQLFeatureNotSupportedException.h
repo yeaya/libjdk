@@ -26,10 +26,13 @@ public:
 	void init$($String* reason, $Throwable* cause);
 	void init$($String* reason, $String* SQLState, $Throwable* cause);
 	void init$($String* reason, $String* SQLState, int32_t vendorCode, $Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0xF1C119CD5ABED6ED;
+	static const int64_t serialVersionUID = (int64_t)0xf1c119cd5abed6ed;
 	SQLFeatureNotSupportedException(const SQLFeatureNotSupportedException& e);
 	virtual void throw$() override;
-	inline SQLFeatureNotSupportedException* operator ->() {
+	inline SQLFeatureNotSupportedException* operator ->() const {
+		return (SQLFeatureNotSupportedException*)throwing$;
+	}
+	inline operator SQLFeatureNotSupportedException*() const {
 		return (SQLFeatureNotSupportedException*)throwing$;
 	}
 };

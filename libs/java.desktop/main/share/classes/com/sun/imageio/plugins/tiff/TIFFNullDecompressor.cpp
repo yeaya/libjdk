@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFNullDecompressor.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFDecompressor.h>
 #include <java/io/EOFException.h>
 #include <javax/imageio/stream/ImageInputStream.h>
@@ -10,43 +9,12 @@ using $EOFException = ::java::io::EOFException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ImageInputStream = ::javax::imageio::stream::ImageInputStream;
 
 namespace com {
 	namespace sun {
 		namespace imageio {
 			namespace plugins {
 				namespace tiff {
-
-$FieldInfo _TIFFNullDecompressor_FieldInfo_[] = {
-	{"isReadActiveOnly", "Z", nullptr, $PRIVATE, $field(TIFFNullDecompressor, isReadActiveOnly)},
-	{"originalSrcMinX", "I", nullptr, $PRIVATE, $field(TIFFNullDecompressor, originalSrcMinX)},
-	{"originalSrcMinY", "I", nullptr, $PRIVATE, $field(TIFFNullDecompressor, originalSrcMinY)},
-	{"originalSrcWidth", "I", nullptr, $PRIVATE, $field(TIFFNullDecompressor, originalSrcWidth)},
-	{"originalSrcHeight", "I", nullptr, $PRIVATE, $field(TIFFNullDecompressor, originalSrcHeight)},
-	{}
-};
-
-$MethodInfo _TIFFNullDecompressor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFNullDecompressor, init$, void)},
-	{"beginDecoding", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFNullDecompressor, beginDecoding, void)},
-	{"decode", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFNullDecompressor, decode, void), "java.io.IOException"},
-	{"decodeRaw", "([BIII)V", nullptr, $PUBLIC, $virtualMethod(TIFFNullDecompressor, decodeRaw, void, $bytes*, int32_t, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _TIFFNullDecompressor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFNullDecompressor",
-	"com.sun.imageio.plugins.tiff.TIFFDecompressor",
-	nullptr,
-	_TIFFNullDecompressor_FieldInfo_,
-	_TIFFNullDecompressor_MethodInfo_
-};
-
-$Object* allocate$TIFFNullDecompressor($Class* clazz) {
-	return $of($alloc(TIFFNullDecompressor));
-}
 
 void TIFFNullDecompressor::init$() {
 	$TIFFDecompressor::init$();
@@ -56,7 +24,7 @@ void TIFFNullDecompressor::init$() {
 void TIFFNullDecompressor::beginDecoding() {
 	int32_t bitsPerPixel = 0;
 	for (int32_t i = 0; i < $nc(this->bitsPerSample)->length; ++i) {
-		bitsPerPixel += $nc(this->bitsPerSample)->get(i);
+		bitsPerPixel += this->bitsPerSample->get(i);
 	}
 	if ((this->activeSrcMinX != this->srcMinX || this->activeSrcMinY != this->srcMinY || this->activeSrcWidth != this->srcWidth || this->activeSrcHeight != this->srcHeight) && ((this->activeSrcMinX - this->srcMinX) * bitsPerPixel) % 8 == 0) {
 		this->isReadActiveOnly = true;
@@ -129,7 +97,32 @@ TIFFNullDecompressor::TIFFNullDecompressor() {
 }
 
 $Class* TIFFNullDecompressor::load$($String* name, bool initialize) {
-	$loadClass(TIFFNullDecompressor, name, initialize, &_TIFFNullDecompressor_ClassInfo_, allocate$TIFFNullDecompressor);
+	$FieldInfo fieldInfos$$[] = {
+		{"isReadActiveOnly", "Z", nullptr, $PRIVATE, $field(TIFFNullDecompressor, isReadActiveOnly)},
+		{"originalSrcMinX", "I", nullptr, $PRIVATE, $field(TIFFNullDecompressor, originalSrcMinX)},
+		{"originalSrcMinY", "I", nullptr, $PRIVATE, $field(TIFFNullDecompressor, originalSrcMinY)},
+		{"originalSrcWidth", "I", nullptr, $PRIVATE, $field(TIFFNullDecompressor, originalSrcWidth)},
+		{"originalSrcHeight", "I", nullptr, $PRIVATE, $field(TIFFNullDecompressor, originalSrcHeight)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFNullDecompressor, init$, void)},
+		{"beginDecoding", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFNullDecompressor, beginDecoding, void)},
+		{"decode", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFNullDecompressor, decode, void), "java.io.IOException"},
+		{"decodeRaw", "([BIII)V", nullptr, $PUBLIC, $virtualMethod(TIFFNullDecompressor, decodeRaw, void, $bytes*, int32_t, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFNullDecompressor",
+		"com.sun.imageio.plugins.tiff.TIFFDecompressor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFNullDecompressor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFNullDecompressor);
+	});
 	return class$;
 }
 

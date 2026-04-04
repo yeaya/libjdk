@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/XSSimpleType.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/XSFacets.h>
@@ -45,60 +44,55 @@ namespace com {
 						namespace impl {
 							namespace dv {
 
-$FieldInfo _XSSimpleType_FieldInfo_[] = {
-	{"WS_PRESERVE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, WS_PRESERVE)},
-	{"WS_REPLACE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, WS_REPLACE)},
-	{"WS_COLLAPSE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, WS_COLLAPSE)},
-	{"PRIMITIVE_STRING", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_STRING)},
-	{"PRIMITIVE_BOOLEAN", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_BOOLEAN)},
-	{"PRIMITIVE_DECIMAL", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_DECIMAL)},
-	{"PRIMITIVE_FLOAT", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_FLOAT)},
-	{"PRIMITIVE_DOUBLE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_DOUBLE)},
-	{"PRIMITIVE_DURATION", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_DURATION)},
-	{"PRIMITIVE_DATETIME", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_DATETIME)},
-	{"PRIMITIVE_TIME", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_TIME)},
-	{"PRIMITIVE_DATE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_DATE)},
-	{"PRIMITIVE_GYEARMONTH", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_GYEARMONTH)},
-	{"PRIMITIVE_GYEAR", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_GYEAR)},
-	{"PRIMITIVE_GMONTHDAY", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_GMONTHDAY)},
-	{"PRIMITIVE_GDAY", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_GDAY)},
-	{"PRIMITIVE_GMONTH", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_GMONTH)},
-	{"PRIMITIVE_HEXBINARY", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_HEXBINARY)},
-	{"PRIMITIVE_BASE64BINARY", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_BASE64BINARY)},
-	{"PRIMITIVE_ANYURI", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_ANYURI)},
-	{"PRIMITIVE_QNAME", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_QNAME)},
-	{"PRIMITIVE_PRECISIONDECIMAL", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_PRECISIONDECIMAL)},
-	{"PRIMITIVE_NOTATION", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_NOTATION)},
-	{}
-};
-
-$MethodInfo _XSSimpleType_MethodInfo_[] = {
-	{"applyFacets", "(Lcom/sun/org/apache/xerces/internal/impl/dv/XSFacets;SSLcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSSimpleType, applyFacets, void, $XSFacets*, int16_t, int16_t, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeFacetException"},
-	{"getPrimitiveKind", "()S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSSimpleType, getPrimitiveKind, int16_t)},
-	{"getWhitespace", "()S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSSimpleType, getWhitespace, int16_t), "com.sun.org.apache.xerces.internal.impl.dv.DatatypeException"},
-	{"isEqual", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSSimpleType, isEqual, bool, Object$*, Object$*)},
-	{"isIDType", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSSimpleType, isIDType, bool)},
-	{"validate", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSSimpleType, validate, $Object*, $String*, $ValidationContext*, $ValidatedInfo*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"validate", "(Ljava/lang/Object;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSSimpleType, validate, $Object*, Object$*, $ValidationContext*, $ValidatedInfo*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"validate", "(Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSSimpleType, validate, void, $ValidationContext*, $ValidatedInfo*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{}
-};
-
-$ClassInfo _XSSimpleType_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.impl.dv.XSSimpleType",
-	nullptr,
-	"com.sun.org.apache.xerces.internal.xs.XSSimpleTypeDefinition",
-	_XSSimpleType_FieldInfo_,
-	_XSSimpleType_MethodInfo_
-};
-
-$Object* allocate$XSSimpleType($Class* clazz) {
-	return $of($alloc(XSSimpleType));
-}
-
 $Class* XSSimpleType::load$($String* name, bool initialize) {
-	$loadClass(XSSimpleType, name, initialize, &_XSSimpleType_ClassInfo_, allocate$XSSimpleType);
+	$FieldInfo fieldInfos$$[] = {
+		{"WS_PRESERVE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, WS_PRESERVE)},
+		{"WS_REPLACE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, WS_REPLACE)},
+		{"WS_COLLAPSE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, WS_COLLAPSE)},
+		{"PRIMITIVE_STRING", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_STRING)},
+		{"PRIMITIVE_BOOLEAN", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_BOOLEAN)},
+		{"PRIMITIVE_DECIMAL", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_DECIMAL)},
+		{"PRIMITIVE_FLOAT", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_FLOAT)},
+		{"PRIMITIVE_DOUBLE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_DOUBLE)},
+		{"PRIMITIVE_DURATION", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_DURATION)},
+		{"PRIMITIVE_DATETIME", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_DATETIME)},
+		{"PRIMITIVE_TIME", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_TIME)},
+		{"PRIMITIVE_DATE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_DATE)},
+		{"PRIMITIVE_GYEARMONTH", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_GYEARMONTH)},
+		{"PRIMITIVE_GYEAR", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_GYEAR)},
+		{"PRIMITIVE_GMONTHDAY", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_GMONTHDAY)},
+		{"PRIMITIVE_GDAY", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_GDAY)},
+		{"PRIMITIVE_GMONTH", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_GMONTH)},
+		{"PRIMITIVE_HEXBINARY", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_HEXBINARY)},
+		{"PRIMITIVE_BASE64BINARY", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_BASE64BINARY)},
+		{"PRIMITIVE_ANYURI", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_ANYURI)},
+		{"PRIMITIVE_QNAME", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_QNAME)},
+		{"PRIMITIVE_PRECISIONDECIMAL", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_PRECISIONDECIMAL)},
+		{"PRIMITIVE_NOTATION", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleType, PRIMITIVE_NOTATION)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"applyFacets", "(Lcom/sun/org/apache/xerces/internal/impl/dv/XSFacets;SSLcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSSimpleType, applyFacets, void, $XSFacets*, int16_t, int16_t, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeFacetException"},
+		{"getPrimitiveKind", "()S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSSimpleType, getPrimitiveKind, int16_t)},
+		{"getWhitespace", "()S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSSimpleType, getWhitespace, int16_t), "com.sun.org.apache.xerces.internal.impl.dv.DatatypeException"},
+		{"isEqual", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSSimpleType, isEqual, bool, Object$*, Object$*)},
+		{"isIDType", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSSimpleType, isIDType, bool)},
+		{"validate", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSSimpleType, validate, $Object*, $String*, $ValidationContext*, $ValidatedInfo*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"validate", "(Ljava/lang/Object;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSSimpleType, validate, $Object*, Object$*, $ValidationContext*, $ValidatedInfo*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"validate", "(Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSSimpleType, validate, void, $ValidationContext*, $ValidatedInfo*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.impl.dv.XSSimpleType",
+		nullptr,
+		"com.sun.org.apache.xerces.internal.xs.XSSimpleTypeDefinition",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XSSimpleType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSSimpleType);
+	});
 	return class$;
 }
 

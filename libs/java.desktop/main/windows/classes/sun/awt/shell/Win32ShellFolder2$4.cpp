@@ -1,5 +1,4 @@
 #include <sun/awt/shell/Win32ShellFolder2$4.h>
-
 #include <java/io/File.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/InternalError.h>
@@ -22,49 +21,6 @@ namespace sun {
 	namespace awt {
 		namespace shell {
 
-$FieldInfo _Win32ShellFolder2$4_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/shell/Win32ShellFolder2;", nullptr, $FINAL | $SYNTHETIC, $field(Win32ShellFolder2$4, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Win32ShellFolder2$4, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _Win32ShellFolder2$4_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/shell/Win32ShellFolder2;)V", nullptr, 0, $method(Win32ShellFolder2$4, init$, void, $Win32ShellFolder2*)},
-	{"call", "()Ljava/lang/Long;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2$4, call, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Win32ShellFolder2$4_EnclosingMethodInfo_ = {
-	"sun.awt.shell.Win32ShellFolder2",
-	"getIShellFolder",
-	"()J"
-};
-
-$InnerClassInfo _Win32ShellFolder2$4_InnerClassesInfo_[] = {
-	{"sun.awt.shell.Win32ShellFolder2$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Win32ShellFolder2$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.shell.Win32ShellFolder2$4",
-	"java.lang.Object",
-	"java.util.concurrent.Callable",
-	_Win32ShellFolder2$4_FieldInfo_,
-	_Win32ShellFolder2$4_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljava/lang/Long;>;",
-	&_Win32ShellFolder2$4_EnclosingMethodInfo_,
-	_Win32ShellFolder2$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.shell.Win32ShellFolder2"
-};
-
-$Object* allocate$Win32ShellFolder2$4($Class* clazz) {
-	return $of($alloc(Win32ShellFolder2$4));
-}
-
 bool Win32ShellFolder2$4::$assertionsDisabled = false;
 
 void Win32ShellFolder2$4::init$($Win32ShellFolder2* this$0) {
@@ -72,7 +28,7 @@ void Win32ShellFolder2$4::init$($Win32ShellFolder2* this$0) {
 }
 
 $Object* Win32ShellFolder2$4::call() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!Win32ShellFolder2$4::$assertionsDisabled && !(this->this$0->isDirectory())) {
 		$throwNew($AssertionError);
 	}
@@ -90,7 +46,7 @@ $Object* Win32ShellFolder2$4::call() {
 	return $of($Long::valueOf(pIShellFolder));
 }
 
-void clinit$Win32ShellFolder2$4($Class* class$) {
+void Win32ShellFolder2$4::clinit$($Class* clazz) {
 	$load($Win32ShellFolder2);
 	Win32ShellFolder2$4::$assertionsDisabled = !$Win32ShellFolder2::class$->desiredAssertionStatus();
 }
@@ -99,7 +55,43 @@ Win32ShellFolder2$4::Win32ShellFolder2$4() {
 }
 
 $Class* Win32ShellFolder2$4::load$($String* name, bool initialize) {
-	$loadClass(Win32ShellFolder2$4, name, initialize, &_Win32ShellFolder2$4_ClassInfo_, clinit$Win32ShellFolder2$4, allocate$Win32ShellFolder2$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/shell/Win32ShellFolder2;", nullptr, $FINAL | $SYNTHETIC, $field(Win32ShellFolder2$4, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Win32ShellFolder2$4, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/shell/Win32ShellFolder2;)V", nullptr, 0, $method(Win32ShellFolder2$4, init$, void, $Win32ShellFolder2*)},
+		{"call", "()Ljava/lang/Long;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2$4, call, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.shell.Win32ShellFolder2",
+		"getIShellFolder",
+		"()J"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.shell.Win32ShellFolder2$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.shell.Win32ShellFolder2$4",
+		"java.lang.Object",
+		"java.util.concurrent.Callable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljava/lang/Long;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.shell.Win32ShellFolder2"
+	};
+	$loadClass(Win32ShellFolder2$4, name, initialize, &classInfo$$, Win32ShellFolder2$4::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Win32ShellFolder2$4);
+	});
 	return class$;
 }
 

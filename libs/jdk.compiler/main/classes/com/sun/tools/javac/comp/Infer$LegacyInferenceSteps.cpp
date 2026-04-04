@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Infer$LegacyInferenceSteps.h>
-
 #include <com/sun/tools/javac/comp/Infer$InferenceStep.h>
 #include <com/sun/tools/javac/comp/Infer.h>
 #include <java/lang/Enum.h>
@@ -26,47 +25,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Infer$LegacyInferenceSteps_FieldInfo_[] = {
-	{"EQ_LOWER", "Lcom/sun/tools/javac/comp/Infer$LegacyInferenceSteps;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Infer$LegacyInferenceSteps, EQ_LOWER)},
-	{"EQ_UPPER", "Lcom/sun/tools/javac/comp/Infer$LegacyInferenceSteps;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Infer$LegacyInferenceSteps, EQ_UPPER)},
-	{"$VALUES", "[Lcom/sun/tools/javac/comp/Infer$LegacyInferenceSteps;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Infer$LegacyInferenceSteps, $VALUES)},
-	{"steps", "Ljava/util/EnumSet;", "Ljava/util/EnumSet<Lcom/sun/tools/javac/comp/Infer$InferenceStep;>;", $FINAL, $field(Infer$LegacyInferenceSteps, steps)},
-	{}
-};
-
-$MethodInfo _Infer$LegacyInferenceSteps_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/Infer$LegacyInferenceSteps;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Infer$LegacyInferenceSteps, $values, $Infer$LegacyInferenceStepsArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/util/EnumSet;)V", "(Ljava/util/EnumSet<Lcom/sun/tools/javac/comp/Infer$InferenceStep;>;)V", $PRIVATE, $method(Infer$LegacyInferenceSteps, init$, void, $String*, int32_t, $EnumSet*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Infer$LegacyInferenceSteps;", nullptr, $PUBLIC | $STATIC, $staticMethod(Infer$LegacyInferenceSteps, valueOf, Infer$LegacyInferenceSteps*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/comp/Infer$LegacyInferenceSteps;", nullptr, $PUBLIC | $STATIC, $staticMethod(Infer$LegacyInferenceSteps, values, $Infer$LegacyInferenceStepsArray*)},
-	{}
-};
-
-$InnerClassInfo _Infer$LegacyInferenceSteps_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Infer$LegacyInferenceSteps", "com.sun.tools.javac.comp.Infer", "LegacyInferenceSteps", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Infer$LegacyInferenceSteps_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.comp.Infer$LegacyInferenceSteps",
-	"java.lang.Enum",
-	nullptr,
-	_Infer$LegacyInferenceSteps_FieldInfo_,
-	_Infer$LegacyInferenceSteps_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/comp/Infer$LegacyInferenceSteps;>;",
-	nullptr,
-	_Infer$LegacyInferenceSteps_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Infer"
-};
-
-$Object* allocate$Infer$LegacyInferenceSteps($Class* clazz) {
-	return $of($alloc(Infer$LegacyInferenceSteps));
-}
 
 Infer$LegacyInferenceSteps* Infer$LegacyInferenceSteps::EQ_LOWER = nullptr;
 Infer$LegacyInferenceSteps* Infer$LegacyInferenceSteps::EQ_UPPER = nullptr;
@@ -95,11 +53,11 @@ void Infer$LegacyInferenceSteps::init$($String* $enum$name, int32_t $enum$ordina
 	$set(this, steps, steps);
 }
 
-void clinit$Infer$LegacyInferenceSteps($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Infer$LegacyInferenceSteps::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$init($Infer$InferenceStep);
-	$assignStatic(Infer$LegacyInferenceSteps::EQ_LOWER, $new(Infer$LegacyInferenceSteps, "EQ_LOWER"_s, 0, $($EnumSet::of(static_cast<$Enum*>($Infer$InferenceStep::EQ), static_cast<$Enum*>($Infer$InferenceStep::LOWER)))));
-	$assignStatic(Infer$LegacyInferenceSteps::EQ_UPPER, $new(Infer$LegacyInferenceSteps, "EQ_UPPER"_s, 1, $($EnumSet::of(static_cast<$Enum*>($Infer$InferenceStep::EQ), static_cast<$Enum*>($Infer$InferenceStep::UPPER_LEGACY)))));
+	$assignStatic(Infer$LegacyInferenceSteps::EQ_LOWER, $new(Infer$LegacyInferenceSteps, "EQ_LOWER"_s, 0, $($EnumSet::of($Infer$InferenceStep::EQ, $Infer$InferenceStep::LOWER))));
+	$assignStatic(Infer$LegacyInferenceSteps::EQ_UPPER, $new(Infer$LegacyInferenceSteps, "EQ_UPPER"_s, 1, $($EnumSet::of($Infer$InferenceStep::EQ, $Infer$InferenceStep::UPPER_LEGACY))));
 	$assignStatic(Infer$LegacyInferenceSteps::$VALUES, Infer$LegacyInferenceSteps::$values());
 }
 
@@ -107,7 +65,42 @@ Infer$LegacyInferenceSteps::Infer$LegacyInferenceSteps() {
 }
 
 $Class* Infer$LegacyInferenceSteps::load$($String* name, bool initialize) {
-	$loadClass(Infer$LegacyInferenceSteps, name, initialize, &_Infer$LegacyInferenceSteps_ClassInfo_, clinit$Infer$LegacyInferenceSteps, allocate$Infer$LegacyInferenceSteps);
+	$FieldInfo fieldInfos$$[] = {
+		{"EQ_LOWER", "Lcom/sun/tools/javac/comp/Infer$LegacyInferenceSteps;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Infer$LegacyInferenceSteps, EQ_LOWER)},
+		{"EQ_UPPER", "Lcom/sun/tools/javac/comp/Infer$LegacyInferenceSteps;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Infer$LegacyInferenceSteps, EQ_UPPER)},
+		{"$VALUES", "[Lcom/sun/tools/javac/comp/Infer$LegacyInferenceSteps;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Infer$LegacyInferenceSteps, $VALUES)},
+		{"steps", "Ljava/util/EnumSet;", "Ljava/util/EnumSet<Lcom/sun/tools/javac/comp/Infer$InferenceStep;>;", $FINAL, $field(Infer$LegacyInferenceSteps, steps)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/comp/Infer$LegacyInferenceSteps;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Infer$LegacyInferenceSteps, $values, $Infer$LegacyInferenceStepsArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/util/EnumSet;)V", "(Ljava/util/EnumSet<Lcom/sun/tools/javac/comp/Infer$InferenceStep;>;)V", $PRIVATE, $method(Infer$LegacyInferenceSteps, init$, void, $String*, int32_t, $EnumSet*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Infer$LegacyInferenceSteps;", nullptr, $PUBLIC | $STATIC, $staticMethod(Infer$LegacyInferenceSteps, valueOf, Infer$LegacyInferenceSteps*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/comp/Infer$LegacyInferenceSteps;", nullptr, $PUBLIC | $STATIC, $staticMethod(Infer$LegacyInferenceSteps, values, $Infer$LegacyInferenceStepsArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Infer$LegacyInferenceSteps", "com.sun.tools.javac.comp.Infer", "LegacyInferenceSteps", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.comp.Infer$LegacyInferenceSteps",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/comp/Infer$LegacyInferenceSteps;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Infer"
+	};
+	$loadClass(Infer$LegacyInferenceSteps, name, initialize, &classInfo$$, Infer$LegacyInferenceSteps::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Infer$LegacyInferenceSteps));
+	});
 	return class$;
 }
 

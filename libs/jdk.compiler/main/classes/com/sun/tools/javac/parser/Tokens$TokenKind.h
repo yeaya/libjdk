@@ -281,6 +281,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* name);
 	void init$($String* $enum$name, int32_t $enum$ordinal, ::com::sun::tools::javac::parser::Tokens$Token$Tag* tag);

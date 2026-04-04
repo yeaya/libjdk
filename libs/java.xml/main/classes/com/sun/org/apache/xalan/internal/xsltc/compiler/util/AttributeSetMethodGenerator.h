@@ -63,6 +63,7 @@ public:
 	AttributeSetMethodGenerator();
 	using ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::MethodGenerator::addLocalVariable;
 	using ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::MethodGenerator::getInstructionList;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* methodName, ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ClassGenerator* classGen);
 	virtual int32_t getLocalIndex($String* name) override;
 	::com::sun::org::apache::bcel::internal::generic::Instruction* loadParameter(int32_t index);

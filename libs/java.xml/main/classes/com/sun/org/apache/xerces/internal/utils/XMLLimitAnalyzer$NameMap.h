@@ -26,6 +26,7 @@ class XMLLimitAnalyzer$NameMap : public ::java::lang::Enum {
 public:
 	XMLLimitAnalyzer$NameMap();
 	static $Array<::com::sun::org::apache::xerces::internal::utils::XMLLimitAnalyzer$NameMap>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* newName, $String* oldName);
 	virtual $String* getOldName($String* newName);
 	static ::com::sun::org::apache::xerces::internal::utils::XMLLimitAnalyzer$NameMap* valueOf($String* name);

@@ -33,6 +33,7 @@ class $import PAForUserEnc : public ::java::lang::Object {
 	$class(PAForUserEnc, 0, ::java::lang::Object)
 public:
 	PAForUserEnc();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::krb5::PrincipalName* name, ::sun::security::krb5::EncryptionKey* key);
 	void init$(::sun::security::util::DerValue* encoding, ::sun::security::krb5::EncryptionKey* key);
 	virtual $bytes* asn1Encode();

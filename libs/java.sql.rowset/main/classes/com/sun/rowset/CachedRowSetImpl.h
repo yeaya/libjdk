@@ -554,7 +554,7 @@ public:
 	::javax::sql::rowset::spi::TransactionalWriter* tWriter = nullptr;
 	::com::sun::rowset::JdbcRowSetResourceBundle* resBundle = nullptr;
 	bool updateOnInsert = false;
-	static const int64_t serialVersionUID = (int64_t)0x1A275CF3C9393F5C;
+	static const int64_t serialVersionUID = (int64_t)0x1a275cf3c9393f5c;
 };
 
 		} // rowset

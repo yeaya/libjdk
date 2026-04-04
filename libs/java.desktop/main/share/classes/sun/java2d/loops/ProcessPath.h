@@ -130,6 +130,7 @@ class ProcessPath : public ::java::lang::Object {
 	$class(ProcessPath, 0, ::java::lang::Object)
 public:
 	ProcessPath();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static float CLIP(float a1, float b1, float a2, float b2, double t);
 	static int32_t CLIP(int32_t a1, int32_t b1, int32_t a2, int32_t b2, double t);

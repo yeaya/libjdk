@@ -1,5 +1,4 @@
 #include <sun/java2d/xr/XRPaints.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Paint.h>
 #include <java/awt/geom/Point2D.h>
@@ -37,56 +36,6 @@ namespace sun {
 	namespace java2d {
 		namespace xr {
 
-$FieldInfo _XRPaints_FieldInfo_[] = {
-	{"xrCompMan", "Lsun/java2d/xr/XRCompositeManager;", nullptr, $STATIC, $staticField(XRPaints, xrCompMan)},
-	{"xrGradient", "Lsun/java2d/xr/XRPaints$XRGradient;", nullptr, $STATIC | $FINAL, $staticField(XRPaints, xrGradient)},
-	{"xrLinearGradient", "Lsun/java2d/xr/XRPaints$XRLinearGradient;", nullptr, $STATIC | $FINAL, $staticField(XRPaints, xrLinearGradient)},
-	{"xrRadialGradient", "Lsun/java2d/xr/XRPaints$XRRadialGradient;", nullptr, $STATIC | $FINAL, $staticField(XRPaints, xrRadialGradient)},
-	{"xrTexture", "Lsun/java2d/xr/XRPaints$XRTexture;", nullptr, $STATIC | $FINAL, $staticField(XRPaints, xrTexture)},
-	{}
-};
-
-$MethodInfo _XRPaints_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(XRPaints, init$, void)},
-	{"colorToIntArgbPixel", "(Ljava/awt/Color;)I", nullptr, $PUBLIC, $virtualMethod(XRPaints, colorToIntArgbPixel, int32_t, $Color*)},
-	{"convertToIntArgbPixels", "([Ljava/awt/Color;)[I", nullptr, $PUBLIC, $virtualMethod(XRPaints, convertToIntArgbPixels, $ints*, $ColorArray*)},
-	{"getGradientLength", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)I", nullptr, $PUBLIC, $virtualMethod(XRPaints, getGradientLength, int32_t, $Point2D*, $Point2D*)},
-	{"getXRPaint", "(Lsun/java2d/SunGraphics2D;)Lsun/java2d/xr/XRPaints;", nullptr, $PRIVATE | $STATIC, $staticMethod(XRPaints, getXRPaint, XRPaints*, $SunGraphics2D*)},
-	{"isPaintValid", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, $ABSTRACT, $virtualMethod(XRPaints, isPaintValid, bool, $SunGraphics2D*)},
-	{"isValid", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, $STATIC, $staticMethod(XRPaints, isValid, bool, $SunGraphics2D*)},
-	{"register", "(Lsun/java2d/xr/XRCompositeManager;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XRPaints, register$, void, $XRCompositeManager*)},
-	{"setPaint", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Paint;)V", nullptr, $STATIC, $staticMethod(XRPaints, setPaint, void, $SunGraphics2D*, $Paint*)},
-	{"setXRPaint", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Paint;)V", nullptr, $ABSTRACT, $virtualMethod(XRPaints, setXRPaint, void, $SunGraphics2D*, $Paint*)},
-	{}
-};
-
-$InnerClassInfo _XRPaints_InnerClassesInfo_[] = {
-	{"sun.java2d.xr.XRPaints$XRTexture", "sun.java2d.xr.XRPaints", "XRTexture", $PRIVATE | $STATIC},
-	{"sun.java2d.xr.XRPaints$XRRadialGradient", "sun.java2d.xr.XRPaints", "XRRadialGradient", $PRIVATE | $STATIC},
-	{"sun.java2d.xr.XRPaints$XRLinearGradient", "sun.java2d.xr.XRPaints", "XRLinearGradient", $PRIVATE | $STATIC},
-	{"sun.java2d.xr.XRPaints$XRGradient", "sun.java2d.xr.XRPaints", "XRGradient", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _XRPaints_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.java2d.xr.XRPaints",
-	"java.lang.Object",
-	nullptr,
-	_XRPaints_FieldInfo_,
-	_XRPaints_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XRPaints_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.xr.XRPaints$XRTexture,sun.java2d.xr.XRPaints$XRRadialGradient,sun.java2d.xr.XRPaints$XRLinearGradient,sun.java2d.xr.XRPaints$XRGradient"
-};
-
-$Object* allocate$XRPaints($Class* clazz) {
-	return $of($alloc(XRPaints));
-}
-
 $XRCompositeManager* XRPaints::xrCompMan = nullptr;
 $XRPaints$XRGradient* XRPaints::xrGradient = nullptr;
 $XRPaints$XRLinearGradient* XRPaints::xrLinearGradient = nullptr;
@@ -105,25 +54,15 @@ XRPaints* XRPaints::getXRPaint($SunGraphics2D* sg2d) {
 	$init(XRPaints);
 	switch ($nc(sg2d)->paintState) {
 	case $SunGraphics2D::PAINT_GRADIENT:
-		{
-			return XRPaints::xrGradient;
-		}
+		return XRPaints::xrGradient;
 	case $SunGraphics2D::PAINT_LIN_GRADIENT:
-		{
-			return XRPaints::xrLinearGradient;
-		}
+		return XRPaints::xrLinearGradient;
 	case $SunGraphics2D::PAINT_RAD_GRADIENT:
-		{
-			return XRPaints::xrRadialGradient;
-		}
+		return XRPaints::xrRadialGradient;
 	case $SunGraphics2D::PAINT_TEXTURE:
-		{
-			return XRPaints::xrTexture;
-		}
+		return XRPaints::xrTexture;
 	default:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	}
 }
 
@@ -144,13 +83,13 @@ void XRPaints::setPaint($SunGraphics2D* sg2d, $Paint* paint) {
 int32_t XRPaints::getGradientLength($Point2D* pt1, $Point2D* pt2) {
 	double var$1 = $nc(pt1)->getX();
 	double var$0 = $Math::max(var$1, $nc(pt2)->getX());
-	double var$3 = $nc(pt1)->getX();
-	double var$2 = $Math::min(var$3, $nc(pt2)->getX());
+	double var$3 = pt1->getX();
+	double var$2 = $Math::min(var$3, pt2->getX());
 	double xDiff = var$0 - var$2;
-	double var$5 = $nc(pt1)->getY();
-	double var$4 = $Math::max(var$5, $nc(pt2)->getY());
-	double var$7 = $nc(pt1)->getY();
-	double var$6 = $Math::min(var$7, $nc(pt2)->getY());
+	double var$5 = pt1->getY();
+	double var$4 = $Math::max(var$5, pt2->getY());
+	double var$7 = pt1->getY();
+	double var$6 = $Math::min(var$7, pt2->getY());
 	double yDiff = var$4 - var$6;
 	return $cast(int32_t, $Math::ceil($Math::sqrt(xDiff * xDiff + yDiff * yDiff)));
 }
@@ -166,10 +105,10 @@ $ints* XRPaints::convertToIntArgbPixels($ColorArray* colors) {
 int32_t XRPaints::colorToIntArgbPixel($Color* c) {
 	int32_t rgb = $nc(c)->getRGB();
 	int32_t a = $Math::round($nc(XRPaints::xrCompMan)->getExtraAlpha() * ((int32_t)((uint32_t)rgb >> 24)));
-	return ((a << 24) | ((int32_t)(rgb & (uint32_t)0x00FFFFFF)));
+	return ((a << 24) | (rgb & 0x00ffffff));
 }
 
-void clinit$XRPaints($Class* class$) {
+void XRPaints::clinit$($Class* clazz) {
 	$assignStatic(XRPaints::xrGradient, $new($XRPaints$XRGradient));
 	$assignStatic(XRPaints::xrLinearGradient, $new($XRPaints$XRLinearGradient));
 	$assignStatic(XRPaints::xrRadialGradient, $new($XRPaints$XRRadialGradient));
@@ -180,7 +119,51 @@ XRPaints::XRPaints() {
 }
 
 $Class* XRPaints::load$($String* name, bool initialize) {
-	$loadClass(XRPaints, name, initialize, &_XRPaints_ClassInfo_, clinit$XRPaints, allocate$XRPaints);
+	$FieldInfo fieldInfos$$[] = {
+		{"xrCompMan", "Lsun/java2d/xr/XRCompositeManager;", nullptr, $STATIC, $staticField(XRPaints, xrCompMan)},
+		{"xrGradient", "Lsun/java2d/xr/XRPaints$XRGradient;", nullptr, $STATIC | $FINAL, $staticField(XRPaints, xrGradient)},
+		{"xrLinearGradient", "Lsun/java2d/xr/XRPaints$XRLinearGradient;", nullptr, $STATIC | $FINAL, $staticField(XRPaints, xrLinearGradient)},
+		{"xrRadialGradient", "Lsun/java2d/xr/XRPaints$XRRadialGradient;", nullptr, $STATIC | $FINAL, $staticField(XRPaints, xrRadialGradient)},
+		{"xrTexture", "Lsun/java2d/xr/XRPaints$XRTexture;", nullptr, $STATIC | $FINAL, $staticField(XRPaints, xrTexture)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(XRPaints, init$, void)},
+		{"colorToIntArgbPixel", "(Ljava/awt/Color;)I", nullptr, $PUBLIC, $virtualMethod(XRPaints, colorToIntArgbPixel, int32_t, $Color*)},
+		{"convertToIntArgbPixels", "([Ljava/awt/Color;)[I", nullptr, $PUBLIC, $virtualMethod(XRPaints, convertToIntArgbPixels, $ints*, $ColorArray*)},
+		{"getGradientLength", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)I", nullptr, $PUBLIC, $virtualMethod(XRPaints, getGradientLength, int32_t, $Point2D*, $Point2D*)},
+		{"getXRPaint", "(Lsun/java2d/SunGraphics2D;)Lsun/java2d/xr/XRPaints;", nullptr, $PRIVATE | $STATIC, $staticMethod(XRPaints, getXRPaint, XRPaints*, $SunGraphics2D*)},
+		{"isPaintValid", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, $ABSTRACT, $virtualMethod(XRPaints, isPaintValid, bool, $SunGraphics2D*)},
+		{"isValid", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, $STATIC, $staticMethod(XRPaints, isValid, bool, $SunGraphics2D*)},
+		{"register", "(Lsun/java2d/xr/XRCompositeManager;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XRPaints, register$, void, $XRCompositeManager*)},
+		{"setPaint", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Paint;)V", nullptr, $STATIC, $staticMethod(XRPaints, setPaint, void, $SunGraphics2D*, $Paint*)},
+		{"setXRPaint", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Paint;)V", nullptr, $ABSTRACT, $virtualMethod(XRPaints, setXRPaint, void, $SunGraphics2D*, $Paint*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.xr.XRPaints$XRTexture", "sun.java2d.xr.XRPaints", "XRTexture", $PRIVATE | $STATIC},
+		{"sun.java2d.xr.XRPaints$XRRadialGradient", "sun.java2d.xr.XRPaints", "XRRadialGradient", $PRIVATE | $STATIC},
+		{"sun.java2d.xr.XRPaints$XRLinearGradient", "sun.java2d.xr.XRPaints", "XRLinearGradient", $PRIVATE | $STATIC},
+		{"sun.java2d.xr.XRPaints$XRGradient", "sun.java2d.xr.XRPaints", "XRGradient", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.java2d.xr.XRPaints",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.xr.XRPaints$XRTexture,sun.java2d.xr.XRPaints$XRRadialGradient,sun.java2d.xr.XRPaints$XRLinearGradient,sun.java2d.xr.XRPaints$XRGradient"
+	};
+	$loadClass(XRPaints, name, initialize, &classInfo$$, XRPaints::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XRPaints);
+	});
 	return class$;
 }
 

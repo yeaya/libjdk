@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalFileChooserUI$FilterComboBoxRenderer.h>
-
 #include <java/awt/Component.h>
 #include <javax/swing/DefaultListCellRenderer.h>
 #include <javax/swing/JLabel.h>
@@ -23,42 +22,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalFileChooserUI$FilterComboBoxRenderer_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/metal/MetalFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalFileChooserUI$FilterComboBoxRenderer, this$0)},
-	{}
-};
-
-$MethodInfo _MetalFileChooserUI$FilterComboBoxRenderer_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;)V", nullptr, $PUBLIC, $method(MetalFileChooserUI$FilterComboBoxRenderer, init$, void, $MetalFileChooserUI*)},
-	{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<*>;Ljava/lang/Object;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(MetalFileChooserUI$FilterComboBoxRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
-	{}
-};
-
-$InnerClassInfo _MetalFileChooserUI$FilterComboBoxRenderer_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalFileChooserUI$FilterComboBoxRenderer", "javax.swing.plaf.metal.MetalFileChooserUI", "FilterComboBoxRenderer", $PUBLIC},
-	{}
-};
-
-$ClassInfo _MetalFileChooserUI$FilterComboBoxRenderer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalFileChooserUI$FilterComboBoxRenderer",
-	"javax.swing.DefaultListCellRenderer",
-	nullptr,
-	_MetalFileChooserUI$FilterComboBoxRenderer_FieldInfo_,
-	_MetalFileChooserUI$FilterComboBoxRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalFileChooserUI$FilterComboBoxRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalFileChooserUI"
-};
-
-$Object* allocate$MetalFileChooserUI$FilterComboBoxRenderer($Class* clazz) {
-	return $of($alloc(MetalFileChooserUI$FilterComboBoxRenderer));
-}
-
 void MetalFileChooserUI$FilterComboBoxRenderer::init$($MetalFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
 	$DefaultListCellRenderer::init$();
@@ -67,7 +30,7 @@ void MetalFileChooserUI$FilterComboBoxRenderer::init$($MetalFileChooserUI* this$
 $Component* MetalFileChooserUI$FilterComboBoxRenderer::getListCellRendererComponent($JList* list, Object$* value, int32_t index, bool isSelected, bool cellHasFocus) {
 	$DefaultListCellRenderer::getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 	if (value != nullptr && $instanceOf($FileFilter, value)) {
-		setText($($nc(($cast($FileFilter, value)))->getDescription()));
+		setText($($cast($FileFilter, value)->getDescription()));
 	}
 	return this;
 }
@@ -76,7 +39,37 @@ MetalFileChooserUI$FilterComboBoxRenderer::MetalFileChooserUI$FilterComboBoxRend
 }
 
 $Class* MetalFileChooserUI$FilterComboBoxRenderer::load$($String* name, bool initialize) {
-	$loadClass(MetalFileChooserUI$FilterComboBoxRenderer, name, initialize, &_MetalFileChooserUI$FilterComboBoxRenderer_ClassInfo_, allocate$MetalFileChooserUI$FilterComboBoxRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/metal/MetalFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalFileChooserUI$FilterComboBoxRenderer, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;)V", nullptr, $PUBLIC, $method(MetalFileChooserUI$FilterComboBoxRenderer, init$, void, $MetalFileChooserUI*)},
+		{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<*>;Ljava/lang/Object;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(MetalFileChooserUI$FilterComboBoxRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalFileChooserUI$FilterComboBoxRenderer", "javax.swing.plaf.metal.MetalFileChooserUI", "FilterComboBoxRenderer", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalFileChooserUI$FilterComboBoxRenderer",
+		"javax.swing.DefaultListCellRenderer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalFileChooserUI"
+	};
+	$loadClass(MetalFileChooserUI$FilterComboBoxRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalFileChooserUI$FilterComboBoxRenderer));
+	});
 	return class$;
 }
 

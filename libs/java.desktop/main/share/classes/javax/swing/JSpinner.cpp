@@ -1,5 +1,4 @@
 #include <javax/swing/JSpinner.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/io/ObjectOutputStream.h>
@@ -39,7 +38,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $EventListener = ::java::util::EventListener;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $Action = ::javax::swing::Action;
 using $JComponent = ::javax::swing::JComponent;
@@ -57,175 +55,11 @@ using $SpinnerNumberModel = ::javax::swing::SpinnerNumberModel;
 using $UIManager = ::javax::swing::UIManager;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
-using $EventListenerList = ::javax::swing::event::EventListenerList;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $SpinnerUI = ::javax::swing::plaf::SpinnerUI;
 
 namespace javax {
 	namespace swing {
-
-$NamedAttribute JSpinner_Attribute_var$0[] = {
-	{"defaultProperty", 's', "UI"},
-	{"description", 's', "A single line input field that lets the user select a number or an object value from an ordered set."},
-	{}
-};
-
-$NamedAttribute JSpinner_Attribute_var$1[] = {
-	{"value", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JSpinner_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", JSpinner_Attribute_var$0},
-	{"Ljavax/swing/SwingContainer;", JSpinner_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JSpinner_Attribute_var$2[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JSpinner_MethodAnnotations_getAccessibleContext6[] = {
-	{"Ljava/beans/BeanProperty;", JSpinner_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute JSpinner_Attribute_var$3[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JSpinner_MethodAnnotations_getChangeListeners7[] = {
-	{"Ljava/beans/BeanProperty;", JSpinner_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute JSpinner_Attribute_var$4[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JSpinner_MethodAnnotations_getNextValue10[] = {
-	{"Ljava/beans/BeanProperty;", JSpinner_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute JSpinner_Attribute_var$5[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JSpinner_MethodAnnotations_getPreviousValue11[] = {
-	{"Ljava/beans/BeanProperty;", JSpinner_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute JSpinner_Attribute_var$6[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JSpinner_MethodAnnotations_getUIClassID13[] = {
-	{"Ljava/beans/BeanProperty;", JSpinner_Attribute_var$6},
-	{}
-};
-
-$NamedAttribute JSpinner_Attribute_var$7[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "JComponent that displays the current value of the model"},
-	{}
-};
-
-$CompoundAttribute _JSpinner_MethodAnnotations_setEditor16[] = {
-	{"Ljava/beans/BeanProperty;", JSpinner_Attribute_var$7},
-	{}
-};
-
-$NamedAttribute JSpinner_Attribute_var$8[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "Model that represents the value of this spinner."},
-	{}
-};
-
-$CompoundAttribute _JSpinner_MethodAnnotations_setModel17[] = {
-	{"Ljava/beans/BeanProperty;", JSpinner_Attribute_var$8},
-	{}
-};
-
-$FieldInfo _JSpinner_FieldInfo_[] = {
-	{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JSpinner, uiClassID)},
-	{"DISABLED_ACTION", "Ljavax/swing/Action;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JSpinner, DISABLED_ACTION)},
-	{"model", "Ljavax/swing/SpinnerModel;", nullptr, $PRIVATE, $field(JSpinner, model)},
-	{"editor", "Ljavax/swing/JComponent;", nullptr, $PRIVATE, $field(JSpinner, editor)},
-	{"modelListener", "Ljavax/swing/event/ChangeListener;", nullptr, $PRIVATE, $field(JSpinner, modelListener)},
-	{"changeEvent", "Ljavax/swing/event/ChangeEvent;", nullptr, $PRIVATE | $TRANSIENT, $field(JSpinner, changeEvent)},
-	{"editorExplicitlySet", "Z", nullptr, $PRIVATE, $field(JSpinner, editorExplicitlySet)},
-	{}
-};
-
-$MethodInfo _JSpinner_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/SpinnerModel;)V", nullptr, $PUBLIC, $method(JSpinner, init$, void, $SpinnerModel*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JSpinner, init$, void)},
-	{"addChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JSpinner, addChangeListener, void, $ChangeListener*)},
-	{"commitEdit", "()V", nullptr, $PUBLIC, $virtualMethod(JSpinner, commitEdit, void), "java.text.ParseException"},
-	{"createEditor", "(Ljavax/swing/SpinnerModel;)Ljavax/swing/JComponent;", nullptr, $PROTECTED, $virtualMethod(JSpinner, createEditor, $JComponent*, $SpinnerModel*)},
-	{"fireStateChanged", "()V", nullptr, $PROTECTED, $virtualMethod(JSpinner, fireStateChanged, void)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JSpinner, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, _JSpinner_MethodAnnotations_getAccessibleContext6},
-	{"getChangeListeners", "()[Ljavax/swing/event/ChangeListener;", nullptr, $PUBLIC, $virtualMethod(JSpinner, getChangeListeners, $ChangeListenerArray*), nullptr, nullptr, _JSpinner_MethodAnnotations_getChangeListeners7},
-	{"getEditor", "()Ljavax/swing/JComponent;", nullptr, $PUBLIC, $virtualMethod(JSpinner, getEditor, $JComponent*)},
-	{"getModel", "()Ljavax/swing/SpinnerModel;", nullptr, $PUBLIC, $virtualMethod(JSpinner, getModel, $SpinnerModel*)},
-	{"getNextValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JSpinner, getNextValue, $Object*), nullptr, nullptr, _JSpinner_MethodAnnotations_getNextValue10},
-	{"getPreviousValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JSpinner, getPreviousValue, $Object*), nullptr, nullptr, _JSpinner_MethodAnnotations_getPreviousValue11},
-	{"getUI", "()Ljavax/swing/plaf/SpinnerUI;", nullptr, $PUBLIC, $virtualMethod(JSpinner, getUI, $ComponentUI*)},
-	{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JSpinner, getUIClassID, $String*), nullptr, nullptr, _JSpinner_MethodAnnotations_getUIClassID13},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JSpinner, getValue, $Object*)},
-	{"removeChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JSpinner, removeChangeListener, void, $ChangeListener*)},
-	{"setEditor", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(JSpinner, setEditor, void, $JComponent*), nullptr, nullptr, _JSpinner_MethodAnnotations_setEditor16},
-	{"setModel", "(Ljavax/swing/SpinnerModel;)V", nullptr, $PUBLIC, $virtualMethod(JSpinner, setModel, void, $SpinnerModel*), nullptr, nullptr, _JSpinner_MethodAnnotations_setModel17},
-	{"setUI", "(Ljavax/swing/plaf/SpinnerUI;)V", nullptr, $PUBLIC, $virtualMethod(JSpinner, setUI, void, $SpinnerUI*)},
-	{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JSpinner, setValue, void, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JSpinner, updateUI, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JSpinner, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JSpinner_InnerClassesInfo_[] = {
-	{"javax.swing.JSpinner$AccessibleJSpinner", "javax.swing.JSpinner", "AccessibleJSpinner", $PROTECTED},
-	{"javax.swing.JSpinner$DisabledAction", "javax.swing.JSpinner", "DisabledAction", $PRIVATE | $STATIC},
-	{"javax.swing.JSpinner$ListEditor", "javax.swing.JSpinner", "ListEditor", $PUBLIC | $STATIC},
-	{"javax.swing.JSpinner$NumberEditor", "javax.swing.JSpinner", "NumberEditor", $PUBLIC | $STATIC},
-	{"javax.swing.JSpinner$NumberEditorFormatter", "javax.swing.JSpinner", "NumberEditorFormatter", $PRIVATE | $STATIC},
-	{"javax.swing.JSpinner$DateEditor", "javax.swing.JSpinner", "DateEditor", $PUBLIC | $STATIC},
-	{"javax.swing.JSpinner$DateEditorFormatter", "javax.swing.JSpinner", "DateEditorFormatter", $PRIVATE | $STATIC},
-	{"javax.swing.JSpinner$DefaultEditor", "javax.swing.JSpinner", "DefaultEditor", $PUBLIC | $STATIC},
-	{"javax.swing.JSpinner$ModelListener", "javax.swing.JSpinner", "ModelListener", $PRIVATE},
-	{}
-};
-
-$ClassInfo _JSpinner_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JSpinner",
-	"javax.swing.JComponent",
-	"javax.accessibility.Accessible",
-	_JSpinner_FieldInfo_,
-	_JSpinner_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JSpinner_InnerClassesInfo_,
-	_JSpinner_Annotations_,
-	nullptr,
-	"javax.swing.JSpinner$AccessibleJSpinner,javax.swing.JSpinner$DisabledAction,javax.swing.JSpinner$ListEditor,javax.swing.JSpinner$ListEditor$ListFormatter,javax.swing.JSpinner$ListEditor$ListFormatter$Filter,javax.swing.JSpinner$NumberEditor,javax.swing.JSpinner$NumberEditorFormatter,javax.swing.JSpinner$DateEditor,javax.swing.JSpinner$DateEditorFormatter,javax.swing.JSpinner$DefaultEditor,javax.swing.JSpinner$ModelListener"
-};
-
-$Object* allocate$JSpinner($Class* clazz) {
-	return $of($alloc(JSpinner));
-}
 
 $String* JSpinner::toString() {
 	 return this->$JComponent::toString();
@@ -279,7 +113,7 @@ $String* JSpinner::getUIClassID() {
 }
 
 void JSpinner::updateUI() {
-	setUI($cast($SpinnerUI, $($UIManager::getUI(this))));
+	setUI($$cast($SpinnerUI, $UIManager::getUI(this)));
 	invalidate();
 }
 
@@ -296,7 +130,7 @@ $JComponent* JSpinner::createEditor($SpinnerModel* model) {
 }
 
 void JSpinner::setModel($SpinnerModel* model) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (model == nullptr) {
 		$throwNew($IllegalArgumentException, "null model"_s);
 	}
@@ -307,7 +141,7 @@ void JSpinner::setModel($SpinnerModel* model) {
 			$nc(oldModel)->removeChangeListener(this->modelListener);
 			$nc(this->model)->addChangeListener(this->modelListener);
 		}
-		firePropertyChange("model"_s, $of(oldModel), $of(model));
+		firePropertyChange("model"_s, oldModel, model);
 		if (!this->editorExplicitlySet) {
 			setEditor($(createEditor(model)));
 			this->editorExplicitlySet = false;
@@ -322,21 +156,21 @@ $SpinnerModel* JSpinner::getModel() {
 }
 
 $Object* JSpinner::getValue() {
-	return $of($nc($(getModel()))->getValue());
+	return $$nc(getModel())->getValue();
 }
 
 void JSpinner::setValue(Object$* value) {
-	$nc($(getModel()))->setValue(value);
+	$$nc(getModel())->setValue(value);
 }
 
 $Object* JSpinner::getNextValue() {
-	return $of($nc($(getModel()))->getNextValue());
+	return $$nc(getModel())->getNextValue();
 }
 
 void JSpinner::addChangeListener($ChangeListener* listener) {
 	if (this->modelListener == nullptr) {
 		$set(this, modelListener, $new($JSpinner$ModelListener, this));
-		$nc($(getModel()))->addChangeListener(this->modelListener);
+		$$nc(getModel())->addChangeListener(this->modelListener);
 	}
 	$load($ChangeListener);
 	$nc(this->listenerList)->add($ChangeListener::class$, listener);
@@ -349,7 +183,7 @@ void JSpinner::removeChangeListener($ChangeListener* listener) {
 
 $ChangeListenerArray* JSpinner::getChangeListeners() {
 	$load($ChangeListener);
-	return $fcast($ChangeListenerArray, $nc(this->listenerList)->getListeners($ChangeListener::class$));
+	return $cast($ChangeListenerArray, $nc(this->listenerList)->getListeners($ChangeListener::class$));
 }
 
 void JSpinner::fireStateChanged() {
@@ -360,13 +194,13 @@ void JSpinner::fireStateChanged() {
 			if (this->changeEvent == nullptr) {
 				$set(this, changeEvent, $new($ChangeEvent, this));
 			}
-			$nc(($cast($ChangeListener, listeners->get(i + 1))))->stateChanged(this->changeEvent);
+			$nc($cast($ChangeListener, listeners->get(i + 1)))->stateChanged(this->changeEvent);
 		}
 	}
 }
 
 $Object* JSpinner::getPreviousValue() {
-	return $of($nc($(getModel()))->getPreviousValue());
+	return $$nc(getModel())->getPreviousValue();
 }
 
 void JSpinner::setEditor($JComponent* editor) {
@@ -377,10 +211,10 @@ void JSpinner::setEditor($JComponent* editor) {
 		$var($JComponent, oldEditor, this->editor);
 		$set(this, editor, editor);
 		if ($instanceOf($JSpinner$DefaultEditor, oldEditor)) {
-			$nc(($cast($JSpinner$DefaultEditor, oldEditor)))->dismiss(this);
+			$cast($JSpinner$DefaultEditor, oldEditor)->dismiss(this);
 		}
 		this->editorExplicitlySet = true;
-		firePropertyChange("editor"_s, $of(oldEditor), $of(editor));
+		firePropertyChange("editor"_s, oldEditor, editor);
 		revalidate();
 		repaint();
 	}
@@ -393,17 +227,17 @@ $JComponent* JSpinner::getEditor() {
 void JSpinner::commitEdit() {
 	$var($JComponent, editor, getEditor());
 	if ($instanceOf($JSpinner$DefaultEditor, editor)) {
-		$nc(($cast($JSpinner$DefaultEditor, editor)))->commitEdit();
+		$cast($JSpinner$DefaultEditor, editor)->commitEdit();
 	}
 }
 
 void JSpinner::writeObject($ObjectOutputStream* s) {
 	$nc(s)->defaultWriteObject();
-	if ($nc($(getUIClassID()))->equals(JSpinner::uiClassID)) {
+	if ($$nc(getUIClassID())->equals(JSpinner::uiClassID)) {
 		int8_t count = $JComponent::getWriteObjCounter(this);
 		$JComponent::setWriteObjCounter(this, --count);
 		if (count == 0 && this->ui != nullptr) {
-			$nc(this->ui)->installUI(this);
+			this->ui->installUI(this);
 		}
 	}
 }
@@ -415,7 +249,7 @@ $AccessibleContext* JSpinner::getAccessibleContext() {
 	return this->accessibleContext;
 }
 
-void clinit$JSpinner($Class* class$) {
+void JSpinner::clinit$($Class* clazz) {
 	$assignStatic(JSpinner::uiClassID, "SpinnerUI"_s);
 	$assignStatic(JSpinner::DISABLED_ACTION, $new($JSpinner$DisabledAction));
 }
@@ -424,7 +258,147 @@ JSpinner::JSpinner() {
 }
 
 $Class* JSpinner::load$($String* name, bool initialize) {
-	$loadClass(JSpinner, name, initialize, &_JSpinner_ClassInfo_, clinit$JSpinner, allocate$JSpinner);
+	$FieldInfo fieldInfos$$[] = {
+		{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JSpinner, uiClassID)},
+		{"DISABLED_ACTION", "Ljavax/swing/Action;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JSpinner, DISABLED_ACTION)},
+		{"model", "Ljavax/swing/SpinnerModel;", nullptr, $PRIVATE, $field(JSpinner, model)},
+		{"editor", "Ljavax/swing/JComponent;", nullptr, $PRIVATE, $field(JSpinner, editor)},
+		{"modelListener", "Ljavax/swing/event/ChangeListener;", nullptr, $PRIVATE, $field(JSpinner, modelListener)},
+		{"changeEvent", "Ljavax/swing/event/ChangeEvent;", nullptr, $PRIVATE | $TRANSIENT, $field(JSpinner, changeEvent)},
+		{"editorExplicitlySet", "Z", nullptr, $PRIVATE, $field(JSpinner, editorExplicitlySet)},
+		{}
+	};
+	$NamedAttribute getAccessibleContextmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getAccessibleContextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getAccessibleContextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getChangeListenersmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getChangeListenersmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getChangeListenersmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getNextValuemethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getNextValuemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getNextValuemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getPreviousValuemethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getPreviousValuemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getPreviousValuemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getUIClassIDmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getUIClassIDmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getUIClassIDmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setEditormethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "JComponent that displays the current value of the model"},
+		{}
+	};
+	$CompoundAttribute setEditormethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setEditormethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setModelmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "Model that represents the value of this spinner."},
+		{}
+	};
+	$CompoundAttribute setModelmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setModelmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/SpinnerModel;)V", nullptr, $PUBLIC, $method(JSpinner, init$, void, $SpinnerModel*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JSpinner, init$, void)},
+		{"addChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JSpinner, addChangeListener, void, $ChangeListener*)},
+		{"commitEdit", "()V", nullptr, $PUBLIC, $virtualMethod(JSpinner, commitEdit, void), "java.text.ParseException"},
+		{"createEditor", "(Ljavax/swing/SpinnerModel;)Ljavax/swing/JComponent;", nullptr, $PROTECTED, $virtualMethod(JSpinner, createEditor, $JComponent*, $SpinnerModel*)},
+		{"fireStateChanged", "()V", nullptr, $PROTECTED, $virtualMethod(JSpinner, fireStateChanged, void)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JSpinner, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, getAccessibleContextmethodAnnotations$$},
+		{"getChangeListeners", "()[Ljavax/swing/event/ChangeListener;", nullptr, $PUBLIC, $virtualMethod(JSpinner, getChangeListeners, $ChangeListenerArray*), nullptr, nullptr, getChangeListenersmethodAnnotations$$},
+		{"getEditor", "()Ljavax/swing/JComponent;", nullptr, $PUBLIC, $virtualMethod(JSpinner, getEditor, $JComponent*)},
+		{"getModel", "()Ljavax/swing/SpinnerModel;", nullptr, $PUBLIC, $virtualMethod(JSpinner, getModel, $SpinnerModel*)},
+		{"getNextValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JSpinner, getNextValue, $Object*), nullptr, nullptr, getNextValuemethodAnnotations$$},
+		{"getPreviousValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JSpinner, getPreviousValue, $Object*), nullptr, nullptr, getPreviousValuemethodAnnotations$$},
+		{"getUI", "()Ljavax/swing/plaf/SpinnerUI;", nullptr, $PUBLIC, $virtualMethod(JSpinner, getUI, $ComponentUI*)},
+		{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JSpinner, getUIClassID, $String*), nullptr, nullptr, getUIClassIDmethodAnnotations$$},
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JSpinner, getValue, $Object*)},
+		{"removeChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JSpinner, removeChangeListener, void, $ChangeListener*)},
+		{"setEditor", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(JSpinner, setEditor, void, $JComponent*), nullptr, nullptr, setEditormethodAnnotations$$},
+		{"setModel", "(Ljavax/swing/SpinnerModel;)V", nullptr, $PUBLIC, $virtualMethod(JSpinner, setModel, void, $SpinnerModel*), nullptr, nullptr, setModelmethodAnnotations$$},
+		{"setUI", "(Ljavax/swing/plaf/SpinnerUI;)V", nullptr, $PUBLIC, $virtualMethod(JSpinner, setUI, void, $SpinnerUI*)},
+		{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JSpinner, setValue, void, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JSpinner, updateUI, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JSpinner, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JSpinner$AccessibleJSpinner", "javax.swing.JSpinner", "AccessibleJSpinner", $PROTECTED},
+		{"javax.swing.JSpinner$DisabledAction", "javax.swing.JSpinner", "DisabledAction", $PRIVATE | $STATIC},
+		{"javax.swing.JSpinner$ListEditor", "javax.swing.JSpinner", "ListEditor", $PUBLIC | $STATIC},
+		{"javax.swing.JSpinner$NumberEditor", "javax.swing.JSpinner", "NumberEditor", $PUBLIC | $STATIC},
+		{"javax.swing.JSpinner$NumberEditorFormatter", "javax.swing.JSpinner", "NumberEditorFormatter", $PRIVATE | $STATIC},
+		{"javax.swing.JSpinner$DateEditor", "javax.swing.JSpinner", "DateEditor", $PUBLIC | $STATIC},
+		{"javax.swing.JSpinner$DateEditorFormatter", "javax.swing.JSpinner", "DateEditorFormatter", $PRIVATE | $STATIC},
+		{"javax.swing.JSpinner$DefaultEditor", "javax.swing.JSpinner", "DefaultEditor", $PUBLIC | $STATIC},
+		{"javax.swing.JSpinner$ModelListener", "javax.swing.JSpinner", "ModelListener", $PRIVATE},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"defaultProperty", 's', "UI"},
+		{"description", 's', "A single line input field that lets the user select a number or an object value from an ordered set."},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{"Ljavax/swing/SwingContainer;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JSpinner",
+		"javax.swing.JComponent",
+		"javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.JSpinner$AccessibleJSpinner,javax.swing.JSpinner$DisabledAction,javax.swing.JSpinner$ListEditor,javax.swing.JSpinner$ListEditor$ListFormatter,javax.swing.JSpinner$ListEditor$ListFormatter$Filter,javax.swing.JSpinner$NumberEditor,javax.swing.JSpinner$NumberEditorFormatter,javax.swing.JSpinner$DateEditor,javax.swing.JSpinner$DateEditorFormatter,javax.swing.JSpinner$DefaultEditor,javax.swing.JSpinner$ModelListener"
+	};
+	$loadClass(JSpinner, name, initialize, &classInfo$$, JSpinner::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JSpinner));
+	});
 	return class$;
 }
 

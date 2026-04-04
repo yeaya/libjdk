@@ -1,5 +1,4 @@
 #include <com/sun/jmx/remote/internal/ArrayNotificationBuffer$ShareBuffer.h>
-
 #include <com/sun/jmx/remote/internal/ArrayNotificationBuffer.h>
 #include <com/sun/jmx/remote/internal/NotificationBuffer.h>
 #include <com/sun/jmx/remote/internal/NotificationBufferFilter.h>
@@ -20,45 +19,6 @@ namespace com {
 		namespace jmx {
 			namespace remote {
 				namespace internal {
-
-$FieldInfo _ArrayNotificationBuffer$ShareBuffer_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/jmx/remote/internal/ArrayNotificationBuffer;", nullptr, $FINAL | $SYNTHETIC, $field(ArrayNotificationBuffer$ShareBuffer, this$0)},
-	{"size", "I", nullptr, $PRIVATE | $FINAL, $field(ArrayNotificationBuffer$ShareBuffer, size)},
-	{}
-};
-
-$MethodInfo _ArrayNotificationBuffer$ShareBuffer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/remote/internal/ArrayNotificationBuffer;I)V", nullptr, 0, $method(ArrayNotificationBuffer$ShareBuffer, init$, void, $ArrayNotificationBuffer*, int32_t)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayNotificationBuffer$ShareBuffer, dispose, void)},
-	{"fetchNotifications", "(Lcom/sun/jmx/remote/internal/NotificationBufferFilter;JJI)Ljavax/management/remote/NotificationResult;", nullptr, $PUBLIC, $virtualMethod(ArrayNotificationBuffer$ShareBuffer, fetchNotifications, $NotificationResult*, $NotificationBufferFilter*, int64_t, int64_t, int32_t), "java.lang.InterruptedException"},
-	{"getSize", "()I", nullptr, 0, $virtualMethod(ArrayNotificationBuffer$ShareBuffer, getSize, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ArrayNotificationBuffer$ShareBuffer_InnerClassesInfo_[] = {
-	{"com.sun.jmx.remote.internal.ArrayNotificationBuffer$ShareBuffer", "com.sun.jmx.remote.internal.ArrayNotificationBuffer", "ShareBuffer", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ArrayNotificationBuffer$ShareBuffer_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jmx.remote.internal.ArrayNotificationBuffer$ShareBuffer",
-	"java.lang.Object",
-	"com.sun.jmx.remote.internal.NotificationBuffer",
-	_ArrayNotificationBuffer$ShareBuffer_FieldInfo_,
-	_ArrayNotificationBuffer$ShareBuffer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ArrayNotificationBuffer$ShareBuffer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.remote.internal.ArrayNotificationBuffer"
-};
-
-$Object* allocate$ArrayNotificationBuffer$ShareBuffer($Class* clazz) {
-	return $of($alloc(ArrayNotificationBuffer$ShareBuffer));
-}
 
 void ArrayNotificationBuffer$ShareBuffer::init$($ArrayNotificationBuffer* this$0, int32_t size) {
 	$set(this, this$0, this$0);
@@ -83,7 +43,40 @@ ArrayNotificationBuffer$ShareBuffer::ArrayNotificationBuffer$ShareBuffer() {
 }
 
 $Class* ArrayNotificationBuffer$ShareBuffer::load$($String* name, bool initialize) {
-	$loadClass(ArrayNotificationBuffer$ShareBuffer, name, initialize, &_ArrayNotificationBuffer$ShareBuffer_ClassInfo_, allocate$ArrayNotificationBuffer$ShareBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/jmx/remote/internal/ArrayNotificationBuffer;", nullptr, $FINAL | $SYNTHETIC, $field(ArrayNotificationBuffer$ShareBuffer, this$0)},
+		{"size", "I", nullptr, $PRIVATE | $FINAL, $field(ArrayNotificationBuffer$ShareBuffer, size)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/jmx/remote/internal/ArrayNotificationBuffer;I)V", nullptr, 0, $method(ArrayNotificationBuffer$ShareBuffer, init$, void, $ArrayNotificationBuffer*, int32_t)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayNotificationBuffer$ShareBuffer, dispose, void)},
+		{"fetchNotifications", "(Lcom/sun/jmx/remote/internal/NotificationBufferFilter;JJI)Ljavax/management/remote/NotificationResult;", nullptr, $PUBLIC, $virtualMethod(ArrayNotificationBuffer$ShareBuffer, fetchNotifications, $NotificationResult*, $NotificationBufferFilter*, int64_t, int64_t, int32_t), "java.lang.InterruptedException"},
+		{"getSize", "()I", nullptr, 0, $virtualMethod(ArrayNotificationBuffer$ShareBuffer, getSize, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.remote.internal.ArrayNotificationBuffer$ShareBuffer", "com.sun.jmx.remote.internal.ArrayNotificationBuffer", "ShareBuffer", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jmx.remote.internal.ArrayNotificationBuffer$ShareBuffer",
+		"java.lang.Object",
+		"com.sun.jmx.remote.internal.NotificationBuffer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.remote.internal.ArrayNotificationBuffer"
+	};
+	$loadClass(ArrayNotificationBuffer$ShareBuffer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArrayNotificationBuffer$ShareBuffer);
+	});
 	return class$;
 }
 

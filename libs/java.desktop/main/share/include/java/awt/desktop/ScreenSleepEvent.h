@@ -14,7 +14,7 @@ class $import ScreenSleepEvent : public ::java::awt::desktop::AppEvent {
 public:
 	ScreenSleepEvent();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x68621CF849BA0396;
+	static const int64_t serialVersionUID = (int64_t)0x68621cf849ba0396;
 };
 
 		} // desktop

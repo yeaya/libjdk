@@ -1,9 +1,7 @@
 #include <javax/swing/plaf/basic/BasicComboPopup$1.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Toolkit.h>
-#include <java/awt/event/InputEvent.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/util/EventObject.h>
 #include <javax/swing/JComponent.h>
@@ -19,7 +17,6 @@
 
 using $Component = ::java::awt::Component;
 using $Toolkit = ::java::awt::Toolkit;
-using $InputEvent = ::java::awt::event::InputEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -38,55 +35,13 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicComboPopup$1_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicComboPopup;", nullptr, $FINAL | $SYNTHETIC, $field(BasicComboPopup$1, this$0)},
-	{}
-};
-
-$MethodInfo _BasicComboPopup$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicComboPopup;Ljavax/swing/ListModel;)V", nullptr, 0, $method(BasicComboPopup$1, init$, void, $BasicComboPopup*, $ListModel*)},
-	{"processMouseEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$1, processMouseEvent, void, $MouseEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _BasicComboPopup$1_EnclosingMethodInfo_ = {
-	"javax.swing.plaf.basic.BasicComboPopup",
-	"createList",
-	"()Ljavax/swing/JList;"
-};
-
-$InnerClassInfo _BasicComboPopup$1_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicComboPopup$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BasicComboPopup$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicComboPopup$1",
-	"javax.swing.JList",
-	nullptr,
-	_BasicComboPopup$1_FieldInfo_,
-	_BasicComboPopup$1_MethodInfo_,
-	"Ljavax/swing/JList<Ljava/lang/Object;>;",
-	&_BasicComboPopup$1_EnclosingMethodInfo_,
-	_BasicComboPopup$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicComboPopup"
-};
-
-$Object* allocate$BasicComboPopup$1($Class* clazz) {
-	return $of($alloc(BasicComboPopup$1));
-}
-
 void BasicComboPopup$1::init$($BasicComboPopup* this$0, $ListModel* dataModel) {
 	$set(this, this$0, this$0);
 	$JList::init$(dataModel);
 }
 
 void BasicComboPopup$1::processMouseEvent($MouseEvent* e$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MouseEvent, e, e$renamed);
 	if ($BasicGraphicsUtils::isMenuShortcutKeyDown(e)) {
 		$var($Toolkit, toolkit, $Toolkit::getDefaultToolkit());
@@ -102,7 +57,7 @@ void BasicComboPopup$1::processMouseEvent($MouseEvent* e$renamed) {
 		int32_t var$9 = e->getClickCount();
 		$var($MouseEvent, newEvent, $new($MouseEvent, var$0, var$1, var$2, var$3, var$5, var$6, var$7, var$8, var$9, e->isPopupTrigger(), $MouseEvent::NOBUTTON));
 		$var($AWTAccessor$MouseEventAccessor, meAccessor, $AWTAccessor::getMouseEventAccessor());
-		$nc(meAccessor)->setCausedByTouchEvent(newEvent, meAccessor->isCausedByTouchEvent(e));
+		$nc(meAccessor)->setCausedByTouchEvent(newEvent, $nc(meAccessor)->isCausedByTouchEvent(e));
 		$assign(e, newEvent);
 	}
 	$JList::processMouseEvent(e);
@@ -112,7 +67,42 @@ BasicComboPopup$1::BasicComboPopup$1() {
 }
 
 $Class* BasicComboPopup$1::load$($String* name, bool initialize) {
-	$loadClass(BasicComboPopup$1, name, initialize, &_BasicComboPopup$1_ClassInfo_, allocate$BasicComboPopup$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicComboPopup;", nullptr, $FINAL | $SYNTHETIC, $field(BasicComboPopup$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicComboPopup;Ljavax/swing/ListModel;)V", nullptr, 0, $method(BasicComboPopup$1, init$, void, $BasicComboPopup*, $ListModel*)},
+		{"processMouseEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$1, processMouseEvent, void, $MouseEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.plaf.basic.BasicComboPopup",
+		"createList",
+		"()Ljavax/swing/JList;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicComboPopup$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicComboPopup$1",
+		"javax.swing.JList",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljavax/swing/JList<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicComboPopup"
+	};
+	$loadClass(BasicComboPopup$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicComboPopup$1));
+	});
 	return class$;
 }
 

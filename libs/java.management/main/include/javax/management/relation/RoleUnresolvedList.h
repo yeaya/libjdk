@@ -48,7 +48,7 @@ public:
 	using ::java::util::ArrayList::toArray;
 	bool typeSafe = false;
 	bool tainted = false;
-	static const int64_t serialVersionUID = (int64_t)0x3845E89D9900276C;
+	static const int64_t serialVersionUID = (int64_t)0x3845e89d9900276c;
 };
 
 		} // relation

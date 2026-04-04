@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/ServiceLocator.h>
-
 #include <com/sun/jndi/ldap/ServiceLocator$SrvRecord.h>
 #include <java/util/Arrays.h>
 #include <java/util/Hashtable.h>
@@ -45,47 +44,6 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$FieldInfo _ServiceLocator_FieldInfo_[] = {
-	{"SRV_RR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ServiceLocator, SRV_RR)},
-	{"SRV_RR_ATTR", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ServiceLocator, SRV_RR_ATTR)},
-	{"random", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ServiceLocator, random)},
-	{}
-};
-
-$MethodInfo _ServiceLocator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ServiceLocator, init$, void)},
-	{"extractHostports", "([Lcom/sun/jndi/ldap/ServiceLocator$SrvRecord;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ServiceLocator, extractHostports, $StringArray*, $ServiceLocator$SrvRecordArray*)},
-	{"getLdapService", "(Ljava/lang/String;Ljava/util/Map;)[Ljava/lang/String;", "(Ljava/lang/String;Ljava/util/Map<**>;)[Ljava/lang/String;", $STATIC, $staticMethod(ServiceLocator, getLdapService, $StringArray*, $String*, $Map*)},
-	{"getLdapService", "(Ljava/lang/String;Ljava/util/Hashtable;)[Ljava/lang/String;", "(Ljava/lang/String;Ljava/util/Hashtable<**>;)[Ljava/lang/String;", $STATIC, $staticMethod(ServiceLocator, getLdapService, $StringArray*, $String*, $Hashtable*)},
-	{"mapDnToDomainName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ServiceLocator, mapDnToDomainName, $String*, $String*), "javax.naming.InvalidNameException"},
-	{"selectHostport", "([Lcom/sun/jndi/ldap/ServiceLocator$SrvRecord;II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ServiceLocator, selectHostport, $String*, $ServiceLocator$SrvRecordArray*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ServiceLocator_InnerClassesInfo_[] = {
-	{"com.sun.jndi.ldap.ServiceLocator$SrvRecord", "com.sun.jndi.ldap.ServiceLocator", "SrvRecord", $STATIC},
-	{}
-};
-
-$ClassInfo _ServiceLocator_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jndi.ldap.ServiceLocator",
-	"java.lang.Object",
-	nullptr,
-	_ServiceLocator_FieldInfo_,
-	_ServiceLocator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServiceLocator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.jndi.ldap.ServiceLocator$SrvRecord"
-};
-
-$Object* allocate$ServiceLocator($Class* clazz) {
-	return $of($alloc(ServiceLocator));
-}
-
 $String* ServiceLocator::SRV_RR = nullptr;
 $StringArray* ServiceLocator::SRV_RR_ATTR = nullptr;
 $Random* ServiceLocator::random = nullptr;
@@ -95,7 +53,7 @@ void ServiceLocator::init$() {
 
 $String* ServiceLocator::mapDnToDomainName($String* dn) {
 	$init(ServiceLocator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (dn == nullptr) {
 		return nullptr;
 	}
@@ -104,14 +62,14 @@ $String* ServiceLocator::mapDnToDomainName($String* dn) {
 	$var($List, rdnList, ldapName->getRdns());
 	for (int32_t i = $nc(rdnList)->size() - 1; i >= 0; --i) {
 		$var($Rdn, rdn, $cast($Rdn, rdnList->get(i)));
-		bool var$0 = ($nc(rdn)->size() == 1);
+		bool var$0 = $nc(rdn)->size() == 1;
 		if (var$0 && ("dc"_s->equalsIgnoreCase($(rdn->getType())))) {
 			$var($Object, attrval, rdn->getValue());
 			if ($instanceOf($String, attrval)) {
-				bool var$1 = $nc($of(attrval))->equals("."_s);
+				bool var$1 = attrval->equals("."_s);
 				if (!var$1) {
 					bool var$2 = domain->length() == 1;
-					var$1 = (var$2 && domain->charAt(0) == u'.');
+					var$1 = var$2 && domain->charAt(0) == u'.';
 				}
 				if (var$1) {
 					domain->setLength(0);
@@ -140,8 +98,8 @@ $StringArray* ServiceLocator::getLdapService($String* domainName, $Map* environm
 
 $StringArray* ServiceLocator::getLdapService($String* domainName, $Hashtable* environment) {
 	$init(ServiceLocator);
-	$useLocalCurrentObjectStackCache();
-	if (domainName == nullptr || $nc(domainName)->length() == 0) {
+	$useLocalObjectStack();
+	if (domainName == nullptr || domainName->length() == 0) {
 		return nullptr;
 	}
 	$var($String, dnsUrl, $str({"dns:///_ldap._tcp."_s, domainName}));
@@ -151,7 +109,7 @@ $StringArray* ServiceLocator::getLdapService($String* domainName, $Hashtable* en
 		if (!($instanceOf($DirContext, ctx))) {
 			return nullptr;
 		}
-		$var($Attributes, attrs, $nc(($cast($DirContext, ctx)))->getAttributes(dnsUrl, ServiceLocator::SRV_RR_ATTR));
+		$var($Attributes, attrs, $nc($cast($DirContext, ctx))->getAttributes(dnsUrl, ServiceLocator::SRV_RR_ATTR));
 		$var($Attribute, attr, nullptr);
 		if (attrs != nullptr && (($assign(attr, attrs->get(ServiceLocator::SRV_RR))) != nullptr)) {
 			int32_t numValues = $nc(attr)->size();
@@ -161,7 +119,7 @@ $StringArray* ServiceLocator::getLdapService($String* domainName, $Hashtable* en
 			int32_t j = 0;
 			while (i < numValues) {
 				try {
-					srvRecords->set(j, $$new($ServiceLocator$SrvRecord, $cast($String, $(attr->get(i)))));
+					srvRecords->set(j, $$new($ServiceLocator$SrvRecord, $$cast($String, attr->get(i))));
 					++j;
 				} catch ($Exception& e) {
 				}
@@ -185,7 +143,7 @@ $StringArray* ServiceLocator::getLdapService($String* domainName, $Hashtable* en
 
 $StringArray* ServiceLocator::extractHostports($ServiceLocator$SrvRecordArray* srvRecords) {
 	$init(ServiceLocator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, hostports, nullptr);
 	int32_t head = 0;
 	int32_t tail = 0;
@@ -221,7 +179,7 @@ $String* ServiceLocator::selectHostport($ServiceLocator$SrvRecordArray* srvRecor
 		}
 	}
 	$var($String, hostport, nullptr);
-	int32_t target = (sum == 0 ? 0 : $nc(ServiceLocator::random)->nextInt(sum + 1));
+	int32_t target = (sum == 0 ? 0 : ServiceLocator::random->nextInt(sum + 1));
 	for (int32_t i = head; i <= tail; ++i) {
 		if ($nc(srvRecords)->get(i) != nullptr && $nc(srvRecords->get(i))->sum >= target) {
 			$assign(hostport, $nc(srvRecords->get(i))->hostport);
@@ -232,7 +190,7 @@ $String* ServiceLocator::selectHostport($ServiceLocator$SrvRecordArray* srvRecor
 	return hostport;
 }
 
-void clinit$ServiceLocator($Class* class$) {
+void ServiceLocator::clinit$($Class* clazz) {
 	$assignStatic(ServiceLocator::SRV_RR, "SRV"_s);
 	$assignStatic(ServiceLocator::SRV_RR_ATTR, $new($StringArray, {ServiceLocator::SRV_RR}));
 	$assignStatic(ServiceLocator::random, $new($Random));
@@ -242,7 +200,42 @@ ServiceLocator::ServiceLocator() {
 }
 
 $Class* ServiceLocator::load$($String* name, bool initialize) {
-	$loadClass(ServiceLocator, name, initialize, &_ServiceLocator_ClassInfo_, clinit$ServiceLocator, allocate$ServiceLocator);
+	$FieldInfo fieldInfos$$[] = {
+		{"SRV_RR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ServiceLocator, SRV_RR)},
+		{"SRV_RR_ATTR", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ServiceLocator, SRV_RR_ATTR)},
+		{"random", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ServiceLocator, random)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ServiceLocator, init$, void)},
+		{"extractHostports", "([Lcom/sun/jndi/ldap/ServiceLocator$SrvRecord;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ServiceLocator, extractHostports, $StringArray*, $ServiceLocator$SrvRecordArray*)},
+		{"getLdapService", "(Ljava/lang/String;Ljava/util/Map;)[Ljava/lang/String;", "(Ljava/lang/String;Ljava/util/Map<**>;)[Ljava/lang/String;", $STATIC, $staticMethod(ServiceLocator, getLdapService, $StringArray*, $String*, $Map*)},
+		{"getLdapService", "(Ljava/lang/String;Ljava/util/Hashtable;)[Ljava/lang/String;", "(Ljava/lang/String;Ljava/util/Hashtable<**>;)[Ljava/lang/String;", $STATIC, $staticMethod(ServiceLocator, getLdapService, $StringArray*, $String*, $Hashtable*)},
+		{"mapDnToDomainName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ServiceLocator, mapDnToDomainName, $String*, $String*), "javax.naming.InvalidNameException"},
+		{"selectHostport", "([Lcom/sun/jndi/ldap/ServiceLocator$SrvRecord;II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ServiceLocator, selectHostport, $String*, $ServiceLocator$SrvRecordArray*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jndi.ldap.ServiceLocator$SrvRecord", "com.sun.jndi.ldap.ServiceLocator", "SrvRecord", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jndi.ldap.ServiceLocator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.jndi.ldap.ServiceLocator$SrvRecord"
+	};
+	$loadClass(ServiceLocator, name, initialize, &classInfo$$, ServiceLocator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ServiceLocator);
+	});
 	return class$;
 }
 

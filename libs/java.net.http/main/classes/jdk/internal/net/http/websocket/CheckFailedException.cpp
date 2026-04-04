@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/websocket/CheckFailedException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -12,29 +11,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 				namespace websocket {
-
-$FieldInfo _CheckFailedException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CheckFailedException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CheckFailedException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(CheckFailedException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _CheckFailedException_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.websocket.CheckFailedException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_CheckFailedException_FieldInfo_,
-	_CheckFailedException_MethodInfo_
-};
-
-$Object* allocate$CheckFailedException($Class* clazz) {
-	return $of($alloc(CheckFailedException));
-}
 
 void CheckFailedException::init$($String* message) {
 	$RuntimeException::init$(message);
@@ -51,7 +27,25 @@ void CheckFailedException::throw$() {
 }
 
 $Class* CheckFailedException::load$($String* name, bool initialize) {
-	$loadClass(CheckFailedException, name, initialize, &_CheckFailedException_ClassInfo_, allocate$CheckFailedException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CheckFailedException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(CheckFailedException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.websocket.CheckFailedException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CheckFailedException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CheckFailedException);
+	});
 	return class$;
 }
 

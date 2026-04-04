@@ -52,6 +52,7 @@ class $import WindowsPopupMenuUI : public ::javax::swing::plaf::basic::BasicPopu
 	$class(WindowsPopupMenuUI, 0, ::javax::swing::plaf::basic::BasicPopupMenuUI)
 public:
 	WindowsPopupMenuUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* c);
 	static int32_t getGutterWidth();

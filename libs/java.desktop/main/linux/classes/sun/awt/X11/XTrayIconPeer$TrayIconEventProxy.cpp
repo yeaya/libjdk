@@ -1,6 +1,4 @@
 #include <sun/awt/X11/XTrayIconPeer$TrayIconEventProxy.h>
-
-#include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Point.h>
 #include <java/awt/TrayIcon.h>
@@ -21,9 +19,7 @@
 #undef BUTTON1
 #undef MOUSE_DRAGGED
 
-using $AWTEvent = ::java::awt::AWTEvent;
 using $Point = ::java::awt::Point;
-using $TrayIcon = ::java::awt::TrayIcon;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $MouseListener = ::java::awt::event::MouseListener;
@@ -31,8 +27,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $InfoWindow$Balloon = ::sun::awt::X11::InfoWindow$Balloon;
-using $InfoWindow$Tooltip = ::sun::awt::X11::InfoWindow$Tooltip;
 using $XBaseWindow = ::sun::awt::X11::XBaseWindow;
 using $XToolkit = ::sun::awt::X11::XToolkit;
 using $XTrayIconPeer = ::sun::awt::X11::XTrayIconPeer;
@@ -40,54 +34,6 @@ using $XTrayIconPeer = ::sun::awt::X11::XTrayIconPeer;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XTrayIconPeer$TrayIconEventProxy_FieldInfo_[] = {
-	{"xtiPeer", "Lsun/awt/X11/XTrayIconPeer;", nullptr, 0, $field(XTrayIconPeer$TrayIconEventProxy, xtiPeer)},
-	{}
-};
-
-$MethodInfo _XTrayIconPeer$TrayIconEventProxy_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/awt/X11/XTrayIconPeer;)V", nullptr, 0, $method(XTrayIconPeer$TrayIconEventProxy, init$, void, $XTrayIconPeer*)},
-	{"handleEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTrayIconPeer$TrayIconEventProxy, handleEvent, void, $MouseEvent*)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTrayIconPeer$TrayIconEventProxy, mouseClicked, void, $MouseEvent*)},
-	{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTrayIconPeer$TrayIconEventProxy, mouseDragged, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTrayIconPeer$TrayIconEventProxy, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTrayIconPeer$TrayIconEventProxy, mouseExited, void, $MouseEvent*)},
-	{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTrayIconPeer$TrayIconEventProxy, mouseMoved, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTrayIconPeer$TrayIconEventProxy, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTrayIconPeer$TrayIconEventProxy, mouseReleased, void, $MouseEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _XTrayIconPeer$TrayIconEventProxy_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XTrayIconPeer$TrayIconEventProxy", "sun.awt.X11.XTrayIconPeer", "TrayIconEventProxy", $STATIC},
-	{}
-};
-
-$ClassInfo _XTrayIconPeer$TrayIconEventProxy_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XTrayIconPeer$TrayIconEventProxy",
-	"java.lang.Object",
-	"java.awt.event.MouseListener,java.awt.event.MouseMotionListener",
-	_XTrayIconPeer$TrayIconEventProxy_FieldInfo_,
-	_XTrayIconPeer$TrayIconEventProxy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XTrayIconPeer$TrayIconEventProxy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XTrayIconPeer"
-};
-
-$Object* allocate$XTrayIconPeer$TrayIconEventProxy($Class* clazz) {
-	return $of($alloc(XTrayIconPeer$TrayIconEventProxy));
-}
 
 int32_t XTrayIconPeer$TrayIconEventProxy::hashCode() {
 	 return this->$MouseListener::hashCode();
@@ -114,7 +60,7 @@ void XTrayIconPeer$TrayIconEventProxy::init$($XTrayIconPeer* xtiPeer) {
 }
 
 void XTrayIconPeer$TrayIconEventProxy::handleEvent($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(e)->getID() == $MouseEvent::MOUSE_DRAGGED) {
 		return;
 	}
@@ -123,24 +69,24 @@ void XTrayIconPeer$TrayIconEventProxy::handleEvent($MouseEvent* e) {
 	}
 	int64_t var$0 = $nc(this->xtiPeer)->getWindow();
 	int64_t var$1 = $XToolkit::getDefaultRootWindow();
-	int32_t var$2 = $nc(e)->getX();
+	int32_t var$2 = e->getX();
 	$var($Point, coord, $XBaseWindow::toOtherWindow(var$0, var$1, var$2, e->getY()));
-	if ($nc(e)->isPopupTrigger()) {
-		$nc(this->xtiPeer)->showPopupMenu($nc(coord)->x, coord->y);
+	if (e->isPopupTrigger()) {
+		$nc(this->xtiPeer)->showPopupMenu($nc(coord)->x, $nc(coord)->y);
 	}
 	int32_t var$3 = $nc(coord)->x - e->getX();
-	$nc(e)->translatePoint(var$3, coord->y - e->getY());
+	e->translatePoint(var$3, coord->y - e->getY());
 	e->setSource($nc(this->xtiPeer)->target);
 	$XToolkit::postEvent($($XToolkit::targetToAppContext($(e->getSource()))), e);
 }
 
 void XTrayIconPeer$TrayIconEventProxy::mouseClicked($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$1 = $nc(e)->getClickCount() == 1;
-	bool var$0 = (var$1 || $nc($nc(this->xtiPeer)->balloon)->isVisible());
-	if (var$0 && $nc(e)->getButton() == $MouseEvent::BUTTON1) {
-		$var($Object, var$2, $of($nc(this->xtiPeer)->target));
-		$var($String, var$3, $nc($nc(this->xtiPeer)->target)->getActionCommand());
+	bool var$0 = var$1 || $nc($nc(this->xtiPeer)->balloon)->isVisible();
+	if (var$0 && e->getButton() == $MouseEvent::BUTTON1) {
+		$var($Object, var$2, $nc(this->xtiPeer)->target);
+		$var($String, var$3, $nc(this->xtiPeer->target)->getActionCommand());
 		int64_t var$4 = e->getWhen();
 		$var($ActionEvent, aev, $new($ActionEvent, var$2, $ActionEvent::ACTION_PERFORMED, var$3, var$4, e->getModifiers()));
 		$XToolkit::postEvent($($XToolkit::targetToAppContext($(aev->getSource()))), aev);
@@ -181,7 +127,49 @@ XTrayIconPeer$TrayIconEventProxy::XTrayIconPeer$TrayIconEventProxy() {
 }
 
 $Class* XTrayIconPeer$TrayIconEventProxy::load$($String* name, bool initialize) {
-	$loadClass(XTrayIconPeer$TrayIconEventProxy, name, initialize, &_XTrayIconPeer$TrayIconEventProxy_ClassInfo_, allocate$XTrayIconPeer$TrayIconEventProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"xtiPeer", "Lsun/awt/X11/XTrayIconPeer;", nullptr, 0, $field(XTrayIconPeer$TrayIconEventProxy, xtiPeer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/awt/X11/XTrayIconPeer;)V", nullptr, 0, $method(XTrayIconPeer$TrayIconEventProxy, init$, void, $XTrayIconPeer*)},
+		{"handleEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTrayIconPeer$TrayIconEventProxy, handleEvent, void, $MouseEvent*)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTrayIconPeer$TrayIconEventProxy, mouseClicked, void, $MouseEvent*)},
+		{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTrayIconPeer$TrayIconEventProxy, mouseDragged, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTrayIconPeer$TrayIconEventProxy, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTrayIconPeer$TrayIconEventProxy, mouseExited, void, $MouseEvent*)},
+		{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTrayIconPeer$TrayIconEventProxy, mouseMoved, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTrayIconPeer$TrayIconEventProxy, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTrayIconPeer$TrayIconEventProxy, mouseReleased, void, $MouseEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XTrayIconPeer$TrayIconEventProxy", "sun.awt.X11.XTrayIconPeer", "TrayIconEventProxy", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XTrayIconPeer$TrayIconEventProxy",
+		"java.lang.Object",
+		"java.awt.event.MouseListener,java.awt.event.MouseMotionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XTrayIconPeer"
+	};
+	$loadClass(XTrayIconPeer$TrayIconEventProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XTrayIconPeer$TrayIconEventProxy));
+	});
 	return class$;
 }
 

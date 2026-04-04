@@ -1,10 +1,8 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Mode.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ALOAD.h>
 #include <com/sun/org/apache/bcel/internal/generic/BasicType.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/CompoundInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/DUP.h>
 #include <com/sun/org/apache/bcel/internal/generic/GOTO_W.h>
@@ -108,8 +106,6 @@ using $ArrayListArray = $Array<::java::util::ArrayList>;
 using $ListArray = $Array<::java::util::List>;
 using $ALOAD = ::com::sun::org::apache::bcel::internal::generic::ALOAD;
 using $BranchHandle = ::com::sun::org::apache::bcel::internal::generic::BranchHandle;
-using $BranchInstruction = ::com::sun::org::apache::bcel::internal::generic::BranchInstruction;
-using $CompoundInstruction = ::com::sun::org::apache::bcel::internal::generic::CompoundInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $DUP = ::com::sun::org::apache::bcel::internal::generic::DUP;
 using $GOTO_W = ::com::sun::org::apache::bcel::internal::generic::GOTO_W;
@@ -131,7 +127,6 @@ using $AlternativePattern = ::com::sun::org::apache::xalan::internal::xsltc::com
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
 using $IdKeyPattern = ::com::sun::org::apache::xalan::internal::xsltc::compiler::IdKeyPattern;
 using $LocationPathPattern = ::com::sun::org::apache::xalan::internal::xsltc::compiler::LocationPathPattern;
-using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
 using $Pattern = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Pattern;
 using $QName = ::com::sun::org::apache::xalan::internal::xsltc::compiler::QName;
 using $StepPattern = ::com::sun::org::apache::xalan::internal::xsltc::compiler::StepPattern;
@@ -160,7 +155,6 @@ using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Set = ::java::util::Set;
 using $Consumer = ::java::util::function::Consumer;
-using $Stream = ::java::util::stream::Stream;
 
 namespace com {
 	namespace sun {
@@ -185,117 +179,42 @@ public:
 	virtual void accept(Object$* template$) override {
 		$nc(inst$)->lambda$compileTemplateCalls$0(min, max, classGen, methodGen, next, $cast($Template, template$));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Mode$$Lambda$lambda$compileTemplateCalls$0>());
-	}
 	Mode* inst$ = nullptr;
 	int32_t min = 0;
 	int32_t max = 0;
 	$ClassGenerator* classGen = nullptr;
 	$MethodGenerator* methodGen = nullptr;
 	$InstructionHandle* next = nullptr;
-	static $FieldInfo fieldInfos[7];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Mode$$Lambda$lambda$compileTemplateCalls$0::fieldInfos[7] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Mode$$Lambda$lambda$compileTemplateCalls$0, inst$)},
-	{"min", "I", nullptr, $PUBLIC, $field(Mode$$Lambda$lambda$compileTemplateCalls$0, min)},
-	{"max", "I", nullptr, $PUBLIC, $field(Mode$$Lambda$lambda$compileTemplateCalls$0, max)},
-	{"classGen", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;", nullptr, $PUBLIC, $field(Mode$$Lambda$lambda$compileTemplateCalls$0, classGen)},
-	{"methodGen", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;", nullptr, $PUBLIC, $field(Mode$$Lambda$lambda$compileTemplateCalls$0, methodGen)},
-	{"next", "Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $field(Mode$$Lambda$lambda$compileTemplateCalls$0, next)},
-	{}
-};
-$MethodInfo Mode$$Lambda$lambda$compileTemplateCalls$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Mode;IILcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $method(Mode$$Lambda$lambda$compileTemplateCalls$0, init$, void, Mode*, int32_t, int32_t, $ClassGenerator*, $MethodGenerator*, $InstructionHandle*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Mode$$Lambda$lambda$compileTemplateCalls$0, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Mode$$Lambda$lambda$compileTemplateCalls$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Mode$$Lambda$lambda$compileTemplateCalls$0",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Mode$$Lambda$lambda$compileTemplateCalls$0::load$($String* name, bool initialize) {
-	$loadClass(Mode$$Lambda$lambda$compileTemplateCalls$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Mode$$Lambda$lambda$compileTemplateCalls$0, inst$)},
+		{"min", "I", nullptr, $PUBLIC, $field(Mode$$Lambda$lambda$compileTemplateCalls$0, min)},
+		{"max", "I", nullptr, $PUBLIC, $field(Mode$$Lambda$lambda$compileTemplateCalls$0, max)},
+		{"classGen", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;", nullptr, $PUBLIC, $field(Mode$$Lambda$lambda$compileTemplateCalls$0, classGen)},
+		{"methodGen", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;", nullptr, $PUBLIC, $field(Mode$$Lambda$lambda$compileTemplateCalls$0, methodGen)},
+		{"next", "Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $field(Mode$$Lambda$lambda$compileTemplateCalls$0, next)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Mode;IILcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $method(Mode$$Lambda$lambda$compileTemplateCalls$0, init$, void, Mode*, int32_t, int32_t, $ClassGenerator*, $MethodGenerator*, $InstructionHandle*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Mode$$Lambda$lambda$compileTemplateCalls$0, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Mode$$Lambda$lambda$compileTemplateCalls$0",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Mode$$Lambda$lambda$compileTemplateCalls$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Mode$$Lambda$lambda$compileTemplateCalls$0);
+	});
 	return class$;
 }
 $Class* Mode$$Lambda$lambda$compileTemplateCalls$0::class$ = nullptr;
-
-$FieldInfo _Mode_FieldInfo_[] = {
-	{"_name", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE | $FINAL, $field(Mode, _name)},
-	{"_stylesheet", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PRIVATE | $FINAL, $field(Mode, _stylesheet)},
-	{"_methodName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Mode, _methodName)},
-	{"_templates", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;>;", $PRIVATE, $field(Mode, _templates)},
-	{"_childNodeGroup", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern;>;", $PRIVATE, $field(Mode, _childNodeGroup)},
-	{"_childNodeTestSeq", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/TestSeq;", nullptr, $PRIVATE, $field(Mode, _childNodeTestSeq)},
-	{"_attribNodeGroup", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern;>;", $PRIVATE, $field(Mode, _attribNodeGroup)},
-	{"_attribNodeTestSeq", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/TestSeq;", nullptr, $PRIVATE, $field(Mode, _attribNodeTestSeq)},
-	{"_idxGroup", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern;>;", $PRIVATE, $field(Mode, _idxGroup)},
-	{"_idxTestSeq", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/TestSeq;", nullptr, $PRIVATE, $field(Mode, _idxTestSeq)},
-	{"_patternGroups", "[Ljava/util/List;", "[Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern;>;", $PRIVATE, $field(Mode, _patternGroups)},
-	{"_testSeq", "[Lcom/sun/org/apache/xalan/internal/xsltc/compiler/TestSeq;", nullptr, $PRIVATE, $field(Mode, _testSeq)},
-	{"_neededTemplates", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;Ljava/lang/Object;>;", $PRIVATE, $field(Mode, _neededTemplates)},
-	{"_namedTemplates", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Mode;>;", $PRIVATE, $field(Mode, _namedTemplates)},
-	{"_templateIHs", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;>;", $PRIVATE, $field(Mode, _templateIHs)},
-	{"_templateILs", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;>;", $PRIVATE, $field(Mode, _templateILs)},
-	{"_rootPattern", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern;", nullptr, $PRIVATE, $field(Mode, _rootPattern)},
-	{"_importLevels", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/Integer;>;", $PRIVATE, $field(Mode, _importLevels)},
-	{"_keys", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Key;>;", $PRIVATE, $field(Mode, _keys)},
-	{"_currentIndex", "I", nullptr, $PRIVATE, $field(Mode, _currentIndex)},
-	{}
-};
-
-$MethodInfo _Mode_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Mode, init$, void, $QName*, $Stylesheet*, $String*)},
-	{"addPattern", "(ILcom/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern;)V", nullptr, $PRIVATE, $method(Mode, addPattern, void, int32_t, $LocationPathPattern*)},
-	{"addPatternToGroup", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern;)V", nullptr, $PRIVATE, $method(Mode, addPatternToGroup, void, $LocationPathPattern*)},
-	{"addTemplate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;)V", nullptr, $PUBLIC, $method(Mode, addTemplate, void, $Template*)},
-	{"appendTemplateCode", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionList;)V", nullptr, $PRIVATE, $method(Mode, appendTemplateCode, void, $InstructionList*)},
-	{"appendTestSequences", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionList;)V", nullptr, $PRIVATE, $method(Mode, appendTestSequences, void, $InstructionList*)},
-	{"compileApplyImports", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;II)V", nullptr, $PUBLIC, $method(Mode, compileApplyImports, void, $ClassGenerator*, int32_t, int32_t)},
-	{"compileApplyTemplates", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;)V", nullptr, $PUBLIC, $method(Mode, compileApplyTemplates, void, $ClassGenerator*)},
-	{"compileDefaultRecursion", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Lcom/sun/org/apache/bcel/internal/generic/InstructionList;", nullptr, $PRIVATE, $method(Mode, compileDefaultRecursion, $InstructionList*, $ClassGenerator*, $MethodGenerator*, $InstructionHandle*)},
-	{"compileDefaultText", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Lcom/sun/org/apache/bcel/internal/generic/InstructionList;", nullptr, $PRIVATE, $method(Mode, compileDefaultText, $InstructionList*, $ClassGenerator*, $MethodGenerator*, $InstructionHandle*)},
-	{"compileGetChildren", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Mode, compileGetChildren, void, $ClassGenerator*, $MethodGenerator*, int32_t)},
-	{"compileNamedTemplate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;)V", nullptr, $PRIVATE, $method(Mode, compileNamedTemplate, void, $Template*, $ClassGenerator*)},
-	{"compileNamespaces", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;[Z[ZZLcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Lcom/sun/org/apache/bcel/internal/generic/InstructionList;", nullptr, $PRIVATE, $method(Mode, compileNamespaces, $InstructionList*, $ClassGenerator*, $MethodGenerator*, $booleans*, $booleans*, bool, $InstructionHandle*)},
-	{"compileTemplateCalls", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;II)V", nullptr, $PRIVATE, $method(Mode, compileTemplateCalls, void, $ClassGenerator*, $MethodGenerator*, $InstructionHandle*, int32_t, int32_t)},
-	{"compileTemplates", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PRIVATE, $method(Mode, compileTemplates, void, $ClassGenerator*, $MethodGenerator*, $InstructionHandle*)},
-	{"completeTestSequences", "(ILjava/util/List;)V", "(ILjava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern;>;)V", $PRIVATE, $method(Mode, completeTestSequences, void, int32_t, $List*)},
-	{"flattenAlternative", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Key;>;)V", $PRIVATE, $method(Mode, flattenAlternative, void, $Pattern*, $Template*, $Map*)},
-	{"functionName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Mode, functionName, $String*)},
-	{"functionName", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $method(Mode, functionName, $String*, int32_t, int32_t)},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Mode, getClassName, $String*)},
-	{"getStylesheet", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PUBLIC, $method(Mode, getStylesheet, $Stylesheet*)},
-	{"getTemplateInstructionHandle", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $method(Mode, getTemplateInstructionHandle, $InstructionHandle*, $Template*)},
-	{"isAttributeName", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Mode, isAttributeName, bool, $String*)},
-	{"isNamespaceName", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Mode, isNamespaceName, bool, $String*)},
-	{"lambda$compileTemplateCalls$0", "(IILcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Mode, lambda$compileTemplateCalls$0, void, int32_t, int32_t, $ClassGenerator*, $MethodGenerator*, $InstructionHandle*, $Template*)},
-	{"partition", "(Ljava/util/List;II)I", "(Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;>;II)I", $PRIVATE, $method(Mode, partition, int32_t, $List*, int32_t, int32_t)},
-	{"peepHoleOptimization", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PRIVATE, $method(Mode, peepHoleOptimization, void, $MethodGenerator*)},
-	{"prepareTestSequences", "()V", nullptr, $PRIVATE, $method(Mode, prepareTestSequences, void)},
-	{"processPatterns", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Key;>;)V", $PUBLIC, $method(Mode, processPatterns, void, $Map*)},
-	{"quicksort", "(Ljava/util/List;II)Ljava/util/List;", "(Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;>;II)Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;>;", $PRIVATE, $method(Mode, quicksort, $List*, $List*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _Mode_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Mode",
-	"java.lang.Object",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Constants",
-	_Mode_FieldInfo_,
-	_Mode_MethodInfo_
-};
-
-$Object* allocate$Mode($Class* clazz) {
-	return $of($alloc(Mode));
-}
 
 void Mode::init$($QName* name, $Stylesheet* stylesheet, $String* suffix) {
 	$set(this, _childNodeGroup, nullptr);
@@ -316,7 +235,7 @@ void Mode::init$($QName* name, $Stylesheet* stylesheet, $String* suffix) {
 	$init($Constants);
 	$set(this, _methodName, $str({$Constants::APPLY_TEMPLATES, suffix}));
 	$set(this, _templates, $new($ArrayList));
-	$set(this, _patternGroups, $fcast($ListArray, $new($ArrayListArray, 32)));
+	$set(this, _patternGroups, $cast($ListArray, $new($ArrayListArray, 32)));
 }
 
 $String* Mode::functionName() {
@@ -324,11 +243,11 @@ $String* Mode::functionName() {
 }
 
 $String* Mode::functionName(int32_t min, int32_t max) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->_importLevels == nullptr) {
 		$set(this, _importLevels, $new($HashMap));
 	}
-	$var($Object, var$0, $of($Integer::valueOf(max)));
+	$var($Object, var$0, $Integer::valueOf(max));
 	$nc(this->_importLevels)->put(var$0, $($Integer::valueOf(min)));
 	return $str({this->_methodName, $$str(u'_'), $$str(max)});
 }
@@ -355,17 +274,19 @@ $List* Mode::quicksort($List* templates, int32_t p, int32_t r) {
 }
 
 int32_t Mode::partition($List* templates, int32_t p, int32_t r) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Template, x, $cast($Template, $nc(templates)->get(p)));
 	int32_t i = p - 1;
 	int32_t j = r + 1;
 	while (true) {
 		while ($nc(x)->compareTo($(templates->get(--j))) > 0) {
+			;
 		}
-		while ($nc(x)->compareTo($(templates->get(++i))) < 0) {
+		while (x->compareTo($(templates->get(++i))) < 0) {
+			;
 		}
 		if (i < j) {
-			templates->set(j, $cast($Template, $(templates->set(i, $cast($Template, $(templates->get(j)))))));
+			templates->set(j, $$cast($Template, templates->set(i, $$cast($Template, templates->get(j)))));
 		} else {
 			return j;
 		}
@@ -373,7 +294,7 @@ int32_t Mode::partition($List* templates, int32_t p, int32_t r) {
 }
 
 void Mode::processPatterns($Map* keys) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, _keys, keys);
 	$set(this, _templates, quicksort(this->_templates, 0, $nc(this->_templates)->size() - 1));
 	{
@@ -385,7 +306,7 @@ void Mode::processPatterns($Map* keys) {
 				if (var$0 && !template$->disabled()) {
 					$nc(this->_namedTemplates)->put(template$, this);
 				}
-				$var($Pattern, pattern, $nc(template$)->getPattern());
+				$var($Pattern, pattern, template$->getPattern());
 				if (pattern != nullptr) {
 					flattenAlternative(pattern, template$, keys);
 				}
@@ -396,21 +317,21 @@ void Mode::processPatterns($Map* keys) {
 }
 
 void Mode::flattenAlternative($Pattern* pattern, $Template* template$, $Map* keys) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($IdKeyPattern, pattern)) {
 		$var($IdKeyPattern, idkey, $cast($IdKeyPattern, pattern));
-		$nc(idkey)->setTemplate(template$);
+		idkey->setTemplate(template$);
 		if (this->_idxGroup == nullptr) {
 			$set(this, _idxGroup, $new($ArrayList));
 		}
 		$nc(this->_idxGroup)->add($cast($IdKeyPattern, pattern));
 	} else if ($instanceOf($AlternativePattern, pattern)) {
 		$var($AlternativePattern, alt, $cast($AlternativePattern, pattern));
-		flattenAlternative($($nc(alt)->getLeft()), template$, keys);
-		flattenAlternative($($nc(alt)->getRight()), template$, keys);
+		flattenAlternative($(alt->getLeft()), template$, keys);
+		flattenAlternative($(alt->getRight()), template$, keys);
 	} else if ($instanceOf($LocationPathPattern, pattern)) {
 		$var($LocationPathPattern, lpp, $cast($LocationPathPattern, pattern));
-		$nc(lpp)->setTemplate(template$);
+		lpp->setTemplate(template$);
 		addPatternToGroup(lpp);
 	}
 }
@@ -429,10 +350,10 @@ void Mode::addPatternToGroup($LocationPathPattern* lpp) {
 }
 
 void Mode::addPattern(int32_t kernelType, $LocationPathPattern* pattern) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t oldLength = $nc(this->_patternGroups)->length;
 	if (kernelType >= oldLength) {
-		$var($ListArray, newGroups, $fcast($ListArray, $new($ArrayListArray, kernelType * 2)));
+		$var($ListArray, newGroups, $cast($ListArray, $new($ArrayListArray, kernelType * 2)));
 		$System::arraycopy(this->_patternGroups, 0, newGroups, 0, oldLength);
 		$set(this, _patternGroups, newGroups);
 	}
@@ -444,7 +365,7 @@ void Mode::addPattern(int32_t kernelType, $LocationPathPattern* pattern) {
 			$assign(patterns, (this->_childNodeGroup == nullptr) ? ($set(this, _childNodeGroup, $new($ArrayList, 2))) : this->_childNodeGroup);
 		}
 	} else {
-		$assign(patterns, ($nc(this->_patternGroups)->get(kernelType) == nullptr) ? ($nc(this->_patternGroups)->set(kernelType, $$new($ArrayList, 2))) : $nc(this->_patternGroups)->get(kernelType));
+		$assign(patterns, ($nc(this->_patternGroups)->get(kernelType) == nullptr) ? (this->_patternGroups->set(kernelType, $$new($ArrayList, 2))) : this->_patternGroups->get(kernelType));
 	}
 	if ($nc(patterns)->size() == 0) {
 		patterns->add(pattern);
@@ -465,29 +386,29 @@ void Mode::addPattern(int32_t kernelType, $LocationPathPattern* pattern) {
 }
 
 void Mode::completeTestSequences(int32_t nodeType, $List* patterns) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (patterns != nullptr) {
 		if ($nc(this->_patternGroups)->get(nodeType) == nullptr) {
-			$nc(this->_patternGroups)->set(nodeType, patterns);
+			this->_patternGroups->set(nodeType, patterns);
 		} else {
 			int32_t m = patterns->size();
 			for (int32_t j = 0; j < m; ++j) {
-				addPattern(nodeType, $cast($LocationPathPattern, $(patterns->get(j))));
+				addPattern(nodeType, $$cast($LocationPathPattern, patterns->get(j)));
 			}
 		}
 	}
 }
 
 void Mode::prepareTestSequences() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, starGroup, $nc(this->_patternGroups)->get($DTM::ELEMENT_NODE));
-	$var($List, atStarGroup, $nc(this->_patternGroups)->get($DTM::ATTRIBUTE_NODE));
+	$var($List, atStarGroup, this->_patternGroups->get($DTM::ATTRIBUTE_NODE));
 	completeTestSequences($DTM::TEXT_NODE, this->_childNodeGroup);
 	completeTestSequences($DTM::ELEMENT_NODE, this->_childNodeGroup);
 	completeTestSequences($DTM::PROCESSING_INSTRUCTION_NODE, this->_childNodeGroup);
 	completeTestSequences($DTM::COMMENT_NODE, this->_childNodeGroup);
 	completeTestSequences($DTM::ATTRIBUTE_NODE, this->_attribNodeGroup);
-	$var($List, names, $nc($($nc(this->_stylesheet)->getXSLTC()))->getNamesIndex());
+	$var($List, names, $$nc($nc(this->_stylesheet)->getXSLTC())->getNamesIndex());
 	if (starGroup != nullptr || atStarGroup != nullptr || this->_childNodeGroup != nullptr || this->_attribNodeGroup != nullptr) {
 		int32_t n = $nc(this->_patternGroups)->length;
 		for (int32_t i = $DTM::NTYPES; i < n; ++i) {
@@ -515,28 +436,28 @@ void Mode::prepareTestSequences() {
 			testSeq->findTemplates(this->_neededTemplates);
 		}
 	}
-	if (this->_childNodeGroup != nullptr && $nc(this->_childNodeGroup)->size() > 0) {
+	if (this->_childNodeGroup != nullptr && this->_childNodeGroup->size() > 0) {
 		$set(this, _childNodeTestSeq, $new($TestSeq, this->_childNodeGroup, -1, this));
-		$nc(this->_childNodeTestSeq)->reduce();
+		this->_childNodeTestSeq->reduce();
 		$nc(this->_childNodeTestSeq)->findTemplates(this->_neededTemplates);
 	}
-	if (this->_idxGroup != nullptr && $nc(this->_idxGroup)->size() > 0) {
+	if (this->_idxGroup != nullptr && this->_idxGroup->size() > 0) {
 		$set(this, _idxTestSeq, $new($TestSeq, this->_idxGroup, this));
-		$nc(this->_idxTestSeq)->reduce();
+		this->_idxTestSeq->reduce();
 		$nc(this->_idxTestSeq)->findTemplates(this->_neededTemplates);
 	}
 	if (this->_rootPattern != nullptr) {
-		$nc(this->_neededTemplates)->put($($nc(this->_rootPattern)->getTemplate()), this);
+		$nc(this->_neededTemplates)->put($(this->_rootPattern->getTemplate()), this);
 	}
 }
 
 void Mode::compileNamedTemplate($Template* template$, $ClassGenerator* classGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $new($InstructionList));
-	$var($String, methodName, $Util::escape($($nc($($nc(template$)->getName()))->toString())));
+	$var($String, methodName, $Util::escape($($$nc($nc(template$)->getName())->toString())));
 	int32_t numParams = 0;
-	if ($nc(template$)->isSimpleNamedTemplate()) {
+	if (template$->isSimpleNamedTemplate()) {
 		$var($List, parameters, template$->getParameters());
 		numParams = $nc(parameters)->size();
 	}
@@ -546,7 +467,6 @@ void Mode::compileNamedTemplate($Template* template$, $ClassGenerator* classGen)
 	types->set(0, $($Util::getJCRefType($Constants::DOM_INTF_SIG)));
 	types->set(1, $($Util::getJCRefType($Constants::NODE_ITERATOR_SIG)));
 	types->set(2, $($Util::getJCRefType($Constants::TRANSLET_OUTPUT_SIG)));
-	$init($Type);
 	types->set(3, $Type::INT);
 	names->set(0, $Constants::DOCUMENT_PNAME);
 	names->set(1, $Constants::ITERATOR_PNAME);
@@ -557,13 +477,13 @@ void Mode::compileNamedTemplate($Template* template$, $ClassGenerator* classGen)
 		names->set(i, $$str({"param"_s, $($String::valueOf(i - 4))}));
 	}
 	$var($NamedMethodGenerator, methodGen, $new($NamedMethodGenerator, $Constants::ACC_PUBLIC, $Type::VOID, types, names, methodName, $(getClassName()), il, cpg));
-	il->append($($nc(template$)->compile(classGen, methodGen)));
-	il->append(static_cast<$Instruction*>($Constants::RETURN));
-	classGen->addMethod(static_cast<$MethodGenerator*>(methodGen));
+	il->append($(template$->compile(classGen, methodGen)));
+	il->append($Constants::RETURN);
+	classGen->addMethod(methodGen);
 }
 
 void Mode::compileTemplates($ClassGenerator* classGen, $MethodGenerator* methodGen, $InstructionHandle* next) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, templates, $nc(this->_namedTemplates)->keySet());
 	{
 		$var($Iterator, i$, $nc(templates)->iterator());
@@ -576,41 +496,37 @@ void Mode::compileTemplates($ClassGenerator* classGen, $MethodGenerator* methodG
 	}
 	$assign(templates, $nc(this->_neededTemplates)->keySet());
 	{
-		$var($Iterator, i$, templates->iterator());
+		$var($Iterator, i$, $nc(templates)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Template, template$, $cast($Template, i$->next()));
-			{
-				if ($nc(template$)->hasContents()) {
-					$var($InstructionList, til, template$->compile(classGen, methodGen));
-					$nc(til)->append(static_cast<$BranchInstruction*>($$new($GOTO_W, next)));
-					$nc(this->_templateILs)->put(template$, til);
-					$nc(this->_templateIHs)->put(template$, $(til->getStart()));
-				} else {
-					$nc(this->_templateIHs)->put(template$, next);
-				}
+			if ($nc(template$)->hasContents()) {
+				$var($InstructionList, til, template$->compile(classGen, methodGen));
+				$nc(til)->append($$new($GOTO_W, next));
+				$nc(this->_templateILs)->put(template$, til);
+				$nc(this->_templateIHs)->put(template$, $(til->getStart()));
+			} else {
+				$nc(this->_templateIHs)->put(template$, next);
 			}
 		}
 	}
 }
 
 void Mode::appendTemplateCode($InstructionList* body) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($($nc(this->_neededTemplates)->keySet()))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Template, template$, $cast($Template, i$->next()));
-			{
-				$var($InstructionList, iList, $cast($InstructionList, $nc(this->_templateILs)->get(template$)));
-				if (iList != nullptr) {
-					$nc(body)->append(iList);
-				}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$nc($nc(this->_neededTemplates)->keySet())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Template, template$, $cast($Template, i$->next()));
+		{
+			$var($InstructionList, iList, $cast($InstructionList, $nc(this->_templateILs)->get(template$)));
+			if (iList != nullptr) {
+				$nc(body)->append(iList);
 			}
 		}
 	}
 }
 
 void Mode::appendTestSequences($InstructionList* body) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = $nc(this->_testSeq)->length;
 	for (int32_t i = 0; i < n; ++i) {
 		$var($TestSeq, testSeq, $nc(this->_testSeq)->get(i));
@@ -625,18 +541,18 @@ void Mode::appendTestSequences($InstructionList* body) {
 
 void Mode::compileGetChildren($ClassGenerator* classGen, $MethodGenerator* methodGen, int32_t node) {
 	$init(Mode);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	$init($Constants);
 	int32_t git = $nc(cpg)->addInterfaceMethodref($Constants::DOM_INTF, $Constants::GET_CHILDREN, $Constants::GET_CHILDREN_SIG);
 	$nc(il)->append($(methodGen->loadDOM()));
-	il->append(static_cast<$Instruction*>($$new($ILOAD, node)));
-	il->append(static_cast<$Instruction*>($$new($INVOKEINTERFACE, git, 2)));
+	il->append($$new($ILOAD, node));
+	il->append($$new($INVOKEINTERFACE, git, 2));
 }
 
 $InstructionList* Mode::compileDefaultRecursion($ClassGenerator* classGen, $MethodGenerator* methodGen, $InstructionHandle* next) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $new($InstructionList));
 	$var($String, applyTemplatesSig, classGen->getApplyTemplatesSig());
@@ -646,32 +562,32 @@ $InstructionList* Mode::compileDefaultRecursion($ClassGenerator* classGen, $Meth
 	int32_t applyTemplates = cpg->addMethodref(var$0, $(functionName()), applyTemplatesSig);
 	il->append($(classGen->loadTranslet()));
 	il->append($($nc(methodGen)->loadDOM()));
-	il->append($($nc(methodGen)->loadDOM()));
-	il->append(static_cast<$Instruction*>($$new($ILOAD, this->_currentIndex)));
-	il->append(static_cast<$Instruction*>($$new($INVOKEINTERFACE, git, 2)));
-	il->append($($nc(methodGen)->loadHandler()));
-	il->append(static_cast<$Instruction*>($$new($INVOKEVIRTUAL, applyTemplates)));
-	il->append(static_cast<$BranchInstruction*>($$new($GOTO_W, next)));
+	il->append($(methodGen->loadDOM()));
+	il->append($$new($ILOAD, this->_currentIndex));
+	il->append($$new($INVOKEINTERFACE, git, 2));
+	il->append($(methodGen->loadHandler()));
+	il->append($$new($INVOKEVIRTUAL, applyTemplates));
+	il->append($$new($GOTO_W, next));
 	return il;
 }
 
 $InstructionList* Mode::compileDefaultText($ClassGenerator* classGen, $MethodGenerator* methodGen, $InstructionHandle* next) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $new($InstructionList));
 	$init($Constants);
 	int32_t chars = $nc(cpg)->addInterfaceMethodref($Constants::DOM_INTF, $Constants::CHARACTERS, $Constants::CHARACTERS_SIG);
 	il->append($($nc(methodGen)->loadDOM()));
-	il->append(static_cast<$Instruction*>($$new($ILOAD, this->_currentIndex)));
-	il->append($($nc(methodGen)->loadHandler()));
-	il->append(static_cast<$Instruction*>($$new($INVOKEINTERFACE, chars, 3)));
-	il->append(static_cast<$BranchInstruction*>($$new($GOTO_W, next)));
+	il->append($$new($ILOAD, this->_currentIndex));
+	il->append($(methodGen->loadHandler()));
+	il->append($$new($INVOKEINTERFACE, chars, 3));
+	il->append($$new($GOTO_W, next));
 	return il;
 }
 
 $InstructionList* Mode::compileNamespaces($ClassGenerator* classGen, $MethodGenerator* methodGen, $booleans* isNamespace, $booleans* isAttribute, bool attrFlag, $InstructionHandle* defaultTarget) {
-	$useLocalCurrentObjectStackCache();
-	$var($XSLTC, xsltc, $nc($($nc(classGen)->getParser()))->getXSLTC());
+	$useLocalObjectStack();
+	$var($XSLTC, xsltc, $$nc($nc(classGen)->getParser())->getXSLTC());
 	$var($ConstantPoolGen, cpg, classGen->getConstantPool());
 	$var($List, namespaces, $nc(xsltc)->getNamespaceIndex());
 	$var($List, names, xsltc->getNamesIndex());
@@ -689,10 +605,10 @@ $InstructionList* Mode::compileNamespaces($ClassGenerator* classGen, $MethodGene
 		for (int32_t i = $DTM::NTYPES; i < ($DTM::NTYPES + namesCount); ++i) {
 			if (($nc(isNamespace)->get(i)) && ($nc(isAttribute)->get(i) == attrFlag)) {
 				$var($String, name, $cast($String, names->get(i - $DTM::NTYPES)));
-				$var($String, namespace$, $nc(name)->substring(0, name->lastIndexOf((int32_t)u':')));
+				$var($String, namespace$, $nc(name)->substring(0, $nc(name)->lastIndexOf(u':')));
 				int32_t type = xsltc->registerNamespace(namespace$);
-				if ((i < $nc(this->_testSeq)->length) && ($nc(this->_testSeq)->get(i) != nullptr)) {
-					targets->set(type, $($nc(($nc(this->_testSeq)->get(i)))->compile(classGen, methodGen, defaultTarget)));
+				if ((i < $nc(this->_testSeq)->length) && (this->_testSeq->get(i) != nullptr)) {
+					targets->set(type, $($nc((this->_testSeq->get(i)))->compile(classGen, methodGen, defaultTarget)));
 					compiled = true;
 				}
 			}
@@ -703,9 +619,9 @@ $InstructionList* Mode::compileNamespaces($ClassGenerator* classGen, $MethodGene
 		$init($Constants);
 		int32_t getNS = $nc(cpg)->addInterfaceMethodref($Constants::DOM_INTF, "getNamespaceType"_s, "(I)I"_s);
 		il->append($($nc(methodGen)->loadDOM()));
-		il->append(static_cast<$Instruction*>($$new($ILOAD, this->_currentIndex)));
-		il->append(static_cast<$Instruction*>($$new($INVOKEINTERFACE, getNS, 2)));
-		il->append(static_cast<$CompoundInstruction*>($$new($SWITCH, types, targets, defaultTarget)));
+		il->append($$new($ILOAD, this->_currentIndex));
+		il->append($$new($INVOKEINTERFACE, getNS, 2));
+		il->append($$new($SWITCH, types, targets, defaultTarget));
 		return (il);
 	} else {
 		return (nullptr);
@@ -713,8 +629,8 @@ $InstructionList* Mode::compileNamespaces($ClassGenerator* classGen, $MethodGene
 }
 
 void Mode::compileApplyTemplates($ClassGenerator* classGen) {
-	$useLocalCurrentObjectStackCache();
-	$var($XSLTC, xsltc, $nc($($nc(classGen)->getParser()))->getXSLTC());
+	$useLocalObjectStack();
+	$var($XSLTC, xsltc, $$nc($nc(classGen)->getParser())->getXSLTC());
 	$var($ConstantPoolGen, cpg, classGen->getConstantPool());
 	$var($List, names, $nc(xsltc)->getNamesIndex());
 	$var($TypeArray, argTypes, $new($TypeArray, 3));
@@ -727,15 +643,10 @@ void Mode::compileApplyTemplates($ClassGenerator* classGen) {
 	argNames->set(1, $Constants::ITERATOR_PNAME);
 	argNames->set(2, $Constants::TRANSLET_OUTPUT_PNAME);
 	$var($InstructionList, mainIL, $new($InstructionList));
-	int32_t var$0 = $Constants::ACC_PUBLIC | $Constants::ACC_FINAL;
-	$init($Type);
-	$var($Type, var$1, static_cast<$Type*>($Type::VOID));
-	$var($TypeArray, var$2, argTypes);
-	$var($StringArray, var$3, argNames);
-	$var($String, var$4, functionName());
-	$var($String, var$5, getClassName());
-	$var($InstructionList, var$6, mainIL);
-	$var($MethodGenerator, methodGen, $new($MethodGenerator, var$0, var$1, var$2, var$3, var$4, var$5, var$6, $(classGen->getConstantPool())));
+	$var($Type, var$0, $Type::VOID);
+	$var($String, var$1, functionName());
+	$var($String, var$2, getClassName());
+	$var($MethodGenerator, methodGen, $new($MethodGenerator, $Constants::ACC_PUBLIC | $Constants::ACC_FINAL, var$0, argTypes, argNames, var$1, var$2, mainIL, $(classGen->getConstantPool())));
 	methodGen->addException("com.sun.org.apache.xalan.internal.xsltc.TransletException"_s);
 	mainIL->append($Constants::NOP);
 	$var($LocalVariableGen, current, nullptr);
@@ -746,13 +657,13 @@ void Mode::compileApplyTemplates($ClassGenerator* classGen) {
 	$var($InstructionList, ilLoop, $new($InstructionList));
 	ilLoop->append($(methodGen->loadIterator()));
 	ilLoop->append($(methodGen->nextNode()));
-	ilLoop->append(static_cast<$Instruction*>($Constants::DUP));
-	ilLoop->append(static_cast<$Instruction*>($$new($ISTORE, this->_currentIndex)));
-	$var($BranchHandle, ifeq, ilLoop->append(static_cast<$BranchInstruction*>($$new($IFLT, nullptr))));
-	$var($BranchHandle, loop, ilLoop->append(static_cast<$BranchInstruction*>($$new($GOTO_W, nullptr))));
-	$nc(ifeq)->setTarget($(ilLoop->append(static_cast<$Instruction*>($Constants::RETURN))));
+	ilLoop->append($Constants::DUP);
+	ilLoop->append($$new($ISTORE, this->_currentIndex));
+	$var($BranchHandle, ifeq, ilLoop->append($$new($IFLT, nullptr)));
+	$var($BranchHandle, loop, ilLoop->append($$new($GOTO_W, nullptr)));
+	$nc(ifeq)->setTarget($(ilLoop->append($Constants::RETURN)));
 	$var($InstructionHandle, ihLoop, ilLoop->getStart());
-	current->setStart($(mainIL->append(static_cast<$BranchInstruction*>($$new($GOTO_W, ihLoop)))));
+	current->setStart($(mainIL->append($$new($GOTO_W, ihLoop))));
 	current->setEnd(loop);
 	$var($InstructionList, ilRecurse, compileDefaultRecursion(classGen, methodGen, ihLoop));
 	$var($InstructionHandle, ihRecurse, $nc(ilRecurse)->getStart());
@@ -782,15 +693,14 @@ void Mode::compileApplyTemplates($ClassGenerator* classGen) {
 	}
 	$var($InstructionList, ilKey, nullptr);
 	if (this->_idxTestSeq != nullptr) {
-		$nc(loop)->setTarget($($nc(this->_idxTestSeq)->compile(classGen, methodGen, $(body->getStart()))));
+		$nc(loop)->setTarget($(this->_idxTestSeq->compile(classGen, methodGen, $(body->getStart()))));
 		$assign(ilKey, $nc(this->_idxTestSeq)->getInstructionList());
 	} else {
 		$nc(loop)->setTarget($(body->getStart()));
 	}
 	if (this->_childNodeTestSeq != nullptr) {
-		double nodePrio = $nc(this->_childNodeTestSeq)->getPriority();
+		double nodePrio = this->_childNodeTestSeq->getPriority();
 		int32_t nodePos = $nc(this->_childNodeTestSeq)->getPosition();
-		$init($Double);
 		double elemPrio = (0 - $Double::MAX_VALUE);
 		int32_t elemPos = $Integer::MIN_VALUE;
 		if (elemTest != nullptr) {
@@ -841,9 +751,9 @@ void Mode::compileApplyTemplates($ClassGenerator* classGen) {
 			targets->set(i, ihLoop);
 		}
 	}
-	targets->set($DTM::ROOT_NODE, this->_rootPattern != nullptr ? $(getTemplateInstructionHandle($($nc(this->_rootPattern)->getTemplate()))) : ihRecurse);
-	targets->set($DTM::DOCUMENT_NODE, this->_rootPattern != nullptr ? $(getTemplateInstructionHandle($($nc(this->_rootPattern)->getTemplate()))) : ihRecurse);
-	targets->set($DTM::TEXT_NODE, $nc(this->_testSeq)->get($DTM::TEXT_NODE) != nullptr ? $($nc($nc(this->_testSeq)->get($DTM::TEXT_NODE))->compile(classGen, methodGen, ihText)) : ihText);
+	targets->set($DTM::ROOT_NODE, this->_rootPattern != nullptr ? $(getTemplateInstructionHandle($(this->_rootPattern->getTemplate()))) : ihRecurse);
+	targets->set($DTM::DOCUMENT_NODE, this->_rootPattern != nullptr ? $(getTemplateInstructionHandle($(this->_rootPattern->getTemplate()))) : ihRecurse);
+	targets->set($DTM::TEXT_NODE, $nc(this->_testSeq)->get($DTM::TEXT_NODE) != nullptr ? $($nc(this->_testSeq->get($DTM::TEXT_NODE))->compile(classGen, methodGen, ihText)) : ihText);
 	targets->set($DTM::NAMESPACE_NODE, ihLoop);
 	targets->set($DTM::ELEMENT_NODE, elemNamespaceHandle);
 	targets->set($DTM::ATTRIBUTE_NODE, attrNamespaceHandle);
@@ -852,7 +762,7 @@ void Mode::compileApplyTemplates($ClassGenerator* classGen) {
 		$assign(ihPI, ihElem);
 	}
 	if ($nc(this->_testSeq)->get($DTM::PROCESSING_INSTRUCTION_NODE) != nullptr) {
-		targets->set($DTM::PROCESSING_INSTRUCTION_NODE, $($nc($nc(this->_testSeq)->get($DTM::PROCESSING_INSTRUCTION_NODE))->compile(classGen, methodGen, ihPI)));
+		targets->set($DTM::PROCESSING_INSTRUCTION_NODE, $($nc(this->_testSeq->get($DTM::PROCESSING_INSTRUCTION_NODE))->compile(classGen, methodGen, ihPI)));
 	} else {
 		targets->set($DTM::PROCESSING_INSTRUCTION_NODE, ihPI);
 	}
@@ -860,7 +770,7 @@ void Mode::compileApplyTemplates($ClassGenerator* classGen) {
 	if (this->_childNodeTestSeq != nullptr) {
 		$assign(ihComment, ihElem);
 	}
-	targets->set($DTM::COMMENT_NODE, $nc(this->_testSeq)->get($DTM::COMMENT_NODE) != nullptr ? $($nc($nc(this->_testSeq)->get($DTM::COMMENT_NODE))->compile(classGen, methodGen, ihComment)) : ihComment);
+	targets->set($DTM::COMMENT_NODE, $nc(this->_testSeq)->get($DTM::COMMENT_NODE) != nullptr ? $($nc(this->_testSeq->get($DTM::COMMENT_NODE))->compile(classGen, methodGen, ihComment)) : ihComment);
 	targets->set($DTM::CDATA_SECTION_NODE, ihLoop);
 	targets->set($DTM::DOCUMENT_FRAGMENT_NODE, ihLoop);
 	targets->set($DTM::DOCUMENT_TYPE_NODE, ihLoop);
@@ -876,9 +786,9 @@ void Mode::compileApplyTemplates($ClassGenerator* classGen) {
 				targets->set(i, elemNamespaceHandle);
 			}
 		} else if (isAttribute->get(i)) {
-			targets->set(i, $($nc(testSeq)->compile(classGen, methodGen, attrNamespaceHandle)));
+			targets->set(i, $(testSeq->compile(classGen, methodGen, attrNamespaceHandle)));
 		} else {
-			targets->set(i, $($nc(testSeq)->compile(classGen, methodGen, elemNamespaceHandle)));
+			targets->set(i, $(testSeq->compile(classGen, methodGen, elemNamespaceHandle)));
 		}
 	}
 	if (ilKey != nullptr) {
@@ -886,9 +796,9 @@ void Mode::compileApplyTemplates($ClassGenerator* classGen) {
 	}
 	int32_t getType = $nc(cpg)->addInterfaceMethodref($Constants::DOM_INTF, "getExpandedTypeID"_s, "(I)I"_s);
 	body->append($(methodGen->loadDOM()));
-	body->append(static_cast<$Instruction*>($$new($ILOAD, this->_currentIndex)));
-	body->append(static_cast<$Instruction*>($$new($INVOKEINTERFACE, getType, 2)));
-	$var($InstructionHandle, disp, body->append(static_cast<$CompoundInstruction*>($$new($SWITCH, types, targets, ihLoop))));
+	body->append($$new($ILOAD, this->_currentIndex));
+	body->append($$new($INVOKEINTERFACE, getType, 2));
+	$var($InstructionHandle, disp, body->append($$new($SWITCH, types, targets, ihLoop)));
 	appendTestSequences(body);
 	appendTemplateCode(body);
 	if (nsElem != nullptr) {
@@ -904,35 +814,32 @@ void Mode::compileApplyTemplates($ClassGenerator* classGen) {
 	peepHoleOptimization(methodGen);
 	classGen->addMethod(methodGen);
 	if (this->_importLevels != nullptr) {
-		{
-			$var($Iterator, i$, $nc($($nc(this->_importLevels)->entrySet()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
-				{
-					$var($ClassGenerator, var$7, classGen);
-					int32_t var$8 = $nc(($cast($Integer, $($nc(entry)->getValue()))))->intValue();
-					compileApplyImports(var$7, var$8, $nc(($cast($Integer, $(entry->getKey()))))->intValue());
-				}
+		$var($Iterator, i$, $$nc(this->_importLevels->entrySet())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
+			{
+				int32_t var$3 = $$sure($Integer, $nc(entry)->getValue())->intValue();
+				compileApplyImports(classGen, var$3, $$sure($Integer, entry->getKey())->intValue());
 			}
 		}
 	}
 }
 
 void Mode::compileTemplateCalls($ClassGenerator* classGen, $MethodGenerator* methodGen, $InstructionHandle* next, int32_t min, int32_t max) {
-	$useLocalCurrentObjectStackCache();
-	$nc($($nc($($nc(this->_neededTemplates)->keySet()))->stream()))->forEach(static_cast<$Consumer*>($$new(Mode$$Lambda$lambda$compileTemplateCalls$0, this, min, max, classGen, methodGen, next)));
+	$useLocalObjectStack();
+	$$nc($$nc($nc(this->_neededTemplates)->keySet())->stream())->forEach($$new(Mode$$Lambda$lambda$compileTemplateCalls$0, this, min, max, classGen, methodGen, next));
 }
 
 void Mode::compileApplyImports($ClassGenerator* classGen, int32_t min, int32_t max) {
-	$useLocalCurrentObjectStackCache();
-	$var($XSLTC, xsltc, $nc($($nc(classGen)->getParser()))->getXSLTC());
+	$useLocalObjectStack();
+	$var($XSLTC, xsltc, $$nc($nc(classGen)->getParser())->getXSLTC());
 	$var($ConstantPoolGen, cpg, classGen->getConstantPool());
 	$var($List, names, $nc(xsltc)->getNamesIndex());
 	$set(this, _namedTemplates, $new($HashMap));
 	$set(this, _neededTemplates, $new($HashMap));
 	$set(this, _templateIHs, $new($HashMap));
 	$set(this, _templateILs, $new($HashMap));
-	$set(this, _patternGroups, $fcast($ListArray, $new($ArrayListArray, 32)));
+	$set(this, _patternGroups, $cast($ListArray, $new($ArrayListArray, 32)));
 	$set(this, _rootPattern, nullptr);
 	$var($List, oldTemplates, this->_templates);
 	$set(this, _templates, $new($ArrayList));
@@ -954,7 +861,6 @@ void Mode::compileApplyImports($ClassGenerator* classGen, int32_t min, int32_t m
 	argTypes->set(0, $($Util::getJCRefType($Constants::DOM_INTF_SIG)));
 	argTypes->set(1, $($Util::getJCRefType($Constants::NODE_ITERATOR_SIG)));
 	argTypes->set(2, $($Util::getJCRefType($Constants::TRANSLET_OUTPUT_SIG)));
-	$init($Type);
 	argTypes->set(3, $Type::INT);
 	$var($StringArray, argNames, $new($StringArray, 4));
 	argNames->set(0, $Constants::DOCUMENT_PNAME);
@@ -962,24 +868,20 @@ void Mode::compileApplyImports($ClassGenerator* classGen, int32_t min, int32_t m
 	argNames->set(2, $Constants::TRANSLET_OUTPUT_PNAME);
 	argNames->set(3, $Constants::NODE_PNAME);
 	$var($InstructionList, mainIL, $new($InstructionList));
-	int32_t var$0 = $Constants::ACC_PUBLIC | $Constants::ACC_FINAL;
-	$var($Type, var$1, static_cast<$Type*>($Type::VOID));
-	$var($TypeArray, var$2, argTypes);
-	$var($StringArray, var$3, argNames);
-	$var($String, var$4, $str({$(functionName()), $$str(u'_'), $$str(max)}));
-	$var($String, var$5, getClassName());
-	$var($InstructionList, var$6, mainIL);
-	$var($MethodGenerator, methodGen, $new($MethodGenerator, var$0, var$1, var$2, var$3, var$4, var$5, var$6, $(classGen->getConstantPool())));
+	$var($Type, var$0, $Type::VOID);
+	$var($String, var$1, $str({$(functionName()), $$str(u'_'), $$str(max)}));
+	$var($String, var$2, getClassName());
+	$var($MethodGenerator, methodGen, $new($MethodGenerator, $Constants::ACC_PUBLIC | $Constants::ACC_FINAL, var$0, argTypes, argNames, var$1, var$2, mainIL, $(classGen->getConstantPool())));
 	methodGen->addException("com.sun.org.apache.xalan.internal.xsltc.TransletException"_s);
 	$var($LocalVariableGen, current, nullptr);
 	$assign(current, methodGen->addLocalVariable2("current"_s, $Type::INT, nullptr));
 	this->_currentIndex = $nc(current)->getIndex();
-	mainIL->append(static_cast<$Instruction*>($$new($ILOAD, methodGen->getLocalIndex($Constants::NODE_PNAME))));
-	current->setStart($(mainIL->append(static_cast<$Instruction*>($$new($ISTORE, this->_currentIndex)))));
+	mainIL->append($$new($ILOAD, methodGen->getLocalIndex($Constants::NODE_PNAME)));
+	current->setStart($(mainIL->append($$new($ISTORE, this->_currentIndex))));
 	$var($InstructionList, body, $new($InstructionList));
 	body->append($Constants::NOP);
 	$var($InstructionList, ilLoop, $new($InstructionList));
-	ilLoop->append(static_cast<$Instruction*>($Constants::RETURN));
+	ilLoop->append($Constants::RETURN);
 	$var($InstructionHandle, ihLoop, ilLoop->getStart());
 	$var($InstructionList, ilRecurse, compileDefaultRecursion(classGen, methodGen, ihLoop));
 	$var($InstructionHandle, ihRecurse, $nc(ilRecurse)->getStart());
@@ -1009,12 +911,11 @@ void Mode::compileApplyImports($ClassGenerator* classGen, int32_t min, int32_t m
 	}
 	$var($InstructionList, ilKey, nullptr);
 	if (this->_idxTestSeq != nullptr) {
-		$assign(ilKey, $nc(this->_idxTestSeq)->getInstructionList());
+		$assign(ilKey, this->_idxTestSeq->getInstructionList());
 	}
 	if (this->_childNodeTestSeq != nullptr) {
-		double nodePrio = $nc(this->_childNodeTestSeq)->getPriority();
+		double nodePrio = this->_childNodeTestSeq->getPriority();
 		int32_t nodePos = $nc(this->_childNodeTestSeq)->getPosition();
-		$init($Double);
 		double elemPrio = (0 - $Double::MAX_VALUE);
 		int32_t elemPos = $Integer::MIN_VALUE;
 		if (elemTest != nullptr) {
@@ -1065,9 +966,9 @@ void Mode::compileApplyImports($ClassGenerator* classGen, int32_t min, int32_t m
 			targets->set(i, ihLoop);
 		}
 	}
-	targets->set($DTM::ROOT_NODE, this->_rootPattern != nullptr ? $(getTemplateInstructionHandle($($nc(this->_rootPattern)->getTemplate()))) : ihRecurse);
-	targets->set($DTM::DOCUMENT_NODE, this->_rootPattern != nullptr ? $(getTemplateInstructionHandle($($nc(this->_rootPattern)->getTemplate()))) : ihRecurse);
-	targets->set($DTM::TEXT_NODE, $nc(this->_testSeq)->get($DTM::TEXT_NODE) != nullptr ? $($nc($nc(this->_testSeq)->get($DTM::TEXT_NODE))->compile(classGen, methodGen, ihText)) : ihText);
+	targets->set($DTM::ROOT_NODE, this->_rootPattern != nullptr ? $(getTemplateInstructionHandle($(this->_rootPattern->getTemplate()))) : ihRecurse);
+	targets->set($DTM::DOCUMENT_NODE, this->_rootPattern != nullptr ? $(getTemplateInstructionHandle($(this->_rootPattern->getTemplate()))) : ihRecurse);
+	targets->set($DTM::TEXT_NODE, $nc(this->_testSeq)->get($DTM::TEXT_NODE) != nullptr ? $($nc(this->_testSeq->get($DTM::TEXT_NODE))->compile(classGen, methodGen, ihText)) : ihText);
 	targets->set($DTM::NAMESPACE_NODE, ihLoop);
 	targets->set($DTM::ELEMENT_NODE, elemNamespaceHandle);
 	targets->set($DTM::ATTRIBUTE_NODE, attrNamespaceHandle);
@@ -1076,7 +977,7 @@ void Mode::compileApplyImports($ClassGenerator* classGen, int32_t min, int32_t m
 		$assign(ihPI, ihElem);
 	}
 	if ($nc(this->_testSeq)->get($DTM::PROCESSING_INSTRUCTION_NODE) != nullptr) {
-		targets->set($DTM::PROCESSING_INSTRUCTION_NODE, $($nc($nc(this->_testSeq)->get($DTM::PROCESSING_INSTRUCTION_NODE))->compile(classGen, methodGen, ihPI)));
+		targets->set($DTM::PROCESSING_INSTRUCTION_NODE, $($nc(this->_testSeq->get($DTM::PROCESSING_INSTRUCTION_NODE))->compile(classGen, methodGen, ihPI)));
 	} else {
 		targets->set($DTM::PROCESSING_INSTRUCTION_NODE, ihPI);
 	}
@@ -1084,7 +985,7 @@ void Mode::compileApplyImports($ClassGenerator* classGen, int32_t min, int32_t m
 	if (this->_childNodeTestSeq != nullptr) {
 		$assign(ihComment, ihElem);
 	}
-	targets->set($DTM::COMMENT_NODE, $nc(this->_testSeq)->get($DTM::COMMENT_NODE) != nullptr ? $($nc($nc(this->_testSeq)->get($DTM::COMMENT_NODE))->compile(classGen, methodGen, ihComment)) : ihComment);
+	targets->set($DTM::COMMENT_NODE, $nc(this->_testSeq)->get($DTM::COMMENT_NODE) != nullptr ? $($nc(this->_testSeq->get($DTM::COMMENT_NODE))->compile(classGen, methodGen, ihComment)) : ihComment);
 	targets->set($DTM::CDATA_SECTION_NODE, ihLoop);
 	targets->set($DTM::DOCUMENT_FRAGMENT_NODE, ihLoop);
 	targets->set($DTM::DOCUMENT_TYPE_NODE, ihLoop);
@@ -1100,9 +1001,9 @@ void Mode::compileApplyImports($ClassGenerator* classGen, int32_t min, int32_t m
 				targets->set(i, elemNamespaceHandle);
 			}
 		} else if (isAttribute->get(i)) {
-			targets->set(i, $($nc(testSeq)->compile(classGen, methodGen, attrNamespaceHandle)));
+			targets->set(i, $(testSeq->compile(classGen, methodGen, attrNamespaceHandle)));
 		} else {
-			targets->set(i, $($nc(testSeq)->compile(classGen, methodGen, elemNamespaceHandle)));
+			targets->set(i, $(testSeq->compile(classGen, methodGen, elemNamespaceHandle)));
 		}
 	}
 	if (ilKey != nullptr) {
@@ -1110,9 +1011,9 @@ void Mode::compileApplyImports($ClassGenerator* classGen, int32_t min, int32_t m
 	}
 	int32_t getType = $nc(cpg)->addInterfaceMethodref($Constants::DOM_INTF, "getExpandedTypeID"_s, "(I)I"_s);
 	body->append($(methodGen->loadDOM()));
-	body->append(static_cast<$Instruction*>($$new($ILOAD, this->_currentIndex)));
-	body->append(static_cast<$Instruction*>($$new($INVOKEINTERFACE, getType, 2)));
-	$var($InstructionHandle, disp, body->append(static_cast<$CompoundInstruction*>($$new($SWITCH, types, targets, ihLoop))));
+	body->append($$new($ILOAD, this->_currentIndex));
+	body->append($$new($INVOKEINTERFACE, getType, 2));
+	$var($InstructionHandle, disp, body->append($$new($SWITCH, types, targets, ihLoop)));
 	appendTestSequences(body);
 	appendTemplateCode(body);
 	if (nsElem != nullptr) {
@@ -1132,7 +1033,7 @@ void Mode::compileApplyImports($ClassGenerator* classGen, int32_t min, int32_t m
 }
 
 void Mode::peepHoleOptimization($MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	$var($InstructionFinder, find, $new($InstructionFinder, il));
 	$var($InstructionHandle, ih, nullptr);
@@ -1169,7 +1070,7 @@ void Mode::peepHoleOptimization($MethodGenerator* methodGen) {
 				}
 				bool var$1 = var$2;
 				if (var$1) {
-					int32_t var$6 = iload2->getIndex();
+					int32_t var$6 = $nc(iload2)->getIndex();
 					var$1 = var$6 == $nc(istore)->getIndex();
 				}
 				if (var$1) {
@@ -1207,7 +1108,7 @@ void Mode::peepHoleOptimization($MethodGenerator* methodGen) {
 					$var($ALOAD, aload2, $cast($ALOAD, $nc(match->get(1))->getInstruction()));
 					int32_t var$9 = $nc(aload1)->getIndex();
 					if (var$9 == $nc(aload2)->getIndex()) {
-						$nc(il)->insert(match->get(1), static_cast<$Instruction*>($$new($DUP)));
+						$nc(il)->insert(match->get(1), $$new($DUP));
 						il->delete$(match->get(1));
 					}
 				}
@@ -1223,23 +1124,23 @@ $InstructionHandle* Mode::getTemplateInstructionHandle($Template* template$) {
 
 bool Mode::isAttributeName($String* qname) {
 	$init(Mode);
-	int32_t col = $nc(qname)->lastIndexOf((int32_t)u':') + 1;
+	int32_t col = $nc(qname)->lastIndexOf(u':') + 1;
 	return (qname->charAt(col) == u'@');
 }
 
 bool Mode::isNamespaceName($String* qname) {
 	$init(Mode);
-	int32_t col = $nc(qname)->lastIndexOf((int32_t)u':');
+	int32_t col = $nc(qname)->lastIndexOf(u':');
 	return (col > -1 && qname->charAt(qname->length() - 1) == u'*');
 }
 
 void Mode::lambda$compileTemplateCalls$0(int32_t min, int32_t max, $ClassGenerator* classGen, $MethodGenerator* methodGen, $InstructionHandle* next, $Template* template$) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t prec = $nc(template$)->getImportPrecedence();
 	if ((prec >= min) && (prec < max)) {
 		if (template$->hasContents()) {
 			$var($InstructionList, til, template$->compile(classGen, methodGen));
-			$nc(til)->append(static_cast<$BranchInstruction*>($$new($GOTO_W, next)));
+			$nc(til)->append($$new($GOTO_W, next));
 			$nc(this->_templateILs)->put(template$, til);
 			$nc(this->_templateIHs)->put(template$, $(til->getStart()));
 		} else {
@@ -1253,11 +1154,77 @@ Mode::Mode() {
 
 $Class* Mode::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Mode$$Lambda$lambda$compileTemplateCalls$0::classInfo$.name)) {
+		if (name->equals("com.sun.org.apache.xalan.internal.xsltc.compiler.Mode$$Lambda$lambda$compileTemplateCalls$0")) {
 			return Mode$$Lambda$lambda$compileTemplateCalls$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Mode, name, initialize, &_Mode_ClassInfo_, allocate$Mode);
+	$FieldInfo fieldInfos$$[] = {
+		{"_name", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE | $FINAL, $field(Mode, _name)},
+		{"_stylesheet", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PRIVATE | $FINAL, $field(Mode, _stylesheet)},
+		{"_methodName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Mode, _methodName)},
+		{"_templates", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;>;", $PRIVATE, $field(Mode, _templates)},
+		{"_childNodeGroup", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern;>;", $PRIVATE, $field(Mode, _childNodeGroup)},
+		{"_childNodeTestSeq", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/TestSeq;", nullptr, $PRIVATE, $field(Mode, _childNodeTestSeq)},
+		{"_attribNodeGroup", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern;>;", $PRIVATE, $field(Mode, _attribNodeGroup)},
+		{"_attribNodeTestSeq", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/TestSeq;", nullptr, $PRIVATE, $field(Mode, _attribNodeTestSeq)},
+		{"_idxGroup", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern;>;", $PRIVATE, $field(Mode, _idxGroup)},
+		{"_idxTestSeq", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/TestSeq;", nullptr, $PRIVATE, $field(Mode, _idxTestSeq)},
+		{"_patternGroups", "[Ljava/util/List;", "[Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern;>;", $PRIVATE, $field(Mode, _patternGroups)},
+		{"_testSeq", "[Lcom/sun/org/apache/xalan/internal/xsltc/compiler/TestSeq;", nullptr, $PRIVATE, $field(Mode, _testSeq)},
+		{"_neededTemplates", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;Ljava/lang/Object;>;", $PRIVATE, $field(Mode, _neededTemplates)},
+		{"_namedTemplates", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Mode;>;", $PRIVATE, $field(Mode, _namedTemplates)},
+		{"_templateIHs", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;>;", $PRIVATE, $field(Mode, _templateIHs)},
+		{"_templateILs", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;>;", $PRIVATE, $field(Mode, _templateILs)},
+		{"_rootPattern", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern;", nullptr, $PRIVATE, $field(Mode, _rootPattern)},
+		{"_importLevels", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/Integer;>;", $PRIVATE, $field(Mode, _importLevels)},
+		{"_keys", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Key;>;", $PRIVATE, $field(Mode, _keys)},
+		{"_currentIndex", "I", nullptr, $PRIVATE, $field(Mode, _currentIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Mode, init$, void, $QName*, $Stylesheet*, $String*)},
+		{"addPattern", "(ILcom/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern;)V", nullptr, $PRIVATE, $method(Mode, addPattern, void, int32_t, $LocationPathPattern*)},
+		{"addPatternToGroup", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern;)V", nullptr, $PRIVATE, $method(Mode, addPatternToGroup, void, $LocationPathPattern*)},
+		{"addTemplate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;)V", nullptr, $PUBLIC, $method(Mode, addTemplate, void, $Template*)},
+		{"appendTemplateCode", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionList;)V", nullptr, $PRIVATE, $method(Mode, appendTemplateCode, void, $InstructionList*)},
+		{"appendTestSequences", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionList;)V", nullptr, $PRIVATE, $method(Mode, appendTestSequences, void, $InstructionList*)},
+		{"compileApplyImports", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;II)V", nullptr, $PUBLIC, $method(Mode, compileApplyImports, void, $ClassGenerator*, int32_t, int32_t)},
+		{"compileApplyTemplates", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;)V", nullptr, $PUBLIC, $method(Mode, compileApplyTemplates, void, $ClassGenerator*)},
+		{"compileDefaultRecursion", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Lcom/sun/org/apache/bcel/internal/generic/InstructionList;", nullptr, $PRIVATE, $method(Mode, compileDefaultRecursion, $InstructionList*, $ClassGenerator*, $MethodGenerator*, $InstructionHandle*)},
+		{"compileDefaultText", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Lcom/sun/org/apache/bcel/internal/generic/InstructionList;", nullptr, $PRIVATE, $method(Mode, compileDefaultText, $InstructionList*, $ClassGenerator*, $MethodGenerator*, $InstructionHandle*)},
+		{"compileGetChildren", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Mode, compileGetChildren, void, $ClassGenerator*, $MethodGenerator*, int32_t)},
+		{"compileNamedTemplate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;)V", nullptr, $PRIVATE, $method(Mode, compileNamedTemplate, void, $Template*, $ClassGenerator*)},
+		{"compileNamespaces", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;[Z[ZZLcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Lcom/sun/org/apache/bcel/internal/generic/InstructionList;", nullptr, $PRIVATE, $method(Mode, compileNamespaces, $InstructionList*, $ClassGenerator*, $MethodGenerator*, $booleans*, $booleans*, bool, $InstructionHandle*)},
+		{"compileTemplateCalls", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;II)V", nullptr, $PRIVATE, $method(Mode, compileTemplateCalls, void, $ClassGenerator*, $MethodGenerator*, $InstructionHandle*, int32_t, int32_t)},
+		{"compileTemplates", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PRIVATE, $method(Mode, compileTemplates, void, $ClassGenerator*, $MethodGenerator*, $InstructionHandle*)},
+		{"completeTestSequences", "(ILjava/util/List;)V", "(ILjava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern;>;)V", $PRIVATE, $method(Mode, completeTestSequences, void, int32_t, $List*)},
+		{"flattenAlternative", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Key;>;)V", $PRIVATE, $method(Mode, flattenAlternative, void, $Pattern*, $Template*, $Map*)},
+		{"functionName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Mode, functionName, $String*)},
+		{"functionName", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $method(Mode, functionName, $String*, int32_t, int32_t)},
+		{"getClassName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Mode, getClassName, $String*)},
+		{"getStylesheet", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PUBLIC, $method(Mode, getStylesheet, $Stylesheet*)},
+		{"getTemplateInstructionHandle", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $method(Mode, getTemplateInstructionHandle, $InstructionHandle*, $Template*)},
+		{"isAttributeName", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Mode, isAttributeName, bool, $String*)},
+		{"isNamespaceName", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Mode, isNamespaceName, bool, $String*)},
+		{"lambda$compileTemplateCalls$0", "(IILcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Mode, lambda$compileTemplateCalls$0, void, int32_t, int32_t, $ClassGenerator*, $MethodGenerator*, $InstructionHandle*, $Template*)},
+		{"partition", "(Ljava/util/List;II)I", "(Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;>;II)I", $PRIVATE, $method(Mode, partition, int32_t, $List*, int32_t, int32_t)},
+		{"peepHoleOptimization", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PRIVATE, $method(Mode, peepHoleOptimization, void, $MethodGenerator*)},
+		{"prepareTestSequences", "()V", nullptr, $PRIVATE, $method(Mode, prepareTestSequences, void)},
+		{"processPatterns", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Key;>;)V", $PUBLIC, $method(Mode, processPatterns, void, $Map*)},
+		{"quicksort", "(Ljava/util/List;II)Ljava/util/List;", "(Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;>;II)Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;>;", $PRIVATE, $method(Mode, quicksort, $List*, $List*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Mode",
+		"java.lang.Object",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Constants",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Mode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Mode);
+	});
 	return class$;
 }
 

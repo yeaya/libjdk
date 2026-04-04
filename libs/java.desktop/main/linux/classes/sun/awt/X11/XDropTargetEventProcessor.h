@@ -22,6 +22,7 @@ class XDropTargetEventProcessor : public ::java::lang::Object {
 	$class(XDropTargetEventProcessor, 0, ::java::lang::Object)
 public:
 	XDropTargetEventProcessor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void activate();
 	bool doProcessEvent(::sun::awt::X11::XEvent* ev);

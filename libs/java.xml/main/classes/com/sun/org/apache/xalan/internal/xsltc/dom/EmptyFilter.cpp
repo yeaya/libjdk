@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/EmptyFilter.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -14,25 +13,6 @@ namespace com {
 						namespace xsltc {
 							namespace dom {
 
-$MethodInfo _EmptyFilter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(EmptyFilter, init$, void)},
-	{"test", "(I)Z", nullptr, $PUBLIC, $virtualMethod(EmptyFilter, test, bool, int32_t)},
-	{}
-};
-
-$ClassInfo _EmptyFilter_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.EmptyFilter",
-	"java.lang.Object",
-	"com.sun.org.apache.xalan.internal.xsltc.dom.Filter",
-	nullptr,
-	_EmptyFilter_MethodInfo_
-};
-
-$Object* allocate$EmptyFilter($Class* clazz) {
-	return $of($alloc(EmptyFilter));
-}
-
 void EmptyFilter::init$() {
 }
 
@@ -44,7 +24,22 @@ EmptyFilter::EmptyFilter() {
 }
 
 $Class* EmptyFilter::load$($String* name, bool initialize) {
-	$loadClass(EmptyFilter, name, initialize, &_EmptyFilter_ClassInfo_, allocate$EmptyFilter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(EmptyFilter, init$, void)},
+		{"test", "(I)Z", nullptr, $PUBLIC, $virtualMethod(EmptyFilter, test, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.EmptyFilter",
+		"java.lang.Object",
+		"com.sun.org.apache.xalan.internal.xsltc.dom.Filter",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(EmptyFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EmptyFilter);
+	});
 	return class$;
 }
 

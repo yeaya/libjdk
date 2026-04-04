@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/utils/I18n.h>
-
 #include <com/sun/org/apache/xml/internal/security/Init.h>
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <java/text/MessageFormat.h>
@@ -27,38 +26,6 @@ namespace com {
 					namespace internal {
 						namespace security {
 							namespace utils {
-
-$FieldInfo _I18n_FieldInfo_[] = {
-	{"NOT_INITIALIZED_MSG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(I18n, NOT_INITIALIZED_MSG)},
-	{"resourceBundle", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticField(I18n, resourceBundle)},
-	{"alreadyInitialized", "Z", nullptr, $PRIVATE | $STATIC, $staticField(I18n, alreadyInitialized)},
-	{}
-};
-
-$MethodInfo _I18n_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(I18n, init$, void)},
-	{"getExceptionMessage", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(I18n, getExceptionMessage, $String*, $String*)},
-	{"getExceptionMessage", "(Ljava/lang/String;Ljava/lang/Exception;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(I18n, getExceptionMessage, $String*, $String*, $Exception*)},
-	{"getExceptionMessage", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(I18n, getExceptionMessage, $String*, $String*, $ObjectArray*)},
-	{"init", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(I18n, init, void, $String*, $String*)},
-	{"init", "(Ljava/util/ResourceBundle;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(I18n, init, void, $ResourceBundle*)},
-	{"translate", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(I18n, translate, $String*, $String*, $ObjectArray*)},
-	{"translate", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(I18n, translate, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _I18n_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.utils.I18n",
-	"java.lang.Object",
-	nullptr,
-	_I18n_FieldInfo_,
-	_I18n_MethodInfo_
-};
-
-$Object* allocate$I18n($Class* clazz) {
-	return $of($alloc(I18n));
-}
 
 $String* I18n::NOT_INITIALIZED_MSG = nullptr;
 $ResourceBundle* I18n::resourceBundle = nullptr;
@@ -93,15 +60,23 @@ $String* I18n::getExceptionMessage($String* msgID) {
 
 $String* I18n::getExceptionMessage($String* msgID, $Exception* originalException) {
 	$init(I18n);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($ObjectArray, exArgs, $new($ObjectArray, {$($of($nc(originalException)->getMessage()))}));
+		$var($ObjectArray, exArgs, $new($ObjectArray, {$($nc(originalException)->getMessage())}));
 		return $MessageFormat::format($($nc(I18n::resourceBundle)->getString(msgID)), exArgs);
 	} catch ($Throwable& t) {
 		if ($Init::isInitialized()) {
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("No message with ID \""_s);
+			var$0->append(msgID);
+			var$0->append("\" found in resource bundle \""_s);
 			$init($Constants);
-			$var($String, var$0, $$str({"No message with ID \""_s, msgID, "\" found in resource bundle \""_s, $Constants::exceptionMessagesResourceBundleBase, "\". Original Exception was a "_s, $($nc($of(originalException))->getClass()->getName()), " and message "_s}));
-			return $concat(var$0, $(originalException->getMessage()));
+			var$0->append($Constants::exceptionMessagesResourceBundleBase);
+			var$0->append("\". Original Exception was a "_s);
+			var$0->append($($nc($of(originalException))->getClass()->getName()));
+			var$0->append(" and message "_s);
+			var$0->append($(originalException->getMessage()));
+			return $str(var$0);
 		}
 		return I18n::NOT_INITIALIZED_MSG;
 	}
@@ -123,9 +98,8 @@ $String* I18n::getExceptionMessage($String* msgID, $ObjectArray* exArgs) {
 }
 
 void I18n::init($String* languageCode, $String* countryCode) {
-	$load(I18n);
+	$init(I18n);
 	$synchronized(class$) {
-		$init(I18n);
 		$beforeCallerSensitive();
 		if (I18n::alreadyInitialized) {
 			return;
@@ -137,9 +111,8 @@ void I18n::init($String* languageCode, $String* countryCode) {
 }
 
 void I18n::init($ResourceBundle* resourceBundle) {
-	$load(I18n);
+	$init(I18n);
 	$synchronized(class$) {
-		$init(I18n);
 		if (I18n::alreadyInitialized) {
 			return;
 		}
@@ -148,7 +121,7 @@ void I18n::init($ResourceBundle* resourceBundle) {
 	}
 }
 
-void clinit$I18n($Class* class$) {
+void I18n::clinit$($Class* clazz) {
 	$assignStatic(I18n::NOT_INITIALIZED_MSG, "You must initialize the xml-security library correctly before you use it. Call the static method \"com.sun.org.apache.xml.internal.security.Init.init();\" to do that before you use any functionality from that library."_s);
 	I18n::alreadyInitialized = false;
 }
@@ -157,7 +130,34 @@ I18n::I18n() {
 }
 
 $Class* I18n::load$($String* name, bool initialize) {
-	$loadClass(I18n, name, initialize, &_I18n_ClassInfo_, clinit$I18n, allocate$I18n);
+	$FieldInfo fieldInfos$$[] = {
+		{"NOT_INITIALIZED_MSG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(I18n, NOT_INITIALIZED_MSG)},
+		{"resourceBundle", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticField(I18n, resourceBundle)},
+		{"alreadyInitialized", "Z", nullptr, $PRIVATE | $STATIC, $staticField(I18n, alreadyInitialized)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(I18n, init$, void)},
+		{"getExceptionMessage", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(I18n, getExceptionMessage, $String*, $String*)},
+		{"getExceptionMessage", "(Ljava/lang/String;Ljava/lang/Exception;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(I18n, getExceptionMessage, $String*, $String*, $Exception*)},
+		{"getExceptionMessage", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(I18n, getExceptionMessage, $String*, $String*, $ObjectArray*)},
+		{"init", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(I18n, init, void, $String*, $String*)},
+		{"init", "(Ljava/util/ResourceBundle;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(I18n, init, void, $ResourceBundle*)},
+		{"translate", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(I18n, translate, $String*, $String*, $ObjectArray*)},
+		{"translate", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(I18n, translate, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.utils.I18n",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(I18n, name, initialize, &classInfo$$, I18n::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(I18n);
+	});
 	return class$;
 }
 

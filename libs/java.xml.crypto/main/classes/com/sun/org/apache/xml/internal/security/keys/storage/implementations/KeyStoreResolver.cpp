@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/storage/implementations/KeyStoreResolver.h>
-
 #include <com/sun/org/apache/xml/internal/security/keys/storage/StorageResolverException.h>
 #include <com/sun/org/apache/xml/internal/security/keys/storage/StorageResolverSpi.h>
 #include <com/sun/org/apache/xml/internal/security/keys/storage/implementations/KeyStoreResolver$KeyStoreIterator.h>
@@ -19,7 +18,6 @@ using $KeyStoreResolver$KeyStoreIterator = ::com::sun::org::apache::xml::interna
 using $Logger = ::com::sun::org::slf4j::internal::Logger;
 using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -38,42 +36,6 @@ namespace com {
 								namespace storage {
 									namespace implementations {
 
-$FieldInfo _KeyStoreResolver_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyStoreResolver, LOG)},
-	{"keyStore", "Ljava/security/KeyStore;", nullptr, $PRIVATE | $FINAL, $field(KeyStoreResolver, keyStore)},
-	{}
-};
-
-$MethodInfo _KeyStoreResolver_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/KeyStore;)V", nullptr, $PUBLIC, $method(KeyStoreResolver, init$, void, $KeyStore*), "com.sun.org.apache.xml.internal.security.keys.storage.StorageResolverException"},
-	{"getIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/security/cert/Certificate;>;", $PUBLIC, $virtualMethod(KeyStoreResolver, getIterator, $Iterator*)},
-	{}
-};
-
-$InnerClassInfo _KeyStoreResolver_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.keys.storage.implementations.KeyStoreResolver$KeyStoreIterator", "com.sun.org.apache.xml.internal.security.keys.storage.implementations.KeyStoreResolver", "KeyStoreIterator", $STATIC},
-	{}
-};
-
-$ClassInfo _KeyStoreResolver_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.keys.storage.implementations.KeyStoreResolver",
-	"com.sun.org.apache.xml.internal.security.keys.storage.StorageResolverSpi",
-	nullptr,
-	_KeyStoreResolver_FieldInfo_,
-	_KeyStoreResolver_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeyStoreResolver_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.keys.storage.implementations.KeyStoreResolver$KeyStoreIterator"
-};
-
-$Object* allocate$KeyStoreResolver($Class* clazz) {
-	return $of($alloc(KeyStoreResolver));
-}
-
 $Logger* KeyStoreResolver::LOG = nullptr;
 
 void KeyStoreResolver::init$($KeyStore* keyStore) {
@@ -82,7 +44,7 @@ void KeyStoreResolver::init$($KeyStore* keyStore) {
 	try {
 		$nc(keyStore)->aliases();
 	} catch ($KeyStoreException& ex) {
-		$throwNew($StorageResolverException, static_cast<$Exception*>(ex));
+		$throwNew($StorageResolverException, ex);
 	}
 }
 
@@ -90,7 +52,7 @@ $Iterator* KeyStoreResolver::getIterator() {
 	return $new($KeyStoreResolver$KeyStoreIterator, this->keyStore);
 }
 
-void clinit$KeyStoreResolver($Class* class$) {
+void KeyStoreResolver::clinit$($Class* clazz) {
 	$assignStatic(KeyStoreResolver::LOG, $LoggerFactory::getLogger(KeyStoreResolver::class$));
 }
 
@@ -98,7 +60,37 @@ KeyStoreResolver::KeyStoreResolver() {
 }
 
 $Class* KeyStoreResolver::load$($String* name, bool initialize) {
-	$loadClass(KeyStoreResolver, name, initialize, &_KeyStoreResolver_ClassInfo_, clinit$KeyStoreResolver, allocate$KeyStoreResolver);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyStoreResolver, LOG)},
+		{"keyStore", "Ljava/security/KeyStore;", nullptr, $PRIVATE | $FINAL, $field(KeyStoreResolver, keyStore)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/KeyStore;)V", nullptr, $PUBLIC, $method(KeyStoreResolver, init$, void, $KeyStore*), "com.sun.org.apache.xml.internal.security.keys.storage.StorageResolverException"},
+		{"getIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/security/cert/Certificate;>;", $PUBLIC, $virtualMethod(KeyStoreResolver, getIterator, $Iterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.keys.storage.implementations.KeyStoreResolver$KeyStoreIterator", "com.sun.org.apache.xml.internal.security.keys.storage.implementations.KeyStoreResolver", "KeyStoreIterator", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.keys.storage.implementations.KeyStoreResolver",
+		"com.sun.org.apache.xml.internal.security.keys.storage.StorageResolverSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.keys.storage.implementations.KeyStoreResolver$KeyStoreIterator"
+	};
+	$loadClass(KeyStoreResolver, name, initialize, &classInfo$$, KeyStoreResolver::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyStoreResolver);
+	});
 	return class$;
 }
 

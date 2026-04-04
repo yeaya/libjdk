@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/FillRect$General.h>
-
 #include <java/awt/Composite.h>
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
@@ -24,42 +23,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _FillRect$General_FieldInfo_[] = {
-	{"fillop", "Lsun/java2d/loops/MaskFill;", nullptr, $PUBLIC, $field(FillRect$General, fillop)},
-	{}
-};
-
-$MethodInfo _FillRect$General_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(FillRect$General, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"FillRect", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;IIII)V", nullptr, $PUBLIC, $virtualMethod(FillRect$General, FillRect$, void, $SunGraphics2D*, $SurfaceData*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _FillRect$General_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.FillRect$General", "sun.java2d.loops.FillRect", "General", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _FillRect$General_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.loops.FillRect$General",
-	"sun.java2d.loops.FillRect",
-	nullptr,
-	_FillRect$General_FieldInfo_,
-	_FillRect$General_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FillRect$General_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.FillRect"
-};
-
-$Object* allocate$FillRect$General($Class* clazz) {
-	return $of($alloc(FillRect$General));
-}
-
 void FillRect$General::init$($SurfaceType* srctype, $CompositeType* comptype, $SurfaceType* dsttype) {
 	$FillRect::init$(srctype, comptype, dsttype);
 	$set(this, fillop, $MaskFill::locate(srctype, comptype, dsttype));
@@ -73,7 +36,37 @@ FillRect$General::FillRect$General() {
 }
 
 $Class* FillRect$General::load$($String* name, bool initialize) {
-	$loadClass(FillRect$General, name, initialize, &_FillRect$General_ClassInfo_, allocate$FillRect$General);
+	$FieldInfo fieldInfos$$[] = {
+		{"fillop", "Lsun/java2d/loops/MaskFill;", nullptr, $PUBLIC, $field(FillRect$General, fillop)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(FillRect$General, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"FillRect", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;IIII)V", nullptr, $PUBLIC, $virtualMethod(FillRect$General, FillRect$, void, $SunGraphics2D*, $SurfaceData*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.FillRect$General", "sun.java2d.loops.FillRect", "General", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.loops.FillRect$General",
+		"sun.java2d.loops.FillRect",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.FillRect"
+	};
+	$loadClass(FillRect$General, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FillRect$General);
+	});
 	return class$;
 }
 

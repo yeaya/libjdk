@@ -28,6 +28,7 @@ class $export TestJSliderRendering : public ::java::lang::Object {
 	$class(TestJSliderRendering, 0, ::java::lang::Object)
 public:
 	TestJSliderRendering();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void blockTillDisplayed(::java::awt::Component* comp);
 	static int32_t getMaxColorDiff(::java::awt::Color* c1, ::java::awt::Color* c2);

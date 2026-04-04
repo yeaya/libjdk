@@ -1,5 +1,4 @@
 #include <javax/swing/tree/DefaultTreeSelectionModel.h>
-
 #include <java/beans/PropertyChangeListener.h>
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream$GetField.h>
@@ -53,7 +52,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $BitSet = ::java::util::BitSet;
 using $Enumeration = ::java::util::Enumeration;
-using $EventListener = ::java::util::EventListener;
 using $Hashtable = ::java::util::Hashtable;
 using $List = ::java::util::List;
 using $Vector = ::java::util::Vector;
@@ -70,92 +68,6 @@ using $TreeSelectionModel = ::javax::swing::tree::TreeSelectionModel;
 namespace javax {
 	namespace swing {
 		namespace tree {
-
-$CompoundAttribute _DefaultTreeSelectionModel_MethodAnnotations_notifyPathChange29[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _DefaultTreeSelectionModel_FieldInfo_[] = {
-	{"SELECTION_MODE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultTreeSelectionModel, SELECTION_MODE_PROPERTY)},
-	{"changeSupport", "Ljavax/swing/event/SwingPropertyChangeSupport;", nullptr, $PROTECTED, $field(DefaultTreeSelectionModel, changeSupport)},
-	{"selection", "[Ljavax/swing/tree/TreePath;", nullptr, $PROTECTED, $field(DefaultTreeSelectionModel, selection)},
-	{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PROTECTED, $field(DefaultTreeSelectionModel, listenerList)},
-	{"rowMapper", "Ljavax/swing/tree/RowMapper;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultTreeSelectionModel, rowMapper)},
-	{"listSelectionModel", "Ljavax/swing/DefaultListSelectionModel;", nullptr, $PROTECTED, $field(DefaultTreeSelectionModel, listSelectionModel)},
-	{"selectionMode", "I", nullptr, $PROTECTED, $field(DefaultTreeSelectionModel, selectionMode)},
-	{"leadPath", "Ljavax/swing/tree/TreePath;", nullptr, $PROTECTED, $field(DefaultTreeSelectionModel, leadPath)},
-	{"leadIndex", "I", nullptr, $PROTECTED, $field(DefaultTreeSelectionModel, leadIndex)},
-	{"leadRow", "I", nullptr, $PROTECTED, $field(DefaultTreeSelectionModel, leadRow)},
-	{"uniquePaths", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljavax/swing/tree/TreePath;Ljava/lang/Boolean;>;", $PRIVATE, $field(DefaultTreeSelectionModel, uniquePaths)},
-	{"lastPaths", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljavax/swing/tree/TreePath;Ljava/lang/Boolean;>;", $PRIVATE, $field(DefaultTreeSelectionModel, lastPaths)},
-	{"tempPaths", "[Ljavax/swing/tree/TreePath;", nullptr, $PRIVATE, $field(DefaultTreeSelectionModel, tempPaths)},
-	{}
-};
-
-$MethodInfo _DefaultTreeSelectionModel_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultTreeSelectionModel, init$, void)},
-	{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DefaultTreeSelectionModel, addPropertyChangeListener, void, $PropertyChangeListener*)},
-	{"addSelectionPath", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, addSelectionPath, void, $TreePath*)},
-	{"addSelectionPaths", "([Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, addSelectionPaths, void, $TreePathArray*)},
-	{"addTreeSelectionListener", "(Ljavax/swing/event/TreeSelectionListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, addTreeSelectionListener, void, $TreeSelectionListener*)},
-	{"arePathsContiguous", "([Ljavax/swing/tree/TreePath;)Z", nullptr, $PROTECTED, $virtualMethod(DefaultTreeSelectionModel, arePathsContiguous, bool, $TreePathArray*)},
-	{"canPathsBeAdded", "([Ljavax/swing/tree/TreePath;)Z", nullptr, $PROTECTED, $virtualMethod(DefaultTreeSelectionModel, canPathsBeAdded, bool, $TreePathArray*)},
-	{"canPathsBeRemoved", "([Ljavax/swing/tree/TreePath;)Z", nullptr, $PROTECTED, $virtualMethod(DefaultTreeSelectionModel, canPathsBeRemoved, bool, $TreePathArray*)},
-	{"clearSelection", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, clearSelection, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"fireValueChanged", "(Ljavax/swing/event/TreeSelectionEvent;)V", nullptr, $PROTECTED, $virtualMethod(DefaultTreeSelectionModel, fireValueChanged, void, $TreeSelectionEvent*)},
-	{"getLeadSelectionPath", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, getLeadSelectionPath, $TreePath*)},
-	{"getLeadSelectionRow", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, getLeadSelectionRow, int32_t)},
-	{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, getListeners, $EventListenerArray*, $Class*)},
-	{"getMaxSelectionRow", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, getMaxSelectionRow, int32_t)},
-	{"getMinSelectionRow", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, getMinSelectionRow, int32_t)},
-	{"getPropertyChangeListeners", "()[Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, getPropertyChangeListeners, $PropertyChangeListenerArray*)},
-	{"getRowMapper", "()Ljavax/swing/tree/RowMapper;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, getRowMapper, $RowMapper*)},
-	{"getSelectionCount", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, getSelectionCount, int32_t)},
-	{"getSelectionMode", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, getSelectionMode, int32_t)},
-	{"getSelectionPath", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, getSelectionPath, $TreePath*)},
-	{"getSelectionPaths", "()[Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, getSelectionPaths, $TreePathArray*)},
-	{"getSelectionRows", "()[I", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, getSelectionRows, $ints*)},
-	{"getTreeSelectionListeners", "()[Ljavax/swing/event/TreeSelectionListener;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, getTreeSelectionListeners, $TreeSelectionListenerArray*)},
-	{"insureRowContinuity", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultTreeSelectionModel, insureRowContinuity, void)},
-	{"insureUniqueness", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultTreeSelectionModel, insureUniqueness, void)},
-	{"isPathSelected", "(Ljavax/swing/tree/TreePath;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, isPathSelected, bool, $TreePath*)},
-	{"isRowSelected", "(I)Z", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, isRowSelected, bool, int32_t)},
-	{"isSelectionEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, isSelectionEmpty, bool)},
-	{"notifyPathChange", "(Ljava/util/Vector;Ljavax/swing/tree/TreePath;)V", "(Ljava/util/Vector<*>;Ljavax/swing/tree/TreePath;)V", $PROTECTED | $DEPRECATED, $virtualMethod(DefaultTreeSelectionModel, notifyPathChange, void, $Vector*, $TreePath*), nullptr, nullptr, _DefaultTreeSelectionModel_MethodAnnotations_notifyPathChange29},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DefaultTreeSelectionModel, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DefaultTreeSelectionModel, removePropertyChangeListener, void, $PropertyChangeListener*)},
-	{"removeSelectionPath", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, removeSelectionPath, void, $TreePath*)},
-	{"removeSelectionPaths", "([Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, removeSelectionPaths, void, $TreePathArray*)},
-	{"removeTreeSelectionListener", "(Ljavax/swing/event/TreeSelectionListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, removeTreeSelectionListener, void, $TreeSelectionListener*)},
-	{"resetRowSelection", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, resetRowSelection, void)},
-	{"setRowMapper", "(Ljavax/swing/tree/RowMapper;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, setRowMapper, void, $RowMapper*)},
-	{"setSelectionMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, setSelectionMode, void, int32_t)},
-	{"setSelectionPath", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, setSelectionPath, void, $TreePath*)},
-	{"setSelectionPaths", "([Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, setSelectionPaths, void, $TreePathArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, toString, $String*)},
-	{"updateLeadIndex", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultTreeSelectionModel, updateLeadIndex, void)},
-	{"validateSelectionMode", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DefaultTreeSelectionModel, validateSelectionMode, int32_t, int32_t)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(DefaultTreeSelectionModel, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _DefaultTreeSelectionModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.tree.DefaultTreeSelectionModel",
-	"java.lang.Object",
-	"java.lang.Cloneable,java.io.Serializable,javax.swing.tree.TreeSelectionModel",
-	_DefaultTreeSelectionModel_FieldInfo_,
-	_DefaultTreeSelectionModel_MethodInfo_
-};
-
-$Object* allocate$DefaultTreeSelectionModel($Class* clazz) {
-	return $of($alloc(DefaultTreeSelectionModel));
-}
 
 int32_t DefaultTreeSelectionModel::hashCode() {
 	 return this->$Cloneable::hashCode();
@@ -191,13 +103,13 @@ $RowMapper* DefaultTreeSelectionModel::getRowMapper() {
 }
 
 void DefaultTreeSelectionModel::setSelectionMode(int32_t mode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t oldMode = this->selectionMode;
 	this->selectionMode = validateSelectionMode(mode);
 	if (oldMode != this->selectionMode && this->changeSupport != nullptr) {
 		$var($String, var$0, DefaultTreeSelectionModel::SELECTION_MODE_PROPERTY);
-		$var($Object, var$1, $of($Integer::valueOf(oldMode)));
-		$nc(this->changeSupport)->firePropertyChange(var$0, var$1, $($of($Integer::valueOf(this->selectionMode))));
+		$var($Object, var$1, $Integer::valueOf(oldMode));
+		this->changeSupport->firePropertyChange(var$0, var$1, $($Integer::valueOf(this->selectionMode)));
 	}
 }
 
@@ -221,7 +133,7 @@ void DefaultTreeSelectionModel::setSelectionPath($TreePath* path) {
 }
 
 void DefaultTreeSelectionModel::setSelectionPaths($TreePathArray* pPaths) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t newCount = 0;
 	int32_t newCounter = 0;
 	int32_t oldCount = 0;
@@ -230,12 +142,12 @@ void DefaultTreeSelectionModel::setSelectionPaths($TreePathArray* pPaths) {
 	if (paths == nullptr) {
 		newCount = 0;
 	} else {
-		newCount = $nc(paths)->length;
+		newCount = paths->length;
 	}
 	if (this->selection == nullptr) {
 		oldCount = 0;
 	} else {
-		oldCount = $nc(this->selection)->length;
+		oldCount = this->selection->length;
 	}
 	if ((newCount + oldCount) != 0) {
 		if (this->selectionMode == $TreeSelectionModel::SINGLE_TREE_SELECTION) {
@@ -258,9 +170,8 @@ void DefaultTreeSelectionModel::setSelectionPaths($TreePathArray* pPaths) {
 		$set(this, leadPath, nullptr);
 		for (newCounter = 0; newCounter < newCount; ++newCounter) {
 			$var($TreePath, path, $nc(paths)->get(newCounter));
-			if (path != nullptr && $nc(this->lastPaths)->get(path) == nullptr) {
-				$init($Boolean);
-				$nc(this->lastPaths)->put(path, $Boolean::TRUE);
+			if (path != nullptr && this->lastPaths->get(path) == nullptr) {
+				this->lastPaths->put(path, $Boolean::TRUE);
 				if ($nc(this->uniquePaths)->get(path) == nullptr) {
 					cPaths->addElement($$new($PathPlaceHolder, path, true));
 				}
@@ -268,10 +179,10 @@ void DefaultTreeSelectionModel::setSelectionPaths($TreePathArray* pPaths) {
 				newSelectionAsList->add(path);
 			}
 		}
-		$var($TreePathArray, newSelection, $fcast($TreePathArray, newSelectionAsList->toArray($$new($TreePathArray, newSelectionAsList->size()))));
+		$var($TreePathArray, newSelection, $cast($TreePathArray, newSelectionAsList->toArray($$new($TreePathArray, newSelectionAsList->size()))));
 		for (oldCounter = 0; oldCounter < oldCount; ++oldCounter) {
-			if ($nc(this->selection)->get(oldCounter) != nullptr && $nc(this->lastPaths)->get($nc(this->selection)->get(oldCounter)) == nullptr) {
-				cPaths->addElement($$new($PathPlaceHolder, $nc(this->selection)->get(oldCounter), false));
+			if ($nc(this->selection)->get(oldCounter) != nullptr && this->lastPaths->get(this->selection->get(oldCounter)) == nullptr) {
+				cPaths->addElement($$new($PathPlaceHolder, this->selection->get(oldCounter), false));
 			}
 		}
 		$set(this, selection, newSelection);
@@ -297,8 +208,8 @@ void DefaultTreeSelectionModel::addSelectionPath($TreePath* path) {
 }
 
 void DefaultTreeSelectionModel::addSelectionPaths($TreePathArray* paths) {
-	$useLocalCurrentObjectStackCache();
-	int32_t newPathLength = ((paths == nullptr) ? 0 : $nc(paths)->length);
+	$useLocalObjectStack();
+	int32_t newPathLength = ((paths == nullptr) ? 0 : paths->length);
 	if (newPathLength > 0) {
 		if (this->selectionMode == $TreeSelectionModel::SINGLE_TREE_SELECTION) {
 			setSelectionPaths(paths);
@@ -307,7 +218,7 @@ void DefaultTreeSelectionModel::addSelectionPaths($TreePathArray* paths) {
 				setSelectionPaths(paths);
 			} else {
 				$var($TreePathArray, newPaths, $new($TreePathArray, 1));
-				newPaths->set(0, paths->get(0));
+				newPaths->set(0, $nc(paths)->get(0));
 				setSelectionPaths(newPaths);
 			}
 		} else {
@@ -319,20 +230,19 @@ void DefaultTreeSelectionModel::addSelectionPaths($TreePathArray* paths) {
 			if (this->selection == nullptr) {
 				oldCount = 0;
 			} else {
-				oldCount = $nc(this->selection)->length;
+				oldCount = this->selection->length;
 			}
 			$nc(this->lastPaths)->clear();
 			for (counter = 0, validCount = 0; counter < newPathLength; ++counter) {
-				if (paths->get(counter) != nullptr) {
+				if ($nc(paths)->get(counter) != nullptr) {
 					if ($nc(this->uniquePaths)->get(paths->get(counter)) == nullptr) {
 						++validCount;
 						if (cPaths == nullptr) {
 							$assign(cPaths, $new($Vector));
 						}
 						$nc(cPaths)->addElement($$new($PathPlaceHolder, paths->get(counter), true));
-						$init($Boolean);
-						$nc(this->uniquePaths)->put(paths->get(counter), $Boolean::TRUE);
-						$nc(this->lastPaths)->put(paths->get(counter), $Boolean::TRUE);
+						this->uniquePaths->put(paths->get(counter), $Boolean::TRUE);
+						this->lastPaths->put(paths->get(counter), $Boolean::TRUE);
 					}
 					$set(this, leadPath, paths->get(counter));
 				}
@@ -345,11 +255,11 @@ void DefaultTreeSelectionModel::addSelectionPaths($TreePathArray* paths) {
 				if (oldCount > 0) {
 					$System::arraycopy(this->selection, 0, newSelection, 0, oldCount);
 				}
-				if (validCount != paths->length) {
-					$var($Enumeration, newPaths, $nc(this->lastPaths)->keys());
+				if (validCount != $nc(paths)->length) {
+					$var($Enumeration, newPaths, this->lastPaths->keys());
 					counter = oldCount;
 					while ($nc(newPaths)->hasMoreElements()) {
-						newSelection->set(counter++, $cast($TreePath, $(newPaths->nextElement())));
+						newSelection->set(counter++, $$cast($TreePath, newPaths->nextElement()));
 					}
 				} else {
 					$System::arraycopy(paths, 0, newSelection, oldCount, validCount);
@@ -376,7 +286,7 @@ void DefaultTreeSelectionModel::removeSelectionPath($TreePath* path) {
 }
 
 void DefaultTreeSelectionModel::removeSelectionPaths($TreePathArray* paths) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (paths != nullptr && this->selection != nullptr && paths->length > 0) {
 		if (!canPathsBeRemoved(paths)) {
 			clearSelection();
@@ -388,7 +298,7 @@ void DefaultTreeSelectionModel::removeSelectionPaths($TreePathArray* paths) {
 						if (pathsToRemove == nullptr) {
 							$assign(pathsToRemove, $new($Vector, paths->length));
 						}
-						$nc(this->uniquePaths)->remove(paths->get(removeCounter));
+						this->uniquePaths->remove(paths->get(removeCounter));
 						$nc(pathsToRemove)->addElement($$new($PathPlaceHolder, paths->get(removeCounter), false));
 					}
 				}
@@ -401,19 +311,19 @@ void DefaultTreeSelectionModel::removeSelectionPaths($TreePathArray* paths) {
 				} else {
 					$var($Enumeration, pEnum, $nc(this->uniquePaths)->keys());
 					int32_t validCount = 0;
-					$set(this, selection, $new($TreePathArray, $nc(this->selection)->length - removeCount));
+					$set(this, selection, $new($TreePathArray, this->selection->length - removeCount));
 					while ($nc(pEnum)->hasMoreElements()) {
-						$nc(this->selection)->set(validCount++, $cast($TreePath, $(pEnum->nextElement())));
+						this->selection->set(validCount++, $$cast($TreePath, pEnum->nextElement()));
 					}
 				}
 				if (this->leadPath != nullptr && $nc(this->uniquePaths)->get(this->leadPath) == nullptr) {
 					if (this->selection != nullptr) {
-						$set(this, leadPath, $nc(this->selection)->get($nc(this->selection)->length - 1));
+						$set(this, leadPath, this->selection->get(this->selection->length - 1));
 					} else {
 						$set(this, leadPath, nullptr);
 					}
 				} else if (this->selection != nullptr) {
-					$set(this, leadPath, $nc(this->selection)->get($nc(this->selection)->length - 1));
+					$set(this, leadPath, this->selection->get(this->selection->length - 1));
 				} else {
 					$set(this, leadPath, nullptr);
 				}
@@ -426,15 +336,15 @@ void DefaultTreeSelectionModel::removeSelectionPaths($TreePathArray* paths) {
 }
 
 $TreePath* DefaultTreeSelectionModel::getSelectionPath() {
-	if (this->selection != nullptr && $nc(this->selection)->length > 0) {
-		return $nc(this->selection)->get(0);
+	if (this->selection != nullptr && this->selection->length > 0) {
+		return this->selection->get(0);
 	}
 	return nullptr;
 }
 
 $TreePathArray* DefaultTreeSelectionModel::getSelectionPaths() {
 	if (this->selection != nullptr) {
-		int32_t pathSize = $nc(this->selection)->length;
+		int32_t pathSize = this->selection->length;
 		$var($TreePathArray, result, $new($TreePathArray, pathSize));
 		$System::arraycopy(this->selection, 0, result, 0, pathSize);
 		return result;
@@ -443,7 +353,7 @@ $TreePathArray* DefaultTreeSelectionModel::getSelectionPaths() {
 }
 
 int32_t DefaultTreeSelectionModel::getSelectionCount() {
-	return (this->selection == nullptr) ? 0 : $nc(this->selection)->length;
+	return (this->selection == nullptr) ? 0 : this->selection->length;
 }
 
 bool DefaultTreeSelectionModel::isPathSelected($TreePath* path) {
@@ -451,18 +361,18 @@ bool DefaultTreeSelectionModel::isPathSelected($TreePath* path) {
 }
 
 bool DefaultTreeSelectionModel::isSelectionEmpty() {
-	return (this->selection == nullptr || $nc(this->selection)->length == 0);
+	return (this->selection == nullptr || this->selection->length == 0);
 }
 
 void DefaultTreeSelectionModel::clearSelection() {
-	$useLocalCurrentObjectStackCache();
-	if (this->selection != nullptr && $nc(this->selection)->length > 0) {
-		int32_t selSize = $nc(this->selection)->length;
+	$useLocalObjectStack();
+	if (this->selection != nullptr && this->selection->length > 0) {
+		int32_t selSize = this->selection->length;
 		$var($booleans, newness, $new($booleans, selSize));
 		for (int32_t counter = 0; counter < selSize; ++counter) {
 			newness->set(counter, false);
 		}
-		$var($TreeSelectionEvent, event, $new($TreeSelectionEvent, $of(this), this->selection, newness, this->leadPath, ($TreePath*)nullptr));
+		$var($TreeSelectionEvent, event, $new($TreeSelectionEvent, this, this->selection, newness, this->leadPath, nullptr));
 		$set(this, leadPath, nullptr);
 		this->leadIndex = (this->leadRow = -1);
 		$nc(this->uniquePaths)->clear();
@@ -484,7 +394,7 @@ void DefaultTreeSelectionModel::removeTreeSelectionListener($TreeSelectionListen
 
 $TreeSelectionListenerArray* DefaultTreeSelectionModel::getTreeSelectionListeners() {
 	$load($TreeSelectionListener);
-	return $fcast($TreeSelectionListenerArray, $nc(this->listenerList)->getListeners($TreeSelectionListener::class$));
+	return $cast($TreeSelectionListenerArray, $nc(this->listenerList)->getListeners($TreeSelectionListener::class$));
 }
 
 void DefaultTreeSelectionModel::fireValueChanged($TreeSelectionEvent* e) {
@@ -492,7 +402,7 @@ void DefaultTreeSelectionModel::fireValueChanged($TreeSelectionEvent* e) {
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
 		$load($TreeSelectionListener);
 		if ($equals(listeners->get(i), $TreeSelectionListener::class$)) {
-			$nc(($cast($TreeSelectionListener, listeners->get(i + 1))))->valueChanged(e);
+			$nc($cast($TreeSelectionListener, listeners->get(i + 1)))->valueChanged(e);
 		}
 	}
 }
@@ -502,9 +412,9 @@ $EventListenerArray* DefaultTreeSelectionModel::getListeners($Class* listenerTyp
 }
 
 $ints* DefaultTreeSelectionModel::getSelectionRows() {
-	$useLocalCurrentObjectStackCache();
-	if (this->rowMapper != nullptr && this->selection != nullptr && $nc(this->selection)->length > 0) {
-		$var($ints, rows, $nc(this->rowMapper)->getRowsForPaths(this->selection));
+	$useLocalObjectStack();
+	if (this->rowMapper != nullptr && this->selection != nullptr && this->selection->length > 0) {
+		$var($ints, rows, this->rowMapper->getRowsForPaths(this->selection));
 		if (rows != nullptr) {
 			int32_t invisCount = 0;
 			for (int32_t counter = rows->length - 1; counter >= 0; --counter) {
@@ -517,13 +427,9 @@ $ints* DefaultTreeSelectionModel::getSelectionRows() {
 					$assign(rows, nullptr);
 				} else {
 					$var($ints, tempRows, $new($ints, rows->length - invisCount));
-					{
-						int32_t counter = rows->length - 1;
-						int32_t visCounter = 0;
-						for (; counter >= 0; --counter) {
-							if (rows->get(counter) != -1) {
-								tempRows->set(visCounter++, rows->get(counter));
-							}
+					for (int32_t counter = rows->length - 1, visCounter = 0; counter >= 0; --counter) {
+						if (rows->get(counter) != -1) {
+							tempRows->set(visCounter++, rows->get(counter));
 						}
 					}
 					$assign(rows, tempRows);
@@ -552,15 +458,11 @@ void DefaultTreeSelectionModel::resetRowSelection() {
 	if (this->selection != nullptr && this->rowMapper != nullptr) {
 		int32_t aRow = 0;
 		int32_t validCount = 0;
-		$var($ints, rows, $nc(this->rowMapper)->getRowsForPaths(this->selection));
-		{
-			int32_t counter = 0;
-			int32_t maxCounter = $nc(this->selection)->length;
-			for (; counter < maxCounter; ++counter) {
-				aRow = $nc(rows)->get(counter);
-				if (aRow != -1) {
-					$nc(this->listSelectionModel)->addSelectionInterval(aRow, aRow);
-				}
+		$var($ints, rows, this->rowMapper->getRowsForPaths(this->selection));
+		for (int32_t counter = 0, maxCounter = $nc(this->selection)->length; counter < maxCounter; ++counter) {
+			aRow = $nc(rows)->get(counter);
+			if (aRow != -1) {
+				$nc(this->listSelectionModel)->addSelectionInterval(aRow, aRow);
 			}
 		}
 		if (this->leadIndex != -1 && rows != nullptr) {
@@ -568,7 +470,7 @@ void DefaultTreeSelectionModel::resetRowSelection() {
 		} else if (this->leadPath != nullptr) {
 			$nc(this->tempPaths)->set(0, this->leadPath);
 			$assign(rows, $nc(this->rowMapper)->getRowsForPaths(this->tempPaths));
-			this->leadRow = (rows != nullptr) ? $nc(rows)->get(0) : -1;
+			this->leadRow = (rows != nullptr) ? rows->get(0) : -1;
 		} else {
 			this->leadRow = -1;
 		}
@@ -612,40 +514,36 @@ $PropertyChangeListenerArray* DefaultTreeSelectionModel::getPropertyChangeListen
 }
 
 void DefaultTreeSelectionModel::insureRowContinuity() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->selectionMode == $TreeSelectionModel::CONTIGUOUS_TREE_SELECTION && this->selection != nullptr && this->rowMapper != nullptr) {
 		$var($DefaultListSelectionModel, lModel, this->listSelectionModel);
 		int32_t min = $nc(lModel)->getMinSelectionIndex();
 		if (min != -1) {
-			{
-				int32_t counter = min;
-				int32_t maxCounter = lModel->getMaxSelectionIndex();
-				for (; counter <= maxCounter; ++counter) {
-					if (!lModel->isSelectedIndex(counter)) {
-						if (counter == min) {
-							clearSelection();
-						} else {
-							$var($TreePathArray, newSel, $new($TreePathArray, counter - min));
-							$var($ints, selectionIndex, $nc(this->rowMapper)->getRowsForPaths(this->selection));
-							for (int32_t i = 0; i < $nc(selectionIndex)->length; ++i) {
-								if (selectionIndex->get(i) < counter) {
-									newSel->set(selectionIndex->get(i) - min, $nc(this->selection)->get(i));
-								}
+			for (int32_t counter = min, maxCounter = lModel->getMaxSelectionIndex(); counter <= maxCounter; ++counter) {
+				if (!lModel->isSelectedIndex(counter)) {
+					if (counter == min) {
+						clearSelection();
+					} else {
+						$var($TreePathArray, newSel, $new($TreePathArray, counter - min));
+						$var($ints, selectionIndex, $nc(this->rowMapper)->getRowsForPaths(this->selection));
+						for (int32_t i = 0; i < $nc(selectionIndex)->length; ++i) {
+							if (selectionIndex->get(i) < counter) {
+								newSel->set(selectionIndex->get(i) - min, $nc(this->selection)->get(i));
 							}
-							setSelectionPaths(newSel);
-							break;
 						}
+						setSelectionPaths(newSel);
+						break;
 					}
 				}
 			}
 		}
-	} else if (this->selectionMode == $TreeSelectionModel::SINGLE_TREE_SELECTION && this->selection != nullptr && $nc(this->selection)->length > 1) {
-		setSelectionPath($nc(this->selection)->get(0));
+	} else if (this->selectionMode == $TreeSelectionModel::SINGLE_TREE_SELECTION && this->selection != nullptr && this->selection->length > 1) {
+		setSelectionPath(this->selection->get(0));
 	}
 }
 
 bool DefaultTreeSelectionModel::arePathsContiguous($TreePathArray* paths) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->rowMapper == nullptr || $nc(paths)->length < 2) {
 		return true;
 	} else {
@@ -653,11 +551,11 @@ bool DefaultTreeSelectionModel::arePathsContiguous($TreePathArray* paths) {
 		int32_t anIndex = 0;
 		int32_t counter = 0;
 		int32_t min = 0;
-		int32_t pathCount = paths->length;
+		int32_t pathCount = $nc(paths)->length;
 		int32_t validCount = 0;
 		$var($TreePathArray, tempPath, $new($TreePathArray, 1));
 		tempPath->set(0, paths->get(0));
-		min = $nc($($nc(this->rowMapper)->getRowsForPaths(tempPath)))->get(0);
+		min = $nc($(this->rowMapper->getRowsForPaths(tempPath)))->get(0);
 		for (counter = 0; counter < pathCount; ++counter) {
 			if (paths->get(counter) != nullptr) {
 				tempPath->set(0, paths->get(counter));
@@ -689,8 +587,8 @@ bool DefaultTreeSelectionModel::arePathsContiguous($TreePathArray* paths) {
 }
 
 bool DefaultTreeSelectionModel::canPathsBeAdded($TreePathArray* paths) {
-	$useLocalCurrentObjectStackCache();
-	if (paths == nullptr || $nc(paths)->length == 0 || this->rowMapper == nullptr || this->selection == nullptr || this->selectionMode == $TreeSelectionModel::DISCONTIGUOUS_TREE_SELECTION) {
+	$useLocalObjectStack();
+	if (paths == nullptr || paths->length == 0 || this->rowMapper == nullptr || this->selection == nullptr || this->selectionMode == $TreeSelectionModel::DISCONTIGUOUS_TREE_SELECTION) {
 		return true;
 	} else {
 		$var($BitSet, bitSet, $new($BitSet));
@@ -707,10 +605,10 @@ bool DefaultTreeSelectionModel::canPathsBeAdded($TreePathArray* paths) {
 				}
 			}
 		} else {
-			tempPath->set(0, $nc(paths)->get(0));
+			tempPath->set(0, paths->get(0));
 			min = (max = $nc($($nc(this->rowMapper)->getRowsForPaths(tempPath)))->get(0));
 		}
-		for (counter = $nc(paths)->length - 1; counter >= 0; --counter) {
+		for (counter = paths->length - 1; counter >= 0; --counter) {
 			if (paths->get(counter) != nullptr) {
 				tempPath->set(0, paths->get(counter));
 				$var($ints, rows, $nc(this->rowMapper)->getRowsForPaths(tempPath));
@@ -736,7 +634,7 @@ bool DefaultTreeSelectionModel::canPathsBeAdded($TreePathArray* paths) {
 }
 
 bool DefaultTreeSelectionModel::canPathsBeRemoved($TreePathArray* paths) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->rowMapper == nullptr || this->selection == nullptr || this->selectionMode == $TreeSelectionModel::DISCONTIGUOUS_TREE_SELECTION) {
 		return true;
 	} else {
@@ -751,13 +649,12 @@ bool DefaultTreeSelectionModel::canPathsBeRemoved($TreePathArray* paths) {
 		$nc(this->lastPaths)->clear();
 		for (counter = 0; counter < pathCount; ++counter) {
 			if (paths->get(counter) != nullptr) {
-				$init($Boolean);
-				$nc(this->lastPaths)->put(paths->get(counter), $Boolean::TRUE);
+				this->lastPaths->put(paths->get(counter), $Boolean::TRUE);
 			}
 		}
-		for (counter = $nc(this->selection)->length - 1; counter >= 0; --counter) {
+		for (counter = this->selection->length - 1; counter >= 0; --counter) {
 			if ($nc(this->lastPaths)->get($nc(this->selection)->get(counter)) == nullptr) {
-				tempPath->set(0, $nc(this->selection)->get(counter));
+				tempPath->set(0, this->selection->get(counter));
 				$assign(rows, $nc(this->rowMapper)->getRowsForPaths(tempPath));
 				if (rows != nullptr && rows->get(0) != -1 && !bitSet->get(rows->get(0))) {
 					++validCount;
@@ -783,7 +680,7 @@ bool DefaultTreeSelectionModel::canPathsBeRemoved($TreePathArray* paths) {
 }
 
 void DefaultTreeSelectionModel::notifyPathChange($Vector* changedPaths, $TreePath* oldLeadSelection) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t cPathCount = $nc(changedPaths)->size();
 	$var($booleans, newness, $new($booleans, cPathCount));
 	$var($TreePathArray, paths, $new($TreePathArray, cPathCount));
@@ -793,7 +690,7 @@ void DefaultTreeSelectionModel::notifyPathChange($Vector* changedPaths, $TreePat
 		newness->set(counter, $nc(placeholder)->isNew);
 		paths->set(counter, placeholder->path);
 	}
-	$var($TreeSelectionEvent, event, $new($TreeSelectionEvent, $of(this), paths, newness, oldLeadSelection, this->leadPath));
+	$var($TreeSelectionEvent, event, $new($TreeSelectionEvent, this, paths, newness, oldLeadSelection, this->leadPath));
 	fireValueChanged(event);
 }
 
@@ -804,8 +701,8 @@ void DefaultTreeSelectionModel::updateLeadIndex() {
 			this->leadIndex = (this->leadRow = -1);
 		} else {
 			this->leadRow = (this->leadIndex = -1);
-			for (int32_t counter = $nc(this->selection)->length - 1; counter >= 0; --counter) {
-				if ($nc(this->selection)->get(counter) == this->leadPath) {
+			for (int32_t counter = this->selection->length - 1; counter >= 0; --counter) {
+				if (this->selection->get(counter) == this->leadPath) {
 					this->leadIndex = counter;
 					break;
 				}
@@ -820,23 +717,29 @@ void DefaultTreeSelectionModel::insureUniqueness() {
 }
 
 $String* DefaultTreeSelectionModel::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t selCount = getSelectionCount();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	$var($ints, rows, nullptr);
 	if (this->rowMapper != nullptr) {
-		$assign(rows, $nc(this->rowMapper)->getRowsForPaths(this->selection));
+		$assign(rows, this->rowMapper->getRowsForPaths(this->selection));
 	} else {
 		$assign(rows, nullptr);
 	}
-	$var($String, var$1, $$str({$($of(this)->getClass()->getName()), " "_s}));
-	$var($String, var$0, $$concat(var$1, $$str(hashCode())));
-	sb->append($$concat(var$0, " [ "_s));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($of(this)->getClass()->getName()));
+	var$0->append(" "_s);
+	var$0->append(hashCode());
+	var$0->append(" [ "_s);
+	sb->append($$str(var$0));
 	for (int32_t counter = 0; counter < selCount; ++counter) {
 		if (rows != nullptr) {
-			$var($String, var$3, $$str({$($nc($nc(this->selection)->get(counter))->toString()), "@"_s}));
-			$var($String, var$2, $$concat(var$3, $($Integer::toString(rows->get(counter)))));
-			sb->append($$concat(var$2, " "_s));
+			$var($StringBuilder, var$1, $new($StringBuilder));
+			var$1->append($($nc($nc(this->selection)->get(counter))->toString()));
+			var$1->append("@"_s);
+			var$1->append($($Integer::toString(rows->get(counter))));
+			var$1->append(" "_s);
+			sb->append($$str(var$1));
 		} else {
 			sb->append($$str({$($nc($nc(this->selection)->get(counter))->toString()), " "_s}));
 		}
@@ -849,7 +752,7 @@ $Object* DefaultTreeSelectionModel::clone() {
 	$var(DefaultTreeSelectionModel, clone, $cast(DefaultTreeSelectionModel, $Cloneable::clone()));
 	$set($nc(clone), changeSupport, nullptr);
 	if (this->selection != nullptr) {
-		int32_t selLength = $nc(this->selection)->length;
+		int32_t selLength = this->selection->length;
 		$set(clone, selection, $new($TreePathArray, selLength));
 		$System::arraycopy(this->selection, 0, clone->selection, 0, selLength);
 	}
@@ -875,28 +778,28 @@ void DefaultTreeSelectionModel::writeObject($ObjectOutputStream* s) {
 }
 
 void DefaultTreeSelectionModel::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, f, $nc(s)->readFields());
-	$set(this, changeSupport, $cast($SwingPropertyChangeSupport, $nc(f)->get("changeSupport"_s, ($Object*)nullptr)));
-	$set(this, selection, $cast($TreePathArray, f->get("selection"_s, ($Object*)nullptr)));
-	$var($EventListenerList, newListenerList, $cast($EventListenerList, f->get("listenerList"_s, ($Object*)nullptr)));
+	$set(this, changeSupport, $cast($SwingPropertyChangeSupport, $nc(f)->get("changeSupport"_s, nullptr)));
+	$set(this, selection, $cast($TreePathArray, f->get("selection"_s, nullptr)));
+	$var($EventListenerList, newListenerList, $cast($EventListenerList, f->get("listenerList"_s, nullptr)));
 	if (newListenerList == nullptr) {
 		$throwNew($InvalidObjectException, "Null listenerList"_s);
 	}
 	$set(this, listenerList, newListenerList);
-	$set(this, listSelectionModel, $cast($DefaultListSelectionModel, f->get("listSelectionModel"_s, ($Object*)nullptr)));
+	$set(this, listSelectionModel, $cast($DefaultListSelectionModel, f->get("listSelectionModel"_s, nullptr)));
 	this->selectionMode = validateSelectionMode(f->get("selectionMode"_s, 0));
-	$set(this, leadPath, $cast($TreePath, f->get("leadPath"_s, ($Object*)nullptr)));
+	$set(this, leadPath, $cast($TreePath, f->get("leadPath"_s, nullptr)));
 	this->leadIndex = f->get("leadIndex"_s, 0);
 	this->leadRow = f->get("leadRow"_s, 0);
-	$var($Hashtable, newUniquePaths, $cast($Hashtable, f->get("uniquePaths"_s, ($Object*)nullptr)));
+	$var($Hashtable, newUniquePaths, $cast($Hashtable, f->get("uniquePaths"_s, nullptr)));
 	$set(this, uniquePaths, newUniquePaths);
-	$var($Hashtable, newLastPaths, $cast($Hashtable, f->get("lastPaths"_s, ($Object*)nullptr)));
+	$var($Hashtable, newLastPaths, $cast($Hashtable, f->get("lastPaths"_s, nullptr)));
 	$set(this, lastPaths, newLastPaths);
-	$set(this, tempPaths, $cast($TreePathArray, f->get("tempPaths"_s, ($Object*)nullptr)));
+	$set(this, tempPaths, $cast($TreePathArray, f->get("tempPaths"_s, nullptr)));
 	$var($ObjectArray, tValues, nullptr);
 	$assign(tValues, $cast($ObjectArray, s->readObject()));
-	if ($nc(tValues)->length > 0 && $nc($of(tValues->get(0)))->equals("rowMapper"_s)) {
+	if ($nc(tValues)->length > 0 && $nc(tValues->get(0))->equals("rowMapper"_s)) {
 		$var($RowMapper, newRowMapper, $cast($RowMapper, tValues->get(1)));
 		if (newRowMapper == nullptr) {
 			$throwNew($InvalidObjectException, "Null newRowMapper"_s);
@@ -908,12 +811,92 @@ void DefaultTreeSelectionModel::readObject($ObjectInputStream* s) {
 DefaultTreeSelectionModel::DefaultTreeSelectionModel() {
 }
 
-void clinit$DefaultTreeSelectionModel($Class* class$) {
+void DefaultTreeSelectionModel::clinit$($Class* clazz) {
 	$assignStatic(DefaultTreeSelectionModel::SELECTION_MODE_PROPERTY, "selectionMode"_s);
 }
 
 $Class* DefaultTreeSelectionModel::load$($String* name, bool initialize) {
-	$loadClass(DefaultTreeSelectionModel, name, initialize, &_DefaultTreeSelectionModel_ClassInfo_, clinit$DefaultTreeSelectionModel, allocate$DefaultTreeSelectionModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"SELECTION_MODE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultTreeSelectionModel, SELECTION_MODE_PROPERTY)},
+		{"changeSupport", "Ljavax/swing/event/SwingPropertyChangeSupport;", nullptr, $PROTECTED, $field(DefaultTreeSelectionModel, changeSupport)},
+		{"selection", "[Ljavax/swing/tree/TreePath;", nullptr, $PROTECTED, $field(DefaultTreeSelectionModel, selection)},
+		{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PROTECTED, $field(DefaultTreeSelectionModel, listenerList)},
+		{"rowMapper", "Ljavax/swing/tree/RowMapper;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultTreeSelectionModel, rowMapper)},
+		{"listSelectionModel", "Ljavax/swing/DefaultListSelectionModel;", nullptr, $PROTECTED, $field(DefaultTreeSelectionModel, listSelectionModel)},
+		{"selectionMode", "I", nullptr, $PROTECTED, $field(DefaultTreeSelectionModel, selectionMode)},
+		{"leadPath", "Ljavax/swing/tree/TreePath;", nullptr, $PROTECTED, $field(DefaultTreeSelectionModel, leadPath)},
+		{"leadIndex", "I", nullptr, $PROTECTED, $field(DefaultTreeSelectionModel, leadIndex)},
+		{"leadRow", "I", nullptr, $PROTECTED, $field(DefaultTreeSelectionModel, leadRow)},
+		{"uniquePaths", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljavax/swing/tree/TreePath;Ljava/lang/Boolean;>;", $PRIVATE, $field(DefaultTreeSelectionModel, uniquePaths)},
+		{"lastPaths", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljavax/swing/tree/TreePath;Ljava/lang/Boolean;>;", $PRIVATE, $field(DefaultTreeSelectionModel, lastPaths)},
+		{"tempPaths", "[Ljavax/swing/tree/TreePath;", nullptr, $PRIVATE, $field(DefaultTreeSelectionModel, tempPaths)},
+		{}
+	};
+	$CompoundAttribute notifyPathChangemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultTreeSelectionModel, init$, void)},
+		{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DefaultTreeSelectionModel, addPropertyChangeListener, void, $PropertyChangeListener*)},
+		{"addSelectionPath", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, addSelectionPath, void, $TreePath*)},
+		{"addSelectionPaths", "([Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, addSelectionPaths, void, $TreePathArray*)},
+		{"addTreeSelectionListener", "(Ljavax/swing/event/TreeSelectionListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, addTreeSelectionListener, void, $TreeSelectionListener*)},
+		{"arePathsContiguous", "([Ljavax/swing/tree/TreePath;)Z", nullptr, $PROTECTED, $virtualMethod(DefaultTreeSelectionModel, arePathsContiguous, bool, $TreePathArray*)},
+		{"canPathsBeAdded", "([Ljavax/swing/tree/TreePath;)Z", nullptr, $PROTECTED, $virtualMethod(DefaultTreeSelectionModel, canPathsBeAdded, bool, $TreePathArray*)},
+		{"canPathsBeRemoved", "([Ljavax/swing/tree/TreePath;)Z", nullptr, $PROTECTED, $virtualMethod(DefaultTreeSelectionModel, canPathsBeRemoved, bool, $TreePathArray*)},
+		{"clearSelection", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, clearSelection, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"fireValueChanged", "(Ljavax/swing/event/TreeSelectionEvent;)V", nullptr, $PROTECTED, $virtualMethod(DefaultTreeSelectionModel, fireValueChanged, void, $TreeSelectionEvent*)},
+		{"getLeadSelectionPath", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, getLeadSelectionPath, $TreePath*)},
+		{"getLeadSelectionRow", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, getLeadSelectionRow, int32_t)},
+		{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, getListeners, $EventListenerArray*, $Class*)},
+		{"getMaxSelectionRow", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, getMaxSelectionRow, int32_t)},
+		{"getMinSelectionRow", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, getMinSelectionRow, int32_t)},
+		{"getPropertyChangeListeners", "()[Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, getPropertyChangeListeners, $PropertyChangeListenerArray*)},
+		{"getRowMapper", "()Ljavax/swing/tree/RowMapper;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, getRowMapper, $RowMapper*)},
+		{"getSelectionCount", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, getSelectionCount, int32_t)},
+		{"getSelectionMode", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, getSelectionMode, int32_t)},
+		{"getSelectionPath", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, getSelectionPath, $TreePath*)},
+		{"getSelectionPaths", "()[Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, getSelectionPaths, $TreePathArray*)},
+		{"getSelectionRows", "()[I", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, getSelectionRows, $ints*)},
+		{"getTreeSelectionListeners", "()[Ljavax/swing/event/TreeSelectionListener;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, getTreeSelectionListeners, $TreeSelectionListenerArray*)},
+		{"insureRowContinuity", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultTreeSelectionModel, insureRowContinuity, void)},
+		{"insureUniqueness", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultTreeSelectionModel, insureUniqueness, void)},
+		{"isPathSelected", "(Ljavax/swing/tree/TreePath;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, isPathSelected, bool, $TreePath*)},
+		{"isRowSelected", "(I)Z", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, isRowSelected, bool, int32_t)},
+		{"isSelectionEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, isSelectionEmpty, bool)},
+		{"notifyPathChange", "(Ljava/util/Vector;Ljavax/swing/tree/TreePath;)V", "(Ljava/util/Vector<*>;Ljavax/swing/tree/TreePath;)V", $PROTECTED | $DEPRECATED, $virtualMethod(DefaultTreeSelectionModel, notifyPathChange, void, $Vector*, $TreePath*), nullptr, nullptr, notifyPathChangemethodAnnotations$$},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DefaultTreeSelectionModel, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DefaultTreeSelectionModel, removePropertyChangeListener, void, $PropertyChangeListener*)},
+		{"removeSelectionPath", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, removeSelectionPath, void, $TreePath*)},
+		{"removeSelectionPaths", "([Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, removeSelectionPaths, void, $TreePathArray*)},
+		{"removeTreeSelectionListener", "(Ljavax/swing/event/TreeSelectionListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, removeTreeSelectionListener, void, $TreeSelectionListener*)},
+		{"resetRowSelection", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, resetRowSelection, void)},
+		{"setRowMapper", "(Ljavax/swing/tree/RowMapper;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, setRowMapper, void, $RowMapper*)},
+		{"setSelectionMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, setSelectionMode, void, int32_t)},
+		{"setSelectionPath", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, setSelectionPath, void, $TreePath*)},
+		{"setSelectionPaths", "([Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, setSelectionPaths, void, $TreePathArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeSelectionModel, toString, $String*)},
+		{"updateLeadIndex", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultTreeSelectionModel, updateLeadIndex, void)},
+		{"validateSelectionMode", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DefaultTreeSelectionModel, validateSelectionMode, int32_t, int32_t)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(DefaultTreeSelectionModel, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.tree.DefaultTreeSelectionModel",
+		"java.lang.Object",
+		"java.lang.Cloneable,java.io.Serializable,javax.swing.tree.TreeSelectionModel",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DefaultTreeSelectionModel, name, initialize, &classInfo$$, DefaultTreeSelectionModel::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultTreeSelectionModel));
+	});
 	return class$;
 }
 

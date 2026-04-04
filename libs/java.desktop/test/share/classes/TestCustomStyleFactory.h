@@ -12,6 +12,7 @@ class $export TestCustomStyleFactory : public ::java::lang::Object {
 	$class(TestCustomStyleFactory, 0, ::java::lang::Object)
 public:
 	TestCustomStyleFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static $String* GTK_LAF_CLASS;

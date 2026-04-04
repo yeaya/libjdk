@@ -1,5 +1,4 @@
 #include <java/awt/peer/MenuBarPeer.h>
-
 #include <java/awt/Menu.h>
 #include <jcpp.h>
 
@@ -11,28 +10,24 @@ namespace java {
 	namespace awt {
 		namespace peer {
 
-$MethodInfo _MenuBarPeer_MethodInfo_[] = {
-	{"addHelpMenu", "(Ljava/awt/Menu;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MenuBarPeer, addHelpMenu, void, $Menu*)},
-	{"addMenu", "(Ljava/awt/Menu;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MenuBarPeer, addMenu, void, $Menu*)},
-	{"delMenu", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MenuBarPeer, delMenu, void, int32_t)},
-	{}
-};
-
-$ClassInfo _MenuBarPeer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.peer.MenuBarPeer",
-	nullptr,
-	"java.awt.peer.MenuComponentPeer",
-	nullptr,
-	_MenuBarPeer_MethodInfo_
-};
-
-$Object* allocate$MenuBarPeer($Class* clazz) {
-	return $of($alloc(MenuBarPeer));
-}
-
 $Class* MenuBarPeer::load$($String* name, bool initialize) {
-	$loadClass(MenuBarPeer, name, initialize, &_MenuBarPeer_ClassInfo_, allocate$MenuBarPeer);
+	$MethodInfo methodInfos$$[] = {
+		{"addHelpMenu", "(Ljava/awt/Menu;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MenuBarPeer, addHelpMenu, void, $Menu*)},
+		{"addMenu", "(Ljava/awt/Menu;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MenuBarPeer, addMenu, void, $Menu*)},
+		{"delMenu", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MenuBarPeer, delMenu, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.peer.MenuBarPeer",
+		nullptr,
+		"java.awt.peer.MenuComponentPeer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MenuBarPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MenuBarPeer);
+	});
 	return class$;
 }
 

@@ -23,6 +23,7 @@ class Policy : public ::java::lang::Object {
 	$class(Policy, 0, ::java::lang::Object)
 public:
 	Policy();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Set* disabledAlgs();
 	static ::java::util::Set* disabledReferenceUriSchemes();

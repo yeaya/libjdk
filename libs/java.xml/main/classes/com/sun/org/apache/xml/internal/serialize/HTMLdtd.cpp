@@ -1,10 +1,8 @@
 #include <com/sun/org/apache/xml/internal/serialize/HTMLdtd.h>
-
 #include <com/sun/org/apache/xerces/internal/dom/DOMMessageFormatter.h>
 #include <java/io/BufferedReader.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/Reader.h>
 #include <java/util/HashMap.h>
 #include <java/util/Locale.h>
 #include <java/util/Map.h>
@@ -29,7 +27,6 @@ using $DOMMessageFormatter = ::com::sun::org::apache::xerces::internal::dom::DOM
 using $BufferedReader = ::java::io::BufferedReader;
 using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
-using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $Exception = ::java::lang::Exception;
@@ -48,73 +45,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace serialize {
-
-$CompoundAttribute _HTMLdtd_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _HTMLdtd_FieldInfo_[] = {
-	{"HTMLPublicId", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLdtd, HTMLPublicId)},
-	{"HTMLSystemId", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLdtd, HTMLSystemId)},
-	{"XHTMLPublicId", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLdtd, XHTMLPublicId)},
-	{"XHTMLSystemId", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLdtd, XHTMLSystemId)},
-	{"_byChar", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(HTMLdtd, _byChar)},
-	{"_byName", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE | $STATIC, $staticField(HTMLdtd, _byName)},
-	{"_boolAttrs", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;[Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(HTMLdtd, _boolAttrs)},
-	{"_elemDefs", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(HTMLdtd, _elemDefs)},
-	{"ENTITIES_RESOURCE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLdtd, ENTITIES_RESOURCE)},
-	{"ONLY_OPENING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HTMLdtd, ONLY_OPENING)},
-	{"ELEM_CONTENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HTMLdtd, ELEM_CONTENT)},
-	{"PRESERVE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HTMLdtd, PRESERVE)},
-	{"OPT_CLOSING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HTMLdtd, OPT_CLOSING)},
-	{"EMPTY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HTMLdtd, EMPTY)},
-	{"ALLOWED_HEAD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HTMLdtd, ALLOWED_HEAD)},
-	{"CLOSE_P", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HTMLdtd, CLOSE_P)},
-	{"CLOSE_DD_DT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HTMLdtd, CLOSE_DD_DT)},
-	{"CLOSE_SELF", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HTMLdtd, CLOSE_SELF)},
-	{"CLOSE_TABLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HTMLdtd, CLOSE_TABLE)},
-	{"CLOSE_TH_TD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HTMLdtd, CLOSE_TH_TD)},
-	{}
-};
-
-$MethodInfo _HTMLdtd_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HTMLdtd, init$, void)},
-	{"charFromName", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(HTMLdtd, charFromName, int32_t, $String*)},
-	{"defineBoolean", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(HTMLdtd, defineBoolean, void, $String*, $String*)},
-	{"defineBoolean", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(HTMLdtd, defineBoolean, void, $String*, $StringArray*)},
-	{"defineElement", "(Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(HTMLdtd, defineElement, void, $String*, int32_t)},
-	{"defineEntity", "(Ljava/lang/String;C)V", nullptr, $PRIVATE | $STATIC, $staticMethod(HTMLdtd, defineEntity, void, $String*, char16_t)},
-	{"fromChar", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(HTMLdtd, fromChar, $String*, int32_t)},
-	{"initialize", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(HTMLdtd, initialize, void)},
-	{"isBoolean", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(HTMLdtd, isBoolean, bool, $String*, $String*)},
-	{"isClosing", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(HTMLdtd, isClosing, bool, $String*, $String*)},
-	{"isElement", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(HTMLdtd, isElement, bool, $String*, int32_t)},
-	{"isElementContent", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(HTMLdtd, isElementContent, bool, $String*)},
-	{"isEmptyTag", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(HTMLdtd, isEmptyTag, bool, $String*)},
-	{"isOnlyOpening", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(HTMLdtd, isOnlyOpening, bool, $String*)},
-	{"isOptionalClosing", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(HTMLdtd, isOptionalClosing, bool, $String*)},
-	{"isPreserveSpace", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(HTMLdtd, isPreserveSpace, bool, $String*)},
-	{"isURI", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(HTMLdtd, isURI, bool, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _HTMLdtd_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serialize.HTMLdtd",
-	"java.lang.Object",
-	nullptr,
-	_HTMLdtd_FieldInfo_,
-	_HTMLdtd_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_HTMLdtd_Annotations_
-};
-
-$Object* allocate$HTMLdtd($Class* clazz) {
-	return $of($alloc(HTMLdtd));
-}
 
 $String* HTMLdtd::HTMLPublicId = nullptr;
 $String* HTMLdtd::HTMLSystemId = nullptr;
@@ -159,26 +89,26 @@ bool HTMLdtd::isClosing($String* tagName, $String* openTag) {
 	if ($nc(openTag)->equalsIgnoreCase("HEAD"_s)) {
 		return !isElement(tagName, HTMLdtd::ALLOWED_HEAD);
 	}
-	if ($nc(openTag)->equalsIgnoreCase("P"_s)) {
+	if (openTag->equalsIgnoreCase("P"_s)) {
 		return isElement(tagName, HTMLdtd::CLOSE_P);
 	}
-	bool var$0 = $nc(openTag)->equalsIgnoreCase("DT"_s);
-	if (var$0 || $nc(openTag)->equalsIgnoreCase("DD"_s)) {
+	bool var$0 = openTag->equalsIgnoreCase("DT"_s);
+	if (var$0 || openTag->equalsIgnoreCase("DD"_s)) {
 		return isElement(tagName, HTMLdtd::CLOSE_DD_DT);
 	}
-	bool var$1 = $nc(openTag)->equalsIgnoreCase("LI"_s);
-	if (var$1 || $nc(openTag)->equalsIgnoreCase("OPTION"_s)) {
+	bool var$1 = openTag->equalsIgnoreCase("LI"_s);
+	if (var$1 || openTag->equalsIgnoreCase("OPTION"_s)) {
 		return isElement(tagName, HTMLdtd::CLOSE_SELF);
 	}
-	bool var$5 = $nc(openTag)->equalsIgnoreCase("THEAD"_s);
-	bool var$4 = var$5 || $nc(openTag)->equalsIgnoreCase("TFOOT"_s);
-	bool var$3 = var$4 || $nc(openTag)->equalsIgnoreCase("TBODY"_s);
-	bool var$2 = var$3 || $nc(openTag)->equalsIgnoreCase("TR"_s);
-	if (var$2 || $nc(openTag)->equalsIgnoreCase("COLGROUP"_s)) {
+	bool var$5 = openTag->equalsIgnoreCase("THEAD"_s);
+	bool var$4 = var$5 || openTag->equalsIgnoreCase("TFOOT"_s);
+	bool var$3 = var$4 || openTag->equalsIgnoreCase("TBODY"_s);
+	bool var$2 = var$3 || openTag->equalsIgnoreCase("TR"_s);
+	if (var$2 || openTag->equalsIgnoreCase("COLGROUP"_s)) {
 		return isElement(tagName, HTMLdtd::CLOSE_TABLE);
 	}
-	bool var$6 = $nc(openTag)->equalsIgnoreCase("TH"_s);
-	if (var$6 || $nc(openTag)->equalsIgnoreCase("TD"_s)) {
+	bool var$6 = openTag->equalsIgnoreCase("TH"_s);
+	if (var$6 || openTag->equalsIgnoreCase("TD"_s)) {
 		return isElement(tagName, HTMLdtd::CLOSE_TH_TD);
 	}
 	return false;
@@ -187,12 +117,12 @@ bool HTMLdtd::isClosing($String* tagName, $String* openTag) {
 bool HTMLdtd::isURI($String* tagName, $String* attrName) {
 	$init(HTMLdtd);
 	bool var$0 = $nc(attrName)->equalsIgnoreCase("href"_s);
-	return (var$0 || $nc(attrName)->equalsIgnoreCase("src"_s));
+	return (var$0 || attrName->equalsIgnoreCase("src"_s));
 }
 
 bool HTMLdtd::isBoolean($String* tagName, $String* attrName) {
 	$init(HTMLdtd);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, attrNames, nullptr);
 	$init($Locale);
 	$assign(attrNames, $cast($StringArray, $nc(HTMLdtd::_boolAttrs)->get($($nc(tagName)->toUpperCase($Locale::ENGLISH)))));
@@ -213,7 +143,7 @@ int32_t HTMLdtd::charFromName($String* name) {
 	initialize();
 	$assign(value, $nc(HTMLdtd::_byName)->get(name));
 	if (value != nullptr && $instanceOf($Integer, value)) {
-		return $nc(($cast($Integer, value)))->intValue();
+		return $cast($Integer, value)->intValue();
 	} else {
 		return -1;
 	}
@@ -221,8 +151,8 @@ int32_t HTMLdtd::charFromName($String* name) {
 
 $String* HTMLdtd::fromChar(int32_t value) {
 	$init(HTMLdtd);
-	$useLocalCurrentObjectStackCache();
-	if (value > 0x0000FFFF) {
+	$useLocalObjectStack();
+	if (value > 0x0000ffff) {
 		return nullptr;
 	}
 	$var($String, name, nullptr);
@@ -233,7 +163,7 @@ $String* HTMLdtd::fromChar(int32_t value) {
 
 void HTMLdtd::initialize() {
 	$init(HTMLdtd);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($InputStream, is, nullptr);
 	$var($BufferedReader, reader, nullptr);
@@ -245,70 +175,68 @@ void HTMLdtd::initialize() {
 	if (HTMLdtd::_byName != nullptr) {
 		return;
 	}
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$assignStatic(HTMLdtd::_byName, $new($HashMap));
-				$assignStatic(HTMLdtd::_byChar, $new($HashMap));
-				$assign(is, HTMLdtd::class$->getResourceAsStream(HTMLdtd::ENTITIES_RESOURCE));
-				if (is == nullptr) {
-					$init($DOMMessageFormatter);
-					$throwNew($RuntimeException, $($DOMMessageFormatter::formatMessage($DOMMessageFormatter::SERIALIZER_DOMAIN, "ResourceNotFound"_s, $$new($ObjectArray, {$of(HTMLdtd::ENTITIES_RESOURCE)}))));
-				}
-				$assign(reader, $new($BufferedReader, $$new($InputStreamReader, is, "ASCII"_s)));
-				$assign(line, reader->readLine());
-				while (line != nullptr) {
-					bool var$1 = line->length() == 0;
-					if (var$1 || line->charAt(0) == u'#') {
-						$assign(line, reader->readLine());
-						continue;
-					}
-					index = line->indexOf((int32_t)u' ');
-					if (index > 1) {
-						$assign(name, line->substring(0, index));
-						++index;
-						if (index < line->length()) {
-							$assign(value, line->substring(index));
-							index = value->indexOf((int32_t)u' ');
-							if (index > 0) {
-								$assign(value, value->substring(0, index));
-							}
-							code = $Integer::parseInt(value);
-							defineEntity(name, (char16_t)code);
-						}
-					}
-					$assign(line, reader->readLine());
-				}
-				$nc(is)->close();
-			} catch ($Exception& except) {
+			$assignStatic(HTMLdtd::_byName, $new($HashMap));
+			$assignStatic(HTMLdtd::_byChar, $new($HashMap));
+			$assign(is, HTMLdtd::class$->getResourceAsStream(HTMLdtd::ENTITIES_RESOURCE));
+			if (is == nullptr) {
 				$init($DOMMessageFormatter);
-				$throwNew($RuntimeException, $($DOMMessageFormatter::formatMessage($DOMMessageFormatter::SERIALIZER_DOMAIN, "ResourceNotLoaded"_s, $$new($ObjectArray, {
-					$of(HTMLdtd::ENTITIES_RESOURCE),
-					$($of(except->toString()))
-				}))));
+				$throwNew($RuntimeException, $($DOMMessageFormatter::formatMessage($DOMMessageFormatter::SERIALIZER_DOMAIN, "ResourceNotFound"_s, $$new($ObjectArray, {HTMLdtd::ENTITIES_RESOURCE}))));
 			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} /*finally*/ {
-			if (is != nullptr) {
-				try {
-					is->close();
-				} catch ($Exception& except) {
+			$assign(reader, $new($BufferedReader, $$new($InputStreamReader, is, "ASCII"_s)));
+			$assign(line, reader->readLine());
+			while (line != nullptr) {
+				bool var$1 = line->length() == 0;
+				if (var$1 || line->charAt(0) == u'#') {
+					$assign(line, reader->readLine());
+					continue;
 				}
+				index = $nc(line)->indexOf(u' ');
+				if (index > 1) {
+					$assign(name, line->substring(0, index));
+					++index;
+					if (index < line->length()) {
+						$assign(value, line->substring(index));
+						index = value->indexOf(u' ');
+						if (index > 0) {
+							$assign(value, value->substring(0, index));
+						}
+						code = $Integer::parseInt(value);
+						defineEntity(name, (char16_t)code);
+					}
+				}
+				$assign(line, reader->readLine());
+			}
+			$nc(is)->close();
+		} catch ($Exception& except) {
+			$init($DOMMessageFormatter);
+			$throwNew($RuntimeException, $($DOMMessageFormatter::formatMessage($DOMMessageFormatter::SERIALIZER_DOMAIN, "ResourceNotLoaded"_s, $$new($ObjectArray, {
+				HTMLdtd::ENTITIES_RESOURCE,
+				$(except->toString())
+			}))));
+		}
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		if (is != nullptr) {
+			try {
+				is->close();
+			} catch ($Exception& except) {
 			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void HTMLdtd::defineEntity($String* name, char16_t value) {
 	$init(HTMLdtd);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(HTMLdtd::_byName)->get(name) == nullptr) {
-		$nc(HTMLdtd::_byName)->put(name, $($Integer::valueOf((int32_t)value)));
+		HTMLdtd::_byName->put(name, $($Integer::valueOf((int32_t)value)));
 		$nc(HTMLdtd::_byChar)->put($($Integer::valueOf((int32_t)value)), name);
 	}
 }
@@ -330,19 +258,19 @@ void HTMLdtd::defineBoolean($String* tagName, $StringArray* attrNames) {
 
 bool HTMLdtd::isElement($String* name, int32_t flag) {
 	$init(HTMLdtd);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Integer, flags, nullptr);
 	$init($Locale);
 	$assign(flags, $cast($Integer, $nc(HTMLdtd::_elemDefs)->get($($nc(name)->toUpperCase($Locale::ENGLISH)))));
 	if (flags == nullptr) {
 		return false;
 	} else {
-		return (((int32_t)($nc(flags)->intValue() & (uint32_t)flag)) == flag);
+		return ((flags->intValue() & flag) == flag);
 	}
 }
 
-void clinit$HTMLdtd($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void HTMLdtd::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(HTMLdtd::HTMLPublicId, "-//W3C//DTD HTML 4.01//EN"_s);
 	$assignStatic(HTMLdtd::HTMLSystemId, "http://www.w3.org/TR/html4/strict.dtd"_s);
 	$assignStatic(HTMLdtd::XHTMLPublicId, "-//W3C//DTD XHTML 1.0 Strict//EN"_s);
@@ -447,7 +375,68 @@ HTMLdtd::HTMLdtd() {
 }
 
 $Class* HTMLdtd::load$($String* name, bool initialize) {
-	$loadClass(HTMLdtd, name, initialize, &_HTMLdtd_ClassInfo_, clinit$HTMLdtd, allocate$HTMLdtd);
+	$FieldInfo fieldInfos$$[] = {
+		{"HTMLPublicId", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLdtd, HTMLPublicId)},
+		{"HTMLSystemId", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLdtd, HTMLSystemId)},
+		{"XHTMLPublicId", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLdtd, XHTMLPublicId)},
+		{"XHTMLSystemId", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLdtd, XHTMLSystemId)},
+		{"_byChar", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(HTMLdtd, _byChar)},
+		{"_byName", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE | $STATIC, $staticField(HTMLdtd, _byName)},
+		{"_boolAttrs", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;[Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(HTMLdtd, _boolAttrs)},
+		{"_elemDefs", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(HTMLdtd, _elemDefs)},
+		{"ENTITIES_RESOURCE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLdtd, ENTITIES_RESOURCE)},
+		{"ONLY_OPENING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HTMLdtd, ONLY_OPENING)},
+		{"ELEM_CONTENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HTMLdtd, ELEM_CONTENT)},
+		{"PRESERVE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HTMLdtd, PRESERVE)},
+		{"OPT_CLOSING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HTMLdtd, OPT_CLOSING)},
+		{"EMPTY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HTMLdtd, EMPTY)},
+		{"ALLOWED_HEAD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HTMLdtd, ALLOWED_HEAD)},
+		{"CLOSE_P", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HTMLdtd, CLOSE_P)},
+		{"CLOSE_DD_DT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HTMLdtd, CLOSE_DD_DT)},
+		{"CLOSE_SELF", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HTMLdtd, CLOSE_SELF)},
+		{"CLOSE_TABLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HTMLdtd, CLOSE_TABLE)},
+		{"CLOSE_TH_TD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HTMLdtd, CLOSE_TH_TD)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HTMLdtd, init$, void)},
+		{"charFromName", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(HTMLdtd, charFromName, int32_t, $String*)},
+		{"defineBoolean", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(HTMLdtd, defineBoolean, void, $String*, $String*)},
+		{"defineBoolean", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(HTMLdtd, defineBoolean, void, $String*, $StringArray*)},
+		{"defineElement", "(Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(HTMLdtd, defineElement, void, $String*, int32_t)},
+		{"defineEntity", "(Ljava/lang/String;C)V", nullptr, $PRIVATE | $STATIC, $staticMethod(HTMLdtd, defineEntity, void, $String*, char16_t)},
+		{"fromChar", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(HTMLdtd, fromChar, $String*, int32_t)},
+		{"initialize", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(HTMLdtd, initialize, void)},
+		{"isBoolean", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(HTMLdtd, isBoolean, bool, $String*, $String*)},
+		{"isClosing", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(HTMLdtd, isClosing, bool, $String*, $String*)},
+		{"isElement", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(HTMLdtd, isElement, bool, $String*, int32_t)},
+		{"isElementContent", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(HTMLdtd, isElementContent, bool, $String*)},
+		{"isEmptyTag", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(HTMLdtd, isEmptyTag, bool, $String*)},
+		{"isOnlyOpening", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(HTMLdtd, isOnlyOpening, bool, $String*)},
+		{"isOptionalClosing", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(HTMLdtd, isOptionalClosing, bool, $String*)},
+		{"isPreserveSpace", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(HTMLdtd, isPreserveSpace, bool, $String*)},
+		{"isURI", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(HTMLdtd, isURI, bool, $String*, $String*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serialize.HTMLdtd",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(HTMLdtd, name, initialize, &classInfo$$, HTMLdtd::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HTMLdtd);
+	});
 	return class$;
 }
 

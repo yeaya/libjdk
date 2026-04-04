@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicDesktopPaneUI$Actions.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -65,68 +64,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicDesktopPaneUI$Actions_FieldInfo_[] = {
-	{"CLOSE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, CLOSE)},
-	{"ESCAPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, ESCAPE)},
-	{"MAXIMIZE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, MAXIMIZE)},
-	{"MINIMIZE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, MINIMIZE)},
-	{"MOVE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, MOVE)},
-	{"RESIZE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, RESIZE)},
-	{"RESTORE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, RESTORE)},
-	{"LEFT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, LEFT)},
-	{"RIGHT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, RIGHT)},
-	{"UP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, UP)},
-	{"DOWN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, DOWN)},
-	{"SHRINK_LEFT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, SHRINK_LEFT)},
-	{"SHRINK_RIGHT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, SHRINK_RIGHT)},
-	{"SHRINK_UP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, SHRINK_UP)},
-	{"SHRINK_DOWN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, SHRINK_DOWN)},
-	{"NEXT_FRAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, NEXT_FRAME)},
-	{"PREVIOUS_FRAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, PREVIOUS_FRAME)},
-	{"NAVIGATE_NEXT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, NAVIGATE_NEXT)},
-	{"NAVIGATE_PREVIOUS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, NAVIGATE_PREVIOUS)},
-	{"MOVE_RESIZE_INCREMENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicDesktopPaneUI$Actions, MOVE_RESIZE_INCREMENT)},
-	{"moving", "Z", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, moving)},
-	{"resizing", "Z", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, resizing)},
-	{"sourceFrame", "Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, sourceFrame)},
-	{"focusOwner", "Ljava/awt/Component;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, focusOwner)},
-	{}
-};
-
-$MethodInfo _BasicDesktopPaneUI$Actions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(BasicDesktopPaneUI$Actions, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicDesktopPaneUI$Actions, init$, void, $String*)},
-	{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI$Actions, accept, bool, Object$*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI$Actions, actionPerformed, void, $ActionEvent*)},
-	{"setState", "(Ljavax/swing/JDesktopPane;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(BasicDesktopPaneUI$Actions, setState, void, $JDesktopPane*, $String*)},
-	{}
-};
-
-$InnerClassInfo _BasicDesktopPaneUI$Actions_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicDesktopPaneUI$Actions", "javax.swing.plaf.basic.BasicDesktopPaneUI", "Actions", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicDesktopPaneUI$Actions_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicDesktopPaneUI$Actions",
-	"sun.swing.UIAction",
-	nullptr,
-	_BasicDesktopPaneUI$Actions_FieldInfo_,
-	_BasicDesktopPaneUI$Actions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicDesktopPaneUI$Actions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicDesktopPaneUI"
-};
-
-$Object* allocate$BasicDesktopPaneUI$Actions($Class* clazz) {
-	return $of($alloc(BasicDesktopPaneUI$Actions));
-}
-
 $String* BasicDesktopPaneUI$Actions::CLOSE = nullptr;
 $String* BasicDesktopPaneUI$Actions::ESCAPE = nullptr;
 $String* BasicDesktopPaneUI$Actions::MAXIMIZE = nullptr;
@@ -160,14 +97,14 @@ void BasicDesktopPaneUI$Actions::init$($String* name) {
 }
 
 void BasicDesktopPaneUI$Actions::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JDesktopPane, dp, $cast($JDesktopPane, $nc(e)->getSource()));
 	$var($String, key, getName());
 	if (BasicDesktopPaneUI$Actions::CLOSE == key || BasicDesktopPaneUI$Actions::MAXIMIZE == key || BasicDesktopPaneUI$Actions::MINIMIZE == key || BasicDesktopPaneUI$Actions::RESTORE == key) {
 		setState(dp, key);
 	} else if (BasicDesktopPaneUI$Actions::ESCAPE == key) {
 		if (BasicDesktopPaneUI$Actions::sourceFrame == $nc(dp)->getSelectedFrame() && BasicDesktopPaneUI$Actions::focusOwner != nullptr) {
-			$nc(BasicDesktopPaneUI$Actions::focusOwner)->requestFocus();
+			BasicDesktopPaneUI$Actions::focusOwner->requestFocus();
 		}
 		BasicDesktopPaneUI$Actions::moving = false;
 		BasicDesktopPaneUI$Actions::resizing = false;
@@ -180,14 +117,14 @@ void BasicDesktopPaneUI$Actions::actionPerformed($ActionEvent* e) {
 		}
 		BasicDesktopPaneUI$Actions::moving = (key == BasicDesktopPaneUI$Actions::MOVE) ? true : false;
 		BasicDesktopPaneUI$Actions::resizing = (key == BasicDesktopPaneUI$Actions::RESIZE) ? true : false;
-		$assignStatic(BasicDesktopPaneUI$Actions::focusOwner, $nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->getFocusOwner());
+		$assignStatic(BasicDesktopPaneUI$Actions::focusOwner, $$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->getFocusOwner());
 		if (!$SwingUtilities::isDescendingFrom(BasicDesktopPaneUI$Actions::focusOwner, BasicDesktopPaneUI$Actions::sourceFrame)) {
 			$assignStatic(BasicDesktopPaneUI$Actions::focusOwner, nullptr);
 		}
 		$nc(BasicDesktopPaneUI$Actions::sourceFrame)->requestFocus();
 	} else if (BasicDesktopPaneUI$Actions::LEFT == key || BasicDesktopPaneUI$Actions::RIGHT == key || BasicDesktopPaneUI$Actions::UP == key || BasicDesktopPaneUI$Actions::DOWN == key || BasicDesktopPaneUI$Actions::SHRINK_RIGHT == key || BasicDesktopPaneUI$Actions::SHRINK_LEFT == key || BasicDesktopPaneUI$Actions::SHRINK_UP == key || BasicDesktopPaneUI$Actions::SHRINK_DOWN == key) {
 		$var($JInternalFrame, c, $nc(dp)->getSelectedFrame());
-		if (BasicDesktopPaneUI$Actions::sourceFrame == nullptr || c != BasicDesktopPaneUI$Actions::sourceFrame || !$equals($nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->getFocusOwner(), BasicDesktopPaneUI$Actions::sourceFrame)) {
+		if (BasicDesktopPaneUI$Actions::sourceFrame == nullptr || c != BasicDesktopPaneUI$Actions::sourceFrame || !$equals($$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->getFocusOwner(), BasicDesktopPaneUI$Actions::sourceFrame)) {
 			return;
 		}
 		$var($Insets, minOnScreenInsets, $UIManager::getInsets("Desktop.minOnScreenInsets"_s));
@@ -199,29 +136,29 @@ void BasicDesktopPaneUI$Actions::actionPerformed($ActionEvent* e) {
 		$var($Point, loc, c->getLocation());
 		if (BasicDesktopPaneUI$Actions::LEFT == key) {
 			if (BasicDesktopPaneUI$Actions::moving) {
-				c->setLocation($nc(loc)->x + $nc(size)->width - BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT < $nc(minOnScreenInsets)->right ? -$nc(size)->width + $nc(minOnScreenInsets)->right : $nc(loc)->x - BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT, loc->y);
+				c->setLocation($nc(loc)->x + $nc(size)->width - BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT < $nc(minOnScreenInsets)->right ? -size->width + minOnScreenInsets->right : loc->x - BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT, loc->y);
 			} else if (BasicDesktopPaneUI$Actions::resizing) {
-				c->setLocation($nc(loc)->x - BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT, loc->y);
-				c->setSize($nc(size)->width + BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT, size->height);
+				c->setLocation($nc(loc)->x - BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT, $nc(loc)->y);
+				c->setSize($nc(size)->width + BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT, $nc(size)->height);
 			}
 		} else if (BasicDesktopPaneUI$Actions::RIGHT == key) {
 			if (BasicDesktopPaneUI$Actions::moving) {
-				c->setLocation($nc(loc)->x + BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT > dpWidth - $nc(minOnScreenInsets)->left ? dpWidth - $nc(minOnScreenInsets)->left : $nc(loc)->x + BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT, loc->y);
+				c->setLocation($nc(loc)->x + BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT > dpWidth - $nc(minOnScreenInsets)->left ? dpWidth - minOnScreenInsets->left : loc->x + BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT, loc->y);
 			} else if (BasicDesktopPaneUI$Actions::resizing) {
-				c->setSize($nc(size)->width + BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT, size->height);
+				c->setSize($nc(size)->width + BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT, $nc(size)->height);
 			}
 		} else if (BasicDesktopPaneUI$Actions::UP == key) {
 			if (BasicDesktopPaneUI$Actions::moving) {
-				c->setLocation($nc(loc)->x, loc->y + $nc(size)->height - BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT < $nc(minOnScreenInsets)->bottom ? -$nc(size)->height + $nc(minOnScreenInsets)->bottom : loc->y - BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT);
+				c->setLocation($nc(loc)->x, $nc(loc)->y + $nc(size)->height - BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT < $nc(minOnScreenInsets)->bottom ? -size->height + minOnScreenInsets->bottom : loc->y - BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT);
 			} else if (BasicDesktopPaneUI$Actions::resizing) {
-				c->setLocation($nc(loc)->x, loc->y - BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT);
-				c->setSize($nc(size)->width, size->height + BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT);
+				c->setLocation($nc(loc)->x, $nc(loc)->y - BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT);
+				c->setSize($nc(size)->width, $nc(size)->height + BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT);
 			}
 		} else if (BasicDesktopPaneUI$Actions::DOWN == key) {
 			if (BasicDesktopPaneUI$Actions::moving) {
-				c->setLocation($nc(loc)->x, loc->y + BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT > dpHeight - $nc(minOnScreenInsets)->top ? dpHeight - $nc(minOnScreenInsets)->top : loc->y + BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT);
+				c->setLocation($nc(loc)->x, $nc(loc)->y + BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT > dpHeight - $nc(minOnScreenInsets)->top ? dpHeight - minOnScreenInsets->top : loc->y + BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT);
 			} else if (BasicDesktopPaneUI$Actions::resizing) {
-				c->setSize($nc(size)->width, size->height + BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT);
+				c->setSize($nc(size)->width, $nc(size)->height + BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT);
 			}
 		} else if (BasicDesktopPaneUI$Actions::SHRINK_LEFT == key && BasicDesktopPaneUI$Actions::resizing) {
 			if ($nc(minSize)->width < ($nc(size)->width - BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT)) {
@@ -229,10 +166,10 @@ void BasicDesktopPaneUI$Actions::actionPerformed($ActionEvent* e) {
 			} else {
 				delta = size->width - minSize->width;
 			}
-			if ($nc(loc)->x + $nc(size)->width - delta < $nc(minOnScreenInsets)->left) {
+			if ($nc(loc)->x + size->width - delta < $nc(minOnScreenInsets)->left) {
 				delta = loc->x + size->width - minOnScreenInsets->left;
 			}
-			c->setSize($nc(size)->width - delta, size->height);
+			c->setSize(size->width - delta, size->height);
 		} else if (BasicDesktopPaneUI$Actions::SHRINK_RIGHT == key && BasicDesktopPaneUI$Actions::resizing) {
 			if ($nc(minSize)->width < ($nc(size)->width - BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT)) {
 				delta = BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT;
@@ -242,18 +179,18 @@ void BasicDesktopPaneUI$Actions::actionPerformed($ActionEvent* e) {
 			if ($nc(loc)->x + delta > dpWidth - $nc(minOnScreenInsets)->right) {
 				delta = (dpWidth - minOnScreenInsets->right) - loc->x;
 			}
-			c->setLocation($nc(loc)->x + delta, loc->y);
-			c->setSize($nc(size)->width - delta, size->height);
+			c->setLocation(loc->x + delta, loc->y);
+			c->setSize(size->width - delta, size->height);
 		} else if (BasicDesktopPaneUI$Actions::SHRINK_UP == key && BasicDesktopPaneUI$Actions::resizing) {
 			if ($nc(minSize)->height < ($nc(size)->height - BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT)) {
 				delta = BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT;
 			} else {
 				delta = size->height - minSize->height;
 			}
-			if ($nc(loc)->y + $nc(size)->height - delta < $nc(minOnScreenInsets)->bottom) {
+			if ($nc(loc)->y + size->height - delta < $nc(minOnScreenInsets)->bottom) {
 				delta = loc->y + size->height - minOnScreenInsets->bottom;
 			}
-			c->setSize($nc(size)->width, size->height - delta);
+			c->setSize(size->width, size->height - delta);
 		} else if (BasicDesktopPaneUI$Actions::SHRINK_DOWN == key && BasicDesktopPaneUI$Actions::resizing) {
 			if ($nc(minSize)->height < ($nc(size)->height - BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT)) {
 				delta = BasicDesktopPaneUI$Actions::MOVE_RESIZE_INCREMENT;
@@ -263,8 +200,8 @@ void BasicDesktopPaneUI$Actions::actionPerformed($ActionEvent* e) {
 			if ($nc(loc)->y + delta > dpHeight - $nc(minOnScreenInsets)->top) {
 				delta = (dpHeight - minOnScreenInsets->top) - loc->y;
 			}
-			c->setLocation($nc(loc)->x, loc->y + delta);
-			c->setSize($nc(size)->width, size->height - delta);
+			c->setLocation(loc->x, loc->y + delta);
+			c->setSize(size->width, size->height - delta);
 		}
 	} else if (BasicDesktopPaneUI$Actions::NEXT_FRAME == key || BasicDesktopPaneUI$Actions::PREVIOUS_FRAME == key) {
 		$nc(dp)->selectFrame((key == BasicDesktopPaneUI$Actions::NEXT_FRAME) ? true : false);
@@ -279,23 +216,21 @@ void BasicDesktopPaneUI$Actions::actionPerformed($ActionEvent* e) {
 			if (policy != nullptr && $instanceOf($SortingFocusTraversalPolicy, policy)) {
 				$var($SortingFocusTraversalPolicy, sPolicy, $cast($SortingFocusTraversalPolicy, policy));
 				bool idc = sPolicy->getImplicitDownCycleTraversal();
-				{
-					$var($Throwable, var$0, nullptr);
-					try {
-						sPolicy->setImplicitDownCycleTraversal(false);
-						if (moveForward) {
-							$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->focusNextComponent(dp);
-						} else {
-							$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->focusPreviousComponent(dp);
-						}
-					} catch ($Throwable& var$1) {
-						$assign(var$0, var$1);
-					} /*finally*/ {
-						sPolicy->setImplicitDownCycleTraversal(idc);
+				$var($Throwable, var$0, nullptr);
+				try {
+					sPolicy->setImplicitDownCycleTraversal(false);
+					if (moveForward) {
+						$$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->focusNextComponent(dp);
+					} else {
+						$$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->focusPreviousComponent(dp);
 					}
-					if (var$0 != nullptr) {
-						$throw(var$0);
-					}
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
+				} /*finally*/ {
+					sPolicy->setImplicitDownCycleTraversal(idc);
+				}
+				if (var$0 != nullptr) {
+					$throw(var$0);
 				}
 			}
 		}
@@ -303,7 +238,7 @@ void BasicDesktopPaneUI$Actions::actionPerformed($ActionEvent* e) {
 }
 
 void BasicDesktopPaneUI$Actions::setState($JDesktopPane* dp, $String* state) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (state == BasicDesktopPaneUI$Actions::CLOSE) {
 		$var($JInternalFrame, f, $nc(dp)->getSelectedFrame());
 		if (f == nullptr) {
@@ -351,36 +286,36 @@ void BasicDesktopPaneUI$Actions::setState($JDesktopPane* dp, $String* state) {
 			} else if (f->isMaximum()) {
 				f->setMaximum(false);
 			}
-			$nc(f)->setSelected(true);
+			f->setSelected(true);
 		} catch ($PropertyVetoException& pve) {
 		}
 	}
 }
 
 bool BasicDesktopPaneUI$Actions::accept(Object$* sender) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JDesktopPane, sender)) {
 		$var($JDesktopPane, dp, $cast($JDesktopPane, sender));
 		$var($String, action, getName());
 		if (action == BasicDesktopPaneUI$Actions::NEXT_FRAME || action == BasicDesktopPaneUI$Actions::PREVIOUS_FRAME) {
 			return true;
 		}
-		$var($JInternalFrame, iFrame, $nc(dp)->getSelectedFrame());
+		$var($JInternalFrame, iFrame, dp->getSelectedFrame());
 		if (iFrame == nullptr) {
 			return false;
 		} else if (action == BasicDesktopPaneUI$Actions::CLOSE) {
-			return $nc(iFrame)->isClosable();
+			return iFrame->isClosable();
 		} else if (action == BasicDesktopPaneUI$Actions::MINIMIZE) {
-			return $nc(iFrame)->isIconifiable();
+			return iFrame->isIconifiable();
 		} else if (action == BasicDesktopPaneUI$Actions::MAXIMIZE) {
-			return $nc(iFrame)->isMaximizable();
+			return iFrame->isMaximizable();
 		}
 		return true;
 	}
 	return false;
 }
 
-void clinit$BasicDesktopPaneUI$Actions($Class* class$) {
+void BasicDesktopPaneUI$Actions::clinit$($Class* clazz) {
 	$assignStatic(BasicDesktopPaneUI$Actions::CLOSE, "close"_s);
 	$assignStatic(BasicDesktopPaneUI$Actions::ESCAPE, "escape"_s);
 	$assignStatic(BasicDesktopPaneUI$Actions::MAXIMIZE, "maximize"_s);
@@ -410,7 +345,63 @@ BasicDesktopPaneUI$Actions::BasicDesktopPaneUI$Actions() {
 }
 
 $Class* BasicDesktopPaneUI$Actions::load$($String* name, bool initialize) {
-	$loadClass(BasicDesktopPaneUI$Actions, name, initialize, &_BasicDesktopPaneUI$Actions_ClassInfo_, clinit$BasicDesktopPaneUI$Actions, allocate$BasicDesktopPaneUI$Actions);
+	$FieldInfo fieldInfos$$[] = {
+		{"CLOSE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, CLOSE)},
+		{"ESCAPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, ESCAPE)},
+		{"MAXIMIZE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, MAXIMIZE)},
+		{"MINIMIZE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, MINIMIZE)},
+		{"MOVE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, MOVE)},
+		{"RESIZE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, RESIZE)},
+		{"RESTORE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, RESTORE)},
+		{"LEFT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, LEFT)},
+		{"RIGHT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, RIGHT)},
+		{"UP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, UP)},
+		{"DOWN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, DOWN)},
+		{"SHRINK_LEFT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, SHRINK_LEFT)},
+		{"SHRINK_RIGHT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, SHRINK_RIGHT)},
+		{"SHRINK_UP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, SHRINK_UP)},
+		{"SHRINK_DOWN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, SHRINK_DOWN)},
+		{"NEXT_FRAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, NEXT_FRAME)},
+		{"PREVIOUS_FRAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, PREVIOUS_FRAME)},
+		{"NAVIGATE_NEXT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, NAVIGATE_NEXT)},
+		{"NAVIGATE_PREVIOUS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, NAVIGATE_PREVIOUS)},
+		{"MOVE_RESIZE_INCREMENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicDesktopPaneUI$Actions, MOVE_RESIZE_INCREMENT)},
+		{"moving", "Z", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, moving)},
+		{"resizing", "Z", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, resizing)},
+		{"sourceFrame", "Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, sourceFrame)},
+		{"focusOwner", "Ljava/awt/Component;", nullptr, $PRIVATE | $STATIC, $staticField(BasicDesktopPaneUI$Actions, focusOwner)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(BasicDesktopPaneUI$Actions, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicDesktopPaneUI$Actions, init$, void, $String*)},
+		{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI$Actions, accept, bool, Object$*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI$Actions, actionPerformed, void, $ActionEvent*)},
+		{"setState", "(Ljavax/swing/JDesktopPane;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(BasicDesktopPaneUI$Actions, setState, void, $JDesktopPane*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicDesktopPaneUI$Actions", "javax.swing.plaf.basic.BasicDesktopPaneUI", "Actions", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicDesktopPaneUI$Actions",
+		"sun.swing.UIAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicDesktopPaneUI"
+	};
+	$loadClass(BasicDesktopPaneUI$Actions, name, initialize, &classInfo$$, BasicDesktopPaneUI$Actions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicDesktopPaneUI$Actions);
+	});
 	return class$;
 }
 

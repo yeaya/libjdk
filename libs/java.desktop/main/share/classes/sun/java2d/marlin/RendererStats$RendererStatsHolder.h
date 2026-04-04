@@ -36,6 +36,7 @@ class RendererStats$RendererStatsHolder : public ::java::lang::Object {
 	$class(RendererStats$RendererStatsHolder, 0, ::java::lang::Object)
 public:
 	RendererStats$RendererStatsHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void add(Object$* parent, ::sun::java2d::marlin::RendererStats* stats);
 	void dump();

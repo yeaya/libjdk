@@ -124,6 +124,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::swing::FilePane$FileChooserUIAccessor* fileChooserUIAccessor);
 	static void addActionsToMap(::javax::swing::ActionMap* map, $Array<::javax::swing::Action>* actions);
 	void applyEdit();

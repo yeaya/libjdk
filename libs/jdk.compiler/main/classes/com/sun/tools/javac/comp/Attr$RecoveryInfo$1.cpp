@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Attr$RecoveryInfo$1.h>
-
 #include <com/sun/tools/javac/code/Type$JCNoType.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/comp/Attr$RecoveryInfo.h>
@@ -33,55 +32,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Attr$RecoveryInfo$1_FieldInfo_[] = {
-	{"val$pt", "Lcom/sun/tools/javac/code/Type;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$RecoveryInfo$1, val$pt)},
-	{"val$deferredAttrContext", "Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$RecoveryInfo$1, val$deferredAttrContext)},
-	{"val$this$0", "Lcom/sun/tools/javac/comp/Attr;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$RecoveryInfo$1, val$this$0)},
-	{}
-};
-
-$MethodInfo _Attr$RecoveryInfo$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check$CheckContext;Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Attr$RecoveryInfo$1, init$, void, $Check$CheckContext*, $Attr*, $DeferredAttr$DeferredAttrContext*, $Type*)},
-	{"compatible", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)Z", nullptr, $PUBLIC, $virtualMethod(Attr$RecoveryInfo$1, compatible, bool, $Type*, $Type*, $Warner*)},
-	{"deferredAttrContext", "()Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, $PUBLIC, $virtualMethod(Attr$RecoveryInfo$1, deferredAttrContext, $DeferredAttr$DeferredAttrContext*)},
-	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC, $virtualMethod(Attr$RecoveryInfo$1, report, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic*)},
-	{}
-};
-
-$EnclosingMethodInfo _Attr$RecoveryInfo$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Attr$RecoveryInfo",
-	"<init>",
-	"(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/code/Type;)V"
-};
-
-$InnerClassInfo _Attr$RecoveryInfo$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Attr$RecoveryInfo", "com.sun.tools.javac.comp.Attr", "RecoveryInfo", 0},
-	{"com.sun.tools.javac.comp.Attr$RecoveryInfo$1", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.Check$NestedCheckContext", "com.sun.tools.javac.comp.Check", "NestedCheckContext", $STATIC},
-	{"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext", "com.sun.tools.javac.comp.DeferredAttr", "DeferredAttrContext", 0},
-	{}
-};
-
-$ClassInfo _Attr$RecoveryInfo$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Attr$RecoveryInfo$1",
-	"com.sun.tools.javac.comp.Check$NestedCheckContext",
-	nullptr,
-	_Attr$RecoveryInfo$1_FieldInfo_,
-	_Attr$RecoveryInfo$1_MethodInfo_,
-	nullptr,
-	&_Attr$RecoveryInfo$1_EnclosingMethodInfo_,
-	_Attr$RecoveryInfo$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Attr"
-};
-
-$Object* allocate$Attr$RecoveryInfo$1($Class* clazz) {
-	return $of($alloc(Attr$RecoveryInfo$1));
-}
-
 void Attr$RecoveryInfo$1::init$($Check$CheckContext* enclosingContext, $Attr* val$this$0, $DeferredAttr$DeferredAttrContext* val$deferredAttrContext, $Type* val$pt) {
 	$set(this, val$this$0, val$this$0);
 	$set(this, val$deferredAttrContext, val$deferredAttrContext);
@@ -108,7 +58,49 @@ Attr$RecoveryInfo$1::Attr$RecoveryInfo$1() {
 }
 
 $Class* Attr$RecoveryInfo$1::load$($String* name, bool initialize) {
-	$loadClass(Attr$RecoveryInfo$1, name, initialize, &_Attr$RecoveryInfo$1_ClassInfo_, allocate$Attr$RecoveryInfo$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$pt", "Lcom/sun/tools/javac/code/Type;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$RecoveryInfo$1, val$pt)},
+		{"val$deferredAttrContext", "Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$RecoveryInfo$1, val$deferredAttrContext)},
+		{"val$this$0", "Lcom/sun/tools/javac/comp/Attr;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$RecoveryInfo$1, val$this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Check$CheckContext;Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Attr$RecoveryInfo$1, init$, void, $Check$CheckContext*, $Attr*, $DeferredAttr$DeferredAttrContext*, $Type*)},
+		{"compatible", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)Z", nullptr, $PUBLIC, $virtualMethod(Attr$RecoveryInfo$1, compatible, bool, $Type*, $Type*, $Warner*)},
+		{"deferredAttrContext", "()Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, $PUBLIC, $virtualMethod(Attr$RecoveryInfo$1, deferredAttrContext, $DeferredAttr$DeferredAttrContext*)},
+		{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC, $virtualMethod(Attr$RecoveryInfo$1, report, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Attr$RecoveryInfo",
+		"<init>",
+		"(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/code/Type;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Attr$RecoveryInfo", "com.sun.tools.javac.comp.Attr", "RecoveryInfo", 0},
+		{"com.sun.tools.javac.comp.Attr$RecoveryInfo$1", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.Check$NestedCheckContext", "com.sun.tools.javac.comp.Check", "NestedCheckContext", $STATIC},
+		{"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext", "com.sun.tools.javac.comp.DeferredAttr", "DeferredAttrContext", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Attr$RecoveryInfo$1",
+		"com.sun.tools.javac.comp.Check$NestedCheckContext",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Attr"
+	};
+	$loadClass(Attr$RecoveryInfo$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Attr$RecoveryInfo$1);
+	});
 	return class$;
 }
 

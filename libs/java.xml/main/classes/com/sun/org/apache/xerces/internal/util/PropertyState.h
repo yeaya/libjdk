@@ -44,6 +44,7 @@ class PropertyState : public ::java::lang::Object {
 	$class(PropertyState, 0, ::java::lang::Object)
 public:
 	PropertyState();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xerces::internal::util::Status* status, Object$* state);
 	static ::com::sun::org::apache::xerces::internal::util::PropertyState* is(Object$* value);
 	virtual bool isExceptional();

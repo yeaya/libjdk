@@ -1,5 +1,4 @@
 #include <sun/java2d/OSXSurfaceData.h>
-
 #include <java/awt/AlphaComposite.h>
 #include <java/awt/BasicStroke.h>
 #include <java/awt/Color.h>
@@ -49,12 +48,7 @@
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/loops/SurfaceType.h>
-#include <sun/java2d/pipe/DrawImagePipe.h>
-#include <sun/java2d/pipe/PixelDrawPipe.h>
-#include <sun/java2d/pipe/PixelFillPipe.h>
 #include <sun/java2d/pipe/Region.h>
-#include <sun/java2d/pipe/ShapeDrawPipe.h>
-#include <sun/java2d/pipe/TextPipe.h>
 #include <sun/lwawt/macosx/CTextPipe.h>
 #include <jcpp.h>
 
@@ -87,7 +81,6 @@ using $Font = ::java::awt::Font;
 using $GradientPaint = ::java::awt::GradientPaint;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
-using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $LinearGradientPaint = ::java::awt::LinearGradientPaint;
 using $MultipleGradientPaint$CycleMethod = ::java::awt::MultipleGradientPaint$CycleMethod;
@@ -128,269 +121,11 @@ using $OSXOffScreenSurfaceData = ::sun::java2d::OSXOffScreenSurfaceData;
 using $SunGraphics2D = ::sun::java2d::SunGraphics2D;
 using $SurfaceData = ::sun::java2d::SurfaceData;
 using $SurfaceType = ::sun::java2d::loops::SurfaceType;
-using $DrawImagePipe = ::sun::java2d::pipe::DrawImagePipe;
-using $PixelDrawPipe = ::sun::java2d::pipe::PixelDrawPipe;
-using $PixelFillPipe = ::sun::java2d::pipe::PixelFillPipe;
 using $Region = ::sun::java2d::pipe::Region;
-using $ShapeDrawPipe = ::sun::java2d::pipe::ShapeDrawPipe;
-using $TextPipe = ::sun::java2d::pipe::TextPipe;
 using $CTextPipe = ::sun::lwawt::macosx::CTextPipe;
 
 namespace sun {
 	namespace java2d {
-
-$FieldInfo _OSXSurfaceData_FieldInfo_[] = {
-	{"UPPER_BND", "F", nullptr, $STATIC | $FINAL, $staticField(OSXSurfaceData, UPPER_BND)},
-	{"LOWER_BND", "F", nullptr, $STATIC | $FINAL, $staticField(OSXSurfaceData, LOWER_BND)},
-	{"sQuartzPipe", "Lsun/java2d/CRenderer;", nullptr, $PROTECTED | $STATIC, $staticField(OSXSurfaceData, sQuartzPipe)},
-	{"sCocoaTextPipe", "Lsun/lwawt/macosx/CTextPipe;", nullptr, $PROTECTED | $STATIC, $staticField(OSXSurfaceData, sCocoaTextPipe)},
-	{"sQuartzCompositePipe", "Lsun/java2d/CompositeCRenderer;", nullptr, $PROTECTED | $STATIC, $staticField(OSXSurfaceData, sQuartzCompositePipe)},
-	{"fConfig", "Ljava/awt/GraphicsConfiguration;", nullptr, $PRIVATE, $field(OSXSurfaceData, fConfig)},
-	{"fBounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(OSXSurfaceData, fBounds)},
-	{"sDefaultGraphicsConfiguration", "Ljava/awt/GraphicsConfiguration;", nullptr, 0, $field(OSXSurfaceData, sDefaultGraphicsConfiguration)},
-	{"sSrcComposite", "Ljava/awt/image/BufferedImage;", nullptr, 0, $field(OSXSurfaceData, sSrcComposite)},
-	{"sDstInComposite", "Ljava/awt/image/BufferedImage;", nullptr, 0, $field(OSXSurfaceData, sDstInComposite)},
-	{"sDstOutComposite", "Ljava/awt/image/BufferedImage;", nullptr, 0, $field(OSXSurfaceData, sDstOutComposite)},
-	{"kPrimitive", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kPrimitive)},
-	{"kImage", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kImage)},
-	{"kText", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kText)},
-	{"kCopyArea", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kCopyArea)},
-	{"kExternal", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kExternal)},
-	{"kLine", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kLine)},
-	{"kRect", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kRect)},
-	{"kRoundRect", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kRoundRect)},
-	{"kOval", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kOval)},
-	{"kArc", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kArc)},
-	{"kPolygon", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kPolygon)},
-	{"kShape", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kShape)},
-	{"kString", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kString)},
-	{"kGlyphs", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kGlyphs)},
-	{"kUnicodes", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kUnicodes)},
-	{"kCommonParameterCount", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kCommonParameterCount)},
-	{"kLineParametersCount", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kLineParametersCount)},
-	{"kRectParametersCount", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kRectParametersCount)},
-	{"kRoundRectParametersCount", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kRoundRectParametersCount)},
-	{"kOvalParametersCount", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kOvalParametersCount)},
-	{"kArcParametersCount", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kArcParametersCount)},
-	{"kPolygonParametersCount", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kPolygonParametersCount)},
-	{"kShapeParametersCount", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kShapeParametersCount)},
-	{"kImageParametersCount", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kImageParametersCount)},
-	{"kStringParametersCount", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kStringParametersCount)},
-	{"kGlyphsParametersCount", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kGlyphsParametersCount)},
-	{"kUnicodesParametersCount", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kUnicodesParametersCount)},
-	{"kPixelParametersCount", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kPixelParametersCount)},
-	{"kExternalParametersCount", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kExternalParametersCount)},
-	{"kChangeFlagIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kChangeFlagIndex)},
-	{"kBoundsXIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kBoundsXIndex)},
-	{"kBoundsYIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kBoundsYIndex)},
-	{"kBoundsWidthIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kBoundsWidthIndex)},
-	{"kBoundsHeightIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kBoundsHeightIndex)},
-	{"kClipStateIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kClipStateIndex)},
-	{"kClipNumTypesIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kClipNumTypesIndex)},
-	{"kClipNumCoordsIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kClipNumCoordsIndex)},
-	{"kClipWindingRuleIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kClipWindingRuleIndex)},
-	{"kClipXIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kClipXIndex)},
-	{"kClipYIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kClipYIndex)},
-	{"kClipWidthIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kClipWidthIndex)},
-	{"kClipHeightIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kClipHeightIndex)},
-	{"kCTMaIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kCTMaIndex)},
-	{"kCTMbIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kCTMbIndex)},
-	{"kCTMcIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kCTMcIndex)},
-	{"kCTMdIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kCTMdIndex)},
-	{"kCTMtxIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kCTMtxIndex)},
-	{"kCTMtyIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kCTMtyIndex)},
-	{"kColorStateIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorStateIndex)},
-	{"kColorRGBValueIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorRGBValueIndex)},
-	{"kColorIndexValueIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorIndexValueIndex)},
-	{"kColorPointerIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorPointerIndex)},
-	{"kColorPointerIndex2", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorPointerIndex2)},
-	{"kColorRGBValue1Index", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorRGBValue1Index)},
-	{"kColorWidthIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorWidthIndex)},
-	{"kColorRGBValue2Index", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorRGBValue2Index)},
-	{"kColorHeightIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorHeightIndex)},
-	{"kColorIsCyclicIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorIsCyclicIndex)},
-	{"kColorx1Index", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorx1Index)},
-	{"kColortxIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColortxIndex)},
-	{"kColory1Index", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColory1Index)},
-	{"kColortyIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColortyIndex)},
-	{"kColorx2Index", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorx2Index)},
-	{"kColorsxIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorsxIndex)},
-	{"kColory2Index", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColory2Index)},
-	{"kColorsyIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorsyIndex)},
-	{"kCompositeRuleIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kCompositeRuleIndex)},
-	{"kCompositeValueIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kCompositeValueIndex)},
-	{"kStrokeJoinIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kStrokeJoinIndex)},
-	{"kStrokeCapIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kStrokeCapIndex)},
-	{"kStrokeWidthIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kStrokeWidthIndex)},
-	{"kStrokeDashPhaseIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kStrokeDashPhaseIndex)},
-	{"kStrokeLimitIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kStrokeLimitIndex)},
-	{"kHintsAntialiasIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kHintsAntialiasIndex)},
-	{"kHintsTextAntialiasIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kHintsTextAntialiasIndex)},
-	{"kHintsFractionalMetricsIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kHintsFractionalMetricsIndex)},
-	{"kHintsRenderingIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kHintsRenderingIndex)},
-	{"kHintsInterpolationIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kHintsInterpolationIndex)},
-	{"kRadiusIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kRadiusIndex)},
-	{"kSizeOfParameters", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kSizeOfParameters)},
-	{"kClipCoordinatesIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kClipCoordinatesIndex)},
-	{"kClipTypesIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kClipTypesIndex)},
-	{"kTextureImageIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kTextureImageIndex)},
-	{"kStrokeDashArrayIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kStrokeDashArrayIndex)},
-	{"kFontIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kFontIndex)},
-	{"kFontPaintIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kFontPaintIndex)},
-	{"kColorArrayIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorArrayIndex)},
-	{"kFractionsArrayIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kFractionsArrayIndex)},
-	{"kBoundsChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kBoundsChangedBit)},
-	{"kBoundsNotChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kBoundsNotChangedBit)},
-	{"kClipChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kClipChangedBit)},
-	{"kClipNotChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kClipNotChangedBit)},
-	{"kCTMChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kCTMChangedBit)},
-	{"kCTMNotChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kCTMNotChangedBit)},
-	{"kColorChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorChangedBit)},
-	{"kColorNotChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorNotChangedBit)},
-	{"kCompositeChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kCompositeChangedBit)},
-	{"kCompositeNotChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kCompositeNotChangedBit)},
-	{"kStrokeChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kStrokeChangedBit)},
-	{"kStrokeNotChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kStrokeNotChangedBit)},
-	{"kHintsChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kHintsChangedBit)},
-	{"kHintsNotChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kHintsNotChangedBit)},
-	{"kFontChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kFontChangedBit)},
-	{"kFontNotChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kFontNotChangedBit)},
-	{"kEverythingChangedFlag", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kEverythingChangedFlag)},
-	{"kColorSimple", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorSimple)},
-	{"kColorSystem", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorSystem)},
-	{"kColorGradient", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorGradient)},
-	{"kColorTexture", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorTexture)},
-	{"kColorLinearGradient", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorLinearGradient)},
-	{"kColorRadialGradient", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorRadialGradient)},
-	{"kColorNonCyclic", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorNonCyclic)},
-	{"kColorCyclic", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorCyclic)},
-	{"kClipRect", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kClipRect)},
-	{"kClipShape", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kClipShape)},
-	{"fChangeFlag", "I", nullptr, 0, $field(OSXSurfaceData, fChangeFlag)},
-	{"fGraphicsStates", "Ljava/nio/ByteBuffer;", nullptr, $PROTECTED, $field(OSXSurfaceData, fGraphicsStates)},
-	{"fGraphicsStatesInt", "Ljava/nio/IntBuffer;", nullptr, 0, $field(OSXSurfaceData, fGraphicsStatesInt)},
-	{"fGraphicsStatesFloat", "Ljava/nio/FloatBuffer;", nullptr, 0, $field(OSXSurfaceData, fGraphicsStatesFloat)},
-	{"fGraphicsStatesLong", "Ljava/nio/LongBuffer;", nullptr, 0, $field(OSXSurfaceData, fGraphicsStatesLong)},
-	{"fGraphicsStatesObject", "[Ljava/lang/Object;", nullptr, $PROTECTED, $field(OSXSurfaceData, fGraphicsStatesObject)},
-	{"userBounds", "Ljava/awt/Rectangle;", nullptr, 0, $field(OSXSurfaceData, userBounds)},
-	{"lastUserX", "F", nullptr, 0, $field(OSXSurfaceData, lastUserX)},
-	{"lastUserY", "F", nullptr, 0, $field(OSXSurfaceData, lastUserY)},
-	{"lastUserW", "F", nullptr, 0, $field(OSXSurfaceData, lastUserW)},
-	{"lastUserH", "F", nullptr, 0, $field(OSXSurfaceData, lastUserH)},
-	{"clipCoordinatesArray", "Ljava/nio/FloatBuffer;", nullptr, 0, $field(OSXSurfaceData, clipCoordinatesArray)},
-	{"clipTypesArray", "Ljava/nio/IntBuffer;", nullptr, 0, $field(OSXSurfaceData, clipTypesArray)},
-	{"lastClipShape", "Ljava/awt/Shape;", nullptr, 0, $field(OSXSurfaceData, lastClipShape)},
-	{"lastClipX", "F", nullptr, 0, $field(OSXSurfaceData, lastClipX)},
-	{"lastClipY", "F", nullptr, 0, $field(OSXSurfaceData, lastClipY)},
-	{"lastClipW", "F", nullptr, 0, $field(OSXSurfaceData, lastClipW)},
-	{"lastClipH", "F", nullptr, 0, $field(OSXSurfaceData, lastClipH)},
-	{"lastCTM", "[D", nullptr, $FINAL, $field(OSXSurfaceData, lastCTM)},
-	{"lastCTMa", "F", nullptr, 0, $field(OSXSurfaceData, lastCTMa)},
-	{"lastCTMb", "F", nullptr, 0, $field(OSXSurfaceData, lastCTMb)},
-	{"lastCTMc", "F", nullptr, 0, $field(OSXSurfaceData, lastCTMc)},
-	{"lastCTMd", "F", nullptr, 0, $field(OSXSurfaceData, lastCTMd)},
-	{"lastCTMtx", "F", nullptr, 0, $field(OSXSurfaceData, lastCTMtx)},
-	{"lastCTMty", "F", nullptr, 0, $field(OSXSurfaceData, lastCTMty)},
-	{"sIdentityMatrix", "Ljava/awt/geom/AffineTransform;", nullptr, $STATIC, $staticField(OSXSurfaceData, sIdentityMatrix)},
-	{"lastPaint", "Ljava/awt/Paint;", nullptr, 0, $field(OSXSurfaceData, lastPaint)},
-	{"lastPaintPtr", "J", nullptr, 0, $field(OSXSurfaceData, lastPaintPtr)},
-	{"lastPaintRGB", "I", nullptr, 0, $field(OSXSurfaceData, lastPaintRGB)},
-	{"lastPaintIndex", "I", nullptr, 0, $field(OSXSurfaceData, lastPaintIndex)},
-	{"texturePaintImage", "Ljava/awt/image/BufferedImage;", nullptr, 0, $field(OSXSurfaceData, texturePaintImage)},
-	{"lastComposite", "Ljava/awt/Composite;", nullptr, 0, $field(OSXSurfaceData, lastComposite)},
-	{"lastCompositeAlphaRule", "I", nullptr, 0, $field(OSXSurfaceData, lastCompositeAlphaRule)},
-	{"lastCompositeAlphaValue", "F", nullptr, 0, $field(OSXSurfaceData, lastCompositeAlphaValue)},
-	{"lastStroke", "Ljava/awt/BasicStroke;", nullptr, 0, $field(OSXSurfaceData, lastStroke)},
-	{"defaultBasicStroke", "Ljava/awt/BasicStroke;", nullptr, $STATIC, $staticField(OSXSurfaceData, defaultBasicStroke)},
-	{"lastFont", "Ljava/awt/Font;", nullptr, 0, $field(OSXSurfaceData, lastFont)},
-	{"sg2dCurrent", "Lsun/java2d/SunGraphics2D;", nullptr, 0, $field(OSXSurfaceData, sg2dCurrent)},
-	{"threadCurrent", "Ljava/lang/Thread;", nullptr, 0, $field(OSXSurfaceData, threadCurrent)},
-	{"segmentCoordinatesArray", "[F", nullptr, $FINAL, $field(OSXSurfaceData, segmentCoordinatesArray)},
-	{"shapeCoordinatesArray", "Ljava/nio/FloatBuffer;", nullptr, 0, $field(OSXSurfaceData, shapeCoordinatesArray)},
-	{"shapeTypesArray", "Ljava/nio/IntBuffer;", nullptr, 0, $field(OSXSurfaceData, shapeTypesArray)},
-	{"srcCopyAreaRect", "Ljava/awt/Rectangle;", nullptr, 0, $field(OSXSurfaceData, srcCopyAreaRect)},
-	{"dstCopyAreaRect", "Ljava/awt/Rectangle;", nullptr, 0, $field(OSXSurfaceData, dstCopyAreaRect)},
-	{"finalCopyAreaRect", "Ljava/awt/Rectangle;", nullptr, 0, $field(OSXSurfaceData, finalCopyAreaRect)},
-	{"copyAreaBounds", "Ljava/awt/Rectangle;", nullptr, 0, $field(OSXSurfaceData, copyAreaBounds)},
-	{}
-};
-
-$MethodInfo _OSXSurfaceData_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Ljava/awt/image/ColorModel;)V", nullptr, $PUBLIC, $method(OSXSurfaceData, init$, void, $SurfaceType*, $ColorModel*)},
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Ljava/awt/image/ColorModel;Ljava/awt/GraphicsConfiguration;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $method(OSXSurfaceData, init$, void, $SurfaceType*, $ColorModel*, $GraphicsConfiguration*, $Rectangle*)},
-	{"IsSimpleColor", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(OSXSurfaceData, IsSimpleColor, bool, Object$*)},
-	{"blitImage", "(Lsun/java2d/CRenderer;Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;ZZIIIIIIIILjava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, blitImage, void, $CRenderer*, $SunGraphics2D*, $SurfaceData*, bool, bool, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*)},
-	{"canRenderLCDText", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, canRenderLCDText, bool, $SunGraphics2D*)},
-	{"clearRect", "(Ljava/awt/image/BufferedImage;II)V", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, clearRect, void, $BufferedImage*, int32_t, int32_t)},
-	{"clipCopyArea", "(Lsun/java2d/SunGraphics2D;IIIIII)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(OSXSurfaceData, clipCopyArea, $Rectangle*, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"copyArea", "(Lsun/java2d/SunGraphics2D;IIIILjava/awt/image/BufferedImage;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OSXSurfaceData, copyArea, $BufferedImage*, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, $BufferedImage*)},
-	{"doArc", "(Lsun/java2d/CRenderer;Lsun/java2d/SunGraphics2D;FFFFFFIZ)V", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, doArc, void, $CRenderer*, $SunGraphics2D*, float, float, float, float, float, float, int32_t, bool)},
-	{"doLine", "(Lsun/java2d/CRenderer;Lsun/java2d/SunGraphics2D;FFFF)V", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, doLine, void, $CRenderer*, $SunGraphics2D*, float, float, float, float)},
-	{"doOval", "(Lsun/java2d/CRenderer;Lsun/java2d/SunGraphics2D;FFFFZ)V", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, doOval, void, $CRenderer*, $SunGraphics2D*, float, float, float, float, bool)},
-	{"doPolygon", "(Lsun/java2d/CRenderer;Lsun/java2d/SunGraphics2D;[I[IIZZ)V", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, doPolygon, void, $CRenderer*, $SunGraphics2D*, $ints*, $ints*, int32_t, bool, bool)},
-	{"doRect", "(Lsun/java2d/CRenderer;Lsun/java2d/SunGraphics2D;FFFFZ)V", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, doRect, void, $CRenderer*, $SunGraphics2D*, float, float, float, float, bool)},
-	{"doRoundRect", "(Lsun/java2d/CRenderer;Lsun/java2d/SunGraphics2D;FFFFFFZ)V", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, doRoundRect, void, $CRenderer*, $SunGraphics2D*, float, float, float, float, float, float, bool)},
-	{"drawGlyphs", "(Lsun/lwawt/macosx/CTextPipe;Lsun/java2d/SunGraphics2D;JLjava/awt/font/GlyphVector;FF)V", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, drawGlyphs, void, $CTextPipe*, $SunGraphics2D*, int64_t, $GlyphVector*, float, float)},
-	{"drawString", "(Lsun/lwawt/macosx/CTextPipe;Lsun/java2d/SunGraphics2D;JLjava/lang/String;DD)V", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, drawString, void, $CTextPipe*, $SunGraphics2D*, int64_t, $String*, double, double)},
-	{"drawUnicodes", "(Lsun/lwawt/macosx/CTextPipe;Lsun/java2d/SunGraphics2D;J[CIIFF)V", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, drawUnicodes, void, $CTextPipe*, $SunGraphics2D*, int64_t, $chars*, int32_t, int32_t, float, float)},
-	{"drawfillShape", "(Lsun/java2d/CRenderer;Lsun/java2d/SunGraphics2D;Ljava/awt/geom/GeneralPath;ZZ)V", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, drawfillShape, void, $CRenderer*, $SunGraphics2D*, $GeneralPath*, bool, bool)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, getBounds, $Rectangle*)},
-	{"getBufferOfSize", "(I)Ljava/nio/ByteBuffer;", nullptr, $STATIC, $staticMethod(OSXSurfaceData, getBufferOfSize, $ByteBuffer*, int32_t)},
-	{"getCompositingDstInImage", "(II)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, getCompositingDstInImage, $BufferedImage*, int32_t, int32_t)},
-	{"getCompositingDstOutImage", "(II)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, getCompositingDstOutImage, $BufferedImage*, int32_t, int32_t)},
-	{"getCompositingImage", "(II)Ljava/awt/image/BufferedImage;", nullptr, $PROTECTED, $virtualMethod(OSXSurfaceData, getCompositingImage, $BufferedImage*, int32_t, int32_t)},
-	{"getCompositingImageSame", "(Ljava/awt/image/BufferedImage;II)Ljava/awt/image/BufferedImage;", nullptr, $PROTECTED, $virtualMethod(OSXSurfaceData, getCompositingImageSame, $BufferedImage*, $BufferedImage*, int32_t, int32_t)},
-	{"getCompositingSrcImage", "(II)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, getCompositingSrcImage, $BufferedImage*, int32_t, int32_t)},
-	{"getDeviceConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, getDeviceConfiguration, $GraphicsConfiguration*)},
-	{"getPathCoordinates", "(Ljava/awt/geom/GeneralPath;Ljava/nio/FloatBuffer;Ljava/nio/IntBuffer;)I", nullptr, 0, $virtualMethod(OSXSurfaceData, getPathCoordinates, int32_t, $GeneralPath*, $FloatBuffer*, $IntBuffer*)},
-	{"getPathLength", "(Ljava/awt/geom/GeneralPath;)I", nullptr, 0, $virtualMethod(OSXSurfaceData, getPathLength, int32_t, $GeneralPath*)},
-	{"getRendererTypeForPrimitive", "(I)I", nullptr, $STATIC, $staticMethod(OSXSurfaceData, getRendererTypeForPrimitive, int32_t, int32_t)},
-	{"intersection", "(Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;)V", nullptr, 0, $virtualMethod(OSXSurfaceData, intersection, void, $Rectangle*, $Rectangle*, $Rectangle*)},
-	{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, invalidate, void)},
-	{"isCustomPaint", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, 0, $virtualMethod(OSXSurfaceData, isCustomPaint, bool, $SunGraphics2D*)},
-	{"markDirty", "(Z)V", nullptr, $PROTECTED, $virtualMethod(OSXSurfaceData, markDirty, void, bool)},
-	{"setBounds", "(IIII)V", nullptr, $PROTECTED, $virtualMethod(OSXSurfaceData, setBounds, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setGradientViaRasterPath", "(Lsun/java2d/SunGraphics2D;)V", nullptr, 0, $virtualMethod(OSXSurfaceData, setGradientViaRasterPath, void, $SunGraphics2D*)},
-	{"setPipesToQuartzComposite", "(Lsun/java2d/SunGraphics2D;)V", nullptr, $PROTECTED, $virtualMethod(OSXSurfaceData, setPipesToQuartzComposite, void, $SunGraphics2D*)},
-	{"setUserBounds", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, 0, $virtualMethod(OSXSurfaceData, setUserBounds, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"setupClip", "(Lsun/java2d/SunGraphics2D;)V", nullptr, 0, $virtualMethod(OSXSurfaceData, setupClip, void, $SunGraphics2D*)},
-	{"setupComposite", "(Lsun/java2d/SunGraphics2D;)V", nullptr, 0, $virtualMethod(OSXSurfaceData, setupComposite, void, $SunGraphics2D*)},
-	{"setupFont", "(Ljava/awt/Font;Ljava/awt/Paint;)V", nullptr, 0, $virtualMethod(OSXSurfaceData, setupFont, void, $Font*, $Paint*)},
-	{"setupGraphicsState", "(Lsun/java2d/SunGraphics2D;I)V", nullptr, 0, $virtualMethod(OSXSurfaceData, setupGraphicsState, void, $SunGraphics2D*, int32_t)},
-	{"setupGraphicsState", "(Lsun/java2d/SunGraphics2D;IIIII)V", nullptr, 0, $virtualMethod(OSXSurfaceData, setupGraphicsState, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"setupGraphicsState", "(Lsun/java2d/SunGraphics2D;ILjava/awt/Font;IIII)V", nullptr, 0, $virtualMethod(OSXSurfaceData, setupGraphicsState, void, $SunGraphics2D*, int32_t, $Font*, int32_t, int32_t, int32_t, int32_t)},
-	{"setupPaint", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, 0, $virtualMethod(OSXSurfaceData, setupPaint, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"setupRenderingHints", "(Lsun/java2d/SunGraphics2D;)V", nullptr, 0, $virtualMethod(OSXSurfaceData, setupRenderingHints, void, $SunGraphics2D*)},
-	{"setupStroke", "(Lsun/java2d/SunGraphics2D;)V", nullptr, 0, $virtualMethod(OSXSurfaceData, setupStroke, void, $SunGraphics2D*)},
-	{"setupTransform", "(Lsun/java2d/SunGraphics2D;)V", nullptr, 0, $virtualMethod(OSXSurfaceData, setupTransform, void, $SunGraphics2D*)},
-	{"validatePipe", "(Lsun/java2d/SunGraphics2D;)V", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, validatePipe, void, $SunGraphics2D*)},
-	{"xorSurfacePixels", "(Lsun/java2d/SunGraphics2D;Ljava/awt/image/BufferedImage;IIIII)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OSXSurfaceData, xorSurfacePixels, bool, $SunGraphics2D*, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _OSXSurfaceData_InnerClassesInfo_[] = {
-	{"sun.java2d.OSXSurfaceData$CGContextDrawable", "sun.java2d.OSXSurfaceData", "CGContextDrawable", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _OSXSurfaceData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.java2d.OSXSurfaceData",
-	"sun.awt.image.BufImgSurfaceData",
-	nullptr,
-	_OSXSurfaceData_FieldInfo_,
-	_OSXSurfaceData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_OSXSurfaceData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.OSXSurfaceData$CGContextDrawable"
-};
-
-$Object* allocate$OSXSurfaceData($Class* clazz) {
-	return $of($alloc(OSXSurfaceData));
-}
 
 float OSXSurfaceData::UPPER_BND = 0.0;
 float OSXSurfaceData::LOWER_BND = 0.0;
@@ -416,31 +151,31 @@ void OSXSurfaceData::init$($SurfaceType* sType, $ColorModel* cm, $GraphicsConfig
 	$set(this, fGraphicsStatesLong, nullptr);
 	$set(this, fGraphicsStatesObject, nullptr);
 	$set(this, userBounds, $new($Rectangle));
-	this->lastUserX = (float)0;
-	this->lastUserY = (float)0;
-	this->lastUserW = (float)0;
-	this->lastUserH = (float)0;
+	this->lastUserX = 0;
+	this->lastUserY = 0;
+	this->lastUserW = 0;
+	this->lastUserH = 0;
 	$set(this, clipCoordinatesArray, nullptr);
 	$set(this, clipTypesArray, nullptr);
 	$set(this, lastClipShape, nullptr);
-	this->lastClipX = (float)0;
-	this->lastClipY = (float)0;
-	this->lastClipW = (float)0;
-	this->lastClipH = (float)0;
+	this->lastClipX = 0;
+	this->lastClipY = 0;
+	this->lastClipW = 0;
+	this->lastClipH = 0;
 	$set(this, lastCTM, $new($doubles, 6));
-	this->lastCTMa = (float)0;
-	this->lastCTMb = (float)0;
-	this->lastCTMc = (float)0;
-	this->lastCTMd = (float)0;
-	this->lastCTMtx = (float)0;
-	this->lastCTMty = (float)0;
+	this->lastCTMa = 0;
+	this->lastCTMb = 0;
+	this->lastCTMc = 0;
+	this->lastCTMd = 0;
+	this->lastCTMtx = 0;
+	this->lastCTMty = 0;
 	$set(this, lastPaint, nullptr);
 	this->lastPaintPtr = 0;
 	this->lastPaintRGB = 0;
 	this->lastPaintIndex = 0;
 	$set(this, texturePaintImage, nullptr);
 	this->lastCompositeAlphaRule = 0;
-	this->lastCompositeAlphaValue = (float)0;
+	this->lastCompositeAlphaValue = 0;
 	$set(this, lastStroke, nullptr);
 	$set(this, sg2dCurrent, nullptr);
 	$set(this, threadCurrent, nullptr);
@@ -452,7 +187,7 @@ void OSXSurfaceData::init$($SurfaceType* sType, $ColorModel* cm, $GraphicsConfig
 	$set(this, finalCopyAreaRect, $new($Rectangle));
 	$set(this, copyAreaBounds, $new($Rectangle));
 	$set(this, fConfig, config);
-	$set(this, fBounds, $new($Rectangle, $nc(bounds)->x, bounds->y, bounds->width, bounds->y + bounds->height));
+	$set(this, fBounds, $new($Rectangle, $nc(bounds)->x, $nc(bounds)->y, $nc(bounds)->width, $nc(bounds)->y + $nc(bounds)->height));
 	$set(this, fGraphicsStates, getBufferOfSize(OSXSurfaceData::kSizeOfParameters));
 	$set(this, fGraphicsStatesInt, $nc(this->fGraphicsStates)->asIntBuffer());
 	$set(this, fGraphicsStatesFloat, $nc(this->fGraphicsStates)->asFloatBuffer());
@@ -502,9 +237,9 @@ void OSXSurfaceData::setBounds(int32_t x, int32_t y, int32_t w, int32_t h) {
 }
 
 $BufferedImage* OSXSurfaceData::getCompositingImage(int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->sDefaultGraphicsConfiguration == nullptr) {
-		$set(this, sDefaultGraphicsConfiguration, $nc($($nc($($GraphicsEnvironment::getLocalGraphicsEnvironment()))->getDefaultScreenDevice()))->getDefaultConfiguration());
+		$set(this, sDefaultGraphicsConfiguration, $$nc($$nc($GraphicsEnvironment::getLocalGraphicsEnvironment())->getDefaultScreenDevice())->getDefaultConfiguration());
 	}
 	$var($BufferedImage, img, $new($BufferedImage, w, h, $BufferedImage::TYPE_INT_ARGB_PRE));
 	clearRect(img, w, h);
@@ -513,8 +248,8 @@ $BufferedImage* OSXSurfaceData::getCompositingImage(int32_t w, int32_t h) {
 
 $BufferedImage* OSXSurfaceData::getCompositingImageSame($BufferedImage* img$renamed, int32_t w, int32_t h) {
 	$var($BufferedImage, img, img$renamed);
-	bool var$0 = (img == nullptr) || ($nc(img)->getWidth() != w);
-	if (var$0 || ($nc(img)->getHeight() != h)) {
+	bool var$0 = (img == nullptr) || (img->getWidth() != w);
+	if (var$0 || (img->getHeight() != h)) {
 		$assign(img, getCompositingImage(w, h));
 	}
 	return img;
@@ -553,29 +288,17 @@ int32_t OSXSurfaceData::getRendererTypeForPrimitive(int32_t primitiveType) {
 	$init(OSXSurfaceData);
 	switch (primitiveType) {
 	case OSXSurfaceData::kImage:
-		{
-			return OSXSurfaceData::kImage;
-		}
+		return OSXSurfaceData::kImage;
 	case OSXSurfaceData::kCopyArea:
-		{
-			return OSXSurfaceData::kCopyArea;
-		}
+		return OSXSurfaceData::kCopyArea;
 	case OSXSurfaceData::kExternal:
-		{
-			return OSXSurfaceData::kExternal;
-		}
+		return OSXSurfaceData::kExternal;
 	case OSXSurfaceData::kString:
-		{}
 	case OSXSurfaceData::kGlyphs:
-		{}
 	case OSXSurfaceData::kUnicodes:
-		{
-			return OSXSurfaceData::kText;
-		}
+		return OSXSurfaceData::kText;
 	default:
-		{
-			return OSXSurfaceData::kPrimitive;
-		}
+		return OSXSurfaceData::kPrimitive;
 	}
 }
 
@@ -592,75 +315,70 @@ void OSXSurfaceData::setUserBounds($SunGraphics2D* sg2d, int32_t x, int32_t y, i
 		$nc(this->userBounds)->setBounds(x, y, width, height);
 		this->fChangeFlag = (this->fChangeFlag | OSXSurfaceData::kBoundsChangedBit);
 	} else {
-		this->fChangeFlag = ((int32_t)(this->fChangeFlag & (uint32_t)OSXSurfaceData::kBoundsNotChangedBit));
+		this->fChangeFlag = (this->fChangeFlag & OSXSurfaceData::kBoundsNotChangedBit);
 	}
 }
 
 $ByteBuffer* OSXSurfaceData::getBufferOfSize(int32_t size) {
 	$init(OSXSurfaceData);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteBuffer, buffer, $ByteBuffer::allocateDirect(size * 4));
 	$nc(buffer)->order($($ByteOrder::nativeOrder()));
 	return buffer;
 }
 
 void OSXSurfaceData::setupClip($SunGraphics2D* sg2d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch ($nc(sg2d)->clipState) {
 	case $SunGraphics2D::CLIP_DEVICE:
-		{}
 	case $SunGraphics2D::CLIP_RECTANGULAR:
 		{
-			{
-				$var($Region, clip, sg2d->getCompClip());
-				float x = (float)$nc(clip)->getLoX();
-				float y = (float)clip->getLoY();
-				float w = (float)clip->getWidth();
-				float h = (float)clip->getHeight();
-				if (($nc(this->fGraphicsStatesInt)->get(OSXSurfaceData::kClipStateIndex) != OSXSurfaceData::kClipRect) || (x != this->lastClipX) || (y != this->lastClipY) || (w != this->lastClipW) || (h != this->lastClipH)) {
-					$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kClipXIndex, x);
-					$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kClipYIndex, y);
-					$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kClipWidthIndex, w);
-					$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kClipHeightIndex, h);
-					this->lastClipX = x;
-					this->lastClipY = y;
-					this->lastClipW = w;
-					this->lastClipH = h;
-					this->fChangeFlag = (this->fChangeFlag | OSXSurfaceData::kClipChangedBit);
-				} else {
-					this->fChangeFlag = ((int32_t)(this->fChangeFlag & (uint32_t)OSXSurfaceData::kClipNotChangedBit));
-				}
-				$nc(this->fGraphicsStatesInt)->put(OSXSurfaceData::kClipStateIndex, OSXSurfaceData::kClipRect);
-				break;
+			$var($Region, clip, sg2d->getCompClip());
+			float x = (float)$nc(clip)->getLoX();
+			float y = (float)clip->getLoY();
+			float w = (float)clip->getWidth();
+			float h = (float)clip->getHeight();
+			if (($nc(this->fGraphicsStatesInt)->get(OSXSurfaceData::kClipStateIndex) != OSXSurfaceData::kClipRect) || (x != this->lastClipX) || (y != this->lastClipY) || (w != this->lastClipW) || (h != this->lastClipH)) {
+				$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kClipXIndex, x);
+				$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kClipYIndex, y);
+				$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kClipWidthIndex, w);
+				$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kClipHeightIndex, h);
+				this->lastClipX = x;
+				this->lastClipY = y;
+				this->lastClipW = w;
+				this->lastClipH = h;
+				this->fChangeFlag = (this->fChangeFlag | OSXSurfaceData::kClipChangedBit);
+			} else {
+				this->fChangeFlag = (this->fChangeFlag & OSXSurfaceData::kClipNotChangedBit);
 			}
+			$nc(this->fGraphicsStatesInt)->put(OSXSurfaceData::kClipStateIndex, OSXSurfaceData::kClipRect);
+			break;
 		}
 	case $SunGraphics2D::CLIP_SHAPE:
 		{
-			{
-				$set(this, lastClipShape, sg2d->usrClip);
-				$var($GeneralPath, gp, nullptr);
-				if ($instanceOf($GeneralPath, sg2d->usrClip)) {
-					$assign(gp, $cast($GeneralPath, sg2d->usrClip));
-				} else {
-					$assign(gp, $new($GeneralPath, sg2d->usrClip));
-				}
-				int32_t shapeLength = getPathLength(gp);
-				if ((this->clipCoordinatesArray == nullptr) || ($nc(this->clipCoordinatesArray)->capacity() < (shapeLength * 6))) {
-					$set(this, clipCoordinatesArray, $nc($(getBufferOfSize(shapeLength * 6)))->asFloatBuffer());
-				}
-				if ((this->clipTypesArray == nullptr) || ($nc(this->clipTypesArray)->capacity() < shapeLength)) {
-					$set(this, clipTypesArray, $nc($(getBufferOfSize(shapeLength)))->asIntBuffer());
-				}
-				int32_t windingRule = getPathCoordinates(gp, this->clipCoordinatesArray, this->clipTypesArray);
-				$nc(this->fGraphicsStatesInt)->put(OSXSurfaceData::kClipNumTypesIndex, $nc(this->clipTypesArray)->position());
-				$nc(this->fGraphicsStatesInt)->put(OSXSurfaceData::kClipNumCoordsIndex, $nc(this->clipCoordinatesArray)->position());
-				$nc(this->fGraphicsStatesInt)->put(OSXSurfaceData::kClipWindingRuleIndex, windingRule);
-				$nc(this->fGraphicsStatesObject)->set(OSXSurfaceData::kClipTypesIndex, this->clipTypesArray);
-				$nc(this->fGraphicsStatesObject)->set(OSXSurfaceData::kClipCoordinatesIndex, this->clipCoordinatesArray);
-				this->fChangeFlag = (this->fChangeFlag | OSXSurfaceData::kClipChangedBit);
-				$nc(this->fGraphicsStatesInt)->put(OSXSurfaceData::kClipStateIndex, OSXSurfaceData::kClipShape);
-				break;
+			$set(this, lastClipShape, sg2d->usrClip);
+			$var($GeneralPath, gp, nullptr);
+			if ($instanceOf($GeneralPath, sg2d->usrClip)) {
+				$assign(gp, $cast($GeneralPath, sg2d->usrClip));
+			} else {
+				$assign(gp, $new($GeneralPath, sg2d->usrClip));
 			}
+			int32_t shapeLength = getPathLength(gp);
+			if ((this->clipCoordinatesArray == nullptr) || (this->clipCoordinatesArray->capacity() < (shapeLength * 6))) {
+				$set(this, clipCoordinatesArray, $$nc(getBufferOfSize(shapeLength * 6))->asFloatBuffer());
+			}
+			if ((this->clipTypesArray == nullptr) || (this->clipTypesArray->capacity() < shapeLength)) {
+				$set(this, clipTypesArray, $$nc(getBufferOfSize(shapeLength))->asIntBuffer());
+			}
+			int32_t windingRule = getPathCoordinates(gp, this->clipCoordinatesArray, this->clipTypesArray);
+			$nc(this->fGraphicsStatesInt)->put(OSXSurfaceData::kClipNumTypesIndex, $nc(this->clipTypesArray)->position());
+			$nc(this->fGraphicsStatesInt)->put(OSXSurfaceData::kClipNumCoordsIndex, $nc(this->clipCoordinatesArray)->position());
+			$nc(this->fGraphicsStatesInt)->put(OSXSurfaceData::kClipWindingRuleIndex, windingRule);
+			$nc(this->fGraphicsStatesObject)->set(OSXSurfaceData::kClipTypesIndex, this->clipTypesArray);
+			this->fGraphicsStatesObject->set(OSXSurfaceData::kClipCoordinatesIndex, this->clipCoordinatesArray);
+			this->fChangeFlag = (this->fChangeFlag | OSXSurfaceData::kClipChangedBit);
+			$nc(this->fGraphicsStatesInt)->put(OSXSurfaceData::kClipStateIndex, OSXSurfaceData::kClipShape);
+			break;
 		}
 	}
 }
@@ -668,11 +386,11 @@ void OSXSurfaceData::setupClip($SunGraphics2D* sg2d) {
 void OSXSurfaceData::setupTransform($SunGraphics2D* sg2d) {
 	$nc($nc(sg2d)->transform$)->getMatrix(this->lastCTM);
 	float a = (float)$nc(this->lastCTM)->get(0);
-	float b = (float)$nc(this->lastCTM)->get(1);
-	float c = (float)$nc(this->lastCTM)->get(2);
-	float d = (float)$nc(this->lastCTM)->get(3);
-	float tx = (float)$nc(this->lastCTM)->get(4);
-	float ty = (float)$nc(this->lastCTM)->get(5);
+	float b = (float)this->lastCTM->get(1);
+	float c = (float)this->lastCTM->get(2);
+	float d = (float)this->lastCTM->get(3);
+	float tx = (float)this->lastCTM->get(4);
+	float ty = (float)this->lastCTM->get(5);
 	if (tx != this->lastCTMtx || ty != this->lastCTMty || a != this->lastCTMa || b != this->lastCTMb || c != this->lastCTMc || d != this->lastCTMd) {
 		$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kCTMaIndex, a);
 		$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kCTMbIndex, b);
@@ -688,21 +406,21 @@ void OSXSurfaceData::setupTransform($SunGraphics2D* sg2d) {
 		this->lastCTMty = ty;
 		this->fChangeFlag = (this->fChangeFlag | OSXSurfaceData::kCTMChangedBit);
 	} else {
-		this->fChangeFlag = ((int32_t)(this->fChangeFlag & (uint32_t)OSXSurfaceData::kCTMNotChangedBit));
+		this->fChangeFlag = (this->fChangeFlag & OSXSurfaceData::kCTMNotChangedBit);
 	}
 }
 
 void OSXSurfaceData::setGradientViaRasterPath($SunGraphics2D* sg2d) {
-	$useLocalCurrentObjectStackCache();
-	if (($nc(this->fGraphicsStatesInt)->get(OSXSurfaceData::kColorStateIndex) != OSXSurfaceData::kColorTexture) || (this->lastPaint != $nc(sg2d)->paint) || (((int32_t)(this->fChangeFlag & (uint32_t)OSXSurfaceData::kBoundsChangedBit)) != 0)) {
-		$var($ColorModel, var$0, sg2d->getDeviceColorModel());
+	$useLocalObjectStack();
+	if (($nc(this->fGraphicsStatesInt)->get(OSXSurfaceData::kColorStateIndex) != OSXSurfaceData::kColorTexture) || (this->lastPaint != $nc(sg2d)->paint) || ((this->fChangeFlag & OSXSurfaceData::kBoundsChangedBit) != 0)) {
+		$var($ColorModel, var$0, $nc(sg2d)->getDeviceColorModel());
 		$var($Rectangle, var$1, this->userBounds);
-		$var($Rectangle2D, var$2, static_cast<$Rectangle2D*>(this->userBounds));
+		$var($Rectangle2D, var$2, this->userBounds);
 		$var($AffineTransform, var$3, OSXSurfaceData::sIdentityMatrix);
 		$var($PaintContext, context, $nc($nc(sg2d)->paint)->createContext(var$0, var$1, var$2, var$3, $(sg2d->getRenderingHints())));
-		$var($WritableRaster, raster, ($cast($WritableRaster, $nc(context)->getRaster($nc(this->userBounds)->x, $nc(this->userBounds)->y, $nc(this->userBounds)->width, $nc(this->userBounds)->height))));
+		$var($WritableRaster, raster, $cast($WritableRaster, $nc(context)->getRaster($nc(this->userBounds)->x, $nc(this->userBounds)->y, $nc(this->userBounds)->width, $nc(this->userBounds)->height)));
 		$var($ColorModel, cm, context->getColorModel());
-		$set(this, texturePaintImage, $new($BufferedImage, cm, raster, $nc(cm)->isAlphaPremultiplied(), ($Hashtable*)nullptr));
+		$set(this, texturePaintImage, $new($BufferedImage, cm, raster, $nc(cm)->isAlphaPremultiplied(), nullptr));
 		$nc(this->fGraphicsStatesInt)->put(OSXSurfaceData::kColorStateIndex, OSXSurfaceData::kColorTexture);
 		$nc(this->fGraphicsStatesInt)->put(OSXSurfaceData::kColorWidthIndex, $nc(this->texturePaintImage)->getWidth());
 		$nc(this->fGraphicsStatesInt)->put(OSXSurfaceData::kColorHeightIndex, $nc(this->texturePaintImage)->getHeight());
@@ -713,12 +431,12 @@ void OSXSurfaceData::setGradientViaRasterPath($SunGraphics2D* sg2d) {
 		$nc(this->fGraphicsStatesObject)->set(OSXSurfaceData::kTextureImageIndex, $($OSXOffScreenSurfaceData::createNewSurface(this->texturePaintImage)));
 		this->fChangeFlag = (this->fChangeFlag | OSXSurfaceData::kColorChangedBit);
 	} else {
-		this->fChangeFlag = ((int32_t)(this->fChangeFlag & (uint32_t)OSXSurfaceData::kColorNotChangedBit));
+		this->fChangeFlag = (this->fChangeFlag & OSXSurfaceData::kColorNotChangedBit);
 	}
 }
 
 void OSXSurfaceData::setupPaint($SunGraphics2D* sg2d, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($SystemColor, $nc(sg2d)->paint)) {
 		$var($SystemColor, color, $cast($SystemColor, sg2d->paint));
 		int32_t index = $nc(color)->hashCode();
@@ -728,7 +446,7 @@ void OSXSurfaceData::setupPaint($SunGraphics2D* sg2d, int32_t x, int32_t y, int3
 			$nc(this->fGraphicsStatesInt)->put(OSXSurfaceData::kColorIndexValueIndex, index);
 			this->fChangeFlag = (this->fChangeFlag | OSXSurfaceData::kColorChangedBit);
 		} else {
-			this->fChangeFlag = ((int32_t)(this->fChangeFlag & (uint32_t)OSXSurfaceData::kColorNotChangedBit));
+			this->fChangeFlag = (this->fChangeFlag & OSXSurfaceData::kColorNotChangedBit);
 		}
 	} else if ($instanceOf($Color, sg2d->paint)) {
 		$var($Color, color, $cast($Color, sg2d->paint));
@@ -739,24 +457,24 @@ void OSXSurfaceData::setupPaint($SunGraphics2D* sg2d, int32_t x, int32_t y, int3
 			$nc(this->fGraphicsStatesInt)->put(OSXSurfaceData::kColorRGBValueIndex, rgb);
 			this->fChangeFlag = (this->fChangeFlag | OSXSurfaceData::kColorChangedBit);
 		} else {
-			this->fChangeFlag = ((int32_t)(this->fChangeFlag & (uint32_t)OSXSurfaceData::kColorNotChangedBit));
+			this->fChangeFlag = (this->fChangeFlag & OSXSurfaceData::kColorNotChangedBit);
 		}
 	} else if ($instanceOf($GradientPaint, sg2d->paint)) {
 		if (($nc(this->fGraphicsStatesInt)->get(OSXSurfaceData::kColorStateIndex) != OSXSurfaceData::kColorGradient) || (this->lastPaint != sg2d->paint)) {
 			$var($GradientPaint, color, $cast($GradientPaint, sg2d->paint));
 			$nc(this->fGraphicsStatesInt)->put(OSXSurfaceData::kColorStateIndex, OSXSurfaceData::kColorGradient);
-			$nc(this->fGraphicsStatesInt)->put(OSXSurfaceData::kColorRGBValue1Index, $nc($($nc(color)->getColor1()))->getRGB());
-			$nc(this->fGraphicsStatesInt)->put(OSXSurfaceData::kColorRGBValue2Index, $nc($($nc(color)->getColor2()))->getRGB());
-			$nc(this->fGraphicsStatesInt)->put(OSXSurfaceData::kColorIsCyclicIndex, ($nc(color)->isCyclic()) ? OSXSurfaceData::kColorCyclic : OSXSurfaceData::kColorNonCyclic);
-			$var($Point2D, p, $nc(color)->getPoint1());
+			$nc(this->fGraphicsStatesInt)->put(OSXSurfaceData::kColorRGBValue1Index, $$nc($nc(color)->getColor1())->getRGB());
+			$nc(this->fGraphicsStatesInt)->put(OSXSurfaceData::kColorRGBValue2Index, $$nc(color->getColor2())->getRGB());
+			$nc(this->fGraphicsStatesInt)->put(OSXSurfaceData::kColorIsCyclicIndex, (color->isCyclic()) ? OSXSurfaceData::kColorCyclic : OSXSurfaceData::kColorNonCyclic);
+			$var($Point2D, p, color->getPoint1());
 			$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kColorx1Index, (float)$nc(p)->getX());
-			$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kColory1Index, (float)$nc(p)->getY());
+			$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kColory1Index, (float)p->getY());
 			$assign(p, color->getPoint2());
 			$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kColorx2Index, (float)$nc(p)->getX());
-			$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kColory2Index, (float)$nc(p)->getY());
+			$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kColory2Index, (float)p->getY());
 			this->fChangeFlag = (this->fChangeFlag | OSXSurfaceData::kColorChangedBit);
 		} else {
-			this->fChangeFlag = ((int32_t)(this->fChangeFlag & (uint32_t)OSXSurfaceData::kColorNotChangedBit));
+			this->fChangeFlag = (this->fChangeFlag & OSXSurfaceData::kColorNotChangedBit);
 		}
 	} else if ($instanceOf($LinearGradientPaint, sg2d->paint)) {
 		$var($LinearGradientPaint, color, $cast($LinearGradientPaint, sg2d->paint));
@@ -778,13 +496,13 @@ void OSXSurfaceData::setupPaint($SunGraphics2D* sg2d, int32_t x, int32_t y, int3
 				$nc(this->fGraphicsStatesObject)->set(OSXSurfaceData::kFractionsArrayIndex, $(color->getFractions()));
 				$var($Point2D, p, color->getStartPoint());
 				$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kColorx1Index, (float)$nc(p)->getX());
-				$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kColory1Index, (float)$nc(p)->getY());
+				$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kColory1Index, (float)p->getY());
 				$assign(p, color->getEndPoint());
 				$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kColorx2Index, (float)$nc(p)->getX());
-				$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kColory2Index, (float)$nc(p)->getY());
+				$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kColory2Index, (float)p->getY());
 				this->fChangeFlag = (this->fChangeFlag | OSXSurfaceData::kColorChangedBit);
 			} else {
-				this->fChangeFlag = ((int32_t)(this->fChangeFlag & (uint32_t)OSXSurfaceData::kColorNotChangedBit));
+				this->fChangeFlag = (this->fChangeFlag & OSXSurfaceData::kColorNotChangedBit);
 			}
 		} else {
 			setGradientViaRasterPath(sg2d);
@@ -809,14 +527,14 @@ void OSXSurfaceData::setupPaint($SunGraphics2D* sg2d, int32_t x, int32_t y, int3
 				$nc(this->fGraphicsStatesObject)->set(OSXSurfaceData::kFractionsArrayIndex, $(color->getFractions()));
 				$var($Point2D, p, color->getFocusPoint());
 				$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kColorx1Index, (float)$nc(p)->getX());
-				$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kColory1Index, (float)$nc(p)->getY());
+				$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kColory1Index, (float)p->getY());
 				$assign(p, color->getCenterPoint());
 				$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kColorx2Index, (float)$nc(p)->getX());
-				$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kColory2Index, (float)$nc(p)->getY());
+				$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kColory2Index, (float)p->getY());
 				$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kRadiusIndex, color->getRadius());
 				this->fChangeFlag = (this->fChangeFlag | OSXSurfaceData::kColorChangedBit);
 			} else {
-				this->fChangeFlag = ((int32_t)(this->fChangeFlag & (uint32_t)OSXSurfaceData::kColorNotChangedBit));
+				this->fChangeFlag = (this->fChangeFlag & OSXSurfaceData::kColorNotChangedBit);
 			}
 		} else {
 			setGradientViaRasterPath(sg2d);
@@ -831,24 +549,24 @@ void OSXSurfaceData::setupPaint($SunGraphics2D* sg2d, int32_t x, int32_t y, int3
 			$nc(this->fGraphicsStatesInt)->put(OSXSurfaceData::kColorHeightIndex, $nc(this->texturePaintImage)->getHeight());
 			$var($Rectangle2D, anchor, color->getAnchorRect());
 			$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kColortxIndex, (float)$nc(anchor)->getX());
-			$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kColortyIndex, (float)$nc(anchor)->getY());
-			double var$0 = $nc(anchor)->getWidth();
+			$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kColortyIndex, (float)anchor->getY());
+			double var$0 = anchor->getWidth();
 			$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kColorsxIndex, (float)(var$0 / $nc(this->texturePaintImage)->getWidth()));
-			double var$1 = $nc(anchor)->getHeight();
+			double var$1 = anchor->getHeight();
 			$nc(this->fGraphicsStatesFloat)->put(OSXSurfaceData::kColorsyIndex, (float)(var$1 / $nc(this->texturePaintImage)->getHeight()));
 			$nc(this->fGraphicsStatesObject)->set(OSXSurfaceData::kTextureImageIndex, textureSurfaceData);
 			this->fChangeFlag = (this->fChangeFlag | OSXSurfaceData::kColorChangedBit);
 		} else {
-			this->fChangeFlag = ((int32_t)(this->fChangeFlag & (uint32_t)OSXSurfaceData::kColorNotChangedBit));
+			this->fChangeFlag = (this->fChangeFlag & OSXSurfaceData::kColorNotChangedBit);
 		}
 	} else {
 		setGradientViaRasterPath(sg2d);
 	}
-	$set(this, lastPaint, $nc(sg2d)->paint);
+	$set(this, lastPaint, sg2d->paint);
 }
 
 void OSXSurfaceData::setupComposite($SunGraphics2D* sg2d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Composite, composite, $nc(sg2d)->composite);
 	if (this->lastComposite != composite) {
 		$set(this, lastComposite, composite);
@@ -866,15 +584,15 @@ void OSXSurfaceData::setupComposite($SunGraphics2D* sg2d) {
 			this->lastCompositeAlphaValue = alphaValue;
 			this->fChangeFlag = (this->fChangeFlag | OSXSurfaceData::kCompositeChangedBit);
 		} else {
-			this->fChangeFlag = ((int32_t)(this->fChangeFlag & (uint32_t)OSXSurfaceData::kCompositeNotChangedBit));
+			this->fChangeFlag = (this->fChangeFlag & OSXSurfaceData::kCompositeNotChangedBit);
 		}
 	} else {
-		this->fChangeFlag = ((int32_t)(this->fChangeFlag & (uint32_t)OSXSurfaceData::kCompositeNotChangedBit));
+		this->fChangeFlag = (this->fChangeFlag & OSXSurfaceData::kCompositeNotChangedBit);
 	}
 }
 
 void OSXSurfaceData::setupStroke($SunGraphics2D* sg2d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BasicStroke, stroke, OSXSurfaceData::defaultBasicStroke);
 	if ($instanceOf($BasicStroke, $nc(sg2d)->stroke)) {
 		$assign(stroke, $cast($BasicStroke, sg2d->stroke));
@@ -889,7 +607,7 @@ void OSXSurfaceData::setupStroke($SunGraphics2D* sg2d) {
 		this->fChangeFlag = (this->fChangeFlag | OSXSurfaceData::kStrokeChangedBit);
 		$set(this, lastStroke, stroke);
 	} else {
-		this->fChangeFlag = ((int32_t)(this->fChangeFlag & (uint32_t)OSXSurfaceData::kStrokeNotChangedBit));
+		this->fChangeFlag = (this->fChangeFlag & OSXSurfaceData::kStrokeNotChangedBit);
 	}
 }
 
@@ -897,13 +615,13 @@ void OSXSurfaceData::setupFont($Font* font, $Paint* paint) {
 	if (font == nullptr) {
 		return;
 	}
-	if ((font != this->lastFont) || (((int32_t)(this->fChangeFlag & (uint32_t)OSXSurfaceData::kColorChangedBit)) != 0)) {
+	if ((font != this->lastFont) || ((this->fChangeFlag & OSXSurfaceData::kColorChangedBit) != 0)) {
 		$nc(this->fGraphicsStatesObject)->set(OSXSurfaceData::kFontIndex, font);
-		$nc(this->fGraphicsStatesObject)->set(OSXSurfaceData::kFontPaintIndex, paint);
+		this->fGraphicsStatesObject->set(OSXSurfaceData::kFontPaintIndex, paint);
 		this->fChangeFlag = (this->fChangeFlag | OSXSurfaceData::kFontChangedBit);
 		$set(this, lastFont, font);
 	} else {
-		this->fChangeFlag = ((int32_t)(this->fChangeFlag & (uint32_t)OSXSurfaceData::kFontNotChangedBit));
+		this->fChangeFlag = (this->fChangeFlag & OSXSurfaceData::kFontNotChangedBit);
 	}
 }
 
@@ -931,7 +649,7 @@ void OSXSurfaceData::setupRenderingHints($SunGraphics2D* sg2d) {
 	}
 	$init($RenderingHints);
 	$var($Object, hintValue, sg2d->getRenderingHint($RenderingHints::KEY_INTERPOLATION));
-	int32_t interpolationHint = (hintValue != nullptr ? $nc(($cast($SunHints$Value, hintValue)))->getIndex() : -1);
+	int32_t interpolationHint = (hintValue != nullptr ? $cast($SunHints$Value, hintValue)->getIndex() : -1);
 	if ($nc(this->fGraphicsStatesInt)->get(OSXSurfaceData::kHintsInterpolationIndex) != interpolationHint) {
 		$nc(this->fGraphicsStatesInt)->put(OSXSurfaceData::kHintsInterpolationIndex, interpolationHint);
 		hintsChanged = true;
@@ -939,7 +657,7 @@ void OSXSurfaceData::setupRenderingHints($SunGraphics2D* sg2d) {
 	if (hintsChanged) {
 		this->fChangeFlag = (this->fChangeFlag | OSXSurfaceData::kHintsChangedBit);
 	} else {
-		this->fChangeFlag = ((int32_t)(this->fChangeFlag & (uint32_t)OSXSurfaceData::kHintsNotChangedBit));
+		this->fChangeFlag = (this->fChangeFlag & OSXSurfaceData::kHintsNotChangedBit);
 	}
 }
 
@@ -986,7 +704,7 @@ void OSXSurfaceData::setupGraphicsState($SunGraphics2D* sg2d, int32_t primitiveT
 }
 
 bool OSXSurfaceData::isCustomPaint($SunGraphics2D* sg2d) {
-	if (($instanceOf($Color, $nc(sg2d)->paint)) || ($instanceOf($SystemColor, $nc(sg2d)->paint)) || ($instanceOf($GradientPaint, $nc(sg2d)->paint)) || ($instanceOf($TexturePaint, $nc(sg2d)->paint))) {
+	if (($instanceOf($Color, $nc(sg2d)->paint)) || ($instanceOf($SystemColor, sg2d->paint)) || ($instanceOf($GradientPaint, sg2d->paint)) || ($instanceOf($TexturePaint, sg2d->paint))) {
 		return false;
 	}
 	return true;
@@ -1013,62 +731,52 @@ int32_t OSXSurfaceData::getPathCoordinates($GeneralPath* gp, $FloatBuffer* coord
 		type = pi->currentSegment(this->segmentCoordinatesArray);
 		switch (type) {
 		case $PathIterator::SEG_MOVETO:
-			{
-				if ($nc(this->segmentCoordinatesArray)->get(0) < OSXSurfaceData::UPPER_BND && $nc(this->segmentCoordinatesArray)->get(0) > OSXSurfaceData::LOWER_BND && $nc(this->segmentCoordinatesArray)->get(1) < OSXSurfaceData::UPPER_BND && $nc(this->segmentCoordinatesArray)->get(1) > OSXSurfaceData::LOWER_BND) {
-					coordinates->put($nc(this->segmentCoordinatesArray)->get(0));
-					coordinates->put($nc(this->segmentCoordinatesArray)->get(1));
-				} else {
-					skip = true;
-				}
-				break;
+			if ($nc(this->segmentCoordinatesArray)->get(0) < OSXSurfaceData::UPPER_BND && this->segmentCoordinatesArray->get(0) > OSXSurfaceData::LOWER_BND && this->segmentCoordinatesArray->get(1) < OSXSurfaceData::UPPER_BND && this->segmentCoordinatesArray->get(1) > OSXSurfaceData::LOWER_BND) {
+				coordinates->put(this->segmentCoordinatesArray->get(0));
+				coordinates->put(this->segmentCoordinatesArray->get(1));
+			} else {
+				skip = true;
 			}
+			break;
 		case $PathIterator::SEG_LINETO:
-			{
-				if ($nc(this->segmentCoordinatesArray)->get(0) < OSXSurfaceData::UPPER_BND && $nc(this->segmentCoordinatesArray)->get(0) > OSXSurfaceData::LOWER_BND && $nc(this->segmentCoordinatesArray)->get(1) < OSXSurfaceData::UPPER_BND && $nc(this->segmentCoordinatesArray)->get(1) > OSXSurfaceData::LOWER_BND) {
-					coordinates->put($nc(this->segmentCoordinatesArray)->get(0));
-					coordinates->put($nc(this->segmentCoordinatesArray)->get(1));
-				} else {
-					skip = true;
-				}
-				break;
+			if ($nc(this->segmentCoordinatesArray)->get(0) < OSXSurfaceData::UPPER_BND && this->segmentCoordinatesArray->get(0) > OSXSurfaceData::LOWER_BND && this->segmentCoordinatesArray->get(1) < OSXSurfaceData::UPPER_BND && this->segmentCoordinatesArray->get(1) > OSXSurfaceData::LOWER_BND) {
+				coordinates->put(this->segmentCoordinatesArray->get(0));
+				coordinates->put(this->segmentCoordinatesArray->get(1));
+			} else {
+				skip = true;
 			}
+			break;
 		case $PathIterator::SEG_QUADTO:
-			{
-				if ($nc(this->segmentCoordinatesArray)->get(0) < OSXSurfaceData::UPPER_BND && $nc(this->segmentCoordinatesArray)->get(0) > OSXSurfaceData::LOWER_BND && $nc(this->segmentCoordinatesArray)->get(1) < OSXSurfaceData::UPPER_BND && $nc(this->segmentCoordinatesArray)->get(1) > OSXSurfaceData::LOWER_BND && $nc(this->segmentCoordinatesArray)->get(2) < OSXSurfaceData::UPPER_BND && $nc(this->segmentCoordinatesArray)->get(2) > OSXSurfaceData::LOWER_BND && $nc(this->segmentCoordinatesArray)->get(3) < OSXSurfaceData::UPPER_BND && $nc(this->segmentCoordinatesArray)->get(3) > OSXSurfaceData::LOWER_BND) {
-					coordinates->put($nc(this->segmentCoordinatesArray)->get(0));
-					coordinates->put($nc(this->segmentCoordinatesArray)->get(1));
-					coordinates->put($nc(this->segmentCoordinatesArray)->get(2));
-					coordinates->put($nc(this->segmentCoordinatesArray)->get(3));
-				} else {
-					skip = true;
-				}
-				break;
+			if ($nc(this->segmentCoordinatesArray)->get(0) < OSXSurfaceData::UPPER_BND && this->segmentCoordinatesArray->get(0) > OSXSurfaceData::LOWER_BND && this->segmentCoordinatesArray->get(1) < OSXSurfaceData::UPPER_BND && this->segmentCoordinatesArray->get(1) > OSXSurfaceData::LOWER_BND && this->segmentCoordinatesArray->get(2) < OSXSurfaceData::UPPER_BND && this->segmentCoordinatesArray->get(2) > OSXSurfaceData::LOWER_BND && this->segmentCoordinatesArray->get(3) < OSXSurfaceData::UPPER_BND && this->segmentCoordinatesArray->get(3) > OSXSurfaceData::LOWER_BND) {
+				coordinates->put(this->segmentCoordinatesArray->get(0));
+				coordinates->put(this->segmentCoordinatesArray->get(1));
+				coordinates->put(this->segmentCoordinatesArray->get(2));
+				coordinates->put(this->segmentCoordinatesArray->get(3));
+			} else {
+				skip = true;
 			}
+			break;
 		case $PathIterator::SEG_CUBICTO:
-			{
-				if ($nc(this->segmentCoordinatesArray)->get(0) < OSXSurfaceData::UPPER_BND && $nc(this->segmentCoordinatesArray)->get(0) > OSXSurfaceData::LOWER_BND && $nc(this->segmentCoordinatesArray)->get(1) < OSXSurfaceData::UPPER_BND && $nc(this->segmentCoordinatesArray)->get(1) > OSXSurfaceData::LOWER_BND && $nc(this->segmentCoordinatesArray)->get(2) < OSXSurfaceData::UPPER_BND && $nc(this->segmentCoordinatesArray)->get(2) > OSXSurfaceData::LOWER_BND && $nc(this->segmentCoordinatesArray)->get(3) < OSXSurfaceData::UPPER_BND && $nc(this->segmentCoordinatesArray)->get(3) > OSXSurfaceData::LOWER_BND && $nc(this->segmentCoordinatesArray)->get(4) < OSXSurfaceData::UPPER_BND && $nc(this->segmentCoordinatesArray)->get(4) > OSXSurfaceData::LOWER_BND && $nc(this->segmentCoordinatesArray)->get(5) < OSXSurfaceData::UPPER_BND && $nc(this->segmentCoordinatesArray)->get(5) > OSXSurfaceData::LOWER_BND) {
-					coordinates->put($nc(this->segmentCoordinatesArray)->get(0));
-					coordinates->put($nc(this->segmentCoordinatesArray)->get(1));
-					coordinates->put($nc(this->segmentCoordinatesArray)->get(2));
-					coordinates->put($nc(this->segmentCoordinatesArray)->get(3));
-					coordinates->put($nc(this->segmentCoordinatesArray)->get(4));
-					coordinates->put($nc(this->segmentCoordinatesArray)->get(5));
-				} else {
-					skip = true;
-				}
-				break;
+			if ($nc(this->segmentCoordinatesArray)->get(0) < OSXSurfaceData::UPPER_BND && this->segmentCoordinatesArray->get(0) > OSXSurfaceData::LOWER_BND && this->segmentCoordinatesArray->get(1) < OSXSurfaceData::UPPER_BND && this->segmentCoordinatesArray->get(1) > OSXSurfaceData::LOWER_BND && this->segmentCoordinatesArray->get(2) < OSXSurfaceData::UPPER_BND && this->segmentCoordinatesArray->get(2) > OSXSurfaceData::LOWER_BND && this->segmentCoordinatesArray->get(3) < OSXSurfaceData::UPPER_BND && this->segmentCoordinatesArray->get(3) > OSXSurfaceData::LOWER_BND && this->segmentCoordinatesArray->get(4) < OSXSurfaceData::UPPER_BND && this->segmentCoordinatesArray->get(4) > OSXSurfaceData::LOWER_BND && this->segmentCoordinatesArray->get(5) < OSXSurfaceData::UPPER_BND && this->segmentCoordinatesArray->get(5) > OSXSurfaceData::LOWER_BND) {
+				coordinates->put(this->segmentCoordinatesArray->get(0));
+				coordinates->put(this->segmentCoordinatesArray->get(1));
+				coordinates->put(this->segmentCoordinatesArray->get(2));
+				coordinates->put(this->segmentCoordinatesArray->get(3));
+				coordinates->put(this->segmentCoordinatesArray->get(4));
+				coordinates->put(this->segmentCoordinatesArray->get(5));
+			} else {
+				skip = true;
 			}
+			break;
 		case $PathIterator::SEG_CLOSE:
-			{
-				break;
-			}
+			break;
 		}
 		if (!skip) {
 			types->put(type);
 		}
 		pi->next();
 	}
-	return $nc(pi)->getWindingRule();
+	return pi->getWindingRule();
 }
 
 void OSXSurfaceData::doLine($CRenderer* renderer, $SunGraphics2D* sg2d, float x1, float y1, float x2, float y2) {
@@ -1140,26 +848,26 @@ void OSXSurfaceData::doPolygon($CRenderer* renderer, $SunGraphics2D* sg2d, $ints
 }
 
 void OSXSurfaceData::drawfillShape($CRenderer* renderer, $SunGraphics2D* sg2d, $GeneralPath* gp, bool isfill, bool shouldApplyOffset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((isfill) && (isCustomPaint(sg2d))) {
 		$var($Rectangle, bounds, $nc(gp)->getBounds());
-		setupGraphicsState(sg2d, OSXSurfaceData::kShape, $nc(bounds)->x, bounds->y, bounds->width, bounds->height);
+		setupGraphicsState(sg2d, OSXSurfaceData::kShape, $nc(bounds)->x, $nc(bounds)->y, $nc(bounds)->width, $nc(bounds)->height);
 	} else {
 		setupGraphicsState(sg2d, OSXSurfaceData::kShape, $nc(sg2d)->font, 0, 0, $nc(this->fBounds)->width, $nc(this->fBounds)->height);
 	}
 	int32_t shapeLength = getPathLength(gp);
-	if ((this->shapeCoordinatesArray == nullptr) || ($nc(this->shapeCoordinatesArray)->capacity() < (shapeLength * 6))) {
-		$set(this, shapeCoordinatesArray, $nc($(getBufferOfSize(shapeLength * 6)))->asFloatBuffer());
+	if ((this->shapeCoordinatesArray == nullptr) || (this->shapeCoordinatesArray->capacity() < (shapeLength * 6))) {
+		$set(this, shapeCoordinatesArray, $$nc(getBufferOfSize(shapeLength * 6))->asFloatBuffer());
 	}
-	if ((this->shapeTypesArray == nullptr) || ($nc(this->shapeTypesArray)->capacity() < shapeLength)) {
-		$set(this, shapeTypesArray, $nc($(getBufferOfSize(shapeLength)))->asIntBuffer());
+	if ((this->shapeTypesArray == nullptr) || (this->shapeTypesArray->capacity() < shapeLength)) {
+		$set(this, shapeTypesArray, $$nc(getBufferOfSize(shapeLength))->asIntBuffer());
 	}
 	int32_t windingRule = getPathCoordinates(gp, this->shapeCoordinatesArray, this->shapeTypesArray);
 	$nc(renderer)->doShape(this, shapeLength, this->shapeCoordinatesArray, this->shapeTypesArray, windingRule, isfill, shouldApplyOffset);
 }
 
 void OSXSurfaceData::blitImage($CRenderer* renderer, $SunGraphics2D* sg2d, $SurfaceData* img$renamed, bool fliph, bool flipv, int32_t sx, int32_t sy, int32_t sw, int32_t sh, int32_t dx, int32_t dy, int32_t dw, int32_t dh, $Color* bgColor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceData, img, img$renamed);
 	$var($OSXOffScreenSurfaceData, osxsd, $cast($OSXOffScreenSurfaceData, img));
 	$synchronized($nc(osxsd)->getLockObject()) {
@@ -1229,23 +937,23 @@ void OSXSurfaceData::intersection($Rectangle* r1, $Rectangle* r2, $Rectangle* r3
 
 $Rectangle* OSXSurfaceData::clipCopyArea($SunGraphics2D* sg2d, int32_t x, int32_t y, int32_t w, int32_t h, int32_t dx, int32_t dy) {
 	int32_t var$0 = $nc($nc(sg2d)->devClip)->getLoX();
-	int32_t var$1 = $nc(sg2d->devClip)->getLoY();
-	int32_t var$2 = $nc(sg2d->devClip)->getWidth();
-	$nc(this->copyAreaBounds)->setBounds(var$0, var$1, var$2, $nc(sg2d->devClip)->getHeight());
+	int32_t var$1 = sg2d->devClip->getLoY();
+	int32_t var$2 = sg2d->devClip->getWidth();
+	$nc(this->copyAreaBounds)->setBounds(var$0, var$1, var$2, sg2d->devClip->getHeight());
 	$nc(this->srcCopyAreaRect)->setBounds(x, y, w, h);
 	intersection(this->srcCopyAreaRect, this->copyAreaBounds, this->srcCopyAreaRect);
-	if (($nc(this->srcCopyAreaRect)->width <= 0) || ($nc(this->srcCopyAreaRect)->height <= 0)) {
+	if (($nc(this->srcCopyAreaRect)->width <= 0) || (this->srcCopyAreaRect->height <= 0)) {
 		return nullptr;
 	}
-	$nc(this->dstCopyAreaRect)->setBounds($nc(this->srcCopyAreaRect)->x + dx, $nc(this->srcCopyAreaRect)->y + dy, $nc(this->srcCopyAreaRect)->width, $nc(this->srcCopyAreaRect)->height);
+	$nc(this->dstCopyAreaRect)->setBounds(this->srcCopyAreaRect->x + dx, this->srcCopyAreaRect->y + dy, this->srcCopyAreaRect->width, this->srcCopyAreaRect->height);
 	intersection(this->dstCopyAreaRect, this->copyAreaBounds, this->dstCopyAreaRect);
-	if (($nc(this->dstCopyAreaRect)->width <= 0) || ($nc(this->dstCopyAreaRect)->height <= 0)) {
+	if (($nc(this->dstCopyAreaRect)->width <= 0) || (this->dstCopyAreaRect->height <= 0)) {
 		return nullptr;
 	}
-	x = $nc(this->dstCopyAreaRect)->x - dx;
-	y = $nc(this->dstCopyAreaRect)->y - dy;
-	w = $nc(this->dstCopyAreaRect)->width;
-	h = $nc(this->dstCopyAreaRect)->height;
+	x = this->dstCopyAreaRect->x - dx;
+	y = this->dstCopyAreaRect->y - dy;
+	w = this->dstCopyAreaRect->width;
+	h = this->dstCopyAreaRect->height;
 	$nc(this->finalCopyAreaRect)->setBounds(x, y, w, h);
 	return this->finalCopyAreaRect;
 }
@@ -1265,8 +973,7 @@ bool OSXSurfaceData::IsSimpleColor(Object$* c) {
 	return (($instanceOf($Color, c)) || ($instanceOf($SystemColor, c)) || ($instanceOf($ColorUIResource, c)));
 }
 
-void clinit$OSXSurfaceData($Class* class$) {
-	$init($Float);
+void OSXSurfaceData::clinit$($Class* clazz) {
 	OSXSurfaceData::UPPER_BND = $Float::MAX_VALUE / 2.0f;
 	OSXSurfaceData::LOWER_BND = -OSXSurfaceData::UPPER_BND;
 	$assignStatic(OSXSurfaceData::sQuartzPipe, nullptr);
@@ -1278,6 +985,7 @@ void clinit$OSXSurfaceData($Class* class$) {
 	$assignStatic(OSXSurfaceData::sIdentityMatrix, $new($AffineTransform));
 	$assignStatic(OSXSurfaceData::defaultBasicStroke, $new($BasicStroke));
 	{
+		;
 	}
 }
 
@@ -1285,7 +993,254 @@ OSXSurfaceData::OSXSurfaceData() {
 }
 
 $Class* OSXSurfaceData::load$($String* name, bool initialize) {
-	$loadClass(OSXSurfaceData, name, initialize, &_OSXSurfaceData_ClassInfo_, clinit$OSXSurfaceData, allocate$OSXSurfaceData);
+	$FieldInfo fieldInfos$$[] = {
+		{"UPPER_BND", "F", nullptr, $STATIC | $FINAL, $staticField(OSXSurfaceData, UPPER_BND)},
+		{"LOWER_BND", "F", nullptr, $STATIC | $FINAL, $staticField(OSXSurfaceData, LOWER_BND)},
+		{"sQuartzPipe", "Lsun/java2d/CRenderer;", nullptr, $PROTECTED | $STATIC, $staticField(OSXSurfaceData, sQuartzPipe)},
+		{"sCocoaTextPipe", "Lsun/lwawt/macosx/CTextPipe;", nullptr, $PROTECTED | $STATIC, $staticField(OSXSurfaceData, sCocoaTextPipe)},
+		{"sQuartzCompositePipe", "Lsun/java2d/CompositeCRenderer;", nullptr, $PROTECTED | $STATIC, $staticField(OSXSurfaceData, sQuartzCompositePipe)},
+		{"fConfig", "Ljava/awt/GraphicsConfiguration;", nullptr, $PRIVATE, $field(OSXSurfaceData, fConfig)},
+		{"fBounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(OSXSurfaceData, fBounds)},
+		{"sDefaultGraphicsConfiguration", "Ljava/awt/GraphicsConfiguration;", nullptr, 0, $field(OSXSurfaceData, sDefaultGraphicsConfiguration)},
+		{"sSrcComposite", "Ljava/awt/image/BufferedImage;", nullptr, 0, $field(OSXSurfaceData, sSrcComposite)},
+		{"sDstInComposite", "Ljava/awt/image/BufferedImage;", nullptr, 0, $field(OSXSurfaceData, sDstInComposite)},
+		{"sDstOutComposite", "Ljava/awt/image/BufferedImage;", nullptr, 0, $field(OSXSurfaceData, sDstOutComposite)},
+		{"kPrimitive", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kPrimitive)},
+		{"kImage", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kImage)},
+		{"kText", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kText)},
+		{"kCopyArea", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kCopyArea)},
+		{"kExternal", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kExternal)},
+		{"kLine", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kLine)},
+		{"kRect", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kRect)},
+		{"kRoundRect", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kRoundRect)},
+		{"kOval", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kOval)},
+		{"kArc", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kArc)},
+		{"kPolygon", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kPolygon)},
+		{"kShape", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kShape)},
+		{"kString", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kString)},
+		{"kGlyphs", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kGlyphs)},
+		{"kUnicodes", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kUnicodes)},
+		{"kCommonParameterCount", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kCommonParameterCount)},
+		{"kLineParametersCount", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kLineParametersCount)},
+		{"kRectParametersCount", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kRectParametersCount)},
+		{"kRoundRectParametersCount", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kRoundRectParametersCount)},
+		{"kOvalParametersCount", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kOvalParametersCount)},
+		{"kArcParametersCount", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kArcParametersCount)},
+		{"kPolygonParametersCount", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kPolygonParametersCount)},
+		{"kShapeParametersCount", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kShapeParametersCount)},
+		{"kImageParametersCount", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kImageParametersCount)},
+		{"kStringParametersCount", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kStringParametersCount)},
+		{"kGlyphsParametersCount", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kGlyphsParametersCount)},
+		{"kUnicodesParametersCount", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kUnicodesParametersCount)},
+		{"kPixelParametersCount", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kPixelParametersCount)},
+		{"kExternalParametersCount", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kExternalParametersCount)},
+		{"kChangeFlagIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kChangeFlagIndex)},
+		{"kBoundsXIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kBoundsXIndex)},
+		{"kBoundsYIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kBoundsYIndex)},
+		{"kBoundsWidthIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kBoundsWidthIndex)},
+		{"kBoundsHeightIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kBoundsHeightIndex)},
+		{"kClipStateIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kClipStateIndex)},
+		{"kClipNumTypesIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kClipNumTypesIndex)},
+		{"kClipNumCoordsIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kClipNumCoordsIndex)},
+		{"kClipWindingRuleIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kClipWindingRuleIndex)},
+		{"kClipXIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kClipXIndex)},
+		{"kClipYIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kClipYIndex)},
+		{"kClipWidthIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kClipWidthIndex)},
+		{"kClipHeightIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kClipHeightIndex)},
+		{"kCTMaIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kCTMaIndex)},
+		{"kCTMbIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kCTMbIndex)},
+		{"kCTMcIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kCTMcIndex)},
+		{"kCTMdIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kCTMdIndex)},
+		{"kCTMtxIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kCTMtxIndex)},
+		{"kCTMtyIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kCTMtyIndex)},
+		{"kColorStateIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorStateIndex)},
+		{"kColorRGBValueIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorRGBValueIndex)},
+		{"kColorIndexValueIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorIndexValueIndex)},
+		{"kColorPointerIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorPointerIndex)},
+		{"kColorPointerIndex2", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorPointerIndex2)},
+		{"kColorRGBValue1Index", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorRGBValue1Index)},
+		{"kColorWidthIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorWidthIndex)},
+		{"kColorRGBValue2Index", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorRGBValue2Index)},
+		{"kColorHeightIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorHeightIndex)},
+		{"kColorIsCyclicIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorIsCyclicIndex)},
+		{"kColorx1Index", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorx1Index)},
+		{"kColortxIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColortxIndex)},
+		{"kColory1Index", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColory1Index)},
+		{"kColortyIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColortyIndex)},
+		{"kColorx2Index", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorx2Index)},
+		{"kColorsxIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorsxIndex)},
+		{"kColory2Index", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColory2Index)},
+		{"kColorsyIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorsyIndex)},
+		{"kCompositeRuleIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kCompositeRuleIndex)},
+		{"kCompositeValueIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kCompositeValueIndex)},
+		{"kStrokeJoinIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kStrokeJoinIndex)},
+		{"kStrokeCapIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kStrokeCapIndex)},
+		{"kStrokeWidthIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kStrokeWidthIndex)},
+		{"kStrokeDashPhaseIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kStrokeDashPhaseIndex)},
+		{"kStrokeLimitIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kStrokeLimitIndex)},
+		{"kHintsAntialiasIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kHintsAntialiasIndex)},
+		{"kHintsTextAntialiasIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kHintsTextAntialiasIndex)},
+		{"kHintsFractionalMetricsIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kHintsFractionalMetricsIndex)},
+		{"kHintsRenderingIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kHintsRenderingIndex)},
+		{"kHintsInterpolationIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kHintsInterpolationIndex)},
+		{"kRadiusIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kRadiusIndex)},
+		{"kSizeOfParameters", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kSizeOfParameters)},
+		{"kClipCoordinatesIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kClipCoordinatesIndex)},
+		{"kClipTypesIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kClipTypesIndex)},
+		{"kTextureImageIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kTextureImageIndex)},
+		{"kStrokeDashArrayIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kStrokeDashArrayIndex)},
+		{"kFontIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kFontIndex)},
+		{"kFontPaintIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kFontPaintIndex)},
+		{"kColorArrayIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorArrayIndex)},
+		{"kFractionsArrayIndex", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kFractionsArrayIndex)},
+		{"kBoundsChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kBoundsChangedBit)},
+		{"kBoundsNotChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kBoundsNotChangedBit)},
+		{"kClipChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kClipChangedBit)},
+		{"kClipNotChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kClipNotChangedBit)},
+		{"kCTMChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kCTMChangedBit)},
+		{"kCTMNotChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kCTMNotChangedBit)},
+		{"kColorChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorChangedBit)},
+		{"kColorNotChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorNotChangedBit)},
+		{"kCompositeChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kCompositeChangedBit)},
+		{"kCompositeNotChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kCompositeNotChangedBit)},
+		{"kStrokeChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kStrokeChangedBit)},
+		{"kStrokeNotChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kStrokeNotChangedBit)},
+		{"kHintsChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kHintsChangedBit)},
+		{"kHintsNotChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kHintsNotChangedBit)},
+		{"kFontChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kFontChangedBit)},
+		{"kFontNotChangedBit", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kFontNotChangedBit)},
+		{"kEverythingChangedFlag", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kEverythingChangedFlag)},
+		{"kColorSimple", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorSimple)},
+		{"kColorSystem", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorSystem)},
+		{"kColorGradient", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorGradient)},
+		{"kColorTexture", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorTexture)},
+		{"kColorLinearGradient", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorLinearGradient)},
+		{"kColorRadialGradient", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorRadialGradient)},
+		{"kColorNonCyclic", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorNonCyclic)},
+		{"kColorCyclic", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kColorCyclic)},
+		{"kClipRect", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kClipRect)},
+		{"kClipShape", "I", nullptr, $STATIC | $FINAL, $constField(OSXSurfaceData, kClipShape)},
+		{"fChangeFlag", "I", nullptr, 0, $field(OSXSurfaceData, fChangeFlag)},
+		{"fGraphicsStates", "Ljava/nio/ByteBuffer;", nullptr, $PROTECTED, $field(OSXSurfaceData, fGraphicsStates)},
+		{"fGraphicsStatesInt", "Ljava/nio/IntBuffer;", nullptr, 0, $field(OSXSurfaceData, fGraphicsStatesInt)},
+		{"fGraphicsStatesFloat", "Ljava/nio/FloatBuffer;", nullptr, 0, $field(OSXSurfaceData, fGraphicsStatesFloat)},
+		{"fGraphicsStatesLong", "Ljava/nio/LongBuffer;", nullptr, 0, $field(OSXSurfaceData, fGraphicsStatesLong)},
+		{"fGraphicsStatesObject", "[Ljava/lang/Object;", nullptr, $PROTECTED, $field(OSXSurfaceData, fGraphicsStatesObject)},
+		{"userBounds", "Ljava/awt/Rectangle;", nullptr, 0, $field(OSXSurfaceData, userBounds)},
+		{"lastUserX", "F", nullptr, 0, $field(OSXSurfaceData, lastUserX)},
+		{"lastUserY", "F", nullptr, 0, $field(OSXSurfaceData, lastUserY)},
+		{"lastUserW", "F", nullptr, 0, $field(OSXSurfaceData, lastUserW)},
+		{"lastUserH", "F", nullptr, 0, $field(OSXSurfaceData, lastUserH)},
+		{"clipCoordinatesArray", "Ljava/nio/FloatBuffer;", nullptr, 0, $field(OSXSurfaceData, clipCoordinatesArray)},
+		{"clipTypesArray", "Ljava/nio/IntBuffer;", nullptr, 0, $field(OSXSurfaceData, clipTypesArray)},
+		{"lastClipShape", "Ljava/awt/Shape;", nullptr, 0, $field(OSXSurfaceData, lastClipShape)},
+		{"lastClipX", "F", nullptr, 0, $field(OSXSurfaceData, lastClipX)},
+		{"lastClipY", "F", nullptr, 0, $field(OSXSurfaceData, lastClipY)},
+		{"lastClipW", "F", nullptr, 0, $field(OSXSurfaceData, lastClipW)},
+		{"lastClipH", "F", nullptr, 0, $field(OSXSurfaceData, lastClipH)},
+		{"lastCTM", "[D", nullptr, $FINAL, $field(OSXSurfaceData, lastCTM)},
+		{"lastCTMa", "F", nullptr, 0, $field(OSXSurfaceData, lastCTMa)},
+		{"lastCTMb", "F", nullptr, 0, $field(OSXSurfaceData, lastCTMb)},
+		{"lastCTMc", "F", nullptr, 0, $field(OSXSurfaceData, lastCTMc)},
+		{"lastCTMd", "F", nullptr, 0, $field(OSXSurfaceData, lastCTMd)},
+		{"lastCTMtx", "F", nullptr, 0, $field(OSXSurfaceData, lastCTMtx)},
+		{"lastCTMty", "F", nullptr, 0, $field(OSXSurfaceData, lastCTMty)},
+		{"sIdentityMatrix", "Ljava/awt/geom/AffineTransform;", nullptr, $STATIC, $staticField(OSXSurfaceData, sIdentityMatrix)},
+		{"lastPaint", "Ljava/awt/Paint;", nullptr, 0, $field(OSXSurfaceData, lastPaint)},
+		{"lastPaintPtr", "J", nullptr, 0, $field(OSXSurfaceData, lastPaintPtr)},
+		{"lastPaintRGB", "I", nullptr, 0, $field(OSXSurfaceData, lastPaintRGB)},
+		{"lastPaintIndex", "I", nullptr, 0, $field(OSXSurfaceData, lastPaintIndex)},
+		{"texturePaintImage", "Ljava/awt/image/BufferedImage;", nullptr, 0, $field(OSXSurfaceData, texturePaintImage)},
+		{"lastComposite", "Ljava/awt/Composite;", nullptr, 0, $field(OSXSurfaceData, lastComposite)},
+		{"lastCompositeAlphaRule", "I", nullptr, 0, $field(OSXSurfaceData, lastCompositeAlphaRule)},
+		{"lastCompositeAlphaValue", "F", nullptr, 0, $field(OSXSurfaceData, lastCompositeAlphaValue)},
+		{"lastStroke", "Ljava/awt/BasicStroke;", nullptr, 0, $field(OSXSurfaceData, lastStroke)},
+		{"defaultBasicStroke", "Ljava/awt/BasicStroke;", nullptr, $STATIC, $staticField(OSXSurfaceData, defaultBasicStroke)},
+		{"lastFont", "Ljava/awt/Font;", nullptr, 0, $field(OSXSurfaceData, lastFont)},
+		{"sg2dCurrent", "Lsun/java2d/SunGraphics2D;", nullptr, 0, $field(OSXSurfaceData, sg2dCurrent)},
+		{"threadCurrent", "Ljava/lang/Thread;", nullptr, 0, $field(OSXSurfaceData, threadCurrent)},
+		{"segmentCoordinatesArray", "[F", nullptr, $FINAL, $field(OSXSurfaceData, segmentCoordinatesArray)},
+		{"shapeCoordinatesArray", "Ljava/nio/FloatBuffer;", nullptr, 0, $field(OSXSurfaceData, shapeCoordinatesArray)},
+		{"shapeTypesArray", "Ljava/nio/IntBuffer;", nullptr, 0, $field(OSXSurfaceData, shapeTypesArray)},
+		{"srcCopyAreaRect", "Ljava/awt/Rectangle;", nullptr, 0, $field(OSXSurfaceData, srcCopyAreaRect)},
+		{"dstCopyAreaRect", "Ljava/awt/Rectangle;", nullptr, 0, $field(OSXSurfaceData, dstCopyAreaRect)},
+		{"finalCopyAreaRect", "Ljava/awt/Rectangle;", nullptr, 0, $field(OSXSurfaceData, finalCopyAreaRect)},
+		{"copyAreaBounds", "Ljava/awt/Rectangle;", nullptr, 0, $field(OSXSurfaceData, copyAreaBounds)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Ljava/awt/image/ColorModel;)V", nullptr, $PUBLIC, $method(OSXSurfaceData, init$, void, $SurfaceType*, $ColorModel*)},
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Ljava/awt/image/ColorModel;Ljava/awt/GraphicsConfiguration;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $method(OSXSurfaceData, init$, void, $SurfaceType*, $ColorModel*, $GraphicsConfiguration*, $Rectangle*)},
+		{"IsSimpleColor", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(OSXSurfaceData, IsSimpleColor, bool, Object$*)},
+		{"blitImage", "(Lsun/java2d/CRenderer;Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;ZZIIIIIIIILjava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, blitImage, void, $CRenderer*, $SunGraphics2D*, $SurfaceData*, bool, bool, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*)},
+		{"canRenderLCDText", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, canRenderLCDText, bool, $SunGraphics2D*)},
+		{"clearRect", "(Ljava/awt/image/BufferedImage;II)V", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, clearRect, void, $BufferedImage*, int32_t, int32_t)},
+		{"clipCopyArea", "(Lsun/java2d/SunGraphics2D;IIIIII)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(OSXSurfaceData, clipCopyArea, $Rectangle*, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"copyArea", "(Lsun/java2d/SunGraphics2D;IIIILjava/awt/image/BufferedImage;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OSXSurfaceData, copyArea, $BufferedImage*, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, $BufferedImage*)},
+		{"doArc", "(Lsun/java2d/CRenderer;Lsun/java2d/SunGraphics2D;FFFFFFIZ)V", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, doArc, void, $CRenderer*, $SunGraphics2D*, float, float, float, float, float, float, int32_t, bool)},
+		{"doLine", "(Lsun/java2d/CRenderer;Lsun/java2d/SunGraphics2D;FFFF)V", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, doLine, void, $CRenderer*, $SunGraphics2D*, float, float, float, float)},
+		{"doOval", "(Lsun/java2d/CRenderer;Lsun/java2d/SunGraphics2D;FFFFZ)V", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, doOval, void, $CRenderer*, $SunGraphics2D*, float, float, float, float, bool)},
+		{"doPolygon", "(Lsun/java2d/CRenderer;Lsun/java2d/SunGraphics2D;[I[IIZZ)V", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, doPolygon, void, $CRenderer*, $SunGraphics2D*, $ints*, $ints*, int32_t, bool, bool)},
+		{"doRect", "(Lsun/java2d/CRenderer;Lsun/java2d/SunGraphics2D;FFFFZ)V", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, doRect, void, $CRenderer*, $SunGraphics2D*, float, float, float, float, bool)},
+		{"doRoundRect", "(Lsun/java2d/CRenderer;Lsun/java2d/SunGraphics2D;FFFFFFZ)V", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, doRoundRect, void, $CRenderer*, $SunGraphics2D*, float, float, float, float, float, float, bool)},
+		{"drawGlyphs", "(Lsun/lwawt/macosx/CTextPipe;Lsun/java2d/SunGraphics2D;JLjava/awt/font/GlyphVector;FF)V", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, drawGlyphs, void, $CTextPipe*, $SunGraphics2D*, int64_t, $GlyphVector*, float, float)},
+		{"drawString", "(Lsun/lwawt/macosx/CTextPipe;Lsun/java2d/SunGraphics2D;JLjava/lang/String;DD)V", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, drawString, void, $CTextPipe*, $SunGraphics2D*, int64_t, $String*, double, double)},
+		{"drawUnicodes", "(Lsun/lwawt/macosx/CTextPipe;Lsun/java2d/SunGraphics2D;J[CIIFF)V", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, drawUnicodes, void, $CTextPipe*, $SunGraphics2D*, int64_t, $chars*, int32_t, int32_t, float, float)},
+		{"drawfillShape", "(Lsun/java2d/CRenderer;Lsun/java2d/SunGraphics2D;Ljava/awt/geom/GeneralPath;ZZ)V", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, drawfillShape, void, $CRenderer*, $SunGraphics2D*, $GeneralPath*, bool, bool)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, getBounds, $Rectangle*)},
+		{"getBufferOfSize", "(I)Ljava/nio/ByteBuffer;", nullptr, $STATIC, $staticMethod(OSXSurfaceData, getBufferOfSize, $ByteBuffer*, int32_t)},
+		{"getCompositingDstInImage", "(II)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, getCompositingDstInImage, $BufferedImage*, int32_t, int32_t)},
+		{"getCompositingDstOutImage", "(II)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, getCompositingDstOutImage, $BufferedImage*, int32_t, int32_t)},
+		{"getCompositingImage", "(II)Ljava/awt/image/BufferedImage;", nullptr, $PROTECTED, $virtualMethod(OSXSurfaceData, getCompositingImage, $BufferedImage*, int32_t, int32_t)},
+		{"getCompositingImageSame", "(Ljava/awt/image/BufferedImage;II)Ljava/awt/image/BufferedImage;", nullptr, $PROTECTED, $virtualMethod(OSXSurfaceData, getCompositingImageSame, $BufferedImage*, $BufferedImage*, int32_t, int32_t)},
+		{"getCompositingSrcImage", "(II)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, getCompositingSrcImage, $BufferedImage*, int32_t, int32_t)},
+		{"getDeviceConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, getDeviceConfiguration, $GraphicsConfiguration*)},
+		{"getPathCoordinates", "(Ljava/awt/geom/GeneralPath;Ljava/nio/FloatBuffer;Ljava/nio/IntBuffer;)I", nullptr, 0, $virtualMethod(OSXSurfaceData, getPathCoordinates, int32_t, $GeneralPath*, $FloatBuffer*, $IntBuffer*)},
+		{"getPathLength", "(Ljava/awt/geom/GeneralPath;)I", nullptr, 0, $virtualMethod(OSXSurfaceData, getPathLength, int32_t, $GeneralPath*)},
+		{"getRendererTypeForPrimitive", "(I)I", nullptr, $STATIC, $staticMethod(OSXSurfaceData, getRendererTypeForPrimitive, int32_t, int32_t)},
+		{"intersection", "(Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;)V", nullptr, 0, $virtualMethod(OSXSurfaceData, intersection, void, $Rectangle*, $Rectangle*, $Rectangle*)},
+		{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, invalidate, void)},
+		{"isCustomPaint", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, 0, $virtualMethod(OSXSurfaceData, isCustomPaint, bool, $SunGraphics2D*)},
+		{"markDirty", "(Z)V", nullptr, $PROTECTED, $virtualMethod(OSXSurfaceData, markDirty, void, bool)},
+		{"setBounds", "(IIII)V", nullptr, $PROTECTED, $virtualMethod(OSXSurfaceData, setBounds, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setGradientViaRasterPath", "(Lsun/java2d/SunGraphics2D;)V", nullptr, 0, $virtualMethod(OSXSurfaceData, setGradientViaRasterPath, void, $SunGraphics2D*)},
+		{"setPipesToQuartzComposite", "(Lsun/java2d/SunGraphics2D;)V", nullptr, $PROTECTED, $virtualMethod(OSXSurfaceData, setPipesToQuartzComposite, void, $SunGraphics2D*)},
+		{"setUserBounds", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, 0, $virtualMethod(OSXSurfaceData, setUserBounds, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"setupClip", "(Lsun/java2d/SunGraphics2D;)V", nullptr, 0, $virtualMethod(OSXSurfaceData, setupClip, void, $SunGraphics2D*)},
+		{"setupComposite", "(Lsun/java2d/SunGraphics2D;)V", nullptr, 0, $virtualMethod(OSXSurfaceData, setupComposite, void, $SunGraphics2D*)},
+		{"setupFont", "(Ljava/awt/Font;Ljava/awt/Paint;)V", nullptr, 0, $virtualMethod(OSXSurfaceData, setupFont, void, $Font*, $Paint*)},
+		{"setupGraphicsState", "(Lsun/java2d/SunGraphics2D;I)V", nullptr, 0, $virtualMethod(OSXSurfaceData, setupGraphicsState, void, $SunGraphics2D*, int32_t)},
+		{"setupGraphicsState", "(Lsun/java2d/SunGraphics2D;IIIII)V", nullptr, 0, $virtualMethod(OSXSurfaceData, setupGraphicsState, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"setupGraphicsState", "(Lsun/java2d/SunGraphics2D;ILjava/awt/Font;IIII)V", nullptr, 0, $virtualMethod(OSXSurfaceData, setupGraphicsState, void, $SunGraphics2D*, int32_t, $Font*, int32_t, int32_t, int32_t, int32_t)},
+		{"setupPaint", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, 0, $virtualMethod(OSXSurfaceData, setupPaint, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"setupRenderingHints", "(Lsun/java2d/SunGraphics2D;)V", nullptr, 0, $virtualMethod(OSXSurfaceData, setupRenderingHints, void, $SunGraphics2D*)},
+		{"setupStroke", "(Lsun/java2d/SunGraphics2D;)V", nullptr, 0, $virtualMethod(OSXSurfaceData, setupStroke, void, $SunGraphics2D*)},
+		{"setupTransform", "(Lsun/java2d/SunGraphics2D;)V", nullptr, 0, $virtualMethod(OSXSurfaceData, setupTransform, void, $SunGraphics2D*)},
+		{"validatePipe", "(Lsun/java2d/SunGraphics2D;)V", nullptr, $PUBLIC, $virtualMethod(OSXSurfaceData, validatePipe, void, $SunGraphics2D*)},
+		{"xorSurfacePixels", "(Lsun/java2d/SunGraphics2D;Ljava/awt/image/BufferedImage;IIIII)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OSXSurfaceData, xorSurfacePixels, bool, $SunGraphics2D*, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.OSXSurfaceData$CGContextDrawable", "sun.java2d.OSXSurfaceData", "CGContextDrawable", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.java2d.OSXSurfaceData",
+		"sun.awt.image.BufImgSurfaceData",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.OSXSurfaceData$CGContextDrawable"
+	};
+	$loadClass(OSXSurfaceData, name, initialize, &classInfo$$, OSXSurfaceData::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(OSXSurfaceData));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/text/resources/cldr/ext/FormatData_zh.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,31 +13,12 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _FormatData_zh_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_zh, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_zh, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _FormatData_zh_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.cldr.ext.FormatData_zh",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_FormatData_zh_MethodInfo_
-};
-
-$Object* allocate$FormatData_zh($Class* clazz) {
-	return $of($alloc(FormatData_zh));
-}
-
 void FormatData_zh::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* FormatData_zh::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, metaValue_MonthNames, $new($StringArray, {
 		u"一月"_s,
 		u"二月"_s,
@@ -246,28 +226,28 @@ $ObjectArray2* FormatData_zh::getContents() {
 	}));
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("MonthNames"_s),
-			$of(metaValue_MonthNames)
+			"MonthNames"_s,
+			metaValue_MonthNames
 		}),
 		$$new($ObjectArray, {
-			$of("calendarname.islamic-umalqura"_s),
-			$of(u"伊斯兰历（乌姆库拉）"_s)
+			"calendarname.islamic-umalqura"_s,
+			u"伊斯兰历（乌姆库拉）"_s
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.narrow.Eras"_s),
-			$of(metaValue_java_time_buddhist_long_Eras)
+			"buddhist.narrow.Eras"_s,
+			metaValue_java_time_buddhist_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("osma.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"osma.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("roc.QuarterNames"_s),
-			$of(metaValue_QuarterNames)
+			"roc.QuarterNames"_s,
+			metaValue_QuarterNames
 		}),
 		$$new($ObjectArray, {
-			$of("lana.NumberElements"_s),
-			$of($$new($StringArray, {
+			"lana.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -281,15 +261,15 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("calendarname.islamic-civil"_s),
-			$of(u"伊斯兰希吉来日历"_s)
+			"calendarname.islamic-civil"_s,
+			u"伊斯兰希吉来日历"_s
 		}),
 		$$new($ObjectArray, {
-			$of("talu.NumberElements"_s),
-			$of($$new($StringArray, {
+			"talu.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -303,19 +283,19 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("gonm.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"gonm.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("abbreviated.AmPmMarkers"_s),
-			$of(metaValue_narrow_AmPmMarkers)
+			"abbreviated.AmPmMarkers"_s,
+			metaValue_narrow_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("mtei.NumberElements"_s),
-			$of($$new($StringArray, {
+			"mtei.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -329,43 +309,43 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.MonthNames"_s),
-			$of(metaValue_MonthNames)
+			"japanese.MonthNames"_s,
+			metaValue_MonthNames
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.DayAbbreviations"_s),
-			$of(metaValue_DayAbbreviations)
+			"standalone.DayAbbreviations"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.DayNames"_s),
-			$of(metaValue_DayNames)
+			"islamic.DayNames"_s,
+			metaValue_DayNames
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"buddhist.MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("DateTimePatterns"_s),
-			$of(metaValue_DateTimePatterns)
+			"DateTimePatterns"_s,
+			metaValue_DateTimePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("cakm.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"cakm.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("narrow.AmPmMarkers"_s),
-			$of(metaValue_narrow_AmPmMarkers)
+			"narrow.AmPmMarkers"_s,
+			metaValue_narrow_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("latn.NumberElements"_s),
-			$of(metaValue_latn_NumberElements)
+			"latn.NumberElements"_s,
+			metaValue_latn_NumberElements
 		}),
 		$$new($ObjectArray, {
-			$of("guru.NumberElements"_s),
-			$of($$new($StringArray, {
+			"guru.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -379,23 +359,23 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("field.minute"_s),
-			$of(u"分钟"_s)
+			"field.minute"_s,
+			u"分钟"_s
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"buddhist.AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("bali.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"bali.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("cham.NumberElements"_s),
-			$of($$new($StringArray, {
+			"cham.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -409,11 +389,11 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.MonthNames"_s),
-			$of($$new($StringArray, {
+			"islamic.MonthNames"_s,
+			$$new($StringArray, {
 				u"一月"_s,
 				u"二月"_s,
 				u"三月"_s,
@@ -427,19 +407,19 @@ $ObjectArray2* FormatData_zh::getContents() {
 				u"十一月"_s,
 				u"十二月"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.QuarterNarrows"_s),
-			$of(metaValue_buddhist_QuarterNarrows)
+			"japanese.QuarterNarrows"_s,
+			metaValue_buddhist_QuarterNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("saur.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"saur.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("arab.NumberElements"_s),
-			$of($$new($StringArray, {
+			"arab.NumberElements"_s,
+			$$new($StringArray, {
 				u"٫"_s,
 				u"٬"_s,
 				u"؛"_s,
@@ -453,27 +433,27 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("beng.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"beng.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("shrd.NumberElements"_s),
-			$of(metaValue_latn_NumberElements)
+			"shrd.NumberElements"_s,
+			metaValue_latn_NumberElements
 		}),
 		$$new($ObjectArray, {
-			$of("takr.NumberElements"_s),
-			$of(metaValue_latn_NumberElements)
+			"takr.NumberElements"_s,
+			metaValue_latn_NumberElements
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.DatePatterns"_s),
-			$of(metaValue_roc_DatePatterns)
+			"islamic.DatePatterns"_s,
+			metaValue_roc_DatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("deva.NumberElements"_s),
-			$of($$new($StringArray, {
+			"deva.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -487,67 +467,67 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("roc.QuarterAbbreviations"_s),
-			$of(metaValue_QuarterAbbreviations)
+			"roc.QuarterAbbreviations"_s,
+			metaValue_QuarterAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.Eras"_s),
-			$of(metaValue_java_time_islamic_long_Eras)
+			"islamic.Eras"_s,
+			metaValue_java_time_islamic_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("sund.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"sund.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("arabext.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"arabext.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("field.second"_s),
-			$of(u"秒"_s)
+			"field.second"_s,
+			u"秒"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vaii.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"vaii.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("roc.DatePatterns"_s),
-			$of(metaValue_roc_DatePatterns)
+			"roc.DatePatterns"_s,
+			metaValue_roc_DatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("calendarname.islamic"_s),
-			$of(u"伊斯兰历"_s)
+			"calendarname.islamic"_s,
+			u"伊斯兰历"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.roc.long.Eras"_s),
-			$of(metaValue_java_time_roc_long_Eras)
+			"java.time.roc.long.Eras"_s,
+			metaValue_java_time_roc_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("DayPeriodRules"_s),
-			$of("midnight:00:00;night1:00:00-05:00;morning2:08:00-12:00;afternoon1:12:00-13:00;morning1:05:00-08:00;afternoon2:13:00-19:00;evening1:19:00-24:00"_s)
+			"DayPeriodRules"_s,
+			"midnight:00:00;night1:00:00-05:00;morning2:08:00-12:00;afternoon1:12:00-13:00;morning1:05:00-08:00;afternoon2:13:00-19:00;evening1:19:00-24:00"_s
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.TimePatterns"_s),
-			$of(metaValue_TimePatterns)
+			"buddhist.TimePatterns"_s,
+			metaValue_TimePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("brah.NumberElements"_s),
-			$of(metaValue_latn_NumberElements)
+			"brah.NumberElements"_s,
+			metaValue_latn_NumberElements
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"standalone.MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.regionFormat"_s),
-			$of(u"{0}时间"_s)
+			"timezone.regionFormat"_s,
+			u"{0}时间"_s
 		}),
 		$$new($ObjectArray, {
-			$of("olck.NumberElements"_s),
-			$of($$new($StringArray, {
+			"olck.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -561,39 +541,39 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.MonthNarrows"_s),
-			$of(metaValue_buddhist_MonthNarrows)
+			"japanese.MonthNarrows"_s,
+			metaValue_buddhist_MonthNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("tibt.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"tibt.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("khmr.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"khmr.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.QuarterAbbreviations"_s),
-			$of(metaValue_QuarterAbbreviations)
+			"islamic.QuarterAbbreviations"_s,
+			metaValue_QuarterAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("roc.DayAbbreviations"_s),
-			$of(metaValue_DayAbbreviations)
+			"roc.DayAbbreviations"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.buddhist.long.Eras"_s),
-			$of(metaValue_java_time_buddhist_long_Eras)
+			"java.time.buddhist.long.Eras"_s,
+			metaValue_java_time_buddhist_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("orya.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"orya.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("mymrshan.NumberElements"_s),
-			$of($$new($StringArray, {
+			"mymrshan.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -607,19 +587,19 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"islamic.AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.long.Eras"_s),
-			$of(metaValue_java_time_buddhist_long_Eras)
+			"buddhist.long.Eras"_s,
+			metaValue_java_time_buddhist_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("java.NumberElements"_s),
-			$of($$new($StringArray, {
+			"java.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -633,27 +613,27 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("TimePatterns"_s),
-			$of(metaValue_TimePatterns)
+			"TimePatterns"_s,
+			metaValue_TimePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.DayNarrows"_s),
-			$of(metaValue_DayNarrows)
+			"islamic.DayNarrows"_s,
+			metaValue_DayNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("hanidec.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"hanidec.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("roc.narrow.Eras"_s),
-			$of(metaValue_java_time_roc_long_Eras)
+			"roc.narrow.Eras"_s,
+			metaValue_java_time_roc_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("laoo.NumberElements"_s),
-			$of($$new($StringArray, {
+			"laoo.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -667,11 +647,11 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("sund.NumberElements"_s),
-			$of($$new($StringArray, {
+			"sund.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -685,19 +665,19 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("telu.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"telu.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.narrow.AmPmMarkers"_s),
-			$of(metaValue_narrow_AmPmMarkers)
+			"buddhist.narrow.AmPmMarkers"_s,
+			metaValue_narrow_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("kali.NumberElements"_s),
-			$of($$new($StringArray, {
+			"kali.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -711,55 +691,55 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("roc.DayNames"_s),
-			$of(metaValue_DayNames)
+			"roc.DayNames"_s,
+			metaValue_DayNames
 		}),
 		$$new($ObjectArray, {
-			$of("lanatham.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"lanatham.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"japanese.MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.DayAbbreviations"_s),
-			$of(metaValue_DayAbbreviations)
+			"islamic.DayAbbreviations"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.long.Eras"_s),
-			$of(metaValue_java_time_islamic_long_Eras)
+			"islamic.long.Eras"_s,
+			metaValue_java_time_islamic_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.islamic.Eras"_s),
-			$of(metaValue_java_time_islamic_long_Eras)
+			"java.time.islamic.Eras"_s,
+			metaValue_java_time_islamic_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.QuarterAbbreviations"_s),
-			$of(metaValue_QuarterAbbreviations)
+			"buddhist.QuarterAbbreviations"_s,
+			metaValue_QuarterAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.buddhist.Eras"_s),
-			$of(metaValue_java_time_buddhist_long_Eras)
+			"java.time.buddhist.Eras"_s,
+			metaValue_java_time_buddhist_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("mong.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"mong.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("tamldec.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"tamldec.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("mymr.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"mymr.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("nkoo.NumberElements"_s),
-			$of($$new($StringArray, {
+			"nkoo.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -773,15 +753,15 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("cakm.NumberElements"_s),
-			$of(metaValue_latn_NumberElements)
+			"cakm.NumberElements"_s,
+			metaValue_latn_NumberElements
 		}),
 		$$new($ObjectArray, {
-			$of("tibt.NumberElements"_s),
-			$of($$new($StringArray, {
+			"tibt.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -795,40 +775,40 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DayNames"_s),
-			$of(metaValue_DayNames)
+			"DayNames"_s,
+			metaValue_DayNames
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.japanese.Eras"_s),
-			$of(metaValue_java_time_japanese_long_Eras)
+			"java.time.japanese.Eras"_s,
+			metaValue_java_time_japanese_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.DatePatterns"_s),
-			$of($$new($StringArray, {
+			"buddhist.DatePatterns"_s,
+			$$new($StringArray, {
 				u"GGGGy年M月d日EEEE"_s,
 				u"GGGGy年M月d日"_s,
 				u"GGGGy年M月d日"_s,
 				"GGGGy-M-d"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("roc.MonthNames"_s),
-			$of(metaValue_MonthNames)
+			"roc.MonthNames"_s,
+			metaValue_MonthNames
 		}),
 		$$new($ObjectArray, {
-			$of("sora.NumberElements"_s),
-			$of(metaValue_latn_NumberElements)
+			"sora.NumberElements"_s,
+			metaValue_latn_NumberElements
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.DateTimePatterns"_s),
-			$of(metaValue_DateTimePatterns)
+			"buddhist.DateTimePatterns"_s,
+			metaValue_DateTimePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("gujr.NumberElements"_s),
-			$of($$new($StringArray, {
+			"gujr.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -842,15 +822,15 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.MonthNarrows"_s),
-			$of(metaValue_buddhist_MonthNarrows)
+			"buddhist.MonthNarrows"_s,
+			metaValue_buddhist_MonthNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("limb.NumberElements"_s),
-			$of($$new($StringArray, {
+			"limb.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -864,69 +844,69 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("roc.DayNarrows"_s),
-			$of(metaValue_DayNarrows)
+			"roc.DayNarrows"_s,
+			metaValue_DayNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("shrd.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"shrd.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("mlym.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"mlym.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.buddhist.DatePatterns"_s),
-			$of($$new($StringArray, {
+			"java.time.buddhist.DatePatterns"_s,
+			$$new($StringArray, {
 				u"Gy年M月d日EEEE"_s,
 				u"Gy年M月d日"_s,
 				u"Gy年M月d日"_s,
 				"Gy-M-d"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("calendarname.gregorian"_s),
-			$of(metaValue_calendarname_gregorian)
+			"calendarname.gregorian"_s,
+			metaValue_calendarname_gregorian
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.buddhist.narrow.Eras"_s),
-			$of(metaValue_java_time_buddhist_long_Eras)
+			"java.time.buddhist.narrow.Eras"_s,
+			metaValue_java_time_buddhist_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.regionFormat.daylight"_s),
-			$of(u"{0}夏令时间"_s)
+			"timezone.regionFormat.daylight"_s,
+			u"{0}夏令时间"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DatePatterns"_s),
-			$of($$new($StringArray, {
+			"DatePatterns"_s,
+			$$new($StringArray, {
 				u"y年M月d日EEEE"_s,
 				u"y年M月d日"_s,
 				u"y年M月d日"_s,
 				"y/M/d"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.TimePatterns"_s),
-			$of(metaValue_TimePatterns)
+			"islamic.TimePatterns"_s,
+			metaValue_TimePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.DateTimePatterns"_s),
-			$of(metaValue_DateTimePatterns)
+			"japanese.DateTimePatterns"_s,
+			metaValue_DateTimePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.DayNames"_s),
-			$of(metaValue_DayNames)
+			"standalone.DayNames"_s,
+			metaValue_DayNames
 		}),
 		$$new($ObjectArray, {
-			$of("vaii.NumberElements"_s),
-			$of($$new($StringArray, {
+			"vaii.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -940,23 +920,23 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("QuarterAbbreviations"_s),
-			$of(metaValue_QuarterAbbreviations)
+			"QuarterAbbreviations"_s,
+			metaValue_QuarterAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("calendarname.gregory"_s),
-			$of(metaValue_calendarname_gregorian)
+			"calendarname.gregory"_s,
+			metaValue_calendarname_gregorian
 		}),
 		$$new($ObjectArray, {
-			$of("field.year"_s),
-			$of(u"年"_s)
+			"field.year"_s,
+			u"年"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arabext.NumberElements"_s),
-			$of($$new($StringArray, {
+			"arabext.NumberElements"_s,
+			$$new($StringArray, {
 				u"٫"_s,
 				u"٬"_s,
 				u"؛"_s,
@@ -970,48 +950,48 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"japanese.AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.japanese.DatePatterns"_s),
-			$of($$new($StringArray, {
+			"java.time.japanese.DatePatterns"_s,
+			$$new($StringArray, {
 				u"Gy年M月d日EEEE"_s,
 				u"Gy年M月d日"_s,
 				u"Gy年M月d日"_s,
 				"Gy-MM-dd"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.QuarterAbbreviations"_s),
-			$of(metaValue_QuarterAbbreviations)
+			"standalone.QuarterAbbreviations"_s,
+			metaValue_QuarterAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("mtei.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"mtei.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("roc.MonthNarrows"_s),
-			$of(metaValue_buddhist_MonthNarrows)
+			"roc.MonthNarrows"_s,
+			metaValue_buddhist_MonthNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.narrow.AmPmMarkers"_s),
-			$of(metaValue_narrow_AmPmMarkers)
+			"islamic.narrow.AmPmMarkers"_s,
+			metaValue_narrow_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("takr.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"takr.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("mymr.NumberElements"_s),
-			$of($$new($StringArray, {
+			"mymr.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -1025,27 +1005,27 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.TimePatterns"_s),
-			$of(metaValue_TimePatterns)
+			"japanese.TimePatterns"_s,
+			metaValue_TimePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("narrow.Eras"_s),
-			$of(metaValue_long_Eras)
+			"narrow.Eras"_s,
+			metaValue_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("roc.long.Eras"_s),
-			$of(metaValue_java_time_roc_long_Eras)
+			"roc.long.Eras"_s,
+			metaValue_java_time_roc_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.regionFormat.standard"_s),
-			$of(u"{0}标准时间"_s)
+			"timezone.regionFormat.standard"_s,
+			u"{0}标准时间"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tamldec.NumberElements"_s),
-			$of($$new($StringArray, {
+			"tamldec.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -1059,27 +1039,27 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.abbreviated.AmPmMarkers"_s),
-			$of(metaValue_narrow_AmPmMarkers)
+			"japanese.abbreviated.AmPmMarkers"_s,
+			metaValue_narrow_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("calendarname.japanese"_s),
-			$of(u"和历"_s)
+			"calendarname.japanese"_s,
+			u"和历"_s
 		}),
 		$$new($ObjectArray, {
-			$of("roc.MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"roc.MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.islamic.narrow.Eras"_s),
-			$of(metaValue_java_time_islamic_long_Eras)
+			"java.time.islamic.narrow.Eras"_s,
+			metaValue_java_time_islamic_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("beng.NumberElements"_s),
-			$of($$new($StringArray, {
+			"beng.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -1093,19 +1073,19 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("long.Eras"_s),
-			$of(metaValue_long_Eras)
+			"long.Eras"_s,
+			metaValue_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("roc.QuarterNarrows"_s),
-			$of(metaValue_buddhist_QuarterNarrows)
+			"roc.QuarterNarrows"_s,
+			metaValue_buddhist_QuarterNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("saur.NumberElements"_s),
-			$of($$new($StringArray, {
+			"saur.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -1119,80 +1099,80 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.MonthNames"_s),
-			$of(metaValue_MonthNames)
+			"buddhist.MonthNames"_s,
+			metaValue_MonthNames
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.DatePatterns"_s),
-			$of($$new($StringArray, {
+			"japanese.DatePatterns"_s,
+			$$new($StringArray, {
 				u"GGGGy年M月d日EEEE"_s,
 				u"GGGGy年M月d日"_s,
 				u"GGGGy年M月d日"_s,
 				"GGGGy-MM-dd"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.DayNames"_s),
-			$of(metaValue_DayNames)
+			"buddhist.DayNames"_s,
+			metaValue_DayNames
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.long.Eras"_s),
-			$of(metaValue_java_time_japanese_long_Eras)
+			"japanese.long.Eras"_s,
+			metaValue_java_time_japanese_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("field.era"_s),
-			$of(u"纪元"_s)
+			"field.era"_s,
+			u"纪元"_s
 		}),
 		$$new($ObjectArray, {
-			$of("field.dayperiod"_s),
-			$of(u"上午/下午"_s)
+			"field.dayperiod"_s,
+			u"上午/下午"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lana.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"lana.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("calendarname.roc"_s),
-			$of(u"民国纪年"_s)
+			"calendarname.roc"_s,
+			u"民国纪年"_s
 		}),
 		$$new($ObjectArray, {
-			$of("field.month"_s),
-			$of(u"月"_s)
+			"field.month"_s,
+			u"月"_s
 		}),
 		$$new($ObjectArray, {
-			$of("osma.NumberElements"_s),
-			$of(metaValue_latn_NumberElements)
+			"osma.NumberElements"_s,
+			metaValue_latn_NumberElements
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.japanese.long.Eras"_s),
-			$of(metaValue_java_time_japanese_long_Eras)
+			"java.time.japanese.long.Eras"_s,
+			metaValue_java_time_japanese_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("roc.Eras"_s),
-			$of(metaValue_java_time_roc_long_Eras)
+			"roc.Eras"_s,
+			metaValue_java_time_roc_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("DayAbbreviations"_s),
-			$of(metaValue_DayAbbreviations)
+			"DayAbbreviations"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("DayNarrows"_s),
-			$of(metaValue_DayNarrows)
+			"DayNarrows"_s,
+			metaValue_DayNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("gonm.NumberElements"_s),
-			$of(metaValue_latn_NumberElements)
+			"gonm.NumberElements"_s,
+			metaValue_latn_NumberElements
 		}),
 		$$new($ObjectArray, {
-			$of("guru.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"guru.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("knda.NumberElements"_s),
-			$of($$new($StringArray, {
+			"knda.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -1206,11 +1186,11 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("bali.NumberElements"_s),
-			$of($$new($StringArray, {
+			"bali.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -1224,43 +1204,43 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.roc.narrow.Eras"_s),
-			$of(metaValue_java_time_roc_long_Eras)
+			"java.time.roc.narrow.Eras"_s,
+			metaValue_java_time_roc_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.narrow.AmPmMarkers"_s),
-			$of(metaValue_narrow_AmPmMarkers)
+			"japanese.narrow.AmPmMarkers"_s,
+			metaValue_narrow_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("sora.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"sora.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("long.CompactNumberPatterns"_s),
-			$of(metaValue_short_CompactNumberPatterns)
+			"long.CompactNumberPatterns"_s,
+			metaValue_short_CompactNumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("roc.narrow.AmPmMarkers"_s),
-			$of(metaValue_narrow_AmPmMarkers)
+			"roc.narrow.AmPmMarkers"_s,
+			metaValue_narrow_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.QuarterNarrows"_s),
-			$of(metaValue_buddhist_QuarterNarrows)
+			"buddhist.QuarterNarrows"_s,
+			metaValue_buddhist_QuarterNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.QuarterNames"_s),
-			$of(metaValue_QuarterNames)
+			"standalone.QuarterNames"_s,
+			metaValue_QuarterNames
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.DayNarrows"_s),
-			$of(metaValue_DayNarrows)
+			"standalone.DayNarrows"_s,
+			metaValue_DayNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("mlym.NumberElements"_s),
-			$of($$new($StringArray, {
+			"mlym.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -1274,11 +1254,11 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("lepc.NumberElements"_s),
-			$of($$new($StringArray, {
+			"lepc.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -1292,15 +1272,15 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("gujr.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"gujr.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("fullwide.NumberElements"_s),
-			$of($$new($StringArray, {
+			"fullwide.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -1314,19 +1294,19 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("limb.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"limb.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.roc.Eras"_s),
-			$of(metaValue_java_time_roc_long_Eras)
+			"java.time.roc.Eras"_s,
+			metaValue_java_time_roc_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("khmr.NumberElements"_s),
-			$of($$new($StringArray, {
+			"khmr.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -1340,28 +1320,28 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("field.zone"_s),
-			$of(u"时区"_s)
+			"field.zone"_s,
+			u"时区"_s
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.QuarterAbbreviations"_s),
-			$of(metaValue_QuarterAbbreviations)
+			"japanese.QuarterAbbreviations"_s,
+			metaValue_QuarterAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("arab.NumberPatterns"_s),
-			$of($$new($StringArray, {
+			"arab.NumberPatterns"_s,
+			$$new($StringArray, {
 				"#,##0.###"_s,
 				u"¤#,##0.00"_s,
 				"#,##0%"_s,
 				u"¤#,##0.00"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("thai.NumberElements"_s),
-			$of($$new($StringArray, {
+			"thai.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -1375,43 +1355,43 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.abbreviated.AmPmMarkers"_s),
-			$of(metaValue_narrow_AmPmMarkers)
+			"buddhist.abbreviated.AmPmMarkers"_s,
+			metaValue_narrow_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("Eras"_s),
-			$of(metaValue_long_Eras)
+			"Eras"_s,
+			metaValue_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("hanidec.NumberElements"_s),
-			$of(metaValue_latn_NumberElements)
+			"hanidec.NumberElements"_s,
+			metaValue_latn_NumberElements
 		}),
 		$$new($ObjectArray, {
-			$of("lepc.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"lepc.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.QuarterNames"_s),
-			$of(metaValue_QuarterNames)
+			"islamic.QuarterNames"_s,
+			metaValue_QuarterNames
 		}),
 		$$new($ObjectArray, {
-			$of("mymrshan.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"mymrshan.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.abbreviated.AmPmMarkers"_s),
-			$of(metaValue_narrow_AmPmMarkers)
+			"islamic.abbreviated.AmPmMarkers"_s,
+			metaValue_narrow_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("nkoo.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"nkoo.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("mong.NumberElements"_s),
-			$of($$new($StringArray, {
+			"mong.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -1425,39 +1405,39 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.islamic.DatePatterns"_s),
-			$of(metaValue_java_time_roc_DatePatterns)
+			"java.time.islamic.DatePatterns"_s,
+			metaValue_java_time_roc_DatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("field.weekday"_s),
-			$of(u"工作日"_s)
+			"field.weekday"_s,
+			u"工作日"_s
 		}),
 		$$new($ObjectArray, {
-			$of("brah.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"brah.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("java.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"java.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("thai.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"thai.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("fullwide.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"fullwide.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.QuarterNames"_s),
-			$of(metaValue_QuarterNames)
+			"japanese.QuarterNames"_s,
+			metaValue_QuarterNames
 		}),
 		$$new($ObjectArray, {
-			$of("telu.NumberElements"_s),
-			$of($$new($StringArray, {
+			"telu.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -1471,27 +1451,27 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("olck.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"olck.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.DayNames"_s),
-			$of(metaValue_DayNames)
+			"japanese.DayNames"_s,
+			metaValue_DayNames
 		}),
 		$$new($ObjectArray, {
-			$of("knda.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"knda.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.DayAbbreviations"_s),
-			$of(metaValue_DayAbbreviations)
+			"japanese.DayAbbreviations"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("lanatham.NumberElements"_s),
-			$of($$new($StringArray, {
+			"lanatham.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -1505,35 +1485,35 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.Eras"_s),
-			$of(metaValue_java_time_buddhist_long_Eras)
+			"buddhist.Eras"_s,
+			metaValue_java_time_buddhist_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("laoo.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"laoo.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("talu.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"talu.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("field.week"_s),
-			$of(u"周"_s)
+			"field.week"_s,
+			u"周"_s
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.QuarterNames"_s),
-			$of(metaValue_QuarterNames)
+			"buddhist.QuarterNames"_s,
+			metaValue_QuarterNames
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.QuarterNarrows"_s),
-			$of(metaValue_buddhist_QuarterNarrows)
+			"islamic.QuarterNarrows"_s,
+			metaValue_buddhist_QuarterNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("orya.NumberElements"_s),
-			$of($$new($StringArray, {
+			"orya.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -1547,35 +1527,35 @@ $ObjectArray2* FormatData_zh::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("roc.AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"roc.AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.roc.DatePatterns"_s),
-			$of(metaValue_java_time_roc_DatePatterns)
+			"java.time.roc.DatePatterns"_s,
+			metaValue_java_time_roc_DatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("short.CompactNumberPatterns"_s),
-			$of(metaValue_short_CompactNumberPatterns)
+			"short.CompactNumberPatterns"_s,
+			metaValue_short_CompactNumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.DayAbbreviations"_s),
-			$of(metaValue_DayAbbreviations)
+			"buddhist.DayAbbreviations"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("cham.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"cham.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("field.hour"_s),
-			$of(u"小时"_s)
+			"field.hour"_s,
+			u"小时"_s
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.MonthAbbreviations"_s),
-			$of($$new($StringArray, {
+			"islamic.MonthAbbreviations"_s,
+			$$new($StringArray, {
 				u"1月"_s,
 				u"2月"_s,
 				u"3月"_s,
@@ -1589,59 +1569,59 @@ $ObjectArray2* FormatData_zh::getContents() {
 				u"11月"_s,
 				u"12月"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.narrow.Eras"_s),
-			$of(metaValue_java_time_islamic_long_Eras)
+			"islamic.narrow.Eras"_s,
+			metaValue_java_time_islamic_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("calendarname.buddhist"_s),
-			$of(u"佛历"_s)
+			"calendarname.buddhist"_s,
+			u"佛历"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kali.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"kali.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.MonthNames"_s),
-			$of(metaValue_MonthNames)
+			"standalone.MonthNames"_s,
+			metaValue_MonthNames
 		}),
 		$$new($ObjectArray, {
-			$of("latn.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"latn.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.DayNarrows"_s),
-			$of(metaValue_DayNarrows)
+			"buddhist.DayNarrows"_s,
+			metaValue_DayNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.islamic.long.Eras"_s),
-			$of(metaValue_java_time_islamic_long_Eras)
+			"java.time.islamic.long.Eras"_s,
+			metaValue_java_time_islamic_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.DayNarrows"_s),
-			$of(metaValue_DayNarrows)
+			"japanese.DayNarrows"_s,
+			metaValue_DayNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("QuarterNames"_s),
-			$of(metaValue_QuarterNames)
+			"QuarterNames"_s,
+			metaValue_QuarterNames
 		}),
 		$$new($ObjectArray, {
-			$of("roc.TimePatterns"_s),
-			$of(metaValue_TimePatterns)
+			"roc.TimePatterns"_s,
+			metaValue_TimePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.Eras"_s),
-			$of(metaValue_java_time_japanese_long_Eras)
+			"japanese.Eras"_s,
+			metaValue_java_time_japanese_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("deva.NumberPatterns"_s),
-			$of(metaValue_arabext_NumberPatterns)
+			"deva.NumberPatterns"_s,
+			metaValue_arabext_NumberPatterns
 		}),
 		$$new($ObjectArray, {
-			$of("roc.abbreviated.AmPmMarkers"_s),
-			$of(metaValue_narrow_AmPmMarkers)
+			"roc.abbreviated.AmPmMarkers"_s,
+			metaValue_narrow_AmPmMarkers
 		})
 	}));
 	return data;
@@ -1651,7 +1631,22 @@ FormatData_zh::FormatData_zh() {
 }
 
 $Class* FormatData_zh::load$($String* name, bool initialize) {
-	$loadClass(FormatData_zh, name, initialize, &_FormatData_zh_ClassInfo_, allocate$FormatData_zh);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_zh, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_zh, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.cldr.ext.FormatData_zh",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FormatData_zh, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatData_zh);
+	});
 	return class$;
 }
 

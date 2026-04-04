@@ -38,7 +38,10 @@ public:
 	static const int64_t serialVersionUID = 0;
 	FatalError(const FatalError& e);
 	virtual void throw$() override;
-	inline FatalError* operator ->() {
+	inline FatalError* operator ->() const {
+		return (FatalError*)throwing$;
+	}
+	inline operator FatalError*() const {
 		return (FatalError*)throwing$;
 	}
 };

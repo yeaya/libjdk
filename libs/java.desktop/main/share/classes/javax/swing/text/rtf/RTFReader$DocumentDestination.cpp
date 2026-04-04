@@ -1,5 +1,4 @@
 #include <javax/swing/text/rtf/RTFReader$DocumentDestination.h>
-
 #include <java/lang/InternalError.h>
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/BadLocationException.h>
@@ -18,7 +17,6 @@ using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
-using $StyledDocument = ::javax::swing::text::StyledDocument;
 using $RTFReader = ::javax::swing::text::rtf::RTFReader;
 using $RTFReader$TextHandlingDestination = ::javax::swing::text::rtf::RTFReader$TextHandlingDestination;
 
@@ -27,56 +25,16 @@ namespace javax {
 		namespace text {
 			namespace rtf {
 
-$FieldInfo _RTFReader$DocumentDestination_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/rtf/RTFReader;", nullptr, $FINAL | $SYNTHETIC, $field(RTFReader$DocumentDestination, this$0)},
-	{}
-};
-
-$MethodInfo _RTFReader$DocumentDestination_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/rtf/RTFReader;)V", nullptr, 0, $method(RTFReader$DocumentDestination, init$, void, $RTFReader*)},
-	{"deliverText", "(Ljava/lang/String;Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(RTFReader$DocumentDestination, deliverText, void, $String*, $AttributeSet*)},
-	{"endSection", "()V", nullptr, $PUBLIC, $virtualMethod(RTFReader$DocumentDestination, endSection, void)},
-	{"finishParagraph", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(RTFReader$DocumentDestination, finishParagraph, void, $AttributeSet*, $AttributeSet*)},
-	{}
-};
-
-$InnerClassInfo _RTFReader$DocumentDestination_InnerClassesInfo_[] = {
-	{"javax.swing.text.rtf.RTFReader$DocumentDestination", "javax.swing.text.rtf.RTFReader", "DocumentDestination", 0},
-	{"javax.swing.text.rtf.RTFReader$TextHandlingDestination", "javax.swing.text.rtf.RTFReader", "TextHandlingDestination", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RTFReader$DocumentDestination_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.rtf.RTFReader$DocumentDestination",
-	"javax.swing.text.rtf.RTFReader$TextHandlingDestination",
-	nullptr,
-	_RTFReader$DocumentDestination_FieldInfo_,
-	_RTFReader$DocumentDestination_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RTFReader$DocumentDestination_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.rtf.RTFReader"
-};
-
-$Object* allocate$RTFReader$DocumentDestination($Class* clazz) {
-	return $of($alloc(RTFReader$DocumentDestination));
-}
-
 void RTFReader$DocumentDestination::init$($RTFReader* this$0) {
 	$set(this, this$0, this$0);
 	$RTFReader$TextHandlingDestination::init$(this$0);
 }
 
 void RTFReader$DocumentDestination::deliverText($String* text, $AttributeSet* characterAttributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		int32_t var$0 = $nc(this->this$0->target)->getLength();
-		$var($String, var$1, text);
-		$nc(this->this$0->target)->insertString(var$0, var$1, $(currentTextAttributes()));
+		$nc(this->this$0->target)->insertString(var$0, text, $(currentTextAttributes()));
 	} catch ($BadLocationException& ble) {
 		$throwNew($InternalError, $(ble->getMessage()), ble);
 	}
@@ -99,7 +57,40 @@ RTFReader$DocumentDestination::RTFReader$DocumentDestination() {
 }
 
 $Class* RTFReader$DocumentDestination::load$($String* name, bool initialize) {
-	$loadClass(RTFReader$DocumentDestination, name, initialize, &_RTFReader$DocumentDestination_ClassInfo_, allocate$RTFReader$DocumentDestination);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/rtf/RTFReader;", nullptr, $FINAL | $SYNTHETIC, $field(RTFReader$DocumentDestination, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/rtf/RTFReader;)V", nullptr, 0, $method(RTFReader$DocumentDestination, init$, void, $RTFReader*)},
+		{"deliverText", "(Ljava/lang/String;Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(RTFReader$DocumentDestination, deliverText, void, $String*, $AttributeSet*)},
+		{"endSection", "()V", nullptr, $PUBLIC, $virtualMethod(RTFReader$DocumentDestination, endSection, void)},
+		{"finishParagraph", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(RTFReader$DocumentDestination, finishParagraph, void, $AttributeSet*, $AttributeSet*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.rtf.RTFReader$DocumentDestination", "javax.swing.text.rtf.RTFReader", "DocumentDestination", 0},
+		{"javax.swing.text.rtf.RTFReader$TextHandlingDestination", "javax.swing.text.rtf.RTFReader", "TextHandlingDestination", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.rtf.RTFReader$DocumentDestination",
+		"javax.swing.text.rtf.RTFReader$TextHandlingDestination",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.rtf.RTFReader"
+	};
+	$loadClass(RTFReader$DocumentDestination, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RTFReader$DocumentDestination);
+	});
 	return class$;
 }
 

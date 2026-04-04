@@ -56,6 +56,7 @@ class $export BasicDesktopPaneUI : public ::javax::swing::plaf::DesktopPaneUI {
 	$class(BasicDesktopPaneUI, 0, ::javax::swing::plaf::DesktopPaneUI)
 public:
 	BasicDesktopPaneUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::swing::InputMap* createInputMap(int32_t condition);
 	virtual ::java::beans::PropertyChangeListener* createPropertyChangeListener();

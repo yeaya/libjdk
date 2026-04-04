@@ -1,5 +1,4 @@
 #include <javax/naming/StringRefAddr.h>
-
 #include <javax/naming/RefAddr.h>
 #include <jcpp.h>
 
@@ -10,31 +9,6 @@ using $RefAddr = ::javax::naming::RefAddr;
 
 namespace javax {
 	namespace naming {
-
-$FieldInfo _StringRefAddr_FieldInfo_[] = {
-	{"contents", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StringRefAddr, contents)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringRefAddr, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _StringRefAddr_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringRefAddr, init$, void, $String*, $String*)},
-	{"getContent", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringRefAddr, getContent, $Object*)},
-	{}
-};
-
-$ClassInfo _StringRefAddr_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.StringRefAddr",
-	"javax.naming.RefAddr",
-	nullptr,
-	_StringRefAddr_FieldInfo_,
-	_StringRefAddr_MethodInfo_
-};
-
-$Object* allocate$StringRefAddr($Class* clazz) {
-	return $of($alloc(StringRefAddr));
-}
 
 void StringRefAddr::init$($String* addrType, $String* addr) {
 	$RefAddr::init$(addrType);
@@ -49,7 +23,27 @@ StringRefAddr::StringRefAddr() {
 }
 
 $Class* StringRefAddr::load$($String* name, bool initialize) {
-	$loadClass(StringRefAddr, name, initialize, &_StringRefAddr_ClassInfo_, allocate$StringRefAddr);
+	$FieldInfo fieldInfos$$[] = {
+		{"contents", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StringRefAddr, contents)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringRefAddr, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringRefAddr, init$, void, $String*, $String*)},
+		{"getContent", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringRefAddr, getContent, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.StringRefAddr",
+		"javax.naming.RefAddr",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StringRefAddr, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringRefAddr);
+	});
 	return class$;
 }
 

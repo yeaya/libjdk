@@ -1,5 +1,4 @@
 #include <sun/swing/text/TextComponentPrintable$1.h>
-
 #include <java/awt/Component.h>
 #include <javax/swing/CellRendererPane.h>
 #include <javax/swing/JEditorPane.h>
@@ -9,7 +8,6 @@
 #undef HEIGHT
 #undef WIDTH
 
-using $Component = ::java::awt::Component;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -22,48 +20,6 @@ namespace sun {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _TextComponentPrintable$1_FieldInfo_[] = {
-	{"val$editor", "Ljavax/swing/JEditorPane;", nullptr, $FINAL | $SYNTHETIC, $field(TextComponentPrintable$1, val$editor)},
-	{}
-};
-
-$MethodInfo _TextComponentPrintable$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JEditorPane;)V", "()V", 0, $method(TextComponentPrintable$1, init$, void, $JEditorPane*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TextComponentPrintable$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _TextComponentPrintable$1_EnclosingMethodInfo_ = {
-	"sun.swing.text.TextComponentPrintable",
-	"createFrames",
-	"(Ljavax/swing/JEditorPane;)V"
-};
-
-$InnerClassInfo _TextComponentPrintable$1_InnerClassesInfo_[] = {
-	{"sun.swing.text.TextComponentPrintable$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TextComponentPrintable$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.swing.text.TextComponentPrintable$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_TextComponentPrintable$1_FieldInfo_,
-	_TextComponentPrintable$1_MethodInfo_,
-	nullptr,
-	&_TextComponentPrintable$1_EnclosingMethodInfo_,
-	_TextComponentPrintable$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.text.TextComponentPrintable"
-};
-
-$Object* allocate$TextComponentPrintable$1($Class* clazz) {
-	return $of($alloc(TextComponentPrintable$1));
-}
-
 void TextComponentPrintable$1::init$($JEditorPane* val$editor) {
 	$set(this, val$editor, val$editor);
 }
@@ -72,7 +28,7 @@ void TextComponentPrintable$1::run() {
 	int32_t WIDTH = 500;
 	int32_t HEIGHT = 500;
 	$var($CellRendererPane, rendererPane, $new($CellRendererPane));
-	rendererPane->add(static_cast<$Component*>(this->val$editor));
+	rendererPane->add(this->val$editor);
 	rendererPane->setSize(WIDTH, HEIGHT);
 }
 
@@ -80,7 +36,42 @@ TextComponentPrintable$1::TextComponentPrintable$1() {
 }
 
 $Class* TextComponentPrintable$1::load$($String* name, bool initialize) {
-	$loadClass(TextComponentPrintable$1, name, initialize, &_TextComponentPrintable$1_ClassInfo_, allocate$TextComponentPrintable$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$editor", "Ljavax/swing/JEditorPane;", nullptr, $FINAL | $SYNTHETIC, $field(TextComponentPrintable$1, val$editor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JEditorPane;)V", "()V", 0, $method(TextComponentPrintable$1, init$, void, $JEditorPane*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TextComponentPrintable$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.swing.text.TextComponentPrintable",
+		"createFrames",
+		"(Ljavax/swing/JEditorPane;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.text.TextComponentPrintable$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.swing.text.TextComponentPrintable$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.text.TextComponentPrintable"
+	};
+	$loadClass(TextComponentPrintable$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TextComponentPrintable$1);
+	});
 	return class$;
 }
 

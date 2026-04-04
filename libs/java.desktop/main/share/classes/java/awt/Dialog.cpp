@@ -1,5 +1,4 @@
 #include <java/awt/Dialog.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTPermission.h>
 #include <java/awt/Color.h>
@@ -11,7 +10,6 @@
 #include <java/awt/Dialog$ModalExclusionType.h>
 #include <java/awt/Dialog$ModalityType.h>
 #include <java/awt/EventDispatchThread.h>
-#include <java/awt/EventFilter.h>
 #include <java/awt/EventQueue.h>
 #include <java/awt/Frame.h>
 #include <java/awt/GraphicsConfiguration.h>
@@ -33,7 +31,6 @@
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Enum.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/SecurityManager.h>
@@ -48,8 +45,6 @@
 #include <java/security/Permission.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
-#include <java/util/Collection.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <java/util/Set.h>
@@ -85,13 +80,11 @@ using $AWTEvent = ::java::awt::AWTEvent;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Conditional = ::java::awt::Conditional;
-using $Container = ::java::awt::Container;
 using $Dialog$1 = ::java::awt::Dialog$1;
 using $Dialog$AccessibleAWTDialog = ::java::awt::Dialog$AccessibleAWTDialog;
 using $Dialog$ModalExclusionType = ::java::awt::Dialog$ModalExclusionType;
 using $Dialog$ModalityType = ::java::awt::Dialog$ModalityType;
 using $EventDispatchThread = ::java::awt::EventDispatchThread;
-using $EventFilter = ::java::awt::EventFilter;
 using $EventQueue = ::java::awt::EventQueue;
 using $Frame = ::java::awt::Frame;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
@@ -99,7 +92,6 @@ using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $ModalEventFilter = ::java::awt::ModalEventFilter;
-using $SecondaryLoop = ::java::awt::SecondaryLoop;
 using $Shape = ::java::awt::Shape;
 using $Toolkit = ::java::awt::Toolkit;
 using $Window = ::java::awt::Window;
@@ -107,14 +99,12 @@ using $ComponentEvent = ::java::awt::event::ComponentEvent;
 using $HierarchyEvent = ::java::awt::event::HierarchyEvent;
 using $InvocationEvent = ::java::awt::event::InvocationEvent;
 using $WindowEvent = ::java::awt::event::WindowEvent;
-using $ComponentPeer = ::java::awt::peer::ComponentPeer;
 using $DialogPeer = ::java::awt::peer::DialogPeer;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectInputStream$GetField = ::java::io::ObjectInputStream$GetField;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -127,20 +117,14 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $AccessControlException = ::java::security::AccessControlException;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Set = ::java::util::Set;
-using $Vector = ::java::util::Vector;
 using $AtomicLong = ::java::util::concurrent::atomic::AtomicLong;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AWTPermissions = ::sun::awt::AWTPermissions;
 using $AppContext = ::sun::awt::AppContext;
-using $ComponentFactory = ::sun::awt::ComponentFactory;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $IdentityArrayList = ::sun::awt::util::IdentityArrayList;
 using $IdentityLinkedList = ::sun::awt::util::IdentityLinkedList;
@@ -156,27 +140,24 @@ public:
 	virtual void run() override {
 		Dialog::lambda$show$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Dialog$$Lambda$lambda$show$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Dialog$$Lambda$lambda$show$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Dialog$$Lambda$lambda$show$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Dialog$$Lambda$lambda$show$0, run, void)},
-	{}
-};
-$ClassInfo Dialog$$Lambda$lambda$show$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.awt.Dialog$$Lambda$lambda$show$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* Dialog$$Lambda$lambda$show$0::load$($String* name, bool initialize) {
-	$loadClass(Dialog$$Lambda$lambda$show$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Dialog$$Lambda$lambda$show$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Dialog$$Lambda$lambda$show$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.awt.Dialog$$Lambda$lambda$show$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Dialog$$Lambda$lambda$show$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Dialog$$Lambda$lambda$show$0);
+	});
 	return class$;
 }
 $Class* Dialog$$Lambda$lambda$show$0::class$ = nullptr;
@@ -188,35 +169,31 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->getSystemEventQueue());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Dialog$$Lambda$getSystemEventQueue$1>());
+		 return $nc(inst$)->getSystemEventQueue();
 	}
 	$Toolkit* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Dialog$$Lambda$getSystemEventQueue$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Dialog$$Lambda$getSystemEventQueue$1, inst$)},
-	{}
-};
-$MethodInfo Dialog$$Lambda$getSystemEventQueue$1::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/Toolkit;)V", nullptr, $PUBLIC, $method(Dialog$$Lambda$getSystemEventQueue$1, init$, void, $Toolkit*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Dialog$$Lambda$getSystemEventQueue$1, run, $Object*)},
-	{}
-};
-$ClassInfo Dialog$$Lambda$getSystemEventQueue$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.awt.Dialog$$Lambda$getSystemEventQueue$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* Dialog$$Lambda$getSystemEventQueue$1::load$($String* name, bool initialize) {
-	$loadClass(Dialog$$Lambda$getSystemEventQueue$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Dialog$$Lambda$getSystemEventQueue$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Toolkit;)V", nullptr, $PUBLIC, $method(Dialog$$Lambda$getSystemEventQueue$1, init$, void, $Toolkit*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Dialog$$Lambda$getSystemEventQueue$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.awt.Dialog$$Lambda$getSystemEventQueue$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Dialog$$Lambda$getSystemEventQueue$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Dialog$$Lambda$getSystemEventQueue$1);
+	});
 	return class$;
 }
 $Class* Dialog$$Lambda$getSystemEventQueue$1::class$ = nullptr;
@@ -229,147 +206,27 @@ public:
 	virtual bool evaluate() override {
 		 return Dialog::lambda$show$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Dialog$$Lambda$lambda$show$1$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Dialog$$Lambda$lambda$show$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Dialog$$Lambda$lambda$show$1$2, init$, void)},
-	{"evaluate", "()Z", nullptr, $PUBLIC, $virtualMethod(Dialog$$Lambda$lambda$show$1$2, evaluate, bool)},
-	{}
-};
-$ClassInfo Dialog$$Lambda$lambda$show$1$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.awt.Dialog$$Lambda$lambda$show$1$2",
-	"java.lang.Object",
-	"java.awt.Conditional",
-	nullptr,
-	methodInfos
 };
 $Class* Dialog$$Lambda$lambda$show$1$2::load$($String* name, bool initialize) {
-	$loadClass(Dialog$$Lambda$lambda$show$1$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Dialog$$Lambda$lambda$show$1$2, init$, void)},
+		{"evaluate", "()Z", nullptr, $PUBLIC, $virtualMethod(Dialog$$Lambda$lambda$show$1$2, evaluate, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.awt.Dialog$$Lambda$lambda$show$1$2",
+		"java.lang.Object",
+		"java.awt.Conditional",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Dialog$$Lambda$lambda$show$1$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Dialog$$Lambda$lambda$show$1$2);
+	});
 	return class$;
 }
 $Class* Dialog$$Lambda$lambda$show$1$2::class$ = nullptr;
-
-$CompoundAttribute _Dialog_MethodAnnotations_hide25[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Dialog_MethodAnnotations_show51[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _Dialog_FieldInfo_[] = {
-	{"resizable", "Z", nullptr, 0, $field(Dialog, resizable)},
-	{"undecorated", "Z", nullptr, 0, $field(Dialog, undecorated)},
-	{"initialized", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(Dialog, initialized)},
-	{"DEFAULT_MODALITY_TYPE", "Ljava/awt/Dialog$ModalityType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Dialog, DEFAULT_MODALITY_TYPE)},
-	{"modal", "Z", nullptr, 0, $field(Dialog, modal)},
-	{"modalityType", "Ljava/awt/Dialog$ModalityType;", nullptr, 0, $field(Dialog, modalityType)},
-	{"modalDialogs", "Lsun/awt/util/IdentityArrayList;", "Lsun/awt/util/IdentityArrayList<Ljava/awt/Dialog;>;", $STATIC | $TRANSIENT, $staticField(Dialog, modalDialogs)},
-	{"blockedWindows", "Lsun/awt/util/IdentityArrayList;", "Lsun/awt/util/IdentityArrayList<Ljava/awt/Window;>;", $TRANSIENT, $field(Dialog, blockedWindows)},
-	{"title", "Ljava/lang/String;", nullptr, 0, $field(Dialog, title)},
-	{"modalFilter", "Ljava/awt/ModalEventFilter;", nullptr, $PRIVATE | $TRANSIENT, $field(Dialog, modalFilter)},
-	{"secondaryLoop", "Ljava/awt/SecondaryLoop;", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(Dialog, secondaryLoop)},
-	{"isInHide", "Z", nullptr, $VOLATILE | $TRANSIENT, $field(Dialog, isInHide)},
-	{"isInDispose", "Z", nullptr, $VOLATILE | $TRANSIENT, $field(Dialog, isInDispose)},
-	{"base", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Dialog, base)},
-	{"nameCounter", "I", nullptr, $PRIVATE | $STATIC, $staticField(Dialog, nameCounter)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Dialog, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Dialog_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Frame;)V", nullptr, $PUBLIC, $method(Dialog, init$, void, $Frame*)},
-	{"<init>", "(Ljava/awt/Frame;Z)V", nullptr, $PUBLIC, $method(Dialog, init$, void, $Frame*, bool)},
-	{"<init>", "(Ljava/awt/Frame;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Dialog, init$, void, $Frame*, $String*)},
-	{"<init>", "(Ljava/awt/Frame;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Dialog, init$, void, $Frame*, $String*, bool)},
-	{"<init>", "(Ljava/awt/Frame;Ljava/lang/String;ZLjava/awt/GraphicsConfiguration;)V", nullptr, $PUBLIC, $method(Dialog, init$, void, $Frame*, $String*, bool, $GraphicsConfiguration*)},
-	{"<init>", "(Ljava/awt/Dialog;)V", nullptr, $PUBLIC, $method(Dialog, init$, void, Dialog*)},
-	{"<init>", "(Ljava/awt/Dialog;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Dialog, init$, void, Dialog*, $String*)},
-	{"<init>", "(Ljava/awt/Dialog;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Dialog, init$, void, Dialog*, $String*, bool)},
-	{"<init>", "(Ljava/awt/Dialog;Ljava/lang/String;ZLjava/awt/GraphicsConfiguration;)V", nullptr, $PUBLIC, $method(Dialog, init$, void, Dialog*, $String*, bool, $GraphicsConfiguration*)},
-	{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(Dialog, init$, void, $Window*)},
-	{"<init>", "(Ljava/awt/Window;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Dialog, init$, void, $Window*, $String*)},
-	{"<init>", "(Ljava/awt/Window;Ljava/awt/Dialog$ModalityType;)V", nullptr, $PUBLIC, $method(Dialog, init$, void, $Window*, $Dialog$ModalityType*)},
-	{"<init>", "(Ljava/awt/Window;Ljava/lang/String;Ljava/awt/Dialog$ModalityType;)V", nullptr, $PUBLIC, $method(Dialog, init$, void, $Window*, $String*, $Dialog$ModalityType*)},
-	{"<init>", "(Ljava/awt/Window;Ljava/lang/String;Ljava/awt/Dialog$ModalityType;Ljava/awt/GraphicsConfiguration;)V", nullptr, $PUBLIC, $method(Dialog, init$, void, $Window*, $String*, $Dialog$ModalityType*, $GraphicsConfiguration*)},
-	{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(Dialog, addNotify, void)},
-	{"blockWindow", "(Ljava/awt/Window;)V", nullptr, 0, $virtualMethod(Dialog, blockWindow, void, $Window*)},
-	{"blockWindows", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/awt/Window;>;)V", 0, $virtualMethod(Dialog, blockWindows, void, $List*)},
-	{"checkModalityPermission", "(Ljava/awt/Dialog$ModalityType;)V", nullptr, $PRIVATE, $method(Dialog, checkModalityPermission, void, $Dialog$ModalityType*)},
-	{"checkShouldBeBlocked", "(Ljava/awt/Window;)V", nullptr, $STATIC, $staticMethod(Dialog, checkShouldBeBlocked, void, $Window*)},
-	{"conditionalShow", "(Ljava/awt/Component;Ljava/util/concurrent/atomic/AtomicLong;)Z", nullptr, $PRIVATE, $method(Dialog, conditionalShow, bool, $Component*, $AtomicLong*)},
-	{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Dialog, constructComponentName, $String*)},
-	{"doDispose", "()V", nullptr, 0, $virtualMethod(Dialog, doDispose, void)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(Dialog, getAccessibleContext, $AccessibleContext*)},
-	{"getModalityType", "()Ljava/awt/Dialog$ModalityType;", nullptr, $PUBLIC, $virtualMethod(Dialog, getModalityType, $Dialog$ModalityType*)},
-	{"getTitle", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Dialog, getTitle, $String*)},
-	{"hide", "()V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Dialog, hide, void), nullptr, nullptr, _Dialog_MethodAnnotations_hide25},
-	{"hideAndDisposeHandler", "()V", nullptr, $PRIVATE, $method(Dialog, hideAndDisposeHandler, void)},
-	{"hideAndDisposePreHandler", "()V", nullptr, $PRIVATE, $method(Dialog, hideAndDisposePreHandler, void)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Dialog, initIDs, void)},
-	{"isModal", "()Z", nullptr, $PUBLIC, $virtualMethod(Dialog, isModal, bool)},
-	{"isModal_NoClientCode", "()Z", nullptr, $FINAL, $method(Dialog, isModal_NoClientCode, bool)},
-	{"isResizable", "()Z", nullptr, $PUBLIC, $virtualMethod(Dialog, isResizable, bool)},
-	{"isUndecorated", "()Z", nullptr, $PUBLIC, $virtualMethod(Dialog, isUndecorated, bool)},
-	{"lambda$show$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Dialog, lambda$show$0, void)},
-	{"lambda$show$1", "()Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Dialog, lambda$show$1, bool)},
-	{"modalHide", "()V", nullptr, 0, $virtualMethod(Dialog, modalHide, void)},
-	{"modalShow", "()V", nullptr, 0, $virtualMethod(Dialog, modalShow, void)},
-	{"modalityPopped", "()V", nullptr, $FINAL, $method(Dialog, modalityPopped, void)},
-	{"modalityPushed", "()V", nullptr, $FINAL, $method(Dialog, modalityPushed, void)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Dialog, paramString, $String*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Dialog, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException,java.awt.HeadlessException"},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(Dialog, setBackground, void, $Color*)},
-	{"setModal", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Dialog, setModal, void, bool)},
-	{"setModalityType", "(Ljava/awt/Dialog$ModalityType;)V", nullptr, $PUBLIC, $virtualMethod(Dialog, setModalityType, void, $Dialog$ModalityType*)},
-	{"setOpacity", "(F)V", nullptr, $PUBLIC, $virtualMethod(Dialog, setOpacity, void, float)},
-	{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Dialog, setResizable, void, bool)},
-	{"setShape", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(Dialog, setShape, void, $Shape*)},
-	{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Dialog, setTitle, void, $String*)},
-	{"setUndecorated", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Dialog, setUndecorated, void, bool)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Dialog, setVisible, void, bool)},
-	{"shouldBlock", "(Ljava/awt/Window;)Z", nullptr, 0, $virtualMethod(Dialog, shouldBlock, bool, $Window*)},
-	{"show", "()V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Dialog, show, void), nullptr, nullptr, _Dialog_MethodAnnotations_show51},
-	{"toBack", "()V", nullptr, $PUBLIC, $virtualMethod(Dialog, toBack, void)},
-	{"unblockWindow", "(Ljava/awt/Window;)V", nullptr, 0, $virtualMethod(Dialog, unblockWindow, void, $Window*)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 28
-
-$InnerClassInfo _Dialog_InnerClassesInfo_[] = {
-	{"java.awt.Dialog$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"java.awt.Dialog$AccessibleAWTDialog", "java.awt.Dialog", "AccessibleAWTDialog", $PROTECTED},
-	{"java.awt.Dialog$ModalExclusionType", "java.awt.Dialog", "ModalExclusionType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"java.awt.Dialog$ModalityType", "java.awt.Dialog", "ModalityType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Dialog_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Dialog",
-	"java.awt.Window",
-	nullptr,
-	_Dialog_FieldInfo_,
-	_Dialog_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Dialog_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.Dialog$1,java.awt.Dialog$AccessibleAWTDialog,java.awt.Dialog$ModalExclusionType,java.awt.Dialog$ModalityType"
-};
-
-$Object* allocate$Dialog($Class* clazz) {
-	return $of($alloc(Dialog));
-}
 
 $Dialog$ModalityType* Dialog::DEFAULT_MODALITY_TYPE = nullptr;
 $IdentityArrayList* Dialog::modalDialogs = nullptr;
@@ -390,12 +247,12 @@ void Dialog::init$($Frame* owner, $String* title) {
 
 void Dialog::init$($Frame* owner, $String* title, bool modal) {
 	$init($Dialog$ModalityType);
-	Dialog::init$(static_cast<$Window*>(owner), title, modal ? Dialog::DEFAULT_MODALITY_TYPE : $Dialog$ModalityType::MODELESS);
+	Dialog::init$($cast($Window, owner), title, modal ? Dialog::DEFAULT_MODALITY_TYPE : $Dialog$ModalityType::MODELESS);
 }
 
 void Dialog::init$($Frame* owner, $String* title, bool modal, $GraphicsConfiguration* gc) {
 	$init($Dialog$ModalityType);
-	Dialog::init$(static_cast<$Window*>(owner), title, modal ? Dialog::DEFAULT_MODALITY_TYPE : $Dialog$ModalityType::MODELESS, gc);
+	Dialog::init$($cast($Window, owner), title, modal ? Dialog::DEFAULT_MODALITY_TYPE : $Dialog$ModalityType::MODELESS, gc);
 }
 
 void Dialog::init$(Dialog* owner) {
@@ -408,12 +265,12 @@ void Dialog::init$(Dialog* owner, $String* title) {
 
 void Dialog::init$(Dialog* owner, $String* title, bool modal) {
 	$init($Dialog$ModalityType);
-	Dialog::init$(static_cast<$Window*>(owner), title, modal ? Dialog::DEFAULT_MODALITY_TYPE : $Dialog$ModalityType::MODELESS);
+	Dialog::init$($cast($Window, owner), title, modal ? Dialog::DEFAULT_MODALITY_TYPE : $Dialog$ModalityType::MODELESS);
 }
 
 void Dialog::init$(Dialog* owner, $String* title, bool modal, $GraphicsConfiguration* gc) {
 	$init($Dialog$ModalityType);
-	Dialog::init$(static_cast<$Window*>(owner), title, modal ? Dialog::DEFAULT_MODALITY_TYPE : $Dialog$ModalityType::MODELESS, gc);
+	Dialog::init$($cast($Window, owner), title, modal ? Dialog::DEFAULT_MODALITY_TYPE : $Dialog$ModalityType::MODELESS, gc);
 }
 
 void Dialog::init$($Window* owner) {
@@ -465,20 +322,21 @@ void Dialog::init$($Window* owner, $String* title, $Dialog$ModalityType* modalit
 }
 
 $String* Dialog::constructComponentName() {
-	$useLocalCurrentObjectStackCache();
 	$synchronized(Dialog::class$) {
-		$var($String, var$0, Dialog::base);
-		return $concat(var$0, $$str(Dialog::nameCounter++));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append(Dialog::base);
+		var$0->append(Dialog::nameCounter++);
+		return $str(var$0);
 	}
 }
 
 void Dialog::addNotify() {
 	$synchronized(getTreeLock()) {
-		if (this->parent != nullptr && $nc(this->parent)->peer == nullptr) {
-			$nc(this->parent)->addNotify();
+		if (this->parent != nullptr && this->parent->peer == nullptr) {
+			this->parent->addNotify();
 		}
 		if (this->peer == nullptr) {
-			$set(this, peer, $nc($(getComponentFactory()))->createDialog(this));
+			$set(this, peer, $$nc(getComponentFactory())->createDialog(this));
 		}
 		$Window::addNotify();
 	}
@@ -504,13 +362,13 @@ $Dialog$ModalityType* Dialog::getModalityType() {
 }
 
 void Dialog::setModalityType($Dialog$ModalityType* type$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dialog$ModalityType, type, type$renamed);
 	if (type == nullptr) {
 		$init($Dialog$ModalityType);
 		type = $Dialog$ModalityType::MODELESS;
 	}
-	if (!$nc($($Toolkit::getDefaultToolkit()))->isModalityTypeSupported(type)) {
+	if (!$$nc($Toolkit::getDefaultToolkit())->isModalityTypeSupported(type)) {
 		$init($Dialog$ModalityType);
 		type = $Dialog$ModalityType::MODELESS;
 	}
@@ -528,7 +386,7 @@ $String* Dialog::getTitle() {
 }
 
 void Dialog::setTitle($String* title) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, oldTitle, this->title);
 	$synchronized(this) {
 		$set(this, title, title);
@@ -537,11 +395,11 @@ void Dialog::setTitle($String* title) {
 			peer->setTitle(title);
 		}
 	}
-	firePropertyChange("title"_s, $of(oldTitle), $of(title));
+	firePropertyChange("title"_s, oldTitle, title);
 }
 
 bool Dialog::conditionalShow($Component* toFocus, $AtomicLong* time) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool retval = false;
 	closeSplashScreen();
 	$synchronized(getTreeLock()) {
@@ -563,8 +421,8 @@ bool Dialog::conditionalShow($Component* toFocus, $AtomicLong* time) {
 			bool var$1 = toFocus != nullptr && time != nullptr && isFocusable();
 			bool var$0 = var$1 && isEnabled();
 			if (var$0 && !isModalBlocked()) {
-				time->set($nc($($Toolkit::getEventQueue()))->getMostRecentKeyEventTime());
-				$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->enqueueKeyEvents(time->get(), toFocus);
+				time->set($$nc($Toolkit::getEventQueue())->getMostRecentKeyEventTime());
+				$$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->enqueueKeyEvents(time->get(), toFocus);
 			}
 			mixOnShowing();
 			$nc(this->peer)->setVisible(true);
@@ -573,7 +431,7 @@ bool Dialog::conditionalShow($Component* toFocus, $AtomicLong* time) {
 			}
 			setLocationByPlatform(false);
 			for (int32_t i = 0; i < $nc(this->ownedWindowList)->size(); ++i) {
-				$var($Window, child, $cast($Window, $nc(($cast($WeakReference, $($nc(this->ownedWindowList)->elementAt(i)))))->get()));
+				$var($Window, child, $cast($Window, $$sure($WeakReference, this->ownedWindowList->elementAt(i))->get()));
 				if ((child != nullptr) && child->showWithParent) {
 					child->show();
 					child->showWithParent = false;
@@ -581,13 +439,13 @@ bool Dialog::conditionalShow($Component* toFocus, $AtomicLong* time) {
 			}
 			$Window::updateChildFocusableWindowState(this);
 			createHierarchyEvents($HierarchyEvent::HIERARCHY_CHANGED, this, this->parent, $HierarchyEvent::SHOWING_CHANGED, $Toolkit::enabledOnToolkit($AWTEvent::HIERARCHY_EVENT_MASK));
-			if (this->componentListener != nullptr || ((int64_t)(this->eventMask & (uint64_t)$AWTEvent::COMPONENT_EVENT_MASK)) != 0 || $Toolkit::enabledOnToolkit($AWTEvent::COMPONENT_EVENT_MASK)) {
+			if (this->componentListener != nullptr || (this->eventMask & $AWTEvent::COMPONENT_EVENT_MASK) != 0 || $Toolkit::enabledOnToolkit($AWTEvent::COMPONENT_EVENT_MASK)) {
 				$var($ComponentEvent, e, $new($ComponentEvent, this, $ComponentEvent::COMPONENT_SHOWN));
-				$nc($($Toolkit::getEventQueue()))->postEvent(e);
+				$$nc($Toolkit::getEventQueue())->postEvent(e);
 			}
 		}
 	}
-	if (retval && ((int32_t)(this->state & (uint32_t)$Window::OPENED)) == 0) {
+	if (retval && (this->state & $Window::OPENED) == 0) {
 		postWindowEvent($WindowEvent::WINDOW_OPENED);
 		this->state |= $Window::OPENED;
 	}
@@ -599,7 +457,7 @@ void Dialog::setVisible(bool b) {
 }
 
 void Dialog::show() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (!this->initialized) {
 		$throwNew($IllegalStateException, "The dialog component has not been initialized properly"_s);
@@ -611,94 +469,86 @@ void Dialog::show() {
 		$var($AppContext, showAppContext, $AppContext::getAppContext());
 		$var($AtomicLong, time, $new($AtomicLong));
 		$var($Component, predictedFocusOwner, nullptr);
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$assign(predictedFocusOwner, getMostRecentFocusOwner());
-				if (conditionalShow(predictedFocusOwner, time)) {
-					$set(this, modalFilter, $ModalEventFilter::createFilterForDialog(this));
-					$init($Dialog$ModalityType);
-					if (this->modalityType == $Dialog$ModalityType::TOOLKIT_MODAL) {
+		$var($Throwable, var$0, nullptr);
+		try {
+			$assign(predictedFocusOwner, getMostRecentFocusOwner());
+			if (conditionalShow(predictedFocusOwner, time)) {
+				$set(this, modalFilter, $ModalEventFilter::createFilterForDialog(this));
+				$init($Dialog$ModalityType);
+				if (this->modalityType == $Dialog$ModalityType::TOOLKIT_MODAL) {
+					$var($Iterator, i$, $$nc($AppContext::getAppContexts())->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($AppContext, appContext, $cast($AppContext, i$->next()));
 						{
-							$var($Iterator, i$, $nc($($AppContext::getAppContexts()))->iterator());
-							for (; $nc(i$)->hasNext();) {
-								$var($AppContext, appContext, $cast($AppContext, i$->next()));
-								{
-									if (appContext == showAppContext) {
-										continue;
-									}
-									$var($EventQueue, eventQueue, $cast($EventQueue, $nc(appContext)->get($AppContext::EVENT_QUEUE_KEY)));
-									$nc(eventQueue)->postEvent($$new($InvocationEvent, this, static_cast<$Runnable*>($$new(Dialog$$Lambda$lambda$show$0))));
-									$var($EventDispatchThread, edt, eventQueue->getDispatchThread());
-									$nc(edt)->addEventFilter(this->modalFilter);
-								}
+							if (appContext == showAppContext) {
+								continue;
 							}
-						}
-					}
-					modalityPushed();
-					{
-						$var($Throwable, var$1, nullptr);
-						try {
-							$var($EventQueue, eventQueue, $cast($EventQueue, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(Dialog$$Lambda$getSystemEventQueue$1, static_cast<$Toolkit*>($nc($($Toolkit::getDefaultToolkit()))))))));
-							$set(this, secondaryLoop, $nc(eventQueue)->createSecondaryLoop(static_cast<$Conditional*>($$new(Dialog$$Lambda$lambda$show$1$2)), this->modalFilter, 0));
-							if (!$nc(this->secondaryLoop)->enter()) {
-								$set(this, secondaryLoop, nullptr);
-							}
-						} catch ($Throwable& var$2) {
-							$assign(var$1, var$2);
-						} /*finally*/ {
-							modalityPopped();
-						}
-						if (var$1 != nullptr) {
-							$throw(var$1);
-						}
-					}
-					if (this->modalityType == $Dialog$ModalityType::TOOLKIT_MODAL) {
-						{
-							$var($Iterator, i$, $nc($($AppContext::getAppContexts()))->iterator());
-							for (; $nc(i$)->hasNext();) {
-								$var($AppContext, appContext, $cast($AppContext, i$->next()));
-								{
-									if (appContext == showAppContext) {
-										continue;
-									}
-									$var($EventQueue, eventQueue, $cast($EventQueue, $nc(appContext)->get($AppContext::EVENT_QUEUE_KEY)));
-									$var($EventDispatchThread, edt, $nc(eventQueue)->getDispatchThread());
-									$nc(edt)->removeEventFilter(this->modalFilter);
-								}
-							}
+							$var($EventQueue, eventQueue, $cast($EventQueue, $nc(appContext)->get($AppContext::EVENT_QUEUE_KEY)));
+							$nc(eventQueue)->postEvent($$new($InvocationEvent, this, $$new(Dialog$$Lambda$lambda$show$0)));
+							$var($EventDispatchThread, edt, eventQueue->getDispatchThread());
+							$nc(edt)->addEventFilter(this->modalFilter);
 						}
 					}
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
-				if (predictedFocusOwner != nullptr) {
-					$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->dequeueKeyEvents(time->get(), predictedFocusOwner);
+				modalityPushed();
+				$var($Throwable, var$1, nullptr);
+				try {
+					$var($EventQueue, eventQueue, $cast($EventQueue, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(Dialog$$Lambda$getSystemEventQueue$1, $nc($($Toolkit::getDefaultToolkit())))))));
+					$set(this, secondaryLoop, $nc(eventQueue)->createSecondaryLoop($$new(Dialog$$Lambda$lambda$show$1$2), this->modalFilter, 0));
+					if (!$nc(this->secondaryLoop)->enter()) {
+						$set(this, secondaryLoop, nullptr);
+					}
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
+				} /*finally*/ {
+					modalityPopped();
+				}
+				if (var$1 != nullptr) {
+					$throw(var$1);
+				}
+				if (this->modalityType == $Dialog$ModalityType::TOOLKIT_MODAL) {
+					$var($Iterator, i$, $$nc($AppContext::getAppContexts())->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($AppContext, appContext, $cast($AppContext, i$->next()));
+						{
+							if (appContext == showAppContext) {
+								continue;
+							}
+							$var($EventQueue, eventQueue, $cast($EventQueue, $nc(appContext)->get($AppContext::EVENT_QUEUE_KEY)));
+							$var($EventDispatchThread, edt, $nc(eventQueue)->getDispatchThread());
+							$nc(edt)->removeEventFilter(this->modalFilter);
+						}
+					}
 				}
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			if (predictedFocusOwner != nullptr) {
+				$$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->dequeueKeyEvents(time->get(), predictedFocusOwner);
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void Dialog::modalityPushed() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Toolkit, tk, $Toolkit::getDefaultToolkit());
 	if ($instanceOf($SunToolkit, tk)) {
 		$var($SunToolkit, stk, $cast($SunToolkit, tk));
-		$nc(stk)->notifyModalityPushed(this);
+		stk->notifyModalityPushed(this);
 	}
 }
 
 void Dialog::modalityPopped() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Toolkit, tk, $Toolkit::getDefaultToolkit());
 	if ($instanceOf($SunToolkit, tk)) {
 		$var($SunToolkit, stk, $cast($SunToolkit, tk));
-		$nc(stk)->notifyModalityPopped(this);
+		stk->notifyModalityPopped(this);
 	}
 }
 
@@ -708,9 +558,9 @@ void Dialog::hideAndDisposePreHandler() {
 		if (this->secondaryLoop != nullptr) {
 			modalHide();
 			if (this->modalFilter != nullptr) {
-				$nc(this->modalFilter)->disable();
+				this->modalFilter->disable();
 			}
-			$nc(Dialog::modalDialogs)->remove($of(this));
+			$nc(Dialog::modalDialogs)->remove(this);
 		}
 	}
 }
@@ -739,17 +589,15 @@ void Dialog::doDispose() {
 }
 
 void Dialog::toBack() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Window::toBack();
 	if (this->visible) {
 		$synchronized(getTreeLock()) {
-			{
-				$var($Iterator, i$, $nc(this->blockedWindows)->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($Window, w, $cast($Window, i$->next()));
-					{
-						$nc(w)->toBack_NoClientCode();
-					}
+			$var($Iterator, i$, $nc(this->blockedWindows)->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($Window, w, $cast($Window, i$->next()));
+				{
+					$nc(w)->toBack_NoClientCode();
 				}
 			}
 		}
@@ -829,7 +677,7 @@ void Dialog::setBackground($Color* bgColor) {
 }
 
 $String* Dialog::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, $str({$($Window::paramString()), ","_s, this->modalityType}));
 	if (this->title != nullptr) {
 		$plusAssign(str, $$str({",title="_s, this->title}));
@@ -839,28 +687,26 @@ $String* Dialog::paramString() {
 
 void Dialog::initIDs() {
 	$init(Dialog);
-	$prepareNativeStatic(Dialog, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void Dialog::modalShow() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IdentityArrayList, blockers, $new($IdentityArrayList));
 	{
 		$var($Iterator, i$, $nc(Dialog::modalDialogs)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var(Dialog, d, $cast(Dialog, i$->next()));
-			{
-				if ($nc(d)->shouldBlock(this)) {
-					$var($Window, w, d);
-					while ((w != nullptr) && (!$equals(w, this))) {
-						$assign(w, w->getOwner_NoClientCode());
-					}
-					bool var$0 = ($equals(w, this)) || !shouldBlock(d);
-					if (var$0 || ($nc(this->modalityType)->compareTo($(static_cast<$Enum*>(d->getModalityType()))) < 0)) {
-						blockers->add(d);
-					}
+			if ($nc(d)->shouldBlock(this)) {
+				$var($Window, w, d);
+				while ((w != nullptr) && (!$equals(w, this))) {
+					$assign(w, w->getOwner_NoClientCode());
+				}
+				bool var$0 = ($equals(w, this)) || !shouldBlock(d);
+				if (var$0 || ($nc(this->modalityType)->compareTo($(d->getModalityType())) < 0)) {
+					blockers->add(d);
 				}
 			}
 		}
@@ -875,18 +721,16 @@ void Dialog::modalShow() {
 		}
 	}
 	if (blockers->size() > 0) {
-		$nc(($cast(Dialog, $(blockers->get(0)))))->blockWindow(this);
+		$$sure(Dialog, blockers->get(0))->blockWindow(this);
 	}
-	$var($IdentityArrayList, blockersHierarchies, $new($IdentityArrayList, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(blockers)))));
+	$var($IdentityArrayList, blockersHierarchies, $new($IdentityArrayList, $cast($AbstractCollection, blockers)));
 	int32_t k = 0;
 	while (k < blockersHierarchies->size()) {
 		$var($Window, w, $cast($Window, blockersHierarchies->get(k)));
 		$var($WindowArray, ownedWindows, $nc(w)->getOwnedWindows_NoClientCode());
 		{
 			$var($WindowArray, arr$, ownedWindows);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Window, win, arr$->get(i$));
 				{
 					blockersHierarchies->add(win);
@@ -904,12 +748,12 @@ void Dialog::modalShow() {
 			{
 				bool var$1 = shouldBlock(w);
 				if (var$1 && !blockersHierarchies->contains(w)) {
-					if (($instanceOf(Dialog, w)) && $nc(($cast(Dialog, w)))->isModal_NoClientCode()) {
+					if (($instanceOf(Dialog, w)) && $cast(Dialog, w)->isModal_NoClientCode()) {
 						$var(Dialog, wd, $cast(Dialog, w));
-						bool var$2 = $nc(wd)->shouldBlock(this);
+						bool var$2 = wd->shouldBlock(this);
 						if (var$2) {
 							int32_t var$3 = $nc(Dialog::modalDialogs)->indexOf(wd);
-							var$2 = (var$3 > $nc(Dialog::modalDialogs)->indexOf(this));
+							var$2 = var$3 > Dialog::modalDialogs->indexOf(this);
 						}
 						if (var$2) {
 							continue;
@@ -927,7 +771,7 @@ void Dialog::modalShow() {
 }
 
 void Dialog::modalHide() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IdentityArrayList, save, $new($IdentityArrayList));
 	int32_t blockedWindowsCount = $nc(this->blockedWindows)->size();
 	for (int32_t i = 0; i < blockedWindowsCount; ++i) {
@@ -937,9 +781,9 @@ void Dialog::modalHide() {
 	}
 	for (int32_t i = 0; i < blockedWindowsCount; ++i) {
 		$var($Window, w, $cast($Window, save->get(i)));
-		if (($instanceOf(Dialog, w)) && $nc(($cast(Dialog, w)))->isModal_NoClientCode()) {
+		if (($instanceOf(Dialog, w)) && $cast(Dialog, w)->isModal_NoClientCode()) {
 			$var(Dialog, d, $cast(Dialog, w));
-			$nc(d)->modalShow();
+			d->modalShow();
 		} else {
 			checkShouldBeBlocked(w);
 		}
@@ -947,13 +791,13 @@ void Dialog::modalHide() {
 }
 
 bool Dialog::shouldBlock($Window* w) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$1 = !isVisible_NoClientCode();
 	bool var$0 = var$1 || (!$nc(w)->isVisible_NoClientCode() && !w->isInShow) || this->isInHide || ($equals(w, this));
 	if (var$0 || !isModal_NoClientCode()) {
 		return false;
 	}
-	if (($instanceOf(Dialog, w)) && $nc(($cast(Dialog, w)))->isInHide) {
+	if (($instanceOf(Dialog, w)) && $cast(Dialog, w)->isInHide) {
 		return false;
 	}
 	$var($Window, blockerToCheck, this);
@@ -970,32 +814,24 @@ bool Dialog::shouldBlock($Window* w) {
 	$init($Dialog$1);
 	switch ($nc($Dialog$1::$SwitchMap$java$awt$Dialog$ModalityType)->get($nc((this->modalityType))->ordinal())) {
 	case 1:
-		{
-			return false;
-		}
+		return false;
 	case 2:
-		{
-			$init($Dialog$ModalExclusionType);
-			if ($nc(w)->isModalExcluded($Dialog$ModalExclusionType::APPLICATION_EXCLUDE)) {
-				$var($Component, c, this);
-				while ((c != nullptr) && (!$equals(c, w))) {
-					$assign(c, c->getParent_NoClientCode());
-				}
-				return $equals(c, w);
-			} else {
-				return getDocumentRoot() == w->getDocumentRoot();
+		$init($Dialog$ModalExclusionType);
+		if ($nc(w)->isModalExcluded($Dialog$ModalExclusionType::APPLICATION_EXCLUDE)) {
+			$var($Component, c, this);
+			while ((c != nullptr) && (!$equals(c, w))) {
+				$assign(c, c->getParent_NoClientCode());
 			}
+			return $equals(c, w);
+		} else {
+			return getDocumentRoot() == w->getDocumentRoot();
 		}
 	case 3:
-		{
-			$init($Dialog$ModalExclusionType);
-			return !$nc(w)->isModalExcluded($Dialog$ModalExclusionType::APPLICATION_EXCLUDE) && (this->appContext == w->appContext);
-		}
+		$init($Dialog$ModalExclusionType);
+		return !$nc(w)->isModalExcluded($Dialog$ModalExclusionType::APPLICATION_EXCLUDE) && (this->appContext == w->appContext);
 	case 4:
-		{
-			$init($Dialog$ModalExclusionType);
-			return !$nc(w)->isModalExcluded($Dialog$ModalExclusionType::TOOLKIT_EXCLUDE);
-		}
+		$init($Dialog$ModalExclusionType);
+		return !$nc(w)->isModalExcluded($Dialog$ModalExclusionType::TOOLKIT_EXCLUDE);
 	}
 	return false;
 }
@@ -1008,7 +844,7 @@ void Dialog::blockWindow($Window* w) {
 }
 
 void Dialog::blockWindows($List* toBlock) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DialogPeer, dpeer, $cast($DialogPeer, this->peer));
 	if (dpeer == nullptr) {
 		return;
@@ -1029,17 +865,17 @@ void Dialog::blockWindows($List* toBlock) {
 void Dialog::unblockWindow($Window* w) {
 	bool var$0 = $nc(w)->isModalBlocked();
 	if (var$0 && $nc(this->blockedWindows)->contains(w)) {
-		$nc(this->blockedWindows)->remove($of(w));
+		$nc(this->blockedWindows)->remove(w);
 		w->setModalBlocked(this, false, true);
 	}
 }
 
 void Dialog::checkShouldBeBlocked($Window* w) {
 	$init(Dialog);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized($nc(w)->getTreeLock()) {
 		for (int32_t i = 0; i < $nc(Dialog::modalDialogs)->size(); ++i) {
-			$var(Dialog, modalDialog, $cast(Dialog, $nc(Dialog::modalDialogs)->get(i)));
+			$var(Dialog, modalDialog, $cast(Dialog, Dialog::modalDialogs->get(i)));
 			if ($nc(modalDialog)->shouldBlock(w)) {
 				modalDialog->blockWindow(w);
 				break;
@@ -1062,7 +898,7 @@ void Dialog::checkModalityPermission($Dialog$ModalityType* mt) {
 void Dialog::readObject($ObjectInputStream* s) {
 	$GraphicsEnvironment::checkHeadless();
 	$var($ObjectInputStream$GetField, fields, $nc(s)->readFields());
-	$Dialog$ModalityType* localModalityType = $cast($Dialog$ModalityType, $nc(fields)->get("modalityType"_s, ($Object*)nullptr));
+	$Dialog$ModalityType* localModalityType = $cast($Dialog$ModalityType, $nc(fields)->get("modalityType"_s, nullptr));
 	try {
 		checkModalityPermission(localModalityType);
 	} catch ($AccessControlException& ace) {
@@ -1076,7 +912,7 @@ void Dialog::readObject($ObjectInputStream* s) {
 	}
 	this->resizable = fields->get("resizable"_s, true);
 	this->undecorated = fields->get("undecorated"_s, false);
-	$set(this, title, $cast($String, fields->get("title"_s, $of(""_s))));
+	$set(this, title, $cast($String, fields->get("title"_s, ""_s)));
 	$set(this, blockedWindows, $new($IdentityArrayList));
 	$SunToolkit::checkAndSetPolicy(this);
 	this->initialized = true;
@@ -1098,7 +934,7 @@ void Dialog::lambda$show$0() {
 	$init(Dialog);
 }
 
-void clinit$Dialog($Class* class$) {
+void Dialog::clinit$($Class* clazz) {
 	$assignStatic(Dialog::base, "dialog"_s);
 	{
 		$Toolkit::loadLibraries();
@@ -1117,17 +953,124 @@ Dialog::Dialog() {
 
 $Class* Dialog::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Dialog$$Lambda$lambda$show$0::classInfo$.name)) {
+		if (name->equals("java.awt.Dialog$$Lambda$lambda$show$0")) {
 			return Dialog$$Lambda$lambda$show$0::load$(name, initialize);
 		}
-		if (name->equals(Dialog$$Lambda$getSystemEventQueue$1::classInfo$.name)) {
+		if (name->equals("java.awt.Dialog$$Lambda$getSystemEventQueue$1")) {
 			return Dialog$$Lambda$getSystemEventQueue$1::load$(name, initialize);
 		}
-		if (name->equals(Dialog$$Lambda$lambda$show$1$2::classInfo$.name)) {
+		if (name->equals("java.awt.Dialog$$Lambda$lambda$show$1$2")) {
 			return Dialog$$Lambda$lambda$show$1$2::load$(name, initialize);
 		}
 	}
-	$loadClass(Dialog, name, initialize, &_Dialog_ClassInfo_, clinit$Dialog, allocate$Dialog);
+	$FieldInfo fieldInfos$$[] = {
+		{"resizable", "Z", nullptr, 0, $field(Dialog, resizable)},
+		{"undecorated", "Z", nullptr, 0, $field(Dialog, undecorated)},
+		{"initialized", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(Dialog, initialized)},
+		{"DEFAULT_MODALITY_TYPE", "Ljava/awt/Dialog$ModalityType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Dialog, DEFAULT_MODALITY_TYPE)},
+		{"modal", "Z", nullptr, 0, $field(Dialog, modal)},
+		{"modalityType", "Ljava/awt/Dialog$ModalityType;", nullptr, 0, $field(Dialog, modalityType)},
+		{"modalDialogs", "Lsun/awt/util/IdentityArrayList;", "Lsun/awt/util/IdentityArrayList<Ljava/awt/Dialog;>;", $STATIC | $TRANSIENT, $staticField(Dialog, modalDialogs)},
+		{"blockedWindows", "Lsun/awt/util/IdentityArrayList;", "Lsun/awt/util/IdentityArrayList<Ljava/awt/Window;>;", $TRANSIENT, $field(Dialog, blockedWindows)},
+		{"title", "Ljava/lang/String;", nullptr, 0, $field(Dialog, title)},
+		{"modalFilter", "Ljava/awt/ModalEventFilter;", nullptr, $PRIVATE | $TRANSIENT, $field(Dialog, modalFilter)},
+		{"secondaryLoop", "Ljava/awt/SecondaryLoop;", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(Dialog, secondaryLoop)},
+		{"isInHide", "Z", nullptr, $VOLATILE | $TRANSIENT, $field(Dialog, isInHide)},
+		{"isInDispose", "Z", nullptr, $VOLATILE | $TRANSIENT, $field(Dialog, isInDispose)},
+		{"base", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Dialog, base)},
+		{"nameCounter", "I", nullptr, $PRIVATE | $STATIC, $staticField(Dialog, nameCounter)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Dialog, serialVersionUID)},
+		{}
+	};
+	$CompoundAttribute hidemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute showmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Frame;)V", nullptr, $PUBLIC, $method(Dialog, init$, void, $Frame*)},
+		{"<init>", "(Ljava/awt/Frame;Z)V", nullptr, $PUBLIC, $method(Dialog, init$, void, $Frame*, bool)},
+		{"<init>", "(Ljava/awt/Frame;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Dialog, init$, void, $Frame*, $String*)},
+		{"<init>", "(Ljava/awt/Frame;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Dialog, init$, void, $Frame*, $String*, bool)},
+		{"<init>", "(Ljava/awt/Frame;Ljava/lang/String;ZLjava/awt/GraphicsConfiguration;)V", nullptr, $PUBLIC, $method(Dialog, init$, void, $Frame*, $String*, bool, $GraphicsConfiguration*)},
+		{"<init>", "(Ljava/awt/Dialog;)V", nullptr, $PUBLIC, $method(Dialog, init$, void, Dialog*)},
+		{"<init>", "(Ljava/awt/Dialog;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Dialog, init$, void, Dialog*, $String*)},
+		{"<init>", "(Ljava/awt/Dialog;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Dialog, init$, void, Dialog*, $String*, bool)},
+		{"<init>", "(Ljava/awt/Dialog;Ljava/lang/String;ZLjava/awt/GraphicsConfiguration;)V", nullptr, $PUBLIC, $method(Dialog, init$, void, Dialog*, $String*, bool, $GraphicsConfiguration*)},
+		{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(Dialog, init$, void, $Window*)},
+		{"<init>", "(Ljava/awt/Window;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Dialog, init$, void, $Window*, $String*)},
+		{"<init>", "(Ljava/awt/Window;Ljava/awt/Dialog$ModalityType;)V", nullptr, $PUBLIC, $method(Dialog, init$, void, $Window*, $Dialog$ModalityType*)},
+		{"<init>", "(Ljava/awt/Window;Ljava/lang/String;Ljava/awt/Dialog$ModalityType;)V", nullptr, $PUBLIC, $method(Dialog, init$, void, $Window*, $String*, $Dialog$ModalityType*)},
+		{"<init>", "(Ljava/awt/Window;Ljava/lang/String;Ljava/awt/Dialog$ModalityType;Ljava/awt/GraphicsConfiguration;)V", nullptr, $PUBLIC, $method(Dialog, init$, void, $Window*, $String*, $Dialog$ModalityType*, $GraphicsConfiguration*)},
+		{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(Dialog, addNotify, void)},
+		{"blockWindow", "(Ljava/awt/Window;)V", nullptr, 0, $virtualMethod(Dialog, blockWindow, void, $Window*)},
+		{"blockWindows", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/awt/Window;>;)V", 0, $virtualMethod(Dialog, blockWindows, void, $List*)},
+		{"checkModalityPermission", "(Ljava/awt/Dialog$ModalityType;)V", nullptr, $PRIVATE, $method(Dialog, checkModalityPermission, void, $Dialog$ModalityType*)},
+		{"checkShouldBeBlocked", "(Ljava/awt/Window;)V", nullptr, $STATIC, $staticMethod(Dialog, checkShouldBeBlocked, void, $Window*)},
+		{"conditionalShow", "(Ljava/awt/Component;Ljava/util/concurrent/atomic/AtomicLong;)Z", nullptr, $PRIVATE, $method(Dialog, conditionalShow, bool, $Component*, $AtomicLong*)},
+		{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Dialog, constructComponentName, $String*)},
+		{"doDispose", "()V", nullptr, 0, $virtualMethod(Dialog, doDispose, void)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(Dialog, getAccessibleContext, $AccessibleContext*)},
+		{"getModalityType", "()Ljava/awt/Dialog$ModalityType;", nullptr, $PUBLIC, $virtualMethod(Dialog, getModalityType, $Dialog$ModalityType*)},
+		{"getTitle", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Dialog, getTitle, $String*)},
+		{"hide", "()V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Dialog, hide, void), nullptr, nullptr, hidemethodAnnotations$$},
+		{"hideAndDisposeHandler", "()V", nullptr, $PRIVATE, $method(Dialog, hideAndDisposeHandler, void)},
+		{"hideAndDisposePreHandler", "()V", nullptr, $PRIVATE, $method(Dialog, hideAndDisposePreHandler, void)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Dialog, initIDs, void)},
+		{"isModal", "()Z", nullptr, $PUBLIC, $virtualMethod(Dialog, isModal, bool)},
+		{"isModal_NoClientCode", "()Z", nullptr, $FINAL, $method(Dialog, isModal_NoClientCode, bool)},
+		{"isResizable", "()Z", nullptr, $PUBLIC, $virtualMethod(Dialog, isResizable, bool)},
+		{"isUndecorated", "()Z", nullptr, $PUBLIC, $virtualMethod(Dialog, isUndecorated, bool)},
+		{"lambda$show$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Dialog, lambda$show$0, void)},
+		{"lambda$show$1", "()Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Dialog, lambda$show$1, bool)},
+		{"modalHide", "()V", nullptr, 0, $virtualMethod(Dialog, modalHide, void)},
+		{"modalShow", "()V", nullptr, 0, $virtualMethod(Dialog, modalShow, void)},
+		{"modalityPopped", "()V", nullptr, $FINAL, $method(Dialog, modalityPopped, void)},
+		{"modalityPushed", "()V", nullptr, $FINAL, $method(Dialog, modalityPushed, void)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Dialog, paramString, $String*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Dialog, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException,java.awt.HeadlessException"},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(Dialog, setBackground, void, $Color*)},
+		{"setModal", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Dialog, setModal, void, bool)},
+		{"setModalityType", "(Ljava/awt/Dialog$ModalityType;)V", nullptr, $PUBLIC, $virtualMethod(Dialog, setModalityType, void, $Dialog$ModalityType*)},
+		{"setOpacity", "(F)V", nullptr, $PUBLIC, $virtualMethod(Dialog, setOpacity, void, float)},
+		{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Dialog, setResizable, void, bool)},
+		{"setShape", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(Dialog, setShape, void, $Shape*)},
+		{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Dialog, setTitle, void, $String*)},
+		{"setUndecorated", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Dialog, setUndecorated, void, bool)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Dialog, setVisible, void, bool)},
+		{"shouldBlock", "(Ljava/awt/Window;)Z", nullptr, 0, $virtualMethod(Dialog, shouldBlock, bool, $Window*)},
+		{"show", "()V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Dialog, show, void), nullptr, nullptr, showmethodAnnotations$$},
+		{"toBack", "()V", nullptr, $PUBLIC, $virtualMethod(Dialog, toBack, void)},
+		{"unblockWindow", "(Ljava/awt/Window;)V", nullptr, 0, $virtualMethod(Dialog, unblockWindow, void, $Window*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Dialog$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"java.awt.Dialog$AccessibleAWTDialog", "java.awt.Dialog", "AccessibleAWTDialog", $PROTECTED},
+		{"java.awt.Dialog$ModalExclusionType", "java.awt.Dialog", "ModalExclusionType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"java.awt.Dialog$ModalityType", "java.awt.Dialog", "ModalityType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Dialog",
+		"java.awt.Window",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.Dialog$1,java.awt.Dialog$AccessibleAWTDialog,java.awt.Dialog$ModalExclusionType,java.awt.Dialog$ModalityType"
+	};
+	$loadClass(Dialog, name, initialize, &classInfo$$, Dialog::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Dialog));
+	});
 	return class$;
 }
 

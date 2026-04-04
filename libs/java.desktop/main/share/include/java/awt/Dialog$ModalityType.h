@@ -23,6 +23,7 @@ class $import Dialog$ModalityType : public ::java::lang::Enum {
 public:
 	Dialog$ModalityType();
 	static $Array<::java::awt::Dialog$ModalityType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::awt::Dialog$ModalityType* valueOf($String* name);
 	static $Array<::java::awt::Dialog$ModalityType>* values();

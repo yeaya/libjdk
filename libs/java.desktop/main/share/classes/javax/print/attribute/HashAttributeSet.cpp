@@ -1,5 +1,4 @@
 #include <javax/print/attribute/HashAttributeSet.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/util/Collection.h>
@@ -16,7 +15,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Attribute = ::javax::print::attribute::Attribute;
 using $AttributeSet = ::javax::print::attribute::AttributeSet;
@@ -25,56 +23,6 @@ using $AttributeSetUtilities = ::javax::print::attribute::AttributeSetUtilities;
 namespace javax {
 	namespace print {
 		namespace attribute {
-
-$FieldInfo _HashAttributeSet_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HashAttributeSet, serialVersionUID)},
-	{"myInterface", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(HashAttributeSet, myInterface)},
-	{"attrMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Class<*>;Ljavax/print/attribute/Attribute;>;", $PRIVATE | $TRANSIENT, $field(HashAttributeSet, attrMap)},
-	{}
-};
-
-$MethodInfo _HashAttributeSet_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HashAttributeSet, init$, void)},
-	{"<init>", "(Ljavax/print/attribute/Attribute;)V", nullptr, $PUBLIC, $method(HashAttributeSet, init$, void, $Attribute*)},
-	{"<init>", "([Ljavax/print/attribute/Attribute;)V", nullptr, $PUBLIC, $method(HashAttributeSet, init$, void, $AttributeArray*)},
-	{"<init>", "(Ljavax/print/attribute/AttributeSet;)V", nullptr, $PUBLIC, $method(HashAttributeSet, init$, void, $AttributeSet*)},
-	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PROTECTED, $method(HashAttributeSet, init$, void, $Class*)},
-	{"<init>", "(Ljavax/print/attribute/Attribute;Ljava/lang/Class;)V", "(Ljavax/print/attribute/Attribute;Ljava/lang/Class<*>;)V", $PROTECTED, $method(HashAttributeSet, init$, void, $Attribute*, $Class*)},
-	{"<init>", "([Ljavax/print/attribute/Attribute;Ljava/lang/Class;)V", "([Ljavax/print/attribute/Attribute;Ljava/lang/Class<*>;)V", $PROTECTED, $method(HashAttributeSet, init$, void, $AttributeArray*, $Class*)},
-	{"<init>", "(Ljavax/print/attribute/AttributeSet;Ljava/lang/Class;)V", "(Ljavax/print/attribute/AttributeSet;Ljava/lang/Class<*>;)V", $PROTECTED, $method(HashAttributeSet, init$, void, $AttributeSet*, $Class*)},
-	{"add", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC, $virtualMethod(HashAttributeSet, add, bool, $Attribute*)},
-	{"addAll", "(Ljavax/print/attribute/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(HashAttributeSet, addAll, bool, $AttributeSet*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(HashAttributeSet, clear, void)},
-	{"containsKey", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC, $virtualMethod(HashAttributeSet, containsKey, bool, $Class*)},
-	{"containsValue", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC, $virtualMethod(HashAttributeSet, containsValue, bool, $Attribute*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HashAttributeSet, equals, bool, Object$*)},
-	{"get", "(Ljava/lang/Class;)Ljavax/print/attribute/Attribute;", "(Ljava/lang/Class<*>;)Ljavax/print/attribute/Attribute;", $PUBLIC, $virtualMethod(HashAttributeSet, get, $Attribute*, $Class*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(HashAttributeSet, hashCode, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(HashAttributeSet, isEmpty, bool)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(HashAttributeSet, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"remove", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC, $virtualMethod(HashAttributeSet, remove, bool, $Class*)},
-	{"remove", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC, $virtualMethod(HashAttributeSet, remove, bool, $Attribute*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(HashAttributeSet, size, int32_t)},
-	{"toArray", "()[Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC, $virtualMethod(HashAttributeSet, toArray, $AttributeArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(HashAttributeSet, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _HashAttributeSet_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.print.attribute.HashAttributeSet",
-	"java.lang.Object",
-	"javax.print.attribute.AttributeSet,java.io.Serializable",
-	_HashAttributeSet_FieldInfo_,
-	_HashAttributeSet_MethodInfo_
-};
-
-$Object* allocate$HashAttributeSet($Class* clazz) {
-	return $of($alloc(HashAttributeSet));
-}
 
 $Object* HashAttributeSet::clone() {
 	 return this->$AttributeSet::clone();
@@ -92,7 +40,7 @@ void HashAttributeSet::writeObject($ObjectOutputStream* s) {
 	$nc(s)->defaultWriteObject();
 	$var($AttributeArray, attrs, toArray());
 	s->writeInt($nc(attrs)->length);
-	for (int32_t i = 0; i < $nc(attrs)->length; ++i) {
+	for (int32_t i = 0; i < attrs->length; ++i) {
 		s->writeObject(attrs->get(i));
 	}
 }
@@ -151,9 +99,9 @@ void HashAttributeSet::init$($AttributeArray* attributes, $Class* interfaceName)
 		$throwNew($NullPointerException, "null interface"_s);
 	}
 	$set(this, myInterface, interfaceName);
-	int32_t n = attributes == nullptr ? 0 : $nc(attributes)->length;
+	int32_t n = attributes == nullptr ? 0 : attributes->length;
 	for (int32_t i = 0; i < n; ++i) {
-		add(attributes->get(i));
+		add($nc(attributes)->get(i));
 	}
 }
 
@@ -162,9 +110,9 @@ void HashAttributeSet::init$($AttributeSet* attributes, $Class* interfaceName) {
 	$set(this, myInterface, interfaceName);
 	if (attributes != nullptr) {
 		$var($AttributeArray, attribArray, attributes->toArray());
-		int32_t n = attribArray == nullptr ? 0 : $nc(attribArray)->length;
+		int32_t n = attribArray == nullptr ? 0 : attribArray->length;
 		for (int32_t i = 0; i < n; ++i) {
-			add(attribArray->get(i));
+			add($nc(attribArray)->get(i));
 		}
 	}
 }
@@ -175,10 +123,10 @@ $Attribute* HashAttributeSet::get($Class* category) {
 }
 
 bool HashAttributeSet::add($Attribute* attribute) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, var$0, $of($nc(attribute)->getCategory()));
+	$useLocalObjectStack();
+	$var($Object, var$0, $nc(attribute)->getCategory());
 	$var($Object, oldAttribute, $nc(this->attrMap)->put(var$0, $($AttributeSetUtilities::verifyAttributeValue(attribute, this->myInterface))));
-	return (!$nc($of(attribute))->equals(oldAttribute));
+	return (!$of(attribute)->equals(oldAttribute));
 }
 
 bool HashAttributeSet::remove($Class* category) {
@@ -202,13 +150,13 @@ bool HashAttributeSet::containsValue($Attribute* attribute) {
 }
 
 bool HashAttributeSet::addAll($AttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeArray, attrs, $nc(attributes)->toArray());
 	bool result = false;
 	for (int32_t i = 0; i < $nc(attrs)->length; ++i) {
 		$var($Attribute, newValue, $AttributeSetUtilities::verifyAttributeValue(attrs->get(i), this->myInterface));
 		$var($Object, oldValue, $nc(this->attrMap)->put($nc(newValue)->getCategory(), newValue));
-		result = (!$nc($of(newValue))->equals(oldValue)) || result;
+		result = (!newValue->equals(oldValue)) || result;
 	}
 	return result;
 }
@@ -218,9 +166,9 @@ int32_t HashAttributeSet::size() {
 }
 
 $AttributeArray* HashAttributeSet::toArray() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeArray, attrs, $new($AttributeArray, size()));
-	$nc($($nc(this->attrMap)->values()))->toArray(attrs);
+	$$nc($nc(this->attrMap)->values())->toArray(attrs);
 	return attrs;
 }
 
@@ -233,7 +181,7 @@ bool HashAttributeSet::isEmpty() {
 }
 
 bool HashAttributeSet::equals(Object$* object) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (object == nullptr || !($instanceOf($AttributeSet, object))) {
 		return false;
 	}
@@ -244,7 +192,7 @@ bool HashAttributeSet::equals(Object$* object) {
 	}
 	$var($AttributeArray, attrs, toArray());
 	for (int32_t i = 0; i < $nc(attrs)->length; ++i) {
-		if (!$nc(aset)->containsValue(attrs->get(i))) {
+		if (!aset->containsValue(attrs->get(i))) {
 			return false;
 		}
 	}
@@ -255,7 +203,7 @@ int32_t HashAttributeSet::hashCode() {
 	int32_t hcode = 0;
 	$var($AttributeArray, attrs, toArray());
 	for (int32_t i = 0; i < $nc(attrs)->length; ++i) {
-		hcode += $nc($of(attrs->get(i)))->hashCode();
+		hcode += $nc(attrs->get(i))->hashCode();
 	}
 	return hcode;
 }
@@ -264,7 +212,52 @@ HashAttributeSet::HashAttributeSet() {
 }
 
 $Class* HashAttributeSet::load$($String* name, bool initialize) {
-	$loadClass(HashAttributeSet, name, initialize, &_HashAttributeSet_ClassInfo_, allocate$HashAttributeSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HashAttributeSet, serialVersionUID)},
+		{"myInterface", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(HashAttributeSet, myInterface)},
+		{"attrMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Class<*>;Ljavax/print/attribute/Attribute;>;", $PRIVATE | $TRANSIENT, $field(HashAttributeSet, attrMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HashAttributeSet, init$, void)},
+		{"<init>", "(Ljavax/print/attribute/Attribute;)V", nullptr, $PUBLIC, $method(HashAttributeSet, init$, void, $Attribute*)},
+		{"<init>", "([Ljavax/print/attribute/Attribute;)V", nullptr, $PUBLIC, $method(HashAttributeSet, init$, void, $AttributeArray*)},
+		{"<init>", "(Ljavax/print/attribute/AttributeSet;)V", nullptr, $PUBLIC, $method(HashAttributeSet, init$, void, $AttributeSet*)},
+		{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PROTECTED, $method(HashAttributeSet, init$, void, $Class*)},
+		{"<init>", "(Ljavax/print/attribute/Attribute;Ljava/lang/Class;)V", "(Ljavax/print/attribute/Attribute;Ljava/lang/Class<*>;)V", $PROTECTED, $method(HashAttributeSet, init$, void, $Attribute*, $Class*)},
+		{"<init>", "([Ljavax/print/attribute/Attribute;Ljava/lang/Class;)V", "([Ljavax/print/attribute/Attribute;Ljava/lang/Class<*>;)V", $PROTECTED, $method(HashAttributeSet, init$, void, $AttributeArray*, $Class*)},
+		{"<init>", "(Ljavax/print/attribute/AttributeSet;Ljava/lang/Class;)V", "(Ljavax/print/attribute/AttributeSet;Ljava/lang/Class<*>;)V", $PROTECTED, $method(HashAttributeSet, init$, void, $AttributeSet*, $Class*)},
+		{"add", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC, $virtualMethod(HashAttributeSet, add, bool, $Attribute*)},
+		{"addAll", "(Ljavax/print/attribute/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(HashAttributeSet, addAll, bool, $AttributeSet*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(HashAttributeSet, clear, void)},
+		{"containsKey", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC, $virtualMethod(HashAttributeSet, containsKey, bool, $Class*)},
+		{"containsValue", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC, $virtualMethod(HashAttributeSet, containsValue, bool, $Attribute*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HashAttributeSet, equals, bool, Object$*)},
+		{"get", "(Ljava/lang/Class;)Ljavax/print/attribute/Attribute;", "(Ljava/lang/Class<*>;)Ljavax/print/attribute/Attribute;", $PUBLIC, $virtualMethod(HashAttributeSet, get, $Attribute*, $Class*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(HashAttributeSet, hashCode, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(HashAttributeSet, isEmpty, bool)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(HashAttributeSet, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"remove", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC, $virtualMethod(HashAttributeSet, remove, bool, $Class*)},
+		{"remove", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC, $virtualMethod(HashAttributeSet, remove, bool, $Attribute*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(HashAttributeSet, size, int32_t)},
+		{"toArray", "()[Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC, $virtualMethod(HashAttributeSet, toArray, $AttributeArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(HashAttributeSet, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.print.attribute.HashAttributeSet",
+		"java.lang.Object",
+		"javax.print.attribute.AttributeSet,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HashAttributeSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HashAttributeSet));
+	});
 	return class$;
 }
 

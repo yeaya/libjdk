@@ -34,6 +34,7 @@ class CMouseDragGestureRecognizer : public ::java::awt::dnd::MouseDragGestureRec
 	$class(CMouseDragGestureRecognizer, 0, ::java::awt::dnd::MouseDragGestureRecognizer)
 public:
 	CMouseDragGestureRecognizer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::dnd::DragSource* ds, ::java::awt::Component* c, int32_t act, ::java::awt::dnd::DragGestureListener* dgl);
 	void init$(::java::awt::dnd::DragSource* ds, ::java::awt::Component* c, int32_t act);
 	void init$(::java::awt::dnd::DragSource* ds, ::java::awt::Component* c);

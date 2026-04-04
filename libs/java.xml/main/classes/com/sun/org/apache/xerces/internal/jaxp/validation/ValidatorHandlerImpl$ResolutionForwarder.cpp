@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/ValidatorHandlerImpl$ResolutionForwarder.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityManager.h>
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/ValidatorHandlerImpl.h>
 #include <com/sun/org/apache/xerces/internal/util/URI$MalformedURIException.h>
@@ -35,49 +34,6 @@ namespace com {
 						namespace jaxp {
 							namespace validation {
 
-$FieldInfo _ValidatorHandlerImpl$ResolutionForwarder_FieldInfo_[] = {
-	{"XML_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ValidatorHandlerImpl$ResolutionForwarder, XML_TYPE)},
-	{"fEntityResolver", "Lorg/w3c/dom/ls/LSResourceResolver;", nullptr, $PROTECTED, $field(ValidatorHandlerImpl$ResolutionForwarder, fEntityResolver)},
-	{}
-};
-
-$MethodInfo _ValidatorHandlerImpl$ResolutionForwarder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ValidatorHandlerImpl$ResolutionForwarder, init$, void)},
-	{"<init>", "(Lorg/w3c/dom/ls/LSResourceResolver;)V", nullptr, $PUBLIC, $method(ValidatorHandlerImpl$ResolutionForwarder, init$, void, $LSResourceResolver*)},
-	{"getEntityResolver", "()Lorg/w3c/dom/ls/LSResourceResolver;", nullptr, $PUBLIC, $method(ValidatorHandlerImpl$ResolutionForwarder, getEntityResolver, $LSResourceResolver*)},
-	{"getExternalSubset", "(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl$ResolutionForwarder, getExternalSubset, $InputSource*, $String*, $String*), "org.xml.sax.SAXException,java.io.IOException"},
-	{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl$ResolutionForwarder, resolveEntity, $InputSource*, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException,java.io.IOException"},
-	{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl$ResolutionForwarder, resolveEntity, $InputSource*, $String*, $String*), "org.xml.sax.SAXException,java.io.IOException"},
-	{"resolveSystemId", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ValidatorHandlerImpl$ResolutionForwarder, resolveSystemId, $String*, $String*, $String*)},
-	{"setEntityResolver", "(Lorg/w3c/dom/ls/LSResourceResolver;)V", nullptr, $PUBLIC, $method(ValidatorHandlerImpl$ResolutionForwarder, setEntityResolver, void, $LSResourceResolver*)},
-	{}
-};
-
-$InnerClassInfo _ValidatorHandlerImpl$ResolutionForwarder_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl$ResolutionForwarder", "com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl", "ResolutionForwarder", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ValidatorHandlerImpl$ResolutionForwarder_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl$ResolutionForwarder",
-	"java.lang.Object",
-	"org.xml.sax.ext.EntityResolver2",
-	_ValidatorHandlerImpl$ResolutionForwarder_FieldInfo_,
-	_ValidatorHandlerImpl$ResolutionForwarder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ValidatorHandlerImpl$ResolutionForwarder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl"
-};
-
-$Object* allocate$ValidatorHandlerImpl$ResolutionForwarder($Class* clazz) {
-	return $of($alloc(ValidatorHandlerImpl$ResolutionForwarder));
-}
-
 $String* ValidatorHandlerImpl$ResolutionForwarder::XML_TYPE = nullptr;
 
 void ValidatorHandlerImpl$ResolutionForwarder::init$() {
@@ -100,9 +56,9 @@ $InputSource* ValidatorHandlerImpl$ResolutionForwarder::getExternalSubset($Strin
 }
 
 $InputSource* ValidatorHandlerImpl$ResolutionForwarder::resolveEntity($String* name, $String* publicId, $String* baseURI, $String* systemId) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fEntityResolver != nullptr) {
-		$var($LSInput, lsInput, $nc(this->fEntityResolver)->resolveResource(ValidatorHandlerImpl$ResolutionForwarder::XML_TYPE, nullptr, publicId, systemId, baseURI));
+		$var($LSInput, lsInput, this->fEntityResolver->resolveResource(ValidatorHandlerImpl$ResolutionForwarder::XML_TYPE, nullptr, publicId, systemId, baseURI));
 		if (lsInput != nullptr) {
 			$var($String, pubId, lsInput->getPublicId());
 			$var($String, sysId, lsInput->getSystemId());
@@ -144,12 +100,49 @@ $String* ValidatorHandlerImpl$ResolutionForwarder::resolveSystemId($String* syst
 ValidatorHandlerImpl$ResolutionForwarder::ValidatorHandlerImpl$ResolutionForwarder() {
 }
 
-void clinit$ValidatorHandlerImpl$ResolutionForwarder($Class* class$) {
+void ValidatorHandlerImpl$ResolutionForwarder::clinit$($Class* clazz) {
 	$assignStatic(ValidatorHandlerImpl$ResolutionForwarder::XML_TYPE, "http://www.w3.org/TR/REC-xml"_s);
 }
 
 $Class* ValidatorHandlerImpl$ResolutionForwarder::load$($String* name, bool initialize) {
-	$loadClass(ValidatorHandlerImpl$ResolutionForwarder, name, initialize, &_ValidatorHandlerImpl$ResolutionForwarder_ClassInfo_, clinit$ValidatorHandlerImpl$ResolutionForwarder, allocate$ValidatorHandlerImpl$ResolutionForwarder);
+	$FieldInfo fieldInfos$$[] = {
+		{"XML_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ValidatorHandlerImpl$ResolutionForwarder, XML_TYPE)},
+		{"fEntityResolver", "Lorg/w3c/dom/ls/LSResourceResolver;", nullptr, $PROTECTED, $field(ValidatorHandlerImpl$ResolutionForwarder, fEntityResolver)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ValidatorHandlerImpl$ResolutionForwarder, init$, void)},
+		{"<init>", "(Lorg/w3c/dom/ls/LSResourceResolver;)V", nullptr, $PUBLIC, $method(ValidatorHandlerImpl$ResolutionForwarder, init$, void, $LSResourceResolver*)},
+		{"getEntityResolver", "()Lorg/w3c/dom/ls/LSResourceResolver;", nullptr, $PUBLIC, $method(ValidatorHandlerImpl$ResolutionForwarder, getEntityResolver, $LSResourceResolver*)},
+		{"getExternalSubset", "(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl$ResolutionForwarder, getExternalSubset, $InputSource*, $String*, $String*), "org.xml.sax.SAXException,java.io.IOException"},
+		{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl$ResolutionForwarder, resolveEntity, $InputSource*, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException,java.io.IOException"},
+		{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl$ResolutionForwarder, resolveEntity, $InputSource*, $String*, $String*), "org.xml.sax.SAXException,java.io.IOException"},
+		{"resolveSystemId", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ValidatorHandlerImpl$ResolutionForwarder, resolveSystemId, $String*, $String*, $String*)},
+		{"setEntityResolver", "(Lorg/w3c/dom/ls/LSResourceResolver;)V", nullptr, $PUBLIC, $method(ValidatorHandlerImpl$ResolutionForwarder, setEntityResolver, void, $LSResourceResolver*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl$ResolutionForwarder", "com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl", "ResolutionForwarder", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl$ResolutionForwarder",
+		"java.lang.Object",
+		"org.xml.sax.ext.EntityResolver2",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl"
+	};
+	$loadClass(ValidatorHandlerImpl$ResolutionForwarder, name, initialize, &classInfo$$, ValidatorHandlerImpl$ResolutionForwarder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ValidatorHandlerImpl$ResolutionForwarder);
+	});
 	return class$;
 }
 

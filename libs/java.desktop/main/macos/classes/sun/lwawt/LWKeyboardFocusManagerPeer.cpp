@@ -1,5 +1,4 @@
 #include <sun/lwawt/LWKeyboardFocusManagerPeer.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Window.h>
 #include <sun/awt/KeyboardFocusManagerPeerImpl.h>
@@ -19,36 +18,6 @@ using $LWWindowPeer = ::sun::lwawt::LWWindowPeer;
 namespace sun {
 	namespace lwawt {
 
-$FieldInfo _LWKeyboardFocusManagerPeer_FieldInfo_[] = {
-	{"inst", "Lsun/lwawt/LWKeyboardFocusManagerPeer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LWKeyboardFocusManagerPeer, inst)},
-	{"focusedWindow", "Ljava/awt/Window;", nullptr, $PRIVATE, $field(LWKeyboardFocusManagerPeer, focusedWindow)},
-	{"focusOwner", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(LWKeyboardFocusManagerPeer, focusOwner)},
-	{}
-};
-
-$MethodInfo _LWKeyboardFocusManagerPeer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(LWKeyboardFocusManagerPeer, init$, void)},
-	{"getCurrentFocusOwner", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(LWKeyboardFocusManagerPeer, getCurrentFocusOwner, $Component*)},
-	{"getCurrentFocusedWindow", "()Ljava/awt/Window;", nullptr, $PUBLIC, $virtualMethod(LWKeyboardFocusManagerPeer, getCurrentFocusedWindow, $Window*)},
-	{"getInstance", "()Lsun/lwawt/LWKeyboardFocusManagerPeer;", nullptr, $PUBLIC | $STATIC, $staticMethod(LWKeyboardFocusManagerPeer, getInstance, LWKeyboardFocusManagerPeer*)},
-	{"setCurrentFocusOwner", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(LWKeyboardFocusManagerPeer, setCurrentFocusOwner, void, $Component*)},
-	{"setCurrentFocusedWindow", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $virtualMethod(LWKeyboardFocusManagerPeer, setCurrentFocusedWindow, void, $Window*)},
-	{}
-};
-
-$ClassInfo _LWKeyboardFocusManagerPeer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.lwawt.LWKeyboardFocusManagerPeer",
-	"sun.awt.KeyboardFocusManagerPeerImpl",
-	nullptr,
-	_LWKeyboardFocusManagerPeer_FieldInfo_,
-	_LWKeyboardFocusManagerPeer_MethodInfo_
-};
-
-$Object* allocate$LWKeyboardFocusManagerPeer($Class* clazz) {
-	return $of($alloc(LWKeyboardFocusManagerPeer));
-}
-
 LWKeyboardFocusManagerPeer* LWKeyboardFocusManagerPeer::inst = nullptr;
 
 LWKeyboardFocusManagerPeer* LWKeyboardFocusManagerPeer::getInstance() {
@@ -61,7 +30,7 @@ void LWKeyboardFocusManagerPeer::init$() {
 }
 
 void LWKeyboardFocusManagerPeer::setCurrentFocusedWindow($Window* win) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LWWindowPeer, from, nullptr);
 	$var($LWWindowPeer, to, nullptr);
 	$synchronized(this) {
@@ -98,7 +67,7 @@ void LWKeyboardFocusManagerPeer::setCurrentFocusOwner($Component* comp) {
 	}
 }
 
-void clinit$LWKeyboardFocusManagerPeer($Class* class$) {
+void LWKeyboardFocusManagerPeer::clinit$($Class* clazz) {
 	$assignStatic(LWKeyboardFocusManagerPeer::inst, $new(LWKeyboardFocusManagerPeer));
 }
 
@@ -106,7 +75,32 @@ LWKeyboardFocusManagerPeer::LWKeyboardFocusManagerPeer() {
 }
 
 $Class* LWKeyboardFocusManagerPeer::load$($String* name, bool initialize) {
-	$loadClass(LWKeyboardFocusManagerPeer, name, initialize, &_LWKeyboardFocusManagerPeer_ClassInfo_, clinit$LWKeyboardFocusManagerPeer, allocate$LWKeyboardFocusManagerPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst", "Lsun/lwawt/LWKeyboardFocusManagerPeer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LWKeyboardFocusManagerPeer, inst)},
+		{"focusedWindow", "Ljava/awt/Window;", nullptr, $PRIVATE, $field(LWKeyboardFocusManagerPeer, focusedWindow)},
+		{"focusOwner", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(LWKeyboardFocusManagerPeer, focusOwner)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(LWKeyboardFocusManagerPeer, init$, void)},
+		{"getCurrentFocusOwner", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(LWKeyboardFocusManagerPeer, getCurrentFocusOwner, $Component*)},
+		{"getCurrentFocusedWindow", "()Ljava/awt/Window;", nullptr, $PUBLIC, $virtualMethod(LWKeyboardFocusManagerPeer, getCurrentFocusedWindow, $Window*)},
+		{"getInstance", "()Lsun/lwawt/LWKeyboardFocusManagerPeer;", nullptr, $PUBLIC | $STATIC, $staticMethod(LWKeyboardFocusManagerPeer, getInstance, LWKeyboardFocusManagerPeer*)},
+		{"setCurrentFocusOwner", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(LWKeyboardFocusManagerPeer, setCurrentFocusOwner, void, $Component*)},
+		{"setCurrentFocusedWindow", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $virtualMethod(LWKeyboardFocusManagerPeer, setCurrentFocusedWindow, void, $Window*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.lwawt.LWKeyboardFocusManagerPeer",
+		"sun.awt.KeyboardFocusManagerPeerImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LWKeyboardFocusManagerPeer, name, initialize, &classInfo$$, LWKeyboardFocusManagerPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LWKeyboardFocusManagerPeer);
+	});
 	return class$;
 }
 

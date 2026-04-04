@@ -1,10 +1,7 @@
 #include <com/sun/tools/javac/code/TypeMetadata.h>
-
 #include <com/sun/tools/javac/code/TypeMetadata$Entry$Kind.h>
 #include <com/sun/tools/javac/code/TypeMetadata$Entry.h>
 #include <com/sun/tools/javac/util/Assert.h>
-#include <java/lang/Enum.h>
-#include <java/util/Collection.h>
 #include <java/util/EnumMap.h>
 #include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
@@ -17,11 +14,9 @@ using $TypeMetadata$Entry = ::com::sun::tools::javac::code::TypeMetadata$Entry;
 using $TypeMetadata$Entry$Kind = ::com::sun::tools::javac::code::TypeMetadata$Entry$Kind;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Collection = ::java::util::Collection;
 using $EnumMap = ::java::util::EnumMap;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
@@ -33,49 +28,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _TypeMetadata_FieldInfo_[] = {
-	{"EMPTY", "Lcom/sun/tools/javac/code/TypeMetadata;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TypeMetadata, EMPTY)},
-	{"contents", "Ljava/util/EnumMap;", "Ljava/util/EnumMap<Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;Lcom/sun/tools/javac/code/TypeMetadata$Entry;>;", $PRIVATE | $FINAL, $field(TypeMetadata, contents)},
-	{}
-};
-
-$MethodInfo _TypeMetadata_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(TypeMetadata, init$, void)},
-	{"<init>", "(Lcom/sun/tools/javac/code/TypeMetadata$Entry;)V", nullptr, $PUBLIC, $method(TypeMetadata, init$, void, $TypeMetadata$Entry*)},
-	{"<init>", "(Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, $PUBLIC, $method(TypeMetadata, init$, void, TypeMetadata*)},
-	{"add", "(Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;Lcom/sun/tools/javac/code/TypeMetadata$Entry;)V", nullptr, $PRIVATE, $method(TypeMetadata, add, void, $TypeMetadata$Entry$Kind*, $TypeMetadata$Entry*)},
-	{"combine", "(Lcom/sun/tools/javac/code/TypeMetadata$Entry;)Lcom/sun/tools/javac/code/TypeMetadata;", nullptr, $PUBLIC, $virtualMethod(TypeMetadata, combine, TypeMetadata*, $TypeMetadata$Entry*)},
-	{"combineAll", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/TypeMetadata;", nullptr, $PUBLIC, $virtualMethod(TypeMetadata, combineAll, TypeMetadata*, TypeMetadata*)},
-	{"get", "(Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;)Lcom/sun/tools/javac/code/TypeMetadata$Entry;", nullptr, $PUBLIC, $virtualMethod(TypeMetadata, get, $TypeMetadata$Entry*, $TypeMetadata$Entry$Kind*)},
-	{"without", "(Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;)Lcom/sun/tools/javac/code/TypeMetadata;", nullptr, $PUBLIC, $virtualMethod(TypeMetadata, without, TypeMetadata*, $TypeMetadata$Entry$Kind*)},
-	{}
-};
-
-$InnerClassInfo _TypeMetadata_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.TypeMetadata$Annotations", "com.sun.tools.javac.code.TypeMetadata", "Annotations", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.TypeMetadata$Entry", "com.sun.tools.javac.code.TypeMetadata", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TypeMetadata_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.TypeMetadata",
-	"java.lang.Object",
-	nullptr,
-	_TypeMetadata_FieldInfo_,
-	_TypeMetadata_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TypeMetadata_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.TypeMetadata$Annotations,com.sun.tools.javac.code.TypeMetadata$Entry,com.sun.tools.javac.code.TypeMetadata$Entry$Kind"
-};
-
-$Object* allocate$TypeMetadata($Class* clazz) {
-	return $of($alloc(TypeMetadata));
-}
-
 TypeMetadata* TypeMetadata::EMPTY = nullptr;
 
 void TypeMetadata::init$() {
@@ -86,7 +38,7 @@ void TypeMetadata::init$() {
 void TypeMetadata::init$($TypeMetadata$Entry* elem) {
 	TypeMetadata::init$();
 	$Assert::checkNonNull(elem);
-	$nc(this->contents)->put($(static_cast<$Enum*>($nc(elem)->kind())), $of(elem));
+	$nc(this->contents)->put($($nc(elem)->kind()), elem);
 }
 
 void TypeMetadata::init$(TypeMetadata* other) {
@@ -95,12 +47,12 @@ void TypeMetadata::init$(TypeMetadata* other) {
 }
 
 TypeMetadata* TypeMetadata::combine($TypeMetadata$Entry* elem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Assert::checkNonNull(elem);
 	$var(TypeMetadata, out, $new(TypeMetadata, this));
 	$TypeMetadata$Entry$Kind* key = $nc(elem)->kind();
 	if ($nc(this->contents)->containsKey(key)) {
-		out->add(key, $($nc(($cast($TypeMetadata$Entry, $($nc(this->contents)->get(key)))))->combine(elem)));
+		out->add(key, $($$sure($TypeMetadata$Entry, $nc(this->contents)->get(key))->combine(elem)));
 	} else {
 		out->add(key, elem);
 	}
@@ -108,25 +60,23 @@ TypeMetadata* TypeMetadata::combine($TypeMetadata$Entry* elem) {
 }
 
 TypeMetadata* TypeMetadata::combineAll(TypeMetadata* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Assert::checkNonNull(other);
 	$var(TypeMetadata, out, $new(TypeMetadata));
-	$var($Set, keys, $new($HashSet, $(static_cast<$Collection*>($nc(this->contents)->keySet()))));
+	$var($Set, keys, $new($HashSet, $($nc(this->contents)->keySet())));
 	keys->addAll($($nc($nc(other)->contents)->keySet()));
 	{
 		$var($Iterator, i$, keys->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$TypeMetadata$Entry$Kind* key = $cast($TypeMetadata$Entry$Kind, i$->next());
-			{
-				if ($nc(this->contents)->containsKey(key)) {
-					if ($nc($nc(other)->contents)->containsKey(key)) {
-						out->add(key, $($nc(($cast($TypeMetadata$Entry, $($nc(this->contents)->get(key)))))->combine($cast($TypeMetadata$Entry, $($nc(other->contents)->get(key))))));
-					} else {
-						out->add(key, $cast($TypeMetadata$Entry, $($nc(this->contents)->get(key))));
-					}
-				} else if ($nc($nc(other)->contents)->containsKey(key)) {
-					out->add(key, $cast($TypeMetadata$Entry, $($nc(other->contents)->get(key))));
+			if (this->contents->containsKey(key)) {
+				if (other->contents->containsKey(key)) {
+					out->add(key, $($$sure($TypeMetadata$Entry, this->contents->get(key))->combine($$cast($TypeMetadata$Entry, other->contents->get(key)))));
+				} else {
+					out->add(key, $$cast($TypeMetadata$Entry, this->contents->get(key)));
 				}
+			} else if (other->contents->containsKey(key)) {
+				out->add(key, $$cast($TypeMetadata$Entry, other->contents->get(key)));
 			}
 		}
 	}
@@ -139,7 +89,7 @@ TypeMetadata* TypeMetadata::without($TypeMetadata$Entry$Kind* kind) {
 	}
 	$var(TypeMetadata, out, $new(TypeMetadata, this));
 	$nc(out->contents)->remove(kind);
-	return $nc(out->contents)->isEmpty() ? TypeMetadata::EMPTY : out;
+	return out->contents->isEmpty() ? TypeMetadata::EMPTY : out;
 }
 
 $TypeMetadata$Entry* TypeMetadata::get($TypeMetadata$Entry$Kind* kind) {
@@ -147,10 +97,10 @@ $TypeMetadata$Entry* TypeMetadata::get($TypeMetadata$Entry$Kind* kind) {
 }
 
 void TypeMetadata::add($TypeMetadata$Entry$Kind* kind, $TypeMetadata$Entry* elem) {
-	$nc(this->contents)->put(static_cast<$Enum*>(kind), $of(elem));
+	$nc(this->contents)->put(kind, elem);
 }
 
-void clinit$TypeMetadata($Class* class$) {
+void TypeMetadata::clinit$($Class* clazz) {
 	$assignStatic(TypeMetadata::EMPTY, $new(TypeMetadata));
 }
 
@@ -158,7 +108,44 @@ TypeMetadata::TypeMetadata() {
 }
 
 $Class* TypeMetadata::load$($String* name, bool initialize) {
-	$loadClass(TypeMetadata, name, initialize, &_TypeMetadata_ClassInfo_, clinit$TypeMetadata, allocate$TypeMetadata);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY", "Lcom/sun/tools/javac/code/TypeMetadata;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TypeMetadata, EMPTY)},
+		{"contents", "Ljava/util/EnumMap;", "Ljava/util/EnumMap<Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;Lcom/sun/tools/javac/code/TypeMetadata$Entry;>;", $PRIVATE | $FINAL, $field(TypeMetadata, contents)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(TypeMetadata, init$, void)},
+		{"<init>", "(Lcom/sun/tools/javac/code/TypeMetadata$Entry;)V", nullptr, $PUBLIC, $method(TypeMetadata, init$, void, $TypeMetadata$Entry*)},
+		{"<init>", "(Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, $PUBLIC, $method(TypeMetadata, init$, void, TypeMetadata*)},
+		{"add", "(Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;Lcom/sun/tools/javac/code/TypeMetadata$Entry;)V", nullptr, $PRIVATE, $method(TypeMetadata, add, void, $TypeMetadata$Entry$Kind*, $TypeMetadata$Entry*)},
+		{"combine", "(Lcom/sun/tools/javac/code/TypeMetadata$Entry;)Lcom/sun/tools/javac/code/TypeMetadata;", nullptr, $PUBLIC, $virtualMethod(TypeMetadata, combine, TypeMetadata*, $TypeMetadata$Entry*)},
+		{"combineAll", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/TypeMetadata;", nullptr, $PUBLIC, $virtualMethod(TypeMetadata, combineAll, TypeMetadata*, TypeMetadata*)},
+		{"get", "(Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;)Lcom/sun/tools/javac/code/TypeMetadata$Entry;", nullptr, $PUBLIC, $virtualMethod(TypeMetadata, get, $TypeMetadata$Entry*, $TypeMetadata$Entry$Kind*)},
+		{"without", "(Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;)Lcom/sun/tools/javac/code/TypeMetadata;", nullptr, $PUBLIC, $virtualMethod(TypeMetadata, without, TypeMetadata*, $TypeMetadata$Entry$Kind*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.TypeMetadata$Annotations", "com.sun.tools.javac.code.TypeMetadata", "Annotations", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.TypeMetadata$Entry", "com.sun.tools.javac.code.TypeMetadata", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.TypeMetadata",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.TypeMetadata$Annotations,com.sun.tools.javac.code.TypeMetadata$Entry,com.sun.tools.javac.code.TypeMetadata$Entry$Kind"
+	};
+	$loadClass(TypeMetadata, name, initialize, &classInfo$$, TypeMetadata::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeMetadata);
+	});
 	return class$;
 }
 

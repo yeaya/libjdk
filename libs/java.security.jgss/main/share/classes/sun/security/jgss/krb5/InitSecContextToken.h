@@ -42,6 +42,7 @@ class InitSecContextToken : public ::sun::security::jgss::krb5::InitialToken {
 	$class(InitSecContextToken, 0, ::sun::security::jgss::krb5::InitialToken)
 public:
 	InitSecContextToken();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::jgss::krb5::Krb5Context* context, ::sun::security::krb5::Credentials* tgt, ::sun::security::krb5::Credentials* serviceTicket);
 	void init$(::sun::security::jgss::krb5::Krb5Context* context, ::sun::security::jgss::krb5::Krb5AcceptCredential* cred, ::java::io::InputStream* is);
 	virtual $bytes* encode() override;

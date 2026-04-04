@@ -1,5 +1,4 @@
 #include <sun/security/jgss/krb5/CipherHelper$WrapTokenInputStream.h>
-
 #include <java/io/InputStream.h>
 #include <java/lang/Math.h>
 #include <sun/security/jgss/krb5/CipherHelper.h>
@@ -17,51 +16,6 @@ namespace sun {
 	namespace security {
 		namespace jgss {
 			namespace krb5 {
-
-$FieldInfo _CipherHelper$WrapTokenInputStream_FieldInfo_[] = {
-	{"this$0", "Lsun/security/jgss/krb5/CipherHelper;", nullptr, $FINAL | $SYNTHETIC, $field(CipherHelper$WrapTokenInputStream, this$0)},
-	{"is", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(CipherHelper$WrapTokenInputStream, is)},
-	{"length", "I", nullptr, $PRIVATE, $field(CipherHelper$WrapTokenInputStream, length)},
-	{"remaining", "I", nullptr, $PRIVATE, $field(CipherHelper$WrapTokenInputStream, remaining)},
-	{"temp", "I", nullptr, $PRIVATE, $field(CipherHelper$WrapTokenInputStream, temp)},
-	{}
-};
-
-$MethodInfo _CipherHelper$WrapTokenInputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/krb5/CipherHelper;Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $method(CipherHelper$WrapTokenInputStream, init$, void, $CipherHelper*, $InputStream*, int32_t)},
-	{"available", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(CipherHelper$WrapTokenInputStream, available, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(CipherHelper$WrapTokenInputStream, close, void), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(CipherHelper$WrapTokenInputStream, read, int32_t), "java.io.IOException"},
-	{"read", "([B)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(CipherHelper$WrapTokenInputStream, read, int32_t, $bytes*), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(CipherHelper$WrapTokenInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC | $FINAL, $virtualMethod(CipherHelper$WrapTokenInputStream, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _CipherHelper$WrapTokenInputStream_InnerClassesInfo_[] = {
-	{"sun.security.jgss.krb5.CipherHelper$WrapTokenInputStream", "sun.security.jgss.krb5.CipherHelper", "WrapTokenInputStream", 0},
-	{}
-};
-
-$ClassInfo _CipherHelper$WrapTokenInputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.jgss.krb5.CipherHelper$WrapTokenInputStream",
-	"java.io.InputStream",
-	nullptr,
-	_CipherHelper$WrapTokenInputStream_FieldInfo_,
-	_CipherHelper$WrapTokenInputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CipherHelper$WrapTokenInputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.jgss.krb5.CipherHelper"
-};
-
-$Object* allocate$CipherHelper$WrapTokenInputStream($Class* clazz) {
-	return $of($alloc(CipherHelper$WrapTokenInputStream));
-}
 
 void CipherHelper$WrapTokenInputStream::init$($CipherHelper* this$0, $InputStream* is, int32_t length) {
 	$set(this, this$0, this$0);
@@ -132,7 +86,46 @@ CipherHelper$WrapTokenInputStream::CipherHelper$WrapTokenInputStream() {
 }
 
 $Class* CipherHelper$WrapTokenInputStream::load$($String* name, bool initialize) {
-	$loadClass(CipherHelper$WrapTokenInputStream, name, initialize, &_CipherHelper$WrapTokenInputStream_ClassInfo_, allocate$CipherHelper$WrapTokenInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/security/jgss/krb5/CipherHelper;", nullptr, $FINAL | $SYNTHETIC, $field(CipherHelper$WrapTokenInputStream, this$0)},
+		{"is", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(CipherHelper$WrapTokenInputStream, is)},
+		{"length", "I", nullptr, $PRIVATE, $field(CipherHelper$WrapTokenInputStream, length)},
+		{"remaining", "I", nullptr, $PRIVATE, $field(CipherHelper$WrapTokenInputStream, remaining)},
+		{"temp", "I", nullptr, $PRIVATE, $field(CipherHelper$WrapTokenInputStream, temp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/jgss/krb5/CipherHelper;Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $method(CipherHelper$WrapTokenInputStream, init$, void, $CipherHelper*, $InputStream*, int32_t)},
+		{"available", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(CipherHelper$WrapTokenInputStream, available, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(CipherHelper$WrapTokenInputStream, close, void), "java.io.IOException"},
+		{"read", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(CipherHelper$WrapTokenInputStream, read, int32_t), "java.io.IOException"},
+		{"read", "([B)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(CipherHelper$WrapTokenInputStream, read, int32_t, $bytes*), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(CipherHelper$WrapTokenInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC | $FINAL, $virtualMethod(CipherHelper$WrapTokenInputStream, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jgss.krb5.CipherHelper$WrapTokenInputStream", "sun.security.jgss.krb5.CipherHelper", "WrapTokenInputStream", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.jgss.krb5.CipherHelper$WrapTokenInputStream",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.jgss.krb5.CipherHelper"
+	};
+	$loadClass(CipherHelper$WrapTokenInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CipherHelper$WrapTokenInputStream);
+	});
 	return class$;
 }
 

@@ -73,6 +73,7 @@ class DurationDV : public ::com::sun::org::apache::xerces::internal::impl::dv::x
 	$class(DurationDV, 0, ::com::sun::org::apache::xerces::internal::impl::dv::xs::AbstractDateTimeDV)
 public:
 	DurationDV();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::com::sun::org::apache::xerces::internal::impl::dv::xs::AbstractDateTimeDV$DateTimeData* addDuration(::com::sun::org::apache::xerces::internal::impl::dv::xs::AbstractDateTimeDV$DateTimeData* date, ::com::sun::org::apache::xerces::internal::impl::dv::xs::AbstractDateTimeDV$DateTimeData* addto, ::com::sun::org::apache::xerces::internal::impl::dv::xs::AbstractDateTimeDV$DateTimeData* duration);
 	virtual int16_t compareDates(::com::sun::org::apache::xerces::internal::impl::dv::xs::AbstractDateTimeDV$DateTimeData* date1, ::com::sun::org::apache::xerces::internal::impl::dv::xs::AbstractDateTimeDV$DateTimeData* date2, bool strict) override;

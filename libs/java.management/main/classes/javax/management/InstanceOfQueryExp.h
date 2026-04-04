@@ -30,7 +30,7 @@ public:
 	virtual ::javax::management::StringValueExp* getClassNameValue();
 	virtual void setMBeanServer(::javax::management::MBeanServer* s) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xF0FC58E41492EA31;
+	static const int64_t serialVersionUID = (int64_t)0xf0fc58e41492ea31;
 	::javax::management::StringValueExp* classNameValue = nullptr;
 };
 

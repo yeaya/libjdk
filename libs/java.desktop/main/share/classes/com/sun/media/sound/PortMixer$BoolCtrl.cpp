@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/PortMixer$BoolCtrl.h>
-
 #include <com/sun/media/sound/PortMixer$BoolCtrl$BCT.h>
 #include <com/sun/media/sound/PortMixer.h>
 #include <javax/sound/sampled/BooleanControl$Type.h>
@@ -21,47 +20,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _PortMixer$BoolCtrl_FieldInfo_[] = {
-	{"controlID", "J", nullptr, $PRIVATE | $FINAL, $field(PortMixer$BoolCtrl, controlID)},
-	{"closed", "Z", nullptr, $PRIVATE, $field(PortMixer$BoolCtrl, closed)},
-	{}
-};
-
-$MethodInfo _PortMixer$BoolCtrl_MethodInfo_[] = {
-	{"<init>", "(JLjava/lang/String;)V", nullptr, $PRIVATE, $method(PortMixer$BoolCtrl, init$, void, int64_t, $String*)},
-	{"<init>", "(JLjavax/sound/sampled/BooleanControl$Type;)V", nullptr, $PRIVATE, $method(PortMixer$BoolCtrl, init$, void, int64_t, $BooleanControl$Type*)},
-	{"createType", "(Ljava/lang/String;)Ljavax/sound/sampled/BooleanControl$Type;", nullptr, $PRIVATE | $STATIC, $staticMethod(PortMixer$BoolCtrl, createType, $BooleanControl$Type*, $String*)},
-	{"getValue", "()Z", nullptr, $PUBLIC, $virtualMethod(PortMixer$BoolCtrl, getValue, bool)},
-	{"setValue", "(Z)V", nullptr, $PUBLIC, $virtualMethod(PortMixer$BoolCtrl, setValue, void, bool)},
-	{}
-};
-
-$InnerClassInfo _PortMixer$BoolCtrl_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.PortMixer$BoolCtrl", "com.sun.media.sound.PortMixer", "BoolCtrl", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.media.sound.PortMixer$BoolCtrl$BCT", "com.sun.media.sound.PortMixer$BoolCtrl", "BCT", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PortMixer$BoolCtrl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.PortMixer$BoolCtrl",
-	"javax.sound.sampled.BooleanControl",
-	nullptr,
-	_PortMixer$BoolCtrl_FieldInfo_,
-	_PortMixer$BoolCtrl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PortMixer$BoolCtrl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.PortMixer"
-};
-
-$Object* allocate$PortMixer$BoolCtrl($Class* clazz) {
-	return $of($alloc(PortMixer$BoolCtrl));
-}
 
 $BooleanControl$Type* PortMixer$BoolCtrl::createType($String* name) {
 	$init(PortMixer$BoolCtrl);
@@ -100,7 +58,42 @@ PortMixer$BoolCtrl::PortMixer$BoolCtrl() {
 }
 
 $Class* PortMixer$BoolCtrl::load$($String* name, bool initialize) {
-	$loadClass(PortMixer$BoolCtrl, name, initialize, &_PortMixer$BoolCtrl_ClassInfo_, allocate$PortMixer$BoolCtrl);
+	$FieldInfo fieldInfos$$[] = {
+		{"controlID", "J", nullptr, $PRIVATE | $FINAL, $field(PortMixer$BoolCtrl, controlID)},
+		{"closed", "Z", nullptr, $PRIVATE, $field(PortMixer$BoolCtrl, closed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JLjava/lang/String;)V", nullptr, $PRIVATE, $method(PortMixer$BoolCtrl, init$, void, int64_t, $String*)},
+		{"<init>", "(JLjavax/sound/sampled/BooleanControl$Type;)V", nullptr, $PRIVATE, $method(PortMixer$BoolCtrl, init$, void, int64_t, $BooleanControl$Type*)},
+		{"createType", "(Ljava/lang/String;)Ljavax/sound/sampled/BooleanControl$Type;", nullptr, $PRIVATE | $STATIC, $staticMethod(PortMixer$BoolCtrl, createType, $BooleanControl$Type*, $String*)},
+		{"getValue", "()Z", nullptr, $PUBLIC, $virtualMethod(PortMixer$BoolCtrl, getValue, bool)},
+		{"setValue", "(Z)V", nullptr, $PUBLIC, $virtualMethod(PortMixer$BoolCtrl, setValue, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.PortMixer$BoolCtrl", "com.sun.media.sound.PortMixer", "BoolCtrl", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.media.sound.PortMixer$BoolCtrl$BCT", "com.sun.media.sound.PortMixer$BoolCtrl", "BCT", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.PortMixer$BoolCtrl",
+		"javax.sound.sampled.BooleanControl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.PortMixer"
+	};
+	$loadClass(PortMixer$BoolCtrl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PortMixer$BoolCtrl);
+	});
 	return class$;
 }
 

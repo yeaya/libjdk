@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/TreeHasher.h>
-
 #include <com/sun/tools/javac/code/Symbol$VarSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -27,13 +26,11 @@
 #include <jcpp.h>
 
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Type = ::com::sun::tools::javac::code::Type;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAccess;
 using $JCTree$JCIdent = ::com::sun::tools::javac::tree::JCTree$JCIdent;
 using $JCTree$JCLiteral = ::com::sun::tools::javac::tree::JCTree$JCLiteral;
 using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
-using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
 using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
 using $Serializable = ::java::io::Serializable;
@@ -64,33 +61,29 @@ public:
 	virtual void accept(Object$* s) override {
 		TreeHasher::lambda$hash$0(symbolHashes, $cast($Symbol, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TreeHasher$$Lambda$lambda$hash$0>());
-	}
 	$Map* symbolHashes = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TreeHasher$$Lambda$lambda$hash$0::fieldInfos[2] = {
-	{"symbolHashes", "Ljava/util/Map;", nullptr, $PUBLIC, $field(TreeHasher$$Lambda$lambda$hash$0, symbolHashes)},
-	{}
-};
-$MethodInfo TreeHasher$$Lambda$lambda$hash$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(TreeHasher$$Lambda$lambda$hash$0, init$, void, $Map*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(TreeHasher$$Lambda$lambda$hash$0, accept, void, Object$*)},
-	{}
-};
-$ClassInfo TreeHasher$$Lambda$lambda$hash$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.TreeHasher$$Lambda$lambda$hash$0",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* TreeHasher$$Lambda$lambda$hash$0::load$($String* name, bool initialize) {
-	$loadClass(TreeHasher$$Lambda$lambda$hash$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"symbolHashes", "Ljava/util/Map;", nullptr, $PUBLIC, $field(TreeHasher$$Lambda$lambda$hash$0, symbolHashes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(TreeHasher$$Lambda$lambda$hash$0, init$, void, $Map*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(TreeHasher$$Lambda$lambda$hash$0, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.TreeHasher$$Lambda$lambda$hash$0",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TreeHasher$$Lambda$lambda$hash$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeHasher$$Lambda$lambda$hash$0);
+	});
 	return class$;
 }
 $Class* TreeHasher$$Lambda$lambda$hash$0::class$ = nullptr;
@@ -104,69 +97,32 @@ public:
 	virtual $Object* apply(Object$* k) override {
 		 return $of($nc(inst$)->lambda$visitVarDef$1($cast($Symbol, k)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TreeHasher$$Lambda$lambda$visitVarDef$1$1>());
-	}
 	TreeHasher* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TreeHasher$$Lambda$lambda$visitVarDef$1$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TreeHasher$$Lambda$lambda$visitVarDef$1$1, inst$)},
-	{}
-};
-$MethodInfo TreeHasher$$Lambda$lambda$visitVarDef$1$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/TreeHasher;)V", nullptr, $PUBLIC, $method(TreeHasher$$Lambda$lambda$visitVarDef$1$1, init$, void, TreeHasher*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TreeHasher$$Lambda$lambda$visitVarDef$1$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo TreeHasher$$Lambda$lambda$visitVarDef$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.TreeHasher$$Lambda$lambda$visitVarDef$1$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* TreeHasher$$Lambda$lambda$visitVarDef$1$1::load$($String* name, bool initialize) {
-	$loadClass(TreeHasher$$Lambda$lambda$visitVarDef$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TreeHasher$$Lambda$lambda$visitVarDef$1$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/TreeHasher;)V", nullptr, $PUBLIC, $method(TreeHasher$$Lambda$lambda$visitVarDef$1$1, init$, void, TreeHasher*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TreeHasher$$Lambda$lambda$visitVarDef$1$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.TreeHasher$$Lambda$lambda$visitVarDef$1$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TreeHasher$$Lambda$lambda$visitVarDef$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeHasher$$Lambda$lambda$visitVarDef$1$1);
+	});
 	return class$;
 }
 $Class* TreeHasher$$Lambda$lambda$visitVarDef$1$1::class$ = nullptr;
-
-$FieldInfo _TreeHasher_FieldInfo_[] = {
-	{"symbolHashes", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol;Ljava/lang/Integer;>;", $PRIVATE | $FINAL, $field(TreeHasher, symbolHashes)},
-	{"result", "I", nullptr, $PRIVATE, $field(TreeHasher, result)},
-	{}
-};
-
-$MethodInfo _TreeHasher_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol;Ljava/lang/Integer;>;)V", $PUBLIC, $method(TreeHasher, init$, void, $Map*)},
-	{"hash", "(Lcom/sun/tools/javac/tree/JCTree;Ljava/util/Collection;)I", "(Lcom/sun/tools/javac/tree/JCTree;Ljava/util/Collection<+Lcom/sun/tools/javac/code/Symbol;>;)I", $PUBLIC | $STATIC, $staticMethod(TreeHasher, hash, int32_t, $JCTree*, $Collection*)},
-	{"hash", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(TreeHasher, hash, void, Object$*)},
-	{"lambda$hash$0", "(Ljava/util/Map;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeHasher, lambda$hash$0, void, $Map*, $Symbol*)},
-	{"lambda$visitVarDef$1", "(Lcom/sun/tools/javac/code/Symbol;)Ljava/lang/Integer;", nullptr, $PRIVATE | $SYNTHETIC, $method(TreeHasher, lambda$visitVarDef$1, $Integer*, $Symbol*)},
-	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(TreeHasher, scan, void, $JCTree*)},
-	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(TreeHasher, visitIdent, void, $JCTree$JCIdent*)},
-	{"visitLiteral", "(Lcom/sun/tools/javac/tree/JCTree$JCLiteral;)V", nullptr, $PUBLIC, $virtualMethod(TreeHasher, visitLiteral, void, $JCTree$JCLiteral*)},
-	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(TreeHasher, visitSelect, void, $JCTree$JCFieldAccess*)},
-	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(TreeHasher, visitVarDef, void, $JCTree$JCVariableDecl*)},
-	{}
-};
-
-$ClassInfo _TreeHasher_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.comp.TreeHasher",
-	"com.sun.tools.javac.tree.TreeScanner",
-	nullptr,
-	_TreeHasher_FieldInfo_,
-	_TreeHasher_MethodInfo_
-};
-
-$Object* allocate$TreeHasher($Class* clazz) {
-	return $of($alloc(TreeHasher));
-}
 
 void TreeHasher::init$($Map* symbolHashes) {
 	$TreeScanner::init$();
@@ -176,12 +132,12 @@ void TreeHasher::init$($Map* symbolHashes) {
 
 int32_t TreeHasher::hash($JCTree* tree, $Collection* symbols) {
 	$init(TreeHasher);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (tree == nullptr) {
 		return 0;
 	}
 	$var($Map, symbolHashes, $new($HashMap));
-	$nc(symbols)->forEach(static_cast<$Consumer*>($$new(TreeHasher$$Lambda$lambda$hash$0, symbolHashes)));
+	$nc(symbols)->forEach($$new(TreeHasher$$Lambda$lambda$hash$0, symbolHashes));
 	$var(TreeHasher, hasher, $new(TreeHasher, symbolHashes));
 	$nc(tree)->accept(hasher);
 	return hasher->result;
@@ -192,21 +148,21 @@ void TreeHasher::hash(Object$* object) {
 }
 
 void TreeHasher::scan($JCTree* tree$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree, tree, tree$renamed);
 	if (tree == nullptr) {
 		return;
 	}
 	$assign(tree, $TreeInfo::skipParens(tree));
 	if ($nc(tree)->type != nullptr) {
-		$var($Object, value, $nc(tree->type)->constValue());
+		$var($Object, value, tree->type->constValue());
 		if (value != nullptr) {
 			hash(value);
 			return;
 		}
 	}
-	hash($($nc(tree)->getTag()));
-	$nc(tree)->accept(this);
+	hash($(tree->getTag()));
+	tree->accept(this);
 }
 
 void TreeHasher::visitLiteral($JCTree$JCLiteral* tree) {
@@ -215,7 +171,7 @@ void TreeHasher::visitLiteral($JCTree$JCLiteral* tree) {
 }
 
 void TreeHasher::visitIdent($JCTree$JCIdent* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol, sym, $nc(tree)->sym);
 	if (sym != nullptr) {
 		$var($Integer, hash, $cast($Integer, $nc(this->symbolHashes)->get(sym)));
@@ -233,7 +189,7 @@ void TreeHasher::visitSelect($JCTree$JCFieldAccess* tree) {
 }
 
 void TreeHasher::visitVarDef($JCTree$JCVariableDecl* tree) {
-	$nc(this->symbolHashes)->computeIfAbsent($nc(tree)->sym, static_cast<$Function*>($$new(TreeHasher$$Lambda$lambda$visitVarDef$1$1, this)));
+	$nc(this->symbolHashes)->computeIfAbsent($nc(tree)->sym, $$new(TreeHasher$$Lambda$lambda$visitVarDef$1$1, this));
 	$TreeScanner::visitVarDef(tree);
 }
 
@@ -243,7 +199,7 @@ $Integer* TreeHasher::lambda$visitVarDef$1($Symbol* k) {
 
 void TreeHasher::lambda$hash$0($Map* symbolHashes, $Symbol* s) {
 	$init(TreeHasher);
-	$nc(symbolHashes)->put(s, $($Integer::valueOf(symbolHashes->size())));
+	$nc(symbolHashes)->put(s, $($Integer::valueOf($nc(symbolHashes)->size())));
 }
 
 TreeHasher::TreeHasher() {
@@ -251,14 +207,42 @@ TreeHasher::TreeHasher() {
 
 $Class* TreeHasher::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TreeHasher$$Lambda$lambda$hash$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.TreeHasher$$Lambda$lambda$hash$0")) {
 			return TreeHasher$$Lambda$lambda$hash$0::load$(name, initialize);
 		}
-		if (name->equals(TreeHasher$$Lambda$lambda$visitVarDef$1$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.TreeHasher$$Lambda$lambda$visitVarDef$1$1")) {
 			return TreeHasher$$Lambda$lambda$visitVarDef$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(TreeHasher, name, initialize, &_TreeHasher_ClassInfo_, allocate$TreeHasher);
+	$FieldInfo fieldInfos$$[] = {
+		{"symbolHashes", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol;Ljava/lang/Integer;>;", $PRIVATE | $FINAL, $field(TreeHasher, symbolHashes)},
+		{"result", "I", nullptr, $PRIVATE, $field(TreeHasher, result)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol;Ljava/lang/Integer;>;)V", $PUBLIC, $method(TreeHasher, init$, void, $Map*)},
+		{"hash", "(Lcom/sun/tools/javac/tree/JCTree;Ljava/util/Collection;)I", "(Lcom/sun/tools/javac/tree/JCTree;Ljava/util/Collection<+Lcom/sun/tools/javac/code/Symbol;>;)I", $PUBLIC | $STATIC, $staticMethod(TreeHasher, hash, int32_t, $JCTree*, $Collection*)},
+		{"hash", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(TreeHasher, hash, void, Object$*)},
+		{"lambda$hash$0", "(Ljava/util/Map;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeHasher, lambda$hash$0, void, $Map*, $Symbol*)},
+		{"lambda$visitVarDef$1", "(Lcom/sun/tools/javac/code/Symbol;)Ljava/lang/Integer;", nullptr, $PRIVATE | $SYNTHETIC, $method(TreeHasher, lambda$visitVarDef$1, $Integer*, $Symbol*)},
+		{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(TreeHasher, scan, void, $JCTree*)},
+		{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(TreeHasher, visitIdent, void, $JCTree$JCIdent*)},
+		{"visitLiteral", "(Lcom/sun/tools/javac/tree/JCTree$JCLiteral;)V", nullptr, $PUBLIC, $virtualMethod(TreeHasher, visitLiteral, void, $JCTree$JCLiteral*)},
+		{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(TreeHasher, visitSelect, void, $JCTree$JCFieldAccess*)},
+		{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(TreeHasher, visitVarDef, void, $JCTree$JCVariableDecl*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.comp.TreeHasher",
+		"com.sun.tools.javac.tree.TreeScanner",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TreeHasher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeHasher);
+	});
 	return class$;
 }
 

@@ -95,6 +95,7 @@ class $export DocTree$Kind : public ::java::lang::Enum {
 public:
 	DocTree$Kind();
 	static $Array<::com::sun::source::doctree::DocTree$Kind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* tagName);
 	static ::com::sun::source::doctree::DocTree$Kind* valueOf($String* name);

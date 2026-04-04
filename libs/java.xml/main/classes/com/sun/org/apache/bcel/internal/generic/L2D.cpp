@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/L2D.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConversionInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackConsumer.h>
@@ -12,9 +11,6 @@
 
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
 using $ConversionInstruction = ::com::sun::org::apache::bcel::internal::generic::ConversionInstruction;
-using $StackConsumer = ::com::sun::org::apache::bcel::internal::generic::StackConsumer;
-using $StackProducer = ::com::sun::org::apache::bcel::internal::generic::StackProducer;
-using $TypedInstruction = ::com::sun::org::apache::bcel::internal::generic::TypedInstruction;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -26,25 +22,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$MethodInfo _L2D_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(L2D, init$, void)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(L2D, accept, void, $Visitor*)},
-	{}
-};
-
-$ClassInfo _L2D_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.L2D",
-	"com.sun.org.apache.bcel.internal.generic.ConversionInstruction",
-	nullptr,
-	nullptr,
-	_L2D_MethodInfo_
-};
-
-$Object* allocate$L2D($Class* clazz) {
-	return $of($alloc(L2D));
-}
 
 void L2D::init$() {
 	$ConversionInstruction::init$($Const::L2D);
@@ -62,7 +39,22 @@ L2D::L2D() {
 }
 
 $Class* L2D::load$($String* name, bool initialize) {
-	$loadClass(L2D, name, initialize, &_L2D_ClassInfo_, allocate$L2D);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(L2D, init$, void)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(L2D, accept, void, $Visitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.L2D",
+		"com.sun.org.apache.bcel.internal.generic.ConversionInstruction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(L2D, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(L2D));
+	});
 	return class$;
 }
 

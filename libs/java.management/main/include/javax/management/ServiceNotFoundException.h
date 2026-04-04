@@ -14,10 +14,13 @@ public:
 	ServiceNotFoundException();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0xC89E45A10346F855;
+	static const int64_t serialVersionUID = (int64_t)0xc89e45a10346f855;
 	ServiceNotFoundException(const ServiceNotFoundException& e);
 	virtual void throw$() override;
-	inline ServiceNotFoundException* operator ->() {
+	inline ServiceNotFoundException* operator ->() const {
+		return (ServiceNotFoundException*)throwing$;
+	}
+	inline operator ServiceNotFoundException*() const {
 		return (ServiceNotFoundException*)throwing$;
 	}
 };
